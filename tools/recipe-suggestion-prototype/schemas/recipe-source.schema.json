@@ -6,6 +6,10 @@
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "source", "title", "ingredient_names"],
+  "dependentRequired": {
+    "servings": ["ingredients"],
+    "ingredients": ["servings"]
+  },
   "properties": {
     "id": {
       "type": "string",
@@ -29,6 +33,25 @@
       "items": {
         "type": "string",
         "minLength": 1
+      }
+    },
+    "servings": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Base portions for the ingredient quantities, used only by deterministic selection."
+    },
+    "ingredients": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "quantity", "unit"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "quantity": { "type": "number", "exclusiveMinimum": 0 },
+          "unit": { "enum": ["g", "kg", "ml", "l", "pcs", "piece", "pack", "package", "dose", "portion"] }
+        }
       }
     },
     "steps": {

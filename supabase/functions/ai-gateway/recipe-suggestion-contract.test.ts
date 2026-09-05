@@ -147,6 +147,42 @@ Deno.test('rejects invented recipe and inventory references', () => {
   expectIssue(inventoryResult, 'invalid_reference', '$.meals[0].used_items[0].inventory_item_id');
 });
 
+Deno.test('rejects an inventory item that is not an ingredient of the selected recipe', () => {
+  const context = createContext({
+    priority_foods: [
+      ...createContext().priority_foods,
+      {
+        inventory_item_id: 'inventory-rice',
+        name: 'Reis',
+        available_quantity: 500,
+        unit: 'g',
+        priority_score: 1,
+      },
+    ],
+  });
+  const result = validateRecipeSuggestionContract(
+    context,
+    createResponse(
+      createCatalogMeal({
+        used_items: [{ inventory_item_id: 'inventory-rice', quantity: 100, unit: 'g' }],
+      }),
+    ),
+  );
+
+  expectIssue(result, 'invalid_reference', '$.meals[0].used_items[0].inventory_item_id');
+});
+
+Deno.test('rejects more than two additional ingredients', () => {
+  const result = validateRecipeSuggestionContract(
+    createContext(),
+    createResponse(
+      createCatalogMeal({ additional_ingredients: ['Öl', 'Salz', 'Pfeffer'] }),
+    ),
+  );
+
+  expectIssue(result, 'invalid_shape', '$.meals[0].additional_ingredients');
+});
+
 Deno.test('rejects quantities that exceed availability across all meals', () => {
   const result = validateRecipeSuggestionContract(
     createContext(),
@@ -160,6 +196,40 @@ Deno.test('rejects quantities that exceed availability across all meals', () => 
     ),
   );
   expectIssue(result, 'invalid_quantity', '$.meals[1].used_items[0].quantity');
+});
+
+Deno.test('accepts compatible mass units without mutating the context', () => {
+  const context = createContext({
+    priority_foods: [
+      {
+        inventory_item_id: 'inventory-tomatoes',
+        name: 'Tomaten',
+        available_quantity: 1,
+        unit: 'kg',
+        priority_score: 1,
+      },
+    ],
+  });
+  const response = createResponse(
+    createCatalogMeal({
+      used_items: [{ inventory_item_id: 'inventory-tomatoes', quantity: 1_000, unit: 'g' }],
+    }),
+  );
+
+  const accepted = validateRecipeSuggestionContract(context, response);
+  assert(accepted.ok, `compatible mass units should pass: ${JSON.stringify(accepted)}`);
+  assert(context.priority_foods[0]?.available_quantity === 1, 'context quantity changed');
+  assert(context.priority_foods[0]?.unit === 'kg', 'context unit changed');
+
+  const rejected = validateRecipeSuggestionContract(
+    context,
+    createResponse(
+      createCatalogMeal({
+        used_items: [{ inventory_item_id: 'inventory-tomatoes', quantity: 1_001, unit: 'g' }],
+      }),
+    ),
+  );
+  expectIssue(rejected, 'invalid_quantity', '$.meals[0].used_items[0].quantity');
 });
 
 Deno.test('rejects source mismatches and disallowed fallback responses', () => {

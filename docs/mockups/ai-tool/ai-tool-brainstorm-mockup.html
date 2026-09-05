@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>fam AI – Konzept-Mockups</title>
+  <style>
+    :root {
+      --text: #2D2830;
+      --bg: #F8F4EF;
+      --surface: #FBF7F2;
+      --selected: #E9E1E7;
+      --secondary: #786F79;
+      --border: #E4DDE3;
+      --accent: #705773;
+      --on-accent: #FFFFFF;
+      --success: #78906F;
+      --warning: #C69059;
+      --danger: #C65F50;
+      --page-bg: #EFE9E2;
+      --page-surface: #FFFFFF;
+      --page-border: #DED5CB;
+      --shadow: rgba(45, 40, 48, .14);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text: #F2ECE7;
+        --bg: #211D23;
+        --surface: #2B262E;
+        --selected: #382F3B;
+        --secondary: #B7ADB3;
+        --border: #3E3640;
+        --accent: #B79CBA;
+        --on-accent: #211D23;
+        --success: #8FAE86;
+        --warning: #D9A86C;
+        --danger: #D9776A;
+        --page-bg: #17141A;
+        --page-surface: #1E1A20;
+        --page-border: #332C36;
+        --shadow: rgba(0, 0, 0, .28);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 40px 20px 72px;
+      background: var(--page-bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; }
+    .eyebrow {
+      color: var(--secondary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 8px 0 8px; font-size: 28px; line-height: 1.15; letter-spacing: -.025em; }
+    .lede { max-width: 680px; margin: 0; color: var(--secondary); font-size: 15px; line-height: 1.55; }
+    .thesis {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 26px 0 22px;
+    }
+    .thesis div { border-top: 1px solid var(--page-border); padding-top: 11px; }
+    .thesis strong { display: block; font-size: 13px; margin-bottom: 3px; }
+    .thesis span { color: var(--secondary); font-size: 13px; line-height: 1.4; }
+    .tabs { display: flex; gap: 22px; border-bottom: 1px solid var(--page-border); margin-bottom: 28px; }
+    .tab {
+      appearance: none;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      color: var(--secondary);
+      cursor: pointer;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 650;
+      padding: 10px 0 12px;
+    }
+    .tab:hover, .tab[aria-selected="true"] { color: var(--text); }
+    .tab[aria-selected="true"] { border-bottom-color: var(--accent); }
+    .tab:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .panel { display: none; grid-template-columns: minmax(0, 1fr) 330px; gap: 48px; align-items: start; }
+    .panel.active { display: grid; }
+    .flow-panel.active { grid-template-columns: minmax(0, 1fr) 330px; }
+    .flow-stage { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .flow-steps { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; max-width: 540px; }
+    .flow-step {
+      appearance: none;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: transparent;
+      color: var(--secondary);
+      cursor: pointer;
+      font: inherit;
+      font-size: 11px;
+      font-weight: 650;
+      padding: 7px 9px;
+    }
+    .flow-step[aria-current="step"] { border-color: var(--accent); background: var(--selected); color: var(--accent); }
+    .flow-step:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .flow-screen { height: 100%; padding: 0 20px 25px; }
+    .flow-screen[hidden] { display: none; }
+    .flow-kicker { color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+    .flow-heading { margin: 8px 0 5px; font-size: 25px; line-height: 1.1; letter-spacing: -.03em; }
+    .flow-copy { margin: 0 0 17px; color: var(--secondary); font-size: 13px; line-height: 1.45; }
+    .flow-block { margin: 15px 0; }
+    .flow-block-title { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 7px; font-size: 13px; font-weight: 700; }
+    .flow-block-title small { color: var(--secondary); font-size: 11px; font-weight: 500; }
+    .flow-action { margin-top: 18px; }
+    .flow-action .secondary { margin-top: 10px; }
+    .dashboard-greeting { margin: 2px 0 17px; }
+    .dashboard-greeting .flow-heading { margin-top: 4px; }
+    .dashboard-metric { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); padding: 10px 0; }
+    .dashboard-metric strong { font-size: 14px; }
+    .dashboard-metric span { color: var(--secondary); font-size: 12px; }
+    .ai-entry { margin-top: 17px; padding: 15px; border-radius: 16px; background: var(--accent); color: var(--on-accent); }
+    .ai-entry .flow-kicker { color: var(--on-accent); opacity: .76; }
+    .ai-entry h2 { margin: 7px 0 5px; font-size: 19px; letter-spacing: -.02em; }
+    .ai-entry p { margin: 0 0 13px; font-size: 12px; line-height: 1.45; opacity: .86; }
+    .ai-entry .primary { background: var(--on-accent); color: var(--accent); }
+    .recipe-hero { padding: 17px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); }
+    .recipe-hero h2 { margin: 5px 0 5px; font-size: 22px; letter-spacing: -.03em; }
+    .recipe-hero p { color: var(--secondary); font-size: 12px; line-height: 1.45; margin: 0; }
+    .ingredient-line { display: flex; gap: 8px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+    .ingredient-line:last-child { border-bottom: 0; }
+    .ingredient-line b { width: 18px; color: var(--success); }
+    .ingredient-line.missing b { color: var(--warning); }
+    .ingredient-line span { flex: 1; }
+    .ingredient-line small { color: var(--secondary); font-size: 11px; }
+    .confirm { padding: 14px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .confirm strong { display: block; font-size: 15px; margin-bottom: 4px; }
+    .confirm span { color: var(--secondary); font-size: 12px; line-height: 1.4; }
+    .flow-note { display: flex; gap: 8px; align-items: start; color: var(--secondary); font-size: 11px; line-height: 1.4; }
+    .flow-note b { color: var(--success); font-size: 14px; }
+    .flow-controls { display: flex; align-items: center; gap: 13px; }
+    .flow-controls button { appearance: none; border: 0; background: transparent; color: var(--accent); cursor: pointer; font: inherit; font-size: 12px; font-weight: 700; padding: 8px 3px; }
+    .flow-controls button:disabled { color: var(--secondary); cursor: default; opacity: .45; }
+    .flow-position { min-width: 74px; color: var(--secondary); font-size: 11px; text-align: center; }
+    .phone-stage { display: flex; justify-content: center; }
+    .phone {
+      width: 375px;
+      height: 780px;
+      border: 10px solid #0D0B0E;
+      border-radius: 46px;
+      background: var(--bg);
+      box-shadow: 0 24px 60px -18px var(--shadow);
+      color: var(--text);
+      overflow: hidden;
+      position: relative;
+    }
+    .notch { position: absolute; top: 0; left: 50%; width: 120px; height: 26px; transform: translateX(-50%); background: #0D0B0E; border-radius: 0 0 16px 16px; z-index: 3; }
+    .status { height: 47px; flex: none; }
+    .screen { height: calc(100% - 47px); overflow: hidden; position: relative; }
+    .phone-top { display: flex; align-items: center; justify-content: space-between; padding: 4px 20px 14px; }
+    .phone-title { font-size: 23px; font-weight: 700; letter-spacing: -.03em; }
+    .phone-sub { color: var(--secondary); font-size: 12px; margin-top: 2px; }
+    .avatar { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--selected); color: var(--accent); font-size: 12px; font-weight: 700; }
+    .scroll { padding: 0 20px 34px; }
+    .section-label { display: flex; justify-content: space-between; align-items: baseline; margin: 14px 0 8px; font-size: 13px; font-weight: 700; }
+    .section-label small { color: var(--secondary); font-size: 11px; font-weight: 500; }
+    .rule { border-top: 1px solid var(--border); margin: 15px 0; }
+    .row { display: flex; align-items: center; gap: 11px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .row:last-child { border-bottom: 0; }
+    .food-mark { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; background: var(--selected); color: var(--accent); font-size: 14px; font-weight: 700; }
+    .row-main { min-width: 0; flex: 1; }
+    .row-name { font-size: 14px; font-weight: 650; }
+    .row-meta { color: var(--secondary); font-size: 11px; margin-top: 2px; }
+    .row-tail { color: var(--secondary); font-size: 12px; white-space: nowrap; }
+    .signal { color: var(--warning); font-size: 11px; font-weight: 700; }
+    .suggestion { margin-top: 18px; padding: 15px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); }
+    .suggestion-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+    .suggestion h2 { margin: 0; font-size: 18px; letter-spacing: -.02em; }
+    .source { color: var(--success); font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .suggestion p { margin: 7px 0 12px; color: var(--secondary); font-size: 12px; line-height: 1.45; }
+    .evidence { display: flex; flex-wrap: wrap; gap: 6px; }
+    .evidence span, .constraint { padding: 5px 8px; border: 1px solid var(--border); border-radius: 8px; color: var(--secondary); font-size: 11px; }
+    .primary { width: 100%; border: 0; border-radius: 12px; padding: 12px 14px; background: var(--accent); color: var(--on-accent); cursor: pointer; font: inherit; font-size: 13px; font-weight: 700; }
+    .secondary { width: 100%; margin-top: 8px; border: 0; background: transparent; color: var(--accent); cursor: pointer; font: inherit; font-size: 12px; font-weight: 700; }
+    .prompt { position: absolute; left: 20px; right: 20px; bottom: 27px; display: flex; align-items: center; gap: 9px; padding: 11px 13px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); color: var(--secondary); font-size: 12px; }
+    .prompt b { color: var(--accent); font-size: 17px; }
+    .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin: 3px 0 19px; }
+    .day { padding: 8px 2px; border-radius: 9px; text-align: center; color: var(--secondary); font-size: 10px; }
+    .day b { display: block; margin-top: 4px; color: var(--text); font-size: 12px; }
+    .day.active { background: var(--selected); color: var(--accent); }
+    .plan-row { display: grid; grid-template-columns: 45px 1fr auto; align-items: center; gap: 9px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .plan-day { color: var(--secondary); font-size: 11px; }
+    .plan-meal { font-size: 13px; font-weight: 650; }
+    .plan-note { color: var(--secondary); font-size: 11px; margin-top: 3px; }
+    .check { color: var(--success); font-size: 14px; }
+    .constraints { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 13px; }
+    .constraint.active { border-color: var(--accent); color: var(--accent); background: var(--selected); }
+    .chat { display: flex; flex-direction: column; gap: 11px; padding: 3px 0 112px; }
+    .bubble { max-width: 88%; padding: 11px 13px; border-radius: 14px; font-size: 13px; line-height: 1.45; }
+    .bubble.user { align-self: flex-end; background: var(--selected); }
+    .bubble.ai { align-self: flex-start; background: var(--surface); border: 1px solid var(--border); }
+    .bubble.ai strong { display: block; margin-bottom: 6px; }
+    .privacy { display: flex; gap: 8px; align-items: start; margin-top: 2px; color: var(--secondary); font-size: 11px; line-height: 1.4; }
+    .privacy b { color: var(--success); font-size: 14px; }
+    .quick-actions { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+    .quick-actions button { border: 1px solid var(--border); border-radius: 8px; background: transparent; color: var(--accent); cursor: pointer; padding: 6px 8px; font: inherit; font-size: 11px; font-weight: 650; }
+    .notes { padding-top: 8px; }
+    .fit { display: inline-block; margin-bottom: 14px; padding: 5px 9px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 11%, transparent); color: var(--accent); font-size: 11px; font-weight: 700; }
+    .notes h2 { margin: 0 0 7px; font-size: 20px; letter-spacing: -.02em; }
+    .notes > p { color: var(--secondary); font-size: 13px; line-height: 1.5; margin: 0 0 19px; }
+    .notes dl { margin: 0; }
+    .notes dt { margin-top: 15px; font-size: 12px; font-weight: 700; }
+    .notes dd { margin: 4px 0 0; color: var(--secondary); font-size: 13px; line-height: 1.5; }
+    .tradeoff { margin-top: 21px; padding-top: 14px; border-top: 1px solid var(--page-border); }
+    .tradeoff strong { display: block; font-size: 12px; margin-bottom: 5px; }
+    .tradeoff p { margin: 0; color: var(--secondary); font-size: 12px; line-height: 1.45; }
+    footer { margin-top: 34px; padding-top: 15px; border-top: 1px solid var(--page-border); color: var(--secondary); font-size: 12px; line-height: 1.5; }
+    @media (max-width: 820px) {
+      body { padding: 25px 15px 50px; }
+      .panel, .panel.active, .flow-panel.active { grid-template-columns: 1fr; gap: 24px; }
+      .notes { max-width: 500px; margin: 0 auto; }
+    }
+    @media (max-width: 430px) {
+      .phone { width: min(375px, calc(100vw - 30px)); height: 740px; border-width: 8px; border-radius: 38px; }
+      .phone-title { font-size: 21px; }
+      .tabs { gap: 14px; overflow-x: auto; }
+      .tab { white-space: nowrap; }
+      .thesis { grid-template-columns: 1fr; }
+      .flow-steps { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; width: min(375px, calc(100vw - 30px)); padding-bottom: 2px; }
+      .flow-step { white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="eyebrow">fam · AI-Konzeptphase</div>
+      <h1>Ein AI-Tool, das im Haushalt mitdenkt</h1>
+      <p class="lede">Der zentrale Flow startet immer auf dem Dashboard: geprüften Haushaltszustand in einen hilfreichen nächsten Schritt übersetzen, mit sichtbarer Quelle und Bestätigung vor jeder Änderung.</p>
+      <div class="thesis" aria-label="Produktthese">
+        <div><strong>Produktthese</strong><span>AI als ruhiger Workflow-Partner, nicht als offenes Chatfenster.</span></div>
+        <div><strong>Leitplanke</strong><span>Haushaltsdaten und private Tracking-Daten bleiben strikt getrennt.</span></div>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="AI-Konzepte">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="panel-flow" data-panel="panel-flow">Flow · Dashboard → Ergebnis</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="panel-kitchen" data-panel="panel-kitchen">Küchenlotse</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="panel-planner" data-panel="panel-planner">Wochenplaner</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="panel-chat" data-panel="panel-chat">Frag fam</button>
+    </nav>
+
+    <section class="panel flow-panel active" id="panel-flow" role="tabpanel">
+      <div class="flow-stage">
+        <div class="flow-steps" role="tablist" aria-label="Schritte im AI-Flow">
+          <button class="flow-step" type="button" aria-current="step" data-flow-step="0">1 Dashboard</button>
+          <button class="flow-step" type="button" data-flow-step="1">2 Einstieg</button>
+          <button class="flow-step" type="button" data-flow-step="2">3 Vorschlag</button>
+          <button class="flow-step" type="button" data-flow-step="3">4 Rezept</button>
+          <button class="flow-step" type="button" data-flow-step="4">5 Einkauf</button>
+          <button class="flow-step" type="button" data-flow-step="5">6 Bestätigt</button>
+        </div>
+        <div class="phone" aria-label="End-to-End-Mockup des AI-Flows">
+          <div class="notch"></div><div class="status"></div>
+          <div class="screen">
+            <div class="phone-top"><div><div class="phone-title" id="flow-phone-title">Übersicht</div><div class="phone-sub" id="flow-phone-sub">Mittwoch, 2. Sept. · Haushalt</div></div><div class="avatar">MS</div></div>
+
+            <div class="flow-screen" data-flow-screen="0">
+              <div class="dashboard-greeting"><div class="flow-kicker">Guten Morgen, Marco</div><h2 class="flow-heading">Was steht heute an?</h2><p class="flow-copy">Euer Haushalt auf einen Blick.</p></div>
+              <div class="dashboard-metric"><strong>Vorrat</strong><span>24 Artikel · 2 bald fällig</span></div>
+              <div class="dashboard-metric"><strong>Einkaufsliste</strong><span>6 Artikel offen</span></div>
+              <div class="dashboard-metric"><strong>Essensplan</strong><span>Heute noch offen</span></div>
+              <div class="ai-entry"><div class="flow-kicker">fam AI</div><h2>Was kochen wir heute?</h2><p>Ich schaue zuerst auf das, was bald weg sollte und was ihr schon da habt.</p><button class="primary" type="button" data-flow-next>Vorschlag holen</button></div>
+            </div>
+
+            <div class="flow-screen" data-flow-screen="1" hidden>
+              <div class="flow-kicker">fam AI · Schritt 1 von 4</div><h2 class="flow-heading">Was ist euch heute wichtig?</h2><p class="flow-copy">Ich habe den Haushalt geprüft. Du kannst den Vorschlag noch kurz anpassen.</p>
+              <div class="flow-block"><div class="flow-block-title"><span>Für wie viele?</span><small>Haushalt</small></div><div class="constraints"><span class="constraint active">3 Personen</span><span class="constraint">2 Personen</span></div></div>
+              <div class="flow-block"><div class="flow-block-title"><span>Heute einkaufen?</span><small>6 Artikel auf der Liste</small></div><div class="constraints"><span class="constraint active">Ja, gerne</span><span class="constraint">Nein, nur Vorrat</span></div></div>
+              <div class="flow-block"><div class="flow-block-title"><span>Priorität</span></div><div class="row"><div class="food-mark">!</div><div class="row-main"><div class="row-name">Babyspinat</div><div class="row-meta">MHD morgen · 1 Packung</div></div><div class="signal">zuerst weg</div></div></div>
+              <div class="flow-action"><button class="primary" type="button" data-flow-next>Vorschlag erstellen</button><button class="secondary" type="button" data-flow-back>Zurück zum Dashboard</button></div>
+            </div>
+
+            <div class="flow-screen" data-flow-screen="2" hidden>
+              <div class="flow-kicker">fam AI · Schritt 2 von 4</div><h2 class="flow-heading">Das passt zu heute</h2><p class="flow-copy">Ein Vorschlag aus eurem Vorrat. Fehlende Zutaten bleiben klar getrennt.</p>
+              <div class="recipe-hero"><div class="source">VORRAT + EINKAUFSLISTE GEPRÜFT</div><h2>Spinat-Pilz-Pasta</h2><p>20 Minuten · 3 Personen · vegetarisch</p></div>
+              <div class="flow-block"><div class="flow-block-title"><span>Warum dieser Vorschlag?</span></div><div class="row"><div class="food-mark">✓</div><div class="row-main"><div class="row-name">Babyspinat &amp; Champignons</div><div class="row-meta">werden heute priorisiert verbraucht</div></div></div><div class="row"><div class="food-mark">＋</div><div class="row-main"><div class="row-name">Pasta</div><div class="row-meta">steht auf eurer Einkaufsliste, nicht im Vorrat</div></div></div></div>
+              <div class="flow-action"><button class="primary" type="button" data-flow-next>Rezept prüfen</button><button class="secondary" type="button" data-flow-back>Andere Idee</button></div>
+            </div>
+
+            <div class="flow-screen" data-flow-screen="3" hidden>
+              <div class="flow-kicker">Rezept · vor dem Übernehmen</div><h2 class="flow-heading">Spinat-Pilz-Pasta</h2><p class="flow-copy">Alles klar? Du entscheidest, was in euren Haushalt übernommen wird.</p>
+              <div class="flow-block"><div class="flow-block-title"><span>Zutaten für 3 Personen</span></div><div class="ingredient-line"><b>✓</b><span>Babyspinat</span><small>1 Packung · Vorrat</small></div><div class="ingredient-line"><b>✓</b><span>Champignons</span><small>250 g · Vorrat</small></div><div class="ingredient-line"><b>✓</b><span>Naturjoghurt</span><small>100 g · Vorrat</small></div><div class="ingredient-line missing"><b>＋</b><span>Pasta</span><small>300 g · Einkaufsliste</small></div></div>
+              <div class="flow-note"><b>i</b><span>Die AI hat keinen Bestand verändert. Die Pasta wird erst mit deiner Bestätigung zur Einkaufsliste hinzugefügt.</span></div>
+              <div class="flow-action"><button class="primary" type="button" data-flow-next>Zur Einkaufsliste</button><button class="secondary" type="button" data-flow-back>Rezept ändern</button></div>
+            </div>
+
+            <div class="flow-screen" data-flow-screen="4" hidden>
+              <div class="flow-kicker">Einkauf · 1 Änderung</div><h2 class="flow-heading">Soll Pasta auf die Liste?</h2><p class="flow-copy">Die vorhandenen Zutaten bleiben im Vorrat. Nur die fehlende Menge wird ergänzt.</p>
+              <div class="row"><div class="food-mark">＋</div><div class="row-main"><div class="row-name">Pasta</div><div class="row-meta">300 g · für Spinat-Pilz-Pasta</div></div><div class="source">NEU</div></div>
+              <div class="confirm"><strong>Einkaufsliste danach</strong><span>7 Artikel offen · Pasta wird unter „Trockenwaren“ einsortiert.</span></div>
+              <div class="flow-note" style="margin-top: 15px;"><b>✓</b><span>Diese Änderung ist reversibel und kann später wie jeder andere Listeneintrag entfernt werden.</span></div>
+              <div class="flow-action"><button class="primary" type="button" data-flow-next>Pasta hinzufügen</button><button class="secondary" type="button" data-flow-back>Noch einmal prüfen</button></div>
+            </div>
+
+            <div class="flow-screen" data-flow-screen="5" hidden>
+              <div class="flow-kicker">Geschafft</div><h2 class="flow-heading">Der Abend ist geplant</h2><p class="flow-copy">Der Vorschlag bleibt nachvollziehbar mit euren echten Haushaltsdaten verbunden.</p>
+              <div class="recipe-hero"><div class="source">MITTWOCH · ABENDESSEN</div><h2>Spinat-Pilz-Pasta</h2><p>3 Vorratsartikel · 1 Einkaufsartikel · ca. 20 Minuten</p></div>
+              <div class="confirm"><strong>Aktualisiert</strong><span>✓ Pasta steht auf der Einkaufsliste<br />✓ Rezept ist im Essensplan vermerkt<br />✓ Vorrat bleibt unverändert, bis wirklich gekocht wurde</span></div>
+              <div class="flow-action"><button class="primary" type="button" data-flow-reset>Zur Übersicht</button><button class="secondary" type="button" data-flow-back>Flow zurücksetzen</button></div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-controls" aria-live="polite"><button type="button" data-flow-prev>‹ Zurück</button><span class="flow-position" id="flow-position">1 / 6</span><button type="button" data-flow-next-control>Weiter ›</button></div>
+      </div>
+      <aside class="notes">
+        <span class="fit">neuer Hauptflow</span>
+        <h2>Vom Dashboard zum Abendessen</h2>
+        <p>Der Einstieg sitzt dort, wo der Haushalt ohnehin täglich landet. Der AI-Block ist keine neue Hauptnavigation, sondern eine konkrete Abkürzung.</p>
+        <dl>
+          <dt>1 · Dashboard</dt><dd>Der Haushalt sieht ein Problem: heute ist noch kein Essen geplant.</dd>
+          <dt>2–3 · Kontext &amp; Vorschlag</dt><dd>Die AI zeigt, welche Daten sie verwendet und warum der Vorschlag passt.</dd>
+          <dt>4–5 · Prüfung &amp; Mutation</dt><dd>Rezept und fehlende Zutat werden getrennt geprüft. Erst danach darf die Liste verändert werden.</dd>
+          <dt>6 · Ergebnis</dt><dd>Der Nutzer sieht den neuen Zustand und kann jederzeit zurück.</dd>
+        </dl>
+        <div class="tradeoff"><strong>Bewusste Entscheidung</strong><p>Der Flow ist geführt statt offen. Das macht ihn weniger „magisch“, aber deutlich zuverlässiger für Haushalt, Offline-Sync und RLS-Trennung.</p></div>
+      </aside>
+    </section>
+
+    <section class="panel" id="panel-kitchen" role="tabpanel" hidden>
+      <div class="phone-stage">
+        <div class="phone" aria-label="Mockup Küchenlotse">
+          <div class="notch"></div><div class="status"></div>
+          <div class="screen">
+            <div class="phone-top"><div><div class="phone-title">Was kochen wir?</div><div class="phone-sub">Heute, 18:20 · 3 Personen</div></div><div class="avatar">MS</div></div>
+            <div class="scroll">
+              <div class="section-label"><span>Das sollte zuerst weg</span><small>aus Vorrat</small></div>
+              <div class="row"><div class="food-mark">S</div><div class="row-main"><div class="row-name">Babyspinat</div><div class="row-meta">Kühlschrank · 1 Packung</div></div><div class="signal">MHD morgen</div></div>
+              <div class="row"><div class="food-mark">P</div><div class="row-main"><div class="row-name">Champignons</div><div class="row-meta">Kühlschrank · 250 g</div></div><div class="row-tail">250 g</div></div>
+              <div class="row"><div class="food-mark">J</div><div class="row-main"><div class="row-name">Naturjoghurt</div><div class="row-meta">Kühlschrank · 500 g</div></div><div class="row-tail">500 g</div></div>
+              <div class="suggestion">
+                <div class="suggestion-head"><h2>Spinat-Pilz-Pasta</h2><span class="source">passt zu deinem Vorrat</span></div>
+                <p>Verbraucht drei priorisierte Artikel. Fertig in etwa 20 Minuten. Es fehlt nur Pasta.</p>
+                <div class="evidence"><span>3 Personen</span><span>20 min</span><span>1 Einkauf</span></div>
+                <div class="rule"></div>
+                <button class="primary">Rezept ansehen</button>
+                <button class="secondary">Andere Idee anzeigen</button>
+              </div>
+              <div class="section-label"><span>Oder sag es einfach</span></div>
+              <div class="prompt"><b>＋</b><span>„Etwas Schnelles ohne Herd“</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        <span class="fit">stärkster MVP-Kandidat</span>
+        <h2>Der Küchenlotse</h2>
+        <p>Ein Einstiegspunkt direkt aus Vorrat oder Dashboard. Die AI beantwortet eine konkrete Situation und liefert genau einen guten nächsten Schritt.</p>
+        <dl>
+          <dt>Warum er funktioniert</dt>
+          <dd>Der Nutzen ist sofort verständlich: weniger Denkaufwand beim Kochen, weniger Lebensmittelabfall.</dd>
+          <dt>AI-Rolle</dt>
+          <dd>Priorisieren, passende Rezepte formulieren, fehlende Zutaten transparent nennen.</dd>
+          <dt>Sicherheitsgefühl</dt>
+          <dd>Jede Aussage zeigt ihre Herkunft. „Aus Vorrat“ und „fehlt“ sind im UI getrennt.</dd>
+        </dl>
+        <div class="tradeoff"><strong>Trade-off</strong><p>Weniger spektakulär als ein Chat, dafür sehr nah an einem echten Alltagsmoment und mit kleinem Scope testbar.</p></div>
+      </aside>
+    </section>
+
+    <section class="panel" id="panel-planner" role="tabpanel" hidden>
+      <div class="phone-stage">
+        <div class="phone" aria-label="Mockup Wochenplaner">
+          <div class="notch"></div><div class="status"></div>
+          <div class="screen">
+            <div class="phone-top"><div><div class="phone-title">Wochenplan</div><div class="phone-sub">31. Aug. – 6. Sept. · Haushalt</div></div><div class="avatar">MS</div></div>
+            <div class="scroll">
+              <div class="week"><div class="day">Mo<b>31</b></div><div class="day">Di<b>1</b></div><div class="day active">Mi<b>2</b></div><div class="day">Do<b>3</b></div><div class="day">Fr<b>4</b></div><div class="day">Sa<b>5</b></div><div class="day">So<b>6</b></div></div>
+              <div class="section-label"><span>Vorschlag für diese Woche</span><small>noch nicht übernommen</small></div>
+              <div class="constraints"><span class="constraint active">3 Personen</span><span class="constraint active">max. 30 min</span><span class="constraint">2× vegetarisch</span></div>
+              <div class="plan-row"><div class="plan-day">Mo</div><div><div class="plan-meal">Linsen-Bolognese</div><div class="plan-note">4 Vorratsartikel · vegetarisch</div></div><div class="check">✓</div></div>
+              <div class="plan-row"><div class="plan-day">Di</div><div><div class="plan-meal">Ofengemüse mit Feta</div><div class="plan-note">3 Vorratsartikel · 1 Einkauf</div></div><div class="check">✓</div></div>
+              <div class="plan-row"><div class="plan-day">Mi</div><div><div class="plan-meal">Spinat-Pilz-Pasta</div><div class="plan-note">MHD zuerst · 1 Einkauf</div></div><div class="check">✓</div></div>
+              <div class="plan-row"><div class="plan-day">Do</div><div><div class="plan-meal">Kartoffelpfanne</div><div class="plan-note">5 Vorratsartikel</div></div><div class="check">✓</div></div>
+              <div class="plan-row"><div class="plan-day">Fr</div><div><div class="plan-meal">Noch offen</div><div class="plan-note">bewusst frei gelassen</div></div><div class="row-tail">＋</div></div>
+              <div class="rule"></div>
+              <button class="primary">Plan übernehmen</button>
+              <button class="secondary">Vorschlag anpassen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        <span class="fit">größter wahrgenommener Wert</span>
+        <h2>Der Wochenplaner</h2>
+        <p>Die AI erzeugt einen belastbaren Wochenentwurf aus Vorrat, Einkaufsliste, Zeit und Vorlieben. Der Nutzer bleibt Redakteur.</p>
+        <dl>
+          <dt>Warum er funktioniert</dt>
+          <dd>Er löst nicht nur „Was heute?“, sondern die wiederkehrende Planungsarbeit einer Familie.</dd>
+          <dt>AI-Rolle</dt>
+          <dd>Komplexe Kombinationen aus Resten, MHD, Rezepten und Präferenzen in einen Entwurf übersetzen.</dd>
+          <dt>Wichtige Grenze</dt>
+          <dd>„Plan übernehmen“ ist ein bewusster Mutationspunkt. Die Einkaufsliste wird erst danach verändert.</dd>
+        </dl>
+        <div class="tradeoff"><strong>Trade-off</strong><p>Mehr Produktwert, aber mehr Regeln, mehr Bestätigungslogik und höhere Erwartungen an die Qualität des Vorschlags.</p></div>
+      </aside>
+    </section>
+
+    <section class="panel" id="panel-chat" role="tabpanel" hidden>
+      <div class="phone-stage">
+        <div class="phone" aria-label="Mockup Frag fam">
+          <div class="notch"></div><div class="status"></div>
+          <div class="screen">
+            <div class="phone-top"><div><div class="phone-title">Frag fam</div><div class="phone-sub">Haushalt · nur geteilte Daten</div></div><div class="avatar">AI</div></div>
+            <div class="scroll chat">
+              <div class="bubble user">Was ist noch für ein schnelles Abendessen da?</div>
+              <div class="bubble ai"><strong>Aus eurem Vorrat</strong>Spinat, Champignons, Eier und Tortillas. Damit gehen zum Beispiel schnelle Spinat-Tortilla-Wraps. Pasta ist nicht im Vorrat, steht aber auf eurer Einkaufsliste.
+                <div class="evidence"><span>Vorrat geprüft</span><span>Einkaufsliste separat</span></div>
+                <div class="quick-actions"><button>Wraps vorschlagen</button><button>Liste zeigen</button></div>
+              </div>
+              <div class="privacy"><b>✓</b><span>Private Tracking-Daten wie Kalorien, Gewicht und Medikamente werden hier nicht verwendet.</span></div>
+              <div class="bubble user">Und was sollte bald weg?</div>
+              <div class="bubble ai"><strong>Priorität heute</strong>Babyspinat, MHD morgen. Ich kann daraus ein Rezept vorschlagen, aber nichts automatisch ändern.</div>
+              <div class="prompt"><b>＋</b><span>Haushalt fragen …</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        <span class="fit">größte Differenzierung</span>
+        <h2>Frag fam</h2>
+        <p>Ein natürlicher Zugang zum Haushalt. Der Chat ist nicht die Funktion selbst, sondern eine Abkürzung zu Vorrat, Einkauf und Planung.</p>
+        <dl>
+          <dt>Warum er funktioniert</dt>
+          <dd>Familien formulieren selten perfekte Suchbegriffe. Sprache passt zu spontanen Situationen.</dd>
+          <dt>AI-Rolle</dt>
+          <dd>Fragen beantworten, Quellen sichtbar machen und in bestehende Flows weiterleiten.</dd>
+          <dt>Wichtigste UX-Frage</dt>
+          <dd>Wie verhindern wir, dass ein plausibel klingender Chat mehr Vertrauen bekommt als der geprüfte Datenbestand?</dd>
+        </dl>
+        <div class="tradeoff"><strong>Trade-off</strong><p>Am flexibelsten, aber am schwersten sauber zu begrenzen. Ohne starke Quellenanzeige droht „magischer“ statt verlässlicher AI.</p></div>
+      </aside>
+    </section>
+
+    <footer><strong>Arbeitsannahme für die Diskussion:</strong> Der geführte Dashboard-Flow ist der erste Test. Der Küchenlotse ist sein Kern, der Wochenplaner der Ausbaupfad und „Frag fam“ eine spätere Abkürzung mit denselben Quellen- und Berechtigungsregeln.</footer>
+  </main>
+  <script>
+    const tabs = [...document.querySelectorAll('.tab')];
+    const panels = [...document.querySelectorAll('.panel')];
+    tabs.forEach((tab) => tab.addEventListener('click', () => {
+      const selected = tab.dataset.panel;
+      tabs.forEach((item) => item.setAttribute('aria-selected', String(item === tab)));
+      panels.forEach((panel) => {
+        const active = panel.id === selected;
+        panel.classList.toggle('active', active);
+        panel.hidden = !active;
+      });
+    }));
+
+    const flowScreens = [...document.querySelectorAll('[data-flow-screen]')];
+    const flowSteps = [...document.querySelectorAll('[data-flow-step]')];
+    const flowPosition = document.getElementById('flow-position');
+    const flowPrev = document.querySelector('[data-flow-prev]');
+    const flowNext = document.querySelector('[data-flow-next-control]');
+    let currentFlowStep = 0;
+
+    function showFlowStep(step) {
+      currentFlowStep = Math.max(0, Math.min(flowScreens.length - 1, step));
+      flowScreens.forEach((screen, index) => { screen.hidden = index !== currentFlowStep; });
+      flowSteps.forEach((button, index) => {
+        if (index === currentFlowStep) button.setAttribute('aria-current', 'step');
+        else button.removeAttribute('aria-current');
+      });
+      flowPosition.textContent = `${currentFlowStep + 1} / ${flowScreens.length}`;
+      flowPrev.disabled = currentFlowStep === 0;
+      flowNext.disabled = currentFlowStep === flowScreens.length - 1;
+    }
+
+    flowSteps.forEach((button) => button.addEventListener('click', () => showFlowStep(Number(button.dataset.flowStep))));
+    document.querySelectorAll('[data-flow-next]').forEach((button) => button.addEventListener('click', () => showFlowStep(currentFlowStep + 1)));
+    document.querySelectorAll('[data-flow-back]').forEach((button) => button.addEventListener('click', () => showFlowStep(currentFlowStep - 1)));
+    document.querySelector('[data-flow-reset]').addEventListener('click', () => showFlowStep(0));
+    flowPrev.addEventListener('click', () => showFlowStep(currentFlowStep - 1));
+    flowNext.addEventListener('click', () => showFlowStep(currentFlowStep + 1));
+    showFlowStep(0);
+  </script>
+</body>
+</html>

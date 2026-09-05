@@ -1,5 +1,7 @@
 'use strict';
 
+import { normalizeMeasurement } from '../../../recipe-suggestion-prototype/unit-normalization.mjs';
+
 const SCHEMA_VERSION = 1;
 const ALLOWED_SOURCES = new Set(['catalog', 'template', 'model_generated']);
 const RECIPE_SOURCES = new Set(['catalog', 'template']);
@@ -207,7 +209,8 @@ function getPriorityFoods(compactContext) {
       !isNonEmptyString(food.name) ||
       !isNonEmptyString(food.unit) ||
       !isPositiveNumber(food.available_quantity) ||
-      !isFiniteNumber(food.priority_score)
+      !isFiniteNumber(food.priority_score) ||
+      !normalizeMeasurement(food.available_quantity, food.unit)
     ) {
       return failure('priority_foods entries must match the canonical schema');
     }
@@ -279,6 +282,9 @@ function assertResponse(output, context) {
   if (!Array.isArray(response.meals) || response.meals.length < 1 || response.meals.length > 3) {
     return failure('response must contain 1 to 3 meals');
   }
+  if (compactContext.candidate_recipes.length > 0 && response.meals.length !== 1) {
+    return failure('catalog or template suggestions must contain exactly one meal');
+  }
 
   const allowedAdditionalIngredients = new Set([
     ...compactContext.constraints.allowed_staples.map(normalize),
@@ -324,11 +330,16 @@ function assertResponse(output, context) {
     if (!Array.isArray(meal.used_items)) {
       return failure(`${mealPath}.used_items must be an array`);
     }
+    const mealUsedIds = new Set();
     for (const [itemIndex, usedItem] of meal.used_items.entries()) {
       const itemPath = `${mealPath}.used_items[${itemIndex}]`;
       if (!hasExactKeys(usedItem, USED_ITEM_KEYS)) {
         return failure(`${itemPath} contains fields outside the canonical schema`);
       }
+      if (mealUsedIds.has(usedItem.inventory_item_id)) {
+        return failure(`${itemPath}.inventory_item_id is duplicated within the meal; combine quantities`);
+      }
+      mealUsedIds.add(usedItem.inventory_item_id);
       const priorityFood = priorityFoods.get(usedItem.inventory_item_id);
       if (!priorityFood) {
         return failure(`${itemPath}.inventory_item_id is not in priority_foods`);
@@ -336,12 +347,19 @@ function assertResponse(output, context) {
       if (!isPositiveNumber(usedItem.quantity)) {
         return failure(`${itemPath}.quantity exceeds priority_foods or is not positive`);
       }
-      if (usedItem.unit !== priorityFood.unit) {
-        return failure(`${itemPath}.unit does not match priority_foods`);
+      const usedMeasurement = normalizeMeasurement(usedItem.quantity, usedItem.unit);
+      const availableMeasurement = normalizeMeasurement(
+        priorityFood.available_quantity,
+        priorityFood.unit,
+      );
+      if (!usedMeasurement || !availableMeasurement
+        || usedMeasurement.dimension !== availableMeasurement.dimension) {
+        return failure(`${itemPath}.unit is incompatible with priority_foods`);
       }
       const totalQuantity =
-        (usedQuantities.get(usedItem.inventory_item_id) ?? 0) + usedItem.quantity;
-      if (totalQuantity > priorityFood.available_quantity) {
+        (usedQuantities.get(usedItem.inventory_item_id) ?? 0) + usedMeasurement.quantity;
+      const tolerance = Number.EPSILON * Math.max(totalQuantity, availableMeasurement.quantity) * 4;
+      if (totalQuantity - availableMeasurement.quantity > tolerance) {
         return failure(`${itemPath}.quantity exceeds total priority_foods availability`);
       }
       usedQuantities.set(usedItem.inventory_item_id, totalQuantity);

@@ -97,7 +97,7 @@ export function InventoryScreen() {
 
   function updateQuantity(item: LocalInventoryItem, delta: number) {
     if (!householdId) return;
-    updateQty.mutate({ id: item.id, household_id: householdId, delta });
+    updateQty.mutate({ id: item.id, household_id: householdId, delta, operation: 'adjust' });
   }
 
   function handleEdit(item: LocalInventoryItem) {
@@ -106,7 +106,13 @@ export function InventoryScreen() {
   }
 
   function handleConsume(item: LocalInventoryItem) {
-    updateQuantity(item, -item.quantity);
+    if (!householdId) return;
+    updateQty.mutate({
+      id: item.id,
+      household_id: householdId,
+      delta: -item.quantity,
+      operation: 'consume',
+    });
     setActionItem(null);
   }
 
@@ -119,7 +125,12 @@ export function InventoryScreen() {
         text: 'Löschen',
         style: 'destructive',
         onPress: () =>
-          updateQty.mutate({ id: item.id, household_id: householdId, delta: -item.quantity }),
+          updateQty.mutate({
+            id: item.id,
+            household_id: householdId,
+            delta: -item.quantity,
+            operation: 'remove',
+          }),
       },
     ]);
   }

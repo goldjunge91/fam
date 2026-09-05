@@ -68,14 +68,14 @@ except Exception as error:
     } catch (error) { response = { error: error.message }; }
     const score = response.error ? null : evaluator.module.exports.evaluate({ text: response.output, var: { compact_context: row.compact_context } });
     const result = { model, scenario_id: row.scenario_id, duration_ms: Date.now() - started,
-      status: response.error ? 'provider_error' : score === 1 ? 'pass' : 'contract_failure', ...response };
+      status: response.error ? 'provider_error' : score === true ? 'pass' : 'contract_failure', ...response };
     if (!response.error) {
       const contract = assertRecipeSuggestion(response.output, { vars: { compact_context: row.compact_context } });
       const quality = contract.pass ? evaluator.module.exports.evaluateSyntheticQuality?.({
         text: response.output, var: { compact_context: row.compact_context },
       }) : null;
       if (quality?.metrics) result.metrics = quality.metrics;
-      if (score === 0) result.reason = contract.pass
+      if (score === false) result.reason = contract.pass
         ? quality?.reason ?? 'Embedded ChainForge evaluator rejected the response'
         : contract.reason;
     }

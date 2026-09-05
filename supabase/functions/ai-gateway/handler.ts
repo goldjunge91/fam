@@ -5,6 +5,13 @@
  * provider can be tested without a Supabase instance or an OpenRouter key.
  */
 
+import { buildRecipeSuggestionContext } from './recipe-suggestion-context.ts';
+import {
+  validateRecipeSuggestionContext,
+  validateRecipeSuggestionResponse,
+} from './recipe-suggestion-contract.ts';
+import type { RecipeSuggestionContext } from './recipe-suggestion-contract.ts';
+
 export const ALLOWED_MODELS = [
   'ibm-granite/granite-4.2-8b',
   'google/gemma-4-26b-a4b-it',
@@ -30,6 +37,7 @@ type CookingRequest = {
   maxMinutes: number | null;
   dietaryPattern: string | null;
   allergies: string[];
+  shoppingDecision: 'yes' | 'no' | null;
   model?: string;
 };
 
@@ -55,6 +63,7 @@ export type GatewayInventoryContext = {
 export type GatewayRecipe = {
   recipeId: string;
   title: string;
+  source?: 'catalog' | 'template';
   estimatedMinutes: number | null;
   servings: number | null;
   dietaryTags: string[];
@@ -71,6 +80,15 @@ export type GatewayRecipe = {
 export type GatewayCookingContext = {
   inventory: GatewayInventoryContext;
   recipes: GatewayRecipe[];
+  allergies?: string[];
+  preferences?: string[];
+  forbiddenIngredients?: string[];
+  shoppingItems?: Array<{
+    shoppingItemId: string;
+    name: string;
+    quantity: number;
+    unit: string;
+  }>;
 };
 
 type JsonRecord = Record<string, unknown>;
@@ -165,6 +183,7 @@ function parseRequest(value: unknown): GatewayRequest | null {
     'maxMinutes',
     'dietaryPattern',
     'allergies',
+    'shoppingDecision',
     'model',
   ]);
   if (Object.keys(value).some((key) => !allowedKeys.has(key))) return null;
@@ -176,8 +195,12 @@ function parseRequest(value: unknown): GatewayRequest | null {
     validNullableInteger(value.servings) &&
     validNullableInteger(value.maxMinutes) &&
     (value.dietaryPattern === null || nonEmptyString(value.dietaryPattern)) &&
-    Array.isArray(value.allergies) &&
-    value.allergies.every(nonEmptyString)
+    (value.allergies === undefined ||
+      (Array.isArray(value.allergies) && value.allergies.every(nonEmptyString))) &&
+    (value.shoppingDecision === undefined ||
+      value.shoppingDecision === null ||
+      value.shoppingDecision === 'yes' ||
+      value.shoppingDecision === 'no')
     ? {
         skill: value.skill,
         householdId: value.householdId.trim(),
@@ -186,7 +209,10 @@ function parseRequest(value: unknown): GatewayRequest | null {
         maxMinutes: value.maxMinutes,
         dietaryPattern:
           value.dietaryPattern === null ? null : value.dietaryPattern.trim(),
-        allergies: value.allergies.map((allergy) => allergy.trim()),
+        allergies: Array.isArray(value.allergies)
+          ? value.allergies.map((allergy) => allergy.trim())
+          : [],
+        shoppingDecision: value.shoppingDecision ?? null,
         ...(nonEmptyString(value.model) ? { model: value.model.trim() } : {}),
       }
     : null;
@@ -201,7 +227,10 @@ function modelFor(
   return allowedModels.includes(model) ? model : null;
 }
 
-function buildSystemPrompt(request: GatewayRequest, context: GatewayCookingContext): string {
+function buildSystemPrompt(
+  request: GatewayRequest,
+  context: GatewayCookingContext | RecipeSuggestionContext,
+): string {
   const common = `
 Du bist der read-only Haushaltsassistent von fam. Antworte ausschließlich als
 gültiges JSON ohne Markdown, Kommentare oder zusätzliche Felder. Erfinde keine
@@ -221,18 +250,19 @@ eine bestätigte Inventaränderung.`;
 
   return `${common}
 Szenario: Kochvorschlag aus dem autorisierten Inventar.
-Vertrag: cooking_suggestion.v1 mit exakt kind, recipeId, title, usedLots,
-missingIngredients, estimatedMinutes, servings, rationale und constraintChecks.
-constraintChecks.allergies muss pass sein, dietaryPattern und time sind pass oder
-unknown. Verwende ausschließlich Rezept-IDs und Lot-IDs aus dem folgenden
-Kontext. Fehlende Zutaten gehören in missingIngredients. Liefere höchstens drei
-Vorschläge; wenn der Vertrag nur ein Objekt erlaubt, liefere den besten.
+Vertrag: exakt {schema_version, meals}. Jede Mahlzeit enthält ausschließlich
+title, source, recipe_id, servings, used_items, additional_ingredients, steps
+und notes. Liefere höchstens drei Mahlzeiten. Verwende recipe_id und
+inventory_item_id ausschließlich aus dem Kontext. Ändere keine Inventar-ID,
+Menge oder Einheit; rechne Einheiten nur innerhalb derselben physikalischen
+Dimension um. Erfinde keine zusätzlichen Zutaten. additional_ingredients darf
+höchstens zwei vom Kontext freigegebene Zutaten enthalten. Wenn kein passendes
+Katalog- oder Vorlagenrezept vorhanden ist, darf source model_generated und
+recipe_id null verwendet werden. Andernfalls muss source zum candidate_recipe
+passen. Die Antwort ist ein Vorschlag und schreibt niemals Daten.
 
-Kanonischer Inventarkontext:
-${JSON.stringify(context.inventory)}
-
-Freigegebene Rezeptbasis:
-${JSON.stringify(context.recipes)}`;
+Kanonischer Kontext:
+${JSON.stringify(context)}`;
 }
 
 function buildUserPrompt(request: GatewayRequest): string {
@@ -246,7 +276,7 @@ function buildUserPrompt(request: GatewayRequest): string {
     servings: request.servings,
     maxMinutes: request.maxMinutes,
     dietaryPattern: request.dietaryPattern,
-    allergies: request.allergies,
+    shoppingDecision: request.shoppingDecision,
   });
 }
 
@@ -364,6 +394,19 @@ function validateCookingResult(result: JsonRecord, context: GatewayCookingContex
   if (!validStringArray(result.usedLots) || !validStringArray(result.missingIngredients)) {
     return 'invalid_cooking_arrays';
   }
+  if (result.usedLots.length === 0 || result.missingIngredients.length > 2) {
+    return 'invalid_cooking_arrays';
+  }
+  if (
+    typeof result.estimatedMinutes !== 'number' ||
+    !Number.isInteger(result.estimatedMinutes) ||
+    result.estimatedMinutes < 1 ||
+    typeof result.servings !== 'number' ||
+    !Number.isInteger(result.servings) ||
+    result.servings < 1
+  ) {
+    return 'invalid_cooking_shape';
+  }
   if (!nonEmptyString(result.rationale)) return 'invalid_cooking_shape';
   if (!isRecord(result.constraintChecks)) return 'invalid_cooking_constraints';
   if (
@@ -457,11 +500,44 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       );
     }
 
-    const preparedContext =
-      parsedRequest.skill === 'fam-cook-from-inventory'
-        ? prepareCookingContext(contextResult.context, parsedRequest)
-        : contextResult.context;
-    if (preparedContext === null) return json({ error: 'no_safe_recipe' }, 422);
+    const canonicalContextResult = parsedRequest.skill === 'fam-cook-from-inventory'
+      ? buildRecipeSuggestionContext({
+          inventory: contextResult.context.inventory,
+          recipes: contextResult.context.recipes,
+          shoppingItems: contextResult.context.shoppingItems,
+          servings: parsedRequest.servings ?? 1,
+          maxMinutes: parsedRequest.maxMinutes,
+          dietaryPattern: parsedRequest.dietaryPattern,
+          allergies: contextResult.context.allergies ?? parsedRequest.allergies,
+          preferences: contextResult.context.preferences,
+          forbiddenIngredients: contextResult.context.forbiddenIngredients,
+          shoppingDecision: parsedRequest.shoppingDecision,
+          today: new Date(now()),
+        })
+      : null;
+    if (parsedRequest.skill === 'fam-cook-from-inventory' && canonicalContextResult === null) {
+      return json({ error: 'no_safe_recipe' }, 422);
+    }
+
+    if (canonicalContextResult?.shoppingQuestion !== null && canonicalContextResult?.shoppingQuestion !== undefined) {
+      return json({
+        requestId: requestId(),
+        skill: parsedRequest.skill,
+        model,
+        result: null,
+        priorityFoodCount: canonicalContextResult.context.priority_foods.length,
+        shoppingQuestion: canonicalContextResult.shoppingQuestion,
+        generatedAt: now(),
+      });
+    }
+
+    const preparedContext = canonicalContextResult?.context ?? contextResult.context;
+    if (
+      canonicalContextResult !== null &&
+      !validateRecipeSuggestionContext(canonicalContextResult.context).ok
+    ) {
+      return json({ error: 'gateway_context_invalid' }, 500);
+    }
 
     const provider = await dependencies.complete({
       model,
@@ -479,19 +555,30 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
 
     const parsedResult = parseProviderJson(provider.content);
     if (!parsedResult) return json({ error: 'provider_invalid_json' }, 502);
+    let validatedResult: unknown = parsedResult;
 
-    const validationError =
-      parsedRequest.skill === 'fam-inventory-capture'
-        ? validateCaptureResult(parsedResult, parsedRequest)
-        : validateCookingResult(parsedResult, preparedContext, parsedRequest);
-    if (validationError) return json({ error: validationError }, 502);
+    if (parsedRequest.skill === 'fam-inventory-capture') {
+      const validationError = validateCaptureResult(parsedResult, parsedRequest);
+      if (validationError) return json({ error: validationError }, 502);
+    } else {
+      const canonicalContext = canonicalContextResult?.context;
+      if (!canonicalContext) return json({ error: 'gateway_context_invalid' }, 500);
+      const validation = validateRecipeSuggestionResponse(canonicalContext, parsedResult);
+      if (!validation.ok) {
+        return json({
+          error: 'provider_contract_violation',
+          issues: validation.issues.map(({ code, path }) => ({ code, path })),
+        }, 502);
+      }
+      validatedResult = validation.value;
+    }
 
     return json({
       requestId: requestId(),
       skill: parsedRequest.skill,
       model: provider.model,
-      result: parsedResult,
-      ...(provider.usage === undefined ? {} : { usage: provider.usage }),
+      result: validatedResult,
+      priorityFoodCount: canonicalContextResult?.context.priority_foods.length ?? 0,
       generatedAt: now(),
     });
   };

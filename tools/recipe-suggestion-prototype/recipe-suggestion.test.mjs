@@ -48,6 +48,102 @@ const baseInput = {
   ],
 };
 
+test('Verbote gelten normalisiert auch fuer Grundzutaten und zugesagte Einkaeufe', () => {
+  const input = structuredClone(baseInput);
+  input.forbiddenIngredients = ['  SPINAT  ', ' SALT '];
+  input.shoppingList = [
+    { id: 'shopping-spinach', name: 'spinat', quantity: 2, unit: 'package' },
+    { id: 'shopping-peanuts', name: 'Erdnüsse', quantity: 1, unit: 'package' },
+  ];
+  const context = buildRecipeContext(input, 'yes');
+  assert.deepEqual(context.priority_foods.map((food) => food.name), ['Tomaten']);
+  assert.deepEqual(context.constraints.allowed_staples, ['oil']);
+  assert.deepEqual(context.planned_shopping_items, []);
+  assert.deepEqual(context.candidate_recipes, []);
+});
+
+test('ein unbrauchbares Los sperrt kein anderes brauchbares Los desselben Lebensmittels', () => {
+  const input = structuredClone(baseInput);
+  input.inventory.push({ ...input.inventory[0], id: 'spinach-bad-lot', expired: true });
+  const context = buildRecipeContext(input);
+  assert.deepEqual(context.priority_foods.map((food) => food.inventory_item_id),
+    ['inventory-spinach', 'inventory-tomatoes']);
+  assert.equal(context.constraints.forbidden_ingredients.includes('Spinat'), false);
+  assert.equal(context.candidate_recipes[0].id, 'catalog-spinach-tomato');
+});
+
+function validResponse() {
+  return { schema_version: 1, meals: [{
+    title: 'Spinat mit Tomaten', source: 'catalog', recipe_id: 'catalog-spinach-tomato',
+    servings: 3,
+    used_items: [{ inventory_item_id: 'inventory-spinach', quantity: 1, unit: 'package' }],
+    additional_ingredients: [], steps: ['Garen.'], notes: [],
+  }] };
+}
+
+test('ein widerspruechlicher Kontext erlaubt keinen verbotenen used_item', () => {
+  const context = buildRecipeContext(baseInput);
+  context.constraints.forbidden_ingredients.push('  SPINAT ');
+  assert.equal(validateRecipeResponse(context, validResponse()).ok, false);
+});
+
+test('kumulativer Verbrauch akzeptiert die exakte Grenze auch bei Dezimalzahlen', () => {
+  const context = buildRecipeContext(baseInput);
+  context.priority_foods[0].available_quantity = 0.3;
+  const response = validResponse();
+  response.meals[0].used_items[0].quantity = 0.1;
+  const second = structuredClone(response.meals[0]);
+  second.used_items[0].quantity = 0.2;
+  response.meals.push(second);
+  assert.equal(validateRecipeResponse(context, response).ok, true);
+  second.used_items[0].quantity = 0.200001;
+  assert.equal(validateRecipeResponse(context, response).ok, false);
+});
+
+test('validator akzeptiert physisch gleiche Mengen in kompatiblen Einheiten', () => {
+  const input = structuredClone(baseInput);
+  input.inventory[0].quantity = 1;
+  input.inventory[0].unit = 'kg';
+  const context = buildRecipeContext(input);
+  const response = validResponse();
+  response.meals[0].used_items[0] = {
+    inventory_item_id: 'inventory-spinach', quantity: 1000, unit: 'g',
+  };
+  assert.equal(validateRecipeResponse(context, response).ok, true);
+});
+
+test('Mengen werden pro Los getrennt und pro Validierungsaufruf neu gezaehlt', () => {
+  const input = structuredClone(baseInput);
+  input.inventory.push({ ...input.inventory[0], id: 'spinach-second-lot', priorityScore: 1 });
+  const context = buildRecipeContext(input);
+  const response = validResponse();
+  response.meals[0].used_items.push({ inventory_item_id: 'spinach-second-lot', quantity: 1, unit: 'package' });
+  const before = structuredClone({ context, response });
+  assert.equal(validateRecipeResponse(context, response).ok, true);
+  assert.equal(validateRecipeResponse(context, response).ok, true);
+  assert.deepEqual({ context, response }, before);
+});
+
+test('ungueltige JSON-Schema-Werte werden ohne Reparatur abgewiesen', () => {
+  const context = buildRecipeContext(baseInput);
+  for (const mutate of [
+    (r) => { r.meals[0].used_items[0].quantity = NaN; },
+    (r) => { r.meals[0].used_items[0].quantity = Infinity; },
+    (r) => { r.meals[0].used_items[0].quantity = '1'; },
+    (r) => { r.meals[0].steps = [null]; },
+    (r) => { r.meals[0].notes = ['']; },
+    (r) => { r.meals[0].notes = ['  ']; },
+    (r) => { r.meals[0].servings = '3'; },
+    (r) => { r.meals[0].used_items = [null]; },
+    (r) => { r.meals[0].recipe_id = 123; },
+    (r) => { r.meals[0] = null; },
+  ]) {
+    const response = validResponse();
+    mutate(response);
+    assert.equal(validateRecipeResponse(context, response).ok, false, JSON.stringify(response));
+  }
+});
+
 test('leere Einkaufsliste erzeugt keine Einkaufsnachfrage', () => {
   const context = buildRecipeContext(baseInput);
 

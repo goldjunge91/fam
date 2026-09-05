@@ -27,6 +27,7 @@ const CONTEXT: GatewayCookingContext = {
     {
       recipeId: 'recipe-1',
       title: 'Tomatenpfanne',
+      source: 'catalog',
       estimatedMinutes: 20,
       servings: 2,
       dietaryTags: ['vegetarian'],
@@ -39,15 +40,19 @@ const CONTEXT: GatewayCookingContext = {
 };
 
 const COOKING_RESULT = {
-  kind: 'cooking_suggestion.v1',
-  recipeId: 'recipe-1',
-  title: 'Tomatenpfanne',
-  usedLots: ['lot-tomato'],
-  missingIngredients: [],
-  estimatedMinutes: 20,
-  servings: 2,
-  rationale: 'Die Tomate wird zuerst verwendet.',
-  constraintChecks: { allergies: 'pass', dietaryPattern: 'pass', time: 'pass' },
+  schema_version: 1,
+  meals: [
+    {
+      title: 'Tomatenpfanne',
+      source: 'catalog',
+      recipe_id: 'recipe-1',
+      servings: 2,
+      used_items: [{ inventory_item_id: 'lot-tomato', quantity: 1, unit: 'piece' }],
+      additional_ingredients: [],
+      steps: ['Tomate in der Pfanne garen.'],
+      notes: [],
+    },
+  ],
 };
 
 function request(body: unknown, method = 'POST') {
@@ -58,7 +63,14 @@ function request(body: unknown, method = 'POST') {
   });
 }
 
-function setup(options: { providerContent?: string; model?: string; providerModel?: string; rateLimited?: boolean } = {}) {
+function setup(options: {
+  providerContent?: string;
+  model?: string;
+  providerModel?: string;
+  providerUsage?: unknown;
+  rateLimited?: boolean;
+  context?: GatewayCookingContext;
+} = {}) {
   const calls: Array<{ model: string; system: string; user: string }> = [];
   let contextReads = 0;
   const handler = createAiGatewayHandler({
@@ -77,7 +89,7 @@ function setup(options: { providerContent?: string; model?: string; providerMode
     }),
     loadCookingContext: async () => {
       contextReads += 1;
-      return { ok: true as const, context: CONTEXT };
+      return { ok: true as const, context: options.context ?? CONTEXT };
     },
     complete: async ({ model, messages }) => {
       calls.push({ model, system: messages[0]?.content ?? '', user: messages[1]?.content ?? '' });
@@ -85,6 +97,7 @@ function setup(options: { providerContent?: string; model?: string; providerMode
         ok: true as const,
         content: options.providerContent ?? JSON.stringify(COOKING_RESULT),
         model: options.providerModel ?? model,
+        ...(options.providerUsage === undefined ? {} : { usage: options.providerUsage }),
       };
     },
     isRateLimited: () => options.rateLimited ?? false,
@@ -139,7 +152,6 @@ Deno.test('builds a cooking prompt from gateway context and returns validated JS
       servings: 2,
       maxMinutes: 30,
       dietaryPattern: 'vegetarian',
-      allergies: [],
     }),
   );
 
@@ -147,14 +159,38 @@ Deno.test('builds a cooking prompt from gateway context and returns validated JS
   const body = await response.json();
   assertEquals(body.requestId, 'request-1');
   assertEquals(body.result, COOKING_RESULT);
+  assertEquals(body.priorityFoodCount, 1);
   assertEquals(getContextReads(), 1);
   assertStringIncludes(calls[0]?.system ?? '', 'lot-tomato');
   assertStringIncludes(calls[0]?.user ?? '', 'vegetarian');
 });
 
+Deno.test('does not expose provider usage in the strict public response envelope', async () => {
+  const { handler } = setup({ providerUsage: { prompt_tokens: 12, completion_tokens: 8 } });
+  const response = await handler(
+    request({
+      skill: 'fam-cook-from-inventory',
+      householdId: 'household-1',
+      userText: 'Was kann ich heute kochen?',
+      servings: 2,
+      maxMinutes: 30,
+      dietaryPattern: 'vegetarian',
+      shoppingDecision: 'no',
+    }),
+  );
+
+  assertEquals(response.status, 200);
+  const body = await response.json();
+  assertEquals(body.usage, undefined);
+  assertEquals(body.result, COOKING_RESULT);
+});
+
 Deno.test('rejects provider output that invents an inventory lot', async () => {
   const { handler } = setup({
-    providerContent: JSON.stringify({ ...COOKING_RESULT, usedLots: ['lot-invented'] }),
+    providerContent: JSON.stringify({
+      ...COOKING_RESULT,
+      meals: [{ ...COOKING_RESULT.meals[0], used_items: [{ inventory_item_id: 'lot-invented', quantity: 1, unit: 'piece' }] }],
+    }),
   });
   const response = await handler(
     request({
@@ -169,7 +205,65 @@ Deno.test('rejects provider output that invents an inventory lot', async () => {
   );
 
   assertEquals(response.status, 502);
-  assertEquals(await response.json(), { error: 'lot_not_allowed' });
+  assertEquals(await response.json(), {
+    error: 'provider_contract_violation',
+    issues: [{ code: 'invalid_reference', path: '$.meals[0].used_items[0].inventory_item_id' }],
+  });
+});
+
+Deno.test('returns the shopping question before calling the model', async () => {
+  const { handler, calls } = setup({
+    context: {
+      ...CONTEXT,
+      shoppingItems: [
+        { shoppingItemId: 'shopping-oil', name: 'Öl', quantity: 1, unit: 'package' },
+      ],
+    },
+  });
+  const response = await handler(
+    request({
+      skill: 'fam-cook-from-inventory',
+      householdId: 'household-1',
+      userText: 'Was sollte ich heute essen?',
+      servings: 2,
+      maxMinutes: null,
+      dietaryPattern: null,
+      allergies: [],
+      shoppingDecision: null,
+    }),
+  );
+
+  assertEquals(response.status, 200);
+  assertEquals(await response.json(), {
+    requestId: 'request-1',
+    skill: 'fam-cook-from-inventory',
+    model: 'z-ai/glm-5.3-flash',
+    result: null,
+    priorityFoodCount: 1,
+    shoppingQuestion: 'Willst du heute noch einkaufen?',
+    generatedAt: '2026-09-01T10:00:00.000Z',
+  });
+  assertEquals(calls, []);
+});
+
+Deno.test('uses server-loaded allergies instead of trusting request allergies', async () => {
+  const { handler, calls } = setup({ context: { ...CONTEXT, allergies: ['Tomate'] } });
+  const response = await handler(
+    request({
+      skill: 'fam-cook-from-inventory',
+      householdId: 'household-1',
+      userText: 'Was kann ich heute kochen?',
+      servings: 2,
+      maxMinutes: null,
+      dietaryPattern: null,
+      allergies: [],
+      shoppingDecision: 'no',
+    }),
+  );
+
+  assertEquals(response.status, 422);
+  assertEquals(await response.json(), { error: 'no_safe_recipe' });
+  assertEquals(calls, []);
 });
 
 Deno.test('rejects a provider model that differs from the allowlisted request', async () => {

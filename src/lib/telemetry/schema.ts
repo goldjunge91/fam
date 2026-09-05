@@ -36,6 +36,19 @@ export type ProductTelemetryEventMap = {
   'recipe.create.completed': Record<string, never>;
   'recipe.update.completed': Record<string, never>;
   'recipe.delete.completed': Record<string, never>;
+  'meal_suggestion.request.completed': {
+    result: 'suggestions' | 'no_safe_suggestion' | 'shopping_question';
+    suggestion_count: number;
+    priority_food_count: number;
+    fallback_used: boolean;
+  };
+  'meal_suggestion.view.completed': { suggestion_count: number };
+  'meal_suggestion.cook_review.completed': {
+    reviewed_item_count: number;
+    consumed_item_count: number;
+    consumed_quantity_known: boolean;
+  };
+  'meal_suggestion.save.completed': { source: 'catalog' | 'model_generated' };
   'shopping_item.create.completed': Record<string, never>;
   'shopping_item.update.completed': Record<string, never>;
   'shopping_item.check.completed': Record<string, never>;
@@ -43,7 +56,18 @@ export type ProductTelemetryEventMap = {
   'shopping_item.delete.completed': Record<string, never>;
   'inventory_item.create.completed': Record<string, never>;
   'inventory_item.update.completed': Record<string, never>;
-  'inventory_item.consume.completed': { depleted: boolean };
+  'inventory_item.consume.completed': {
+    depleted: boolean;
+    quantity_known: boolean;
+    quantity?: number;
+    unit?: 'g' | 'kg' | 'ml' | 'l' | 'piece' | 'package' | 'portion';
+  };
+  'inventory_item.waste.completed': {
+    reason: 'expired' | 'spoiled' | 'unwanted' | 'other';
+    quantity_known: boolean;
+    quantity?: number;
+    unit?: 'g' | 'kg' | 'ml' | 'l' | 'piece' | 'package' | 'portion';
+  };
   'inventory_item.delete.completed': Record<string, never>;
   'inventory_item.restore.completed': Record<string, never>;
   'meal_plan_entry.create.completed': { meal_slot: string };

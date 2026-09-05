@@ -213,7 +213,7 @@ test('Prompt beschreibt ausschließlich die kanonischen Kontext- und Response-Fe
   assert.ok(prompt.includes('catalog'));
   assert.ok(prompt.includes('template'));
   assert.ok(prompt.includes('model_generated'));
-  assert.doesNotMatch(prompt, /"source":\s*"catalog"/);
+  assert.match(prompt, /"source":\s*"catalog"/);
   assert.match(prompt, /candidate_recipes leer/);
   assert.doesNotMatch(prompt, /\bmeal_id\b/);
   assert.doesNotMatch(prompt, /\bingredients\b/);
@@ -261,7 +261,7 @@ test('Evaluator erzwingt den exakten kanonischen Response-Vertrag', async () => 
     notes: ['Geplante Einkaufsartikel können verwendet werden.'],
   });
 
-  assert.equal(evaluate(validResponse), 1);
+  assert.equal(evaluate(validResponse), true);
   assert.equal(
     evaluate(
       withOutput(validResponse, {
@@ -269,39 +269,39 @@ test('Evaluator erzwingt den exakten kanonischen Response-Vertrag', async () => 
         meals: Array.from({ length: 4 }, () => responseOutput(validResponse).meals[0]),
       }),
     ),
-    0,
+    false,
   );
   assert.equal(
     evaluate(withOutput(validResponse, { ...responseOutput(validResponse), extra: true })),
-    0,
+    false,
   );
   assert.equal(
     evaluate({ ...validResponse, text: validResponse.text.replace('recipe_id', 'meal_id') }),
-    0,
+    false,
   );
   assert.equal(
     evaluate({ ...validResponse, text: validResponse.text.replace('used_items', 'ingredients') }),
-    0,
+    false,
   );
   assert.equal(
     evaluate({ ...validResponse, text: validResponse.text.replace('inv_pasta', 'inv_unknown') }),
-    0,
+    false,
   );
   assert.equal(
     evaluate({ ...validResponse, text: validResponse.text.replace('"quantity":200', '"quantity":0') }),
-    0,
+    false,
   );
   assert.equal(
     evaluate({ ...validResponse, text: validResponse.text.replace('"unit":"g"', '"unit":""') }),
-    0,
+    false,
   );
   assert.equal(
     evaluate({ ...validResponse, text: validResponse.text.replace('"unit":"g"', '"unit":"kg"') }),
-    0,
+    false,
   );
   assert.equal(
     evaluate({ ...validResponse, text: validResponse.text.replace('"source":"catalog"', '"source":"template"') }),
-    0,
+    false,
   );
   assert.equal(
     evaluate({
@@ -311,17 +311,17 @@ test('Evaluator erzwingt den exakten kanonischen Response-Vertrag', async () => 
         '"additional_ingredients":["peanut"]',
       ),
     }),
-    0,
+    false,
   );
   assert.equal(
     evaluate({ ...validResponse, text: validResponse.text.replace('"steps":["Pasta kochen.","Tomaten und Öl vermengen."]', '"steps":[]') }),
-    0,
+    false,
   );
   assert.equal(
     evaluate({ ...validResponse, text: validResponse.text.replace('"notes":["Geplante Einkaufsartikel können verwendet werden."]', '"notes":[1]') }),
-    0,
+    false,
   );
-  assert.equal(evaluate({ ...validResponse, text: '{not-json}' }), 0);
+  assert.equal(evaluate({ ...validResponse, text: '{not-json}' }), false);
 });
 
 test('OpenRouter-Provider bindet Key, Modell und strict Structured Output ohne Secret ein', async () => {
@@ -356,7 +356,7 @@ test('Evaluator lehnt used_items mit Mengenüberschreitung ab', async () => {
     notes: [],
   });
 
-  assert.equal(evaluate(response), 0);
+  assert.equal(evaluate(response), false);
 });
 
 test('model_generated ist nur mit Fallback und null recipe_id gültig', async () => {
@@ -374,10 +374,10 @@ test('model_generated ist nur mit Fallback und null recipe_id gültig', async ()
     notes: [],
   });
 
-  assert.equal(evaluate(validFallback), 1);
+  assert.equal(evaluate(validFallback), true);
   assert.equal(
     evaluate({ ...validFallback, text: validFallback.text.replace('"recipe_id":null', '"recipe_id":"invented"') }),
-    0,
+    false,
   );
 
   const declined = rows.find((row) => row.scenario_type === 'shopping_declined').compact_context;
@@ -386,6 +386,6 @@ test('model_generated ist nur mit Fallback und null recipe_id gültig', async ()
       ...validFallback,
       var: { compact_context: JSON.stringify(declined) },
     }),
-    0,
+    false,
   );
 });

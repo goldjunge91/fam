@@ -78,6 +78,7 @@ RECIPE_SUGGESTION_RESPONSE_SCHEMA: dict[str, Any] = json.loads(r"""
           },
           "used_items": {
             "type": "array",
+            "minItems": 1,
             "items": {
               "type": "object",
               "additionalProperties": false,

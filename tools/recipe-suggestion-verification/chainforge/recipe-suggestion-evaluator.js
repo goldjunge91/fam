@@ -51,6 +51,13 @@ const CANDIDATE_RECIPE_KEYS = new Set([
 ]);
 const RECIPE_SOURCES = new Set(['catalog', 'template']);
 const SOURCES = new Set(['catalog', 'template', 'model_generated']);
+const UNIT_DEFINITIONS = new Map([
+  ['g', { dimension: 'mass', factor: 1 }], ['kg', { dimension: 'mass', factor: 1000 }],
+  ['ml', { dimension: 'volume', factor: 1 }], ['l', { dimension: 'volume', factor: 1000 }],
+  ['pcs', { dimension: 'count', factor: 1 }], ['piece', { dimension: 'count', factor: 1 }],
+  ['pack', { dimension: 'package', factor: 1 }], ['package', { dimension: 'package', factor: 1 }],
+  ['dose', { dimension: 'dose', factor: 1 }], ['portion', { dimension: 'portion', factor: 1 }],
+]);
 
 function normalize(value) {
   return typeof value === 'string' ? value.trim().toLowerCase() : '';
@@ -70,6 +77,16 @@ function isFiniteNumber(value) {
 
 function isNonEmptyString(value) {
   return typeof value === 'string' && value.trim().length > 0;
+}
+
+function normalizeMeasurement(quantity, unit) {
+  if (!isFiniteNumber(quantity) || quantity <= 0 || !isNonEmptyString(unit)) return null;
+  const definition = UNIT_DEFINITIONS.get(normalize(unit));
+  if (!definition) return null;
+  const normalizedQuantity = quantity * definition.factor;
+  return Number.isFinite(normalizedQuantity)
+    ? { quantity: normalizedQuantity, dimension: definition.dimension }
+    : null;
 }
 
 function readJson(value) {
@@ -135,7 +152,8 @@ function readCompactContext(response) {
       !isNonEmptyString(food.unit) ||
       !isFiniteNumber(food.available_quantity) ||
       food.available_quantity <= 0 ||
-      !isFiniteNumber(food.priority_score)
+      !isFiniteNumber(food.priority_score) ||
+      !normalizeMeasurement(food.available_quantity, food.unit)
     ) {
       return null;
     }
@@ -207,10 +225,12 @@ function hasValidUsedItem(usedItem, priorityFoods) {
   const priorityFood = priorityFoods.find(
     (food) => food.inventory_item_id === usedItem.inventory_item_id,
   );
+  const usedMeasurement = normalizeMeasurement(usedItem.quantity, usedItem.unit);
+  const availableMeasurement = priorityFood
+    && normalizeMeasurement(priorityFood.available_quantity, priorityFood.unit);
   return Boolean(
-    priorityFood &&
-      usedItem.quantity <= priorityFood.available_quantity &&
-      usedItem.unit === priorityFood.unit,
+    priorityFood && usedMeasurement && availableMeasurement
+      && usedMeasurement.dimension === availableMeasurement.dimension,
   );
 }
 
@@ -241,31 +261,41 @@ function hasKnownRecipe(meal, context) {
 function evaluate(response) {
   const output = parseResponse(response);
   const context = readCompactContext(response);
-  if (!hasExactKeys(output, RESPONSE_KEYS) || !context) return 0;
-  if (output.schema_version !== 1 || !Array.isArray(output.meals) || output.meals.length < 1 || output.meals.length > 3) return 0;
+  if (!hasExactKeys(output, RESPONSE_KEYS) || !context) return false;
+  if (output.schema_version !== 1 || !Array.isArray(output.meals) || output.meals.length < 1 || output.meals.length > 3) return false;
+  if (context.candidateRecipes.length > 0 && output.meals.length !== 1) return false;
 
   const usedQuantities = new Map();
   for (const meal of output.meals) {
-    if (!hasExactKeys(meal, MEAL_KEYS)) return 0;
-    if (!isNonEmptyString(meal.title) || !SOURCES.has(meal.source)) return 0;
-    if (!Number.isInteger(meal.servings) || meal.servings < 1) return 0;
-    if (!Array.isArray(meal.used_items) || !hasAllowedAdditionalIngredients(meal, context)) return 0;
-    if (!Array.isArray(meal.steps) || meal.steps.length < 1 || !meal.steps.every(isNonEmptyString)) return 0;
-    if (!Array.isArray(meal.notes) || !meal.notes.every((note) => typeof note === 'string')) return 0;
-    if (!hasKnownRecipe(meal, context)) return 0;
+    if (!hasExactKeys(meal, MEAL_KEYS)) return false;
+    if (!isNonEmptyString(meal.title) || !SOURCES.has(meal.source)) return false;
+    if (!Number.isInteger(meal.servings) || meal.servings < 1) return false;
+    if (!Array.isArray(meal.used_items) || !hasAllowedAdditionalIngredients(meal, context)) return false;
+    if (!Array.isArray(meal.steps) || meal.steps.length < 1 || !meal.steps.every(isNonEmptyString)) return false;
+    if (!Array.isArray(meal.notes) || !meal.notes.every((note) => typeof note === 'string')) return false;
+    if (!hasKnownRecipe(meal, context)) return false;
+    const mealUsedIds = new Set();
     for (const usedItem of meal.used_items) {
-      if (!hasValidUsedItem(usedItem, context.priorityFoods)) return 0;
+      if (!hasValidUsedItem(usedItem, context.priorityFoods)) return false;
+      if (mealUsedIds.has(usedItem.inventory_item_id)) return false;
+      mealUsedIds.add(usedItem.inventory_item_id);
       const priorityFood = context.priorityFoods.find(
         (food) => food.inventory_item_id === usedItem.inventory_item_id,
       );
+      const usedMeasurement = normalizeMeasurement(usedItem.quantity, usedItem.unit);
+      const availableMeasurement = priorityFood
+        && normalizeMeasurement(priorityFood.available_quantity, priorityFood.unit);
       const totalQuantity =
-        (usedQuantities.get(usedItem.inventory_item_id) ?? 0) + usedItem.quantity;
-      if (!priorityFood || totalQuantity > priorityFood.available_quantity) return 0;
+        (usedQuantities.get(usedItem.inventory_item_id) ?? 0) + usedMeasurement.quantity;
+      const tolerance = Number.EPSILON * Math.max(totalQuantity, availableMeasurement.quantity) * 4;
+      if (!priorityFood || !usedMeasurement || !availableMeasurement
+        || usedMeasurement.dimension !== availableMeasurement.dimension
+        || totalQuantity - availableMeasurement.quantity > tolerance) return false;
       usedQuantities.set(usedItem.inventory_item_id, totalQuantity);
     }
   }
 
-  return 1;
+  return true;
 }
 
 if (typeof module !== 'undefined') module.exports = { evaluate };

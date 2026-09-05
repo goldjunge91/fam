@@ -72,6 +72,12 @@ test('prompt has exactly one input and embedded evaluator matches its source', a
   assert.equal(evaluator.data.code, await read('./recipe-suggestion-evaluator.js'));
 });
 
+test('prompt is written as product behavior, not evaluation instructions', () => {
+  assert.doesNotMatch(prompt.data.prompt, /synthetic|promptfoo|chainforge|für diesen test|for this test/i);
+  assert.doesNotMatch(prompt.data.prompt, /scenario_id|scenario_type|expected|test case/i);
+  assert.doesNotMatch(prompt.data.prompt, /\b(?:college|student|budget|USD|estimatedCost|imagePromptHint)\b/i);
+});
+
 test('flow connects correct ChainForge handles through evaluator to both result views', () => {
   assert.equal(nodes.length, 5);
   assert.deepEqual(edges.map(({ source, sourceHandle, target, targetHandle }) => [
@@ -83,6 +89,18 @@ test('flow connects correct ChainForge handles through evaluator to both result 
     [evaluator.id, 'output', nodes.find((node) => node.type === 'vis').id, 'input'],
   ]);
   assert.equal(new Set(nodes.map((node) => node.id)).size, nodes.length);
+});
+
+test('imported result views reference the evaluator cache, not just a visible edge', async () => {
+  const synthetic = JSON.parse(await read('./recipe-suggestion-synthetic-75.cforge'));
+  for (const flow of [bundle.flow, comparison.flow, synthetic.flow]) {
+    for (const node of flow.nodes.filter((item) => ['vis', 'inspect'].includes(item.type))) {
+      const incoming = flow.edges.filter((edge) => edge.target === node.id);
+      assert.equal(incoming.length, 1);
+      assert.equal(node.data.input, incoming[0].source, `${node.id}: cache source must match the edge`);
+      assert.equal(flow.nodes.find((item) => item.id === node.data.input)?.type, 'evaluator');
+    }
+  }
 });
 
 test('embedded evaluator reads ChainForge-escaped contexts without repairing model output', () => {
@@ -106,10 +124,10 @@ test('embedded evaluator reads ChainForge-escaped contexts without repairing mod
       }] }),
       var: { compact_context: row.compact_context.replace(/[{}]/g, '\\$&') },
     };
-    assert.equal(evaluate(response), 1, row.scenario_id);
-    assert.equal(evaluate({ ...response, var: { compact_context: '{broken}' } }), 0);
-    assert.equal(evaluate({ ...response, text: response.text.replace(/[{}]/g, '\\$&') }), 0);
-    assert.equal(evaluate({ ...response, text: response.text.replace(food.inventory_item_id, 'unknown') }), 0);
+    assert.equal(evaluate(response), true, row.scenario_id);
+    assert.equal(evaluate({ ...response, var: { compact_context: '{broken}' } }), false);
+    assert.equal(evaluate({ ...response, text: response.text.replace(/[{}]/g, '\\$&') }), false);
+    assert.equal(evaluate({ ...response, text: response.text.replace(food.inventory_item_id, 'unknown') }), false);
   }
 });
 

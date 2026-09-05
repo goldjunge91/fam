@@ -129,6 +129,56 @@ describe('recipe suggestion contracts', () => {
     expect(result).toMatchObject({ ok: false, issues: [expect.objectContaining(issue)] });
   });
 
+  it('rejects an inventory item that is not an ingredient of the selected recipe', () => {
+    const context = createContext({
+      priority_foods: [
+        ...createContext().priority_foods,
+        {
+          inventory_item_id: 'inventory-rice',
+          name: 'Reis',
+          available_quantity: 500,
+          unit: 'g',
+          priority_score: 1,
+        },
+      ],
+    });
+    const result = validateRecipeSuggestionResponse(
+      context,
+      createResponse(
+        createCatalogMeal({
+          used_items: [{ inventory_item_id: 'inventory-rice', quantity: 100, unit: 'g' }],
+        }),
+      ),
+    );
+
+    expect(result).toMatchObject({
+      ok: false,
+      issues: [
+        expect.objectContaining({
+          code: 'invalid_reference',
+          path: '$.meals[0].used_items[0].inventory_item_id',
+        }),
+      ],
+    });
+  });
+
+  it('rejects more than two additional ingredients', () => {
+    const result = validateRecipeSuggestionResponse(
+      createContext(),
+      createResponse(createCatalogMeal({ additional_ingredients: ['Öl', 'Salz', 'Pfeffer'] })),
+    );
+
+    expect(result).toMatchObject({
+      ok: false,
+      issues: [
+        expect.objectContaining({
+          code: 'invalid_shape',
+          path: '$.meals[0].additional_ingredients',
+        }),
+      ],
+    });
+  });
+
   it('allows model_generated only when fallback is allowed', () => {
     const rejected = validateRecipeSuggestionResponse(
       createContext(),
@@ -173,6 +223,44 @@ describe('recipe suggestion contracts', () => {
           path: '$.meals[1].used_items[0].quantity',
         }),
       ],
+    });
+  });
+
+  it('accepts compatible mass units without changing the inventory representation', () => {
+    const context = createContext({
+      priority_foods: [
+        {
+          inventory_item_id: 'inventory-tomatoes',
+          name: 'Tomaten',
+          available_quantity: 1,
+          unit: 'kg',
+          priority_score: 1,
+        },
+      ],
+    });
+
+    const accepted = validateRecipeSuggestionResponse(
+      context,
+      createResponse(
+        createCatalogMeal({
+          used_items: [{ inventory_item_id: 'inventory-tomatoes', quantity: 1_000, unit: 'g' }],
+        }),
+      ),
+    );
+    expect(accepted).toMatchObject({ ok: true });
+    expect(context.priority_foods[0]).toMatchObject({ available_quantity: 1, unit: 'kg' });
+
+    const overdrawn = validateRecipeSuggestionResponse(
+      context,
+      createResponse(
+        createCatalogMeal({
+          used_items: [{ inventory_item_id: 'inventory-tomatoes', quantity: 1_001, unit: 'g' }],
+        }),
+      ),
+    );
+    expect(overdrawn).toMatchObject({
+      ok: false,
+      issues: [expect.objectContaining({ code: 'invalid_quantity' })],
     });
   });
 

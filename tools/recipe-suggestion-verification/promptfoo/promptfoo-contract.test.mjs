@@ -13,6 +13,10 @@ const readArtifact = (relativePath) =>
 const promptfooConfig = await readArtifact('promptfooconfig.yaml');
 const openrouterConfig = await readArtifact('promptfooconfig.openrouter.yaml');
 const prompt = await readArtifact('prompts/recipe-suggestion.prompt.txt');
+const alternativeConfig = await readArtifact('promptfooconfig.alternative.yaml');
+const alternativePrompt = await readArtifact(
+  'prompts/recipe-suggestion-alternative.prompt.txt',
+);
 const responseFormatText = await readArtifact(
   'schemas/recipe-suggestion-response-format.json',
 );
@@ -168,6 +172,29 @@ test('prompt is restricted to the canonical compact context and response fields'
   );
 });
 
+test('prompt keeps inventory consumption separate from shopping and later meals', () => {
+  for (const candidate of [prompt, alternativePrompt]) {
+    assert.match(candidate, /used_items ist ausschließlich das Verbrauchsprotokoll/);
+    assert.match(candidate, /geplanter Einkaufsartikel erscheint ausschließlich als exakter name in additional_ingredients/);
+    assert.match(candidate, /niemals mit quantity 0 aufgeführt/);
+    assert.match(candidate, /keine zweite Mahlzeit für Reste oder einen späteren Zeitpunkt/);
+    assert.match(candidate, /Jede priority_food, die in title, steps oder notes als verwendete Zutat erscheint oder verarbeitet wird/);
+    assert.match(candidate, /ein nicht verwendetes Los wird komplett weggelassen/);
+  }
+});
+
+test('primary and alternative prompts are budget-free product workflows', () => {
+  assert.match(alternativeConfig, /prompts\/recipe-suggestion-alternative\.prompt\.txt/);
+  for (const candidate of [prompt, alternativePrompt]) {
+    assert.match(candidate, /\{\{compact_context\}\}/);
+    assert.doesNotMatch(candidate, /\b(?:college|student|budget|USD|estimatedCost|imagePromptHint)\b/i);
+    assert.doesNotMatch(candidate, /\b(?:promptfoo|chainforge|synthetic|test case)\b/i);
+    assert.match(candidate, /schema_version/);
+    assert.match(candidate, /used_items/);
+    assert.match(candidate, /inventory_item_id/);
+  }
+});
+
 test('all scenarios use canonical contexts and direct is-json references', () => {
   assert.equal(compactContexts.length, 4);
   const canonicalContextKeys = [
@@ -245,6 +272,34 @@ test('semantic assertion rejects foreign inventory IDs and mismatched measures',
   assert.equal(
     assertRecipeSuggestion(JSON.stringify(unitResponse), contextForAssertion(compactContext)).pass,
     false,
+  );
+});
+
+test('semantic assertion rejects duplicate inventory IDs within one meal', () => {
+  const compactContext = compactContexts[0];
+  const response = validResponseFor(compactContext);
+  response.meals[0].used_items.push({ ...response.meals[0].used_items[0] });
+  assert.equal(
+    assertRecipeSuggestion(JSON.stringify(response), contextForAssertion(compactContext)).pass,
+    false,
+  );
+});
+
+test('semantic assertion allows multiple meals only for an explicit fallback', () => {
+  const catalogContext = compactContexts[0];
+  const catalogResponse = validResponseFor(catalogContext);
+  catalogResponse.meals.push(structuredClone(catalogResponse.meals[0]));
+  assert.equal(
+    assertRecipeSuggestion(JSON.stringify(catalogResponse), contextForAssertion(catalogContext)).pass,
+    false,
+  );
+
+  const fallbackContext = compactContexts[3];
+  const fallbackResponse = validResponseFor(fallbackContext);
+  fallbackResponse.meals.push(structuredClone(fallbackResponse.meals[0]));
+  assert.equal(
+    assertRecipeSuggestion(JSON.stringify(fallbackResponse), contextForAssertion(fallbackContext)).pass,
+    true,
   );
 });
 

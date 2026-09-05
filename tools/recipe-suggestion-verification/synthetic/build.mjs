@@ -6,12 +6,7 @@ const read = (name) => readFile(new URL(name, root), 'utf8');
 if (syntheticScenarios.length !== 75) throw new Error('Expected exactly 75 synthetic scenarios.');
 const rows = syntheticScenarios.map(({ scenario_id, scenario_type, compact_context }) =>
   ({ scenario_id, scenario_type, compact_context }));
-const prompt = `${await read('chainforge/recipe-suggestion-prompt.txt')}
-Für diesen Test gilt zusätzlich: Jede Mahlzeit hat exakt request.servings Portionen.
-Verwende das Lebensmittel mit dem höchsten priority_score und mindestens zwei
-verschiedene priority_foods, wenn mindestens zwei verfügbar sind. Verbrauche
-möglichst viele priorisierte Lebensmittel, ohne ihre verfügbaren Mengen zu überschreiten.
-`;
+const prompt = await read('chainforge/recipe-suggestion-prompt.txt');
 const expected = Object.fromEntries(syntheticScenarios.map((scenario) =>
   [scenario.compact_context.priority_foods[0].inventory_item_id, scenario.expected]));
 if (Object.keys(expected).length !== 75) throw new Error('Expected unique inventory IDs per scenario.');
@@ -26,21 +21,30 @@ function evaluateSyntheticQuality(response) {
   return assessSyntheticResponse(response.text, compact, expected);
 }
 evaluate = function(response) {
-  if (evaluateContract(response) !== 1) return 0;
-  return evaluateSyntheticQuality(response).pass ? 1 : 0;
+  if (!evaluateContract(response)) return false;
+  return evaluateSyntheticQuality(response).pass;
 };
 if (typeof module !== 'undefined') module.exports = { evaluate, evaluateSyntheticQuality };
 `;
 const flow = JSON.parse(await read('chainforge/recipe-suggestion-v2.cforge'));
 const table = flow.flow.nodes.find((node) => node.type === 'table').data;
-table.title = '1. 75 synthetische Inventare';
+table.title = `1. 75 synthetische Inventare · ${DATASET_VERSION}`;
 table.rows = rows.map((row) => ({ ...row, compact_context: JSON.stringify(row.compact_context), __uid: row.scenario_id }));
 table.sample = false;
 const promptNode = flow.flow.nodes.find((node) => node.type === 'prompt').data;
 promptNode.prompt = prompt;
 promptNode.title = '2. GLM 5.3 · 75 Szenarien';
 flow.flow.nodes.find((node) => node.type === 'evaluator').data.code = evaluator;
-flow.flow.nodes.find((node) => node.type === 'vis').data.title = '5. Ergebnisübersicht';
+const vis = flow.flow.nodes.find((node) => node.type === 'vis').data;
+vis.title = '5. Bestehensquote nach Szenariotyp';
+vis.vars = [
+  { value: 'LLM (default)', label: 'LLM (default)' },
+  { value: 'compact_context', label: 'compact_context' },
+  { value: '__meta_scenario_id', label: 'scenario_id (meta)' },
+  { value: '__meta_scenario_type', label: 'scenario_type (meta)' },
+];
+vis.selected_vars = ['__meta_scenario_type'];
+vis.eval_res_vars = ['score'];
 flow.cache = { __s: [] };
 const tests = syntheticScenarios.map((scenario) => ({
   description: `${scenario.scenario_id}: ${scenario.description}`,

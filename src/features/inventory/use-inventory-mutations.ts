@@ -6,6 +6,10 @@ import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
+import {
+  buildInventoryOutcomeTelemetry,
+  type InventoryOutcomeTelemetry,
+} from './inventory-outcome';
 
 export type FridgeItem = {
   id: string;
@@ -19,6 +23,25 @@ export type FridgeItem = {
   package_size_unit: string | null;
   expiry_date: string | null;
 };
+
+export type InventoryQuantityMutationOperation = 'adjust' | 'consume' | 'remove' | 'waste';
+export type InventoryWasteReason = 'expired' | 'spoiled' | 'unwanted' | 'other';
+
+type InventoryQuantityMutationInput =
+  | {
+      id: string;
+      household_id: string;
+      delta: number;
+      operation?: Exclude<InventoryQuantityMutationOperation, 'waste'>;
+      wasteReason?: never;
+    }
+  | {
+      id: string;
+      household_id: string;
+      delta: number;
+      operation: 'waste';
+      wasteReason: InventoryWasteReason;
+    };
 
 export function useAddFridgeItemMutation() {
   const queryClient = useQueryClient();
@@ -85,25 +108,26 @@ export function useUpdateInventoryItemQuantityMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async ({
-      id,
-      household_id,
-      delta,
-    }: {
-      id: string;
-      household_id: string;
-      delta: number;
-    }) => {
+    mutationFn: async (input: InventoryQuantityMutationInput) => {
+      const { id, household_id, delta, operation = 'adjust' } = input;
       const db = await getDatabase();
       const now = new Date().toISOString();
       const nowMs = Date.now();
-      const existing = await db.getFirstAsync<{ quantity: number; name: string }>(
-        'select quantity, name from fridge_items where id = ?',
+      const existing = await db.getFirstAsync<{ quantity: number; name: string; unit: string }>(
+        'select quantity, name, unit from fridge_items where id = ?',
         [id],
       );
       if (!existing) return;
 
+      if ((operation === 'consume' || operation === 'waste') && delta >= 0) {
+        throw new Error(`${operation} requires a negative quantity delta`);
+      }
+
       const newQty = Math.max(0, existing.quantity + delta);
+      const outcomeTelemetry: InventoryOutcomeTelemetry = buildInventoryOutcomeTelemetry(
+        Math.min(existing.quantity, Math.abs(delta)),
+        existing.unit,
+      );
 
       if (newQty === 0) {
         await enqueueMutation(db, {
@@ -124,17 +148,25 @@ export function useUpdateInventoryItemQuantityMutation() {
             applyLocalMirrorWrite(txn, 'fridge_items', 'update', { id, quantity: newQty }, nowMs),
         });
       }
-      return { id, newQty };
+      return { id, newQty, operation, outcomeTelemetry };
     },
     onSuccess: (result, variables) => {
       if (result) {
-        if (variables.delta < 0) {
+        if (variables.operation === 'consume') {
           trackAnalyticsEvent('inventory_item.consume.completed', {
             depleted: result.newQty === 0,
+            ...result.outcomeTelemetry,
           });
           if (result.newQty === 0) {
             trackAnalyticsEvent('inventory_item.delete.completed');
           }
+        } else if (variables.operation === 'waste') {
+          trackAnalyticsEvent('inventory_item.waste.completed', {
+            reason: variables.wasteReason,
+            ...result.outcomeTelemetry,
+          });
+        } else if (variables.operation === 'remove') {
+          trackAnalyticsEvent('inventory_item.delete.completed');
         } else {
           trackAnalyticsEvent('inventory_item.update.completed');
         }

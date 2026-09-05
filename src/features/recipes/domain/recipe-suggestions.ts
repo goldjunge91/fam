@@ -15,6 +15,30 @@ const identifierSchema = z
 const positiveNumberSchema = z.number().positive();
 const positiveIntegerSchema = z.number().int().positive();
 
+type MeasurementDimension = 'mass' | 'volume' | 'count' | 'package' | 'portion';
+type ComparableMeasurement = { dimension: MeasurementDimension; value: number };
+
+const MEASUREMENT_DEFINITIONS: ReadonlyMap<
+  string,
+  { dimension: MeasurementDimension; factor: number }
+> = new Map([
+  ['g', { dimension: 'mass', factor: 1 }],
+  ['kg', { dimension: 'mass', factor: 1_000 }],
+  ['ml', { dimension: 'volume', factor: 1 }],
+  ['l', { dimension: 'volume', factor: 1_000 }],
+  ['piece', { dimension: 'count', factor: 1 }],
+  ['package', { dimension: 'package', factor: 1 }],
+  ['portion', { dimension: 'portion', factor: 1 }],
+]);
+
+function comparableMeasurement(quantity: number, unit: string): ComparableMeasurement | null {
+  const definition = MEASUREMENT_DEFINITIONS.get(unit.trim().toLocaleLowerCase('de-DE'));
+  if (!definition) return null;
+
+  const value = quantity * definition.factor;
+  return Number.isFinite(value) ? { dimension: definition.dimension, value } : null;
+}
+
 const priorityFoodSchema = z.strictObject({
   inventory_item_id: nonEmptyStringSchema,
   name: nonEmptyStringSchema,
@@ -68,7 +92,7 @@ const recipeSuggestionMealSchema = z.strictObject({
   recipe_id: z.union([z.string().min(1), z.null()]),
   servings: positiveIntegerSchema,
   used_items: z.array(usedItemSchema),
-  additional_ingredients: z.array(nonEmptyStringSchema),
+  additional_ingredients: z.array(nonEmptyStringSchema).max(2),
   steps: z.array(nonEmptyStringSchema).min(1),
   notes: z.array(z.string()),
 });
@@ -170,7 +194,7 @@ function validateMeal(
   context: RecipeSuggestionContext,
   meal: RecipeSuggestionMeal,
   mealIndex: number,
-  usedQuantities: Map<string, number>,
+  usedQuantities: Map<string, ComparableMeasurement>,
 ): RecipeSuggestionIssue[] {
   const issues: RecipeSuggestionIssue[] = [];
   const path = `$.meals[${mealIndex}]`;
@@ -231,17 +255,38 @@ function validateMeal(
       return;
     }
 
-    if (item.unit !== inventoryItem.unit) {
+    if (
+      candidate &&
+      !candidate.ingredient_names.some(
+        (ingredientName) => normalize(ingredientName) === normalize(inventoryItem.name),
+      )
+    ) {
       issues.push({
-        code: 'invalid_quantity',
-        path: `${itemPath}.unit`,
-        message: 'unit does not match the inventory item',
+        code: 'invalid_reference',
+        path: `${itemPath}.inventory_item_id`,
+        message: 'inventory item is not an ingredient of the referenced recipe',
       });
     }
 
-    const totalQuantity = (usedQuantities.get(item.inventory_item_id) ?? 0) + item.quantity;
+    const used = comparableMeasurement(item.quantity, item.unit);
+    const available = comparableMeasurement(inventoryItem.available_quantity, inventoryItem.unit);
+    if (used === null || available === null || used.dimension !== available.dimension) {
+      issues.push({
+        code: 'invalid_quantity',
+        path: `${itemPath}.unit`,
+        message: 'unit is not compatible with the inventory item',
+      });
+      return;
+    }
+
+    const previous = usedQuantities.get(item.inventory_item_id);
+    const totalQuantity =
+      previous === undefined
+        ? used
+        : { dimension: used.dimension, value: previous.value + used.value };
     usedQuantities.set(item.inventory_item_id, totalQuantity);
-    if (totalQuantity > inventoryItem.available_quantity) {
+    const tolerance = Number.EPSILON * Math.max(totalQuantity.value, available.value) * 4;
+    if (totalQuantity.value - available.value > tolerance) {
       issues.push({
         code: 'invalid_quantity',
         path: `${itemPath}.quantity`,
@@ -280,7 +325,7 @@ export function validateRecipeSuggestionResponse(
   if (!parsed.success) return { ok: false, issues: shapeIssues(parsed.error) };
 
   const issues: RecipeSuggestionIssue[] = [];
-  const usedQuantities = new Map<string, number>();
+  const usedQuantities = new Map<string, ComparableMeasurement>();
   parsed.data.meals.forEach((meal, index) => {
     issues.push(...validateMeal(context, meal, index, usedQuantities));
   });

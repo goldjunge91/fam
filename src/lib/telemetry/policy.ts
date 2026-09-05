@@ -13,6 +13,7 @@ const PRODUCT_FEATURE_PREFIXES = [
   ['inventory_item.', 'inventory'],
   ['shopping_item.', 'shoppingList'],
   ['recipe.', 'recipes'],
+  ['meal_suggestion.', 'recipes'],
   ['meal_plan', 'mealPlanner'],
   ['product.', 'productSearch'],
   ['paywall.', 'premium'],

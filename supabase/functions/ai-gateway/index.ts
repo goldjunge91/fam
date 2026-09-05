@@ -9,10 +9,12 @@ import {
   type GatewayLot,
   type GatewayRecipe,
 } from './handler.ts';
+import { createOpenRouterChatBody } from './openrouter-request.ts';
 import { SlidingWindowRateLimiter } from '../enrich-off-product/rate-limiter.ts';
 
 const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-const anonKey = Deno.env.get('SUPABASE_SECRET_KEY')!;
+const anonKey =
+  Deno.env.get('SUPABASE_ANON_KEY') ?? Deno.env.get('SUPABASE_SECRET_KEY')!;
 const openRouterKey = Deno.env.get('OPENROUTER_API_KEY');
 const openRouterBaseUrl = (Deno.env.get('OPENROUTER_BASE_URL') ?? 'https://openrouter.ai/api/v1').replace(/\/$/, '');
 const defaultModel = Deno.env.get('AI_GATEWAY_MODEL') ?? 'z-ai/glm-5.3-flash';
@@ -152,7 +154,7 @@ async function loadCookingContext(userId: string, householdId: string, authoriza
         perishability: classifyPerishability(product?.off_category_tags),
       };
     })
-    .filter((lot) => lot.normalizedName.length > 0 && lot.perishability === 'perishable')
+    .filter((lot) => lot.normalizedName.length > 0)
     .map(({ perishability: _perishability, ...lot }) => lot)
     .sort((a, b) => {
       const aDate = a.useBy ?? a.bestBefore;
@@ -164,6 +166,35 @@ async function loadCookingContext(userId: string, householdId: string, authoriza
       }
       return a.normalizedName.localeCompare(b.normalizedName, 'de') || a.lotId.localeCompare(b.lotId);
     });
+
+  const { data: shoppingRows, error: shoppingError } = await client
+    .from('shopping_list_items')
+    .select('id, name, quantity, unit')
+    .eq('household_id', householdId)
+    .is('deleted_at', null)
+    .is('checked_at', null)
+    .gt('quantity', 0)
+    .order('created_at', { ascending: true });
+  if (shoppingError) {
+    return { ok: false as const, status: 500, error: 'shopping_list_lookup_failed', message: shoppingError.message };
+  }
+
+  const { data: foodRules, error: foodRulesError } = await client
+    .from('profile_food_rules')
+    .select('allergy_codes, custom_allergies, intolerance_codes, custom_intolerances, disliked_foods')
+    .eq('user_id', userId)
+    .maybeSingle();
+  if (foodRulesError) {
+    return { ok: false as const, status: 500, error: 'food_rules_lookup_failed', message: foodRulesError.message };
+  }
+
+  const allergies = [
+    ...(foodRules?.allergy_codes ?? []),
+    ...(foodRules?.custom_allergies ?? []),
+    ...(foodRules?.intolerance_codes ?? []),
+    ...(foodRules?.custom_intolerances ?? []),
+  ];
+  const dislikedFoods = foodRules?.disliked_foods ?? [];
 
   const { data: recipeRows, error: recipeError } = await client
     .from('catalog_recipes')
@@ -217,6 +248,7 @@ async function loadCookingContext(userId: string, householdId: string, authoriza
   const recipes: GatewayRecipe[] = (recipeRows ?? []).map((row) => ({
     recipeId: row.id,
     title: String(row.title).trim(),
+    source: 'catalog',
     estimatedMinutes: typeof row.cook_time_minutes === 'number' ? row.cook_time_minutes : null,
     servings: typeof row.default_servings === 'number' ? row.default_servings : null,
     dietaryTags: Array.isArray(row.dietary_tags) ? row.dietary_tags : [],
@@ -231,6 +263,17 @@ async function loadCookingContext(userId: string, householdId: string, authoriza
       lots,
     } satisfies GatewayInventoryContext,
     recipes,
+    allergies,
+    preferences: [],
+    forbiddenIngredients: dislikedFoods,
+    shoppingItems: (shoppingRows ?? [])
+      .filter((row) => typeof row.name === 'string' && row.name.trim().length > 0)
+      .map((row) => ({
+        shoppingItemId: row.id,
+        name: row.name.trim(),
+        quantity: typeof row.quantity === 'number' ? row.quantity : 1,
+        unit: typeof row.unit === 'string' ? row.unit : 'piece',
+      })),
   };
   return { ok: true as const, context };
 }
@@ -250,13 +293,7 @@ async function complete({ model, messages }: { model: string; messages: Array<{ 
         ...(Deno.env.get('OPENROUTER_SITE_URL') ? { 'HTTP-Referer': Deno.env.get('OPENROUTER_SITE_URL')! } : {}),
         ...(Deno.env.get('OPENROUTER_SITE_NAME') ? { 'X-Title': Deno.env.get('OPENROUTER_SITE_NAME')! } : {}),
       },
-      body: JSON.stringify({
-        model,
-        messages,
-        max_tokens: 1536,
-        response_format: { type: 'json_object' },
-        ...(model === 'ibm-granite/granite-4.2-8b' ? { reasoning: { enabled: false } } : {}),
-      }),
+      body: JSON.stringify(createOpenRouterChatBody({ model, messages })),
       signal: AbortSignal.timeout(Number(Deno.env.get('AI_GATEWAY_TIMEOUT_MS') ?? 45_000)),
     });
   } catch {

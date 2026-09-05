@@ -168,6 +168,7 @@ it('öffnet beim kurzen Tap die MHD-Auswahl und ändert danach die Losmenge', as
     id: 'item-1',
     household_id: 'hh-1',
     delta: 1,
+    operation: 'adjust',
   });
 });
 
@@ -197,9 +198,26 @@ it('fragt vor dem Entfernen aus dem Aktions-Sheet nach Bestaetigung', async () =
     id: 'item-1',
     household_id: 'hh-1',
     delta: -2,
+    operation: 'remove',
   });
 
   alertSpy.mockRestore();
+});
+
+it('zeichnet nur die ausdrueckliche Verbrauchsaktion als Verbrauch', async () => {
+  const user = userEvent.setup();
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
+  await user.press(screen.getByRole('button', { name: 'Verbraucht' }));
+
+  expect(mockUpdateQtyMutate).toHaveBeenCalledWith({
+    id: 'item-1',
+    household_id: 'hh-1',
+    delta: -2,
+    operation: 'consume',
+  });
 });
 
 it('fragt auch über die Linkswisch-Aktion vor dem Entfernen nach', async () => {

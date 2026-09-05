@@ -207,7 +207,7 @@ for (const scenario of syntheticScenarios) {
 }
 
 test('first food family covers the five backend shopping/candidate states', () => {
-  assert.equal(DATASET_VERSION, 'synthetic-v1');
+  assert.equal(DATASET_VERSION, 'synthetic-v2');
   assert.equal(syntheticScenarios.length, 75);
   const cases = syntheticScenarios.slice(0, 5);
   assert.deepEqual(cases.map((item) => item.shopping_decision), ['not_needed', 'declined', 'accepted', 'not_needed', 'not_needed']);
@@ -225,9 +225,9 @@ test('first scenario has an independently specified one-person porridge context'
       allowed_staples: ['Wasser', 'Zimt'], forbidden_ingredients: ['Rotwein', 'Chilischote'],
     },
     priority_foods: [
-      { inventory_item_id: 'synthetic-001-food-1', name: 'Haferflocken', available_quantity: 60, unit: 'g', priority_score: 0.98 },
-      { inventory_item_id: 'synthetic-001-food-2', name: 'Apfel', available_quantity: 1, unit: 'pcs', priority_score: 0.86 },
-      { inventory_item_id: 'synthetic-001-food-3', name: 'Haferdrink', available_quantity: 150, unit: 'ml', priority_score: 0.65 },
+      { inventory_item_id: 'synthetic-001-haferflocken', name: 'Haferflocken', available_quantity: 60, unit: 'g', priority_score: 0.98 },
+      { inventory_item_id: 'synthetic-001-apfel', name: 'Apfel', available_quantity: 1, unit: 'pcs', priority_score: 0.86 },
+      { inventory_item_id: 'synthetic-001-haferdrink', name: 'Haferdrink', available_quantity: 150, unit: 'ml', priority_score: 0.65 },
     ],
     planned_shopping_items: [],
     candidate_recipes: [{
@@ -236,6 +236,56 @@ test('first scenario has an independently specified one-person porridge context'
     }],
     shopping_question: null, fallback_allowed: false,
   });
+});
+
+test('food-based IDs preserve the potato example quantities and units', () => {
+  assert.deepEqual(syntheticScenarios[8].compact_context.priority_foods.map((item) => ({
+    id: item.inventory_item_id, name: item.name, quantity: item.available_quantity, unit: item.unit,
+  })), [
+    { id: 'synthetic-009-kartoffel', name: 'Kartoffel', quantity: 1.8, unit: 'kg' },
+    { id: 'synthetic-009-zucchini', name: 'Zucchini', quantity: 1080, unit: 'g' },
+    { id: 'synthetic-009-zwiebel', name: 'Zwiebel', quantity: 240, unit: 'g' },
+  ]);
+});
+
+test('food IDs are readable and unique across all inventories and shopping lists', () => {
+  const ids = [];
+  for (const scenario of syntheticScenarios) {
+    for (const item of [...scenario.synthetic_inventory, ...scenario.shopping_list]) {
+      const id = item.inventory_item_id ?? item.shopping_item_id;
+      assert.match(id, /^synthetic-\d{3}-(?:shop-)?[a-z]{2,}(?:-[a-z0-9]+)*$/);
+      assert.doesNotMatch(id, /-(?:food|extra|allergen|lot|longlife|unusable|blocked)(?:-|$)/);
+      ids.push(id);
+    }
+  }
+  assert.equal(syntheticScenarios.flatMap((scenario) => scenario.synthetic_inventory).length, 570);
+  assert.equal(new Set(ids).size, ids.length);
+  const examples = new Map([
+    ['Hähnchenbrust', 'haehnchenbrust'], ['Süßkartoffel', 'suesskartoffel'],
+    ['Grünkohl', 'gruenkohl'], ['Sesamöl', 'sesamoel'], ['Rote Paprika', 'rote-paprika'],
+    ['Weiße Bohnen (240-g-Dose, Abtropfgewicht)', 'weisse-bohnen'],
+    ['Kichererbsen (240-g-Dose, Abtropfgewicht)', 'kichererbsen'],
+    ['Naturtofu (200-g-Packung)', 'naturtofu'],
+  ]);
+  for (const [name, slug] of examples) {
+    const items = syntheticScenarios.flatMap((scenario) => [...scenario.synthetic_inventory, ...scenario.shopping_list])
+      .filter((item) => item.name === name);
+    assert.ok(items.length > 0, name);
+    for (const item of items) assert.match(item.inventory_item_id ?? item.shopping_item_id,
+      new RegExp(`^synthetic-\\d{3}-(?:shop-)?${slug}(?:-los-[12])?$`), name);
+  }
+});
+
+test('two lots keep the same food name but distinct food-based IDs and priority references', () => {
+  for (const scenario of syntheticScenarios.filter((item) => item.scenario_type === 'priority_pressure')) {
+    const primary = scenario.synthetic_inventory[0];
+    const lots = scenario.synthetic_inventory.filter((item) => item.name === primary.name);
+    assert.equal(lots.length, 2);
+    assert.match(lots[0].inventory_item_id, /-los-1$/);
+    assert.equal(lots[1].inventory_item_id, lots[0].inventory_item_id.replace(/-los-1$/, '-los-2'));
+    assert.ok(lots[0].expiry_days < lots[1].expiry_days);
+    assert.deepEqual(scenario.expected.required_priority_ids, [lots[0].inventory_item_id]);
+  }
 });
 
 test('75 distinct inventories balance fifteen food families, five states and five household sizes', () => {

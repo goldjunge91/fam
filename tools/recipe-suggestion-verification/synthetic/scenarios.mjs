@@ -1,4 +1,4 @@
-export const DATASET_VERSION = 'synthetic-v1';
+export const DATASET_VERSION = 'synthetic-v2';
 
 // expiry_days is relative to this date, never a food-safety decision.
 const REFERENCE_DATE = '2026-09-03';
@@ -168,6 +168,14 @@ const allergyProfiles = [
 
 const rounded = (quantity) => Math.round(quantity * 1000) / 1000;
 
+// Readable fixture IDs; package details remain in name and do not change units.
+function foodSlug(name) {
+  return name.toLowerCase()
+    .replace(/\([^)]*\)/g, '')
+    .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 function makeScenario(family, familyIndex, stateIndex) {
   const scenario_id = `synthetic-${String(familyIndex * 5 + stateIndex + 1).padStart(3, '0')}`;
   const scenario_type = STATES[stateIndex];
@@ -186,9 +194,9 @@ function makeScenario(family, familyIndex, stateIndex) {
   const allergies = profiles.map((profile) => profile.allergy);
   const forbidden_ingredients = ['Rotwein', 'Chilischote', ...profiles.map((profile) => profile.food.name)];
 
-  function inventory(item, suffix, expiry_days, priority_score, opened) {
+  function inventory(item, expiry_days, priority_score, opened) {
     return {
-      inventory_item_id: `${scenario_id}-${suffix}`,
+      inventory_item_id: `${scenario_id}-${foodSlug(item.name)}`,
       name: item.name,
       quantity: rounded(item.quantity * servings),
       unit: item.unit,
@@ -202,7 +210,7 @@ function makeScenario(family, familyIndex, stateIndex) {
   }
 
   const selected = core.map((item, index) => inventory(
-    item, `food-${index + 1}`,
+    item,
     index === 0 ? (pressure ? 0 : 2) : item.category === 'Getreide' ? 180 : 3,
     [0.98, 0.86, 0.65][index], stateIndex > 0,
   ));
@@ -213,22 +221,26 @@ function makeScenario(family, familyIndex, stateIndex) {
       ? Math.max(1, Math.floor(first.quantity / 3))
       : rounded(first.quantity / 4);
     selected.push({
-      ...first, inventory_item_id: `${scenario_id}-lot-new`,
+      ...first, inventory_item_id: `${first.inventory_item_id}-los-2`,
       quantity: rounded(first.quantity - olderQuantity), expiry_days: 3, priority_score: 0.74,
       opened: ['pack', 'dose'].includes(first.unit) && !Number.isInteger(rounded(first.quantity - olderQuantity)),
       allergens: [...first.allergens],
     });
+    first.inventory_item_id += '-los-1';
     first.quantity = olderQuantity;
     first.opened = true;
-    selected.push(...family.extras.map((item, index) => inventory(item, `extra-${index + 1}`, 2, 0.65, false)));
+    selected.push(...family.extras.map((item) => inventory(item, 2, 0.65, false)));
   }
 
-  const longlife = inventory(food('Zucker', 500, 'g', 'Backvorrat'), 'longlife', 365, 0.05, false);
+  const longlife = inventory(food('Zucker', 500, 'g', 'Backvorrat'), 365, 0.05, false);
   // An explicit synthetic unusable status excludes this item, independently of MHD.
-  const unusable = { ...inventory(food('Blattsalat', 100, 'g', 'Gemüse'), 'unusable', 3, 1, true), usable: false };
-  const blocked = inventory(food('Chilischote', 1, 'pcs', 'Gemüse'), 'blocked', 0, 1, false);
+  const unusable = { ...inventory(food('Blattsalat', 100, 'g', 'Gemüse'), 3, 1, true), usable: false };
+  const blocked = inventory(food('Chilischote', 1, 'pcs', 'Gemüse'), 0, 1, false);
   const synthetic_inventory = [...selected, longlife, unusable, blocked];
-  synthetic_inventory.push(...profiles.map((profile, index) => inventory(profile.food, `allergen-${index + 1}`, 1, 1, true)));
+  synthetic_inventory.push(...profiles.map((profile) => inventory(profile.food, 1, 1, true)));
+  if (new Set(synthetic_inventory.map((item) => item.inventory_item_id)).size !== synthetic_inventory.length) {
+    throw new Error(`${scenario_id}: duplicate food-based inventory ID; use distinct lot suffixes.`);
+  }
 
   const priority_foods = selected
     .filter((item) => item.usable && !forbidden_ingredients.includes(item.name) && !item.allergens.some((allergen) => allergies.includes(allergen)))
@@ -237,8 +249,8 @@ function makeScenario(family, familyIndex, stateIndex) {
       inventory_item_id: item.inventory_item_id, name: item.name,
       available_quantity: item.quantity, unit: item.unit, priority_score: item.priority_score,
     }));
-  const shopping_list = shopping ? family.extras.slice(0, familyIndex % 2 + 1).map((item, index) => ({
-    shopping_item_id: `${scenario_id}-shop-${index + 1}`, name: item.name,
+  const shopping_list = shopping ? family.extras.slice(0, familyIndex % 2 + 1).map((item) => ({
+    shopping_item_id: `${scenario_id}-shop-${foodSlug(item.name)}`, name: item.name,
     quantity: rounded(item.quantity * servings), unit: item.unit,
   })) : [];
   const planned_shopping_items = accepted ? shopping_list.map((item) => ({ ...item })) : [];
