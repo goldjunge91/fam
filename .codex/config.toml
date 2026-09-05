@@ -4,12 +4,12 @@
 # provider, credential, profile, telemetry, and notification settings belong in
 # ~/.codex/config.toml and are documented in config-reference.toml.
 
-model = "gpt-5.6-luna"
-review_model = "gpt-5.6-sol"
-model_reasoning_effort = "high"
-model_reasoning_summary = "none"
-model_verbosity = "medium"
-personality = "friendly"
+# model = "gpt-5.6-luna"
+# review_model = "gpt-5.6-sol"
+# model_reasoning_effort = "high"
+# model_reasoning_summary = "none"
+# model_verbosity = "medium"
+# personality = "friendly"
 
 [permissions.project-edit]
 extends = ":workspace"
