@@ -5,6 +5,10 @@
 Eingaben und Auswahlzustände verwenden wiedererkennbare Komponenten und zeigen
 ihren Zustand nicht nur über Farbe.
 
+Form, Typografie, Farben und Zustände werden durch `src/constants/ui.tsx` auf
+Basis von `src/components/theme/index.ts` und dem aktiven `ThemeProvider`
+geregelt. NativeWind übernimmt an Eingaben keine semantische Darstellung.
+
 ## Komponenten
 
 - `Field`

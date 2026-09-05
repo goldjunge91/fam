@@ -1,5 +1,11 @@
 # Spec: `typography-contract`
 
+## Status
+
+Abgeschlossen und historisch. Der aktuelle Typografievertrag steht in
+`docs/design-system/contracts/02-typography.md`; die tatsächliche öffentliche
+API besitzt `Txt` in `src/constants/ui.tsx`.
+
 ## Objective
 
 `Txt` ersetzt `ThemedText` mit einer vollständigen und eindeutigen Fam-Typografie. Schriftgröße, Zeilenhöhe, Stärke und Farbe sollen nicht mehr aus einer Kombination widersprüchlicher `type`-Klassen und Caller-Klassen entstehen.
@@ -18,8 +24,9 @@
 - `tone`: `primary`, `secondary`, `accent`, `onAccent`, `success`, `warning`, `danger`, `inverse`.
 - `weight`: typisiertes `TextStyle['fontWeight']`.
 - `center`: boolescher Convenience-Prop.
-- `muted`: kompatibler Alias für `tone="secondary"`, nur während der Migration.
-- `className`: primär für Layout und dokumentierte, nicht konkurrierende Utilities.
+- `muted`: beibehaltener Kompatibilitätsalias für `tone="secondary"`; neuer
+  Code bevorzugt `tone`.
+- `className`: ausschließlich für einfaches statisches Layout.
 
 Ein freier `color`-Prop bleibt nur für berechnete Sonderfälle oder externe Icon-/Statusadapter zulässig. Normaler Text verwendet `tone`.
 
@@ -49,25 +56,29 @@ Die Schreibweise `fontSize / lineHeight` ist Teil des Vertrags. Ein Style darf d
 | `smallMuted`, `bodyMuted` | `variant="body" tone="secondary"` |
 | `smallSelected` | `variant="body" tone="accent"` |
 | `smallDanger` | `variant="body" tone="danger"` |
-| `controlAction*`, `stepperAction*` | `variant="subheading"` oder interner Komponentenstil |
-| `pageTitle*`, `chromeTitle`, `ringValue`, `metricValue`, `navigationArrow` | `variant="title"` oder interner Komponentenstil |
+| `controlAction*`, `stepperAction*` | `variant="subheading"` oder zentrales Komponentenrezept aus `src/constants/ui.tsx` |
+| `pageTitle*`, `chromeTitle`, `ringValue`, `metricValue`, `navigationArrow` | `variant="title"` oder zentrales Komponentenrezept aus `src/constants/ui.tsx` |
 | `pageSubtitle` | `variant="label"` |
 | `caption`, `captionMuted` | `variant="caption"`, zusätzlich `tone="secondary"` für muted |
 | `captionCompact`, `micro`, `detail`, `meta`, `code` | `variant="caption"` |
 | `label`, `labelBold`, `labelMuted` | `variant="label"`, Gewicht oder Ton explizit |
 | `link` | `variant="label" tone="accent"` |
 
-Komponentenspezifische Größen bleiben intern bei `Button`, `QuantityStepper`,
-`ProgressRing` oder Eingabekomponenten. Sie erweitern `TxtVariant` nicht.
+Komponentenspezifische Größen werden zentral in `src/constants/ui.tsx`
+definiert und von `Button`, `QuantityStepper`, `ProgressRing` oder
+Eingabekomponenten nur ausgewählt. Sie erweitern `TxtVariant` nicht.
 
 ## Style-Priorität
 
-1. Variant-Default aus `Typography`.
+1. Variant-Default aus den `Txt`-Rezepten in `src/constants/ui.tsx`, auf Basis
+   der `font`-Tokens.
 2. Ton, Gewicht und Alignment aus typisierten Props.
-3. NativeWind-`className` für Layout oder ausdrücklich erlaubte Utilities.
+3. NativeWind-`className` ausschließlich für einfaches statisches Layout.
 4. Caller-`style` zuletzt.
 
-Wenn `style` `fontSize`, `lineHeight`, `fontWeight` oder `color` überschreibt, ist das eine bewusste lokale Ausnahme. Semantische Konflikte werden nicht über `!text-*` gelöst.
+Caller-`style` ist nur für dokumentierte Laufzeit- oder Integrationsgrenzen
+zulässig und definiert keine normale Typografie neu. Semantische Konflikte
+werden nicht über `!text-*` gelöst.
 
 ## Acceptance criteria
 

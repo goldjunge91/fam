@@ -2,31 +2,48 @@
 
 ## Zweck
 
-Die Hybridlösung teilt Verantwortung nach Art des Werts. Sie ist eine Lösung,
-keine Auswahl zwischen zwei Styling-Systemen.
+Die Hybridlösung teilt Verantwortung nach Art des Werts. NativeWind ist dabei
+nur ein Layoutwerkzeug. `index.ts`, `ThemeProvider.tsx` und `ui.tsx` bilden
+gemeinsam das Design-System.
 
 ## NativeWind
 
 - statisches Flexbox-Layout
-- feste Abstände und Ausrichtung
-- statische Größen, Positionen und Zustandsklassen
-- projektweit definierte, bekannte Utilities
+- feste Abstände, Ausrichtung und Positionierung
+- feste Layoutgrößen
 
-## Style und StyleSheet
+NativeWind besitzt keine semantischen Farben, Typografie, Komponenten oder
+Interaktionszustände. Bestehende globale Klassen dieser Art sind
+Migrationsbestand und dürfen nicht als Vorlage für neuen Code dienen.
 
-- Themefarben aus `useTheme()`
-- berechnete Maße und Laufzeitwerte
-- `StyleProp` an Komponenten ohne NativeWind-Interop
-- Schatten, native Spezialwerte und `useThemedStyles()`
+## Semantik und lokale Styles
+
+- Semantische Typografie, Farben, Flächen, Konturen, Schatten und Zustandsstyles:
+  `src/constants/ui.tsx`
+- Aufgelöste Palette: `useTheme()` aus `ThemeProvider.tsx`
+- Lokales `style` oder StyleSheet: berechnete Laufzeitwerte, native
+  Integrationswerte und nicht semantisches lokales Layout
+- Komponenten ohne NativeWind-Interop: ihre native `style`-API, weiterhin mit
+  zentralen Tokens und semantischen Rezepten
+
+## Zentrale Verantwortliche
+
+- `src/components/theme/index.ts`: alle gemeinsamen Design-Tokens
+- `src/components/theme/ThemeProvider.tsx`: Theme-Präferenz und aktive Palette
+- `src/constants/ui.tsx`: semantische UI-Primitiven, Typografierezepte,
+  Farbrollenzuordnungen, Flächen, Konturen, Schatten und Zustandsstyles
+
+`src/global.css` und `tailwind.config.js` sind technische Bestandsdateien und
+keine vierte oder fünfte Design-System-Quelle. Es wird keine NativeWind-
+`vars()`-Bridge als parallele Theme-Schicht eingeführt.
 
 ## Vertrag umgesetzt
 
 ```tsx
-const { colors } = useTheme();
-
-<View
-  className="flex-row items-center gap-two"
-  style={{ backgroundColor: colors.backgroundSoft }}
+<Surface
+  tone="soft"
+  className="flex-row items-center"
+  style={{ gap: space.md }}
 />
 ```
 
@@ -37,5 +54,6 @@ const { colors } = useTheme();
 ```
 
 Dynamisch zusammengesetzte Klassen sind für den Compiler nicht zuverlässig
-auffindbar. Der Referenz-Screen **Hybrid** zeigt die Aufgabenteilung und
+auffindbar und würden Theme-Semantik erneut NativeWind überlassen. Der
+Referenz-Screen **Hybrid** zeigt die verbindliche Aufgabenteilung und
 `withAlpha()` für eine transparente Ableitung.

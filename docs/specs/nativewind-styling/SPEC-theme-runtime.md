@@ -1,5 +1,11 @@
 # Spec: `theme-runtime`
 
+## Status
+
+Abgeschlossen und historisch. Der aktuelle Theme-Vertrag steht in
+`docs/design-system/contracts/01-theme-and-colors.md`; die tatsächliche Runtime-
+API besitzt `src/components/theme/ThemeProvider.tsx`.
+
 ## Objective
 
 Der aktive Farbmodus wird an einer Stelle aufgelöst und an alle neuen UI-Primitiven verteilt. Es darf nicht gleichzeitig einen alten `useTheme()`-Hook mit `Colors[...]` und einen neuen Provider mit einer abweichenden Palette geben.
@@ -11,25 +17,29 @@ Der aktive Farbmodus wird an einer Stelle aufgelöst und an alle neuen UI-Primit
 ```ts
 type ThemePref = 'system' | 'light' | 'dark';
 type ThemeMode = 'light' | 'dark';
+type Accent = ReturnType<typeof makeAccent>; // interner Provider-Typ
 
 type ThemeValue = {
   mode: ThemeMode;
   pref: ThemePref;
-  colors: FamPalette;
+  colors: Palette;
+  accent: Accent;
   setPref: (pref: ThemePref) => void;
 };
 
 function useTheme(): ThemeValue;
-function useThemedStyles<T>(factory: (colors: FamPalette) => T): T;
+function useThemedStyles<T>(factory: (colors: Palette, accent: Accent) => T): T;
 ```
 
-`setPref` kann entfallen, falls die bestehende Settings-Domäne die Präferenz bereits besitzt. Dann bleibt die Runtime read-only und verwendet den vorhandenen Settings-Adapter.
+`setPref` ist Teil der tatsächlichen Runtime-API und schreibt die nicht sensible
+Gerätepräferenz über den vorhandenen MMKV-Speicher.
 
 ## Auflösung
 
 1. Eine gültige gespeicherte Präferenz `light` oder `dark` gewinnt.
 2. Bei `system` folgt `useColorScheme()` dem Betriebssystem.
-3. Eine ungültige oder fehlende Präferenz fällt auf den vereinbarten Default zurück. Empfehlung: `system`.
+3. Eine ungültige oder fehlende Präferenz fällt auf den festgelegten Default
+   `system` zurück.
 4. Die Auflösung ist frei von Render- und Storage-Nebenwirkungen.
 
 ## Storage

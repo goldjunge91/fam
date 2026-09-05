@@ -1,10 +1,18 @@
 # Spec: `verification-matrix`
 
-## Ziel
+## Status
 
-Die Styling-Reparatur wird nicht nur durch einen erfolgreichen Typecheck bewertet. Die Matrix prüft Tokenauflösung, Component-Verträge, NativeWind-Grenzen und sichtbares Verhalten.
+Abgeschlossen und historisch. Diese Matrix dokumentiert die damalige
+Migrationsabnahme. Sie ist keine aktuelle Freigabe für neue Tests, Builds oder
+Geräteprüfungen.
 
-## Automatisierte Prüfungen
+## Historisches Ziel
+
+Die Styling-Reparatur wurde nicht nur durch einen erfolgreichen Typecheck
+bewertet. Die Matrix prüfte Tokenauflösung, Komponentenverträge,
+NativeWind-Grenzen und sichtbares Verhalten innerhalb des damaligen Scopes.
+
+## Historisch ausgeführte automatisierte Prüfungen
 
 | Ebene | Prüfung | Kommando / Methode | Erfolg |
 |---|---|---|---|
@@ -16,9 +24,11 @@ Die Styling-Reparatur wird nicht nur durch einen erfolgreichen Typecheck bewerte
 | Migration | alte Imports und falsche Pfade | `rg`-Audit | null Treffer |
 | Boundaries | `className` auf Spezialkomponenten | `rg`-Audit plus Ausnahmenliste | jede Ausnahme dokumentiert |
 
-## Manuelle Referenzfälle
+## Historische Referenzfälle
 
-Für jede Plattform werden dieselben Fälle geprüft:
+Die folgenden Fälle wurden über die vorgesehenen fokussierten Prüfungen und
+statischen Referenzen beurteilt. Eine Geräteabnahme war ausdrücklich nicht Teil
+des Scopes:
 
 1. Light Mode: Screen-Hintergrund, Surface, Card, Primary Button.
 2. Dark Mode: dieselben Elemente, kein weißer oder schwarzer Fremd-Fallback.
@@ -40,19 +50,23 @@ Für jede Plattform werden dieselben Fälle geprüft:
 - Kein Press-Handler löst bei `disabled` oder `loading` die Aktion oder Haptics aus.
 - Der geöffnete Drawer markiert genau den aktuellen Bereich, auch auf Unterseiten und unter `/(app)`-Route-Gruppen.
 
-## Abnahme
+## Historische Abnahmebedingungen
 
-Die Initiative gilt erst als abgeschlossen, wenn:
+Die Initiative galt als abgeschlossen, nachdem:
 
-- automatisierte Prüfungen der betroffenen Module grün sind,
-- die statischen Audits keine alten Imports oder ungültigen Spezialfälle offenlassen,
-- die zwei Screen-Mocks geprüft und die offenen visuellen Entscheidungen daraus dokumentiert wurden,
-- keine Geräteprüfung als erledigt behauptet wird, da sie außerhalb des Scopes liegt,
-- verbleibende Web-Abweichungen dokumentiert und nicht mit einer zweiten Styling-Lösung verdeckt werden.
+- die automatisierten Prüfungen der betroffenen Module grün waren,
+- die statischen Audits keine alten Imports oder ungültigen Spezialfälle
+  offenließen,
+- die zwei Screen-Mocks geprüft und die damaligen visuellen Entscheidungen
+  dokumentiert waren,
+- keine Geräteprüfung als erledigt behauptet wurde, da sie außerhalb des Scopes
+  lag,
+- verbleibende Web-Abweichungen dokumentiert und nicht mit einer zweiten
+  Styling-Lösung verdeckt wurden.
 
-## Migrationsaudit für die nächsten Slices
+## Historischer Migrationsaudit
 
-### Aktueller statischer Stand
+### Statischer Stand zum Abschluss
 
 Stand 2026-09-04 sind die für diese Initiative relevanten statischen Audits
 aktualisiert:
@@ -65,12 +79,13 @@ aktualisiert:
   SVG- oder SymbolView-Nutzung übergibt ein unwirksames `className`.
 - Die frühere Suche nach `bg-card`, `bg-surface`, `text-small` und ähnlichen
   nicht registrierten semantischen Utilities liefert keine solchen Utilities.
-  `bg-text-secondary` im Inventar-Tab ist ein registrierter Farbtoken für die
-  beiden SVG-nahe Linien und daher keine ungültige Utility.
+  `bg-text-secondary` im Inventar-Tab war eine registrierte historische
+  Migrationsexzeption für zwei SVG-nahe Linien und ist kein Vorbild für neue
+  semantische NativeWind-Klassen.
 - Die alten Wrapper-Dateien wurden nach ausdrücklicher Maintainer-Freigabe
   entfernt.
 
-Ausgangsaudit vor der Feature-Migration (Stand 2026-09-04) wurden die
+Im Ausgangsaudit vor der Feature-Migration (Stand 2026-09-04) wurden die
 vorhandenen Aufrufer per `rg` inventarisiert. Die folgenden Zahlen dokumentieren
 den Ausgangszustand und sind keine aktuellen Resttreffer:
 
@@ -80,9 +95,9 @@ den Ausgangszustand und sind keine aktuellen Resttreffer:
 - Für `FlashList`, `BottomSheet`, `Svg` und `SymbolView` gibt es im aktuellen
   Trefferlauf keine direkte `className`-Verwendung.
 
-Die Migration wird nach dem Foundation-Checkpoint in kleinen, rückrollbaren
-Batches durchgeführt. Gemeinsame Dateien und ihre `.android.tsx`-Paare werden
-immer zusammen behandelt:
+Die Migration wurde nach dem Foundation-Checkpoint in kleinen, rückrollbaren
+Batches durchgeführt. Gemeinsame Dateien und ihre `.android.tsx`-Paare wurden
+zusammen behandelt:
 
 | Batch | Bereich | `ThemedText`-Dateien mit Treffer | Vorgehen |
 |---|---|---:|---|
@@ -93,7 +108,7 @@ immer zusammen behandelt:
 | 4 | Calorie Tracking, Meal Planner, Recipes | 38 | komplexe Modals und Spezialkomponenten nachziehen |
 | 5 | Profile, Settings, Premium, GLP-1 | 45 | verbleibende semantische Rollen und Statusfarben migrieren |
 
-Bekannte NativeWind-Boundary-Kandidaten für einen separaten kleinen Slice:
+Historische NativeWind-Boundary-Kandidaten des Ausgangsaudits:
 
 - `src/features/calorie-tracking/add-food-entry-screen.tsx`
 - `src/features/calorie-tracking/food-search-dropdown.tsx`

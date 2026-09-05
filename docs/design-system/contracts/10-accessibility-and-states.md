@@ -5,6 +5,12 @@
 Interaktion bleibt für Touch, Screenreader, größere Schrift und reduzierte
 Bewegung verständlich.
 
+Gemeinsame selected-, focused-, pressed-, disabled- und loading-Darstellungen
+werden in `src/constants/ui.tsx` definiert. Darauf aufbauende Komponenten wenden
+sie an und verwalten nur transienten Zustand, Verhalten und
+Accessibility-Metadaten. Diese Darstellungen sind keine NativeWind-
+Zustandsklassen und keine Einträge in `global.css`.
+
 ## Anforderungen
 
 - verständliche `accessibilityLabel`
@@ -37,4 +43,3 @@ Bewegung verständlich.
 
 Das Ziel ist zu klein, besitzt keine Rolle und sein Zustand ist nur farblich
 erkennbar. Die Screens **Zustände** und **Feedback** zeigen die Gegenüberstellung.
-

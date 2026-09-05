@@ -1,8 +1,16 @@
 # Spec: `core-ui-contract`
 
+## Status
+
+Abgeschlossen und historisch. Der aktuelle Komponentenvertrag steht unter
+`docs/design-system/contracts/`. Bei Abweichungen gelten die Verträge und die
+tatsächlichen APIs in `src/constants/ui.tsx` und `src/components/ui/`.
+
 ## Objective
 
-Die bereits eingefügte `ui.tsx` wird zur fam-kompatiblen Quelle für wiederverwendbare UI-Primitiven. Die vorhandene Komponentenbreite, Props und das Verhalten der Referenz bleiben erhalten. Ersetzt werden nur Dinge, für die fam bereits eine eigene, passende Quelle besitzt oder die im Projekt nachweislich nicht funktionieren: reale Imports, vorhandene Fam-Tokens, Haptics und problematische Typen.
+Die eingefügte Referenz wurde als `src/constants/ui.tsx` zur fam-kompatiblen
+Quelle für wiederverwendbare UI-Primitiven. Reale Imports, vorhandene
+Fam-Tokens, Haptics und problematische Typen wurden an das Projekt angepasst.
 
 ## Komponentenübersicht
 
@@ -38,8 +46,8 @@ Freie Light-/Dark-Farbprops werden nicht weitergeführt. Für einen echten Sonde
 ## Button-Vertrag
 
 ```ts
-type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'accent';
-type ButtonSize = 'sm' | 'md' | 'lg';
+type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'link' | 'ghost' | 'accent';
+type ButtonSize = 'default' | 'large' | 'compact';
 ```
 
 - `primary`, `danger` und `accent` sind gefüllt und verwenden Fam-Akzent-/Status-Tokens.
@@ -49,7 +57,14 @@ type ButtonSize = 'sm' | 'md' | 'lg';
 - `disabled` reduziert Kontrast und verhindert Press-Feedback.
 - `style` darf Layout überschreiben. Button-Farbvarianten werden nicht durch ein konkurrierendes `className` unklar gemacht.
 - Touch-Ziele bleiben auf mobilen Plattformen ausreichend groß; konkrete Maße stammen aus `ButtonSize` oder den bestehenden Fam-Control-Tokens.
-- `accessibilityRole="button"`, Titel und disabled/loading-Status werden zugänglich abgebildet.
+- `accessibilityRole="button"`, Beschriftung beziehungsweise `label` und
+  disabled/loading-Status werden zugänglich abgebildet.
+
+Das ist die feature-facing API aus `src/components/ui/buttons/`. Der
+Low-Level-Button in `src/constants/ui.tsx` behält intern seine bestehende
+`title`-/`sm`-/`md`-/`lg`-Signatur, ist aber keine zweite Designquelle. Beide
+Implementierungen beziehen Semantik und Werte aus denselben drei zentralen
+UI-Quellen und werden innerhalb eines Screens nicht gemischt.
 
 Die 3D-Tiefe und Press-Animation bleiben Bestandteil des UI-Vertrags. Gefüllte
 Varianten verwenden eine deckende Fam-Tiefenfarbe und bewegen ihre Vorderseite
@@ -71,7 +86,9 @@ Mindestdruckzeiten gehören nicht zum Vertrag.
 - Label verwendet `Txt variant="label"`.
 - Placeholder, Text und Border kommen aus dem aktiven Theme.
 - `TextInput` erhält ein echtes `style`, weil dynamische Farben und native Eingabeeigenschaften zuverlässig sein müssen.
-- Focus- und Error-Zustände dürfen über typisierte Props oder einen klaren lokalen Style ergänzt werden.
+- Focus- und Error-Darstellungen werden zentral in `src/constants/ui.tsx`
+  definiert und über typisierte Props aktiviert; der Aufrufer erfindet keinen
+  lokalen Zustandsstil.
 
 ## Haptics
 
@@ -79,8 +96,10 @@ Mindestdruckzeiten gehören nicht zum Vertrag.
 
 ## Acceptance criteria
 
-- [x] `ui.tsx` nutzt reale `@/...`-Imports und kompiliert ohne undefinierte Symbole.
-- [x] Neue und leicht ersetzbare `any`-Typen in `ui.tsx` sind durch passende React-Native-Typen ersetzt.
+- [x] `src/constants/ui.tsx` nutzt reale `@/...`-Imports und kompiliert ohne
+  undefinierte Symbole.
+- [x] Neue und leicht ersetzbare `any`-Typen in `src/constants/ui.tsx` sind
+  durch passende React-Native-Typen ersetzt.
 - [x] Ein verbleibendes `any` ist nur erlaubt, wenn die Bibliotheks- oder React-Native-Typen keine sichere Alternative bieten, lokal begrenzt und dokumentiert ist.
 - [x] Bestehende Fam-Tokens werden überall dort verwendet, wo sie ein direktes Gegenstück zu einem Referenzwert darstellen.
 - [x] ui-Komponenten, Props und Verhalten bleiben erhalten, wenn kein Fam-Gegenstück existiert. ui-only Werte werden nicht als globale Palette oder neue Theme-Quelle exportiert.

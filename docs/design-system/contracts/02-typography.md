@@ -8,6 +8,8 @@ gleich.
 
 ## Quellen der Wahrheit
 
+- Schriftmaße und Gewichte: `src/components/theme/index.ts`
+- Varianten, Töne und Textdarstellung: `src/constants/ui.tsx`
 - `font.sizes`, `font.lineHeights`, `font.weight`
 - `TxtVariant`
 - `TxtTone`
@@ -15,6 +17,7 @@ gleich.
 
 Der Referenz-Screen **Typografie** zeigt jede öffentliche Variante und jeden
 Ton. Komponenteninterne Beschriftungen sind keine globale `Txt`-Variante.
+NativeWind und `global.css` definieren keine zusätzliche Typografie-API.
 
 ## Öffentliche `Txt`-API
 
@@ -50,8 +53,8 @@ verhindern erneut abgeschnittene Glyphen.
 | Alte Rollen | Erlaubte Form |
 | --- | --- |
 | `bodySmall`, `bodyLarge`, `bodyRelaxed`, `controlValue*` | `body` |
-| `controlAction*`, `stepperAction*` | `subheading` oder interner Komponentenstil |
-| `pageTitle*`, `chromeTitle`, `ringValue`, `metricValue`, `navigationArrow` | `title` oder interner Komponentenstil |
+| `controlAction*`, `stepperAction*` | `subheading` oder komponentenspezifisches Typografierezept aus `src/constants/ui.tsx` |
+| `pageTitle*`, `chromeTitle`, `ringValue`, `metricValue`, `navigationArrow` | `title` oder komponentenspezifisches Typografierezept aus `src/constants/ui.tsx` |
 | `pageSubtitle` | `label` |
 | `micro`, `meta`, `detail`, `captionCompact`, `code` | `caption` |
 | `link` | `label` mit `tone="accent"` |
@@ -59,9 +62,11 @@ verhindern erneut abgeschnittene Glyphen.
 ## Zuständigkeiten
 
 - `ScreenHeader` verwendet `title` und optional `label`.
-- Button-Beschriftungen werden intern vom Button gesetzt.
-- Eingaben, Stepper und Kennzahlen dürfen eine interne Größe aus `font.sizes`
-  wählen, aber keine neue globale `Txt`-Variante einführen.
+- Button-Beschriftungen wenden intern ihr zentral in `src/constants/ui.tsx`
+  definiertes Rezept an.
+- Eingaben, Stepper und Kennzahlen dürfen ein dort definiertes Rezept wählen,
+  aber keine lokale Schriftgröße, Zeilenhöhe, Stärke oder Farbe aus Rohtokens
+  zusammensetzen.
 - Screens verwenden für wiederkehrende Texte ausschließlich die sieben
   öffentlichen Varianten.
 
@@ -81,5 +86,5 @@ verhindern erneut abgeschnittene Glyphen.
 ```
 
 Die Zeilenhöhe ist kleiner als die Schrift und kann Glyphen abschneiden. Der
-Screen wählt eine vorhandene Variante. Nur eine wiederverwendbare Komponente
-darf ihre technisch notwendige Schriftgröße intern besitzen.
+Screen wählt eine vorhandene Variante. Eine wiederverwendbare Komponente darf
+ein zentrales Rezept auswählen, aber keine eigene Typografiedefinition besitzen.

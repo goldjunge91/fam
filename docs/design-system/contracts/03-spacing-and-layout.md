@@ -4,7 +4,7 @@
 
 Abstände bilden eine kleine, wiederholbare Skala. Statisches Flexbox-Layout
 kann über NativeWind beschrieben werden; wiederkehrende Maße stammen aus
-`space`.
+`space` in `src/components/theme/index.ts`.
 
 ## Zentrale Variablen
 
@@ -23,8 +23,9 @@ aktuell aufgelösten Gerätemaße.
 </View>
 ```
 
-Alternativ darf eine vorhandene statische Utility wie `gap-three` verwendet
-werden, wenn sie denselben Vertrag ausdrückt.
+NativeWind beschreibt hier nur die statische Flex-Struktur. Der gemeinsame
+Abstand bleibt ein Token und wird nicht als zweite Skala in
+`tailwind.config.js` gepflegt.
 
 ## Vertrag nicht umgesetzt
 
@@ -36,4 +37,3 @@ werden, wenn sie denselben Vertrag ausdrückt.
 
 Zufällige Maße erzeugen visuelle Drift. Ein einmaliger, fachlich begründeter
 Wert ist erlaubt; ein wiederkehrender Wert wird zentralisiert.
-

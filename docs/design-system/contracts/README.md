@@ -4,6 +4,13 @@ Jede Datei beschreibt genau einen Vertrag: Zweck, zentrale Variablen, korrekte
 Umsetzung und sichtbarer Vertragsbruch. Die App-Referenz unter
 `/settings/design-system` rendert dieselben Bereiche mit echten Komponenten.
 
+Diese Verträge sind die normative Design-System-Referenz. Alle Verträge folgen
+denselben drei Quellen: `src/components/theme/index.ts` für Tokens,
+`src/components/theme/ThemeProvider.tsx` für das aktive Theme und
+`src/constants/ui.tsx` für semantische UI-Primitiven und gemeinsame
+Darstellung. NativeWind ist ausschließlich ein Werkzeug für einfaches
+statisches Layout.
+
 Ein rotes Gegenbeispiel ist keine alternative Implementierung. Es ist nur ein
 lokales Anschauungsobjekt im Entwickler-Screen und darf nicht in Produktcode
 übernommen werden.
@@ -18,4 +25,3 @@ lokales Anschauungsobjekt im Entwickler-Screen und darf nicht in Produktcode
 8. [Felder und Auswahl](./08-fields-and-selection.md)
 9. [Screens und Navigation](./09-screens-and-navigation.md)
 10. [Accessibility und Zustände](./10-accessibility-and-states.md)
-

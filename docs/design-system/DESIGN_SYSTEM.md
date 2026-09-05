@@ -4,15 +4,16 @@ Dieses Dokument ist die Arbeitsreferenz für neue und überarbeitete Oberfläche
 der fam-App. Es beschreibt den aktuellen Soll-Zustand: welche Bausteine
 verwendet werden, wem Farben und Typografie gehören und wo NativeWind endet.
 
-Die technischen Detailverträge stehen unter
-[`docs/specs/nativewind-styling/`](../specs/nativewind-styling/).
-
-Die Verträge mit direkt vergleichbaren Umsetzungsbeispielen sind getrennt
-unter [`docs/design-system/contracts/`](./contracts/) abgelegt. Ihre lebende
+Die normativen Verträge mit direkt vergleichbaren Umsetzungsbeispielen stehen
+unter [`docs/design-system/contracts/`](./contracts/). Ihre lebende
 Darstellung ist in der App unter **Einstellungen → Entwickler →
 Design-System-Referenz** erreichbar. Dort werden die echten Tokens und
 Komponenten gerendert; die rot markierten Beispiele zeigen bewusst den
 jeweiligen Vertragsbruch.
+
+[`docs/specs/nativewind-styling/`](../specs/nativewind-styling/) dokumentiert
+die abgeschlossene Entstehung dieser Architektur. Die Specs sind historischer
+Kontext und keine zweite aktuelle Design-System-Quelle.
 
 | Vertrag | Referenz-Screen |
 | --- | --- |
@@ -33,15 +34,22 @@ jeweiligen Vertragsbruch.
 | --- | --- |
 | Farben, Abstände, Radien, Schriftmaße, Schatten, Verläufe | `src/components/theme/index.ts` |
 | Aktiver Theme-Modus und persistierte Auswahl | `src/components/theme/ThemeProvider.tsx` |
-| Text-, Surface- und grundlegende UI-Primitiven | `src/constants/ui.tsx` |
-| Projektweite Buttons und Navigationsaktionen | `src/components/ui/buttons/` |
-| Screen-Gerüst und Safe Area | `src/components/layout/screen.tsx`, `screen.android.tsx` |
-| NativeWind-Farbklassen und wiederverwendbare Klassen | `tailwind.config.js`, `src/global.css` |
-| Domänenspezifische Komponenten | `src/features/<domain>/components/` |
+| Semantische UI-Primitiven, Typografie, Flächen und gemeinsame Zustände | `src/constants/ui.tsx` |
 
-Feature-Code importiert keine eigene Palette und baut keine zweite
-Typografie-Skala. Wenn ein semantischer Wert fehlt, wird zuerst geprüft, ob er
-wirklich projektweit wiederkehrt. Erst dann wird die zentrale Quelle erweitert.
+`index.ts`, `ThemeProvider.tsx` und `ui.tsx` regeln zusammen jede
+projektweite Designentscheidung. Feature-Code importiert keine eigene Palette
+und baut keine zweite Typografie- oder Zustands-API. Wenn ein semantischer Wert
+fehlt, wird zuerst geprüft, ob er wirklich projektweit wiederkehrt. Erst dann
+wird genau eine der drei zentralen Quellen erweitert.
+
+### Implementierungs- und Verbraucherorte
+
+| Ort | Rolle |
+| --- | --- |
+| `src/components/ui/` | Wendet die zentralen Definitionen an und ergänzt Verhalten oder Komposition |
+| `src/components/layout/` | Screen-Gerüste und lokales Layout |
+| `src/features/<domain>/components/` | Fachliche Komposition ohne eigene Designquelle |
+| `tailwind.config.js`, `src/global.css` | Technischer NativeWind-Einstieg und bestehender Migrationsbestand |
 
 ## 2. Visuelle Sprache
 
@@ -103,11 +111,12 @@ Theme-Vertrags.
 Premiumflächen verwenden ausschließlich die
 `premiumGradient*`-, `premiumOnSurface`- und `premiumAction*`-Tokens.
 
-Die kürzeren Aliasnamen wie `bg`, `surface`, `basil` oder `grape`
-existieren für interne Primitive und kompatible Aufrufer. Neuer
-Feature-Code bevorzugt die kanonischen semantischen Namen, wenn ein direktes
-Gegenstück vorhanden ist. `legacyWaivyColors` ist nur eine Referenz und keine
-Produktionspalette.
+Die kürzeren Aliasnamen wie `bg`, `surface`, `basil` oder `grape` sind interner
+Migrationsbestand. Neuer Feature-Code verwendet für normale UI keine Palette
+direkt, sondern die semantischen Primitiven und Styles aus
+`src/constants/ui.tsx`. Direkter Palettenzugriff bleibt datengetriebenen Farben
+und nativen Integrationsgrenzen vorbehalten. `legacyWaivyColors` ist nur eine
+Referenz und keine Produktionspalette.
 
 ### Transparente und dynamische Farben
 
@@ -149,39 +158,32 @@ Aufgabe.
 
 | Aufgabe | Werkzeug |
 | --- | --- |
-| Statisches Flex-Layout, Positionierung, Gap und Padding | NativeWind `className` |
-| Wiederkehrende statische Klassen aus `global.css` | NativeWind |
-| Theme-Farben zur Laufzeit | `useTheme()` und `style` |
-| Wiederverwendbare dynamische Styles | `useThemedStyles()` mit `StyleSheet.create()` |
-| Schattenobjekte, berechnete Maße und Safe-Area-Werte | `style` oder StyleSheet |
-| `expo-image`, FlashList, Bottom Sheets, SVG und native Spezialkomponenten | deren native `style`-API |
+| Einfaches statisches Layout: Flex, Ausrichtung, Gap, Padding, Margin, Position und feste Layoutgrößen | NativeWind `className` |
+| Aufgelöste aktive Palette | `ThemeProvider.tsx` und `useTheme()` |
+| Semantische Typografie, Farben, Flächen, Konturen, Schatten und Zustandsstyles | `src/constants/ui.tsx` |
+| Berechnete Werte, native Grenzen und nicht semantisches lokales Layout | lokales `style` oder StyleSheet |
+| `expo-image`, FlashList, Bottom Sheets, SVG und native Spezialkomponenten | deren native `style`-API mit zentralen Tokens und Rezepten |
 | Standardtext | `Txt` |
 | Standardflächen | `Surface` oder `Card` |
 
-Beispiel für einen themeabhängigen Style:
+Beispiel für die Aufgabenteilung:
 
 ```tsx
-function makeStyles(colors: Palette) {
-  return StyleSheet.create({
-    input: {
-      backgroundColor: colors.backgroundElement,
-      borderColor: colors.border,
-      color: colors.text,
-    },
-  });
-}
-
-function SearchField() {
-  const styles = useThemedStyles(makeStyles);
-  return <TextInput className="px-four py-three" style={styles.input} />;
-}
+<Surface
+  tone="soft"
+  className="flex-row items-center"
+  style={{ gap: space.md }}
+/>
 ```
 
 Regeln:
 
-- `className` übernimmt bevorzugt das statische Layout.
-- Eine semantische Komponente besitzt ihre eigenen Farben, Typografie und
-  Zustände.
+- `className` übernimmt ausschließlich einfaches statisches Layout.
+- Neue semantische Farb-, Text-, Hintergrund-, Kontur-, Schatten- oder
+  Zustandsklassen werden nicht mit NativeWind gebaut.
+- Eine semantische Komponente wendet die in `src/constants/ui.tsx` definierten
+  Farben, Typografierezepte und Zustandsstyles an. Sie besitzt nur Verhalten,
+  Komposition und lokales Layout.
 - Ein Caller-`style` ist der letzte, bewusste Override.
 - `!text-*` und andere Important-Utilities sind keine Lösung für
   Spezifitätsprobleme.
@@ -191,6 +193,11 @@ Regeln:
   `contentContainerClassName`.
 - Normale Typografie wird nicht über lokale
   `style={{ fontSize, lineHeight }}`-Objekte definiert.
+- `global.css` und `tailwind.config.js` sind keine Design-System-Quellen. Dort
+  werden keine neuen Komponentenklassen, Farbpaletten, Typografieskalen oder
+  semantischen Zustände ergänzt.
+- Es gibt keine zusätzliche NativeWind-`vars()`-Bridge. Light, Dark und System
+  werden ausschließlich im `ThemeProvider` aufgelöst.
 
 ## 6. Typografie mit `Txt`
 
@@ -213,11 +220,12 @@ Zeilenhöhe, Gewicht und Standardton gemeinsam.
 | Beschriftungen | `label` |
 | Metadaten und kleine Hinweise | `caption` |
 
-Bedienelemente erzeugen keine zusätzlichen öffentlichen Textvarianten. Ein
-`Button`, `QuantityStepper`, `ProgressRing` oder Eingabefeld besitzt seine
-Schriftgröße intern. Ein `ScreenHeader` verwendet wie Waivy `title` für den
-Titel und `label` für den Untertitel. Links verwenden `label` mit
-`tone="accent"`.
+Bedienelemente erzeugen keine zusätzlichen öffentlichen Textvarianten. Ihre
+komponentenspezifischen Typografierezepte werden in `src/constants/ui.tsx`
+definiert und von der Implementierung intern ausgewählt. Komponenten definieren
+keine lokalen Schriftgrößen direkt aus `font.sizes`. Ein `ScreenHeader`
+verwendet wie Waivy `title` für den Titel und `label` für den Untertitel. Links
+verwenden `label` mit `tone="accent"`.
 
 ### Töne
 
@@ -229,9 +237,9 @@ bewusst andere Betonung braucht. `color` ist Laufzeit- und
 Integrationsfällen vorbehalten. `className` dient am `Txt` primär dem
 Layout, etwa `flex-1`, `mt-two` oder `shrink`.
 
-Wenn eine Komponente verschiedene Größen anbietet, löst sie diese intern über
-die kleine `font.sizes`-Skala auf. Screens erfinden dafür keine neue
-`Txt`-Variante und setzen keine lokalen Schriftgrößen.
+Wenn eine Komponente verschiedene Größen anbietet, wählt sie intern ein in
+`src/constants/ui.tsx` definiertes Typografierezept. Screens und Komponenten
+erfinden dafür keine neue `Txt`-Variante und setzen keine lokalen Schriftgrößen.
 
 ## 7. Screen-Gerüst
 
@@ -359,10 +367,13 @@ kommunizieren.
 1. Passenden `Screen`- und Header-Modus wählen.
 2. Vorhandene Komponenten aus Abschnitt 8 zusammensetzen.
 3. Textrolle und Ton über `Txt` ausdrücken.
-4. Statisches Layout mit NativeWind setzen.
-5. Dynamische Farben und native Grenzen über Theme und StyleSheet lösen.
-6. Fehlende, wiederkehrende Werte als semantischen Token oder Primitive
-   ergänzen.
+4. Nur einfaches statisches Layout mit NativeWind setzen.
+5. Semantische Farben und Zustände über die Primitiven und Styles aus
+   `src/constants/ui.tsx` ausdrücken. `useTheme()` und lokale Styles nur für
+   datengetriebene Werte und native Grenzen verwenden.
+6. Fehlende Tokens in `theme/index.ts`, Theme-Auflösung in
+   `ThemeProvider.tsx` und fehlende semantische Primitiven, Typografie-, Farb-
+   oder Zustandsrezepte in `ui.tsx` ergänzen.
 7. Light, Dark, kleine Displays, große Schrift und Interaktionszustände
    prüfen.
 8. Bei vorhandener `.android.tsx`-Datei beide Plattformkopien synchron
@@ -372,15 +383,14 @@ kommunizieren.
 
 - Der öffentliche Theme-Modus umfasst derzeit nur `system`, `light` und
   `dark`.
-- Die CSS-Farbvariablen in `global.css` folgen dem System-Farbschema.
-  Komponenten, die eine explizit erzwungene Theme-Auswahl sicher abbilden
-  müssen, beziehen ihre Farben deshalb über `useTheme()`.
+- Bestehende semantische Farb- und Komponentenklassen in `global.css` sind
+  Migrationsbestand. Neue Screens verwenden sie nicht.
 - Nicht jede Drittanbieterkomponente unterstützt NativeWind-`className`.
 - Bestehende Screens können noch lokale Spezialklassen enthalten. Neue
-  Abweichungen werden nicht hinzugefügt; verbindlich sind die Regeln dieses
-  Dokuments und die NativeWind-Spezifikation.
+  Abweichungen werden nicht hinzugefügt; verbindlich sind die Verträge unter
+  `docs/design-system/contracts/`.
 
-## Technische Vertiefung
+## Historische Implementierungsspezifikation
 
 - [NativeWind-Styling-Spezifikation](../specs/nativewind-styling/SPEC.md)
 - [Token-Vertrag](../specs/nativewind-styling/SPEC-token-contract.md)

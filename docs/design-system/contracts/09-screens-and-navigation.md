@@ -5,6 +5,11 @@
 `Screen` ist das gemeinsame Gerüst für Safe Area, Hintergrund, Inhaltsbreite,
 Scrollen, Tastatur, unteren Freiraum und Header.
 
+Das Gerüst bezieht Tokens aus `src/components/theme/index.ts`, das aktive Theme
+aus `ThemeProvider.tsx` und semantische Flächen sowie Text aus
+`src/constants/ui.tsx`. NativeWind darf innerhalb eines Screens nur einfaches
+statisches Layout beschreiben.
+
 ## Header-Modi
 
 - `chrome`: Hauptbereich mit Menü, zentriertem Titel, Aktion und Profil
@@ -35,4 +40,3 @@ Scrollen, Tastatur, unteren Freiraum und Header.
 Das Gegenbeispiel dupliziert Safe Area und Header, hat kein Fallback-Ziel und
 driftet typografisch. `chrome` und `back` werden nicht kombiniert. Sichtbar im
 Referenz-Screen **Screens**.
-

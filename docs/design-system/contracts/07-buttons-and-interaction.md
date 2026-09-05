@@ -5,6 +5,14 @@
 Buttons machen Priorität, Gefahr, Zustand und Berührung konsistent. Produktcode
 verwendet die Exports aus `src/components/ui/buttons/`.
 
+Die Button-Implementierung darf keine eigene Designquelle bilden. Rohe Palette,
+Spacing, Radius und Tiefe kommen aus `src/components/theme/index.ts`;
+`ThemeProvider.tsx` löst die aktive Palette auf. Button-Typografie, semantische
+Farbzuordnungen, Animationstiming und pressed-, loading- und disabled-
+Darstellungen werden in `src/constants/ui.tsx` definiert. Komponenten unter
+`src/components/ui/buttons/` wenden diese Definitionen an und ergänzen Verhalten
+oder Komposition. NativeWind darf am Aufrufer nur Layout beisteuern.
+
 ## Varianten und Zustände
 
 - `primary`, `secondary`, `danger`, `accent`, `ghost`, `link`

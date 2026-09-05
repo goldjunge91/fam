@@ -7,6 +7,12 @@ zusammengehörende Informationen. Ein `View` bleibt die Wahl für reines Layout.
 Feature-Cards verwenden dieselbe sichtbare Foundation aus Hintergrund, Border,
 Radius und Schatten. Sie unterscheiden sich nur durch ihren Inhalt.
 
+`Surface`, die gemeinsame Card-Foundation und ihre semantischen Hintergrund-,
+Kontur-, Radius- und Schattenrezepte werden in `src/constants/ui.tsx` geregelt.
+Höhere Card-Komponenten wenden diese Foundation an, statt direkt aus Rohtokens
+einen zweiten semantischen Stil zusammenzusetzen. Feature-Code und NativeWind
+definieren keine eigene Flächenpalette.
+
 ## Surface-Töne
 
 - `page`
@@ -14,9 +20,9 @@ Radius und Schatten. Sie unterscheiden sich nur durch ihren Inhalt.
 - `soft`
 - `accent`
 
-`selected` ist kein Surface-Ton. Auswahl ist ein Zustand der jeweiligen
-interaktiven Komponente und wird dort mit `accessibilityState`, Akzent, Border
-oder Symbol ausgedrückt.
+`selected` ist kein Surface-Ton. `src/constants/ui.tsx` definiert die
+wiederverwendbare Darstellung ausgewählter Zustände; die interaktive Komponente
+wendet sie an und setzt das passende `accessibilityState`.
 
 ## Vertrag umgesetzt
 

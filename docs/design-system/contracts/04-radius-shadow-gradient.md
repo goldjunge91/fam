@@ -7,6 +7,8 @@ Theme-Farbton, gefüllte Buttons behalten ihre definierte 3D-Tiefe.
 
 ## Zentrale Variablen
 
+Alle folgenden Werte stammen aus `src/components/theme/index.ts`:
+
 - `radius.sm` bis `radius.pill`
 - `shadow.sm`, `shadow.md`, `shadow.lg`
 - `BUTTON_DEPTH`

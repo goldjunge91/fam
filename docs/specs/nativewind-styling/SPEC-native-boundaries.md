@@ -1,12 +1,20 @@
 # Spec: `native-boundaries`
 
+## Status
+
+Abgeschlossen und historisch. Die aktuelle Grenze zwischen NativeWind und
+StyleSheet steht in
+`docs/design-system/contracts/05-nativewind-and-stylesheet.md`.
+
 ## Objective
 
 NativeWind und StyleSheet werden an der richtigen Grenze eingesetzt. Das verhindert, dass ein `className` scheinbar vorhanden ist, aber bei nativen Komponenten keine Wirkung hat oder durch die falsche Priorität überschrieben wird.
 
 ## Erlaubte NativeWind-Fläche
 
-`className` ist für React-Native-Core-Primitives und für registrierte eigene Komponenten zulässig, sofern die Komponente den Prop explizit weiterreicht. Geeignet sind insbesondere:
+`className` ist ausschließlich für einfaches statisches Layout auf
+interop-kompatiblen React-Native-Core-Primitives und eigenen Komponenten
+zulässig, die den Prop explizit weiterreichen. Geeignet sind insbesondere:
 
 - `View`, `Text`, `Pressable`, `TextInput`, `ScrollView`.
 - Fam-Komponenten, die `className` bewusst an das zugrunde liegende Primitive weitergeben.
@@ -21,9 +29,13 @@ StyleSheet oder ein expliziter Style-Adapter ist erforderlich für:
 - Bottom-Sheet-Komponenten.
 - `react-native-svg` und SVG-basierte Icon-Komponenten.
 - Glass-/native Spezialkomponenten.
-- Komponenten mit dynamischen Theme-Farben, Shadow-Objekten oder nativen Input-Eigenschaften.
+- Native Integrationsgrenzen mit berechneten Theme-Werten, Shadow-Objekten oder
+  nativen Input-Eigenschaften, die nicht durch ein semantisches Primitive
+  abgedeckt sind.
 
-Diese Liste entspricht dem bestehenden Projektwissen in `docs/design-system/nativewind-liquid-glass-migration.md` und den FlashList-Konventionen.
+Diese Liste entstand aus den damaligen NativeWind- und FlashList-Audits. Der
+aktuelle verbindliche Grenzvertrag steht in
+`docs/design-system/contracts/05-nativewind-and-stylesheet.md`.
 
 ## Bewusst erlaubte Ausnahmen
 
