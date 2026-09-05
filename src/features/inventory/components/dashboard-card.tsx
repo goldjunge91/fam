@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
+function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
   const { colors } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -75,6 +75,7 @@ function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
       <GlassCard
         onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
         onLongPress={onLongPress}
+        disabled={disabled}
         accessibilityRole="button"
         accessibilityLabel="Alle bald ablaufenden Artikel im Vorrat anzeigen"
         glassStyle={[styles.widget, styles.largeWidget]}
@@ -85,8 +86,7 @@ function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
         ]}
         outerStyle={[styles.pressable, shadow.sm, { shadowColor: colors.shadowCard }]}>
         <View style={styles.header}>
-          <View
-            style={[styles.badge, { backgroundColor: withAlpha(colors.carrot, 0.2) }]}>
+          <View style={[styles.badge, { backgroundColor: withAlpha(colors.carrot, 0.2) }]}>
             <Txt variant="body" tone="warning" weight="700">
               {expiringCount}
             </Txt>
@@ -119,13 +119,13 @@ function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
     <GlassCard
       onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
       onLongPress={onLongPress}
+      disabled={disabled}
       accessibilityRole="button"
       accessibilityLabel="Alle bald ablaufenden Artikel im Vorrat anzeigen"
       glassStyle={styles.widget}
       fallbackStyle={[styles.widget, { backgroundColor: colors.backgroundElement }]}
       outerStyle={[styles.pressable, shadow.sm, { shadowColor: colors.shadowCard }]}>
-      <View
-        style={[styles.badge, { backgroundColor: withAlpha(colors.carrot, 0.2) }]}>
+      <View style={[styles.badge, { backgroundColor: withAlpha(colors.carrot, 0.2) }]}>
         <Txt variant="body" tone="warning" weight="700">
           {expiringCount}
         </Txt>

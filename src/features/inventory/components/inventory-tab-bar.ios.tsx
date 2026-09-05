@@ -1,10 +1,17 @@
 import { useRef, useState } from 'react';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  withTiming,
+} from 'react-native-reanimated';
 
-import { type Palette, radius, shadow, space } from '@/components/theme/index';
-import { useThemedStyles } from '@/components/theme/ThemeProvider';
+import { BUTTON_DEPTH, type Palette, radius, shadow, space } from '@/components/theme/index';
+import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
+import { medium as hapticMedium } from '@/lib/haptics';
 
 interface InventoryTabBarProps {
   activeTab: string;
@@ -24,6 +31,10 @@ function makeStyles(colors: Palette) {
       borderWidth: 1,
       borderRadius: radius.lg,
       borderCurve: 'continuous',
+    },
+    triggerOpen: {
+      backgroundColor: colors.backgroundSoft,
+      borderColor: colors.accent,
     },
     menu: {
       backgroundColor: colors.backgroundElement,
@@ -45,10 +56,15 @@ function makeStyles(colors: Palette) {
 }
 
 export function InventoryTabBar({ activeTab, onTabChange, locations }: InventoryTabBarProps) {
+  const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
   const [isOpen, setIsOpen] = useState(false);
   const [menuPosition, setMenuPosition] = useState<MenuPosition>(FALLBACK_MENU_POSITION);
   const triggerRef = useRef<View>(null);
+  const depth = useSharedValue(0);
+  const faceStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: depth.value }],
+  }));
   const options = [{ id: 'all', name: 'Alle' }, ...locations];
   const activeLocation = options.find((location) => location.id === activeTab);
 
@@ -71,18 +87,36 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
 
   return (
     <View ref={triggerRef} className="w-1/2 shrink-0">
-      <Pressable
-        className="min-h-[54px] flex-row items-center justify-between px-three active:opacity-80"
-        style={styles.trigger}
-        onPress={toggleMenu}
-        accessibilityRole="button"
-        accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}
-        accessibilityState={{ expanded: isOpen }}>
-        <Txt variant="body" weight="700">
-          {activeLocation?.name ?? 'Lagerort auswählen'}
-        </Txt>
-        <Txt tone="secondary">{isOpen ? '⌃' : '⌄'}</Txt>
-      </Pressable>
+      <View
+        style={{
+          paddingBottom: BUTTON_DEPTH,
+          borderRadius: radius.lg,
+          backgroundColor: colors.backgroundSoft,
+        }}>
+        <Animated.View style={faceStyle}>
+          <Pressable
+            className="min-h-[54px] flex-row items-center justify-between px-three active:opacity-90"
+            style={[styles.trigger, isOpen && styles.triggerOpen]}
+            onPress={() => {
+              hapticMedium();
+              toggleMenu();
+            }}
+            onPressIn={() => {
+              depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
+            }}
+            onPressOut={() => {
+              depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
+            }}
+            accessibilityRole="button"
+            accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}
+            accessibilityState={{ expanded: isOpen }}>
+            <Txt variant="body" weight="700">
+              {activeLocation?.name ?? 'Lagerort auswählen'}
+            </Txt>
+            <Txt tone="accent">{isOpen ? '⌃' : '⌄'}</Txt>
+          </Pressable>
+        </Animated.View>
+      </View>
       <Modal
         visible={isOpen}
         transparent

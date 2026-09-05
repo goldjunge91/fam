@@ -37,7 +37,7 @@ export function InventoryIconButton({
       style={{
         paddingBottom: BUTTON_DEPTH,
         borderRadius: radius.lg,
-        backgroundColor: colors.border,
+        backgroundColor: active ? colors.border : colors.backgroundSoft,
       }}>
       <Animated.View style={faceStyle}>
         <Pressable

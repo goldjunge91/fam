@@ -1,9 +1,8 @@
 import { View } from 'react-native';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Card } from '@/components/ui/card';
 import { ProgressRing } from '@/components/ui/progress-ring';
-import { Txt } from '@/constants/ui';
+import { Card, Txt } from '@/constants/ui';
 
 type InventorySummaryCardProps = {
   totalCount: number;
@@ -23,7 +22,7 @@ export function InventorySummaryCard({
       className="flex-row gap-three"
       accessible
       accessibilityLabel={`${criticalCount} Artikel laufen bald ab, ${soonCount} bald fällig, ${totalCount} insgesamt im Vorrat`}>
-      <Card className="min-h-[176px] flex-1 items-center justify-center gap-three">
+      <Card soft className="min-h-[176px] flex-1 items-center justify-center gap-three">
         <ProgressRing
           preset="compact"
           value={criticalCount}
@@ -37,14 +36,11 @@ export function InventorySummaryCard({
           </Txt>
         </ProgressRing>
         <Txt variant="body" weight="700" center>
-          Läuft{' '}
-          <Txt variant="body" tone="secondary" weight="700">
-            bald ab
-          </Txt>
+          Läuft bald ab
         </Txt>
       </Card>
 
-      <Card className="min-h-[176px] flex-1 items-center justify-center gap-three">
+      <Card soft className="min-h-[176px] flex-1 items-center justify-center gap-three">
         <ProgressRing
           preset="compact"
           value={soonCount}
@@ -58,10 +54,7 @@ export function InventorySummaryCard({
           </Txt>
         </ProgressRing>
         <Txt variant="body" weight="700" center>
-          Bald{' '}
-          <Txt variant="body" tone="secondary" weight="700">
-            fällig
-          </Txt>
+          Bald fällig
         </Txt>
       </Card>
     </View>
