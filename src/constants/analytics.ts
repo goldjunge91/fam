@@ -4,7 +4,7 @@ import { getDeviceStorage } from '@/lib/storage/device-storage';
 
 export const analyticsConfig = {
   enabled: true,
-  providers: { aptabase: true, posthog: true },
+  providers: { aptabase: false, posthog: true },
   channels: { productEvents: true, errorReports: true, diagnostics: true },
   features: {
     onboarding: true,
