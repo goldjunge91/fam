@@ -75,7 +75,7 @@ Die etablierten Produktimporte bleiben die öffentliche Grenze:
 | Vertrag | Kanonischer Einstieg |
 | --- | --- |
 | Button | `src/constants/ui.tsx` |
-| Textfeld | `src/components/forms/text-field.tsx` |
+| Textfeld | `src/constants/ui.tsx` (`TextField`) |
 | Einzelauswahl | `src/components/ui/segmented-control.tsx` |
 | Empty State | `src/components/ui/empty-state.tsx` |
 | Text, Surface und kleine Layoutprimitives | `src/constants/ui.tsx` |
@@ -280,5 +280,7 @@ Konsistenzprüfung der benannten Contracts geschlossen. `fam-6zf.4` und
 der doppelte Produkt-Button samt reinem Export ist entfernt. `fam-6zf.2`
 bleibt blockiert, bis der finale Mock fertiggestellt und ausdrücklich
 freigegeben ist. Weitere Tasks werden durch den hinterlegten Abhängigkeitsgraphen
-freigegeben; unfertige V2-/V3-Beispiele lösen keine sichtbaren Layout- oder
-Farbänderungen aus.
+freigegeben. `fam-6zf.6` ist abgeschlossen: `Field` wurde in `ui.tsx` zu
+`TextField` zusammengeführt, alle Verbraucher verwenden den zentralen Import
+und die zweite Implementierung ist entfernt. Unfertige V2-/V3-Beispiele lösen
+keine sichtbaren Layout- oder Farbänderungen aus.

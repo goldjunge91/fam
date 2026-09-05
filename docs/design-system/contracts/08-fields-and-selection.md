@@ -10,10 +10,10 @@ NativeWind übernimmt nur lokales Layout.
 ## Öffentliche Komponenten und gemeinsame Basis
 
 - `TextField` aus `src/constants/ui.tsx` ist der einzige Produkteinstieg für
-  strukturierte Eingaben. Dafür wird das bestehende `Field` in `ui.tsx` zu
-  `TextField` umbenannt und um die produktiven Funktionen der bisherigen
+  strukturierte Eingaben. Das bestehende `Field` wurde in `ui.tsx` zu
+  `TextField` umbenannt und um die produktiven Funktionen der früheren
   `src/components/forms/text-field.tsx` ergänzt. Fokus- und Fehlerfähigkeit
-  liegen damit in einer Implementierung; die bisherige Datei wird entfernt.
+  liegen damit in einer Implementierung; die frühere Datei ist entfernt.
 - Produkt-Einzelauswahl verwendet den `SegmentedControl` aus
   `src/components/ui/segmented-control.tsx` mit Gruppenlabel, `options`, `selected`
   und `onSelect`. Der bestehende `value/onChange`-Einstieg darf diese Basis adaptieren.
@@ -103,7 +103,7 @@ import { SegmentedControl } from '@/components/ui/segmented-control';
 ```
 
 Das Beispiel verwendet die bestehende Produkt-API. Die gemeinsame Rezeptbasis und
-vollständigen States sind Zielanforderungen, kein behaupteter Istzustand.
+vollständigen States sind mit `fam-6zf.6` umgesetzt.
 Ein lokales `TextInput` mit eigener Farb-/Konturdefinition oder eine Auswahl nur
 mit wechselnder Farbe verletzt den Vertrag.
 
@@ -113,6 +113,6 @@ Gezielte Tests prüfen Fokus/Fehler, explizite Props, native Events, Ref-Fokussi
 Disabled sowie Auswählen/Abwählen. VoiceOver/TalkBack prüfen Feldname, Fehler und
 Auswahlsemantik. Native Tastaturprüfung bestätigt Submit, Toolbar-Verantwortung und
 Erreichbarkeit in Sheets. Beide Themes, große Schrift und schmale Breite sind
-Teil der visuellen Prüfung. `Field`/`TextField` und beide SegmentedControls sind
-bis zur Konsolidierung ausdrücklich Migrationsbestand; nach `fam-6zf.6` bleibt
-nur `TextField` aus `ui.tsx`.
+Teil der visuellen Prüfung. Die `Field`/`TextField`-Konsolidierung ist mit
+`fam-6zf.6` umgesetzt; es bleibt nur `TextField` aus `ui.tsx`. Beide
+SegmentedControls bleiben bis `fam-6zf.7` Migrationsbestand.
