@@ -14,6 +14,7 @@ bei Widersprüchen die maßgebliche Quelle.
 ## Entwicklung und Betrieb
 
 - [Developer Guide](architecture/DEVELOPER_GUIDE.md) — lokales Setup, Architektur und Standardabläufe.
+- [React Native Harness](../harness/README.md) — Tests in der echten iOS-, Android- oder Web-Runtime.
 - [Funktionsdiagramme](features/FUNKTIONSDIAGRAMME.md) — Systemarchitektur, Datenmodelle und Feature-Workflows (Mermaid).
 - [Design-System](design-system/DESIGN_SYSTEM.md) — verbindliche Tokens und Komponentenregeln.
 - [RevenueCat-Webhook](revenuecat/revenuecat-webhook.md) — Deployment und Prüfung des Premium-Webhooks.
