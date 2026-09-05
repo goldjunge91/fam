@@ -64,13 +64,14 @@ function initialCursor(): SyncCursor {
   return { lastSyncedAt: EPOCH_START, lastSyncedId: MIN_UUID };
 }
 
-function buildOrFilter(cursor: SyncCursor): string {
-  return `updated_at.gt.${cursor.lastSyncedAt},and(updated_at.eq.${cursor.lastSyncedAt},id.gt.${cursor.lastSyncedId})`;
+function buildOrFilter(cursor: SyncCursor, cursorColumn: 'updated_at' | 'created_at'): string {
+  return `${cursorColumn}.gt.${cursor.lastSyncedAt},and(${cursorColumn}.eq.${cursor.lastSyncedAt},id.gt.${cursor.lastSyncedId})`;
 }
 
 type RemoteRow = Record<string, unknown> & {
   id: string;
-  updated_at: string;
+  updated_at?: string;
+  created_at?: string;
   deleted_at?: string | null;
 };
 
@@ -111,8 +112,8 @@ async function pullEntity(
       query = query.in('household_id', householdIds);
     }
     query = query
-      .or(buildOrFilter(cursor))
-      .order('updated_at', { ascending: true })
+      .or(buildOrFilter(cursor, meta.syncCursorColumn ?? 'updated_at'))
+      .order(meta.syncCursorColumn ?? 'updated_at', { ascending: true })
       .order('id', { ascending: true })
       .limit(PAGE_SIZE);
 
@@ -167,13 +168,19 @@ async function pullEntity(
       await writeSyncCursor(
         txn,
         entity,
-        { lastSyncedAt: last.updated_at, lastSyncedId: last.id },
+        {
+          lastSyncedAt: last[meta.syncCursorColumn ?? 'updated_at'] as string,
+          lastSyncedId: last.id,
+        },
         Date.now(),
       );
       cursorWritten = true;
     });
 
-    cursor = { lastSyncedAt: last.updated_at, lastSyncedId: last.id };
+    cursor = {
+      lastSyncedAt: last[meta.syncCursorColumn ?? 'updated_at'] as string,
+      lastSyncedId: last.id,
+    };
 
     if (page.length < PAGE_SIZE) break;
   }
@@ -217,7 +224,7 @@ async function reconcileOrphans(
   }
 
   const meta = metaOf(entity);
-  if (meta.pushOnly || !meta.householdScoped) return;
+  if (meta.pushOnly || meta.appendOnly || !meta.householdScoped) return;
 
   // 1. Remote-IDs von Supabase fuer den Haushalt laden
   const { data, error } = await (

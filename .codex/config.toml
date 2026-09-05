@@ -1,28 +1,66 @@
-# model = "gpt-5.6-sol"
-# model_reasoning_effort = "high"
-# sandbox_mode = "workspace-write"
-# approval_policy = "on-request"
-# approvals_reviewer = "user"
+# fam project configuration
+#
+# This file is intentionally limited to project-scoped settings. Host-owned
+# provider, credential, profile, telemetry, and notification settings belong in
+# ~/.codex/config.toml and are documented in config-reference.toml.
 
-web_search = "cached" # live
-service_tier = "default"
+model = "gpt-5.6-luna"
+review_model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+model_reasoning_summary = "none"
+model_verbosity = "medium"
+personality = "friendly"
 
-[shell_environment_policy.filters]
-"PATH" = "include"
-"HOME" = "include"
+[permissions.project-edit]
+extends = ":workspace"
 
-[features]
-hooks = true
-multi_agent = true
-
-[agents]
-enabled = true
-default_subagent_model = "gpt-5.6-sol"
-default_subagent_reasoning_effort = "high"
-max_concurrent_threads_per_session = 2
-
-[windows]
-sandbox = "elevated"
+approval_policy = "on-request"
+approvals_reviewer = "user"
+sandbox_mode = "workspace-write"
+allow_login_shell = true
+web_search = "cached"
+project_root_markers = [".git"]
 
 [sandbox_workspace_write]
 network_access = true
+exclude_tmpdir_env_var = false
+exclude_slash_tmp = false
+
+[shell_environment_policy]
+inherit = "core"
+ignore_default_excludes = false
+
+[features]
+apps = true
+hooks = true
+# msemories = true
+unified_exec = true
+shell_snapshot = true
+shell_tool = true
+multi_agent = true
+goals = true
+remote_plugin = true
+personality = true
+fast_mode = false
+enable_request_compression = true
+skill_mcp_dependency_install = false
+prevent_idle_sleep = true
+plugin_sharing = true
+
+# [features.code_mode]
+# enabled = true
+# excluded_tool_namespaces = []
+# direct_only_tool_namespaces = []
+
+# Codex 0.149.1 rejects the newer rollout-budget table and host-level agent
+# overrides. Both documented variants remain available in config-reference.toml.
+# [memories]
+# generate_memories = true
+# use_memories = true
+# disable_on_external_context = true
+# max_raw_memories_for_consolidation = 50
+# max_unused_days = 30
+# max_rollout_age_days = 30
+# max_rollouts_per_startup = 8
+# min_rollout_idle_hours = 1
+# min_rate_limit_remaining_percent = 10

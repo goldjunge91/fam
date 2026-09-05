@@ -1,27 +1,27 @@
-#!/usr/bin/env bash
-# Aktualisiert die Screenshot-Galerie nur, wenn die lokale iOS-Capture-
-# Umgebung tatsächlich verfügbar ist. Der Hook staged oder amendiert nichts.
-set -euo pipefail
+# #!/usr/bin/env bash
+# # Aktualisiert die Screenshot-Galerie nur, wenn die lokale iOS-Capture-
+# # Umgebung tatsächlich verfügbar ist. Der Hook staged oder amendiert nichts.
+# set -euo pipefail
 
-cd "$(git rev-parse --show-toplevel)"
+# cd "$(git rev-parse --show-toplevel)"
 
-BUNDLE="com.goldjunge91.fam1"
+# BUNDLE="com.goldjunge91.fam1"
 
-capture_environment_available() {
-  command -v xcrun >/dev/null 2>&1 || return 1
-  command -v curl >/dev/null 2>&1 || return 1
+# capture_environment_available() {
+#   command -v xcrun >/dev/null 2>&1 || return 1
+#   command -v curl >/dev/null 2>&1 || return 1
 
-  local udid
-  udid="$(xcrun simctl list devices booted | grep -oE '\([0-9A-Fa-f-]{36}\)' | tr -d '()' | head -1 || true)"
-  [ -n "$udid" ] || return 1
-  curl --fail --silent http://127.0.0.1:8081/status >/dev/null || return 1
-  xcrun simctl get_app_container "$udid" "$BUNDLE" data >/dev/null 2>&1 || return 1
-}
+#   local udid
+#   udid="$(xcrun simctl list devices booted | grep -oE '\([0-9A-Fa-f-]{36}\)' | tr -d '()' | head -1 || true)"
+#   [ -n "$udid" ] || return 1
+#   curl --fail --silent http://127.0.0.1:8081/status >/dev/null || return 1
+#   xcrun simctl get_app_container "$udid" "$BUNDLE" data >/dev/null 2>&1 || return 1
+# }
 
-if ! capture_environment_available; then
-  echo "Screenshot-Gate übersprungen: kein booteter fam-Simulator oder Metro verfügbar."
-  exit 0
-fi
+# if ! capture_environment_available; then
+#   echo "Screenshot-Gate übersprungen: kein booteter fam-Simulator oder Metro verfügbar."
+#   exit 0
+# fi
 
-echo "Screenshot-Gate: lokale fam-Capture-Umgebung gefunden."
-bash scripts/capture-screenshots.sh
+# echo "Screenshot-Gate: lokale fam-Capture-Umgebung gefunden."
+# bash scripts/capture-screenshots.sh

@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vorrat Screen · neuer UI-Entwurf</title>
+    <script>
+      // Verbindliche Haltbarkeitsfenster für die beiden Statuskarten.
+      const EXPIRY_WINDOW_DAYS = Object.freeze({
+        runsOutSoon: 3,
+        dueSoon: 10,
+      });
+    </script>
+    <style>
+      :root {
+        --expiry-critical-days: 3;
+        --expiry-due-days: 10;
+        --canvas: #110e14;
+        --phone: #211d23;
+        --surface: #2b262e;
+        --surface-soft: #302a33;
+        --surface-pressed: #3a323c;
+        --text: #f2ece7;
+        --text-secondary: #b7adb3;
+        --text-tertiary: #8d838c;
+        --border: #49404b;
+        --accent: #c5a9c8;
+        --accent-strong: #b894bc;
+        --success: #8fae86;
+        --warning: #d9a86c;
+        --critical: #dd7c72;
+        --shadow: rgba(5, 3, 8, 0.42);
+        --glass-fill: rgba(255, 255, 255, 0.075);
+        --glass-fill-strong: rgba(255, 255, 255, 0.12);
+        --glass-stroke: rgba(255, 255, 255, 0.2);
+        --glass-highlight: rgba(255, 255, 255, 0.28);
+        --control-depth: rgba(5, 3, 8, 0.42);
+        --status-bar: #e1d9d5;
+        --progress-track: #4b4143;
+      }
+
+      :root[data-theme='light'] {
+        --canvas: #ede6de;
+        --phone: #f8f4ef;
+        --surface: #fbf7f2;
+        --surface-soft: #f4eee9;
+        --surface-pressed: #e9e1e7;
+        --text: #2d2830;
+        --text-secondary: #786f79;
+        --text-tertiary: #958b94;
+        --border: #e4dde3;
+        --accent: #705773;
+        --accent-strong: #624b66;
+        --success: #78906f;
+        --warning: #c69059;
+        --critical: #c65f50;
+        --shadow: rgba(58, 43, 61, 0.16);
+        --glass-fill: rgba(255, 255, 255, 0.5);
+        --glass-fill-strong: rgba(255, 255, 255, 0.72);
+        --glass-stroke: rgba(255, 255, 255, 0.8);
+        --glass-highlight: rgba(255, 255, 255, 0.95);
+        --control-depth: rgba(89, 64, 89, 0.28);
+        --status-bar: #2d2830;
+        --progress-track: #e1d9d2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 40px 16px 64px;
+        background: var(--canvas);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      button {
+        border: 0;
+        cursor: pointer;
+      }
+
+      .toolbar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-secondary);
+        font-size: 12px;
+      }
+
+      .toolbar-label {
+        margin-right: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .toolbar button {
+        padding: 7px 12px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--surface);
+        color: var(--text);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .mockup-note {
+        max-width: 500px;
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 12px;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .phone {
+        width: min(388px, 94vw);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid color-mix(in srgb, var(--text-secondary) 18%, transparent);
+        border-radius: 44px;
+        background: var(--phone);
+        box-shadow: 0 30px 70px -20px var(--shadow);
+      }
+
+      .screen {
+        position: relative;
+        min-height: 780px;
+        padding: 12px 24px 32px;
+        background:
+          radial-gradient(circle at 8% 14%, color-mix(in srgb, var(--critical) 28%, transparent), transparent 38%),
+          radial-gradient(circle at 94% 20%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 40%),
+          radial-gradient(circle at 54% 94%, color-mix(in srgb, var(--warning) 10%, transparent), transparent 35%),
+          var(--phone);
+      }
+
+      .status-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 24px;
+        color: var(--status-bar);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .status-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .status-dots {
+        display: flex;
+        gap: 3px;
+      }
+
+      .status-dots span {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--status-bar);
+      }
+
+      .app-header {
+        display: grid;
+        grid-template-columns: 58px 1fr 58px;
+        align-items: center;
+        margin: 24px 0 28px;
+      }
+
+      .menu-button,
+      .avatar {
+        width: 58px;
+        height: 58px;
+        border-radius: 19px;
+      }
+
+      .menu-button {
+        border: 1px solid var(--glass-stroke);
+        background: var(--glass-fill);
+        backdrop-filter: blur(22px) saturate(140%);
+        color: var(--text);
+        font-size: 26px;
+        line-height: 1;
+      }
+
+      .screen-title {
+        margin: 0;
+        color: var(--text);
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        text-align: center;
+      }
+
+      .avatar {
+        justify-self: end;
+        background: var(--accent);
+        color: var(--phone);
+        display: grid;
+        place-items: center;
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .summary-card {
+        min-height: 176px;
+        padding: 20px 10px 18px;
+        border: 1px solid var(--glass-stroke);
+        border-radius: 28px;
+        background: var(--glass-fill);
+        box-shadow: inset 0 1px 0 var(--glass-highlight), 0 16px 30px -24px var(--shadow);
+        backdrop-filter: blur(26px) saturate(145%);
+        color: var(--text);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .summary-card:hover {
+        background: var(--glass-fill-strong);
+      }
+
+      .progress-ring {
+        --progress: 0.5;
+        width: 86px;
+        height: 86px;
+        border-radius: 50%;
+        background: conic-gradient(var(--ring-color) calc(var(--progress) * 1turn), var(--progress-track) 0);
+        display: grid;
+        place-items: center;
+        position: relative;
+      }
+
+      .progress-ring::after {
+        content: '';
+        position: absolute;
+        inset: 10px;
+        border-radius: 50%;
+        background: color-mix(in srgb, var(--surface) 76%, transparent);
+        backdrop-filter: blur(14px);
+      }
+
+      .summary-card:hover .progress-ring::after {
+        background: color-mix(in srgb, var(--surface-pressed) 76%, transparent);
+      }
+
+      .progress-value {
+        position: relative;
+        z-index: 1;
+        font-size: 29px;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .summary-label {
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 1.1;
+      }
+
+      .summary-label span {
+        color: var(--text-secondary);
+      }
+
+      .sort-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+      }
+
+      .eyebrow {
+        color: var(--text-secondary);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .text-button {
+        padding: 0;
+        background: transparent;
+        color: var(--accent);
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .controls {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 54px 54px;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .location-button,
+      .search-field {
+        height: 54px;
+        border: 1px solid var(--border);
+        border-radius: 19px;
+        background: var(--glass-fill);
+        box-shadow: inset 0 1px 0 var(--glass-highlight);
+        backdrop-filter: blur(22px) saturate(135%);
+        color: var(--text);
+      }
+
+      .location-button {
+        padding: 0 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 800;
+        text-align: left;
+      }
+
+      .location-button span:last-child {
+        color: var(--text-secondary);
+        font-size: 12px;
+      }
+
+      .search-field {
+        min-width: 0;
+        padding: 0 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .icon-button {
+        width: 54px;
+        height: 54px;
+        border: 1px solid var(--border);
+        border-radius: 19px;
+        background: var(--glass-fill);
+        box-shadow: inset 0 1px 0 var(--glass-highlight), 0 4px 0 var(--control-depth);
+        backdrop-filter: blur(22px) saturate(135%);
+        color: var(--text-secondary);
+        display: grid;
+        place-items: center;
+        transform: translateY(0);
+        transition: transform 60ms ease, box-shadow 60ms ease;
+      }
+
+      .icon-button:hover,
+      .icon-button[aria-expanded='true'] {
+        background: var(--glass-fill-strong);
+        color: var(--text);
+      }
+
+      .icon-button:active {
+        box-shadow: inset 0 1px 0 var(--glass-highlight), 0 1px 0 var(--control-depth);
+        transform: translateY(3px);
+      }
+
+      .icon-button svg {
+        width: 21px;
+        height: 21px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+      }
+
+      .search-panel {
+        margin-top: 10px;
+      }
+
+      .search-panel[hidden] {
+        display: none;
+      }
+
+      .search-panel .search-field {
+        width: 100%;
+        height: 48px;
+      }
+
+      .search-icon {
+        color: var(--text-secondary);
+        font-size: 16px;
+      }
+
+      .search-field input {
+        width: 100%;
+        min-width: 0;
+        padding: 0;
+        outline: 0;
+        border: 0;
+        background: transparent;
+        color: var(--text);
+        font-size: 14px;
+      }
+
+      .search-field input::placeholder {
+        color: var(--text-secondary);
+        opacity: 1;
+      }
+
+      .sort-row {
+        margin: 34px 4px 10px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .location-control {
+        position: relative;
+        min-width: 0;
+      }
+
+      .location-menu {
+        position: absolute;
+        z-index: 3;
+        top: 62px;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        border-color: var(--glass-stroke);
+        background: color-mix(in srgb, var(--surface) 72%, transparent);
+        box-shadow: inset 0 1px 0 var(--glass-highlight), 0 18px 30px -18px var(--shadow);
+        backdrop-filter: blur(24px) saturate(140%);
+      }
+
+      .location-menu[hidden] {
+        display: none;
+      }
+
+      .location-option {
+        width: 100%;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--border);
+        background: transparent;
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 700;
+        text-align: left;
+      }
+
+      .location-option:last-child {
+        border-bottom: 0;
+      }
+
+      .location-option:hover,
+      .location-option[aria-selected='true'] {
+        background: var(--glass-fill-strong);
+      }
+
+      .sort-button {
+        padding: 0;
+        background: transparent;
+        color: var(--accent);
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .inventory-list {
+        margin: 0;
+      }
+
+      .inventory-row {
+        min-height: 92px;
+        padding: 17px 4px 17px 0;
+        border-bottom: 1px solid var(--border);
+        display: grid;
+        grid-template-columns: 5px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .inventory-edge {
+        width: 5px;
+        height: 53px;
+        border-radius: 4px;
+        background: transparent;
+      }
+
+      .inventory-copy {
+        min-width: 0;
+      }
+
+      .product-name {
+        overflow: hidden;
+        color: var(--text);
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: -0.015em;
+        line-height: 1.2;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .product-subtitle {
+        margin-top: 4px;
+        overflow: hidden;
+        color: var(--text-secondary);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.2;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .product-amount {
+        color: var(--text);
+        font-size: 17px;
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+
+      .inventory-row[data-hidden='true'] {
+        display: none;
+      }
+
+      .state-message {
+        margin: 16px 0 0 19px;
+        padding: 18px 4px 22px;
+        border-bottom: 1px solid var(--border);
+        color: var(--text-secondary);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.45;
+      }
+
+      .state-message[hidden] {
+        display: none;
+      }
+
+      .state-message strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--text);
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .state-message button {
+        margin-top: 12px;
+        padding: 0;
+        background: transparent;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .fab {
+        position: absolute;
+        right: 22px;
+        bottom: 22px;
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        border: 1px solid var(--glass-stroke);
+        background: color-mix(in srgb, var(--accent-strong) 76%, transparent);
+        backdrop-filter: blur(20px) saturate(140%);
+        color: var(--phone);
+        box-shadow: inset 0 1px 0 var(--glass-highlight), 0 12px 22px -12px var(--shadow);
+        font-size: 32px;
+        font-weight: 300;
+        line-height: 1;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      @media (max-width: 390px) {
+        .screen {
+          padding-inline: 20px;
+        }
+
+        .app-header {
+          grid-template-columns: 52px 1fr 52px;
+        }
+
+        .menu-button,
+        .avatar {
+          width: 52px;
+          height: 52px;
+        }
+
+        .summary-card {
+          min-height: 160px;
+        }
+
+        .progress-ring {
+          width: 78px;
+          height: 78px;
+        }
+
+        .product-name {
+          font-size: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar" aria-label="Darstellung">
+      <span class="toolbar-label">Theme</span>
+      <button type="button" data-theme="light">Hell</button>
+      <button type="button" data-theme="dark">Dunkel</button>
+      <button type="button" data-theme="system">System</button>
+    </div>
+
+    <p class="mockup-note">
+      Neuer Entwurf für den Vorrat-Screen. Die Kantenfarbe trägt den Zustand, die Liste bleibt kompakt und jeder Artikel hat eine klare Trennlinie.
+    </p>
+
+    <div class="toolbar" aria-label="Mockup-Zustand">
+      <span class="toolbar-label">Zustand</span>
+      <button type="button" data-preview-state="normal">Normal</button>
+      <button type="button" data-preview-state="empty">Leer</button>
+    </div>
+
+    <main class="phone" aria-label="Vorrat">
+      <section class="screen">
+        <div class="status-bar" aria-hidden="true">
+          <span>03:57</span>
+          <div class="status-right">
+            <div class="status-dots"><span></span><span></span><span></span><span></span></div>
+            <span>83%</span>
+          </div>
+        </div>
+
+        <header class="app-header">
+          <button class="menu-button" type="button" aria-label="Menü öffnen">≡</button>
+          <h1 class="screen-title">Vorrat</h1>
+          <button class="avatar" type="button" aria-label="Profil öffnen">MA</button>
+        </header>
+
+        <section class="summary-grid" aria-label="Haltbarkeitsübersicht">
+          <button class="summary-card" type="button" data-window="critical" aria-label="2 Artikel laufen bald ab">
+            <span class="progress-ring" style="--progress: 0.72; --ring-color: var(--critical)">
+              <span class="progress-value">2</span>
+            </span>
+            <span class="summary-label">Läuft <span>bald ab</span></span>
+          </button>
+          <button class="summary-card" type="button" data-window="due" aria-label="1 Artikel ist bald fällig">
+            <span class="progress-ring" style="--progress: 0.4; --ring-color: var(--warning)">
+              <span class="progress-value">1</span>
+            </span>
+            <span class="summary-label">Bald <span>fällig</span></span>
+          </button>
+        </section>
+
+        <section class="controls" aria-label="Vorrat filtern">
+          <div class="location-control">
+            <button class="location-button" type="button" aria-label="Lagerort auswählen" aria-expanded="false" aria-controls="location-menu">
+              <span id="location-label">Abstellkammer</span>
+              <span aria-hidden="true">⌄</span>
+            </button>
+            <div id="location-menu" class="location-menu" hidden>
+              <button class="location-option" type="button" data-location="Alle" aria-selected="false">Alle</button>
+              <button class="location-option" type="button" data-location="Kühlschrank" aria-selected="false">Kühlschrank</button>
+              <button class="location-option" type="button" data-location="Gefrierfach" aria-selected="false">Gefrierfach</button>
+              <button class="location-option" type="button" data-location="Abstellkammer" aria-selected="true">Abstellkammer</button>
+            </div>
+          </div>
+          <button id="search-toggle" class="icon-button" type="button" aria-label="Artikel suchen" aria-expanded="false" aria-controls="search-panel">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="10.8" cy="10.8" r="6.3"></circle>
+              <path d="m15.6 15.6 4.3 4.3"></path>
+            </svg>
+          </button>
+          <button class="icon-button" type="button" aria-label="Gesamten Vorratsverlauf öffnen">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 7v5l3.2 2"></path>
+              <path d="M19.2 8.3A8 8 0 1 0 20 12"></path>
+              <path d="M16.8 5.2h3.4v3.4"></path>
+            </svg>
+          </button>
+        </section>
+
+        <div id="search-panel" class="search-panel" hidden>
+          <label class="search-field">
+            <span class="sr-only">Artikel suchen</span>
+            <input id="search" type="search" placeholder="Artikel suchen" autocomplete="off" />
+          </label>
+        </div>
+
+        <div class="sort-row">
+          <span id="sort-label" class="eyebrow">Nach Haltbarkeit</span>
+          <button id="sort-button" class="sort-button" type="button">Sortieren</button>
+        </div>
+
+        <section id="inventory-list" class="inventory-list" aria-label="Artikel im Vorrat">
+          <article class="inventory-row" data-name="Zarte Haferflocken" data-order="1">
+            <span class="inventory-edge" style="background: var(--critical)" aria-hidden="true"></span>
+            <div class="inventory-copy">
+              <div class="product-name">Zarte Haferflocken</div>
+              <div class="product-subtitle">in 3 Tagen</div>
+            </div>
+            <div class="product-amount">3 Stück</div>
+          </article>
+
+          <article class="inventory-row" data-name="Kartoffeln vorwiegend festkochend" data-order="2">
+            <span class="inventory-edge" style="background: var(--warning)" aria-hidden="true"></span>
+            <div class="inventory-copy">
+              <div class="product-name">Kartoffeln vorwiegend festkochend</div>
+              <div class="product-subtitle">in 4 Tagen</div>
+            </div>
+            <div class="product-amount">3 kg</div>
+          </article>
+
+          <article class="inventory-row" data-name="Hackfleisch gemischt" data-order="3">
+            <span class="inventory-edge" aria-hidden="true"></span>
+            <div class="inventory-copy">
+              <div class="product-name">Hackfleisch gemischt</div>
+              <div class="product-subtitle">Kein Datum hinterlegt</div>
+            </div>
+            <div class="product-amount">1 Stück</div>
+          </article>
+        </section>
+
+        <p id="empty-message" class="state-message" hidden>
+          <strong>Noch keine Artikel hinzugefügt.</strong>
+          Klicke auf +, um deinen ersten Artikel hinzuzufügen.
+        </p>
+
+        <button class="fab" type="button" aria-label="Neu hinzufügen">+</button>
+      </section>
+    </main>
+
+    <script>
+      const root = document.documentElement;
+      const themeButtons = document.querySelectorAll('[data-theme]');
+      const search = document.querySelector('#search');
+      const searchToggle = document.querySelector('#search-toggle');
+      const searchPanel = document.querySelector('#search-panel');
+      const rows = [...document.querySelectorAll('.inventory-row')];
+      const list = document.querySelector('#inventory-list');
+      const sortButton = document.querySelector('#sort-button');
+      const sortLabel = document.querySelector('#sort-label');
+      const locationButton = document.querySelector('.location-button');
+      const locationLabel = document.querySelector('#location-label');
+      const locationMenu = document.querySelector('#location-menu');
+      const locationOptions = [...document.querySelectorAll('.location-option')];
+      const emptyMessage = document.querySelector('#empty-message');
+      const stateButtons = document.querySelectorAll('[data-preview-state]');
+      const criticalCard = document.querySelector('[data-window="critical"]');
+      const dueCard = document.querySelector('[data-window="due"]');
+      let alphabetical = false;
+
+      criticalCard.setAttribute(
+        'title',
+        `MHD in höchstens ${EXPIRY_WINDOW_DAYS.runsOutSoon} Tagen`,
+      );
+      dueCard.setAttribute('title', `MHD in höchstens ${EXPIRY_WINDOW_DAYS.dueSoon} Tagen`);
+
+      searchToggle.addEventListener('click', () => {
+        const isOpen = searchPanel.hidden;
+        searchPanel.hidden = !isOpen;
+        searchToggle.setAttribute('aria-expanded', String(isOpen));
+        if (isOpen) search.focus();
+      });
+
+      themeButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const theme = button.dataset.theme;
+          if (theme === 'system') root.removeAttribute('data-theme');
+          else root.dataset.theme = theme;
+        });
+      });
+
+      search.addEventListener('input', () => {
+        const query = search.value.trim().toLocaleLowerCase('de-DE');
+        rows.forEach((row) => {
+          row.dataset.hidden = query && !row.dataset.name.toLocaleLowerCase('de-DE').includes(query) ? 'true' : 'false';
+        });
+      });
+
+      sortButton.addEventListener('click', () => {
+        alphabetical = !alphabetical;
+        sortLabel.textContent = alphabetical ? 'Alphabetisch' : 'Nach Haltbarkeit';
+        sortButton.textContent = 'Sortieren';
+        sortButton.setAttribute(
+          'aria-label',
+          `Sortierung ändern, aktuell ${alphabetical ? 'alphabetisch' : 'nach Haltbarkeit'}`,
+        );
+        rows.sort((a, b) => {
+          if (alphabetical) return a.dataset.name.localeCompare(b.dataset.name, 'de-DE');
+          return Number(a.dataset.order) - Number(b.dataset.order);
+        });
+        rows.forEach((row) => list.append(row));
+      });
+
+      locationButton.addEventListener('click', () => {
+        const isOpen = locationMenu.hidden;
+        locationMenu.hidden = !isOpen;
+        locationButton.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      locationOptions.forEach((option) => {
+        option.addEventListener('click', () => {
+          locationLabel.textContent = option.dataset.location;
+          locationOptions.forEach((item) => item.setAttribute('aria-selected', String(item === option)));
+          locationMenu.hidden = true;
+          locationButton.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      stateButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const state = button.dataset.previewState;
+          const isEmpty = state === 'empty';
+          list.hidden = isEmpty;
+          emptyMessage.hidden = !isEmpty;
+        });
+      });
+    </script>
+  </body>
+</html>

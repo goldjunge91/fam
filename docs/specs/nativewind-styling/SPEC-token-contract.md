@@ -1,12 +1,18 @@
 # Spec: `token-integrity`
 
+## Status
+
+Abgeschlossen und historisch. Der aktuelle Tokenvertrag steht unter
+`docs/design-system/contracts/`; die tatsächliche Tokenquelle ist ausschließlich
+`src/components/theme/index.ts`.
+
 ## Objective
 
-Die neue Theme-Datei darf keine zweite visuelle Sprache einführen. Sie stellt die bestehenden Fam-Farben und Layoutwerte unter einer typisierten, semantischen API bereit, damit UI-Primitiven nicht mehr frei zwischen Tailwind-Klassen, Hexwerten und alten `Colors`-Objekten wählen.
+Die kanonische Theme-Datei darf keine zweite visuelle Sprache einführen. Sie stellt die bestehenden Fam-Farben und Layoutwerte unter einer typisierten, semantischen API bereit, damit UI-Primitiven nicht mehr frei zwischen Tailwind-Klassen, Hexwerten und alten `Colors`-Objekten wählen.
 
 ## Kanonische Tokenquelle
 
-`src/components/theme/index.ts` wird die einzige öffentliche Tokenquelle der neuen UI-Primitiven. Während der Migration dürfen Werte aus `src/constants/theme.ts` und `src/constants/layout.ts` dort importiert oder dorthin verschoben werden. Danach darf kein zweiter, abweichender Tokenbestand bestehen.
+`src/components/theme/index.ts` ist die einzige öffentliche Tokenquelle der UI-Primitiven. Der frühere parallele Bestand in `src/constants/theme.ts` wurde nach der Migration entfernt. Danach darf kein zweiter, abweichender Tokenbestand bestehen.
 
 Die ui-Referenznamen werden nur als mögliche Form verwendet:
 
@@ -14,61 +20,53 @@ Die ui-Referenznamen werden nur als mögliche Form verwendet:
 |---|---|
 | `bg` | `background` aus `Colors` |
 | `surface` | `backgroundElement` aus `Colors` |
-| `surfaceSoft` | aus `backgroundSelected` oder einem dokumentierten Fam-Ableitungswert |
+| `soft` | `backgroundSoft` aus `Colors` |
 | `text` | `text` |
 | `textMuted` | `textSecondary` |
 | `border` | `border` |
 | `basil` oder andere Akzentfarben | nicht übernehmen; `accent`, `success`, `warning`, `danger` aus Fam verwenden |
-| `scrim` | dokumentierter Fam-Ableitungswert über `withAlpha` |
+| `scrim` | vorhandenen semantischen Token direkt verwenden; `withAlpha()` nur für neue transparente Ableitungen |
 
 Es ist nicht erlaubt, die ui-Hexwerte als Ersatz oder Fallback einzubauen.
 
-## Required API
+## Tatsächliche Token-API
 
 ```ts
-type ThemeMode = 'light' | 'dark';
-type ThemePref = 'system' | 'light' | 'dark';
-
-type FamPalette = {
-  background: string;
-  backgroundElement: string;
-  backgroundSelected: string;
-  text: string;
-  textSecondary: string;
-  border: string;
-  accent: string;
-  onAccent: string;
-  success: string;
-  warning: string;
-  danger: string;
-  shadowCard: string;
-  shadowSheet: string;
-};
+type Palette = { -readonly [K in keyof typeof colorsLight]: string };
 ```
 
-Die konkrete Typdefinition darf zusätzliche bestehende Premium- und Gradient-Tokens enthalten. Jeder neue Token benötigt eine semantische Verwendung und einen Light-/Dark-Wert.
+`ThemeMode` und `ThemePref` gehören zur Runtime-API des `ThemeProvider`, nicht
+zur Tokenquelle. `Palette` umfasst dadurch automatisch auch die bestehenden
+Premium-, Gradient- und Kompatibilitätstokens. Jeder neue Token benötigt eine
+semantische Verwendung und einen Light-/Dark-Wert.
 
 ## Layout- und Typografie-Tokens
 
-- `space`: Ableitung aus `Spacing` mit stabilen Namen `xs`, `sm`, `md`, `lg`, `xl`, `xxl`.
-- `radius`: Ableitung aus `Radius`, ohne neue parallele Radius-Skala.
-- `font`: Ableitung aus `Typography` und `Fonts`.
-- `shadow`: semantische Elevations `none`, `sm`, `md`, `lg`, mit platformgerechten Werten.
-- `BUTTON_DEPTH`: bleibt als vorhandenes Verhalten der Referenzkomponente erhalten. Eine mögliche sichtbare Anpassung wird erst nach den zwei Screen-Mocks entschieden; daraus entsteht kein neuer globaler ui-Token.
+- `space`: zentrale responsive Skala mit `xs`, `sm`, `md`, `lg`, `xl`, `xxl`
+  und `xxxl`.
+- `radius`: direkt in `src/components/theme/index.ts` definierte zentrale Skala,
+  ohne parallele Radius-Skala.
+- `font`: zentrale Größen, Zeilenhöhen und Gewichte; `Fonts` besitzt die
+  Plattformfamilien.
+- `shadow`: semantische Elevations `sm`, `md`, `lg`, mit plattformgerechten
+  Werten.
+- `BUTTON_DEPTH`: ist die zentrale 4pt-Tiefe und der vollständige 4pt-Druckweg
+  für gefüllte 3D-Buttons. Beide Button-APIs beziehen sichtbare Tiefe und
+  Press-Bewegung aus diesem Theme-Token.
 
 ## Tokenregeln
 
 - Keine Hexwerte in Screens, wenn ein semantischer Token existiert.
 - Keine direkte Verwendung von `colorsLight` als UI-Fallback außerhalb der Provider-Auflösung.
-- Keine Farbklasse, die in `tailwind.config.js` nicht registriert ist.
+- Neue semantische Farben werden nicht als NativeWind-Farbklassen modelliert.
 - Für Alpha-Farben `withAlpha()` verwenden.
 - Text- und Hintergrundsemantik nicht über eine versehentliche inverse Zuordnung lösen.
 - Statusfarben bleiben zusätzlich textlich oder per Symbol erkennbar.
 
 ## Acceptance criteria
 
-- [ ] `index.ts` exportiert eine einzige Fam-Palette und die benötigten Layout-/Typografie-Tokens.
-- [ ] Keine ui-Farbwerte erscheinen in Production-Defaults.
-- [ ] Light und Dark besitzen dieselben semantischen Schlüssel.
-- [ ] Token-Schlüssel und Tailwind-Semantik sind entweder identisch oder über eine dokumentierte Mapping-Tabelle verbunden.
-- [ ] Unit-Tests prüfen Schlüsselparität und zentrale Mappings.
+- [x] `index.ts` exportiert eine einzige Fam-Palette und die benötigten Layout-/Typografie-Tokens.
+- [x] Keine ui-Farbwerte erscheinen in Production-Defaults.
+- [x] Light und Dark besitzen dieselben semantischen Schlüssel.
+- [x] `src/global.css` und `tailwind.config.js` bilden keine zweite Tokenquelle.
+- [x] Unit-Tests prüfen Schlüsselparität und zentrale Mappings.

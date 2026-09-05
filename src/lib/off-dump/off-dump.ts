@@ -2,6 +2,7 @@ import { DATABASE_FILE_NAMES } from '@/lib/db/database-files';
 import type { SqlDatabase } from '@/lib/db/types';
 import { installBaseline } from './baseline-installer';
 import { createExpoFileOps } from './expo-file-ops';
+import type { DumpInspection } from './file-ops';
 import { fetchManifest } from './manifest';
 import { isOffDumpAttached, resetOffDumpAttachment, setOffDumpAttached } from './off-dump-state';
 import { attachPlaintextDatabase } from './plaintext-attachment';
@@ -74,11 +75,38 @@ export type OffDumpStatus = {
   lastError: string | null;
 };
 
+/**
+ * Liest den bereits angehängten aktiven Dump, ohne dieselbe Datei ein zweites
+ * Mal per ATTACH zu öffnen. Das ist wichtig für SQLCipher: Ein paralleler
+ * Doppel-Attach kann den späteren DETACH-Aufruf mit `database is locked`
+ * abbrechen lassen, obwohl der Dump selbst intakt ist.
+ */
+async function inspectAttachedOffDump(db: SqlDatabase): Promise<DumpInspection | undefined> {
+  if (!isOffDumpAttached()) return undefined;
+
+  try {
+    const meta = await db.getFirstAsync<{ schema_version: number; data_version: string }>(
+      'select schema_version, data_version from off_dump.dump_meta limit 1',
+    );
+    if (!meta) return undefined;
+
+    const check = await db.getFirstAsync<Record<string, string>>('PRAGMA off_dump.quick_check');
+    const integrityOk = check !== null && Object.values(check).some((value) => value === 'ok');
+
+    return { schemaVersion: meta.schema_version, dataVersion: meta.data_version, integrityOk };
+  } catch {
+    // Bei einem veralteten JS-Attach-Flag fällt der Aufrufer auf den normalen
+    // temporären Attach zurück.
+    return undefined;
+  }
+}
+
 export async function getOffDumpStatus(db: SqlDatabase): Promise<OffDumpStatus> {
   const { File, Paths } = loadFileSystem();
   const target = new File(Paths.document, DUMP_FILE_NAME);
   const inspected = target.exists
-    ? await createExpoFileOps(db).inspectDump(dumpPaths().activePath)
+    ? ((await inspectAttachedOffDump(db)) ??
+      (await createExpoFileOps(db).inspectDump(dumpPaths().activePath)))
     : null;
   const lastError = await getMetaValue(db, LAST_ERROR_KEY);
 
@@ -121,10 +149,17 @@ export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
 async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
   const fileOps = createExpoFileOps(db);
   const paths = dumpPaths();
+  const activeInspection = await inspectAttachedOffDump(db);
 
   await setMetaValue(db, LAST_CHECK_KEY, new Date().toISOString());
   try {
-    const outcome = await checkForUpdate({ db, fileOps, manifestUrl: MANIFEST_URL, paths });
+    const outcome = await checkForUpdate({
+      db,
+      fileOps,
+      manifestUrl: MANIFEST_URL,
+      paths,
+      activeInspection,
+    });
     if (outcome.kind === 'patched' || outcome.kind === 'baseline-installed') {
       await setMetaValue(db, LAST_SUCCESSFUL_UPDATE_KEY, new Date().toISOString());
       await setMetaValue(db, LAST_ERROR_KEY, '');
@@ -196,7 +231,9 @@ export async function reinstallOffDumpBaseline(db: SqlDatabase): Promise<UpdateO
  * — fuer den "Integritaet pruefen"-Knopf im Entwickler-Bereich.
  */
 export async function checkOffDumpIntegrity(db: SqlDatabase): Promise<boolean> {
-  const inspected = await createExpoFileOps(db).inspectDump(dumpPaths().activePath);
+  const inspected =
+    (await inspectAttachedOffDump(db)) ??
+    (await createExpoFileOps(db).inspectDump(dumpPaths().activePath));
   return inspected?.integrityOk ?? false;
 }
 

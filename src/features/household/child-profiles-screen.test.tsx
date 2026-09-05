@@ -26,7 +26,7 @@ jest.mock('@/features/household/api', () => ({
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/constants/theme').Colors.light,
+  useTheme: () => require('@/components/theme/index').Colors.light,
 }));
 
 function renderScreen() {

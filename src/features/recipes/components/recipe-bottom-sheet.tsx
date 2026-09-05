@@ -27,7 +27,10 @@ export function RecipeBottomSheet({
   if (!visible) return null;
 
   const body = (
-    <Pressable className="flex-1 justify-end bg-[#261f27]/30" onPress={onClose}>
+    <Pressable
+      className="flex-1 justify-end"
+      style={{ backgroundColor: colors.scrim }}
+      onPress={onClose}>
       <Pressable
         className={`recipe-sheet-surface ${sheetClassName}`.trim()}
         style={{ backgroundColor: colors.surface }}
@@ -42,8 +45,8 @@ export function RecipeBottomSheet({
             role="button"
             aria-label="Schließen"
             className="btn-modal-close"
-            style={{ backgroundColor: colors.surfaceSoft }}>
-            <Txt variant="body" tone="secondary" style={{ fontSize: 18, lineHeight: 20, fontWeight: '500' }}>
+            style={{ backgroundColor: colors.backgroundSoft }}>
+            <Txt variant="subheading" tone="secondary" weight="500">
               ×
             </Txt>
           </Pressable>

@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-// fam Design-Tokens 1:1 aus src/constants/theme.ts übernommen — Colors.light/
-// Colors.dark, Spacing, Radius. theme.ts bleibt bis zum Abschluss der
-// NativeWind-Migration die Quelle der Wahrheit für Screens, die noch
-// StyleSheet.create verwenden; bei Token-Änderungen beide Stellen pflegen.
+// fam Design-Tokens werden aus der kanonischen Quelle
+// src/components/theme/index.ts abgeleitet. Die historischen Werte aus
+// src/constants/theme.ts sind dort konsolidiert und werden nicht parallel
+// als Runtime-Theme gepflegt.
 //
 // Farben zeigen auf CSS-Variablen (definiert in src/global.css), die per
 // `prefers-color-scheme` automatisch zwischen Light/Dark wechseln — kein
@@ -68,8 +68,8 @@ module.exports = {
         hairline: '0.5px',
       },
       // fontSize-Tuples [Größe, { lineHeight }] — 1:1 aus
-      // src/components/themed-text.tsx (Typography). Bei neuen Rollen dort
-      // zuerst ergänzen, dann hier nachziehen.
+      // src/constants/ui.tsx (Txt/ Typography). Bei neuen Rollen dort zuerst
+      // ergänzen, dann hier nachziehen.
       fontSize: {
         micro: ['9px', { lineHeight: '14px' }],
         'caption-compact': ['11px', { lineHeight: '14px' }],
@@ -88,9 +88,9 @@ module.exports = {
         title: ['32px', { lineHeight: '44px' }],
         display: ['48px', { lineHeight: '52px' }],
         link: ['14px', { lineHeight: '30px' }],
-        // Kein lineHeight: Typography.code in themed-text.tsx spreadet nur
-        // FontSize[12] ohne lineHeight-Override (bewusst anders als
-        // `detail`, das denselben fontSize-Wert hat, aber lineHeight: 16).
+        // Kein lineHeight: Der Code-Stil bleibt absichtlich ohne zusätzliche
+        // Zeilenhöhenregel, während `detail` denselben Fontwert mit eigener
+        // Zeilenhöhe verwendet.
         code: '12px',
       },
       boxShadow: {

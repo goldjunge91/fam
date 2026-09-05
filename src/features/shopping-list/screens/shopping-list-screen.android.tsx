@@ -472,8 +472,7 @@ export function ShoppingListScreen() {
                   variant="body"
                   tone="secondary"
                   className="uppercase tracking-wider"
-                  weight="600"
-                  style={{ fontSize: 14, lineHeight: 18 }}>
+                  weight="600">
                   {section.title}
                 </Txt>
               </View>

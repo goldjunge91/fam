@@ -78,9 +78,11 @@ export function selectRevenueCatApiKey({
 }
 
 let configured = false;
+let initializationAttempted = false;
 
 export function initPurchases(): void {
-  if (configured) return;
+  if (configured || initializationAttempted) return;
+  initializationAttempted = true;
 
   const apiKey = selectRevenueCatApiKey({
     isDev: __DEV__,
@@ -101,8 +103,7 @@ export function initPurchases(): void {
   }
 
   if (__DEV__) {
-    // Purchases.setLogLevel(LOG_LEVEL.DEBUG);
-    Purchases.setLogLevel(LOG_LEVEL.WARN); // or .ERROR
+    Purchases.setLogLevel(LOG_LEVEL.DEBUG);
 
     // SDK-Warnungen über console.log ausgeben, damit LogBox keine Vollbildwarnung zeigt.
     Purchases.setLogHandler((_level, message) => {
@@ -159,6 +160,10 @@ export function hasAIEntitlement(customerInfo: CustomerInfo | null): boolean {
 export async function offeringForEntitlement(
   entitlementId: EntitlementId,
 ): Promise<PurchasesOffering | null> {
+  // `PremiumProvider` also initializes the SDK, but paywall hooks can mount in
+  // the same commit before that effect runs. Keep this public read path safe
+  // for that ordering instead of permanently caching an empty package list.
+  initPurchases();
   if (!isPurchasesConfigured()) return null;
   const offerings = await Purchases.getOfferings();
   return offerings.all[OFFERING_ID_BY_ENTITLEMENT[entitlementId]] ?? null;

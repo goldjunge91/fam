@@ -15,7 +15,6 @@ export function RecipeCatalogScreen() {
       header={{
         title: 'Entdecken',
         align: 'center',
-        titleSize: 'large',
         leading: (
           <Pressable onPress={() => router.back()}>
             <Txt variant="body">Zurück</Txt>

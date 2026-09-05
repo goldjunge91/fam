@@ -5,6 +5,7 @@ import { Keyboard, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, HeaderIconButton } from '@/components/ui/buttons';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
@@ -552,32 +553,35 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 
   return (
     <View className="gap-[10px]">
-      <ProductSearchDropdown
-        ref={productSearchRef}
-        label=""
-        placeholder={source === 'dish' ? 'Gericht suchen…' : 'Artikel suchen'}
-        value={name}
-        onChangeText={(text) => {
-          productSelectionRef.current += 1;
-          setName(text);
-          setSelectedProduct(null);
-          setSelectedProductId(null);
-          setPackageSizeInput('');
-        }}
-        onSelectProduct={handleSelectProduct}
-        size="large"
-        trailing={
-          <HeaderIconButton
-            label="Barcode scannen"
-            onPress={() => {
-              productSearchRef.current?.dismiss();
-              setShowScanner(true);
-            }}
-            className="w-10 h-10 rounded-control bg-background-selected">
-            <FamIcon name="camera" size={18} color={theme.basil} />
-          </HeaderIconButton>
-        }
-      />
+      {/* Das erste Feld sitzt im Add-Sheet optisch näher am Header. */}
+      <View style={{ marginTop: -space.xs }}>
+        <ProductSearchDropdown
+          ref={productSearchRef}
+          label=""
+          placeholder={source === 'dish' ? 'Gericht suchen…' : 'Artikel suchen'}
+          value={name}
+          onChangeText={(text) => {
+            productSelectionRef.current += 1;
+            setName(text);
+            setSelectedProduct(null);
+            setSelectedProductId(null);
+            setPackageSizeInput('');
+          }}
+          onSelectProduct={handleSelectProduct}
+          size="large"
+          trailing={
+            <HeaderIconButton
+              label="Barcode scannen"
+              onPress={() => {
+                productSearchRef.current?.dismiss();
+                setShowScanner(true);
+              }}
+              className="w-10 h-10 rounded-control bg-background-selected">
+              <FamIcon name="camera" size={space.xl} color={theme.basil} />
+            </HeaderIconButton>
+          }
+        />
+      </View>
 
       {}
       <Pressable className="gap-[10px]" onPress={dismissKeyboard} accessible={false}>

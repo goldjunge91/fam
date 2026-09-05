@@ -59,7 +59,7 @@ function GlobalAddButton() {
       // kann nicht als Tailwind-Klasse ausgedrueckt werden.
       style={{ paddingBottom: insets.bottom }}>
       <FloatingActionButton label="Neu hinzufügen" onPress={openQuickAdd}>
-        <PlusIcon color={colors.inverse} />
+        <PlusIcon color={colors.onAccent} />
       </FloatingActionButton>
     </View>
   );

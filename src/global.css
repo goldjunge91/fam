@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 /*
- * fam Farb-Tokens als CSS-Variablen — 1:1 aus src/constants/theme.ts
- * (Colors.light/Colors.dark). Bei Token-Änderungen beide Stellen pflegen,
- * bis theme.ts vollständig durch NativeWind-Klassen abgelöst ist.
+ * fam Farb-Tokens als CSS-Variablen — abgeleitet aus
+ * src/components/theme/index.ts (Colors.light/Colors.dark). Bei
+ * Token-Änderungen beide Stellen pflegen, bis die NativeWind-Klassen die
+ * Laufzeit-Tokens direkt beziehen können.
  *
  * Werte als "R G B"-Kanal-Tripel (nicht Hex): tailwind.config.js baut daraus
  * `rgb(var(--color-x) / <alpha-value>)`, damit Tailwinds Opazitäts-Modifier
@@ -238,7 +239,7 @@
 
   /* Hintergrund- und Textfarbe bewusst per Inline-Style (`theme.text`/
      `theme.background`) statt Tailwind-Klasse gesetzt — `className`-Farben
-     auf `ThemedText` koennen von dessen eigener `type`-Farbklasse
+     auf `Txt` koennen von dessen eigener semantischer Tonauflösung
      ueberschrieben werden (beide im selben Tailwind-Layer, Reihenfolge nicht
      garantiert). Inline-`style` gewinnt bei NativeWind immer. */
   .module-row-locked-pill {
@@ -569,14 +570,13 @@
     @apply text-[14px] font-semibold;
   }
 
-  /* Bewusst fest verdrahtete Gruen-/Weiss-Werte statt Tokens: 1:1 aus dem
-     Original uebernommen (kein success-Token dort verwendet). */
+  /* Semantische Erfolgsfarbe fuer den erkannten aktiven Haushalt. */
   .household-active-card {
-    @apply p-three rounded-sm border gap-[4px] my-one bg-[rgba(52,_199,_89,_0.1)] border-[#34c759];
+    @apply p-three rounded-sm border gap-[4px] my-one bg-success/10 border-success;
   }
 
   .household-active-badge {
-    @apply text-[12px] font-bold text-[#2e7d32] uppercase tracking-[0.5px];
+    @apply text-success uppercase tracking-[0.5px];
   }
 
   .household-active-title {
@@ -1270,77 +1270,6 @@
     @apply text-white font-bold;
   }
 
-  /* dashboard-screen.tsx — "Glass Cards" sind noch kein echtes Glass, nur
-     Schatten+Radius unter dem Namen (s. DESIGN_SYSTEM.md Backlog Punkt 5,
-     Phase C). borderCurve bleibt style (kein Tailwind-Aequivalent). */
-  .dashboard-calorie-card {
-    @apply min-h-[176px] rounded-fam-large flex-row items-center gap-[24px] px-[22px] py-[20px] bg-background-element;
-  }
-
-  .dashboard-ring-wrap {
-    @apply w-[113px] h-[113px] items-center justify-center;
-  }
-
-  .dashboard-calorie-copy {
-    @apply min-w-0 flex-1 gap-[4px];
-  }
-
-  .dashboard-calorie-label {
-    @apply text-[13px] leading-[18px] font-normal;
-  }
-
-  .dashboard-calorie-value {
-    @apply text-[27px] leading-[34px] font-medium;
-  }
-
-  .dashboard-calorie-remaining {
-    @apply text-[13px] leading-[18px] font-normal;
-  }
-
-  .dashboard-planned-card {
-    @apply min-h-[140px] rounded-fam-large flex-row items-center gap-[16px] pl-[16px] pr-[18px] py-[16px] bg-background-element;
-  }
-
-  .dashboard-planned-copy {
-    @apply min-w-0 flex-1 gap-[5px];
-  }
-
-  .dashboard-planned-kicker {
-    @apply text-[11px] leading-[16px] tracking-[0.1px] font-medium;
-  }
-
-  .dashboard-planned-title {
-    @apply text-[17px] leading-[22px] font-medium;
-  }
-
-  .dashboard-planned-meta {
-    @apply text-[12px] leading-[16px] font-normal;
-  }
-
-  .dashboard-widget-row {
-    @apply flex-row gap-[12px];
-  }
-
-  .dashboard-widget-row-stacked {
-    @apply flex-col gap-[15px];
-  }
-
-  .dashboard-widget {
-    @apply flex-1 min-h-[138px] rounded-fam-large p-[16px] gap-[8px] bg-background-element;
-  }
-
-  .dashboard-widget-badge {
-    @apply self-start min-w-[36px] h-[28px] rounded-control items-center justify-center px-one;
-  }
-
-  .dashboard-widget-label {
-    @apply text-[14px] leading-[20px] font-normal;
-  }
-
-  .dashboard-widget-action {
-    @apply text-[17px] leading-[22px] font-medium;
-  }
-
   /* household-switcher-modal.tsx */
   .modal-header-row {
     @apply flex-row justify-between items-center;
@@ -1368,7 +1297,7 @@
   }
 
   .invite-token-text {
-    @apply text-[#10B981] font-bold text-[15px] text-center py-[8px];
+    @apply text-accent text-center py-[8px];
   }
 
   .invite-qr-container {
@@ -1446,11 +1375,10 @@
     @apply relative z-[30];
   }
 
-  /* Solider Fallback fuer den Glass-Trigger (Android, iOS < 26, Reduce
-     Transparency) — Radius/Padding muss mit TRIGGER_GLASS_STYLE in Sync
-     bleiben. */
+  /* Solider Fallback fuer den Glass-Trigger (iOS < 26, Reduce Transparency)
+     — Radius/Padding muss mit TRIGGER_GLASS_STYLE in Sync bleiben. */
   .inventory-tab-bar-trigger {
-    @apply flex-row items-center justify-between gap-one rounded-full px-three py-[11px] bg-background-element/[91%] border-hairline border-border active:opacity-80;
+    @apply flex-row items-center justify-between gap-one rounded-[20px] px-[14px] py-[15px] bg-background-element/[91%] border-hairline border-border active:opacity-80;
   }
 
   .inventory-tab-bar-menu {
@@ -1458,18 +1386,25 @@
   }
 
   .inventory-toolbar-row {
-    @apply flex-row items-center gap-one;
+    @apply flex-row items-center gap-[12px] mt-[28px];
   }
 
-  /* inventory-search-field.tsx — Kapselform passend zum echten Liquid-Glass-
-     Rendering des "Alle"-Triggers (rundet auf iOS 26+ automatisch zur Kapsel,
-     unabhaengig vom gesetzten borderRadius). */
+  .inventory-toolbar-actions {
+    @apply flex-row items-center gap-[12px];
+  }
+
+  /* inventory-search-field.tsx — das aufgeklappte Suchfeld bleibt als eigene
+     Glass-Fläche unter den drei kompakten Toolbar-Aktionen. */
   .inventory-search-field {
-    @apply flex-1 flex-row items-center gap-one rounded-full px-three py-[11px] bg-background-element/[91%] border-hairline border-border;
+    @apply w-full flex-row items-center gap-one rounded-full px-three py-[11px] bg-background-element/[91%] border-hairline border-border;
+  }
+
+  .inventory-search-panel {
+    @apply min-h-[48px] mt-[10px] rounded-[20px];
   }
 
   .inventory-search-input {
-    @apply flex-1 text-body-relaxed text-text p-0;
+    @apply flex-1 text-body-small text-text p-0;
   }
 
   .inventory-tab-bar-option {
@@ -1482,15 +1417,15 @@
 
   /* inventory-item-row.tsx */
   .inventory-item-row {
-    @apply flex-row items-center pl-two pr-three py-[11px] border-b-hairline border-border gap-[14px];
+    @apply min-h-[92px] flex-row items-center pr-one py-[17px] border-b-hairline border-border gap-[14px];
   }
 
   .fridge-item-expiry-bar {
-    @apply w-[5px] h-full min-h-[48px] rounded-xs;
+    @apply w-[5px] h-[53px] rounded-xs;
   }
 
   .fridge-item-main {
-    @apply flex-1 gap-half;
+    @apply flex-1 gap-one;
   }
 
   .fridge-item-quantity {
@@ -1503,11 +1438,11 @@
 
   /* inventory-summary-card.tsx — zwei Ablauf-Ringe statt eines Bestandsrings */
   .inventory-summary-row {
-    @apply flex-row gap-two;
+    @apply flex-row gap-[14px];
   }
 
   .inventory-summary-ring-card {
-    @apply flex-1 rounded-fam-large items-center gap-two px-three py-[18px] bg-background-element/[91%] border-hairline border-border;
+    @apply flex-1 min-h-[176px] rounded-fam-large items-center justify-center gap-two px-three py-[18px] bg-background-element/[91%] border-hairline border-border;
   }
 
   .inventory-summary-ring-wrap {
@@ -1552,11 +1487,15 @@
   }
 
   .fridge-actions-row {
-    @apply flex-row gap-[8px];
+    @apply flex-row flex-wrap gap-two;
   }
 
   .fridge-action-btn {
-    @apply flex-1 h-[62px] rounded-card items-center justify-center active:opacity-[0.72];
+    @apply w-[48%] h-[50px] rounded-card items-center justify-center active:opacity-[0.72];
+  }
+
+  .fridge-action-btn-full {
+    @apply w-full;
   }
 
   .fridge-action-btn-neutral {
@@ -1608,6 +1547,63 @@
     @apply flex-1 gap-half;
   }
 
+  /* Option C: dieselbe kompakte Zustandszusammenfassung wie im Produktverlauf. */
+  .inventory-state-summary {
+    @apply flex-row gap-two;
+  }
+
+  .inventory-state-card {
+    @apply flex-1 rounded-card p-three gap-half;
+  }
+
+  .inventory-state-card-sealed {
+    @apply bg-background-selected;
+  }
+
+  .inventory-state-card-open {
+    @apply border border-warning bg-warning/[16%];
+  }
+
+  .inventory-compare-block {
+    @apply flex-row items-center gap-two my-two;
+  }
+
+  .inventory-compare-card {
+    @apply flex-1 rounded-card p-three gap-half;
+  }
+
+  .inventory-compare-before {
+    @apply bg-background-selected;
+  }
+
+  .inventory-compare-after {
+    @apply border border-warning bg-warning/[16%];
+  }
+
+  .inventory-reason-list {
+    @apply flex-col;
+  }
+
+  .inventory-reason-item {
+    @apply flex-row items-center gap-three px-one py-three;
+  }
+
+  .inventory-history-row {
+    @apply flex-row items-stretch gap-two mb-two border-b-hairline border-border pb-two;
+  }
+
+  .inventory-history-edge {
+    @apply w-[4px] my-two rounded-xs;
+  }
+
+  .inventory-history-lot-tag {
+    @apply rounded-xs border-hairline border-border px-one;
+  }
+
+  .inventory-history-footer-note {
+    @apply mt-three border-t-hairline border-border pt-three;
+  }
+
   /* edit-fridge-item-sheet.tsx */
   .edit-fridge-modal-root {
     @apply flex-1 justify-end;
@@ -1655,34 +1651,16 @@
 
   /* fridge-screen.tsx */
   .fridge-sort-row {
-    @apply flex-row items-center justify-between min-h-[40px] pl-one;
+    @apply flex-row items-baseline justify-between mt-[34px] mb-[10px] px-one pb-three border-b border-border;
+  }
+
+  .inventory-empty-state {
+    @apply items-center gap-one py-four px-one border-b-hairline border-border;
   }
 
   /* frequent-products-quick-select.tsx */
   .frequent-products-chip {
     @apply rounded-card border px-two py-one mr-one max-w-[160px] bg-background-element border-border;
-  }
-
-  /* inline-select.tsx — kompaktes Dropdown unter Suchfeldern (Vorrat-
-     Redesign, Filter-/Quelle-Auswahl analog zu den Einkaufen-Vorschlaegen). */
-  .inline-select-btn {
-    @apply h-[42px] rounded-control border border-border bg-background-element flex-row items-center justify-between px-three;
-  }
-
-  .inline-select-btn-open {
-    @apply border-accent;
-  }
-
-  .inline-select-panel {
-    @apply absolute top-[46px] left-0 right-0 z-20 rounded-control border border-border bg-background shadow-sheet p-one gap-[2px];
-  }
-
-  .inline-select-option {
-    @apply rounded-sm px-two py-two flex-row items-center justify-between gap-two;
-  }
-
-  .inline-select-option-active {
-    @apply bg-accent;
   }
 
   /* add-item-screen.tsx (Vorrat) */
@@ -1761,7 +1739,7 @@
   }
 
   .scanner-target-frame {
-    @apply w-[220px] h-[140px] border-2 rounded-control bg-transparent border-[#10B981];
+    @apply w-[220px] h-[140px] border-2 rounded-control bg-transparent border-accent;
   }
 
   .scanner-status-box {
@@ -1816,11 +1794,11 @@
   }
 
   .diary-date-row {
-    @apply h-[42px] flex-row items-center;
+    @apply h-[50px] flex-row items-center;
   }
 
   .diary-date-arrow {
-    @apply w-[40px] h-[38px] items-center justify-center active:opacity-[0.72];
+    @apply w-[48px] h-[46px] items-center justify-center active:opacity-[0.72];
   }
 
   .diary-chevron {
@@ -2152,16 +2130,8 @@
     @apply w-9 h-[34px] items-center justify-center active:opacity-70;
   }
 
-  .mp-chevron {
-    @apply text-[19px] leading-[22px] font-medium;
-  }
-
   .mp-period-copy {
     @apply flex-1 items-center;
-  }
-
-  .mp-period-title {
-    @apply text-[17px] leading-[21px] font-bold;
   }
 
   .mp-actions-row {
@@ -2177,7 +2147,7 @@
   }
 
   .mp-action-label {
-    @apply text-[10px] leading-[13px] font-bold text-center;
+    @apply text-center;
   }
 
   /* week-grid.tsx — borderCurve bleibt an mehreren Karten als `style`

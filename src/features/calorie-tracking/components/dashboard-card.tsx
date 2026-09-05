@@ -1,12 +1,61 @@
-import { Pressable, View } from 'react-native';
-import { withAlpha } from '@/components/theme/index';
+import { Pressable, StyleSheet, View } from 'react-native';
+import { radius, shadow, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressRing } from '@/components/ui/progress-ring';
-import { Txt } from '@/constants/ui';
+import { Surface, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useCurrentGoal, useFoodEntries } from '@/features/calorie-tracking/api';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
+
+const styles = StyleSheet.create({
+  pressable: {
+    width: '100%',
+  },
+  smallCard: {
+    width: '100%',
+    minHeight: 138,
+    justifyContent: 'space-between',
+    padding: space.lg,
+    borderRadius: radius.xl,
+    borderCurve: 'continuous',
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  smallRing: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: space.xs,
+  },
+  centered: {
+    alignItems: 'center',
+  },
+  largeCard: {
+    width: '100%',
+    minHeight: 176,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.xl,
+    paddingHorizontal: 22,
+    paddingVertical: space.lg,
+    borderRadius: radius.xl,
+    borderCurve: 'continuous',
+  },
+  ringWrap: {
+    width: 113,
+    height: 113,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  copy: {
+    minWidth: 0,
+    flex: 1,
+    gap: space.xs,
+  },
+});
 
 function toIsoDate(date: Date): string {
   const y = date.getFullYear();
@@ -15,7 +64,7 @@ function toIsoDate(date: Date): string {
   return `${y}-${m}-${d}`;
 }
 
-function CalorieDashboardCard({ size, onLongPress, editHeight }: DashboardCardProps) {
+function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
   const { colors } = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -41,52 +90,45 @@ function CalorieDashboardCard({ size, onLongPress, editHeight }: DashboardCardPr
     return (
       <Pressable
         onLongPress={onLongPress}
-        className="rounded-fam-large flex-col justify-between p-four"
-        style={{
-          width: '100%',
-          minHeight: 138,
-          height: editHeight,
-          backgroundColor: colors.surface,
-          borderCurve: 'continuous',
-          boxShadow: `0 8px 20px ${withAlpha(colors.text, 0.08)}`,
-        }}>
-        <View className="flex-row items-center justify-between">
-          <Txt
-            variant="body"
-            tone="secondary"
-            style={{ fontSize: 12, lineHeight: 14, fontWeight: '700', letterSpacing: 0.5 }}>
-            KALORIEN
-          </Txt>
-          <Txt variant="body" tone={ziel === 0 ? 'secondary' : 'primary'} style={{ fontSize: 13 }}>
-            {ziel === 0 ? '—' : `${Math.round((aufgenommen / (ziel || 1)) * 100)}%`}
-          </Txt>
-        </View>
+        style={styles.pressable}>
+        <Surface
+          tone="surface"
+          style={[styles.smallCard, shadow.sm, { shadowColor: colors.shadowCard }]}>
+          <View style={styles.row}>
+            <Txt variant="caption" tone="secondary" weight="700" style={{ letterSpacing: 0.5 }}>
+              KALORIEN
+            </Txt>
+            <Txt variant="label" tone={ziel === 0 ? 'secondary' : 'primary'}>
+              {ziel === 0 ? '—' : `${Math.round((aufgenommen / (ziel || 1)) * 100)}%`}
+            </Txt>
+          </View>
 
-        <View className="items-center justify-center my-one">
-          <ProgressRing
-            value={aufgenommen}
-            target={ziel}
-            preset="compact"
-            label="kcal"
-            displayMode="count"
-            progressColor={colors.tomato}
-            trackColor={colors.border}
-          />
-        </View>
+          <View style={styles.smallRing}>
+            <ProgressRing
+              value={aufgenommen}
+              target={ziel}
+              preset="compact"
+              label="kcal"
+              displayMode="count"
+              progressColor={colors.tomato}
+              trackColor={colors.border}
+            />
+          </View>
 
-        <View className="items-center">
-          <Txt
-            variant="body"
-            tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}
-            numberOfLines={2}
-            style={{ fontSize: 12, lineHeight: 16, fontWeight: '500' }}>
-            {ziel === 0
-              ? 'Kein Ziel'
-              : verbleibend >= 0
-                ? `${verbleibend} kcal übrig`
-                : `${Math.abs(verbleibend)} kcal drüber`}
-          </Txt>
-        </View>
+          <View style={styles.centered}>
+            <Txt
+              variant="caption"
+              tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}
+              weight="500"
+              numberOfLines={2}>
+              {ziel === 0
+                ? 'Kein Ziel'
+                : verbleibend >= 0
+                  ? `${verbleibend} kcal übrig`
+                  : `${Math.abs(verbleibend)} kcal drüber`}
+            </Txt>
+          </View>
+        </Surface>
       </Pressable>
     );
   }
@@ -94,45 +136,37 @@ function CalorieDashboardCard({ size, onLongPress, editHeight }: DashboardCardPr
   return (
     <Pressable
       onLongPress={onLongPress}
-      className="dashboard-calorie-card"
-      style={{
-        marginBottom: 0,
-        height: editHeight,
-        borderCurve: 'continuous',
-        boxShadow: `0 8px 22px ${withAlpha(colors.text, 0.1)}`,
-      }}>
-      <View className="dashboard-ring-wrap">
-        <ProgressRing
-          value={aufgenommen}
-          target={ziel}
-          preset="dashboard"
-          label="Kalorien"
-          displayMode="percent"
-          progressColor={colors.tomato}
-          trackColor={colors.border}
-        />
-      </View>
-      <View className="dashboard-calorie-copy">
-        <Txt variant="body" tone="secondary" className="dashboard-calorie-label">
-          Kalorien heute
-        </Txt>
-        <Txt
-          variant="display"
-          className="dashboard-calorie-value"
-          style={{ lineHeight: 44 }}>
-          {Math.round(aufgenommen).toLocaleString('de-DE')}
-        </Txt>
-        <Txt
-          variant="body"
-          tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}
-          className="dashboard-calorie-remaining">
-          {ziel === 0
-            ? 'Noch kein Ziel gesetzt'
-            : verbleibend >= 0
-              ? `${verbleibend} kcal verbleibend`
-              : `${Math.abs(verbleibend)} kcal über dem Ziel`}
-        </Txt>
-      </View>
+      style={styles.pressable}>
+      <Surface
+        tone="surface"
+        style={[styles.largeCard, shadow.sm, { shadowColor: colors.shadowCard }]}>
+        <View style={styles.ringWrap}>
+          <ProgressRing
+            value={aufgenommen}
+            target={ziel}
+            preset="dashboard"
+            label="Kalorien"
+            displayMode="percent"
+            progressColor={colors.tomato}
+            trackColor={colors.border}
+          />
+        </View>
+        <View style={styles.copy}>
+          <Txt variant="label" tone="secondary">
+            Kalorien heute
+          </Txt>
+          <Txt variant="title">{Math.round(aufgenommen).toLocaleString('de-DE')}</Txt>
+          <Txt
+            variant="body"
+            tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}>
+            {ziel === 0
+              ? 'Noch kein Ziel gesetzt'
+              : verbleibend >= 0
+                ? `${verbleibend} kcal verbleibend`
+                : `${Math.abs(verbleibend)} kcal über dem Ziel`}
+          </Txt>
+        </View>
+      </Surface>
     </Pressable>
   );
 }

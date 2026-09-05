@@ -281,7 +281,7 @@ export function ChildProfilesScreen() {
               /* Zeile mit Profil-Stammdaten und Aktions-Buttons */
               <View key={item.id} className="child-row">
                 <View className="flex-1">
-                  <Txt variant="body" weight="700" style={{ fontSize: 16 }}>
+                  <Txt variant="body" weight="700">
                     {item.sex === 'female' ? '👧' : item.sex === 'male' ? '👦' : '👶'}{' '}
                     {item.display_name}
                   </Txt>

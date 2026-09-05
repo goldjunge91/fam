@@ -151,7 +151,26 @@
       ],
       "@react-native-community/datetimepicker",
       "expo-font",
-      "expo-asset"
+    "expo-asset",
+    [
+      "expo-widgets",
+      {
+        "widgets": [
+          {
+            "name": "ShoppingListWidget",
+            "displayName": "Einkaufsliste",
+            "description": "Zeigt die offenen Artikel deiner Einkaufsliste.",
+            "supportedFamilies": ["systemSmall", "systemMedium"]
+          },
+          {
+            "name": "QuickAddShoppingWidget",
+            "displayName": "Schnell hinzufügen",
+            "description": "Fügt Milch direkt zur Einkaufsliste hinzu.",
+            "supportedFamilies": ["systemSmall"]
+          }
+        ]
+      }
+    ]
     ],
     "experiments": {
       "typedRoutes": true,

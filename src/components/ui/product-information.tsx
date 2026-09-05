@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import { ActivityIndicator, Modal, Pressable, ScrollView, View } from 'react-native';
+import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useProduct } from '@/features/inventory/use-product';
@@ -24,13 +25,22 @@ type ProductInformationProps = {
   onClose: () => void;
 };
 
-const NUTRI_BADGE_CLASSES: Record<NutriScoreGrade, string> = {
-  a: 'badge-nutri-a',
-  b: 'badge-nutri-b',
-  c: 'badge-nutri-c',
-  d: 'badge-nutri-d',
-  e: 'badge-nutri-e',
+const NUTRI_BADGE_COLORS: Record<NutriScoreGrade, string> = {
+  a: '#038141',
+  b: '#85BB2F',
+  c: '#FECB02',
+  d: '#EE8100',
+  e: '#E63E11',
 };
+
+const styles = StyleSheet.create({
+  details: {
+    borderWidth: 0.5,
+  },
+  detailRowDivider: {
+    borderBottomWidth: 0.5,
+  },
+});
 
 function formatNumber(value: number | null | undefined, digits = 1): string {
   if (value === null || value === undefined || Number.isNaN(value)) return '–';
@@ -94,18 +104,26 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View className="absolute inset-0">
         <Pressable
-          className="absolute inset-0 bg-[#1F1A21]/30"
+          className="absolute inset-0"
+          style={{ backgroundColor: colors.scrim }}
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel="Produktinformationen schließen"
         />
 
         <View
-          className="absolute left-3 right-3 bottom-[10px] max-h-[82%] rounded-fam-large overflow-hidden shadow-sheet"
+          className="absolute left-3 right-3 bottom-[10px] max-h-[82%] rounded-fam-large overflow-hidden"
           // Bottom-Safe-Area ist ein echter Laufzeitwert (Geraet-abhaengig),
           // kann nicht als Tailwind-Klasse ausgedrueckt werden. 24px = pb-four.
-          style={{ backgroundColor: colors.surface, paddingBottom: insets.bottom + 24 }}>
-          <View className="w-[42px] h-[4px] rounded-hairline self-center mt-[11px] bg-border" />
+          style={{
+            backgroundColor: colors.backgroundElement,
+            paddingBottom: insets.bottom + 24,
+            boxShadow: `0 10px 22px ${withAlpha(colors.shadowSheet, 0.22)}`,
+          }}>
+          <View
+            className="w-[42px] h-[4px] rounded-hairline self-center mt-[11px]"
+            style={{ backgroundColor: colors.border }}
+          />
           <ScrollView
             showsVerticalScrollIndicator={false}
             contentContainerClassName="p-[20px] gap-[14px]">
@@ -122,25 +140,24 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                 onPress={onClose}
                 accessibilityRole="button"
                 accessibilityLabel="Schließen"
-                className="w-[34px] h-[34px] rounded-sheet items-center justify-center active:opacity-75"
-                style={{ backgroundColor: colors.surfaceSoft }}>
-                <Txt variant="body" tone="secondary">×</Txt>
+                className="w-[34px] h-[34px] rounded-sheet items-center justify-center"
+                style={({ pressed }) => ({
+                  backgroundColor: colors.backgroundSoft,
+                  opacity: pressed ? 0.75 : 1,
+                })}>
+                <Txt variant="body" tone="secondary">
+                  ×
+                </Txt>
               </Pressable>
             </View>
 
             <View
               className="min-h-[88px] rounded-sheet p-[12px] flex-row items-center gap-[12px]"
-              style={{ backgroundColor: colors.bg }}>
+              style={{ backgroundColor: colors.background }}>
               <View
-                className={`w-[62px] h-[62px] rounded-card items-center justify-center ${
-                  score ? NUTRI_BADGE_CLASSES[score] : ''
-                }`}
-                style={!score ? { backgroundColor: colors.surfaceSoft } : undefined}>
-                <Txt
-                  variant="body"
-                  weight="700"
-                  tone={score ? 'inverse' : 'primary'}
-                  style={{ fontSize: 24, lineHeight: 28 }}>
+                className="w-[62px] h-[62px] rounded-card items-center justify-center"
+                style={{ backgroundColor: score ? NUTRI_BADGE_COLORS[score] : colors.backgroundSoft }}>
+                <Txt variant="subheading" weight="700" tone={score ? 'inverse' : 'primary'}>
                   {score?.toUpperCase() ?? '–'}
                 </Txt>
               </View>
@@ -152,11 +169,13 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                   Produktdaten von Open Food Facts
                 </Txt>
               </View>
-              {isFetching ? <ActivityIndicator size="small" color={colors.basil} /> : null}
+              {isFetching ? <ActivityIndicator size="small" color={colors.accent} /> : null}
             </View>
 
-            <View className="border-hairline rounded-sheet overflow-hidden border-border">
-              <View className="min-h-[50px] px-[14px] flex-row items-center justify-between gap-three border-b-hairline border-border">
+            <View className="rounded-sheet overflow-hidden" style={[styles.details, { borderColor: colors.border }]}>
+              <View
+                className="min-h-[50px] px-[14px] flex-row items-center justify-between gap-three"
+                style={[styles.detailRowDivider, { borderBottomColor: colors.border }]}>
                 <Txt variant="body" tone="secondary" weight="500">
                   Menge und Einheit
                 </Txt>
@@ -176,7 +195,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
 
             <View
               className="rounded-sheet p-[14px] gap-[6px]"
-              style={{ backgroundColor: colors.bg }}>
+              style={{ backgroundColor: colors.background }}>
               <Txt variant="body" weight="700">
                 Zutaten
               </Txt>
@@ -187,7 +206,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
 
             <View
               className="rounded-sheet p-[14px] gap-[6px]"
-              style={{ backgroundColor: colors.bg }}>
+              style={{ backgroundColor: colors.background }}>
               <Txt variant="body" weight="700">
                 Allergene
               </Txt>
@@ -204,7 +223,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                 <View
                   key={nutrient.label}
                   className="w-[31.6%] min-h-[62px] rounded-card p-[10px] gap-[5px]"
-                  style={{ backgroundColor: colors.surfaceSoft }}>
+                  style={{ backgroundColor: colors.backgroundSoft }}>
                   <Txt variant="body" weight="700" selectable>
                     {nutrient.value}
                   </Txt>

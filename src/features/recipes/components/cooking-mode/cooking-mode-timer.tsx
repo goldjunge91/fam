@@ -46,11 +46,7 @@ export function CookingModeTimer({
       style={{ backgroundColor: colors.surface }}>
       <View className="flex-1 min-w-0">
         <Txt variant="heading">{formatTimer(remainingSeconds)}</Txt>
-        <Txt
-          variant="caption"
-          tone="secondary"
-          className="pt-half"
-          style={{ fontSize: 8, lineHeight: 10 }}>
+        <Txt variant="caption" tone="secondary" className="pt-half">
           {remainingSeconds === 0 ? 'Abgelaufen' : running ? 'Läuft' : 'Pausiert'}
         </Txt>
       </View>
@@ -60,7 +56,7 @@ export function CookingModeTimer({
         role="button"
         aria-label={running ? 'Timer pausieren' : 'Timer fortsetzen'}
         className="w-[34px] h-[34px] rounded-control items-center justify-center"
-        style={{ backgroundColor: colors.surfaceSoft }}>
+        style={{ backgroundColor: colors.backgroundSoft }}>
         <Txt variant="caption" tone="primary" weight="700">
           {running ? 'Ⅱ' : '▶'}
         </Txt>
@@ -70,7 +66,7 @@ export function CookingModeTimer({
         role="button"
         aria-label="Timer zurücksetzen"
         className="w-[34px] h-[34px] rounded-control items-center justify-center"
-        style={{ backgroundColor: colors.surfaceSoft }}>
+        style={{ backgroundColor: colors.backgroundSoft }}>
         <Txt variant="caption" tone="primary" weight="700">
           ↺
         </Txt>

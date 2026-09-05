@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, TextInput, View } from 'react-native';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
+import { font } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { debugLogEvent } from '@/lib/debug-log';
@@ -57,6 +58,7 @@ function TransferRow({
   onUpdateExpiry,
   onUpdateQuantity,
 }: TransferRowProps) {
+  const { colors } = useTheme();
   const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
   const [isEditingQty, setIsEditingQty] = useState(false);
   const [qtyDraft, setQtyDraft] = useState(String(transfer.quantity));
@@ -77,11 +79,7 @@ function TransferRow({
     <View className="transfer-row">
       {/* Artikel-Header */}
       <View className="row-between">
-        <Txt
-          variant="subheading"
-          weight="700"
-          numberOfLines={2}
-          className="flex-1 min-w-0">
+        <Txt variant="subheading" weight="700" numberOfLines={2} className="flex-1 min-w-0">
           {item.name}
         </Txt>
 
@@ -99,7 +97,13 @@ function TransferRow({
               returnKeyType="done"
               onSubmitEditing={commitQtyDraft}
               accessibilityLabel={`Menge für ${item.name} eingeben`}
-              className="min-w-[32px] p-0 text-body-relaxed font-semibold text-white [font-variant:tabular-nums]"
+              className="min-w-[32px] p-0 [font-variant:tabular-nums]"
+              style={{
+                color: colors.onAccent,
+                fontSize: font.sizes.body,
+                lineHeight: font.lineHeights.body,
+                fontWeight: '600',
+              }}
             />
             <Txt variant="body" tone="onAccent" weight="600">
               {item.unit}

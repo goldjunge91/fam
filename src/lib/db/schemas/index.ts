@@ -6,7 +6,7 @@ import {
   localBrochures,
 } from './brochures';
 import { households } from './households';
-import { fridgeItems, storageLocations } from './inventory';
+import { fridgeItems, storageLocations, transactions } from './inventory';
 import { mealPlanEntries, mealPlans } from './meal-planner';
 import { products, productUsage } from './products';
 import {
@@ -67,4 +67,5 @@ export const localDrizzleSchema = {
   stores,
   syncState,
   symptomLogs,
+  transactions,
 };

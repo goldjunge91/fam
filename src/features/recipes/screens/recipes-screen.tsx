@@ -11,8 +11,8 @@ import {
 import { FilterIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { SectionHeading } from '@/components/layout/section-heading';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { space } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton, HeaderIconButton, MenuButton } from '@/components/ui/buttons';
 import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -377,7 +377,6 @@ export function RecipesScreen() {
       header={{
         title: screenTitle,
         align: 'center',
-        titleSize: 'large',
         leading:
           view === 'discover' || view === 'favorites' || view === 'household' ? (
             <MenuButton onPress={openDrawer} />
@@ -399,10 +398,7 @@ export function RecipesScreen() {
               }
               onPress={() => setShowFilters(true)}
               style={activeFilterCount > 0 ? { backgroundColor: colors.basil } : undefined}>
-              <FilterIcon
-                size={space.xl}
-                color={activeFilterCount > 0 ? colors.bg : colors.text}
-              />
+              <FilterIcon size={space.xl} color={activeFilterCount > 0 ? colors.bg : colors.text} />
             </HeaderIconButton>
           </View>
         ),
@@ -452,14 +448,13 @@ export function RecipesScreen() {
               aria-selected={view === 'discover'}
               className="tab-btn"
               style={{
-                backgroundColor: view === 'discover' ? colors.basil : colors.surfaceSoft,
+                backgroundColor: view === 'discover' ? colors.basil : colors.backgroundSoft,
                 borderColor: view === 'discover' ? colors.basil : colors.border,
               }}>
               <Txt
                 variant="body"
                 tone={view === 'discover' ? 'onAccent' : 'secondary'}
-                weight="700"
-                style={{ fontSize: 14, lineHeight: 18 }}>
+                weight="700">
                 Entdecken
               </Txt>
             </Pressable>
@@ -470,14 +465,13 @@ export function RecipesScreen() {
               aria-selected={view === 'household'}
               className="tab-btn"
               style={{
-                backgroundColor: view === 'household' ? colors.basil : colors.surfaceSoft,
+                backgroundColor: view === 'household' ? colors.basil : colors.backgroundSoft,
                 borderColor: view === 'household' ? colors.basil : colors.border,
               }}>
               <Txt
                 variant="body"
                 tone={view === 'household' ? 'onAccent' : 'secondary'}
-                weight="700"
-                style={{ fontSize: 14, lineHeight: 18 }}>
+                weight="700">
                 Eigene Rezepte
               </Txt>
             </Pressable>
@@ -488,14 +482,13 @@ export function RecipesScreen() {
               aria-selected={view === 'favorites'}
               className="tab-btn"
               style={{
-                backgroundColor: view === 'favorites' ? colors.basil : colors.surfaceSoft,
+                backgroundColor: view === 'favorites' ? colors.basil : colors.backgroundSoft,
                 borderColor: view === 'favorites' ? colors.basil : colors.border,
               }}>
               <Txt
                 variant="body"
                 tone={view === 'favorites' ? 'onAccent' : 'secondary'}
-                weight="700"
-                style={{ fontSize: 14, lineHeight: 18 }}>
+                weight="700">
                 Meine Favoriten
               </Txt>
             </Pressable>
@@ -507,7 +500,7 @@ export function RecipesScreen() {
           <ActivityIndicator
             accessibilityLabel="Rezepte werden geladen"
             color={colors.basil}
-            className="mt-[42px]"
+            style={{ marginTop: space.xxxl }}
           />
         ) : view === 'favorites' ? (
           /* Favoriten-Ansicht */

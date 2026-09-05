@@ -16,7 +16,7 @@ select set_eq(
 
 select ok(
   (
-    select qual
+    select with_check
     from pg_policies
     where schemaname = 'storage'
       and tablename = 'objects'

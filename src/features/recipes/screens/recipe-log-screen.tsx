@@ -2,8 +2,9 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Alert, KeyboardAvoidingView, Pressable, ScrollView, TextInput, View } from 'react-native';
 import { HubScreen } from '@/components/layout/hub-screen';
+import { font } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { BackButton } from '@/components/ui/buttons';
+import { BackButton, Button } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { Txt } from '@/constants/ui';
 import type { MealType } from '@/features/calorie-tracking/api';
@@ -123,16 +124,12 @@ export function RecipeLogScreen() {
         <View className="flex-1 min-h-[150px] items-center pt-[30px] opacity-55">
           <View
             className="w-[82px] h-[82px] rounded-fam-large"
-            style={{ backgroundColor: colors.surfaceSoft }}
+            style={{ backgroundColor: colors.backgroundSoft }}
           />
           <Txt variant="heading" className="pt-[18px]">
             Guten Appetit!
           </Txt>
-          <Txt
-            variant="caption"
-            tone="secondary"
-            className="pt-[5px] text-center"
-            style={{ fontWeight: '500' }}>
+          <Txt variant="caption" tone="secondary" className="pt-[5px] text-center" weight="500">
             {isWeighMode
               ? 'Verbessere die Mengen deines Haushaltsrezepts.'
               : 'Trage deine tatsächliche Portion ins Tagebuch ein.'}
@@ -147,11 +144,7 @@ export function RecipeLogScreen() {
               <Txt variant="heading">
                 {isWeighMode ? 'Zubereitete Gewichte' : 'Ins Tagebuch eintragen'}
               </Txt>
-              <Txt
-                variant="caption"
-                tone="secondary"
-                className="pt-[7px]"
-                style={{ fontSize: 9, lineHeight: 12, fontWeight: '500' }}>
+              <Txt variant="caption" tone="secondary" className="pt-[7px]" weight="500">
                 {isWeighMode
                   ? 'Diese Werte verbessern die Berechnung in deinem Haushaltsrezept.'
                   : 'Wie viel davon war auf deinem Teller?'}
@@ -162,11 +155,8 @@ export function RecipeLogScreen() {
               role="button"
               aria-label="Schließen"
               className="w-8 h-8 rounded-control items-center justify-center"
-              style={{ backgroundColor: colors.surfaceSoft }}>
-              <Txt
-                variant="body"
-                tone="secondary"
-                style={{ fontSize: 18, lineHeight: 20, fontWeight: '500' }}>
+              style={{ backgroundColor: colors.backgroundSoft }}>
+              <Txt variant="body" tone="secondary" weight="500">
                 ×
               </Txt>
             </Pressable>
@@ -196,11 +186,7 @@ export function RecipeLogScreen() {
               <View className="gap-[10px]">
                 {topLevelComponents.map((component) => (
                   <View key={component.id} className="min-h-[40px] flex-row items-center gap-[9px]">
-                    <Txt
-                      variant="label"
-                      weight="700"
-                      className="flex-1"
-                      style={{ fontSize: 10, lineHeight: 12 }}>
+                    <Txt variant="caption" weight="700" className="flex-1">
                       {component.name}
                     </Txt>
                     <View className="grams-field">
@@ -209,15 +195,16 @@ export function RecipeLogScreen() {
                         onChangeText={(value) => updateGrams(component.id, value)}
                         keyboardType="decimal-pad"
                         accessibilityLabel={`Grammmenge für ${component.name}`}
-                        className="flex-1 h-full py-0 text-right text-[10px] font-medium"
-                        style={{ color: colors.text }}
-                        placeholderTextColor={colors.textMuted}
+                        className="flex-1 h-full py-0 text-right"
+                        style={{
+                          color: colors.text,
+                          fontSize: font.sizes.xs,
+                          lineHeight: font.lineHeights.caption,
+                          fontWeight: '500',
+                        }}
+                        placeholderTextColor={colors.textSecondary}
                       />
-                      <Txt
-                        variant="caption"
-                        tone="secondary"
-                        className="pl-one"
-                        style={{ fontSize: 10, lineHeight: 12, fontWeight: '500' }}>
+                      <Txt variant="caption" tone="secondary" className="pl-one">
                         g
                       </Txt>
                     </View>
@@ -228,15 +215,15 @@ export function RecipeLogScreen() {
               {total && !isWeighMode ? (
                 <View
                   className="min-h-[53px] rounded-card items-center justify-center px-[11px]"
-                  style={{ backgroundColor: colors.surfaceSoft }}>
-                  <Txt variant="body" weight="700" style={{ fontSize: 15, lineHeight: 18 }}>
+                  style={{ backgroundColor: colors.backgroundSoft }}>
+                  <Txt variant="body" weight="700">
                     {round(total.kcal)} kcal
                   </Txt>
                   <Txt
                     variant="caption"
                     tone="secondary"
                     className="pt-[3px] text-center"
-                    style={{ fontSize: 8, lineHeight: 10, fontWeight: '500' }}>
+                    weight="500">
                     {round(total.protein_g)} g Protein · {round(total.carbs_g)} g Kohlenhydrate ·{' '}
                     {round(total.fat_g)} g Fett
                   </Txt>
@@ -244,19 +231,14 @@ export function RecipeLogScreen() {
               ) : null}
 
               {/* Übernehmen-/Speichern-Aktionsbutton */}
-              <Pressable
+              <Button
+                label={isWeighMode ? 'Gewichte speichern' : 'Ins Tagebuch übernehmen'}
                 onPress={handleSubmit}
                 disabled={!total || updateComponent.isPending}
-                role="button"
-                className="min-h-[48px] rounded-card items-center justify-center px-four active:opacity-75 active:scale-[0.99]"
-                style={{
-                  backgroundColor: colors.basil,
-                  opacity: !total || updateComponent.isPending ? 0.4 : 1,
-                }}>
-                <Txt variant="caption" tone="onAccent" weight="700">
-                  {isWeighMode ? 'Gewichte speichern' : 'Ins Tagebuch übernehmen'}
-                </Txt>
-              </Pressable>
+                loading={updateComponent.isPending}
+                size="large"
+                style={{ alignSelf: 'stretch' }}
+              />
             </ScrollView>
           )}
         </View>

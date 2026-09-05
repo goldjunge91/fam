@@ -660,7 +660,7 @@ export function RecipeCreateScreen() {
             <View
               key={step}
               className="flex-1 h-1 rounded-sm"
-              style={{ backgroundColor: step <= wizardStep ? colors.basil : colors.surfaceSoft }}
+              style={{ backgroundColor: step <= wizardStep ? colors.basil : colors.backgroundSoft }}
             />
           ))}
         </View>

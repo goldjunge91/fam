@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
-import { View } from 'react-native';
-import { withAlpha } from '@/components/theme/index';
+import { StyleSheet, View } from 'react-native';
+import { radius, shadow, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
 import { ProgressBar } from '@/components/ui/progress-bar';
@@ -9,19 +9,51 @@ import { type DashboardCardProps, registerCard } from '@/features/dashboard/regi
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useShoppingList } from '@/features/shopping-list/hooks/use-shopping-list';
 
-// GlassView hat kein cssInterop, deshalb RN-Style.
-const WIDGET_GLASS_STYLE = {
-  borderRadius: 28,
-  padding: 16,
-  gap: 8,
-};
+const styles = StyleSheet.create({
+  pressable: {
+    width: '100%',
+  },
+  widget: {
+    width: '100%',
+    minHeight: 138,
+    borderRadius: radius.xl,
+    padding: space.lg,
+    gap: space.sm,
+  },
+  largeWidget: {
+    flexDirection: 'column',
+    minHeight: 140,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.md,
+  },
+  badge: {
+    alignSelf: 'flex-start',
+    minWidth: 36,
+    height: 28,
+    borderRadius: radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: space.xs,
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    gap: space.sm,
+  },
+  spacer: {
+    flex: 1,
+  },
+});
 
 /**
  * Einkaufs-Dashboard-Card: zeigt offene Einkaufslisteneintraege.
  * Large = Badge + Label + Fortschrittsbalken + Action.
  * Small = Badge + Label + Action (wie bisher).
  */
-function ShoppingDashboardCard({ size, onLongPress, editHeight }: DashboardCardProps) {
+function ShoppingDashboardCard({ size, onLongPress }: DashboardCardProps) {
   const { colors: theme } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -41,17 +73,15 @@ function ShoppingDashboardCard({ size, onLongPress, editHeight }: DashboardCardP
         onLongPress={onLongPress}
         accessibilityRole="button"
         accessibilityLabel="Einkaufsliste öffnen"
-        fallbackClassName="dashboard-planned-card"
-        glassStyle={{ ...WIDGET_GLASS_STYLE, flexDirection: 'column' as const }}
-        outerStyle={{
-          minHeight: 140,
-          height: editHeight,
-          borderRadius: 28,
-          borderCurve: 'continuous',
-          boxShadow: `0 8px 22px ${withAlpha(theme.text, 0.1)}`,
-        }}>
-        <View className="flex-row items-center gap-three">
-          <View className="dashboard-widget-badge bg-accent/[15%]">
+        glassStyle={[styles.widget, styles.largeWidget]}
+        fallbackStyle={[
+          styles.widget,
+          styles.largeWidget,
+          { backgroundColor: theme.backgroundElement },
+        ]}
+        outerStyle={[styles.pressable, shadow.sm, { shadowColor: theme.shadowCard }]}>
+        <View style={styles.header}>
+          <View style={[styles.badge, { backgroundColor: withAlpha(theme.accent, 0.15) }]}>
             <Txt variant="body" weight="700" tone="primary">
               {openCount}
             </Txt>
@@ -60,7 +90,7 @@ function ShoppingDashboardCard({ size, onLongPress, editHeight }: DashboardCardP
             Einkauf
           </Txt>
         </View>
-        <View className="flex-1 justify-center gap-two">
+        <View style={styles.content}>
           {totalCount > 0 ? (
             <>
               <ProgressBar value={progress} />
@@ -74,7 +104,7 @@ function ShoppingDashboardCard({ size, onLongPress, editHeight }: DashboardCardP
             </Txt>
           )}
         </View>
-        <Txt variant="body" weight="700" className="dashboard-widget-action">
+        <Txt variant="body" weight="700">
           {openCount > 0 ? 'Noch offen' : 'Erledigt'}
         </Txt>
       </GlassCard>
@@ -87,34 +117,19 @@ function ShoppingDashboardCard({ size, onLongPress, editHeight }: DashboardCardP
       onLongPress={onLongPress}
       accessibilityRole="button"
       accessibilityLabel="Einkaufsliste öffnen"
-      fallbackClassName="dashboard-widget"
-      glassStyle={WIDGET_GLASS_STYLE}
-      outerStyle={{
-        width: '100%',
-        minHeight: 138,
-        height: editHeight,
-        borderRadius: 28,
-        borderCurve: 'continuous',
-        boxShadow: `0 8px 20px ${withAlpha(theme.text, 0.08)}`,
-      }}>
-      <View className="dashboard-widget-badge bg-accent/[15%]">
+      glassStyle={styles.widget}
+      fallbackStyle={[styles.widget, { backgroundColor: theme.backgroundElement }]}
+      outerStyle={[styles.pressable, shadow.sm, { shadowColor: theme.shadowCard }]}>
+      <View style={[styles.badge, { backgroundColor: withAlpha(theme.accent, 0.15) }]}>
         <Txt variant="body" weight="700" tone="primary">
           {openCount}
         </Txt>
       </View>
-      <View className="flex-1" />
-      <Txt
-        variant="body"
-        tone="secondary"
-        className="dashboard-widget-label"
-        style={{ fontSize: 15, lineHeight: 22 }}>
+      <View style={styles.spacer} />
+      <Txt variant="body" tone="secondary">
         Einkauf
       </Txt>
-      <Txt
-        variant="body"
-        weight="700"
-        className="dashboard-widget-action"
-        style={{ fontSize: 18, lineHeight: 24 }}>
+      <Txt variant="body" weight="700">
         {openCount > 0 ? 'Noch offen' : 'Erledigt'}
       </Txt>
     </GlassCard>

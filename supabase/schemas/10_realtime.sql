@@ -17,6 +17,7 @@
 -- ein Change-Event sehen darf, und verschickt es im Zweifel an Clients, die die
 -- Zeile gar nicht sehen duerften.
 alter table public.fridge_items replica identity full;
+alter table public.transactions replica identity full;
 alter table public.shopping_list_items replica identity full;
 alter table public.shopping_category_preferences replica identity full;
 alter table public.feedback_tickets replica identity full;
@@ -31,6 +32,15 @@ begin
       and tablename = 'fridge_items'
   ) then
     alter publication supabase_realtime add table public.fridge_items;
+  end if;
+
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public'
+      and tablename = 'transactions'
+  ) then
+    alter publication supabase_realtime add table public.transactions;
   end if;
 
   if not exists (

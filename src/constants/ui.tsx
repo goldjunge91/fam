@@ -7,6 +7,7 @@
 import { Feather } from '@expo/vector-icons';
 import type React from 'react';
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
@@ -50,6 +51,14 @@ import {
 const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;
 const POP_SPRING = { damping: 9, stiffness: 380, mass: 0.5 } as const;
 
+function makeShadowStyles(c: Palette) {
+  return {
+    sm: { ...shadow.sm, shadowColor: c.shadowCard },
+    md: { ...shadow.md, shadowColor: c.shadowCard },
+    lg: { ...shadow.lg, shadowColor: c.shadowCard },
+  };
+}
+
 type HapticKind = 'none' | 'light' | 'medium' | 'heavy' | 'selection' | 'success';
 function fireHaptic(kind: HapticKind) {
   switch (kind) {
@@ -72,17 +81,16 @@ type FeatherName = React.ComponentProps<typeof Feather>['name'];
 
 // ─── Text ────────────────────────────────────────────────────────────────────
 
-type TxtVariant =
+export type TxtVariant =
   | 'display'
   | 'title'
   | 'heading'
   | 'subheading'
   | 'body'
   | 'label'
-  | 'caption'
-  | 'meta';
+  | 'caption';
 
-type TxtTone =
+export type TxtTone =
   | 'primary'
   | 'secondary'
   | 'accent'
@@ -96,7 +104,9 @@ type TxtDefinition = {
   fontSize: number;
   lineHeight: number;
   fontWeight: TextStyle['fontWeight'];
-  tone: 'text' | 'textMuted' | 'textFaint';
+  tone: 'text' | 'textSecondary' | 'accent';
+  letterSpacing?: number;
+  fontFamily?: TextStyle['fontFamily'];
 };
 
 const TXT: Record<TxtVariant, TxtDefinition> = {
@@ -119,7 +129,7 @@ const TXT: Record<TxtVariant, TxtDefinition> = {
     tone: 'text',
   },
   subheading: {
-    fontSize: font.sizes.subheading,
+    fontSize: font.sizes.md,
     lineHeight: font.lineHeights.subheading,
     fontWeight: '700',
     tone: 'text',
@@ -134,36 +144,40 @@ const TXT: Record<TxtVariant, TxtDefinition> = {
     fontSize: font.sizes.sm,
     lineHeight: font.lineHeights.label,
     fontWeight: '600',
-    tone: 'textMuted',
+    tone: 'text',
   },
   caption: {
     fontSize: font.sizes.xs,
     lineHeight: font.lineHeights.caption,
     fontWeight: '500',
-    tone: 'textFaint',
-  },
-  meta: {
-    fontSize: font.sizes.sm,
-    lineHeight: font.lineHeights.label,
-    fontWeight: '500',
-    tone: 'textMuted',
+    tone: 'text',
   },
 };
 
 type ThemeTextColor = keyof Pick<
   Palette,
-  'text' | 'textMuted' | 'textFaint' | 'basil' | 'inverse' | 'carrot' | 'tomato'
+  'text' | 'textSecondary' | 'accent' | 'onAccent' | 'success' | 'warning' | 'danger'
 >;
 
 const TEXT_TONE: Record<TxtTone, ThemeTextColor> = {
   primary: 'text',
-  secondary: 'textMuted',
-  accent: 'basil',
-  onAccent: 'inverse',
-  success: 'basil',
-  warning: 'carrot',
-  danger: 'tomato',
-  inverse: 'inverse',
+  secondary: 'textSecondary',
+  accent: 'accent',
+  onAccent: 'onAccent',
+  success: 'success',
+  warning: 'warning',
+  danger: 'danger',
+  inverse: 'onAccent',
+};
+
+export type TxtProps = TextProps & {
+  variant?: TxtVariant;
+  tone?: TxtTone;
+  color?: string;
+  weight?: TextStyle['fontWeight'];
+  center?: boolean;
+  muted?: boolean;
+  className?: string;
 };
 
 export function Txt({
@@ -177,18 +191,10 @@ export function Txt({
   style,
   children,
   ...rest
-}: TextProps & {
-  variant?: TxtVariant;
-  tone?: TxtTone;
-  color?: string;
-  weight?: TextStyle['fontWeight'];
-  center?: boolean;
-  muted?: boolean;
-  className?: string;
-}) {
+}: TxtProps) {
   const { colors } = useTheme();
   const base = TXT[variant];
-  const textColor = tone ? colors[TEXT_TONE[tone]] : colors[muted ? 'textMuted' : base.tone];
+  const textColor = tone ? colors[TEXT_TONE[tone]] : colors[muted ? 'textSecondary' : base.tone];
   return (
     <Text
       {...rest}
@@ -199,6 +205,8 @@ export function Txt({
           lineHeight: base.lineHeight,
           fontWeight: base.fontWeight,
           color: textColor,
+          letterSpacing: base.letterSpacing,
+          fontFamily: base.fontFamily,
         },
         color && { color },
         weight && { fontWeight: weight },
@@ -244,7 +252,7 @@ export function Row({
   );
 }
 
-type SurfaceTone = 'page' | 'surface' | 'soft' | 'selected' | 'accent';
+type SurfaceTone = 'page' | 'surface' | 'soft' | 'accent';
 
 /** A semantic themed container. Layout utilities remain available via className. */
 export function Surface({
@@ -260,12 +268,12 @@ export function Surface({
   const { colors } = useTheme();
   const backgroundColor =
     tone === 'page'
-      ? colors.bg
-      : tone === 'accent'
-        ? colors.basil
-        : tone === 'surface'
-          ? colors.surface
-          : colors.surfaceSoft;
+      ? colors.background
+      : tone === 'surface'
+        ? colors.backgroundElement
+        : tone === 'soft'
+          ? colors.backgroundSoft
+          : colors.accent;
 
   return (
     <View {...rest} className={className} style={[{ backgroundColor }, style]}>
@@ -298,19 +306,20 @@ export function Card({
   elevation?: 'none' | 'sm' | 'md' | 'lg';
 }) {
   const { colors } = useTheme();
+  const themedShadow = useThemedStyles(makeShadowStyles);
   return (
     <View
       {...rest}
       style={[
         {
-          backgroundColor: colors.surface,
+          backgroundColor: colors.backgroundElement,
           borderRadius: radius.lg,
           borderWidth: 1,
           borderColor: colors.border,
         },
-        soft && { backgroundColor: colors.surfaceSoft },
+        soft && { backgroundColor: colors.backgroundSoft },
         padded && { padding: space.lg },
-        elevation !== 'none' && shadow[elevation],
+        elevation !== 'none' && themedShadow[elevation],
         style,
       ]}>
       {children}
@@ -400,27 +409,29 @@ export function Button({
   const acc = accentKey ? accent[accentKey] : null;
   const main =
     variant === 'primary'
-      ? colors.basil
+      ? colors.accent
       : variant === 'danger'
-        ? colors.tomato
-        : variant === 'accent' && acc
-          ? acc.main
-          : colors.surface;
+        ? colors.danger
+        : variant === 'secondary'
+          ? colors.backgroundSoft
+          : variant === 'ghost'
+            ? 'transparent'
+            : variant === 'accent'
+              ? (acc?.main ?? colors.accent)
+              : colors.backgroundElement;
   const shade =
-    variant === 'primary'
-      ? colors.basilShadow
-      : variant === 'danger'
-        ? colors.tomatoShadow
-        : variant === 'accent' && acc
-          ? acc.shadow
-          : colors.borderSoft;
+    variant === 'danger'
+      ? colors.buttonDangerDepth
+      : variant === 'accent'
+        ? colors.buttonAccentDepth
+        : colors.buttonPrimaryDepth;
   const isFilled = variant === 'primary' || variant === 'danger' || variant === 'accent';
   const fg = isFilled
     ? variant === 'accent' && acc
       ? acc.on
-      : colors.inverse
+      : colors.onAccent
     : variant === 'ghost'
-      ? colors.basilShadow
+      ? colors.accent
       : colors.text;
 
   const pad =
@@ -449,8 +460,7 @@ export function Button({
               if (isFilled) depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
             }}
             onPressOut={() => {
-              // pop back up off the 3D shadow with a little bounce.
-              depth.value = withSpring(0, PRESS_SPRING);
+              if (isFilled) depth.value = withSpring(0, PRESS_SPRING);
             }}
             onPress={() => {
               if (isDisabled) return;
@@ -466,12 +476,8 @@ export function Button({
                 alignItems: 'center',
                 justifyContent: 'center',
                 opacity: isDisabled ? 0.6 : 1,
+                overflow: 'hidden',
               },
-              !isFilled && {
-                borderWidth: variant === 'ghost' ? 0 : 1.5,
-                borderColor: colors.border,
-              },
-              variant === 'ghost' && { backgroundColor: colors.basilSoft },
               pad,
             ]}>
             <Row gap={8}>
@@ -516,8 +522,9 @@ export function IconButton({
   accessibilityLabel?: string;
 }) {
   const { colors } = useTheme();
+  const themedShadow = useThemedStyles(makeShadowStyles);
   const fg = color ?? colors.text;
-  const background = bg ?? colors.surface;
+  const background = bg ?? colors.backgroundElement;
   return (
     <Press
       onPress={onPress}
@@ -534,7 +541,7 @@ export function IconButton({
           justifyContent: 'center',
           opacity: disabled ? 0.5 : 1,
         },
-        shadow.sm,
+        themedShadow.sm,
         style,
       ]}>
       <Feather name={icon} size={iconSize} color={fg} />
@@ -569,9 +576,9 @@ export function Badge({
         borderRadius: radius.pill,
       }}>
       {icon ? <Feather name={icon} size={12} color={solid ? a.on : a.shadow} /> : null}
-      <Text style={{ color: solid ? a.on : a.shadow, fontSize: font.sizes.xs, fontWeight: '700' }}>
+      <Txt variant="caption" color={solid ? a.on : a.shadow} weight="700">
         {label}
-      </Text>
+      </Txt>
     </View>
   );
 }
@@ -605,20 +612,17 @@ export function Pill({
         paddingHorizontal: 14,
         paddingVertical: 10,
         borderRadius: radius.pill,
-        backgroundColor: selected ? a.main : colors.surface,
+        backgroundColor: selected ? a.main : colors.backgroundElement,
         borderWidth: 1.5,
         borderColor: selected ? a.main : colors.border,
         opacity: disabled ? 0.5 : 1,
       }}>
-      {icon ? <Feather name={icon} size={14} color={selected ? a.on : colors.textMuted} /> : null}
-      <Text
-        style={{
-          color: selected ? a.on : colors.text,
-          fontWeight: '700',
-          fontSize: font.sizes.sm,
-        }}>
+      {icon ? (
+        <Feather name={icon} size={14} color={selected ? a.on : colors.textSecondary} />
+      ) : null}
+      <Txt variant="label" color={selected ? a.on : colors.text} weight="700">
         {label}
-      </Text>
+      </Txt>
     </Press>
   );
 }
@@ -646,15 +650,13 @@ export function SegmentedControl<T extends string>({
             onPress={() => onChange(o.value)}
             containerStyle={{ flex: 1 }}
             style={[styles.segmentItem, active && styles.segmentItemActive]}>
-            <Text
+            <Txt
+              variant="label"
               numberOfLines={1}
-              style={{
-                fontWeight: '700',
-                fontSize: font.sizes.sm,
-                color: active ? colors.text : colors.textMuted,
-              }}>
+              color={active ? colors.text : colors.textSecondary}
+              weight="700">
               {o.label}
-            </Text>
+            </Txt>
           </Press>
         );
       })}
@@ -664,13 +666,42 @@ export function SegmentedControl<T extends string>({
 
 // ─── Field ───────────────────────────────────────────────────────────────────
 
-export function Field({ label, style, ...rest }: TextInputProps & { label?: string }) {
+export function Field({
+  label,
+  style,
+  onFocus,
+  onBlur,
+  returnKeyType = 'done',
+  submitBehavior = 'blurAndSubmit',
+  ...rest
+}: TextInputProps & { label?: string }) {
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
+  const [focused, setFocused] = useState(false);
+
   return (
     <View style={{ gap: 6 }}>
-      {label ? <Txt variant="label">{label}</Txt> : null}
-      <TextInput placeholderTextColor={colors.textFaint} {...rest} style={[styles.input, style]} />
+      {label ? (
+        <Txt variant="label" color={focused ? colors.accent : colors.text}>
+          {label}
+        </Txt>
+      ) : null}
+      <TextInput
+        placeholderTextColor={colors.textSecondary}
+        selectionColor={colors.accent}
+        returnKeyType={returnKeyType}
+        submitBehavior={submitBehavior}
+        onFocus={(event) => {
+          setFocused(true);
+          onFocus?.(event);
+        }}
+        onBlur={(event) => {
+          setFocused(false);
+          onBlur?.(event);
+        }}
+        {...rest}
+        style={[styles.input, focused && styles.inputFocused, style]}
+      />
     </View>
   );
 }
@@ -729,7 +760,7 @@ export function SectionHeading({
       <Txt variant="heading">{title}</Txt>
       {action ? (
         <Press onPress={onAction} haptic="selection">
-          <Txt variant="label" color={colors.basilShadow} weight="700">
+          <Txt variant="label" color={colors.accent} weight="700">
             {action}
           </Txt>
         </Press>
@@ -742,7 +773,7 @@ function makeStyles(c: Palette) {
   return StyleSheet.create({
     segment: {
       flexDirection: 'row',
-      backgroundColor: c.oat,
+      backgroundColor: c.backgroundSoft,
       borderRadius: radius.md,
       padding: 4,
       gap: 4,
@@ -754,11 +785,12 @@ function makeStyles(c: Palette) {
       borderRadius: radius.sm,
     },
     segmentItemActive: {
-      backgroundColor: c.surface,
+      backgroundColor: c.backgroundElement,
       ...shadow.sm,
+      shadowColor: c.shadowCard,
     },
     input: {
-      backgroundColor: c.surface,
+      backgroundColor: c.backgroundElement,
       borderWidth: 1.5,
       borderColor: c.border,
       borderRadius: radius.md,
@@ -766,6 +798,10 @@ function makeStyles(c: Palette) {
       paddingVertical: 12,
       fontSize: font.sizes.md,
       color: c.text,
+    },
+    inputFocused: {
+      borderColor: c.accent,
+      borderWidth: 2,
     },
   });
 }

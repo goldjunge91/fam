@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
 import { Pressable, View } from 'react-native';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
 type CorrelationMenuItemProps = {
@@ -13,6 +14,8 @@ export function CorrelationMenuItem({
   dayStartTime,
   childProfileId,
 }: CorrelationMenuItemProps) {
+  const { colors } = useTheme();
+
   return (
     <Pressable
       accessibilityRole="button"
@@ -27,7 +30,8 @@ export function CorrelationMenuItem({
           },
         })
       }
-      className="flex-row items-center justify-between py-two px-three rounded-xl bg-card border border-border">
+      className="flex-row items-center justify-between py-two px-three rounded-xl border"
+      style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
       <View className="gap-one">
         <Txt variant="label" weight="700">
           Korrelationsanalyse

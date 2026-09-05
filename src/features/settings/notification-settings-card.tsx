@@ -39,7 +39,9 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
       <Card title="Benachrichtigungen">
         <View className="gap-three">
           <View className="gap-two">
-            <Txt variant="label" weight="700">Erinnern ab (Tage im Voraus):</Txt>
+            <Txt variant="label" weight="700">
+              Erinnern ab (Tage im Voraus):
+            </Txt>
             <View className="row-wrap">
               {THRESHOLD_OPTIONS.map((days) => {
                 const isSelected = settings.daysThreshold === days;
@@ -63,7 +65,9 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
           </View>
 
           <View className="gap-two">
-            <Txt variant="label" weight="700">Uhrzeit der Erinnerung:</Txt>
+            <Txt variant="label" weight="700">
+              Uhrzeit der Erinnerung:
+            </Txt>
             <View className="row-wrap">
               {TIME_OPTIONS.map((time) => {
                 const isSelected =

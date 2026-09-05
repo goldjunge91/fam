@@ -1,7 +1,6 @@
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { space, withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 
 export function useSheetShadowStyle() {
   const { colors } = useTheme();

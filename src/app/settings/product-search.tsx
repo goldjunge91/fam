@@ -100,7 +100,9 @@ export default function ProductSearchSettingsRoute() {
                           accessibilityRole="button"
                           accessibilityLabel={`${store.name} nach oben bewegen`}
                           className="px-two py-two active:opacity-75">
-                          <Txt variant="body" tone="secondary">↑</Txt>
+                          <Txt variant="body" tone="secondary">
+                            ↑
+                          </Txt>
                         </Pressable>
                         <Pressable
                           onPress={() => moveStore(position, 1)}
@@ -108,7 +110,9 @@ export default function ProductSearchSettingsRoute() {
                           accessibilityRole="button"
                           accessibilityLabel={`${store.name} nach unten bewegen`}
                           className="px-two py-two active:opacity-75">
-                          <Txt variant="body" tone="secondary">↓</Txt>
+                          <Txt variant="body" tone="secondary">
+                            ↓
+                          </Txt>
                         </Pressable>
                       </View>
                     ) : null}

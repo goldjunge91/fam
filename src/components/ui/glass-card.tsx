@@ -40,9 +40,10 @@ type GlassCardProps = {
   /** (s. docs/design-system/nativewind-liquid-glass-migration.md,
    * Abschnitt "KRITISCH"), deshalb hier als RN-Style statt Tailwind-Klasse. */
   glassStyle: StyleProp<ViewStyle>;
-  /** Aequivalente Tailwind-Klasse fuer den soliden Fallback (Android, iOS < 26,
-   * Reduce-Transparency) — traegt Radius/Padding/Gap/Hintergrund/Schatten in einem. */
-  fallbackClassName: string;
+  /** Legacy-Tailwind-Fallback fuer bestehende Aufrufer. */
+  fallbackClassName?: string;
+  /** Native fallback styles for callers that do not use a global class. */
+  fallbackStyle?: StyleProp<ViewStyle>;
   onPress: () => void;
   onLongPress?: () => void;
   accessibilityRole: AccessibilityRole;
@@ -54,6 +55,7 @@ export function GlassCard({
   outerStyle,
   glassStyle,
   fallbackClassName,
+  fallbackStyle,
   onPress,
   onLongPress,
   accessibilityRole,
@@ -70,7 +72,7 @@ export function GlassCard({
         accessibilityRole={accessibilityRole}
         accessibilityLabel={accessibilityLabel}
         className={fallbackClassName}
-        style={outerStyle}>
+        style={[fallbackStyle, outerStyle]}>
         {children}
       </Pressable>
     );

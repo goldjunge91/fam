@@ -1,6 +1,7 @@
 import { Picker } from '@expo/ui/community/picker';
 import { useState } from 'react';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { font } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 import { Button } from '../ui/buttons';
 
@@ -46,7 +47,7 @@ export function WheelPickerField({
   return (
     <View className="gap-one">
       {label && (
-        <Txt variant="body" tone="secondary" className={size === 'large' ? 'text-body' : ''}>
+        <Txt variant="label" tone="secondary">
           {label}
         </Txt>
       )}
@@ -55,7 +56,7 @@ export function WheelPickerField({
         accessibilityRole="button"
         accessibilityLabel={label ? `${label} ${selectedLabel} ändern` : `${selectedLabel} ändern`}
         className="input-field active:opacity-75">
-        <Txt variant="body" tone="primary" className={size === 'large' ? 'text-body-lg' : ''}>
+        <Txt variant="body" tone="primary" style={size === 'large' ? styles.largeValue : undefined}>
           {selectedLabel}
         </Txt>
       </Pressable>
@@ -87,3 +88,10 @@ export function WheelPickerField({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  largeValue: {
+    fontSize: font.sizes.md,
+    lineHeight: font.lineHeights.subheading,
+  },
+});

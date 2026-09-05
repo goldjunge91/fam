@@ -1,7 +1,7 @@
 import { Image } from 'expo-image';
 import { View } from 'react-native';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { space } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { Txt } from '@/constants/ui';
 import { EditItemForm } from '../forms/edit-item-form';

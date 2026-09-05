@@ -1,14 +1,14 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { Pressable, RefreshControl, ScrollView, View } from 'react-native';
+import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { PlusIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { Button } from '@/components/ui/buttons';
 import { HeaderIconButton } from '@/components/ui/buttons/header-icon-button';
-import { Txt } from '@/constants/ui';
 import { CardGallerySheet } from '@/features/dashboard/components/card-gallery-sheet';
 import { CardList } from '@/features/dashboard/components/card-list';
 import { DashboardCardsProvider } from '@/features/dashboard/use-card-sizes';
@@ -20,6 +20,24 @@ import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { syncRunHasErrors, triggerHouseholdSync } from '@/lib/sync/sync-runner';
+
+const styles = StyleSheet.create({
+  editTrailing: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.sm,
+  },
+  editBody: {
+    flex: 1,
+    paddingTop: space.sm,
+  },
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingTop: space.sm,
+  },
+});
 
 export function DashboardScreen() {
   const { colors } = useTheme();
@@ -64,20 +82,18 @@ export function DashboardScreen() {
   const bottomPadding = insets.bottom + space.xxl + space.xxxl;
 
   const editChromeTrailing = isEditing ? (
-    <View className="flex-row items-center gap-two">
+    <View style={styles.editTrailing}>
       <HeaderIconButton label="Karten anpassen" onPress={openGallery}>
-        <PlusIcon color={colors.basil} />
+        <PlusIcon color={colors.accent} />
       </HeaderIconButton>
-      <Pressable
+      <Button
+        label="Fertig"
         onPress={exitEditMode}
-        accessibilityRole="button"
         accessibilityLabel="Bearbeitungsmodus beenden"
-        className="px-three py-one rounded-control items-center justify-center"
-        style={{ backgroundColor: colors.basil }}>
-        <Txt variant="label" tone="onAccent" weight="600">
-          Fertig
-        </Txt>
-      </Pressable>
+        variant="accent"
+        accentKey="pantry"
+        size="compact"
+      />
     </View>
   ) : null;
 
@@ -106,23 +122,22 @@ export function DashboardScreen() {
         }}
         backgroundGradient={hubGradient}>
         {isEditing ? (
-          <View className="flex-1" style={{ paddingTop: space.sm }}>
+          <View style={styles.editBody}>
             {cardList}
           </View>
         ) : (
           <ScrollView
             testID="dashboard-scroll-view"
-            className="flex-1"
-            style={{ overflow: isDragging ? 'visible' : 'hidden' }}
+            style={[styles.scroll, { overflow: isDragging ? 'visible' : 'hidden' }]}
             scrollEnabled={!isDragging}
-            contentContainerStyle={{ paddingTop: space.sm, paddingBottom: bottomPadding }}
+            contentContainerStyle={[styles.scrollContent, { paddingBottom: bottomPadding }]}
             showsVerticalScrollIndicator={false}
             refreshControl={
               <RefreshControl
                 testID="dashboard-refresh-control"
                 refreshing={refreshing}
                 onRefresh={handleRefresh}
-                tintColor={colors.basil}
+                tintColor={colors.accent}
               />
             }>
             {cardList}

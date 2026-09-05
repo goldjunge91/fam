@@ -9,10 +9,10 @@ export function ModuleLockedOverlay() {
   return (
     <View
       className="module-row-locked-overlay"
-      style={{ backgroundColor: withAlpha(colors.surface, 0.4) }}>
+      style={{ backgroundColor: withAlpha(colors.backgroundElement, 0.4) }}>
       <View className="module-row-locked-pill" style={{ backgroundColor: colors.text }}>
         <View className="module-row-locked-pill-dot" />
-        <Txt variant="body" weight="700" color={colors.bg}>
+        <Txt variant="body" weight="700" color={colors.background}>
           Demnächst verfügbar
         </Txt>
       </View>

@@ -20,14 +20,37 @@ type CapturedUpdate = {
   subscriberAttributes?: Record<string, SubscriberAttribute> | null;
 };
 
-function request(event: Record<string, unknown>, authorization = SECRET) {
+async function request(
+  event: Record<string, unknown>,
+  signingSecret = SECRET,
+  timestampSeconds = NOW.getTime() / 1000,
+) {
+  const body = JSON.stringify({ api_version: "1.0", event });
+  const key = await crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(signingSecret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"],
+  );
+  const signature = new Uint8Array(
+    await crypto.subtle.sign(
+      "HMAC",
+      key,
+      new TextEncoder().encode(`${timestampSeconds}.${body}`),
+    ),
+  );
+  const signatureHex = Array.from(signature, (byte) =>
+    byte.toString(16).padStart(2, "0")
+  ).join("");
+
   return new Request("http://localhost/revenuecat-webhook", {
     method: "POST",
     headers: {
-      Authorization: authorization,
+      "X-RevenueCat-Webhook-Signature": `t=${timestampSeconds},v1=${signatureHex}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ api_version: "1.0", event }),
+    body,
   });
 }
 
@@ -79,14 +102,31 @@ Deno.test("reuses only an active canonical AI assignment", () => {
   assertEquals(activeAiAssignmentHouseholdId(null), null);
 });
 
-Deno.test("rejects a missing or incorrect webhook secret", async () => {
+Deno.test("rejects a missing or incorrect HMAC signature", async () => {
   const { handler, updates } = setup();
 
-  const missing = await handler(request(event("INITIAL_PURCHASE"), ""));
-  const incorrect = await handler(request(event("INITIAL_PURCHASE"), "wrong"));
+  const missing = await handler(
+    new Request("http://localhost/revenuecat-webhook", {
+      method: "POST",
+      body: JSON.stringify({ api_version: "1.0", event: event("INITIAL_PURCHASE") }),
+    }),
+  );
+  const incorrect = await handler(
+    await request(event("INITIAL_PURCHASE"), "wrong"),
+  );
 
   assertEquals(missing.status, 401);
   assertEquals(incorrect.status, 401);
+  assertEquals(updates, []);
+});
+
+Deno.test("rejects an expired HMAC signature", async () => {
+  const { handler, updates } = setup();
+  const response = await handler(
+    await request(event("INITIAL_PURCHASE"), SECRET, NOW.getTime() / 1000 - 301),
+  );
+
+  assertEquals(response.status, 401);
   assertEquals(updates, []);
 });
 
@@ -103,7 +143,7 @@ for (const entitlementId of ["Plus", "AI"] as const) {
       const { handler, updates } = setup();
 
       const response = await handler(
-        request(
+        await request(
           event(type, [entitlementId], {
             household_id: { value: HOUSEHOLD_ID },
             $posthogUserId: { value: USER_ID },
@@ -139,7 +179,7 @@ for (const entitlementId of ["Plus", "AI"] as const) {
     const { handler, updates } = setup();
 
     const response = await handler(
-      request(event("EXPIRATION", [entitlementId])),
+      await request(event("EXPIRATION", [entitlementId])),
     );
 
     assertEquals(response.status, 200);
@@ -151,7 +191,7 @@ for (const entitlementId of ["Plus", "AI"] as const) {
 Deno.test("applies Plus and AI independently when both are present", async () => {
   const { handler, updates } = setup();
 
-  const response = await handler(request(event("RENEWAL", ["Plus", "AI"])));
+  const response = await handler(await request(event("RENEWAL", ["Plus", "AI"])));
 
   assertEquals(response.status, 200);
   assertEquals(await response.json(), { updated: 2 });
@@ -165,7 +205,7 @@ for (const type of ["CANCELLATION", "BILLING_ISSUE"]) {
   Deno.test(`${type} keeps paid or grace-period access unchanged`, async () => {
     const { handler, updates } = setup();
 
-    const response = await handler(request(event(type)));
+    const response = await handler(await request(event(type)));
 
     assertEquals(response.status, 200);
     assertEquals(await response.json(), { ignored: type });
@@ -177,7 +217,7 @@ Deno.test("ignores unrelated event types even without entitlement data", async (
   const { handler, updates } = setup();
 
   const response = await handler(
-    request({
+    await request({
       id: "event-test",
       type: "TEST",
       app_user_id: USER_ID,
@@ -194,7 +234,7 @@ Deno.test("ignores unrelated event types even without entitlement data", async (
 Deno.test("ignores purchase events without a known entitlement", async () => {
   const { handler, updates } = setup();
 
-  const response = await handler(request(event("INITIAL_PURCHASE", ["Other"])));
+  const response = await handler(await request(event("INITIAL_PURCHASE", ["Other"])));
 
   assertEquals(response.status, 200);
   assertEquals(await response.json(), { ignored: "unrelated_entitlement" });
@@ -204,7 +244,7 @@ Deno.test("ignores purchase events without a known entitlement", async () => {
 Deno.test("acknowledges an unknown household without triggering retries", async () => {
   const { handler } = setup(0);
 
-  const response = await handler(request(event("INITIAL_PURCHASE")));
+  const response = await handler(await request(event("INITIAL_PURCHASE")));
 
   assertEquals(response.status, 200);
   assertEquals(await response.json(), { updated: 0 });
@@ -214,7 +254,7 @@ Deno.test("rejects malformed events before touching the database", async () => {
   const { handler, updates } = setup();
 
   const response = await handler(
-    request({
+    await request({
       id: "event-malformed",
       type: "INITIAL_PURCHASE",
       app_user_id: USER_ID,

@@ -3,8 +3,8 @@ import { Screen } from '@/components/layout/screen';
 import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
 import { getSettingsModules } from '@/constants/feature-registry';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type ModulePreferences,
@@ -48,7 +48,7 @@ export function ModuleSettingsScreen() {
               disabled={locked}
               className="module-row"
               style={{
-                backgroundColor: modules[row.key] ? colors.surfaceSoft : colors.surface,
+                backgroundColor: modules[row.key] ? colors.backgroundSoft : colors.surface,
                 borderColor: colors.border,
               }}>
               <View className={`row-text ${locked ? 'module-row-locked-content' : ''}`}>

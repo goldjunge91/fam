@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
-import { View } from 'react-native';
-import { withAlpha } from '@/components/theme/index';
+import { StyleSheet, View } from 'react-native';
+import { radius, shadow, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Txt } from '@/constants/ui';
@@ -9,14 +9,46 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { getExpiryInfo } from '@/features/inventory/expiry';
 import { useInventoryItems } from '@/features/inventory/use-inventory-items';
 
-// GlassView hat kein cssInterop, deshalb RN-Style.
-const WIDGET_GLASS_STYLE = {
-  borderRadius: 28,
-  padding: 16,
-  gap: 8,
-};
+const styles = StyleSheet.create({
+  pressable: {
+    width: '100%',
+  },
+  widget: {
+    width: '100%',
+    minHeight: 138,
+    borderRadius: radius.xl,
+    padding: space.lg,
+    gap: space.sm,
+  },
+  largeWidget: {
+    flexDirection: 'column',
+    minHeight: 140,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.md,
+  },
+  badge: {
+    alignSelf: 'flex-start',
+    minWidth: 36,
+    height: 28,
+    borderRadius: radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: space.xs,
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    gap: 2,
+  },
+  spacer: {
+    flex: 1,
+  },
+});
 
-function ExpiryDashboardCard({ size, onLongPress, editHeight }: DashboardCardProps) {
+function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
   const { colors } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -43,21 +75,18 @@ function ExpiryDashboardCard({ size, onLongPress, editHeight }: DashboardCardPro
       <GlassCard
         onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
         onLongPress={onLongPress}
+        disabled={disabled}
         accessibilityRole="button"
         accessibilityLabel="Alle bald ablaufenden Artikel im Vorrat anzeigen"
-        fallbackClassName="dashboard-planned-card"
-        glassStyle={{ ...WIDGET_GLASS_STYLE, flexDirection: 'column' as const }}
-        outerStyle={{
-          minHeight: 140,
-          height: editHeight,
-          borderRadius: 28,
-          borderCurve: 'continuous',
-          boxShadow: `0 8px 22px ${withAlpha(colors.text, 0.1)}`,
-        }}>
-        <View className="flex-row items-center gap-three">
-          <View
-            className="dashboard-widget-badge"
-            style={{ backgroundColor: withAlpha(colors.carrot, 0.2) }}>
+        glassStyle={[styles.widget, styles.largeWidget]}
+        fallbackStyle={[
+          styles.widget,
+          styles.largeWidget,
+          { backgroundColor: colors.backgroundElement },
+        ]}
+        outerStyle={[styles.pressable, shadow.sm, { shadowColor: colors.shadowCard }]}>
+        <View style={styles.header}>
+          <View style={[styles.badge, { backgroundColor: withAlpha(colors.carrot, 0.2) }]}>
             <Txt variant="body" tone="warning" weight="700">
               {expiringCount}
             </Txt>
@@ -66,7 +95,7 @@ function ExpiryDashboardCard({ size, onLongPress, editHeight }: DashboardCardPro
             Läuft bald ab
           </Txt>
         </View>
-        <View className="flex-1 justify-center gap-[2px]">
+        <View style={styles.content}>
           {topItems.length > 0 ? (
             topItems.map((item) => (
               <Txt key={item.id} variant="body" tone="secondary" numberOfLines={1}>
@@ -79,7 +108,7 @@ function ExpiryDashboardCard({ size, onLongPress, editHeight }: DashboardCardPro
             </Txt>
           )}
         </View>
-        <Txt variant="body" weight="700" className="dashboard-widget-action">
+        <Txt variant="body" weight="700">
           Vorrat prüfen
         </Txt>
       </GlassCard>
@@ -90,38 +119,22 @@ function ExpiryDashboardCard({ size, onLongPress, editHeight }: DashboardCardPro
     <GlassCard
       onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
       onLongPress={onLongPress}
+      disabled={disabled}
       accessibilityRole="button"
       accessibilityLabel="Alle bald ablaufenden Artikel im Vorrat anzeigen"
-      fallbackClassName="dashboard-widget"
-      glassStyle={WIDGET_GLASS_STYLE}
-      outerStyle={{
-        width: '100%',
-        minHeight: 138,
-        height: editHeight,
-        borderRadius: 28,
-        borderCurve: 'continuous',
-        boxShadow: `0 8px 20px ${withAlpha(colors.text, 0.08)}`,
-      }}>
-      <View
-        className="dashboard-widget-badge"
-        style={{ backgroundColor: withAlpha(colors.carrot, 0.2) }}>
+      glassStyle={styles.widget}
+      fallbackStyle={[styles.widget, { backgroundColor: colors.backgroundElement }]}
+      outerStyle={[styles.pressable, shadow.sm, { shadowColor: colors.shadowCard }]}>
+      <View style={[styles.badge, { backgroundColor: withAlpha(colors.carrot, 0.2) }]}>
         <Txt variant="body" tone="warning" weight="700">
           {expiringCount}
         </Txt>
       </View>
-      <View className="flex-1" />
-      <Txt
-        variant="body"
-        tone="secondary"
-        className="dashboard-widget-label"
-        style={{ fontSize: 15, lineHeight: 22 }}>
+      <View style={styles.spacer} />
+      <Txt variant="body" tone="secondary">
         Läuft bald ab
       </Txt>
-      <Txt
-        variant="body"
-        weight="700"
-        className="dashboard-widget-action"
-        style={{ fontSize: 18, lineHeight: 24 }}>
+      <Txt variant="body" weight="700">
         Vorrat prüfen
       </Txt>
     </GlassCard>

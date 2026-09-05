@@ -1,8 +1,8 @@
 import { onlineManager, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
 
+import { Colors } from '@/components/theme/index';
 import { SyncStatusBanner, type SyncStatusBannerProps } from '@/components/ui/sync-status-banner';
-import { Colors } from '@/constants/theme';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation, loadDueOutboxEntries, recordOutboxOutcome } from '@/lib/db/outbox';

@@ -1,14 +1,24 @@
 # Capability Map: Fam NativeWind Styling Stabilisierung
 
+## Status
+
+Abgeschlossen und historisch. Diese Map beschreibt die damalige Migration.
+Verbindlich für neuen und überarbeiteten Code sind die Verträge unter
+`docs/design-system/contracts/` und die UI-Regeln in `AGENTS.md`.
+
 ## Zweck
 
-Diese Initiative stabilisiert die bestehende UI-Styling-Architektur von fam. NativeWind bleibt installiert und wird weiterverwendet. Die vorhandene Fam-Mauve-/Creme-Palette bleibt die visuelle Wahrheit. Die ui-Dateien dienen nur als Referenz für mögliche primitive Komponenten, nicht als neue Marke und nicht als neue Farbpalette.
+Diese Initiative stabilisierte die bestehende UI-Styling-Architektur von fam.
+NativeWind blieb installiert, wurde aber auf einfaches statisches Layout
+begrenzt. Die vorhandene Fam-Mauve-/Creme-Palette blieb die visuelle Wahrheit.
+Die damaligen Referenzdateien wurden in die heutigen drei zentralen Quellen
+`index.ts`, `ThemeProvider.tsx` und `src/constants/ui.tsx` überführt.
 
 ## Module
 
 | Module id | Verantwortung | Abhängigkeiten |
 | --- | --- | --- |
-| `token-integrity` | Eine typisierte, semantische Fam-Tokenquelle für Farben, Abstände, Radien, Typografie, Elevation und Zustände | bestehende `src/constants/theme.ts`, `src/constants/layout.ts` |
+| `token-integrity` | Eine typisierte, semantische Fam-Tokenquelle für Farben, Abstände, Radien, Typografie, Elevation und Zustände | historische Werte, heute konsolidiert in `src/components/theme/index.ts` |
 | `theme-runtime` | Ein einziger `ThemeProvider`, System-/Light-/Dark-Auflösung und dynamische StyleSheet-Erzeugung | `token-integrity`, bestehender Gerätespeicher |
 | `typography-contract` | Ersatz für `ThemedText`, vollständige Textrollen, definierte Priorität zwischen Token, NativeWind und Inline-Style | `token-integrity`, `theme-runtime` |
 | `core-ui-contract` | Ersatz für `ThemedView` und Stabilisierung von Button, Card, Field, Press, Badge und verwandten Primitiven | `token-integrity`, `theme-runtime`, `typography-contract`, `src/lib/haptics.ts` |
@@ -30,10 +40,13 @@ Diese Initiative stabilisiert die bestehende UI-Styling-Architektur von fam. Nat
 
 ## Quellen und Einordnung
 
-Die drei Dateien unter `/Users/marco/Downloads` werden als Referenzcode ausgewertet:
+Die drei damals extern bereitgestellten Dateien wurden während der Migration als
+Referenzcode ausgewertet:
 
-- `index.ts`: Referenz für die Form eines zentralen Tokenmoduls, nicht für dessen Palette.
-- `ThemeProvider.tsx`: Referenz für Provider, `useTheme()` und `useThemedStyles()`. Storage- und Importpfade müssen an fam angepasst werden.
-- `ui.tsx`: Referenz für primitive UI-Verträge und für die bewusste Reihenfolge von Default-, Zustands- und Caller-Styles. Komponentenbreite, Props und vorhandenes Verhalten bleiben erhalten. Nur vorhandene Fam-Gegenstücke, reale Imports, Haptics und leicht ersetzbare Typen werden angepasst.
+- `index.ts`: Referenz für die Form des heutigen Tokenmoduls, nicht für dessen Palette.
+- `ThemeProvider.tsx`: Referenz für den heutigen Provider, `useTheme()` und
+  `useThemedStyles()`; Storage- und Importpfade wurden an fam angepasst.
+- `ui.tsx`: Referenz für die heutigen primitiven UI-Verträge und die bewusste
+  Reihenfolge von Default-, Zustands- und Caller-Styles.
 
 `src/lib/haptics.ts` ist die vorgesehene fam-seitige Haptics-Quelle. Die Haptics-Logik wird nicht nochmals in `ui.tsx` dupliziert.

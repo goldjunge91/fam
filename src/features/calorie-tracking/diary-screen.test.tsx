@@ -84,7 +84,7 @@ jest.mock('@/features/navigation/use-profile-initials', () => ({
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/constants/theme').Colors.light,
+  useTheme: () => require('@/components/theme/index').Colors.light,
 }));
 
 function ScreenUnderTest() {

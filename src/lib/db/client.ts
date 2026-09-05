@@ -125,17 +125,18 @@ async function open(): Promise<DatabaseConnection> {
   const db = serializeDatabase(toDriver(openedDatabase));
 
   try {
-    // WAL muss ausserhalb jeder Transaktion gesetzt werden — innerhalb lehnt
-    // SQLite den Moduswechsel ab. Deshalb hier, vor den Migrationen.
-    await db.execAsync('PRAGMA journal_mode = WAL');
-
     // Netz fuer Connections, die uns nicht gehoeren: die Devtools-Registrierung
     // von `expo-sqlite` im Dev-Build und WAL-Checkpoints. Die Zugriffe der App
     // selbst laufen serialisiert ueber eine Connection und kollidieren nicht mehr
-    // (siehe `serialize.ts`) — dieser PRAGMA ersetzt das nicht, er sichert nur
-    // den Rest ab. Wert 5000, weil die UI alle 3 s pollt: kuerzer hiesse, mitten
-    // im normalen Takt aufzugeben.
+    // (siehe `serialize.ts`) — dieser PRAGMA ersetzt das nicht. Er muss vor dem
+    // WAL-Modus gesetzt werden, damit auch der erste potenziell sperrende
+    // Schreibzugriff beim Öffnen warten kann. Wert 5000, weil die UI alle 3 s
+    // pollt: kuerzer hiesse, mitten im normalen Takt aufzugeben.
     await db.execAsync('PRAGMA busy_timeout = 5000');
+
+    // WAL muss ausserhalb jeder Transaktion gesetzt werden — innerhalb lehnt
+    // SQLite den Moduswechsel ab. Deshalb hier, vor den Migrationen.
+    await db.execAsync('PRAGMA journal_mode = WAL');
 
     await runMigrations(db, MIGRATIONS);
     await runDrizzleMigrations(db);

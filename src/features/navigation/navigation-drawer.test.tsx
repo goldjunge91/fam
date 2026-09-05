@@ -5,10 +5,11 @@ import { NavigationDrawer } from '@/features/navigation/navigation-drawer';
 
 const mockPush = jest.fn();
 const mockCloseDrawer = jest.fn();
+let mockPathname = '/';
 
 jest.mock('expo-router', () => ({
   router: { push: (...args: unknown[]) => mockPush(...args) },
-  usePathname: () => '/',
+  usePathname: () => mockPathname,
 }));
 
 jest.mock('@/features/auth/session-provider', () => ({
@@ -64,6 +65,7 @@ jest.mock('@/lib/posthog', () => ({
 describe('NavigationDrawer', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockPathname = '/';
     mockFeatureFlags = {
       'module-recipes': true,
       'module-meal-planner': true,
@@ -108,6 +110,43 @@ describe('NavigationDrawer', () => {
     fireEvent.press(vorratBtn);
 
     expect(mockCloseDrawer).toHaveBeenCalled();
+  });
+
+  it('markiert den aktuellen Bereich auch auf Unterseiten', async () => {
+    mockPathname = '/(app)/fridge/details';
+
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <NavigationDrawer />
+      </SafeAreaProvider>,
+    );
+
+    expect(screen.getByText('Vorrat').parent?.props.accessibilityState).toEqual({ selected: true });
+    expect(screen.getByText('Übersicht').parent?.props.accessibilityState).toEqual({
+      selected: false,
+    });
+  });
+
+  it('markiert Einstellungen auf allen Einstellungs-Unterseiten', async () => {
+    mockPathname = '/settings/profile';
+
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <NavigationDrawer />
+      </SafeAreaProvider>,
+    );
+
+    expect(screen.getByText('Einstellungen').parent?.props.accessibilityState).toEqual({
+      selected: true,
+    });
   });
 
   it('blendet ein Ziel aus, dessen Feature-Flag aus ist, obwohl die Nutzer-Praeferenz an ist', async () => {

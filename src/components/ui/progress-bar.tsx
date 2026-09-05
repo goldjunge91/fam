@@ -23,14 +23,12 @@ export function ProgressBar({
   return (
     <View
       className={`w-full overflow-hidden rounded-full ${height === 4 ? 'h-1' : ''} ${className}`.trim()}
-      style={
-        { height, backgroundColor: trackColor ?? colors.border, borderRadius: height / 2 }
-      }>
+      style={{ height, backgroundColor: trackColor ?? colors.border, borderRadius: height / 2 }}>
       <View
         className="h-full rounded-full"
         style={{
           width: `${clamped * 100}%`,
-          backgroundColor: color ?? colors.basil,
+          backgroundColor: color ?? colors.accent,
           ...(height !== 4 ? { borderRadius: height / 2 } : {}),
         }}
       />

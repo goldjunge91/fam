@@ -1,10 +1,9 @@
 import { type Href, router, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Pressable } from 'react-native';
-
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { space } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
 const ARROW_BUTTON_SIZE = space.xxxl;
@@ -42,7 +41,7 @@ export function BackButton({ label, href, variant = 'text', onPress }: BackButto
         accessibilityRole="button"
         accessibilityLabel={variant === 'header' ? label : `Zurück zu ${label}`}
         className="btn-back-arrow"
-        style={{ backgroundColor: colors.surfaceSoft }}>
+        style={{ backgroundColor: colors.backgroundSoft }}>
         <FamIcon name="arrow" size={ARROW_BUTTON_SIZE} color={colors.text} />
       </Pressable>
     );

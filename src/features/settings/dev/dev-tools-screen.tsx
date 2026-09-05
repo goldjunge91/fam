@@ -602,6 +602,11 @@ export function DevToolsScreen() {
             variant="secondary"
             onPress={() => router.push('/settings/glass-lab')}
           />
+          <Button
+            label="Design-System-Referenz öffnen"
+            variant="secondary"
+            onPress={() => router.push('/settings/design-system')}
+          />
           {VISION_CAMERA_LAB_ENABLED ? (
             <Button
               label="VisionCamera-Labor öffnen"

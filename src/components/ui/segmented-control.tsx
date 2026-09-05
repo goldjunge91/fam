@@ -1,4 +1,12 @@
-import { Pressable, ScrollView, type StyleProp, type TextStyle, View } from 'react-native';
+import {
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  type StyleProp,
+  type TextStyle,
+  View,
+} from 'react-native';
+import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
@@ -11,8 +19,6 @@ import { Txt } from '@/constants/ui';
  * github.com/nativewind/react-native-css/issues/264). Wert entspricht
  * `boxShadow.surface` in tailwind.config.js.
  */
-const ACTIVE_SURFACE_SHADOW = { boxShadow: '0 3px 10px rgba(89, 64, 89, 0.09)' } as const;
-
 export type SegmentOption<T extends string> = {
   value: T;
   label: string;
@@ -31,6 +37,62 @@ type SegmentedControlProps<T extends string> = {
   labelStyle?: StyleProp<TextStyle>;
 };
 
+const styles = StyleSheet.create({
+  scrollContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+  },
+  root: {
+    flexDirection: 'row',
+  },
+  rootSurface: {
+    height: 48,
+    gap: space.sm,
+    borderRadius: radius.md,
+    padding: space.xs,
+  },
+  rootCompact: {
+    height: 38,
+    borderRadius: radius.sm,
+    padding: 3,
+    gap: space.xs,
+  },
+  rootDefault: {
+    height: 40,
+    borderRadius: 14,
+    padding: 3,
+    gap: space.xs,
+  },
+  scrollableRoot: {
+    alignSelf: 'flex-start',
+  },
+  segment: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: radius.sm,
+  },
+  segmentSurface: {
+    minHeight: 40,
+  },
+  segmentCompact: {
+    minHeight: 32,
+  },
+  segmentDefault: {
+    minHeight: 34,
+  },
+  fixedSegment: {
+    flex: 1,
+  },
+  scrollableSegment: {
+    flexGrow: 0,
+    flexShrink: 0,
+    minWidth: 104,
+  },
+  pressed: {
+    opacity: 0.75,
+  },
+});
+
 /** Gleichbreite Einzelauswahl fuer kompakte Ansichtsmodi. */
 export function SegmentedControl<T extends string>({
   label,
@@ -44,28 +106,34 @@ export function SegmentedControl<T extends string>({
   labelStyle: _labelStyle,
 }: SegmentedControlProps<T>) {
   const { colors } = useTheme();
-  const rootClass =
+  const activeSurfaceShadow = {
+    boxShadow: `0 3px 10px ${withAlpha(colors.shadowCard, 0.09)}`,
+  };
+  const rootStyle =
     appearance === 'surface'
-      ? 'h-[48px] gap-two rounded-card p-one'
+      ? styles.rootSurface
       : size === 'compact'
-        ? 'h-[38px] rounded-control p-[3px] gap-one'
-        : 'h-[40px] rounded-control-lg p-[3px] gap-one';
+        ? styles.rootCompact
+        : styles.rootDefault;
+  const segmentHeightStyle =
+    appearance === 'surface'
+      ? styles.segmentSurface
+      : size === 'compact'
+        ? styles.segmentCompact
+        : styles.segmentDefault;
 
   const control = (
     <View
       accessibilityRole="tablist"
       accessibilityLabel={label}
-      className={`flex-row ${rootClass} ${scrollable ? 'self-start' : ''}`}
-      style={{ backgroundColor: colors.surfaceSoft }}>
+      style={[
+        styles.root,
+        rootStyle,
+        scrollable && styles.scrollableRoot,
+        { backgroundColor: colors.backgroundSoft },
+      ]}>
       {options.map((option) => {
         const active = option.value === selected;
-        const segmentHeightClass =
-          appearance === 'surface'
-            ? 'min-h-[40px]'
-            : size === 'compact'
-              ? 'min-h-[32px]'
-              : 'min-h-[34px]';
-
         const isActiveSurface = active && appearance === 'surface';
         return (
           <Pressable
@@ -74,28 +142,23 @@ export function SegmentedControl<T extends string>({
             accessibilityLabel={option.accessibilityLabel ?? option.label}
             accessibilityState={{ selected: active }}
             onPress={() => onSelect(option.value)}
-            style={[
-              isActiveSurface ? ACTIVE_SURFACE_SHADOW : undefined,
+            style={({ pressed }) => [
+              styles.segment,
+              segmentHeightStyle,
+              scrollable ? styles.scrollableSegment : styles.fixedSegment,
+              isActiveSurface ? activeSurfaceShadow : undefined,
               {
                 backgroundColor: active
                   ? appearance === 'surface'
-                    ? colors.surface
-                    : colors.basil
+                    ? colors.backgroundElement
+                    : colors.accent
                   : 'transparent',
               },
-            ]}
-            className={`items-center justify-center rounded-control active:opacity-75 ${segmentHeightClass} ${
-              scrollable ? 'flex-none min-w-[104px]' : 'flex-1'
-            }`}>
+              pressed && styles.pressed,
+            ]}>
             <Txt
               variant={appearance === 'surface' ? 'label' : 'caption'}
-              tone={
-                active
-                  ? appearance === 'surface'
-                    ? 'primary'
-                    : 'onAccent'
-                  : 'secondary'
-              }
+              tone={active ? (appearance === 'surface' ? 'primary' : 'onAccent') : 'secondary'}
               weight="600"
               style={_labelStyle}>
               {option.label}
@@ -112,7 +175,7 @@ export function SegmentedControl<T extends string>({
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      contentContainerClassName="grow justify-center">
+      contentContainerStyle={styles.scrollContent}>
       {control}
     </ScrollView>
   );

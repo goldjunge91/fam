@@ -3,6 +3,7 @@ import {
   type ColorValue,
   Pressable,
   type StyleProp,
+  Text,
   View,
   type ViewStyle,
 } from 'react-native';
@@ -12,31 +13,26 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
-
+import { type AccentKey, BUTTON_DEPTH, font, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { BUTTON_DEPTH } from '@/components/theme/index';
-import { Txt } from '@/constants/ui';
+import { medium as hapticMedium } from '@/lib/haptics';
 
 type ButtonProps = {
   label: string;
   onPress: () => void;
-  variant?: 'primary' | 'secondary' | 'danger' | 'link';
+  variant?: 'primary' | 'secondary' | 'danger' | 'link' | 'ghost' | 'accent';
 
   size?: 'default' | 'large' | 'compact';
+  accentKey?: AccentKey;
   accessibilityLabel?: string;
   backgroundColor?: ColorValue;
   style?: StyleProp<ViewStyle>;
   /** Zeigt einen Spinner und sperrt den Knopf — verhindert Doppel-Submits. */
   loading?: boolean;
   disabled?: boolean;
+  /** Entfernt die sichtbare 3D-Tiefenfläche für kompakte Header-Aktionen. */
+  flat?: boolean;
   className?: string;
-};
-
-const VARIANT_CLASSES: Record<NonNullable<ButtonProps['variant']>, string> = {
-  primary: 'btn-primary',
-  secondary: 'btn-secondary',
-  danger: 'btn-danger',
-  link: 'btn-link',
 };
 
 /** Beschrifteter Standardbutton fuer Formulare und bestaetigende Aktionen. */
@@ -45,77 +41,125 @@ export function Button({
   onPress,
   variant = 'primary',
   size = 'default',
+  accentKey,
   accessibilityLabel,
   backgroundColor,
   style,
   loading = false,
   disabled = false,
+  flat = false,
   className = '',
 }: ButtonProps) {
-  const { colors } = useTheme();
+  const { colors, accent } = useTheme();
   const isBlocked = loading || disabled;
-  const variantClass = VARIANT_CLASSES[variant] ?? 'btn-primary';
-  const isFilled = variant === 'primary' || variant === 'danger';
+  const isFilled = variant === 'primary' || variant === 'danger' || variant === 'accent';
   const depth = useSharedValue(0);
   const faceStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: depth.value }],
   }));
 
+  const accentTone = accentKey ? accent[accentKey] : undefined;
   const foreground =
-    variant === 'secondary' ? colors.text : variant === 'link' ? colors.basil : colors.inverse;
-  const labelTone =
-    variant === 'secondary' ? 'primary' : variant === 'link' ? 'accent' : 'onAccent';
+    variant === 'secondary' || variant === 'ghost'
+      ? colors.text
+      : variant === 'link'
+        ? colors.accent
+        : variant === 'accent'
+          ? (accentTone?.on ?? colors.onAccent)
+          : colors.onAccent;
+  const fontSize =
+    variant === 'link' || size === 'compact'
+      ? font.sizes.sm
+      : size === 'large'
+        ? font.sizes.md
+        : font.sizes.base;
   const buttonBackground =
     backgroundColor ??
     (variant === 'primary'
-      ? colors.basil
+      ? colors.accent
       : variant === 'danger'
-        ? colors.tomato
+        ? colors.danger
         : variant === 'secondary'
-          ? colors.surface
-          : 'transparent');
+          ? colors.backgroundSoft
+          : variant === 'ghost'
+            ? 'transparent'
+            : variant === 'accent'
+              ? (accentTone?.main ?? colors.accent)
+              : 'transparent');
+  const buttonDepth =
+    variant === 'danger'
+      ? colors.buttonDangerDepth
+      : variant === 'accent'
+        ? colors.buttonAccentDepth
+        : colors.buttonPrimaryDepth;
+  const hasDepth = isFilled && !flat;
 
   return (
     <View
       style={{
-        paddingBottom: isFilled ? BUTTON_DEPTH : 0,
-        borderRadius: 16,
-        backgroundColor: isFilled
-          ? variant === 'danger'
-            ? colors.tomatoShadow
-            : colors.basilShadow
-          : 'transparent',
+        paddingBottom: hasDepth ? BUTTON_DEPTH : 0,
+        borderRadius: radius.md,
+        backgroundColor: hasDepth ? buttonDepth : 'transparent',
       }}>
       <Animated.View style={faceStyle}>
         <Pressable
-          onPress={onPress}
+          onPress={() => {
+            if (isBlocked) return;
+            hapticMedium();
+            onPress();
+          }}
           disabled={isBlocked}
           accessibilityRole="button"
           accessibilityLabel={accessibilityLabel ?? label}
           accessibilityState={{ disabled: isBlocked, busy: loading }}
           onPressIn={() => {
-            if (isFilled) depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
+            if (hasDepth) depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
           }}
           onPressOut={() => {
-            depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
+            if (hasDepth) {
+              depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
+            }
           }}
-          className={`${variantClass} ${size === 'compact' ? '!py-two !px-three' : ''} ${isBlocked ? 'opacity-50' : ''} ${className}`.trim()}
+          className={className}
           style={[
             {
               backgroundColor: buttonBackground,
-              ...(variant === 'secondary' ? { borderColor: colors.border, borderWidth: 1 } : {}),
+              borderRadius: variant === 'link' ? radius.sm : radius.md,
+              alignItems: 'center',
+              justifyContent: 'center',
+              alignSelf: variant === 'link' ? 'flex-end' : undefined,
+              minHeight: variant === 'link' ? undefined : 44,
+              paddingHorizontal:
+                variant === 'link'
+                  ? space.md
+                  : size === 'compact'
+                    ? space.md
+                    : size === 'large'
+                      ? space.xl
+                      : space.lg,
+              paddingVertical:
+                variant === 'link'
+                  ? space.sm
+                  : size === 'compact'
+                    ? space.sm
+                    : size === 'large'
+                      ? space.lg
+                      : space.md,
+              opacity: isBlocked ? 0.5 : 1,
+              overflow: 'hidden',
             },
             style,
           ]}>
           <View className="flex-row items-center gap-two">
             {loading ? <ActivityIndicator size="small" color={foreground} /> : null}
-            <Txt
-              variant="body"
-              tone={labelTone}
-              weight={variant === 'link' ? '400' : '700'}
-              className={size === 'large' ? 'text-body' : ''}>
+            <Text
+              style={{
+                color: foreground,
+                fontSize,
+                fontWeight: variant === 'link' ? '400' : '700',
+              }}>
               {label}
-            </Txt>
+            </Text>
           </View>
         </Pressable>
       </Animated.View>

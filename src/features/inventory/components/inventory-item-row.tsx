@@ -50,10 +50,10 @@ export const InventoryItemRow = memo(function InventoryItemRow({
     borderColorKey === 'transparent'
       ? 'transparent'
       : borderColorKey === 'danger'
-        ? colors.tomato
+        ? colors.danger
         : borderColorKey === 'warning'
-          ? colors.carrot
-          : colors.basil;
+          ? colors.warning
+          : colors.success;
   const expiryLabel =
     expiry.daysLeft === null
       ? null
@@ -64,11 +64,11 @@ export const InventoryItemRow = memo(function InventoryItemRow({
           : expiry.daysLeft === 1
             ? 'morgen'
             : `in ${expiry.daysLeft} Tagen`;
-  const packageHint = formatPackageHint(group.package_size, group.package_size_unit);
   const groupMeta =
     group.lots.length > 1
-      ? `${group.lots.length} MHD-Einträge · nächstes: ${group.expiry_date ?? 'ohne MHD'}`
-      : [expiryLabel, packageHint].filter(Boolean).join(' · ');
+      ? [expiryLabel ?? 'Kein Datum hinterlegt', `${group.lots.length} MHD-Einträge`].join(' · ')
+      : (expiryLabel ?? 'Kein Datum hinterlegt');
+  const packageHint = formatPackageHint(group.package_size, group.package_size_unit);
   const amount = formatAmount(group.quantity, group.unit);
   const removeLabel = group.lots.length > 1 ? 'MHDs anzeigen' : 'Entfernen';
 
@@ -118,12 +118,11 @@ export const InventoryItemRow = memo(function InventoryItemRow({
 
         {/* Inhalt */}
         <View className="fridge-item-main">
-          <Txt variant="body" weight="700">
+          <Txt variant="body" weight="700" numberOfLines={1}>
             {group.name}
           </Txt>
-          {}
           {groupMeta ? (
-            <Txt variant="caption" tone="secondary" numberOfLines={1}>
+            <Txt variant="body" tone="secondary" weight="600" numberOfLines={1}>
               {groupMeta}
             </Txt>
           ) : null}

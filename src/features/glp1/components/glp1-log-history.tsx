@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import type { Glp1HistoryItem } from '@/features/glp1/domain/log-history';
 import { INJECTION_SITE_LABELS, isInjectionSite } from '@/features/glp1/domain/medication-options';
@@ -30,6 +31,7 @@ export function Glp1LogHistory({
   onEditSymptom,
   onDeleteSymptom,
 }: Glp1LogHistoryProps) {
+  const { colors } = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
 
   if (items.length === 0) return null;
@@ -57,7 +59,8 @@ export function Glp1LogHistory({
               return (
                 <View
                   key={`medication-${log.id}`}
-                  className="p-two rounded-lg bg-surface border border-border gap-one">
+                  className="p-two rounded-lg border gap-one"
+                  style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
                   <Txt variant="body" weight="700">
                     Injektion · {log.medication_name} {log.dose ?? '–'} {log.unit}
                   </Txt>
@@ -94,7 +97,8 @@ export function Glp1LogHistory({
             return (
               <View
                 key={`symptom-${log.id}`}
-                className="p-two rounded-lg bg-surface border border-border gap-one">
+                className="p-two rounded-lg border gap-one"
+                style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
                 <Txt variant="body" weight="700">
                   Symptome · Appetit {log.appetite_level ?? '–'}/5 · Sättigung{' '}
                   {log.satiety_level ?? '–'}/5

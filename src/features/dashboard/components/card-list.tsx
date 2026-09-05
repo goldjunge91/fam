@@ -1,17 +1,10 @@
 import * as Haptics from 'expo-haptics';
 import { type ReactElement, useCallback } from 'react';
-import { Pressable, useWindowDimensions, View } from 'react-native';
-import {
-  GridOrientation,
-  type GridPositions,
-  GridStrategy,
-  SortableGrid,
-  SortableGridItem,
-  type SortableGridRenderItemProps,
-} from 'react-native-reanimated-dnd';
+import { StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Sortable, SortableItem, type SortableRenderItemProps } from 'react-native-reanimated-dnd';
 
-import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { radius, space } from '@/components/theme/index';
+import { Button, Surface, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { type CardSize, type DashboardCardDef, getCards } from '@/features/dashboard/registry';
 import { useCardSizes } from '@/features/dashboard/use-card-sizes';
@@ -24,6 +17,24 @@ import '@/features/calorie-tracking/components/dashboard-card';
 import '@/features/meal-planner/components/dashboard-card';
 import '@/features/inventory/components/dashboard-card';
 import '@/features/shopping-list/components/ui/dashboard-card';
+import '@/features/dashboard/components/streak-dashboard-card';
+
+const styles = StyleSheet.create({
+  emptyCard: {
+    minHeight: 180,
+    padding: space.xxl,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: space.lg,
+    borderRadius: radius.xl,
+  },
+  centeredText: {
+    textAlign: 'center',
+  },
+  emptyAction: {
+    marginTop: space.xs,
+  },
+});
 
 const TOGGLE: Record<CardSize, CardSize> = { large: 'small', small: 'large' };
 
@@ -40,13 +51,13 @@ export function CardList({
   onOpenGallery,
   onDragStateChange,
 }: CardListProps) {
-  const { colors } = useTheme();
   const { width, fontScale } = useWindowDimensions();
   const stackSmallCards = width < 360 || fontScale >= 1.2;
   const { session } = useSession();
   const userId = session?.user.id;
   const { data: modules } = useModulePreferences(userId);
-  const { getSize, setSize, hideCard, isCardHidden, getOrderedCards, reorderCards } = useCardSizes();
+  const { getSize, setSize, hideCard, isCardHidden, getOrderedCards, reorderCards } =
+    useCardSizes();
 
   const handleToggleSize = useCallback(
     (cardId: string, currentSize: CardSize) => {
@@ -87,15 +98,15 @@ export function CardList({
   const visibleCards = getOrderedCards(rawVisibleCards);
   const visibleCardIds = visibleCards.map((c) => c.id);
 
-  const handleGridDrop = useCallback(
-    (_id: string, _position: number, allPositions?: GridPositions) => {
+  const handleSortableDrop = useCallback(
+    (_id: string, _position: number, allPositions?: Record<string, number>) => {
       if (!allPositions) {
         handleDragEnd();
         return;
       }
 
       const nextVisibleIds = Object.entries(allPositions)
-        .sort(([, left], [, right]) => left.index - right.index)
+        .sort(([, left], [, right]) => left - right)
         .map(([id]) => id);
       if (nextVisibleIds.length !== visibleCardIds.length) {
         handleDragEnd();
@@ -118,35 +129,19 @@ export function CardList({
     [allCards, getOrderedCards, handleDragEnd, reorderCards, visibleCardIds],
   );
 
-  const dashboardContentWidth = Math.max(1, width - 42);
-  const sortableGridColumns = visibleCards.some((card) => getSize(card) === 'large') ? 1 : 2;
-  const sortableGridGap = 8;
-  const sortableGridItemWidth =
-    sortableGridColumns === 1
-      ? dashboardContentWidth
-      : Math.max(1, (dashboardContentWidth - sortableGridGap) / 2);
-  const sortableGridItemHeight =
-    sortableGridColumns === 1 ? (fontScale >= 1.2 ? 190 : 176) : fontScale >= 1.2 ? 150 : 142;
-
   const renderSortableCard = useCallback(
-    ({
-      item,
-      index,
-      ...sortableItemProps
-    }: SortableGridRenderItemProps<DashboardCardDef>) => {
+    ({ item, index, ...sortableItemProps }: SortableRenderItemProps<DashboardCardDef>) => {
       const cardSize = getSize(item);
 
       return (
-        <SortableGridItem
+        <SortableItem
           key={`${item.id}-${cardSize}`}
           {...sortableItemProps}
           id={item.id}
           data={item}
-          activationDelay={160}
-          containerWidth={dashboardContentWidth}
-          style={{ width: sortableGridItemWidth, height: sortableGridItemHeight }}
+          style={{ width: '100%' }}
           onDragStart={handleDragStart}
-          onDrop={handleGridDrop}>
+          onDrop={handleSortableDrop}>
           <JiggleWrapper
             index={index}
             size={cardSize}
@@ -154,53 +149,37 @@ export function CardList({
             isEditing
             onDelete={() => hideCard(item.id)}
             onToggleSize={() => handleToggleSize(item.id, cardSize)}>
-            <item.component
-              size={cardSize}
-              editHeight={sortableGridItemHeight}
-              onLongPress={() => handleLongPress(item.id, cardSize)}
-            />
+            <item.component size={cardSize} />
           </JiggleWrapper>
-        </SortableGridItem>
+        </SortableItem>
       );
     },
-    [
-      getSize,
-      handleDragStart,
-      handleGridDrop,
-      handleLongPress,
-      handleToggleSize,
-      hideCard,
-      sortableGridItemHeight,
-      sortableGridItemWidth,
-    ],
+    [getSize, handleDragStart, handleSortableDrop, handleToggleSize, hideCard],
   );
 
   if (!modules) return null;
 
   if (visibleCards.length === 0) {
     return (
-      <View
-        className="rounded-fam-large p-five items-center justify-center gap-three"
-        style={{ minHeight: 180, backgroundColor: colors.surface }}>
-        <Txt variant="body" weight="700" className="text-center">
+      <Surface tone="surface" style={styles.emptyCard}>
+        <Txt variant="body" weight="700" style={styles.centeredText}>
           Keine Karten auf der Übersicht
         </Txt>
-        <Txt variant="body" tone="secondary" className="text-center">
+        <Txt variant="body" tone="secondary" style={styles.centeredText}>
           Füge Karten über die Galerie hinzu oder passe deine Ansicht an.
         </Txt>
         {onOpenGallery ? (
-          <Pressable
-            accessibilityRole="button"
+          <Button
+            label="+ Karten hinzufügen"
             accessibilityLabel="Karten hinzufügen"
             onPress={onOpenGallery}
-            className="px-four py-two rounded-control mt-one"
-            style={{ backgroundColor: colors.basil }}>
-            <Txt variant="body" tone="onAccent" weight="600">
-              + Karten hinzufügen
-            </Txt>
-          </Pressable>
+            variant="accent"
+            accentKey="pantry"
+            size="compact"
+            style={styles.emptyAction}
+          />
         ) : null}
-      </View>
+      </Surface>
     );
   }
 
@@ -227,9 +206,7 @@ export function CardList({
         const pair = smallGroup.slice(k, k + cardsPerRow);
         const currentRowIndex = rowIndex++;
         elements.push(
-          <WidgetRow
-            key={`row-${currentRowIndex}`}
-            stacked={false}>
+          <WidgetRow key={`row-${currentRowIndex}`} stacked={false}>
             {pair.map((c) => {
               const idx = cardIndex++;
               return (
@@ -256,9 +233,7 @@ export function CardList({
       const idx = cardIndex++;
       const currentRowIndex = rowIndex++;
       elements.push(
-        <WidgetRow
-          key={`row-${currentRowIndex}`}
-          stacked>
+        <WidgetRow key={`row-${currentRowIndex}`} stacked>
           <JiggleWrapper
             index={idx}
             size="large"
@@ -275,20 +250,12 @@ export function CardList({
 
   if (isEditing) {
     return (
-      <SortableGrid
+      <Sortable
         data={visibleCards}
         renderItem={renderSortableCard}
-        dimensions={{
-          columns: sortableGridColumns,
-          itemWidth: sortableGridItemWidth,
-          itemHeight: sortableGridItemHeight,
-          rowGap: sortableGridGap,
-          columnGap: sortableGridGap,
-        }}
-        orientation={GridOrientation.Vertical}
-        strategy={GridStrategy.Insert}
-        scrollEnabled
-        style={{ flex: 1 }}
+        enableDynamicHeights
+        estimatedItemHeight={fontScale >= 1.2 ? 170 : 150}
+        style={{ flex: 1, backgroundColor: 'transparent' }}
       />
     );
   }

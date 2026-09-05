@@ -1,7 +1,8 @@
-import { Gradients, normalizeThemeMode } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Gradients, normalizeThemeMode } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 
 /** Farbschema-abhängiger Hub-Verlauf aus derselben Quelle wie die Theme-Farben. */
 export function useHubGradient() {
-  return Gradients.hub[normalizeThemeMode(useColorScheme())];
+  const { mode } = useTheme();
+  return Gradients.hub[normalizeThemeMode(mode)];
 }

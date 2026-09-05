@@ -144,6 +144,25 @@ async function applyOnePush(
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
   const meta = metaOf(entry.entity);
 
+  if (meta.appendOnly && entry.op !== 'insert') {
+    const message = `${entry.entity} ist append-only und akzeptiert ausschliesslich insert.`;
+    await recordOutboxOutcome(db, entry.sourceIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: message,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'failed-permanent',
+        entity: entry.entity,
+        entityId: entry.entityId,
+        sourceIds: entry.sourceIds,
+        error: message,
+      },
+      stop: false,
+    };
+  }
+
   // Feedback-Events sind ein append-only/push-only Vertrag. Jede andere Op
   // ist ein lokaler Programmierfehler und wird garantiert vor `attempt()`
   // abgewiesen, also ohne SELECT, UPDATE, DELETE oder sonstigen Netzwerk-I/O.
@@ -201,10 +220,26 @@ async function applyOnePush(
   // derselben id verletzt den PK und liefert 23505/409. Die Zeile ist laengst
   // sicher auf dem Server — ein update mit demselben Inhalt ist idempotent.
   if (entry.op === 'insert' && response.error?.code === '23505') {
-    if (meta.pushOnly) {
-      // Clientseitige event_id ist der Idempotenzschlüssel. Der Server hat das
+    if (meta.pushOnly || meta.appendOnly) {
+      // Clientseitige IDs sind der Idempotenzschlüssel. Der Server hat das
       // Event bereits akzeptiert, also ist ein Retry derselben INSERT-Operation
-      // ein erfolgreicher Abschluss und kein Anlass fuer ein UPDATE.
+      // ein erfolgreicher Abschluss und kein Anlass fuer ein UPDATE. Das ist
+      // bei append-only-Tabellen nicht nur unnötig, sondern per RLS verboten.
+      if (meta.appendOnly) {
+        await db.withExclusiveTransactionAsync(async (txn) => {
+          await deleteOutboxEntries(txn, entry.sourceIds);
+          await txn.runAsync(`update ${meta.table} set _dirty = 0 where id = ?`, [entry.entityId]);
+        });
+        return {
+          outcome: {
+            kind: 'pushed',
+            entity: entry.entity,
+            entityId: entry.entityId,
+            sourceIds: entry.sourceIds,
+          },
+          stop: false,
+        };
+      }
       response = { data: null, error: null, status: response.status };
     } else {
       response = await attempt(

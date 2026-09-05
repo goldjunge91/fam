@@ -2,8 +2,10 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
+import { celebrate } from '@/lib/celebration';
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
+import { recordActivity } from '@/lib/streak';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 
@@ -39,47 +41,31 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
         const id = Crypto.randomUUID();
         const locationId = getLocationId(transfer.locationKind);
         const normUnit = normalizeUnit(transfer.unit);
+        const fridgeItem = {
+          id,
+          household_id: input.householdId,
+          product_id: transfer.productId,
+          location_id: locationId,
+          name: transfer.name,
+          quantity: transfer.quantity,
+          unit: normUnit,
+          package_size: transfer.packageSize,
+          package_size_unit: transfer.packageSizeUnit,
+          expiry_date: transfer.expiryDate ?? null,
+          added_by: input.userId,
+          opened_at: null,
+          vacuum_sealed: false,
+          expiry_user_set: transfer.expiryDate !== null,
+          created_at: now,
+        };
 
         await enqueueMutation(db, {
           entity: 'fridge_items',
           entityId: id,
           op: 'insert',
-          payload: {
-            id,
-            household_id: input.householdId,
-            product_id: transfer.productId,
-            location_id: locationId,
-            name: transfer.name,
-            quantity: transfer.quantity,
-            unit: normUnit,
-            package_size: transfer.packageSize,
-            package_size_unit: transfer.packageSizeUnit,
-            expiry_date: transfer.expiryDate ?? null,
-            added_by: input.userId,
-            created_at: now,
-            updated_at: now,
-          },
+          payload: { ...fridgeItem, updated_at: now },
           applyLocally: (txn) =>
-            applyLocalMirrorWrite(
-              txn,
-              'fridge_items',
-              'insert',
-              {
-                id,
-                household_id: input.householdId,
-                product_id: transfer.productId,
-                location_id: locationId,
-                name: transfer.name,
-                quantity: transfer.quantity,
-                unit: normUnit,
-                package_size: transfer.packageSize,
-                package_size_unit: transfer.packageSizeUnit,
-                expiry_date: transfer.expiryDate ?? null,
-                added_by: input.userId,
-                created_at: now,
-              },
-              nowMs,
-            ),
+            applyLocalMirrorWrite(txn, 'fridge_items', 'insert', fridgeItem, nowMs),
         });
       }
 
@@ -148,6 +134,17 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
             );
           },
         });
+      }
+
+      if (input.checkedItems.length > 0) {
+        const result = recordActivity();
+        if (result.milestone) {
+          try {
+            celebrate(`🔥 ${result.count} Tage Streak!`);
+          } catch {
+            // Optionale Celebration darf den erfolgreichen Einkaufsabschluss nicht blockieren.
+          }
+        }
       }
     },
 

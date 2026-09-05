@@ -64,8 +64,7 @@ export function SyncSettingsScreen() {
         <Txt variant="body" tone="secondary">
           Daten werden im Hintergrund automatisch synchronisiert.
         </Txt>
-        {/* Kein separates marginTop mehr: card-fam liefert bereits gap-two
-            zwischen allen Kindern (Card-Komponente). */}
+        {/* Die Card-Komponente setzt den Abstand zwischen ihren Kindern. */}
         <Txt variant="body" weight="700" tone={tone}>
           {text}
         </Txt>

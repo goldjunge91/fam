@@ -129,7 +129,9 @@ export function CameraScreen() {
   if (device == null) {
     return (
       <View style={[styles.container, styles.center]}>
-        <Txt variant="body" tone="inverse">Kein Kamera-Gerät gefunden.</Txt>
+        <Txt variant="body" tone="inverse">
+          Kein Kamera-Gerät gefunden.
+        </Txt>
       </View>
     );
   }

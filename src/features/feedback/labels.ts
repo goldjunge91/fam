@@ -14,7 +14,7 @@ export const FEEDBACK_STATUS_LABELS: Record<FeedbackStatus, string> = {
   closed: 'Geschlossen',
 };
 
-/** Themefarbe je Status — passend zu den Semantiktokens in constants/theme.ts. */
+/** Themefarbe je Status, passend zu den Semantiktokens in components/theme/index.ts. */
 export const FEEDBACK_STATUS_COLORS: Record<
   FeedbackStatus,
   'textSecondary' | 'warning' | 'success'

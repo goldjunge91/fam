@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { calculateInjectionDue } from '@/features/glp1/domain/injection-due';
 import { toMedicationUnit } from '@/features/glp1/domain/medication-options';
@@ -39,6 +40,7 @@ function planFormValue(plan: InjectionPlanRow): InjectionPlanFormValue {
 }
 
 export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
+  const { colors } = useTheme();
   useInjectionReminder(userId);
   const [showForm, setShowForm] = useState(false);
   const { data: recentInjectionLogs = [] } = useRecentMedicationLogs(userId);
@@ -82,7 +84,8 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
         accessibilityRole="button"
         accessibilityLabel="Injektionsplan anlegen"
         onPress={() => setShowForm(true)}
-        className="py-two px-three rounded-xl bg-card border border-border items-center">
+        className="py-two px-three rounded-xl border items-center"
+        style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
         <Txt variant="label" weight="700">
           Injektionsplan anlegen
         </Txt>
@@ -104,7 +107,9 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
 
   return (
     <View className="gap-two">
-      <View className="p-three bg-surface rounded-xl border border-border gap-one">
+      <View
+        className="p-three rounded-xl border gap-one"
+        style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
         <View className="flex-row items-center justify-between">
           <Txt variant="caption" tone="secondary">
             Nächste Injektion

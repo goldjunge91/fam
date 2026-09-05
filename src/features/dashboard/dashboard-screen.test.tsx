@@ -1,10 +1,38 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import * as Haptics from 'expo-haptics';
-import { act } from 'react';
+import { act, type ReactNode } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { DashboardScreen } from '@/features/dashboard/dashboard-screen';
+import type { DashboardCardDef } from '@/features/dashboard/registry';
+
+type MockChildrenProps = { children?: ReactNode };
+type MockSortableProps = {
+  data: DashboardCardDef[];
+  renderItem: (props: { item: DashboardCardDef; index: number }) => ReactNode;
+};
+
+jest.mock('react-native-gesture-handler', () => {
+  const gestureHandlerMock = require('react-native-gesture-handler/lib/commonjs/mocks/mocks');
+
+  return {
+    ...gestureHandlerMock,
+    GestureHandlerRootView: ({ children }: MockChildrenProps) => children,
+  };
+});
+
+jest.mock('react-native-reanimated-dnd', () => {
+  const SortableItem = Object.assign(({ children }: MockChildrenProps) => children, {
+    Handle: ({ children }: MockChildrenProps) => children,
+  });
+
+  return {
+    Sortable: ({ data, renderItem }: MockSortableProps) =>
+      data.map((item, index) => renderItem({ item, index })),
+    SortableItem,
+  };
+});
 
 jest.mock('@/components/ui/progress-ring', () => ({ ProgressRing: () => null }));
 jest.mock('@/components/ui/progress-bar', () => ({ ProgressBar: () => null }));
@@ -95,7 +123,7 @@ jest.mock('expo-haptics', () => ({
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/constants/theme').Colors.light,
+  useTheme: () => require('@/components/theme/index').Colors.light,
 }));
 
 function renderScreen() {
@@ -160,6 +188,15 @@ describe('DashboardScreen — Essensplan-Karte', () => {
   });
 });
 
+describe('DashboardScreen — Kochstreak-Karte', () => {
+  it('zeigt die Kochstreak auf der Übersicht', async () => {
+    await renderScreen();
+
+    expect(screen.getByText('KOCHSTREAK')).toBeOnTheScreen();
+    expect(screen.getByText('Starte deine erste Serie')).toBeOnTheScreen();
+  });
+});
+
 describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
   it('aktiviert Edit-Modus bei Long-Press, zeigt Plus- und Fertig-Knopf und öffnet Galerie', async () => {
     await renderScreen();
@@ -181,6 +218,7 @@ describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
     // Plus-Button öffnet das Galerie-Sheet
     await fireEvent.press(screen.getByLabelText('Karten anpassen'));
     expect(screen.getByText('Karten anpassen')).toBeTruthy();
+    expect(screen.getByText(/Kochstreak/)).toBeOnTheScreen();
 
     // Fertig-Knopf in Galerie schließt Sheet
     await fireEvent.press(screen.getByLabelText('Galerie schließen'));

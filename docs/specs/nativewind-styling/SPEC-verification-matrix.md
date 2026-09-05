@@ -1,10 +1,18 @@
 # Spec: `verification-matrix`
 
-## Ziel
+## Status
 
-Die Styling-Reparatur wird nicht nur durch einen erfolgreichen Typecheck bewertet. Die Matrix prüft Tokenauflösung, Component-Verträge, NativeWind-Grenzen und sichtbares Verhalten.
+Abgeschlossen und historisch. Diese Matrix dokumentiert die damalige
+Migrationsabnahme. Sie ist keine aktuelle Freigabe für neue Tests, Builds oder
+Geräteprüfungen.
 
-## Automatisierte Prüfungen
+## Historisches Ziel
+
+Die Styling-Reparatur wurde nicht nur durch einen erfolgreichen Typecheck
+bewertet. Die Matrix prüfte Tokenauflösung, Komponentenverträge,
+NativeWind-Grenzen und sichtbares Verhalten innerhalb des damaligen Scopes.
+
+## Historisch ausgeführte automatisierte Prüfungen
 
 | Ebene | Prüfung | Kommando / Methode | Erfolg |
 |---|---|---|---|
@@ -12,19 +20,21 @@ Die Styling-Reparatur wird nicht nur durch einen erfolgreichen Typecheck bewerte
 | CSS-Syntax | Tailwind-Eingang | `bun run check:css` | CSS kompiliert |
 | Types | Provider, Tokens, UI-Props | `bun run typecheck` | kein neuer TypeScript-Fehler; unvermeidbare bestehende Ausnahmen dokumentiert |
 | Token | Light/Dark-Schlüssel und Mapping | gezielter Jest-Test | Parität und Fam-Werte |
-| Components | Button/Card/Field/Surface-Zustände | gezielte RNTL-Tests | Props und Zustände korrekt |
+| Components | Button/Card/Field/Surface-Zustände und aktive Drawer-Route | gezielte RNTL-Tests | Props, Zustände und aktuelle Bereichsmarkierung korrekt |
 | Migration | alte Imports und falsche Pfade | `rg`-Audit | null Treffer |
 | Boundaries | `className` auf Spezialkomponenten | `rg`-Audit plus Ausnahmenliste | jede Ausnahme dokumentiert |
 
-## Manuelle Referenzfälle
+## Historische Referenzfälle
 
-Für jede Plattform werden dieselben Fälle geprüft:
+Die folgenden Fälle wurden über die vorgesehenen fokussierten Prüfungen und
+statischen Referenzen beurteilt. Eine Geräteabnahme war ausdrücklich nicht Teil
+des Scopes:
 
 1. Light Mode: Screen-Hintergrund, Surface, Card, Primary Button.
 2. Dark Mode: dieselben Elemente, kein weißer oder schwarzer Fremd-Fallback.
 3. Button: primary, secondary, ghost, danger, accent.
 4. Button: pressed, disabled, loading, icon, full width.
-5. Text: display, title, headingSmall, body, bodySmall, label, caption, link.
+5. Text: display, title, heading, subheading, body, label, caption.
 6. Text: primary, secondary, accent, danger, onAccent.
 7. Field: Label, Placeholder, Eingabetext, Fokus und Fehlerdarstellung.
 8. Komponenten mit `expo-image`, FlashList, Bottom Sheet und SVG-Icon.
@@ -38,22 +48,46 @@ Für jede Plattform werden dieselben Fälle geprüft:
 - Kein `ThemedView` ignoriert weiterhin eine Farbprop.
 - Kein StyleSheet hält veraltete Light-/Dark-Farben fest, nachdem der Theme-Modus gewechselt wurde.
 - Kein Press-Handler löst bei `disabled` oder `loading` die Aktion oder Haptics aus.
+- Der geöffnete Drawer markiert genau den aktuellen Bereich, auch auf Unterseiten und unter `/(app)`-Route-Gruppen.
 
-## Abnahme
+## Historische Abnahmebedingungen
 
-Die Initiative gilt erst als abgeschlossen, wenn:
+Die Initiative galt als abgeschlossen, nachdem:
 
-- automatisierte Prüfungen der betroffenen Module grün sind,
-- die statischen Audits keine alten Imports oder ungültigen Spezialfälle offenlassen,
-- die zwei Screen-Mocks geprüft und die offenen visuellen Entscheidungen daraus dokumentiert wurden,
-- keine Geräteprüfung als erledigt behauptet wird, da sie außerhalb des Scopes liegt,
-- verbleibende Web-Abweichungen dokumentiert und nicht mit einer zweiten Styling-Lösung verdeckt werden.
+- die automatisierten Prüfungen der betroffenen Module grün waren,
+- die statischen Audits keine alten Imports oder ungültigen Spezialfälle
+  offenließen,
+- die zwei Screen-Mocks geprüft und die damaligen visuellen Entscheidungen
+  dokumentiert waren,
+- keine Geräteprüfung als erledigt behauptet wurde, da sie außerhalb des Scopes
+  lag,
+- verbleibende Web-Abweichungen dokumentiert und nicht mit einer zweiten
+  Styling-Lösung verdeckt wurden.
 
-## Migrationsaudit für die nächsten Slices
+## Historischer Migrationsaudit
 
-Stand 2026-09-04 wurden die vorhandenen Aufrufer vor der Feature-Migration per
-`rg` inventarisiert. Die Zahlen enthalten auch Tests und beschreiben aktuelle
-Treffer, keine bereits migrierten Komponenten:
+### Statischer Stand zum Abschluss
+
+Stand 2026-09-04 sind die für diese Initiative relevanten statischen Audits
+aktualisiert:
+
+- Keine Production-Importe von `ThemedText`, `ThemedView`, `themed-text` oder
+  `themed-view` verbleiben. Die Übergangstests wurden auf die neuen Primitive
+  migriert.
+- Keine `lightColor`-/`darkColor`-Props werden im Production-Code verwendet.
+- Keine geprüfte `expo-image`, `ActivityIndicator`, FlashList, Bottom-Sheet-,
+  SVG- oder SymbolView-Nutzung übergibt ein unwirksames `className`.
+- Die frühere Suche nach `bg-card`, `bg-surface`, `text-small` und ähnlichen
+  nicht registrierten semantischen Utilities liefert keine solchen Utilities.
+  `bg-text-secondary` im Inventar-Tab war eine registrierte historische
+  Migrationsexzeption für zwei SVG-nahe Linien und ist kein Vorbild für neue
+  semantische NativeWind-Klassen.
+- Die alten Wrapper-Dateien wurden nach ausdrücklicher Maintainer-Freigabe
+  entfernt.
+
+Im Ausgangsaudit vor der Feature-Migration (Stand 2026-09-04) wurden die
+vorhandenen Aufrufer per `rg` inventarisiert. Die folgenden Zahlen dokumentieren
+den Ausgangszustand und sind keine aktuellen Resttreffer:
 
 - 180 Dateien verwenden `ThemedText`.
 - 22 Dateien verwenden `ThemedView`.
@@ -61,9 +95,9 @@ Treffer, keine bereits migrierten Komponenten:
 - Für `FlashList`, `BottomSheet`, `Svg` und `SymbolView` gibt es im aktuellen
   Trefferlauf keine direkte `className`-Verwendung.
 
-Die Migration wird nach dem Foundation-Checkpoint in kleinen, rückrollbaren
-Batches durchgeführt. Gemeinsame Dateien und ihre `.android.tsx`-Paare werden
-immer zusammen behandelt:
+Die Migration wurde nach dem Foundation-Checkpoint in kleinen, rückrollbaren
+Batches durchgeführt. Gemeinsame Dateien und ihre `.android.tsx`-Paare wurden
+zusammen behandelt:
 
 | Batch | Bereich | `ThemedText`-Dateien mit Treffer | Vorgehen |
 |---|---|---:|---|
@@ -74,7 +108,7 @@ immer zusammen behandelt:
 | 4 | Calorie Tracking, Meal Planner, Recipes | 38 | komplexe Modals und Spezialkomponenten nachziehen |
 | 5 | Profile, Settings, Premium, GLP-1 | 45 | verbleibende semantische Rollen und Statusfarben migrieren |
 
-Bekannte NativeWind-Boundary-Kandidaten für einen separaten kleinen Slice:
+Historische NativeWind-Boundary-Kandidaten des Ausgangsaudits:
 
 - `src/features/calorie-tracking/add-food-entry-screen.tsx`
 - `src/features/calorie-tracking/food-search-dropdown.tsx`
@@ -83,6 +117,5 @@ Bekannte NativeWind-Boundary-Kandidaten für einen separaten kleinen Slice:
 - `src/features/meal-planner/missing-ingredients-screen.android.tsx`
 - `src/features/recipes/components/recipe-shopping-sheet.tsx`
 
-Diese Liste ist ein Audit-Ergebnis und noch keine Freigabe zur Änderung. Die
-beiden alten Wrapper bleiben erhalten und sind ausschließlich als manuelles
-`TODO: DELETE` für den Maintainer markiert.
+Diese Liste ist ein historisches Audit-Ergebnis. Die beiden alten Wrapper wurden
+nach der ausdrücklichen Maintainer-Freigabe entfernt.

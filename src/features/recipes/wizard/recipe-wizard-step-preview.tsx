@@ -80,11 +80,7 @@ export function RecipeWizardStepPreview({
       className="flex-1"
       contentContainerClassName="px-four pb-six"
       showsVerticalScrollIndicator={false}>
-      <Txt
-        variant="caption"
-        tone="secondary"
-        className="pt-two tracking-widest"
-        style={{ fontSize: 8, lineHeight: 10, fontWeight: '500' }}>
+      <Txt variant="caption" tone="secondary" className="pt-two tracking-widest" weight="500">
         SCHRITT 4 VON 4
       </Txt>
       <Txt variant="heading" className="pt-[6px] pb-three">
@@ -92,7 +88,7 @@ export function RecipeWizardStepPreview({
       </Txt>
       <View
         className="w-full h-[200px] rounded-sheet overflow-hidden mb-four justify-center items-center"
-        style={{ backgroundColor: colors.surface }}>
+        style={{ backgroundColor: colors.backgroundElement }}>
         {coverPreviewUri ? (
           <Image
             source={{ uri: coverPreviewUri }}
@@ -113,17 +109,14 @@ export function RecipeWizardStepPreview({
 
       <View
         className="flex-row rounded-fam-large p-one mb-four"
-        style={{ backgroundColor: colors.surface }}>
+        style={{ backgroundColor: colors.backgroundElement }}>
         <Pressable
           onPress={() => setTab('ingredients')}
           accessibilityRole="tab"
           accessibilityState={{ selected: tab === 'ingredients' }}
           className="flex-1 py-[10px] rounded-fam-large items-center"
-          style={{ backgroundColor: tab === 'ingredients' ? colors.basil : 'transparent' }}>
-          <Txt
-            variant="body"
-            tone={tab === 'ingredients' ? 'onAccent' : 'primary'}
-            style={{ fontWeight: '600' }}>
+          style={{ backgroundColor: tab === 'ingredients' ? colors.accent : 'transparent' }}>
+          <Txt variant="body" tone={tab === 'ingredients' ? 'onAccent' : 'primary'} weight="600">
             Zutaten
           </Txt>
         </Pressable>
@@ -132,11 +125,8 @@ export function RecipeWizardStepPreview({
           accessibilityRole="tab"
           accessibilityState={{ selected: tab === 'instructions' }}
           className="flex-1 py-[10px] rounded-fam-large items-center"
-          style={{ backgroundColor: tab === 'instructions' ? colors.basil : 'transparent' }}>
-          <Txt
-            variant="body"
-            tone={tab === 'instructions' ? 'onAccent' : 'primary'}
-            style={{ fontWeight: '600' }}>
+          style={{ backgroundColor: tab === 'instructions' ? colors.accent : 'transparent' }}>
+          <Txt variant="body" tone={tab === 'instructions' ? 'onAccent' : 'primary'} weight="600">
             Anleitung
           </Txt>
         </Pressable>
@@ -150,24 +140,24 @@ export function RecipeWizardStepPreview({
             {cookTimeMinutes ? (
               <View
                 className="px-three py-[6px] rounded-fam-large"
-                style={{ backgroundColor: colors.surface }}>
-                <Txt variant="label" style={{ fontWeight: '600' }}>
+                style={{ backgroundColor: colors.backgroundElement }}>
+                <Txt variant="label" weight="600">
                   ⏱ {cookTimeMinutes} Min.
                 </Txt>
               </View>
             ) : null}
             <View
               className="px-three py-[6px] rounded-fam-large"
-              style={{ backgroundColor: colors.surface }}>
-              <Txt variant="label" style={{ fontWeight: '600' }}>
+              style={{ backgroundColor: colors.backgroundElement }}>
+              <Txt variant="label" weight="600">
                 🍽 {defaultServings} Portionen
               </Txt>
             </View>
             {difficulty ? (
               <View
                 className="px-three py-[6px] rounded-fam-large"
-                style={{ backgroundColor: colors.surface }}>
-                <Txt variant="label" style={{ fontWeight: '600' }}>
+                style={{ backgroundColor: colors.backgroundElement }}>
+                <Txt variant="label" weight="600">
                   {labelFor(DIFFICULTIES, difficulty)}
                 </Txt>
               </View>
@@ -180,8 +170,8 @@ export function RecipeWizardStepPreview({
                 <View
                   key={d}
                   className="px-[10px] py-[5px] rounded-control"
-                  style={{ backgroundColor: colors.surfaceSoft }}>
-                  <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
+                  style={{ backgroundColor: colors.backgroundSoft }}>
+                  <Txt variant="caption" tone="primary" weight="600">
                     {labelFor(DISH_TYPES, d)}
                   </Txt>
                 </View>
@@ -190,8 +180,8 @@ export function RecipeWizardStepPreview({
                 <View
                   key={d}
                   className="px-[10px] py-[5px] rounded-control"
-                  style={{ backgroundColor: colors.surfaceSoft }}>
-                  <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
+                  style={{ backgroundColor: colors.backgroundSoft }}>
+                  <Txt variant="caption" tone="primary" weight="600">
                     {labelFor(DIETARY_TAGS, d)}
                   </Txt>
                 </View>
@@ -207,7 +197,9 @@ export function RecipeWizardStepPreview({
 
           {components.map((comp) => (
             <View key={comp.id} className="gap-one">
-              <Txt variant="body" weight="700">{comp.title}</Txt>
+              <Txt variant="body" weight="700">
+                {comp.title}
+              </Txt>
               {comp.items
                 .filter((item) => item.product || item.existingProductId)
                 .map((item) => (
@@ -227,7 +219,7 @@ export function RecipeWizardStepPreview({
               <View
                 key={step.id}
                 className="rounded-sheet p-three gap-two"
-                style={{ backgroundColor: colors.surface }}>
+                style={{ backgroundColor: colors.backgroundElement }}>
                 <Txt variant="label" tone="primary" weight="700">
                   Schritt {index + 1}
                 </Txt>
@@ -251,8 +243,8 @@ export function RecipeWizardStepPreview({
                       <View
                         key={id}
                         className="px-[10px] py-one rounded-control"
-                        style={{ backgroundColor: colors.surface }}>
-                        <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
+                        style={{ backgroundColor: colors.backgroundElement }}>
+                        <Txt variant="caption" tone="primary" weight="600">
                           {ingredientLabelById.get(id) ?? id}
                         </Txt>
                       </View>
@@ -267,19 +259,19 @@ export function RecipeWizardStepPreview({
       <View className="flex-row gap-[14px] mt-five mb-three">
         <Pressable
           className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
-          style={{ backgroundColor: colors.surface }}
+          style={{ backgroundColor: colors.backgroundElement }}
           onPress={onBack}>
-          <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
+          <Txt variant="caption" tone="primary" weight="600">
             Zurück
           </Txt>
         </Pressable>
         <Pressable
           className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
-          style={{ backgroundColor: colors.basil, opacity: saving ? 0.5 : 1 }}
+          style={{ backgroundColor: colors.accent, opacity: saving ? 0.5 : 1 }}
           accessibilityRole="button"
           onPress={onSave}
           disabled={saving}>
-          <Txt variant="caption" tone="onAccent" style={{ fontWeight: '600' }}>
+          <Txt variant="caption" tone="onAccent" weight="600">
             {saving ? 'Speichert…' : 'Speichern'}
           </Txt>
         </Pressable>

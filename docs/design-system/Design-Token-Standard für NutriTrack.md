@@ -1,6 +1,12 @@
-Ja. Hier ist eine belastbare Vorgabe, die zu eurem bestehenden System passt und nicht aus NutriTrack versehentlich ein überabstrahiertes Design-System-Projekt macht.
+# Historischer Design-Token-Entwurf für NutriTrack
 
-# Design-Token-Standard für NutriTrack
+## Status
+
+Archivierter Vorentwurf. Dieses Dokument ist keine aktuelle Vorgabe und keine
+Taskliste. Verbindlich sind `AGENTS.md`, `docs/design-system/DESIGN_SYSTEM.md`
+und `docs/design-system/contracts/`. Die aktuelle Umsetzung besitzt genau drei
+zentrale UI-Quellen: `src/components/theme/index.ts`,
+`src/components/theme/ThemeProvider.tsx` und `src/constants/ui.tsx`.
 
 ## Ziel
 
@@ -46,7 +52,7 @@ paddingVertical: 10
 
 Primitive Tokens sind die kleinsten, wiederverwendbaren Werte. Sie beschreiben keine Bedeutung im Produkt. Sie sind die Bausteine, aus denen semantische Rollen entstehen.
 
-Sie existieren bereits teilweise in [`theme.ts`](/Users/marco/.t3/worktrees/fam/t3code-53fe27d3/src/constants/theme.ts).
+Sie wurden später in `src/components/theme/index.ts` konsolidiert.
 
 ### Farben
 
@@ -94,13 +100,15 @@ Neue Radien dürfen nur ergänzt werden, wenn sie eine neue visuelle Rolle darst
 
 ### Typografie
 
-Die Trennung aus `FontSize`, `Typography` und festen Text-Rollen ist richtig:
+Die öffentliche Text-API bleibt bewusst klein:
 
-- `FontSize` bleibt eine technische Skala.
-- `Typography` beschreibt Größe und Zeilenhöhe.
-- Text-Rollen wie `body`, `smallBold` oder `linkPrimary` bilden stabile, produktbezogene Bedeutungen ab.
-
-Neue Text-Rollen sollten nicht für jede Bildschirmüberschrift entstehen. Sie brauchen eine wiederkehrende Funktion, etwa `tabLabel`, `metricValue` oder `sectionHeading`.
+- `font.sizes` ist die technische Größenskala.
+- `Txt` bietet ausschließlich `display`, `title`, `heading`, `subheading`,
+  `body`, `label` und `caption` an.
+- Button-, Eingabe-, Stepper- und Kennzahlgrößen bleiben intern in der
+  zuständigen Komponente und erweitern `TxtVariant` nicht.
+- Screens dürfen Gewicht und Ton über typisierte Props anpassen, aber keine
+  neuen Textrollen erfinden.
 
 ### Ergänzende Primitive
 
@@ -305,7 +313,7 @@ export const Themes = {
     surface: {
       page: Colors.light.background,
       raised: Colors.light.backgroundElement,
-      selected: Colors.light.backgroundSelected,
+      soft: Colors.light.backgroundSoft,
       overlay: Colors.light.backgroundElement,
       inverse: Colors.light.text,
     },
@@ -365,11 +373,13 @@ Ein Lint-Guard darf anfangs als CI-Warnung starten. Erst wenn die wichtigsten be
 
 ## P0: Fundament
 
-- [ ] `Spacing`, `Radius`, `ControlSize`, `BorderWidth` und `Opacity` auditieren und die fehlenden Standardwerte in `src/constants/theme.ts` ergänzen.
+- [ ] Historischer Vorschlag: gemeinsame Werte in der heutigen Tokenquelle
+      `src/components/theme/index.ts` auditieren.
 - [ ] Einen `Theme`-Typ mit `surface`, `content`, `border`, `action`, `feedback`, `premium` und `elevation` einführen.
 - [ ] Light- und Dark-Theme vollständig über dieselben semantischen Keys definieren.
 - [ ] `useTheme()` auf diese semantische Schnittstelle ausrichten, ohne bestehende Consumer sofort zu brechen.
-- [ ] Die Token-Tabelle in `docs/DESIGN_SYSTEM.md` als verbindliche Quelle ergänzen.
+- [ ] Historischer Vorschlag: die Token-Tabelle im heutigen
+      `docs/design-system/DESIGN_SYSTEM.md` ergänzen.
 
 **Akzeptanzkriterium:** Neue Komponenten können ohne direkte Referenz auf `Colors.light` oder `Colors.dark` in Light und Dark Mode korrekt gestaltet werden.
 

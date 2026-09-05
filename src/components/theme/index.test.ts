@@ -3,7 +3,7 @@ import { createElement, type ReactNode } from 'react';
 import * as ReactNative from 'react-native';
 import type { MMKV } from 'react-native-mmkv';
 
-import { Colors } from '@/constants/theme';
+import { Colors } from '@/components/theme/index';
 import { getDeviceStorage } from '@/lib/storage/device-storage';
 
 import {
@@ -38,7 +38,9 @@ function createThemeStorage(initialValue?: string): ThemeStorage {
     set: jest.fn((key, nextValue) => {
       if (key !== THEME_KEY || typeof nextValue !== 'string') return;
       value = nextValue;
-      listeners.forEach((listener) => listener(key));
+      listeners.forEach((listener) => {
+        listener(key);
+      });
     }),
     addOnValueChangedListener: jest.fn((listener) => {
       listeners.add(listener);
@@ -55,7 +57,7 @@ describe('fam theme tokens', () => {
   it('maps canonical tokens and legacy aliases to the existing Fam palette', () => {
     expect(colorsLight.background).toBe(Colors.light.background);
     expect(colorsLight.backgroundElement).toBe(Colors.light.backgroundElement);
-    expect(colorsLight.backgroundSelected).toBe(Colors.light.backgroundSelected);
+    expect(colorsLight.backgroundSoft).toBe(Colors.light.backgroundSoft);
     expect(colorsLight.accent).toBe(Colors.light.accent);
     expect(colorsLight.success).toBe(Colors.light.success);
     expect(colorsLight.warning).toBe(Colors.light.warning);
@@ -65,14 +67,12 @@ describe('fam theme tokens', () => {
 
     expect(colorsLight.bg).toBe(Colors.light.background);
     expect(colorsLight.surface).toBe(Colors.light.backgroundElement);
-    expect(colorsLight.surfaceSoft).toBe(Colors.light.backgroundSelected);
     expect(colorsLight.textMuted).toBe(Colors.light.textSecondary);
     expect(colorsLight.border).toBe(Colors.light.border);
     expect(colorsLight.basil).toBe(Colors.light.accent);
 
     expect(colorsDark.bg).toBe(Colors.dark.background);
     expect(colorsDark.surface).toBe(Colors.dark.backgroundElement);
-    expect(colorsDark.surfaceSoft).toBe(Colors.dark.backgroundSelected);
     expect(colorsDark.textMuted).toBe(Colors.dark.textSecondary);
     expect(colorsDark.border).toBe(Colors.dark.border);
     expect(colorsDark.basil).toBe(Colors.dark.accent);

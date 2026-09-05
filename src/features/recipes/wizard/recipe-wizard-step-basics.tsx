@@ -67,7 +67,7 @@ export function RecipeWizardStepBasics({
   const { colors } = useTheme();
   const title = useWatch({ control, name: 'title' });
   const fieldStyle = {
-    backgroundColor: colors.surface,
+    backgroundColor: colors.backgroundElement,
     color: colors.text,
     fontSize: 14,
     lineHeight: 20,
@@ -75,11 +75,7 @@ export function RecipeWizardStepBasics({
 
   return (
     <>
-      <Txt
-        variant="caption"
-        tone="secondary"
-        className="pt-two tracking-widest"
-        style={{ fontSize: 8, lineHeight: 10, fontWeight: '500' }}>
+      <Txt variant="caption" tone="secondary" className="pt-two tracking-widest" weight="500">
         SCHRITT {mode === 'details' ? '1' : '2'} VON 4
       </Txt>
       <Txt variant="heading" className="pt-[6px] pb-three">
@@ -118,7 +114,7 @@ export function RecipeWizardStepBasics({
           </TouchableOpacity>
 
           <View className="mb-[14px]">
-            <Txt variant="label" weight="700" className="mb-[6px]" style={{ fontSize: 10, lineHeight: 12 }}>
+            <Txt variant="caption" weight="700" className="mb-[6px]">
               Titel
             </Txt>
             <Controller
@@ -143,7 +139,7 @@ export function RecipeWizardStepBasics({
           </View>
 
           <View className="mb-[14px]">
-            <Txt variant="label" weight="700" className="mb-[6px]" style={{ fontSize: 10, lineHeight: 12 }}>
+            <Txt variant="caption" weight="700" className="mb-[6px]">
               Beschreibung
             </Txt>
             <Controller
@@ -172,7 +168,7 @@ export function RecipeWizardStepBasics({
 
           <View className="flex-row gap-[14px]">
             <View className="flex-1 mb-[14px]">
-              <Txt variant="label" weight="700" className="mb-[6px]" style={{ fontSize: 10, lineHeight: 12 }}>
+              <Txt variant="caption" weight="700" className="mb-[6px]">
                 Kochzeit (Minuten)
               </Txt>
               <Controller
@@ -198,7 +194,7 @@ export function RecipeWizardStepBasics({
             </View>
 
             <View className="mb-[14px]">
-              <Txt variant="label" weight="700" className="mb-[6px]" style={{ fontSize: 10, lineHeight: 12 }}>
+              <Txt variant="caption" weight="700" className="mb-[6px]">
                 Portionen
               </Txt>
               <Controller
@@ -238,7 +234,7 @@ export function RecipeWizardStepBasics({
 
           {/* Schwierigkeit */}
           <View className="mb-[14px]">
-            <Txt variant="label" weight="700" className="mb-[6px]" style={{ fontSize: 10, lineHeight: 12 }}>
+            <Txt variant="caption" weight="700" className="mb-[6px]">
               Schwierigkeit
             </Txt>
             <Controller
@@ -263,7 +259,7 @@ export function RecipeWizardStepBasics({
                         <Txt
                           variant="caption"
                           tone={selected ? 'onAccent' : 'primary'}
-                          style={{ fontWeight: '600' }}>
+                          weight="600">
                           {difficulty.label}
                         </Txt>
                       </Pressable>
@@ -276,7 +272,7 @@ export function RecipeWizardStepBasics({
 
           {/* Rezepttyp */}
           <View className="mb-[14px]">
-            <Txt variant="label" weight="700" className="mb-[6px]" style={{ fontSize: 10, lineHeight: 12 }}>
+            <Txt variant="caption" weight="700" className="mb-[6px]">
               Art des Gerichts
             </Txt>
             <Controller
@@ -301,7 +297,7 @@ export function RecipeWizardStepBasics({
                         <Txt
                           variant="caption"
                           tone={selected ? 'onAccent' : 'primary'}
-                          style={{ fontWeight: '600' }}>
+                          weight="600">
                           {dishType.label}
                         </Txt>
                       </Pressable>
@@ -314,7 +310,7 @@ export function RecipeWizardStepBasics({
 
           {/* Ernaehrung */}
           <View className="mb-[14px]">
-            <Txt variant="label" weight="700" className="mb-[6px]" style={{ fontSize: 10, lineHeight: 12 }}>
+            <Txt variant="caption" weight="700" className="mb-[6px]">
               Ernährung
             </Txt>
             <Controller
@@ -339,7 +335,7 @@ export function RecipeWizardStepBasics({
                         <Txt
                           variant="caption"
                           tone={selected ? 'onAccent' : 'primary'}
-                          style={{ fontWeight: '600' }}>
+                          weight="600">
                           {dietaryTag.label}
                         </Txt>
                       </Pressable>
@@ -352,7 +348,7 @@ export function RecipeWizardStepBasics({
 
           {/* Hashtags */}
           <View className="mb-[14px]">
-            <Txt variant="label" weight="700" className="mb-[6px]" style={{ fontSize: 10, lineHeight: 12 }}>
+            <Txt variant="caption" weight="700" className="mb-[6px]">
               Hashtags
             </Txt>
             <Controller
@@ -396,11 +392,11 @@ export function RecipeWizardStepBasics({
                 {components.length > 1 ? (
                   <TouchableOpacity
                     className="w-11 h-11 rounded-control items-center justify-center"
-                    style={{ backgroundColor: colors.surfaceSoft }}
+                    style={{ backgroundColor: colors.backgroundSoft }}
                     onPress={() => onRemoveComponentGroup(comp.id)}
                     accessibilityRole="button"
                     accessibilityLabel="Zutaten-Gruppe entfernen">
-                    <Txt variant="body" tone="secondary" style={{ fontSize: 18, lineHeight: 20, fontWeight: '500' }}>
+                    <Txt variant="subheading" tone="secondary" weight="500">
                       ×
                     </Txt>
                   </TouchableOpacity>
@@ -435,7 +431,7 @@ export function RecipeWizardStepBasics({
                     </View>
                     <TouchableOpacity
                       className="w-11 h-11 rounded-control items-center justify-center"
-                      style={{ backgroundColor: colors.surfaceSoft }}
+                      style={{ backgroundColor: colors.backgroundSoft }}
                       onPress={() => onRemoveIngredient(comp.id, item.id)}
                       accessibilityRole="button"
                       accessibilityLabel="Delete ingredient">
@@ -462,10 +458,7 @@ export function RecipeWizardStepBasics({
               <TouchableOpacity
                 className="py-[6px] self-start"
                 onPress={() => onAddIngredient(comp.id)}>
-                <Txt
-                  variant="caption"
-                  tone="primary"
-                  style={{ fontSize: 9, lineHeight: 11, fontWeight: '600' }}>
+                <Txt variant="caption" tone="primary" weight="600">
                   + Zutat hinzufügen
                 </Txt>
               </TouchableOpacity>
@@ -478,7 +471,7 @@ export function RecipeWizardStepBasics({
             onPress={onAddComponentGroup}
             accessibilityRole="button"
             accessibilityLabel="Add Componente">
-            <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
+            <Txt variant="caption" tone="primary" weight="600">
               + Zutaten-Gruppe hinzufügen
             </Txt>
           </Pressable>
@@ -490,7 +483,7 @@ export function RecipeWizardStepBasics({
           className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
           style={{ backgroundColor: colors.surface }}
           onPress={onCancel}>
-          <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
+          <Txt variant="caption" tone="primary" weight="600">
             {mode === 'details' ? 'Abbrechen' : 'Zurück'}
           </Txt>
         </Pressable>
@@ -503,7 +496,7 @@ export function RecipeWizardStepBasics({
           onPress={onNext}
           accessibilityRole="button"
           disabled={!title.trim() || saving}>
-          <Txt variant="caption" tone="onAccent" style={{ fontWeight: '600' }}>
+          <Txt variant="caption" tone="onAccent" weight="600">
             {saving
               ? 'Speichert…'
               : mode === 'details'

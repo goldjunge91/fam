@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
 import { useSnackbar } from '@/components/ui/snackbar';
 import { Txt } from '@/constants/ui';
@@ -75,6 +76,7 @@ export function Glp1Card({
   logicalDate,
   dayStartTime = '00:00',
 }: Glp1CardProps) {
+  const { colors } = useTheme();
   const selectedLogicalDate = logicalDate ?? getLogicalDateForTimestamp(new Date(), dayStartTime);
   const [activeForm, setActiveForm] = useState<ActiveForm | null>(null);
   const { showUndoSnackbar } = useSnackbar();
@@ -183,7 +185,9 @@ export function Glp1Card({
         </Txt>
       </View>
 
-      <View className="flex-row justify-between bg-surface p-three rounded-xl border border-border gap-two">
+      <View
+        className="flex-row justify-between p-three rounded-xl border gap-two"
+        style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
         <View className="flex-1">
           <Txt variant="caption" tone="secondary">
             Letzte Injektion
@@ -247,7 +251,8 @@ export function Glp1Card({
               current?.kind === 'injection' ? null : { kind: 'injection' },
             )
           }
-          className="flex-1 py-two px-three rounded-xl bg-card border border-border items-center justify-center">
+          className="flex-1 py-two px-three rounded-xl border items-center justify-center"
+          style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
           <Txt variant="label" weight="700">
             {activeForm?.kind === 'injection' ? 'Abbrechen' : '+ Injektion eintragen'}
           </Txt>
@@ -256,7 +261,8 @@ export function Glp1Card({
           onPress={() =>
             setActiveForm((current) => (current?.kind === 'symptom' ? null : { kind: 'symptom' }))
           }
-          className="flex-1 py-two px-three rounded-xl bg-card border border-border items-center justify-center">
+          className="flex-1 py-two px-three rounded-xl border items-center justify-center"
+          style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
           <Txt variant="label" weight="700">
             {activeForm?.kind === 'symptom' ? 'Abbrechen' : '+ Symptome loggen'}
           </Txt>

@@ -11,10 +11,11 @@
  * clear instructional voice).
  */
 
-import { kv } from '@shared/platform/kv';
 import type { AudioPlayer } from 'expo-audio';
 import * as FileSystem from 'expo-file-system/legacy';
 import * as Speech from 'expo-speech';
+
+import { getDeviceStorage } from './storage/device-storage';
 
 // Resolve the native audio module lazily + defensively: a build that lacks
 // ExpoAudio (or a link failure) must degrade to the OS voice, never crash the
@@ -42,14 +43,14 @@ const VOICE_PREF = 'srf:tts-voice';
 
 function getKey(): string {
   try {
-    const fromSettings = kv().getItem(KEY_PREF);
+    const fromSettings = getDeviceStorage().getString(KEY_PREF);
     if (fromSettings) return fromSettings;
   } catch {}
   return process.env.EXPO_PUBLIC_ELEVENLABS_API_KEY ?? '';
 }
 function getVoice(): string {
   try {
-    return kv().getItem(VOICE_PREF) || DEFAULT_VOICE;
+    return getDeviceStorage().getString(VOICE_PREF) || DEFAULT_VOICE;
   } catch {
     return DEFAULT_VOICE;
   }
@@ -77,7 +78,7 @@ async function ensureAudioMode(): Promise<void> {
 
 function cacheFile(voice: string, text: string): string {
   let h = 0;
-  const s = voice + '|' + text;
+  const s = `${voice}|${text}`;
   for (let i = 0; i < s.length; i++) h = (Math.imul(h, 31) + s.charCodeAt(i)) | 0;
   return `${FileSystem.cacheDirectory}tts_${voice}_${(h >>> 0).toString(36)}.mp3`;
 }

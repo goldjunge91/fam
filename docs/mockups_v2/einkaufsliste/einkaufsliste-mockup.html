@@ -1,0 +1,1203 @@
+<title>Einkaufsliste Mockup v2</title>
+<style>
+  :root {
+    --page-bg: #F6F3F0; --page-surface: #FFFFFF; --page-border: #E4DDE3;
+    --page-text: #2D2830; --page-text2: #7A727C; --page-accent: #8B3FA8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --page-bg: #1A1823; --page-surface: #262231; --page-border: #383345;
+      --page-text: #F1EDF4; --page-text2: #A49DAF; --page-accent: #C98FE0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #1A1823; --page-surface: #262231; --page-border: #383345;
+    --page-text: #F1EDF4; --page-text2: #A49DAF; --page-accent: #C98FE0;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--page-bg); color: var(--page-text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    padding: 30px 20px 80px;
+  }
+
+  .intro { max-width: 780px; margin: 0 auto 18px; }
+  .intro h1 { font-size: 21px; font-weight: 800; margin: 0 0 10px; letter-spacing: -0.015em; }
+  .intro p { font-size: 13.5px; line-height: 1.6; color: var(--page-text2); margin: 0 0 10px; }
+  .intro code { font-size: 12px; padding: 1px 5px; border-radius: 5px; background: var(--page-surface); border: 1px solid var(--page-border); }
+  .modeswitch { max-width: 780px; margin: 0 auto 22px; display: flex; gap: 7px; }
+  .modeswitch button {
+    appearance: none; font: inherit; cursor: pointer;
+    padding: 8px 18px; border-radius: 10px; font-size: 12.5px; font-weight: 700;
+    background: var(--page-surface); color: var(--page-text2); border: 1px solid var(--page-border);
+  }
+  .modeswitch button[aria-pressed="true"] { background: var(--page-accent); color: var(--page-bg); border-color: transparent; }
+  .modeswitch button:focus-visible { outline: 2px solid var(--page-accent); outline-offset: 2px; }
+
+  .sheet {
+    max-width: 1010px; margin: 0 auto; padding: 26px 22px 30px; border-radius: 22px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
+    gap: 26px 22px; justify-items: center; background: #3B3852;
+  }
+  .sheet[data-mode="light"] { background: #DFDAE8; }
+  .group {
+    grid-column: 1 / -1; justify-self: stretch; margin: 8px 0 -6px;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #B9B3CE;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .group::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,.14); }
+  .sheet[data-mode="light"] .group { color: #635B7C; }
+  .sheet[data-mode="light"] .group::after { background: rgba(60,50,90,.16); }
+  .group:first-child { margin-top: 0; }
+
+  .slot { margin: 0; width: 292px; }
+  .slot figcaption { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: #A9A3C0; margin-bottom: 4px; padding-left: 3px; }
+  .slot .note { font-size: 10px; color: #8A83A6; margin-bottom: 8px; padding-left: 3px; line-height: 1.4; }
+  .sheet[data-mode="light"] .slot figcaption { color: #6C6484; }
+  .sheet[data-mode="light"] .slot .note { color: #7C7495; }
+
+  .phone {
+    width: 292px; height: 616px; border-radius: 26px; overflow: hidden; position: relative;
+    background: var(--bg); color: var(--text); box-shadow: 0 16px 34px rgba(0,0,0,.34);
+  }
+  .sheet[data-mode="light"] .phone { box-shadow: 0 14px 30px rgba(60,45,95,.20); }
+  .scroll { height: 100%; overflow-y: auto; scrollbar-width: none; }
+  .scroll::-webkit-scrollbar { display: none; }
+
+  /* ── Tokens ────────────────────────────────────────────────────────── */
+  .phone {
+    --bg: #232031; --card: #2C293B; --raise: #35324A; --track: #3B3850;
+    --hair: rgba(255,255,255,.07); --text: #FFFFFF; --text2: #8F8AA3; --shadow: none;
+    --violet: #7B3FBF; --magenta: #E5399F; --gold: #F5A623; --green: #6FAE7C;
+    --grad-diag: linear-gradient(45deg, var(--violet) 0%, var(--magenta) 55%, var(--gold) 100%);
+    --grad-bar: linear-gradient(180deg, var(--gold) 0%, var(--magenta) 55%, var(--violet) 100%);
+    --grad-line: linear-gradient(90deg, var(--violet) 0%, var(--magenta) 100%);
+    --grad-pill: linear-gradient(100deg, var(--magenta) 0%, #C42D93 100%);
+    --scrim: rgba(18,15,26,.72);
+  }
+  .sheet[data-mode="light"] .phone {
+    --bg: #F4F2F7; --card: #FFFFFF; --raise: #F1EEF7; --track: #E4E0EC;
+    --hair: rgba(36,31,51,.09); --text: #241F33; --text2: #736D85; --shadow: 0 2px 8px rgba(70,50,110,.07);
+    --violet: #6F35B4; --magenta: #D62F92; --gold: #E08C10; --green: #468A57;
+    --grad-pill: linear-gradient(100deg, var(--magenta) 0%, #B62579 100%);
+    --scrim: rgba(30,24,44,.42);
+  }
+
+  /* ── Chrome ────────────────────────────────────────────────────────── */
+  .status { height: 26px; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; font-size: 9.5px; font-weight: 700; }
+  .status .sys { display: flex; gap: 5px; align-items: center; }
+  .status .sig { display: flex; gap: 1.5px; align-items: flex-end; height: 8px; }
+  .status .sig i { width: 2px; background: currentColor; border-radius: 1px; display: block; }
+  .status .sig i:nth-child(1) { height: 3px; } .status .sig i:nth-child(2) { height: 5px; } .status .sig i:nth-child(3) { height: 7px; }
+  .status .batt { width: 16px; height: 8px; border-radius: 2.5px; border: 1px solid currentColor; padding: 1px; opacity: .75; }
+  .status .batt i { display: block; height: 100%; width: 82%; border-radius: 1px; background: currentColor; }
+  .hd { display: flex; align-items: center; justify-content: space-between; padding: 6px 15px 12px; gap: 10px; }
+  .hd-mid { flex: 1; text-align: center; }
+  .hd-mid .t { font-size: 16px; font-weight: 800; letter-spacing: -0.01em; }
+  .hd-mid .over { font-size: 9.5px; font-weight: 600; color: var(--text2); margin-bottom: 1px; }
+  .icon-btn { width: 32px; height: 32px; border-radius: 11px; background: var(--card); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; flex: none; font-size: 13px; box-shadow: var(--shadow); }
+  .icon-btn i { display: block; height: 1.8px; border-radius: 2px; background: var(--text); }
+  .icon-btn i:nth-child(1) { width: 13px; } .icon-btn i:nth-child(2) { width: 9px; }
+  .avatar { width: 32px; height: 32px; border-radius: 999px; flex: none; background: linear-gradient(150deg,#4E6238,#26301C); }
+  .px { padding-left: 15px; padding-right: 15px; }
+  .card { background: var(--card); border-radius: 18px; box-shadow: var(--shadow); }
+  .eyebrow { font-size: 9.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text2); }
+  .rule { height: 2px; border-radius: 2px; background: var(--grad-line); }
+  .rule.fade { background: linear-gradient(90deg, var(--violet), var(--magenta) 62%, transparent); }
+  .hairline { height: 1px; background: var(--hair); }
+  .hbar { height: 5px; border-radius: 999px; background: var(--track); overflow: hidden; }
+  .hbar > i { display: block; height: 100%; border-radius: 999px; background: var(--grad-line); }
+  .hbar.thin { height: 3px; }
+  .pill-grad { background: var(--grad-pill); color: #fff; border-radius: 999px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .btn-soft { height: 34px; border-radius: 12px; background: var(--raise); color: var(--text); display: flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 700; }
+  .btn-green { height: 40px; border-radius: 13px; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; }
+  .fab { position: absolute; right: 15px; bottom: 16px; width: 46px; height: 46px; border-radius: 999px; background: var(--grad-pill); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 300; color: #fff; box-shadow: 0 8px 18px rgba(229,57,159,.38); }
+  .dot { width: 6px; height: 6px; border-radius: 999px; flex: none; background: var(--text2); }
+  .dot.lg { width: 9px; height: 9px; }
+
+  /* ── Einkaufsliste ─────────────────────────────────────────────────── */
+  .picker { display: flex; align-items: center; gap: 7px; padding: 8px 13px; border-radius: 999px; background: var(--card); box-shadow: var(--shadow); font-size: 12px; font-weight: 700; }
+  .store-card { display: flex; gap: 11px; padding: 11px 12px; border-radius: 16px; background: var(--card); margin-bottom: 9px; box-shadow: var(--shadow); }
+  .store-stripe { width: 4px; border-radius: 3px; flex: none; }
+  .store-card .body { flex: 1; min-width: 0; }
+  .store-card .l1 { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .store-card .nm { font-size: 12.5px; font-weight: 700; }
+  .store-card .cnt { font-size: 9.5px; color: var(--text2); font-weight: 600; }
+  .store-card .l3 { display: flex; align-items: center; gap: 4px; margin-top: 5px; }
+  .store-card .l3 .t { font-size: 9.5px; color: var(--text2); font-weight: 600; margin-left: 2px; }
+  .store-card .l3 .t.done { color: var(--green); font-weight: 700; }
+  .store-card .amt { text-align: right; flex: none; }
+  .store-card .amt .e { font-size: 12.5px; font-weight: 700; }
+  .store-card .amt .l { font-size: 9px; color: var(--text2); font-weight: 600; margin-top: 1px; }
+
+  .cat-hdr { display: flex; align-items: center; gap: 6px; padding: 13px 0 5px; }
+  .cat-hdr .n { font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text2); flex: 1; }
+  .sitem { display: flex; align-items: flex-start; gap: 9px; padding: 8px 0; }
+  .sitem .body { flex: 1; min-width: 0; }
+  .sitem .l1 { display: flex; align-items: baseline; gap: 8px; }
+  .sitem .n { flex: 1; font-size: 12px; font-weight: 600; min-width: 0; }
+  .sitem .q { width: 60px; text-align: right; font-size: 11px; color: var(--text2); font-weight: 600; }
+  .sitem .p { width: 42px; text-align: right; font-size: 10px; color: var(--text2); font-weight: 600; }
+  .sitem.done .n { text-decoration: line-through; opacity: .5; }
+  .sitem .hint { font-size: 10px; color: var(--text2); margin-top: 2px; }
+  .cb { width: 18px; height: 18px; border-radius: 6px; border: 1.6px solid var(--track); flex: none; margin-top: 1px; }
+  .cb.on { border-color: transparent; background: var(--grad-diag); display: flex; align-items: center; justify-content: center; font-size: 10px; color: #fff; font-weight: 800; }
+  .cb.round { border-radius: 999px; }
+
+  /* Leerzustand */
+  .empty { padding: 26px 18px; text-align: center; }
+  .empty .sym { font-size: 26px; opacity: .5; }
+  .empty .t { font-size: 13px; font-weight: 800; margin-top: 9px; }
+  .empty .h { font-size: 11px; color: var(--text2); line-height: 1.5; margin-top: 5px; }
+
+  /* ── Overlays ──────────────────────────────────────────────────────── */
+  .scrim { position: absolute; inset: 0; background: var(--scrim); }
+  .sheet-panel { position: absolute; left: 0; right: 0; bottom: 0; background: var(--bg); border-radius: 22px 22px 0 0; padding: 8px 0 14px; box-shadow: 0 -8px 26px rgba(0,0,0,.4); }
+  .grabber { width: 34px; height: 4px; border-radius: 999px; background: var(--track); margin: 0 auto 10px; }
+  .modal-panel { position: absolute; left: 12px; right: 12px; bottom: 12px; top: 46px; background: var(--bg); border-radius: 20px; box-shadow: 0 -8px 26px rgba(0,0,0,.4); display: flex; flex-direction: column; overflow: hidden; }
+  .modal-hd { display: flex; align-items: flex-start; justify-content: space-between; padding: 14px 15px 10px; gap: 10px; }
+  .modal-hd .t { font-size: 14.5px; font-weight: 800; }
+  .modal-hd .s { font-size: 10.5px; color: var(--text2); margin-top: 2px; font-weight: 600; }
+  .close-btn { width: 28px; height: 28px; border-radius: 999px; background: var(--card); display: flex; align-items: center; justify-content: center; font-size: 12px; flex: none; }
+
+  /* Menü-Panel (StorePickerMenu) */
+  .menu-panel { position: absolute; left: 15px; top: 78px; width: 186px; background: var(--card); border-radius: 16px; padding: 6px; box-shadow: 0 14px 32px rgba(0,0,0,.45); }
+  .menu-row { display: flex; align-items: center; gap: 8px; padding: 9px 9px; border-radius: 11px; font-size: 12px; font-weight: 600; }
+  .menu-row.on { background: var(--raise); font-weight: 800; }
+  .menu-row .c { margin-left: auto; font-size: 9.5px; color: var(--text2); font-weight: 700; }
+
+  /* Formularfelder */
+  .field { margin-bottom: 10px; }
+  .field .lb { font-size: 9.5px; font-weight: 700; color: var(--text2); margin-bottom: 5px; letter-spacing: 0.03em; }
+  .field .inp { height: 38px; border-radius: 12px; background: var(--raise); border: 1.5px solid transparent; display: flex; align-items: center; padding: 0 11px; font-size: 12px; font-weight: 600; }
+  .field .inp .ph { color: var(--text2); font-weight: 500; }
+  .field .inp .chev { margin-left: auto; color: var(--text2); font-size: 10px; }
+  .field.focus .lb { color: var(--magenta); }
+  .field.focus .inp { border-color: var(--magenta); }
+  .field.focus .inp .caret { width: 1.5px; height: 15px; background: var(--magenta); margin-left: 1px; }
+  .stepper { height: 38px; border-radius: 12px; background: var(--raise); display: flex; align-items: center; justify-content: space-between; padding: 0 11px; }
+  .stepper .op { font-size: 15px; font-weight: 800; color: var(--magenta); }
+  .stepper .op.mute { color: var(--text2); }
+  .stepper .val { font-size: 12px; font-weight: 800; }
+  .disclosure { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--hair); font-size: 11.5px; font-weight: 600; color: var(--text2); }
+  .disclosure .a { color: var(--magenta); font-weight: 700; }
+  .chiprow { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip-store { display: flex; align-items: center; gap: 6px; padding: 6px 11px; border-radius: 999px; background: var(--raise); font-size: 11px; font-weight: 700; }
+  .chip-store.on { background: var(--grad-pill); color: #fff; }
+  .chip-store.add { border: 1.4px dashed var(--track); background: transparent; color: var(--text2); }
+
+  /* InlineSelect (Quelle / Vorschlagsfilter) */
+  .isel { flex: 1; height: 38px; border-radius: 12px; background: var(--raise); display: flex; align-items: center; gap: 6px; padding: 0 11px; font-size: 11.5px; font-weight: 700; }
+  .isel .chev { margin-left: auto; color: var(--text2); font-size: 10px; font-weight: 600; }
+  .isel-menu { background: var(--card); border-radius: 14px; padding: 5px; box-shadow: 0 12px 28px rgba(0,0,0,.4); }
+  .isel-opt { display: flex; align-items: center; gap: 7px; padding: 9px 10px; border-radius: 10px; font-size: 11.5px; font-weight: 700; }
+  .isel-opt.on { background: var(--grad-pill); color: #fff; }
+  .isel-opt.off { opacity: .4; }
+  .isel-opt .hint { margin-left: auto; font-size: 9.5px; font-weight: 600; color: var(--text2); }
+  .isel-opt.on .hint { color: rgba(255,255,255,.75); }
+
+  /* Vorschlagskarten, waagerecht */
+  .sugg-row { display: flex; gap: 7px; }
+  .sugg-card { flex: 1; min-width: 0; min-height: 68px; border-radius: 12px; border: 1.4px solid var(--track); background: var(--card); padding: 8px 9px; display: flex; flex-direction: column; justify-content: center; gap: 2px; }
+  .sugg-card .n { font-size: 11px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sugg-card .m { font-size: 9.5px; color: var(--text2); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sugg-card.on { background: var(--grad-pill); border-color: transparent; }
+  .sugg-card.on .n { color: #fff; }
+  .sugg-card.on .m { color: rgba(255,255,255,.62); }
+  .sugg-more { display: flex; align-items: center; gap: 8px; min-height: 30px; font-size: 11.5px; font-weight: 600; }
+  .sugg-more .c { color: var(--text2); }
+
+  /* Produkt-Zusammenfassung */
+  .psum { display: flex; align-items: center; gap: 9px; border-radius: 14px; background: var(--raise); padding: 9px 11px; min-height: 49px; }
+  .psum .body { flex: 1; min-width: 0; }
+  .psum .n { font-size: 12px; font-weight: 700; }
+  .psum .b { font-size: 9.5px; color: var(--text2); font-weight: 600; margin-top: 1px; }
+  .psum .e { font-size: 9.5px; color: var(--text2); margin-top: 1px; }
+  .psum .amt { text-align: right; flex: none; }
+  .psum .amt .v { font-size: 11.5px; font-weight: 700; }
+  .psum .amt .l { font-size: 10px; color: var(--text2); margin-top: 1px; }
+
+  /* Suchfeld-Spinner */
+  .spin { width: 13px; height: 13px; flex: none; border-radius: 999px; border: 2px solid var(--track); border-top-color: var(--magenta); }
+
+  /* Mengen-Stepper, segmentiert */
+  .step3 { height: 38px; border-radius: 12px; overflow: hidden; display: flex; border: 1.4px solid var(--track); }
+  .step3 > div { display: flex; align-items: center; justify-content: center; }
+  .step3 .m { width: 38px; background: var(--raise); font-size: 15px; font-weight: 700; color: var(--text2); }
+  .step3 .v { flex: 1; font-size: 12.5px; font-weight: 700; background: var(--card); }
+  .step3 .p { width: 38px; background: color-mix(in srgb, var(--magenta) 16%, var(--card)); font-size: 15px; font-weight: 700; color: var(--magenta); }
+
+  /* Scanner */
+  .scan-view { position: absolute; inset: 0; background: #0E0C14; display: flex; align-items: center; justify-content: center; }
+  .scan-frame { width: 186px; height: 118px; position: relative; }
+  .scan-frame i { position: absolute; width: 24px; height: 24px; border: 2.5px solid var(--magenta); }
+  .scan-frame i:nth-child(1) { top: 0; left: 0; border-right: 0; border-bottom: 0; border-radius: 6px 0 0 0; }
+  .scan-frame i:nth-child(2) { top: 0; right: 0; border-left: 0; border-bottom: 0; border-radius: 0 6px 0 0; }
+  .scan-frame i:nth-child(3) { bottom: 0; left: 0; border-right: 0; border-top: 0; border-radius: 0 0 0 6px; }
+  .scan-frame i:nth-child(4) { bottom: 0; right: 0; border-left: 0; border-top: 0; border-radius: 0 0 6px 0; }
+  .scan-line { position: absolute; left: 6px; right: 6px; top: 50%; height: 2px; background: var(--grad-line); }
+
+  /* Drag-Reihen */
+  .drag-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 13px; border-radius: 13px; font-size: 12px; font-weight: 600; }
+  .drag-row .h { color: var(--text2); font-size: 14px; }
+  .drag-row.active { background: var(--card); box-shadow: 0 8px 20px rgba(0,0,0,.35); font-weight: 800; }
+
+  /* In Vorrat übernehmen */
+  .tr-item { padding: 11px 0; border-bottom: 1px solid var(--hair); }
+  .tr-item .l1 { display: flex; align-items: center; gap: 9px; }
+  .tr-item .nm { flex: 1; font-size: 12.5px; font-weight: 700; }
+  .tr-qty { padding: 4px 11px; border-radius: 999px; background: var(--grad-pill); color: #fff; font-size: 10.5px; font-weight: 700; }
+  .tr-loc { display: flex; gap: 6px; margin-top: 8px; }
+  .tr-loc .o { flex: 1; height: 32px; border-radius: 10px; background: var(--raise); display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 10px; font-weight: 700; color: var(--text2); }
+  .tr-loc .o.on { background: var(--grad-diag); color: #fff; }
+  .tr-mhd { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; font-size: 10.5px; }
+  .tr-mhd .k { color: var(--text2); font-weight: 700; }
+  .tr-mhd .v { font-weight: 700; }
+
+  /* Einkaufsmodus */
+  .sm-hd { display: flex; align-items: center; justify-content: space-between; padding: 8px 15px 10px; }
+  .sm-cat { display: flex; align-items: center; gap: 8px; padding: 11px 0; }
+  .sm-cat .n { flex: 1; font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+  .sm-cat .c { font-size: 10px; font-weight: 700; }
+  .sm-cat .chev { color: var(--text2); font-size: 11px; }
+  .sm-row { display: flex; align-items: center; gap: 9px; padding: 9px 0; }
+  .sm-row .n { flex: 1; font-size: 12px; font-weight: 600; }
+  .sm-row.done .n { text-decoration: line-through; opacity: .5; }
+  .sm-row .q { width: 58px; text-align: right; font-size: 10.5px; color: var(--text2); font-weight: 600; }
+  .sm-row .p { width: 40px; text-align: right; font-size: 9.5px; color: var(--text2); font-weight: 600; }
+
+  /* Märkte */
+  .store-row { display: flex; align-items: center; gap: 9px; padding: 10px 0; border-bottom: 1px solid var(--hair); }
+  .store-row .n { flex: 1; font-size: 12.5px; font-weight: 700; }
+  .store-row .act { font-size: 12px; color: var(--text2); }
+  .swatches { display: flex; gap: 7px; flex-wrap: wrap; }
+  .swatches i { width: 26px; height: 26px; border-radius: 999px; display: block; }
+  .swatches i.on { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--magenta); }
+
+  /* Alert */
+  .alert { position: absolute; left: 34px; right: 34px; top: 50%; transform: translateY(-50%); background: var(--card); border-radius: 16px; overflow: hidden; box-shadow: 0 20px 44px rgba(0,0,0,.5); }
+  .alert .b { padding: 17px 16px 14px; text-align: center; }
+  .alert .t { font-size: 13px; font-weight: 800; }
+  .alert .m { font-size: 11px; color: var(--text2); margin-top: 5px; line-height: 1.45; }
+  .alert .acts { display: flex; border-top: 1px solid var(--hair); }
+  .alert .acts > div { flex: 1; padding: 11px 0; text-align: center; font-size: 12.5px; font-weight: 700; }
+  .alert .acts > div + div { border-left: 1px solid var(--hair); }
+  .alert .danger { color: #E5566B; font-weight: 800; }
+
+  @media (max-width: 400px) {
+    body { padding: 22px 8px 60px; }
+    .sheet { padding: 16px 10px 20px; border-radius: 16px; gap: 20px 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="intro">
+  <h1>Einkaufsliste, vollständiges Mockup</h1>
+  <p>Jeder Screen, jedes Sheet, jedes Modal, jedes Menü und jede Button-Aktion des Features aus <code>src/features/shopping-list/</code>, inventarisiert über dessen <code>ARCHITECTURE.md</code>. Visuelle Sprache: der Verlauf-Look aus dem Referenz-Kit.</p>
+  <p>Markt- und Kategoriefarben sind <b>keine</b> Designentscheidung, sondern Daten: Märkte tragen ihre Farbe in der Datenbank (<code>store-presets.ts</code>: REWE <code>#B5623F</code>, dm <code>#8B6F72</code>, Edeka <code>#748C5B</code>), Kategorien stammen aus <code>placement-taxonomy.ts</code>. Der Magenta-Verlauf bleibt Chrome und Aktion, die Erdtöne bleiben Inhalt.</p>
+</div>
+
+<div class="modeswitch" id="modeswitch">
+  <button type="button" data-mode="dark" aria-pressed="true">Dunkel</button>
+  <button type="button" data-mode="light" aria-pressed="false">Hell</button>
+</div>
+
+<div class="sheet" id="sheet" data-mode="dark">
+
+  <!-- ══════════════════════════ HAUPTSCREEN ══════════════════════════ -->
+  <h2 class="group">Hauptscreen</h2>
+
+  <figure class="slot">
+    <figcaption>1 · Alle Listen</figcaption>
+    <div class="note">Gesamtübersicht mit Markt-Karten, Gesamtschätzung und Abschluss-Button</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="t">Einkaufsliste</div></div><div class="avatar"></div></div>
+
+        <div class="px" style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+          <div class="picker"><span class="dot" style="background:var(--text);"></span>Alle Listen<span style="color:var(--text2); font-size:10px;">▾</span></div>
+          <div class="icon-btn" style="font-size:14px;">◎</div>
+        </div>
+
+        <div class="px" style="margin-top:13px;">
+          <div class="store-card">
+            <div class="store-stripe" style="background:#B5623F;"></div>
+            <div class="body">
+              <div class="l1"><span class="nm">REWE</span><span class="cnt">3 / 9</span></div>
+              <div class="hbar thin" style="margin-top:5px;"><i style="width:33%"></i></div>
+              <div class="l3"><span class="dot" style="background:#748C5B;"></span><span class="dot" style="background:#C6A24A;"></span><span class="dot" style="background:#5C7396;"></span><span class="dot" style="background:#A6483D;"></span><span class="t">offen</span></div>
+            </div>
+            <div class="amt"><div class="e">25,61 €</div><div class="l">geschätzt</div></div>
+          </div>
+
+          <div class="store-card">
+            <div class="store-stripe" style="background:#8B6F72;"></div>
+            <div class="body">
+              <div class="l1"><span class="nm">dm</span><span class="cnt">1 / 3</span></div>
+              <div class="hbar thin" style="margin-top:5px;"><i style="width:33%"></i></div>
+              <div class="l3"><span class="dot" style="background:#705773;"></span><span class="t">offen</span></div>
+            </div>
+            <div class="amt"><div class="e">11,39 €</div><div class="l">geschätzt</div></div>
+          </div>
+
+          <div class="store-card">
+            <div class="store-stripe" style="background:#748C5B;"></div>
+            <div class="body">
+              <div class="l1"><span class="nm">Edeka</span><span class="cnt">2 / 2</span></div>
+              <div class="hbar thin" style="margin-top:5px;"><i style="width:100%"></i></div>
+              <div class="l3"><span class="t done">alles erledigt</span></div>
+            </div>
+            <div class="amt"><div class="e">5,78 €</div><div class="l">geschätzt</div></div>
+          </div>
+
+          <div class="store-card">
+            <div class="store-stripe" style="background:var(--track);"></div>
+            <div class="body">
+              <div class="l1"><span class="nm">Ohne Markt</span><span class="cnt">0 / 3</span></div>
+              <div class="hbar thin" style="margin-top:5px;"><i style="width:0%"></i></div>
+              <div class="l3"><span class="dot" style="background:#6A564A;"></span><span class="dot" style="background:#5A6F7C;"></span><span class="t">offen</span></div>
+            </div>
+            <div class="amt"><div class="e">19,58 €</div><div class="l">geschätzt</div></div>
+          </div>
+        </div>
+
+        <div class="px" style="margin-top:5px;">
+          <div class="card" style="padding:16px 14px; text-align:center;">
+            <div style="font-size:11.5px; font-weight:600;">Gesamtschätzung</div>
+            <div style="font-size:26px; font-weight:800; margin-top:4px; letter-spacing:-0.01em;">62,36 €</div>
+            <div class="rule fade" style="width:58%; margin:10px auto 9px;"></div>
+            <div style="font-size:11px; color:var(--text2); font-weight:600;">17 Artikel in 3 Geschäften</div>
+          </div>
+        </div>
+
+        <div class="px" style="margin-top:11px; padding-bottom:78px;">
+          <div class="btn-green">🛒 Einkaufliste abschließen (6)</div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>2 · Alle Listen, leer</figcaption>
+    <div class="note">EmptyState statt Gesamtschätzung, Märkte bleiben sichtbar</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="t">Einkaufsliste</div></div><div class="avatar"></div></div>
+        <div class="px" style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+          <div class="picker"><span class="dot" style="background:var(--text);"></span>Alle Listen<span style="color:var(--text2); font-size:10px;">▾</span></div>
+          <div class="icon-btn" style="font-size:14px;">◎</div>
+        </div>
+        <div class="px" style="margin-top:13px;">
+          <div class="store-card">
+            <div class="store-stripe" style="background:#B5623F;"></div>
+            <div class="body"><div class="l1"><span class="nm">REWE</span><span class="cnt">0 / 0</span></div>
+              <div class="hbar thin" style="margin-top:5px;"><i style="width:0%"></i></div>
+              <div class="l3"><span class="t">keine Artikel</span></div></div>
+            <div class="amt"><div class="e">0,00 €</div><div class="l">geschätzt</div></div>
+          </div>
+          <div class="store-card">
+            <div class="store-stripe" style="background:var(--track);"></div>
+            <div class="body"><div class="l1"><span class="nm">Ohne Markt</span><span class="cnt">0 / 0</span></div>
+              <div class="hbar thin" style="margin-top:5px;"><i style="width:0%"></i></div>
+              <div class="l3"><span class="t">keine Artikel</span></div></div>
+            <div class="amt"><div class="e">0,00 €</div><div class="l">geschätzt</div></div>
+          </div>
+          <div class="card empty" style="margin-top:4px;">
+            <div class="sym">🛒</div>
+            <div class="t">Einkaufsliste ist leer</div>
+            <div class="h">Tippe auf „+“ um zu starten.</div>
+          </div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>3 · Kein Haushalt</figcaption>
+    <div class="note">Guard-Zustand, bevor überhaupt eine Liste existiert</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="over">Gemeinsame Liste</div><div class="t">Einkaufsliste</div></div><div class="avatar"></div></div>
+        <div class="px" style="margin-top:20px;">
+          <div class="card empty">
+            <div class="sym">🛒</div>
+            <div class="t">Noch kein Haushalt</div>
+            <div class="h">Lege im Profil einen Haushalt an oder tritt einem bei.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>4 · Marktliste REWE</figcaption>
+    <div class="note">Nach Kategorie gruppiert, Reihenfolge folgt der Laufstrecke des Markts</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="t">Einkaufsliste</div></div><div class="avatar"></div></div>
+
+        <div class="px" style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+          <div class="picker"><span class="dot" style="background:#B5623F;"></span>REWE<span style="color:var(--text2); font-size:10px;">▾</span></div>
+          <div style="display:flex; gap:7px;"><div class="icon-btn" style="font-size:14px;">◎</div><div class="icon-btn" style="font-size:13px;">☑</div></div>
+        </div>
+
+        <div class="px" style="margin-top:10px;"><div style="font-size:11px; font-weight:800; color:var(--magenta);">⠿ Reihenfolge bearbeiten</div></div>
+
+        <div class="px" style="padding-bottom:76px;">
+          <div class="cat-hdr"><span class="dot" style="background:#748C5B;"></span><span class="n">Obst &amp; Gemüse</span></div>
+          <div class="sitem"><div class="body"><div class="l1"><span class="n">Tomaten</span><span class="q">500 g</span><span class="p">1,49 €</span></div></div></div>
+          <div class="hairline"></div>
+          <div class="sitem"><div class="body"><div class="l1"><span class="n">Zwiebeln</span><span class="q">1 kg</span><span class="p">1,29 €</span></div></div></div>
+          <div class="hairline"></div>
+          <div class="sitem done"><div class="body"><div class="l1"><span class="n">Salat</span><span class="q">1 Kopf</span><span class="p">1,79 €</span></div></div></div>
+
+          <div class="cat-hdr"><span class="dot" style="background:#C6A24A;"></span><span class="n">Brot &amp; Backwaren</span></div>
+          <div class="sitem"><div class="body"><div class="l1"><span class="n">Vollkornbrot</span><span class="q">1 Stück</span><span class="p">2,49 €</span></div></div></div>
+
+          <div class="cat-hdr"><span class="dot" style="background:#5C7396;"></span><span class="n">Milchprodukte &amp; Eier</span></div>
+          <div class="sitem"><div class="body"><div class="l1"><span class="n">Vollmilch 3,5%</span><span class="q">2 Liter</span><span class="p">2,80 €</span></div></div></div>
+          <div class="hairline"></div>
+          <div class="sitem"><div class="body"><div class="l1"><span class="n">Frischkäse</span><span class="q">2 Becher</span><span class="p">2,98 €</span></div><div class="hint">🍽️ Rührei mit Gouda</div></div></div>
+
+          <div class="cat-hdr"><span class="dot" style="background:#A6483D;"></span><span class="n">Fleisch &amp; Geflügel</span></div>
+          <div class="sitem"><div class="body"><div class="l1"><span class="n">Hähnchenbrust</span><span class="q">600 g</span><span class="p">5,49 €</span></div><div class="hint">🍽️ Ofengemüse mit Feta</div></div></div>
+
+          <div class="cat-hdr"><span class="dot" style="background:#8B6B4A;"></span><span class="n">Reis, Getreide &amp; Hülsenfrüchte</span></div>
+          <div class="sitem done"><div class="body"><div class="l1"><span class="n">Basmatireis</span><span class="q">1 kg</span><span class="p">2,29 €</span></div><div class="hint">500 g Packung</div></div></div>
+
+          <div class="cat-hdr"><span class="dot" style="background:#B57B48;"></span><span class="n">Öle, Essig &amp; Gewürze</span></div>
+          <div class="sitem done"><div class="body"><div class="l1"><span class="n">Olivenöl</span><span class="q">1 Flasche</span><span class="p">4,99 €</span></div></div></div>
+
+          <div style="margin-top:14px; display:flex; flex-direction:column; gap:8px;">
+            <div class="btn-soft">🛒 Einkaufsmodus starten</div>
+            <div class="btn-green">🛒 Einkaufsliste bei REWE abschließen (3)</div>
+          </div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>5 · Marktliste, leer</figcaption>
+    <div class="note">Gleicher Kopf, EmptyState statt Abschnitte</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="t">Einkaufsliste</div></div><div class="avatar"></div></div>
+        <div class="px" style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+          <div class="picker"><span class="dot" style="background:var(--track);"></span>Ohne Markt<span style="color:var(--text2); font-size:10px;">▾</span></div>
+          <div class="icon-btn" style="font-size:14px;">◎</div>
+        </div>
+        <div class="px" style="margin-top:16px;">
+          <div class="card empty">
+            <div class="sym">🛒</div>
+            <div class="t">Keine Artikel ohne Markt</div>
+            <div class="h">Tippe auf „+“ um zu starten.</div>
+          </div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ AUSWAHL & MENÜS ══════════════════════════ -->
+  <h2 class="group">Auswahl &amp; Menüs</h2>
+
+  <figure class="slot">
+    <figcaption>6 · Mehrfachauswahl</figcaption>
+    <div class="note">Über ☑ im Kopf, blendet Checkboxen und die Aktionszeile ein</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="t">Einkaufsliste</div></div><div class="avatar"></div></div>
+
+        <div class="px" style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+          <div class="picker"><span class="dot" style="background:#B5623F;"></span>REWE<span style="color:var(--text2); font-size:10px;">▾</span></div>
+          <div style="display:flex; gap:7px;"><div class="icon-btn" style="font-size:14px;">◎</div><div class="icon-btn" style="font-size:13px;">✕</div></div>
+        </div>
+
+        <div class="px" style="margin-top:11px; display:flex; align-items:center; justify-content:space-between;">
+          <span style="font-size:12.5px; font-weight:700;">3 Artikel ausgewählt</span>
+          <div style="display:flex; align-items:center; gap:11px;">
+            <span style="font-size:11px; font-weight:800; color:var(--magenta);">Alle</span>
+            <span class="pill-grad" style="padding:7px 14px; font-size:11px;">Verschieben</span>
+          </div>
+        </div>
+
+        <div class="px" style="padding-bottom:76px;">
+          <div class="cat-hdr"><span class="dot" style="background:#748C5B;"></span><span class="n">Obst &amp; Gemüse</span></div>
+          <div class="sitem"><div class="cb on">✓</div><div class="body"><div class="l1"><span class="n">Tomaten</span><span class="q">500 g</span><span class="p">1,49 €</span></div></div></div>
+          <div class="hairline"></div>
+          <div class="sitem"><div class="cb on">✓</div><div class="body"><div class="l1"><span class="n">Zwiebeln</span><span class="q">1 kg</span><span class="p">1,29 €</span></div></div></div>
+          <div class="hairline"></div>
+          <div class="sitem done"><div class="cb"></div><div class="body"><div class="l1"><span class="n">Salat</span><span class="q">1 Kopf</span><span class="p">1,79 €</span></div></div></div>
+
+          <div class="cat-hdr"><span class="dot" style="background:#C6A24A;"></span><span class="n">Brot &amp; Backwaren</span></div>
+          <div class="sitem"><div class="cb on">✓</div><div class="body"><div class="l1"><span class="n">Vollkornbrot</span><span class="q">1 Stück</span><span class="p">2,49 €</span></div></div></div>
+
+          <div class="cat-hdr"><span class="dot" style="background:#5C7396;"></span><span class="n">Milchprodukte &amp; Eier</span></div>
+          <div class="sitem"><div class="cb"></div><div class="body"><div class="l1"><span class="n">Vollmilch 3,5%</span><span class="q">2 Liter</span><span class="p">2,80 €</span></div></div></div>
+          <div class="hairline"></div>
+          <div class="sitem"><div class="cb"></div><div class="body"><div class="l1"><span class="n">Frischkäse</span><span class="q">2 Becher</span><span class="p">2,98 €</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>7 · Markt-Filter-Menü</figcaption>
+    <div class="note">Öffnet unter der Pille, mit Artikelzahl je Liste</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="t">Einkaufsliste</div></div><div class="avatar"></div></div>
+        <div class="px" style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+          <div class="picker"><span class="dot" style="background:var(--text);"></span>Alle Listen<span style="color:var(--text2); font-size:10px;">▴</span></div>
+          <div class="icon-btn" style="font-size:14px;">◎</div>
+        </div>
+      </div>
+      <div class="scrim"></div>
+      <div class="menu-panel">
+        <div class="menu-row on"><span class="dot" style="background:var(--text);"></span>Alle Listen<span class="c">17</span></div>
+        <div class="menu-row"><span class="dot" style="background:#B5623F;"></span>REWE<span class="c">9</span></div>
+        <div class="menu-row"><span class="dot" style="background:#8B6F72;"></span>dm<span class="c">3</span></div>
+        <div class="menu-row"><span class="dot" style="background:#748C5B;"></span>Edeka<span class="c">2</span></div>
+        <div class="hairline" style="margin:4px 8px;"></div>
+        <div class="menu-row"><span class="dot" style="background:var(--track);"></span>Ohne Markt<span class="c">3</span></div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ ANLEGEN & BEARBEITEN ══════════════════════════ -->
+  <h2 class="group">Artikel anlegen &amp; bearbeiten</h2>
+
+  <figure class="slot">
+    <figcaption>8 · Artikel hinzufügen</figcaption>
+    <div class="note">Produkt aus den Vorschlägen gewählt, Zusammenfassung mit Marke und EAN unten</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="modal-panel">
+        <div class="grabber" style="margin-top:8px;"></div>
+        <div class="modal-hd">
+          <div><div class="t">Artikel hinzufügen</div><div class="s">REWE</div></div>
+          <div class="close-btn">✕</div>
+        </div>
+        <div class="px" style="overflow:hidden;">
+          <div style="display:flex; gap:8px; align-items:center;">
+            <div class="field" style="flex:1; margin-bottom:0;">
+              <div class="inp"><span>Schmelzkäse</span><span class="spin" style="margin-left:auto;"></span></div>
+            </div>
+            <div class="icon-btn" style="width:38px; height:38px; border-radius:12px; background:var(--raise); font-size:14px;">◎</div>
+          </div>
+
+          <div style="display:flex; gap:8px; margin-top:10px;">
+            <div class="isel">🥕 Lebensmittel<span class="chev">⌄</span></div>
+            <div class="isel">🔁 Zuletzt<span class="chev">⌄</span></div>
+          </div>
+
+          <div class="sugg-row" style="margin-top:10px;">
+            <div class="sugg-card"><div class="n">Milch</div><div class="m">1 Stück</div><div class="m">Ohne Markt</div></div>
+            <div class="sugg-card on"><div class="n">Schmelzkäse</div><div class="m">1 Stück</div><div class="m">Zuletzt: REWE</div></div>
+            <div class="sugg-card"><div class="n">Haferflocken…</div><div class="m">2 Stück</div><div class="m">Zuletzt: REWE</div></div>
+          </div>
+          <div class="sugg-more"><span class="c">›</span><span>1 weitere anzeigen</span></div>
+
+          <div style="display:flex; gap:9px; align-items:flex-end; margin-top:12px;">
+            <div style="flex:1.15;">
+              <div class="lb" style="font-size:9.5px; font-weight:700; color:var(--text2); margin-bottom:5px;">Einkaufsmenge</div>
+              <div class="step3"><div class="m">−</div><div class="v">1</div><div class="p">+</div></div>
+            </div>
+            <div class="field" style="flex:1; margin-bottom:0;">
+              <div class="lb">Markt</div>
+              <div class="inp"><span>REWE</span></div>
+            </div>
+          </div>
+
+          <div class="hairline" style="margin:13px 0 0;"></div>
+          <div class="sugg-more" style="margin-bottom:11px;"><span class="c">›</span><span>Weitere Angaben</span></div>
+
+          <div class="psum">
+            <div class="body">
+              <div class="n">Schmelzkäse</div>
+              <div class="b">Hofburger</div>
+              <div class="e">EAN 4047247060967</div>
+            </div>
+            <div class="amt"><div class="v">1 Stück</div><div class="l">Menge</div></div>
+          </div>
+        </div>
+        <div class="px" style="padding-top:11px; padding-bottom:12px;">
+          <div class="pill-grad" style="height:42px; border-radius:13px; font-size:12.5px;">Zur Einkaufsliste hinzufügen</div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>9 · Vorschläge aufgeklappt</figcaption>
+    <div class="note">Erste Reihe plus Rest im Raster, umgeschaltet über „n weitere anzeigen“</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="modal-panel">
+        <div class="grabber" style="margin-top:8px;"></div>
+        <div class="modal-hd">
+          <div><div class="t">Artikel hinzufügen</div><div class="s">REWE</div></div>
+          <div class="close-btn">✕</div>
+        </div>
+        <div class="px" style="overflow:hidden;">
+          <div style="display:flex; gap:8px; align-items:center;">
+            <div class="field" style="flex:1; margin-bottom:0;"><div class="inp"><span class="ph">Artikel suchen</span></div></div>
+            <div class="icon-btn" style="width:38px; height:38px; border-radius:12px; background:var(--raise); font-size:14px;">◎</div>
+          </div>
+
+          <div style="display:flex; gap:8px; margin-top:10px;">
+            <div class="isel">🥕 Lebensmittel<span class="chev">⌄</span></div>
+            <div class="isel">🕘 Häufig<span class="chev">⌄</span></div>
+          </div>
+
+          <div class="sugg-row" style="margin-top:10px;">
+            <div class="sugg-card"><div class="n">Vollmilch 3,5%</div><div class="m">2 Liter</div><div class="m">Zuletzt: REWE</div></div>
+            <div class="sugg-card"><div class="n">Butter</div><div class="m">1 Packung</div><div class="m">Zuletzt: Edeka</div></div>
+            <div class="sugg-card"><div class="n">Basmatireis</div><div class="m">1 kg</div><div class="m">Zuletzt: REWE</div></div>
+          </div>
+          <div class="sugg-row" style="margin-top:7px;">
+            <div class="sugg-card"><div class="n">Zahnpasta</div><div class="m">1 Stück</div><div class="m">Zuletzt: dm</div></div>
+            <div class="sugg-card"><div class="n">Kaffeebohnen</div><div class="m">1 kg</div><div class="m">Ohne Markt</div></div>
+            <div class="sugg-card"><div class="n">Frischkäse</div><div class="m">2 Becher</div><div class="m">Zuletzt: REWE</div></div>
+          </div>
+          <div class="sugg-row" style="margin-top:7px;">
+            <div class="sugg-card"><div class="n">Olivenöl</div><div class="m">1 Flasche</div><div class="m">Zuletzt: REWE</div></div>
+            <div class="sugg-card" style="visibility:hidden;"><div class="n">.</div></div>
+            <div class="sugg-card" style="visibility:hidden;"><div class="n">.</div></div>
+          </div>
+          <div class="sugg-more"><span class="c">▾</span><span>Weniger anzeigen</span></div>
+
+          <div style="display:flex; gap:9px; align-items:flex-end; margin-top:12px;">
+            <div style="flex:1.15;">
+              <div class="lb" style="font-size:9.5px; font-weight:700; color:var(--text2); margin-bottom:5px;">Einkaufsmenge</div>
+              <div class="step3"><div class="m">−</div><div class="v">1</div><div class="p">+</div></div>
+            </div>
+            <div class="field" style="flex:1; margin-bottom:0;">
+              <div class="lb">Markt</div>
+              <div class="inp"><span>REWE</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="px" style="padding-top:11px; padding-bottom:12px;">
+          <div class="pill-grad" style="height:42px; border-radius:13px; font-size:12.5px; opacity:.45;">Zur Einkaufsliste hinzufügen</div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>9b · Weitere Angaben</figcaption>
+    <div class="note">Aufgeklappt: Einheit, Kategorie, Packungsinhalt und Preisschätzung</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="modal-panel">
+        <div class="grabber" style="margin-top:8px;"></div>
+        <div class="modal-hd">
+          <div><div class="t">Artikel hinzufügen</div><div class="s">REWE</div></div>
+          <div class="close-btn">✕</div>
+        </div>
+        <div class="px" style="overflow:hidden;">
+          <div style="display:flex; gap:8px; align-items:center;">
+            <div class="field" style="flex:1; margin-bottom:0;">
+              <div class="inp"><span>Schmelzkäse</span><span class="spin" style="margin-left:auto;"></span></div>
+            </div>
+            <div class="icon-btn" style="width:38px; height:38px; border-radius:12px; background:var(--raise); font-size:14px;">◎</div>
+          </div>
+
+          <div style="display:flex; gap:8px; margin-top:10px;">
+            <div class="isel">🥕 Lebensmittel<span class="chev">⌄</span></div>
+            <div class="isel">🔁 Zuletzt<span class="chev">⌄</span></div>
+          </div>
+
+          <div class="sugg-row" style="margin-top:10px;">
+            <div class="sugg-card"><div class="n">Milch</div><div class="m">1 Stück</div><div class="m">Ohne Markt</div></div>
+            <div class="sugg-card on"><div class="n">Schmelzkäse</div><div class="m">1 Stück</div><div class="m">Zuletzt: REWE</div></div>
+            <div class="sugg-card"><div class="n">Haferflocken…</div><div class="m">2 Stück</div><div class="m">Zuletzt: REWE</div></div>
+          </div>
+
+          <div style="display:flex; gap:9px; align-items:flex-end; margin-top:12px;">
+            <div style="flex:1.15;">
+              <div class="lb" style="font-size:9.5px; font-weight:700; color:var(--text2); margin-bottom:5px;">Einkaufsmenge</div>
+              <div class="step3"><div class="m">−</div><div class="v">1</div><div class="p">+</div></div>
+            </div>
+            <div class="field" style="flex:1; margin-bottom:0;">
+              <div class="lb">Markt</div>
+              <div class="inp"><span>REWE</span></div>
+            </div>
+          </div>
+
+          <div class="hairline" style="margin:13px 0 0;"></div>
+          <div class="sugg-more" style="margin-bottom:6px;"><span class="c">▾</span><span>Weitere Angaben</span></div>
+
+          <div class="field"><div class="lb">Einheit</div><div class="inp"><span>Stück</span><span class="chev">⌄</span></div></div>
+          <div class="field"><div class="lb">Kategorie</div><div class="inp"><span class="dot" style="background:#964B4B; margin-right:7px;"></span><span>Käse, Aufschnitt &amp; Feinkost</span><span class="chev">⌄</span></div></div>
+          <div style="display:flex; gap:8px; align-items:flex-end;">
+            <div class="field" style="flex:1.3;"><div class="lb">Inhalt je Packung</div><div class="inp"><span class="ph">z. B. 500</span></div></div>
+            <div class="field" style="flex:1;"><div class="lb">Einheit</div><div class="inp"><span>g</span><span class="chev">⌄</span></div></div>
+          </div>
+          <div class="field"><div class="lb">Geschätzter Preis (optional)</div><div class="inp"><span class="ph">z. B. 2,49 €</span></div></div>
+        </div>
+        <div class="px" style="padding-top:11px; padding-bottom:12px;">
+          <div class="pill-grad" style="height:42px; border-radius:13px; font-size:12.5px;">Zur Einkaufsliste hinzufügen</div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>9c · Quelle &amp; Filter</figcaption>
+    <div class="note">Beide Auswahlmenüs offen, „Gerichte“ und „Favoriten“ sind als „bald“ deaktiviert</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="modal-panel">
+        <div class="grabber" style="margin-top:8px;"></div>
+        <div class="modal-hd">
+          <div><div class="t">Artikel hinzufügen</div><div class="s">REWE</div></div>
+          <div class="close-btn">✕</div>
+        </div>
+        <div class="px" style="overflow:hidden;">
+          <div style="display:flex; gap:8px; align-items:center;">
+            <div class="field" style="flex:1; margin-bottom:0;">
+              <div class="inp"><span>Schmelzkäse</span><span class="spin" style="margin-left:auto;"></span></div>
+            </div>
+            <div class="icon-btn" style="width:38px; height:38px; border-radius:12px; background:var(--raise); font-size:14px;">◎</div>
+          </div>
+
+          <div style="display:flex; gap:8px; margin-top:10px;">
+            <div class="isel">🥕 Lebensmittel<span class="chev">⌄</span></div>
+            <div class="isel">🔁 Zuletzt<span class="chev">⌄</span></div>
+          </div>
+        </div>
+        <div style="position:absolute; left:15px; right:15px; top:150px; display:flex; gap:8px; align-items:flex-start;">
+          <div class="isel-menu" style="flex:1;">
+            <div class="isel-opt on">🥕 Lebensmittel</div>
+            <div class="isel-opt off">🍽️ Gerichte<span class="hint">bald</span></div>
+          </div>
+          <div class="isel-menu" style="flex:1;">
+            <div class="isel-opt">🕘 Häufig</div>
+            <div class="isel-opt on">🔁 Zuletzt</div>
+            <div class="isel-opt off">⭐ Favoriten<span class="hint">bald</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>10 · Barcode-Scanner</figcaption>
+    <div class="note">Aus dem Kopf der Liste oder aus dem Hinzufügen-Modal</div>
+    <div class="phone">
+      <div class="scan-view">
+        <div class="scan-frame"><i></i><i></i><i></i><i></i><div class="scan-line"></div></div>
+      </div>
+      <div style="position:absolute; top:26px; left:15px; right:15px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:12.5px; font-weight:800; color:#fff;">Barcode scannen</span>
+        <div class="close-btn" style="background:rgba(255,255,255,.16); color:#fff;">✕</div>
+      </div>
+      <div style="position:absolute; left:24px; right:24px; bottom:70px; text-align:center;">
+        <div style="font-size:11.5px; font-weight:700; color:#fff;">Code in den Rahmen halten</div>
+        <div style="font-size:10.5px; color:rgba(255,255,255,.6); margin-top:5px; line-height:1.45;">Erkannte Produkte werden direkt ins Formular übernommen.</div>
+      </div>
+      <div style="position:absolute; left:24px; right:24px; bottom:20px;">
+        <div class="btn-soft" style="background:rgba(255,255,255,.14); color:#fff;">Manuell eingeben</div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>11 · Artikel bearbeiten</figcaption>
+    <div class="note">Gleiche Feldbasis wie Hinzufügen, Werte vorbelegt, Aktion „Speichern“</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="modal-panel">
+        <div class="modal-hd">
+          <div><div class="t">Artikel bearbeiten</div><div class="s">Bestehender Eintrag</div></div>
+          <div class="close-btn">✕</div>
+        </div>
+        <div class="px" style="overflow:auto;">
+          <div class="field"><div class="lb">Artikelname</div><div class="inp"><span>Frischkäse</span></div></div>
+          <div style="display:flex; gap:9px; align-items:flex-end;">
+            <div style="flex:1.15;">
+              <div class="lb" style="font-size:9.5px; font-weight:700; color:var(--text2); margin-bottom:5px;">Menge</div>
+              <div class="stepper"><span class="op">−</span><span class="val">2 Becher</span><span class="op">+</span></div>
+            </div>
+            <div class="field" style="flex:1; margin-bottom:0;"><div class="lb">Markt</div><div class="inp"><span>REWE</span><span class="chev">⌄</span></div></div>
+          </div>
+          <div class="disclosure" style="margin-top:13px;"><span>▾ Weitere Angaben</span><span class="a">Ausblenden</span></div>
+          <div class="field"><div class="lb">Einheit</div><div class="inp"><span>Becher</span><span class="chev">⌄</span></div></div>
+          <div class="field"><div class="lb">Kategorie</div><div class="inp"><span class="dot" style="background:#5C7396; margin-right:7px;"></span><span>Milchprodukte &amp; Eier</span><span class="chev">⌄</span></div></div>
+          <div style="display:flex; gap:8px; align-items:flex-end;">
+            <div class="field" style="flex:1.3;"><div class="lb">Inhalt je Packung</div><div class="inp"><span>200</span></div></div>
+            <div class="field" style="flex:1;"><div class="lb">Einheit</div><div class="inp"><span>g</span><span class="chev">⌄</span></div></div>
+          </div>
+          <div class="field"><div class="lb">Geschätzter Preis (optional)</div><div class="inp"><span>2,98 €</span></div></div>
+          <div class="hint" style="font-size:10px; color:var(--text2); margin-bottom:10px;">🍽️ Aus Rezept: Rührei mit Gouda</div>
+        </div>
+        <div class="px" style="padding-top:10px; padding-bottom:12px;">
+          <div class="pill-grad" style="height:42px; border-radius:13px; font-size:12.5px;">Speichern</div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ VERSCHIEBEN & SORTIEREN ══════════════════════════ -->
+  <h2 class="group">Verschieben &amp; Sortieren</h2>
+
+  <figure class="slot">
+    <figcaption>12 · Artikel verschieben</figcaption>
+    <div class="note">Ziel-Liste wählen, aktuelle Liste ist deaktiviert</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="t">Einkaufsliste</div></div><div class="avatar"></div></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="sheet-panel" style="padding:16px 15px 20px;">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:14px;">
+          <div><div style="font-size:14px; font-weight:800;">Artikel verschieben</div>
+            <div style="font-size:11px; color:var(--text2); margin-top:3px; font-weight:600;">3 Artikel in eine andere Liste verschieben</div></div>
+          <div class="close-btn">✕</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:7px;">
+          <div class="menu-row" style="background:var(--card); opacity:.4;"><span class="dot lg" style="background:#B5623F;"></span>REWE<span class="c">aktuell</span></div>
+          <div class="menu-row" style="background:var(--card);"><span class="dot lg" style="background:#8B6F72;"></span>dm</div>
+          <div class="menu-row" style="background:var(--card);"><span class="dot lg" style="background:#748C5B;"></span>Edeka</div>
+          <div class="menu-row" style="background:var(--card);"><span class="dot lg" style="background:var(--track);"></span>Ohne Markt</div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>13 · Reihenfolge bearbeiten</figcaption>
+    <div class="note">Laufstrecke je Markt, Drag am Griff ⠿, Speichern in der Marktfarbe</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="sheet-panel" style="top:72px; padding:8px 0 16px;">
+        <div class="grabber"></div>
+        <div class="px" style="padding-bottom:10px;">
+          <div style="font-size:14px; font-weight:800;">Reihenfolge bearbeiten</div>
+          <div style="font-size:11px; color:var(--text2); margin-top:3px; font-weight:600;">REWE — am Griff ⠿ ziehen</div>
+        </div>
+        <div class="px" style="height:334px; overflow:hidden;">
+          <div class="drag-row"><span>Obst &amp; Gemüse</span><span class="h">⠿</span></div>
+          <div class="drag-row active"><span>Brot &amp; Backwaren</span><span class="h">⠿</span></div>
+          <div class="drag-row"><span>Milchprodukte &amp; Eier</span><span class="h">⠿</span></div>
+          <div class="drag-row"><span>Käse, Aufschnitt &amp; Feinkost</span><span class="h">⠿</span></div>
+          <div class="drag-row"><span>Fleisch &amp; Geflügel</span><span class="h">⠿</span></div>
+          <div class="drag-row"><span>Fisch &amp; Meeresfrüchte</span><span class="h">⠿</span></div>
+          <div class="drag-row"><span>Tiefkühl</span><span class="h">⠿</span></div>
+        </div>
+        <div class="px" style="display:flex; align-items:center; justify-content:space-between; padding-top:14px;">
+          <span style="font-size:11.5px; color:var(--text2); font-weight:600;">Auf Standard zurücksetzen</span>
+          <span style="background:#B5623F; color:#fff; font-size:12px; font-weight:800; padding:10px 18px; border-radius:14px;">Speichern</span>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ EINKAUFEN & ABSCHLUSS ══════════════════════════ -->
+  <h2 class="group">Einkaufen &amp; Abschluss</h2>
+
+  <figure class="slot">
+    <figcaption>14 · Einkaufsmodus</figcaption>
+    <div class="note">Vollbild im Laden, nur Abhaken, Kategorien aufklappbar</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="sm-hd">
+          <div style="display:flex; align-items:center; gap:8px;"><span class="dot lg" style="background:#B5623F;"></span><span style="font-size:14px; font-weight:800;">REWE</span></div>
+          <div class="close-btn">✕</div>
+        </div>
+        <div class="px" style="padding-bottom:12px;">
+          <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--text2); font-weight:600; margin-bottom:5px;">
+            <span>3 von 9 abgehakt</span><span>33 %</span>
+          </div>
+          <div class="hbar"><i style="width:33%"></i></div>
+        </div>
+
+        <div class="px" style="padding-bottom:70px;">
+          <div class="sm-cat"><span class="dot" style="background:#748C5B;"></span><span class="n" style="color:#748C5B;">Obst &amp; Gemüse</span><span class="c" style="color:#748C5B;">1/3</span><span class="chev">⌄</span></div>
+          <div class="sm-row"><div class="cb round"></div><span class="n">Tomaten</span><span class="q">500 g</span><span class="p">1,49 €</span></div>
+          <div class="sm-row"><div class="cb round"></div><span class="n">Zwiebeln</span><span class="q">1 kg</span><span class="p">1,29 €</span></div>
+          <div class="sm-row done"><div class="cb round on">✓</div><span class="n">Salat</span><span class="q">1 Kopf</span><span class="p">1,79 €</span></div>
+          <div class="hairline"></div>
+
+          <div class="sm-cat"><span class="dot" style="background:#C6A24A;"></span><span class="n" style="color:#C6A24A;">Brot &amp; Backwaren</span><span class="c" style="color:#C6A24A;">0/1</span><span class="chev">⌄</span></div>
+          <div class="sm-row"><div class="cb round"></div><span class="n">Vollkornbrot</span><span class="q">1 Stück</span><span class="p">2,49 €</span></div>
+          <div class="hairline"></div>
+
+          <div class="sm-cat"><span class="dot" style="background:#5C7396;"></span><span class="n" style="color:#5C7396;">Milchprodukte &amp; Eier</span><span class="c" style="color:#5C7396;">0/2</span><span class="chev">⌄</span></div>
+          <div class="sm-row"><div class="cb round"></div><span class="n">Vollmilch 3,5%</span><span class="q">2 Liter</span><span class="p">2,80 €</span></div>
+          <div class="sm-row"><div class="cb round"></div><span class="n">Frischkäse</span><span class="q">2 Becher</span><span class="p">2,98 €</span></div>
+        </div>
+      </div>
+      <div class="px" style="position:absolute; left:0; right:0; bottom:14px;">
+        <div class="btn-green">Einkauf abschließen</div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>15 · Einkaufsmodus, eingeklappt</figcaption>
+    <div class="note">Erledigte Kategorie mit ✓, eingeklappte mit gedrehtem Chevron</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="sm-hd">
+          <div style="display:flex; align-items:center; gap:8px;"><span class="dot lg" style="background:#B5623F;"></span><span style="font-size:14px; font-weight:800;">REWE</span></div>
+          <div class="close-btn">✕</div>
+        </div>
+        <div class="px" style="padding-bottom:12px;">
+          <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--text2); font-weight:600; margin-bottom:5px;">
+            <span>7 von 9 abgehakt</span><span>78 %</span>
+          </div>
+          <div class="hbar"><i style="width:78%"></i></div>
+        </div>
+
+        <div class="px" style="padding-bottom:70px;">
+          <div class="sm-cat"><span class="dot" style="background:#748C5B;"></span><span class="n" style="color:#748C5B;">Obst &amp; Gemüse</span><span class="c" style="color:#748C5B;">3/3 ✓</span><span class="chev">›</span></div>
+          <div class="hairline"></div>
+          <div class="sm-cat"><span class="dot" style="background:#C6A24A;"></span><span class="n" style="color:#C6A24A;">Brot &amp; Backwaren</span><span class="c" style="color:#C6A24A;">1/1 ✓</span><span class="chev">›</span></div>
+          <div class="hairline"></div>
+          <div class="sm-cat"><span class="dot" style="background:#5C7396;"></span><span class="n" style="color:#5C7396;">Milchprodukte &amp; Eier</span><span class="c" style="color:#5C7396;">2/2 ✓</span><span class="chev">›</span></div>
+          <div class="hairline"></div>
+
+          <div class="sm-cat"><span class="dot" style="background:#A6483D;"></span><span class="n" style="color:#A6483D;">Fleisch &amp; Geflügel</span><span class="c" style="color:#A6483D;">1/1 ✓</span><span class="chev">›</span></div>
+          <div class="hairline"></div>
+
+          <div class="sm-cat"><span class="dot" style="background:#8B6B4A;"></span><span class="n" style="color:#8B6B4A;">Reis, Getreide &amp; Hülsenfrüchte</span><span class="c" style="color:#8B6B4A;">0/1</span><span class="chev">⌄</span></div>
+          <div class="sm-row"><div class="cb round"></div><span class="n">Basmatireis</span><span class="q">1 kg</span><span class="p">2,29 €</span></div>
+          <div class="hairline"></div>
+
+          <div class="sm-cat"><span class="dot" style="background:#B57B48;"></span><span class="n" style="color:#B57B48;">Öle, Essig &amp; Gewürze</span><span class="c" style="color:#B57B48;">0/1</span><span class="chev">⌄</span></div>
+          <div class="sm-row"><div class="cb round"></div><span class="n">Olivenöl</span><span class="q">1 Flasche</span><span class="p">4,99 €</span></div>
+        </div>
+      </div>
+      <div class="px" style="position:absolute; left:0; right:0; bottom:14px;">
+        <div class="btn-green">Einkauf abschließen</div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>16 · In Vorrat übernehmen</figcaption>
+    <div class="note">Je Artikel Menge, Lagerort und MHD, bevor gebucht wird</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="sheet-panel" style="top:58px; padding:8px 0 14px; display:flex; flex-direction:column;">
+        <div class="grabber"></div>
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; padding:0 15px 12px; gap:10px;">
+          <div><div style="font-size:14px; font-weight:800;">In Vorrat übernehmen</div>
+            <div style="font-size:11px; color:var(--text2); margin-top:3px; font-weight:600;">6 Artikel abgehakt</div></div>
+          <div class="close-btn">✕</div>
+        </div>
+        <div class="px" style="flex:1; overflow:hidden;">
+          <div class="tr-item">
+            <div class="l1"><span class="nm">Salat</span><span class="tr-qty">1 Kopf</span></div>
+            <div class="tr-loc"><span class="o on">🧊 Kühl</span><span class="o">❄️ Frost</span><span class="o">🗄 Kammer</span></div>
+            <div class="tr-mhd"><span class="k">MHD</span><span class="v">08.09.2026</span></div>
+          </div>
+          <div class="tr-item">
+            <div class="l1"><span class="nm">Basmatireis</span><span class="tr-qty">1 kg</span></div>
+            <div class="tr-loc"><span class="o">🧊 Kühl</span><span class="o">❄️ Frost</span><span class="o on">🗄 Kammer</span></div>
+            <div class="tr-mhd"><span class="k">MHD</span><span class="v" style="color:var(--text2);">kein Datum</span></div>
+          </div>
+          <div class="tr-item" style="border-bottom:none;">
+            <div class="l1"><span class="nm">Butter</span><span class="tr-qty">1 Packung</span></div>
+            <div class="tr-loc"><span class="o on">🧊 Kühl</span><span class="o">❄️ Frost</span><span class="o">🗄 Kammer</span></div>
+            <div class="tr-mhd"><span class="k">MHD</span><span class="v">02.10.2026</span></div>
+          </div>
+        </div>
+        <div class="px" style="padding-top:12px; display:flex; flex-direction:column; align-items:center; gap:9px;">
+          <div class="btn-green" style="width:100%;">✓ 6 Artikel in Vorrat übernehmen</div>
+          <span style="font-size:11.5px; color:var(--text2); font-weight:600;">Später</span>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ MÄRKTE ══════════════════════════ -->
+  <h2 class="group">Märkte verwalten</h2>
+
+  <figure class="slot">
+    <figcaption>17 · Märkte verwalten</figcaption>
+    <div class="note">Eigene Route unter Einstellungen, nicht Teil der Liste selbst</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="over">Haushalt Meier</div><div class="t">Märkte verwalten</div></div>
+          <div style="width:32px;"></div>
+        </div>
+
+        <div class="px">
+          <div class="card" style="padding:14px;">
+            <div style="font-size:12.5px; font-weight:700; margin-bottom:11px;">Neuen Markt hinzufügen</div>
+            <div class="field"><div class="inp"><span class="ph">z.B. REWE, Aldi, Lidl...</span></div></div>
+            <div style="font-size:10.5px; color:var(--text2); font-weight:600; margin-bottom:8px;">Farbe wählen</div>
+            <div class="swatches" style="margin-bottom:13px;">
+              <i style="background:#B5623F;" class="on"></i><i style="background:#5C7396;"></i><i style="background:#C6A24A;"></i>
+              <i style="background:#748C5B;"></i><i style="background:#4F8580;"></i><i style="background:#A6483D;"></i>
+              <i style="background:#8B6B4A;"></i><i style="background:#8B6F72;"></i>
+            </div>
+            <div class="pill-grad" style="height:38px; border-radius:12px; font-size:12px;">Hinzufügen</div>
+          </div>
+        </div>
+
+        <div class="px" style="margin-top:12px; padding-bottom:20px;">
+          <div class="card" style="padding:14px;">
+            <div style="font-size:12.5px; font-weight:700; margin-bottom:6px;">Vorhandene Märkte</div>
+            <div class="store-row"><span class="dot lg" style="background:#B5623F;"></span><span class="n">REWE</span><span class="act">✎</span><span class="act" style="color:#E5566B;">🗑</span></div>
+            <div class="store-row"><span class="dot lg" style="background:#8B6F72;"></span><span class="n">dm</span><span class="act">✎</span><span class="act" style="color:#E5566B;">🗑</span></div>
+            <div class="store-row"><span class="dot lg" style="background:#748C5B;"></span><span class="n">Edeka</span><span class="act">✎</span><span class="act" style="color:#E5566B;">🗑</span></div>
+            <div class="store-row" style="border-bottom:none;"><span class="dot lg" style="background:#5C7396;"></span><span class="n">Aldi</span><span class="act">✎</span><span class="act" style="color:#E5566B;">🗑</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>18 · Markt bearbeiten</figcaption>
+    <div class="note">Inline in der Zeile, mit Speichern und Abbrechen</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="over">Haushalt Meier</div><div class="t">Märkte verwalten</div></div>
+          <div style="width:32px;"></div>
+        </div>
+
+        <div class="px">
+          <div class="card" style="padding:14px;">
+            <div style="font-size:12.5px; font-weight:700; margin-bottom:6px;">Vorhandene Märkte</div>
+
+            <div style="padding:11px 0; border-bottom:1px solid var(--hair);">
+              <div class="field focus" style="margin-bottom:10px;"><div class="inp"><span>REWE City</span><span class="caret"></span></div></div>
+              <div class="swatches" style="margin-bottom:11px;">
+                <i style="background:#B5623F;" class="on"></i><i style="background:#5C7396;"></i><i style="background:#C6A24A;"></i>
+                <i style="background:#748C5B;"></i><i style="background:#4F8580;"></i><i style="background:#A6483D;"></i>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <div class="pill-grad" style="flex:1; height:34px; border-radius:11px; font-size:11.5px;">Speichern</div>
+                <div class="btn-soft" style="flex:1;">Abbrechen</div>
+              </div>
+            </div>
+
+            <div class="store-row"><span class="dot lg" style="background:#8B6F72;"></span><span class="n">dm</span><span class="act">✎</span><span class="act" style="color:#E5566B;">🗑</span></div>
+            <div class="store-row" style="border-bottom:none;"><span class="dot lg" style="background:#748C5B;"></span><span class="n">Edeka</span><span class="act">✎</span><span class="act" style="color:#E5566B;">🗑</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ BESTÄTIGUNGEN ══════════════════════════ -->
+  <h2 class="group">Bestätigungen</h2>
+
+  <figure class="slot">
+    <figcaption>19 · Artikel löschen</figcaption>
+    <div class="note">Langer Druck auf eine Artikelzeile</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="t">Einkaufsliste</div></div><div class="avatar"></div></div>
+        <div class="px" style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+          <div class="picker"><span class="dot" style="background:#B5623F;"></span>REWE<span style="color:var(--text2); font-size:10px;">▾</span></div>
+          <div class="icon-btn" style="font-size:14px;">◎</div>
+        </div>
+        <div class="px">
+          <div class="cat-hdr"><span class="dot" style="background:#748C5B;"></span><span class="n">Obst &amp; Gemüse</span></div>
+          <div class="sitem"><div class="body"><div class="l1"><span class="n">Tomaten</span><span class="q">500 g</span><span class="p">1,49 €</span></div></div></div>
+        </div>
+      </div>
+      <div class="scrim"></div>
+      <div class="alert">
+        <div class="b">
+          <div class="t">Artikel löschen</div>
+          <div class="m">„Tomaten“ von der Einkaufsliste entfernen?</div>
+        </div>
+        <div class="acts"><div style="color:var(--text2);">Abbrechen</div><div class="danger">Löschen</div></div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>20 · Markt löschen</figcaption>
+    <div class="note">Aus „Märkte verwalten“, Artikel des Markts wandern zu „Ohne Markt“</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Märkte verwalten</div></div>
+          <div style="width:32px;"></div>
+        </div>
+        <div class="px">
+          <div class="card" style="padding:14px;">
+            <div style="font-size:12.5px; font-weight:700; margin-bottom:6px;">Vorhandene Märkte</div>
+            <div class="store-row"><span class="dot lg" style="background:#B5623F;"></span><span class="n">REWE</span><span class="act">✎</span><span class="act" style="color:#E5566B;">🗑</span></div>
+            <div class="store-row" style="border-bottom:none;"><span class="dot lg" style="background:#8B6F72;"></span><span class="n">dm</span><span class="act">✎</span><span class="act" style="color:#E5566B;">🗑</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="scrim"></div>
+      <div class="alert">
+        <div class="b">
+          <div class="t">Markt löschen</div>
+          <div class="m">Möchtest du den Markt „dm“ wirklich löschen?</div>
+        </div>
+        <div class="acts"><div style="color:var(--text2);">Abbrechen</div><div class="danger">Löschen</div></div>
+      </div>
+    </div>
+  </figure>
+
+</div>
+
+<script>
+  var sheet = document.getElementById('sheet');
+  document.getElementById('modeswitch').addEventListener('click', function (e) {
+    var btn = e.target.closest('button');
+    if (!btn) return;
+    sheet.dataset.mode = btn.dataset.mode;
+    this.querySelectorAll('button').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b === btn));
+    });
+  });
+</script>

@@ -67,7 +67,10 @@ create table if not exists public.fridge_items (
   package_size_unit text
     check (package_size_unit in ('g', 'kg', 'ml', 'l', 'piece', 'portion')),
   constraint fridge_items_package_size_complete
-    check ((package_size is null) = (package_size_unit is null))
+    check ((package_size is null) = (package_size_unit is null)),
+  opened_at timestamptz,
+  vacuum_sealed boolean not null default false,
+  expiry_user_set boolean not null default false
 );
 
 comment on table public.fridge_items is
@@ -92,6 +95,42 @@ create index if not exists fridge_items_household_updated_idx
 create index if not exists fridge_items_expiry_idx
   on public.fridge_items (household_id, expiry_date)
   where deleted_at is null and expiry_date is not null;
+
+-- Vorhandene MHD-Werte waren vor diesem Modul immer manuell gesetzt.
+update public.fridge_items
+set expiry_user_set = true
+where expiry_date is not null;
+
+-- ---------------------------------------------------------- Bestandsverlauf
+create table if not exists public.transactions (
+  id uuid primary key default gen_random_uuid(),
+  household_id uuid not null references public.households (id) on delete cascade,
+  fridge_item_id uuid references public.fridge_items (id) on delete set null,
+  product_id uuid references public.products (id) on delete set null,
+  actor uuid references public.profiles (id) on delete set null,
+  type text not null check (type in ('in', 'out', 'waste', 'open')),
+  quantity numeric(10, 3) not null check (quantity > 0),
+  location_id uuid references public.storage_locations (id) on delete set null,
+  reason text check (reason in ('expired', 'spoiled', 'other')),
+  constraint transactions_reason_matches_waste
+    check ((type = 'waste') = (reason is not null)),
+  previous_expiry_date date,
+  constraint transactions_previous_expiry_only_for_open
+    check (previous_expiry_date is null or type = 'open'),
+  notes text check (notes is null or length(notes) <= 500),
+  undone boolean not null default false,
+  created_at timestamptz not null default now()
+);
+
+comment on table public.transactions is
+  'Ledger jeder Bestandsbewegung. Transaktionen werden angehängt, nie editiert.';
+
+create index if not exists transactions_household_id_idx
+  on public.transactions (household_id);
+create index if not exists transactions_fridge_item_id_idx
+  on public.transactions (fridge_item_id);
+create index if not exists transactions_household_created_idx
+  on public.transactions (household_id, created_at);
 
 create or replace trigger fridge_items_set_updated_at
   before update on public.fridge_items
@@ -329,6 +368,7 @@ alter table public.stores enable row level security;
 alter table public.fridge_items enable row level security;
 alter table public.shopping_list_items enable row level security;
 alter table public.shopping_history enable row level security;
+alter table public.transactions enable row level security;
 
 -- Geteilte Haushaltsdaten: Jedes Mitglied darf alles. Die Grenze verlaeuft am
 -- Haushalt, nicht an der Person — das ist der ganze Zweck des Features.
@@ -356,3 +396,13 @@ create policy shopping_history_all_member on public.shopping_history
   for all to authenticated
   using ((select private.is_household_member(household_id)))
   with check ((select private.is_household_member(household_id)));
+
+create policy transactions_select_member on public.transactions
+  for select to authenticated
+  using ((select private.is_household_member(household_id)));
+
+create policy transactions_insert_member on public.transactions
+  for insert to authenticated
+  with check ((select private.is_household_member(household_id)));
+
+-- Keine UPDATE/DELETE-Policy: der append-only-Vertrag wird durch RLS erzwungen.

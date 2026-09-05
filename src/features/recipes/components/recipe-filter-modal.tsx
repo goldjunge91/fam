@@ -159,7 +159,7 @@ export function RecipeFilterModal({
                         variant="caption"
                         tone={selected ? 'onAccent' : 'primary'}
                         center
-                        style={{ fontSize: 9, lineHeight: 11, fontWeight: '600' }}
+                        weight="600"
                         numberOfLines={1}>
                         {meal.label}
                       </Txt>
@@ -189,7 +189,7 @@ export function RecipeFilterModal({
                         }
                         className="tag-pill"
                         style={{
-                          backgroundColor: selected ? colors.surfaceSoft : colors.surface,
+                          backgroundColor: selected ? colors.backgroundSoft : colors.surface,
                           borderColor: selected ? colors.basil : colors.border,
                           borderWidth: 1,
                         }}>

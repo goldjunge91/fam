@@ -26,7 +26,7 @@ export function CompactActionButton({
       accessibilityLabel={accessibilityLabel ?? label}
       accessibilityState={{ expanded }}
       className="btn-compact-action"
-      style={{ backgroundColor: colors.surface, borderColor: colors.border }}>
+      style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
       <Txt variant="body">{label}</Txt>
       {}
       <View
@@ -34,11 +34,11 @@ export function CompactActionButton({
         style={{ transform: [{ rotate: expanded ? '180deg' : '0deg' }] }}>
         <View
           className="absolute top-[2px] left-0 w-[7px] h-[1.5px] rounded-hairline rotate-[38deg]"
-          style={{ backgroundColor: colors.textMuted }}
+          style={{ backgroundColor: colors.textSecondary }}
         />
         <View
           className="absolute top-[2px] right-0 w-[7px] h-[1.5px] rounded-hairline -rotate-[38deg]"
-          style={{ backgroundColor: colors.textMuted }}
+          style={{ backgroundColor: colors.textSecondary }}
         />
       </View>
     </Pressable>
