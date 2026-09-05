@@ -17,7 +17,7 @@ export function CookingModeNoSteps({ recipe, onFinish }: CookingModeNoStepsProps
       <Txt variant="heading" className="pt-[6px]">
         {recipe.title}
       </Txt>
-      <Txt variant="detail" tone="secondary" className="pt-three">
+      <Txt variant="caption" tone="secondary" className="pt-three">
         {recipe.instructions ?? 'Für dieses Rezept sind noch keine Schritte hinterlegt.'}
       </Txt>
       <Pressable

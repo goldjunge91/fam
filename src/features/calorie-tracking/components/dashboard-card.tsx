@@ -50,11 +50,7 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
           boxShadow: `0 8px 20px ${withAlpha(colors.text, 0.08)}`,
         }}>
         <View className="flex-row items-center justify-between">
-          <Txt
-            variant="captionCompact"
-            tone="secondary"
-            weight="700"
-            style={{ letterSpacing: 0.5 }}>
+          <Txt variant="caption" tone="secondary" weight="700" style={{ letterSpacing: 0.5 }}>
             KALORIEN
           </Txt>
           <Txt variant="label" tone={ziel === 0 ? 'secondary' : 'primary'}>
@@ -76,7 +72,7 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
 
         <View className="items-center">
           <Txt
-            variant="detail"
+            variant="caption"
             tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}
             weight="500"
             numberOfLines={2}>
@@ -115,7 +111,7 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
         <Txt variant="label" tone="secondary">
           Kalorien heute
         </Txt>
-        <Txt variant="metricValue">{Math.round(aufgenommen).toLocaleString('de-DE')}</Txt>
+        <Txt variant="title">{Math.round(aufgenommen).toLocaleString('de-DE')}</Txt>
         <Txt
           variant="body"
           tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}>

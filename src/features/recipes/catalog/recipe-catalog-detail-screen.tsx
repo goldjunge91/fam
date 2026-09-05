@@ -46,7 +46,7 @@ function DetailFact({
       <Txt variant="heading" center>
         {value}
       </Txt>
-      <Txt variant="captionCompact" tone="secondary" className="pt-[3px] text-center">
+      <Txt variant="caption" tone="secondary" className="pt-[3px] text-center">
         {label}
       </Txt>
     </View>
@@ -153,11 +153,7 @@ function IngredientGroups({ detail, servings }: { detail: CatalogDetail; serving
                       ? { borderBottomColor: colors.border, borderBottomWidth: 1 }
                       : undefined
                   }>
-                  <Txt
-                    variant="controlValueLarge"
-                    weight="700"
-                    className="flex-1"
-                    numberOfLines={1}>
+                  <Txt variant="body" weight="700" className="flex-1" numberOfLines={1}>
                     {name}
                   </Txt>
                   <Txt variant="body" tone="secondary" weight="500">
@@ -258,7 +254,7 @@ export function RecipeCatalogDetailScreen() {
           <HeroArtwork coverUrl={coverUrl} title={recipe.title} />
         </View>
 
-        <Txt variant="pageTitleLarge" weight="700" className="pt-[18px] tracking-tight">
+        <Txt variant="title" weight="700" className="pt-[18px] tracking-tight">
           {recipe.title}
         </Txt>
 
@@ -315,7 +311,7 @@ export function RecipeCatalogDetailScreen() {
             {tags.length > 0 ? (
               <View className="flex-row flex-wrap items-center gap-x-three gap-y-two pt-three">
                 {visibleTags.map((tag) => (
-                  <Txt key={tag} variant="captionCompact" tone="secondary" weight="500">
+                  <Txt key={tag} variant="caption" tone="secondary" weight="500">
                     {tag.startsWith('#') ? tag : `#${tag}`}
                   </Txt>
                 ))}
@@ -326,11 +322,7 @@ export function RecipeCatalogDetailScreen() {
                     aria-label={showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'}
                     aria-expanded={showAllTags}
                     hitSlop={8}>
-                    <Txt
-                      variant="captionCompact"
-                      tone="secondary"
-                      className="underline"
-                      weight="500">
+                    <Txt variant="caption" tone="secondary" className="underline" weight="500">
                       {showAllTags ? 'Weniger' : `+${tags.length - 3} mehr`}
                     </Txt>
                   </Pressable>
@@ -358,7 +350,7 @@ export function RecipeCatalogDetailScreen() {
                     role="button"
                     aria-label="Weniger Portionen"
                     className="w-[44px] h-[44px] items-center justify-center">
-                    <Txt variant="stepperAction" tone="secondary" weight="500">
+                    <Txt variant="subheading" tone="secondary" weight="500">
                       −
                     </Txt>
                   </Pressable>
@@ -370,7 +362,7 @@ export function RecipeCatalogDetailScreen() {
                     role="button"
                     aria-label="Mehr Portionen"
                     className="w-[44px] h-[44px] items-center justify-center">
-                    <Txt variant="stepperAction" tone="secondary" weight="500">
+                    <Txt variant="subheading" tone="secondary" weight="500">
                       +
                     </Txt>
                   </Pressable>
@@ -384,7 +376,7 @@ export function RecipeCatalogDetailScreen() {
               className="min-h-[58px] row-between gap-three mt-[18px]"
               style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
               <Txt variant="heading">Zubereitung</Txt>
-              <Txt variant="captionCompact" tone="secondary" weight="500">
+              <Txt variant="caption" tone="secondary" weight="500">
                 {detail.steps.length} {detail.steps.length === 1 ? 'Schritt' : 'Schritte'}
               </Txt>
             </View>

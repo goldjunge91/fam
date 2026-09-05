@@ -69,11 +69,11 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
               aria-label={`${value} von 10 Sternen`}
               accessibilityState={{ selected: isSelected }}
               className="recipe-score-btn"
-              style={{ backgroundColor: isSelected ? colors.accent : colors.backgroundSelected }}>
+              style={{ backgroundColor: isSelected ? colors.accent : colors.backgroundSoft }}>
               <Txt variant="label" tone={isSelected ? 'onAccent' : 'secondary'}>
                 ★
               </Txt>
-              <Txt variant="micro" tone={isSelected ? 'onAccent' : 'secondary'} weight="700">
+              <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'} weight="700">
                 {value}
               </Txt>
             </Pressable>

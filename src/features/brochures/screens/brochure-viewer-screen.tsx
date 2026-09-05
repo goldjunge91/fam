@@ -353,22 +353,22 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
 
             <View style={[styles.productCard, { backgroundColor: colors.accent }]}>
               <View style={styles.productCopy}>
-                <Txt variant="bodySmall" tone="onAccent" weight="600" numberOfLines={2}>
+                <Txt variant="body" tone="onAccent" weight="600" numberOfLines={2}>
                   {activeHotspot.title}
                 </Txt>
-                <Txt variant="detail" tone="onAccent" weight="600">
+                <Txt variant="caption" tone="onAccent" weight="600">
                   {pages?.[0]?.storeName ?? 'Supermarkt'}
                 </Txt>
               </View>
               {hotspotPrice(activeHotspot) ? (
-                <Txt variant="controlValue" tone="onAccent" weight="800">
+                <Txt variant="body" tone="onAccent" weight="800">
                   {hotspotPrice(activeHotspot)}
                 </Txt>
               ) : null}
             </View>
 
             {activeHotspot.description ? (
-              <Txt variant="bodySmall" tone="secondary">
+              <Txt variant="body" tone="secondary">
                 {activeHotspot.description}
               </Txt>
             ) : null}
@@ -385,14 +385,11 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                   disabled={quantity === 1}
                   style={styles.stepperButton}
                   onPress={() => setQuantity((current) => Math.max(1, current - 1))}>
-                  <Txt variant="stepperAction" tone={quantity === 1 ? 'secondary' : 'primary'}>
+                  <Txt variant="subheading" tone={quantity === 1 ? 'secondary' : 'primary'}>
                     −
                   </Txt>
                 </Pressable>
-                <Txt
-                  variant="controlValue"
-                  weight="700"
-                  style={[styles.quantity, { color: colors.text }]}>
+                <Txt variant="body" weight="700" style={[styles.quantity, { color: colors.text }]}>
                   {quantity}×
                 </Txt>
                 <Pressable
@@ -400,7 +397,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                   aria-label="Menge erhöhen"
                   style={styles.stepperButton}
                   onPress={() => setQuantity((current) => current + 1)}>
-                  <Txt variant="stepperAction" tone="primary">
+                  <Txt variant="subheading" tone="primary">
                     +
                   </Txt>
                 </Pressable>
@@ -420,7 +417,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                 {addShoppingItem.isPending ? (
                   <ActivityIndicator color={colors.onAccent} />
                 ) : (
-                  <Txt variant="bodyRelaxed" tone="onAccent" weight="700">
+                  <Txt variant="body" tone="onAccent" weight="700">
                     Auf die Liste
                   </Txt>
                 )}
@@ -442,7 +439,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
           },
         ]}
         onPress={() => setHotspotsVisible((visible) => !visible)}>
-        <Txt variant="bodySmall" tone="onAccent" weight="700">
+        <Txt variant="body" tone="onAccent" weight="700">
           Artikel
         </Txt>
       </Pressable>
@@ -454,7 +451,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
           { top: Math.max(insets.top, 16), backgroundColor: withAlpha(colors.text, 0.7) },
         ]}
         onPress={() => router.back()}>
-        <Txt variant="bodySmall" tone="onAccent" weight="700">
+        <Txt variant="body" tone="onAccent" weight="700">
           ✕
         </Txt>
       </Pressable>

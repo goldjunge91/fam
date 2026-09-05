@@ -68,7 +68,7 @@ export function PaywallPlanCard({
             <Txt variant="body" weight="700">
               {plans.yearly.title}
             </Txt>
-            <Txt variant="bodySmall" tone="secondary">
+            <Txt variant="body" tone="secondary">
               {plans.yearly.subtext}
             </Txt>
           </View>
@@ -114,7 +114,7 @@ export function PaywallPlanCard({
             <Txt variant="body" weight="700">
               {plans.monthly.title}
             </Txt>
-            <Txt variant="bodySmall" tone="secondary">
+            <Txt variant="body" tone="secondary">
               {plans.monthly.subtext}
             </Txt>
           </View>

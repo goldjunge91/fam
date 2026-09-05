@@ -77,13 +77,13 @@ function ProfileSheetContent() {
                   contentFit="cover"
                 />
               ) : (
-                <Txt variant="bodySmall" tone="onAccent" weight="500">
+                <Txt variant="body" tone="onAccent" weight="500">
                   {getInitials(displayName)}
                 </Txt>
               )}
             </View>
             <View style={styles.identity}>
-              <Txt variant="controlValueLarge" weight="500">
+              <Txt variant="body" weight="500">
                 {displayName}
               </Txt>
               {email ? (
@@ -149,14 +149,14 @@ function ProfileRow({
         <FamIcon name={icon} size={24} />
       </View>
       <View style={styles.rowCopy}>
-        <Txt variant="bodySmall" weight="500">
+        <Txt variant="body" weight="500">
           {title}
         </Txt>
-        <Txt variant="detail" tone="secondary">
+        <Txt variant="caption" tone="secondary">
           {subtitle}
         </Txt>
       </View>
-      <Txt variant="stepperAction" tone="secondary">
+      <Txt variant="subheading" tone="secondary">
         ›
       </Txt>
     </Pressable>

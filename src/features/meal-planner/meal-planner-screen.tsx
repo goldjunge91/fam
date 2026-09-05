@@ -236,7 +236,7 @@ export function MealPlannerScreen() {
               aria-selected={viewMode === mode}
               className={`tab-btn ${viewMode === mode ? 'tab-btn-active' : 'tab-btn-idle'}`}>
               <Txt
-                variant="controlActionLarge"
+                variant="subheading"
                 tone={viewMode === mode ? 'onAccent' : 'secondary'}
                 weight="700"
                 className="tab-btn-label">
@@ -253,12 +253,12 @@ export function MealPlannerScreen() {
             aria-label="Vorheriger Zeitraum"
             onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, -1))}
             className="mp-period-button">
-            <Txt variant="navigationArrow" tone="secondary">
+            <Txt variant="title" tone="secondary">
               ‹
             </Txt>
           </Pressable>
           <View className="mp-period-copy">
-            <Txt variant="controlValueLarge" weight="700">
+            <Txt variant="body" weight="700">
               {periodLabel(dates)}
             </Txt>
           </View>
@@ -267,7 +267,7 @@ export function MealPlannerScreen() {
             aria-label="Nächster Zeitraum"
             onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, 1))}
             className="mp-period-button">
-            <Txt variant="navigationArrow" tone="secondary">
+            <Txt variant="title" tone="secondary">
               ›
             </Txt>
           </Pressable>
@@ -282,7 +282,7 @@ export function MealPlannerScreen() {
               className="mp-action-button"
               // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
               style={{ borderCurve: 'continuous' }}>
-              <Txt variant="pageSubtitle" tone="primary" weight="700" center>
+              <Txt variant="label" tone="primary" weight="700" center>
                 Vorwoche übernehmen
               </Txt>
             </Pressable>
@@ -300,7 +300,7 @@ export function MealPlannerScreen() {
               className={`mp-action-button ${!plan ? 'mp-action-button-disabled' : ''}`}
               // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
               style={{ borderCurve: 'continuous' }}>
-              <Txt variant="pageSubtitle" tone="primary" weight="700" center>
+              <Txt variant="label" tone="primary" weight="700" center>
                 Einkauf vorbereiten
               </Txt>
             </Pressable>

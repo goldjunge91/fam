@@ -71,6 +71,33 @@ describe('checkForUpdate', () => {
     expect(applyPatch).not.toHaveBeenCalled();
   });
 
+  it('verwendet den bereits gelesenen aktiven Dump ohne einen weiteren Datei-Check', async () => {
+    const fetchManifest = jest.fn().mockResolvedValue(MANIFEST);
+    const inspectDump = jest.fn();
+    const installBaseline = jest.fn();
+    const applyPatch = jest.fn();
+
+    const result = await checkForUpdate({
+      db: fakeDb(),
+      fileOps: { inspectDump } as never,
+      manifestUrl: 'https://x/manifest.json',
+      paths,
+      activeInspection: {
+        schemaVersion: 2,
+        dataVersion: MANIFEST.latestVersion,
+        integrityOk: true,
+      },
+      fetchManifest,
+      installBaseline,
+      applyPatch,
+    });
+
+    expect(result).toEqual({ kind: 'up-to-date' });
+    expect(inspectDump).not.toHaveBeenCalled();
+    expect(installBaseline).not.toHaveBeenCalled();
+    expect(applyPatch).not.toHaveBeenCalled();
+  });
+
   it('wendet die volle Patchkette der Reihe nach an, wenn der Plan "patch" ist', async () => {
     const fetchManifest = jest.fn().mockResolvedValue(MANIFEST);
     const inspectDump = jest.fn().mockResolvedValue({

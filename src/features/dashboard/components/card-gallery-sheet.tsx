@@ -164,7 +164,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                           styles.sizeBtn,
                           currentSize === 'small'
                             ? [styles.sizeBtnActive, { backgroundColor: colors.basil }]
-                            : [styles.sizeBtnInactive, { backgroundColor: colors.surfaceSoft }],
+                            : [styles.sizeBtnInactive, { backgroundColor: colors.backgroundSoft }],
                         ]}>
                         <Txt
                           variant="label"
@@ -179,7 +179,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                           styles.sizeBtn,
                           currentSize === 'large'
                             ? [styles.sizeBtnActive, { backgroundColor: colors.basil }]
-                            : [styles.sizeBtnInactive, { backgroundColor: colors.surfaceSoft }],
+                            : [styles.sizeBtnInactive, { backgroundColor: colors.backgroundSoft }],
                         ]}>
                         <Txt
                           variant="label"

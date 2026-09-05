@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
-import { withAlpha } from '@/components/theme/index';
+import { radius, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Txt } from '@/constants/ui';
@@ -18,19 +18,17 @@ const FALLBACK_MENU_POSITION: MenuPosition = { top: 0, left: 0, width: 220 };
 
 // `GlassView` hat kein cssInterop (s. glass-card.tsx), deshalb hier als
 // RN-Style statt Tailwind-Klasse — muss in Radius/Padding mit
-// `.inventory-tab-bar-trigger` in global.css in Sync bleiben. Kapselform
-// (999px) statt festem Radius: iOS 26+ rundet kompakte Liquid-Glass-Buttons
-// ohnehin automatisch zur Kapsel — damit Fallback und echtes Glas gleich
-// aussehen, uebernimmt der Fallback dieselbe Form (s. .inventory-search-field
-// daneben, die aus demselben Grund ebenfalls rounded-full ist).
+// `.inventory-tab-bar-trigger` in global.css in Sync bleiben. Die
+// Vorrats-Referenz verwendet eine kompakte rechteckige Glass-Fläche mit
+// weichen Ecken, keine Kapsel.
 const TRIGGER_GLASS_STYLE = {
-  borderRadius: 999,
+  borderRadius: radius.lg,
   flexDirection: 'row' as const,
   alignItems: 'center' as const,
   justifyContent: 'space-between' as const,
   gap: 8,
   paddingHorizontal: 14,
-  paddingVertical: 11,
+  paddingVertical: 15,
 };
 
 export function InventoryTabBar({ activeTab, onTabChange, locations }: InventoryTabBarProps) {
@@ -66,17 +64,17 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
   }
 
   return (
-    <View ref={triggerRef} className="inventory-tab-bar-container">
+    <View ref={triggerRef} className="inventory-tab-bar-container flex-1">
       {/* Liquid Glass auf iOS 26+ (expo-glass-effect), sonst solide Karte
           wie vor der Umstellung — s. glass-card.tsx. */}
       <GlassCard
-        outerStyle={{ borderRadius: 999 }}
+        outerStyle={{ borderRadius: radius.lg, flex: 1 }}
         glassStyle={TRIGGER_GLASS_STYLE}
         fallbackClassName="inventory-tab-bar-trigger"
         onPress={toggleMenu}
         accessibilityRole="button"
         accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}>
-        <Txt variant="body" weight="600">
+        <Txt variant="body" weight="700">
           {activeLocation?.name ?? 'Lagerort auswählen'}
         </Txt>
         {}
@@ -124,7 +122,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
                     accessibilityState={{ selected }}
                     onPress={() => selectLocation(location.id)}
                     className={`inventory-tab-bar-option ${index > 0 ? 'inventory-tab-bar-option-bordered' : ''}`}
-                    style={selected ? { backgroundColor: colors.surfaceSoft } : undefined}>
+                    style={selected ? { backgroundColor: colors.backgroundSoft } : undefined}>
                     <Txt variant="body" weight={selected ? '700' : '400'}>
                       {location.name}
                     </Txt>

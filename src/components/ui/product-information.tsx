@@ -124,7 +124,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                 accessibilityRole="button"
                 accessibilityLabel="Schließen"
                 className="w-[34px] h-[34px] rounded-sheet items-center justify-center active:opacity-75"
-                style={{ backgroundColor: colors.backgroundSelected }}>
+                style={{ backgroundColor: colors.backgroundSoft }}>
                 <Txt variant="body" tone="secondary">
                   ×
                 </Txt>
@@ -138,8 +138,8 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                 className={`w-[62px] h-[62px] rounded-card items-center justify-center ${
                   score ? NUTRI_BADGE_CLASSES[score] : ''
                 }`}
-                style={!score ? { backgroundColor: colors.backgroundSelected } : undefined}>
-                <Txt variant="controlActionLarge" weight="700" tone={score ? 'inverse' : 'primary'}>
+                style={!score ? { backgroundColor: colors.backgroundSoft } : undefined}>
+                <Txt variant="subheading" weight="700" tone={score ? 'inverse' : 'primary'}>
                   {score?.toUpperCase() ?? '–'}
                 </Txt>
               </View>
@@ -203,7 +203,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                 <View
                   key={nutrient.label}
                   className="w-[31.6%] min-h-[62px] rounded-card p-[10px] gap-[5px]"
-                  style={{ backgroundColor: colors.backgroundSelected }}>
+                  style={{ backgroundColor: colors.backgroundSoft }}>
                   <Txt variant="body" weight="700" selectable>
                     {nutrient.value}
                   </Txt>

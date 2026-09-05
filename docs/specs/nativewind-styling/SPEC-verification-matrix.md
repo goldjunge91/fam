@@ -24,7 +24,7 @@ Für jede Plattform werden dieselben Fälle geprüft:
 2. Dark Mode: dieselben Elemente, kein weißer oder schwarzer Fremd-Fallback.
 3. Button: primary, secondary, ghost, danger, accent.
 4. Button: pressed, disabled, loading, icon, full width.
-5. Text: display, title, headingSmall, body, bodySmall, label, caption, link.
+5. Text: display, title, heading, subheading, body, label, caption.
 6. Text: primary, secondary, accent, danger, onAccent.
 7. Field: Label, Placeholder, Eingabetext, Fokus und Fehlerdarstellung.
 8. Komponenten mit `expo-image`, FlashList, Bottom Sheet und SVG-Icon.

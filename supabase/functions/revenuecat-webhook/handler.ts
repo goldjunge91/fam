@@ -60,12 +60,74 @@ type Dependencies = {
     subscriberAttributes?: Record<string, SubscriberAttribute> | null,
   ) => Promise<UpdateResult>;
   now?: () => Date;
+  signatureToleranceSeconds?: number;
 };
 
 const JSON_HEADERS = { "Content-Type": "application/json" };
+const DEFAULT_SIGNATURE_TOLERANCE_SECONDS = 300;
 
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
+}
+
+function decodeHex(value: string): Uint8Array<ArrayBuffer> | null {
+  if (!/^[0-9a-f]{64}$/i.test(value)) return null;
+
+  const bytes = new Uint8Array(new ArrayBuffer(32));
+  for (let index = 0; index < bytes.length; index += 1) {
+    bytes[index] = Number.parseInt(value.slice(index * 2, index * 2 + 2), 16);
+  }
+  return bytes;
+}
+
+/**
+ * Verifies RevenueCat's signed raw request body before it is parsed as JSON.
+ * RevenueCat signs `<timestamp>.<raw_body>` and sends one or more `v1`
+ * signatures in `X-RevenueCat-Webhook-Signature`.
+ */
+export async function verifyRevenueCatWebhookSignature(
+  rawBody: string,
+  signatureHeader: string | null,
+  secret: string | undefined,
+  nowMs = Date.now(),
+  toleranceSeconds = DEFAULT_SIGNATURE_TOLERANCE_SECONDS,
+): Promise<boolean> {
+  if (!secret || !signatureHeader || !Number.isFinite(nowMs)) return false;
+
+  const fields = signatureHeader.split(",").map((field) => field.trim());
+  const timestampField = fields.find((field) => field.startsWith("t="));
+  const timestamp = Number(timestampField?.slice(2));
+  const signatures = fields
+    .filter((field) => field.startsWith("v1="))
+    .map((field) => decodeHex(field.slice(3)))
+    .filter((value): value is Uint8Array<ArrayBuffer> => value !== null);
+
+  if (
+    !timestampField ||
+    !Number.isSafeInteger(timestamp) ||
+    !Number.isFinite(toleranceSeconds) ||
+    toleranceSeconds < 0 ||
+    Math.abs(nowMs - timestamp * 1000) > toleranceSeconds * 1000 ||
+    signatures.length === 0
+  ) {
+    return false;
+  }
+
+  const key = await crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["verify"],
+  );
+  const signedPayload = new TextEncoder().encode(`${timestamp}.${rawBody}`);
+
+  for (const signature of signatures) {
+    if (await crypto.subtle.verify("HMAC", key, signature, signedPayload)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function isRevenueCatEvent(value: unknown): value is RevenueCatEvent {
@@ -110,21 +172,29 @@ export function createRevenueCatWebhookHandler({
   expectedSecret,
   applyEntitlementEvent,
   now = () => new Date(),
+  signatureToleranceSeconds = DEFAULT_SIGNATURE_TOLERANCE_SECONDS,
 }: Dependencies) {
   return async (req: Request): Promise<Response> => {
     if (req.method !== "POST") {
       return json({ error: "method_not_allowed" }, 405);
     }
 
+    const rawBody = await req.text();
     if (
-      !expectedSecret || req.headers.get("Authorization") !== expectedSecret
+      !(await verifyRevenueCatWebhookSignature(
+        rawBody,
+        req.headers.get("X-RevenueCat-Webhook-Signature"),
+        expectedSecret,
+        now().getTime(),
+        signatureToleranceSeconds,
+      ))
     ) {
       return json({ error: "unauthorized" }, 401);
     }
 
     let event: RevenueCatEvent;
     try {
-      const body: unknown = await req.json();
+      const body: unknown = JSON.parse(rawBody);
       const candidate = body && typeof body === "object"
         ? (body as Record<string, unknown>).event
         : undefined;

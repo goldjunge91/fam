@@ -9,7 +9,7 @@ Die bereits eingefügte `ui.tsx` wird zur fam-kompatiblen Quelle für wiederverw
 | Komponente | Zweck | Semantische Styles | Zustände |
 | --- | --- | --- | --- |
 | `Txt` | Text und Typografie | Variant, Tone, Weight, Alignment | normal, muted, disabled über Caller |
-| `Surface` | generischer thematischer Container, Ersatz für `ThemedView` | page, surface, soft, selected, accent | normal |
+| `Surface` | generischer thematischer Container, Ersatz für `ThemedView` | page, surface, soft, accent | normal |
 | `Card` | Karten und Listencontainer | surface, border, radius, elevation, padding | normal, soft |
 | `Row` | horizontales Layout | Flex-Richtung, Alignment, Gap | wrap |
 | `Spacer` | vertikaler Abstand | `space` | normal |
@@ -29,7 +29,7 @@ Die bereits eingefügte `ui.tsx` wird zur fam-kompatiblen Quelle für wiederverw
 
 ```tsx
 <Surface tone="page" className="flex-1">
-  <Txt variant="headingSmall">Bestand</Txt>
+  <Txt variant="heading">Bestand</Txt>
 </Surface>
 ```
 
@@ -43,20 +43,24 @@ type ButtonSize = 'sm' | 'md' | 'lg';
 ```
 
 - `primary`, `danger` und `accent` sind gefüllt und verwenden Fam-Akzent-/Status-Tokens.
-- `secondary` ist eine kontrastreiche Surface-/Border-Variante.
-- `ghost` ist transparent oder soft, ohne versteckte Fremdfarbe.
+- `secondary` verwendet die weiche Mauve-Fläche ohne zusätzliche Kontur.
+- `ghost` ist transparent und besitzt keine versteckte Fremdfarbe.
 - `loading` deaktiviert die Aktion, zeigt einen Spinner und löst keinen zweiten Haptic aus.
 - `disabled` reduziert Kontrast und verhindert Press-Feedback.
 - `style` darf Layout überschreiben. Button-Farbvarianten werden nicht durch ein konkurrierendes `className` unklar gemacht.
 - Touch-Ziele bleiben auf mobilen Plattformen ausreichend groß; konkrete Maße stammen aus `ButtonSize` oder den bestehenden Fam-Control-Tokens.
 - `accessibilityRole="button"`, Titel und disabled/loading-Status werden zugänglich abgebildet.
 
-Die 3D-Tiefe und Press-Animation aus der Referenz bleiben Bestandteil des UI-Vertrags. Eine spätere visuelle Entscheidung über diese Details erfolgt erst nach zwei repräsentativen Screen-Mocks. Stabilität und lesbarer Zustand haben Vorrang vor einer zusätzlichen Dekorationsschicht.
+Die 3D-Tiefe und Press-Animation bleiben Bestandteil des UI-Vertrags. Gefüllte
+Varianten verwenden eine deckende Fam-Tiefenfarbe und bewegen ihre Vorderseite
+beim Drücken um die vollständigen `BUTTON_DEPTH` von 4pt. Beim Loslassen federt
+die Vorderseite direkt zurück. Zusätzliche Press-Overlays und künstliche
+Mindestdruckzeiten gehören nicht zum Vertrag.
 
 ## Card-Vertrag
 
 - Default-Hintergrund ist `backgroundElement`.
-- `soft` verwendet `backgroundSelected` oder einen dokumentierten Fam-Soft-Ton.
+- `soft` verwendet `backgroundSoft`.
 - Border und Radius kommen aus Tokens.
 - `elevation="none"` deaktiviert Schatten deterministisch.
 - Padding ist über `padded` und Tokenwerte steuerbar.

@@ -8,7 +8,7 @@
 
 ```tsx
 <Txt variant="body" tone="primary">Einkaufsliste</Txt>
-<Txt variant="headingSmall" tone="secondary">Diese Woche</Txt>
+<Txt variant="heading" tone="secondary">Diese Woche</Txt>
 <Txt variant="label" weight="700">Speichern</Txt>
 ```
 
@@ -25,48 +25,40 @@ Ein freier `color`-Prop bleibt nur für berechnete Sonderfälle oder externe Ico
 
 ## Rollen und Werte
 
-Die Zahlen sind in der kanonischen Typografie von `src/components/theme/index.ts` konsolidiert. Sie werden nicht durch ui-Referenzwerte ersetzt.
+Die öffentliche API entspricht dem kleinen Waivy-Modell und besteht aus genau
+sieben allgemeinen Rollen. Fam ergänzt lediglich sichere Zeilenhöhen.
 
 | Variant | Fam-Wert | Default-Gewicht | Default-Ton |
 | --- | ---: | ---: | --- |
-| `micro` | 9 / 14 | 500 | secondary |
-| `captionCompact` | 11 / 14 | 500 | secondary |
-| `caption` | 11 / 15 | 500 | secondary |
-| `detail` | 12 / 16 | 400 | secondary |
-| `label` | 13 / 17 | 600 | primary |
-| `bodySmall` | 14 / 20 | 400 | primary |
-| `controlValue` | 15 / 20 | 400 | primary |
+| `display` | 48 / 52 | 800 | primary |
+| `title` | 32 / 44 | 800 | primary |
+| `heading` | 20 / 26 | 700 | primary |
+| `subheading` | 17 / 24 | 700 | primary |
 | `body` | 16 / 22 | 400 | primary |
-| `bodyRelaxed` | 16 / 24 | 400 | primary |
-| `controlValueLarge` | 17 / 22 | 400 | primary |
-| `bodyLarge` | 18 / 24 | 400 | primary |
-| `controlAction` | 20 / 22 | 600 | primary |
-| `headingSmall` | 20 / 26 | 700 | primary |
-| `controlActionLarge` | 22 / 24 | 600 | primary |
-| `title` | 32 / 44 | 700 | primary |
-| `display` | 48 / 52 | 700 | primary |
-| `link` | 14 / 30 | 600 | accent |
-| `code` | 12 / auto | 400 | primary |
+| `label` | 13 / 17 | 600 | primary |
+| `caption` | 12 / 15 | 500 | primary |
 
 Die Schreibweise `fontSize / lineHeight` ist Teil des Vertrags. Ein Style darf die Schriftgröße nicht ändern, ohne die passende Zeilenhöhe zu prüfen.
 
-## Migration alter Rollen
+## Zuordnung entfernter Rollen
 
 | Alte Rolle | Neue Form |
 | --- | --- |
-| `default`, `small`, `body` | `variant="body"` |
+| `default`, `small`, `body`, `bodySmall`, `bodyLarge`, `bodyRelaxed`, `controlValue*` | `variant="body"` |
 | `smallBold`, `bodyBold` | `variant="body" weight="700"` |
 | `smallMuted`, `bodyMuted` | `variant="body" tone="secondary"` |
 | `smallSelected` | `variant="body" tone="accent"` |
 | `smallDanger` | `variant="body" tone="danger"` |
-| `title` | `variant="display"` zur visuellen Kompatibilität des alten `ThemedText` |
-| `subtitle` | `variant="title"` |
+| `controlAction*`, `stepperAction*` | `variant="subheading"` oder interner Komponentenstil |
+| `pageTitle*`, `chromeTitle`, `ringValue`, `metricValue`, `navigationArrow` | `variant="title"` oder interner Komponentenstil |
+| `pageSubtitle` | `variant="label"` |
 | `caption`, `captionMuted` | `variant="caption"`, zusätzlich `tone="secondary"` für muted |
-| `captionCompact`, `micro`, `detail` | gleichnamige Variante |
+| `captionCompact`, `micro`, `detail`, `meta`, `code` | `variant="caption"` |
 | `label`, `labelBold`, `labelMuted` | `variant="label"`, Gewicht oder Ton explizit |
-| `controlValue`, `bodyLarge`, `headingSmall`, `link`, `code` | gleichnamige Variante |
+| `link` | `variant="label" tone="accent"` |
 
-Die verwirrende alte Bedeutung von `title` wird nicht in die neue API übernommen. Die Migration erhält zunächst das bestehende Erscheinungsbild und macht die neue Absicht sichtbar.
+Komponentenspezifische Größen bleiben intern bei `Button`, `QuantityStepper`,
+`ProgressRing` oder Eingabekomponenten. Sie erweitern `TxtVariant` nicht.
 
 ## Style-Priorität
 
@@ -79,8 +71,8 @@ Wenn `style` `fontSize`, `lineHeight`, `fontWeight` oder `color` überschreibt, 
 
 ## Acceptance criteria
 
-- [x] Jeder aktuelle `Typography`-Schlüssel ist in `Txt` verfügbar.
-- [x] `bodySmall` ist nicht mehr ohne Rolle oder ohne Mapping.
+- [x] `TxtVariant` enthält genau sieben allgemeine Rollen.
+- [x] Entfernte Rollen besitzen keine produktiven Aufrufer mehr.
 - [x] Keine `any`-Typen für Gewicht, Style oder Children.
 - [x] RNTL-Tests prüfen Variant- und Tone-Auflösung sowie Caller-Style als letzten Style-Eintrag.
 - [x] Alle Production-Importe von `ThemedText` sind migriert; die alte Datei wurde nach der manuellen Maintainer-Freigabe entfernt.

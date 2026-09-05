@@ -44,7 +44,7 @@ function round(value: number): number {
 
 function MoreGlyph() {
   return (
-    <Txt variant="detail" weight="800" className="tracking-widest">
+    <Txt variant="caption" weight="800" className="tracking-widest">
       •••
     </Txt>
   );
@@ -151,7 +151,7 @@ function ManageRow({
       role="button"
       className="min-h-[45px] justify-center px-[6px] active:opacity-75"
       style={!isLast ? { borderBottomColor: colors.border, borderBottomWidth: 1 } : undefined}>
-      <Txt variant="captionCompact" tone={danger ? 'danger' : 'primary'} weight="500">
+      <Txt variant="caption" tone={danger ? 'danger' : 'primary'} weight="500">
         {label}
       </Txt>
     </Pressable>
@@ -327,7 +327,7 @@ export function RecipeDetailScreen() {
         </View>
 
         {/* Rezepttitel */}
-        <Txt variant="pageTitleLarge" weight="700" className="pt-[18px] tracking-tight">
+        <Txt variant="title" weight="700" className="pt-[18px] tracking-tight">
           {recipe.title}
         </Txt>
 
@@ -379,7 +379,7 @@ export function RecipeDetailScreen() {
 
             {/* Beschreibung / Allgemeine Kochanleitung */}
             {recipe.instructions ? (
-              <Txt variant="bodyRelaxed" weight="500" className="pt-four">
+              <Txt variant="body" weight="500" className="pt-four">
                 {recipe.instructions}
               </Txt>
             ) : null}
@@ -388,7 +388,7 @@ export function RecipeDetailScreen() {
             {tags.length > 0 ? (
               <View className="flex-row flex-wrap items-center gap-x-three gap-y-two pt-three">
                 {visibleTags.map((tag) => (
-                  <Txt key={tag} variant="captionCompact" tone="secondary" weight="500">
+                  <Txt key={tag} variant="caption" tone="secondary" weight="500">
                     {tag.startsWith('#') ? tag : `#${tag}`}
                   </Txt>
                 ))}
@@ -420,7 +420,7 @@ export function RecipeDetailScreen() {
                   role="button"
                   aria-label="Weniger Portionen"
                   className="w-[44px] h-[44px] items-center justify-center">
-                  <Txt variant="stepperAction" tone="secondary" weight="500">
+                  <Txt variant="subheading" tone="secondary" weight="500">
                     −
                   </Txt>
                 </Pressable>
@@ -432,7 +432,7 @@ export function RecipeDetailScreen() {
                   role="button"
                   aria-label="Mehr Portionen"
                   className="w-[44px] h-[44px] items-center justify-center">
-                  <Txt variant="stepperAction" tone="secondary" weight="500">
+                  <Txt variant="subheading" tone="secondary" weight="500">
                     +
                   </Txt>
                 </Pressable>
@@ -476,7 +476,7 @@ export function RecipeDetailScreen() {
               className="min-h-[58px] row-between gap-three mt-[18px]"
               style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
               <Txt variant="heading">Zubereitung</Txt>
-              <Txt variant="captionCompact" tone="secondary" weight="500">
+              <Txt variant="caption" tone="secondary" weight="500">
                 {data.steps.length} {data.steps.length === 1 ? 'Schritt' : 'Schritte'}
               </Txt>
             </View>
@@ -507,13 +507,13 @@ export function RecipeDetailScreen() {
                 <View
                   className="min-h-[58px] row-between gap-four pb-four"
                   style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
-                  <Txt variant="metricValue" weight="700">
+                  <Txt variant="title" weight="700">
                     ★ {rating.score}{' '}
                     <Txt variant="heading" tone="secondary">
                       / 10
                     </Txt>
                   </Txt>
-                  <Txt variant="captionCompact" tone="secondary" weight="500">
+                  <Txt variant="caption" tone="secondary" weight="500">
                     Deine Bewertung
                   </Txt>
                 </View>
@@ -523,7 +523,7 @@ export function RecipeDetailScreen() {
                     <Txt variant="heading" className="pt-five">
                       Deine Notiz
                     </Txt>
-                    <Txt variant="bodyRelaxed" weight="500" className="pt-two">
+                    <Txt variant="body" weight="500" className="pt-two">
                       {rating.note}
                     </Txt>
                   </>
@@ -592,7 +592,7 @@ export function RecipeDetailScreen() {
                 role="button"
                 aria-label="Schließen"
                 className="w-8 h-8 rounded-control items-center justify-center"
-                style={{ backgroundColor: colors.backgroundSelected }}>
+                style={{ backgroundColor: colors.backgroundSoft }}>
                 <Txt variant="heading" tone="secondary">
                   ×
                 </Txt>

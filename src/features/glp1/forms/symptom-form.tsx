@@ -108,8 +108,8 @@ export function SymptomForm({
     color: colors.text,
     backgroundColor: colors.backgroundElement,
     borderColor: colors.border,
-    fontSize: font.sizes.bodyLarge,
-    lineHeight: font.lineHeights.bodyLarge,
+    fontSize: font.sizes.md,
+    lineHeight: font.lineHeights.subheading,
   };
   const multilineInputStyle = { ...inputStyle, textAlignVertical: 'top' as const };
 
@@ -227,10 +227,10 @@ export function SymptomForm({
       <View
         className="p-two rounded-lg border flex-row items-center justify-between"
         style={surfaceStyle}>
-        <Txt variant="bodyRelaxed" tone="secondary">
+        <Txt variant="body" tone="secondary">
           Ausgewählt:
         </Txt>
-        <Txt variant="bodyRelaxed" weight="700">
+        <Txt variant="body" weight="700">
           Appetit {appetite}/5 · Sättigung {satiety}/5 · Übelkeit {nausea}/5
         </Txt>
       </View>

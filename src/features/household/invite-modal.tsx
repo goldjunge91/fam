@@ -113,7 +113,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                 Mitglied einladen
               </Txt>
               <Pressable onPress={onClose} hitSlop={10}>
-                <Txt variant="controlAction" tone="secondary" weight="500">
+                <Txt variant="subheading" tone="secondary" weight="500">
                   ✕
                 </Txt>
               </Pressable>
@@ -127,7 +127,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
             {selectedToken ? (
               <Card title="Einladungs-Code & QR-Code">
                 <View className="gap-two">
-                  <Txt variant="controlValue" tone="accent" center className="invite-token-text">
+                  <Txt variant="body" tone="accent" center className="invite-token-text">
                     {selectedToken}
                   </Txt>
 

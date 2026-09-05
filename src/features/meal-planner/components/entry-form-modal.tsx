@@ -168,7 +168,7 @@ export function EntryFormModal({
                   accessibilityLabel="Ganzer Haushalt isst"
                   onPress={handleWholeHousehold}
                   className="efm-whole-household-button">
-                  <Txt variant="link" tone="primary" weight="400">
+                  <Txt variant="label" tone="primary" weight="400">
                     Ganzer Haushalt isst ({householdMemberCount}{' '}
                     {householdMemberCount === 1 ? 'Person' : 'Personen'})
                   </Txt>

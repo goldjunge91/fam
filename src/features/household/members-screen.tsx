@@ -216,7 +216,7 @@ export function MembersScreen() {
                     contentFit="cover"
                   />
                 ) : (
-                  <Txt variant="bodySmall" weight="700">
+                  <Txt variant="body" weight="700">
                     {initials}
                   </Txt>
                 )}
@@ -237,7 +237,7 @@ export function MembersScreen() {
                     onPress={() => handleToggleRole(item.user_id, item.role, displayName)}
                     className="member-role-tag"
                     style={{ backgroundColor: withAlpha(colors.accent, 0.1) }}>
-                    <Txt variant="detail" tone="primary">
+                    <Txt variant="caption" tone="primary">
                       {item.role === 'admin' ? 'Admin ▾' : 'Mitglied ▾'}
                     </Txt>
                   </Pressable>
@@ -245,7 +245,7 @@ export function MembersScreen() {
                     onPress={() => handleRemoveMember(item.user_id, displayName)}
                     className="member-remove-tag"
                     style={{ backgroundColor: withAlpha(colors.tomato, 0.1) }}>
-                    <Txt variant="detail" tone="danger">
+                    <Txt variant="caption" tone="danger">
                       Entfernen
                     </Txt>
                   </Pressable>
@@ -280,7 +280,7 @@ export function MembersScreen() {
                     }
                   />
                   {adminCount <= 1 && (
-                    <Txt variant="detail" tone="secondary" center>
+                    <Txt variant="caption" tone="secondary" center>
                       Ernenne zuerst einen weiteren Admin, um den Haushalt zu verlassen.
                     </Txt>
                   )}

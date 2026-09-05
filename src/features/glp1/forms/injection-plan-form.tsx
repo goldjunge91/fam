@@ -74,8 +74,8 @@ export function InjectionPlanForm({
     color: colors.text,
     backgroundColor: colors.backgroundElement,
     borderColor: colors.border,
-    fontSize: font.sizes.bodyLarge,
-    lineHeight: font.lineHeights.bodyLarge,
+    fontSize: font.sizes.md,
+    lineHeight: font.lineHeights.subheading,
   };
 
   return (
@@ -127,7 +127,7 @@ export function InjectionPlanForm({
                   borderColor: isSelected ? colors.accent : colors.border,
                 }}
                 className="py-one px-three rounded-xl border">
-                <Txt variant="bodyRelaxed" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
+                <Txt variant="body" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                   {value}
                 </Txt>
               </Pressable>

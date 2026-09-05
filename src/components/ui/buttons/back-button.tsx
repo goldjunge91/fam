@@ -41,7 +41,7 @@ export function BackButton({ label, href, variant = 'text', onPress }: BackButto
         accessibilityRole="button"
         accessibilityLabel={variant === 'header' ? label : `Zurück zu ${label}`}
         className="btn-back-arrow"
-        style={{ backgroundColor: colors.backgroundSelected }}>
+        style={{ backgroundColor: colors.backgroundSoft }}>
         <FamIcon name="arrow" size={ARROW_BUTTON_SIZE} color={colors.text} />
       </Pressable>
     );

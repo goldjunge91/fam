@@ -23,6 +23,7 @@ import {
 const MIRROR_TABLES = [
   'storage_locations',
   'fridge_items',
+  'transactions',
   'shopping_list_items',
   'shopping_category_preferences',
   'products',
@@ -64,6 +65,47 @@ describe('lokales Schema', () => {
       "select name from sqlite_master where type = 'table' and name = 'households'",
     );
     expect(tables).toHaveLength(1);
+  });
+
+  it('legt die Inventory-Lifecycle-Spalten und das Transaktionsschema an', async () => {
+    const itemColumns = (await columnsOf(db, 'fridge_items')).map((column) => column.name);
+    expect(itemColumns).toEqual(
+      expect.arrayContaining(['opened_at', 'vacuum_sealed', 'expiry_user_set']),
+    );
+    expect((await columnsOf(db, 'transactions')).map((column) => column.name)).toEqual(
+      expect.arrayContaining([
+        'id',
+        'household_id',
+        'fridge_item_id',
+        'product_id',
+        'actor',
+        'type',
+        'quantity',
+        'location_id',
+        'reason',
+        'previous_expiry_date',
+        'notes',
+        'undone',
+        'created_at',
+      ]),
+    );
+  });
+
+  it('erzwingt die Ledger-Regeln auch lokal in SQLite', async () => {
+    await expect(
+      db.runAsync(
+        `insert into transactions (id, household_id, type, quantity, reason)
+         values (?, ?, ?, ?, ?)`,
+        ['tx-invalid-reason', 'household-1', 'out', 1, 'expired'],
+      ),
+    ).rejects.toThrow();
+    await expect(
+      db.runAsync(
+        `insert into transactions (id, household_id, type, quantity)
+         values (?, ?, ?, ?)`,
+        ['tx-invalid-quantity', 'household-1', 'in', 0],
+      ),
+    ).rejects.toThrow();
   });
 
   it('spiegelt Plus und AI getrennt und entfernt den alten Premium-Zustand', async () => {

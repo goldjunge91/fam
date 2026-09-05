@@ -64,7 +64,7 @@ export function SettingsRow({
       }}>
       {icon ? (
         <View className="settings-icon-tile">
-          <Txt variant="bodySmall" center>
+          <Txt variant="body" center>
             {icon}
           </Txt>
         </View>
@@ -92,7 +92,7 @@ export function SettingsRow({
       ) : null}
 
       {isNavigable ? (
-        <Txt variant="navigationArrow" tone="secondary">
+        <Txt variant="title" tone="secondary">
           ›
         </Txt>
       ) : null}

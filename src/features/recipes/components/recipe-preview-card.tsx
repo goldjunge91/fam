@@ -29,6 +29,46 @@ const PALETTES = [
   ['#89966E', '#D6C99A'],
 ] as const;
 
+const RECIPE_IMAGE_LOG_DEBOUNCE_MS = 250;
+
+type RecipeImageLoad = {
+  title: string;
+  cacheType: string;
+};
+
+let pendingRecipeImageLoads: RecipeImageLoad[] = [];
+let recipeImageLogTimer: ReturnType<typeof setTimeout> | null = null;
+
+function flushRecipeImageLoadLog() {
+  if (pendingRecipeImageLoads.length === 0) return;
+
+  const loads = pendingRecipeImageLoads;
+  pendingRecipeImageLoads = [];
+  recipeImageLogTimer = null;
+
+  const titles = new Map<string, number>();
+  const cacheTypes = new Map<string, number>();
+  for (const { title, cacheType } of loads) {
+    titles.set(title, (titles.get(title) ?? 0) + 1);
+    cacheTypes.set(cacheType, (cacheTypes.get(cacheType) ?? 0) + 1);
+  }
+
+  console.log('[RecipeCover] images:loaded', {
+    count: loads.length,
+    uniqueTitles: titles.size,
+    titles: Object.fromEntries(titles),
+    cacheTypes: Object.fromEntries(cacheTypes),
+  });
+}
+
+export function logRecipeImageLoaded(load: RecipeImageLoad) {
+  if (!__DEV__) return;
+
+  pendingRecipeImageLoads.push(load);
+  if (recipeImageLogTimer) clearTimeout(recipeImageLogTimer);
+  recipeImageLogTimer = setTimeout(flushRecipeImageLoadLog, RECIPE_IMAGE_LOG_DEBOUNCE_MS);
+}
+
 /** Bild-Kachel mit Farbverlauf-Fallback ohne Cover — auch fuer den Drag-Tray des Essensplans. */
 export function RecipeArtwork({
   coverUrl,
@@ -55,17 +95,8 @@ export function RecipeArtwork({
         // expo-image unterstützt kein NativeWind className für absolute Fill
         style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 }}
         accessibilityLabel={`Bild von ${title}`}
-        onLoad={({ cacheType, source: loadedSource }) => {
-          if (__DEV__) {
-            console.log('[RecipeCover] image:success', {
-              title,
-              path: coverPath ?? null,
-              cacheType,
-              width: loadedSource.width,
-              height: loadedSource.height,
-              mediaType: loadedSource.mediaType,
-            });
-          }
+        onLoad={({ cacheType }) => {
+          logRecipeImageLoaded({ title, cacheType });
         }}
         onError={({ error }) => {
           if (__DEV__) {
@@ -161,7 +192,7 @@ export function RecipePreviewCard({
       <FadeShade height="62%" />
       <View className="card-copy-bottom">
         <Txt
-          variant="controlAction"
+          variant="subheading"
           tone="inverse"
           weight="700"
           className="tracking-tight"
@@ -169,7 +200,7 @@ export function RecipePreviewCard({
           {title}
         </Txt>
         <Txt
-          variant="captionCompact"
+          variant="caption"
           tone="inverse"
           weight="600"
           className="mt-[3px]"
@@ -214,18 +245,18 @@ export function RecipeHeroCard({
       <View className="absolute inset-0 bg-[#261d29]/20" />
       <View className="card-copy-bottom">
         <Txt
-          variant="micro"
+          variant="caption"
           tone="inverse"
           weight="700"
           className="uppercase tracking-widest"
           style={{ opacity: 0.8 }}>
           {eyebrow}
         </Txt>
-        <Txt variant="bodyLarge" tone="inverse" weight="700" className="mt-half" numberOfLines={2}>
+        <Txt variant="body" tone="inverse" weight="700" className="mt-half" numberOfLines={2}>
           {title}
         </Txt>
         <Txt
-          variant="captionCompact"
+          variant="caption"
           tone="inverse"
           weight="600"
           className="mt-[3px]"

@@ -16,19 +16,33 @@ import { useNavigationChrome } from '@/features/navigation/navigation-chrome-pro
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { EditInventoryItemSheet } from './components/edit-inventory-item-sheet';
+import { InventoryHistorySheet } from './components/inventory-history-sheet';
 import { InventoryItemActionsSheet } from './components/inventory-item-actions-sheet';
-import { InventoryItemGroupSheet } from './components/inventory-item-group-sheet';
+import {
+  formatStateSubtitle,
+  InventoryItemGroupSheet,
+} from './components/inventory-item-group-sheet';
 import { InventoryItemRow } from './components/inventory-item-row';
 import { InventorySearchField } from './components/inventory-search-field';
 import { InventorySummaryCard } from './components/inventory-summary-card';
 import { InventoryTabBar } from './components/inventory-tab-bar';
+import { OpenInventoryItemSheet } from './components/open-inventory-item-sheet';
+import { WasteInventoryItemSheet, type WasteReason } from './components/waste-inventory-item-sheet';
 import { getExpiryInfo } from './expiry';
 import { groupInventoryItems, type InventoryItemGroup } from './grouped-items';
 import { type LocalInventoryItem, useInventoryItems } from './use-inventory-items';
 import {
+  useOpenInventoryItemMutation,
+  useUndoOpenTransactionMutation,
   useUpdateFridgeItemMutation,
   useUpdateInventoryItemQuantityMutation,
+  useWasteInventoryItemMutation,
 } from './use-inventory-mutations';
+import {
+  filterTransactionsForProduct,
+  type LocalInventoryTransaction,
+  useInventoryTransactions,
+} from './use-inventory-transactions';
 import { type InventorySortMode, selectVisibleInventoryItems } from './visible-items';
 
 export function InventoryScreen() {
@@ -44,14 +58,22 @@ export function InventoryScreen() {
   const [detailGroup, setDetailGroup] = useState<InventoryItemGroup | null>(null);
   const [informationItem, setInformationItem] = useState<LocalInventoryItem | null>(null);
   const [editItem, setEditItem] = useState<LocalInventoryItem | null>(null);
+  const [openItem, setOpenItem] = useState<LocalInventoryItem | null>(null);
+  const [wasteItem, setWasteItem] = useState<LocalInventoryItem | null>(null);
+  const [historyOpen, setHistoryOpen] = useState(false);
+  const [productHistoryGroup, setProductHistoryGroup] = useState<InventoryItemGroup | null>(null);
 
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
 
   const { data: locations = [], isLoading: locationsLoading } = useStorageLocations(householdId);
   const { data: allItems = [], isLoading } = useInventoryItems(householdId);
+  const { data: transactions = [] } = useInventoryTransactions(householdId);
   const updateQty = useUpdateInventoryItemQuantityMutation();
   const updateItem = useUpdateFridgeItemMutation();
+  const openMutation = useOpenInventoryItemMutation();
+  const undoMutation = useUndoOpenTransactionMutation();
+  const wasteMutation = useWasteInventoryItemMutation();
 
   const today = new Date();
   const allGroups = useMemo(() => groupInventoryItems(allItems, today), [allItems, today]);
@@ -94,6 +116,21 @@ export function InventoryScreen() {
   const currentActionItem = actionItem
     ? (allItems.find((item) => item.id === actionItem.id) ?? actionItem)
     : null;
+  const productHistoryTransactions = useMemo(() => {
+    if (!productHistoryGroup) return [];
+    return filterTransactionsForProduct(
+      transactions,
+      productHistoryGroup.product_id,
+      new Set(productHistoryGroup.lots.map((lot) => lot.id)),
+    );
+  }, [productHistoryGroup, transactions]);
+  const productHistoryLotLabels = useMemo(
+    () =>
+      new Map(
+        productHistoryGroup?.lots.map((lot, index) => [lot.id, `Los ${index + 1}`] as const) ?? [],
+      ),
+    [productHistoryGroup],
+  );
 
   function updateQuantity(item: LocalInventoryItem, delta: number) {
     if (!householdId) return;
@@ -108,6 +145,39 @@ export function InventoryScreen() {
   function handleConsume(item: LocalInventoryItem) {
     updateQuantity(item, -item.quantity);
     setActionItem(null);
+  }
+
+  function handleOpen(item: LocalInventoryItem) {
+    setActionItem(null);
+    setOpenItem(item);
+  }
+
+  function handleWaste(item: LocalInventoryItem) {
+    setActionItem(null);
+    setWasteItem(item);
+  }
+
+  function confirmOpen(quantity: number) {
+    if (!openItem) return;
+    openMutation.mutate({ item: openItem, quantity }, { onSuccess: () => setOpenItem(null) });
+  }
+
+  function confirmWaste(reason: WasteReason) {
+    if (!wasteItem) return;
+    wasteMutation.mutate({ item: wasteItem, reason }, { onSuccess: () => setWasteItem(null) });
+  }
+
+  function undoOpening(transaction: LocalInventoryTransaction) {
+    undoMutation.mutate(
+      { transaction },
+      {
+        onError: (error) =>
+          Alert.alert(
+            'Undo nicht möglich',
+            error instanceof Error ? error.message : 'Bitte später erneut versuchen.',
+          ),
+      },
+    );
   }
 
   function handleDeletePress(item: LocalInventoryItem) {
@@ -177,6 +247,22 @@ export function InventoryScreen() {
               criticalCount={expiryCounts.critical}
               soonCount={expiryCounts.soon}
             />
+
+            <View className="flex-row items-center justify-between border-b border-border pb-two">
+              <Txt
+                variant="caption"
+                tone="secondary"
+                weight="700"
+                className="uppercase tracking-[0.5px]">
+                Bewegungen
+              </Txt>
+              <Button
+                variant="link"
+                label="Verlauf"
+                accessibilityLabel="Gesamten Vorratsverlauf öffnen"
+                onPress={() => setHistoryOpen(true)}
+              />
+            </View>
 
             {/* Toolbar mit dynamischen Lagerort-Tabs und Artikelsuchfeld */}
             {locationsLoading || locations.length === 0 ? null : (
@@ -250,6 +336,11 @@ export function InventoryScreen() {
         visible={!!detailGroup}
         group={detailGroup}
         onClose={() => setDetailGroup(null)}
+        onHistory={() => {
+          if (!detailGroup) return;
+          setDetailGroup(null);
+          setProductHistoryGroup(detailGroup);
+        }}
         onSelectLot={(lot) => {
           setDetailGroup(null);
           setActionItem(lot);
@@ -266,6 +357,8 @@ export function InventoryScreen() {
         }
         onEdit={() => currentActionItem && handleEdit(currentActionItem)}
         onConsume={() => currentActionItem && handleConsume(currentActionItem)}
+        onOpen={() => currentActionItem && handleOpen(currentActionItem)}
+        onWaste={() => currentActionItem && handleWaste(currentActionItem)}
         onRemove={() => currentActionItem && handleDeletePress(currentActionItem)}
         onExpiryChange={(expiryDate) => {
           if (!currentActionItem) return;
@@ -285,6 +378,70 @@ export function InventoryScreen() {
         item={editItem}
         locations={locations}
         onClose={() => setEditItem(null)}
+      />
+
+      <OpenInventoryItemSheet
+        visible={!!openItem}
+        item={openItem}
+        onClose={() => setOpenItem(null)}
+        onConfirm={confirmOpen}
+        loading={openMutation.isPending}
+      />
+
+      <WasteInventoryItemSheet
+        visible={!!wasteItem}
+        item={wasteItem}
+        onClose={() => setWasteItem(null)}
+        onConfirm={confirmWaste}
+        loading={wasteMutation.isPending}
+      />
+
+      <InventoryHistorySheet
+        visible={historyOpen}
+        title="Verlauf"
+        subtitle="Kühlschrank & Vorrat"
+        transactions={transactions}
+        onClose={() => setHistoryOpen(false)}
+        onUndo={undoOpening}
+      />
+
+      <InventoryHistorySheet
+        visible={!!productHistoryGroup}
+        title={productHistoryGroup?.name ?? 'Produkt-Verlauf'}
+        subtitle={productHistoryGroup ? `${productHistoryGroup.lots.length} Lose im Bestand` : ''}
+        transactions={productHistoryTransactions}
+        productSummary={
+          productHistoryGroup
+            ? {
+                sealed: productHistoryGroup.lots
+                  .filter((lot) => !lot.opened_at)
+                  .reduce((sum, lot) => sum + lot.quantity, 0),
+                opened: productHistoryGroup.lots
+                  .filter((lot) => !!lot.opened_at)
+                  .reduce((sum, lot) => sum + lot.quantity, 0),
+                unit: productHistoryGroup.unit,
+                sealedSubtitle: formatStateSubtitle(
+                  productHistoryGroup.lots.filter((lot) => !lot.opened_at),
+                ),
+                openedSubtitle: formatStateSubtitle(
+                  productHistoryGroup.lots.filter((lot) => !!lot.opened_at),
+                ),
+              }
+            : undefined
+        }
+        historyHeading={productHistoryGroup ? `Verlauf zu ${productHistoryGroup.name}` : undefined}
+        footerNote={
+          productHistoryGroup && productHistoryTransactions.length === 1
+            ? 'Nur ein Eintrag. Dieses Los wurde noch nicht geöffnet, verbraucht oder korrigiert.'
+            : undefined
+        }
+        lotLabels={productHistoryLotLabels}
+        onClose={() => setProductHistoryGroup(null)}
+        onUndo={undoOpening}
+        onOpenFullHistory={() => {
+          setProductHistoryGroup(null);
+          setHistoryOpen(true);
+        }}
       />
     </Screen>
   );

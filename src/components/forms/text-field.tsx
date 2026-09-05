@@ -49,8 +49,8 @@ export function TextField({
           style={[
             {
               color: colors.text,
-              fontSize: size === 'large' ? font.sizes.bodyLarge : font.sizes.base,
-              lineHeight: size === 'large' ? font.lineHeights.bodyLarge : font.lineHeights.body,
+              fontSize: size === 'large' ? font.sizes.md : font.sizes.base,
+              lineHeight: size === 'large' ? font.lineHeights.subheading : font.lineHeights.body,
             },
             style,
           ]}
@@ -63,7 +63,7 @@ export function TextField({
       </View>
 
       {error ? (
-        <Txt variant="bodySmall" tone="danger">
+        <Txt variant="body" tone="danger">
           {error}
         </Txt>
       ) : null}

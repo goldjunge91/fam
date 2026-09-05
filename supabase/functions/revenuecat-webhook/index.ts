@@ -54,8 +54,8 @@ async function resolveMemberHousehold(
  * wird vor jedem Schreibzugriff gegen die Mitgliedschaft geprueft.
  *
  * RevenueCat sendet keinen Supabase-JWT. Die Function ist in config.toml mit
- * `verify_jwt = false` eingetragen und prueft stattdessen den im Dashboard
- * konfigurierten Authorization-Header in `handler.ts`.
+ * `verify_jwt = false` eingetragen und prueft stattdessen die HMAC-Signatur
+ * des unveraenderten Request-Bodys in `handler.ts`.
  *
  * Idempotenz, Stale-Event-Guard und die kanonische Kaeufer-Zuordnung (Plus
  * und AI) laufen jeweils atomar in einer einzigen DB-Funktion

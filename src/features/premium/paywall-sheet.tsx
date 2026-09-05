@@ -169,7 +169,7 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
                 className="w-full"
               />
 
-              <Txt variant="detail" tone="secondary" center>
+              <Txt variant="caption" tone="secondary" center>
                 Jederzeit im App Store kündbar.
               </Txt>
 

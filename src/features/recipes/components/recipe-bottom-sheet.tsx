@@ -45,8 +45,8 @@ export function RecipeBottomSheet({
             role="button"
             aria-label="Schließen"
             className="btn-modal-close"
-            style={{ backgroundColor: colors.surfaceSoft }}>
-            <Txt variant="controlAction" tone="secondary" weight="500">
+            style={{ backgroundColor: colors.backgroundSoft }}>
+            <Txt variant="subheading" tone="secondary" weight="500">
               ×
             </Txt>
           </Pressable>

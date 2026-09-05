@@ -7,6 +7,7 @@
 import { Feather } from '@expo/vector-icons';
 import type React from 'react';
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
@@ -31,7 +32,6 @@ import Animated, {
 import {
   type AccentKey,
   BUTTON_DEPTH,
-  Fonts,
   font,
   type Palette,
   radius,
@@ -85,33 +85,10 @@ export type TxtVariant =
   | 'display'
   | 'title'
   | 'heading'
-  | 'headingSmall'
   | 'subheading'
   | 'body'
-  | 'bodySmall'
-  | 'bodyLarge'
-  | 'bodyRelaxed'
-  | 'controlValue'
-  | 'controlValueLarge'
-  | 'controlAction'
-  | 'controlActionLarge'
-  | 'pageSubtitle'
-  | 'pageTitle'
-  | 'pageTitleLarge'
-  | 'stepperAction'
-  | 'stepperActionLarge'
-  | 'ringValue'
-  | 'navigationArrow'
-  | 'metricValue'
-  | 'chromeTitle'
   | 'label'
-  | 'caption'
-  | 'captionCompact'
-  | 'detail'
-  | 'micro'
-  | 'link'
-  | 'code'
-  | 'meta';
+  | 'caption';
 
 export type TxtTone =
   | 'primary'
@@ -136,13 +113,13 @@ const TXT: Record<TxtVariant, TxtDefinition> = {
   display: {
     fontSize: font.sizes.xxxl,
     lineHeight: font.lineHeights.display,
-    fontWeight: '700',
+    fontWeight: '800',
     tone: 'text',
   },
   title: {
     fontSize: font.sizes.xxl,
     lineHeight: font.lineHeights.title,
-    fontWeight: '700',
+    fontWeight: '800',
     tone: 'text',
   },
   heading: {
@@ -151,14 +128,8 @@ const TXT: Record<TxtVariant, TxtDefinition> = {
     fontWeight: '700',
     tone: 'text',
   },
-  headingSmall: {
-    fontSize: font.sizes.headingSmall,
-    lineHeight: font.lineHeights.headingSmall,
-    fontWeight: '700',
-    tone: 'text',
-  },
   subheading: {
-    fontSize: font.sizes.subheading,
+    fontSize: font.sizes.md,
     lineHeight: font.lineHeights.subheading,
     fontWeight: '700',
     tone: 'text',
@@ -169,151 +140,15 @@ const TXT: Record<TxtVariant, TxtDefinition> = {
     fontWeight: '400',
     tone: 'text',
   },
-  bodySmall: {
-    fontSize: font.sizes.bodySmall,
-    lineHeight: font.lineHeights.bodySmall,
-    fontWeight: '400',
-    tone: 'text',
-  },
-  bodyLarge: {
-    fontSize: font.sizes.bodyLarge,
-    lineHeight: font.lineHeights.bodyLarge,
-    fontWeight: '400',
-    tone: 'text',
-  },
-  bodyRelaxed: {
-    fontSize: font.sizes.bodyRelaxed,
-    lineHeight: font.lineHeights.bodyRelaxed,
-    fontWeight: '400',
-    tone: 'text',
-  },
-  controlValue: {
-    fontSize: font.sizes.controlValue,
-    lineHeight: font.lineHeights.controlValue,
-    fontWeight: '500',
-    tone: 'text',
-  },
-  controlValueLarge: {
-    fontSize: font.sizes.controlValueLarge,
-    lineHeight: font.lineHeights.controlValueLarge,
-    fontWeight: '500',
-    tone: 'text',
-  },
-  controlAction: {
-    fontSize: font.sizes.controlAction,
-    lineHeight: font.lineHeights.controlAction,
-    fontWeight: '700',
-    tone: 'text',
-  },
-  controlActionLarge: {
-    fontSize: font.sizes.controlActionLarge,
-    lineHeight: font.lineHeights.controlActionLarge,
-    fontWeight: '700',
-    tone: 'text',
-  },
-  pageSubtitle: {
-    fontSize: font.sizes.pageSubtitle,
-    lineHeight: font.lineHeights.pageSubtitle,
-    fontWeight: '600',
-    tone: 'textSecondary',
-  },
-  pageTitle: {
-    fontSize: font.sizes.pageTitle,
-    lineHeight: font.lineHeights.pageTitle,
-    fontWeight: '600',
-    tone: 'text',
-    letterSpacing: -0.5,
-  },
-  pageTitleLarge: {
-    fontSize: font.sizes.pageTitleLarge,
-    lineHeight: font.lineHeights.pageTitleLarge,
-    fontWeight: '700',
-    tone: 'text',
-    letterSpacing: -0.6,
-  },
-  stepperAction: {
-    fontSize: font.sizes.stepperAction,
-    lineHeight: font.lineHeights.stepperAction,
-    fontWeight: '400',
-    tone: 'textSecondary',
-  },
-  stepperActionLarge: {
-    fontSize: font.sizes.stepperActionLarge,
-    lineHeight: font.lineHeights.stepperActionLarge,
-    fontWeight: '400',
-    tone: 'textSecondary',
-  },
-  ringValue: {
-    fontSize: font.sizes.ringValue,
-    lineHeight: font.lineHeights.ringValue,
-    fontWeight: '700',
-    tone: 'text',
-    letterSpacing: -0.5,
-  },
-  navigationArrow: {
-    fontSize: font.sizes.navigationArrow,
-    lineHeight: font.lineHeights.navigationArrow,
-    fontWeight: '500',
-    tone: 'textSecondary',
-  },
-  metricValue: {
-    fontSize: font.sizes.metricValue,
-    lineHeight: font.lineHeights.metricValue,
-    fontWeight: '700',
-    tone: 'text',
-  },
-  chromeTitle: {
-    fontSize: font.sizes.chromeTitle,
-    lineHeight: font.lineHeights.chromeTitle,
-    fontWeight: '500',
-    tone: 'text',
-    letterSpacing: -0.5,
-  },
   label: {
-    fontSize: font.sizes.label,
+    fontSize: font.sizes.sm,
     lineHeight: font.lineHeights.label,
     fontWeight: '600',
     tone: 'text',
   },
   caption: {
-    fontSize: font.sizes.caption,
+    fontSize: font.sizes.xs,
     lineHeight: font.lineHeights.caption,
-    fontWeight: '500',
-    tone: 'text',
-  },
-  captionCompact: {
-    fontSize: font.sizes.captionCompact,
-    lineHeight: font.lineHeights.captionCompact,
-    fontWeight: '500',
-    tone: 'text',
-  },
-  detail: {
-    fontSize: font.sizes.detail,
-    lineHeight: font.lineHeights.detail,
-    fontWeight: '400',
-    tone: 'text',
-  },
-  micro: {
-    fontSize: font.sizes.micro,
-    lineHeight: font.lineHeights.micro,
-    fontWeight: '500',
-    tone: 'text',
-  },
-  link: {
-    fontSize: font.sizes.link,
-    lineHeight: font.lineHeights.link,
-    fontWeight: '600',
-    tone: 'accent',
-  },
-  code: {
-    fontSize: font.sizes.code,
-    lineHeight: font.lineHeights.code,
-    fontWeight: '400',
-    tone: 'text',
-  },
-  meta: {
-    fontSize: font.sizes.sm,
-    lineHeight: font.lineHeights.label,
     fontWeight: '500',
     tone: 'text',
   },
@@ -371,7 +206,7 @@ export function Txt({
           fontWeight: base.fontWeight,
           color: textColor,
           letterSpacing: base.letterSpacing,
-          fontFamily: variant === 'code' ? Fonts.mono : base.fontFamily,
+          fontFamily: base.fontFamily,
         },
         color && { color },
         weight && { fontWeight: weight },
@@ -417,7 +252,7 @@ export function Row({
   );
 }
 
-type SurfaceTone = 'page' | 'surface' | 'soft' | 'selected' | 'accent';
+type SurfaceTone = 'page' | 'surface' | 'soft' | 'accent';
 
 /** A semantic themed container. Layout utilities remain available via className. */
 export function Surface({
@@ -434,11 +269,11 @@ export function Surface({
   const backgroundColor =
     tone === 'page'
       ? colors.background
-      : tone === 'accent'
-        ? colors.accent
-        : tone === 'surface'
-          ? colors.backgroundElement
-          : colors.backgroundSelected;
+      : tone === 'surface'
+        ? colors.backgroundElement
+        : tone === 'soft'
+          ? colors.backgroundSoft
+          : colors.accent;
 
   return (
     <View {...rest} className={className} style={[{ backgroundColor }, style]}>
@@ -482,7 +317,7 @@ export function Card({
           borderWidth: 1,
           borderColor: colors.border,
         },
-        soft && { backgroundColor: colors.backgroundSelected },
+        soft && { backgroundColor: colors.backgroundSoft },
         padded && { padding: space.lg },
         elevation !== 'none' && themedShadow[elevation],
         style,
@@ -577,17 +412,19 @@ export function Button({
       ? colors.accent
       : variant === 'danger'
         ? colors.danger
-        : variant === 'accent' && acc
-          ? acc.main
-          : colors.backgroundElement;
+        : variant === 'secondary'
+          ? colors.backgroundSoft
+          : variant === 'ghost'
+            ? 'transparent'
+            : variant === 'accent'
+              ? (acc?.main ?? colors.accent)
+              : colors.backgroundElement;
   const shade =
-    variant === 'primary'
-      ? colors.shadowCard
-      : variant === 'danger'
-        ? colors.shadowSheet
-        : variant === 'accent' && acc
-          ? acc.shadow
-          : colors.border;
+    variant === 'danger'
+      ? colors.buttonDangerDepth
+      : variant === 'accent'
+        ? colors.buttonAccentDepth
+        : colors.buttonPrimaryDepth;
   const isFilled = variant === 'primary' || variant === 'danger' || variant === 'accent';
   const fg = isFilled
     ? variant === 'accent' && acc
@@ -623,8 +460,7 @@ export function Button({
               if (isFilled) depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
             }}
             onPressOut={() => {
-              // pop back up off the 3D shadow with a little bounce.
-              depth.value = withSpring(0, PRESS_SPRING);
+              if (isFilled) depth.value = withSpring(0, PRESS_SPRING);
             }}
             onPress={() => {
               if (isDisabled) return;
@@ -640,12 +476,8 @@ export function Button({
                 alignItems: 'center',
                 justifyContent: 'center',
                 opacity: isDisabled ? 0.6 : 1,
+                overflow: 'hidden',
               },
-              !isFilled && {
-                borderWidth: variant === 'ghost' ? 0 : 1.5,
-                borderColor: colors.border,
-              },
-              variant === 'ghost' && { backgroundColor: colors.backgroundSelected },
               pad,
             ]}>
             <Row gap={8}>
@@ -659,14 +491,7 @@ export function Button({
               ) : icon ? (
                 <Feather name={icon} size={fSize + 2} color={fg} />
               ) : null}
-              <Txt
-                variant={
-                  size === 'sm' ? 'label' : size === 'lg' ? 'controlActionLarge' : 'controlAction'
-                }
-                color={fg}
-                weight="700">
-                {title}
-              </Txt>
+              <Text style={{ color: fg, fontSize: fSize, fontWeight: '700' }}>{title}</Text>
             </Row>
           </Pressable>
         </Animated.View>
@@ -751,7 +576,7 @@ export function Badge({
         borderRadius: radius.pill,
       }}>
       {icon ? <Feather name={icon} size={12} color={solid ? a.on : a.shadow} /> : null}
-      <Txt variant="captionCompact" color={solid ? a.on : a.shadow} weight="700">
+      <Txt variant="caption" color={solid ? a.on : a.shadow} weight="700">
         {label}
       </Txt>
     </View>
@@ -841,16 +666,41 @@ export function SegmentedControl<T extends string>({
 
 // ─── Field ───────────────────────────────────────────────────────────────────
 
-export function Field({ label, style, ...rest }: TextInputProps & { label?: string }) {
+export function Field({
+  label,
+  style,
+  onFocus,
+  onBlur,
+  returnKeyType = 'done',
+  submitBehavior = 'blurAndSubmit',
+  ...rest
+}: TextInputProps & { label?: string }) {
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
+  const [focused, setFocused] = useState(false);
+
   return (
     <View style={{ gap: 6 }}>
-      {label ? <Txt variant="label">{label}</Txt> : null}
+      {label ? (
+        <Txt variant="label" color={focused ? colors.accent : colors.text}>
+          {label}
+        </Txt>
+      ) : null}
       <TextInput
         placeholderTextColor={colors.textSecondary}
+        selectionColor={colors.accent}
+        returnKeyType={returnKeyType}
+        submitBehavior={submitBehavior}
+        onFocus={(event) => {
+          setFocused(true);
+          onFocus?.(event);
+        }}
+        onBlur={(event) => {
+          setFocused(false);
+          onBlur?.(event);
+        }}
         {...rest}
-        style={[styles.input, style]}
+        style={[styles.input, focused && styles.inputFocused, style]}
       />
     </View>
   );
@@ -923,7 +773,7 @@ function makeStyles(c: Palette) {
   return StyleSheet.create({
     segment: {
       flexDirection: 'row',
-      backgroundColor: c.backgroundSelected,
+      backgroundColor: c.backgroundSoft,
       borderRadius: radius.md,
       padding: 4,
       gap: 4,
@@ -948,6 +798,10 @@ function makeStyles(c: Palette) {
       paddingVertical: 12,
       fontSize: font.sizes.md,
       color: c.text,
+    },
+    inputFocused: {
+      borderColor: c.accent,
+      borderWidth: 2,
     },
   });
 }

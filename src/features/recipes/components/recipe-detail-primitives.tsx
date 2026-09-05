@@ -35,7 +35,7 @@ export function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; tit
 /** Favoriten-Herz im Detail-Header, identisch fuer Rezept und Vorlage. */
 export function HeartGlyph({ filled }: { filled: boolean }) {
   return (
-    <Txt variant="controlActionLarge" tone="accent" weight="500">
+    <Txt variant="subheading" tone="accent" weight="500">
       {filled ? '♥' : '♡'}
     </Txt>
   );

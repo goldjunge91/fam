@@ -21,13 +21,13 @@ export function SignInScreen() {
         {/* Links zu Registrierung & Passwort vergessen */}
         <View className="link-stack">
           <Link href="/sign-up" asChild>
-            <Txt variant="link" tone="accent">
+            <Txt variant="label" tone="accent">
               Noch kein Konto? Registrieren
             </Txt>
           </Link>
 
           <Link href="/forgot-password" asChild>
-            <Txt variant="link" tone="secondary">
+            <Txt variant="label" tone="secondary">
               Passwort vergessen
             </Txt>
           </Link>

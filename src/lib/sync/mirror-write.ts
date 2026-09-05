@@ -31,7 +31,9 @@ function toSqlParam(value: unknown): SqlParam {
 
 /**
  * Upsert einer vollständigen PostgREST-Zeile anhand ihrer ID.
- * Erwartet alle Entity-Spalten sowie `updated_at` und optional `deleted_at`.
+ * Erwartet alle Entity-Spalten sowie den Cursor-Zeitstempel. Bei append-only
+ * Tabellen ist das `created_at`; `updated_at`/`deleted_at` bleiben lokal als
+ * technische Sync-Spalten vorhanden.
  */
 export async function upsertMirrorRow(
   txn: SqlDatabase,
@@ -41,9 +43,10 @@ export async function upsertMirrorRow(
 ): Promise<void> {
   const meta = mirrorMetaOf(entity);
 
-  const updatedAtRaw = remoteRow.updated_at;
+  const cursorColumn = meta.syncCursorColumn ?? 'updated_at';
+  const updatedAtRaw = remoteRow[cursorColumn];
   if (typeof updatedAtRaw !== 'string') {
-    throw new Error(`Remote-Zeile fuer ${entity} hat kein updated_at als String.`);
+    throw new Error(`Remote-Zeile fuer ${entity} hat keinen ${cursorColumn} als String.`);
   }
   const updatedAt = toEpochMs(updatedAtRaw);
 
@@ -72,7 +75,8 @@ export async function upsertMirrorRow(
 
 type RemoteRow = Record<string, unknown> & {
   id: string;
-  updated_at: string;
+  updated_at?: string;
+  created_at?: string;
   deleted_at?: string | null;
 };
 
@@ -104,7 +108,7 @@ export async function applyRemoteRow(
   };
   const remoteSide: SyncSide = {
     id: remoteRow.id,
-    updatedAt: toEpochMs(remoteRow.updated_at),
+    updatedAt: toEpochMs(remoteRow[meta.syncCursorColumn ?? 'updated_at'] as string),
     deletedAt:
       meta.hasServerTombstone && remoteRow.deleted_at ? toEpochMs(remoteRow.deleted_at) : null,
   };

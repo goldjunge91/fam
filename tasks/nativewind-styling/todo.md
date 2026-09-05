@@ -1,5 +1,29 @@
 # Todo: NativeWind Styling Stabilisierung
 
+## Task 14: Öffentliche Typografie vereinfachen
+
+**Description:** Die gewachsene `Txt`-API wird auf Waivys sieben allgemeine
+Rollen reduziert. Technische Größen einzelner Komponenten bleiben intern.
+
+**Acceptance criteria:**
+
+- [x] `TxtVariant` enthält ausschließlich `display`, `title`, `heading`,
+      `subheading`, `body`, `label` und `caption`.
+- [x] `bodySmall`, `bodyLarge`, `bodyRelaxed`, `control*`, `page*`,
+      `stepper*`, `ringValue`, `metricValue`, `navigationArrow`,
+      `captionCompact`, `detail`, `micro`, `link`, `code` und `meta` sind aus
+      der öffentlichen API entfernt.
+- [x] Der Design-System-Screen zeigt nur die sieben öffentlichen Varianten.
+- [x] Der Typografievertrag dokumentiert die erlaubte Verwendung und die
+      Zuordnung der entfernten Rollen.
+
+**Verification:**
+
+- [x] Produktiver Aufrufer-Audit mit `rg`.
+- [x] Fokussierter Biome-Check der zentralen und reparierten Dateien.
+- Nicht ausgeführt: Build, Typecheck und Tests waren in diesem Arbeitsschritt
+  nicht Teil der Freigabe.
+
 ## Phase 1: Foundation
 
 ## Task 1: Fam-Tokenvertrag konsolidieren
@@ -98,7 +122,8 @@
 
 - [x] Alle `Typography`-Rollen können dargestellt werden.
 - [x] Caller-Style ist der letzte Style-Eintrag.
-- [x] `Surface` unterstützt page, surface, soft, selected und accent.
+- [x] `Surface` unterstützt page, surface, soft und accent. Auswahlzustände
+      bleiben Aufgabe der interaktiven Komponente.
 
 **Verification:**
 

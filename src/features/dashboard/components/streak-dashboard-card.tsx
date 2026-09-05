@@ -31,7 +31,7 @@ function StreakDays({ count, activeToday }: { count: number; activeToday: boolea
               width: 12,
               height: 12,
               borderRadius: 6,
-              backgroundColor: active ? colors.carrot : colors.surfaceSoft,
+              backgroundColor: active ? colors.carrot : colors.backgroundSoft,
               borderWidth: isToday ? 2 : 0,
               borderColor: isToday ? colors.basil : 'transparent',
             }}
@@ -68,22 +68,22 @@ function StreakDashboardCard({ size, onLongPress }: DashboardCardProps) {
         boxShadow: `0 8px ${size === 'large' ? 22 : 20}px ${withAlpha(colors.text, 0.1)}`,
       }}>
       <View className="flex-row items-center justify-between">
-        <Txt variant="captionCompact" tone="accent" weight="700" style={{ letterSpacing: 0.5 }}>
+        <Txt variant="caption" tone="accent" weight="700" style={{ letterSpacing: 0.5 }}>
           KOCHSTREAK
         </Txt>
-        <Txt variant="detail" tone="secondary">
+        <Txt variant="caption" tone="secondary">
           {hasStreak ? 'Dranbleiben' : 'Dein Fortschritt'}
         </Txt>
       </View>
 
       <View className="flex-row items-baseline gap-two">
-        <Txt variant="bodyLarge" selectable>
+        <Txt variant="body" selectable>
           🔥
         </Txt>
-        <Txt variant="metricValue" selectable>
+        <Txt variant="title" selectable>
           {streak.count}
         </Txt>
-        <Txt variant="bodySmall" tone="secondary">
+        <Txt variant="body" tone="secondary">
           {streak.count === 1 ? 'Tag am Stück' : 'Tage am Stück'}
         </Txt>
       </View>
@@ -93,10 +93,10 @@ function StreakDashboardCard({ size, onLongPress }: DashboardCardProps) {
       <View
         className="flex-row items-center justify-between"
         style={{ borderTopWidth: 1, borderTopColor: colors.border, paddingTop: space.sm }}>
-        <Txt variant="bodySmall" tone={hasStreak ? 'success' : 'secondary'} weight="600">
+        <Txt variant="body" tone={hasStreak ? 'success' : 'secondary'} weight="600">
           {status}
         </Txt>
-        <Txt variant="detail" tone="secondary">
+        <Txt variant="caption" tone="secondary">
           Bester Wert: {streak.best} Tage
         </Txt>
       </View>

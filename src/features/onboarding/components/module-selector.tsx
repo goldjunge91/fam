@@ -23,10 +23,10 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
 
   return (
     <View className="gap-three">
-      <Txt variant="controlActionLarge" weight="700">
+      <Txt variant="subheading" weight="700">
         Welche Module möchtest du nutzen?
       </Txt>
-      <Txt variant="bodySmall" tone="secondary">
+      <Txt variant="body" tone="secondary">
         Du kannst ungenutzte Module jederzeit später in den Einstellungen anpassen.
       </Txt>
 
@@ -44,7 +44,7 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
               disabled={locked}
               className={`onboard-module-row ${state.modules[row.key] ? 'module-row-selected' : 'module-row-idle'}`}>
               <View className={`perm-text-col ${locked ? 'module-row-locked-content' : ''}`}>
-                <Txt variant="controlValue" weight="700">
+                <Txt variant="body" weight="700">
                   {row.icon} {row.title}
                 </Txt>
                 <Txt variant="label" tone="secondary" className="mt-half">

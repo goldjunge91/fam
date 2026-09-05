@@ -70,7 +70,6 @@ function useSignedImageUrl(
     queryKey: [queryKeyPrefix, path],
     queryFn: async () => {
       if (!path) return null;
-      if (__DEV__) console.log(`[${queryKeyPrefix}] signed-url:start`, { path });
 
       const supabase = getSupabase();
       const { data, error } = await supabase.storage
@@ -91,7 +90,6 @@ function useSignedImageUrl(
         throw new Error(error.message);
       }
 
-      if (__DEV__) console.log(`[${queryKeyPrefix}] signed-url:success`, { path });
       return data.signedUrl;
     },
     enabled: !!path,

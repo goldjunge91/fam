@@ -33,10 +33,10 @@ export function CompleteStepForm() {
         </Txt>
       </View>
 
-      <Txt variant="pageTitleLarge" weight="700" center>
+      <Txt variant="title" weight="700" center>
         Alles bereit!
       </Txt>
-      <Txt variant="bodyRelaxed" tone="secondary" center className="px-two">
+      <Txt variant="body" tone="secondary" center className="px-two">
         {`Dein Profil ist eingerichtet und du bist startklar für ${householdName}.`}
       </Txt>
 

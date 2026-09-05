@@ -1,3 +1,4 @@
+import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { toEpochMs } from '@/lib/sync/cursor';
@@ -15,6 +16,7 @@ describe('upsertMirrorRow', () => {
   beforeEach(async () => {
     db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
   });
 
   afterEach(() => {
@@ -278,6 +280,7 @@ describe('applyRemoteRow', () => {
   beforeEach(async () => {
     db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
   });
 
   afterEach(() => {
@@ -409,6 +412,7 @@ describe('deleteMirrorRow', () => {
   beforeEach(async () => {
     db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
   });
 
   afterEach(() => {
@@ -426,6 +430,9 @@ describe('deleteMirrorRow', () => {
         quantity: 1,
         unit: 'piece',
         created_at: '2024-01-01T00:00:00Z',
+        opened_at: null,
+        vacuum_sealed: false,
+        expiry_user_set: false,
         updated_at: '2024-01-15T10:00:00Z',
         deleted_at: null,
       },
@@ -449,6 +456,7 @@ describe('applyLocalMirrorWrite', () => {
   beforeEach(async () => {
     db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
   });
 
   afterEach(() => {
@@ -535,6 +543,9 @@ describe('applyLocalMirrorWrite', () => {
         quantity: 1,
         unit: 'piece',
         created_at: '2026-01-01T00:00:00Z',
+        opened_at: null,
+        vacuum_sealed: false,
+        expiry_user_set: false,
       },
       1_000,
     );
@@ -560,6 +571,9 @@ describe('applyLocalMirrorWrite', () => {
         quantity: 1,
         unit: 'piece',
         created_at: '2026-01-01T00:00:00Z',
+        opened_at: null,
+        vacuum_sealed: false,
+        expiry_user_set: false,
       },
       1_000,
     );

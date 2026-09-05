@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Pressable, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { font } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
@@ -55,7 +55,7 @@ export function QuantityStepper({
         accessibilityLabel={`${label} verringern`}
         className="stepper-btn"
         style={{ opacity: value <= min ? 0.45 : 1 }}>
-        <Txt variant={size === 'large' ? 'stepperActionLarge' : 'stepperAction'}>−</Txt>
+        <Txt variant="subheading">−</Txt>
       </Pressable>
 
       {isEditing ? (
@@ -71,7 +71,8 @@ export function QuantityStepper({
           className="flex-1 self-stretch px-two py-0 text-center [font-variant:tabular-nums]"
           style={{
             color: colors.text,
-            fontSize: size === 'large' ? font.sizes.bodyLarge : font.sizes.base,
+            fontSize: size === 'large' ? font.sizes.md : font.sizes.base,
+            lineHeight: size === 'large' ? font.lineHeights.subheading : font.lineHeights.body,
             fontWeight: '600',
           }}
         />
@@ -82,9 +83,10 @@ export function QuantityStepper({
           accessibilityLabel={`${label} direkt eingeben`}
           className="flex-1 items-center justify-center">
           <Txt
-            variant={size === 'large' ? 'bodyLarge' : 'body'}
+            variant="body"
             weight="600"
-            className="text-center [font-variant:tabular-nums]">
+            className="text-center [font-variant:tabular-nums]"
+            style={size === 'large' ? styles.largeValue : undefined}>
             {value}
           </Txt>
         </Pressable>
@@ -97,8 +99,15 @@ export function QuantityStepper({
         accessibilityLabel={`${label} erhöhen`}
         className="stepper-btn"
         style={{ opacity: value >= max ? 0.45 : 1 }}>
-        <Txt variant={size === 'large' ? 'stepperActionLarge' : 'stepperAction'}>+</Txt>
+        <Txt variant="subheading">+</Txt>
       </Pressable>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  largeValue: {
+    fontSize: font.sizes.md,
+    lineHeight: font.lineHeights.subheading,
+  },
+});

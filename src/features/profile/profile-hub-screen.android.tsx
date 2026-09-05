@@ -75,7 +75,7 @@ export function ProfileHubScreen() {
                   <Txt variant="title">👤</Txt>
                 </View>
                 <View className="flex-1">
-                  <Txt variant="bodyRelaxed" weight="700">
+                  <Txt variant="body" weight="700">
                     Profil & Account-Daten
                   </Txt>
                   <Txt variant="caption" tone="secondary">
@@ -83,7 +83,7 @@ export function ProfileHubScreen() {
                   </Txt>
                 </View>
               </View>
-              <Txt variant="controlAction" tone="secondary">
+              <Txt variant="subheading" tone="secondary">
                 ›
               </Txt>
             </Pressable>
@@ -102,7 +102,7 @@ export function ProfileHubScreen() {
                   <Txt variant="title">🎯</Txt>
                 </View>
                 <View className="flex-1">
-                  <Txt variant="bodyRelaxed" weight="700">
+                  <Txt variant="body" weight="700">
                     Mein Tracking
                   </Txt>
                   <Txt variant="caption" tone="secondary">
@@ -110,7 +110,7 @@ export function ProfileHubScreen() {
                   </Txt>
                 </View>
               </View>
-              <Txt variant="controlAction" tone="secondary">
+              <Txt variant="subheading" tone="secondary">
                 ›
               </Txt>
             </Pressable>
@@ -129,7 +129,7 @@ export function ProfileHubScreen() {
                   <Txt variant="title">🏠</Txt>
                 </View>
                 <View className="flex-1">
-                  <Txt variant="bodyRelaxed" weight="700">
+                  <Txt variant="body" weight="700">
                     Familie
                   </Txt>
                   <Txt variant="caption" tone="secondary">
@@ -137,7 +137,7 @@ export function ProfileHubScreen() {
                   </Txt>
                 </View>
               </View>
-              <Txt variant="controlAction" tone="secondary">
+              <Txt variant="subheading" tone="secondary">
                 ›
               </Txt>
             </Pressable>

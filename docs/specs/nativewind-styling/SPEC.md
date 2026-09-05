@@ -28,6 +28,7 @@ Die fam-App soll eine nachvollziehbare UI-Styling-Quelle für ihre React-Native-
 5. `Txt` ersetzt `ThemedText`. `Surface` ersetzt die generische Funktion von `ThemedView`; `Card` bleibt die spezialisierte Kartenkomponente.
 6. `src/lib/haptics.ts` ist die einzige Haptics-Implementierung für die neuen Press-/Button-Primitiven.
 7. Bestehende ui-Komponenten, Props und Verhalten werden beibehalten. Werte, für die fam bereits ein direktes Gegenstück besitzt, werden durch Fam-Tokens ersetzt. ui-only Werte werden nicht zur globalen Fam-Palette oder Theme-Quelle gemacht.
+8. `Screen` stellt einen Safe-Area-bewussten, themefähigen Inhalts-Scaffold bereit. `ScreenHeader` ist der optionale kompakte Header; die bestehende `chrome`-/`back`-API bleibt als kompatible Erweiterung erhalten.
 
 ## Aktuelle Probleme, die dieser Vertrag behebt
 
@@ -36,7 +37,7 @@ Die fam-App soll eine nachvollziehbare UI-Styling-Quelle für ihre React-Native-
 | Import-/Runtime-Fehler | Neue Dateien nutzen `~/theme` und `~/lib/store`, obwohl das Projekt `@/...` und andere Storage-Module verwendet | Imports vor Integration an die Projektstruktur anpassen und typisieren |
 | Falsche Palette | `src/components/theme/index.ts` nutzt aktuell ui-Farben | Fam-Palette in den neuen Tokenvertrag überführen; keine ui-Hexwerte in Production-Defaults |
 | Haptics nicht verdrahtet | `src/lib/haptics.ts` existiert bereits, wird von `ui.tsx` aber noch nicht korrekt importiert | vorhandene Datei direkt einbinden und eine einzige `fireHaptic`-Grenze verwenden |
-| Textgrößen | Alte Rollen sind teils missverständlich; `title` und `subtitle` zeigen andere Größen als ihre Namen vermuten lassen; `bodySmall` ist nicht vollständig im Klassenmapping | Vollständige semantische Typografie-Tabelle und explizite Migrationstabelle |
+| Textgrößen | Alte Rollen waren missverständlich und erzeugten widersprüchliche Größen und Zeilenhöhen | Sieben waivy-nahe `Txt`-Varianten mit zentralen, sicheren Zeilenhöhen |
 | Stilpriorität | `className`, Komponentendefaults und `style` konkurrieren bei Farbe, Font und Hintergrund | Semantische Werte aus StyleSheet; Caller-Style zuletzt; `className` für Layout und dokumentierte Utilities |
 | Views | `lightColor` und `darkColor` von `ThemedView` werden ignoriert | `Surface` mit semantischem `tone` und aktivem Theme |
 | Native Grenzen | `expo-image`, FlashList, Bottom Sheets und SVG-Komponenten übernehmen `className` nicht zuverlässig | Boundary-Matrix und `style`-Adapter |
@@ -149,6 +150,30 @@ Das gilt für die gemeinsame und die vorhandene Android-Drawer-Datei.
 „Einstellungen“ berücksichtigt zusätzlich `/settings` und alle
 Einstellungs-Unterseiten. Die Markierung ist nicht an einen zweiten lokalen
 Navigationszustand gebunden und bleibt dadurch automatisch synchron.
+
+## Screen-Scaffold
+
+`src/components/layout/screen.tsx` und die vorhandene
+`screen.android.tsx`-Variante verwenden dieselbe Scaffold-API. Der Root nutzt
+`Surface tone="page"` für den aktiven Fam-Hintergrund, `SafeAreaView` für die
+Gerätebereiche und `CONTENT_MAX_WIDTH` für eine zentrierte Inhaltsbreite.
+
+Die neue, kompatible API umfasst:
+
+- `ScreenHeader({ title, subtitle, back, right })` für einen optionalen
+  Header mit Theme-IconButton,
+- `padded` für die horizontale Innenauffüllung,
+- `contentStyle` als typisierten letzten Style-Override des Inhalts,
+- `refreshing` und `onRefresh` für Pull-to-Refresh inklusive Safe-Area-
+  Offset,
+- `scroll={false}` für Screens mit eigener Liste oder eigenem ScrollView.
+
+Der untere Abstand wird bei aktiviertem `applyBottomPadding` als echter
+Laufzeitwert aus `insets.bottom + 96` berechnet. Dadurch bleibt der Inhalt
+über Floating Action Button, Sticky-Banner und Home-Indikator erreichbar.
+Ein wörtliches Ersetzen durch die externe Referenz wäre nicht kompatibel mit
+den bereits bestehenden `chrome`, `back`, `backgroundGradient` und
+`applyBottomPadding`-Aufrufern; diese Fähigkeiten bleiben bewusst erhalten.
 
 ## Grenzen
 

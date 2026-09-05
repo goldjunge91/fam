@@ -52,12 +52,12 @@ export function CookingModeStep({
           <View
             key={step.id}
             className="flex-1 h-1 rounded-sm"
-            style={{ backgroundColor: index <= stepIndex ? colors.basil : colors.surfaceSoft }}
+            style={{ backgroundColor: index <= stepIndex ? colors.basil : colors.backgroundSoft }}
           />
         ))}
       </View>
 
-      <Txt variant="micro" tone="secondary" className="tracking-wider">
+      <Txt variant="caption" tone="secondary" className="tracking-wider">
         SCHRITT {stepIndex + 1} VON {steps.length}
       </Txt>
       <Txt variant="heading" className="pt-[6px]" numberOfLines={2}>
@@ -72,7 +72,7 @@ export function CookingModeStep({
       <StepMentionText
         text={currentStep.text}
         ingredients={mentionIngredients}
-        variant="detail"
+        variant="caption"
         tone="secondary"
         className="pt-three"
         weight="500"
@@ -96,7 +96,7 @@ export function CookingModeStep({
           className={`w-12 h-12 rounded-card items-center justify-center active:opacity-75 ${
             stepIndex === 0 ? 'opacity-35' : ''
           }`}
-          style={{ backgroundColor: colors.surfaceSoft }}>
+          style={{ backgroundColor: colors.backgroundSoft }}>
           <Txt variant="heading" tone="secondary" weight="500">
             ‹
           </Txt>

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { Pressable, type ViewStyle } from 'react-native';
 
-import { Surface, Txt } from '@/constants/ui';
+import { Card as FoundationCard, Txt } from '@/constants/ui';
 
 type CardProps = {
   children: ReactNode;
@@ -15,7 +15,7 @@ type CardProps = {
 /** Flaeche fuer zusammengehoerende Inhalte. Antippbar, sobald `onPress` gesetzt ist. */
 export function Card({ children, title, footer, onPress, style, className = '' }: CardProps) {
   const content = (
-    <Surface tone="surface" className={`card-fam ${className}`.trim()} style={style}>
+    <FoundationCard className={`gap-two ${className}`.trim()} style={style}>
       {title ? (
         <Txt variant="body" weight="700">
           {title}
@@ -23,7 +23,7 @@ export function Card({ children, title, footer, onPress, style, className = '' }
       ) : null}
       {children}
       {footer}
-    </Surface>
+    </FoundationCard>
   );
 
   if (!onPress) return content;

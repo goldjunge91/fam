@@ -459,7 +459,7 @@ export function TrackingScreen() {
                 <Txt variant="caption" tone="secondary">
                   🥩 Protein
                 </Txt>
-                <Txt variant="bodyRelaxed" weight="700" className="mt-one">
+                <Txt variant="body" weight="700" className="mt-one">
                   {currentGoal ? `${currentGoal.protein_g}g` : '–'}
                 </Txt>
               </View>
@@ -470,7 +470,7 @@ export function TrackingScreen() {
                 <Txt variant="caption" tone="secondary">
                   🍞 Carbs
                 </Txt>
-                <Txt variant="bodyRelaxed" weight="700" className="mt-one">
+                <Txt variant="body" weight="700" className="mt-one">
                   {currentGoal ? `${currentGoal.carbs_g}g` : '–'}
                 </Txt>
               </View>
@@ -481,7 +481,7 @@ export function TrackingScreen() {
                 <Txt variant="caption" tone="secondary">
                   🥑 Fett
                 </Txt>
-                <Txt variant="bodyRelaxed" weight="700" className="mt-one">
+                <Txt variant="body" weight="700" className="mt-one">
                   {currentGoal ? `${currentGoal.fat_g}g` : '–'}
                 </Txt>
               </View>
@@ -506,7 +506,7 @@ export function TrackingScreen() {
                 <Txt variant="caption" tone="secondary">
                   📏 Körpergröße
                 </Txt>
-                <Txt variant="bodyRelaxed" weight="700" className="mt-one">
+                <Txt variant="body" weight="700" className="mt-one">
                   {profile?.height_cm ? `${profile.height_cm} cm` : 'Nicht gesetzt'}
                 </Txt>
               </View>
@@ -517,7 +517,7 @@ export function TrackingScreen() {
                 <Txt variant="caption" tone="secondary">
                   ⚖️ Aktuelles Gewicht
                 </Txt>
-                <Txt variant="bodyRelaxed" weight="700" className="mt-one">
+                <Txt variant="body" weight="700" className="mt-one">
                   {logicalDayWeight?.weight_kg ? `${logicalDayWeight.weight_kg} kg` : 'Kein Log'}
                 </Txt>
               </View>
@@ -530,7 +530,7 @@ export function TrackingScreen() {
                 <Txt variant="caption" tone="secondary">
                   🧬 Geschlecht & Alter
                 </Txt>
-                <Txt variant="bodySmall" weight="700" className="mt-one">
+                <Txt variant="body" weight="700" className="mt-one">
                   {profile?.sex === 'male'
                     ? 'Männlich'
                     : profile?.sex === 'female'
@@ -546,7 +546,7 @@ export function TrackingScreen() {
                 <Txt variant="caption" tone="secondary">
                   🏃 Aktivitätslevel
                 </Txt>
-                <Txt variant="bodySmall" weight="700" className="mt-one" numberOfLines={1}>
+                <Txt variant="body" weight="700" className="mt-one" numberOfLines={1}>
                   {profile?.activity_level
                     ? (ACTIVITY_LABELS[profile.activity_level] ?? profile.activity_level)
                     : 'Nicht gesetzt'}
@@ -562,7 +562,7 @@ export function TrackingScreen() {
                 <Txt variant="caption" tone="secondary">
                   Grundumsatz (BMR)
                 </Txt>
-                <Txt variant="bodyRelaxed" weight="700" className="mt-one">
+                <Txt variant="body" weight="700" className="mt-one">
                   {bmrKcal ? `${bmrKcal} kcal` : '–'}
                 </Txt>
               </View>
@@ -571,7 +571,7 @@ export function TrackingScreen() {
                 <Txt variant="caption" tone="secondary">
                   Gesamtbedarf (TDEE)
                 </Txt>
-                <Txt variant="bodyRelaxed" weight="700" className="mt-one">
+                <Txt variant="body" weight="700" className="mt-one">
                   {tdeeKcal ? `${tdeeKcal} kcal` : '–'}
                 </Txt>
               </View>

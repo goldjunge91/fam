@@ -120,7 +120,7 @@ export function SettingsScreen() {
                 {session?.user.email ?? '—'}
               </Txt>
             </View>
-            <Txt variant="navigationArrow" tone="secondary">
+            <Txt variant="title" tone="secondary">
               ›
             </Txt>
           </Pressable>

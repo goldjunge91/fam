@@ -101,7 +101,7 @@ export function BiometricsSheet({
             contentContainerClassName="gap-three pb-two">
             <View
               className="profile-biometrics-weight-editor"
-              style={{ backgroundColor: colors.surfaceSoft }}>
+              style={{ backgroundColor: colors.backgroundSoft }}>
               <TextField
                 label="Aktuelles Gewicht (kg)"
                 value={draft.weightKg}

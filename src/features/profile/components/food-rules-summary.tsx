@@ -55,7 +55,7 @@ function SummaryRow({
       <Txt variant="body" tone="secondary" className="flex-1 text-right" numberOfLines={2}>
         {summary}
       </Txt>
-      <Txt variant="navigationArrow" tone="secondary" aria-hidden>
+      <Txt variant="title" tone="secondary" aria-hidden>
         ›
       </Txt>
     </Pressable>

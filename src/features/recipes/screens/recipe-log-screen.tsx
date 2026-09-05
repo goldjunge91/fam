@@ -124,7 +124,7 @@ export function RecipeLogScreen() {
         <View className="flex-1 min-h-[150px] items-center pt-[30px] opacity-55">
           <View
             className="w-[82px] h-[82px] rounded-fam-large"
-            style={{ backgroundColor: colors.backgroundSelected }}
+            style={{ backgroundColor: colors.backgroundSoft }}
           />
           <Txt variant="heading" className="pt-[18px]">
             Guten Appetit!
@@ -144,7 +144,7 @@ export function RecipeLogScreen() {
               <Txt variant="heading">
                 {isWeighMode ? 'Zubereitete Gewichte' : 'Ins Tagebuch eintragen'}
               </Txt>
-              <Txt variant="micro" tone="secondary" className="pt-[7px]" weight="500">
+              <Txt variant="caption" tone="secondary" className="pt-[7px]" weight="500">
                 {isWeighMode
                   ? 'Diese Werte verbessern die Berechnung in deinem Haushaltsrezept.'
                   : 'Wie viel davon war auf deinem Teller?'}
@@ -155,8 +155,8 @@ export function RecipeLogScreen() {
               role="button"
               aria-label="Schließen"
               className="w-8 h-8 rounded-control items-center justify-center"
-              style={{ backgroundColor: colors.backgroundSelected }}>
-              <Txt variant="bodyLarge" tone="secondary" weight="500">
+              style={{ backgroundColor: colors.backgroundSoft }}>
+              <Txt variant="body" tone="secondary" weight="500">
                 ×
               </Txt>
             </Pressable>
@@ -186,7 +186,7 @@ export function RecipeLogScreen() {
               <View className="gap-[10px]">
                 {topLevelComponents.map((component) => (
                   <View key={component.id} className="min-h-[40px] flex-row items-center gap-[9px]">
-                    <Txt variant="micro" weight="700" className="flex-1">
+                    <Txt variant="caption" weight="700" className="flex-1">
                       {component.name}
                     </Txt>
                     <View className="grams-field">
@@ -198,13 +198,13 @@ export function RecipeLogScreen() {
                         className="flex-1 h-full py-0 text-right"
                         style={{
                           color: colors.text,
-                          fontSize: font.sizes.micro,
-                          lineHeight: font.lineHeights.micro,
+                          fontSize: font.sizes.xs,
+                          lineHeight: font.lineHeights.caption,
                           fontWeight: '500',
                         }}
                         placeholderTextColor={colors.textSecondary}
                       />
-                      <Txt variant="micro" tone="secondary" className="pl-one">
+                      <Txt variant="caption" tone="secondary" className="pl-one">
                         g
                       </Txt>
                     </View>
@@ -215,12 +215,12 @@ export function RecipeLogScreen() {
               {total && !isWeighMode ? (
                 <View
                   className="min-h-[53px] rounded-card items-center justify-center px-[11px]"
-                  style={{ backgroundColor: colors.backgroundSelected }}>
-                  <Txt variant="controlValue" weight="700">
+                  style={{ backgroundColor: colors.backgroundSoft }}>
+                  <Txt variant="body" weight="700">
                     {round(total.kcal)} kcal
                   </Txt>
                   <Txt
-                    variant="micro"
+                    variant="caption"
                     tone="secondary"
                     className="pt-[3px] text-center"
                     weight="500">

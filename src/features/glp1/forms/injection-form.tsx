@@ -92,8 +92,8 @@ export function InjectionForm({
     color: colors.text,
     backgroundColor: colors.backgroundElement,
     borderColor: colors.border,
-    fontSize: font.sizes.bodyLarge,
-    lineHeight: font.lineHeights.bodyLarge,
+    fontSize: font.sizes.md,
+    lineHeight: font.lineHeights.subheading,
   };
   const multilineInputStyle = { ...inputStyle, textAlignVertical: 'top' as const };
 
@@ -126,7 +126,7 @@ export function InjectionForm({
                   borderColor: isSelected ? colors.accent : colors.border,
                 }}
                 className="py-one px-three rounded-xl border">
-                <Txt variant="bodyRelaxed" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
+                <Txt variant="body" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                   {name}
                 </Txt>
               </Pressable>
@@ -175,7 +175,7 @@ export function InjectionForm({
                   borderColor: isSelected ? colors.accent : colors.border,
                 }}
                 className="py-one px-three rounded-xl border">
-                <Txt variant="bodyRelaxed" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
+                <Txt variant="body" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                   {value}
                 </Txt>
               </Pressable>
@@ -207,7 +207,7 @@ export function InjectionForm({
                   borderColor: isSelected ? colors.accent : colors.border,
                 }}
                 className="py-one px-three rounded-xl border">
-                <Txt variant="bodyRelaxed" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
+                <Txt variant="body" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                   {value === 'Andere' ? 'Andere' : `${value} ${unit}`}
                 </Txt>
               </Pressable>
@@ -264,7 +264,7 @@ export function InjectionForm({
             }}
             className="py-one px-three rounded-xl border">
             <Txt
-              variant="bodyRelaxed"
+              variant="body"
               weight="700"
               tone={injectionSite === null ? 'onAccent' : 'primary'}>
               Keine Angabe
@@ -285,7 +285,7 @@ export function InjectionForm({
                   borderColor: isSelected ? colors.accent : colors.border,
                 }}
                 className="py-one px-three rounded-xl border">
-                <Txt variant="bodyRelaxed" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
+                <Txt variant="body" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                   {label}
                 </Txt>
               </Pressable>
@@ -351,10 +351,10 @@ export function InjectionForm({
       <View
         className="p-two rounded-lg border flex-row items-center justify-between"
         style={surfaceStyle}>
-        <Txt variant="bodyRelaxed" tone="secondary">
+        <Txt variant="body" tone="secondary">
           Ausgewählt:
         </Txt>
-        <Txt variant="bodyRelaxed" weight="700">
+        <Txt variant="body" weight="700">
           {medicationName || '–'} ({dose || '–'} {unit})
         </Txt>
       </View>

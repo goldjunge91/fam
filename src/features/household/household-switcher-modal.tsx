@@ -41,7 +41,7 @@ export function HouseholdSwitcherModal({
               Haushalt wechseln
             </Txt>
             <Pressable onPress={onClose} hitSlop={10}>
-              <Txt variant="controlAction" tone="secondary" weight="500">
+              <Txt variant="subheading" tone="secondary" weight="500">
                 ✕
               </Txt>
             </Pressable>

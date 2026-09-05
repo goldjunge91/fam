@@ -39,10 +39,10 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
 
   return (
     <View className="gap-three">
-      <Txt variant="controlActionLarge" weight="700">
+      <Txt variant="subheading" weight="700">
         Dein Account
       </Txt>
-      <Txt variant="bodySmall" tone="secondary">
+      <Txt variant="body" tone="secondary">
         Erstelle ein Konto oder melde dich an, um deine Daten zu synchronisieren.
       </Txt>
 
@@ -66,7 +66,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
               onPress={() => setAuthMode('sign_up')}
               className={`account-tab-button ${authMode === 'sign_up' ? 'account-tab-button-active' : ''}`}>
               <Txt
-                variant="bodySmall"
+                variant="body"
                 tone={authMode === 'sign_up' ? 'onAccent' : 'primary'}
                 weight="600">
                 Registrieren
@@ -76,7 +76,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
               onPress={() => setAuthMode('sign_in')}
               className={`account-tab-button ${authMode === 'sign_in' ? 'account-tab-button-active' : ''}`}>
               <Txt
-                variant="bodySmall"
+                variant="body"
                 tone={authMode === 'sign_in' ? 'onAccent' : 'primary'}
                 weight="600">
                 Anmelden

@@ -80,7 +80,7 @@ export function RecipeWizardStepPreview({
       className="flex-1"
       contentContainerClassName="px-four pb-six"
       showsVerticalScrollIndicator={false}>
-      <Txt variant="micro" tone="secondary" className="pt-two tracking-widest" weight="500">
+      <Txt variant="caption" tone="secondary" className="pt-two tracking-widest" weight="500">
         SCHRITT 4 VON 4
       </Txt>
       <Txt variant="heading" className="pt-[6px] pb-three">
@@ -116,10 +116,7 @@ export function RecipeWizardStepPreview({
           accessibilityState={{ selected: tab === 'ingredients' }}
           className="flex-1 py-[10px] rounded-fam-large items-center"
           style={{ backgroundColor: tab === 'ingredients' ? colors.accent : 'transparent' }}>
-          <Txt
-            variant="bodyRelaxed"
-            tone={tab === 'ingredients' ? 'onAccent' : 'primary'}
-            weight="600">
+          <Txt variant="body" tone={tab === 'ingredients' ? 'onAccent' : 'primary'} weight="600">
             Zutaten
           </Txt>
         </Pressable>
@@ -129,10 +126,7 @@ export function RecipeWizardStepPreview({
           accessibilityState={{ selected: tab === 'instructions' }}
           className="flex-1 py-[10px] rounded-fam-large items-center"
           style={{ backgroundColor: tab === 'instructions' ? colors.accent : 'transparent' }}>
-          <Txt
-            variant="bodyRelaxed"
-            tone={tab === 'instructions' ? 'onAccent' : 'primary'}
-            weight="600">
+          <Txt variant="body" tone={tab === 'instructions' ? 'onAccent' : 'primary'} weight="600">
             Anleitung
           </Txt>
         </Pressable>
@@ -176,8 +170,8 @@ export function RecipeWizardStepPreview({
                 <View
                   key={d}
                   className="px-[10px] py-[5px] rounded-control"
-                  style={{ backgroundColor: colors.backgroundSelected }}>
-                  <Txt variant="captionCompact" tone="primary" weight="600">
+                  style={{ backgroundColor: colors.backgroundSoft }}>
+                  <Txt variant="caption" tone="primary" weight="600">
                     {labelFor(DISH_TYPES, d)}
                   </Txt>
                 </View>
@@ -186,8 +180,8 @@ export function RecipeWizardStepPreview({
                 <View
                   key={d}
                   className="px-[10px] py-[5px] rounded-control"
-                  style={{ backgroundColor: colors.backgroundSelected }}>
-                  <Txt variant="captionCompact" tone="primary" weight="600">
+                  style={{ backgroundColor: colors.backgroundSoft }}>
+                  <Txt variant="caption" tone="primary" weight="600">
                     {labelFor(DIETARY_TAGS, d)}
                   </Txt>
                 </View>
@@ -250,7 +244,7 @@ export function RecipeWizardStepPreview({
                         key={id}
                         className="px-[10px] py-one rounded-control"
                         style={{ backgroundColor: colors.backgroundElement }}>
-                        <Txt variant="captionCompact" tone="primary" weight="600">
+                        <Txt variant="caption" tone="primary" weight="600">
                           {ingredientLabelById.get(id) ?? id}
                         </Txt>
                       </View>
@@ -267,7 +261,7 @@ export function RecipeWizardStepPreview({
           className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
           style={{ backgroundColor: colors.backgroundElement }}
           onPress={onBack}>
-          <Txt variant="captionCompact" tone="primary" weight="600">
+          <Txt variant="caption" tone="primary" weight="600">
             Zurück
           </Txt>
         </Pressable>
@@ -277,7 +271,7 @@ export function RecipeWizardStepPreview({
           accessibilityRole="button"
           onPress={onSave}
           disabled={saving}>
-          <Txt variant="captionCompact" tone="onAccent" weight="600">
+          <Txt variant="caption" tone="onAccent" weight="600">
             {saving ? 'Speichert…' : 'Speichern'}
           </Txt>
         </Pressable>

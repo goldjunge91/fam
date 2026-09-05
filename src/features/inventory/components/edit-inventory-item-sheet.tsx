@@ -34,6 +34,9 @@ export function EditInventoryItemSheet({
   const [unit, setUnit] = useState('piece');
   const [locationId, setLocationId] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
+  const [openedAt, setOpenedAt] = useState<string | null>(null);
+  const [vacuumSealed, setVacuumSealed] = useState(false);
+  const [expiryUserSet, setExpiryUserSet] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [nameError, setNameError] = useState<string | null>(null);
 
@@ -44,6 +47,9 @@ export function EditInventoryItemSheet({
     setUnit(item.unit);
     setLocationId(item.location_id ?? '');
     setExpiryDate(item.expiry_date ?? '');
+    setOpenedAt(item.opened_at ?? null);
+    setVacuumSealed(item.vacuum_sealed ?? false);
+    setExpiryUserSet(item.expiry_user_set ?? false);
     setDetailsOpen(false);
     setNameError(null);
   }, [item, visible]);
@@ -77,6 +83,9 @@ export function EditInventoryItemSheet({
       package_size_unit: currentItem.package_size_unit,
       location_id: locationId || null,
       expiry_date: expiryDate || null,
+      opened_at: openedAt,
+      vacuum_sealed: vacuumSealed,
+      expiry_user_set: expiryUserSet || !!expiryDate,
     });
     onClose();
   }
@@ -188,6 +197,22 @@ export function EditInventoryItemSheet({
                   value={expiryDate}
                   onChange={setExpiryDate}
                 />
+                {openedAt ? (
+                  <View className="gap-one">
+                    <Txt variant="caption" tone="secondary">
+                      Dieses Los ist seit {new Date(openedAt).toLocaleDateString('de-DE')} geöffnet.
+                    </Txt>
+                    <Button
+                      variant="secondary"
+                      label="Wieder versiegeln"
+                      onPress={() => {
+                        setOpenedAt(null);
+                        setVacuumSealed(false);
+                        setExpiryUserSet(true);
+                      }}
+                    />
+                  </View>
+                ) : null}
               </View>
             ) : null}
 

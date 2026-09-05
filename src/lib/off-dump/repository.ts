@@ -1,7 +1,7 @@
 import type { SqlDatabase } from '@/lib/db/types';
 import { type InstallBaselineResult, installBaseline } from './baseline-installer';
 import { reconcileBaselineState } from './baseline-reconcile';
-import type { FileOps } from './file-ops';
+import type { DumpInspection, FileOps } from './file-ops';
 import { type DumpManifest, fetchManifest as defaultFetchManifest } from './manifest';
 import { type ApplyPatchResult, applyPatch } from './patch-applier';
 import type { PlaintextAttachmentMode } from './plaintext-attachment';
@@ -95,6 +95,8 @@ export async function checkForUpdate(params: {
   fileOps: FileOps;
   manifestUrl: string;
   paths: DumpPaths;
+  /** Bereits gelesener Zustand des aktiven, angehängten Dumps. */
+  activeInspection?: DumpInspection | null;
   fetchManifest?: (url: string) => Promise<DumpManifest | null>;
   installBaseline?: InstallBaselineFn;
   applyPatch?: ApplyPatchFn;
@@ -104,6 +106,7 @@ export async function checkForUpdate(params: {
     fileOps,
     manifestUrl,
     paths,
+    activeInspection,
     fetchManifest: fetchManifestFn = defaultFetchManifest,
     installBaseline: installBaselineFn = installBaseline,
     applyPatch: applyPatchFn = applyPatch,
@@ -112,7 +115,8 @@ export async function checkForUpdate(params: {
   const manifest = await fetchManifestFn(manifestUrl);
   if (!manifest) return { kind: 'manifest-unavailable' };
 
-  const inspected = await fileOps.inspectDump(paths.activePath);
+  const inspected =
+    activeInspection === undefined ? await fileOps.inspectDump(paths.activePath) : activeInspection;
   const plan = planUpdate(
     {
       schemaVersion: inspected?.schemaVersion ?? null,

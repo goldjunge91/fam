@@ -24,17 +24,17 @@ export function CookingModeFinishAction({
       style={{ backgroundColor: colors.backgroundElement }}>
       <View
         className="w-[38px] h-[38px] rounded-control"
-        style={{ backgroundColor: colors.backgroundSelected }}
+        style={{ backgroundColor: colors.backgroundSoft }}
       />
       <View className="flex-1 min-w-0">
-        <Txt variant="micro" weight="700">
+        <Txt variant="caption" weight="700">
           {title}
         </Txt>
-        <Txt variant="micro" tone="secondary" className="pt-half">
+        <Txt variant="caption" tone="secondary" className="pt-half">
           {subtitle}
         </Txt>
       </View>
-      <Txt variant="controlAction" tone="secondary">
+      <Txt variant="subheading" tone="secondary">
         ›
       </Txt>
     </Pressable>

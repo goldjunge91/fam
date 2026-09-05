@@ -17,6 +17,8 @@ type InventoryItemActionsSheetProps = {
   onEdit: () => void;
   onConsume: () => void;
   onRemove: () => void;
+  onOpen: () => void;
+  onWaste: () => void;
   onExpiryChange: (expiryDate: string) => void;
 };
 
@@ -28,6 +30,8 @@ export function InventoryItemActionsSheet({
   onEdit,
   onConsume,
   onRemove,
+  onOpen,
+  onWaste,
   onExpiryChange,
 }: InventoryItemActionsSheetProps) {
   const { colors } = useTheme();
@@ -55,11 +59,11 @@ export function InventoryItemActionsSheet({
             {/* Farbe pro Item dynamisch (Ablaufstatus). */}
             <View
               className="fridge-actions-expiry-bar"
-              style={{ backgroundColor: expiryColor(expiry.themeColor, colors) }}
+              style={{ backgroundColor: expiryColor(expiry.themeColor, colors, !!item.opened_at) }}
             />
             <View className="fridge-actions-item-copy">
               <Txt variant="title">{item.name}</Txt>
-              <Txt variant="body" color={expiryColor(expiry.themeColor, colors)}>
+              <Txt variant="body" color={expiryColor(expiry.themeColor, colors, !!item.opened_at)}>
                 {expiry.label}
               </Txt>
             </View>
@@ -85,8 +89,12 @@ export function InventoryItemActionsSheet({
 
           <View className="fridge-actions-row">
             <SheetAction label="Bearbeiten" onPress={onEdit} variant="neutral" />
+            {!item.opened_at ? (
+              <SheetAction label="Öffnen" onPress={onOpen} variant="neutral" />
+            ) : null}
             <SheetAction label="Verbraucht" onPress={onConsume} variant="success" />
-            <SheetAction label="Entfernen" onPress={onRemove} variant="danger" />
+            <SheetAction label="Wegwerfen" onPress={onWaste} variant="danger" />
+            <SheetAction label="Entfernen" onPress={onRemove} variant="danger" fullWidth />
           </View>
 
           <DateWheelField
@@ -116,18 +124,20 @@ function SheetAction({
   label,
   onPress,
   variant,
+  fullWidth = false,
 }: {
   label: string;
   onPress: () => void;
   variant: keyof typeof ACTION_VARIANT_CLASSES;
+  fullWidth?: boolean;
 }) {
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={label}
-      className={`fridge-action-btn ${ACTION_VARIANT_CLASSES[variant]}`}>
-      <Txt variant="body" tone={ACTION_VARIANT_TEXT_COLOR[variant]}>
+      className={`fridge-action-btn ${fullWidth ? 'fridge-action-btn-full' : ''} ${ACTION_VARIANT_CLASSES[variant]}`}>
+      <Txt variant="body" tone={ACTION_VARIANT_TEXT_COLOR[variant]} weight="700">
         {label}
       </Txt>
     </Pressable>
@@ -137,8 +147,10 @@ function SheetAction({
 function expiryColor(
   themeColor: ExpiryThemeColor,
   colors: ReturnType<typeof useTheme>['colors'],
+  opened: boolean,
 ): string {
   if (themeColor === 'danger') return colors.tomato;
   if (themeColor === 'warning') return colors.carrot;
+  if (opened) return colors.carrot;
   return colors.textMuted;
 }

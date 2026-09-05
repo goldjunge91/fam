@@ -23,7 +23,7 @@ export function SectionHeading({
       <View className="shrink">
         {eyebrow ? (
           <Txt
-            variant="micro"
+            variant="caption"
             tone="secondary"
             weight="600"
             className="uppercase"
@@ -31,7 +31,7 @@ export function SectionHeading({
             {eyebrow}
           </Txt>
         ) : null}
-        <Txt variant="bodySmall" weight="700" className={titleClassName}>
+        <Txt variant="body" weight="700" className={titleClassName}>
           {title}
         </Txt>
       </View>
@@ -42,7 +42,7 @@ export function SectionHeading({
           aria-label={actionLabel}
           hitSlop={8}
           className="active:opacity-65">
-          <Txt variant="detail" tone="primary" weight="700">
+          <Txt variant="caption" tone="primary" weight="700">
             {actionLabel}
           </Txt>
         </Pressable>

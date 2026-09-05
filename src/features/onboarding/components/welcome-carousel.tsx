@@ -45,11 +45,11 @@ export function WelcomeCarousel({ onStart }: WelcomeCarouselProps) {
         </Txt>
       </View>
 
-      <Txt variant="controlActionLarge" weight="700" center>
+      <Txt variant="subheading" weight="700" center>
         {current.title}
       </Txt>
 
-      <Txt variant="bodyRelaxed" tone="secondary" center className="px-two">
+      <Txt variant="body" tone="secondary" center className="px-two">
         {current.description}
       </Txt>
 

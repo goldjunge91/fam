@@ -87,6 +87,16 @@ Fam-Tokens
 - [x] Task 12: Zwei statische Screen-Mocks für Dashboard und Essensplaner erstellen und die visuellen Entscheidungen daran prüfen.
 - [x] Task 13: Dokumentation des finalen Style-Vertrags und verbleibender Ausnahmen aktualisieren.
 
+### Phase 5: Öffentliche Typografie vereinfachen
+
+- [x] Task 14: `TxtVariant` auf die sieben waivy-nahen Rollen `display`,
+      `title`, `heading`, `subheading`, `body`, `label` und `caption`
+      reduzieren.
+- [x] Alle produktiven Verwendungen der entfernten Rollen direkt zuordnen.
+- [x] Komponenteninterne Schriftgrößen bei Button, Eingabe und Stepper belassen,
+      ohne daraus globale Textrollen zu machen.
+- [x] Typografie-Showcase und Verträge auf die tatsächliche API aktualisieren.
+
 ### Checkpoint: Complete
 
 - [x] `bun run check` erfolgreich.

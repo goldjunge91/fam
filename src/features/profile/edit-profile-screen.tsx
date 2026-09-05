@@ -234,7 +234,7 @@ export function EditProfileScreen() {
                 contentFit="cover"
               />
             ) : (
-              <Txt variant="controlActionLarge" tone="inverse" weight="700">
+              <Txt variant="subheading" tone="inverse" weight="700">
                 {initials}
               </Txt>
             )}

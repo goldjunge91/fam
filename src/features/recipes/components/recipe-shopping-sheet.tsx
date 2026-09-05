@@ -162,7 +162,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
           </View>
           <View
             className="mt-[14px] rounded-sheet overflow-hidden"
-            style={{ backgroundColor: colors.backgroundSelected }}>
+            style={{ backgroundColor: colors.backgroundSoft }}>
             {missing.map((item, index) => {
               const checked = selected.has(item.productId);
               return (
@@ -188,7 +188,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
                         borderWidth: 1.5,
                       }}>
                       {checked ? (
-                        <Txt variant="captionCompact" tone="onAccent" weight="700">
+                        <Txt variant="caption" tone="onAccent" weight="700">
                           ✓
                         </Txt>
                       ) : null}
@@ -196,7 +196,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
                     <Txt variant="label" weight="700" className="flex-1" numberOfLines={1}>
                       {item.name}
                     </Txt>
-                    <Txt variant="micro" tone="secondary">
+                    <Txt variant="caption" tone="secondary">
                       {item.missingGrams > 0
                         ? `${item.missingGrams} g`
                         : `${item.neededGrams}g / ${item.availableGrams}g`}

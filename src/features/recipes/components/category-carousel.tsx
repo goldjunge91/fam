@@ -102,9 +102,9 @@ export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProp
               backgroundColor: selected ? colors.accent : colors.backgroundElement,
               borderColor: selected ? colors.accent : colors.border,
             }}>
-            <Txt variant="stepperActionLarge">{tile.emoji}</Txt>
+            <Txt variant="subheading">{tile.emoji}</Txt>
             <Txt
-              variant="micro"
+              variant="caption"
               tone={selected ? 'onAccent' : 'primary'}
               weight="600"
               center

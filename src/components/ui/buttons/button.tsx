@@ -3,6 +3,7 @@ import {
   type ColorValue,
   Pressable,
   type StyleProp,
+  Text,
   View,
   type ViewStyle,
 } from 'react-native';
@@ -12,9 +13,8 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
-import { type AccentKey, BUTTON_DEPTH, radius, space } from '@/components/theme/index';
+import { type AccentKey, BUTTON_DEPTH, font, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
 import { medium as hapticMedium } from '@/lib/haptics';
 
 type ButtonProps = {
@@ -64,12 +64,12 @@ export function Button({
         : variant === 'accent'
           ? (accentTone?.on ?? colors.onAccent)
           : colors.onAccent;
-  const labelTone =
-    variant === 'secondary' || variant === 'ghost'
-      ? 'primary'
-      : variant === 'link'
-        ? 'accent'
-        : 'onAccent';
+  const fontSize =
+    variant === 'link' || size === 'compact'
+      ? font.sizes.sm
+      : size === 'large'
+        ? font.sizes.md
+        : font.sizes.base;
   const buttonBackground =
     backgroundColor ??
     (variant === 'primary'
@@ -77,25 +77,25 @@ export function Button({
       : variant === 'danger'
         ? colors.danger
         : variant === 'secondary'
-          ? colors.backgroundElement
+          ? colors.backgroundSoft
           : variant === 'ghost'
-            ? colors.backgroundSelected
+            ? 'transparent'
             : variant === 'accent'
               ? (accentTone?.main ?? colors.accent)
               : 'transparent');
+  const buttonDepth =
+    variant === 'danger'
+      ? colors.buttonDangerDepth
+      : variant === 'accent'
+        ? colors.buttonAccentDepth
+        : colors.buttonPrimaryDepth;
 
   return (
     <View
       style={{
         paddingBottom: isFilled ? BUTTON_DEPTH : 0,
         borderRadius: radius.md,
-        backgroundColor: isFilled
-          ? variant === 'danger'
-            ? colors.shadowSheet
-            : variant === 'accent'
-              ? (accentTone?.shadow ?? colors.shadowCard)
-              : colors.shadowCard
-          : 'transparent',
+        backgroundColor: isFilled ? buttonDepth : 'transparent',
       }}>
       <Animated.View style={faceStyle}>
         <Pressable
@@ -112,7 +112,9 @@ export function Button({
             if (isFilled) depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
           }}
           onPressOut={() => {
-            depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
+            if (isFilled) {
+              depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
+            }
           }}
           className={className}
           style={[
@@ -140,27 +142,20 @@ export function Button({
                       ? space.lg
                       : space.md,
               opacity: isBlocked ? 0.5 : 1,
-              ...(variant === 'secondary' ? { borderColor: colors.border, borderWidth: 1 } : {}),
+              overflow: 'hidden',
             },
             style,
           ]}>
           <View className="flex-row items-center gap-two">
             {loading ? <ActivityIndicator size="small" color={foreground} /> : null}
-            <Txt
-              variant={
-                variant === 'link'
-                  ? 'link'
-                  : size === 'large'
-                    ? 'controlActionLarge'
-                    : size === 'compact'
-                      ? 'bodySmall'
-                      : 'controlAction'
-              }
-              tone={labelTone}
-              color={foreground}
-              weight={variant === 'link' ? '400' : '700'}>
+            <Text
+              style={{
+                color: foreground,
+                fontSize,
+                fontWeight: variant === 'link' ? '400' : '700',
+              }}>
               {label}
-            </Txt>
+            </Text>
           </View>
         </Pressable>
       </Animated.View>

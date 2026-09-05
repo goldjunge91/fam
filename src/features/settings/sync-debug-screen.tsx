@@ -380,7 +380,7 @@ export function SyncDebugScreen() {
               <Pressable
                 onPress={() => handleCopyOutbox(row)}
                 accessibilityLabel="Payload kopieren">
-                <Txt variant="code" className="mt-half" style={{ fontFamily: 'monospace' }}>
+                <Txt variant="caption" className="mt-half" style={{ fontFamily: 'monospace' }}>
                   Payload: {row.payload}
                 </Txt>
               </Pressable>

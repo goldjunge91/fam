@@ -46,7 +46,7 @@ export default function BrochuresOverviewScreen() {
     return (
       <Screen title="Angebote" chrome={chrome}>
         <View style={[styles.locationState, { backgroundColor: colors.background }]}>
-          <Txt variant="headingSmall" style={styles.locationTitle}>
+          <Txt variant="heading" style={styles.locationTitle}>
             Standort erforderlich
           </Txt>
           <Txt variant="body" tone="secondary" style={styles.locationCopy}>
@@ -103,7 +103,7 @@ export default function BrochuresOverviewScreen() {
     return (
       <Screen title="Angebote" chrome={chrome}>
         <View style={[styles.locationState, { backgroundColor: colors.background }]}>
-          <Txt variant="headingSmall" style={styles.locationTitle}>
+          <Txt variant="heading" style={styles.locationTitle}>
             Noch keine Prospekte
           </Txt>
           <Txt variant="body" tone="secondary" style={styles.locationCopy}>
@@ -139,7 +139,7 @@ export default function BrochuresOverviewScreen() {
           </View>
         ) : (
           <View style={styles.postalCodeRow}>
-            <Txt variant="detail" tone="secondary">
+            <Txt variant="caption" tone="secondary">
               PLZ {postalCode}
             </Txt>
             <Pressable role="button" onPress={() => setIsEditingPostalCode(true)}>
@@ -158,7 +158,7 @@ export default function BrochuresOverviewScreen() {
         )}
         {favorites.length > 0 && (
           <View style={styles.section}>
-            <Txt variant="bodyLarge" weight="600" style={styles.sectionTitle}>
+            <Txt variant="body" weight="600" style={styles.sectionTitle}>
               Deine Märkte
             </Txt>
             <ScrollView
@@ -180,14 +180,18 @@ export default function BrochuresOverviewScreen() {
                     <View
                       style={[
                         styles.storeLogoPlaceholder,
-                        { backgroundColor: colors.backgroundSelected, borderColor: colors.border },
+                        { backgroundColor: colors.backgroundSoft, borderColor: colors.border },
                       ]}>
                       <Txt variant="subheading" tone="secondary" style={styles.storeInitials}>
                         {store.name.substring(0, 2)}
                       </Txt>
                     </View>
                   )}
-                  <Txt variant="detail" tone="secondary" style={styles.storeName} numberOfLines={1}>
+                  <Txt
+                    variant="caption"
+                    tone="secondary"
+                    style={styles.storeName}
+                    numberOfLines={1}>
                     {store.name}
                   </Txt>
                 </View>
@@ -197,7 +201,7 @@ export default function BrochuresOverviewScreen() {
         )}
 
         <View style={styles.section}>
-          <Txt variant="bodyLarge" weight="600" style={styles.sectionTitle}>
+          <Txt variant="body" weight="600" style={styles.sectionTitle}>
             Aktuelle Prospekte
           </Txt>
           <ScrollView
@@ -253,18 +257,14 @@ export default function BrochuresOverviewScreen() {
                 onPress={() => router.push(`/brochures/${brochure.id}`)}>
                 <Image
                   source={{ uri: brochure.coverImage }}
-                  style={[styles.brochureCover, { backgroundColor: colors.backgroundSelected }]}
+                  style={[styles.brochureCover, { backgroundColor: colors.backgroundSoft }]}
                   contentFit="cover"
                 />
                 <View style={styles.brochureInfo}>
-                  <Txt
-                    variant="bodySmall"
-                    weight="600"
-                    style={styles.brochureTitle}
-                    numberOfLines={2}>
+                  <Txt variant="body" weight="600" style={styles.brochureTitle} numberOfLines={2}>
                     {brochure.title}
                   </Txt>
-                  <Txt variant="detail" tone="secondary" style={styles.brochureDate}>
+                  <Txt variant="caption" tone="secondary" style={styles.brochureDate}>
                     Bis {new Date(brochure.validUntil).toLocaleDateString()}
                   </Txt>
                 </View>

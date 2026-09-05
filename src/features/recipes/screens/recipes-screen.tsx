@@ -377,7 +377,6 @@ export function RecipesScreen() {
       header={{
         title: screenTitle,
         align: 'center',
-        titleSize: 'large',
         leading:
           view === 'discover' || view === 'favorites' || view === 'household' ? (
             <MenuButton onPress={openDrawer} />
@@ -449,11 +448,11 @@ export function RecipesScreen() {
               aria-selected={view === 'discover'}
               className="tab-btn"
               style={{
-                backgroundColor: view === 'discover' ? colors.basil : colors.surfaceSoft,
+                backgroundColor: view === 'discover' ? colors.basil : colors.backgroundSoft,
                 borderColor: view === 'discover' ? colors.basil : colors.border,
               }}>
               <Txt
-                variant="bodySmall"
+                variant="body"
                 tone={view === 'discover' ? 'onAccent' : 'secondary'}
                 weight="700">
                 Entdecken
@@ -466,11 +465,11 @@ export function RecipesScreen() {
               aria-selected={view === 'household'}
               className="tab-btn"
               style={{
-                backgroundColor: view === 'household' ? colors.basil : colors.surfaceSoft,
+                backgroundColor: view === 'household' ? colors.basil : colors.backgroundSoft,
                 borderColor: view === 'household' ? colors.basil : colors.border,
               }}>
               <Txt
-                variant="bodySmall"
+                variant="body"
                 tone={view === 'household' ? 'onAccent' : 'secondary'}
                 weight="700">
                 Eigene Rezepte
@@ -483,11 +482,11 @@ export function RecipesScreen() {
               aria-selected={view === 'favorites'}
               className="tab-btn"
               style={{
-                backgroundColor: view === 'favorites' ? colors.basil : colors.surfaceSoft,
+                backgroundColor: view === 'favorites' ? colors.basil : colors.backgroundSoft,
                 borderColor: view === 'favorites' ? colors.basil : colors.border,
               }}>
               <Txt
-                variant="bodySmall"
+                variant="body"
                 tone={view === 'favorites' ? 'onAccent' : 'secondary'}
                 weight="700">
                 Meine Favoriten

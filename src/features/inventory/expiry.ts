@@ -1,6 +1,12 @@
 export type ExpiryBucket = 'expired' | 'critical' | 'soon' | 'ok' | 'none';
 export type ExpiryThemeColor = 'textSecondary' | 'warning' | 'danger';
 
+/** Verbindliche Fenster der beiden Vorrats-Statuskarten. */
+export const EXPIRY_WINDOW_DAYS = Object.freeze({
+  runsOutSoon: 3,
+  dueSoon: 10,
+} as const);
+
 export type ExpiryInfo = {
   bucket: ExpiryBucket;
   /** Tage bis zum MHD. Negativ = bereits abgelaufen. `null`, wenn kein MHD gesetzt ist. */
@@ -47,7 +53,7 @@ export function getExpiryInfo(
     return { bucket: 'critical', daysLeft, label: 'läuft heute ab', themeColor: 'danger' };
   }
 
-  if (daysLeft <= 3) {
+  if (daysLeft <= EXPIRY_WINDOW_DAYS.runsOutSoon) {
     return {
       bucket: 'critical',
       daysLeft,
@@ -56,7 +62,7 @@ export function getExpiryInfo(
     };
   }
 
-  if (daysLeft <= 7) {
+  if (daysLeft <= EXPIRY_WINDOW_DAYS.dueSoon) {
     return { bucket: 'soon', daysLeft, label: `noch ${daysLeft} Tage`, themeColor: 'warning' };
   }
 

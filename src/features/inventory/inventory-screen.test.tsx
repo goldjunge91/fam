@@ -9,6 +9,9 @@ import type { LocalInventoryItem } from '@/features/inventory/use-inventory-item
 const mockUpdateQtyMutate = jest.fn();
 const mockUpdateExpiryMutate = jest.fn();
 const mockUpdateItemMutateAsync = jest.fn().mockResolvedValue({});
+const mockOpenMutate = jest.fn();
+const mockWasteMutate = jest.fn();
+const mockUndoMutate = jest.fn();
 
 let mockItems: LocalInventoryItem[] = [];
 let mockParams: Record<string, string> = {};
@@ -54,6 +57,12 @@ jest.mock('@/features/inventory/use-inventory-items', () => ({
   useInventoryItems: () => ({ data: mockItems, isLoading: false }),
 }));
 
+jest.mock('@/features/inventory/use-inventory-transactions', () => ({
+  useInventoryTransactions: () => ({ data: [] }),
+  filterTransactionsForProduct: () => [],
+  groupTransactionsByDay: () => [],
+}));
+
 jest.mock('@/features/inventory/use-inventory-mutations', () => ({
   useUpdateInventoryItemQuantityMutation: () => ({ mutate: mockUpdateQtyMutate, isPending: false }),
   useUpdateFridgeItemMutation: () => ({
@@ -61,6 +70,9 @@ jest.mock('@/features/inventory/use-inventory-mutations', () => ({
     mutateAsync: mockUpdateItemMutateAsync,
     isPending: false,
   }),
+  useOpenInventoryItemMutation: () => ({ mutate: mockOpenMutate, isPending: false }),
+  useWasteInventoryItemMutation: () => ({ mutate: mockWasteMutate, isPending: false }),
+  useUndoOpenTransactionMutation: () => ({ mutate: mockUndoMutate, isPending: false }),
 }));
 
 jest.mock('@/features/inventory/use-product', () => ({
@@ -149,6 +161,9 @@ beforeEach(() => {
   mockUpdateQtyMutate.mockClear();
   mockUpdateExpiryMutate.mockClear();
   mockUpdateItemMutateAsync.mockClear();
+  mockOpenMutate.mockClear();
+  mockWasteMutate.mockClear();
+  mockUndoMutate.mockClear();
 });
 
 it('öffnet beim kurzen Tap die MHD-Auswahl und ändert danach die Losmenge', async () => {
@@ -169,6 +184,42 @@ it('öffnet beim kurzen Tap die MHD-Auswahl und ändert danach die Losmenge', as
     household_id: 'hh-1',
     delta: 1,
   });
+});
+
+it('öffnet den Option-C-Flow und protokolliert die gewählte Menge', async () => {
+  const user = userEvent.setup();
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
+  await user.press(screen.getByRole('button', { name: 'Öffnen' }));
+
+  expect(screen.getByText('Milch öffnen')).toBeOnTheScreen();
+  expect(screen.getByText('Geöffnete Menge')).toBeOnTheScreen();
+  expect(screen.getByText('Versiegelt bleibt')).toBeOnTheScreen();
+  expect(screen.getByText('Neu: geöffnet')).toBeOnTheScreen();
+  await user.press(screen.getByRole('button', { name: '1 L öffnen' }));
+
+  expect(mockOpenMutate).toHaveBeenCalledWith(
+    expect.objectContaining({ item: expect.objectContaining({ id: 'item-1' }), quantity: 1 }),
+    expect.any(Object),
+  );
+});
+
+it('bucht Verschwendung mit dem ausgewählten Grund', async () => {
+  const user = userEvent.setup();
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
+  await user.press(screen.getByRole('button', { name: 'Wegwerfen' }));
+  await user.press(screen.getByRole('radio', { name: 'Schlecht geworden' }));
+  await user.press(screen.getByRole('button', { name: 'Als Verschwendung buchen' }));
+
+  expect(mockWasteMutate).toHaveBeenCalledWith(
+    expect.objectContaining({ item: expect.objectContaining({ id: 'item-1' }), reason: 'spoiled' }),
+    expect.any(Object),
+  );
 });
 
 it('fragt vor dem Entfernen aus dem Aktions-Sheet nach Bestaetigung', async () => {

@@ -78,7 +78,7 @@ describe('core theme UI primitives', () => {
     await render(
       <>
         <Surface tone="page" accessibilityLabel="page surface" accessible />
-        <Surface tone="selected" accessibilityLabel="selected surface" accessible />
+        <Surface tone="soft" accessibilityLabel="soft surface" accessible />
         <Surface tone="accent" accessibilityLabel="accent surface" accessible />
       </>,
     );
@@ -86,8 +86,8 @@ describe('core theme UI primitives', () => {
     expect(screen.getByLabelText('page surface')).toHaveStyle({
       backgroundColor: mockColorsLight.bg,
     });
-    expect(screen.getByLabelText('selected surface')).toHaveStyle({
-      backgroundColor: mockColorsLight.surfaceSoft,
+    expect(screen.getByLabelText('soft surface')).toHaveStyle({
+      backgroundColor: mockColorsLight.backgroundSoft,
     });
     expect(screen.getByLabelText('accent surface')).toHaveStyle({
       backgroundColor: mockColorsLight.basil,

@@ -172,7 +172,7 @@ export function ShoppingModeScreen({
                       {isComplete ? ' ✓' : ''}
                     </Txt>
                     <Txt
-                      variant="navigationArrow"
+                      variant="title"
                       color={color}
                       style={{ transform: [{ rotate: collapsed ? '-90deg' : '0deg' }] }}>
                       ⌄

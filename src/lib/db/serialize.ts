@@ -15,6 +15,30 @@ const NESTED_TRANSACTION_MESSAGE =
   'withExclusiveTransactionAsync ist nicht verschachtelbar: SQLite kennt keine ' +
   'echten verschachtelten Transaktionen.';
 
+const BEGIN_RETRY_DELAYS_MS = [50, 100, 200, 400, 800] as const;
+
+function isSQLiteBusyError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error);
+  return /(?:database(?: table)? is locked|SQLITE_BUSY)/i.test(message);
+}
+
+async function execWithBusyRetry(driver: SqlStatementDriver, source: string): Promise<void> {
+  for (let attempt = 0; ; attempt += 1) {
+    try {
+      await driver.execAsync(source);
+      return;
+    } catch (error) {
+      const delay = BEGIN_RETRY_DELAYS_MS[attempt];
+      if (!isSQLiteBusyError(error) || delay === undefined) throw error;
+      await new Promise<void>((resolve) => setTimeout(resolve, delay));
+    }
+  }
+}
+
+async function beginImmediateWithRetry(driver: SqlStatementDriver): Promise<void> {
+  await execWithBusyRetry(driver, 'BEGIN IMMEDIATE');
+}
+
 export function serializeDatabase(driver: SqlStatementDriver): SerializedSqlDatabase {
   const getAllRawAsync = driver.getAllRawAsync?.bind(driver);
   /**
@@ -62,11 +86,11 @@ export function serializeDatabase(driver: SqlStatementDriver): SerializedSqlData
     withExclusiveTransactionAsync: (task) =>
       withLock(async () => {
         // BEGIN vor dem try, damit ein fehlgeschlagenes BEGIN nicht durch ROLLBACK verdeckt wird.
-        await driver.execAsync('BEGIN IMMEDIATE');
+        await beginImmediateWithRetry(driver);
 
         try {
           await task(transactionPort);
-          await driver.execAsync('COMMIT');
+          await execWithBusyRetry(driver, 'COMMIT');
         } catch (error) {
           try {
             await driver.execAsync('ROLLBACK');

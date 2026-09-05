@@ -48,7 +48,7 @@ export function ModuleSettingsScreen() {
               disabled={locked}
               className="module-row"
               style={{
-                backgroundColor: modules[row.key] ? colors.surfaceSoft : colors.surface,
+                backgroundColor: modules[row.key] ? colors.backgroundSoft : colors.surface,
                 borderColor: colors.border,
               }}>
               <View className={`row-text ${locked ? 'module-row-locked-content' : ''}`}>

@@ -39,9 +39,26 @@ describe('pushOutbox — generischer onForeignKeyViolation-Dispatch', () => {
   beforeEach(async () => {
     db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
     await db.runAsync(
-      'insert into fridge_items (id, household_id, location_id, name, quantity, unit, added_by, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      ['item-1', 'hh-1', 'loc-1', 'Milch', 1, 'stk', 'user-1', '2026-01-01T00:00:00Z', 0],
+      `insert into fridge_items
+       (id, household_id, location_id, name, quantity, unit, added_by, created_at,
+        opened_at, vacuum_sealed, expiry_user_set, updated_at)
+       values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        'item-1',
+        'hh-1',
+        'loc-1',
+        'Milch',
+        1,
+        'stk',
+        'user-1',
+        '2026-01-01T00:00:00Z',
+        null,
+        0,
+        0,
+        0,
+      ],
     );
     await db.runAsync(
       'insert into storage_locations (id, household_id, name, kind, sort_order, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)',
@@ -80,6 +97,9 @@ describe('pushOutbox — generischer onForeignKeyViolation-Dispatch', () => {
             unit: 'stk',
             added_by: 'user-1',
             created_at: '2026-01-01T00:00:00Z',
+            opened_at: null,
+            vacuum_sealed: false,
+            expiry_user_set: false,
             updated_at: '2026-01-01T00:00:01Z',
             deleted_at: null,
           },
@@ -158,6 +178,67 @@ describe('pushOutbox — medizinische Einheiten', () => {
       await pushOutbox({ db, supabase: client, now: () => 2 });
 
       expect(insert).toHaveBeenCalledWith(expect.objectContaining({ unit: 'units' }));
+    } finally {
+      db.close();
+    }
+  });
+});
+
+describe('pushOutbox — append-only Ledger', () => {
+  it('behandelt einen wiederholten Ledger-insert idempotent ohne UPDATE-Versuch', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+
+    const transactionId = 'txn-duplicate';
+    await db.runAsync(
+      `insert into transactions
+       (id, household_id, type, quantity, reason, created_at, updated_at, _dirty)
+       values (?, ?, 'in', 1, null, ?, ?, 1)`,
+      [transactionId, 'hh-1', '2026-09-04T10:00:00.000Z', 1],
+    );
+
+    const select = jest.fn().mockResolvedValue({
+      data: null,
+      error: { code: '23505', message: 'duplicate key' },
+      status: 409,
+    });
+    const insert = jest.fn().mockReturnValue({ select });
+    const update = jest.fn();
+    const client = {
+      from: jest.fn().mockReturnValue({ insert, update }),
+    } as unknown as TypedSupabaseClient;
+
+    await enqueueMutation(db, {
+      entity: 'transactions',
+      entityId: transactionId,
+      op: 'insert',
+      payload: {
+        id: transactionId,
+        household_id: 'hh-1',
+        type: 'in',
+        quantity: 1,
+        reason: null,
+        created_at: '2026-09-04T10:00:00.000Z',
+      },
+      now: 2,
+      applyLocally: async () => {},
+    });
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 3 });
+
+      expect(result.outcomes[0]).toMatchObject({ kind: 'pushed', entity: 'transactions' });
+      expect(update).not.toHaveBeenCalled();
+      expect(
+        await db.getFirstAsync('select id from outbox where entity_id = ?', [transactionId]),
+      ).toBeNull();
+      expect(
+        await db.getFirstAsync<{ dirty: number }>(
+          'select _dirty as dirty from transactions where id = ?',
+          [transactionId],
+        ),
+      ).toEqual({ dirty: 0 });
     } finally {
       db.close();
     }

@@ -1,4 +1,5 @@
-# Mockups: `inventory-lifecycle`
+# readme veraltet und hat keine relevanz
+<!-- # Mockups: `inventory-lifecycle`
 
 Statische HTML-Mockups zur Spec `../../inventory-lifecycle.md`. Jede Datei
 lässt sich direkt im Browser öffnen.
@@ -13,6 +14,7 @@ lässt sich direkt im Browser öffnen.
 | `mockup-option-c.html` | Option C (alle 3 Ansichten): Kantenfarbe, Vorher/Nachher-Vergleich, Radio-Liste |
 | `mockup-option-c-product-history.html` | Ergänzung zu Option C: Verlauf gefiltert pro Produkt |
 | `mockup-option-c-full-flow.html` | Option C, kompletter Vorrat-Flow in einer Datei: Liste, Öffnen, Wegwerfen, Gesamt-Verlauf, Produkt-Verlauf |
+| `mockup-vorrat-screen.html` | Neuer Vorrat-Screen: Liquid-Glass-Kopfbereich, Statuskarten, Filter und Artikelliste |
 
 ## Entscheidung
 
@@ -22,4 +24,4 @@ Vorher/Nachher-Vergleich beim Öffnen, Radio-Auswahlliste bei Wegwerf-Gründen).
 Zusätzlicher Punkt aus dem Review: der Verlauf braucht sowohl eine
 Gesamtübersicht als auch eine pro Produkt gefilterte Ansicht (erreichbar über
 die Produktdetailseite) — siehe `mockup-option-c-product-history.html` und
-Abschnitt „Verlauf-Ansichten" in der Spec.
+Abschnitt „Verlauf-Ansichten" in der Spec. -->

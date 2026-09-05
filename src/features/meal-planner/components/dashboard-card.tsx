@@ -71,17 +71,17 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
         }}>
         <View className="flex-1 justify-between">
           <View className="flex-row items-center justify-between">
-            <Txt variant="captionCompact" tone="danger" weight="700" style={{ letterSpacing: 0.5 }}>
+            <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.5 }}>
               GEPLANT
             </Txt>
-            <Txt variant="detail" tone="secondary">
+            <Txt variant="caption" tone="secondary">
               {nextMeal ? MEAL_SLOT_LABELS[nextMeal.meal_slot] : 'Heute'}
             </Txt>
           </View>
           <View className="items-center justify-center my-one">
             <FamIcon name="mealArtwork" size={44} />
           </View>
-          <Txt variant="bodySmall" weight="700" numberOfLines={2}>
+          <Txt variant="body" weight="700" numberOfLines={2}>
             {nextMeal?.recipe_title ?? 'Nichts geplant'}
           </Txt>
         </View>
@@ -108,10 +108,10 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
         <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.1 }}>
           HEUTE GEPLANT
         </Txt>
-        <Txt variant="controlValueLarge" weight="700" numberOfLines={2}>
+        <Txt variant="body" weight="700" numberOfLines={2}>
           {nextMeal?.recipe_title ?? 'Noch nichts geplant'}
         </Txt>
-        <Txt variant="detail" tone="secondary">
+        <Txt variant="caption" tone="secondary">
           {nextMeal
             ? `${MEAL_SLOT_LABELS[nextMeal.meal_slot]} · ${nextMeal.portions} Portionen`
             : 'Wochenplan öffnen'}

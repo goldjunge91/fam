@@ -21,6 +21,10 @@ export type EntityMeta = {
   pushOnly?: boolean;
   /** Normalisiert Mengen-Einheiten aus Nutzereingaben auf den gemeinsamen Inventory-Vertrag. */
   normalizeQuantityUnits?: true;
+  /** Append-only-Tabelle ohne updated_at/deleted_at auf dem Server. */
+  appendOnly?: true;
+  /** Remote-Pull-Cursor; Transaktionen werden nach created_at inkrementell geladen. */
+  syncCursorColumn?: 'updated_at' | 'created_at';
   /** Spalten ohne updated_at/deleted_at/_dirty, id zuerst. 1:1 aus migrations.ts's V1_MIRRORS. */
   columns: readonly string[];
   /** Optionale Fehlerreparatur-Strategie, siehe `ForeignKeyViolationResolver`. */
@@ -61,6 +65,32 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
       'package_size_unit',
       'expiry_date',
       'added_by',
+      'created_at',
+      'opened_at',
+      'vacuum_sealed',
+      'expiry_user_set',
+    ],
+  },
+  transactions: {
+    entity: 'transactions',
+    table: 'transactions',
+    hasServerTombstone: false,
+    householdScoped: true,
+    appendOnly: true,
+    syncCursorColumn: 'created_at',
+    columns: [
+      'id',
+      'household_id',
+      'fridge_item_id',
+      'product_id',
+      'actor',
+      'type',
+      'quantity',
+      'location_id',
+      'reason',
+      'previous_expiry_date',
+      'notes',
+      'undone',
       'created_at',
     ],
   },
@@ -334,6 +364,7 @@ export const ALL_ENTITIES: readonly Entity[] = [
   'storage_locations',
   'stores',
   'fridge_items',
+  'transactions',
   'shopping_list_items',
   'shopping_category_preferences',
   'products',

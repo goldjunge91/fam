@@ -80,10 +80,10 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
       keyboardShouldPersistTaps="handled"
       showsVerticalScrollIndicator={false}
       contentContainerClassName="gap-three pb-six">
-      <Txt variant="controlActionLarge" weight="700">
+      <Txt variant="subheading" weight="700">
         Dein Haushalt
       </Txt>
-      <Txt variant="bodySmall" tone="secondary">
+      <Txt variant="body" tone="secondary">
         Entscheide, wie du die App für Vorrat & Einkäufe nutzen möchtest.
       </Txt>
 
@@ -103,10 +103,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
         <Pressable
           onPress={() => setChoice('create')}
           className={`household-choice-card ${choice === 'create' ? 'household-choice-card-selected' : 'household-choice-card-idle'}`}>
-          <Txt
-            variant="controlValue"
-            tone={choice === 'create' ? 'onAccent' : 'primary'}
-            weight="700">
+          <Txt variant="body" tone={choice === 'create' ? 'onAccent' : 'primary'} weight="700">
             🏠 Neuen Haushalt erstellen
           </Txt>
           <Txt variant="label" tone={choice === 'create' ? 'onAccent' : 'secondary'}>
@@ -117,10 +114,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
         <Pressable
           onPress={() => setChoice('join')}
           className={`household-choice-card ${choice === 'join' ? 'household-choice-card-selected' : 'household-choice-card-idle'}`}>
-          <Txt
-            variant="controlValue"
-            tone={choice === 'join' ? 'onAccent' : 'primary'}
-            weight="700">
+          <Txt variant="body" tone={choice === 'join' ? 'onAccent' : 'primary'} weight="700">
             🔗 Einem Haushalt beitreten
           </Txt>
           <Txt variant="label" tone={choice === 'join' ? 'onAccent' : 'secondary'}>
@@ -131,10 +125,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
         <Pressable
           onPress={() => setChoice('solo')}
           className={`household-choice-card ${choice === 'solo' ? 'household-choice-card-selected' : 'household-choice-card-idle'}`}>
-          <Txt
-            variant="controlValue"
-            tone={choice === 'solo' ? 'onAccent' : 'primary'}
-            weight="700">
+          <Txt variant="body" tone={choice === 'solo' ? 'onAccent' : 'primary'} weight="700">
             👤{' '}
             {activeHousehold
               ? `Mit "${activeHousehold.name}" fortfahren`

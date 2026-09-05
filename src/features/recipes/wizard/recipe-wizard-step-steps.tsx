@@ -75,7 +75,7 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
         onPress={() => setExpanded((prev) => !prev)}
         accessibilityRole="button"
         accessibilityLabel={expanded ? 'Zutatenliste einklappen' : 'Zutatenliste ausklappen'}>
-        <Txt variant="micro" tone="secondary" className="tracking-widest" weight="700">
+        <Txt variant="caption" tone="secondary" className="tracking-widest" weight="700">
           ZUTATEN
         </Txt>
         <View className="flex-row items-center gap-two">
@@ -84,7 +84,7 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
               {doneCount}/{ingredients.length} aufgebraucht
             </Txt>
           ) : null}
-          <Txt variant="captionCompact" tone="secondary">
+          <Txt variant="caption" tone="secondary">
             {expanded ? '▾' : '▸'}
           </Txt>
         </View>
@@ -194,7 +194,7 @@ const StepCard = memo(function StepCard({
         <TouchableOpacity
           onPress={() => onRemoveStep(step.id)}
           className="w-9 h-9 rounded-sheet items-center justify-center"
-          style={{ backgroundColor: colors.surfaceSoft }}
+          style={{ backgroundColor: colors.backgroundSoft }}
           accessibilityRole="button"
           accessibilityLabel="Delete step">
           <Svg width={16} height={16} viewBox="0 0 24 24" fill="none">
@@ -418,7 +418,7 @@ export function RecipeWizardStepSteps({
   return (
     <View className="flex-1 px-four">
       <Txt
-        variant="micro"
+        variant="caption"
         tone="secondary"
         className="pt-two pb-[6px] tracking-widest"
         weight="500">
@@ -457,7 +457,7 @@ export function RecipeWizardStepSteps({
               className="w-full h-[42px] rounded-fam-large items-center justify-center mt-one mb-seven active:opacity-75"
               style={{ backgroundColor: colors.surface }}
               onPress={addStep}>
-              <Txt variant="captionCompact" tone="primary" weight="600">
+              <Txt variant="caption" tone="primary" weight="600">
                 + Schritt hinzufügen
               </Txt>
             </TouchableOpacity>
@@ -467,7 +467,7 @@ export function RecipeWizardStepSteps({
                 className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
                 style={{ backgroundColor: colors.surface }}
                 onPress={onBack}>
-                <Txt variant="captionCompact" tone="primary" weight="600">
+                <Txt variant="caption" tone="primary" weight="600">
                   Zurück
                 </Txt>
               </Pressable>
@@ -476,7 +476,7 @@ export function RecipeWizardStepSteps({
                 style={{ backgroundColor: colors.basil }}
                 accessibilityRole="button"
                 onPress={onNext}>
-                <Txt variant="captionCompact" tone="onAccent" weight="600">
+                <Txt variant="caption" tone="onAccent" weight="600">
                   Weiter
                 </Txt>
               </Pressable>

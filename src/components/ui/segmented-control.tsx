@@ -58,7 +58,7 @@ export function SegmentedControl<T extends string>({
       accessibilityRole="tablist"
       accessibilityLabel={label}
       className={`flex-row ${rootClass} ${scrollable ? 'self-start' : ''}`}
-      style={{ backgroundColor: colors.backgroundSelected }}>
+      style={{ backgroundColor: colors.backgroundSoft }}>
       {options.map((option) => {
         const active = option.value === selected;
         const segmentHeightClass =

@@ -106,8 +106,7 @@ export function PrivacyScreen() {
       <View className="gap-three">
         {SECTIONS.map((section) => (
           <Card key={section.title}>
-            {/* Kein separates marginBottom mehr: card-fam liefert bereits
-                gap-two zwischen Titel und Text (Card-Komponente). */}
+            {/* Die Card-Komponente setzt den Abstand zwischen Titel und Text. */}
             <Txt variant="body" weight="700">
               {section.title}
             </Txt>

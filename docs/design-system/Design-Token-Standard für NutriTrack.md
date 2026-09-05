@@ -94,13 +94,15 @@ Neue Radien dürfen nur ergänzt werden, wenn sie eine neue visuelle Rolle darst
 
 ### Typografie
 
-Die Trennung aus `FontSize`, `Typography` und festen Text-Rollen ist richtig:
+Die öffentliche Text-API bleibt bewusst klein:
 
-- `FontSize` bleibt eine technische Skala.
-- `Typography` beschreibt Größe und Zeilenhöhe.
-- Text-Rollen wie `body`, `smallBold` oder `linkPrimary` bilden stabile, produktbezogene Bedeutungen ab.
-
-Neue Text-Rollen sollten nicht für jede Bildschirmüberschrift entstehen. Sie brauchen eine wiederkehrende Funktion, etwa `tabLabel`, `metricValue` oder `sectionHeading`.
+- `font.sizes` ist die technische Größenskala.
+- `Txt` bietet ausschließlich `display`, `title`, `heading`, `subheading`,
+  `body`, `label` und `caption` an.
+- Button-, Eingabe-, Stepper- und Kennzahlgrößen bleiben intern in der
+  zuständigen Komponente und erweitern `TxtVariant` nicht.
+- Screens dürfen Gewicht und Ton über typisierte Props anpassen, aber keine
+  neuen Textrollen erfinden.
 
 ### Ergänzende Primitive
 
@@ -305,7 +307,7 @@ export const Themes = {
     surface: {
       page: Colors.light.background,
       raised: Colors.light.backgroundElement,
-      selected: Colors.light.backgroundSelected,
+      soft: Colors.light.backgroundSoft,
       overlay: Colors.light.backgroundElement,
       inverse: Colors.light.text,
     },

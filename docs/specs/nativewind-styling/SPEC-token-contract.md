@@ -14,7 +14,7 @@ Die ui-Referenznamen werden nur als mögliche Form verwendet:
 |---|---|
 | `bg` | `background` aus `Colors` |
 | `surface` | `backgroundElement` aus `Colors` |
-| `surfaceSoft` | aus `backgroundSelected` oder einem dokumentierten Fam-Ableitungswert |
+| `soft` | `backgroundSoft` aus `Colors` |
 | `text` | `text` |
 | `textMuted` | `textSecondary` |
 | `border` | `border` |
@@ -32,7 +32,7 @@ type ThemePref = 'system' | 'light' | 'dark';
 type FamPalette = {
   background: string;
   backgroundElement: string;
-  backgroundSelected: string;
+  backgroundSoft: string;
   text: string;
   textSecondary: string;
   border: string;
@@ -54,7 +54,9 @@ Die konkrete Typdefinition darf zusätzliche bestehende Premium- und Gradient-To
 - `radius`: Ableitung aus `Radius`, ohne neue parallele Radius-Skala.
 - `font`: Ableitung aus `Typography` und `Fonts`.
 - `shadow`: semantische Elevations `none`, `sm`, `md`, `lg`, mit platformgerechten Werten.
-- `BUTTON_DEPTH`: bleibt als vorhandenes Verhalten der Referenzkomponente erhalten. Eine mögliche sichtbare Anpassung wird erst nach den zwei Screen-Mocks entschieden; daraus entsteht kein neuer globaler ui-Token.
+- `BUTTON_DEPTH`: ist die zentrale 4pt-Tiefe und der vollständige 4pt-Druckweg
+  für gefüllte 3D-Buttons. Beide Button-APIs beziehen sichtbare Tiefe und
+  Press-Bewegung aus diesem Theme-Token.
 
 ## Tokenregeln
 

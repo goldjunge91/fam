@@ -28,7 +28,7 @@ export function FloatingActionButton({ label, onPress, children }: FloatingActio
       style={{
         paddingBottom: BUTTON_DEPTH,
         borderRadius: radius.pill,
-        backgroundColor: colors.shadowCard,
+        backgroundColor: colors.buttonPrimaryDepth,
       }}>
       <Animated.View style={faceStyle}>
         <Pressable
@@ -36,7 +36,7 @@ export function FloatingActionButton({ label, onPress, children }: FloatingActio
           accessibilityRole="button"
           accessibilityLabel={label}
           className="btn-fab-corner"
-          style={{ backgroundColor: colors.accent }}
+          style={{ backgroundColor: colors.accent, overflow: 'hidden' }}
           onPressIn={() => {
             depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
           }}

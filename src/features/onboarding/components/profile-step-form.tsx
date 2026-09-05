@@ -93,10 +93,10 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
 
   return (
     <View className="gap-three">
-      <Txt variant="controlActionLarge" weight="700">
+      <Txt variant="subheading" weight="700">
         Dein Profil & Körperwerte
       </Txt>
-      <Txt variant="bodySmall" tone="secondary">
+      <Txt variant="body" tone="secondary">
         Alle Angaben sind freiwillig und dienen der genauen Kalorienberechnung.
       </Txt>
 
@@ -146,7 +146,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           </View>
         </View>
 
-        <Txt variant="bodySmall" weight="600" className="mt-two">
+        <Txt variant="body" weight="600" className="mt-two">
           Berechnungsbasis (Geschlecht)
         </Txt>
         <View className="sex-row">
@@ -157,7 +157,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                 key={opt.value}
                 onPress={() => setValue('sex', selected ? undefined : opt.value)}
                 className={`option-button ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
-                <Txt variant="bodySmall" tone={selected ? 'onAccent' : 'primary'} weight="600">
+                <Txt variant="body" tone={selected ? 'onAccent' : 'primary'} weight="600">
                   {opt.label}
                 </Txt>
               </Pressable>
@@ -165,7 +165,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           })}
         </View>
 
-        <Txt variant="bodySmall" weight="600" className="mt-two">
+        <Txt variant="body" weight="600" className="mt-two">
           Ernährungsziel
         </Txt>
         <View className="gap-two">
@@ -176,7 +176,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                 key={opt.value}
                 onPress={() => setValue('weightGoal', selected ? undefined : opt.value)}
                 className={`profile-choice-card ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
-                <Txt variant="bodySmall" tone={selected ? 'onAccent' : 'primary'} weight="500">
+                <Txt variant="body" tone={selected ? 'onAccent' : 'primary'} weight="500">
                   {opt.label}
                 </Txt>
               </Pressable>
@@ -184,7 +184,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           })}
         </View>
 
-        <Txt variant="bodySmall" weight="600" className="mt-two">
+        <Txt variant="body" weight="600" className="mt-two">
           Aktivitätslevel im Alltag
         </Txt>
         <View className="gap-two">
@@ -195,7 +195,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                 key={opt.value}
                 onPress={() => setValue('activityLevel', selected ? undefined : opt.value)}
                 className={`profile-choice-card ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
-                <Txt variant="bodySmall" tone={selected ? 'onAccent' : 'primary'} weight="500">
+                <Txt variant="body" tone={selected ? 'onAccent' : 'primary'} weight="500">
                   {opt.label}
                 </Txt>
               </Pressable>

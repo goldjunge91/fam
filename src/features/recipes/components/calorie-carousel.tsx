@@ -41,16 +41,16 @@ export function CalorieCarousel({ selectedIndex, onSelect }: CalorieCarouselProp
                   backgroundColor: selected ? colors.accent : colors.backgroundElement,
                   borderColor: selected ? colors.accent : colors.border,
                 }}>
-                <Txt variant="controlActionLarge">{BUCKET_EMOJI[index]}</Txt>
+                <Txt variant="subheading">{BUCKET_EMOJI[index]}</Txt>
                 <Txt
-                  variant="captionCompact"
+                  variant="caption"
                   tone={selected ? 'onAccent' : 'primary'}
                   weight="700"
                   className="mt-half"
                   numberOfLines={1}>
                   {bucket.label}
                 </Txt>
-                <Txt variant="micro" tone={selected ? 'onAccent' : 'secondary'}>
+                <Txt variant="caption" tone={selected ? 'onAccent' : 'secondary'}>
                   kcal
                 </Txt>
               </Pressable>

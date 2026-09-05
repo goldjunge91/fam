@@ -105,7 +105,7 @@ export const legacyWaivyColors = {
  *   text: '#2D2830', // fam/color/text-primary
     background: '#F8F4EF', // fam/color/bg-app
     backgroundElement: '#FBF7F2', // fam/color/bg-surface (Karten, Listen)
-    backgroundSelected: '#E9E1E7', // color/selection/segment-bg
+    backgroundSoft: '#E9E1E7', // fam/color/bg-soft
     textSecondary: '#786F79', // fam/color/text-secondary
     border: '#E4DDE3',
     accent: '#705773', // fam/color/bg-accent
@@ -126,7 +126,7 @@ const famColorsLight = {
   text: '#2D2830', // fam/color/text-primary
   background: '#F8F4EF', // fam/color/bg-app
   backgroundElement: '#FBF7F2', // fam/color/bg-surface
-  backgroundSelected: '#E9E1E7', // fam/color/selection/segment-bg
+  backgroundSoft: '#E9E1E7', // fam/color/bg-soft
   textSecondary: '#786F79', // fam/color/text-secondary
   border: '#E4DDE3',
   accent: '#705773', // fam/color/bg-accent
@@ -140,6 +140,9 @@ const famColorsLight = {
   success: '#78906F', // fam/color/status-success
   warning: '#C69059', // fam/color/status-warning
   danger: '#C65F50', // fam/color/status-danger
+  buttonPrimaryDepth: '#5E4861',
+  buttonDangerDepth: '#A94C40',
+  buttonAccentDepth: '#A87343',
   shadowCard: '#594059',
   shadowSheet: '#2A1F2C',
 } as const;
@@ -148,7 +151,7 @@ const famColorsDark = {
   text: '#F2ECE7',
   background: '#211D23',
   backgroundElement: '#2B262E',
-  backgroundSelected: '#382F3B',
+  backgroundSoft: '#382F3B',
   textSecondary: '#B7ADB3',
   border: '#3E3640',
   accent: '#B79CBA',
@@ -162,6 +165,9 @@ const famColorsDark = {
   success: '#8FAE86',
   warning: '#D9A86C',
   danger: '#D9776A',
+  buttonPrimaryDepth: '#5E4861',
+  buttonDangerDepth: '#A94C40',
+  buttonAccentDepth: '#A87343',
   shadowCard: '#594059',
   shadowSheet: '#2A1F2C',
 } as const;
@@ -177,7 +183,6 @@ export const colorsLight = {
   ...famColorsLight,
   bg: famColorsLight.background,
   surface: famColorsLight.backgroundElement,
-  surfaceSoft: famColorsLight.backgroundSelected,
   oat: famColorsLight.premiumActionBackground,
   borderSoft: famColorsLight.border,
   textMuted: famColorsLight.textSecondary,
@@ -185,7 +190,7 @@ export const colorsLight = {
   inverse: famColorsLight.onAccent,
   basil: famColorsLight.accent,
   basilShadow: famColorsLight.shadowCard,
-  basilSoft: famColorsLight.backgroundSelected,
+  basilSoft: famColorsLight.backgroundSoft,
   carrot: famColorsLight.warning,
   carrotShadow: famColorsLight.shadowCard,
   butter: famColorsLight.premiumGradientEnd,
@@ -200,12 +205,12 @@ export const colorsLight = {
   skyShadow: famColorsLight.shadowCard,
   pink: famColorsLight.premiumActionText,
   pinkShadow: famColorsLight.shadowSheet,
-  basilTint: famColorsLight.backgroundSelected,
+  basilTint: famColorsLight.backgroundSoft,
   carrotTint: famColorsLight.premiumActionBackground,
   butterTint: famColorsLight.premiumActionBackground,
-  grapeTint: famColorsLight.backgroundSelected,
+  grapeTint: famColorsLight.backgroundSoft,
   tealTint: famColorsLight.premiumActionBackground,
-  skyTint: famColorsLight.backgroundSelected,
+  skyTint: famColorsLight.backgroundSoft,
   pinkTint: famColorsLight.premiumActionBackground,
   tomatoTint: famColorsLight.premiumActionBackground,
   scrim: 'rgba(42,31,44,0.45)',
@@ -222,7 +227,7 @@ export type Palette = { -readonly [K in keyof typeof colorsLight]: string };
  *  text: '#F2ECE7',
     background: '#211D23',
     backgroundElement: '#2B262E',
-    backgroundSelected: '#382F3B',
+    backgroundSoft: '#382F3B',
     textSecondary: '#B7ADB3',
     border: '#3E3640',
     accent: '#B79CBA',
@@ -243,15 +248,14 @@ export const colorsDark: Palette = {
   ...famColorsDark,
   bg: famColorsDark.background,
   surface: famColorsDark.backgroundElement,
-  surfaceSoft: famColorsDark.backgroundSelected,
-  oat: famColorsDark.backgroundSelected,
+  oat: famColorsDark.backgroundSoft,
   borderSoft: famColorsDark.border,
   textMuted: famColorsDark.textSecondary,
   textFaint: famColorsDark.textSecondary,
   inverse: famColorsDark.onAccent,
   basil: famColorsDark.accent,
   basilShadow: famColorsDark.shadowCard,
-  basilSoft: famColorsDark.backgroundSelected,
+  basilSoft: famColorsDark.backgroundSoft,
   carrot: famColorsDark.warning,
   carrotShadow: famColorsDark.shadowCard,
   butter: famColorsDark.premiumGradientEnd,
@@ -266,14 +270,14 @@ export const colorsDark: Palette = {
   skyShadow: famColorsDark.shadowCard,
   pink: famColorsDark.premiumActionText,
   pinkShadow: famColorsDark.shadowSheet,
-  basilTint: famColorsDark.backgroundSelected,
-  carrotTint: famColorsDark.backgroundSelected,
-  butterTint: famColorsDark.backgroundSelected,
-  grapeTint: famColorsDark.backgroundSelected,
-  tealTint: famColorsDark.backgroundSelected,
-  skyTint: famColorsDark.backgroundSelected,
-  pinkTint: famColorsDark.backgroundSelected,
-  tomatoTint: famColorsDark.backgroundSelected,
+  basilTint: famColorsDark.backgroundSoft,
+  carrotTint: famColorsDark.backgroundSoft,
+  butterTint: famColorsDark.backgroundSoft,
+  grapeTint: famColorsDark.backgroundSoft,
+  tealTint: famColorsDark.backgroundSoft,
+  skyTint: famColorsDark.backgroundSoft,
+  pinkTint: famColorsDark.backgroundSoft,
+  tomatoTint: famColorsDark.backgroundSoft,
   scrim: 'rgba(0,0,0,0.55)',
 };
 
@@ -368,35 +372,10 @@ export const font = {
     sm: rs(13),
     base: rs(16),
     md: rs(17),
-    subheading: rs(20),
     lg: rs(20),
     xl: rs(24),
     xxl: rs(32),
     xxxl: rs(48),
-    micro: rs(9),
-    captionCompact: rs(11),
-    caption: rs(11),
-    detail: rs(12),
-    label: rs(13),
-    bodySmall: rs(14),
-    controlValue: rs(15),
-    bodyRelaxed: rs(16),
-    controlValueLarge: rs(17),
-    bodyLarge: rs(18),
-    controlAction: rs(20),
-    headingSmall: rs(20),
-    controlActionLarge: rs(22),
-    pageSubtitle: rs(10),
-    pageTitle: rs(19),
-    pageTitleLarge: rs(26),
-    stepperAction: rs(20),
-    stepperActionLarge: rs(24),
-    ringValue: rs(32),
-    navigationArrow: rs(28),
-    metricValue: rs(27),
-    chromeTitle: rs(23),
-    link: rs(14),
-    code: rs(12),
   },
   lineHeights: {
     display: rs(52),
@@ -406,28 +385,6 @@ export const font = {
     body: rs(22),
     label: rs(17),
     caption: rs(15),
-    micro: rs(14),
-    captionCompact: rs(14),
-    detail: rs(16),
-    bodySmall: rs(20),
-    controlValue: rs(20),
-    bodyRelaxed: rs(24),
-    controlValueLarge: rs(22),
-    bodyLarge: rs(24),
-    controlAction: rs(22),
-    headingSmall: rs(26),
-    controlActionLarge: rs(24),
-    pageSubtitle: rs(12),
-    pageTitle: rs(23),
-    pageTitleLarge: rs(30),
-    stepperAction: rs(24),
-    stepperActionLarge: rs(28),
-    ringValue: rs(36),
-    navigationArrow: rs(32),
-    metricValue: rs(34),
-    chromeTitle: rs(28),
-    link: rs(30),
-    code: rs(16),
   },
   weight: {
     regular: '400',
@@ -463,7 +420,7 @@ export const shadow = {
   },
 } as const;
 
-/** How far a 3D button face presses down. */
+/** Sichtbare Tiefe und vollständiger Druckweg gefüllter 3D-Buttons. */
 export const BUTTON_DEPTH = 4;
 
 // TODO: prüfen ob wir das noch brauchen

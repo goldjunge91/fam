@@ -89,6 +89,32 @@ describe('serializeDatabase', () => {
     expect(harness.log).not.toContain('ROLLBACK');
   });
 
+  it('retryt einen kurzzeitigen Lock beim Transaktionsstart', async () => {
+    const originalExecAsync = harness.driver.execAsync;
+    let beginAttempts = 0;
+    let commitAttempts = 0;
+    harness.driver.execAsync = async (source) => {
+      if (source === 'BEGIN IMMEDIATE' && beginAttempts++ === 0) {
+        throw new Error('database is locked');
+      }
+      if (source === 'COMMIT' && commitAttempts++ === 0) {
+        throw new Error('database is locked');
+      }
+      await originalExecAsync(source);
+    };
+    const db = serializeDatabase(harness.driver);
+
+    await expect(
+      db.withExclusiveTransactionAsync(async (txn) => {
+        await txn.runAsync('insert into t (v) values (?)', ['after retry']);
+      }),
+    ).resolves.toBeUndefined();
+
+    expect(beginAttempts).toBe(2);
+    expect(commitAttempts).toBe(2);
+    expect(await db.getAllAsync<{ v: string }>('select v from t')).toEqual([{ v: 'after retry' }]);
+  });
+
   it('verschachtelt zwei gleichzeitige Transaktionen nicht', async () => {
     const db = serializeDatabase(harness.driver);
 

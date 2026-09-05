@@ -16,7 +16,7 @@ export function MenuButton({ onPress }: MenuButtonProps) {
       accessibilityRole="button"
       accessibilityLabel="Menü öffnen"
       className="btn-menu"
-      style={{ backgroundColor: colors.backgroundSelected }}>
+      style={{ backgroundColor: colors.backgroundSoft }}>
       <MenuIcon color={colors.text} />
     </Pressable>
   );

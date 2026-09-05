@@ -14,6 +14,7 @@ type InventoryItemGroupSheetProps = {
   group: InventoryItemGroup | null;
   onClose: () => void;
   onSelectLot: (lot: LocalInventoryItem) => void;
+  onHistory: () => void;
 };
 
 function formatExpiryDate(value: string | null): string {
@@ -30,16 +31,35 @@ function formatExpiryStatus(lot: LocalInventoryItem): string {
   return expiry.daysLeft === 0 ? 'heute' : expiry.label;
 }
 
+export function formatStateSubtitle(lots: LocalInventoryItem[]): string {
+  const earliest = lots.reduce<LocalInventoryItem | null>((current, lot) => {
+    if (!current) return lot;
+    const currentTime = current.expiry_date
+      ? new Date(`${current.expiry_date}T00:00:00`).getTime()
+      : Number.POSITIVE_INFINITY;
+    const lotTime = lot.expiry_date
+      ? new Date(`${lot.expiry_date}T00:00:00`).getTime()
+      : Number.POSITIVE_INFINITY;
+    return lotTime < currentTime ? lot : current;
+  }, null);
+  if (!earliest?.expiry_date) return 'unbegrenzt haltbar';
+  return formatExpiryStatus(earliest);
+}
+
 export function InventoryItemGroupSheet({
   visible,
   group,
   onClose,
   onSelectLot,
+  onHistory,
 }: InventoryItemGroupSheetProps) {
   const sheetStyle = useSheetShadowStyle();
   const { colors } = useTheme();
 
   if (!group) return null;
+
+  const sealedLots = group.lots.filter((lot) => !lot.opened_at);
+  const openedLots = group.lots.filter((lot) => !!lot.opened_at);
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
@@ -56,7 +76,7 @@ export function InventoryItemGroupSheet({
           <View className="fridge-group-header">
             <View className="fridge-group-header-copy">
               <Txt variant="title">{group.name}</Txt>
-              <Txt variant="body" tone="secondary">
+              <Txt variant="caption" tone="secondary">
                 {formatAmount(group.quantity, group.unit)} gesamt · {group.lots.length} MHD-
                 {group.lots.length === 1 ? 'Eintrag' : 'Einträge'}
               </Txt>
@@ -72,9 +92,54 @@ export function InventoryItemGroupSheet({
             </Pressable>
           </View>
 
+          <View className="inventory-state-summary">
+            {sealedLots.length > 0 ? (
+              <View className="inventory-state-card inventory-state-card-sealed">
+                <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
+                  Versiegelt
+                </Txt>
+                <Txt variant="body" weight="700">
+                  {formatAmount(
+                    sealedLots.reduce((sum, lot) => sum + lot.quantity, 0),
+                    group.unit,
+                  )}
+                </Txt>
+                <Txt variant="caption" tone="secondary">
+                  {formatStateSubtitle(sealedLots)}
+                </Txt>
+              </View>
+            ) : null}
+            {openedLots.length > 0 ? (
+              <View className="inventory-state-card inventory-state-card-open">
+                <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
+                  Geöffnet
+                </Txt>
+                <Txt variant="body" weight="700">
+                  {formatAmount(
+                    openedLots.reduce((sum, lot) => sum + lot.quantity, 0),
+                    group.unit,
+                  )}
+                </Txt>
+                <Txt variant="caption" tone="secondary">
+                  {formatStateSubtitle(openedLots)}
+                </Txt>
+              </View>
+            ) : null}
+          </View>
+
           <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
             MHD-Einträge
           </Txt>
+
+          <Pressable
+            onPress={onHistory}
+            accessibilityRole="button"
+            accessibilityLabel={`${group.name} Verlauf öffnen`}
+            className="self-start py-one">
+            <Txt variant="body" color={colors.accent} weight="700">
+              Produkt-Verlauf öffnen ›
+            </Txt>
+          </Pressable>
 
           <ScrollView
             showsVerticalScrollIndicator={false}
@@ -84,6 +149,13 @@ export function InventoryItemGroupSheet({
               const location = lot.location_name ?? 'Kein Lagerort';
               const amount = formatAmount(lot.quantity, lot.unit);
               const expiryDate = formatExpiryDate(lot.expiry_date);
+              const expiry = getExpiryInfo(lot.expiry_date, new Date());
+              const statusColor =
+                expiry.themeColor === 'danger'
+                  ? colors.tomato
+                  : lot.opened_at || expiry.themeColor === 'warning'
+                    ? colors.carrot
+                    : colors.success;
               return (
                 <Pressable
                   key={lot.id}
@@ -94,12 +166,7 @@ export function InventoryItemGroupSheet({
                   <View
                     className="fridge-group-lot-status"
                     style={{
-                      backgroundColor:
-                        getExpiryInfo(lot.expiry_date, new Date()).themeColor === 'danger'
-                          ? colors.tomato
-                          : getExpiryInfo(lot.expiry_date, new Date()).themeColor === 'warning'
-                            ? colors.carrot
-                            : colors.textMuted,
+                      backgroundColor: statusColor,
                     }}
                   />
                   <View className="fridge-group-lot-copy">
@@ -107,14 +174,17 @@ export function InventoryItemGroupSheet({
                       MHD {expiryDate}
                     </Txt>
                     <Txt variant="caption" tone="secondary" numberOfLines={1}>
-                      {formatExpiryStatus(lot)} · {location}
+                      {lot.opened_at ? 'Geöffnet' : 'Versiegelt'} · {formatExpiryStatus(lot)} ·{' '}
+                      {location}
                       {packageHint ? ` · ${packageHint}` : ''}
                     </Txt>
                   </View>
                   <Txt variant="body" weight="700" style={{ fontVariant: ['tabular-nums'] }}>
                     {amount}
                   </Txt>
-                  <Txt tone="secondary">›</Txt>
+                  <Txt variant="body" tone="secondary">
+                    ›
+                  </Txt>
                 </Pressable>
               );
             })}

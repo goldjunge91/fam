@@ -125,7 +125,7 @@ function DrawerContent({ onNavigate }: { onNavigate: (href: string) => void }) {
           accessibilityLabel="Menü schließen"
           className="drawer-close-btn"
           hitSlop={8}>
-          <Txt variant="controlAction" tone="secondary" weight="400" className="drawer-close-glyph">
+          <Txt variant="subheading" tone="secondary" weight="400" className="drawer-close-glyph">
             ×
           </Txt>
         </Pressable>
@@ -150,7 +150,7 @@ function DrawerContent({ onNavigate }: { onNavigate: (href: string) => void }) {
                   accessibilityRole="button"
                   accessibilityState={{ selected: isActive }}
                   className="drawer-nav-row"
-                  style={isActive ? { backgroundColor: colors.surfaceSoft } : undefined}>
+                  style={isActive ? { backgroundColor: colors.backgroundSoft } : undefined}>
                   <View className="drawer-nav-icon">
                     {route.icon === 'calendarDay' ? (
                       <CalendarDayIcon size={35} />

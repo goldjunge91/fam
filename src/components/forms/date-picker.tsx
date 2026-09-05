@@ -73,7 +73,7 @@ export function DatePicker({
           accessibilityRole="button"
           accessibilityLabel="Datum auswählen"
           className="h-[48px] px-three rounded-control border-hairline items-center justify-center bg-background-element border-border">
-          <Txt variant="bodyLarge">📅</Txt>
+          <Txt variant="body">📅</Txt>
         </Pressable>
       </View>
 
@@ -105,7 +105,7 @@ export function DatePicker({
                   <Pressable
                     onPress={() => setSelYear((y) => Math.max(1900, y - 1))}
                     className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
-                    <Txt variant="bodyLarge" weight="700">
+                    <Txt variant="body" weight="700">
                       -
                     </Txt>
                   </Pressable>
@@ -115,7 +115,7 @@ export function DatePicker({
                   <Pressable
                     onPress={() => setSelYear((y) => Math.min(2100, y + 1))}
                     className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
-                    <Txt variant="bodyLarge" weight="700">
+                    <Txt variant="body" weight="700">
                       +
                     </Txt>
                   </Pressable>
@@ -131,7 +131,7 @@ export function DatePicker({
                   <Pressable
                     onPress={() => setSelMonth((m) => (m <= 1 ? 12 : m - 1))}
                     className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
-                    <Txt variant="bodyLarge" weight="700">
+                    <Txt variant="body" weight="700">
                       -
                     </Txt>
                   </Pressable>
@@ -141,7 +141,7 @@ export function DatePicker({
                   <Pressable
                     onPress={() => setSelMonth((m) => (m >= 12 ? 1 : m + 1))}
                     className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
-                    <Txt variant="bodyLarge" weight="700">
+                    <Txt variant="body" weight="700">
                       +
                     </Txt>
                   </Pressable>
@@ -157,7 +157,7 @@ export function DatePicker({
                   <Pressable
                     onPress={() => setSelDay((d) => (d <= 1 ? 31 : d - 1))}
                     className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
-                    <Txt variant="bodyLarge" weight="700">
+                    <Txt variant="body" weight="700">
                       -
                     </Txt>
                   </Pressable>
@@ -167,7 +167,7 @@ export function DatePicker({
                   <Pressable
                     onPress={() => setSelDay((d) => (d >= 31 ? 1 : d + 1))}
                     className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
-                    <Txt variant="bodyLarge" weight="700">
+                    <Txt variant="body" weight="700">
                       +
                     </Txt>
                   </Pressable>

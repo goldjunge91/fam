@@ -96,7 +96,7 @@ function MacroChip({ label, value, target }: { label: string; value: number; tar
       <ProgressBar
         value={target > 0 ? value / target : 0}
         color={exceeded ? colors.carrot : colors.basil}
-        trackColor={colors.surfaceSoft}
+        trackColor={colors.backgroundSoft}
         height={4}
       />
     </View>
@@ -120,7 +120,7 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
       <View className="diary-meal-header pt-[6px]">
         <View className="diary-meal-heading">
           <Txt variant="subheading">{MEAL_LABELS[meal]}</Txt>
-          <Txt variant="meta" tone="secondary" className="mt-[1px]">
+          <Txt variant="caption" tone="secondary" className="mt-[1px]">
             {formatKcal(mealKcal)}
           </Txt>
         </View>
@@ -270,7 +270,7 @@ export function DiaryScreen() {
             role="button"
             aria-label="Vorheriger Tag"
             className="diary-date-arrow">
-            <Txt variant="navigationArrow" tone="secondary">
+            <Txt variant="title" tone="secondary">
               ‹
             </Txt>
           </Pressable>
@@ -296,7 +296,7 @@ export function DiaryScreen() {
             role="button"
             aria-label="Nächster Tag"
             className="diary-date-arrow">
-            <Txt variant="navigationArrow" tone="secondary">
+            <Txt variant="title" tone="secondary">
               ›
             </Txt>
           </Pressable>
@@ -328,7 +328,7 @@ export function DiaryScreen() {
           <ProgressBar
             value={calorieGoal > 0 ? totals.kcal / calorieGoal : 0}
             color={remaining < 0 ? colors.carrot : colors.basil}
-            trackColor={colors.surfaceSoft}
+            trackColor={colors.backgroundSoft}
             height={6}
             className="diary-hero-bar"
           />

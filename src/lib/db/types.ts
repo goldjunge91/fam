@@ -36,6 +36,7 @@ export type Entity =
   | 'storage_locations'
   | 'stores'
   | 'fridge_items'
+  | 'transactions'
   | 'shopping_list_items'
   | 'shopping_category_preferences'
   | 'shopping_category_feedback_events'

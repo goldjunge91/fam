@@ -90,10 +90,10 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
 
   return (
     <View className="gap-three">
-      <Txt variant="controlActionLarge" weight="700">
+      <Txt variant="subheading" weight="700">
         Erlaubnisse & Funktionen
       </Txt>
-      <Txt variant="bodySmall" tone="secondary">
+      <Txt variant="body" tone="secondary">
         Damit die App optimal funktioniert, empfehlen wir folgende Berechtigungen:
       </Txt>
 
@@ -103,10 +103,7 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           className={`perm-card ${notifications ? 'perm-card-selected' : 'perm-card-idle'}`}>
           <View className="perm-row">
             <View className="perm-text-col">
-              <Txt
-                variant="controlValue"
-                weight="700"
-                tone={notifications ? 'onAccent' : 'primary'}>
+              <Txt variant="body" weight="700" tone={notifications ? 'onAccent' : 'primary'}>
                 🔔 Benachrichtigungen
               </Txt>
               <Txt variant="label" tone={notifications ? 'onAccent' : 'secondary'}>
@@ -122,7 +119,7 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           className={`perm-card ${camera ? 'perm-card-selected' : 'perm-card-idle'}`}>
           <View className="perm-row">
             <View className="perm-text-col">
-              <Txt variant="controlValue" weight="700" tone={camera ? 'onAccent' : 'primary'}>
+              <Txt variant="body" weight="700" tone={camera ? 'onAccent' : 'primary'}>
                 📷 Kamera-Zugriff
               </Txt>
               <Txt variant="label" tone={camera ? 'onAccent' : 'secondary'}>
@@ -138,7 +135,7 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           className={`perm-card ${location ? 'perm-card-selected' : 'perm-card-idle'}`}>
           <View className="perm-row">
             <View className="perm-text-col">
-              <Txt variant="controlValue" weight="700" tone={location ? 'onAccent' : 'primary'}>
+              <Txt variant="body" weight="700" tone={location ? 'onAccent' : 'primary'}>
                 📍 Standort-Zugriff
               </Txt>
               <Txt variant="label" tone={location ? 'onAccent' : 'secondary'}>
