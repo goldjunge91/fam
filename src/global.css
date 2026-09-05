@@ -1719,28 +1719,6 @@
     @apply rounded-card border px-two py-one mr-one max-w-[160px] bg-background-element border-border;
   }
 
-  /* inline-select.tsx — kompaktes Dropdown unter Suchfeldern (Vorrat-
-     Redesign, Filter-/Quelle-Auswahl analog zu den Einkaufen-Vorschlaegen). */
-  .inline-select-btn {
-    @apply h-[42px] rounded-control border border-border bg-background-element flex-row items-center justify-between px-three;
-  }
-
-  .inline-select-btn-open {
-    @apply border-accent;
-  }
-
-  .inline-select-panel {
-    @apply absolute top-[46px] left-0 right-0 z-20 rounded-control border border-border bg-background shadow-sheet p-one gap-[2px];
-  }
-
-  .inline-select-option {
-    @apply rounded-sm px-two py-two flex-row items-center justify-between gap-two;
-  }
-
-  .inline-select-option-active {
-    @apply bg-accent;
-  }
-
   /* add-item-screen.tsx (Vorrat) */
   .ai-scan-btn {
     @apply w-10 h-10 rounded-control bg-background-selected;
