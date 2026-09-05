@@ -1,4 +1,5 @@
-import { Pressable, ScrollView } from 'react-native';
+import { Pressable, ScrollView, StyleSheet } from 'react-native';
+import { radius } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
@@ -14,6 +15,22 @@ type FilterChipBarProps<T extends string> = {
   onSelect: (value: T) => void;
 };
 
+const styles = StyleSheet.create({
+  content: {
+    gap: 6,
+    paddingRight: 15,
+  },
+  chip: {
+    minHeight: 28,
+    justifyContent: 'center',
+    paddingHorizontal: 13,
+    borderRadius: radius.sm,
+  },
+  pressed: {
+    opacity: 0.75,
+  },
+});
+
 /** Horizontal scrollbare Einzelauswahl, wiederverwendbar fuer Filter und Segmente. */
 export function FilterChipBar<T extends string>({
   label,
@@ -27,7 +44,7 @@ export function FilterChipBar<T extends string>({
       horizontal
       showsHorizontalScrollIndicator={false}
       aria-label={label}
-      contentContainerClassName="gap-[6px] pr-[15px]">
+      contentContainerStyle={styles.content}>
       {options.map((option) => {
         const active = option.value === selected;
         return (
@@ -37,10 +54,11 @@ export function FilterChipBar<T extends string>({
             role="button"
             aria-label={`${label}: ${option.label}`}
             aria-pressed={active}
-            className="min-h-[28px] justify-center px-[13px] rounded-control active:opacity-75"
-            style={{
-              backgroundColor: active ? colors.accent : colors.backgroundElement,
-            }}>
+            style={({ pressed }) => [
+              styles.chip,
+              { backgroundColor: active ? colors.accent : colors.backgroundElement },
+              pressed && styles.pressed,
+            ]}>
             <Txt variant="caption" tone={active ? 'onAccent' : 'secondary'} weight="600">
               {option.label}
             </Txt>
