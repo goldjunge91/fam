@@ -3,9 +3,8 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Alert, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { getSupabase } from '@/lib/supabase';
 
@@ -86,7 +85,7 @@ export function DeleteAccountScreen() {
       {/* Gefahren-Aktionsbutton zum Einleiten der Kontolöschung */}
       <View className="mt-four">
         <Button
-          label="Account löschen"
+          title="Account löschen"
           variant="danger"
           onPress={confirmDeletion}
           loading={deleting}

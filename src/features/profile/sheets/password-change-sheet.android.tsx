@@ -4,8 +4,7 @@ import { Modal, Pressable, View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 
 type PasswordChangeSheetProps = {
   visible: boolean;
@@ -133,7 +132,7 @@ export function PasswordChangeSheet({
             </Txt>
           ) : null}
 
-          <Button label="Passwort speichern" onPress={onApply} loading={saving} />
+          <Button title="Passwort speichern" onPress={onApply} loading={saving} />
         </View>
       </View>
     </Modal>

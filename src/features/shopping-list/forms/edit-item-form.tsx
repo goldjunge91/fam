@@ -3,8 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProduct } from '@/features/inventory/use-product';
 import { debugLog } from '@/lib/debug-log';
@@ -511,11 +510,11 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
       ) : null}
 
       <Button
-        label="Speichern"
+        title="Speichern"
         onPress={handleSave}
         loading={updateItem.isPending}
         disabled={!name.trim()}
-        size="large"
+        size="lg"
       />
     </View>
   );

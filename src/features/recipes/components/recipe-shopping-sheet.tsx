@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { usePremium } from '@/features/premium/premium-provider';
 import { RowStorePicker } from '@/features/shopping-list/components/ui/row-store-picker';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
@@ -239,11 +238,11 @@ function SheetButton({
 }) {
   return (
     <Button
-      label={label}
+      title={label}
       onPress={onPress}
       loading={loading}
       disabled={disabled}
-      size="large"
+      size="lg"
       style={{ alignSelf: 'stretch', marginTop: 14 }}
     />
   );

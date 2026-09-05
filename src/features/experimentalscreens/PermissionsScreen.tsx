@@ -2,8 +2,7 @@ import { router } from 'expo-router';
 import type React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useCameraPermission, useMicrophonePermission } from 'react-native-vision-camera';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 
 interface PermissionsScreenProps {
   onPermissionsGranted?: () => void;
@@ -32,8 +31,8 @@ export function PermissionsScreen({
         Um die VisionCamera auszuprobieren, benötigt die App Zugriff auf Kamera und Mikrofon.
       </Txt>
       <View className="w-full px-6 gap-3">
-        <Button label="Berechtigungen erteilen" onPress={handleGrant} />
-        <Button label="Zurück" variant="secondary" onPress={() => router.back()} />
+        <Button title="Berechtigungen erteilen" onPress={handleGrant} />
+        <Button title="Zurück" variant="secondary" onPress={() => router.back()} />
       </View>
     </View>
   );

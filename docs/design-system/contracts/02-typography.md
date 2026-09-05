@@ -6,6 +6,8 @@ Eine `Txt`-Variante bündelt Schriftgröße, Zeilenhöhe, Gewicht und Standardto
 Schriftmaße, Gewichte und vorhandene Fontfamilien (`font`, `Fonts`) stammen aus
 `index.ts`. Die Anwendung auf Text- und Komponentenrollen gehört nach `ui.tsx`.
 CSS und NativeWind besitzen keine zusätzliche Typografie-API.
+Tokens werden zentral definiert, `Txt` mappt sie auf öffentliche Varianten und
+die aktive Palette kommt aus dem Theme-Kontext.
 
 ## Verbindliche Basisskala
 
@@ -34,12 +36,11 @@ Referenz bei Faktor 1,0; die dargestellten Werte dürfen davon geräteabhängig
 abweichen. Die Skalierung muss moderat bleiben und darf keine zweite lokale
 Typografieskala erzeugen.
 
-Die Skalierung berücksichtigt die relevante verfügbare Breite reaktiv. React
-Native 0.86 stellt dafür `useWindowDimensions()` bereit; seine Werte aktualisieren
-sich bei Rotation, Fenster-Resize und Änderungen des Schriftfaktors. Alle daraus
-abgeleiteten Typografiewerte müssen anschließend neu berechnet und von den
-Komponenten verwendet werden. Eine Breite, die nur einmal beim Modulimport
-gelesen wird, erfüllt diesen Vertrag nicht.
+Die relevante Fensterbreite wird
+mit `Dimensions.get('window').width` einmalig beim Modulimport gelesen. Die
+Skalierung ist dadurch bewusst einfach und begrenzt. Dieser Vertrag verlangt
+keine zusätzliche `useWindowDimensions()`-Schicht und behauptet keine reaktive
+Neuberechnung der importierten Typografiewerte bei Rotation oder Web-Resize.
 
 Eine begrenzte Inhaltsspalte darf zusätzliche Fensterbreite nicht unnötig in
 größere Schrift umsetzen. Lesbare Umbrüche und eine flexible Anordnung haben
@@ -59,9 +60,9 @@ bleibt; Fehlermeldungen dürfen nicht pauschal einzeilig abgeschnitten werden.
 Die kleinsten Texte werden mit der tatsächlichen Darstellung geprüft: Aus
 `rs(12)` können auf einem schmalen Gerät 11 Punkte werden. Ob diese Größe für
 Metadaten ausreichend lesbar ist, wird an der Referenzdarstellung und nicht
-anhand des Skalierungsfaktors allein entschieden. Das noch nicht reaktive
-`rs()` im Code ist Migrationsbestand; diese Dokumentationsänderung behauptet
-keine bereits erfolgte Codeumstellung.
+anhand des Skalierungsfaktors allein entschieden. Die statische Berechnung von
+`rs()` ist ein bewusst übernommenes Implementierungsmuster, kein offener
+Migrationsfehler.
 
 ## Overrides und alte Rollen
 

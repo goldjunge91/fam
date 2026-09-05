@@ -3,9 +3,8 @@ import { Alert, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../domain-logik/store-presets';
 import {
@@ -166,7 +165,7 @@ export function StoresScreen() {
           </View>
           {/* Hinzufügen-Button */}
           <Button
-            label="Hinzufügen"
+            title="Hinzufügen"
             onPress={handleAdd}
             loading={addMutation.isPending}
             disabled={!newStoreName.trim()}
@@ -216,7 +215,7 @@ export function StoresScreen() {
                       <View className="input-row mt-one">
                         <View className="flex-1">
                           <Button
-                            label="Speichern"
+                            title="Speichern"
                             onPress={() => handleUpdate(store.id)}
                             loading={updateMutation.isPending}
                             disabled={!editingName.trim()}
@@ -224,7 +223,7 @@ export function StoresScreen() {
                         </View>
                         <View className="flex-1">
                           <Button
-                            label="Abbrechen"
+                            title="Abbrechen"
                             variant="secondary"
                             onPress={() => {
                               setEditingId(null);

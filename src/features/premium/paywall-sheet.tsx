@@ -4,8 +4,7 @@ import { Alert, Pressable, ScrollView, View } from 'react-native';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { PaywallPlanCard } from './paywall-plan-card';
@@ -162,11 +161,11 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
             {/* CTA & Aktionen */}
             <View className="gap-two pt-two items-center w-full">
               <Button
-                label={ctaLabel}
+                title={ctaLabel}
                 onPress={handleBuy}
                 loading={isPurchasing || isLoadingPackages}
                 disabled={isRestoring || isLoadingPackages}
-                className="w-full"
+                full
               />
 
               <Txt variant="caption" tone="secondary" center>

@@ -4,9 +4,8 @@ import { Alert, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   useAddWeightEntryMutation,
@@ -207,7 +206,7 @@ export function GoalSetupScreen() {
             Profil.
           </Txt>
           <Button
-            label="Zum Tracking & Vitalwerten"
+            title="Zum Tracking & Vitalwerten"
             onPress={() => router.push('/profile/tracking')}
           />
         </Card>
@@ -223,7 +222,7 @@ export function GoalSetupScreen() {
               </Txt>
               {!formVisible ? (
                 <Button
-                  label="Ziel anpassen"
+                  title="Ziel anpassen"
                   variant="secondary"
                   onPress={() => setShowForm(true)}
                 />
@@ -378,7 +377,7 @@ export function GoalSetupScreen() {
                 <View className="gs-save-row">
                   <View className="flex-1">
                     <Button
-                      label="Ziel speichern"
+                      title="Ziel speichern"
                       onPress={handleSave}
                       loading={setGoalMutation.isPending || addWeightMutation.isPending}
                       disabled={!preview}
@@ -387,7 +386,7 @@ export function GoalSetupScreen() {
                   {currentGoal ? (
                     <View className="flex-1">
                       <Button
-                        label="Abbrechen"
+                        title="Abbrechen"
                         variant="secondary"
                         onPress={() => setShowForm(false)}
                       />

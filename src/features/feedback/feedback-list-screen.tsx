@@ -5,10 +5,9 @@ import { Pressable, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
-import { Surface, Txt } from '@/constants/ui';
+import { Button, Surface, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { type FeedbackTicket, useMyTickets } from '@/features/feedback/api';
 import {
@@ -66,7 +65,7 @@ export function FeedbackListScreen() {
     return () => clearTimeout(timer);
   }, [banner]);
 
-  const action = <Button label="+ Neu" onPress={() => router.push('/settings/feedback/new')} />;
+  const action = <Button title="+ Neu" onPress={() => router.push('/settings/feedback/new')} />;
 
   if (isLoading) {
     return (

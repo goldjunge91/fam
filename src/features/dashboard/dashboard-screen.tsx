@@ -8,8 +8,8 @@ import { PlusIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
 import { HeaderIconButton } from '@/components/ui/buttons/header-icon-button';
+import { Button } from '@/constants/ui';
 import { CardGallerySheet } from '@/features/dashboard/components/card-gallery-sheet';
 import { CardList } from '@/features/dashboard/components/card-list';
 import { DashboardCardsProvider } from '@/features/dashboard/use-card-sizes';
@@ -88,12 +88,12 @@ export function DashboardScreen() {
         <PlusIcon color={colors.accent} />
       </HeaderIconButton>
       <Button
-        label="Fertig"
+        title="Fertig"
         onPress={exitEditMode}
         accessibilityLabel="Bearbeitungsmodus beenden"
         variant="accent"
         accentKey="pantry"
-        size="compact"
+        size="sm"
         flat
       />
     </View>

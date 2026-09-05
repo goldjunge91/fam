@@ -1,8 +1,7 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 
 function toIsoDate(date: Date): string {
   const y = date.getFullYear();
@@ -82,10 +81,10 @@ export function DateWheelField({
             />
             <View className="flex-row gap-two mt-two">
               <View className="flex-1">
-                <Button label="Übernehmen" onPress={confirm} />
+                <Button title="Übernehmen" onPress={confirm} />
               </View>
               <View className="flex-1">
-                <Button label="Abbrechen" variant="secondary" onPress={cancel} />
+                <Button title="Abbrechen" variant="secondary" onPress={cancel} />
               </View>
             </View>
           </View>

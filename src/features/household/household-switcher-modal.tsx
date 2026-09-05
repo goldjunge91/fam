@@ -1,8 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { Modal, Pressable, View } from 'react-native';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 
 interface HouseholdSwitcherModalProps {
@@ -72,14 +71,14 @@ export function HouseholdSwitcherModal({
 
           <View className="hh-actions">
             <Button
-              label="+ Neuen Haushalt erstellen"
+              title="+ Neuen Haushalt erstellen"
               onPress={() => {
                 onClose();
                 router.push('/household/create');
               }}
             />
             <Button
-              label="Haushalt beitreten (Code/Link)"
+              title="Haushalt beitreten (Code/Link)"
               variant="secondary"
               onPress={() => {
                 onClose();

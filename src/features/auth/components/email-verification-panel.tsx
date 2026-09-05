@@ -1,8 +1,7 @@
 import { View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useEmailVerification } from '@/features/auth/hooks/use-email-verification';
 
 interface EmailVerificationPanelProps {
@@ -67,7 +66,7 @@ export function EmailVerificationPanel({
         />
 
         <Button
-          label="Bestätigen"
+          title="Bestätigen"
           onPress={verification.confirmCode}
           loading={verification.confirming}
           disabled={verification.code.length !== 6}
@@ -82,7 +81,7 @@ export function EmailVerificationPanel({
 
       <View className="action-list">
         <Button
-          label={
+          title={
             verification.cooldown > 0
               ? `Erneut senden (${verification.cooldown}s)`
               : 'Bestätigungs-E-Mail erneut senden'
@@ -95,7 +94,7 @@ export function EmailVerificationPanel({
 
         {password ? (
           <Button
-            label="Jetzt prüfen"
+            title="Jetzt prüfen"
             variant="secondary"
             onPress={verification.checkConfirmation}
             loading={verification.recovering}
@@ -104,7 +103,7 @@ export function EmailVerificationPanel({
 
         {onChangeEmail ? (
           <Button
-            label="Andere E-Mail-Adresse verwenden"
+            title="Andere E-Mail-Adresse verwenden"
             variant="secondary"
             onPress={onChangeEmail}
           />

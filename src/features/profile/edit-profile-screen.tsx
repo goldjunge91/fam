@@ -7,10 +7,10 @@ import { useForm } from 'react-hook-form';
 import { Alert, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { updatePassword } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { useSession } from '@/features/auth/session-provider';
@@ -242,7 +242,7 @@ export function EditProfileScreen() {
 
           <View className="flex-1 gap-two">
             <Button
-              label={
+              title={
                 uploadingImage ? 'Wird geladen...' : avatarUrl ? 'Bild ändern' : 'Bild auswählen'
               }
               variant="secondary"
@@ -283,10 +283,10 @@ export function EditProfileScreen() {
           />
         </View>
         <Button
-          label="Passwort ändern"
+          title="Passwort ändern"
           variant="secondary"
-          size="compact"
-          className="mt-one"
+          size="sm"
+          style={{ marginTop: space.sm }}
           onPress={() => setPasswordSheetVisible(true)}
         />
       </Card>
@@ -353,7 +353,7 @@ export function EditProfileScreen() {
 
       {/* Speichern-Button */}
       <Button
-        label="Änderungen speichern"
+        title="Änderungen speichern"
         onPress={() => void handleSubmit(submit)()}
         loading={isSubmitting || profileLoading || foodRulesLoading}
       />

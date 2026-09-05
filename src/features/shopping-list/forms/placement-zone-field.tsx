@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { debugLog } from '@/lib/debug-log';
 import {
   normalizePlacementOrder,
@@ -107,7 +106,7 @@ export function PlacementZoneField({
                 />
               ))}
             </ScrollView>
-            <Button label="Schließen" variant="secondary" onPress={() => setIsOpen(false)} />
+            <Button title="Schließen" variant="secondary" onPress={() => setIsOpen(false)} />
           </View>
         </View>
       </Modal>

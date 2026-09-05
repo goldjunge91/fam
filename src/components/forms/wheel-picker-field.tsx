@@ -2,8 +2,7 @@ import { Picker } from '@expo/ui/community/picker';
 import { useState } from 'react';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { font } from '@/components/theme/index';
-import { Txt } from '@/constants/ui';
-import { Button } from '../ui/buttons';
+import { Button, Txt } from '@/constants/ui';
 
 export type WheelPickerOption = {
   value: string;
@@ -76,10 +75,10 @@ export function WheelPickerField({
             </Picker>
             <View className="flex-row gap-two mt-two">
               <View className="flex-1">
-                <Button label="Übernehmen" onPress={confirm} />
+                <Button title="Übernehmen" onPress={confirm} />
               </View>
               <View className="flex-1">
-                <Button label="Abbrechen" variant="secondary" onPress={cancel} />
+                <Button title="Abbrechen" variant="secondary" onPress={cancel} />
               </View>
             </View>
           </View>

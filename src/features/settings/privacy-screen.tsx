@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Alert, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { showAdsPrivacyOptions } from '@/features/ads';
 
 type Section = {
@@ -124,9 +123,9 @@ export function PrivacyScreen() {
             Anbieter.
           </Txt>
           <Button
-            label="Werbe-Einstellungen öffnen"
+            title="Werbe-Einstellungen öffnen"
             variant="secondary"
-            size="compact"
+            size="sm"
             loading={privacyOptionsLoading}
             onPress={handleAdsPrivacyOptions}
           />

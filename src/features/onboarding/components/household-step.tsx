@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { TextField } from '@/components/forms/text-field';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import {
   useCreateHouseholdMutation,
   useHouseholds,
@@ -171,10 +170,10 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
 
       <View className="perm-button-row">
         <View className="flex-1">
-          <Button label="Weiter" onPress={handleNext} loading={isPending} />
+          <Button title="Weiter" onPress={handleNext} loading={isPending} />
         </View>
         <View className="flex-1">
-          <Button label="Überspringen" variant="secondary" onPress={onSkip} disabled={isPending} />
+          <Button title="Überspringen" variant="secondary" onPress={onSkip} disabled={isPending} />
         </View>
       </View>
     </KeyboardAwareScrollView>

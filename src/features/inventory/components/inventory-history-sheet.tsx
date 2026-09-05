@@ -2,8 +2,7 @@ import { FlashList } from '@shopify/flash-list';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount } from '@/lib/package-size';
 
@@ -110,7 +109,7 @@ export function InventoryHistorySheet({
           {onOpenFullHistory ? (
             <Button
               variant="link"
-              label="Gesamten Verlauf öffnen ›"
+              title="Gesamten Verlauf öffnen ›"
               onPress={onOpenFullHistory}
               accessibilityLabel="Gesamten Verlauf öffnen"
             />

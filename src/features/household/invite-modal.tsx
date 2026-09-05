@@ -2,9 +2,8 @@ import * as Clipboard from 'expo-clipboard';
 import { useState } from 'react';
 import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   useCreateInviteMutation,
@@ -140,30 +139,30 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                   <View className="flex-row gap-two">
                     <View className="flex-1">
                       <Button
-                        label={copyFeedback === 'code' ? '✓ Code kopiert!' : 'Code kopieren'}
+                        title={copyFeedback === 'code' ? '✓ Code kopiert!' : 'Code kopieren'}
                         onPress={() => handleCopyCode(selectedToken)}
                       />
                     </View>
                     <View className="flex-1">
                       <Button
-                        label={copyFeedback === 'link' ? '✓ Link kopiert!' : 'Link kopieren'}
+                        title={copyFeedback === 'link' ? '✓ Link kopiert!' : 'Link kopieren'}
                         onPress={() => handleCopyLink(selectedToken)}
                       />
                     </View>
                   </View>
 
                   <Button
-                    label={showQrCode ? 'QR-Code ausblenden' : 'QR-Code anzeigen'}
+                    title={showQrCode ? 'QR-Code ausblenden' : 'QR-Code anzeigen'}
                     variant="secondary"
                     onPress={() => setShowQrCode(!showQrCode)}
                   />
                   <Button
-                    label="Code / Link teilen"
+                    title="Code / Link teilen"
                     variant="secondary"
                     onPress={() => handleShare(selectedToken)}
                   />
                   <Button
-                    label="+ Neuer Einladungs-Code"
+                    title="+ Neuer Einladungs-Code"
                     variant="secondary"
                     onPress={handleCreate}
                     loading={createMutation.isPending}
@@ -172,7 +171,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
               </Card>
             ) : (
               <Button
-                label="+ Einladungs-Link erstellen"
+                title="+ Einladungs-Link erstellen"
                 onPress={handleCreate}
                 loading={createMutation.isPending}
               />
@@ -241,7 +240,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
             )}
           </ScrollView>
 
-          <Button label="Schließen" variant="secondary" onPress={onClose} />
+          <Button title="Schließen" variant="secondary" onPress={onClose} />
         </View>
       </View>
     </Modal>

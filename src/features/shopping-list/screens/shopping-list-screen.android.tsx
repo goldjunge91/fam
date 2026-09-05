@@ -6,10 +6,10 @@ import { FamIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, HeaderIconButton } from '@/components/ui/buttons';
+import { HeaderIconButton } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useAdsEnabled, useInterstitialAd } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -291,9 +291,9 @@ export function ShoppingListScreen() {
           </Txt>
           <View className="flex-row items-center justify-end gap-two">
             <Button
-              size="compact"
+              size="sm"
               variant="link"
-              label={selectedItems.length === filteredItems.length ? 'Keine' : 'Alle'}
+              title={selectedItems.length === filteredItems.length ? 'Keine' : 'Alle'}
               onPress={
                 selectedItems.length === filteredItems.length
                   ? () => setSelectedItemIds(new Set())
@@ -306,8 +306,8 @@ export function ShoppingListScreen() {
               }
             />
             <Button
-              size="compact"
-              label="Verschieben"
+              size="sm"
+              title="Verschieben"
               disabled={selectedItems.length === 0}
               onPress={() => setMoveModalOpen(true)}
             />
@@ -316,9 +316,9 @@ export function ShoppingListScreen() {
       ) : null}
       {adsEnabled ? (
         <Button
-          size="compact"
+          size="sm"
           variant="secondary"
-          label={`🎬 Test Werbung (${interstitialAd.isLoaded ? 'Bereit' : 'Wird geladen...'})`}
+          title={`🎬 Test Werbung (${interstitialAd.isLoaded ? 'Bereit' : 'Wird geladen...'})`}
           onPress={() => {
             console.log('[TestAd] Button gedrückt, isLoaded:', interstitialAd.isLoaded);
             interstitialAd.show();
@@ -333,8 +333,8 @@ export function ShoppingListScreen() {
     return (
       <View className="mt-two">
         <Button
-          size="compact"
-          label={`🛒 ${completeActionLabel} (${checkedItems.length})`}
+          size="sm"
+          title={`🛒 ${completeActionLabel} (${checkedItems.length})`}
           onPress={() => setSheetOpen(true)}
           accessibilityLabel={`${completeActionLabel}, ${checkedItems.length} Artikel abgehakt`}
           backgroundColor={completeActionColor}
@@ -348,9 +348,9 @@ export function ShoppingListScreen() {
     return (
       <View className="mt-two">
         <Button
-          size="compact"
+          size="sm"
           variant="secondary"
-          label="🛒 Einkaufsmodus starten"
+          title="🛒 Einkaufsmodus starten"
           onPress={() => setShoppingModeOpen(true)}
           accessibilityLabel={`Einkaufsmodus für ${activeStore.name} starten`}
         />
@@ -439,7 +439,7 @@ export function ShoppingListScreen() {
               {activeStore && (
                 <Button
                   variant="link"
-                  label="⠿ Reihenfolge bearbeiten"
+                  title="⠿ Reihenfolge bearbeiten"
                   onPress={() => setOrderSheetOpen(true)}
                   accessibilityLabel="Reihenfolge für diesen Markt bearbeiten"
                 />

@@ -2,9 +2,8 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
 import { EmailVerificationPanel } from '@/features/auth/components/email-verification-panel';
 import { type PendingSignUp, SignUpForm } from '@/features/auth/forms/sign-up-form';
@@ -54,7 +53,7 @@ export function SignUpScreen() {
 
         {/* Wechsel zur Anmeldung */}
         <Button
-          label="Ich habe schon ein Konto"
+          title="Ich habe schon ein Konto"
           variant="secondary"
           onPress={() => router.replace('/sign-in')}
         />

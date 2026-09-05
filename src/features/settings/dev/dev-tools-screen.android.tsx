@@ -5,10 +5,9 @@ import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { Alert, Platform, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { getAnalyticsSettings, useAnalyticsSettingsStore } from '@/constants/analytics';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { initMobileAds, useAdsEnabled, useAdsOverrideStore } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { VISION_CAMERA_LAB_ENABLED } from '@/features/experimentalscreens/vision-camera-lab';
@@ -246,7 +245,7 @@ export function DevToolsScreen() {
           </Txt>
         </View>
         <Button
-          label={`Premium erzwingen: ${premiumOverrideEnabled ? 'AN' : 'AUS'}`}
+          title={`Premium erzwingen: ${premiumOverrideEnabled ? 'AN' : 'AUS'}`}
           variant={premiumOverrideEnabled ? 'primary' : 'secondary'}
           accessibilityLabel={
             premiumOverrideEnabled ? 'Premium-Override ausschalten' : 'Premium-Override einschalten'
@@ -255,7 +254,7 @@ export function DevToolsScreen() {
         />
         {forcePremiumOverride !== null ? (
           <Button
-            label={`Override zurücksetzen (Build-Wert: ${env.forcePremium ? 'an' : 'aus'})`}
+            title={`Override zurücksetzen (Build-Wert: ${env.forcePremium ? 'an' : 'aus'})`}
             variant="secondary"
             onPress={() => setForcePremiumOverride(null)}
           />
@@ -271,7 +270,7 @@ export function DevToolsScreen() {
           </Txt>
         </View>
         <Button
-          label={`Werbung: ${adsEnabled ? 'AN' : 'AUS'}`}
+          title={`Werbung: ${adsEnabled ? 'AN' : 'AUS'}`}
           variant={adsEnabled ? 'primary' : 'secondary'}
           accessibilityLabel={adsEnabled ? 'Werbung ausschalten' : 'Werbung einschalten'}
           onPress={() => {
@@ -282,7 +281,7 @@ export function DevToolsScreen() {
         />
         {adsOverride !== null ? (
           <Button
-            label={`Override zurücksetzen (Build-Wert: ${env.adsEnabled ? 'an' : 'aus'})`}
+            title={`Override zurücksetzen (Build-Wert: ${env.adsEnabled ? 'an' : 'aus'})`}
             variant="secondary"
             onPress={() => setAdsOverride(null)}
           />
@@ -337,7 +336,7 @@ export function DevToolsScreen() {
           return (
             <Button
               key={toggle.path}
-              label={`${toggle.label}: ${enabled ? 'AN' : 'AUS'}`}
+              title={`${toggle.label}: ${enabled ? 'AN' : 'AUS'}`}
               variant={enabled ? 'primary' : 'secondary'}
               accessibilityLabel={`${toggle.label} ${enabled ? 'ausschalten' : 'einschalten'}`}
               onPress={() => toggleAnalyticsSetting(toggle)}
@@ -346,7 +345,7 @@ export function DevToolsScreen() {
         })}
         {Object.keys(analyticsOverrides).length > 0 ? (
           <Button
-            label="Analytics-Overrides zurücksetzen"
+            title="Analytics-Overrides zurücksetzen"
             variant="secondary"
             onPress={() => {
               resetAnalyticsOverrides();
@@ -396,7 +395,7 @@ export function DevToolsScreen() {
         )}
 
         <View className="action-stack">
-          <Button label="Neu einlesen" variant="secondary" onPress={ladeSnapshot} />
+          <Button title="Neu einlesen" variant="secondary" onPress={ladeSnapshot} />
         </View>
       </Card>
 
@@ -427,7 +426,7 @@ export function DevToolsScreen() {
 
         <View className="action-stack">
           <Button
-            label="Jetzt aktualisieren"
+            title="Jetzt aktualisieren"
             variant="secondary"
             onPress={() =>
               mitBusy('off-dump-update', async () => {
@@ -439,7 +438,7 @@ export function DevToolsScreen() {
             loading={busy === 'off-dump-update'}
           />
           <Button
-            label="Baseline neu installieren"
+            title="Baseline neu installieren"
             variant="secondary"
             onPress={() =>
               Alert.alert(
@@ -462,7 +461,7 @@ export function DevToolsScreen() {
             loading={busy === 'off-dump-baseline'}
           />
           <Button
-            label="Integrität prüfen"
+            title="Integrität prüfen"
             variant="secondary"
             onPress={() =>
               mitBusy('off-dump-integrity', async () => {
@@ -480,7 +479,7 @@ export function DevToolsScreen() {
       <Card title="Aktionen">
         <View className="action-stack">
           <Button
-            label="Sentry-Testfehler senden"
+            title="Sentry-Testfehler senden"
             variant="secondary"
             onPress={() => {
               reportError(new Error('First error'), {
@@ -494,7 +493,7 @@ export function DevToolsScreen() {
             }}
           />
           <Button
-            label="Test-Benachrichtigung senden"
+            title="Test-Benachrichtigung senden"
             variant="secondary"
             onPress={() =>
               mitBusy('notify', async () => {
@@ -505,7 +504,7 @@ export function DevToolsScreen() {
             loading={busy === 'notify'}
           />
           <Button
-            label="EAS-Observe-Testevent senden"
+            title="EAS-Observe-Testevent senden"
             variant="secondary"
             onPress={() => {
               Observe.logEvent('dev_tools.test_event', {
@@ -518,7 +517,7 @@ export function DevToolsScreen() {
             }}
           />
           <Button
-            label="PostHog-Verbindung prüfen"
+            title="PostHog-Verbindung prüfen"
             variant="secondary"
             onPress={() =>
               mitBusy('posthog-reload', async () => {
@@ -567,7 +566,7 @@ export function DevToolsScreen() {
             loading={busy === 'posthog-reload'}
           />
           <Button
-            label="Telemetrie-Testevent senden"
+            title="Telemetrie-Testevent senden"
             variant="secondary"
             onPress={() => {
               if (!isAptabaseConfigured() && !isPostHogConfigured()) {
@@ -593,43 +592,43 @@ export function DevToolsScreen() {
             wert={posthogFlags ? String(Object.keys(posthogFlags).length) : 'noch keine'}
           />
           <Button
-            label="Sync-Diagnose & Outbox öffnen"
+            title="Sync-Diagnose & Outbox öffnen"
             variant="secondary"
             onPress={() => router.push('/settings/sync-debug')}
           />
           <Button
-            label="Liquid-Glass-Labor öffnen"
+            title="Liquid-Glass-Labor öffnen"
             variant="secondary"
             onPress={() => router.push('/settings/glass-lab')}
           />
           <Button
-            label="Design-System-Referenz öffnen"
+            title="Design-System-Referenz öffnen"
             variant="secondary"
             onPress={() => router.push('/settings/design-system')}
           />
           {VISION_CAMERA_LAB_ENABLED ? (
             <Button
-              label="VisionCamera-Labor öffnen"
+              title="VisionCamera-Labor öffnen"
               variant="secondary"
               onPress={() => router.push('/settings/camera-lab')}
             />
           ) : null}
           <Button
-            label="Plus-Paywall öffnen (Test Store)"
+            title="Plus-Paywall öffnen (Test Store)"
             variant="secondary"
             onPress={() =>
               router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'plus' } })
             }
           />
           <Button
-            label="KI-Paywall öffnen (Test Store)"
+            title="KI-Paywall öffnen (Test Store)"
             variant="secondary"
             onPress={() =>
               router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'ai' } })
             }
           />
           <Button
-            label="Lokale Datenbank löschen"
+            title="Lokale Datenbank löschen"
             variant="danger"
             onPress={handleWipe}
             loading={busy === 'wipe'}

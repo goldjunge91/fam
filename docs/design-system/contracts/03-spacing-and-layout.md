@@ -23,11 +23,11 @@ zentrale, begrenzte Skalierung für wiederkehrende Abstände und Maße; dargeste
 Werte dürfen deshalb geräteabhängig von der Referenz abweichen. Eine zusätzliche
 lokale Skalierung oder eine zweite Tokenquelle ist nicht zulässig.
 
-Die für `rs()` relevante Fensterbreite wird reaktiv berücksichtigt. React Native
-0.86 stellt dafür `useWindowDimensions()` bereit. Werte, die von Fensterbreite,
-Höhe oder Schriftfaktor abhängen, werden bei Rotation, Fenster-Resize und
-Schriftfaktoränderungen neu berechnet; ein einmaliges Lesen beim Modulimport
-erfüllt diesen Vertrag nicht.
+Die für `rs()` relevante Fensterbreite wird wie in Waivy einmalig mit
+`Dimensions.get('window').width` beim Modulimport gelesen. Der Faktor bleibt
+auf `0,9` bis `1,06` begrenzt. Dieser Vertrag verlangt keine zusätzliche
+`useWindowDimensions()`-Schicht für die globalen `space`-Tokens und behauptet
+keine Reaktivität der importierten Skala bei Rotation oder Web-Resize.
 
 Bei einer begrenzten Inhaltsspalte wird deren verfügbare Breite als Grundlage
 verwendet. Zusätzliche Fensterbreite darf die Abstände nicht unnötig vergrößern.
@@ -46,12 +46,11 @@ Pixelwert eines Screens in ein neues Token umzuwandeln.
 
 ## Responsive Anordnung und gemeinsame Maße
 
-- Fensterabhängig verändern sich Anordnung, Umbruch und nutzbare Breite.
-  Benötigte Maße werden reaktiv gelesen, nicht einmalig beim Modulimport.
-- Bestehende `SCREEN_W`-/`IS_TABLET`-Konstanten dürfen keine laufend veränderliche
-  Geometrie oder globale Schrift-/Abstandsskala mehr steuern.
-- `CONTENT_MAX_WIDTH = 600` bleibt Ausgangspunkt für lesbare Inhaltsbreite.
-  Ein allgemeines Tablet-Redesign ist nicht Teil dieses Vertrags.
+- `SCREEN_W` und `IS_TABLET` dienen der groben Einordnung; `SCREEN_W` wird aus `Dimensions.get('window').width` abgeleitet.
+- `CONTENT_MAX_WIDTH = 600` begrenzt die lesbare Spalte. Sie bleibt auf kleinen Geräten 100 Prozent breit, wird auf größeren Geräten zentriert und nicht durch
+  ein allgemeines Tablet-Redesign ersetzt.
+- Laufzeitabhängige Geometrie darf eine konkrete Komponente mit ihrem eigenen
+  Hook ermitteln. Daraus entsteht keine zweite globale Skala.
 - Normale eigenständige Aktionen besitzen unabhängig von `rs()` mindestens
   44 × 44 tatsächliche Touchfläche. Keine Skalierungsstufe darf ein Touchziel
   darunter verkleinern. Details zu sichtbarer Fläche und Treffern stehen in
@@ -79,7 +78,7 @@ ist ebenfalls ein Vertragsbruch.
 ## Nachweis
 
 Tokenprüfungen belegen die Basisskala und die Grenzen von `rs()`. Die Referenz
-zeigt die tatsächlichen Werte. Schmale Breite, größere Schrift, Rotation und
-Web-Resize belegen adaptive Anordnung ohne Neustart, ohne Touchziele unter
-44 × 44. Der Screenvertrag prüft zusätzlich unteren Freiraum, Tastatur und
-Scrollverantwortung.
+zeigt die tatsächlichen Werte sowie die zentrierte `CONTENT_MAX_WIDTH`-Spalte.
+Schmale Breite, größere Schrift, Safe Area, Keyboard-Freiraum und
+Scrollverantwortung werden am Screen geprüft. Rotation und Web-Resize gelten
+nicht als Reaktivitätsnachweis für importierte Theme-Tokens.

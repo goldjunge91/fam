@@ -3,8 +3,7 @@ import { Modal, Pressable, ScrollView, View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import {
   ACTIVITY_OPTIONS,
   type ProfileBiometrics,
@@ -207,7 +206,7 @@ export function BiometricsSheet({
             </View>
           </ScrollView>
 
-          <Button label="Angaben übernehmen" onPress={handleApply} />
+          <Button title="Angaben übernehmen" onPress={handleApply} />
         </View>
       </View>
     </Modal>

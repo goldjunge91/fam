@@ -3,9 +3,8 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useCreateHouseholdMutation } from '@/features/household/api';
 
 export function CreateHouseholdScreen() {
@@ -64,20 +63,20 @@ export function CreateHouseholdScreen() {
           ) : null}
 
           {/* Erstellen-Button */}
-          <Button label="Erstellen" onPress={handleSubmit} loading={mutation.isPending} />
+          <Button title="Erstellen" onPress={handleSubmit} loading={mutation.isPending} />
         </View>
       </Card>
 
       {/* Alternative Aktion: Haushalts-Beitritt via Code */}
       <Button
-        label="Ich habe einen Einladungs-Code"
+        title="Ich habe einen Einladungs-Code"
         variant="secondary"
         onPress={() => router.push('/household/join')}
       />
 
       {/* Abbrechen-Button (sofern Historie vorhanden) */}
       {router.canGoBack() && (
-        <Button label="Abbrechen" variant="secondary" onPress={() => router.back()} />
+        <Button title="Abbrechen" variant="secondary" onPress={() => router.back()} />
       )}
     </Screen>
   );

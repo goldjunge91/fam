@@ -3,9 +3,8 @@ import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { describeSyncStatus } from '@/features/settings/sync-status-text';
 import { useSyncStatus } from '@/hooks/use-sync-status';
@@ -76,7 +75,7 @@ export function SyncSettingsScreen() {
 
         <View className="action-stack">
           <Button
-            label={
+            title={
               syncStatus.kind === 'failed'
                 ? 'Fehlgeschlagene erneut versuchen'
                 : 'Jetzt synchronisieren'
@@ -86,7 +85,7 @@ export function SyncSettingsScreen() {
             disabled={!activeHousehold}
           />
           <Button
-            label="Sync-Diagnose & Outbox anzeigen"
+            title="Sync-Diagnose & Outbox anzeigen"
             variant="secondary"
             onPress={() => router.push('/settings/sync-debug')}
           />

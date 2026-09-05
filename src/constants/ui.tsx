@@ -25,6 +25,7 @@ import {
 } from 'react-native';
 import Animated, {
   useAnimatedStyle,
+  useReducedMotion,
   useSharedValue,
   withSpring,
   withTiming,
@@ -371,11 +372,12 @@ export function Press({
 
 // ─── 3D Button ───────────────────────────────────────────────────────────────
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'accent';
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'accent' | 'link';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
 export function Button({
   title,
+  accessibilityLabel,
   onPress,
   variant = 'primary',
   size = 'md',
@@ -384,10 +386,12 @@ export function Button({
   loading,
   disabled,
   full,
+  flat = false,
   haptic,
   style,
 }: {
   title: string;
+  accessibilityLabel?: string;
   onPress?: () => void;
   variant?: ButtonVariant;
   size?: ButtonSize;
@@ -396,14 +400,17 @@ export function Button({
   loading?: boolean;
   disabled?: boolean;
   full?: boolean;
+  /** Removes the visible 3D depth from filled variants. */
+  flat?: boolean;
   /** Override the press haptic. Filled CTAs default to "medium", others "light". */
   haptic?: HapticKind;
   style?: StyleProp<ViewStyle>;
 }) {
   const { colors, accent } = useTheme();
   const depth = useSharedValue(0);
+  const reducedMotion = useReducedMotion();
   const faceStyle = useAnimatedStyle(() => ({
-    transform: [{ translateY: depth.value }],
+    transform: [{ translateY: reducedMotion ? 0 : depth.value }],
   }));
 
   const acc = accentKey ? accent[accentKey] : null;
@@ -418,7 +425,7 @@ export function Button({
             ? 'transparent'
             : variant === 'accent'
               ? (acc?.main ?? colors.accent)
-              : colors.backgroundElement;
+              : 'transparent';
   const shade =
     variant === 'danger'
       ? colors.buttonDangerDepth
@@ -426,13 +433,16 @@ export function Button({
         ? colors.buttonAccentDepth
         : colors.buttonPrimaryDepth;
   const isFilled = variant === 'primary' || variant === 'danger' || variant === 'accent';
-  const fg = isFilled
-    ? variant === 'accent' && acc
-      ? acc.on
-      : colors.onAccent
-    : variant === 'ghost'
+  const fg =
+    variant === 'link'
       ? colors.accent
-      : colors.text;
+      : isFilled
+        ? variant === 'accent' && acc
+          ? acc.on
+          : colors.onAccent
+        : variant === 'ghost'
+          ? colors.accent
+          : colors.text;
 
   const pad =
     size === 'sm'
@@ -440,27 +450,40 @@ export function Button({
       : size === 'lg'
         ? { paddingVertical: 16, paddingHorizontal: 22 }
         : { paddingVertical: 13, paddingHorizontal: 18 };
-  const fSize = size === 'sm' ? font.sizes.sm : size === 'lg' ? font.sizes.md : font.sizes.base;
+  const fSize =
+    variant === 'link'
+      ? font.sizes.sm
+      : size === 'sm'
+        ? font.sizes.sm
+        : size === 'lg'
+          ? font.sizes.md
+          : font.sizes.base;
   const isDisabled = disabled || loading;
+  const hasDepth = isFilled && !flat;
 
   return (
     <View style={[full && { alignSelf: 'stretch' }, style]}>
       <View
         style={{
           borderRadius: radius.md,
-          backgroundColor: isFilled ? shade : 'transparent',
-          paddingBottom: isFilled ? BUTTON_DEPTH : 0,
+          backgroundColor: hasDepth ? shade : 'transparent',
+          paddingBottom: hasDepth ? BUTTON_DEPTH : 0,
         }}>
         <Animated.View style={faceStyle}>
           <Pressable
             disabled={isDisabled}
             accessibilityRole="button"
+            accessibilityLabel={accessibilityLabel ?? title}
             accessibilityState={{ disabled: isDisabled, busy: loading }}
             onPressIn={() => {
-              if (isFilled) depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
+              if (hasDepth && !isDisabled && !reducedMotion) {
+                depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
+              }
             }}
             onPressOut={() => {
-              if (isFilled) depth.value = withSpring(0, PRESS_SPRING);
+              if (hasDepth) {
+                depth.value = reducedMotion ? 0 : withSpring(0, PRESS_SPRING);
+              }
             }}
             onPress={() => {
               if (isDisabled) return;
@@ -469,16 +492,20 @@ export function Button({
               fireHaptic(haptic ?? 'medium');
               onPress?.();
             }}
-            style={[
+            style={({ pressed }) => [
               {
-                borderRadius: radius.md,
+                borderRadius: variant === 'link' ? radius.sm : radius.md,
                 backgroundColor: main,
                 alignItems: 'center',
                 justifyContent: 'center',
-                opacity: isDisabled ? 0.6 : 1,
+                alignSelf: variant === 'link' ? 'flex-end' : undefined,
+                minHeight: 44,
+                minWidth: 44,
+                paddingHorizontal: variant === 'link' ? space.md : pad.paddingHorizontal,
+                paddingVertical: variant === 'link' ? space.sm : pad.paddingVertical,
+                opacity: isDisabled ? 0.6 : reducedMotion && pressed ? 0.78 : 1,
                 overflow: 'hidden',
               },
-              pad,
             ]}>
             <Row gap={8}>
               {loading ? (
@@ -491,7 +518,14 @@ export function Button({
               ) : icon ? (
                 <Feather name={icon} size={fSize + 2} color={fg} />
               ) : null}
-              <Text style={{ color: fg, fontSize: fSize, fontWeight: '700' }}>{title}</Text>
+              <Text
+                style={{
+                  color: fg,
+                  fontSize: fSize,
+                  fontWeight: variant === 'link' ? '400' : '700',
+                }}>
+                {title}
+              </Text>
             </Row>
           </Pressable>
         </Animated.View>

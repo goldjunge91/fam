@@ -4,9 +4,8 @@ import { DatePicker } from '@/components/forms/date-picker';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
@@ -173,7 +172,7 @@ export function ChildProfilesScreen() {
             <View className="flex-row gap-two mt-one">
               <View className="flex-1">
                 <Button
-                  label="Speichern"
+                  title="Speichern"
                   onPress={handleAdd}
                   loading={addMutation.isPending}
                   disabled={!name.trim()}
@@ -181,7 +180,7 @@ export function ChildProfilesScreen() {
               </View>
               <View className="flex-1">
                 <Button
-                  label="Abbrechen"
+                  title="Abbrechen"
                   variant="secondary"
                   onPress={() => setShowAddForm(false)}
                 />
@@ -192,7 +191,7 @@ export function ChildProfilesScreen() {
       ) : (
         /* Button zum Öffnen des Anlege-Formulars */
         <View className="mb-four">
-          <Button label="+ Kinder-Profil anlegen" onPress={() => setShowAddForm(true)} />
+          <Button title="+ Kinder-Profil anlegen" onPress={() => setShowAddForm(true)} />
         </View>
       )}
 
@@ -259,7 +258,7 @@ export function ChildProfilesScreen() {
                   <View className="flex-row gap-two mt-one">
                     <View className="flex-1">
                       <Button
-                        label="Übernehmen"
+                        title="Übernehmen"
                         onPress={() => handleUpdate(item.id)}
                         loading={updateMutation.isPending}
                         disabled={!editName.trim()}
@@ -267,7 +266,7 @@ export function ChildProfilesScreen() {
                     </View>
                     <View className="flex-1">
                       <Button
-                        label="Abbrechen"
+                        title="Abbrechen"
                         variant="secondary"
                         onPress={() => setEditingId(null)}
                       />
@@ -299,9 +298,9 @@ export function ChildProfilesScreen() {
                 </View>
 
                 <View className="child-action-buttons">
-                  <Button label="Bearbeiten" variant="secondary" onPress={() => startEdit(item)} />
+                  <Button title="Bearbeiten" variant="secondary" onPress={() => startEdit(item)} />
                   <Button
-                    label="Löschen"
+                    title="Löschen"
                     variant="danger"
                     onPress={() => handleDelete(item.id, item.display_name)}
                   />

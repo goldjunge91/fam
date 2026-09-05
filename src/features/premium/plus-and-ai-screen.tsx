@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Alert, ScrollView, View } from 'react-native';
-
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { BackButton, Button } from '@/components/ui/buttons';
+import { BackButton } from '@/components/ui/buttons';
 import { SegmentedControl } from '@/components/ui/segmented-control';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { presentCustomerCenter } from '@/features/premium/paywall';
 import { PaywallPlanCard } from '@/features/premium/paywall-plan-card';
 import { usePremium } from '@/features/premium/premium-provider';
@@ -155,7 +154,7 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
                   : 'Gilt für alle aktuellen Haushaltsmitglieder.'}
               </Txt>
             </View>
-            <Button label="Abo verwalten" onPress={handleManage} loading={managing} />
+            <Button title="Abo verwalten" onPress={handleManage} loading={managing} />
 
             {/* Upgrade-Hinweis zum jeweils anderen Tab, solange dieser noch nicht aktiv ist */}
             {!otherOwned ? (
@@ -169,7 +168,7 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
                   </Txt>
                 </View>
                 <Button
-                  label={`Zum ${otherContent.tabLabel}-Tab wechseln`}
+                  title={`Zum ${otherContent.tabLabel}-Tab wechseln`}
                   variant="secondary"
                   onPress={() => setTier(otherTier)}
                 />
@@ -187,14 +186,14 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
             />
 
             <Button
-              label={ctaLabel}
+              title={ctaLabel}
               onPress={handleBuy}
               loading={isPurchasing || isLoadingPackages}
               disabled={isRestoring || isLoadingPackages}
             />
 
             <Button
-              label="Käufe wiederherstellen"
+              title="Käufe wiederherstellen"
               variant="secondary"
               onPress={handleRestore}
               loading={isRestoring}

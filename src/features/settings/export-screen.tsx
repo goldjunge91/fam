@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Alert, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { buildUserDataExport } from '@/features/settings/data-export';
 
@@ -55,7 +54,7 @@ export function ExportScreen() {
       </Card>
       {/* Export-Aktionsbutton */}
       <View className="mt-four">
-        <Button label="Daten exportieren" onPress={handleExport} loading={exporting} />
+        <Button title="Daten exportieren" onPress={handleExport} loading={exporting} />
       </View>
     </Screen>
   );

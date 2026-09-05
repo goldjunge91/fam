@@ -5,9 +5,8 @@ import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { updatePassword } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { type NewPasswordInput, newPasswordSchema } from '@/lib/db/zod/auth.zod';
@@ -79,7 +78,7 @@ export function ResetPasswordScreen() {
 
           {/* Absende-Button */}
           <Button
-            label="Passwort speichern"
+            title="Passwort speichern"
             onPress={() => void handleSubmit(submit)()}
             loading={isSubmitting}
           />

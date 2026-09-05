@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 
 const SLIDES = [
   {
@@ -65,10 +64,10 @@ export function WelcomeCarousel({ onStart }: WelcomeCarouselProps) {
 
       <View className="complete-button-container">
         {isLast ? (
-          <Button label="Jetzt starten" onPress={onStart} />
+          <Button title="Jetzt starten" onPress={onStart} />
         ) : (
           <Button
-            label="Weiter"
+            title="Weiter"
             onPress={() => setSlideIndex((prev) => Math.min(SLIDES.length - 1, prev + 1))}
           />
         )}

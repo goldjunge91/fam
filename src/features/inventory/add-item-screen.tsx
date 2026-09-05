@@ -10,11 +10,11 @@ import { TextField } from '@/components/forms/text-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, HeaderIconButton } from '@/components/ui/buttons';
+import { HeaderIconButton } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
-import { Surface, Txt } from '@/constants/ui';
+import { Button, Surface, Txt } from '@/constants/ui';
 import { useInterstitialAd } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -382,7 +382,7 @@ export function AddItemScreen() {
               <View className="flex-row gap-two">
                 <View className="flex-1">
                   <Button
-                    label="Erstellen"
+                    title="Erstellen"
                     onPress={handleAddLocation}
                     loading={addLocationMutation.isPending}
                     disabled={!newLocationName.trim()}
@@ -390,7 +390,7 @@ export function AddItemScreen() {
                 </View>
                 <View className="flex-1">
                   <Button
-                    label="Abbrechen"
+                    title="Abbrechen"
                     variant="secondary"
                     onPress={() => {
                       setShowAddLocation(false);
@@ -442,11 +442,11 @@ export function AddItemScreen() {
 
           {/* Haupt-Speicher-Button */}
           <Button
-            label="Zum Vorrat hinzufügen"
+            title="Zum Vorrat hinzufügen"
             onPress={handleSave}
             loading={mutation.isPending}
             disabled={!name.trim()}
-            size="large"
+            size="lg"
           />
         </KeyboardAwareScrollView>
       </SafeAreaView>

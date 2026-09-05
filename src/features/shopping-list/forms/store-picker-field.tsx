@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../domain-logik/store-presets';
 import { findStoreByName, useAddStoreMutation, useStores } from '../hooks/use-stores';
 
@@ -168,13 +167,13 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
           </View>
           <View className="input-row">
             <Button
-              label="Erstellen"
+              title="Erstellen"
               onPress={handleAddStore}
               loading={addStoreMutation.isPending}
               disabled={!newStoreName.trim()}
             />
             <Button
-              label="Abbrechen"
+              title="Abbrechen"
               variant="secondary"
               onPress={() => {
                 setShowAddStore(false);

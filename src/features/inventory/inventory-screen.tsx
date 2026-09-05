@@ -7,10 +7,9 @@ import { HistoryIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
-import { Divider, Txt } from '@/constants/ui';
+import { Button, Divider, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
@@ -68,7 +67,9 @@ export function InventoryScreen() {
   const [wasteItem, setWasteItem] = useState<LocalInventoryItem | null>(null);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [productHistoryGroup, setProductHistoryGroup] = useState<InventoryItemGroup | null>(null);
-  const [productHistoryReturnGroupId, setProductHistoryReturnGroupId] = useState<string | null>(null);
+  const [productHistoryReturnGroupId, setProductHistoryReturnGroupId] = useState<string | null>(
+    null,
+  );
 
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -346,7 +347,7 @@ export function InventoryScreen() {
               </Txt>
               <Button
                 variant="link"
-                label="Sortieren"
+                title="Sortieren"
                 accessibilityLabel={`Sortierung ändern, aktuell ${
                   sortMode === 'expiry' ? 'nach Haltbarkeit' : 'alphabetisch'
                 }`}

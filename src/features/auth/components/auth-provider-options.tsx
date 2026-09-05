@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { View } from 'react-native';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { AppleSignInButton } from '@/features/auth/components/apple-sign-in-button';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { signInWithOAuthProvider } from '@/features/auth/provider-auth';
@@ -25,7 +24,7 @@ export function AuthProviderOptions({ mode, onAuthAttempt }: AuthProviderOptions
       <AppleSignInButton onAuthStart={onAuthAttempt} onError={(error) => setOAuthError(error)} />
 
       <Button
-        label="🌐  Mit Google anmelden"
+        title="🌐  Mit Google anmelden"
         variant="secondary"
         onPress={async () => {
           setOAuthError(null);

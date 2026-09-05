@@ -6,8 +6,7 @@ import { Alert, Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
@@ -160,7 +159,7 @@ export function MembersScreen() {
       {/* Button zum Wechseln oder Beitreten eines anderen Haushalts */}
       <View className="mb-two">
         <Button
-          label={
+          title={
             households.length > 1
               ? `🏠 Haushalt wechseln (${currentHousehold?.name ?? ''})`
               : '🏠 Haushalt wechseln / beitreten'
@@ -174,10 +173,10 @@ export function MembersScreen() {
       {isAdmin && currentHousehold && (
         <View className="flex-row gap-two mb-three">
           <View className="flex-1">
-            <Button label="+ Mitglied einladen" onPress={() => setShowInviteModal(true)} />
+            <Button title="+ Mitglied einladen" onPress={() => setShowInviteModal(true)} />
           </View>
           <Button
-            label="👶 Kinder-Profile"
+            title="👶 Kinder-Profile"
             variant="secondary"
             onPress={() => router.push('/household/children')}
           />
@@ -261,7 +260,7 @@ export function MembersScreen() {
               {!isAdmin && (
                 <View className="mb-three">
                   <Button
-                    label="👶 Kinder-Profile verwalten"
+                    title="👶 Kinder-Profile verwalten"
                     variant="secondary"
                     onPress={() => router.push('/household/children')}
                   />
@@ -271,7 +270,7 @@ export function MembersScreen() {
               {isAdmin ? (
                 <View className="gap-two">
                   <Button
-                    label="Haushalt verlassen"
+                    title="Haushalt verlassen"
                     variant="danger"
                     onPress={handleLeave}
                     loading={loadingAction === 'leave'}
@@ -285,7 +284,7 @@ export function MembersScreen() {
                     </Txt>
                   )}
                   <Button
-                    label="Haushalt löschen"
+                    title="Haushalt löschen"
                     variant="danger"
                     onPress={handleDelete}
                     loading={loadingAction === 'delete'}
@@ -294,7 +293,7 @@ export function MembersScreen() {
                 </View>
               ) : (
                 <Button
-                  label="Haushalt verlassen"
+                  title="Haushalt verlassen"
                   variant="danger"
                   onPress={handleLeave}
                   loading={loadingAction === 'leave'}

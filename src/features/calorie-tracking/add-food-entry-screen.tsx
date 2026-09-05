@@ -7,11 +7,10 @@ import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { useSnackbar } from '@/components/ui/snackbar';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -357,7 +356,7 @@ export function AddFoodEntryScreen() {
         {/* Aktions-Buttons (Speichern, Löschen, Abbrechen) */}
         <View className="mt-two">
           <Button
-            label="Speichern"
+            title="Speichern"
             onPress={handleSave}
             loading={addMutation.isPending || updateMutation.isPending}
             disabled={!values.name.trim()}
@@ -365,13 +364,13 @@ export function AddFoodEntryScreen() {
         </View>
         {isEditing ? (
           <Button
-            label="Löschen"
+            title="Löschen"
             variant="danger"
             onPress={handleDelete}
             loading={deleteMutation.isPending}
           />
         ) : null}
-        <Button label="Abbrechen" variant="secondary" onPress={() => router.back()} />
+        <Button title="Abbrechen" variant="secondary" onPress={() => router.back()} />
       </View>
     </Screen>
   );
