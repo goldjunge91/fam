@@ -139,69 +139,83 @@ export function Screen({
     <Surface tone="page" className="flex-1">
       {backgroundGradient ? <GradientBackground {...backgroundGradient} /> : null}
       <SafeAreaView
-        className="screen-body"
         edges={edges}
         style={{
+          flex: 1,
           width: '100%',
-          maxWidth: CONTENT_MAX_WIDTH,
-          alignSelf: 'center',
-          paddingHorizontal: horizontalPadding,
+          backgroundColor: 'transparent',
         }}>
-        {chrome ? null : back ? (
-          back.href ? (
-            <BackButton
-              label={back.label}
-              href={back.href}
-              variant={backStyle === 'icon' ? 'arrow' : 'text'}
-            />
-          ) : (
-            <AutoBackButton label={back.label} variant={backStyle === 'icon' ? 'arrow' : 'text'} />
-          )
-        ) : null}
-
-        {chrome ? (
-          <View className="flex-row items-center justify-between gap-two h-[94px] pt-[13px] pb-[23px]">
-            <MenuButton onPress={chrome.onMenuPress} />
-
-            <View className="flex-1 items-center gap-[2px]">
-              {subtitle ? (
-                <Txt variant="caption" tone="secondary" center>
-                  {subtitle}
-                </Txt>
-              ) : null}
-              <Txt variant="title" center>
-                {title}
-              </Txt>
-            </View>
-
-            <View className="flex-row items-center gap-one">
-              {chrome.trailing}
-              <ProfileButton
-                initials={chrome.initials}
-                avatarUrl={chrome.avatarUrl}
-                onPress={chrome.onAvatarPress}
+        <View
+          style={{
+            width: '100%',
+            maxWidth: CONTENT_MAX_WIDTH,
+            alignSelf: 'center',
+            paddingHorizontal: horizontalPadding,
+          }}>
+          {chrome ? null : back ? (
+            back.href ? (
+              <BackButton
+                label={back.label}
+                href={back.href}
+                variant={backStyle === 'icon' ? 'arrow' : 'text'}
               />
-            </View>
-          </View>
-        ) : title ? (
-          <View className="flex-row items-center justify-between gap-three pt-three pb-four">
-            <View className="shrink gap-half">
-              <Txt variant="title" weight="600">
-                {title}
-              </Txt>
-              {subtitle ? (
-                <Txt variant="body" tone="secondary" weight="500">
-                  {subtitle}
+            ) : (
+              <AutoBackButton
+                label={back.label}
+                variant={backStyle === 'icon' ? 'arrow' : 'text'}
+              />
+            )
+          ) : null}
+
+          {chrome ? (
+            <View className="flex-row items-center justify-between gap-two h-[94px] pt-[13px] pb-[23px]">
+              <MenuButton onPress={chrome.onMenuPress} />
+
+              <View className="flex-1 items-center gap-[2px]">
+                {subtitle ? (
+                  <Txt variant="caption" tone="secondary" center>
+                    {subtitle}
+                  </Txt>
+                ) : null}
+                <Txt variant="title" center>
+                  {title}
                 </Txt>
-              ) : null}
+              </View>
+
+              <View className="flex-row items-center gap-one">
+                {chrome.trailing}
+                <ProfileButton
+                  initials={chrome.initials}
+                  avatarUrl={chrome.avatarUrl}
+                  onPress={chrome.onAvatarPress}
+                />
+              </View>
             </View>
-            {action}
-          </View>
-        ) : null}
+          ) : title ? (
+            <View className="flex-row items-center justify-between gap-three pt-three pb-four">
+              <View className="shrink gap-half">
+                <Txt variant="title" weight="600">
+                  {title}
+                </Txt>
+                {subtitle ? (
+                  <Txt variant="body" tone="secondary" weight="500">
+                    {subtitle}
+                  </Txt>
+                ) : null}
+              </View>
+              {action}
+            </View>
+          ) : null}
+        </View>
 
         {scroll ? (
           <ScrollView
-            contentContainerStyle={{ flexGrow: 1, paddingBottom: bottomPadding }}
+            style={{ flex: 1, backgroundColor: 'transparent' }}
+            contentContainerStyle={{
+              flexGrow: 1,
+              paddingHorizontal: horizontalPadding,
+              paddingBottom: bottomPadding,
+            }}
             showsVerticalScrollIndicator={false}
             keyboardShouldPersistTaps="handled"
             automaticallyAdjustKeyboardInsets
@@ -229,6 +243,7 @@ export function Screen({
                   width: '100%',
                   maxWidth: CONTENT_MAX_WIDTH,
                   alignSelf: 'center',
+                  paddingHorizontal: horizontalPadding,
                 },
                 contentStyle,
               ]}>
