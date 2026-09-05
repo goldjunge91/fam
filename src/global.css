@@ -1270,54 +1270,6 @@
     @apply text-white font-bold;
   }
 
-  /* dashboard-screen.tsx — "Glass Cards" sind noch kein echtes Glass, nur
-     Schatten+Radius unter dem Namen (s. DESIGN_SYSTEM.md Backlog Punkt 5,
-     Phase C). borderCurve bleibt style (kein Tailwind-Aequivalent). */
-  .dashboard-calorie-card {
-    @apply min-h-[176px] rounded-fam-large flex-row items-center gap-[24px] px-[22px] py-[20px] bg-background-element;
-  }
-
-  .dashboard-ring-wrap {
-    @apply w-[113px] h-[113px] items-center justify-center;
-  }
-
-  .dashboard-calorie-copy {
-    @apply min-w-0 flex-1 gap-[4px];
-  }
-
-  .dashboard-calorie-label,
-  .dashboard-calorie-value,
-  .dashboard-calorie-remaining {
-    @apply min-w-0;
-  }
-
-  .dashboard-planned-card {
-    @apply min-h-[140px] rounded-fam-large flex-row items-center gap-[16px] pl-[16px] pr-[18px] py-[16px] bg-background-element;
-  }
-
-  .dashboard-planned-copy {
-    @apply min-w-0 flex-1 gap-[5px];
-  }
-
-  .dashboard-planned-kicker,
-  .dashboard-planned-title,
-  .dashboard-planned-meta {
-    @apply min-w-0;
-  }
-
-  .dashboard-widget {
-    @apply flex-1 min-h-[138px] rounded-fam-large p-[16px] gap-[8px] bg-background-element;
-  }
-
-  .dashboard-widget-badge {
-    @apply self-start min-w-[36px] h-[28px] rounded-control items-center justify-center px-one;
-  }
-
-  .dashboard-widget-label,
-  .dashboard-widget-action {
-    @apply min-w-0;
-  }
-
   /* household-switcher-modal.tsx */
   .modal-header-row {
     @apply flex-row justify-between items-center;

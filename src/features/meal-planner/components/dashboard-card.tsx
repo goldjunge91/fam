@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { FamIcon } from '@/components/icons/fam-icon';
-import { withAlpha } from '@/components/theme/index';
+import { radius, shadow, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Txt } from '@/constants/ui';
@@ -17,25 +17,52 @@ function toIsoDate(date: Date): string {
   return `${y}-${m}-${d}`;
 }
 
-// GlassView hat kein cssInterop, deshalb RN-Styles statt Tailwind.
-const PLANNED_GLASS_STYLE = {
-  borderRadius: 28,
-  flexDirection: 'row' as const,
-  alignItems: 'center' as const,
-  gap: 16,
-  paddingLeft: 16,
-  paddingRight: 18,
-  paddingVertical: 16,
-};
-
-const PLANNED_GLASS_STYLE_SMALL = {
-  borderRadius: 28,
-  flexDirection: 'row' as const,
-  alignItems: 'center' as const,
-  gap: 12,
-  paddingHorizontal: 16,
-  paddingVertical: 14,
-};
+const styles = StyleSheet.create({
+  pressable: {
+    width: '100%',
+  },
+  smallCard: {
+    width: '100%',
+    minHeight: 138,
+    justifyContent: 'space-between',
+    gap: space.sm,
+    paddingHorizontal: space.lg,
+    paddingVertical: 14,
+    borderRadius: radius.xl,
+    borderCurve: 'continuous',
+  },
+  smallContent: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  smallHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  smallArtwork: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: space.xs,
+  },
+  largeCard: {
+    width: '100%',
+    minHeight: 140,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.lg,
+    paddingLeft: space.lg,
+    paddingRight: 18,
+    paddingVertical: space.lg,
+    borderRadius: radius.xl,
+    borderCurve: 'continuous',
+  },
+  largeCopy: {
+    minWidth: 0,
+    flex: 1,
+    gap: space.xs,
+  },
+});
 
 function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
   const { colors } = useTheme();
@@ -60,17 +87,11 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
         onLongPress={onLongPress}
         accessibilityRole="button"
         accessibilityLabel="Essensplan öffnen"
-        fallbackClassName="dashboard-widget"
-        glassStyle={PLANNED_GLASS_STYLE_SMALL}
-        outerStyle={{
-          width: '100%',
-          minHeight: 138,
-          borderRadius: 28,
-          borderCurve: 'continuous',
-          boxShadow: `0 8px 20px ${withAlpha(colors.text, 0.08)}`,
-        }}>
-        <View className="flex-1 justify-between">
-          <View className="flex-row items-center justify-between">
+        glassStyle={styles.smallCard}
+        fallbackStyle={[styles.smallCard, { backgroundColor: colors.backgroundElement }]}
+        outerStyle={[styles.pressable, shadow.sm, { shadowColor: colors.shadowCard }]}>
+        <View style={styles.smallContent}>
+          <View style={styles.smallHeader}>
             <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.5 }}>
               GEPLANT
             </Txt>
@@ -78,7 +99,7 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
               {nextMeal ? MEAL_SLOT_LABELS[nextMeal.meal_slot] : 'Heute'}
             </Txt>
           </View>
-          <View className="items-center justify-center my-one">
+          <View style={styles.smallArtwork}>
             <FamIcon name="mealArtwork" size={44} />
           </View>
           <Txt variant="body" weight="700" numberOfLines={2}>
@@ -95,16 +116,11 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
       onLongPress={onLongPress}
       accessibilityRole="button"
       accessibilityLabel="Essensplan öffnen"
-      fallbackClassName="dashboard-planned-card"
-      glassStyle={PLANNED_GLASS_STYLE}
-      outerStyle={{
-        minHeight: 140,
-        borderRadius: 28,
-        borderCurve: 'continuous',
-        boxShadow: `0 8px 22px ${withAlpha(colors.text, 0.1)}`,
-      }}>
+      glassStyle={styles.largeCard}
+      fallbackStyle={[styles.largeCard, { backgroundColor: colors.backgroundElement }]}
+      outerStyle={[styles.pressable, shadow.sm, { shadowColor: colors.shadowCard }]}>
       <FamIcon name="mealArtwork" size={79} />
-      <View className="dashboard-planned-copy">
+      <View style={styles.largeCopy}>
         <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.1 }}>
           HEUTE GEPLANT
         </Txt>
