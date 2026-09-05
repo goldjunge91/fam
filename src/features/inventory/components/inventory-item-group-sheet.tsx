@@ -2,10 +2,10 @@ import { Modal, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
-import { type GradientSpec, radius, shadow, space, withAlpha } from '@/components/theme/index';
+import { type GradientSpec, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton } from '@/components/ui/buttons';
-import { Card, Press, Txt } from '@/constants/ui';
+import { Card, IconButton, Press, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
@@ -109,15 +109,14 @@ export function InventoryItemGroupSheet({
                 {group.lots.length === 1 ? 'Eintrag' : 'Einträge'}
               </Txt>
             </View>
-            <Pressable
+            <IconButton
+              icon="x"
               onPress={onClose}
-              accessibilityRole="button"
               accessibilityLabel="Schließen"
-              className="edit-fridge-close-button">
-              <Txt variant="body" tone="secondary">
-                ×
-              </Txt>
-            </Pressable>
+              bg={colors.backgroundSoft}
+              size={36}
+              iconSize={22}
+            />
           </View>
 
           <View className="inventory-state-summary">
@@ -261,16 +260,13 @@ function IosInventoryItemGroupView({
               {group.name}
             </Txt>
             <View style={[styles.headerSide, styles.headerRight]}>
-              <Press
+              <IconButton
+                icon="x"
                 onPress={onClose}
-                accessibilityRole="button"
                 accessibilityLabel="MHD-Details schließen"
-                style={[styles.closeButton, { backgroundColor: colors.backgroundSoft }]}
-                hitSlop={8}>
-                <Txt variant="heading" tone="secondary">
-                  ×
-                </Txt>
-              </Press>
+                bg={colors.backgroundSoft}
+                iconSize={24}
+              />
             </View>
           </View>
 
@@ -279,9 +275,7 @@ function IosInventoryItemGroupView({
             contentContainerStyle={styles.content}
             showsVerticalScrollIndicator={false}>
             <View style={styles.detailLead}>
-              <Txt variant="title">
-                {formatAmount(group.quantity, group.unit)} gesamt
-              </Txt>
+              <Txt variant="title">{formatAmount(group.quantity, group.unit)} gesamt</Txt>
               <Txt variant="label" tone="secondary" style={styles.detailSubtitle}>
                 {group.lots.length} MHD-{group.lots.length === 1 ? 'Eintrag' : 'Einträge'} ·{' '}
                 {group.lots[0]?.location_name ?? 'Kein Lagerort'}
@@ -354,8 +348,8 @@ function IosInventoryItemGroupView({
               </Txt>
             </Press>
             <Txt variant="caption" tone="secondary" style={styles.helperText}>
-              Tippe auf eine Zustandskarte oder ein MHD-Los, um genau diese Gläser zu bearbeiten oder
-              zu verbrauchen.
+              Tippe auf eine Zustandskarte oder ein MHD-Los, um genau diese Gläser zu bearbeiten
+              oder zu verbrauchen.
             </Txt>
           </ScrollView>
         </SafeAreaView>
@@ -507,16 +501,8 @@ function useThemedGroupStyles() {
       alignItems: 'center',
       justifyContent: 'space-between',
     },
-    headerSide: { width: 76, alignItems: 'flex-start' },
+    headerSide: { flex: 1, minWidth: 42, alignItems: 'flex-start' },
     headerRight: { alignItems: 'flex-end' },
-    closeButton: {
-      width: 42,
-      height: 42,
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: radius.md,
-      ...shadow.sm,
-    },
     scroll: { flex: 1 },
     content: { paddingHorizontal: space.lg, paddingBottom: space.xxxl },
     detailLead: {

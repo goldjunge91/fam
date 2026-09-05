@@ -1,7 +1,8 @@
-import { TextInput, View } from 'react-native';
+import { TextInput } from 'react-native';
 
 import { SearchIcon } from '@/components/icons/fam-icon';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { Card } from '@/constants/ui';
 
 import { InventoryIconButton } from './inventory-icon-button';
 
@@ -22,10 +23,7 @@ export function InventorySearchField({
 
   if (!onPress) {
     return (
-      <InventorySearchInput
-        value={value ?? ''}
-        onChangeText={onChangeText ?? (() => undefined)}
-      />
+      <InventorySearchInput value={value ?? ''} onChangeText={onChangeText ?? (() => undefined)} />
     );
   }
 
@@ -46,7 +44,10 @@ export function InventorySearchInput({ value, onChangeText }: InventorySearchInp
   const { colors } = useTheme();
 
   return (
-    <View className="mt-two min-h-[48px] flex-row items-center gap-two">
+    <Card
+      elevation="none"
+      padded={false}
+      className="mt-[10px] min-h-[48px] w-full flex-row items-center gap-one px-three py-[11px]">
       <TextInput
         autoFocus
         value={value}
@@ -57,8 +58,8 @@ export function InventorySearchInput({ value, onChangeText }: InventorySearchInp
         accessibilityLabel="Artikel suchen"
         returnKeyType="search"
         clearButtonMode="while-editing"
-        className="flex-1 p-0"
+        className="inventory-search-input"
       />
-    </View>
+    </Card>
   );
 }

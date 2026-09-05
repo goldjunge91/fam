@@ -1,3 +1,4 @@
+import ExpoSegmentedControl from '@expo/ui/community/segmented-control';
 import { useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 
@@ -13,10 +14,12 @@ import { EmptyState } from '@/components/ui/empty-state';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { ProgressRing } from '@/components/ui/progress-ring';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
+import { LegacySegmentedControl } from '@/components/ui/segmented-control';
 import {
   Badge,
   Button,
   Divider,
+  SegmentedControl as FamSegmentedControl,
   IconButton,
   Pill,
   Press,
@@ -25,7 +28,6 @@ import {
   EmptyState as PrimitiveEmptyState,
   Row,
   SectionHeading,
-  SegmentedControl,
   Spacer,
   Surface,
   TextField,
@@ -34,6 +36,15 @@ import {
 import { ContractIntro, ExamplePair, ExamplePanel, Subsection } from './showcase-shared';
 
 export type ComponentCategory = 'surfaces' | 'controls' | 'feedback';
+
+type ShowcaseSegment = 'all' | 'soon';
+
+const SHOWCASE_SEGMENT_OPTIONS: { label: string; value: ShowcaseSegment }[] = [
+  { label: 'Alle', value: 'all' },
+  { label: 'Bald fällig', value: 'soon' },
+];
+
+const SHOWCASE_SEGMENT_VALUES = SHOWCASE_SEGMENT_OPTIONS.map(({ label }) => label);
 
 export function ComponentsShowcase({ category }: { category: ComponentCategory }) {
   if (category === 'surfaces') return <SurfaceShowcase />;
@@ -70,6 +81,53 @@ function SurfaceShowcase() {
           <Txt tone="secondary">12 Produkte, 2 laufen bald ab</Txt>
           <ProgressBar value={0.68} />
         </Card>
+      </Subsection>
+      <Subsection title="Cards mit Schatten und Progress-Ringen">
+        <PrimitiveCard elevation="sm" style={styles.progressCard}>
+          <View style={styles.progressCardRow}>
+            <View style={styles.progressCardCopy}>
+              <Txt variant="label" tone="secondary" style={styles.progressCardLabel}>
+                KALORIEN HEUTE
+              </Txt>
+              <Txt variant="title">1.420 kcal</Txt>
+              <Txt tone="secondary">580 kcal übrig</Txt>
+            </View>
+            <ProgressRing
+              value={1420}
+              target={2000}
+              preset="compact"
+              label="Kalorien"
+              displayMode="percent"
+              animated={false}
+            />
+          </View>
+          <Txt variant="caption" tone="secondary">
+            elevation="sm" · preset="compact"
+          </Txt>
+        </PrimitiveCard>
+        <PrimitiveCard elevation="md" style={styles.progressCard}>
+          <View style={styles.progressCardRow}>
+            <ProgressRing
+              value={7}
+              target={10}
+              preset="dashboard"
+              label="Aufgaben"
+              unit="Aufgaben"
+              displayMode="percent"
+              animated={false}
+            />
+            <View style={styles.progressCardCopy}>
+              <Txt variant="label" tone="secondary" style={styles.progressCardLabel}>
+                WOCHENZIEL
+              </Txt>
+              <Txt variant="title">7 von 10</Txt>
+              <Txt tone="secondary">Drei Aufgaben verbleiben</Txt>
+            </View>
+          </View>
+          <Txt variant="caption" tone="secondary">
+            elevation="md" · preset="dashboard"
+          </Txt>
+        </PrimitiveCard>
       </Subsection>
       <Subsection title="Layout- und Basisprimitiven">
         <PrimitiveCard elevation="sm">
@@ -109,9 +167,12 @@ function SurfaceShowcase() {
 
 function ControlShowcase() {
   const [selectedPill, setSelectedPill] = useState(false);
-  const [segment, setSegment] = useState<'all' | 'soon'>('all');
+  const [segment, setSegment] = useState<ShowcaseSegment>('all');
   const [quantity, setQuantity] = useState(2);
   const { colors } = useTheme();
+  const selectedSegmentIndex = SHOWCASE_SEGMENT_OPTIONS.findIndex(
+    (option) => option.value === segment,
+  );
 
   return (
     <View style={styles.page}>
@@ -187,15 +248,42 @@ function ControlShowcase() {
             <Badge label="Vorrat" tone="pantry" icon="archive" />
             <Badge label="Warnung" tone="nourish" icon="alert-circle" solid />
           </View>
-          <SegmentedControl
-            options={[
-              { label: 'Alle', value: 'all' },
-              { label: 'Bald fällig', value: 'soon' },
-            ]}
-            value={segment}
-            onChange={setSegment}
-          />
           <QuantityStepper value={quantity} onChange={setQuantity} min={0} max={20} />
+        </View>
+      </Subsection>
+      <Subsection title="SegmentedControl-Vergleich">
+        <View style={styles.segmentedComparison}>
+          <View style={styles.segmentedExample}>
+            <Txt variant="label">Fam UI: constants/ui.tsx (kanonisch)</Txt>
+            <FamSegmentedControl
+              label="Ansicht"
+              options={SHOWCASE_SEGMENT_OPTIONS}
+              selected={segment}
+              onSelect={setSegment}
+              selectionRole="tab"
+            />
+          </View>
+          <View style={styles.segmentedExample}>
+            <Txt variant="label">Legacy: components/ui/segmented-control.tsx</Txt>
+            <LegacySegmentedControl
+              label="Ansicht"
+              options={SHOWCASE_SEGMENT_OPTIONS}
+              selected={segment}
+              onSelect={setSegment}
+            />
+          </View>
+          <View style={styles.segmentedExample}>
+            <Txt variant="label">Expo UI: @expo/ui/community/segmented-control</Txt>
+            <ExpoSegmentedControl
+              values={SHOWCASE_SEGMENT_VALUES}
+              selectedIndex={selectedSegmentIndex}
+              onChange={(event) => {
+                const next = SHOWCASE_SEGMENT_OPTIONS[event.nativeEvent.selectedSegmentIndex];
+                if (next) setSegment(next.value);
+              }}
+              style={styles.expoSegmentedControl}
+            />
+          </View>
         </View>
       </Subsection>
       <ExamplePair
@@ -289,6 +377,18 @@ const styles = StyleSheet.create({
   page: { gap: space.xxl },
   stack: { gap: space.md },
   wrap: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: space.sm },
+  progressCard: { gap: space.md },
+  progressCardRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: space.lg,
+  },
+  progressCardCopy: { flex: 1, minWidth: 0, gap: space.xs },
+  progressCardLabel: { letterSpacing: 0.6 },
+  segmentedComparison: { gap: space.lg },
+  segmentedExample: { gap: space.xs },
+  expoSegmentedControl: { width: '100%', minHeight: 44 },
   surfaceSample: {
     minHeight: 64,
     borderWidth: StyleSheet.hairlineWidth,

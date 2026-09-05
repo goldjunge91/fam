@@ -26,6 +26,7 @@ Details zu Produktentscheidungen und Grenzen: [Produktvision](docs/features/VISI
 - [Gebaut](#gebaut-)
 - [Geplant](#geplant-)
 - [Erste Schritte](#erste-schritte)
+- [React Native Harness](#react-native-harness)
 - [Stack](#stack)
 - [Dokumentation](#dokumentation)
 
@@ -127,6 +128,11 @@ bash scripts/ios-dev.sh
 
 Alle weiteren Befehle, Umgebungsvariablen, Test-Accounts, Telemetrie-Setup und
 die volle Architektur stehen im [Developer Guide](docs/architecture/DEVELOPER_GUIDE.md).
+
+## React Native Harness
+
+Die Anleitung für Harness-Tests, Dev-Builds, Plattform-Runner und den DEV-
+Performance-Monitor steht in [harness/README.md](harness/README.md).
 
 ## Stack
 

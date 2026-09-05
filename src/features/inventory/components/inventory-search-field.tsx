@@ -1,10 +1,8 @@
-import { GlassView } from 'expo-glass-effect';
-import { TextInput, View } from 'react-native';
+import { TextInput } from 'react-native';
 
 import { SearchIcon } from '@/components/icons/fam-icon';
-import { radius } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { useGlassAvailable } from '@/components/ui/glass-card';
+import { Card } from '@/constants/ui';
 
 import { InventoryIconButton } from './inventory-icon-button';
 
@@ -27,10 +25,7 @@ export function InventorySearchField({
 
   if (!onPress) {
     return (
-      <InventorySearchInput
-        value={value ?? ''}
-        onChangeText={onChangeText ?? (() => undefined)}
-      />
+      <InventorySearchInput value={value ?? ''} onChangeText={onChangeText ?? (() => undefined)} />
     );
   }
 
@@ -49,10 +44,12 @@ interface InventorySearchInputProps {
 /** Sichtbares Eingabefeld der aufgeklappten Artikelsuche. */
 export function InventorySearchInput({ value, onChangeText }: InventorySearchInputProps) {
   const { colors } = useTheme();
-  const canUseGlass = useGlassAvailable();
 
-  const content = (
-    <>
+  return (
+    <Card
+      elevation="none"
+      padded={false}
+      className="mt-[10px] min-h-[48px] w-full flex-row items-center gap-one px-three py-[11px]">
       <SearchIcon size={20} color={colors.textSecondary} />
       <TextInput
         autoFocus
@@ -66,29 +63,6 @@ export function InventorySearchInput({ value, onChangeText }: InventorySearchInp
         returnKeyType="search"
         clearButtonMode="while-editing"
       />
-    </>
+    </Card>
   );
-
-  if (canUseGlass) {
-    return (
-      <GlassView
-        glassEffectStyle="regular"
-        style={{
-          width: '100%',
-          minHeight: 48,
-          marginTop: 10,
-          borderRadius: radius.lg,
-          borderCurve: 'continuous',
-          flexDirection: 'row',
-          alignItems: 'center',
-          gap: 8,
-          paddingHorizontal: 14,
-          paddingVertical: 11,
-        }}>
-        {content}
-      </GlassView>
-    );
-  }
-
-  return <View className="inventory-search-field inventory-search-panel">{content}</View>;
 }

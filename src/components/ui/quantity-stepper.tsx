@@ -68,7 +68,7 @@ export function QuantityStepper({
           keyboardType="number-pad"
           returnKeyType="done"
           accessibilityLabel={`${label} eingeben`}
-          className="flex-1 self-stretch px-two py-0 text-center [font-variant:tabular-nums]"
+          className="w-[42px] self-stretch px-two py-0 text-center [font-variant:tabular-nums]"
           style={{
             color: colors.text,
             fontSize: size === 'large' ? font.sizes.md : font.sizes.base,
@@ -81,7 +81,7 @@ export function QuantityStepper({
           onPress={startEditing}
           accessibilityRole="button"
           accessibilityLabel={`${label} direkt eingeben`}
-          className="flex-1 items-center justify-center">
+          className="w-[42px] items-center justify-center">
           <Txt
             variant="body"
             weight="600"

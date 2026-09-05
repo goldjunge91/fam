@@ -1,6 +1,6 @@
 import { Feather } from '@expo/vector-icons';
-import { Modal, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import type { ComponentProps } from 'react';
+import { Modal, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { GradientBackground } from '@/components/layout/gradient-background';
@@ -8,14 +8,13 @@ import {
   BUTTON_DEPTH,
   type GradientSpec,
   radius,
-  shadow,
   space,
   withAlpha,
 } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton } from '@/components/ui/buttons';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
-import { Card, Press, Txt } from '@/constants/ui';
+import { Card, IconButton, Press, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
@@ -196,16 +195,13 @@ function IosInventoryItemActionsView({
               Los-Aktionen
             </Txt>
             <View style={[styles.headerSide, styles.headerRight]}>
-              <Press
+              <IconButton
+                icon="x"
                 onPress={onClose}
-                accessibilityRole="button"
                 accessibilityLabel="Artikelaktionen schließen"
-                style={[styles.closeButton, { backgroundColor: colors.backgroundSoft }]}
-                hitSlop={8}>
-                <Txt variant="heading" tone="secondary">
-                  ×
-                </Txt>
-              </Press>
+                bg={colors.backgroundSoft}
+                iconSize={24}
+              />
             </View>
           </View>
 
@@ -244,7 +240,7 @@ function IosInventoryItemActionsView({
 
             <View style={styles.quantityRow}>
               <View style={styles.quantityCopy}>
-                <Txt variant="label" tone="secondary" weight="700">
+                <Txt variant="label" weight="700">
                   Aktuelle Menge
                 </Txt>
                 <Txt variant="caption" tone="secondary">
@@ -323,44 +319,37 @@ function IosActionTile({
   styles: ReturnType<typeof useThemedActionStyles>;
 }) {
   const { colors } = useTheme();
-  const primary = variant === 'primary';
-  const foreground = primary
-    ? colors.onAccent
-    : variant === 'success'
-      ? colors.success
-      : variant === 'danger'
-        ? colors.danger
-        : colors.accent;
-  const depth = primary
-    ? colors.buttonPrimaryDepth
-    : variant === 'danger'
-      ? colors.buttonDangerDepth
-      : colors.buttonPrimaryDepth;
+  const isFilled = variant !== 'neutral';
+  const isDanger = variant === 'danger';
+  const foreground = isFilled ? colors.onAccent : colors.text;
+  const depth = isDanger ? colors.buttonDangerDepth : colors.buttonPrimaryDepth;
 
   return (
-    <View style={[styles.tileDepth, { backgroundColor: depth }]}>
+    <View
+      style={[
+        styles.tileDepth,
+        !isFilled && styles.tileDepthFlat,
+        { backgroundColor: isFilled ? depth : 'transparent' },
+      ]}>
       <Press
         onPress={onPress}
         accessibilityRole="button"
         accessibilityLabel={label}
-        style={[
-          styles.tile,
-          primary && styles.tilePrimary,
-          variant === 'success' && styles.tileSuccess,
-          variant === 'danger' && styles.tileDanger,
-        ]}
+        style={[styles.tile, isFilled && (isDanger ? styles.tileDanger : styles.tilePrimary)]}
         containerStyle={styles.tileContainer}>
         <View
           style={[
             styles.tileIcon,
-            { backgroundColor: primary ? withAlpha(colors.onAccent, 0.18) : withAlpha(foreground, 0.14) },
+            { backgroundColor: withAlpha(foreground, isFilled ? 0.18 : 0.14) },
           ]}>
           <Feather name={icon} size={18} color={foreground} />
         </View>
         <Txt variant="label" color={foreground} weight="800">
           {label}
         </Txt>
-        <Txt variant="caption" color={primary ? withAlpha(colors.onAccent, 0.76) : colors.textSecondary}>
+        <Txt
+          variant="caption"
+          color={isFilled ? withAlpha(colors.onAccent, 0.76) : colors.textSecondary}>
           {hint}
         </Txt>
       </Press>
@@ -381,16 +370,8 @@ function useThemedActionStyles() {
       alignItems: 'center',
       justifyContent: 'space-between',
     },
-    headerSide: { width: 76, alignItems: 'flex-start' },
+    headerSide: { flex: 1, minWidth: 42, alignItems: 'flex-start' },
     headerRight: { alignItems: 'flex-end' },
-    closeButton: {
-      width: 42,
-      height: 42,
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: radius.md,
-      ...shadow.sm,
-    },
     scroll: { flex: 1 },
     content: { paddingHorizontal: space.lg, paddingBottom: space.xxxl, gap: space.lg },
     detailLead: {
@@ -430,6 +411,7 @@ function useThemedActionStyles() {
       borderRadius: radius.lg,
       paddingBottom: BUTTON_DEPTH,
     },
+    tileDepthFlat: { minHeight: 108, paddingBottom: 0 },
     tile: {
       minHeight: 108,
       justifyContent: 'center',
@@ -442,13 +424,9 @@ function useThemedActionStyles() {
       backgroundColor: colors.backgroundSoft,
     },
     tilePrimary: { borderColor: colors.accent, backgroundColor: colors.accent },
-    tileSuccess: {
-      borderColor: withAlpha(colors.success, 0.42),
-      backgroundColor: withAlpha(colors.success, 0.1),
-    },
     tileDanger: {
-      borderColor: withAlpha(colors.danger, 0.42),
-      backgroundColor: withAlpha(colors.danger, 0.1),
+      borderColor: colors.danger,
+      backgroundColor: colors.danger,
     },
     tileIcon: {
       width: 30,

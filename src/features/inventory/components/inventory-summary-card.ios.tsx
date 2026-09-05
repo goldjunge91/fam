@@ -22,7 +22,7 @@ export function InventorySummaryCard({
       className="flex-row gap-three"
       accessible
       accessibilityLabel={`${criticalCount} Artikel laufen bald ab, ${soonCount} bald fällig, ${totalCount} insgesamt im Vorrat`}>
-      <Card soft className="min-h-[176px] flex-1 items-center justify-center gap-three">
+      <Card className="min-h-[176px] flex-1 items-center justify-center gap-three">
         <ProgressRing
           preset="compact"
           value={criticalCount}
@@ -40,7 +40,7 @@ export function InventorySummaryCard({
         </Txt>
       </Card>
 
-      <Card soft className="min-h-[176px] flex-1 items-center justify-center gap-three">
+      <Card className="min-h-[176px] flex-1 items-center justify-center gap-three">
         <ProgressRing
           preset="compact"
           value={soonCount}
