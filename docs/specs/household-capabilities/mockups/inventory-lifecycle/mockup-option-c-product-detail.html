@@ -1,0 +1,1490 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Option C · Vorrat Artikel-Detail</title>
+    <style>
+      :root {
+        --bg: #f8f4ef;
+        --surface: #fbf7f2;
+        --surface-raised: #fffaf5;
+        --surface-selected: #e9e1e7;
+        --text: #2d2830;
+        --text-secondary: #786f79;
+        --border: #e4dde3;
+        --accent: #705773;
+        --accent-soft: #d9c9dc;
+        --on-accent: #ffffff;
+        --success: #78906f;
+        --warning: #c69059;
+        --danger: #c65f50;
+        --shadow-card: rgba(89, 64, 89, 0.16);
+        --frame-bg: #ede6de;
+        --frame-label: #8c8290;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light']) {
+          --bg: #211d23;
+          --surface: #2b262e;
+          --surface-raised: #302a33;
+          --surface-selected: #382f3b;
+          --text: #f2ece7;
+          --text-secondary: #b7adb3;
+          --border: #3e3640;
+          --accent: #b79cba;
+          --accent-soft: #58455d;
+          --on-accent: #211d23;
+          --success: #8fae86;
+          --warning: #d9a86c;
+          --danger: #d9776a;
+          --shadow-card: rgba(5, 3, 8, 0.42);
+          --frame-bg: #17141a;
+          --frame-label: #6e6672;
+        }
+      }
+
+      :root[data-theme='dark'] {
+        --bg: #211d23;
+        --surface: #2b262e;
+        --surface-raised: #302a33;
+        --surface-selected: #382f3b;
+        --text: #f2ece7;
+        --text-secondary: #b7adb3;
+        --border: #3e3640;
+        --accent: #b79cba;
+        --accent-soft: #58455d;
+        --on-accent: #211d23;
+        --success: #8fae86;
+        --warning: #d9a86c;
+        --danger: #d9776a;
+        --shadow-card: rgba(5, 3, 8, 0.42);
+        --frame-bg: #17141a;
+        --frame-label: #6e6672;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        min-height: 100vh;
+        margin: 0;
+        padding: 40px 16px 72px;
+        background: var(--frame-bg);
+        color: var(--text);
+        font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+        color: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      .toolbar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .toolbar-label,
+      .caption,
+      .flow-title,
+      .frame-caption {
+        color: var(--frame-label);
+      }
+
+      .toolbar-label {
+        margin-right: 2px;
+        font-size: 12px;
+      }
+
+      .toolbar button {
+        padding: 7px 14px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--surface);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .caption {
+        max-width: 680px;
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .flow-title {
+        margin: 12px 0 -2px;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .frame-caption {
+        margin-bottom: 8px;
+        font-size: 11.5px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .phone {
+        position: relative;
+        width: 350px;
+        max-width: 92vw;
+        overflow: hidden;
+        border: 1px solid color-mix(in srgb, var(--text-secondary) 18%, transparent);
+        border-radius: 38px;
+        background: var(--bg);
+        box-shadow: 0 30px 60px -20px var(--shadow-card);
+      }
+
+      .notch {
+        width: 108px;
+        height: 24px;
+        margin: 0 auto 6px;
+        border-radius: 0 0 14px 14px;
+        background: var(--frame-bg);
+      }
+
+      .screen {
+        position: relative;
+        min-height: 720px;
+        overflow: hidden;
+        padding: 12px 18px 28px;
+        background:
+          radial-gradient(circle at 8% 14%, color-mix(in srgb, var(--danger) 18%, transparent), transparent 38%),
+          radial-gradient(circle at 94% 20%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 40%),
+          var(--bg);
+      }
+
+      .screen-header {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 10px;
+        min-height: 54px;
+        margin-bottom: 24px;
+      }
+
+      .screen-header h1 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        text-align: center;
+      }
+
+      .screen-header .icon-button:last-child {
+        justify-self: end;
+      }
+
+      .icon-button,
+      .back-button {
+        min-width: 44px;
+        min-height: 44px;
+        border: 0;
+        background: transparent;
+        color: var(--accent);
+        font-weight: 800;
+      }
+
+      .back-button {
+        min-width: 74px;
+        padding: 8px 0;
+        text-align: left;
+      }
+
+      .icon-button {
+        display: inline-grid;
+        place-items: center;
+        border-radius: 14px;
+        background: var(--surface-selected);
+        box-shadow: 0 4px 0 color-mix(in srgb, var(--accent) 36%, transparent);
+        color: var(--text-secondary);
+        font-size: 21px;
+      }
+
+      .inventory-header {
+        align-items: start;
+        margin-bottom: 20px;
+      }
+
+      .inventory-header .menu-button {
+        justify-self: start;
+      }
+
+      .inventory-header .profile-button {
+        justify-self: end;
+        border-radius: 16px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 11px;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 22px;
+      }
+
+      .summary-card,
+      .state-card {
+        border-radius: 18px;
+        background: color-mix(in srgb, var(--surface) 88%, transparent);
+        box-shadow: 0 14px 24px -20px var(--shadow-card);
+      }
+
+      .summary-card {
+        min-height: 128px;
+        padding: 13px 11px;
+        text-align: center;
+      }
+
+      .summary-card .ring {
+        display: grid;
+        width: 64px;
+        height: 64px;
+        place-items: center;
+        margin: 0 auto 8px;
+        border: 9px solid color-mix(in srgb, var(--danger) 22%, var(--border));
+        border-top-color: var(--danger);
+        border-right-color: var(--danger);
+        border-radius: 50%;
+        font-size: 21px;
+        font-weight: 800;
+      }
+
+      .summary-card.warning .ring {
+        border-color: color-mix(in srgb, var(--warning) 22%, var(--border));
+        border-top-color: var(--warning);
+        border-right-color: var(--warning);
+      }
+
+      .summary-card .label {
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .filter-row {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 24px;
+      }
+
+      .filter-button {
+        min-height: 44px;
+        padding: 8px 14px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .filter-button.icon-only {
+        width: 48px;
+        padding: 0;
+        font-size: 22px;
+      }
+
+      .list-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 44px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .list-heading .eyebrow,
+      .section-label {
+        color: var(--text-secondary);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+
+      .sort-button,
+      .history-link {
+        min-height: 44px;
+        padding: 8px 0;
+        border: 0;
+        background: transparent;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .inventory-row,
+      .lot-row {
+        display: flex;
+        width: 100%;
+        min-height: 80px;
+        align-items: stretch;
+        padding: 0;
+        border: 0;
+        border-bottom: 1px solid var(--border);
+        background: transparent;
+        text-align: left;
+      }
+
+      .edge {
+        width: 4px;
+        flex-shrink: 0;
+        margin: 12px 11px 12px 0;
+        border-radius: 3px;
+      }
+
+      .row-copy {
+        flex: 1;
+        min-width: 0;
+        padding: 14px 0;
+      }
+
+      .row-title,
+      .row-amount {
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .row-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .row-meta,
+      .detail-subtitle,
+      .lot-meta,
+      .form-hint {
+        margin-top: 4px;
+        color: var(--text-secondary);
+        font-size: 11px;
+        line-height: 1.4;
+      }
+
+      .row-amount {
+        align-self: center;
+        padding-left: 8px;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+
+      .chevron {
+        align-self: center;
+        padding-left: 8px;
+        color: var(--text-secondary);
+        font-size: 20px;
+      }
+
+      .detail-lead {
+        margin-bottom: 20px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .detail-lead h2 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+
+      .state-summary {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+        margin-bottom: 22px;
+      }
+
+      .state-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 78px;
+        overflow: hidden;
+      }
+
+      .state-card.sealed {
+        background: var(--surface-selected);
+      }
+
+      .state-card.open {
+        border: 1px solid color-mix(in srgb, var(--warning) 40%, transparent);
+        background: color-mix(in srgb, var(--warning) 16%, var(--bg));
+      }
+
+      .state-card-main {
+        display: block;
+        flex: 1;
+        width: 100%;
+        min-height: 78px;
+        padding: 11px;
+        border: 0;
+        background: transparent;
+        text-align: left;
+      }
+
+      .state-card-main:disabled {
+        cursor: default;
+        opacity: 0.55;
+      }
+
+      .state-card-main:not(:disabled):focus-visible,
+      .state-card-action:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: -2px;
+      }
+
+      .state-card-action {
+        width: 100%;
+        min-height: 44px;
+        padding: 8px 11px;
+        border: 0;
+        border-top: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+        background: color-mix(in srgb, var(--accent) 8%, transparent);
+        color: var(--accent);
+        font-size: 11px;
+        font-weight: 800;
+        text-align: left;
+      }
+
+      .state-card .label {
+        color: var(--text-secondary);
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      .state-card .value {
+        margin-top: 4px;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .state-card .hint {
+        margin-top: 2px;
+        color: var(--text-secondary);
+        font-size: 10.5px;
+      }
+
+      .section-label {
+        margin-bottom: 7px;
+      }
+
+      .lot-row {
+        min-height: 86px;
+      }
+
+      .lot-row:focus-visible,
+      .inventory-row:focus-visible,
+      .action-button:focus-visible,
+      .state-card-main:focus-visible,
+      .state-card-action:focus-visible,
+      .history-link:focus-visible,
+      .sort-button:focus-visible,
+      .filter-button:focus-visible,
+      .icon-button:focus-visible,
+      .back-button:focus-visible,
+      .toolbar button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      .lot-row .row-copy {
+        padding: 13px 0;
+      }
+
+      .lot-row .row-title-line {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .lot-row .row-title,
+      .lot-row .row-amount {
+        font-size: 13.5px;
+      }
+
+      .detail-content .history-link {
+        margin-top: 14px;
+      }
+
+      .hint {
+        margin: 3px 0 0;
+        color: var(--text-secondary);
+        font-size: 10.5px;
+        line-height: 1.4;
+      }
+
+      .lot-hero {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+        padding: 14px;
+        border-radius: 18px;
+        background: var(--surface);
+      }
+
+      .lot-hero .edge {
+        width: 5px;
+        height: 54px;
+        margin: 0;
+      }
+
+      .lot-hero .title {
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .quantity-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 54px;
+        margin-bottom: 18px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .quantity-label {
+        color: var(--text-secondary);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .stepper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .stepper button {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--surface-selected);
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      .stepper .value {
+        min-width: 62px;
+        font-size: 13px;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      .action-list {
+        display: grid;
+        gap: 9px;
+      }
+
+      .action-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .action-tile {
+        display: flex;
+        flex-direction: column;
+        min-height: 104px;
+        justify-content: center;
+        gap: 7px;
+        padding: 14px 12px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--surface-selected);
+        text-align: left;
+      }
+
+      .action-tile .action-icon {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        border-radius: 10px;
+        background: color-mix(in srgb, var(--accent) 14%, transparent);
+        color: var(--accent);
+        font-size: 17px;
+        font-weight: 800;
+      }
+
+      .action-tile .action-label {
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .action-tile .action-hint {
+        color: var(--text-secondary);
+        font-size: 10px;
+        line-height: 1.3;
+      }
+
+      .action-tile.primary {
+        border-color: transparent;
+        background: var(--accent);
+        color: var(--on-accent);
+      }
+
+      .action-tile.primary .action-icon {
+        background: color-mix(in srgb, var(--on-accent) 18%, transparent);
+        color: var(--on-accent);
+      }
+
+      .action-tile.primary .action-hint {
+        color: color-mix(in srgb, var(--on-accent) 76%, transparent);
+      }
+
+      .action-tile.success {
+        border-color: color-mix(in srgb, var(--success) 42%, var(--border));
+      }
+
+      .action-tile.success .action-icon,
+      .action-tile.success .action-label {
+        color: var(--success);
+      }
+
+      .action-tile.danger {
+        border-color: color-mix(in srgb, var(--danger) 42%, var(--border));
+      }
+
+      .action-tile.danger .action-icon,
+      .action-tile.danger .action-label {
+        color: var(--danger);
+      }
+
+      .action-tile:active {
+        transform: translateY(2px);
+      }
+
+      .action-button {
+        min-height: 48px;
+        padding: 10px 14px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface-selected);
+        font-size: 13px;
+        font-weight: 800;
+        text-align: left;
+      }
+
+      .action-button.primary {
+        border-color: transparent;
+        background: var(--accent);
+        color: var(--on-accent);
+        text-align: center;
+      }
+
+      .action-button.success {
+        border-color: color-mix(in srgb, var(--success) 42%, var(--border));
+        color: var(--success);
+      }
+
+      .action-button.danger {
+        border-color: color-mix(in srgb, var(--danger) 42%, var(--border));
+        color: var(--danger);
+      }
+
+      .action-button.full {
+        width: 100%;
+      }
+
+      .action-button:active,
+      .icon-button:active,
+      .filter-button:active,
+      .stepper button:active {
+        transform: translateY(2px);
+        box-shadow: none;
+      }
+
+      .choice-list {
+        margin-bottom: 18px;
+        border-top: 1px solid var(--border);
+      }
+
+      .choice {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        min-height: 54px;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .choice input {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--accent);
+      }
+
+      .form-row {
+        display: grid;
+        gap: 7px;
+        margin-bottom: 16px;
+      }
+
+      .form-row label {
+        color: var(--text-secondary);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .form-row input,
+      .form-row select {
+        width: 100%;
+        min-height: 48px;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        outline: 0;
+        background: var(--surface);
+      }
+
+      .form-row input:focus,
+      .form-row select:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 22%, transparent);
+      }
+
+      .history-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        min-height: 70px;
+        padding: 13px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .history-row .history-edge {
+        width: 4px;
+        height: 38px;
+        flex-shrink: 0;
+        border-radius: 3px;
+      }
+
+      .history-row .history-copy {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .history-row .history-title {
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .history-row .history-meta {
+        margin-top: 3px;
+        color: var(--text-secondary);
+        font-size: 11px;
+      }
+
+      .history-row .history-amount {
+        flex-shrink: 0;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .empty-state {
+        padding: 34px 8px;
+        color: var(--text-secondary);
+        font-size: 13px;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .toast {
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        left: 18px;
+        z-index: 4;
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: var(--text);
+        color: var(--bg);
+        font-size: 12px;
+        font-weight: 700;
+        text-align: center;
+        box-shadow: 0 12px 24px -12px var(--shadow-card);
+      }
+
+      @media (max-width: 760px) {
+        body {
+          padding-top: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar" aria-label="Theme">
+      <span class="toolbar-label">Theme</span>
+      <button type="button" data-theme="light">Hell</button>
+      <button type="button" data-theme="dark">Dunkel</button>
+      <button type="button" data-theme="system">System</button>
+    </div>
+
+    <p class="caption">
+      Option C · klickbarer Artikel-Detail-Flow · vollständige Screens für Gruppe, MHD-Los,
+      Öffnen, Verbrauch, Wegwerfen, Bearbeiten und Verlauf
+    </p>
+
+    <h2 class="flow-title">Interaktiver Prototyp</h2>
+    <div class="frame-caption" id="frame-caption">Vorrat · tippe auf Senf</div>
+    <div class="phone">
+      <div class="notch"></div>
+      <main id="app-screen" class="screen" aria-live="polite"></main>
+    </div>
+
+    <script>
+      const initialLots = [
+        {
+          id: 'sealed-mustard',
+          quantity: 2,
+          unit: 'Gläser',
+          expiry: '30.09.2026',
+          status: 'sealed',
+          expiryText: 'in 24 Tagen',
+          location: 'Speisekammer',
+        },
+        {
+          id: 'opened-mustard',
+          quantity: 1,
+          unit: 'Glas',
+          expiry: '02.12.2026',
+          status: 'open',
+          expiryText: 'noch 87 Tage',
+          location: 'Speisekammer',
+          openedDate: '05.09.2026',
+        },
+      ];
+
+      const state = {
+        screen: 'inventory',
+        lots: initialLots.map((lot) => ({ ...lot })),
+        transactions: [
+          {
+            id: 'history-1',
+            type: 'in',
+            title: 'Senf hinzugefügt',
+            amount: '+3 Gläser',
+            meta: 'Heute · Speisekammer',
+          },
+          {
+            id: 'history-2',
+            type: 'open',
+            title: 'Senf geöffnet',
+            amount: '1 Glas',
+            meta: 'Vor 4 Tagen · Speisekammer',
+          },
+        ],
+        selectedLotId: null,
+        openQuantity: 1,
+        wasteReason: 'expired',
+        toast: '',
+      };
+
+      const screenElement = document.querySelector('#app-screen');
+      const frameCaption = document.querySelector('#frame-caption');
+
+      function singularUnit(unit) {
+        return unit === 'Gläser' ? 'Glas' : unit;
+      }
+
+      function formatAmount(quantity, unit) {
+        return `${quantity} ${quantity === 1 ? singularUnit(unit) : unit}`;
+      }
+
+      function getLot(id = state.selectedLotId) {
+        return state.lots.find((lot) => lot.id === id) ?? null;
+      }
+
+      function totalQuantity() {
+        return state.lots.reduce((total, lot) => total + lot.quantity, 0);
+      }
+
+      function lotsByStatus(status) {
+        return state.lots.filter((lot) => lot.status === status);
+      }
+
+      function statusLabel(status) {
+        return status === 'open' ? 'Geöffnet' : 'Versiegelt';
+      }
+
+      function edgeColor(lot) {
+        if (lot.status === 'open') return 'var(--warning)';
+        if (lot.expiryText.includes('abgelaufen')) return 'var(--danger)';
+        return 'var(--success)';
+      }
+
+      function reasonLabel(reason) {
+        return {
+          expired: 'Abgelaufen',
+          spoiled: 'Schlecht geworden',
+          other: 'Sonstiger Grund',
+        }[reason];
+      }
+
+      function setToast(message) {
+        state.toast = message;
+        render();
+        window.clearTimeout(setToast.timeout);
+        setToast.timeout = window.setTimeout(() => {
+          state.toast = '';
+          render();
+        }, 2600);
+      }
+
+      function header({ backLabel, backAction, title, closeAction = backAction }) {
+        return `
+          <header class="screen-header">
+            <button class="back-button" type="button" data-action="${backAction}">${backLabel}</button>
+            <h1>${title}</h1>
+            <button class="icon-button" type="button" data-action="${closeAction}" aria-label="Schließen">×</button>
+          </header>`;
+      }
+
+      function renderInventory() {
+        const quantity = totalQuantity();
+        return `
+          <header class="screen-header inventory-header">
+            <button class="icon-button menu-button" type="button" data-action="show-toast" data-message="Menü im Mockup geöffnet" aria-label="Menü">≡</button>
+            <h1>Vorrat</h1>
+            <button class="icon-button profile-button" type="button" data-action="show-toast" data-message="Profil im Mockup geöffnet" aria-label="Profil">MA</button>
+          </header>
+
+          <div class="summary-grid">
+            <article class="summary-card">
+              <div class="ring">2</div>
+              <div class="label">Läuft bald ab</div>
+            </article>
+            <article class="summary-card warning">
+              <div class="ring">1</div>
+              <div class="label">Bald fällig</div>
+            </article>
+          </div>
+
+          <div class="filter-row">
+            <button class="filter-button" type="button" data-action="show-toast" data-message="Lagerort: Alle">Alle⌄</button>
+            <button class="filter-button icon-only" type="button" data-action="show-toast" data-message="Suche im Mockup aktiviert" aria-label="Artikel suchen">⌕</button>
+            <button class="filter-button icon-only" type="button" data-action="history" aria-label="Verlauf öffnen">◷</button>
+          </div>
+
+          <div class="list-heading">
+            <span class="eyebrow">Nach Haltbarkeit</span>
+            <button class="sort-button" type="button" data-action="show-toast" data-message="Sortierung: Nach Haltbarkeit">Sortieren</button>
+          </div>
+
+          <button class="inventory-row" type="button" data-action="detail">
+            <span class="edge" style="background: var(--warning)"></span>
+            <span class="row-copy">
+              <span class="row-title">Senf</span>
+              <span class="row-meta">${state.lots.length} MHD-Einträge · Speisekammer</span>
+            </span>
+            <span class="row-amount">${formatAmount(quantity, 'Gläser')}</span>
+            <span class="chevron" aria-hidden="true">›</span>
+          </button>
+          <div class="empty-state">Tippe auf Senf, um die einzelnen MHD-Lose zu sehen.</div>
+          ${renderToast()}`;
+      }
+
+      function renderDetail() {
+        const sealed = lotsByStatus('sealed');
+        const opened = lotsByStatus('open');
+        const sealedQuantity = sealed.reduce((total, lot) => total + lot.quantity, 0);
+        const openedQuantity = opened.reduce((total, lot) => total + lot.quantity, 0);
+        const lotsMarkup = state.lots.length
+          ? state.lots.map(renderLotRow).join('')
+          : '<div class="empty-state">Keine aktiven MHD-Einträge vorhanden.</div>';
+
+        return `
+          ${header({ backLabel: '‹ Vorrat', backAction: 'inventory', title: 'Senf' })}
+          <section class="detail-content" aria-label="Senf-Details">
+            <div class="detail-lead">
+              <h2>${formatAmount(totalQuantity(), 'Gläser')} gesamt</h2>
+              <div class="detail-subtitle">${state.lots.length} MHD-Einträge · Speisekammer</div>
+            </div>
+
+            <div class="state-summary" aria-label="Zustandsübersicht">
+              <div class="state-card sealed">
+                <button class="state-card-main" type="button" data-action="status-card" data-status="sealed" ${sealed.length ? '' : 'disabled'} aria-label="Versiegelte Gläser anzeigen">
+                  <div class="label">Versiegelt</div>
+                  <div class="value">${formatAmount(sealedQuantity, 'Gläser')}</div>
+                  <div class="hint">${sealed.length ? sealed[0].expiryText : 'Keine Einträge'}</div>
+                </button>
+              </div>
+              <div class="state-card open">
+                <button class="state-card-main" type="button" data-action="status-card" data-status="open" ${opened.length ? '' : 'disabled'} aria-label="Geöffnete Gläser anzeigen">
+                  <div class="label">Geöffnet</div>
+                  <div class="value">${formatAmount(openedQuantity, 'Gläser')}</div>
+                  <div class="hint">${opened.length ? opened[0].expiryText : 'Keine Einträge'}</div>
+                </button>
+                ${opened.length
+                  ? '<button class="state-card-action" type="button" data-action="consume-first-opened">1 Glas verbrauchen ›</button>'
+                  : sealed.length
+                    ? '<button class="state-card-action" type="button" data-action="open-first-sealed">1 Glas öffnen ›</button>'
+                    : ''}
+              </div>
+            </div>
+
+            <div class="section-label">MHD-Einträge</div>
+            <div>${lotsMarkup}</div>
+            <button class="history-link" type="button" data-action="history">Produkt-Verlauf öffnen ›</button>
+            <p class="hint">Tippe auf eine Zustandskarte oder ein MHD-Los, um genau diese Gläser zu öffnen, zu bearbeiten oder zu verbrauchen.</p>
+          </section>
+          ${renderToast()}`;
+      }
+
+      function renderLotRow(lot) {
+        return `
+          <button class="lot-row" type="button" data-action="lot" data-id="${lot.id}" aria-label="Senf, ${formatAmount(lot.quantity, lot.unit)}, MHD ${lot.expiry}">
+            <span class="edge" style="background: ${edgeColor(lot)}"></span>
+            <span class="row-copy">
+              <span class="row-title-line">
+                <span class="row-title">MHD ${lot.expiry}</span>
+                <span class="row-amount">${formatAmount(lot.quantity, lot.unit)}</span>
+              </span>
+              <span class="lot-meta">${statusLabel(lot.status)} · ${lot.expiryText} · ${lot.location}</span>
+            </span>
+            <span class="chevron" aria-hidden="true">›</span>
+          </button>`;
+      }
+
+      function renderLotActions() {
+        const lot = getLot();
+        if (!lot) return renderDetail();
+        const stateButton = lot.status === 'sealed'
+          ? '<button class="action-tile primary" type="button" data-action="open-screen"><span class="action-icon">◔</span><span class="action-label">Öffnen</span><span class="action-hint">Menge aufteilen</span></button>'
+          : '<button class="action-tile primary" type="button" data-action="reseal-screen"><span class="action-icon">◓</span><span class="action-label">Schließen</span><span class="action-hint">Wieder versiegeln</span></button>';
+
+        return `
+          ${header({ backLabel: '‹ Senf', backAction: 'detail', title: 'Los-Aktionen' })}
+          <section class="detail-content" aria-label="Aktionen für Senf">
+            <div class="detail-lead">
+              <h2>Senf</h2>
+              <div class="detail-subtitle">${formatAmount(lot.quantity, lot.unit)} · ${statusLabel(lot.status).toLowerCase()} · ${lot.location}</div>
+            </div>
+
+            <div class="lot-hero">
+              <span class="edge" style="background: ${edgeColor(lot)}"></span>
+              <div>
+                <div class="title">MHD ${lot.expiry}</div>
+                <div class="lot-meta">${lot.expiryText} · ${lot.location}</div>
+              </div>
+            </div>
+
+            <div class="quantity-row">
+              <span class="quantity-label">Aktuelle Menge</span>
+              <div class="stepper" aria-label="Menge ${formatAmount(lot.quantity, lot.unit)}">
+                <button type="button" data-action="change-quantity" data-delta="-1" aria-label="Menge verringern">−</button>
+                <span class="value">${formatAmount(lot.quantity, lot.unit)}</span>
+                <button type="button" data-action="change-quantity" data-delta="1" aria-label="Menge erhöhen">+</button>
+              </div>
+            </div>
+
+            <div class="action-grid">
+              ${stateButton}
+              <button class="action-tile" type="button" data-action="edit"><span class="action-icon">✎</span><span class="action-label">Bearbeiten</span><span class="action-hint">MHD oder Ort</span></button>
+              <button class="action-tile success" type="button" data-action="consume"><span class="action-icon">✓</span><span class="action-label">Verbrauchen</span><span class="action-hint">${formatAmount(lot.quantity, lot.unit)} aufbrauchen</span></button>
+              <button class="action-tile danger" type="button" data-action="waste-screen"><span class="action-icon">⌫</span><span class="action-label">Wegwerfen</span><span class="action-hint">Grund dokumentieren</span></button>
+            </div>
+          </section>
+          ${renderToast()}`;
+      }
+
+      function renderOpenScreen() {
+        const lot = getLot();
+        if (!lot) return renderDetail();
+        const remaining = lot.quantity - state.openQuantity;
+
+        return `
+          ${header({ backLabel: '‹ Los', backAction: 'lot-actions', title: 'Öffnen' })}
+          <section class="detail-content" aria-label="Senf öffnen">
+            <div class="detail-lead">
+              <h2>Versiegeltes Los</h2>
+              <div class="detail-subtitle">MHD ${lot.expiry} · ${lot.location}</div>
+            </div>
+
+            <div class="lot-hero">
+              <span class="edge" style="background: ${edgeColor(lot)}"></span>
+              <div>
+                <div class="title">${formatAmount(state.openQuantity, lot.unit)} werden geöffnet</div>
+                <div class="lot-meta">${remaining ? `${formatAmount(remaining, lot.unit)} bleiben versiegelt` : 'Das gesamte Los wird geöffnet'}</div>
+              </div>
+            </div>
+
+            <div class="quantity-row">
+              <span class="quantity-label">Geöffnete Menge</span>
+              <div class="stepper" aria-label="Öffnungsmenge ${formatAmount(state.openQuantity, lot.unit)}">
+                <button type="button" data-action="change-open-quantity" data-delta="-1" aria-label="Öffnungsmenge verringern">−</button>
+                <span class="value">${formatAmount(state.openQuantity, lot.unit)}</span>
+                <button type="button" data-action="change-open-quantity" data-delta="1" aria-label="Öffnungsmenge erhöhen">+</button>
+              </div>
+            </div>
+
+            <p class="form-hint">Nach der Bestätigung erhält die geöffnete Menge ein eigenes MHD. Das versiegelte Restlos bleibt separat sichtbar.</p>
+            <div class="action-list" style="margin-top: 24px">
+              <button class="action-button primary full" type="button" data-action="confirm-open">${formatAmount(state.openQuantity, lot.unit)} öffnen</button>
+              <button class="action-button full" type="button" data-action="lot-actions">Abbrechen</button>
+            </div>
+          </section>
+          ${renderToast()}`;
+      }
+
+      function renderWasteScreen() {
+        const lot = getLot();
+        if (!lot) return renderDetail();
+        const reasons = [
+          ['expired', 'Abgelaufen'],
+          ['spoiled', 'Schlecht geworden'],
+          ['other', 'Sonstiger Grund'],
+        ];
+
+        return `
+          ${header({ backLabel: '‹ Los', backAction: 'lot-actions', title: 'Wegwerfen' })}
+          <section class="detail-content" aria-label="Senf wegwerfen">
+            <div class="detail-lead">
+              <h2>${formatAmount(lot.quantity, lot.unit)} wegwerfen?</h2>
+              <div class="detail-subtitle">Senf · MHD ${lot.expiry} · ${lot.location}</div>
+            </div>
+            <div class="section-label">Grund auswählen</div>
+            <div class="choice-list">
+              ${reasons.map(([value, label]) => `
+                <label class="choice">
+                  <input type="radio" name="waste-reason" value="${value}" ${state.wasteReason === value ? 'checked' : ''} />
+                  <span>${label}</span>
+                </label>`).join('')}
+            </div>
+            <div class="action-list">
+              <button class="action-button danger full" type="button" data-action="confirm-waste">Als Verschwendung buchen</button>
+              <button class="action-button full" type="button" data-action="lot-actions">Abbrechen</button>
+            </div>
+          </section>
+          ${renderToast()}`;
+      }
+
+      function renderResealScreen() {
+        const lot = getLot();
+        if (!lot) return renderDetail();
+        return `
+          ${header({ backLabel: '‹ Los', backAction: 'lot-actions', title: 'Schließen' })}
+          <section class="detail-content" aria-label="Geöffnetes Glas wieder versiegeln">
+            <div class="detail-lead">
+              <h2>Glas schließen</h2>
+              <div class="detail-subtitle">${formatAmount(lot.quantity, lot.unit)} Senf · geöffnet · ${lot.location}</div>
+            </div>
+
+            <div class="lot-hero">
+              <span class="edge" style="background: ${edgeColor(lot)}"></span>
+              <div>
+                <div class="title">Wieder versiegeln</div>
+                <div class="lot-meta">Der Öffnungsstatus wird entfernt.</div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="reseal-expiry-input">Mindesthaltbarkeitsdatum prüfen</label>
+              <input id="reseal-expiry-input" type="text" value="${lot.expiry}" inputmode="numeric" />
+              <span class="form-hint">Das Datum wird beim erneuten Versiegeln manuell bestätigt.</span>
+            </div>
+
+            <div class="action-list" style="margin-top: 24px">
+              <button class="action-button primary full" type="button" data-action="confirm-reseal">Als versiegelt speichern</button>
+              <button class="action-button full" type="button" data-action="lot-actions">Abbrechen</button>
+            </div>
+          </section>
+          ${renderToast()}`;
+      }
+
+      function renderEditScreen() {
+        const lot = getLot();
+        if (!lot) return renderDetail();
+        return `
+          ${header({ backLabel: '‹ Los', backAction: 'lot-actions', title: 'Bearbeiten' })}
+          <section class="detail-content" aria-label="Senf-Los bearbeiten">
+            <div class="detail-lead">
+              <h2>Senf bearbeiten</h2>
+              <div class="detail-subtitle">${formatAmount(lot.quantity, lot.unit)} · ${statusLabel(lot.status)}</div>
+            </div>
+            <div class="form-row">
+              <label for="expiry-input">Mindesthaltbarkeitsdatum</label>
+              <input id="expiry-input" type="text" value="${lot.expiry}" inputmode="numeric" />
+            </div>
+            <div class="form-row">
+              <label for="location-input">Lagerort</label>
+              <select id="location-input">
+                ${['Speisekammer', 'Kühlschrank', 'Tiefkühler', 'Kein Lagerort'].map((location) => `<option ${lot.location === location ? 'selected' : ''}>${location}</option>`).join('')}
+              </select>
+            </div>
+            <div class="action-list" style="margin-top: 24px">
+              <button class="action-button primary full" type="button" data-action="save-edit">Änderungen speichern</button>
+              <button class="action-button full" type="button" data-action="lot-actions">Abbrechen</button>
+            </div>
+          </section>
+          ${renderToast()}`;
+      }
+
+      function renderHistory() {
+        const rows = state.transactions.length
+          ? state.transactions.map((transaction) => `
+            <div class="history-row">
+              <span class="history-edge" style="background: ${transaction.type === 'waste' ? 'var(--danger)' : transaction.type === 'in' ? 'var(--success)' : transaction.type === 'open' ? 'var(--warning)' : 'var(--border)'}"></span>
+              <span class="history-copy">
+                <span class="history-title">${transaction.title}</span>
+                <span class="history-meta">${transaction.meta}${transaction.reason ? ` · ${transaction.reason}` : ''}</span>
+              </span>
+              <span class="history-amount">${transaction.amount}</span>
+            </div>`).join('')
+          : '<div class="empty-state">Noch kein Verlauf vorhanden.</div>';
+
+        return `
+          ${header({ backLabel: '‹ Senf', backAction: 'detail', title: 'Produkt-Verlauf' })}
+          <section class="detail-content" aria-label="Verlauf zu Senf">
+            <div class="detail-lead">
+              <h2>Senf</h2>
+              <div class="detail-subtitle">Alle Änderungen an diesem Produkt</div>
+            </div>
+            <div class="section-label">Verlauf</div>
+            ${rows}
+          </section>
+          ${renderToast()}`;
+      }
+
+      function renderToast() {
+        return state.toast ? `<div class="toast" role="status">${state.toast}</div>` : '';
+      }
+
+      function render() {
+        const screens = {
+          inventory: renderInventory,
+          detail: renderDetail,
+          'lot-actions': renderLotActions,
+          open: renderOpenScreen,
+          waste: renderWasteScreen,
+          reseal: renderResealScreen,
+          edit: renderEditScreen,
+          history: renderHistory,
+        };
+        screenElement.innerHTML = screens[state.screen]();
+        frameCaption.textContent = {
+          inventory: 'Vorrat · tippe auf Senf',
+          detail: 'Senf · vollständiger Gruppen-Detail-Screen',
+          'lot-actions': 'Senf · Aktionen für ein konkretes MHD-Los',
+          open: 'Senf · Öffnungsmenge für das versiegelte Los wählen',
+          waste: 'Senf · Wegwerfgrund auswählen',
+          reseal: 'Senf · Geöffnetes Glas wieder versiegeln',
+          edit: 'Senf · MHD und Lagerort bearbeiten',
+          history: 'Senf · Produkt-Verlauf',
+        }[state.screen];
+      }
+
+      function recordTransaction(type, lot, quantity, meta, reason = '') {
+        state.transactions.unshift({
+          id: `history-${Date.now()}`,
+          type,
+          title: `Senf ${type === 'open' ? 'geöffnet' : type === 'waste' ? 'weggeworfen' : 'verbraucht'}`,
+          amount: type === 'waste' || type === 'out' ? `−${formatAmount(quantity, lot.unit)}` : formatAmount(quantity, lot.unit),
+          meta: `${meta} · ${lot.location}`,
+          reason,
+        });
+      }
+
+      function removeSelectedLot() {
+        state.lots = state.lots.filter((lot) => lot.id !== state.selectedLotId);
+        state.selectedLotId = null;
+      }
+
+      function handleAction(actionElement) {
+        const action = actionElement.dataset.action;
+        const id = actionElement.dataset.id;
+
+        if (action === 'show-toast') {
+          setToast(actionElement.dataset.message || 'Aktion im Mockup');
+          return;
+        }
+        if (action === 'inventory') {
+          state.screen = 'inventory';
+        } else if (action === 'detail') {
+          state.screen = 'detail';
+        } else if (action === 'history') {
+          state.screen = 'history';
+        } else if (action === 'lot') {
+          state.selectedLotId = id;
+          state.screen = 'lot-actions';
+        } else if (action === 'status-card') {
+          const lot = lotsByStatus(actionElement.dataset.status)[0];
+          if (lot) {
+            state.selectedLotId = lot.id;
+            state.screen = 'lot-actions';
+          }
+        } else if (action === 'open-first-sealed') {
+          const lot = lotsByStatus('sealed')[0];
+          if (lot) {
+            state.selectedLotId = lot.id;
+            state.openQuantity = 1;
+            openSelectedLot();
+          }
+        } else if (action === 'consume-first-opened') {
+          const lot = lotsByStatus('open')[0];
+          if (lot) {
+            state.selectedLotId = lot.id;
+            consumeSelectedLot();
+          }
+        } else if (action === 'lot-actions') {
+          state.screen = 'lot-actions';
+        } else if (action === 'open-screen') {
+          state.openQuantity = 1;
+          state.screen = 'open';
+        } else if (action === 'waste-screen') {
+          state.wasteReason = 'expired';
+          state.screen = 'waste';
+        } else if (action === 'reseal-screen') {
+          state.screen = 'reseal';
+        } else if (action === 'edit') {
+          state.screen = 'edit';
+        } else if (action === 'change-open-quantity') {
+          const lot = getLot();
+          if (lot) state.openQuantity = Math.max(1, Math.min(lot.quantity, state.openQuantity + Number(actionElement.dataset.delta)));
+        } else if (action === 'change-quantity') {
+          const lot = getLot();
+          if (lot) {
+            lot.quantity = Math.max(1, lot.quantity + Number(actionElement.dataset.delta));
+            setToast(`Menge aktualisiert: ${formatAmount(lot.quantity, lot.unit)}`);
+            return;
+          }
+        } else if (action === 'confirm-open') {
+          openSelectedLot();
+        } else if (action === 'confirm-waste') {
+          wasteSelectedLot();
+        } else if (action === 'confirm-reseal') {
+          resealSelectedLot();
+        } else if (action === 'consume') {
+          consumeSelectedLot();
+        } else if (action === 'save-edit') {
+          saveEdit();
+        }
+
+        render();
+      }
+
+      function openSelectedLot() {
+        const lot = getLot();
+        if (!lot || lot.status !== 'sealed') return;
+        const quantity = state.openQuantity;
+        const openedLot = {
+          ...lot,
+          id: `opened-${Date.now()}`,
+          quantity,
+          unit: quantity === 1 ? 'Glas' : 'Gläser',
+          status: 'open',
+          expiry: '14.09.2026',
+          expiryText: 'noch 9 Tage',
+          openedDate: '05.09.2026',
+        };
+
+        if (quantity === lot.quantity) {
+          state.lots = state.lots.map((entry) => entry.id === lot.id ? openedLot : entry);
+        } else {
+          lot.quantity -= quantity;
+          state.lots.push(openedLot);
+        }
+        recordTransaction('open', lot, quantity, 'Heute', 'Öffnung');
+        state.selectedLotId = openedLot.id;
+        state.screen = 'detail';
+        state.toast = `${formatAmount(quantity, openedLot.unit)} geöffnet`;
+      }
+
+      function wasteSelectedLot() {
+        const lot = getLot();
+        if (!lot) return;
+        const reason = reasonLabel(state.wasteReason);
+        recordTransaction('waste', lot, lot.quantity, 'Heute', reason);
+        removeSelectedLot();
+        state.screen = 'detail';
+        state.toast = `${formatAmount(lot.quantity, lot.unit)} als Verschwendung gebucht`;
+      }
+
+      function consumeSelectedLot() {
+        const lot = getLot();
+        if (!lot) return;
+        recordTransaction('out', lot, lot.quantity, 'Heute', 'Verbraucht');
+        removeSelectedLot();
+        state.screen = 'detail';
+        state.toast = `${formatAmount(lot.quantity, lot.unit)} verbraucht`;
+      }
+
+      function resealSelectedLot() {
+        const lot = getLot();
+        if (!lot || lot.status !== 'open') return;
+        lot.expiry = document.querySelector('#reseal-expiry-input').value || lot.expiry;
+        lot.status = 'sealed';
+        lot.expiryText = 'MHD manuell gesetzt';
+        delete lot.openedDate;
+        state.transactions.unshift({
+          id: `history-${Date.now()}`,
+          type: 'open',
+          title: 'Senf wieder versiegelt',
+          amount: formatAmount(lot.quantity, lot.unit),
+          meta: `Heute · ${lot.location}`,
+          reason: 'Manuelle Korrektur',
+        });
+        state.screen = 'detail';
+        state.toast = `${formatAmount(lot.quantity, lot.unit)} wieder versiegelt`;
+      }
+
+      function saveEdit() {
+        const lot = getLot();
+        if (!lot) return;
+        lot.expiry = document.querySelector('#expiry-input').value || lot.expiry;
+        lot.location = document.querySelector('#location-input').value;
+        state.screen = 'lot-actions';
+        state.toast = 'MHD und Lagerort gespeichert';
+      }
+
+      screenElement.addEventListener('click', (event) => {
+        const actionElement = event.target.closest('[data-action]');
+        if (actionElement) handleAction(actionElement);
+      });
+
+      screenElement.addEventListener('change', (event) => {
+        if (event.target.name === 'waste-reason') {
+          state.wasteReason = event.target.value;
+        }
+      });
+
+      document.querySelectorAll('[data-theme]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const theme = button.dataset.theme;
+          if (theme === 'system') document.documentElement.removeAttribute('data-theme');
+          else document.documentElement.setAttribute('data-theme', theme);
+        });
+      });
+
+      render();
+    </script>
+  </body>
+</html>
