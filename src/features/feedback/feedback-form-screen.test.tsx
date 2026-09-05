@@ -62,7 +62,7 @@ describe('FeedbackFormScreen', () => {
     await renderScreen();
 
     expect(screen.getByText('Feedback geben')).toBeTruthy();
-    expect(screen.getByRole('tab', { name: 'Fehler' })).toBeTruthy();
+    expect(screen.getByRole('radio', { name: 'Fehler' })).toBeTruthy();
     expect(screen.getByLabelText('Betreff')).toBeTruthy();
     expect(screen.getByLabelText('Nachricht')).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Absenden' })).toBeTruthy();

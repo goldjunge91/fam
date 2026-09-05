@@ -15,8 +15,24 @@ NativeWind übernimmt nur lokales Layout.
   `src/components/forms/text-field.tsx` ergänzt. Fokus- und Fehlerfähigkeit
   liegen damit in einer Implementierung; die frühere Datei ist entfernt.
 - Produkt-Einzelauswahl verwendet den `SegmentedControl` aus
-  `src/components/ui/segmented-control.tsx` mit Gruppenlabel, `options`, `selected`
-  und `onSelect`. Der bestehende `value/onChange`-Einstieg darf diese Basis adaptieren.
+  `src/constants/ui.tsx` mit der minimalen API `label`, `options`, `selected` und
+  `onSelect`. `label` benennt die Gruppe, `options` sind unveränderliche
+  `{ value, label, accessibilityLabel?, disabled? }`-Einträge und `selected`
+  bezeichnet genau einen dieser Werte.
+- `selectionRole="radio"` ist der Default für fachliche Einzelauswahl.
+  `selectionRole="tab"` wird nur für einen Ansichtswechsel verwendet. Der
+  Gruppenname und der ausgewählte/gesperrte Zustand werden an die passende
+  native Accessibility-Semantik weitergegeben.
+- `appearance="accent" | "surface"` und `size="default" | "compact"` sind
+  belegte visuelle Varianten. Auch `compact` behält mindestens 44 × 44 logische
+  Einheiten pro Trefferziel; lange Labels dürfen umbrechen und erhöhen den
+  Control bei Bedarf.
+- `src/components/ui/segmented-control.tsx` ist nach der Migration keine
+  Produktionsquelle mehr. Die Datei bleibt vorerst als ausdrücklich markierte
+  Legacy-Vergleichsvariante im Settings-Design-System. `@expo/ui` ist dort
+  ausschließlich eine native Vergleichsvariante und wird nicht aus Produkt-
+  Features importiert. Props wie `gap` oder `labelStyle` gehören nicht zur
+  kanonischen API.
 - `Pill`, Filter, `Badge`, `QuantityStepper` und domänenspezifische Selects folgen
   denselben Zustands-, Farb- und Interaktionsregeln. Sie müssen deshalb nicht
   dieselbe Komponente oder Accessibility-Rolle sein.
@@ -78,15 +94,13 @@ native Tastaturleiste und behält seine normale Tastaturbedienung.
 - Kompakte Segmente erfüllen denselben realen Mindesttouchbereich wie andere
   Aktionen. Große Schrift und lange Labels dürfen zu mehr Höhe, Umbruch oder
   einer ausdrücklich horizontalen Auswahlleiste führen.
-- Öffentliche Props müssen wirken. Das bisher ungenutzte `gap` wird entweder
-  unterstützt oder nach Aufrufermigration aus der API entfernt. Neue Aufrufer
-  verlassen sich bis dahin nicht auf seine Wirkung.
+- Öffentliche Props der kanonischen API müssen wirken. Nicht belegte Alt-Props
+  wie `gap` und `labelStyle` werden nicht weitergeführt.
 
 ## Beispiel der vorgesehenen Verwendung
 
 ```tsx
-import { TextField } from '@/constants/ui';
-import { SegmentedControl } from '@/components/ui/segmented-control';
+import { SegmentedControl, TextField } from '@/constants/ui';
 
 <TextField
   label="Produktname"
@@ -99,11 +113,13 @@ import { SegmentedControl } from '@/components/ui/segmented-control';
   options={viewOptions}
   selected={view}
   onSelect={setView}
+  selectionRole="tab"
 />
 ```
 
-Das Beispiel verwendet die bestehende Produkt-API. Die gemeinsame Rezeptbasis und
-vollständigen States sind mit `fam-6zf.6` umgesetzt.
+Das Beispiel verwendet die kanonische `ui.tsx`-API. Die gemeinsame Rezeptbasis
+und vollständigen Feld-States sind mit `fam-6zf.6` umgesetzt; die
+SegmentedControl-Migration und ihre Zustände gehören zu `fam-6zf.7`.
 Ein lokales `TextInput` mit eigener Farb-/Konturdefinition oder eine Auswahl nur
 mit wechselnder Farbe verletzt den Vertrag.
 
@@ -114,5 +130,6 @@ Disabled sowie Auswählen/Abwählen. VoiceOver/TalkBack prüfen Feldname, Fehler
 Auswahlsemantik. Native Tastaturprüfung bestätigt Submit, Toolbar-Verantwortung und
 Erreichbarkeit in Sheets. Beide Themes, große Schrift und schmale Breite sind
 Teil der visuellen Prüfung. Die `Field`/`TextField`-Konsolidierung ist mit
-`fam-6zf.6` umgesetzt; es bleibt nur `TextField` aus `ui.tsx`. Beide
-SegmentedControls bleiben bis `fam-6zf.7` Migrationsbestand.
+`fam-6zf.6` umgesetzt; es bleibt nur `TextField` aus `ui.tsx`. `fam-6zf.7` weist
+die produktive SegmentedControl-Quelle ebenfalls `ui.tsx` zu. Die Legacy- und
+Expo-UI-Varianten werden nur noch im synchronisierten Settings-Vergleich geprüft.

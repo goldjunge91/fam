@@ -13,10 +13,13 @@ Typografie, Farbpaare, Größenrezepte, Zustandsdarstellung, Timing und Haptikzu
 werden in `ui.tsx` definiert. Produktkomponenten ergänzen Verhalten und Komposition.
 
 Der bisherige Produkt-Button mit `label` und `default/large/compact` ist eine
-überlappende Alt-Implementierung. Verbraucher werden direkt auf die Foundation-
-API umgestellt: `label → title`, `default → md`, `large → lg` und `compact → sm`.
-Eine zusätzliche Button-Implementierung oder ein dauerhafter Adapter bleibt kein
-zulässiger Endzustand.
+entfernte Alt-Implementierung. Die kanonische API verwendet ausschließlich
+`title` und `sm/md/lg`; `large` und `compact` sind derzeit bewusst keine
+öffentlichen Größen-Aliase und dürfen erst nach ausdrücklicher Freigabe ergänzt
+werden. Die historische Zuordnung `default → md`, `large → lg` und
+`compact → sm` beschreibt nur die frühere Migration, keine aktuell akzeptierte
+Prop-Oberfläche. Eine zusätzliche Button-Implementierung oder ein dauerhafter
+Adapter bleibt kein zulässiger Endzustand.
 
 ## Varianten und Größen
 
@@ -29,9 +32,18 @@ zulässiger Endzustand.
 | `ghost` | transparente Nebenaktion mit primärem Text |
 | `link` | transparente Textaktion mit Akzenttext |
 
-Größen bleiben im kanonischen Button `sm`, `md`, `lg`. Gleiche Variante und Größe
-haben in Foundation und Showcase identische Rezepte. Nicht jede Aktion
-auf einem Screen verwendet `primary`. Ein `accentKey` ist keine freie Farbwahl.
+Größen bleiben im kanonischen Button `sm`, `md`, `lg`. `md` ist die aktuelle
+Baseline und der Default: `minHeight: 44`, `minWidth: 44`,
+`paddingVertical: 13`, `paddingHorizontal: 18`, `radius.md: 16`,
+`font.sizes.base` (`rs(16)`) und Gewicht `700`. Für den normalen, nicht als Link
+gerenderten Button hatte die alte `default`-Größe `minHeight: 44`, keine
+explizite `minWidth`, `paddingVertical: space.md` (`rs(12)`),
+`paddingHorizontal: space.lg` (`rs(16)`), denselben Basistext `rs(16)`,
+Radius `16` und Gewicht `700`. Bei der Referenzbreite 393 entsprechen die
+historischen Abstände daher 12/16 und die aktuelle `md`-Baseline 13/18.
+Gleiche Variante und Größe haben in Foundation und Showcase identische Rezepte.
+Nicht jede Aktion auf einem Screen verwendet `primary`. Ein `accentKey` ist
+keine freie Farbwahl.
 
 ## Tiefe und Motion
 
@@ -46,6 +58,11 @@ Button umgesetzt und darf den Tiefeneffekt entfernen. Sie erzeugt keine zweite
 Buttonfamilie. Bei Reduced Motion entfallen
 Federüberschwingen und Skalierung. Ein sofortiger Zustand oder ruhiges Farb-/Konturfeedback
 bleibt erhalten; die Systempräferenz muss über die reale Implementierung wirken.
+Die vollständige Face-Basis, einschließlich der `secondary`-Fläche, liegt als
+statischer Style direkt am interaktiven `Pressable`. Sie darf nicht nur über eine
+dynamische `Pressable`-Style-Funktion bereitgestellt werden, weil sonst auf der
+betroffenen Renderstrecke der äußere Tiefen-Wrapper sichtbar bleibt, während
+sekundäre Buttons als unformatierter Text erscheinen.
 
 ## Zustände, Ereignisse und Haptik
 

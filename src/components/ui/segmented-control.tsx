@@ -1,11 +1,4 @@
-import {
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  type StyleProp,
-  type TextStyle,
-  View,
-} from 'react-native';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
@@ -25,7 +18,7 @@ export type SegmentOption<T extends string> = {
   accessibilityLabel?: string;
 };
 
-type SegmentedControlProps<T extends string> = {
+type LegacySegmentedControlProps<T extends string> = {
   label: string;
   options: readonly SegmentOption<T>[];
   selected: T;
@@ -33,8 +26,6 @@ type SegmentedControlProps<T extends string> = {
   appearance?: 'accent' | 'surface';
   scrollable?: boolean;
   size?: 'default' | 'compact';
-  gap?: number;
-  labelStyle?: StyleProp<TextStyle>;
 };
 
 const styles = StyleSheet.create({
@@ -93,8 +84,11 @@ const styles = StyleSheet.create({
   },
 });
 
-/** Gleichbreite Einzelauswahl fuer kompakte Ansichtsmodi. */
-export function SegmentedControl<T extends string>({
+/**
+ * @deprecated Nur für den Settings-Design-System-Vergleich behalten. Produktive
+ * Einzelauswahl verwendet SegmentedControl aus `@/constants/ui`.
+ */
+export function LegacySegmentedControl<T extends string>({
   label,
   options,
   selected,
@@ -102,9 +96,7 @@ export function SegmentedControl<T extends string>({
   appearance = 'accent',
   scrollable = false,
   size = 'default',
-  gap: _gap,
-  labelStyle: _labelStyle,
-}: SegmentedControlProps<T>) {
+}: LegacySegmentedControlProps<T>) {
   const { colors } = useTheme();
   const activeSurfaceShadow = {
     boxShadow: `0 3px 10px ${withAlpha(colors.shadowCard, 0.09)}`,
@@ -159,8 +151,7 @@ export function SegmentedControl<T extends string>({
             <Txt
               variant={appearance === 'surface' ? 'label' : 'caption'}
               tone={active ? (appearance === 'surface' ? 'primary' : 'onAccent') : 'secondary'}
-              weight="600"
-              style={_labelStyle}>
+              weight="600">
               {option.label}
             </Txt>
           </Pressable>

@@ -3,8 +3,7 @@ import { Alert, ScrollView, View } from 'react-native';
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { BackButton } from '@/components/ui/buttons';
-import { SegmentedControl } from '@/components/ui/segmented-control';
-import { Button, Txt } from '@/constants/ui';
+import { Button, SegmentedControl, Txt } from '@/constants/ui';
 import { presentCustomerCenter } from '@/features/premium/paywall';
 import { PaywallPlanCard } from '@/features/premium/paywall-plan-card';
 import { usePremium } from '@/features/premium/premium-provider';
@@ -110,6 +109,7 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
           options={TIER_OPTIONS}
           selected={tier}
           onSelect={setTier}
+          selectionRole="tab"
           appearance="surface"
         />
 

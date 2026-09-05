@@ -76,7 +76,7 @@ Die etablierten Produktimporte bleiben die öffentliche Grenze:
 | --- | --- |
 | Button | `src/constants/ui.tsx` |
 | Textfeld | `src/constants/ui.tsx` (`TextField`) |
-| Einzelauswahl | `src/components/ui/segmented-control.tsx` |
+| Einzelauswahl | `src/constants/ui.tsx` (`SegmentedControl`) |
 | Empty State | `src/components/ui/empty-state.tsx` |
 | Text, Surface und kleine Layoutprimitives | `src/constants/ui.tsx` |
 
@@ -91,8 +91,24 @@ Für `Button` bedeutet das ausdrücklich: Der bestehende Foundation-Button unter
 dort die bereits belegten `link`- und `flat`-Fälle und prüft die gemeinsame API.
 Task 5 migriert die Verbraucher des Produkt-Buttons direkt auf diese API und
 löscht anschließend `src/components/ui/buttons/button.tsx` samt reinem Export.
-Dabei gilt `label → title`, `default → md`, `large → lg` und `compact → sm`.
+`md` bleibt die kanonische Baseline: 44/44 Touchgröße, 18 horizontaler und 13
+vertikaler Abstand, `font.sizes.base` und Gewicht 700. `large` und `compact`
+werden vorerst nicht als öffentliche Aliase ergänzt; die historische Zuordnung
+`default → md`, `large → lg` und `compact → sm` bleibt reine Migrationsnotiz.
+Die vollständige Button-Face-Basis wird statisch am `Pressable` gerendert, damit
+`secondary` seine Theme-Fläche nicht durch eine dynamische Style-Funktion verliert.
 Es bleibt kein Adapter oder Re-Export für die alte Button-Implementierung.
+
+Für `SegmentedControl` ist `src/constants/ui.tsx` die einzige produktive
+Fam-Implementierung. Die minimale öffentliche API lautet `label`, `options`,
+`selected` und `onSelect`; `selectionRole` unterscheidet fachliche
+Radio-Einzelauswahl vom Tab-Ansichtswechsel. `appearance` und `size` bleiben
+nur als belegte Darstellungsvarianten erhalten. Die frühere
+`src/components/ui/segmented-control.tsx` wird nach der Aufrufermigration nicht
+mehr produktiv importiert und bleibt vorerst ausschließlich als ausdrücklich
+markierte Legacy-Vergleichsvariante im Settings-Design-System bestehen.
+`@expo/ui/community/segmented-control` ist dort ebenfalls nur native
+Vergleichsdarstellung und keine Fam-Produktionsquelle.
 
 ### 3.2 `rs()` nur bei praktisch kostenlosem Gewinn anfassen
 
@@ -202,7 +218,8 @@ konkurrierende Mockrunde erzeugt.
 4. `fam-6zf.4` Foundation-Button in `ui.tsx` um `link` und `flat` ergänzen
 5. `fam-6zf.5` Verbraucher direkt auf `ui.tsx`-Button migrieren und Produkt-Button löschen
 6. `fam-6zf.6` `Field` in `ui.tsx` zu `TextField` umbenennen, die produktiven Eingabefunktionen zusammenführen und bestehende Verbraucher nur auf den neuen Importpfad umstellen
-7. `fam-6zf.7` SegmentedControl als einzige Einzelauswahl konsolidieren
+7. `fam-6zf.7` SegmentedControl in `ui.tsx` als einzige produktive
+   Einzelauswahl konsolidieren; Legacy- und Expo-UI-Varianten nur im Showcase
 8. `fam-6zf.8` Card- und EmptyState-Verantwortung bereinigen
 
 ### Phase C: Vertikale Produktpfade
@@ -235,6 +252,12 @@ konkurrierende Mockrunde erzeugt.
   besitzt den Produkt-Button, dessen Export und die belegten Verbraucher.
   Tasks mit `src/constants/ui.tsx`, `src/components/theme/index.ts` oder
   Showcase-Dateien laufen seriell.
+- Task 7 besitzt `src/constants/ui.tsx`, die direkten SegmentedControl-Verbraucher,
+  die fokussierten UI-Tests, den Legacy-Vergleich unter
+  `src/components/ui/segmented-control.tsx`, die Settings-Showcase-Varianten
+  sowie die zugehörige Spec-/Contract-/Beads-Dokumentation. Die Legacy-Datei
+  wird nicht pauschal gelöscht, sondern bleibt bis zu einem gesonderten
+  Cleanup-Nachweis auf den Showcase begrenzt.
 - Die aktuell parallel geänderten Dashboard-Dateien werden in Task 5 erst nach
   ausdrücklicher Freigabe des dortigen Owners angefasst.
 - Vorhandene `.android`-Dateien sind keine Aufforderung, neue Mirrors anzulegen.
@@ -283,4 +306,11 @@ freigegeben ist. Weitere Tasks werden durch den hinterlegten Abhängigkeitsgraph
 freigegeben. `fam-6zf.6` ist abgeschlossen: `Field` wurde in `ui.tsx` zu
 `TextField` zusammengeführt, alle Verbraucher verwenden den zentralen Import
 und die zweite Implementierung ist entfernt. Unfertige V2-/V3-Beispiele lösen
-keine sichtbaren Layout- oder Farbänderungen aus.
+keine sichtbaren Layout- oder Farbänderungen aus. `fam-6zf.7` ist in der
+Implementierung abgeschlossen: `ui.tsx` ist die kanonische produktive
+SegmentedControl-Quelle; die Legacy- und Expo-UI-Varianten bleiben ausschließlich
+als synchronisierte Vergleichsdarstellungen im Settings-Showcase erhalten. Die
+Button-Baseline bleibt `md` mit den dokumentierten Foundation-Werten; die alten
+Bezeichner `large` und `compact` sind bis zur Bestätigung keine öffentliche API.
+Die sekundäre Button-Face wird statisch am interaktiven `Pressable` zugewiesen,
+damit Dev-Screen-Aktionen ihre `backgroundSoft`-Fläche nicht verlieren.
