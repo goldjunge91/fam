@@ -8,6 +8,7 @@ import { useAppLifecycle } from '@/features/app-shell/use-app-lifecycle';
 import { RootNavigator } from '@/features/navigation/root-navigator';
 import { useAppDeepLinks } from '@/features/navigation/use-app-deep-links';
 import { Sentry } from '@/lib/sentry';
+import { PerformanceMonitorDevTools } from '@/lib/optionals/PerformanceMonitorDevTools';
 
 initializeAppRuntime();
 
@@ -18,7 +19,13 @@ function RootLayout() {
   return (
     <AppProviders>
       <RootNavigator />
-      {__DEV__ && <ScreenshotDriver />}
+
+      {__DEV__ && (
+        <>
+          <ScreenshotDriver />
+          <PerformanceMonitorDevTools />
+        </>
+      )}
     </AppProviders>
   );
 }

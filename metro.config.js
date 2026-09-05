@@ -1,6 +1,7 @@
 const { withNativeWind } = require("nativewind/metro");
 const { getSentryExpoConfig } = require("@sentry/react-native/metro");
 const { getPostHogExpoConfig } = require("posthog-react-native/metro");
+const { withRozenite } = require('@rozenite/metro');
 
 // const config = getPostHogExpoConfig(__dirname, {
 //   getDefaultConfig: (projectRoot, options = {}) => {
@@ -38,4 +39,8 @@ config.transformer.getTransformOptions = async () => ({
   },
 });
 
-module.exports = withNativeWind(config, { input: "./src/global.css" });
+module.exports = withRozenite(
+  withNativeWind(config, { input: "./src/global.css" }),
+  {
+    enabled: process.env.WITH_ROZENITE === 'true',
+  });
