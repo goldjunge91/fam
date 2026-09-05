@@ -2,11 +2,10 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { View } from 'react-native';
 
-import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { SegmentedControl } from '@/components/ui/segmented-control';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { type FeedbackType, useCreateTicketMutation } from '@/features/feedback/api';
 import { FEEDBACK_TYPE_LABELS } from '@/features/feedback/labels';

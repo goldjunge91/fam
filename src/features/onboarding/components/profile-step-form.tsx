@@ -2,8 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Pressable, View } from 'react-native';
-import { TextField } from '@/components/forms/text-field';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProfile } from '@/features/profile/api';
 import {

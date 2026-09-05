@@ -20,9 +20,8 @@ import {
   View,
 } from 'react-native';
 
-import { TextField } from '@/components/forms/text-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { TextField, Txt } from '@/constants/ui';
 import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
 import { useProductSearch } from '@/features/product-search/hooks/use-product-search';
 import { usePreferredProductMarketName } from '@/features/product-search/preferred-market';

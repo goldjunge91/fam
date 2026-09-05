@@ -3,10 +3,9 @@ import { router } from 'expo-router';
 import { Fragment, useEffect, useMemo, useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 
-import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type TrackingMethod,

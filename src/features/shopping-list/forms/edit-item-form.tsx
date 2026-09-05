@@ -1,9 +1,8 @@
 import * as Crypto from 'expo-crypto';
 import { useEffect, useRef, useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { TextField } from '@/components/forms/text-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProduct } from '@/features/inventory/use-product';
 import { debugLog } from '@/lib/debug-log';

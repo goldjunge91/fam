@@ -3,9 +3,8 @@ import { useMemo, useState } from 'react';
 import { Modal, Platform, Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { TextField } from '@/components/forms/text-field';
 import { space } from '@/components/theme/index';
-import { Surface, Txt } from '@/constants/ui';
+import { Surface, TextField, Txt } from '@/constants/ui';
 import type { DraggableRecipe } from './week-grid';
 
 type RecipePickerModalProps = {

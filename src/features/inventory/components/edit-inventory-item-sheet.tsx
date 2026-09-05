@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, View } from 'react-native';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
-import { TextField } from '@/components/forms/text-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { UNIT_OPTIONS } from '@/lib/units';

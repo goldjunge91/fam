@@ -1,10 +1,9 @@
 import { Image } from 'expo-image';
 import { useState } from 'react';
 import { ActivityIndicator, Keyboard, Pressable, View } from 'react-native';
-import { TextField } from '@/components/forms/text-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
-import { Txt } from '@/constants/ui';
+import { TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import type { MealType } from '@/features/calorie-tracking/api';
 import {

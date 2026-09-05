@@ -17,7 +17,6 @@ import {
   Badge,
   Button,
   Divider,
-  Field,
   IconButton,
   Pill,
   Press,
@@ -29,6 +28,7 @@ import {
   SegmentedControl,
   Spacer,
   Surface,
+  TextField,
   Txt,
 } from '@/constants/ui';
 import { ContractIntro, ExamplePair, ExamplePanel, Subsection } from './showcase-shared';
@@ -177,7 +177,7 @@ function ControlShowcase() {
       </Subsection>
       <Subsection title="Eingabe und Auswahl">
         <View style={styles.stack}>
-          <Field label="Produktname" placeholder="Zum Beispiel Hafermilch" />
+          <TextField label="Produktname" placeholder="Zum Beispiel Hafermilch" />
           <View style={styles.wrap}>
             <Pill
               label="Alle"

@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
-import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../domain-logik/store-presets';
 import {

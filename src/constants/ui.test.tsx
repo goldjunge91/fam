@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
+import { createRef } from 'react';
 import { Text } from 'react-native';
 import * as Reanimated from 'react-native-reanimated';
 import type { TestInstance } from 'test-renderer';
@@ -49,11 +50,11 @@ import {
   Button,
   Card,
   EmptyState,
-  Field,
   Pill,
   SectionHeading,
   SegmentedControl,
   Surface,
+  TextField,
   Txt,
 } from './ui';
 
@@ -229,13 +230,13 @@ describe('core theme UI primitives', () => {
     expect(mockHaptics.medium).toHaveBeenCalledTimes(1);
   });
 
-  it('uses themed Card and Field styles and keeps field caller overrides last', async () => {
+  it('uses themed Card and TextField styles and keeps field caller overrides last', async () => {
     await render(
       <>
         <Card accessibilityLabel="card" accessible>
           <Text>Karte</Text>
         </Card>
-        <Field label="Name" placeholder="Dein Name" style={{ borderColor: '#123456' }} />
+        <TextField label="Name" placeholder="Dein Name" style={{ borderColor: '#123456' }} />
       </>,
     );
 
@@ -245,6 +246,59 @@ describe('core theme UI primitives', () => {
     });
     expect(screen.getByText('Name')).toBeOnTheScreen();
     expect(screen.getByPlaceholderText('Dein Name')).toHaveStyle({ borderColor: '#123456' });
+  });
+
+  it('combines TextField focus, error, trailing action, accessibility and ref behavior', async () => {
+    const inputRef = createRef<import('react-native').TextInput>();
+    const onFocus = jest.fn();
+    const onBlur = jest.fn();
+
+    await render(
+      <TextField
+        ref={inputRef}
+        label="Produktname"
+        placeholder="Milch"
+        error="Produktname fehlt"
+        trailing={<Text accessibilityLabel="Produkt löschen">×</Text>}
+        accessibilityLabel="Eigenes Produktlabel"
+        accessibilityHint="Eigenen Hinweis verwenden"
+        onFocus={onFocus}
+        onBlur={onBlur}
+      />,
+    );
+
+    const input = screen.getByLabelText('Eigenes Produktlabel');
+    expect(input.props.accessibilityHint).toBe('Eigenen Hinweis verwenden');
+    expect(inputRef.current).toBeTruthy();
+    expect(screen.getByText('Produktname')).toBeOnTheScreen();
+    expect(screen.getByText('Produktname fehlt')).toBeOnTheScreen();
+    expect(screen.getByLabelText('Produkt löschen')).toBeOnTheScreen();
+    expect(input).toHaveStyle({ borderWidth: 2, borderColor: mockColorsLight.danger });
+
+    await fireEvent(input, 'focus');
+    expect(input).toHaveStyle({ borderWidth: 2, borderColor: mockColorsLight.danger });
+    expect(screen.getByText('Produktname')).toHaveStyle({ color: mockColorsLight.accent });
+    expect(onFocus).toHaveBeenCalledTimes(1);
+
+    await fireEvent(input, 'blur');
+    expect(onBlur).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps disabled inputs accessible and does not force submit defaults on multiline fields', async () => {
+    await render(
+      <>
+        <TextField label="Gesperrt" editable={false} />
+        <TextField label="Notiz" multiline />
+      </>,
+    );
+
+    const disabled = screen.getByLabelText('Gesperrt');
+    expect(disabled).toBeDisabled();
+    expect(disabled.props.accessibilityState).toEqual(expect.objectContaining({ disabled: true }));
+
+    const multiline = screen.getByLabelText('Notiz');
+    expect(multiline.props.returnKeyType).toBeUndefined();
+    expect(multiline.props.submitBehavior).toBeUndefined();
   });
 
   it('keeps status primitives selectable and renders optional section actions', async () => {

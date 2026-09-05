@@ -1,11 +1,10 @@
 import { router } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
-import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   useAddWeightEntryMutation,

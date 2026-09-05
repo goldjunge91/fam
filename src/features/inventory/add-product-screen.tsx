@@ -1,9 +1,8 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Alert, View } from 'react-native';
-import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/constants/ui';
+import { Button, TextField } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { setPendingProductSelection } from '@/features/inventory/pending-product-selection';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';

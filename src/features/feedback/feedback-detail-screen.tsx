@@ -2,12 +2,11 @@ import { useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
 
-import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
-import { Button, Surface, Txt } from '@/constants/ui';
+import { Button, Surface, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type FeedbackMessage,

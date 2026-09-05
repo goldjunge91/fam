@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Modal, Platform, Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { TextField } from '@/components/forms/text-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Surface, Txt } from '@/constants/ui';
+import { Button, Surface, TextField, Txt } from '@/constants/ui';
 import { DEFAULT_PORTIONS_PER_PERSON, type ResolvedServings, resolveServings } from '../servings';
 import { MEAL_SLOT_LABELS, type MealSlot } from '../week';
 
