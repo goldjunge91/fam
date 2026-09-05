@@ -30,6 +30,8 @@ type ButtonProps = {
   /** Zeigt einen Spinner und sperrt den Knopf — verhindert Doppel-Submits. */
   loading?: boolean;
   disabled?: boolean;
+  /** Entfernt die sichtbare 3D-Tiefenfläche für kompakte Header-Aktionen. */
+  flat?: boolean;
   className?: string;
 };
 
@@ -45,6 +47,7 @@ export function Button({
   style,
   loading = false,
   disabled = false,
+  flat = false,
   className = '',
 }: ButtonProps) {
   const { colors, accent } = useTheme();
@@ -89,13 +92,14 @@ export function Button({
       : variant === 'accent'
         ? colors.buttonAccentDepth
         : colors.buttonPrimaryDepth;
+  const hasDepth = isFilled && !flat;
 
   return (
     <View
       style={{
-        paddingBottom: isFilled ? BUTTON_DEPTH : 0,
+        paddingBottom: hasDepth ? BUTTON_DEPTH : 0,
         borderRadius: radius.md,
-        backgroundColor: isFilled ? buttonDepth : 'transparent',
+        backgroundColor: hasDepth ? buttonDepth : 'transparent',
       }}>
       <Animated.View style={faceStyle}>
         <Pressable
@@ -109,10 +113,10 @@ export function Button({
           accessibilityLabel={accessibilityLabel ?? label}
           accessibilityState={{ disabled: isBlocked, busy: loading }}
           onPressIn={() => {
-            if (isFilled) depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
+            if (hasDepth) depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
           }}
           onPressOut={() => {
-            if (isFilled) {
+            if (hasDepth) {
               depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
             }
           }}
