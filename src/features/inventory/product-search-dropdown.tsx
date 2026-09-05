@@ -161,6 +161,14 @@ export const ProductSearchDropdown = forwardRef<
   }, [searched]);
 
   const showEmptyState = searched && !searching && suggestions.length === 0;
+  const trailingContent = searching ? (
+    <View className="flex-row items-center gap-one">
+      <ActivityIndicator size="small" color={colors.basil} />
+      {trailing}
+    </View>
+  ) : (
+    trailing
+  );
 
   return (
     <View
@@ -172,7 +180,7 @@ export const ProductSearchDropdown = forwardRef<
         placeholder={placeholder}
         value={value}
         style={inputStyle}
-        trailing={trailing}
+        trailing={trailingContent}
         size={size}
         // Return-Taste schliesst nur die Tastatur, die Trefferliste bleibt
         // offen (#UI-Feedback: Liste soll erst bei tatsaechlicher Auswahl
@@ -184,12 +192,6 @@ export const ProductSearchDropdown = forwardRef<
           setShowDropdown(true);
         }}
       />
-
-      {searching && (
-        <View className="psd-spinner">
-          <ActivityIndicator size="small" color={colors.basil} />
-        </View>
-      )}
 
       {showDropdown && (suggestions.length > 0 || showEmptyState) && (
         <View className="relative">
