@@ -515,17 +515,13 @@ export function InventoryScreen() {
             : undefined
         }
         lotLabels={productHistoryLotLabels}
+        fullScreen
         onClose={() => {
           setProductHistoryGroup(null);
           if (productHistoryReturnGroupId) setDetailGroupId(productHistoryReturnGroupId);
           setProductHistoryReturnGroupId(null);
         }}
         onUndo={undoOpening}
-        onOpenFullHistory={() => {
-          setProductHistoryGroup(null);
-          setProductHistoryReturnGroupId(null);
-          setHistoryOpen(true);
-        }}
       />
     </Screen>
   );

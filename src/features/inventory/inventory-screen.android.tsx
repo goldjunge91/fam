@@ -435,12 +435,12 @@ export function InventoryScreen() {
             : undefined
         }
         lotLabels={productHistoryLotLabels}
-        onClose={() => setProductHistoryGroup(null)}
-        onUndo={undoOpening}
-        onOpenFullHistory={() => {
+        fullScreen
+        onClose={() => {
+          if (productHistoryGroup) setDetailGroup(productHistoryGroup);
           setProductHistoryGroup(null);
-          setHistoryOpen(true);
         }}
+        onUndo={undoOpening}
       />
     </Screen>
   );

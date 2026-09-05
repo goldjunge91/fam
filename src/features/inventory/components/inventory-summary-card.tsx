@@ -1,11 +1,9 @@
-import { GlassView } from 'expo-glass-effect';
 import type { ReactNode } from 'react';
 import { View } from 'react-native';
-import { radius, withAlpha } from '@/components/theme/index';
+import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { useGlassAvailable } from '@/components/ui/glass-card';
 import { ProgressRing } from '@/components/ui/progress-ring';
-import { Txt } from '@/constants/ui';
+import { Card, Txt } from '@/constants/ui';
 
 type InventorySummaryCardProps = {
   totalCount: number;
@@ -19,13 +17,10 @@ export function InventorySummaryCard({
   soonCount,
 }: InventorySummaryCardProps) {
   const { colors } = useTheme();
-  const canUseGlass = useGlassAvailable();
 
   const cardStyle = {
     flex: 1,
     minHeight: 176,
-    borderRadius: radius.xl,
-    borderCurve: 'continuous' as const,
     boxShadow: `0 16px 30px ${withAlpha(colors.text, 0.16)}`,
   };
 
@@ -50,32 +45,14 @@ export function InventorySummaryCard({
       </>
     );
 
-    if (canUseGlass) {
-      return (
-        <View style={cardStyle}>
-          <GlassView
-            glassEffectStyle="regular"
-            style={{
-              flex: 1,
-              minHeight: 176,
-              borderRadius: radius.xl,
-              borderCurve: 'continuous',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 12,
-              paddingHorizontal: 10,
-              paddingVertical: 18,
-            }}>
-            {content}
-          </GlassView>
-        </View>
-      );
-    }
-
     return (
-      <View className="inventory-summary-ring-card" style={cardStyle}>
+      <Card
+        elevation="none"
+        padded={false}
+        className="items-center justify-center gap-two px-three py-[18px]"
+        style={cardStyle}>
         {content}
-      </View>
+      </Card>
     );
   }
 

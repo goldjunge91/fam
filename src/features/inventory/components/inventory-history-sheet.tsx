@@ -1,8 +1,9 @@
 import { FlashList } from '@shopify/flash-list';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Txt } from '@/constants/ui';
+import { IconButton, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount } from '@/lib/package-size';
 
@@ -29,7 +30,7 @@ type InventoryHistorySheetProps = {
   historyHeading?: string;
   footerNote?: string;
   lotLabels?: ReadonlyMap<string, string>;
-  onOpenFullHistory?: () => void;
+  fullScreen?: boolean;
   onUndo?: (transaction: LocalInventoryTransaction) => void;
 };
 
@@ -47,7 +48,7 @@ export function InventoryHistorySheet({
   historyHeading,
   footerNote,
   lotLabels,
-  onOpenFullHistory,
+  fullScreen = false,
   onUndo,
 }: InventoryHistorySheetProps) {
   const { colors } = useTheme();
@@ -61,114 +62,122 @@ export function InventoryHistorySheet({
     })),
   ]);
 
-  return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
-      <View style={StyleSheet.absoluteFill}>
-        <Pressable
-          className="fridge-actions-backdrop"
-          onPress={onClose}
-          accessibilityRole="button"
-          accessibilityLabel="Verlauf schließen"
-        />
-        <View className="fridge-actions-sheet flex-1" style={sheetStyle}>
-          <View className="fridge-actions-handle" />
-          <View className="flex-row items-start justify-between">
-            <View className="gap-one">
-              <Txt variant="title">{title}</Txt>
-              <Txt variant="caption" tone="secondary">
-                {subtitle}
-              </Txt>
-            </View>
-            <Pressable onPress={onClose} accessibilityRole="button" accessibilityLabel="Schließen">
-              <Txt variant="title" tone="secondary">
-                ×
-              </Txt>
-            </Pressable>
-          </View>
+  const sheet = (
+    <View
+      className={
+        fullScreen ? 'flex-1 gap-three bg-background px-four pt-two' : 'fridge-actions-sheet flex-1'
+      }
+      style={fullScreen ? undefined : sheetStyle}>
+      {!fullScreen ? <View className="fridge-actions-handle" /> : null}
+      <View className="flex-row items-start justify-between">
+        <View className="gap-one">
+          <Txt variant="title">{title}</Txt>
+          <Txt variant="caption" tone="secondary">
+            {subtitle}
+          </Txt>
+        </View>
+        <IconButton icon="x" onPress={onClose} accessibilityLabel="Schließen" iconSize={24} />
+      </View>
 
-          {productSummary ? (
-            <View className="inventory-state-summary">
-              {productSummary.sealed > 0 ? (
-                <StateSummaryCard
-                  label="Versiegelt"
-                  value={formatAmount(productSummary.sealed, productSummary.unit)}
-                  subtitle={productSummary.sealedSubtitle}
-                />
-              ) : null}
-              {productSummary.opened > 0 ? (
-                <StateSummaryCard
-                  label="Geöffnet"
-                  value={formatAmount(productSummary.opened, productSummary.unit)}
-                  subtitle={productSummary.openedSubtitle}
-                  open
-                />
-              ) : null}
-            </View>
-          ) : null}
-
-          {onOpenFullHistory ? (
-            <Button
-              variant="link"
-              title="Gesamten Verlauf öffnen ›"
-              onPress={onOpenFullHistory}
-              accessibilityLabel="Gesamten Verlauf öffnen"
+      {productSummary ? (
+        <View className="inventory-state-summary">
+          {productSummary.sealed > 0 ? (
+            <StateSummaryCard
+              label="Versiegelt"
+              value={formatAmount(productSummary.sealed, productSummary.unit)}
+              subtitle={productSummary.sealedSubtitle}
             />
           ) : null}
-
-          <FlashList
-            data={rows}
-            keyExtractor={(row) => row.id}
-            contentContainerStyle={{ paddingBottom: 24 }}
-            ListHeaderComponent={
-              historyHeading ? (
-                <Txt
-                  variant="caption"
-                  tone="secondary"
-                  weight="700"
-                  className="mb-two mt-four uppercase">
-                  {historyHeading}
-                </Txt>
-              ) : null
-            }
-            renderItem={({ item: row }) =>
-              row.kind === 'header' ? (
-                <Txt
-                  variant="caption"
-                  tone="secondary"
-                  weight="700"
-                  className="mb-two mt-four uppercase tracking-[0.5px]">
-                  {row.label}
-                </Txt>
-              ) : (
-                <HistoryTransactionRow
-                  transaction={row.transaction}
-                  colors={colors}
-                  compactLabel={!!productSummary}
-                  lotLabel={
-                    row.transaction.fridge_item_id
-                      ? lotLabels?.get(row.transaction.fridge_item_id)
-                      : undefined
-                  }
-                  onUndo={onUndo}
-                />
-              )
-            }
-            ListFooterComponent={
-              footerNote ? (
-                <Txt variant="caption" tone="secondary" className="inventory-history-footer-note">
-                  {footerNote}
-                </Txt>
-              ) : null
-            }
-            ListEmptyComponent={
-              <View className="py-six">
-                <Txt variant="body" tone="secondary">
-                  Noch keine Bewegungen vorhanden.
-                </Txt>
-              </View>
-            }
-          />
+          {productSummary.opened > 0 ? (
+            <StateSummaryCard
+              label="Geöffnet"
+              value={formatAmount(productSummary.opened, productSummary.unit)}
+              subtitle={productSummary.openedSubtitle}
+              open
+            />
+          ) : null}
         </View>
+      ) : null}
+
+      <FlashList
+        data={rows}
+        keyExtractor={(row) => row.id}
+        contentContainerStyle={{ paddingBottom: 24 }}
+        ListHeaderComponent={
+          historyHeading ? (
+            <Txt
+              variant="caption"
+              tone="secondary"
+              weight="700"
+              className="mb-two mt-four uppercase">
+              {historyHeading}
+            </Txt>
+          ) : null
+        }
+        renderItem={({ item: row }) =>
+          row.kind === 'header' ? (
+            <Txt
+              variant="caption"
+              tone="secondary"
+              weight="700"
+              className="mb-two mt-four uppercase tracking-[0.5px]">
+              {row.label}
+            </Txt>
+          ) : (
+            <HistoryTransactionRow
+              transaction={row.transaction}
+              colors={colors}
+              compactLabel={!!productSummary}
+              lotLabel={
+                row.transaction.fridge_item_id
+                  ? lotLabels?.get(row.transaction.fridge_item_id)
+                  : undefined
+              }
+              onUndo={onUndo}
+            />
+          )
+        }
+        ListFooterComponent={
+          footerNote ? (
+            <Txt variant="caption" tone="secondary" className="inventory-history-footer-note">
+              {footerNote}
+            </Txt>
+          ) : null
+        }
+        ListEmptyComponent={
+          <View className="py-six">
+            <Txt variant="body" tone="secondary">
+              Noch keine Bewegungen vorhanden.
+            </Txt>
+          </View>
+        }
+      />
+    </View>
+  );
+
+  return (
+    <Modal
+      visible={visible}
+      transparent={!fullScreen}
+      animationType="slide"
+      presentationStyle={fullScreen ? 'fullScreen' : undefined}
+      onRequestClose={onClose}>
+      <View style={StyleSheet.absoluteFill}>
+        {!fullScreen ? (
+          <Pressable
+            className="fridge-actions-backdrop"
+            onPress={onClose}
+            accessibilityRole="button"
+            accessibilityLabel="Verlauf schließen"
+          />
+        ) : null}
+        {fullScreen ? (
+          <SafeAreaView className="flex-1 bg-background" edges={['top', 'bottom', 'left', 'right']}>
+            {sheet}
+          </SafeAreaView>
+        ) : (
+          sheet
+        )}
       </View>
     </Modal>
   );

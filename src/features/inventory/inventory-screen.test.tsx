@@ -352,6 +352,17 @@ it('addiert gleiche Artikel in der Zeile und zeigt jedes MHD im Detail-Sheet', a
   ).toBeOnTheScreen();
 });
 
+it('öffnet den Produktverlauf als Vollansicht ohne Gesamtverlaufs-Link', async () => {
+  const user = userEvent.setup();
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
+  await user.press(screen.getByRole('button', { name: 'Milch Verlauf öffnen' }));
+
+  expect(screen.getByText('Verlauf zu Milch')).toBeOnTheScreen();
+  expect(screen.queryByRole('button', { name: 'Gesamten Verlauf öffnen' })).not.toBeOnTheScreen();
+});
+
 describe('Sortier-Toggle MHD/Name (#71)', () => {
   beforeEach(() => {
     const soon = new Date();
