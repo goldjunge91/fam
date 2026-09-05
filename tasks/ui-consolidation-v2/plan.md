@@ -1,7 +1,7 @@
 # Implementierungsplan V2: UI-Konsolidierung mit weniger Code
 
-Status: Entwurf zur Maintainer-Freigabe  
-Stand: 2026-09-05  
+Status: Bestätigte Planungsgrundlage; Umsetzung noch nicht gestartet
+Stand: 2026-09-05
 Initiative: `ui-consolidation-v2`
 
 Referenzen:
@@ -9,7 +9,16 @@ Referenzen:
 - [Spezifikation](../../docs/specs/ui-consolidation/SPEC.md)
 - [Design-System-Verträge](../../docs/design-system/contracts/README.md)
 - [Definition of Done](../../.claude/references/definition-of-done.md)
-- [Todo](./todo.md)
+- Beads-Epic: `fam-6zf`
+
+## Bestätigte Entscheidungen
+
+- V2 umfasst Core-Primitives sowie Inventory und Shopping. Weitere Screens
+  folgen nur bei einem konkreten verbleibenden Befund.
+- `rs()` wird nur bei einem sehr kleinen Eingriff reaktiv gemacht. Andernfalls
+  bleibt der Waivy-nahe Istzustand unverändert.
+- Bestehende Mocks werden wiederverwendet. Der bereits parallel entstehende
+  V2-Mock wird nach Übergabe ohne zusätzliche Mockrunde zum visuellen Ziel.
 
 ## 1. Ergebnis der Gegenprüfung
 
@@ -17,9 +26,11 @@ Der bisherige Plan ist nicht mehr die richtige Umsetzungsgrundlage. Seine
 Richtung ist grundsätzlich korrekt, aber er würde an mehreren Stellen mehr
 Mechanik und mehr Übergangscode erzeugen als nötig:
 
-1. Er plant eine reaktive `rs()`-Infrastruktur, obwohl `rs()` derzeit nur beim
-   Modulimport die gemeinsamen Tokenwerte berechnet. `SCREEN_W` und `IS_TABLET`
-   haben außerhalb der Entwicklerreferenz keine produktiven Verbraucher.
+1. Er erkennt die statische `rs()`-Berechnung richtig, begrenzt die Lösung aber
+   nicht auf den kleinsten möglichen Eingriff. Ohne diese Grenze könnte daraus
+   ein Responsive-Provider oder eine zweite Token-Laufzeit entstehen.
+   `SCREEN_W` und `IS_TABLET` haben außerhalb der Entwicklerreferenz keine
+   produktiven Verbraucher.
 2. Er bevorzugt Kompatibilitätsadapter für doppelte Komponenten. Im aktuellen
    Code haben `Field` und das zweite `SegmentedControl` aus `ui.tsx` keine
    Produktverbraucher; der alte `Button` aus `ui.tsx` hat nur die Dashboard-
@@ -46,7 +57,8 @@ stabilisieren. Die Konsolidierung ist erfolgreich, wenn:
   echte Implementierung besitzen;
 - `ui.tsx` gemeinsame Rezepte und kleine, tatsächlich genutzte Primitive enthält,
   aber keine zweite Produktkomponentenbibliothek;
-- Theme und Tokens ohne importzeitabhängige Fensterbreite funktionieren;
+- `rs()` bleibt im Waivy-nahen Bestand oder wird nur mit einem nachweislich kleinen
+  Eingriff reaktiv; es entsteht keine zusätzliche Token-Schicht;
 - Inventory und Shopping Loading, Empty, No Results, Error und Refresh korrekt
   unterscheiden;
 - entfernte APIs, Klassen und Tokens nachweislich keine Verbraucher mehr haben;
@@ -73,13 +85,18 @@ wenigen Aufrufer gelöscht. `Card` darf deshalb als Produktkomposition über ein
 zentralen Surface/Card-Foundation bestehen; zwei unabhängige Card-Rezepte dürfen
 nicht bestehen.
 
-### 3.2 Keine responsive Token-Laufzeit
+### 3.2 `rs()` nur bei praktisch kostenlosem Gewinn anfassen
 
-Schriftgrößen, Zeilenhöhen und Spacing verwenden feste logische RN-Einheiten.
-React Native übernimmt die Systemschrift-Skalierung. `useWindowDimensions()`
-wird nur in einer konkreten Komponente eingesetzt, wenn deren Anordnung wirklich
-von der verfügbaren Breite abhängt. Es entsteht kein Responsive-Theme-Provider,
-kein Token-Hook und kein globales Rechnen aller Abstände bei Rotation.
+`rs()`, `SCREEN_W` und `IS_TABLET` bleiben zunächst so, wie sie aus dem
+Waivy-nahen Ausgangscode übernommen wurden. Beim Foundation-Task wird einmal
+geprüft, ob sich die Werte mit einem kleinen lokalen `useWindowDimensions()`-
+Helper reaktiv machen lassen. Zulässig ist höchstens ein Helper ohne neuen
+Provider, Context, Tokenobjekt oder breite Consumer-Migration.
+
+Sobald die Lösung mehr Infrastruktur oder Änderungen quer durch die App braucht,
+wird sie nicht umgesetzt. Der aktuelle Code bleibt dann in diesem Punkt bestehen
+und Responsive-Verhalten wird nur dort lokal ergänzt, wo ein konkret sichtbarer
+Layoutfehler vorliegt. Das ist kein Blocker für die UI-Konsolidierung.
 
 ### 3.3 Android-Pflicht ist aus dem Scope entfernt
 
@@ -98,17 +115,18 @@ NativeWind-Komponentenklassen oder ein pauschaler Rewrite aller Screens.
 
 ### 3.5 Sichtbare Entscheidungen bleiben ein Gate
 
-Kontrastkorrekturen und Änderungen an Listen-/Headerdichte benötigen vor dem
-Produktcode mehrere statische Mocks und Marcos Auswahl. Reine Beseitigung einer
-doppelten Implementierung darf vorher erfolgen, solange die sichtbare bestehende
-Darstellung erhalten bleibt.
+Kontrastkorrekturen und Änderungen an Listen-/Headerdichte verwenden die bereits
+vorhandenen Mocks und den parallel entstehenden V2-Mock. Es wird keine weitere
+Mockrunde erzeugt, wenn diese Artefakte die Entscheidung bereits abdecken.
+Strukturelle Konsolidierung mit erhaltener Darstellung kann sofort beginnen.
+Sichtbare Änderungen werden unmittelbar nach Freigabe des V2-Mocks umgesetzt.
 
 ## 4. Scope
 
 ### Enthalten
 
 - Widerspruchsfreie UI-Spec und Verträge für den V2-Scope.
-- Vereinfachung von Theme-Tokens und Entfernung ungenutzter responsiver Exports.
+- Pragmatische Prüfung von Theme-Tokens; Responsive-Code nur bei kleinem Eingriff.
 - Zusammenführung der vier doppelt vorhandenen Komponentenverträge.
 - Gezielte Accessibility-Korrekturen an diesen Komponenten.
 - Zustandsdarstellung in Inventory und Shopping.
@@ -130,81 +148,71 @@ Darstellung erhalten bleibt.
 ```text
 Task 1  Scope-Verträge korrigieren
   |
-  +--> Task 2  visuelle Entscheidungen freigeben
-  |      |
-  |      +--> Task 3  Tokens und Farbpaare vereinfachen
-  |                    |
-  |                    +--> Task 4  Produkt-Button stabilisieren
-  |                    |      |
-  |                    |      +--> Task 5  Legacy-Button löschen
-  |                    |
-  |                    +--> Task 6  TextField konsolidieren
-  |                    |
-  |                    +--> Task 7  SegmentedControl konsolidieren
-  |                    |
-  |                    +--> Task 8  Card und EmptyState bereinigen
-  |                                  |
-  |                                  +--> Task 9   Inventory-Zustände
-  |                                  +--> Task 10  Shopping-Zustände
+  +--> Task 3  Tokens pragmatisch prüfen
+  +--> Task 4  Produkt-Button stabilisieren --> Task 5  Legacy-Button löschen
+  +--> Task 6  TextField --> Task 7  SegmentedControl --> Task 8  Card/EmptyState
+
+Task 2  vorhandenen V2-Mock übernehmen, parallel zu Tasks 1 und 4 bis 8
   |
-  +--> Tasks 11 und 12  erst nach allen Verbraucheränderungen
+  +--> sichtbare Farb-/Dichteänderungen in Tasks 3, 9 und 10
+
+Tasks 3, 6, 7 und 8
+  |
+  +--> Task 9   Inventory-Zustände
+  +--> Task 10  Shopping-Zustände
+
+Tasks 3 bis 10
+  |
+  +--> Task 11  Legacy-Cleanup --> Task 12  Abschlussprüfung
 ```
 
-Tasks 4, 6 und 7 teilen zentrale Dateien und werden nicht parallel umgesetzt.
-Tasks 9 und 10 können danach parallel laufen, sofern jeder Agent ausschließlich
+Tasks 4, 6, 7 und 8 teilen zentrale Dateien und werden nicht parallel umgesetzt.
+Der laufende V2-Mock blockiert diese strukturellen Tasks nicht. Tasks 9 und 10
+können nach Mockfreigabe parallel laufen, sofern jeder Agent ausschließlich
 seinen Featurepfad besitzt.
 
-## 6. Taskliste
+## 6. Beads-Taskliste
+
+Beads ist die verbindliche Quelle für Status, Abhängigkeiten, Abnahmekriterien
+und Task-Ergebnisse. Das Epic ist `fam-6zf`.
 
 ### Phase A: Zielvertrag und visuelle Freigabe
 
-- [ ] Task 1: V2-Scope in Spec und Contracts korrigieren
-- [ ] Task 2: Palette und Dichte über statische Mocks entscheiden
+1. `fam-6zf.1` V2-Scope in Spec und Contracts korrigieren
+2. `fam-6zf.2` Vorhandene Mocks und laufenden V2-Mock übernehmen
 
-### Checkpoint A
-
-- [ ] Marco hat Plan und sichtbare Varianten freigegeben
-- [ ] Keine Android-Kopierpflicht und keine responsive Token-Laufzeit stehen mehr im Zielvertrag
+Beide Tasks sind sofort ausführbar. Der laufende V2-Mock wird übernommen und
+nicht durch eine weitere Mockrunde ersetzt.
 
 ### Phase B: Foundations und kanonische Komponenten
 
-- [ ] Task 3: Tokens und unterstützte Farbpaare vereinfachen
-- [ ] Task 4: Produkt-Button als einzige Implementierung stabilisieren
-- [ ] Task 5: Legacy-Button nach Dashboard-Freigabe löschen
-- [ ] Task 6: TextField als einzige Eingabedarstellung konsolidieren
-- [ ] Task 7: SegmentedControl als einzige Einzelauswahl konsolidieren
-- [ ] Task 8: Card- und EmptyState-Verantwortung bereinigen
-
-### Checkpoint B
-
-- [ ] Je Komponentenvertrag existiert genau eine Darstellungsimplementierung
-- [ ] Fokussierte Komponententests, Typecheck und Biome sind grün
-- [ ] Produktionscode der betroffenen Core-Dateien ist netto nicht gewachsen oder die Abweichung ist begründet
+3. `fam-6zf.3` Tokens und unterstützte Farbpaare pragmatisch vereinfachen
+4. `fam-6zf.4` Produkt-Button als einzige Verhaltensbasis stabilisieren
+5. `fam-6zf.5` Legacy-Button nach Dashboard-Freigabe löschen
+6. `fam-6zf.6` TextField als einzige Eingabedarstellung konsolidieren
+7. `fam-6zf.7` SegmentedControl als einzige Einzelauswahl konsolidieren
+8. `fam-6zf.8` Card- und EmptyState-Verantwortung bereinigen
 
 ### Phase C: Vertikale Produktpfade
 
-- [ ] Task 9: Inventory-Datenzustände auf die kanonischen Komponenten ziehen
-- [ ] Task 10: Shopping-Datenzustände auf die kanonischen Komponenten ziehen
-
-### Checkpoint C
-
-- [ ] Beide Hauptflows unterscheiden Loading, Empty, No Results, Error und Refresh
-- [ ] Bestehende Aktionen, Offline-Daten und Gegenaktionen bleiben erhalten
-- [ ] Ausgewählte Mocks sind in sichtbaren Änderungen nachvollziehbar
+9. `fam-6zf.9` Inventory-Datenzustände vertikal korrigieren
+10. `fam-6zf.10` Shopping-Datenzustände vertikal korrigieren
 
 ### Phase D: Löschen und Verifizieren
 
-- [ ] Task 11: Verwaiste CSS-, Token- und Showcase-Bestände löschen
-- [ ] Task 12: Zielgerichtete Abschlussprüfung und Dokumentationsabgleich
+11. `fam-6zf.11` Verwaiste CSS-, Token- und Showcase-Bestände löschen
+12. `fam-6zf.12` V2-Abschlussprüfung und Dokumentationsabgleich
 
-### Checkpoint D
+### Checkpoints
 
-- [ ] Keine Verbraucher der entfernten APIs oder Klassen verbleiben
-- [ ] Definition of Done und V2-Abnahmekriterien sind erfüllt
-- [ ] Nicht geprüfte Plattformen werden ausdrücklich als nicht geprüft ausgewiesen
-
-Die vollständigen Beschreibungen, Abnahmekriterien, Prüfungen, Abhängigkeiten
-und Dateigrenzen stehen in [todo.md](./todo.md).
+- Vor Phase B: Zielvertrag enthält weder Android-Kopierpflicht noch eine neue
+  responsive Token-Schicht; der V2-Mock ist als sichtbares Ziel benannt.
+- Vor Phase C: Jeder Core-Vertrag hat genau eine Darstellungsimplementierung;
+  fokussierte Tests, Typecheck und Biome sind grün.
+- Vor Phase D: Inventory und Shopping unterscheiden ihre Datenzustände und
+  erhalten bestehende Offline- und Gegenaktionen.
+- Abschluss: Keine Verbraucher gelöschter APIs verbleiben; nicht geprüfte
+  Plattformen werden ausdrücklich als nicht geprüft ausgewiesen.
 
 ## 7. Zusammenarbeit im geteilten Worktree
 
@@ -218,8 +226,7 @@ und Dateigrenzen stehen in [todo.md](./todo.md).
 - Vorhandene `.android`-Dateien sind keine Aufforderung, neue Mirrors anzulegen.
   Wenn ein entfernter Export dort importiert wird, ist die minimale Compiler-
   Anpassung Teil des Löschschritts.
-- Der bestehende gelöschte Ordner `tasks/ui-consolidation/` und globale
-  `tasks/plan.md`/`tasks/todo.md` bleiben unberührt.
+- Planungsbestände außerhalb von `tasks/ui-consolidation-v2/` bleiben unberührt.
 
 ## 8. Verifikationsstrategie
 
@@ -246,11 +253,13 @@ nativen Nachweis.
 | --- | --- | --- |
 | Parallel geänderte Dashboard-Dateien | Konflikt oder verlorene Arbeit | Task 5 blockieren, bis der Owner die Dateien freigibt |
 | Entfernte Legacy-API besitzt versteckte Verbraucher | Typecheck- oder Laufzeitfehler | Vor Löschung Import- und JSX-Suche, danach Typecheck und fokussierte Tests |
-| Feste Tokens verändern kleine Geräte sichtbar | Unbeabsichtigte Dichteänderung | Referenzwerte beibehalten, 320-Punkte-Ansicht und große Systemschrift prüfen |
+| Reaktives `rs()` wächst zu einer zweiten Theme-Schicht | Mehr Code und schwer nachvollziehbare Updates | Nur umsetzen, wenn ein kleiner lokaler Helper reicht; andernfalls Waivy-nahen Istzustand behalten |
 | Kontrastkorrektur verändert Markenwirkung | UI wirkt fremd | Palette vor Implementierung als Varianten zeigen und auswählen lassen |
 | Scope wächst zu einem Gesamtrewrite | Lange, konfliktanfällige Initiative | Nur direkte Verbraucher und zwei vereinbarte Hauptflows anfassen |
 
-## 10. Freigabepunkt
+## 10. Umsetzungsstart
 
-Dieser Plan autorisiert noch keine Produktcodeänderung. Nach Marcos Review beginnt
-Task 1. Sichtbare Layout- und Farbänderungen warten zusätzlich auf Checkpoint A.
+Die Planungsrichtung ist bestätigt. Die Umsetzung startet über die ausführbaren
+Beads `fam-6zf.1` und `fam-6zf.2`; weitere Tasks werden durch den hinterlegten
+Abhängigkeitsgraphen freigegeben. Sichtbare Layout- und Farbänderungen warten nur
+auf die Übergabe des bereits laufenden V2-Mocks.
