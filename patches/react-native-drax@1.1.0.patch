@@ -1,0 +1,140 @@
+diff --git a/lib/module/DebugOverlay.js b/lib/module/DebugOverlay.js
+index e2eaa95da0ddd965046ca991baa93fec364979ed..d3ea0e990acd3d8c5363a19f8cfdec38ab52a5dd 100644
+--- a/lib/module/DebugOverlay.js
++++ b/lib/module/DebugOverlay.js
+@@ -96,7 +96,7 @@ export const DebugOverlay = ({
+ };
+ const styles = StyleSheet.create({
+   container: {
+-    ...StyleSheet.absoluteFillObject,
++    ...StyleSheet.absoluteFill,
+     zIndex: 99999
+   },
+   overlay: {
+diff --git a/lib/module/HoverLayer.js b/lib/module/HoverLayer.js
+index ba0b0517bb6983e83342326ad31abc1bbbeeb8d0..84c7193dc63dd2c28a31aa41a8e85d045670fe07 100644
+--- a/lib/module/HoverLayer.js
++++ b/lib/module/HoverLayer.js
+@@ -136,7 +136,7 @@ export const HoverLayer = /*#__PURE__*/memo(({
+ });
+ const styles = StyleSheet.create({
+   container: {
+-    ...StyleSheet.absoluteFillObject,
++    ...StyleSheet.absoluteFill,
+     // Default hidden — useAnimatedStyle overrides to opacity:1 when dragging.
+     // Prevents a one-frame flash on first mount before the animated style evaluates.
+     opacity: 0,
+diff --git a/lib/module/SortableItem.js b/lib/module/SortableItem.js
+index 0fc6c22b7ee2147a407e7ad7afe7a40ad85e0acc..9589c89462a32ab9f098ebf32f18227f54a8e0f8 100644
+--- a/lib/module/SortableItem.js
++++ b/lib/module/SortableItem.js
+@@ -88,7 +88,6 @@ const SortableItemInner = ({
+     rawData,
+     originalIndexes,
+     scrollPosition,
+-    onItemSnapEnd,
+     fixedKeys
+   } = sortable._internal;
+ 
+@@ -182,7 +181,7 @@ const SortableItemInner = ({
+           draxViewProps.onDragDrop?.(event);
+         },
+         onSnapEnd: snapData => {
+-          onItemSnapEnd?.();
++          sortable._internal.onItemSnapEnd?.();
+           draxViewProps.onSnapEnd?.(snapData);
+         },
+         onMeasure: measurements => {
+diff --git a/lib/module/hooks/useSortableList.js b/lib/module/hooks/useSortableList.js
+index 074bc22b0b79c45f0c47b45083fc8af6033320b3..e819cecda5e40d044a61e0d11f362d2d365c06e9 100644
+--- a/lib/module/hooks/useSortableList.js
++++ b/lib/module/hooks/useSortableList.js
+@@ -46,6 +46,7 @@ export const useSortableList = options => {
+   const id = useDraxId(options.id);
+ 
+   // ── Fixed items tracking ────────────────────────────────────────────
++  const onItemSnapEndRef = useRef(undefined);
+   const fixedKeys = useRef(new Set());
+ 
+   // ── SharedValues (UI-thread state) ────────────────────────────────
+@@ -948,7 +949,9 @@ export const useSortableList = options => {
+     getMeasurementByOriginalIndex,
+     dropTargetPositionSV,
+     dropTargetVisibleSV,
+-    onItemSnapEnd: undefined,
++    // Old item handlers must still reach the latest container completion callback.
++    get onItemSnapEnd() { return onItemSnapEndRef.current; },
++    set onItemSnapEnd(callback) { onItemSnapEndRef.current = callback; },
+     draggedDisplayIndexRef,
+     dragStartIndexRef,
+     shiftsRef,
+diff --git a/src/DebugOverlay.tsx b/src/DebugOverlay.tsx
+index d93750fec7bc3ec02292024d3049055dde40cfb1..86e8e05a6bfeed47f628f1f49246b4c755f1fe47 100644
+--- a/src/DebugOverlay.tsx
++++ b/src/DebugOverlay.tsx
+@@ -116,7 +116,7 @@ export const DebugOverlay = ({
+ 
+ const styles = StyleSheet.create({
+   container: {
+-    ...StyleSheet.absoluteFillObject,
++    ...StyleSheet.absoluteFill,
+     zIndex: 99999,
+   },
+   overlay: {
+diff --git a/src/HoverLayer.tsx b/src/HoverLayer.tsx
+index 41031b38b156c885562c6a94b3dc45f7d38cd58c..2fb5526122dd82fcfa881a30909e1b29f295102a 100644
+--- a/src/HoverLayer.tsx
++++ b/src/HoverLayer.tsx
+@@ -152,7 +152,7 @@ export const HoverLayer = memo(
+ 
+ const styles = StyleSheet.create({
+   container: {
+-    ...StyleSheet.absoluteFillObject,
++    ...StyleSheet.absoluteFill,
+     // Default hidden — useAnimatedStyle overrides to opacity:1 when dragging.
+     // Prevents a one-frame flash on first mount before the animated style evaluates.
+     opacity: 0,
+diff --git a/src/SortableItem.tsx b/src/SortableItem.tsx
+index c5504c865d9edf3def798fc29a44e1084e26f36a..4c7102a96e24a871d3a1c50257c4ae7dc3288b33 100644
+--- a/src/SortableItem.tsx
++++ b/src/SortableItem.tsx
+@@ -126,7 +126,6 @@ const SortableItemInner = ({
+     rawData,
+     originalIndexes,
+     scrollPosition,
+-    onItemSnapEnd,
+     fixedKeys,
+   } = sortable._internal;
+ 
+@@ -221,7 +220,7 @@ const SortableItemInner = ({
+           draxViewProps.onDragDrop?.(event);
+         }}
+         onSnapEnd={(snapData) => {
+-          onItemSnapEnd?.();
++          sortable._internal.onItemSnapEnd?.();
+           draxViewProps.onSnapEnd?.(snapData);
+         }}
+         onMeasure={(measurements) => {
+diff --git a/src/hooks/useSortableList.ts b/src/hooks/useSortableList.ts
+index 1ff54d05e16d6a0b25e81d3e98098b59e172026b..d74bec79e210e47fe1341acf2c59b9f19abe80d3 100644
+--- a/src/hooks/useSortableList.ts
++++ b/src/hooks/useSortableList.ts
+@@ -65,6 +65,7 @@ export const useSortableList = <T,>(
+   const id = useDraxId(options.id);
+ 
+   // ── Fixed items tracking ────────────────────────────────────────────
++  const onItemSnapEndRef = useRef<(() => void) | undefined>(undefined);
+   const fixedKeys = useRef<Set<string>>(new Set());
+ 
+   // ── SharedValues (UI-thread state) ────────────────────────────────
+@@ -1023,7 +1024,9 @@ export const useSortableList = <T,>(
+     getMeasurementByOriginalIndex,
+     dropTargetPositionSV,
+     dropTargetVisibleSV,
+-    onItemSnapEnd: undefined as (() => void) | undefined,
++    // Old item handlers must still reach the latest container completion callback.
++    get onItemSnapEnd() { return onItemSnapEndRef.current; },
++    set onItemSnapEnd(callback) { onItemSnapEndRef.current = callback; },
+     draggedDisplayIndexRef,
+     dragStartIndexRef,
+     shiftsRef,

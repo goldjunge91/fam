@@ -46,6 +46,10 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>ExpoWidgetsAppGroupIdentifier</key>
+	<string>group.com.goldjunge91.fam1</string>
+	<key>ExpoWidgets_EnablePushNotifications</key>
+	<false/>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3823642106417448~8036856356</string>
 	<key>GADDelayAppMeasurementInit</key>
@@ -85,6 +89,10 @@
 	<string>Allow $(PRODUCT_NAME) to detect your current motion activity</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Die App $(PRODUCT_NAME) benötigt Zugriff auf deine Fotos, um ein Titelbild für ein Rezept auszuwählen.</string>
+	<key>NSSupportsLiveActivities</key>
+	<true/>
+	<key>NSSupportsLiveActivitiesFrequentUpdates</key>
+	<false/>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
