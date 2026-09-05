@@ -689,7 +689,7 @@ const MEASUREMENT_DEFINITIONS: ReadonlyMap<
   ['portion', { dimension: 'portion', factor: 1 }],
 ]);
 
-function comparableMeasurement(quantity: number, unit: string): ComparableMeasurement | null {
+export function comparableMeasurement(quantity: number, unit: string): ComparableMeasurement | null {
   const definition = MEASUREMENT_DEFINITIONS.get(normalize(unit));
   if (!definition) return null;
 

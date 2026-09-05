@@ -212,3 +212,33 @@ Deno.test('fails closed when every usable lot is explicitly allergic', () => {
 
   assertEquals(result, null);
 });
+
+Deno.test('does not infer milk allergy safety from the name Mozzarella', () => {
+  const result = buildRecipeSuggestionContext(createInput({
+    inventory: { lots: [{
+      lotId: 'mozzarella', normalizedName: 'Mozzarella', quantity: 200,
+      unit: 'g', bestBefore: null, useBy: null,
+    }] },
+    recipes: [],
+    allergies: ['milk'],
+  }));
+  assertEquals(result, null);
+});
+
+Deno.test('requires verification for every allergy, intolerance and custom exclusion', () => {
+  for (const rule of ['milk', 'lactose', 'my-custom-allergy']) {
+    assertEquals(buildRecipeSuggestionContext(createInput({ allergies: [rule] })), null);
+  }
+});
+
+Deno.test('does not offer disliked inventory or shopping ingredients to a fallback', () => {
+  const result = buildRecipeSuggestionContext(createInput({
+    recipes: [],
+    forbiddenIngredients: [' Spinat '],
+    shoppingItems: [{ shoppingItemId: 'spinach', name: 'SPINAT', quantity: 200, unit: 'g' }],
+    shoppingDecision: 'yes',
+  }));
+  assert(result !== null);
+  assertEquals(result.context.priority_foods.map((item) => item.name), ['Reis']);
+  assertEquals(result.context.planned_shopping_items, []);
+});

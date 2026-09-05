@@ -192,13 +192,18 @@ function hasSufficientRecipeQuantities(
 export function buildRecipeSuggestionContext(
   input: RecipeSuggestionGatewayInput,
 ): RecipeSuggestionContextResult | null {
+  // Profile rules are authoritative, but this adapter has no verified per-food
+  // allergen/intolerance projection. Names and model output cannot establish safety.
+  // Fail closed for both catalog and fallback until that projection is available.
+  if (input.allergies.length > 0) return null;
+
+  const forbiddenIngredients = new Set((input.forbiddenIngredients ?? []).map(normalize));
   const usableLots = input.inventory.lots
     .map((lot, index) => ({ lot, index }))
     .filter(({ lot }) => isUsableLot(lot, input.today));
   if (usableLots.length === 0) return null;
 
-  const allergyNames = new Set(input.allergies.map(normalize));
-  const safeLots = usableLots.filter(({ lot }) => !allergyNames.has(normalize(lot.normalizedName)));
+  const safeLots = usableLots.filter(({ lot }) => !forbiddenIngredients.has(normalize(lot.normalizedName)));
   if (safeLots.length === 0) return null;
 
   const priorityFoods = safeLots
@@ -216,8 +221,9 @@ export function buildRecipeSuggestionContext(
     );
 
   const shoppingItems = input.shoppingItems ?? [];
+  const permittedShoppingItems = shoppingItems.filter((item) => !forbiddenIngredients.has(normalize(item.name)));
   const plannedShoppingItems = input.shoppingDecision === 'yes'
-    ? shoppingItems.map((item) => ({
+    ? permittedShoppingItems.map((item) => ({
         shopping_item_id: item.shoppingItemId,
         name: item.name,
         quantity: item.quantity,
@@ -235,11 +241,6 @@ export function buildRecipeSuggestionContext(
   const priorityScoreByName = new Map(
     priorityFoods.map(({ lot, priorityScore }) => [normalize(lot.normalizedName), priorityScore]),
   );
-  const forbiddenIngredients = new Set([
-    ...input.allergies.map(normalize),
-    ...(input.forbiddenIngredients ?? []).map(normalize),
-  ]);
-
   const candidateRecipes = input.recipes
     .map((recipe, index) => {
       const source = recipe.source ?? 'catalog';
@@ -260,7 +261,7 @@ export function buildRecipeSuggestionContext(
         recipe,
         input.servings,
         safeLots.map(({ lot }) => lot),
-        input.shoppingDecision === 'yes' ? shoppingItems : [],
+        input.shoppingDecision === 'yes' ? permittedShoppingItems : [],
       );
       const priorityCoverage = ingredientNames.reduce(
         (score, name) => score + (priorityScoreByName.get(normalize(name)) ?? 0),

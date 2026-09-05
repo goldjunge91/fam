@@ -57,15 +57,20 @@ export function calculateWasteOutcomeMetrics(
 ): WasteOutcomeMetrics {
   const consumedByDimension = new Map<WasteMeasurementDimension, number>();
   const wastedByDimension = new Map<WasteMeasurementDimension, number>();
-  let knownOutcomeLotCount = 0;
-  let rescuedLotCount = 0;
+  const outcomesByLot = new Map<string, { known: boolean; consumed: boolean; wasteReported: boolean }>();
   let hasIncompatibleDimension = false;
 
   for (const observation of observations) {
     const consumed = comparableQuantity(observation.consumed);
     const wasted = comparableQuantity(observation.wasted);
-    if (consumed !== null || wasted !== null) knownOutcomeLotCount += 1;
-    if (consumed !== null && wasted === null) rescuedLotCount += 1;
+    const lot = outcomesByLot.get(observation.outcomeKey) ?? {
+      known: false, consumed: false, wasteReported: false,
+    };
+    lot.known ||= consumed !== null || wasted !== null;
+    lot.consumed ||= consumed !== null;
+    // Invalid reported waste is unknown, not evidence that nothing was wasted.
+    lot.wasteReported ||= observation.wasted !== null && observation.wasted.quantity !== 0;
+    outcomesByLot.set(observation.outcomeKey, lot);
 
     if (consumed !== null && wasted !== null && consumed.dimension !== wasted.dimension) {
       hasIncompatibleDimension = true;
@@ -94,6 +99,9 @@ export function calculateWasteOutcomeMetrics(
   }
 
   const dimensions = Object.keys(rescueRatioByDimension) as WasteMeasurementDimension[];
+  const knownLots = [...outcomesByLot.values()].filter((lot) => lot.known);
+  const knownOutcomeLotCount = knownLots.length;
+  const rescuedLotCount = knownLots.filter((lot) => lot.consumed && !lot.wasteReported).length;
   return {
     primaryRescueRatio:
       !hasIncompatibleDimension && dimensions.length === 1

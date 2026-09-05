@@ -69,6 +69,7 @@ export type GatewayRecipe = {
   dietaryTags: string[];
   /** null means the catalog has no authoritative allergen metadata. */
   allergens: string[] | null;
+  steps?: string[];
   ingredients: Array<{
     productId: string | null;
     normalizedName: string;
