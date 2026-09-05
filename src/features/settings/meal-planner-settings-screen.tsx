@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
-import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import { DEFAULT_PORTIONS_PER_PERSON } from '@/features/meal-planner/servings';
 import { usePortionsPerPerson, useSetPortionsPerPerson } from '@/features/meal-planner/settings';
 

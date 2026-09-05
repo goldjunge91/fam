@@ -1,7 +1,6 @@
 import { View } from 'react-native';
 
-import { TextField } from '@/components/forms/text-field';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import { useEmailVerification } from '@/features/auth/hooks/use-email-verification';
 
 interface EmailVerificationPanelProps {

@@ -201,7 +201,7 @@ konkurrierende Mockrunde erzeugt.
 3. `fam-6zf.3` Tokens und unterstützte Farbpaare pragmatisch vereinfachen
 4. `fam-6zf.4` Foundation-Button in `ui.tsx` um `link` und `flat` ergänzen
 5. `fam-6zf.5` Verbraucher direkt auf `ui.tsx`-Button migrieren und Produkt-Button löschen
-6. `fam-6zf.6` TextField als einzige Eingabedarstellung konsolidieren
+6. `fam-6zf.6` `Field` in `ui.tsx` zu `TextField` umbenennen, die produktiven Eingabefunktionen zusammenführen und bestehende Verbraucher nur auf den neuen Importpfad umstellen
 7. `fam-6zf.7` SegmentedControl als einzige Einzelauswahl konsolidieren
 8. `fam-6zf.8` Card- und EmptyState-Verantwortung bereinigen
 

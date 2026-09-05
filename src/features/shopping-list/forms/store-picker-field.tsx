@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
-import { TextField } from '@/components/forms/text-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../domain-logik/store-presets';
 import { findStoreByName, useAddStoreMutation, useStores } from '../hooks/use-stores';
 

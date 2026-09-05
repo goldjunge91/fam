@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 
-import { TextField } from '@/components/forms/text-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import {
   ACTIVITY_OPTIONS,
   type ProfileBiometrics,

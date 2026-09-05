@@ -9,10 +9,11 @@ NativeWind übernimmt nur lokales Layout.
 
 ## Öffentliche Komponenten und gemeinsame Basis
 
-- `TextField` aus `src/components/forms/text-field.tsx` bleibt der Produkteinstieg
-  für strukturierte Eingaben. Das bestehende `Field` aus `ui.tsx` verwendet dieselbe
-  Eingabebasis. Fokus- und Fehlerfähigkeit dürfen nicht auf zwei unabhängige
-  Darstellungen verteilt bleiben.
+- `TextField` aus `src/constants/ui.tsx` ist der einzige Produkteinstieg für
+  strukturierte Eingaben. Dafür wird das bestehende `Field` in `ui.tsx` zu
+  `TextField` umbenannt und um die produktiven Funktionen der bisherigen
+  `src/components/forms/text-field.tsx` ergänzt. Fokus- und Fehlerfähigkeit
+  liegen damit in einer Implementierung; die bisherige Datei wird entfernt.
 - Produkt-Einzelauswahl verwendet den `SegmentedControl` aus
   `src/components/ui/segmented-control.tsx` mit Gruppenlabel, `options`, `selected`
   und `onSelect`. Der bestehende `value/onChange`-Einstieg darf diese Basis adaptieren.
@@ -84,7 +85,7 @@ native Tastaturleiste und behält seine normale Tastaturbedienung.
 ## Beispiel der vorgesehenen Verwendung
 
 ```tsx
-import { TextField } from '@/components/forms/text-field';
+import { TextField } from '@/constants/ui';
 import { SegmentedControl } from '@/components/ui/segmented-control';
 
 <TextField
@@ -101,7 +102,7 @@ import { SegmentedControl } from '@/components/ui/segmented-control';
 />
 ```
 
-Das Beispiel verwendet bestehende Produkt-APIs. Die gemeinsame Rezeptbasis und
+Das Beispiel verwendet die bestehende Produkt-API. Die gemeinsame Rezeptbasis und
 vollständigen States sind Zielanforderungen, kein behaupteter Istzustand.
 Ein lokales `TextInput` mit eigener Farb-/Konturdefinition oder eine Auswahl nur
 mit wechselnder Farbe verletzt den Vertrag.
@@ -113,4 +114,5 @@ Disabled sowie Auswählen/Abwählen. VoiceOver/TalkBack prüfen Feldname, Fehler
 Auswahlsemantik. Native Tastaturprüfung bestätigt Submit, Toolbar-Verantwortung und
 Erreichbarkeit in Sheets. Beide Themes, große Schrift und schmale Breite sind
 Teil der visuellen Prüfung. `Field`/`TextField` und beide SegmentedControls sind
-bis zur Konsolidierung ausdrücklich Migrationsbestand.
+bis zur Konsolidierung ausdrücklich Migrationsbestand; nach `fam-6zf.6` bleibt
+nur `TextField` aus `ui.tsx`.

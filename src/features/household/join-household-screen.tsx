@@ -1,10 +1,9 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
-import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import { useRedeemInviteMutation } from '@/features/household/api';
 import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
 

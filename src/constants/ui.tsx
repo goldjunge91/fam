@@ -7,7 +7,7 @@
 import { Feather } from '@expo/vector-icons';
 import type React from 'react';
 import type { ReactNode } from 'react';
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
@@ -698,47 +698,101 @@ export function SegmentedControl<T extends string>({
   );
 }
 
-// ─── Field ───────────────────────────────────────────────────────────────────
+// ─── TextField ───────────────────────────────────────────────────────────────
 
-export function Field({
-  label,
-  style,
-  onFocus,
-  onBlur,
-  returnKeyType = 'done',
-  submitBehavior = 'blurAndSubmit',
-  ...rest
-}: TextInputProps & { label?: string }) {
+export type TextFieldProps = TextInputProps & {
+  label?: string;
+  size?: 'default' | 'large';
+  error?: string;
+  trailing?: ReactNode;
+  className?: string;
+};
+
+export const TextField = forwardRef<TextInput, TextFieldProps>(function TextField(
+  {
+    label,
+    size = 'default',
+    error,
+    trailing,
+    style,
+    className,
+    accessibilityLabel,
+    accessibilityHint,
+    accessibilityState,
+    editable = true,
+    multiline = false,
+    onFocus,
+    onBlur,
+    returnKeyType,
+    submitBehavior,
+    ...rest
+  },
+  ref,
+) {
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
   const [focused, setFocused] = useState(false);
+  const resolvedReturnKeyType = returnKeyType ?? (multiline ? undefined : 'done');
+  const resolvedSubmitBehavior = submitBehavior ?? (multiline ? undefined : 'blurAndSubmit');
 
   return (
-    <View style={{ gap: 6 }}>
+    <View className="gap-one">
       {label ? (
-        <Txt variant="label" color={focused ? colors.accent : colors.text}>
+        <Txt variant="label" color={focused ? colors.accent : colors.textSecondary}>
           {label}
         </Txt>
       ) : null}
-      <TextInput
-        placeholderTextColor={colors.textSecondary}
-        selectionColor={colors.accent}
-        returnKeyType={returnKeyType}
-        submitBehavior={submitBehavior}
-        onFocus={(event) => {
-          setFocused(true);
-          onFocus?.(event);
-        }}
-        onBlur={(event) => {
-          setFocused(false);
-          onBlur?.(event);
-        }}
-        {...rest}
-        style={[styles.input, focused && styles.inputFocused, style]}
-      />
+
+      <View className="relative">
+        <TextInput
+          ref={ref}
+          {...rest}
+          editable={editable}
+          multiline={multiline}
+          placeholderTextColor={colors.textSecondary}
+          selectionColor={colors.accent}
+          returnKeyType={resolvedReturnKeyType}
+          submitBehavior={resolvedSubmitBehavior}
+          accessibilityLabel={accessibilityLabel ?? label ?? rest.placeholder}
+          accessibilityHint={accessibilityHint ?? error}
+          accessibilityState={{
+            ...accessibilityState,
+            disabled: editable === false || accessibilityState?.disabled === true,
+          }}
+          onFocus={(event) => {
+            setFocused(true);
+            onFocus?.(event);
+          }}
+          onBlur={(event) => {
+            setFocused(false);
+            onBlur?.(event);
+          }}
+          className={className}
+          style={[
+            styles.input,
+            size === 'large' ? styles.inputLarge : null,
+            focused ? styles.inputFocused : null,
+            error ? styles.inputError : null,
+            editable === false ? styles.inputDisabled : null,
+            trailing ? styles.inputWithTrailing : null,
+            style,
+          ]}
+        />
+        {trailing ? (
+          <View className="absolute z-10 right-[2px] top-[2px] bottom-[2px] items-center justify-center">
+            {trailing}
+          </View>
+        ) : null}
+      </View>
+
+      {error ? (
+        <Txt variant="body" tone="danger" accessibilityRole="alert">
+          {error}
+        </Txt>
+      ) : null}
     </View>
   );
-}
+});
 
 // ─── Empty state ─────────────────────────────────────────────────────────────
 
@@ -825,17 +879,31 @@ function makeStyles(c: Palette) {
     },
     input: {
       backgroundColor: c.backgroundElement,
-      borderWidth: 1.5,
+      borderWidth: 2,
       borderColor: c.border,
       borderRadius: radius.md,
       paddingHorizontal: 14,
       paddingVertical: 12,
-      fontSize: font.sizes.md,
+      fontSize: font.sizes.base,
+      lineHeight: font.lineHeights.body,
       color: c.text,
+    },
+    inputLarge: {
+      fontSize: font.sizes.md,
+      lineHeight: font.lineHeights.subheading,
     },
     inputFocused: {
       borderColor: c.accent,
-      borderWidth: 2,
+    },
+    inputError: {
+      borderColor: c.danger,
+    },
+    inputDisabled: {
+      backgroundColor: c.backgroundSoft,
+      color: c.textSecondary,
+    },
+    inputWithTrailing: {
+      paddingRight: 52,
     },
   });
 }

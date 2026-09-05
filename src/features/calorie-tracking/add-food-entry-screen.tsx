@@ -3,14 +3,13 @@ import * as Crypto from 'expo-crypto';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Image, View } from 'react-native';
-import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { useSnackbar } from '@/components/ui/snackbar';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {

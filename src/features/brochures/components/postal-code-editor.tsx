@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { TextField } from '@/components/forms/text-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { TextField, Txt } from '@/constants/ui';
 
 const POSTAL_CODE_PATTERN = /^\d{5}$/;
 

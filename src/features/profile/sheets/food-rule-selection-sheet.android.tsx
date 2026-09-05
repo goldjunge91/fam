@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 
-import { TextField } from '@/components/forms/text-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import {
   addFoodSelection,
   createCustomFoodSelection,
@@ -136,8 +135,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
               setInputError(null);
             }}
             placeholder={inputLabel}
-            accessibilityHint={inputError ?? undefined}
-            className={inputError ? 'input-field-error' : ''}
+            error={inputError ?? undefined}
             autoCapitalize="sentences"
             returnKeyType="done"
             onSubmitEditing={addCustomEntry}

@@ -1,10 +1,9 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { View } from 'react-native';
-import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
-import { Button, Txt } from '@/constants/ui';
+import { Button, TextField, Txt } from '@/constants/ui';
 import { useCreateHouseholdMutation } from '@/features/household/api';
 
 export function CreateHouseholdScreen() {
