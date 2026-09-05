@@ -3,9 +3,8 @@ import * as Clipboard from 'expo-clipboard';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
@@ -269,7 +268,7 @@ export function SyncDebugScreen() {
         </View>
         <View className="mt-three">
           <Button
-            label="Jetzt synchronisieren & prüfen"
+            title="Jetzt synchronisieren & prüfen"
             onPress={handleSyncNow}
             loading={loading}
           />
@@ -327,9 +326,9 @@ export function SyncDebugScreen() {
         </Txt>
 
         <View className="action-stack">
-          <Button label="🔔 Test-Benachrichtigung senden" onPress={handleTestNotification} />
+          <Button title="🔔 Test-Benachrichtigung senden" onPress={handleTestNotification} />
           <Button
-            label="📷 Barcode-Scanner testen"
+            title="📷 Barcode-Scanner testen"
             variant="secondary"
             onPress={() => setShowScannerTest(true)}
           />
@@ -387,14 +386,14 @@ export function SyncDebugScreen() {
               <View className="flex-row gap-two mt-one">
                 <View className="flex-1">
                   <Button
-                    label={copiedRowId === row.id ? '✓ Kopiert' : '📋 Kopieren'}
+                    title={copiedRowId === row.id ? '✓ Kopiert' : '📋 Kopieren'}
                     variant="secondary"
                     onPress={() => handleCopyOutbox(row)}
                   />
                 </View>
                 <View className="flex-1">
                   <Button
-                    label="Eintrag löschen"
+                    title="Eintrag löschen"
                     variant="secondary"
                     onPress={() => handleDeleteOutboxEntry(row)}
                   />
@@ -406,7 +405,7 @@ export function SyncDebugScreen() {
 
         {outboxRows.length > 0 && (
           <View className="mt-three">
-            <Button label="Outbox leeren (Notfall)" variant="danger" onPress={handleClearOutbox} />
+            <Button title="Outbox leeren (Notfall)" variant="danger" onPress={handleClearOutbox} />
           </View>
         )}
       </Card>

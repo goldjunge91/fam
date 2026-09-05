@@ -2,8 +2,7 @@ import * as Haptics from 'expo-haptics';
 import { useEffect, useRef } from 'react';
 import { ActivityIndicator, Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 
 // Defensiver Import: Verhindert App-Crashes ("Cannot find native module ExpoCamera"),
 // wenn der Native Dev Build noch nicht kompiliert wurde oder Expo Go genutzt wird.
@@ -90,7 +89,7 @@ export function BarcodeScannerModal({
               <Txt center>
                 Kamera-Berechtigung ist erforderlich, um Produkt-Barcodes zu scannen.
               </Txt>
-              <Button label="Kamera erlauben" onPress={requestPermission} />
+              <Button title="Kamera erlauben" onPress={requestPermission} />
             </View>
           ) : (
             <View className="scanner-camera-container">
@@ -119,7 +118,7 @@ export function BarcodeScannerModal({
             </Txt>
           )}
 
-          <Button label="Schließen" variant="secondary" onPress={onClose} />
+          <Button title="Schließen" variant="secondary" onPress={onClose} />
         </View>
       </View>
     </Modal>

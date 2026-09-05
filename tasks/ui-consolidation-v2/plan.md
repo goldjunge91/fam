@@ -1,6 +1,6 @@
 # Implementierungsplan V2: UI-Konsolidierung mit weniger Code
 
-Status: Bestätigte Planungsgrundlage; Umsetzung noch nicht gestartet
+Status: Bestätigte Planungsgrundlage; Umsetzung gestartet
 Stand: 2026-09-05
 Initiative: `ui-consolidation-v2`
 
@@ -17,8 +17,9 @@ Referenzen:
   folgen nur bei einem konkreten verbleibenden Befund.
 - `rs()` wird nur bei einem sehr kleinen Eingriff reaktiv gemacht. Andernfalls
   bleibt der Waivy-nahe Istzustand unverändert.
-- Bestehende Mocks werden wiederverwendet. Der bereits parallel entstehende
-  V2-Mock wird nach Übergabe ohne zusätzliche Mockrunde zum visuellen Ziel.
+- Bestehende V2-/V3-Mocks sind unfertige Beispiele, keine freigegebenen Ziele.
+  Sichtbare Änderungen warten auf den finalen Mock und Marcos ausdrückliche
+  Freigabe; es wird keine konkurrierende Mockrunde gestartet.
 
 ## 1. Ergebnis der Gegenprüfung
 
@@ -32,10 +33,10 @@ Mechanik und mehr Übergangscode erzeugen als nötig:
    `SCREEN_W` und `IS_TABLET` haben außerhalb der Entwicklerreferenz keine
    produktiven Verbraucher.
 2. Er bevorzugt Kompatibilitätsadapter für doppelte Komponenten. Im aktuellen
-   Code haben `Field` und das zweite `SegmentedControl` aus `ui.tsx` keine
-   Produktverbraucher; der alte `Button` aus `ui.tsx` hat nur die Dashboard-
-   Kartenliste als echten Verbraucher. Diese APIs können nach einer kleinen
-   Aufrufermigration gelöscht werden.
+   Code existieren zwei nahezu identische Button-Implementierungen mit
+   unterschiedlichen Props. Der Foundation-Button aus `ui.tsx` wird deshalb um
+   die belegten `link`- und `flat`-Fälle ergänzt; der Produkt-Button wird nach
+   direkter Aufrufermigration entfernt.
 3. Die Phasen sind unnötig vollständig serialisiert. Inventory und Shopping
    können nach stabilen Primitives unabhängig bearbeitet werden.
 4. Mehrere Arbeitspakete behaupten einen Zwei-Dateien-Scope, obwohl sie ganze
@@ -73,7 +74,7 @@ Die etablierten Produktimporte bleiben die öffentliche Grenze:
 
 | Vertrag | Kanonischer Einstieg |
 | --- | --- |
-| Button | `src/components/ui/buttons/button.tsx` |
+| Button | `src/constants/ui.tsx` |
 | Textfeld | `src/components/forms/text-field.tsx` |
 | Einzelauswahl | `src/components/ui/segmented-control.tsx` |
 | Empty State | `src/components/ui/empty-state.tsx` |
@@ -85,13 +86,21 @@ wenigen Aufrufer gelöscht. `Card` darf deshalb als Produktkomposition über ein
 zentralen Surface/Card-Foundation bestehen; zwei unabhängige Card-Rezepte dürfen
 nicht bestehen.
 
+Für `Button` bedeutet das ausdrücklich: Der bestehende Foundation-Button unter
+`src/constants/ui.tsx` bleibt die einzige Zielimplementierung. Task 4 ergänzt
+dort die bereits belegten `link`- und `flat`-Fälle und prüft die gemeinsame API.
+Task 5 migriert die Verbraucher des Produkt-Buttons direkt auf diese API und
+löscht anschließend `src/components/ui/buttons/button.tsx` samt reinem Export.
+Dabei gilt `label → title`, `default → md`, `large → lg` und `compact → sm`.
+Es bleibt kein Adapter oder Re-Export für die alte Button-Implementierung.
+
 ### 3.2 `rs()` nur bei praktisch kostenlosem Gewinn anfassen
 
 `rs()`, `SCREEN_W` und `IS_TABLET` bleiben zunächst so, wie sie aus dem
-Waivy-nahen Ausgangscode übernommen wurden. Beim Foundation-Task wird einmal
-geprüft, ob sich die Werte mit einem kleinen lokalen `useWindowDimensions()`-
-Helper reaktiv machen lassen. Zulässig ist höchstens ein Helper ohne neuen
-Provider, Context, Tokenobjekt oder breite Consumer-Migration.
+Waivy-nahen Ausgangscode übernommen wurden. Eine reaktive globale Skala ist
+kein Teil dieses Konsolidierungsschritts. Ein konkreter sichtbarer Layoutfehler
+darf weiterhin lokal mit Laufzeitmaßen gelöst werden, ohne eine neue Token-
+oder Provider-Schicht einzuführen.
 
 Sobald die Lösung mehr Infrastruktur oder Änderungen quer durch die App braucht,
 wird sie nicht umgesetzt. Der aktuelle Code bleibt dann in diesem Punkt bestehen
@@ -115,11 +124,12 @@ NativeWind-Komponentenklassen oder ein pauschaler Rewrite aller Screens.
 
 ### 3.5 Sichtbare Entscheidungen bleiben ein Gate
 
-Kontrastkorrekturen und Änderungen an Listen-/Headerdichte verwenden die bereits
-vorhandenen Mocks und den parallel entstehenden V2-Mock. Es wird keine weitere
-Mockrunde erzeugt, wenn diese Artefakte die Entscheidung bereits abdecken.
-Strukturelle Konsolidierung mit erhaltener Darstellung kann sofort beginnen.
-Sichtbare Änderungen werden unmittelbar nach Freigabe des V2-Mocks umgesetzt.
+Kontrastkorrekturen und Änderungen an Listen-/Headerdichte warten auf den finalen
+Mock. Die vorhandenen V2-/V3-Artefakte bleiben unfertige Beispiele und begründen
+keine Produktentscheidung. Es wird keine weitere konkurrierende Mockrunde
+erzeugt. Strukturelle Konsolidierung mit erhaltener Darstellung kann sofort
+beginnen; sichtbare Änderungen starten erst nach ausdrücklicher Freigabe des
+finalen Mocks.
 
 ## 4. Scope
 
@@ -149,10 +159,10 @@ Sichtbare Änderungen werden unmittelbar nach Freigabe des V2-Mocks umgesetzt.
 Task 1  Scope-Verträge korrigieren
   |
   +--> Task 3  Tokens pragmatisch prüfen
-  +--> Task 4  Produkt-Button stabilisieren --> Task 5  Legacy-Button löschen
+  +--> Task 4  Foundation-Button in ui.tsx erweitern --> Task 5  Produkt-Button löschen
   +--> Task 6  TextField --> Task 7  SegmentedControl --> Task 8  Card/EmptyState
 
-Task 2  vorhandenen V2-Mock übernehmen, parallel zu Tasks 1 und 4 bis 8
+Task 2  finalen Mock nach Fertigstellung und Freigabe übernehmen
   |
   +--> sichtbare Farb-/Dichteänderungen in Tasks 3, 9 und 10
 
@@ -167,9 +177,9 @@ Tasks 3 bis 10
 ```
 
 Tasks 4, 6, 7 und 8 teilen zentrale Dateien und werden nicht parallel umgesetzt.
-Der laufende V2-Mock blockiert diese strukturellen Tasks nicht. Tasks 9 und 10
-können nach Mockfreigabe parallel laufen, sofern jeder Agent ausschließlich
-seinen Featurepfad besitzt.
+Der noch unfertige finale Mock blockiert diese strukturellen Tasks nicht. Tasks 9
+und 10 können nach Mockfreigabe parallel laufen, sofern jeder Agent
+ausschließlich seinen Featurepfad besitzt.
 
 ## 6. Beads-Taskliste
 
@@ -179,16 +189,18 @@ und Task-Ergebnisse. Das Epic ist `fam-6zf`.
 ### Phase A: Zielvertrag und visuelle Freigabe
 
 1. `fam-6zf.1` V2-Scope in Spec und Contracts korrigieren
-2. `fam-6zf.2` Vorhandene Mocks und laufenden V2-Mock übernehmen
+2. `fam-6zf.2` Finalen Mock nach Fertigstellung und Freigabe übernehmen
 
-Beide Tasks sind sofort ausführbar. Der laufende V2-Mock wird übernommen und
-nicht durch eine weitere Mockrunde ersetzt.
+Task 1 ist nach der abschließenden Konsistenzprüfung der benannten Contracts
+geschlossen. Task 2 bleibt blockiert, solange V2/V3 nur unfertige Beispiele sind und
+der finale Mock nicht ausdrücklich freigegeben wurde. Es wird keine
+konkurrierende Mockrunde erzeugt.
 
 ### Phase B: Foundations und kanonische Komponenten
 
 3. `fam-6zf.3` Tokens und unterstützte Farbpaare pragmatisch vereinfachen
-4. `fam-6zf.4` Produkt-Button als einzige Verhaltensbasis stabilisieren
-5. `fam-6zf.5` Legacy-Button nach Dashboard-Freigabe löschen
+4. `fam-6zf.4` Foundation-Button in `ui.tsx` um `link` und `flat` ergänzen
+5. `fam-6zf.5` Verbraucher direkt auf `ui.tsx`-Button migrieren und Produkt-Button löschen
 6. `fam-6zf.6` TextField als einzige Eingabedarstellung konsolidieren
 7. `fam-6zf.7` SegmentedControl als einzige Einzelauswahl konsolidieren
 8. `fam-6zf.8` Card- und EmptyState-Verantwortung bereinigen
@@ -218,9 +230,11 @@ nicht durch eine weitere Mockrunde ersetzt.
 
 - Vor jedem Task werden `git status --short` und der Diff der vorgesehenen Dateien
   geprüft. Fremde Änderungen werden nicht zurückgesetzt oder überschrieben.
-- Ein Agent besitzt während eines Tasks die angegebenen Dateien. Tasks mit
-  `src/constants/ui.tsx`, `src/components/theme/index.ts` oder Showcase-Dateien
-  laufen seriell.
+- Ein Agent besitzt während eines Tasks die angegebenen Dateien. Task 4 besitzt
+  ausschließlich `src/constants/ui.tsx` und seinen fokussierten Test. Task 5
+  besitzt den Produkt-Button, dessen Export und die belegten Verbraucher.
+  Tasks mit `src/constants/ui.tsx`, `src/components/theme/index.ts` oder
+  Showcase-Dateien laufen seriell.
 - Die aktuell parallel geänderten Dashboard-Dateien werden in Task 5 erst nach
   ausdrücklicher Freigabe des dortigen Owners angefasst.
 - Vorhandene `.android`-Dateien sind keine Aufforderung, neue Mirrors anzulegen.
@@ -259,7 +273,12 @@ nativen Nachweis.
 
 ## 10. Umsetzungsstart
 
-Die Planungsrichtung ist bestätigt. Die Umsetzung startet über die ausführbaren
-Beads `fam-6zf.1` und `fam-6zf.2`; weitere Tasks werden durch den hinterlegten
-Abhängigkeitsgraphen freigegeben. Sichtbare Layout- und Farbänderungen warten nur
-auf die Übergabe des bereits laufenden V2-Mocks.
+Die Planungsrichtung ist bestätigt. `fam-6zf.1` ist nach der
+Konsistenzprüfung der benannten Contracts geschlossen. `fam-6zf.4` und
+`fam-6zf.5` sind abgeschlossen: Der Foundation-Button in `ui.tsx` besitzt
+`link` und `flat`, alle direkten Verbraucher verwenden die kanonische API und
+der doppelte Produkt-Button samt reinem Export ist entfernt. `fam-6zf.2`
+bleibt blockiert, bis der finale Mock fertiggestellt und ausdrücklich
+freigegeben ist. Weitere Tasks werden durch den hinterlegten Abhängigkeitsgraphen
+freigegeben; unfertige V2-/V3-Beispiele lösen keine sichtbaren Layout- oder
+Farbänderungen aus.

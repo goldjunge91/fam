@@ -3,9 +3,8 @@ import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useRedeemInviteMutation } from '@/features/household/api';
 import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
 
@@ -76,7 +75,7 @@ export function JoinHouseholdScreen() {
 
           {/* Beitreten-Aktionsbutton */}
           <Button
-            label="Haushalt beitreten"
+            title="Haushalt beitreten"
             onPress={handleJoin}
             loading={redeemMutation.isPending}
             disabled={!tokenInput.trim()}
@@ -86,7 +85,7 @@ export function JoinHouseholdScreen() {
 
       {/* Abbrechen-Button (sofern Historie vorhanden) */}
       {router.canGoBack() && (
-        <Button label="Abbrechen" variant="secondary" onPress={() => router.back()} />
+        <Button title="Abbrechen" variant="secondary" onPress={() => router.back()} />
       )}
     </Screen>
   );

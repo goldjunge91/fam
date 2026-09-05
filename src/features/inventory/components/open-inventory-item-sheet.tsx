@@ -3,9 +3,8 @@ import { Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount } from '@/lib/package-size';
 
@@ -133,8 +132,8 @@ export function OpenInventoryItemSheet({
           </Txt>
 
           <Button
-            label={`${amount} öffnen`}
-            size="compact"
+            title={`${amount} öffnen`}
+            size="sm"
             onPress={() => onConfirm(quantity)}
             loading={loading}
           />

@@ -7,10 +7,10 @@ import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, HeaderIconButton } from '@/components/ui/buttons';
+import { HeaderIconButton } from '@/components/ui/buttons';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
@@ -754,11 +754,11 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
         ) : null}
 
         <Button
-          label="Zur Einkaufsliste hinzufügen"
+          title="Zur Einkaufsliste hinzufügen"
           onPress={handleAdd}
           loading={addItem.isPending}
           disabled={!name.trim()}
-          size="large"
+          size="lg"
         />
 
         <BarcodeScannerModal

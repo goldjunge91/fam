@@ -3,8 +3,7 @@ import { Modal, Platform, Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TextField } from '@/components/forms/text-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Surface, Txt } from '@/constants/ui';
+import { Button, Surface, Txt } from '@/constants/ui';
 import { DEFAULT_PORTIONS_PER_PERSON, type ResolvedServings, resolveServings } from '../servings';
 import { MEAL_SLOT_LABELS, type MealSlot } from '../week';
 
@@ -182,9 +181,9 @@ export function EntryFormModal({
             )}
 
             <View className="efm-actions">
-              <Button label="Speichern" onPress={handleSave} disabled={saveDisabled} />
+              <Button title="Speichern" onPress={handleSave} disabled={saveDisabled} />
               {onDelete ? (
-                <Button label="Eintrag entfernen" variant="danger" onPress={onDelete} />
+                <Button title="Eintrag entfernen" variant="danger" onPress={onDelete} />
               ) : null}
             </View>
           </View>

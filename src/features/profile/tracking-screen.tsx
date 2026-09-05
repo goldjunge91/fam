@@ -6,8 +6,7 @@ import { Modal, Pressable, ScrollView, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type TrackingMethod,
@@ -258,9 +257,9 @@ function TimePicker({
             </View>
 
             <View className="pt-two gap-two">
-              <Button label="Uhrzeit übernehmen" onPress={handleSaveCustomTime} />
+              <Button title="Uhrzeit übernehmen" onPress={handleSaveCustomTime} />
               <Button
-                label="Abbrechen"
+                title="Abbrechen"
                 variant="secondary"
                 onPress={() => setModalVisible(false)}
               />
@@ -489,7 +488,7 @@ export function TrackingScreen() {
 
             {/* Button zum Bearbeiten der Ziele */}
             <Button
-              label="Ziele & Makros bearbeiten"
+              title="Ziele & Makros bearbeiten"
               variant="secondary"
               onPress={() => router.push('/settings/goals')}
             />
@@ -579,7 +578,7 @@ export function TrackingScreen() {
 
             {/* Button zum Bearbeiten der Biometrie */}
             <Button
-              label="Biometrie bearbeiten"
+              title="Biometrie bearbeiten"
               variant="secondary"
               onPress={openBiometricsModal}
             />
@@ -703,12 +702,12 @@ export function TrackingScreen() {
 
             <View className="pt-two gap-two">
               <Button
-                label="Biometrie speichern"
+                title="Biometrie speichern"
                 onPress={handleSaveBiometrics}
                 loading={savingBiometrics}
               />
               <Button
-                label="Abbrechen"
+                title="Abbrechen"
                 variant="secondary"
                 onPress={() => setBiometricsModalVisible(false)}
               />

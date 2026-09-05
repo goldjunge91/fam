@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { usePremium } from '@/features/premium/premium-provider';
@@ -123,7 +122,7 @@ export function MissingIngredientsScreen() {
             fam vergleicht den Bedarf des ganzen Wochenplans mit eurem Vorrat und übernimmt nur
             Fehlendes in die Einkaufsliste.
           </Txt>
-          <Button label="Plus ansehen" onPress={openPlusPaywall} />
+          <Button title="Plus ansehen" onPress={openPlusPaywall} />
         </View>
       ) : isLoading ? (
         /* Ladeindikator beim Berechnen der Vorratsabgleiche */
@@ -171,7 +170,7 @@ export function MissingIngredientsScreen() {
 
           {/* Button zum Hinzufügen der ausgewählten Zutaten auf die Einkaufsliste */}
           <Button
-            label={`${selected.size} Artikel zur Einkaufsliste hinzufügen`}
+            title={`${selected.size} Artikel zur Einkaufsliste hinzufügen`}
             onPress={handleAddSelected}
             disabled={selected.size === 0 || isSubmitting || !session}
             loading={isSubmitting}

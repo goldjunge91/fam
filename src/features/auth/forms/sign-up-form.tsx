@@ -3,8 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { signUp } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { type SignUpInput, signUpSchema } from '@/lib/db/zod/auth.zod';
@@ -106,7 +105,7 @@ export function SignUpForm({
       ) : null}
 
       <Button
-        label={submitLabel}
+        title={submitLabel}
         onPress={() => void handleSubmit(submit)()}
         loading={isSubmitting}
       />

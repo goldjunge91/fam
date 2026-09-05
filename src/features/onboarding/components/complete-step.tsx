@@ -1,7 +1,6 @@
 import { router } from 'expo-router';
 import { View } from 'react-native';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useHouseholds } from '@/features/household/api';
 import { useOnboarding } from '../onboarding-store';
 
@@ -48,7 +47,7 @@ export function CompleteStepForm() {
 
       <View className="complete-button-container">
         <Button
-          label={isLoading ? 'Speichern...' : 'Zum Dashboard'}
+          title={isLoading ? 'Speichern...' : 'Zum Dashboard'}
           onPress={handleFinish}
           loading={isLoading}
         />

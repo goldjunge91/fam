@@ -3,8 +3,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProfile } from '@/features/profile/api';
 import {
@@ -206,10 +205,10 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
 
       <View className="perm-button-row">
         <View className="flex-1">
-          <Button label="Weiter" onPress={() => void handleSubmit(submit)()} />
+          <Button title="Weiter" onPress={() => void handleSubmit(submit)()} />
         </View>
         <View className="flex-1">
-          <Button label="Später ausfüllen" variant="secondary" onPress={onSkip} />
+          <Button title="Später ausfüllen" variant="secondary" onPress={onSkip} />
         </View>
       </View>
     </View>

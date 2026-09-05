@@ -1,8 +1,7 @@
 import { router } from 'expo-router';
 import { lazy, Suspense, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { VISION_CAMERA_LAB_ENABLED } from '@/features/experimentalscreens/vision-camera-lab';
 import { env } from '@/lib/env';
 import { useFeatureFlag } from '@/lib/posthog';
@@ -37,7 +36,7 @@ export default function CameraLabRoute() {
         <Txt variant="body" tone="secondary" center className="mb-6 px-6">
           Dieses experimentelle Labor ist in diesem Build deaktiviert.
         </Txt>
-        <Button label="Zurück" variant="secondary" onPress={() => router.back()} />
+        <Button title="Zurück" variant="secondary" onPress={() => router.back()} />
       </View>
     );
   }

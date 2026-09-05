@@ -3,16 +3,20 @@
 ## Zweck und öffentliche Grenze
 
 Buttons machen Priorität, Gefahr und Interaktion konsistent. Produktcode importiert
-Buttons aus `src/components/ui/buttons/`. Die kanonische beschriftete Produkt-API
-verwendet `label`, `onPress`, `variant`, `size`, `loading` und `disabled`.
+den kanonischen Button aus `src/constants/ui.tsx`. Die Foundation-API verwendet
+`title`, `onPress`, `variant`, `size`, `loading` und `disabled`; `icon`,
+`accentKey`, `full`, `haptic`, `flat` und `accessibilityLabel` bleiben unterstützte
+Ergänzungen.
 
 Tokens stammen aus `index.ts`, die aktive Palette aus dem ThemeProvider.
 Typografie, Farbpaare, Größenrezepte, Zustandsdarstellung, Timing und Haptikzuordnung
 werden in `ui.tsx` definiert. Produktkomponenten ergänzen Verhalten und Komposition.
 
-Der bestehende Foundation-Button mit `title` und `sm/md/lg` ist ein
-Kompatibilitätseinstieg. Er darf nach Konsolidierung nur dieselbe Basis adaptieren.
-Eine zusätzliche unabhängige Implementierung bleibt kein zulässiger Endzustand.
+Der bisherige Produkt-Button mit `label` und `default/large/compact` ist eine
+überlappende Alt-Implementierung. Verbraucher werden direkt auf die Foundation-
+API umgestellt: `label → title`, `default → md`, `large → lg` und `compact → sm`.
+Eine zusätzliche Button-Implementierung oder ein dauerhafter Adapter bleibt kein
+zulässiger Endzustand.
 
 ## Varianten und Größen
 
@@ -25,8 +29,8 @@ Eine zusätzliche unabhängige Implementierung bleibt kein zulässiger Endzustan
 | `ghost` | transparente Nebenaktion mit primärem Text |
 | `link` | transparente Textaktion mit Akzenttext |
 
-Größen bleiben `default`, `large`, `compact`. Gleiche Variante und Größe haben in
-Foundation, Produktadapter und Showcase identische Rezepte. Nicht jede Aktion
+Größen bleiben im kanonischen Button `sm`, `md`, `lg`. Gleiche Variante und Größe
+haben in Foundation und Showcase identische Rezepte. Nicht jede Aktion
 auf einem Screen verwendet `primary`. Ein `accentKey` ist keine freie Farbwahl.
 
 ## Tiefe und Motion
@@ -37,8 +41,9 @@ Der äußere View trägt eine deckende zentrale Tiefenfarbe und reserviert
 Tiefe nach unten und federt bei `onPressOut` zurück. Features ergänzen keine
 weiteren Press-Overlays oder zeitgesteuerten Animationssequenzen.
 
-Die vorhandene `flat`-Ausnahme für kompakte Header-Aktionen darf den Tiefeneffekt
-entfernen. Sie erzeugt keine zweite Buttonfamilie. Bei Reduced Motion entfallen
+Die vorhandene `flat`-Ausnahme für kompakte Header-Aktionen wird im kanonischen
+Button umgesetzt und darf den Tiefeneffekt entfernen. Sie erzeugt keine zweite
+Buttonfamilie. Bei Reduced Motion entfallen
 Federüberschwingen und Skalierung. Ein sofortiger Zustand oder ruhiges Farb-/Konturfeedback
 bleibt erhalten; die Systempräferenz muss über die reale Implementierung wirken.
 
@@ -55,8 +60,9 @@ bleibt erhalten; die Systempräferenz muss über die reale Implementierung wirke
   an das tatsächliche interaktive Element weitergegeben.
 - Abbruch oder Disabled-Wechsel hinterlassen keine dauerhaft gedrückte Fläche.
   Adapter erzeugen keine doppelte Aktivierung, Animation oder Haptik.
-- Haptik läuft ausschließlich über `src/lib/haptics.ts`: Produktbutton standardmäßig
-  Medium, Auswahl Selection, generisches Press Light. Vorhandene dokumentierte
+- Haptik läuft ausschließlich über `src/lib/haptics.ts`: Der kanonische Button
+  verwendet standardmäßig Medium, Auswahl Selection, generisches Press Light.
+  Vorhandene dokumentierte
   Overrides und Haptikpräferenzen bleiben wirksam.
 
 ## Touch, Fokus und Beschriftung
@@ -76,9 +82,9 @@ höchstens Kompatibilitäts-/Integrationsgrenze, keine Erlaubnis für ungeprüft
 ## Beispiel der vorgesehenen Verwendung
 
 ```tsx
-import { Button } from '@/components/ui/buttons';
+import { Button } from '@/constants/ui';
 
-<Button label="Speichern" loading={isSaving} onPress={save} />
+<Button title="Speichern" loading={isSaving} onPress={save} />
 ```
 
 Ein eigener 37-Punkte-Pressable mit lokaler Farbe und Textdarstellung umgeht

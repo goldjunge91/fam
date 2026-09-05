@@ -7,8 +7,8 @@ import { Alert, Platform, Pressable, ScrollView, View } from 'react-native';
 
 import { HubScreen } from '@/components/layout/hub-screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, MenuButton, ProfileButton } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { MenuButton, ProfileButton } from '@/components/ui/buttons';
+import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -239,7 +239,7 @@ export function SettingsScreen() {
 
         {/* Abmelden-Aktion */}
         <View className="mt-two">
-          <Button label="Abmelden" variant="danger" onPress={handleSignOut} loading={signingOut} />
+          <Button title="Abmelden" variant="danger" onPress={handleSignOut} loading={signingOut} />
         </View>
 
         {/* App-Versionsangabe & Build-Nummer */}

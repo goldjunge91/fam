@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { Alert, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
   useAddStorageLocationMutation,
@@ -90,7 +89,7 @@ export function StorageLocationsScreen() {
             onChangeText={setNewLocationName}
           />
           <Button
-            label="Hinzufügen"
+            title="Hinzufügen"
             onPress={handleAdd}
             loading={addMutation.isPending}
             disabled={!newLocationName.trim()}
@@ -120,7 +119,7 @@ export function StorageLocationsScreen() {
                       <View className="storage-location-btn-row">
                         <View className="flex-1">
                           <Button
-                            label="Speichern"
+                            title="Speichern"
                             onPress={() => handleUpdate(loc.id)}
                             loading={updateMutation.isPending}
                             disabled={!editingName.trim()}
@@ -128,7 +127,7 @@ export function StorageLocationsScreen() {
                         </View>
                         <View className="flex-1">
                           <Button
-                            label="Abbrechen"
+                            title="Abbrechen"
                             variant="secondary"
                             onPress={() => {
                               setEditingId(null);
@@ -146,7 +145,7 @@ export function StorageLocationsScreen() {
                       </Txt>
                       <View className="storage-location-btn-row">
                         <Button
-                          label="Umbenennen"
+                          title="Umbenennen"
                           variant="secondary"
                           onPress={() => {
                             setEditingId(loc.id);
@@ -154,7 +153,7 @@ export function StorageLocationsScreen() {
                           }}
                         />
                         <Button
-                          label="Löschen"
+                          title="Löschen"
                           variant="danger"
                           onPress={() => handleDelete(loc.id, loc.name)}
                         />

@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { PageHeader } from '@/components/layout/page-header';
 import { SectionHeading } from '@/components/layout/section-heading';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { BackButton, Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { BackButton } from '@/components/ui/buttons';
+import { Button, Txt } from '@/constants/ui';
 import { CalorieCarousel } from '@/features/recipes/components/calorie-carousel';
 import { CategoryCarousel } from '@/features/recipes/components/category-carousel';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
@@ -97,7 +96,7 @@ export function RecipeFilterModal({
             leading={<BackButton label="Filter schließen" variant="header" onPress={onClose} />}
             trailing={
               <Button
-                label="Zurücksetzen"
+                title="Zurücksetzen"
                 variant="link"
                 onPress={() => setDraft(EMPTY_RECIPE_FILTERS)}
                 disabled={filterCount === 0}
@@ -206,8 +205,8 @@ export function RecipeFilterModal({
 
           <View className="recipe-modal-footer">
             <Button
-              label={resultLabel}
-              size="large"
+              title={resultLabel}
+              size="lg"
               onPress={() => onApply(draft)}
               accessibilityLabel={resultLabel}
             />

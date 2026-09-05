@@ -20,6 +20,12 @@ Eine Farbe direkt aus `useTheme()` zu lesen macht eine lokale Card-, Button- ode
 Auswahlgestaltung noch nicht zu einem zentralen Rezept. Höhere Komponenten
 wenden gemeinsame Darstellung an und ergänzen Verhalten und Komposition.
 
+Ein `StyleSheet` darf die aktive Palette über `useThemedStyles()` beziehen. Das
+ist keine neue Tokenquelle, sondern die Laufzeitbindung an das aktive Theme.
+Der kanonische `Button` bleibt das Primitive aus `src/constants/ui.tsx`;
+`src/components/ui/buttons/button.tsx` ist nach der Verbrauchermigration kein
+zweiter Button-Einstieg mehr.
+
 `className` und allgemeine `style`-Props sind keine Freigabe für semantische
 Overrides. Bestehende breite Props bleiben für kompatible Aufrufer und native
 Grenzen nutzbar. Wiederkehrende visuelle Entscheidungen werden zentral ausgedrückt.
@@ -37,14 +43,14 @@ NativeWind-Theme-Schicht eingeführt. Die Migration erfolgt über Verbraucher,
 nicht über eine zweite synchronisierte Farbquelle.
 
 Alte Exports und Klassen werden erst nach Prüfung aller Verbraucher einschließlich
-Android, Web und Referenzseite entfernt. Produktadapter dürfen währenddessen
-Props übersetzen, aber keine zweite Darstellungslogik besitzen.
+Android, Web und Referenzseite entfernt. Eine konkrete Prop-Übersetzung darf während der Migration existieren, aber keine zweite Darstellungslogik besitzen;
+neue Verbraucher werden direkt auf das kanonische Primitive umgestellt.
 
 ## Integrationsausnahmen
 
-Native Views ohne NativeWind-Interop verwenden ihre tatsächliche `style`-/Prop-API,
-beispielsweise FlashList, Bottom Sheets, SVG oder `expo-image`. Palette und
-semantische Rezepte stammen weiterhin aus den zentralen Quellen.
+Native Views ohne NativeWind-Interop verwenden ihre tatsächliche
+`style`-/Prop-API, beispielsweise FlashList, Bottom Sheets, SVG oder `expo-image`.
+Palette und semantische Rezepte stammen weiterhin aus den zentralen Quellen.
 
 Medien, offizielle Produktkennzeichnungen, nutzergewählte Farben und Systemcontrols
 werden nicht pauschal in die fam-Palette umgefärbt. Ein Crash-Fallback außerhalb
@@ -80,7 +86,7 @@ betroffenen aktiven Komponenten sowie ihre Plattformvarianten. Jeder verbleibend
 Sonderweg wird migriert oder konkret begründet. Ein Regex, der pauschal Kamera-Schwarz
 oder offizielle Kennzeichnungen verbietet, genügt nicht.
 
-Eine abgeschlossene Migration hat keine unbegründeten aktiven semantischen
-Legacy-Verbraucher. Nicht mehr verwendete Legacy-Definitionen werden nach Prüfung
-entfernt. Betroffene Typ-, Biome- und CSS-Prüfungen sowie gezielte Verbrauchertests
-müssen bestehen. Code- und Dokumentationsstatus werden getrennt berichtet.
+Eine abgeschlossene Migration hat keine unbegründeten aktiven semantischen Legacy-
+Verbraucher. Nicht mehr verwendete Legacy-Definitionen werden nach Prüfung entfernt.
+Betroffene Typ-, Biome- und CSS-Prüfungen sowie gezielte Verbrauchertests müssen
+bestehen. Code- und Dokumentationsstatus werden getrennt berichtet.

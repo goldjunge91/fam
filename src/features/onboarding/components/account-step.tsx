@@ -1,8 +1,7 @@
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
 import { EmailVerificationPanel } from '@/features/auth/components/email-verification-panel';
 import { SignInForm } from '@/features/auth/forms/sign-in-form';
@@ -57,7 +56,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
             </Txt>
           </View>
 
-          <Button label="Weiter" onPress={onNext} />
+          <Button title="Weiter" onPress={onNext} />
         </View>
       ) : (
         <View className="account-form">
@@ -103,7 +102,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
               />
               <AuthProviderOptions mode="sign_in" onAuthAttempt={() => setOAuthAttempted(true)} />
               <Button
-                label="Passwort vergessen"
+                title="Passwort vergessen"
                 variant="link"
                 onPress={() =>
                   router.push({ pathname: '/forgot-password', params: { from: 'onboarding' } })

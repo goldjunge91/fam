@@ -5,10 +5,9 @@ import { Alert, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
@@ -258,7 +257,7 @@ export function InventoryScreen() {
               </Txt>
               <Button
                 variant="link"
-                label="Verlauf"
+                title="Verlauf"
                 accessibilityLabel="Gesamten Vorratsverlauf öffnen"
                 onPress={() => setHistoryOpen(true)}
               />
@@ -288,7 +287,7 @@ export function InventoryScreen() {
                 </Txt>
                 <Button
                   variant="link"
-                  label="Sortieren"
+                  title="Sortieren"
                   accessibilityLabel={`Sortierung ändern, aktuell ${
                     sortMode === 'expiry' ? 'nach Haltbarkeit' : 'alphabetisch'
                   }`}

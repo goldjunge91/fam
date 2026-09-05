@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Alert, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
+import { Button } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { setPendingProductSelection } from '@/features/inventory/pending-product-selection';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
@@ -125,13 +125,13 @@ export function AddProductScreen() {
         {/* Aktions-Buttons: Produkt anlegen / Abbrechen */}
         <View className="mt-three">
           <Button
-            label="Speichern"
+            title="Speichern"
             onPress={handleSave}
             loading={mutation.isPending}
             disabled={!name.trim()}
           />
         </View>
-        <Button label="Abbrechen" variant="secondary" onPress={() => router.back()} />
+        <Button title="Abbrechen" variant="secondary" onPress={() => router.back()} />
       </View>
     </Screen>
   );

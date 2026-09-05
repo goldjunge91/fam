@@ -4,10 +4,9 @@ import { View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { SegmentedControl } from '@/components/ui/segmented-control';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { type FeedbackType, useCreateTicketMutation } from '@/features/feedback/api';
 import { FEEDBACK_TYPE_LABELS } from '@/features/feedback/labels';
@@ -63,7 +62,7 @@ export function FeedbackFormScreen() {
             </Txt>
             <Txt variant="body">{`Dein Ticket #${createdTicketNumber} ist eingegangen. Wir melden uns, sobald sich etwas tut.`}</Txt>
             <Button
-              label="Meine Tickets ansehen"
+              title="Meine Tickets ansehen"
               onPress={() => router.replace('/settings/feedback')}
             />
           </View>
@@ -106,7 +105,7 @@ export function FeedbackFormScreen() {
             </Txt>
           ) : null}
 
-          <Button label="Absenden" onPress={handleSubmit} loading={mutation.isPending} />
+          <Button title="Absenden" onPress={handleSubmit} loading={mutation.isPending} />
         </View>
       </Card>
     </Screen>

@@ -50,7 +50,7 @@ Die aktuellen normativen Regeln stehen in [docs/design-system/contracts](../../d
 | Zwei SegmentedControls mit verschiedenen APIs und Accessibility-Abdeckung | `src/constants/ui.tsx`, `src/components/ui/segmented-control.tsx` | im Code bestätigt |
 | Schattenfarben als Textfarben in Accent-/Badge-Rezepten | `src/components/theme/index.ts`, `src/constants/ui.tsx` | im Code bestätigt; Kontrast berechnet |
 | CSS-Variablen und System-Media-Query neben aktivem ThemeProvider | `src/global.css`, `src/components/theme/ThemeProvider.tsx` | im Code bestätigt; konkrete native Symptome noch zu prüfen |
-| Fensterabhängige Tokens werden einmal beim Modulimport berechnet | `src/components/theme/index.ts` | im Code bestätigt; aktuelle Verträge sehen `rs()` ausdrücklich vor |
+| Fensterabhängige Tokens werden einmal beim Modulimport berechnet | `src/components/theme/index.ts` | im Code bestätigt; der Eingriff an `rs()` bleibt ausdrücklich klein und optional |
 | Kleine Touchflächen und fehlende Auswahlmetadaten in einzelnen Primitiven | `ui.tsx`, `header-icon-button.tsx`, `segmented-control.tsx` | im Code bestätigt; tatsächliche Trefferbereiche geräteseitig prüfen |
 | Leere Inhaltsfläche während Erstladen | Einkaufslisten- und Vorrats-Screen | im Code bestätigt |
 | Referenzseite zeigt parallele Produkt- und Foundation-Varianten | `src/features/settings/dev/design-system/showcase-components.tsx` | im Code bestätigt |
@@ -78,7 +78,7 @@ Die beiden Badge-Beispiele sind insbesondere in der Entwicklerreferenz belegt. D
 - Gemeinsame Buttons, Icon-Aktionen, Textfelder, Auswahlkomponenten, Badges, Cards, Text, Leer-/Fehler-/Ladezustände und ihre tatsächlichen Produktadapter.
 - Alle aktiven, von diesen Verträgen betroffenen UI-Verbraucher unter `src/components/` und `src/features/`, einschließlich vorhandener Plattformdateien.
 - Semantische NativeWind-Migrationsbestände, die diese Verbraucher weiterhin verwenden.
-- Responsive Bedienbarkeit, Systemschrift, Screenreader und reduzierte Bewegung auf iOS und Android.
+- Responsive Bedienbarkeit, Systemschrift, Screenreader und reduzierte Bewegung auf iOS und Android, soweit die betroffene Plattform verfügbar geprüft werden kann.
 - Konsistenz von Screen-/Sheet-Darstellung, Safe Area und Aktionsfreiraum, soweit durch die Konsolidierung betroffen.
 - Referenzseite, gezielte Tests und Aktualisierung der normativen Design-System-Verträge.
 
@@ -115,7 +115,7 @@ Höhere Komponenten besitzen Verhalten, Komposition, Accessibility-Metadaten und
 
 ### ARC-02: Öffentliche APIs und Importgrenzen
 
-- Produktbuttons werden weiterhin über `src/components/ui/buttons/` importiert. Die etablierte `label`-API mit `default/large/compact` ist der Zielvertrag.
+- Der kanonische Button wird direkt aus `src/constants/ui.tsx` importiert. Seine bestehende `title`-API mit `sm/md/lg` bleibt der Zielvertrag; `link` und `flat` werden dort ergänzt. `label/default/large/compact` sind nur noch die zu migrierende Alt-API des Produkt-Buttons.
 - `Txt`, `Surface` und reine gemeinsame Primitive bleiben über `src/constants/ui.tsx` erreichbar.
 - `TextField` bleibt der Produkteinstieg für strukturierte Eingaben. `Field` und `TextField` teilen dieselbe Eingabebasis; bestehende Aufrufer dürfen nicht Fähigkeiten verlieren.
 - Produkt-Einzelauswahl verwendet einen kanonischen `SegmentedControl` mit Gruppenlabel, `options`, `selected` und `onSelect`. Die bestehende Produkt-API ist Ausgangspunkt.
@@ -172,13 +172,13 @@ Die sieben öffentlichen `Txt`-Varianten bleiben erhalten. Zielwerte bei Systems
 | `label` | 13 / 17 | 600 |
 | `caption` | 12 / 15 | 500 |
 
-`rs()` bleibt als zentrale, begrenzte Designskalierung erhalten. Die Basisskala ist die gemeinsame Referenz bei Systemschriftfaktor 1,0; dargestellte Werte dürfen geräteabhängig abweichen. Die relevante verfügbare Breite wird reaktiv berücksichtigt und bei Rotation, Fenster-Resize und Schriftfaktoränderungen neu berechnet. Systemschrift-Skalierung bleibt aktiviert. Produktcode führt keine kompensierenden kleineren Schriften oder pauschalen `maxFontSizeMultiplier`-Limits ein. Komponentenspezifische Beschriftungen und Zahlenrezepte bleiben zentral in `ui.tsx`, ohne die öffentliche Variantenzahl zu erhöhen. Kleine Texte wie `rs(12)` werden an der tatsächlichen Darstellung auf schmalen Geräten auf Lesbarkeit geprüft.
+`rs()` bleibt als zentrale, begrenzte Designskalierung erhalten. Die Basisskala ist die gemeinsame Referenz bei Systemschriftfaktor 1,0; dargestellte Werte dürfen geräteabhängig abweichen. Der bestehende Waivy-nahe Istzustand von `rs()` bleibt unverändert, sofern eine Reaktivierung nicht mit einem sehr kleinen lokalen `useWindowDimensions()`-Helper möglich ist. Ein solcher Helper darf keinen neuen Provider, Context, kein Tokenobjekt und keine breite Consumer-Migration einführen. Andernfalls wird `rs()` in dieser Initiative nicht angefasst. Systemschrift-Skalierung bleibt aktiviert. Produktcode führt keine kompensierenden kleineren Schriften oder pauschalen `maxFontSizeMultiplier`-Limits ein. Komponentenspezifische Beschriftungen und Zahlenrezepte bleiben zentral in `ui.tsx`, ohne die öffentliche Variantenzahl zu erhöhen. Kleine Texte wie `rs(12)` werden an der tatsächlichen Darstellung auf schmalen Geräten auf Lesbarkeit geprüft.
 
 ### SPACE-01: Stabile Abstände und adaptive Anordnung
 
-Die wiederverwendbare Basisskala lautet `xs=4`, `sm=8`, `md=12`, `lg=16`, `xl=20`, `xxl=28`, `xxxl=40` logische Einheiten. `rs()` skaliert diese zentral, begrenzt und reaktiv; die Basisskala bleibt die gemeinsame Referenz. Vorhandene feste Layoututilities dürfen weiterverwendet werden. Identische wiederkehrende Abstände müssen denselben Wert besitzen; eine zusätzliche Skala in der Tailwind-Konfiguration wird nicht aufgebaut.
+Die wiederverwendbare Basisskala lautet `xs=4`, `sm=8`, `md=12`, `lg=16`, `xl=20`, `xxl=28`, `xxxl=40` logische Einheiten. `rs()` skaliert diese zentral und begrenzt; der bestehende Waivy-nahe Istzustand bleibt erhalten, außer ein sehr kleiner lokaler `useWindowDimensions()`-Helper reicht ohne neue Infrastruktur und breite Consumer-Migration aus. Vorhandene feste Layoututilities dürfen weiterverwendet werden. Identische wiederkehrende Abstände müssen denselben Wert besitzen; eine zusätzliche Skala in der Tailwind-Konfiguration wird nicht aufgebaut.
 
-Fensterabhängig verändern sich Anordnung, Umbruch und nutzbare Breite. Notwendige Fenstermaße werden reaktiv gelesen. Rotation oder Fenster-Resize benötigen keinen Neustart. Bei begrenzten Inhaltsspalten darf zusätzliche Fensterbreite die UI nicht unnötig vergrößern. Die bestehende maximale Inhaltsbreite von 600 bleibt Ausgangspunkt; ein Tablet-Redesign ist nicht enthalten.
+Fensterabhängig dürfen sich Anordnung, Umbruch und nutzbare Breite verändern. Ein konkreter sichtbarer Layoutfehler darf lokal mit verfügbaren Fenstermaßen gelöst werden; eine allgemeine responsive Token-Laufzeit wird nicht eingeführt. Bei begrenzten Inhaltsspalten darf zusätzliche Fensterbreite die UI nicht unnötig vergrößern. Die bestehende maximale Inhaltsbreite von 600 bleibt Ausgangspunkt; ein Tablet-Redesign ist nicht enthalten.
 
 Gemeinsame Mindesttouchgrößen, Header-/Aktionsmaße und unterer Freiraum werden zentral beschrieben. Kein durch `rs()` dargestelltes Touchziel darf unter 44 × 44 logische Einheiten fallen. Safe-Area-Werte werden jeweils genau einmal berücksichtigt. Lokale Sondermaße bleiben möglich, wenn sie tatsächlich nur lokales Layout lösen.
 
@@ -186,9 +186,15 @@ Gemeinsame Mindesttouchgrößen, Header-/Aktionsmaße und unterer Freiraum werde
 
 ### BTN-01: Buttons und Icon-Aktionen
 
-Varianten bleiben `primary`, `secondary`, `danger`, `accent`, `ghost`, `link`; Größen bleiben `default`, `large`, `compact`. Primary bezeichnet die hervorgehobene Aktion, Danger eine destruktive Aktion, Secondary eine weich hinterlegte Nebenaktion, Ghost eine flächentransparente Nebenaktion mit primärem Text und Link eine flächentransparente Textaktion mit Akzenttext.
+Varianten bleiben `primary`, `secondary`, `danger`, `accent`, `ghost`, `link`; die kanonischen Größen sind `sm`, `md`, `lg`. Primary bezeichnet die hervorgehobene Aktion, Danger eine destruktive Aktion, Secondary eine weich hinterlegte Nebenaktion, Ghost eine flächentransparente Nebenaktion mit primärem Text und Link eine flächentransparente Textaktion mit Akzenttext.
 
-Gefüllte Buttons behalten 4 Punkte sichtbare Tiefe und 4 Punkte Druckweg. Die bestehende Flat-Ausnahme für kompakte Header-Aktionen bleibt möglich. Gleiche Variante und Größe produzieren in Foundation, Produktadapter und Showcase dasselbe Rezept, einschließlich Foreground, Depth, Padding und Disabled-Darstellung.
+Der kanonische Button liegt in `src/constants/ui.tsx` und verwendet `title`,
+`onPress`, `variant`, `size`, `icon`, `accentKey`, `loading`, `disabled`,
+`full`, `haptic`, `flat` und `accessibilityLabel`. Der bisherige Produkt-Button ist kein zweiter
+Darstellungsvertrag. Bei der Migration werden `label` zu `title`,
+`default` zu `md`, `large` zu `lg` und `compact` zu `sm` übersetzt.
+
+Gefüllte Buttons behalten 4 Punkte sichtbare Tiefe und 4 Punkte Druckweg. Die bestehende Flat-Ausnahme für kompakte Header-Aktionen bleibt möglich. Gleiche Variante und Größe produzieren im kanonischen Foundation-Button und im Showcase dasselbe Rezept, einschließlich Foreground, Depth, Padding und Disabled-Darstellung.
 
 Loading und Disabled blockieren Aktivierung und Haptik. Loading meldet `busy`; Disabled meldet `disabled`. Das Label bleibt lesbar. Ein Ladeindikator verschiebt die Beschriftung nicht überraschend. Mehrzeilige Labels dürfen die Höhe erhöhen.
 
@@ -200,7 +206,7 @@ Icon-only-Aktionen brauchen eine verständliche Beschriftung. Ein dekoratives Ic
 
 Gemeinsame Press-Wrapper führen ihre internen Effekte und übergebene `onPressIn`-/`onPressOut`-Handler jeweils genau einmal aus. Abbruch, Disabled-Wechsel und Remount dürfen keine dauerhaft gedrückte Darstellung hinterlassen. Verschachtelte Adapter lösen keine doppelte Animation oder Haptik aus.
 
-Bestehende Haptik läuft ausschließlich über `src/lib/haptics.ts`. Der Produktbutton behält standardmäßig Medium, Auswahlaktionen Selection und generische Press-Aktionen ihren bisherigen Light-Default. Ein dokumentierter Override bleibt möglich. Ausgeschaltete Haptikpräferenzen werden nicht umgangen.
+Bestehende Haptik läuft ausschließlich über `src/lib/haptics.ts`. Der kanonische Button behält standardmäßig Medium, Auswahlaktionen Selection und generische Press-Aktionen ihren bisherigen Light-Default. Ein dokumentierter Override bleibt möglich. Ausgeschaltete Haptikpräferenzen werden nicht umgangen.
 
 Reduzierte Bewegung respektiert die Systempräferenz. In diesem Modus entfallen federndes Überschwingen und Skalierung; ein sofortiger Zustand oder eine ruhige Farb-/Konturänderung erhält das Feedback. Es werden keine dauerhaften Pulse-, Shimmer- oder Blur-Animationen ergänzt. Bestehende kurzlebige native Busy-Indikatoren dürfen bleiben; statisches Erstladefeedback ist der Default für die betroffenen Listen.
 
@@ -269,14 +275,14 @@ Header dürfen bei langen Titeln/großer Schrift wachsen oder kontrolliert umbre
 
 ### PLATFORM-01: Gleichwertige Ergebnisse
 
-iOS und Android müssen dieselben semantischen Zustände und Produktfunktionen liefern. Native Darstellung darf plattformgerecht abweichen. Beide Plattformen werden mit tatsächlicher Rotation, Fenstergröße, Systemschrift, Fokus und Aktivierung geprüft.
+iOS und Android bleiben Zielplattformen und müssen dieselben semantischen Zustände und Produktfunktionen liefern. Native Darstellung darf plattformgerecht abweichen. Plattformnachweise werden je tatsächlich geprüfter Plattform separat dokumentiert; eine ungeprüfte Android-Abnahme wird nicht behauptet und ist für diesen ersten Konsolidierungsschritt kein Abschlusskriterium.
 
-Gemäß Projektvorgabe erhält jede bei der späteren Umsetzung betroffene plattformübergreifende Feature-Datei eine eigenständige `.android`-Kopie; vorhandene Kopien werden mitgeführt. Diese sind keine Stubs oder Symlinks. Die drei zentralen Designverantwortlichen bleiben trotzdem die Quelle der Regeln; Plattformkopien dürfen keine unabhängig gepflegte neue Palette einführen.
+Es werden keine neuen `.android.ts`- oder `.android.tsx`-Kopien angelegt. Vorhandene Plattformdateien werden nur geändert, wenn sie direkt eine entfernte API importieren oder der Typecheck sonst bricht. Die drei zentralen Designverantwortlichen bleiben die Quelle der Regeln; Plattformdateien führen keine unabhängig gepflegte neue Palette ein.
 
 ### MIG-01: Sichere Übergänge
 
 - Bestehende Aufrufer bleiben während eines abgegrenzten Änderungsschritts funktionsfähig. Adapter übersetzen Props, ohne das zentrale Rezept zu duplizieren.
-- Eine alte API oder ein Tokenexport wird erst entfernt, wenn alle tatsächlichen Verbraucher einschließlich Android- und Showcase-Varianten berücksichtigt sind.
+- Eine alte API oder ein Tokenexport wird erst entfernt, wenn alle tatsächlichen Verbraucher einschließlich vorhandener Plattform- und Showcase-Varianten berücksichtigt sind.
 - Neue Produktstellen verwenden sofort den Zielvertrag. Die Migration darf keine neue parallele Styling-Schicht benötigen.
 - Jeder aufgespürte verbleibende semantische Sonderweg wird entweder migriert oder gemäß Abschnitt 3.3 ausdrücklich begründet. „Historisch gewachsen“ allein ist keine Ausnahme für den Endzustand.
 - Tests, die bisher lediglich beliebige Style-Overrides festschreiben, werden gegen den tatsächlichen Vertrag bewertet. Sinnvolle Kompatibilitätsprüfungen bleiben erhalten; ein geänderter zulässiger Vertrag wird nicht durch Entfernen von Fehlermeldungen kaschiert.
@@ -287,12 +293,12 @@ Gemäß Projektvorgabe erhält jede bei der späteren Umsetzung betroffene platt
 | Vertrag | Überarbeiteter Zielvertrag |
 | --- | --- |
 | `01-theme-and-colors.md` | geprüfte Farbpaare, Legacy-Grenze, keine Schatten als Vordergrund |
-| `02-typography.md` | feste Basisskala statt `rs()`; Systemschrift und große Inhalte |
-| `03-spacing-and-layout.md` | feste Abstandsskala, reaktive Layoutmaße, Mindesttouchbereiche |
+| `02-typography.md` | feste Basisskala, begrenzter `rs()`-Eingriff; Systemschrift und große Inhalte |
+| `03-spacing-and-layout.md` | feste Abstandsskala, lokale Layoutreaktion nur bei Befund, Mindesttouchbereiche |
 | `04-radius-shadow-gradient.md` | widersprüchliches positives Beispiel korrigieren; Kontrast auf Verläufen und erhaltene Schattenzuständigkeit; `Fonts` dem Typografievertrag zuordnen |
 | `05-nativewind-and-stylesheet.md` | Ende aktiver semantischer Legacy-Verbraucher und explizite Ausnahmen |
 | `06-surfaces-and-cards.md` | gemeinsame Foundation, Interaktion, Abgrenzung lokaler Komposition |
-| `07-buttons-and-interaction.md` | kanonische Produkt-API, vollständige Events, 44-Punkte-Ziele, Motion |
+| `07-buttons-and-interaction.md` | kanonische Foundation-API, vollständige Events, 44-Punkte-Ziele, Motion und `link`/`flat` |
 | `08-fields-and-selection.md` | gemeinsame Eingabebasis, Fokus + Fehler, Ref-/Callback- und Auswahlvertrag |
 | `09-screens-and-navigation.md` | große Schrift, Aktionsfreiraum und eindeutige Scrollverantwortung |
 | `10-accessibility-and-states.md` | messbare Kontrast-/Touchkriterien, Zustandsmatrix und native Nachweise |
@@ -312,7 +318,7 @@ Die nachfolgende Tabelle hält den Befund vor der Überarbeitung vom 2026-09-05 
 | `04-radius-shadow-gradient.md` | Das positive Beispiel `<View style={{ borderRadius: radius.md, ...shadow.sm }} />` setzt gemeinsame Darstellung direkt am Aufrufer. Das widerspricht der zentralen Rezeptzuständigkeit aus Vertrag 05. Der Shadow-Token enthält zudem eine feste Farbe. `Fonts` ist unter Radien/Schatten/Verläufen thematisch falsch eingeordnet. | Positives Beispiel durch Anwendung einer gemeinsamen Card-/Surface-Komposition ersetzen oder ausdrücklich als isolierte Tokenvisualisierung kennzeichnen. `Fonts` zu Vertrag 02 verschieben. Echte native Grenzen als solche benennen. |
 | `05-nativewind-and-stylesheet.md` | Verantwortungsgrenze und Verbot einer Theme-Bridge sind bereits richtig. Der aktuelle Code verletzt sie an verschiedenen Stellen; das ist kein Grund, den Vertrag zu lockern. | Grundsatz beibehalten; konkrete Ausnahme- und Abschlussregeln ergänzen. Gegenbeispiele auch für hart codierte gültige Klassen und lokale semantische Styles zeigen, nicht nur für dynamisch ungültige Klassen. |
 | `06-surfaces-and-cards.md` | Gemeinsame Card-Foundation und Vermeidung dekorativer Verschachtelung sind richtig. „Sie unterscheiden sich nur durch ihren Inhalt“ lässt lokale Komposition, Verhalten und erlaubte zentrale Varianten offen. | Gemeinsame Darstellung versus legitime Komposition präzisieren. Press-/Accessibility-Vertrag antippbarer Cards ergänzen; keine pauschale Abschaffung von Cards oder Schatten. |
-| `07-buttons-and-interaction.md` | Produktimport, Varianten und 4-Punkte-Tiefe sind bereits explizit. Der Vertrag erklärt nicht den Umgang mit dem parallelen Foundation-Button, Flat-Ausnahme oder Reduced Motion. | Kanonische API und Adaptergrenze festhalten. Ereigniskomposition, Zustände, Haptik, Touchziele und Reduced-Motion-Ausnahme ergänzen. Zentrale Darstellung im Code durchsetzen. |
+| `07-buttons-and-interaction.md` | Produktimport, Varianten und 4-Punkte-Tiefe sind bereits explizit. Der Vertrag erklärt nicht den Umgang mit dem parallelen Produkt-Button, Flat-Ausnahme oder Reduced Motion. | Foundation-API und direkte Migrationsgrenze festhalten. Ereigniskomposition, Zustände, Haptik, Touchziele und Reduced-Motion-Ausnahme ergänzen. Zentrale Darstellung im Code durchsetzen. |
 | `08-fields-and-selection.md` | Beschreibt `Field` und Fokus, aber nicht das produktive `TextField`, Fehler + Fokus, Refs, explizite Accessibility-Props oder konkrete Auswahlrollen. Die Kontur wechselt von 1,5 auf 2 Punkte ohne Regel zur Geometriestabilität. | Beide vorhandenen Einstiegspunkte unter einem Vertrag zusammenführen. Die Fokusmaße dürfen bleiben, sofern außen kein Layoutsprung entsteht; andernfalls die gewählte technische Lösung ausdrücklich in den Vertrag übernehmen. Fehler-/Auswahlmatrix und Submit-Ausnahmen ergänzen. |
 | `09-screens-and-navigation.md` | Zuständigkeit des Screen-Gerüsts und Header-Modi sind richtig. Scroll-Owner, große Schrift, lange Titel und unterer Aktionsfreiraum fehlen als prüfbare Regeln. | Diese Regeln ergänzen, nicht die Navigationsarchitektur ersetzen. Native Spezialflächen dürfen weiterhin begründete eigene Container haben. |
 | `10-accessibility-and-states.md` | Gute Mindestanforderungen, aber „44 Punkte“ benennt nicht beide Dimensionen oder den realen Trefferbereich. „Reduzierte Bewegung respektieren“ besitzt keinen Prüffall. Empty/Error/Refresh fehlen. | 44 × 44, reale Treffergrenzen, konkrete Assistenz-/Motion-Prüfung, Kontrastziele und vollständige Datenzustände ergänzen. |
@@ -327,7 +333,7 @@ Damit gab es drei unterschiedliche Änderungsarten: einen konkreten widersprüch
 
 Die Referenz deckt ab: alle öffentlichen Textvarianten, unterstützte Farbpaare, Surface-Töne, Buttonvarianten/-größen, Icon-Aktionen, Felder normal/focused/error/disabled, Auswahl aktiv/inaktiv/disabled sowie Empty/Loading/Error/Refresh mit Daten.
 
-Die Prüfoberfläche enthält lange deutsche Beschriftungen und kann in Light/Dark betrachtet werden. Schmale Breite und Systemschrift werden auf iOS und Android durch tatsächliche Geräte- und Fenstereinstellungen geprüft, nicht durch eine neue produktive Theme- oder Fontscale-Einstellung simuliert. Gegenbeispiele bleiben eindeutig getrennt. Dummy-Aktionen benötigen keine Produktionsdaten.
+Die Prüfoberfläche enthält lange deutsche Beschriftungen und kann in Light/Dark betrachtet werden. Schmale Breite und Systemschrift werden auf verfügbaren Plattformen durch tatsächliche Geräte- und Fenstereinstellungen geprüft, nicht durch eine neue produktive Theme- oder Fontscale-Einstellung simuliert. Eine Android-Geräteprüfung wird in diesem ersten Dokumentationsschritt weder vorausgesetzt noch ohne Nachweis als bestanden geführt. Gegenbeispiele bleiben eindeutig getrennt. Dummy-Aktionen benötigen keine Produktionsdaten.
 
 ## 10. Technik, Struktur und Codestil
 
@@ -343,7 +349,7 @@ React Query behält Server-/Cachezustand, Zustand UI-Zustand, React Hook Form + 
 src/components/theme/index.ts                gemeinsame Tokens
 src/components/theme/ThemeProvider.tsx        aktive Themeauflösung
 src/constants/ui.tsx                         gemeinsame Primitive und Rezepte
-src/components/ui/                          Produktadapter und Komposition
+src/components/ui/                          Komposition; kein doppelter Button
 src/components/forms/                       native Formularintegration
 src/components/layout/                      Screen-/Header-/Safe-Area-Verhalten
 src/features/<domain>/                      Zustandsauswahl, Verhalten, lokales Layout
@@ -353,7 +359,7 @@ docs/design-system/contracts/               normative laufende Verträge
 docs/specs/ui-consolidation/SPEC.md          Ziel und Abnahme dieser Initiative
 ```
 
-Tests liegen bei den betroffenen Modulen. Bestehende Einstiegspunkte sind `src/constants/ui.test.tsx`, `src/components/theme/index.test.ts`, `src/components/theme/themed-text.test.tsx` und `src/components/layout/screen.test.tsx`. Neue gezielte Komponententests dürfen neben den Produktadaptern liegen. Es werden keine Markdown-Dateien zur Aufgabenverwaltung angelegt; Arbeitspakete gehören später in Beads.
+Tests liegen bei den betroffenen Modulen. Bestehende Einstiegspunkte sind `src/constants/ui.test.tsx`, `src/components/theme/index.test.ts`, `src/components/theme/themed-text.test.tsx` und `src/components/layout/screen.test.tsx`. Neue gezielte Komponententests liegen neben dem jeweils kanonischen Primitive. Es werden keine Markdown-Dateien zur Aufgabenverwaltung angelegt; Arbeitspakete gehören später in Beads.
 
 ### 10.3 Codestil
 
@@ -362,8 +368,7 @@ TypeScript ohne neues `any`; Varianten als endliche Unions; Inferenz statt redun
 ```tsx
 import { View } from 'react-native';
 import { space } from '@/components/theme/index';
-import { Button } from '@/components/ui/buttons';
-import { Surface, Txt } from '@/constants/ui';
+import { Surface, Txt, Button } from '@/constants/ui';
 
 export function SaveSection({
   saving,
@@ -376,7 +381,7 @@ export function SaveSection({
     <Surface tone="surface" style={{ padding: space.lg }}>
       <View className="flex-col" style={{ gap: space.md }}>
         <Txt variant="heading">Änderungen speichern</Txt>
-        <Button label="Speichern" loading={saving} onPress={onSave} />
+        <Button title="Speichern" loading={saving} onPress={onSave} />
       </View>
     </Surface>
   );
@@ -403,7 +408,7 @@ Es gibt kein pauschales Coverage-Prozent und keine vollständige Testsuite als A
 
 | Dimension | Mindestfälle | Nachweis |
 | --- | --- | --- |
-| Plattform | iOS-Dev-Client, Android-Dev-Client | Plattform und Ergebnis separat dokumentiert |
+| Plattform | Verfügbarer iOS-Dev-Client; Android-Dev-Client nur bei verfügbarer Prüfung | Plattform und Ergebnis separat dokumentiert; fehlende Nachweise werden offen benannt und sind für `fam-6zf.1` kein Android-Abnahme-Gate |
 | Theme | System hell/dunkel; explizit hell bei dunklem System und umgekehrt; Wechsel bei geöffnetem Formular | Texte, Konturen, Flächen und Eingaben wechseln zusammen |
 | Platz | 320 und 393 logische Einheiten, Tabletbreite ab 768, Rotation/Resize | kein verbotener Overflow oder Neustart nötig |
 | Schrift | Faktor 1,0 und 2,0; zusätzlich größte angebotene Accessibility-Schrift als explorativer Grenzfall | bei 2,0 sind zentrale Aktionen und Informationen erreichbar; Grenzfälle ausdrücklich bewertet |
@@ -451,7 +456,7 @@ git diff --check
 git status --short
 ```
 
-Die Skripte verwenden ihre vorhandenen Umgebungsdateien. Fehlende Dateien/Zugänge sind Voraussetzungsmängel; es werden dafür keine Secrets kopiert, Datenbanken gestartet oder Skripte umgebaut. iOS kann auf diesem Windows-Host nicht nativ verifiziert werden. Kein Store-Build ist für eine reine UI-JavaScript-Änderung erforderlich.
+Die Skripte verwenden ihre vorhandenen Umgebungsdateien. Fehlende Dateien/Zugänge sind Voraussetzungsmängel; es werden dafür keine Secrets kopiert, Datenbanken gestartet oder Skripte umgebaut. Fehlende Plattformnachweise werden nicht als bestanden ausgegeben. Kein Store-Build ist für eine reine UI-JavaScript-Änderung erforderlich.
 
 ## 12. Abnahmekriterien und Rückverfolgbarkeit
 
@@ -461,8 +466,8 @@ Die Skripte verwenden ihre vorhandenen Umgebungsdateien. Fehlende Dateien/Zugän
 | AC-02 | Explizite App-Präferenz setzt sich auf Text, Hintergrund, Kontur und Eingaben gegen das Systemtheme durch. | THEME-01, Provider-Test und Plattformmatrix |
 | AC-03 | Alle unterstützten informativen Text-/Flächenpaare erfüllen 4,5:1 in Light/Dark; relevante nichttextliche Zustände erfüllen 3:1. | COLOR-01, Berechnung und reale Hintergrundprüfung |
 | AC-04 | Schatten werden nicht als Textfarben verwendet; keine produktive Farbwahl hängt von statischen Light-Defaults ab. | COLOR-01/02, Verbraucherprüfung |
-| AC-05 | Typografie und wiederkehrende Abstände verwenden bei Schriftfaktor 1,0 die gemeinsame Basisskala, werden durch `rs()` nur begrenzt und reaktiv an die relevante verfügbare Breite angepasst; Importzeitwerte bleiben nicht dauerhaft maßgeblich. | TYPE-01, SPACE-01, Token-/Resize-Prüfung |
-| AC-06 | Gleiche Buttonvarianten und -größen sind über Produktadapter und Referenz identisch; 4-Punkte-Tiefe und Flat-Ausnahme bleiben erhalten. | BTN-01, zentraler Test und native Prüfung |
+| AC-05 | Typografie und wiederkehrende Abstände verwenden bei Schriftfaktor 1,0 die gemeinsame Basisskala. `rs()` bleibt begrenzt im bestehenden Waivy-nahen Istzustand; eine reaktive globale Skala wird in dieser Initiative nicht eingeführt. | TYPE-01, SPACE-01, Tokenprüfung und gezielte lokale Layoutprüfung |
+| AC-06 | Gleiche Buttonvarianten und -größen sind über den kanonischen Foundation-Button und die Referenz identisch; 4-Punkte-Tiefe und Flat-Ausnahme bleiben erhalten. Der doppelte Produkt-Button hat nach der Verbrauchermigration keine Verbraucher mehr. | BTN-01, zentraler Test, Importprüfung und native Prüfung |
 | AC-07 | Normale eigenständige Aktionen haben mindestens 44 × 44 tatsächlichen Touchbereich ohne kollidierende Nachbarziele. | BTN-01, SELECT-01, Geräteprüfung |
 | AC-08 | Disabled/Loading blockieren Aktionen und Haptik; Press-Callbacks laufen je Ereignis genau einmal und hinterlassen keinen hängenden Zustand. | PRESS-01, BTN-01, Interaktionstests |
 | AC-09 | Produktfelder zeigen Fokus und Fehler gemeinsam, erhalten explizite Accessibility-Props, native Events, RHF-/Fokus-Refs und Toolbar-Verhalten. | FIELD-01, RNTL und Tastaturprüfung |
@@ -470,17 +475,17 @@ Die Skripte verwenden ihre vorhandenen Umgebungsdateien. Fehlende Dateien/Zugän
 | AC-11 | Bei 320 Breite und Schriftfaktor 2,0 bleiben Hauptaktionen und notwendige Informationen ohne unerlaubten horizontalen Overflow erreichbar. | SCREEN-01, visuelle Matrix |
 | AC-12 | Reduced Motion verhindert federndes Überschwingen und Skalierung; Zustandsfeedback bleibt verständlich. | PRESS-01, reale Präferenzprüfung |
 | AC-13 | Vorrat und Einkauf unterscheiden Erstladen, echten Leerzustand, Filterleere, Fehler und Aktualisierung; vorhandene Daten bleiben bei Refresh/Offline sichtbar. | STATE-01, Zustands- und Interaktionstests |
-| AC-14 | Alle ermittelten aktiven UI-Verbraucher einschließlich Plattformkopien verwenden die Zielverträge oder besitzen eine konkrete Integrationsausnahme. | ARC-03, PLATFORM-01, MIG-01 |
+| AC-14 | Alle ermittelten aktiven UI-Verbraucher einschließlich vorhandener Plattformvarianten verwenden die Zielverträge oder besitzen eine konkrete Integrationsausnahme. | ARC-03, PLATFORM-01, MIG-01 |
 | AC-15 | Referenzseite, öffentliche APIs und normative Verträge beschreiben denselben Endzustand. | REF-01, MIG-02, Dokumentationsprüfung |
 | AC-16 | Bestehende Funktionen, Datenzugriffsgrenzen, Offline-Mutationen und Gegenaktionen bleiben erhalten; betroffene Typ-/Lint-/Tests bestehen. | Scope, STATE-01, gezielte Regression der geänderten Flows |
-| AC-17 | Sichtbare Layout-/Copy-Änderungen lassen sich auf ausgewählte Mocks zurückführen; nicht geprüfte Plattformen werden nicht als bestanden geführt. | Abschnitt 1.1, Verifikation und Reviewnachweise |
+| AC-17 | Sichtbare Layout-/Copy-Änderungen lassen sich auf ausgewählte Mocks zurückführen; nicht geprüfte Plattformen werden nicht als bestanden geführt. Eine Android-Geräteabnahme ist für `fam-6zf.1` kein Abschlusskriterium. | Abschnitt 1.1, Verifikation und Reviewnachweise |
 
 ## 13. Grenzen der späteren Umsetzung
 
 ### Immer
 
 - Bestehende drei Verantwortliche, Design-System-Verträge und Plattformgrenzen beachten.
-- Vor Änderungen Verbraucher und Android-Pendants prüfen; bestehende Funktionen und Gegenaktionen erhalten.
+- Vor Änderungen betroffene Verbraucher und vorhandene Plattformvarianten prüfen; bestehende Funktionen und Gegenaktionen erhalten. Keine neuen Android-Kopien anlegen.
 - Gezielte, zur Änderung passende Prüfungen ausführen und fehlende Nachweise offen dokumentieren.
 - Für Native-API-Arbeit die exakten Expo-SDK-57-Dokumente lesen.
 - Beads für Arbeitsstatus verwenden; Spec und spätere Planung als unterschiedliche Artefakte behandeln.
@@ -505,12 +510,12 @@ Die Skripte verwenden ihre vorhandenen Umgebungsdateien. Fehlende Dateien/Zugän
 | Entscheidung | Ziel | Status / nächster Entscheidungspunkt |
 | --- | --- | --- |
 | D-01: Umfang | Alle aktiven Verbraucher der betroffenen gemeinsamen Verträge migrieren; fachlich begründete native Ausnahmen dokumentieren. | In Contracts als Ziel übernommen; konkrete Verbraucher und Arbeitspakete folgen in der gesonderten Planung. |
-| D-02: Responsive Tokens | Gemeinsame Basiswerte werden durch `rs()` kontrolliert, begrenzt und reaktiv skaliert. Layout reagiert auf verfügbare Breite und Umbruch, Schrift respektiert zusätzlich die Systemeinstellung; Mindesttouchziele bleiben 44 × 44. | In Contracts 02/03 als neuer Zielvertrag dokumentiert; Codeumstellung ausstehend. |
+| D-02: Responsive Tokens | Gemeinsame Basiswerte bleiben die Referenz; `rs()` bleibt begrenzt im Waivy-nahen Istzustand oder erhält höchstens einen kleinen lokalen Helper ohne neue Runtime-Schicht und breite Consumer-Migration. Lokale Layoutreaktion und Umbruch bleiben möglich; Schrift respektiert die Systemeinstellung; Mindesttouchziele bleiben 44 × 44. | In Contracts 02/03 als begrenzter Zielvertrag dokumentiert; Codeumstellung ausstehend. |
 | D-03: API-Konsolidierung | Vorhandene Produkt-APIs als kanonischen Einstieg erhalten; Foundation-/Legacy-APIs bei Bedarf als dünne Adapter. | In Contracts übernommen; Umsetzung und Prüfung der Adapter folgen separat. |
 | D-04: Korrigierte Farbwerte | Bestehende Farbidentität mit explizit kontrastfähigen Paaren erhalten; keine Hexwerte ohne Prüfung festschreiben. | Palettenreview vor entsprechender Implementierung |
 | D-05: Dichte und Zeilenlayout | Mehrzeilige Inhalte und größere Trefferbereiche ermöglichen; dekorative Flächen nur gezielt reduzieren. | Auswahl konkreter statischer Mocks vor Screenänderungen |
 
-Offene technische Voraussetzung ist der verfügbare iOS-Prüfhost samt Dev-Client und geeigneten Testdaten. Das ändert den Zielvertrag nicht, muss aber vor der nativen Abnahme geklärt sein. Native Theme-, Touch- und Systemschriftverhalten sind noch zu verifizieren.
+Offene technische Voraussetzungen für spätere native Nachweise sind verfügbare Dev-Clients und geeignete Testdaten. Das ändert den Zielvertrag nicht und steht der dokumentationsgetriebenen Korrektur von `fam-6zf.1` nicht entgegen. Eine Android-Geräteabnahme wird für diesen Task nicht behauptet oder verlangt; native Theme-, Touch- und Systemschriftverhalten bleiben außerhalb dieses Nachweises zu verifizieren.
 
 Die Punkte D-01 bis D-03 sind mit der beauftragten Dokumentationsüberarbeitung als normative Ziele übernommen. D-04 und D-05 bleiben ausdrücklich spätere visuelle Auswahlentscheidungen. Der Folgeauftrag betrifft die Contracts, nicht die Implementierung; der Implementierungsplan entsteht erst im gesonderten Planungsschritt.
 

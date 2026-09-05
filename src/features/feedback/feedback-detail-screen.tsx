@@ -6,9 +6,8 @@ import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Surface, Txt } from '@/constants/ui';
+import { Button, Surface, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type FeedbackMessage,
@@ -141,7 +140,7 @@ export function FeedbackDetailScreen() {
                 {errorMsg}
               </Txt>
             ) : null}
-            <Button label="Senden" onPress={handleSend} loading={mutation.isPending} />
+            <Button title="Senden" onPress={handleSend} loading={mutation.isPending} />
           </View>
         </Card>
       )}

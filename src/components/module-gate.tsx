@@ -1,10 +1,10 @@
 import { router } from 'expo-router';
 import type { ReactNode } from 'react';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
 import { type FeatureId, getFeature } from '@/constants/feature-registry';
+import { Button } from '@/constants/ui';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 
 type ModuleGateProps = {
@@ -42,7 +42,7 @@ export function ModuleGate({ feature, title: customTitle, children }: ModuleGate
             hint="Du hast dieses Modul in den Einstellungen ausgeblendet. Deine Daten bleiben erhalten."
           />
           <Button
-            label="In den Einstellungen aktivieren"
+            title="In den Einstellungen aktivieren"
             onPress={() => router.push('/settings/modules')}
           />
         </Card>

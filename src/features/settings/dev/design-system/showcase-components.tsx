@@ -4,7 +4,6 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import {
-  Button,
   CompactActionButton,
   FloatingActionButton,
   HeaderIconButton,
@@ -16,6 +15,7 @@ import { ProgressRing } from '@/components/ui/progress-ring';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import {
   Badge,
+  Button,
   Divider,
   Field,
   IconButton,
@@ -122,26 +122,26 @@ function ControlShowcase() {
       />
       <Subsection title="Buttonvarianten">
         <View style={styles.stack}>
-          <Button label="Primäre Aktion" onPress={() => undefined} />
-          <Button label="Sekundäre Aktion" variant="secondary" onPress={() => undefined} />
-          <Button label="Gefährliche Aktion" variant="danger" onPress={() => undefined} />
-          <Button label="Ghost-Aktion" variant="ghost" onPress={() => undefined} />
+          <Button title="Primäre Aktion" onPress={() => undefined} />
+          <Button title="Sekundäre Aktion" variant="secondary" onPress={() => undefined} />
+          <Button title="Gefährliche Aktion" variant="danger" onPress={() => undefined} />
+          <Button title="Ghost-Aktion" variant="ghost" onPress={() => undefined} />
           <Button
-            label="Akzentbereich"
+            title="Akzentbereich"
             variant="accent"
             accentKey="nourish"
             onPress={() => undefined}
           />
-          <Button label="Als Link" variant="link" onPress={() => undefined} />
-          <Button label="Großer Button" size="large" onPress={() => undefined} />
+          <Button title="Als Link" variant="link" onPress={() => undefined} />
+          <Button title="Großer Button" size="lg" onPress={() => undefined} />
           <Button
-            label="Kompakter Button"
-            size="compact"
+            title="Kompakter Button"
+            size="sm"
             variant="secondary"
             onPress={() => undefined}
           />
-          <Button label="Wird geladen" loading onPress={() => undefined} />
-          <Button label="Deaktiviert" disabled onPress={() => undefined} />
+          <Button title="Wird geladen" loading onPress={() => undefined} />
+          <Button title="Deaktiviert" disabled onPress={() => undefined} />
         </View>
       </Subsection>
       <Subsection title="Kompakte Aktionen">
@@ -199,7 +199,7 @@ function ControlShowcase() {
         </View>
       </Subsection>
       <ExamplePair
-        correct={<Button label="Speichern" onPress={() => undefined} />}
+        correct={<Button title="Speichern" onPress={() => undefined} />}
         incorrect={
           <Pressable
             accessibilityLabel="Absichtlich falsches Button-Beispiel"
@@ -209,7 +209,7 @@ function ControlShowcase() {
             </Txt>
           </Pressable>
         }
-        correctCode={'<Button label="Speichern" onPress={save} />'}
+        correctCode={'<Button title="Speichern" onPress={save} />'}
         incorrectCode={
           "<Pressable style={{ backgroundColor: '#2FBF71', height: 37 }}>…</Pressable>"
         }
@@ -274,7 +274,7 @@ function FeedbackShowcase() {
           <View style={styles.stack}>
             <Txt variant="subheading">Keine Treffer</Txt>
             <Txt tone="secondary">Passe den Suchbegriff an oder füge ein Produkt hinzu.</Txt>
-            <Button label="Produkt hinzufügen" variant="secondary" onPress={() => undefined} />
+            <Button title="Produkt hinzufügen" variant="secondary" onPress={() => undefined} />
           </View>
         }
         incorrect={<Txt color="#999999">Leer.</Txt>}

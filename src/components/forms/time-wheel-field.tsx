@@ -1,8 +1,7 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 
 function toTime(date: Date): string {
   return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
@@ -70,10 +69,10 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
             />
             <View className="flex-row gap-two mt-two">
               <View className="flex-1">
-                <Button label="Übernehmen" onPress={confirm} />
+                <Button title="Übernehmen" onPress={confirm} />
               </View>
               <View className="flex-1">
-                <Button label="Abbrechen" variant="secondary" onPress={() => setIsOpen(false)} />
+                <Button title="Abbrechen" variant="secondary" onPress={() => setIsOpen(false)} />
               </View>
             </View>
           </View>

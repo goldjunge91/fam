@@ -4,9 +4,9 @@ import { Alert, KeyboardAvoidingView, Pressable, ScrollView, TextInput, View } f
 import { HubScreen } from '@/components/layout/hub-screen';
 import { font } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { BackButton, Button } from '@/components/ui/buttons';
+import { BackButton } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import type { MealType } from '@/features/calorie-tracking/api';
 import { calculateAdjustedServingNutrition } from '../domain/nutrition';
 import { useUpdateComponentMutation } from '../hooks/use-recipe-components';
@@ -232,11 +232,11 @@ export function RecipeLogScreen() {
 
               {/* Übernehmen-/Speichern-Aktionsbutton */}
               <Button
-                label={isWeighMode ? 'Gewichte speichern' : 'Ins Tagebuch übernehmen'}
+                title={isWeighMode ? 'Gewichte speichern' : 'Ins Tagebuch übernehmen'}
                 onPress={handleSubmit}
                 disabled={!total || updateComponent.isPending}
                 loading={updateComponent.isPending}
-                size="large"
+                size="lg"
                 style={{ alignSelf: 'stretch' }}
               />
             </ScrollView>

@@ -60,10 +60,10 @@ kurzlebige native Busy-Indikatoren dürfen bleiben.
 ## Beispiel der vorgesehenen Verwendung
 
 ```tsx
-import { Button } from '@/components/ui/buttons';
+import { Button } from '@/constants/ui';
 
 <Button
-  label="Erneut versuchen"
+  title="Erneut versuchen"
   accessibilityLabel="Artikelliste erneut laden"
   loading={retrying}
   onPress={retryRead}
@@ -75,9 +75,14 @@ ohne anderes erkennbares Ladefeedback verletzt den jeweiligen Vertrag.
 
 ## Verbindliche Prüfmatrix
 
+Die vollständige Plattformgleichwertigkeit bleibt Ziel der späteren Umsetzung.
+Für die dokumentationsgetriebene Korrektur von `fam-6zf.1` ist eine
+Android-Geräteprüfung jedoch kein Abschlusskriterium. Eine nicht ausgeführte
+Android-Prüfung wird nicht als bestanden behauptet.
+
 | Dimension | Mindestprüfung |
 | --- | --- |
-| Plattform | iOS- und Android-Dev-Client; Web-Vorschau separat |
+| Plattform | iOS- und Android-Dev-Client, sofern die jeweilige Prüfung verfügbar ist; Web-Vorschau separat |
 | Theme | System hell/dunkel sowie explizite App-Präferenz gegen das Systemtheme; Wechsel im geöffneten Formular |
 | Breite | 320 und 393 logische Einheiten, Tablet-/Webbreite ab 768, Rotation/Resize |
 | Schrift | Faktor 1,0 und 2,0; größte angebotene Accessibility-Schrift zusätzlich als bewerteter Grenzfall |

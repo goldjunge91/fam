@@ -4,9 +4,8 @@ import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, View } fr
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { TextField } from '@/components/forms/text-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
-import { Button } from '@/components/ui/buttons';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { UNIT_OPTIONS } from '@/lib/units';
@@ -204,7 +203,7 @@ export function EditInventoryItemSheet({
                     </Txt>
                     <Button
                       variant="secondary"
-                      label="Wieder versiegeln"
+                      title="Wieder versiegeln"
                       onPress={() => {
                         setOpenedAt(null);
                         setVacuumSealed(false);
@@ -217,8 +216,8 @@ export function EditInventoryItemSheet({
             ) : null}
 
             <Button
-              label="Änderungen speichern"
-              size="large"
+              title="Änderungen speichern"
+              size="lg"
               onPress={save}
               loading={updateItem.isPending}
               disabled={!name.trim()}

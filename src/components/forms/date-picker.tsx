@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 
 interface DatePickerProps {
   label?: string;
@@ -177,10 +176,10 @@ export function DatePicker({
 
             <View className="flex-row gap-two mt-two">
               <View className="flex-1">
-                <Button label="Übernehmen" onPress={handleApplyModal} />
+                <Button title="Übernehmen" onPress={handleApplyModal} />
               </View>
               <View className="flex-1">
-                <Button label="Abbrechen" variant="secondary" onPress={() => setShowModal(false)} />
+                <Button title="Abbrechen" variant="secondary" onPress={() => setShowModal(false)} />
               </View>
             </View>
           </View>

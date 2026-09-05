@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount } from '@/lib/package-size';
 
@@ -99,9 +98,9 @@ export function WasteInventoryItemSheet({
           </View>
 
           <Button
-            label="Als Verschwendung buchen"
+            title="Als Verschwendung buchen"
             variant="danger"
-            size="compact"
+            size="sm"
             onPress={() => onConfirm(reason)}
             loading={loading}
           />

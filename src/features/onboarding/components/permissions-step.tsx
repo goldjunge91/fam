@@ -1,8 +1,7 @@
 import * as Location from 'expo-location';
 import { useState } from 'react';
 import { Linking, Pressable, Switch, View } from 'react-native';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { requestNotificationPermissions } from '@/lib/notifications';
 import { useOnboarding } from '../onboarding-store';
 
@@ -149,10 +148,10 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
 
       <View className="perm-button-row">
         <View className="flex-1">
-          <Button label="Weiter" onPress={handleNext} />
+          <Button title="Weiter" onPress={handleNext} />
         </View>
         <View className="flex-1">
-          <Button label="Jetzt nicht" variant="secondary" onPress={onSkip} />
+          <Button title="Jetzt nicht" variant="secondary" onPress={onSkip} />
         </View>
       </View>
     </View>

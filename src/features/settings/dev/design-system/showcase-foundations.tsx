@@ -17,8 +17,7 @@ import {
   space,
 } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt, type TxtTone, type TxtVariant } from '@/constants/ui';
+import { Button, Txt, type TxtTone, type TxtVariant } from '@/constants/ui';
 import {
   CodeSample,
   ContractIntro,
@@ -79,17 +78,17 @@ function ThemeShowcase() {
         </TokenGrid>
         <View style={styles.buttonStack}>
           <Button
-            label="System"
+            title="System"
             variant={pref === 'system' ? 'primary' : 'secondary'}
             onPress={() => setPref('system')}
           />
           <Button
-            label="Hell"
+            title="Hell"
             variant={pref === 'light' ? 'primary' : 'secondary'}
             onPress={() => setPref('light')}
           />
           <Button
-            label="Dunkel"
+            title="Dunkel"
             variant={pref === 'dark' ? 'primary' : 'secondary'}
             onPress={() => setPref('dark')}
           />

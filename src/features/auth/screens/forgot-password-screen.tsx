@@ -5,9 +5,8 @@ import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { requestPasswordReset } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { type PasswordResetRequestInput, passwordResetRequestSchema } from '@/lib/db/zod/auth.zod';
@@ -64,7 +63,7 @@ export function ForgotPasswordScreen() {
         </Card>
         {/* Zurück-Aktion */}
         <Button
-          label={fromOnboarding ? 'Zurück zum Onboarding' : 'Zurück zur Anmeldung'}
+          title={fromOnboarding ? 'Zurück zum Onboarding' : 'Zurück zur Anmeldung'}
           variant="secondary"
           onPress={handleBack}
         />
@@ -102,7 +101,7 @@ export function ForgotPasswordScreen() {
 
           {/* Absende-Button */}
           <Button
-            label="Link anfordern"
+            title="Link anfordern"
             onPress={() => void handleSubmit(submit)()}
             loading={isSubmitting}
           />
@@ -110,7 +109,7 @@ export function ForgotPasswordScreen() {
       </Card>
 
       {/* Navigation zurück */}
-      <Button label="Zurück" variant="secondary" onPress={() => router.back()} />
+      <Button title="Zurück" variant="secondary" onPress={() => router.back()} />
     </Screen>
   );
 }

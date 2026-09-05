@@ -1,9 +1,8 @@
 import { Pressable, StyleSheet, View } from 'react-native';
-
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { BackButton, Button, MenuButton, ProfileButton } from '@/components/ui/buttons';
-import { Pill, Surface, Txt } from '@/constants/ui';
+import { BackButton, MenuButton, ProfileButton } from '@/components/ui/buttons';
+import { Button, Pill, Surface, Txt } from '@/constants/ui';
 import { CodeSample, ContractIntro, ExamplePair, Subsection } from './showcase-shared';
 
 export type PatternCategory = 'screens' | 'hybrid' | 'accessibility';
@@ -155,9 +154,9 @@ function AccessibilityShowcase() {
       />
       <Subsection title="Interaktionszustände">
         <View style={styles.stack}>
-          <Button label="Bereit" onPress={() => undefined} />
-          <Button label="Speichert" loading onPress={() => undefined} />
-          <Button label="Nicht verfügbar" disabled onPress={() => undefined} />
+          <Button title="Bereit" onPress={() => undefined} />
+          <Button title="Speichert" loading onPress={() => undefined} />
+          <Button title="Nicht verfügbar" disabled onPress={() => undefined} />
           <View style={styles.wrap}>
             <Pill label="Ausgewählt ✓" selected onPress={() => undefined} />
             <Pill label="Deaktiviert" disabled onPress={() => undefined} />

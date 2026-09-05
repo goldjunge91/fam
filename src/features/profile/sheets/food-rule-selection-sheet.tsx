@@ -3,8 +3,7 @@ import { Modal, Pressable, ScrollView, View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import {
   addFoodSelection,
   createCustomFoodSelection,
@@ -148,7 +147,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
               {inputError}
             </Txt>
           ) : null}
-          <Button label={addLabel} variant="secondary" onPress={addCustomEntry} />
+          <Button title={addLabel} variant="secondary" onPress={addCustomEntry} />
 
           <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="pb-two">
             {filteredPresets.map((preset, index) => {
@@ -215,7 +214,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
           </ScrollView>
 
           <Button
-            label="Auswahl übernehmen"
+            title="Auswahl übernehmen"
             onPress={() => {
               onApply(draft);
               onClose();

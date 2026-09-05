@@ -4,8 +4,7 @@ import { Pressable, TextInput, View } from 'react-native';
 import { z } from 'zod';
 import { font } from '@/components/theme';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { formatDateTimeInput } from '@/features/glp1/domain/date-time-input';
 import {
   dateTimeInputSchema,
@@ -217,7 +216,7 @@ export function InjectionPlanForm({
       </View>
 
       <Button
-        label={mode === 'edit' ? 'Änderungen speichern' : 'Plan speichern'}
+        title={mode === 'edit' ? 'Änderungen speichern' : 'Plan speichern'}
         onPress={() => void handleSubmit((value) => onSubmit(value))()}
         loading={isPending}
       />

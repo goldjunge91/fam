@@ -1,8 +1,7 @@
 import { Pressable, Switch, View } from 'react-native';
 import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
-import { Button } from '@/components/ui/buttons';
 import { getSettingsModules } from '@/constants/feature-registry';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useOnboarding } from '../onboarding-store';
 
@@ -66,10 +65,10 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
 
       <View className="perm-button-row">
         <View className="flex-1">
-          <Button label="Weiter" onPress={onNext} />
+          <Button title="Weiter" onPress={onNext} />
         </View>
         <View className="flex-1">
-          <Button label="Überspringen" variant="secondary" onPress={onSkip} />
+          <Button title="Überspringen" variant="secondary" onPress={onSkip} />
         </View>
       </View>
     </View>

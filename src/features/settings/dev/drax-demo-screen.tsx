@@ -13,8 +13,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
-import { Button } from '@/components/ui/buttons';
-import { Surface, Txt } from '@/constants/ui';
+import { Button, Surface, Txt } from '@/constants/ui';
 
 // Source: nuclearpasta/react-native-drax, docs-site/docs/examples/mixed-grid.mdx.
 // Keep Drax's grid/hover mechanics intact; only labels and theme use fam primitives.
@@ -51,17 +50,17 @@ export function DraxDemoScreen() {
   const insets = useSafeAreaInsets();
   const controls = (
     <View style={styles.controls}>
-      <Button label="Zurück" variant="secondary" size="compact" onPress={() => router.back()} />
+      <Button title="Zurück" variant="secondary" size="sm" onPress={() => router.back()} />
       <Button
-        label={withScreen ? 'Ohne Screen' : 'Mit Screen'}
+        title={withScreen ? 'Ohne Screen' : 'Mit Screen'}
         variant="secondary"
-        size="compact"
+        size="sm"
         onPress={() => setWithScreen((previous) => !previous)}
       />
       <Button
-        label="Reset"
+        title="Reset"
         variant="secondary"
-        size="compact"
+        size="sm"
         onPress={() => setGeneration((previous) => previous + 1)}
       />
     </View>
