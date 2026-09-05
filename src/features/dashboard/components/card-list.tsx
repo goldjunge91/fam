@@ -1,10 +1,10 @@
 import * as Haptics from 'expo-haptics';
 import { type ReactElement, useCallback } from 'react';
-import { Pressable, useWindowDimensions, View } from 'react-native';
+import { StyleSheet, useWindowDimensions, View } from 'react-native';
 import { Sortable, SortableItem, type SortableRenderItemProps } from 'react-native-reanimated-dnd';
 
-import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { radius, space } from '@/components/theme/index';
+import { Button, Surface, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { type CardSize, type DashboardCardDef, getCards } from '@/features/dashboard/registry';
 import { useCardSizes } from '@/features/dashboard/use-card-sizes';
@@ -18,6 +18,23 @@ import '@/features/meal-planner/components/dashboard-card';
 import '@/features/inventory/components/dashboard-card';
 import '@/features/shopping-list/components/ui/dashboard-card';
 import '@/features/dashboard/components/streak-dashboard-card';
+
+const styles = StyleSheet.create({
+  emptyCard: {
+    minHeight: 180,
+    padding: space.xxl,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: space.lg,
+    borderRadius: radius.xl,
+  },
+  centeredText: {
+    textAlign: 'center',
+  },
+  emptyAction: {
+    marginTop: space.xs,
+  },
+});
 
 const TOGGLE: Record<CardSize, CardSize> = { large: 'small', small: 'large' };
 
@@ -34,7 +51,6 @@ export function CardList({
   onOpenGallery,
   onDragStateChange,
 }: CardListProps) {
-  const { colors } = useTheme();
   const { width, fontScale } = useWindowDimensions();
   const stackSmallCards = width < 360 || fontScale >= 1.2;
   const { session } = useSession();
@@ -145,28 +161,25 @@ export function CardList({
 
   if (visibleCards.length === 0) {
     return (
-      <View
-        className="rounded-fam-large p-five items-center justify-center gap-three"
-        style={{ minHeight: 180, backgroundColor: colors.surface }}>
-        <Txt variant="body" weight="700" className="text-center">
+      <Surface tone="surface" style={styles.emptyCard}>
+        <Txt variant="body" weight="700" style={styles.centeredText}>
           Keine Karten auf der Übersicht
         </Txt>
-        <Txt variant="body" tone="secondary" className="text-center">
+        <Txt variant="body" tone="secondary" style={styles.centeredText}>
           Füge Karten über die Galerie hinzu oder passe deine Ansicht an.
         </Txt>
         {onOpenGallery ? (
-          <Pressable
-            accessibilityRole="button"
+          <Button
+            label="+ Karten hinzufügen"
             accessibilityLabel="Karten hinzufügen"
             onPress={onOpenGallery}
-            className="px-four py-two rounded-control mt-one"
-            style={{ backgroundColor: colors.basil }}>
-            <Txt variant="body" tone="onAccent" weight="600">
-              + Karten hinzufügen
-            </Txt>
-          </Pressable>
+            variant="accent"
+            accentKey="pantry"
+            size="compact"
+            style={styles.emptyAction}
+          />
         ) : null}
-      </View>
+      </Surface>
     );
   }
 
