@@ -409,6 +409,7 @@ export function Button({
   const { colors, accent } = useTheme();
   const depth = useSharedValue(0);
   const reducedMotion = useReducedMotion();
+  const [isPressed, setIsPressed] = useState(false);
   const faceStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: reducedMotion ? 0 : depth.value }],
   }));
@@ -460,6 +461,19 @@ export function Button({
           : font.sizes.base;
   const isDisabled = disabled || loading;
   const hasDepth = isFilled && !flat;
+  const buttonFaceStyle: ViewStyle = {
+    borderRadius: variant === 'link' ? radius.sm : radius.md,
+    backgroundColor: main,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: variant === 'link' ? 'flex-end' : undefined,
+    minHeight: 44,
+    minWidth: 44,
+    paddingHorizontal: variant === 'link' ? space.md : pad.paddingHorizontal,
+    paddingVertical: variant === 'link' ? space.sm : pad.paddingVertical,
+    opacity: isDisabled ? 0.6 : reducedMotion && isPressed ? 0.78 : 1,
+    overflow: 'hidden',
+  };
 
   return (
     <View style={[full && { alignSelf: 'stretch' }, style]}>
@@ -476,11 +490,13 @@ export function Button({
             accessibilityLabel={accessibilityLabel ?? title}
             accessibilityState={{ disabled: isDisabled, busy: loading }}
             onPressIn={() => {
+              setIsPressed(true);
               if (hasDepth && !isDisabled && !reducedMotion) {
                 depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
               }
             }}
             onPressOut={() => {
+              setIsPressed(false);
               if (hasDepth) {
                 depth.value = reducedMotion ? 0 : withSpring(0, PRESS_SPRING);
               }
@@ -492,21 +508,7 @@ export function Button({
               fireHaptic(haptic ?? 'medium');
               onPress?.();
             }}
-            style={({ pressed }) => [
-              {
-                borderRadius: variant === 'link' ? radius.sm : radius.md,
-                backgroundColor: main,
-                alignItems: 'center',
-                justifyContent: 'center',
-                alignSelf: variant === 'link' ? 'flex-end' : undefined,
-                minHeight: 44,
-                minWidth: 44,
-                paddingHorizontal: variant === 'link' ? space.md : pad.paddingHorizontal,
-                paddingVertical: variant === 'link' ? space.sm : pad.paddingVertical,
-                opacity: isDisabled ? 0.6 : reducedMotion && pressed ? 0.78 : 1,
-                overflow: 'hidden',
-              },
-            ]}>
+            style={buttonFaceStyle}>
             <Row gap={8}>
               {loading ? (
                 <ActivityIndicator
@@ -661,35 +663,68 @@ export function Pill({
   );
 }
 
-export function SegmentedControl<T extends string>({
-  options,
-  value,
-  onChange,
-}: {
-  options: { label: string; value: T }[];
+export type SegmentedControlOption<T extends string> = {
   value: T;
-  onChange: (v: T) => void;
-}) {
-  const { colors } = useTheme();
+  label: string;
+  accessibilityLabel?: string;
+  disabled?: boolean;
+};
+
+export type SegmentedControlProps<T extends string> = {
+  label: string;
+  options: readonly SegmentedControlOption<T>[];
+  selected: T;
+  onSelect: (value: T) => void;
+  /** Use tabs for view navigation; radio is the default for domain choices. */
+  selectionRole?: 'radio' | 'tab';
+  appearance?: 'accent' | 'surface';
+  size?: 'default' | 'compact';
+};
+
+export function SegmentedControl<T extends string>({
+  label,
+  options,
+  selected,
+  onSelect,
+  selectionRole = 'radio',
+  appearance = 'accent',
+  size = 'default',
+}: SegmentedControlProps<T>) {
   const styles = useThemedStyles(makeStyles);
   return (
-    <View style={styles.segment}>
-      {options.map((o) => {
-        const active = o.value === value;
+    <View
+      accessibilityRole={selectionRole === 'tab' ? 'tablist' : 'radiogroup'}
+      accessibilityLabel={label}
+      style={styles.segment}>
+      {options.map((option) => {
+        const active = option.value === selected;
+        const activeStyle =
+          appearance === 'surface'
+            ? styles.segmentItemActiveSurface
+            : styles.segmentItemActiveAccent;
         return (
           <Press
-            key={o.value}
+            key={option.value}
             haptic="selection"
             scaleTo={0.98}
-            onPress={() => onChange(o.value)}
+            disabled={option.disabled}
+            accessibilityRole={selectionRole}
+            accessibilityLabel={option.accessibilityLabel ?? option.label}
+            accessibilityState={{ selected: active, disabled: option.disabled }}
+            onPress={() => onSelect(option.value)}
             containerStyle={{ flex: 1 }}
-            style={[styles.segmentItem, active && styles.segmentItemActive]}>
+            style={[
+              styles.segmentItem,
+              size === 'compact' ? styles.segmentItemCompact : styles.segmentItemDefault,
+              active && activeStyle,
+              option.disabled && styles.segmentItemDisabled,
+            ]}>
             <Txt
-              variant="label"
-              numberOfLines={1}
-              color={active ? colors.text : colors.textSecondary}
-              weight="700">
-              {o.label}
+              variant={size === 'compact' ? 'caption' : 'label'}
+              tone={active ? (appearance === 'surface' ? 'primary' : 'onAccent') : 'secondary'}
+              weight="700"
+              style={styles.segmentLabel}>
+              {option.label}
             </Txt>
           </Press>
         );
@@ -861,21 +896,42 @@ function makeStyles(c: Palette) {
   return StyleSheet.create({
     segment: {
       flexDirection: 'row',
+      alignItems: 'stretch',
       backgroundColor: c.backgroundSoft,
       borderRadius: radius.md,
-      padding: 4,
-      gap: 4,
+      padding: space.xs,
+      gap: space.xs,
     },
     segmentItem: {
       flex: 1,
-      paddingVertical: 9,
       alignItems: 'center',
+      justifyContent: 'center',
+      minHeight: 44,
       borderRadius: radius.sm,
+      paddingHorizontal: space.sm,
     },
-    segmentItemActive: {
+    segmentItemDefault: {
+      minHeight: 48,
+      paddingVertical: space.sm,
+    },
+    segmentItemCompact: {
+      minHeight: 44,
+      paddingVertical: space.xs,
+    },
+    segmentItemActiveAccent: {
+      backgroundColor: c.accent,
+    },
+    segmentItemActiveSurface: {
       backgroundColor: c.backgroundElement,
       ...shadow.sm,
       shadowColor: c.shadowCard,
+    },
+    segmentItemDisabled: {
+      opacity: 0.55,
+    },
+    segmentLabel: {
+      flexShrink: 1,
+      textAlign: 'center',
     },
     input: {
       backgroundColor: c.backgroundElement,

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { View } from 'react-native';
-import { SegmentedControl } from '@/components/ui/segmented-control';
-import { Txt } from '@/constants/ui';
+import { SegmentedControl, Txt } from '@/constants/ui';
 import type { CorrelationSeriesPoint } from '@/features/glp1/domain/correlation-series';
 
 type CorrelationSectionProps = {
@@ -85,6 +84,7 @@ export function CorrelationSection({ series }: CorrelationSectionProps) {
         options={PERIOD_OPTIONS}
         selected={period}
         onSelect={setPeriod}
+        selectionRole="tab"
         size="compact"
       />
       <View>

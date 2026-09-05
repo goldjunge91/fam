@@ -115,10 +115,19 @@ Höhere Komponenten besitzen Verhalten, Komposition, Accessibility-Metadaten und
 
 ### ARC-02: Öffentliche APIs und Importgrenzen
 
-- Der kanonische Button wird direkt aus `src/constants/ui.tsx` importiert. Seine bestehende `title`-API mit `sm/md/lg` bleibt der Zielvertrag; `link` und `flat` werden dort ergänzt. `label/default/large/compact` sind nur noch die zu migrierende Alt-API des Produkt-Buttons.
+- Der kanonische Button wird direkt aus `src/constants/ui.tsx` importiert. Seine bestehende `title`-API mit `sm/md/lg` bleibt der Zielvertrag; `md` ist die Baseline mit 44/44 Touchgröße, 18 horizontalem und 13 vertikalem Padding sowie `font.sizes.base`. `link` und `flat` werden dort ergänzt. `label/default/large/compact` gehören nur zur entfernten Alt-API; `large` und `compact` werden derzeit nicht als öffentliche Aliase eingeführt.
+  Die sichtbare Button-Face-Basis wird statisch am interaktiven `Pressable` zugewiesen, damit `secondary` nicht als reiner Text auf einer Renderstrecke ohne Auswertung dynamischer Pressable-Styles erscheint.
 - `Txt`, `Surface` und reine gemeinsame Primitive bleiben über `src/constants/ui.tsx` erreichbar.
 - `TextField` aus `src/constants/ui.tsx` ist der einzige Produkteinstieg für strukturierte Eingaben. Das bisherige `Field` wird dort in `TextField` umbenannt und um Fehler, `trailing`, Größen, Accessibility, native Props und Ref-Weitergabe ergänzt. Bestehende Aufrufer behalten den JSX-Namen; sie ändern nur den Importpfad. `src/components/forms/text-field.tsx` wird als zweite Implementierung entfernt.
-- Produkt-Einzelauswahl verwendet einen kanonischen `SegmentedControl` mit Gruppenlabel, `options`, `selected` und `onSelect`. Die bestehende Produkt-API ist Ausgangspunkt.
+- Produkt-Einzelauswahl verwendet den kanonischen `SegmentedControl` aus
+  `src/constants/ui.tsx` mit der minimalen API `label`, `options`, `selected` und
+  `onSelect`. `selectionRole="radio"` ist der Default für fachliche Auswahl;
+  `selectionRole="tab"` ist ausschließlich für Ansichtswechsel vorgesehen.
+  `appearance` und `size` bleiben nur als belegte Varianten bestehen. Die
+  frühere `src/components/ui/segmented-control.tsx` ist nach der Migration
+  keine Produktionsquelle mehr und bleibt vorerst nur als markierte
+  Legacy-Vergleichsvariante im Settings-Showcase. `@expo/ui` ist dort ebenfalls
+  nur native Vergleichsdarstellung.
 - `Card` und `EmptyState` dürfen Produktadapter bleiben, besitzen aber keine unabhängigen visuellen Rezepte.
 - Legacy-APIs können vorübergehend als klar markierte Adapter auf derselben Basis bestehen. Zum Abschluss hat jede verbliebene API belegte Verbraucher und eine dokumentierte Zuständigkeit. Zwei konkurrierende Implementierungen für denselben Vertrag sind nicht zulässig.
 
@@ -191,8 +200,13 @@ Varianten bleiben `primary`, `secondary`, `danger`, `accent`, `ghost`, `link`; d
 Der kanonische Button liegt in `src/constants/ui.tsx` und verwendet `title`,
 `onPress`, `variant`, `size`, `icon`, `accentKey`, `loading`, `disabled`,
 `full`, `haptic`, `flat` und `accessibilityLabel`. Der bisherige Produkt-Button ist kein zweiter
-Darstellungsvertrag. Bei der Migration werden `label` zu `title`,
-`default` zu `md`, `large` zu `lg` und `compact` zu `sm` übersetzt.
+Darstellungsvertrag. `sm/md/lg` sind die aktuelle Größen-API; `md` ist die
+Baseline. `large` und `compact` bleiben bis zu einer ausdrücklichen Freigabe
+außerhalb der öffentlichen API. Die historische Migration übersetzte
+`default` zu `md`, `large` zu `lg` und `compact` zu `sm`. Die Button-Face-Basis
+liegt statisch am interaktiven `Pressable`, damit `secondary` nicht als reiner
+Text erscheint, wenn eine dynamische Pressable-Style-Funktion nicht ausgewertet
+wird.
 
 Gefüllte Buttons behalten 4 Punkte sichtbare Tiefe und 4 Punkte Druckweg. Die bestehende Flat-Ausnahme für kompakte Header-Aktionen bleibt möglich. Gleiche Variante und Größe produzieren im kanonischen Foundation-Button und im Showcase dasselbe Rezept, einschließlich Foreground, Depth, Padding und Disabled-Darstellung.
 
@@ -228,11 +242,23 @@ Einzeilige Felder behalten den bestehenden Done-/Submit-Vertrag. Mehrzeilige Ein
 
 ### SELECT-01: Auswahl, Filter und Badges
 
-SegmentedControl hat einen zugänglichen Gruppennamen und genau einen ausgewählten Wert aus den Optionen. Labels, ausgewählter Zustand, Disabled-Zustand und Aktivierung werden korrekt weitergegeben. Für einen Ansichtswechsel sind Tab-Rollen passend; eine fachliche Formulareinzelauswahl muss als solche verständlich bleiben. Eine einzelne universelle Rolle darf nicht jede Auswahlart falsch beschreiben.
+Der `SegmentedControl` aus `src/constants/ui.tsx` hat einen zugänglichen
+Gruppennamen und genau einen ausgewählten Wert aus den Optionen. Optionseinträge
+können ein eigenes Accessibility-Label und `disabled` tragen. Labels,
+ausgewählter Zustand, Disabled-Zustand und Aktivierung werden korrekt
+weitergegeben. `selectionRole="tab"` ist für Ansichtswechsel passend;
+`selectionRole="radio"` bleibt die verständliche Semantik einer fachlichen
+Formulareinzelauswahl. Die kompakte Variante bleibt mindestens 44 × 44 groß und
+lange Labels dürfen umbrechen. Die Legacy-Datei und `@expo/ui` werden ausschließlich
+im synchronisierten Settings-Showcase verglichen, nicht produktiv importiert.
 
 `Pill` und interaktive Filter melden Rolle und selected-/checked-Zustand passend zur Bedeutung. Erneutes Betätigen eines Mehrfachfilters kann ihn abwählen. Bei Einzelauswahl bleibt genau ein Wert aktiv. Ein `Badge` ist standardmäßig informativ und kein Button.
 
-Lange Labels und große Systemschrift passen durch höhere Controls, Umbruch oder eine explizit horizontale Auswahlleiste. Der Mindesttouchbereich gilt auch für kompakte Segmente. Der aktive Zustand ist zusätzlich zur Farbe erkennbar. Öffentliche Props dürfen nicht stillschweigend ignoriert werden; das derzeit angenommene, aber ungenutzte `gap` benötigt eine wirksame Bedeutung oder eine abgeschlossene Aufrufermigration.
+Lange Labels und große Systemschrift passen durch höhere Controls, Umbruch oder
+eine explizit horizontale Auswahlleiste. Der Mindesttouchbereich gilt auch für
+kompakte Segmente. Der aktive Zustand ist zusätzlich zur Farbe erkennbar.
+Öffentliche Props der kanonischen API dürfen nicht stillschweigend ignoriert
+werden; `gap`, `labelStyle` und andere Alt-Props gehören nicht mehr zu ihr.
 
 ### SURFACE-01: Flächen, Karten und Hierarchie
 
@@ -511,7 +537,7 @@ Die Skripte verwenden ihre vorhandenen Umgebungsdateien. Fehlende Dateien/Zugän
 | --- | --- | --- |
 | D-01: Umfang | Alle aktiven Verbraucher der betroffenen gemeinsamen Verträge migrieren; fachlich begründete native Ausnahmen dokumentieren. | In Contracts als Ziel übernommen; konkrete Verbraucher und Arbeitspakete folgen in der gesonderten Planung. |
 | D-02: Responsive Tokens | Gemeinsame Basiswerte bleiben die Referenz; `rs()` bleibt begrenzt im Waivy-nahen Istzustand oder erhält höchstens einen kleinen lokalen Helper ohne neue Runtime-Schicht und breite Consumer-Migration. Lokale Layoutreaktion und Umbruch bleiben möglich; Schrift respektiert die Systemeinstellung; Mindesttouchziele bleiben 44 × 44. | In Contracts 02/03 als begrenzter Zielvertrag dokumentiert; Codeumstellung ausstehend. |
-| D-03: API-Konsolidierung | Vorhandene Produkt-APIs als kanonischen Einstieg erhalten; Foundation-/Legacy-APIs bei Bedarf als dünne Adapter. | In Contracts übernommen; Umsetzung und Prüfung der Adapter folgen separat. |
+| D-03: API-Konsolidierung | `src/constants/ui.tsx` ist der kanonische Einstieg für die produktive Fam-Einzelauswahl mit `label/options/selected/onSelect`; die frühere Datei bleibt bis zum gesonderten Cleanup ausschließlich als Legacy-Vergleich im Settings-Showcase. `@expo/ui` ist native Vergleichsdarstellung, kein Produktadapter. | Für `fam-6zf.7` in Contracts und Plan übernommen; Code- und Testnachweis wird in diesem Task geführt. |
 | D-04: Korrigierte Farbwerte | Bestehende Farbidentität mit explizit kontrastfähigen Paaren erhalten; keine Hexwerte ohne Prüfung festschreiben. | Palettenreview vor entsprechender Implementierung |
 | D-05: Dichte und Zeilenlayout | Mehrzeilige Inhalte und größere Trefferbereiche ermöglichen; dekorative Flächen nur gezielt reduzieren. | Auswahl konkreter statischer Mocks vor Screenänderungen |
 

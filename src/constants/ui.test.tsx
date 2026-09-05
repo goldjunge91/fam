@@ -2,7 +2,6 @@ import { fireEvent, render, screen, userEvent } from '@testing-library/react-nat
 import { createRef } from 'react';
 import { Text } from 'react-native';
 import * as Reanimated from 'react-native-reanimated';
-import type { TestInstance } from 'test-renderer';
 
 import {
   font,
@@ -70,18 +69,6 @@ const withTimingSpy = jest.spyOn(Reanimated, 'withTiming');
 
 const buttonVariants = ['primary', 'secondary', 'ghost', 'danger', 'accent', 'link'] as const;
 const buttonSizes = ['sm', 'md', 'lg'] as const;
-
-type PressableStyle = (state: { pressed: boolean }) => unknown;
-
-function findPressableStyle(button: TestInstance): PressableStyle {
-  let fiber = button.unstable_fiber;
-  while (fiber) {
-    const style = fiber.memoizedProps?.style;
-    if (typeof style === 'function') return style as PressableStyle;
-    fiber = fiber.return;
-  }
-  throw new Error('Button Pressable style callback not found');
-}
 
 describe('core theme UI primitives', () => {
   beforeEach(() => {
@@ -197,6 +184,72 @@ describe('core theme UI primitives', () => {
     );
   });
 
+  it('keeps secondary and danger buttons on the themed render path', async () => {
+    await render(
+      <>
+        <Button title="Sekundär" variant="secondary" onPress={jest.fn()} />
+        <Button title="Gefährlich" variant="danger" onPress={jest.fn()} />
+      </>,
+    );
+
+    const secondary = screen.getByRole('button', { name: 'Sekundär' });
+    expect(secondary.props.style).toEqual(
+      expect.objectContaining({
+        backgroundColor: mockColorsLight.backgroundSoft,
+        borderRadius: radius.md,
+        minHeight: 44,
+        minWidth: 44,
+        paddingHorizontal: 18,
+        paddingVertical: 13,
+      }),
+    );
+    expect(secondary).toHaveStyle({
+      backgroundColor: mockColorsLight.backgroundSoft,
+      borderRadius: radius.md,
+      minHeight: 44,
+      minWidth: 44,
+      paddingHorizontal: 18,
+      paddingVertical: 13,
+    });
+    expect(screen.getByText('Sekundär')).toHaveStyle({
+      color: mockColorsLight.text,
+      fontSize: font.sizes.base,
+      fontWeight: '700',
+    });
+    expect(screen.getByRole('button', { name: 'Gefährlich' })).toHaveStyle({
+      backgroundColor: mockColorsLight.danger,
+      borderRadius: radius.md,
+      minHeight: 44,
+    });
+
+    const dangerDepth = screen.getByRole('button', { name: 'Gefährlich' }).parent?.parent?.props
+      .style;
+    expect(dangerDepth).toEqual(
+      expect.objectContaining({
+        backgroundColor: mockColorsLight.buttonDangerDepth,
+        paddingBottom: 4,
+      }),
+    );
+  });
+
+  it('uses md as the canonical default baseline', async () => {
+    await render(<Button title="Mittlere Aktion" onPress={jest.fn()} />);
+
+    const button = screen.getByRole('button', { name: 'Mittlere Aktion' });
+    expect(button).toHaveStyle({
+      minHeight: 44,
+      minWidth: 44,
+      paddingHorizontal: 18,
+      paddingVertical: 13,
+      borderRadius: radius.md,
+    });
+    expect(screen.getByText('Mittlere Aktion')).toHaveStyle({
+      color: mockColorsLight.onAccent,
+      fontSize: font.sizes.base,
+      fontWeight: '700',
+    });
+  });
+
   it.each(buttonVariants.flatMap((variant) => buttonSizes.map((size) => ({ variant, size }))))(
     'keeps $variant/$size at least 44px high',
     async ({ variant, size }) => {
@@ -218,10 +271,9 @@ describe('core theme UI primitives', () => {
 
     const button = screen.getByRole('button', { name: 'Aktion' });
     await fireEvent(button, 'pressIn');
-    expect(findPressableStyle(button)({ pressed: true })).toEqual(
-      expect.arrayContaining([expect.objectContaining({ opacity: 0.78 })]),
-    );
+    expect(button).toHaveStyle({ opacity: 0.78 });
     await fireEvent(button, 'pressOut');
+    expect(button).toHaveStyle({ opacity: 1 });
     await fireEvent.press(button);
 
     expect(withTimingSpy).not.toHaveBeenCalled();
@@ -310,12 +362,14 @@ describe('core theme UI primitives', () => {
         <Badge label="Vorrat" tone="pantry" />
         <Pill label="Ausgewählt" selected onPress={onPillPress} />
         <SegmentedControl
+          label="Zeitraum"
           options={[
             { label: 'Woche', value: 'week' },
             { label: 'Monat', value: 'month' },
           ]}
-          value="week"
-          onChange={onAction}
+          selected="week"
+          onSelect={onAction}
+          selectionRole="radio"
         />
         <SectionHeading title="Listen" action="Alle anzeigen" onAction={onAction} />
         <EmptyState emoji="🛒" title="Leer" subtitle="Noch keine Einträge" />
@@ -331,5 +385,41 @@ describe('core theme UI primitives', () => {
     expect(onAction).toHaveBeenCalledWith('month');
     expect(onAction).toHaveBeenCalledTimes(2);
     expect(screen.getByText('Noch keine Einträge')).toBeOnTheScreen();
+  });
+
+  it('exposes single-selection state, disabled options and large touch targets', async () => {
+    const onSelect = jest.fn();
+    const user = userEvent.setup();
+    await render(
+      <SegmentedControl
+        label="Zeitraum"
+        options={[
+          { label: 'Ein sehr langer Zeitraum', value: 'long' },
+          { label: 'Noch nicht verfügbar', value: 'disabled', disabled: true },
+        ]}
+        selected="long"
+        onSelect={onSelect}
+        size="compact"
+      />,
+    );
+
+    const selected = screen.getByRole('radio', {
+      name: 'Ein sehr langer Zeitraum',
+      selected: true,
+    });
+    const disabled = screen.getByRole('radio', {
+      name: 'Noch nicht verfügbar',
+      disabled: true,
+    });
+
+    expect(selected).toHaveStyle({ minHeight: 44 });
+    expect(screen.getByText('Ein sehr langer Zeitraum').props.numberOfLines).toBeUndefined();
+    expect(disabled).toBeDisabled();
+
+    await user.press(disabled);
+    await user.press(selected);
+
+    expect(onSelect).toHaveBeenCalledTimes(1);
+    expect(onSelect).toHaveBeenCalledWith('long');
   });
 });
