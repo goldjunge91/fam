@@ -529,4 +529,4 @@ Die Punkte D-01 bis D-03 sind mit der beauftragten Dokumentationsüberarbeitung 
 
 ## 16. Übergabe dieser Phase
 
-Liefergegenstände sind diese Spezifikation mit Zielverträgen und Abnahmekriterien sowie die auf Folgeauftrag überarbeiteten normativen Contracts. Das bedeutet nicht, dass AC-01 bis AC-17 bereits erfüllt oder App-Codeänderungen freigegeben sind. Der Implementierungsplan entsteht separat; erst danach werden daraus ausführbare Beads-Arbeitspakete abgeleitet.
+Liefergegenstände sind diese Spezifikation mit Zielverträgen und Abnahmekriterien sowie die auf Folgeauftrag überarbeiteten normativen Contracts. Die Implementierung erfolgt inkrementell über den Plan und die zugeordneten Beads-Aufgaben; `fam-6zf.6` ist umgesetzt und abgenommen. Daraus folgt nicht, dass AC-01 bis AC-17 insgesamt erfüllt sind. Die übrigen Kriterien bleiben an ihre jeweiligen Aufgaben und Nachweise gebunden.
