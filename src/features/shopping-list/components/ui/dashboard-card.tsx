@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
  * Large = Badge + Label + Fortschrittsbalken + Action.
  * Small = Badge + Label + Action (wie bisher).
  */
-function ShoppingDashboardCard({ size, onLongPress }: DashboardCardProps) {
+function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
   const { colors: theme } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -71,6 +71,7 @@ function ShoppingDashboardCard({ size, onLongPress }: DashboardCardProps) {
       <GlassCard
         onPress={() => router.push('/shopping-list')}
         onLongPress={onLongPress}
+        disabled={disabled}
         accessibilityRole="button"
         accessibilityLabel="Einkaufsliste öffnen"
         glassStyle={[styles.widget, styles.largeWidget]}
@@ -115,6 +116,7 @@ function ShoppingDashboardCard({ size, onLongPress }: DashboardCardProps) {
     <GlassCard
       onPress={() => router.push('/shopping-list')}
       onLongPress={onLongPress}
+      disabled={disabled}
       accessibilityRole="button"
       accessibilityLabel="Einkaufsliste öffnen"
       glassStyle={styles.widget}

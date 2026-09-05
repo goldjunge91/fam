@@ -6,6 +6,7 @@ export type CardSize = 'large' | 'small';
 export type DashboardCardProps = {
   size: CardSize;
   onLongPress?: () => void;
+  disabled?: boolean;
 };
 
 export type DashboardCardDef = {

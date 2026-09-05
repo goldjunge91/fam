@@ -75,7 +75,7 @@ function StreakDays({ count, activeToday }: { count: number; activeToday: boolea
   );
 }
 
-function StreakDashboardCard({ size, onLongPress }: DashboardCardProps) {
+function StreakDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
   const { colors } = useTheme();
   const streak = useStreak();
   const hasStreak = streak.count > 0;
@@ -91,6 +91,7 @@ function StreakDashboardCard({ size, onLongPress }: DashboardCardProps) {
   return (
     <Pressable
       onLongPress={onLongPress}
+      disabled={disabled}
       accessibilityLabel={accessibilityLabel}
       style={styles.cardPressable}>
       <Surface
@@ -103,37 +104,37 @@ function StreakDashboardCard({ size, onLongPress }: DashboardCardProps) {
             shadowColor: colors.shadowCard,
           },
         ]}>
-      <View style={styles.header}>
-        <Txt variant="caption" tone="accent" weight="700" style={{ letterSpacing: 0.5 }}>
-          KOCHSTREAK
-        </Txt>
-        <Txt variant="caption" tone="secondary">
-          {hasStreak ? 'Dranbleiben' : 'Dein Fortschritt'}
-        </Txt>
-      </View>
+        <View style={styles.header}>
+          <Txt variant="caption" tone="accent" weight="700" style={{ letterSpacing: 0.5 }}>
+            KOCHSTREAK
+          </Txt>
+          <Txt variant="caption" tone="secondary">
+            {hasStreak ? 'Dranbleiben' : 'Dein Fortschritt'}
+          </Txt>
+        </View>
 
-      <View style={styles.metric}>
-        <Txt variant="body" selectable>
-          🔥
-        </Txt>
-        <Txt variant="title" selectable>
-          {streak.count}
-        </Txt>
-        <Txt variant="body" tone="secondary">
-          {streak.count === 1 ? 'Tag am Stück' : 'Tage am Stück'}
-        </Txt>
-      </View>
+        <View style={styles.metric}>
+          <Txt variant="body" selectable>
+            🔥
+          </Txt>
+          <Txt variant="title" selectable>
+            {streak.count}
+          </Txt>
+          <Txt variant="body" tone="secondary">
+            {streak.count === 1 ? 'Tag am Stück' : 'Tage am Stück'}
+          </Txt>
+        </View>
 
-      <StreakDays count={streak.count} activeToday={streak.activeToday} />
+        <StreakDays count={streak.count} activeToday={streak.activeToday} />
 
-      <View style={[styles.status, { borderTopColor: colors.border }]}>
-        <Txt variant="body" tone={hasStreak ? 'success' : 'secondary'} weight="600">
-          {status}
-        </Txt>
-        <Txt variant="caption" tone="secondary">
-          Bester Wert: {streak.best} Tage
-        </Txt>
-      </View>
+        <View style={[styles.status, { borderTopColor: colors.border }]}>
+          <Txt variant="body" tone={hasStreak ? 'success' : 'secondary'} weight="600">
+            {status}
+          </Txt>
+          <Txt variant="caption" tone="secondary">
+            Bester Wert: {streak.best} Tage
+          </Txt>
+        </View>
       </Surface>
     </Pressable>
   );

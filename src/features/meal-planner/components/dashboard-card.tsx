@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
+function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
   const { colors } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -85,6 +85,7 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
       <GlassCard
         onPress={() => router.push('/meal-planner')}
         onLongPress={onLongPress}
+        disabled={disabled}
         accessibilityRole="button"
         accessibilityLabel="Essensplan öffnen"
         glassStyle={styles.smallCard}
@@ -114,6 +115,7 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
     <GlassCard
       onPress={() => router.push('/meal-planner')}
       onLongPress={onLongPress}
+      disabled={disabled}
       accessibilityRole="button"
       accessibilityLabel="Essensplan öffnen"
       glassStyle={styles.largeCard}

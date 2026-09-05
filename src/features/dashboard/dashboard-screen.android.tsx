@@ -93,6 +93,7 @@ export function DashboardScreen() {
         variant="accent"
         accentKey="pantry"
         size="compact"
+        flat
       />
     </View>
   ) : null;
@@ -122,9 +123,7 @@ export function DashboardScreen() {
         }}
         backgroundGradient={hubGradient}>
         {isEditing ? (
-          <View style={styles.editBody}>
-            {cardList}
-          </View>
+          <View style={styles.editBody}>{cardList}</View>
         ) : (
           <ScrollView
             testID="dashboard-scroll-view"
