@@ -64,7 +64,7 @@ function toIsoDate(date: Date): string {
   return `${y}-${m}-${d}`;
 }
 
-function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
+function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
   const { colors } = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -88,9 +88,7 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
 
   if (size === 'small') {
     return (
-      <Pressable
-        onLongPress={onLongPress}
-        style={styles.pressable}>
+      <Pressable onLongPress={onLongPress} disabled={disabled} style={styles.pressable}>
         <Surface
           tone="surface"
           style={[styles.smallCard, shadow.sm, { shadowColor: colors.shadowCard }]}>
@@ -134,9 +132,7 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
   }
 
   return (
-    <Pressable
-      onLongPress={onLongPress}
-      style={styles.pressable}>
+    <Pressable onLongPress={onLongPress} disabled={disabled} style={styles.pressable}>
       <Surface
         tone="surface"
         style={[styles.largeCard, shadow.sm, { shadowColor: colors.shadowCard }]}>
