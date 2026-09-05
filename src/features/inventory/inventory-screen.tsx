@@ -60,13 +60,15 @@ export function InventoryScreen() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [sortMode, setSortMode] = useState<InventorySortMode>('expiry');
   const [actionItem, setActionItem] = useState<LocalInventoryItem | null>(null);
-  const [detailGroup, setDetailGroup] = useState<InventoryItemGroup | null>(null);
+  const [detailGroupId, setDetailGroupId] = useState<string | null>(null);
+  const [actionReturnGroupId, setActionReturnGroupId] = useState<string | null>(null);
   const [informationItem, setInformationItem] = useState<LocalInventoryItem | null>(null);
   const [editItem, setEditItem] = useState<LocalInventoryItem | null>(null);
   const [openItem, setOpenItem] = useState<LocalInventoryItem | null>(null);
   const [wasteItem, setWasteItem] = useState<LocalInventoryItem | null>(null);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [productHistoryGroup, setProductHistoryGroup] = useState<InventoryItemGroup | null>(null);
+  const [productHistoryReturnGroupId, setProductHistoryReturnGroupId] = useState<string | null>(null);
 
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -82,6 +84,10 @@ export function InventoryScreen() {
 
   const today = new Date();
   const allGroups = useMemo(() => groupInventoryItems(allItems, today), [allItems, today]);
+  const detailGroup = useMemo(
+    () => allGroups.find((group) => group.id === detailGroupId) ?? null,
+    [allGroups, detailGroupId],
+  );
   const expiryCounts = allGroups.reduce(
     (counts, item) => {
       const bucket = getExpiryInfo(item.expiry_date, today).bucket;
@@ -150,8 +156,18 @@ export function InventoryScreen() {
   }
 
   function handleConsume(item: LocalInventoryItem) {
-    updateQuantity(item, -item.quantity);
-    setActionItem(null);
+    if (!householdId) return;
+    const returnGroupId = actionReturnGroupId;
+    updateQty.mutate(
+      { id: item.id, household_id: householdId, delta: -item.quantity },
+      {
+        onSuccess: () => {
+          setActionItem(null);
+          setActionReturnGroupId(null);
+          if (returnGroupId) setDetailGroupId(returnGroupId);
+        },
+      },
+    );
   }
 
   function handleOpen(item: LocalInventoryItem) {
@@ -164,14 +180,58 @@ export function InventoryScreen() {
     setWasteItem(item);
   }
 
+  function closeOpenItem() {
+    if (openItem) setActionItem(openItem);
+    setOpenItem(null);
+  }
+
+  function closeWasteItem() {
+    if (wasteItem) setActionItem(wasteItem);
+    setWasteItem(null);
+  }
+
+  function closeEditItem() {
+    if (editItem) setActionItem(editItem);
+    setEditItem(null);
+  }
+
   function confirmOpen(quantity: number) {
     if (!openItem) return;
-    openMutation.mutate({ item: openItem, quantity }, { onSuccess: () => setOpenItem(null) });
+    const returnGroupId = actionReturnGroupId;
+    openMutation.mutate(
+      { item: openItem, quantity },
+      {
+        onSuccess: () => {
+          setOpenItem(null);
+          setActionReturnGroupId(null);
+          if (returnGroupId) setDetailGroupId(returnGroupId);
+        },
+      },
+    );
   }
 
   function confirmWaste(reason: WasteReason) {
     if (!wasteItem) return;
-    wasteMutation.mutate({ item: wasteItem, reason }, { onSuccess: () => setWasteItem(null) });
+    const returnGroupId = actionReturnGroupId;
+    wasteMutation.mutate(
+      { item: wasteItem, reason },
+      {
+        onSuccess: () => {
+          setWasteItem(null);
+          setActionReturnGroupId(null);
+          if (returnGroupId) setDetailGroupId(returnGroupId);
+        },
+      },
+    );
+  }
+
+  function quickOpen(item: LocalInventoryItem) {
+    openMutation.mutate({ item, quantity: 1 });
+  }
+
+  function quickConsume(item: LocalInventoryItem) {
+    if (!householdId) return;
+    updateQty.mutate({ id: item.id, household_id: householdId, delta: -1 });
   }
 
   function undoOpening(transaction: LocalInventoryTransaction) {
@@ -206,7 +266,7 @@ export function InventoryScreen() {
       handleDeletePress(group.lots[0]);
       return;
     }
-    setDetailGroup(group);
+    setDetailGroupId(group.id);
   }
 
   const chrome = { onMenuPress: openDrawer, onAvatarPress: openProfile, initials, avatarUrl };
@@ -278,7 +338,7 @@ export function InventoryScreen() {
           <View className="mt-five px-one">
             <View className="flex-row items-center justify-between">
               <Txt
-                variant="caption"
+                variant="label"
                 tone="secondary"
                 weight="700"
                 className="uppercase tracking-[1px]">
@@ -331,7 +391,7 @@ export function InventoryScreen() {
           /* Einzelne Artikelzeile mit MHD-Status und Mengensteuerung */
           <InventoryItemRow
             item={item}
-            onPress={() => setDetailGroup(item)}
+            onPress={() => setDetailGroupId(item.id)}
             onLongPress={() => setInformationItem(item.lots[0])}
             onRemove={() => handleGroupRemove(item)}
           />
@@ -342,14 +402,21 @@ export function InventoryScreen() {
       <InventoryItemGroupSheet
         visible={!!detailGroup}
         group={detailGroup}
-        onClose={() => setDetailGroup(null)}
+        onClose={() => setDetailGroupId(null)}
+        backgroundGradient={hubGradient}
+        quickActionLoading={openMutation.isPending || updateQty.isPending}
+        onQuickOpen={quickOpen}
+        onQuickConsume={quickConsume}
         onHistory={() => {
           if (!detailGroup) return;
-          setDetailGroup(null);
+          setDetailGroupId(null);
           setProductHistoryGroup(detailGroup);
+          setProductHistoryReturnGroupId(detailGroup.id);
         }}
         onSelectLot={(lot) => {
-          setDetailGroup(null);
+          if (!detailGroup) return;
+          setDetailGroupId(null);
+          setActionReturnGroupId(detailGroup.id);
           setActionItem(lot);
         }}
       />
@@ -358,7 +425,11 @@ export function InventoryScreen() {
       <InventoryItemActionsSheet
         visible={!!currentActionItem}
         item={currentActionItem}
-        onClose={() => setActionItem(null)}
+        onClose={() => {
+          setActionItem(null);
+          if (actionReturnGroupId) setDetailGroupId(actionReturnGroupId);
+          setActionReturnGroupId(null);
+        }}
         onQuantityChange={(value) =>
           currentActionItem && updateQuantity(currentActionItem, value - currentActionItem.quantity)
         }
@@ -366,7 +437,7 @@ export function InventoryScreen() {
         onConsume={() => currentActionItem && handleConsume(currentActionItem)}
         onOpen={() => currentActionItem && handleOpen(currentActionItem)}
         onWaste={() => currentActionItem && handleWaste(currentActionItem)}
-        onRemove={() => currentActionItem && handleDeletePress(currentActionItem)}
+        backgroundGradient={hubGradient}
         onExpiryChange={(expiryDate) => {
           if (!currentActionItem) return;
           updateItem.mutate({ ...currentActionItem, expiry_date: expiryDate || null });
@@ -384,13 +455,13 @@ export function InventoryScreen() {
         visible={!!editItem}
         item={editItem}
         locations={locations}
-        onClose={() => setEditItem(null)}
+        onClose={closeEditItem}
       />
 
       <OpenInventoryItemSheet
         visible={!!openItem}
         item={openItem}
-        onClose={() => setOpenItem(null)}
+        onClose={closeOpenItem}
         onConfirm={confirmOpen}
         loading={openMutation.isPending}
       />
@@ -398,7 +469,7 @@ export function InventoryScreen() {
       <WasteInventoryItemSheet
         visible={!!wasteItem}
         item={wasteItem}
-        onClose={() => setWasteItem(null)}
+        onClose={closeWasteItem}
         onConfirm={confirmWaste}
         loading={wasteMutation.isPending}
       />
@@ -443,10 +514,15 @@ export function InventoryScreen() {
             : undefined
         }
         lotLabels={productHistoryLotLabels}
-        onClose={() => setProductHistoryGroup(null)}
+        onClose={() => {
+          setProductHistoryGroup(null);
+          if (productHistoryReturnGroupId) setDetailGroupId(productHistoryReturnGroupId);
+          setProductHistoryReturnGroupId(null);
+        }}
         onUndo={undoOpening}
         onOpenFullHistory={() => {
           setProductHistoryGroup(null);
+          setProductHistoryReturnGroupId(null);
           setHistoryOpen(true);
         }}
       />
