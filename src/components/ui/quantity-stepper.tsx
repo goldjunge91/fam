@@ -11,6 +11,8 @@ type QuantityStepperProps = {
   max?: number;
   label?: string;
   size?: 'default' | 'large';
+  /** Fills the available width and distributes all three segments evenly. */
+  fullWidth?: boolean;
 };
 
 export function QuantityStepper({
@@ -20,6 +22,7 @@ export function QuantityStepper({
   max = 9999,
   label = 'Menge',
   size = 'default',
+  fullWidth = false,
 }: QuantityStepperProps) {
   const { colors } = useTheme();
   const [isEditing, setIsEditing] = useState(false);
@@ -47,14 +50,15 @@ export function QuantityStepper({
       accessibilityRole="adjustable"
       accessibilityLabel={label}
       accessibilityValue={{ min, max, now: value }}
-      className="stepper-container">
+      className="stepper-container"
+      style={fullWidth ? styles.fullWidthContainer : undefined}>
       <Pressable
         onPress={() => update(-1)}
         disabled={value <= min}
         accessibilityRole="button"
         accessibilityLabel={`${label} verringern`}
         className="stepper-btn"
-        style={{ opacity: value <= min ? 0.45 : 1 }}>
+        style={[fullWidth && styles.fullWidthSegment, { opacity: value <= min ? 0.45 : 1 }]}>
         <Txt variant="subheading">−</Txt>
       </Pressable>
 
@@ -68,8 +72,9 @@ export function QuantityStepper({
           keyboardType="number-pad"
           returnKeyType="done"
           accessibilityLabel={`${label} eingeben`}
-          className="w-[42px] self-stretch px-two py-0 text-center [font-variant:tabular-nums]"
+          className={`${fullWidth ? 'self-stretch' : 'w-[42px]'} px-two py-0 text-center [font-variant:tabular-nums]`}
           style={{
+            ...(fullWidth ? styles.fullWidthSegment : {}),
             color: colors.text,
             fontSize: size === 'large' ? font.sizes.md : font.sizes.base,
             lineHeight: size === 'large' ? font.lineHeights.subheading : font.lineHeights.body,
@@ -81,7 +86,8 @@ export function QuantityStepper({
           onPress={startEditing}
           accessibilityRole="button"
           accessibilityLabel={`${label} direkt eingeben`}
-          className="w-[42px] items-center justify-center">
+          className={`${fullWidth ? '' : 'w-[42px] '}items-center justify-center`}
+          style={fullWidth ? styles.fullWidthSegment : undefined}>
           <Txt
             variant="body"
             weight="600"
@@ -98,7 +104,7 @@ export function QuantityStepper({
         accessibilityRole="button"
         accessibilityLabel={`${label} erhöhen`}
         className="stepper-btn"
-        style={{ opacity: value >= max ? 0.45 : 1 }}>
+        style={[fullWidth && styles.fullWidthSegment, { opacity: value >= max ? 0.45 : 1 }]}>
         <Txt variant="subheading">+</Txt>
       </Pressable>
     </View>
@@ -106,6 +112,8 @@ export function QuantityStepper({
 }
 
 const styles = StyleSheet.create({
+  fullWidthContainer: { width: '100%' },
+  fullWidthSegment: { flex: 1 },
   largeValue: {
     fontSize: font.sizes.md,
     lineHeight: font.lineHeights.subheading,

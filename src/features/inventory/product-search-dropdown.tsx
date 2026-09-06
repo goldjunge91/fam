@@ -20,6 +20,7 @@ import {
   View,
 } from 'react-native';
 
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { TextField, Txt } from '@/constants/ui';
 import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
@@ -49,6 +50,7 @@ interface ProductSearchDropdownProps {
   onSelectProduct: (product: CatalogProduct) => void;
   inputStyle?: StyleProp<TextStyle>;
   trailing?: ReactNode;
+  trailingPlacement?: 'inside' | 'outside';
   size?: 'default' | 'large';
 }
 
@@ -70,6 +72,7 @@ export const ProductSearchDropdown = forwardRef<
     onSelectProduct,
     inputStyle,
     trailing,
+    trailingPlacement = 'inside',
     size = 'default',
   },
   ref,
@@ -160,12 +163,24 @@ export const ProductSearchDropdown = forwardRef<
   }, [searched]);
 
   const showEmptyState = searched && !searching && suggestions.length === 0;
+  const isTrailingOutside = trailingPlacement === 'outside';
+  const loadingIndicator = (
+    <ActivityIndicator
+      size={isTrailingOutside ? 'large' : 'small'}
+      color={colors.basil}
+      style={isTrailingOutside ? { marginRight: space.md } : undefined}
+    />
+  );
   const trailingContent = searching ? (
-    <View className="flex-row items-center gap-one">
-      <ActivityIndicator size="small" color={colors.basil} />
-      {trailing}
-    </View>
-  ) : (
+    isTrailingOutside ? (
+      loadingIndicator
+    ) : (
+      <View className="flex-row items-center gap-one">
+        {loadingIndicator}
+        {trailing}
+      </View>
+    )
+  ) : isTrailingOutside ? undefined : (
     trailing
   );
 
@@ -174,23 +189,28 @@ export const ProductSearchDropdown = forwardRef<
       ref={wrapperRef}
       className="relative z-10"
       onTouchStart={(event) => event.stopPropagation()}>
-      <TextField
-        label={label}
-        placeholder={placeholder}
-        value={value}
-        style={inputStyle}
-        trailing={trailingContent}
-        size={size}
-        // Return-Taste schliesst nur die Tastatur, die Trefferliste bleibt
-        // offen (#UI-Feedback: Liste soll erst bei tatsaechlicher Auswahl
-        // zugehen, nicht schon beim blossen Wegnehmen der Tastatur).
-        returnKeyType="search"
-        onSubmitEditing={() => Keyboard.dismiss()}
-        onChangeText={(text) => {
-          onChangeText(text);
-          setShowDropdown(true);
-        }}
-      />
+      <View className={isTrailingOutside ? 'flex-row items-center gap-two' : undefined}>
+        <View className={isTrailingOutside ? 'flex-1' : undefined}>
+          <TextField
+            label={label}
+            placeholder={placeholder}
+            value={value}
+            style={inputStyle}
+            trailing={trailingContent}
+            size={size}
+            // Return-Taste schliesst nur die Tastatur, die Trefferliste bleibt
+            // offen (#UI-Feedback: Liste soll erst bei tatsaechlicher Auswahl
+            // zugehen, nicht schon beim blossen Wegnehmen der Tastatur).
+            returnKeyType="search"
+            onSubmitEditing={() => Keyboard.dismiss()}
+            onChangeText={(text) => {
+              onChangeText(text);
+              setShowDropdown(true);
+            }}
+          />
+        </View>
+        {isTrailingOutside ? trailing : null}
+      </View>
 
       {showDropdown && (suggestions.length > 0 || showEmptyState) && (
         <View className="relative">
