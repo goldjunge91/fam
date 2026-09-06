@@ -13,8 +13,10 @@ const QuickAddShoppingWidgetLayout = (
   'widget';
 
   return (
-    <VStack modifiers={[padding({ all: 16 }), background('#F8F4EF')]}> 
-      <Text modifiers={[font({ weight: 'bold', size: 16 }), foregroundStyle('#3D2A38')]}>Schnell hinzufügen</Text>
+    <VStack modifiers={[padding({ all: 16 }), background('#F8F4EF')]}>
+      <Text modifiers={[font({ weight: 'bold', size: 16 }), foregroundStyle('#3D2A38')]}>
+        Schnell hinzufügen
+      </Text>
       <Link label={props.articleName} destination="fam:///shopping-list-add-item" />
     </VStack>
   );

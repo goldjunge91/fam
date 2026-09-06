@@ -93,7 +93,11 @@ export function ProfileHubScreen() {
             style={[
               styles.avatar,
               shadow.sm,
-              { backgroundColor: colors.accent, borderColor: colors.border, shadowColor: colors.shadowCard },
+              {
+                backgroundColor: colors.accent,
+                borderColor: colors.border,
+                shadowColor: colors.shadowCard,
+              },
             ]}>
             {avatarUrl ? (
               <Image
@@ -132,7 +136,10 @@ export function ProfileHubScreen() {
               <Card padded={false} elevation="none" style={styles.actionCard}>
                 <View style={styles.actionLead}>
                   <View
-                    style={[styles.iconTile, { backgroundColor: colors.background, borderColor: colors.border }]}>
+                    style={[
+                      styles.iconTile,
+                      { backgroundColor: colors.background, borderColor: colors.border },
+                    ]}>
                     <Txt variant="title">👤</Txt>
                   </View>
                   <View style={styles.actionCopy}>
@@ -160,7 +167,10 @@ export function ProfileHubScreen() {
               <Card padded={false} elevation="none" style={styles.actionCard}>
                 <View style={styles.actionLead}>
                   <View
-                    style={[styles.iconTile, { backgroundColor: colors.background, borderColor: colors.border }]}>
+                    style={[
+                      styles.iconTile,
+                      { backgroundColor: colors.background, borderColor: colors.border },
+                    ]}>
                     <Txt variant="title">🎯</Txt>
                   </View>
                   <View style={styles.actionCopy}>
@@ -188,7 +198,10 @@ export function ProfileHubScreen() {
               <Card padded={false} elevation="none" style={styles.actionCard}>
                 <View style={styles.actionLead}>
                   <View
-                    style={[styles.iconTile, { backgroundColor: colors.background, borderColor: colors.border }]}>
+                    style={[
+                      styles.iconTile,
+                      { backgroundColor: colors.background, borderColor: colors.border },
+                    ]}>
                     <Txt variant="title">🏠</Txt>
                   </View>
                   <View style={styles.actionCopy}>

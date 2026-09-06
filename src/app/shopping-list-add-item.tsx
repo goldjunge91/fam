@@ -1,7 +1,6 @@
 import { useRouter } from 'expo-router';
-
-import { AddItemModal } from '@/features/shopping-list/modals/add-item-modal';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { AddItemModal } from '@/features/shopping-list/modals/add-item-modal';
 
 export default function ShoppingListAddItemRoute() {
   const router = useRouter();
