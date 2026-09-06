@@ -33,7 +33,29 @@ describe('ShoppingItemRow', () => {
     expect(screen.getByText('2 L')).toBeTruthy();
   });
 
+  it('haelt die Menge als rechtsbuendige, nicht schrumpfende Spalte', async () => {
+    await render(<ShoppingItemRow item={dummyItem} onDelete={jest.fn()} onEdit={jest.fn()} />);
+
+    expect(screen.getByText('2 L')).toHaveStyle({
+      flexShrink: 0,
+      textAlign: 'right',
+    });
+  });
+
   it('sollte den geschätzten Preis anzeigen, wenn einer hinterlegt ist', async () => {
+    await render(
+      <ShoppingItemRow
+        item={{ ...dummyItem, price_estimate: 2.4 }}
+        onDelete={jest.fn()}
+        onEdit={jest.fn()}
+        showPrice
+      />,
+    );
+
+    expect(screen.getByText('2,40 €')).toBeTruthy();
+  });
+
+  it('blendet den Preis standardmäßig aus', async () => {
     await render(
       <ShoppingItemRow
         item={{ ...dummyItem, price_estimate: 2.4 }}
@@ -42,7 +64,7 @@ describe('ShoppingItemRow', () => {
       />,
     );
 
-    expect(screen.getByText('2,40 €')).toBeTruthy();
+    expect(screen.queryByText('2,40 €')).not.toBeOnTheScreen();
   });
 
   it('sollte keinen Preis anzeigen, wenn keiner hinterlegt ist', async () => {

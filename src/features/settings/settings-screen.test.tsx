@@ -124,6 +124,7 @@ describe('SettingsScreen', () => {
     for (const eintrag of [
       'Mitglieder',
       'Lagerorte',
+      'Einkaufsliste',
       'Gamification',
       'Berechtigungen',
       'Benachrichtigungen',

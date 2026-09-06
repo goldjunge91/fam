@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
@@ -20,6 +20,7 @@ import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-pro
 import type { CatalogProduct } from '@/features/product-search/types';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { ShoppingItemRow } from '../components/ui/shopping-item-row';
+import { makeShoppingListStyles } from '../components/ui/shopping-list-styles';
 import { ALL_FILTER, StorePickerMenu, UNASSIGNED_FILTER } from '../components/ui/store-picker-menu';
 import { StoreSummaryCard } from '../components/ui/store-summary-card';
 import { TotalEstimateCard } from '../components/ui/total-estimate-card';
@@ -43,6 +44,7 @@ import { useStores } from '../hooks/use-stores';
 import { AddItemModal } from '../modals/add-item-modal';
 import { EditItemModal } from '../modals/edit-item-modal';
 import { MoveItemsModal } from '../modals/move-items-modal';
+import { useShowPriceInMarketView } from '../preferences/display-settings';
 import { CategoryOrderSheet } from '../sheets/category-order-sheet';
 import { CompleteRunSheet, type TransferItem } from '../sheets/complete-run-sheet';
 import { ShoppingModeScreen } from './shopping-mode-screen';
@@ -64,12 +66,14 @@ export function ShoppingListScreen() {
   const adsEnabled = useAdsEnabled();
   const interstitialAd = useInterstitialAd();
   const { colors: theme } = useTheme();
+  const shoppingStyles = useThemedStyles(makeShoppingListStyles);
   const hubGradient = useHubGradient();
   const scrollRef = useRef<ScrollView>(null);
   const sectionListRef =
     useRef<SectionList<LocalShoppingItem, { title: string; data: LocalShoppingItem[] }>>(null);
   const { session } = useSession();
   const userId = session?.user.id;
+  const { data: showPriceInMarketView = false } = useShowPriceInMarketView(userId);
   const { openDrawer, openProfile } = useNavigationChrome();
   const { initials, avatarUrl } = useProfileAvatar();
   const insets = useSafeAreaInsets();
@@ -462,13 +466,9 @@ export function ShoppingListScreen() {
           renderSectionHeader={({ section }) => {
             const color = colorForCategory(section.title) ?? theme.textMuted;
             return (
-              <View className="flex-row items-center gap-[6px] px-three pt-three pb-one">
-                <View className="w-[6px] h-[6px] rounded-full" style={{ backgroundColor: color }} />
-                <Txt
-                  variant="body"
-                  tone="secondary"
-                  className="uppercase tracking-wider"
-                  weight="600">
+              <View style={shoppingStyles.categoryHeader}>
+                <View style={[shoppingStyles.categoryDot, { backgroundColor: color }]} />
+                <Txt variant="label" tone="primary" weight="700">
                   {section.title}
                 </Txt>
               </View>
@@ -484,6 +484,7 @@ export function ShoppingListScreen() {
               selectionMode={selectionMode}
               selected={selectedItemIds.has(item.id)}
               onSelect={() => toggleSelectedItem(item.id)}
+              showPrice={showPriceInMarketView}
             />
           )}
           stickySectionHeadersEnabled={false}

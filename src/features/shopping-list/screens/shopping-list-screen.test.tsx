@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { colorsLight } from '@/components/theme';
 
 import { ShoppingListScreen } from './shopping-list-screen';
 
@@ -33,6 +34,10 @@ jest.mock('../hooks/use-shopping-list-mutations', () => ({
   // Zeile antippen oeffnet jetzt das Bearbeiten-Formular (statt abzuhaken),
   // das braucht diesen Hook.
   useUpdateShoppingItem: () => ({ mutateAsync: jest.fn() }),
+}));
+
+jest.mock('../preferences/display-settings', () => ({
+  useShowPriceInMarketView: () => ({ data: false }),
 }));
 
 jest.mock('../hooks/use-shopping-list', () => {
@@ -248,6 +253,18 @@ describe('ShoppingListScreen', () => {
     await fireEvent.press(row);
 
     expect(mockToggleMutateAsync).not.toHaveBeenCalled();
+  });
+
+  it('zeigt die Kategorie im Marktfilter mit der primaeren Textfarbe', async () => {
+    await renderScreen();
+
+    await fireEvent.press(screen.getByText('Supermarkt'));
+    await act(() => {
+      jest.advanceTimersByTime(60);
+    });
+
+    const categoryTexts = await screen.findAllByText('Obst & Gemüse');
+    expect(categoryTexts[0]).toHaveStyle({ color: colorsLight.text });
   });
 
   it('öffnet den Barcode-Scanner direkt über den Icon-Button', async () => {

@@ -10,6 +10,8 @@ const mockUpdateMutateAsync = jest.fn().mockResolvedValue({});
 const mockDeleteMutateAsync = jest.fn().mockResolvedValue({});
 
 let mockStores: Store[] = [];
+let mockShowPriceInMarketView = false;
+const mockSetShowPriceInMarketView = jest.fn();
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
@@ -20,6 +22,15 @@ jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({
     activeHousehold: { id: 'hh-1', name: 'Familie Test' },
   }),
+}));
+
+jest.mock('@/features/auth/session-provider', () => ({
+  useSession: () => ({ session: { user: { id: 'user-1' } } }),
+}));
+
+jest.mock('../preferences/display-settings', () => ({
+  useShowPriceInMarketView: () => ({ data: mockShowPriceInMarketView }),
+  useSetShowPriceInMarketView: () => ({ mutate: mockSetShowPriceInMarketView }),
 }));
 
 jest.mock('../hooks/use-stores', () => ({
@@ -63,13 +74,30 @@ describe('StoresScreen', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockStores = [];
+    mockShowPriceInMarketView = false;
   });
 
   it('rendert Titel und Formular', async () => {
     await renderScreen();
 
-    expect(screen.getByText('Märkte verwalten')).toBeTruthy();
+    expect(screen.getByText('Einkaufsliste')).toBeTruthy();
+    expect(screen.getByRole('switch', { name: 'Preis in der Marktansicht anzeigen' })).toHaveProp(
+      'value',
+      false,
+    );
     expect(screen.getByText('Neuen Markt hinzufügen')).toBeTruthy();
+  });
+
+  it('ändert die persönliche Preisansicht über die Einstellung', async () => {
+    await renderScreen();
+
+    await fireEvent(
+      screen.getByRole('switch', { name: 'Preis in der Marktansicht anzeigen' }),
+      'valueChange',
+      true,
+    );
+
+    expect(mockSetShowPriceInMarketView).toHaveBeenCalledWith(true);
   });
 
   it('zeigt Liste vorhandener Märkte', async () => {

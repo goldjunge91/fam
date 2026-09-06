@@ -5,11 +5,12 @@ import {
   SafeAreaProvider,
   SafeAreaView,
 } from 'react-native-safe-area-context';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format-currency';
 import { formatAmount } from '@/lib/package-size';
+import { makeShoppingListStyles } from '../components/ui/shopping-list-styles';
 import { colorForCategory, parseCategoryOrder } from '../domain-logik/shopping-categories';
 import { groupByCategory, type LocalShoppingItem } from '../hooks/use-shopping-list';
 import type { Store } from '../hooks/use-stores';
@@ -23,6 +24,7 @@ export const ShoppingModeRow = memo(function ShoppingModeRow({
   item,
   onToggle,
 }: ShoppingModeRowProps) {
+  const styles = useThemedStyles(makeShoppingListStyles);
   const isChecked = item.checked_at !== null;
   const handlePress = useCallback(() => {
     onToggle(item);
@@ -34,8 +36,9 @@ export const ShoppingModeRow = memo(function ShoppingModeRow({
       accessibilityRole="checkbox"
       accessibilityState={{ checked: isChecked }}
       accessibilityLabel={item.name}
-      className="shopping-mode-row">
-      <View className={`checkbox-base ${isChecked ? 'checkbox-checked' : 'checkbox-unchecked'}`}>
+      style={styles.modeRow}>
+      <View
+        style={[styles.checkbox, isChecked ? styles.checkboxSelected : styles.checkboxUnselected]}>
         {isChecked ? (
           <Txt variant="caption" tone="onAccent">
             ✓
@@ -44,16 +47,21 @@ export const ShoppingModeRow = memo(function ShoppingModeRow({
       </View>
       <Txt
         variant="body"
-        className={`flex-1 ${isChecked ? 'line-through opacity-50' : ''}`}
+        weight="500"
+        style={[styles.name, isChecked && styles.checkedName]}
         numberOfLines={1}>
         {item.name}
       </Txt>
-      <Txt variant="body" tone="secondary" className="w-[84px] text-right" numberOfLines={1}>
-        {formatAmount(item.quantity, item.unit)}
-      </Txt>
-      <Txt variant="caption" tone="secondary" className="w-[52px] text-right" numberOfLines={1}>
-        {item.price_estimate != null ? formatEuro(item.price_estimate) : ''}
-      </Txt>
+      <View style={styles.trailingMeta}>
+        <Txt variant="body" tone="primary" weight="600" style={styles.quantity} numberOfLines={1}>
+          {formatAmount(item.quantity, item.unit)}
+        </Txt>
+        {item.price_estimate != null ? (
+          <Txt variant="caption" tone="secondary" style={styles.price} numberOfLines={1}>
+            {formatEuro(item.price_estimate)}
+          </Txt>
+        ) : null}
+      </View>
     </Pressable>
   );
 });
@@ -77,6 +85,7 @@ export function ShoppingModeScreen({
   onFinish,
 }: ShoppingModeScreenProps) {
   const { colors } = useTheme();
+  const styles = useThemedStyles(makeShoppingListStyles);
   const [collapsedOverrides, setCollapsedOverrides] = useState<Record<string, boolean>>({});
 
   const groups = useMemo(
@@ -156,25 +165,24 @@ export function ShoppingModeScreen({
                     accessibilityLabel={`${group.category}, ${catChecked} von ${catItems.length}${
                       collapsed ? ', eingeklappt' : ', aufgeklappt'
                     }`}
-                    className="shopping-mode-cat-head">
+                    style={styles.modeCategoryHeader}>
                     {/* Kategorie-Farbe an Punkt, Name und Zähler — nur der
                         getönte Hintergrund/Rand ist raus (passte nicht). */}
-                    <View className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />
-                    <Txt
-                      variant="caption"
-                      className="flex-1 uppercase tracking-wider"
-                      weight="700"
-                      color={color}>
+                    <View style={[styles.modeCategoryDot, { backgroundColor: color }]} />
+                    <Txt variant="label" weight="700" tone="primary" style={styles.categoryName}>
                       {group.category}
                     </Txt>
-                    <Txt variant="caption" color={color}>
+                    <Txt variant="label" tone="primary" weight="600">
                       {catChecked}/{catItems.length}
                       {isComplete ? ' ✓' : ''}
                     </Txt>
                     <Txt
-                      variant="title"
-                      color={color}
-                      style={{ transform: [{ rotate: collapsed ? '-90deg' : '0deg' }] }}>
+                      variant="subheading"
+                      tone="primary"
+                      style={[
+                        styles.categoryChevron,
+                        { transform: [{ rotate: collapsed ? '-90deg' : '0deg' }] },
+                      ]}>
                       ⌄
                     </Txt>
                   </Pressable>
