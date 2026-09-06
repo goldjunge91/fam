@@ -151,6 +151,10 @@ export type FeatureFlagKey =
   | 'module-recipes'
   | 'module-meal-planner'
   | 'module-calories'
+  | 'tracking-method-fasting'
+  | 'tracking-method-keto'
+  | 'tracking-method-cgm'
+  | 'tracking-method-volumetrics'
   | 'experimental-vision-camera';
 
 export function useFeatureFlagState(key: FeatureFlagKey | undefined): boolean | undefined {

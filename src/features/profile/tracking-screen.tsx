@@ -19,8 +19,14 @@ import { calculateAgeYears, calculateBmr } from '@/features/calorie-tracking/bmr
 import { type ActivityLevel, calculateTdee } from '@/features/calorie-tracking/tdee';
 import { InjectionPlanSection } from '@/features/glp1/components/injection-plan-section';
 import { updateProfile, useProfile } from '@/features/profile/api';
+import {
+  getTrackingMethodSettings,
+  TRACKING_METHODS,
+  useTrackingMethodOverridesStore,
+} from '@/features/profile/tracking-methods';
 import { SettingsGroup } from '@/features/settings/settings-menu';
 import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
+import { useFeatureFlags } from '@/lib/posthog';
 
 function formatHourString(hour: number): string {
   const clamped = Math.max(0, Math.min(23, Math.round(hour)));
@@ -33,57 +39,6 @@ const TIME_PRESETS: { hour: number; label: string; tag: string }[] = [
   { hour: 6, label: '06:00', tag: 'Frühschicht' },
   { hour: 14, label: '14:00', tag: 'Spätschicht' },
   { hour: 22, label: '22:00', tag: 'Nachtschicht' },
-];
-
-const TRACKING_METHODS: { id: TrackingMethod; label: string; icon: string; desc: string }[] = [
-  {
-    id: 'standard',
-    label: 'Klassisch (CICO)',
-    icon: '🎯',
-    desc: 'Kalorien- & Makronährstoff-Tracking ohne Spezialregeln',
-  },
-  {
-    id: 'glp1',
-    label: 'GLP-1 & Medikation',
-    icon: '💉',
-    desc: 'Injektionsintervalle, Dosierungen & Symptome erfassen',
-  },
-  {
-    id: 'fasting',
-    label: 'Intervallfasten',
-    icon: '⏱️',
-    desc: 'Fastenphasen-Timer & individuelle Essensfenster',
-  },
-  {
-    id: 'low_carb',
-    label: 'Low-Carb',
-    icon: '🥗',
-    desc: 'Netto-Kohlenhydrate & Ballaststoffe fokussieren',
-  },
-  {
-    id: 'keto',
-    label: 'Keto (Ketogen)',
-    icon: '🥑',
-    desc: 'Ketose-Ernährung (<20–50g Carbs) & Keton-Logs',
-  },
-  {
-    id: 'workouts',
-    label: 'Kraftsport',
-    icon: '🏋️',
-    desc: 'Übungen, Sätze, Wiederholungen & Gewichte dokumentieren',
-  },
-  {
-    id: 'cgm',
-    label: 'Blutzucker & CGM',
-    icon: '🩸',
-    desc: 'Glukosemessungen vor & nach den Mahlzeiten loggen',
-  },
-  {
-    id: 'volumetrics',
-    label: 'Volumetrics',
-    icon: '🥗',
-    desc: 'Energiedichte-Ampel & Sättigungs-Scoring nutzen',
-  },
 ];
 
 const ACTIVITY_LABELS: Record<string, string> = {
@@ -277,6 +232,9 @@ export function TrackingScreen() {
   const { data: profile } = useProfile(userId);
   const { data: currentGoal } = useCurrentGoal(userId);
   const { data: latestWeight } = useLatestWeightEntry(userId);
+  const featureFlags = useFeatureFlags();
+  const trackingMethodOverrides = useTrackingMethodOverridesStore((state) => state.overrides);
+  const trackingMethodEnabled = getTrackingMethodSettings(featureFlags, trackingMethodOverrides);
   const dayStartTime = profile?.tracking_day_start_time ?? '00:00';
   const selectedLogicalDate = getLogicalDateForTimestamp(new Date(), dayStartTime);
   const { data: logicalDayWeightEntries = [] } = useWeightEntries(
@@ -312,7 +270,7 @@ export function TrackingScreen() {
   const updateStartTimeMutation = useUpdateTrackingDayStartTimeMutation();
 
   function handleSelectMethod(method: TrackingMethod) {
-    if (!userId || method === selectedMethod) return;
+    if (!userId || method === selectedMethod || !trackingMethodEnabled[method]) return;
     setSelectedMethod(method);
     updateMethodMutation.mutate({ userId, method });
   }
@@ -393,15 +351,18 @@ export function TrackingScreen() {
             <View className="gap-two">
               {TRACKING_METHODS.map((m) => {
                 const isSelected = selectedMethod === m.id;
+                const isEnabled = trackingMethodEnabled[m.id];
                 return (
                   <Fragment key={m.id}>
                     <Pressable
                       onPress={() => handleSelectMethod(m.id)}
+                      disabled={!isEnabled}
                       accessibilityRole="radio"
-                      accessibilityState={{ selected: isSelected }}
+                      accessibilityState={{ selected: isSelected, disabled: !isEnabled }}
                       style={{
                         backgroundColor: isSelected ? colors.basil : colors.surface,
                         borderColor: isSelected ? colors.basil : colors.border,
+                        opacity: isEnabled ? 1 : 0.55,
                       }}
                       className="p-three rounded-xl border flex-row items-center justify-between">
                       <View className="flex-row items-center gap-three flex-1 mr-two">
@@ -410,7 +371,7 @@ export function TrackingScreen() {
                           <Txt
                             variant="body"
                             weight="700"
-                            tone={isSelected ? 'onAccent' : 'primary'}>
+                            tone={isSelected ? 'onAccent' : isEnabled ? 'primary' : 'secondary'}>
                             {m.label}
                           </Txt>
                           <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
@@ -421,6 +382,10 @@ export function TrackingScreen() {
                       {isSelected ? (
                         <Txt variant="body" weight="700" tone="onAccent">
                           Aktiv ✓
+                        </Txt>
+                      ) : !isEnabled ? (
+                        <Txt variant="caption" tone="secondary">
+                          Demnächst verfügbar
                         </Txt>
                       ) : null}
                     </Pressable>
