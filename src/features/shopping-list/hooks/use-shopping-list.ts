@@ -107,28 +107,3 @@ export function useShoppingList(householdId: string | undefined) {
     enabled: !!householdId,
   });
 }
-
-/** Alle gecheckte Artikel (fuer den Transfer-Sheet). */
-export function useCheckedShoppingItems(householdId: string | undefined) {
-  return useQuery({
-    queryKey: ['shopping_list_items', householdId, 'checked'],
-    queryFn: async (): Promise<LocalShoppingItem[]> => {
-      if (!householdId) return [];
-
-      const db = await getDatabase();
-      const rows = await db.getAllAsync<LocalShoppingItemRow>(
-        `select id, household_id, product_id, name, quantity, unit,
-                package_size, package_size_unit,
-                category_id, category_source, category_classifier_version,
-                store_id, price_estimate, recipe_names,
-                checked_at, checked_by, sort_index, created_at, updated_at
-         from shopping_list_items
-         where household_id = ? and deleted_at is null and checked_at is not null
-         order by name asc`,
-        [householdId],
-      );
-      return rows.map(toShoppingItem);
-    },
-    enabled: !!householdId,
-  });
-}

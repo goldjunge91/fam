@@ -42,7 +42,7 @@ export function flattenRecipeItems(
   return result;
 }
 
-export function findMentionableIngredient(
+function findMentionableIngredient(
   ingredients: MentionableIngredient[],
   name: string,
 ): MentionableIngredient | undefined {

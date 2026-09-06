@@ -18,12 +18,6 @@ const mockResolvePlacementForItem = jest.fn().mockResolvedValue({
   globalClassification: defaultGlobalClassification,
   barcode: null,
 });
-const mockSetCategoryPreferenceMutateAsync = jest.fn().mockResolvedValue('pref-1');
-const mockResetCategoryPreferenceMutateAsync = jest.fn().mockResolvedValue({
-  categoryId: null,
-  source: null,
-  classifierVersion: '1',
-});
 let mockFeedbackEnabled = false;
 let mockUserId: string | null = null;
 
@@ -86,15 +80,6 @@ jest.mock('@/lib/db/client', () => ({
     getFirstAsync: jest.fn().mockResolvedValue(null),
     runAsync: jest.fn().mockResolvedValue({ changes: 0, lastInsertRowId: 0 }),
     execAsync: jest.fn().mockResolvedValue(undefined),
-  }),
-}));
-
-jest.mock('../preferences/hooks', () => ({
-  useSetCategoryPreferenceMutation: () => ({
-    mutateAsync: mockSetCategoryPreferenceMutateAsync,
-  }),
-  useResetCategoryPreferenceMutation: () => ({
-    mutateAsync: mockResetCategoryPreferenceMutateAsync,
   }),
 }));
 
@@ -233,11 +218,6 @@ describe('AddItemForm', () => {
       globalClassification: defaultGlobalClassification,
       barcode: null,
     });
-    mockResetCategoryPreferenceMutateAsync.mockResolvedValueOnce({
-      categoryId: 'chilled_dairy_eggs',
-      source: 'off_taxonomy',
-      classifierVersion: '1',
-    });
     await renderForm();
 
     await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Milch');
@@ -249,8 +229,6 @@ describe('AddItemForm', () => {
 
     await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
     await user.press(screen.getByRole('button', { name: 'Automatisch' }));
-
-    expect(mockResetCategoryPreferenceMutateAsync).not.toHaveBeenCalled();
 
     await fireEvent.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
 

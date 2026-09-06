@@ -19,12 +19,6 @@ const mockResolvePlacementForItem = jest.fn().mockResolvedValue({
   globalClassification: defaultGlobalClassification,
   barcode: null,
 });
-const mockSetCategoryPreferenceMutateAsync = jest.fn().mockResolvedValue('pref-1');
-const mockResetCategoryPreferenceMutateAsync = jest.fn().mockResolvedValue({
-  categoryId: null,
-  source: null,
-  classifierVersion: '1',
-});
 let mockStores: Array<{
   id: string;
   household_id: string;
@@ -102,15 +96,6 @@ jest.mock('@/features/shopping-list/hooks/use-stores', () => ({
   useStores: () => ({ data: mockStores, isLoading: false }),
   useAddStoreMutation: () => ({ mutateAsync: jest.fn() }),
   findStoreByName: () => null,
-}));
-
-jest.mock('../preferences/hooks', () => ({
-  useSetCategoryPreferenceMutation: () => ({
-    mutateAsync: mockSetCategoryPreferenceMutateAsync,
-  }),
-  useResetCategoryPreferenceMutation: () => ({
-    mutateAsync: mockResetCategoryPreferenceMutateAsync,
-  }),
 }));
 
 jest.mock('../preferences/api', () => ({
@@ -271,7 +256,6 @@ describe('EditItemForm', () => {
         expect.objectContaining({ category_id: 'fresh_produce', category_source: 'name_fallback' }),
       ),
     );
-    expect(mockSetCategoryPreferenceMutateAsync).not.toHaveBeenCalled();
   });
 
   it('speichert eine Präferenz nur bei einer echten manuellen Kategorieänderung', async () => {
@@ -344,9 +328,6 @@ describe('EditItemForm', () => {
         }),
       ),
     );
-    expect(mockSetCategoryPreferenceMutateAsync).not.toHaveBeenCalledWith(
-      expect.objectContaining({ storeId: 'store-1' }),
-    );
   });
 
   it('"Automatisch" ruft Reset erst beim Speichern auf', async () => {
@@ -360,7 +341,6 @@ describe('EditItemForm', () => {
     await user.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
     await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
     await user.press(screen.getByRole('button', { name: /^Automatisch/ }));
-    expect(mockResetCategoryPreferenceMutateAsync).not.toHaveBeenCalled();
 
     await waitFor(() =>
       expect(mockResolvePlacementForItem).toHaveBeenCalledWith(

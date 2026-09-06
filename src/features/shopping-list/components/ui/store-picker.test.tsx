@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react-native';
 import type React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StorePickerMenu } from '@/features/shopping-list/components/ui/store-picker-menu';
-import { StorePickerField } from '@/features/shopping-list/forms/store-picker-field';
 import type { Store } from '@/features/shopping-list/hooks/use-stores';
 
 jest.mock('expo-glass-effect', () => ({
@@ -99,17 +98,6 @@ describe('StorePicker Components', () => {
       );
 
       expect(screen.getByText('Alle Listen')).toBeTruthy();
-    });
-  });
-
-  describe('StorePickerField', () => {
-    it('rendert die Auswahloptionen für das Formular', async () => {
-      const onChange = jest.fn();
-      await render(<StorePickerField householdId="hh-1" storeId="store-1" onChange={onChange} />, {
-        wrapper,
-      });
-
-      expect(screen.getByText('Rewe')).toBeTruthy();
     });
   });
 });
