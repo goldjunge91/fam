@@ -9,6 +9,7 @@ import { Button, TextField, Txt } from '@/constants/ui';
 import { requestPasswordReset } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { type PasswordResetRequestInput, passwordResetRequestSchema } from '@/lib/db/zod/auth.zod';
+import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 export function ForgotPasswordScreen() {
   const { from } = useLocalSearchParams<{ from?: string }>();
@@ -19,6 +20,7 @@ export function ForgotPasswordScreen() {
   const [formError, setFormError] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
   const {
+    control,
     setValue,
     watch,
     handleSubmit,
@@ -27,6 +29,7 @@ export function ForgotPasswordScreen() {
     resolver: zodResolver(passwordResetRequestSchema),
     defaultValues: { email: '' },
   });
+  useRozeniteRHFDevTools({ control, id: 'forgot-password' });
   const email = watch('email');
 
   function handleBack() {

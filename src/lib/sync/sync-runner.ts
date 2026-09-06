@@ -11,6 +11,7 @@ import { getDatabase } from '@/lib/db/client';
 import { onOutboxChanged } from '@/lib/db/outbox';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { Entity } from '@/lib/db/types';
+import { startPerformanceSpan } from '@/lib/performance';
 import { getSupabase, serverClock } from '@/lib/supabase';
 import { beginAccountSyncRun, registerAccountSyncStopper } from '@/lib/sync/account-sync-gate';
 import { setBackgroundSyncHandler } from '@/lib/sync/background-sync';
@@ -112,6 +113,10 @@ export async function triggerHouseholdSync(
   if (isSyncing || !householdIds || householdIds.length === 0) return null;
   const finishAccountSyncRun = beginAccountSyncRun();
   if (!finishAccountSyncRun) return null;
+  const finishPerformance = startPerformanceSpan('sync.run', {
+    household_count: householdIds.length,
+    retry_failed: retryFailed,
+  });
   isSyncing = true;
   addDiagnosticStep('sync.run.started', { operation: 'sync.run' });
   try {
@@ -171,6 +176,11 @@ export async function triggerHouseholdSync(
       pulled_count: pulledCount,
       ...(lastError ? { error_message: lastError } : {}),
     });
+    finishPerformance(hasErrors ? 'failed' : 'completed', {
+      error_count: Number(hasErrors),
+      pulled_count: pulledCount,
+      pushed_count: pushedCount,
+    });
     if (syncedOutboxCount > 0) {
       addDiagnosticStep('outbox.mutation.synced', {
         operation: 'outbox.sync',
@@ -196,6 +206,7 @@ export async function triggerHouseholdSync(
 
     return result;
   } catch (err) {
+    finishPerformance('failed');
     reportError(err, { operation: 'sync.run', error_code: 'sync_run_failed' });
     console.warn('[SyncRunner] Sync fehlgeschlagen:', err);
     return null;

@@ -18,6 +18,7 @@ import {
   type InjectionSite,
   MEDICATION_UNITS,
 } from '@/features/glp1/domain/medication-options';
+import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 const COMMON_MEDICATIONS = ['Semaglutid', 'Tirzepatid', 'Liraglutid'] as const;
 const COMMON_DOSES = ['0.25', '0.5', '1.0', '1.7', '2.4'] as const;
@@ -76,6 +77,7 @@ export function InjectionForm({
       notes: initialValue?.notes ?? '',
     },
   });
+  useRozeniteRHFDevTools({ control, id: 'glp1-injection' });
 
   const medicationName = watch('medicationName');
   const dose = watch('dose');
