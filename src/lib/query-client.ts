@@ -85,7 +85,7 @@ export async function removeLegacyPersistedQueryCache(): Promise<void> {
   }
 }
 
-export function shouldPersistQuery(query: Query): boolean {
+function shouldPersistQuery(query: Query): boolean {
   return (
     PERSISTED_QUERY_KEY_PREFIXES.includes(query.queryKey[0]) && query.state.status === 'success'
   );

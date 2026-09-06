@@ -223,7 +223,7 @@ export function getFeature(id: FeatureId | (string & {})): FeatureDefinition | u
   return allFeatures.find((f) => f.id === id);
 }
 
-export const DRAWER_GROUPS_META: readonly {
+const DRAWER_GROUPS_META: readonly {
   key: DrawerGroupKey;
   title: string;
   hideTitle?: boolean;
