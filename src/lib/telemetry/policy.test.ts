@@ -33,8 +33,11 @@ describe('telemetry policy', () => {
   it('respektiert globale, Provider-, Kanal- und Feature-Schalter unabhaengig', () => {
     const store = useAnalyticsSettingsStore.getState();
 
-    expect(isAnalyticsProviderEnabled('aptabase')).toBe(true);
+    expect(isAnalyticsProviderEnabled('aptabase')).toBe(false);
     expect(shouldCaptureTelemetry('productEvents', 'recipe.create.completed')).toBe(true);
+
+    store.setOverride('providers.aptabase', true);
+    expect(isAnalyticsProviderEnabled('aptabase')).toBe(true);
 
     store.setOverride('features.recipes', false);
     expect(shouldCaptureTelemetry('productEvents', 'recipe.create.completed')).toBe(false);

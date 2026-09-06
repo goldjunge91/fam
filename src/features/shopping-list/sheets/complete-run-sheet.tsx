@@ -97,7 +97,7 @@ function TransferRow({
               className="min-w-[32px] p-0 [font-variant:tabular-nums]"
               style={{
                 color: colors.onAccent,
-                fontSize: font.sizes.body,
+                fontSize: font.sizes.base,
                 lineHeight: font.lineHeights.body,
                 fontWeight: '600',
               }}

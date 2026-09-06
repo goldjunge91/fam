@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   option: {
-    borderRadius: radius.xs,
+    borderRadius: radius.sm,
     paddingHorizontal: space.sm,
     paddingVertical: space.sm,
     flexDirection: 'row',
@@ -76,7 +76,13 @@ export function InlineSelect({ value, options, onChange, accessibilityLabel }: I
         accessibilityRole="button"
         accessibilityLabel={accessibilityLabel}
         accessibilityState={{ expanded: open }}
-        style={[styles.button, { backgroundColor: colors.backgroundElement, borderColor: open ? colors.accent : colors.border }]}>
+        style={[
+          styles.button,
+          {
+            backgroundColor: colors.backgroundElement,
+            borderColor: open ? colors.accent : colors.border,
+          },
+        ]}>
         <Txt variant="body" weight="700" numberOfLines={1} style={styles.buttonLabel}>
           {selected?.icon ? `${selected.icon} ` : ''}
           {selected?.label ?? value}
@@ -87,7 +93,16 @@ export function InlineSelect({ value, options, onChange, accessibilityLabel }: I
       </Pressable>
 
       {open ? (
-        <View style={[styles.panel, shadow.lg, { backgroundColor: colors.background, borderColor: colors.border, shadowColor: colors.shadowSheet }]}>
+        <View
+          style={[
+            styles.panel,
+            shadow.lg,
+            {
+              backgroundColor: colors.background,
+              borderColor: colors.border,
+              shadowColor: colors.shadowSheet,
+            },
+          ]}>
           {options.map((option) => {
             const active = option.value === value;
             return (

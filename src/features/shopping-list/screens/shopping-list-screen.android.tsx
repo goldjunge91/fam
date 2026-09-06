@@ -242,11 +242,6 @@ export function ShoppingListScreen() {
       </Screen>
     );
   }
-  const completeActionColor = theme.basil;
-  // const completeActionColor = isUnassignedFilter
-  //   ? theme.textMuted
-  //   : (activeStore?.color ?? theme.tomato);
-
   const completeActionLabel = activeStore
     ? `Einkaufsliste bei ${activeStore.name} abschließen`
     : 'Einkaufliste abschließen';
@@ -334,10 +329,11 @@ export function ShoppingListScreen() {
       <View className="mt-two">
         <Button
           size="sm"
+          variant="accent"
+          accentKey="fiber"
           title={`🛒 ${completeActionLabel} (${checkedItems.length})`}
           onPress={() => setSheetOpen(true)}
           accessibilityLabel={`${completeActionLabel}, ${checkedItems.length} Artikel abgehakt`}
-          backgroundColor={completeActionColor}
         />
       </View>
     );

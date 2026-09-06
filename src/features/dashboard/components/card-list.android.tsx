@@ -282,7 +282,8 @@ function EditingCardGrid({
     () => packGrid(sortable.data.length, columns, (index) => getItemSpan(sortable.data[index])),
     [sortable.data, getItemSpan],
   );
-  const cellWidth = Math.max(0, (containerWidth - gap) / columns);
+  const layoutWidth = containerWidth || width;
+  const cellWidth = Math.max(0, (layoutWidth - gap) / columns);
   const contentHeight =
     Math.max(
       layout.totalRows,
@@ -302,7 +303,7 @@ function EditingCardGrid({
             contentInsetAdjustmentBehavior="never"
             showsVerticalScrollIndicator={false}>
             <View style={{ height: contentHeight }}>
-              {containerWidth > 0 &&
+              {layoutWidth > 0 &&
                 sortable.data.map((card, index) => {
                   const position = layout.positions[index];
                   const span = getItemSpan(card);
