@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Alert, Pressable, View } from 'react-native';
+import { Alert, Pressable, Switch, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
 import { Button, TextField, Txt } from '@/constants/ui';
+import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../domain-logik/store-presets';
 import {
@@ -13,11 +14,19 @@ import {
   useStores,
   useUpdateStoreMutation,
 } from '../hooks/use-stores';
+import {
+  useSetShowPriceInMarketView,
+  useShowPriceInMarketView,
+} from '../preferences/display-settings';
 
 export function StoresScreen() {
   const { colors: theme } = useTheme();
+  const { session } = useSession();
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
+  const userId = session?.user.id;
+  const { data: showPriceInMarketView = false } = useShowPriceInMarketView(userId);
+  const setShowPriceInMarketView = useSetShowPriceInMarketView(userId);
 
   const { data: stores, isLoading } = useStores(currentHousehold?.id);
   const addMutation = useAddStoreMutation();
@@ -102,10 +111,30 @@ export function StoresScreen() {
 
   return (
     <Screen
-      title="Märkte verwalten"
+      title="Einkaufsliste"
       subtitle={currentHousehold?.name}
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
+      <Card>
+        <View className="row-between gap-two">
+          <View className="flex-1">
+            <Txt variant="body" weight="600">
+              Preis in der Marktansicht anzeigen
+            </Txt>
+            <Txt variant="caption" tone="secondary">
+              Zeigt den hinterlegten Artikelpreis neben der Menge.
+            </Txt>
+          </View>
+          <Switch
+            value={showPriceInMarketView}
+            onValueChange={(value) => setShowPriceInMarketView.mutate(value)}
+            accessibilityLabel="Preis in der Marktansicht anzeigen"
+            trackColor={{ false: theme.border, true: theme.accent }}
+            thumbColor={theme.surface}
+          />
+        </View>
+      </Card>
+
       {/* Formular zum Anlegen eines neuen Supermarkts/Geschäfts */}
       <Card title="Neuen Markt hinzufügen">
         <View className="gap-three mt-two">

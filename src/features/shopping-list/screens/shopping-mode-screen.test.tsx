@@ -1,5 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import type React from 'react';
+import { colorsLight } from '@/components/theme';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import type { Store } from '../hooks/use-stores';
 import { ShoppingModeScreen } from './shopping-mode-screen';
@@ -81,6 +82,27 @@ describe('ShoppingModeScreen', () => {
     expect(screen.getByText('Bananen')).toBeOnTheScreen();
     expect(screen.getByText('Milch')).toBeOnTheScreen();
     expect(screen.getByText('1,80 €')).toBeOnTheScreen();
+  });
+
+  it('zeigt Kategorie und Menge im Einkaufsmodus kontrastreich und ausgerichtet', async () => {
+    const items = [makeItem({})];
+
+    await render(
+      <ShoppingModeScreen
+        visible
+        store={store}
+        items={items}
+        onToggle={jest.fn()}
+        onClose={jest.fn()}
+        onFinish={jest.fn()}
+      />,
+    );
+
+    expect(screen.getByText('Obst & Gemüse')).toHaveStyle({ color: colorsLight.text });
+    expect(screen.getByText('6 Stück')).toHaveStyle({
+      flexShrink: 0,
+      textAlign: 'right',
+    });
   });
 
   it('ruft onToggle beim Antippen eines Artikels auf', async () => {

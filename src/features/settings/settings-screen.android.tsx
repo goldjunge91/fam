@@ -141,7 +141,7 @@ export function SettingsScreen() {
             />
           </SettingsGroup>
 
-          {/* Haushalt (Mitglieder, Lagerorte, Märkte) */}
+          {/* Haushalt (Mitglieder, Lagerorte, Einkaufsliste) */}
           <SettingsGroup title="Haushalt">
             <SettingsRow
               icon="🏠"
@@ -159,7 +159,7 @@ export function SettingsScreen() {
             />
             <SettingsRow
               icon="🏬"
-              label="Märkte"
+              label="Einkaufsliste"
               hint="REWE, Aldi, Lidl, ..."
               onPress={hasHousehold ? () => router.push('/household/stores') : undefined}
               disabled={!hasHousehold}

@@ -1,11 +1,13 @@
 import { memo } from 'react';
 import { Pressable, View } from 'react-native';
 
+import { useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format-currency';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
 import type { LocalShoppingItem } from '../../hooks/use-shopping-list';
+import { makeShoppingListStyles } from './shopping-list-styles';
 
 interface ShoppingItemRowProps {
   item: LocalShoppingItem;
@@ -14,6 +16,7 @@ interface ShoppingItemRowProps {
   selectionMode?: boolean;
   selected?: boolean;
   onSelect?: () => void;
+  showPrice?: boolean;
 }
 
 export const ShoppingItemRow = memo(function ShoppingItemRow({
@@ -23,12 +26,14 @@ export const ShoppingItemRow = memo(function ShoppingItemRow({
   selectionMode = false,
   selected = false,
   onSelect,
+  showPrice = false,
 }: ShoppingItemRowProps) {
+  const styles = useThemedStyles(makeShoppingListStyles);
   const isChecked = item.checked_at !== null;
   const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
 
   return (
-    <View className="shopping-item-row">
+    <View style={styles.itemRow}>
       <Pressable
         onPress={selectionMode ? onSelect : onEdit}
         onLongPress={selectionMode ? undefined : onDelete}
@@ -40,10 +45,13 @@ export const ShoppingItemRow = memo(function ShoppingItemRow({
             : 'Antippen zum Bearbeiten, lang drücken zum Löschen'
         }
         accessibilityState={selectionMode ? { selected } : undefined}
-        className="shopping-item-main">
+        style={styles.itemMain}>
         {selectionMode ? (
           <View
-            className={`checkbox-base ${selected ? 'checkbox-checked' : 'checkbox-unchecked'}`}
+            style={[
+              styles.checkbox,
+              selected ? styles.checkboxSelected : styles.checkboxUnselected,
+            ]}
             accessibilityElementsHidden>
             {selected ? (
               <Txt tone="onAccent" weight="700">
@@ -52,26 +60,30 @@ export const ShoppingItemRow = memo(function ShoppingItemRow({
             ) : null}
           </View>
         ) : null}
-        <View className="flex-1 gap-[2px]">
-          {/* Produkt · Menge · Preis als drei Spalten (Mockup
-              docs/mockups/einkaufsmodus/), nicht Menge+Preis gestapelt. */}
-          <View className="flex-row items-baseline gap-two">
+        <View style={styles.details}>
+          <View style={styles.columns}>
             <Txt
               variant="body"
-              className={`flex-1 ${isChecked ? 'line-through opacity-50' : ''}`}
+              weight="500"
+              style={[styles.name, isChecked && styles.checkedName]}
               numberOfLines={1}>
               {item.name}
             </Txt>
-            <Txt variant="body" tone="secondary" className="w-[84px] text-right" numberOfLines={1}>
-              {formatAmount(item.quantity, item.unit)}
-            </Txt>
-            <Txt
-              variant="caption"
-              tone="secondary"
-              className="w-[52px] text-right"
-              numberOfLines={1}>
-              {item.price_estimate != null ? formatEuro(item.price_estimate) : ''}
-            </Txt>
+            <View style={styles.trailingMeta}>
+              <Txt
+                variant="body"
+                tone="primary"
+                weight="600"
+                style={styles.quantity}
+                numberOfLines={1}>
+                {formatAmount(item.quantity, item.unit)}
+              </Txt>
+              {showPrice && item.price_estimate != null ? (
+                <Txt variant="caption" tone="secondary" style={styles.price} numberOfLines={1}>
+                  {formatEuro(item.price_estimate)}
+                </Txt>
+              ) : null}
+            </View>
           </View>
           {packageHint ? (
             <Txt variant="body" tone="secondary" numberOfLines={1}>
@@ -79,7 +91,7 @@ export const ShoppingItemRow = memo(function ShoppingItemRow({
             </Txt>
           ) : null}
           {item.recipe_names.length > 0 ? (
-            <Txt variant="body" tone="secondary" numberOfLines={1} className="opacity-75">
+            <Txt variant="body" tone="secondary" numberOfLines={1} style={styles.recipeHint}>
               🍽️ {item.recipe_names.join(', ')}
             </Txt>
           ) : null}
