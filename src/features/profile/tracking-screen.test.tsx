@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useDevSettingsStore } from '@/constants/dev-settings';
 import { useSession } from '@/features/auth/session-provider';
 import {
   useCurrentGoal,
@@ -11,7 +12,6 @@ import {
   useWeightEntries,
 } from '@/features/calorie-tracking/api';
 import { useProfile } from '@/features/profile/api';
-import { useTrackingMethodOverridesStore } from '@/features/profile/tracking-methods';
 import { TrackingScreen } from '@/features/profile/tracking-screen';
 
 const mockInjectionPlanSection = jest.fn((_props: { userId: string | undefined }) => null);
@@ -147,7 +147,7 @@ describe('TrackingScreen', () => {
     jest.clearAllMocks();
     mockFeatureFlags = {};
     mockStorageData.clear();
-    useTrackingMethodOverridesStore.getState().resetOverrides();
+    useDevSettingsStore.getState().resetTrackingMethodOverrides();
   });
 
   it('rendert Tracking-Methode und Ernährung & Tagesziele', async () => {
@@ -157,6 +157,7 @@ describe('TrackingScreen', () => {
     expect(screen.getByText('ERNÄHRUNG & TAGESZIELE')).toBeOnTheScreen();
     expect(screen.getByText('2200 kcal')).toBeOnTheScreen();
     expect(screen.getByText('160g')).toBeOnTheScreen();
+    expect(screen.queryByText('🎯')).toBeNull();
   });
 
   it('zeigt den Injektionsplan direkt nach Aktivierung der GLP-1-Methode', async () => {
@@ -277,7 +278,7 @@ describe('TrackingScreen', () => {
   });
 
   it('aktiviert eine Tracking-Methode über den lokalen Dev-Override', async () => {
-    useTrackingMethodOverridesStore.getState().setOverride('volumetrics', true);
+    useDevSettingsStore.getState().setTrackingMethodOverride('volumetrics', true);
     const user = userEvent.setup();
     await renderScreen();
 
