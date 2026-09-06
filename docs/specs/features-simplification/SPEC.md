@@ -3,53 +3,52 @@
 ## Surface Assumptions
 
 > [!IMPORTANT]
-> **ASSUMPTIONS MADE FOR THIS SPECIFICATION:**
-> 1. **Zero Behavioral Impact:** Code simplification strictly preserves all functional behaviors, error handling, analytics events, and data flows. No user-facing feature behavior or API contract is broken or altered.
+> **ASSUMPTIONS & PRINCIPLES FOR THIS SPECIFICATION:**
+> 1. **Zero Behavioral Impact:** Code simplification strictly preserves all functional behaviors, error handling, analytics events, and data flows. No user-facing feature behavior or API contract is altered.
 > 2. **Native Platform Fallback:** React Native's Metro bundler natively resolves `foo.tsx` for Android when `foo.android.tsx` is absent. Removing 100% byte-identical `.android.*` files causes zero change in bundle output for Android.
-> 3. **Design System Authority:** The design system contracts (`src/constants/ui.tsx`, `src/components/theme/`) remain the single source of truth for all UI components. Simplification does not introduce new UI tokens, styling bridges, or parallel styling mechanisms.
-> 4. **No Database Schema Changes:** This initiative touches solely application client code under `src/features/`. No changes to declarative schemas under `supabase/schemas/` are required.
-> 5. **Sub-module Independence:** Simplification work can and should be executed in isolated, verifiable modules (Capability Map) rather than one monolithic refactor.
-> → *Correct any assumption if needed.*
+> 3. **Strict 1:1 Byte-Identity Gate:** No `.android.*` file is removed without an automated `cmp -s` check returning exit code 0 against its base file. Files with functional or code divergence (e.g. `food-rule-selection-sheet.android.tsx`) are preserved.
+> 4. **Pruning Only When Unused:** Only re-export files that have genuinely **0 callers** across the entire project (`settings/profile-hub-screen.tsx`, `inventory/api.ts`) are deleted. Files with active callers (`inventory/product-detail-modal.tsx`) remain untouched.
+> 5. **No Cosmetic Churn:** Pure naming changes without code reduction (e.g. `domain-logik/` → `domain/`) are rejected to avoid unnecessary Git churn.
+> 6. **No Database Schema Changes:** This initiative touches solely application client code under `src/features/`. Declarative schemas under `supabase/schemas/` remain untouched.
 
 ---
 
 ## Phase 0: Capability Map
 
-This initiative encompasses multiple independently verifiable capabilities across `src/features/`.
+This initiative encompasses 3 independently verifiable capability modules across `src/features/`.
 
 ```
-dead-code-pruning ──→ platform-clone-elimination ──→ structural-normalization ──→ form-and-search-consolidation
+dead-code-pruning ──→ platform-clone-elimination ──→ form-and-field-consolidation
 ```
 
 | Module ID | Responsibility | Depends On | Files Touched (Est.) | Risk Level |
 | :--- | :--- | :--- | :--- | :--- |
-| `dead-code-pruning` | Remove 0-byte files, empty subdirectories (`workouts`, `low-carb`), and unreferenced passthrough re-exports (`settings/profile-hub-screen.tsx`, `inventory/product-detail-modal.tsx`). | None | ~10 files | Minimal |
-| `platform-clone-elimination` | Delete 27 byte-for-byte identical `.android.*` mirror files; preserve and document the 15 genuinely diverging platform files. | None | 27 files (deletions) | Minimal |
-| `structural-normalization` | Standardize inconsistent directory naming (e.g. `src/features/shopping-list/domain-logik/` → `domain/`) and evaluate single-file feature `src/features/tracking/`. | `dead-code-pruning` | ~8 files | Low |
-| `form-and-search-consolidation` | Unify heavy duplicated forms (`add-item-form.tsx` 773 LOC & `edit-item-form.tsx` 520 LOC in `shopping-list`) and consolidate search dropdown logic where patterns duplicate. | `structural-normalization` | ~6 files | Medium |
+| `dead-code-pruning` | Remove 0-byte stub files, empty subdirectories (`workouts`, `low-carb`), and verified unreferenced files (`settings/profile-hub-screen.tsx`, `inventory/api.ts`). | None | 10 files (deletions) | Minimal |
+| `platform-clone-elimination` | Delete 26 byte-for-byte identical `.android.*` mirror files verified via `cmp -s`; preserve diverging platform files. | None | 26 files (deletions) | Minimal |
+| `form-and-field-consolidation` | Extract duplicated placement helpers and common input rows (package size, store picker, price, placement zone field) between `add-item-form.tsx` and `edit-item-form.tsx`. | `platform-clone-elimination` | 4 files | Medium |
 
 **Execution Order:**
-`dead-code-pruning` → `platform-clone-elimination` → `structural-normalization` → `form-and-search-consolidation`
+`dead-code-pruning` → `platform-clone-elimination` → `form-and-field-consolidation`
 
 ---
 
 ## 1. Objective
 
 ### What We Are Building / Simplifying
-Over time, `src/features/` has grown to ~75,000 LOC across 598 files in 23 feature directories. Code reviews and audits revealed accumulated dead files, 27 redundant byte-identical Android clone files, naming anomalies (`domain-logik`), and duplicated forms with high maintenance drag.
+Over time, `src/features/` has grown to ~75,000 LOC across 598 files in 23 feature directories. Code reviews and audits revealed accumulated dead files, 26 redundant byte-identical Android clone files, and duplicated form logic in `shopping-list`.
 
 The objective is to **systematically reduce code complexity, remove dead weight, and unify duplicated logic** while preserving **100% exact runtime behavior** on both iOS and Android.
 
 ### Who Is the User?
 - **App End-Users:** Experience no functional regressions, identical UI performance, and zero disrupted flows.
-- **Maintainers & Agents:** Gain a cleaner codebase with ~35 fewer duplicate/dead files, zero platform drift on identical screens, and clearer component contracts.
+- **Maintainers & Agents:** Gain a cleaner codebase with ~36 fewer duplicate/dead files, zero platform drift on identical screens, and a single source of truth for shopping item attribute fields.
 
 ### Success Definition
-- All 0-byte files and verified dead re-exports are safely pruned.
-- All 27 byte-identical `.android.*` files are eliminated without any build, test, or runtime regressions.
-- Directory nomenclature is unified across features (`domain` instead of `domain-logik`).
-- Typecheck (`bun run typecheck`), Biome linter (`bun run check`), and CSS checker (`bun run check:css`) are completely green.
-- All existing tests in affected features pass without modifications.
+- All 0-byte stub files and verified unreferenced files are safely pruned.
+- All 26 byte-identical `.android.*` files are eliminated after `cmp -s` verification.
+- Common placement helpers and attribute fields in `shopping-list` forms are unified without breaking any existing test assertions.
+- Typecheck (`bun run typecheck`), Biome linter (`bun run check`), and CSS checker (`bun run check:css`) pass cleanly.
+- All existing unit tests in affected features pass with 0 modifications.
 
 ---
 
@@ -57,6 +56,7 @@ The objective is to **systematically reduce code complexity, remove dead weight,
 
 - **Platform:** React Native 0.86, Expo SDK 57, React 19.2
 - **Language / Runtime:** TypeScript 5.x, Bun runtime
+- **Task Tracking:** Beads (`bd`) - Epic `fam-4ki`
 - **Styling:** Design system tokens in `src/components/theme/`, semantic primitives in `src/constants/ui.tsx`
 - **Linting & Formatting:** Biome (`bun run check`), Tailwind CLI CSS validation (`bun run check:css`)
 - **Testing:** Jest (`bun run test --runInBand --runTestsByPath ...`), `@testing-library/react-native`
@@ -65,7 +65,7 @@ The objective is to **systematically reduce code complexity, remove dead weight,
 
 ## 3. Commands
 
-All commands are executed using `bun` from the project root:
+All commands are executed using `bun` from the project root in the active worktree:
 
 ```bash
 # Typecheck
@@ -79,9 +79,11 @@ bun run check:css
 
 # Targeted unit tests (run ONLY affected tests per module)
 bun run test --runInBand --runTestsByPath src/features/inventory/add-item-screen.test.tsx
-bun run test --runInBand --runTestsByPath src/features/shopping-list/forms/add-item-form.test.tsx
-bun run test --runInBand --runTestsByPath src/features/shopping-list/screens/shopping-list-screen.test.tsx
 bun run test --runInBand --runTestsByPath src/features/profile/profile-hub-screen.test.tsx
+bun run test --runInBand --runTestsByPath src/features/household/members-screen.test.tsx
+bun run test --runInBand --runTestsByPath src/features/shopping-list/screens/shopping-list-screen.test.tsx
+bun run test --runInBand --runTestsByPath src/features/shopping-list/forms/add-item-form.test.tsx
+bun run test --runInBand --runTestsByPath src/features/shopping-list/forms/edit-item-form.test.tsx
 
 # Inspect git status and diff
 git status --short
@@ -100,50 +102,68 @@ Target files and directories affected under `src/features/`:
 ```
 src/features/
 ├── ads/                        → Unchanged (interstitial & banner platform files differ legitimately)
-├── ai-agent-skills/            → Retained as-is (standalone AI skill gateway)
+├── ai-agent-skills/            → Unchanged (standalone AI skill gateway)
 ├── app-shell/
-│   └── app-providers.android.tsx [DELETE] (identical to app-providers.tsx)
+│   └── app-providers.android.tsx [DELETE] (byte-identical to app-providers.tsx)
 ├── auth/                       → Unchanged
 ├── brochures/
-│   ├── screens/brochures-overview-screen.android.tsx [DELETE] (identical clone)
-│   └── hooks/use-brochure-sync.android.ts [DELETE] (identical clone)
+│   ├── screens/brochures-overview-screen.android.tsx [DELETE] (byte-identical clone)
+│   └── hooks/use-brochure-sync.android.ts [DELETE] (byte-identical clone)
 ├── calorie-tracking/
 │   └── low-carb/               [DELETE] (empty folder with 0-byte types.ts)
 ├── dashboard/
 │   ├── api.ts                  [DELETE] (0 bytes)
 │   ├── types.ts                [DELETE] (0 bytes)
-│   └── components/streak-dashboard-card.android.tsx [DELETE] (identical clone)
+│   ├── dashboard-screen.android.tsx [DELETE] (byte-identical clone)
+│   └── components/streak-dashboard-card.android.tsx [DELETE] (byte-identical clone)
+├── experimentalscreens/        → Unchanged (lab screens)
 ├── household/
-│   └── members-screen.android.tsx [DELETE] (identical clone)
+│   └── members-screen.android.tsx [DELETE] (byte-identical clone)
 ├── inventory/
-│   ├── api.ts                  [DELETE or PRESERVE depending on public API contract]
-│   ├── product-detail-modal.tsx [DELETE] (inlined to direct import)
-│   └── inventory-screen.tsx    [MODIFY] (use ProductInformation from ui directly)
+│   ├── api.ts                  [DELETE] (0 callers; future public API tracked in #355)
+│   ├── product-detail-modal.tsx [PRESERVE] (actively used by inventory-screen)
+│   └── inventory-screen.android.tsx [PRESERVE] (differs legitimately)
 ├── navigation/
 │   ├── api.ts                  [DELETE] (0 bytes)
 │   ├── types.ts                [DELETE] (0 bytes)
-│   ├── profile-sheet.android.tsx [DELETE] (identical clone)
-│   └── use-profile-initials.android.ts [DELETE] (identical clone)
+│   ├── profile-sheet.android.tsx [DELETE] (byte-identical clone)
+│   └── use-profile-initials.android.ts [DELETE] (byte-identical clone)
 ├── profile/
-│   ├── sheets/*.android.tsx    [DELETE] (4 sheets identical to .tsx)
-│   ├── domain/*.android.ts     [DELETE] (2 files identical to .ts)
-│   ├── components/biometrics-summary.android.tsx [DELETE] (identical clone)
-│   ├── profile-hub-screen.android.tsx [DELETE] (identical clone)
-│   ├── avatar-uploader.android.ts [DELETE] (identical clone)
-│   ├── biometrics-api.android.ts [DELETE] (identical clone)
-│   └── food-rules-api.android.ts [DELETE] (identical clone)
+│   ├── sheets/
+│   │   ├── biometrics-sheet.android.tsx [DELETE] (byte-identical clone)
+│   │   ├── password-change-sheet.android.tsx [DELETE] (byte-identical clone)
+│   │   ├── tracking-method-sheet.android.tsx [DELETE] (byte-identical clone)
+│   │   └── food-rule-selection-sheet.android.tsx [PRESERVE] (differs: alert error handling)
+│   ├── components/biometrics-summary.android.tsx [DELETE] (byte-identical clone)
+│   ├── profile-hub-screen.android.tsx [DELETE] (byte-identical clone)
+│   ├── avatar-uploader.android.ts [DELETE] (byte-identical clone)
+│   ├── biometrics-api.android.ts [DELETE] (byte-identical clone)
+│   ├── food-rules-api.android.ts [DELETE] (byte-identical clone)
+│   └── domain/
+│       ├── biometrics.android.ts [DELETE] (byte-identical clone)
+│       └── food-rules.android.ts [DELETE] (byte-identical clone)
 ├── recipes/
-│   └── screens/cooking-mode-screen.android.tsx [DELETE] (identical clone)
+│   └── screens/cooking-mode-screen.android.tsx [DELETE] (byte-identical clone)
 ├── settings/
 │   ├── types.ts                [DELETE] (0 bytes)
-│   ├── profile-hub-screen.tsx  [DELETE] (unreferenced re-export)
-│   ├── settings-screen.android.tsx [DELETE] (identical clone)
-│   └── dev/design-system/*.android.tsx [DELETE] (4 identical showcase clones)
+│   ├── profile-hub-screen.tsx  [DELETE] (0 callers across codebase)
+│   ├── settings-screen.android.tsx [DELETE] (byte-identical clone)
+│   └── dev/
+│       ├── drax-demo-screen.android.tsx [DELETE] (byte-identical clone)
+│       └── design-system/
+│           ├── design-system-screen.android.tsx [DELETE] (byte-identical clone)
+│           ├── showcase-foundations.android.tsx [DELETE] (byte-identical clone)
+│           ├── showcase-patterns.android.tsx [DELETE] (byte-identical clone)
+│           └── showcase-shared.android.tsx [DELETE] (byte-identical clone)
 ├── shopping-list/
-│   ├── domain-logik/           [RENAME] → domain/
-│   ├── screens/shopping-list-screen.android.tsx [DELETE] (identical clone)
-│   └── forms/                  [CONSOLIDATE in Phase 4]
-├── tracking/                   → Evaluate folding into core domain utilities
+│   ├── domain-logik/           → Unchanged (no cosmetic rename)
+│   ├── screens/shopping-list-screen.android.tsx [DELETE] (byte-identical clone)
+│   └── forms/
+│       ├── placement-form-helpers.ts [NEW] (extracted shared placement logic)
+│       ├── shopping-item-attribute-fields.tsx [NEW] (extracted shared attribute fields)
+│       ├── add-item-form.tsx   [MODIFY] (delegates shared attributes & placement helpers)
+│       └── edit-item-form.tsx  [MODIFY] (delegates shared attributes & placement helpers)
+├── tracking/                   → Unchanged
 └── workouts/                   [DELETE] (empty folder with 0-byte types.ts)
 ```
 
@@ -151,36 +171,30 @@ src/features/
 
 ## 5. Code Style & Conventions
 
-### Import Directness vs. Pointless Re-exports
+### Pruning Rule: "Only When Unused"
 ```typescript
-// BAD: Indirection through redundant 1-line wrapper files
-import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
-
-// GOOD: Direct import from canonical design system component
-import { ProductInformation as ProductDetailModal } from '@/components/ui/product-information';
+// RULE: ONLY delete re-exports or stubs that have verified ZERO callers in the project.
+// If a file has active callers (e.g. product-detail-modal.tsx), do NOT delete it
+// and do NOT rewrite callers just to eliminate a 4-line re-export.
 ```
 
 ### Platform Files (`.android.tsx` / `.ios.tsx`)
 ```typescript
-// RULE: ONLY maintain a .android.tsx file if it contains legitimate platform-specific code
-// (e.g. Android BackHandler, native TurboModule boundaries, platform elevation hacks).
-// If the code is identical to .tsx, delete .android.tsx. Metro bundler resolves .tsx automatically.
+// RULE: ONLY delete .android.* files when cmp -s proves 100% byte-identity to base file.
+// If a file differs by even 1 byte (e.g. food-rule-selection-sheet.android.tsx), PRESERVE IT.
 ```
 
-### Form Composition Pattern (Phase 4)
+### Form & Field Consolidation Pattern (Phase 3)
 ```typescript
-// GOOD: Unified form core with variant props
-interface ShoppingItemFormProps {
-  mode: 'add' | 'edit';
-  initialValues?: Partial<ShoppingItemInput>;
-  onSubmit: (values: ShoppingItemInput) => Promise<void>;
-  onCancel: () => void;
-  isSubmitting?: boolean;
-}
+// Shared placement helpers:
+// src/features/shopping-list/forms/placement-form-helpers.ts
+export function preferenceScopeForSource(source: CategorySource | null, storeId: string | null): PreferenceScope | null;
+export async function resolveAutomaticPreview(input: Parameters<typeof resolvePlacementForItem>[0], resetScope: PreferenceScope | null);
 
-export function ShoppingItemForm({ mode, initialValues, onSubmit, onCancel, isSubmitting }: ShoppingItemFormProps) {
-  // Shared state, validation schema, and UI layout
-}
+// Shared attribute fields:
+// src/features/shopping-list/forms/shopping-item-attribute-fields.tsx
+// Encapsulates package size + unit, price estimate, store picker, and PlacementZoneField.
+// Keeps search dropdown, scanner, suggestions, and source filter exclusively in AddItemForm.
 ```
 
 ---
@@ -188,10 +202,10 @@ export function ShoppingItemForm({ mode, initialValues, onSubmit, onCancel, isSu
 ## 6. Testing Strategy
 
 1. **Static Analysis Gates:**
-   - Run `bun run typecheck` after every atomic deletion or renaming step to prove no missing export or broken path.
+   - Run `bun run typecheck` after every atomic deletion or extraction step.
    - Run `bun run check` to enforce Biome code quality and import organization.
 2. **Behavioral Test Preservation:**
-   - No existing test assertions may be deleted or weakened.
+   - No existing test assertions may be deleted, weakened, or modified.
    - Run targeted Jest suites for each affected feature module.
 3. **No Batch Unverified Commits:**
    - Each module in the Capability Map must be verified independently before proceeding to the next.
@@ -202,29 +216,26 @@ export function ShoppingItemForm({ mode, initialValues, onSubmit, onCancel, isSu
 
 | Category | Rules |
 | :--- | :--- |
-| **Always** | - Surface any assumptions or surprises immediately.<br>- Verify with `bun run typecheck` and `bun run check` after every change.<br>- Preserve all feature behavior, error handling, and telemetry events.<br>- Check git diff and status before and after each modification. |
-| **Ask First** | - Inlining or consolidating components that touch more than 5 files.<br>- Pruning features with unclear status (`ai-agent-skills`, `experimentalscreens`).<br>- Modifying any shared schema or database contract. |
-| **Never** | - Run `bun test` or full unbudgeted `bun run test`.<br>- Modify any `supabase/schemas/*.sql` or write manual migrations.<br>- Weaken or delete existing unit tests to make a refactor pass.<br>- Add new dependencies or change native build configuration. |
+| **Always** | - Run `cmp -s` before deleting any platform file.<br>- Verify with `bun run typecheck` and `bun run check` after each phase.<br>- Preserve all feature behavior, error handling, and telemetry events.<br>- Check git diff and status before and after each modification. |
+| **Ask First** | - Touching any file with active callers outside the approved plan.<br>- Modifying features with unclear status (`ai-agent-skills`, `experimentalscreens`).<br>- Modifying any shared schema or database contract. |
+| **Never** | - Delete a platform file that has any byte divergence from its base.<br>- Run `bun test` or full unbudgeted `bun run test`.<br>- Modify any `supabase/schemas/*.sql` or write manual migrations.<br>- Weaken or delete existing unit tests to make a refactor pass.<br>- Add new dependencies or change native build configuration. |
 
 ---
 
 ## 8. Success Criteria
 
-- [ ] **SC-1:** All identified 0-byte files (`workouts/types.ts`, `settings/types.ts`, `calorie-tracking/low-carb/types.ts`, `navigation/types.ts`, `navigation/api.ts`, `dashboard/api.ts`, `dashboard/types.ts`, `premium/api.ts`) are deleted.
-- [ ] **SC-2:** All 27 verified byte-identical `.android.*` files are deleted without causing any import or runtime failure on Android.
-- [ ] **SC-3:** `src/features/inventory/product-detail-modal.tsx` and `src/features/settings/profile-hub-screen.tsx` are pruned and call sites use canonical imports.
-- [ ] **SC-4:** `src/features/shopping-list/domain-logik/` is cleanly renamed to `domain/` and all imports across the app are updated.
+- [ ] **SC-1:** All identified 0-byte files (`workouts/types.ts`, `settings/types.ts`, `calorie-tracking/low-carb/types.ts`, `navigation/types.ts`, `navigation/api.ts`, `dashboard/api.ts`, `dashboard/types.ts`, `premium/api.ts`) and unreferenced `inventory/api.ts` are deleted.
+- [ ] **SC-2:** All 26 verified byte-identical `.android.*` files are deleted without causing any import or runtime failure on Android (`cmp -s` exit code 0).
+- [ ] **SC-3:** `src/features/settings/profile-hub-screen.tsx` (0 callers) is pruned; `src/features/inventory/product-detail-modal.tsx` (active callers) is preserved.
+- [ ] **SC-4:** Placement helpers and attribute fields in `shopping-list/forms/` are cleanly extracted and shared between `add-item-form.tsx` and `edit-item-form.tsx`.
 - [ ] **SC-5:** `bun run typecheck` passes with 0 errors.
 - [ ] **SC-6:** `bun run check` and `bun run check:css` pass with 0 errors.
-- [ ] **SC-7:** Affected unit tests (`inventory-screen.test.tsx`, `shopping-list-screen.test.tsx`, `profile-hub-screen.test.tsx`) pass.
+- [ ] **SC-7:** Affected unit tests (`shopping-list-screen.test.tsx`, `profile-hub-screen.test.tsx`, `members-screen.test.tsx`, `add-item-form.test.tsx`, `edit-item-form.test.tsx`) pass with 0 modifications.
 
 ---
 
-## 9. Open Questions for Human Review
+## 9. Decided Items & Tracking
 
-1. **`src/features/inventory/api.ts`:**
-   Contains `export { useInventoryItems } from '@/features/inventory/use-inventory-items';`. Do we keep this as the designated public API barrel for inventory, or should consumers import `use-inventory-items` directly?
-2. **`src/features/experimentalscreens/`:**
-   Contains camera lab screens behind `VISION_CAMERA_LAB_ENABLED = false`. Should this remain untouched in this initiative?
-3. **`src/features/ai-agent-skills/`:**
-   Confirmed that this module has 0 app-level runtime callers. Should it remain untouched as a standalone backend/skill integration, or be earmarked for future consolidation?
+1. **`src/features/inventory/api.ts`:** Deleted in Task 1.1 (0 callers). Long-term architecture ticket for feature public APIs tracked in [GitHub Issue #355](https://github.com/goldjunge91/fam/issues/355).
+2. **`src/features/experimentalscreens/` & `src/features/ai-agent-skills/`:** Untouched in this initiative.
+3. **`domain-logik/` directory rename:** Rejected as unnecessary cosmetic churn.

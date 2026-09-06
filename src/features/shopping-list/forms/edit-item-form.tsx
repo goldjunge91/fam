@@ -8,7 +8,6 @@ import { useProduct } from '@/features/inventory/use-product';
 import { debugLog } from '@/lib/debug-log';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { useFeatureFlag } from '@/lib/posthog';
-import { UNIT_OPTIONS } from '@/lib/units';
 import {
   normalizePlacementZoneIdNullable,
   PLACEMENT_CLASSIFIER_VERSION,
@@ -24,32 +23,18 @@ import type { CategoryFeedbackInput } from '../preferences/feedback';
 import { logCategoryFeedbackAlphaTrace } from '../preferences/feedback-debug';
 import { categoryFeedbackMetadata } from '../preferences/feedback-metadata';
 import type { CategoryFormState } from './category-form-state';
-import { PlacementZoneField, type PlacementZoneSelection } from './placement-zone-field';
-
-const NO_STORE = '__none__';
+import {
+  NO_STORE,
+  type PreferenceScope,
+  preferenceScopeForSource,
+  resolveAutomaticPreview,
+} from './placement-form-helpers';
+import type { PlacementZoneSelection } from './placement-zone-field';
+import { ShoppingItemAttributeFields } from './shopping-item-attribute-fields';
 
 interface EditItemFormProps {
   item: LocalShoppingItem;
   onDismiss: () => void;
-}
-
-type PreferenceScope = 'store' | 'household';
-
-function preferenceScopeForSource(
-  source: CategorySource | null,
-  _storeId: string | null,
-): PreferenceScope | null {
-  if (source === 'store_preference') return 'store';
-  if (source === 'household_preference') return 'household';
-  return null;
-}
-
-async function resolveAutomaticPreview(
-  input: Parameters<typeof resolvePlacementForItem>[0],
-  resetScope: PreferenceScope | null,
-) {
-  debugLog(' [Placement]  ℹ️ edit-item-form resolveAutomaticPreview', { input, resetScope });
-  return resolvePlacementForItem(input, { omitPreferenceScope: resetScope });
 }
 
 export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
@@ -428,57 +413,21 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
         </Pressable>
 
         {detailsOpen ? (
-          <View className="gap-[10px] pb-one">
-            <WheelPickerField
-              label="Einheit"
-              value={unit}
-              options={UNIT_OPTIONS}
-              onChange={setUnit}
-              size="large"
-            />
-            {unit === 'package' ? (
-              <View className="flex-row items-end gap-two">
-                <View className="flex-[1.3]">
-                  <TextField
-                    label="Inhalt je Packung"
-                    value={packageSizeInput}
-                    onChangeText={setPackageSizeInput}
-                    keyboardType="decimal-pad"
-                    placeholder="z. B. 500"
-                  />
-                </View>
-                <View className="flex-1">
-                  <WheelPickerField
-                    label="Einheit"
-                    value={packageSizeUnit}
-                    options={UNIT_OPTIONS.filter((option) =>
-                      ['g', 'kg', 'ml', 'l', 'piece', 'portion'].includes(option.value),
-                    )}
-                    onChange={setPackageSizeUnit}
-                    size="large"
-                  />
-                </View>
-              </View>
-            ) : null}
-            <PlacementZoneField
-              selection={placementSelection}
-              effectiveZoneId={normalizePlacementZoneIdNullable(categoryState.categoryId)}
-              categoryOrder={stores
-                .find((store) => store.id === storeId)
-                ?.category_order?.split(',')}
-              onSelectionChange={({ zoneId }) => handleSelectCategory(zoneId)}
-              onSelectAutomatic={handleSelectAutomatic}
-            />
-            <TextField
-              label="Geschätzter Preis (optional)"
-              value={price}
-              onChangeText={setPrice}
-              keyboardType="decimal-pad"
-              placeholder="z. B. 2,49 €"
-              size="large"
-              textAlignVertical="center"
-            />
-          </View>
+          <ShoppingItemAttributeFields
+            unit={unit}
+            onUnitChange={setUnit}
+            packageSizeInput={packageSizeInput}
+            onPackageSizeInputChange={setPackageSizeInput}
+            packageSizeUnit={packageSizeUnit}
+            onPackageSizeUnitChange={setPackageSizeUnit}
+            price={price}
+            onPriceChange={setPrice}
+            placementSelection={placementSelection}
+            effectiveZoneId={normalizePlacementZoneIdNullable(categoryState.categoryId)}
+            categoryOrder={stores.find((store) => store.id === storeId)?.category_order?.split(',')}
+            onSelectCategory={handleSelectCategory}
+            onSelectAutomatic={handleSelectAutomatic}
+          />
         ) : null}
       </View>
 
