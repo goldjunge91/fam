@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Mockup v2</title>
+<style>
+  :root {
+    --page-bg: #F6F3F0; --page-surface: #FFFFFF; --page-border: #E4DDE3;
+    --page-text: #2D2830; --page-text2: #7A727C; --page-accent: #8B3FA8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --page-bg: #1A1823; --page-surface: #262231; --page-border: #383345;
+      --page-text: #F1EDF4; --page-text2: #A49DAF; --page-accent: #C98FE0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #1A1823; --page-surface: #262231; --page-border: #383345;
+    --page-text: #F1EDF4; --page-text2: #A49DAF; --page-accent: #C98FE0;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--page-bg); color: var(--page-text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    padding: 30px 20px 80px;
+  }
+
+  .intro { max-width: 820px; margin: 0 auto 18px; }
+  .intro h1 { font-size: 21px; font-weight: 800; margin: 0 0 10px; letter-spacing: -0.015em; }
+  .intro p { font-size: 13.5px; line-height: 1.6; color: var(--page-text2); margin: 0 0 10px; }
+  .intro code { font-size: 12px; padding: 1px 5px; border-radius: 5px; background: var(--page-surface); border: 1px solid var(--page-border); }
+  .modeswitch { max-width: 820px; margin: 0 auto 22px; display: flex; gap: 7px; }
+  .modeswitch button {
+    appearance: none; font: inherit; cursor: pointer;
+    padding: 8px 18px; border-radius: 10px; font-size: 12.5px; font-weight: 700;
+    background: var(--page-surface); color: var(--page-text2); border: 1px solid var(--page-border);
+  }
+  .modeswitch button[aria-pressed="true"] { background: var(--page-accent); color: var(--page-bg); border-color: transparent; }
+  .modeswitch button:focus-visible { outline: 2px solid var(--page-accent); outline-offset: 2px; }
+
+  .sheet {
+    max-width: 1010px; margin: 0 auto; padding: 26px 22px 30px; border-radius: 22px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
+    gap: 26px 22px; justify-items: center; background: #3B3852;
+  }
+  .sheet[data-mode="light"] { background: #DFDAE8; }
+  .group {
+    grid-column: 1 / -1; justify-self: stretch; margin: 12px 0 -4px;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #B9B3CE;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .group::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,.14); }
+  .sheet[data-mode="light"] .group { color: #635B7C; }
+  .sheet[data-mode="light"] .group::after { background: rgba(60,50,90,.16); }
+  .group:first-child { margin-top: 0; }
+
+  .slot { margin: 0; width: 292px; }
+  .slot figcaption { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: #A9A3C0; margin-bottom: 4px; padding-left: 3px; }
+  .slot .note { font-size: 10px; color: #8A83A6; margin-bottom: 8px; padding-left: 3px; line-height: 1.4; }
+  .sheet[data-mode="light"] .slot figcaption { color: #6C6484; }
+  .sheet[data-mode="light"] .slot .note { color: #7C7495; }
+
+  .phone {
+    width: 292px; height: 616px; border-radius: 26px; overflow: hidden; position: relative;
+    background: var(--bg); color: var(--text); box-shadow: 0 16px 34px rgba(0,0,0,.34);
+  }
+  .sheet[data-mode="light"] .phone { box-shadow: 0 14px 30px rgba(60,45,95,.20); }
+  .scroll { height: 100%; overflow-y: auto; scrollbar-width: none; }
+  .scroll::-webkit-scrollbar { display: none; }
+
+  /* ── Tokens ────────────────────────────────────────────────────────── */
+  .phone {
+    --bg: #232031; --card: #2C293B; --raise: #35324A; --track: #3B3850;
+    --hair: rgba(255,255,255,.07); --text: #FFFFFF; --text2: #8F8AA3; --shadow: none;
+    --violet: #7B3FBF; --magenta: #E5399F; --gold: #F5A623; --green: #6FAE7C;
+    --accent: #E5399F; --danger: #E5566B; --basil: #547A5A; --basil-soft: rgba(84,122,90,0.22);
+    --grad-diag: linear-gradient(45deg, var(--violet) 0%, var(--magenta) 55%, var(--gold) 100%);
+    --grad-line: linear-gradient(90deg, var(--violet) 0%, var(--magenta) 100%);
+    --grad-pill: linear-gradient(100deg, var(--magenta) 0%, #C42D93 100%);
+    --grad-avatar: linear-gradient(145deg, #8B3FA8 0%, #4A2868 100%);
+    --scrim: rgba(18,15,26,.72);
+  }
+  .sheet[data-mode="light"] .phone {
+    --bg: #F4F2F7; --card: #FFFFFF; --raise: #F1EEF7; --track: #E4E0EC;
+    --hair: rgba(36,31,51,.09); --text: #241F33; --text2: #736D85; --shadow: 0 2px 8px rgba(70,50,110,.07);
+    --violet: #6F35B4; --magenta: #D62F92; --gold: #E08C10; --green: #468A57;
+    --accent: #D62F92; --danger: #D6394F; --basil: #46704C; --basil-soft: rgba(70,112,76,0.14);
+    --grad-pill: linear-gradient(100deg, var(--magenta) 0%, #B62579 100%);
+    --grad-avatar: linear-gradient(145deg, #B562D6 0%, #763F9E 100%);
+    --scrim: rgba(30,24,44,.42);
+  }
+
+  /* ── Chrome ────────────────────────────────────────────────────────── */
+  .status { height: 26px; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; font-size: 9.5px; font-weight: 700; }
+  .status .sys { display: flex; gap: 5px; align-items: center; }
+  .status .sig { display: flex; gap: 1.5px; align-items: flex-end; height: 8px; }
+  .status .sig i { width: 2px; background: currentColor; border-radius: 1px; display: block; }
+  .status .sig i:nth-child(1) { height: 3px; } .status .sig i:nth-child(2) { height: 5px; } .status .sig i:nth-child(3) { height: 7px; }
+  .status .batt { width: 16px; height: 8px; border-radius: 2.5px; border: 1px solid currentColor; padding: 1px; opacity: .75; }
+  .status .batt i { display: block; height: 100%; width: 82%; border-radius: 1px; background: currentColor; }
+  .hd { display: flex; align-items: center; justify-content: space-between; padding: 6px 15px 12px; gap: 10px; }
+  .hd-mid { flex: 1; text-align: center; }
+  .hd-mid .t { font-size: 15.5px; font-weight: 800; letter-spacing: -0.01em; }
+  .icon-btn { width: 32px; height: 32px; border-radius: 11px; background: var(--card); display: flex; align-items: center; justify-content: center; flex: none; font-size: 15px; font-weight: 700; box-shadow: var(--shadow); }
+  .px { padding-left: 15px; padding-right: 15px; }
+  .card { background: var(--card); border-radius: 18px; box-shadow: var(--shadow); padding: 14px; }
+  .eyebrow { font-size: 9.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text2); }
+  .rule { height: 2px; border-radius: 2px; background: var(--grad-line); }
+  .btn-soft { height: 36px; border-radius: 12px; background: var(--raise); color: var(--text); display: flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 700; border: 1px solid transparent; cursor: pointer; }
+  .btn-primary { height: 40px; border-radius: 13px; background: var(--grad-pill); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; box-shadow: 0 4px 14px rgba(229,57,159,.25); }
+  .btn-danger-text { font-size: 11px; font-weight: 700; color: var(--danger); text-align: center; padding: 6px 0; }
+
+  /* ── Profil-spezifische UI ─────────────────────────────────────────── */
+  .profile-hero { text-align: center; display: flex; flex-direction: column; align-items: center; padding: 18px 14px; }
+  .avatar-lg { width: 76px; height: 76px; border-radius: 999px; background: var(--grad-avatar); border: 2.5px solid var(--card); box-shadow: 0 8px 20px rgba(0,0,0,.25); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+  .avatar-md { width: 56px; height: 56px; border-radius: 999px; background: var(--basil); border: 2px solid var(--track); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; color: #fff; flex: none; }
+  .profile-name { font-size: 16px; font-weight: 800; letter-spacing: -0.01em; }
+  .profile-mail { font-size: 11px; color: var(--text2); margin-top: 3px; font-weight: 500; }
+
+  /* Bereichs-Karten im Hub (profile-hub-screen.tsx) */
+  .nav-card { display: flex; align-items: center; gap: 11px; padding: 12px; border-radius: 14px; background: var(--card); box-shadow: var(--shadow); margin-bottom: 8px; }
+  .nav-card .icon-tile { width: 40px; height: 40px; border-radius: 11px; background: var(--raise); border: 1px solid var(--hair); display: flex; align-items: center; justify-content: center; font-size: 17px; flex: none; }
+  .nav-card .body { flex: 1; min-width: 0; }
+  .nav-card .body .t { font-size: 12.5px; font-weight: 700; }
+  .nav-card .body .s { font-size: 10px; color: var(--text2); margin-top: 2px; }
+  .nav-card .arr { color: var(--text2); font-size: 14px; font-weight: 600; }
+
+  /* Formularfelder (TextField.tsx) */
+  .field { margin-bottom: 10px; }
+  .field .lb { font-size: 10px; font-weight: 700; color: var(--text2); margin-bottom: 5px; }
+  .field .inp { height: 38px; border-radius: 12px; background: var(--raise); border: 1.5px solid transparent; display: flex; align-items: center; padding: 0 11px; font-size: 12px; font-weight: 600; color: var(--text); justify-content: space-between; }
+  .field .inp .ph { color: var(--text2); font-weight: 500; }
+  .field .inp .eye { font-size: 13px; color: var(--text2); }
+  .field.err .inp { border-color: var(--danger); }
+  .field.err .msg { font-size: 9.5px; color: var(--danger); font-weight: 600; margin-top: 3px; }
+
+  /* FoodRulesSummary (food-rules-summary.tsx) */
+  .summary-box { background: var(--card); border-radius: 14px; padding: 4px 12px; margin-top: 6px; box-shadow: var(--shadow); }
+  .summary-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; gap: 8px; }
+  .summary-row + .summary-row { border-top: 1px solid var(--hair); }
+  .summary-row .k { font-size: 11.5px; font-weight: 700; width: 115px; flex: none; }
+  .summary-row .v { font-size: 11px; color: var(--text2); text-align: right; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .summary-row .arr { color: var(--text2); font-size: 12px; margin-left: 4px; }
+
+  /* BiometricsSummary (biometrics-summary.tsx) */
+  .biometrics-box { background: var(--card); border-radius: 14px; padding: 12px; margin-top: 6px; box-shadow: var(--shadow); }
+  .biometrics-weight { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--hair); padding-bottom: 8px; margin-bottom: 8px; }
+  .biometrics-weight .val { font-size: 20px; font-weight: 800; margin-top: 2px; }
+  .biometrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .biometrics-grid .fact { border-bottom: 1px solid var(--hair); padding-bottom: 6px; }
+  .biometrics-grid .fact:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0; }
+
+  /* TrackingScreen Kacheln (tracking-screen.tsx) */
+  .kcal-hero { background: var(--card); border-radius: 16px; padding: 14px; text-align: center; box-shadow: var(--shadow); }
+  .kcal-hero .lbl { font-size: 10px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 0.05em; }
+  .kcal-hero .val { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-top: 3px; }
+  .macro-grid { display: flex; gap: 6px; margin-top: 7px; }
+  .macro-tile { flex: 1; background: var(--card); border-radius: 12px; padding: 9px 6px; text-align: center; box-shadow: var(--shadow); }
+  .macro-tile .icon { font-size: 13px; }
+  .macro-tile .k { font-size: 9.5px; color: var(--text2); font-weight: 600; margin-top: 2px; }
+  .macro-tile .v { font-size: 12.5px; font-weight: 800; margin-top: 1px; }
+
+  /* Vitalwerte 2x2 Grid */
+  .vital-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 7px; }
+  .vital-tile { background: var(--card); border-radius: 12px; padding: 9px 10px; box-shadow: var(--shadow); }
+  .vital-tile .lbl { font-size: 9.5px; color: var(--text2); font-weight: 600; }
+  .vital-tile .v { font-size: 12.5px; font-weight: 800; margin-top: 3px; }
+
+  /* BMR/TDEE Banner */
+  .energy-banner { display: flex; align-items: center; justify-content: space-around; background: var(--card); border-radius: 12px; padding: 9px; margin-top: 7px; text-align: center; box-shadow: var(--shadow); }
+  .energy-banner .col { flex: 1; }
+  .energy-banner .k { font-size: 9px; color: var(--text2); font-weight: 700; }
+  .energy-banner .v { font-size: 12px; font-weight: 800; margin-top: 2px; }
+  .energy-banner .sep { width: 1px; height: 26px; background: var(--hair); }
+
+  /* Tracking-Methoden Kacheln (Pressable Radio) */
+  .method-card { display: flex; align-items: center; justify-content: space-between; gap: 9px; padding: 10px 11px; border-radius: 13px; background: var(--card); border: 1.5px solid transparent; margin-bottom: 6px; box-shadow: var(--shadow); }
+  .method-card.on { background: var(--basil-soft); border-color: var(--basil); }
+  .method-card .lead { display: flex; align-items: center; gap: 9px; flex: 1; min-width: 0; }
+  .method-card .icon { font-size: 18px; }
+  .method-card .t { font-size: 11.5px; font-weight: 700; }
+  .method-card .d { font-size: 9.5px; color: var(--text2); margin-top: 1px; line-height: 1.3; }
+  .method-card .badge { font-size: 10px; font-weight: 800; color: #fff; background: var(--basil); padding: 3px 8px; border-radius: 999px; }
+
+  /* TimePicker (TimePicker in tracking-screen.tsx) */
+  .time-hero { background: var(--card); border-radius: 14px; padding: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow); }
+  .time-hero .val { font-size: 20px; font-weight: 800; }
+  .time-stepper { display: flex; gap: 5px; }
+  .time-btn { width: 34px; height: 34px; border-radius: 10px; background: var(--raise); display: flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 800; color: var(--text); border: 1px solid var(--hair); }
+  .preset-scroll { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; }
+  .preset-chip { padding: 6px 10px; border-radius: 11px; background: var(--card); border: 1px solid var(--hair); text-align: center; flex: none; }
+  .preset-chip.on { background: var(--basil); color: #fff; border-color: transparent; }
+  .preset-chip .tm { font-size: 11px; font-weight: 700; }
+  .preset-chip .tg { font-size: 8.5px; color: var(--text2); margin-top: 1px; }
+  .preset-chip.on .tg { color: rgba(255,255,255,.8); }
+
+  /* ── Overlays & Modals ─────────────────────────────────────────────── */
+  .scrim { position: absolute; inset: 0; background: var(--scrim); z-index: 10; }
+  .sheet-panel { position: absolute; left: 0; right: 0; bottom: 0; background: var(--bg); border-radius: 22px 22px 0 0; padding: 8px 14px 16px; box-shadow: 0 -8px 26px rgba(0,0,0,.4); z-index: 20; max-height: 88%; overflow-y: auto; }
+  .grabber { width: 34px; height: 4px; border-radius: 999px; background: var(--track); margin: 2px auto 10px; }
+  .sheet-hd { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+  .sheet-hd .t { font-size: 15px; font-weight: 800; }
+  .sheet-hd .s { font-size: 10.5px; color: var(--text2); margin-top: 2px; }
+  .close-btn { width: 26px; height: 26px; border-radius: 999px; background: var(--raise); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text2); font-weight: 700; flex: none; }
+
+  /* Presets Checkliste (FoodRuleSelectionSheet) */
+  .check-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 8px; border-radius: 10px; font-size: 11.5px; font-weight: 600; border-bottom: 1px solid var(--hair); }
+  .check-row.on { background: var(--basil-soft); }
+  .checkbox { width: 18px; height: 18px; border-radius: 5px; border: 1.5px solid var(--track); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; }
+  .checkbox.on { background: var(--basil); border-color: var(--basil); color: #fff; }
+
+  /* Custom Food Rows in FoodRuleSelectionSheet */
+  .custom-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 8px; border-bottom: 1px solid var(--hair); font-size: 12px; font-weight: 600; }
+  .custom-row .del { font-size: 10.5px; color: var(--text2); font-weight: 600; }
+
+  /* Radio Buttons (Geschlecht in Biometrie-Modal) */
+  .radio-row { display: flex; gap: 6px; }
+  .radio-btn { flex: 1; padding: 8px 6px; border-radius: 10px; background: var(--raise); text-align: center; font-size: 11px; font-weight: 700; border: 1.5px solid transparent; color: var(--text); }
+  .radio-btn.on { background: var(--basil); color: #fff; }
+
+  @media (max-width: 400px) {
+    body { padding: 22px 8px 60px; }
+    .sheet { padding: 16px 10px 20px; border-radius: 16px; gap: 20px 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="intro">
+  <h1>Profil, vollständiges Mockup</h1>
+  <p>Jeder Screen, jedes Sheet, jedes Modal und jede Komponente aus <code>src/features/profile/</code>, strikt basierend auf dem Quellcode. Visuelle Sprache: fam-Verlauf-Look (Violett → Magenta → Gold auf dunklem Grund bzw. Hellmodus über den Umschalter).</p>
+  <p>Zentrale Datenbasis: <b>Max Mustermann</b> (<code>max.mustermann@example.de</code>), 2.150 kcal Tagesziel, 145g Protein, 210g Kohlenhydrate, 65g Fett, 182 cm, 78,4 kg, BMR 1.765 kcal, TDEE 2.427 kcal, individueller Tagesstart 04:00 Uhr.</p>
+</div>
+
+<div class="modeswitch" id="modeswitch">
+  <button type="button" data-mode="dark" aria-pressed="true">Dunkel</button>
+  <button type="button" data-mode="light" aria-pressed="false">Hell</button>
+</div>
+
+<div class="sheet" id="sheet" data-mode="dark">
+
+  <!-- ══════════════════════════ 1. PROFIL-HUB ══════════════════════════ -->
+  <h2 class="group">1 · Profil-Hub</h2>
+
+  <!-- Slot 1: ProfileHubScreen Standard -->
+  <figure class="slot">
+    <figcaption>1 · Profil-Hub (/profile)</figcaption>
+    <div class="note">Hauptansicht mit Header und Bereichskarten (profile-hub-screen.tsx)</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn">‹</div>
+          <div class="hd-mid"><div class="t">Mein Profil</div></div>
+          <div style="width:32px;"></div>
+        </div>
+        <div class="px">
+          <div class="card profile-hero">
+            <div class="avatar-lg">MM</div>
+            <div class="profile-name">Max Mustermann</div>
+            <div class="profile-mail">max.mustermann@example.de</div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <div class="eyebrow" style="margin-bottom:8px; padding-left:4px;">Bereiche</div>
+
+            <div class="nav-card">
+              <div class="icon-tile">👤</div>
+              <div class="body">
+                <div class="t">Profil &amp; Account-Daten</div>
+                <div class="s">Profilbild, Name, E-Mail und Passwort</div>
+              </div>
+              <div class="arr">›</div>
+            </div>
+
+            <div class="nav-card">
+              <div class="icon-tile">🎯</div>
+              <div class="body">
+                <div class="t">Mein Tracking</div>
+                <div class="s">Methode, Tagesbedarf, Vitalwerte &amp; Rhythmus</div>
+              </div>
+              <div class="arr">›</div>
+            </div>
+
+            <div class="nav-card">
+              <div class="icon-tile">🏠</div>
+              <div class="body">
+                <div class="t">Familie</div>
+                <div class="s">Haushalt verwalten &amp; Mitglieder</div>
+              </div>
+              <div class="arr">›</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- Slot 2: ProfileHubScreen Leer / Neu -->
+  <figure class="slot">
+    <figcaption>2 · Profil-Hub (Neuer Nutzer)</figcaption>
+    <div class="note">Guard-Fallback bei fehlendem Namen (profile-hub-screen.tsx)</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn">‹</div>
+          <div class="hd-mid"><div class="t">Mein Profil</div></div>
+          <div style="width:32px;"></div>
+        </div>
+        <div class="px">
+          <div class="card profile-hero">
+            <div class="avatar-lg" style="background:var(--raise);">ON</div>
+            <div class="profile-name" style="color:var(--text2);">Ohne Namen</div>
+            <div class="profile-mail">—</div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <div class="eyebrow" style="margin-bottom:8px; padding-left:4px;">Bereiche</div>
+            <div class="nav-card">
+              <div class="icon-tile">👤</div>
+              <div class="body"><div class="t">Profil &amp; Account-Daten</div><div class="s">Profilbild, Name, E-Mail und Passwort</div></div>
+              <div class="arr">›</div>
+            </div>
+            <div class="nav-card">
+              <div class="icon-tile">🎯</div>
+              <div class="body"><div class="t">Mein Tracking</div><div class="s">Methode, Tagesbedarf, Vitalwerte &amp; Rhythmus</div></div>
+              <div class="arr">›</div>
+            </div>
+            <div class="nav-card">
+              <div class="icon-tile">🏠</div>
+              <div class="body"><div class="t">Familie</div><div class="s">Haushalt verwalten &amp; Mitglieder</div></div>
+              <div class="arr">›</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ 2. PROFIL & ACCOUNT BEARBEITEN ══════════════════════════ -->
+  <h2 class="group">2 · Profil &amp; Account bearbeiten</h2>
+
+  <!-- Slot 3: EditProfileScreen Standard -->
+  <figure class="slot">
+    <figcaption>3 · Profil &amp; Account (/profile/edit)</figcaption>
+    <div class="note">Formular mit Profilbild, Angaben und FoodRulesSummary (edit-profile-screen.tsx)</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn">‹</div>
+          <div class="hd-mid"><div class="t">Profil &amp; Account</div></div>
+          <div style="width:32px;"></div>
+        </div>
+        <div class="px" style="padding-bottom:30px;">
+          <!-- Profilbild Card -->
+          <div class="card" style="margin-bottom:12px;">
+            <div class="eyebrow" style="margin-bottom:10px;">Profilbild</div>
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div class="avatar-md">MM</div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+                <div class="btn-soft">Bild ändern</div>
+                <div class="btn-danger-text">Bild entfernen</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Persönliche Angaben Card -->
+          <div class="card" style="margin-bottom:12px;">
+            <div class="eyebrow" style="margin-bottom:10px;">Persönliche Angaben</div>
+            <div class="field">
+              <div class="lb">Name</div>
+              <div class="inp"><span>Max Mustermann</span></div>
+            </div>
+            <div class="field">
+              <div class="lb">E-Mail-Adresse</div>
+              <div class="inp"><span>max.mustermann@example.de</span></div>
+            </div>
+            <div class="btn-soft" style="margin-top:6px; height:32px; font-size:11px;">Passwort ändern</div>
+          </div>
+
+          <!-- FoodRulesSummary -->
+          <div style="margin-bottom:14px;">
+            <div class="eyebrow" style="margin-bottom:6px; padding-left:2px;">Lebensmittel &amp; Verträglichkeit</div>
+            <div class="summary-box" style="margin-top:0;">
+              <div class="summary-row">
+                <span class="k">Allergien</span>
+                <span class="v">Glutenhaltiges Getreide, Erdnüsse</span>
+                <span class="arr">›</span>
+              </div>
+              <div class="summary-row">
+                <span class="k">Unverträglichkeiten</span>
+                <span class="v">Laktose</span>
+                <span class="arr">›</span>
+              </div>
+              <div class="summary-row">
+                <span class="k">Mag ich nicht</span>
+                <span class="v">Koriander, Rosenkohl</span>
+                <span class="arr">›</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-primary">Änderungen speichern</div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- Slot 4: EditProfileScreen Fehlerzustand -->
+  <figure class="slot">
+    <figcaption>4 · Profil &amp; Account (Fehler)</figcaption>
+    <div class="note">Validierungsfehler und formError-Meldung (edit-profile-screen.tsx)</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn">‹</div>
+          <div class="hd-mid"><div class="t">Profil &amp; Account</div></div>
+          <div style="width:32px;"></div>
+        </div>
+        <div class="px" style="padding-bottom:30px;">
+          <div class="card" style="margin-bottom:12px;">
+            <div class="eyebrow" style="margin-bottom:10px;">Persönliche Angaben</div>
+            <div class="field err">
+              <div class="lb">Name</div>
+              <div class="inp"><span>M</span></div>
+              <div class="msg">Der Name muss mindestens 2 Zeichen lang sein.</div>
+            </div>
+            <div class="field">
+              <div class="lb">E-Mail-Adresse</div>
+              <div class="inp"><span>max.mustermann@example.de</span></div>
+            </div>
+            <div class="btn-soft" style="margin-top:6px; height:32px; font-size:11px;">Passwort ändern</div>
+          </div>
+
+          <div style="background:rgba(229,86,107,0.14); border:1px solid var(--danger); border-radius:12px; padding:10px 12px; margin-bottom:14px;">
+            <div style="font-size:11px; color:var(--danger); font-weight:700;">Fehler beim Speichern der Account-Daten.</div>
+          </div>
+
+          <div class="btn-primary">Änderungen speichern</div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- Slot 5: EditProfileScreen mit BiometricsSummary -->
+  <figure class="slot">
+    <figcaption>5 · Profil &amp; Account (mit Biometrie)</figcaption>
+    <div class="note">BiometricsSummary aus edit-profile-screen.android.tsx</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn">‹</div>
+          <div class="hd-mid"><div class="t">Profil &amp; Account</div></div>
+          <div style="width:32px;"></div>
+        </div>
+        <div class="px" style="padding-bottom:30px;">
+          <!-- BiometricsSummary -->
+          <div style="margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; padding:0 2px;">
+              <span style="font-size:12px; font-weight:700;">Körper &amp; Aktivität</span>
+              <span style="font-size:11px; font-weight:700; color:var(--magenta);">Bearbeiten</span>
+            </div>
+            <div class="biometrics-box">
+              <div class="biometrics-weight">
+                <div>
+                  <div style="font-size:10px; color:var(--text2);">Aktuelles Gewicht</div>
+                  <div class="val">78,4 kg</div>
+                </div>
+                <div style="font-size:9.5px; color:var(--text2);">Neuester Eintrag</div>
+              </div>
+              <div class="biometrics-grid">
+                <div class="fact"><div style="font-size:9.5px; color:var(--text2);">Größe</div><div style="font-size:11.5px; font-weight:700; margin-top:2px;">182 cm</div></div>
+                <div class="fact"><div style="font-size:9.5px; color:var(--text2);">Geburtsdatum</div><div style="font-size:11.5px; font-weight:700; margin-top:2px;">18.04.1992</div></div>
+                <div class="fact"><div style="font-size:9.5px; color:var(--text2);">Berechnungsbasis</div><div style="font-size:11.5px; font-weight:700; margin-top:2px;">Männlich</div></div>
+                <div class="fact"><div style="font-size:9.5px; color:var(--text2);">Aktivität</div><div style="font-size:11.5px; font-weight:700; margin-top:2px;">Mäßig aktiv</div></div>
+              </div>
+            </div>
+            <div style="font-size:9.5px; color:var(--text2); margin-top:4px; padding-left:4px;">Privat · im Verlauf gespeichert</div>
+          </div>
+
+          <!-- FoodRulesSummary -->
+          <div style="margin-bottom:14px;">
+            <div class="eyebrow" style="margin-bottom:6px; padding-left:2px;">Lebensmittel &amp; Verträglichkeit</div>
+            <div class="summary-box" style="margin-top:0;">
+              <div class="summary-row"><span class="k">Allergien</span><span class="v">Glutenhaltig, Erdnüsse</span><span class="arr">›</span></div>
+              <div class="summary-row"><span class="k">Unverträglichkeiten</span><span class="v">Laktose</span><span class="arr">›</span></div>
+              <div class="summary-row"><span class="k">Mag ich nicht</span><span class="v">Keine Angaben</span><span class="arr">›</span></div>
+            </div>
+          </div>
+
+          <div class="btn-primary">Änderungen speichern</div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ 3. SHEETS & MODALS ══════════════════════════ -->
+  <h2 class="group">3 · Sheets &amp; Modals: Profil &amp; Account</h2>
+
+  <!-- Slot 6: PasswordChangeSheet -->
+  <figure class="slot">
+    <figcaption>6 · Passwort ändern Sheet</figcaption>
+    <div class="note">PasswordChangeSheet aus sheets/password-change-sheet.tsx</div>
+    <div class="phone">
+      <div class="scroll" style="opacity:.3;">
+        <div class="status"><span>10:30</span></div>
+        <div class="hd"><div class="hd-mid"><div class="t">Profil &amp; Account</div></div></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="sheet-panel">
+        <div class="grabber"></div>
+        <div class="sheet-hd">
+          <div>
+            <div class="t">Passwort ändern</div>
+            <div class="s">Speichere dein neues Passwort direkt hier.</div>
+          </div>
+          <div class="close-btn">✕</div>
+        </div>
+        <div class="field">
+          <div class="lb">Neues Passwort</div>
+          <div class="inp">
+            <span>••••••••••••</span>
+            <span class="eye">👁️</span>
+          </div>
+        </div>
+        <div class="field">
+          <div class="lb">Neues Passwort bestätigen</div>
+          <div class="inp">
+            <span>••••••••••••</span>
+            <span class="eye">👁️</span>
+          </div>
+        </div>
+        <div class="btn-primary" style="margin-top:14px;">Passwort speichern</div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- Slot 7: PasswordChangeSheet Fehler -->
+  <figure class="slot">
+    <figcaption>7 · Passwort ändern (Fehler)</figcaption>
+    <div class="note">Validierungsfehler bei zu kurzem Kennwort oder Mismatch</div>
+    <div class="phone">
+      <div class="scroll" style="opacity:.3;">
+        <div class="status"><span>10:30</span></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="sheet-panel">
+        <div class="grabber"></div>
+        <div class="sheet-hd">
+          <div>
+            <div class="t">Passwort ändern</div>
+            <div class="s">Speichere dein neues Passwort direkt hier.</div>
+          </div>
+          <div class="close-btn">✕</div>
+        </div>
+        <div class="field err">
+          <div class="lb">Neues Passwort</div>
+          <div class="inp">
+            <span>geheim</span>
+            <span class="eye">👁️</span>
+          </div>
+          <div class="msg">Das Passwort braucht mindestens 8 Zeichen.</div>
+        </div>
+        <div class="field err">
+          <div class="lb">Neues Passwort bestätigen</div>
+          <div class="inp">
+            <span>geheim123</span>
+            <span class="eye">👁️</span>
+          </div>
+          <div class="msg">Die Passwörter stimmen nicht überein.</div>
+        </div>
+        <div class="btn-primary" style="margin-top:14px;">Passwort speichern</div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- Slot 8: FoodRuleSelectionSheet Allergien -->
+  <figure class="slot">
+    <figcaption>8 · Allergien auswählen</figcaption>
+    <div class="note">Presets mit Checkboxen aus sheets/food-rule-selection-sheet.tsx</div>
+    <div class="phone">
+      <div class="scroll" style="opacity:.3;">
+        <div class="status"><span>10:30</span></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="sheet-panel" style="max-height:86%;">
+        <div class="grabber"></div>
+        <div class="sheet-hd">
+          <div>
+            <div class="t">Allergien</div>
+            <div class="s">Häufige auswählen oder eigene ergänzen</div>
+          </div>
+          <div class="close-btn">✕</div>
+        </div>
+
+        <div class="field">
+          <div class="inp"><span class="ph">Allergie suchen oder ergänzen</span></div>
+        </div>
+        <div class="btn-soft" style="margin-bottom:12px;">Eintrag hinzufügen</div>
+
+        <div style="max-height:240px; overflow-y:auto; margin-bottom:12px;">
+          <div class="check-row on">
+            <span>Glutenhaltiges Getreide</span>
+            <div class="checkbox on">✓</div>
+          </div>
+          <div class="check-row">
+            <span>Krebstiere</span>
+            <div class="checkbox"></div>
+          </div>
+          <div class="check-row">
+            <span>Eier</span>
+            <div class="checkbox"></div>
+          </div>
+          <div class="check-row">
+            <span>Fisch</span>
+            <div class="checkbox"></div>
+          </div>
+          <div class="check-row on">
+            <span>Erdnüsse</span>
+            <div class="checkbox on">✓</div>
+          </div>
+          <div class="check-row">
+            <span>Soja</span>
+            <div class="checkbox"></div>
+          </div>
+          <div class="check-row">
+            <span>Milch / Milcheiweiß</span>
+            <div class="checkbox"></div>
+          </div>
+        </div>
+
+        <div class="btn-primary">Auswahl übernehmen</div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- Slot 9: FoodRuleSelectionSheet Unverträglichkeiten -->
+  <figure class="slot">
+    <figcaption>9 · Unverträglichkeiten</figcaption>
+    <div class="note">Intoleranz-Presets aus sheets/food-rule-selection-sheet.tsx</div>
+    <div class="phone">
+      <div class="scroll" style="opacity:.3;">
+        <div class="status"><span>10:30</span></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="sheet-panel">
+        <div class="grabber"></div>
+        <div class="sheet-hd">
+          <div>
+            <div class="t">Unverträglichkeiten</div>
+            <div class="s">Häufige auswählen oder eigene ergänzen</div>
+          </div>
+          <div class="close-btn">✕</div>
+        </div>
+
+        <div class="field">
+          <div class="inp"><span class="ph">Unverträglichkeit suchen oder ergänzen</span></div>
+        </div>
+        <div class="btn-soft" style="margin-bottom:12px;">Eintrag hinzufügen</div>
+
+        <div style="margin-bottom:14px;">
+          <div class="check-row on">
+            <span>Laktose</span>
+            <div class="checkbox on">✓</div>
+          </div>
+          <div class="check-row">
+            <span>Fruktosemalabsorption</span>
+            <div class="checkbox"></div>
+          </div>
+          <div class="check-row">
+            <span>Sorbitmalabsorption</span>
+            <div class="checkbox"></div>
+          </div>
+          <div class="check-row">
+            <span>Zöliakie / Gluten strikt meiden</span>
+            <div class="checkbox"></div>
+          </div>
+        </div>
+
+        <div class="btn-primary">Auswahl übernehmen</div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- Slot 10: FoodRuleSelectionSheet Mag ich nicht -->
+  <figure class="slot">
+    <figcaption>10 · Mag ich nicht</figcaption>
+    <div class="note">Freitext-Einträge und Entfernen-Aktion (food-rule-selection-sheet.tsx)</div>
+    <div class="phone">
+      <div class="scroll" style="opacity:.3;">
+        <div class="status"><span>10:30</span></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="sheet-panel">
+        <div class="grabber"></div>
+        <div class="sheet-hd">
+          <div>
+            <div class="t">Mag ich nicht</div>
+            <div class="s">Eigene Lebensmittel ergänzen</div>
+          </div>
+          <div class="close-btn">✕</div>
+        </div>
+
+        <div class="field" style="margin-bottom:6px;">
+          <div class="inp"><span>Sellerie</span></div>
+        </div>
+        <div class="btn-soft" style="margin-bottom:14px;">Sellerie hinzufügen</div>
+
+        <div style="margin-bottom:16px;">
+          <div class="custom-row">
+            <span>Koriander</span>
+            <span class="del">Entfernen</span>
+          </div>
+          <div class="custom-row">
+            <span>Rosenkohl</span>
+            <span class="del">Entfernen</span>
+          </div>
+        </div>
+
+        <div class="btn-primary">Auswahl übernehmen</div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ 4. MEIN TRACKING ══════════════════════════ -->
+  <h2 class="group">4 · Mein Tracking</h2>
+
+  <!-- Slot 11: TrackingScreen Vollständig -->
+  <figure class="slot">
+    <figcaption>11 · Mein Tracking (/profile/tracking)</figcaption>
+    <div class="note">Vollständiger Screen aus tracking-screen.tsx</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn">‹</div>
+          <div class="hd-mid"><div class="t">Mein Tracking</div></div>
+          <div style="width:32px;"></div>
+        </div>
+        <div class="px" style="padding-bottom:30px;">
+          <!-- Tracking Methode -->
+          <div class="eyebrow" style="margin-bottom:4px;">Deine Tracking-Methode</div>
+          <div style="font-size:10px; color:var(--text2); margin-bottom:8px;">Wähle deine aktive Methode für das Ernährungstagebuch:</div>
+
+          <div class="method-card on">
+            <div class="lead">
+              <span class="icon">🎯</span>
+              <div><div class="t">Klassisch (CICO)</div><div class="d">Kalorien- &amp; Makronährstoff-Tracking ohne Spezialregeln</div></div>
+            </div>
+            <div class="badge">Aktiv ✓</div>
+          </div>
+          <div class="method-card">
+            <div class="lead">
+              <span class="icon">💉</span>
+              <div><div class="t">GLP-1 &amp; Medikation</div><div class="d">Injektionsintervalle, Dosierungen &amp; Symptome erfassen</div></div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="lead">
+              <span class="icon">⏱️</span>
+              <div><div class="t">Intervallfasten</div><div class="d">Fastenphasen-Timer &amp; individuelle Essensfenster</div></div>
+            </div>
+          </div>
+
+          <!-- Ernährung & Tagesziele -->
+          <div class="eyebrow" style="margin-top:14px; margin-bottom:6px;">Ernährung &amp; Tagesziele</div>
+          <div class="kcal-hero">
+            <div class="lbl">🎯 Kalorien-Tagesziel</div>
+            <div class="val">2.150 kcal</div>
+          </div>
+          <div class="macro-grid">
+            <div class="macro-tile"><span class="icon">🥩</span><div class="k">Protein</div><div class="v">145g</div></div>
+            <div class="macro-tile"><span class="icon">🍞</span><div class="k">Carbs</div><div class="v">210g</div></div>
+            <div class="macro-tile"><span class="icon">🥑</span><div class="k">Fett</div><div class="v">65g</div></div>
+          </div>
+          <div class="btn-soft" style="margin-top:8px;">Ziele &amp; Makros bearbeiten</div>
+
+          <!-- Vitalwerte & Biometrie -->
+          <div class="eyebrow" style="margin-top:14px; margin-bottom:6px;">Vitalwerte &amp; Biometrie</div>
+          <div class="vital-grid">
+            <div class="vital-tile"><div class="lbl">📏 Körpergröße</div><div class="v">182 cm</div></div>
+            <div class="vital-tile"><div class="lbl">⚖️ Aktuelles Gewicht</div><div class="v">78,4 kg</div></div>
+            <div class="vital-tile"><div class="lbl">🧬 Geschlecht &amp; Alter</div><div class="v">Männlich · 34 J.</div></div>
+            <div class="vital-tile"><div class="lbl">🏃 Aktivitätslevel</div><div class="v">Mäßig aktiv</div></div>
+          </div>
+          <div class="energy-banner">
+            <div class="col"><div class="k">Grundumsatz (BMR)</div><div class="v">1.765 kcal</div></div>
+            <div class="sep"></div>
+            <div class="col"><div class="k">Gesamtbedarf (TDEE)</div><div class="v">2.427 kcal</div></div>
+          </div>
+          <div class="btn-soft" style="margin-top:8px;">Biometrie bearbeiten</div>
+
+          <!-- Tracking-Rhythmus & Zeitfenster -->
+          <div class="eyebrow" style="margin-top:14px; margin-bottom:6px;">Tracking-Rhythmus &amp; Zeitfenster</div>
+          <div class="time-hero">
+            <div>
+              <div style="font-size:9.5px; color:var(--text2);">Individueller Tagesstart (Tippen zum Anpassen)</div>
+              <div class="val">04:00 Uhr ✏️</div>
+            </div>
+            <div class="time-stepper">
+              <div class="time-btn">-1h</div>
+              <div class="time-btn">+1h</div>
+            </div>
+          </div>
+
+          <div style="margin-top:8px;">
+            <div style="font-size:9.5px; color:var(--text2); margin-bottom:5px;">Schnellauswahl für Schichtmodelle:</div>
+            <div class="preset-scroll">
+              <div class="preset-chip"><div class="tm">00:00</div><div class="tg">Standard</div></div>
+              <div class="preset-chip on"><div class="tm">04:00</div><div class="tg">Frühaufsteher</div></div>
+              <div class="preset-chip"><div class="tm">06:00</div><div class="tg">Frühschicht</div></div>
+              <div class="preset-chip"><div class="tm">14:00</div><div class="tg">Spätschicht</div></div>
+              <div class="preset-chip"><div class="tm">22:00</div><div class="tg">Nachtschicht</div></div>
+            </div>
+          </div>
+
+          <div style="font-size:9.5px; color:var(--text2); line-height:1.45; margin-top:8px;">
+            Dein Tracking-Tag läuft jeweils 24 Stunden ab 04:00 Uhr. Mahlzeiten, Injektionen, Symptome und Gewicht vor 04:00 Uhr zählen zum vorherigen Tag.
+          </div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- Slot 12: TrackingScreen Leerzustand -->
+  <figure class="slot">
+    <figcaption>12 · Mein Tracking (Ohne Ziele)</figcaption>
+    <div class="note">Initialzustand vor Ziel- und Gewichtseingaben (tracking-screen.tsx)</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn">‹</div>
+          <div class="hd-mid"><div class="t">Mein Tracking</div></div>
+          <div style="width:32px;"></div>
+        </div>
+        <div class="px">
+          <div class="eyebrow" style="margin-bottom:6px;">Ernährung &amp; Tagesziele</div>
+          <div class="kcal-hero">
+            <div class="lbl">🎯 Kalorien-Tagesziel</div>
+            <div class="val" style="color:var(--text2); font-size:18px;">Nicht festgelegt</div>
+          </div>
+          <div class="macro-grid">
+            <div class="macro-tile"><span class="icon">🥩</span><div class="k">Protein</div><div class="v">–</div></div>
+            <div class="macro-tile"><span class="icon">🍞</span><div class="k">Carbs</div><div class="v">–</div></div>
+            <div class="macro-tile"><span class="icon">🥑</span><div class="k">Fett</div><div class="v">–</div></div>
+          </div>
+          <div class="btn-soft" style="margin-top:8px;">Ziele &amp; Makros bearbeiten</div>
+
+          <div class="eyebrow" style="margin-top:16px; margin-bottom:6px;">Vitalwerte &amp; Biometrie</div>
+          <div class="vital-grid">
+            <div class="vital-tile"><div class="lbl">📏 Körpergröße</div><div class="v" style="color:var(--text2);">Nicht gesetzt</div></div>
+            <div class="vital-tile"><div class="lbl">⚖️ Aktuelles Gewicht</div><div class="v" style="color:var(--text2);">Kein Log</div></div>
+            <div class="vital-tile"><div class="lbl">🧬 Geschlecht &amp; Alter</div><div class="v" style="color:var(--text2);">–</div></div>
+            <div class="vital-tile"><div class="lbl">🏃 Aktivitätslevel</div><div class="v" style="color:var(--text2);">Nicht gesetzt</div></div>
+          </div>
+          <div class="energy-banner">
+            <div class="col"><div class="k">Grundumsatz (BMR)</div><div class="v" style="color:var(--text2);">–</div></div>
+            <div class="sep"></div>
+            <div class="col"><div class="k">Gesamtbedarf (TDEE)</div><div class="v" style="color:var(--text2);">–</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- Slot 13: TimePicker Modal -->
+  <figure class="slot">
+    <figcaption>13 · Tagesstart festlegen Modal</figcaption>
+    <div class="note">TimePicker-Modal aus tracking-screen.tsx (HH:MM Eingabe)</div>
+    <div class="phone">
+      <div class="scroll" style="opacity:.3;">
+        <div class="status"><span>10:30</span></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="sheet-panel">
+        <div class="grabber"></div>
+        <div class="sheet-hd">
+          <div class="t">Tagesstart festlegen</div>
+          <div class="close-btn">✕</div>
+        </div>
+
+        <div class="field">
+          <div class="lb">Uhrzeit (HH:MM)</div>
+          <div class="inp"><span>04:00</span></div>
+          <div style="font-size:9.5px; color:var(--text2); margin-top:4px;">Gib die Uhrzeit ein, zu der dein persönlicher Tracking-Tag beginnen soll.</div>
+        </div>
+
+        <div class="btn-primary" style="margin-top:14px;">Uhrzeit übernehmen</div>
+        <div class="btn-soft" style="margin-top:6px;">Abbrechen</div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- Slot 14: Biometrie bearbeiten Modal -->
+  <figure class="slot">
+    <figcaption>14 · Biometrie bearbeiten Modal</figcaption>
+    <div class="note">biometricsModalVisible aus tracking-screen.tsx</div>
+    <div class="phone">
+      <div class="scroll" style="opacity:.3;">
+        <div class="status"><span>10:30</span></div>
+      </div>
+      <div class="scrim"></div>
+      <div class="sheet-panel" style="max-height:88%;">
+        <div class="grabber"></div>
+        <div class="sheet-hd">
+          <div class="t">Biometrie bearbeiten</div>
+          <div class="close-btn">✕</div>
+        </div>
+
+        <div class="field">
+          <div class="lb">Größe in cm</div>
+          <div class="inp"><span>182</span></div>
+        </div>
+
+        <div class="field">
+          <div class="lb">Geschlecht (Rechenbasis für Grundumsatz)</div>
+          <div class="radio-row">
+            <div class="radio-btn on">Männlich</div>
+            <div class="radio-btn">Weiblich</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="lb">Geburtsdatum (JJJJ-MM-TT)</div>
+          <div class="inp"><span>1992-04-18</span></div>
+        </div>
+
+        <div class="field">
+          <div class="lb">Aktivitätslevel</div>
+          <div style="display:flex; flex-direction:column; gap:4px; margin-top:3px;">
+            <div class="check-row"><span>Kaum Bewegung</span></div>
+            <div class="check-row"><span>Leicht aktiv</span></div>
+            <div class="check-row on"><span>Mäßig aktiv</span><span style="color:var(--basil); font-weight:800;">✓</span></div>
+            <div class="check-row"><span>Aktiv</span></div>
+            <div class="check-row"><span>Sehr aktiv</span></div>
+          </div>
+        </div>
+
+        <div class="btn-primary" style="margin-top:12px;">Biometrie speichern</div>
+        <div class="btn-soft" style="margin-top:6px;">Abbrechen</div>
+      </div>
+    </div>
+  </figure>
+
+</div>
+
+<script>
+  var sheet = document.getElementById('sheet');
+  document.getElementById('modeswitch').addEventListener('click', function (e) {
+    var btn = e.target.closest('button');
+    if (!btn) return;
+    sheet.dataset.mode = btn.dataset.mode;
+    document.documentElement.dataset.theme = btn.dataset.mode;
+    this.querySelectorAll('button').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b === btn));
+    });
+  });
+</script>
+</body>
+</html>

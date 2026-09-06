@@ -1,0 +1,1393 @@
+<title>Rezepte Mockup v2</title>
+<style>
+  :root {
+    --page-bg: #F6F3F0; --page-surface: #FFFFFF; --page-border: #E4DDE3;
+    --page-text: #2D2830; --page-text2: #7A727C; --page-accent: #8B3FA8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --page-bg: #1A1823; --page-surface: #262231; --page-border: #383345;
+      --page-text: #F1EDF4; --page-text2: #A49DAF; --page-accent: #C98FE0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #1A1823; --page-surface: #262231; --page-border: #383345;
+    --page-text: #F1EDF4; --page-text2: #A49DAF; --page-accent: #C98FE0;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--page-bg); color: var(--page-text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    padding: 30px 20px 80px;
+  }
+
+  .intro { max-width: 780px; margin: 0 auto 18px; }
+  .intro h1 { font-size: 21px; font-weight: 800; margin: 0 0 10px; letter-spacing: -0.015em; }
+  .intro p { font-size: 13.5px; line-height: 1.6; color: var(--page-text2); margin: 0 0 10px; }
+  .intro code { font-size: 12px; padding: 1px 5px; border-radius: 5px; background: var(--page-surface); border: 1px solid var(--page-border); }
+  .modeswitch { max-width: 780px; margin: 0 auto 22px; display: flex; gap: 7px; }
+  .modeswitch button {
+    appearance: none; font: inherit; cursor: pointer;
+    padding: 8px 18px; border-radius: 10px; font-size: 12.5px; font-weight: 700;
+    background: var(--page-surface); color: var(--page-text2); border: 1px solid var(--page-border);
+  }
+  .modeswitch button[aria-pressed="true"] { background: var(--page-accent); color: var(--page-bg); border-color: transparent; }
+  .modeswitch button:focus-visible { outline: 2px solid var(--page-accent); outline-offset: 2px; }
+
+  .sheet {
+    max-width: 1010px; margin: 0 auto; padding: 26px 22px 30px; border-radius: 22px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
+    gap: 26px 22px; justify-items: center; background: #3B3852;
+  }
+  .sheet[data-mode="light"] { background: #DFDAE8; }
+  .group {
+    grid-column: 1 / -1; justify-self: stretch; margin: 8px 0 -6px;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #B9B3CE;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .group::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,.14); }
+  .sheet[data-mode="light"] .group { color: #635B7C; }
+  .sheet[data-mode="light"] .group::after { background: rgba(60,50,90,.16); }
+  .group:first-child { margin-top: 0; }
+
+  .slot { margin: 0; width: 292px; }
+  .slot figcaption { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: #A9A3C0; margin-bottom: 4px; padding-left: 3px; }
+  .slot .note { font-size: 10px; color: #8A83A6; margin-bottom: 8px; padding-left: 3px; line-height: 1.4; }
+  .sheet[data-mode="light"] .slot figcaption { color: #6C6484; }
+  .sheet[data-mode="light"] .slot .note { color: #7C7495; }
+
+  .phone {
+    width: 292px; height: 616px; border-radius: 26px; overflow: hidden; position: relative;
+    background: var(--bg); color: var(--text); box-shadow: 0 16px 34px rgba(0,0,0,.34);
+  }
+  .sheet[data-mode="light"] .phone { box-shadow: 0 14px 30px rgba(60,45,95,.20); }
+  .scroll { height: 100%; overflow-y: auto; scrollbar-width: none; }
+  .scroll::-webkit-scrollbar { display: none; }
+
+  /* ── Tokens ────────────────────────────────────────────────────────── */
+  .phone {
+    --bg: #232031; --card: #2C293B; --raise: #35324A; --track: #3B3850;
+    --hair: rgba(255,255,255,.07); --text: #FFFFFF; --text2: #8F8AA3; --shadow: none;
+    --violet: #7B3FBF; --magenta: #E5399F; --gold: #F5A623; --green: #6FAE7C;
+    --basil: #B79CBA; --basil-dim: rgba(183,156,186,.18);
+    --grad-diag: linear-gradient(45deg, var(--violet) 0%, var(--magenta) 55%, var(--gold) 100%);
+    --grad-bar: linear-gradient(180deg, var(--gold) 0%, var(--magenta) 55%, var(--violet) 100%);
+    --grad-line: linear-gradient(90deg, var(--violet) 0%, var(--magenta) 100%);
+    --grad-pill: linear-gradient(100deg, var(--magenta) 0%, #C42D93 100%);
+    --scrim: rgba(18,15,26,.72);
+  }
+  .sheet[data-mode="light"] .phone {
+    --bg: #F4F2F7; --card: #FFFFFF; --raise: #F1EEF7; --track: #E4E0EC;
+    --hair: rgba(36,31,51,.09); --text: #241F33; --text2: #736D85; --shadow: 0 2px 8px rgba(70,50,110,.07);
+    --violet: #6F35B4; --magenta: #D62F92; --gold: #E08C10; --green: #468A57;
+    --basil: #705773; --basil-dim: rgba(112,87,115,.12);
+    --grad-pill: linear-gradient(100deg, var(--magenta) 0%, #B62579 100%);
+    --scrim: rgba(30,24,44,.42);
+  }
+
+  /* ── Chrome ────────────────────────────────────────────────────────── */
+  .status { height: 26px; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; font-size: 9.5px; font-weight: 700; }
+  .status .sys { display: flex; gap: 5px; align-items: center; }
+  .status .sig { display: flex; gap: 1.5px; align-items: flex-end; height: 8px; }
+  .status .sig i { width: 2px; background: currentColor; border-radius: 1px; display: block; }
+  .status .sig i:nth-child(1) { height: 3px; } .status .sig i:nth-child(2) { height: 5px; } .status .sig i:nth-child(3) { height: 7px; }
+  .status .batt { width: 16px; height: 8px; border-radius: 2.5px; border: 1px solid currentColor; padding: 1px; opacity: .75; }
+  .status .batt i { display: block; height: 100%; width: 82%; border-radius: 1px; background: currentColor; }
+  .hd { display: flex; align-items: center; justify-content: space-between; padding: 6px 15px 12px; gap: 10px; }
+  .hd-mid { flex: 1; text-align: center; }
+  .hd-mid .t { font-size: 16px; font-weight: 800; letter-spacing: -0.01em; }
+  .hd-mid .over { font-size: 9.5px; font-weight: 600; color: var(--text2); margin-bottom: 1px; }
+  .icon-btn { width: 32px; height: 32px; border-radius: 11px; background: var(--card); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; flex: none; font-size: 13px; box-shadow: var(--shadow); }
+  .icon-btn i { display: block; height: 1.8px; border-radius: 2px; background: var(--text); }
+  .icon-btn i:nth-child(1) { width: 13px; } .icon-btn i:nth-child(2) { width: 9px; }
+  .avatar { width: 32px; height: 32px; border-radius: 999px; flex: none; background: linear-gradient(150deg,#4E6238,#26301C); }
+  .px { padding-left: 15px; padding-right: 15px; }
+  .card { background: var(--card); border-radius: 18px; box-shadow: var(--shadow); }
+  .eyebrow { font-size: 9.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text2); }
+  .rule { height: 2px; border-radius: 2px; background: var(--grad-line); }
+  .rule.fade { background: linear-gradient(90deg, var(--violet), var(--magenta) 62%, transparent); }
+  .hairline { height: 1px; background: var(--hair); }
+  .hbar { height: 5px; border-radius: 999px; background: var(--track); overflow: hidden; }
+  .hbar > i { display: block; height: 100%; border-radius: 999px; background: var(--grad-line); }
+  .hbar.thin { height: 3px; }
+  .pill-grad { background: var(--grad-pill); color: #fff; border-radius: 999px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .btn-soft { height: 34px; border-radius: 12px; background: var(--raise); color: var(--text); display: flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 700; }
+  .btn-green { height: 40px; border-radius: 13px; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; }
+  .btn-basil { height: 40px; border-radius: 13px; background: var(--basil); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; }
+  .btn-basil-outline { height: 40px; border-radius: 13px; background: transparent; border: 1.5px solid var(--basil); color: var(--basil); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+  .fab { position: absolute; right: 15px; bottom: 16px; width: 46px; height: 46px; border-radius: 999px; background: var(--grad-pill); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 300; color: #fff; box-shadow: 0 8px 18px rgba(229,57,159,.38); }
+  .dot { width: 6px; height: 6px; border-radius: 999px; flex: none; background: var(--text2); }
+  .dot.lg { width: 9px; height: 9px; }
+
+  /* Leerzustand */
+  .empty { padding: 26px 18px; text-align: center; }
+  .empty .sym { font-size: 26px; opacity: .5; }
+  .empty .t { font-size: 13px; font-weight: 800; margin-top: 9px; }
+  .empty .h { font-size: 11px; color: var(--text2); line-height: 1.5; margin-top: 5px; }
+
+  /* ── Overlays ──────────────────────────────────────────────────────── */
+  .scrim { position: absolute; inset: 0; background: var(--scrim); }
+  .sheet-panel { position: absolute; left: 0; right: 0; bottom: 0; background: var(--bg); border-radius: 22px 22px 0 0; padding: 8px 0 14px; box-shadow: 0 -8px 26px rgba(0,0,0,.4); }
+  .grabber { width: 34px; height: 4px; border-radius: 999px; background: var(--track); margin: 0 auto 10px; }
+  .modal-panel { position: absolute; left: 12px; right: 12px; bottom: 12px; top: 46px; background: var(--bg); border-radius: 20px; box-shadow: 0 -8px 26px rgba(0,0,0,.4); display: flex; flex-direction: column; overflow: hidden; }
+  .modal-hd { display: flex; align-items: flex-start; justify-content: space-between; padding: 14px 15px 10px; gap: 10px; }
+  .modal-hd .t { font-size: 14.5px; font-weight: 800; }
+  .modal-hd .s { font-size: 10.5px; color: var(--text2); margin-top: 2px; font-weight: 600; }
+  .close-btn { width: 28px; height: 28px; border-radius: 999px; background: var(--card); display: flex; align-items: center; justify-content: center; font-size: 12px; flex: none; }
+
+  /* Formularfelder */
+  .field { margin-bottom: 10px; }
+  .field .lb { font-size: 9.5px; font-weight: 700; color: var(--text2); margin-bottom: 5px; letter-spacing: 0.03em; }
+  .field .inp { height: 38px; border-radius: 12px; background: var(--raise); border: 1.5px solid transparent; display: flex; align-items: center; padding: 0 11px; font-size: 12px; font-weight: 600; }
+  .field .inp .ph { color: var(--text2); font-weight: 500; }
+  .field .inp .chev { margin-left: auto; color: var(--text2); font-size: 10px; }
+  .field.focus .lb { color: var(--magenta); }
+  .field.focus .inp { border-color: var(--magenta); }
+  .field .ta { min-height: 60px; border-radius: 12px; background: var(--raise); border: 1.5px solid transparent; padding: 9px 11px; font-size: 12px; font-weight: 600; line-height: 1.5; }
+  .stepper { height: 38px; border-radius: 12px; background: var(--raise); display: flex; align-items: center; justify-content: space-between; padding: 0 11px; }
+  .stepper .op { font-size: 15px; font-weight: 800; color: var(--magenta); }
+  .stepper .val { font-size: 12px; font-weight: 800; }
+
+  /* Alert */
+  .alert { position: absolute; left: 34px; right: 34px; top: 50%; transform: translateY(-50%); background: var(--card); border-radius: 16px; overflow: hidden; box-shadow: 0 20px 44px rgba(0,0,0,.5); }
+  .alert .b { padding: 17px 16px 14px; text-align: center; }
+  .alert .at { font-size: 13px; font-weight: 800; }
+  .alert .m { font-size: 11px; color: var(--text2); margin-top: 5px; line-height: 1.45; }
+  .alert .acts { display: flex; border-top: 1px solid var(--hair); }
+  .alert .acts > div { flex: 1; padding: 11px 0; text-align: center; font-size: 12.5px; font-weight: 700; }
+  .alert .acts > div + div { border-left: 1px solid var(--hair); }
+  .alert .danger { color: #E5566B; font-weight: 800; }
+
+  /* ── Rezepte ────────────────────────────────────────────────────────── */
+
+  /* Tab-Bar */
+  .tab-bar { display: flex; gap: 6px; padding: 0 15px; margin-bottom: 14px; }
+  .tab-btn { padding: 7px 11px; border-radius: 999px; font-size: 10.5px; font-weight: 700; background: var(--raise); color: var(--text2); white-space: nowrap; }
+  .tab-btn.on { background: var(--basil); color: #fff; }
+
+  /* Suchfeld */
+  .search-bar { height: 38px; border-radius: 14px; background: var(--card); display: flex; align-items: center; gap: 7px; padding: 0 11px; margin: 0 15px 10px; box-shadow: var(--shadow); }
+  .search-bar .ph { font-size: 12px; color: var(--text2); font-weight: 500; flex: 1; }
+  .search-bar .q { font-size: 12px; font-weight: 600; flex: 1; }
+
+  /* Kategorien-Kacheln */
+  .cat-row { display: flex; gap: 6px; padding: 0 15px; overflow: hidden; }
+  .cat-tile { min-width: 72px; height: 68px; border-radius: 14px; border: 1px solid var(--hair); background: var(--card); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 6px 8px; }
+  .cat-tile .emoji { font-size: 18px; }
+  .cat-tile .lbl { font-size: 8.5px; font-weight: 700; text-align: center; line-height: 1.2; }
+  .cat-tile.on { background: var(--basil); border-color: transparent; color: #fff; }
+
+  /* Kalorien-Kacheln */
+  .cal-grid { display: flex; flex-wrap: wrap; gap: 5px; padding: 0 15px; max-height: 148px; overflow: hidden; }
+  .cal-tile { width: 82px; height: 68px; border-radius: 12px; border: 1px solid var(--hair); background: var(--card); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 5px; }
+  .cal-tile .emoji { font-size: 16px; }
+  .cal-tile .lbl { font-size: 8px; font-weight: 700; text-align: center; white-space: nowrap; }
+  .cal-tile.on { background: var(--basil); border-color: transparent; color: #fff; }
+
+  /* Rezeptkarte */
+  .recipe-card { width: 100%; height: 140px; border-radius: 16px; overflow: hidden; position: relative; margin-bottom: 8px; }
+  .recipe-card.mini { width: 168px; height: 120px; flex: none; margin-bottom: 0; }
+  .recipe-art { position: absolute; inset: 0; }
+  .recipe-art.p1 { background: linear-gradient(135deg, #7A927C 0%, #D2C89B 100%); }
+  .recipe-art.p2 { background: linear-gradient(135deg, #B77857 0%, #EFD2A7 100%); }
+  .recipe-art.p3 { background: linear-gradient(135deg, #977593 0%, #E3C5BD 100%); }
+  .recipe-art.p4 { background: linear-gradient(135deg, #7E718F 0%, #C8B9D8 100%); }
+  .recipe-art.p5 { background: linear-gradient(135deg, #89966E 0%, #D6C99A 100%); }
+  .recipe-art.hero { background: linear-gradient(135deg, #D3A06F 0%, #8A696C 50%, #574458 100%); }
+  .recipe-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,14,16,.78) 0%, transparent 62%); }
+  .recipe-card .copy { position: absolute; left: 11px; right: 11px; bottom: 9px; z-index: 1; }
+  .recipe-card .copy .n { font-size: 12px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .recipe-card .copy .m { font-size: 9.5px; font-weight: 600; color: rgba(255,255,255,.8); margin-top: 2px; }
+  .recipe-card .tag-eye { position: absolute; top: 9px; left: 11px; z-index: 1; font-size: 8px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,.9); }
+
+  /* Abschnitts-Überschrift */
+  .sec-hd { display: flex; align-items: baseline; justify-content: space-between; padding: 0 15px; margin-bottom: 7px; margin-top: 14px; }
+  .sec-hd .t { font-size: 13px; font-weight: 800; }
+  .sec-hd .a { font-size: 10px; font-weight: 700; color: var(--basil); }
+  .meal-row { display: flex; gap: 7px; padding: 0 15px; overflow: hidden; }
+
+  /* Fakten-Leiste */
+  .facts-bar { display: flex; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); margin: 12px 0; }
+  .fact { flex: 1; text-align: center; padding: 10px 4px; }
+  .fact + .fact { border-left: 1px solid var(--hair); }
+  .fact .v { font-size: 13px; font-weight: 800; }
+  .fact .l { font-size: 9px; color: var(--text2); font-weight: 600; margin-top: 2px; }
+
+  /* Tabs (Detail) */
+  .detail-tabs { display: flex; border-bottom: 1px solid var(--hair); margin: 0 15px; }
+  .detail-tab { flex: 1; text-align: center; padding: 10px 0; font-size: 11.5px; font-weight: 700; color: var(--text2); border-bottom: 3px solid transparent; }
+  .detail-tab.on { color: var(--basil); border-bottom-color: var(--basil); }
+
+  /* Zutaten-Gruppe */
+  .ing-hdr { display: flex; align-items: baseline; justify-content: space-between; padding: 12px 0 6px; border-bottom: 1px solid var(--hair); }
+  .ing-hdr .n { font-size: 11px; font-weight: 800; }
+  .ing-hdr .g { font-size: 9.5px; color: var(--text2); font-weight: 600; }
+  .ing-row { display: flex; align-items: baseline; justify-content: space-between; padding: 7px 0; }
+  .ing-row .n { flex: 1; font-size: 11.5px; font-weight: 500; }
+  .ing-row .q { font-size: 11px; font-weight: 700; color: var(--text2); text-align: right; }
+
+  /* Schritte */
+  .step-item { display: flex; gap: 9px; padding: 10px 0; }
+  .step-num { width: 26px; height: 26px; border-radius: 999px; background: var(--basil-dim); color: var(--basil); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex: none; }
+  .step-body { flex: 1; min-width: 0; }
+  .step-body .txt { font-size: 11px; font-weight: 500; line-height: 1.55; }
+  .step-body .mention { font-weight: 700; color: var(--basil); }
+  .step-timer { display: inline-flex; align-items: center; gap: 4px; margin-top: 5px; font-size: 9.5px; font-weight: 700; color: var(--basil); background: var(--basil-dim); padding: 3px 9px; border-radius: 999px; }
+  .step-img { height: 80px; border-radius: 10px; background: linear-gradient(135deg, #C98D6D 0%, #E7CAA4 100%); margin-bottom: 6px; }
+
+  /* Wizard Fortschritt */
+  .progress-4 { display: flex; gap: 5px; padding: 0 15px; margin-bottom: 14px; }
+  .progress-4 i { flex: 1; height: 4px; border-radius: 2px; background: var(--track); display: block; }
+  .progress-4 i.done { background: var(--basil); }
+
+  /* Tags */
+  .tag-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag-pill { padding: 5px 10px; border-radius: 10px; font-size: 10px; font-weight: 700; background: var(--raise); color: var(--text2); }
+  .tag-pill.on { background: var(--basil-dim); color: var(--basil); border: 1px solid var(--basil); }
+
+  /* Chip-Reihe (Wizard) */
+  .chip-row { display: flex; flex-wrap: wrap; gap: 5px; }
+  .chip { padding: 6px 10px; border-radius: 10px; font-size: 10px; font-weight: 700; background: var(--raise); color: var(--text2); }
+  .chip.on { background: var(--basil); color: #fff; }
+
+  /* Timer (Kochmodus) */
+  .timer-card { background: var(--card); border-radius: 16px; padding: 14px; box-shadow: var(--shadow); display: flex; align-items: center; gap: 12px; margin: 12px 0; }
+  .timer-display { font-size: 28px; font-weight: 800; font-variant-numeric: tabular-nums; flex: 1; }
+  .timer-label { font-size: 9.5px; font-weight: 700; color: var(--basil); margin-top: 2px; }
+  .timer-btn { width: 38px; height: 38px; border-radius: 999px; background: var(--basil); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex: none; }
+  .timer-btn.mute { background: var(--raise); color: var(--text2); }
+
+  /* Bewertungs-Grid */
+  .score-grid { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+  .score-btn { min-width: 46px; height: 44px; border-radius: 14px; background: var(--raise); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; font-size: 10px; font-weight: 700; }
+  .score-btn .star { font-size: 14px; color: var(--gold); }
+  .score-btn.on { background: var(--basil); color: #fff; }
+  .score-btn.on .star { color: #fff; }
+
+  /* Finish-Action (Kochmodus) */
+  .finish-card { display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 14px; background: var(--card); box-shadow: var(--shadow); margin-bottom: 8px; }
+  .finish-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--basil-dim); display: flex; align-items: center; justify-content: center; font-size: 16px; flex: none; }
+  .finish-card .body { flex: 1; min-width: 0; }
+  .finish-card .n { font-size: 11.5px; font-weight: 700; }
+  .finish-card .s { font-size: 9.5px; color: var(--text2); font-weight: 600; margin-top: 1px; }
+  .finish-chev { color: var(--text2); font-size: 13px; flex: none; }
+
+  /* Log-Sheet */
+  .log-sheet { position: absolute; left: 0; right: 0; bottom: 0; top: 180px; background: var(--bg); border-radius: 20px 20px 0 0; padding: 8px 0 14px; box-shadow: 0 -8px 26px rgba(0,0,0,.4); }
+  .gram-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--hair); }
+  .gram-row .n { font-size: 11.5px; font-weight: 700; }
+  .gram-inp { width: 72px; height: 34px; border-radius: 10px; border: 1.5px solid var(--track); display: flex; align-items: center; justify-content: flex-end; padding: 0 8px; font-size: 12px; font-weight: 700; gap: 4px; }
+  .gram-inp .u { font-size: 10px; color: var(--text2); font-weight: 600; }
+  .nutr-sum { background: var(--raise); border-radius: 12px; padding: 11px; margin-top: 10px; }
+  .nutr-sum .cal { font-size: 15px; font-weight: 800; }
+  .nutr-sum .mac { font-size: 10px; color: var(--text2); font-weight: 600; margin-top: 3px; }
+
+  /* Nutrition-Leiste */
+  .nutr-bar { display: flex; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); margin: 10px 0; }
+  .nutr-bar .c { flex: 1; text-align: center; padding: 8px 4px; }
+  .nutr-bar .c + .c { border-left: 1px solid var(--hair); }
+  .nutr-bar .v { font-size: 12px; font-weight: 800; }
+  .nutr-bar .l { font-size: 8px; color: var(--text2); font-weight: 600; margin-top: 1px; }
+
+  /* Produkt-Suche Dropdown */
+  .search-drop { background: var(--card); border-radius: 12px; padding: 4px; box-shadow: 0 8px 22px rgba(0,0,0,.35); margin-top: 4px; }
+  .search-drop-row { display: flex; align-items: center; gap: 7px; padding: 8px 9px; border-radius: 9px; font-size: 11px; font-weight: 600; }
+  .search-drop-row.on { background: var(--raise); font-weight: 700; }
+  .search-drop-row .sub { font-size: 9px; color: var(--text2); font-weight: 500; }
+
+  /* Wizard Ingredient-Zeile */
+  .wiz-ing { display: flex; align-items: center; gap: 6px; margin-bottom: 7px; }
+  .wiz-ing .name { flex: 1; height: 34px; border-radius: 10px; background: var(--raise); display: flex; align-items: center; padding: 0 9px; font-size: 11px; font-weight: 600; min-width: 0; }
+  .wiz-ing .qty { width: 44px; height: 34px; border-radius: 10px; background: var(--raise); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+  .wiz-ing .unit { width: 36px; height: 34px; border-radius: 10px; background: var(--raise); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: var(--text2); }
+  .wiz-ing .del { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #E5566B; flex: none; }
+
+  /* Mention-Autocomplete */
+  .mention-panel { background: var(--card); border-radius: 10px; padding: 4px; box-shadow: 0 6px 18px rgba(0,0,0,.3); margin-top: 4px; }
+  .mention-opt { padding: 7px 9px; border-radius: 8px; font-size: 11px; font-weight: 600; }
+  .mention-opt.on { background: var(--raise); }
+
+  /* Step-Karte (Wizard) */
+  .wiz-step { background: var(--card); border-radius: 14px; padding: 11px; margin-bottom: 8px; box-shadow: var(--shadow); }
+  .wiz-step-hd { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
+  .wiz-step-hd .t { font-size: 11px; font-weight: 800; }
+  .wiz-step-hd .acts { display: flex; gap: 6px; align-items: center; }
+  .wiz-step-hd .drag { font-size: 13px; color: var(--text2); }
+  .wiz-step-ta { min-height: 60px; border-radius: 10px; background: var(--raise); padding: 8px 9px; font-size: 11px; line-height: 1.5; font-weight: 500; }
+
+  /* Checkbox (Einkaufs-Sheet) */
+  .cb { width: 18px; height: 18px; border-radius: 6px; border: 1.6px solid var(--track); flex: none; margin-top: 1px; }
+  .cb.on { border-color: transparent; background: var(--basil); display: flex; align-items: center; justify-content: center; font-size: 10px; color: #fff; font-weight: 800; }
+
+  /* Manage-Action-Row */
+  .manage-row { display: flex; align-items: center; gap: 9px; padding: 12px 15px; font-size: 12.5px; font-weight: 600; }
+  .manage-row + .manage-row { border-top: 1px solid var(--hair); }
+  .manage-row .ico { width: 22px; text-align: center; font-size: 14px; }
+  .manage-row.red { color: #E5566B; }
+
+  /* Filter-Modal Mahlzeiten-Kacheln */
+  .meal-tile { width: 80px; height: 62px; border-radius: 12px; border: 1px solid var(--hair); background: var(--card); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; flex: none; }
+  .meal-tile .emoji { font-size: 18px; }
+  .meal-tile .lbl { font-size: 8.5px; font-weight: 700; }
+  .meal-tile.on { background: var(--basil); border-color: transparent; color: #fff; }
+
+  /* Herz-Favoritknopf */
+  .heart { font-size: 16px; color: var(--basil); }
+
+  /* Portionsstepper (Detail) */
+  .serving-stepper { display: flex; align-items: center; gap: 0; height: 34px; border-radius: 11px; background: var(--raise); overflow: hidden; }
+  .serving-stepper .op { width: 34px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: var(--basil); }
+  .serving-stepper .val { flex: 1; text-align: center; font-size: 10.5px; font-weight: 700; white-space: nowrap; }
+
+  /* Konfetti-Zeichen (Kochmodus fertig) */
+  .finish-hero { text-align: center; padding: 30px 20px 10px; }
+  .finish-hero .icon-box { width: 72px; height: 72px; border-radius: 18px; background: var(--basil-dim); display: inline-flex; align-items: center; justify-content: center; font-size: 32px; }
+  .finish-hero .t { font-size: 20px; font-weight: 800; margin-top: 14px; }
+  .finish-hero .s { font-size: 11px; color: var(--text2); font-weight: 600; margin-top: 6px; line-height: 1.5; }
+
+  @media (max-width: 400px) {
+    body { padding: 22px 8px 60px; }
+    .sheet { padding: 16px 10px 20px; border-radius: 16px; gap: 20px 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="intro">
+  <h1>Rezepte, vollständiges Mockup</h1>
+  <p>Jeder Screen, jedes Sheet, jedes Modal und jede Button-Aktion des Features aus <code>src/features/recipes/</code>. Visuelle Sprache: der Verlauf-Look aus dem Referenz-Kit. Akzentfarbe für Rezepte: Basil (<code>#705773</code> hell / <code>#B79CBA</code> dunkel).</p>
+  <p>Durchgehender Datensatz: „Ofengemüse mit Feta" (35 Min, Mittel, 4 Portionen, 420 kcal), plus vier weitere Rezepte und ein Katalog-Template.</p>
+</div>
+
+<div class="modeswitch" id="modeswitch">
+  <button type="button" data-mode="dark" aria-pressed="true">Dunkel</button>
+  <button type="button" data-mode="light" aria-pressed="false">Hell</button>
+</div>
+
+<div class="sheet" id="sheet" data-mode="dark">
+
+  <!-- ══════════════════════════ HAUPTSCREEN ══════════════════════════ -->
+  <h2 class="group">Hauptscreen</h2>
+
+  <figure class="slot">
+    <figcaption>1 · Entdecken</figcaption>
+    <div class="note">Kategorien-Karussell, Kalorien-Raster und Mahlzeiten-Abschnitte</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="t">Rezepte</div></div><div style="display:flex; gap:6px;"><div class="icon-btn" style="font-size:14px;">⌕</div><div class="icon-btn" style="font-size:13px;">⫶</div></div></div>
+        <div class="tab-bar">
+          <div class="tab-btn on">Entdecken</div>
+          <div class="tab-btn">Eigene Rezepte</div>
+          <div class="tab-btn">Meine Favoriten</div>
+        </div>
+        <div class="sec-hd"><span class="t">Kategorien</span></div>
+        <div class="cat-row">
+          <div class="cat-tile"><span class="emoji">☕</span><span class="lbl">Frühstück</span></div>
+          <div class="cat-tile"><span class="emoji">🍜</span><span class="lbl">Mittag</span></div>
+          <div class="cat-tile"><span class="emoji">🍗</span><span class="lbl">Abend</span></div>
+          <div class="cat-tile"><span class="emoji">🌱</span><span class="lbl">Vegan</span></div>
+        </div>
+        <div class="sec-hd" style="margin-top:16px;"><span class="t">Nach Kalorien</span></div>
+        <div class="cal-grid">
+          <div class="cal-tile"><span class="emoji">🍉</span><span class="lbl">50–100</span></div>
+          <div class="cal-tile"><span class="emoji">🥪</span><span class="lbl">100–200</span></div>
+          <div class="cal-tile"><span class="emoji">🥯</span><span class="lbl">200–300</span></div>
+          <div class="cal-tile"><span class="emoji">🍛</span><span class="lbl">400–500</span></div>
+          <div class="cal-tile"><span class="emoji">🍱</span><span class="lbl">500–600</span></div>
+          <div class="cal-tile"><span class="emoji">🍲</span><span class="lbl">600–700</span></div>
+        </div>
+        <div class="sec-hd" style="margin-top:16px;"><span class="t">Frühstück</span></div>
+        <div class="meal-row">
+          <div class="recipe-card mini"><div class="recipe-art p2"></div><div class="copy"><div class="n">Rührei mit Gouda</div><div class="m">15 Min · Einfach · 2 Port.</div></div></div>
+          <div class="recipe-card mini"><div class="recipe-art p5"></div><div class="copy"><div class="n">Bananenbrot</div><div class="m">55 Min · Einfach · 8 Port.</div></div></div>
+        </div>
+        <div class="sec-hd"><span class="t">Abendessen</span></div>
+        <div class="meal-row" style="padding-bottom:80px;">
+          <div class="recipe-card mini"><div class="recipe-art p1"></div><div class="copy"><div class="n">Ofengemüse mit Feta</div><div class="m">35 Min · Mittel · 4 Port.</div></div></div>
+          <div class="recipe-card mini"><div class="recipe-art p4"></div><div class="copy"><div class="n">Thai-Curry</div><div class="m">40 Min · Mittel · 3 Port.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>2 · Eigene Rezepte</figcaption>
+    <div class="note">Vertikale Liste aller Haushaltsrezepte</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="t">Eigene Rezepte</div></div><div style="display:flex; gap:6px;"><div class="icon-btn" style="font-size:14px;">⌕</div><div class="icon-btn" style="font-size:13px;">⫶</div></div></div>
+        <div class="tab-bar">
+          <div class="tab-btn">Entdecken</div>
+          <div class="tab-btn on">Eigene Rezepte</div>
+          <div class="tab-btn">Meine Favoriten</div>
+        </div>
+        <div class="px" style="padding-bottom:80px;">
+          <div class="recipe-card"><div class="recipe-art p1"></div><div class="copy"><div class="n">Ofengemüse mit Feta</div><div class="m">35 Min · Mittel · 4 Portionen · 420 kcal</div></div></div>
+          <div class="recipe-card"><div class="recipe-art p2"></div><div class="copy"><div class="n">Rührei mit Gouda</div><div class="m">15 Min · Einfach · 2 Portionen · 380 kcal</div></div></div>
+          <div class="recipe-card"><div class="recipe-art p4"></div><div class="copy"><div class="n">Thai-Curry</div><div class="m">40 Min · Mittel · 3 Portionen · 510 kcal</div></div></div>
+          <div class="recipe-card"><div class="recipe-art p5"></div><div class="copy"><div class="n">Bananenbrot</div><div class="m">55 Min · Einfach · 8 Portionen · 280 kcal</div></div></div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>3 · Meine Favoriten</figcaption>
+    <div class="note">Favorisierte Rezepte mit ♥-Markierung</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="t">Meine Favoriten</div></div><div style="display:flex; gap:6px;"><div class="icon-btn" style="font-size:14px;">⌕</div><div class="icon-btn" style="font-size:13px;">⫶</div></div></div>
+        <div class="tab-bar">
+          <div class="tab-btn">Entdecken</div>
+          <div class="tab-btn">Eigene Rezepte</div>
+          <div class="tab-btn on">Meine Favoriten</div>
+        </div>
+        <div class="px" style="padding-bottom:80px;">
+          <div class="recipe-card"><div class="recipe-art p1"></div><div class="copy"><div class="n">Ofengemüse mit Feta</div><div class="m">35 Min · Mittel · 4 Portionen · 420 kcal</div></div></div>
+          <div class="recipe-card"><div class="recipe-art p5"></div><div class="copy"><div class="n">Bananenbrot</div><div class="m">55 Min · Einfach · 8 Portionen · 280 kcal</div></div></div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>4 · Eigene Rezepte, leer</figcaption>
+    <div class="note">EmptyPanel wenn noch keine eigenen Rezepte erstellt</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="t">Eigene Rezepte</div></div><div style="display:flex; gap:6px;"><div class="icon-btn" style="font-size:14px;">⌕</div><div class="icon-btn" style="font-size:13px;">⫶</div></div></div>
+        <div class="tab-bar">
+          <div class="tab-btn">Entdecken</div>
+          <div class="tab-btn on">Eigene Rezepte</div>
+          <div class="tab-btn">Meine Favoriten</div>
+        </div>
+        <div class="px" style="margin-top:16px;">
+          <div class="card empty">
+            <div class="sym">🍳</div>
+            <div class="t">Noch keine eigenen Rezepte</div>
+            <div class="h">Tippe auf „+" um dein erstes Rezept zu erstellen.</div>
+          </div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>5 · Kein Haushalt</figcaption>
+    <div class="note">Guard-Zustand ohne aktiven Haushalt</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="over">Gemeinsame Rezepte</div><div class="t">Rezepte</div></div><div class="avatar"></div></div>
+        <div class="px" style="margin-top:20px;">
+          <div class="card empty">
+            <div class="sym">🍳</div>
+            <div class="t">Noch kein Haushalt</div>
+            <div class="h">Lege im Profil einen Haushalt an oder tritt einem bei, um Rezepte zu teilen.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ FILTER & SUCHE ══════════════════════════ -->
+  <h2 class="group">Filter &amp; Suche</h2>
+
+  <figure class="slot">
+    <figcaption>6 · Suche aktiv</figcaption>
+    <div class="note">Suchfeld mit Live-Filterung der Rezeptkarten</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd"><div class="icon-btn"><i></i><i></i></div><div class="hd-mid"><div class="t">Rezepte</div></div><div style="display:flex; gap:6px;"><div class="icon-btn" style="font-size:14px; background:var(--basil); color:#fff;">⌕</div><div class="icon-btn" style="font-size:13px;">⫶</div></div></div>
+        <div class="search-bar"><span style="font-size:13px; color:var(--text2);">⌕</span><span class="q">Ofen</span></div>
+        <div class="px" style="padding-bottom:80px;">
+          <div class="recipe-card"><div class="recipe-art p1"></div><div class="copy"><div class="n">Ofengemüse mit Feta</div><div class="m">35 Min · Mittel · 4 Portionen · 420 kcal</div></div></div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>7 · Filter-Modal</figcaption>
+    <div class="note">Vollbild-Filter mit Kategorien, Kalorien, Mahlzeiten und Tags</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Rezepte filtern</div></div>
+          <div style="font-size:10.5px; font-weight:700; color:var(--basil);">Zurücksetzen</div>
+        </div>
+
+        <div class="sec-hd"><span class="t">Kategorien</span></div>
+        <div class="cat-row">
+          <div class="cat-tile on"><span class="emoji">🌱</span><span class="lbl">Vegan</span></div>
+          <div class="cat-tile"><span class="emoji">⏱️</span><span class="lbl">Schnell</span></div>
+          <div class="cat-tile"><span class="emoji">💪</span><span class="lbl">High Protein</span></div>
+          <div class="cat-tile"><span class="emoji">🥦</span><span class="lbl">Low Carb</span></div>
+        </div>
+
+        <div class="sec-hd" style="margin-top:16px;"><span class="t">Nach Mahlzeiten</span></div>
+        <div style="display:flex; gap:6px; padding:0 15px;">
+          <div class="meal-tile on"><span class="emoji">🍗</span><span class="lbl">Abendessen</span></div>
+          <div class="meal-tile"><span class="emoji">☕</span><span class="lbl">Frühstück</span></div>
+          <div class="meal-tile"><span class="emoji">🍜</span><span class="lbl">Mittag</span></div>
+        </div>
+
+        <div class="sec-hd" style="margin-top:16px;"><span class="t">Tags aus deinen Rezepten</span></div>
+        <div class="px">
+          <div class="tag-wrap">
+            <div class="tag-pill on">#vegetarisch</div>
+            <div class="tag-pill">#glutenfrei</div>
+            <div class="tag-pill">#mealprep</div>
+            <div class="tag-pill">#schnell</div>
+            <div class="tag-pill">#comfort</div>
+          </div>
+        </div>
+
+        <div class="px" style="position:absolute; left:0; right:0; bottom:14px;">
+          <div class="btn-basil">3 Rezepte anzeigen</div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ REZEPTDETAIL ══════════════════════════ -->
+  <h2 class="group">Rezeptdetail</h2>
+
+  <figure class="slot">
+    <figcaption>8 · Rezeptdetail — Details</figcaption>
+    <div class="note">Hero, Fakten, Zutaten mit Portionsstepper, Schritte mit @Erwähnungen</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Rezept</div></div>
+          <div style="display:flex; gap:6px;"><span class="heart">♥</span><div class="icon-btn" style="font-size:11px; font-weight:800;">•••</div></div>
+        </div>
+
+        <div style="height:130px; margin:0 -0px; background: linear-gradient(135deg, #D3A06F 0%, #8A696C 50%, #574458 100%); position:relative;">
+          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+            <div style="width:50px; height:50px; border-radius:999px; border:2px solid rgba(255,255,255,.15);"></div>
+          </div>
+        </div>
+
+        <div class="px" style="margin-top:12px;">
+          <div style="font-size:18px; font-weight:800; letter-spacing:-0.01em;">Ofengemüse mit Feta</div>
+        </div>
+
+        <div class="detail-tabs" style="margin-top:10px;">
+          <div class="detail-tab on">Details</div>
+          <div class="detail-tab">Bewertungen</div>
+        </div>
+
+        <div class="px">
+          <div class="facts-bar">
+            <div class="fact"><div class="v">420 kcal</div><div class="l">pro Portion</div></div>
+            <div class="fact"><div class="v">35 Min</div><div class="l">Zeit</div></div>
+            <div class="fact"><div class="v">Mittel</div><div class="l">Schwierigkeit</div></div>
+          </div>
+
+          <div style="font-size:11px; color:var(--text2); line-height:1.55; font-weight:500; margin-bottom:8px;">Buntes Ofengemüse mit würzigem Feta — schnell vorbereitet, der Ofen erledigt den Rest.</div>
+
+          <div class="tag-wrap" style="margin-bottom:12px;">
+            <div class="tag-pill on">Vegetarisch</div>
+            <div class="tag-pill on">Glutenfrei</div>
+            <div class="tag-pill">Abendessen</div>
+          </div>
+
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+            <span style="font-size:13px; font-weight:800;">Zutaten</span>
+            <div class="serving-stepper"><span class="op">−</span><span class="val">4 Portionen</span><span class="op">+</span></div>
+          </div>
+
+          <div class="ing-hdr"><span class="n">Gemüse</span><span class="g">1450 g</span></div>
+          <div class="ing-row"><span class="n">Zucchini</span><span class="q">400 g</span></div>
+          <div class="ing-row"><span class="n">Paprika</span><span class="q">300 g</span></div>
+          <div class="ing-row"><span class="n">Süßkartoffel</span><span class="q">500 g</span></div>
+          <div class="ing-row"><span class="n">Cherrytomaten</span><span class="q">250 g</span></div>
+
+          <div class="ing-hdr"><span class="n">Topping</span><span class="g">200 g</span></div>
+          <div class="ing-row"><span class="n">Feta</span><span class="q">200 g</span></div>
+          <div class="ing-row"><span class="n">Olivenöl</span><span class="q">3 EL</span></div>
+          <div class="ing-row"><span class="n">Oregano</span><span class="q">1 TL</span></div>
+
+          <div style="margin:12px 0;">
+            <div class="btn-basil-outline" style="height:36px; font-size:11px;">Fehlende Zutaten zur Einkaufsliste</div>
+          </div>
+
+          <div class="nutr-bar">
+            <div class="c"><div class="v">420</div><div class="l">kcal</div></div>
+            <div class="c"><div class="v">18 g</div><div class="l">Protein</div></div>
+            <div class="c"><div class="v">42 g</div><div class="l">Kohlenhydrate</div></div>
+            <div class="c"><div class="v">22 g</div><div class="l">Fett</div></div>
+          </div>
+
+          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:6px;">
+            <span style="font-size:13px; font-weight:800;">Zubereitung</span>
+            <span style="font-size:10px; color:var(--text2); font-weight:600;">4 Schritte</span>
+          </div>
+
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body"><div class="txt">Ofen auf 200°C vorheizen. <span class="mention">@Zucchini</span>, <span class="mention">@Paprika</span> und <span class="mention">@Süßkartoffel</span> in mundgerechte Stücke schneiden.</div></div>
+          </div>
+          <div class="hairline"></div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body"><div class="txt">Gemüse mit <span class="mention">@Olivenöl</span> und <span class="mention">@Oregano</span> vermengen, salzen und pfeffern. Auf ein Backblech verteilen.</div></div>
+          </div>
+          <div class="hairline"></div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <div class="txt"><span class="mention">@Cherrytomaten</span> dazugeben und im Ofen backen.</div>
+              <div class="step-timer">⏱ 25 Min Timer</div>
+            </div>
+          </div>
+          <div class="hairline"></div>
+          <div class="step-item" style="padding-bottom:80px;">
+            <div class="step-num">4</div>
+            <div class="step-body"><div class="txt"><span class="mention">@Feta</span> zerbröseln und über das fertige Gemüse streuen. Sofort servieren.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="px" style="position:absolute; left:0; right:0; bottom:12px;">
+        <div class="btn-basil">🍳 Kochmodus starten</div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>9 · Rezeptdetail — Bewertungen</figcaption>
+    <div class="note">Tab 2 mit eigener Bewertung und Notiz</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Rezept</div></div>
+          <div style="display:flex; gap:6px;"><span class="heart">♥</span><div class="icon-btn" style="font-size:11px; font-weight:800;">•••</div></div>
+        </div>
+
+        <div style="height:130px; background: linear-gradient(135deg, #D3A06F 0%, #8A696C 50%, #574458 100%); position:relative;">
+          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+            <div style="width:50px; height:50px; border-radius:999px; border:2px solid rgba(255,255,255,.15);"></div>
+          </div>
+        </div>
+
+        <div class="px" style="margin-top:12px;">
+          <div style="font-size:18px; font-weight:800;">Ofengemüse mit Feta</div>
+        </div>
+
+        <div class="detail-tabs" style="margin-top:10px;">
+          <div class="detail-tab">Details</div>
+          <div class="detail-tab on">Bewertungen</div>
+        </div>
+
+        <div class="px" style="text-align:center; padding-top:28px;">
+          <div style="font-size:32px; font-weight:800; color:var(--gold);">★ 8 <span style="font-size:16px; color:var(--text2); font-weight:600;">/ 10</span></div>
+          <div style="font-size:11px; color:var(--text2); font-weight:600; margin-top:4px;">Deine Bewertung</div>
+
+          <div class="card" style="margin-top:18px; padding:12px; text-align:left;">
+            <div style="font-size:10px; font-weight:700; color:var(--text2); margin-bottom:4px;">DEINE NOTIZ</div>
+            <div style="font-size:11.5px; font-weight:500; line-height:1.55;">Feta am Ende dazu, sonst verbrennt er. Nächstes Mal mehr Süßkartoffel.</div>
+          </div>
+
+          <div class="btn-basil" style="margin-top:16px; height:38px; font-size:11.5px;">Bewertung bearbeiten</div>
+        </div>
+      </div>
+      <div class="px" style="position:absolute; left:0; right:0; bottom:12px;">
+        <div class="btn-basil">🍳 Kochmodus starten</div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>10 · Rezeptdetail — Aktionen</figcaption>
+    <div class="note">Manage-Overlay über dem Detailscreen</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Rezept</div></div>
+          <div style="display:flex; gap:6px;"><span class="heart">♥</span><div class="icon-btn" style="font-size:11px; font-weight:800;">•••</div></div>
+        </div>
+      </div>
+      <div class="scrim"></div>
+      <div class="sheet-panel" style="padding:14px 0 18px;">
+        <div class="grabber"></div>
+        <div class="manage-row"><span class="ico">✎</span>Bearbeiten</div>
+        <div class="manage-row"><span class="ico">↗</span>Mit Community teilen</div>
+        <div class="manage-row"><span class="ico">↻</span>Original-Aktualisierung prüfen</div>
+        <div class="manage-row red"><span class="ico">🗑</span>Löschen</div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ REZEPT ANLEGEN ══════════════════════════ -->
+  <h2 class="group">Rezept anlegen (Wizard)</h2>
+
+  <figure class="slot">
+    <figcaption>11 · Wizard — Basics</figcaption>
+    <div class="note">Schritt 1: Titel, Bild, Zeit, Portionen, Schwierigkeit und Tags</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Rezept erstellen</div></div>
+          <div style="width:32px;"></div>
+        </div>
+        <div class="progress-4"><i class="done"></i><i></i><i></i><i></i></div>
+
+        <div class="px" style="padding-bottom:80px;">
+          <div style="height:100px; border-radius:14px; border:1.5px dashed var(--track); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px; margin-bottom:12px;">
+            <span style="font-size:20px; opacity:.5;">📷</span>
+            <span style="font-size:10px; color:var(--text2); font-weight:600;">Titelbild hinzufügen</span>
+          </div>
+
+          <div class="field focus">
+            <div class="lb">Titel</div>
+            <div class="inp"><span>Ofengemüse mit Feta</span></div>
+          </div>
+          <div class="field">
+            <div class="lb">Beschreibung (optional)</div>
+            <div class="ta" style="color:var(--text2);">Buntes Ofengemüse mit würzigem Feta…</div>
+          </div>
+
+          <div style="display:flex; gap:8px;">
+            <div class="field" style="flex:1;">
+              <div class="lb">Zeit (Min)</div>
+              <div class="inp"><span>35</span></div>
+            </div>
+            <div style="flex:1;">
+              <div class="lb" style="font-size:9.5px; font-weight:700; color:var(--text2); margin-bottom:5px;">Portionen</div>
+              <div class="stepper"><span class="op">−</span><span class="val">4</span><span class="op">+</span></div>
+            </div>
+          </div>
+
+          <div style="font-size:10px; font-weight:700; color:var(--text2); margin:8px 0 5px;">Schwierigkeit</div>
+          <div class="chip-row" style="margin-bottom:10px;">
+            <div class="chip">Einfach</div>
+            <div class="chip on">Mittel</div>
+            <div class="chip">Schwer</div>
+          </div>
+
+          <div style="font-size:10px; font-weight:700; color:var(--text2); margin:8px 0 5px;">Mahlzeit</div>
+          <div class="chip-row" style="margin-bottom:10px;">
+            <div class="chip">Frühstück</div>
+            <div class="chip">Mittag</div>
+            <div class="chip on">Abend</div>
+            <div class="chip">Snack</div>
+          </div>
+
+          <div style="font-size:10px; font-weight:700; color:var(--text2); margin:8px 0 5px;">Ernährungsweise</div>
+          <div class="chip-row">
+            <div class="chip on">Vegetarisch</div>
+            <div class="chip">Vegan</div>
+            <div class="chip on">Glutenfrei</div>
+            <div class="chip">Laktosefrei</div>
+          </div>
+        </div>
+      </div>
+      <div class="px" style="position:absolute; left:0; right:0; bottom:12px; display:flex; gap:8px;">
+        <div class="btn-soft" style="flex:1;">Abbrechen</div>
+        <div class="btn-basil" style="flex:2; height:34px; font-size:11.5px;">Weiter zu den Zutaten</div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>12 · Wizard — Zutaten</figcaption>
+    <div class="note">Schritt 2: Komponentengruppen mit Produktsuche und Mengen</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Rezept erstellen</div></div>
+          <div style="width:32px;"></div>
+        </div>
+        <div class="progress-4"><i class="done"></i><i class="done"></i><i></i><i></i></div>
+
+        <div class="px" style="padding-bottom:80px;">
+          <div class="card" style="padding:11px; margin-bottom:8px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+              <div class="field" style="flex:1; margin-bottom:0;"><div class="inp" style="height:32px; font-size:11px;"><span>Gemüse</span></div></div>
+            </div>
+            <div class="wiz-ing"><div class="name">Zucchini</div><div class="qty">400</div><div class="unit">g</div><div class="del">✕</div></div>
+            <div class="wiz-ing"><div class="name">Paprika</div><div class="qty">300</div><div class="unit">g</div><div class="del">✕</div></div>
+            <div class="wiz-ing"><div class="name">Süßkartoffel</div><div class="qty">500</div><div class="unit">g</div><div class="del">✕</div></div>
+            <div class="wiz-ing"><div class="name">Cherrytomaten</div><div class="qty">250</div><div class="unit">g</div><div class="del">✕</div></div>
+            <div style="font-size:10.5px; font-weight:700; color:var(--basil); margin-top:6px;">+ Zutat hinzufügen</div>
+          </div>
+
+          <div class="card" style="padding:11px; margin-bottom:8px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+              <div class="field" style="flex:1; margin-bottom:0;"><div class="inp" style="height:32px; font-size:11px;"><span>Topping</span></div></div>
+              <div style="font-size:12px; color:#E5566B; margin-left:8px;">✕</div>
+            </div>
+            <div class="wiz-ing"><div class="name">Feta</div><div class="qty">200</div><div class="unit">g</div><div class="del">✕</div></div>
+            <div class="wiz-ing"><div class="name">Olivenöl</div><div class="qty">3</div><div class="unit">EL</div><div class="del">✕</div></div>
+            <div class="wiz-ing"><div class="name">Oregano</div><div class="qty">1</div><div class="unit">TL</div><div class="del">✕</div></div>
+            <div style="font-size:10.5px; font-weight:700; color:var(--basil); margin-top:6px;">+ Zutat hinzufügen</div>
+          </div>
+
+          <div style="font-size:10.5px; font-weight:700; color:var(--basil); text-align:center; margin-top:6px;">+ Zutaten-Gruppe hinzufügen</div>
+        </div>
+      </div>
+      <div class="px" style="position:absolute; left:0; right:0; bottom:12px; display:flex; gap:8px;">
+        <div class="btn-soft" style="flex:1;">Zurück</div>
+        <div class="btn-basil" style="flex:2; height:34px; font-size:11.5px;">Weiter zu den Schritten</div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>13 · Wizard — Schritte</figcaption>
+    <div class="note">Schritt 3: Zubereitungsschritte mit @Erwähnung, Timer und Drag-Handle</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Rezept erstellen</div></div>
+          <div style="width:32px;"></div>
+        </div>
+        <div class="progress-4"><i class="done"></i><i class="done"></i><i class="done"></i><i></i></div>
+
+        <div class="px" style="padding-bottom:80px;">
+          <div class="wiz-step">
+            <div class="wiz-step-hd"><span class="t">Schritt 1</span><div class="acts"><span class="drag">≡</span><span style="font-size:11px; color:#E5566B;">✕</span></div></div>
+            <div class="wiz-step-ta">Ofen auf 200°C vorheizen. <span class="mention">@Zucchini</span>, <span class="mention">@Paprika</span> und <span class="mention">@Süßkartoffel</span> schneiden.</div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:6px;">
+              <span style="font-size:9.5px; font-weight:700; color:var(--text2);">+ Bild hinzufügen</span>
+              <span style="font-size:9.5px; font-weight:700; color:var(--text2);">+ Timer hinzufügen</span>
+            </div>
+          </div>
+
+          <div class="wiz-step">
+            <div class="wiz-step-hd"><span class="t">Schritt 2</span><div class="acts"><span class="drag">≡</span><span style="font-size:11px; color:#E5566B;">✕</span></div></div>
+            <div class="wiz-step-ta">Gemüse mit <span class="mention">@Olivenöl</span> und <span class="mention">@Oregano</span> vermengen, salzen und pfeffern.</div>
+          </div>
+
+          <div class="wiz-step">
+            <div class="wiz-step-hd"><span class="t">Schritt 3</span><div class="acts"><span class="drag">≡</span><span style="font-size:11px; color:#E5566B;">✕</span></div></div>
+            <div class="wiz-step-ta"><span class="mention">@Cherrytomaten</span> dazugeben und im Ofen backen.</div>
+            <div class="step-timer" style="margin-top:6px;">⏱ 25 Min Timer</div>
+          </div>
+
+          <div class="wiz-step">
+            <div class="wiz-step-hd"><span class="t">Schritt 4</span><div class="acts"><span class="drag">≡</span><span style="font-size:11px; color:#E5566B;">✕</span></div></div>
+            <div class="wiz-step-ta"><span class="mention">@Feta</span> zerbröseln und über das Gemüse streuen.</div>
+            <div class="step-img" style="margin-top:6px;"></div>
+          </div>
+
+          <div style="font-size:10.5px; font-weight:700; color:var(--basil); text-align:center; margin-top:4px;">+ Schritt hinzufügen</div>
+        </div>
+      </div>
+      <div class="px" style="position:absolute; left:0; right:0; bottom:12px; display:flex; gap:8px;">
+        <div class="btn-soft" style="flex:1;">Zurück</div>
+        <div class="btn-basil" style="flex:2; height:34px; font-size:11.5px;">Weiter</div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>14 · Wizard — Vorschau</figcaption>
+    <div class="note">Schritt 4: Finale Prüfung vor dem Speichern</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Rezept erstellen</div></div>
+          <div style="width:32px;"></div>
+        </div>
+        <div class="progress-4"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i></div>
+
+        <div class="px" style="padding-bottom:80px;">
+          <div style="height:100px; border-radius:14px; background: linear-gradient(135deg, #C98D6D 0%, #E7CAA4 100%); margin-bottom:10px; display:flex; align-items:center; justify-content:center;">
+            <span style="font-size:10px; color:rgba(255,255,255,.7); font-weight:600;">Titelbild</span>
+          </div>
+
+          <div style="font-size:16px; font-weight:800;">Ofengemüse mit Feta</div>
+          <div style="font-size:10.5px; color:var(--text2); font-weight:600; margin-top:3px;">35 Min · Mittel · 4 Portionen</div>
+
+          <div class="tag-wrap" style="margin-top:8px; margin-bottom:10px;">
+            <div class="tag-pill on">Vegetarisch</div>
+            <div class="tag-pill on">Glutenfrei</div>
+            <div class="tag-pill">Abendessen</div>
+          </div>
+
+          <div class="detail-tabs" style="margin:0 0 10px;">
+            <div class="detail-tab on">Zutaten</div>
+            <div class="detail-tab">Anleitung</div>
+          </div>
+
+          <div class="ing-hdr"><span class="n">Gemüse</span></div>
+          <div class="ing-row"><span class="n">Zucchini</span><span class="q">400 g</span></div>
+          <div class="ing-row"><span class="n">Paprika</span><span class="q">300 g</span></div>
+          <div class="ing-row"><span class="n">Süßkartoffel</span><span class="q">500 g</span></div>
+          <div class="ing-row"><span class="n">Cherrytomaten</span><span class="q">250 g</span></div>
+
+          <div class="ing-hdr"><span class="n">Topping</span></div>
+          <div class="ing-row"><span class="n">Feta</span><span class="q">200 g</span></div>
+          <div class="ing-row"><span class="n">Olivenöl</span><span class="q">3 EL</span></div>
+          <div class="ing-row"><span class="n">Oregano</span><span class="q">1 TL</span></div>
+        </div>
+      </div>
+      <div class="px" style="position:absolute; left:0; right:0; bottom:12px; display:flex; gap:8px;">
+        <div class="btn-soft" style="flex:1;">Zurück</div>
+        <div class="btn-basil" style="flex:2; height:34px; font-size:11.5px;">Speichern</div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ KOCHMODUS ══════════════════════════ -->
+  <h2 class="group">Kochmodus</h2>
+
+  <figure class="slot">
+    <figcaption>15 · Kochmodus — Schritt aktiv</figcaption>
+    <div class="note">Schritt-Ansicht mit Fortschrittsbalken, Artwork und @Erwähnungen</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Kochmodus</div></div>
+          <div style="width:32px;"></div>
+        </div>
+
+        <div class="px" style="margin-bottom:10px;">
+          <div style="display:flex; gap:4px;">
+            <i style="flex:1; height:4px; border-radius:2px; background:var(--basil); display:block;"></i>
+            <i style="flex:1; height:4px; border-radius:2px; background:var(--track); display:block;"></i>
+            <i style="flex:1; height:4px; border-radius:2px; background:var(--track); display:block;"></i>
+            <i style="flex:1; height:4px; border-radius:2px; background:var(--track); display:block;"></i>
+          </div>
+        </div>
+
+        <div class="px">
+          <div class="eyebrow" style="margin-bottom:4px;">SCHRITT 1 VON 4</div>
+          <div style="font-size:16px; font-weight:800; margin-bottom:12px;">Gemüse vorbereiten</div>
+
+          <div style="height:140px; border-radius:16px; background: linear-gradient(135deg, #C98D6D 0%, #E7CAA4 100%); margin-bottom:12px; display:flex; align-items:center; justify-content:center;">
+            <div style="width:44px; height:44px; border-radius:999px; border:2px solid rgba(255,255,255,.2);"></div>
+          </div>
+
+          <div style="font-size:12px; font-weight:500; line-height:1.6;">
+            Ofen auf 200°C vorheizen. <span class="mention">@Zucchini</span>, <span class="mention">@Paprika</span> und <span class="mention">@Süßkartoffel</span> in mundgerechte Stücke schneiden.
+          </div>
+        </div>
+      </div>
+      <div class="px" style="position:absolute; left:0; right:0; bottom:14px; display:flex; gap:8px; align-items:stretch;">
+        <div class="icon-btn" style="width:42px; height:42px; border-radius:13px; font-size:16px; font-weight:800; opacity:.35;">‹</div>
+        <div class="btn-basil" style="flex:1; height:42px; font-size:12px;">Nächster Schritt</div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>16 · Kochmodus — Timer läuft</figcaption>
+    <div class="note">Schritt 3 mit aktivem 25-Minuten-Countdown</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Kochmodus</div></div>
+          <div style="width:32px;"></div>
+        </div>
+
+        <div class="px" style="margin-bottom:10px;">
+          <div style="display:flex; gap:4px;">
+            <i style="flex:1; height:4px; border-radius:2px; background:var(--basil); display:block;"></i>
+            <i style="flex:1; height:4px; border-radius:2px; background:var(--basil); display:block;"></i>
+            <i style="flex:1; height:4px; border-radius:2px; background:var(--basil); display:block;"></i>
+            <i style="flex:1; height:4px; border-radius:2px; background:var(--track); display:block;"></i>
+          </div>
+        </div>
+
+        <div class="px">
+          <div class="eyebrow" style="margin-bottom:4px;">SCHRITT 3 VON 4</div>
+          <div style="font-size:16px; font-weight:800; margin-bottom:12px;">Im Ofen backen</div>
+
+          <div style="height:140px; border-radius:16px; background: linear-gradient(135deg, #C98D6D 0%, #E7CAA4 100%); margin-bottom:12px; display:flex; align-items:center; justify-content:center;">
+            <div style="width:44px; height:44px; border-radius:999px; border:2px solid rgba(255,255,255,.2);"></div>
+          </div>
+
+          <div style="font-size:12px; font-weight:500; line-height:1.6; margin-bottom:4px;">
+            <span class="mention">@Cherrytomaten</span> dazugeben und im Ofen backen, bis das Gemüse goldbraun ist.
+          </div>
+
+          <div class="timer-card">
+            <div>
+              <div class="timer-display">18:56</div>
+              <div class="timer-label">Läuft</div>
+            </div>
+            <div class="timer-btn">Ⅱ</div>
+            <div class="timer-btn mute">↺</div>
+          </div>
+        </div>
+      </div>
+      <div class="px" style="position:absolute; left:0; right:0; bottom:14px; display:flex; gap:8px; align-items:stretch;">
+        <div class="icon-btn" style="width:42px; height:42px; border-radius:13px; font-size:16px; font-weight:800;">‹</div>
+        <div class="btn-basil" style="flex:1; height:42px; font-size:12px;">Nächster Schritt</div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>17 · Kochmodus — Abgeschlossen</figcaption>
+    <div class="note">Fertig-Screen mit Aktionskarten für Wiegen, Tagebuch und Bewertung</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Kochmodus</div></div>
+          <div style="width:32px;"></div>
+        </div>
+
+        <div class="finish-hero">
+          <div class="icon-box" style="width:72px; height:72px; border-radius:18px; background:var(--basil-dim); display:inline-flex; align-items:center; justify-content:center; font-size:32px;">🎉</div>
+          <div class="t" style="font-size:20px; font-weight:800; margin-top:14px;">Guten Appetit!</div>
+          <div style="font-size:11px; color:var(--text2); font-weight:600; margin-top:6px; line-height:1.5;">Alles Weitere ist freiwillig und kann<br>übersprungen werden.</div>
+          <div style="display:inline-flex; align-items:center; gap:4px; margin-top:8px; font-size:10px; font-weight:800; color:var(--gold);">🔥 5 Tage Streak!</div>
+        </div>
+
+        <div class="px" style="padding-bottom:70px;">
+          <div class="finish-card">
+            <div class="finish-icon">⚖️</div>
+            <div class="body"><div class="n">Zubereitete Gruppen wiegen</div><div class="s">Kalibriere die Mengen deines Rezepts</div></div>
+            <span class="finish-chev">›</span>
+          </div>
+          <div class="finish-card">
+            <div class="finish-icon">📓</div>
+            <div class="body"><div class="n">Ins Tagebuch eintragen</div><div class="s">Portion ins Ernährungstagebuch buchen</div></div>
+            <span class="finish-chev">›</span>
+          </div>
+          <div class="finish-card">
+            <div class="finish-icon">⭐</div>
+            <div class="body"><div class="n">Rezept bewerten</div><div class="s">Halte fest, wie es geschmeckt hat</div></div>
+            <span class="finish-chev">›</span>
+          </div>
+
+          <div style="text-align:center; margin-top:14px; font-size:11.5px; color:var(--text2); font-weight:600;">Ohne Angaben schließen</div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ SHEETS & OVERLAYS ══════════════════════════ -->
+  <h2 class="group">Sheets &amp; Overlays</h2>
+
+  <figure class="slot">
+    <figcaption>18 · Bewertung-Sheet</figcaption>
+    <div class="note">1–10 Sterne-Grid mit optionaler Verkostungsnotiz</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Rezept</div></div>
+          <div style="width:32px;"></div>
+        </div>
+      </div>
+      <div class="scrim"></div>
+      <div class="sheet-panel" style="padding:10px 15px 18px;">
+        <div class="grabber"></div>
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:8px;">
+          <div><div style="font-size:14px; font-weight:800;">Rezept bewerten</div><div style="font-size:10.5px; color:var(--text2); margin-top:2px; font-weight:600;">Wie hat dir das Rezept gefallen?</div></div>
+          <div class="close-btn">✕</div>
+        </div>
+        <div class="score-grid">
+          <div class="score-btn"><span class="star">★</span>1</div>
+          <div class="score-btn"><span class="star">★</span>2</div>
+          <div class="score-btn"><span class="star">★</span>3</div>
+          <div class="score-btn"><span class="star">★</span>4</div>
+          <div class="score-btn"><span class="star">★</span>5</div>
+          <div class="score-btn"><span class="star">★</span>6</div>
+          <div class="score-btn"><span class="star">★</span>7</div>
+          <div class="score-btn on"><span class="star">★</span>8</div>
+          <div class="score-btn"><span class="star">★</span>9</div>
+          <div class="score-btn"><span class="star">★</span>10</div>
+        </div>
+        <div style="text-align:center; margin:8px 0; font-size:12px; font-weight:700;">8 / 10</div>
+        <div class="field" style="margin-bottom:10px;">
+          <div class="ta" style="min-height:52px; font-size:11px; color:var(--text2);">Feta am Ende dazu, sonst verbrennt er.</div>
+        </div>
+        <div class="btn-basil" style="height:38px; font-size:12px;">Bewertung speichern</div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>19 · Einkaufs-Sheet</figcaption>
+    <div class="note">Vergleich Rezept-Zutaten vs. Vorrat, fehlende Mengen übernehmen</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Rezept</div></div>
+          <div style="width:32px;"></div>
+        </div>
+      </div>
+      <div class="scrim"></div>
+      <div class="sheet-panel" style="top:120px; padding:10px 0 14px; display:flex; flex-direction:column;">
+        <div class="grabber"></div>
+        <div class="px" style="margin-bottom:8px;">
+          <div style="display:flex; align-items:flex-start; justify-content:space-between;">
+            <div><div style="font-size:14px; font-weight:800;">Fehlende Zutaten</div><div style="font-size:10px; color:var(--text2); margin-top:3px; font-weight:600; line-height:1.4;">Bereits vorhandene Mengen wurden abgezogen.</div></div>
+            <div class="close-btn">✕</div>
+          </div>
+        </div>
+        <div class="px" style="flex:1; overflow:hidden;">
+          <div class="card" style="padding:10px; border-radius:14px;">
+            <div style="display:flex; align-items:center; gap:8px; padding:7px 0; border-bottom:1px solid var(--hair);">
+              <div class="cb on">✓</div>
+              <span style="flex:1; font-size:11px; font-weight:600;">Zucchini</span>
+              <span style="font-size:10px; font-weight:700; color:var(--text2); background:var(--raise); padding:3px 8px; border-radius:999px;">400 g</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; padding:7px 0; border-bottom:1px solid var(--hair);">
+              <div class="cb on">✓</div>
+              <span style="flex:1; font-size:11px; font-weight:600;">Süßkartoffel</span>
+              <span style="font-size:10px; font-weight:700; color:var(--text2); background:var(--raise); padding:3px 8px; border-radius:999px;">300 g</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; padding:7px 0; border-bottom:1px solid var(--hair);">
+              <div class="cb on">✓</div>
+              <span style="flex:1; font-size:11px; font-weight:600;">Cherrytomaten</span>
+              <span style="font-size:10px; font-weight:700; color:var(--text2); background:var(--raise); padding:3px 8px; border-radius:999px;">250 g</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; padding:7px 0;">
+              <div class="cb"></div>
+              <span style="flex:1; font-size:11px; font-weight:600;">Feta</span>
+              <span style="font-size:10px; font-weight:700; color:var(--text2); background:var(--raise); padding:3px 8px; border-radius:999px;">200 g</span>
+            </div>
+          </div>
+        </div>
+        <div class="px" style="padding-top:10px;">
+          <div class="btn-basil" style="height:38px; font-size:12px;">3 Zutaten übernehmen</div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>20 · Rezept löschen</figcaption>
+    <div class="note">Bestätigungsdialog nach Aktion im Manage-Overlay</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Rezept</div></div>
+          <div style="width:32px;"></div>
+        </div>
+      </div>
+      <div class="scrim"></div>
+      <div class="alert">
+        <div class="b">
+          <div class="at">Rezept löschen</div>
+          <div class="m">Möchtest du „Ofengemüse mit Feta" wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.</div>
+        </div>
+        <div class="acts"><div style="color:var(--text2);">Abbrechen</div><div class="danger">Löschen</div></div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ KATALOG ══════════════════════════ -->
+  <h2 class="group">Katalog</h2>
+
+  <figure class="slot">
+    <figcaption>21 · Katalog-Detail</figcaption>
+    <div class="note">Community-Rezept mit „In meine Rezepte übernehmen"-Aktion</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Rezept</div></div>
+          <span class="heart">♡</span>
+        </div>
+
+        <div style="height:130px; background: linear-gradient(135deg, #7E718F 0%, #C8B9D8 100%); position:relative;">
+          <div style="position:absolute; top:9px; left:15px; font-size:8px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,.9);">COMMUNITY</div>
+          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+            <div style="width:50px; height:50px; border-radius:999px; border:2px solid rgba(255,255,255,.15);"></div>
+          </div>
+        </div>
+
+        <div class="px" style="margin-top:12px;">
+          <div style="font-size:18px; font-weight:800;">Pasta Aglio e Olio</div>
+        </div>
+
+        <div class="px">
+          <div class="facts-bar">
+            <div class="fact"><div class="v">380 kcal</div><div class="l">pro 100 g</div></div>
+            <div class="fact"><div class="v">20 Min</div><div class="l">Zeit</div></div>
+            <div class="fact"><div class="v">Einfach</div><div class="l">Schwierigkeit</div></div>
+          </div>
+
+          <div style="font-size:11px; color:var(--text2); line-height:1.55; font-weight:500; margin-bottom:10px;">Klassische italienische Pasta — nur Knoblauch, Olivenöl, Chili und Petersilie. Wenige Zutaten, großer Geschmack.</div>
+
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+            <span style="font-size:13px; font-weight:800;">Zutaten</span>
+            <div class="serving-stepper"><span class="op">−</span><span class="val">2 Portionen</span><span class="op">+</span></div>
+          </div>
+
+          <div class="ing-row"><span class="n">Spaghetti</span><span class="q">250 g</span></div>
+          <div class="ing-row"><span class="n">Knoblauch</span><span class="q">4 Zehen</span></div>
+          <div class="ing-row"><span class="n">Olivenöl</span><span class="q">5 EL</span></div>
+          <div class="ing-row"><span class="n">Chiliflocken</span><span class="q">1 TL</span></div>
+          <div class="ing-row"><span class="n">Petersilie</span><span class="q">1 Bund</span></div>
+
+          <div style="display:flex; align-items:baseline; justify-content:space-between; margin:14px 0 6px;">
+            <span style="font-size:13px; font-weight:800;">Zubereitung</span>
+            <span style="font-size:10px; color:var(--text2); font-weight:600;">3 Schritte</span>
+          </div>
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body"><div class="txt">Spaghetti nach Packungsanweisung al dente kochen.</div></div>
+          </div>
+          <div class="hairline"></div>
+          <div class="step-item" style="padding-bottom:90px;">
+            <div class="step-num">2</div>
+            <div class="step-body"><div class="txt">Knoblauch in Scheiben schneiden und in Olivenöl bei niedriger Hitze goldbraun anbraten.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="px" style="position:absolute; left:0; right:0; bottom:12px; display:flex; gap:8px;">
+        <div class="btn-basil-outline" style="flex:1; height:38px; font-size:10.5px;">🍳 Kochmodus</div>
+        <div class="btn-basil" style="flex:1.4; height:38px; font-size:10.5px;">In meine Rezepte</div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- ══════════════════════════ NACHKOCHEN-LOG ══════════════════════════ -->
+  <h2 class="group">Nachkochen-Log</h2>
+
+  <figure class="slot">
+    <figcaption>22 · Ins Tagebuch eintragen</figcaption>
+    <div class="note">Log-Mode: Mahlzeitenauswahl, Gewichtseingabe und Nährwert-Zusammenfassung</div>
+    <div class="phone">
+      <div style="height:180px; background: linear-gradient(135deg, #D3A06F 0%, #574458 100%); display:flex; flex-direction:column; align-items:center; justify-content:center;">
+        <div style="width:56px; height:56px; border-radius:14px; background:var(--basil-dim); display:flex; align-items:center; justify-content:center; font-size:24px;">🍽️</div>
+        <div style="font-size:16px; font-weight:800; color:#fff; margin-top:10px;">Guten Appetit!</div>
+        <div style="font-size:10px; color:rgba(255,255,255,.7); font-weight:600; margin-top:4px;">Trage deine Portion ins Tagebuch ein.</div>
+      </div>
+      <div class="log-sheet">
+        <div class="grabber"></div>
+        <div class="px">
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:10px;">
+            <div><div style="font-size:14px; font-weight:800;">Ins Tagebuch eintragen</div><div style="font-size:10px; color:var(--text2); font-weight:600; margin-top:2px;">Ofengemüse mit Feta</div></div>
+            <div class="close-btn">✕</div>
+          </div>
+          <div class="chip-row" style="margin-bottom:12px;">
+            <div class="chip">Frühstück</div>
+            <div class="chip">Mittag</div>
+            <div class="chip on">Abend</div>
+            <div class="chip">Snacks</div>
+          </div>
+          <div class="gram-row"><span class="n">Gemüse</span><div class="gram-inp">362 <span class="u">g</span></div></div>
+          <div class="gram-row"><span class="n">Topping</span><div class="gram-inp">65 <span class="u">g</span></div></div>
+
+          <div class="nutr-sum">
+            <div class="cal">420 kcal</div>
+            <div class="mac">18 g Protein · 42 g Kohlenhydrate · 22 g Fett</div>
+          </div>
+        </div>
+        <div class="px" style="position:absolute; left:0; right:0; bottom:14px;">
+          <div class="btn-basil" style="height:38px; font-size:12px;">Ins Tagebuch übernehmen</div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>23 · Zubereitete Gewichte</figcaption>
+    <div class="note">Weigh-Mode: Zubereitete Gruppengewichte anpassen</div>
+    <div class="phone">
+      <div style="height:180px; background: linear-gradient(135deg, #D3A06F 0%, #574458 100%); display:flex; flex-direction:column; align-items:center; justify-content:center;">
+        <div style="width:56px; height:56px; border-radius:14px; background:var(--basil-dim); display:flex; align-items:center; justify-content:center; font-size:24px;">⚖️</div>
+        <div style="font-size:16px; font-weight:800; color:#fff; margin-top:10px;">Guten Appetit!</div>
+        <div style="font-size:10px; color:rgba(255,255,255,.7); font-weight:600; margin-top:4px; text-align:center; padding:0 30px;">Verbessere die Mengen deines Haushaltsrezepts.</div>
+      </div>
+      <div class="log-sheet">
+        <div class="grabber"></div>
+        <div class="px">
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:10px;">
+            <div><div style="font-size:14px; font-weight:800;">Zubereitete Gewichte</div><div style="font-size:10px; color:var(--text2); font-weight:600; margin-top:2px;">Ofengemüse mit Feta · 4 Portionen</div></div>
+            <div class="close-btn">✕</div>
+          </div>
+          <div style="font-size:10px; color:var(--text2); font-weight:600; line-height:1.45; margin-bottom:10px;">Wiege die zubereiteten Gruppen und trage die tatsächlichen Gewichte ein.</div>
+          <div class="gram-row"><span class="n">Gemüse</span><div class="gram-inp">1380 <span class="u">g</span></div></div>
+          <div class="gram-row"><span class="n">Topping</span><div class="gram-inp">195 <span class="u">g</span></div></div>
+        </div>
+        <div class="px" style="position:absolute; left:0; right:0; bottom:14px;">
+          <div class="btn-basil" style="height:38px; font-size:12px;">Gewichte speichern</div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="slot">
+    <figcaption>24 · Kochmodus — Ohne Schritte</figcaption>
+    <div class="note">Fallback wenn ein Rezept keine diskreten Schritte hat</div>
+    <div class="phone">
+      <div class="scroll">
+        <div class="status"><span>10:30</span><span class="sys"><span class="sig"><i></i><i></i><i></i></span><span>100%</span><span class="batt"><i></i></span></span></div>
+        <div class="hd">
+          <div class="icon-btn" style="font-size:15px; font-weight:800;">‹</div>
+          <div class="hd-mid"><div class="t">Kochmodus</div></div>
+          <div style="width:32px;"></div>
+        </div>
+
+        <div class="px">
+          <div style="height:120px; border-radius:16px; background: linear-gradient(135deg, #B77857 0%, #EFD2A7 100%); margin-bottom:14px; display:flex; align-items:center; justify-content:center;">
+            <div style="width:44px; height:44px; border-radius:999px; border:2px solid rgba(255,255,255,.2);"></div>
+          </div>
+
+          <div style="font-size:16px; font-weight:800; margin-bottom:8px;">Rührei mit Gouda</div>
+          <div style="font-size:11px; color:var(--text2); line-height:1.55; font-weight:500;">
+            Eier verquirlen, salzen und pfeffern. Butter in einer Pfanne schmelzen, Eier hineingeben und bei niedriger Hitze stocken lassen. Gouda darüberstreuen und servieren.
+          </div>
+
+          <div class="card empty" style="margin-top:18px;">
+            <div class="sym">📝</div>
+            <div class="t">Keine einzelnen Schritte</div>
+            <div class="h">Dieses Rezept hat nur eine Gesamtanleitung.</div>
+          </div>
+        </div>
+      </div>
+      <div class="px" style="position:absolute; left:0; right:0; bottom:14px;">
+        <div class="btn-basil">Zubereitung abschließen</div>
+      </div>
+    </div>
+  </figure>
+
+</div>
+
+<script>
+  var sheet = document.getElementById('sheet');
+  document.getElementById('modeswitch').addEventListener('click', function (e) {
+    var btn = e.target.closest('button');
+    if (!btn) return;
+    sheet.dataset.mode = btn.dataset.mode;
+    this.querySelectorAll('button').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b === btn));
+    });
+  });
+</script>

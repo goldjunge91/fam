@@ -4,16 +4,17 @@
 # provider, credential, profile, telemetry, and notification settings belong in
 # ~/.codex/config.toml and are documented in config-reference.toml.
 
-model = "gpt-5.6-luna"
-review_model = "gpt-5.6-sol"
-model_reasoning_effort = "high"
-model_reasoning_summary = "none"
-model_verbosity = "medium"
-personality = "friendly"
+# model = "gpt-5.6-luna"
+# review_model = "gpt-5.6-sol"
+# model_reasoning_effort = "high"
+# model_reasoning_summary = "none"
+# model_verbosity = "medium"
+# personality = "friendly"
+
+default_permissions = "project-edit"
 
 [permissions.project-edit]
 extends = ":workspace"
-
 approval_policy = "on-request"
 approvals_reviewer = "user"
 sandbox_mode = "workspace-write"
@@ -21,10 +22,8 @@ allow_login_shell = true
 web_search = "cached"
 project_root_markers = [".git"]
 
-[sandbox_workspace_write]
-network_access = true
-exclude_tmpdir_env_var = false
-exclude_slash_tmp = false
+[permissions.project-edit.network]
+enabled = true
 
 [shell_environment_policy]
 inherit = "core"
