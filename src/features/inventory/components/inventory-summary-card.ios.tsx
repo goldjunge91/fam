@@ -1,5 +1,6 @@
 import { View } from 'react-native';
 
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressRing } from '@/components/ui/progress-ring';
 import { Card, Txt } from '@/constants/ui';
@@ -22,7 +23,7 @@ export function InventorySummaryCard({
       className="flex-row gap-three"
       accessible
       accessibilityLabel={`${criticalCount} Artikel laufen bald ab, ${soonCount} bald fällig, ${totalCount} insgesamt im Vorrat`}>
-      <Card className="min-h-[176px] flex-1 items-center justify-center gap-three">
+      <Card style={styles.card}>
         <ProgressRing
           preset="compact"
           value={criticalCount}
@@ -40,7 +41,7 @@ export function InventorySummaryCard({
         </Txt>
       </Card>
 
-      <Card className="min-h-[176px] flex-1 items-center justify-center gap-three">
+      <Card style={styles.card}>
         <ProgressRing
           preset="compact"
           value={soonCount}
@@ -60,3 +61,13 @@ export function InventorySummaryCard({
     </View>
   );
 }
+
+const styles = {
+  card: {
+    minHeight: 176,
+    flex: 1,
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
+    gap: space.lg,
+  },
+};

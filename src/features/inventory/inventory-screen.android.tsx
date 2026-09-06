@@ -313,7 +313,7 @@ export function InventoryScreen() {
         ListEmptyComponent={
           /* Leerzustand bei leerem Lagerort oder erfolgloser Suche */
           isLoading ? null : visibleItems.length === 0 ? (
-            <Card className="mt-two">
+            <Card style={{ marginTop: space.sm }}>
               <EmptyState
                 symbol="archivebox"
                 title={

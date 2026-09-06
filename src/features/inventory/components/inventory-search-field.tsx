@@ -1,6 +1,7 @@
 import { TextInput } from 'react-native';
 
 import { SearchIcon } from '@/components/icons/fam-icon';
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/constants/ui';
 
@@ -46,10 +47,7 @@ export function InventorySearchInput({ value, onChangeText }: InventorySearchInp
   const { colors } = useTheme();
 
   return (
-    <Card
-      elevation="none"
-      padded={false}
-      className="mt-[10px] min-h-[48px] w-full flex-row items-center gap-one px-three py-[11px]">
+    <Card elevation="none" padded={false} style={styles.inputCard}>
       <SearchIcon size={20} color={colors.textSecondary} />
       <TextInput
         autoFocus
@@ -66,3 +64,16 @@ export function InventorySearchInput({ value, onChangeText }: InventorySearchInp
     </Card>
   );
 }
+
+const styles = {
+  inputCard: {
+    marginTop: 10,
+    minHeight: 48,
+    width: '100%' as const,
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    gap: space.xs,
+    paddingHorizontal: space.lg,
+    paddingVertical: 11,
+  },
+};

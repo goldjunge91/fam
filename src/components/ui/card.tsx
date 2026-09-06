@@ -1,21 +1,20 @@
 import type { ReactNode } from 'react';
-import { Pressable, type ViewStyle } from 'react-native';
+import { type StyleProp, StyleSheet, type ViewStyle } from 'react-native';
 
+import { space } from '@/components/theme/index';
 import { Card as FoundationCard, Txt } from '@/constants/ui';
 
 type CardProps = {
   children: ReactNode;
   title?: string;
   footer?: ReactNode;
-  onPress?: () => void;
-  style?: ViewStyle;
-  className?: string;
+  style?: StyleProp<ViewStyle>;
 };
 
-/** Flaeche fuer zusammengehoerende Inhalte. Antippbar, sobald `onPress` gesetzt ist. */
-export function Card({ children, title, footer, onPress, style, className = '' }: CardProps) {
-  const content = (
-    <FoundationCard className={`gap-two ${className}`.trim()} style={style}>
+/** Flaeche fuer zusammengehoerende Inhalte. Interaktion gehoert in den Inhalt. */
+export function Card({ children, title, footer, style }: CardProps) {
+  return (
+    <FoundationCard style={[styles.content, style]}>
       {title ? (
         <Txt variant="body" weight="700">
           {title}
@@ -25,12 +24,10 @@ export function Card({ children, title, footer, onPress, style, className = '' }
       {footer}
     </FoundationCard>
   );
-
-  if (!onPress) return content;
-
-  return (
-    <Pressable onPress={onPress} accessibilityRole="button" className="active:opacity-70">
-      {content}
-    </Pressable>
-  );
 }
+
+const styles = StyleSheet.create({
+  content: {
+    gap: space.sm,
+  },
+});

@@ -24,6 +24,19 @@ jest.mock(
   { virtual: true },
 );
 
+jest.mock(
+  'expo-symbols',
+  () => {
+    const { View: NativeView } = require('react-native');
+    return {
+      SymbolView: ({ name, ...props }: { name: string }) => (
+        <NativeView {...props} accessibilityLabel={name} />
+      ),
+    };
+  },
+  { virtual: true },
+);
+
 jest.mock('@/lib/haptics', () => ({
   heavy: jest.fn(),
   light: jest.fn(),
@@ -44,11 +57,12 @@ jest.mock('@/components/theme/ThemeProvider', () => ({
   ) => factory(mockColorsLight, mockMakeAccent(mockColorsLight)),
 }));
 
+import { Card as ProductCard } from '@/components/ui/card';
+import { EmptyState } from '@/components/ui/empty-state';
 import {
   Badge,
   Button,
   Card,
-  EmptyState,
   Pill,
   SectionHeading,
   SegmentedControl,
@@ -300,6 +314,18 @@ describe('core theme UI primitives', () => {
     expect(screen.getByPlaceholderText('Dein Name')).toHaveStyle({ borderColor: '#123456' });
   });
 
+  it('keeps the product Card composition contract for titles and footers', async () => {
+    await render(
+      <ProductCard title="Produkt" footer={<Text>Footer</Text>}>
+        <Text>Inhalt</Text>
+      </ProductCard>,
+    );
+
+    expect(screen.getByText('Produkt')).toBeOnTheScreen();
+    expect(screen.getByText('Inhalt')).toBeOnTheScreen();
+    expect(screen.getByText('Footer')).toBeOnTheScreen();
+  });
+
   it('combines TextField focus, error, trailing action, accessibility and ref behavior', async () => {
     const inputRef = createRef<import('react-native').TextInput>();
     const onFocus = jest.fn();
@@ -372,7 +398,12 @@ describe('core theme UI primitives', () => {
           selectionRole="radio"
         />
         <SectionHeading title="Listen" action="Alle anzeigen" onAction={onAction} />
-        <EmptyState emoji="🛒" title="Leer" subtitle="Noch keine Einträge" />
+        <EmptyState
+          symbol="archivebox"
+          title="Leer"
+          hint="Noch keine Einträge"
+          action={<Text accessibilityRole="button">Eintrag anlegen</Text>}
+        />
       </>,
     );
 
@@ -385,6 +416,7 @@ describe('core theme UI primitives', () => {
     expect(onAction).toHaveBeenCalledWith('month');
     expect(onAction).toHaveBeenCalledTimes(2);
     expect(screen.getByText('Noch keine Einträge')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Eintrag anlegen' })).toBeOnTheScreen();
   });
 
   it('exposes single-selection state, disabled options and large touch targets', async () => {

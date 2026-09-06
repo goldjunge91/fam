@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
 import { useSnackbar } from '@/components/ui/snackbar';
@@ -173,7 +174,7 @@ export function Glp1Card({
   }
 
   return (
-    <Card className="p-four gap-three">
+    <Card style={{ padding: 24, gap: space.lg }}>
       <View className="flex-row items-center justify-between">
         <View className="flex-row items-center gap-two">
           <Txt variant="body" weight="700">
