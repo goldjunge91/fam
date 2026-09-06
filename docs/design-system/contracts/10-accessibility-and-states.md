@@ -51,8 +51,9 @@ vorhandenen Outbox-Workflow. Technische Rohfehler und sensible Details gehören
 nicht in UI-Copy.
 
 Die Auswahl des Zustands bleibt in der Domäne. Ein universeller Async-Screen-Wrapper
-ist nicht erforderlich. Der Produkt-`EmptyState` und seine Foundation teilen
-Darstellungsregeln. Eine passende bestehende Aktion soll direkt erreichbar sein;
+ ist nicht erforderlich. Der kanonische Produkt-`EmptyState` bündelt Symbol,
+Titel, Hinweis und eine
+optionale bestehende Aktion. Eine passende Aktion soll direkt erreichbar sein;
 eine optionale Action-Komposition darf keine neue Fachfunktion erfinden. Native
 Spezialladezustände müssen nicht in Listenskeletons umgebaut werden. Bestehende
 kurzlebige native Busy-Indikatoren dürfen bleiben.

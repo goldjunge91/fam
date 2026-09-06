@@ -34,6 +34,11 @@ Pressed-/Fokusfeedback. Ihr tatsächlicher Touchbereich erfüllt den
 Aktionen, dürfen deren Aktivierung und Screenreader-Fokus nicht von einem
 übergeordneten Pressable verschluckt werden. Keine doppelte Haptik.
 
+Der aktuelle Produkt-`Card`-Adapter ist eine nicht-interaktive Komposition aus
+Foundation, Titel und optionalem Footer. Echte Interaktion wird durch eine
+geeignete bestehende Press-Komponente oder einen nativen Control im Card-Inhalt
+modelliert.
+
 Information darf nicht ausschließlich durch Fläche oder Farbe vermittelt werden.
 Die Text-/Flächenkombination folgt [Vertrag 01](./01-theme-and-colors.md).
 

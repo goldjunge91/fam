@@ -25,7 +25,6 @@ import {
   Press,
   Button as PrimitiveButton,
   Card as PrimitiveCard,
-  EmptyState as PrimitiveEmptyState,
   Row,
   SectionHeading,
   Spacer,
@@ -83,15 +82,18 @@ function SurfaceShowcase() {
         </Card>
       </Subsection>
       <Subsection title="Cards mit Schatten und Progress-Ringen">
-        <PrimitiveCard elevation="lg" 
-        // style={styles.progressCard}
-        style={[styles.progressCard, {
-          shadowColor: colors.danger,
-          shadowOpacity: 1,
-          // marginHorizontal: space.sm,
-          shadowOffset:{ width: 6, height: 6 },
-        }, ]}
-        >
+        <PrimitiveCard
+          elevation="lg"
+          // style={styles.progressCard}
+          style={[
+            styles.progressCard,
+            {
+              shadowColor: colors.danger,
+              shadowOpacity: 1,
+              // marginHorizontal: space.sm,
+              shadowOffset: { width: 6, height: 6 },
+            },
+          ]}>
           <View style={styles.progressCardRow}>
             <View style={styles.progressCardCopy}>
               <Txt variant="label" tone="secondary" style={styles.progressCardLabel}>
@@ -113,10 +115,7 @@ function SurfaceShowcase() {
             elevation="lg" · preset="compact"
           </Txt>
         </PrimitiveCard>
-        <PrimitiveCard 
-        elevation="lg" 
-        style={[styles.progressCard, { shadowColor: colors.danger }]}
-        >
+        <PrimitiveCard elevation="lg" style={[styles.progressCard, { shadowColor: colors.danger }]}>
           <View style={styles.progressCardRow}>
             <ProgressRing
               value={7}
@@ -357,13 +356,6 @@ function FeedbackShowcase() {
             symbol="archivebox"
             title="Noch nichts im Vorrat"
             hint="Füge dein erstes Produkt hinzu."
-          />
-        </ExamplePanel>
-        <ExamplePanel kind="neutral" label="Foundation EmptyState">
-          <PrimitiveEmptyState
-            emoji="🧺"
-            title="Liste ist leer"
-            subtitle="Die Foundation-Variante akzeptiert optional eine eigene Aktion."
             action={<PrimitiveButton title="Eintrag anlegen" size="sm" onPress={() => undefined} />}
           />
         </ExamplePanel>

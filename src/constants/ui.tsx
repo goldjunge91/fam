@@ -301,10 +301,11 @@ export function Card({
   elevation = 'sm',
   children,
   ...rest
-}: ViewProps & {
+}: Omit<ViewProps, 'className' | 'style'> & {
   padded?: boolean;
   soft?: boolean;
   elevation?: 'none' | 'sm' | 'md' | 'lg';
+  style?: StyleProp<ViewStyle>;
 }) {
   const { colors } = useTheme();
   const themedShadow = useThemedStyles(makeShadowStyles);
@@ -828,41 +829,6 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(function TextFiel
     </View>
   );
 });
-
-// ─── Empty state ─────────────────────────────────────────────────────────────
-
-export function EmptyState({
-  emoji,
-  title,
-  subtitle,
-  action,
-}: {
-  emoji: string;
-  title: string;
-  subtitle?: string;
-  action?: ReactNode;
-}) {
-  return (
-    <View
-      style={{
-        alignItems: 'center',
-        paddingVertical: space.xxxl,
-        paddingHorizontal: space.xl,
-        gap: 8,
-      }}>
-      <Text style={{ fontSize: 52 }}>{emoji}</Text>
-      <Txt variant="heading" center>
-        {title}
-      </Txt>
-      {subtitle ? (
-        <Txt variant="body" muted center style={{ maxWidth: 300 }}>
-          {subtitle}
-        </Txt>
-      ) : null}
-      {action ? <View style={{ marginTop: space.md }}>{action}</View> : null}
-    </View>
-  );
-}
 
 // ─── Section heading ─────────────────────────────────────────────────────────
 

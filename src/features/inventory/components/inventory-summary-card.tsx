@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { View } from 'react-native';
-import { withAlpha } from '@/components/theme/index';
+import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressRing } from '@/components/ui/progress-ring';
 import { Card, Txt } from '@/constants/ui';
@@ -49,8 +49,16 @@ export function InventorySummaryCard({
       <Card
         elevation="none"
         padded={false}
-        className="items-center justify-center gap-two px-three py-[18px]"
-        style={cardStyle}>
+        style={[
+          cardStyle,
+          {
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: space.sm,
+            paddingHorizontal: space.lg,
+            paddingVertical: 18,
+          },
+        ]}>
         {content}
       </Card>
     );

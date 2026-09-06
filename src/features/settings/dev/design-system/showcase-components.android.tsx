@@ -25,7 +25,6 @@ import {
   Press,
   Button as PrimitiveButton,
   Card as PrimitiveCard,
-  EmptyState as PrimitiveEmptyState,
   Row,
   SectionHeading,
   Spacer,
@@ -346,13 +345,6 @@ function FeedbackShowcase() {
             symbol="archivebox"
             title="Noch nichts im Vorrat"
             hint="Füge dein erstes Produkt hinzu."
-          />
-        </ExamplePanel>
-        <ExamplePanel kind="neutral" label="Foundation EmptyState">
-          <PrimitiveEmptyState
-            emoji="🧺"
-            title="Liste ist leer"
-            subtitle="Die Foundation-Variante akzeptiert optional eine eigene Aktion."
             action={<PrimitiveButton title="Eintrag anlegen" size="sm" onPress={() => undefined} />}
           />
         </ExamplePanel>

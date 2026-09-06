@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Pressable, View } from 'react-native';
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
 import { ProgressBar } from '@/components/ui/progress-bar';
@@ -84,7 +85,7 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
   const isTargetReached = elapsedMinutes >= targetMinutes;
 
   return (
-    <Card className="p-four gap-three">
+    <Card style={{ padding: 24, gap: space.lg }}>
       {/* Header */}
       <View className="flex-row items-center justify-between">
         <View className="flex-row items-center gap-two">
