@@ -156,7 +156,9 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
               style={{ backgroundColor: colors.background }}>
               <View
                 className="w-[62px] h-[62px] rounded-card items-center justify-center"
-                style={{ backgroundColor: score ? NUTRI_BADGE_COLORS[score] : colors.backgroundSoft }}>
+                style={{
+                  backgroundColor: score ? NUTRI_BADGE_COLORS[score] : colors.backgroundSoft,
+                }}>
                 <Txt variant="subheading" weight="700" tone={score ? 'inverse' : 'primary'}>
                   {score?.toUpperCase() ?? '–'}
                 </Txt>
@@ -172,7 +174,9 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
               {isFetching ? <ActivityIndicator size="small" color={colors.accent} /> : null}
             </View>
 
-            <View className="rounded-sheet overflow-hidden" style={[styles.details, { borderColor: colors.border }]}>
+            <View
+              className="rounded-sheet overflow-hidden"
+              style={[styles.details, { borderColor: colors.border }]}>
               <View
                 className="min-h-[50px] px-[14px] flex-row items-center justify-between gap-three"
                 style={[styles.detailRowDivider, { borderBottomColor: colors.border }]}>
