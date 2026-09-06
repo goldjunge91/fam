@@ -21,6 +21,7 @@ import {
   formatTokenExpiry,
   maskSecret,
 } from '@/features/settings/dev/dev-info';
+import { TrackingMethodControls } from '@/features/settings/dev/tracking-method-controls';
 import {
   disposeAptabase,
   getAptabaseInitializationError,
@@ -354,6 +355,8 @@ export function DevToolsScreen() {
           />
         ) : null}
       </Card>
+
+      <TrackingMethodControls />
 
       {/* Session-Details (Nutzer-ID, Token-Gültigkeit, aktiver Haushalt) */}
       <Card title="Session">

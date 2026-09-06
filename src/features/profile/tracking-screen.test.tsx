@@ -11,9 +11,11 @@ import {
   useWeightEntries,
 } from '@/features/calorie-tracking/api';
 import { useProfile } from '@/features/profile/api';
+import { useTrackingMethodOverridesStore } from '@/features/profile/tracking-methods';
 import { TrackingScreen } from '@/features/profile/tracking-screen';
 
 const mockInjectionPlanSection = jest.fn((_props: { userId: string | undefined }) => null);
+const mockStorageData = new Map<string, string>();
 
 jest.mock('expo-router', () => ({
   router: {
@@ -37,6 +39,20 @@ jest.mock('@/features/calorie-tracking/api', () => ({
   useWeightEntries: jest.fn(),
   useUpdateTrackingMethodMutation: jest.fn(),
   useUpdateTrackingDayStartTimeMutation: jest.fn(),
+}));
+
+jest.mock('@/lib/storage/device-storage', () => ({
+  getDeviceStorage: () => ({
+    getString: (key: string) => mockStorageData.get(key),
+    remove: (key: string) => mockStorageData.delete(key),
+    set: (key: string, value: string) => mockStorageData.set(key, value),
+  }),
+}));
+
+let mockFeatureFlags: Record<string, boolean> = {};
+
+jest.mock('@/lib/posthog', () => ({
+  useFeatureFlags: () => mockFeatureFlags,
 }));
 
 jest.mock('@/features/glp1/components/injection-plan-section', () => ({
@@ -129,6 +145,9 @@ async function renderScreen({
 describe('TrackingScreen', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockFeatureFlags = {};
+    mockStorageData.clear();
+    useTrackingMethodOverridesStore.getState().resetOverrides();
   });
 
   it('rendert Tracking-Methode und Ernährung & Tagesziele', async () => {
@@ -206,7 +225,37 @@ describe('TrackingScreen', () => {
     expect(screen.getByText(/Bestehende Einträge bleiben unverändert/)).toBeOnTheScreen();
   });
 
-  it('wechselt die aktive Tracking-Methode im Profil auf Low-Carb und Keto', async () => {
+  it('deaktiviert nicht freigeschaltete Tracking-Methoden standardmäßig', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    for (const label of [
+      'Intervallfasten',
+      'Low-Carb',
+      'Keto (Ketogen)',
+      'Kraftsport',
+      'Blutzucker & CGM',
+      'Volumetrics',
+    ]) {
+      expect(
+        screen.getByRole('radio', {
+          name: new RegExp(label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')),
+        }),
+      ).toBeDisabled();
+    }
+
+    expect(screen.getByRole('radio', { name: /Klassisch \(CICO\)/ })).not.toBeDisabled();
+    expect(screen.getByRole('radio', { name: /GLP-1 & Medikation/ })).not.toBeDisabled();
+
+    await user.press(screen.getByRole('radio', { name: /Low-Carb/ }));
+    expect(mockMutateMethod).not.toHaveBeenCalled();
+  });
+
+  it('wechselt die aktive Tracking-Methode auf per Feature-Flag freigeschaltete Varianten', async () => {
+    mockFeatureFlags = {
+      'low-carb-tracking': true,
+      'tracking-method-keto': true,
+    };
     const user = userEvent.setup();
     await renderScreen();
 
@@ -224,6 +273,22 @@ describe('TrackingScreen', () => {
     expect(mockMutateMethod).toHaveBeenCalledWith({
       userId: 'user-1',
       method: 'keto',
+    });
+  });
+
+  it('aktiviert eine Tracking-Methode über den lokalen Dev-Override', async () => {
+    useTrackingMethodOverridesStore.getState().setOverride('volumetrics', true);
+    const user = userEvent.setup();
+    await renderScreen();
+
+    const volumetricsButton = screen.getByRole('radio', { name: /Volumetrics/ });
+    expect(volumetricsButton).not.toBeDisabled();
+
+    await user.press(volumetricsButton);
+
+    expect(mockMutateMethod).toHaveBeenCalledWith({
+      userId: 'user-1',
+      method: 'volumetrics',
     });
   });
 });

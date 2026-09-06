@@ -22,6 +22,10 @@ let mockFeatureFlags: Record<FeatureFlagKey, boolean> = {
   'module-recipes': true,
   'module-meal-planner': true,
   'module-calories': true,
+  'tracking-method-fasting': false,
+  'tracking-method-keto': false,
+  'tracking-method-cgm': false,
+  'tracking-method-volumetrics': false,
   'experimental-vision-camera': false,
 };
 
@@ -99,6 +103,10 @@ describe('SpeedDialMenu', () => {
       'module-recipes': true,
       'module-meal-planner': true,
       'module-calories': true,
+      'tracking-method-fasting': false,
+      'tracking-method-keto': false,
+      'tracking-method-cgm': false,
+      'tracking-method-volumetrics': false,
       'experimental-vision-camera': false,
     };
   });
