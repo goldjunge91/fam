@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen } from '@testing-library/react-native';
+import { render, screen, userEvent } from '@testing-library/react-native';
+import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { SettingsScreen } from '@/features/settings/settings-screen';
@@ -104,6 +105,7 @@ describe('SettingsScreen', () => {
     mockHouseholds = [{ id: 'hh-1', name: 'Familie Tozzi' }];
     mockActiveHousehold = mockHouseholds[0];
     mockAvatarUrl = null;
+    jest.mocked(router.push).mockClear();
     process.env.EXPO_PUBLIC_DEV_TOOLS = 'false';
     process.env.EXPO_PUBLIC_SUPABASE_URL = 'http://127.0.0.1:54321';
   });
@@ -122,6 +124,7 @@ describe('SettingsScreen', () => {
     for (const eintrag of [
       'Mitglieder',
       'Lagerorte',
+      'Gamification',
       'Berechtigungen',
       'Benachrichtigungen',
       'Abmelden',
@@ -200,5 +203,14 @@ describe('SettingsScreen', () => {
     const { getByText } = await renderScreen();
     expect(getByText('Plus & KI für den ganzen Haushalt')).toBeTruthy();
     expect(getByText('Plus & KI ansehen')).toBeTruthy();
+  });
+
+  it('öffnet den Gamification-Screen aus den Einstellungen', async () => {
+    await renderScreen();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'Gamification' }));
+
+    expect(router.push).toHaveBeenCalledWith('/gamification');
   });
 });

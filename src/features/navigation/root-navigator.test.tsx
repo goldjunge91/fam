@@ -35,6 +35,7 @@ const privateRootRoutes = [
   'recipe',
   'chef-koch',
   'settings',
+  'gamification',
   'add-item',
   'add-product',
   'add-food-entry',
