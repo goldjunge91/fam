@@ -42,6 +42,7 @@ import { FoodRuleSelectionSheet } from '@/features/profile/sheets/food-rule-sele
 import { PasswordChangeSheet } from '@/features/profile/sheets/password-change-sheet';
 import { type ProfileAccountForm, profileAccountFormSchema } from '@/lib/db/zod/profile.zod';
 import { getInitials } from '@/lib/initials';
+import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 import { getSupabase } from '@/lib/supabase';
 
 /**
@@ -72,6 +73,7 @@ export function EditProfileScreen() {
   const hydratedFoodRulesUserId = useRef<string | null>(null);
   const hydratedBiometricsUserId = useRef<string | null>(null);
   const {
+    control,
     setValue,
     watch,
     reset,
@@ -84,6 +86,7 @@ export function EditProfileScreen() {
     resolver: zodResolver(profileAccountFormSchema),
     defaultValues: { displayName: '', email: '', newPassword: '', passwordConfirmation: '' },
   });
+  useRozeniteRHFDevTools({ control, id: 'profile-edit' });
   const displayName = watch('displayName');
   const email = watch('email');
   const newPassword = watch('newPassword');

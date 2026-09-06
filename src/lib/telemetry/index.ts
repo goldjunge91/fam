@@ -2,6 +2,7 @@ import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
 import { trackAptabaseError, trackAptabaseEvent } from '@/lib/analytics/aptabase';
+import { markPerformance, measurePerformance, metricPerformance } from '@/lib/performance';
 import { getPostHogClient, isPostHogConfigured } from '@/lib/posthog';
 import { Sentry } from '@/lib/sentry';
 import {
@@ -266,6 +267,9 @@ export async function measureOperation<T>(
   context: TelemetryProperties = {},
 ): Promise<T> {
   const startedAt = Date.now();
+  const performanceStartMark = `${name}.start`;
+  const performanceEndMark = `${name}.end`;
+  markPerformance(performanceStartMark, { operation: name });
   const correlationId = context.correlation_id ?? createCorrelationId(startedAt);
   const shared = { ...context, correlation_id: correlationId, operation: name };
   let completed = false;
@@ -293,6 +297,15 @@ export async function measureOperation<T>(
   try {
     const result = await operation();
     const durationMs = Date.now() - startedAt;
+    markPerformance(performanceEndMark, { operation: name, outcome: 'completed' });
+    measurePerformance(name, performanceStartMark, performanceEndMark, {
+      operation: name,
+      outcome: 'completed',
+    });
+    metricPerformance(`${name}.duration-ms`, durationMs, {
+      operation: name,
+      outcome: 'completed',
+    });
     trackEvent(`${name}.completed`, {
       ...shared,
       outcome: 'completed',
@@ -303,6 +316,15 @@ export async function measureOperation<T>(
   } catch (error) {
     const durationMs = Date.now() - startedAt;
     const details = errorDetails(error);
+    markPerformance(performanceEndMark, { operation: name, outcome: 'failed' });
+    measurePerformance(name, performanceStartMark, performanceEndMark, {
+      operation: name,
+      outcome: 'failed',
+    });
+    metricPerformance(`${name}.duration-ms`, durationMs, {
+      operation: name,
+      outcome: 'failed',
+    });
     trackEvent(`${name}.failed`, {
       ...shared,
       ...details,

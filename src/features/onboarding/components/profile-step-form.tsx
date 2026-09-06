@@ -10,6 +10,7 @@ import {
   type OnboardingProfileFormInput,
   onboardingProfileFormSchema,
 } from '@/lib/db/zod/onboarding.zod';
+import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 import { formatGermanDateInput, isoDateToGerman } from '../onboarding-helpers';
 import { useOnboarding } from '../onboarding-store';
 import type { ActivityLevel, SexOption, WeightGoal } from '../types';
@@ -43,6 +44,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   const { data: userProfile } = useProfile(session?.user.id);
 
   const {
+    control,
     setValue,
     watch,
     reset,
@@ -61,6 +63,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
       weightGoal: state.profile.weightGoal,
     },
   });
+  useRozeniteRHFDevTools({ control, id: 'onboarding-profile' });
   const { displayName, birthDate, heightCm, weightKg, sex, activityLevel, weightGoal } = watch();
 
   useEffect(() => {

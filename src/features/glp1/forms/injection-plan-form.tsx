@@ -12,6 +12,7 @@ import {
   positiveDoseInputSchema,
 } from '@/features/glp1/domain/form-schema-primitives';
 import { MEDICATION_UNITS } from '@/features/glp1/domain/medication-options';
+import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 const injectionPlanFormSchema = z.object({
   medicationName: medicationNameInputSchema,
@@ -64,6 +65,7 @@ export function InjectionPlanForm({
       reminderEnabled: initialValue?.reminderEnabled ?? true,
     },
   });
+  useRozeniteRHFDevTools({ control, id: 'glp1-injection-plan' });
   const unit = watch('unit');
   const surfaceStyle = {
     backgroundColor: colors.backgroundElement,

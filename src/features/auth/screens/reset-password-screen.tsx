@@ -9,10 +9,12 @@ import { Button, TextField, Txt } from '@/constants/ui';
 import { updatePassword } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { type NewPasswordInput, newPasswordSchema } from '@/lib/db/zod/auth.zod';
+import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 export function ResetPasswordScreen() {
   const [formError, setFormError] = useState<string | null>(null);
   const {
+    control,
     setValue,
     watch,
     handleSubmit,
@@ -21,6 +23,7 @@ export function ResetPasswordScreen() {
     resolver: zodResolver(newPasswordSchema),
     defaultValues: { password: '', passwordConfirmation: '' },
   });
+  useRozeniteRHFDevTools({ control, id: 'reset-password' });
   const password = watch('password');
   const passwordConfirmation = watch('passwordConfirmation');
 

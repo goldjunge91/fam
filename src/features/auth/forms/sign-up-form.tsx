@@ -6,6 +6,7 @@ import { Button, TextField, Txt } from '@/constants/ui';
 import { signUp } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { type SignUpInput, signUpSchema } from '@/lib/db/zod/auth.zod';
+import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 export interface PendingSignUp {
   email: string;
@@ -27,6 +28,7 @@ export function SignUpForm({
 }: SignUpFormProps) {
   const [formError, setFormError] = useState<string | null>(null);
   const {
+    control,
     setValue,
     watch,
     handleSubmit,
@@ -35,6 +37,7 @@ export function SignUpForm({
     resolver: zodResolver(signUpSchema),
     defaultValues: { email: '', password: '', passwordConfirmation: '' },
   });
+  useRozeniteRHFDevTools({ control, id: 'sign-up' });
   const email = watch('email');
   const password = watch('password');
   const passwordConfirmation = watch('passwordConfirmation');

@@ -6,6 +6,7 @@ import { Button, TextField, Txt } from '@/constants/ui';
 import { signIn } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { type SignInInput, signInSchema } from '@/lib/db/zod/auth.zod';
+import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 interface SignInFormProps {
   onSuccess?: () => void;
@@ -20,6 +21,7 @@ export function SignInForm({
 }: SignInFormProps) {
   const [formError, setFormError] = useState<string | null>(null);
   const {
+    control,
     setValue,
     watch,
     handleSubmit,
@@ -28,6 +30,7 @@ export function SignInForm({
     resolver: zodResolver(signInSchema),
     defaultValues: { email: '', password: '' },
   });
+  useRozeniteRHFDevTools({ control, id: 'sign-in' });
   const email = watch('email');
   const password = watch('password');
 

@@ -11,6 +11,7 @@ import {
   optionalNotesInputSchema,
   sideEffectsInputSchema,
 } from '@/features/glp1/domain/form-schema-primitives';
+import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 const symptomFormSchema = z.object({
   appetiteLevel: z.number().int().min(1).max(5),
@@ -95,6 +96,7 @@ export function SymptomForm({
       notes: initialValue?.notes ?? '',
     },
   });
+  useRozeniteRHFDevTools({ control, id: 'glp1-symptom' });
 
   const appetite = watch('appetiteLevel');
   const satiety = watch('satietyLevel');

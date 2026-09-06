@@ -22,6 +22,7 @@ import {
   type RecipeFormValues,
   recipeFormSchema,
 } from '@/lib/db/zod/recipe-form-schema.zod';
+import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 import { toGramsEquivalent } from '@/lib/units';
 import {
   pickRecipeImage,
@@ -108,6 +109,7 @@ export function RecipeCreateScreen() {
     mode: 'onChange',
     resolver: zodResolver(recipeFormSchema),
   });
+  useRozeniteRHFDevTools({ control, id: 'recipe-create', reset });
   const {
     title,
     description,
