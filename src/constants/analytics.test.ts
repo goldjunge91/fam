@@ -20,10 +20,10 @@ describe('analytics settings', () => {
     useAnalyticsSettingsStore.getState().resetOverrides();
   });
 
-  it('liefert standardmaessig alle Schalter aktiviert', () => {
+  it('liefert die Build-Defaults', () => {
     expect(analyticsConfig).toEqual({
       enabled: true,
-      providers: { aptabase: true, posthog: true },
+      providers: { aptabase: false, posthog: true },
       channels: { productEvents: true, errorReports: true, diagnostics: true },
       features: {
         onboarding: true,

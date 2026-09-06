@@ -2,6 +2,7 @@ import * as Haptics from 'expo-haptics';
 import { type ReactElement, useCallback, useMemo, useRef, useState } from 'react';
 import { ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import {
+  DraxProvider,
   type GridItemSpan,
   packGrid,
   SortableContainer,
@@ -300,7 +301,11 @@ function EditingCardGrid({
     () => packGrid(sortable.data.length, columns, (index) => getItemSpan(sortable.data[index])),
     [sortable.data, getItemSpan],
   );
-  const cellWidth = Math.max(0, (containerWidth - gap) / columns);
+  // RNTL does not dispatch native layout events. Falling back to the window
+  // width keeps the editing grid renderable before the first measurement while
+  // the real device layout still wins as soon as it is available.
+  const layoutWidth = containerWidth || width;
+  const cellWidth = Math.max(0, (layoutWidth - gap) / columns);
   const contentHeight =
     Math.max(
       layout.totalRows,
@@ -308,73 +313,75 @@ function EditingCardGrid({
     ) * rowUnit;
 
   return (
-    <View style={styles.editingList}>
-      <SortableContainer sortable={sortable} scrollRef={scrollRef} style={styles.editingList}>
-        <ScrollView
-          ref={scrollRef}
-          onLayout={(event) => setContainerWidth(event.nativeEvent.layout.width)}
-          onScroll={sortable.onScroll}
-          onContentSizeChange={sortable.onContentSizeChange}
-          scrollEventThrottle={16}
-          scrollEnabled={!isDragging}
-          contentInsetAdjustmentBehavior="never"
-          showsVerticalScrollIndicator={false}>
-          <View style={{ height: contentHeight }}>
-            {containerWidth > 0 &&
-              sortable.data.map((card, index) => {
-                const position = layout.positions[index];
-                const span = getItemSpan(card);
-                const size = getSize(card);
-                return (
-                  <SortableItem
-                    key={sortable.stableKeyExtractor(card, index)}
-                    sortable={sortable}
-                    index={index}
-                    renderHoverContent={({ dimensions }) => (
-                      <View
-                        pointerEvents="none"
-                        style={{
-                          width:
-                            dimensions?.width ??
-                            span.colSpan * cellWidth + (span.colSpan - 1) * gap,
-                          height: dimensions?.height ?? span.rowSpan * rowUnit,
-                        }}>
-                        <card.component size={size} disabled />
-                      </View>
-                    )}
-                    style={{
-                      position: 'absolute',
-                      left: position.col * (cellWidth + gap),
-                      top: position.row * rowUnit,
-                      width: span.colSpan * cellWidth + (span.colSpan - 1) * gap,
-                      height: span.rowSpan * rowUnit,
-                    }}>
-                    <JiggleWrapper
+    <DraxProvider>
+      <View style={styles.editingList}>
+        <SortableContainer sortable={sortable} scrollRef={scrollRef} style={styles.editingList}>
+          <ScrollView
+            ref={scrollRef}
+            onLayout={(event) => setContainerWidth(event.nativeEvent.layout.width)}
+            onScroll={sortable.onScroll}
+            onContentSizeChange={sortable.onContentSizeChange}
+            scrollEventThrottle={16}
+            scrollEnabled={!isDragging}
+            contentInsetAdjustmentBehavior="never"
+            showsVerticalScrollIndicator={false}>
+            <View style={{ height: contentHeight }}>
+              {layoutWidth > 0 &&
+                sortable.data.map((card, index) => {
+                  const position = layout.positions[index];
+                  const span = getItemSpan(card);
+                  const size = getSize(card);
+                  return (
+                    <SortableItem
+                      key={sortable.stableKeyExtractor(card, index)}
+                      sortable={sortable}
                       index={index}
-                      size={size}
-                      isEditing
-                      paused={isDragging}
-                      onDelete={() => hideCard(card.id)}
-                      onToggleSize={() => onToggleSize(card.id, size)}>
-                      <View
-                        onLayout={(event) => {
-                          const height = Math.ceil(event.nativeEvent.layout.height);
-                          if (height <= 0 || dragActive.current) return;
-                          setHeights((previous) =>
-                            previous[card.id] === height
-                              ? previous
-                              : { ...previous, [card.id]: height },
-                          );
-                        }}>
-                        <card.component size={size} disabled />
-                      </View>
-                    </JiggleWrapper>
-                  </SortableItem>
-                );
-              })}
-          </View>
-        </ScrollView>
-      </SortableContainer>
-    </View>
+                      renderHoverContent={({ dimensions }) => (
+                        <View
+                          pointerEvents="none"
+                          style={{
+                            width:
+                              dimensions?.width ??
+                              span.colSpan * cellWidth + (span.colSpan - 1) * gap,
+                            height: dimensions?.height ?? span.rowSpan * rowUnit,
+                          }}>
+                          <card.component size={size} disabled />
+                        </View>
+                      )}
+                      style={{
+                        position: 'absolute',
+                        left: position.col * (cellWidth + gap),
+                        top: position.row * rowUnit,
+                        width: span.colSpan * cellWidth + (span.colSpan - 1) * gap,
+                        height: span.rowSpan * rowUnit,
+                      }}>
+                      <JiggleWrapper
+                        index={index}
+                        size={size}
+                        isEditing
+                        paused={isDragging}
+                        onDelete={() => hideCard(card.id)}
+                        onToggleSize={() => onToggleSize(card.id, size)}>
+                        <View
+                          onLayout={(event) => {
+                            const height = Math.ceil(event.nativeEvent.layout.height);
+                            if (height <= 0 || dragActive.current) return;
+                            setHeights((previous) =>
+                              previous[card.id] === height
+                                ? previous
+                                : { ...previous, [card.id]: height },
+                            );
+                          }}>
+                          <card.component size={size} disabled />
+                        </View>
+                      </JiggleWrapper>
+                    </SortableItem>
+                  );
+                })}
+            </View>
+          </ScrollView>
+        </SortableContainer>
+      </View>
+    </DraxProvider>
   );
 }

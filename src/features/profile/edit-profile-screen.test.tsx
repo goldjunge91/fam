@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { updatePassword } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
@@ -71,9 +72,15 @@ async function renderScreen(avatarUrl: string | null = null) {
   });
 
   return render(
-    <QueryClientProvider client={queryClient}>
-      <EditProfileScreen />
-    </QueryClientProvider>,
+    <SafeAreaProvider
+      initialMetrics={{
+        frame: { x: 0, y: 0, width: 390, height: 844 },
+        insets: { top: 47, left: 0, right: 0, bottom: 34 },
+      }}>
+      <QueryClientProvider client={queryClient}>
+        <EditProfileScreen />
+      </QueryClientProvider>
+    </SafeAreaProvider>,
   );
 }
 

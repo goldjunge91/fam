@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useSession } from '@/features/auth/session-provider';
 import { useProfile } from '@/features/profile/api';
 import { ProfileHubScreen } from '@/features/profile/profile-hub-screen';
@@ -45,9 +46,15 @@ async function renderScreen(avatarUrl: string | null = null) {
   });
 
   return render(
-    <QueryClientProvider client={queryClient}>
-      <ProfileHubScreen />
-    </QueryClientProvider>,
+    <SafeAreaProvider
+      initialMetrics={{
+        frame: { x: 0, y: 0, width: 390, height: 844 },
+        insets: { top: 47, left: 0, right: 0, bottom: 34 },
+      }}>
+      <QueryClientProvider client={queryClient}>
+        <ProfileHubScreen />
+      </QueryClientProvider>
+    </SafeAreaProvider>,
   );
 }
 

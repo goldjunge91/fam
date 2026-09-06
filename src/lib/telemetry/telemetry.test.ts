@@ -37,6 +37,7 @@ describe('telemetry fan-out', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     useAnalyticsSettingsStore.getState().resetOverrides();
+    useAnalyticsSettingsStore.getState().setOverride('providers.aptabase', true);
     setTelemetryUserId(null);
     (isPostHogConfigured as jest.Mock).mockReturnValue(true);
     (getPostHogClient as jest.Mock).mockReturnValue({
@@ -130,6 +131,7 @@ describe('telemetry fan-out', () => {
     expect(capture).toHaveBeenCalledWith('sync.pull.completed', expect.any(Object));
 
     useAnalyticsSettingsStore.getState().setOverride('providers.aptabase', null);
+    useAnalyticsSettingsStore.getState().setOverride('providers.aptabase', true);
     useAnalyticsSettingsStore.getState().setOverride('providers.posthog', false);
     jest.clearAllMocks();
 

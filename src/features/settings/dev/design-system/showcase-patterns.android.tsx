@@ -44,7 +44,7 @@ function ScreenShowcase() {
       </Subsection>
       <Subsection title="Unterseite mit back">
         <Surface tone="surface" style={[styles.phoneFrame, { borderColor: colors.border }]}>
-          <BackButton label="Vorrat" href="/inventory" variant="arrow" onPress={() => undefined} />
+          <BackButton label="Vorrat" href="/fridge" variant="arrow" onPress={() => undefined} />
           <View>
             <Txt variant="title">Produkt bearbeiten</Txt>
             <Txt tone="secondary">Details und Menge anpassen</Txt>
@@ -74,7 +74,7 @@ function ScreenShowcase() {
       />
       <CodeSample>
         {
-          "chrome und back niemals kombinieren.\nFallback-Ziel: back={{ label: 'Vorrat', href: '/inventory' }}"
+          "chrome und back niemals kombinieren.\nFallback-Ziel: back={{ label: 'Vorrat', href: '/fridge' }}"
         }
       </CodeSample>
     </View>

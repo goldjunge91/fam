@@ -54,8 +54,12 @@ describe('native build lock', () => {
     expect(lock.schemaVersion).toBe(1);
     expect(lock.nativeFingerprints.ios.hash).toMatch(/^[a-f0-9]{40}$/);
     expect(lock.nativeFingerprints.android.hash).toMatch(/^[a-f0-9]{40}$/);
-    expect(lock.nativeFingerprints.ios.expoSdk).toBe('57.0.17');
-    expect(lock.nativeFingerprints.android.expoSdk).toBe('57.0.17');
+    const packageJson = JSON.parse(
+      readFileSync(resolve(projectRoot, 'package.json'), 'utf8'),
+    ) as { dependencies: { expo: string } };
+    const expectedExpoSdk = packageJson.dependencies.expo.replace(/^[~^<>= ]+/, '');
+    expect(lock.nativeFingerprints.ios.expoSdk).toBe(expectedExpoSdk);
+    expect(lock.nativeFingerprints.android.expoSdk).toBe(expectedExpoSdk);
   });
 
   it('accepts the unchanged native baseline', () => {

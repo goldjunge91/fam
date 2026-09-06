@@ -140,11 +140,6 @@ export function FoodRuleSelectionSheet<Code extends string>({
             returnKeyType="done"
             onSubmitEditing={addCustomEntry}
           />
-          {inputError ? (
-            <Txt role="alert" variant="caption" tone="danger">
-              {inputError}
-            </Txt>
-          ) : null}
           <Button title={addLabel} variant="secondary" onPress={addCustomEntry} />
 
           <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="pb-two">

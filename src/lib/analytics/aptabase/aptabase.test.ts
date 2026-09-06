@@ -20,6 +20,12 @@ jest.mock('@aptabase/react-native', () => ({
 describe('Aptabase Analytics', () => {
   const originalKey = process.env.EXPO_PUBLIC_APTABASE_APP_KEY;
 
+  function enableAptabaseForTest() {
+    const { useAnalyticsSettingsStore } =
+      require('@/constants/analytics') as typeof import('@/constants/analytics');
+    useAnalyticsSettingsStore.getState().setOverride('providers.aptabase', true);
+  }
+
   afterEach(() => {
     if (originalKey === undefined) {
       delete process.env.EXPO_PUBLIC_APTABASE_APP_KEY;
@@ -34,6 +40,7 @@ describe('Aptabase Analytics', () => {
   describe('initAptabase / isAptabaseConfigured', () => {
     it('bleibt ohne App-Key ein No-op', () => {
       delete process.env.EXPO_PUBLIC_APTABASE_APP_KEY;
+      enableAptabaseForTest();
       const consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
       const { initAptabase, isAptabaseConfigured } = require('@/lib/analytics/aptabase');
 
@@ -48,6 +55,7 @@ describe('Aptabase Analytics', () => {
 
     it('initialisiert Aptabase mit App-Key und korrekten Default-Optionen', () => {
       process.env.EXPO_PUBLIC_APTABASE_APP_KEY = 'A-EU-1234567890';
+      enableAptabaseForTest();
       const { initAptabase, isAptabaseConfigured } = require('@/lib/analytics/aptabase');
 
       initAptabase();
@@ -76,6 +84,7 @@ describe('Aptabase Analytics', () => {
 
     it('stürzt nicht ab, wenn init wirft, und fängt Fehler ab', () => {
       process.env.EXPO_PUBLIC_APTABASE_APP_KEY = 'A-EU-1234567890';
+      enableAptabaseForTest();
       mockInit.mockImplementationOnce(() => {
         throw new Error('SDK init failed');
       });
@@ -101,6 +110,7 @@ describe('Aptabase Analytics', () => {
   describe('trackAptabaseEvent', () => {
     it('sendet Event wenn Aptabase konfiguriert ist', () => {
       process.env.EXPO_PUBLIC_APTABASE_APP_KEY = 'A-EU-1234567890';
+      enableAptabaseForTest();
       const { initAptabase, trackAptabaseEvent } = require('@/lib/analytics/aptabase');
       initAptabase();
 
@@ -121,6 +131,7 @@ describe('Aptabase Analytics', () => {
 
     it('fängt Fehler beim Tracken ab ohne zu crashen', () => {
       process.env.EXPO_PUBLIC_APTABASE_APP_KEY = 'A-EU-1234567890';
+      enableAptabaseForTest();
       mockTrackEvent.mockImplementationOnce(() => {
         throw new Error('Track failed');
       });
@@ -139,6 +150,7 @@ describe('Aptabase Analytics', () => {
   describe('trackAptabaseError', () => {
     it('sendet Fehlerbericht wenn Aptabase konfiguriert ist', () => {
       process.env.EXPO_PUBLIC_APTABASE_APP_KEY = 'A-EU-1234567890';
+      enableAptabaseForTest();
       const { initAptabase, trackAptabaseError } = require('@/lib/analytics/aptabase');
       initAptabase();
 
@@ -162,6 +174,7 @@ describe('Aptabase Analytics', () => {
   describe('disposeAptabase', () => {
     it('ruft dispose auf und setzt konfigurierten Zustand zurück', () => {
       process.env.EXPO_PUBLIC_APTABASE_APP_KEY = 'A-EU-1234567890';
+      enableAptabaseForTest();
       const {
         disposeAptabase,
         initAptabase,
