@@ -552,8 +552,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 
   return (
     <View className="gap-[10px]">
-      {/* Das erste Feld sitzt im Add-Sheet optisch näher am Header. */}
-      <View style={{ marginTop: -space.xs }}>
+      <View style={{ marginTop: space.sm }}>
         <ProductSearchDropdown
           ref={productSearchRef}
           label=""
@@ -568,6 +567,8 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
           }}
           onSelectProduct={handleSelectProduct}
           size="large"
+          inputStyle={{ minHeight: 56 }}
+          trailingPlacement="outside"
           trailing={
             <HeaderIconButton
               label="Barcode scannen"
@@ -575,8 +576,8 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
                 productSearchRef.current?.dismiss();
                 setShowScanner(true);
               }}
-              className="w-10 h-10 rounded-control bg-background-selected">
-              <FamIcon name="camera" size={space.xl} color={theme.basil} />
+              className="w-12 h-12 rounded-control bg-background-selected">
+              <FamIcon name="camera" size={space.xxl} color={theme.basil} />
             </HeaderIconButton>
           }
         />
@@ -633,6 +634,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
               }}
               label="Einkaufsmenge"
               size="large"
+              fullWidth
             />
           </View>
           <View className="flex-1">
