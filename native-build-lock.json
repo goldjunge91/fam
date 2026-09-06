@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "nativeFingerprints": {
     "ios": {
-      "hash": "4c742299bfa7a74921a174143610c654468a67b2",
+      "hash": "478e98200adf5d8a670739b61556170598555b04",
       "expoSdk": "57.0.19"
     },
     "android": {
@@ -10,5 +10,20 @@
       "expoSdk": "57.0.19"
     }
   },
-  "artifacts": {}
+  "artifacts": {
+    "ios-development-simulator": {
+      "fingerprint": "a8947039863dd4a2c65f19d80b6cd846c6a2e9de",
+      "configuration": "Debug",
+      "kind": "app",
+      "relativePath": "native-artifacts/ios-development-simulator/fam.app",
+      "sha256": "cd3b923e7e2c3eb258d3ce41601aa8b237f6d506fece481ca470fb55caf93ff5"
+    },
+    "ios-preview-testflight": {
+      "fingerprint": "478e98200adf5d8a670739b61556170598555b04",
+      "configuration": "Release",
+      "kind": "ipa",
+      "relativePath": "native-artifacts/ios-preview-testflight/fam.ipa",
+      "sha256": "b316461e7256cbb1a356571d13bd7f239efa75ec4c2d11cd3fac8288af522372"
+    }
+  }
 }
