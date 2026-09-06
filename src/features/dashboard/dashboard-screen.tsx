@@ -127,7 +127,7 @@ export function DashboardScreen() {
         ) : (
           <ScrollView
             testID="dashboard-scroll-view"
-            style={[styles.scroll, { overflow: isDragging ? 'visible' : 'hidden' }]}
+            style={[styles.scroll, { overflow: 'visible' }]}
             scrollEnabled={!isDragging}
             contentContainerStyle={[styles.scrollContent, { paddingBottom: bottomPadding }]}
             showsVerticalScrollIndicator={false}
