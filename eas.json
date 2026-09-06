@@ -6,6 +6,9 @@
   },
   "build": {
     "development": {
+      "env": {
+        "FAM_HARNESS_UI": "1"
+      },
       "environment": "development",
       "bun": "1.3.14",
       "developmentClient": true,
@@ -24,20 +27,10 @@
         "simulator": false
       }
     },
-    "preview-simulator": {
-      "environment": "preview",
-      "autoIncrement": false,
-      "distribution": "store",
-      "ios": {
-        "simulator": true
-      },
-      "android": {
-        "buildType": "apk"
-      }
-    },
     "preview-testflight": {
       "env": {
-        "SENTRY_DISABLE_AUTO_UPLOAD": "false"
+        "SENTRY_DISABLE_AUTO_UPLOAD": "false",
+        "FAM_HARNESS_UI": "0"
       },
       "distribution": "store",
       "autoIncrement": false,
@@ -48,6 +41,9 @@
       }
     },
     "production": {
+      "env": {
+        "FAM_HARNESS_UI": "0"
+      },
       "distribution": "store",
       "autoIncrement": true,
       "credentialsSource": "remote",

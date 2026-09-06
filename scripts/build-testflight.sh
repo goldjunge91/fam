@@ -140,6 +140,9 @@ set +a
 
 # Verhindert, dass optionale Sourcemap-Upload-Fehler den gesamten Xcode-Archivierungsprozess abbrechen
 export SENTRY_ALLOW_FAILURE=true
+# HarnessUI uses private iOS touch selectors and must never enter a release
+# archive. The dev scripts explicitly set this to 1 when building debug apps.
+export FAM_HARNESS_UI=0
 
 # ------------------------------------------------------------- Optional: Cache-Bereinigung
 if [ "$CLEAN" = true ]; then

@@ -73,6 +73,9 @@ jobs:
   native-build-lock:
     name: Native-Build-Lock
     runs-on: ubuntu-latest
+    env:
+      # Der Lock beschreibt den Release-Native-Graphen ohne HarnessUI.
+      FAM_HARNESS_UI: "0"
     steps:
       - uses: actions/checkout@v4
 

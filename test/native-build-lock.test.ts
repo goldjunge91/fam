@@ -13,7 +13,7 @@ function runNative(...arguments_: string[]): CommandResult {
   const result = spawnSync('bun', ['scripts/native-build.ts', ...arguments_], {
     cwd: projectRoot,
     encoding: 'utf8',
-    env: { ...process.env, EXPO_NO_DOTENV: '1' },
+    env: { ...process.env, EXPO_NO_DOTENV: '1', FAM_HARNESS_UI: '0' },
   });
 
   return {
@@ -49,6 +49,7 @@ describe('native build lock', () => {
     ) as {
       schemaVersion: number;
       nativeFingerprints: Record<string, { hash: string; expoSdk: string }>;
+      artifacts: Record<string, unknown>;
     };
 
     expect(lock.schemaVersion).toBe(1);
@@ -60,6 +61,7 @@ describe('native build lock', () => {
     const expectedExpoSdk = packageJson.dependencies.expo.replace(/^[~^<>= ]+/, '');
     expect(lock.nativeFingerprints.ios.expoSdk).toBe(expectedExpoSdk);
     expect(lock.nativeFingerprints.android.expoSdk).toBe(expectedExpoSdk);
+    expect(lock.artifacts).not.toHaveProperty('ios-development-simulator');
   });
 
   it('accepts the unchanged native baseline', () => {

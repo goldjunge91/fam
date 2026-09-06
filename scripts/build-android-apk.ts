@@ -365,6 +365,7 @@ async function runGradleBuild(): Promise<number> {
       env: {
         ...process.env,
         ...env,
+        FAM_HARNESS_UI: variant === 'debug' ? '1' : '0',
       },
       shell: isWindows,
     });

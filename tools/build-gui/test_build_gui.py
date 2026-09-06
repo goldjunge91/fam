@@ -6,6 +6,7 @@ from tempfile import TemporaryDirectory
 
 from build_gui import (
     BuildGui,
+    DEV_ACTION,
     TARGETS,
     classify_log_line,
     extract_xcode_error_lines,
@@ -19,6 +20,14 @@ from build_gui import (
 
 
 class BuildGuiHelpersTest(unittest.TestCase):
+    class _Widget:
+        def __init__(self) -> None:
+            self.values: tuple[str, ...] = ()
+
+        def configure(self, **kwargs: object) -> None:
+            if "values" in kwargs:
+                self.values = tuple(kwargs["values"])
+
     class _Value:
         def __init__(self) -> None:
             self.value = ""
@@ -28,6 +37,20 @@ class BuildGuiHelpersTest(unittest.TestCase):
 
         def get(self) -> str:
             return self.value
+
+    def test_development_target_only_offers_dev_loop(self) -> None:
+        gui = BuildGui.__new__(BuildGui)
+        gui._selected_target = lambda: TARGETS["iOS Development"]
+        gui.description = self._Widget()
+        gui.action_menu = self._Widget()
+        gui.action = self._Value()
+        gui._refresh_target_state = lambda: None
+        gui._update_controls = lambda: None
+
+        BuildGui._refresh_target_info(gui)
+
+        self.assertEqual(gui.action_menu.values, (DEV_ACTION,))
+        self.assertEqual(gui.action.get(), DEV_ACTION)
 
     def test_refresh_target_state_uses_selected_target_during_gui_startup(self) -> None:
         gui = BuildGui.__new__(BuildGui)

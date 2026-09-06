@@ -12,13 +12,11 @@ Das Projekt hat einen Apple-Developer-Account — iOS-Distribution (TestFlight, 
 # Native Baseline und Artefakte prüfen
 bun run native:status
 
-# Ein vorhandenes EAS-Artefakt wiederherstellen, ohne neu zu bauen
-bun run native:restore -- --target ios-development-simulator
-# Einen fertigen EAS-Build einmalig registrieren und lokal wiederherstellen
-bun run native:restore -- --target ios-development-simulator --eas-build-id <BUILD_ID>
+# Development-Simulator lokal bauen und starten (nicht gelockt)
+bun run native:dev -- --target ios-development-simulator
 
-# Prebuild und Kompilierung ausdrücklich freigeben
-bun run native:rebuild -- --target ios-development-simulator --approve-rebuild
+# Prebuild und Kompilierung für ein bewusstes Release ausdrücklich freigeben
+bun run native:rebuild -- --target ios-preview-testflight --approve-rebuild
 ```
 
 Der Rebuild-Schalter ist absichtlich Pflicht. Änderungen an `app.json`, Config Plugins, Dependencies oder nativen Dateien erfordern eine neue Baseline und ein neues Binary.
@@ -27,7 +25,7 @@ Expo Precompiled Modules bleiben aktiviert. Das native Projekt setzt dafür `EXP
 
 ## Builds erstellen
 
-Die folgenden direkten EAS-Befehle sind ausschließlich für einen bewusst freigegebenen Release-/Rebuild-Vorgang gedacht. Für den normalen lokalen Start bitte `native:run` verwenden.
+Die folgenden direkten EAS-Befehle sind ausschließlich für einen bewusst freigegebenen Release-/Rebuild-Vorgang gedacht. Für den normalen lokalen Start bitte `native:dev` verwenden.
 
 ```bash
 # Development (Dev-Client, für Metro/Fast-Refresh-Workflow)
