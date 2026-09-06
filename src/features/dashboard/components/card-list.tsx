@@ -43,7 +43,9 @@ const styles = StyleSheet.create({
   },
   editingList: {
     flex: 1,
+    width: '100%',
     backgroundColor: 'transparent',
+    overflow: 'visible',
   },
 });
 
@@ -314,11 +316,14 @@ function EditingCardGrid({
 
   return (
     <DraxProvider>
-      <View style={styles.editingList}>
+      <View
+        testID="dashboard-editing-grid"
+        style={styles.editingList}
+        onLayout={(event) => setContainerWidth(event.nativeEvent.layout.width)}>
         <SortableContainer sortable={sortable} scrollRef={scrollRef} style={styles.editingList}>
           <ScrollView
             ref={scrollRef}
-            onLayout={(event) => setContainerWidth(event.nativeEvent.layout.width)}
+            style={styles.editingList}
             onScroll={sortable.onScroll}
             onContentSizeChange={sortable.onContentSizeChange}
             scrollEventThrottle={16}
@@ -354,6 +359,7 @@ function EditingCardGrid({
                         top: position.row * rowUnit,
                         width: span.colSpan * cellWidth + (span.colSpan - 1) * gap,
                         height: span.rowSpan * rowUnit,
+                        overflow: 'visible',
                       }}>
                       <JiggleWrapper
                         index={index}

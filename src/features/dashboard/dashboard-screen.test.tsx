@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import * as Haptics from 'expo-haptics';
 import { act, type ReactNode } from 'react';
+import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { DashboardScreen } from '@/features/dashboard/dashboard-screen';
@@ -15,6 +16,7 @@ type MockChildrenProps = { children?: ReactNode };
 
 let mockDraxProviderMounts = 0;
 let mockDraxSpans: Array<{ colSpan: number; rowSpan: number }> = [];
+let mockSortableItemStyles: Array<Record<string, unknown>> = [];
 const mockRouterPush = jest.fn();
 
 jest.mock('react-native-gesture-handler', () => {
@@ -61,7 +63,13 @@ jest.mock('react-native-drax', () => {
   return {
     DraxProvider,
     SortableContainer: ({ children }: MockChildrenProps) => children,
-    SortableItem: ({ children }: MockChildrenProps) => children,
+    SortableItem: ({
+      children,
+      style,
+    }: MockChildrenProps & { style?: Record<string, unknown> }) => {
+      if (style) mockSortableItemStyles.push(style);
+      return children;
+    },
     useSortableList,
     packGrid,
   };
@@ -181,6 +189,7 @@ beforeEach(() => {
   mockTriggerHouseholdSync.mockClear();
   mockDraxProviderMounts = 0;
   mockDraxSpans = [];
+  mockSortableItemStyles = [];
   mockRouterPush.mockClear();
 });
 
@@ -323,9 +332,32 @@ describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
 
     expect(mockDraxSpans.filter((span) => span.colSpan === 1).length).toBeGreaterThanOrEqual(2);
   });
+
+  it('passt die Jiggle-Kartenbreite an den verfügbaren Inhaltsbereich an', async () => {
+    await renderScreen();
+
+    await fireEvent(screen.getByLabelText('Essensplan öffnen'), 'longPress');
+    await fireEvent(screen.getByTestId('dashboard-editing-grid'), 'layout', {
+      nativeEvent: { layout: { width: 348, height: 600 } },
+    });
+
+    expect(mockSortableItemStyles).toEqual(
+      expect.arrayContaining([expect.objectContaining({ width: 348, overflow: 'visible' })]),
+    );
+  });
 });
 
 describe('DashboardScreen — Pull-to-Refresh', () => {
+  it('clippt den Dashboard-ScrollView nicht an der Kartenkante', async () => {
+    await renderScreen();
+
+    const scrollView = screen.getByTestId('dashboard-scroll-view');
+
+    expect(StyleSheet.flatten(scrollView.props.style)).toEqual(
+      expect.objectContaining({ overflow: 'visible' }),
+    );
+  });
+
   it('loest triggerHouseholdSync fuer den aktiven Haushalt aus', async () => {
     await renderScreen();
 
