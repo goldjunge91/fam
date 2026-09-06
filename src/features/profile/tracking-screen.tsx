@@ -5,6 +5,7 @@ import { Modal, Pressable, ScrollView, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { useDevSettingsStore } from '@/constants/dev-settings';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
@@ -19,11 +20,7 @@ import { calculateAgeYears, calculateBmr } from '@/features/calorie-tracking/bmr
 import { type ActivityLevel, calculateTdee } from '@/features/calorie-tracking/tdee';
 import { InjectionPlanSection } from '@/features/glp1/components/injection-plan-section';
 import { updateProfile, useProfile } from '@/features/profile/api';
-import {
-  getTrackingMethodSettings,
-  TRACKING_METHODS,
-  useTrackingMethodOverridesStore,
-} from '@/features/profile/tracking-methods';
+import { getTrackingMethodSettings, TRACKING_METHODS } from '@/features/profile/tracking-methods';
 import { SettingsGroup } from '@/features/settings/settings-menu';
 import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
 import { useFeatureFlags } from '@/lib/posthog';
@@ -233,7 +230,7 @@ export function TrackingScreen() {
   const { data: currentGoal } = useCurrentGoal(userId);
   const { data: latestWeight } = useLatestWeightEntry(userId);
   const featureFlags = useFeatureFlags();
-  const trackingMethodOverrides = useTrackingMethodOverridesStore((state) => state.overrides);
+  const trackingMethodOverrides = useDevSettingsStore((state) => state.trackingMethodOverrides);
   const trackingMethodEnabled = getTrackingMethodSettings(featureFlags, trackingMethodOverrides);
   const dayStartTime = profile?.tracking_day_start_time ?? '00:00';
   const selectedLogicalDate = getLogicalDateForTimestamp(new Date(), dayStartTime);
@@ -365,19 +362,16 @@ export function TrackingScreen() {
                         opacity: isEnabled ? 1 : 0.55,
                       }}
                       className="p-three rounded-xl border flex-row items-center justify-between">
-                      <View className="flex-row items-center gap-three flex-1 mr-two">
-                        <Txt variant="title">{m.icon}</Txt>
-                        <View className="flex-1">
-                          <Txt
-                            variant="body"
-                            weight="700"
-                            tone={isSelected ? 'onAccent' : isEnabled ? 'primary' : 'secondary'}>
-                            {m.label}
-                          </Txt>
-                          <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
-                            {m.desc}
-                          </Txt>
-                        </View>
+                      <View className="flex-1 mr-two">
+                        <Txt
+                          variant="body"
+                          weight="700"
+                          tone={isSelected ? 'onAccent' : isEnabled ? 'primary' : 'secondary'}>
+                          {m.label}
+                        </Txt>
+                        <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
+                          {m.desc}
+                        </Txt>
                       </View>
                       {isSelected ? (
                         <Txt variant="body" weight="700" tone="onAccent">

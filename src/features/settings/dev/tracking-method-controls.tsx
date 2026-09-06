@@ -1,18 +1,15 @@
 import { Card } from '@/components/ui/card';
+import { useDevSettingsStore } from '@/constants/dev-settings';
 import { Button, Txt } from '@/constants/ui';
-import {
-  getTrackingMethodSettings,
-  TRACKING_METHODS,
-  useTrackingMethodOverridesStore,
-} from '@/features/profile/tracking-methods';
+import { getTrackingMethodSettings, TRACKING_METHODS } from '@/features/profile/tracking-methods';
 import { useFeatureFlags } from '@/lib/posthog';
 
 /** Lokale Freischaltung von Tracking-Methoden für Dev-Builds und TestFlight. */
 export function TrackingMethodControls() {
   const featureFlags = useFeatureFlags();
-  const overrides = useTrackingMethodOverridesStore((state) => state.overrides);
-  const setOverride = useTrackingMethodOverridesStore((state) => state.setOverride);
-  const resetOverrides = useTrackingMethodOverridesStore((state) => state.resetOverrides);
+  const overrides = useDevSettingsStore((state) => state.trackingMethodOverrides);
+  const setOverride = useDevSettingsStore((state) => state.setTrackingMethodOverride);
+  const resetOverrides = useDevSettingsStore((state) => state.resetTrackingMethodOverrides);
   const settings = getTrackingMethodSettings(featureFlags, overrides);
 
   return (

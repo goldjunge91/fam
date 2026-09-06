@@ -7,7 +7,6 @@ import type { TrackingMethod } from '@/features/calorie-tracking/api';
 export type TrackingMethodOption = {
   id: TrackingMethod;
   label: string;
-  icon: string;
   desc: string;
 };
 
@@ -76,9 +75,6 @@ export function TrackingMethodSheet({
                     borderBottomColor: colors.border,
                     borderBottomWidth: index < methods.length - 1 ? 1 : 0,
                   }}>
-                  <Txt variant="body" style={{ fontSize: 16 }}>
-                    {method.icon}
-                  </Txt>
                   <View className="flex-1">
                     <Txt variant="label" weight="700">
                       {method.label}
