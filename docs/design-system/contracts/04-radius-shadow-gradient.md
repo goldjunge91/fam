@@ -40,12 +40,11 @@ sonst keinen sicheren Kontrast bietet. Es gelten die Werte aus
 
 ```tsx
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Button, Txt } from '@/constants/ui';
 
 <Card title="Vorrat">
   <Txt tone="secondary">12 Produkte</Txt>
-  <Button label="Speichern" onPress={save} />
+  <Button title="Speichern" onPress={save} />
 </Card>
 ```
 

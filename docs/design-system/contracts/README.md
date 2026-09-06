@@ -39,10 +39,16 @@ lokales Layout. Sie wenden die zentralen Rezepte an. NativeWind bleibt auf
 statisches Layout beschränkt. `global.css` und `tailwind.config.js` besitzen keine
 zusätzlichen Designentscheidungen; ihre semantischen Bestände werden migriert.
 
-Produktbuttons werden über `src/components/ui/buttons/`, Produktfelder über
-`src/components/forms/text-field.tsx` importiert. Kompatibilitätsadapter dürfen
-bestehen, wenn sie dieselbe Basis verwenden. Zwei unabhängige Darstellungen
-für denselben Komponentenvertrag sind kein zulässiger Endzustand.
+Der kanonische allgemeine `Button`, `TextField`, `SegmentedControl`, `Txt` und
+`Surface` werden direkt aus `src/constants/ui.tsx` importiert.
+Spezifische Produktkompositionen wie Back-, Header- oder Floating-Action-Buttons
+dürfen unter `src/components/ui/buttons/` bleiben, besitzen aber keine zweite
+allgemeine Button-Darstellung.
+
+Reine Prop-Adapter werden nach der Consumer-Migration entfernt. Adapter bleiben
+nur bei eigenständiger Komposition oder nativer Integration zulässig und
+verwenden weiterhin das zentrale Rezept. Zwei unabhängige Darstellungen für
+denselben Komponentenvertrag sind kein zulässiger Endzustand.
 
 ## Vertragsübersicht
 

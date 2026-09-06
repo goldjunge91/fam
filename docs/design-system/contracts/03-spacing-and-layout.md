@@ -46,7 +46,10 @@ Pixelwert eines Screens in ein neues Token umzuwandeln.
 
 ## Responsive Anordnung und gemeinsame Maße
 
-- `SCREEN_W` und `IS_TABLET` dienen der groben Einordnung; `SCREEN_W` wird aus `Dimensions.get('window').width` abgeleitet.
+- `SCREEN_W` und `IS_TABLET` sind bestehende, statisch berechnete Werte. Sie
+  werden derzeit nur in der Entwicklerreferenz verwendet und sind keine
+  reaktive globale Layout- oder Token-Schicht. Ein produktiver Einsatz benötigt
+  einen konkret belegten lokalen Layoutbefund.
 - `CONTENT_MAX_WIDTH = 600` begrenzt die lesbare Spalte. Sie bleibt auf kleinen Geräten 100 Prozent breit, wird auf größeren Geräten zentriert und nicht durch
   ein allgemeines Tablet-Redesign ersetzt.
 - Laufzeitabhängige Geometrie darf eine konkrete Komponente mit ihrem eigenen
