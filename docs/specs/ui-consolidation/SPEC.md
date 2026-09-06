@@ -47,11 +47,11 @@ Die aktuellen normativen Regeln stehen in [docs/design-system/contracts](../../d
 | --- | --- | --- |
 | Doppelte Button-Darstellung mit verschiedenen Props, Ghost-Farben und Disabled-Opacity | `src/constants/ui.tsx`, `src/components/ui/buttons/button.tsx` | im Code bestätigt |
 | Fokusfähiges `Field` und separates fehlerfähiges `TextField` | `src/constants/ui.tsx`, `src/components/forms/text-field.tsx` | im Code bestätigt |
-| Zwei SegmentedControls mit verschiedenen APIs und Accessibility-Abdeckung | `src/constants/ui.tsx`, `src/components/ui/segmented-control.tsx` | im Code bestätigt |
+| Zwei SegmentedControl-Implementierungen mit verschiedenen APIs und Accessibility-Abdeckung | `src/constants/ui.tsx`, früher `src/components/ui/segmented-control.tsx` | im Code bestätigt; Legacy-Datei inzwischen entfernt |
 | Schattenfarben als Textfarben in Accent-/Badge-Rezepten | `src/components/theme/index.ts`, `src/constants/ui.tsx` | im Code bestätigt; Kontrast berechnet |
 | CSS-Variablen und System-Media-Query neben aktivem ThemeProvider | `src/global.css`, `src/components/theme/ThemeProvider.tsx` | im Code bestätigt; konkrete native Symptome noch zu prüfen |
 | Fensterabhängige Tokens werden einmal beim Modulimport berechnet | `src/components/theme/index.ts` | im Code bestätigt; der Eingriff an `rs()` bleibt ausdrücklich klein und optional |
-| Kleine Touchflächen und fehlende Auswahlmetadaten in einzelnen Primitiven | `ui.tsx`, `header-icon-button.tsx`, `segmented-control.tsx` | im Code bestätigt; tatsächliche Trefferbereiche geräteseitig prüfen |
+| Kleine Touchflächen und fehlende Auswahlmetadaten in einzelnen Primitiven | `ui.tsx`, `header-icon-button.tsx` | im Code bestätigt; tatsächliche Trefferbereiche geräteseitig prüfen |
 | Leere Inhaltsfläche während Erstladen | Einkaufslisten- und Vorrats-Screen | im Code bestätigt |
 | Referenzseite zeigt parallele Produkt- und Foundation-Varianten | `src/features/settings/dev/design-system/showcase-components.tsx` | im Code bestätigt |
 
@@ -125,9 +125,7 @@ Höhere Komponenten besitzen Verhalten, Komposition, Accessibility-Metadaten und
   `selectionRole="tab"` ist ausschließlich für Ansichtswechsel vorgesehen.
   `appearance` und `size` bleiben nur als belegte Varianten bestehen. Die
   frühere `src/components/ui/segmented-control.tsx` ist nach der Migration
-  keine Produktionsquelle mehr und bleibt vorerst nur als markierte
-  Legacy-Vergleichsvariante im Settings-Showcase. `@expo/ui` ist dort ebenfalls
-  nur native Vergleichsdarstellung.
+  entfernt. `@expo/ui` bleibt dort ausschließlich native Vergleichsdarstellung.
 - `Card` und `EmptyState` dürfen Produktadapter bleiben, besitzen aber keine unabhängigen visuellen Rezepte.
 - Legacy-APIs können vorübergehend als klar markierte Adapter auf derselben Basis bestehen. Zum Abschluss hat jede verbliebene API belegte Verbraucher und eine dokumentierte Zuständigkeit. Zwei konkurrierende Implementierungen für denselben Vertrag sind nicht zulässig.
 
@@ -537,7 +535,7 @@ Die Skripte verwenden ihre vorhandenen Umgebungsdateien. Fehlende Dateien/Zugän
 | --- | --- | --- |
 | D-01: Umfang | Alle aktiven Verbraucher der betroffenen gemeinsamen Verträge migrieren; fachlich begründete native Ausnahmen dokumentieren. | In Contracts als Ziel übernommen; konkrete Verbraucher und Arbeitspakete folgen in der gesonderten Planung. |
 | D-02: Responsive Tokens | Gemeinsame Basiswerte bleiben die Referenz; `rs()` bleibt begrenzt im Waivy-nahen Istzustand oder erhält höchstens einen kleinen lokalen Helper ohne neue Runtime-Schicht und breite Consumer-Migration. Lokale Layoutreaktion und Umbruch bleiben möglich; Schrift respektiert die Systemeinstellung; Mindesttouchziele bleiben 44 × 44. | In Contracts 02/03 als begrenzter Zielvertrag dokumentiert; Codeumstellung ausstehend. |
-| D-03: API-Konsolidierung | `src/constants/ui.tsx` ist der kanonische Einstieg für die produktive Fam-Einzelauswahl mit `label/options/selected/onSelect`; die frühere Datei bleibt bis zum gesonderten Cleanup ausschließlich als Legacy-Vergleich im Settings-Showcase. `@expo/ui` ist native Vergleichsdarstellung, kein Produktadapter. | Für `fam-6zf.7` in Contracts und Plan übernommen; Code- und Testnachweis wird in diesem Task geführt. |
+| D-03: API-Konsolidierung | `src/constants/ui.tsx` ist der kanonische Einstieg für die produktive Fam-Einzelauswahl mit `label/options/selected/onSelect`; die frühere Legacy-Datei ist entfernt. `@expo/ui` bleibt native Vergleichsdarstellung, kein Produktadapter. | Für `fam-6zf.7` in Contracts und Plan übernommen; Code- und Testnachweis wird in diesem Task geführt. |
 | D-04: Korrigierte Farbwerte | Bestehende Farbidentität mit explizit kontrastfähigen Paaren erhalten; keine Hexwerte ohne Prüfung festschreiben. | Palettenreview vor entsprechender Implementierung |
 | D-05: Dichte und Zeilenlayout | Mehrzeilige Inhalte und größere Trefferbereiche ermöglichen; dekorative Flächen nur gezielt reduzieren. | Auswahl konkreter statischer Mocks vor Screenänderungen |
 

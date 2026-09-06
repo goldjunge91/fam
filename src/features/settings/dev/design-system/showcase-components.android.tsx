@@ -14,7 +14,6 @@ import { EmptyState } from '@/components/ui/empty-state';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { ProgressRing } from '@/components/ui/progress-ring';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
-import { LegacySegmentedControl } from '@/components/ui/segmented-control';
 import {
   Badge,
   Button,
@@ -250,7 +249,7 @@ function ControlShowcase() {
           <QuantityStepper value={quantity} onChange={setQuantity} min={0} max={20} />
         </View>
       </Subsection>
-      <Subsection title="SegmentedControl-Vergleich">
+      <Subsection title="SegmentedControl-Varianten">
         <View style={styles.segmentedComparison}>
           <View style={styles.segmentedExample}>
             <Txt variant="label">Fam UI: constants/ui.tsx (kanonisch)</Txt>
@@ -260,15 +259,6 @@ function ControlShowcase() {
               selected={segment}
               onSelect={setSegment}
               selectionRole="tab"
-            />
-          </View>
-          <View style={styles.segmentedExample}>
-            <Txt variant="label">Legacy: components/ui/segmented-control.tsx</Txt>
-            <LegacySegmentedControl
-              label="Ansicht"
-              options={SHOWCASE_SEGMENT_OPTIONS}
-              selected={segment}
-              onSelect={setSegment}
             />
           </View>
           <View style={styles.segmentedExample}>

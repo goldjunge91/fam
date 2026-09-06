@@ -104,10 +104,8 @@ Fam-Implementierung. Die minimale öffentliche API lautet `label`, `options`,
 `selected` und `onSelect`; `selectionRole` unterscheidet fachliche
 Radio-Einzelauswahl vom Tab-Ansichtswechsel. `appearance` und `size` bleiben
 nur als belegte Darstellungsvarianten erhalten. Die frühere
-`src/components/ui/segmented-control.tsx` wird nach der Aufrufermigration nicht
-mehr produktiv importiert und bleibt vorerst ausschließlich als ausdrücklich
-markierte Legacy-Vergleichsvariante im Settings-Design-System bestehen.
-`@expo/ui/community/segmented-control` ist dort ebenfalls nur native
+`src/components/ui/segmented-control.tsx` ist nach der Aufrufermigration entfernt.
+`@expo/ui/community/segmented-control` bleibt dort ausschließlich native
 Vergleichsdarstellung und keine Fam-Produktionsquelle.
 
 ### 3.2 `rs()` nur bei praktisch kostenlosem Gewinn anfassen
@@ -219,7 +217,7 @@ konkurrierende Mockrunde erzeugt.
 5. `fam-6zf.5` Verbraucher direkt auf `ui.tsx`-Button migrieren und Produkt-Button löschen
 6. `fam-6zf.6` `Field` in `ui.tsx` zu `TextField` umbenennen, die produktiven Eingabefunktionen zusammenführen und bestehende Verbraucher nur auf den neuen Importpfad umstellen
 7. `fam-6zf.7` SegmentedControl in `ui.tsx` als einzige produktive
-   Einzelauswahl konsolidieren; Legacy- und Expo-UI-Varianten nur im Showcase
+   Einzelauswahl konsolidieren; native Expo-UI-Variante nur im Showcase
 8. `fam-6zf.8` Card- und EmptyState-Verantwortung bereinigen
 
 ### Phase C: Vertikale Produktpfade
@@ -253,11 +251,9 @@ konkurrierende Mockrunde erzeugt.
   Tasks mit `src/constants/ui.tsx`, `src/components/theme/index.ts` oder
   Showcase-Dateien laufen seriell.
 - Task 7 besitzt `src/constants/ui.tsx`, die direkten SegmentedControl-Verbraucher,
-  die fokussierten UI-Tests, den Legacy-Vergleich unter
-  `src/components/ui/segmented-control.tsx`, die Settings-Showcase-Varianten
-  sowie die zugehörige Spec-/Contract-/Beads-Dokumentation. Die Legacy-Datei
-  wird nicht pauschal gelöscht, sondern bleibt bis zu einem gesonderten
-  Cleanup-Nachweis auf den Showcase begrenzt.
+  die fokussierten UI-Tests, die Settings-Showcase-Varianten sowie die
+  zugehörige Spec-/Contract-/Beads-Dokumentation. Die frühere Legacy-Datei wird
+  nach der Aufrufermigration entfernt.
 - Die aktuell parallel geänderten Dashboard-Dateien werden in Task 5 erst nach
   ausdrücklicher Freigabe des dortigen Owners angefasst.
 - Vorhandene `.android`-Dateien sind keine Aufforderung, neue Mirrors anzulegen.
@@ -308,8 +304,9 @@ freigegeben. `fam-6zf.6` ist abgeschlossen: `Field` wurde in `ui.tsx` zu
 und die zweite Implementierung ist entfernt. Unfertige V2-/V3-Beispiele lösen
 keine sichtbaren Layout- oder Farbänderungen aus. `fam-6zf.7` ist in der
 Implementierung abgeschlossen: `ui.tsx` ist die kanonische produktive
-SegmentedControl-Quelle; die Legacy- und Expo-UI-Varianten bleiben ausschließlich
-als synchronisierte Vergleichsdarstellungen im Settings-Showcase erhalten. Die
+SegmentedControl-Quelle; die native `@expo/ui`-Variante bleibt ausschließlich
+als synchronisierte Vergleichsdarstellung im Settings-Showcase erhalten. Die
+frühere Legacy-Datei ist entfernt. Die
 Button-Baseline bleibt `md` mit den dokumentierten Foundation-Werten; die alten
 Bezeichner `large` und `compact` sind bis zur Bestätigung keine öffentliche API.
 Die sekundäre Button-Face wird statisch am interaktiven `Pressable` zugewiesen,
