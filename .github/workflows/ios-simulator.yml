@@ -24,6 +24,7 @@ jobs:
       EXPO_PUBLIC_POSTHOG_API_KEY: ${{ vars.EXPO_PUBLIC_POSTHOG_API_KEY }}
       EXPO_PUBLIC_POSTHOG_HOST: ${{ vars.EXPO_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com' }}
       EXPO_PUBLIC_SENTRY_DSN: ${{ vars.EXPO_PUBLIC_SENTRY_DSN }}
+      FAM_HARNESS_UI: "1"
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -36,32 +37,41 @@ jobs:
       - name: Setup Bun Environment
         uses: ./.github/actions/setup-bun-env
 
-      - name: Setup Expo & EAS
-        uses: ./.github/actions/setup-expo
+      - name: Expo Prebuild iOS (Debug)
+        run: bunx expo prebuild --platform ios --no-install
+
+      - name: Cache CocoaPods
+        uses: actions/cache@v4
         with:
-          expo-token: ${{ secrets.EXPO_TOKEN }}
+          path: ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
 
-      - name: Verify locked native baseline
-        run: bun run native:status
-
-      - name: Restore locked iOS Simulator artifact
-        run: bun run native:restore -- --target ios-development-simulator
-
-      - name: Install locked iOS Simulator App
+      - name: Install CocoaPods
         run: |
-          DEVICE_ID="$(xcrun simctl list devices available | grep -m1 -E 'iPhone 17 Pro \\(' | grep -oE '[0-9A-F-]{36}' || true)"
-          if [ -z "$DEVICE_ID" ]; then
-            echo "Kein verfügbarer iPhone 17 Pro Simulator gefunden"
-            exit 1
-          fi
-          xcrun simctl boot "$DEVICE_ID" 2>/dev/null || true
-          xcrun simctl bootstatus "$DEVICE_ID" -b
-          xcrun simctl install "$DEVICE_ID" native-artifacts/ios-development-simulator/fam.app
+          cd ios
+          pod install || pod install --repo-update
+        env:
+          LANG: en_US.UTF-8
+          LC_ALL: en_US.UTF-8
+
+      - name: Build iOS Simulator App (Debug)
+        run: |
+          xcodebuild \
+            -workspace ios/fam.xcworkspace \
+            -scheme fam \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination "generic/platform=iOS Simulator" \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            build
 
       - name: Package Simulator App (.tar.gz)
         run: |
-          APP_PATH="native-artifacts/ios-development-simulator/fam.app"
-          if [ ! -d "$APP_PATH" ]; then
+          APP_PATH="$(find build/DerivedData/Build/Products -type d -name 'fam.app' | head -n1)"
+          if [ -z "$APP_PATH" ]; then
             echo "Fehler: fam.app wurde nicht gefunden"
             exit 1
           fi

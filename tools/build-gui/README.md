@@ -13,15 +13,17 @@ Die GUI ist ein Frontend für `scripts/native-build.ts`. Sie ruft keine direkten
 - `Dev-Loop starten` verwendet für Development-Targets `native:dev`, setzt beim
   iOS-Simulator den lokalen Packager-Host und übergibt das ausgewählte Gerät.
   Der Lock-Mismatch wird sichtbar geloggt, blockiert den Inner Loop aber nicht.
-- `Simulator/Emulator starten` verwendet ausschließlich das bereits gelockte Artefakt (iOS-Simulator-`.app` bzw. Android-Emulator-APK).
-- Das Ziel-Dropdown listet iOS- und Android-Targets getrennt (`iOS Development`, `iOS Preview-Simulator`, `iOS TestFlight`, `iOS Production`, `Android Development`, `Android Preview`, `Android Production`); `TestFlight hochladen` bleibt iOS-spezifisch, da für Android aktuell kein `eas submit`-Profil hinterlegt ist.
+- Bei Development-Targets ist ausschließlich `Dev-Loop starten` verfügbar.
+  Rebuild, Restore und gelocktes Starten bleiben auf Release-/Store-Targets
+  beschränkt.
+- `Simulator/Emulator starten` verwendet ausschließlich ein bereits gelocktes Artefakt. Der iOS-Development-Simulator läuft über `Dev-Loop starten` und ist nicht gelockt.
+- Das Ziel-Dropdown listet iOS- und Android-Targets getrennt (`iOS Development`, `iOS TestFlight`, `iOS Production`, `Android Development`, `Android Preview`, `Android Production`); `TestFlight hochladen` bleibt iOS-spezifisch, da für Android aktuell kein `eas submit`-Profil hinterlegt ist.
 - Für `iOS TestFlight` kann `Letzten EAS-Build prüfen` die aktuelle EAS-Build-ID,
   den Status und die Metadaten anzeigen. `Letzten TestFlight-Build
   wiederherstellen` fragt die ID bei Bedarf automatisch ab und verwendet danach
   den bestehenden `native:restore`-Pfad.
-- TestFlight-IPAs werden niemals als Simulator-Artefakte angeboten. Ein
-  Simulator benötigt ein eigenes `ios-development-simulator`- oder
-  `ios-preview-simulator`-Artefakt.
+- TestFlight-IPAs werden niemals als Simulator-Artefakte angeboten. Der
+  `ios-development-simulator` wird direkt über den Development-Loop gebaut.
 - `Artefakt wiederherstellen` lädt ein Artefakt über die gespeicherte oder eingegebene EAS Build-ID.
 - `Rebuild (explizit freigeben)` ist die einzige GUI-Aktion, die Prebuild, CocoaPods und Kompilierung ausführt. Sie benötigt zusätzlich die Checkbox-Freigabe.
 - `TestFlight hochladen` übermittelt ein vorhandenes IPA, ohne einen neuen Build zu starten.

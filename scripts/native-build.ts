@@ -75,12 +75,6 @@ const TARGETS = {
     configuration: 'Debug',
     kind: 'ipa',
   },
-  'ios-preview-simulator': {
-    platform: 'ios',
-    profile: 'preview-simulator',
-    configuration: 'Release',
-    kind: 'app',
-  },
   'ios-preview-testflight': {
     platform: 'ios',
     profile: 'preview-testflight',
@@ -464,8 +458,11 @@ function findFirstNamedPath(directory: string, suffix: string): string | undefin
 // Compile-Sources-Subprozesse von Xcode nachweislich nicht (siehe
 // plugins/withIosCcacheDir.js für den echten Fix: eigenständige
 // Wrapper-Skripte mit fest einprogrammiertem Pfad statt Env-Var-Vertrauen).
-function iosBuildEnv(): Record<string, string> {
-  return { USE_CCACHE: '1' };
+function iosBuildEnv(includeHarnessUI: boolean): Record<string, string> {
+  return {
+    USE_CCACHE: '1',
+    FAM_HARNESS_UI: includeHarnessUI ? '1' : '0',
+  };
 }
 
 // 'eas build --local' kopiert das Projekt bei JEDEM Lauf in ein neues Temp-
@@ -501,16 +498,22 @@ async function rebuild(): Promise<void> {
   const [targetName, target] = getTarget();
 
   log(`Regeneriere ${target.platform}/ kontrolliert für ${targetName}...`);
+  const buildEnvironment =
+    target.platform === 'ios' ? iosBuildEnv(target.configuration === 'Debug') : undefined;
   // Kein EXPO_USE_PRECOMPILED_MODULES mehr setzen: der generierte Podfile
   // setzt es bereits selbst (ENV['EXPO_USE_PRECOMPILED_MODULES'] ||= '1'),
   // und seit SDK 56 ist Precompiled ohnehin default (B7, Plan Phase 3).
-  run('bunx', ['expo', 'prebuild', '--clean', '--platform', target.platform, '--no-install']);
+  run(
+    'bunx',
+    ['expo', 'prebuild', '--clean', '--platform', target.platform, '--no-install'],
+    buildEnvironment,
+  );
 
   if (target.platform === 'ios') {
     // Keep the resolved CocoaPods graph versioned. EAS installs again in its
     // isolated local build directory, but the project baseline must include
     // the same Podfile.lock before its fingerprint is recorded.
-    run('pod', ['install'], iosBuildEnv(), join(PROJECT_ROOT, 'ios'));
+    run('pod', ['install'], buildEnvironment, join(PROJECT_ROOT, 'ios'));
   }
 
   const outputDirectory = join(ARTIFACT_ROOT, targetName);
@@ -534,7 +537,7 @@ async function rebuild(): Promise<void> {
       '--output',
       buildOutput,
     ],
-    target.platform === 'ios' ? { ...iosBuildEnv(), ...easLocalBuildEnv() } : undefined,
+    target.platform === 'ios' ? { ...buildEnvironment, ...easLocalBuildEnv() } : undefined,
   );
 
   const finalPath = artifactPath(targetName, target.kind);
@@ -712,7 +715,7 @@ async function runDev(): Promise<void> {
 // den Release-Pfad — dort bleibt die volle Multi-ABI-Matrix bzw. das
 // unveränderte Podfile-Verhalten maßgeblich.
 function buildDevEnv(platform: Platform): Record<string, string> | undefined {
-  if (platform === 'ios') return iosBuildEnv();
+  if (platform === 'ios') return iosBuildEnv(true);
   // B6: lokal wird immer genau eine ABI gebraucht. ORG_GRADLE_PROJECT_* wird
   // von Gradle automatisch als Projekt-Property gelesen — kein Eingriff in
   // android/gradle.properties nötig, das bei jedem 'prebuild --clean' ohnehin

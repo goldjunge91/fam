@@ -308,15 +308,6 @@ TARGETS = {
         env_file=".env.development.local",
         dev_loop=True,
     ),
-    "iOS Preview-Simulator": Target(
-        label="iOS Preview-Simulator",
-        name="ios-preview-simulator",
-        description="Startet ausschließlich das gelockte Preview-APP im iOS-Simulator.",
-        platform="ios",
-        simulator=True,
-        profile="preview-simulator",
-        env_file=".env.preview",
-    ),
     "iOS TestFlight": Target(
         label="iOS Preview-TestFlight",
         name="ios-preview-testflight",
@@ -609,17 +600,19 @@ class BuildGui(tk.Tk):
         target = self._selected_target()
         self.description.configure(text=f"{target.label}: {target.description}")
 
-        actions = [STATUS_ACTION, RECOVER_ACTION, DIFF_ACTION, REBUILD_ACTION]
         if target.dev_loop:
-            actions.insert(2, DEV_ACTION)
-        if target.simulator:
-            actions.insert(2, RUN_ACTION)
+            actions = [DEV_ACTION]
+        else:
+            actions = [STATUS_ACTION, RECOVER_ACTION, DIFF_ACTION, REBUILD_ACTION]
+            if target.simulator:
+                actions.insert(2, RUN_ACTION)
         if target.submit:
             actions.insert(actions.index(REBUILD_ACTION), LATEST_EAS_ACTION)
             actions.insert(actions.index(REBUILD_ACTION), RESTORE_LATEST_ACTION)
             actions.append(SUBMIT_ACTION)
             actions.append(DEPLOY_ACTION)
-        actions.insert(actions.index(REBUILD_ACTION), RESTORE_ACTION)
+        if not target.dev_loop:
+            actions.insert(actions.index(REBUILD_ACTION), RESTORE_ACTION)
 
         self.action_menu.configure(values=tuple(actions))
         if self.action.get() not in actions:

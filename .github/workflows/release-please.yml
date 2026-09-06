@@ -51,6 +51,8 @@ jobs:
     needs: release-please
     runs-on: macos-14
     if: ${{ needs.release-please.outputs.release_created && inputs.approve_rebuild == true }}
+    env:
+      FAM_HARNESS_UI: "0"
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-bun-env

@@ -11,10 +11,9 @@ Die vollständige Dokumentationslandkarte steht in [docs/README.md](README.md).
 ```bash
 bun install
 supabase start
-bash scripts/ios-dev.sh
+bun run native:dev -- --target ios-development-simulator
 ```
 
-Für einen vorhandenen iOS-Build genügt `bash scripts/ios-dev.sh --reuse-last`.
 Alle Befehle, Umgebungsvariablen und Test-Accounts stehen unten in diesem
 Dokument. Das [Projekt-README](../../README.md) bleibt bewusst kurz und
 verweist hierher.
@@ -112,7 +111,6 @@ iOS:
 
 - ios-development-simulator (Debug, Simulator, .app)
 - ios-development-device (Debug, echtes Gerät, .ipa)
-- ios-preview-simulator (Release, Simulator, .app)
 - ios-preview-testflight (Release, TestFlight, .ipa)
 - ios-production (Release, Store, .ipa)
 
@@ -122,13 +120,14 @@ Android:
 - android-preview (.apk)
 - android-production (.aab)
 
-Für deinen Fall (lokal im Simulator testen, ob expo-tracking-transparency jetzt funktioniert) wäre ios-development-simulator der richtige Target-Name:
+Für deinen Fall (lokal im Simulator testen, ob expo-tracking-transparency jetzt
+funktioniert) ist `ios-development-simulator` der richtige Target-Name.
 
-```bash
-bun run native:rebuild -- --approve-rebuild --target ios-development-simulator
-```
-
-native:rebuild ist bewusst der Release-Pfad (eas build --local, reproduzierbar/signiert, für TestFlight/Production) und entsprechend langsamer/schwerer. Für den reinen Inner-Loop (Simulator während der Entwicklung, mit ccache/DerivedData-Wiederverwendung) ist native:dev vorgesehen:
+`native:rebuild` ist bewusst der Release-Pfad (eas build --local,
+reproduzierbar/signiert, für TestFlight/Production) und entsprechend
+langsamer/schwerer. Für den reinen Inner-Loop (Simulator während der
+Entwicklung, mit ccache/DerivedData-Wiederverwendung) ist `native:dev`
+vorgesehen:
 
 ```bash
 bun run native:dev -- --target ios-development-simulator
@@ -322,8 +321,8 @@ Einmalige Einrichtung:
 4. Für Source-Maps und native Symbole `POSTHOG_CLI_API_KEY`,
    `POSTHOG_CLI_PROJECT_ID` und bei EU Cloud `POSTHOG_CLI_HOST` als Build-Secrets
    hinterlegen.
-5. Neuer Dev-Client-Build nötig (`bash scripts/ios-dev.sh` bzw.
-   Android-Äquivalent), weil `@posthog/react-native-plugin` nativen Code enthält.
+5. Neuer Dev-Client-Build nötig (`bun run native:dev` bzw. Android-Äquivalent),
+   weil `@posthog/react-native-plugin` nativen Code enthält.
 
 **Integration testen:** Im Dashboard ein Boolean-Flag `test-feature` anlegen
 und an/aus schalten — der Live-Wert steht im Entwickler-Bereich der
@@ -368,22 +367,22 @@ gebraucht:
 Alles in einem Schritt — bauen, laden, installieren, Simulator und Metro starten:
 
 ```bash
-bash scripts/ios-dev.sh                # interaktiver Controller
-bash scripts/ios-dev.sh --reuse-last   # registriertes Lock-Artefakt verwenden
-bash scripts/ios-dev.sh --no-metro     # nur installieren
-bash scripts/ios-dev.sh --device "iPhone 17"
+bun run native:dev -- --target ios-development-simulator
+bun run native:dev -- --target ios-development-simulator --device "iPhone 17"
 ```
 
 Einzelschritte, falls nötig:
 
 ```bash
-bun run native:run -- --target ios-development-simulator
-bun run native:run -- --target android-development
-bun run native:run -- --target ios-development-device
-
-# Nur nach bewusster Freigabe: Prebuild und nativer Rebuild
-bun run native:rebuild -- --target ios-development-simulator --approve-rebuild
+bun run native:dev -- --target ios-development-simulator
+bun run native:dev -- --target android-development
+bun run native:dev -- --target ios-development-device
 ```
+
+Development-Targets sind nicht Teil des Native-Build-Locks. Der Lock gilt für
+reproduzierbare Release-Artefakte wie TestFlight und Production. Für reine
+JS-/TS-Änderungen reicht Metro; Änderungen an nativen Modulen, Config-Plugins
+oder nativen Dateien erfordern einen neuen Development-Build.
 
 Profile stehen in `eas.json`.
 
