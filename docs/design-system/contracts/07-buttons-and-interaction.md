@@ -112,5 +112,6 @@ Mindestgröße, Theme, Zustände und die gemeinsame Basis.
 Gezielte Tests prüfen Blockierung, einmalige Callbacks, Accessibility-States,
 Haptikgrenze und zentrale Farb-/Größenrezepte. Native Interaktion belegt reale
 Touchflächen, Druckweg, Abbruch und Reduced Motion. Große Schrift und lange Labels
-werden in beiden Themes geprüft. Die heute parallelen Implementierungen und
-kleinen Iconflächen bleiben bis zur Codeumstellung Migrationsbestand.
+werden in beiden Themes geprüft. Kleine Iconflächen bleiben bis zur jeweiligen
+Migration Migrationsbestand; der allgemeine Produkt-Button ist keine zweite
+Implementierung mehr.
