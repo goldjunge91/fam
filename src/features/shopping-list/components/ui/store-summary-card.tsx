@@ -17,6 +17,10 @@ interface StoreSummaryCardProps {
 
 const MAX_CATEGORY_DOTS = 4;
 
+function withColorAlpha(color: string, alpha: string): string {
+  return /^#[0-9a-f]{6}$/i.test(color) ? `${color}${alpha}` : color;
+}
+
 export function StoreSummaryCard({
   name,
   color,
@@ -36,9 +40,14 @@ export function StoreSummaryCard({
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={`${name}, ${checkedCount} von ${totalCount} Artikeln, ${formatEuro(totalEstimate)} geschätzt`}
-      className="store-summary-row">
+      className="store-summary-row"
+      style={{
+        backgroundColor: withColorAlpha(color, '16'),
+        borderColor: withColorAlpha(color, '66'),
+        borderWidth: 1,
+      }}>
       {/* Dynamische Markt-Farbe aus der Datenbank */}
-      <View className="store-summary-stripe" style={{ backgroundColor: color }} />
+      <View className="store-summary-stripe" style={{ backgroundColor: color, width: 8 }} />
 
       <View className="flex-1 gap-1">
         <View className="flex-row items-baseline justify-between gap-two">
@@ -49,7 +58,7 @@ export function StoreSummaryCard({
             {checkedCount} / {totalCount}
           </Txt>
         </View>
-        <ProgressBar height={3} value={progress} color={isComplete ? theme.basil : theme.basil} />
+        <ProgressBar height={4} value={progress} color={isComplete ? theme.success : color} />
         <View className="flex-row items-center gap-1 mt-[1px]">
           {totalCount === 0 ? (
             <Txt variant="caption" tone="secondary">
