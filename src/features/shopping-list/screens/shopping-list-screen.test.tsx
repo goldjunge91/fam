@@ -6,6 +6,7 @@ import { colorsLight } from '@/components/theme';
 import { ShoppingListScreen } from './shopping-list-screen';
 
 let mockParams: { action?: string } = {};
+let mockShoppingListEmpty = false;
 
 jest.mock('expo-router', () => ({
   useLocalSearchParams: () => mockParams,
@@ -45,51 +46,53 @@ jest.mock('../hooks/use-shopping-list', () => {
   return {
     ...actual,
     useShoppingList: () => ({
-      data: [
-        {
-          category: 'Obst & Gemüse',
-          items: [
+      data: mockShoppingListEmpty
+        ? []
+        : [
             {
-              id: 'item-1',
-              household_id: 'hh-1',
-              name: 'Bananen',
-              quantity: 3,
-              unit: 'Stk',
-              category_id: 'produce',
-              category_source: 'name_fallback',
-              category_classifier_version: null,
               category: 'Obst & Gemüse',
-              checked_at: null,
-              checked_by: null,
-              store_id: 'store-1',
-              notes: null,
-              recipe_names: [],
-              sort_order: 0,
-              product_id: null,
-              updated_at: '2026-03-29T10:00:00Z',
-            },
-            {
-              id: 'item-2',
-              household_id: 'hh-1',
-              name: 'Hafermilch',
-              quantity: 1,
-              unit: 'l',
-              category_id: 'beverages',
-              category_source: 'name_fallback',
-              category_classifier_version: null,
-              category: 'Getränke',
-              checked_at: null,
-              checked_by: null,
-              store_id: 'store-1',
-              notes: null,
-              recipe_names: [],
-              sort_order: 1,
-              product_id: null,
-              updated_at: '2026-03-29T10:00:00Z',
+              items: [
+                {
+                  id: 'item-1',
+                  household_id: 'hh-1',
+                  name: 'Bananen',
+                  quantity: 3,
+                  unit: 'Stk',
+                  category_id: 'produce',
+                  category_source: 'name_fallback',
+                  category_classifier_version: null,
+                  category: 'Obst & Gemüse',
+                  checked_at: null,
+                  checked_by: null,
+                  store_id: 'store-1',
+                  notes: null,
+                  recipe_names: [],
+                  sort_order: 0,
+                  product_id: null,
+                  updated_at: '2026-03-29T10:00:00Z',
+                },
+                {
+                  id: 'item-2',
+                  household_id: 'hh-1',
+                  name: 'Hafermilch',
+                  quantity: 1,
+                  unit: 'l',
+                  category_id: 'beverages',
+                  category_source: 'name_fallback',
+                  category_classifier_version: null,
+                  category: 'Getränke',
+                  checked_at: null,
+                  checked_by: null,
+                  store_id: 'store-1',
+                  notes: null,
+                  recipe_names: [],
+                  sort_order: 1,
+                  product_id: null,
+                  updated_at: '2026-03-29T10:00:00Z',
+                },
+              ],
             },
           ],
-        },
-      ],
       isLoading: false,
     }),
   };
@@ -204,6 +207,7 @@ describe('ShoppingListScreen', () => {
   beforeEach(() => {
     jest.useFakeTimers();
     mockParams = {};
+    mockShoppingListEmpty = false;
     jest.clearAllMocks();
   });
 
@@ -233,6 +237,13 @@ describe('ShoppingListScreen', () => {
     await renderScreen();
 
     expect(screen.getByText('Supermarkt')).toBeTruthy();
+  });
+
+  it('bietet den Einkaufsmodus bei einer leeren Einkaufsliste nicht an', async () => {
+    mockShoppingListEmpty = true;
+    await renderScreen();
+
+    expect(screen.queryByRole('button', { name: /Einkaufsmodus .* starten/ })).toBeNull();
   });
 
   it('hakt Artikel in der Marktliste nicht mehr per Antippen ab — das passiert nur im Einkaufsmodus', async () => {

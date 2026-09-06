@@ -139,6 +139,7 @@ export function ShoppingListScreen() {
     if (isUnassignedFilter) return unassignedItems;
     return allItems.filter((i) => i.store_id === storeFilter);
   }, [isAllFilter, isUnassignedFilter, storeFilter, allItems, unassignedItems]);
+  const canStartShoppingMode = activeStore !== null && filteredItems.length > 0;
 
   const checkedItems = filteredItems.filter((i) => i.checked_at !== null);
   const hasCheckedItems = checkedItems.length > 0 && !isAllFilter;
@@ -344,14 +345,16 @@ export function ShoppingListScreen() {
   };
 
   const renderShoppingModeButton = () => {
-    if (!activeStore) return null;
+    if (!canStartShoppingMode || !activeStore) return null;
     return (
       <View className="mt-two">
         <Button
           size="sm"
           variant="secondary"
           title="🛒 Einkaufsmodus starten"
-          onPress={() => setShoppingModeOpen(true)}
+          onPress={() => {
+            if (canStartShoppingMode) setShoppingModeOpen(true);
+          }}
           accessibilityLabel={`Einkaufsmodus für ${activeStore.name} starten`}
         />
       </View>
@@ -569,7 +572,7 @@ export function ShoppingListScreen() {
       {/* Vollbild-Einkaufsmodus fuer diesen Markt (nur Abhaken, kein Bearbeiten) */}
       {activeStore && (
         <ShoppingModeScreen
-          visible={shoppingModeOpen}
+          visible={shoppingModeOpen && canStartShoppingMode}
           store={activeStore}
           items={filteredItems}
           onToggle={handleToggle}
