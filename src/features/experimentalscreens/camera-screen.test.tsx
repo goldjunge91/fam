@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { CameraScreen } from '@/features/experimentalscreens/camera-screen';
+import { CameraScreen } from '@/features/experimentalscreens/camera-screen.ios';
 
 const initialMetrics = {
   frame: { x: 0, y: 0, width: 390, height: 844 },
