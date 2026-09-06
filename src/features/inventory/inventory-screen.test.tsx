@@ -229,7 +229,7 @@ it('fragt vor dem Entfernen aus dem Aktions-Sheet nach Bestaetigung', async () =
   await renderScreen();
   await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
   await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
-  await user.press(screen.getByRole('button', { name: 'Entfernen' }));
+  await user.press(screen.getByRole('button', { name: 'Milch entfernen' }));
 
   expect(alertSpy).toHaveBeenCalledWith(
     'Artikel löschen',

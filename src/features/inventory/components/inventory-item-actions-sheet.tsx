@@ -135,7 +135,7 @@ export function InventoryItemActionsSheet({
           <View className="fridge-actions-row">
             <SheetAction label="Bearbeiten" onPress={onEdit} variant="neutral" />
             {!item.opened_at ? (
-              <SheetAction label="Öffnen" onPress={onOpen} variant="neutral" />
+              <SheetAction label="Öffnen" onPress={onOpen} variant="primary" />
             ) : null}
             <SheetAction label="Verbraucht" onPress={onConsume} variant="success" />
             <SheetAction label="Wegwerfen" onPress={onWaste} variant="danger" />
@@ -178,7 +178,7 @@ function IosInventoryItemActionsView({
   return (
     <Modal
       visible={visible}
-      animationType="slide"
+      animationType="fade"
       presentationStyle="fullScreen"
       onRequestClose={onClose}>
       <View style={styles.root}>
@@ -200,7 +200,9 @@ function IosInventoryItemActionsView({
                 onPress={onClose}
                 accessibilityLabel="Artikelaktionen schließen"
                 bg={colors.backgroundSoft}
+                size={45}
                 iconSize={24}
+                style={{ borderRadius: radius.lg, shadowOpacity: 0, elevation: 0 }}
               />
             </View>
           </View>
@@ -319,10 +321,20 @@ function IosActionTile({
   styles: ReturnType<typeof useThemedActionStyles>;
 }) {
   const { colors } = useTheme();
-  const isFilled = variant !== 'neutral';
+  const isPrimary = variant === 'primary';
   const isDanger = variant === 'danger';
+  const isSuccess = variant === 'success';
+  const isFilled = isPrimary || isDanger;
   const foreground = isFilled ? colors.onAccent : colors.text;
   const depth = isDanger ? colors.buttonDangerDepth : colors.buttonPrimaryDepth;
+  const tileVariantStyle = isPrimary
+    ? styles.tilePrimary
+    : isSuccess
+      ? styles.tileSuccess
+      : isDanger
+        ? styles.tileDanger
+        : undefined;
+  const hintColor = isFilled ? withAlpha(colors.onAccent, 0.76) : colors.textSecondary;
 
   return (
     <View
@@ -335,7 +347,7 @@ function IosActionTile({
         onPress={onPress}
         accessibilityRole="button"
         accessibilityLabel={label}
-        style={[styles.tile, isFilled && (isDanger ? styles.tileDanger : styles.tilePrimary)]}
+        style={[styles.tile, tileVariantStyle]}
         containerStyle={styles.tileContainer}>
         <View
           style={[
@@ -347,9 +359,7 @@ function IosActionTile({
         <Txt variant="label" color={foreground} weight="800">
           {label}
         </Txt>
-        <Txt
-          variant="caption"
-          color={isFilled ? withAlpha(colors.onAccent, 0.76) : colors.textSecondary}>
+        <Txt variant="caption" color={hintColor}>
           {hint}
         </Txt>
       </Press>
@@ -428,6 +438,10 @@ function useThemedActionStyles() {
       borderColor: colors.danger,
       backgroundColor: colors.danger,
     },
+    tileSuccess: {
+      borderColor: colors.success,
+      backgroundColor: withAlpha(colors.success, 0.5),
+    },
     tileIcon: {
       width: 30,
       height: 30,
@@ -441,12 +455,14 @@ function useThemedActionStyles() {
 
 const ACTION_VARIANT_CLASSES = {
   neutral: 'fridge-action-btn-neutral',
-  success: 'fridge-action-btn-success',
+  primary: 'bg-accent',
+  success: 'fridge-action-btn-success border border-success',
   danger: 'fridge-action-btn-danger',
 } as const;
 
 const ACTION_VARIANT_TEXT_COLOR = {
   neutral: 'primary',
+  primary: 'onAccent',
   success: 'success',
   danger: 'danger',
 } as const;

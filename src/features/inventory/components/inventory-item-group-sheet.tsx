@@ -5,7 +5,7 @@ import { GradientBackground } from '@/components/layout/gradient-background';
 import { type GradientSpec, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton } from '@/components/ui/buttons';
-import { Card, IconButton, Press, Txt } from '@/constants/ui';
+import { Button, Card, IconButton, Press, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
@@ -114,8 +114,9 @@ export function InventoryItemGroupSheet({
               onPress={onClose}
               accessibilityLabel="Schließen"
               bg={colors.backgroundSoft}
-              size={36}
-              iconSize={22}
+              size={45}
+              iconSize={24}
+              style={{ borderRadius: radius.lg, shadowOpacity: 0, elevation: 0 }}
             />
           </View>
 
@@ -158,15 +159,14 @@ export function InventoryItemGroupSheet({
             MHD-Einträge
           </Txt>
 
-          <Pressable
+          <Button
+            title="Produkt-Verlauf öffnen"
+            variant="secondary"
+            size="sm"
             onPress={onHistory}
-            accessibilityRole="button"
             accessibilityLabel={`${group.name} Verlauf öffnen`}
-            className="self-start py-one">
-            <Txt variant="body" color={colors.accent} weight="700">
-              Produkt-Verlauf öffnen ›
-            </Txt>
-          </Pressable>
+            style={{ alignSelf: 'flex-start' }}
+          />
 
           <ScrollView
             showsVerticalScrollIndicator={false}
@@ -230,7 +230,7 @@ function IosInventoryItemGroupView({
   onHistory,
   onQuickOpen,
   onQuickConsume,
-  quickActionLoading,
+  quickActionLoading = false,
   backgroundGradient,
 }: InventoryItemGroupSheetProps) {
   const { colors } = useTheme();
@@ -243,7 +243,7 @@ function IosInventoryItemGroupView({
   return (
     <Modal
       visible={visible}
-      animationType="slide"
+      animationType="fade"
       presentationStyle="fullScreen"
       onRequestClose={onClose}>
       <View style={styles.root}>
@@ -265,7 +265,9 @@ function IosInventoryItemGroupView({
                 onPress={onClose}
                 accessibilityLabel="MHD-Details schließen"
                 bg={colors.backgroundSoft}
+                size={45}
                 iconSize={24}
+                style={{ borderRadius: radius.lg, shadowOpacity: 0, elevation: 0 }}
               />
             </View>
           </View>
@@ -338,15 +340,14 @@ function IosInventoryItemGroupView({
               ))}
             </View>
 
-            <Press
+            <Button
+              title="Produkt-Verlauf öffnen"
+              variant="secondary"
+              size="sm"
               onPress={onHistory}
-              accessibilityRole="button"
               accessibilityLabel={`${group.name} Verlauf öffnen`}
-              style={styles.historyLink}>
-              <Txt variant="body" color={colors.accent} weight="700">
-                Produkt-Verlauf öffnen ›
-              </Txt>
-            </Press>
+              style={styles.historyButton}
+            />
             <Txt variant="caption" tone="secondary" style={styles.helperText}>
               Tippe auf eine Zustandskarte oder ein MHD-Los, um genau diese Gläser zu bearbeiten
               oder zu verbrauchen.
@@ -371,7 +372,7 @@ function IosStateCard({
   onPress,
   actionLabel,
   onAction,
-  actionLoading,
+  actionLoading = false,
   styles,
   colors,
   tone = 'sealed',
@@ -384,7 +385,7 @@ function IosStateCard({
   onPress?: () => void;
   actionLabel?: string;
   onAction?: () => void;
-  actionLoading: boolean;
+  actionLoading?: boolean;
   styles: ReturnType<typeof useThemedGroupStyles>;
   colors: ReturnType<typeof useTheme>['colors'];
   tone?: 'sealed' | 'open';
@@ -548,7 +549,7 @@ function useThemedGroupStyles() {
     lotTitle: { flex: 1 },
     lotAmount: { fontVariant: ['tabular-nums'] },
     lotChevron: { alignSelf: 'center', marginLeft: space.sm },
-    historyLink: { alignSelf: 'flex-start', marginTop: space.lg, paddingVertical: space.sm },
+    historyButton: { alignSelf: 'flex-start', marginTop: space.lg },
     helperText: { marginTop: space.sm },
   });
 }

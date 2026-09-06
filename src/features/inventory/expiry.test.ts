@@ -41,8 +41,9 @@ describe('getExpiryInfo', () => {
     [am(2026, 8, 6), 'critical', 1],
     [am(2026, 8, 8), 'critical', 3],
     [am(2026, 8, 9), 'soon', 4],
-    [am(2026, 8, 12), 'soon', 7],
-    [am(2026, 8, 13), 'ok', 8],
+    [am(2026, 8, 13), 'soon', 8],
+    [am(2026, 8, 15), 'soon', 10],
+    [am(2026, 8, 16), 'ok', 11],
   ])('grenzt die Stufen sauber ab: %s', (datum, erwarteteStufe, erwarteteTage) => {
     const info = getExpiryInfo(datum as Date, HEUTE);
     expect(info.bucket).toBe(erwarteteStufe);

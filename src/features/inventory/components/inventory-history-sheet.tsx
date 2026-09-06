@@ -2,6 +2,7 @@ import { FlashList } from '@shopify/flash-list';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { radius } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { IconButton, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
@@ -76,7 +77,15 @@ export function InventoryHistorySheet({
             {subtitle}
           </Txt>
         </View>
-        <IconButton icon="x" onPress={onClose} accessibilityLabel="Schließen" iconSize={24} />
+        <IconButton
+          icon="x"
+          onPress={onClose}
+          accessibilityLabel="Schließen"
+          bg={colors.backgroundSoft}
+          size={45}
+          iconSize={24}
+          style={{ borderRadius: radius.lg, shadowOpacity: 0, elevation: 0 }}
+        />
       </View>
 
       {productSummary ? (
@@ -159,7 +168,7 @@ export function InventoryHistorySheet({
     <Modal
       visible={visible}
       transparent={!fullScreen}
-      animationType="slide"
+      animationType={fullScreen ? 'fade' : 'slide'}
       presentationStyle={fullScreen ? 'fullScreen' : undefined}
       onRequestClose={onClose}>
       <View style={StyleSheet.absoluteFill}>
@@ -246,7 +255,13 @@ function HistoryTransactionRow({
 
   return (
     <View className="inventory-history-row">
-      <View className="inventory-history-edge" style={{ backgroundColor: edgeColor }} />
+      <View className="relative w-[16px] items-center">
+        <View className="absolute inset-y-0 w-[2px] bg-border" />
+        <View
+          className="z-10 mt-two h-[12px] w-[12px] rounded-pill"
+          style={{ backgroundColor: edgeColor }}
+        />
+      </View>
       <View className="flex-1 gap-half">
         <View className="flex-row flex-wrap items-center gap-one">
           <Txt variant="body" weight="700">
