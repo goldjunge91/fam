@@ -192,6 +192,12 @@ export function SettingsScreen() {
               onPress={() => router.push('/settings/modules')}
             />
             <SettingsRow
+              icon="🏆"
+              label="Gamification"
+              hint="Streaks & Belohnungen"
+              onPress={() => router.push('/gamification')}
+            />
+            <SettingsRow
               icon="➕"
               label="Plus-Button"
               value={fabPosition === 'left' ? 'Links' : 'Rechts'}

@@ -34,6 +34,7 @@ const privateRootRoutes = [
   'profile',
   'recipe',
   'settings',
+  'gamification',
   'add-item',
   'add-product',
   'add-food-entry',
