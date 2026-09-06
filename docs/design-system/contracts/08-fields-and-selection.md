@@ -27,12 +27,10 @@ NativeWind übernimmt nur lokales Layout.
   belegte visuelle Varianten. Auch `compact` behält mindestens 44 × 44 logische
   Einheiten pro Trefferziel; lange Labels dürfen umbrechen und erhöhen den
   Control bei Bedarf.
-- `src/components/ui/segmented-control.tsx` ist nach der Migration keine
-  Produktionsquelle mehr. Die Datei bleibt vorerst als ausdrücklich markierte
-  Legacy-Vergleichsvariante im Settings-Design-System. `@expo/ui` ist dort
-  ausschließlich eine native Vergleichsvariante und wird nicht aus Produkt-
-  Features importiert. Props wie `gap` oder `labelStyle` gehören nicht zur
-  kanonischen API.
+- `src/components/ui/segmented-control.tsx` ist nach der Migration entfernt.
+  `@expo/ui` bleibt ausschließlich eine native Vergleichsvariante im Settings-
+  Design-System und wird nicht aus Produkt-Features importiert. Props wie `gap`
+  oder `labelStyle` gehören nicht zur kanonischen API.
 - `Pill`, Filter, `Badge`, `QuantityStepper` und domänenspezifische Selects folgen
   denselben Zustands-, Farb- und Interaktionsregeln. Sie müssen deshalb nicht
   dieselbe Komponente oder Accessibility-Rolle sein.
