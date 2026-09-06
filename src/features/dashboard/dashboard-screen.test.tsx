@@ -82,7 +82,11 @@ jest.mock('@/lib/analytics', () => ({ trackAnalyticsEvent: jest.fn() }));
 let mockFridgeItems: unknown[] = [];
 
 jest.mock('expo-router', () => ({
-  router: { push: mockRouterPush, back: jest.fn(), canGoBack: () => false },
+  router: {
+    push: (...args: unknown[]) => mockRouterPush(...args),
+    back: jest.fn(),
+    canGoBack: () => false,
+  },
   useNavigation: () => ({ canGoBack: () => false, addListener: () => () => {} }),
 }));
 
@@ -223,6 +227,21 @@ describe('DashboardScreen — Vorrat-Widget "Läuft bald ab"', () => {
     await renderScreen();
     expect(screen.getByText('Läuft bald ab')).toBeTruthy();
     expect(screen.getByText('1')).toBeTruthy();
+  });
+
+  it('öffnet beim Antippen direkt den Ablaufbereich ohne separate Prüfaktion', async () => {
+    await renderScreen();
+
+    expect(screen.queryByText('Vorrat prüfen')).toBeNull();
+
+    await fireEvent.press(
+      screen.getByLabelText('Alle bald ablaufenden Artikel im Vorrat anzeigen'),
+    );
+
+    expect(mockRouterPush).toHaveBeenCalledWith({
+      pathname: '/fridge',
+      params: { filter: 'expiring' },
+    });
   });
 });
 

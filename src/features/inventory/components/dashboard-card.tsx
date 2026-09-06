@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.xl,
     padding: space.lg,
     gap: space.sm,
+    overflow: 'hidden',
   },
   largeWidget: {
     flexDirection: 'column',
@@ -28,6 +29,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: space.md,
+    minWidth: 0,
+    width: '100%',
   },
   badge: {
     alignSelf: 'flex-start',
@@ -40,13 +43,43 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    minWidth: 0,
+    overflow: 'hidden',
     justifyContent: 'center',
-    gap: 2,
+    gap: space.xs,
   },
-  spacer: {
+  itemRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: space.sm,
+    minWidth: 0,
+    width: '100%',
+  },
+  itemName: {
     flex: 1,
+    minWidth: 0,
+  },
+  itemDate: {
+    flexShrink: 0,
+    minWidth: 82,
+    textAlign: 'right',
+  },
+  headerTitle: {
+    flex: 1,
+    minWidth: 0,
   },
 });
+
+function getShortExpiryLabel(expiryDate: string | null, now: Date): string {
+  const daysLeft = getExpiryInfo(expiryDate, now).daysLeft;
+
+  if (daysLeft === null) return 'ohne MHD';
+  if (daysLeft < 0) return 'überfällig';
+  if (daysLeft === 0) return 'heute';
+  if (daysLeft === 1) return 'morgen';
+  return `in ${daysLeft} Tagen`;
+}
 
 function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
   const { colors } = useTheme();
@@ -91,26 +124,46 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
               {expiringCount}
             </Txt>
           </View>
-          <Txt variant="body" weight="700">
+          <Txt
+            variant="body"
+            weight="700"
+            numberOfLines={1}
+            ellipsizeMode="tail"
+            style={styles.headerTitle}>
             Läuft bald ab
           </Txt>
         </View>
         <View style={styles.content}>
           {topItems.length > 0 ? (
-            topItems.map((item) => (
-              <Txt key={item.id} variant="body" tone="secondary" numberOfLines={1}>
-                {item.name}
-              </Txt>
-            ))
+            topItems.map((item) => {
+              const expiryInfo = getExpiryInfo(item.expiry_date, now);
+              return (
+                <View key={item.id} style={styles.itemRow}>
+                  <Txt
+                    variant="body"
+                    tone="secondary"
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
+                    style={styles.itemName}>
+                    {item.name}
+                  </Txt>
+                  <Txt
+                    variant="caption"
+                    tone={expiryInfo.bucket === 'expired' ? 'danger' : 'warning'}
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
+                    style={styles.itemDate}>
+                    {getShortExpiryLabel(item.expiry_date, now)}
+                  </Txt>
+                </View>
+              );
+            })
           ) : (
-            <Txt variant="body" tone="secondary">
+            <Txt variant="body" tone="secondary" numberOfLines={1} ellipsizeMode="tail">
               Alles frisch
             </Txt>
           )}
         </View>
-        <Txt variant="body" weight="700">
-          Vorrat prüfen
-        </Txt>
       </GlassCard>
     );
   }
@@ -130,12 +183,8 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
           {expiringCount}
         </Txt>
       </View>
-      <View style={styles.spacer} />
-      <Txt variant="body" tone="secondary">
+      <Txt variant="body" tone="secondary" numberOfLines={1} ellipsizeMode="tail">
         Läuft bald ab
-      </Txt>
-      <Txt variant="body" weight="700">
-        Vorrat prüfen
       </Txt>
     </GlassCard>
   );
