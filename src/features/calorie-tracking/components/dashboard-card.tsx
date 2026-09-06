@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, View } from 'react-native';
-import { radius, shadow, space } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressRing } from '@/components/ui/progress-ring';
 import { Surface, Txt } from '@/constants/ui';
@@ -9,12 +9,6 @@ import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
 
 const styles = StyleSheet.create({
-  calorieTestShadow: {
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 1,
-    shadowRadius: 15,
-    elevation: 5,
-  },
   pressable: {
     width: '100%',
   },
@@ -95,14 +89,7 @@ function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProp
   if (size === 'small') {
     return (
       <Pressable onLongPress={onLongPress} disabled={disabled} style={styles.pressable}>
-        <Surface
-          tone="surface"
-          style={[
-            styles.smallCard,
-            shadow.lg,
-            styles.calorieTestShadow,
-            { shadowColor: colors.tomato },
-          ]}>
+        <Surface tone="surface" style={styles.smallCard}>
           <View style={styles.row}>
             <Txt variant="caption" tone="secondary" weight="700" style={{ letterSpacing: 0.5 }}>
               KALORIEN
@@ -144,14 +131,7 @@ function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProp
 
   return (
     <Pressable onLongPress={onLongPress} disabled={disabled} style={styles.pressable}>
-      <Surface
-        tone="surface"
-        style={[
-          styles.largeCard,
-          shadow.sm,
-          styles.calorieTestShadow,
-          { shadowColor: colors.tomato },
-        ]}>
+      <Surface tone="surface" style={styles.largeCard}>
         <View style={styles.ringWrap}>
           <ProgressRing
             value={aufgenommen}
