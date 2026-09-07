@@ -37,7 +37,7 @@ grant delete, insert, select, update on public.revenuecat_plus_assignments to se
 revoke all on public.revenuecat_processed_events from anon, authenticated, service_role;
 grant insert, select on public.revenuecat_processed_events to service_role;
 revoke all on public.ai_credit_bookings from anon, authenticated, service_role;
-grant insert, select on public.ai_credit_bookings to service_role;
+grant delete, insert, select, update on public.ai_credit_bookings to service_role;
 grant delete, insert, select, update on public.products to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_invites to anon, authenticated, service_role;
 grant delete, insert, select, update on public.child_profiles to anon, authenticated, service_role;

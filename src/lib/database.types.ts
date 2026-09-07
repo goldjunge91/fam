@@ -1660,6 +1660,45 @@ export type Database = {
           },
         ]
       }
+      off_enrichment_cache: {
+        Row: {
+          cached_at: string | null
+          category_tags: string[]
+          created_at: string
+          ean: string
+          expires_at: string | null
+          lease_expires_at: string | null
+          lease_token: string | null
+          lookup_status: string | null
+          off_last_modified_at: string | null
+          updated_at: string
+        }
+        Insert: {
+          cached_at?: string | null
+          category_tags?: string[]
+          created_at?: string
+          ean: string
+          expires_at?: string | null
+          lease_expires_at?: string | null
+          lease_token?: string | null
+          lookup_status?: string | null
+          off_last_modified_at?: string | null
+          updated_at?: string
+        }
+        Update: {
+          cached_at?: string | null
+          category_tags?: string[]
+          created_at?: string
+          ean?: string
+          expires_at?: string | null
+          lease_expires_at?: string | null
+          lease_token?: string | null
+          lookup_status?: string | null
+          off_last_modified_at?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       product_ingredient_links: {
         Row: {
           confidence: string
@@ -3348,6 +3387,29 @@ export type Database = {
           warning_reached: boolean
         }[]
       }
+      claim_off_enrichment_cache: {
+        Args: { p_ean: string; p_lease_seconds?: number }
+        Returns: {
+          category_tags: string[]
+          lease_token: string
+          lookup_status: string
+          off_last_modified_at: string
+          retry_after: number
+          state: string
+        }[]
+      }
+      consume_request_limit: {
+        Args: {
+          p_limit: number
+          p_scope: string
+          p_user_id: string
+          p_window_seconds: number
+        }
+        Returns: {
+          allowed: boolean
+          retry_after: number
+        }[]
+      }
       create_household: { Args: { household_name: string }; Returns: string }
       deactivate_ai_household: {
         Args: {
@@ -3379,6 +3441,22 @@ export type Database = {
       }
       prepare_account_deletion: { Args: never; Returns: undefined }
       redeem_invite: { Args: { invite_token: string }; Returns: string }
+      release_ai_credit: { Args: { p_request_id: string }; Returns: undefined }
+      release_off_enrichment_cache: {
+        Args: { p_ean: string; p_lease_token: string }
+        Returns: boolean
+      }
+      store_off_enrichment_cache: {
+        Args: {
+          p_category_tags?: string[]
+          p_ean: string
+          p_lease_token: string
+          p_lookup_status: string
+          p_off_last_modified_at?: string
+          p_ttl_seconds?: number
+        }
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never
@@ -3514,3 +3592,4 @@ export const Constants = {
     Enums: {},
   },
 } as const
+
