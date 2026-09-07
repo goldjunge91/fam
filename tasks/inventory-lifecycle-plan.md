@@ -388,3 +388,50 @@ vorherige Planung, Review-Abweichung oder Verifikation wurde entfernt.
 - **Regressionstests:** Die Upgrade-Kompatibilität sowie die Sequenzen
   `Update → Move → Update` und `Insert → Move → Delete` sind als fokussierte
   Tests festgehalten.
+
+## Increment 3 Status Addendum (2026-09-07)
+
+Dieser Abschnitt ist append-only. Keine vorherige Planung, Review-Abweichung,
+Verifikation oder offene Aufgabe wurde entfernt.
+
+- **`fam-lem.4` / lokale Constraint-Parität:** Das Drizzle-Schema erzwingt nun
+  zusätzlich `transactions_operation_id_move_type` und den partiellen Unique-
+  Index `transactions_operation_type_idx`. Damit sind `operation_id`-Zeilen
+  lokal auf `in`/`out` begrenzt und pro Operation ist höchstens je eine dieser
+  beiden Ledgerzeilen möglich. Die Migration wurde generiert und in
+  `drizzle/local/migrations.js` registriert; der historische Backfill-Eintrag
+  `20260907120000_inventory_expiry_user_set_backfill` blieb erhalten.
+- **Lokale Append-only-Grenze:** `applyLocalMirrorWrite` weist `update`,
+  `delete` und `restore` für `transactions` vor jeder SQLite-Schreiboperation
+  ab. Die bestehende Push-Grenze bleibt als zweite Verteidigungsschicht
+  aktiv.
+- **Pull-Parität:** Der reale lokale Supabase-Pull ist für `transactions` mit
+  `household_id`-Scoping sowie dem stabilen `created_at`-/`id`-Cursor geprüft.
+  Zwei Ledgerzeilen mit gleichem Zeitstempel werden korrekt geordnet; ein
+  späterer Datensatz wird genau einmal nachgezogen.
+- **Gruppierte Outbox:** Die bereits vorhandenen Move-Tests bleiben der
+  Nachweis für gemeinsame lokale Spiegelung, genau einen Outbox-Eintrag,
+  Rollback bei Teilfehlern, atomaren Remote-RPC, Retry-Idempotenz und das
+  Ausbleiben halber Moves.
+
+### Verifikation des Slices
+
+- Lokales Schema-/Upgrade-Integration: **34/34**.
+- Drizzle-Migrationsrunner: **3/3**.
+- Mirror-Write-Integration: **22/22**.
+- Outbox-/Retry-/Entity-Integration: **49/49**.
+- Pull gegen den laufenden lokalen Supabase-Container: **12/12**.
+- Coalesce-Reihenfolge: **32/32**.
+- Lokale Move-/Rollback-Integration: **2/2**.
+- Push gegen den laufenden lokalen Supabase-Container: **14/14**.
+- `bun run check`: **PASS**; nur der bekannte Browserslist-Hinweis bleibt.
+- `bun run db:diff`: **No schema changes found**.
+- `bun run db:types`: ohne inhaltliche Änderung an den generierten Typen.
+- `bun run typecheck`: weiterhin rot wegen der fünf bereits dokumentierten
+  Fehler in den parallelen `.11`-Änderungen, `push.ts` und dem historischen
+  Migrationstest; kein Fehler stammt aus dem lokalen Constraint-Slice.
+
+Damit sind die technischen Acceptance-Kriterien von `fam-lem.4` erfüllt. Der
+manuelle Dev-Client-Durchlauf bleibt als Plattform-/Produktionsverifikation
+separat und ist kein Grund, die lokale SQLite-/Sync-Parität erneut offen zu
+lassen.
