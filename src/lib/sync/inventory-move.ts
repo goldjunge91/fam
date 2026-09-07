@@ -4,10 +4,12 @@ import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
 type TransactionPayload = Omit<
   Database['public']['Tables']['transactions']['Row'],
-  'operation_id' | 'reversal_of'
+  'operation_id' | 'reversal_of' | 'sync_sequence' | 'origin_item_id' | 'origin_quantity'
 > & {
   operation_id: string | null;
   reversal_of?: string | null;
+  origin_item_id?: string | null;
+  origin_quantity?: number | null;
 };
 
 export type InventoryMovePayload = {

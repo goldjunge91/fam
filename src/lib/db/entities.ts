@@ -23,8 +23,8 @@ export type EntityMeta = {
   normalizeQuantityUnits?: true;
   /** Append-only-Tabelle ohne updated_at/deleted_at auf dem Server. */
   appendOnly?: true;
-  /** Remote-Pull-Cursor; Transaktionen werden nach created_at inkrementell geladen. */
-  syncCursorColumn?: 'updated_at' | 'created_at';
+  /** Remote-Pull-Cursor; Transaktionen werden nach der Server-Reihenfolge geladen. */
+  syncCursorColumn?: 'updated_at' | 'created_at' | 'sync_sequence';
   /** Spalten ohne updated_at/deleted_at/_dirty, id zuerst. 1:1 aus migrations.ts's V1_MIRRORS. */
   columns: readonly string[];
   /** Optionale Fehlerreparatur-Strategie, siehe `ForeignKeyViolationResolver`. */
@@ -77,7 +77,7 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     hasServerTombstone: false,
     householdScoped: true,
     appendOnly: true,
-    syncCursorColumn: 'created_at',
+    syncCursorColumn: 'sync_sequence',
     columns: [
       'id',
       'operation_id',
@@ -91,9 +91,12 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
       'location_id',
       'reason',
       'previous_expiry_date',
+      'origin_item_id',
+      'origin_quantity',
       'notes',
       'undone',
       'created_at',
+      'sync_sequence',
     ],
   },
   shopping_list_items: {

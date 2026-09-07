@@ -1,6 +1,6 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { createElement } from 'react';
-import { act, create } from 'react-test-renderer';
+import { notifyManager, QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { act, createElement } from 'react';
+import { createRoot } from 'test-renderer';
 
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
@@ -82,11 +82,15 @@ function HookHarness<T>({ hook, onReady }: { hook: () => T; onReady: (value: T) 
   return null;
 }
 
-function renderMutationHook<T>(hook: () => T) {
-  let current: T;
-  let renderer: ReturnType<typeof create>;
-  act(() => {
-    renderer = create(
+const activeRenderers = new Set<ReturnType<typeof createRoot>>();
+
+async function renderMutationHook<T>(hook: () => T) {
+  let current!: T;
+  const renderer = createRoot();
+  activeRenderers.add(renderer);
+
+  await act(async () => {
+    renderer.render(
       createElement(
         QueryClientProvider,
         { client: createQueryClient() },
@@ -101,7 +105,10 @@ function renderMutationHook<T>(hook: () => T) {
         return current;
       },
     },
-    unmount: () => renderer.unmount(),
+    unmount: async () => {
+      await act(async () => renderer.unmount());
+      activeRenderers.delete(renderer);
+    },
   };
 }
 
@@ -209,6 +216,10 @@ async function outboxRows(db: TestDatabase) {
 describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
   let db: TestDatabase;
 
+  beforeAll(() => {
+    notifyManager.setScheduler((notify) => notify());
+  });
+
   beforeEach(async () => {
     db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);
@@ -218,13 +229,24 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     mockUuidCounter = 0;
   });
 
-  afterEach(() => {
+  afterEach(async () => {
+    const renderers = [...activeRenderers];
+    activeRenderers.clear();
+    await act(async () => {
+      for (const renderer of renderers) {
+        renderer.unmount();
+      }
+    });
     db.close();
     jest.clearAllMocks();
   });
 
+  afterAll(() => {
+    notifyManager.setScheduler((notify) => setTimeout(notify, 0));
+  });
+
   it('add schreibt lokale Bestandszeile, Zugang und zwei Outbox-Einträge', async () => {
-    const { result } = renderMutationHook(() => useAddFridgeItemMutation());
+    const { result } = await renderMutationHook(() => useAddFridgeItemMutation());
 
     await act(async () => {
       await result.current.mutateAsync({
@@ -255,7 +277,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
   it('consume schreibt nur die effektive out-Menge und löscht bei null weich', async () => {
     await insertItem(db);
-    const { result } = renderMutationHook(() => useUpdateInventoryItemQuantityMutation());
+    const { result } = await renderMutationHook(() => useUpdateInventoryItemQuantityMutation());
 
     await act(async () => {
       await result.current.mutateAsync({ id: 'item-1', household_id: 'hh-1', delta: -10 });
@@ -269,12 +291,43 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     expect(await rowsForItem(db, 'item-1')).toEqual([
       expect.objectContaining({ type: 'out', quantity: 3, location_id: 'loc-old' }),
     ]);
-    expect(await outboxRows(db)).toHaveLength(2);
+    expect(await outboxRows(db)).toHaveLength(1);
+  });
+
+  it('serialisiert parallele lokale Verbraeuche und bucht beide Deltas', async () => {
+    await insertItem(db, { ...ITEM_BASE, quantity: 5 });
+    const { result } = await renderMutationHook(() => useUpdateInventoryItemQuantityMutation());
+
+    await act(async () => {
+      await Promise.all([
+        result.current.mutateAsync({ id: 'item-1', household_id: 'hh-1', delta: -1 }),
+        result.current.mutateAsync({ id: 'item-1', household_id: 'hh-1', delta: -1 }),
+      ]);
+    });
+
+    expect(
+      await db.getFirstAsync<{ quantity: number }>(
+        'select quantity from fridge_items where id = ?',
+        ['item-1'],
+      ),
+    ).toEqual({ quantity: 3 });
+    expect(
+      await db.getAllAsync('select id from transactions where fridge_item_id = ?', ['item-1']),
+    ).toHaveLength(2);
+    expect(
+      await db.getAllAsync<{ type: string; quantity: number }>(
+        `select type, quantity from transactions where fridge_item_id = ? order by id`,
+        ['item-1'],
+      ),
+    ).toEqual([
+      { type: 'out', quantity: 1 },
+      { type: 'out', quantity: 1 },
+    ]);
   });
 
   it('manuelle Mengen- und Lagerortkorrektur schreibt Korrektur und gruppierten Move gemeinsam', async () => {
     await insertItem(db);
-    const { result } = renderMutationHook(() => useUpdateFridgeItemMutation());
+    const { result } = await renderMutationHook(() => useUpdateFridgeItemMutation());
 
     await act(async () => {
       await result.current.mutateAsync({ ...ITEM_BASE, quantity: 4, location_id: 'loc-new' });
@@ -288,7 +341,12 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
     expect(item).toEqual({ quantity: 4, location_id: 'loc-new', _dirty: 1 });
     expect(ledger).toEqual([
-      expect.objectContaining({ type: 'in', quantity: 1, operation_id: null }),
+      expect.objectContaining({
+        type: 'in',
+        quantity: 1,
+        location_id: 'loc-old',
+        operation_id: null,
+      }),
       expect.objectContaining({ type: 'out', quantity: 4, location_id: 'loc-old' }),
       expect.objectContaining({ type: 'in', quantity: 4, location_id: 'loc-new' }),
     ]);
@@ -298,7 +356,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
   it('direct move schreibt die zwei Ledger-Legs atomar in einer Move-Outbox-Mutation', async () => {
     await insertItem(db, { ...ITEM_BASE, quantity: 2 });
-    const { result } = renderMutationHook(() => useMoveInventoryItemMutation());
+    const { result } = await renderMutationHook(() => useMoveInventoryItemMutation());
 
     await act(async () => {
       await result.current.mutateAsync({
@@ -319,7 +377,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
   it('waste löscht den Bestand weich und schreibt den Grund ins Ledger', async () => {
     await insertItem(db, { ...ITEM_BASE, quantity: 2 });
-    const { result } = renderMutationHook(() => useWasteInventoryItemMutation());
+    const { result } = await renderMutationHook(() => useWasteInventoryItemMutation());
 
     await act(async () => {
       await result.current.mutateAsync({ item: { ...ITEM_BASE, quantity: 2 }, reason: 'spoiled' });
@@ -337,7 +395,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
   it('open quantity=1 aktualisiert den Bestand in-place und speichert das alte MHD', async () => {
     await insertItem(db, { ...ITEM_BASE, quantity: 1 });
-    const { result } = renderMutationHook(() => useOpenInventoryItemMutation());
+    const { result } = await renderMutationHook(() => useOpenInventoryItemMutation());
 
     await act(async () => {
       await result.current.mutateAsync({ item: { ...ITEM_BASE, quantity: 1 }, quantity: 1 });
@@ -368,7 +426,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
   it('open quantity>1 splittet, bewahrt die Gesamtmenge und referenziert das neue geöffnete Los', async () => {
     await insertItem(db, { ...ITEM_BASE, quantity: 3 });
-    const { result } = renderMutationHook(() => useOpenInventoryItemMutation());
+    const { result } = await renderMutationHook(() => useOpenInventoryItemMutation());
 
     await act(async () => {
       await result.current.mutateAsync({ item: { ...ITEM_BASE, quantity: 3 }, quantity: 1 });
@@ -412,7 +470,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
   it('Undo einer in-place-Öffnung stellt den Vorzustand her und schreibt eine Gegenbuchung', async () => {
     await insertItem(db, { ...ITEM_BASE, quantity: 1 });
-    const openHook = renderMutationHook(() => useOpenInventoryItemMutation());
+    const openHook = await renderMutationHook(() => useOpenInventoryItemMutation());
     await act(async () => {
       await openHook.result.current.mutateAsync({
         item: { ...ITEM_BASE, quantity: 1 },
@@ -440,7 +498,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     }>("select * from transactions where type = 'open' order by rowid limit 1");
     if (!transaction) throw new Error('Open-Transaktion fehlt.');
 
-    const undoHook = renderMutationHook(() => useUndoOpenTransactionMutation());
+    const undoHook = await renderMutationHook(() => useUndoOpenTransactionMutation());
     await act(async () => {
       await undoHook.result.current.mutateAsync({ transaction });
     });
@@ -471,7 +529,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
   it('führt Split-Undo bei einer zwischenzeitlich geänderten Ursprungszeile als Merge-Fallback aus', async () => {
     await insertItem(db);
-    const openHook = renderMutationHook(() => useOpenInventoryItemMutation());
+    const openHook = await renderMutationHook(() => useOpenInventoryItemMutation());
     await act(async () => {
       await openHook.result.current.mutateAsync({ item: { ...ITEM_BASE }, quantity: 1 });
     });
@@ -498,7 +556,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       'item-1',
     ]);
 
-    const undoHook = renderMutationHook(() => useUndoOpenTransactionMutation());
+    const undoHook = await renderMutationHook(() => useUndoOpenTransactionMutation());
     await act(async () => {
       await undoHook.result.current.mutateAsync({ transaction });
     });
@@ -519,7 +577,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
   it('führt Split-Merge über den generischen Undo-Hook aus und verknüpft die Gegenbuchung', async () => {
     await insertItem(db, { ...ITEM_BASE, quantity: 3 });
-    const openHook = renderMutationHook(() => useOpenInventoryItemMutation());
+    const openHook = await renderMutationHook(() => useOpenInventoryItemMutation());
     await act(async () => {
       await openHook.result.current.mutateAsync({
         item: { ...ITEM_BASE, quantity: 3 },
@@ -534,7 +592,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     );
     if (!opened || !source) throw new Error('Split-Quelle fehlt.');
 
-    const undoHook = renderMutationHook(() => useUndoInventoryTransactionMutation());
+    const undoHook = await renderMutationHook(() => useUndoInventoryTransactionMutation());
     await act(async () => {
       await undoHook.result.current.mutateAsync({ transaction: source });
     });
@@ -584,7 +642,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       'item-1',
     ]);
 
-    const undoHook = renderMutationHook(() => useUndoInventoryTransactionMutation());
+    const undoHook = await renderMutationHook(() => useUndoInventoryTransactionMutation());
     const source = await db.getFirstAsync<LocalInventoryTransaction>(
       'select * from transactions where id = ?',
       ['split-open-source'],
@@ -632,7 +690,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       created_at: new Date(Date.now() - 24 * 60 * 60 * 1000 - 1).toISOString(),
     });
 
-    const undoHook = renderMutationHook(() => useUndoInventoryTransactionMutation());
+    const undoHook = await renderMutationHook(() => useUndoInventoryTransactionMutation());
     const source = await db.getFirstAsync<LocalInventoryTransaction>(
       'select * from transactions where id = ?',
       ['source-old-open'],
@@ -670,7 +728,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
   });
 
   it('weist einen Update-Hook für einen lokal fehlenden Bestand zurück und enqueut nichts', async () => {
-    const { result } = renderMutationHook(() => useUpdateFridgeItemMutation());
+    const { result } = await renderMutationHook(() => useUpdateFridgeItemMutation());
 
     await act(async () => {
       await expect(result.current.mutateAsync(ITEM_BASE)).rejects.toThrow('lokal nicht vorhanden');
@@ -680,7 +738,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
   it('weist negative manuelle Mengen vor jeder lokalen Mutation zurück', async () => {
     await insertItem(db);
-    const { result } = renderMutationHook(() => useUpdateFridgeItemMutation());
+    const { result } = await renderMutationHook(() => useUpdateFridgeItemMutation());
 
     await act(async () => {
       await expect(result.current.mutateAsync({ ...ITEM_BASE, quantity: -1 })).rejects.toThrow(
@@ -698,7 +756,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
   it('weist einen Move mit nicht positiver Menge vor der lokalen Mutation zurück', async () => {
     await insertItem(db, { ...ITEM_BASE, quantity: 0 });
-    const { result } = renderMutationHook(() => useMoveInventoryItemMutation());
+    const { result } = await renderMutationHook(() => useMoveInventoryItemMutation());
 
     await act(async () => {
       await expect(
@@ -736,7 +794,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       ]);
     }
 
-    const { result } = renderMutationHook(() => useUndoInventoryTransactionMutation());
+    const { result } = await renderMutationHook(() => useUndoInventoryTransactionMutation());
     const source = await db.getFirstAsync<{
       id: string;
       household_id: string;
@@ -805,7 +863,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       created_at: new Date(Date.now() - 24 * 60 * 60 * 1000 - 1).toISOString(),
     });
 
-    const { result } = renderMutationHook(() => useUndoInventoryTransactionMutation());
+    const { result } = await renderMutationHook(() => useUndoInventoryTransactionMutation());
     const source = await db.getFirstAsync<LocalInventoryTransaction>(
       'select * from transactions where id = ?',
       ['source-old-out'],
@@ -852,7 +910,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
         ]);
       }
 
-      const { result } = renderMutationHook(() => useUndoInventoryTransactionMutation());
+      const { result } = await renderMutationHook(() => useUndoInventoryTransactionMutation());
       const source = await db.getFirstAsync<LocalInventoryTransaction>(
         'select * from transactions where id = ?',
         [`source-old-${type}`],
@@ -895,7 +953,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       created_at: new Date(Date.now() - 60_000).toISOString(),
     });
 
-    const { result } = renderMutationHook(() => useUndoInventoryTransactionMutation());
+    const { result } = await renderMutationHook(() => useUndoInventoryTransactionMutation());
     const source = await db.getFirstAsync<LocalInventoryTransaction>(
       'select * from transactions where id = ?',
       ['move-in'],
@@ -955,7 +1013,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       created_at: createdAt,
     });
 
-    const { result } = renderMutationHook(() => useUndoInventoryTransactionMutation());
+    const { result } = await renderMutationHook(() => useUndoInventoryTransactionMutation());
     const source = await db.getFirstAsync<LocalInventoryTransaction>(
       'select * from transactions where id = ?',
       ['old-move-in'],
@@ -982,7 +1040,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
   it('weist unendliche Verbrauchsdeltas vor dem Enqueue zurück', async () => {
     await insertItem(db);
-    const { result } = renderMutationHook(() => useUpdateInventoryItemQuantityMutation());
+    const { result } = await renderMutationHook(() => useUpdateInventoryItemQuantityMutation());
 
     await act(async () => {
       await expect(

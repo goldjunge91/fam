@@ -169,7 +169,34 @@ describe('coalesce', () => {
     expect(result.pushes).toHaveLength(1);
     expect(result.pushes[0].op).toBe('delete');
     expect(result.pushes[0].sourceIds).toEqual([1, 2]);
+    expect(result.pushes[0].payload).toEqual({ quantity: 3 });
     expect(result.discardable).toEqual([]);
+  });
+
+  it('behält einen lokal angelegten Bestand fuer referenzierende Ledgerzeilen', () => {
+    const result = coalesce([
+      entry('insert', { name: 'Milch', quantity: 5 }, 'item-1', 'fridge_items'),
+      entry(
+        'insert',
+        {
+          id: 'tx-1',
+          household_id: 'hh-1',
+          fridge_item_id: 'item-1',
+          type: 'out',
+          quantity: 5,
+        },
+        'tx-1',
+        'transactions',
+      ),
+      entry('delete', { quantity: 0 }, 'item-1', 'fridge_items'),
+    ]);
+
+    expect(result.discardable).toEqual([]);
+    expect(result.pushes.map(({ op, entity, sourceIds }) => ({ op, entity, sourceIds }))).toEqual([
+      { op: 'insert', entity: 'fridge_items', sourceIds: [1] },
+      { op: 'insert', entity: 'transactions', sourceIds: [2] },
+      { op: 'delete', entity: 'fridge_items', sourceIds: [3] },
+    ]);
   });
 
   it('haelt verschiedene Zeilen auseinander', () => {

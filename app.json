@@ -93,6 +93,7 @@
       "./plugins/withAndroidGradleTuning",
       "./plugins/withIosCcacheDir",
       "expo-image",
+      "./plugins/withPosthogDsymTimeout",
       [
         "posthog-react-native/expo",
         {
@@ -100,7 +101,6 @@
           "skipOnConflict": true
         }
       ],
-      "./plugins/withPosthogDsymTimeout",
       [
         "@sentry/react-native/expo",
         {

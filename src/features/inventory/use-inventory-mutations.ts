@@ -5,8 +5,14 @@ import { useSession } from '@/features/auth/session-provider';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import type { Database } from '@/lib/database.types';
 import { getDatabase } from '@/lib/db/client';
-import { type EnqueueMutationInput, enqueueMutation, enqueueMutations } from '@/lib/db/outbox';
+import {
+  type EnqueueMutationInput,
+  enqueueMutation,
+  enqueueMutations,
+  enqueueMutationsInExclusiveTransaction,
+} from '@/lib/db/outbox';
 import { createInventoryMoveMutation } from '@/lib/sync/inventory-move';
+import { createInventoryQuantityMutation } from '@/lib/sync/inventory-quantity';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 import type { WasteReason } from './components/waste-inventory-item-sheet';
@@ -40,10 +46,12 @@ export type FridgeItem = {
 
 type TransactionPayload = Omit<
   Database['public']['Tables']['transactions']['Row'],
-  'operation_id' | 'reversal_of'
+  'operation_id' | 'reversal_of' | 'sync_sequence' | 'origin_item_id' | 'origin_quantity'
 > & {
   operation_id: string | null;
   reversal_of: string | null;
+  origin_item_id?: string | null;
+  origin_quantity?: number | null;
 };
 type TransactionDraft = Omit<TransactionPayload, 'operation_id' | 'reversal_of'> & {
   operation_id?: string | null;
@@ -157,6 +165,8 @@ function transactionPayloadFromPlan(
     location_id: transaction.locationId,
     reason: transaction.reason ?? null,
     previous_expiry_date: transaction.previousExpiryDate,
+    origin_item_id: transaction.originItemId ?? null,
+    origin_quantity: transaction.originQuantity ?? null,
     notes: transaction.notes ?? null,
     undone: false,
     created_at: transaction.createdAt,
@@ -335,64 +345,58 @@ export function useUpdateInventoryItemQuantityMutation() {
       const db = await getDatabase();
       const now = new Date().toISOString();
       const nowMs = Date.now();
-      const existing = await db.getFirstAsync<{
-        quantity: number;
-        name: string;
-        product_id: string | null;
-        location_id: string | null;
-        expiry_date: string | null;
-      }>(
-        'select quantity, name, product_id, location_id, expiry_date from fridge_items where id = ?',
-        [id],
-      );
-      if (!existing) return;
+      let result: { id: string; newQty: number } | undefined;
 
-      const newQty = Math.max(0, existing.quantity + delta);
-      const changedQty = Math.abs(newQty - existing.quantity);
-      if (changedQty === 0) return { id, newQty };
-      const transactionId = Crypto.randomUUID();
-      const transaction: TransactionDraft = {
-        id: transactionId,
-        household_id,
-        fridge_item_id: id,
-        product_id: existing.product_id,
-        actor,
-        type: delta < 0 ? 'out' : 'in',
-        quantity: changedQty,
-        location_id: existing.location_id,
-        reason: null,
-        previous_expiry_date: null,
-        notes: null,
-        undone: false,
-        created_at: now,
-      };
+      await enqueueMutationsInExclusiveTransaction(db, async (txn) => {
+        const existing = await txn.getFirstAsync<{
+          quantity: number;
+          product_id: string | null;
+          location_id: string | null;
+        }>('select quantity, product_id, location_id from fridge_items where id = ?', [id]);
+        if (!existing) return [];
 
-      if (newQty === 0) {
-        await enqueueMutations(db, [
-          {
-            entity: 'fridge_items',
-            entityId: id,
-            op: 'delete',
-            payload: { id, household_id, deleted_at: now, updated_at: now },
-            applyLocally: (txn) =>
-              applyLocalMirrorWrite(txn, 'fridge_items', 'delete', { id }, nowMs),
-          },
-          transactionMutation(transaction, nowMs),
-        ]);
-      } else {
-        await enqueueMutations(db, [
-          {
-            entity: 'fridge_items',
-            entityId: id,
-            op: 'update',
-            payload: { id, household_id, quantity: newQty, updated_at: now },
-            applyLocally: (txn) =>
-              applyLocalMirrorWrite(txn, 'fridge_items', 'update', { id, quantity: newQty }, nowMs),
-          },
-          transactionMutation(transaction, nowMs),
-        ]);
-      }
-      return { id, newQty };
+        const newQty = Math.max(0, existing.quantity + delta);
+        result = { id, newQty };
+        const effectiveDelta = newQty - existing.quantity;
+        if (effectiveDelta === 0) return [];
+
+        const transactionId = Crypto.randomUUID();
+        const operationId = Crypto.randomUUID();
+        const transaction: TransactionDraft = {
+          id: transactionId,
+          operation_id: operationId,
+          household_id,
+          fridge_item_id: id,
+          product_id: existing.product_id,
+          actor,
+          type: effectiveDelta < 0 ? 'out' : 'in',
+          quantity: Math.abs(effectiveDelta),
+          location_id: existing.location_id,
+          reason: null,
+          previous_expiry_date: null,
+          notes: null,
+          undone: false,
+          created_at: now,
+        };
+
+        return [
+          createInventoryQuantityMutation({
+            payload: {
+              operation_id: operationId,
+              transaction_id: transactionId,
+              item_id: id,
+              household_id,
+              delta: effectiveDelta,
+              created_at: now,
+            },
+            transaction,
+            resultQuantity: newQty,
+            nowMs,
+          }),
+        ];
+      });
+
+      return result;
     },
     onSuccess: (result, variables) => {
       if (result) {
@@ -493,7 +497,7 @@ export function useUpdateFridgeItemMutation() {
               actor,
               type: item.quantity > existing.quantity ? 'in' : 'out',
               quantity: Math.abs(item.quantity - existing.quantity),
-              location_id: isDepleted ? existing.location_id : item.location_id,
+              location_id: existing.location_id,
               reason: null,
               previous_expiry_date: null,
               notes: '[Manual correction]',
@@ -765,7 +769,10 @@ export function useUndoOpenTransactionMutation() {
       );
       if (!openedRow) throw new Error('Der geöffnete Bestand ist nicht mehr vorhanden.');
 
-      const splitOriginItemId = getSplitOriginItemId({ notes: transaction.notes });
+      const splitOriginItemId = getSplitOriginItemId({
+        originItemId: transaction.origin_item_id,
+        notes: transaction.notes,
+      });
       const sealedRow = splitOriginItemId
         ? await db.getFirstAsync<LocalInventoryItem>(
             `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
@@ -791,6 +798,7 @@ export function useUndoOpenTransactionMutation() {
         householdId: transaction.household_id,
         fridgeItemId: transaction.fridge_item_id,
         originItemId: splitOriginItemId,
+        originQuantity: transaction.origin_quantity,
         productId: transaction.product_id,
         locationId: transaction.location_id,
         previousExpiryDate: transaction.previous_expiry_date,

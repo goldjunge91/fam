@@ -185,6 +185,8 @@ describe('planUndoOpenTransaction', () => {
         type: 'open',
         quantity: 1,
         previousExpiryDate: '2026-12-31',
+        originItemId: 'sealed-lot',
+        originQuantity: 3,
         notes: splitTransactionNotes('sealed-lot'),
         createdAt: '2026-08-05T14:30:00.000Z',
       },
@@ -196,6 +198,42 @@ describe('planUndoOpenTransaction', () => {
     expect(plan.mode).toBe('merge-split');
     expect(plan.sealedPatch).toEqual({ quantity: 3 });
     expect(plan.deleteOpenedItem).toBe(true);
+  });
+
+  it('ignoriert serverseitige updated_at-Drift bei stabiler Split-Provenienz', () => {
+    const sealed = {
+      ...ITEM,
+      quantity: 2,
+      updatedAt: '2026-08-05T15:00:00.000Z',
+    };
+    const opened = {
+      ...ITEM,
+      id: 'opened-lot',
+      quantity: 1,
+      openedAt: '2026-08-05T14:30:00.000Z',
+      expiryDate: '2026-08-10',
+    };
+    const plan = planUndoOpenTransaction(
+      {
+        id: 'transaction-1',
+        householdId: 'household-1',
+        fridgeItemId: 'opened-lot',
+        productId: 'mustard',
+        locationId: 'fridge',
+        type: 'open',
+        quantity: 1,
+        previousExpiryDate: '2026-12-31',
+        originItemId: 'sealed-lot',
+        originQuantity: 3,
+        notes: splitTransactionNotes('sealed-lot'),
+        createdAt: '2026-08-05T14:30:00.000Z',
+      },
+      opened,
+      sealed,
+      new Date('2026-08-05T15:00:00.000Z'),
+    );
+
+    expect(plan.mode).toBe('merge-split');
   });
 
   it('verweigert das Merge eines attributgleichen Duplicate-Lots ohne Ursprungs-ID', () => {
@@ -230,7 +268,7 @@ describe('planUndoOpenTransaction', () => {
     expect(plan.sealedPatch).toBeNull();
   });
 
-  it('verwendet den maschinenlesbaren Notes-Ursprung statt einer widersprüchlichen Nebenreferenz', () => {
+  it('verwendet die stabile DB-Ursprungsreferenz für das Split-Merge', () => {
     const sealed = { ...ITEM, quantity: 2 };
     const opened = {
       ...ITEM,
@@ -248,8 +286,9 @@ describe('planUndoOpenTransaction', () => {
         type: 'open',
         quantity: 1,
         previousExpiryDate: '2026-12-31',
-        originItemId: 'wrong-sealed-lot',
-        notes: splitTransactionNotes('sealed-lot'),
+        originItemId: 'sealed-lot',
+        originQuantity: 3,
+        notes: splitTransactionNotes('wrong-sealed-lot'),
         createdAt: '2026-08-05T14:30:00.000Z',
       },
       opened,
@@ -339,6 +378,8 @@ describe('planUndoOpenTransaction', () => {
         type: 'open',
         quantity: 1,
         previousExpiryDate: '2026-12-31',
+        originItemId: 'sealed-lot',
+        originQuantity: 3,
         notes: splitTransactionNotes('sealed-lot'),
         createdAt: '2026-08-05T14:30:00.000Z',
       },
@@ -374,6 +415,8 @@ describe('planUndoOpenTransaction', () => {
         type: 'open',
         quantity: 1,
         previousExpiryDate: '2026-12-31',
+        originItemId: 'sealed-lot',
+        originQuantity: 3,
         notes: splitTransactionNotes('sealed-lot'),
         createdAt: '2026-08-05T14:30:00.000Z',
       },

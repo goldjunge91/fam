@@ -513,3 +513,307 @@ Die Aussage im historischen Increment-4-Abschnitt, dass `fam-lem.2` und
 vollständigen Matrix-/Lifecycle-Verifikation wurden beide Dependencies in
 Beads geschlossen. Offen und absichtlich separat bleiben nur der allgemeine
 Undo-Vertrag `fam-lem.12` sowie die nachgelagerte UI-Aufgabe `fam-lem.7`.
+
+## Fehlerbehebungsplan: Sync- und Ledger-Rennen (2026-09-07)
+
+Dieser Abschnitt ist append-only und beschreibt die sieben Befunde aus der
+aktuellen Prüfung des Folgecommits `ea8f6ec4`. Die Fehler treten in
+unterbrochener Synchronisierung, konkurrierenden Aktionen und der zeitlichen
+Entkopplung von Client- und Serverdaten auf. Der bestehende Plan wird nicht
+überschrieben. Die langlebige Taskquelle bleibt Beads; `tasks/todo.md` wird
+nicht angelegt.
+
+### Befund-Matrix
+
+| Befund | Symptom | Task |
+| --- | --- | --- |
+| 1 | Eine offline früher erzeugte Ledger-Buchung liegt hinter dem Cursor eines anderen Geräts und wird nie gepullt. | `fam-lem.13` |
+| 2 | Outbox-Coalescing verwirft referenzierte Bestände oder verliert die zuletzt korrigierte Menge vor einem Delete. | `fam-lem.14` |
+| 3 | Eine spätere Operation überholt einen Vorgänger während dessen Retry-Backoff. | `fam-lem.14` |
+| 4 | Eine Push-Antwort überschreibt lokale Mutationen, die während des Requests entstanden sind. | `fam-lem.14` |
+| 5 | Konkurrierender Verbrauch schreibt denselben absoluten Bestand, aber mehrere Ledgerbewegungen. | `fam-lem.15` |
+| 6 | Mengen- und Lagerortkorrektur bucht den Mengendelta am neuen statt am alten Ort. | `fam-lem.16` |
+| 7 | Split-Undo vergleicht Client-Öffnungszeit mit serverseitigem `updated_at` und fällt nach Sync fälschlich zurück. | `fam-lem.17` |
+
+### Architekturentscheidungen
+
+- `transactions.created_at` bleibt die fachliche Ereigniszeit. Für den Pull
+  wird zusätzlich eine servergenerierte, monotone `sync_sequence` verwendet;
+  sie darf nicht aus dem Client-Payload stammen. Bestehende lokale
+  `transactions`-Cursor werden einmalig auf den Anfang zurückgesetzt, damit
+  bereits vorhandene Historie vollständig und idempotent nachgeladen wird.
+- Der bestehende Outbox-Vertrag bleibt die einzige lokale Persistenzgrenze.
+  Für abhängige, mehrzeilige Mengenoperationen wird ein typisierter
+  Gruppen-Op verwendet. Outbox-Einträge werden auch dann berücksichtigt,
+  wenn sie wegen `next_attempt_at` noch nicht fällig sind; nur die betroffene
+  Entity/ID wird blockiert, unabhängige Haushaltsdaten bleiben synchronisierbar.
+- Ein erfolgreicher Push darf die Serverantwort nur dann als cleanen lokalen
+  Zustand übernehmen, wenn nach dem Push-Commit keine jüngere lokale Mutation
+  für dieselbe Entity/ID wartet. Andernfalls bleiben lokaler Zustand und
+  `_dirty` erhalten.
+- Mengenänderungen werden als Delta mit erwarteter Ausgangsmenge und
+  Idempotenzschlüssel verarbeitet. Lokal liegen Lesen, Berechnung, Spiegel und
+  Outbox in einer exklusiven SQLite-Transaktion; remote sperrt eine
+  serverseitige Funktion die Bestandszeile und schreibt Bestandsänderung und
+  Ledgerzeile gemeinsam.
+- Split-Provenienz wird als typisierte Fachdaten mit stabiler Ursprungs-ID und
+  unveränderlichem Split-Snapshot persistiert. `client-created_at` und
+  `server-updated_at` dürfen nie als identische Versionswerte verglichen
+  werden.
+- Serveränderungen entstehen ausschließlich aus `supabase/schemas/*.sql` über
+  `bun run db:diff`; lokale SQLite-Änderungen werden als reguläre
+  Drizzle-/App-Migration ergänzt. Es werden keine bestehenden Migrationen von
+  Hand editiert.
+
+### Ausführungsreihenfolge
+
+#### Task 1 — `fam-lem.13`: Server-Cursor und Historien-Rebase
+
+**Beschreibung:**
+
+Die Pull-Reihenfolge von `transactions` wird von der fachlichen
+Ereigniszeit entkoppelt. Server-/lokale Schema- und Typgrenzen, Cursorlogik,
+Pull-Paging sowie der einmalige Reset des bestehenden Transaction-Cursors
+werden gemeinsam geändert.
+
+**Abnahmekriterien:**
+
+- [ ] Jede neue Transaktion erhält eine servergenerierte monotone
+      `sync_sequence`; `created_at` bleibt unverändert als Ereigniszeit
+      erhalten und wird nicht als Sync-Cursor verwendet.
+- [ ] Gleichstände, Seitenwechsel und ein offline um 10:00 erzeugtes Event,
+      das erst nach einem Pull bis 12:00 auf den Server gelangt, werden genau
+      einmal verarbeitet.
+- [ ] Bestehende Geräte laden die Transaktionshistorie nach dem Upgrade
+      einmal vollständig nach; lokale Pending-Ledgerdaten bleiben erhalten.
+- [ ] Declarative Serverquelle, generierte Migration, lokales Mirror-Schema,
+      Cursor-Typen und `database.types.ts` sind synchron.
+
+**Verifikation:**
+
+- [ ] Fokussierte Pull-/Cursor-/Upgrade-Tests mit realer SQLite-Testengine.
+- [ ] `bun run db:diff` ist nach der Änderung leer und `bun run db:types` ist
+      ausgeführt.
+- [ ] `bun run typecheck` und `bun run check` sind grün.
+
+**Abhängigkeiten:** Keine.
+
+**Voraussichtlich betroffene Dateien:**
+
+- `supabase/schemas/08_inventory.sql`
+- `src/lib/db/entities.ts`, `src/lib/db/sync-state.ts`, `src/lib/sync/pull.ts`
+- `src/lib/sync/mirror-write.ts`, `src/lib/db/migrations.ts`
+- `src/lib/db/schemas/inventory.ts`, Drizzle-Migrationen,
+  `src/lib/database.types.ts`
+- Pull-/Cursor-/Schema-Integrationstests und ein pgTAP-Nachweis
+
+**Geschätzter Umfang:** Groß, 5+ Dateien wegen Cross-Surface-Schema.
+
+#### Task 2 — `fam-lem.14`: Outbox-Abhängigkeiten, Tombstones und Push-Rebase
+
+**Beschreibung:**
+
+Coalescing und Push-Lauf werden so erweitert, dass abhängige Operationen ihre
+Voraussetzungen behalten. `insert → delete` einer referenzierten
+`fridge_items`-Zeile bleibt als gültige Serverzeile/Tombstone erhalten,
+`update → delete` überträgt den finalen Mengenstand, Retry-Backoff erzeugt
+keine Überholungen und Push-Antworten respektieren jüngere lokale Outbox-
+Mutationen.
+
+**Abnahmekriterien:**
+
+- [ ] Ein offline angelegter und vollständig verbrauchter Bestand bleibt bis
+      zum Ledger-Push referenzierbar und endet remote als konsistenter
+      Tombstone; die Outbox verwirft keine notwendige Voraussetzung.
+- [ ] `quantity = 5 → 3 → 0` pusht einen Tombstone mit Menge 3, sodass ein
+      späteres Undo die richtige Bilanz verwenden kann.
+- [ ] Ein späterer Move/Update desselben Artikels wartet hinter jedem offenen
+      Vorgänger, auch bei zukünftigem `next_attempt_at`; unabhängige IDs werden
+      weiter verarbeitet.
+- [ ] Nach einer erfolgreichen Serverantwort bleibt eine während des Requests
+      entstandene lokale Mutation samt `_dirty` erhalten und wird nicht durch
+      die ältere Serverzeile überschrieben.
+
+**Verifikation:**
+
+- [ ] Unit-Tests für Coalescing inklusive Quellenabdeckung und Reihenfolge.
+- [ ] SQLite-Outbox-Integration für Backoff-Abhängigkeiten und Tombstones.
+- [ ] Push-Integration für Rebase während eines laufenden Requests.
+- [ ] Fokussierte Tests, `bun run typecheck`, `bun run check` und
+      `git diff --check` sind grün.
+
+**Abhängigkeiten:** Keine.
+
+**Voraussichtlich betroffene Dateien:**
+
+- `src/lib/sync/coalesce.ts`, `src/lib/db/outbox.ts`, `src/lib/sync/push.ts`
+- `src/lib/sync/coalesce.test.ts`, `src/lib/db/outbox*.test.ts`,
+  `src/lib/sync/push*.test.ts`
+
+**Geschätzter Umfang:** Mittel, 3–5 Produktionsdateien plus fokussierte Tests.
+
+#### Checkpoint A — nach `fam-lem.13` und `fam-lem.14`
+
+- [ ] Verspätete Ledger-Events sind nach einem Cursor-Fortschritt erreichbar.
+- [ ] Keine referenzierte Bestandszeile wird durch Coalescing vor ihrem Ledger
+      entfernt.
+- [ ] Ein Retry-Vorgänger kann im Test nicht von einer späteren Operation
+      überholt werden.
+- [ ] Push-Antworten überschreiben keine neueren lokalen Mutationen.
+
+#### Task 3 — `fam-lem.15`: Atomare Mengen-Delta-Operation
+
+**Beschreibung:**
+
+Die mengenverändernden Inventory-Hooks werden auf einen gemeinsamen
+transaktionsgebundenen lokalen Read-/Calculate-/Write-Pfad umgestellt. Der
+Remote-Push erhält eine idempotente, autorisierte RPC für die Delta-Anwendung
+und Ledgerbuchung. Konflikte oder unzulässige Mengen werden vollständig
+abgelehnt, ohne eine halbe Bestands- oder Ledgeränderung zu hinterlassen.
+
+**Abnahmekriterien:**
+
+- [ ] Zwei gleichzeitig gestartete lokale Verbrauchsaktionen lesen nicht
+      denselben Ausgangswert; lokale Menge und Ledgerbilanz stimmen exakt.
+- [ ] Zwei Geräte verlieren bei gleichzeitigem Delta keine Bewegung; die
+      Serverzeile und die Ledgerhistorie bleiben konsistent.
+- [ ] Wiederholung derselben Operation ist idempotent; ein Fehler zwischen
+      Bestands- und Ledgerteil lässt beide remote unverändert.
+- [ ] Depletion erzeugt nur eine positive effektive `out`-Buchung und keinen
+      Nullmengen- oder Phantom-Eintrag.
+
+**Verifikation:**
+
+- [ ] Lokale SQLite-Integration mit konkurrierenden Mutation-Aufrufen und
+      Rollback.
+- [ ] Serverseitiger pgTAP-/RPC-Nachweis für Zeilensperre, Delta,
+      Idempotenz, Konflikt und Rollback.
+- [ ] Fokussierte Mutation-/Push-Tests, `bun run typecheck`, `bun run check`,
+      `bun run db:diff`, `bun run db:types`.
+
+**Abhängigkeiten:** `fam-lem.14`.
+
+**Voraussichtlich betroffene Dateien:**
+
+- `supabase/schemas/08_inventory.sql`, `supabase/schemas/20_privileges.sql`
+- `src/features/inventory/use-inventory-mutations.ts`
+- `src/lib/db/outbox.ts`, lokale Schema-/Migrationdateien
+- `src/lib/sync/push.ts` und ein typisierter Quantity-Op-Vertrag
+- `src/lib/database.types.ts`, Supabase-/SQLite-/Hook-Tests
+
+**Geschätzter Umfang:** Groß, 5+ Dateien wegen lokalem und serverseitigem
+Mutation-Vertrag.
+
+#### Task 4 — `fam-lem.16`: Kombinierte Mengen-/Lagerortkorrektur
+
+**Beschreibung:**
+
+Bei einer Korrektur von Menge und Lagerort wird zuerst die Mengenänderung am
+bisherigen Lagerort gebucht und danach die korrigierte Gesamtmenge über die
+atomare Move-Gruppe verschoben. Depletion bleibt am alten Ort und erzeugt
+keinen zusätzlichen Move.
+
+**Abnahmekriterien:**
+
+- [ ] `3 in A → 4 in B` ergibt Ledger A `-1` und B `+4`, ohne zusätzliche
+      `+1`-Buchung in B.
+- [ ] Lokaler Mirror, Outbox-Reihenfolge und Remote-Erwartungsmenge bilden
+      dieselbe Sequenz ab.
+- [ ] `3 in A → 0` mit geändertem Ziel löscht am alten Ort und erzeugt keine
+      ungültige oder leere Move-Gruppe.
+
+**Verifikation:**
+
+- [ ] Fokussierter Hook-Test plus echte SQLite-Integration der Sequenz.
+- [ ] Remote-/Push-Test beweist alte Ledgerposition, neue Move-Gesamtmenge
+      und Retry-Verhalten.
+- [ ] `bun run test <betroffene Dateien>`, `bun run typecheck`, `bun run check`.
+
+**Abhängigkeiten:** `fam-lem.15`.
+
+**Voraussichtlich betroffene Dateien:**
+
+- `src/features/inventory/use-inventory-mutations.ts`
+- `src/lib/sync/inventory-move.ts` bzw. der Quantity-Op-Vertrag
+- Inventory-Hook- und Integrationstests
+
+**Geschätzter Umfang:** Mittel, 3–5 Dateien.
+
+#### Task 5 — `fam-lem.17`: Split-Undo mit stabiler Provenienz
+
+**Beschreibung:**
+
+Die Split-Ursprungsreferenz und der unveränderliche Snapshot werden für
+`open`-Transaktionen eindeutig persistiert. `sameSplitIdentity()` verwendet
+die fachliche Provenienz und relevante unveränderliche Eigenschaften, aber
+keinen Gleichheitsvergleich zwischen Client-Ereigniszeit und
+Server-`updated_at`.
+
+**Abnahmekriterien:**
+
+- [ ] Ein unveränderter Split wird nach erfolgreichem Push/Pull trotz neuem
+      serverseitigem `updated_at` wieder zusammengeführt.
+- [ ] Ein geänderter Ursprung oder ein nicht eindeutig zuordenbarer Lot fällt
+      sicher zurück und wird nicht mit einem anderen identischen Lot gemerged.
+- [ ] Wiederholtes Undo bleibt idempotent und die Provenienz ist im lokalen
+      und serverseitigen Ledger nachvollziehbar.
+
+**Verifikation:**
+
+- [ ] Unit-Test für Provenienz-/Merge-Entscheidung.
+- [ ] SQLite-Integration „Split → Sync-Antwort → Undo“ sowie Duplicate-Lot-
+      und geänderter-Ursprung-Fälle.
+- [ ] Falls Schemafelder ergänzt werden: `bun run db:diff`, `bun run db:types`,
+      relevante pgTAP-/Upgrade-Tests, anschließend `bun run typecheck` und
+      `bun run check`.
+
+**Abhängigkeiten:** Keine; kann parallel zu `fam-lem.13`–`.16` vorbereitet
+werden, integriert sich aber vor dem Abschlusscheckpoint.
+
+**Voraussichtlich betroffene Dateien:**
+
+- `src/features/inventory/inventory-lifecycle.ts`
+- `src/features/inventory/use-inventory-mutations.ts`
+- `src/features/inventory/use-inventory-transactions.ts`
+- ggf. `supabase/schemas/08_inventory.sql`, lokale Inventory-Schemas,
+  Migrationen und `src/lib/database.types.ts`
+- Lifecycle-, Mutation-, Pull- und Schema-Tests
+
+**Geschätzter Umfang:** Mittel bis groß, abhängig davon, ob Provenienz als
+erstklassige Spalten oder als kompatibler strukturierter Payload migriert wird.
+
+### Checkpoint B — vor Abschluss des Epic
+
+- [ ] Alle sieben Befunde sind mit einem fokussierten Regressionstest
+      reproduzierbar und behoben.
+- [ ] `bun run typecheck`, `bun run check` und `git diff --check` sind grün;
+      nicht betroffene vorbestehende Fehler werden separat dokumentiert.
+- [ ] Bei Serveränderungen: `bun run db:diff` meldet keine offenen Diffs,
+      `bun run db:types` ist synchron, relevante `bun run test:db`-Tests und
+      `bun run db:advisors` sind ausgeführt.
+- [ ] Keine lokale Supabase-Instanz wird für diese Planung gestartet,
+      gestoppt oder zurückgesetzt; der Dev-Client-/Offline-Durchlauf wird als
+      eigener manueller Nachweis dokumentiert.
+
+### Risiken und Gegenmaßnahmen
+
+| Risiko | Auswirkung | Gegenmaßnahme |
+| --- | --- | --- |
+| Servercursor wird eingeführt, ohne alte lokale Cursor zurückzusetzen | Historische Ledgerzeilen bleiben auf einzelnen Geräten unsichtbar | Versionierter/gezielter Transaction-Cursor-Reset mit vollständigem Pull-Test |
+| Alle pending Outbox-Zeilen werden geladen und fälschlich gemeinsam coalesct | Backoff wird umgangen oder eine spätere Mutation verliert ihre Semantik | Gruppen-Op- und Due-Metadaten getrennt halten; pro Entity/ID nur geordnete Gruppen blockieren |
+| Delta-RPC und alte absolute Updates existieren parallel | Gerätebilanz bleibt trotz neuer RPC inkonsistent | Produktiven Inventory-Schreibpfad statisch inventarisieren und jeden Mengenpfad auf genau einen Vertrag umstellen |
+| Split-Provenienz bleibt nur in freien Notizen | Parser-/Kompatibilitätsfehler können falsche Lots mergen | First-class typed provenance bevorzugen; Legacy-Notizen nur als sicherer Fallback lesen |
+
+### Offene Entscheidungen vor Implementierung
+
+- [ ] Bestätigen, dass `sync_sequence` als servergenerierte Identity-Spalte
+      der gewünschte Cursorvertrag ist und der einmalige Historien-Rebase auf
+      bestehenden Geräten akzeptiert wird.
+- [ ] Bestätigen, ob ein negativer Mengen-Delta bei remote inzwischen zu
+      kleinem Bestand als Konflikt abgelehnt wird oder serverseitig bis null
+      geklemmt werden soll. Der Plan verwendet standardmäßig Konfliktablehnung,
+      weil nur so eine falsche Ledgermenge ausgeschlossen ist.
+- [ ] Bestätigen, ob Split-Provenienz als eigene Transaktionsspalten oder als
+      versionierter, strukturierter Payload eingeführt wird. Die fachliche
+      Mindestanforderung ist in beiden Varianten dieselbe: stabile
+      Ursprungsreferenz, unveränderlicher Snapshot, kein Zeitstempelvergleich.

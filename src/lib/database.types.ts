@@ -2679,11 +2679,14 @@ export type Database = {
           location_id: string | null
           notes: string | null
           operation_id: string | null
+          origin_item_id: string | null
+          origin_quantity: number | null
           previous_expiry_date: string | null
           product_id: string | null
           quantity: number
           reason: string | null
           reversal_of: string | null
+          sync_sequence: number
           type: string
           undone: boolean
         }
@@ -2696,11 +2699,14 @@ export type Database = {
           location_id?: string | null
           notes?: string | null
           operation_id?: string | null
+          origin_item_id?: string | null
+          origin_quantity?: number | null
           previous_expiry_date?: string | null
           product_id?: string | null
           quantity: number
           reason?: string | null
           reversal_of?: string | null
+          sync_sequence?: number
           type: string
           undone?: boolean
         }
@@ -2713,11 +2719,14 @@ export type Database = {
           location_id?: string | null
           notes?: string | null
           operation_id?: string | null
+          origin_item_id?: string | null
+          origin_quantity?: number | null
           previous_expiry_date?: string | null
           product_id?: string | null
           quantity?: number
           reason?: string | null
           reversal_of?: string | null
+          sync_sequence?: number
           type?: string
           undone?: boolean
         }
@@ -2748,6 +2757,13 @@ export type Database = {
             columns: ["location_id"]
             isOneToOne: false
             referencedRelation: "storage_locations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "transactions_origin_item_id_fkey"
+            columns: ["origin_item_id"]
+            isOneToOne: false
+            referencedRelation: "fridge_items"
             referencedColumns: ["id"]
           },
           {
@@ -3007,6 +3023,17 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      adjust_fridge_item_quantity: {
+        Args: {
+          p_created_at: string
+          p_delta: number
+          p_household_id: string
+          p_item_id: string
+          p_operation_id: string
+          p_transaction_id: string
+        }
+        Returns: string
+      }
       apply_plus_household_event: {
         Args: {
           p_active: boolean

@@ -591,6 +591,89 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
     expect(failedLedger.data).toEqual([]);
   }, 30_000);
 
+  it('pusht eine Mengenänderung als Delta mit Ledgerbuchung und wiederholt sie idempotent', async () => {
+    const itemId = crypto.randomUUID();
+    const { error: itemError } = await client.from('fridge_items').insert({
+      id: itemId,
+      household_id: householdId,
+      name: 'Delta-Milch',
+      quantity: 5,
+      unit: 'piece',
+    });
+    expect(itemError).toBeNull();
+
+    await db.runAsync(
+      `insert into fridge_items
+         (id, household_id, name, quantity, unit, created_at, updated_at, _dirty)
+       values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [itemId, householdId, 'Delta-Milch', 3, 'piece', 1, 1, 1],
+    );
+
+    const operationId = crypto.randomUUID();
+    const transactionId = crypto.randomUUID();
+    const createdAt = new Date().toISOString();
+    const payload = {
+      operation_id: operationId,
+      transaction_id: transactionId,
+      item_id: itemId,
+      household_id: householdId,
+      delta: -2,
+      created_at: createdAt,
+    };
+
+    await db.runAsync(
+      `insert into transactions
+         (id, operation_id, household_id, fridge_item_id, type, quantity,
+          location_id, undone, created_at, updated_at, _dirty)
+       values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [transactionId, operationId, householdId, itemId, 'out', 2, null, 0, createdAt, 1, 1],
+    );
+    await insertOutboxRow(db, {
+      entity: 'fridge_items',
+      entityId: itemId,
+      op: 'adjust_quantity',
+      payload,
+    });
+
+    const firstResult = await pushOutbox({ db, supabase: client });
+    expect(firstResult.outcomes[0]).toMatchObject({
+      kind: 'pushed',
+      entity: 'fridge_items',
+      entityId: itemId,
+    });
+    const remoteItem = await client
+      .from('fridge_items')
+      .select('quantity')
+      .eq('id', itemId)
+      .single();
+    expect(remoteItem.data?.quantity).toBe(3);
+    const remoteLedger = await client
+      .from('transactions')
+      .select('id, type, quantity')
+      .eq('id', transactionId)
+      .single();
+    expect(remoteLedger.data).toMatchObject({ id: transactionId, type: 'out', quantity: 2 });
+    expect(
+      await db.getFirstAsync<{ quantity: number; dirty: number }>(
+        'select quantity, _dirty as dirty from fridge_items where id = ?',
+        [itemId],
+      ),
+    ).toEqual({ quantity: 3, dirty: 0 });
+
+    await insertOutboxRow(db, {
+      entity: 'fridge_items',
+      entityId: itemId,
+      op: 'adjust_quantity',
+      payload,
+      createdAt: 2,
+    });
+    const retryResult = await pushOutbox({ db, supabase: client });
+    expect(retryResult.outcomes[0]).toMatchObject({ kind: 'pushed' });
+    expect(
+      (await client.from('transactions').select('id').eq('id', transactionId)).data,
+    ).toHaveLength(1);
+  }, 30_000);
+
   it('ein leerer Outbox-Lauf ist ein No-Op', async () => {
     const result = await pushOutbox({ db, supabase: client });
     expect(result).toEqual({ outcomes: [], stoppedEarly: false });

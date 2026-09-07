@@ -152,6 +152,16 @@ revoke execute on function private.delete_orphaned_household() from public, anon
 revoke execute on function public.create_household(text) from public, anon;
 grant execute on function public.create_household(text) to authenticated;
 
+revoke execute on function public.adjust_fridge_item_quantity(
+  uuid, uuid, uuid, uuid, numeric, timestamptz
+) from public;
+revoke all on function public.adjust_fridge_item_quantity(
+  uuid, uuid, uuid, uuid, numeric, timestamptz
+) from anon;
+grant execute on function public.adjust_fridge_item_quantity(
+  uuid, uuid, uuid, uuid, numeric, timestamptz
+) to authenticated;
+
 revoke execute on function public.move_fridge_item(
   uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz
 ) from public, anon;

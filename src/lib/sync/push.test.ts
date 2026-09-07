@@ -1,8 +1,10 @@
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
-import { enqueueMutation } from '@/lib/db/outbox';
+import { enqueueMutation, recordOutboxOutcome } from '@/lib/db/outbox';
 import type { TypedSupabaseClient } from '@/lib/supabase';
+import { createInventoryQuantityMutation } from '@/lib/sync/inventory-quantity';
+import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { pushOutbox } from '@/lib/sync/push';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
@@ -237,6 +239,339 @@ describe('pushOutbox — append-only Ledger', () => {
         await db.getFirstAsync<{ dirty: number }>(
           'select _dirty as dirty from transactions where id = ?',
           [transactionId],
+        ),
+      ).toEqual({ dirty: 0 });
+    } finally {
+      db.close();
+    }
+  });
+});
+
+describe('pushOutbox — Tombstone bewahrt den letzten Bestandssnapshot', () => {
+  it('sendet die letzte lokale Menge zusammen mit dem Tombstone', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+
+    await enqueueMutation(db, {
+      entity: 'fridge_items',
+      entityId: 'item-delete',
+      op: 'update',
+      payload: { id: 'item-delete', quantity: 3 },
+      now: 1,
+      applyLocally: async () => {},
+    });
+    await enqueueMutation(db, {
+      entity: 'fridge_items',
+      entityId: 'item-delete',
+      op: 'delete',
+      payload: { id: 'item-delete' },
+      now: 2,
+      applyLocally: async () => {},
+    });
+
+    const remoteRow = {
+      id: 'item-delete',
+      household_id: 'hh-1',
+      location_id: null,
+      product_id: null,
+      name: 'Milch',
+      quantity: 3,
+      unit: 'piece',
+      package_size: null,
+      package_size_unit: null,
+      expiry_date: null,
+      added_by: null,
+      created_at: '2026-09-07T10:00:00.000Z',
+      opened_at: null,
+      vacuum_sealed: false,
+      expiry_user_set: false,
+      updated_at: '2026-09-07T10:00:01.000Z',
+      deleted_at: '2026-09-07T10:00:01.000Z',
+    };
+    const select = jest.fn().mockResolvedValue({ data: [remoteRow], error: null, status: 200 });
+    const eq = jest.fn().mockReturnValue({ select });
+    const update = jest.fn().mockReturnValue({ eq });
+    const client = {
+      from: jest.fn().mockReturnValue({ update }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      await pushOutbox({ db, supabase: client, now: () => 3 });
+
+      expect(update).toHaveBeenCalledWith(
+        expect.objectContaining({ quantity: 3, deleted_at: expect.any(String) }),
+      );
+    } finally {
+      db.close();
+    }
+  });
+});
+
+describe('pushOutbox — Retry-Abhängigkeiten', () => {
+  it('blockiert spaetere Mutationen derselben Zeile, laesst andere Zeilen aber weiterlaufen', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+
+    await enqueueMutation(db, {
+      entity: 'storage_locations',
+      entityId: 'loc-blocked',
+      op: 'update',
+      payload: { id: 'loc-blocked', name: 'Erster Versuch' },
+      now: 1,
+      applyLocally: async () => {},
+    });
+    const [failed] = await db.getAllAsync<{ id: number }>('select id from outbox order by id');
+    await recordOutboxOutcome(db, [failed.id], {
+      attempts: 1,
+      lastError: 'timeout',
+      nextAttemptAtMs: 1_000,
+    });
+    await enqueueMutation(db, {
+      entity: 'storage_locations',
+      entityId: 'loc-blocked',
+      op: 'update',
+      payload: { id: 'loc-blocked', name: 'Zweiter Versuch' },
+      now: 2,
+      applyLocally: async () => {},
+    });
+    await enqueueMutation(db, {
+      entity: 'storage_locations',
+      entityId: 'loc-independent',
+      op: 'update',
+      payload: { id: 'loc-independent', name: 'Unabhaengig' },
+      now: 3,
+      applyLocally: async () => {},
+    });
+
+    const remoteRow = (id: string, name: string) => ({
+      id,
+      household_id: 'hh-1',
+      name,
+      kind: 'fridge',
+      sort_order: 0,
+      created_at: '2026-09-07T10:00:00.000Z',
+      updated_at: '2026-09-07T10:00:01.000Z',
+      deleted_at: null,
+    });
+    const select = jest.fn().mockResolvedValueOnce({
+      data: [remoteRow('loc-independent', 'Unabhaengig')],
+      error: null,
+      status: 200,
+    });
+    const eq = jest.fn().mockReturnValue({ select });
+    const update = jest.fn().mockReturnValue({ eq });
+    const client = {
+      from: jest.fn().mockReturnValue({ update }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 500 });
+
+      expect(result.outcomes).toEqual([
+        expect.objectContaining({ kind: 'pushed', entityId: 'loc-independent' }),
+      ]);
+      expect(update).toHaveBeenCalledTimes(1);
+      expect(
+        await db.getAllAsync<{ entity_id: string }>('select entity_id from outbox order by id'),
+      ).toEqual([{ entity_id: 'loc-blocked' }, { entity_id: 'loc-blocked' }]);
+    } finally {
+      db.close();
+    }
+  });
+});
+
+describe('pushOutbox — Rebase neuer lokaler Mutationen', () => {
+  it('ueberschreibt keine Mutation, die waehrend des Requests hinzukommt', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+    await db.runAsync(
+      `insert into fridge_items
+       (id, household_id, name, quantity, unit, created_at, updated_at)
+       values (?, ?, ?, ?, ?, ?, ?)`,
+      ['item-race', 'hh-1', 'Milch', 1, 'piece', '2026-09-07T10:00:00.000Z', 0],
+    );
+
+    const firstPayload = { id: 'item-race', quantity: 2 };
+    await enqueueMutation(db, {
+      entity: 'fridge_items',
+      entityId: 'item-race',
+      op: 'update',
+      payload: firstPayload,
+      now: 10,
+      applyLocally: (txn) => applyLocalMirrorWrite(txn, 'fridge_items', 'update', firstPayload, 10),
+    });
+
+    const remoteRow = {
+      id: 'item-race',
+      household_id: 'hh-1',
+      location_id: null,
+      product_id: null,
+      name: 'Milch',
+      quantity: 2,
+      unit: 'piece',
+      package_size: null,
+      package_size_unit: null,
+      expiry_date: null,
+      added_by: null,
+      created_at: '2026-09-07T10:00:00.000Z',
+      opened_at: null,
+      vacuum_sealed: false,
+      expiry_user_set: false,
+      updated_at: '2026-09-07T10:00:01.000Z',
+      deleted_at: null,
+    };
+    let resolveResponse: ((value: unknown) => void) | undefined;
+    const response = new Promise((resolve) => {
+      resolveResponse = resolve;
+    });
+    let requestStartedResolve: (() => void) | undefined;
+    const requestStarted = new Promise<void>((resolve) => {
+      requestStartedResolve = resolve;
+    });
+    const select = jest.fn(() => response);
+    const eq = jest.fn().mockReturnValue({ select });
+    const update = jest.fn().mockImplementation(() => {
+      requestStartedResolve?.();
+      return { eq };
+    });
+    const client = {
+      from: jest.fn().mockReturnValue({ update }),
+    } as unknown as TypedSupabaseClient;
+
+    const pushPromise = pushOutbox({ db, supabase: client, now: () => 30 });
+    await requestStarted;
+
+    const secondPayload = { id: 'item-race', quantity: 3 };
+    await enqueueMutation(db, {
+      entity: 'fridge_items',
+      entityId: 'item-race',
+      op: 'update',
+      payload: secondPayload,
+      now: 20,
+      applyLocally: (txn) =>
+        applyLocalMirrorWrite(txn, 'fridge_items', 'update', secondPayload, 20),
+    });
+    resolveResponse?.({ data: [remoteRow], error: null, status: 200 });
+
+    try {
+      await pushPromise;
+
+      expect(
+        await db.getFirstAsync<{ quantity: number; dirty: number }>(
+          'select quantity, _dirty as dirty from fridge_items where id = ?',
+          ['item-race'],
+        ),
+      ).toEqual({ quantity: 3, dirty: 1 });
+      expect(
+        await db.getAllAsync('select id from outbox where entity_id = ?', ['item-race']),
+      ).toHaveLength(1);
+    } finally {
+      db.close();
+    }
+  });
+});
+
+describe('pushOutbox — atomare Mengenänderung', () => {
+  it('ruft den Delta-RPC auf und übernimmt die kanonische Bestandszeile', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+    await db.runAsync(
+      `insert into fridge_items
+       (id, household_id, name, quantity, unit, created_at, updated_at)
+       values (?, ?, ?, ?, ?, ?, ?)`,
+      ['item-quantity', 'hh-1', 'Milch', 5, 'piece', '2026-09-07T10:00:00.000Z', 0],
+    );
+
+    const payload = {
+      operation_id: 'quantity-operation-1',
+      transaction_id: 'quantity-transaction-1',
+      item_id: 'item-quantity',
+      household_id: 'hh-1',
+      delta: -2,
+      created_at: '2026-09-07T10:00:00.000Z',
+    };
+    await enqueueMutation(db, {
+      ...createInventoryQuantityMutation({
+        payload,
+        transaction: {
+          id: payload.transaction_id,
+          operation_id: payload.operation_id,
+          household_id: payload.household_id,
+          fridge_item_id: payload.item_id,
+          product_id: null,
+          actor: 'user-1',
+          type: 'out',
+          quantity: 2,
+          location_id: null,
+          reason: null,
+          previous_expiry_date: null,
+          notes: null,
+          undone: false,
+          created_at: payload.created_at,
+        },
+        resultQuantity: 3,
+        nowMs: 1,
+      }),
+      now: 1,
+    });
+
+    const remoteRow = {
+      id: 'item-quantity',
+      household_id: 'hh-1',
+      location_id: null,
+      product_id: null,
+      name: 'Milch',
+      quantity: 3,
+      unit: 'piece',
+      package_size: null,
+      package_size_unit: null,
+      expiry_date: null,
+      added_by: null,
+      created_at: '2026-09-07T10:00:00.000Z',
+      opened_at: null,
+      vacuum_sealed: false,
+      expiry_user_set: false,
+      updated_at: '2026-09-07T10:00:01.000Z',
+      deleted_at: null,
+    };
+    const maybeSingle = jest.fn().mockResolvedValue({ data: remoteRow, error: null, status: 200 });
+    const eq = jest.fn().mockReturnValue({ maybeSingle });
+    const select = jest.fn().mockReturnValue({ eq });
+    const rpc = jest.fn().mockResolvedValue({ data: 'item-quantity', error: null, status: 200 });
+    const client = {
+      rpc,
+      from: jest.fn().mockReturnValue({ select }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 2 });
+
+      expect(result.outcomes[0]).toMatchObject({ kind: 'pushed', entityId: 'item-quantity' });
+      expect(rpc).toHaveBeenCalledWith('adjust_fridge_item_quantity', {
+        p_operation_id: 'quantity-operation-1',
+        p_transaction_id: 'quantity-transaction-1',
+        p_item_id: 'item-quantity',
+        p_household_id: 'hh-1',
+        p_delta: -2,
+        p_created_at: '2026-09-07T10:00:00.000Z',
+      });
+      expect(
+        await db.getFirstAsync('select id from outbox where entity_id = ?', ['item-quantity']),
+      ).toBeNull();
+      expect(
+        await db.getFirstAsync<{ quantity: number; dirty: number }>(
+          'select quantity, _dirty as dirty from fridge_items where id = ?',
+          ['item-quantity'],
+        ),
+      ).toEqual({ quantity: 3, dirty: 0 });
+      expect(
+        await db.getFirstAsync<{ dirty: number }>(
+          'select _dirty as dirty from transactions where id = ?',
+          ['quantity-transaction-1'],
         ),
       ).toEqual({ dirty: 0 });
     } finally {

@@ -740,6 +740,14 @@ create index shopping_history_hh_idx
   on shopping_history (household_id, completed_at);
 `;
 
+// Der alte Transaktionscursor basiert auf clientseitiger Eventzeit. Ein
+// Offline-Eintrag kann deshalb nach dem gespeicherten Cursor liegen, obwohl er
+// serverseitig erst spaeter angelegt wurde. Der neue Cursor startet einmalig
+// neu und laedt die append-only Historie vollstaendig nach.
+const V22_TRANSACTIONS_SERVER_CURSOR = `
+delete from sync_state where entity = 'transactions';
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -893,5 +901,10 @@ create table if not exists local_brochure_cache (
 );
 `,
     ],
+  },
+  {
+    version: 22,
+    name: 'transactions_server_cursor_rebaseline',
+    statements: [V22_TRANSACTIONS_SERVER_CURSOR],
   },
 ];

@@ -32,6 +32,7 @@ type Group = {
 };
 
 export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
+  const sortedEntries = [...entries].sort((a, b) => a.id - b.id);
   const open = new Map<string, Group>();
   const closed: Group[] = [];
   const passthrough: CoalescedEntry[] = [];
@@ -40,6 +41,12 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
   // fuer den Fall, dass ein `restore` (#69) danach folgt — siehe Randfall
   // unten bei `entry.op === 'restore'`.
   const discardedInsertPayloads = new Map<string, Record<string, unknown>>();
+  const referencedFridgeItemIds = new Set(
+    sortedEntries
+      .filter((entry) => entry.entity === 'transactions')
+      .map((entry) => parseOutboxEntry(entry).fridge_item_id)
+      .filter((id): id is string => typeof id === 'string'),
+  );
 
   const finish = (group: Group): void => {
     // Angelegt und wieder geloescht, ohne dass der Server je davon wusste:
@@ -53,7 +60,7 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
     closed.push(group);
   };
 
-  for (const entry of [...entries].sort((a, b) => a.id - b.id)) {
+  for (const entry of sortedEntries) {
     const key = `${entry.entity}:${entry.entity_id}`;
     const payload = parseOutboxEntry(entry);
 
@@ -76,7 +83,7 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
 
     // Ein Move ist bereits eine atomare, mehrzeilige Mutation. Er darf nicht
     // mit nachfolgenden Einzelzeilen-Updates zusammenfallen.
-    if (entry.op === 'move') {
+    if (entry.op === 'move' || entry.op === 'adjust_quantity') {
       const group = open.get(key);
       if (group !== undefined) {
         finish(group);
@@ -119,9 +126,31 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
       continue;
     }
 
-    group.sourceIds.push(entry.id);
-
     if (entry.op === 'delete') {
+      if (
+        group.startedWithInsert &&
+        entry.entity === 'fridge_items' &&
+        referencedFridgeItemIds.has(entry.entity_id)
+      ) {
+        // Referenzierende Ledgerzeilen muessen den Bestand noch sehen koennen.
+        // Aus insert+update+delete werden deshalb zwei Pushes: erst der
+        // vollstaendige Insert mit den bisherigen Werten, danach der Tombstone.
+        const insertGroup: Group = { ...group, sourceIds: [...group.sourceIds] };
+        const deleteGroup: Group = {
+          ...group,
+          op: 'delete',
+          payload: { ...group.payload },
+          sourceIds: [entry.id],
+          sequence: entry.id,
+          startedWithInsert: false,
+        };
+        finish(insertGroup);
+        closed.push(deleteGroup);
+        open.delete(key);
+        continue;
+      }
+
+      group.sourceIds.push(entry.id);
       group.op = 'delete';
       // Payload NICHT auf den (meist leeren) delete-Payload ueberschreiben:
       // `attempt()` in push.ts ignoriert ihn fuer echte delete-Pushes ohnehin
@@ -133,6 +162,7 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
       continue;
     }
 
+    group.sourceIds.push(entry.id);
     // insert bleibt insert, auch wenn danach noch geaendert wurde — der Server
     // hat die Zeile ja noch nie gesehen. Nur der Inhalt waechst zusammen.
     group.payload = { ...group.payload, ...payload };

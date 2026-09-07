@@ -71,8 +71,11 @@ export const transactions = sqliteTable(
     locationId: text('location_id'),
     reason: text('reason'),
     previousExpiryDate: text('previous_expiry_date'),
+    originItemId: text('origin_item_id'),
+    originQuantity: real('origin_quantity'),
     notes: text('notes'),
     undone: integer('undone', { mode: 'boolean' }).notNull().default(false),
+    syncSequence: integer('sync_sequence'),
     ...mirrorColumns(),
   },
   (table) => [

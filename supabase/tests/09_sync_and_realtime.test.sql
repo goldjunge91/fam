@@ -7,7 +7,7 @@
 begin;
 \ir helpers.sql
 
-select plan(19);
+select plan(20);
 
 -- ------------------------------------------------- Sync-Spalten auf allen Tabellen
 -- `updated_at` treibt den inkrementellen Pull, `deleted_at` die Tombstones.
@@ -27,6 +27,12 @@ select has_column(
 -- deleted_at haette ein offline geloeschter Lagerort keinen Tombstone-Pfad und
 -- taeuchte beim naechsten Push wieder auf.
 select has_column('public', 'storage_locations', 'deleted_at', 'storage_locations hat deleted_at');
+select has_column(
+  'public',
+  'transactions',
+  'sync_sequence',
+  'transactions hat die serverseitige Sync-Reihenfolge'
+);
 
 -- household_members trug urspruenglich nur joined_at. Ohne updated_at ist ein
 -- Rollenwechsel fuer einen "updated_at >"-Pull unsichtbar, und ein entferntes

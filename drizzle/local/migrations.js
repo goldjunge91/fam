@@ -15,6 +15,9 @@ import m0011 from './20260907120000_inventory_expiry_user_set_backfill/migration
 import m0012 from './20260907042304_careless_selene/migration.sql';
 import m0013 from './20260907043705_absurd_rick_jones/migration.sql';
 import m0014 from './20260907044324_silly_virginia_dare/migration.sql';
+import m0015 from './20260907065455_cute_night_nurse/migration.sql';
+import m0016 from './20260907071220_outgoing_randall/migration.sql';
+import m0017 from './20260907074216_thankful_chameleon/migration.sql';
 
 export default {
   migrations: {
@@ -29,9 +32,12 @@ export default {
     '20260907004324_mysterious_prism': m0008,
     '20260907020911_superb_banshee': m0009,
     '20260907021951_parallel_reavers': m0010,
+    '20260907120000_inventory_expiry_user_set_backfill': m0011,
     '20260907042304_careless_selene': m0012,
     '20260907043705_absurd_rick_jones': m0013,
     '20260907044324_silly_virginia_dare': m0014,
-    '20260907120000_inventory_expiry_user_set_backfill': m0011,
+    '20260907065455_cute_night_nurse': m0015,
+    '20260907071220_outgoing_randall': m0016,
+    '20260907074216_thankful_chameleon': m0017,
   },
 };

@@ -6,7 +6,7 @@ import localMigrations from '../../../drizzle/local/migrations';
 import { createTestDatabase } from '../../../test/node-sqlite-adapter';
 
 describe('Drizzle-Migrationsrunner', () => {
-  it('baselined V1–V21 und führt danach alle Drizzle-Inkremente genau einmal aus', async () => {
+  it('baselined V1–V22 und führt danach alle Drizzle-Inkremente genau einmal aus', async () => {
     const db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);
 

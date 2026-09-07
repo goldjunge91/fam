@@ -29,6 +29,8 @@ export type LifecycleTransaction = {
   fridgeItemId: string | null;
   /** Stable reference to the sealed source row of a split. */
   originItemId?: string | null;
+  /** Source quantity before the split, used to detect a changed source lot. */
+  originQuantity?: number | null;
   productId: string | null;
   actor?: string | null;
   type: InventoryTransactionType;
@@ -88,6 +90,7 @@ export function splitTransactionNotes(originItemId: string): string {
 export function getSplitOriginItemId(
   transaction: Pick<LifecycleTransaction, 'originItemId' | 'notes'>,
 ): string | null {
+  if (transaction.originItemId) return transaction.originItemId;
   if (!transaction.notes?.startsWith(SPLIT_NOTE_PREFIX)) return null;
   const originItemId = transaction.notes.slice(SPLIT_NOTE_PREFIX.length).trim();
   return originItemId.length > 0 ? originItemId : null;
@@ -133,7 +136,7 @@ export function planOpenInventoryItem(
   const transaction: LifecycleTransaction = {
     householdId: item.householdId,
     fridgeItemId: isSingleUnit ? item.id : openedItemId,
-    ...(isSingleUnit ? {} : { originItemId: item.id }),
+    ...(isSingleUnit ? {} : { originItemId: item.id, originQuantity: item.quantity }),
     productId: item.productId,
     type: 'open',
     quantity,
@@ -181,18 +184,14 @@ function sameSplitIdentity(
   sealedItem: LifecycleItem,
   transaction: UndoOpenTransaction,
 ): boolean {
-  const sealedUpdatedAt = sealedItem.updatedAt;
-  const transactionCreatedAt = new Date(transaction.createdAt).getTime();
-  const originVersionUnchanged =
-    sealedUpdatedAt === undefined || sealedUpdatedAt === null
-      ? true
-      : (typeof sealedUpdatedAt === 'number'
-          ? sealedUpdatedAt
-          : new Date(sealedUpdatedAt).getTime()) === transactionCreatedAt;
-
+  // updated_at is server-generated and is not the opening event's version.
+  // The stable origin id, source quantity and business attributes below decide
+  // whether this is still the same split pair.
   return (
     getSplitOriginItemId(transaction) === sealedItem.id &&
-    originVersionUnchanged &&
+    transaction.originQuantity !== undefined &&
+    transaction.originQuantity !== null &&
+    transaction.originQuantity === sealedItem.quantity + transaction.quantity &&
     openedItem.id === transaction.fridgeItemId &&
     openedItem.householdId === sealedItem.householdId &&
     openedItem.productId === sealedItem.productId &&

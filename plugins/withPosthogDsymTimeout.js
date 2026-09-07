@@ -8,6 +8,23 @@ function withoutQuotes(value) {
   return String(value ?? '').replace(/^"|"$/g, '');
 }
 
+function decodePbxShellScript(value) {
+  const shellScript = String(value ?? '');
+  if (!shellScript.startsWith('"') || !shellScript.endsWith('"')) {
+    return shellScript;
+  }
+
+  return shellScript.slice(1, -1).replace(/\\(.)/g, (_match, character) => {
+    if (character === 'n') return '\n';
+    if (character === 't') return '\t';
+    return character;
+  });
+}
+
+function encodePbxShellScript(value) {
+  return `"${value.replace(/"/g, '\\"')}"`;
+}
+
 module.exports = function withPosthogDsymTimeout(config) {
   return withXcodeProject(config, (config) => {
     const project = config.modResults;
@@ -29,10 +46,10 @@ module.exports = function withPosthogDsymTimeout(config) {
     }
 
     const timeoutExport = `export POSTHOG_DSYM_TIMEOUT=${DSYM_TIMEOUT_SECONDS}`;
-    const shellScript = String(posthogPhase.shellScript ?? '');
+    const shellScript = decodePbxShellScript(posthogPhase.shellScript);
 
     if (!shellScript.includes(timeoutExport)) {
-      posthogPhase.shellScript = `${timeoutExport}\n${shellScript}`;
+      posthogPhase.shellScript = encodePbxShellScript(`${timeoutExport}\n${shellScript}`);
     }
 
     return config;

@@ -37,6 +37,7 @@ jest.mock('@/lib/db/client', () => ({
 jest.mock('@/lib/db/outbox', () => ({
   enqueueMutation: jest.fn(),
   enqueueMutations: jest.fn(),
+  enqueueMutationsInExclusiveTransaction: jest.fn(),
 }));
 
 jest.mock('@/lib/sync/mirror-write', () => ({
@@ -99,6 +100,12 @@ describe('inventory mutation hooks', () => {
     mockGetFirstAsync.mockReset();
     jest.mocked(Outbox.enqueueMutation).mockResolvedValue(undefined);
     jest.mocked(Outbox.enqueueMutations).mockResolvedValue(undefined);
+    jest
+      .mocked(Outbox.enqueueMutationsInExclusiveTransaction)
+      .mockImplementation(async (db, build) => {
+        const inputs = await build(db);
+        if (inputs.length > 0) await Outbox.enqueueMutations(db, inputs);
+      });
     jest.mocked(Crypto.randomUUID).mockReturnValue('generated-id');
   });
 
@@ -159,8 +166,12 @@ describe('inventory mutation hooks', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(transactionPayloads()).toEqual([
-      expect.objectContaining({ actor: 'actor-1', type: 'out', quantity: 1 }),
+    expect(lastMutations()).toEqual([
+      expect.objectContaining({
+        entity: 'fridge_items',
+        op: 'adjust_quantity',
+        payload: expect.objectContaining({ delta: -1, item_id: 'item-1' }),
+      }),
     ]);
   });
 
@@ -181,10 +192,12 @@ describe('inventory mutation hooks', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toHaveLength(2);
-    expect(lastMutations()[0]).toMatchObject({ entity: 'fridge_items', op: 'delete' });
-    expect(transactionPayloads()).toEqual([
-      expect.objectContaining({ actor: 'actor-1', type: 'out', quantity: 3 }),
+    expect(lastMutations()).toEqual([
+      expect.objectContaining({
+        entity: 'fridge_items',
+        op: 'adjust_quantity',
+        payload: expect.objectContaining({ delta: -3, item_id: 'item-1' }),
+      }),
     ]);
   });
 
@@ -417,6 +430,8 @@ describe('inventory mutation hooks', () => {
       location_id: 'loc-1',
       reason: null,
       previous_expiry_date: '2026-12-31',
+      origin_item_id: 'item-1',
+      origin_quantity: 3,
       notes: '[Split] origin=item-1',
       undone: false,
       created_at: new Date().toISOString(),

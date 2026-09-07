@@ -1,10 +1,15 @@
 import { metaOf } from '@/lib/db/entities';
-import { deleteOutboxEntries, loadDueOutboxEntries, recordOutboxOutcome } from '@/lib/db/outbox';
-import type { Entity, SqlDatabase } from '@/lib/db/types';
+import {
+  deleteOutboxEntries,
+  loadPendingOutboxEntries,
+  recordOutboxOutcome,
+} from '@/lib/db/outbox';
+import type { Entity, OutboxEntry, SqlDatabase } from '@/lib/db/types';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { backoffDelayMs, classifyError, MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { type CoalescedEntry, coalesce } from '@/lib/sync/coalesce';
 import { parseInventoryMovePayload } from '@/lib/sync/inventory-move';
+import { parseInventoryQuantityPayload } from '@/lib/sync/inventory-quantity';
 import { upsertMirrorRow } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 
@@ -65,6 +70,18 @@ type AttemptResult = {
   status: number;
 };
 
+async function hasPendingMutation(
+  txn: SqlDatabase,
+  entity: Entity,
+  entityId: string,
+): Promise<boolean> {
+  const row = await txn.getFirstAsync<{ id: number }>(
+    'select id from outbox where entity = ? and entity_id = ? limit 1',
+    [entity, entityId],
+  );
+  return row !== null;
+}
+
 type MoveRpcArgs = {
   p_operation_id: string;
   p_item_id: string;
@@ -88,6 +105,20 @@ type MoveRpcResponse = {
 type MoveRpc = (
   functionName: 'move_fridge_item' | 'reverse_move_fridge_item',
   args: MoveRpcArgs,
+) => Promise<MoveRpcResponse>;
+
+type QuantityRpcArgs = {
+  p_operation_id: string;
+  p_transaction_id: string;
+  p_item_id: string;
+  p_household_id: string;
+  p_delta: number;
+  p_created_at: string;
+};
+
+type QuantityRpc = (
+  functionName: 'adjust_fridge_item_quantity',
+  args: QuantityRpcArgs,
 ) => Promise<MoveRpcResponse>;
 
 type GenericQuery<T> = {
@@ -129,7 +160,10 @@ async function attempt(
 
   if (op === 'delete') {
     const response = await query
-      .update({ deleted_at: new Date(nowMs).toISOString() })
+      .update({
+        ...buildUpdatePayload(payload, meta.columns, meta.normalizeQuantityUnits === true),
+        deleted_at: new Date(nowMs).toISOString(),
+      })
       .eq('id', entityId)
       .select();
     return response as AttemptResult;
@@ -193,7 +227,7 @@ async function attemptInventoryMove(
   // arguments, although the declarative SQL function accepts NULL for both
   // locations. Keep the runtime contract explicit at this narrow boundary;
   // all fields are validated by parseInventoryMovePayload before the call.
-  const moveRpc = supabase.rpc as unknown as MoveRpc;
+  const moveRpc = supabase.rpc.bind(supabase) as unknown as MoveRpc;
   const isReversal = move.reversal_of !== undefined && move.reversal_of !== null;
   if (isReversal && (move.notes === undefined || move.notes === null)) {
     return {
@@ -249,6 +283,208 @@ async function attemptInventoryMove(
   }
 
   return { data: [{ ...remoteResponse.data }], error: null, status: remoteResponse.status };
+}
+
+async function attemptInventoryQuantity(
+  supabase: TypedSupabaseClient,
+  entry: CoalescedEntry,
+): Promise<AttemptResult> {
+  let adjustment: ReturnType<typeof parseInventoryQuantityPayload>;
+  try {
+    adjustment = parseInventoryQuantityPayload(entry.payload);
+  } catch (error) {
+    return {
+      data: null,
+      error: {
+        code: 'quantity_payload_invalid',
+        message: error instanceof Error ? error.message : String(error),
+      },
+      status: 400,
+    };
+  }
+
+  if (adjustment.item_id !== entry.entityId) {
+    return {
+      data: null,
+      error: {
+        code: 'quantity_payload_invalid',
+        message: 'Mengen-Payload und Outbox-Entity zeigen auf unterschiedliche Bestände.',
+      },
+      status: 400,
+    };
+  }
+
+  const quantityRpc = supabase.rpc.bind(supabase) as unknown as QuantityRpc;
+  const rpcResponse = await quantityRpc('adjust_fridge_item_quantity', {
+    p_operation_id: adjustment.operation_id,
+    p_transaction_id: adjustment.transaction_id,
+    p_item_id: adjustment.item_id,
+    p_household_id: adjustment.household_id,
+    p_delta: adjustment.delta,
+    p_created_at: adjustment.created_at,
+  });
+  if (rpcResponse.error) {
+    return {
+      data: null,
+      error: { code: rpcResponse.error.code, message: rpcResponse.error.message },
+      status: rpcResponse.status,
+    };
+  }
+
+  const remoteResponse = await supabase
+    .from('fridge_items')
+    .select('*')
+    .eq('id', adjustment.item_id)
+    .maybeSingle();
+  if (remoteResponse.error) {
+    return {
+      data: null,
+      error: { code: remoteResponse.error.code, message: remoteResponse.error.message },
+      status: remoteResponse.status,
+    };
+  }
+  if (remoteResponse.data === null) {
+    return {
+      data: null,
+      error: { message: 'Mengenänderung bestätigt, aber der Bestand ist nicht lesbar.' },
+      status: remoteResponse.status,
+    };
+  }
+
+  return { data: [{ ...remoteResponse.data }], error: null, status: remoteResponse.status };
+}
+
+async function applyInventoryQuantityPush(
+  db: SqlDatabase,
+  supabase: TypedSupabaseClient,
+  entry: CoalescedEntry,
+  nowMs: number,
+  currentAttempts: number,
+): Promise<{ outcome: PushOutcome; stop: boolean }> {
+  let adjustment: ReturnType<typeof parseInventoryQuantityPayload>;
+  try {
+    adjustment = parseInventoryQuantityPayload(entry.payload);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    await recordOutboxOutcome(db, entry.sourceIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: message,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'failed-permanent',
+        entity: entry.entity,
+        entityId: entry.entityId,
+        sourceIds: entry.sourceIds,
+        error: message,
+      },
+      stop: false,
+    };
+  }
+
+  if (entry.entity !== 'fridge_items') {
+    const message = 'Eine Mengenänderung ist nur fuer fridge_items zulaessig.';
+    await recordOutboxOutcome(db, entry.sourceIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: message,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'failed-permanent',
+        entity: entry.entity,
+        entityId: entry.entityId,
+        sourceIds: entry.sourceIds,
+        error: message,
+      },
+      stop: false,
+    };
+  }
+
+  const response = await attemptInventoryQuantity(supabase, entry);
+  if (response.error) {
+    const status = response.status === 0 ? null : response.status;
+    const kind = classifyError(status);
+    const message = response.error.message;
+    if (kind === 'transient') {
+      const nextAttempts = currentAttempts + 1;
+      const terminal = nextAttempts >= MAX_ATTEMPTS;
+      await recordOutboxOutcome(db, entry.sourceIds, {
+        attempts: nextAttempts,
+        lastError: message,
+        nextAttemptAtMs: terminal
+          ? Number.MAX_SAFE_INTEGER
+          : nowMs + backoffDelayMs(currentAttempts),
+      });
+      return {
+        outcome: {
+          kind: 'failed-transient',
+          entity: entry.entity,
+          entityId: entry.entityId,
+          sourceIds: entry.sourceIds,
+          error: message,
+        },
+        stop: true,
+      };
+    }
+
+    await recordOutboxOutcome(db, entry.sourceIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: message,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'failed-permanent',
+        entity: entry.entity,
+        entityId: entry.entityId,
+        sourceIds: entry.sourceIds,
+        error: message,
+      },
+      stop: false,
+    };
+  }
+
+  const returnedRow = response.data?.[0];
+  if (returnedRow === undefined) {
+    const message = 'Mengenänderung lieferte keine kanonische Bestandszeile.';
+    await recordOutboxOutcome(db, entry.sourceIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: message,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'failed-permanent',
+        entity: entry.entity,
+        entityId: entry.entityId,
+        sourceIds: entry.sourceIds,
+        error: message,
+      },
+      stop: false,
+    };
+  }
+
+  await db.withExclusiveTransactionAsync(async (txn) => {
+    await deleteOutboxEntries(txn, entry.sourceIds);
+    if (!(await hasPendingMutation(txn, entry.entity, entry.entityId))) {
+      await upsertMirrorRow(txn, 'fridge_items', returnedRow, { dirty: 0 });
+    }
+    await txn.runAsync('update transactions set _dirty = 0 where id = ?', [
+      adjustment.transaction_id,
+    ]);
+  });
+
+  return {
+    outcome: {
+      kind: 'pushed',
+      entity: entry.entity,
+      entityId: entry.entityId,
+      sourceIds: entry.sourceIds,
+    },
+    stop: false,
+  };
 }
 
 async function applyInventoryMovePush(
@@ -365,7 +601,9 @@ async function applyInventoryMovePush(
 
   await db.withExclusiveTransactionAsync(async (txn) => {
     await deleteOutboxEntries(txn, entry.sourceIds);
-    await upsertMirrorRow(txn, 'fridge_items', returnedRow, { dirty: 0 });
+    if (!(await hasPendingMutation(txn, entry.entity, entry.entityId))) {
+      await upsertMirrorRow(txn, 'fridge_items', returnedRow, { dirty: 0 });
+    }
     await txn.runAsync('update transactions set _dirty = 0 where id in (?, ?)', [
       move.out_transaction_id,
       move.in_transaction_id,
@@ -393,6 +631,9 @@ async function applyOnePush(
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
   if (entry.op === 'move') {
     return applyInventoryMovePush(db, supabase, entry, nowMs, currentAttempts);
+  }
+  if (entry.op === 'adjust_quantity') {
+    return applyInventoryQuantityPush(db, supabase, entry, nowMs, currentAttempts);
   }
 
   const meta = metaOf(entry.entity);
@@ -626,7 +867,9 @@ async function applyOnePush(
 
   await db.withExclusiveTransactionAsync(async (txn) => {
     await deleteOutboxEntries(txn, entry.sourceIds);
-    await upsertMirrorRow(txn, entry.entity, returnedRow, { dirty: 0 });
+    if (!(await hasPendingMutation(txn, entry.entity, entry.entityId))) {
+      await upsertMirrorRow(txn, entry.entity, returnedRow, { dirty: 0 });
+    }
   });
 
   return {
@@ -647,7 +890,28 @@ export async function pushOutbox(deps: {
 }): Promise<PushResult> {
   const nowMs = deps.now ? deps.now() : Date.now();
 
-  const entries = await loadDueOutboxEntries(deps.db, nowMs);
+  const pendingEntries = await loadPendingOutboxEntries(deps.db);
+  const pendingByKey = new Map<string, OutboxEntry[]>();
+  for (const entry of pendingEntries) {
+    const key = `${entry.entity}:${entry.entity_id}`;
+    const entriesForKey = pendingByKey.get(key) ?? [];
+    entriesForKey.push(entry);
+    pendingByKey.set(key, entriesForKey);
+  }
+
+  const blockedByBackoff = new Set<string>();
+  const dueEntries = pendingEntries.filter((entry) => entry.next_attempt_at <= nowMs);
+  for (const entry of dueEntries) {
+    const key = `${entry.entity}:${entry.entity_id}`;
+    const earlierPending = pendingByKey
+      .get(key)
+      ?.some((candidate) => candidate.id < entry.id && candidate.next_attempt_at > nowMs);
+    if (earlierPending) blockedByBackoff.add(key);
+  }
+
+  const entries = dueEntries.filter(
+    (entry) => !blockedByBackoff.has(`${entry.entity}:${entry.entity_id}`),
+  );
   const { pushes, discardable } = coalesce(entries);
 
   const outcomes: PushOutcome[] = [];
@@ -660,7 +924,11 @@ export async function pushOutbox(deps: {
   const attemptsById = new Map(entries.map((e) => [e.id, e.attempts]));
 
   let stoppedEarly = false;
+  const blockedDuringRun = new Set<string>();
   for (const push of pushes) {
+    const key = `${push.entity}:${push.entityId}`;
+    if (blockedDuringRun.has(key)) continue;
+
     const currentAttempts = Math.max(0, ...push.sourceIds.map((id) => attemptsById.get(id) ?? 0));
     const { outcome, stop } = await applyOnePush(
       deps.db,
@@ -673,7 +941,7 @@ export async function pushOutbox(deps: {
 
     if (stop) {
       stoppedEarly = true;
-      break;
+      blockedDuringRun.add(key);
     }
   }
 

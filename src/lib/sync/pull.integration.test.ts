@@ -198,10 +198,10 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
     expect(rows).toEqual([{ id: ownTransactionId, household_id: householdId }]);
   }, 30_000);
 
-  it('verwendet bei transactions created_at und id als stabilen Pull-Cursor', async () => {
+  it('verwendet bei transactions sync_sequence und erreicht verspätete Offline-Buchungen', async () => {
     const createdAt = '2026-09-07T10:00:00Z';
-    const firstId = '00000000-0000-0000-0000-000000000001';
-    const secondId = '00000000-0000-0000-0000-000000000002';
+    const firstId = crypto.randomUUID();
+    const secondId = crypto.randomUUID();
     const { error: seedError } = await client.from('transactions').insert([
       { id: firstId, household_id: householdId, type: 'in', quantity: 1, created_at: createdAt },
       { id: secondId, household_id: householdId, type: 'out', quantity: 1, created_at: createdAt },
@@ -219,14 +219,14 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
       rowsWritten: 2,
     });
 
-    const thirdId = '00000000-0000-0000-0000-000000000003';
+    const thirdId = crypto.randomUUID();
     const { error: nextError } = await client.from('transactions').insert({
       id: thirdId,
       household_id: householdId,
       type: 'waste',
       quantity: 1,
       reason: 'expired',
-      created_at: '2026-09-07T10:00:01Z',
+      created_at: '2026-09-07T09:00:00Z',
     });
     expect(nextError).toBeNull();
 
@@ -243,7 +243,7 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
     });
 
     const rows = await db.getAllAsync<{ id: string }>(
-      'select id from transactions order by created_at, id',
+      'select id from transactions order by sync_sequence',
     );
     expect(rows).toEqual([{ id: firstId }, { id: secondId }, { id: thirdId }]);
   }, 30_000);

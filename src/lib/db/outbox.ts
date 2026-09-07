@@ -34,6 +34,7 @@ export type EnqueueMutationInput = {
 
 type OutboxChangedListener = () => void;
 const outboxChangedListeners = new Set<OutboxChangedListener>();
+const exclusiveQueues = new WeakMap<SqlDatabase, Promise<void>>();
 
 export function onOutboxChanged(listener: OutboxChangedListener): () => void {
   outboxChangedListeners.add(listener);
@@ -46,28 +47,53 @@ function notifyOutboxChanged(): void {
   for (const listener of outboxChangedListeners) listener();
 }
 
-export async function enqueueMutations(
-  db: SqlDatabase,
-  inputs: readonly EnqueueMutationInput[],
-): Promise<void> {
-  if (inputs.length === 0) return;
+async function runQueuedExclusive(db: SqlDatabase, task: () => Promise<void>): Promise<void> {
+  const previous = exclusiveQueues.get(db) ?? Promise.resolve();
+  const current = previous.then(task, task);
+  const settled = current.catch(() => undefined);
+  exclusiveQueues.set(db, settled);
 
   try {
-    await db.withExclusiveTransactionAsync(async (txn) => {
-      for (const input of inputs) {
-        await input.applyLocally(txn);
+    await current;
+  } finally {
+    if (exclusiveQueues.get(db) === settled) exclusiveQueues.delete(db);
+  }
+}
 
-        await txn.runAsync(
-          'insert into outbox (entity, entity_id, op, payload, created_at, attempts, next_attempt_at) values (?, ?, ?, ?, ?, 0, 0)',
-          [
-            input.entity,
-            input.entityId,
-            input.op,
-            JSON.stringify(input.payload),
-            input.now ?? Date.now(),
-          ],
-        );
-      }
+async function writeOutboxEntries(
+  txn: SqlDatabase,
+  inputs: readonly EnqueueMutationInput[],
+): Promise<void> {
+  for (const input of inputs) {
+    await input.applyLocally(txn);
+    await txn.runAsync(
+      'insert into outbox (entity, entity_id, op, payload, created_at, attempts, next_attempt_at) values (?, ?, ?, ?, ?, 0, 0)',
+      [
+        input.entity,
+        input.entityId,
+        input.op,
+        JSON.stringify(input.payload),
+        input.now ?? Date.now(),
+      ],
+    );
+  }
+}
+
+export type EnqueueMutationBuilder = (txn: SqlDatabase) => Promise<readonly EnqueueMutationInput[]>;
+
+/** Baut und schreibt Mutationen in genau einer exklusiven SQLite-Transaktion. */
+export async function enqueueMutationsInExclusiveTransaction(
+  db: SqlDatabase,
+  build: EnqueueMutationBuilder,
+): Promise<void> {
+  let inputs: readonly EnqueueMutationInput[] = [];
+
+  try {
+    await runQueuedExclusive(db, async () => {
+      await db.withExclusiveTransactionAsync(async (txn) => {
+        inputs = await build(txn);
+        await writeOutboxEntries(txn, inputs);
+      });
     });
   } catch (error) {
     reportError(error, {
@@ -79,13 +105,22 @@ export async function enqueueMutations(
     throw error;
   }
 
+  if (inputs.length === 0) return;
+
   addDiagnosticStep('outbox.mutation.queued', {
     operation: 'outbox.enqueue',
     entity: inputs[0]?.entity ?? 'unknown',
     outbox_count: inputs.length,
   });
-
   notifyOutboxChanged();
+}
+
+export async function enqueueMutations(
+  db: SqlDatabase,
+  inputs: readonly EnqueueMutationInput[],
+): Promise<void> {
+  if (inputs.length === 0) return;
+  await enqueueMutationsInExclusiveTransaction(db, async () => inputs);
 }
 
 /** Kompatibler Einzelmutations-Wrapper fuer bestehende Aufrufer. */
@@ -98,6 +133,15 @@ export async function loadDueOutboxEntries(db: SqlDatabase, nowMs: number): Prom
     'select * from outbox where next_attempt_at <= ? and attempts < ? order by id asc',
     [nowMs, MAX_ATTEMPTS],
   );
+}
+
+/** Lädt alle nicht-terminalen Einträge, damit ein Backoff keine spätere
+ * Mutation derselben Zeile überholen lässt. Die Fälligkeit wird im Push-Plan
+ * separat ausgewertet; unabhängige Zeilen dürfen weiterlaufen. */
+export async function loadPendingOutboxEntries(db: SqlDatabase): Promise<OutboxEntry[]> {
+  return db.getAllAsync<OutboxEntry>('select * from outbox where attempts < ? order by id asc', [
+    MAX_ATTEMPTS,
+  ]);
 }
 
 /** Loescht Outbox-Zeilen nach id — nie per pauschalem `delete from outbox`. */

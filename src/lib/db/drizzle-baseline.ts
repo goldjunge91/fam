@@ -1,11 +1,11 @@
 import type { SqlDatabase } from '@/lib/db/types';
 
 export const DRIZZLE_BASELINE_NAME = '20260826200344_worthless_celestials';
-export const DRIZZLE_BASELINE_USER_VERSION = 21;
+export const DRIZZLE_BASELINE_USER_VERSION = 22;
 export const DRIZZLE_BASELINE_META_KEY = 'drizzle_baseline';
 export const DRIZZLE_MIGRATIONS_TABLE = '__drizzle_migrations';
 
-// Wird von drizzle-baseline.test.ts gegen die reale V1–V21-Migrationskette
+// Wird von drizzle-baseline.test.ts gegen die reale V1–V22-Migrationskette
 // geprüft. Schemaänderungen müssen den Fingerprint bewusst aktualisieren.
 export const DRIZZLE_BASELINE_FINGERPRINT = '0cbbc1d530454d81';
 

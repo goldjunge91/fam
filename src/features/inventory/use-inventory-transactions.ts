@@ -17,6 +17,8 @@ export type LocalInventoryTransaction = {
   location_id: string | null;
   reason: 'expired' | 'spoiled' | 'other' | null;
   previous_expiry_date: string | null;
+  origin_item_id?: string | null;
+  origin_quantity?: number | null;
   notes: string | null;
   undone: boolean;
   has_reversal?: boolean | number;
@@ -71,6 +73,7 @@ export function useInventoryTransactions(householdId: string | undefined) {
       return db.getAllAsync<LocalInventoryTransaction>(
         `select t.id, t.household_id, t.fridge_item_id, t.product_id, t.actor, t.type,
                 t.quantity, t.location_id, t.reason, t.previous_expiry_date, t.notes,
+                t.origin_item_id, t.origin_quantity,
                 t.undone, t.created_at, t.operation_id, t.reversal_of,
                 case
                   when t.operation_id is not null then exists (

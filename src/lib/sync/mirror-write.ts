@@ -18,6 +18,19 @@ function mirrorMetaOf(entity: Entity) {
   return meta;
 }
 
+function remoteUpdatedAt(
+  meta: ReturnType<typeof mirrorMetaOf>,
+  remoteRow: Record<string, unknown>,
+) {
+  const value = meta.appendOnly ? remoteRow.created_at : remoteRow.updated_at;
+  if (typeof value !== 'string') {
+    throw new Error(
+      `Remote-Zeile fuer ${meta.entity} hat keinen gültigen ${meta.appendOnly ? 'created_at' : 'updated_at'}-Zeitstempel.`,
+    );
+  }
+  return value;
+}
+
 function toSqlParam(value: unknown): SqlParam {
   if (value === undefined || value === null) return null;
   if (typeof value === 'string' || typeof value === 'number') return value;
@@ -43,12 +56,7 @@ export async function upsertMirrorRow(
 ): Promise<void> {
   const meta = mirrorMetaOf(entity);
 
-  const cursorColumn = meta.syncCursorColumn ?? 'updated_at';
-  const updatedAtRaw = remoteRow[cursorColumn];
-  if (typeof updatedAtRaw !== 'string') {
-    throw new Error(`Remote-Zeile fuer ${entity} hat keinen ${cursorColumn} als String.`);
-  }
-  const updatedAt = toEpochMs(updatedAtRaw);
+  const updatedAt = toEpochMs(remoteUpdatedAt(meta, remoteRow));
 
   const deletedAtRaw = remoteRow.deleted_at;
   const deletedAt =
@@ -108,7 +116,7 @@ export async function applyRemoteRow(
   };
   const remoteSide: SyncSide = {
     id: remoteRow.id,
-    updatedAt: toEpochMs(remoteRow[meta.syncCursorColumn ?? 'updated_at'] as string),
+    updatedAt: toEpochMs(remoteUpdatedAt(meta, remoteRow)),
     deletedAt:
       meta.hasServerTombstone && remoteRow.deleted_at ? toEpochMs(remoteRow.deleted_at) : null,
   };

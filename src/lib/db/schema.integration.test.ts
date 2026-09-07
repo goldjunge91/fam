@@ -90,6 +90,9 @@ describe('lokales Schema', () => {
         'undone',
         'created_at',
         'reversal_of',
+        'sync_sequence',
+        'origin_item_id',
+        'origin_quantity',
       ]),
     );
   });
@@ -389,6 +392,28 @@ describe('lokales Schema', () => {
   it('setzt user_version auf die hoechste angewandte Migration', async () => {
     const highest = MIGRATIONS[MIGRATIONS.length - 1].version;
     expect(await readUserVersion(db)).toBe(highest);
+  });
+});
+
+describe('Transaktionscursor-Migration', () => {
+  it('setzt einen alten Transaktionscursor beim Upgrade zurueck', async () => {
+    const db = createTestDatabase();
+    try {
+      await runMigrations(db, MIGRATIONS.slice(0, -1));
+      await db.runAsync(
+        `insert into sync_state (entity, scope, last_synced_at, last_synced_id)
+         values (?, ?, ?, ?)`,
+        ['transactions', 'default', '2026-09-07T10:00:00.000Z', 'tx-old'],
+      );
+
+      await runMigrations(db, MIGRATIONS);
+
+      expect(
+        await db.getFirstAsync('select * from sync_state where entity = ?', ['transactions']),
+      ).toBeNull();
+    } finally {
+      db.close();
+    }
   });
 });
 
