@@ -38,13 +38,26 @@ const cookingResponse = {
 };
 
 describe('invokeAiGateway', () => {
+  const originalForceAi = process.env.EXPO_PUBLIC_FORCE_AI;
+
   beforeEach(() => {
     mockInvoke.mockReset();
+    process.env.EXPO_PUBLIC_FORCE_AI = 'true';
+  });
+
+  afterEach(() => {
+    if (originalForceAi === undefined) {
+      delete process.env.EXPO_PUBLIC_FORCE_AI;
+    } else {
+      process.env.EXPO_PUBLIC_FORCE_AI = originalForceAi;
+    }
   });
 
   it('sends the development bypass header only for development builds', () => {
-    expect(developmentBypassHeaders(true)).toEqual({ 'x-fam-ai-dev-bypass': 'true' });
-    expect(developmentBypassHeaders(false)).toBeUndefined();
+    expect(developmentBypassHeaders(true, true)).toEqual({ 'x-fam-ai-dev-bypass': 'true' });
+    expect(developmentBypassHeaders(true, false)).toBeUndefined();
+    expect(developmentBypassHeaders(false, true)).toBeUndefined();
+    expect(developmentBypassHeaders(false, false)).toBeUndefined();
   });
 
   it('validates the request before contacting the gateway', async () => {
@@ -65,6 +78,25 @@ describe('invokeAiGateway', () => {
       method: 'POST',
       body: cookingRequest,
       headers: { 'x-fam-ai-dev-bypass': 'true' },
+    });
+  });
+
+  it('omits the bypass header when force-ai is false or missing', async () => {
+    mockInvoke.mockResolvedValue({ data: cookingResponse, error: null });
+
+    process.env.EXPO_PUBLIC_FORCE_AI = 'false';
+    await expect(invokeAiGateway(cookingRequest)).resolves.toEqual(cookingResponse);
+    expect(mockInvoke).toHaveBeenLastCalledWith('ai-gateway', {
+      method: 'POST',
+      body: cookingRequest,
+    });
+
+    mockInvoke.mockClear();
+    delete process.env.EXPO_PUBLIC_FORCE_AI;
+    await expect(invokeAiGateway(cookingRequest)).resolves.toEqual(cookingResponse);
+    expect(mockInvoke).toHaveBeenLastCalledWith('ai-gateway', {
+      method: 'POST',
+      body: cookingRequest,
     });
   });
 

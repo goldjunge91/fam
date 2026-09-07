@@ -51,6 +51,10 @@ export const env = {
     return isFlagEnabled(process.env.EXPO_PUBLIC_FORCE_PREMIUM);
   },
 
+  get forceAi(): boolean {
+    return process.env.EXPO_PUBLIC_FORCE_AI === 'true';
+  },
+
   /**
    * Schaltet Banner, Interstitials und die AdMob-SDK-Initialisierung global.
    * Ohne Variable bleibt Werbung aus Kompatibilitätsgründen aktiviert.

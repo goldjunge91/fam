@@ -99,6 +99,34 @@ describe('env.devTools', () => {
   });
 });
 
+describe('env.forceAi', () => {
+  const original = process.env.EXPO_PUBLIC_FORCE_AI;
+
+  afterEach(() => {
+    if (original === undefined) {
+      delete process.env.EXPO_PUBLIC_FORCE_AI;
+    } else {
+      process.env.EXPO_PUBLIC_FORCE_AI = original;
+    }
+  });
+
+  it('ist standardmaessig aus', () => {
+    delete process.env.EXPO_PUBLIC_FORCE_AI;
+    expect(env.forceAi).toBe(false);
+
+    process.env.EXPO_PUBLIC_FORCE_AI = 'false';
+    expect(env.forceAi).toBe(false);
+  });
+
+  it('ist nur beim exakten Wert true eingeschaltet', () => {
+    process.env.EXPO_PUBLIC_FORCE_AI = 'true';
+    expect(env.forceAi).toBe(true);
+
+    process.env.EXPO_PUBLIC_FORCE_AI = '1';
+    expect(env.forceAi).toBe(false);
+  });
+});
+
 describe('env.offFactsOffline', () => {
   const original = process.env.EXPO_PUBLIC_OFF_OFFLINE;
 

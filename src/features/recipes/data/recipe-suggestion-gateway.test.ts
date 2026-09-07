@@ -2,6 +2,7 @@ import type { FunctionInvokeOptions, FunctionsResponse } from '@supabase/functio
 import { trackAnalyticsEvent } from '@/lib/analytics';
 
 import {
+  developmentBypassHeaders,
   type FunctionsInvoker,
   RecipeSuggestionGatewayError,
   requestRecipeSuggestions,
@@ -62,7 +63,25 @@ function response(overrides: Record<string, unknown> = {}) {
 }
 
 describe('recipe suggestion gateway', () => {
+  const originalForceAi = process.env.EXPO_PUBLIC_FORCE_AI;
+
+  afterEach(() => {
+    if (originalForceAi === undefined) {
+      delete process.env.EXPO_PUBLIC_FORCE_AI;
+    } else {
+      process.env.EXPO_PUBLIC_FORCE_AI = originalForceAi;
+    }
+  });
+
+  it('sends the development bypass header only when development and force-ai are enabled', () => {
+    expect(developmentBypassHeaders(true, true)).toEqual({ 'x-fam-ai-dev-bypass': 'true' });
+    expect(developmentBypassHeaders(true, false)).toBeUndefined();
+    expect(developmentBypassHeaders(false, true)).toBeUndefined();
+    expect(developmentBypassHeaders(false, false)).toBeUndefined();
+  });
+
   it('sends only the scoped request and parses a canonical response', async () => {
+    process.env.EXPO_PUBLIC_FORCE_AI = 'true';
     const client = invoker(response());
 
     const result = await requestRecipeSuggestions(
@@ -102,6 +121,27 @@ describe('recipe suggestion gateway', () => {
       },
     ]);
     expect(JSON.stringify(client.calls)).not.toContain('apiKey');
+  });
+
+  it('omits the bypass header when force-ai is false or missing', async () => {
+    const request = {
+      householdId: 'household-1',
+      userText: 'Was kann ich heute kochen?',
+      servings: 2,
+      maxMinutes: 30,
+      dietaryPattern: null,
+      shoppingDecision: 'no' as const,
+    };
+
+    process.env.EXPO_PUBLIC_FORCE_AI = 'false';
+    const falseClient = invoker(response());
+    await requestRecipeSuggestions(request, falseClient.functions);
+    expect(falseClient.calls[0]?.options.headers).toBeUndefined();
+
+    delete process.env.EXPO_PUBLIC_FORCE_AI;
+    const missingClient = invoker(response());
+    await requestRecipeSuggestions(request, missingClient.functions);
+    expect(missingClient.calls[0]?.options.headers).toBeUndefined();
   });
 
   it('returns a deterministic shopping question without treating it as a meal', async () => {

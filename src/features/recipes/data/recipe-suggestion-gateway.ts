@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { debugLogEvent } from '@/lib/debug-log';
+import { env } from '@/lib/env';
 import { getSupabase, type TypedSupabaseClient } from '@/lib/supabase';
 import {
   type RecipeSuggestionResponse,
@@ -51,6 +52,13 @@ export class RecipeSuggestionGatewayError extends Error {
 }
 
 export type FunctionsInvoker = Pick<TypedSupabaseClient['functions'], 'invoke'>;
+
+export function developmentBypassHeaders(
+  isDevelopment: boolean,
+  forceAi: boolean,
+): Record<string, string> | undefined {
+  return isDevelopment && forceAi ? { 'x-fam-ai-dev-bypass': 'true' } : undefined;
+}
 
 function errorStatus(error: unknown): number | null {
   if (typeof error !== 'object' || error === null || !('context' in error)) return null;
@@ -161,6 +169,7 @@ export async function requestRecipeSuggestions(
   }
 
   try {
+    const developmentHeaders = developmentBypassHeaders(__DEV__, env.forceAi);
     ({ data, error } = await functionsInvoker.invoke('ai-gateway', {
       body: {
         skill: 'fam-cook-from-inventory',
@@ -172,7 +181,7 @@ export async function requestRecipeSuggestions(
         shoppingDecision: input.shoppingDecision,
         ...(input.model === undefined ? {} : { model: input.model }),
       },
-      ...(__DEV__ ? { headers: { 'x-fam-ai-dev-bypass': 'true' } } : {}),
+      ...(developmentHeaders === undefined ? {} : { headers: developmentHeaders }),
     }));
   } catch (invokeError) {
     debugLogEvent('recipe-suggestion.gateway.request.failed', {

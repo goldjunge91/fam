@@ -1,3 +1,4 @@
+import { env } from '@/lib/env';
 import { getSupabase } from '@/lib/supabase';
 import {
   type AiGatewayRequest,
@@ -63,8 +64,9 @@ function userFacingGatewayError(code: string | undefined): string {
 
 export function developmentBypassHeaders(
   isDevelopment: boolean,
+  forceAi: boolean,
 ): Record<string, string> | undefined {
-  return isDevelopment ? { 'x-fam-ai-dev-bypass': 'true' } : undefined;
+  return isDevelopment && forceAi ? { 'x-fam-ai-dev-bypass': 'true' } : undefined;
 }
 
 /**
@@ -77,7 +79,7 @@ export async function invokeAiGateway(request: AiGatewayRequest): Promise<AiGate
     throw new AiGatewayError('Die Gateway-Anfrage entspricht nicht dem Skill-Vertrag.', 400);
   }
 
-  const developmentHeaders = developmentBypassHeaders(__DEV__);
+  const developmentHeaders = developmentBypassHeaders(__DEV__, env.forceAi);
   let response: { data: unknown; error: unknown };
   try {
     response = await getSupabase().functions.invoke('ai-gateway', {
