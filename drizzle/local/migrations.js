@@ -17,7 +17,7 @@ export default {
     '20260826200418_living_talon': m0001,
     '20260830014354_crazy_celestials': m0002,
     '20260830133802_normal_pepper_potts': m0003,
-    '20260901043557_careful_bruce_banner': m0004,
+    '20260901043557_chunky_ken_ellis': m0004,
     '20260904072154_careful_bruce_banner': m0005,
     '20260904080304_black_ego': m0006,
     '20260906230504_open_doorman': m0007,

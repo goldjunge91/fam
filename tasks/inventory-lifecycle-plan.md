@@ -371,3 +371,20 @@ für genau diesen Sync-Vertrag.
 **Nächster Tracker-Schritt:** `fam-lem.11` bleibt offen und wird als nächstes
 über alle weiteren mengenverändernden Schreibpfade auditiert. Erst danach
 folgt die Integration beider Fundament-Slices in `fam-lem.6`.
+
+## Increment 2 Review Correction Addendum (2026-09-07)
+
+Dieser Abschnitt ergänzt den vorherigen Increment-2-Nachweis append-only. Keine
+vorherige Planung, Review-Abweichung oder Verifikation wurde entfernt.
+
+- **Migrationskompatibilität:** Der historische Schlüssel
+  `20260901043557_chunky_ken_ellis` bleibt in `drizzle/local/migrations.js`
+  erhalten. Ein Upgrade einer vor dem Commit `4443253` migrierten SQLite-Datei
+  führt die Plus-Migration dadurch nicht erneut aus.
+- **Coalescing-Reihenfolge:** Beim Eintreffen eines `move` wird die offene
+  Gruppe desselben Bestandseintrags mit `finish(group)` abgeschlossen und aus
+  `open` entfernt. Spätere Updates starten eine neue Gruppe und behalten ihre
+  Reihenfolge relativ zum Move.
+- **Regressionstests:** Die Upgrade-Kompatibilität sowie die Sequenzen
+  `Update → Move → Update` und `Insert → Move → Delete` sind als fokussierte
+  Tests festgehalten.

@@ -1,4 +1,4 @@
-import { mkdtempSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -285,6 +285,36 @@ describe('lokales Schema', () => {
 });
 
 describe('lokale Schema-Upgrades', () => {
+  it('erkennt eine vor dem Inventory-Move migrierte Datenbank ohne Migration erneut auszufuehren', async () => {
+    const upgradeDb = createTestDatabase();
+    try {
+      await runMigrations(upgradeDb, MIGRATIONS);
+
+      const stableMigrationName = '20260901043557_chunky_ken_ellis';
+      const renamedMigrationName = '20260901043557_careful_bruce_banner';
+      const legacyMigrationSource = readFileSync(
+        join(process.cwd(), 'drizzle/local', stableMigrationName, 'migration.sql'),
+        'utf8',
+      );
+      const { [renamedMigrationName]: _renamedMigration, ...migrationsWithoutRenamedKey } =
+        localMigrations.migrations;
+
+      await runDrizzleMigrations(upgradeDb, {
+        migrations: {
+          ...migrationsWithoutRenamedKey,
+          [stableMigrationName]: legacyMigrationSource,
+        },
+      });
+
+      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(0);
+      expect((await columnsOf(upgradeDb, 'households')).map((column) => column.name)).toContain(
+        'plus_active',
+      );
+    } finally {
+      upgradeDb.close();
+    }
+  });
+
   it('markiert bestehende MHD-Werte beim Upgrade als manuell gesetzt', async () => {
     const upgradeDb = createTestDatabase();
     try {
