@@ -17,13 +17,21 @@ module.exports = {
     "^.+\\.[jt]sx?$": [
       "babel-jest",
       {
+        // Integrationstests laufen in Node. Die globale Expo-/NativeWind-
+        // Babel-Konfiguration wuerde sonst react-native-css-interop in jeden
+        // Test importieren und Node-native React-Native-Syntax laden.
+        babelrc: false,
+        configFile: false,
         presets: [
           ["@babel/preset-typescript", { isTSX: true, allExtensions: true }],
         ],
         // Der TypeScript-Preset entfernt nur Typen. Jest laedt die Dateien als
         // CommonJS, deshalb muessen die ESM-Importe zusaetzlich umgeschrieben
         // werden — sonst: "Cannot use import statement outside a module".
-        plugins: ["@babel/plugin-transform-modules-commonjs"],
+        plugins: [
+          "@babel/plugin-transform-modules-commonjs",
+          ["inline-import", { extensions: [".sql"] }],
+        ],
       },
     ],
   },

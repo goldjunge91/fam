@@ -159,6 +159,13 @@ grant execute on function public.move_fridge_item(
   uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz
 ) to authenticated;
 
+revoke execute on function public.reverse_move_fridge_item(
+  uuid, uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz, text
+) from public, anon;
+grant execute on function public.reverse_move_fridge_item(
+  uuid, uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz, text
+) to authenticated;
+
 -- redeem_invite() muss von Nicht-Mitgliedern aufrufbar sein — das ist sein
 -- ganzer Zweck. Aber nur von angemeldeten: die Mitgliedschaft braucht eine
 -- user_id.

@@ -463,3 +463,53 @@ Verifikation oder offene Aufgabe wurde entfernt.
   Migrationstest).
 - `fam-lem.2`, `fam-lem.3` und der von `.6` abhängige Undo-Slice `fam-lem.12`
   bleiben separate offene Aufgaben; `.10`, `.11`, `.4` und `.5` sind erledigt.
+
+## Increment 5 Status Addendum (2026-09-07)
+
+Dieser Abschnitt ergänzt den bisherigen Verlauf append-only. Keine vorherige
+Planung, Review-Abweichung, Verifikation oder offene Aufgabe wurde entfernt.
+
+- **Vollständige `.6`-Hook-Matrix:** Add, Consume, manuelle Mengen-/Lagerort-
+  korrektur, Waste, Move, Open und Open-Undo laufen über lokale Spiegelung,
+  Outbox und Ledger. Der Einkaufslisten-Abschluss bleibt als eigener
+  Bestandszugangspfad mit genau einer `in`-Buchung je Transfer abgedeckt.
+- **Fehlergrenzen:** Manuelle Bestandsmengen werden vor dem Enqueue auf endliche,
+  nicht negative Werte begrenzt. Nicht positive Ledger-/Move-Mengen,
+  unendliche Verbrauchsdeltas, fehlende lokale Update-Zeilen und ungültige
+  Öffnungsmengen erzeugen keine lokale Teilmutation.
+- **Ablaufmatrix:** Die von `.6` verwendete V2-Regelbasis behandelt nun auch
+  Bindestrich-/Leerzeichen-Salate, `Biscuit` sowie Dosenfisch in Öl gemäß der
+  dokumentierten Reihenfolge, ohne das Wort `Öl` als falschen Universal-Treffer
+  vor den spezifischeren Fisch-Treffer zu stellen.
+- **Schreibpfad-Audit:** Der produktive Inventory-Scope schreibt
+  `fridge_items` nur über die Inventory-Mutations-Hooks beziehungsweise den
+  geprüften Einkaufsabschluss. Reine Metadaten-/Restore-Pfade erzeugen keine
+  künstliche Mengenbuchung; alle Mengenpfade schreiben die passende
+  Ledger-Zeile oder atomare Move-Gruppe.
+
+### Verifikation des vollständigen Hook-Slices
+
+- Fokussierte Unit-Suites für Lifecycle, Ablaufregeln, Mutation-Hooks,
+  Einkaufsabschluss, Coalescing und Push: **190/190**.
+- Echte lokale SQLite-Hook-Integration für Add, Consume, Korrektur, Move,
+  Waste, Open, Open-Undo und Fehlerpfade: **13/13**.
+- Gemeinsamer lokaler Integrationlauf für Hook-Slice, Schema-/Upgrade-
+  Kompatibilität und atomaren Move: **49/49**.
+- `bun run typecheck`: **PASS**.
+- `bun run check`: **PASS**; nur der bekannte Browserslist-Hinweis bleibt.
+- `git diff --check`: **PASS**.
+- Der lokale Supabase-Container wurde nicht gestartet, gestoppt oder
+  zurückgesetzt; es wurden keine externen Datenbanken verwendet.
+
+Damit ist die Implementierung der Acceptance-Kriterien von `fam-lem.6`
+belegt. Der allgemeine Undo-Vertrag für `in`, `out`, `waste` und Move bleibt
+als ausdrücklich separater Scope in `fam-lem.12`; die Release-Werte und das
+Gate bleiben in `fam-lem.8`/`.9` nachzuverfolgen.
+
+## Status Correction Addendum (2026-09-07)
+
+Die Aussage im historischen Increment-4-Abschnitt, dass `fam-lem.2` und
+`fam-lem.3` offen bleiben, beschreibt den damaligen Zwischenstand. Nach der
+vollständigen Matrix-/Lifecycle-Verifikation wurden beide Dependencies in
+Beads geschlossen. Offen und absichtlich separat bleiben nur der allgemeine
+Undo-Vertrag `fam-lem.12` sowie die nachgelagerte UI-Aufgabe `fam-lem.7`.

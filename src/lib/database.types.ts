@@ -2683,6 +2683,7 @@ export type Database = {
           product_id: string | null
           quantity: number
           reason: string | null
+          reversal_of: string | null
           type: string
           undone: boolean
         }
@@ -2699,6 +2700,7 @@ export type Database = {
           product_id?: string | null
           quantity: number
           reason?: string | null
+          reversal_of?: string | null
           type: string
           undone?: boolean
         }
@@ -2715,6 +2717,7 @@ export type Database = {
           product_id?: string | null
           quantity?: number
           reason?: string | null
+          reversal_of?: string | null
           type?: string
           undone?: boolean
         }
@@ -3085,6 +3088,22 @@ export type Database = {
       }
       prepare_account_deletion: { Args: never; Returns: undefined }
       redeem_invite: { Args: { invite_token: string }; Returns: string }
+      reverse_move_fridge_item: {
+        Args: {
+          p_created_at: string
+          p_expected_location_id: string
+          p_expected_quantity: number
+          p_household_id: string
+          p_in_transaction_id: string
+          p_item_id: string
+          p_new_location_id: string
+          p_notes: string
+          p_operation_id: string
+          p_out_transaction_id: string
+          p_reversal_of: string
+        }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never

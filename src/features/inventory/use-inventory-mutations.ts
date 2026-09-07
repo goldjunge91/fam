@@ -12,9 +12,12 @@ import { normalizeUnit } from '@/lib/units';
 import type { WasteReason } from './components/waste-inventory-item-sheet';
 import {
   getSplitOriginItemId,
+  inventoryUndoMode,
+  inverseTransactionType,
   type LifecycleItem,
   planOpenInventoryItem,
   planUndoOpenTransaction,
+  undoTransactionNotes,
 } from './inventory-lifecycle';
 import type { LocalInventoryItem } from './use-inventory-items';
 import type { LocalInventoryTransaction } from './use-inventory-transactions';
@@ -37,12 +40,14 @@ export type FridgeItem = {
 
 type TransactionPayload = Omit<
   Database['public']['Tables']['transactions']['Row'],
-  'operation_id'
+  'operation_id' | 'reversal_of'
 > & {
   operation_id: string | null;
+  reversal_of: string | null;
 };
-type TransactionDraft = Omit<TransactionPayload, 'operation_id'> & {
+type TransactionDraft = Omit<TransactionPayload, 'operation_id' | 'reversal_of'> & {
   operation_id?: string | null;
+  reversal_of?: string | null;
 };
 
 function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueMutationInput {
@@ -50,7 +55,11 @@ function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueM
     throw new Error('Ledger-Buchungen benötigen eine positive Menge.');
   }
 
-  const normalizedPayload: TransactionPayload = { operation_id: null, ...payload };
+  const normalizedPayload: TransactionPayload = {
+    operation_id: null,
+    reversal_of: null,
+    ...payload,
+  };
   return {
     entity: 'transactions',
     entityId: normalizedPayload.id,
@@ -59,6 +68,12 @@ function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueM
     applyLocally: (txn) =>
       applyLocalMirrorWrite(txn, 'transactions', 'insert', normalizedPayload, nowMs),
   };
+}
+
+function assertValidInventoryQuantity(quantity: number): void {
+  if (!Number.isFinite(quantity) || quantity < 0) {
+    throw new Error('Bestandsmengen müssen endlich und nicht negativ sein.');
+  }
 }
 
 function groupedMoveMutation(input: {
@@ -71,7 +86,13 @@ function groupedMoveMutation(input: {
   actor: string | null;
   createdAt: string;
   nowMs: number;
+  reversalOf?: string | null;
+  notes?: string | null;
 }): EnqueueMutationInput {
+  if (!Number.isFinite(input.quantity) || input.quantity <= 0) {
+    throw new Error('Ledger-Buchungen benötigen eine positive Menge.');
+  }
+
   const operationId = Crypto.randomUUID();
   const outTransactionId = Crypto.randomUUID();
   const inTransactionId = Crypto.randomUUID();
@@ -82,11 +103,12 @@ function groupedMoveMutation(input: {
     quantity: input.quantity,
     reason: null,
     previous_expiry_date: null,
-    notes: null,
+    notes: input.notes ?? null,
     undone: false,
     created_at: input.createdAt,
     fridge_item_id: input.itemId,
     operation_id: operationId,
+    reversal_of: input.reversalOf ?? null,
   } as const;
 
   return createInventoryMoveMutation({
@@ -100,6 +122,8 @@ function groupedMoveMutation(input: {
       out_transaction_id: outTransactionId,
       in_transaction_id: inTransactionId,
       created_at: input.createdAt,
+      reversal_of: input.reversalOf ?? null,
+      notes: input.notes ?? null,
     },
     outTransaction: {
       id: outTransactionId,
@@ -156,6 +180,7 @@ function lifecycleItemFromLocal(item: LocalInventoryItem) {
     packageSizeUnit: item.package_size_unit,
     addedBy: item.added_by,
     locationKind: item.location_kind ?? null,
+    updatedAt: item.updated_at ?? null,
   } as const;
 }
 
@@ -303,6 +328,10 @@ export function useUpdateInventoryItemQuantityMutation() {
       household_id: string;
       delta: number;
     }) => {
+      if (!Number.isFinite(delta)) {
+        throw new Error('Mengenänderungen benötigen eine endliche Zahl.');
+      }
+
       const db = await getDatabase();
       const now = new Date().toISOString();
       const nowMs = Date.now();
@@ -392,6 +421,7 @@ export function useUpdateFridgeItemMutation() {
 
   return useMutation({
     mutationFn: async (item: FridgeItem) => {
+      assertValidInventoryQuantity(item.quantity);
       const db = await getDatabase();
       const now = new Date().toISOString();
       const nowMs = Date.now();
@@ -415,6 +445,10 @@ export function useUpdateFridgeItemMutation() {
         quantity: number;
         location_id: string | null;
       }>('select quantity, location_id from fridge_items where id = ?', [item.id]);
+      if (!existing) {
+        throw new Error('Der Bestand ist lokal nicht vorhanden.');
+      }
+
       const quantityChanged = existing !== null && item.quantity !== existing.quantity;
       const isDepleted = item.quantity === 0 && quantityChanged;
       const locationChanged =
@@ -688,12 +722,42 @@ export function useUndoOpenTransactionMutation() {
     mutationFn: async ({ transaction }: { transaction: LocalInventoryTransaction }) => {
       if (transaction.type !== 'open')
         throw new Error('Nur Öffnungen können hier rückgängig gemacht werden.');
+      if (transaction.reversal_of || transaction.undone || transaction.notes?.includes('[Undone]'))
+        throw new Error('Diese Öffnung wurde bereits rückgängig gemacht.');
       const db = await getDatabase();
+      const existingUndo = await db.getFirstAsync<{ id: string }>(
+        `select id
+           from transactions
+          where household_id = ?
+            and fridge_item_id = ?
+            and (
+              reversal_of = ?
+              or (
+                type = 'open'
+                and quantity = ?
+                and previous_expiry_date is ?
+                and notes = '[Undone] Öffnung rückgängig gemacht'
+                and created_at > ?
+              )
+            )
+          limit 1`,
+        [
+          transaction.household_id,
+          transaction.fridge_item_id,
+          transaction.id,
+          transaction.quantity,
+          transaction.previous_expiry_date,
+          transaction.created_at,
+        ],
+      );
+      if (existingUndo) throw new Error('Diese Öffnung wurde bereits rückgängig gemacht.');
+
       const openedRow = await db.getFirstAsync<LocalInventoryItem>(
         `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
                 fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
                 fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
-                fi.added_by, fi.created_at, sl.kind as location_kind, sl.name as location_name
+                fi.added_by, fi.created_at, fi.updated_at,
+                sl.kind as location_kind, sl.name as location_name
            from fridge_items fi
            left join storage_locations sl on fi.location_id = sl.id
           where fi.id = ? and fi.deleted_at is null`,
@@ -707,7 +771,8 @@ export function useUndoOpenTransactionMutation() {
             `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
                     fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
                     fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
-                    fi.added_by, fi.created_at, sl.kind as location_kind, sl.name as location_name
+                    fi.added_by, fi.created_at, fi.updated_at,
+                    sl.kind as location_kind, sl.name as location_name
                from fridge_items fi
                left join storage_locations sl on fi.location_id = sl.id
               where fi.id = ? and fi.household_id = ? and fi.opened_at is null
@@ -731,19 +796,49 @@ export function useUndoOpenTransactionMutation() {
         previousExpiryDate: transaction.previous_expiry_date,
         createdAt: transaction.created_at,
       };
-      const plan = planUndoOpenTransaction(
-        lifecycleTransaction,
-        lifecycleItemFromLocal(openedRow),
-        sealedRow ? lifecycleItemFromLocal(sealedRow) : null,
-        new Date(),
-      );
-      if (plan.mode === 'fallback')
-        throw new Error('Der geöffnete Bestand wurde bereits verändert.');
+      const undoMode = inventoryUndoMode(transaction.created_at, new Date());
+      const plan =
+        undoMode === 'undo'
+          ? planUndoOpenTransaction(
+              lifecycleTransaction,
+              lifecycleItemFromLocal(openedRow),
+              sealedRow ? lifecycleItemFromLocal(sealedRow) : null,
+              new Date(),
+            )
+          : null;
 
       const now = new Date().toISOString();
       const nowMs = Date.now();
       const mutations: EnqueueMutationInput[] = [];
-      if (plan.mode === 'restore-in-place' && plan.openedPatch) {
+      if (undoMode === 'manual-correction') {
+        if (openedRow.opened_at === null) {
+          throw new Error('Der geöffnete Bestand wurde bereits verändert.');
+        }
+        const patch = {
+          opened_at: null,
+          expiry_date: transaction.previous_expiry_date,
+          expiry_user_set: transaction.previous_expiry_date !== null,
+        };
+        mutations.push({
+          entity: 'fridge_items',
+          entityId: openedRow.id,
+          op: 'update',
+          payload: {
+            id: openedRow.id,
+            household_id: openedRow.household_id,
+            ...patch,
+            updated_at: now,
+          },
+          applyLocally: (txn) =>
+            applyLocalMirrorWrite(
+              txn,
+              'fridge_items',
+              'update',
+              { id: openedRow.id, ...patch },
+              nowMs,
+            ),
+        });
+      } else if (plan?.mode === 'restore-in-place' && plan.openedPatch) {
         const patch = lifecyclePatchPayload(plan.openedPatch);
         mutations.push({
           entity: 'fridge_items',
@@ -764,7 +859,7 @@ export function useUndoOpenTransactionMutation() {
               nowMs,
             ),
         });
-      } else if (plan.mode === 'merge-split' && sealedRow && plan.sealedPatch) {
+      } else if (plan?.mode === 'merge-split' && sealedRow && plan.sealedPatch) {
         mutations.push({
           entity: 'fridge_items',
           entityId: sealedRow.id,
@@ -797,6 +892,9 @@ export function useUndoOpenTransactionMutation() {
           applyLocally: (txn) =>
             applyLocalMirrorWrite(txn, 'fridge_items', 'delete', { id: openedRow.id }, nowMs),
         });
+      } else if (plan?.mode === 'fallback') {
+        // Der Split-Ursprung wurde nach dem Öffnen verändert. Der Undo bleibt
+        // deshalb als Provenienzbuchung erhalten, ändert aber kein Lot.
       }
       mutations.push(
         transactionMutation(
@@ -810,15 +908,245 @@ export function useUndoOpenTransactionMutation() {
             quantity: transaction.quantity,
             location_id: transaction.location_id,
             reason: null,
-            previous_expiry_date: transaction.previous_expiry_date,
-            notes: '[Undone] Öffnung rückgängig gemacht',
+            previous_expiry_date: openedRow.expiry_date,
+            notes: undoTransactionNotes(undoMode, 'open'),
             undone: false,
+            reversal_of: transaction.id,
             created_at: now,
           },
           nowMs,
         ),
       );
       await enqueueMutations(db, mutations);
+      return transaction.household_id;
+    },
+    onSuccess: (householdId) => {
+      queryClient.invalidateQueries({ queryKey: ['fridge_items', householdId] });
+      queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', householdId] });
+      queryClient.invalidateQueries({ queryKey: ['transactions', householdId] });
+      queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+    },
+  });
+}
+
+type UndoInventoryItem = LocalInventoryItem & { deleted_at: number | null };
+
+type MoveLedgerLeg = {
+  id: string;
+  type: 'in' | 'out';
+  quantity: number;
+  location_id: string | null;
+  fridge_item_id: string | null;
+  reversal_of: string | null;
+};
+
+async function enqueueQuantityReversal(
+  db: Awaited<ReturnType<typeof getDatabase>>,
+  transaction: LocalInventoryTransaction,
+  actor: string | null,
+  mode: ReturnType<typeof inventoryUndoMode>,
+): Promise<void> {
+  if (!transaction.fridge_item_id) {
+    throw new Error('Diese Buchung ist keinem Bestandslos zugeordnet.');
+  }
+
+  const item = await db.getFirstAsync<UndoInventoryItem>(
+    `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
+            fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
+            fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
+            fi.added_by, fi.created_at, fi.updated_at, fi.deleted_at,
+            sl.kind as location_kind, sl.name as location_name
+       from fridge_items fi
+       left join storage_locations sl on fi.location_id = sl.id
+      where fi.id = ? and fi.household_id = ?`,
+    [transaction.fridge_item_id, transaction.household_id],
+  );
+  if (!item) throw new Error('Der Bestand ist lokal nicht vorhanden.');
+
+  const existingReversal = await db.getFirstAsync<{ id: string }>(
+    `select id from transactions where household_id = ? and reversal_of = ? limit 1`,
+    [transaction.household_id, transaction.id],
+  );
+  if (existingReversal) throw new Error('Diese Buchung wurde bereits rückgängig gemacht.');
+
+  const inverseType = inverseTransactionType(transaction.type);
+  if (inverseType === 'open') {
+    throw new Error('Öffnungen werden über den Open-Undo-Pfad behandelt.');
+  }
+
+  const now = new Date().toISOString();
+  const nowMs = Date.now();
+  const mutations: EnqueueMutationInput[] = [];
+
+  if (item.deleted_at !== null) {
+    if (transaction.type === 'in' || item.quantity !== transaction.quantity) {
+      throw new Error('Der Bestand wurde zwischenzeitlich verändert.');
+    }
+    mutations.push({
+      entity: 'fridge_items',
+      entityId: item.id,
+      op: 'restore',
+      payload: { id: item.id, household_id: item.household_id, deleted_at: null, updated_at: now },
+      applyLocally: (txn) =>
+        applyLocalMirrorWrite(txn, 'fridge_items', 'restore', { id: item.id }, nowMs),
+    });
+  } else {
+    const nextQuantity =
+      inverseType === 'out'
+        ? item.quantity - transaction.quantity
+        : item.quantity + transaction.quantity;
+    if (nextQuantity < 0) {
+      throw new Error('Die Gegenbuchung würde eine negative Bestandsmenge erzeugen.');
+    }
+    if (nextQuantity === 0) {
+      mutations.push({
+        entity: 'fridge_items',
+        entityId: item.id,
+        op: 'delete',
+        payload: { id: item.id, household_id: item.household_id, deleted_at: now, updated_at: now },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'fridge_items', 'delete', { id: item.id }, nowMs),
+      });
+    } else {
+      mutations.push({
+        entity: 'fridge_items',
+        entityId: item.id,
+        op: 'update',
+        payload: {
+          id: item.id,
+          household_id: item.household_id,
+          quantity: nextQuantity,
+          updated_at: now,
+        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'fridge_items',
+            'update',
+            { id: item.id, quantity: nextQuantity },
+            nowMs,
+          ),
+      });
+    }
+  }
+
+  mutations.push(
+    transactionMutation(
+      {
+        id: Crypto.randomUUID(),
+        household_id: transaction.household_id,
+        fridge_item_id: item.id,
+        product_id: transaction.product_id ?? item.product_id,
+        actor,
+        type: inverseType,
+        quantity: transaction.quantity,
+        location_id: item.location_id ?? transaction.location_id,
+        reason: null,
+        previous_expiry_date: null,
+        notes: undoTransactionNotes(mode, transaction.type),
+        undone: false,
+        reversal_of: transaction.id,
+        created_at: now,
+      },
+      nowMs,
+    ),
+  );
+  await enqueueMutations(db, mutations);
+}
+
+async function enqueueMoveReversal(
+  db: Awaited<ReturnType<typeof getDatabase>>,
+  transaction: LocalInventoryTransaction,
+  actor: string | null,
+  mode: ReturnType<typeof inventoryUndoMode>,
+): Promise<void> {
+  if (!transaction.operation_id) throw new Error('Die Move-Provenienz ist unvollständig.');
+
+  const legs = await db.getAllAsync<MoveLedgerLeg>(
+    `select id, type, quantity, location_id, fridge_item_id, reversal_of
+       from transactions
+      where household_id = ? and operation_id = ?
+      order by type`,
+    [transaction.household_id, transaction.operation_id],
+  );
+  const outLeg = legs.find((leg) => leg.type === 'out');
+  const inLeg = legs.find((leg) => leg.type === 'in');
+  if (legs.length !== 2 || !outLeg || !inLeg || !outLeg.fridge_item_id) {
+    throw new Error('Die Move-Provenienz ist unvollständig.');
+  }
+  if (outLeg.fridge_item_id !== inLeg.fridge_item_id) {
+    throw new Error('Die Move-Legs gehören nicht zum selben Bestand.');
+  }
+
+  const existingReversal = await db.getFirstAsync<{ id: string }>(
+    `select id from transactions where household_id = ? and reversal_of = ? limit 1`,
+    [transaction.household_id, transaction.operation_id],
+  );
+  if (existingReversal) throw new Error('Diese Verschiebung wurde bereits rückgängig gemacht.');
+
+  const item = await db.getFirstAsync<{
+    id: string;
+    household_id: string;
+    location_id: string | null;
+    quantity: number;
+    deleted_at: number | null;
+    product_id: string | null;
+  }>(
+    `select id, household_id, location_id, quantity, deleted_at, product_id
+       from fridge_items
+      where id = ? and household_id = ?`,
+    [outLeg.fridge_item_id, transaction.household_id],
+  );
+  if (!item || item.deleted_at !== null) {
+    throw new Error('Der Bestand wurde zwischenzeitlich verändert.');
+  }
+  if (item.location_id !== inLeg.location_id || item.quantity !== inLeg.quantity) {
+    throw new Error('Der Bestand wurde zwischenzeitlich verändert.');
+  }
+
+  const now = new Date().toISOString();
+  await enqueueMutations(db, [
+    groupedMoveMutation({
+      itemId: item.id,
+      householdId: item.household_id,
+      productId: item.product_id,
+      quantity: item.quantity,
+      expectedLocationId: inLeg.location_id,
+      newLocationId: outLeg.location_id,
+      actor,
+      createdAt: now,
+      nowMs: Date.now(),
+      reversalOf: transaction.operation_id,
+      notes: undoTransactionNotes(mode, transaction.type),
+    }),
+  ]);
+}
+
+export function useUndoInventoryTransactionMutation() {
+  const queryClient = useQueryClient();
+  const actor = useInventoryActor();
+  const openUndoMutation = useUndoOpenTransactionMutation();
+
+  return useMutation({
+    mutationFn: async ({ transaction }: { transaction: LocalInventoryTransaction }) => {
+      if (transaction.reversal_of !== undefined && transaction.reversal_of !== null) {
+        throw new Error('Eine Gegenbuchung kann nicht erneut rückgängig gemacht werden.');
+      }
+      if (transaction.undone) {
+        throw new Error('Diese Buchung wurde bereits rückgängig gemacht.');
+      }
+
+      if (transaction.type === 'open') {
+        return openUndoMutation.mutateAsync({ transaction });
+      }
+
+      const mode = inventoryUndoMode(transaction.created_at, new Date());
+      const db = await getDatabase();
+      if (transaction.operation_id) {
+        await enqueueMoveReversal(db, transaction, actor, mode);
+      } else {
+        await enqueueQuantityReversal(db, transaction, actor, mode);
+      }
       return transaction.household_id;
     },
     onSuccess: (householdId) => {

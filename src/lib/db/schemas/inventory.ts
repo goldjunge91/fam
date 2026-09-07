@@ -61,6 +61,7 @@ export const transactions = sqliteTable(
   {
     id: text('id').notNull(),
     operationId: text('operation_id'),
+    reversalOf: text('reversal_of'),
     householdId: text('household_id').notNull(),
     fridgeItemId: text('fridge_item_id'),
     productId: text('product_id'),
@@ -101,6 +102,13 @@ export const transactions = sqliteTable(
     index('transactions_hh_idx').on(table.householdId, table.createdAt),
     index('transactions_fridge_item_idx').on(table.fridgeItemId),
     index('transactions_operation_idx').on(table.operationId),
+    index('transactions_reversal_idx').on(table.reversalOf),
+    uniqueIndex('transactions_single_reversal_idx')
+      .on(table.householdId, table.reversalOf)
+      .where(sql`${table.reversalOf} is not null and ${table.operationId} is null`),
+    uniqueIndex('transactions_move_reversal_type_idx')
+      .on(table.householdId, table.reversalOf, table.type)
+      .where(sql`${table.reversalOf} is not null and ${table.operationId} is not null`),
     uniqueIndex('transactions_operation_type_idx')
       .on(table.operationId, table.type)
       .where(sql`${table.operationId} is not null`),

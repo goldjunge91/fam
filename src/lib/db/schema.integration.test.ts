@@ -1,4 +1,4 @@
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -89,6 +89,7 @@ describe('lokales Schema', () => {
         'notes',
         'undone',
         'created_at',
+        'reversal_of',
       ]),
     );
   });
@@ -193,6 +194,49 @@ describe('lokales Schema', () => {
            (id, operation_id, household_id, type, quantity, updated_at)
          values (?, ?, ?, ?, ?, ?)`,
         ['tx-unique-out-2', 'operation-unique', 'household-1', 'out', 1, 0],
+      ),
+    ).rejects.toThrow();
+  });
+
+  it('erlaubt pro Einzelbuchung höchstens eine Gegenbuchung', async () => {
+    await db.runAsync(
+      `insert into transactions
+         (id, household_id, type, quantity, reversal_of, updated_at)
+       values (?, ?, 'in', 1, ?, 0)`,
+      ['tx-reversal-1', 'household-1', 'source-1'],
+    );
+
+    await expect(
+      db.runAsync(
+        `insert into transactions
+           (id, household_id, type, quantity, reversal_of, updated_at)
+         values (?, ?, 'out', 1, ?, 0)`,
+        ['tx-reversal-2', 'household-1', 'source-1'],
+      ),
+    ).rejects.toThrow();
+
+    await expect(
+      db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, type, quantity, reversal_of, updated_at)
+         values (?, ?, ?, 'out', 1, ?, 0)`,
+        ['tx-reversal-move-1', 'move-reversal', 'household-1', 'source-move'],
+      ),
+    ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
+    await expect(
+      db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, type, quantity, reversal_of, updated_at)
+         values (?, ?, ?, 'in', 1, ?, 0)`,
+        ['tx-reversal-move-2', 'move-reversal', 'household-1', 'source-move'],
+      ),
+    ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
+    await expect(
+      db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, type, quantity, reversal_of, updated_at)
+         values (?, ?, ?, 'out', 1, ?, 0)`,
+        ['tx-reversal-move-3', 'move-reversal-2', 'household-1', 'source-move'],
       ),
     ).rejects.toThrow();
   });
@@ -355,21 +399,16 @@ describe('lokale Schema-Upgrades', () => {
       await runMigrations(upgradeDb, MIGRATIONS);
 
       const stableMigrationName = '20260901043557_chunky_ken_ellis';
-      const renamedMigrationName = '20260901043557_careful_bruce_banner';
-      const legacyMigrationSource = readFileSync(
-        join(process.cwd(), 'drizzle/local', stableMigrationName, 'migration.sql'),
-        'utf8',
+      const legacyMigrations = Object.fromEntries(
+        Object.entries(localMigrations.migrations).filter(([name]) => name <= stableMigrationName),
       );
-      const { [renamedMigrationName]: _renamedMigration, ...migrationsWithoutRenamedKey } =
-        localMigrations.migrations;
 
-      await runDrizzleMigrations(upgradeDb, {
-        migrations: {
-          ...migrationsWithoutRenamedKey,
-          [stableMigrationName]: legacyMigrationSource,
-        },
-      });
-
+      await expect(runDrizzleMigrations(upgradeDb, { migrations: legacyMigrations })).resolves.toBe(
+        4,
+      );
+      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(
+        Object.keys(localMigrations.migrations).length - Object.keys(legacyMigrations).length,
+      );
       await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(0);
       expect((await columnsOf(upgradeDb, 'households')).map((column) => column.name)).toContain(
         'plus_active',

@@ -4,15 +4,17 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { radius } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { IconButton, Txt } from '@/constants/ui';
+import { Button, IconButton, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount } from '@/lib/package-size';
 
 import {
   groupTransactionsByDay,
+  isInventoryTransactionUndoable,
   type LocalInventoryTransaction,
   transactionLabel,
   transactionReasonLabel,
+  transactionUndoLabel,
 } from '../use-inventory-transactions';
 
 type InventoryHistorySheetProps = {
@@ -33,6 +35,11 @@ type InventoryHistorySheetProps = {
   lotLabels?: ReadonlyMap<string, string>;
   fullScreen?: boolean;
   onUndo?: (transaction: LocalInventoryTransaction) => void;
+  undoPending?: boolean;
+  loading?: boolean;
+  error?: boolean;
+  offline?: boolean;
+  onRetry?: () => void;
 };
 
 type HistoryRow =
@@ -51,6 +58,11 @@ export function InventoryHistorySheet({
   lotLabels,
   fullScreen = false,
   onUndo,
+  undoPending = false,
+  loading = false,
+  error = false,
+  offline = false,
+  onRetry,
 }: InventoryHistorySheetProps) {
   const { colors } = useTheme();
   const sheetStyle = useSheetShadowStyle();
@@ -108,6 +120,12 @@ export function InventoryHistorySheet({
         </View>
       ) : null}
 
+      {offline ? (
+        <Txt variant="caption" tone="secondary">
+          Offline: lokale Daten werden angezeigt.
+        </Txt>
+      ) : null}
+
       <FlashList
         data={rows}
         keyExtractor={(row) => row.id}
@@ -143,6 +161,7 @@ export function InventoryHistorySheet({
                   : undefined
               }
               onUndo={onUndo}
+              undoPending={undoPending}
             />
           )
         }
@@ -154,11 +173,28 @@ export function InventoryHistorySheet({
           ) : null
         }
         ListEmptyComponent={
-          <View className="py-six">
-            <Txt variant="body" tone="secondary">
-              Noch keine Bewegungen vorhanden.
-            </Txt>
-          </View>
+          loading ? (
+            <View className="py-six">
+              <Txt variant="body" tone="secondary">
+                Verlauf wird geladen…
+              </Txt>
+            </View>
+          ) : error ? (
+            <View className="items-start gap-two py-six">
+              <Txt variant="body" tone="secondary">
+                Verlauf konnte nicht geladen werden.
+              </Txt>
+              {onRetry ? (
+                <Button title="Erneut versuchen" variant="secondary" onPress={onRetry} />
+              ) : null}
+            </View>
+          ) : (
+            <View className="py-six">
+              <Txt variant="body" tone="secondary">
+                Noch keine Bewegungen vorhanden.
+              </Txt>
+            </View>
+          )
         }
       />
     </View>
@@ -227,12 +263,14 @@ function HistoryTransactionRow({
   compactLabel,
   lotLabel,
   onUndo,
+  undoPending,
 }: {
   transaction: LocalInventoryTransaction;
   colors: ReturnType<typeof useTheme>['colors'];
   compactLabel: boolean;
   lotLabel?: string;
   onUndo?: (transaction: LocalInventoryTransaction) => void;
+  undoPending: boolean;
 }) {
   const isWaste = transaction.type === 'waste';
   const edgeColor = isWaste
@@ -247,11 +285,7 @@ function HistoryTransactionRow({
     hour: '2-digit',
     minute: '2-digit',
   });
-  const undoAvailable =
-    transaction.type === 'open' &&
-    !transaction.notes?.includes('[Undone]') &&
-    !Number.isNaN(new Date(transaction.created_at).getTime()) &&
-    Date.now() - new Date(transaction.created_at).getTime() <= 24 * 60 * 60 * 1000;
+  const undoAvailable = isInventoryTransactionUndoable(transaction);
 
   return (
     <View className="inventory-history-row">
@@ -294,11 +328,13 @@ function HistoryTransactionRow({
         </Txt>
         {undoAvailable && onUndo ? (
           <Pressable
+            disabled={undoPending}
             onPress={() => onUndo(transaction)}
             accessibilityRole="button"
-            accessibilityLabel="Öffnung rückgängig machen">
+            accessibilityLabel={transactionUndoLabel(transaction)}
+            accessibilityState={{ disabled: undoPending }}>
             <Txt variant="caption" color={colors.accent} weight="700">
-              Undo
+              Rückgängig
             </Txt>
           </Pressable>
         ) : null}

@@ -244,3 +244,79 @@ describe('pushOutbox — append-only Ledger', () => {
     }
   });
 });
+
+describe('pushOutbox — Inventory-Move-Reversal', () => {
+  it('erkennt die Provenienz aus der Outbox und ruft die Reversal-RPC auf', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+
+    const payload = {
+      operation_id: 'move-reversal-1',
+      item_id: 'item-1',
+      household_id: 'hh-1',
+      expected_location_id: 'loc-2',
+      new_location_id: 'loc-1',
+      expected_quantity: 2,
+      out_transaction_id: 'txn-out-reversal-1',
+      in_transaction_id: 'txn-in-reversal-1',
+      created_at: '2026-09-07T10:00:00.000Z',
+      reversal_of: 'move-original-1',
+      notes: '[Undone] Gegenbuchung',
+    };
+
+    await enqueueMutation(db, {
+      entity: 'fridge_items',
+      entityId: 'item-1',
+      op: 'move',
+      payload,
+      now: 1,
+      applyLocally: async () => {},
+    });
+
+    const remoteRow = {
+      id: 'item-1',
+      household_id: 'hh-1',
+      location_id: 'loc-1',
+      product_id: null,
+      name: 'Milch',
+      quantity: 2,
+      unit: 'piece',
+      package_size: null,
+      package_size_unit: null,
+      expiry_date: null,
+      added_by: 'user-1',
+      created_at: '2026-09-07T09:00:00.000Z',
+      opened_at: null,
+      vacuum_sealed: false,
+      expiry_user_set: false,
+      updated_at: '2026-09-07T10:00:01.000Z',
+      deleted_at: null,
+    };
+    const maybeSingle = jest.fn().mockResolvedValue({ data: remoteRow, error: null, status: 200 });
+    const eq = jest.fn().mockReturnValue({ maybeSingle });
+    const rpc = jest.fn().mockResolvedValue({ data: 'item-1', error: null, status: 200 });
+    const client = {
+      rpc,
+      from: jest.fn().mockReturnValue({ select: jest.fn().mockReturnValue({ eq }) }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 2 });
+
+      expect(result.outcomes[0]).toMatchObject({ kind: 'pushed', entity: 'fridge_items' });
+      expect(rpc).toHaveBeenCalledWith(
+        'reverse_move_fridge_item',
+        expect.objectContaining({
+          p_reversal_of: 'move-original-1',
+          p_notes: '[Undone] Gegenbuchung',
+        }),
+      );
+      expect(
+        await db.getFirstAsync('select id from outbox where entity_id = ?', ['item-1']),
+      ).toBeNull();
+    } finally {
+      db.close();
+    }
+  });
+});

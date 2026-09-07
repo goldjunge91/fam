@@ -6,6 +6,8 @@ export type InventoryTransactionType = 'in' | 'out' | 'waste' | 'open';
 
 export type LocalInventoryTransaction = {
   id: string;
+  operation_id?: string | null;
+  reversal_of?: string | null;
   household_id: string;
   fridge_item_id: string | null;
   product_id: string | null;
@@ -17,12 +19,47 @@ export type LocalInventoryTransaction = {
   previous_expiry_date: string | null;
   notes: string | null;
   undone: boolean;
+  has_reversal?: boolean | number;
   created_at: string;
   /** Display-only joins from the local mirror. */
   item_name?: string | null;
   item_unit?: string | null;
   location_name?: string | null;
 };
+
+const INVENTORY_UNDO_WINDOW_MS = 24 * 60 * 60 * 1000;
+
+/** Returns whether the history may offer the single user-facing Undo action. */
+export function isInventoryTransactionUndoable(
+  transaction: LocalInventoryTransaction,
+  now = new Date(),
+): boolean {
+  if (
+    transaction.undone ||
+    transaction.notes?.includes('[Undone]') ||
+    (transaction.reversal_of !== undefined && transaction.reversal_of !== null) ||
+    transaction.has_reversal === true ||
+    transaction.has_reversal === 1
+  ) {
+    return false;
+  }
+
+  // A move has two ledger legs but represents one user action. The in-leg is
+  // the stable history row that exposes Undo; the mutation hook reverses both.
+  if (transaction.operation_id && transaction.type !== 'in') return false;
+
+  const createdAt = new Date(transaction.created_at).getTime();
+  const age = now.getTime() - createdAt;
+  return Number.isFinite(createdAt) && age >= 0 && age <= INVENTORY_UNDO_WINDOW_MS;
+}
+
+export function transactionUndoLabel(transaction: LocalInventoryTransaction): string {
+  if (transaction.operation_id) return 'Verschiebung rückgängig machen';
+  if (transaction.type === 'in') return 'Einkauf rückgängig machen';
+  if (transaction.type === 'out') return 'Verbrauch rückgängig machen';
+  if (transaction.type === 'waste') return 'Verschwendung rückgängig machen';
+  return 'Öffnung rückgängig machen';
+}
 
 export function useInventoryTransactions(householdId: string | undefined) {
   return useQuery({
@@ -34,7 +71,21 @@ export function useInventoryTransactions(householdId: string | undefined) {
       return db.getAllAsync<LocalInventoryTransaction>(
         `select t.id, t.household_id, t.fridge_item_id, t.product_id, t.actor, t.type,
                 t.quantity, t.location_id, t.reason, t.previous_expiry_date, t.notes,
-                t.undone, t.created_at,
+                t.undone, t.created_at, t.operation_id, t.reversal_of,
+                case
+                  when t.operation_id is not null then exists (
+                    select 1
+                      from transactions reversal
+                     where reversal.household_id = t.household_id
+                       and reversal.reversal_of = t.operation_id
+                  )
+                  else exists (
+                    select 1
+                      from transactions reversal
+                     where reversal.household_id = t.household_id
+                       and reversal.reversal_of = t.id
+                  )
+                end as has_reversal,
                 coalesce(fi.name, p.name) as item_name,
                 fi.unit as item_unit,
                 sl.name as location_name

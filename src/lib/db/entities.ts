@@ -81,6 +81,7 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     columns: [
       'id',
       'operation_id',
+      'reversal_of',
       'household_id',
       'fridge_item_id',
       'product_id',

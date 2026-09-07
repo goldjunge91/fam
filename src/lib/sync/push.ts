@@ -65,6 +65,31 @@ type AttemptResult = {
   status: number;
 };
 
+type MoveRpcArgs = {
+  p_operation_id: string;
+  p_item_id: string;
+  p_household_id: string;
+  p_expected_location_id: string | null;
+  p_new_location_id: string | null;
+  p_expected_quantity: number;
+  p_out_transaction_id: string;
+  p_in_transaction_id: string;
+  p_created_at: string;
+  p_reversal_of?: string | null;
+  p_notes?: string | null;
+};
+
+type MoveRpcResponse = {
+  data: string | null;
+  error: { code?: string; message: string } | null;
+  status: number;
+};
+
+type MoveRpc = (
+  functionName: 'move_fridge_item' | 'reverse_move_fridge_item',
+  args: MoveRpcArgs,
+) => Promise<MoveRpcResponse>;
+
 type GenericQuery<T> = {
   then<TResult1 = T, TResult2 = never>(
     onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | null,
@@ -164,7 +189,24 @@ async function attemptInventoryMove(
     };
   }
 
-  const rpcResponse = await supabase.rpc('move_fridge_item', {
+  // Supabase's generated function type currently loses nullable UUID
+  // arguments, although the declarative SQL function accepts NULL for both
+  // locations. Keep the runtime contract explicit at this narrow boundary;
+  // all fields are validated by parseInventoryMovePayload before the call.
+  const moveRpc = supabase.rpc as unknown as MoveRpc;
+  const isReversal = move.reversal_of !== undefined && move.reversal_of !== null;
+  if (isReversal && (move.notes === undefined || move.notes === null)) {
+    return {
+      data: null,
+      error: {
+        code: 'move_payload_invalid',
+        message: 'Eine Move-Gegenbuchung benötigt stabile Provenienz und Notizen.',
+      },
+      status: 400,
+    };
+  }
+
+  const rpcResponse = await moveRpc(isReversal ? 'reverse_move_fridge_item' : 'move_fridge_item', {
     p_operation_id: move.operation_id,
     p_item_id: move.item_id,
     p_household_id: move.household_id,
@@ -174,6 +216,7 @@ async function attemptInventoryMove(
     p_out_transaction_id: move.out_transaction_id,
     p_in_transaction_id: move.in_transaction_id,
     p_created_at: move.created_at,
+    ...(isReversal ? { p_reversal_of: move.reversal_of, p_notes: move.notes } : {}),
   });
   if (rpcResponse.error) {
     return {

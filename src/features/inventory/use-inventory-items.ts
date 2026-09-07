@@ -18,6 +18,7 @@ export type LocalInventoryItem = {
   expiry_user_set?: boolean;
   added_by: string | null;
   created_at: string;
+  updated_at?: number | string | null;
   // JOIN-Felder aus storage_locations
   location_kind: string | null;
   location_name: string | null;
@@ -35,7 +36,7 @@ export function useInventoryItems(householdId: string | undefined) {
            fi.id, fi.household_id, fi.location_id, fi.product_id,
            fi.name, fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
            fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
-           fi.added_by, fi.created_at,
+           fi.added_by, fi.created_at, fi.updated_at,
            sl.kind as location_kind,
            sl.name as location_name
          from fridge_items fi

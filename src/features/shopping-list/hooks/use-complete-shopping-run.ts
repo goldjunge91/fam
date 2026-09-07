@@ -23,12 +23,14 @@ type CompleteShoppingRunInput = {
 
 type TransactionPayload = Omit<
   Database['public']['Tables']['transactions']['Row'],
-  'operation_id'
+  'operation_id' | 'reversal_of'
 > & {
   operation_id: string | null;
+  reversal_of: string | null;
 };
-type TransactionDraft = Omit<TransactionPayload, 'operation_id'> & {
+type TransactionDraft = Omit<TransactionPayload, 'operation_id' | 'reversal_of'> & {
   operation_id?: string | null;
+  reversal_of?: string | null;
 };
 
 function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueMutationInput {
@@ -36,7 +38,11 @@ function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueM
     throw new Error('Ledger-Buchungen benötigen eine positive Menge.');
   }
 
-  const normalizedPayload: TransactionPayload = { operation_id: null, ...payload };
+  const normalizedPayload: TransactionPayload = {
+    operation_id: null,
+    reversal_of: null,
+    ...payload,
+  };
   return {
     entity: 'transactions',
     entityId: normalizedPayload.id,

@@ -14,6 +14,7 @@ import { useStorageLocations } from '@/features/inventory/use-storage-locations'
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
+import { useSyncStatus } from '@/hooks/use-sync-status';
 import { EditInventoryItemSheet } from './components/edit-inventory-item-sheet';
 import { InventoryHistorySheet } from './components/inventory-history-sheet';
 import { InventoryItemActionsSheet } from './components/inventory-item-actions-sheet';
@@ -32,7 +33,7 @@ import { groupInventoryItems, type InventoryItemGroup } from './grouped-items';
 import { type LocalInventoryItem, useInventoryItems } from './use-inventory-items';
 import {
   useOpenInventoryItemMutation,
-  useUndoOpenTransactionMutation,
+  useUndoInventoryTransactionMutation,
   useUpdateFridgeItemMutation,
   useUpdateInventoryItemQuantityMutation,
   useWasteInventoryItemMutation,
@@ -67,11 +68,17 @@ export function InventoryScreen() {
 
   const { data: locations = [], isLoading: locationsLoading } = useStorageLocations(householdId);
   const { data: allItems = [], isLoading } = useInventoryItems(householdId);
-  const { data: transactions = [] } = useInventoryTransactions(householdId);
+  const {
+    data: transactions = [],
+    isLoading: transactionsLoading,
+    isError: transactionsError,
+    refetch: refetchTransactions,
+  } = useInventoryTransactions(householdId);
+  const syncStatus = useSyncStatus();
   const updateQty = useUpdateInventoryItemQuantityMutation();
   const updateItem = useUpdateFridgeItemMutation();
   const openMutation = useOpenInventoryItemMutation();
-  const undoMutation = useUndoOpenTransactionMutation();
+  const undoMutation = useUndoInventoryTransactionMutation();
   const wasteMutation = useWasteInventoryItemMutation();
 
   const today = new Date();
@@ -166,7 +173,7 @@ export function InventoryScreen() {
     wasteMutation.mutate({ item: wasteItem, reason }, { onSuccess: () => setWasteItem(null) });
   }
 
-  function undoOpening(transaction: LocalInventoryTransaction) {
+  function undoTransaction(transaction: LocalInventoryTransaction) {
     undoMutation.mutate(
       { transaction },
       {
@@ -405,7 +412,12 @@ export function InventoryScreen() {
         subtitle="Kühlschrank & Vorrat"
         transactions={transactions}
         onClose={() => setHistoryOpen(false)}
-        onUndo={undoOpening}
+        loading={transactionsLoading}
+        error={transactionsError}
+        offline={syncStatus.kind === 'offline'}
+        onRetry={() => void refetchTransactions()}
+        onUndo={undoTransaction}
+        undoPending={undoMutation.isPending}
       />
 
       <InventoryHistorySheet
@@ -440,11 +452,16 @@ export function InventoryScreen() {
         }
         lotLabels={productHistoryLotLabels}
         fullScreen
+        loading={transactionsLoading}
+        error={transactionsError}
+        offline={syncStatus.kind === 'offline'}
+        onRetry={() => void refetchTransactions()}
+        undoPending={undoMutation.isPending}
         onClose={() => {
           if (productHistoryGroup) setDetailGroup(productHistoryGroup);
           setProductHistoryGroup(null);
         }}
-        onUndo={undoOpening}
+        onUndo={undoTransaction}
       />
     </Screen>
   );

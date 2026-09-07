@@ -20,6 +20,7 @@ export type LifecycleItem = {
   category?: string | null;
   locationKind?: string | null;
   createdAt?: string | null;
+  updatedAt?: string | number | null;
 };
 
 export type LifecycleTransaction = {
@@ -36,6 +37,7 @@ export type LifecycleTransaction = {
   reason?: string | null;
   previousExpiryDate: string | null;
   notes?: string | null;
+  undone?: boolean;
   createdAt: string;
 };
 
@@ -59,6 +61,26 @@ export type UndoOpenPlan = {
 const UNDO_WINDOW_MS = 24 * 60 * 60 * 1000;
 const SPLIT_NOTE_PREFIX = '[Split] origin=';
 
+export type InventoryUndoMode = 'undo' | 'manual-correction';
+
+export function inventoryUndoMode(createdAt: string | Date, now: Date): InventoryUndoMode {
+  const createdAtDate = createdAt instanceof Date ? createdAt : new Date(createdAt);
+  if (Number.isNaN(createdAtDate.getTime()))
+    throw new Error('Die Buchung hat kein gültiges Datum.');
+  if (createdAtDate.getTime() > now.getTime()) {
+    throw new Error('Buchungen aus der Zukunft können nicht rückgängig gemacht werden.');
+  }
+  return canUndoTransaction(createdAtDate, now) ? 'undo' : 'manual-correction';
+}
+
+export function undoTransactionNotes(
+  mode: InventoryUndoMode,
+  type: InventoryTransactionType,
+): string {
+  if (mode === 'manual-correction') return '[Manual correction]';
+  return type === 'open' ? '[Undone] Öffnung rückgängig gemacht' : '[Undone] Gegenbuchung';
+}
+
 export function splitTransactionNotes(originItemId: string): string {
   return `${SPLIT_NOTE_PREFIX}${originItemId}`;
 }
@@ -66,7 +88,6 @@ export function splitTransactionNotes(originItemId: string): string {
 export function getSplitOriginItemId(
   transaction: Pick<LifecycleTransaction, 'originItemId' | 'notes'>,
 ): string | null {
-  if (transaction.originItemId) return transaction.originItemId;
   if (!transaction.notes?.startsWith(SPLIT_NOTE_PREFIX)) return null;
   const originItemId = transaction.notes.slice(SPLIT_NOTE_PREFIX.length).trim();
   return originItemId.length > 0 ? originItemId : null;
@@ -128,7 +149,7 @@ export function planOpenInventoryItem(
         openedAt: openedAtIso,
         expiryDate,
         expiryUserSet,
-        vacuumSealed: false,
+        vacuumSealed: item.vacuumSealed,
       },
       openedItem: null,
       transaction,
@@ -160,8 +181,18 @@ function sameSplitIdentity(
   sealedItem: LifecycleItem,
   transaction: UndoOpenTransaction,
 ): boolean {
+  const sealedUpdatedAt = sealedItem.updatedAt;
+  const transactionCreatedAt = new Date(transaction.createdAt).getTime();
+  const originVersionUnchanged =
+    sealedUpdatedAt === undefined || sealedUpdatedAt === null
+      ? true
+      : (typeof sealedUpdatedAt === 'number'
+          ? sealedUpdatedAt
+          : new Date(sealedUpdatedAt).getTime()) === transactionCreatedAt;
+
   return (
     getSplitOriginItemId(transaction) === sealedItem.id &&
+    originVersionUnchanged &&
     openedItem.id === transaction.fridgeItemId &&
     openedItem.householdId === sealedItem.householdId &&
     openedItem.productId === sealedItem.productId &&
@@ -192,6 +223,9 @@ export function planUndoOpenTransaction(
   const createdAt = new Date(transaction.createdAt);
   if (!canUndoTransaction(createdAt, now))
     throw new Error('Diese Öffnung kann nicht mehr rückgängig gemacht werden.');
+  if (transaction.undone || transaction.notes?.includes('[Undone]')) {
+    throw new Error('Diese Öffnung wurde bereits rückgängig gemacht.');
+  }
 
   if (sealedItem && sameSplitIdentity(openedItem, sealedItem, transaction)) {
     return {
@@ -202,7 +236,11 @@ export function planUndoOpenTransaction(
     };
   }
 
-  if (!sealedItem && openedItem.id === transaction.fridgeItemId) {
+  if (
+    !sealedItem &&
+    !getSplitOriginItemId(transaction) &&
+    openedItem.id === transaction.fridgeItemId
+  ) {
     return {
       mode: 'restore-in-place',
       openedPatch: {

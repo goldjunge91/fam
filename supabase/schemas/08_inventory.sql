@@ -122,7 +122,11 @@ create table if not exists public.transactions (
     check (operation_id is null or type in ('in', 'out')),
   notes text check (notes is null or length(notes) <= 500),
   undone boolean not null default false,
-  created_at timestamptz not null default now()
+  created_at timestamptz not null default now(),
+  -- Bei einer Einzelbuchung verweist reversal_of auf die ursprüngliche
+  -- Transaktion. Bei einer gruppierten Move-Gegenbuchung verweist es auf die
+  -- ursprüngliche operation_id. Der Ursprung selbst bleibt unverändert.
+  reversal_of uuid
 );
 
 comment on table public.transactions is
@@ -134,6 +138,14 @@ create index if not exists transactions_fridge_item_id_idx
   on public.transactions (fridge_item_id);
 create index if not exists transactions_household_created_idx
   on public.transactions (household_id, created_at);
+create index if not exists transactions_reversal_of_idx
+  on public.transactions (reversal_of);
+create unique index if not exists transactions_single_reversal_idx
+  on public.transactions (household_id, reversal_of)
+  where reversal_of is not null and operation_id is null;
+create unique index if not exists transactions_move_reversal_type_idx
+  on public.transactions (household_id, reversal_of, type)
+  where reversal_of is not null and operation_id is not null;
 create unique index if not exists transactions_operation_type_idx
   on public.transactions (operation_id, type)
   where operation_id is not null;
@@ -458,6 +470,159 @@ begin
     p_in_transaction_id, p_operation_id, p_household_id, p_item_id,
     current_item.product_id, (select auth.uid()), 'in', current_item.quantity,
     p_new_location_id, null, null, null, false, p_created_at
+  );
+
+  return current_item.id;
+end;
+$$;
+
+-- Eine Undo-/Korrektur-Move-Gegenbuchung bleibt ebenso atomar wie der
+-- ursprüngliche Move. Die gemeinsame reversal_of-Referenz ist die
+-- ursprüngliche operation_id, weil ein Move aus zwei Ledgerzeilen besteht.
+create or replace function public.reverse_move_fridge_item(
+  p_operation_id uuid,
+  p_reversal_of uuid,
+  p_item_id uuid,
+  p_household_id uuid,
+  p_expected_location_id uuid,
+  p_new_location_id uuid,
+  p_expected_quantity numeric,
+  p_out_transaction_id uuid,
+  p_in_transaction_id uuid,
+  p_created_at timestamptz,
+  p_notes text
+)
+returns uuid
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  current_item public.fridge_items%rowtype;
+  existing_count integer;
+  out_matches integer;
+  in_matches integer;
+begin
+  if (select auth.uid()) is null then
+    raise exception 'Nicht angemeldet';
+  end if;
+  if p_operation_id is null
+    or p_reversal_of is null
+    or p_item_id is null
+    or p_household_id is null
+    or p_expected_quantity is null
+    or p_out_transaction_id is null
+    or p_in_transaction_id is null
+    or p_created_at is null
+    or p_notes is null then
+    raise exception 'Undo-Move-Payload ist unvollstaendig';
+  end if;
+  if p_out_transaction_id = p_in_transaction_id then
+    raise exception 'Undo-Move braucht zwei unterschiedliche Ledger-IDs';
+  end if;
+
+  select * into current_item
+  from public.fridge_items
+  where id = p_item_id and household_id = p_household_id
+  for update;
+  if not found then
+    raise exception 'Bestand nicht gefunden oder keine Berechtigung';
+  end if;
+
+  select count(*)::int into existing_count
+  from public.transactions
+  where household_id = p_household_id and operation_id = p_operation_id;
+  if existing_count > 0 then
+    if existing_count <> 2 then
+      raise exception 'Undo-Move % ist unvollstaendig', p_operation_id;
+    end if;
+
+    select count(*)::int into out_matches
+    from public.transactions
+    where id = p_out_transaction_id
+      and household_id = p_household_id
+      and operation_id = p_operation_id
+      and reversal_of = p_reversal_of
+      and fridge_item_id = p_item_id
+      and type = 'out'
+      and location_id is not distinct from p_expected_location_id
+      and quantity = p_expected_quantity
+      and notes = p_notes;
+
+    select count(*)::int into in_matches
+    from public.transactions
+    where id = p_in_transaction_id
+      and household_id = p_household_id
+      and operation_id = p_operation_id
+      and reversal_of = p_reversal_of
+      and fridge_item_id = p_item_id
+      and type = 'in'
+      and location_id is not distinct from p_new_location_id
+      and quantity = p_expected_quantity
+      and notes = p_notes;
+
+    if out_matches <> 1 or in_matches <> 1 then
+      raise exception 'Undo-Move % passt nicht zum vorhandenen Ledger', p_operation_id;
+    end if;
+    return current_item.id;
+  end if;
+
+  if exists (
+    select 1
+    from public.transactions
+    where household_id = p_household_id and reversal_of = p_reversal_of
+  ) then
+    raise exception 'Move % wurde bereits rückgängig gemacht', p_reversal_of;
+  end if;
+
+  if current_item.deleted_at is not null then
+    raise exception 'Geloeschter Bestand kann nicht verschoben werden';
+  end if;
+  if current_item.location_id is distinct from p_expected_location_id then
+    raise exception 'Bestand wurde zwischenzeitlich an einen anderen Lagerort verschoben';
+  end if;
+  if current_item.quantity is distinct from p_expected_quantity then
+    raise exception 'Bestandsmenge wurde zwischenzeitlich geaendert';
+  end if;
+  if current_item.location_id is distinct from p_new_location_id
+    and p_new_location_id is not null and not exists (
+      select 1
+      from public.storage_locations
+      where id = p_new_location_id and household_id = p_household_id
+    ) then
+    raise exception 'Neuer Lagerort gehoert nicht zum Haushalt';
+  end if;
+
+  if current_item.location_id is not distinct from p_new_location_id then
+    raise exception 'Neuer Lagerort entspricht dem bisherigen Lagerort';
+  end if;
+
+  update public.fridge_items
+  set location_id = p_new_location_id
+  where id = p_item_id;
+
+  insert into public.transactions (
+    id, operation_id, reversal_of, household_id, fridge_item_id, product_id,
+    actor, type, quantity, location_id, reason, previous_expiry_date, notes,
+    undone, created_at
+  )
+  values (
+    p_out_transaction_id, p_operation_id, p_reversal_of, p_household_id,
+    p_item_id, current_item.product_id, (select auth.uid()), 'out',
+    current_item.quantity, p_expected_location_id, null, null, p_notes, false,
+    p_created_at
+  );
+
+  insert into public.transactions (
+    id, operation_id, reversal_of, household_id, fridge_item_id, product_id,
+    actor, type, quantity, location_id, reason, previous_expiry_date, notes,
+    undone, created_at
+  )
+  values (
+    p_in_transaction_id, p_operation_id, p_reversal_of, p_household_id,
+    p_item_id, current_item.product_id, (select auth.uid()), 'in',
+    current_item.quantity, p_new_location_id, null, null, p_notes, false,
+    p_created_at
   );
 
   return current_item.id;

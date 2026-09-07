@@ -5,6 +5,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { InventoryScreen } from '@/features/inventory/inventory-screen';
 import type { LocalInventoryItem } from '@/features/inventory/use-inventory-items';
+import type { LocalInventoryTransaction } from '@/features/inventory/use-inventory-transactions';
+import type { SyncStatusView } from '@/lib/sync/sync-status';
 
 const mockUpdateQtyMutate = jest.fn();
 const mockUpdateExpiryMutate = jest.fn();
@@ -14,6 +16,12 @@ const mockWasteMutate = jest.fn();
 const mockUndoMutate = jest.fn();
 
 let mockItems: LocalInventoryItem[] = [];
+let mockTransactions: LocalInventoryTransaction[] = [];
+let mockTransactionsLoading = false;
+let mockTransactionsError = false;
+const mockTransactionsRefetch = jest.fn();
+let mockUndoPending = false;
+let mockSyncStatus: SyncStatusView = { kind: 'hidden' };
 let mockParams: Record<string, string> = {};
 
 jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => {
@@ -81,9 +89,13 @@ jest.mock('@/features/inventory/use-inventory-items', () => ({
 }));
 
 jest.mock('@/features/inventory/use-inventory-transactions', () => ({
-  useInventoryTransactions: () => ({ data: [] }),
-  filterTransactionsForProduct: () => [],
-  groupTransactionsByDay: () => [],
+  ...jest.requireActual('@/features/inventory/use-inventory-transactions'),
+  useInventoryTransactions: () => ({
+    data: mockTransactions,
+    isLoading: mockTransactionsLoading,
+    isError: mockTransactionsError,
+    refetch: mockTransactionsRefetch,
+  }),
 }));
 
 jest.mock('@/features/inventory/use-inventory-mutations', () => ({
@@ -95,7 +107,10 @@ jest.mock('@/features/inventory/use-inventory-mutations', () => ({
   }),
   useOpenInventoryItemMutation: () => ({ mutate: mockOpenMutate, isPending: false }),
   useWasteInventoryItemMutation: () => ({ mutate: mockWasteMutate, isPending: false }),
-  useUndoOpenTransactionMutation: () => ({ mutate: mockUndoMutate, isPending: false }),
+  useUndoInventoryTransactionMutation: () => ({
+    mutate: mockUndoMutate,
+    isPending: mockUndoPending,
+  }),
 }));
 
 jest.mock('@/features/inventory/use-product', () => ({
@@ -112,6 +127,10 @@ jest.mock('@/features/navigation/use-profile-initials', () => ({
 
 jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => require('@/components/theme/index').Colors.light,
+}));
+
+jest.mock('@/hooks/use-sync-status', () => ({
+  useSyncStatus: () => mockSyncStatus,
 }));
 
 async function renderScreen() {
@@ -142,6 +161,30 @@ async function renderScreen() {
   return result;
 }
 
+function makeTransaction(
+  overrides: Partial<LocalInventoryTransaction> = {},
+): LocalInventoryTransaction {
+  return {
+    id: 'transaction-1',
+    household_id: 'hh-1',
+    fridge_item_id: 'item-1',
+    product_id: null,
+    actor: 'user-1',
+    type: 'open',
+    quantity: 1,
+    location_id: null,
+    reason: null,
+    previous_expiry_date: null,
+    notes: null,
+    undone: false,
+    created_at: new Date(Date.now() - 60_000).toISOString(),
+    item_name: 'Milch',
+    item_unit: 'l',
+    location_name: null,
+    ...overrides,
+  };
+}
+
 // FlashList plant beim Mount intern ein setTimeout fuers erste Layout,
 // das ausserhalb jeder act()-Kontrolle feuert
 // ("The current testing environment is not configured to support act(...)")
@@ -163,6 +206,11 @@ afterEach(async () => {
 
 beforeEach(() => {
   mockParams = {};
+  mockTransactions = [];
+  mockTransactionsLoading = false;
+  mockTransactionsError = false;
+  mockUndoPending = false;
+  mockSyncStatus = { kind: 'hidden' };
   mockItems = [
     {
       id: 'item-1',
@@ -187,6 +235,7 @@ beforeEach(() => {
   mockOpenMutate.mockClear();
   mockWasteMutate.mockClear();
   mockUndoMutate.mockClear();
+  mockTransactionsRefetch.mockClear();
 });
 
 it('öffnet beim kurzen Tap die MHD-Auswahl und ändert danach die Losmenge', async () => {
@@ -400,6 +449,88 @@ it('öffnet den Produktverlauf als Vollansicht ohne Gesamtverlaufs-Link', async 
 
   expect(screen.getByText('Verlauf zu Milch')).toBeOnTheScreen();
   expect(screen.queryByRole('button', { name: 'Gesamten Verlauf öffnen' })).not.toBeOnTheScreen();
+});
+
+it('zeigt für alle erlaubten Transaktionstypen genau eine Undo-Aktion', async () => {
+  const user = userEvent.setup();
+  const moveIn = makeTransaction({ id: 'move-in', operation_id: 'move-1', type: 'in' });
+  mockTransactions = [
+    makeTransaction({ id: 'in', type: 'in' }),
+    makeTransaction({ id: 'out', type: 'out' }),
+    makeTransaction({ id: 'waste', type: 'waste', reason: 'spoiled' }),
+    makeTransaction({ id: 'open', type: 'open' }),
+    makeTransaction({ id: 'move-out', operation_id: 'move-1', type: 'out' }),
+    moveIn,
+  ];
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Gesamten Vorratsverlauf öffnen' }));
+
+  expect(screen.getByRole('button', { name: 'Einkauf rückgängig machen' })).toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Verbrauch rückgängig machen' })).toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Verschwendung rückgängig machen' })).toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Öffnung rückgängig machen' })).toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Verschiebung rückgängig machen' })).toBeOnTheScreen();
+  expect(screen.getAllByRole('button', { name: /rückgängig machen/ })).toHaveLength(5);
+
+  await user.press(screen.getByRole('button', { name: 'Verschiebung rückgängig machen' }));
+  expect(mockUndoMutate).toHaveBeenCalledWith({ transaction: moveIn }, expect.any(Object));
+});
+
+it('blendet eine bereits reversierte Buchung aus dem Undo-Verlauf aus', async () => {
+  const user = userEvent.setup();
+  mockTransactions = [makeTransaction({ has_reversal: true })];
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Gesamten Vorratsverlauf öffnen' }));
+
+  expect(screen.queryByRole('button', { name: /rückgängig machen/ })).not.toBeOnTheScreen();
+});
+
+it('deaktiviert alle Undo-Aktionen während eine Gegenbuchung läuft', async () => {
+  const user = userEvent.setup();
+  mockTransactions = [makeTransaction({ type: 'out' })];
+  mockUndoPending = true;
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Gesamten Vorratsverlauf öffnen' }));
+
+  const undoButton = screen.getByRole('button', { name: 'Verbrauch rückgängig machen' });
+  expect(undoButton.props.accessibilityState).toEqual({ disabled: true });
+  await user.press(undoButton);
+  expect(mockUndoMutate).not.toHaveBeenCalled();
+});
+
+it('zeigt den Ladezustand des Verlaufs', async () => {
+  const user = userEvent.setup();
+  mockTransactionsLoading = true;
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Gesamten Vorratsverlauf öffnen' }));
+
+  expect(screen.getByText('Verlauf wird geladen…')).toBeOnTheScreen();
+});
+
+it('zeigt den Fehlerzustand und kann den Verlauf erneut laden', async () => {
+  const user = userEvent.setup();
+  mockTransactionsError = true;
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Gesamten Vorratsverlauf öffnen' }));
+  expect(screen.getByText('Verlauf konnte nicht geladen werden.')).toBeOnTheScreen();
+
+  await user.press(screen.getByRole('button', { name: 'Erneut versuchen' }));
+  expect(mockTransactionsRefetch).toHaveBeenCalledTimes(1);
+});
+
+it('kennzeichnet den Verlauf bei Offline-Betrieb als lokale Daten', async () => {
+  const user = userEvent.setup();
+  mockSyncStatus = { kind: 'offline', pendingCount: 2 };
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Gesamten Vorratsverlauf öffnen' }));
+
+  expect(screen.getByText('Offline: lokale Daten werden angezeigt.')).toBeOnTheScreen();
 });
 
 describe('Sortier-Toggle MHD/Name (#71)', () => {

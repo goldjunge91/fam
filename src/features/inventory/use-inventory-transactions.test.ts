@@ -1,9 +1,11 @@
 import {
   filterTransactionsForProduct,
   groupTransactionsByDay,
+  isInventoryTransactionUndoable,
   type LocalInventoryTransaction,
   transactionLabel,
   transactionReasonLabel,
+  transactionUndoLabel,
 } from './use-inventory-transactions';
 
 function transaction(
@@ -66,5 +68,50 @@ describe('inventory transaction presentation helpers', () => {
       'Schlecht geworden',
     );
     expect(transactionReasonLabel('expired')).toBe('Abgelaufen');
+  });
+
+  it.each(['in', 'out', 'waste', 'open'] as const)(
+    'erlaubt Undo für %s innerhalb des 24-Stunden-Fensters',
+    (type) => {
+      expect(
+        isInventoryTransactionUndoable(
+          transaction({ type, created_at: '2026-09-04T15:00:00.000Z' }),
+          new Date('2026-09-04T16:00:00.000Z'),
+        ),
+      ).toBe(true);
+    },
+  );
+
+  it('zeigt für einen Move nur auf dem In-Leg eine Undo-Aktion', () => {
+    const createdAt = '2026-09-04T15:00:00.000Z';
+    expect(
+      isInventoryTransactionUndoable(
+        transaction({ type: 'out', operation_id: 'move-1', created_at: createdAt }),
+        new Date('2026-09-04T16:00:00.000Z'),
+      ),
+    ).toBe(false);
+    expect(
+      isInventoryTransactionUndoable(
+        transaction({ type: 'in', operation_id: 'move-1', created_at: createdAt }),
+        new Date('2026-09-04T16:00:00.000Z'),
+      ),
+    ).toBe(true);
+    expect(transactionUndoLabel(transaction({ type: 'in', operation_id: 'move-1' }))).toBe(
+      'Verschiebung rückgängig machen',
+    );
+  });
+
+  it('blendet abgelaufene, zukünftige und bereits reversal-verknüpfte Buchungen aus', () => {
+    const now = new Date('2026-09-04T16:00:00.000Z');
+    expect(
+      isInventoryTransactionUndoable(transaction({ created_at: '2026-09-03T15:59:59.999Z' }), now),
+    ).toBe(false);
+    expect(
+      isInventoryTransactionUndoable(transaction({ created_at: '2026-09-04T16:00:00.001Z' }), now),
+    ).toBe(false);
+    expect(isInventoryTransactionUndoable(transaction({ has_reversal: true }), now)).toBe(false);
+    expect(isInventoryTransactionUndoable(transaction({ reversal_of: 'source-1' }), now)).toBe(
+      false,
+    );
   });
 });

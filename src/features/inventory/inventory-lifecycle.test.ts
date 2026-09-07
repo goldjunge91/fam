@@ -1,9 +1,11 @@
 import {
   canUndoTransaction,
+  inventoryUndoMode,
   inverseTransactionType,
   planOpenInventoryItem,
   planUndoOpenTransaction,
   splitTransactionNotes,
+  undoTransactionNotes,
 } from './inventory-lifecycle';
 
 const ITEM = {
@@ -36,7 +38,7 @@ describe('planOpenInventoryItem', () => {
 
     expect(plan.originalPatch).toEqual({
       openedAt: new Date(2026, 7, 5, 14, 30).toISOString(),
-      expiryDate: '2026-08-10',
+      expiryDate: '2026-08-08',
       expiryUserSet: false,
       vacuumSealed: false,
     });
@@ -50,6 +52,17 @@ describe('planOpenInventoryItem', () => {
     });
   });
 
+  it('bewahrt beim Inplace-Öffnen den Vakuumzustand für ein korrektes Undo', () => {
+    const plan = planOpenInventoryItem(
+      { ...ITEM, quantity: 1, vacuumSealed: true },
+      1,
+      new Date('2026-08-05T14:30:00.000Z'),
+      'opened-lot',
+    );
+
+    expect(plan.originalPatch.vacuumSealed).toBe(true);
+  });
+
   it('teilt mehrere Gebinde in einen versiegelten und einen geöffneten Lot', () => {
     const plan = planOpenInventoryItem(ITEM, 1, new Date('2026-08-05T14:30:00.000Z'), 'opened-lot');
 
@@ -58,7 +71,7 @@ describe('planOpenInventoryItem', () => {
       id: 'opened-lot',
       quantity: 1,
       openedAt: '2026-08-05T14:30:00.000Z',
-      expiryDate: '2026-08-10',
+      expiryDate: '2026-08-08',
       expiryUserSet: false,
       vacuumSealed: false,
     });
@@ -97,6 +110,24 @@ describe('planOpenInventoryItem', () => {
     const createdAt = new Date('2026-08-05T14:30:00.000Z');
     expect(canUndoTransaction(createdAt, new Date('2026-08-06T14:29:59.999Z'))).toBe(true);
     expect(canUndoTransaction(createdAt, new Date('2026-08-06T14:30:00.001Z'))).toBe(false);
+  });
+
+  it('klassifiziert die exakte 24-Stunden-Grenze als Undo oder Manual correction', () => {
+    const createdAt = '2026-08-05T14:30:00.000Z';
+
+    expect(inventoryUndoMode(createdAt, new Date('2026-08-06T14:30:00.000Z'))).toBe('undo');
+    expect(inventoryUndoMode(createdAt, new Date('2026-08-06T14:30:00.001Z'))).toBe(
+      'manual-correction',
+    );
+    expect(() =>
+      inventoryUndoMode('2026-08-06T14:30:00.001Z', new Date('2026-08-06T14:30:00.000Z')),
+    ).toThrow('Zukunft');
+  });
+
+  it('verwendet typisierte, stabile Notizen für beide Gegenbuchungsarten', () => {
+    expect(undoTransactionNotes('undo', 'open')).toBe('[Undone] Öffnung rückgängig gemacht');
+    expect(undoTransactionNotes('undo', 'out')).toBe('[Undone] Gegenbuchung');
+    expect(undoTransactionNotes('manual-correction', 'waste')).toBe('[Manual correction]');
   });
 });
 
@@ -199,6 +230,37 @@ describe('planUndoOpenTransaction', () => {
     expect(plan.sealedPatch).toBeNull();
   });
 
+  it('verwendet den maschinenlesbaren Notes-Ursprung statt einer widersprüchlichen Nebenreferenz', () => {
+    const sealed = { ...ITEM, quantity: 2 };
+    const opened = {
+      ...ITEM,
+      id: 'opened-lot',
+      quantity: 1,
+      openedAt: '2026-08-05T14:30:00.000Z',
+      expiryDate: '2026-08-10',
+    };
+    const plan = planUndoOpenTransaction(
+      {
+        householdId: 'household-1',
+        fridgeItemId: 'opened-lot',
+        productId: 'mustard',
+        locationId: 'fridge',
+        type: 'open',
+        quantity: 1,
+        previousExpiryDate: '2026-12-31',
+        originItemId: 'wrong-sealed-lot',
+        notes: splitTransactionNotes('sealed-lot'),
+        createdAt: '2026-08-05T14:30:00.000Z',
+      },
+      opened,
+      sealed,
+      new Date('2026-08-05T15:00:00.000Z'),
+    );
+
+    expect(plan.mode).toBe('merge-split');
+    expect(plan.sealedPatch).toEqual({ quantity: 3 });
+  });
+
   it('verweigert den Legacy-Split-Undo ohne stabile Ursprungs-ID', () => {
     const sealed = { ...ITEM, quantity: 2 };
     const opened = {
@@ -257,6 +319,124 @@ describe('planUndoOpenTransaction', () => {
     expect(plan.mode).toBe('fallback');
     expect(plan.deleteOpenedItem).toBe(false);
     expect(plan.sealedPatch).toBeNull();
+  });
+
+  it('führt bei einer veränderten Ursprungszeile keinen Split-Merge durch', () => {
+    const changedSealed = { ...ITEM, quantity: 2, name: 'Scharfer Senf' };
+    const opened = {
+      ...ITEM,
+      id: 'opened-lot',
+      quantity: 1,
+      openedAt: '2026-08-05T14:30:00.000Z',
+      expiryDate: '2026-08-10',
+    };
+    const plan = planUndoOpenTransaction(
+      {
+        householdId: 'household-1',
+        fridgeItemId: 'opened-lot',
+        productId: 'mustard',
+        locationId: 'fridge',
+        type: 'open',
+        quantity: 1,
+        previousExpiryDate: '2026-12-31',
+        notes: splitTransactionNotes('sealed-lot'),
+        createdAt: '2026-08-05T14:30:00.000Z',
+      },
+      opened,
+      changedSealed,
+      new Date('2026-08-05T15:00:00.000Z'),
+    );
+
+    expect(plan.mode).toBe('fallback');
+    expect(plan.sealedPatch).toBeNull();
+    expect(plan.deleteOpenedItem).toBe(false);
+  });
+
+  it('führt bei einer konkurrierend geänderten Ursprungsmenge keinen Split-Merge durch', () => {
+    const changedSealed = {
+      ...ITEM,
+      quantity: 7,
+      updatedAt: '2026-08-05T16:00:00.000Z',
+    };
+    const opened = {
+      ...ITEM,
+      id: 'opened-lot',
+      quantity: 1,
+      openedAt: '2026-08-05T14:30:00.000Z',
+      expiryDate: '2026-08-10',
+    };
+    const plan = planUndoOpenTransaction(
+      {
+        householdId: 'household-1',
+        fridgeItemId: 'opened-lot',
+        productId: 'mustard',
+        locationId: 'fridge',
+        type: 'open',
+        quantity: 1,
+        previousExpiryDate: '2026-12-31',
+        notes: splitTransactionNotes('sealed-lot'),
+        createdAt: '2026-08-05T14:30:00.000Z',
+      },
+      opened,
+      changedSealed,
+      new Date('2026-08-05T16:05:00.000Z'),
+    );
+
+    expect(plan.mode).toBe('fallback');
+    expect(plan.sealedPatch).toBeNull();
+    expect(plan.deleteOpenedItem).toBe(false);
+  });
+
+  it('macht denselben Open-Vorgang nicht ein zweites Mal rückgängig', () => {
+    expect(() =>
+      planUndoOpenTransaction(
+        {
+          householdId: 'household-1',
+          fridgeItemId: 'sealed-lot',
+          productId: 'mustard',
+          locationId: 'fridge',
+          type: 'open',
+          quantity: 1,
+          previousExpiryDate: '2026-12-31',
+          undone: true,
+          createdAt: '2026-08-05T14:30:00.000Z',
+        },
+        {
+          ...ITEM,
+          quantity: 1,
+          openedAt: '2026-08-05T14:30:00.000Z',
+          expiryDate: '2026-08-10',
+        },
+        null,
+        new Date('2026-08-05T15:00:00.000Z'),
+      ),
+    ).toThrow('bereits rückgängig');
+  });
+
+  it('behandelt eine bereits erzeugte Undo-Gegenbuchung als nicht erneut undo-bar', () => {
+    expect(() =>
+      planUndoOpenTransaction(
+        {
+          householdId: 'household-1',
+          fridgeItemId: 'sealed-lot',
+          productId: 'mustard',
+          locationId: 'fridge',
+          type: 'open',
+          quantity: 1,
+          previousExpiryDate: '2026-12-31',
+          notes: '[Undone] Öffnung rückgängig gemacht',
+          createdAt: '2026-08-05T14:30:00.000Z',
+        },
+        {
+          ...ITEM,
+          quantity: 1,
+          openedAt: '2026-08-05T14:30:00.000Z',
+          expiryDate: '2026-08-10',
+        },
+        null,
+        new Date('2026-08-05T15:00:00.000Z'),
+      ),
+    ).toThrow('bereits rückgängig');
   });
 });
 

@@ -4,9 +4,10 @@ import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
 type TransactionPayload = Omit<
   Database['public']['Tables']['transactions']['Row'],
-  'operation_id'
+  'operation_id' | 'reversal_of'
 > & {
   operation_id: string | null;
+  reversal_of?: string | null;
 };
 
 export type InventoryMovePayload = {
@@ -19,6 +20,9 @@ export type InventoryMovePayload = {
   out_transaction_id: string;
   in_transaction_id: string;
   created_at: string;
+  /** Original transaction id, or original move operation id for a grouped reversal. */
+  reversal_of?: string | null;
+  notes?: string | null;
 };
 
 function requiredString(payload: Record<string, unknown>, key: string): string {
@@ -32,6 +36,18 @@ function requiredString(payload: Record<string, unknown>, key: string): string {
 function nullableString(payload: Record<string, unknown>, key: string): string | null {
   const value = payload[key];
   if (value === null) return null;
+  if (typeof value !== 'string') {
+    throw new Error(`Move-Payload enthaelt kein gueltiges Feld ${key}.`);
+  }
+  return value;
+}
+
+function optionalNullableString(
+  payload: Record<string, unknown>,
+  key: string,
+): string | null | undefined {
+  const value = payload[key];
+  if (value === undefined || value === null) return value;
   if (typeof value !== 'string') {
     throw new Error(`Move-Payload enthaelt kein gueltiges Feld ${key}.`);
   }
@@ -55,6 +71,8 @@ export function parseInventoryMovePayload(payload: Record<string, unknown>): Inv
     out_transaction_id: requiredString(payload, 'out_transaction_id'),
     in_transaction_id: requiredString(payload, 'in_transaction_id'),
     created_at: requiredString(payload, 'created_at'),
+    reversal_of: optionalNullableString(payload, 'reversal_of'),
+    notes: optionalNullableString(payload, 'notes'),
   };
 
   if (parsed.out_transaction_id === parsed.in_transaction_id) {
@@ -83,8 +101,20 @@ export function createInventoryMoveMutation(args: {
         { id: payload.item_id, location_id: payload.new_location_id },
         nowMs,
       );
-      await applyLocalMirrorWrite(txn, 'transactions', 'insert', outTransaction, nowMs);
-      await applyLocalMirrorWrite(txn, 'transactions', 'insert', inTransaction, nowMs);
+      await applyLocalMirrorWrite(
+        txn,
+        'transactions',
+        'insert',
+        { reversal_of: null, ...outTransaction },
+        nowMs,
+      );
+      await applyLocalMirrorWrite(
+        txn,
+        'transactions',
+        'insert',
+        { reversal_of: null, ...inTransaction },
+        nowMs,
+      );
     },
   };
 }
