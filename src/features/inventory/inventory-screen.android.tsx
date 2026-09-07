@@ -372,7 +372,11 @@ export function InventoryScreen() {
         onRemove={() => currentActionItem && handleDeletePress(currentActionItem)}
         onExpiryChange={(expiryDate) => {
           if (!currentActionItem) return;
-          updateItem.mutate({ ...currentActionItem, expiry_date: expiryDate || null });
+          updateItem.mutate({
+            ...currentActionItem,
+            expiry_date: expiryDate || null,
+            expiry_user_set: true,
+          });
         }}
       />
 

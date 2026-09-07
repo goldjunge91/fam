@@ -5,8 +5,12 @@ import type React from 'react';
 import { useCompleteShoppingRun } from '@/features/shopping-list/hooks/use-complete-shopping-run';
 import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list';
 import { celebrate } from '@/lib/celebration';
-import { enqueueMutation } from '@/lib/db/outbox';
+import { enqueueMutations } from '@/lib/db/outbox';
 import { recordActivity } from '@/lib/streak';
+
+jest.mock('expo-crypto', () => ({
+  randomUUID: jest.fn().mockReturnValueOnce('fridge-item-1').mockReturnValueOnce('transaction-1'),
+}));
 
 // `useStorageLocations` erwartet immer eine Liste; `undefined` ist fuer TanStack Query ungueltig.
 const mockDbGetAllAsync = jest.fn().mockResolvedValue([]);
@@ -21,6 +25,7 @@ jest.mock('@/lib/db/client', () => ({
 
 jest.mock('@/lib/db/outbox', () => ({
   enqueueMutation: jest.fn().mockResolvedValue(undefined),
+  enqueueMutations: jest.fn().mockResolvedValue(undefined),
 }));
 
 jest.mock('@/lib/streak', () => ({
@@ -101,8 +106,7 @@ describe('useCompleteShoppingRun', () => {
     // Die Mutation ist erst nach dem veroeffentlichten Hook-Status vollstaendig sichtbar.
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
-    expect(enqueueMutation).toHaveBeenCalledWith(
-      expect.anything(),
+    expect(enqueueMutations).toHaveBeenCalledWith(expect.anything(), [
       expect.objectContaining({
         entity: 'fridge_items',
         op: 'insert',
@@ -112,7 +116,16 @@ describe('useCompleteShoppingRun', () => {
           expiry_user_set: false,
         }),
       }),
-    );
+      expect.objectContaining({
+        entity: 'transactions',
+        op: 'insert',
+        payload: expect.objectContaining({
+          type: 'in',
+          quantity: 2,
+          fridge_item_id: expect.any(String),
+        }),
+      }),
+    ]);
     expect(recordActivity).toHaveBeenCalledTimes(1);
   });
 

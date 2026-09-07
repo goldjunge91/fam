@@ -77,6 +77,10 @@ export const transactions = sqliteTable(
     check('transactions_type_check', sql`${table.type} in ('in', 'out', 'waste', 'open')`),
     check('transactions_quantity_check', sql`${table.quantity} > 0`),
     check(
+      'transactions_reason_check',
+      sql`${table.reason} is null or ${table.reason} in ('expired', 'spoiled', 'other')`,
+    ),
+    check(
       'transactions_reason_matches_waste',
       sql`(${table.type} = 'waste') = (${table.reason} is not null)`,
     ),

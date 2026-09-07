@@ -3,6 +3,7 @@ import {
   inverseTransactionType,
   planOpenInventoryItem,
   planUndoOpenTransaction,
+  splitTransactionNotes,
 } from './inventory-lifecycle';
 
 const ITEM = {
@@ -63,6 +64,24 @@ describe('planOpenInventoryItem', () => {
     });
   });
 
+  it('bewahrt beim Split Lifecycle-Metadaten und protokolliert die Ursprungs-ID', () => {
+    const plan = planOpenInventoryItem(
+      { ...ITEM, vacuumSealed: true, expiryUserSet: true },
+      1,
+      new Date('2026-08-05T14:30:00.000Z'),
+      'opened-lot',
+    );
+
+    expect(plan.openedItem).toMatchObject({
+      vacuumSealed: true,
+      expiryUserSet: true,
+    });
+    expect(plan.transaction).toMatchObject({
+      originItemId: 'sealed-lot',
+      notes: '[Split] origin=sealed-lot',
+    });
+  });
+
   it('verweigert das erneute Öffnen eines bereits geöffneten Lots', () => {
     expect(() =>
       planOpenInventoryItem(
@@ -95,7 +114,13 @@ describe('planUndoOpenTransaction', () => {
         previousExpiryDate: '2026-12-31',
         createdAt: '2026-08-05T14:30:00.000Z',
       },
-      { ...ITEM, openedAt: '2026-08-05T14:30:00.000Z', expiryDate: '2026-08-10' },
+      {
+        ...ITEM,
+        openedAt: '2026-08-05T14:30:00.000Z',
+        expiryDate: '2026-08-10',
+        vacuumSealed: true,
+        expiryUserSet: true,
+      },
       null,
       new Date('2026-08-05T15:00:00.000Z'),
     );
@@ -104,8 +129,8 @@ describe('planUndoOpenTransaction', () => {
     expect(plan.openedPatch).toEqual({
       openedAt: null,
       expiryDate: '2026-12-31',
-      expiryUserSet: false,
-      vacuumSealed: false,
+      expiryUserSet: true,
+      vacuumSealed: true,
     });
     expect(plan.deleteOpenedItem).toBe(false);
   });
@@ -129,7 +154,7 @@ describe('planUndoOpenTransaction', () => {
         type: 'open',
         quantity: 1,
         previousExpiryDate: '2026-12-31',
-        notes: '[Split]',
+        notes: splitTransactionNotes('sealed-lot'),
         createdAt: '2026-08-05T14:30:00.000Z',
       },
       opened,
@@ -140,6 +165,67 @@ describe('planUndoOpenTransaction', () => {
     expect(plan.mode).toBe('merge-split');
     expect(plan.sealedPatch).toEqual({ quantity: 3 });
     expect(plan.deleteOpenedItem).toBe(true);
+  });
+
+  it('verweigert das Merge eines attributgleichen Duplicate-Lots ohne Ursprungs-ID', () => {
+    const duplicateSealed = { ...ITEM, id: 'sealed-lot-duplicate', quantity: 2 };
+    const opened = {
+      ...ITEM,
+      id: 'opened-lot',
+      quantity: 1,
+      openedAt: '2026-08-05T14:30:00.000Z',
+      expiryDate: '2026-08-10',
+    };
+    const plan = planUndoOpenTransaction(
+      {
+        householdId: 'household-1',
+        fridgeItemId: 'opened-lot',
+        productId: 'mustard',
+        locationId: 'fridge',
+        type: 'open',
+        quantity: 1,
+        previousExpiryDate: '2026-12-31',
+        notes: '[Split]',
+        originItemId: 'sealed-lot',
+        createdAt: '2026-08-05T14:30:00.000Z',
+      },
+      opened,
+      duplicateSealed,
+      new Date('2026-08-05T15:00:00.000Z'),
+    );
+
+    expect(plan.mode).toBe('fallback');
+    expect(plan.deleteOpenedItem).toBe(false);
+    expect(plan.sealedPatch).toBeNull();
+  });
+
+  it('verweigert den Legacy-Split-Undo ohne stabile Ursprungs-ID', () => {
+    const sealed = { ...ITEM, quantity: 2 };
+    const opened = {
+      ...ITEM,
+      id: 'opened-lot',
+      quantity: 1,
+      openedAt: '2026-08-05T14:30:00.000Z',
+      expiryDate: '2026-08-10',
+    };
+    const plan = planUndoOpenTransaction(
+      {
+        householdId: 'household-1',
+        fridgeItemId: 'opened-lot',
+        productId: 'mustard',
+        locationId: 'fridge',
+        type: 'open',
+        quantity: 1,
+        previousExpiryDate: '2026-12-31',
+        notes: '[Split]',
+        createdAt: '2026-08-05T14:30:00.000Z',
+      },
+      opened,
+      sealed,
+      new Date('2026-08-05T15:00:00.000Z'),
+    );
+
+    expect(plan.mode).toBe('fallback');
   });
 
   it('fällt bei verändertem geöffnetem Lot auf einen sicheren Restore zurück', () => {

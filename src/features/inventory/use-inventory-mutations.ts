@@ -10,6 +10,7 @@ import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 import type { WasteReason } from './components/waste-inventory-item-sheet';
 import {
+  getSplitOriginItemId,
   type LifecycleItem,
   planOpenInventoryItem,
   planUndoOpenTransaction,
@@ -662,30 +663,20 @@ export function useUndoOpenTransactionMutation() {
       );
       if (!openedRow) throw new Error('Der geöffnete Bestand ist nicht mehr vorhanden.');
 
-      const sealedRow =
-        transaction.notes === '[Split]'
-          ? await db.getFirstAsync<LocalInventoryItem>(
-              `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
-                      fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
-                      fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
-                      fi.added_by, fi.created_at, sl.kind as location_kind, sl.name as location_name
-                 from fridge_items fi
-                 left join storage_locations sl on fi.location_id = sl.id
-                where fi.household_id = ? and fi.id <> ? and fi.product_id is ?
-                  and fi.location_id is ? and fi.name = ? and fi.unit = ?
-                  and fi.opened_at is null and fi.expiry_date is ? and fi.deleted_at is null
-                order by fi.created_at asc limit 1`,
-              [
-                transaction.household_id,
-                transaction.fridge_item_id,
-                transaction.product_id,
-                transaction.location_id,
-                openedRow.name,
-                openedRow.unit,
-                transaction.previous_expiry_date,
-              ],
-            )
-          : null;
+      const splitOriginItemId = getSplitOriginItemId({ notes: transaction.notes });
+      const sealedRow = splitOriginItemId
+        ? await db.getFirstAsync<LocalInventoryItem>(
+            `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
+                    fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
+                    fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
+                    fi.added_by, fi.created_at, sl.kind as location_kind, sl.name as location_name
+               from fridge_items fi
+               left join storage_locations sl on fi.location_id = sl.id
+              where fi.id = ? and fi.household_id = ? and fi.opened_at is null
+                and fi.deleted_at is null`,
+            [splitOriginItemId, transaction.household_id],
+          )
+        : null;
       const lifecycleTransaction = {
         id: transaction.id,
         actor: transaction.actor,
@@ -696,6 +687,7 @@ export function useUndoOpenTransactionMutation() {
         undone: transaction.undone,
         householdId: transaction.household_id,
         fridgeItemId: transaction.fridge_item_id,
+        originItemId: splitOriginItemId,
         productId: transaction.product_id,
         locationId: transaction.location_id,
         previousExpiryDate: transaction.previous_expiry_date,

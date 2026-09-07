@@ -6,6 +6,7 @@ import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { readUserVersion, runMigrations } from '@/lib/db/migrator';
 import type { Migration } from '@/lib/db/types';
+import localMigrations from '../../../drizzle/local/migrations';
 import {
   countingDatabase,
   createTestDatabase,
@@ -94,16 +95,39 @@ describe('lokales Schema', () => {
   it('erzwingt die Ledger-Regeln auch lokal in SQLite', async () => {
     await expect(
       db.runAsync(
-        `insert into transactions (id, household_id, type, quantity, reason)
-         values (?, ?, ?, ?, ?)`,
-        ['tx-invalid-reason', 'household-1', 'out', 1, 'expired'],
+        `insert into transactions (id, household_id, type, quantity, reason, updated_at)
+         values (?, ?, ?, ?, ?, ?)`,
+        ['tx-invalid-reason', 'household-1', 'out', 1, 'expired', 0],
       ),
     ).rejects.toThrow();
     await expect(
       db.runAsync(
-        `insert into transactions (id, household_id, type, quantity)
-         values (?, ?, ?, ?)`,
-        ['tx-invalid-quantity', 'household-1', 'in', 0],
+        `insert into transactions (id, household_id, type, quantity, updated_at)
+         values (?, ?, ?, ?, ?)`,
+        ['tx-invalid-quantity', 'household-1', 'in', 0, 0],
+      ),
+    ).rejects.toThrow();
+    await expect(
+      db.runAsync(
+        `insert into transactions (id, household_id, type, quantity, reason, updated_at)
+         values (?, ?, ?, ?, ?, ?)`,
+        ['tx-unknown-waste-reason', 'household-1', 'waste', 1, 'donated', 0],
+      ),
+    ).rejects.toThrow();
+    for (const reason of ['expired', 'spoiled', 'other']) {
+      await expect(
+        db.runAsync(
+          `insert into transactions (id, household_id, type, quantity, reason, updated_at)
+           values (?, ?, ?, ?, ?, ?)`,
+          [`tx-valid-waste-${reason}`, 'household-1', 'waste', 1, reason, 0],
+        ),
+      ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
+    }
+    await expect(
+      db.runAsync(
+        `insert into transactions (id, household_id, type, quantity, updated_at)
+         values (?, ?, ?, ?, ?)`,
+        ['tx-missing-waste-reason', 'household-1', 'waste', 1, 0],
       ),
     ).rejects.toThrow();
   });
@@ -256,6 +280,46 @@ describe('lokales Schema', () => {
   it('setzt user_version auf die hoechste angewandte Migration', async () => {
     const highest = MIGRATIONS[MIGRATIONS.length - 1].version;
     expect(await readUserVersion(db)).toBe(highest);
+  });
+});
+
+describe('lokale Schema-Upgrades', () => {
+  it('markiert bestehende MHD-Werte beim Upgrade als manuell gesetzt', async () => {
+    const upgradeDb = createTestDatabase();
+    try {
+      await runMigrations(upgradeDb, MIGRATIONS);
+
+      const migrationsBeforeBackfill = Object.fromEntries(
+        Object.entries(localMigrations.migrations).filter(
+          ([name]) => name < '20260907120000_inventory_expiry_user_set_backfill',
+        ),
+      );
+      await runDrizzleMigrations(upgradeDb, { migrations: migrationsBeforeBackfill });
+
+      await upgradeDb.runAsync(
+        `insert into fridge_items
+          (id, household_id, name, quantity, unit, expiry_date, expiry_user_set, updated_at)
+         values (?, ?, ?, ?, ?, ?, ?, ?)`,
+        ['legacy-mhd', 'household-1', 'Legacy MHD', 1, 'piece', '2026-12-31', 0, 0],
+      );
+      expect(
+        await upgradeDb.getFirstAsync<{ expiry_user_set: number }>(
+          'select expiry_user_set from fridge_items where id = ?',
+          ['legacy-mhd'],
+        ),
+      ).toEqual({ expiry_user_set: 0 });
+
+      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(1);
+      expect(
+        await upgradeDb.getFirstAsync<{ expiry_user_set: number }>(
+          'select expiry_user_set from fridge_items where id = ?',
+          ['legacy-mhd'],
+        ),
+      ).toEqual({ expiry_user_set: 1 });
+      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(0);
+    } finally {
+      upgradeDb.close();
+    }
   });
 });
 

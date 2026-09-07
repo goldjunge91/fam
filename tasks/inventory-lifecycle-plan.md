@@ -146,3 +146,178 @@ Verschieben-Atomizität, manuelles Wieder-Versiegeln). Details siehe
 Zyklus war nicht nötig — keine der Korrekturen warf neue offene Fragen auf.
 Cross-Model-Review wurde in diesem Zyklus nicht angeboten; auf Wunsch
 nachholbar (Gemini/Codex CLI oder manuell).
+
+## Implementation Review Addendum (2026-09-07)
+
+Dieser Abschnitt ist append-only. Die ursprüngliche Planung, der damalige
+Doubt-Review und die dort dokumentierten Entscheidungen bleiben als Verlauf
+erhalten. Die folgenden Punkte aktualisieren ausschließlich den
+Umsetzungsstatus und die noch erforderlichen Arbeitsschritte.
+
+### Review-Ergebnis
+
+**Status: Request changes, nicht releasefähig.** Die Grundstruktur ist
+vorhanden: Schemaquellen, lokale Spiegelung, Ledger-Typen, Open-Logik,
+Historien-UI und fokussierte Tests existieren. Die Verifikation war grün für
+59 relevante Inventory-Tests, 43 Sync-/Outbox-Tests und den Typecheck. Diese
+Tests beweisen jedoch nicht die vollständige fachliche Abdeckung aus der Spec.
+
+Die lokale Supabase-Datenbank und pgTAP wurden gemäß AGENTS.md nicht gestartet;
+RLS- und echte Upgradepfade sind deshalb in diesem Review nicht ausgeführt
+worden. Die Arbeitskopie enthielt bereits unabhängige Änderungen, die nicht
+angefasst wurden.
+
+### Befunde und verbindliche Nachverfolgung
+
+| ID | Severity | Befund | Erforderliche Auflösung | Bead |
+| --- | --- | --- | --- | --- |
+| IR-1 | **Critical** | Ein Move wird lokal gemeinsam enqueued, beim Remote-Push aber als unabhängige Bestands-, `out`- und `in`-Requests verarbeitet. Ein Teilfehler kann einen halben Move persistieren. | Gruppierte Outbox-Mutation plus autorisierte serverseitige Transaktion mit Idempotenzschlüssel. Erfolg, Teilfehler und Retry testen. | `fam-lem.10`, danach `fam-lem.6` |
+| IR-2 | **Critical** | `use-complete-shopping-run` erzeugt beim Überführen eines Einkaufsartikels nur `fridge_items`, aber keine `transactions`-Zeile mit `type = 'in'`. | Alle produktiven Mengenpfade auditieren und die Ledger-Buchung in derselben lokalen atomaren Mutation schreiben. Doppelbuchungen und quantity=0 testen. | `fam-lem.11`, danach `fam-lem.6` |
+| IR-3 | **Critical** | Undo ist produktiv nur für `open` vorhanden. `in`, `out`, `waste`, Move, 24-Stunden-Grenze und idempotente Wiederholungsbehandlung fehlen. `undone` bleibt ohne belastbare Provenienz ungenutzt. | Inverse Buchungen für alle Typen, Korrekturbuchung nach 24 Stunden und maschinenlesbare Reversal-Provenienz implementieren. Den Konflikt zwischen append-only/RLS und `undone=true` ausdrücklich lösen. | `fam-lem.12` |
+| IR-4 | **Required** | Der `expiry_user_set`-Backfill steht im deklarativen Schema, fehlt aber in der tatsächlich generierten Servermigration und im lokalen Upgradepfad. | Ausrollbare Migrationen müssen bestehende gesetzte MHD-Werte schützen. Upgrade- und pgTAP-Test ergänzen. | `fam-lem.1` |
+| IR-5 | **Required** | Der direkte MHD-Schnellzugriff setzt bei manueller Datumsänderung `expiry_user_set` nicht zuverlässig auf `true`. | Alle manuellen MHD-Eingabepfade auf den gemeinsamen Schutzvertrag umstellen und testen. | `fam-lem.6` |
+| IR-6 | **Required** | Split/Undo bewahrt nicht alle Lifecycle-Metadaten und sucht beim Undo anhand loser Attribute irgendeinen passenden versiegelten Lot. Identische Lots können falsch gemerged werden. | Stabile Ursprungsreferenz/Provenienz persistieren, relevante Metadaten erhalten und Duplicate-Lot-Fallback testen. | `fam-lem.3`, danach `fam-lem.12` |
+| IR-7 | **Required** | Die lokalen Constraints für `transactions.reason` sind nicht vollständig paritygleich zum Servermodell. | Lokales Schema und Sync-Grenze müssen erlaubte Gründe und Waste-Kopplung wie Supabase erzwingen. | `fam-lem.4` |
+| IR-8 | **Required** | `opened-expiry.ts` enthält weiterhin vorläufige Werte; Recherche und Release-Swap sind offen. | Geprüfte Werte dokumentieren, Platzhalter ersetzen und das Gate erst nach vollständiger Cross-Surface-Verifikation schließen. | `fam-lem.8`, `fam-lem.9` |
+
+### Revidierte Ausführungsreihenfolge
+
+Die ursprüngliche Dependency-Graph-Dokumentation bleibt oben erhalten. Für die
+offenen Befunde gilt zusätzlich folgende Reihenfolge:
+
+1. `fam-lem.1` schließt den realen Server- und lokalen Backfill sowie die
+   vollständige Constraint-/RLS-Basis.
+2. `fam-lem.2` bis `fam-lem.5` vervollständigen Berechnung, Split-Grundlage,
+   Mirror und generierte Typen. `fam-lem.8` läuft unabhängig weiter.
+3. `fam-lem.10` baut die atomare gruppierte Mutation und den serverseitigen
+   Transaktionspfad. `fam-lem.11` schließt parallel die Ledger-Abdeckung aller
+   Bestands-Schreibpfade.
+4. `fam-lem.6` integriert die Hooks einschließlich Move, MHD-Schnellzugriff
+   und der geprüften Ledger-Abdeckung.
+5. `fam-lem.12` implementiert das allgemeine, idempotente Undo auf Basis der
+   stabilen Split-Provenienz und des atomaren Hook-Vertrags.
+6. Erst danach wird `fam-lem.7` als UI-Schnittstelle abgeschlossen.
+7. `fam-lem.9` bleibt das letzte Release-Gate: geprüfte Ablaufwerte,
+   abgeschlossene Critical-/Required-Findings, fokussierte Tests und die
+   dokumentierte manuelle Offline-/Plattformverifikation.
+
+### Aktualisierte Bead-Landkarte
+
+| Bead | Rolle nach dem Review | Abhängigkeiten |
+| --- | --- | --- |
+| `fam-lem.1` | Schema, reale Migrationen, Backfill, RLS und pgTAP | — |
+| `fam-lem.2` | Haltbarkeitsfunktion mit vollständiger Regelmatrix und Schutz vor Überschreiben | `.1` |
+| `fam-lem.3` | Split/Merge mit stabiler Ursprungsreferenz und Metadatenerhalt | `.1` |
+| `fam-lem.4` | Lokale Constraint- und Sync-Parität, gruppierbare Outbox-Primitiven | `.1` |
+| `fam-lem.5` | Generierte Typen und widerspruchsfreie Typgrenzen | `.1` |
+| `fam-lem.10` | Atomare Move-/Mehrzeilenmutation über Outbox und Server | `.1`, `.4`, `.5` |
+| `fam-lem.11` | Vollständige Ledger-Abdeckung inklusive Einkaufslisten-Abschluss | `.1`, `.4`, `.5` |
+| `fam-lem.6` | Hook-Orchestrierung auf den beiden neuen Fundamenten | `.2`, `.3`, `.4`, `.5`, `.10`, `.11` |
+| `fam-lem.12` | Undo für alle Typen, 24-Stunden-Korrektur und Idempotenz | `.3`, `.6` |
+| `fam-lem.7` | UI für den vollständigen Mutation-/Undo-Vertrag | `.6`, `.11`, `.12` |
+| `fam-lem.8` | Fachliche Prüfung der Ablaufwerte | parallel |
+| `fam-lem.9` | Letztes Release-Gate inklusive aller neuen Befunde | `.2`, `.7`, `.8`, `.10`, `.11`, `.12` |
+
+Die Beads wurden entsprechend aktualisiert. Keine bestehende Aufgabe wurde
+geschlossen oder entfernt. Die neuen Aufgaben `.10` bis `.12` existieren
+gezielt als eigene Tracker-Einheiten, damit die drei Critical-Findings nicht
+erneut in den bereits großen Hook- oder UI-Aufgaben verschwinden.
+
+### Neue Checkpoints
+
+**Checkpoint E, nach `fam-lem.10` und `fam-lem.11`**
+
+- [ ] Move kann bei Fehler zwischen den Legs vollständig zurückgerollt werden.
+- [ ] Einkaufslisten-Abschluss und alle weiteren Mengenpfade erzeugen genau
+      eine passende Ledger-Buchung.
+- [ ] Lokale und Remote-Tests beweisen Retry- und Offline-Verhalten.
+
+**Checkpoint F, nach `fam-lem.12`**
+
+- [ ] Alle Transaktionstypen haben einen getesteten Undo- oder
+      Korrekturpfad.
+- [ ] Wiederholtes Undo ist sicher und der Reversal-Zusammenhang bleibt
+      historisch nachvollziehbar.
+- [ ] Split-Inplace, Split-Merge und Merge-Fallback sind mit identischen Lots
+      getestet.
+
+**Checkpoint G, vor `fam-lem.9`-Abschluss**
+
+- [ ] Backfill funktioniert im Server- und lokalen Upgradepfad.
+- [ ] MHD-Schnellzugriff, lokale Constraints und generierte Typen sind
+      verifiziert.
+- [ ] Geprüfte Ablaufwerte ersetzen alle Platzhalter.
+- [ ] Fokussierte Tests, Typecheck, Check, relevante DB-Prüfungen sowie der
+      manuelle Dev-Client-Durchlauf sind dokumentiert.
+
+### Zählkorrektur: zehn eigenständige Abweichungen
+
+Die vorherige Review-Tabelle hat mehrere Befunde zur besseren Zuordnung zu
+acht Gruppen zusammengezogen. Für die vollständige Nachverfolgbarkeit werden
+hier dieselben Ergebnisse in zehn eigenständige Abweichungen aufgelöst. Diese
+Aufschlüsselung ersetzt nichts aus der vorherigen Tabelle.
+
+| ID | Severity | Eigenständige Abweichung | Bead |
+| --- | --- | --- | --- |
+| CR-1 | **Critical** | Remote-Move ist nicht atomar: lokale Gruppierung verhindert nicht, dass der Server Bestandsänderung, `out` und `in` als getrennte Requests verarbeitet. | `fam-lem.10` |
+| CR-2 | **Critical** | Der Einkaufslisten-Abschluss erzeugt Bestandszugänge ohne `transactions`-Buchung mit `type = 'in'`. | `fam-lem.11` |
+| CR-3 | **Critical** | Undo unterstützt produktiv nur `open`; inverse Buchungen für `in`, `out`, `waste` und Move fehlen. | `fam-lem.12` |
+| CR-4 | **Critical** | Undo ist nicht sicher nachvollziehbar/idempotent: `undone` wird nicht am Ursprung geführt, wiederholtes Undo bleibt möglich und der Open-Vorzustand wird nicht in jedem Pfad korrekt als aktueller Gegenbuchungszustand behandelt. | `fam-lem.12` |
+| CR-5 | **Required** | Der Backfill `expiry_user_set=true` fehlt in der tatsächlich ausrollbaren Servermigration und im lokalen Upgradepfad. | `fam-lem.1` |
+| CR-6 | **Required** | Der direkte MHD-Schnellzugriff setzt bei manueller Datumsänderung `expiry_user_set` nicht zuverlässig auf `true`. | `fam-lem.6` |
+| CR-7 | **Required** | Beim Split werden Lifecycle-Metadaten der neuen geöffneten Zeile nicht vollständig bewahrt, unter anderem `expiry_user_set` und `vacuum_sealed`. | `fam-lem.3` |
+| CR-8 | **Required** | Split-Undo identifiziert die Ursprungszeile nur über Attribute und kann bei identischen Lots den falschen Bestand zusammenführen. | `fam-lem.3`, `fam-lem.12` |
+| CR-9 | **Required** | Das lokale SQLite-Modell erzwingt die erlaubte Menge der Waste-Gründe nicht vollständig wie das Supabase-Modell. | `fam-lem.4` |
+| CR-10 | **Required** | Vorläufige Haltbarkeitswerte und das noch offene Release-Gate verhindern eine fachliche Freigabe. | `fam-lem.8`, `fam-lem.9` |
+
+Damit ist der Review-Stand nicht acht, sondern zehn offene Abweichungen. Die
+größeren Bead-Aufgaben wurden deshalb nicht weiter verborgen vergrößert:
+`fam-lem.10` bis `.12` bleiben die expliziten Nachverfolgungseinheiten für
+Atomizität, Ledger-Abdeckung und Undo; die übrigen sieben Abweichungen sind in
+den fachlich zuständigen bestehenden Beads verankert.
+
+## Implementation Decision Addendum (2026-09-07)
+
+Der im Review identifizierte Backfill-Konflikt ist entschieden. Supabase
+Declarative Schema Diff erfasst DML nicht; deshalb ist für den bereits
+bestehenden Backfill `expiry_date -> expiry_user_set = true` eine einmalige,
+explizit freigegebene Forward-Migration zulässig. Die Ausnahme ist auf diesen
+idempotenten Datenabgleich beschränkt. Alle normalen Schemaänderungen bleiben
+an den deklarativen Workflow mit `bun run db:diff` gebunden. Der Server- und
+der lokale Upgradepfad müssen denselben Backfill enthalten und werden jeweils
+gezielt verifiziert.
+
+## Increment 1 Status Addendum (2026-09-07)
+
+Dieser append-only Eintrag dokumentiert den ersten Implementierungsslice. Die
+ursprüngliche Planung und alle Review-Befunde bleiben unverändert.
+
+- **CR-2 / `fam-lem.11`:** Der Einkaufsabschluss schreibt pro Transfer
+  `fridge_items` und genau eine `transactions(type = 'in')`-Zeile gemeinsam
+  mit `enqueueMutations`.
+- **CR-5 / `fam-lem.1`:** Der einmalige Server-Backfill und der lokale
+  Drizzle-Upgradepfad sind angelegt; der lokale Upgrade-Test beweist die
+  idempotente Übernahme bestehender MHD-Werte.
+- **CR-6 / `fam-lem.6`:** Edit-Sheet und beide Plattform-Schnellzugriffe
+  setzen bei manueller MHD-Änderung `expiry_user_set = true`.
+- **CR-7/8 / `fam-lem.3`:** Split-Metadaten bleiben erhalten; die stabile
+  Ursprungs-ID wird als `[Split] origin=<ID>` in `notes` persistiert. Undo
+  merged nur diese Zeile; Legacy- und Duplicate-Lot-Fälle fallen sicher
+  zurück.
+- **CR-9 / `fam-lem.4`:** Das lokale `transactions_reason_check` und die
+  generierte Drizzle-Migration erzwingen die drei erlaubten Waste-Gründe.
+
+Verifiziert: lokaler pgTAP-Test `24_inventory_lifecycle.test.sql` 17/17,
+lokale Schema-/Upgrade-Integration 31/31, Lifecycle-/Mutations-/Shopping-
+Jest-Tests fokussiert grün, UI-Suites 17/17, `bun run typecheck`,
+`bun run check` und `git diff --check` grün. `db:diff` konnte nach einem
+Shadow-DB-Healthcheck-Reset nicht abschließen; die Ursache war der lokale
+temporäre PostgreSQL-Container, nicht ein gemeldeter Schema-Diff. Die offenen
+Befunde CR-1, CR-3, CR-4 und CR-10 bleiben ausdrücklich offen.
+
+## Verification Correction Addendum (2026-09-07)
+
+Die historische Diff-Notiz im vorherigen Addendum beschreibt nur den ersten
+Versuch. Beim zweiten Lauf mit deaktivierter Supabase-CLI-Telemetrie wurde die
+Shadow-Datenbank erfolgreich initialisiert; `bun run db:diff` endete mit
+`No schema changes found`. `db:advisors` meldete ebenfalls keine Findings.

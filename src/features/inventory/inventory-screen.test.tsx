@@ -38,6 +38,29 @@ jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => {
   };
 });
 
+jest.mock('@/components/forms/date-wheel-field', () => {
+  const { Pressable, Text } = require('react-native');
+
+  return {
+    DateWheelField: ({
+      label,
+      value,
+      onChange,
+    }: {
+      label?: string;
+      value: string;
+      onChange: (value: string) => void;
+    }) => (
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={value ? `${label} ${value} ändern` : `${label} auswählen`}
+        onPress={() => onChange('2026-10-31')}>
+        <Text>{value}</Text>
+      </Pressable>
+    ),
+  };
+});
+
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
   useNavigation: () => ({ canGoBack: () => false, addListener: () => () => {} }),
@@ -185,6 +208,22 @@ it('öffnet beim kurzen Tap die MHD-Auswahl und ändert danach die Losmenge', as
     delta: 1,
     operation: 'adjust',
   });
+});
+
+it('setzt den Schutzstatus beim manuellen MHD-Schnellzugriff', async () => {
+  const user = userEvent.setup();
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
+  await user.press(screen.getByRole('button', { name: 'Mindesthaltbarkeitsdatum auswählen' }));
+
+  expect(mockUpdateExpiryMutate).toHaveBeenCalledWith(
+    expect.objectContaining({
+      expiry_date: '2026-10-31',
+      expiry_user_set: true,
+    }),
+  );
 });
 
 it('öffnet den Option-C-Flow und protokolliert die gewählte Menge', async () => {
