@@ -59,6 +59,7 @@ export const transactions = sqliteTable(
   'transactions',
   {
     id: text('id').notNull(),
+    operationId: text('operation_id'),
     householdId: text('household_id').notNull(),
     fridgeItemId: text('fridge_item_id'),
     productId: text('product_id'),
@@ -94,6 +95,7 @@ export const transactions = sqliteTable(
     ),
     index('transactions_hh_idx').on(table.householdId, table.createdAt),
     index('transactions_fridge_item_idx').on(table.fridgeItemId),
+    index('transactions_operation_idx').on(table.operationId),
     index('transactions_dirty_idx').on(table.dirty).where(sql`${table.dirty} = 1`),
   ],
 );

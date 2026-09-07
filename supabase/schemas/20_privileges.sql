@@ -141,7 +141,7 @@ revoke execute on function private.guard_last_admin() from public, anon, authent
 revoke execute on function private.delete_orphaned_household() from public, anon, authenticated;
 
 -- --------------------------------------------------------------------- public
--- Diese beiden RPCs SOLLEN vom Client aufrufbar sein — anders als die Helfer.
+-- Diese Client-RPCs SOLLEN vom Client aufrufbar sein — anders als die Helfer.
 --
 -- Achtung: Auf Supabase-Remote-Projekten vergeben ALTER DEFAULT PRIVILEGES
 -- EXECUTE auf neue public-Funktionen zusaetzlich direkt an `anon`. Der Entzug
@@ -151,6 +151,13 @@ revoke execute on function private.delete_orphaned_household() from public, anon
 -- jedem Push nach.
 revoke execute on function public.create_household(text) from public, anon;
 grant execute on function public.create_household(text) to authenticated;
+
+revoke execute on function public.move_fridge_item(
+  uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz
+) from public, anon;
+grant execute on function public.move_fridge_item(
+  uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz
+) to authenticated;
 
 -- redeem_invite() muss von Nicht-Mitgliedern aufrufbar sein — das ist sein
 -- ganzer Zweck. Aber nur von angemeldeten: die Mitgliedschaft braucht eine

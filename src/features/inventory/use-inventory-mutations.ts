@@ -6,6 +6,7 @@ import { trackAnalyticsEvent } from '@/lib/analytics';
 import type { Database } from '@/lib/database.types';
 import { getDatabase } from '@/lib/db/client';
 import { type EnqueueMutationInput, enqueueMutation, enqueueMutations } from '@/lib/db/outbox';
+import { createInventoryMoveMutation } from '@/lib/sync/inventory-move';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 import type { WasteReason } from './components/waste-inventory-item-sheet';
@@ -34,15 +35,25 @@ export type FridgeItem = {
   expiry_user_set?: boolean;
 };
 
-type TransactionPayload = Database['public']['Tables']['transactions']['Row'];
+type TransactionPayload = Omit<
+  Database['public']['Tables']['transactions']['Row'],
+  'operation_id'
+> & {
+  operation_id: string | null;
+};
+type TransactionDraft = Omit<TransactionPayload, 'operation_id'> & {
+  operation_id?: string | null;
+};
 
-function transactionMutation(payload: TransactionPayload, nowMs: number): EnqueueMutationInput {
+function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueMutationInput {
+  const normalizedPayload: TransactionPayload = { operation_id: null, ...payload };
   return {
     entity: 'transactions',
-    entityId: payload.id,
+    entityId: normalizedPayload.id,
     op: 'insert',
-    payload,
-    applyLocally: (txn) => applyLocalMirrorWrite(txn, 'transactions', 'insert', payload, nowMs),
+    payload: normalizedPayload,
+    applyLocally: (txn) =>
+      applyLocalMirrorWrite(txn, 'transactions', 'insert', normalizedPayload, nowMs),
   };
 }
 
@@ -50,7 +61,7 @@ function transactionPayloadFromPlan(
   transaction: ReturnType<typeof planOpenInventoryItem>['transaction'],
   id: string,
   actor: string | null,
-): TransactionPayload {
+): TransactionDraft {
   return {
     id,
     household_id: transaction.householdId,
@@ -144,7 +155,7 @@ export function useAddFridgeItemMutation() {
         expiry_user_set: item.expiry_user_set ?? item.expiry_date !== null,
       };
       const transactionId = Crypto.randomUUID();
-      const transaction: TransactionPayload = {
+      const transaction: TransactionDraft = {
         id: transactionId,
         household_id: item.household_id,
         fridge_item_id: id,
@@ -251,7 +262,7 @@ export function useUpdateInventoryItemQuantityMutation() {
       const changedQty = Math.abs(newQty - existing.quantity);
       if (changedQty === 0) return { id, newQty };
       const transactionId = Crypto.randomUUID();
-      const transaction: TransactionPayload = {
+      const transaction: TransactionDraft = {
         id: transactionId,
         household_id,
         fridge_item_id: id,
@@ -577,6 +588,9 @@ export function useMoveInventoryItemMutation() {
       const db = await getDatabase();
       const now = new Date().toISOString();
       const nowMs = Date.now();
+      const operationId = Crypto.randomUUID();
+      const outTransactionId = Crypto.randomUUID();
+      const inTransactionId = Crypto.randomUUID();
       const base = {
         household_id: item.household_id,
         product_id: item.product_id,
@@ -588,46 +602,39 @@ export function useMoveInventoryItemMutation() {
         undone: false,
         created_at: now,
       } as const;
+      const outTransaction: TransactionDraft = {
+        id: outTransactionId,
+        operation_id: operationId,
+        ...base,
+        fridge_item_id: item.id,
+        type: 'out',
+        location_id: item.location_id,
+      };
+      const inTransaction: TransactionDraft = {
+        id: inTransactionId,
+        operation_id: operationId,
+        ...base,
+        fridge_item_id: item.id,
+        type: 'in',
+        location_id: locationId,
+      };
       await enqueueMutations(db, [
-        {
-          entity: 'fridge_items',
-          entityId: item.id,
-          op: 'update',
+        createInventoryMoveMutation({
           payload: {
-            id: item.id,
+            operation_id: operationId,
+            item_id: item.id,
             household_id: item.household_id,
-            location_id: locationId,
-            updated_at: now,
+            expected_location_id: item.location_id,
+            new_location_id: locationId,
+            expected_quantity: item.quantity,
+            out_transaction_id: outTransactionId,
+            in_transaction_id: inTransactionId,
+            created_at: now,
           },
-          applyLocally: (txn) =>
-            applyLocalMirrorWrite(
-              txn,
-              'fridge_items',
-              'update',
-              { id: item.id, location_id: locationId },
-              nowMs,
-            ),
-        },
-        transactionMutation(
-          {
-            id: Crypto.randomUUID(),
-            ...base,
-            fridge_item_id: item.id,
-            type: 'out',
-            location_id: item.location_id,
-          },
+          outTransaction,
+          inTransaction,
           nowMs,
-        ),
-        transactionMutation(
-          {
-            id: Crypto.randomUUID(),
-            ...base,
-            fridge_item_id: item.id,
-            type: 'in',
-            location_id: locationId,
-          },
-          nowMs,
-        ),
+        }),
       ]);
       return item.id;
     },

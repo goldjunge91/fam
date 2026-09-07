@@ -184,6 +184,15 @@ describe('inventory mutation hooks', () => {
   });
 
   it('bucht Öffnen, Wegwerfen und Verschieben jeweils mit Actor', async () => {
+    jest
+      .mocked(Crypto.randomUUID)
+      .mockReturnValueOnce('open-item-id')
+      .mockReturnValueOnce('open-transaction-id')
+      .mockReturnValueOnce('waste-id')
+      .mockReturnValueOnce('operation-id')
+      .mockReturnValueOnce('out-id')
+      .mockReturnValueOnce('in-id');
+
     const openHook = await renderHook(() => useOpenInventoryItemMutation(), { wrapper });
     await act(async () => {
       await openHook.result.current.mutateAsync({ item: { ...ITEM, quantity: 1 }, quantity: 1 });
@@ -204,9 +213,22 @@ describe('inventory mutation hooks', () => {
     await act(async () => {
       await moveHook.result.current.mutateAsync({ item: ITEM, locationId: 'loc-2' });
     });
-    expect(transactionPayloads()).toHaveLength(2);
-    expect(transactionPayloads().every((payload) => payload.actor === 'actor-1')).toBe(true);
-    expect(transactionPayloads().map((payload) => payload.type)).toEqual(['out', 'in']);
+    expect(lastMutations()).toHaveLength(1);
+    expect(lastMutations()[0]).toMatchObject({
+      entity: 'fridge_items',
+      entityId: 'item-1',
+      op: 'move',
+      payload: {
+        operation_id: 'operation-id',
+        item_id: 'item-1',
+        household_id: 'hh-1',
+        expected_location_id: 'loc-1',
+        new_location_id: 'loc-2',
+        expected_quantity: 3,
+        out_transaction_id: 'out-id',
+        in_transaction_id: 'in-id',
+      },
+    });
   });
 
   it('bucht das Undo einer Öffnung als neue Actor-signierte Gegenbuchung', async () => {

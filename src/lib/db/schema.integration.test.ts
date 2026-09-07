@@ -76,6 +76,7 @@ describe('lokales Schema', () => {
     expect((await columnsOf(db, 'transactions')).map((column) => column.name)).toEqual(
       expect.arrayContaining([
         'id',
+        'operation_id',
         'household_id',
         'fridge_item_id',
         'product_id',

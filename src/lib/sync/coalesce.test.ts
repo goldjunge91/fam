@@ -64,6 +64,30 @@ describe('coalesce', () => {
     expect(result.pushes[0].payload).toEqual({ name: 'Milch', quantity: 5 });
   });
 
+  it('behandelt einen Move als eigene gruppierte Operation', () => {
+    const move = {
+      operation_id: 'operation-1',
+      item_id: 'row-1',
+      household_id: 'hh-1',
+      expected_location_id: 'loc-1',
+      new_location_id: 'loc-2',
+      expected_quantity: 1,
+      out_transaction_id: 'out-1',
+      in_transaction_id: 'in-1',
+      created_at: '2026-09-07T10:00:00.000Z',
+    };
+
+    const result = coalesce([entry('move', move), entry('update', { quantity: 2 }, 'row-1')]);
+
+    expect(result.pushes).toHaveLength(2);
+    expect(result.pushes[0]).toEqual(
+      expect.objectContaining({ op: 'move', payload: move, sourceIds: [1] }),
+    );
+    expect(result.pushes[1]).toEqual(
+      expect.objectContaining({ op: 'update', payload: { quantity: 2 }, sourceIds: [2] }),
+    );
+  });
+
   it('verwirft insert + delete vollstaendig, ohne einen Netzwerkaufruf', () => {
     const result = coalesce([entry('insert', { name: 'Milch' }), entry('delete', {})]);
 

@@ -199,6 +199,7 @@
         "db:reset": "supabase db reset",
         "db:advisors": "supabase db advisors --local --type security && supabase db advisors --local --type performance",
         "db:types": "supabase gen types typescript --local > src/lib/database.types.ts",
+        "verify:inventory-move": "EXPO_NO_DOTENV=1 bun scripts/verify-inventory-move.ts",
         "storage:upload-recipe-template-covers": "bun --env-file=.env scripts/upload-recipe-template-covers.ts",
         "db:check": "bash scripts/check-privileges.sh",
         "db:push": "supabase db push && bash scripts/check-privileges.sh --linked",
