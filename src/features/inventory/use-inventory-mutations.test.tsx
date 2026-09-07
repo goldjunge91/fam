@@ -221,10 +221,47 @@ describe('inventory mutation hooks', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toHaveLength(4);
-    expect(transactionPayloads()).toHaveLength(3);
+    expect(lastMutations()).toHaveLength(3);
+    expect(transactionPayloads()).toHaveLength(1);
     expect(transactionPayloads().every((payload) => payload.actor === 'actor-1')).toBe(true);
-    expect(transactionPayloads().map((payload) => payload.type)).toEqual(['in', 'out', 'in']);
+    expect(transactionPayloads().map((payload) => payload.type)).toEqual(['in']);
+    expect(lastMutations()[2]).toMatchObject({ entity: 'fridge_items', op: 'move' });
+  });
+
+  it('führt eine Lagerortänderung auch aus der manuellen Bearbeitung als gruppierten Move aus', async () => {
+    mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
+    jest
+      .mocked(Crypto.randomUUID)
+      .mockReturnValueOnce('operation-id')
+      .mockReturnValueOnce('out-id')
+      .mockReturnValueOnce('in-id');
+    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({ ...ITEM, location_id: 'loc-2' });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(lastMutations()).toHaveLength(2);
+    expect(lastMutations()[0]).toMatchObject({
+      entity: 'fridge_items',
+      op: 'update',
+      payload: { id: 'item-1' },
+    });
+    expect(lastMutations()[0].payload).not.toHaveProperty('location_id', 'loc-2');
+    expect(lastMutations()[1]).toMatchObject({
+      entity: 'fridge_items',
+      entityId: 'item-1',
+      op: 'move',
+      payload: {
+        operation_id: 'operation-id',
+        expected_location_id: 'loc-1',
+        new_location_id: 'loc-2',
+        expected_quantity: 3,
+        out_transaction_id: 'out-id',
+        in_transaction_id: 'in-id',
+      },
+    });
   });
 
   it('soft-deletet eine manuelle Korrektur auf null und bucht die effektive out-Menge', async () => {

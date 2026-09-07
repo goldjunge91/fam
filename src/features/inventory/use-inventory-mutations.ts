@@ -61,6 +61,62 @@ function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueM
   };
 }
 
+function groupedMoveMutation(input: {
+  itemId: string;
+  householdId: string;
+  productId: string | null;
+  quantity: number;
+  expectedLocationId: string | null;
+  newLocationId: string | null;
+  actor: string | null;
+  createdAt: string;
+  nowMs: number;
+}): EnqueueMutationInput {
+  const operationId = Crypto.randomUUID();
+  const outTransactionId = Crypto.randomUUID();
+  const inTransactionId = Crypto.randomUUID();
+  const commonTransaction = {
+    household_id: input.householdId,
+    product_id: input.productId,
+    actor: input.actor,
+    quantity: input.quantity,
+    reason: null,
+    previous_expiry_date: null,
+    notes: null,
+    undone: false,
+    created_at: input.createdAt,
+    fridge_item_id: input.itemId,
+    operation_id: operationId,
+  } as const;
+
+  return createInventoryMoveMutation({
+    payload: {
+      operation_id: operationId,
+      item_id: input.itemId,
+      household_id: input.householdId,
+      expected_location_id: input.expectedLocationId,
+      new_location_id: input.newLocationId,
+      expected_quantity: input.quantity,
+      out_transaction_id: outTransactionId,
+      in_transaction_id: inTransactionId,
+      created_at: input.createdAt,
+    },
+    outTransaction: {
+      id: outTransactionId,
+      ...commonTransaction,
+      type: 'out',
+      location_id: input.expectedLocationId,
+    },
+    inTransaction: {
+      id: inTransactionId,
+      ...commonTransaction,
+      type: 'in',
+      location_id: input.newLocationId,
+    },
+    nowMs: input.nowMs,
+  });
+}
+
 function transactionPayloadFromPlan(
   transaction: ReturnType<typeof planOpenInventoryItem>['transaction'],
   id: string,
@@ -341,10 +397,9 @@ export function useUpdateFridgeItemMutation() {
       const nowMs = Date.now();
       const unit = normalizeUnit(item.unit);
       const packageSizeUnit = item.package_size_unit ? normalizeUnit(item.package_size_unit) : null;
-      const localFields = {
+      const localFieldsWithoutLocation = {
         id: item.id,
         household_id: item.household_id,
-        location_id: item.location_id,
         product_id: item.product_id,
         name: item.name,
         quantity: item.quantity,
@@ -356,13 +411,18 @@ export function useUpdateFridgeItemMutation() {
         ...(item.vacuum_sealed !== undefined ? { vacuum_sealed: item.vacuum_sealed } : {}),
         ...(item.expiry_user_set !== undefined ? { expiry_user_set: item.expiry_user_set } : {}),
       };
-      const payload = { ...localFields, updated_at: now };
       const existing = await db.getFirstAsync<{
         quantity: number;
         location_id: string | null;
       }>('select quantity, location_id from fridge_items where id = ?', [item.id]);
       const quantityChanged = existing !== null && item.quantity !== existing.quantity;
       const isDepleted = item.quantity === 0 && quantityChanged;
+      const locationChanged =
+        existing !== null && item.quantity > 0 && item.location_id !== existing.location_id;
+      const localFields = locationChanged
+        ? localFieldsWithoutLocation
+        : { ...localFieldsWithoutLocation, location_id: item.location_id };
+      const payload = { ...localFields, updated_at: now };
       const mutations: EnqueueMutationInput[] = [
         isDepleted
           ? {
@@ -410,33 +470,19 @@ export function useUpdateFridgeItemMutation() {
           ),
         );
       }
-      if (existing && item.quantity > 0 && item.location_id !== existing.location_id) {
-        const movement = {
-          household_id: item.household_id,
-          product_id: item.product_id,
-          actor,
-          quantity: item.quantity,
-          reason: null,
-          previous_expiry_date: null,
-          notes: null,
-          undone: false,
-          created_at: now,
-          fridge_item_id: item.id,
-        } as const;
+      if (locationChanged && existing) {
         mutations.push(
-          transactionMutation(
-            {
-              id: Crypto.randomUUID(),
-              ...movement,
-              type: 'out',
-              location_id: existing.location_id,
-            },
+          groupedMoveMutation({
+            itemId: item.id,
+            householdId: item.household_id,
+            productId: item.product_id,
+            quantity: item.quantity,
+            expectedLocationId: existing.location_id,
+            newLocationId: item.location_id,
+            actor,
+            createdAt: now,
             nowMs,
-          ),
-          transactionMutation(
-            { id: Crypto.randomUUID(), ...movement, type: 'in', location_id: item.location_id },
-            nowMs,
-          ),
+          }),
         );
       }
 
@@ -608,51 +654,16 @@ export function useMoveInventoryItemMutation() {
       const db = await getDatabase();
       const now = new Date().toISOString();
       const nowMs = Date.now();
-      const operationId = Crypto.randomUUID();
-      const outTransactionId = Crypto.randomUUID();
-      const inTransactionId = Crypto.randomUUID();
-      const base = {
-        household_id: item.household_id,
-        product_id: item.product_id,
-        actor,
-        quantity: item.quantity,
-        reason: null,
-        previous_expiry_date: null,
-        notes: null,
-        undone: false,
-        created_at: now,
-      } as const;
-      const outTransaction: TransactionDraft = {
-        id: outTransactionId,
-        operation_id: operationId,
-        ...base,
-        fridge_item_id: item.id,
-        type: 'out',
-        location_id: item.location_id,
-      };
-      const inTransaction: TransactionDraft = {
-        id: inTransactionId,
-        operation_id: operationId,
-        ...base,
-        fridge_item_id: item.id,
-        type: 'in',
-        location_id: locationId,
-      };
       await enqueueMutations(db, [
-        createInventoryMoveMutation({
-          payload: {
-            operation_id: operationId,
-            item_id: item.id,
-            household_id: item.household_id,
-            expected_location_id: item.location_id,
-            new_location_id: locationId,
-            expected_quantity: item.quantity,
-            out_transaction_id: outTransactionId,
-            in_transaction_id: inTransactionId,
-            created_at: now,
-          },
-          outTransaction,
-          inTransaction,
+        groupedMoveMutation({
+          itemId: item.id,
+          householdId: item.household_id,
+          productId: item.product_id,
+          quantity: item.quantity,
+          expectedLocationId: item.location_id,
+          newLocationId: locationId,
+          actor,
+          createdAt: now,
           nowMs,
         }),
       ]);

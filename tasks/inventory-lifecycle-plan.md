@@ -435,3 +435,31 @@ Damit sind die technischen Acceptance-Kriterien von `fam-lem.4` erfüllt. Der
 manuelle Dev-Client-Durchlauf bleibt als Plattform-/Produktionsverifikation
 separat und ist kein Grund, die lokale SQLite-/Sync-Parität erneut offen zu
 lassen.
+
+## Increment 4 Status Addendum (2026-09-07)
+
+Dieser Abschnitt ist append-only. Keine vorherige Planung, Review-Abweichung,
+Verifikation oder offene Aufgabe wurde entfernt.
+
+- **`fam-lem.6` / Hook-Orchestrierung:** Eine Lagerortänderung aus der manuellen
+  Bestandsbearbeitung verwendet nun denselben gruppierten atomaren Move-Vertrag
+  wie der direkte Verschiebe-Hook. Das normale `fridge_items`-Update schreibt
+  den Lagerort in diesem Fall nicht vorab; die Move-Mutation trägt erwarteten
+  Lagerort, neuen Lagerort, erwartete Menge, `operation_id` und die beiden
+  Ledger-IDs.
+- **Gemeinsame Konstruktion:** Die Erstellung des gruppierten Moves ist in einem
+  privaten Helper zentralisiert, damit manuelle Bearbeitung und direkter Move
+  dieselbe Outbox-/Ledger-Struktur verwenden.
+- **Regression:** Der Hook-Test deckt die Sequenz „manuelle Bearbeitung mit
+  Lagerortänderung“ sowie die geänderte Mutationserwartung ab.
+
+### Verifikation des Slices
+
+- Fokussierter Inventory-Hook-Test: **10/10**.
+- `bun run check`: **PASS**; nur der bekannte Browserslist-Hinweis bleibt.
+- `git diff --check`: **PASS**.
+- `bun run typecheck`: weiterhin rot wegen drei bereits bekannten Fehlern
+  außerhalb dieses Slices (`push.ts`-Nullable-RPC-Typen und historischer
+  Migrationstest).
+- `fam-lem.2`, `fam-lem.3` und der von `.6` abhängige Undo-Slice `fam-lem.12`
+  bleiben separate offene Aufgaben; `.10`, `.11`, `.4` und `.5` sind erledigt.
