@@ -1,5 +1,11 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import {
+  inspectBrochureCompleteness,
+  inspectDetailResponse,
+  makeDiagnostic,
+  statusFromDiagnostics,
+} from '../completeness';
 import type {
   BrochureLocation,
   BrochureSource,
@@ -8,6 +14,8 @@ import type {
   CrawlerPage,
   CrawlerStore,
   ScraperResult,
+  SourceDiagnostic,
+  SourceFetchReport,
 } from '../types';
 
 type LiveTokenConfig = {
@@ -93,10 +101,13 @@ async function fetchJsonWithRetry(url: string, headers: HeadersInit): Promise<un
         throw new Error(`API Status ${response.status} für ${new URL(url).pathname}`);
       }
       const retryAfter = Number(response.headers.get('retry-after'));
-      const delay = Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 2 ** attempt * 1000;
+      const delay =
+        Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 2 ** attempt * 1000;
       await wait(Math.min(delay, 30000));
     } catch (err: unknown) {
       if (attempt === 3) throw err;
+      const message = err instanceof Error ? err.message : String(err);
+      if (message.startsWith('API Status ')) throw err;
       await wait(2 ** attempt * 1000);
     }
   }
@@ -115,7 +126,10 @@ function asArray(value: unknown): unknown[] {
 
 function asString(value: unknown): string | null {
   return typeof value === 'string' && value.trim()
-    ? value.replace(/\0/g, '').replace(/\\u0000/g, '').trim()
+    ? value
+        .replace(/\0/g, '')
+        .replace(/\\u0000/g, '')
+        .trim()
     : null;
 }
 
@@ -139,9 +153,7 @@ function moneyToCents(value: unknown): number | null {
   if (direct !== null) {
     // Bring liefert Preise je nach Endpoint als Eurobetrag (1.29) oder bereits
     // in Cent (129). Beide Formen werden intern einheitlich als Cent gespeichert.
-    return Number.isInteger(direct) && Math.abs(direct) >= 100
-      ? direct
-      : Math.round(direct * 100);
+    return Number.isInteger(direct) && Math.abs(direct) >= 100 ? direct : Math.round(direct * 100);
   }
 
   const money = asRecord(value);
@@ -231,7 +243,8 @@ function transformHotspot(
 
   const description = asString(discount.description);
   const discountLabel = asString(discount.discount);
-  const priceValue = discount.price ?? discount.currentPrice ?? discount.salePrice ?? discount.offerPrice;
+  const priceValue =
+    discount.price ?? discount.currentPrice ?? discount.salePrice ?? discount.offerPrice;
   const oldPriceValue = discount.oldPrice ?? discount.regularPrice ?? discount.originalPrice;
   const priceCents = moneyToCents(priceValue);
   const oldPriceCents = moneyToCents(oldPriceValue);
@@ -271,13 +284,7 @@ function transformLinkout(
   const width = asNumber(linkout?.width);
   const height = asNumber(linkout?.height);
   const linkoutUrl = asString(linkout?.linkoutUrl);
-  if (
-    top === null ||
-    left === null ||
-    width === null ||
-    height === null ||
-    !linkoutUrl
-  ) {
+  if (top === null || left === null || width === null || height === null || !linkoutUrl) {
     return null;
   }
 
@@ -358,7 +365,7 @@ function transformPage(value: unknown, brochureId: string, index: number): Crawl
   return { number, imageUrl: pageImgUrl, hotspots: [...hotspots, ...linkouts, ...unknownEntries] };
 }
 
-function transformLiveBrochure(
+export function transformLiveBrochure(
   offerValue: unknown,
   detailValue: unknown,
 ): { store: CrawlerStore; brochure: CrawlerBrochure } | null {
@@ -371,7 +378,7 @@ function transformLiveBrochure(
   const storeName = firstString(company?.title, company?.name);
   const validFrom = firstString(offer.activeFrom, offer.validFrom);
   const validUntil = firstString(offer.activeTo, offer.validUntil);
-  if (!brochureId || !storeName || !validFrom || !validUntil) return null;
+  if (!brochureId || !storeName) return null;
 
   const pages = asArray(detail.pages)
     .map((p, idx) => transformPage(p, brochureId, idx))
@@ -393,8 +400,10 @@ function transformLiveBrochure(
       id: brochureId,
       storeId,
       title: firstString(offer.title, detail.title) ?? `${storeName} Angebote`,
-      validFrom,
-      validUntil,
+      // Fehlende Werte bleiben leer. Die Engine darf sie für den App-Vertrag
+      // reparieren, der Prüfbericht meldet aber weiterhin den Quellbefund.
+      validFrom: validFrom ?? '',
+      validUntil: validUntil ?? '',
       coverImage,
       pages,
     },
@@ -406,18 +415,49 @@ export type LiveOfferBrochureSourceOptions = {
   detailCacheByLocation?: boolean;
 };
 
+export class LiveOfferSourceError extends Error {
+  readonly code = 'LIVE_OFFERS_SOURCE_FAILED';
+
+  constructor(readonly report: SourceFetchReport) {
+    super(
+      report.diagnostics[0]?.message ??
+        `Live-Quelle für PLZ ${report.diagnostics[0]?.zipCode ?? 'unbekannt'} ist fehlgeschlagen.`,
+    );
+    this.name = 'LiveOfferSourceError';
+  }
+}
+
+function rawError(error: unknown): unknown {
+  return error instanceof Error ? { name: error.name, message: error.message } : error;
+}
+
 export class LiveOfferBrochureSource implements BrochureSource {
   name = 'live';
   private detailCache = new Map<string, Promise<unknown>>();
 
   constructor(private readonly options: LiveOfferBrochureSourceOptions = {}) {}
 
-  async fetchBrochuresForLocation(location: BrochureLocation): Promise<ScraperResult[]> {
+  async fetchBrochuresForLocationWithDiagnostics(
+    location: BrochureLocation,
+  ): Promise<SourceFetchReport> {
+    const diagnostics: SourceDiagnostic[] = [];
+    const context = { source: this.name, location };
     const tokens = getLiveTokens();
     if (!tokens) {
-      throw new Error(
+      const error = new Error(
         'Live-Quelle benötigt BRING_AUTH_TOKEN, BRING_API_KEY und BRING_USER_UUID.',
       );
+      diagnostics.push({
+        ...makeDiagnostic({
+          ...context,
+          code: 'source-fetch-failed',
+          severity: 'error',
+          scope: 'location',
+          message: error.message,
+          rawValue: rawError(error),
+        }),
+      });
+      return { source: this.name, status: 'failed', results: [], diagnostics };
     }
 
     const headers = liveHeaders(tokens);
@@ -430,38 +470,102 @@ export class LiveOfferBrochureSource implements BrochureSource {
     });
 
     const listUrl = `https://production.bringapi.app/offers/rest/v1/offers?${params}`;
-    const list = asRecord(await fetchJsonWithRetry(listUrl, headers));
+    let listValue: unknown;
+    try {
+      listValue = await fetchJsonWithRetry(listUrl, headers);
+    } catch (error) {
+      diagnostics.push(
+        makeDiagnostic({
+          ...context,
+          code: 'offers-list-failed',
+          severity: 'error',
+          scope: 'location',
+          message: error instanceof Error ? error.message : String(error),
+          rawValue: rawError(error),
+        }),
+      );
+      return { source: this.name, status: 'failed', results: [], diagnostics };
+    }
+
+    const list = asRecord(listValue);
     if (!list || !Array.isArray(list.offers)) {
-      throw new Error(`Ungültige Angebotsantwort für PLZ ${location.zipCode}.`);
+      diagnostics.push(
+        makeDiagnostic({
+          ...context,
+          code: 'offers-list-failed',
+          severity: 'error',
+          scope: 'location',
+          message: `Ungültige Angebotsantwort für PLZ ${location.zipCode}.`,
+          rawValue: listValue,
+        }),
+      );
+      return { source: this.name, status: 'failed', results: [], diagnostics };
     }
     const offers = list.offers;
+    diagnostics.push(
+      makeDiagnostic({
+        ...context,
+        code: 'offers-list-succeeded',
+        severity: 'info',
+        scope: 'location',
+        message: `Angebotsliste für PLZ ${location.zipCode} erfolgreich geladen.`,
+        details: { offerCount: offers.length },
+      }),
+    );
 
     const storeMap = new Map<string, { store: CrawlerStore; brochures: CrawlerBrochure[] }>();
+    const configuredStoreFilters = this.options.storeNameIncludes;
+    const storeNameFilters = (
+      typeof configuredStoreFilters === 'string'
+        ? [configuredStoreFilters]
+        : (configuredStoreFilters ?? [])
+    )
+      .map((filter) => filter.trim().toLocaleLowerCase('de-DE'))
+      .filter(Boolean);
+    let matchedStoreFilter = false;
 
     for (const offerValue of offers) {
       const offer = asRecord(offerValue);
       const brochureId = typeof offer?.brn === 'string' ? offer.brn : null;
-      if (!brochureId) continue;
+      if (!offer || !brochureId) {
+        diagnostics.push(
+          makeDiagnostic({
+            ...context,
+            code: 'detail-unprocessable',
+            severity: 'error',
+            scope: 'brochure',
+            message: 'Ein Angebot enthält keine verarbeitbare Prospekt-ID.',
+            rawValue: offerValue,
+          }),
+        );
+        continue;
+      }
 
       const listCompany = asRecord(offer.company) ?? asRecord(offer.retailer);
       const listStoreName = firstString(listCompany?.title, listCompany?.name);
-      const configuredStoreFilters = this.options.storeNameIncludes;
-      const storeNameFilters = (
-        typeof configuredStoreFilters === 'string'
-          ? [configuredStoreFilters]
-          : (configuredStoreFilters ?? [])
-      )
-        .map((filter) => filter.trim().toLocaleLowerCase('de-DE'))
-        .filter(Boolean);
       if (
         storeNameFilters.length > 0 &&
-        listStoreName &&
-        !storeNameFilters.some((filter) =>
-          listStoreName.toLocaleLowerCase('de-DE').includes(filter),
-        )
+        (!listStoreName ||
+          !storeNameFilters.some((filter) =>
+            listStoreName.toLocaleLowerCase('de-DE').includes(filter),
+          ))
       ) {
         continue;
       }
+      if (storeNameFilters.length > 0) matchedStoreFilter = true;
+
+      diagnostics.push(
+        makeDiagnostic({
+          ...context,
+          code: 'brochure-found',
+          severity: 'info',
+          scope: 'brochure',
+          message: `Prospekt ${brochureId} wurde in der Angebotsliste gefunden.`,
+          brochureId,
+          storeName: listStoreName ?? undefined,
+          rawValue: offerValue,
+        }),
+      );
 
       const detailCacheKey = this.options.detailCacheByLocation
         ? `${brochureId}:${location.zipCode}:${location.latitude}:${location.longitude}`
@@ -483,8 +587,41 @@ export class LiveOfferBrochureSource implements BrochureSource {
 
       try {
         const detail = await detailPromise;
+        diagnostics.push(
+          ...inspectDetailResponse(detail, {
+            ...context,
+            brochureId,
+            storeName: listStoreName ?? undefined,
+          }),
+        );
         const transformed = transformLiveBrochure(offer, detail);
-        if (!transformed) continue;
+        if (!transformed) {
+          diagnostics.push(
+            makeDiagnostic({
+              ...context,
+              code: 'detail-unprocessable',
+              severity: 'error',
+              scope: 'brochure',
+              message: `Prospekt ${brochureId} konnte nicht aus der Detailantwort erzeugt werden.`,
+              brochureId,
+              rawValue: detail,
+            }),
+          );
+          continue;
+        }
+
+        diagnostics.push(
+          ...inspectBrochureCompleteness(
+            transformed.brochure,
+            {
+              ...context,
+              storeId: transformed.store.id,
+              storeName: transformed.store.name,
+              brochureId,
+            },
+            { checkPages: false },
+          ),
+        );
 
         let entry = storeMap.get(transformed.store.id);
         if (!entry) {
@@ -493,10 +630,46 @@ export class LiveOfferBrochureSource implements BrochureSource {
         }
         entry.brochures.push(transformed.brochure);
       } catch (detailErr) {
+        diagnostics.push(
+          makeDiagnostic({
+            ...context,
+            code: 'detail-fetch-failed',
+            severity: 'error',
+            scope: 'brochure',
+            message: `Detail für Prospekt ${brochureId} konnte nicht geladen werden.`,
+            brochureId,
+            rawValue: rawError(detailErr),
+          }),
+        );
         console.warn(`⚠️ Konnte Detail für Prospekt ${brochureId} nicht laden:`, detailErr);
       }
     }
 
-    return [...storeMap.values()];
+    if (storeNameFilters.length > 0 && !matchedStoreFilter) {
+      diagnostics.push(
+        makeDiagnostic({
+          ...context,
+          code: 'store-not-found',
+          severity: 'warning',
+          scope: 'location',
+          message: `Kein Händler aus --stores wurde für PLZ ${location.zipCode} gefunden.`,
+          rawValue: configuredStoreFilters,
+          details: { requestedStoreFilters: storeNameFilters },
+        }),
+      );
+    }
+
+    return {
+      source: this.name,
+      status: statusFromDiagnostics(diagnostics),
+      results: [...storeMap.values()],
+      diagnostics,
+    };
+  }
+
+  async fetchBrochuresForLocation(location: BrochureLocation): Promise<ScraperResult[]> {
+    const report = await this.fetchBrochuresForLocationWithDiagnostics(location);
+    if (report.status === 'failed') throw new LiveOfferSourceError(report);
+    return report.results;
   }
 }

@@ -63,7 +63,86 @@ export type ScraperResult = {
   brochures: CrawlerBrochure[];
 };
 
+export type CompletenessStatus = 'complete' | 'incomplete' | 'failed' | 'not-found';
+
+export type DiagnosticSeverity = 'info' | 'warning' | 'error';
+
+export type CompletenessIssueCode =
+  | 'offers-list-succeeded'
+  | 'offers-list-failed'
+  | 'source-fetch-failed'
+  | 'store-not-found'
+  | 'brochure-found'
+  | 'detail-fetch-failed'
+  | 'detail-unprocessable'
+  | 'missing-pages'
+  | 'missing-image-url'
+  | 'invalid-page-number'
+  | 'duplicate-page-number'
+  | 'page-number-gap'
+  | 'missing-valid-from'
+  | 'invalid-valid-from'
+  | 'missing-valid-until'
+  | 'invalid-valid-until'
+  | 'valid-until-before-valid-from'
+  | 'source-incomplete'
+  | 'crawl-failed';
+
+/**
+ * Einzelne Diagnose aus einer Quelle oder der Standortverarbeitung.
+ * `rawValue` und `details` sind absichtlich kein Teil des App-Payloads und
+ * bewahren problematische Quellwerte für die spätere Prüfung.
+ */
+export type SourceDiagnostic = {
+  code: CompletenessIssueCode;
+  severity: DiagnosticSeverity;
+  scope: 'location' | 'store' | 'brochure' | 'page';
+  message: string;
+  source?: string;
+  zipCode?: string;
+  storeId?: string;
+  storeName?: string;
+  brochureId?: string;
+  pageNumber?: number;
+  rawValue?: unknown;
+  details?: Record<string, unknown>;
+};
+
+/** Kompakter Übergabepunkt zwischen Quelle, Engine und Stichproben-Crawler. */
+export type SourceFetchReport = {
+  source: string;
+  status: CompletenessStatus;
+  results: ScraperResult[];
+  diagnostics: SourceDiagnostic[];
+};
+
+/** Prüfartefakt je Standort, getrennt vom veröffentlichbaren `LocationDump`. */
+export type CompletenessReport = {
+  location: BrochureLocation;
+  status: CompletenessStatus;
+  diagnostics: SourceDiagnostic[];
+};
+
+/** Atomarer Backup-Bestand eines einzelnen Crawls. */
+export type CrawlBackupArtifact = {
+  version: 1;
+  runId: string;
+  generatedAt: string;
+  dumps: LocationDump[];
+};
+
+/** Diagnosenbestand desselben Crawls wie der zugehörige `CrawlBackupArtifact`. */
+export type CrawlDiagnosticsArtifact = {
+  version: 1;
+  runId: string;
+  generatedAt: string;
+  reports: CompletenessReport[];
+};
+
 export interface BrochureSource {
   name: string;
   fetchBrochuresForLocation(location: BrochureLocation): Promise<ScraperResult[]>;
+  fetchBrochuresForLocationWithDiagnostics?: (
+    location: BrochureLocation,
+  ) => Promise<SourceFetchReport>;
 }

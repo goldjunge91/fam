@@ -1,9 +1,16 @@
-import { describe, expect, it } from '@jest/globals';
 import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { describe, expect, it } from '@jest/globals';
 import { cleanNullBytes, crawlAllLocations, sanitizeBrochure } from './engine';
-import type { BrochureLocation, BrochureSource, CrawlerBrochure, LocationDump } from './types';
+import type {
+  BrochureLocation,
+  BrochureSource,
+  CrawlBackupArtifact,
+  CrawlDiagnosticsArtifact,
+  CrawlerBrochure,
+  LocationDump,
+} from './types';
 
 describe('Crawler Engine & Schema Sanitizer', () => {
   it('entfernt zuverlässig Null-Bytes (\u0000 und \\0) aus Strings, Objekten und Arrays', () => {
@@ -129,10 +136,15 @@ describe('Crawler Engine & Schema Sanitizer', () => {
         backupPath,
       });
 
-      const content = JSON.parse(readFileSync(backupPath, 'utf8')) as LocationDump[];
-      expect(content).toHaveLength(1);
-      expect(content[0].location.zipCode).toBe('99999');
-      expect(content[0].brochures[0].title).toBe('Mock Prospekt');
+      const content = JSON.parse(readFileSync(backupPath, 'utf8')) as CrawlBackupArtifact;
+      const diagnostics = JSON.parse(
+        readFileSync(`${backupPath}.diagnostics.json`, 'utf8'),
+      ) as CrawlDiagnosticsArtifact;
+      expect(content.dumps).toHaveLength(1);
+      expect(content.dumps[0].location.zipCode).toBe('99999');
+      expect(content.dumps[0].brochures[0].title).toBe('Mock Prospekt');
+      expect(content.runId).toBe(diagnostics.runId);
+      expect(diagnostics.reports[0].status).toBe('complete');
       expect(existsSync(`${backupPath}.tmp`)).toBe(false);
     } finally {
       rmSync(testDirectory, { recursive: true, force: true });
@@ -237,11 +249,45 @@ describe('Crawler Engine & Schema Sanitizer', () => {
     };
 
     await expect(
-      crawlAllLocations(
-        [{ zipCode: '11111', latitude: 50, longitude: 10 }],
-        { concurrency: 1, sources: [failingSource], backupPath: null },
-      ),
+      crawlAllLocations([{ zipCode: '11111', latitude: 50, longitude: 10 }], {
+        concurrency: 1,
+        sources: [failingSource],
+        backupPath: null,
+      }),
     ).rejects.toThrow('Standort-Crawls fehlgeschlagen');
+  });
+
+  it('sichert Backup und Diagnosen auch beim Standortabbruch', async () => {
+    const testDirectory = mkdtempSync(join(tmpdir(), 'brochure-failed-report-'));
+    const backupPath = join(testDirectory, 'backup.json');
+    const diagnosticsPath = join(testDirectory, 'completeness.json');
+    const failingSource: BrochureSource = {
+      name: 'failing',
+      async fetchBrochuresForLocation() {
+        throw new Error('Quelle nicht erreichbar');
+      },
+    };
+
+    try {
+      await expect(
+        crawlAllLocations([{ zipCode: '11111', latitude: 50, longitude: 10 }], {
+          concurrency: 1,
+          sources: [failingSource],
+          backupPath,
+          diagnosticsPath,
+        }),
+      ).rejects.toThrow('Standort-Crawls fehlgeschlagen');
+
+      const backup = JSON.parse(readFileSync(backupPath, 'utf8')) as CrawlBackupArtifact;
+      const diagnostics = JSON.parse(
+        readFileSync(diagnosticsPath, 'utf8'),
+      ) as CrawlDiagnosticsArtifact;
+      expect(backup.dumps).toEqual([]);
+      expect(diagnostics.reports[0].status).toBe('failed');
+      expect(backup.runId).toBe(diagnostics.runId);
+    } finally {
+      rmSync(testDirectory, { recursive: true, force: true });
+    }
   });
 
   it('veröffentlicht keine erfolgreich gecrawlten, aber leeren Dumps', async () => {
@@ -253,15 +299,14 @@ describe('Crawler Engine & Schema Sanitizer', () => {
     };
     const publishedChunks: LocationDump[][] = [];
 
-    const result = await crawlAllLocations(
-      [{ zipCode: '11111', latitude: 50, longitude: 10 }],
-      {
-        concurrency: 1,
-        sources: [emptySource],
-        backupPath: null,
-        onChunkDone: (chunk) => publishedChunks.push(chunk),
+    const result = await crawlAllLocations([{ zipCode: '11111', latitude: 50, longitude: 10 }], {
+      concurrency: 1,
+      sources: [emptySource],
+      backupPath: null,
+      onChunkDone: (chunk) => {
+        publishedChunks.push(chunk);
       },
-    );
+    });
 
     expect(result.dumps).toHaveLength(1);
     expect(publishedChunks).toHaveLength(0);
@@ -291,17 +336,129 @@ describe('Crawler Engine & Schema Sanitizer', () => {
     };
 
     await expect(
-      crawlAllLocations(
-        [{ zipCode: '11111', latitude: 50, longitude: 10 }],
-        {
-          concurrency: 1,
-          sources: [source],
-          backupPath: null,
-          onChunkDone: async () => {
-            throw new Error('Supabase nicht erreichbar');
-          },
+      crawlAllLocations([{ zipCode: '11111', latitude: 50, longitude: 10 }], {
+        concurrency: 1,
+        sources: [source],
+        backupPath: null,
+        onChunkDone: async () => {
+          throw new Error('Supabase nicht erreichbar');
         },
-      ),
+      }),
     ).rejects.toThrow('Supabase nicht erreichbar');
+  });
+
+  it('hält unvollständige Standortberichte separat fest und veröffentlicht sie nicht', async () => {
+    const testDirectory = mkdtempSync(join(tmpdir(), 'brochure-diagnostics-'));
+    const backupPath = join(testDirectory, 'backup.json');
+    const diagnosticsPath = join(testDirectory, 'reports.json');
+    const publishedChunks: LocationDump[][] = [];
+    const source: BrochureSource = {
+      name: 'synthetic',
+      async fetchBrochuresForLocation() {
+        return [];
+      },
+      async fetchBrochuresForLocationWithDiagnostics() {
+        return {
+          source: 'synthetic',
+          status: 'incomplete' as const,
+          results: [
+            {
+              store: { id: 'store', name: 'Store' },
+              brochures: [
+                {
+                  id: 'brochure',
+                  storeId: 'store',
+                  title: 'Prospekt',
+                  validFrom: '2026-08-25T00:00:00Z',
+                  validUntil: '2026-09-01T00:00:00Z',
+                  coverImage: 'https://example.test/cover.jpg',
+                  pages: [],
+                },
+              ],
+            },
+          ],
+          diagnostics: [
+            {
+              code: 'missing-pages' as const,
+              severity: 'error' as const,
+              scope: 'brochure' as const,
+              message: 'Seiten fehlen',
+              rawValue: [],
+            },
+          ],
+        };
+      },
+    };
+
+    try {
+      const result = await crawlAllLocations([{ zipCode: '11111', latitude: 50, longitude: 10 }], {
+        concurrency: 1,
+        sources: [source],
+        backupPath,
+        diagnosticsPath,
+        onChunkDone: (chunk) => {
+          publishedChunks.push(chunk);
+        },
+      });
+
+      expect(result.dumps).toHaveLength(1);
+      expect(result.reports[0].status).toBe('incomplete');
+      expect(publishedChunks).toEqual([]);
+      const diagnostics = JSON.parse(
+        readFileSync(diagnosticsPath, 'utf8'),
+      ) as CrawlDiagnosticsArtifact;
+      const backup = JSON.parse(readFileSync(backupPath, 'utf8')) as CrawlBackupArtifact;
+      expect(diagnostics.reports[0].diagnostics[0].rawValue).toEqual([]);
+      expect('diagnostics' in backup.dumps[0]).toBe(false);
+      expect(backup.runId).toBe(diagnostics.runId);
+    } finally {
+      rmSync(testDirectory, { recursive: true, force: true });
+    }
+  });
+
+  it('veröffentlicht keinen Source-Dump bei einem unvollständigen Status ohne Diagnose', async () => {
+    const publishedChunks: LocationDump[][] = [];
+    const source: BrochureSource = {
+      name: 'status-only',
+      async fetchBrochuresForLocation() {
+        return [];
+      },
+      async fetchBrochuresForLocationWithDiagnostics() {
+        return {
+          source: 'status-only',
+          status: 'incomplete' as const,
+          results: [
+            {
+              store: { id: 'store', name: 'Store' },
+              brochures: [
+                {
+                  id: 'brochure',
+                  storeId: 'store',
+                  title: 'Prospekt',
+                  validFrom: '2026-08-25T00:00:00Z',
+                  validUntil: '2026-09-01T00:00:00Z',
+                  coverImage: 'https://example.test/cover.jpg',
+                  pages: [],
+                },
+              ],
+            },
+          ],
+          diagnostics: [],
+        };
+      },
+    };
+
+    const result = await crawlAllLocations([{ zipCode: '11111', latitude: 50, longitude: 10 }], {
+      concurrency: 1,
+      sources: [source],
+      backupPath: null,
+      onChunkDone: (chunk) => {
+        publishedChunks.push(chunk);
+      },
+    });
+
+    expect(result.reports[0].status).toBe('incomplete');
+    expect(result.reports[0].diagnostics[0]?.code).toBe('source-incomplete');
+    expect(publishedChunks).toEqual([]);
   });
 });

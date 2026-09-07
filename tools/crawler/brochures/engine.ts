@@ -1,25 +1,58 @@
 import { mkdir, rename, writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
-import { mirrorBrochureImagesToLocal, type LocalStorageConfig } from './local-storage';
+import { dirname } from 'node:path';
+import { createCompletenessReport, diagnosticForError, makeDiagnostic } from './completeness';
+import { type LocalStorageConfig, mirrorBrochureImagesToLocal } from './local-storage';
+import { defaultCrawlerBackupPath } from './paths';
 import { mirrorBrochureImagesToR2, type R2Config } from './r2-storage';
 import type {
   BrochureLocation,
   BrochureSource,
+  CompletenessReport,
+  CrawlBackupArtifact,
+  CrawlDiagnosticsArtifact,
   CrawlerBrochure,
   CrawlerStore,
   LocationDump,
-  ScraperResult,
+  SourceDiagnostic,
+  SourceFetchReport,
 } from './types';
 
 export type CrawlEngineOptions = {
   concurrency?: number;
+  runId?: string;
   sources: BrochureSource[];
   r2Config?: R2Config;
   localStorage?: LocalStorageConfig;
   onProgress?: (processed: number, total: number, uniqueBrochuresCount: number) => void;
   onChunkDone?: (chunkDumps: LocationDump[]) => Promise<void> | void;
+  onDiagnostics?: (report: CompletenessReport, runId: string) => Promise<void> | void;
   backupPath?: string | null;
+  diagnosticsPath?: string | null;
 };
+
+export type CrawlLocationResult = {
+  dump: LocationDump;
+  report: CompletenessReport;
+};
+
+export type CrawlRunResult = {
+  runId: string;
+  dumps: LocationDump[];
+  uniqueBrochuresCount: number;
+  reports: CompletenessReport[];
+};
+
+/** Bewahrt den Standortbefund, wenn eine Quelle keinen verwertbaren Dump liefern konnte. */
+export class CrawlLocationError extends Error {
+  constructor(
+    message: string,
+    readonly report: CompletenessReport,
+    readonly errors: readonly unknown[] = [],
+  ) {
+    super(message);
+    this.name = 'CrawlLocationError';
+  }
+}
 
 /**
  * Entfernt rekursiv alle ungültigen Null-Bytes (\u0000 oder \0), die Postgres JSONB zum Absturz bringen.
@@ -67,7 +100,8 @@ export function sanitizeBrochure(
 
   const pages = (brochure.pages || []).map((page, index) => ({
     number: typeof page.number === 'number' ? page.number : index + 1,
-    imageUrl: typeof page.imageUrl === 'string' && page.imageUrl ? cleanNullBytes(page.imageUrl) : '',
+    imageUrl:
+      typeof page.imageUrl === 'string' && page.imageUrl ? cleanNullBytes(page.imageUrl) : '',
     hotspots: Array.isArray(page.hotspots)
       ? page.hotspots.map((h, hIndex) => ({
           kind: h.kind ?? 'unknown',
@@ -91,7 +125,9 @@ export function sanitizeBrochure(
 
   const coverImage =
     brochure.coverImage ||
-    (pages.length > 0 && pages[0].imageUrl ? pages[0].imageUrl : 'https://placehold.co/600x800.png');
+    (pages.length > 0 && pages[0].imageUrl
+      ? pages[0].imageUrl
+      : 'https://placehold.co/600x800.png');
 
   return {
     id: cleanNullBytes(brochure.id || `b-${Math.random().toString(36).slice(2, 9)}`),
@@ -108,6 +144,151 @@ export function sanitizeBrochure(
  * Führt das Crawling für einen einzelnen Standort über alle aktiven Quellen aus,
  * spiegelt Bilder bei Bedarf nach R2 und nutzt den Deduplikations-Cache.
  */
+export async function crawlLocationWithDiagnostics(
+  location: BrochureLocation,
+  sources: BrochureSource[],
+  brochureCache: Map<string, CrawlerBrochure>,
+  r2Config?: R2Config,
+  localStorage?: LocalStorageConfig,
+  r2UrlCache?: Map<string, string | Promise<string>>,
+): Promise<CrawlLocationResult> {
+  const stores = new Map<string, CrawlerStore>();
+  const locationBrochures: CrawlerBrochure[] = [];
+  const sourceErrors: unknown[] = [];
+  const diagnostics: SourceDiagnostic[] = [];
+  let successfulSources = 0;
+
+  for (const source of sources) {
+    let sourceReport: SourceFetchReport;
+    try {
+      sourceReport = source.fetchBrochuresForLocationWithDiagnostics
+        ? await source.fetchBrochuresForLocationWithDiagnostics(location)
+        : {
+            source: source.name,
+            status: 'complete',
+            results: await source.fetchBrochuresForLocation(location),
+            diagnostics: [],
+          };
+    } catch (sourceErr) {
+      sourceErrors.push(sourceErr);
+      diagnostics.push(
+        diagnosticForError('source-fetch-failed', sourceErr, {
+          source: source.name,
+          location,
+        }),
+      );
+      console.warn(`Fehler bei Quelle ${source.name} für PLZ ${location.zipCode}:`, sourceErr);
+      continue;
+    }
+
+    diagnostics.push(...sourceReport.diagnostics);
+    if (sourceReport.status === 'failed') {
+      const sourceError = new Error(
+        `Quelle ${sourceReport.source} für PLZ ${location.zipCode} ist fehlgeschlagen.`,
+      );
+      sourceErrors.push(sourceError);
+      if (
+        !sourceReport.diagnostics.some(
+          ({ code }) => code === 'offers-list-failed' || code === 'source-fetch-failed',
+        )
+      ) {
+        diagnostics.push(
+          makeDiagnostic({
+            code: 'source-fetch-failed',
+            severity: 'error',
+            scope: 'location',
+            source: sourceReport.source,
+            location,
+            message: sourceError.message,
+          }),
+        );
+      }
+      continue;
+    }
+    if (
+      sourceReport.status === 'incomplete' &&
+      !sourceReport.diagnostics.some(({ severity }) => severity === 'error')
+    ) {
+      diagnostics.push(
+        makeDiagnostic({
+          code: 'source-incomplete',
+          severity: 'error',
+          scope: 'location',
+          source: sourceReport.source,
+          location,
+          message: `Quelle ${sourceReport.source} für PLZ ${location.zipCode} meldet unvollständige Daten.`,
+        }),
+      );
+    }
+    if (
+      sourceReport.status === 'not-found' &&
+      !sourceReport.diagnostics.some(({ code }) => code === 'store-not-found')
+    ) {
+      diagnostics.push(
+        makeDiagnostic({
+          code: 'store-not-found',
+          severity: 'warning',
+          scope: 'location',
+          source: sourceReport.source,
+          location,
+          message: `Quelle ${sourceReport.source} hat für PLZ ${location.zipCode} keinen Zielhändler gefunden.`,
+        }),
+      );
+    }
+    successfulSources += 1;
+
+    for (const res of sourceReport.results) {
+      stores.set(res.store.id, {
+        id: cleanNullBytes(res.store.id),
+        name: cleanNullBytes(res.store.name),
+        logoUrl: res.store.logoUrl ? cleanNullBytes(res.store.logoUrl) : null,
+      });
+
+      for (const b of res.brochures) {
+        let sanitized = brochureCache.get(b.id);
+        if (!sanitized) {
+          sanitized = sanitizeBrochure(b, res.store.id);
+
+          // Wenn R2 aktiv ist: Bilder nach R2 spiegeln
+          if (r2Config && r2UrlCache) {
+            sanitized = await mirrorBrochureImagesToR2(sanitized, r2Config, r2UrlCache);
+          } else if (localStorage && r2UrlCache) {
+            sanitized = await mirrorBrochureImagesToLocal(sanitized, localStorage, r2UrlCache);
+          }
+
+          brochureCache.set(b.id, sanitized);
+        }
+        locationBrochures.push(sanitized);
+      }
+    }
+  }
+
+  const baseReport = createCompletenessReport(location, diagnostics);
+  const report: CompletenessReport = {
+    ...baseReport,
+    status:
+      baseReport.status === 'failed' && successfulSources > 0 ? 'incomplete' : baseReport.status,
+  };
+
+  if (successfulSources === 0) {
+    throw new CrawlLocationError(
+      `Alle Prospektquellen für PLZ ${location.zipCode} sind fehlgeschlagen.`,
+      report,
+      sourceErrors,
+    );
+  }
+
+  return {
+    dump: cleanNullBytes({
+      location,
+      stores: [...stores.values()],
+      brochures: locationBrochures,
+    }),
+    report,
+  };
+}
+
+/** Kompatibilitäts-API für Aufrufer, die nur den veröffentlichbaren Dump benötigen. */
 export async function crawlLocation(
   location: BrochureLocation,
   sources: BrochureSource[],
@@ -116,75 +297,77 @@ export async function crawlLocation(
   localStorage?: LocalStorageConfig,
   r2UrlCache?: Map<string, string | Promise<string>>,
 ): Promise<LocationDump> {
-  const stores = new Map<string, CrawlerStore>();
-  const locationBrochures: CrawlerBrochure[] = [];
-  const sourceErrors: unknown[] = [];
-  let successfulSources = 0;
-
-  for (const source of sources) {
-    try {
-      const results: ScraperResult[] = await source.fetchBrochuresForLocation(location);
-      successfulSources += 1;
-
-      for (const res of results) {
-        stores.set(res.store.id, {
-          id: cleanNullBytes(res.store.id),
-          name: cleanNullBytes(res.store.name),
-          logoUrl: res.store.logoUrl ? cleanNullBytes(res.store.logoUrl) : null,
-        });
-
-        for (const b of res.brochures) {
-          let sanitized = brochureCache.get(b.id);
-          if (!sanitized) {
-            sanitized = sanitizeBrochure(b, res.store.id);
-
-            // Wenn R2 aktiv ist: Bilder nach R2 spiegeln
-            if (r2Config && r2UrlCache) {
-              sanitized = await mirrorBrochureImagesToR2(sanitized, r2Config, r2UrlCache);
-            } else if (localStorage && r2UrlCache) {
-              sanitized = await mirrorBrochureImagesToLocal(sanitized, localStorage, r2UrlCache);
-            }
-
-            brochureCache.set(b.id, sanitized);
-          }
-          locationBrochures.push(sanitized);
-        }
-      }
-    } catch (sourceErr) {
-      sourceErrors.push(sourceErr);
-      console.warn(`Fehler bei Quelle ${source.name} für PLZ ${location.zipCode}:`, sourceErr);
-    }
-  }
-
-  if (successfulSources === 0) {
-    throw new AggregateError(
-      sourceErrors,
-      `Alle Prospektquellen für PLZ ${location.zipCode} sind fehlgeschlagen.`,
-    );
-  }
-
-  return cleanNullBytes({
-    location,
-    stores: [...stores.values()],
-    brochures: locationBrochures,
-  });
+  return (
+    await crawlLocationWithDiagnostics(
+      location,
+      sources,
+      brochureCache,
+      r2Config,
+      localStorage,
+      r2UrlCache,
+    )
+  ).dump;
 }
 
 /**
  * Sichert Dumps atomar auf Festplatte.
  */
-async function saveBackupToDisk(dumps: LocationDump[], backupPath: string | null): Promise<void> {
+async function saveBackupToDisk(
+  dumps: LocationDump[],
+  backupPath: string | null,
+  runId: string,
+): Promise<void> {
   if (!backupPath) return;
 
   try {
-    const outDir = join(backupPath, '..');
+    const outDir = dirname(backupPath);
     await mkdir(outDir, { recursive: true });
     const temporaryPath = `${backupPath}.tmp`;
-    await writeFile(temporaryPath, JSON.stringify(dumps, null, 2), 'utf8');
+    const artifact: CrawlBackupArtifact = {
+      version: 1,
+      runId,
+      generatedAt: new Date().toISOString(),
+      dumps,
+    };
+    await writeFile(temporaryPath, JSON.stringify(artifact, null, 2), 'utf8');
     await rename(temporaryPath, backupPath);
   } catch {
     // Ignorieren
   }
+}
+
+/** Sichert Diagnosen separat vom App-Payload und atomar als Prüfartefakt. */
+async function saveDiagnosticsToDisk(
+  reports: CompletenessReport[],
+  diagnosticsPath: string | null,
+  runId: string,
+): Promise<void> {
+  if (!diagnosticsPath) return;
+
+  try {
+    await mkdir(dirname(diagnosticsPath), { recursive: true });
+    const temporaryPath = `${diagnosticsPath}.tmp`;
+    const artifact: CrawlDiagnosticsArtifact = {
+      version: 1,
+      runId,
+      generatedAt: new Date().toISOString(),
+      reports,
+    };
+    await writeFile(temporaryPath, JSON.stringify(artifact, null, 2), 'utf8');
+    await rename(temporaryPath, diagnosticsPath);
+  } catch {
+    // Ein Prüfbericht darf einen laufenden Crawl nicht zusätzlich abbrechen.
+  }
+}
+
+function rejectedLocationReport(location: BrochureLocation, reason: unknown): CompletenessReport {
+  if (reason instanceof CrawlLocationError) return reason.report;
+  return createCompletenessReport(location, [
+    diagnosticForError('crawl-failed', reason, {
+      source: 'engine',
+      location,
+    }),
+  ]);
 }
 
 /**
@@ -194,22 +377,28 @@ async function saveBackupToDisk(dumps: LocationDump[], backupPath: string | null
 export async function crawlAllLocations(
   locations: BrochureLocation[],
   options: CrawlEngineOptions,
-): Promise<{ dumps: LocationDump[]; uniqueBrochuresCount: number }> {
+): Promise<CrawlRunResult> {
   const concurrency = options.concurrency ?? 12;
   const brochureCache = new Map<string, CrawlerBrochure>();
   const r2UrlCache = new Map<string, string | Promise<string>>();
   const dumps: LocationDump[] = [];
   const backupPath =
-    options.backupPath === undefined
-      ? join(process.cwd(), 'tools', 'crawler', 'data', 'last_crawl_backup.json')
-      : options.backupPath;
+    options.backupPath === undefined ? defaultCrawlerBackupPath() : options.backupPath;
+  const diagnosticsPath =
+    options.diagnosticsPath === undefined
+      ? backupPath
+        ? `${backupPath}.diagnostics.json`
+        : null
+      : options.diagnosticsPath;
+  const reports: CompletenessReport[] = [];
+  const runId = options.runId ?? new Date().toISOString();
   let processed = 0;
 
   for (let i = 0; i < locations.length; i += concurrency) {
     const chunk = locations.slice(i, i + concurrency);
     const results = await Promise.allSettled(
       chunk.map((loc) =>
-        crawlLocation(
+        crawlLocationWithDiagnostics(
           loc,
           options.sources,
           brochureCache,
@@ -220,42 +409,58 @@ export async function crawlAllLocations(
       ),
     );
 
-    const chunkDumps: LocationDump[] = [];
+    const chunkResults: CrawlLocationResult[] = [];
     const crawlErrors: unknown[] = [];
-    for (const res of results) {
+    for (const [index, res] of results.entries()) {
       if (res.status === 'fulfilled') {
-        dumps.push(res.value);
-        chunkDumps.push(res.value);
+        reports.push(res.value.report);
+        chunkResults.push(res.value);
+        dumps.push(res.value.dump);
       } else {
         crawlErrors.push(res.reason);
+        reports.push(rejectedLocationReport(chunk[index], res.reason));
       }
     }
 
+    await saveBackupToDisk(dumps, backupPath, runId);
+    await saveDiagnosticsToDisk(reports, diagnosticsPath, runId);
+    for (const report of reports.slice(-chunk.length)) {
+      await options.onDiagnostics?.(report, runId);
+    }
+
     if (crawlErrors.length > 0) {
-      await saveBackupToDisk(dumps, backupPath);
-      throw new AggregateError(crawlErrors, `${crawlErrors.length} Standort-Crawls fehlgeschlagen.`);
+      throw new AggregateError(
+        crawlErrors,
+        `${crawlErrors.length} Standort-Crawls fehlgeschlagen.`,
+      );
     }
 
     processed += chunk.length;
     options.onProgress?.(processed, locations.length, brochureCache.size);
 
     // Leere Dumps werden nicht veröffentlicht. Ein bestehender gültiger Dump
-    // bleibt dadurch bis zu seinem regulären Ablauf verfügbar.
-    const publishableDumps = chunkDumps.filter((dump) => dump.brochures.length > 0);
+    // bleibt dadurch bis zu seinem regulären Ablauf verfügbar. Ebenso dürfen
+    // unvollständige Diagnosen keinen alten Dump still ersetzen.
+    const publishableDumps = chunkResults
+      .filter(({ dump, report }) => report.status === 'complete' && dump.brochures.length > 0)
+      .map(({ dump }) => dump);
     if (publishableDumps.length > 0 && options.onChunkDone) {
       await options.onChunkDone(publishableDumps);
     }
 
-    // Alle 50 Standorte oder am Ende Zwischenstand auf Festplatte sichern
-    if (processed % 50 === 0 || processed >= locations.length) {
-      await saveBackupToDisk(dumps, backupPath);
-    }
+    // Zwischenstände bleiben auch bei einem späteren Upload-/Abrufproblem
+    // auswertbar.
+    await saveBackupToDisk(dumps, backupPath, runId);
+    await saveDiagnosticsToDisk(reports, diagnosticsPath, runId);
   }
 
-  await saveBackupToDisk(dumps, backupPath);
+  await saveBackupToDisk(dumps, backupPath, runId);
+  await saveDiagnosticsToDisk(reports, diagnosticsPath, runId);
 
   return {
+    runId,
     dumps,
     uniqueBrochuresCount: brochureCache.size,
+    reports,
   };
 }

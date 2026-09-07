@@ -1,11 +1,8 @@
 import { createHash } from 'node:crypto';
-import { readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import sharp from 'sharp';
-import {
-  classifyAutomaticComparison,
-  type AutomaticClassification,
-} from './auto-classification';
+import { classifyAutomaticComparison, type AutomaticClassification } from './auto-classification';
 import {
   changedOcrTokens,
   ocrTextSimilarity,
@@ -13,6 +10,7 @@ import {
   type OcrRequest,
   type OcrResult,
 } from './ocr';
+import type { PageSelectionMode } from './page-selection';
 
 type PageReference = {
   pageNumber: number;
@@ -20,6 +18,22 @@ type PageReference = {
   contentHash: string;
   perceptualHash: string;
   bytes: number;
+};
+
+type FailedPage = {
+  pageNumber?: number;
+  code?: string;
+  message?: string;
+  [key: string]: unknown;
+};
+
+export type PageSelectionManifest = {
+  mode: PageSelectionMode;
+  deliveredPageNumbers: number[];
+  selectedPageNumbers: number[];
+  savedPageNumbers: number[];
+  failedPages: FailedPage[];
+  complete: boolean;
 };
 
 type BrochureRecord = {
@@ -32,20 +46,37 @@ type BrochureRecord = {
   contentSignature: string;
   locations: string[];
   pages: PageReference[];
+  pageSelection?: PageSelectionManifest;
+};
+
+type ManifestDiagnostic = {
+  code?: unknown;
+  severity?: unknown;
+  brochureId?: unknown;
+  location?: unknown;
 };
 
 type CrawlerManifest = {
   version: number;
   generatedAt: string;
   outputDir: string;
+  pageSelection?: PageSelectionMode;
+  selectionMode?: PageSelectionMode;
   brochures: BrochureRecord[];
+  diagnostics?: ManifestDiagnostic[];
 };
 
-export type ReviewDecision =
-  | 'identical'
-  | 'different'
-  | 'wrong-ad-page'
-  | 'regional-variant';
+export type RecordCoverage = {
+  status: 'complete' | 'partial';
+  mode: PageSelectionMode | 'unknown';
+  reason: string;
+  deliveredPageNumbers: number[];
+  selectedPageNumbers: number[];
+  savedPageNumbers: number[];
+  failedPages: FailedPage[];
+};
+
+export type ReviewDecision = 'identical' | 'different' | 'wrong-ad-page' | 'regional-variant';
 
 type StoredDecision = {
   decision: ReviewDecision;
@@ -95,16 +126,22 @@ export type ReviewCandidate = {
   left: BrochureRecord;
   right: BrochureRecord;
   previewPages: PageComparison[];
+  coverage: {
+    left: RecordCoverage;
+    right: RecordCoverage;
+  };
   ocr?: OcrSummary;
   automaticClassification: AutomaticClassification;
   decision?: StoredDecision;
 };
 
-type VerificationReport = {
-  version: 2;
+export type VerificationReport = {
+  version: 3;
   generatedAt: string;
   manifestPath: string;
   decisionsPath: string;
+  reportDir: string;
+  selectionMode: PageSelectionMode | 'unknown';
   similarityThreshold: number;
   ocr: {
     enabled: boolean;
@@ -132,8 +169,15 @@ type VerificationReport = {
     autoDifferentPairs: number;
     autoUncertainPairs: number;
     automaticSemanticGroups: number;
+    completeProspects: number;
+    partialProspects: number;
+    failedDownloadProspects: number;
+    failedDownloadPages: number;
+    budgetSkippedPages: number;
+    invalidRecords: number;
   };
   candidates: ReviewCandidate[];
+  issues: string[];
 };
 
 type ComparisonEdge = {
@@ -178,6 +222,167 @@ function flag(name: string): boolean {
   return process.argv.includes(`--${name}`) || argument(name) === 'true';
 }
 
+export function manifestSelectionMode(
+  manifest: Pick<CrawlerManifest, 'selectionMode' | 'pageSelection'>,
+): PageSelectionMode | 'unknown' {
+  const mode = manifest.selectionMode ?? manifest.pageSelection;
+  return mode === 'all-pages' ||
+    mode === 'first-pages-with-discount-hotspots' ||
+    mode === 'all-pages-with-discount-hotspots'
+    ? mode
+    : 'unknown';
+}
+
+function pageNumbersMatch(left: number[], right: number[]): boolean {
+  return (
+    left.length === right.length && left.every((pageNumber, index) => pageNumber === right[index])
+  );
+}
+
+function failedPageList(value: PageSelectionManifest | undefined): FailedPage[] {
+  return (
+    value?.failedPages?.filter(
+      (failure): failure is FailedPage => typeof failure === 'object' && failure !== null,
+    ) ?? []
+  );
+}
+
+function diagnosticIsBlocking(diagnostic: ManifestDiagnostic): boolean {
+  const code = typeof diagnostic.code === 'string' ? diagnostic.code.toLowerCase() : '';
+  const severity = typeof diagnostic.severity === 'string' ? diagnostic.severity.toLowerCase() : '';
+  if (code === 'offers-list-succeeded' || code === 'brochure-found' || code === 'store-not-found') {
+    return false;
+  }
+  return (
+    severity === 'error' ||
+    /failed|missing|invalid|gap|unprocessable|incomplete|lücke|fehlt|ungültig/.test(code)
+  );
+}
+
+function diagnosticAppliesToRecord(
+  diagnostic: ManifestDiagnostic,
+  record: BrochureRecord,
+): boolean {
+  if (!diagnosticIsBlocking(diagnostic)) return false;
+  if (diagnostic.brochureId !== undefined) return diagnostic.brochureId === record.id;
+  return typeof diagnostic.location === 'string' && record.locations.includes(diagnostic.location);
+}
+
+export function classifyRecordCoverage(
+  record: BrochureRecord,
+  selectionMode: PageSelectionMode | 'unknown',
+  diagnostics: readonly ManifestDiagnostic[] = [],
+): RecordCoverage {
+  const selection = record.pageSelection;
+  const mode = selection?.mode ?? selectionMode;
+  const deliveredPageNumbers = selection?.deliveredPageNumbers ?? [];
+  const selectedPageNumbers =
+    selection?.selectedPageNumbers ?? record.pages.map((page) => page.pageNumber);
+  const savedPageNumbers =
+    selection?.savedPageNumbers ?? record.pages.map((page) => page.pageNumber);
+  const failedPages = failedPageList(selection);
+
+  if (diagnostics.some((diagnostic) => diagnosticAppliesToRecord(diagnostic, record))) {
+    return {
+      status: 'partial',
+      mode:
+        mode === 'all-pages' ||
+        mode === 'all-pages-with-discount-hotspots' ||
+        mode === 'first-pages-with-discount-hotspots'
+          ? mode
+          : 'unknown',
+      reason:
+        'Das Manifest enthält eine blockierende Quellen- oder Seitendiagnose für diesen Prospekt.',
+      deliveredPageNumbers,
+      selectedPageNumbers,
+      savedPageNumbers,
+      failedPages,
+    };
+  }
+
+  if (
+    selectionMode === 'all-pages-with-discount-hotspots' ||
+    mode === 'all-pages-with-discount-hotspots'
+  ) {
+    return {
+      status: 'partial',
+      mode: 'all-pages-with-discount-hotspots',
+      reason: 'Altes Manifest mit Discount-Hotspot-Teilansicht.',
+      deliveredPageNumbers,
+      selectedPageNumbers,
+      savedPageNumbers,
+      failedPages,
+    };
+  }
+  if (!selection || mode !== 'all-pages') {
+    return {
+      status: 'partial',
+      mode: mode === 'first-pages-with-discount-hotspots' ? mode : 'unknown',
+      reason: 'Der Datensatz enthält nur eine begrenzte oder nicht ausgewiesene Seitenauswahl.',
+      deliveredPageNumbers,
+      selectedPageNumbers,
+      savedPageNumbers,
+      failedPages,
+    };
+  }
+  if (record.pages.length === 0 || deliveredPageNumbers.length === 0) {
+    return {
+      status: 'partial',
+      mode,
+      reason: 'Eine leere Seitenfolge beweist keinen vollständigen Prospekt.',
+      deliveredPageNumbers,
+      selectedPageNumbers,
+      savedPageNumbers,
+      failedPages,
+    };
+  }
+  if (
+    !selection.complete ||
+    failedPages.length > 0 ||
+    !pageNumbersMatch(deliveredPageNumbers, selectedPageNumbers) ||
+    !pageNumbersMatch(selectedPageNumbers, savedPageNumbers)
+  ) {
+    return {
+      status: 'partial',
+      mode,
+      reason:
+        failedPages.length > 0
+          ? 'Mindestens ein Seitendownload ist fehlgeschlagen.'
+          : 'Nicht jede gelieferte Seite wurde erfolgreich gespeichert.',
+      deliveredPageNumbers,
+      selectedPageNumbers,
+      savedPageNumbers,
+      failedPages,
+    };
+  }
+  return {
+    status: 'complete',
+    mode,
+    reason: 'Alle gelieferten Seiten wurden ausgewählt und gespeichert.',
+    deliveredPageNumbers,
+    selectedPageNumbers,
+    savedPageNumbers,
+    failedPages,
+  };
+}
+
+function comparableRecord(record: BrochureRecord): boolean {
+  return record.pages.every(
+    (page) => page.contentHash.length > 0 && page.perceptualHash.length > 0,
+  );
+}
+
+function coverageIdentity(record: BrochureRecord, coverage: RecordCoverage): string {
+  // Keep IDs from pre-v6 manifests stable so existing manual decisions remain
+  // readable. New manifests always carry pageSelection and therefore get an
+  // identity that prevents decisions from a different selection mode leaking in.
+  return record.pageSelection ? `${coverage.mode}:${coverage.status}` : '';
+}
+
+function failedPageCode(failure: FailedPage): string {
+  return typeof failure.code === 'string' ? failure.code.toUpperCase() : '';
+}
+
 function hammingDistance(left: string, right: string): number {
   let difference = BigInt(`0x${left}`) ^ BigInt(`0x${right}`);
   let count = 0;
@@ -220,10 +425,15 @@ function sequenceSimilarity(pages: PageComparison[]): number {
   return pages.reduce((sum, page) => sum + page.similarity, 0) / pages.length;
 }
 
-function candidateId(left: BrochureRecord, right: BrochureRecord): string {
+function candidateId(
+  left: BrochureRecord,
+  right: BrochureRecord,
+  leftCoverage: RecordCoverage,
+  rightCoverage: RecordCoverage,
+): string {
   const keys = [
-    `${left.storeId}:${left.id}:${left.contentSignature}`,
-    `${right.storeId}:${right.id}:${right.contentSignature}`,
+    `${left.storeId}:${left.id}:${left.contentSignature}:${coverageIdentity(left, leftCoverage)}`,
+    `${right.storeId}:${right.id}:${right.contentSignature}:${coverageIdentity(right, rightCoverage)}`,
   ].sort();
   return createHash('sha256').update(keys.join('|')).digest('hex').slice(0, 24);
 }
@@ -234,8 +444,7 @@ function previewPages(comparisons: PageComparison[]): PageComparison[] {
   return selected
     .toSorted(
       (left, right) =>
-        (left.ocr?.similarity ?? left.similarity) -
-          (right.ocr?.similarity ?? right.similarity) ||
+        (left.ocr?.similarity ?? left.similarity) - (right.ocr?.similarity ?? right.similarity) ||
         left.index - right.index,
     )
     .slice(0, 6);
@@ -349,9 +558,7 @@ function summarizeOcr(
   results: Map<string, OcrResult>,
   textSimilarityThreshold: number,
 ): OcrSummary | undefined {
-  const compared = comparisons.flatMap((comparison) =>
-    comparison.ocr ? [comparison.ocr] : [],
-  );
+  const compared = comparisons.flatMap((comparison) => (comparison.ocr ? [comparison.ocr] : []));
   const leftRegionCode = edge.left.pages[0]
     ? results.get(edge.left.pages[0].contentHash)?.regionCode
     : undefined;
@@ -362,8 +569,7 @@ function summarizeOcr(
   const averageTextSimilarity =
     compared.length === 0
       ? 0
-      : compared.reduce((sum, comparison) => sum + comparison.similarity, 0) /
-        compared.length;
+      : compared.reduce((sum, comparison) => sum + comparison.similarity, 0) / compared.length;
   return {
     comparedPages: compared.length,
     textEquivalentPages: compared.filter(
@@ -374,9 +580,7 @@ function summarizeOcr(
     ).length,
     averageTextSimilarity,
     lowestTextSimilarity:
-      compared.length === 0
-        ? 0
-        : Math.min(...compared.map((comparison) => comparison.similarity)),
+      compared.length === 0 ? 0 : Math.min(...compared.map((comparison) => comparison.similarity)),
     ...(leftRegionCode ? { leftRegionCode } : {}),
     ...(rightRegionCode ? { rightRegionCode } : {}),
     ...(leftRegionCode && rightRegionCode
@@ -390,8 +594,7 @@ async function readDecisions(path: string): Promise<DecisionsFile> {
     const parsed = JSON.parse(await readFile(path, 'utf8')) as Partial<DecisionsFile>;
     return {
       version: 1,
-      decisions:
-        parsed.decisions && typeof parsed.decisions === 'object' ? parsed.decisions : {},
+      decisions: parsed.decisions && typeof parsed.decisions === 'object' ? parsed.decisions : {},
     };
   } catch {
     return { version: 1, decisions: {} };
@@ -407,12 +610,12 @@ async function main(): Promise<void> {
   if (!manifestArgument) throw new Error('Bitte --manifest=/pfad/manifest.json setzen.');
   const manifestPath = resolve(manifestArgument);
   const manifest = JSON.parse(await readFile(manifestPath, 'utf8')) as CrawlerManifest;
-  const missingPerceptualHashes = manifest.brochures.some((brochure) =>
-    brochure.pages.some((page) => !page.perceptualHash),
+  const selectionMode = manifestSelectionMode(manifest);
+  const invalidRecords = manifest.brochures.filter((brochure) => !comparableRecord(brochure));
+  const issues = invalidRecords.map(
+    (brochure) =>
+      `Prospekt ${brochure.id} kann nicht verglichen werden: mindestens eine Seite enthält keinen perceptualHash oder contentHash.`,
   );
-  if (missingPerceptualHashes) {
-    throw new Error('Manifest enthält keine perceptualHash-Werte. Crawler erneut mit V5 ausführen.');
-  }
 
   const threshold = Number.parseFloat(argument('threshold') ?? '0.82');
   if (!Number.isFinite(threshold) || threshold < 0 || threshold > 1) {
@@ -429,15 +632,11 @@ async function main(): Promise<void> {
   if (!Number.isFinite(ocrDHashThreshold) || ocrDHashThreshold < 0 || ocrDHashThreshold > 1) {
     throw new Error('--ocr-dhash-threshold muss zwischen 0 und 1 liegen.');
   }
-  const ocrPixelDifferenceThreshold = Number.parseFloat(
-    argument('ocr-pixel-threshold') ?? '0.5',
-  );
+  const ocrPixelDifferenceThreshold = Number.parseFloat(argument('ocr-pixel-threshold') ?? '0.5');
   if (!Number.isFinite(ocrPixelDifferenceThreshold) || ocrPixelDifferenceThreshold < 0) {
     throw new Error('--ocr-pixel-threshold muss mindestens 0 sein.');
   }
-  const ocrTextSimilarityThreshold = Number.parseFloat(
-    argument('ocr-text-threshold') ?? '0.985',
-  );
+  const ocrTextSimilarityThreshold = Number.parseFloat(argument('ocr-text-threshold') ?? '0.985');
   if (
     !Number.isFinite(ocrTextSimilarityThreshold) ||
     ocrTextSimilarityThreshold < 0 ||
@@ -448,9 +647,13 @@ async function main(): Promise<void> {
 
   const outputDir = dirname(manifestPath);
   const decisionsPath = join(outputDir, 'review-decisions.json');
-  const reportPath = join(outputDir, 'verification-report.json');
+  const reportDirArgument = argument('report-dir');
+  const reportDir = resolve(reportDirArgument ?? outputDir);
+  await mkdir(reportDir, { recursive: true });
+  const reportPath = join(reportDir, 'verification-report.json');
   const decisions = await readDecisions(decisionsPath);
-  const publicationGroups = Map.groupBy(manifest.brochures, publicationKey);
+  const comparableRecords = manifest.brochures.filter(comparableRecord);
+  const publicationGroups = Map.groupBy(comparableRecords, publicationKey);
   const selectedEdges: ComparisonEdge[] = [];
   let comparisons = 0;
   let exactDuplicateRecords = 0;
@@ -459,8 +662,23 @@ async function main(): Promise<void> {
   let automaticallyDifferentPairs = 0;
 
   for (const group of publicationGroups.values()) {
-    const exactGroups = Map.groupBy(group, (brochure) => brochure.contentSignature);
-    exactDuplicateRecords += group.length - exactGroups.size;
+    const exactGroups = Map.groupBy(group, (brochure) => {
+      const coverage = classifyRecordCoverage(brochure, selectionMode, manifest.diagnostics ?? []);
+      if (coverage.status === 'complete' && brochure.contentSignature) {
+        return `complete:${brochure.contentSignature}`;
+      }
+      return `partial:${brochure.storeId}:${brochure.id}:${brochure.locations.join(',')}:${brochure.contentSignature}`;
+    });
+    for (const records of exactGroups.values()) {
+      const coverage = classifyRecordCoverage(
+        records[0]!,
+        selectionMode,
+        manifest.diagnostics ?? [],
+      );
+      if (coverage.status === 'complete') {
+        exactDuplicateRecords += records.length - 1;
+      }
+    }
     uniqueExactVersions += exactGroups.size;
     const representatives = [...exactGroups.values()].map((records) => ({
       ...records[0]!,
@@ -483,7 +701,21 @@ async function main(): Promise<void> {
     for (const edge of edges) {
       if (!disjointSet.union(edge.leftIndex, edge.rightIndex)) continue;
       spanningEdges++;
-      if (edge.similarity < threshold) {
+      const leftCoverage = classifyRecordCoverage(
+        edge.left,
+        selectionMode,
+        manifest.diagnostics ?? [],
+      );
+      const rightCoverage = classifyRecordCoverage(
+        edge.right,
+        selectionMode,
+        manifest.diagnostics ?? [],
+      );
+      if (
+        edge.similarity < threshold &&
+        leftCoverage.status === 'complete' &&
+        rightCoverage.status === 'complete'
+      ) {
         automaticallyDifferentPairs++;
         continue;
       }
@@ -492,12 +724,7 @@ async function main(): Promise<void> {
   }
 
   const requests = ocrEnabled
-    ? await ocrRequests(
-        selectedEdges,
-        ocrDHashThreshold,
-        ocrPixelDifferenceThreshold,
-        outputDir,
-      )
+    ? await ocrRequests(selectedEdges, ocrDHashThreshold, ocrPixelDifferenceThreshold, outputDir)
     : [];
   const ocrResults = ocrEnabled
     ? await runCachedOcr({
@@ -509,25 +736,30 @@ async function main(): Promise<void> {
     : new Map<string, OcrResult>();
   const candidates = selectedEdges.map((edge): ReviewCandidate => {
     const { left, right, similarity } = edge;
+    const leftCoverage = classifyRecordCoverage(left, selectionMode, manifest.diagnostics ?? []);
+    const rightCoverage = classifyRecordCoverage(right, selectionMode, manifest.diagnostics ?? []);
     const pageComparisons = enrichWithOcr(edge.pageComparisons, ocrResults);
-    const id = candidateId(left, right);
-    const ocr = summarizeOcr(
-      edge,
-      pageComparisons,
-      ocrResults,
-      ocrTextSimilarityThreshold,
-    );
-    const automaticClassification = classifyAutomaticComparison({
-      overallSimilarity: similarity,
-      minimumPageSimilarity:
-        pageComparisons.length === 0
-          ? 0
-          : Math.min(...pageComparisons.map((comparison) => comparison.similarity)),
-      samePageCount: left.pages.length === right.pages.length,
-      ocrTextDifferentPages: ocrEnabled ? (ocr?.textDifferentPages ?? 0) : 1,
-      regionCodeMatch: ocr?.regionCodeMatch,
-      automaticDifferenceThreshold: threshold,
-    });
+    const id = candidateId(left, right, leftCoverage, rightCoverage);
+    const ocr = summarizeOcr(edge, pageComparisons, ocrResults, ocrTextSimilarityThreshold);
+    const automaticClassification =
+      leftCoverage.status !== 'complete' || rightCoverage.status !== 'complete'
+        ? {
+            decision: 'uncertain' as const,
+            confidence: 'low' as const,
+            reason:
+              'Mindestens ein Prospekt ist nur eine Teilansicht oder enthält fehlgeschlagene Downloads.',
+          }
+        : classifyAutomaticComparison({
+            overallSimilarity: similarity,
+            minimumPageSimilarity:
+              pageComparisons.length === 0
+                ? 0
+                : Math.min(...pageComparisons.map((comparison) => comparison.similarity)),
+            samePageCount: left.pages.length === right.pages.length,
+            ocrTextDifferentPages: ocrEnabled ? (ocr?.textDifferentPages ?? 0) : 1,
+            regionCodeMatch: ocr?.regionCodeMatch,
+            automaticDifferenceThreshold: threshold,
+          });
     return {
       id,
       storeId: left.storeId,
@@ -538,6 +770,7 @@ async function main(): Promise<void> {
       left,
       right,
       previewPages: previewPages(pageComparisons),
+      coverage: { left: leftCoverage, right: rightCoverage },
       ...(ocr ? { ocr } : {}),
       automaticClassification,
       decision: decisions.decisions[id],
@@ -563,11 +796,27 @@ async function main(): Promise<void> {
   const autoUncertainPairs = candidates.filter(
     (candidate) => candidate.automaticClassification.decision === 'uncertain',
   ).length;
+  const coverages = manifest.brochures.map((brochure) =>
+    classifyRecordCoverage(brochure, selectionMode, manifest.diagnostics ?? []),
+  );
+  const failedDownloadProspects = coverages.filter((coverage) => coverage.failedPages.length > 0);
+  const failedDownloadPages = coverages.reduce(
+    (sum, coverage) => sum + coverage.failedPages.length,
+    0,
+  );
+  const budgetSkippedPages = coverages.reduce(
+    (sum, coverage) =>
+      sum +
+      coverage.failedPages.filter((failure) => failedPageCode(failure).includes('BUDGET')).length,
+    0,
+  );
   const report: VerificationReport = {
-    version: 2,
+    version: 3,
     generatedAt: new Date().toISOString(),
     manifestPath,
     decisionsPath,
+    reportDir,
+    selectionMode,
     similarityThreshold: threshold,
     ocr: {
       enabled: ocrEnabled,
@@ -595,11 +844,20 @@ async function main(): Promise<void> {
       autoDifferentPairs: automaticallyDifferentPairs,
       autoUncertainPairs,
       automaticSemanticGroups: uniqueExactVersions - autoIdenticalPairs,
+      completeProspects: coverages.filter((coverage) => coverage.status === 'complete').length,
+      partialProspects: coverages.filter((coverage) => coverage.status === 'partial').length,
+      failedDownloadProspects: failedDownloadProspects.length,
+      failedDownloadPages,
+      budgetSkippedPages,
+      invalidRecords: invalidRecords.length,
     },
     candidates,
+    issues,
   };
 
-  await writeFile(reportPath, JSON.stringify(report, null, 2), 'utf8');
+  const temporaryReportPath = `${reportPath}.${process.pid}.tmp`;
+  await writeFile(temporaryReportPath, JSON.stringify(report, null, 2), 'utf8');
+  await rename(temporaryReportPath, reportPath);
   if (Object.keys(decisions.decisions).length === 0) {
     await writeFile(decisionsPath, JSON.stringify(decisions, null, 2), 'utf8');
   }
@@ -614,6 +872,15 @@ async function main(): Promise<void> {
   console.log(`↔️ Automatisch verschieden: ${report.summary.automaticallyDifferentPairs}`);
   console.log(`👤 Review-Kandidaten: ${report.summary.reviewCandidates}`);
   console.log(`⏳ Ungeprüft: ${report.summary.unreviewed}`);
+  console.log(
+    `📄 Vollständig: ${report.summary.completeProspects} | Teilansichten: ${report.summary.partialProspects}`,
+  );
+  console.log(
+    `⚠️ Fehlgeschlagene Downloads: ${report.summary.failedDownloadPages} Seiten in ${report.summary.failedDownloadProspects} Prospekten`,
+  );
+  if (report.summary.budgetSkippedPages > 0) {
+    console.log(`💽 Budgetbedingt ausgelassen: ${report.summary.budgetSkippedPages} Seiten`);
+  }
   if (ocrEnabled) {
     console.log(`🔤 OCR-Assets: ${report.summary.ocrAssets}`);
     console.log(`🔤 OCR-Seitenvergleiche: ${report.summary.ocrPageComparisons}`);
@@ -621,14 +888,14 @@ async function main(): Promise<void> {
     console.log(`🤖 Automatisch identisch: ${report.summary.autoIdenticalPairs}`);
     console.log(`🗺️ Automatisch regional: ${report.summary.autoRegionalVariantPairs}`);
     console.log(`❓ Automatisch unklar: ${report.summary.autoUncertainPairs}`);
-    console.log(
-      `🧠 Konservative Auto-Gruppen: ${report.summary.automaticSemanticGroups}`,
-    );
+    console.log(`🧠 Konservative Auto-Gruppen: ${report.summary.automaticSemanticGroups}`);
   }
   console.log(`💾 Bericht: ${reportPath}`);
 }
 
-main().catch((error: unknown) => {
-  console.error(`❌ ${error instanceof Error ? error.message : String(error)}`);
-  process.exitCode = 1;
-});
+if (process.argv[1]?.match(/[\\/]verify-versions\.ts$/)) {
+  main().catch((error: unknown) => {
+    console.error(`❌ ${error instanceof Error ? error.message : String(error)}`);
+    process.exitCode = 1;
+  });
+}
