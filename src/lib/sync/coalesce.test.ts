@@ -88,6 +88,62 @@ describe('coalesce', () => {
     );
   });
 
+  it('schliesst eine offene Update-Gruppe vor dem Move und bewahrt spaetere Updates', () => {
+    const move = {
+      operation_id: 'operation-1',
+      item_id: 'row-1',
+      household_id: 'hh-1',
+      expected_location_id: 'loc-1',
+      new_location_id: 'loc-2',
+      expected_quantity: 2,
+      out_transaction_id: 'out-1',
+      in_transaction_id: 'in-1',
+      created_at: '2026-09-07T10:00:00.000Z',
+    };
+
+    const result = coalesce([
+      entry('update', { quantity: 2 }),
+      entry('move', move),
+      entry('update', { quantity: 1 }),
+    ]);
+
+    expect(result.pushes.map(({ op, sourceIds, payload }) => ({ op, sourceIds, payload }))).toEqual(
+      [
+        { op: 'update', sourceIds: [1], payload: { quantity: 2 } },
+        { op: 'move', sourceIds: [2], payload: move },
+        { op: 'update', sourceIds: [3], payload: { quantity: 1 } },
+      ],
+    );
+    expect(result.discardable).toEqual([]);
+  });
+
+  it('schliesst eine Insert-Gruppe vor dem Move und laesst ein spaeteres Delete separat', () => {
+    const move = {
+      operation_id: 'operation-1',
+      item_id: 'row-1',
+      household_id: 'hh-1',
+      expected_location_id: 'loc-1',
+      new_location_id: 'loc-2',
+      expected_quantity: 1,
+      out_transaction_id: 'out-1',
+      in_transaction_id: 'in-1',
+      created_at: '2026-09-07T10:00:00.000Z',
+    };
+
+    const result = coalesce([
+      entry('insert', { name: 'Milch', quantity: 1 }),
+      entry('move', move),
+      entry('delete', {}),
+    ]);
+
+    expect(result.pushes.map(({ op, sourceIds }) => ({ op, sourceIds }))).toEqual([
+      { op: 'insert', sourceIds: [1] },
+      { op: 'move', sourceIds: [2] },
+      { op: 'delete', sourceIds: [3] },
+    ]);
+    expect(result.discardable).toEqual([]);
+  });
+
   it('verwirft insert + delete vollstaendig, ohne einen Netzwerkaufruf', () => {
     const result = coalesce([entry('insert', { name: 'Milch' }), entry('delete', {})]);
 
