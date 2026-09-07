@@ -7,6 +7,7 @@ import {
   real,
   sqliteTable,
   text,
+  uniqueIndex,
 } from 'drizzle-orm/sqlite-core';
 
 import { mirrorColumns } from './mirror-columns';
@@ -100,6 +101,9 @@ export const transactions = sqliteTable(
     index('transactions_hh_idx').on(table.householdId, table.createdAt),
     index('transactions_fridge_item_idx').on(table.fridgeItemId),
     index('transactions_operation_idx').on(table.operationId),
+    uniqueIndex('transactions_operation_type_idx')
+      .on(table.operationId, table.type)
+      .where(sql`${table.operationId} is not null`),
     index('transactions_dirty_idx').on(table.dirty).where(sql`${table.dirty} = 1`),
   ],
 );
