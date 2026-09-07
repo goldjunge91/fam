@@ -26,7 +26,7 @@ import { CrashFallback } from './crash-fallback';
 const BUG_BUBBLE_CONFIG = {
   trackingOptions: {
     enabled: true,
-    options: { console: false },
+    options: { console: true },
   },
 } satisfies Partial<BugBubbleConfig>;
 

@@ -94,7 +94,14 @@ export function useInventoryTransactions(householdId: string | undefined) {
                   )
                 end as operation_legs,
                 case
-                  when t.operation_id is not null then exists (
+                  when t.operation_id is not null
+                    and (
+                      select count(*)
+                        from transactions operation_leg
+                       where operation_leg.household_id = t.household_id
+                         and operation_leg.operation_id = t.operation_id
+                    ) = 2
+                  then exists (
                     select 1
                       from transactions reversal
                      where reversal.household_id = t.household_id

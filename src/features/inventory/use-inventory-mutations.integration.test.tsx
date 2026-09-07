@@ -42,6 +42,8 @@ const {
   useUpdateInventoryItemQuantityMutation,
   useWasteInventoryItemMutation,
 } = require('./use-inventory-mutations') as typeof import('./use-inventory-mutations');
+const { useInventoryTransactions } =
+  require('./use-inventory-transactions') as typeof import('./use-inventory-transactions');
 
 const mockedGetDatabase = jest.mocked(getDatabase);
 const mockedUseSession = jest.mocked(useSession);
@@ -273,6 +275,71 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       expect.objectContaining({ type: 'in', quantity: 2, operation_id: null }),
     ]);
     expect(await outboxRows(db)).toHaveLength(2);
+  });
+
+  it('findet Gegenbuchungen über Transaktions-ID für Mengen und über Operations-ID für Moves', async () => {
+    await insertTransaction(db, {
+      id: 'quantity-source',
+      operation_id: 'quantity-operation',
+      type: 'out',
+      quantity: 1,
+    });
+    await insertTransaction(db, {
+      id: 'quantity-reversal',
+      reversal_of: 'quantity-source',
+      type: 'in',
+      quantity: 1,
+    });
+    await insertTransaction(db, {
+      id: 'move-out',
+      operation_id: 'move-operation',
+      type: 'out',
+      quantity: 1,
+    });
+    await insertTransaction(db, {
+      id: 'move-in',
+      operation_id: 'move-operation',
+      type: 'in',
+      quantity: 1,
+    });
+    await insertTransaction(db, {
+      id: 'move-reversal-out',
+      operation_id: 'move-reversal-operation',
+      reversal_of: 'move-operation',
+      type: 'out',
+      quantity: 1,
+    });
+    await insertTransaction(db, {
+      id: 'move-reversal-in',
+      operation_id: 'move-reversal-operation',
+      reversal_of: 'move-operation',
+      type: 'in',
+      quantity: 1,
+    });
+
+    const rendered = await renderMutationHook(() => useInventoryTransactions('hh-1'));
+
+    try {
+      await act(async () => {
+        await Promise.resolve();
+      });
+
+      const rows = rendered.result.current.data ?? [];
+      expect(rows.find(({ id }) => id === 'quantity-source')).toMatchObject({
+        operation_legs: 1,
+        has_reversal: 1,
+      });
+      expect(rows.find(({ id }) => id === 'move-in')).toMatchObject({
+        operation_legs: 2,
+        has_reversal: 1,
+      });
+      expect(rows.find(({ id }) => id === 'move-out')).toMatchObject({
+        operation_legs: 2,
+        has_reversal: 1,
+      });
+    } finally {
+      await rendered.unmount();
+    }
   });
 
   it('consume schreibt nur die effektive out-Menge und löscht bei null weich', async () => {

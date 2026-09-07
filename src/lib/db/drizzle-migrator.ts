@@ -1,3 +1,4 @@
+import { bugBubbleConsole } from '@/lib/analytics/bug-bubble';
 import {
   DRIZZLE_BASELINE_NAME,
   DRIZZLE_MIGRATIONS_TABLE,
@@ -47,10 +48,14 @@ export async function runDrizzleMigrations(
   bundle: MigrationBundle = localMigrations,
 ): Promise<number> {
   const entries = migrationEntries(bundle);
+  bugBubbleConsole('debug', '[drizzle] Migrationslauf gestartet', `${entries.length} bekannt`);
   await ensureDrizzleBaseline(db);
 
   let appliedCount = 0;
   for (const [name, source] of entries) {
+    const startedAt = Date.now();
+    let wasApplied = false;
+
     await db.withExclusiveTransactionAsync(async (transaction) => {
       const applied = await transaction.getFirstAsync<{ name: string }>(
         `select name from ${DRIZZLE_MIGRATIONS_TABLE} where name = ?`,
@@ -67,8 +72,18 @@ export async function runDrizzleMigrations(
         [hashSchemaShape(source), timestampFromMigrationName(name), name, new Date().toISOString()],
       );
       appliedCount += 1;
+      wasApplied = true;
     });
+
+    if (wasApplied) {
+      bugBubbleConsole(
+        'info',
+        `[drizzle] Migration angewendet: ${name}`,
+        `${Date.now() - startedAt}ms`,
+      );
+    }
   }
 
+  bugBubbleConsole('debug', '[drizzle] Migrationslauf abgeschlossen', `${appliedCount} angewendet`);
   return appliedCount;
 }

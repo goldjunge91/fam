@@ -2,6 +2,7 @@ import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
 import { trackAptabaseError, trackAptabaseEvent } from '@/lib/analytics/aptabase';
+import { bugBubbleAnalytics, bugBubbleConsole } from '@/lib/analytics/bug-bubble';
 import { markPerformance, measurePerformance, metricPerformance } from '@/lib/performance';
 import { getPostHogClient, isPostHogConfigured } from '@/lib/posthog';
 import { Sentry } from '@/lib/sentry';
@@ -92,6 +93,7 @@ function captureEvent(
   channel: TelemetryChannel = 'diagnostics',
 ): void {
   recordSessionOperation(String(properties.operation ?? name));
+  bugBubbleAnalytics(name, properties);
 
   if (!shouldCaptureTelemetry(channel, name)) return;
 
@@ -255,9 +257,11 @@ function reportOperationDuration(
   const properties = { ...context, operation, duration_ms: durationMs };
   if (durationMs >= HANGING_OPERATION_THRESHOLD_MS && !alreadyReported.hanging) {
     trackEvent(TELEMETRY_EVENTS.operationHanging, properties);
+    bugBubbleConsole('error', `[hanging] ${operation}`, `${durationMs}ms`);
   }
   if (durationMs >= SLOW_OPERATION_THRESHOLD_MS && !alreadyReported.slow) {
     trackEvent(TELEMETRY_EVENTS.operationSlow, properties);
+    bugBubbleConsole('warn', `[slow] ${operation}`, `${durationMs}ms`);
   }
 }
 
@@ -281,6 +285,11 @@ export async function measureOperation<T>(
         ...shared,
         duration_ms: SLOW_OPERATION_THRESHOLD_MS,
       });
+      bugBubbleConsole(
+        'warn',
+        `[slow, still running] ${name}`,
+        `>=${SLOW_OPERATION_THRESHOLD_MS}ms`,
+      );
     }
   }, SLOW_OPERATION_THRESHOLD_MS);
   const hangingTimer = setTimeout(() => {
@@ -290,6 +299,11 @@ export async function measureOperation<T>(
         ...shared,
         duration_ms: HANGING_OPERATION_THRESHOLD_MS,
       });
+      bugBubbleConsole(
+        'error',
+        `[hanging, still running] ${name}`,
+        `>=${HANGING_OPERATION_THRESHOLD_MS}ms`,
+      );
     }
   }, HANGING_OPERATION_THRESHOLD_MS);
 
