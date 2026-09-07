@@ -164,6 +164,50 @@ describe('inventory mutation hooks', () => {
     ]);
   });
 
+  it('bucht beim Verbrauch bis auf null nur die effektive Menge und löscht lokal', async () => {
+    mockGetFirstAsync.mockResolvedValue({
+      quantity: 3,
+      name: 'Senf',
+      product_id: 'product-1',
+      location_id: 'loc-1',
+      expiry_date: '2026-12-31',
+    });
+    const { result } = await renderHook(() => useUpdateInventoryItemQuantityMutation(), {
+      wrapper,
+    });
+
+    await act(async () => {
+      await result.current.mutateAsync({ id: 'item-1', household_id: 'hh-1', delta: -10 });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(lastMutations()).toHaveLength(2);
+    expect(lastMutations()[0]).toMatchObject({ entity: 'fridge_items', op: 'delete' });
+    expect(transactionPayloads()).toEqual([
+      expect.objectContaining({ actor: 'actor-1', type: 'out', quantity: 3 }),
+    ]);
+  });
+
+  it('erzeugt bei einer No-op-Mengenänderung keine Ledger-Buchung', async () => {
+    mockGetFirstAsync.mockResolvedValue({
+      quantity: 3,
+      name: 'Senf',
+      product_id: 'product-1',
+      location_id: 'loc-1',
+      expiry_date: '2026-12-31',
+    });
+    const { result } = await renderHook(() => useUpdateInventoryItemQuantityMutation(), {
+      wrapper,
+    });
+
+    await act(async () => {
+      await result.current.mutateAsync({ id: 'item-1', household_id: 'hh-1', delta: 0 });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(Outbox.enqueueMutations).not.toHaveBeenCalled();
+  });
+
   it('bucht Mengen- und Lagerortkorrektur atomar als eine Outbox-Gruppe', async () => {
     mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
@@ -181,6 +225,51 @@ describe('inventory mutation hooks', () => {
     expect(transactionPayloads()).toHaveLength(3);
     expect(transactionPayloads().every((payload) => payload.actor === 'actor-1')).toBe(true);
     expect(transactionPayloads().map((payload) => payload.type)).toEqual(['in', 'out', 'in']);
+  });
+
+  it('soft-deletet eine manuelle Korrektur auf null und bucht die effektive out-Menge', async () => {
+    mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
+    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({ ...ITEM, quantity: 0 });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(lastMutations()).toHaveLength(2);
+    expect(lastMutations()[0]).toMatchObject({
+      entity: 'fridge_items',
+      op: 'delete',
+      payload: { id: 'item-1', household_id: 'hh-1' },
+    });
+    expect(transactionPayloads()).toEqual([
+      expect.objectContaining({
+        type: 'out',
+        quantity: 3,
+        notes: '[Manual correction]',
+      }),
+    ]);
+  });
+
+  it('bucht bei Entnahme auf null trotz Lagerortänderung nur am bisherigen Lagerort', async () => {
+    mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
+    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({ ...ITEM, quantity: 0, location_id: 'loc-2' });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(lastMutations()).toHaveLength(2);
+    expect(lastMutations()[0]).toMatchObject({ entity: 'fridge_items', op: 'delete' });
+    expect(transactionPayloads()).toEqual([
+      expect.objectContaining({
+        type: 'out',
+        quantity: 3,
+        location_id: 'loc-1',
+        notes: '[Manual correction]',
+      }),
+    ]);
   });
 
   it('bucht Öffnen, Wegwerfen und Verschieben jeweils mit Actor', async () => {

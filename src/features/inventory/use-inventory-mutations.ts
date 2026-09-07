@@ -46,6 +46,10 @@ type TransactionDraft = Omit<TransactionPayload, 'operation_id'> & {
 };
 
 function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueMutationInput {
+  if (!Number.isFinite(payload.quantity) || payload.quantity <= 0) {
+    throw new Error('Ledger-Buchungen benötigen eine positive Menge.');
+  }
+
   const normalizedPayload: TransactionPayload = { operation_id: null, ...payload };
   return {
     entity: 'transactions',
@@ -357,18 +361,34 @@ export function useUpdateFridgeItemMutation() {
         quantity: number;
         location_id: string | null;
       }>('select quantity, location_id from fridge_items where id = ?', [item.id]);
+      const quantityChanged = existing !== null && item.quantity !== existing.quantity;
+      const isDepleted = item.quantity === 0 && quantityChanged;
       const mutations: EnqueueMutationInput[] = [
-        {
-          entity: 'fridge_items',
-          entityId: item.id,
-          op: 'update',
-          payload,
-          applyLocally: (txn) =>
-            applyLocalMirrorWrite(txn, 'fridge_items', 'update', localFields, nowMs),
-        },
+        isDepleted
+          ? {
+              entity: 'fridge_items',
+              entityId: item.id,
+              op: 'delete',
+              payload: {
+                id: item.id,
+                household_id: item.household_id,
+                deleted_at: now,
+                updated_at: now,
+              },
+              applyLocally: (txn) =>
+                applyLocalMirrorWrite(txn, 'fridge_items', 'delete', { id: item.id }, nowMs),
+            }
+          : {
+              entity: 'fridge_items',
+              entityId: item.id,
+              op: 'update',
+              payload,
+              applyLocally: (txn) =>
+                applyLocalMirrorWrite(txn, 'fridge_items', 'update', localFields, nowMs),
+            },
       ];
 
-      if (existing && item.quantity !== existing.quantity) {
+      if (quantityChanged) {
         mutations.push(
           transactionMutation(
             {
@@ -379,7 +399,7 @@ export function useUpdateFridgeItemMutation() {
               actor,
               type: item.quantity > existing.quantity ? 'in' : 'out',
               quantity: Math.abs(item.quantity - existing.quantity),
-              location_id: item.location_id,
+              location_id: isDepleted ? existing.location_id : item.location_id,
               reason: null,
               previous_expiry_date: null,
               notes: '[Manual correction]',
@@ -390,7 +410,7 @@ export function useUpdateFridgeItemMutation() {
           ),
         );
       }
-      if (existing && item.location_id !== existing.location_id) {
+      if (existing && item.quantity > 0 && item.location_id !== existing.location_id) {
         const movement = {
           household_id: item.household_id,
           product_id: item.product_id,

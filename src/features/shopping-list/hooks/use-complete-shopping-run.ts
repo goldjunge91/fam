@@ -32,6 +32,10 @@ type TransactionDraft = Omit<TransactionPayload, 'operation_id'> & {
 };
 
 function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueMutationInput {
+  if (!Number.isFinite(payload.quantity) || payload.quantity <= 0) {
+    throw new Error('Ledger-Buchungen benötigen eine positive Menge.');
+  }
+
   const normalizedPayload: TransactionPayload = { operation_id: null, ...payload };
   return {
     entity: 'transactions',
@@ -49,6 +53,10 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
 
   return useMutation({
     mutationFn: async (input: CompleteShoppingRunInput) => {
+      if (input.transfers.some(({ quantity }) => !Number.isFinite(quantity) || quantity <= 0)) {
+        throw new Error('Ledger-Buchungen benötigen eine positive Menge.');
+      }
+
       const db = await getDatabase();
       const now = new Date().toISOString();
       const nowMs = Date.now();
