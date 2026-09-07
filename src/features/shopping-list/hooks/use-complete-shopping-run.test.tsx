@@ -129,6 +129,74 @@ describe('useCompleteShoppingRun', () => {
     expect(recordActivity).toHaveBeenCalledTimes(1);
   });
 
+  it('erzeugt keinen Nullmengen-Zugang beim Einkaufsabschluss', async () => {
+    const { result } = await renderHook(() => useCompleteShoppingRun('hh-1'), { wrapper });
+
+    await expect(
+      act(async () =>
+        result.current.mutateAsync({
+          householdId: 'hh-1',
+          userId: 'user-1',
+          checkedItems: [],
+          transfers: [
+            {
+              shoppingItemId: 'item-1',
+              productId: null,
+              name: 'Brot',
+              quantity: 0,
+              unit: 'piece',
+              packageSize: null,
+              packageSizeUnit: null,
+              locationKind: 'pantry',
+              expiryDate: null,
+            },
+          ],
+        }),
+      ),
+    ).rejects.toThrow('positive Menge');
+    expect(enqueueMutations).not.toHaveBeenCalled();
+  });
+
+  it('validiert gemischte Transfers vor dem ersten Bestandszugang', async () => {
+    const { result } = await renderHook(() => useCompleteShoppingRun('hh-1'), { wrapper });
+
+    await expect(
+      act(async () =>
+        result.current.mutateAsync({
+          householdId: 'hh-1',
+          userId: 'user-1',
+          checkedItems: [],
+          transfers: [
+            {
+              shoppingItemId: 'item-1',
+              productId: null,
+              name: 'Brot',
+              quantity: 1,
+              unit: 'piece',
+              packageSize: null,
+              packageSizeUnit: null,
+              locationKind: 'pantry',
+              expiryDate: null,
+            },
+            {
+              shoppingItemId: 'item-2',
+              productId: null,
+              name: 'Milch',
+              quantity: 0,
+              unit: 'l',
+              packageSize: null,
+              packageSizeUnit: null,
+              locationKind: 'fridge',
+              expiryDate: null,
+            },
+          ],
+        }),
+      ),
+    ).rejects.toThrow('positive Menge');
+    expect(enqueueMutations).not.toHaveBeenCalled();
+    expect(mockDbRunAsync).not.toHaveBeenCalled();
+  });
+
   it('feiert einen erreichten Streak-Meilenstein beim Einkaufsabschluss', async () => {
     jest.mocked(recordActivity).mockReturnValue({ count: 7, increased: true, milestone: true });
     const { result } = await renderHook(() => useCompleteShoppingRun('hh-1'), { wrapper });
