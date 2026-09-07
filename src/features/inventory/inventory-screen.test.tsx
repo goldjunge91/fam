@@ -453,13 +453,18 @@ it('öffnet den Produktverlauf als Vollansicht ohne Gesamtverlaufs-Link', async 
 
 it('zeigt für alle erlaubten Transaktionstypen genau eine Undo-Aktion', async () => {
   const user = userEvent.setup();
-  const moveIn = makeTransaction({ id: 'move-in', operation_id: 'move-1', type: 'in' });
+  const moveIn = makeTransaction({
+    id: 'move-in',
+    operation_id: 'move-1',
+    operation_legs: 2,
+    type: 'in',
+  });
   mockTransactions = [
     makeTransaction({ id: 'in', type: 'in' }),
     makeTransaction({ id: 'out', type: 'out' }),
     makeTransaction({ id: 'waste', type: 'waste', reason: 'spoiled' }),
     makeTransaction({ id: 'open', type: 'open' }),
-    makeTransaction({ id: 'move-out', operation_id: 'move-1', type: 'out' }),
+    makeTransaction({ id: 'move-out', operation_id: 'move-1', operation_legs: 2, type: 'out' }),
     moveIn,
   ];
 

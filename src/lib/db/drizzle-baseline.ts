@@ -182,7 +182,14 @@ export async function ensureDrizzleBaseline(db: SqlDatabase): Promise<void> {
     );
     const expectedMarker = `${DRIZZLE_BASELINE_NAME}:${DRIZZLE_BASELINE_FINGERPRINT}`;
 
-    if (marker?.value === expectedMarker) return;
+    // Der Fingerprint-Teil des Markers beschreibt nur den Schema-Zustand zum
+    // Zeitpunkt der einmaligen Baseline-Erstellung auf diesem Gerät. Er darf
+    // vom aktuellen Projekt-Fingerprint abweichen, sobald spätere Migrationen
+    // das Schema weiterentwickeln — sonst würde jede künftige Fingerprint-
+    // Änderung bereits baseline-geprüfte Installationen dauerhaft zum Absturz
+    // beim Start bringen.
+    const baselineName = marker?.value?.split(':')[0];
+    if (baselineName === DRIZZLE_BASELINE_NAME) return;
     if (marker) {
       throw new Error(`Unbekannter Drizzle-Baseline-Marker: ${marker.value ?? '<null>'}`);
     }

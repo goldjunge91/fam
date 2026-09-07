@@ -11,6 +11,7 @@ import {
   useAddFridgeItemMutation,
   useMoveInventoryItemMutation,
   useOpenInventoryItemMutation,
+  useUndoInventoryTransactionMutation,
   useUndoOpenTransactionMutation,
   useUpdateFridgeItemMutation,
   useUpdateInventoryItemQuantityMutation,
@@ -199,6 +200,46 @@ describe('inventory mutation hooks', () => {
         payload: expect.objectContaining({ delta: -3, item_id: 'item-1' }),
       }),
     ]);
+  });
+
+  it('behandelt eine Mengenbuchung mit operation_id beim Undo nicht als Move', async () => {
+    mockGetFirstAsync
+      .mockResolvedValueOnce({ ...ITEM, quantity: 3, deleted_at: null })
+      .mockResolvedValueOnce(null);
+    const transaction: LocalInventoryTransaction = {
+      id: 'quantity-transaction-1',
+      operation_id: 'quantity-operation-1',
+      operation_legs: 1,
+      household_id: 'hh-1',
+      fridge_item_id: 'item-1',
+      product_id: 'product-1',
+      actor: 'actor-1',
+      type: 'out',
+      quantity: 1,
+      location_id: 'loc-1',
+      reason: null,
+      previous_expiry_date: null,
+      notes: null,
+      undone: false,
+      created_at: new Date().toISOString(),
+    };
+    const { result } = await renderHook(() => useUndoInventoryTransactionMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({ transaction });
+    });
+
+    expect(lastMutations()).toHaveLength(2);
+    expect(lastMutations()[0]).toMatchObject({
+      entity: 'fridge_items',
+      op: 'update',
+      payload: { id: 'item-1', quantity: 4 },
+    });
+    expect(lastMutations()[1]).toMatchObject({
+      entity: 'transactions',
+      op: 'insert',
+      payload: { reversal_of: 'quantity-transaction-1', type: 'in', quantity: 1 },
+    });
   });
 
   it('erzeugt bei einer No-op-Mengenänderung keine Ledger-Buchung', async () => {

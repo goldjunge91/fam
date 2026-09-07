@@ -55,6 +55,13 @@ export function createInventoryQuantityMutation(args: {
     payload: { ...payload },
     applyLocally: async (txn) => {
       if (resultQuantity === 0) {
+        await applyLocalMirrorWrite(
+          txn,
+          'fridge_items',
+          'update',
+          { id: payload.item_id, quantity: 0 },
+          nowMs,
+        );
         await applyLocalMirrorWrite(txn, 'fridge_items', 'delete', { id: payload.item_id }, nowMs);
       } else {
         await applyLocalMirrorWrite(

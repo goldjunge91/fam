@@ -53,6 +53,22 @@ describe('Drizzle-Baseline', () => {
     db.close();
   });
 
+  it('akzeptiert einen bereits gesetzten Marker mit veraltetem Fingerprint erneut', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await ensureDrizzleBaseline(db);
+
+    // Simuliert ein Gerät, das schon vor einer Fingerprint-Änderung
+    // baseline-geprüft wurde (z. B. eine ältere TestFlight-Version).
+    await db.runAsync('update app_meta set value = ? where key = ?', [
+      `${DRIZZLE_BASELINE_NAME}:veraltet`,
+      DRIZZLE_BASELINE_META_KEY,
+    ]);
+
+    await expect(ensureDrizzleBaseline(db)).resolves.toBeUndefined();
+    db.close();
+  });
+
   it('erzeugt mit der gebündelten Startmigration dieselbe strukturelle Form', async () => {
     const legacy = createTestDatabase();
     await runMigrations(legacy, MIGRATIONS);

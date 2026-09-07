@@ -7,6 +7,7 @@ export type InventoryTransactionType = 'in' | 'out' | 'waste' | 'open';
 export type LocalInventoryTransaction = {
   id: string;
   operation_id?: string | null;
+  operation_legs?: number;
   reversal_of?: string | null;
   household_id: string;
   fridge_item_id: string | null;
@@ -29,6 +30,14 @@ export type LocalInventoryTransaction = {
   location_name?: string | null;
 };
 
+export function isInventoryMoveTransaction(transaction: LocalInventoryTransaction): boolean {
+  return (
+    transaction.operation_id !== undefined &&
+    transaction.operation_id !== null &&
+    transaction.operation_legs === 2
+  );
+}
+
 const INVENTORY_UNDO_WINDOW_MS = 24 * 60 * 60 * 1000;
 
 /** Returns whether the history may offer the single user-facing Undo action. */
@@ -48,7 +57,7 @@ export function isInventoryTransactionUndoable(
 
   // A move has two ledger legs but represents one user action. The in-leg is
   // the stable history row that exposes Undo; the mutation hook reverses both.
-  if (transaction.operation_id && transaction.type !== 'in') return false;
+  if (isInventoryMoveTransaction(transaction) && transaction.type !== 'in') return false;
 
   const createdAt = new Date(transaction.created_at).getTime();
   const age = now.getTime() - createdAt;
@@ -56,7 +65,7 @@ export function isInventoryTransactionUndoable(
 }
 
 export function transactionUndoLabel(transaction: LocalInventoryTransaction): string {
-  if (transaction.operation_id) return 'Verschiebung rückgängig machen';
+  if (isInventoryMoveTransaction(transaction)) return 'Verschiebung rückgängig machen';
   if (transaction.type === 'in') return 'Einkauf rückgängig machen';
   if (transaction.type === 'out') return 'Verbrauch rückgängig machen';
   if (transaction.type === 'waste') return 'Verschwendung rückgängig machen';
@@ -75,6 +84,15 @@ export function useInventoryTransactions(householdId: string | undefined) {
                 t.quantity, t.location_id, t.reason, t.previous_expiry_date, t.notes,
                 t.origin_item_id, t.origin_quantity,
                 t.undone, t.created_at, t.operation_id, t.reversal_of,
+                case
+                  when t.operation_id is null then 0
+                  else (
+                    select count(*)
+                      from transactions operation_leg
+                     where operation_leg.household_id = t.household_id
+                       and operation_leg.operation_id = t.operation_id
+                  )
+                end as operation_legs,
                 case
                   when t.operation_id is not null then exists (
                     select 1

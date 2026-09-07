@@ -7,7 +7,7 @@
 begin;
 \ir helpers.sql
 
-select plan(20);
+select plan(23);
 
 -- ------------------------------------------------- Sync-Spalten auf allen Tabellen
 -- `updated_at` treibt den inkrementellen Pull, `deleted_at` die Tombstones.
@@ -32,6 +32,39 @@ select has_column(
   'transactions',
   'sync_sequence',
   'transactions hat die serverseitige Sync-Reihenfolge'
+);
+select ok(
+  exists (
+    select 1
+      from pg_trigger
+     where tgrelid = 'public.transactions'::regclass
+       and tgname = 'transactions_assign_sync_sequence'
+       and not tgisinternal
+  ),
+  'transactions vergibt sync_sequence über einen eigenen Insert-Trigger'
+);
+select ok(
+  exists (
+    select 1
+      from pg_trigger
+     where tgrelid = 'public.transactions'::regclass
+       and tgname = 'transactions_assign_sync_sequence'
+       and (tgtype & 4) = 4
+       and (tgtype & 2) = 2
+       and (tgtype & 1) = 1
+  ),
+  'der sync_sequence-Trigger läuft vor jedem Insert'
+);
+select ok(
+  position(
+    'pg_advisory_xact_lock' in
+      pg_get_functiondef('private.assign_transaction_sync_sequence()'::regprocedure)
+  ) > 0
+  and position(
+    'pg_get_serial_sequence' in
+      pg_get_functiondef('private.assign_transaction_sync_sequence()'::regprocedure)
+  ) > 0,
+  'die endgültige Sequenzvergabe ist über einen transaktionsgebundenen Lock serialisiert'
 );
 
 -- household_members trug urspruenglich nur joined_at. Ohne updated_at ist ein

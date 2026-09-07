@@ -26,7 +26,10 @@ import {
   undoTransactionNotes,
 } from './inventory-lifecycle';
 import type { LocalInventoryItem } from './use-inventory-items';
-import type { LocalInventoryTransaction } from './use-inventory-transactions';
+import {
+  isInventoryMoveTransaction,
+  type LocalInventoryTransaction,
+} from './use-inventory-transactions';
 
 export type FridgeItem = {
   id: string;
@@ -985,18 +988,44 @@ async function enqueueQuantityReversal(
   const now = new Date().toISOString();
   const nowMs = Date.now();
   const mutations: EnqueueMutationInput[] = [];
+  let restoreQuantity: number | undefined;
 
   if (item.deleted_at !== null) {
-    if (transaction.type === 'in' || item.quantity !== transaction.quantity) {
+    const isFullyConsumedQuantityOperation =
+      transaction.operation_id !== undefined &&
+      transaction.operation_id !== null &&
+      transaction.type === 'out' &&
+      item.quantity === 0;
+    if (
+      transaction.type === 'in' ||
+      (!isFullyConsumedQuantityOperation && item.quantity !== transaction.quantity)
+    ) {
       throw new Error('Der Bestand wurde zwischenzeitlich verändert.');
     }
+    if (isFullyConsumedQuantityOperation) restoreQuantity = transaction.quantity;
     mutations.push({
       entity: 'fridge_items',
       entityId: item.id,
       op: 'restore',
-      payload: { id: item.id, household_id: item.household_id, deleted_at: null, updated_at: now },
-      applyLocally: (txn) =>
-        applyLocalMirrorWrite(txn, 'fridge_items', 'restore', { id: item.id }, nowMs),
+      payload: {
+        id: item.id,
+        household_id: item.household_id,
+        ...(restoreQuantity === undefined ? {} : { quantity: restoreQuantity }),
+        deleted_at: null,
+        updated_at: now,
+      },
+      applyLocally: async (txn) => {
+        if (restoreQuantity !== undefined) {
+          await applyLocalMirrorWrite(
+            txn,
+            'fridge_items',
+            'update',
+            { id: item.id, quantity: restoreQuantity },
+            nowMs,
+          );
+        }
+        await applyLocalMirrorWrite(txn, 'fridge_items', 'restore', { id: item.id }, nowMs);
+      },
     });
   } else {
     const nextQuantity =
@@ -1130,6 +1159,24 @@ async function enqueueMoveReversal(
   ]);
 }
 
+async function isMoveTransaction(
+  db: Awaited<ReturnType<typeof getDatabase>>,
+  transaction: LocalInventoryTransaction,
+): Promise<boolean> {
+  if (transaction.operation_legs !== undefined) {
+    return isInventoryMoveTransaction(transaction);
+  }
+  if (transaction.operation_id === undefined || transaction.operation_id === null) return false;
+
+  const operation = await db.getFirstAsync<{ legs: number }>(
+    `select count(*) as legs
+       from transactions
+      where household_id = ? and operation_id = ?`,
+    [transaction.household_id, transaction.operation_id],
+  );
+  return operation?.legs === 2;
+}
+
 export function useUndoInventoryTransactionMutation() {
   const queryClient = useQueryClient();
   const actor = useInventoryActor();
@@ -1150,7 +1197,7 @@ export function useUndoInventoryTransactionMutation() {
 
       const mode = inventoryUndoMode(transaction.created_at, new Date());
       const db = await getDatabase();
-      if (transaction.operation_id) {
+      if (await isMoveTransaction(db, transaction)) {
         await enqueueMoveReversal(db, transaction, actor, mode);
       } else {
         await enqueueQuantityReversal(db, transaction, actor, mode);

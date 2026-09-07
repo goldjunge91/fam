@@ -924,11 +924,7 @@ export async function pushOutbox(deps: {
   const attemptsById = new Map(entries.map((e) => [e.id, e.attempts]));
 
   let stoppedEarly = false;
-  const blockedDuringRun = new Set<string>();
   for (const push of pushes) {
-    const key = `${push.entity}:${push.entityId}`;
-    if (blockedDuringRun.has(key)) continue;
-
     const currentAttempts = Math.max(0, ...push.sourceIds.map((id) => attemptsById.get(id) ?? 0));
     const { outcome, stop } = await applyOnePush(
       deps.db,
@@ -941,7 +937,7 @@ export async function pushOutbox(deps: {
 
     if (stop) {
       stoppedEarly = true;
-      blockedDuringRun.add(key);
+      break;
     }
   }
 

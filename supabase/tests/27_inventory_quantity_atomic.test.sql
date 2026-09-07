@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(13);
+select plan(16);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('33333333-3333-3333-3333-333333333333', 'carol@example.com');
@@ -79,6 +79,10 @@ select set_eq(
   'die Ledgerzeile trägt Richtung, effektive Menge und Lagerort'
 );
 
+update public.fridge_items
+set location_id = null
+where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
+
 select public.adjust_fridge_item_quantity(
   'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
   'cccccccc-cccc-4ccc-8ccc-cccccccccccc',
@@ -90,13 +94,38 @@ select public.adjust_fridge_item_quantity(
 select is(
   (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
   3::numeric,
-  'ein Retry verändert die Menge nicht erneut'
+  'ein Mengen-Retry bleibt auch nach einem zwischenzeitlichen Move idempotent'
 );
 select is(
   (select count(*)::int from public.transactions
    where operation_id = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'),
   1,
-  'ein Retry dupliziert keine Ledgerzeile'
+  'ein Mengen-Retry nach einem Move dupliziert keine Ledgerzeile'
+);
+
+select public.adjust_fridge_item_quantity(
+  'ffffffff-ffff-4fff-8fff-ffffffffffff',
+  'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee',
+  'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
+  :'household_id',
+  -3,
+  '2026-09-07T10:01:00Z'
+);
+select is(
+  (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
+  0::numeric,
+  'vollständiger Verbrauch schreibt serverseitig Menge null'
+);
+select isnt(
+  (select deleted_at from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
+  null::timestamptz,
+  'vollständiger Verbrauch erzeugt serverseitig einen Tombstone'
+);
+select is(
+  (select count(*)::int from public.transactions
+   where operation_id = 'ffffffff-ffff-4fff-8fff-ffffffffffff'),
+  1,
+  'vollständiger Verbrauch erzeugt genau eine Ledgerzeile'
 );
 
 select throws_ok(
@@ -114,7 +143,7 @@ select throws_ok(
 );
 select is(
   (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
-  3::numeric,
+  0::numeric,
   'ein abgelehntes Delta verändert den Bestand nicht'
 );
 select is(

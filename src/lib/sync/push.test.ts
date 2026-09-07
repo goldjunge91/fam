@@ -309,6 +309,74 @@ describe('pushOutbox — Tombstone bewahrt den letzten Bestandssnapshot', () => 
 });
 
 describe('pushOutbox — Retry-Abhängigkeiten', () => {
+  it('stoppt nach einem transienten Artikel-Insert-Fehler vor der abhängigen Ledgerbuchung', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+
+    await enqueueMutation(db, {
+      entity: 'fridge_items',
+      entityId: 'item-dependent',
+      op: 'insert',
+      payload: {
+        id: 'item-dependent',
+        household_id: 'hh-1',
+        name: 'Abhängige Milch',
+        quantity: 1,
+        unit: 'piece',
+        created_at: '2026-09-07T10:00:00.000Z',
+      },
+      now: 1,
+      applyLocally: async () => {},
+    });
+    await enqueueMutation(db, {
+      entity: 'transactions',
+      entityId: 'transaction-dependent',
+      op: 'insert',
+      payload: {
+        id: 'transaction-dependent',
+        household_id: 'hh-1',
+        fridge_item_id: 'item-dependent',
+        type: 'in',
+        quantity: 1,
+        created_at: '2026-09-07T10:00:00.000Z',
+      },
+      now: 2,
+      applyLocally: async () => {},
+    });
+
+    const itemInsert = jest.fn().mockReturnValue({
+      select: jest.fn().mockResolvedValue({
+        data: null,
+        error: { code: 'PGRST000', message: 'vorübergehend nicht erreichbar' },
+        status: 503,
+      }),
+    });
+    const transactionInsert = jest.fn().mockReturnValue({
+      select: jest.fn().mockResolvedValue({ data: [], error: null, status: 200 }),
+    });
+    const client = {
+      from: jest.fn((table: string) =>
+        table === 'fridge_items' ? { insert: itemInsert } : { insert: transactionInsert },
+      ),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 2 });
+
+      expect(result.stoppedEarly).toBe(true);
+      expect(result.outcomes).toEqual([
+        expect.objectContaining({ kind: 'failed-transient', entity: 'fridge_items' }),
+      ]);
+      expect(transactionInsert).not.toHaveBeenCalled();
+      expect(
+        await db.getAllAsync<{ entity: string }>('select entity from outbox order by id'),
+      ).toEqual([{ entity: 'fridge_items' }, { entity: 'transactions' }]);
+    } finally {
+      db.close();
+    }
+  });
+
   it('blockiert spaetere Mutationen derselben Zeile, laesst andere Zeilen aber weiterlaufen', async () => {
     const db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);

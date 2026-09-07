@@ -162,6 +162,32 @@ create unique index if not exists transactions_operation_type_idx
   on public.transactions (operation_id, type)
   where operation_id is not null;
 
+-- Identity-Sequenzen vergeben Werte vor dem Commit. Zwei parallele Inserts
+-- können deshalb ihre Werte in umgekehrter Reihenfolge sichtbar machen. Der
+-- Trigger serialisiert die endgültige Vergabe über einen transaction-scoped
+-- Advisory-Lock. Die Identity-Sequenz bleibt absichtlich erhalten: Ihr
+-- Default-Wert wird im Trigger durch den Wert nach dem Lock ersetzt; die dabei
+-- entstehenden Lücken sind für einen Cursor unproblematisch.
+create or replace function private.assign_transaction_sync_sequence()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+begin
+  perform pg_catalog.pg_advisory_xact_lock(41823017);
+  new.sync_sequence := pg_catalog.nextval(
+    pg_catalog.pg_get_serial_sequence('public.transactions', 'sync_sequence')
+  );
+  return new;
+end;
+$$;
+
+create or replace trigger transactions_assign_sync_sequence
+  before insert on public.transactions
+  for each row
+  execute function private.assign_transaction_sync_sequence();
+
 comment on column public.transactions.operation_id is
   'Gemeinsame Provenienz fuer eine atomare Mehrzeilenmutation, z. B. einen Move.';
 comment on column public.transactions.origin_item_id is
@@ -409,9 +435,10 @@ begin
     if existing_transaction.id is distinct from p_transaction_id
       or existing_transaction.fridge_item_id is distinct from p_item_id
       or existing_transaction.type is distinct from expected_type
-      or existing_transaction.quantity is distinct from expected_quantity
-      or existing_transaction.location_id is distinct from current_item.location_id
-      or existing_transaction.product_id is distinct from current_item.product_id then
+      or existing_transaction.quantity is distinct from expected_quantity then
+      -- Idempotenz bezieht sich auf den ursprünglichen Ledger-Nachweis. Der
+      -- Bestand darf sich seit dem ersten erfolgreichen Aufruf weiter bewegt
+      -- oder mit einem anderen Produktbezug angereichert haben.
       raise exception 'Mengenoperation % passt nicht zum vorhandenen Ledger', p_operation_id;
     end if;
     return current_item.id;
