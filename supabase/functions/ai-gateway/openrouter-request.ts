@@ -1,3 +1,5 @@
+import { getModelExecutionProfile } from './config.ts';
+
 export const COOKING_SUGGESTION_RESPONSE_FORMAT = {
   type: 'json_schema',
   json_schema: {
@@ -74,14 +76,15 @@ export function createOpenRouterChatBody(input: {
   model: string;
   messages: OpenRouterMessage[];
   maxTokens?: number;
+  temperature?: number;
 }): Record<string, unknown> {
+  const profile = getModelExecutionProfile(input.model);
   return {
     model: input.model,
     messages: input.messages,
-    max_tokens: input.maxTokens ?? 1_536,
+    temperature: input.temperature ?? profile.temperature,
+    max_tokens: input.maxTokens ?? profile.maxTokens,
     response_format: COOKING_SUGGESTION_RESPONSE_FORMAT,
-    ...(input.model === 'ibm-granite/granite-4.2-8b'
-      ? { reasoning: { enabled: false } }
-      : {}),
+    ...(profile.reasoning ? { reasoning: profile.reasoning } : {}),
   };
 }

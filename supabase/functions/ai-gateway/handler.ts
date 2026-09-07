@@ -13,15 +13,9 @@ import {
   validateRecipeSuggestionResponse,
 } from './recipe-suggestion-contract.ts';
 import type { RecipeSuggestionContext } from './recipe-suggestion-contract.ts';
+import { ALLOWED_MODELS, DEFAULT_MODEL, PROMPTS } from './config.ts';
 
-export const ALLOWED_MODELS = [
-  'ibm-granite/granite-4.2-8b',
-  'google/gemma-4-26b-a4b-it',
-  'qwen/qwen3.8-flash',
-  'z-ai/glm-5.3-flash',
-  'google/gemma-4-31b-it',
-  'minimax/minimax-m3:free',
-] as const;
+export { ALLOWED_MODELS, DEFAULT_MODEL } from './config.ts';
 
 type CaptureRequest = {
   skill: 'fam-inventory-capture';
@@ -244,38 +238,11 @@ function buildSystemPrompt(
   request: GatewayRequest,
   context: GatewayCookingContext | RecipeSuggestionContext,
 ): string {
-  const common = `
-Du bist der read-only Haushaltsassistent von fam. Antworte ausschließlich als
-gültiges JSON ohne Markdown, Kommentare oder zusätzliche Felder. Erfinde keine
-Lebensmittel, Mengen, Daten, Rezept-IDs oder Inventar-Lot-IDs. Führe keine
-Datenbankmutation und keine Aktion außerhalb dieses Aufrufs aus.`;
-
   if (request.skill === 'fam-inventory-capture') {
-    return `${common}
-Szenario: natürliche Erfassung eines deutschen Inventartexts.
-Vertrag: inventory_capture_proposal.v1 mit exakt den Feldern kind, items,
-questions und warnings. Jedes Item enthält exakt rawText, normalizedName,
-quantity, unit, perishability, storage, date, dateKind, confidence, evidence
-und missingFields. "Etwas" bleibt bei quantity null. Evidence muss wörtlich aus
-dem Nutzereingabetext stammen. Das Ergebnis ist ausschließlich ein Proposal, niemals
-eine bestätigte Inventaränderung.`;
+    return `${PROMPTS.common}\n${PROMPTS.inventoryCapture}`;
   }
 
-  return `${common}
-Szenario: Kochvorschlag aus dem autorisierten Inventar.
-Vertrag: exakt {schema_version, meals}. Jede Mahlzeit enthält ausschließlich
-title, source, recipe_id, servings, used_items, additional_ingredients, steps
-und notes. Liefere höchstens drei Mahlzeiten. Verwende recipe_id und
-inventory_item_id ausschließlich aus dem Kontext. Ändere keine Inventar-ID,
-Menge oder Einheit; rechne Einheiten nur innerhalb derselben physikalischen
-Dimension um. Erfinde keine zusätzlichen Zutaten. additional_ingredients darf
-höchstens zwei vom Kontext freigegebene Zutaten enthalten. Wenn kein passendes
-Katalog- oder Vorlagenrezept vorhanden ist, darf source model_generated und
-recipe_id null verwendet werden. Andernfalls muss source zum candidate_recipe
-passen. Die Antwort ist ein Vorschlag und schreibt niemals Daten.
-
-Kanonischer Kontext:
-${JSON.stringify(context)}`;
+  return `${PROMPTS.common}\n${PROMPTS.cookFromInventory(JSON.stringify(context))}`;
 }
 
 function buildUserPrompt(request: GatewayRequest): string {
@@ -452,7 +419,7 @@ function validateCookingResult(result: JsonRecord, context: GatewayCookingContex
 /** Builds the HTTP handler used by the Deno entrypoint and its tests. */
 export function createAiGatewayHandler(dependencies: Dependencies) {
   const allowedModels = dependencies.allowedModels ?? ALLOWED_MODELS;
-  const defaultModel = dependencies.defaultModel ?? 'z-ai/glm-5.3-flash';
+  const defaultModel = dependencies.defaultModel ?? DEFAULT_MODEL;
   const now = dependencies.now ?? (() => new Date().toISOString());
   const requestId = dependencies.requestId ?? (() => crypto.randomUUID());
 
@@ -613,6 +580,13 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
         if (!canonicalContext) return json({ error: 'gateway_context_invalid' }, 500);
         const validation = validateRecipeSuggestionResponse(canonicalContext, parsedResult);
         if (!validation.ok) {
+          console.warn(
+            JSON.stringify({
+              event: 'ai_gateway_contract_violation',
+              issues: validation.issues,
+              content: provider.content,
+            }),
+          );
           return json(
             {
               error: 'provider_contract_violation',

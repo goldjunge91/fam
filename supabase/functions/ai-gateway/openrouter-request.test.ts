@@ -35,7 +35,8 @@ Deno.test('builds a provider body without credentials or caller identifiers', ()
   });
 
   assertEquals(body.model, 'z-ai/glm-5.3-flash');
-  assertEquals(body.max_tokens, 1_536);
+  assertEquals(body.max_tokens, 4_096);
+  assertEquals(body.temperature, 0);
   assertEquals(body.messages, [
     { role: 'system', content: 'system' },
     { role: 'user', content: 'user' },
@@ -45,7 +46,7 @@ Deno.test('builds a provider body without credentials or caller identifiers', ()
   assert(!Object.hasOwn(body, 'userId'), 'user identifiers must stay outside the body');
 });
 
-Deno.test('disables reasoning only for the known Granite profile', () => {
+Deno.test('configures reasoning profiles for Granite and GLM', () => {
   const granite = createOpenRouterChatBody({
     model: 'ibm-granite/granite-4.2-8b',
     messages: [],
@@ -54,7 +55,12 @@ Deno.test('disables reasoning only for the known Granite profile', () => {
     model: 'z-ai/glm-5.3-flash',
     messages: [],
   });
+  const gemma = createOpenRouterChatBody({
+    model: 'google/gemma-4-26b-a4b-it',
+    messages: [],
+  });
 
   assertEquals(granite.reasoning, { enabled: false });
-  assert(!Object.hasOwn(glm, 'reasoning'), 'GLM keeps the provider default reasoning profile');
+  assertEquals(glm.reasoning, { effort: 'low' });
+  assert(!Object.hasOwn(gemma, 'reasoning'), 'Gemma keeps the provider default reasoning profile');
 });

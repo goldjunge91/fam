@@ -1,6 +1,15 @@
 import { act, create, type ReactTestRenderer } from 'react-test-renderer';
 
 import { ChefKochScreen } from './chef-koch-screen';
+import { ChefKochScreen as ChefKochScreenAndroid } from './chef-koch-screen.android';
+
+jest.mock('@/features/recipes/data/recipe-suggestion-gateway', () => ({
+  RecipeSuggestionGatewayError: class RecipeSuggestionGatewayError extends Error {
+    code = 'unknown';
+    status = null;
+    remoteCode = null;
+  },
+}));
 
 const mockMutate = jest.fn();
 const mockCookMutate = jest.fn();
@@ -105,22 +114,16 @@ jest.mock('@/components/theme/ThemeProvider', () => ({
 
 jest.mock('@/constants/ui', () => {
   const React = require('react');
-  const { Text, View } = require('react-native');
+  const { Pressable, Text, View } = require('react-native');
   return {
+    Button: ({ title, onPress }: { title: string; onPress: () => void }) => (
+      <Pressable accessibilityRole="button" accessibilityLabel={title} onPress={onPress}>
+        <Text>{title}</Text>
+      </Pressable>
+    ),
     Row: ({ children }: { children: React.ReactNode }) => <View>{children}</View>,
     Surface: ({ children }: { children: React.ReactNode }) => <View>{children}</View>,
     Txt: ({ children }: { children: React.ReactNode }) => <Text>{children}</Text>,
-  };
-});
-
-jest.mock('@/components/ui/buttons', () => {
-  const { Pressable, Text } = require('react-native');
-  return {
-    Button: ({ label, onPress }: { label: string; onPress: () => void }) => (
-      <Pressable accessibilityRole="button" accessibilityLabel={label} onPress={onPress}>
-        <Text>{label}</Text>
-      </Pressable>
-    ),
   };
 });
 
@@ -131,9 +134,9 @@ describe('Chef-Koch read-only screen', () => {
     return JSON.stringify(renderer.toJSON());
   }
 
-  function press(label: string) {
+  function press(label: string, event?: unknown) {
     const button = renderer.root.find((node) => node.props.accessibilityLabel === label);
-    act(() => button.props.onPress());
+    act(() => button.props.onPress(event));
   }
 
   beforeEach(() => {
@@ -185,8 +188,39 @@ describe('Chef-Koch read-only screen', () => {
     act(() => renderer.update(<ChefKochScreen />));
     expect(textContent()).toContain('Ich konnte gerade keinen Vorschlag laden.');
     press('Erneut versuchen');
-    expect(mockMutate).toHaveBeenCalledTimes(1);
+    expect(mockMutate).toHaveBeenCalledWith({
+      householdId: 'household-1',
+      userText: 'Was soll ich heute kochen?',
+      servings: 2,
+      maxMinutes: null,
+      dietaryPattern: null,
+      shoppingDecision: null,
+    });
     expect(mockCookMutate).not.toHaveBeenCalled();
+  });
+
+  it('keeps Android retry presses from becoming shopping decisions', () => {
+    mockSuggestionState = {
+      data: undefined,
+      isPending: false,
+      isError: true,
+      mutate: mockMutate,
+    };
+
+    act(() => {
+      renderer = create(<ChefKochScreenAndroid />);
+    });
+
+    press('Erneut versuchen', { nativeEvent: { pageX: 10 } });
+
+    expect(mockMutate).toHaveBeenCalledWith({
+      householdId: 'household-1',
+      userText: 'Was soll ich heute kochen?',
+      servings: 2,
+      maxMinutes: null,
+      dietaryPattern: null,
+      shoppingDecision: null,
+    });
   });
 
   it('asks about shopping and resubmits the read-only suggestion request', () => {

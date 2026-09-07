@@ -40,11 +40,18 @@ export type RecipeSuggestionGatewayResponse = {
   shoppingQuestion: string | null;
 };
 
+export type RecipeSuggestionGatewayIssue = {
+  code: string;
+  path: string;
+  message?: string;
+};
+
 export class RecipeSuggestionGatewayError extends Error {
   constructor(
     readonly code: 'gateway_request_failed' | 'gateway_invalid_response' | 'gateway_unavailable',
     readonly status: number | null = null,
     readonly remoteCode: string | null = null,
+    readonly issues: readonly RecipeSuggestionGatewayIssue[] | null = null,
   ) {
     super(code);
     this.name = 'RecipeSuggestionGatewayError';
@@ -66,8 +73,13 @@ function errorStatus(error: unknown): number | null {
   return typeof context.status === 'number' ? context.status : null;
 }
 
-async function errorResponseCode(error: unknown): Promise<string | null> {
-  if (typeof error !== 'object' || error === null || !('context' in error)) return null;
+async function errorResponseDetails(error: unknown): Promise<{
+  remoteCode: string | null;
+  issues: RecipeSuggestionGatewayIssue[] | null;
+}> {
+  if (typeof error !== 'object' || error === null || !('context' in error)) {
+    return { remoteCode: null, issues: null };
+  }
   const context = error.context;
   if (
     typeof context !== 'object' ||
@@ -75,20 +87,29 @@ async function errorResponseCode(error: unknown): Promise<string | null> {
     !('clone' in context) ||
     typeof context.clone !== 'function'
   ) {
-    return null;
+    return { remoteCode: null, issues: null };
   }
 
   try {
     const response = context.clone();
     const body: unknown = await response.json();
-    return typeof body === 'object' &&
-      body !== null &&
-      'error' in body &&
-      typeof body.error === 'string'
-      ? body.error
-      : null;
+    if (typeof body !== 'object' || body === null) {
+      return { remoteCode: null, issues: null };
+    }
+    const remoteCode = 'error' in body && typeof body.error === 'string' ? body.error : null;
+    let issues: RecipeSuggestionGatewayIssue[] | null = null;
+    if ('issues' in body && Array.isArray(body.issues)) {
+      issues = body.issues.filter(
+        (item): item is RecipeSuggestionGatewayIssue =>
+          typeof item === 'object' &&
+          item !== null &&
+          typeof item.code === 'string' &&
+          typeof item.path === 'string',
+      );
+    }
+    return { remoteCode, issues };
   } catch {
-    return null;
+    return { remoteCode: null, issues: null };
   }
 }
 
@@ -198,23 +219,26 @@ export async function requestRecipeSuggestions(
 
   if (error) {
     const status = errorStatus(error);
-    const remoteCode = await errorResponseCode(error);
+    const { remoteCode, issues } = await errorResponseDetails(error);
     const gatewayError = new RecipeSuggestionGatewayError(
       status !== null && status >= 500 ? 'gateway_unavailable' : 'gateway_request_failed',
       status,
       remoteCode,
+      issues,
     );
     debugLogEvent('recipe-suggestion.gateway.request.failed', {
       phase: 'response',
       code: gatewayError.code,
       status,
       remote_code: remoteCode,
+      issues_count: issues?.length ?? 0,
     });
     if (__DEV__) {
       console.warn('[ChefKoch] Vorschlagsanfrage fehlgeschlagen', {
         code: gatewayError.code,
         status,
         remoteCode,
+        issues,
       });
     }
     throw gatewayError;

@@ -10,8 +10,7 @@ import {
 
 import { Screen, ScreenHeader } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button } from '@/components/ui/buttons';
-import { Row, Surface, Txt } from '@/constants/ui';
+import { Button, Row, Surface, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useInventoryItems } from '@/features/inventory/use-inventory-items';
 import { RecipeSuggestionGatewayError } from '@/features/recipes/data/recipe-suggestion-gateway';
@@ -101,7 +100,7 @@ export function ChefKochScreen() {
       : 'Ich konnte gerade keinen Vorschlag laden.';
   const developerErrorDetails =
     __DEV__ && suggestionError instanceof RecipeSuggestionGatewayError
-      ? ` (${suggestionError.code}${suggestionError.status === null ? '' : `, HTTP ${suggestionError.status}`}${suggestionError.remoteCode === null ? '' : `, ${suggestionError.remoteCode}`})`
+      ? ` (${suggestionError.code}${suggestionError.status === null ? '' : `, HTTP ${suggestionError.status}`}${suggestionError.remoteCode === null ? '' : `, ${suggestionError.remoteCode}`}${suggestionError.issues && suggestionError.issues.length > 0 ? `: ${suggestionError.issues.map((i) => `${i.code}@${i.path}`).join(', ')}` : ''})`
       : '';
 
   function openCookReview(mealIndex: number) {
@@ -157,9 +156,9 @@ export function ChefKochScreen() {
                 {developerErrorDetails}
               </Txt>
               <Button
-                label="Erneut versuchen"
+                title="Erneut versuchen"
                 variant="secondary"
-                onPress={askChef}
+                onPress={() => askChef()}
                 style={{ marginTop: 12 }}
               />
             </Surface>
@@ -170,16 +169,16 @@ export function ChefKochScreen() {
               <Txt>{suggestion.data.shoppingQuestion}</Txt>
               <Row gap={8} style={{ marginTop: 12 }}>
                 <Button
-                  label="Ja, heute"
-                  size="compact"
+                  title="Ja, heute"
+                  size="sm"
                   onPress={() => {
                     setShoppingDecision('yes');
                     askChef('yes');
                   }}
                 />
                 <Button
-                  label="Nein"
-                  size="compact"
+                  title="Nein"
+                  size="sm"
                   variant="secondary"
                   onPress={() => {
                     setShoppingDecision('no');
@@ -229,12 +228,12 @@ export function ChefKochScreen() {
               ) : null}
               <Row gap={8} style={{ marginTop: 14 }}>
                 <Button
-                  label="Rezept speichern"
+                  title="Rezept speichern"
                   variant="secondary"
-                  size="compact"
+                  size="sm"
                   onPress={() => undefined}
                 />
-                <Button label="Kochen" size="compact" onPress={() => openCookReview(mealIndex)} />
+                <Button title="Kochen" size="sm" onPress={() => openCookReview(mealIndex)} />
               </Row>
             </Surface>
           ))}
@@ -319,7 +318,7 @@ export function ChefKochScreen() {
                 </Txt>
               ) : null}
               <Button
-                label="Gekocht bestätigen"
+                title="Gekocht bestätigen"
                 loading={cookMutation.isPending}
                 disabled={cookReview.status !== 'pending_confirmation'}
                 onPress={confirmCooked}

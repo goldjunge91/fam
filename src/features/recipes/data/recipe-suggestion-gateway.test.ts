@@ -210,4 +210,37 @@ describe('recipe suggestion gateway', () => {
       status: 429,
     });
   });
+
+  it('captures remote issues from provider contract violations', async () => {
+    const mockResponse = {
+      clone: () => ({
+        json: async () => ({
+          error: 'provider_contract_violation',
+          issues: [{ code: 'unapproved_ingredient', path: '$.meals[0].additional_ingredients[0]' }],
+        }),
+      }),
+      status: 502,
+    };
+    const client = invoker(null, { context: mockResponse });
+
+    await expect(
+      requestRecipeSuggestions(
+        {
+          householdId: 'household-1',
+          userText: 'Was kann ich kochen?',
+          servings: null,
+          maxMinutes: null,
+          dietaryPattern: null,
+          shoppingDecision: 'no',
+        },
+        client.functions,
+      ),
+    ).rejects.toMatchObject({
+      name: 'RecipeSuggestionGatewayError',
+      code: 'gateway_unavailable',
+      status: 502,
+      remoteCode: 'provider_contract_violation',
+      issues: [{ code: 'unapproved_ingredient', path: '$.meals[0].additional_ingredients[0]' }],
+    });
+  });
 });

@@ -1,8 +1,8 @@
 // @ts-nocheck deno-lint-ignore-file
 import { createClient } from 'jsr:@supabase/supabase-js@2';
 
+import { ALLOWED_MODELS, DEFAULT_MODEL } from './config.ts';
 import {
-  ALLOWED_MODELS,
   createAiGatewayHandler,
   type GatewayCookingContext,
   type GatewayInventoryContext,
@@ -19,7 +19,7 @@ const anonKey =
 const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
 const openRouterKey = Deno.env.get('OPENROUTER_API_KEY');
 const openRouterBaseUrl = (Deno.env.get('OPENROUTER_BASE_URL') ?? 'https://openrouter.ai/api/v1').replace(/\/$/, '');
-const defaultModel = Deno.env.get('AI_GATEWAY_MODEL') ?? 'z-ai/glm-5.3-flash';
+const defaultModel = Deno.env.get('AI_GATEWAY_MODEL') ?? DEFAULT_MODEL;
 const llmEnabled = (Deno.env.get('AI_GATEWAY_LLM_ENABLED') ?? 'false').trim().toLowerCase() === 'true';
 const allowedModels = (Deno.env.get('AI_GATEWAY_ALLOWED_MODELS') ?? '')
   .split(',')
@@ -113,11 +113,14 @@ async function releaseCredit(requestId: string): Promise<void> {
   }
 }
 
-function readErrorCode(value: unknown): string | null {
+export function readErrorCode(value: unknown): string | null {
   if (typeof value !== 'object' || value === null || !('error' in value)) return null;
-  const error = value.error;
+  const error = (value as { error: unknown }).error;
+  if (typeof error === 'string') return error;
   if (typeof error !== 'object' || error === null || !('code' in error)) return null;
-  return typeof error.code === 'string' ? error.code : null;
+  return typeof (error as { code: unknown }).code === 'string'
+    ? ((error as { code: string }).code)
+    : null;
 }
 
 async function readResponseErrorCode(response: Response): Promise<string | null> {
