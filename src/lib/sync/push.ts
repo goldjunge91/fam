@@ -82,6 +82,19 @@ async function hasPendingMutation(
   return row !== null;
 }
 
+async function hasPendingFridgeItemInsert(db: SqlDatabase, itemId: string): Promise<boolean> {
+  const row = await db.getFirstAsync<{ id: number }>(
+    `select id
+       from outbox
+      where entity = 'fridge_items'
+        and entity_id = ?
+        and op = 'insert'
+      limit 1`,
+    [itemId],
+  );
+  return row !== null;
+}
+
 type MoveRpcArgs = {
   p_operation_id: string;
   p_item_id: string;
@@ -925,6 +938,20 @@ export async function pushOutbox(deps: {
 
   let stoppedEarly = false;
   for (const push of pushes) {
+    if (push.entity === 'transactions') {
+      const referencedItemIds = [push.payload.fridge_item_id, push.payload.origin_item_id].filter(
+        (itemId): itemId is string => typeof itemId === 'string',
+      );
+      let hasPendingDependency = false;
+      for (const itemId of new Set(referencedItemIds)) {
+        if (await hasPendingFridgeItemInsert(deps.db, itemId)) {
+          hasPendingDependency = true;
+          break;
+        }
+      }
+      if (hasPendingDependency) continue;
+    }
+
     const currentAttempts = Math.max(0, ...push.sourceIds.map((id) => attemptsById.get(id) ?? 0));
     const { outcome, stop } = await applyOnePush(
       deps.db,

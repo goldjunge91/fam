@@ -3,6 +3,7 @@ import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation, recordOutboxOutcome } from '@/lib/db/outbox';
 import type { TypedSupabaseClient } from '@/lib/supabase';
+import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { createInventoryQuantityMutation } from '@/lib/sync/inventory-quantity';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { pushOutbox } from '@/lib/sync/push';
@@ -372,6 +373,169 @@ describe('pushOutbox — Retry-Abhängigkeiten', () => {
       expect(
         await db.getAllAsync<{ entity: string }>('select entity from outbox order by id'),
       ).toEqual([{ entity: 'fridge_items' }, { entity: 'transactions' }]);
+    } finally {
+      db.close();
+    }
+  });
+
+  it('stellt eine fällige Ledgerbuchung zurück, wenn der Artikel-Insert noch im Backoff wartet', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+
+    await enqueueMutation(db, {
+      entity: 'fridge_items',
+      entityId: 'item-backoff',
+      op: 'insert',
+      payload: {
+        id: 'item-backoff',
+        household_id: 'hh-1',
+        name: 'Wartende Milch',
+        quantity: 1,
+        unit: 'piece',
+        created_at: '2026-09-07T10:00:00.000Z',
+      },
+      now: 1,
+      applyLocally: async () => {},
+    });
+    const [itemInsert] = await db.getAllAsync<{ id: number }>(
+      "select id from outbox where entity = 'fridge_items'",
+    );
+    await recordOutboxOutcome(db, [itemInsert.id], {
+      attempts: 1,
+      lastError: 'timeout',
+      nextAttemptAtMs: 1_000,
+    });
+    await enqueueMutation(db, {
+      entity: 'transactions',
+      entityId: 'transaction-backoff',
+      op: 'insert',
+      payload: {
+        id: 'transaction-backoff',
+        household_id: 'hh-1',
+        fridge_item_id: 'item-backoff',
+        type: 'in',
+        quantity: 1,
+        created_at: '2026-09-07T10:00:00.000Z',
+      },
+      now: 2,
+      applyLocally: async () => {},
+    });
+
+    const transactionInsert = jest.fn().mockReturnValue({
+      select: jest.fn().mockResolvedValue({
+        data: [
+          {
+            id: 'transaction-backoff',
+            household_id: 'hh-1',
+            type: 'in',
+            quantity: 1,
+            undone: false,
+            created_at: '2026-09-07T10:00:00.000Z',
+          },
+        ],
+        error: null,
+        status: 200,
+      }),
+    });
+    const client = {
+      from: jest.fn().mockReturnValue({ insert: transactionInsert }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 500 });
+
+      expect(result.outcomes).toEqual([]);
+      expect(transactionInsert).not.toHaveBeenCalled();
+      expect(
+        await db.getFirstAsync<{ attempts: number; last_error: string; next_attempt_at: number }>(
+          'select attempts, last_error, next_attempt_at from outbox where id = ?',
+          [itemInsert.id],
+        ),
+      ).toEqual({ attempts: 1, last_error: 'timeout', next_attempt_at: 1_000 });
+    } finally {
+      db.close();
+    }
+  });
+
+  it('stellt eine Ledgerbuchung auch bei einem wartenden Split-Ursprung zurück', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+
+    await enqueueMutation(db, {
+      entity: 'fridge_items',
+      entityId: 'item-origin-backoff',
+      op: 'insert',
+      payload: {
+        id: 'item-origin-backoff',
+        household_id: 'hh-1',
+        name: 'Ursprungs-Milch',
+        quantity: 2,
+        unit: 'piece',
+        created_at: '2026-09-07T10:00:00.000Z',
+      },
+      now: 1,
+      applyLocally: async () => {},
+    });
+    const [originInsert] = await db.getAllAsync<{ id: number }>(
+      "select id from outbox where entity = 'fridge_items'",
+    );
+    await recordOutboxOutcome(db, [originInsert.id], {
+      attempts: MAX_ATTEMPTS,
+      lastError: 'timeout',
+      nextAttemptAtMs: 1_000,
+    });
+    await enqueueMutation(db, {
+      entity: 'transactions',
+      entityId: 'transaction-origin-backoff',
+      op: 'insert',
+      payload: {
+        id: 'transaction-origin-backoff',
+        household_id: 'hh-1',
+        fridge_item_id: 'existing-item',
+        origin_item_id: 'item-origin-backoff',
+        origin_quantity: 1,
+        type: 'open',
+        quantity: 1,
+        previous_expiry_date: '2026-09-10',
+        created_at: '2026-09-07T10:00:00.000Z',
+      },
+      now: 2,
+      applyLocally: async () => {},
+    });
+
+    const transactionInsert = jest.fn().mockReturnValue({
+      select: jest.fn().mockResolvedValue({
+        data: [
+          {
+            id: 'transaction-origin-backoff',
+            household_id: 'hh-1',
+            type: 'open',
+            quantity: 1,
+            undone: false,
+            created_at: '2026-09-07T10:00:00.000Z',
+          },
+        ],
+        error: null,
+        status: 200,
+      }),
+    });
+    const client = {
+      from: jest.fn().mockReturnValue({ insert: transactionInsert }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 500 });
+
+      expect(result.outcomes).toEqual([]);
+      expect(transactionInsert).not.toHaveBeenCalled();
+      expect(
+        await db.getFirstAsync<{ attempts: number; last_error: string; next_attempt_at: number }>(
+          'select attempts, last_error, next_attempt_at from outbox where id = ?',
+          [originInsert.id],
+        ),
+      ).toEqual({ attempts: MAX_ATTEMPTS, last_error: 'timeout', next_attempt_at: 1_000 });
     } finally {
       db.close();
     }
