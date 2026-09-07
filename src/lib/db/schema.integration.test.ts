@@ -166,6 +166,37 @@ describe('lokales Schema', () => {
     }
   });
 
+  it('erlaubt pro operation_id hoechstens eine in- und eine out-Zeile', async () => {
+    for (const [id, type] of [
+      ['tx-unique-in-1', 'in'],
+      ['tx-unique-out-1', 'out'],
+    ] as const) {
+      await db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, type, quantity, updated_at)
+         values (?, ?, ?, ?, ?, ?)`,
+        [id, 'operation-unique', 'household-1', type, 1, 0],
+      );
+    }
+
+    await expect(
+      db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, type, quantity, updated_at)
+         values (?, ?, ?, ?, ?, ?)`,
+        ['tx-unique-in-2', 'operation-unique', 'household-1', 'in', 1, 0],
+      ),
+    ).rejects.toThrow();
+    await expect(
+      db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, type, quantity, updated_at)
+         values (?, ?, ?, ?, ?, ?)`,
+        ['tx-unique-out-2', 'operation-unique', 'household-1', 'out', 1, 0],
+      ),
+    ).rejects.toThrow();
+  });
+
   it('spiegelt Plus und AI getrennt und entfernt den alten Premium-Zustand', async () => {
     const names = (await columnsOf(db, 'households')).map((column) => column.name);
 

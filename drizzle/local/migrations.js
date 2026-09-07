@@ -10,7 +10,8 @@ import m0006 from './20260904080304_black_ego/migration.sql';
 import m0007 from './20260906230504_open_doorman/migration.sql';
 import m0008 from './20260907004324_mysterious_prism/migration.sql';
 import m0009 from './20260907020911_superb_banshee/migration.sql';
-import m0010 from './20260907120000_inventory_expiry_user_set_backfill/migration.sql';
+import m0010 from './20260907021951_parallel_reavers/migration.sql';
+import m0011 from './20260907120000_inventory_expiry_user_set_backfill/migration.sql';
 
 export default {
   migrations: {
@@ -24,6 +25,7 @@ export default {
     '20260906230504_open_doorman': m0007,
     '20260907004324_mysterious_prism': m0008,
     '20260907020911_superb_banshee': m0009,
-    '20260907120000_inventory_expiry_user_set_backfill': m0010,
+    '20260907021951_parallel_reavers': m0010,
+    '20260907120000_inventory_expiry_user_set_backfill': m0011,
   },
 };
