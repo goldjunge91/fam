@@ -90,6 +90,10 @@ export const transactions = sqliteTable(
       sql`${table.previousExpiryDate} is null or ${table.type} = 'open'`,
     ),
     check(
+      'transactions_operation_id_move_type',
+      sql`${table.operationId} is null or ${table.type} in ('in', 'out')`,
+    ),
+    check(
       'transactions_notes_length_check',
       sql`${table.notes} is null or length(${table.notes}) <= 500`,
     ),

@@ -628,4 +628,38 @@ describe('applyLocalMirrorWrite', () => {
       ),
     ).resolves.toBeUndefined();
   });
+
+  it('transactions bleiben auch am lokalen Schreibadapter append-only', async () => {
+    const payload = {
+      id: 'tx-1',
+      operation_id: null,
+      household_id: 'hh-1',
+      fridge_item_id: null,
+      product_id: null,
+      actor: null,
+      type: 'in',
+      quantity: 1,
+      location_id: null,
+      reason: null,
+      previous_expiry_date: null,
+      notes: null,
+      undone: false,
+      created_at: '2026-01-01T00:00:00Z',
+    };
+    await applyLocalMirrorWrite(db, 'transactions', 'insert', payload, 1_000);
+
+    await expect(
+      applyLocalMirrorWrite(db, 'transactions', 'update', { id: payload.id, quantity: 2 }, 2_000),
+    ).rejects.toThrow(/append-only/);
+    await expect(
+      applyLocalMirrorWrite(db, 'transactions', 'delete', { id: payload.id }, 3_000),
+    ).rejects.toThrow(/append-only/);
+
+    await expect(
+      db.getFirstAsync<{ quantity: number; deleted_at: number | null }>(
+        'select quantity, deleted_at from transactions where id = ?',
+        [payload.id],
+      ),
+    ).resolves.toEqual({ quantity: 1, deleted_at: null });
+  });
 });

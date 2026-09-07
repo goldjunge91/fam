@@ -137,6 +137,10 @@ export async function applyLocalMirrorWrite(
 ): Promise<void> {
   const meta = mirrorMetaOf(entity);
 
+  if (meta.appendOnly && op !== 'insert') {
+    throw new Error(`${entity} ist append-only und akzeptiert ausschliesslich insert.`);
+  }
+
   if (op === 'delete' || op === 'restore') {
     await txn.runAsync(
       `update ${meta.table} set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?`,
