@@ -13,9 +13,33 @@
 import type { OffFetchResult } from "./handler.ts";
 
 const OFF_USER_AGENT = "FamApp-Backend/1.0 (contact@fam.app)";
-const OFF_FETCH_TIMEOUT_MS = Number(
-  Deno.env.get("OFF_ENRICHMENT_FETCH_TIMEOUT_MS") ?? 10_000,
-);
+export const DEFAULT_OFF_FETCH_TIMEOUT_MS = 10_000;
+
+export function resolveOffFetchTimeoutMs(
+  configuredTimeoutMs: string | undefined,
+  cacheLeaseSeconds: number,
+): number {
+  if (!Number.isFinite(cacheLeaseSeconds) || cacheLeaseSeconds <= 0) {
+    throw new Error(
+      "OFF_ENRICHMENT_CACHE_LEASE_SECONDS muss positiv und endlich sein.",
+    );
+  }
+
+  const timeoutMs = configuredTimeoutMs === undefined
+    ? DEFAULT_OFF_FETCH_TIMEOUT_MS
+    : Number(configuredTimeoutMs);
+  const cacheLeaseMs = cacheLeaseSeconds * 1_000;
+  if (
+    !Number.isFinite(timeoutMs) ||
+    timeoutMs <= 0 ||
+    timeoutMs >= cacheLeaseMs
+  ) {
+    throw new Error(
+      "OFF_ENRICHMENT_FETCH_TIMEOUT_MS muss positiv und kürzer als die Cache-Lease sein.",
+    );
+  }
+  return timeoutMs;
+}
 
 /**
  * Parst eine rohe OFF-v3-Antwort. Verlangt sowohl `status: "success"` als
@@ -71,7 +95,7 @@ export function parseOffResponse(
 
 export async function fetchOffProduct(
   ean: string,
-  timeoutMs = OFF_FETCH_TIMEOUT_MS,
+  timeoutMs = DEFAULT_OFF_FETCH_TIMEOUT_MS,
 ): Promise<OffFetchResult> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);

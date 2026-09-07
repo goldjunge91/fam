@@ -1,6 +1,27 @@
-import { assertEquals } from "jsr:@std/assert@1";
+import { assertEquals, assertThrows } from "jsr:@std/assert@1";
 
-import { fetchOffProduct, parseOffResponse } from "./off-client.ts";
+import {
+  fetchOffProduct,
+  parseOffResponse,
+  resolveOffFetchTimeoutMs,
+} from "./off-client.ts";
+
+Deno.test("verwendet den positiven Standard-Timeout unterhalb der Cache-Lease", () => {
+  assertEquals(resolveOffFetchTimeoutMs(undefined, 30), 10_000);
+  assertThrows(() => resolveOffFetchTimeoutMs(undefined, 5));
+});
+
+Deno.test("akzeptiert einen positiven Timeout nur unterhalb der Cache-Lease", () => {
+  assertEquals(resolveOffFetchTimeoutMs("29999", 30), 29999);
+  assertThrows(() => resolveOffFetchTimeoutMs("30000", 30));
+  assertThrows(() => resolveOffFetchTimeoutMs("30_001", 30));
+});
+
+Deno.test("weist nicht-positive und nicht-endliche OFF-Timeouts zurück", () => {
+  for (const value of ["0", "-1", "NaN", "Infinity", ""]) {
+    assertThrows(() => resolveOffFetchTimeoutMs(value, 30));
+  }
+});
 
 Deno.test("parst eine erfolgreiche v3-Antwort mit Tags und Zeitstempel", () => {
   const result = parseOffResponse(200, {

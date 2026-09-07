@@ -7,7 +7,7 @@ import {
   type OffCacheClaim,
   type OffFetchResult,
 } from "./handler.ts";
-import { fetchOffProduct } from "./off-client.ts";
+import { fetchOffProduct, resolveOffFetchTimeoutMs } from "./off-client.ts";
 import { SlidingWindowRateLimiter } from "./rate-limiter.ts";
 
 /**
@@ -35,6 +35,10 @@ const cacheTtlSeconds = Number(
 );
 const cacheLeaseSeconds = Number(
   Deno.env.get("OFF_ENRICHMENT_CACHE_LEASE_SECONDS") ?? 30,
+);
+const offFetchTimeoutMs = resolveOffFetchTimeoutMs(
+  Deno.env.get("OFF_ENRICHMENT_FETCH_TIMEOUT_MS"),
+  cacheLeaseSeconds,
 );
 
 const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -163,7 +167,7 @@ Deno.serve(
     checkRequestLimit,
     isRateLimited: () => upstreamRateLimiter.isLimited(),
     recordAttempt: () => upstreamRateLimiter.record(),
-    fetchOffProduct,
+    fetchOffProduct: (ean) => fetchOffProduct(ean, offFetchTimeoutMs),
     claimCache,
     storeCache,
     releaseCache,

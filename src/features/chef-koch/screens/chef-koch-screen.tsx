@@ -85,23 +85,20 @@ export function ChefKochScreen() {
     ? createRecipeSuggestionReview(suggestion.data.result)
     : null;
   const suggestionError = suggestion.error;
+  const gatewayErrorMessages: Record<string, string> = {
+    llm_temporarily_disabled:
+      'Die KI-Vorschläge sind vorübergehend pausiert. Katalogrezepte bleiben verfügbar.',
+    no_safe_recipe:
+      'Ich finde gerade keinen sicheren Vorschlag für euren Bestand. Prüfe bitte die hinterlegten Lebensmittel.',
+    rate_limited: 'Zu viele KI-Anfragen. Bitte kurz warten.',
+    ai_credit_limit_exceeded: 'Dein KI-Kontingent ist aufgebraucht.',
+    ai_entitlement_required: 'Für diese KI-Funktion ist kein aktives KI-Kontingent verfügbar.',
+  };
   const userFacingErrorMessage =
-    suggestionError instanceof RecipeSuggestionGatewayError &&
-    suggestionError.remoteCode === 'llm_temporarily_disabled'
-      ? 'Die KI-Vorschläge sind vorübergehend pausiert. Katalogrezepte bleiben verfügbar.'
-      : suggestionError instanceof RecipeSuggestionGatewayError &&
-          suggestionError.remoteCode === 'no_safe_recipe'
-        ? 'Ich finde gerade keinen sicheren Vorschlag für euren Bestand. Prüfe bitte die hinterlegten Lebensmittel.'
-        : suggestionError instanceof RecipeSuggestionGatewayError &&
-            suggestionError.remoteCode === 'rate_limited'
-          ? 'Zu viele KI-Anfragen. Bitte kurz warten.'
-          : suggestionError instanceof RecipeSuggestionGatewayError &&
-              suggestionError.remoteCode === 'ai_credit_limit_exceeded'
-            ? 'Dein KI-Kontingent ist aufgebraucht.'
-            : suggestionError instanceof RecipeSuggestionGatewayError &&
-                suggestionError.remoteCode === 'ai_entitlement_required'
-              ? 'Für diese KI-Funktion ist kein aktives KI-Kontingent verfügbar.'
-              : 'Ich konnte gerade keinen Vorschlag laden.';
+    suggestionError instanceof RecipeSuggestionGatewayError
+      ? (gatewayErrorMessages[suggestionError.remoteCode ?? ''] ??
+        'Ich konnte gerade keinen Vorschlag laden.')
+      : 'Ich konnte gerade keinen Vorschlag laden.';
   const developerErrorDetails =
     __DEV__ && suggestionError instanceof RecipeSuggestionGatewayError
       ? ` (${suggestionError.code}${suggestionError.status === null ? '' : `, HTTP ${suggestionError.status}`}${suggestionError.remoteCode === null ? '' : `, ${suggestionError.remoteCode}`})`

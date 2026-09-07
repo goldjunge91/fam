@@ -584,50 +584,56 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
 
     let keepCredit = false;
     try {
-    const provider = await dependencies.complete({
-      model,
-      messages: [
-        { role: 'system', content: buildSystemPrompt(parsedRequest, preparedContext) },
-        { role: 'user', content: buildUserPrompt(parsedRequest) },
-      ],
-    });
-    if (!provider.ok) {
-      return json({ error: provider.error, ...(provider.message ? { message: provider.message } : {}) }, provider.status);
-    }
-    if (provider.model !== model || !allowedModels.includes(provider.model)) {
-      return json({ error: 'provider_model_mismatch' }, 502);
-    }
-
-    const parsedResult = parseProviderJson(provider.content);
-    if (!parsedResult) return json({ error: 'provider_invalid_json' }, 502);
-    let validatedResult: unknown = parsedResult;
-
-    if (parsedRequest.skill === 'fam-inventory-capture') {
-      const validationError = validateCaptureResult(parsedResult, parsedRequest);
-      if (validationError) return json({ error: validationError }, 502);
-    } else {
-      const canonicalContext = canonicalContextResult?.context;
-      if (!canonicalContext) return json({ error: 'gateway_context_invalid' }, 500);
-      const validation = validateRecipeSuggestionResponse(canonicalContext, parsedResult);
-      if (!validation.ok) {
-        return json({
-          error: 'provider_contract_violation',
-          issues: validation.issues.map(({ code, path }) => ({ code, path })),
-        }, 502);
+      const provider = await dependencies.complete({
+        model,
+        messages: [
+          { role: 'system', content: buildSystemPrompt(parsedRequest, preparedContext) },
+          { role: 'user', content: buildUserPrompt(parsedRequest) },
+        ],
+      });
+      if (!provider.ok) {
+        return json(
+          { error: provider.error, ...(provider.message ? { message: provider.message } : {}) },
+          provider.status,
+        );
       }
-      validatedResult = validation.value;
-    }
+      if (provider.model !== model || !allowedModels.includes(provider.model)) {
+        return json({ error: 'provider_model_mismatch' }, 502);
+      }
 
-    const response = json({
-      requestId: providerRequestId,
-      skill: parsedRequest.skill,
-      model: provider.model,
-      result: validatedResult,
-      priorityFoodCount: canonicalContextResult?.context.priority_foods.length ?? 0,
-      generatedAt: now(),
-    });
-    keepCredit = true;
-    return response;
+      const parsedResult = parseProviderJson(provider.content);
+      if (!parsedResult) return json({ error: 'provider_invalid_json' }, 502);
+      let validatedResult: unknown = parsedResult;
+
+      if (parsedRequest.skill === 'fam-inventory-capture') {
+        const validationError = validateCaptureResult(parsedResult, parsedRequest);
+        if (validationError) return json({ error: validationError }, 502);
+      } else {
+        const canonicalContext = canonicalContextResult?.context;
+        if (!canonicalContext) return json({ error: 'gateway_context_invalid' }, 500);
+        const validation = validateRecipeSuggestionResponse(canonicalContext, parsedResult);
+        if (!validation.ok) {
+          return json(
+            {
+              error: 'provider_contract_violation',
+              issues: validation.issues.map(({ code, path }) => ({ code, path })),
+            },
+            502,
+          );
+        }
+        validatedResult = validation.value;
+      }
+
+      const response = json({
+        requestId: providerRequestId,
+        skill: parsedRequest.skill,
+        model: provider.model,
+        result: validatedResult,
+        priorityFoodCount: canonicalContextResult?.context.priority_foods.length ?? 0,
+        generatedAt: now(),
+      });
+      keepCredit = true;
+      return response;
     } finally {
       if (!bypassCredits && !keepCredit) {
         await dependencies.releaseCredit(providerRequestId);
