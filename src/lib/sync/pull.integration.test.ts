@@ -157,6 +157,97 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
     expect(distinctIds?.c).toBe(520);
   }, 60_000);
 
+  it('pullt transactions nur fuer die angeforderten Haushalte', async () => {
+    const ownTransactionId = crypto.randomUUID();
+    const { error: ownError } = await client.from('transactions').insert({
+      id: ownTransactionId,
+      household_id: householdId,
+      type: 'in',
+      quantity: 1,
+      created_at: '2026-09-07T10:00:00Z',
+    });
+    expect(ownError).toBeNull();
+
+    const otherClient = makeClient();
+    const otherHouseholdId = await signUpAndCreateHousehold(otherClient);
+    const otherTransactionId = crypto.randomUUID();
+    const { error: otherError } = await otherClient.from('transactions').insert({
+      id: otherTransactionId,
+      household_id: otherHouseholdId,
+      type: 'in',
+      quantity: 1,
+      created_at: '2026-09-07T10:00:00Z',
+    });
+    expect(otherError).toBeNull();
+
+    const outcomes = await pullHousehold({
+      db,
+      supabase: client,
+      householdIds: [householdId],
+      clockCeilingMs: Date.now(),
+      entities: ['transactions'],
+    });
+
+    expect(outcomes.find((outcome) => outcome.entity === 'transactions')).toMatchObject({
+      rowsWritten: 1,
+      rowsSkippedAsLocalWins: 0,
+    });
+    const rows = await db.getAllAsync<{ id: string; household_id: string }>(
+      'select id, household_id from transactions',
+    );
+    expect(rows).toEqual([{ id: ownTransactionId, household_id: householdId }]);
+  }, 30_000);
+
+  it('verwendet bei transactions created_at und id als stabilen Pull-Cursor', async () => {
+    const createdAt = '2026-09-07T10:00:00Z';
+    const firstId = '00000000-0000-0000-0000-000000000001';
+    const secondId = '00000000-0000-0000-0000-000000000002';
+    const { error: seedError } = await client.from('transactions').insert([
+      { id: firstId, household_id: householdId, type: 'in', quantity: 1, created_at: createdAt },
+      { id: secondId, household_id: householdId, type: 'out', quantity: 1, created_at: createdAt },
+    ]);
+    expect(seedError).toBeNull();
+
+    const firstPull = await pullHousehold({
+      db,
+      supabase: client,
+      householdIds: [householdId],
+      clockCeilingMs: Date.now(),
+      entities: ['transactions'],
+    });
+    expect(firstPull.find((outcome) => outcome.entity === 'transactions')).toMatchObject({
+      rowsWritten: 2,
+    });
+
+    const thirdId = '00000000-0000-0000-0000-000000000003';
+    const { error: nextError } = await client.from('transactions').insert({
+      id: thirdId,
+      household_id: householdId,
+      type: 'waste',
+      quantity: 1,
+      reason: 'expired',
+      created_at: '2026-09-07T10:00:01Z',
+    });
+    expect(nextError).toBeNull();
+
+    const secondPull = await pullHousehold({
+      db,
+      supabase: client,
+      householdIds: [householdId],
+      clockCeilingMs: Date.now(),
+      entities: ['transactions'],
+    });
+    expect(secondPull.find((outcome) => outcome.entity === 'transactions')).toMatchObject({
+      pagesFetched: 1,
+      rowsWritten: 1,
+    });
+
+    const rows = await db.getAllAsync<{ id: string }>(
+      'select id from transactions order by created_at, id',
+    );
+    expect(rows).toEqual([{ id: firstId }, { id: secondId }, { id: thirdId }]);
+  }, 30_000);
+
   it('pullt Tombstones — ein remote geloeschter Artikel wird lokal als geloescht markiert', async () => {
     const { data: created } = await client
       .from('fridge_items')
