@@ -4,6 +4,7 @@ import type { Entity, SqlDatabase } from '@/lib/db/types';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { backoffDelayMs, classifyError, MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { type CoalescedEntry, coalesce } from '@/lib/sync/coalesce';
+import { parseInventoryMovePayload } from '@/lib/sync/inventory-move';
 import { upsertMirrorRow } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 
@@ -134,6 +135,211 @@ async function attempt(
   return response as AttemptResult;
 }
 
+async function attemptInventoryMove(
+  supabase: TypedSupabaseClient,
+  entry: CoalescedEntry,
+): Promise<AttemptResult> {
+  let move: ReturnType<typeof parseInventoryMovePayload>;
+  try {
+    move = parseInventoryMovePayload(entry.payload);
+  } catch (error) {
+    return {
+      data: null,
+      error: {
+        code: 'move_payload_invalid',
+        message: error instanceof Error ? error.message : String(error),
+      },
+      status: 400,
+    };
+  }
+
+  if (move.item_id !== entry.entityId) {
+    return {
+      data: null,
+      error: {
+        code: 'move_payload_invalid',
+        message: 'Move-Payload und Outbox-Entity zeigen auf unterschiedliche Bestände.',
+      },
+      status: 400,
+    };
+  }
+
+  const rpcResponse = await supabase.rpc('move_fridge_item', {
+    p_operation_id: move.operation_id,
+    p_item_id: move.item_id,
+    p_household_id: move.household_id,
+    p_expected_location_id: move.expected_location_id,
+    p_new_location_id: move.new_location_id,
+    p_expected_quantity: move.expected_quantity,
+    p_out_transaction_id: move.out_transaction_id,
+    p_in_transaction_id: move.in_transaction_id,
+    p_created_at: move.created_at,
+  });
+  if (rpcResponse.error) {
+    return {
+      data: null,
+      error: { code: rpcResponse.error.code, message: rpcResponse.error.message },
+      status: rpcResponse.status,
+    };
+  }
+
+  // The RPC returns only the stable item id. Read the canonical row afterwards
+  // so the normal mirror-write path also receives the server updated_at.
+  const remoteResponse = await supabase
+    .from('fridge_items')
+    .select('*')
+    .eq('id', move.item_id)
+    .maybeSingle();
+  if (remoteResponse.error) {
+    return {
+      data: null,
+      error: { code: remoteResponse.error.code, message: remoteResponse.error.message },
+      status: remoteResponse.status,
+    };
+  }
+  if (remoteResponse.data === null) {
+    return {
+      data: null,
+      error: { message: 'Move wurde bestaetigt, aber der Bestand ist nicht lesbar.' },
+      status: remoteResponse.status,
+    };
+  }
+
+  return { data: [{ ...remoteResponse.data }], error: null, status: remoteResponse.status };
+}
+
+async function applyInventoryMovePush(
+  db: SqlDatabase,
+  supabase: TypedSupabaseClient,
+  entry: CoalescedEntry,
+  nowMs: number,
+  currentAttempts: number,
+): Promise<{ outcome: PushOutcome; stop: boolean }> {
+  if (entry.entity !== 'fridge_items') {
+    const message = 'Eine Move-Operation ist nur fuer fridge_items zulaessig.';
+    await recordOutboxOutcome(db, entry.sourceIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: message,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'failed-permanent',
+        entity: entry.entity,
+        entityId: entry.entityId,
+        sourceIds: entry.sourceIds,
+        error: message,
+      },
+      stop: false,
+    };
+  }
+
+  let move: ReturnType<typeof parseInventoryMovePayload>;
+  try {
+    move = parseInventoryMovePayload(entry.payload);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    await recordOutboxOutcome(db, entry.sourceIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: message,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'failed-permanent',
+        entity: entry.entity,
+        entityId: entry.entityId,
+        sourceIds: entry.sourceIds,
+        error: message,
+      },
+      stop: false,
+    };
+  }
+
+  const response = await attemptInventoryMove(supabase, entry);
+  if (response.error) {
+    const status = response.status === 0 ? null : response.status;
+    const kind = classifyError(status);
+    const message = response.error.message;
+    if (kind === 'transient') {
+      const nextAttempts = currentAttempts + 1;
+      const terminal = nextAttempts >= MAX_ATTEMPTS;
+      await recordOutboxOutcome(db, entry.sourceIds, {
+        attempts: nextAttempts,
+        lastError: message,
+        nextAttemptAtMs: terminal
+          ? Number.MAX_SAFE_INTEGER
+          : nowMs + backoffDelayMs(currentAttempts),
+      });
+      return {
+        outcome: {
+          kind: 'failed-transient',
+          entity: entry.entity,
+          entityId: entry.entityId,
+          sourceIds: entry.sourceIds,
+          error: message,
+        },
+        stop: true,
+      };
+    }
+
+    await recordOutboxOutcome(db, entry.sourceIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: message,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'failed-permanent',
+        entity: entry.entity,
+        entityId: entry.entityId,
+        sourceIds: entry.sourceIds,
+        error: message,
+      },
+      stop: false,
+    };
+  }
+
+  const returnedRow = response.data?.[0];
+  if (returnedRow === undefined) {
+    const message = 'Move lieferte keine kanonische Bestandszeile.';
+    await recordOutboxOutcome(db, entry.sourceIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: message,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'failed-permanent',
+        entity: entry.entity,
+        entityId: entry.entityId,
+        sourceIds: entry.sourceIds,
+        error: message,
+      },
+      stop: false,
+    };
+  }
+
+  await db.withExclusiveTransactionAsync(async (txn) => {
+    await deleteOutboxEntries(txn, entry.sourceIds);
+    await upsertMirrorRow(txn, 'fridge_items', returnedRow, { dirty: 0 });
+    await txn.runAsync('update transactions set _dirty = 0 where id in (?, ?)', [
+      move.out_transaction_id,
+      move.in_transaction_id,
+    ]);
+  });
+
+  return {
+    outcome: {
+      kind: 'pushed',
+      entity: entry.entity,
+      entityId: entry.entityId,
+      sourceIds: entry.sourceIds,
+    },
+    stop: false,
+  };
+}
+
 /** Wendet einen einzelnen gecoalescten Push an. Gibt das Ergebnis und zurueck, ob die Schleife stoppen muss. */
 async function applyOnePush(
   db: SqlDatabase,
@@ -142,6 +348,10 @@ async function applyOnePush(
   nowMs: number,
   currentAttempts: number,
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
+  if (entry.op === 'move') {
+    return applyInventoryMovePush(db, supabase, entry, nowMs, currentAttempts);
+  }
+
   const meta = metaOf(entry.entity);
 
   if (meta.appendOnly && entry.op !== 'insert') {

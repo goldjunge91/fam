@@ -53,7 +53,7 @@ export type Entity =
   | 'medication_logs'
   | 'symptom_logs';
 
-export type OutboxOp = 'insert' | 'update' | 'delete' | 'restore';
+export type OutboxOp = 'insert' | 'update' | 'delete' | 'restore' | 'move';
 
 export type OutboxEntry = {
   id: number;

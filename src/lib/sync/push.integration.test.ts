@@ -440,6 +440,157 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
     expect(finalResult.outcomes).toEqual([]);
   }, 60_000);
 
+  it('pusht einen Move als RPC atomar, ist retry-idempotent und laesst keinen halben Move zu', async () => {
+    const locations = await client
+      .from('storage_locations')
+      .select('id, kind')
+      .eq('household_id', householdId)
+      .in('kind', ['fridge', 'pantry']);
+    expect(locations.error).toBeNull();
+    const oldLocationId = locations.data?.find((location) => location.kind === 'fridge')?.id;
+    const newLocationId = locations.data?.find((location) => location.kind === 'pantry')?.id;
+    expect(oldLocationId).toBeDefined();
+    expect(newLocationId).toBeDefined();
+
+    const itemId = crypto.randomUUID();
+    const { error: itemError } = await client.from('fridge_items').insert({
+      id: itemId,
+      household_id: householdId,
+      location_id: oldLocationId,
+      name: 'Move-Milch',
+      quantity: 2,
+      unit: 'piece',
+    });
+    expect(itemError).toBeNull();
+
+    await db.runAsync(
+      `insert into fridge_items
+         (id, household_id, location_id, name, quantity, unit, created_at,
+          opened_at, vacuum_sealed, expiry_user_set, updated_at, _dirty)
+       values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [itemId, householdId, oldLocationId ?? null, 'Move-Milch', 2, 'piece', 1, null, 0, 0, 1, 1],
+    );
+
+    const operationId = crypto.randomUUID();
+    const outTransactionId = crypto.randomUUID();
+    const inTransactionId = crypto.randomUUID();
+    const createdAt = new Date().toISOString();
+    const payload = {
+      operation_id: operationId,
+      item_id: itemId,
+      household_id: householdId,
+      expected_location_id: oldLocationId ?? null,
+      new_location_id: newLocationId ?? null,
+      expected_quantity: 2,
+      out_transaction_id: outTransactionId,
+      in_transaction_id: inTransactionId,
+      created_at: createdAt,
+    };
+
+    for (const [id, type, locationId] of [
+      [outTransactionId, 'out', oldLocationId],
+      [inTransactionId, 'in', newLocationId],
+    ] as const) {
+      await db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, fridge_item_id, type, quantity,
+            location_id, undone, created_at, updated_at, _dirty)
+         values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [id, operationId, householdId, itemId, type, 2, locationId ?? null, 0, createdAt, 1, 1],
+      );
+    }
+
+    await insertOutboxRow(db, {
+      entity: 'fridge_items',
+      entityId: itemId,
+      op: 'move',
+      payload,
+    });
+
+    const firstResult = await pushOutbox({ db, supabase: client });
+    expect(firstResult.outcomes[0]).toMatchObject({
+      kind: 'pushed',
+      entity: 'fridge_items',
+      entityId: itemId,
+    });
+
+    const remoteItem = await client
+      .from('fridge_items')
+      .select('location_id')
+      .eq('id', itemId)
+      .single();
+    expect(remoteItem.data?.location_id).toBe(newLocationId);
+    const remoteLedger = await client
+      .from('transactions')
+      .select('id, type, operation_id')
+      .eq('operation_id', operationId)
+      .order('type');
+    expect(remoteLedger.data).toHaveLength(2);
+    expect(remoteLedger.data?.map((row) => row.type)).toEqual(['in', 'out']);
+
+    const localLedger = await db.getAllAsync<{ id: string; _dirty: number }>(
+      'select id, _dirty from transactions where operation_id = ? order by id',
+      [operationId],
+    );
+    expect(localLedger).toEqual(
+      [
+        { id: inTransactionId, _dirty: 0 },
+        { id: outTransactionId, _dirty: 0 },
+      ].sort((left, right) => left.id.localeCompare(right.id)),
+    );
+    expect(await db.getAllAsync('select * from outbox')).toEqual([]);
+
+    // Ein verlorener HTTP-Response wird durch denselben operation_id-Schlüssel
+    // sicher erneut abgeschlossen, ohne weitere Ledgerzeilen anzulegen.
+    await insertOutboxRow(db, {
+      entity: 'fridge_items',
+      entityId: itemId,
+      op: 'move',
+      payload,
+      createdAt: 2,
+    });
+    const retryResult = await pushOutbox({ db, supabase: client });
+    expect(retryResult.outcomes[0]).toMatchObject({ kind: 'pushed' });
+    const retryLedger = await client
+      .from('transactions')
+      .select('id')
+      .eq('operation_id', operationId);
+    expect(retryLedger.data).toHaveLength(2);
+
+    // Der erste INSERT kollidiert absichtlich mit der bereits verwendeten
+    // Ledger-ID. Der RPC hat zu diesem Zeitpunkt den Bestand schon angefasst;
+    // die Remote-Assertion beweist den Rollback der gesamten Funktion.
+    const failedOperationId = crypto.randomUUID();
+    await insertOutboxRow(db, {
+      entity: 'fridge_items',
+      entityId: itemId,
+      op: 'move',
+      payload: {
+        ...payload,
+        operation_id: failedOperationId,
+        expected_location_id: newLocationId,
+        new_location_id: null,
+        out_transaction_id: outTransactionId,
+        in_transaction_id: crypto.randomUUID(),
+      },
+      createdAt: 3,
+    });
+    const failedResult = await pushOutbox({ db, supabase: client });
+    expect(failedResult.outcomes[0]).toMatchObject({ kind: 'failed-permanent' });
+
+    const unchangedItem = await client
+      .from('fridge_items')
+      .select('location_id')
+      .eq('id', itemId)
+      .single();
+    expect(unchangedItem.data?.location_id).toBe(newLocationId);
+    const failedLedger = await client
+      .from('transactions')
+      .select('id')
+      .eq('operation_id', failedOperationId);
+    expect(failedLedger.data).toEqual([]);
+  }, 30_000);
+
   it('ein leerer Outbox-Lauf ist ein No-Op', async () => {
     const result = await pushOutbox({ db, supabase: client });
     expect(result).toEqual({ outcomes: [], stoppedEarly: false });

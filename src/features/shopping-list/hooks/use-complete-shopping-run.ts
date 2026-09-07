@@ -21,15 +21,25 @@ type CompleteShoppingRunInput = {
   transfers: TransferItem[];
 };
 
-type TransactionPayload = Database['public']['Tables']['transactions']['Row'];
+type TransactionPayload = Omit<
+  Database['public']['Tables']['transactions']['Row'],
+  'operation_id'
+> & {
+  operation_id: string | null;
+};
+type TransactionDraft = Omit<TransactionPayload, 'operation_id'> & {
+  operation_id?: string | null;
+};
 
-function transactionMutation(payload: TransactionPayload, nowMs: number): EnqueueMutationInput {
+function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueMutationInput {
+  const normalizedPayload: TransactionPayload = { operation_id: null, ...payload };
   return {
     entity: 'transactions',
-    entityId: payload.id,
+    entityId: normalizedPayload.id,
     op: 'insert',
-    payload,
-    applyLocally: (txn) => applyLocalMirrorWrite(txn, 'transactions', 'insert', payload, nowMs),
+    payload: normalizedPayload,
+    applyLocally: (txn) =>
+      applyLocalMirrorWrite(txn, 'transactions', 'insert', normalizedPayload, nowMs),
   };
 }
 

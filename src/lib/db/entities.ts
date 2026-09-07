@@ -80,6 +80,7 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     syncCursorColumn: 'created_at',
     columns: [
       'id',
+      'operation_id',
       'household_id',
       'fridge_item_id',
       'product_id',

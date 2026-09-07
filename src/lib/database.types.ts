@@ -3028,6 +3028,7 @@ export type Database = {
           id: string
           location_id: string | null
           notes: string | null
+          operation_id: string | null
           previous_expiry_date: string | null
           product_id: string | null
           quantity: number
@@ -3043,6 +3044,7 @@ export type Database = {
           id?: string
           location_id?: string | null
           notes?: string | null
+          operation_id?: string | null
           previous_expiry_date?: string | null
           product_id?: string | null
           quantity: number
@@ -3058,6 +3060,7 @@ export type Database = {
           id?: string
           location_id?: string | null
           notes?: string | null
+          operation_id?: string | null
           previous_expiry_date?: string | null
           product_id?: string | null
           quantity?: number
@@ -3438,6 +3441,20 @@ export type Database = {
           role: string
           user_id: string
         }[]
+      }
+      move_fridge_item: {
+        Args: {
+          p_created_at: string
+          p_expected_location_id: string
+          p_expected_quantity: number
+          p_household_id: string
+          p_in_transaction_id: string
+          p_item_id: string
+          p_new_location_id: string
+          p_operation_id: string
+          p_out_transaction_id: string
+        }
+        Returns: string
       }
       prepare_account_deletion: { Args: never; Returns: undefined }
       redeem_invite: { Args: { invite_token: string }; Returns: string }

@@ -321,3 +321,53 @@ Die historische Diff-Notiz im vorherigen Addendum beschreibt nur den ersten
 Versuch. Beim zweiten Lauf mit deaktivierter Supabase-CLI-Telemetrie wurde die
 Shadow-Datenbank erfolgreich initialisiert; `bun run db:diff` endete mit
 `No schema changes found`. `db:advisors` meldete ebenfalls keine Findings.
+
+## Increment 2 Status Addendum (2026-09-07)
+
+Dieser Abschnitt ist append-only. Keine vorherige Planung, Review-Abweichung
+oder offene Aufgabe wurde entfernt. Der Slice schließt CR-1 technisch ab,
+ohne die weiterhin offenen CR-3, CR-4 und CR-10 vorwegzunehmen.
+
+- **CR-1 / `fam-lem.10`:** Ein Move wird lokal als ein `move`-Outbox-Eintrag
+  mit `operation_id` geführt. Der Server-RPC `move_fridge_item` sperrt den
+  Bestand, prüft erwarteten Lagerort und Menge, aktualisiert den Bestand und
+  schreibt `out`/`in` als eine PostgreSQL-Transaktion. Wiederholungen derselben
+  Operation sind idempotent; unvollständige oder widersprüchliche Ledgerdaten
+  werden abgelehnt.
+- **Lokale Parität:** `transactions.operation_id`, der `move`-Outbox-Op und
+  der Drizzle-Upgradepfad sind generiert. Der lokale Mirror setzt die drei
+  betroffenen Datensätze gemeinsam; ein Fehler in einer Ledgerzeile rollt die
+  lokale Mutation vollständig zurück.
+- **Server-/Privilege-Pfad:** Die Migration
+  `20260907004709_inventory_move_atomic.sql` und die nachgelagerte, von der
+  deklarativen Engine erzeugte `20260907005742_inventory_move_privileges.sql`
+  sind geprüft. Der RPC ist für `authenticated` ausführbar, nicht für `anon`.
+- **Live-Nachweis:**
+  `bun run verify:inventory-move` ist als lokales, hart auf
+  `127.0.0.1`/`localhost` begrenztes Skript verfügbar. Es prüft Erfolg, Retry,
+  Remote-Rollback und gibt die IDs sowie Studio-Abfragen aus. Die Testdaten
+  bleiben für die manuelle Studio-Prüfung bestehen.
+
+### Verifikation des Slices
+
+- Coalesce-Regression: 30/30 Jest-Tests.
+- Hook-Vertrag: 5/5 Jest-Tests.
+- Lokale Move-/Rollback-Integration: 2/2 Tests.
+- Lokales Schema inklusive Upgrade: 33/33 Tests.
+- Serverseitiger pgTAP-Move-/RLS-/Idempotenztest: 13/13 Tests.
+- Vollständiger lokaler Push-Integrationslauf: 14/14 Tests.
+- Live-Skript gegen `http://127.0.0.1:54321`: PASS.
+- `bun run typecheck`, `bun run check` und `git diff --check`: PASS; die vier
+  broken-symlink-Warnungen unter `.claude/skills` bestehen unabhängig vom
+  Slice weiter.
+
+Die Browser-Variante bleibt für diesen Nachweis bewusst ausgeschlossen: Die
+Expo-SDK-57-Dokumentation kennzeichnet SQLite-Websupport als instabil/alpha,
+verlangt WASM sowie COEP/COOP-Header und unterstützt
+`withExclusiveTransactionAsync` im Web nicht. Der terminalbasierte Lauf gegen
+den lokalen Supabase-Container ist deshalb der belastbare Cross-Surface-Test
+für genau diesen Sync-Vertrag.
+
+**Nächster Tracker-Schritt:** `fam-lem.11` bleibt offen und wird als nächstes
+über alle weiteren mengenverändernden Schreibpfade auditiert. Erst danach
+folgt die Integration beider Fundament-Slices in `fam-lem.6`.
