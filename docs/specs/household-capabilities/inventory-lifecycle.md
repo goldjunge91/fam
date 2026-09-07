@@ -453,3 +453,24 @@ interaktiv abgefragt in diesem Zyklus) — auf Wunsch nachholbar.
   beginnend mit `fam-lem.1`.
 - `fam-lem.8` (Recherche Tageswerte) läuft parallel, `fam-lem.9` erzwingt den
   späteren Swap.
+
+## Maintainer-Entscheidung: einmalige DML-Ausnahme für den Backfill
+
+Die Boundaries-Regel gegen manuell geschriebene Migrationen bleibt für normale
+Schemaänderungen bestehen. Am 2026-09-07 wurde eine eng begrenzte Ausnahme
+freigegeben: Der bestehende Backfill von `fridge_items.expiry_date` nach
+`expiry_user_set = true` darf als einmalige Forward-Migration ergänzt werden,
+weil Supabase Declarative Schema Diff DML-Statements wie `UPDATE` nicht erfasst.
+Die Ausnahme gilt ausschließlich für diesen idempotenten Backfill, nicht für
+neue Tabellen-, Spalten- oder Policyänderungen. Der lokale Drizzle-Upgradepfad
+führt denselben Backfill aus.
+
+## Implementierungsentscheidung: Split-Provenienz im bestehenden Notes-Feld
+
+Für einen Split mit `quantity > 1` wird die stabile Ursprungs-ID als
+maschinenlesbarer Token `[Split] origin=<fridge_item_id>` in der bereits
+vorhandenen `transactions.notes`-Spalte gespeichert. Der Undo-Pfad parst
+diesen Token und sucht ausschließlich die referenzierte Ursprungszeile. Alte
+`[Split]`-Buchungen ohne Token werden nicht geraten zusammengeführt, sondern
+bleiben im sicheren Fallback. Damit ist keine zusätzliche Schema-Spalte nötig;
+die bestehende `notes`-Längenbegrenzung bleibt unverändert.

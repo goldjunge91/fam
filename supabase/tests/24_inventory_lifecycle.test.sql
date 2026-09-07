@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(16);
+select plan(17);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -79,6 +79,19 @@ select is(
   0,
   'ein Nichtmitglied sieht den Ledger nicht'
 );
+
+select tests.as_postgres();
+select is(
+  (
+    select count(*)::int
+    from public.fridge_items
+    where expiry_date is not null and expiry_user_set is not true
+  ),
+  0,
+  'bestehende MHD-Werte sind als manuell gesetzt markiert'
+);
+
+select tests.authenticate_as('33333333-3333-3333-3333-333333333333');
 select throws_ok(
   format(
     $$ insert into public.transactions (id, household_id, type, quantity)

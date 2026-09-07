@@ -83,9 +83,14 @@ export function EditInventoryItemSheet({
       expiry_date: expiryDate || null,
       opened_at: openedAt,
       vacuum_sealed: vacuumSealed,
-      expiry_user_set: expiryUserSet || !!expiryDate,
+      expiry_user_set: expiryUserSet,
     });
     onClose();
+  }
+
+  function handleExpiryDateChange(value: string) {
+    setExpiryDate(value);
+    setExpiryUserSet(true);
   }
 
   return (
@@ -193,7 +198,7 @@ export function EditInventoryItemSheet({
                 <DateWheelField
                   label="Mindesthaltbarkeitsdatum"
                   value={expiryDate}
-                  onChange={setExpiryDate}
+                  onChange={handleExpiryDateChange}
                 />
                 {openedAt ? (
                   <View className="gap-one">

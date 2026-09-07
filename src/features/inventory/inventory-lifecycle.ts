@@ -26,6 +26,8 @@ export type LifecycleTransaction = {
   id?: string;
   householdId: string;
   fridgeItemId: string | null;
+  /** Stable reference to the sealed source row of a split. */
+  originItemId?: string | null;
   productId: string | null;
   actor?: string | null;
   type: InventoryTransactionType;
@@ -55,6 +57,20 @@ export type UndoOpenPlan = {
 };
 
 const UNDO_WINDOW_MS = 24 * 60 * 60 * 1000;
+const SPLIT_NOTE_PREFIX = '[Split] origin=';
+
+export function splitTransactionNotes(originItemId: string): string {
+  return `${SPLIT_NOTE_PREFIX}${originItemId}`;
+}
+
+export function getSplitOriginItemId(
+  transaction: Pick<LifecycleTransaction, 'originItemId' | 'notes'>,
+): string | null {
+  if (transaction.originItemId) return transaction.originItemId;
+  if (!transaction.notes?.startsWith(SPLIT_NOTE_PREFIX)) return null;
+  const originItemId = transaction.notes.slice(SPLIT_NOTE_PREFIX.length).trim();
+  return originItemId.length > 0 ? originItemId : null;
+}
 
 function toIsoTimestamp(value: Date): string {
   return value.toISOString();
@@ -96,12 +112,13 @@ export function planOpenInventoryItem(
   const transaction: LifecycleTransaction = {
     householdId: item.householdId,
     fridgeItemId: isSingleUnit ? item.id : openedItemId,
+    ...(isSingleUnit ? {} : { originItemId: item.id }),
     productId: item.productId,
     type: 'open',
     quantity,
     locationId: item.locationId,
     previousExpiryDate: item.expiryDate,
-    notes: item.quantity > 1 ? '[Split]' : null,
+    notes: item.quantity > 1 ? splitTransactionNotes(item.id) : null,
     createdAt: openedAtIso,
   };
 
@@ -124,8 +141,6 @@ export function planOpenInventoryItem(
     quantity,
     openedAt: openedAtIso,
     expiryDate,
-    expiryUserSet: false,
-    vacuumSealed: false,
   };
 
   return {
@@ -146,12 +161,20 @@ function sameSplitIdentity(
   transaction: UndoOpenTransaction,
 ): boolean {
   return (
-    transaction.notes === '[Split]' &&
+    getSplitOriginItemId(transaction) === sealedItem.id &&
     openedItem.id === transaction.fridgeItemId &&
     openedItem.householdId === sealedItem.householdId &&
     openedItem.productId === sealedItem.productId &&
     openedItem.locationId === sealedItem.locationId &&
+    openedItem.name === sealedItem.name &&
     openedItem.unit === sealedItem.unit &&
+    openedItem.packageSize === sealedItem.packageSize &&
+    openedItem.packageSizeUnit === sealedItem.packageSizeUnit &&
+    openedItem.addedBy === sealedItem.addedBy &&
+    openedItem.category === sealedItem.category &&
+    openedItem.locationKind === sealedItem.locationKind &&
+    openedItem.vacuumSealed === sealedItem.vacuumSealed &&
+    openedItem.expiryUserSet === sealedItem.expiryUserSet &&
     openedItem.quantity === transaction.quantity &&
     openedItem.openedAt !== null &&
     sealedItem.openedAt === null &&
@@ -185,8 +208,8 @@ export function planUndoOpenTransaction(
       openedPatch: {
         openedAt: null,
         expiryDate: transaction.previousExpiryDate,
-        expiryUserSet: false,
-        vacuumSealed: false,
+        expiryUserSet: openedItem.expiryUserSet,
+        vacuumSealed: openedItem.vacuumSealed,
       },
       sealedPatch: null,
       deleteOpenedItem: false,

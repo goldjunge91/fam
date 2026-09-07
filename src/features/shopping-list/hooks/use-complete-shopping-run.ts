@@ -3,8 +3,9 @@ import * as Crypto from 'expo-crypto';
 
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 import { celebrate } from '@/lib/celebration';
+import type { Database } from '@/lib/database.types';
 import { getDatabase } from '@/lib/db/client';
-import { enqueueMutation } from '@/lib/db/outbox';
+import { type EnqueueMutationInput, enqueueMutation, enqueueMutations } from '@/lib/db/outbox';
 import { recordActivity } from '@/lib/streak';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
@@ -19,6 +20,18 @@ type CompleteShoppingRunInput = {
   checkedItems: LocalShoppingItem[];
   transfers: TransferItem[];
 };
+
+type TransactionPayload = Database['public']['Tables']['transactions']['Row'];
+
+function transactionMutation(payload: TransactionPayload, nowMs: number): EnqueueMutationInput {
+  return {
+    entity: 'transactions',
+    entityId: payload.id,
+    op: 'insert',
+    payload,
+    applyLocally: (txn) => applyLocalMirrorWrite(txn, 'transactions', 'insert', payload, nowMs),
+  };
+}
 
 export function useCompleteShoppingRun(householdId: string | undefined) {
   const queryClient = useQueryClient();
@@ -36,9 +49,10 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
         return loc?.id ?? null;
       }
 
-      // Schritt 1: fridge_items inserten
+      // Schritt 1: Bestand und Ledger-Buchung pro Transfer atomar enqueuen.
       for (const transfer of input.transfers) {
         const id = Crypto.randomUUID();
+        const transactionId = Crypto.randomUUID();
         const locationId = getLocationId(transfer.locationKind);
         const normUnit = normalizeUnit(transfer.unit);
         const fridgeItem = {
@@ -59,14 +73,34 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
           created_at: now,
         };
 
-        await enqueueMutation(db, {
-          entity: 'fridge_items',
-          entityId: id,
-          op: 'insert',
-          payload: { ...fridgeItem, updated_at: now },
-          applyLocally: (txn) =>
-            applyLocalMirrorWrite(txn, 'fridge_items', 'insert', fridgeItem, nowMs),
-        });
+        await enqueueMutations(db, [
+          {
+            entity: 'fridge_items',
+            entityId: id,
+            op: 'insert',
+            payload: { ...fridgeItem, updated_at: now },
+            applyLocally: (txn) =>
+              applyLocalMirrorWrite(txn, 'fridge_items', 'insert', fridgeItem, nowMs),
+          },
+          transactionMutation(
+            {
+              id: transactionId,
+              household_id: input.householdId,
+              fridge_item_id: id,
+              product_id: transfer.productId,
+              actor: input.userId,
+              type: 'in',
+              quantity: transfer.quantity,
+              location_id: locationId,
+              reason: null,
+              previous_expiry_date: null,
+              notes: null,
+              undone: false,
+              created_at: now,
+            },
+            nowMs,
+          ),
+        ]);
       }
 
       for (const item of input.checkedItems) {
