@@ -144,4 +144,5 @@ Query · RevenueCat. Details und Begründungen: [Developer Guide](docs/architect
 
 Die vollständige, nach Zweck sortierte Dokumentation steht in
 [docs/README.md](docs/README.md). Für Entwicklungsregeln ist
-[AGENTS.md](AGENTS.md) verbindlich.
+[AGENTS.md](AGENTS.md) verbindlich. Die Domänenbegriffe und
+Eigentümerschaftsregeln stehen in [CONTEXT.md](CONTEXT.md).

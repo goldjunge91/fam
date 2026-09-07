@@ -4,4 +4,4 @@ Ein Recipe besteht aus Recipe Components (z. B. "Nudeln", "Soße"), die wiederum
 
 Alternative wäre eine flache Zutatenliste pro Recipe gewesen (einfacher zu modellieren, aber keine Wiederverwendung von Teilkomponenten über Recipes hinweg und keine Gruppierung wie "Nudeln"/"Soße" in der UI). Component und Component Item sind bewusst zwei Tabellen statt einer: eine Component braucht Namen und Portionsmenge (nur bei oberster Component), eine Item braucht Menge und genau ein Ziel — beides in eine Tabelle zu zwingen hätte je nach Zeilentyp NULL-Spalten erfordert.
 
-Entschieden in `docs/plans/phase-2-4-brainstorm.md`, Abschnitt #12. Details siehe Kommentar in `supabase/schemas/11_recipes.sql`.
+Die Entscheidung gehört zum Rezept-Umfang von [Epic #12](https://github.com/goldjunge91/fam/issues/12). Details siehe den Kommentar in `supabase/schemas/11_recipes.sql`.

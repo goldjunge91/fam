@@ -1,4 +1,4 @@
-# NutriTrack — Produktvision
+# fam — Produktvision
 
 Ganzheitliche Organisation von Haushalt, Einkauf und Ernährung — vom gemeinsamen
 Kühlschrank-Bestand über die geteilte Einkaufsliste bis zu Kalorien-Tracking und
@@ -24,7 +24,7 @@ richtiggestellt, damit die Roadmap nichts verspricht, was die Architektur nicht 
 | `expo-widgets` | Kein offizielles Expo-Paket | Native Targets (WidgetKit / Glance) via Config-Plugin ([#24](https://github.com/goldjunge91/fam/issues/24)) |
 | E2E-Verschlüsselung der Gesundheitsdaten | E2EE und serverseitige Queries/RLS schließen sich aus — bei echter E2EE könnte der Server nicht filtern | TLS, Verschlüsselung at rest, Zugriffstrennung über RLS, Tokens im Keychain/Keystore ([#96](https://github.com/goldjunge91/fam/issues/96)) |
 | `react-native-reusables` als Library | Ist eine Copy-Paste-Registry, keine Runtime-Dependency | Eigene Komponenten auf `theme.ts` |
-| NativeWind | Stable 4.2.6 nicht für RN 0.86 / React 19; SDK-57-Variante nur als Preview | StyleSheet + `src/constants/theme.ts` |
+| NativeWind | Nur als technische Layout-Hilfe, nicht als parallele Theme-Quelle | Semantisches Styling über `src/components/theme/` und `src/constants/ui.tsx`; NativeWind nur für statisches Layout |
 
 Ebenfalls bewusst festgelegt: Die Konfliktauflösung ist **Last-Write-Wins**, kein CRDT.
 Bei gleichzeitiger Bearbeitung gewinnt der spätere Schreibzugriff; Undo ist Aufgabe der UI.

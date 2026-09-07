@@ -4,7 +4,7 @@
 > passiert — nicht mehr und nicht weniger. Sie ist die Quelle für die
 > App-Store-Privacy-Labels ([#99](https://github.com/goldjunge91/fam/issues/99))
 > und ersetzt die frühere, technisch nicht haltbare Zusage einer
-> Ende-zu-Ende-Verschlüsselung (siehe `docs/VISION.md`, Korrekturtabelle).
+> Ende-zu-Ende-Verschlüsselung (siehe [`docs/features/VISION.md`](../features/VISION.md), Korrekturtabelle).
 
 ## Verantwortlicher
 
