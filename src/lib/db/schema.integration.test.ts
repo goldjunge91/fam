@@ -133,6 +133,39 @@ describe('lokales Schema', () => {
     ).rejects.toThrow();
   });
 
+  it('erlaubt operation_id nur fuer die beiden Ledgerzeilen eines Moves', async () => {
+    for (const type of ['waste', 'open'] as const) {
+      await expect(
+        db.runAsync(
+          `insert into transactions
+             (id, operation_id, household_id, type, quantity, reason, previous_expiry_date, updated_at)
+           values (?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            `tx-operation-${type}`,
+            'operation-1',
+            'household-1',
+            type,
+            1,
+            type === 'waste' ? 'expired' : null,
+            type === 'open' ? '2026-09-01' : null,
+            0,
+          ],
+        ),
+      ).rejects.toThrow();
+    }
+
+    for (const type of ['in', 'out'] as const) {
+      await expect(
+        db.runAsync(
+          `insert into transactions
+             (id, operation_id, household_id, type, quantity, updated_at)
+           values (?, ?, ?, ?, ?, ?)`,
+          [`tx-operation-${type}`, 'operation-1', 'household-1', type, 1, 0],
+        ),
+      ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
+    }
+  });
+
   it('spiegelt Plus und AI getrennt und entfernt den alten Premium-Zustand', async () => {
     const names = (await columnsOf(db, 'households')).map((column) => column.name);
 
