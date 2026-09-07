@@ -1,7 +1,16 @@
 /** @type {import('jest').Config} */
+const jestExpoPreset = require('jest-expo/node/jest-preset');
+
 module.exports = {
-  preset: 'jest-expo',
-  setupFiles: ['<rootDir>/test/setup.js'],
+  ...jestExpoPreset,
+  testEnvironment: 'jsdom',
+  // RN 0.86.3 ships an ESM/Flow setup file that Jest 29 loads without
+  // transformation. Keep the Expo setup and project mocks, but omit that
+  // incompatible upstream setup entry.
+  setupFiles: [
+    '<rootDir>/test/react-native-jest-compat.js',
+    '<rootDir>/test/setup.js',
+  ],
   // React-Native/Babel-Worker sind speicherintensiv. Vier parallele Worker
   // erzeugen im Gesamtlauf GC-/CPU-Konkurrenz und dadurch falsche 15s-Timeouts.
   maxWorkers: 2,
@@ -28,7 +37,7 @@ module.exports = {
   // Muster bricht jeden Test, der (auch nur transitiv, z. B. ueber
   // `lib/sentry.ts`) `@sentry/react-native` importiert.
   transformIgnorePatterns: [
-    'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/.*|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*|standard-navigation|@aptabase/.*|react-native-google-mobile-ads))',
+    'node_modules/(?!(.bun|.deno|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/.*|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*|standard-navigation|@aptabase/.*|react-native-google-mobile-ads))',
   ],
 
   // Default (5000ms) ist zu knapp fuer Tests mit echten Timern/Intervallen

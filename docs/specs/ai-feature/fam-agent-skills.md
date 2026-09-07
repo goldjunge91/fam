@@ -1,14 +1,14 @@
 # Fachspezifikation: fam Agent Skills
 
-**Status:** kanonische Fachquelle, überarbeitet am 2. September 2026  
+**Status:** technische Detail-Spezifikation, überarbeitet am 2. September 2026
 **Produktumfang:** read-only Rezeptvorschläge aus dem autoritativen Haushaltsbestand  
 **Skill:** `fam-cook-from-inventory`
 
-Diese Datei ist die fachliche Quelle der Wahrheit für die erste Umsetzung. Die
-Datei
-[`docs/referenced-chatgpt-conversation-this-is-an/work/ai-rezeptvorschlaege-kompakt.md`](../referenced-chatgpt-conversation-this-is-an/work/ai-rezeptvorschlaege-kompakt.md)
-war die redaktionelle Arbeitsgrundlage für diese Überarbeitung, ist aber nicht
-die normative Quelle.
+Diese Datei beschreibt die technischen Details des Skill- und Gateway-Vertrags.
+Der übergeordnete, konsolidierte Plan und die verbindlichen Produktentscheidungen
+stehen in
+[`docs/research/ai-rezeptvorschlaege-kompakt.md`](../../research/ai-rezeptvorschlaege-kompakt.md).
+Diese Detail-Spezifikation ist kein eigener Umsetzungsplan.
 
 ## 1. Produktziel und Scope
 

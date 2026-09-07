@@ -88,6 +88,7 @@ describe('NavigationDrawer', () => {
     expect(screen.getByText('Vorrat')).toBeTruthy();
     expect(screen.getByText('Einkauf')).toBeTruthy();
     expect(screen.getByText('Rezepte')).toBeTruthy();
+    expect(screen.getByText('Chef-Koch')).toBeTruthy();
     expect(screen.getByText('Essensplan')).toBeTruthy();
     expect(screen.getByText('Tagebuch')).toBeTruthy();
     expect(screen.getByText('Einstellungen')).toBeTruthy();
@@ -110,6 +111,45 @@ describe('NavigationDrawer', () => {
     fireEvent.press(vorratBtn);
 
     expect(mockCloseDrawer).toHaveBeenCalled();
+  });
+
+  it('öffnet Chef-Koch über den öffentlichen Pfad', async () => {
+    jest.useFakeTimers();
+
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <NavigationDrawer />
+      </SafeAreaProvider>,
+    );
+
+    fireEvent.press(screen.getByText('Chef-Koch'));
+    jest.advanceTimersByTime(250);
+
+    expect(mockPush).toHaveBeenCalledWith('/chef-koch');
+    expect(mockCloseDrawer).toHaveBeenCalled();
+    jest.useRealTimers();
+  });
+
+  it('markiert Chef-Koch als aktiven Bereich', async () => {
+    mockPathname = '/chef-koch';
+
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <NavigationDrawer />
+      </SafeAreaProvider>,
+    );
+
+    expect(screen.getByText('Chef-Koch').parent?.props.accessibilityState).toEqual({
+      selected: true,
+    });
   });
 
   it('markiert den aktuellen Bereich auch auf Unterseiten', async () => {

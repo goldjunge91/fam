@@ -183,12 +183,12 @@
         "db:local:generate": "drizzle-kit generate --config drizzle.config.ts",
         "db:reset": "supabase db reset",
         "db:advisors": "supabase db advisors --local --type security && supabase db advisors --local --type performance",
-        "db:types": "supabase gen types typescript --local > src/lib/database.types.ts",
+        "db:types": "bun scripts/generate-db-types.ts",
         "storage:upload-recipe-template-covers": "bun --env-file=.env scripts/upload-recipe-template-covers.ts",
         "db:check": "bash scripts/check-privileges.sh",
         "db:push": "supabase db push && bash scripts/check-privileges.sh --linked",
         "db:init": "bash scripts/init-database.sh",
-        "test:db": "bash scripts/check-clean-db.sh && supabase test db --local supabase/tests/*.test.sql",
+        "test:db": "bun scripts/check-clean-db.ts && supabase test db --local supabase/tests/*.test.sql",
         "test:integration": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local -- jest --config jest.integration.config.js",
         "e2e": "bun scripts/maestro/maestro.ts test .maestro/flows --exclude-tags fixture,local-session",
         "e2e:android": "bun scripts/maestro/android.ts",
@@ -223,7 +223,6 @@
     "patchedDependencies": {
         "react-native-mmkv@4.3.2": "patches/react-native-mmkv@4.3.2.patch",
         "react-native-reanimated@4.5.1": "patches/react-native-reanimated@4.5.1.patch",
-        "react-native-safe-area-context@5.7.0": "patches/react-native-safe-area-context@5.7.0.patch",
-        "react-native-drax@1.1.0": "patches/react-native-drax@1.1.0.patch"
+        "react-native-safe-area-context@5.7.0": "patches/react-native-safe-area-context@5.7.0.patch"
     }
 }

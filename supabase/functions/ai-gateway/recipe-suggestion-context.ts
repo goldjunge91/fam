@@ -2,6 +2,7 @@ import type {
   RecipeSuggestionContext,
   RecipeSuggestionSource,
 } from './recipe-suggestion-contract.ts';
+import { recipeHasAllergenConflict } from './ingredient-knowledge.ts';
 
 export type RecipeSuggestionGatewayInput = {
   inventory: {
@@ -22,6 +23,8 @@ export type RecipeSuggestionGatewayInput = {
     servings: number | null;
     dietaryTags: readonly string[];
     allergens: readonly string[] | null;
+    /** An explicit empty array means the catalog recipe has no usable steps. */
+    steps?: readonly string[];
     ingredients: ReadonlyArray<{
       normalizedName: string;
       quantity: number | null;
@@ -192,11 +195,6 @@ function hasSufficientRecipeQuantities(
 export function buildRecipeSuggestionContext(
   input: RecipeSuggestionGatewayInput,
 ): RecipeSuggestionContextResult | null {
-  // Profile rules are authoritative, but this adapter has no verified per-food
-  // allergen/intolerance projection. Names and model output cannot establish safety.
-  // Fail closed for both catalog and fallback until that projection is available.
-  if (input.allergies.length > 0) return null;
-
   const forbiddenIngredients = new Set((input.forbiddenIngredients ?? []).map(normalize));
   const usableLots = input.inventory.lots
     .map((lot, index) => ({ lot, index }))
@@ -247,7 +245,7 @@ export function buildRecipeSuggestionContext(
       const ingredientNames = recipe.ingredients
         .map((ingredient) => ingredient.normalizedName.trim())
         .filter((name) => name.length > 0);
-      const hasUnknownAllergen = recipe.allergens === null && input.allergies.length > 0;
+      const hasAllergenConflict = recipeHasAllergenConflict(recipe.allergens, input.allergies);
       const hasForbiddenIngredient = ingredientNames.some((name) => forbiddenIngredients.has(normalize(name)));
       const dietaryMatch = input.dietaryPattern === null || recipe.dietaryTags.some(
         (tag) => normalize(tag) === normalize(input.dietaryPattern!),
@@ -255,6 +253,7 @@ export function buildRecipeSuggestionContext(
       const timeMatch = input.maxMinutes === null ||
         (recipe.estimatedMinutes !== null && recipe.estimatedMinutes <= input.maxMinutes);
       const servingsMatch = input.servings > 0 && recipe.servings !== null;
+      const hasAuthoritativeSteps = recipe.steps === undefined || recipe.steps.length > 0;
       const ingredientsAvailable = ingredientNames.length > 0 && ingredientNames.every(
         (name) => allowedNames.has(normalize(name)),
       ) && hasSufficientRecipeQuantities(
@@ -274,7 +273,8 @@ export function buildRecipeSuggestionContext(
         source,
         ingredientNames,
         priorityCoverage,
-        eligible: !hasUnknownAllergen &&
+        eligible: !hasAllergenConflict &&
+          hasAuthoritativeSteps &&
           !hasForbiddenIngredient &&
           dietaryMatch &&
           timeMatch &&
@@ -296,6 +296,11 @@ export function buildRecipeSuggestionContext(
       title: candidate.recipe.title,
       ingredient_names: candidate.ingredientNames,
     }));
+
+  // A model-generated fallback must never become an escape hatch for an
+  // active allergy or intolerance. With no safe catalog candidate, the caller
+  // returns no_safe_recipe instead of sending unsafe context to the model.
+  if (input.allergies.length > 0 && candidateRecipes.length === 0) return null;
 
   const unsafeNames = input.inventory.lots
     .filter((lot) => !isUsableLot(lot, input.today))

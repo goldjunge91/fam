@@ -404,7 +404,8 @@ im jeweiligen Issue. Die Reihenfolge ist:
 13. fam-qai.3.13 — Checkpoint Kauf, Einwilligung und sensible Daten
 14. fam-qai.3.11 — finale Apple-Review-Matrix und Submission-Artefakte
 
-tasks/plan.md bleibt dem bestehenden fam-Agent-Skills-Vorhaben vorbehalten.
+Der konsolidierte Rezeptvorschlagsplan liegt unter
+`docs/research/ai-rezeptvorschlaege-kompakt.md`.
 
 ## Referenzen
 

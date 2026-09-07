@@ -1,4 +1,7 @@
-import type { RecipeSuggestionDisplayMeal, RecipeSuggestionReview } from './recipe-suggestion-review';
+import type {
+  RecipeSuggestionDisplayMeal,
+  RecipeSuggestionReview,
+} from './recipe-suggestion-review';
 
 export type RecipeSuggestionCookReviewEntry = {
   inventoryItemId: string;
@@ -30,6 +33,7 @@ export type RecipeSuggestionConsumptionPlanItem = {
 export type RecipeSuggestionCookReviewIssueCode =
   | 'not_confirmed'
   | 'inventory_item_missing'
+  | 'household_mismatch'
   | 'invalid_quantity'
   | 'incompatible_unit'
   | 'quantity_exceeds_available';
@@ -123,6 +127,7 @@ export function canApplyRecipeSuggestionCookReview(review: RecipeSuggestionCookR
 export function buildRecipeSuggestionConsumptionPlan(
   review: RecipeSuggestionCookReview,
   inventory: readonly RecipeSuggestionInventorySnapshot[],
+  householdId: string,
 ): RecipeSuggestionConsumptionPlanResult {
   if (!canApplyRecipeSuggestionCookReview(review)) {
     return { ok: false, issues: [{ code: 'not_confirmed' }] };
@@ -141,6 +146,11 @@ export function buildRecipeSuggestionConsumptionPlan(
     const item = inventoryById.get(entry.inventoryItemId);
     if (item === undefined) {
       issues.push({ code: 'inventory_item_missing', inventoryItemId: entry.inventoryItemId });
+      continue;
+    }
+
+    if (item.householdId !== householdId) {
+      issues.push({ code: 'household_mismatch', inventoryItemId: entry.inventoryItemId });
       continue;
     }
 

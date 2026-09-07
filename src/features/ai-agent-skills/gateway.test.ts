@@ -1,4 +1,4 @@
-import { invokeAiGateway } from '@/features/ai-agent-skills/gateway';
+import { developmentBypassHeaders, invokeAiGateway } from '@/features/ai-agent-skills/gateway';
 
 const mockInvoke = jest.fn();
 
@@ -42,6 +42,11 @@ describe('invokeAiGateway', () => {
     mockInvoke.mockReset();
   });
 
+  it('sends the development bypass header only for development builds', () => {
+    expect(developmentBypassHeaders(true)).toEqual({ 'x-fam-ai-dev-bypass': 'true' });
+    expect(developmentBypassHeaders(false)).toBeUndefined();
+  });
+
   it('validates the request before contacting the gateway', async () => {
     await expect(
       invokeAiGateway({
@@ -59,6 +64,7 @@ describe('invokeAiGateway', () => {
     expect(mockInvoke).toHaveBeenCalledWith('ai-gateway', {
       method: 'POST',
       body: cookingRequest,
+      headers: { 'x-fam-ai-dev-bypass': 'true' },
     });
   });
 
@@ -70,7 +76,24 @@ describe('invokeAiGateway', () => {
 
     await expect(invokeAiGateway(cookingRequest)).rejects.toMatchObject({
       status: 403,
-      message: 'Haushalt nicht gefunden',
+      message: 'Der AI-Gateway-Aufruf ist fehlgeschlagen.',
+    });
+  });
+
+  it('maps rate and credit failures to actionable messages without exposing server details', async () => {
+    const context = {
+      status: 429,
+      clone: () => ({ json: async () => ({ error: 'ai_credit_limit_exceeded' }) }),
+    };
+    mockInvoke.mockResolvedValue({
+      data: null,
+      error: { context },
+    });
+
+    await expect(invokeAiGateway(cookingRequest)).rejects.toMatchObject({
+      status: 429,
+      code: 'ai_credit_limit_exceeded',
+      message: 'Dein KI-Kontingent ist aufgebraucht.',
     });
   });
 

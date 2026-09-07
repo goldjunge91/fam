@@ -6,6 +6,8 @@
  */
 
 import { buildRecipeSuggestionContext } from './recipe-suggestion-context.ts';
+import { buildCatalogSuggestions } from './catalog-suggestions.ts';
+import { recipeHasAllergenConflict } from './ingredient-knowledge.ts';
 import {
   validateRecipeSuggestionContext,
   validateRecipeSuggestionResponse,
@@ -106,6 +108,10 @@ type ProviderResult =
   | { ok: true; content: string; model: string; usage?: unknown }
   | { ok: false; status: number; error: string; message?: string };
 
+export type GatewayAccessResult =
+  | { ok: true }
+  | { ok: false; status: number; error: string; retryAfter?: number };
+
 type Dependencies = {
   authenticate: (request: Request) => Promise<AuthResult>;
   assertHouseholdMember: (
@@ -122,8 +128,14 @@ type Dependencies = {
     model: string;
     messages: Array<{ role: 'system' | 'user'; content: string }>;
   }) => Promise<ProviderResult>;
-  isRateLimited?: () => boolean;
-  recordRateLimitAttempt?: () => void;
+  consumeRateLimit: (userId: string) => Promise<GatewayAccessResult>;
+  reserveCredit: (input: {
+    householdId: string;
+    action: 'suggestion' | 'voice';
+    requestId: string;
+  }) => Promise<GatewayAccessResult>;
+  releaseCredit: (requestId: string) => Promise<void>;
+  allowDevelopmentBypass?: (userId: string) => boolean;
   allowedModels?: readonly string[];
   defaultModel?: string;
   now?: () => string;
@@ -136,7 +148,7 @@ const JSON_HEADERS = {
 };
 
 const CORS_HEADERS = {
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-fam-ai-dev-bypass',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Origin': '*',
 };
@@ -153,7 +165,7 @@ function isRecord(value: unknown): value is JsonRecord {
 }
 
 function nonEmptyString(value: unknown): value is string {
-  return typeof value === 'string' && value.trim().length > 0;
+  return typeof value === 'string' && value.trim().length > 0 && value.length <= 8_000;
 }
 
 function parseRequest(value: unknown): GatewayRequest | null {
@@ -197,7 +209,7 @@ function parseRequest(value: unknown): GatewayRequest | null {
     validNullableInteger(value.maxMinutes) &&
     (value.dietaryPattern === null || nonEmptyString(value.dietaryPattern)) &&
     (value.allergies === undefined ||
-      (Array.isArray(value.allergies) && value.allergies.every(nonEmptyString))) &&
+      (Array.isArray(value.allergies) && value.allergies.length <= 50 && value.allergies.every(nonEmptyString))) &&
     (value.shoppingDecision === undefined ||
       value.shoppingDecision === null ||
       value.shoppingDecision === 'yes' ||
@@ -305,13 +317,7 @@ function prepareCookingContext(
 ): GatewayCookingContext | null {
   const recipes = context.recipes
     .filter((recipe) => {
-      if (request.allergies.length > 0) {
-        if (recipe.allergens === null) return false;
-        const allergens = new Set(recipe.allergens.map((allergen) => allergen.toLocaleLowerCase('de-DE')));
-        if (request.allergies.some((allergy) => allergens.has(allergy.toLocaleLowerCase('de-DE')))) {
-          return false;
-        }
-      }
+      if (recipeHasAllergenConflict(recipe.allergens, request.allergies)) return false;
       if (
         request.dietaryPattern !== null &&
         !recipe.dietaryTags.some((tag) => tag.toLocaleLowerCase('de-DE') === request.dietaryPattern?.toLocaleLowerCase('de-DE'))
@@ -477,8 +483,14 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
     const model = modelFor(parsedRequest.model, allowedModels, defaultModel);
     if (!model) return json({ error: 'model_not_allowed' }, 400);
 
-    if (dependencies.isRateLimited?.()) return json({ error: 'rate_limited' }, 429);
-    dependencies.recordRateLimitAttempt?.();
+    const rateLimit = await dependencies.consumeRateLimit(auth.userId);
+    if (!rateLimit.ok) {
+      const response = json({ error: rateLimit.error }, rateLimit.status);
+      if (rateLimit.retryAfter !== undefined) {
+        response.headers.set('Retry-After', String(rateLimit.retryAfter));
+      }
+      return response;
+    }
 
     const contextResult =
       parsedRequest.skill === 'fam-cook-from-inventory'
@@ -540,6 +552,38 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       return json({ error: 'gateway_context_invalid' }, 500);
     }
 
+    if (canonicalContextResult !== null) {
+      const catalogMeals = buildCatalogSuggestions(
+        canonicalContextResult.context,
+        contextResult.context.recipes,
+      );
+      if (catalogMeals.length > 0) {
+        return json({
+          requestId: requestId(),
+          skill: parsedRequest.skill,
+          model,
+          result: { schema_version: 1, meals: catalogMeals },
+          priorityFoodCount: canonicalContextResult.context.priority_foods.length,
+          generatedAt: now(),
+        });
+      }
+    }
+
+    // The server allowlist is authoritative; a client header alone grants nothing.
+    const bypassCredits = request.headers.get('x-fam-ai-dev-bypass') === 'true' &&
+      dependencies.allowDevelopmentBypass?.(auth.userId) === true;
+    const providerRequestId = requestId();
+    if (!bypassCredits) {
+      const credit = await dependencies.reserveCredit({
+        householdId: parsedRequest.householdId,
+        action: parsedRequest.skill === 'fam-cook-from-inventory' ? 'suggestion' : 'voice',
+        requestId: providerRequestId,
+      });
+      if (!credit.ok) return json({ error: credit.error }, credit.status);
+    }
+
+    let keepCredit = false;
+    try {
     const provider = await dependencies.complete({
       model,
       messages: [
@@ -574,13 +618,20 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       validatedResult = validation.value;
     }
 
-    return json({
-      requestId: requestId(),
+    const response = json({
+      requestId: providerRequestId,
       skill: parsedRequest.skill,
       model: provider.model,
       result: validatedResult,
       priorityFoodCount: canonicalContextResult?.context.priority_foods.length ?? 0,
       generatedAt: now(),
     });
+    keepCredit = true;
+    return response;
+    } finally {
+      if (!bypassCredits && !keepCredit) {
+        await dependencies.releaseCredit(providerRequestId);
+      }
+    }
   };
 }

@@ -12,9 +12,9 @@ const mockGetDatabase = jest.fn().mockResolvedValue({});
 
 jest.mock('expo-router', () => {
   const React = jest.requireActual<typeof import('react')>('react');
-  const { Text } = jest.requireActual<typeof import('react-native')>('react-native');
-  const Stack = Object.assign(({ children }: PropsWithChildren) => children, {
-    Screen: ({ name }: { name: string }) => React.createElement(Text, null, name),
+  const { View } = require('react-native');
+  const Stack = Object.assign(({ children }: PropsWithChildren) => <View>{children}</View>, {
+    Screen: ({ name }: { name: string }) => React.createElement('Text', null, name),
     Protected: ({ children, guard }: { children: ReactNode; guard: boolean }) =>
       guard ? children : null,
   });
@@ -33,6 +33,7 @@ const privateRootRoutes = [
   'household',
   'profile',
   'recipe',
+  'chef-koch',
   'settings',
   'add-item',
   'add-product',

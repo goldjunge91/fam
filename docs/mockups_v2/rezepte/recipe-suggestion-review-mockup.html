@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>fam Rezeptvorschläge und Cook-Review Mockup</title>
+  <style>
+    :root { --bg:#f6efe8; --surface:#fffaf5; --ink:#2f2630; --muted:#766c75; --line:#dfd0d8; --basil:#705773; --basil-soft:#eadfea; --warn:#b16d35; --ok:#547b61; }
+    * { box-sizing:border-box; }
+    body { margin:0; padding:32px; background:var(--bg); color:var(--ink); font:15px/1.45 system-ui,-apple-system,sans-serif; }
+    h1,h2,p { margin:0; } h1 { font-size:28px; } h2 { font-size:20px; margin-bottom:12px; }
+    .intro { max-width:900px; margin:0 auto 28px; } .intro p { color:var(--muted); margin-top:8px; }
+    .variants { display:grid; grid-template-columns:repeat(2,minmax(320px,1fr)); gap:24px; max-width:1100px; margin:auto; }
+    .variant { background:var(--surface); border:1px solid var(--line); border-radius:22px; padding:22px; box-shadow:0 8px 24px #5b405012; }
+    .label { color:var(--basil); font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; margin-bottom:18px; }
+    .phone { max-width:430px; margin:auto; } .header { display:flex; align-items:center; gap:12px; padding-bottom:18px; border-bottom:1px solid var(--line); }
+    .back { font-size:24px; } .header strong { font-size:19px; } .eyebrow { color:var(--muted); font-size:12px; margin:20px 0 5px; }
+    .card { border:1px solid var(--line); border-radius:16px; padding:16px; margin-top:12px; } .card h3 { margin:0 0 4px; font-size:18px; }
+    .source { display:inline-block; color:var(--basil); background:var(--basil-soft); border-radius:8px; padding:4px 8px; font-size:12px; font-weight:700; }
+    .source.model { color:#8a582a; background:#f4e6d4; } .meta { color:var(--muted); font-size:13px; margin-top:8px; }
+    .section { margin-top:18px; } .section h4 { margin:0 0 8px; font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+    .row { display:flex; justify-content:space-between; gap:12px; border-top:1px solid var(--line); padding:9px 0; }
+    .missing { color:var(--warn); } .button { display:block; width:100%; border:0; border-radius:12px; padding:13px 16px; margin-top:16px; background:var(--basil); color:#fff; font-weight:800; text-align:center; }
+    .button.secondary { background:var(--basil-soft); color:var(--basil); } .button.disabled { opacity:.45; }
+    .notice { border-left:4px solid var(--warn); background:#fff3e5; padding:12px; border-radius:8px; color:#70451f; font-size:13px; }
+    .check { display:flex; align-items:center; gap:10px; } input { width:20px; height:20px; accent-color:var(--basil); } .quantity { width:74px; border:1px solid var(--line); border-radius:8px; padding:6px; text-align:right; background:#fff; }
+    @media (max-width:800px) { body { padding:18px; } .variants { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="intro">
+    <h1>Rezeptvorschläge und Cook-Review</h1>
+    <p>Zwei mögliche Darstellungen für denselben Vertrag. Beide zeigen: Der Vorschlag ist read-only. Erst die bestätigte Review verändert den Bestand.</p>
+  </div>
+  <main class="variants">
+    <section class="variant">
+      <div class="label">Variante A · Vorschläge zuerst</div>
+      <div class="phone">
+        <div class="header"><span class="back">‹</span><strong>Was soll ich kochen?</strong></div>
+        <p class="eyebrow">Für heute · 3 Vorschläge</p>
+        <div class="card"><span class="source">Aus Katalog</span><h3>Tomaten-Spinat-Pasta</h3><p class="meta">20 Min · 2 Portionen · verbraucht Spinat, Tomaten</p><div class="section"><h4>Verwendet</h4><div class="row"><span>Spinat</span><b>150 g</b></div><div class="row"><span>Tomaten</span><b>2 Stück</b></div></div><button class="button secondary">Rezept ansehen</button><button class="button">Kochen</button></div>
+        <div class="card"><span class="source model">Neu formuliert</span><h3>Mozzarella-Gemüse-Pfanne</h3><p class="meta">25 Min · 2 Portionen · nutzt Mozzarella, Tomaten</p><div class="section"><h4>Noch zu besorgen</h4><div class="row missing"><span>Knoblauch</span><b>optional</b></div></div><button class="button secondary">Rezept ansehen</button><button class="button">Kochen</button></div>
+      </div>
+    </section>
+    <section class="variant">
+      <div class="label">Variante B · Detail mit Review</div>
+      <div class="phone">
+        <div class="header"><span class="back">‹</span><strong>Tomaten-Spinat-Pasta</strong></div>
+        <span class="source">Aus Katalog</span><p class="meta">20 Min · 2 Portionen</p>
+        <div class="section"><h4>Zutaten</h4><div class="row"><span>Spinat</span><b>150 g</b></div><div class="row"><span>Tomaten</span><b>2 Stück</b></div><div class="row"><span>Pasta</span><b>200 g</b></div><div class="row missing"><span>Parmesan</span><b>fehlt</b></div></div>
+        <button class="button secondary">Rezept speichern</button><button class="button">Kochen</button>
+        <div class="section"><h4>Cook-Review · pending_confirmation</h4><div class="notice">Der Bestand wird erst nach „Gekocht bestätigen“ geändert.</div><div class="row"><label class="check"><input type="checkbox" checked><span>Spinat</span></label><input class="quantity" value="150 g" aria-label="Menge Spinat"></div><div class="row"><label class="check"><input type="checkbox" checked><span>Tomaten</span></label><input class="quantity" value="2 Stück" aria-label="Menge Tomaten"></div><div class="row"><label class="check"><input type="checkbox"><span>Pasta</span></label><input class="quantity" value="200 g" aria-label="Menge Pasta"></div><button class="button disabled">Gekocht bestätigen</button></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

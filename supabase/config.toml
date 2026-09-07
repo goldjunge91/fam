@@ -78,6 +78,8 @@ schema_paths = [
   "./schemas/19_profile_food_rules.sql",
   "./schemas/19_workouts.sql",
   "./schemas/23_brochures.sql",
+  "./schemas/26_ingredient_allergen_knowledge.sql",
+  "./schemas/27_ingredient_source_links.sql",
   "./schemas/20_privileges.sql",
 ]
 
@@ -424,3 +426,8 @@ s3_region = "env(S3_REGION)"
 s3_access_key = "env(S3_ACCESS_KEY)"
 # Configures AWS_SECRET_ACCESS_KEY for S3 bucket
 s3_secret_key = "env(S3_SECRET_KEY)"
+
+[experimental.pgdelta]
+# The project keeps its declarative schema files under supabase/schemas.
+enabled = true
+declarative_schema_path = "schemas/"

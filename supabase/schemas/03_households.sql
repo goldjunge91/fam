@@ -606,9 +606,9 @@ as $$
     and active;
 $$;
 
--- Bucht eine AI-Aktion atomar gegen das Monatskontingent. Die aufrufende
--- AI-Edge-Function muss vorher pruefen, dass der Haushalt AI-Zugriff hat —
--- dieser Vertrag kennt nur Credits, keine Entitlements. `p_request_id` ist
+-- Reserviert eine AI-Aktion gegen das Monatskontingent eines aktiven AI-Abos.
+-- Die Zuordnungszeile serialisiert Buchungen und Haushaltswechsel pro Abo.
+-- Die Edge Function gibt die Reservierung bei Fehlern wieder frei. `p_request_id` ist
 -- die Idempotenzsperre: Ein wiederholter Aufruf mit derselben ID (Netzwerk-
 -- Retry) bucht nicht doppelt, sondern liefert denselben Stand zurueck.
 -- Ueberschreitet die Buchung das Kontingent, schlaegt sie vollstaendig fehl
@@ -636,12 +636,35 @@ declare
   v_weight smallint;
   v_existing smallint;
   v_usage integer;
+  v_ai_active boolean;
+  v_ai_expires_at timestamptz;
 begin
-  v_subscriber_user_id := private.ai_credit_subscriber_for_household(p_household_id);
+  if p_monthly_limit is null or p_monthly_limit < 1 or p_request_id is null then
+    raise exception using errcode = '22023', message = 'ai_credit_invalid_request';
+  end if;
+
+  select a.subscriber_user_id into v_subscriber_user_id
+  from public.revenuecat_ai_assignments as a
+  where a.household_id = p_household_id and a.active
+  for update;
   if v_subscriber_user_id is null then
     raise exception using
       errcode = '42501',
       message = 'ai_household_not_assigned';
+  end if;
+
+  -- Lock the projection as well as the assignment. This keeps the
+  -- entitlement check consistent with a concurrent webhook/deactivation.
+  select h.ai_active, h.ai_expires_at
+  into v_ai_active, v_ai_expires_at
+  from public.households as h
+  where h.id = p_household_id
+    and h.ai_subscriber_id = v_subscriber_user_id
+  for update;
+  if not coalesce(v_ai_active, false)
+    or (v_ai_expires_at is not null and v_ai_expires_at <= clock_timestamp())
+  then
+    raise exception using errcode = '42501', message = 'ai_entitlement_required';
   end if;
 
   v_weight := case p_action
@@ -657,6 +680,10 @@ begin
   select b.credits into v_existing
   from public.ai_credit_bookings as b
   where b.subscriber_user_id = v_subscriber_user_id and b.request_id = p_request_id;
+
+  if v_existing is not null and v_existing <> v_weight then
+    raise exception using errcode = '22023', message = 'ai_credit_request_conflict';
+  end if;
 
   if v_existing is null then
     v_usage := private.ai_credit_month_usage(v_subscriber_user_id);
@@ -678,6 +705,45 @@ begin
     p_monthly_limit,
     v_usage >= ceil(p_monthly_limit * 0.8),
     v_usage >= p_monthly_limit;
+end;
+$$;
+
+-- Request-IDs werden im Gateway erzeugt. Die Freigabe bleibt auch nach einem
+-- Haushaltswechsel moeglich und ist bei wiederholten Aufrufen idempotent.
+create or replace function public.release_ai_credit(p_request_id uuid)
+returns void
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  v_subscriber_user_id uuid;
+begin
+  if p_request_id is null then
+    return;
+  end if;
+
+  -- Serialize a refund with a concurrent booking for the same subscriber.
+  -- The booking row is read first because the public contract only carries
+  -- the server-generated request ID.
+  select subscriber_user_id
+  into v_subscriber_user_id
+  from public.ai_credit_bookings
+  where request_id = p_request_id
+  for update;
+
+  if v_subscriber_user_id is null then
+    return;
+  end if;
+
+  perform 1
+  from public.revenuecat_ai_assignments
+  where subscriber_user_id = v_subscriber_user_id
+  for update;
+
+  delete from public.ai_credit_bookings
+  where subscriber_user_id = v_subscriber_user_id
+    and request_id = p_request_id;
 end;
 $$;
 

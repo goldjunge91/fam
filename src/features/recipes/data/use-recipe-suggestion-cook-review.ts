@@ -1,11 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-
-import { trackAnalyticsEvent } from '@/lib/analytics';
 import { applyInventoryConsumptionPlan } from '@/features/inventory/apply-inventory-consumption';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import {
   buildRecipeSuggestionConsumptionPlan,
-  type RecipeSuggestionCookReview,
   type RecipeSuggestionConsumptionPlanResult,
+  type RecipeSuggestionCookReview,
   type RecipeSuggestionInventorySnapshot,
 } from '../domain/recipe-suggestion-cook-review';
 
@@ -28,7 +27,11 @@ export function useApplyRecipeSuggestionCookReviewMutation() {
 
   return useMutation({
     mutationFn: async (input: ApplyRecipeSuggestionCookReviewInput) => {
-      const plan = buildRecipeSuggestionConsumptionPlan(input.review, input.inventory);
+      const plan = buildRecipeSuggestionConsumptionPlan(
+        input.review,
+        input.inventory,
+        input.householdId,
+      );
       if (!plan.ok) throw new RecipeSuggestionCookReviewError(plan);
 
       const applied = await applyInventoryConsumptionPlan(plan.value);

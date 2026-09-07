@@ -1,8 +1,29 @@
 # AI-Rezeptvorschläge: Zustand, Regeln und Structured Outputs
 
-**Status:** bestätigte fachliche Leitplanke für die erste Umsetzung  
+**Status:** kanonischer Gesamtplan für AI-Rezeptvorschläge, zuletzt konsolidiert am 7. September 2026
 **Scope:** Rezeptvorschläge aus dem bereits bekannten Haushaltsbestand  
 **Nicht im Scope:** Bild-, Barcode-, OCR-, Sprach- oder sonstige Rohdatenverarbeitung
+
+> Diese Datei ist die einzige führende Plan-Datei für das AI-Rezeptfeature.
+> Beads ist die Quelle für den Ausführungsstatus. Die Detail-Spezifikationen
+> unter `docs/specs/` bleiben als fachliche und technische Verträge erhalten,
+> sind aber keine konkurrierenden Umsetzungspläne.
+
+## Dokumentenstruktur
+
+| Zweck | Führende Datei | Rolle |
+|---|---|---|
+| Gesamtplan, Entscheidungen und Status | diese Datei | einziger AI-Umsetzungsplan |
+| Agent-Skill- und Gateway-Vertrag | `docs/specs/ai-feature/fam-agent-skills.md` | technische Details |
+| Phase-0-Verifikation | `docs/specs/ai-feature/fam-agent-skills-phase0-baseline.md` | historischer Testnachweis |
+| Ingredient-zu-Allergen-Wissensbasis | `docs/specs/ai-feature/ingredient-allergen-knowledge.md` | Daten- und Sicherheitsdetails |
+| Chef-Koch-Anzeige und Cook-Review | `docs/specs/food-waste-meal-suggestions/app-review.md` | UI-Detailvertrag |
+| Produktmessung Lebensmittelabfall | `docs/specs/food-waste-meal-suggestions/PRODUCT_MEASUREMENT.md` | Messdefinition für `fam-o57` |
+| fachliche Produktanforderungen | `docs/specs/food-waste-meal-suggestions/food-waste-meal-suggestions.md` | detaillierte Capability-Spezifikation |
+
+`tasks/rezept haushaltsbetsand.md` gehört nicht zu diesem Feature. Es beschreibt
+die lokale Koch-Streak-Karte und bleibt als eigenständiger, fachfremder Taskplan
+erhalten.
 
 ## Leitprinzip
 
@@ -26,9 +47,9 @@ Erfolg bedeutet:
 
 ## Getroffene Entscheidungen
 
-- **Architektur:** Die Rezeptvorschläge erhalten ein eigenes, erlaubtes
-  `recipe-suggestions`-Modul. Der konkrete App-/Backend-Pfad wird vor der
-  Implementierung freigegeben.
+- **Architektur:** Die Rezeptvorschläge verwenden die freigegebenen Rezept-
+  und Chef-Koch-Bereiche. Die Route bleibt ein Adapter; Kontext, Vertrag,
+  Validierung und Mutation liegen in den zuständigen Domain-/Data-Schichten.
 - **Rezeptquelle:** Ein autoritativer Rezeptkatalog wird mit deterministischen
   Zutaten-Templates ergänzt. Aktuelle Alias- und Katalogartefakte sind nur
   Import-/Testinput und keine Laufzeitabhängigkeit der App.
@@ -308,3 +329,79 @@ bun run test <betroffene-testdatei>
 ```
 
 `bun run test:db` ist nur erforderlich, wenn die Umsetzung das deklarative Supabase-Schema oder RLS-Regeln verändert.
+
+## Konsolidierter Umsetzungsplan
+
+Die Ausführung wird ausschließlich über Beads gesteuert. Die folgenden IDs
+bilden die vollständige Zuordnung zwischen Produktziel, Implementierung und
+Verifikation:
+
+| Phase | Beads | Inhalt | Status |
+|---|---|---|---|
+| Datenmodell-Grenze | `fam-agg` | Katalog, Templates und Messgrenzen | abgeschlossen |
+| Vertrag und Structured Outputs | `fam-cbx` | versionierter Input-/Output-Vertrag | abgeschlossen |
+| Deterministischer Kontext | `fam-2ry` | Priorität, MHD, Mengen, Allergien, Einkaufsliste | abgeschlossen |
+| Gemeinsame Validierung | `fam-4aw` | fail-closed Prüfung für Gateway und Evals | abgeschlossen |
+| Gezielte Evals | `fam-ana` | Prompt-, Schema-, Safety- und Regressionsevals | abgeschlossen |
+| Chef-Koch und Cook-Review | `fam-0ij` | Read-only-Anzeige bis zur bestätigten Mutation | abgeschlossen |
+| Produktwirkung | `fam-o57` | Nachweis, ob weniger Lebensmittel weggeworfen werden | offen |
+
+### Verbindliche Reihenfolge
+
+```text
+fam-agg → fam-cbx → fam-2ry → fam-4aw → fam-ana → fam-0ij → fam-o57
+```
+
+Bereits abgeschlossene Phasen werden nicht erneut als neue Implementierungs-
+aufgaben angelegt. Neue Arbeit wird als Beads-Unteraufgabe von `fam-o57` oder
+als klar abgegrenztes Folge-Issue erfasst.
+
+### Chef-Koch: abgeschlossener App- und Cook-Review-Umfang
+
+Der Full-Screen-Screen `Chef-Koch` verwendet einen Geist-/Genie-Avatar und ein
+Chatfenster. Der fachliche UI-Vertrag liegt in
+`docs/specs/food-waste-meal-suggestions/app-review.md`.
+
+Erledigt und verbindlich:
+
+- `useRecipeSuggestions` liefert 1 bis 3 Vorschläge im kanonischen Vertrag;
+- Zutaten, Mengen, Quelle und fehlende Einkaufsartikel sind sichtbar;
+- Katalog- und Modellvorschläge werden getrennt angezeigt;
+- bei leerer Einkaufsliste erfolgt keine zusätzliche Einkaufsfrage;
+- bei vorhandenen Einkaufslistenartikeln wird vor ihrer Nutzung gefragt, ob
+  heute noch eingekauft wird;
+- „Kochen“ öffnet zuerst das Bestands-Review;
+- Mengen können geändert oder abgewählt werden;
+- „Gekocht bestätigen“ ist die einzige Aktion, die den Verbrauch ausführt;
+- Bestand und Outbox werden danach über den atomaren bestehenden Pfad geändert;
+- Rezept speichern bleibt unabhängig und read-only;
+- die Ingredient-zu-Allergen-Prüfung bleibt außerhalb des Modells;
+- der Bestand wird niemals durch das Modell oder beim bloßen Anzeigen geändert.
+
+### Produktmessung: einziger verbleibender Feature-Schritt
+
+`fam-o57` beginnt erst mit einem funktionierenden Vorschlags- und Cook-Review-
+Flow. Primär wird die bestätigte Rettungsquote priorisierter Mengen aus
+bestätigtem Verbrauch und bestätigtem `waste` gemessen. Die wöchentliche
+Kurzabfrage ist nur eine grobe Plausibilitätskontrolle. Vorschlagsaufrufe,
+geöffnete Rezepte und gespeicherte Rezepte gelten nicht als gerettete
+Lebensmittel.
+
+Die vollständige Messdefinition liegt in
+`docs/specs/food-waste-meal-suggestions/PRODUCT_MEASUREMENT.md`.
+
+## Konsolidierter Abschlussstatus
+
+Die technische Umsetzung des ersten read-only Rezeptvorschlagsflows ist
+abgenommen. Die bisherigen Nachweise umfassen:
+
+- fokussierte UI-/Hook-Tests: `30/30` grün;
+- fokussierte Gateway-Tests: `54/54` grün;
+- deklarative Supabase-/pgTAP-Suite: `438/438` Assertions grün;
+- EU-14-Allergen-Taxonomie, Provenienz und Mapping-Sicherheitsregeln aktiv;
+- keine Bestandsmutation vor bestätigtem „Gekocht“;
+- `fam-o57` bleibt als Outcome-Messung offen.
+
+Die früheren Plan-Dateien `tasks/ai-rezeptvorschlaege-plan.md` und
+`tasks/plan.md` werden durch diese Abschnitte ersetzt. Die Detail-Spezifikationen
+bleiben verlinkt und werden nicht als zusätzliche Pläne fortgeführt.

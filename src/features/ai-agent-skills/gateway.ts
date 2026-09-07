@@ -25,6 +25,49 @@ function statusFromFunctionError(error: unknown): number | undefined {
   return typeof status === 'number' ? status : undefined;
 }
 
+async function errorCodeFromFunctionError(error: unknown): Promise<string | undefined> {
+  if (!error || typeof error !== 'object') return undefined;
+  const context = (error as { context?: unknown }).context;
+  if (
+    !context ||
+    typeof context !== 'object' ||
+    !('clone' in context) ||
+    typeof context.clone !== 'function'
+  ) {
+    return undefined;
+  }
+  try {
+    const body: unknown = await context.clone().json();
+    return typeof body === 'object' &&
+      body !== null &&
+      'error' in body &&
+      typeof body.error === 'string'
+      ? body.error
+      : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+function userFacingGatewayError(code: string | undefined): string {
+  switch (code) {
+    case 'rate_limited':
+      return 'Zu viele KI-Anfragen. Bitte kurz warten.';
+    case 'ai_credit_limit_exceeded':
+      return 'Dein KI-Kontingent ist aufgebraucht.';
+    case 'ai_entitlement_required':
+      return 'Für diese KI-Funktion ist kein aktives KI-Kontingent verfügbar.';
+    default:
+      return 'Der AI-Gateway-Aufruf ist fehlgeschlagen.';
+  }
+}
+
+export function developmentBypassHeaders(
+  isDevelopment: boolean,
+): Record<string, string> | undefined {
+  return isDevelopment ? { 'x-fam-ai-dev-bypass': 'true' } : undefined;
+}
+
 /**
  * Calls the authenticated Supabase gateway. The mobile client never receives
  * an OpenRouter key and cannot supply inventory lots or write operations.
@@ -35,11 +78,13 @@ export async function invokeAiGateway(request: AiGatewayRequest): Promise<AiGate
     throw new AiGatewayError('Die Gateway-Anfrage entspricht nicht dem Skill-Vertrag.', 400);
   }
 
+  const developmentHeaders = developmentBypassHeaders(__DEV__);
   let response: { data: unknown; error: unknown };
   try {
     response = await getSupabase().functions.invoke('ai-gateway', {
       method: 'POST',
       body: parsedRequest.data,
+      ...(developmentHeaders === undefined ? {} : { headers: developmentHeaders }),
     });
   } catch (error) {
     throw new AiGatewayError(
@@ -49,15 +94,8 @@ export async function invokeAiGateway(request: AiGatewayRequest): Promise<AiGate
 
   if (response.error) {
     const status = statusFromFunctionError(response.error);
-    const message =
-      response.error instanceof Error
-        ? response.error.message
-        : typeof response.error === 'object' &&
-            response.error !== null &&
-            'message' in response.error
-          ? String((response.error as { message: unknown }).message)
-          : 'Der AI-Gateway-Aufruf ist fehlgeschlagen.';
-    throw new AiGatewayError(message, status);
+    const code = await errorCodeFromFunctionError(response.error);
+    throw new AiGatewayError(userFacingGatewayError(code), status, code);
   }
 
   const parsedResponse = aiGatewayResponseSchema.safeParse(response.data);

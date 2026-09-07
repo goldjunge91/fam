@@ -1,8 +1,8 @@
-import { assertEquals } from 'jsr:@std/assert@1';
+import { assertEquals } from "jsr:@std/assert@1";
 
-import { SlidingWindowRateLimiter } from './rate-limiter.ts';
+import { SlidingWindowRateLimiter } from "./rate-limiter.ts";
 
-Deno.test('erlaubt Anfragen bis zum Limit und blockt danach', () => {
+Deno.test("erlaubt Anfragen bis zum Limit und blockt danach", () => {
   const limiter = new SlidingWindowRateLimiter(3, 60_000);
   const t0 = 1_000_000;
 
@@ -16,7 +16,7 @@ Deno.test('erlaubt Anfragen bis zum Limit und blockt danach', () => {
   assertEquals(limiter.isLimited(t0), true);
 });
 
-Deno.test('lässt wieder Anfragen zu, sobald ältere aus dem Fenster fallen', () => {
+Deno.test("lässt wieder Anfragen zu, sobald ältere aus dem Fenster fallen", () => {
   const limiter = new SlidingWindowRateLimiter(2, 60_000);
   const t0 = 1_000_000;
 
@@ -26,7 +26,7 @@ Deno.test('lässt wieder Anfragen zu, sobald ältere aus dem Fenster fallen', ()
   assertEquals(limiter.isLimited(t0 + 61_000), false);
 });
 
-Deno.test('startet unbelastet', () => {
+Deno.test("startet unbelastet", () => {
   const limiter = new SlidingWindowRateLimiter(1, 60_000);
   assertEquals(limiter.isLimited(), false);
 });

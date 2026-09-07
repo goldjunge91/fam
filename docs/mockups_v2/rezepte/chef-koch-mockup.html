@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chef-Koch · Full-Screen-Feature</title>
+  <style>
+    :root { --bg:#f6efe8; --surface:#fffaf5; --ink:#2f2630; --muted:#766c75; --line:#dfd0d8; --basil:#705773; --soft:#eadfea; --warn:#b16d35; --ghost:#b79cba; }
+    * { box-sizing:border-box; } body { margin:0; min-height:100vh; background:var(--bg); color:var(--ink); font:15px/1.45 system-ui,sans-serif; }
+    .screen { min-height:100vh; max-width:920px; margin:auto; display:flex; flex-direction:column; background:var(--surface); }
+    .top { display:flex; align-items:center; gap:14px; padding:22px 28px; border-bottom:1px solid var(--line); } .back { font-size:27px; } .top strong { font-size:20px; } .top small { display:block; color:var(--muted); margin-top:2px; }
+    .conversation { flex:1; padding:38px clamp(22px,7vw,90px) 26px; } .message { display:flex; gap:16px; align-items:flex-start; max-width:760px; }
+    .avatar { width:72px; height:72px; flex:none; position:relative; border-radius:50% 50% 44% 44%; background:linear-gradient(145deg,#d9bedb,var(--ghost)); box-shadow:0 9px 0 #8d718f; }
+    .avatar:before,.avatar:after { content:""; position:absolute; top:29px; width:9px; height:13px; border-radius:50%; background:var(--ink); } .avatar:before { left:22px; } .avatar:after { right:22px; }
+    .spark { position:absolute; color:var(--basil); font-size:22px; } .s1 { left:-12px; top:2px; } .s2 { right:-17px; top:22px; }
+    .bubble { background:var(--soft); border-radius:4px 18px 18px 18px; padding:16px 18px; max-width:610px; } .bubble strong { display:block; margin-bottom:5px; } .bubble p { margin:0; }
+    .choices { margin:26px 0 0 88px; display:grid; grid-template-columns:repeat(3,minmax(170px,1fr)); gap:14px; } .card { border:1px solid var(--line); border-radius:15px; padding:15px; background:#fff; } .card h3 { margin:8px 0 4px; font-size:16px; } .meta { color:var(--muted); font-size:13px; }
+    .tag { display:inline-block; border-radius:8px; padding:4px 8px; background:var(--soft); color:var(--basil); font-size:12px; font-weight:800; } .tag.model { background:#f4e6d4; color:#8a582a; }
+    .missing { color:var(--warn); margin-top:9px; font-size:13px; } .review { margin:28px 0 0 88px; border:1px solid var(--line); border-radius:16px; padding:17px; max-width:620px; }
+    .review h2 { margin:0 0 5px; font-size:18px; } .review p { margin:0; color:var(--muted); } .notice { margin:14px 0; padding:11px; border-left:4px solid var(--warn); background:#fff3e5; color:#70451f; font-size:13px; border-radius:7px; }
+    .row { display:flex; justify-content:space-between; gap:12px; border-top:1px solid var(--line); padding:10px 0; } .check { display:flex; align-items:center; gap:9px; } input[type=checkbox] { width:20px; height:20px; accent-color:var(--basil); } input[type=text] { width:82px; border:1px solid var(--line); border-radius:7px; padding:6px; text-align:right; }
+    .button { border:0; border-radius:11px; padding:13px 16px; background:var(--basil); color:#fff; font-weight:800; text-align:center; } .button.secondary { background:var(--soft); color:var(--basil); } .actions { display:flex; gap:10px; margin-top:16px; } .actions .button { flex:1; }
+    .composer { display:flex; gap:12px; align-items:center; padding:18px 28px 24px; border-top:1px solid var(--line); color:var(--muted); } .composer .input { flex:1; border:1px solid var(--line); border-radius:13px; padding:13px 15px; background:#fff; } .send { width:46px; height:46px; border-radius:50%; border:0; background:var(--basil); color:#fff; font-size:18px; }
+    @media (max-width:760px) { .top { padding:18px; } .conversation { padding:28px 18px 22px; } .choices { margin-left:0; grid-template-columns:1fr; } .review { margin-left:0; } .composer { padding:15px 18px 20px; } .avatar { width:58px; height:58px; } .bubble { padding:13px 15px; } }
+  </style>
+</head>
+<body>
+  <main class="screen">
+    <header class="top"><span class="back">‹</span><div><strong>Chef-Koch</strong><small>Dein Küchengeist für heute</small></div></header>
+    <section class="conversation">
+      <div class="message"><div class="avatar"><span class="spark s1">✦</span><span class="spark s2">·</span></div><div class="bubble"><strong>Hallo, ich bin dein Chef-Koch.</strong><p>Ich habe Spinat, Mozzarella und Tomaten gefunden. Daraus passen heute diese Mahlzeiten. Was klingt gut?</p></div></div>
+      <div class="choices">
+        <article class="card"><span class="tag">Aus Katalog</span><h3>Tomaten-Spinat-Pasta</h3><p class="meta">20 Min · 2 Portionen</p><p class="missing">Spinat 150 g · Tomaten 2 Stück</p><div class="actions"><button class="button secondary">Details</button><button class="button">Kochen</button></div></article>
+        <article class="card"><span class="tag model">Neu formuliert</span><h3>Mozzarella-Gemüse-Pfanne</h3><p class="meta">25 Min · 2 Portionen</p><p class="missing">Fehlt: Knoblauch</p><div class="actions"><button class="button secondary">Details</button><button class="button">Kochen</button></div></article>
+        <article class="card"><span class="tag">Aus Vorlage</span><h3>Warmer Tomatensalat</h3><p class="meta">15 Min · 2 Portionen</p><p class="missing">Tomaten 2 Stück · Mozzarella 125 g</p><div class="actions"><button class="button secondary">Details</button><button class="button">Kochen</button></div></article>
+      </div>
+      <div class="message" style="margin-top:30px"><div class="avatar"><span class="spark s1">✦</span><span class="spark s2">·</span></div><div class="bubble"><strong>Bevor ich etwas vom Bestand abziehe:</strong><p>Bitte prüfe, was du tatsächlich verwendet hast. Du kannst Mengen ändern oder Zutaten abwählen.</p></div></div>
+      <div class="review"><h2>Cook-Review · noch nicht bestätigt</h2><p>Der Bestand bleibt unverändert, bis du die Mahlzeit bestätigst.</p><div class="notice">Nur „Gekocht bestätigen“ führt den Verbrauchsplan aus.</div><div class="row"><label class="check"><input type="checkbox" checked> Spinat</label><input type="text" value="150 g" aria-label="Menge Spinat"></div><div class="row"><label class="check"><input type="checkbox" checked> Tomaten</label><input type="text" value="2 Stück" aria-label="Menge Tomaten"></div><div class="row"><label class="check"><input type="checkbox"> Pasta</label><input type="text" value="200 g" aria-label="Menge Pasta"></div><button class="button" style="width:100%;margin-top:8px">Gekocht bestätigen</button></div>
+    </section>
+    <footer class="composer"><div class="input">Sag mir, worauf du Lust hast …</div><button class="send" aria-label="Nachricht senden">↑</button></footer>
+  </main>
+</body>
+</html>

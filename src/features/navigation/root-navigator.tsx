@@ -45,6 +45,7 @@ export function RootNavigator() {
         <Stack.Screen name="household" />
         <Stack.Screen name="profile" />
         <Stack.Screen name="recipe" />
+        <Stack.Screen name="chef-koch" />
         <Stack.Screen name="settings" />
         <Stack.Screen name="meal-planner/shopping-needs" />
         <Stack.Screen name="add-item" options={{ presentation: 'modal' }} />

@@ -202,7 +202,7 @@ describe('recipe suggestion contracts', () => {
     expect(accepted).toMatchObject({ ok: true });
   });
 
-  it('rejects inventory quantities that exceed availability across meals', () => {
+  it('checks inventory quantities independently for each alternative', () => {
     const result = validateRecipeSuggestionResponse(
       createContext(),
       createResponse(
@@ -215,12 +215,27 @@ describe('recipe suggestion contracts', () => {
       ),
     );
 
+    expect(result).toMatchObject({ ok: true });
+  });
+
+  it('rejects duplicate inventory references within one alternative', () => {
+    const result = validateRecipeSuggestionResponse(
+      createContext(),
+      createResponse(
+        createCatalogMeal({
+          used_items: [
+            { inventory_item_id: 'inventory-tomatoes', quantity: 60, unit: 'g' },
+            { inventory_item_id: 'inventory-tomatoes', quantity: 40, unit: 'g' },
+          ],
+        }),
+      ),
+    );
     expect(result).toMatchObject({
       ok: false,
       issues: [
         expect.objectContaining({
-          code: 'invalid_quantity',
-          path: '$.meals[1].used_items[0].quantity',
+          code: 'invalid_reference',
+          path: '$.meals[0].used_items[1].inventory_item_id',
         }),
       ],
     });

@@ -56,8 +56,9 @@ Object.assign(process.env, dotenv.parse(fs.readFileSync(envPath)));
 console.log(`Android Metro startet mit ${envFile}`);
 console.log('Dev-Client wird erwartet. Für eine Release-APK ist Metro nicht erforderlich.');
 
-const command = process.platform === 'win32' ? 'bunx.cmd' : 'bunx';
-const child = spawn(command, ['expo', 'start', '--dev-client', ...expoArgs], {
+// Spawn Bun directly on every platform. Windows cannot reliably execute the
+// generated `bunx.cmd` shim through Bun's child_process implementation.
+const child = spawn(process.execPath, ['x', 'expo', 'start', '--dev-client', ...expoArgs], {
   cwd: projectRoot,
   env: process.env,
   stdio: 'inherit',

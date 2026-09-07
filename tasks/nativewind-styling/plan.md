@@ -17,8 +17,9 @@ Maintainer-Freigabe entfernt. Die aktuellen Verträge stehen unter
 `docs/design-system/contracts/`; `docs/specs/nativewind-styling/` ist nur noch
 historischer Kontext.
 
-Dieser scoped Plan liegt neben dem aktuellen Top-Level-Plan unter
-`tasks/plan.md` und überschreibt ihn nicht.
+Dieser scoped Plan bleibt eigenständig und überschreibt keinen anderen
+Fachplan. Der konsolidierte AI-Rezeptvorschlagsplan liegt unter
+`docs/research/ai-rezeptvorschlaege-kompakt.md`.
 
 ## Architekturentscheidungen
 

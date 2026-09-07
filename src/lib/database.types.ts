@@ -7,11 +7,6 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instantiate createClient with right options
-  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
-  __InternalSupabase: {
-    PostgrestVersion: "14.5"
-  }
   graphql_public: {
     Tables: {
       [_ in never]: never
@@ -70,6 +65,45 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      allergen_taxonomy: {
+        Row: {
+          canonical_name: string
+          created_at: string
+          id: string
+          legal_code: string
+          license: string
+          source: string
+          source_id: string
+          source_url: string
+          source_version: string
+          updated_at: string
+        }
+        Insert: {
+          canonical_name: string
+          created_at?: string
+          id: string
+          legal_code: string
+          license: string
+          source?: string
+          source_id: string
+          source_url: string
+          source_version: string
+          updated_at?: string
+        }
+        Update: {
+          canonical_name?: string
+          created_at?: string
+          id?: string
+          legal_code?: string
+          license?: string
+          source?: string
+          source_id?: string
+          source_url?: string
+          source_version?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
       brochure_dumps: {
         Row: {
@@ -268,6 +302,63 @@ export type Database = {
             columns: ["recipe_id"]
             isOneToOne: false
             referencedRelation: "catalog_recipes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      catalog_recipe_item_ingredient_links: {
+        Row: {
+          catalog_item_id: string
+          confidence: string
+          created_at: string
+          ingredient_id: string
+          license: string
+          reviewed_at: string | null
+          source: string
+          source_id: string
+          source_url: string
+          source_version: string
+          updated_at: string
+        }
+        Insert: {
+          catalog_item_id: string
+          confidence: string
+          created_at?: string
+          ingredient_id: string
+          license: string
+          reviewed_at?: string | null
+          source: string
+          source_id: string
+          source_url: string
+          source_version: string
+          updated_at?: string
+        }
+        Update: {
+          catalog_item_id?: string
+          confidence?: string
+          created_at?: string
+          ingredient_id?: string
+          license?: string
+          reviewed_at?: string | null
+          source?: string
+          source_id?: string
+          source_url?: string
+          source_version?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "catalog_recipe_item_ingredient_links_catalog_item_id_fkey"
+            columns: ["catalog_item_id"]
+            isOneToOne: false
+            referencedRelation: "catalog_recipe_component_items"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "catalog_recipe_item_ingredient_links_ingredient_id_fkey"
+            columns: ["ingredient_id"]
+            isOneToOne: false
+            referencedRelation: "external_food_ingredients"
             referencedColumns: ["id"]
           },
         ]
@@ -549,6 +640,101 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      external_food_aliases: {
+        Row: {
+          alias: string
+          created_at: string
+          id: string
+          ingredient_id: string
+          license: string
+          locale: string
+          source: string
+          source_id: string
+          source_url: string
+          source_version: string
+          updated_at: string
+        }
+        Insert: {
+          alias: string
+          created_at?: string
+          id?: string
+          ingredient_id: string
+          license: string
+          locale?: string
+          source: string
+          source_id: string
+          source_url: string
+          source_version: string
+          updated_at?: string
+        }
+        Update: {
+          alias?: string
+          created_at?: string
+          id?: string
+          ingredient_id?: string
+          license?: string
+          locale?: string
+          source?: string
+          source_id?: string
+          source_url?: string
+          source_version?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "external_food_aliases_ingredient_id_fkey"
+            columns: ["ingredient_id"]
+            isOneToOne: false
+            referencedRelation: "external_food_ingredients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      external_food_ingredients: {
+        Row: {
+          allergen_resolution: string
+          allergen_reviewed_at: string | null
+          canonical_name: string
+          created_at: string
+          foodon_id: string | null
+          id: string
+          license: string
+          source: string
+          source_id: string
+          source_url: string
+          source_version: string
+          updated_at: string
+        }
+        Insert: {
+          allergen_resolution?: string
+          allergen_reviewed_at?: string | null
+          canonical_name: string
+          created_at?: string
+          foodon_id?: string | null
+          id?: string
+          license: string
+          source: string
+          source_id: string
+          source_url: string
+          source_version: string
+          updated_at?: string
+        }
+        Update: {
+          allergen_resolution?: string
+          allergen_reviewed_at?: string | null
+          canonical_name?: string
+          created_at?: string
+          foodon_id?: string | null
+          id?: string
+          license?: string
+          source?: string
+          source_id?: string
+          source_url?: string
+          source_version?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
       fasting_sessions: {
         Row: {
@@ -1122,6 +1308,69 @@ export type Database = {
           },
         ]
       }
+      ingredient_allergen_mappings: {
+        Row: {
+          allergen_id: string
+          confidence: string
+          created_at: string
+          id: string
+          ingredient_id: string
+          license: string
+          relation: string
+          reviewed_at: string | null
+          source: string
+          source_id: string
+          source_url: string
+          source_version: string
+          updated_at: string
+        }
+        Insert: {
+          allergen_id: string
+          confidence: string
+          created_at?: string
+          id?: string
+          ingredient_id: string
+          license: string
+          relation: string
+          reviewed_at?: string | null
+          source: string
+          source_id: string
+          source_url: string
+          source_version: string
+          updated_at?: string
+        }
+        Update: {
+          allergen_id?: string
+          confidence?: string
+          created_at?: string
+          id?: string
+          ingredient_id?: string
+          license?: string
+          relation?: string
+          reviewed_at?: string | null
+          source?: string
+          source_id?: string
+          source_url?: string
+          source_version?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ingredient_allergen_mappings_allergen_id_fkey"
+            columns: ["allergen_id"]
+            isOneToOne: false
+            referencedRelation: "allergen_taxonomy"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ingredient_allergen_mappings_ingredient_id_fkey"
+            columns: ["ingredient_id"]
+            isOneToOne: false
+            referencedRelation: "external_food_ingredients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       injection_plans: {
         Row: {
           anchor_at: string
@@ -1407,6 +1656,63 @@ export type Database = {
             columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      product_ingredient_links: {
+        Row: {
+          confidence: string
+          created_at: string
+          ingredient_id: string
+          license: string
+          product_id: string
+          reviewed_at: string | null
+          source: string
+          source_id: string
+          source_url: string
+          source_version: string
+          updated_at: string
+        }
+        Insert: {
+          confidence: string
+          created_at?: string
+          ingredient_id: string
+          license: string
+          product_id: string
+          reviewed_at?: string | null
+          source: string
+          source_id: string
+          source_url: string
+          source_version: string
+          updated_at?: string
+        }
+        Update: {
+          confidence?: string
+          created_at?: string
+          ingredient_id?: string
+          license?: string
+          product_id?: string
+          reviewed_at?: string | null
+          source?: string
+          source_id?: string
+          source_url?: string
+          source_version?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_ingredient_links_ingredient_id_fkey"
+            columns: ["ingredient_id"]
+            isOneToOne: false
+            referencedRelation: "external_food_ingredients"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "product_ingredient_links_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
             referencedColumns: ["id"]
           },
         ]
@@ -3091,12 +3397,12 @@ export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends (DefaultSchemaTableNameOrOptions extends {
+  TableName extends DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
         DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
-    : never) = never,
+    : never = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -3120,11 +3426,11 @@ export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends (DefaultSchemaTableNameOrOptions extends {
+  TableName extends DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never) = never,
+    : never = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -3145,11 +3451,11 @@ export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends (DefaultSchemaTableNameOrOptions extends {
+  TableName extends DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never) = never,
+    : never = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -3170,11 +3476,11 @@ export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
     | { schema: keyof DatabaseWithoutInternals },
-  EnumName extends (DefaultSchemaEnumNameOrOptions extends {
+  EnumName extends DefaultSchemaEnumNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
-    : never) = never,
+    : never = never,
 > = DefaultSchemaEnumNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -3187,11 +3493,11 @@ export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
     | { schema: keyof DatabaseWithoutInternals },
-  CompositeTypeName extends (PublicCompositeTypeNameOrOptions extends {
+  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
-    : never) = never,
+    : never = never,
 > = PublicCompositeTypeNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }

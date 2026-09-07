@@ -67,6 +67,7 @@ describe('recipe suggestion cook review', () => {
         { id: 'inventory-potatoes', householdId: 'household-1', quantity: 2, unit: 'kg' },
         { id: 'inventory-spinach', householdId: 'household-1', quantity: 500, unit: 'g' },
       ],
+      'household-1',
     );
 
     expect(result).toEqual({
@@ -93,9 +94,11 @@ describe('recipe suggestion cook review', () => {
     if (review === null) throw new Error('expected review');
     const confirmed = confirmRecipeSuggestionCookReview(review);
 
-    const result = buildRecipeSuggestionConsumptionPlan(confirmed, [
-      { id: 'inventory-potatoes', householdId: 'household-1', quantity: 1, unit: 'piece' },
-    ]);
+    const result = buildRecipeSuggestionConsumptionPlan(
+      confirmed,
+      [{ id: 'inventory-potatoes', householdId: 'household-1', quantity: 1, unit: 'piece' }],
+      'household-1',
+    );
 
     expect(result).toMatchObject({
       ok: false,
@@ -116,6 +119,7 @@ describe('recipe suggestion cook review', () => {
         { id: 'inventory-potatoes', householdId: 'household-1', quantity: 0.5, unit: 'kg' },
         { id: 'inventory-spinach', householdId: 'household-1', quantity: 500, unit: 'g' },
       ],
+      'household-1',
     );
 
     expect(result).toMatchObject({
@@ -129,9 +133,30 @@ describe('recipe suggestion cook review', () => {
     if (review === null) throw new Error('expected review');
 
     expect(
-      buildRecipeSuggestionConsumptionPlan(review, [
-        { id: 'inventory-potatoes', householdId: 'household-1', quantity: 2, unit: 'kg' },
-      ]),
+      buildRecipeSuggestionConsumptionPlan(
+        review,
+        [{ id: 'inventory-potatoes', householdId: 'household-1', quantity: 2, unit: 'kg' }],
+        'household-1',
+      ),
     ).toEqual({ ok: false, issues: [{ code: 'not_confirmed' }] });
+  });
+
+  it('rejects a confirmed review for an inventory item from another household', () => {
+    const review = createRecipeSuggestionCookReview(suggestionReview, 0);
+    if (review === null) throw new Error('expected review');
+
+    const result = buildRecipeSuggestionConsumptionPlan(
+      confirmRecipeSuggestionCookReview(review),
+      [
+        { id: 'inventory-potatoes', householdId: 'other-household', quantity: 2, unit: 'kg' },
+        { id: 'inventory-spinach', householdId: 'household-1', quantity: 500, unit: 'g' },
+      ],
+      'household-1',
+    );
+
+    expect(result).toMatchObject({
+      ok: false,
+      issues: [{ code: 'household_mismatch', inventoryItemId: 'inventory-potatoes' }],
+    });
   });
 });

@@ -18,6 +18,36 @@ values ('recipe-catalog', 'recipe-catalog', false, 5242880)
 on conflict (id) do nothing;
 
 -- ============================================================
+-- EU-LMIV Anhang II: normative Taxonomie der 14 kennzeichnungspflichtigen
+-- Allergengruppen. Ingredient-Mappings werden getrennt und provenance-behaftet
+-- durch die Wissensbasis gepflegt.
+insert into public.allergen_taxonomy
+  (id, canonical_name, legal_code, source, source_id, source_url, source_version, license)
+values
+  ('EU_01_GLUTEN_CEREALS', 'Glutenhaltiges Getreide', 'annex-ii-01', 'eu_lmiv', '1169/2011-annex-ii-01', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text'),
+  ('EU_02_CRUSTACEANS', 'Krebstiere', 'annex-ii-02', 'eu_lmiv', '1169/2011-annex-ii-02', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text'),
+  ('EU_03_EGGS', 'Eier', 'annex-ii-03', 'eu_lmiv', '1169/2011-annex-ii-03', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text'),
+  ('EU_04_FISH', 'Fisch', 'annex-ii-04', 'eu_lmiv', '1169/2011-annex-ii-04', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text'),
+  ('EU_05_PEANUTS', 'Erdnüsse', 'annex-ii-05', 'eu_lmiv', '1169/2011-annex-ii-05', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text'),
+  ('EU_06_SOYBEANS', 'Sojabohnen', 'annex-ii-06', 'eu_lmiv', '1169/2011-annex-ii-06', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text'),
+  ('EU_07_MILK', 'Milch', 'annex-ii-07', 'eu_lmiv', '1169/2011-annex-ii-07', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text'),
+  ('EU_08_NUTS', 'Schalenfrüchte', 'annex-ii-08', 'eu_lmiv', '1169/2011-annex-ii-08', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text'),
+  ('EU_09_CELERY', 'Sellerie', 'annex-ii-09', 'eu_lmiv', '1169/2011-annex-ii-09', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text'),
+  ('EU_10_MUSTARD', 'Senf', 'annex-ii-10', 'eu_lmiv', '1169/2011-annex-ii-10', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text'),
+  ('EU_11_SESAME', 'Sesam', 'annex-ii-11', 'eu_lmiv', '1169/2011-annex-ii-11', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text'),
+  ('EU_12_SULPHITES', 'Schwefeldioxid und Sulfite', 'annex-ii-12', 'eu_lmiv', '1169/2011-annex-ii-12', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text'),
+  ('EU_13_LUPIN', 'Lupinen', 'annex-ii-13', 'eu_lmiv', '1169/2011-annex-ii-13', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text'),
+  ('EU_14_MOLLUSCS', 'Weichtiere', 'annex-ii-14', 'eu_lmiv', '1169/2011-annex-ii-14', 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii', 'EU legal text')
+on conflict (id) do update set
+  canonical_name = excluded.canonical_name,
+  legal_code = excluded.legal_code,
+  source = excluded.source,
+  source_id = excluded.source_id,
+  source_url = excluded.source_url,
+  source_version = excluded.source_version,
+  license = excluded.license;
+
+-- ============================================================
 -- Basis-Produkte fuer Rezeptvorlagen (#Recipe-Templates).
 --
 -- Ueberwiegend echte REWE/EDEKA/Ja!/Gut&Guenstig-Produkte, recherchiert
@@ -944,6 +974,98 @@ values
   ('b9390b2f-ef78-5486-b5b6-a4ef92f27f39', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 2, 'Kichererbsen dazugeben und mitbraten.'),
   ('d21e7ca5-b05b-53a6-87d9-52ee89552907', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 3, 'Mit Sojasauce ablöschen, mit Reis servieren.')
 on conflict (id) do nothing;
+
+-- ============================================================
+-- Minimale, provenance-behaftete Ingredient-Aufloesung fuer den Seed.
+-- Die Produkte bleiben globale fam-Identitaeten; die Wissensbasis ist nur
+-- eine getrennte Evidenzschicht fuer die Gateway-Pruefung.
+insert into public.external_food_ingredients
+  (id, canonical_name, foodon_id, source, source_id, source_url, source_version,
+   license, allergen_resolution, allergen_reviewed_at)
+values
+  ('a0000000-0000-5000-8000-000000000001', 'Spaghetti', null, 'open_food_facts',
+   'off:4337256537933', 'https://world.openfoodfacts.org/product/4337256537933',
+   'off-seed-2026-09-06', 'ODbL-1.0', 'mapped', now()),
+  ('a0000000-0000-5000-8000-000000000002', 'Gouda', null, 'open_food_facts',
+   'off:4337256596961', 'https://world.openfoodfacts.org/product/4337256596961',
+   'off-seed-2026-09-06', 'ODbL-1.0', 'mapped', now()),
+  ('a0000000-0000-5000-8000-000000000003', 'Vollmilch', null, 'open_food_facts',
+   'off:4337256279086', 'https://world.openfoodfacts.org/product/4337256279086',
+   'off-seed-2026-09-06', 'ODbL-1.0', 'mapped', now())
+on conflict (id) do update set
+  canonical_name = excluded.canonical_name,
+  source = excluded.source,
+  source_id = excluded.source_id,
+  source_url = excluded.source_url,
+  source_version = excluded.source_version,
+  license = excluded.license,
+  allergen_resolution = excluded.allergen_resolution,
+  allergen_reviewed_at = excluded.allergen_reviewed_at;
+
+insert into public.external_food_aliases
+  (ingredient_id, alias, locale, source, source_id, source_url, source_version, license)
+values
+  ('a0000000-0000-5000-8000-000000000001', 'Pasta', 'de', 'curated',
+   'fam:alias:pasta', 'https://world.openfoodfacts.org/product/4337256537933',
+   'fam-curated-2026-09-06', 'proprietary-curation'),
+  ('a0000000-0000-5000-8000-000000000002', 'Gouda-Käse', 'de', 'curated',
+   'fam:alias:gouda-kaese', 'https://world.openfoodfacts.org/product/4337256596961',
+   'fam-curated-2026-09-06', 'proprietary-curation'),
+  ('a0000000-0000-5000-8000-000000000003', 'Milch', 'de', 'curated',
+   'fam:alias:milch', 'https://world.openfoodfacts.org/product/4337256279086',
+   'fam-curated-2026-09-06', 'proprietary-curation')
+on conflict (ingredient_id, alias, locale, source) do update set
+  source_id = excluded.source_id,
+  source_url = excluded.source_url,
+  source_version = excluded.source_version,
+  license = excluded.license;
+
+insert into public.ingredient_allergen_mappings
+  (ingredient_id, allergen_id, relation, source, source_id, source_url,
+   source_version, license, confidence, reviewed_at)
+values
+  ('a0000000-0000-5000-8000-000000000001', 'EU_01_GLUTEN_CEREALS', 'derived_from',
+   'curated', 'fam:spaghetti:gluten-cereals',
+   'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii',
+   'EU legal text; proprietary-curation', 'verified', now()),
+  ('a0000000-0000-5000-8000-000000000002', 'EU_07_MILK', 'contains',
+   'curated', 'fam:gouda:milk',
+   'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii',
+   'EU legal text; proprietary-curation', 'verified', now()),
+  ('a0000000-0000-5000-8000-000000000003', 'EU_07_MILK', 'contains',
+   'curated', 'fam:milk:milk',
+   'https://eur-lex.europa.eu/eli/reg/2011/1169/oj', '1169/2011-annex-ii',
+   'EU legal text; proprietary-curation', 'verified', now())
+on conflict (ingredient_id, allergen_id, relation, source, source_id) do update set
+  source_url = excluded.source_url,
+  source_version = excluded.source_version,
+  license = excluded.license,
+  confidence = excluded.confidence,
+  reviewed_at = excluded.reviewed_at;
+
+insert into public.product_ingredient_links
+  (product_id, ingredient_id, source, source_id, source_url, source_version,
+   license, confidence, reviewed_at)
+values
+  ('869764ff-4322-5315-b401-d69d0da91252', 'a0000000-0000-5000-8000-000000000001',
+   'open_food_facts', 'off:4337256537933',
+   'https://world.openfoodfacts.org/product/4337256537933', 'off-seed-2026-09-06',
+   'ODbL-1.0', 'external', now()),
+  ('495964f4-f59c-54d5-a6a7-96f3108e0763', 'a0000000-0000-5000-8000-000000000002',
+   'open_food_facts', 'off:4337256596961',
+   'https://world.openfoodfacts.org/product/4337256596961', 'off-seed-2026-09-06',
+   'ODbL-1.0', 'external', now()),
+  ('822dcf16-0c0a-5e06-b473-e15521ae62ad', 'a0000000-0000-5000-8000-000000000003',
+   'open_food_facts', 'off:4337256279086',
+   'https://world.openfoodfacts.org/product/4337256279086', 'off-seed-2026-09-06',
+   'ODbL-1.0', 'external', now())
+on conflict (product_id, ingredient_id, source) do update set
+  source_id = excluded.source_id,
+  source_url = excluded.source_url,
+  source_version = excluded.source_version,
+  license = excluded.license,
+  confidence = excluded.confidence,
+  reviewed_at = excluded.reviewed_at;
 
 -- Kuratierte Cover liegen unter der stabilen Template-ID. Die Upload-Quelle
 -- sind die gleichnamigen Rezeptbilder in `assets/rezepte`.

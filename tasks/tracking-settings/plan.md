@@ -114,8 +114,8 @@ bleiben.
 
 ## 6. Geordnete Arbeitspakete
 
-Die Aufgaben werden in Beads verfolgt. Das bestehende `tasks/plan.md` ist ein
-anderer, noch nicht abgeschlossener Plan und wird deshalb nicht überschrieben.
+Die Aufgaben werden in Beads verfolgt. Dieser Plan bleibt eigenständig und
+wird vom konsolidierten AI-Rezeptvorschlagsplan nicht überschrieben.
 
 ### Phase 1: Vertrag und Zielvariante
 

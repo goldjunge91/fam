@@ -4,6 +4,11 @@ import { join, resolve } from 'node:path';
 import sharp from 'sharp';
 import { imageKeyFor } from '../tools/crawler/brochures/r2-storage';
 import type { CrawlerBrochure, CrawlerStore, LocationDump } from '../tools/crawler/brochures/types';
+import {
+  AiCallBudget,
+  type BrochureAiBudgetOptions,
+  parseBrochureAiBudget,
+} from './lib/brochure-ai-budget';
 
 type Options = {
   inputDir: string;
@@ -12,7 +17,7 @@ type Options = {
   cachePath: string;
   ai: boolean;
   limit?: number;
-};
+} & BrochureAiBudgetOptions;
 
 type BrochureCandidate = {
   brochure: CrawlerBrochure;
@@ -62,6 +67,9 @@ type AnalysisReport = {
   }>;
   ai?: {
     model: string;
+    maxCalls: number;
+    callsMade: number;
+    budgetExhausted: boolean;
     annotations: Array<{
       versionId: string;
       storeBrand: string;
@@ -108,6 +116,7 @@ function parseOptions(): Options {
     cachePath: resolve(argument('cache') ?? DEFAULT_CACHE),
     ai: hasFlag('ai'),
     limit,
+    ...parseBrochureAiBudget(process.argv, process.env),
   };
 }
 
@@ -377,9 +386,8 @@ function chatResponseText(value: unknown): string {
 async function annotateWithAi(
   report: AnalysisReport,
   candidates: Map<string, BrochureCandidate>,
+  options: BrochureAiBudgetOptions,
 ): Promise<NonNullable<AnalysisReport['ai']>> {
-  const apiKey = process.env.OPENROUTER_API_KEY;
-  if (!apiKey) throw new Error('Für --ai fehlt OPENROUTER_API_KEY.');
   const model = process.env.OPENROUTER_MODEL ?? 'z-ai/glm-5.3-flash';
   const baseUrl = (process.env.OPENROUTER_BASE_URL ?? 'https://openrouter.ai/api/v1').replace(
     /\/$/,
@@ -387,12 +395,30 @@ async function annotateWithAi(
   );
   const reasoningEffort = process.env.OPENROUTER_REASONING_EFFORT ?? 'low';
   const annotations: NonNullable<AnalysisReport['ai']>['annotations'] = [];
+  const budget = new AiCallBudget(options.maxCalls);
+  let budgetExhausted = false;
 
   for (const group of report.versionGroups) {
     const candidate = candidates.get(group.brochureIds[0] ?? '');
     if (!candidate) continue;
+    if (budget.exhausted) {
+      budgetExhausted = true;
+      console.warn(
+        `⚠️ KI-Budget erschöpft (${budget.callsMade}/${options.maxCalls} Aufrufe). Restliche Versionen bleiben im Report ohne KI-Annotation.`,
+      );
+      break;
+    }
     const image = await createContactSheet(candidate);
     if (!image) continue;
+    if (!budget.tryConsume()) {
+      budgetExhausted = true;
+      console.warn(
+        `⚠️ KI-Budget erschöpft (${budget.callsMade}/${options.maxCalls} Aufrufe). Restliche Versionen bleiben im Report ohne KI-Annotation.`,
+      );
+      break;
+    }
+    const apiKey = process.env.OPENROUTER_API_KEY;
+    if (!apiKey) throw new Error('Für --ai fehlt OPENROUTER_API_KEY.');
 
     const response = await fetch(`${baseUrl}/chat/completions`, {
       method: 'POST',
@@ -420,7 +446,7 @@ async function annotateWithAi(
             ],
           },
         ],
-        max_tokens: 300,
+        max_tokens: options.maxTokens,
         reasoning: {
           effort: reasoningEffort,
           exclude: true,
@@ -429,6 +455,7 @@ async function annotateWithAi(
           type: 'json_object',
         },
       }),
+      signal: AbortSignal.timeout(options.timeoutMs),
     });
 
     if (!response.ok) {
@@ -448,7 +475,13 @@ async function annotateWithAi(
     console.log(`🤖 KI: ${group.versionId} (${annotations.length}/${report.versionGroups.length})`);
   }
 
-  return { model, annotations };
+  return {
+    model,
+    maxCalls: options.maxCalls,
+    callsMade: budget.callsMade,
+    budgetExhausted,
+    annotations,
+  };
 }
 
 async function main(): Promise<void> {
@@ -464,7 +497,7 @@ async function main(): Promise<void> {
 
   const { fileHashes, totalBytes, uniqueBytes } = await hashImages(candidates, options.cachePath);
   const report = buildReport(options, candidates, fileHashes, totalBytes, uniqueBytes);
-  if (options.ai) report.ai = await annotateWithAi(report, candidates);
+  if (options.ai) report.ai = await annotateWithAi(report, candidates, options);
 
   await mkdir(resolve(options.outputPath, '..'), { recursive: true });
   await writeFile(options.outputPath, JSON.stringify(report, null, 2));

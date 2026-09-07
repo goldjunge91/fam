@@ -7,7 +7,7 @@
 -- query_to_xml/xpath fuehrt dafuer pro Tabelle ein dynamisches `count(*)`
 -- aus, ganz ohne PL/pgSQL-Funktion — das Ergebnis ist ein JSON-Objekt
 -- {tabelle: anzahl} nur fuer nicht-leere, nicht-geseedete Tabellen, oder NULL.
-select jsonb_object_agg(tablename, cnt)
+select jsonb_object_agg(tablename, cnt) as dirty_tables
 from (
   select
     c.relname as tablename,

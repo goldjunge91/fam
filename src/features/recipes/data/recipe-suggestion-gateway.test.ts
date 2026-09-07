@@ -8,6 +8,7 @@ import {
 } from './recipe-suggestion-gateway';
 
 jest.mock('@/lib/analytics', () => ({ trackAnalyticsEvent: jest.fn() }));
+jest.mock('@/lib/supabase', () => ({ getSupabase: jest.fn() }));
 
 const suggestion = {
   schema_version: 1 as const,
@@ -26,12 +27,20 @@ const suggestion = {
 };
 
 function invoker(response: unknown, error: unknown = null) {
-  const calls: Array<{ name: string; options: { body: unknown } }> = [];
+  const calls: Array<{ name: string; options: { body: unknown; headers?: HeadersInit } }> = [];
   const invoke = async <T>(
     name: string,
     options?: FunctionInvokeOptions,
   ): Promise<FunctionsResponse<T>> => {
-    if (options?.body !== undefined) calls.push({ name, options: { body: options.body } });
+    if (options?.body !== undefined) {
+      calls.push({
+        name,
+        options: {
+          body: options.body,
+          ...(options.headers === undefined ? {} : { headers: options.headers }),
+        },
+      });
+    }
     return error === null ? { data: response as T, error: null } : { data: null, error };
   };
   return {
@@ -88,6 +97,7 @@ describe('recipe suggestion gateway', () => {
             dietaryPattern: null,
             shoppingDecision: 'no',
           },
+          headers: { 'x-fam-ai-dev-bypass': 'true' },
         },
       },
     ]);

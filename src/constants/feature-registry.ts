@@ -160,6 +160,16 @@ export const APP_FEATURES = [
     },
   },
   {
+    id: 'chefKoch',
+    title: 'Chef-Koch',
+    drawer: {
+      group: 'household',
+      href: '/chef-koch',
+      icon: 'recipes',
+      order: 4,
+    },
+  },
+  {
     id: 'mealPlanner',
     title: 'Essensplan',
     moduleKey: 'mealPlanner',

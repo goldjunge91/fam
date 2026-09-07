@@ -183,7 +183,7 @@ Deno.test('rejects more than two additional ingredients', () => {
   expectIssue(result, 'invalid_shape', '$.meals[0].additional_ingredients');
 });
 
-Deno.test('rejects quantities that exceed availability across all meals', () => {
+Deno.test('checks quantities independently for each alternative', () => {
   const result = validateRecipeSuggestionContract(
     createContext(),
     createResponse(
@@ -195,7 +195,22 @@ Deno.test('rejects quantities that exceed availability across all meals', () => 
       }),
     ),
   );
-  expectIssue(result, 'invalid_quantity', '$.meals[1].used_items[0].quantity');
+  assert(result.ok, `alternatives must be validated independently: ${JSON.stringify(result)}`);
+});
+
+Deno.test('rejects a duplicate inventory reference within one alternative', () => {
+  const result = validateRecipeSuggestionContract(
+    createContext(),
+    createResponse(
+      createCatalogMeal({
+        used_items: [
+          { inventory_item_id: 'inventory-tomatoes', quantity: 60, unit: 'g' },
+          { inventory_item_id: 'inventory-tomatoes', quantity: 40, unit: 'g' },
+        ],
+      }),
+    ),
+  );
+  expectIssue(result, 'invalid_reference', '$.meals[0].used_items[1].inventory_item_id');
 });
 
 Deno.test('accepts compatible mass units without mutating the context', () => {

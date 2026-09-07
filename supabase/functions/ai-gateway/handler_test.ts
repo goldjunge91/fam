@@ -55,10 +55,14 @@ const COOKING_RESULT = {
   ],
 };
 
-function request(body: unknown, method = 'POST') {
+function request(body: unknown, method = 'POST', extraHeaders: HeadersInit = {}) {
   return new Request('http://localhost/ai-gateway', {
     method,
-    headers: { Authorization: 'Bearer user-token', 'Content-Type': 'application/json' },
+    headers: {
+      Authorization: 'Bearer user-token',
+      'Content-Type': 'application/json',
+      ...extraHeaders,
+    },
     ...(method === 'POST' ? { body: JSON.stringify(body) } : {}),
   });
 }
@@ -69,9 +73,14 @@ function setup(options: {
   providerModel?: string;
   providerUsage?: unknown;
   rateLimited?: boolean;
+  creditDenied?: { status: number; error: string };
+  devBypassAllowed?: boolean;
+  providerThrows?: boolean;
   context?: GatewayCookingContext;
 } = {}) {
   const calls: Array<{ model: string; system: string; user: string }> = [];
+  const creditReservations: string[] = [];
+  const releasedCredits: string[] = [];
   let contextReads = 0;
   const handler = createAiGatewayHandler({
     authenticate: async (request) =>
@@ -92,6 +101,7 @@ function setup(options: {
       return { ok: true as const, context: options.context ?? CONTEXT };
     },
     complete: async ({ model, messages }) => {
+      if (options.providerThrows) throw new Error('provider test failure');
       calls.push({ model, system: messages[0]?.content ?? '', user: messages[1]?.content ?? '' });
       return {
         ok: true as const,
@@ -100,12 +110,31 @@ function setup(options: {
         ...(options.providerUsage === undefined ? {} : { usage: options.providerUsage }),
       };
     },
-    isRateLimited: () => options.rateLimited ?? false,
+    consumeRateLimit: async () =>
+      options.rateLimited
+        ? { ok: false as const, status: 429, error: 'rate_limited' }
+        : { ok: true as const },
+    reserveCredit: async ({ requestId }) => {
+      creditReservations.push(requestId);
+      return options.creditDenied
+        ? { ok: false as const, ...options.creditDenied }
+        : { ok: true as const };
+    },
+    releaseCredit: async (requestId) => {
+      releasedCredits.push(requestId);
+    },
+    allowDevelopmentBypass: () => options.devBypassAllowed ?? false,
     defaultModel: options.model ?? 'z-ai/glm-5.3-flash',
     now: () => '2026-09-01T10:00:00.000Z',
     requestId: () => 'request-1',
   });
-  return { handler, calls, getContextReads: () => contextReads };
+  return {
+    handler,
+    calls,
+    getContextReads: () => contextReads,
+    creditReservations,
+    releasedCredits,
+  };
 }
 
 Deno.test('rejects unauthenticated requests before parsing the body', async () => {
@@ -163,6 +192,32 @@ Deno.test('builds a cooking prompt from gateway context and returns validated JS
   assertEquals(getContextReads(), 1);
   assertStringIncludes(calls[0]?.system ?? '', 'lot-tomato');
   assertStringIncludes(calls[0]?.user ?? '', 'vegetarian');
+});
+
+Deno.test('returns a complete catalog recipe without calling the model', async () => {
+  const { handler, calls } = setup({
+    context: {
+      ...CONTEXT,
+      recipes: [{ ...CONTEXT.recipes[0], steps: ['Tomate in der Pfanne garen.'] }],
+    },
+  });
+  const response = await handler(
+    request({
+      skill: 'fam-cook-from-inventory',
+      householdId: 'household-1',
+      userText: 'Was kann ich heute kochen?',
+      servings: 2,
+      maxMinutes: 30,
+      dietaryPattern: 'vegetarian',
+      allergies: [],
+      shoppingDecision: 'no',
+    }),
+  );
+
+  assertEquals(response.status, 200);
+  const body = await response.json();
+  assertEquals(body.result, { schema_version: 1, meals: [COOKING_RESULT.meals[0]] });
+  assertEquals(calls, []);
 });
 
 Deno.test('does not expose provider usage in the strict public response envelope', async () => {
@@ -302,6 +357,203 @@ Deno.test('applies the gateway rate limit before loading context or calling the 
   assertEquals(await response.json(), { error: 'rate_limited' });
   assertEquals(calls, []);
   assertEquals(getContextReads(), 0);
+});
+
+Deno.test('does not call the provider when the AI credit reservation is denied', async () => {
+  const { handler, calls, creditReservations } = setup({
+    creditDenied: { status: 429, error: 'ai_credit_limit_exceeded' },
+  });
+  const response = await handler(
+    request({
+      skill: 'fam-cook-from-inventory',
+      householdId: 'household-1',
+      userText: 'Was kann ich heute kochen?',
+      servings: null,
+      maxMinutes: null,
+      dietaryPattern: null,
+      allergies: [],
+    }),
+  );
+
+  assertEquals(response.status, 429);
+  assertEquals(await response.json(), { error: 'ai_credit_limit_exceeded' });
+  assertEquals(creditReservations, ['request-1']);
+  assertEquals(calls, []);
+});
+
+Deno.test('releases a reserved credit when provider validation rejects the result', async () => {
+  const { handler, releasedCredits } = setup({ providerModel: 'google/gemma-4-31b-it' });
+  const response = await handler(
+    request({
+      skill: 'fam-cook-from-inventory',
+      householdId: 'household-1',
+      userText: 'Was kann ich heute kochen?',
+      servings: null,
+      maxMinutes: null,
+      dietaryPattern: null,
+      allergies: [],
+    }),
+  );
+
+  assertEquals(response.status, 502);
+  assertEquals(releasedCredits, ['request-1']);
+});
+
+Deno.test('releases a reserved credit when the provider throws', async () => {
+  const { handler, releasedCredits } = setup({ providerThrows: true });
+
+  let rejected = false;
+  try {
+    await handler(
+      request({
+        skill: 'fam-cook-from-inventory',
+        householdId: 'household-1',
+        userText: 'Was kann ich heute kochen?',
+        servings: null,
+        maxMinutes: null,
+        dietaryPattern: null,
+        allergies: [],
+      }),
+    );
+  } catch {
+    rejected = true;
+  }
+  assert(rejected);
+  assertEquals(releasedCredits, ['request-1']);
+});
+
+Deno.test('keeps the reservation after a validated provider result', async () => {
+  const { handler, creditReservations, releasedCredits } = setup();
+  const response = await handler(
+    request({
+      skill: 'fam-cook-from-inventory',
+      householdId: 'household-1',
+      userText: 'Was kann ich heute kochen?',
+      servings: null,
+      maxMinutes: null,
+      dietaryPattern: null,
+      allergies: [],
+    }),
+  );
+
+  assertEquals(response.status, 200);
+  assertEquals(creditReservations, ['request-1']);
+  assertEquals(releasedCredits, []);
+});
+
+Deno.test('does not reserve credits for the free catalog and shopping-question paths', async () => {
+  const catalog = setup({
+    context: {
+      ...CONTEXT,
+      recipes: [{ ...CONTEXT.recipes[0], steps: ['Tomate in der Pfanne garen.'] }],
+    },
+  });
+  const catalogResponse = await catalog.handler(
+    request({
+      skill: 'fam-cook-from-inventory',
+      householdId: 'household-1',
+      userText: 'Was kann ich heute kochen?',
+      servings: 2,
+      maxMinutes: 30,
+      dietaryPattern: 'vegetarian',
+      allergies: [],
+      shoppingDecision: 'no',
+    }),
+  );
+  assertEquals(catalogResponse.status, 200);
+  assertEquals(catalog.creditReservations, []);
+
+  const shopping = setup({
+    context: {
+      ...CONTEXT,
+      shoppingItems: [{ shoppingItemId: 'oil', name: 'Öl', quantity: 1, unit: 'bottle' }],
+    },
+  });
+  const shoppingResponse = await shopping.handler(
+    request({
+      skill: 'fam-cook-from-inventory',
+      householdId: 'household-1',
+      userText: 'Was sollte ich heute essen?',
+      servings: 2,
+      maxMinutes: null,
+      dietaryPattern: null,
+      allergies: [],
+      shoppingDecision: null,
+    }),
+  );
+  assertEquals(shoppingResponse.status, 200);
+  assertEquals(shopping.creditReservations, []);
+});
+
+Deno.test('does not let a forged development header bypass credits', async () => {
+  const { handler, creditReservations } = setup();
+  const response = await handler(
+    request(
+      {
+        skill: 'fam-cook-from-inventory',
+        householdId: 'household-1',
+        userText: 'Was kann ich heute kochen?',
+        servings: null,
+        maxMinutes: null,
+        dietaryPattern: null,
+        allergies: [],
+      },
+      'POST',
+      { 'x-fam-ai-dev-bypass': 'true' },
+    ),
+  );
+
+  assertEquals(response.status, 200);
+  assertEquals(creditReservations, ['request-1']);
+});
+
+Deno.test('allows an explicitly allowlisted development bypass without reserving credits', async () => {
+  const { handler, calls, creditReservations, releasedCredits } = setup({
+    devBypassAllowed: true,
+    creditDenied: { status: 429, error: 'ai_credit_limit_exceeded' },
+  });
+  const response = await handler(
+    request(
+      {
+        skill: 'fam-cook-from-inventory',
+        householdId: 'household-1',
+        userText: 'Was kann ich heute kochen?',
+        servings: null,
+        maxMinutes: null,
+        dietaryPattern: null,
+        allergies: [],
+      },
+      'POST',
+      { 'x-fam-ai-dev-bypass': 'true' },
+    ),
+  );
+
+  assertEquals(response.status, 200);
+  assertEquals(calls.length, 1);
+  assertEquals(creditReservations, []);
+  assertEquals(releasedCredits, []);
+});
+
+Deno.test('still rate limits an allowed development bypass request', async () => {
+  const { handler, creditReservations } = setup({ devBypassAllowed: true, rateLimited: true });
+  const response = await handler(
+    request(
+      {
+        skill: 'fam-cook-from-inventory',
+        householdId: 'household-1',
+        userText: 'Was kann ich heute kochen?',
+        servings: null,
+        maxMinutes: null,
+        dietaryPattern: null,
+        allergies: [],
+      },
+      'POST',
+      { 'x-fam-ai-dev-bypass': 'true' },
+    ),
+  );
+
+  assertEquals(response.status, 429);
+  assertEquals(creditReservations, []);
 });
 
 Deno.test('capture remains read-only and does not load inventory context', async () => {

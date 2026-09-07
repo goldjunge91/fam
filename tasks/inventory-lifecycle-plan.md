@@ -4,9 +4,9 @@ Spec: `docs/specs/household-capabilities/inventory-lifecycle.md`
 Mockups (freigegeben, Option C): `docs/specs/household-capabilities/mockups/inventory-lifecycle/`
 Tasks tracked in **bd** (nicht `tasks/todo.md` — Projektvorgabe laut CLAUDE.md/AGENTS.md). Epic: `fam-lem`.
 
-`tasks/plan.md` gehört zu einem anderen, laufenden Vorhaben (Rezeptvorschläge
-aus dem Bestand) und wurde nicht angerührt — dieser Plan liegt deshalb unter
-eigenem Dateinamen.
+Der frühere Rezeptvorschlagsplan wurde in
+`docs/research/ai-rezeptvorschlaege-kompakt.md` konsolidiert. Dieser
+Inventory-Lifecycle-Plan bleibt davon unabhängig.
 
 ## Overview
 

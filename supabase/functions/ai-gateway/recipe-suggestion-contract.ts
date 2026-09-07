@@ -701,10 +701,11 @@ function validateMealSemantics(
   context: RecipeSuggestionContext,
   meal: RecipeSuggestionMeal,
   mealIndex: number,
-  usedQuantities: Map<string, ComparableMeasurement>,
 ): RecipeSuggestionIssue[] {
   const issues: RecipeSuggestionIssue[] = [];
   const path = `$.meals[${mealIndex}]`;
+  const usedQuantities = new Map<string, ComparableMeasurement>();
+  const seenInventoryIds = new Set<string>();
   const inventoryById = new Map(
     context.priority_foods.map((food) => [food.inventory_item_id, food]),
   );
@@ -759,6 +760,17 @@ function validateMealSemantics(
 
   meal.used_items.forEach((item, itemIndex) => {
     const itemPath = `${path}.used_items[${itemIndex}]`;
+    if (seenInventoryIds.has(item.inventory_item_id)) {
+      issues.push(
+        issue(
+          'invalid_reference',
+          `${itemPath}.inventory_item_id`,
+          'an inventory item may occur only once per meal',
+        ),
+      );
+      return;
+    }
+    seenInventoryIds.add(item.inventory_item_id);
     const inventoryItem = inventoryById.get(item.inventory_item_id);
 
     if (!inventoryItem) {
@@ -873,9 +885,8 @@ export function validateRecipeSuggestionResponse(
     if (!responseResult.ok) return responseResult;
 
     const issues: RecipeSuggestionIssue[] = [];
-    const usedQuantities = new Map<string, ComparableMeasurement>();
     responseResult.value.meals.forEach((meal, index) => {
-      issues.push(...validateMealSemantics(contextResult.value, meal, index, usedQuantities));
+      issues.push(...validateMealSemantics(contextResult.value, meal, index));
     });
 
     return issues.length === 0 ? responseResult : { ok: false, issues };

@@ -207,6 +207,8 @@ revoke execute on function public.book_ai_credit(uuid, text, uuid, integer)
   from public, anon, authenticated;
 grant execute on function public.book_ai_credit(uuid, text, uuid, integer)
   to service_role;
+revoke execute on function public.release_ai_credit(uuid) from public, anon, authenticated;
+grant execute on function public.release_ai_credit(uuid) to service_role;
 revoke execute on function public.get_ai_credit_status(uuid, integer)
   from public, anon, authenticated;
 grant execute on function public.get_ai_credit_status(uuid, integer)

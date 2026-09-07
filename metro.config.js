@@ -22,6 +22,11 @@ const config = getPostHogExpoConfig(__dirname, {
   },
 });
 
+// Bun/Deno package-store leftovers are not application sources. Excluding them
+// prevents Metro from watching stale native package copies and registering the
+// same React Native view twice.
+config.resolver.blockList = /[\\/]node_modules[\\/](?:\.deno|\.old-[^\\/]+)(?:[\\/]|$)/;
+
 config.resolver.sourceExts.push("sql");
 // Plattformdateien in `.android.tsx` müssen vor der gemeinsamen `.ts`-Datei
 // aufgelöst werden, damit Android die native Variante verwendet.

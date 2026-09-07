@@ -66,6 +66,16 @@ Deno.test('keeps non-perishable inventory and orders urgent food first', () => {
   assertEquals(result.context.candidate_recipes.map((recipe) => recipe.id), ['recipe-spinach-rice']);
 });
 
+Deno.test('does not expose a catalog candidate when its steps were not loaded', () => {
+  const result = buildRecipeSuggestionContext(createInput({
+    recipes: [{ ...createInput().recipes[0], steps: [] }],
+  }));
+
+  assert(result !== null, 'usable inventory remains');
+  assertEquals(result.context.candidate_recipes, []);
+  assertEquals(result.context.fallback_allowed, true);
+});
+
 Deno.test('scales recipe quantities to requested servings before selecting a candidate', () => {
   const input = createInput({
     inventory: {
@@ -205,7 +215,7 @@ Deno.test('includes shopping items only after explicit approval', () => {
   ]);
 });
 
-Deno.test('fails closed when every usable lot is explicitly allergic', () => {
+Deno.test('fails closed when allergy rules cannot be mapped to the EU taxonomy', () => {
   const result = buildRecipeSuggestionContext(createInput({
     allergies: ['Spinat', 'Reis'],
   }));
@@ -225,10 +235,15 @@ Deno.test('does not infer milk allergy safety from the name Mozzarella', () => {
   assertEquals(result, null);
 });
 
-Deno.test('requires verification for every allergy, intolerance and custom exclusion', () => {
-  for (const rule of ['milk', 'lactose', 'my-custom-allergy']) {
-    assertEquals(buildRecipeSuggestionContext(createInput({ allergies: [rule] })), null);
+Deno.test('allows a known-safe recipe and blocks an unknown custom rule', () => {
+  for (const rule of ['milk', 'lactose']) {
+    const result = buildRecipeSuggestionContext(createInput({ allergies: [rule] }));
+    assert(result !== null);
+    assertEquals(result.context.candidate_recipes.map((recipe) => recipe.id), ['recipe-spinach-rice']);
   }
+
+  const customRuleResult = buildRecipeSuggestionContext(createInput({ allergies: ['my-custom-allergy'] }));
+  assertEquals(customRuleResult, null);
 });
 
 Deno.test('does not offer disliked inventory or shopping ingredients to a fallback', () => {
