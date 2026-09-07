@@ -79,9 +79,10 @@ coverage/**/*
 logs/
 reports/
 
-# Python (scripts/dump_data)
+# Python (scripts/dump_data, mitmproxy)
 __pycache__/
 *.pyc
+.venv/
 scripts/dump_data/category-calibration-report.html
 scripts/dump_data/category-calibration-report.json
 tools/crawler/data/.brochure-version-hashes.json
@@ -111,3 +112,5 @@ scripts/set-crawler-secrets.sh
 
 *storybook.log
 storybook-static
+.cache
+.jest-crawler-cache

@@ -4,9 +4,11 @@ import { dirname, join, resolve } from 'node:path';
 import sharp from 'sharp';
 import { classifyAutomaticComparison, type AutomaticClassification } from './auto-classification';
 import {
+  boxesForChangedTokens,
   changedOcrTokens,
   ocrTextSimilarity,
   runCachedOcr,
+  type OcrBox,
   type OcrRequest,
   type OcrResult,
 } from './ocr';
@@ -102,6 +104,8 @@ type PageComparison = {
     leftTokenCount: number;
     rightTokenCount: number;
     changedTokens: string[];
+    leftBoxes?: OcrBox[];
+    rightBoxes?: OcrBox[];
   };
 };
 
@@ -539,6 +543,9 @@ function enrichWithOcr(
     if (!left || !right || (left.tokens.length === 0 && right.tokens.length === 0)) {
       return comparison;
     }
+    const changedTokens = changedOcrTokens(left.tokens, right.tokens);
+    const leftBoxes = boxesForChangedTokens(left.boxes, changedTokens);
+    const rightBoxes = boxesForChangedTokens(right.boxes, changedTokens);
     return {
       ...comparison,
       ocr: {
@@ -546,7 +553,9 @@ function enrichWithOcr(
         textHashMatch: left.textHash === right.textHash,
         leftTokenCount: left.tokens.length,
         rightTokenCount: right.tokens.length,
-        changedTokens: changedOcrTokens(left.tokens, right.tokens),
+        changedTokens,
+        ...(leftBoxes.length > 0 ? { leftBoxes } : {}),
+        ...(rightBoxes.length > 0 ? { rightBoxes } : {}),
       },
     };
   });

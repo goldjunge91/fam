@@ -177,6 +177,8 @@
         "crawler:retailer-sample": "bun run tools/crawler/brochures/aldi-sample-v2.ts",
         "crawler:verify": "bun run tools/crawler/brochures/verify-versions.ts",
         "crawler:review": "bun run tools/crawler/brochures/review-server.ts",
+        "capture:bring": "pwsh -File tools/crawler/mitmproxy/start-capture.ps1",
+        "bring:auth": "bun run scripts/bring-auth.ts",
         "analyze:brochure-versions": "bun run scripts/analyze-brochure-versions.ts",
         "web": "EXPO_NO_DOTENV=1 dotenv -o -e .env.local -- expo start --web",
         "lint": "biome lint .",

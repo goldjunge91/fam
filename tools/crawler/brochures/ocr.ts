@@ -5,6 +5,16 @@ import sharp from 'sharp';
 
 const OCR_PROFILE = 'page-700px-psm4-tsv55-v2';
 
+export type OcrBox = {
+  token: string;
+  normalized: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  confidence: number;
+};
+
 export type OcrResult = {
   engine: 'tesseract';
   profile: typeof OCR_PROFILE;
@@ -14,6 +24,7 @@ export type OcrResult = {
   textHash: string;
   tokens: string[];
   regionCode?: string;
+  boxes?: OcrBox[];
 };
 
 type OcrCache = {
@@ -119,7 +130,29 @@ export function extractReweRegionCode(text: string): string | undefined {
   return candidates.sort((a, b) => b.length - a.length)[0];
 }
 
-function buildOcrResult(text: string, language: string, regionText = text): OcrResult {
+export function boxesForChangedTokens(
+  boxes: readonly OcrBox[] | undefined,
+  changedTokens: readonly string[],
+): OcrBox[] {
+  if (!boxes || boxes.length === 0 || changedTokens.length === 0) return [];
+  const normalizedTargets = new Set(changedTokens.map((t) => normalizeOcrText(t)).filter(Boolean));
+  return boxes.filter((box) => {
+    if (normalizedTargets.has(box.normalized)) return true;
+    for (const target of normalizedTargets) {
+      if (box.normalized.includes(target) || target.includes(box.normalized)) {
+        return true;
+      }
+    }
+    return false;
+  });
+}
+
+function buildOcrResult(
+  text: string,
+  language: string,
+  regionText = text,
+  boxes: OcrBox[] = [],
+): OcrResult {
   const normalizedText = normalizeOcrText(text);
   const regionCode = extractReweRegionCode(regionText);
   return {
@@ -131,18 +164,48 @@ function buildOcrResult(text: string, language: string, regionText = text): OcrR
     textHash: createHash('sha256').update(normalizedText).digest('hex'),
     tokens: tokenizeOcrText(text),
     ...(regionCode ? { regionCode } : {}),
+    ...(boxes.length > 0 ? { boxes } : {}),
   };
 }
 
-export function parseTesseractTsv(tsv: string, minimumConfidence = 55): {
+export function parseTesseractTsv(
+  tsv: string,
+  minimumConfidence = 55,
+): {
   text: string;
   regionText: string;
+  boxes: OcrBox[];
 } {
   const confidentLines = new Map<string, string[]>();
   const regionLines = new Map<string, string[]>();
+  const rawBoxes: Array<{
+    token: string;
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+    confidence: number;
+  }> = [];
+
+  let pageWidth = 0;
+  let pageHeight = 0;
+
   for (const row of tsv.split(/\r?\n/).slice(1)) {
     const columns = row.split('\t');
-    if (columns.length < 12 || columns[0] !== '5') continue;
+    if (columns.length < 11) continue;
+
+    const level = columns[0];
+    if (level === '1') {
+      const w = Number.parseFloat(columns[8] ?? '0');
+      const h = Number.parseFloat(columns[9] ?? '0');
+      if (w > 0 && h > 0) {
+        pageWidth = w;
+        pageHeight = h;
+      }
+      continue;
+    }
+
+    if (columns.length < 12 || level !== '5') continue;
     const confidence = Number.parseFloat(columns[10] ?? '-1');
     const token = columns.slice(11).join('\t').trim();
     if (!token) continue;
@@ -154,10 +217,39 @@ export function parseTesseractTsv(tsv: string, minimumConfidence = 55): {
     const confidentLine = confidentLines.get(lineKey) ?? [];
     confidentLine.push(token);
     confidentLines.set(lineKey, confidentLine);
+
+    const left = Number.parseFloat(columns[6] ?? '0');
+    const top = Number.parseFloat(columns[7] ?? '0');
+    const width = Number.parseFloat(columns[8] ?? '0');
+    const height = Number.parseFloat(columns[9] ?? '0');
+    if (width > 0 && height > 0) {
+      rawBoxes.push({ token, left, top, width, height, confidence });
+    }
   }
+
+  const effectiveWidth =
+    pageWidth > 0
+      ? pageWidth
+      : Math.max(700, ...rawBoxes.map((b) => b.left + b.width), 1);
+  const effectiveHeight =
+    pageHeight > 0
+      ? pageHeight
+      : Math.max(1000, ...rawBoxes.map((b) => b.top + b.height), 1);
+
+  const boxes: OcrBox[] = rawBoxes.map((b) => ({
+    token: b.token,
+    normalized: normalizeOcrText(b.token),
+    x: Math.round(((b.left / effectiveWidth) * 100) * 100) / 100,
+    y: Math.round(((b.top / effectiveHeight) * 100) * 100) / 100,
+    width: Math.round(((b.width / effectiveWidth) * 100) * 100) / 100,
+    height: Math.round(((b.height / effectiveHeight) * 100) * 100) / 100,
+    confidence: b.confidence,
+  }));
+
   return {
     text: [...confidentLines.values()].map((tokens) => tokens.join(' ')).join('\n'),
     regionText: [...regionLines.values()].map((tokens) => tokens.join(' ')).join('\n'),
+    boxes,
   };
 }
 
@@ -206,7 +298,7 @@ async function recognize(path: string, language: string): Promise<OcrResult> {
     throw new Error(`Tesseract fehlgeschlagen (${exitCode}): ${stderr.trim()}`);
   }
   const parsed = parseTesseractTsv(text);
-  return buildOcrResult(parsed.text, language, parsed.regionText);
+  return buildOcrResult(parsed.text, language, parsed.regionText, parsed.boxes);
 }
 
 export async function runCachedOcr(options: RunOcrOptions): Promise<Map<string, OcrResult>> {

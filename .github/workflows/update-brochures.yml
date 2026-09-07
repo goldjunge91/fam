@@ -40,6 +40,8 @@ jobs:
     steps:
       - name: Validate required secrets
         env:
+          BRING_EMAIL: ${{ secrets.BRING_EMAIL }}
+          BRING_PASSWORD: ${{ secrets.BRING_PASSWORD }}
           BRING_AUTH_TOKEN: ${{ secrets.BRING_AUTH_TOKEN }}
           BRING_API_KEY: ${{ secrets.BRING_API_KEY }}
           BRING_USER_UUID: ${{ secrets.BRING_USER_UUID }}
@@ -49,10 +51,18 @@ jobs:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
         run: |
+          # 1. Bring-Authentifizierung prüfen
+          if [ -n "${BRING_EMAIL:-}" ] && [ -n "${BRING_PASSWORD:-}" ]; then
+            echo "✅ Bring-Zugangsdaten konfiguriert (automatischer Headless-Login vor dem Crawl)."
+          elif [ -n "${BRING_AUTH_TOKEN:-}" ] && [ -n "${BRING_API_KEY:-}" ] && [ -n "${BRING_USER_UUID:-}" ]; then
+            echo "✅ Statische Bring-Tokens konfiguriert."
+          else
+            printf '::error::Fehlende Bring-Zugangsdaten: Entweder (BRING_EMAIL & BRING_PASSWORD) oder statische Tokens (BRING_AUTH_TOKEN, BRING_API_KEY, BRING_USER_UUID) müssen gesetzt sein.\n'
+            exit 1
+          fi
+
+          # 2. Übrige Backend-Secrets prüfen
           required=(
-            BRING_AUTH_TOKEN
-            BRING_API_KEY
-            BRING_USER_UUID
             SUPABASE_URL
             SUPABASE_SECRET_KEY
             R2_ACCOUNT_ID
@@ -94,7 +104,7 @@ jobs:
     steps:
       - name: Checkout repository
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Set up Bun environment
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
@@ -103,7 +113,7 @@ jobs:
       - name: Cache GeoNames postal codes
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
         id: cache-geonames
-        uses: actions/cache@v6
+        uses: actions/cache@v4
         with:
           path: /tmp/geonames-DE.txt
           key: geonames-de-postal-codes-v1
@@ -116,6 +126,25 @@ jobs:
             --output /tmp/geonames-DE.zip
           unzip -p /tmp/geonames-DE.zip DE.txt > /tmp/geonames-DE.txt
           test -s /tmp/geonames-DE.txt
+
+      - name: Authenticate with Bring (Headless Login)
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
+        env:
+          BRING_EMAIL: ${{ secrets.BRING_EMAIL }}
+          BRING_PASSWORD: ${{ secrets.BRING_PASSWORD }}
+          BRING_AUTH_TOKEN: ${{ secrets.BRING_AUTH_TOKEN }}
+          BRING_API_KEY: ${{ secrets.BRING_API_KEY }}
+          BRING_USER_UUID: ${{ secrets.BRING_USER_UUID }}
+        run: |
+          if [ -n "$BRING_EMAIL" ] && [ -n "$BRING_PASSWORD" ]; then
+            echo "Melde bei Bring! API an..."
+            bun run scripts/bring-auth.ts
+          elif [ -n "$BRING_AUTH_TOKEN" ]; then
+            echo "Verwende statische Bring-Tokens aus GitHub Secrets."
+            echo "BRING_AUTH_TOKEN=$BRING_AUTH_TOKEN" >> $GITHUB_ENV
+            echo "BRING_API_KEY=$BRING_API_KEY" >> $GITHUB_ENV
+            echo "BRING_USER_UUID=$BRING_USER_UUID" >> $GITHUB_ENV
+          fi
 
       - name: Run Brochure Crawler (Zone ${{ matrix.zone_group }})
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
@@ -130,9 +159,9 @@ jobs:
             --concurrency=12 \
             $EXTRA_ARGS
         env:
-          BRING_AUTH_TOKEN: ${{ secrets.BRING_AUTH_TOKEN }}
-          BRING_API_KEY: ${{ secrets.BRING_API_KEY }}
-          BRING_USER_UUID: ${{ secrets.BRING_USER_UUID }}
+          BRING_AUTH_TOKEN: ${{ env.BRING_AUTH_TOKEN || secrets.BRING_AUTH_TOKEN }}
+          BRING_API_KEY: ${{ env.BRING_API_KEY || secrets.BRING_API_KEY }}
+          BRING_USER_UUID: ${{ env.BRING_USER_UUID || secrets.BRING_USER_UUID }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY }}
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
