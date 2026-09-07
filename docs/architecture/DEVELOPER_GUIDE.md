@@ -1,18 +1,26 @@
 # Developer Guide
 
-NutriTrack ist eine Expo-/React-Native-App für gemeinsame Haushaltsdaten und
-private Ernährungsdaten. Die App läuft auf iOS und Android mit einem Dev Build;
-Expo Go reicht wegen SQLite, Kamera, SecureStore und Notifications nicht aus.
+fam ist eine Expo-/React-Native-App für gemeinsame Haushaltsdaten und private
+Tracking-Daten. Die App läuft auf iOS und Android mit einem Dev Build; Expo Go
+reicht wegen SQLite, Kamera, SecureStore und Notifications nicht aus.
 
-Die vollständige Dokumentationslandkarte steht in [docs/README.md](README.md).
+Die vollständige Dokumentationslandkarte steht in
+[docs/README.md](../README.md). Domänenbegriffe und Eigentümerschaft stehen in
+[`CONTEXT.md`](../../CONTEXT.md), verbindliche Agent-Regeln in
+[`AGENTS.md`](../../AGENTS.md).
 
 ## Schnellstart
 
 ```bash
 bun install
-supabase start
+bun start
 bun run native:dev -- --target ios-development-simulator
 ```
+
+Die App verwendet das in der gewählten Env-Datei konfigurierte Supabase-Ziel.
+Agents starten oder stoppen keine lokale Supabase-Instanz eigenmächtig. Für
+Schema- und Datenbanktests gelten die Freigaben und der Workflow aus
+[`AGENTS.md`](../../AGENTS.md).
 
 Alle Befehle, Umgebungsvariablen und Test-Accounts stehen unten in diesem
 Dokument. Das [Projekt-README](../../README.md) bleibt bewusst kurz und
@@ -26,7 +34,7 @@ fam/
 │   ├── app/            # 🚦 NUR Routing & Navigation Expo-Routen und Navigation, 
 │   ├── features/       # 🧱 Fachlogik nach Themen sortiert (Feature-First)
 │   ├── components/     # 🎨 Wiederverwendbare allgemeine UI-Elemente
-│   ├── constants/      # 🎨 Theme, Farben, Schriftarten, Abstände
+│   ├── constants/      # 🎨 Semantische UI-Primitiven und App-Konstanten
 │   ├── hooks/          # 🎣 App-weite React-Hooks (z.B. Theme, Network)
 │   └── lib/            # ⚙️ Supabase-Client, Env-Handling, SQLite-Sync
 ├── supabase/
@@ -47,15 +55,21 @@ fam/
    - `api.ts`: API-Aufrufe an Supabase / SQLite.
    - `types.ts`: TypeScript-Typen für dieses Feature.
 
-3. **Styling & Theme (`src/constants/theme.ts`)**: In React Native wird mit standardmäßigem `StyleSheet.create({...})` gearbeitet. Farben und Abstände importierst du aus [`theme.ts`](file:///Users/marco/Github.tmp/family_app/fam/src/constants/theme.ts) (`Colors.light.accent`, `Spacing.three`).
+3. **Styling & Theme**: Projektweite Designentscheidungen liegen in
+   [`src/components/theme/index.ts`](../../src/components/theme/index.ts),
+   [`ThemeProvider.tsx`](../../src/components/theme/ThemeProvider.tsx) und
+   [`src/constants/ui.tsx`](../../src/constants/ui.tsx). NativeWind bleibt auf
+   statisches Layout beschränkt; semantische Farben, Typografie und Zustände
+   kommen aus dem Design-System.
 
 4. **Datenbank & Offline-Sync (Supabase + SQLite)**:
-   - **Regel laut [`AGENTS.md`](file:///Users/marco/Github.tmp/family_app/fam/AGENTS.md)**: Das Datenbank-Schema wird **ausschließlich deklarativ** unter `supabase/schemas/*.sql` bearbeitet. Du schreibst Migrationen niemals per Hand!
+   - **Regel laut [`AGENTS.md`](../../AGENTS.md)**: Das Datenbank-Schema wird
+     **ausschließlich deklarativ** unter `supabase/schemas/*.sql` bearbeitet.
+     Du schreibst Migrationen niemals per Hand!
    - Die lokale SQLite-Datenbank sorgt dafür, dass die App auch ohne Internetverbindung funktioniert. Eine Outbox-Sync-Engine synchronisiert Änderungen im Hintergrund mit Supabase.
 
----
-Shared household data (Bestand, Einkaufsliste) und private Daten (Tagebuch,
-Gewicht, Ziele) sind auf Datenbankebene durch RLS getrennt. Der lokale
+Geteilte Haushaltsdaten (Bestand, Einkaufsliste) und private Tracking-Daten
+(Mahlzeiten, Gewicht, Ziele) sind auf Datenbankebene durch RLS getrennt. Der lokale
 SQLite-Mirror mit Outbox ist der normale Schreibweg für synchronisierte Daten.
 
 ## Arbeitsabläufe
@@ -65,14 +79,14 @@ SQLite-Mirror mit Outbox ist der normale Schreibweg für synchronisierte Daten.
 1. Route möglichst dünn halten und Fachlogik im passenden `src/features/`-Modul
    umsetzen.
 2. Nur semantische Theme-Tokens und bestehende UI-Komponenten verwenden. Details:
-   [Design-System](DESIGN_SYSTEM.md).
+   [Design-System-Verträge](../design-system/contracts/README.md).
 3. Gegenläufige Nutzeraktion mitdenken, etwa Wiederherstellen zu Löschen.
 4. Prüfen:
 
    ```bash
    bun run check
    bun run typecheck
-   bun run test
+   bun run test <gezielter-pfad>
    ```
 
 ### Datenbank ändern
@@ -98,7 +112,7 @@ an synchronisierten Entitäten brauchen zusätzlich SQLite-Schema und Sync-Handl
 ```bash
 bun run check       # Biome: Lint und Format
 bun run typecheck   # TypeScript
-bun run test        # Jest, nicht: bun test
+bun run test <gezielter-pfad>  # Jest, nicht: bun test oder ungezielt alles
 bun run test:db     # pgTAP, falls das Schema betroffen ist
 ```
 
@@ -106,8 +120,9 @@ Vor Änderungen an React-Native-Komponententests zuerst
 `.agents/rules/react-native-testing-library.md` und die lokale Dokumentation
 von `@testing-library/react-native` lesen.
 
-bun run native:dev --
-iOS:
+### Development-Build-Targets
+
+**iOS:**
 
 - ios-development-simulator (Debug, Simulator, .app)
 - ios-development-device (Debug, echtes Gerät, .ipa)
@@ -138,7 +153,7 @@ bun run native:dev -- --target ios-development-simulator
 ## Befehle
 
 - `bun run e2e` — Maestro-Flows gegen einen laufenden Simulator/Emulator
-  (Dev Build + `supabase start` + Testaccount nötig, siehe
+  (Dev Build + konfiguriertes Backend + Testaccount nötig, siehe
   `.maestro/flows/onboarding-sign-in.yaml`)
 - `bun run e2e:signed-in` — schneller Maestro-Start auf der Übersicht; erhält
   den App-Zustand und setzt eine bereits gespeicherte Anmeldung voraus
@@ -152,7 +167,6 @@ bun run native:dev -- --target ios-development-simulator
   nacheinander aus
 - `bun run user:create` / `bun run user:list` / `bun run user:clean` / `bun run user:delete` — Verwaltung lokaler Test-Accounts (`scripts/test-users.ts`)
 - `bash scripts/create-user-with-household.sh` — Erstellt Test-User mit Haushalt und befüllter Einkaufsliste
-- `bun run reset-project` — auf ein leeres Template zurücksetzen
 - `bun run ios:testflight -- --app-version 0.0.2` (App-Versionsnummer anpassen)
 - `bun run ios:testflight -- --build-number 10` (feste Build-Nummer vergeben)
 - `bun run ios:testflight -- --no-bump` (ohne Hochzählen der Build-Nummer bauen)
@@ -160,7 +174,9 @@ bun run native:dev -- --target ios-development-simulator
 
 ### Test-Accounts & Skripte
 
-Zum schnellen Testen auf der lokalen Entwicklungsdatenbank (`supabase start`):
+Zum schnellen Testen mit einem bereits bereitgestellten lokalen Entwicklungs-
+Backend. Die Skripte zielen fest auf `127.0.0.1:54321`; diese Variante gehört
+nicht zum normalen Agent-Workflow und wird nicht eigenmächtig gestartet:
 
 Die Admin-Skripte benötigen `SUPABASE_SERVICE_ROLE_KEY` aus `supabase status`.
 Der Wert wird nur als Umgebungsvariable übergeben und nie im Repository hinterlegt.
@@ -346,17 +362,17 @@ Flags sind an die Supabase-User-ID gebunden (nicht an die Haushalt-ID) —
 PostHog ist personen-zentriert, Prozent-Rollouts und Zielgruppen-Targeting
 laufen über diese ID (`src/features/auth/posthog-identity-sync.tsx`).
 
-## Lokales Backend
+## Backend und Datenbanktests
 
-```bash
-supabase start    # Postgres, Auth, Realtime, Studio (braucht Docker)
-supabase status   # URLs und Keys anzeigen
-supabase db reset # Migrationen neu anwenden
-supabase stop
-```
+Die App verwendet das in der gewählten Env-Datei konfigurierte Supabase-Ziel.
+Lokale Supabase-Instanzen, Docker-Container und laufende Entwicklerprozesse
+werden von Agents nicht eigenmächtig gestartet oder beendet. Für vorbereitete
+Schema- und Datenbanktests gilt ausschließlich der deklarative Ablauf aus dem
+Abschnitt [Datenbank ändern](#datenbank-ändern) und den Regeln in
+[`AGENTS.md`](../../AGENTS.md).
 
-Studio: <http://localhost:54323>. `imgproxy` und `pooler` erscheinen als
-gestoppt — beide sind per Default deaktiviert und werden nicht gebraucht.
+Die technische Datenbankquelle ist `supabase/schemas/*.sql`; die lokale
+SQLite-Spiegelung unter `src/lib/db/schemas/*.ts` ist davon getrennt.
 
 ## Development Build
 
@@ -400,14 +416,16 @@ of undefined`. Die eigentliche Ursache steht dann ganz oben im Log.
 | --- | --- |
 | Runtime | Expo SDK 57, React Native 0.86, React 19.2 |
 | Routing | Expo Router (NativeTabs, typedRoutes) |
-| Styling | StyleSheet + `src/constants/theme.ts` |
+| Styling | `src/components/theme/` + `src/constants/ui.tsx`, NativeWind nur für statisches Layout |
 | Backend | Supabase (Postgres, Auth, Realtime, RLS) |
 | Offline | `expo-sqlite` + Outbox-Sync (Pull/Push/LWW), mit Realtime-Bridge, Netzwerk-Reconnect, Background-Sync und Poll-Fallback |
 | Server-State | TanStack Query |
-| Tests | jest-expo + Testing Library, pgTAP-RLS-Tests gegen lokales Postgres |
+| Tests | jest-expo + Testing Library, pgTAP-RLS-Tests |
 
-Kein NativeWind: die stabile Version 4.2.6 ist nicht für RN 0.86 / React 19 gebaut,
-und die SDK-57-Variante gäbe es nur als Preview. Gestylt wird über `theme.ts`.
+NativeWind bleibt als technische Layout-Hilfe installiert. Es liefert keine
+zweite Theme-Schicht: semantische Farben, Typografie, Flächen, Konturen und
+Zustände kommen aus dem Design-System. Die verbindlichen Regeln stehen in den
+[Design-System-Verträgen](../design-system/contracts/README.md).
 
 ## Datenbankschema — Referenz
 

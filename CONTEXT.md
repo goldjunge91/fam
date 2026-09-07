@@ -1,6 +1,82 @@
-# NutriTrack
+# fam: Projektkontext
 
-Datenschutzorientierte, kollaborative App für Haushalte: geteilte Bestands- und Einkaufslisten kombiniert mit privatem Kalorien-, Nährwert- und Gesundheits-Tracking. Strikte Trennung zwischen Haushaltsdaten und privaten Nutzerdaten ist das zentrale Domänenprinzip.
+Kurzreferenz für Maintainer, Entwickler und Agents. fam ist eine
+datenschutzorientierte, kollaborative App für Haushalte: geteilte Bestands-,
+Einkaufs- und Rezeptdaten werden mit privatem Kalorien-, Nährwert- und
+Gesundheits-Tracking kombiniert. Der Name ist ein Arbeitstitel; im Code und in
+der technischen Dokumentation ist `fam` der aktuelle Projektname.
+
+Diese Datei erklärt Domänengrenzen und Begriffe. Sie ist keine zweite
+Implementierungsquelle und ersetzt nicht die verbindlichen Arbeitsregeln in
+[`AGENTS.md`](AGENTS.md).
+
+## Quellenhierarchie
+
+Bei widersprüchlichen Aussagen gilt die engste technische Quelle:
+
+| Thema | Maßgebliche Quelle | Zweck dieser Datei |
+| --- | --- | --- |
+| Arbeitsregeln für Agents und Beiträge | [`AGENTS.md`](AGENTS.md) | nur zusammenfassen, nicht duplizieren |
+| Domänenbegriffe und Eigentümerschaft | `CONTEXT.md` | zentrale Sprache und Grenzen |
+| Produktziel und Roadmap | [`docs/features/VISION.md`](docs/features/VISION.md), [`docs/features/ROADMAP.md`](docs/features/ROADMAP.md) | Produktabsicht |
+| Dauerhafte Architekturentscheidungen | [`docs/adr/`](docs/adr/README.md) | Begründung und verworfene Alternativen |
+| Backend-Datenmodell | `supabase/schemas/*.sql` | deklarativer Endzustand und RLS |
+| Lokaler SQLite-Spiegel | `src/lib/db/schemas/*.ts` | Offline-Modell, nicht Supabase-Schema |
+| UI-Designsystem | `src/components/theme/index.ts`, `src/components/theme/ThemeProvider.tsx`, `src/constants/ui.tsx` | Tokens, Theme-Laufzeit und semantische Primitiven |
+| Tatsächliches Verhalten | Quellcode und gezielte Tests | überprüfbare Implementierung |
+
+Die vollständige Dokumentationslandkarte steht in
+[`docs/README.md`](docs/README.md). Spezifikationen unter `docs/specs/` sind
+aktuelle Arbeitsgrundlagen, sofern sie nicht ausdrücklich als historisch
+markiert sind. `docs/archive/` enthält abgeschlossene oder überholte
+Unterlagen.
+
+## Nicht verhandelbare Architekturgrenzen
+
+- **Datentrennung:** Haushaltsdaten sind für berechtigte Household Members
+  geteilt. Account-Tracking bleibt über Supabase RLS privat. Ein Haushalts-Admin
+  erhält dadurch keinen Zugriff auf private Erwachsenendaten.
+- **Deklaratives Schema:** Änderungen beginnen in `supabase/schemas/*.sql`.
+  Migrationen werden mit `bun run db:diff` erzeugt und nicht von Hand verfasst.
+- **Local-first:** Synchronisierte Haushaltsdaten haben ein lokales SQLite-
+  Gegenstück und werden über Outbox, Pull/Push, Realtime und Konfliktauflösung
+  synchronisiert. Append-only-Protokolle wie Product Usage und Shopping History
+  sind davon getrennt, sofern ihr Datenmodell keinen Sync vorsieht.
+- **UI-Verantwortung:** Projektweite Tokens, Theme-Auflösung und semantische
+  UI-Rezepte liegen ausschließlich in den drei Quellen der UI-Designsystem-
+  Tabelle oben. NativeWind bleibt auf statisches Layout beschränkt.
+- **Feature-first:** `src/app/` enthält Routing. Fachlogik lebt in
+  `src/features/<domain>/`, geteilte UI in `src/components/`.
+- **Native Runtime:** Expo SDK 57 und native Module setzen einen Dev Client
+  voraus. Änderungen an nativen Abhängigkeiten, Config Plugins oder nativen
+  Dateien erfordern einen neuen Build.
+
+## Eigentümerschaft und Sichtbarkeit
+
+| Datenbereich | Eigentümer | Sichtbarkeit |
+| --- | --- | --- |
+| Household, Members, Inventory, Shopping List, Recipes, Meal Plan | Haushalt | für berechtigte Mitglieder des Haushalts |
+| Product | globaler Produktkatalog | unabhängig von einem Haushalt |
+| Product Usage | einzelner Account, lokal | nur auf dem Gerät dieses Accounts |
+| Nutrition Tracking und sonstiges Account-Tracking | einzelner Account | privat über RLS |
+| Child Profile | Haushalt, verwaltet durch berechtigte Erwachsene | haushaltsbezogen; Kind-Tracking folgt ADR 0005 |
+
+## Arbeitsrelevante Stolpersteine
+
+- `bun test` ist nicht der Jest-Projektbefehl. Für JavaScript-/TypeScript-Tests
+  gilt `bun run test <gezielter-pfad>`; die vollständige Suite wird nicht
+  ungezielt gestartet.
+- Neue synchronisierte Felder brauchen Parität in SQLite-Schema, Serialisierung,
+  Outbox und Sync-Handler. Neue Tabellen brauchen RLS-Policies und pgTAP-Tests.
+- Für jede sichtbare Mutation muss der Gegenweg mitgedacht werden, zum Beispiel
+  Wiederherstellen nach Löschen oder Entfernen nach Hinzufügen.
+- Bei UI-Änderungen gelten die Verträge unter
+  [`docs/design-system/contracts/`](docs/design-system/contracts/README.md).
+  Nichttriviale Layout- oder Copy-Änderungen brauchen vor der Implementierung
+  statische Mocks und eine Auswahl.
+- Lokale Supabase-Datenbanken, Simulatoren, Metro-Prozesse und Container werden
+  nicht eigenmächtig gestartet oder beendet. Bestehende Entwicklerprozesse sind
+  zu schützen.
 
 ## Language
 
