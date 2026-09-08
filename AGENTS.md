@@ -19,12 +19,12 @@ Vor jeder Codeänderung `tasks/inventory-sync/CONSTRAINTS.md` lesen. Die dort fe
 ## Multi-Surface Layer
 
 - **Mobile (iOS & Android):** Hauptzielplattform mit Expo SDK 57, React Native 0.86 und React 19.2. Erfordert für native Module (Kamera, Barcode-Scanner, SQLite, SecureStore, Notifications) einen Dev Client (`scripts/ios-dev.sh`); läuft nicht in Standard Expo Go.
-- **Web / Edge Functions / Services:** Supabase Edge Functions (z. B. `auth-confirmed`), Web-Vorschau via `expo start --web`, Supabase Studio (`localhost:54323`) für lokale Inspektion.
+- **Web / Edge Functions / Services:** Supabase Edge Functions (z. B. `auth-confirmed`), es gibt keine Web-Vorschau.
 - **Backend & Auth:** Supabase (Postgres, GoTrue Auth, Realtime, Storage) via Docker (`supabase start`); RevenueCat für In-App-Käufe und Abonnements.
 - Wir haben jetzt einen Apple-Developer-Account. iOS-Distribution über EAS (TestFlight, App Store) ist damit möglich — `eas submit` und Store-Builds (`preview-testflight`, `production`) können genutzt werden.
 
 Für die verbleibenden statischen NativeWind-Layoututilities gilt die lokale
-Referenz unter `.claude/nativewind.dev_llms.txt`.
+Referenz unter `.claude/nativewind.dev_llms.txt`. Nativwind depecreated `className`-Utilities werden nicht mehr ergänzt, sondern nur noch in `src/constants/ui.tsx` als semantische Tokens abgebildet. Neue Komponenten greifen auf diese Tokens, nicht auf die alten Klassen zu. Die alten Klassen werden schrittweise entfernt.
 
 ## Verbindliche UI-Styling-Architektur
 
@@ -78,17 +78,11 @@ Entstehungsgeschichte und ist keine zweite aktuelle Design-System-Quelle.
 ## A Note from Marco
 
 Im Marco. Your my agent. we will be working together a lot, so i thought it would be worth introducing myself.
-
 i love to build. i focus on building complex things as simple as possible. i love to find ways to reduce complexity when solving problems.
-
 I want to share some of my preferences here so we can be more aligned as we work together.
+"I like ambitious ideas, simple systems, and software that feels obvious. Do not preserve complexity just because it already exists. Do not introduce machinery because it looks architecturally impressive. Understand the real constraint, then fight for the smallest model that makes the correct behavior unsurprising. Channel both 'measure twice, cut once' and 'yagni'. Fight scope creep. Try to honor the dev's intent in both a minimal and realistic fashion._
 
-> _"I like ambitious ideas, simple systems, and software that feels obvious. Do not preserve complexity just because it already exists. Do not introduce machinery because it looks architecturally impressive. Understand the real constraint, then fight for the smallest model that makes the correct behavior unsurprising._
->
-> _Channel both 'measure twice, cut once' and 'yagni'. Fight scope creep. Try to honor the dev's intent in both a minimal and realistic fashion._
->
-> _The rest of this document is meant to help you navigate the codebase and make changes effectively. Think of these instructions less as 'hard rules', more as 'good defaults'. The developer's preferences should be able to override anything here._
->
+The rest of this document is meant to help you navigate the codebase and make changes effectively. Think of these instructions less as 'hard rules', more as 'good defaults'. The developer's preferences should be able to override anything here.
 > _Of note: Most developer contributions are often controlled remotely. This means you should be careful about accessing data, killing dev servers, and other things that may damage the project instance that the developer is using."_
 
 - **Override Clause:** Anweisungen in dieser Datei sind _starke Standardwerte, keine starre Dogmatik_. Explizite Anweisungen im Prompt des Maintainers überschreiben die `AGENTS.md` jederzeit.
@@ -119,11 +113,9 @@ I want to share some of my preferences here so we can be more aligned as we work
 - **Niemals Migrationen von Hand schreiben oder editieren:** Ändere stets `supabase/schemas/*.sql`, erzeuge die Migration mit `bun run db:diff` und wende sie mit `bun run db:reset` an.
 - **Niemals `bun test` ausführen:** Führe immer `bun run test` aus. `bun test` nutzt die native Bun-Engine, ignoriert `jest.config.js` und schlägt fehl.
 - **Niemals vollständige bun run Testsuite ausführen:** Führe nur die Tests aus, die du gerade ändern willst und das Abhänigkeiten zu dein änderung hat. `bun run test` ist teuer und dauert lange. Nutze `bun run test <file>` oder `bun run test:db <file>` für gezielte Tests.
--
 - **Kein `apply_migration` oder Einweg-SQL:** Nutze für Tests die pgTAP-Suite in `supabase/tests/` via `bun run test:db`.
 - **Fragen sind Read-Only:** Wenn ein Prompt mit "wie schwer wäre es", "warum passiert X", "sollten wir", "können wir" beginnt, beantworte die Frage, mache Vorschläge, aber ändere keine Dateien ohne Freigabe.
 - **Keine stillen Native-Module-Installationen:** Das Hinzufügen nativer Abhängigkeiten erfordert einen Rebuild des Dev-Clients. Weise den Nutzer immer darauf hin.
-- **Laufende Prozesse schützen:** Beende keine aktiven Simulator-Sessions, Metro-Server oder Docker-Container, es sei denn, es wurde ausdrücklich angewiesen.
 
 ---
 
@@ -172,7 +164,7 @@ I want to share some of my preferences here so we can be more aligned as we work
 - Anzeigename/Beschreibung (`name`, `description`) in `app.json`.
 - EAS-Projekt-Metadaten (`extra.eas`) in `app.json`.
 - Das `extra`-Feld in `app.json` generell (nur zur Laufzeit über `expo-constants` sichtbar).
-- `eas.json`/`.easignore` (Abwägung: steuert *wie* gebaut wird, nicht was kompiliert wird — Restrisiko dokumentiert).
+- `eas.json`/`.easignore` (Abwägung: steuert _wie_ gebaut wird, nicht was kompiliert wird — Restrisiko dokumentiert).
 - Lokal generierte Xcode-Dateien (`project.xcworkspace`, `xcuserdata`, `.DS_Store`, `.xcode.env.local`).
 
 **Bei echtem Mismatch:**
@@ -269,22 +261,6 @@ also make sure to read `.agents/rules/react-native-testing-library.md` for react
   3. `bun run test` (Jest Unit Tests)
   4. `bun run test:db` (sofern DB-Schemas betroffen sind)
 
-# agent-device
-
-Use agent-device only for app/device automation tasks and Marco approved it!
-For a normal app-driving task, start immediately. Do not probe first with `--help`, `--version`, `devices`, `appstate`, `snapshot`, or `screenshot`; open the requested app in the foreground and continue from its initial interactive snapshot.
-For TV, Fire TV, or Vega OS tasks, read `agent-device help tv`.
-For exploratory QA, read `agent-device help dogfood`.
-For logs, network, audio, traces, or runtime failures, read `agent-device help debugging`.
-For React Native component trees, props/state/hooks, slow renders, or rerenders, read `agent-device help react-devtools`.
-For React Native JavaScript heap growth, heap snapshots, or retained-object leaks, read `agent-device help cdp`.
-For React Native apps, overlays, Metro/Fast Refresh blockers, and routing to React DevTools or debugging evidence, read `agent-device help react-native`.
-
-Use the CLI in the integrated terminal.
-If `agent-device` is not on PATH but the user installed it globally in another shell, resolve the absolute binary path instead of using `npx -y agent-device@latest`.
-Prefer `open -> snapshot -i -> act -> re-snapshot -> verify -> close` where supported; otherwise follow target-specific help.
-Keep mutating commands against one session serial.
-
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:970c3bf2 -->
 ## Beads Issue Tracker
 
@@ -305,7 +281,7 @@ bd close <id>         # Complete work
 - Run `bd prime` for detailed command reference and session close protocol
 - Use `bd remember` for persistent knowledge — do NOT use MEMORY.md files
 
-**Architecture in one line:** issues live in a local Dolt DB; sync uses `refs/dolt/data` on your git remote; `.beads/issues.jsonl` is a passive export. See https://github.com/gastownhall/beads/blob/main/docs/SYNC_CONCEPTS.md for details and anti-patterns.
+**Architecture in one line:** issues live in a local Dolt DB; sync uses `refs/dolt/data` on your git remote; `.beads/issues.jsonl` is a passive export. See <https://github.com/gastownhall/beads/blob/main/docs/SYNC_CONCEPTS.md> for details and anti-patterns.
 
 ## Agent Context Profiles
 
@@ -323,6 +299,7 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 2. **Run quality gates** (if code changed) - Tests, linters, builds
 3. **Update issue status** - Close finished work, update in-progress items
 4. **Handle git/sync by active profile**:
+
    ```bash
    # Conservative/minimal/default: report status and proposed commands; wait for approval.
    git status
@@ -333,9 +310,11 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
    git push
    git status
    ```
+
 5. **Hand off** - Summarize changes, validation, issue status, and any blocked sync/commit/push step
 
 **Critical rules:**
+
 - Explicit user or orchestrator instructions override this Beads block.
 - Do not commit or push without clear authority from the active profile or the current user request.
 - If a required sync or push is blocked, stop and report the exact command and error.
@@ -362,7 +341,7 @@ bd prime                # Refresh Beads context
 - Run `bd prime` when Beads context is missing or stale. Codex 0.129.0+ can load Beads context automatically through native hooks; use `/hooks` to inspect or toggle them.
 - Keep persistent project memory in Beads via `bd remember`; do not create ad hoc memory files.
 
-**Architecture in one line:** issues live in a local Dolt DB; sync uses `refs/dolt/data` on your git remote; `.beads/issues.jsonl` is a passive export. See https://github.com/gastownhall/beads/blob/main/docs/SYNC_CONCEPTS.md for details and anti-patterns.
+**Architecture in one line:** issues live in a local Dolt DB; sync uses `refs/dolt/data` on your git remote; `.beads/issues.jsonl` is a passive export. See <https://github.com/gastownhall/beads/blob/main/docs/SYNC_CONCEPTS.md> for details and anti-patterns.
 <!-- END BEADS CODEX SETUP -->
 
 ### Local Windows Beads runtime
@@ -374,4 +353,3 @@ $env:DOLT_ROOT_PATH = 'C:\Users\tozzi'
 ```
 
 New agent shells do not inherit the environment of an earlier agent. Without this setting, `bd` cannot open the local `fam` database.
-
