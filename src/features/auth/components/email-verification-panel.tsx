@@ -10,12 +10,18 @@ interface EmailVerificationPanelProps {
   password?: string;
 }
 
-export function EmailVerificationPanel({
-  email,
-  onConfirmed,
-  onChangeEmail,
-  password,
-}: EmailVerificationPanelProps) {
+// export function EmailVerificationPanel({
+//   email,
+//   onConfirmed,
+//   onChangeEmail,
+//   password,
+// }: EmailVerificationPanelProps) {
+export function EmailVerificationPanel(props: EmailVerificationPanelProps) {
+  const email = props.email;
+  const onConfirmed = props.onConfirmed;
+  const onChangeEmail = props.onChangeEmail;
+  const password = props.password;
+  // onConfirmed weitergereicht an useEmailVerification
   const verification = useEmailVerification({ email, password, onConfirmed });
 
   return (

@@ -50,7 +50,7 @@ export function clearLocalAccountData(queryClient: QueryClient, userId: string):
         (cleanupError as Error).message,
       );
     }
-
+    // TODO Force delete needed
     try {
       queryClient.clear();
     } catch (cleanupError) {
@@ -142,7 +142,7 @@ export async function signOutAndClearLocalData(queryClient: QueryClient): Promis
       localSessionRemovalError = fallbackError as Error;
     }
   }
-
+  // TODO force delete 
   // Lokale Daten unabhängig vom Server-Ergebnis bereinigen.
   if (userId) {
     debugLogEvent('auth.sign-out.local-cleanup-started');

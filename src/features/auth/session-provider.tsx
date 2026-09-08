@@ -71,8 +71,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    // Session und Onboarding-Flag parallel lesen — beides wird benoetigt,
-    // bevor die Splash-Screen ausgeblendet wird.
+    // Session und Onboarding-Flag parallel lesen — beides wird benoetigt, bevor die Splash-Screen ausgeblendet wird.
     const initialization = measureOperation('auth.session.restore', () =>
       Promise.all([supabase.auth.getSession(), hasSeenOnboarding()]),
     )
