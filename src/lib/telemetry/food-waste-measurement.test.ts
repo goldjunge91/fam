@@ -17,7 +17,11 @@ describe('food waste measurement', () => {
 
   it('does not turn an invalid reported waste quantity into proof of no waste', () => {
     const result = calculateWasteOutcomeMetrics([
-      { outcomeKey: 'lot', consumed: { quantity: 100, unit: 'g' }, wasted: { quantity: NaN, unit: 'g' } },
+      {
+        outcomeKey: 'lot',
+        consumed: { quantity: 100, unit: 'g' },
+        wasted: { quantity: NaN, unit: 'g' },
+      },
     ]);
     expect(result.rescuedLotCount).toBe(0);
   });

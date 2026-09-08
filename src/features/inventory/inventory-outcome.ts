@@ -1,11 +1,4 @@
-export type InventoryOutcomeUnit =
-  | 'g'
-  | 'kg'
-  | 'ml'
-  | 'l'
-  | 'piece'
-  | 'package'
-  | 'portion';
+export type InventoryOutcomeUnit = 'g' | 'kg' | 'ml' | 'l' | 'piece' | 'package' | 'portion';
 
 export type InventoryOutcomeTelemetry =
   | { quantity_known: true; quantity: number; unit: InventoryOutcomeUnit }

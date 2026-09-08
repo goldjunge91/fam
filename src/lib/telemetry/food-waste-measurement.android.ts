@@ -57,14 +57,19 @@ export function calculateWasteOutcomeMetrics(
 ): WasteOutcomeMetrics {
   const consumedByDimension = new Map<WasteMeasurementDimension, number>();
   const wastedByDimension = new Map<WasteMeasurementDimension, number>();
-  const outcomesByLot = new Map<string, { known: boolean; consumed: boolean; wasteReported: boolean }>();
+  const outcomesByLot = new Map<
+    string,
+    { known: boolean; consumed: boolean; wasteReported: boolean }
+  >();
   let hasIncompatibleDimension = false;
 
   for (const observation of observations) {
     const consumed = comparableQuantity(observation.consumed);
     const wasted = comparableQuantity(observation.wasted);
     const lot = outcomesByLot.get(observation.outcomeKey) ?? {
-      known: false, consumed: false, wasteReported: false,
+      known: false,
+      consumed: false,
+      wasteReported: false,
     };
     lot.known ||= consumed !== null || wasted !== null;
     lot.consumed ||= consumed !== null;
