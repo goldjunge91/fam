@@ -1,4 +1,6 @@
 export const MIN_TEST_VALUE = 1_000;
+// PostgreSQL smallint +-32.768
+// PostgreSQL integer / int4 +-2.147.483.648
 export const MAX_TEST_VALUE = 10_000;
 
 type RandomIntegerOptions = {
