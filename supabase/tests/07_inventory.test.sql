@@ -65,7 +65,7 @@ values (:'hid', '22222222-2222-2222-2222-222222222222', 'member');
 -- ------------------------------------------------------- geteilt im Haushalt
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 insert into public.fridge_items (household_id, location_id, name, quantity, unit, expiry_date, added_by)
-select :'hid', id, 'Milch', 1, 'l', current_date + 3, '11111111-1111-1111-1111-111111111111'
+select :'hid', id, 'Milch', 1000, 'l', current_date + 3, '11111111-1111-1111-1111-111111111111'
 from public.storage_locations where kind = 'fridge';
 
 -- Bob sieht und aendert, was Alice erfasst hat — das ist der Zweck des Features.
@@ -77,11 +77,11 @@ select is(
   'ein anderes Mitglied sieht den Bestand'
 );
 
-update public.fridge_items set quantity = 0.5 where name = 'Milch';
+update public.fridge_items set quantity = 500 where name = 'Milch';
 
 select is(
   (select quantity from public.fridge_items where name = 'Milch'),
-  0.5::numeric(10,3),
+  500::bigint,
   'jedes Mitglied darf den geteilten Bestand aendern'
 );
 

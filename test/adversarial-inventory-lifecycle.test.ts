@@ -1,7 +1,7 @@
+import { MAX_INVENTORY_QUANTITY_UNITS } from '@/lib/inventory-quantity';
 import {
   validateInventoryOperation,
   computeInventoryOperationFootprint,
-  MAX_INVENTORY_QUANTITY_UNITS,
   ALL_CANONICAL_OPERATION_TYPES,
 } from '@/features/inventory/inventory-lifecycle';
 

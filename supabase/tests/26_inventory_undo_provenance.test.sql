@@ -12,7 +12,7 @@ select tests.as_postgres();
 select ok(
   has_function_privilege(
     'authenticated',
-    'public.reverse_move_fridge_item(uuid, uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz, text)',
+    'public.reverse_move_fridge_item(uuid, uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz, text)',
     'execute'
   ),
   'authenticated darf den Undo-Move-RPC ausführen'
@@ -20,7 +20,7 @@ select ok(
 select ok(
   not has_function_privilege(
     'anon',
-    'public.reverse_move_fridge_item(uuid, uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz, text)',
+    'public.reverse_move_fridge_item(uuid, uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz, text)',
     'execute'
   ),
   'anon darf den Undo-Move-RPC nicht ausführen'
@@ -42,7 +42,7 @@ insert into public.fridge_items (
 )
 values (
   'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', :'household_id', :'old_location_id',
-  'Undo-Milch', 2, 'piece', '11111111-1111-1111-1111-111111111111'
+  'Undo-Milch', 2000, 'piece', '11111111-1111-1111-1111-111111111111'
 );
 
 select public.move_fridge_item(
@@ -51,7 +51,7 @@ select public.move_fridge_item(
   :'household_id',
   :'old_location_id',
   :'new_location_id',
-  2,
+  2000,
   'cccccccc-cccc-4ccc-8ccc-cccccccccccc',
   'dddddddd-dddd-4ddd-8ddd-dddddddddddd',
   '2026-09-07T10:00:00Z'
@@ -64,7 +64,7 @@ select public.reverse_move_fridge_item(
   :'household_id',
   :'new_location_id',
   :'old_location_id',
-  2,
+  2000,
   'ffffffff-ffff-4fff-8fff-ffffffffffff',
   '99999999-9999-4999-8999-999999999999',
   '2026-09-07T10:01:00Z',
@@ -111,7 +111,7 @@ select public.reverse_move_fridge_item(
   :'household_id',
   :'new_location_id',
   :'old_location_id',
-  2,
+  2000,
   'ffffffff-ffff-4fff-8fff-ffffffffffff',
   '99999999-9999-4999-8999-999999999999',
   '2026-09-07T10:01:00Z',
@@ -136,7 +136,7 @@ select throws_ok(
       '12121212-1212-4121-8121-121212121212',
       'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
       'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
-      %L, %L, %L, 2,
+      %L, %L, %L, 2000,
       '13131313-1313-4131-8131-131313131313',
       '14141414-1414-4141-8141-141414141414',
       '2026-09-07T10:02:00Z', '[Undone] Gegenbuchung'

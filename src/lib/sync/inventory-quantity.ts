@@ -1,5 +1,9 @@
 import type { EnqueueMutationInput } from '@/lib/db/outbox';
-import { fromInventoryQuantityUnits, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
+import {
+  assertInventoryQuantityPrecision,
+  fromInventoryQuantityUnits,
+  toInventoryQuantityUnits,
+} from '@/lib/inventory-quantity';
 import type { InventoryMovePayload, InventoryMoveTransaction } from '@/lib/sync/inventory-move';
 import type { InventoryMergeUndoPayload } from '@/lib/sync/inventory-open-merge';
 import type { InventorySplitPayload } from '@/lib/sync/inventory-open-split';
@@ -38,7 +42,7 @@ export function parseInventoryQuantityPayload(
   if (typeof delta !== 'number' || !Number.isFinite(delta) || delta === 0) {
     throw new Error('Mengen-Payload enthaelt kein gueltiges Delta.');
   }
-  const normalizedDelta = fromInventoryQuantityUnits(toInventoryQuantityUnits(delta));
+  const normalizedDelta = assertInventoryQuantityPrecision(delta);
 
   return {
     operation_id: requiredString(payload, 'operation_id'),
@@ -61,9 +65,7 @@ export function createInventoryQuantityMutation(args: {
   nowMs: number;
 }): EnqueueMutationInput {
   const { payload, transaction, resultQuantity, nowMs } = args;
-  const normalizedResultQuantity = fromInventoryQuantityUnits(
-    toInventoryQuantityUnits(resultQuantity),
-  );
+  const normalizedResultQuantity = assertInventoryQuantityPrecision(resultQuantity);
   if (normalizedResultQuantity < 0) {
     throw new Error('Bestandsmengen muessen nicht negativ sein.');
   }
@@ -112,7 +114,7 @@ export function createInventoryQuantityReversalMutation(args: {
 }): EnqueueMutationInput {
   const { payload, transaction, restore, nowMs } = args;
   const reversal = parseInventoryQuantityReversalPayload(payload);
-  const resultQuantity = fromInventoryQuantityUnits(toInventoryQuantityUnits(args.resultQuantity));
+  const resultQuantity = assertInventoryQuantityPrecision(args.resultQuantity);
   if (resultQuantity < 0) {
     throw new Error('Die Gegenbuchung würde eine negative Bestandsmenge erzeugen.');
   }

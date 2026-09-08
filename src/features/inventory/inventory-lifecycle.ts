@@ -1,6 +1,8 @@
 import {
   fromInventoryQuantityUnits,
   INVENTORY_QUANTITY_SCALE,
+  isNonNegativeIntegerThousandths,
+  isPositiveIntegerThousandths,
   toInventoryQuantityUnits,
 } from '@/lib/inventory-quantity';
 import { calculateOpenedExpiryDate } from './opened-expiry';
@@ -300,7 +302,6 @@ export function inverseTransactionType(type: InventoryTransactionType): Inventor
 // --- v1-Operationsvertrag (contract.md) ---
 
 export const CANONICAL_CONTRACT_VERSION = 1;
-export const MAX_INVENTORY_QUANTITY_UNITS = 9_999_999_999;
 
 export const ALL_CANONICAL_OPERATION_TYPES = [
   'insert_inventory',
@@ -515,24 +516,6 @@ export type ValidationError = {
 };
 
 export type ValidationResult<T> = ValidationSuccess<T> | ValidationError;
-
-export function isPositiveIntegerThousandths(value: unknown): value is number {
-  return (
-    typeof value === 'number' &&
-    Number.isSafeInteger(value) &&
-    value > 0 &&
-    value <= MAX_INVENTORY_QUANTITY_UNITS
-  );
-}
-
-export function isNonNegativeIntegerThousandths(value: unknown): value is number {
-  return (
-    typeof value === 'number' &&
-    Number.isSafeInteger(value) &&
-    value >= 0 &&
-    value <= MAX_INVENTORY_QUANTITY_UNITS
-  );
-}
 
 function isNonEmptyString(value: unknown): value is string {
   return typeof value === 'string' && value.trim().length > 0;

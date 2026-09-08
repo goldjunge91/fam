@@ -24,6 +24,20 @@ export type LocalInventoryItem = {
   location_name: string | null;
 };
 
+/** Rohzeile wie von der fridge_items-Abfrage geliefert, vor der Persistenz-/View-Grenze. */
+type RawFridgeItemRow = LocalInventoryItem;
+
+/**
+ * Persistenz-/View-Grenze fuer fridge_items (contract.md Abschnitt 3, fam-lem.30).
+ * Solange quantity/package_size dezimal gespeichert sind, reicht diese Funktion sie
+ * unveraendert durch. Sobald die Spalten auf Integer-Tausendstel umgestellt sind
+ * (fam-lem.30.2/.30.3), wird ausschliesslich hier ueber fromInventoryQuantityUnits
+ * konvertiert - das ist die einzige vorgesehene Aenderungsstelle.
+ */
+export function mapFridgeItemRow(row: RawFridgeItemRow): LocalInventoryItem {
+  return row;
+}
+
 export function useInventoryItems(householdId: string | undefined) {
   return useQuery({
     queryKey: ['fridge_items', householdId],
@@ -31,7 +45,7 @@ export function useInventoryItems(householdId: string | undefined) {
       if (!householdId) return [];
 
       const db = await getDatabase();
-      return db.getAllAsync<LocalInventoryItem>(
+      const rows = await db.getAllAsync<RawFridgeItemRow>(
         `select
            fi.id, fi.household_id, fi.location_id, fi.product_id,
            fi.name, fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
@@ -45,6 +59,7 @@ export function useInventoryItems(householdId: string | undefined) {
          order by fi.expiry_date asc nulls last`,
         [householdId],
       );
+      return rows.map(mapFridgeItemRow);
     },
     enabled: !!householdId,
   });

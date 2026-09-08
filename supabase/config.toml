@@ -424,3 +424,9 @@ s3_region = "env(S3_REGION)"
 s3_access_key = "env(S3_ACCESS_KEY)"
 # Configures AWS_SECRET_ACCESS_KEY for S3 bucket
 s3_secret_key = "env(S3_SECRET_KEY)"
+
+# `supabase db schema declarative sync` verweigert sonst mit
+# LegacyDeclarativeNotEnabledError (CLI v2.116.0+); noetig, damit
+# db:diff/db:reset weiterhin aus supabase/schemas/*.sql generieren.
+[experimental.pgdelta]
+enabled = true

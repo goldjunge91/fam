@@ -50,7 +50,7 @@ create table if not exists public.fridge_items (
   product_id uuid references public.products (id) on delete set null,
   name text not null check (length(trim(name)) between 1 and 200),
 
-  quantity numeric(10, 3) not null default 1 check (quantity >= 0),
+  quantity bigint not null default 1000 check (quantity >= 0),
   unit text not null default 'piece'
     check (unit in ('g', 'kg', 'ml', 'l', 'piece', 'package', 'portion')),
   expiry_date date,
@@ -63,7 +63,7 @@ create table if not exists public.fridge_items (
 
   -- Snapshot des Packungsinhalts, z. B. 500 g bei "2 Packungen Haferflocken".
   -- Nullable fuer lose Ware und bestehende Datensaetze ohne bekannte Groesse.
-  package_size numeric(10, 3) check (package_size > 0),
+  package_size bigint check (package_size > 0),
   package_size_unit text
     check (package_size_unit in ('g', 'kg', 'ml', 'l', 'piece', 'portion')),
   constraint fridge_items_package_size_complete
@@ -110,7 +110,7 @@ create table if not exists public.transactions (
   product_id uuid references public.products (id) on delete set null,
   actor uuid references public.profiles (id) on delete set null,
   type text not null check (type in ('in', 'out', 'waste', 'open')),
-  quantity numeric(10, 3) not null check (quantity > 0),
+  quantity bigint not null check (quantity > 0),
   location_id uuid references public.storage_locations (id) on delete set null,
   reason text check (reason in ('expired', 'spoiled', 'other')),
   constraint transactions_reason_matches_waste
@@ -119,7 +119,7 @@ create table if not exists public.transactions (
   constraint transactions_previous_expiry_only_for_open
     check (previous_expiry_date is null or type = 'open'),
   origin_item_id uuid references public.fridge_items (id) on delete set null,
-  origin_quantity numeric(10, 3) check (origin_quantity > 0),
+  origin_quantity bigint check (origin_quantity > 0),
   constraint transactions_split_origin_complete
     check ((origin_item_id is null) = (origin_quantity is null)),
   constraint transactions_split_origin_only_for_open
@@ -387,7 +387,7 @@ create or replace function public.adjust_fridge_item_quantity(
   p_transaction_id uuid,
   p_item_id uuid,
   p_household_id uuid,
-  p_delta numeric,
+  p_delta bigint,
   p_created_at timestamptz
 )
 returns uuid
@@ -399,7 +399,7 @@ declare
   current_item public.fridge_items%rowtype;
   existing_transaction public.transactions%rowtype;
   expected_type text;
-  expected_quantity numeric;
+  expected_quantity bigint;
 begin
   if (select auth.uid()) is null then
     raise exception 'Nicht angemeldet';
@@ -410,12 +410,8 @@ begin
     or p_household_id is null
     or p_delta is null
     or p_created_at is null
-    or p_delta = 0
-    or p_delta = 'NaN'::numeric then
+    or p_delta = 0 then
     raise exception 'Mengen-Payload ist unvollstaendig oder ungueltig';
-  end if;
-  if p_delta <> trunc(p_delta, 3) then
-    raise exception 'Mengen duerfen hoechstens drei Nachkommastellen haben';
   end if;
 
   expected_type := case when p_delta > 0 then 'in' else 'out' end;
@@ -493,8 +489,8 @@ create or replace function public.correct_fridge_item_quantity(
   p_transaction_id uuid,
   p_item_id uuid,
   p_household_id uuid,
-  p_expected_quantity numeric,
-  p_new_quantity numeric,
+  p_expected_quantity bigint,
+  p_new_quantity bigint,
   p_created_at timestamptz
 )
 returns uuid
@@ -505,7 +501,7 @@ as $$
 declare
   current_item public.fridge_items%rowtype;
   expected_type text;
-  correction_quantity numeric;
+  correction_quantity bigint;
   existing_count integer;
   existing_matches integer;
 begin
@@ -518,19 +514,13 @@ begin
     or p_household_id is null
     or p_expected_quantity is null
     or p_new_quantity is null
-    or p_created_at is null
-    or p_expected_quantity = 'NaN'::numeric
-    or p_new_quantity = 'NaN'::numeric then
+    or p_created_at is null then
     raise exception 'Mengenkorrektur-Payload ist unvollstaendig oder ungueltig';
   end if;
   if p_expected_quantity < 0
     or p_new_quantity < 0
     or p_expected_quantity = p_new_quantity then
     raise exception 'Mengenkorrektur braucht zwei unterschiedliche, nicht negative Mengen';
-  end if;
-  if p_expected_quantity <> trunc(p_expected_quantity, 3)
-    or p_new_quantity <> trunc(p_new_quantity, 3) then
-    raise exception 'Mengen duerfen hoechstens drei Nachkommastellen haben';
   end if;
 
   expected_type := case when p_new_quantity > p_expected_quantity then 'in' else 'out' end;
@@ -614,7 +604,7 @@ declare
   original_transaction public.transactions%rowtype;
   current_item public.fridge_items%rowtype;
   inverse_type text;
-  result_quantity numeric;
+  result_quantity bigint;
   existing_count integer;
   existing_matches integer;
 begin
@@ -733,7 +723,7 @@ create or replace function public.move_fridge_item(
   p_household_id uuid,
   p_expected_location_id uuid,
   p_new_location_id uuid,
-  p_expected_quantity numeric,
+  p_expected_quantity bigint,
   p_out_transaction_id uuid,
   p_in_transaction_id uuid,
   p_created_at timestamptz
@@ -764,8 +754,8 @@ begin
   if p_out_transaction_id = p_in_transaction_id then
     raise exception 'Move braucht zwei unterschiedliche Ledger-IDs';
   end if;
-  if p_expected_quantity <= 0 or p_expected_quantity <> trunc(p_expected_quantity, 3) then
-    raise exception 'Move-Mengen muessen positiv sein und duerfen hoechstens drei Nachkommastellen haben';
+  if p_expected_quantity <= 0 then
+    raise exception 'Move-Mengen muessen positiv sein';
   end if;
 
   -- FOR UPDATE serialisiert konkurrierende Moves desselben Bestandseintrags.
@@ -874,7 +864,7 @@ create or replace function public.reverse_move_fridge_item(
   p_household_id uuid,
   p_expected_location_id uuid,
   p_new_location_id uuid,
-  p_expected_quantity numeric,
+  p_expected_quantity bigint,
   p_out_transaction_id uuid,
   p_in_transaction_id uuid,
   p_created_at timestamptz,
@@ -908,8 +898,8 @@ begin
   if p_out_transaction_id = p_in_transaction_id then
     raise exception 'Undo-Move braucht zwei unterschiedliche Ledger-IDs';
   end if;
-  if p_expected_quantity <= 0 or p_expected_quantity <> trunc(p_expected_quantity, 3) then
-    raise exception 'Undo-Move-Mengen muessen positiv sein und duerfen hoechstens drei Nachkommastellen haben';
+  if p_expected_quantity <= 0 then
+    raise exception 'Undo-Move-Mengen muessen positiv sein';
   end if;
 
   select * into current_item
@@ -1030,8 +1020,8 @@ create or replace function public.split_fridge_item_open(
   p_source_item_id uuid,
   p_opened_item_id uuid,
   p_household_id uuid,
-  p_expected_source_quantity numeric,
-  p_open_quantity numeric,
+  p_expected_source_quantity bigint,
+  p_open_quantity bigint,
   p_opened_at timestamptz,
   p_new_expiry_date date,
   p_expiry_user_set boolean,
@@ -1045,7 +1035,7 @@ as $$
 declare
   source_item public.fridge_items%rowtype;
   existing_transaction public.transactions%rowtype;
-  remaining_quantity numeric;
+  remaining_quantity bigint;
 begin
   if (select auth.uid()) is null then
     raise exception 'Nicht angemeldet';
@@ -1066,10 +1056,6 @@ begin
   end if;
   if p_expected_source_quantity <= 0 or p_open_quantity <= 0 then
     raise exception 'Ausgangs- und Öffnungsmenge muessen positiv sein';
-  end if;
-  if p_expected_source_quantity <> trunc(p_expected_source_quantity, 3)
-    or p_open_quantity <> trunc(p_open_quantity, 3) then
-    raise exception 'Mengen duerfen hoechstens drei Nachkommastellen haben';
   end if;
   if p_open_quantity > p_expected_source_quantity then
     raise exception 'Die Öffnungsmenge darf die Ausgangsmenge nicht uebersteigen';

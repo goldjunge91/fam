@@ -154,20 +154,20 @@ revoke execute on function public.create_household(text) from public, anon;
 grant execute on function public.create_household(text) to authenticated;
 
 revoke execute on function public.adjust_fridge_item_quantity(
-  uuid, uuid, uuid, uuid, numeric, timestamptz
+  uuid, uuid, uuid, uuid, bigint, timestamptz
 ) from public;
 revoke all on function public.adjust_fridge_item_quantity(
-  uuid, uuid, uuid, uuid, numeric, timestamptz
+  uuid, uuid, uuid, uuid, bigint, timestamptz
 ) from anon;
 grant execute on function public.adjust_fridge_item_quantity(
-  uuid, uuid, uuid, uuid, numeric, timestamptz
+  uuid, uuid, uuid, uuid, bigint, timestamptz
 ) to authenticated;
 
 revoke execute on function public.correct_fridge_item_quantity(
-  uuid, uuid, uuid, uuid, numeric, numeric, timestamptz
+  uuid, uuid, uuid, uuid, bigint, bigint, timestamptz
 ) from public, anon;
 grant execute on function public.correct_fridge_item_quantity(
-  uuid, uuid, uuid, uuid, numeric, numeric, timestamptz
+  uuid, uuid, uuid, uuid, bigint, bigint, timestamptz
 ) to authenticated;
 
 revoke execute on function public.reverse_inventory_quantity_transaction(
@@ -178,24 +178,24 @@ grant execute on function public.reverse_inventory_quantity_transaction(
 ) to authenticated;
 
 revoke execute on function public.move_fridge_item(
-  uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz
+  uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz
 ) from public, anon;
 grant execute on function public.move_fridge_item(
-  uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz
+  uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz
 ) to authenticated;
 
 revoke execute on function public.reverse_move_fridge_item(
-  uuid, uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz, text
+  uuid, uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz, text
 ) from public, anon;
 grant execute on function public.reverse_move_fridge_item(
-  uuid, uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz, text
+  uuid, uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz, text
 ) to authenticated;
 
 revoke execute on function public.split_fridge_item_open(
-  uuid, uuid, uuid, uuid, numeric, numeric, timestamptz, date, boolean, timestamptz
+  uuid, uuid, uuid, uuid, bigint, bigint, timestamptz, date, boolean, timestamptz
 ) from public, anon;
 grant execute on function public.split_fridge_item_open(
-  uuid, uuid, uuid, uuid, numeric, numeric, timestamptz, date, boolean, timestamptz
+  uuid, uuid, uuid, uuid, bigint, bigint, timestamptz, date, boolean, timestamptz
 ) to authenticated;
 
 revoke execute on function public.merge_undo_fridge_item_open(

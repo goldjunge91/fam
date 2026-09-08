@@ -13,7 +13,7 @@ select tests.as_postgres();
 select ok(
   has_function_privilege(
     'authenticated',
-    'public.move_fridge_item(uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz)',
+    'public.move_fridge_item(uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz)',
     'execute'
   ),
   'authenticated darf den atomaren Move-RPC ausfuehren'
@@ -21,7 +21,7 @@ select ok(
 select ok(
   not has_function_privilege(
     'anon',
-    'public.move_fridge_item(uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz)',
+    'public.move_fridge_item(uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz)',
     'execute'
   ),
   'anon darf den atomaren Move-RPC nicht ausfuehren'
@@ -43,7 +43,7 @@ insert into public.fridge_items (
 )
 values (
   'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', :'household_id', :'old_location_id',
-  'Move-Milch', 2, 'piece', '11111111-1111-1111-1111-111111111111'
+  'Move-Milch', 2000, 'piece', '11111111-1111-1111-1111-111111111111'
 );
 
 select public.move_fridge_item(
@@ -52,7 +52,7 @@ select public.move_fridge_item(
   :'household_id',
   :'old_location_id',
   :'new_location_id',
-  2,
+  2000,
   'cccccccc-cccc-4ccc-8ccc-cccccccccccc',
   'dddddddd-dddd-4ddd-8ddd-dddddddddddd',
   '2026-09-07T10:00:00Z'
@@ -87,7 +87,7 @@ select public.move_fridge_item(
   :'household_id',
   :'old_location_id',
   :'new_location_id',
-  2,
+  2000,
   'cccccccc-cccc-4ccc-8ccc-cccccccccccc',
   'dddddddd-dddd-4ddd-8ddd-dddddddddddd',
   '2026-09-07T10:00:00Z'
@@ -112,7 +112,7 @@ select throws_ok(
     $$ select public.move_fridge_item(
       'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee',
       'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
-      %L, %L, null, 2,
+      %L, %L, null, 2000,
       'cccccccc-cccc-4ccc-8ccc-cccccccccccc',
       'ffffffff-ffff-4fff-8fff-ffffffffffff',
       '2026-09-07T10:00:00Z'
@@ -139,7 +139,7 @@ select throws_ok(
     $$ select public.move_fridge_item(
       '99999999-9999-4999-8999-999999999999',
       'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
-      %L, %L, null, 2,
+      %L, %L, null, 2000,
       '12121212-1212-4121-8121-121212121212',
       '13131313-1313-4131-8131-131313131313',
       '2026-09-07T10:00:00Z'
@@ -156,7 +156,7 @@ select throws_ok(
     $$ select public.move_fridge_item(
       '14141414-1414-4141-8141-141414141414',
       'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
-      %L, %L, null, 2,
+      %L, %L, null, 2000,
       '15151515-1515-4151-8151-151515151515',
       '16161616-1616-4161-8161-161616161616',
       '2026-09-07T10:00:00Z'

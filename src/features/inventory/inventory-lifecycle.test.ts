@@ -1,4 +1,9 @@
 import {
+  isNonNegativeIntegerThousandths,
+  isPositiveIntegerThousandths,
+  MAX_INVENTORY_QUANTITY_UNITS,
+} from '@/lib/inventory-quantity';
+import {
   ALL_CANONICAL_OPERATION_TYPES,
   assertValidInventoryOperation,
   CANONICAL_CONTRACT_VERSION,
@@ -6,9 +11,6 @@ import {
   computeInventoryOperationFootprint,
   inventoryUndoMode,
   inverseTransactionType,
-  isNonNegativeIntegerThousandths,
-  isPositiveIntegerThousandths,
-  MAX_INVENTORY_QUANTITY_UNITS,
   planOpenInventoryItem,
   planUndoOpenTransaction,
   splitTransactionNotes,

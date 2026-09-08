@@ -1,4 +1,4 @@
-import { fromInventoryQuantityUnits, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
+import { assertInventoryQuantityPrecision } from '@/lib/inventory-quantity';
 
 export type InventoryQuantityCorrectionPayload = {
   operation_id: string;
@@ -23,7 +23,7 @@ function requiredQuantity(payload: Record<string, unknown>, key: string): number
   if (typeof value !== 'number' || !Number.isFinite(value)) {
     throw new Error(`Mengenkorrektur-Payload enthaelt keine gueltige Menge ${key}.`);
   }
-  return fromInventoryQuantityUnits(toInventoryQuantityUnits(value));
+  return assertInventoryQuantityPrecision(value);
 }
 
 /** Validiert den Compare-and-set-Umschlag vor dem Netzwerkzugriff. */

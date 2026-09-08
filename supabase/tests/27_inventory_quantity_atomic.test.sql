@@ -12,7 +12,7 @@ select tests.as_postgres();
 select ok(
   has_function_privilege(
     'authenticated',
-    'public.adjust_fridge_item_quantity(uuid, uuid, uuid, uuid, numeric, timestamptz)',
+    'public.adjust_fridge_item_quantity(uuid, uuid, uuid, uuid, bigint, timestamptz)',
     'execute'
   ),
   'authenticated darf den atomaren Mengen-RPC ausführen'
@@ -20,7 +20,7 @@ select ok(
 select ok(
   not has_function_privilege(
     'anon',
-    'public.adjust_fridge_item_quantity(uuid, uuid, uuid, uuid, numeric, timestamptz)',
+    'public.adjust_fridge_item_quantity(uuid, uuid, uuid, uuid, bigint, timestamptz)',
     'execute'
   ),
   'anon darf den atomaren Mengen-RPC nicht ausführen'
@@ -38,7 +38,7 @@ insert into public.fridge_items (
 )
 values (
   'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', :'household_id', :'location_id',
-  'Mengen-Milch', 5, 'piece', '11111111-1111-1111-1111-111111111111'
+  'Mengen-Milch', 5000, 'piece', '11111111-1111-1111-1111-111111111111'
 );
 
 select public.adjust_fridge_item_quantity(
@@ -46,7 +46,7 @@ select public.adjust_fridge_item_quantity(
   'cccccccc-cccc-4ccc-8ccc-cccccccccccc',
   'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
   :'household_id',
-  -2,
+  -2000,
   '2026-09-07T10:00:00Z'
 ) as adjusted_id \gset
 
@@ -57,7 +57,7 @@ select is(
 );
 select is(
   (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
-  3::numeric,
+  3000::bigint,
   'das Delta wird gegen die aktuelle Servermenge gebucht'
 );
 select is(
@@ -75,7 +75,7 @@ select set_eq(
   $$ select type, quantity, location_id::text
      from public.transactions
      where operation_id = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb' $$,
-  format($$ values ('out', 2::numeric, %L) $$, :'location_id'),
+  format($$ values ('out', 2000::bigint, %L) $$, :'location_id'),
   'die Ledgerzeile trägt Richtung, effektive Menge und Lagerort'
 );
 
@@ -88,12 +88,12 @@ select public.adjust_fridge_item_quantity(
   'cccccccc-cccc-4ccc-8ccc-cccccccccccc',
   'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
   :'household_id',
-  -2,
+  -2000,
   '2026-09-07T10:00:00Z'
 );
 select is(
   (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
-  3::numeric,
+  3000::bigint,
   'ein Mengen-Retry bleibt auch nach einem zwischenzeitlichen Move idempotent'
 );
 select is(
@@ -103,29 +103,33 @@ select is(
   'ein Mengen-Retry nach einem Move dupliziert keine Ledgerzeile'
 );
 
+-- Ueberpraezise Deltas sind seit der Integer-Tausendstel-Umstellung (fam-lem.30)
+-- gar nicht mehr als bigint-Parameter darstellbar; die Grenze liegt jetzt an
+-- src/lib/inventory-quantity.ts (contract.md Abschnitt 3), nicht mehr im RPC.
+-- Der RPC muss weiterhin ein Delta von null zurueckweisen.
 select throws_ok(
   format(
     $$ select public.adjust_fridge_item_quantity(
       '14141414-1414-4141-8141-141414141414',
       '15151515-1515-4151-8151-151515151515',
       'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
-      %L, -0.0001, '2026-09-07T10:00:30Z'
+      %L, 0, '2026-09-07T10:00:30Z'
     ) $$,
     :'household_id'
   ),
-  'P0001', 'Mengen duerfen hoechstens drei Nachkommastellen haben',
-  'der RPC weist ein Delta mit mehr als drei Nachkommastellen zurueck'
+  'P0001', 'Mengen-Payload ist unvollstaendig oder ungueltig',
+  'der RPC weist ein Delta von null zurueck'
 );
 select is(
   (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
-  3::numeric,
-  'ein unpraezises Delta veraendert den Bestand nicht'
+  3000::bigint,
+  'ein zurueckgewiesenes Delta veraendert den Bestand nicht'
 );
 select is(
   (select count(*)::int from public.transactions
    where operation_id = '14141414-1414-4141-8141-141414141414'),
   0,
-  'ein unpraezises Delta schreibt kein Ledger'
+  'ein zurueckgewiesenes Delta schreibt kein Ledger'
 );
 
 select public.adjust_fridge_item_quantity(
@@ -133,12 +137,12 @@ select public.adjust_fridge_item_quantity(
   'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee',
   'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
   :'household_id',
-  -3,
+  -3000,
   '2026-09-07T10:01:00Z'
 );
 select is(
   (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
-  0::numeric,
+  0::bigint,
   'vollständiger Verbrauch schreibt serverseitig Menge null'
 );
 select isnt(
@@ -159,7 +163,7 @@ select throws_ok(
       'dddddddd-dddd-4ddd-8ddd-dddddddddddd',
       'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee',
       'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
-      %L, -4, '2026-09-07T10:01:00Z'
+      %L, -4000, '2026-09-07T10:01:00Z'
     ) $$,
     :'household_id'
   ),
@@ -168,7 +172,7 @@ select throws_ok(
 );
 select is(
   (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
-  0::numeric,
+  0::bigint,
   'ein abgelehntes Delta verändert den Bestand nicht'
 );
 select is(
@@ -185,7 +189,7 @@ select throws_ok(
       '12121212-1212-4121-8121-121212121212',
       '13131313-1313-4131-8131-131313131313',
       'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
-      %L, -1, '2026-09-07T10:02:00Z'
+      %L, -1000, '2026-09-07T10:02:00Z'
     ) $$,
     :'household_id'
   ),

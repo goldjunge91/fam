@@ -39,13 +39,13 @@ insert into public.fridge_items (
 )
 values (
   'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', :'household_id', :'location_id',
-  'Merge-Milch', 5, 'piece', '11111111-1111-1111-1111-111111111111', '2026-12-31', true
+  'Merge-Milch', 5000, 'piece', '11111111-1111-1111-1111-111111111111', '2026-12-31', true
 );
 select public.split_fridge_item_open(
   'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
   'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
   'cccccccc-cccc-4ccc-8ccc-cccccccccccc',
-  :'household_id', 5, 1, '2026-09-07T10:00:00Z', '2026-09-10', true,
+  :'household_id', 5000, 1000, '2026-09-07T10:00:00Z', '2026-09-10', true,
   '2026-09-07T10:00:00Z'
 );
 
@@ -62,7 +62,7 @@ select is(
 );
 select is(
   (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
-  5::numeric,
+  5000::bigint,
   'das versiegelte Los erhaelt die gesamte Menge zurueck'
 );
 select is(
@@ -73,7 +73,7 @@ select is(
 select set_eq(
   $$ select type, quantity, reversal_of
      from public.transactions where id = 'dddddddd-dddd-4ddd-8ddd-dddddddddddd' $$,
-  $$ values ('open', 1::numeric, 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'::uuid) $$,
+  $$ values ('open', 1000::bigint, 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'::uuid) $$,
   'die Gegenbuchung verweist auf die Split-Buchung'
 );
 
@@ -85,7 +85,7 @@ select public.merge_undo_fridge_item_open(
 );
 select is(
   (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
-  5::numeric,
+  5000::bigint,
   'ein Retry bleibt idempotent'
 );
 select is(
@@ -101,17 +101,17 @@ insert into public.fridge_items (
 )
 values (
   'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee', :'household_id', :'location_id',
-  'Merge-Konflikt-Milch', 5, 'piece', '11111111-1111-1111-1111-111111111111', '2026-12-31', true
+  'Merge-Konflikt-Milch', 5000, 'piece', '11111111-1111-1111-1111-111111111111', '2026-12-31', true
 );
 select public.split_fridge_item_open(
   'ffffffff-ffff-4fff-8fff-ffffffffffff',
   'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee',
   '11111111-2222-4111-8111-111111111111',
-  :'household_id', 5, 1, '2026-09-07T10:06:00Z', '2026-09-10', true,
+  :'household_id', 5000, 1000, '2026-09-07T10:06:00Z', '2026-09-10', true,
   '2026-09-07T10:06:00Z'
 );
 update public.fridge_items
-set quantity = 0.5
+set quantity = 500
 where id = '11111111-2222-4111-8111-111111111111';
 select throws_ok(
   format(
@@ -127,7 +127,7 @@ select throws_ok(
 );
 select is(
   (select quantity from public.fridge_items where id = 'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee'),
-  4::numeric,
+  4000::bigint,
   'der Konflikt aendert das versiegelte Los nicht'
 );
 
@@ -137,7 +137,7 @@ insert into public.transactions (
 values (
   '66666666-7777-4666-8666-666666666666', :'household_id',
   'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', '11111111-1111-1111-1111-111111111111',
-  'in', 1, :'location_id', '2026-09-07T09:00:00Z'
+  'in', 1000, :'location_id', '2026-09-07T09:00:00Z'
 );
 select throws_ok(
   format(
@@ -161,13 +161,13 @@ insert into public.fridge_items (
 )
 values (
   '77777777-8888-4777-8777-777777777777', :'household_id', :'location_id',
-  'Standortwechsel-Milch', 5, 'piece', '11111111-1111-1111-1111-111111111111', '2026-12-31', true
+  'Standortwechsel-Milch', 5000, 'piece', '11111111-1111-1111-1111-111111111111', '2026-12-31', true
 );
 select public.split_fridge_item_open(
   '88888888-9999-4888-8888-888888888888',
   '77777777-8888-4777-8777-777777777777',
   '99999999-0000-4999-8999-999999999999',
-  :'household_id', 5, 1, '2026-09-07T10:10:00Z', '2026-09-10', true,
+  :'household_id', 5000, 1000, '2026-09-07T10:10:00Z', '2026-09-10', true,
   '2026-09-07T10:10:00Z'
 );
 select id as freezer_location_id

@@ -1,4 +1,4 @@
-import { fromInventoryQuantityUnits, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
+import { assertInventoryQuantityPrecision } from '@/lib/inventory-quantity';
 
 export type InventorySplitPayload = {
   transaction_id: string;
@@ -26,7 +26,7 @@ function requiredQuantity(payload: Record<string, unknown>, key: string): number
   if (typeof value !== 'number' || !Number.isFinite(value)) {
     throw new Error(`Split-Payload enthaelt keine gueltige Menge ${key}.`);
   }
-  return fromInventoryQuantityUnits(toInventoryQuantityUnits(value));
+  return assertInventoryQuantityPrecision(value);
 }
 
 function requiredBoolean(payload: Record<string, unknown>, key: string): boolean {

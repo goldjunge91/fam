@@ -13,7 +13,7 @@ select tests.as_postgres();
 select ok(
   has_function_privilege(
     'authenticated',
-    'public.split_fridge_item_open(uuid, uuid, uuid, uuid, numeric, numeric, timestamptz, date, boolean, timestamptz)',
+    'public.split_fridge_item_open(uuid, uuid, uuid, uuid, bigint, bigint, timestamptz, date, boolean, timestamptz)',
     'execute'
   ),
   'authenticated darf atomar splitten'
@@ -21,7 +21,7 @@ select ok(
 select ok(
   not has_function_privilege(
     'anon',
-    'public.split_fridge_item_open(uuid, uuid, uuid, uuid, numeric, numeric, timestamptz, date, boolean, timestamptz)',
+    'public.split_fridge_item_open(uuid, uuid, uuid, uuid, bigint, bigint, timestamptz, date, boolean, timestamptz)',
     'execute'
   ),
   'anon darf nicht splitten'
@@ -39,14 +39,14 @@ insert into public.fridge_items (
 )
 values (
   'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', :'household_id', :'location_id',
-  'Split-Milch', 5, 'piece', '11111111-1111-1111-1111-111111111111', '2026-12-31', true
+  'Split-Milch', 5000, 'piece', '11111111-1111-1111-1111-111111111111', '2026-12-31', true
 );
 
 select public.split_fridge_item_open(
   'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
   'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
   'cccccccc-cccc-4ccc-8ccc-cccccccccccc',
-  :'household_id', 5, 1, '2026-09-07T10:00:00Z', '2026-09-10', true,
+  :'household_id', 5000, 1000, '2026-09-07T10:00:00Z', '2026-09-10', true,
   '2026-09-07T10:00:00Z'
 ) as opened_id \gset
 
@@ -57,20 +57,20 @@ select is(
 );
 select is(
   (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
-  4::numeric,
+  4000::bigint,
   'das Rest-Los verliert genau die geoeffnete Menge'
 );
 select is(
   (select (quantity, opened_at is not null, deleted_at is null)
    from public.fridge_items where id = 'cccccccc-cccc-4ccc-8ccc-cccccccccccc'),
-  (1::numeric, true, true),
+  (1000::bigint, true, true),
   'das neue Los traegt die geoeffnete Menge und ist offen'
 );
 select set_eq(
   $$ select type, quantity, origin_item_id, origin_quantity
      from public.transactions where id = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb' $$,
   $$ values (
-    'open', 1::numeric, 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'::uuid, 5::numeric
+    'open', 1000::bigint, 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'::uuid, 5000::bigint
   ) $$,
   'die Ledgerzeile traegt Split-Menge und Ursprungsmenge'
 );
@@ -80,12 +80,12 @@ select public.split_fridge_item_open(
   'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
   'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
   'cccccccc-cccc-4ccc-8ccc-cccccccccccc',
-  :'household_id', 5, 1, '2026-09-07T10:00:00Z', '2026-09-10', true,
+  :'household_id', 5000, 1000, '2026-09-07T10:00:00Z', '2026-09-10', true,
   '2026-09-07T10:00:00Z'
 );
 select is(
   (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
-  4::numeric,
+  4000::bigint,
   'ein Retry bleibt idempotent'
 );
 select is(
@@ -97,14 +97,14 @@ select is(
 -- Zwischenzeitlicher Verbrauch (Rest-Los jetzt bei 2 statt der erwarteten 5)
 -- darf durch einen spaeten, auf dem alten Stand geplanten Split nicht
 -- ueberschrieben werden.
-update public.fridge_items set quantity = 2 where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
+update public.fridge_items set quantity = 2000 where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
 select throws_ok(
   format(
     $$ select public.split_fridge_item_open(
       'dddddddd-dddd-4ddd-8ddd-dddddddddddd',
       'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
       'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee',
-      %L, 5, 1, '2026-09-07T10:01:00Z', '2026-09-10', true, '2026-09-07T10:01:00Z'
+      %L, 5000, 1000, '2026-09-07T10:01:00Z', '2026-09-10', true, '2026-09-07T10:01:00Z'
     ) $$,
     :'household_id'
   ),
@@ -113,7 +113,7 @@ select throws_ok(
 );
 select is(
   (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
-  2::numeric,
+  2000::bigint,
   'der Konflikt ueberschreibt den zwischenzeitlichen Verbrauch nicht'
 );
 select is(
@@ -127,7 +127,7 @@ select public.split_fridge_item_open(
   'ffffffff-ffff-4fff-8fff-ffffffffffff',
   'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
   '11111111-2222-4111-8111-111111111111',
-  :'household_id', 2, 2, '2026-09-07T10:02:00Z', '2026-09-10', true, '2026-09-07T10:02:00Z'
+  :'household_id', 2000, 2000, '2026-09-07T10:02:00Z', '2026-09-10', true, '2026-09-07T10:02:00Z'
 );
 select is(
   (select deleted_at is not null from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
@@ -135,18 +135,29 @@ select is(
   'ein vollstaendig geoeffnetes Rest-Los wird weich geloescht'
 );
 
+-- Ueberpraezise Mengen sind seit der Integer-Tausendstel-Umstellung (fam-lem.30)
+-- gar nicht mehr als bigint-Parameter darstellbar; die Grenze liegt jetzt an
+-- src/lib/inventory-quantity.ts (contract.md Abschnitt 3), nicht mehr im RPC.
+-- Der RPC muss weiterhin eine Oeffnungsmenge groesser als die Ausgangsmenge ablehnen.
+insert into public.fridge_items (
+  id, household_id, location_id, name, quantity, unit, added_by
+)
+values (
+  '22222222-2222-4222-8222-222222222222', :'household_id', :'location_id',
+  'Split-Ueberpraezise-Grenze', 3000, 'piece', '11111111-1111-1111-1111-111111111111'
+);
 select throws_ok(
   format(
     $$ select public.split_fridge_item_open(
       '22222222-3333-4222-8222-222222222222',
-      'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
+      '22222222-2222-4222-8222-222222222222',
       '33333333-4444-4333-8333-333333333333',
-      %L, 3, 3.0001, '2026-09-07T10:03:00Z', '2026-09-10', true, '2026-09-07T10:03:00Z'
+      %L, 3000, 4000, '2026-09-07T10:03:00Z', '2026-09-10', true, '2026-09-07T10:03:00Z'
     ) $$,
     :'household_id'
   ),
-  'P0001', 'Mengen duerfen hoechstens drei Nachkommastellen haben',
-  'mehr als drei Nachkommastellen werden abgelehnt'
+  'P0001', 'Die Öffnungsmenge darf die Ausgangsmenge nicht uebersteigen',
+  'eine Oeffnungsmenge groesser als die Ausgangsmenge wird abgelehnt'
 );
 
 select tests.authenticate_as('33333333-3333-3333-3333-333333333333');
@@ -156,7 +167,7 @@ select throws_ok(
       '44444444-5555-4444-8444-444444444444',
       'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
       '55555555-6666-4555-8555-555555555555',
-      %L, 2, 1, '2026-09-07T10:04:00Z', '2026-09-10', true, '2026-09-07T10:04:00Z'
+      %L, 2000, 1000, '2026-09-07T10:04:00Z', '2026-09-10', true, '2026-09-07T10:04:00Z'
     ) $$,
     :'household_id'
   ),
