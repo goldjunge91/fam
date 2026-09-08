@@ -12,7 +12,11 @@ import {
   enqueueMutationsInExclusiveTransaction,
 } from '@/lib/db/outbox';
 import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';
-import { fromInventoryQuantityUnits, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
+import {
+  fromInventoryQuantityUnits,
+  isPositiveIntegerThousandths,
+  toInventoryQuantityUnits,
+} from '@/lib/inventory-quantity';
 import { getSupabase } from '@/lib/supabase';
 import {
   createInventoryMergeUndoMutation,
@@ -75,11 +79,15 @@ type TransactionDraft = Omit<TransactionPayload, 'operation_id' | 'reversal_of'>
   reversal_of?: string | null;
 };
 
+/**
+ * Konvention (fam-lem.27.10): `payload.quantity` ist immer bereits Integer-
+ * Tausendstel. Aufrufer konvertieren Dezimalwerte (UI, LifecycleItem-Plan)
+ * an ihrer eigenen Grenze, bevor sie diese Funktion aufrufen.
+ */
 function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueMutationInput {
-  if (!Number.isFinite(payload.quantity) || payload.quantity <= 0) {
+  if (!isPositiveIntegerThousandths(payload.quantity)) {
     throw new Error('Ledger-Buchungen benötigen eine positive Menge.');
   }
-  toInventoryQuantityUnits(payload.quantity);
 
   const normalizedPayload: TransactionPayload = {
     operation_id: null,
@@ -103,6 +111,7 @@ function assertValidInventoryQuantity(quantity: number): void {
   toInventoryQuantityUnits(quantity);
 }
 
+/** Konvention (fam-lem.27.10): input.quantity ist immer bereits Integer-Tausendstel. */
 function groupedMoveMutation(input: {
   itemId: string;
   householdId: string;
@@ -116,10 +125,9 @@ function groupedMoveMutation(input: {
   reversalOf?: string | null;
   notes?: string | null;
 }): EnqueueMutationInput {
-  if (!Number.isFinite(input.quantity) || input.quantity <= 0) {
+  if (!isPositiveIntegerThousandths(input.quantity)) {
     throw new Error('Ledger-Buchungen benötigen eine positive Menge.');
   }
-  toInventoryQuantityUnits(input.quantity);
 
   const operationId = Crypto.randomUUID();
   const outTransactionId = Crypto.randomUUID();
@@ -260,9 +268,14 @@ export function useAddFridgeItemMutation() {
       const nowMs = Date.now();
       const normUnit = normalizeUnit(item.unit);
       const normPackageUnit = item.package_size_unit ? normalizeUnit(item.package_size_unit) : null;
+      // Persistenzgrenze (contract.md Abschnitt 3, fam-lem.27.10): item.quantity/
+      // package_size sind Dezimal-UI-Eingabe, die Spalten sind Integer-Tausendstel.
       const row = {
         id,
         ...item,
+        quantity: toInventoryQuantityUnits(item.quantity),
+        package_size:
+          item.package_size !== null ? toInventoryQuantityUnits(item.package_size) : null,
         unit: normUnit,
         package_size_unit: normPackageUnit,
         opened_at: item.opened_at ?? null,
@@ -277,7 +290,7 @@ export function useAddFridgeItemMutation() {
         product_id: item.product_id,
         actor,
         type: 'in',
-        quantity: item.quantity,
+        quantity: row.quantity,
         location_id: item.location_id,
         reason: null,
         previous_expiry_date: null,
@@ -645,7 +658,7 @@ export function useUpdateFridgeItemMutation() {
                 item.patch.product_id !== undefined
                   ? item.patch.product_id
                   : (existing.product_id ?? null),
-              quantity: fromInventoryQuantityUnits(effectiveQuantityUnits),
+              quantity: effectiveQuantityUnits,
               expectedLocationId: existing.location_id,
               newLocationId: item.patch.location_id ?? null,
               actor,
@@ -728,7 +741,10 @@ export function useOpenInventoryItemMutation() {
                   nowMs,
                 ),
             },
-            transactionMutation(transaction, nowMs),
+            transactionMutation(
+              { ...transaction, quantity: toInventoryQuantityUnits(transaction.quantity) },
+              nowMs,
+            ),
           ];
         }
 
@@ -802,7 +818,7 @@ export function useWasteInventoryItemMutation() {
           product_id: item.product_id,
           actor,
           type: 'waste',
-          quantity: item.quantity,
+          quantity: toInventoryQuantityUnits(item.quantity),
           location_id: item.location_id,
           reason,
           previous_expiry_date: null,
@@ -862,7 +878,7 @@ export function useMoveInventoryItemMutation() {
           itemId: item.id,
           householdId: item.household_id,
           productId: item.product_id,
-          quantity: item.quantity,
+          quantity: toInventoryQuantityUnits(item.quantity),
           expectedLocationId: item.location_id,
           newLocationId: locationId,
           actor,

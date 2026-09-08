@@ -8,9 +8,9 @@ import type { Entity, SqlDatabase } from '@/lib/db/types';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { backoffDelayMs, classifyError, MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import type { CoalescedEntry } from '@/lib/sync/coalesce';
-import { parseInventoryMovePayload } from '@/lib/sync/inventory-move';
 import {
   parseInventoryMergeUndoPayload,
+  parseInventoryMovePayload,
   parseInventoryQuantityCorrectionPayload,
   parseInventoryQuantityPayload,
   parseInventoryQuantityReversalPayload,

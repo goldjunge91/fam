@@ -144,7 +144,7 @@ describe('inventory mutation hooks', () => {
       expect.objectContaining({
         actor: 'actor-1',
         type: 'in',
-        quantity: 2,
+        quantity: 2000,
         household_id: 'hh-1',
       }),
     ]);
@@ -380,7 +380,7 @@ describe('inventory mutation hooks', () => {
     expect(lastMutations()[1]).toMatchObject({
       entity: 'fridge_items',
       op: 'move',
-      payload: { expected_quantity: 4 },
+      payload: { expected_quantity: 4000 },
     });
   });
 
@@ -411,7 +411,7 @@ describe('inventory mutation hooks', () => {
         operation_id: 'operation-id',
         expected_location_id: 'loc-1',
         new_location_id: 'loc-2',
-        expected_quantity: 3,
+        expected_quantity: 3000,
         out_transaction_id: 'out-id',
         in_transaction_id: 'in-id',
       },
@@ -483,7 +483,7 @@ describe('inventory mutation hooks', () => {
       await openHook.result.current.mutateAsync({ item: { ...ITEM, quantity: 1 }, quantity: 1 });
     });
     expect(transactionPayloads()).toEqual([
-      expect.objectContaining({ actor: 'actor-1', type: 'open', quantity: 1 }),
+      expect.objectContaining({ actor: 'actor-1', type: 'open', quantity: 1000 }),
     ]);
 
     const wasteHook = await renderHook(() => useWasteInventoryItemMutation(), { wrapper });
@@ -509,7 +509,7 @@ describe('inventory mutation hooks', () => {
         household_id: 'hh-1',
         expected_location_id: 'loc-1',
         new_location_id: 'loc-2',
-        expected_quantity: 3,
+        expected_quantity: 3000,
         out_transaction_id: 'out-id',
         in_transaction_id: 'in-id',
       },

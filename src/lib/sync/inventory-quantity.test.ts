@@ -3,11 +3,13 @@ import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import {
   createInventoryMergeUndoMutation,
+  createInventoryMoveMutation,
   createInventoryQuantityCorrectionMutation,
   createInventoryQuantityMutation,
   createInventoryQuantityReversalMutation,
   createInventorySplitMutation,
   parseInventoryMergeUndoPayload,
+  parseInventoryMovePayload,
   parseInventoryQuantityCorrectionPayload,
   parseInventoryQuantityPayload,
   parseInventoryQuantityReversalPayload,
@@ -304,6 +306,83 @@ describe('parseInventoryMergeUndoPayload', () => {
       entity: 'fridge_items',
       entityId: 'sealed-1',
       op: 'merge_undo_open',
+      payload,
+    });
+    expect(runAsync).toHaveBeenCalledTimes(3);
+  });
+});
+
+describe('parseInventoryMovePayload', () => {
+  const payload = {
+    operation_id: 'operation-1',
+    item_id: 'item-1',
+    household_id: 'household-1',
+    expected_location_id: 'loc-old',
+    new_location_id: 'loc-new',
+    expected_quantity: 2000,
+    out_transaction_id: 'out-1',
+    in_transaction_id: 'in-1',
+    created_at: '2026-09-07T10:00:00.000Z',
+  };
+
+  it('validiert die erwartete Menge als Integer-Tausendstel', () => {
+    expect(parseInventoryMovePayload(payload)).toEqual(payload);
+    expect(() => parseInventoryMovePayload({ ...payload, expected_quantity: 2.5 })).toThrow(
+      'Move-Payload',
+    );
+  });
+
+  it('weist identische Ledger-IDs zurueck', () => {
+    expect(() =>
+      parseInventoryMovePayload({ ...payload, in_transaction_id: payload.out_transaction_id }),
+    ).toThrow('zwei unterschiedliche Ledger-IDs');
+  });
+
+  it('schreibt zwei Ledger-Legs und den neuen Lagerort lokal in einer Outbox-Operation', async () => {
+    const runAsync = jest.fn().mockResolvedValue({ changes: 1, lastInsertRowId: 1 });
+    const mutation = createInventoryMoveMutation({
+      payload,
+      outTransaction: {
+        id: 'out-1',
+        operation_id: 'operation-1',
+        household_id: 'household-1',
+        fridge_item_id: 'item-1',
+        product_id: null,
+        actor: null,
+        type: 'out',
+        quantity: 2000,
+        location_id: 'loc-old',
+        reason: null,
+        previous_expiry_date: null,
+        notes: null,
+        undone: false,
+        created_at: '2026-09-07T10:00:00.000Z',
+      },
+      inTransaction: {
+        id: 'in-1',
+        operation_id: 'operation-1',
+        household_id: 'household-1',
+        fridge_item_id: 'item-1',
+        product_id: null,
+        actor: null,
+        type: 'in',
+        quantity: 2000,
+        location_id: 'loc-new',
+        reason: null,
+        previous_expiry_date: null,
+        notes: null,
+        undone: false,
+        created_at: '2026-09-07T10:00:00.000Z',
+      },
+      nowMs: 1,
+    });
+
+    await mutation.applyLocally({ runAsync } as never);
+
+    expect(mutation).toMatchObject({
+      entity: 'fridge_items',
+      entityId: 'item-1',
+      op: 'move',
       payload,
     });
     expect(runAsync).toHaveBeenCalledTimes(3);

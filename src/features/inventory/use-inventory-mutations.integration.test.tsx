@@ -270,9 +270,10 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     );
     const ledger = await rowsForItem(db, 'generated-1');
 
-    expect(item).toEqual({ quantity: 2, _dirty: 1 });
+    // Integer-Tausendstel seit fam-lem.27.10 (contract.md Abschnitt 3).
+    expect(item).toEqual({ quantity: 2000, _dirty: 1 });
     expect(ledger).toEqual([
-      expect.objectContaining({ type: 'in', quantity: 2, operation_id: null }),
+      expect.objectContaining({ type: 'in', quantity: 2000, operation_id: null }),
     ]);
     expect(await outboxRows(db)).toHaveLength(2);
   });
@@ -451,8 +452,8 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
         operation_id: expect.any(String),
         notes: '[Manual correction]',
       }),
-      expect.objectContaining({ type: 'out', quantity: 4, location_id: 'loc-old' }),
-      expect.objectContaining({ type: 'in', quantity: 4, location_id: 'loc-new' }),
+      expect.objectContaining({ type: 'out', quantity: 4000, location_id: 'loc-old' }),
+      expect.objectContaining({ type: 'in', quantity: 4000, location_id: 'loc-new' }),
     ]);
     expect(new Set(ledger.slice(1).map((row) => row.operation_id)).size).toBe(1);
     expect((await outboxRows(db)).map(({ op }) => op)).toEqual(['correct_quantity', 'move']);
@@ -496,8 +497,8 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
     const ledger = await rowsForItem(db, 'item-1');
     expect(ledger).toEqual([
-      expect.objectContaining({ type: 'out', quantity: 2, location_id: 'loc-old' }),
-      expect.objectContaining({ type: 'in', quantity: 2, location_id: 'loc-new' }),
+      expect.objectContaining({ type: 'out', quantity: 2000, location_id: 'loc-old' }),
+      expect.objectContaining({ type: 'in', quantity: 2000, location_id: 'loc-new' }),
     ]);
     expect(ledger[0]?.operation_id).toBeTruthy();
     expect(ledger[1]?.operation_id).toBe(ledger[0]?.operation_id);
@@ -518,7 +519,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     );
     expect(item).toEqual({ deleted_at: expect.any(Number), _dirty: 1 });
     expect(await rowsForItem(db, 'item-1')).toEqual([
-      expect.objectContaining({ type: 'waste', quantity: 2, reason: 'spoiled' }),
+      expect.objectContaining({ type: 'waste', quantity: 2000, reason: 'spoiled' }),
     ]);
   });
 
@@ -547,7 +548,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     expect(await rowsForItem(db, 'item-1')).toEqual([
       expect.objectContaining({
         type: 'open',
-        quantity: 1,
+        quantity: 1000,
         previous_expiry_date: '2026-12-31',
       }),
     ]);

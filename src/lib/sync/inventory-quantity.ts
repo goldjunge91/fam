@@ -1,10 +1,10 @@
+import type { Database } from '@/lib/database.types';
 import type { EnqueueMutationInput } from '@/lib/db/outbox';
 import {
   assertInventoryQuantityPrecision,
   isNonNegativeIntegerThousandths,
   isPositiveIntegerThousandths,
 } from '@/lib/inventory-quantity';
-import type { InventoryMovePayload, InventoryMoveTransaction } from '@/lib/sync/inventory-move';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
 export type InventoryQuantityAdjustmentPayload = {
@@ -452,6 +452,82 @@ export function createInventoryMergeUndoMutation(args: {
       );
     },
   };
+}
+
+export type InventoryMoveTransaction = Omit<
+  Database['public']['Tables']['transactions']['Row'],
+  'operation_id' | 'reversal_of' | 'sync_sequence' | 'origin_item_id' | 'origin_quantity'
+> & {
+  operation_id: string | null;
+  reversal_of?: string | null;
+  origin_item_id?: string | null;
+  origin_quantity?: number | null;
+};
+
+export type InventoryMovePayload = {
+  operation_id: string;
+  item_id: string;
+  household_id: string;
+  expected_location_id: string | null;
+  new_location_id: string | null;
+  expected_quantity: number;
+  out_transaction_id: string;
+  in_transaction_id: string;
+  created_at: string;
+  /** Original transaction id, or original move operation id for a grouped reversal. */
+  reversal_of?: string | null;
+  notes?: string | null;
+};
+
+function nullableString(
+  payload: Record<string, unknown>,
+  key: string,
+  context: string,
+): string | null {
+  const value = payload[key];
+  if (value === null) return null;
+  if (typeof value !== 'string') {
+    throw new Error(`${context} enthaelt kein gueltiges Feld ${key}.`);
+  }
+  return value;
+}
+
+function optionalNullableString(
+  payload: Record<string, unknown>,
+  key: string,
+  context: string,
+): string | null | undefined {
+  const value = payload[key];
+  if (value === undefined || value === null) return value;
+  if (typeof value !== 'string') {
+    throw new Error(`${context} enthaelt kein gueltiges Feld ${key}.`);
+  }
+  return value;
+}
+
+/** Validiert den persistierten Move-Umschlag vor dem Netzwerkzugriff (fam-lem.27.10). */
+export function parseInventoryMovePayload(payload: Record<string, unknown>): InventoryMovePayload {
+  const context = 'Move-Payload';
+  const expectedQuantity = requiredQuantityUnits(payload, 'expected_quantity', context);
+
+  const parsed: InventoryMovePayload = {
+    operation_id: requiredString(payload, 'operation_id', context),
+    item_id: requiredString(payload, 'item_id', context),
+    household_id: requiredString(payload, 'household_id', context),
+    expected_location_id: nullableString(payload, 'expected_location_id', context),
+    new_location_id: nullableString(payload, 'new_location_id', context),
+    expected_quantity: expectedQuantity,
+    out_transaction_id: requiredString(payload, 'out_transaction_id', context),
+    in_transaction_id: requiredString(payload, 'in_transaction_id', context),
+    created_at: requiredString(payload, 'created_at', context),
+    reversal_of: optionalNullableString(payload, 'reversal_of', context),
+    notes: optionalNullableString(payload, 'notes', context),
+  };
+
+  if (parsed.out_transaction_id === parsed.in_transaction_id) {
+    throw new Error(`${context} braucht zwei unterschiedliche Ledger-IDs.`);
+  }
+  return parsed;
 }
 
 export function createInventoryMoveMutation(args: {
