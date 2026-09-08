@@ -2,7 +2,6 @@ import { assertEquals, assertThrows } from 'jsr:@std/assert@1';
 
 import {
   allergenIdForProfileRule,
-  buildCatalogRecipeAllergenProjections,
   buildRecipeAllergenProjection,
   EU_ALLERGEN_IDS,
   normalizeCuratedImport,
@@ -286,29 +285,4 @@ Deno.test('does not turn external, inferred, or unreviewed evidence into safety'
     allergenReviewedAt: null,
     mappings: [],
   }]), null);
-});
-
-Deno.test('projects catalog recipe allergens from explicit item links only', () => {
-  const projections = buildCatalogRecipeAllergenProjections(
-    ['recipe-safe', 'recipe-unknown'],
-    [
-      { catalogItemId: 'item-safe-milk', recipeId: 'recipe-safe', ingredientId: 'ingredient-milk' },
-      { catalogItemId: 'item-safe-tomato', recipeId: 'recipe-safe', ingredientId: 'ingredient-tomato' },
-      { catalogItemId: 'item-unknown', recipeId: 'recipe-unknown', ingredientId: 'ingredient-missing' },
-    ],
-    [
-      { id: 'ingredient-milk', allergenResolution: 'mapped', allergenReviewedAt: null },
-      { id: 'ingredient-tomato', allergenResolution: 'clear', allergenReviewedAt: '2026-09-05T10:00:00.000Z' },
-    ],
-    [{
-      ingredientId: 'ingredient-milk',
-      allergenId: 'EU_07_MILK',
-      relation: 'contains',
-      confidence: 'verified',
-      reviewedAt: '2026-09-05T10:00:00.000Z',
-    }],
-  );
-
-  assertEquals(projections.get('recipe-safe'), ['EU_07_MILK']);
-  assertEquals(projections.get('recipe-unknown'), null);
 });

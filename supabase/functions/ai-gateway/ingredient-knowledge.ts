@@ -106,22 +106,6 @@ export type IngredientAllergenEvidence = {
   mappings: ReadonlyArray<Pick<NormalizedMappingImport, 'allergenId' | 'relation' | 'confidence' | 'reviewedAt'>>;
 };
 
-export type CatalogRecipeIngredientLinkRow = {
-  catalogItemId: string;
-  recipeId: string;
-  ingredientId: string;
-};
-
-export type IngredientResolutionRow = {
-  id: string;
-  allergenResolution: AllergenResolution;
-  allergenReviewedAt: string | null;
-};
-
-export type IngredientMappingRow = Pick<NormalizedMappingImport, 'allergenId' | 'relation' | 'confidence' | 'reviewedAt'> & {
-  ingredientId: string;
-};
-
 export type NormalizedIngredientKnowledgeImport = {
   ingredient: NormalizedIngredientImport;
   aliases: NormalizedAliasImport[];
@@ -189,50 +173,6 @@ export function buildRecipeAllergenProjection(
   }
 
   return EU_ALLERGEN_IDS.filter((allergenId) => allergenIds.has(allergenId));
-}
-
-export function buildCatalogRecipeAllergenProjections(
-  recipeIds: readonly string[],
-  itemRows: readonly CatalogRecipeIngredientLinkRow[],
-  ingredientRows: readonly IngredientResolutionRow[],
-  mappingRows: readonly IngredientMappingRow[],
-): ReadonlyMap<string, EuAllergenId[] | null> {
-  const ingredientsById = new Map(ingredientRows.map((row) => [row.id, row]));
-  const mappingsByIngredientId = new Map<string, IngredientMappingRow[]>();
-  for (const row of mappingRows) {
-    const mappings = mappingsByIngredientId.get(row.ingredientId) ?? [];
-    mappings.push(row);
-    mappingsByIngredientId.set(row.ingredientId, mappings);
-  }
-  const itemsByRecipeId = new Map<string, CatalogRecipeIngredientLinkRow[]>();
-  for (const row of itemRows) {
-    const items = itemsByRecipeId.get(row.recipeId) ?? [];
-    items.push(row);
-    itemsByRecipeId.set(row.recipeId, items);
-  }
-
-  const result = new Map<string, EuAllergenId[] | null>();
-  for (const recipeId of recipeIds) {
-    const evidence: IngredientAllergenEvidence[] = [];
-    const ingredientIds = new Set(
-      (itemsByRecipeId.get(recipeId) ?? []).map((item) => item.ingredientId),
-    );
-    for (const ingredientId of ingredientIds) {
-      const ingredient = ingredientsById.get(ingredientId);
-      evidence.push({
-        allergenResolution: ingredient?.allergenResolution ?? 'unknown',
-        allergenReviewedAt: ingredient?.allergenReviewedAt ?? null,
-        mappings: (mappingsByIngredientId.get(ingredientId) ?? []).map((mapping) => ({
-          allergenId: mapping.allergenId,
-          relation: mapping.relation,
-          confidence: mapping.confidence,
-          reviewedAt: mapping.reviewedAt,
-        })),
-      });
-    }
-    result.set(recipeId, buildRecipeAllergenProjection(evidence));
-  }
-  return result;
 }
 
 function recordValue(value: unknown, label: string): RecordValue {

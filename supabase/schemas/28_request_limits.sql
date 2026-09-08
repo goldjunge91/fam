@@ -1,7 +1,7 @@
 -- Shared counters survive Edge cold starts. At most one row per user/scope.
 create table if not exists private.request_limits (
   user_id uuid not null references public.profiles(id) on delete cascade,
-  scope text not null check (scope in ('ai-gateway', 'off-enrichment')),
+  scope text not null check (scope in ('ai-gateway', 'off-enrichment', 'delete-account')),
   window_started_at timestamptz not null,
   requests integer not null check (requests > 0),
   primary key (user_id, scope)
@@ -31,7 +31,7 @@ declare
   v_now timestamptz;
 begin
   if p_user_id is null or p_scope is null
-    or p_scope not in ('ai-gateway', 'off-enrichment')
+    or p_scope not in ('ai-gateway', 'off-enrichment', 'delete-account')
     or p_limit is null or p_limit < 1 or p_limit > 10000
     or p_window_seconds is null or p_window_seconds < 1 or p_window_seconds > 86400 then
     raise exception using errcode = '22023', message = 'invalid_rate_limit';

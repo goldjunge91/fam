@@ -88,10 +88,20 @@ type Dependencies = {
 
 const EAN_PATTERN = /^\d{6,14}$/;
 
+export const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type",
+};
+
 const JSON_HEADERS = { "Content-Type": "application/json" };
 
-function json(body: unknown, status = 200) {
-  return new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
+function json(body: unknown, status = 200, extraHeaders: HeadersInit = {}) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { ...CORS_HEADERS, ...JSON_HEADERS, ...extraHeaders },
+  });
 }
 
 /**
@@ -112,6 +122,9 @@ export function createEnrichOffProductHandler({
   updateIfNewer,
 }: Dependencies) {
   return async (req: Request): Promise<Response> => {
+    if (req.method === "OPTIONS") {
+      return new Response(null, { status: 204, headers: CORS_HEADERS });
+    }
     if (req.method !== "POST") {
       return json({ error: "method_not_allowed" }, 405);
     }
@@ -160,7 +173,11 @@ export function createEnrichOffProductHandler({
         }),
         {
           status: 429,
-          headers: { ...JSON_HEADERS, "Retry-After": String(retryAfter) },
+          headers: {
+            ...CORS_HEADERS,
+            ...JSON_HEADERS,
+            "Retry-After": String(retryAfter),
+          },
         },
       );
     }

@@ -85,13 +85,20 @@ const html = `<!doctype html>
 </body>
 </html>`;
 
-Deno.serve(() => {
+export function handleAuthConfirmed(): Response {
   return new Response(html, {
     headers: {
       'Content-Type': 'text/html; charset=utf-8',
-      // Die Seite ist statisch, aber der Zustand steckt im Fragment. Kein
-      // Caching, damit ein zweiter Aufruf nicht aus dem Cache kommt.
       'Cache-Control': 'no-store',
+      'X-Frame-Options': 'DENY',
+      'X-Content-Type-Options': 'nosniff',
+      'Referrer-Policy': 'no-referrer',
+      'Content-Security-Policy': "default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; frame-ancestors 'none';",
     },
   });
-});
+}
+
+if (import.meta.main) {
+  Deno.serve(handleAuthConfirmed);
+}
+

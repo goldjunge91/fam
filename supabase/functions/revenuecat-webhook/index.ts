@@ -63,14 +63,14 @@ async function resolveMemberHousehold(
  * — ein Fehlschlag dort rollt auch den Dedup-Eintrag zurueck, statt ein Event
  * faelschlich als verarbeitet zu markieren.
  */
+const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+const adminClient = createClient(supabaseUrl, serviceRoleKey);
+
 Deno.serve(
   createRevenueCatWebhookHandler({
     expectedSecret: Deno.env.get("REVENUECAT_WEBHOOK_SECRET"),
     applyEntitlementEvent: async (appUserId, change, subscriberAttributes) => {
-      const adminClient = createClient(
-        Deno.env.get("SUPABASE_URL")!,
-        Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
-      );
 
       if (change.entitlementId === "AI") {
         if (!change.active) {

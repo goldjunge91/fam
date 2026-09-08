@@ -78,7 +78,7 @@ function setup(options: {
   providerThrows?: boolean;
   context?: GatewayCookingContext;
 } = {}) {
-  const calls: Array<{ model: string; system: string; user: string }> = [];
+  const calls: Array<{ model: string; system: string; user: string; skill?: string }> = [];
   const creditReservations: string[] = [];
   const releasedCredits: string[] = [];
   let contextReads = 0;
@@ -100,9 +100,14 @@ function setup(options: {
       contextReads += 1;
       return { ok: true as const, context: options.context ?? CONTEXT };
     },
-    complete: async ({ model, messages }) => {
+    complete: async ({ model, messages, skill }) => {
       if (options.providerThrows) throw new Error('provider test failure');
-      calls.push({ model, system: messages[0]?.content ?? '', user: messages[1]?.content ?? '' });
+      calls.push({
+        model,
+        system: messages[0]?.content ?? '',
+        user: messages[1]?.content ?? '',
+        skill,
+      });
       return {
         ok: true as const,
         content: options.providerContent ?? JSON.stringify(COOKING_RESULT),
@@ -577,7 +582,7 @@ Deno.test('capture remains read-only and does not load inventory context', async
     questions: [],
     warnings: [],
   };
-  const { handler, getContextReads } = setup({ providerContent: JSON.stringify(capture) });
+  const { handler, calls, getContextReads } = setup({ providerContent: JSON.stringify(capture) });
   const response = await handler(
     request({
       skill: 'fam-inventory-capture',
@@ -588,8 +593,39 @@ Deno.test('capture remains read-only and does not load inventory context', async
   );
 
   assertEquals(response.status, 200);
+  assertEquals(calls[0]?.skill, 'fam-inventory-capture');
   assert((await response.json()).result.items.length === 1);
   assertEquals(getContextReads(), 0);
+});
+
+Deno.test('rejects capture proposal when model returns wrong kind', async () => {
+  const { handler } = setup({ providerContent: JSON.stringify(COOKING_RESULT) });
+  const response = await handler(
+    request({
+      skill: 'fam-inventory-capture',
+      householdId: 'household-1',
+      text: 'Ich habe etwas Spinat',
+      locale: 'de-DE',
+    }),
+  );
+
+  assertEquals(response.status, 502);
+  assertEquals(await response.json(), { error: 'invalid_capture_kind' });
+});
+
+Deno.test('answers OPTIONS preflight with status 204 and CORS headers', async () => {
+  const { handler } = setup();
+  const response = await handler(
+    new Request('http://localhost/ai-gateway', { method: 'OPTIONS' }),
+  );
+
+  assertEquals(response.status, 204);
+  assertEquals(response.headers.get('Access-Control-Allow-Origin'), '*');
+  assertEquals(response.headers.get('Access-Control-Allow-Methods'), 'POST, OPTIONS');
+  assertStringIncludes(
+    response.headers.get('Access-Control-Allow-Headers') ?? '',
+    'authorization',
+  );
 });
 
 Deno.test('rejects capture evidence that is not present in the user text', async () => {

@@ -350,3 +350,28 @@ Deno.test("ein DB-Fehler beim Update liefert 500, ohne einen falschen Erfolg vor
     message: "connection lost",
   });
 });
+
+Deno.test("beantwortet OPTIONS-Preflight mit Status 204 und CORS-Headern", async () => {
+  const { handler } = setup();
+  const req = new Request("http://localhost/enrich-off-product", {
+    method: "OPTIONS",
+  });
+  const res = await handler(req);
+  assertEquals(res.status, 204);
+  assertEquals(res.headers.get("Access-Control-Allow-Origin"), "*");
+  assertEquals(res.headers.get("Access-Control-Allow-Methods"), "POST, OPTIONS");
+  assertEquals(
+    res.headers.get("Access-Control-Allow-Headers"),
+    "authorization, x-client-info, apikey, content-type",
+  );
+});
+
+Deno.test("liefert CORS-Header auch bei Fehlerantworten mit", async () => {
+  const { handler } = setup();
+  const req = new Request("http://localhost/enrich-off-product", {
+    method: "GET",
+  });
+  const res = await handler(req);
+  assertEquals(res.status, 405);
+  assertEquals(res.headers.get("Access-Control-Allow-Origin"), "*");
+});

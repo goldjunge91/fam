@@ -2,10 +2,11 @@ import { assert, assertEquals } from 'jsr:@std/assert@1';
 
 import {
   COOKING_SUGGESTION_RESPONSE_FORMAT,
+  INVENTORY_CAPTURE_RESPONSE_FORMAT,
   createOpenRouterChatBody,
 } from './openrouter-request.ts';
 
-Deno.test('uses strict JSON Schema output with a closed response object', () => {
+Deno.test('uses strict JSON Schema output with a closed response object for cooking suggestions', () => {
   assertEquals(COOKING_SUGGESTION_RESPONSE_FORMAT.type, 'json_schema');
   assertEquals(COOKING_SUGGESTION_RESPONSE_FORMAT.json_schema.strict, true);
   assertEquals(COOKING_SUGGESTION_RESPONSE_FORMAT.json_schema.schema.additionalProperties, false);
@@ -23,6 +24,58 @@ Deno.test('uses strict JSON Schema output with a closed response object', () => 
       .properties.additional_ingredients.maxItems,
     2,
   );
+});
+
+Deno.test('uses strict JSON Schema output for inventory capture proposals', () => {
+  assertEquals(INVENTORY_CAPTURE_RESPONSE_FORMAT.type, 'json_schema');
+  assertEquals(INVENTORY_CAPTURE_RESPONSE_FORMAT.json_schema.strict, true);
+  assertEquals(INVENTORY_CAPTURE_RESPONSE_FORMAT.json_schema.name, 'inventory_capture_proposal_v1');
+  assertEquals(INVENTORY_CAPTURE_RESPONSE_FORMAT.json_schema.schema.additionalProperties, false);
+  assertEquals(
+    INVENTORY_CAPTURE_RESPONSE_FORMAT.json_schema.schema.properties.kind.const,
+    'inventory_capture_proposal.v1',
+  );
+  assertEquals(
+    INVENTORY_CAPTURE_RESPONSE_FORMAT.json_schema.schema.properties.items.items.additionalProperties,
+    false,
+  );
+  const itemProps = INVENTORY_CAPTURE_RESPONSE_FORMAT.json_schema.schema.properties.items.items.properties;
+  assert(itemProps.rawText);
+  assert(itemProps.normalizedName);
+  assert(itemProps.quantity);
+  assert(itemProps.unit);
+  assert(itemProps.perishability);
+  assert(itemProps.storage);
+  assert(itemProps.date);
+  assert(itemProps.dateKind);
+  assert(itemProps.confidence);
+  assert(itemProps.evidence);
+  assert(itemProps.missingFields);
+  assert(INVENTORY_CAPTURE_RESPONSE_FORMAT.json_schema.schema.required.includes('items'));
+  assert(INVENTORY_CAPTURE_RESPONSE_FORMAT.json_schema.schema.required.includes('questions'));
+  assert(INVENTORY_CAPTURE_RESPONSE_FORMAT.json_schema.schema.required.includes('warnings'));
+});
+
+Deno.test('dynamically assigns response_format based on skill', () => {
+  const cookingBody = createOpenRouterChatBody({
+    model: 'z-ai/glm-5.3-flash',
+    messages: [],
+    skill: 'fam-cook-from-inventory',
+  });
+  assertEquals(cookingBody.response_format, COOKING_SUGGESTION_RESPONSE_FORMAT);
+
+  const captureBody = createOpenRouterChatBody({
+    model: 'z-ai/glm-5.3-flash',
+    messages: [],
+    skill: 'fam-inventory-capture',
+  });
+  assertEquals(captureBody.response_format, INVENTORY_CAPTURE_RESPONSE_FORMAT);
+
+  const defaultBody = createOpenRouterChatBody({
+    model: 'z-ai/glm-5.3-flash',
+    messages: [],
+  });
+  assertEquals(defaultBody.response_format, COOKING_SUGGESTION_RESPONSE_FORMAT);
 });
 
 Deno.test('builds a provider body without credentials or caller identifiers', () => {

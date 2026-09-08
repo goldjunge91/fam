@@ -7,7 +7,6 @@
 
 import { buildRecipeSuggestionContext } from './recipe-suggestion-context.ts';
 import { buildCatalogSuggestions } from './catalog-suggestions.ts';
-import { recipeHasAllergenConflict } from './ingredient-knowledge.ts';
 import {
   validateRecipeSuggestionContext,
   validateRecipeSuggestionResponse,
@@ -121,6 +120,7 @@ type Dependencies = {
   complete: (input: {
     model: string;
     messages: Array<{ role: 'system' | 'user'; content: string }>;
+    skill?: 'fam-cook-from-inventory' | 'fam-inventory-capture';
   }) => Promise<ProviderResult>;
   consumeRateLimit: (userId: string) => Promise<GatewayAccessResult>;
   reserveCredit: (input: {
@@ -141,7 +141,7 @@ const JSON_HEADERS = {
   'Cache-Control': 'no-store',
 };
 
-const CORS_HEADERS = {
+export const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-fam-ai-dev-bypass',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Origin': '*',
@@ -278,38 +278,6 @@ function validMissingFields(value: unknown): value is string[] {
   return validStringArray(value) && value.every((field) => allowed.has(field));
 }
 
-function prepareCookingContext(
-  context: GatewayCookingContext,
-  request: CookingRequest,
-): GatewayCookingContext | null {
-  const recipes = context.recipes
-    .filter((recipe) => {
-      if (recipeHasAllergenConflict(recipe.allergens, request.allergies)) return false;
-      if (
-        request.dietaryPattern !== null &&
-        !recipe.dietaryTags.some((tag) => tag.toLocaleLowerCase('de-DE') === request.dietaryPattern?.toLocaleLowerCase('de-DE'))
-      ) {
-        return false;
-      }
-      if (request.maxMinutes !== null &&
-        (recipe.estimatedMinutes === null || recipe.estimatedMinutes > request.maxMinutes)) {
-        return false;
-      }
-      return !(request.servings !== null && recipe.servings === null);
-    })
-    .sort((a, b) => {
-      if (a.estimatedMinutes === null && b.estimatedMinutes !== null) return 1;
-      if (a.estimatedMinutes !== null && b.estimatedMinutes === null) return -1;
-      if (a.estimatedMinutes !== null && b.estimatedMinutes !== null && a.estimatedMinutes !== b.estimatedMinutes) {
-        return a.estimatedMinutes - b.estimatedMinutes;
-      }
-      return a.title.localeCompare(b.title, 'de') || a.recipeId.localeCompare(b.recipeId);
-    })
-    .slice(0, 3);
-
-  return recipes.length === 0 ? null : { ...context, recipes };
-}
-
 function validateCaptureResult(result: JsonRecord, request: CaptureRequest): string | null {
   if (result.kind !== 'inventory_capture_proposal.v1') return 'invalid_capture_kind';
   if (!Array.isArray(result.items) || !validStringArray(result.questions) || !validStringArray(result.warnings)) {
@@ -343,74 +311,6 @@ function validateCaptureResult(result: JsonRecord, request: CaptureRequest): str
     if (typeof item.confidence !== 'number' || item.confidence < 0 || item.confidence > 1) {
       return 'invalid_capture_confidence';
     }
-  }
-
-  return null;
-}
-
-function validateCookingResult(result: JsonRecord, context: GatewayCookingContext, request: CookingRequest): string | null {
-  if (result.kind !== 'cooking_suggestion.v1') return 'invalid_cooking_kind';
-  const required = [
-    'kind',
-    'recipeId',
-    'title',
-    'usedLots',
-    'missingIngredients',
-    'estimatedMinutes',
-    'servings',
-    'rationale',
-    'constraintChecks',
-  ];
-  if (Object.keys(result).some((key) => !required.includes(key)) || required.some((key) => !(key in result))) {
-    return 'invalid_cooking_fields';
-  }
-  if (!nonEmptyString(result.recipeId) || !nonEmptyString(result.title)) return 'invalid_cooking_shape';
-  if (!validStringArray(result.usedLots) || !validStringArray(result.missingIngredients)) {
-    return 'invalid_cooking_arrays';
-  }
-  if (result.usedLots.length === 0 || result.missingIngredients.length > 2) {
-    return 'invalid_cooking_arrays';
-  }
-  if (
-    typeof result.estimatedMinutes !== 'number' ||
-    !Number.isInteger(result.estimatedMinutes) ||
-    result.estimatedMinutes < 1 ||
-    typeof result.servings !== 'number' ||
-    !Number.isInteger(result.servings) ||
-    result.servings < 1
-  ) {
-    return 'invalid_cooking_shape';
-  }
-  if (!nonEmptyString(result.rationale)) return 'invalid_cooking_shape';
-  if (!isRecord(result.constraintChecks)) return 'invalid_cooking_constraints';
-  if (
-    result.constraintChecks.allergies !== 'pass' ||
-    !['pass', 'unknown'].includes(String(result.constraintChecks.dietaryPattern)) ||
-    !['pass', 'unknown'].includes(String(result.constraintChecks.time))
-  ) {
-    return 'invalid_cooking_constraints';
-  }
-  if (request.dietaryPattern !== null && result.constraintChecks.dietaryPattern !== 'pass') {
-    return 'dietary_gate_failed';
-  }
-  if (request.maxMinutes !== null && result.constraintChecks.time !== 'pass') {
-    return 'time_gate_failed';
-  }
-
-  const recipe = context.recipes.find((candidate) => candidate.recipeId === result.recipeId);
-  if (!recipe) return 'recipe_not_allowed';
-  if (result.title.trim() !== recipe.title) return 'recipe_title_mismatch';
-
-  const seenLots = new Set<string>();
-  const allowedLots = new Set(context.inventory.lots.map((lot) => lot.lotId));
-  for (const lotId of result.usedLots) {
-    if (!allowedLots.has(lotId)) return 'lot_not_allowed';
-    if (seenLots.has(lotId)) return 'duplicate_lot';
-    seenLots.add(lotId);
-  }
-
-  if (request.allergies.length > 0 && result.constraintChecks.allergies !== 'pass') {
-    return 'allergy_gate_failed';
   }
 
   return null;
@@ -557,6 +457,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
           { role: 'system', content: buildSystemPrompt(parsedRequest, preparedContext) },
           { role: 'user', content: buildUserPrompt(parsedRequest) },
         ],
+        skill: parsedRequest.skill,
       });
       if (!provider.ok) {
         return json(

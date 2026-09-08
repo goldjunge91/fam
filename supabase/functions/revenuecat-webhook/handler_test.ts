@@ -265,3 +265,60 @@ Deno.test("rejects malformed events before touching the database", async () => {
   assertEquals(response.status, 400);
   assertEquals(updates, []);
 });
+
+Deno.test("semantisch quittiert target_household_missing mit 200 ignored statt 500", async () => {
+  const handler = createRevenueCatWebhookHandler({
+    expectedSecret: SECRET,
+    now: () => NOW,
+    applyEntitlementEvent: () =>
+      Promise.resolve({
+        error: { message: "target_household_missing" },
+        count: null,
+      }),
+  });
+
+  const response = await handler(await request(event("INITIAL_PURCHASE")));
+  assertEquals(response.status, 200);
+  assertEquals(await response.json(), {
+    ignored: true,
+    reason: "target_household_missing",
+  });
+});
+
+Deno.test("semantisch quittiert target_household_forbidden mit 200 ignored statt 500", async () => {
+  const handler = createRevenueCatWebhookHandler({
+    expectedSecret: SECRET,
+    now: () => NOW,
+    applyEntitlementEvent: () =>
+      Promise.resolve({
+        error: { message: "target_household_forbidden" },
+        count: null,
+      }),
+  });
+
+  const response = await handler(await request(event("INITIAL_PURCHASE")));
+  assertEquals(response.status, 200);
+  assertEquals(await response.json(), {
+    ignored: true,
+    reason: "target_household_forbidden",
+  });
+});
+
+Deno.test("echte DB-Fehler liefern weiterhin HTTP 500 für berechtigte Retries", async () => {
+  const handler = createRevenueCatWebhookHandler({
+    expectedSecret: SECRET,
+    now: () => NOW,
+    applyEntitlementEvent: () =>
+      Promise.resolve({
+        error: { message: "connection timeout" },
+        count: null,
+      }),
+  });
+
+  const response = await handler(await request(event("INITIAL_PURCHASE")));
+  assertEquals(response.status, 500);
+  assertEquals(await response.json(), {
+    error: "update_failed",
+    message: "connection timeout",
+  });
+});

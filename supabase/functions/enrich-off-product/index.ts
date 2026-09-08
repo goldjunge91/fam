@@ -58,9 +58,17 @@ async function authenticate(request: Request): Promise<AuthenticationResult> {
     return { ok: false, status: 401, error: "missing_authorization" };
   }
 
+  const anonKey =
+    Deno.env.get("SUPABASE_ANON_KEY") ?? Deno.env.get("SUPABASE_PUBLISHABLE_KEY");
+  if (!anonKey) {
+    throw new Error(
+      "SUPABASE_ANON_KEY oder SUPABASE_PUBLISHABLE_KEY erforderlich.",
+    );
+  }
+
   const userClient = createClient(
     Deno.env.get("SUPABASE_URL")!,
-    Deno.env.get("SUPABASE_ANON_KEY") ?? Deno.env.get("SUPABASE_SECRET_KEY")!,
+    anonKey,
     { global: { headers: { Authorization: authorization } } },
   );
   const { data, error } = await userClient.auth.getUser();

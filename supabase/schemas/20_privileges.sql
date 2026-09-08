@@ -228,3 +228,6 @@ grant execute on function public.get_ai_credit_status(uuid, integer)
 -- Rechtevergabe kein Ort fuer Implizites.
 revoke execute on function public.household_member_profiles(uuid) from public, anon;
 grant execute on function public.household_member_profiles(uuid) to authenticated;
+
+revoke execute on function public.get_cooking_context(uuid) from public, anon;
+grant execute on function public.get_cooking_context(uuid) to authenticated;

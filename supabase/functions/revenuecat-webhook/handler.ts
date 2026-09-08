@@ -243,6 +243,20 @@ export function createRevenueCatWebhookHandler({
       );
 
       if (result.error) {
+        const reason = result.error.message;
+        if (
+          reason === "target_household_missing" ||
+          reason === "target_household_forbidden"
+        ) {
+          console.warn(
+            JSON.stringify({
+              event: "revenuecat_webhook_ignored",
+              appUserId: event.app_user_id,
+              reason,
+            }),
+          );
+          return json({ ignored: true, reason });
+        }
         return json(
           { error: "update_failed", message: result.error.message },
           500,

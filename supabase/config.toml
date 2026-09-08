@@ -78,8 +78,12 @@ schema_paths = [
   "./schemas/19_profile_food_rules.sql",
   "./schemas/19_workouts.sql",
   "./schemas/23_brochures.sql",
+  "./schemas/25_avatar_storage.sql",
   "./schemas/26_ingredient_allergen_knowledge.sql",
   "./schemas/27_ingredient_source_links.sql",
+  "./schemas/28_request_limits.sql",
+  "./schemas/29_off_enrichment_cache.sql",
+  "./schemas/30_cooking_context.sql",
   "./schemas/20_privileges.sql",
 ]
 
@@ -383,8 +387,8 @@ allow_dynamic_registration = false
 [functions.auth-confirmed]
 verify_jwt = false
 
-# RevenueCat schickt keinen Supabase-JWT — Auth laeuft ueber ein geteiltes
-# Secret im Authorization-Header, geprueft im Function-Code selbst (siehe
+# RevenueCat schickt keinen Supabase-JWT — Auth laeuft ueber die HMAC-Signatur
+# (X-RevenueCat-Webhook-Signature), geprueft im Function-Code selbst (siehe
 # supabase/functions/revenuecat-webhook/index.ts).
 [functions.revenuecat-webhook]
 verify_jwt = false
@@ -392,6 +396,12 @@ verify_jwt = false
 # Der AI-Gateway ist ausschließlich für eingeloggte App-Nutzer erreichbar.
 # Der Handler prüft zusätzlich den Haushaltsscope, bevor er Inventar liest.
 [functions.ai-gateway]
+verify_jwt = true
+
+[functions.delete-account]
+verify_jwt = true
+
+[functions.enrich-off-product]
 verify_jwt = true
 
 [edge_runtime]

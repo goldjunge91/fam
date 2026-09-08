@@ -3,19 +3,19 @@ import { createClient } from 'jsr:@supabase/supabase-js@2';
 
 import { ALLOWED_MODELS, DEFAULT_MODEL } from './config.ts';
 import {
+  CORS_HEADERS,
   createAiGatewayHandler,
   type GatewayCookingContext,
-  type GatewayInventoryContext,
-  type GatewayLot,
-  type GatewayRecipe,
   type GatewayAccessResult,
 } from './handler.ts';
 import { createOpenRouterChatBody } from './openrouter-request.ts';
-import { buildCatalogRecipeAllergenProjections } from './ingredient-knowledge.ts';
 
 const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
 const anonKey =
-  Deno.env.get('SUPABASE_ANON_KEY') ?? Deno.env.get('SUPABASE_SECRET_KEY')!;
+  Deno.env.get('SUPABASE_ANON_KEY') ?? Deno.env.get('SUPABASE_PUBLISHABLE_KEY');
+if (!anonKey) {
+  throw new Error('SUPABASE_ANON_KEY oder SUPABASE_PUBLISHABLE_KEY erforderlich.');
+}
 const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
 const openRouterKey = Deno.env.get('OPENROUTER_API_KEY');
 const openRouterBaseUrl = (Deno.env.get('OPENROUTER_BASE_URL') ?? 'https://openrouter.ai/api/v1').replace(/\/$/, '');
@@ -169,370 +169,42 @@ async function assertHouseholdMember(userId: string, householdId: string, author
   return { ok: true as const, userId };
 }
 
-function storageKind(value: unknown): GatewayLot['storage'] {
-  return value === 'fridge' || value === 'freezer' || value === 'pantry' ? value : 'unknown';
-}
-
-function classifyPerishability(tags: unknown): 'perishable' | 'unknown' {
-  const perishableSuffixes = new Set([
-    'dairy',
-    'dairy-products',
-    'eggs',
-    'fish-and-seafood',
-    'fresh-foods',
-    'fruits',
-    'fruits-and-vegetables',
-    'meat',
-    'meats',
-    'milchprodukte',
-    'poultry',
-    'refrigerated-foods',
-    'seafood',
-    'vegetables',
-    'yogurts',
-  ]);
-  if (!Array.isArray(tags)) return 'unknown';
-  const hasPerishable = tags.some((tag) => {
-    if (typeof tag !== 'string') return false;
-    const normalized = tag.trim().toLocaleLowerCase('en-US');
-    const separator = normalized.indexOf(':');
-    return perishableSuffixes.has(separator === -1 ? normalized : normalized.slice(separator + 1));
-  });
-  return hasPerishable ? 'perishable' : 'unknown';
-}
-
-function normalizeDate(value: unknown): string | null {
-  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
-  return value;
-}
-
-async function loadCookingContext(userId: string, householdId: string, authorization: string) {
+async function loadCookingContext(_userId: string, householdId: string, authorization: string) {
   const client = createClient(supabaseUrl, anonKey, {
     global: { headers: { Authorization: authorization } },
   });
 
-  const { data: inventoryRows, error: inventoryError } = await client
-    .from('fridge_items')
-    .select('id, product_id, name, quantity, unit, expiry_date, location_id')
-    .eq('household_id', householdId)
-    .is('deleted_at', null)
-    .gt('quantity', 0);
-  if (inventoryError) {
-    return { ok: false as const, status: 500, error: 'inventory_lookup_failed', message: inventoryError.message };
-  }
+  const { data, error } = await client.rpc('get_cooking_context', {
+    p_household_id: householdId,
+  });
 
-  const rows = inventoryRows ?? [];
-  const locationIds = [...new Set(rows.map((row) => row.location_id).filter(Boolean))];
-  const productIds = [...new Set(rows.map((row) => row.product_id).filter(Boolean))];
-  const [locationsResult, productsResult] = await Promise.all([
-    locationIds.length === 0
-      ? Promise.resolve({ data: [], error: null })
-      : client.from('storage_locations').select('id, kind').in('id', locationIds),
-    productIds.length === 0
-      ? Promise.resolve({ data: [], error: null })
-      : client.from('products').select('id, name, off_category_tags').in('id', productIds),
-  ]);
-  if (locationsResult.error || productsResult.error) {
+  if (error) {
+    console.error(JSON.stringify({
+      event: 'ai_gateway_cooking_context_rpc_failed',
+      householdId,
+      error: error.message,
+    }));
+    const isForbidden = error.message.includes('household_forbidden');
     return {
       ok: false as const,
-      status: 500,
-      error: 'inventory_enrichment_failed',
-      message: locationsResult.error?.message ?? productsResult.error?.message,
+      status: isForbidden ? 403 : 500,
+      error: isForbidden ? 'household_forbidden' : 'cooking_context_lookup_failed',
+      message: error.message,
     };
   }
 
-  const locations = new Map((locationsResult.data ?? []).map((row) => [row.id, row.kind]));
-  const products = new Map((productsResult.data ?? []).map((row) => [row.id, row]));
-  const lots: GatewayLot[] = rows
-    .map((row) => {
-      const product = row.product_id ? products.get(row.product_id) : undefined;
-      return {
-        lotId: row.id,
-        productId: row.product_id ?? null,
-        normalizedName: String(row.name).trim(),
-        quantity: typeof row.quantity === 'number' ? row.quantity : null,
-        unit: typeof row.unit === 'string' ? row.unit : null,
-        bestBefore: normalizeDate(row.expiry_date),
-        useBy: null,
-        storage: storageKind(row.location_id ? locations.get(row.location_id) : null),
-        perishability: classifyPerishability(product?.off_category_tags),
-      };
-    })
-    .filter((lot) => lot.normalizedName.length > 0)
-    .map(({ perishability: _perishability, ...lot }) => lot)
-    .sort((a, b) => {
-      const aDate = a.useBy ?? a.bestBefore;
-      const bDate = b.useBy ?? b.bestBefore;
-      if (aDate !== bDate) {
-        if (aDate === null) return 1;
-        if (bDate === null) return -1;
-        return aDate.localeCompare(bDate);
-      }
-      return a.normalizedName.localeCompare(b.normalizedName, 'de') || a.lotId.localeCompare(b.lotId);
-    });
-
-  const { data: shoppingRows, error: shoppingError } = await client
-    .from('shopping_list_items')
-    .select('id, name, quantity, unit')
-    .eq('household_id', householdId)
-    .is('deleted_at', null)
-    .is('checked_at', null)
-    .gt('quantity', 0)
-    .order('created_at', { ascending: true });
-  if (shoppingError) {
-    return { ok: false as const, status: 500, error: 'shopping_list_lookup_failed', message: shoppingError.message };
-  }
-
-  const { data: foodRules, error: foodRulesError } = await client
-    .from('profile_food_rules')
-    .select('allergy_codes, custom_allergies, intolerance_codes, custom_intolerances, disliked_foods')
-    .eq('user_id', userId)
-    .maybeSingle();
-  if (foodRulesError) {
-    return { ok: false as const, status: 500, error: 'food_rules_lookup_failed', message: foodRulesError.message };
-  }
-
-  const allergies = [
-    ...(foodRules?.allergy_codes ?? []),
-    ...(foodRules?.custom_allergies ?? []),
-    ...(foodRules?.intolerance_codes ?? []),
-    ...(foodRules?.custom_intolerances ?? []),
-  ];
-  const dislikedFoods = foodRules?.disliked_foods ?? [];
-
-  const { data: recipeRows, error: recipeError } = await client
-    .from('catalog_recipes')
-    .select('id, title, cook_time_minutes, default_servings, dietary_tags')
-    .eq('status', 'published')
-    .order('sort_order', { ascending: true })
-    .order('title', { ascending: true });
-  if (recipeError) {
-    return { ok: false as const, status: 500, error: 'recipe_lookup_failed', message: recipeError.message };
-  }
-
-  const recipeIds = (recipeRows ?? []).map((row) => row.id);
-  const { data: itemRows, error: itemError } = recipeIds.length === 0
-    ? { data: [], error: null }
-    : await client
-        .from('catalog_recipe_component_items')
-        .select('id, recipe_id, product_id, ingredient_name, quantity, grams, unit, position')
-        .in('recipe_id', recipeIds)
-        .order('position', { ascending: true });
-  if (itemError) {
-    return { ok: false as const, status: 500, error: 'recipe_ingredients_lookup_failed', message: itemError.message };
-  }
-
-  const { data: stepRows, error: stepError } = recipeIds.length === 0
-    ? { data: [], error: null }
-    : await client
-        .from('catalog_recipe_steps')
-        .select('recipe_id, text, position')
-        .in('recipe_id', recipeIds)
-        .order('position', { ascending: true });
-  if (stepError) {
-    return { ok: false as const, status: 500, error: 'recipe_steps_lookup_failed', message: stepError.message };
-  }
-
-  const recipeProductIds = [...new Set((itemRows ?? []).map((row) => row.product_id).filter(Boolean))];
-  const { data: productIngredientLinkRows, error: productIngredientLinkError } = recipeProductIds.length === 0
-    ? { data: [], error: null }
-    : await client
-        .from('product_ingredient_links')
-        .select('product_id, ingredient_id')
-        .in('product_id', recipeProductIds);
-  if (productIngredientLinkError) {
-    return {
-      ok: false as const,
-      status: 500,
-      error: 'product_ingredient_links_lookup_failed',
-      message: productIngredientLinkError.message,
-    };
-  }
-
-  const catalogItemIds = [...new Set((itemRows ?? []).map((row) => row.id).filter(Boolean))];
-  const { data: ingredientLinkRows, error: ingredientLinkError } = catalogItemIds.length === 0
-    ? { data: [], error: null }
-    : await client
-        .from('catalog_recipe_item_ingredient_links')
-        .select('catalog_item_id, ingredient_id')
-        .in('catalog_item_id', catalogItemIds);
-  if (ingredientLinkError) {
-    return {
-      ok: false as const,
-      status: 500,
-      error: 'recipe_ingredient_links_lookup_failed',
-      message: ingredientLinkError.message,
-    };
-  }
-
-  const ingredientIds = [...new Set([
-    ...(ingredientLinkRows ?? []).map((row) => row.ingredient_id),
-    ...(productIngredientLinkRows ?? []).map((row) => row.ingredient_id),
-  ].filter(Boolean))];
-  const { data: ingredientRows, error: ingredientError } = ingredientIds.length === 0
-    ? { data: [], error: null }
-    : await client
-        .from('external_food_ingredients')
-        .select('id, allergen_resolution, allergen_reviewed_at')
-        .in('id', ingredientIds);
-  if (ingredientError) {
-    return {
-      ok: false as const,
-      status: 500,
-      error: 'ingredient_knowledge_lookup_failed',
-      message: ingredientError.message,
-    };
-  }
-
-  const { data: ingredientMappingRows, error: ingredientMappingError } = ingredientIds.length === 0
-    ? { data: [], error: null }
-    : await client
-        .from('ingredient_allergen_mappings')
-        .select('ingredient_id, allergen_id, relation, confidence, reviewed_at')
-        .in('ingredient_id', ingredientIds);
-  if (ingredientMappingError) {
-    return {
-      ok: false as const,
-      status: 500,
-      error: 'ingredient_allergen_mappings_lookup_failed',
-      message: ingredientMappingError.message,
-    };
-  }
-
-  const recipeIdByItemId = new Map((itemRows ?? []).map((row) => [row.id, row.recipe_id]));
-  const itemIdsByProductId = new Map<string, string[]>();
-  for (const row of itemRows ?? []) {
-    if (!row.product_id) continue;
-    const itemIds = itemIdsByProductId.get(row.product_id) ?? [];
-    itemIds.push(row.id);
-    itemIdsByProductId.set(row.product_id, itemIds);
-  }
-  const productLinksAsCatalogLinks = (productIngredientLinkRows ?? []).flatMap((row) =>
-    (itemIdsByProductId.get(row.product_id) ?? []).map((catalogItemId) => ({
-      catalogItemId,
-      recipeId: recipeIdByItemId.get(catalogItemId),
-      ingredientId: row.ingredient_id,
-    }))
-  );
-  const recipeAllergenProjections = buildCatalogRecipeAllergenProjections(
-    recipeIds,
-    [...(ingredientLinkRows ?? [])
-      .map((row) => ({
-        catalogItemId: row.catalog_item_id,
-        recipeId: recipeIdByItemId.get(row.catalog_item_id),
-        ingredientId: row.ingredient_id,
-      }))
-      .filter((row) => typeof row.recipeId === 'string')
-      .map((row) => ({
-        catalogItemId: row.catalogItemId,
-        recipeId: row.recipeId,
-        ingredientId: row.ingredientId,
-      })), ...productLinksAsCatalogLinks]
-      .filter((row) => typeof row.recipeId === 'string')
-      .map((row) => ({
-        catalogItemId: row.catalogItemId,
-        recipeId: row.recipeId,
-        ingredientId: row.ingredientId,
-      })),
-    (ingredientRows ?? []).map((row) => ({
-      id: row.id,
-      allergenResolution: row.allergen_resolution,
-      allergenReviewedAt: row.allergen_reviewed_at,
-    })),
-    (ingredientMappingRows ?? []).map((row) => ({
-      ingredientId: row.ingredient_id,
-      allergenId: row.allergen_id,
-      relation: row.relation,
-      confidence: row.confidence,
-      reviewedAt: row.reviewed_at,
-    })),
-  );
-
-  const { data: recipeProducts, error: recipeProductsError } = recipeProductIds.length === 0
-    ? { data: [], error: null }
-    : await client.from('products').select('id, name').in('id', recipeProductIds);
-  if (recipeProductsError) {
-    return { ok: false as const, status: 500, error: 'recipe_products_lookup_failed', message: recipeProductsError.message };
-  }
-
-  const recipeProductNames = new Map((recipeProducts ?? []).map((row) => [row.id, row.name]));
-  const ingredientsByRecipe = new Map<string, GatewayRecipe['ingredients']>();
-  const incompleteRecipeIds = new Set<string>();
-  for (const row of itemRows ?? []) {
-    const name = typeof row.ingredient_name === 'string' && row.ingredient_name.trim().length > 0
-      ? row.ingredient_name.trim()
-      : row.product_id
-        ? String(recipeProductNames.get(row.product_id) ?? '').trim()
-        : '';
-    if (!name) {
-      incompleteRecipeIds.add(row.recipe_id);
-      continue;
-    }
-    const current = ingredientsByRecipe.get(row.recipe_id) ?? [];
-    const quantity = typeof row.quantity === 'number'
-      ? row.quantity
-      : typeof row.grams === 'number'
-        ? row.grams
-        : null;
-    current.push({
-      productId: row.product_id ?? null,
-      normalizedName: name,
-      quantity,
-      unit: typeof row.quantity === 'number' && typeof row.unit === 'string'
-        ? row.unit
-        : quantity !== null
-          ? 'g'
-          : null,
-    });
-    ingredientsByRecipe.set(row.recipe_id, current);
-  }
-
-  const stepsByRecipe = new Map<string, string[]>();
-  for (const row of stepRows ?? []) {
-    if (typeof row.text !== 'string' || row.text.trim().length === 0) {
-      incompleteRecipeIds.add(row.recipe_id);
-      continue;
-    }
-    const steps = stepsByRecipe.get(row.recipe_id) ?? [];
-    steps.push(row.text.trim());
-    stepsByRecipe.set(row.recipe_id, steps);
-  }
-
-  const recipes: GatewayRecipe[] = (recipeRows ?? []).map((row) => ({
-    recipeId: row.id,
-    title: String(row.title).trim(),
-    source: 'catalog',
-    estimatedMinutes: typeof row.cook_time_minutes === 'number' ? row.cook_time_minutes : null,
-    servings: typeof row.default_servings === 'number' ? row.default_servings : null,
-    dietaryTags: Array.isArray(row.dietary_tags) ? row.dietary_tags : [],
-    allergens: recipeAllergenProjections.get(row.id) ?? null,
-    ingredients: incompleteRecipeIds.has(row.id) ? [] : ingredientsByRecipe.get(row.id) ?? [],
-    steps: stepsByRecipe.get(row.id) ?? [],
-  }));
-
-  const context: GatewayCookingContext = {
-    inventory: {
-      source: 'inventory',
-      fetchedAt: new Date().toISOString(),
-      lots,
-    } satisfies GatewayInventoryContext,
-    recipes,
-    allergies,
-    preferences: [],
-    forbiddenIngredients: dislikedFoods,
-    shoppingItems: (shoppingRows ?? [])
-      .filter((row) => typeof row.name === 'string' && row.name.trim().length > 0)
-      .map((row) => ({
-        shoppingItemId: row.id,
-        name: row.name.trim(),
-        quantity: typeof row.quantity === 'number' ? row.quantity : 1,
-        unit: typeof row.unit === 'string' ? row.unit : 'piece',
-      })),
-  };
-  return { ok: true as const, context };
+  return { ok: true as const, context: data as GatewayCookingContext };
 }
 
-async function complete({ model, messages }: { model: string; messages: Array<{ role: 'system' | 'user'; content: string }> }) {
+async function complete({
+  model,
+  messages,
+  skill,
+}: {
+  model: string;
+  messages: Array<{ role: 'system' | 'user'; content: string }>;
+  skill?: 'fam-cook-from-inventory' | 'fam-inventory-capture';
+}) {
   if (!llmEnabled) {
     console.info(JSON.stringify({
       event: 'ai_gateway_llm_blocked',
@@ -557,7 +229,7 @@ async function complete({ model, messages }: { model: string; messages: Array<{ 
         ...(Deno.env.get('OPENROUTER_SITE_URL') ? { 'HTTP-Referer': Deno.env.get('OPENROUTER_SITE_URL')! } : {}),
         ...(Deno.env.get('OPENROUTER_SITE_NAME') ? { 'X-Title': Deno.env.get('OPENROUTER_SITE_NAME')! } : {}),
       },
-      body: JSON.stringify(createOpenRouterChatBody({ model, messages })),
+      body: JSON.stringify(createOpenRouterChatBody({ model, messages, skill })),
       signal: AbortSignal.timeout(Number(Deno.env.get('AI_GATEWAY_TIMEOUT_MS') ?? 45_000)),
     });
   } catch (error) {
@@ -629,7 +301,11 @@ Deno.serve(async (request) => {
     console.error('ai_gateway_unhandled_error', error);
     response = new Response(JSON.stringify({ error: 'gateway_unavailable' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' },
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'no-store',
+        ...CORS_HEADERS,
+      },
     });
   }
   console.info(
