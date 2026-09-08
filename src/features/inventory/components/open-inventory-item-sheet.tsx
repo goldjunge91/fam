@@ -6,6 +6,7 @@ import { useTheme } from '@/components/theme/ThemeProvider';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Button, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
+import { subtractInventoryQuantities } from '@/lib/inventory-quantity';
 import { formatAmount } from '@/lib/package-size';
 
 import { calculateOpenedExpiryDate } from '../opened-expiry';
@@ -47,7 +48,10 @@ export function OpenInventoryItemSheet({
   });
   const amount = formatAmount(quantity, item.unit);
   const total = formatAmount(item.quantity, item.unit);
-  const remaining = formatAmount(Math.max(0, item.quantity - quantity), item.unit);
+  const remaining = formatAmount(
+    Math.max(0, subtractInventoryQuantities(item.quantity, quantity)),
+    item.unit,
+  );
   const expiryDate = new Date(`${nextExpiry}T00:00:00`);
   const openedDay = new Date(openedAt);
   openedDay.setHours(0, 0, 0, 0);

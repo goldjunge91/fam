@@ -29,6 +29,7 @@ export function EditInventoryItemSheet({
   const updateItem = useUpdateFridgeItemMutation();
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState(1);
+  const [initialQuantity, setInitialQuantity] = useState(1);
   const [unit, setUnit] = useState('piece');
   const [locationId, setLocationId] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
@@ -42,6 +43,7 @@ export function EditInventoryItemSheet({
     if (!visible || !item) return;
     setName(item.name);
     setQuantity(item.quantity);
+    setInitialQuantity(item.quantity);
     setUnit(item.unit);
     setLocationId(item.location_id ?? '');
     setExpiryDate(item.expiry_date ?? '');
@@ -75,7 +77,6 @@ export function EditInventoryItemSheet({
       household_id: currentItem.household_id,
       product_id: currentItem.product_id,
       name: trimmedName,
-      quantity,
       unit,
       package_size: currentItem.package_size,
       package_size_unit: currentItem.package_size_unit,
@@ -84,6 +85,12 @@ export function EditInventoryItemSheet({
       opened_at: openedAt,
       vacuum_sealed: vacuumSealed,
       expiry_user_set: expiryUserSet,
+      // Menge nur als bewusste Korrektur übergeben, wenn der Stepper wirklich
+      // bewegt wurde — sonst würde ein zwischenzeitlicher Verbrauch beim
+      // Speichern eines reinen Namens-/MHD-Edits überschrieben.
+      ...(quantity !== initialQuantity
+        ? { quantityCorrection: { expectedQuantity: initialQuantity, newQuantity: quantity } }
+        : {}),
     });
     onClose();
   }

@@ -18,6 +18,8 @@ import m0014 from './20260907044324_silly_virginia_dare/migration.sql';
 import m0015 from './20260907065455_cute_night_nurse/migration.sql';
 import m0016 from './20260907071220_outgoing_randall/migration.sql';
 import m0017 from './20260907074216_thankful_chameleon/migration.sql';
+import m0018 from './20260907124718_salty_triton/migration.sql';
+import m0019 from './20260907130006_lively_prima/migration.sql';
 
 export default {
   migrations: {
@@ -39,5 +41,7 @@ export default {
     '20260907065455_cute_night_nurse': m0015,
     '20260907071220_outgoing_randall': m0016,
     '20260907074216_thankful_chameleon': m0017,
+    '20260907124718_salty_triton': m0018,
+    '20260907130006_lively_prima': m0019,
   },
 };

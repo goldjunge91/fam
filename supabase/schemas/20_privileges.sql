@@ -163,6 +163,20 @@ grant execute on function public.adjust_fridge_item_quantity(
   uuid, uuid, uuid, uuid, numeric, timestamptz
 ) to authenticated;
 
+revoke execute on function public.correct_fridge_item_quantity(
+  uuid, uuid, uuid, uuid, numeric, numeric, timestamptz
+) from public, anon;
+grant execute on function public.correct_fridge_item_quantity(
+  uuid, uuid, uuid, uuid, numeric, numeric, timestamptz
+) to authenticated;
+
+revoke execute on function public.reverse_inventory_quantity_transaction(
+  uuid, uuid, uuid, uuid, timestamptz, text
+) from public, anon;
+grant execute on function public.reverse_inventory_quantity_transaction(
+  uuid, uuid, uuid, uuid, timestamptz, text
+) to authenticated;
+
 revoke execute on function public.move_fridge_item(
   uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz
 ) from public, anon;

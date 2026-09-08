@@ -392,12 +392,45 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     ]);
   });
 
+  it('verbraucht einen Dezimalrest exakt bis null', async () => {
+    await insertItem(db, { ...ITEM_BASE, quantity: 1.1 });
+    const { result } = await renderMutationHook(() => useUpdateInventoryItemQuantityMutation());
+
+    await act(async () => {
+      await result.current.mutateAsync({ id: 'item-1', household_id: 'hh-1', delta: -1 });
+      await result.current.mutateAsync({ id: 'item-1', household_id: 'hh-1', delta: -0.1 });
+    });
+
+    expect(
+      await db.getFirstAsync<{ quantity: number; deleted_at: number | null }>(
+        'select quantity, deleted_at from fridge_items where id = ?',
+        ['item-1'],
+      ),
+    ).toEqual({ quantity: 0, deleted_at: expect.any(Number) });
+    expect(
+      await db.getAllAsync<{ type: string; quantity: number }>(
+        `select type, quantity
+           from transactions
+          where fridge_item_id = ?
+          order by created_at, id`,
+        ['item-1'],
+      ),
+    ).toEqual([
+      { type: 'out', quantity: 1 },
+      { type: 'out', quantity: 0.1 },
+    ]);
+  });
+
   it('manuelle Mengen- und Lagerortkorrektur schreibt Korrektur und gruppierten Move gemeinsam', async () => {
     await insertItem(db);
     const { result } = await renderMutationHook(() => useUpdateFridgeItemMutation());
 
     await act(async () => {
-      await result.current.mutateAsync({ ...ITEM_BASE, quantity: 4, location_id: 'loc-new' });
+      await result.current.mutateAsync({
+        ...ITEM_BASE,
+        location_id: 'loc-new',
+        quantityCorrection: { expectedQuantity: 3, newQuantity: 4 },
+      });
     });
 
     const item = await db.getFirstAsync<{ quantity: number; location_id: string; _dirty: number }>(
@@ -412,13 +445,35 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
         type: 'in',
         quantity: 1,
         location_id: 'loc-old',
-        operation_id: null,
+        operation_id: expect.any(String),
+        notes: '[Manual correction]',
       }),
       expect.objectContaining({ type: 'out', quantity: 4, location_id: 'loc-old' }),
       expect.objectContaining({ type: 'in', quantity: 4, location_id: 'loc-new' }),
     ]);
     expect(new Set(ledger.slice(1).map((row) => row.operation_id)).size).toBe(1);
-    expect(await outboxRows(db)).toHaveLength(3);
+    expect((await outboxRows(db)).map(({ op }) => op)).toEqual(['correct_quantity', 'move']);
+  });
+
+  it('überschreibt bei reiner Namensänderung keinen zwischenzeitlichen Verbrauch (fam-87p)', async () => {
+    // Dialog wurde bei Menge 5 geöffnet; zwischenzeitlich synchronisiert der
+    // lokale Spiegel bereits einen Verbrauch auf 4. Ohne quantityCorrection
+    // darf das Speichern eines reinen Namens-Edits diesen Verbrauch nicht
+    // überschreiben.
+    await insertItem(db, { ...ITEM_BASE, quantity: 5 });
+    await db.runAsync('update fridge_items set quantity = ? where id = ?', [4, 'item-1']);
+    const { result } = await renderMutationHook(() => useUpdateFridgeItemMutation());
+
+    await act(async () => {
+      await result.current.mutateAsync({ ...ITEM_BASE, name: 'Dijon-Senf' });
+    });
+
+    const item = await db.getFirstAsync<{ quantity: number }>(
+      'select quantity from fridge_items where id = ?',
+      ['item-1'],
+    );
+    expect(item).toEqual({ quantity: 4 });
+    expect((await outboxRows(db)).map(({ op }) => op)).toEqual(['update']);
   });
 
   it('direct move schreibt die zwei Ledger-Legs atomar in einer Move-Outbox-Mutation', async () => {
@@ -808,9 +863,12 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     const { result } = await renderMutationHook(() => useUpdateFridgeItemMutation());
 
     await act(async () => {
-      await expect(result.current.mutateAsync({ ...ITEM_BASE, quantity: -1 })).rejects.toThrow(
-        'nicht negativ',
-      );
+      await expect(
+        result.current.mutateAsync({
+          ...ITEM_BASE,
+          quantityCorrection: { expectedQuantity: 3, newQuantity: -1 },
+        }),
+      ).rejects.toThrow('nicht negativ');
     });
 
     const row = await db.getFirstAsync<{ quantity: number }>(
@@ -818,6 +876,28 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       ['item-1'],
     );
     expect(row?.quantity).toBe(3);
+    expect(await outboxRows(db)).toEqual([]);
+  });
+
+  it('weist manuelle Mengen mit mehr als drei Nachkommastellen zurück', async () => {
+    await insertItem(db);
+    const { result } = await renderMutationHook(() => useUpdateFridgeItemMutation());
+
+    await act(async () => {
+      await expect(
+        result.current.mutateAsync({
+          ...ITEM_BASE,
+          quantityCorrection: { expectedQuantity: 3, newQuantity: 3.0001 },
+        }),
+      ).rejects.toThrow('drei Nachkommastellen');
+    });
+
+    expect(
+      await db.getFirstAsync<{ quantity: number }>(
+        'select quantity from fridge_items where id = ?',
+        ['item-1'],
+      ),
+    ).toEqual({ quantity: 3 });
     expect(await outboxRows(db)).toEqual([]);
   });
 

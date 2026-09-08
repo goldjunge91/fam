@@ -318,7 +318,11 @@ describe('Inventory-Mutations gegen die echte on-device SQLite', () => {
     await insertItem(db);
     const { result } = await renderMutationHook(() => useUpdateFridgeItemMutation());
 
-    await result.current.mutateAsync({ ...ITEM_BASE, quantity: 4, location_id: 'loc-new' });
+    await result.current.mutateAsync({
+      ...ITEM_BASE,
+      location_id: 'loc-new',
+      quantityCorrection: { expectedQuantity: 3, newQuantity: 4 },
+    });
 
     const item = await db.getFirstAsync<{ quantity: number; location_id: string; _dirty: number }>(
       'select quantity, location_id, _dirty from fridge_items where id = ?',
@@ -701,9 +705,12 @@ describe('Inventory-Mutations gegen die echte on-device SQLite', () => {
     await insertItem(db);
     const { result } = await renderMutationHook(() => useUpdateFridgeItemMutation());
 
-    await expect(result.current.mutateAsync({ ...ITEM_BASE, quantity: -1 })).rejects.toThrow(
-      'nicht negativ',
-    );
+    await expect(
+      result.current.mutateAsync({
+        ...ITEM_BASE,
+        quantityCorrection: { expectedQuantity: 3, newQuantity: -1 },
+      }),
+    ).rejects.toThrow('nicht negativ');
 
     const row = await db.getFirstAsync<{ quantity: number }>(
       'select quantity from fridge_items where id = ?',

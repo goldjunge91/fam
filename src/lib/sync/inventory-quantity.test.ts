@@ -1,7 +1,10 @@
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
-import { createInventoryQuantityMutation } from '@/lib/sync/inventory-quantity';
+import {
+  createInventoryQuantityMutation,
+  parseInventoryQuantityPayload,
+} from '@/lib/sync/inventory-quantity';
 
 import { createTestDatabase } from '../../../test/node-sqlite-adapter';
 
@@ -52,5 +55,20 @@ describe('createInventoryQuantityMutation', () => {
     } finally {
       db.close();
     }
+  });
+});
+
+describe('parseInventoryQuantityPayload', () => {
+  it('weist Deltas mit mehr als drei Nachkommastellen vor dem RPC zurück', () => {
+    expect(() =>
+      parseInventoryQuantityPayload({
+        operation_id: 'quantity-operation-1',
+        transaction_id: 'quantity-transaction-1',
+        item_id: 'item-quantity',
+        household_id: 'hh-1',
+        delta: -0.1001,
+        created_at: '2026-09-07T10:00:00.000Z',
+      }),
+    ).toThrow('drei Nachkommastellen');
   });
 });

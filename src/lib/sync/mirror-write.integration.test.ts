@@ -406,6 +406,181 @@ describe('applyRemoteRow', () => {
   });
 });
 
+describe('applyRemoteRow — Reconciliation mit offenen Outbox-Operationen (fam-onu)', () => {
+  let db: TestDatabase;
+
+  const fridgeItem = (overrides: Partial<Record<string, unknown>> = {}) => ({
+    id: 'fi-remote-1',
+    household_id: 'hh-1',
+    location_id: 'loc-fridge',
+    product_id: null,
+    name: 'Milch',
+    quantity: 5,
+    unit: 'piece',
+    package_size: null,
+    package_size_unit: null,
+    expiry_date: null,
+    added_by: null,
+    created_at: '2024-01-01T00:00:00Z',
+    opened_at: null,
+    vacuum_sealed: false,
+    expiry_user_set: false,
+    updated_at: '2024-01-15T12:00:00Z',
+    deleted_at: null,
+    ...overrides,
+  });
+
+  async function insertLocalDirtyFridgeItem(overrides: Partial<Record<string, unknown>> = {}) {
+    await upsertMirrorRow(db, 'fridge_items', fridgeItem(overrides), { dirty: 1 });
+  }
+
+  async function enqueueOutbox(op: string, payload: Record<string, unknown>) {
+    await db.runAsync(
+      `insert into outbox (entity, entity_id, op, payload, created_at, attempts, next_attempt_at)
+       values ('fridge_items', ?, ?, ?, ?, 0, 0)`,
+      ['fi-remote-1', op, JSON.stringify(payload), Date.now()],
+    );
+  }
+
+  beforeEach(async () => {
+    db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+  });
+
+  afterEach(() => {
+    db.close();
+  });
+
+  it('behaelt eine offene Menge (adjust_quantity), uebernimmt aber echte Remote-Metadaten', async () => {
+    // Lokal bereits auf 4 verbraucht, Outbox-Op noch offen.
+    await insertLocalDirtyFridgeItem({ quantity: 4, name: 'Milch' });
+    await enqueueOutbox('adjust_quantity', {
+      operation_id: 'op-1',
+      transaction_id: 'tx-1',
+      item_id: 'fi-remote-1',
+      household_id: 'hh-1',
+      delta: -1,
+      created_at: '2024-01-15T11:00:00Z',
+    });
+
+    // Server bestaetigt zwischenzeitlich einen Namensfix eines anderen Geraets,
+    // aber noch die alte Menge 5 (der Delta-Push ist ja noch nicht angekommen).
+    const result = await applyRemoteRow(
+      db,
+      'fridge_items',
+      fridgeItem({ name: 'Vollmilch', quantity: 5, updated_at: '2024-01-15T13:00:00Z' }),
+      Date.now(),
+    );
+    expect(result).toBe('written');
+
+    const row = await db.getFirstAsync<{ quantity: number; name: string; _dirty: number }>(
+      'select quantity, name, _dirty from fridge_items where id = ?',
+      ['fi-remote-1'],
+    );
+    expect(row?.quantity).toBe(4);
+    expect(row?.name).toBe('Vollmilch');
+    expect(row?._dirty).toBe(1);
+  });
+
+  it('behaelt einen offenen Move (location_id), uebernimmt aber echte Remote-Metadaten', async () => {
+    await insertLocalDirtyFridgeItem({ location_id: 'loc-pantry' });
+    await enqueueOutbox('move', {
+      operation_id: 'op-2',
+      item_id: 'fi-remote-1',
+      household_id: 'hh-1',
+      expected_location_id: 'loc-fridge',
+      new_location_id: 'loc-pantry',
+      expected_quantity: 5,
+      out_transaction_id: 'tx-out',
+      in_transaction_id: 'tx-in',
+      created_at: '2024-01-15T11:00:00Z',
+    });
+
+    const result = await applyRemoteRow(
+      db,
+      'fridge_items',
+      fridgeItem({
+        name: 'Vollmilch',
+        location_id: 'loc-fridge',
+        updated_at: '2024-01-15T13:00:00Z',
+      }),
+      Date.now(),
+    );
+    expect(result).toBe('written');
+
+    const row = await db.getFirstAsync<{ location_id: string; name: string; _dirty: number }>(
+      'select location_id, name, _dirty from fridge_items where id = ?',
+      ['fi-remote-1'],
+    );
+    expect(row?.location_id).toBe('loc-pantry');
+    expect(row?.name).toBe('Vollmilch');
+    expect(row?._dirty).toBe(1);
+  });
+
+  it('behaelt nur die per Patch geaenderten Felder, uebernimmt Menge aus einer echten Remote-Aenderung', async () => {
+    await insertLocalDirtyFridgeItem({ name: 'Milch, offen' });
+    await enqueueOutbox('update', { id: 'fi-remote-1', name: 'Milch, offen' });
+
+    // Ein anderes Geraet hat zwischenzeitlich Menge verbraucht und gepusht.
+    const result = await applyRemoteRow(
+      db,
+      'fridge_items',
+      fridgeItem({ quantity: 3, updated_at: '2024-01-15T13:00:00Z' }),
+      Date.now(),
+    );
+    expect(result).toBe('written');
+
+    const row = await db.getFirstAsync<{ quantity: number; name: string; _dirty: number }>(
+      'select quantity, name, _dirty from fridge_items where id = ?',
+      ['fi-remote-1'],
+    );
+    expect(row?.name).toBe('Milch, offen');
+    expect(row?.quantity).toBe(3);
+    expect(row?._dirty).toBe(1);
+  });
+
+  it('laesst eine noch nicht bestaetigte lokale insert unangetastet (local-wins)', async () => {
+    await insertLocalDirtyFridgeItem({ name: 'Nur lokal' });
+    await enqueueOutbox('insert', fridgeItem({ name: 'Nur lokal' }));
+
+    const result = await applyRemoteRow(
+      db,
+      'fridge_items',
+      fridgeItem({ name: 'Fremd', updated_at: '2024-01-15T13:00:00Z' }),
+      Date.now(),
+    );
+    expect(result).toBe('local-wins');
+
+    const row = await db.getFirstAsync<{ name: string; _dirty: number }>(
+      'select name, _dirty from fridge_items where id = ?',
+      ['fi-remote-1'],
+    );
+    expect(row?.name).toBe('Nur lokal');
+    expect(row?._dirty).toBe(1);
+  });
+
+  it('ein echter Remote-Tombstone ohne betroffene offene Operation loescht trotzdem weich', async () => {
+    await insertLocalDirtyFridgeItem({ name: 'Milch, offen' });
+    await enqueueOutbox('update', { id: 'fi-remote-1', name: 'Milch, offen' });
+
+    const result = await applyRemoteRow(
+      db,
+      'fridge_items',
+      fridgeItem({ updated_at: '2024-01-15T13:00:00Z', deleted_at: '2024-01-15T13:00:00Z' }),
+      Date.now(),
+    );
+    expect(result).toBe('written');
+
+    const row = await db.getFirstAsync<{ deleted_at: number | null; name: string }>(
+      'select deleted_at, name from fridge_items where id = ?',
+      ['fi-remote-1'],
+    );
+    expect(row?.deleted_at).not.toBeNull();
+    expect(row?.name).toBe('Milch, offen');
+  });
+});
+
 describe('deleteMirrorRow', () => {
   let db: TestDatabase;
 

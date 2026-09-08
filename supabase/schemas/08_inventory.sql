@@ -414,6 +414,9 @@ begin
     or p_delta = 'NaN'::numeric then
     raise exception 'Mengen-Payload ist unvollstaendig oder ungueltig';
   end if;
+  if p_delta <> trunc(p_delta, 3) then
+    raise exception 'Mengen duerfen hoechstens drei Nachkommastellen haben';
+  end if;
 
   expected_type := case when p_delta > 0 then 'in' else 'out' end;
   expected_quantity := abs(p_delta);
@@ -482,6 +485,242 @@ begin
 end;
 $$;
 
+-- Eine manuelle Mengenkorrektur ist ein Compare-and-set gegen die Menge, die
+-- der Bearbeitungsdialog geladen hat. So kann ein spaeter Offline-Push keinen
+-- zwischenzeitlichen Verbrauch eines anderen Geraets ueberschreiben.
+create or replace function public.correct_fridge_item_quantity(
+  p_operation_id uuid,
+  p_transaction_id uuid,
+  p_item_id uuid,
+  p_household_id uuid,
+  p_expected_quantity numeric,
+  p_new_quantity numeric,
+  p_created_at timestamptz
+)
+returns uuid
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  current_item public.fridge_items%rowtype;
+  expected_type text;
+  correction_quantity numeric;
+  existing_count integer;
+  existing_matches integer;
+begin
+  if (select auth.uid()) is null then
+    raise exception 'Nicht angemeldet';
+  end if;
+  if p_operation_id is null
+    or p_transaction_id is null
+    or p_item_id is null
+    or p_household_id is null
+    or p_expected_quantity is null
+    or p_new_quantity is null
+    or p_created_at is null
+    or p_expected_quantity = 'NaN'::numeric
+    or p_new_quantity = 'NaN'::numeric then
+    raise exception 'Mengenkorrektur-Payload ist unvollstaendig oder ungueltig';
+  end if;
+  if p_expected_quantity < 0
+    or p_new_quantity < 0
+    or p_expected_quantity = p_new_quantity then
+    raise exception 'Mengenkorrektur braucht zwei unterschiedliche, nicht negative Mengen';
+  end if;
+  if p_expected_quantity <> trunc(p_expected_quantity, 3)
+    or p_new_quantity <> trunc(p_new_quantity, 3) then
+    raise exception 'Mengen duerfen hoechstens drei Nachkommastellen haben';
+  end if;
+
+  expected_type := case when p_new_quantity > p_expected_quantity then 'in' else 'out' end;
+  correction_quantity := abs(p_new_quantity - p_expected_quantity);
+
+  select * into current_item
+  from public.fridge_items
+  where id = p_item_id and household_id = p_household_id
+  for update;
+  if not found then
+    raise exception 'Bestand nicht gefunden oder keine Berechtigung';
+  end if;
+
+  select count(*)::int into existing_count
+  from public.transactions
+  where household_id = p_household_id and operation_id = p_operation_id;
+  if existing_count > 0 then
+    select count(*)::int into existing_matches
+    from public.transactions
+    where id = p_transaction_id
+      and household_id = p_household_id
+      and operation_id = p_operation_id
+      and fridge_item_id = p_item_id
+      and type = expected_type
+      and quantity = correction_quantity
+      and notes = '[Manual correction]';
+    if existing_count <> 1 or existing_matches <> 1 then
+      raise exception 'Mengenkorrektur % passt nicht zum vorhandenen Ledger', p_operation_id;
+    end if;
+    return current_item.id;
+  end if;
+
+  if exists (select 1 from public.transactions where id = p_transaction_id) then
+    raise exception 'Ledger-ID % ist bereits vergeben', p_transaction_id;
+  end if;
+  if current_item.deleted_at is not null then
+    raise exception 'Geloeschter Bestand kann nicht mengenkorrigiert werden';
+  end if;
+  if current_item.quantity is distinct from p_expected_quantity then
+    raise exception 'Bestandsmenge wurde zwischenzeitlich geaendert';
+  end if;
+
+  update public.fridge_items
+  set quantity = p_new_quantity,
+      deleted_at = case when p_new_quantity = 0 then now() else null end
+  where id = p_item_id;
+
+  insert into public.transactions (
+    id, operation_id, household_id, fridge_item_id, product_id, actor, type,
+    quantity, location_id, reason, previous_expiry_date, notes, undone, created_at
+  )
+  values (
+    p_transaction_id, p_operation_id, p_household_id, p_item_id,
+    current_item.product_id, (select auth.uid()), expected_type,
+    correction_quantity, current_item.location_id, null, null,
+    '[Manual correction]', false, p_created_at
+  );
+
+  return current_item.id;
+end;
+$$;
+
+-- Gegenbuchung einer einzelnen in/out/waste-Transaktion. Bestand und neues
+-- Ledger-Event werden in derselben Datenbanktransaktion geschrieben. Der
+-- Zeilen-Lock plus der eindeutige reversal_of-Vertrag verhindert doppeltes
+-- Undo durch zwei Geraete.
+create or replace function public.reverse_inventory_quantity_transaction(
+  p_reversal_transaction_id uuid,
+  p_reversal_of uuid,
+  p_item_id uuid,
+  p_household_id uuid,
+  p_created_at timestamptz,
+  p_notes text
+)
+returns uuid
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  original_transaction public.transactions%rowtype;
+  current_item public.fridge_items%rowtype;
+  inverse_type text;
+  result_quantity numeric;
+  existing_count integer;
+  existing_matches integer;
+begin
+  if (select auth.uid()) is null then
+    raise exception 'Nicht angemeldet';
+  end if;
+  if p_reversal_transaction_id is null
+    or p_reversal_of is null
+    or p_item_id is null
+    or p_household_id is null
+    or p_created_at is null
+    or p_notes is null
+    or length(p_notes) > 500 then
+    raise exception 'Mengen-Undo-Payload ist unvollstaendig oder ungueltig';
+  end if;
+
+  select * into original_transaction
+  from public.transactions
+  where id = p_reversal_of and household_id = p_household_id;
+  if not found
+    or original_transaction.fridge_item_id is distinct from p_item_id
+    or original_transaction.reversal_of is not null
+    or original_transaction.type not in ('in', 'out', 'waste') then
+    raise exception 'Ursprungsbuchung ist unvollstaendig oder nicht umkehrbar';
+  end if;
+  inverse_type := case when original_transaction.type = 'in' then 'out' else 'in' end;
+
+  select * into current_item
+  from public.fridge_items
+  where id = p_item_id and household_id = p_household_id
+  for update;
+  if not found then
+    raise exception 'Bestand nicht gefunden oder keine Berechtigung';
+  end if;
+
+  select count(*)::int into existing_count
+  from public.transactions
+  where household_id = p_household_id
+    and reversal_of = p_reversal_of
+    and operation_id is null;
+  if existing_count > 0 then
+    select count(*)::int into existing_matches
+    from public.transactions
+    where id = p_reversal_transaction_id
+      and household_id = p_household_id
+      and reversal_of = p_reversal_of
+      and operation_id is null
+      and fridge_item_id = p_item_id
+      and type = inverse_type
+      and quantity = original_transaction.quantity
+      and notes = p_notes;
+    if existing_count <> 1 or existing_matches <> 1 then
+      raise exception 'Buchung % wurde bereits rueckgaengig gemacht', p_reversal_of;
+    end if;
+    return current_item.id;
+  end if;
+
+  if exists (select 1 from public.transactions where id = p_reversal_transaction_id) then
+    raise exception 'Ledger-ID % ist bereits vergeben', p_reversal_transaction_id;
+  end if;
+
+  if current_item.deleted_at is not null then
+    if original_transaction.type = 'in' then
+      raise exception 'Der Bestand wurde zwischenzeitlich veraendert';
+    end if;
+    if original_transaction.type = 'out'
+      and original_transaction.operation_id is not null
+      and current_item.quantity = 0 then
+      result_quantity := original_transaction.quantity;
+    elsif current_item.quantity is distinct from original_transaction.quantity then
+      raise exception 'Der Bestand wurde zwischenzeitlich veraendert';
+    else
+      result_quantity := current_item.quantity;
+    end if;
+  else
+    result_quantity := current_item.quantity + case
+      when inverse_type = 'out' then -original_transaction.quantity
+      else original_transaction.quantity
+    end;
+    if result_quantity < 0 then
+      raise exception 'Die Gegenbuchung wuerde eine negative Bestandsmenge erzeugen';
+    end if;
+  end if;
+
+  update public.fridge_items
+  set quantity = result_quantity,
+      deleted_at = case when result_quantity = 0 then now() else null end
+  where id = p_item_id;
+
+  insert into public.transactions (
+    id, operation_id, reversal_of, household_id, fridge_item_id, product_id,
+    actor, type, quantity, location_id, reason, previous_expiry_date, notes,
+    undone, created_at
+  )
+  values (
+    p_reversal_transaction_id, null, p_reversal_of, p_household_id, p_item_id,
+    coalesce(original_transaction.product_id, current_item.product_id),
+    (select auth.uid()), inverse_type, original_transaction.quantity,
+    coalesce(current_item.location_id, original_transaction.location_id),
+    null, null, p_notes, false, p_created_at
+  );
+
+  return current_item.id;
+end;
+$$;
+
 -- Ein Move veraendert den Bestand und schreibt zwei append-only Ledgerzeilen.
 -- Die Funktion bleibt SECURITY INVOKER, damit die bestehenden RLS-Policies auch
 -- fuer den RPC gelten. Die Operation ist absichtlich eine einzelne
@@ -524,6 +763,9 @@ begin
   end if;
   if p_out_transaction_id = p_in_transaction_id then
     raise exception 'Move braucht zwei unterschiedliche Ledger-IDs';
+  end if;
+  if p_expected_quantity <= 0 or p_expected_quantity <> trunc(p_expected_quantity, 3) then
+    raise exception 'Move-Mengen muessen positiv sein und duerfen hoechstens drei Nachkommastellen haben';
   end if;
 
   -- FOR UPDATE serialisiert konkurrierende Moves desselben Bestandseintrags.
@@ -665,6 +907,9 @@ begin
   end if;
   if p_out_transaction_id = p_in_transaction_id then
     raise exception 'Undo-Move braucht zwei unterschiedliche Ledger-IDs';
+  end if;
+  if p_expected_quantity <= 0 or p_expected_quantity <> trunc(p_expected_quantity, 3) then
+    raise exception 'Undo-Move-Mengen muessen positiv sein und duerfen hoechstens drei Nachkommastellen haben';
   end if;
 
   select * into current_item

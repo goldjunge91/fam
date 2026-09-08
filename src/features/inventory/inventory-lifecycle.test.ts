@@ -77,6 +77,17 @@ describe('planOpenInventoryItem', () => {
     });
   });
 
+  it('berechnet den Rest eines Dezimal-Splits exakt in Tausendsteln', () => {
+    const plan = planOpenInventoryItem(
+      { ...ITEM, quantity: 1.1 },
+      1,
+      new Date('2026-08-05T14:30:00.000Z'),
+      'opened-lot',
+    );
+
+    expect(plan.originalPatch).toEqual({ quantity: 0.1 });
+  });
+
   it('bewahrt beim Split Lifecycle-Metadaten und protokolliert die Ursprungs-ID', () => {
     const plan = planOpenInventoryItem(
       { ...ITEM, vacuumSealed: true, expiryUserSet: true },

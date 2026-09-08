@@ -1,3 +1,5 @@
+import { sumInventoryQuantities } from '@/lib/inventory-quantity';
+
 import { compareByExpiry, type ExpiryInfo, getExpiryInfo } from './expiry';
 import type { LocalInventoryItem } from './use-inventory-items';
 
@@ -59,7 +61,7 @@ export function groupInventoryItems(
       id,
       name: first.name,
       product_id: first.product_id,
-      quantity: lots.reduce((sum, lot) => sum + lot.quantity, 0),
+      quantity: sumInventoryQuantities(lots.map((lot) => lot.quantity)),
       unit: first.unit,
       package_size: first.package_size,
       package_size_unit: first.package_size_unit,

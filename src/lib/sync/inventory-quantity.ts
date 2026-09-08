@@ -1,4 +1,5 @@
 import type { EnqueueMutationInput } from '@/lib/db/outbox';
+import { fromInventoryQuantityUnits, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
 export type InventoryQuantityAdjustmentPayload = {
@@ -26,13 +27,14 @@ export function parseInventoryQuantityPayload(
   if (typeof delta !== 'number' || !Number.isFinite(delta) || delta === 0) {
     throw new Error('Mengen-Payload enthaelt kein gueltiges Delta.');
   }
+  const normalizedDelta = fromInventoryQuantityUnits(toInventoryQuantityUnits(delta));
 
   return {
     operation_id: requiredString(payload, 'operation_id'),
     transaction_id: requiredString(payload, 'transaction_id'),
     item_id: requiredString(payload, 'item_id'),
     household_id: requiredString(payload, 'household_id'),
-    delta,
+    delta: normalizedDelta,
     created_at: requiredString(payload, 'created_at'),
   };
 }
@@ -48,13 +50,19 @@ export function createInventoryQuantityMutation(args: {
   nowMs: number;
 }): EnqueueMutationInput {
   const { payload, transaction, resultQuantity, nowMs } = args;
+  const normalizedResultQuantity = fromInventoryQuantityUnits(
+    toInventoryQuantityUnits(resultQuantity),
+  );
+  if (normalizedResultQuantity < 0) {
+    throw new Error('Bestandsmengen muessen nicht negativ sein.');
+  }
   return {
     entity: 'fridge_items',
     entityId: payload.item_id,
     op: 'adjust_quantity',
     payload: { ...payload },
     applyLocally: async (txn) => {
-      if (resultQuantity === 0) {
+      if (normalizedResultQuantity === 0) {
         await applyLocalMirrorWrite(
           txn,
           'fridge_items',
@@ -68,7 +76,7 @@ export function createInventoryQuantityMutation(args: {
           txn,
           'fridge_items',
           'update',
-          { id: payload.item_id, quantity: resultQuantity },
+          { id: payload.item_id, quantity: normalizedResultQuantity },
           nowMs,
         );
       }

@@ -5,6 +5,7 @@ import { enqueueMutation, recordOutboxOutcome } from '@/lib/db/outbox';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { createInventoryQuantityMutation } from '@/lib/sync/inventory-quantity';
+import { createInventoryQuantityCorrectionMutation } from '@/lib/sync/inventory-quantity-correction';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { pushOutbox } from '@/lib/sync/push';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
@@ -208,8 +209,23 @@ describe('pushOutbox — append-only Ledger', () => {
     });
     const insert = jest.fn().mockReturnValue({ select });
     const update = jest.fn();
+    const maybeSingle = jest.fn().mockResolvedValue({
+      data: {
+        id: transactionId,
+        household_id: 'hh-1',
+        type: 'in',
+        quantity: 1,
+        reason: null,
+        created_at: '2026-09-04T10:00:00.000Z',
+      },
+      error: null,
+      status: 200,
+    });
+    const eq = jest.fn().mockReturnValue({ maybeSingle });
     const client = {
-      from: jest.fn().mockReturnValue({ insert, update }),
+      from: jest
+        .fn()
+        .mockReturnValue({ insert, update, select: jest.fn().mockReturnValue({ eq }) }),
     } as unknown as TypedSupabaseClient;
 
     await enqueueMutation(db, {
@@ -242,6 +258,71 @@ describe('pushOutbox — append-only Ledger', () => {
           [transactionId],
         ),
       ).toEqual({ dirty: 0 });
+    } finally {
+      db.close();
+    }
+  });
+
+  it('behaelt einen 23505-Konflikt, wenn die vorhandene Ledgerzeile nicht passt', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+
+    const transactionId = 'txn-conflict';
+    await db.runAsync(
+      `insert into transactions
+       (id, household_id, type, quantity, reason, created_at, updated_at, _dirty)
+       values (?, ?, 'in', 1, null, ?, ?, 1)`,
+      [transactionId, 'hh-1', '2026-09-04T10:00:00.000Z', 1],
+    );
+    await enqueueMutation(db, {
+      entity: 'transactions',
+      entityId: transactionId,
+      op: 'insert',
+      payload: {
+        id: transactionId,
+        household_id: 'hh-1',
+        type: 'in',
+        quantity: 1,
+        reason: null,
+        created_at: '2026-09-04T10:00:00.000Z',
+      },
+      now: 2,
+      applyLocally: async () => {},
+    });
+
+    const insertResponse = {
+      data: null,
+      error: { code: '23505', message: 'duplicate key' },
+      status: 409,
+    };
+    const insert = jest
+      .fn()
+      .mockReturnValue({ select: jest.fn().mockResolvedValue(insertResponse) });
+    const maybeSingle = jest.fn().mockResolvedValue({
+      data: {
+        id: transactionId,
+        household_id: 'hh-1',
+        type: 'in',
+        quantity: 2,
+        reason: null,
+        created_at: '2026-09-04T10:00:00.000Z',
+      },
+      error: null,
+      status: 200,
+    });
+    const eq = jest.fn().mockReturnValue({ maybeSingle });
+    const client = {
+      from: jest.fn().mockReturnValue({ insert, select: jest.fn().mockReturnValue({ eq }) }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 3 });
+
+      expect(result.outcomes[0]).toMatchObject({ kind: 'failed-permanent' });
+      expect(
+        await db.getFirstAsync('select id from outbox where entity_id = ?', [transactionId]),
+      ).not.toBeNull();
     } finally {
       db.close();
     }
@@ -806,6 +887,101 @@ describe('pushOutbox — atomare Mengenänderung', () => {
           ['quantity-transaction-1'],
         ),
       ).toEqual({ dirty: 0 });
+    } finally {
+      db.close();
+    }
+  });
+
+  it('ruft für eine manuelle Korrektur den Compare-and-set-RPC auf', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+    await db.runAsync(
+      `insert into fridge_items
+       (id, household_id, name, quantity, unit, created_at, updated_at)
+       values (?, ?, ?, ?, ?, ?, ?)`,
+      ['item-correction', 'hh-1', 'Milch', 5, 'piece', '2026-09-07T10:00:00.000Z', 0],
+    );
+
+    const payload = {
+      operation_id: 'correction-operation-1',
+      transaction_id: 'correction-transaction-1',
+      item_id: 'item-correction',
+      household_id: 'hh-1',
+      expected_quantity: 5,
+      new_quantity: 3,
+      created_at: '2026-09-07T10:00:00.000Z',
+    };
+    await enqueueMutation(db, {
+      ...createInventoryQuantityCorrectionMutation({
+        payload,
+        transaction: {
+          id: payload.transaction_id,
+          operation_id: payload.operation_id,
+          household_id: payload.household_id,
+          fridge_item_id: payload.item_id,
+          product_id: null,
+          actor: 'user-1',
+          type: 'out',
+          quantity: 2,
+          location_id: null,
+          reason: null,
+          previous_expiry_date: null,
+          notes: '[Manual correction]',
+          undone: false,
+          created_at: payload.created_at,
+        },
+        nowMs: 1,
+      }),
+      now: 1,
+    });
+
+    const remoteRow = {
+      id: 'item-correction',
+      household_id: 'hh-1',
+      location_id: null,
+      product_id: null,
+      name: 'Milch',
+      quantity: 3,
+      unit: 'piece',
+      package_size: null,
+      package_size_unit: null,
+      expiry_date: null,
+      added_by: null,
+      created_at: '2026-09-07T10:00:00.000Z',
+      opened_at: null,
+      vacuum_sealed: false,
+      expiry_user_set: false,
+      updated_at: '2026-09-07T10:00:01.000Z',
+      deleted_at: null,
+    };
+    const maybeSingle = jest.fn().mockResolvedValue({ data: remoteRow, error: null, status: 200 });
+    const eq = jest.fn().mockReturnValue({ maybeSingle });
+    const rpc = jest.fn().mockResolvedValue({ data: 'item-correction', error: null, status: 200 });
+    const client = {
+      rpc,
+      from: jest.fn().mockReturnValue({ select: jest.fn().mockReturnValue({ eq }) }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 2 });
+
+      expect(result.outcomes[0]).toMatchObject({ kind: 'pushed', entityId: 'item-correction' });
+      expect(rpc).toHaveBeenCalledWith('correct_fridge_item_quantity', {
+        p_operation_id: 'correction-operation-1',
+        p_transaction_id: 'correction-transaction-1',
+        p_item_id: 'item-correction',
+        p_household_id: 'hh-1',
+        p_expected_quantity: 5,
+        p_new_quantity: 3,
+        p_created_at: '2026-09-07T10:00:00.000Z',
+      });
+      expect(
+        await db.getFirstAsync<{ quantity: number; dirty: number }>(
+          'select quantity, _dirty as dirty from fridge_items where id = ?',
+          ['item-correction'],
+        ),
+      ).toEqual({ quantity: 3, dirty: 0 });
     } finally {
       db.close();
     }

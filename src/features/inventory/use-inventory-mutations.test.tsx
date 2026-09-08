@@ -229,16 +229,15 @@ describe('inventory mutation hooks', () => {
       await result.current.mutateAsync({ transaction });
     });
 
-    expect(lastMutations()).toHaveLength(2);
+    expect(lastMutations()).toHaveLength(1);
     expect(lastMutations()[0]).toMatchObject({
       entity: 'fridge_items',
-      op: 'update',
-      payload: { id: 'item-1', quantity: 4 },
-    });
-    expect(lastMutations()[1]).toMatchObject({
-      entity: 'transactions',
-      op: 'insert',
-      payload: { reversal_of: 'quantity-transaction-1', type: 'in', quantity: 1 },
+      op: 'reverse_quantity',
+      payload: {
+        item_id: 'item-1',
+        household_id: 'hh-1',
+        reversal_of: 'quantity-transaction-1',
+      },
     });
   });
 
@@ -262,6 +261,46 @@ describe('inventory mutation hooks', () => {
     expect(Outbox.enqueueMutations).not.toHaveBeenCalled();
   });
 
+  it('sendet bei einer reinen Metadatenänderung weder Menge noch unveränderte Felder', async () => {
+    mockGetFirstAsync.mockResolvedValue({
+      ...ITEM,
+      vacuum_sealed: 0,
+      expiry_user_set: 0,
+    });
+    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({ ...ITEM, name: 'Dijon-Senf' });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(lastMutations()).toHaveLength(1);
+    expect(lastMutations()[0]).toMatchObject({
+      entity: 'fridge_items',
+      op: 'update',
+      payload: { id: 'item-1', household_id: 'hh-1', name: 'Dijon-Senf' },
+    });
+    expect(lastMutations()[0]?.payload).not.toHaveProperty('quantity');
+    expect(lastMutations()[0]?.payload).not.toHaveProperty('unit');
+    expect(lastMutations()[0]?.payload).not.toHaveProperty('expiry_date');
+  });
+
+  it('überschreibt bei reiner Namensänderung keinen zwischenzeitlichen Verbrauch (fam-87p)', async () => {
+    // Lokaler Spiegel hat den Verbrauch bereits übernommen (5 -> 4), der
+    // Dialog wurde aber bei 5 geöffnet und schickt keine quantityCorrection.
+    mockGetFirstAsync.mockResolvedValue({ ...ITEM, quantity: 4 });
+    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({ ...ITEM, name: 'Dijon-Senf' });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(lastMutations()).toHaveLength(1);
+    expect(lastMutations()[0]).toMatchObject({ entity: 'fridge_items', op: 'update' });
+    expect(lastMutations()[0]?.payload).not.toHaveProperty('quantity');
+  });
+
   it('bucht Mengen- und Lagerortkorrektur atomar als eine Outbox-Gruppe', async () => {
     mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
@@ -269,17 +308,23 @@ describe('inventory mutation hooks', () => {
     await act(async () => {
       await result.current.mutateAsync({
         ...ITEM,
-        quantity: 4,
         location_id: 'loc-2',
+        quantityCorrection: { expectedQuantity: 3, newQuantity: 4 },
       });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toHaveLength(3);
-    expect(transactionPayloads()).toHaveLength(1);
-    expect(transactionPayloads().every((payload) => payload.actor === 'actor-1')).toBe(true);
-    expect(transactionPayloads().map((payload) => payload.type)).toEqual(['in']);
-    expect(lastMutations()[2]).toMatchObject({ entity: 'fridge_items', op: 'move' });
+    expect(lastMutations()).toHaveLength(2);
+    expect(lastMutations()[0]).toMatchObject({
+      entity: 'fridge_items',
+      op: 'correct_quantity',
+      payload: { expected_quantity: 3, new_quantity: 4 },
+    });
+    expect(lastMutations()[1]).toMatchObject({
+      entity: 'fridge_items',
+      op: 'move',
+      payload: { expected_quantity: 4 },
+    });
   });
 
   it('führt eine Lagerortänderung auch aus der manuellen Bearbeitung als gruppierten Move aus', async () => {
@@ -296,14 +341,8 @@ describe('inventory mutation hooks', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toHaveLength(2);
+    expect(lastMutations()).toHaveLength(1);
     expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      op: 'update',
-      payload: { id: 'item-1' },
-    });
-    expect(lastMutations()[0].payload).not.toHaveProperty('location_id', 'loc-2');
-    expect(lastMutations()[1]).toMatchObject({
       entity: 'fridge_items',
       entityId: 'item-1',
       op: 'move',
@@ -323,23 +362,24 @@ describe('inventory mutation hooks', () => {
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {
-      await result.current.mutateAsync({ ...ITEM, quantity: 0 });
+      await result.current.mutateAsync({
+        ...ITEM,
+        quantityCorrection: { expectedQuantity: 3, newQuantity: 0 },
+      });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toHaveLength(2);
+    expect(lastMutations()).toHaveLength(1);
     expect(lastMutations()[0]).toMatchObject({
       entity: 'fridge_items',
-      op: 'delete',
-      payload: { id: 'item-1', household_id: 'hh-1' },
+      op: 'correct_quantity',
+      payload: {
+        item_id: 'item-1',
+        household_id: 'hh-1',
+        expected_quantity: 3,
+        new_quantity: 0,
+      },
     });
-    expect(transactionPayloads()).toEqual([
-      expect.objectContaining({
-        type: 'out',
-        quantity: 3,
-        notes: '[Manual correction]',
-      }),
-    ]);
   });
 
   it('bucht bei Entnahme auf null trotz Lagerortänderung nur am bisherigen Lagerort', async () => {
@@ -347,20 +387,20 @@ describe('inventory mutation hooks', () => {
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {
-      await result.current.mutateAsync({ ...ITEM, quantity: 0, location_id: 'loc-2' });
+      await result.current.mutateAsync({
+        ...ITEM,
+        location_id: 'loc-2',
+        quantityCorrection: { expectedQuantity: 3, newQuantity: 0 },
+      });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toHaveLength(2);
-    expect(lastMutations()[0]).toMatchObject({ entity: 'fridge_items', op: 'delete' });
-    expect(transactionPayloads()).toEqual([
-      expect.objectContaining({
-        type: 'out',
-        quantity: 3,
-        location_id: 'loc-1',
-        notes: '[Manual correction]',
-      }),
-    ]);
+    expect(lastMutations()).toHaveLength(1);
+    expect(lastMutations()[0]).toMatchObject({
+      entity: 'fridge_items',
+      op: 'correct_quantity',
+      payload: { expected_quantity: 3, new_quantity: 0 },
+    });
   });
 
   it('bucht Öffnen, Wegwerfen und Verschieben jeweils mit Actor', async () => {
@@ -652,7 +692,12 @@ describe('inventory mutation hooks', () => {
   });
 
   it('behandelt manuelles Wieder-Versiegeln ohne künstliche Mengenbuchung', async () => {
-    mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
+    mockGetFirstAsync.mockResolvedValue({
+      ...ITEM,
+      opened_at: '2026-09-04T09:00:00.000Z',
+      vacuum_sealed: 0,
+      expiry_user_set: 0,
+    });
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {

@@ -112,3 +112,35 @@ describe('EditInventoryItemSheet MHD-Schutzvertrag', () => {
     );
   });
 });
+
+describe('EditInventoryItemSheet Mengenkorrektur-Vertrag (fam-87p)', () => {
+  beforeEach(() => {
+    mockMutateAsync.mockClear();
+  });
+
+  it('schickt bei einer reinen Namensänderung keine quantityCorrection, auch wenn der Bestand zwischenzeitlich verbraucht wurde', async () => {
+    const user = userEvent.setup();
+
+    await renderSheet();
+    await user.type(screen.getByLabelText('Artikelname'), 'x');
+    await user.press(saveButton());
+
+    expect(mockMutateAsync).toHaveBeenCalledTimes(1);
+    const payload = mockMutateAsync.mock.calls[0]?.[0];
+    expect(payload).not.toHaveProperty('quantityCorrection');
+  });
+
+  it('schickt bei einer bewussten Mengenänderung eine quantityCorrection mit der beim Öffnen geladenen Menge als expectedQuantity', async () => {
+    const user = userEvent.setup();
+
+    await renderSheet();
+    await user.press(screen.getByRole('button', { name: 'Menge erhöhen' }));
+    await user.press(saveButton());
+
+    expect(mockMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({
+        quantityCorrection: { expectedQuantity: 1, newQuantity: 2 },
+      }),
+    );
+  });
+});

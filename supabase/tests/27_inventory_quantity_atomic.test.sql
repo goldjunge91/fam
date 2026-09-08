@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(16);
+select plan(19);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('33333333-3333-3333-3333-333333333333', 'carol@example.com');
@@ -101,6 +101,31 @@ select is(
    where operation_id = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'),
   1,
   'ein Mengen-Retry nach einem Move dupliziert keine Ledgerzeile'
+);
+
+select throws_ok(
+  format(
+    $$ select public.adjust_fridge_item_quantity(
+      '14141414-1414-4141-8141-141414141414',
+      '15151515-1515-4151-8151-151515151515',
+      'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
+      %L, -0.0001, '2026-09-07T10:00:30Z'
+    ) $$,
+    :'household_id'
+  ),
+  'P0001', 'Mengen duerfen hoechstens drei Nachkommastellen haben',
+  'der RPC weist ein Delta mit mehr als drei Nachkommastellen zurueck'
+);
+select is(
+  (select quantity from public.fridge_items where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
+  3::numeric,
+  'ein unpraezises Delta veraendert den Bestand nicht'
+);
+select is(
+  (select count(*)::int from public.transactions
+   where operation_id = '14141414-1414-4141-8141-141414141414'),
+  0,
+  'ein unpraezises Delta schreibt kein Ledger'
 );
 
 select public.adjust_fridge_item_quantity(

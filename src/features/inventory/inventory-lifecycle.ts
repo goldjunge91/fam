@@ -1,3 +1,8 @@
+import {
+  fromInventoryQuantityUnits,
+  INVENTORY_QUANTITY_SCALE,
+  toInventoryQuantityUnits,
+} from '@/lib/inventory-quantity';
 import { calculateOpenedExpiryDate } from './opened-expiry';
 
 export type InventoryTransactionType = 'in' | 'out' | 'waste' | 'open';
@@ -100,12 +105,18 @@ function toIsoTimestamp(value: Date): string {
   return value.toISOString();
 }
 
-function assertValidOpenQuantity(item: LifecycleItem, quantity: number): void {
-  if (!Number.isFinite(quantity) || quantity <= 0 || quantity > item.quantity) {
+function assertValidOpenQuantity(
+  item: LifecycleItem,
+  quantity: number,
+): { itemUnits: number; quantityUnits: number } {
+  const itemUnits = toInventoryQuantityUnits(item.quantity);
+  const quantityUnits = toInventoryQuantityUnits(quantity);
+  if (quantityUnits <= 0 || quantityUnits > itemUnits) {
     throw new Error(
       'Die Öffnungsmenge muss größer als 0 und höchstens der Bestandsmenge entsprechen.',
     );
   }
+  return { itemUnits, quantityUnits };
 }
 
 /** Erstellt alle lokalen Änderungen für eine Öffnung, ohne Datenbankzugriff. */
@@ -115,7 +126,7 @@ export function planOpenInventoryItem(
   openedAt: Date,
   openedItemId: string,
 ): OpenInventoryPlan {
-  assertValidOpenQuantity(item, quantity);
+  const { itemUnits, quantityUnits } = assertValidOpenQuantity(item, quantity);
   if (item.openedAt !== null) {
     throw new Error('Ein bereits geöffnetes Los kann nicht erneut geöffnet werden.');
   }
@@ -130,7 +141,7 @@ export function planOpenInventoryItem(
     expiryUserSet: item.expiryUserSet,
     vacuumSealed: item.vacuumSealed,
   });
-  const isSingleUnit = item.quantity === 1;
+  const isSingleUnit = itemUnits === INVENTORY_QUANTITY_SCALE;
   const expiryUserSet = item.expiryUserSet && expiryDate === item.expiryDate;
 
   const transaction: LifecycleTransaction = {
@@ -142,7 +153,7 @@ export function planOpenInventoryItem(
     quantity,
     locationId: item.locationId,
     previousExpiryDate: item.expiryDate,
-    notes: item.quantity > 1 ? splitTransactionNotes(item.id) : null,
+    notes: itemUnits > INVENTORY_QUANTITY_SCALE ? splitTransactionNotes(item.id) : null,
     createdAt: openedAtIso,
   };
 
@@ -168,7 +179,7 @@ export function planOpenInventoryItem(
   };
 
   return {
-    originalPatch: { quantity: item.quantity - quantity },
+    originalPatch: { quantity: fromInventoryQuantityUnits(itemUnits - quantityUnits) },
     openedItem,
     transaction,
   };
@@ -184,14 +195,21 @@ function sameSplitIdentity(
   sealedItem: LifecycleItem,
   transaction: UndoOpenTransaction,
 ): boolean {
+  const sealedUnits = toInventoryQuantityUnits(sealedItem.quantity);
+  const openedUnits = toInventoryQuantityUnits(openedItem.quantity);
+  const transactionUnits = toInventoryQuantityUnits(transaction.quantity);
+  const originUnits =
+    transaction.originQuantity === undefined || transaction.originQuantity === null
+      ? null
+      : toInventoryQuantityUnits(transaction.originQuantity);
+
   // updated_at is server-generated and is not the opening event's version.
   // The stable origin id, source quantity and business attributes below decide
   // whether this is still the same split pair.
   return (
     getSplitOriginItemId(transaction) === sealedItem.id &&
-    transaction.originQuantity !== undefined &&
-    transaction.originQuantity !== null &&
-    transaction.originQuantity === sealedItem.quantity + transaction.quantity &&
+    originUnits !== null &&
+    originUnits === sealedUnits + transactionUnits &&
     openedItem.id === transaction.fridgeItemId &&
     openedItem.householdId === sealedItem.householdId &&
     openedItem.productId === sealedItem.productId &&
@@ -205,7 +223,7 @@ function sameSplitIdentity(
     openedItem.locationKind === sealedItem.locationKind &&
     openedItem.vacuumSealed === sealedItem.vacuumSealed &&
     openedItem.expiryUserSet === sealedItem.expiryUserSet &&
-    openedItem.quantity === transaction.quantity &&
+    openedUnits === transactionUnits &&
     openedItem.openedAt !== null &&
     sealedItem.openedAt === null &&
     sealedItem.expiryDate === transaction.previousExpiryDate
@@ -230,7 +248,12 @@ export function planUndoOpenTransaction(
     return {
       mode: 'merge-split',
       openedPatch: null,
-      sealedPatch: { quantity: sealedItem.quantity + transaction.quantity },
+      sealedPatch: {
+        quantity: fromInventoryQuantityUnits(
+          toInventoryQuantityUnits(sealedItem.quantity) +
+            toInventoryQuantityUnits(transaction.quantity),
+        ),
+      },
       deleteOpenedItem: true,
     };
   }

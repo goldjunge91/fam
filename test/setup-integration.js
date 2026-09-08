@@ -85,6 +85,15 @@ jest.mock('@sentry/react-native', () => ({
   reactNavigationIntegration: jest.fn(() => ({})),
 }));
 
+jest.mock('@lokal-dev/react-native-bugbubble', () => ({
+  BugBubbleLogger: {
+    logAnalytics: jest.fn(),
+    logConsole: jest.fn(),
+    logNetwork: jest.fn(),
+    logWebSocket: jest.fn(),
+  },
+}));
+
 // Die Integration-Suite ist ein reiner Node-/HTTP-Testlauf. Produktionscode
 // darf Diagnostik aufrufen, aber deren Expo-/React-Native-Backends gehoeren
 // nicht in diesen Prozess und wuerden ausserhalb von jest-expo ESM laden.

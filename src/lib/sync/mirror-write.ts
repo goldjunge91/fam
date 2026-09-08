@@ -90,6 +90,90 @@ type RemoteRow = Record<string, unknown> & {
 
 type LocalRowMeta = { updated_at: number; deleted_at: number | null; _dirty: number };
 
+type PendingOutboxRow = { op: string; payload: string };
+
+/**
+ * Spalten, die eine offene Outbox-Operation lokal bereits verändert hat und
+ * die deshalb bei einer eingehenden Remote-Zeile ihren lokalen Wert behalten
+ * müssen. `'all'` bedeutet: die ganze Zeile ist noch unbestätigt lokal
+ * (Insert), die Remote-Zeile wird komplett ignoriert.
+ */
+function touchedColumns(op: string, payload: Record<string, unknown>): Set<string> | 'all' {
+  switch (op) {
+    case 'insert':
+      return 'all';
+    case 'delete':
+    case 'restore':
+      return new Set(['deleted_at']);
+    case 'move':
+      return new Set(['location_id']);
+    case 'adjust_quantity':
+    case 'correct_quantity':
+    case 'reverse_quantity':
+      return new Set(['quantity', 'deleted_at']);
+    default:
+      // 'update' und unbekannte künftige Ops: nur die tatsächlich gepatchten Felder.
+      return new Set(Object.keys(payload).filter((key) => key !== 'id'));
+  }
+}
+
+/**
+ * Wendet eine Remote-Zeile auf eine lokal dirty Zeile an, für die noch
+ * Outbox-Operationen offen sind. Remote gilt als bestätigte Basis; von
+ * offenen Operationen berührte Spalten behalten ihren lokalen Wert, alle
+ * anderen übernehmen die echte Remote-Änderung. `_dirty` bleibt 1, bis die
+ * offenen Operationen bestätigt sind.
+ */
+async function reconcileDirtyRowWithPendingOps(
+  txn: SqlDatabase,
+  entity: Entity,
+  meta: ReturnType<typeof mirrorMetaOf>,
+  remoteRow: RemoteRow,
+  pendingOps: readonly PendingOutboxRow[],
+): Promise<'written' | 'local-wins'> {
+  const touched = new Set<string>();
+  for (const { op, payload } of pendingOps) {
+    const columns = touchedColumns(op, JSON.parse(payload) as Record<string, unknown>);
+    if (columns === 'all') return 'local-wins';
+    for (const column of columns) touched.add(column);
+  }
+
+  const currentRow = await txn.getFirstAsync<Record<string, unknown>>(
+    `select * from ${meta.table} where id = ?`,
+    [remoteRow.id],
+  );
+  if (currentRow === null) {
+    await upsertMirrorRow(txn, entity, remoteRow, { dirty: 0 });
+    return 'written';
+  }
+
+  const deletedAtRaw = remoteRow.deleted_at;
+  const remoteDeletedAt =
+    meta.hasServerTombstone && typeof deletedAtRaw === 'string' ? toEpochMs(deletedAtRaw) : null;
+
+  const columns = [...meta.columns, 'updated_at', 'deleted_at', '_dirty'];
+  const values: SqlParam[] = columns.map((column) => {
+    if (column === '_dirty') return 1;
+    if (column === 'updated_at') return currentRow.updated_at as SqlParam;
+    if (column === 'deleted_at') {
+      return touched.has('deleted_at') ? (currentRow.deleted_at as SqlParam) : remoteDeletedAt;
+    }
+    if (touched.has(column)) return currentRow[column] as SqlParam;
+    return toSqlParam(remoteRow[column]);
+  });
+
+  const placeholders = columns.map(() => '?').join(', ');
+  const updateAssignments = columns.map((column) => `${column} = excluded.${column}`).join(', ');
+
+  await txn.runAsync(
+    `insert into ${meta.table} (${columns.join(', ')})
+     values (${placeholders})
+     on conflict(id) do update set ${updateAssignments}`,
+    values,
+  );
+  return 'written';
+}
+
 /** Wendet Remote-Daten an; lokale Dirty-Zeilen durchlaufen die Konfliktauflösung. */
 export async function applyRemoteRow(
   txn: SqlDatabase,
@@ -107,6 +191,15 @@ export async function applyRemoteRow(
   if (local === null || local._dirty === 0) {
     await upsertMirrorRow(txn, entity, remoteRow, { dirty: 0 });
     return 'written';
+  }
+
+  const pendingOps = await txn.getAllAsync<PendingOutboxRow>(
+    'select op, payload from outbox where entity = ? and entity_id = ? order by id asc',
+    [entity, remoteRow.id],
+  );
+
+  if (pendingOps.length > 0) {
+    return reconcileDirtyRowWithPendingOps(txn, entity, meta, remoteRow, pendingOps);
   }
 
   const localSide: SyncSide = {

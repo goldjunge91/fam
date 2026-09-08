@@ -83,7 +83,12 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
 
     // Ein Move ist bereits eine atomare, mehrzeilige Mutation. Er darf nicht
     // mit nachfolgenden Einzelzeilen-Updates zusammenfallen.
-    if (entry.op === 'move' || entry.op === 'adjust_quantity') {
+    if (
+      entry.op === 'move' ||
+      entry.op === 'adjust_quantity' ||
+      entry.op === 'correct_quantity' ||
+      entry.op === 'reverse_quantity'
+    ) {
       const group = open.get(key);
       if (group !== undefined) {
         finish(group);

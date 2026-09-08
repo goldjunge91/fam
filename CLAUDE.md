@@ -4,6 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 @AGENTS.md
 
+Vor jeder Codeänderung `tasks/inventory-sync/CONSTRAINTS.md` lesen. Die dort festgelegten Grenzen dürfen nicht abgeschwächt werden, um eine Änderung erfolgreich erscheinen zu lassen.
+
 The rest of this file supplements `AGENTS.md` with commands and architecture detail that file doesn't cover.
 
 ## Commands
