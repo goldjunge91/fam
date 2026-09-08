@@ -368,8 +368,12 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
 export const ALL_ENTITIES: readonly Entity[] = [
   'storage_locations',
   'stores',
-  'fridge_items',
+  // transactions vor fridge_items: die Ledgerzeile einer bereits vom Server
+  // angewendeten Mengenoperation muss lokal bestaetigt sein (_dirty = 0),
+  // bevor fridge_items rekonziliert wird — sonst zaehlt computeReconciledQuantity
+  // ihr Delta nach Antwortverlust ein zweites Mal (fam-onu).
   'transactions',
+  'fridge_items',
   'shopping_list_items',
   'shopping_category_preferences',
   'products',

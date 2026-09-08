@@ -1,6 +1,6 @@
 # Inventory-Sync: Ausführungsplan
 
-Status: Contract und Matrix sind vor Produktionsänderungen gemeinsam zu prüfen.
+Status: von Marco am 2026-09-08 gemeinsam mit Contract und Dateimatrix zur schrittweisen Umsetzung freigegeben.
 
 Quellen: `CONSTRAINTS.md` setzt Qualitätsgrenzen, `contract.md` Zielverhalten.
 Beads verfolgt Arbeit; historische Verträge in `fam-lem.18` sind keine zweite
@@ -133,8 +133,8 @@ ist ein Auftrag, alle dort genannten Dateien auf einmal umzubauen.
 **Prüfpunkt A:** Typen/Footprint sind eindeutig, der fokussierte Gate-Test
 besteht, DB-Prüfung ist durchführbar oder konkret als Blocker ausgewiesen.
 Bestehende Baselinefehler einschließlich `fam-t04` bleiben sichtbar. Kein
-Schema-Cutover ohne ausführbaren Nachweis. Plan-/Contractfreigabe ist vor
-Produktionsänderungen erforderlich; diese Planung erteilt sie nicht selbst.
+Schema-Cutover ohne ausführbaren Nachweis. Plan-/Contractfreigabe liegt vor;
+sie ersetzt keine technische Abnahme und keine Aktivierungsprüfung.
 
 ### Bestehende Arbeitsstände fortführen
 

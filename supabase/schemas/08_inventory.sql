@@ -1230,6 +1230,10 @@ begin
     raise exception 'Split-Lose nicht mehr vorhanden';
   end if;
 
+  -- Losidentitaet wie im Client (sameSplitIdentity, inventory-lifecycle.ts):
+  -- Menge und Zeitstempel allein reichen nicht, weil ein Offline-Move oder
+  -- eine Metadatenaenderung an einem der beiden Split-Lose sonst
+  -- stillschweigend verworfen wuerde.
   if sealed_item.deleted_at is not null
     or opened_item.deleted_at is not null
     or opened_item.opened_at is null
@@ -1237,6 +1241,14 @@ begin
     or sealed_item.quantity + opened_item.quantity is distinct from original_transaction.origin_quantity
     or opened_item.quantity is distinct from original_transaction.quantity
     or sealed_item.expiry_date is distinct from original_transaction.previous_expiry_date
+    or sealed_item.location_id is distinct from opened_item.location_id
+    or sealed_item.product_id is distinct from opened_item.product_id
+    or sealed_item.name is distinct from opened_item.name
+    or sealed_item.unit is distinct from opened_item.unit
+    or sealed_item.package_size is distinct from opened_item.package_size
+    or sealed_item.package_size_unit is distinct from opened_item.package_size_unit
+    or sealed_item.added_by is distinct from opened_item.added_by
+    or sealed_item.vacuum_sealed is distinct from opened_item.vacuum_sealed
   then
     raise exception 'Der Bestand wurde zwischenzeitlich veraendert';
   end if;

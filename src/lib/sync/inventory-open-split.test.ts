@@ -1,7 +1,5 @@
-import {
-  createInventorySplitMutation,
-  parseInventorySplitPayload,
-} from '@/lib/sync/inventory-open-split';
+import { parseInventorySplitPayload } from '@/lib/sync/inventory-open-split';
+import { createInventorySplitMutation } from '@/lib/sync/inventory-quantity';
 
 describe('inventory open split', () => {
   const payload = {

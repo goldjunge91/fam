@@ -1,7 +1,5 @@
-import {
-  createInventoryQuantityCorrectionMutation,
-  parseInventoryQuantityCorrectionPayload,
-} from '@/lib/sync/inventory-quantity-correction';
+import { createInventoryQuantityCorrectionMutation } from '@/lib/sync/inventory-quantity';
+import { parseInventoryQuantityCorrectionPayload } from '@/lib/sync/inventory-quantity-correction';
 
 describe('inventory quantity correction', () => {
   const payload = {

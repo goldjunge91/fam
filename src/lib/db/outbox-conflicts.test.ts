@@ -3,8 +3,10 @@ import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation, recordOutboxOutcome } from '@/lib/db/outbox';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
-import { createInventoryQuantityMutation } from '@/lib/sync/inventory-quantity';
-import { createInventoryQuantityCorrectionMutation } from '@/lib/sync/inventory-quantity-correction';
+import {
+  createInventoryQuantityCorrectionMutation,
+  createInventoryQuantityMutation,
+} from '@/lib/sync/inventory-quantity';
 
 import { createTestDatabase } from '../../../test/node-sqlite-adapter';
 import { getFridgeItemConflicts } from './outbox-conflicts';
@@ -70,6 +72,7 @@ describe('getFridgeItemConflicts', () => {
       await recordOutboxOutcome(db, [row.id], {
         attempts: MAX_ATTEMPTS,
         lastError: 'Bestand veraendert',
+        kind: 'permanent',
         nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
       });
 
@@ -159,6 +162,7 @@ describe('getFridgeItemConflicts', () => {
       await recordOutboxOutcome(db, [rows[0].id], {
         attempts: MAX_ATTEMPTS,
         lastError: 'Bestand veraendert',
+        kind: 'permanent',
         nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
       });
 
@@ -166,6 +170,56 @@ describe('getFridgeItemConflicts', () => {
       expect(conflicts).toHaveLength(1);
       expect(conflicts[0].sourceIds).toEqual(rows.map((row) => row.id));
       expect(conflicts[0].correction).toBeNull();
+    } finally {
+      db.close();
+    }
+  });
+
+  it('surfacet eine nach wiederholten transienten Fehlern erschoepfte Korrektur nicht als Konflikt (fam-lem.25)', async () => {
+    // Der Servererfolg bleibt nach reinen Timeouts/Netzwerkfehlern unbekannt,
+    // auch wenn das Retry-Limit erreicht ist — kein Freibrief zum Verwerfen.
+    const db = await makeDb();
+    try {
+      await enqueueMutation(
+        db,
+        createInventoryQuantityCorrectionMutation({
+          payload: {
+            operation_id: 'op-1',
+            transaction_id: 'tx-1',
+            item_id: 'item-1',
+            household_id: 'hh-1',
+            expected_quantity: 5,
+            new_quantity: 3,
+            created_at: '2026-09-07T10:00:00.000Z',
+          },
+          transaction: {
+            id: 'tx-1',
+            operation_id: 'op-1',
+            household_id: 'hh-1',
+            fridge_item_id: 'item-1',
+            product_id: null,
+            actor: 'user-1',
+            type: 'out',
+            quantity: 2,
+            location_id: null,
+            reason: null,
+            previous_expiry_date: null,
+            notes: '[Manual correction]',
+            undone: false,
+            created_at: '2026-09-07T10:00:00.000Z',
+          },
+          nowMs: 1,
+        }),
+      );
+      const [row] = await db.getAllAsync<{ id: number }>('select id from outbox order by id');
+      await recordOutboxOutcome(db, [row.id], {
+        attempts: MAX_ATTEMPTS,
+        lastError: 'Zeitueberschreitung',
+        kind: 'transient',
+        nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+      });
+
+      expect(await getFridgeItemConflicts(db)).toEqual([]);
     } finally {
       db.close();
     }
@@ -186,6 +240,7 @@ describe('getFridgeItemConflicts', () => {
       await recordOutboxOutcome(db, [row.id], {
         attempts: MAX_ATTEMPTS,
         lastError: 'RLS verweigert',
+        kind: 'permanent',
         nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
       });
 

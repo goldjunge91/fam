@@ -1,6 +1,6 @@
 # Inventory Operations Contract
 
-Status: vorgeschlagener Vertrag; Produktionsrefactor bis zur Freigabe gesperrt
+Status: von Marco am 2026-09-08 gemeinsam mit Dateimatrix und Ausführungsplan zur schrittweisen Umsetzung freigegeben.
 Letzte Festlegung: 2026-09-08
 
 Dieses Dokument ist die einzige maßgebliche Quelle für fachliche Lifecycle-Zustände
@@ -11,8 +11,8 @@ das Zielverhalten; `execution-plan.md` setzt die Reihenfolge. Beads verfolgt
 Arbeit und Nachweise. Die früheren Funktionsverträge in `fam-lem.18` und
 Folgetickets sind historische Ausgangslage, insbesondere ihre Legacy-Pflicht
 und eigenständigen Split-/Open-Ledgerpfade. Sie sind keine parallele normative
-Quelle. Bis zur Freigabe dieses Zielvertrags wird auch nicht nach dem alten
-Vertrag weiterimplementiert. Dokumentfreigabe und Implementierungsnachweis
+Quelle. Implementiert wird nach diesem freigegebenen Zielvertrag.
+Dokumentfreigabe und Implementierungsnachweis
 sind getrennt; vorhandene grüne Tests belegen nicht automatisch das neue Modell.
 
 ## 1. Begriffe
@@ -404,6 +404,12 @@ Undo ist genau erlaubt für:
 original.created_at <= undo.created_at < original.created_at + 24 Stunden
 ```
 
+Alle drei Modi tragen zusätzlich ein optionales `notes`-Feld (String), das
+unverändert in die jeweilige Gegenbuchung übernommen wird (z. B.
+`[Undone] Gegenbuchung` oder `[Manual correction]` nach Ablauf des
+24-Stunden-Fensters). Fehlt `notes`, bleibt das Feld auf der Gegenbuchung
+`null`. Der Server interpretiert `notes` nicht fachlich; er persistiert es nur.
+
 ### `reverse_quantity`
 
 Eine inverse Ledgerzeile referenziert die Originalzeile. Menge und Tombstone
@@ -455,6 +461,11 @@ Preconditions:
   `expired | spoiled | other`; `quantity_after = expected_quantity - W`.
 - `move_inventory`: erwartete Menge und alter Ort müssen stimmen; Menge und
   Lot-ID bleiben gleich; beide Ledgerbeine besitzen dieselbe Operations-ID.
+  `expected_location_id` und `to_location_id` sind Pflichtfelder (nicht
+  `null`): Bestand ohne zugewiesenen Lagerort entfällt als Zielzustand
+  (Produktentscheidung 2026-09-08). Bestehende Zeilen mit `location_id = null`
+  benötigen vor der v1-Aktivierung eine Datenmigration und eine UI-Pflicht zur
+  Lagerortauswahl; das ist eigener Arbeitsumfang, nicht Teil dieses Dokuments.
 - `correct_quantity`: `new_quantity >= 0` und ungleich Erwartungsmenge; Ledger
   enthält exakt das tatsächliche Delta mit `[Manual correction]`.
 - `reseal_inventory`: jederzeit explizit möglich; setzt `opened_at = null` und
@@ -560,4 +571,27 @@ Ledger, Tombstone und vollständigen Footprint. Testbefehle und das
 - `fam-lem.19`: v1-Zielzuordnung in Abschnitt 1 und 9.1; historische Ticketkriterien vor Umsetzung abgleichen.
 - `fam-lem.23`: Receipt und konsistente Serverbasis in Abschnitt 2.1; kein Implementierungsnachweis durch dieses Dokument.
 - Tests in Abschnitt 10 sind geforderte Nachweise, keine bereits ausgeführten Prüfungen.
-- Die Dateimatrix steht in `execution-plan.md`, Abschnitt „Verbindliche Dateimatrix“. Die gemeinsame Freigabe von Vertrag und Matrix bleibt vor Produktionsänderungen erforderlich.
+- Die Dateimatrix steht in `execution-plan.md`, Abschnitt „Verbindliche Dateimatrix“. Vertrag und Matrix sind gemeinsam freigegeben; technische Abnahmegates und Constraints bleiben verbindlich.
+
+### Entscheidungen vom 2026-09-08 (fam-lem.27-Voranalyse)
+
+Vor dem eigentlichen v1-Cutover wurden drei durch die Pro-Operation-Analyse
+aufgedeckte Vertragslücken von Marco entschieden:
+
+1. **Undo-`notes`:** Alle drei Undo-Modi tragen jetzt ein optionales `notes`-
+   Feld (Abschnitt 6). Vorher fehlte es im Vertrag, obwohl der bestehende
+   Laufzeitpfad es zwingend braucht.
+2. **`move_inventory` ohne Lagerort entfällt:** `expected_location_id` und
+   `to_location_id` sind Pflichtfelder (Abschnitt 7). Bestand ohne
+   zugewiesenen Lagerort ist damit kein gültiger Zielzustand mehr — das ist
+   eine Produktentscheidung, keine reine Contract-Präzisierung. Erfordert vor
+   der v1-Aktivierung: Datenmigration bestehender `location_id = null`-Zeilen
+   und eine UI-Pflicht zur Lagerortauswahl beim Anlegen. Beides ist noch nicht
+   umgesetzt und nicht Teil dieses Dokuments.
+3. **Reihenfolge:** Der Integer-Tausendstel-Persistenz-Umbau (Abschnitt 3)
+   geht dem eigentlichen v1-Cutover der fünf Operationen voraus, nicht
+   umgekehrt. Keine Operation wird auf `validateInventoryOperation`
+   umgestellt, solange reale Bestandsmengen noch als Dezimalzahl (SQLite
+   `real`, Postgres `numeric`) gespeichert werden — die Integer-Prüfungen
+   (`isPositiveIntegerThousandths` etc.) würden sonst jede reale Dezimalmenge
+   ablehnen.

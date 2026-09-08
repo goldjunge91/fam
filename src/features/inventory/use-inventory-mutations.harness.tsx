@@ -319,8 +319,9 @@ describe('Inventory-Mutations gegen die echte on-device SQLite', () => {
     const { result } = await renderMutationHook(() => useUpdateFridgeItemMutation());
 
     await result.current.mutateAsync({
-      ...ITEM_BASE,
-      location_id: 'loc-new',
+      id: ITEM_BASE.id,
+      household_id: ITEM_BASE.household_id,
+      patch: { location_id: 'loc-new' },
       quantityCorrection: { expectedQuantity: 3, newQuantity: 4 },
     });
 
@@ -697,7 +698,13 @@ describe('Inventory-Mutations gegen die echte on-device SQLite', () => {
   it('weist einen Update-Hook für einen lokal fehlenden Bestand zurück und enqueut nichts', async () => {
     const { result } = await renderMutationHook(() => useUpdateFridgeItemMutation());
 
-    await expect(result.current.mutateAsync(ITEM_BASE)).rejects.toThrow('lokal nicht vorhanden');
+    await expect(
+      result.current.mutateAsync({
+        id: ITEM_BASE.id,
+        household_id: ITEM_BASE.household_id,
+        patch: {},
+      }),
+    ).rejects.toThrow('lokal nicht vorhanden');
     expect(await outboxRows(db)).toEqual([]);
   });
 
@@ -707,7 +714,9 @@ describe('Inventory-Mutations gegen die echte on-device SQLite', () => {
 
     await expect(
       result.current.mutateAsync({
-        ...ITEM_BASE,
+        id: ITEM_BASE.id,
+        household_id: ITEM_BASE.household_id,
+        patch: {},
         quantityCorrection: { expectedQuantity: 3, newQuantity: -1 },
       }),
     ).rejects.toThrow('nicht negativ');

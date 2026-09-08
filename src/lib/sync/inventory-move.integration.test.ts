@@ -2,7 +2,7 @@ import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutations } from '@/lib/db/outbox';
-import { createInventoryMoveMutation } from '@/lib/sync/inventory-move';
+import { createInventoryMoveMutation } from '@/lib/sync/inventory-quantity';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
 describe('lokale Inventory-Move-Mutation', () => {

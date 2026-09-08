@@ -513,6 +513,90 @@ describe('applyRemoteRow — Reconciliation mit offenen Outbox-Operationen (fam-
     expect(row?._dirty).toBe(1);
   });
 
+  it('behandelt ein offenes Delta, das die neue Remote-Basis ins Negative treiben wuerde, als Konflikt (fam-onu)', async () => {
+    // Lokal auf 0 verbraucht (Basis 1, offenes Delta -1... hier draengender:
+    // ein offenes Delta -2 gegen eine inzwischen auf 1 gesunkene Remote-Basis
+    // waere rechnerisch -1 — eine negative Bestandsmenge ist niemals gueltig
+    // und darf nicht still geschrieben werden.
+    await insertLocalDirtyFridgeItem({ quantity: 0 });
+    await enqueueOutbox('adjust_quantity', {
+      operation_id: 'op-3',
+      transaction_id: 'tx-3',
+      item_id: 'fi-remote-1',
+      household_id: 'hh-1',
+      delta: -2,
+      created_at: '2024-01-15T11:00:00Z',
+    });
+
+    // Server hat inzwischen nur noch 1 statt der urspruenglichen 3 bestaetigt.
+    // 1 + (-2) = -1: unmoeglich, muss als Konflikt behandelt werden statt eine
+    // negative Menge zu schreiben oder die Menge stillschweigend auf 0 zu clampen.
+    const result = await applyRemoteRow(
+      db,
+      'fridge_items',
+      fridgeItem({ quantity: 1, updated_at: '2024-01-15T13:00:00Z' }),
+      Date.now(),
+    );
+
+    expect(result).toBe('local-wins');
+    const row = await db.getFirstAsync<{ quantity: number; _dirty: number }>(
+      'select quantity, _dirty from fridge_items where id = ?',
+      ['fi-remote-1'],
+    );
+    // local-wins: die urspruengliche lokale Zeile bleibt vollstaendig unveraendert.
+    expect(row?.quantity).toBe(0);
+    expect(row?._dirty).toBe(1);
+  });
+
+  it('wendet ein bereits serverseitig angewendetes Delta nach Antwortverlust nicht doppelt an (fam-onu)', async () => {
+    // Lokal optimistisch auf 4 verbraucht (Basis 5, Delta -1), aber die
+    // Serverantwort ging verloren — der Push-Retry steht noch aus. In der
+    // Zwischenzeit hat DIESE Pull-Runde bereits die zugehoerige Ledgerzeile
+    // bestaetigt uebernommen (transactions wird vor fridge_items gepullt,
+    // sync/entities.ts) — das ist der Empfangsbeweis, dass der Server das
+    // Delta bereits angewendet hat.
+    await insertLocalDirtyFridgeItem({ quantity: 4 });
+    await enqueueOutbox('adjust_quantity', {
+      operation_id: 'op-1',
+      transaction_id: 'tx-1',
+      item_id: 'fi-remote-1',
+      household_id: 'hh-1',
+      delta: -1,
+      created_at: '2024-01-15T11:00:00Z',
+    });
+    await upsertMirrorRow(
+      db,
+      'transactions',
+      {
+        id: 'tx-1',
+        household_id: 'hh-1',
+        fridge_item_id: 'fi-remote-1',
+        type: 'out',
+        quantity: 1,
+        undone: false,
+        created_at: '2024-01-15T11:00:00Z',
+      },
+      { dirty: 0 },
+    );
+
+    // Die neue Remote-Basis (4) enthaelt das Delta bereits.
+    const result = await applyRemoteRow(
+      db,
+      'fridge_items',
+      fridgeItem({ quantity: 4, updated_at: '2024-01-15T13:00:00Z' }),
+      Date.now(),
+    );
+    expect(result).toBe('written');
+
+    const row = await db.getFirstAsync<{ quantity: number; _dirty: number }>(
+      'select quantity, _dirty from fridge_items where id = ?',
+      ['fi-remote-1'],
+    );
+    // Ohne Fix wuerde das Delta erneut angewendet: 4 + (-1) = 3, falsch.
+    expect(row?.quantity).toBe(4);
+    expect(row?._dirty).toBe(1);
+  });
+
   it('behandelt eine verletzte Korrektur-Erwartung gegen die neue Remote-Basis als Konflikt', async () => {
     await insertLocalDirtyFridgeItem({ quantity: 5 });
     await enqueueOutbox('correct_quantity', {
@@ -578,6 +662,54 @@ describe('applyRemoteRow — Reconciliation mit offenen Outbox-Operationen (fam-
       ['fi-remote-1'],
     );
     expect(row?.quantity).toBe(4);
+    expect(row?._dirty).toBe(1);
+  });
+
+  it('verdoppelt die Menge einer Waste-Ruecknahme nicht, wenn sie nach Antwortverlust bereits bestaetigt ist (fam-onu)', async () => {
+    // Ein Waste hat das Los auf 0 tombstoned; die Ruecknahme hat lokal
+    // optimistisch auf 5 restauriert und ihre eigene Ledgerzeile eingefuegt.
+    // Der Server hat die Ruecknahme bereits angewendet, die Antwort ging
+    // verloren — DIESE Pull-Runde hat die Ledgerzeile schon bestaetigt
+    // uebernommen (transactions vor fridge_items, sync/entities.ts).
+    await insertLocalDirtyFridgeItem({ quantity: 5, deleted_at: null });
+    await upsertMirrorRow(
+      db,
+      'transactions',
+      {
+        id: 'tx-reversal-2',
+        household_id: 'hh-1',
+        fridge_item_id: 'fi-remote-1',
+        type: 'in',
+        quantity: 5,
+        undone: false,
+        created_at: '2024-01-15T11:30:00Z',
+      },
+      { dirty: 0 },
+    );
+    await enqueueOutbox('reverse_quantity', {
+      reversal_transaction_id: 'tx-reversal-2',
+      reversal_of: 'tx-waste-1',
+      item_id: 'fi-remote-1',
+      household_id: 'hh-1',
+      created_at: '2024-01-15T11:30:00Z',
+      notes: 'Rueckgaengig',
+    });
+
+    // Die Remote-Basis enthaelt die Restaurierung bereits.
+    const result = await applyRemoteRow(
+      db,
+      'fridge_items',
+      fridgeItem({ quantity: 5, deleted_at: null, updated_at: '2024-01-15T13:00:00Z' }),
+      Date.now(),
+    );
+    expect(result).toBe('written');
+
+    const row = await db.getFirstAsync<{ quantity: number; _dirty: number }>(
+      'select quantity, _dirty from fridge_items where id = ?',
+      ['fi-remote-1'],
+    );
+    // Ohne Fix wuerde das Ledger-Delta erneut angewendet: 5 + 5 = 10, falsch.
+    expect(row?.quantity).toBe(5);
     expect(row?._dirty).toBe(1);
   });
 

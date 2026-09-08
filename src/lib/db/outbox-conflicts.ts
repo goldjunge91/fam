@@ -45,12 +45,18 @@ type ConflictRow = {
  */
 export async function getFridgeItemConflicts(db: SqlDatabase): Promise<FridgeItemConflict[]> {
   const placeholders = QUANTITY_OPS.map(() => '?').join(', ');
+  // `attempts >= MAX_ATTEMPTS` allein reicht nicht: wiederholte transiente
+  // Fehler (Timeout/Netzwerk/5xx) erschoepfen die Retries genauso, ohne dass
+  // der Server je definitiv abgelehnt hat. Ein Retry-Limit macht `unknown`
+  // nicht zu `conflict` — nur `last_error_kind = 'permanent'` ist eine
+  // tatsaechliche, aufloesbare Ablehnung (fam-lem.25).
   const conflictedItems = await db.getAllAsync<{ entity_id: string }>(
     `select distinct entity_id
        from outbox
       where entity = 'fridge_items'
         and op in (${placeholders})
-        and attempts >= ?`,
+        and attempts >= ?
+        and last_error_kind = 'permanent'`,
     [...QUANTITY_OPS, MAX_ATTEMPTS],
   );
   if (conflictedItems.length === 0) return [];

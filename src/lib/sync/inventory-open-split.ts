@@ -1,6 +1,4 @@
-import type { EnqueueMutationInput } from '@/lib/db/outbox';
 import { fromInventoryQuantityUnits, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
-import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
 export type InventorySplitPayload = {
   transaction_id: string;
@@ -71,58 +69,4 @@ export function parseInventorySplitPayload(
     throw new Error('Split-Payload braucht zwei unterschiedliche Bestands-IDs.');
   }
   return parsed;
-}
-
-/** Schreibt Rest-Los, neues geoeffnetes Los und Ledger lokal atomar in einer Outbox-Operation. */
-export function createInventorySplitMutation(args: {
-  payload: InventorySplitPayload;
-  openedItem: Record<string, unknown>;
-  transaction: Record<string, unknown>;
-  nowMs: number;
-}): EnqueueMutationInput {
-  const { payload, openedItem, transaction, nowMs } = args;
-  const remainingQuantity = fromInventoryQuantityUnits(
-    toInventoryQuantityUnits(payload.expected_source_quantity) -
-      toInventoryQuantityUnits(payload.open_quantity),
-  );
-
-  return {
-    entity: 'fridge_items',
-    entityId: payload.source_item_id,
-    op: 'split_open',
-    payload: { ...payload },
-    applyLocally: async (txn) => {
-      if (remainingQuantity === 0) {
-        await applyLocalMirrorWrite(
-          txn,
-          'fridge_items',
-          'delete',
-          { id: payload.source_item_id },
-          nowMs,
-        );
-      } else {
-        await applyLocalMirrorWrite(
-          txn,
-          'fridge_items',
-          'update',
-          { id: payload.source_item_id, quantity: remainingQuantity },
-          nowMs,
-        );
-      }
-      await applyLocalMirrorWrite(
-        txn,
-        'fridge_items',
-        'insert',
-        { ...openedItem, created_at: payload.created_at },
-        nowMs,
-      );
-      await applyLocalMirrorWrite(
-        txn,
-        'transactions',
-        'insert',
-        { reversal_of: null, ...transaction },
-        nowMs,
-      );
-    },
-  };
 }

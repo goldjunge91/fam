@@ -14,12 +14,14 @@ import {
 import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';
 import { fromInventoryQuantityUnits, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
 import { getSupabase } from '@/lib/supabase';
-import { createInventoryMoveMutation } from '@/lib/sync/inventory-move';
-import { createInventoryMergeUndoMutation } from '@/lib/sync/inventory-open-merge';
-import { createInventorySplitMutation } from '@/lib/sync/inventory-open-split';
-import { createInventoryQuantityMutation } from '@/lib/sync/inventory-quantity';
-import { createInventoryQuantityCorrectionMutation } from '@/lib/sync/inventory-quantity-correction';
-import { createInventoryQuantityReversalMutation } from '@/lib/sync/inventory-quantity-reversal';
+import {
+  createInventoryMergeUndoMutation,
+  createInventoryMoveMutation,
+  createInventoryQuantityCorrectionMutation,
+  createInventoryQuantityMutation,
+  createInventoryQuantityReversalMutation,
+  createInventorySplitMutation,
+} from '@/lib/sync/inventory-quantity';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import {
   discardInventoryConflict,
@@ -502,10 +504,7 @@ export function useUpdateFridgeItemMutation() {
         }
 
         const metadataPatch: Record<string, unknown> = { id: item.id };
-        if (
-          item.patch.product_id !== undefined &&
-          item.patch.product_id !== existing.product_id
-        ) {
+        if (item.patch.product_id !== undefined && item.patch.product_id !== existing.product_id) {
           metadataPatch.product_id = item.patch.product_id;
         }
         if (item.patch.name !== undefined && item.patch.name !== existing.name) {
@@ -527,9 +526,7 @@ export function useUpdateFridgeItemMutation() {
         }
         if (
           item.patch.package_size_unit !== undefined &&
-          (item.patch.package_size_unit
-            ? normalizeUnit(item.patch.package_size_unit)
-            : null) !==
+          (item.patch.package_size_unit ? normalizeUnit(item.patch.package_size_unit) : null) !==
             (existing.package_size_unit ? normalizeUnit(existing.package_size_unit) : null)
         ) {
           metadataPatch.package_size_unit = item.patch.package_size_unit
@@ -542,10 +539,7 @@ export function useUpdateFridgeItemMutation() {
         ) {
           metadataPatch.expiry_date = item.patch.expiry_date;
         }
-        if (
-          item.patch.opened_at !== undefined &&
-          item.patch.opened_at !== existing.opened_at
-        ) {
+        if (item.patch.opened_at !== undefined && item.patch.opened_at !== existing.opened_at) {
           metadataPatch.opened_at = item.patch.opened_at;
         }
         if (
@@ -1084,6 +1078,7 @@ export function useUndoOpenTransactionMutation() {
                 household_id: transaction.household_id,
                 created_at: nowIso,
                 notes,
+                opened_item_id: openedRow.id,
               },
               sealedItemId: sealedRow.id,
               sealedQuantityAfterMerge: plan.sealedPatch.quantity,

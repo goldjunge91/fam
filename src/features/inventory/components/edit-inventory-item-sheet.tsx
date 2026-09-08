@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, View } from 'react-native';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
@@ -29,7 +29,6 @@ export function EditInventoryItemSheet({
   const updateItem = useUpdateFridgeItemMutation();
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState(1);
-  const [initialQuantity, setInitialQuantity] = useState(1);
   const [unit, setUnit] = useState('piece');
   const [locationId, setLocationId] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
@@ -38,18 +37,50 @@ export function EditInventoryItemSheet({
   const [expiryUserSet, setExpiryUserSet] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [nameError, setNameError] = useState<string | null>(null);
+  // Feste Momentaufnahme vom Öffnen der Sheet. save() vergleicht dagegen statt
+  // gegen das live aktualisierte `item`-Prop: sonst würde eine fremde
+  // Änderung an einem vom Nutzer nicht bearbeiteten Feld (z. B. Realtime
+  // während die Sheet offen bleibt) fälschlich als eigene Bearbeitung erkannt
+  // und beim Speichern zurückgesetzt.
+  const [baseline, setBaseline] = useState({
+    name: '',
+    quantity: 1,
+    unit: 'piece',
+    locationId: '',
+    expiryDate: '',
+    openedAt: null as string | null,
+    vacuumSealed: false,
+    expiryUserSet: false,
+  });
+  // Merkt sich, für welches Item der Entwurf zuletzt initialisiert wurde.
+  const initializedItemId = useRef<string | null>(null);
 
   useEffect(() => {
-    if (!visible || !item) return;
-    setName(item.name);
-    setQuantity(item.quantity);
-    setInitialQuantity(item.quantity);
-    setUnit(item.unit);
-    setLocationId(item.location_id ?? '');
-    setExpiryDate(item.expiry_date ?? '');
-    setOpenedAt(item.opened_at ?? null);
-    setVacuumSealed(item.vacuum_sealed ?? false);
-    setExpiryUserSet(item.expiry_user_set ?? false);
+    if (!visible || !item) {
+      initializedItemId.current = null;
+      return;
+    }
+    if (initializedItemId.current === item.id) return;
+    initializedItemId.current = item.id;
+    const nextBaseline = {
+      name: item.name,
+      quantity: item.quantity,
+      unit: item.unit,
+      locationId: item.location_id ?? '',
+      expiryDate: item.expiry_date ?? '',
+      openedAt: item.opened_at ?? null,
+      vacuumSealed: item.vacuum_sealed ?? false,
+      expiryUserSet: item.expiry_user_set ?? false,
+    };
+    setBaseline(nextBaseline);
+    setName(nextBaseline.name);
+    setQuantity(nextBaseline.quantity);
+    setUnit(nextBaseline.unit);
+    setLocationId(nextBaseline.locationId);
+    setExpiryDate(nextBaseline.expiryDate);
+    setOpenedAt(nextBaseline.openedAt);
+    setVacuumSealed(nextBaseline.vacuumSealed);
+    setExpiryUserSet(nextBaseline.expiryUserSet);
     setDetailsOpen(false);
     setNameError(null);
   }, [item, visible]);
@@ -74,27 +105,25 @@ export function EditInventoryItemSheet({
     setNameError(null);
     const nextLocationId = locationId || null;
     const nextExpiryDate = expiryDate || null;
+    const baselineLocationId = baseline.locationId || null;
+    const baselineExpiryDate = baseline.expiryDate || null;
     await updateItem.mutateAsync({
       id: currentItem.id,
       household_id: currentItem.household_id,
       patch: {
-        ...(trimmedName !== currentItem.name ? { name: trimmedName } : {}),
-        ...(unit !== currentItem.unit ? { unit } : {}),
-        ...(nextLocationId !== currentItem.location_id ? { location_id: nextLocationId } : {}),
-        ...(nextExpiryDate !== currentItem.expiry_date ? { expiry_date: nextExpiryDate } : {}),
-        ...(openedAt !== (currentItem.opened_at ?? null) ? { opened_at: openedAt } : {}),
-        ...(vacuumSealed !== (currentItem.vacuum_sealed ?? false)
-          ? { vacuum_sealed: vacuumSealed }
-          : {}),
-        ...(expiryUserSet !== (currentItem.expiry_user_set ?? false)
-          ? { expiry_user_set: expiryUserSet }
-          : {}),
+        ...(trimmedName !== baseline.name ? { name: trimmedName } : {}),
+        ...(unit !== baseline.unit ? { unit } : {}),
+        ...(nextLocationId !== baselineLocationId ? { location_id: nextLocationId } : {}),
+        ...(nextExpiryDate !== baselineExpiryDate ? { expiry_date: nextExpiryDate } : {}),
+        ...(openedAt !== baseline.openedAt ? { opened_at: openedAt } : {}),
+        ...(vacuumSealed !== baseline.vacuumSealed ? { vacuum_sealed: vacuumSealed } : {}),
+        ...(expiryUserSet !== baseline.expiryUserSet ? { expiry_user_set: expiryUserSet } : {}),
       },
       // Menge nur als bewusste Korrektur übergeben, wenn der Stepper wirklich
       // bewegt wurde — sonst würde ein zwischenzeitlicher Verbrauch beim
       // Speichern eines reinen Namens-/MHD-Edits überschrieben.
-      ...(quantity !== initialQuantity
-        ? { quantityCorrection: { expectedQuantity: initialQuantity, newQuantity: quantity } }
+      ...(quantity !== baseline.quantity
+        ? { quantityCorrection: { expectedQuantity: baseline.quantity, newQuantity: quantity } }
         : {}),
     });
     onClose();

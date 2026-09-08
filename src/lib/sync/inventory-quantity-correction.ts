@@ -1,6 +1,4 @@
-import type { EnqueueMutationInput } from '@/lib/db/outbox';
 import { fromInventoryQuantityUnits, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
-import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
 export type InventoryQuantityCorrectionPayload = {
   operation_id: string;
@@ -46,47 +44,5 @@ export function parseInventoryQuantityCorrectionPayload(
     expected_quantity: expectedQuantity,
     new_quantity: newQuantity,
     created_at: requiredString(payload, 'created_at'),
-  };
-}
-
-/** Schreibt Bestandskorrektur und ihre Ledgerzeile lokal atomar. */
-export function createInventoryQuantityCorrectionMutation(args: {
-  payload: InventoryQuantityCorrectionPayload;
-  transaction: Record<string, unknown>;
-  nowMs: number;
-}): EnqueueMutationInput {
-  const { payload, transaction, nowMs } = args;
-  const correction = parseInventoryQuantityCorrectionPayload(payload);
-
-  return {
-    entity: 'fridge_items',
-    entityId: correction.item_id,
-    op: 'correct_quantity',
-    payload: { ...correction },
-    applyLocally: async (txn) => {
-      await applyLocalMirrorWrite(
-        txn,
-        'fridge_items',
-        'update',
-        { id: correction.item_id, quantity: correction.new_quantity },
-        nowMs,
-      );
-      if (correction.new_quantity === 0) {
-        await applyLocalMirrorWrite(
-          txn,
-          'fridge_items',
-          'delete',
-          { id: correction.item_id },
-          nowMs,
-        );
-      }
-      await applyLocalMirrorWrite(
-        txn,
-        'transactions',
-        'insert',
-        { reversal_of: null, ...transaction },
-        nowMs,
-      );
-    },
   };
 }

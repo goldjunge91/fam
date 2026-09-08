@@ -427,8 +427,9 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
     await act(async () => {
       await result.current.mutateAsync({
-        ...ITEM_BASE,
-        location_id: 'loc-new',
+        id: ITEM_BASE.id,
+        household_id: ITEM_BASE.household_id,
+        patch: { location_id: 'loc-new' },
         quantityCorrection: { expectedQuantity: 3, newQuantity: 4 },
       });
     });
@@ -465,7 +466,11 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     const { result } = await renderMutationHook(() => useUpdateFridgeItemMutation());
 
     await act(async () => {
-      await result.current.mutateAsync({ ...ITEM_BASE, name: 'Dijon-Senf' });
+      await result.current.mutateAsync({
+        id: ITEM_BASE.id,
+        household_id: ITEM_BASE.household_id,
+        patch: { name: 'Dijon-Senf' },
+      });
     });
 
     const item = await db.getFirstAsync<{ quantity: number }>(
@@ -587,7 +592,10 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
         notes: '[Split] origin=item-1',
       }),
     ]);
-    expect(await outboxRows(db)).toHaveLength(3);
+    // Split ist seit der split_open-Konsolidierung (fam-lem.10/fam-n46.1) EINE
+    // atomare Outbox-Operation (Rest-Los, geoeffnetes Los und Ledger gemeinsam),
+    // nicht mehr drei separate Zeilen.
+    expect(await outboxRows(db)).toHaveLength(1);
   });
 
   it('Undo einer in-place-Öffnung stellt den Vorzustand her und schreibt eine Gegenbuchung', async () => {
@@ -694,7 +702,9 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
         [transaction.id],
       ),
     ).toEqual({ reversal_of: transaction.id, notes: '[Undone] Öffnung rückgängig gemacht' });
-    expect(await outboxRows(db)).toHaveLength(4);
+    // Split-open (1 atomare Operation) + generische Reversal-Ledgerbuchung
+    // im Fallback-Pfad (1 Operation) = 2, nicht 4 einzelne Zeilen.
+    expect(await outboxRows(db)).toHaveLength(2);
   });
 
   it('führt Split-Merge über den generischen Undo-Hook aus und verknüpft die Gegenbuchung', async () => {
@@ -853,7 +863,13 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     const { result } = await renderMutationHook(() => useUpdateFridgeItemMutation());
 
     await act(async () => {
-      await expect(result.current.mutateAsync(ITEM_BASE)).rejects.toThrow('lokal nicht vorhanden');
+      await expect(
+        result.current.mutateAsync({
+          id: ITEM_BASE.id,
+          household_id: ITEM_BASE.household_id,
+          patch: {},
+        }),
+      ).rejects.toThrow('lokal nicht vorhanden');
     });
     expect(await outboxRows(db)).toEqual([]);
   });
@@ -865,7 +881,9 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     await act(async () => {
       await expect(
         result.current.mutateAsync({
-          ...ITEM_BASE,
+          id: ITEM_BASE.id,
+          household_id: ITEM_BASE.household_id,
+          patch: {},
           quantityCorrection: { expectedQuantity: 3, newQuantity: -1 },
         }),
       ).rejects.toThrow('nicht negativ');
@@ -886,7 +904,9 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     await act(async () => {
       await expect(
         result.current.mutateAsync({
-          ...ITEM_BASE,
+          id: ITEM_BASE.id,
+          household_id: ITEM_BASE.household_id,
+          patch: {},
           quantityCorrection: { expectedQuantity: 3, newQuantity: 3.0001 },
         }),
       ).rejects.toThrow('drei Nachkommastellen');

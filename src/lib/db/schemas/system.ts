@@ -12,12 +12,24 @@ export const outbox = sqliteTable(
     createdAt: integer('created_at').notNull(),
     attempts: integer('attempts').notNull().default(0),
     lastError: text('last_error'),
+    /**
+     * Klassifikation des letzten Fehlers ('transient' | 'permanent'). Ohne
+     * diese Spalte ist bei erschoepften Retries nicht mehr unterscheidbar, ob
+     * der Server definitiv abgelehnt hat oder der Ausgang nach wiederholten
+     * Timeouts unbekannt bleibt (fam-lem.25) — ein Retry-Limit macht laut
+     * Contract `unknown` nicht zu `conflict`.
+     */
+    lastErrorKind: text('last_error_kind'),
     nextAttemptAt: integer('next_attempt_at').notNull().default(0),
   },
   (table) => [
     check(
       'outbox_op_check',
       sql`${table.op} in ('insert', 'update', 'delete', 'restore', 'move', 'adjust_quantity', 'correct_quantity', 'reverse_quantity', 'split_open', 'merge_undo_open')`,
+    ),
+    check(
+      'outbox_last_error_kind_check',
+      sql`${table.lastErrorKind} is null or ${table.lastErrorKind} in ('transient', 'permanent')`,
     ),
     index('outbox_row_idx').on(table.entity, table.entityId, table.id),
     index('outbox_due_idx').on(table.nextAttemptAt, table.id),

@@ -391,16 +391,10 @@ export function InventoryScreen() {
           updateItem.mutate({
             id: currentActionItem.id,
             household_id: currentActionItem.household_id,
-            product_id: currentActionItem.product_id,
-            name: currentActionItem.name,
-            unit: currentActionItem.unit,
-            package_size: currentActionItem.package_size,
-            package_size_unit: currentActionItem.package_size_unit,
-            location_id: currentActionItem.location_id,
-            expiry_date: expiryDate || null,
-            opened_at: currentActionItem.opened_at,
-            vacuum_sealed: currentActionItem.vacuum_sealed,
-            expiry_user_set: true,
+            patch: {
+              expiry_date: expiryDate || null,
+              expiry_user_set: true,
+            },
           });
         }}
       />

@@ -4,7 +4,7 @@
 begin;
 \ir helpers.sql
 
-select plan(12);
+select plan(13);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('33333333-3333-3333-3333-333333333333', 'carol@example.com');
@@ -149,6 +149,45 @@ select throws_ok(
   ),
   'P0001', 'Ursprungsbuchung ist unvollstaendig oder kein umkehrbarer Split',
   'eine Nicht-Split-Buchung kann nicht gemergt werden'
+);
+
+-- Offline-Move des geoeffneten Loses nach dem Split: sameSplitIdentity (Client)
+-- lehnt einen solchen Merge ab, weil der Standort nicht mehr uebereinstimmt.
+-- Die RPC muss dieselbe Losidentitaet pruefen statt den Standortwechsel beim
+-- Merge stillschweigend zu verwerfen (fam-lem.22).
+select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
+insert into public.fridge_items (
+  id, household_id, location_id, name, quantity, unit, added_by, expiry_date, expiry_user_set
+)
+values (
+  '77777777-8888-4777-8777-777777777777', :'household_id', :'location_id',
+  'Standortwechsel-Milch', 5, 'piece', '11111111-1111-1111-1111-111111111111', '2026-12-31', true
+);
+select public.split_fridge_item_open(
+  '88888888-9999-4888-8888-888888888888',
+  '77777777-8888-4777-8777-777777777777',
+  '99999999-0000-4999-8999-999999999999',
+  :'household_id', 5, 1, '2026-09-07T10:10:00Z', '2026-09-10', true,
+  '2026-09-07T10:10:00Z'
+);
+select id as freezer_location_id
+from public.storage_locations
+where household_id = :'household_id' and kind = 'freezer'
+limit 1 \gset
+update public.fridge_items
+set location_id = :'freezer_location_id'
+where id = '99999999-0000-4999-8999-999999999999';
+select throws_ok(
+  format(
+    $$ select public.merge_undo_fridge_item_open(
+      'aaaaaaaa-bbbb-4aaa-8aaa-aaaaaaaaaaaa',
+      '88888888-9999-4888-8888-888888888888',
+      %L, '2026-09-07T10:11:00Z', '[Undone] Öffnung rückgängig gemacht'
+    ) $$,
+    :'household_id'
+  ),
+  'P0001', 'Der Bestand wurde zwischenzeitlich veraendert',
+  'ein zwischenzeitlicher Standortwechsel des geoeffneten Loses blockiert den Merge'
 );
 
 select tests.authenticate_as('33333333-3333-3333-3333-333333333333');

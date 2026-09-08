@@ -12,8 +12,10 @@ describe('entities', () => {
     expect(ALL_ENTITIES).toEqual([
       'storage_locations',
       'stores',
-      'fridge_items',
+      // transactions vor fridge_items: Empfangsbeweis fuer die
+      // Reconciliation offener Mengenoperationen (fam-onu).
       'transactions',
+      'fridge_items',
       'shopping_list_items',
       'shopping_category_preferences',
       'products',

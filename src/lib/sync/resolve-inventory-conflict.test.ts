@@ -5,7 +5,7 @@ import { enqueueMutation, recordOutboxOutcome } from '@/lib/db/outbox';
 import { type FridgeItemConflict, getFridgeItemConflicts } from '@/lib/db/outbox-conflicts';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
-import { createInventoryQuantityCorrectionMutation } from '@/lib/sync/inventory-quantity-correction';
+import { createInventoryQuantityCorrectionMutation } from '@/lib/sync/inventory-quantity';
 
 import { createTestDatabase } from '../../../test/node-sqlite-adapter';
 import {
@@ -58,6 +58,7 @@ async function makeDbWithConflict() {
   await recordOutboxOutcome(db, [row.id], {
     attempts: MAX_ATTEMPTS,
     lastError: 'Bestand veraendert',
+    kind: 'permanent',
     nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
   });
 
@@ -110,6 +111,12 @@ describe('discardInventoryConflict', () => {
           ['item-1'],
         ),
       ).toEqual({ quantity: 1, dirty: 0 });
+      // Die lokal spekulativ eingefuegte Ledgerzeile der verworfenen Korrektur
+      // wurde nie bestaetigt — sie bleibt kein Phantom-Eintrag in der
+      // Historie zurueck (fam-lem.25).
+      expect(
+        await db.getFirstAsync('select id from transactions where id = ?', ['tx-1']),
+      ).toBeNull();
     } finally {
       db.close();
     }
@@ -175,6 +182,53 @@ describe('reconfirmInventoryQuantityCorrection', () => {
           ['item-1'],
         ),
       ).toEqual({ quantity: 3 });
+      // Die Ledgerzeile der verworfenen alten Korrektur bleibt kein
+      // Phantom-Eintrag zurueck (fam-lem.25); der neue Push legt seine eigene an.
+      expect(
+        await db.getFirstAsync('select id from transactions where id = ?', ['tx-1']),
+      ).toBeNull();
+    } finally {
+      db.close();
+    }
+  });
+
+  it('rollt vollstaendig zurueck, wenn das Einreihen der neuen Korrektur fehlschlaegt (fam-lem.25)', async () => {
+    const { db, conflict } = await makeDbWithConflict();
+    // Kollidierende Ledger-ID: der Insert der neuen Korrektur-Buchung
+    // scheitert an der Primary-Key-Constraint von `transactions`.
+    await db.runAsync(
+      `insert into transactions
+       (id, household_id, fridge_item_id, type, quantity, undone, created_at, updated_at)
+       values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      ['tx-2', 'hh-1', 'item-1', 'in', 1, 0, '2026-09-07T09:00:00.000Z', 0],
+    );
+    const maybeSingle = jest
+      .fn()
+      .mockResolvedValue({ data: canonicalRow(1), error: null, status: 200 });
+    const eq = jest.fn().mockReturnValue({ maybeSingle });
+    const supabase = {
+      from: jest.fn().mockReturnValue({ select: jest.fn().mockReturnValue({ eq }) }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      await expect(
+        reconfirmInventoryQuantityCorrection(db, supabase, conflict, {
+          actor: 'user-1',
+          operationId: 'op-2',
+          transactionId: 'tx-2',
+          nowMs: 5,
+        }),
+      ).rejects.toThrow();
+
+      // Die urspruengliche, gescheiterte Korrektur bleibt vollstaendig
+      // erhalten — kein Zwischenzustand, der die alte Absicht geloescht,
+      // aber die neue nicht angelegt hat.
+      expect(
+        await db.getFirstAsync('select id from outbox where entity_id = ?', ['item-1']),
+      ).not.toBeNull();
+      expect(
+        await db.getFirstAsync('select id from transactions where id = ?', ['tx-1']),
+      ).not.toBeNull();
     } finally {
       db.close();
     }
@@ -201,6 +255,9 @@ describe('reconfirmInventoryQuantityCorrection', () => {
       expect(result).toBe('already-matches');
       expect(
         await db.getFirstAsync('select id from outbox where entity_id = ?', ['item-1']),
+      ).toBeNull();
+      expect(
+        await db.getFirstAsync('select id from transactions where id = ?', ['tx-1']),
       ).toBeNull();
     } finally {
       db.close();

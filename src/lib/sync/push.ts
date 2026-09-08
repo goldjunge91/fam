@@ -21,12 +21,12 @@ import { normalizeUnit } from '@/lib/units';
 export type PushOutcome =
   | { kind: 'pushed' | 'discarded'; entity?: Entity; entityId?: string; sourceIds: number[] }
   | {
-    kind: 'failed-transient' | 'failed-permanent';
-    entity: Entity;
-    entityId: string;
-    sourceIds: number[];
-    error: string;
-  };
+      kind: 'failed-transient' | 'failed-permanent';
+      entity: Entity;
+      entityId: string;
+      sourceIds: number[];
+      error: string;
+    };
 
 export type PushResult = {
   outcomes: PushOutcome[];
@@ -302,7 +302,14 @@ async function resolveDuplicateInsert(
     return { outcome: 'continue', response: { data: null, error: null, status: response.status } };
   }
 
-  const updated = await attempt(supabase, meta.table, 'update', entry.entityId, entry.payload, nowMs);
+  const updated = await attempt(
+    supabase,
+    meta.table,
+    'update',
+    entry.entityId,
+    entry.payload,
+    nowMs,
+  );
   return { outcome: 'continue', response: updated };
 }
 

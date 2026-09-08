@@ -4,10 +4,12 @@ import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation, recordOutboxOutcome } from '@/lib/db/outbox';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
-import { createInventoryMergeUndoMutation } from '@/lib/sync/inventory-open-merge';
-import { createInventorySplitMutation } from '@/lib/sync/inventory-open-split';
-import { createInventoryQuantityMutation } from '@/lib/sync/inventory-quantity';
-import { createInventoryQuantityCorrectionMutation } from '@/lib/sync/inventory-quantity-correction';
+import {
+  createInventoryMergeUndoMutation,
+  createInventoryQuantityCorrectionMutation,
+  createInventoryQuantityMutation,
+  createInventorySplitMutation,
+} from '@/lib/sync/inventory-quantity';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { pushOutbox } from '@/lib/sync/push';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
@@ -557,6 +559,7 @@ describe('pushOutbox — Retry-Abhängigkeiten', () => {
     await recordOutboxOutcome(db, [itemInsert.id], {
       attempts: 1,
       lastError: 'timeout',
+      kind: 'transient',
       nextAttemptAtMs: 1_000,
     });
     await enqueueMutation(db, {
@@ -637,6 +640,7 @@ describe('pushOutbox — Retry-Abhängigkeiten', () => {
     await recordOutboxOutcome(db, [originInsert.id], {
       attempts: MAX_ATTEMPTS,
       lastError: 'timeout',
+      kind: 'transient',
       nextAttemptAtMs: 1_000,
     });
     await enqueueMutation(db, {
@@ -711,6 +715,7 @@ describe('pushOutbox — Retry-Abhängigkeiten', () => {
     await recordOutboxOutcome(db, [failed.id], {
       attempts: 1,
       lastError: 'timeout',
+      kind: 'transient',
       nextAttemptAtMs: 1_000,
     });
     await enqueueMutation(db, {
@@ -1479,6 +1484,7 @@ describe('pushOutbox — atomares Split-Undo (Merge)', () => {
       household_id: 'hh-1',
       created_at: '2026-09-07T10:05:00.000Z',
       notes: '[Undone] Öffnung rückgängig gemacht',
+      opened_item_id: 'item-opened',
     };
     await enqueueMutation(db, {
       ...createInventoryMergeUndoMutation({
@@ -1592,6 +1598,128 @@ describe('pushOutbox — atomares Split-Undo (Merge)', () => {
           ['merge-undo-transaction-1'],
         ),
       ).toEqual({ dirty: 0 });
+    } finally {
+      db.close();
+    }
+  });
+
+  it('haelt eine Folgeoperation auf dem geoeffneten Los zurueck, wenn der Merge-Undo im selben Batch dauerhaft scheitert (fam-lem.20)', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+    await db.runAsync(
+      `insert into fridge_items
+       (id, household_id, name, quantity, unit, created_at, updated_at, opened_at)
+       values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      ['item-sealed', 'hh-1', 'Milch', 4, 'piece', '2026-09-07T10:00:00.000Z', 0, null],
+    );
+    await db.runAsync(
+      `insert into fridge_items
+       (id, household_id, name, quantity, unit, created_at, updated_at, opened_at)
+       values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        'item-opened',
+        'hh-1',
+        'Milch',
+        1,
+        'piece',
+        '2026-09-07T10:00:00.000Z',
+        0,
+        '2026-09-07T10:00:00.000Z',
+      ],
+    );
+
+    const payload = {
+      reversal_transaction_id: 'merge-undo-transaction-1',
+      reversal_of: 'split-transaction-1',
+      household_id: 'hh-1',
+      created_at: '2026-09-07T10:05:00.000Z',
+      notes: '[Undone] Öffnung rückgängig gemacht',
+      opened_item_id: 'item-opened',
+    };
+    // Der Merge-Undo (entity_id = item-sealed) betrifft auch item-opened — es
+    // wird tombstoned. Eine unabhaengig aussehende Folgeoperation auf genau
+    // diesem Los darf nicht laufen, solange der Merge-Undo im selben Batch
+    // dauerhaft scheitert: sie beruht moeglicherweise auf dessen Ergebnis.
+    await enqueueMutation(db, {
+      ...createInventoryMergeUndoMutation({
+        payload,
+        sealedItemId: 'item-sealed',
+        sealedQuantityAfterMerge: 5,
+        openedItemId: 'item-opened',
+        transaction: {
+          id: payload.reversal_transaction_id,
+          household_id: 'hh-1',
+          fridge_item_id: 'item-sealed',
+          product_id: null,
+          actor: 'user-1',
+          type: 'open',
+          quantity: 1,
+          location_id: null,
+          previous_expiry_date: null,
+          notes: payload.notes,
+          undone: false,
+          reversal_of: payload.reversal_of,
+          created_at: payload.created_at,
+        },
+        nowMs: 1,
+      }),
+      now: 1,
+    });
+    await enqueueMutation(db, {
+      ...createInventoryQuantityCorrectionMutation({
+        payload: {
+          operation_id: 'op-correct-opened',
+          transaction_id: 'tx-correct-opened',
+          item_id: 'item-opened',
+          household_id: 'hh-1',
+          expected_quantity: 1,
+          new_quantity: 0,
+          created_at: '2026-09-07T10:06:00.000Z',
+        },
+        transaction: {
+          id: 'tx-correct-opened',
+          operation_id: 'op-correct-opened',
+          household_id: 'hh-1',
+          fridge_item_id: 'item-opened',
+          product_id: null,
+          actor: 'user-1',
+          type: 'out',
+          quantity: 1,
+          location_id: null,
+          reason: null,
+          previous_expiry_date: null,
+          notes: '[Manual correction]',
+          undone: false,
+          created_at: '2026-09-07T10:06:00.000Z',
+        },
+        nowMs: 2,
+      }),
+      now: 2,
+    });
+
+    const rpc = jest
+      .fn()
+      .mockResolvedValue({ data: null, error: { message: 'Split-Loese veraendert' }, status: 409 });
+    const client = { rpc } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 3 });
+
+      expect(result.outcomes).toMatchObject([
+        { kind: 'failed-permanent', entityId: 'item-sealed' },
+      ]);
+      // Nur die Merge-Undo-RPC laeuft; die Korrektur auf item-opened wird
+      // zurueckgehalten, nicht separat versucht.
+      expect(rpc).toHaveBeenCalledTimes(1);
+      expect(
+        await db.getAllAsync<{ entity_id: string; attempts: number }>(
+          'select entity_id, attempts from outbox order by id',
+        ),
+      ).toEqual([
+        { entity_id: 'item-sealed', attempts: MAX_ATTEMPTS },
+        { entity_id: 'item-opened', attempts: 0 },
+      ]);
     } finally {
       db.close();
     }

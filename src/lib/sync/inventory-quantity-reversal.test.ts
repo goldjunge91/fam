@@ -1,7 +1,5 @@
-import {
-  createInventoryQuantityReversalMutation,
-  parseInventoryQuantityReversalPayload,
-} from '@/lib/sync/inventory-quantity-reversal';
+import { createInventoryQuantityReversalMutation } from '@/lib/sync/inventory-quantity';
+import { parseInventoryQuantityReversalPayload } from '@/lib/sync/inventory-quantity-reversal';
 
 describe('inventory quantity reversal', () => {
   const payload = {

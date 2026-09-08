@@ -155,6 +155,14 @@ export async function deleteOutboxEntries(db: SqlDatabase, ids: readonly number[
 export type OutboxOutcome = {
   attempts: number;
   lastError: string;
+  /**
+   * 'permanent': der Server hat definitiv abgelehnt (z. B. CAS-Konflikt).
+   * 'transient': Netzwerk/Timeout/5xx — der tatsaechliche Servererfolg bleibt
+   * unbekannt, auch nach Erschoepfen der Retries. Ein Retry-Limit macht
+   * `unknown` nicht zu `conflict` (fam-lem.25); `getFridgeItemConflicts`
+   * verlaesst sich auf dieses Feld, nicht auf `attempts` allein.
+   */
+  kind: 'transient' | 'permanent';
   nextAttemptAtMs: number;
 };
 
@@ -168,7 +176,7 @@ export async function recordOutboxOutcome(
 
   const placeholders = ids.map(() => '?').join(', ');
   await db.runAsync(
-    `update outbox set attempts = ?, last_error = ?, next_attempt_at = ? where id in (${placeholders})`,
-    [outcome.attempts, outcome.lastError, outcome.nextAttemptAtMs, ...ids],
+    `update outbox set attempts = ?, last_error = ?, last_error_kind = ?, next_attempt_at = ? where id in (${placeholders})`,
+    [outcome.attempts, outcome.lastError, outcome.kind, outcome.nextAttemptAtMs, ...ids],
   );
 }

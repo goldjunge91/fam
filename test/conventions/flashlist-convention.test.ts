@@ -9,10 +9,14 @@ const REPO_ROOT = path.resolve(__dirname, '..', '..');
 // `git grep` statt Dateibaum-Walk: respektiert .gitignore und ist schnell.
 function gitGrep(pattern: string) {
   try {
-    return execFileSync('git', ['grep', '-n', '-E', pattern, '--', ':(glob)src/**/*.ts', ':(glob)src/**/*.tsx'], {
-      cwd: REPO_ROOT,
-      encoding: 'utf8',
-    })
+    return execFileSync(
+      'git',
+      ['grep', '-n', '-E', pattern, '--', ':(glob)src/**/*.ts', ':(glob)src/**/*.tsx'],
+      {
+        cwd: REPO_ROOT,
+        encoding: 'utf8',
+      },
+    )
       .trim()
       .split('\n')
       .filter(Boolean);

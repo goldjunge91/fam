@@ -39,6 +39,9 @@ module.exports = {
   moduleNameMapper: {
     "^@/assets/(.*)$": "<rootDir>/assets/$1",
     "^@/(.*)$": "<rootDir>/src/$1",
+    // Side-Effect-ESM-Import in src/lib/supabase.ts, siehe
+    // test/rn-url-polyfill-noop.js (fam-t04).
+    "^react-native-url-polyfill/auto$": "<rootDir>/test/rn-url-polyfill-noop.js",
   },
 
   transformIgnorePatterns: ["node_modules/(?!(.bun|expo|@expo)/)"],

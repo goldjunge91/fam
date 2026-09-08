@@ -1,12 +1,17 @@
-import type { EnqueueMutationInput } from '@/lib/db/outbox';
-import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
-
 export type InventoryMergeUndoPayload = {
   reversal_transaction_id: string;
   reversal_of: string;
   household_id: string;
   created_at: string;
   notes: string;
+  /**
+   * Nicht Teil der RPC-Argumente (der Server leitet das geoeffnete Los aus
+   * reversal_of ab). Haelt die Fussabdruck-Abhaengigkeit lokal fest, damit
+   * push.ts Folgeoperationen auf diesem Los zurueckhaelt, solange der
+   * Merge-Undo im selben Batch offen oder dauerhaft gescheitert ist
+   * (fam-lem.20).
+   */
+  opened_item_id: string;
 };
 
 function requiredString(payload: Record<string, unknown>, key: string): string {
@@ -27,42 +32,6 @@ export function parseInventoryMergeUndoPayload(
     household_id: requiredString(payload, 'household_id'),
     created_at: requiredString(payload, 'created_at'),
     notes: requiredString(payload, 'notes'),
-  };
-}
-
-/** Schreibt versiegeltes Los, geoeffnetes Los und Gegenbuchung lokal atomar in einer Outbox-Operation. */
-export function createInventoryMergeUndoMutation(args: {
-  payload: InventoryMergeUndoPayload;
-  sealedItemId: string;
-  sealedQuantityAfterMerge: number;
-  openedItemId: string;
-  transaction: Record<string, unknown>;
-  nowMs: number;
-}): EnqueueMutationInput {
-  const { payload, sealedItemId, sealedQuantityAfterMerge, openedItemId, transaction, nowMs } =
-    args;
-
-  return {
-    entity: 'fridge_items',
-    entityId: sealedItemId,
-    op: 'merge_undo_open',
-    payload: { ...payload },
-    applyLocally: async (txn) => {
-      await applyLocalMirrorWrite(
-        txn,
-        'fridge_items',
-        'update',
-        { id: sealedItemId, quantity: sealedQuantityAfterMerge },
-        nowMs,
-      );
-      await applyLocalMirrorWrite(txn, 'fridge_items', 'delete', { id: openedItemId }, nowMs);
-      await applyLocalMirrorWrite(
-        txn,
-        'transactions',
-        'insert',
-        { origin_item_id: null, origin_quantity: null, ...transaction },
-        nowMs,
-      );
-    },
+    opened_item_id: requiredString(payload, 'opened_item_id'),
   };
 }

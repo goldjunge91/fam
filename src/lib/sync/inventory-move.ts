@@ -1,8 +1,6 @@
 import type { Database } from '@/lib/database.types';
-import type { EnqueueMutationInput } from '@/lib/db/outbox';
-import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
-type TransactionPayload = Omit<
+export type InventoryMoveTransaction = Omit<
   Database['public']['Tables']['transactions']['Row'],
   'operation_id' | 'reversal_of' | 'sync_sequence' | 'origin_item_id' | 'origin_quantity'
 > & {
@@ -81,42 +79,4 @@ export function parseInventoryMovePayload(payload: Record<string, unknown>): Inv
     throw new Error('Move-Payload braucht zwei unterschiedliche Ledger-IDs.');
   }
   return parsed;
-}
-
-export function createInventoryMoveMutation(args: {
-  payload: InventoryMovePayload;
-  outTransaction: TransactionPayload;
-  inTransaction: TransactionPayload;
-  nowMs: number;
-}): EnqueueMutationInput {
-  const { payload, outTransaction, inTransaction, nowMs } = args;
-  return {
-    entity: 'fridge_items',
-    entityId: payload.item_id,
-    op: 'move',
-    payload: { ...payload },
-    applyLocally: async (txn) => {
-      await applyLocalMirrorWrite(
-        txn,
-        'fridge_items',
-        'update',
-        { id: payload.item_id, location_id: payload.new_location_id },
-        nowMs,
-      );
-      await applyLocalMirrorWrite(
-        txn,
-        'transactions',
-        'insert',
-        { reversal_of: null, ...outTransaction },
-        nowMs,
-      );
-      await applyLocalMirrorWrite(
-        txn,
-        'transactions',
-        'insert',
-        { reversal_of: null, ...inTransaction },
-        nowMs,
-      );
-    },
-  };
 }

@@ -123,6 +123,23 @@ const QUANTITY_OPS = new Set(['adjust_quantity', 'correct_quantity', 'reverse_qu
 type QuantityLedgerRow = { type: string; quantity: number };
 
 /**
+ * Empfangsbeweis-Ersatz fuer adjust_quantity/correct_quantity (fam-onu):
+ * `transactions` wird vor `fridge_items` gepullt (sync/entities.ts). Ist die
+ * lokal zu dieser Operation gehoerende Ledgerzeile in DIESEM Zyklus bereits
+ * bestaetigt (_dirty = 0), hat der Server sie laengst angewendet — die
+ * gerade gepullte Remote-Basis enthaelt ihr Delta schon. Ein erneutes
+ * Anwenden waere eine Doppelzaehlung nach Antwortverlust.
+ */
+async function isLedgerRowConfirmed(txn: SqlDatabase, ledgerId: unknown): Promise<boolean> {
+  if (typeof ledgerId !== 'string') return false;
+  const row = await txn.getFirstAsync<{ dirty: number }>(
+    'select _dirty as dirty from transactions where id = ?',
+    [ledgerId],
+  );
+  return row?.dirty === 0;
+}
+
+/**
  * Rekonstruiert die Bestandsmenge aus der bestätigten Remote-Basis plus den
  * noch offenen, in Reihenfolge angewandten Mengenoperationen. `adjust_quantity`
  * trägt sein Delta direkt im Payload; `reverse_quantity` liest sein Delta aus
@@ -140,10 +157,16 @@ async function computeReconciledQuantity(
 
   for (const { op, payload } of quantityOps) {
     if (op === 'adjust_quantity') {
+      if (await isLedgerRowConfirmed(txn, payload.transaction_id)) continue;
       units += toInventoryQuantityUnits(Number(payload.delta));
+      // Eine verschobene Remote-Basis kann ein zuvor gueltiges Delta ins
+      // Negative treiben (fam-onu). Eine Bestandsmenge ist nie negativ; das
+      // ist ein echter Konflikt, kein stillschweigend zu clampender Wert.
+      if (units < 0) return 'conflict';
       continue;
     }
     if (op === 'correct_quantity') {
+      if (await isLedgerRowConfirmed(txn, payload.transaction_id)) continue;
       const expectedUnits = toInventoryQuantityUnits(Number(payload.expected_quantity));
       if (expectedUnits !== units) return 'conflict';
       units = toInventoryQuantityUnits(Number(payload.new_quantity));
@@ -151,6 +174,9 @@ async function computeReconciledQuantity(
     }
     // reverse_quantity: das Delta ergibt sich aus der eigenen, bereits lokal
     // eingefügten Ledgerzeile (type/quantity), nicht aus dem Payload selbst.
+    // Ist genau diese Gegenbuchung nach Antwortverlust bereits bestaetigt,
+    // steckt ihr Effekt schon in der gepullten Remote-Basis (fam-onu).
+    if (await isLedgerRowConfirmed(txn, payload.reversal_transaction_id)) continue;
     const ledgerRow = await txn.getFirstAsync<QuantityLedgerRow>(
       'select type, quantity from transactions where id = ?',
       [String(payload.reversal_transaction_id)],
@@ -158,6 +184,7 @@ async function computeReconciledQuantity(
     if (ledgerRow === null) return 'conflict';
     const ledgerUnits = toInventoryQuantityUnits(ledgerRow.quantity);
     units += ledgerRow.type === 'in' ? ledgerUnits : -ledgerUnits;
+    if (units < 0) return 'conflict';
   }
 
   return fromInventoryQuantityUnits(units);

@@ -1,7 +1,5 @@
-import {
-  createInventoryMergeUndoMutation,
-  parseInventoryMergeUndoPayload,
-} from '@/lib/sync/inventory-open-merge';
+import { parseInventoryMergeUndoPayload } from '@/lib/sync/inventory-open-merge';
+import { createInventoryMergeUndoMutation } from '@/lib/sync/inventory-quantity';
 
 describe('inventory open merge-undo', () => {
   const payload = {
@@ -10,12 +8,16 @@ describe('inventory open merge-undo', () => {
     household_id: 'household-1',
     created_at: '2026-09-07T10:05:00.000Z',
     notes: '[Undone] Öffnung rückgängig gemacht',
+    opened_item_id: 'opened-1',
   };
 
   it('validiert alle Pflichtfelder', () => {
     expect(parseInventoryMergeUndoPayload(payload)).toEqual(payload);
     expect(() => parseInventoryMergeUndoPayload({ ...payload, notes: '' })).toThrow(
       'kein gueltiges Feld notes',
+    );
+    expect(() => parseInventoryMergeUndoPayload({ ...payload, opened_item_id: '' })).toThrow(
+      'kein gueltiges Feld opened_item_id',
     );
   });
 
