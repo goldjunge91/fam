@@ -75,21 +75,19 @@ module.exports = {
   // (scripts/dump_data/*.bun.test.ts) laufen stattdessen ueber
   // `bun run test:dump-pipeline` (Buns eigener Testrunner, siehe
   // scripts/dump_data/README.md).
-  // Die eigenstaendigen Tools sind eigene Node-/Vite-Anwendungen mit jeweils
-  // eigenem Test-Runner. Jest Expo darf ihre Suiten nicht als
-  // React-Native-Tests einsammeln.
+  // Eigenständige Tool-Tests werden über gezielte Pfade mit Jest ausgeführt.
+  // Bun-Testdateien bleiben wegen ihrer inkompatiblen Runtime ausgeschlossen.
   testPathIgnorePatterns: [
     '/node_modules/',
-    '/tools/',
     '\\.integration\\.test\\.tsx?$',
     '\\.bun\\.test\\.ts$',
     '/scripts',
   ],
 
-  // Eigenstaendige Tools und lokale Agent-Skills koennen eigene
-  // package.json-Dateien mit demselben Namen enthalten. Sie gehoeren nicht
-  // zum App-Modulgraphen und duerfen deshalb auch nicht in Jest Haste landen.
-  modulePathIgnorePatterns: ['<rootDir>/(?:tools|\\.agents|\\.claude)/'],
+  // Lokale Agent-Skills koennen eigene package.json-Dateien mit demselben
+  // Namen enthalten. Sie gehoeren nicht zum App-Modulgraphen und duerfen
+  // deshalb auch nicht in Jest Haste landen.
+  modulePathIgnorePatterns: ['<rootDir>/(?:\\.agents|\\.claude)/'],
 
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
   // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.
