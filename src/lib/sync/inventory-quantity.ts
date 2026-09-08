@@ -5,7 +5,6 @@ import {
   isPositiveIntegerThousandths,
 } from '@/lib/inventory-quantity';
 import type { InventoryMovePayload, InventoryMoveTransaction } from '@/lib/sync/inventory-move';
-import type { InventoryMergeUndoPayload } from '@/lib/sync/inventory-open-merge';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
 export type InventoryQuantityAdjustmentPayload = {
@@ -384,6 +383,37 @@ export function createInventorySplitMutation(args: {
         nowMs,
       );
     },
+  };
+}
+
+export type InventoryMergeUndoPayload = {
+  reversal_transaction_id: string;
+  reversal_of: string;
+  household_id: string;
+  created_at: string;
+  notes: string;
+  /**
+   * Nicht Teil der RPC-Argumente (der Server leitet das geoeffnete Los aus
+   * reversal_of ab). Haelt die Fussabdruck-Abhaengigkeit lokal fest, damit
+   * push.ts Folgeoperationen auf diesem Los zurueckhaelt, solange der
+   * Merge-Undo im selben Batch offen oder dauerhaft gescheitert ist
+   * (fam-lem.20).
+   */
+  opened_item_id: string;
+};
+
+/** Validiert den Split-Merge-Compare-and-set-Umschlag vor dem ersten Netzwerkzugriff (fam-lem.27.9). */
+export function parseInventoryMergeUndoPayload(
+  payload: Record<string, unknown>,
+): InventoryMergeUndoPayload {
+  const context = 'Merge-Undo-Payload';
+  return {
+    reversal_transaction_id: requiredString(payload, 'reversal_transaction_id', context),
+    reversal_of: requiredString(payload, 'reversal_of', context),
+    household_id: requiredString(payload, 'household_id', context),
+    created_at: requiredString(payload, 'created_at', context),
+    notes: requiredString(payload, 'notes', context),
+    opened_item_id: requiredString(payload, 'opened_item_id', context),
   };
 }
 

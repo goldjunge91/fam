@@ -9,8 +9,8 @@ import type { TypedSupabaseClient } from '@/lib/supabase';
 import { backoffDelayMs, classifyError, MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import type { CoalescedEntry } from '@/lib/sync/coalesce';
 import { parseInventoryMovePayload } from '@/lib/sync/inventory-move';
-import { parseInventoryMergeUndoPayload } from '@/lib/sync/inventory-open-merge';
 import {
+  parseInventoryMergeUndoPayload,
   parseInventoryQuantityCorrectionPayload,
   parseInventoryQuantityPayload,
   parseInventoryQuantityReversalPayload,
