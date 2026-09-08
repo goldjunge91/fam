@@ -46,15 +46,6 @@ export function fromInventoryQuantityUnits(units: number): number {
   return units / INVENTORY_QUANTITY_SCALE;
 }
 
-/**
- * Prueft eine aus einem Payload gelesene Menge auf Integer-Tausendstel-Praezision
- * und gibt sie unveraendert zurueck; weist Ueberpraezision ab statt zu runden
- * (contract.md Abschnitt 3). Einziger Owner dieses Roundtrips.
- */
-export function assertInventoryQuantityPrecision(value: number): number {
-  return fromInventoryQuantityUnits(toInventoryQuantityUnits(value));
-}
-
 export function sumInventoryQuantities(quantities: Iterable<number>): number {
   let totalUnits = 0;
   for (const quantity of quantities) {

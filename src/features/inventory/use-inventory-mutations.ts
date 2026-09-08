@@ -378,9 +378,12 @@ export function useUpdateInventoryItemQuantityMutation() {
       const db = await getDatabase();
       const now = new Date().toISOString();
       const nowMs = Date.now();
-      let result: { id: string; newQty: number } | undefined;
+      let result: { id: string; newQuantityUnits: number } | undefined;
 
       await enqueueMutationsInExclusiveTransaction(db, async (txn) => {
+        // fridge_items.quantity ist bis zur Persistenzgrenzen-Umstellung
+        // (fam-lem.30.7.1/.30.7.2) noch dezimal gespeichert; die Konversion
+        // zu Integer-Tausendsteln passiert hier am Lesepunkt.
         const existing = await txn.getFirstAsync<{
           quantity: number;
           product_id: string | null;
@@ -392,10 +395,8 @@ export function useUpdateInventoryItemQuantityMutation() {
         const requestedDeltaUnits = toInventoryQuantityUnits(delta);
         const newQuantityUnits = Math.max(0, currentUnits + requestedDeltaUnits);
         const effectiveDeltaUnits = newQuantityUnits - currentUnits;
-        const newQty = fromInventoryQuantityUnits(newQuantityUnits);
-        result = { id, newQty };
+        result = { id, newQuantityUnits };
         if (effectiveDeltaUnits === 0) return [];
-        const effectiveDelta = fromInventoryQuantityUnits(effectiveDeltaUnits);
 
         const transactionId = Crypto.randomUUID();
         const operationId = Crypto.randomUUID();
@@ -406,8 +407,8 @@ export function useUpdateInventoryItemQuantityMutation() {
           fridge_item_id: id,
           product_id: existing.product_id,
           actor,
-          type: effectiveDelta < 0 ? 'out' : 'in',
-          quantity: Math.abs(effectiveDelta),
+          type: effectiveDeltaUnits < 0 ? 'out' : 'in',
+          quantity: Math.abs(effectiveDeltaUnits),
           location_id: existing.location_id,
           reason: null,
           previous_expiry_date: null,
@@ -423,11 +424,13 @@ export function useUpdateInventoryItemQuantityMutation() {
               transaction_id: transactionId,
               item_id: id,
               household_id,
-              delta: effectiveDelta,
+              delta: effectiveDeltaUnits,
               created_at: now,
             },
             transaction,
-            resultQuantity: newQty,
+            // Der lokale Spiegel selbst ist bis fam-lem.30.7.1/.30.7.2 noch
+            // dezimal gespeichert, deshalb hier zurueckkonvertiert.
+            resultQuantity: fromInventoryQuantityUnits(newQuantityUnits),
             nowMs,
           }),
         ];
@@ -439,9 +442,9 @@ export function useUpdateInventoryItemQuantityMutation() {
       if (result) {
         if (variables.delta < 0) {
           trackAnalyticsEvent('inventory_item.consume.completed', {
-            depleted: result.newQty === 0,
+            depleted: result.newQuantityUnits === 0,
           });
-          if (result.newQty === 0) {
+          if (result.newQuantityUnits === 0) {
             trackAnalyticsEvent('inventory_item.delete.completed');
           }
         } else {

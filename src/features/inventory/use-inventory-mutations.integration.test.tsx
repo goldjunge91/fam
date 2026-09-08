@@ -356,8 +356,10 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       ['item-1'],
     );
     expect(item).toEqual({ quantity: 0, deleted_at: expect.any(Number), _dirty: 1 });
+    // Ledgerzeile ist seit fam-lem.27.11 Integer-Tausendstel (contract.md
+    // Abschnitt 3); der lokale Spiegel bleibt bis fam-lem.30.7.1 dezimal.
     expect(await rowsForItem(db, 'item-1')).toEqual([
-      expect.objectContaining({ type: 'out', quantity: 3, location_id: 'loc-old' }),
+      expect.objectContaining({ type: 'out', quantity: 3_000, location_id: 'loc-old' }),
     ]);
     expect(await outboxRows(db)).toHaveLength(1);
   });
@@ -382,14 +384,16 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     expect(
       await db.getAllAsync('select id from transactions where fridge_item_id = ?', ['item-1']),
     ).toHaveLength(2);
+    // Ledgerzeilen sind seit fam-lem.27.11 Integer-Tausendstel (contract.md
+    // Abschnitt 3); der lokale Spiegel bleibt bis fam-lem.30.7.1 dezimal.
     expect(
       await db.getAllAsync<{ type: string; quantity: number }>(
         `select type, quantity from transactions where fridge_item_id = ? order by id`,
         ['item-1'],
       ),
     ).toEqual([
-      { type: 'out', quantity: 1 },
-      { type: 'out', quantity: 1 },
+      { type: 'out', quantity: 1_000 },
+      { type: 'out', quantity: 1_000 },
     ]);
   });
 
@@ -417,8 +421,8 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
         ['item-1'],
       ),
     ).toEqual([
-      { type: 'out', quantity: 1 },
-      { type: 'out', quantity: 0.1 },
+      { type: 'out', quantity: 1_000 },
+      { type: 'out', quantity: 100 },
     ]);
   });
 

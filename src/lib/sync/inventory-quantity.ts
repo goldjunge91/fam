@@ -1,9 +1,10 @@
 import type { Database } from '@/lib/database.types';
 import type { EnqueueMutationInput } from '@/lib/db/outbox';
 import {
-  assertInventoryQuantityPrecision,
   isNonNegativeIntegerThousandths,
   isPositiveIntegerThousandths,
+  MAX_INVENTORY_QUANTITY_UNITS,
+  toInventoryQuantityUnits,
 } from '@/lib/inventory-quantity';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
@@ -48,23 +49,36 @@ function requiredNonNegativeQuantityUnits(
   return value;
 }
 
+/** Wie requiredQuantityUnits, aber fuer ein vorzeichenbehaftetes Delta (Zu-/Abgang). */
+function requiredSignedQuantityUnits(
+  payload: Record<string, unknown>,
+  key: string,
+  context: string,
+): number {
+  const value = payload[key];
+  if (
+    typeof value !== 'number' ||
+    !Number.isSafeInteger(value) ||
+    value === 0 ||
+    Math.abs(value) > MAX_INVENTORY_QUANTITY_UNITS
+  ) {
+    throw new Error(`${context} enthaelt kein gueltiges Delta ${key}.`);
+  }
+  return value;
+}
+
 /** Validiert den persistierten Delta-Umschlag vor dem Netzwerkzugriff. */
 export function parseInventoryQuantityPayload(
   payload: Record<string, unknown>,
 ): InventoryQuantityAdjustmentPayload {
-  const delta = payload.delta;
-  if (typeof delta !== 'number' || !Number.isFinite(delta) || delta === 0) {
-    throw new Error('Mengen-Payload enthaelt kein gueltiges Delta.');
-  }
-  const normalizedDelta = assertInventoryQuantityPrecision(delta);
-
+  const context = 'Mengen-Payload';
   return {
-    operation_id: requiredString(payload, 'operation_id', 'Mengen-Payload'),
-    transaction_id: requiredString(payload, 'transaction_id', 'Mengen-Payload'),
-    item_id: requiredString(payload, 'item_id', 'Mengen-Payload'),
-    household_id: requiredString(payload, 'household_id', 'Mengen-Payload'),
-    delta: normalizedDelta,
-    created_at: requiredString(payload, 'created_at', 'Mengen-Payload'),
+    operation_id: requiredString(payload, 'operation_id', context),
+    transaction_id: requiredString(payload, 'transaction_id', context),
+    item_id: requiredString(payload, 'item_id', context),
+    household_id: requiredString(payload, 'household_id', context),
+    delta: requiredSignedQuantityUnits(payload, 'delta', context),
+    created_at: requiredString(payload, 'created_at', context),
   };
 }
 
@@ -198,10 +212,14 @@ export function createInventoryQuantityMutation(args: {
   nowMs: number;
 }): EnqueueMutationInput {
   const { payload, transaction, resultQuantity, nowMs } = args;
-  const normalizedResultQuantity = assertInventoryQuantityPrecision(resultQuantity);
-  if (normalizedResultQuantity < 0) {
+  // resultQuantity ist der lokale Spiegelwert (bis fam-lem.30.7.1/.30.7.2
+  // noch dezimal), delta/Ledger in payload/transaction sind bereits
+  // Integer-Tausendstel.
+  if (!Number.isFinite(resultQuantity) || resultQuantity < 0) {
     throw new Error('Bestandsmengen muessen nicht negativ sein.');
   }
+  toInventoryQuantityUnits(resultQuantity);
+  const normalizedResultQuantity = resultQuantity;
   return {
     entity: 'fridge_items',
     entityId: payload.item_id,

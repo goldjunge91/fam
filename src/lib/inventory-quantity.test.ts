@@ -1,5 +1,4 @@
 import {
-  assertInventoryQuantityPrecision,
   fromInventoryQuantityUnits,
   isNonNegativeIntegerThousandths,
   isPositiveIntegerThousandths,
@@ -25,15 +24,6 @@ describe('inventory quantity precision', () => {
   it('summiert und subtrahiert Mengen ohne Float-Drift', () => {
     expect(sumInventoryQuantities([0.1, 0.2, 1])).toBe(1.3);
     expect(subtractInventoryQuantities(1.1, 1)).toBe(0.1);
-  });
-
-  it('assertInventoryQuantityPrecision gibt gueltige Mengen unveraendert zurueck', () => {
-    expect(assertInventoryQuantityPrecision(1.5)).toBe(1.5);
-    expect(assertInventoryQuantityPrecision(0)).toBe(0);
-  });
-
-  it('assertInventoryQuantityPrecision weist Ueberpraezision zurueck statt zu runden', () => {
-    expect(() => assertInventoryQuantityPrecision(1.0001)).toThrow('drei Nachkommastellen');
   });
 });
 

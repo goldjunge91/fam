@@ -27,16 +27,17 @@ describe('createInventoryQuantityMutation', () => {
       `insert into fridge_items
        (id, household_id, name, quantity, unit, created_at, updated_at)
        values (?, ?, ?, ?, ?, ?, ?)`,
-      ['item-quantity', 'hh-1', 'Milch', 3, 'piece', '2026-09-07T10:00:00.000Z', 0],
+      ['item-quantity', 'hh-1', 'Milch', 3_000, 'piece', '2026-09-07T10:00:00.000Z', 0],
     );
 
+    // Integer-Tausendstel seit fam-lem.27.11 (contract.md Abschnitt 3).
     const mutation = createInventoryQuantityMutation({
       payload: {
         operation_id: 'quantity-operation-1',
         transaction_id: 'quantity-transaction-1',
         item_id: 'item-quantity',
         household_id: 'hh-1',
-        delta: -3,
+        delta: -3_000,
         created_at: '2026-09-07T10:00:00.000Z',
       },
       transaction: {
@@ -45,7 +46,7 @@ describe('createInventoryQuantityMutation', () => {
         household_id: 'hh-1',
         fridge_item_id: 'item-quantity',
         type: 'out',
-        quantity: 3,
+        quantity: 3_000,
         undone: false,
         created_at: '2026-09-07T10:00:00.000Z',
       },
@@ -69,17 +70,44 @@ describe('createInventoryQuantityMutation', () => {
 });
 
 describe('parseInventoryQuantityPayload', () => {
-  it('weist Deltas mit mehr als drei Nachkommastellen vor dem RPC zurück', () => {
+  // Integer-nativ seit fam-lem.27.11 (contract.md Abschnitt 3): delta ist ein
+  // vorzeichenbehaftetes Integer-Tausendstel, kein Dezimalwert mehr.
+  it('weist Nicht-Ganzzahl-Deltas vor dem RPC zurück', () => {
     expect(() =>
       parseInventoryQuantityPayload({
         operation_id: 'quantity-operation-1',
         transaction_id: 'quantity-transaction-1',
         item_id: 'item-quantity',
         household_id: 'hh-1',
-        delta: -0.1001,
+        delta: -0.5,
         created_at: '2026-09-07T10:00:00.000Z',
       }),
-    ).toThrow('drei Nachkommastellen');
+    ).toThrow('gueltiges Delta');
+  });
+
+  it('weist ein Delta von 0 zurück', () => {
+    expect(() =>
+      parseInventoryQuantityPayload({
+        operation_id: 'quantity-operation-1',
+        transaction_id: 'quantity-transaction-1',
+        item_id: 'item-quantity',
+        household_id: 'hh-1',
+        delta: 0,
+        created_at: '2026-09-07T10:00:00.000Z',
+      }),
+    ).toThrow('gueltiges Delta');
+  });
+
+  it('akzeptiert ein negatives Integer-Tausendstel-Delta', () => {
+    const parsed = parseInventoryQuantityPayload({
+      operation_id: 'quantity-operation-1',
+      transaction_id: 'quantity-transaction-1',
+      item_id: 'item-quantity',
+      household_id: 'hh-1',
+      delta: -3_000,
+      created_at: '2026-09-07T10:00:00.000Z',
+    });
+    expect(parsed.delta).toBe(-3_000);
   });
 });
 

@@ -167,11 +167,13 @@ describe('inventory mutation hooks', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    // Payload traegt seit fam-lem.27.11 Integer-Tausendstel (contract.md
+    // Abschnitt 3), keine Dezimal-Rueckkonvertierung mehr.
     expect(lastMutations()).toEqual([
       expect.objectContaining({
         entity: 'fridge_items',
         op: 'adjust_quantity',
-        payload: expect.objectContaining({ delta: -1, item_id: 'item-1' }),
+        payload: expect.objectContaining({ delta: -1_000, item_id: 'item-1' }),
       }),
     ]);
   });
@@ -197,7 +199,7 @@ describe('inventory mutation hooks', () => {
       expect.objectContaining({
         entity: 'fridge_items',
         op: 'adjust_quantity',
-        payload: expect.objectContaining({ delta: -3, item_id: 'item-1' }),
+        payload: expect.objectContaining({ delta: -3_000, item_id: 'item-1' }),
       }),
     ]);
   });
