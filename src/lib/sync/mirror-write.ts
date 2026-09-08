@@ -1,6 +1,5 @@
 import { metaOf } from '@/lib/db/entities';
 import type { Entity, SqlDatabase, SqlParam } from '@/lib/db/types';
-import { fromInventoryQuantityUnits, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
 import { toEpochMs } from '@/lib/sync/cursor';
 import { resolve, type SyncSide } from '@/lib/sync/resolve';
 
@@ -153,12 +152,12 @@ async function computeReconciledQuantity(
   remoteRow: RemoteRow,
   quantityOps: readonly { op: string; payload: Record<string, unknown> }[],
 ): Promise<number | 'conflict'> {
-  let units = toInventoryQuantityUnits(Number(remoteRow.quantity));
+  let units = Number(remoteRow.quantity);
 
   for (const { op, payload } of quantityOps) {
     if (op === 'adjust_quantity') {
       if (await isLedgerRowConfirmed(txn, payload.transaction_id)) continue;
-      units += toInventoryQuantityUnits(Number(payload.delta));
+      units += Number(payload.delta);
       // Eine verschobene Remote-Basis kann ein zuvor gueltiges Delta ins
       // Negative treiben (fam-onu). Eine Bestandsmenge ist nie negativ; das
       // ist ein echter Konflikt, kein stillschweigend zu clampender Wert.
@@ -167,9 +166,9 @@ async function computeReconciledQuantity(
     }
     if (op === 'correct_quantity') {
       if (await isLedgerRowConfirmed(txn, payload.transaction_id)) continue;
-      const expectedUnits = toInventoryQuantityUnits(Number(payload.expected_quantity));
+      const expectedUnits = Number(payload.expected_quantity);
       if (expectedUnits !== units) return 'conflict';
-      units = toInventoryQuantityUnits(Number(payload.new_quantity));
+      units = Number(payload.new_quantity);
       continue;
     }
     // reverse_quantity: das Delta ergibt sich aus der eigenen, bereits lokal
@@ -182,12 +181,11 @@ async function computeReconciledQuantity(
       [String(payload.reversal_transaction_id)],
     );
     if (ledgerRow === null) return 'conflict';
-    const ledgerUnits = toInventoryQuantityUnits(ledgerRow.quantity);
-    units += ledgerRow.type === 'in' ? ledgerUnits : -ledgerUnits;
+    units += ledgerRow.type === 'in' ? ledgerRow.quantity : -ledgerRow.quantity;
     if (units < 0) return 'conflict';
   }
 
-  return fromInventoryQuantityUnits(units);
+  return units;
 }
 
 /**
