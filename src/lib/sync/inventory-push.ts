@@ -10,10 +10,12 @@ import { backoffDelayMs, classifyError, MAX_ATTEMPTS } from '@/lib/sync/backoff'
 import type { CoalescedEntry } from '@/lib/sync/coalesce';
 import { parseInventoryMovePayload } from '@/lib/sync/inventory-move';
 import { parseInventoryMergeUndoPayload } from '@/lib/sync/inventory-open-merge';
-import { parseInventorySplitPayload } from '@/lib/sync/inventory-open-split';
-import { parseInventoryQuantityPayload } from '@/lib/sync/inventory-quantity';
-import { parseInventoryQuantityCorrectionPayload } from '@/lib/sync/inventory-quantity-correction';
-import { parseInventoryQuantityReversalPayload } from '@/lib/sync/inventory-quantity-reversal';
+import {
+  parseInventoryQuantityCorrectionPayload,
+  parseInventoryQuantityPayload,
+  parseInventoryQuantityReversalPayload,
+  parseInventorySplitPayload,
+} from '@/lib/sync/inventory-quantity';
 import { applyRemoteRow, type RemoteRow, upsertMirrorRow } from '@/lib/sync/mirror-write';
 import type { AttemptResult, PushOutcome } from '@/lib/sync/push';
 

@@ -2,7 +2,7 @@ import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import {
   type InventoryQuantityCorrectionPayload,
   parseInventoryQuantityCorrectionPayload,
-} from '@/lib/sync/inventory-quantity-correction';
+} from '@/lib/sync/inventory-quantity';
 
 import type { OutboxOp, SqlDatabase } from './types';
 

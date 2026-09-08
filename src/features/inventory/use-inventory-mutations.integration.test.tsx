@@ -440,11 +440,13 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     );
     const ledger = await rowsForItem(db, 'item-1');
 
-    expect(item).toEqual({ quantity: 4, location_id: 'loc-new', _dirty: 1 });
+    // quantity ist jetzt Integer-Tausendstel (contract.md Abschnitt 3,
+    // fam-lem.27.6): die Mengenkorrektur schreibt Einheiten, nicht Dezimal.
+    expect(item).toEqual({ quantity: 4000, location_id: 'loc-new', _dirty: 1 });
     expect(ledger).toEqual([
       expect.objectContaining({
         type: 'in',
-        quantity: 1,
+        quantity: 1000,
         location_id: 'loc-old',
         operation_id: expect.any(String),
         notes: '[Manual correction]',
@@ -579,16 +581,18 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       notes: string | null;
     }>('select fridge_item_id, type, quantity, notes from transactions', []);
 
+    // split_open ist integer-nativ (fam-lem.27.8, contract.md Abschnitt 3):
+    // Rest-Los und geoeffnetes Los tragen Integer-Tausendstel.
     expect(items).toHaveLength(2);
-    expect(items.map(({ quantity }) => quantity).sort()).toEqual([1, 2]);
+    expect(items.map(({ quantity }) => quantity).sort((a, b) => a - b)).toEqual([1000, 2000]);
     expect(items.find(({ opened_at }) => opened_at !== null)).toEqual(
-      expect.objectContaining({ quantity: 1, opened_at: expect.any(String) }),
+      expect.objectContaining({ quantity: 1000, opened_at: expect.any(String) }),
     );
     expect(ledger).toEqual([
       expect.objectContaining({
         fridge_item_id: expect.not.stringMatching(/^item-1$/),
         type: 'open',
-        quantity: 1,
+        quantity: 1000,
         notes: '[Split] origin=item-1',
       }),
     ]);
@@ -729,12 +733,13 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       await undoHook.result.current.mutateAsync({ transaction: source });
     });
 
+    // Integer-Tausendstel seit fam-lem.27.8 (contract.md Abschnitt 3).
     expect(
       await db.getFirstAsync<{ quantity: number; deleted_at: number | null }>(
         'select quantity, deleted_at from fridge_items where id = ?',
         ['item-1'],
       ),
-    ).toEqual({ quantity: 3, deleted_at: null });
+    ).toEqual({ quantity: 3000, deleted_at: null });
     expect(
       await db.getFirstAsync<{ deleted_at: number | null }>(
         'select deleted_at from fridge_items where id = ?',
@@ -991,9 +996,11 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
         ['item-1'],
       ),
     ).toEqual(
+      // reverse_quantity ist jetzt integer-nativ (fam-lem.27.7, contract.md
+      // Abschnitt 3): der Builder schreibt Integer-Tausendstel direkt.
       type === 'waste'
-        ? { deleted_at: null, quantity: 3 }
-        : { deleted_at: null, quantity: type === 'in' ? 3 : 5 },
+        ? { deleted_at: null, quantity: 3000 }
+        : { deleted_at: null, quantity: type === 'in' ? 3000 : 5000 },
     );
     expect(
       await db.getFirstAsync<{
@@ -1006,7 +1013,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       ]),
     ).toEqual({
       type: inverse,
-      quantity: sourceQuantity,
+      quantity: sourceQuantity * 1000,
       reversal_of: `source-${type}`,
       notes: '[Undone] Gegenbuchung',
     });
@@ -1045,7 +1052,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
         'select quantity from fridge_items where id = ?',
         ['item-1'],
       ),
-    ).toEqual({ quantity: 3 });
+    ).toEqual({ quantity: 3000 });
     expect(
       await db.getFirstAsync<{ type: string; notes: string | null; reversal_of: string | null }>(
         'select type, notes, reversal_of from transactions where reversal_of = ?',

@@ -21,6 +21,7 @@ import m0017 from './20260907124718_salty_triton/migration.sql';
 import m0018 from './20260907130006_lively_prima/migration.sql';
 import m0019 from './20260907161118_neat_mad_thinker/migration.sql';
 import m0020 from './20260908073310_groovy_monster_badoon/migration.sql';
+import m0021 from './20260908155104_low_ikaris/migration.sql';
 
   export default {
     migrations: {
@@ -44,7 +45,8 @@ import m0020 from './20260908073310_groovy_monster_badoon/migration.sql';
 "20260907124718_salty_triton": m0017,
 "20260907130006_lively_prima": m0018,
 "20260907161118_neat_mad_thinker": m0019,
-"20260908073310_groovy_monster_badoon": m0020
+"20260908073310_groovy_monster_badoon": m0020,
+"20260908155104_low_ikaris": m0021
 }
   }
   

@@ -1,20 +1,11 @@
 import type { EnqueueMutationInput } from '@/lib/db/outbox';
 import {
   assertInventoryQuantityPrecision,
-  fromInventoryQuantityUnits,
-  toInventoryQuantityUnits,
+  isNonNegativeIntegerThousandths,
+  isPositiveIntegerThousandths,
 } from '@/lib/inventory-quantity';
 import type { InventoryMovePayload, InventoryMoveTransaction } from '@/lib/sync/inventory-move';
 import type { InventoryMergeUndoPayload } from '@/lib/sync/inventory-open-merge';
-import type { InventorySplitPayload } from '@/lib/sync/inventory-open-split';
-import {
-  type InventoryQuantityCorrectionPayload,
-  parseInventoryQuantityCorrectionPayload,
-} from '@/lib/sync/inventory-quantity-correction';
-import {
-  type InventoryQuantityReversalPayload,
-  parseInventoryQuantityReversalPayload,
-} from '@/lib/sync/inventory-quantity-reversal';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
 export type InventoryQuantityAdjustmentPayload = {
@@ -26,10 +17,34 @@ export type InventoryQuantityAdjustmentPayload = {
   created_at: string;
 };
 
-function requiredString(payload: Record<string, unknown>, key: string): string {
+export type InventoryQuantityCorrectionPayload = {
+  operation_id: string;
+  transaction_id: string;
+  item_id: string;
+  household_id: string;
+  expected_quantity: number;
+  new_quantity: number;
+  created_at: string;
+};
+
+/** Gemeinsamer Payload-Validator aller lokalen Mengen-Befehle (contract.md Abschnitt 8). */
+function requiredString(payload: Record<string, unknown>, key: string, context: string): string {
   const value = payload[key];
   if (typeof value !== 'string' || value.length === 0) {
-    throw new Error(`Mengen-Payload enthaelt kein gueltiges Feld ${key}.`);
+    throw new Error(`${context} enthaelt kein gueltiges Feld ${key}.`);
+  }
+  return value;
+}
+
+/** Wie requiredString, aber fuer eine Integer-Tausendstel-Menge (contract.md Abschnitt 3). */
+function requiredNonNegativeQuantityUnits(
+  payload: Record<string, unknown>,
+  key: string,
+  context: string,
+): number {
+  const value = payload[key];
+  if (!isNonNegativeIntegerThousandths(value)) {
+    throw new Error(`${context} enthaelt keine gueltige Menge ${key}.`);
   }
   return value;
 }
@@ -45,12 +60,131 @@ export function parseInventoryQuantityPayload(
   const normalizedDelta = assertInventoryQuantityPrecision(delta);
 
   return {
-    operation_id: requiredString(payload, 'operation_id'),
-    transaction_id: requiredString(payload, 'transaction_id'),
-    item_id: requiredString(payload, 'item_id'),
-    household_id: requiredString(payload, 'household_id'),
+    operation_id: requiredString(payload, 'operation_id', 'Mengen-Payload'),
+    transaction_id: requiredString(payload, 'transaction_id', 'Mengen-Payload'),
+    item_id: requiredString(payload, 'item_id', 'Mengen-Payload'),
+    household_id: requiredString(payload, 'household_id', 'Mengen-Payload'),
     delta: normalizedDelta,
-    created_at: requiredString(payload, 'created_at'),
+    created_at: requiredString(payload, 'created_at', 'Mengen-Payload'),
+  };
+}
+
+export type InventoryQuantityReversalPayload = {
+  reversal_transaction_id: string;
+  reversal_of: string;
+  item_id: string;
+  household_id: string;
+  created_at: string;
+  notes: string;
+};
+
+/** Wie requiredString, aber fuer eine positive Integer-Tausendstel-Menge. */
+function requiredQuantityUnits(
+  payload: Record<string, unknown>,
+  key: string,
+  context: string,
+): number {
+  const value = payload[key];
+  if (!isPositiveIntegerThousandths(value)) {
+    throw new Error(`${context} enthaelt keine gueltige Menge ${key}.`);
+  }
+  return value;
+}
+
+function requiredBoolean(payload: Record<string, unknown>, key: string, context: string): boolean {
+  const value = payload[key];
+  if (typeof value !== 'boolean') {
+    throw new Error(`${context} enthaelt kein gueltiges Feld ${key}.`);
+  }
+  return value;
+}
+
+export type InventorySplitPayload = {
+  transaction_id: string;
+  source_item_id: string;
+  opened_item_id: string;
+  household_id: string;
+  expected_source_quantity: number;
+  open_quantity: number;
+  opened_at: string;
+  new_expiry_date: string | null;
+  expiry_user_set: boolean;
+  created_at: string;
+};
+
+/** Validiert den Split-Compare-and-set-Umschlag vor dem Netzwerkzugriff (fam-lem.27.8). */
+export function parseInventorySplitPayload(
+  payload: Record<string, unknown>,
+): InventorySplitPayload {
+  const context = 'Split-Payload';
+  const expectedSourceQuantity = requiredQuantityUnits(
+    payload,
+    'expected_source_quantity',
+    context,
+  );
+  const openQuantity = requiredQuantityUnits(payload, 'open_quantity', context);
+  if (openQuantity > expectedSourceQuantity) {
+    throw new Error('Die Öffnungsmenge muss größer als 0 und höchstens die Ausgangsmenge sein.');
+  }
+
+  const newExpiryDateRaw = payload.new_expiry_date;
+  if (newExpiryDateRaw !== null && typeof newExpiryDateRaw !== 'string') {
+    throw new Error(`${context} enthaelt kein gueltiges Feld new_expiry_date.`);
+  }
+
+  const parsed: InventorySplitPayload = {
+    transaction_id: requiredString(payload, 'transaction_id', context),
+    source_item_id: requiredString(payload, 'source_item_id', context),
+    opened_item_id: requiredString(payload, 'opened_item_id', context),
+    household_id: requiredString(payload, 'household_id', context),
+    expected_source_quantity: expectedSourceQuantity,
+    open_quantity: openQuantity,
+    opened_at: requiredString(payload, 'opened_at', context),
+    new_expiry_date: newExpiryDateRaw,
+    expiry_user_set: requiredBoolean(payload, 'expiry_user_set', context),
+    created_at: requiredString(payload, 'created_at', context),
+  };
+
+  if (parsed.source_item_id === parsed.opened_item_id) {
+    throw new Error(`${context} braucht zwei unterschiedliche Bestands-IDs.`);
+  }
+  return parsed;
+}
+
+/** Validiert den persistierten Reversal-Umschlag vor dem Netzwerkzugriff (fam-lem.27.7). */
+export function parseInventoryQuantityReversalPayload(
+  payload: Record<string, unknown>,
+): InventoryQuantityReversalPayload {
+  const context = 'Mengen-Undo-Payload';
+  return {
+    reversal_transaction_id: requiredString(payload, 'reversal_transaction_id', context),
+    reversal_of: requiredString(payload, 'reversal_of', context),
+    item_id: requiredString(payload, 'item_id', context),
+    household_id: requiredString(payload, 'household_id', context),
+    created_at: requiredString(payload, 'created_at', context),
+    notes: requiredString(payload, 'notes', context),
+  };
+}
+
+/** Validiert den Compare-and-set-Umschlag vor dem Netzwerkzugriff (fam-lem.27.6). */
+export function parseInventoryQuantityCorrectionPayload(
+  payload: Record<string, unknown>,
+): InventoryQuantityCorrectionPayload {
+  const context = 'Mengenkorrektur-Payload';
+  const expectedQuantity = requiredNonNegativeQuantityUnits(payload, 'expected_quantity', context);
+  const newQuantity = requiredNonNegativeQuantityUnits(payload, 'new_quantity', context);
+  if (expectedQuantity === newQuantity) {
+    throw new Error('Mengenkorrektur braucht zwei unterschiedliche Mengen.');
+  }
+
+  return {
+    operation_id: requiredString(payload, 'operation_id', context),
+    transaction_id: requiredString(payload, 'transaction_id', context),
+    item_id: requiredString(payload, 'item_id', context),
+    household_id: requiredString(payload, 'household_id', context),
+    expected_quantity: expectedQuantity,
+    new_quantity: newQuantity,
+    created_at: requiredString(payload, 'created_at', context),
   };
 }
 
@@ -114,10 +248,12 @@ export function createInventoryQuantityReversalMutation(args: {
 }): EnqueueMutationInput {
   const { payload, transaction, restore, nowMs } = args;
   const reversal = parseInventoryQuantityReversalPayload(payload);
-  const resultQuantity = assertInventoryQuantityPrecision(args.resultQuantity);
-  if (resultQuantity < 0) {
+  // Integer-nativ (fam-lem.27.7): der Aufrufer liefert bereits Integer-
+  // Tausendstel, keine Dezimal-Rueckkonvertierung mehr vor dem Schreiben.
+  if (!isNonNegativeIntegerThousandths(args.resultQuantity)) {
     throw new Error('Die Gegenbuchung würde eine negative Bestandsmenge erzeugen.');
   }
+  const resultQuantity = args.resultQuantity;
 
   return {
     entity: 'fridge_items',
@@ -204,10 +340,11 @@ export function createInventorySplitMutation(args: {
   nowMs: number;
 }): EnqueueMutationInput {
   const { payload, openedItem, transaction, nowMs } = args;
-  const remainingQuantity = fromInventoryQuantityUnits(
-    toInventoryQuantityUnits(payload.expected_source_quantity) -
-      toInventoryQuantityUnits(payload.open_quantity),
-  );
+  // Integer-nativ (fam-lem.27.8): payload traegt bereits Integer-Tausendstel,
+  // keine Dezimal-Rueckkonvertierung mehr. Das neue Los erhaelt exakt die
+  // validierte Oeffnungsmenge, nicht das (moeglicherweise noch dezimale)
+  // quantity-Feld des gelieferten Lifecycle-Plans.
+  const remainingQuantity = payload.expected_source_quantity - payload.open_quantity;
 
   return {
     entity: 'fridge_items',
@@ -236,7 +373,7 @@ export function createInventorySplitMutation(args: {
         txn,
         'fridge_items',
         'insert',
-        { ...openedItem, created_at: payload.created_at },
+        { ...openedItem, quantity: payload.open_quantity, created_at: payload.created_at },
         nowMs,
       );
       await applyLocalMirrorWrite(

@@ -270,7 +270,11 @@ describe('inventory mutation hooks', () => {
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {
-      await result.current.mutateAsync({ id: ITEM.id, household_id: ITEM.household_id, patch: { name: 'Dijon-Senf' } });
+      await result.current.mutateAsync({
+        id: ITEM.id,
+        household_id: ITEM.household_id,
+        patch: { name: 'Dijon-Senf' },
+      });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
@@ -292,7 +296,11 @@ describe('inventory mutation hooks', () => {
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {
-      await result.current.mutateAsync({ id: ITEM.id, household_id: ITEM.household_id, patch: { name: 'Dijon-Senf' } });
+      await result.current.mutateAsync({
+        id: ITEM.id,
+        household_id: ITEM.household_id,
+        patch: { name: 'Dijon-Senf' },
+      });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
@@ -367,7 +375,7 @@ describe('inventory mutation hooks', () => {
     expect(lastMutations()[0]).toMatchObject({
       entity: 'fridge_items',
       op: 'correct_quantity',
-      payload: { expected_quantity: 3, new_quantity: 4 },
+      payload: { expected_quantity: 3000, new_quantity: 4000 },
     });
     expect(lastMutations()[1]).toMatchObject({
       entity: 'fridge_items',
@@ -386,7 +394,11 @@ describe('inventory mutation hooks', () => {
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {
-      await result.current.mutateAsync({ id: ITEM.id, household_id: ITEM.household_id, patch: { location_id: 'loc-2' } });
+      await result.current.mutateAsync({
+        id: ITEM.id,
+        household_id: ITEM.household_id,
+        patch: { location_id: 'loc-2' },
+      });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
@@ -427,7 +439,7 @@ describe('inventory mutation hooks', () => {
       payload: {
         item_id: 'item-1',
         household_id: 'hh-1',
-        expected_quantity: 3,
+        expected_quantity: 3000,
         new_quantity: 0,
       },
     });
@@ -451,7 +463,7 @@ describe('inventory mutation hooks', () => {
     expect(lastMutations()[0]).toMatchObject({
       entity: 'fridge_items',
       op: 'correct_quantity',
-      payload: { expected_quantity: 3, new_quantity: 0 },
+      payload: { expected_quantity: 3000, new_quantity: 0 },
     });
   });
 
@@ -534,8 +546,8 @@ describe('inventory mutation hooks', () => {
         source_item_id: 'item-1',
         opened_item_id: 'opened-item-id',
         household_id: 'hh-1',
-        expected_source_quantity: 3,
-        open_quantity: 1,
+        expected_source_quantity: 3000,
+        open_quantity: 1000,
       },
     });
   });

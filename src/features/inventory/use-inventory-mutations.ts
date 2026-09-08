@@ -39,6 +39,7 @@ import {
   undoTransactionNotes,
 } from './inventory-lifecycle';
 import type { LocalInventoryItem } from './use-inventory-items';
+import { readFridgeItemRow } from './use-inventory-items';
 import {
   isInventoryMoveTransaction,
   type LocalInventoryTransaction,
@@ -584,10 +585,11 @@ export function useUpdateFridgeItemMutation() {
           if (newUnits !== expectedUnits) {
             const operationId = Crypto.randomUUID();
             const transactionId = Crypto.randomUUID();
-            const correctedQuantity = fromInventoryQuantityUnits(newUnits);
-            const correctionQuantity = fromInventoryQuantityUnits(
-              Math.abs(newUnits - expectedUnits),
-            );
+            // createInventoryQuantityCorrectionMutation ist integer-nativ
+            // (fam-lem.27.6): keine Rueckkonvertierung auf Dezimal, die
+            // Einheiten werden direkt geschrieben und ueber die Wire-Payload
+            // an den (ebenfalls bigint-nativen) Server-RPC gereicht.
+            const correctionQuantityUnits = Math.abs(newUnits - expectedUnits);
             const correctionType = newUnits > expectedUnits ? 'in' : 'out';
             mutations.push(
               createInventoryQuantityCorrectionMutation({
@@ -600,8 +602,8 @@ export function useUpdateFridgeItemMutation() {
                   // Zustand, nicht aus dem lokalen Spiegel zum Zeitpunkt des
                   // Speicherns — sonst maskiert ein zwischenzeitlicher Verbrauch
                   // den Konflikt statt ihn dem Server zur Prüfung zu melden.
-                  expected_quantity: item.quantityCorrection.expectedQuantity,
-                  new_quantity: correctedQuantity,
+                  expected_quantity: expectedUnits,
+                  new_quantity: newUnits,
                   created_at: now,
                 },
                 transaction: {
@@ -615,7 +617,7 @@ export function useUpdateFridgeItemMutation() {
                       : (existing.product_id ?? null),
                   actor,
                   type: correctionType,
-                  quantity: correctionQuantity,
+                  quantity: correctionQuantityUnits,
                   location_id: existing.location_id,
                   reason: null,
                   previous_expiry_date: null,
@@ -687,17 +689,11 @@ export function useOpenInventoryItemMutation() {
       // fuer die Planung kommt aus dem frisch gelesenen lokalen Stand, nicht
       // aus einem moeglicherweise veralteten UI-Snapshot.
       await enqueueMutationsInExclusiveTransaction(db, async (txn) => {
-        const current = await txn.getFirstAsync<LocalInventoryItem>(
-          `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
-                  fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
-                  fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
-                  fi.added_by, fi.created_at, fi.updated_at,
-                  sl.kind as location_kind, sl.name as location_name
-             from fridge_items fi
-             left join storage_locations sl on fi.location_id = sl.id
-            where fi.id = ? and fi.household_id = ? and fi.deleted_at is null`,
-          [item.id, item.household_id],
-        );
+        const current = await readFridgeItemRow(txn, {
+          id: item.id,
+          householdId: item.household_id,
+          excludeDeleted: true,
+        });
         if (!current) throw new Error('Der Bestand ist lokal nicht vorhanden.');
 
         const plan = planOpenInventoryItem(
@@ -747,15 +743,29 @@ export function useOpenInventoryItemMutation() {
               source_item_id: current.id,
               opened_item_id: openedItemId,
               household_id: current.household_id,
-              expected_source_quantity: current.quantity,
-              open_quantity: quantity,
+              // createInventorySplitMutation ist integer-nativ (fam-lem.27.8):
+              // Konversion Dezimal->Einheiten passiert genau hier, an der
+              // Grenze zwischen dem dezimalen Lifecycle-Plan und dem Owner
+              // des lokalen Commits.
+              expected_source_quantity: toInventoryQuantityUnits(current.quantity),
+              open_quantity: toInventoryQuantityUnits(quantity),
               opened_at: nowIso,
               new_expiry_date: plan.openedItem.expiryDate,
               expiry_user_set: plan.openedItem.expiryUserSet,
               created_at: nowIso,
             },
             openedItem: lifecycleItemPayload(plan.openedItem),
-            transaction,
+            transaction: {
+              ...transaction,
+              quantity: toInventoryQuantityUnits(transaction.quantity),
+              // origin_quantity muss mit quantity/sealed konsistent in
+              // Einheiten stehen, sonst vergleicht sameSplitIdentity
+              // (inventory-lifecycle.ts) Dezimal- gegen Einheitenwerte.
+              origin_quantity:
+                transaction.origin_quantity != null
+                  ? toInventoryQuantityUnits(transaction.origin_quantity)
+                  : transaction.origin_quantity,
+            },
             nowMs,
           }),
         ];
@@ -920,17 +930,9 @@ export function useUndoOpenTransactionMutation() {
         );
         if (existingUndo) throw new Error('Diese Öffnung wurde bereits rückgängig gemacht.');
 
-        const openedRow = await txn.getFirstAsync<LocalInventoryItem>(
-          `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
-                  fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
-                  fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
-                  fi.added_by, fi.created_at, fi.updated_at,
-                  sl.kind as location_kind, sl.name as location_name
-             from fridge_items fi
-             left join storage_locations sl on fi.location_id = sl.id
-            where fi.id = ? and fi.deleted_at is null`,
-          [transaction.fridge_item_id],
-        );
+        const openedRow = transaction.fridge_item_id
+          ? await readFridgeItemRow(txn, { id: transaction.fridge_item_id, excludeDeleted: true })
+          : null;
         if (!openedRow) throw new Error('Der geöffnete Bestand ist nicht mehr vorhanden.');
 
         const splitOriginItemId = getSplitOriginItemId({
@@ -938,18 +940,12 @@ export function useUndoOpenTransactionMutation() {
           notes: transaction.notes,
         });
         const sealedRow = splitOriginItemId
-          ? await txn.getFirstAsync<LocalInventoryItem>(
-              `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
-                      fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
-                      fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
-                      fi.added_by, fi.created_at, fi.updated_at,
-                      sl.kind as location_kind, sl.name as location_name
-                 from fridge_items fi
-                 left join storage_locations sl on fi.location_id = sl.id
-                where fi.id = ? and fi.household_id = ? and fi.opened_at is null
-                  and fi.deleted_at is null`,
-              [splitOriginItemId, transaction.household_id],
-            )
+          ? await readFridgeItemRow(txn, {
+              id: splitOriginItemId,
+              householdId: transaction.household_id,
+              excludeOpened: true,
+              excludeDeleted: true,
+            })
           : null;
         const lifecycleTransaction = {
           id: transaction.id,
@@ -1122,8 +1118,6 @@ export function useUndoOpenTransactionMutation() {
   });
 }
 
-type UndoInventoryItem = LocalInventoryItem & { deleted_at: number | null };
-
 type MoveLedgerLeg = {
   id: string;
   type: 'in' | 'out';
@@ -1142,6 +1136,7 @@ async function enqueueQuantityReversal(
   if (!transaction.fridge_item_id) {
     throw new Error('Diese Buchung ist keinem Bestandslos zugeordnet.');
   }
+  const fridgeItemId = transaction.fridge_item_id;
 
   const inverseType = inverseTransactionType(transaction.type);
   if (inverseType === 'open') {
@@ -1151,17 +1146,10 @@ async function enqueueQuantityReversal(
   const now = new Date().toISOString();
   const nowMs = Date.now();
   await enqueueMutationsInExclusiveTransaction(db, async (txn) => {
-    const item = await txn.getFirstAsync<UndoInventoryItem>(
-      `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
-              fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
-              fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
-              fi.added_by, fi.created_at, fi.updated_at, fi.deleted_at,
-              sl.kind as location_kind, sl.name as location_name
-         from fridge_items fi
-         left join storage_locations sl on fi.location_id = sl.id
-        where fi.id = ? and fi.household_id = ?`,
-      [transaction.fridge_item_id, transaction.household_id],
-    );
+    const item = await readFridgeItemRow(txn, {
+      id: fridgeItemId,
+      householdId: transaction.household_id,
+    });
     if (!item) throw new Error('Der Bestand ist lokal nicht vorhanden.');
 
     const existingReversal = await txn.getFirstAsync<{ id: string }>(
@@ -1216,7 +1204,7 @@ async function enqueueQuantityReversal(
           product_id: transaction.product_id ?? item.product_id,
           actor,
           type: inverseType,
-          quantity: fromInventoryQuantityUnits(transactionUnits),
+          quantity: transactionUnits,
           location_id: item.location_id ?? transaction.location_id,
           reason: null,
           previous_expiry_date: null,
@@ -1224,7 +1212,7 @@ async function enqueueQuantityReversal(
           undone: false,
           created_at: now,
         },
-        resultQuantity: fromInventoryQuantityUnits(resultUnits),
+        resultQuantity: resultUnits,
         restore,
         nowMs,
       }),
