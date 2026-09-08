@@ -17,7 +17,7 @@ export const outbox = sqliteTable(
   (table) => [
     check(
       'outbox_op_check',
-      sql`${table.op} in ('insert', 'update', 'delete', 'restore', 'move', 'adjust_quantity', 'correct_quantity', 'reverse_quantity')`,
+      sql`${table.op} in ('insert', 'update', 'delete', 'restore', 'move', 'adjust_quantity', 'correct_quantity', 'reverse_quantity', 'split_open', 'merge_undo_open')`,
     ),
     index('outbox_row_idx').on(table.entity, table.entityId, table.id),
     index('outbox_due_idx').on(table.nextAttemptAt, table.id),

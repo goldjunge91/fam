@@ -87,7 +87,9 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
       entry.op === 'move' ||
       entry.op === 'adjust_quantity' ||
       entry.op === 'correct_quantity' ||
-      entry.op === 'reverse_quantity'
+      entry.op === 'reverse_quantity' ||
+      entry.op === 'split_open' ||
+      entry.op === 'merge_undo_open'
     ) {
       const group = open.get(key);
       if (group !== undefined) {

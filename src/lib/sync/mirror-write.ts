@@ -1,5 +1,6 @@
 import { metaOf } from '@/lib/db/entities';
 import type { Entity, SqlDatabase, SqlParam } from '@/lib/db/types';
+import { fromInventoryQuantityUnits, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
 import { toEpochMs } from '@/lib/sync/cursor';
 import { resolve, type SyncSide } from '@/lib/sync/resolve';
 
@@ -81,7 +82,7 @@ export async function upsertMirrorRow(
   );
 }
 
-type RemoteRow = Record<string, unknown> & {
+export type RemoteRow = Record<string, unknown> & {
   id: string;
   updated_at?: string;
   created_at?: string;
@@ -117,12 +118,59 @@ function touchedColumns(op: string, payload: Record<string, unknown>): Set<strin
   }
 }
 
+const QUANTITY_OPS = new Set(['adjust_quantity', 'correct_quantity', 'reverse_quantity']);
+
+type QuantityLedgerRow = { type: string; quantity: number };
+
+/**
+ * Rekonstruiert die Bestandsmenge aus der bestätigten Remote-Basis plus den
+ * noch offenen, in Reihenfolge angewandten Mengenoperationen. `adjust_quantity`
+ * trägt sein Delta direkt im Payload; `reverse_quantity` liest sein Delta aus
+ * der bereits lokal eingefügten Ledgerzeile (`reversal_transaction_id`).
+ * `correct_quantity` ist ein Compare-and-set: stimmt seine erwartete Basis
+ * nicht mit der bis dahin berechneten Menge überein, ist das ein echter
+ * Konflikt statt einer still übernommenen Annahme.
+ */
+async function computeReconciledQuantity(
+  txn: SqlDatabase,
+  remoteRow: RemoteRow,
+  quantityOps: readonly { op: string; payload: Record<string, unknown> }[],
+): Promise<number | 'conflict'> {
+  let units = toInventoryQuantityUnits(Number(remoteRow.quantity));
+
+  for (const { op, payload } of quantityOps) {
+    if (op === 'adjust_quantity') {
+      units += toInventoryQuantityUnits(Number(payload.delta));
+      continue;
+    }
+    if (op === 'correct_quantity') {
+      const expectedUnits = toInventoryQuantityUnits(Number(payload.expected_quantity));
+      if (expectedUnits !== units) return 'conflict';
+      units = toInventoryQuantityUnits(Number(payload.new_quantity));
+      continue;
+    }
+    // reverse_quantity: das Delta ergibt sich aus der eigenen, bereits lokal
+    // eingefügten Ledgerzeile (type/quantity), nicht aus dem Payload selbst.
+    const ledgerRow = await txn.getFirstAsync<QuantityLedgerRow>(
+      'select type, quantity from transactions where id = ?',
+      [String(payload.reversal_transaction_id)],
+    );
+    if (ledgerRow === null) return 'conflict';
+    const ledgerUnits = toInventoryQuantityUnits(ledgerRow.quantity);
+    units += ledgerRow.type === 'in' ? ledgerUnits : -ledgerUnits;
+  }
+
+  return fromInventoryQuantityUnits(units);
+}
+
 /**
  * Wendet eine Remote-Zeile auf eine lokal dirty Zeile an, für die noch
  * Outbox-Operationen offen sind. Remote gilt als bestätigte Basis; von
  * offenen Operationen berührte Spalten behalten ihren lokalen Wert, alle
- * anderen übernehmen die echte Remote-Änderung. `_dirty` bleibt 1, bis die
- * offenen Operationen bestätigt sind.
+ * anderen übernehmen die echte Remote-Änderung. Die Menge ist ein Sonderfall:
+ * sie wird algebraisch aus Basis plus offenen Deltas neu berechnet statt nur
+ * lokal konserviert (fam-onu). `_dirty` bleibt 1, bis die offenen Operationen
+ * bestätigt sind.
  */
 async function reconcileDirtyRowWithPendingOps(
   txn: SqlDatabase,
@@ -131,9 +179,14 @@ async function reconcileDirtyRowWithPendingOps(
   remoteRow: RemoteRow,
   pendingOps: readonly PendingOutboxRow[],
 ): Promise<'written' | 'local-wins'> {
+  const parsedOps = pendingOps.map(({ op, payload }) => ({
+    op,
+    payload: JSON.parse(payload) as Record<string, unknown>,
+  }));
+
   const touched = new Set<string>();
-  for (const { op, payload } of pendingOps) {
-    const columns = touchedColumns(op, JSON.parse(payload) as Record<string, unknown>);
+  for (const { op, payload } of parsedOps) {
+    const columns = touchedColumns(op, payload);
     if (columns === 'all') return 'local-wins';
     for (const column of columns) touched.add(column);
   }
@@ -147,6 +200,14 @@ async function reconcileDirtyRowWithPendingOps(
     return 'written';
   }
 
+  let reconciledQuantity: number | null = null;
+  const quantityOps = parsedOps.filter(({ op }) => QUANTITY_OPS.has(op));
+  if (quantityOps.length > 0) {
+    const computed = await computeReconciledQuantity(txn, remoteRow, quantityOps);
+    if (computed === 'conflict') return 'local-wins';
+    reconciledQuantity = computed;
+  }
+
   const deletedAtRaw = remoteRow.deleted_at;
   const remoteDeletedAt =
     meta.hasServerTombstone && typeof deletedAtRaw === 'string' ? toEpochMs(deletedAtRaw) : null;
@@ -158,6 +219,7 @@ async function reconcileDirtyRowWithPendingOps(
     if (column === 'deleted_at') {
       return touched.has('deleted_at') ? (currentRow.deleted_at as SqlParam) : remoteDeletedAt;
     }
+    if (column === 'quantity' && reconciledQuantity !== null) return reconciledQuantity;
     if (touched.has(column)) return currentRow[column] as SqlParam;
     return toSqlParam(remoteRow[column]);
   });

@@ -11,9 +11,20 @@ import {
   enqueueMutations,
   enqueueMutationsInExclusiveTransaction,
 } from '@/lib/db/outbox';
+import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';
+import { fromInventoryQuantityUnits, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
+import { getSupabase } from '@/lib/supabase';
 import { createInventoryMoveMutation } from '@/lib/sync/inventory-move';
+import { createInventoryMergeUndoMutation } from '@/lib/sync/inventory-open-merge';
+import { createInventorySplitMutation } from '@/lib/sync/inventory-open-split';
 import { createInventoryQuantityMutation } from '@/lib/sync/inventory-quantity';
+import { createInventoryQuantityCorrectionMutation } from '@/lib/sync/inventory-quantity-correction';
+import { createInventoryQuantityReversalMutation } from '@/lib/sync/inventory-quantity-reversal';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
+import {
+  discardInventoryConflict,
+  reconfirmInventoryQuantityCorrection,
+} from '@/lib/sync/resolve-inventory-conflict';
 import { normalizeUnit } from '@/lib/units';
 import type { WasteReason } from './components/waste-inventory-item-sheet';
 import {
@@ -65,6 +76,7 @@ function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueM
   if (!Number.isFinite(payload.quantity) || payload.quantity <= 0) {
     throw new Error('Ledger-Buchungen benötigen eine positive Menge.');
   }
+  toInventoryQuantityUnits(payload.quantity);
 
   const normalizedPayload: TransactionPayload = {
     operation_id: null,
@@ -85,6 +97,7 @@ function assertValidInventoryQuantity(quantity: number): void {
   if (!Number.isFinite(quantity) || quantity < 0) {
     throw new Error('Bestandsmengen müssen endlich und nicht negativ sein.');
   }
+  toInventoryQuantityUnits(quantity);
 }
 
 function groupedMoveMutation(input: {
@@ -103,6 +116,7 @@ function groupedMoveMutation(input: {
   if (!Number.isFinite(input.quantity) || input.quantity <= 0) {
     throw new Error('Ledger-Buchungen benötigen eine positive Menge.');
   }
+  toInventoryQuantityUnits(input.quantity);
 
   const operationId = Crypto.randomUUID();
   const outTransactionId = Crypto.randomUUID();
@@ -358,10 +372,14 @@ export function useUpdateInventoryItemQuantityMutation() {
         }>('select quantity, product_id, location_id from fridge_items where id = ?', [id]);
         if (!existing) return [];
 
-        const newQty = Math.max(0, existing.quantity + delta);
+        const currentUnits = toInventoryQuantityUnits(existing.quantity);
+        const requestedDeltaUnits = toInventoryQuantityUnits(delta);
+        const newQuantityUnits = Math.max(0, currentUnits + requestedDeltaUnits);
+        const effectiveDeltaUnits = newQuantityUnits - currentUnits;
+        const newQty = fromInventoryQuantityUnits(newQuantityUnits);
         result = { id, newQty };
-        const effectiveDelta = newQty - existing.quantity;
-        if (effectiveDelta === 0) return [];
+        if (effectiveDeltaUnits === 0) return [];
+        const effectiveDelta = fromInventoryQuantityUnits(effectiveDeltaUnits);
 
         const transactionId = Crypto.randomUUID();
         const operationId = Crypto.randomUUID();
@@ -422,113 +440,228 @@ export function useUpdateInventoryItemQuantityMutation() {
   });
 }
 
+/** Compare-and-set-Wunsch für eine bewusste Mengenkorrektur im Bearbeiten-Dialog. */
+export type FridgeItemQuantityCorrection = {
+  expectedQuantity: number;
+  newQuantity: number;
+};
+
+export type FridgeItemMetadataPatch = Partial<
+  Pick<
+    FridgeItem,
+    | 'product_id'
+    | 'name'
+    | 'unit'
+    | 'package_size'
+    | 'package_size_unit'
+    | 'location_id'
+    | 'expiry_date'
+    | 'opened_at'
+    | 'vacuum_sealed'
+    | 'expiry_user_set'
+  >
+>;
+
+/**
+ * Eingabe für die manuelle Bearbeitung. `quantity` ist bewusst kein Feld hier:
+ * eine reine Metadatenänderung darf nie implizit eine Menge mitschicken. Eine
+ * gewollte Mengenkorrektur wird explizit über `quantityCorrection` übergeben,
+ * mit der beim Öffnen des Dialogs geladenen Menge als `expectedQuantity`.
+ */
+export type UpdateFridgeItemInput = Pick<FridgeItem, 'id' | 'household_id'> & {
+  patch: FridgeItemMetadataPatch;
+  quantityCorrection?: FridgeItemQuantityCorrection;
+};
+
 export function useUpdateFridgeItemMutation() {
   const queryClient = useQueryClient();
   const actor = useInventoryActor();
 
   return useMutation({
-    mutationFn: async (item: FridgeItem) => {
-      assertValidInventoryQuantity(item.quantity);
+    mutationFn: async (item: UpdateFridgeItemInput) => {
+      if (item.quantityCorrection) {
+        assertValidInventoryQuantity(item.quantityCorrection.expectedQuantity);
+        assertValidInventoryQuantity(item.quantityCorrection.newQuantity);
+      }
       const db = await getDatabase();
       const now = new Date().toISOString();
       const nowMs = Date.now();
-      const unit = normalizeUnit(item.unit);
-      const packageSizeUnit = item.package_size_unit ? normalizeUnit(item.package_size_unit) : null;
-      const localFieldsWithoutLocation = {
-        id: item.id,
-        household_id: item.household_id,
-        product_id: item.product_id,
-        name: item.name,
-        quantity: item.quantity,
-        unit,
-        package_size: item.package_size,
-        package_size_unit: packageSizeUnit,
-        expiry_date: item.expiry_date,
-        ...(item.opened_at !== undefined ? { opened_at: item.opened_at } : {}),
-        ...(item.vacuum_sealed !== undefined ? { vacuum_sealed: item.vacuum_sealed } : {}),
-        ...(item.expiry_user_set !== undefined ? { expiry_user_set: item.expiry_user_set } : {}),
-      };
-      const existing = await db.getFirstAsync<{
-        quantity: number;
-        location_id: string | null;
-      }>('select quantity, location_id from fridge_items where id = ?', [item.id]);
-      if (!existing) {
-        throw new Error('Der Bestand ist lokal nicht vorhanden.');
-      }
+      let resultPayload: Record<string, unknown> = { id: item.id, household_id: item.household_id };
 
-      const quantityChanged = existing !== null && item.quantity !== existing.quantity;
-      const isDepleted = item.quantity === 0 && quantityChanged;
-      const locationChanged =
-        existing !== null && item.quantity > 0 && item.location_id !== existing.location_id;
-      const localFields = locationChanged
-        ? localFieldsWithoutLocation
-        : { ...localFieldsWithoutLocation, location_id: item.location_id };
-      const payload = { ...localFields, updated_at: now };
-      const mutations: EnqueueMutationInput[] = [
-        isDepleted
-          ? {
-              entity: 'fridge_items',
-              entityId: item.id,
-              op: 'delete',
-              payload: {
-                id: item.id,
-                household_id: item.household_id,
-                deleted_at: now,
-                updated_at: now,
-              },
-              applyLocally: (txn) =>
-                applyLocalMirrorWrite(txn, 'fridge_items', 'delete', { id: item.id }, nowMs),
-            }
-          : {
-              entity: 'fridge_items',
-              entityId: item.id,
-              op: 'update',
-              payload,
-              applyLocally: (txn) =>
-                applyLocalMirrorWrite(txn, 'fridge_items', 'update', localFields, nowMs),
-            },
-      ];
+      await enqueueMutationsInExclusiveTransaction(db, async (txn) => {
+        const existing = await txn.getFirstAsync<
+          Partial<FridgeItem> & {
+            quantity: number;
+            location_id: string | null;
+            vacuum_sealed?: boolean | number;
+            expiry_user_set?: boolean | number;
+          }
+        >('select * from fridge_items where id = ?', [item.id]);
+        if (!existing) {
+          throw new Error('Der Bestand ist lokal nicht vorhanden.');
+        }
 
-      if (quantityChanged) {
-        mutations.push(
-          transactionMutation(
-            {
-              id: Crypto.randomUUID(),
-              household_id: item.household_id,
-              fridge_item_id: item.id,
-              product_id: item.product_id,
+        const metadataPatch: Record<string, unknown> = { id: item.id };
+        if (
+          item.patch.product_id !== undefined &&
+          item.patch.product_id !== existing.product_id
+        ) {
+          metadataPatch.product_id = item.patch.product_id;
+        }
+        if (item.patch.name !== undefined && item.patch.name !== existing.name) {
+          metadataPatch.name = item.patch.name;
+        }
+        if (
+          item.patch.unit !== undefined &&
+          normalizeUnit(item.patch.unit) !==
+            (existing.unit === undefined ? undefined : normalizeUnit(existing.unit))
+        ) {
+          const unit = normalizeUnit(item.patch.unit);
+          metadataPatch.unit = unit;
+        }
+        if (
+          item.patch.package_size !== undefined &&
+          item.patch.package_size !== existing.package_size
+        ) {
+          metadataPatch.package_size = item.patch.package_size;
+        }
+        if (
+          item.patch.package_size_unit !== undefined &&
+          (item.patch.package_size_unit
+            ? normalizeUnit(item.patch.package_size_unit)
+            : null) !==
+            (existing.package_size_unit ? normalizeUnit(existing.package_size_unit) : null)
+        ) {
+          metadataPatch.package_size_unit = item.patch.package_size_unit
+            ? normalizeUnit(item.patch.package_size_unit)
+            : null;
+        }
+        if (
+          item.patch.expiry_date !== undefined &&
+          item.patch.expiry_date !== existing.expiry_date
+        ) {
+          metadataPatch.expiry_date = item.patch.expiry_date;
+        }
+        if (
+          item.patch.opened_at !== undefined &&
+          item.patch.opened_at !== existing.opened_at
+        ) {
+          metadataPatch.opened_at = item.patch.opened_at;
+        }
+        if (
+          item.patch.vacuum_sealed !== undefined &&
+          item.patch.vacuum_sealed !== Boolean(existing.vacuum_sealed)
+        ) {
+          metadataPatch.vacuum_sealed = item.patch.vacuum_sealed;
+        }
+        if (
+          item.patch.expiry_user_set !== undefined &&
+          item.patch.expiry_user_set !== Boolean(existing.expiry_user_set)
+        ) {
+          metadataPatch.expiry_user_set = item.patch.expiry_user_set;
+        }
+
+        const existingQuantityUnits = toInventoryQuantityUnits(existing.quantity);
+        const mutations: EnqueueMutationInput[] = [];
+
+        if (Object.keys(metadataPatch).length > 1) {
+          const payload = {
+            ...metadataPatch,
+            household_id: item.household_id,
+          };
+          resultPayload = payload;
+          mutations.push({
+            entity: 'fridge_items',
+            entityId: item.id,
+            op: 'update',
+            payload,
+            applyLocally: (innerTxn) =>
+              applyLocalMirrorWrite(innerTxn, 'fridge_items', 'update', metadataPatch, nowMs),
+          });
+        }
+
+        // Effektive Menge nach dieser Bearbeitung: nur eine explizite
+        // Korrektur ändert sie, ein reiner Metadaten-Patch lässt sie unberührt.
+        let effectiveQuantityUnits = existingQuantityUnits;
+
+        if (item.quantityCorrection) {
+          const expectedUnits = toInventoryQuantityUnits(item.quantityCorrection.expectedQuantity);
+          const newUnits = toInventoryQuantityUnits(item.quantityCorrection.newQuantity);
+          if (newUnits !== expectedUnits) {
+            const operationId = Crypto.randomUUID();
+            const transactionId = Crypto.randomUUID();
+            const correctedQuantity = fromInventoryQuantityUnits(newUnits);
+            const correctionQuantity = fromInventoryQuantityUnits(
+              Math.abs(newUnits - expectedUnits),
+            );
+            const correctionType = newUnits > expectedUnits ? 'in' : 'out';
+            mutations.push(
+              createInventoryQuantityCorrectionMutation({
+                payload: {
+                  operation_id: operationId,
+                  transaction_id: transactionId,
+                  item_id: item.id,
+                  household_id: item.household_id,
+                  // Erwartungsmenge stammt aus dem beim Dialog-Öffnen geladenen
+                  // Zustand, nicht aus dem lokalen Spiegel zum Zeitpunkt des
+                  // Speicherns — sonst maskiert ein zwischenzeitlicher Verbrauch
+                  // den Konflikt statt ihn dem Server zur Prüfung zu melden.
+                  expected_quantity: item.quantityCorrection.expectedQuantity,
+                  new_quantity: correctedQuantity,
+                  created_at: now,
+                },
+                transaction: {
+                  id: transactionId,
+                  operation_id: operationId,
+                  household_id: item.household_id,
+                  fridge_item_id: item.id,
+                  product_id:
+                    item.patch.product_id !== undefined
+                      ? item.patch.product_id
+                      : (existing.product_id ?? null),
+                  actor,
+                  type: correctionType,
+                  quantity: correctionQuantity,
+                  location_id: existing.location_id,
+                  reason: null,
+                  previous_expiry_date: null,
+                  notes: '[Manual correction]',
+                  undone: false,
+                  created_at: now,
+                },
+                nowMs,
+              }),
+            );
+            effectiveQuantityUnits = newUnits;
+          }
+        }
+
+        const locationChanged =
+          effectiveQuantityUnits > 0 &&
+          item.patch.location_id !== undefined &&
+          item.patch.location_id !== existing.location_id;
+        if (locationChanged) {
+          mutations.push(
+            groupedMoveMutation({
+              itemId: item.id,
+              householdId: item.household_id,
+              productId:
+                item.patch.product_id !== undefined
+                  ? item.patch.product_id
+                  : (existing.product_id ?? null),
+              quantity: fromInventoryQuantityUnits(effectiveQuantityUnits),
+              expectedLocationId: existing.location_id,
+              newLocationId: item.patch.location_id ?? null,
               actor,
-              type: item.quantity > existing.quantity ? 'in' : 'out',
-              quantity: Math.abs(item.quantity - existing.quantity),
-              location_id: existing.location_id,
-              reason: null,
-              previous_expiry_date: null,
-              notes: '[Manual correction]',
-              undone: false,
-              created_at: now,
-            },
-            nowMs,
-          ),
-        );
-      }
-      if (locationChanged && existing) {
-        mutations.push(
-          groupedMoveMutation({
-            itemId: item.id,
-            householdId: item.household_id,
-            productId: item.product_id,
-            quantity: item.quantity,
-            expectedLocationId: existing.location_id,
-            newLocationId: item.location_id,
-            actor,
-            createdAt: now,
-            nowMs,
-          }),
-        );
-      }
+              createdAt: now,
+              nowMs,
+            }),
+          );
+        }
 
-      await enqueueMutations(db, mutations);
-      return payload;
+        return mutations;
+      });
+      return resultPayload;
     },
     onSuccess: (_, variables) => {
       trackAnalyticsEvent('inventory_item.update.completed');
@@ -553,64 +686,89 @@ export function useOpenInventoryItemMutation() {
       const nowMs = now.getTime();
       const openedItemId = Crypto.randomUUID();
       const transactionId = Crypto.randomUUID();
-      const plan = planOpenInventoryItem(lifecycleItemFromLocal(item), quantity, now, openedItemId);
-      const transaction = transactionPayloadFromPlan(plan.transaction, transactionId, actor);
-      const originalPatch = lifecyclePatchPayload(plan.originalPatch);
-      const originalPayload = { id: item.id, household_id: item.household_id, ...originalPatch };
-      const mutations: EnqueueMutationInput[] = [];
+      let result: { itemId: string; openedItemId: string } | undefined;
 
-      if (quantity === item.quantity && item.quantity > 1) {
-        mutations.push({
-          entity: 'fridge_items',
-          entityId: item.id,
-          op: 'delete',
-          payload: {
-            id: item.id,
-            household_id: item.household_id,
-            deleted_at: nowIso,
-            updated_at: nowIso,
-          },
-          applyLocally: (txn) =>
-            applyLocalMirrorWrite(txn, 'fridge_items', 'delete', { id: item.id }, nowMs),
-        });
-      } else {
-        mutations.push({
-          entity: 'fridge_items',
-          entityId: item.id,
-          op: 'update',
-          payload: { ...originalPayload, updated_at: nowIso },
-          applyLocally: (txn) =>
-            applyLocalMirrorWrite(
-              txn,
-              'fridge_items',
-              'update',
-              { id: item.id, ...originalPatch },
-              nowMs,
-            ),
-        });
-      }
+      // Lesen, Planen und Enqueue laufen in derselben exklusiven Transaktion:
+      // der `item`-Parameter ist nur der Anker (id/household_id), die Menge
+      // fuer die Planung kommt aus dem frisch gelesenen lokalen Stand, nicht
+      // aus einem moeglicherweise veralteten UI-Snapshot.
+      await enqueueMutationsInExclusiveTransaction(db, async (txn) => {
+        const current = await txn.getFirstAsync<LocalInventoryItem>(
+          `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
+                  fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
+                  fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
+                  fi.added_by, fi.created_at, fi.updated_at,
+                  sl.kind as location_kind, sl.name as location_name
+             from fridge_items fi
+             left join storage_locations sl on fi.location_id = sl.id
+            where fi.id = ? and fi.household_id = ? and fi.deleted_at is null`,
+          [item.id, item.household_id],
+        );
+        if (!current) throw new Error('Der Bestand ist lokal nicht vorhanden.');
 
-      if (plan.openedItem) {
-        const openedPayload = lifecycleItemPayload(plan.openedItem);
-        mutations.push({
-          entity: 'fridge_items',
-          entityId: openedItemId,
-          op: 'insert',
-          payload: { ...openedPayload, created_at: nowIso, updated_at: nowIso },
-          applyLocally: (txn) =>
-            applyLocalMirrorWrite(
-              txn,
-              'fridge_items',
-              'insert',
-              { ...openedPayload, created_at: nowIso },
-              nowMs,
-            ),
-        });
-      }
+        const plan = planOpenInventoryItem(
+          lifecycleItemFromLocal(current),
+          quantity,
+          now,
+          openedItemId,
+        );
+        const transaction = transactionPayloadFromPlan(plan.transaction, transactionId, actor);
+        result = { itemId: current.id, openedItemId: plan.openedItem?.id ?? current.id };
 
-      mutations.push(transactionMutation(transaction, nowMs));
-      await enqueueMutations(db, mutations);
-      return { itemId: item.id, openedItemId: plan.openedItem?.id ?? item.id };
+        if (!plan.openedItem) {
+          // In-place-Öffnung: ein einzelnes Los, keine Mengenänderung.
+          const originalPatch = lifecyclePatchPayload(plan.originalPatch);
+          const originalPayload = {
+            id: current.id,
+            household_id: current.household_id,
+            ...originalPatch,
+          };
+          return [
+            {
+              entity: 'fridge_items',
+              entityId: current.id,
+              op: 'update',
+              payload: { ...originalPayload, updated_at: nowIso },
+              applyLocally: (innerTxn) =>
+                applyLocalMirrorWrite(
+                  innerTxn,
+                  'fridge_items',
+                  'update',
+                  { id: current.id, ...originalPatch },
+                  nowMs,
+                ),
+            },
+            transactionMutation(transaction, nowMs),
+          ];
+        }
+
+        // Split: Rest-Los, neues geöffnetes Los und Ledger laufen als eine
+        // atomare Server-Operation mit Compare-and-set gegen die frisch
+        // gelesene Ausgangsmenge — kein absolutes Update aus einem
+        // zwischenzeitlich veralteten Snapshot (fam-n46.1).
+        return [
+          createInventorySplitMutation({
+            payload: {
+              transaction_id: transactionId,
+              source_item_id: current.id,
+              opened_item_id: openedItemId,
+              household_id: current.household_id,
+              expected_source_quantity: current.quantity,
+              open_quantity: quantity,
+              opened_at: nowIso,
+              new_expiry_date: plan.openedItem.expiryDate,
+              expiry_user_set: plan.openedItem.expiryUserSet,
+              created_at: nowIso,
+            },
+            openedItem: lifecycleItemPayload(plan.openedItem),
+            transaction,
+            nowMs,
+          }),
+        ];
+      });
+
+      if (!result) throw new Error('Der Bestand ist lokal nicht vorhanden.');
+      return result;
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.item.household_id] });
@@ -732,204 +890,233 @@ export function useUndoOpenTransactionMutation() {
       if (transaction.reversal_of || transaction.undone || transaction.notes?.includes('[Undone]'))
         throw new Error('Diese Öffnung wurde bereits rückgängig gemacht.');
       const db = await getDatabase();
-      const existingUndo = await db.getFirstAsync<{ id: string }>(
-        `select id
-           from transactions
-          where household_id = ?
-            and fridge_item_id = ?
-            and (
-              reversal_of = ?
-              or (
-                type = 'open'
-                and quantity = ?
-                and previous_expiry_date is ?
-                and notes = '[Undone] Öffnung rückgängig gemacht'
-                and created_at > ?
+      const now = new Date();
+      const nowIso = now.toISOString();
+      const nowMs = now.getTime();
+      let resultHouseholdId: string | undefined;
+
+      // Lesen, Planen und Enqueue laufen in derselben exklusiven Transaktion,
+      // damit kein zweiter lokaler Aufruf zwischen Plan und Enqueue denselben
+      // Split oder dieselbe Öffnung anfasst (fam-n46.1).
+      await enqueueMutationsInExclusiveTransaction(db, async (txn) => {
+        const existingUndo = await txn.getFirstAsync<{ id: string }>(
+          `select id
+             from transactions
+            where household_id = ?
+              and fridge_item_id = ?
+              and (
+                reversal_of = ?
+                or (
+                  type = 'open'
+                  and quantity = ?
+                  and previous_expiry_date is ?
+                  and notes = '[Undone] Öffnung rückgängig gemacht'
+                  and created_at > ?
+                )
               )
-            )
-          limit 1`,
-        [
-          transaction.household_id,
-          transaction.fridge_item_id,
-          transaction.id,
-          transaction.quantity,
-          transaction.previous_expiry_date,
-          transaction.created_at,
-        ],
-      );
-      if (existingUndo) throw new Error('Diese Öffnung wurde bereits rückgängig gemacht.');
+            limit 1`,
+          [
+            transaction.household_id,
+            transaction.fridge_item_id,
+            transaction.id,
+            transaction.quantity,
+            transaction.previous_expiry_date,
+            transaction.created_at,
+          ],
+        );
+        if (existingUndo) throw new Error('Diese Öffnung wurde bereits rückgängig gemacht.');
 
-      const openedRow = await db.getFirstAsync<LocalInventoryItem>(
-        `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
-                fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
-                fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
-                fi.added_by, fi.created_at, fi.updated_at,
-                sl.kind as location_kind, sl.name as location_name
-           from fridge_items fi
-           left join storage_locations sl on fi.location_id = sl.id
-          where fi.id = ? and fi.deleted_at is null`,
-        [transaction.fridge_item_id],
-      );
-      if (!openedRow) throw new Error('Der geöffnete Bestand ist nicht mehr vorhanden.');
+        const openedRow = await txn.getFirstAsync<LocalInventoryItem>(
+          `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
+                  fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
+                  fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
+                  fi.added_by, fi.created_at, fi.updated_at,
+                  sl.kind as location_kind, sl.name as location_name
+             from fridge_items fi
+             left join storage_locations sl on fi.location_id = sl.id
+            where fi.id = ? and fi.deleted_at is null`,
+          [transaction.fridge_item_id],
+        );
+        if (!openedRow) throw new Error('Der geöffnete Bestand ist nicht mehr vorhanden.');
 
-      const splitOriginItemId = getSplitOriginItemId({
-        originItemId: transaction.origin_item_id,
-        notes: transaction.notes,
-      });
-      const sealedRow = splitOriginItemId
-        ? await db.getFirstAsync<LocalInventoryItem>(
-            `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
-                    fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
-                    fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
-                    fi.added_by, fi.created_at, fi.updated_at,
-                    sl.kind as location_kind, sl.name as location_name
-               from fridge_items fi
-               left join storage_locations sl on fi.location_id = sl.id
-              where fi.id = ? and fi.household_id = ? and fi.opened_at is null
-                and fi.deleted_at is null`,
-            [splitOriginItemId, transaction.household_id],
-          )
-        : null;
-      const lifecycleTransaction = {
-        id: transaction.id,
-        actor: transaction.actor,
-        type: 'open' as const,
-        quantity: transaction.quantity,
-        reason: transaction.reason,
-        notes: transaction.notes,
-        undone: transaction.undone,
-        householdId: transaction.household_id,
-        fridgeItemId: transaction.fridge_item_id,
-        originItemId: splitOriginItemId,
-        originQuantity: transaction.origin_quantity,
-        productId: transaction.product_id,
-        locationId: transaction.location_id,
-        previousExpiryDate: transaction.previous_expiry_date,
-        createdAt: transaction.created_at,
-      };
-      const undoMode = inventoryUndoMode(transaction.created_at, new Date());
-      const plan =
-        undoMode === 'undo'
-          ? planUndoOpenTransaction(
-              lifecycleTransaction,
-              lifecycleItemFromLocal(openedRow),
-              sealedRow ? lifecycleItemFromLocal(sealedRow) : null,
-              new Date(),
+        const splitOriginItemId = getSplitOriginItemId({
+          originItemId: transaction.origin_item_id,
+          notes: transaction.notes,
+        });
+        const sealedRow = splitOriginItemId
+          ? await txn.getFirstAsync<LocalInventoryItem>(
+              `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
+                      fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
+                      fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
+                      fi.added_by, fi.created_at, fi.updated_at,
+                      sl.kind as location_kind, sl.name as location_name
+                 from fridge_items fi
+                 left join storage_locations sl on fi.location_id = sl.id
+                where fi.id = ? and fi.household_id = ? and fi.opened_at is null
+                  and fi.deleted_at is null`,
+              [splitOriginItemId, transaction.household_id],
             )
           : null;
-
-      const now = new Date().toISOString();
-      const nowMs = Date.now();
-      const mutations: EnqueueMutationInput[] = [];
-      if (undoMode === 'manual-correction') {
-        if (openedRow.opened_at === null) {
-          throw new Error('Der geöffnete Bestand wurde bereits verändert.');
-        }
-        const patch = {
-          opened_at: null,
-          expiry_date: transaction.previous_expiry_date,
-          expiry_user_set: transaction.previous_expiry_date !== null,
+        const lifecycleTransaction = {
+          id: transaction.id,
+          actor: transaction.actor,
+          type: 'open' as const,
+          quantity: transaction.quantity,
+          reason: transaction.reason,
+          notes: transaction.notes,
+          undone: transaction.undone,
+          householdId: transaction.household_id,
+          fridgeItemId: transaction.fridge_item_id,
+          originItemId: splitOriginItemId,
+          originQuantity: transaction.origin_quantity,
+          productId: transaction.product_id,
+          locationId: transaction.location_id,
+          previousExpiryDate: transaction.previous_expiry_date,
+          createdAt: transaction.created_at,
         };
-        mutations.push({
-          entity: 'fridge_items',
-          entityId: openedRow.id,
-          op: 'update',
-          payload: {
-            id: openedRow.id,
-            household_id: openedRow.household_id,
-            ...patch,
-            updated_at: now,
-          },
-          applyLocally: (txn) =>
-            applyLocalMirrorWrite(
-              txn,
-              'fridge_items',
-              'update',
-              { id: openedRow.id, ...patch },
+        const undoMode = inventoryUndoMode(transaction.created_at, now);
+        const plan =
+          undoMode === 'undo'
+            ? planUndoOpenTransaction(
+                lifecycleTransaction,
+                lifecycleItemFromLocal(openedRow),
+                sealedRow ? lifecycleItemFromLocal(sealedRow) : null,
+                now,
+              )
+            : null;
+
+        resultHouseholdId = transaction.household_id;
+        const notes = undoTransactionNotes(undoMode, 'open');
+        const genericReversalLedger = () =>
+          transactionMutation(
+            {
+              id: Crypto.randomUUID(),
+              household_id: transaction.household_id,
+              fridge_item_id: transaction.fridge_item_id,
+              product_id: transaction.product_id,
+              actor,
+              type: 'open',
+              quantity: transaction.quantity,
+              location_id: transaction.location_id,
+              reason: null,
+              previous_expiry_date: openedRow.expiry_date,
+              notes,
+              undone: false,
+              reversal_of: transaction.id,
+              created_at: nowIso,
+            },
+            nowMs,
+          );
+
+        if (undoMode === 'manual-correction') {
+          if (openedRow.opened_at === null) {
+            throw new Error('Der geöffnete Bestand wurde bereits verändert.');
+          }
+          const patch = {
+            opened_at: null,
+            expiry_date: transaction.previous_expiry_date,
+            expiry_user_set: transaction.previous_expiry_date !== null,
+          };
+          return [
+            {
+              entity: 'fridge_items',
+              entityId: openedRow.id,
+              op: 'update',
+              payload: {
+                id: openedRow.id,
+                household_id: openedRow.household_id,
+                ...patch,
+                updated_at: nowIso,
+              },
+              applyLocally: (innerTxn) =>
+                applyLocalMirrorWrite(
+                  innerTxn,
+                  'fridge_items',
+                  'update',
+                  { id: openedRow.id, ...patch },
+                  nowMs,
+                ),
+            },
+            genericReversalLedger(),
+          ];
+        }
+        if (plan?.mode === 'restore-in-place' && plan.openedPatch) {
+          const patch = lifecyclePatchPayload(plan.openedPatch);
+          return [
+            {
+              entity: 'fridge_items',
+              entityId: openedRow.id,
+              op: 'update',
+              payload: {
+                id: openedRow.id,
+                household_id: openedRow.household_id,
+                ...patch,
+                updated_at: nowIso,
+              },
+              applyLocally: (innerTxn) =>
+                applyLocalMirrorWrite(
+                  innerTxn,
+                  'fridge_items',
+                  'update',
+                  { id: openedRow.id, ...patch },
+                  nowMs,
+                ),
+            },
+            genericReversalLedger(),
+          ];
+        }
+        if (
+          plan?.mode === 'merge-split' &&
+          sealedRow &&
+          plan.sealedPatch &&
+          typeof plan.sealedPatch.quantity === 'number'
+        ) {
+          // Merge: versiegeltes Los, geöffnetes Los und Gegenbuchung laufen
+          // als eine atomare Server-Operation mit Zeilensperren gegen die
+          // referenzierte Split-Buchung — kein absolutes Update aus einem
+          // zwischenzeitlich veralteten Snapshot (fam-n46.1).
+          const reversalTransactionId = Crypto.randomUUID();
+          return [
+            createInventoryMergeUndoMutation({
+              payload: {
+                reversal_transaction_id: reversalTransactionId,
+                reversal_of: transaction.id,
+                household_id: transaction.household_id,
+                created_at: nowIso,
+                notes,
+              },
+              sealedItemId: sealedRow.id,
+              sealedQuantityAfterMerge: plan.sealedPatch.quantity,
+              openedItemId: openedRow.id,
+              transaction: {
+                id: reversalTransactionId,
+                household_id: transaction.household_id,
+                fridge_item_id: transaction.fridge_item_id,
+                product_id: transaction.product_id,
+                actor,
+                type: 'open',
+                quantity: transaction.quantity,
+                location_id: transaction.location_id,
+                previous_expiry_date: openedRow.expiry_date,
+                notes,
+                undone: false,
+                reversal_of: transaction.id,
+                created_at: nowIso,
+              },
               nowMs,
-            ),
-        });
-      } else if (plan?.mode === 'restore-in-place' && plan.openedPatch) {
-        const patch = lifecyclePatchPayload(plan.openedPatch);
-        mutations.push({
-          entity: 'fridge_items',
-          entityId: openedRow.id,
-          op: 'update',
-          payload: {
-            id: openedRow.id,
-            household_id: openedRow.household_id,
-            ...patch,
-            updated_at: now,
-          },
-          applyLocally: (txn) =>
-            applyLocalMirrorWrite(
-              txn,
-              'fridge_items',
-              'update',
-              { id: openedRow.id, ...patch },
-              nowMs,
-            ),
-        });
-      } else if (plan?.mode === 'merge-split' && sealedRow && plan.sealedPatch) {
-        mutations.push({
-          entity: 'fridge_items',
-          entityId: sealedRow.id,
-          op: 'update',
-          payload: {
-            id: sealedRow.id,
-            household_id: sealedRow.household_id,
-            quantity: plan.sealedPatch.quantity,
-            updated_at: now,
-          },
-          applyLocally: (txn) =>
-            applyLocalMirrorWrite(
-              txn,
-              'fridge_items',
-              'update',
-              { id: sealedRow.id, quantity: plan.sealedPatch?.quantity },
-              nowMs,
-            ),
-        });
-        mutations.push({
-          entity: 'fridge_items',
-          entityId: openedRow.id,
-          op: 'delete',
-          payload: {
-            id: openedRow.id,
-            household_id: openedRow.household_id,
-            deleted_at: now,
-            updated_at: now,
-          },
-          applyLocally: (txn) =>
-            applyLocalMirrorWrite(txn, 'fridge_items', 'delete', { id: openedRow.id }, nowMs),
-        });
-      } else if (plan?.mode === 'fallback') {
-        // Der Split-Ursprung wurde nach dem Öffnen verändert. Der Undo bleibt
-        // deshalb als Provenienzbuchung erhalten, ändert aber kein Lot.
+            }),
+          ];
+        }
+        // plan?.mode === 'fallback': Der Split-Ursprung wurde nach dem Öffnen
+        // verändert. Der Undo bleibt als Provenienzbuchung erhalten, ändert
+        // aber kein Lot.
+        return [genericReversalLedger()];
+      });
+
+      if (resultHouseholdId === undefined) {
+        throw new Error('Der geöffnete Bestand ist nicht mehr vorhanden.');
       }
-      mutations.push(
-        transactionMutation(
-          {
-            id: Crypto.randomUUID(),
-            household_id: transaction.household_id,
-            fridge_item_id: transaction.fridge_item_id,
-            product_id: transaction.product_id,
-            actor,
-            type: 'open',
-            quantity: transaction.quantity,
-            location_id: transaction.location_id,
-            reason: null,
-            previous_expiry_date: openedRow.expiry_date,
-            notes: undoTransactionNotes(undoMode, 'open'),
-            undone: false,
-            reversal_of: transaction.id,
-            created_at: now,
-          },
-          nowMs,
-        ),
-      );
-      await enqueueMutations(db, mutations);
-      return transaction.household_id;
+      return resultHouseholdId;
     },
     onSuccess: (householdId) => {
       queryClient.invalidateQueries({ queryKey: ['fridge_items', householdId] });
@@ -961,25 +1148,6 @@ async function enqueueQuantityReversal(
     throw new Error('Diese Buchung ist keinem Bestandslos zugeordnet.');
   }
 
-  const item = await db.getFirstAsync<UndoInventoryItem>(
-    `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
-            fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
-            fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
-            fi.added_by, fi.created_at, fi.updated_at, fi.deleted_at,
-            sl.kind as location_kind, sl.name as location_name
-       from fridge_items fi
-       left join storage_locations sl on fi.location_id = sl.id
-      where fi.id = ? and fi.household_id = ?`,
-    [transaction.fridge_item_id, transaction.household_id],
-  );
-  if (!item) throw new Error('Der Bestand ist lokal nicht vorhanden.');
-
-  const existingReversal = await db.getFirstAsync<{ id: string }>(
-    `select id from transactions where household_id = ? and reversal_of = ? limit 1`,
-    [transaction.household_id, transaction.id],
-  );
-  if (existingReversal) throw new Error('Diese Buchung wurde bereits rückgängig gemacht.');
-
   const inverseType = inverseTransactionType(transaction.type);
   if (inverseType === 'open') {
     throw new Error('Öffnungen werden über den Open-Undo-Pfad behandelt.');
@@ -987,108 +1155,86 @@ async function enqueueQuantityReversal(
 
   const now = new Date().toISOString();
   const nowMs = Date.now();
-  const mutations: EnqueueMutationInput[] = [];
-  let restoreQuantity: number | undefined;
+  await enqueueMutationsInExclusiveTransaction(db, async (txn) => {
+    const item = await txn.getFirstAsync<UndoInventoryItem>(
+      `select fi.id, fi.household_id, fi.location_id, fi.product_id, fi.name,
+              fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
+              fi.expiry_date, fi.opened_at, fi.vacuum_sealed, fi.expiry_user_set,
+              fi.added_by, fi.created_at, fi.updated_at, fi.deleted_at,
+              sl.kind as location_kind, sl.name as location_name
+         from fridge_items fi
+         left join storage_locations sl on fi.location_id = sl.id
+        where fi.id = ? and fi.household_id = ?`,
+      [transaction.fridge_item_id, transaction.household_id],
+    );
+    if (!item) throw new Error('Der Bestand ist lokal nicht vorhanden.');
 
-  if (item.deleted_at !== null) {
-    const isFullyConsumedQuantityOperation =
-      transaction.operation_id !== undefined &&
-      transaction.operation_id !== null &&
-      transaction.type === 'out' &&
-      item.quantity === 0;
-    if (
-      transaction.type === 'in' ||
-      (!isFullyConsumedQuantityOperation && item.quantity !== transaction.quantity)
-    ) {
-      throw new Error('Der Bestand wurde zwischenzeitlich verändert.');
-    }
-    if (isFullyConsumedQuantityOperation) restoreQuantity = transaction.quantity;
-    mutations.push({
-      entity: 'fridge_items',
-      entityId: item.id,
-      op: 'restore',
-      payload: {
-        id: item.id,
-        household_id: item.household_id,
-        ...(restoreQuantity === undefined ? {} : { quantity: restoreQuantity }),
-        deleted_at: null,
-        updated_at: now,
-      },
-      applyLocally: async (txn) => {
-        if (restoreQuantity !== undefined) {
-          await applyLocalMirrorWrite(
-            txn,
-            'fridge_items',
-            'update',
-            { id: item.id, quantity: restoreQuantity },
-            nowMs,
-          );
-        }
-        await applyLocalMirrorWrite(txn, 'fridge_items', 'restore', { id: item.id }, nowMs);
-      },
-    });
-  } else {
-    const nextQuantity =
-      inverseType === 'out'
-        ? item.quantity - transaction.quantity
-        : item.quantity + transaction.quantity;
-    if (nextQuantity < 0) {
-      throw new Error('Die Gegenbuchung würde eine negative Bestandsmenge erzeugen.');
-    }
-    if (nextQuantity === 0) {
-      mutations.push({
-        entity: 'fridge_items',
-        entityId: item.id,
-        op: 'delete',
-        payload: { id: item.id, household_id: item.household_id, deleted_at: now, updated_at: now },
-        applyLocally: (txn) =>
-          applyLocalMirrorWrite(txn, 'fridge_items', 'delete', { id: item.id }, nowMs),
-      });
+    const existingReversal = await txn.getFirstAsync<{ id: string }>(
+      `select id from transactions where household_id = ? and reversal_of = ? limit 1`,
+      [transaction.household_id, transaction.id],
+    );
+    if (existingReversal) throw new Error('Diese Buchung wurde bereits rückgängig gemacht.');
+
+    const itemUnits = toInventoryQuantityUnits(item.quantity);
+    const transactionUnits = toInventoryQuantityUnits(transaction.quantity);
+    let resultUnits: number;
+    const restore = item.deleted_at !== null;
+
+    if (restore) {
+      const isFullyConsumedQuantityOperation =
+        transaction.operation_id !== undefined &&
+        transaction.operation_id !== null &&
+        transaction.type === 'out' &&
+        itemUnits === 0;
+      if (
+        transaction.type === 'in' ||
+        (!isFullyConsumedQuantityOperation && itemUnits !== transactionUnits)
+      ) {
+        throw new Error('Der Bestand wurde zwischenzeitlich verändert.');
+      }
+      resultUnits = isFullyConsumedQuantityOperation ? transactionUnits : itemUnits;
     } else {
-      mutations.push({
-        entity: 'fridge_items',
-        entityId: item.id,
-        op: 'update',
-        payload: {
-          id: item.id,
-          household_id: item.household_id,
-          quantity: nextQuantity,
-          updated_at: now,
-        },
-        applyLocally: (txn) =>
-          applyLocalMirrorWrite(
-            txn,
-            'fridge_items',
-            'update',
-            { id: item.id, quantity: nextQuantity },
-            nowMs,
-          ),
-      });
+      resultUnits =
+        inverseType === 'out' ? itemUnits - transactionUnits : itemUnits + transactionUnits;
+      if (resultUnits < 0) {
+        throw new Error('Die Gegenbuchung würde eine negative Bestandsmenge erzeugen.');
+      }
     }
-  }
 
-  mutations.push(
-    transactionMutation(
-      {
-        id: Crypto.randomUUID(),
-        household_id: transaction.household_id,
-        fridge_item_id: item.id,
-        product_id: transaction.product_id ?? item.product_id,
-        actor,
-        type: inverseType,
-        quantity: transaction.quantity,
-        location_id: item.location_id ?? transaction.location_id,
-        reason: null,
-        previous_expiry_date: null,
-        notes: undoTransactionNotes(mode, transaction.type),
-        undone: false,
-        reversal_of: transaction.id,
-        created_at: now,
-      },
-      nowMs,
-    ),
-  );
-  await enqueueMutations(db, mutations);
+    const reversalTransactionId = Crypto.randomUUID();
+    const notes = undoTransactionNotes(mode, transaction.type);
+    return [
+      createInventoryQuantityReversalMutation({
+        payload: {
+          reversal_transaction_id: reversalTransactionId,
+          reversal_of: transaction.id,
+          item_id: item.id,
+          household_id: transaction.household_id,
+          created_at: now,
+          notes,
+        },
+        transaction: {
+          id: reversalTransactionId,
+          reversal_of: transaction.id,
+          household_id: transaction.household_id,
+          fridge_item_id: item.id,
+          product_id: transaction.product_id ?? item.product_id,
+          actor,
+          type: inverseType,
+          quantity: fromInventoryQuantityUnits(transactionUnits),
+          location_id: item.location_id ?? transaction.location_id,
+          reason: null,
+          previous_expiry_date: null,
+          notes,
+          undone: false,
+          created_at: now,
+        },
+        resultQuantity: fromInventoryQuantityUnits(resultUnits),
+        restore,
+        nowMs,
+      }),
+    ];
+  });
 }
 
 async function enqueueMoveReversal(
@@ -1210,5 +1356,43 @@ export function useUndoInventoryTransactionMutation() {
       queryClient.invalidateQueries({ queryKey: ['transactions', householdId] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
+  });
+}
+
+function invalidateAfterConflictResolution(queryClient: ReturnType<typeof useQueryClient>) {
+  queryClient.invalidateQueries({ queryKey: ['inventory-conflicts'] });
+  queryClient.invalidateQueries({ queryKey: ['fridge_items'] });
+  queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped'] });
+  queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+}
+
+/** Verwirft einen dauerhaft gescheiterten Mengen-Konflikt. */
+export function useDiscardInventoryConflictMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (conflict: FridgeItemConflict) => {
+      const db = await getDatabase();
+      await discardInventoryConflict(db, getSupabase(), conflict);
+    },
+    onSuccess: () => invalidateAfterConflictResolution(queryClient),
+  });
+}
+
+/** Bestaetigt eine abgelehnte manuelle Korrektur mit dem aktuellen Bestand neu. */
+export function useReconfirmInventoryConflictMutation() {
+  const queryClient = useQueryClient();
+  const actor = useInventoryActor();
+
+  return useMutation({
+    mutationFn: async (conflict: FridgeItemConflict) => {
+      const db = await getDatabase();
+      return reconfirmInventoryQuantityCorrection(db, getSupabase(), conflict, {
+        actor: actor ?? 'unknown',
+        operationId: Crypto.randomUUID(),
+        transactionId: Crypto.randomUUID(),
+      });
+    },
+    onSuccess: () => invalidateAfterConflictResolution(queryClient),
   });
 }

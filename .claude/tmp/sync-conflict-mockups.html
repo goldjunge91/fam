@@ -1,0 +1,391 @@
+<title>Sync-Konflikte</title>
+<style>
+  :root {
+    --bg: #F8F4EF;
+    --surface: #FBF7F2;
+    --surface-soft: #E9E1E7;
+    --text: #2D2830;
+    --text-secondary: #786F79;
+    --border: #E4DDE3;
+    --accent: #705773;
+    --on-accent: #FFFFFF;
+    --danger: #C65F50;
+    --danger-tint: #F8E9E6;
+    --warning: #C69059;
+    --success: #78906F;
+    --shadow-card: rgba(89, 64, 89, 0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D23;
+      --surface: #2B262E;
+      --surface-soft: #382F3B;
+      --text: #F2ECE7;
+      --text-secondary: #B7ADB3;
+      --border: #3E3640;
+      --accent: #B79CBA;
+      --on-accent: #211D23;
+      --danger: #D9776A;
+      --danger-tint: #3A1717;
+      --warning: #D9A86C;
+      --success: #8FAE86;
+      --shadow-card: rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D23;
+    --surface: #2B262E;
+    --surface-soft: #382F3B;
+    --text: #F2ECE7;
+    --text-secondary: #B7ADB3;
+    --border: #3E3640;
+    --accent: #B79CBA;
+    --on-accent: #211D23;
+    --danger: #D9776A;
+    --danger-tint: #3A1717;
+    --warning: #D9A86C;
+    --success: #8FAE86;
+    --shadow-card: rgba(0, 0, 0, 0.4);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    padding: 40px 24px 80px;
+  }
+
+  .intro { max-width: 900px; margin: 0 auto 40px; }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 { font-size: 26px; font-weight: 700; margin: 6px 0 8px; text-wrap: balance; }
+  .intro p { font-size: 14px; line-height: 1.55; color: var(--text-secondary); max-width: 62ch; }
+
+  .stage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .variant { width: 340px; }
+  .variant-head { margin-bottom: 14px; }
+  .variant-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .variant-title { font-size: 16px; font-weight: 700; margin: 4px 0 4px; }
+  .variant-desc { font-size: 12.5px; line-height: 1.5; color: var(--text-secondary); }
+
+  .phone {
+    width: 340px;
+    border-radius: 34px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 40px var(--shadow-card);
+    overflow: hidden;
+  }
+  .phone-notch {
+    height: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 6px;
+  }
+  .phone-notch::after {
+    content: "";
+    width: 90px;
+    height: 6px;
+    border-radius: 4px;
+    background: var(--border);
+  }
+  .screen { padding: 4px 18px 22px; min-height: 560px; }
+
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 0 14px;
+  }
+  .nav-title { font-size: 17px; font-weight: 700; }
+  .nav-back { font-size: 14px; color: var(--accent); font-weight: 600; }
+  .nav-count {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--on-accent);
+    background: var(--danger);
+    border-radius: 10px;
+    padding: 2px 8px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin: 18px 0 8px;
+  }
+
+  .conflict-row {
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+  }
+  .conflict-row:first-of-type { border-top: none; }
+
+  .row-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .item-name { font-size: 15px; font-weight: 600; }
+  .item-qty {
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .row-reason {
+    font-size: 12.5px;
+    color: var(--danger);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  .row-stock {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  .row-stock b { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  .row-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .btn {
+    flex: 1;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 0;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--on-accent);
+    border-color: var(--accent);
+  }
+  .btn-discard { color: var(--danger); border-color: var(--danger); }
+
+  /* Variant B: inline banner inside an item sheet */
+  .sheet-handle {
+    width: 36px;
+    height: 4px;
+    border-radius: 3px;
+    background: var(--border);
+    margin: 8px auto 14px;
+  }
+  .sheet-title { font-size: 19px; font-weight: 700; margin-bottom: 2px; }
+  .sheet-sub { font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; }
+
+  .conflict-banner {
+    background: var(--danger-tint);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 18px;
+  }
+  .banner-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--danger);
+    margin-bottom: 6px;
+  }
+  .banner-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--danger);
+    flex-shrink: 0;
+  }
+  .banner-body {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .banner-body b { font-variant-numeric: tabular-nums; }
+  .banner-actions { display: flex; gap: 8px; }
+  .banner-actions .btn { padding: 8px 0; font-size: 12.5px; }
+
+  .field-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .field-row:first-of-type { border-top: none; }
+  .field-label { color: var(--text-secondary); }
+  .field-value { font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  .legend {
+    max-width: 900px;
+    margin: 56px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .legend h2 { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+  .legend dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 6px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .legend dt { font-weight: 600; white-space: nowrap; }
+  .legend dd { color: var(--text-secondary); margin: 0; }
+</style>
+
+<div class="intro">
+  <div class="eyebrow">Konfliktaufloesung &middot; Mengen-Sync</div>
+  <h1>Wenn eine Korrektur dauerhaft scheitert</h1>
+  <p>
+    Zwei Varianten fuer denselben Fall: eine Mengenkorrektur wird server&shy;seitig
+    abgelehnt (z.&nbsp;B. weil ein anderes Geraet den Bestand inzwischen veraendert
+    hat). Der Artikel ist gesperrt, bis die Person entscheidet: verwerfen oder auf
+    Basis des aktuellen Bestands neu bestaetigen.
+  </p>
+</div>
+
+<div class="stage">
+
+  <div class="variant">
+    <div class="variant-head">
+      <div class="variant-label">Variante A</div>
+      <div class="variant-title">Eigener Screen &bdquo;Sync-Konflikte&ldquo;</div>
+      <div class="variant-desc">
+        Erreichbar ueber ein Badge in den Einstellungen. Sammelt alle
+        haengengebliebenen Artikel an einem Ort, auch wenn mehrere gleichzeitig
+        betroffen sind.
+      </div>
+    </div>
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="screen">
+        <div class="nav-row">
+          <span class="nav-back">Einstellungen</span>
+          <span class="nav-title">Sync-Konflikte</span>
+          <span class="nav-count">2</span>
+        </div>
+
+        <div class="section-label">Betrifft den Bestand</div>
+
+        <div class="conflict-row">
+          <div class="row-top">
+            <span class="item-name">Vollmilch 1,5&nbsp;l</span>
+            <span class="item-qty">lokal 3&nbsp;Stk</span>
+          </div>
+          <div class="row-reason">Korrektur auf 3 Stk abgelehnt: Bestand wurde inzwischen von Lea geaendert</div>
+          <div class="row-stock">Aktueller Serverbestand: <b>1 Stk</b></div>
+          <div class="row-actions">
+            <button class="btn btn-discard">Verwerfen</button>
+            <button class="btn btn-primary">Auf 1 Stk bestaetigen</button>
+          </div>
+        </div>
+
+        <div class="conflict-row">
+          <div class="row-top">
+            <span class="item-name">Basmatireis 1&nbsp;kg</span>
+            <span class="item-qty">lokal 0&nbsp;Stk</span>
+          </div>
+          <div class="row-reason">Verbrauch (&minus;1 Stk) abgelehnt: Artikel wurde bereits geleert und entfernt</div>
+          <div class="row-stock">Aktueller Serverbestand: <b>entfernt</b></div>
+          <div class="row-actions">
+            <button class="btn btn-discard">Verwerfen</button>
+            <button class="btn btn-primary">Bestand pruefen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="variant">
+    <div class="variant-head">
+      <div class="variant-label">Variante B</div>
+      <div class="variant-title">Inline im Artikel-Sheet</div>
+      <div class="variant-desc">
+        Kein separater Screen. Der Konflikt erscheint direkt oben im ohnehin
+        vorhandenen Bearbeiten-Sheet des Artikels, dort wo die Person die naechste
+        Aenderung sowieso vornimmt.
+      </div>
+    </div>
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="screen">
+        <div class="sheet-handle"></div>
+        <div class="sheet-title">Vollmilch 1,5&nbsp;l</div>
+        <div class="sheet-sub">Kuehlschrank &middot; Tuer</div>
+
+        <div class="conflict-banner">
+          <div class="banner-head"><span class="banner-dot"></span>Korrektur nicht uebernommen</div>
+          <div class="banner-body">
+            Deine Korrektur auf <b>3 Stk</b> wurde abgelehnt. Lea hat den Bestand
+            inzwischen auf <b>1 Stk</b> geaendert.
+          </div>
+          <div class="banner-actions">
+            <button class="btn btn-discard">Verwerfen</button>
+            <button class="btn btn-primary">Auf 1 Stk bestaetigen</button>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <span class="field-label">Menge</span>
+          <span class="field-value">1 Stk</span>
+        </div>
+        <div class="field-row">
+          <span class="field-label">Lagerort</span>
+          <span class="field-value">Kuehlschrank</span>
+        </div>
+        <div class="field-row">
+          <span class="field-label">MHD</span>
+          <span class="field-value">14.09.2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="legend">
+  <h2>Was &bdquo;Verwerfen&ldquo; und &bdquo;Bestaetigen&ldquo; auf beiden Wegen bedeuten</h2>
+  <dl>
+    <dt>Verwerfen</dt>
+    <dd>Loescht die haengende Operation aus der Outbox. Der lokale Bestand springt auf den zuletzt vom Server bekannten Wert. Die Aenderung ist weg, nichts wird erneut versucht.</dd>
+    <dt>Bestaetigen</dt>
+    <dd>Wendet dieselbe Absicht (Korrektur/Verbrauch) neu an, aber auf Basis des gerade abgerufenen Serverbestands statt der veralteten lokalen Annahme. Ein frischer Push, kein blinder Retry.</dd>
+  </dl>
+</div>

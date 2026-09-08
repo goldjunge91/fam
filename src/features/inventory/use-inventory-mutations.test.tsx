@@ -270,7 +270,7 @@ describe('inventory mutation hooks', () => {
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {
-      await result.current.mutateAsync({ ...ITEM, name: 'Dijon-Senf' });
+      await result.current.mutateAsync({ id: ITEM.id, household_id: ITEM.household_id, patch: { name: 'Dijon-Senf' } });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
@@ -292,7 +292,7 @@ describe('inventory mutation hooks', () => {
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {
-      await result.current.mutateAsync({ ...ITEM, name: 'Dijon-Senf' });
+      await result.current.mutateAsync({ id: ITEM.id, household_id: ITEM.household_id, patch: { name: 'Dijon-Senf' } });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
@@ -301,14 +301,63 @@ describe('inventory mutation hooks', () => {
     expect(lastMutations()[0]?.payload).not.toHaveProperty('quantity');
   });
 
+  it('bewahrt bei einem expliziten Namenspatch fremde Metadaten und den aktuellen Bestand', async () => {
+    mockGetFirstAsync.mockResolvedValue({
+      ...ITEM,
+      quantity: 2,
+      expiry_date: '2027-02-01',
+      location_id: 'loc-remote',
+      unit: 'g',
+      vacuum_sealed: 1,
+    });
+    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        id: ITEM.id,
+        household_id: ITEM.household_id,
+        patch: { name: 'Dijon-Senf' },
+      });
+    });
+
+    expect(lastMutations()).toHaveLength(1);
+    expect(lastMutations()[0]?.payload).toEqual({
+      id: ITEM.id,
+      household_id: ITEM.household_id,
+      name: 'Dijon-Senf',
+    });
+  });
+
+  it('überträgt bewusstes Löschen als null im expliziten Metadatenpatch', async () => {
+    mockGetFirstAsync.mockResolvedValue(ITEM);
+    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        id: ITEM.id,
+        household_id: ITEM.household_id,
+        patch: { expiry_date: null, expiry_user_set: true },
+      });
+    });
+
+    expect(lastMutations()).toHaveLength(1);
+    expect(lastMutations()[0]?.payload).toEqual({
+      id: ITEM.id,
+      household_id: ITEM.household_id,
+      expiry_date: null,
+      expiry_user_set: true,
+    });
+  });
+
   it('bucht Mengen- und Lagerortkorrektur atomar als eine Outbox-Gruppe', async () => {
     mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {
       await result.current.mutateAsync({
-        ...ITEM,
-        location_id: 'loc-2',
+        id: ITEM.id,
+        household_id: ITEM.household_id,
+        patch: { location_id: 'loc-2' },
         quantityCorrection: { expectedQuantity: 3, newQuantity: 4 },
       });
     });
@@ -337,7 +386,7 @@ describe('inventory mutation hooks', () => {
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {
-      await result.current.mutateAsync({ ...ITEM, location_id: 'loc-2' });
+      await result.current.mutateAsync({ id: ITEM.id, household_id: ITEM.household_id, patch: { location_id: 'loc-2' } });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
@@ -363,7 +412,9 @@ describe('inventory mutation hooks', () => {
 
     await act(async () => {
       await result.current.mutateAsync({
-        ...ITEM,
+        id: ITEM.id,
+        household_id: ITEM.household_id,
+        patch: {},
         quantityCorrection: { expectedQuantity: 3, newQuantity: 0 },
       });
     });
@@ -388,8 +439,9 @@ describe('inventory mutation hooks', () => {
 
     await act(async () => {
       await result.current.mutateAsync({
-        ...ITEM,
-        location_id: 'loc-2',
+        id: ITEM.id,
+        household_id: ITEM.household_id,
+        patch: { location_id: 'loc-2' },
         quantityCorrection: { expectedQuantity: 3, newQuantity: 0 },
       });
     });
@@ -413,6 +465,7 @@ describe('inventory mutation hooks', () => {
       .mockReturnValueOnce('out-id')
       .mockReturnValueOnce('in-id');
 
+    mockGetFirstAsync.mockResolvedValueOnce({ ...ITEM, quantity: 1 });
     const openHook = await renderHook(() => useOpenInventoryItemMutation(), { wrapper });
     await act(async () => {
       await openHook.result.current.mutateAsync({ item: { ...ITEM, quantity: 1 }, quantity: 1 });
@@ -451,7 +504,7 @@ describe('inventory mutation hooks', () => {
     });
   });
 
-  it('persistiert beim Split die Ursprungsreferenz und Lifecycle-Metadaten', async () => {
+  it('bucht einen Split als eine atomare Server-Operation mit Compare-and-set gegen die frische Menge (fam-n46.1)', async () => {
     jest
       .mocked(Crypto.randomUUID)
       .mockReturnValueOnce('opened-item-id')
@@ -462,34 +515,32 @@ describe('inventory mutation hooks', () => {
       vacuum_sealed: true,
       expiry_user_set: true,
     };
+    // Der frisch gelesene lokale Stand entscheidet über die Planung, nicht
+    // der (potenziell veraltete) UI-Snapshot im mutateAsync-Argument.
+    mockGetFirstAsync.mockResolvedValueOnce(item);
     const { result } = await renderHook(() => useOpenInventoryItemMutation(), { wrapper });
 
     await act(async () => {
       await result.current.mutateAsync({ item, quantity: 1 });
     });
 
-    expect(lastMutations()).toHaveLength(3);
-    expect(lastMutations()[1]).toMatchObject({
+    expect(lastMutations()).toHaveLength(1);
+    expect(lastMutations()[0]).toMatchObject({
       entity: 'fridge_items',
-      entityId: 'opened-item-id',
-      op: 'insert',
+      entityId: 'item-1',
+      op: 'split_open',
       payload: {
-        id: 'opened-item-id',
-        quantity: 1,
-        vacuum_sealed: true,
-        expiry_user_set: true,
+        transaction_id: 'open-transaction-id',
+        source_item_id: 'item-1',
+        opened_item_id: 'opened-item-id',
+        household_id: 'hh-1',
+        expected_source_quantity: 3,
+        open_quantity: 1,
       },
     });
-    expect(transactionPayloads()).toEqual([
-      expect.objectContaining({
-        id: 'open-transaction-id',
-        fridge_item_id: 'opened-item-id',
-        notes: '[Split] origin=item-1',
-      }),
-    ]);
   });
 
-  it('merged beim Split-Undo ausschließlich die referenzierte Ursprungszeile', async () => {
+  it('bucht Split-Undo als eine atomare Merge-Operation gegen die referenzierte Split-Buchung (fam-n46.1)', async () => {
     mockGetFirstAsync
       .mockResolvedValueOnce(null)
       .mockResolvedValueOnce({
@@ -523,17 +574,15 @@ describe('inventory mutation hooks', () => {
       await result.current.mutateAsync({ transaction });
     });
 
-    expect(lastMutations()).toHaveLength(3);
+    expect(lastMutations()).toHaveLength(1);
     expect(lastMutations()[0]).toMatchObject({
       entity: 'fridge_items',
       entityId: 'item-1',
-      op: 'update',
-      payload: { id: 'item-1', quantity: 3 },
-    });
-    expect(lastMutations()[1]).toMatchObject({
-      entity: 'fridge_items',
-      entityId: 'opened-item-id',
-      op: 'delete',
+      op: 'merge_undo_open',
+      payload: {
+        reversal_of: 'transaction-1',
+        household_id: 'hh-1',
+      },
     });
   });
 
@@ -702,10 +751,9 @@ describe('inventory mutation hooks', () => {
 
     await act(async () => {
       await result.current.mutateAsync({
-        ...ITEM,
-        opened_at: null,
-        expiry_date: '2026-12-31',
-        expiry_user_set: true,
+        id: ITEM.id,
+        household_id: ITEM.household_id,
+        patch: { opened_at: null, expiry_user_set: true },
       });
     });
 

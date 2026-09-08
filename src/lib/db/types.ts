@@ -61,7 +61,9 @@ export type OutboxOp =
   | 'move'
   | 'adjust_quantity'
   | 'correct_quantity'
-  | 'reverse_quantity';
+  | 'reverse_quantity'
+  | 'split_open'
+  | 'merge_undo_open';
 
 export type OutboxEntry = {
   id: number;

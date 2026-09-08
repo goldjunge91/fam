@@ -17,6 +17,7 @@ import { useNavigationChrome } from '@/features/navigation/navigation-chrome-pro
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useSyncStatus } from '@/hooks/use-sync-status';
+import { subtractInventoryQuantities, sumInventoryQuantities } from '@/lib/inventory-quantity';
 import { EditInventoryItemSheet } from './components/edit-inventory-item-sheet';
 import { InventoryHistorySheet } from './components/inventory-history-sheet';
 import { InventoryIconButton } from './components/inventory-icon-button';
@@ -33,9 +34,12 @@ import { OpenInventoryItemSheet } from './components/open-inventory-item-sheet';
 import { WasteInventoryItemSheet, type WasteReason } from './components/waste-inventory-item-sheet';
 import { getExpiryInfo } from './expiry';
 import { groupInventoryItems, type InventoryItemGroup } from './grouped-items';
+import { useInventoryConflicts } from './use-inventory-conflicts';
 import { type LocalInventoryItem, useInventoryItems } from './use-inventory-items';
 import {
+  useDiscardInventoryConflictMutation,
   useOpenInventoryItemMutation,
+  useReconfirmInventoryConflictMutation,
   useUndoInventoryTransactionMutation,
   useUpdateFridgeItemMutation,
   useUpdateInventoryItemQuantityMutation,
@@ -84,6 +88,14 @@ export function InventoryScreen() {
     refetch: refetchTransactions,
   } = useInventoryTransactions(householdId);
   const syncStatus = useSyncStatus();
+  const inventoryConflicts = useInventoryConflicts();
+  const discardConflict = useDiscardInventoryConflictMutation();
+  const reconfirmConflict = useReconfirmInventoryConflictMutation();
+  const resolvingConflictItemId: string | null = discardConflict.isPending
+    ? (discardConflict.variables?.itemId ?? null)
+    : reconfirmConflict.isPending
+      ? (reconfirmConflict.variables?.itemId ?? null)
+      : null;
   const updateQty = useUpdateInventoryItemQuantityMutation();
   const updateItem = useUpdateFridgeItemMutation();
   const openMutation = useOpenInventoryItemMutation();
@@ -427,6 +439,10 @@ export function InventoryScreen() {
           setActionReturnGroupId(detailGroup.id);
           setActionItem(lot);
         }}
+        conflictsByLotId={inventoryConflicts}
+        onDiscardConflict={(conflict) => discardConflict.mutate(conflict)}
+        onReconfirmConflict={(conflict) => reconfirmConflict.mutate(conflict)}
+        resolvingConflictItemId={resolvingConflictItemId}
       />
 
       {/* Aktions-Bottom-Sheet für ein konkretes MHD-Los */}
@@ -439,7 +455,11 @@ export function InventoryScreen() {
           setActionReturnGroupId(null);
         }}
         onQuantityChange={(value) =>
-          currentActionItem && updateQuantity(currentActionItem, value - currentActionItem.quantity)
+          currentActionItem &&
+          updateQuantity(
+            currentActionItem,
+            subtractInventoryQuantities(value, currentActionItem.quantity),
+          )
         }
         onEdit={() => currentActionItem && handleEdit(currentActionItem)}
         onConsume={() => currentActionItem && handleConsume(currentActionItem)}
@@ -449,8 +469,17 @@ export function InventoryScreen() {
         onExpiryChange={(expiryDate) => {
           if (!currentActionItem) return;
           updateItem.mutate({
-            ...currentActionItem,
+            id: currentActionItem.id,
+            household_id: currentActionItem.household_id,
+            product_id: currentActionItem.product_id,
+            name: currentActionItem.name,
+            unit: currentActionItem.unit,
+            package_size: currentActionItem.package_size,
+            package_size_unit: currentActionItem.package_size_unit,
+            location_id: currentActionItem.location_id,
             expiry_date: expiryDate || null,
+            opened_at: currentActionItem.opened_at,
+            vacuum_sealed: currentActionItem.vacuum_sealed,
             expiry_user_set: true,
           });
         }}
@@ -508,12 +537,16 @@ export function InventoryScreen() {
         productSummary={
           productHistoryGroup
             ? {
-                sealed: productHistoryGroup.lots
-                  .filter((lot) => !lot.opened_at)
-                  .reduce((sum, lot) => sum + lot.quantity, 0),
-                opened: productHistoryGroup.lots
-                  .filter((lot) => !!lot.opened_at)
-                  .reduce((sum, lot) => sum + lot.quantity, 0),
+                sealed: sumInventoryQuantities(
+                  productHistoryGroup.lots
+                    .filter((lot) => !lot.opened_at)
+                    .map((lot) => lot.quantity),
+                ),
+                opened: sumInventoryQuantities(
+                  productHistoryGroup.lots
+                    .filter((lot) => !!lot.opened_at)
+                    .map((lot) => lot.quantity),
+                ),
                 unit: productHistoryGroup.unit,
                 sealedSubtitle: formatStateSubtitle(
                   productHistoryGroup.lots.filter((lot) => !lot.opened_at),

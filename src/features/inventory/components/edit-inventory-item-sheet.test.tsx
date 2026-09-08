@@ -88,8 +88,7 @@ describe('EditInventoryItemSheet MHD-Schutzvertrag', () => {
 
     expect(mockMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({
-        expiry_date: '2026-12-31',
-        expiry_user_set: false,
+        patch: {},
       }),
     );
   });
@@ -106,8 +105,7 @@ describe('EditInventoryItemSheet MHD-Schutzvertrag', () => {
 
     expect(mockMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({
-        expiry_date: '2027-01-02',
-        expiry_user_set: true,
+        patch: { expiry_date: '2027-01-02', expiry_user_set: true },
       }),
     );
   });
@@ -142,5 +140,52 @@ describe('EditInventoryItemSheet Mengenkorrektur-Vertrag (fam-87p)', () => {
         quantityCorrection: { expectedQuantity: 1, newQuantity: 2 },
       }),
     );
+  });
+});
+
+
+describe('EditInventoryItemSheet explizite Metadaten-Patches', () => {
+  beforeEach(() => {
+    mockMutateAsync.mockClear();
+  });
+
+  it('sendet nach fremden Metadatenänderungen nur den bearbeiteten Namen und bewahrt den Entwurf', async () => {
+    const user = userEvent.setup();
+    const onClose = jest.fn();
+    await render(
+      <EditInventoryItemSheet visible item={AUTO_MHD_ITEM} locations={[]} onClose={onClose} />,
+    );
+    await user.clear(screen.getByLabelText('Artikelname'));
+    await user.type(screen.getByLabelText('Artikelname'), 'Dijon-Senf');
+
+    await screen.rerender(
+      <EditInventoryItemSheet
+        visible
+        item={{ ...AUTO_MHD_ITEM, quantity: 0.5, expiry_date: '2027-03-01', vacuum_sealed: true }}
+        locations={[]}
+        onClose={onClose}
+      />,
+    );
+    await user.press(saveButton());
+
+    expect(mockMutateAsync).toHaveBeenCalledWith({
+      id: AUTO_MHD_ITEM.id,
+      household_id: AUTO_MHD_ITEM.household_id,
+      patch: { name: 'Dijon-Senf' },
+    });
+  });
+
+  it('sendet beim bewussten Wieder-Versiegeln opened_at als null', async () => {
+    const user = userEvent.setup();
+    await renderSheet({ ...AUTO_MHD_ITEM, opened_at: '2026-09-07T09:00:00.000Z' });
+    await user.press(screen.getByRole('button', { name: 'Weitere Angaben öffnen' }));
+    await user.press(screen.getByRole('button', { name: 'Wieder versiegeln' }));
+    await user.press(saveButton());
+
+    expect(mockMutateAsync).toHaveBeenCalledWith({
+      id: AUTO_MHD_ITEM.id,
+      household_id: AUTO_MHD_ITEM.household_id,
+      patch: { opened_at: null, expiry_user_set: true },
+    });
   });
 });

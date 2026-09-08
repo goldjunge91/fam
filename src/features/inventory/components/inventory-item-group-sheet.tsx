@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Modal, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -5,8 +6,10 @@ import { GradientBackground } from '@/components/layout/gradient-background';
 import { type GradientSpec, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton } from '@/components/ui/buttons';
-import { Button, Card, IconButton, Press, Txt } from '@/constants/ui';
+import { Button, Card, IconButton, Press, Row, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
+import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';
+import { sumInventoryQuantities } from '@/lib/inventory-quantity';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
 import { getExpiryInfo } from '../expiry';
@@ -23,6 +26,12 @@ type InventoryItemGroupSheetProps = {
   onQuickConsume?: (lot: LocalInventoryItem) => void;
   quickActionLoading?: boolean;
   backgroundGradient?: GradientSpec;
+  /** Dauerhaft gescheiterte Mengen-Konflikte, keyed by MHD-Los-id (`lot.id`). */
+  conflictsByLotId?: Map<string, FridgeItemConflict>;
+  onDiscardConflict?: (conflict: FridgeItemConflict) => void;
+  onReconfirmConflict?: (conflict: FridgeItemConflict) => void;
+  /** itemId des Konflikts, dessen Aufloesung gerade laeuft (Buttons deaktivieren). */
+  resolvingConflictItemId?: string | null;
 };
 
 function formatExpiryDate(value: string | null): string {
@@ -54,6 +63,116 @@ export function formatStateSubtitle(lots: LocalInventoryItem[]): string {
   return formatExpiryStatus(earliest);
 }
 
+/**
+ * Panel fuer einen dauerhaft gescheiterten Mengen-Konflikt an einem MHD-Los
+ * (siehe push.ts blockedItemIds). Verwerfen loescht die blockierten Outbox-
+ * Zeilen und spiegelt den kanonischen Serverstand; Bestaetigen ist nur
+ * moeglich, wenn sich der Konflikt eindeutig einer Korrektur zuordnen liess
+ * (`conflict.correction`) und legt sie mit dem aktuellen Bestand als frischer
+ * Vergleichsbasis neu an.
+ */
+function InventoryConflictPanel({
+  visible,
+  itemName,
+  unit,
+  conflict,
+  onClose,
+  onDiscard,
+  onReconfirm,
+  resolving,
+}: {
+  visible: boolean;
+  itemName: string;
+  unit: string;
+  conflict: FridgeItemConflict | null;
+  onClose: () => void;
+  onDiscard: (conflict: FridgeItemConflict) => void;
+  onReconfirm: (conflict: FridgeItemConflict) => void;
+  resolving: boolean;
+}) {
+  const sheetStyle = useSheetShadowStyle();
+  const { colors } = useTheme();
+
+  if (!conflict) return null;
+  const correction = conflict.correction;
+
+  return (
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+      <View style={StyleSheet.absoluteFill}>
+        <Pressable
+          className="fridge-actions-backdrop"
+          onPress={onClose}
+          accessibilityRole="button"
+          accessibilityLabel="Konflikt schließen"
+        />
+        <View className="fridge-actions-sheet" style={sheetStyle}>
+          <View className="fridge-actions-handle" />
+          <Txt variant="title">{itemName}</Txt>
+          <Txt variant="caption" tone="secondary">
+            Korrektur nicht übernommen
+          </Txt>
+
+          <View
+            style={{
+              borderRadius: radius.md,
+              backgroundColor: colors.backgroundSoft,
+              padding: space.md,
+              gap: space.xs,
+            }}>
+            {correction ? (
+              <>
+                <Row justify="space-between">
+                  <Txt variant="body" tone="secondary">
+                    Deine Korrektur
+                  </Txt>
+                  <Txt variant="body" weight="700">
+                    {formatAmount(correction.new_quantity, unit)}
+                  </Txt>
+                </Row>
+                <Row justify="space-between">
+                  <Txt variant="body" tone="secondary">
+                    Erwarteter Ausgangswert
+                  </Txt>
+                  <Txt variant="body" weight="700">
+                    {formatAmount(correction.expected_quantity, unit)}
+                  </Txt>
+                </Row>
+              </>
+            ) : null}
+            <Txt variant="caption" tone="secondary" style={{ marginTop: space.xs }}>
+              {conflict.lastError}
+            </Txt>
+          </View>
+
+          <Button
+            title="Verwerfen"
+            variant="danger"
+            icon="trash-2"
+            loading={resolving}
+            onPress={() => onDiscard(conflict)}
+            full
+          />
+          {correction ? (
+            <Button
+              title={`Auf aktuellen Bestand neu bestätigen`}
+              variant="primary"
+              icon="check"
+              loading={resolving}
+              onPress={() => onReconfirm(conflict)}
+              full
+            />
+          ) : (
+            <Txt variant="caption" tone="secondary">
+              Diese Kette aus Mengenänderungen lässt sich nicht eindeutig neu bestätigen. Bitte
+              verwerfen und die Menge danach neu setzen.
+            </Txt>
+          )}
+        </View>
+      </View>
+    </Modal>
+  );
+}
+
 export function InventoryItemGroupSheet({
   visible,
   group,
@@ -64,14 +183,22 @@ export function InventoryItemGroupSheet({
   onQuickConsume,
   quickActionLoading = false,
   backgroundGradient,
+  conflictsByLotId,
+  onDiscardConflict,
+  onReconfirmConflict,
+  resolvingConflictItemId,
 }: InventoryItemGroupSheetProps) {
   const sheetStyle = useSheetShadowStyle();
   const { colors } = useTheme();
+  const [activeConflictLotId, setActiveConflictLotId] = useState<string | null>(null);
 
   if (!group) return null;
 
   const sealedLots = group.lots.filter((lot) => !lot.opened_at);
   const openedLots = group.lots.filter((lot) => !!lot.opened_at);
+  const activeConflict = activeConflictLotId
+    ? (conflictsByLotId?.get(activeConflictLotId) ?? null)
+    : null;
 
   if (Platform.OS === 'ios') {
     return (
@@ -85,6 +212,10 @@ export function InventoryItemGroupSheet({
         onQuickConsume={onQuickConsume}
         quickActionLoading={quickActionLoading}
         backgroundGradient={backgroundGradient}
+        conflictsByLotId={conflictsByLotId}
+        onDiscardConflict={onDiscardConflict}
+        onReconfirmConflict={onReconfirmConflict}
+        resolvingConflictItemId={resolvingConflictItemId}
       />
     );
   }
@@ -127,10 +258,7 @@ export function InventoryItemGroupSheet({
                   Versiegelt
                 </Txt>
                 <Txt variant="body" weight="700">
-                  {formatAmount(
-                    sealedLots.reduce((sum, lot) => sum + lot.quantity, 0),
-                    group.unit,
-                  )}
+                  {formatAmount(sumQuantity(sealedLots), group.unit)}
                 </Txt>
                 <Txt variant="caption" tone="secondary">
                   {formatStateSubtitle(sealedLots)}
@@ -143,10 +271,7 @@ export function InventoryItemGroupSheet({
                   Geöffnet
                 </Txt>
                 <Txt variant="body" weight="700">
-                  {formatAmount(
-                    openedLots.reduce((sum, lot) => sum + lot.quantity, 0),
-                    group.unit,
-                  )}
+                  {formatAmount(sumQuantity(openedLots), group.unit)}
                 </Txt>
                 <Txt variant="caption" tone="secondary">
                   {formatStateSubtitle(openedLots)}
@@ -172,6 +297,44 @@ export function InventoryItemGroupSheet({
             showsVerticalScrollIndicator={false}
             contentContainerClassName="fridge-group-lots-content">
             {group.lots.map((lot) => {
+              // Konflikt-Los: eigene Zeile statt der normalen MHD-Zeile
+              // darunter, die fuer diesen Fall unveraendert (auskommentiert
+              // nichts) bestehen bleibt.
+              const conflict = conflictsByLotId?.get(lot.id);
+              if (conflict) {
+                return (
+                  <Pressable
+                    key={lot.id}
+                    onPress={() => setActiveConflictLotId(lot.id)}
+                    accessibilityRole="button"
+                    accessibilityLabel={`${group.name}, Konflikt: ${conflict.lastError}`}
+                    className="fridge-group-lot">
+                    <View
+                      className="fridge-group-lot-status"
+                      style={{ backgroundColor: colors.danger }}
+                    />
+                    <View className="fridge-group-lot-copy">
+                      <Txt variant="body" weight="700">
+                        MHD {formatExpiryDate(lot.expiry_date)}
+                      </Txt>
+                      <Txt variant="caption" tone="danger" weight="700" numberOfLines={1}>
+                        Konflikt: nicht übernommen
+                      </Txt>
+                    </View>
+                    <Txt
+                      variant="body"
+                      weight="700"
+                      tone="danger"
+                      style={{ fontVariant: ['tabular-nums'], textDecorationLine: 'line-through' }}>
+                      {formatAmount(lot.quantity, lot.unit)}
+                    </Txt>
+                    <Txt variant="body" tone="secondary">
+                      ›
+                    </Txt>
+                  </Pressable>
+                );
+              }
+
               const packageHint = formatPackageHint(lot.package_size, lot.package_size_unit);
               const location = lot.location_name ?? 'Kein Lagerort';
               const amount = formatAmount(lot.quantity, lot.unit);
@@ -218,6 +381,22 @@ export function InventoryItemGroupSheet({
           </ScrollView>
         </View>
       </View>
+      <InventoryConflictPanel
+        visible={activeConflict !== null}
+        itemName={group.name}
+        unit={group.unit}
+        conflict={activeConflict}
+        onClose={() => setActiveConflictLotId(null)}
+        onDiscard={(conflict) => {
+          onDiscardConflict?.(conflict);
+          setActiveConflictLotId(null);
+        }}
+        onReconfirm={(conflict) => {
+          onReconfirmConflict?.(conflict);
+          setActiveConflictLotId(null);
+        }}
+        resolving={resolvingConflictItemId === activeConflict?.itemId}
+      />
     </Modal>
   );
 }
@@ -232,11 +411,19 @@ function IosInventoryItemGroupView({
   onQuickConsume,
   quickActionLoading = false,
   backgroundGradient,
+  conflictsByLotId,
+  onDiscardConflict,
+  onReconfirmConflict,
+  resolvingConflictItemId,
 }: InventoryItemGroupSheetProps) {
   const { colors } = useTheme();
   const styles = useThemedGroupStyles();
+  const [activeConflictLotId, setActiveConflictLotId] = useState<string | null>(null);
   const sealedLots = group?.lots.filter((lot) => !lot.opened_at) ?? [];
   const openedLots = group?.lots.filter((lot) => !!lot.opened_at) ?? [];
+  const activeConflict = activeConflictLotId
+    ? (conflictsByLotId?.get(activeConflictLotId) ?? null)
+    : null;
 
   if (!group) return null;
 
@@ -328,16 +515,20 @@ function IosInventoryItemGroupView({
             </Txt>
 
             <View>
-              {group.lots.map((lot) => (
-                <IosLotRow
-                  key={lot.id}
-                  group={group}
-                  lot={lot}
-                  onPress={() => onSelectLot(lot)}
-                  styles={styles}
-                  colors={colors}
-                />
-              ))}
+              {group.lots.map((lot) => {
+                const conflict = conflictsByLotId?.get(lot.id);
+                return (
+                  <IosLotRow
+                    key={lot.id}
+                    group={group}
+                    lot={lot}
+                    conflict={conflict ?? null}
+                    onPress={() => (conflict ? setActiveConflictLotId(lot.id) : onSelectLot(lot))}
+                    styles={styles}
+                    colors={colors}
+                  />
+                );
+              })}
             </View>
 
             <Button
@@ -355,12 +546,28 @@ function IosInventoryItemGroupView({
           </ScrollView>
         </SafeAreaView>
       </View>
+      <InventoryConflictPanel
+        visible={activeConflict !== null}
+        itemName={group.name}
+        unit={group.unit}
+        conflict={activeConflict}
+        onClose={() => setActiveConflictLotId(null)}
+        onDiscard={(conflict) => {
+          onDiscardConflict?.(conflict);
+          setActiveConflictLotId(null);
+        }}
+        onReconfirm={(conflict) => {
+          onReconfirmConflict?.(conflict);
+          setActiveConflictLotId(null);
+        }}
+        resolving={resolvingConflictItemId === activeConflict?.itemId}
+      />
     </Modal>
   );
 }
 
 function sumQuantity(lots: LocalInventoryItem[]): number {
-  return lots.reduce((sum, lot) => sum + lot.quantity, 0);
+  return sumInventoryQuantities(lots.map((lot) => lot.quantity));
 }
 
 function IosStateCard({
@@ -439,16 +646,49 @@ function IosStateCard({
 function IosLotRow({
   group,
   lot,
+  conflict = null,
   onPress,
   styles,
   colors,
 }: {
   group: InventoryItemGroup;
   lot: LocalInventoryItem;
+  conflict?: FridgeItemConflict | null;
   onPress: () => void;
   styles: ReturnType<typeof useThemedGroupStyles>;
   colors: ReturnType<typeof useTheme>['colors'];
 }) {
+  // Konflikt-Los: eigene Zeile statt der normalen Rueckgabe darunter, die
+  // fuer diesen Fall unveraendert bestehen bleibt.
+  if (conflict) {
+    return (
+      <Press
+        onPress={onPress}
+        accessibilityRole="button"
+        accessibilityLabel={`${group.name}, Konflikt: ${conflict.lastError}`}
+        style={styles.lotRow}>
+        <View style={[styles.lotStatus, { backgroundColor: colors.danger }]} />
+        <View style={styles.lotCopy}>
+          <View style={styles.lotTitleLine}>
+            <Txt variant="body" weight="800" numberOfLines={1} style={styles.lotTitle}>
+              MHD {formatExpiryDate(lot.expiry_date)}
+            </Txt>
+            <Txt
+              variant="body"
+              weight="800"
+              tone="danger"
+              style={[styles.lotAmount, { textDecorationLine: 'line-through' }]}>
+              {formatAmount(lot.quantity, lot.unit)}
+            </Txt>
+          </View>
+          <Txt variant="caption" tone="danger" weight="700" numberOfLines={1}>
+            Konflikt: nicht übernommen
+          </Txt>
+        </View>
+      </Press>
+    );
+  }
+
   const packageHint = formatPackageHint(lot.package_size, lot.package_size_unit);
   const location = lot.location_name ?? 'Kein Lagerort';
   const amount = formatAmount(lot.quantity, lot.unit);

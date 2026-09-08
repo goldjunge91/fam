@@ -1,0 +1,280 @@
+<title>Gruppen-Sheet Konflikt</title>
+<style>
+  :root {
+    --bg: #F8F4EF; --surface: #FBF7F2; --selected: #E9E1E7;
+    --text: #2D2830; --text-secondary: #786F79; --border: #E4DDE3;
+    --accent: #705773; --on-accent: #FFFFFF;
+    --danger: #C65F50; --danger-depth: #A94C40;
+    --warning: #C69059; --success: #78906F;
+    --primary-depth: #5E4861;
+    --shadow-sheet: rgba(42, 31, 44, 0.22);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D23; --surface: #2B262E; --selected: #382F3B;
+      --text: #F2ECE7; --text-secondary: #B7ADB3; --border: #3E3640;
+      --accent: #B79CBA; --on-accent: #211D23;
+      --danger: #D9776A; --danger-depth: #A94C40;
+      --warning: #D9A86C; --success: #8FAE86;
+      --primary-depth: #5E4861;
+      --shadow-sheet: rgba(0, 0, 0, 0.45);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D23; --surface: #2B262E; --selected: #382F3B;
+    --text: #F2ECE7; --text-secondary: #B7ADB3; --border: #3E3640;
+    --accent: #B79CBA; --on-accent: #211D23;
+    --danger: #D9776A; --danger-depth: #A94C40;
+    --warning: #D9A86C; --success: #8FAE86;
+    --primary-depth: #5E4861;
+    --shadow-sheet: rgba(0, 0, 0, 0.45);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, "SF Pro Rounded", "SF Pro Text", Roboto, sans-serif;
+    padding: 36px 20px 90px;
+  }
+
+  .intro { max-width: 900px; margin: 0 auto 30px; }
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+  h1 { font-size: 23px; font-weight: 800; margin: 6px 0 8px; text-wrap: balance; }
+  .intro p { font-size: 14px; line-height: 1.55; color: var(--text-secondary); max-width: 66ch; }
+  .intro code { background: var(--selected); border-radius: 6px; padding: 1px 6px; font-size: 12.5px; }
+
+  .stage { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; max-width: 980px; margin: 0 auto; }
+  .frame-col { width: 320px; }
+  .frame-label { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 10px; text-align: center; }
+  .phone {
+    width: 320px; height: 660px; border-radius: 44px; background: var(--bg);
+    border: 8px solid #111; box-shadow: 0 24px 44px var(--shadow-sheet);
+    overflow: hidden; position: relative;
+  }
+  .status-bar { height: 28px; }
+
+  /* ── list behind the sheet, dimmed ─────────────────────────────── */
+  .list-behind { padding: 4px 14px; opacity: 0.35; }
+  .list-behind .row { display: flex; align-items: center; gap: 10px; min-height: 60px; border-bottom: 1px solid var(--border); }
+  .list-behind .name { font-size: 15px; font-weight: 700; flex: 1; }
+
+  .backdrop { position: absolute; inset: 0; background: rgba(31,26,33,0.32); }
+
+  /* ── Exact replica of .fridge-group-sheet ────────────────────────── */
+  .sheet {
+    position: absolute; left: 10px; right: 10px; bottom: 10px; max-height: 86%;
+    border-radius: 28px; background: var(--surface);
+    padding: 11px 14px 16px; display: flex; flex-direction: column; gap: 14px;
+    box-shadow: 0 -6px 24px rgba(0,0,0,0.2);
+  }
+  .handle { width: 42px; height: 4px; border-radius: 3px; background: var(--border); margin: 0 auto; }
+
+  /* .fridge-group-header */
+  .header { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 0.5px solid var(--border); }
+  .header-copy { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .header-title { font-size: 20px; font-weight: 800; }
+  .header-sub { font-size: 11px; color: var(--text-secondary); }
+  .close-btn { width: 45px; height: 45px; border-radius: 20px; background: var(--selected); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+  /* .inventory-state-summary / -card */
+  .state-summary { display: flex; gap: 8px; }
+  .state-card { flex: 1; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 2px; background: var(--selected); }
+  .state-card.open { border: 1px solid rgba(198,144,89,0.4); background: rgba(198,144,89,0.16); }
+  .state-label { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-secondary); }
+  .state-value { font-size: 16px; font-weight: 700; margin-top: 2px; }
+  .state-hint { font-size: 11px; color: var(--text-secondary); }
+
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-secondary); }
+
+  .history-btn {
+    align-self: flex-start; border-radius: 16px; background: var(--selected);
+    padding: 9px 14px; font-size: 13px; font-weight: 700;
+  }
+
+  /* .fridge-group-lot */
+  .lots { display: flex; flex-direction: column; overflow: hidden; border-radius: 10px; }
+  .lot { min-height: 66px; display: flex; align-items: center; gap: 8px; border-bottom: 0.5px solid var(--border); padding: 4px 2px; }
+  .lot-status { width: 5px; height: 42px; border-radius: 4px; flex-shrink: 0; }
+  .lot-copy { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .lot-title { font-size: 16px; font-weight: 700; }
+  .lot-sub { font-size: 11px; color: var(--text-secondary); }
+  .lot-amount { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .lot-chevron { font-size: 20px; color: var(--text-secondary); margin-left: 6px; }
+
+  /* conflict lot variant */
+  .lot.is-conflict { background: transparent; }
+  .lot.is-conflict .lot-status { background: var(--danger) !important; }
+  .lot.is-conflict .lot-sub { color: var(--danger); font-weight: 700; }
+  .lot.is-conflict .lot-amount { color: var(--danger); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--danger) 55%, transparent); }
+  .conflict-glyph {
+    width: 20px; height: 20px; border-radius: 8px; background: var(--danger); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; margin-left: 4px;
+  }
+
+  /* ── resolution panel, slides up on top of the group sheet ───────── */
+  .resolve-panel {
+    position: absolute; left: 10px; right: 10px; bottom: 10px;
+    border-radius: 28px; background: var(--surface);
+    padding: 11px 16px 18px; box-shadow: 0 -8px 30px rgba(0,0,0,0.28);
+  }
+  .resolve-title { font-size: 18px; font-weight: 800; margin-top: 2px; }
+  .resolve-caption { font-size: 12.5px; color: var(--text-secondary); margin-top: 2px; }
+  .resolve-detail { margin-top: 14px; border-radius: 16px; background: var(--selected); padding: 14px; }
+  .rd-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; padding: 4px 0; }
+  .rd-row .k { color: var(--text-secondary); }
+  .rd-row .v { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .rd-row .v.was { color: var(--text-secondary); text-decoration: line-through; font-weight: 600; }
+  .rd-row .v.now { color: var(--danger); }
+  .rd-note { font-size: 12.5px; color: var(--text-secondary); margin-top: 8px; line-height: 1.45; }
+
+  .btn-row { display: flex; gap: 10px; margin-top: 16px; }
+  .fam-btn { flex: 1; border-radius: 16px; }
+  .fam-btn .depth { border-radius: 16px; padding-bottom: 4px; }
+  .fam-btn .face { border-radius: 16px; min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 13.5px; font-weight: 700; gap: 6px; }
+  .fam-btn.danger .depth { background: var(--danger-depth); }
+  .fam-btn.danger .face { background: var(--danger); color: var(--on-accent); }
+  .fam-btn.primary .depth { background: var(--primary-depth); }
+  .fam-btn.primary .face { background: var(--accent); color: var(--on-accent); }
+
+  .legend { max-width: 900px; margin: 48px auto 0; padding-top: 22px; border-top: 1px solid var(--border); }
+  .legend h2 { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+  .legend dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; font-size: 13px; line-height: 1.5; }
+  .legend dt { font-weight: 700; white-space: nowrap; }
+  .legend dd { color: var(--text-secondary); margin: 0; }
+</style>
+
+<div class="intro">
+  <div class="eyebrow">inventory-item-group-sheet.tsx</div>
+  <h1>Konflikt direkt am MHD-Los, nicht als neuer Screen</h1>
+  <p>
+    Jede Zeile unter <code>MHD-Einträge</code> ist bereits genau ein
+    <code>fridge_items</code>-Datensatz (ein Los/<code>lot</code>). Genau dieser
+    Datensatz ist es, dessen Mengenoperation dauerhaft scheitern kann. Der
+    Konflikt gehoert deshalb an die Lot-Zeile selbst, nicht an einen neuen Ort.
+  </p>
+</div>
+
+<div class="stage">
+
+  <div class="frame-col">
+    <div class="frame-label">1&nbsp;&middot; Gruppen-Sheet, ein Los im Konflikt</div>
+    <div class="phone">
+      <div class="status-bar"></div>
+      <div class="list-behind">
+        <div class="row"><span class="name">Vorrat</span></div>
+      </div>
+      <div class="backdrop"></div>
+      <div class="sheet">
+        <div class="handle"></div>
+
+        <div class="header">
+          <div class="header-copy">
+            <span class="header-title">Vollmilch 1,5&nbsp;l</span>
+            <span class="header-sub">4 Stk gesamt &middot; 2 MHD-Eintraege</span>
+          </div>
+          <div class="close-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="color: var(--text)"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </div>
+        </div>
+
+        <div class="state-summary">
+          <div class="state-card">
+            <span class="state-label">Versiegelt</span>
+            <span class="state-value">3 Stk</span>
+            <span class="state-hint">MHD 22. Sep</span>
+          </div>
+          <div class="state-card open">
+            <span class="state-label">Geoeffnet</span>
+            <span class="state-value">1 Stk</span>
+            <span class="state-hint">MHD 14. Sep</span>
+          </div>
+        </div>
+
+        <span class="section-label">MHD-Eintraege</span>
+
+        <div class="history-btn">Produkt-Verlauf oeffnen</div>
+
+        <div class="lots">
+          <div class="lot is-conflict" role="button" tabindex="0">
+            <span class="lot-status"></span>
+            <span class="lot-copy">
+              <span class="lot-title">MHD 14.09.2026</span>
+              <span class="lot-sub">Konflikt: Korrektur nicht uebernommen</span>
+            </span>
+            <span class="lot-amount">3 Stk</span>
+            <span class="conflict-glyph">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </span>
+          </div>
+          <div class="lot">
+            <span class="lot-status" style="background: var(--success)"></span>
+            <span class="lot-copy">
+              <span class="lot-title">MHD 22.09.2026</span>
+              <span class="lot-sub">Versiegelt &middot; in 15 Tagen &middot; Tuer</span>
+            </span>
+            <span class="lot-amount">3 Stk</span>
+            <span class="lot-chevron">&rsaquo;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame-col">
+    <div class="frame-label">2&nbsp;&middot; Tippen auf das Konflikt-Los</div>
+    <div class="phone">
+      <div class="status-bar"></div>
+      <div class="list-behind" style="opacity: 1;">
+        <div class="row" style="opacity: 0.3;"><span class="name">Vorrat</span></div>
+      </div>
+      <div class="backdrop"></div>
+      <div class="resolve-panel">
+        <div class="handle"></div>
+        <div class="resolve-title">MHD 14.09.2026</div>
+        <div class="resolve-caption">Vollmilch 1,5&nbsp;l &middot; Kuehlschrank</div>
+
+        <div class="resolve-detail">
+          <div class="rd-row"><span class="k">Deine Korrektur</span><span class="v was">3 Stk</span></div>
+          <div class="rd-row"><span class="k">Aktueller Bestand</span><span class="v now">1 Stk</span></div>
+          <div class="rd-note">
+            Lea hat den Bestand inzwischen geaendert. Deine Korrektur wurde
+            deshalb nicht uebernommen.
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <div class="fam-btn danger">
+            <div class="depth"><div class="face">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg>
+              Verwerfen
+            </div></div>
+          </div>
+          <div class="fam-btn primary">
+            <div class="depth"><div class="face">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Auf 1 Stk bestaetigen
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="legend">
+  <h2>Einordnung in inventory-item-group-sheet.tsx</h2>
+  <dl>
+    <dt>Lot-Zeile</dt>
+    <dd>Bestehende <code>fridge-group-lot</code>-Zeile bekommt einen dritten Zustand neben Versiegelt/Geoeffnet: <code>is-conflict</code>. Statusbalken auf <code>colors.danger</code>, Untertitel ersetzt die normale MHD-Zeile durch den Konfliktgrund, Menge durchgestrichen. Kein neuer Listentyp, nur ein weiterer Ast neben der bestehenden <code>statusColor</code>-Fallunterscheidung in <code>IosLotRow</code> / der Web-Variante.</dd>
+    <dt>onSelectLot</dt>
+    <dd>Fuer ein Konflikt-Los ruft <code>onPress</code> nicht mehr <code>onSelectLot(lot)</code> (normales Bearbeiten), sondern oeffnet das neue Resolution-Panel fuer genau dieses Los, mit denselben Massen wie <code>fridge-group-sheet</code> (28px Radius, 10px Rand).</dd>
+    <dt>Datenquelle</dt>
+    <dd>Pro <code>lot.id</code> ein Blick in die Outbox: <code>entity = 'fridge_items' and entity_id = lot.id and attempts &gt;= MAX_ATTEMPTS</code>. Kein neuer Query-Layer, nur eine zusaetzliche Map neben <code>group.lots</code> beim Aufbau der Gruppe.</dd>
+    <dt>Verwerfen / Bestaetigen</dt>
+    <dd>Wie zuvor: Verwerfen loescht die Outbox-Zeile(n), lokaler Wert faellt auf den letzten Serverstand zurueck. Bestaetigen legt dieselbe Korrektur mit dem angezeigten Serverbestand als neuem Ausgangswert frisch in die Outbox.</dd>
+  </dl>
+</div>

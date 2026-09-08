@@ -483,6 +483,104 @@ describe('applyRemoteRow — Reconciliation mit offenen Outbox-Operationen (fam-
     expect(row?._dirty).toBe(1);
   });
 
+  it('rekonstruiert die Menge aus verschobener Remote-Basis plus offenem Delta (fam-onu)', async () => {
+    // Ausgangsmenge 5, lokal bereits um -1 verbraucht (Anzeige: 4), Outbox-Op offen.
+    await insertLocalDirtyFridgeItem({ quantity: 4 });
+    await enqueueOutbox('adjust_quantity', {
+      operation_id: 'op-1',
+      transaction_id: 'tx-1',
+      item_id: 'fi-remote-1',
+      household_id: 'hh-1',
+      delta: -1,
+      created_at: '2024-01-15T11:00:00Z',
+    });
+
+    // Waehrenddessen hat der Server bereits eine andere, bestaetigte Menge:
+    // 3 statt der urspruenglichen 5. Korrekt ist Basis (3) + offenes Delta (-1) = 2.
+    const result = await applyRemoteRow(
+      db,
+      'fridge_items',
+      fridgeItem({ quantity: 3, updated_at: '2024-01-15T13:00:00Z' }),
+      Date.now(),
+    );
+    expect(result).toBe('written');
+
+    const row = await db.getFirstAsync<{ quantity: number; _dirty: number }>(
+      'select quantity, _dirty from fridge_items where id = ?',
+      ['fi-remote-1'],
+    );
+    expect(row?.quantity).toBe(2);
+    expect(row?._dirty).toBe(1);
+  });
+
+  it('behandelt eine verletzte Korrektur-Erwartung gegen die neue Remote-Basis als Konflikt', async () => {
+    await insertLocalDirtyFridgeItem({ quantity: 5 });
+    await enqueueOutbox('correct_quantity', {
+      operation_id: 'op-2',
+      transaction_id: 'tx-2',
+      item_id: 'fi-remote-1',
+      household_id: 'hh-1',
+      // Erwartet Basis 5, aber der Server hat inzwischen 3 bestaetigt.
+      expected_quantity: 5,
+      new_quantity: 8,
+      created_at: '2024-01-15T11:00:00Z',
+    });
+
+    const result = await applyRemoteRow(
+      db,
+      'fridge_items',
+      fridgeItem({ quantity: 3, updated_at: '2024-01-15T13:00:00Z' }),
+      Date.now(),
+    );
+
+    expect(result).toBe('local-wins');
+  });
+
+  it('rekonstruiert die Menge aus einer offenen Ruecknahme anhand des Ledgers', async () => {
+    await insertLocalDirtyFridgeItem({ quantity: 6 });
+    // Die Ruecknahme hat bereits ihre eigene Ledgerzeile lokal eingefuegt
+    // (type/quantity beschreiben ihren Effekt: hier +1).
+    await applyLocalMirrorWrite(
+      db,
+      'transactions',
+      'insert',
+      {
+        id: 'tx-reversal-1',
+        household_id: 'hh-1',
+        fridge_item_id: 'fi-remote-1',
+        type: 'in',
+        quantity: 1,
+        undone: false,
+        created_at: '2024-01-15T11:30:00Z',
+      },
+      1_000,
+    );
+    await enqueueOutbox('reverse_quantity', {
+      reversal_transaction_id: 'tx-reversal-1',
+      reversal_of: 'tx-orig-1',
+      item_id: 'fi-remote-1',
+      household_id: 'hh-1',
+      created_at: '2024-01-15T11:30:00Z',
+      notes: 'Rueckgaengig',
+    });
+
+    // Basis ist zwischenzeitlich von 5 auf 3 gesunken; korrekt ist 3 + 1 = 4.
+    const result = await applyRemoteRow(
+      db,
+      'fridge_items',
+      fridgeItem({ quantity: 3, updated_at: '2024-01-15T13:00:00Z' }),
+      Date.now(),
+    );
+    expect(result).toBe('written');
+
+    const row = await db.getFirstAsync<{ quantity: number; _dirty: number }>(
+      'select quantity, _dirty from fridge_items where id = ?',
+      ['fi-remote-1'],
+    );
+    expect(row?.quantity).toBe(4);
+    expect(row?._dirty).toBe(1);
+  });
+
   it('behaelt einen offenen Move (location_id), uebernimmt aber echte Remote-Metadaten', async () => {
     await insertLocalDirtyFridgeItem({ location_id: 'loc-pantry' });
     await enqueueOutbox('move', {

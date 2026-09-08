@@ -14,6 +14,8 @@ const mockUpdateItemMutateAsync = jest.fn().mockResolvedValue({});
 const mockOpenMutate = jest.fn();
 const mockWasteMutate = jest.fn();
 const mockUndoMutate = jest.fn();
+const mockDiscardConflictMutate = jest.fn();
+const mockReconfirmConflictMutate = jest.fn();
 
 let mockItems: LocalInventoryItem[] = [];
 let mockTransactions: LocalInventoryTransaction[] = [];
@@ -111,6 +113,20 @@ jest.mock('@/features/inventory/use-inventory-mutations', () => ({
     mutate: mockUndoMutate,
     isPending: mockUndoPending,
   }),
+  useDiscardInventoryConflictMutation: () => ({
+    mutate: mockDiscardConflictMutate,
+    isPending: false,
+    variables: undefined,
+  }),
+  useReconfirmInventoryConflictMutation: () => ({
+    mutate: mockReconfirmConflictMutate,
+    isPending: false,
+    variables: undefined,
+  }),
+}));
+
+jest.mock('@/features/inventory/use-inventory-conflicts', () => ({
+  useInventoryConflicts: () => new Map(),
 }));
 
 jest.mock('@/features/inventory/use-product', () => ({

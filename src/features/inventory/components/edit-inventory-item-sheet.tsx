@@ -72,19 +72,24 @@ export function EditInventoryItemSheet({
     }
 
     setNameError(null);
+    const nextLocationId = locationId || null;
+    const nextExpiryDate = expiryDate || null;
     await updateItem.mutateAsync({
       id: currentItem.id,
       household_id: currentItem.household_id,
-      product_id: currentItem.product_id,
-      name: trimmedName,
-      unit,
-      package_size: currentItem.package_size,
-      package_size_unit: currentItem.package_size_unit,
-      location_id: locationId || null,
-      expiry_date: expiryDate || null,
-      opened_at: openedAt,
-      vacuum_sealed: vacuumSealed,
-      expiry_user_set: expiryUserSet,
+      patch: {
+        ...(trimmedName !== currentItem.name ? { name: trimmedName } : {}),
+        ...(unit !== currentItem.unit ? { unit } : {}),
+        ...(nextLocationId !== currentItem.location_id ? { location_id: nextLocationId } : {}),
+        ...(nextExpiryDate !== currentItem.expiry_date ? { expiry_date: nextExpiryDate } : {}),
+        ...(openedAt !== (currentItem.opened_at ?? null) ? { opened_at: openedAt } : {}),
+        ...(vacuumSealed !== (currentItem.vacuum_sealed ?? false)
+          ? { vacuum_sealed: vacuumSealed }
+          : {}),
+        ...(expiryUserSet !== (currentItem.expiry_user_set ?? false)
+          ? { expiry_user_set: expiryUserSet }
+          : {}),
+      },
       // Menge nur als bewusste Korrektur übergeben, wenn der Stepper wirklich
       // bewegt wurde — sonst würde ein zwischenzeitlicher Verbrauch beim
       // Speichern eines reinen Namens-/MHD-Edits überschrieben.

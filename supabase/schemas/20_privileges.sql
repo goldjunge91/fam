@@ -191,6 +191,20 @@ grant execute on function public.reverse_move_fridge_item(
   uuid, uuid, uuid, uuid, uuid, uuid, numeric, uuid, uuid, timestamptz, text
 ) to authenticated;
 
+revoke execute on function public.split_fridge_item_open(
+  uuid, uuid, uuid, uuid, numeric, numeric, timestamptz, date, boolean, timestamptz
+) from public, anon;
+grant execute on function public.split_fridge_item_open(
+  uuid, uuid, uuid, uuid, numeric, numeric, timestamptz, date, boolean, timestamptz
+) to authenticated;
+
+revoke execute on function public.merge_undo_fridge_item_open(
+  uuid, uuid, uuid, timestamptz, text
+) from public, anon;
+grant execute on function public.merge_undo_fridge_item_open(
+  uuid, uuid, uuid, timestamptz, text
+) to authenticated;
+
 -- redeem_invite() muss von Nicht-Mitgliedern aufrufbar sein — das ist sein
 -- ganzer Zweck. Aber nur von angemeldeten: die Mitgliedschaft braucht eine
 -- user_id.

@@ -3070,6 +3070,18 @@ export type Database = {
           warning_reached: boolean
         }[]
       }
+      correct_fridge_item_quantity: {
+        Args: {
+          p_created_at: string
+          p_expected_quantity: number
+          p_household_id: string
+          p_item_id: string
+          p_new_quantity: number
+          p_operation_id: string
+          p_transaction_id: string
+        }
+        Returns: string
+      }
       create_household: { Args: { household_name: string }; Returns: string }
       deactivate_ai_household: {
         Args: {
@@ -3099,6 +3111,16 @@ export type Database = {
           user_id: string
         }[]
       }
+      merge_undo_fridge_item_open: {
+        Args: {
+          p_created_at: string
+          p_household_id: string
+          p_notes: string
+          p_reversal_of: string
+          p_reversal_transaction_id: string
+        }
+        Returns: string
+      }
       move_fridge_item: {
         Args: {
           p_created_at: string
@@ -3115,6 +3137,17 @@ export type Database = {
       }
       prepare_account_deletion: { Args: never; Returns: undefined }
       redeem_invite: { Args: { invite_token: string }; Returns: string }
+      reverse_inventory_quantity_transaction: {
+        Args: {
+          p_created_at: string
+          p_household_id: string
+          p_item_id: string
+          p_notes: string
+          p_reversal_of: string
+          p_reversal_transaction_id: string
+        }
+        Returns: string
+      }
       reverse_move_fridge_item: {
         Args: {
           p_created_at: string
@@ -3128,6 +3161,21 @@ export type Database = {
           p_operation_id: string
           p_out_transaction_id: string
           p_reversal_of: string
+        }
+        Returns: string
+      }
+      split_fridge_item_open: {
+        Args: {
+          p_created_at: string
+          p_expected_source_quantity: number
+          p_expiry_user_set: boolean
+          p_household_id: string
+          p_new_expiry_date: string
+          p_open_quantity: number
+          p_opened_at: string
+          p_opened_item_id: string
+          p_source_item_id: string
+          p_transaction_id: string
         }
         Returns: string
       }

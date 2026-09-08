@@ -4,6 +4,8 @@ import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation, recordOutboxOutcome } from '@/lib/db/outbox';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
+import { createInventoryMergeUndoMutation } from '@/lib/sync/inventory-open-merge';
+import { createInventorySplitMutation } from '@/lib/sync/inventory-open-split';
 import { createInventoryQuantityMutation } from '@/lib/sync/inventory-quantity';
 import { createInventoryQuantityCorrectionMutation } from '@/lib/sync/inventory-quantity-correction';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
@@ -258,6 +260,76 @@ describe('pushOutbox — append-only Ledger', () => {
           [transactionId],
         ),
       ).toEqual({ dirty: 0 });
+    } finally {
+      db.close();
+    }
+  });
+
+  it('behandelt einen wiederholten Ledger-insert idempotent, wenn der Server created_at nur anders formatiert', async () => {
+    // PostgREST liefert Zeitstempel in Postgres-Schreibweise (+00:00) zurueck,
+    // waehrend der Client ISO mit Z sendet — derselbe Zeitpunkt, andere Zeichenkette.
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+
+    const transactionId = 'txn-duplicate-format';
+    await db.runAsync(
+      `insert into transactions
+       (id, household_id, type, quantity, reason, created_at, updated_at, _dirty)
+       values (?, ?, 'in', 1, null, ?, ?, 1)`,
+      [transactionId, 'hh-1', '2026-09-04T10:00:00.000Z', 1],
+    );
+
+    const select = jest.fn().mockResolvedValue({
+      data: null,
+      error: { code: '23505', message: 'duplicate key' },
+      status: 409,
+    });
+    const insert = jest.fn().mockReturnValue({ select });
+    const update = jest.fn();
+    const maybeSingle = jest.fn().mockResolvedValue({
+      data: {
+        id: transactionId,
+        household_id: 'hh-1',
+        type: 'in',
+        quantity: 1,
+        reason: null,
+        created_at: '2026-09-04 10:00:00+00',
+      },
+      error: null,
+      status: 200,
+    });
+    const eq = jest.fn().mockReturnValue({ maybeSingle });
+    const client = {
+      from: jest
+        .fn()
+        .mockReturnValue({ insert, update, select: jest.fn().mockReturnValue({ eq }) }),
+    } as unknown as TypedSupabaseClient;
+
+    await enqueueMutation(db, {
+      entity: 'transactions',
+      entityId: transactionId,
+      op: 'insert',
+      payload: {
+        id: transactionId,
+        household_id: 'hh-1',
+        type: 'in',
+        quantity: 1,
+        reason: null,
+        created_at: '2026-09-04T10:00:00.000Z',
+      },
+      now: 2,
+      applyLocally: async () => {},
+    });
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 3 });
+
+      expect(result.outcomes[0]).toMatchObject({ kind: 'pushed', entity: 'transactions' });
+      expect(update).not.toHaveBeenCalled();
+      expect(
+        await db.getFirstAsync('select id from outbox where entity_id = ?', [transactionId]),
+      ).toBeNull();
     } finally {
       db.close();
     }
@@ -892,6 +964,236 @@ describe('pushOutbox — atomare Mengenänderung', () => {
     }
   });
 
+  it('rechnet eine bestaetigte Push-Antwort in eine noch offene Folgeoperation ein (fam-onu)', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+    await db.runAsync(
+      `insert into fridge_items
+       (id, household_id, name, quantity, unit, created_at, updated_at)
+       values (?, ?, ?, ?, ?, ?, ?)`,
+      ['item-quantity', 'hh-1', 'Milch', 5, 'piece', '2026-09-07T10:00:00.000Z', 0],
+    );
+
+    const basePayload = {
+      item_id: 'item-quantity',
+      household_id: 'hh-1',
+      created_at: '2026-09-07T10:00:00.000Z',
+    };
+    // Zwei unabhaengige Verbrauchs-Operationen auf demselben Bestand; beide
+    // bleiben passthrough (nie coalesced), landen also als zwei Outbox-Zeilen.
+    await enqueueMutation(db, {
+      ...createInventoryQuantityMutation({
+        payload: { ...basePayload, operation_id: 'op-1', transaction_id: 'tx-1', delta: -2 },
+        transaction: {
+          id: 'tx-1',
+          operation_id: 'op-1',
+          household_id: 'hh-1',
+          fridge_item_id: 'item-quantity',
+          product_id: null,
+          actor: 'user-1',
+          type: 'out',
+          quantity: 2,
+          location_id: null,
+          reason: null,
+          previous_expiry_date: null,
+          notes: null,
+          undone: false,
+          created_at: basePayload.created_at,
+        },
+        resultQuantity: 3,
+        nowMs: 1,
+      }),
+      now: 1,
+    });
+    await enqueueMutation(db, {
+      ...createInventoryQuantityMutation({
+        payload: { ...basePayload, operation_id: 'op-2', transaction_id: 'tx-2', delta: -1 },
+        transaction: {
+          id: 'tx-2',
+          operation_id: 'op-2',
+          household_id: 'hh-1',
+          fridge_item_id: 'item-quantity',
+          product_id: null,
+          actor: 'user-1',
+          type: 'out',
+          quantity: 1,
+          location_id: null,
+          reason: null,
+          previous_expiry_date: null,
+          notes: null,
+          undone: false,
+          created_at: basePayload.created_at,
+        },
+        resultQuantity: 2,
+        nowMs: 2,
+      }),
+      now: 2,
+    });
+
+    const remoteRowAfterFirstOp = {
+      id: 'item-quantity',
+      household_id: 'hh-1',
+      location_id: null,
+      product_id: null,
+      name: 'Milch',
+      // Ein weiteres Geraet hatte den Bestand vor unserem Push bereits auf 4
+      // reduziert; op-1 (delta -2) wendet der Server atomar auf diese echte
+      // Basis an, nicht auf die 5, von der unser Client noch ausging.
+      quantity: 2,
+      unit: 'piece',
+      package_size: null,
+      package_size_unit: null,
+      expiry_date: null,
+      added_by: null,
+      created_at: basePayload.created_at,
+      opened_at: null,
+      vacuum_sealed: false,
+      expiry_user_set: false,
+      updated_at: '2026-09-07T10:00:01.000Z',
+      deleted_at: null,
+    };
+    const maybeSingle = jest
+      .fn()
+      .mockResolvedValueOnce({ data: remoteRowAfterFirstOp, error: null, status: 200 });
+    const eq = jest.fn().mockReturnValue({ maybeSingle });
+    const select = jest.fn().mockReturnValue({ eq });
+    // Erste Operation wird bestaetigt, die zweite scheitert transient (z. B.
+    // Verbindungsabbruch) und bleibt in der Outbox offen.
+    const rpc = jest
+      .fn()
+      .mockResolvedValueOnce({ data: 'item-quantity', error: null, status: 200 })
+      .mockResolvedValueOnce({ data: null, error: { message: 'Netzwerkfehler' }, status: 0 });
+    const client = {
+      rpc,
+      from: jest.fn().mockReturnValue({ select }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 3 });
+
+      expect(result.outcomes).toMatchObject([
+        { kind: 'pushed', entityId: 'item-quantity' },
+        { kind: 'failed-transient', entityId: 'item-quantity' },
+      ]);
+      expect(
+        await db.getFirstAsync('select id from outbox where entity_id = ?', ['item-quantity']),
+      ).not.toBeNull();
+
+      // Bestaetigte Basis (2) plus offenes Delta der zweiten Operation (-1) = 1,
+      // nicht der stehen gebliebene lokale Optimistic-Wert (2), der noch von
+      // der ueberholten Annahme "Basis war 5" ausging.
+      const row = await db.getFirstAsync<{ quantity: number; dirty: number }>(
+        'select quantity, _dirty as dirty from fridge_items where id = ?',
+        ['item-quantity'],
+      );
+      expect(row).toEqual({ quantity: 1, dirty: 1 });
+    } finally {
+      db.close();
+    }
+  });
+
+  it('haelt Folgeoperationen desselben Artikels zurueck, wenn eine vorherige im selben Batch dauerhaft scheitert', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+    await db.runAsync(
+      `insert into fridge_items
+       (id, household_id, name, quantity, unit, created_at, updated_at)
+       values (?, ?, ?, ?, ?, ?, ?)`,
+      ['item-quantity', 'hh-1', 'Milch', 5, 'piece', '2026-09-07T10:00:00.000Z', 0],
+    );
+
+    const basePayload = {
+      item_id: 'item-quantity',
+      household_id: 'hh-1',
+      created_at: '2026-09-07T10:00:00.000Z',
+    };
+    // Zwei Operationen auf demselben Artikel im selben Batch: die erste
+    // (eine Korrektur) scheitert dauerhaft (409 compare-and-set-Konflikt).
+    // Die zweite darf nicht ausgefuehrt werden — sie beruht moeglicherweise
+    // auf der gerade abgelehnten Korrektur.
+    await enqueueMutation(db, {
+      ...createInventoryQuantityCorrectionMutation({
+        payload: {
+          ...basePayload,
+          operation_id: 'op-correct',
+          transaction_id: 'tx-correct',
+          expected_quantity: 5,
+          new_quantity: 3,
+        },
+        transaction: {
+          id: 'tx-correct',
+          operation_id: 'op-correct',
+          household_id: 'hh-1',
+          fridge_item_id: 'item-quantity',
+          product_id: null,
+          actor: 'user-1',
+          type: 'out',
+          quantity: 2,
+          location_id: null,
+          reason: null,
+          previous_expiry_date: null,
+          notes: '[Manual correction]',
+          undone: false,
+          created_at: basePayload.created_at,
+        },
+        nowMs: 1,
+      }),
+      now: 1,
+    });
+    await enqueueMutation(db, {
+      ...createInventoryQuantityMutation({
+        payload: {
+          ...basePayload,
+          operation_id: 'op-adjust',
+          transaction_id: 'tx-adjust',
+          delta: -1,
+        },
+        transaction: {
+          id: 'tx-adjust',
+          operation_id: 'op-adjust',
+          household_id: 'hh-1',
+          fridge_item_id: 'item-quantity',
+          product_id: null,
+          actor: 'user-1',
+          type: 'out',
+          quantity: 1,
+          location_id: null,
+          reason: null,
+          previous_expiry_date: null,
+          notes: null,
+          undone: false,
+          created_at: basePayload.created_at,
+        },
+        resultQuantity: 2,
+        nowMs: 2,
+      }),
+      now: 2,
+    });
+
+    const rpc = jest
+      .fn()
+      .mockResolvedValue({ data: null, error: { message: 'Bestand veraendert' }, status: 409 });
+    const client = { rpc } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 3 });
+
+      expect(result.outcomes).toMatchObject([
+        { kind: 'failed-permanent', entityId: 'item-quantity' },
+      ]);
+      // Nur die erste (die dauerhaft scheiternde) Operation ruft die RPC auf —
+      // die zweite wird zurueckgehalten, nicht etwa uebersprungen und verworfen.
+      expect(rpc).toHaveBeenCalledTimes(1);
+      expect(
+        await db.getAllAsync<{ attempts: number }>('select attempts from outbox order by id'),
+      ).toEqual([{ attempts: MAX_ATTEMPTS }, { attempts: 0 }]);
+    } finally {
+      db.close();
+    }
+  });
+
   it('ruft für eine manuelle Korrektur den Compare-and-set-RPC auf', async () => {
     const db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);
@@ -982,6 +1284,314 @@ describe('pushOutbox — atomare Mengenänderung', () => {
           ['item-correction'],
         ),
       ).toEqual({ quantity: 3, dirty: 0 });
+    } finally {
+      db.close();
+    }
+  });
+});
+
+describe('pushOutbox — atomarer Split', () => {
+  it('ruft die Split-RPC auf und uebernimmt beide kanonischen Bestandszeilen', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+    await db.runAsync(
+      `insert into fridge_items
+       (id, household_id, name, quantity, unit, created_at, updated_at)
+       values (?, ?, ?, ?, ?, ?, ?)`,
+      ['item-source', 'hh-1', 'Milch', 5, 'piece', '2026-09-07T10:00:00.000Z', 0],
+    );
+
+    const payload = {
+      transaction_id: 'split-transaction-1',
+      source_item_id: 'item-source',
+      opened_item_id: 'item-opened',
+      household_id: 'hh-1',
+      expected_source_quantity: 5,
+      open_quantity: 1,
+      opened_at: '2026-09-07T10:00:00.000Z',
+      new_expiry_date: '2026-09-10',
+      expiry_user_set: true,
+      created_at: '2026-09-07T10:00:00.000Z',
+    };
+    await enqueueMutation(db, {
+      ...createInventorySplitMutation({
+        payload,
+        openedItem: {
+          id: 'item-opened',
+          household_id: 'hh-1',
+          location_id: null,
+          product_id: null,
+          name: 'Milch',
+          quantity: 1,
+          unit: 'piece',
+          package_size: null,
+          package_size_unit: null,
+          expiry_date: '2026-09-10',
+          added_by: null,
+          opened_at: payload.opened_at,
+          vacuum_sealed: false,
+          expiry_user_set: true,
+        },
+        transaction: {
+          id: payload.transaction_id,
+          household_id: 'hh-1',
+          fridge_item_id: 'item-opened',
+          product_id: null,
+          actor: 'user-1',
+          type: 'open',
+          quantity: 1,
+          location_id: null,
+          previous_expiry_date: null,
+          origin_item_id: 'item-source',
+          origin_quantity: 5,
+          notes: '[Split] origin=item-source',
+          undone: false,
+          created_at: payload.created_at,
+        },
+        nowMs: 1,
+      }),
+      now: 1,
+    });
+
+    const sourceRow = {
+      id: 'item-source',
+      household_id: 'hh-1',
+      location_id: null,
+      product_id: null,
+      name: 'Milch',
+      quantity: 4,
+      unit: 'piece',
+      package_size: null,
+      package_size_unit: null,
+      expiry_date: null,
+      added_by: null,
+      created_at: '2026-09-07T10:00:00.000Z',
+      opened_at: null,
+      vacuum_sealed: false,
+      expiry_user_set: false,
+      updated_at: '2026-09-07T10:00:01.000Z',
+      deleted_at: null,
+    };
+    const openedRow = {
+      id: 'item-opened',
+      household_id: 'hh-1',
+      location_id: null,
+      product_id: null,
+      name: 'Milch',
+      quantity: 1,
+      unit: 'piece',
+      package_size: null,
+      package_size_unit: null,
+      expiry_date: '2026-09-10',
+      added_by: null,
+      created_at: '2026-09-07T10:00:00.000Z',
+      opened_at: '2026-09-07T10:00:00.000Z',
+      vacuum_sealed: false,
+      expiry_user_set: true,
+      updated_at: '2026-09-07T10:00:01.000Z',
+      deleted_at: null,
+    };
+    const inQuery = jest
+      .fn()
+      .mockResolvedValue({ data: [sourceRow, openedRow], error: null, status: 200 });
+    const select = jest.fn().mockReturnValue({ in: inQuery });
+    const rpc = jest.fn().mockResolvedValue({ data: 'item-opened', error: null, status: 200 });
+    const client = {
+      rpc,
+      from: jest.fn().mockReturnValue({ select }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 2 });
+
+      expect(result.outcomes[0]).toMatchObject({ kind: 'pushed', entityId: 'item-source' });
+      expect(rpc).toHaveBeenCalledWith('split_fridge_item_open', {
+        p_transaction_id: 'split-transaction-1',
+        p_source_item_id: 'item-source',
+        p_opened_item_id: 'item-opened',
+        p_household_id: 'hh-1',
+        p_expected_source_quantity: 5,
+        p_open_quantity: 1,
+        p_opened_at: '2026-09-07T10:00:00.000Z',
+        p_new_expiry_date: '2026-09-10',
+        p_expiry_user_set: true,
+        p_created_at: '2026-09-07T10:00:00.000Z',
+      });
+      expect(inQuery).toHaveBeenCalledWith('id', ['item-source', 'item-opened']);
+      expect(
+        await db.getFirstAsync('select id from outbox where entity_id = ?', ['item-source']),
+      ).toBeNull();
+      expect(
+        await db.getFirstAsync<{ quantity: number; dirty: number }>(
+          'select quantity, _dirty as dirty from fridge_items where id = ?',
+          ['item-source'],
+        ),
+      ).toEqual({ quantity: 4, dirty: 0 });
+      expect(
+        await db.getFirstAsync<{ quantity: number; dirty: number; opened_at: string }>(
+          'select quantity, _dirty as dirty, opened_at from fridge_items where id = ?',
+          ['item-opened'],
+        ),
+      ).toEqual({ quantity: 1, dirty: 0, opened_at: '2026-09-07T10:00:00.000Z' });
+      expect(
+        await db.getFirstAsync<{ dirty: number }>(
+          'select _dirty as dirty from transactions where id = ?',
+          ['split-transaction-1'],
+        ),
+      ).toEqual({ dirty: 0 });
+    } finally {
+      db.close();
+    }
+  });
+});
+
+describe('pushOutbox — atomares Split-Undo (Merge)', () => {
+  it('ruft die Merge-Undo-RPC auf und uebernimmt beide kanonischen Bestandszeilen', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+    await db.runAsync(
+      `insert into fridge_items
+       (id, household_id, name, quantity, unit, created_at, updated_at, opened_at)
+       values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      ['item-sealed', 'hh-1', 'Milch', 4, 'piece', '2026-09-07T10:00:00.000Z', 0, null],
+    );
+    await db.runAsync(
+      `insert into fridge_items
+       (id, household_id, name, quantity, unit, created_at, updated_at, opened_at)
+       values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        'item-opened',
+        'hh-1',
+        'Milch',
+        1,
+        'piece',
+        '2026-09-07T10:00:00.000Z',
+        0,
+        '2026-09-07T10:00:00.000Z',
+      ],
+    );
+
+    const payload = {
+      reversal_transaction_id: 'merge-undo-transaction-1',
+      reversal_of: 'split-transaction-1',
+      household_id: 'hh-1',
+      created_at: '2026-09-07T10:05:00.000Z',
+      notes: '[Undone] Öffnung rückgängig gemacht',
+    };
+    await enqueueMutation(db, {
+      ...createInventoryMergeUndoMutation({
+        payload,
+        sealedItemId: 'item-sealed',
+        sealedQuantityAfterMerge: 5,
+        openedItemId: 'item-opened',
+        transaction: {
+          id: payload.reversal_transaction_id,
+          household_id: 'hh-1',
+          fridge_item_id: 'item-sealed',
+          product_id: null,
+          actor: 'user-1',
+          type: 'open',
+          quantity: 1,
+          location_id: null,
+          previous_expiry_date: null,
+          notes: payload.notes,
+          undone: false,
+          reversal_of: payload.reversal_of,
+          created_at: payload.created_at,
+        },
+        nowMs: 1,
+      }),
+      now: 1,
+    });
+
+    const sealedRow = {
+      id: 'item-sealed',
+      household_id: 'hh-1',
+      location_id: null,
+      product_id: null,
+      name: 'Milch',
+      quantity: 5,
+      unit: 'piece',
+      package_size: null,
+      package_size_unit: null,
+      expiry_date: null,
+      added_by: null,
+      created_at: '2026-09-07T10:00:00.000Z',
+      opened_at: null,
+      vacuum_sealed: false,
+      expiry_user_set: false,
+      updated_at: '2026-09-07T10:05:01.000Z',
+      deleted_at: null,
+    };
+    const openedRowAfterMerge = {
+      id: 'item-opened',
+      household_id: 'hh-1',
+      location_id: null,
+      product_id: null,
+      name: 'Milch',
+      quantity: 1,
+      unit: 'piece',
+      package_size: null,
+      package_size_unit: null,
+      expiry_date: null,
+      added_by: null,
+      created_at: '2026-09-07T10:00:00.000Z',
+      opened_at: '2026-09-07T10:00:00.000Z',
+      vacuum_sealed: false,
+      expiry_user_set: false,
+      updated_at: '2026-09-07T10:05:01.000Z',
+      deleted_at: '2026-09-07T10:05:01.000Z',
+    };
+    const ledgerMaybeSingle = jest
+      .fn()
+      .mockResolvedValue({ data: { fridge_item_id: 'item-opened' }, error: null, status: 200 });
+    const ledgerEq = jest.fn().mockReturnValue({ maybeSingle: ledgerMaybeSingle });
+    const ledgerSelect = jest.fn().mockReturnValue({ eq: ledgerEq });
+    const inQuery = jest
+      .fn()
+      .mockResolvedValue({ data: [sealedRow, openedRowAfterMerge], error: null, status: 200 });
+    const itemsSelect = jest.fn().mockReturnValue({ in: inQuery });
+    const rpc = jest.fn().mockResolvedValue({ data: 'item-sealed', error: null, status: 200 });
+    const from = jest.fn((table: string) =>
+      table === 'transactions' ? { select: ledgerSelect } : { select: itemsSelect },
+    );
+    const client = { rpc, from } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 2 });
+
+      expect(result.outcomes[0]).toMatchObject({ kind: 'pushed', entityId: 'item-sealed' });
+      expect(rpc).toHaveBeenCalledWith('merge_undo_fridge_item_open', {
+        p_reversal_transaction_id: 'merge-undo-transaction-1',
+        p_reversal_of: 'split-transaction-1',
+        p_household_id: 'hh-1',
+        p_created_at: '2026-09-07T10:05:00.000Z',
+        p_notes: '[Undone] Öffnung rückgängig gemacht',
+      });
+      expect(inQuery).toHaveBeenCalledWith('id', ['item-sealed', 'item-opened']);
+      expect(
+        await db.getFirstAsync('select id from outbox where entity_id = ?', ['item-sealed']),
+      ).toBeNull();
+      expect(
+        await db.getFirstAsync<{ quantity: number; dirty: number }>(
+          'select quantity, _dirty as dirty from fridge_items where id = ?',
+          ['item-sealed'],
+        ),
+      ).toEqual({ quantity: 5, dirty: 0 });
+      expect(
+        await db.getFirstAsync<{ deletedAt: number | null; dirty: number }>(
+          'select deleted_at as deletedAt, _dirty as dirty from fridge_items where id = ?',
+          ['item-opened'],
+        ),
+      ).toEqual({ deletedAt: expect.any(Number), dirty: 0 });
+      expect(
+        await db.getFirstAsync<{ dirty: number }>(
+          'select _dirty as dirty from transactions where id = ?',
+          ['merge-undo-transaction-1'],
+        ),
+      ).toEqual({ dirty: 0 });
     } finally {
       db.close();
     }

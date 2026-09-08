@@ -1,0 +1,302 @@
+<title>Vorrat-Konflikte</title>
+<style>
+  :root {
+    --bg: #F8F4EF;
+    --surface: #FBF7F2;
+    --soft: #E9E1E7;
+    --text: #2D2830;
+    --text-secondary: #786F79;
+    --border: #E4DDE3;
+    --accent: #705773;
+    --on-accent: #FFFFFF;
+    --danger: #C65F50;
+    --danger-depth: #A94C40;
+    --danger-tint: #F8E9E6;
+    --warning: #C69059;
+    --success: #78906F;
+    --primary-depth: #5E4861;
+    --shadow-card: rgba(89, 64, 89, 0.16);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D23; --surface: #2B262E; --soft: #382F3B;
+      --text: #F2ECE7; --text-secondary: #B7ADB3; --border: #3E3640;
+      --accent: #B79CBA; --on-accent: #211D23;
+      --danger: #D9776A; --danger-depth: #A94C40; --danger-tint: #3A1717;
+      --warning: #D9A86C; --success: #8FAE86; --primary-depth: #5E4861;
+      --shadow-card: rgba(0, 0, 0, 0.45);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D23; --surface: #2B262E; --soft: #382F3B;
+    --text: #F2ECE7; --text-secondary: #B7ADB3; --border: #3E3640;
+    --accent: #B79CBA; --on-accent: #211D23;
+    --danger: #D9776A; --danger-depth: #A94C40; --danger-tint: #3A1717;
+    --warning: #D9A86C; --success: #8FAE86; --primary-depth: #5E4861;
+    --shadow-card: rgba(0, 0, 0, 0.45);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "SF Pro Rounded", "SF Pro Text", Roboto, sans-serif;
+    padding: 36px 20px 90px;
+  }
+
+  .intro { max-width: 900px; margin: 0 auto 34px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h1 { font-size: 24px; font-weight: 800; margin: 6px 0 8px; text-wrap: balance; }
+  .intro p { font-size: 14px; line-height: 1.55; color: var(--text-secondary); max-width: 64ch; }
+  .intro code {
+    background: var(--soft); border-radius: 6px; padding: 1px 6px; font-size: 12.5px;
+  }
+
+  .stage {
+    display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;
+    max-width: 980px; margin: 0 auto;
+  }
+  .frame-col { width: 320px; }
+  .frame-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--text-secondary); margin-bottom: 10px; text-align: center;
+  }
+  .phone {
+    width: 320px; height: 640px; border-radius: 44px; background: var(--bg);
+    border: 8px solid #111; box-shadow: 0 24px 44px var(--shadow-card);
+    overflow: hidden; position: relative;
+  }
+  .status-bar { height: 30px; }
+  .content { padding: 0 14px 14px; height: calc(100% - 30px); overflow: hidden; }
+
+  /* ── App header (matches Screen header pattern) ─────────────────── */
+  .app-header {
+    display: flex; align-items: center; justify-content: space-between; padding: 6px 2px 12px;
+  }
+  .app-title { font-size: 20px; font-weight: 800; }
+  .header-icon {
+    width: 38px; height: 38px; border-radius: 12px; background: var(--surface);
+    border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ── Fam Card primitive: radius 20, 1px border, soft shadow ─────── */
+  .fam-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(89,64,89,0.08);
+  }
+
+  /* ── Inline conflict alert row on the inventory screen ───────────── */
+  .conflict-alert {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px; margin-bottom: 14px;
+    border-left: 3px solid var(--danger);
+  }
+  .conflict-alert .icon-badge {
+    width: 34px; height: 34px; border-radius: 12px; background: var(--danger-tint);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .conflict-alert .icon-badge svg { stroke: var(--danger); }
+  .conflict-alert-text { flex: 1; }
+  .conflict-alert-title { font-size: 14px; font-weight: 700; }
+  .conflict-alert-sub { font-size: 12.5px; color: var(--text-secondary); margin-top: 1px; }
+  .conflict-alert svg.chev { stroke: var(--text-secondary); flex-shrink: 0; }
+
+  /* ── Fridge item rows (real look: left expiry stripe, qty right) ── */
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--text-secondary); margin: 4px 0 8px;
+  }
+  .item-row {
+    display: flex; align-items: center; gap: 10px;
+    min-height: 64px; padding: 0 12px;
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid var(--border);
+  }
+  .item-row.is-conflict { border-left-color: var(--danger); }
+  .item-row.ok { border-left-color: var(--success); }
+  .item-main { flex: 1; }
+  .item-name { font-size: 15px; font-weight: 700; }
+  .item-sub { font-size: 12.5px; color: var(--text-secondary); margin-top: 1px; }
+  .item-qty { font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; min-width: 44px; text-align: right; }
+  .item-row.is-conflict .item-sub { color: var(--danger); font-weight: 600; }
+
+  /* ── Floating rounded sheet, matches .fridge-actions-sheet ───────── */
+  .sheet-backdrop {
+    position: absolute; inset: 0; background: rgba(31,26,33,0.32);
+  }
+  .sheet {
+    position: absolute; left: 10px; right: 10px; bottom: 10px;
+    border-radius: 28px; background: var(--surface);
+    padding: 11px 16px 18px; box-shadow: 0 -8px 28px rgba(0,0,0,0.22);
+  }
+  .sheet-handle { width: 42px; height: 4px; border-radius: 3px; background: var(--border); margin: 0 auto 14px; }
+  .sheet-title { font-size: 20px; font-weight: 800; }
+  .sheet-caption { font-size: 13px; color: var(--text-secondary); margin-top: 3px; }
+
+  .conflict-detail {
+    margin-top: 16px; border-radius: 16px; background: var(--soft); padding: 14px;
+  }
+  .cd-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; padding: 5px 0; }
+  .cd-row .k { color: var(--text-secondary); }
+  .cd-row .v { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .cd-row .v.was { color: var(--text-secondary); text-decoration: line-through; font-weight: 600; }
+  .cd-row .v.now { color: var(--danger); }
+  .cd-note { font-size: 12.5px; color: var(--text-secondary); margin-top: 8px; line-height: 1.45; }
+
+  /* ── Fam 3D-pop buttons ───────────────────────────────────────────── */
+  .btn-row { display: flex; gap: 10px; margin-top: 16px; }
+  .fam-btn { flex: 1; border-radius: 16px; }
+  .fam-btn .depth { border-radius: 16px; padding-bottom: 4px; }
+  .fam-btn .face {
+    border-radius: 16px; min-height: 44px; display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; gap: 6px;
+  }
+  .fam-btn.danger .depth { background: var(--danger-depth); }
+  .fam-btn.danger .face { background: var(--danger); color: var(--on-accent); }
+  .fam-btn.primary .depth { background: var(--primary-depth); }
+  .fam-btn.primary .face { background: var(--accent); color: var(--on-accent); }
+
+  .legend {
+    max-width: 900px; margin: 48px auto 0; padding-top: 22px; border-top: 1px solid var(--border);
+  }
+  .legend h2 { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+  .legend dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; font-size: 13px; line-height: 1.5; }
+  .legend dt { font-weight: 700; white-space: nowrap; }
+  .legend dd { color: var(--text-secondary); margin: 0; }
+</style>
+
+<div class="intro">
+  <div class="eyebrow">Inventory &middot; nicht Sync-Status</div>
+  <h1>Konflikte gehoeren zum Vorrat, nicht zum globalen Sync-Banner</h1>
+  <p>
+    Eigenstaendiger Baustein in <code>src/features/inventory/</code>: eine
+    Konflikt-Zeile direkt auf dem Inventory-Screen (nicht der app-weite
+    <code>SyncStatusBanner</code>, nicht das bestehende
+    <code>OpenInventoryItemSheet</code>). Betrifft ausschliesslich Artikel mit
+    dauerhaft gescheiterter Mengenoperation.
+  </p>
+</div>
+
+<div class="stage">
+
+  <div class="frame-col">
+    <div class="frame-label">1&nbsp;&middot; Inventory-Screen</div>
+    <div class="phone">
+      <div class="status-bar"></div>
+      <div class="content">
+        <div class="app-header">
+          <span class="app-title">Vorrat</span>
+          <span class="header-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--text)">
+              <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+        </div>
+
+        <div class="fam-card conflict-alert" role="button" tabindex="0">
+          <span class="icon-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+          </span>
+          <span class="conflict-alert-text">
+            <span class="conflict-alert-title">1 Artikel wartet auf deine Entscheidung</span>
+            <span class="conflict-alert-sub">Korrektur konnte nicht uebernommen werden</span>
+          </span>
+          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+
+        <div class="section-label">Kuehlschrank</div>
+        <div class="item-row is-conflict">
+          <span class="item-main">
+            <span class="item-name">Vollmilch 1,5&nbsp;l</span>
+            <span class="item-sub">Konflikt: dein Wert stimmt nicht mehr</span>
+          </span>
+          <span class="item-qty">3&nbsp;Stk</span>
+        </div>
+        <div class="item-row ok">
+          <span class="item-main">
+            <span class="item-name">Butter</span>
+            <span class="item-sub">Tuer &middot; MHD 22.&nbsp;Sep</span>
+          </span>
+          <span class="item-qty">1&nbsp;Stk</span>
+        </div>
+        <div class="item-row ok">
+          <span class="item-main">
+            <span class="item-name">Joghurt Natur</span>
+            <span class="item-sub">Fach 2 &middot; MHD 19.&nbsp;Sep</span>
+          </span>
+          <span class="item-qty">4&nbsp;Stk</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame-col">
+    <div class="frame-label">2&nbsp;&middot; Konflikt-Sheet (Tippen auf die Zeile)</div>
+    <div class="phone">
+      <div class="status-bar"></div>
+      <div class="content" style="position: relative;">
+        <div class="app-header" style="opacity: 0.35;">
+          <span class="app-title">Vorrat</span>
+          <span class="header-icon"></span>
+        </div>
+        <div class="section-label" style="opacity: 0.35;">Kuehlschrank</div>
+
+        <div class="sheet-backdrop"></div>
+        <div class="sheet">
+          <div class="sheet-handle"></div>
+          <div class="sheet-title">Vollmilch 1,5&nbsp;l</div>
+          <div class="sheet-caption">Kuehlschrank &middot; Tuer</div>
+
+          <div class="conflict-detail">
+            <div class="cd-row"><span class="k">Deine Korrektur</span><span class="v was">3 Stk</span></div>
+            <div class="cd-row"><span class="k">Aktueller Bestand</span><span class="v now">1 Stk</span></div>
+            <div class="cd-note">
+              Lea hat den Bestand inzwischen geaendert. Deine Korrektur wurde
+              deshalb nicht uebernommen.
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <div class="fam-btn danger">
+              <div class="depth"><div class="face">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg>
+                Verwerfen
+              </div></div>
+            </div>
+            <div class="fam-btn primary">
+              <div class="depth"><div class="face">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Auf 1 Stk bestaetigen
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="legend">
+  <h2>Einordnung</h2>
+  <dl>
+    <dt>Ort</dt>
+    <dd><code>src/features/inventory/components/inventory-conflict-alert.tsx</code> (Zeile 1) und <code>inventory-conflict-sheet.tsx</code> (Zeile 2): neue, eigenstaendige Dateien. Kein Eingriff in <code>open-inventory-item-sheet.tsx</code> oder <code>sync-status-banner.tsx</code>.</dd>
+    <dt>Datenquelle</dt>
+    <dd>Outbox-Zeilen mit <code>entity = 'fridge_items'</code> und <code>attempts &gt;= MAX_ATTEMPTS</code>, aufgeloest gegen den zuletzt vom Server bekannten Artikel (Titel, Server-Menge).</dd>
+    <dt>Verwerfen</dt>
+    <dd>Loescht die Outbox-Zeile(n) fuer diesen Artikel. Lokaler Bestand wird auf den zuletzt bekannten Serverwert zurueckgesetzt.</dd>
+    <dt>Bestaetigen</dt>
+    <dd>Legt dieselbe Absicht (hier: Korrektur) mit dem gerade angezeigten Serverbestand als neuer Ausgangswert neu in die Outbox, statt den alten Push blind zu wiederholen.</dd>
+  </dl>
+</div>
