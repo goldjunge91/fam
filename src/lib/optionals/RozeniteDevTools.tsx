@@ -48,7 +48,10 @@ let runtime: RozeniteRuntime | null | undefined;
 
 function loadRozeniteRuntime(): RozeniteRuntime | null {
   if (runtime !== undefined) return runtime;
-  if (!__DEV__) {
+  // Jest has __DEV__ enabled but does not provide the native Rozenite bridge.
+  // Loading the optional plugins there makes otherwise ordinary form tests
+  // fail while mounting their RHF hook.
+  if (!__DEV__ || process.env.JEST_WORKER_ID !== undefined) {
     runtime = null;
     return runtime;
   }

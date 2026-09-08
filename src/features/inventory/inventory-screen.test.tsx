@@ -284,8 +284,10 @@ it('setzt den Schutzstatus beim manuellen MHD-Schnellzugriff', async () => {
 
   expect(mockUpdateExpiryMutate).toHaveBeenCalledWith(
     expect.objectContaining({
-      expiry_date: '2026-10-31',
-      expiry_user_set: true,
+      patch: {
+        expiry_date: '2026-10-31',
+        expiry_user_set: true,
+      },
     }),
   );
 });
@@ -398,9 +400,9 @@ it('bearbeitet einen Vorratsartikel im eigenen Bottom Sheet', async () => {
   expect(mockUpdateItemMutateAsync).toHaveBeenCalledWith(
     expect.objectContaining({
       id: 'item-1',
-      name: 'Haferdrink',
-      quantity: 3,
-      unit: 'l',
+      household_id: 'hh-1',
+      patch: { name: 'Haferdrink' },
+      quantityCorrection: { expectedQuantity: 2, newQuantity: 3 },
     }),
   );
 });

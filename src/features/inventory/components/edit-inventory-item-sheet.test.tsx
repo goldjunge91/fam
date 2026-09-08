@@ -143,7 +143,6 @@ describe('EditInventoryItemSheet Mengenkorrektur-Vertrag (fam-87p)', () => {
   });
 });
 
-
 describe('EditInventoryItemSheet explizite Metadaten-Patches', () => {
   beforeEach(() => {
     mockMutateAsync.mockClear();

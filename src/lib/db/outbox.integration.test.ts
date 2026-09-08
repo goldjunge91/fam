@@ -205,7 +205,12 @@ describe('loadDueOutboxEntries / deleteOutboxEntries / recordOutboxOutcome', () 
   it('recordOutboxOutcome mit leerem Array ist ein No-Op', async () => {
     await enqueue('a', 1000);
     await expect(
-      recordOutboxOutcome(db, [], { attempts: 1, lastError: 'x', kind: 'transient', nextAttemptAtMs: 0 }),
+      recordOutboxOutcome(db, [], {
+        attempts: 1,
+        lastError: 'x',
+        kind: 'transient',
+        nextAttemptAtMs: 0,
+      }),
     ).resolves.not.toThrow();
   });
 });
