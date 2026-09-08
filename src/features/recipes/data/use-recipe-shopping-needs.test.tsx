@@ -76,10 +76,10 @@ describe('useRecipeShoppingNeeds', () => {
   };
 
   it('berechnet Fehlmengen basierend auf dem Vorratsbestand', async () => {
-    // 1. fridge items: 20g vorhanden
+    // 1. fridge items: 20g vorhanden, Integer-Tausendstel (contract.md Abschnitt 3)
     // 2. products lookup (Kaufhistorie laeuft ueber getFirstAsync, nicht getAllAsync)
     mockDbGetAllAsync
-      .mockResolvedValueOnce([{ product_id: 'prod-basilikum', quantity: 20, unit: 'g' }])
+      .mockResolvedValueOnce([{ product_id: 'prod-basilikum', quantity: 20_000, unit: 'g' }])
       .mockResolvedValueOnce([{ id: 'prod-basilikum', name: 'Basilikum', serving_size_g: 50 }]);
 
     const { result } = await renderHook(() => useRecipeShoppingNeeds(mockRecipe, 2, true), {
@@ -101,7 +101,8 @@ describe('useRecipeShoppingNeeds', () => {
     // Nachschub-Fall (#131-Nachschaerfung, docs/issue-131-missing-ingredients-transfer.md):
     // der Vorrat deckt den Bedarf (100g) bereits vollstaendig ab.
     mockDbGetAllAsync
-      .mockResolvedValueOnce([{ product_id: 'prod-basilikum', quantity: 100, unit: 'g' }])
+      // Integer-Tausendstel (contract.md Abschnitt 3): 100g = 100_000
+      .mockResolvedValueOnce([{ product_id: 'prod-basilikum', quantity: 100_000, unit: 'g' }])
       .mockResolvedValueOnce([{ id: 'prod-basilikum', name: 'Basilikum', serving_size_g: 50 }]);
 
     const { result } = await renderHook(() => useRecipeShoppingNeeds(mockRecipe, 2, true), {

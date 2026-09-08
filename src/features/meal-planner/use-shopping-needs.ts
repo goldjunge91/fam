@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { getDatabase } from '@/lib/db/client';
+import { fromInventoryQuantityUnits } from '@/lib/inventory-quantity';
 import type { RecipeComponentItemRow, RecipeComponentRow } from './shopping-needs';
 import {
   computeIngredientNeeds,
@@ -85,7 +86,7 @@ export function useMealPlanShoppingNeeds(
       );
       const recipeTitleById = new Map(recipeTitleRows.map((r) => [r.id, r.title]));
 
-      const stockRows = await db.getAllAsync<{
+      const rawStockRows = await db.getAllAsync<{
         product_id: string;
         quantity: number;
         unit: string;
@@ -94,6 +95,12 @@ export function useMealPlanShoppingNeeds(
          where household_id = ? and product_id is not null and deleted_at is null`,
         [householdId],
       );
+      // Persistenz-/View-Grenze (contract.md Abschnitt 3): fridge_items.quantity
+      // ist Integer-Tausendstel, stockInGrams erwartet die dezimale Menge.
+      const stockRows = rawStockRows.map((row) => ({
+        ...row,
+        quantity: fromInventoryQuantityUnits(row.quantity),
+      }));
 
       const productIds = [...needs.keys()];
       const productPlaceholders = productIds.map(() => '?').join(', ');

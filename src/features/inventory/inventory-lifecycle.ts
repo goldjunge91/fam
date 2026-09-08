@@ -101,6 +101,14 @@ export function splitTransactionNotes(originItemId: string): string {
   return `${SPLIT_NOTE_PREFIX}${originItemId}`;
 }
 
+/**
+ * Zurueckgestellt (Marco-Entscheidung 2026-09-08): contract.md Abschnitt 9
+ * verlangt, den Freitext-Notes-Fallback zu entfernen, aber origin_item_id
+ * lebt aktuell nur an der jetzt (fam-lfa.2) entfernten 'open'-Ledgerzeile -
+ * ohne Ersatz-Persistenzort (fam-lfa.6) waere die Entfernung des Fallbacks
+ * eine Sicherheitsregression (Merge auf unklaren Daten statt sicherem
+ * Fallback, siehe 'schliesst Split-Undo im Merge-Fallback...'-Test).
+ */
 export function getSplitOriginItemId(
   transaction: Pick<LifecycleTransaction, 'originItemId' | 'notes'>,
 ): string | null {

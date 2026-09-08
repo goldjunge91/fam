@@ -4,7 +4,6 @@ import {
   isNonNegativeIntegerThousandths,
   isPositiveIntegerThousandths,
   MAX_INVENTORY_QUANTITY_UNITS,
-  toInventoryQuantityUnits,
 } from '@/lib/inventory-quantity';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
@@ -212,13 +211,11 @@ export function createInventoryQuantityMutation(args: {
   nowMs: number;
 }): EnqueueMutationInput {
   const { payload, transaction, resultQuantity, nowMs } = args;
-  // resultQuantity ist der lokale Spiegelwert (bis fam-lem.30.7.1/.30.7.2
-  // noch dezimal), delta/Ledger in payload/transaction sind bereits
-  // Integer-Tausendstel.
-  if (!Number.isFinite(resultQuantity) || resultQuantity < 0) {
+  // Integer-nativ: resultQuantity ist der lokale Spiegelwert bereits in
+  // Integer-Tausendstel, wie delta/Ledger in payload/transaction.
+  if (!isNonNegativeIntegerThousandths(resultQuantity)) {
     throw new Error('Bestandsmengen muessen nicht negativ sein.');
   }
-  toInventoryQuantityUnits(resultQuantity);
   const normalizedResultQuantity = resultQuantity;
   return {
     entity: 'fridge_items',
@@ -349,11 +346,17 @@ export function createInventoryQuantityCorrectionMutation(args: {
   };
 }
 
-/** Schreibt Rest-Los, neues geoeffnetes Los und Ledger lokal atomar in einer Outbox-Operation. */
+/**
+ * Schreibt Rest-Los und neues geoeffnetes Los lokal atomar in einer Outbox-
+ * Operation. `transaction` ist optional: `open_inventory` (contract.md
+ * Abschnitt 4/5.1) erzeugt fuer reines Oeffnen ohne Verbrauch keine
+ * Ledgerzeile ("kein Ledger"); nur ein tatsaechlicher Verbrauchsanteil
+ * schreibt eine Ledgerzeile mit.
+ */
 export function createInventorySplitMutation(args: {
   payload: InventorySplitPayload;
   openedItem: Record<string, unknown>;
-  transaction: Record<string, unknown>;
+  transaction?: Record<string, unknown>;
   nowMs: number;
 }): EnqueueMutationInput {
   const { payload, openedItem, transaction, nowMs } = args;
@@ -393,13 +396,15 @@ export function createInventorySplitMutation(args: {
         { ...openedItem, quantity: payload.open_quantity, created_at: payload.created_at },
         nowMs,
       );
-      await applyLocalMirrorWrite(
-        txn,
-        'transactions',
-        'insert',
-        { reversal_of: null, ...transaction },
-        nowMs,
-      );
+      if (transaction) {
+        await applyLocalMirrorWrite(
+          txn,
+          'transactions',
+          'insert',
+          { reversal_of: null, ...transaction },
+          nowMs,
+        );
+      }
     },
   };
 }

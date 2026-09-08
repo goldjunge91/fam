@@ -50,8 +50,8 @@ describe('useMealPlanShoppingNeeds', () => {
       ])
       // 4. recipeTitleRows
       .mockResolvedValueOnce([{ id: 'rec-1', title: 'Kuchen' }])
-      // 5. stockRows (fridge_items)
-      .mockResolvedValueOnce([{ product_id: 'prod-zucker', quantity: 20, unit: 'g' }])
+      // 5. stockRows (fridge_items) - Integer-Tausendstel (contract.md Abschnitt 3): 20g = 20_000
+      .mockResolvedValueOnce([{ product_id: 'prod-zucker', quantity: 20_000, unit: 'g' }])
       // 6. products
       .mockResolvedValueOnce([{ id: 'prod-zucker', name: 'Zucker', serving_size_g: 100 }]);
 
@@ -90,7 +90,8 @@ describe('useMealPlanShoppingNeeds', () => {
         },
       ])
       .mockResolvedValueOnce([{ id: 'rec-1', title: 'Kuchen' }])
-      .mockResolvedValueOnce([{ product_id: 'prod-zucker', quantity: 100, unit: 'g' }])
+      // Integer-Tausendstel (contract.md Abschnitt 3): 100g = 100_000
+      .mockResolvedValueOnce([{ product_id: 'prod-zucker', quantity: 100_000, unit: 'g' }])
       .mockResolvedValueOnce([{ id: 'prod-zucker', name: 'Zucker', serving_size_g: 100 }]);
 
     const { result } = await renderHook(() => useMealPlanShoppingNeeds('plan-1', 'hh-1', true), {

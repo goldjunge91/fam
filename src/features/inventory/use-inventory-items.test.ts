@@ -7,9 +7,9 @@ function rawRow(overrides: Partial<Parameters<typeof mapFridgeItemRow>[0]> = {})
     location_id: 'loc-1',
     product_id: null,
     name: 'Milch',
-    quantity: 1.5,
+    quantity: 1500,
     unit: 'l',
-    package_size: 1,
+    package_size: 1000,
     package_size_unit: 'l',
     expiry_date: null,
     opened_at: null,
@@ -25,8 +25,8 @@ function rawRow(overrides: Partial<Parameters<typeof mapFridgeItemRow>[0]> = {})
 }
 
 describe('mapFridgeItemRow (Persistenz-/View-Grenze fridge_items)', () => {
-  it('gibt Mengen unveraendert durch, solange fridge_items.quantity/package_size dezimal gespeichert sind', () => {
-    const item = mapFridgeItemRow(rawRow({ quantity: 1.5, package_size: 0.5 }));
+  it('konvertiert quantity/package_size von Integer-Tausendsteln auf Dezimal (fam-lem.30.7.2)', () => {
+    const item = mapFridgeItemRow(rawRow({ quantity: 1500, package_size: 500 }));
 
     expect(item.quantity).toBe(1.5);
     expect(item.package_size).toBe(0.5);
@@ -38,10 +38,10 @@ describe('mapFridgeItemRow (Persistenz-/View-Grenze fridge_items)', () => {
     expect(item.package_size).toBeNull();
   });
 
-  it('reicht alle uebrigen Felder unveraendert durch', () => {
+  it('reicht alle uebrigen Felder unveraendert durch und konvertiert nur quantity/package_size', () => {
     const row = rawRow();
     const item = mapFridgeItemRow(row);
 
-    expect(item).toEqual(row);
+    expect(item).toEqual({ ...row, quantity: 1.5, package_size: 1 });
   });
 });

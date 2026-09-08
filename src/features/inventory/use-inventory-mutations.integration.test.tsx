@@ -344,7 +344,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
   });
 
   it('consume schreibt nur die effektive out-Menge und löscht bei null weich', async () => {
-    await insertItem(db);
+    await insertItem(db, { ...ITEM_BASE, quantity: 3000 });
     const { result } = await renderMutationHook(() => useUpdateInventoryItemQuantityMutation());
 
     await act(async () => {
@@ -356,8 +356,8 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       ['item-1'],
     );
     expect(item).toEqual({ quantity: 0, deleted_at: expect.any(Number), _dirty: 1 });
-    // Ledgerzeile ist seit fam-lem.27.11 Integer-Tausendstel (contract.md
-    // Abschnitt 3); der lokale Spiegel bleibt bis fam-lem.30.7.1 dezimal.
+    // Ledger und lokaler Spiegel sind seit dem Integer-Cutover (fam-lem.30.7.1/
+    // .30.7.4) beide Integer-Tausendstel (contract.md Abschnitt 3).
     expect(await rowsForItem(db, 'item-1')).toEqual([
       expect.objectContaining({ type: 'out', quantity: 3_000, location_id: 'loc-old' }),
     ]);
@@ -365,7 +365,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
   });
 
   it('serialisiert parallele lokale Verbraeuche und bucht beide Deltas', async () => {
-    await insertItem(db, { ...ITEM_BASE, quantity: 5 });
+    await insertItem(db, { ...ITEM_BASE, quantity: 5000 });
     const { result } = await renderMutationHook(() => useUpdateInventoryItemQuantityMutation());
 
     await act(async () => {
@@ -380,12 +380,12 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
         'select quantity from fridge_items where id = ?',
         ['item-1'],
       ),
-    ).toEqual({ quantity: 3 });
+    ).toEqual({ quantity: 3000 });
     expect(
       await db.getAllAsync('select id from transactions where fridge_item_id = ?', ['item-1']),
     ).toHaveLength(2);
-    // Ledgerzeilen sind seit fam-lem.27.11 Integer-Tausendstel (contract.md
-    // Abschnitt 3); der lokale Spiegel bleibt bis fam-lem.30.7.1 dezimal.
+    // Ledger und lokaler Spiegel sind seit dem Integer-Cutover (fam-lem.30.7.1/
+    // .30.7.4) beide Integer-Tausendstel (contract.md Abschnitt 3).
     expect(
       await db.getAllAsync<{ type: string; quantity: number }>(
         `select type, quantity from transactions where fridge_item_id = ? order by id`,
@@ -398,7 +398,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
   });
 
   it('verbraucht einen Dezimalrest exakt bis null', async () => {
-    await insertItem(db, { ...ITEM_BASE, quantity: 1.1 });
+    await insertItem(db, { ...ITEM_BASE, quantity: 1100 });
     const { result } = await renderMutationHook(() => useUpdateInventoryItemQuantityMutation());
 
     await act(async () => {
@@ -528,7 +528,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
   });
 
   it('open quantity=1 aktualisiert den Bestand in-place und speichert das alte MHD', async () => {
-    await insertItem(db, { ...ITEM_BASE, quantity: 1 });
+    await insertItem(db, { ...ITEM_BASE, quantity: 1000 });
     const { result } = await renderMutationHook(() => useOpenInventoryItemMutation());
 
     await act(async () => {
@@ -544,7 +544,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       'item-1',
     ]);
     expect(item).toEqual({
-      quantity: 1,
+      quantity: 1000,
       opened_at: expect.any(String),
       expiry_date: expect.any(String),
       vacuum_sealed: 0,
@@ -558,8 +558,23 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     ]);
   });
 
+  // fam-lfa.2 (contract.md Abschnitt 4/5.1): open_inventory erzeugt keine
+  // Ledgerzeile mehr. Der obige Test bleibt bewusst stehen (bisheriges
+  // Verhalten, aktuell rot) statt geloescht zu werden, bis die Undo-/Split-
+  // Provenienz-Nachfolge (fam-lfa.5/.6) das Bild vervollstaendigt.
+  it('open quantity=1 erzeugt keine Ledgerzeile mehr (fam-lfa.2)', async () => {
+    await insertItem(db, { ...ITEM_BASE, quantity: 1000 });
+    const { result } = await renderMutationHook(() => useOpenInventoryItemMutation());
+
+    await act(async () => {
+      await result.current.mutateAsync({ item: { ...ITEM_BASE, quantity: 1 }, quantity: 1 });
+    });
+
+    expect(await rowsForItem(db, 'item-1')).toEqual([]);
+  });
+
   it('open quantity>1 splittet, bewahrt die Gesamtmenge und referenziert das neue geöffnete Los', async () => {
-    await insertItem(db, { ...ITEM_BASE, quantity: 3 });
+    await insertItem(db, { ...ITEM_BASE, quantity: 3000 });
     const { result } = await renderMutationHook(() => useOpenInventoryItemMutation());
 
     await act(async () => {
@@ -607,8 +622,24 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     expect(await outboxRows(db)).toHaveLength(1);
   });
 
+  // fam-lfa.2 (contract.md Abschnitt 4/5.1): open_inventory erzeugt auch beim
+  // strukturellen Split keine Ledgerzeile mehr. Der obige Test bleibt bewusst
+  // stehen (bisheriges Verhalten, aktuell rot) statt geloescht zu werden, bis
+  // die Split-Provenienz-Nachfolge (fam-lfa.6) das Bild vervollstaendigt.
+  it('open quantity>1 erzeugt beim Split keine Ledgerzeile mehr (fam-lfa.2)', async () => {
+    await insertItem(db, { ...ITEM_BASE, quantity: 3000 });
+    const { result } = await renderMutationHook(() => useOpenInventoryItemMutation());
+
+    await act(async () => {
+      await result.current.mutateAsync({ item: { ...ITEM_BASE, quantity: 3 }, quantity: 1 });
+    });
+
+    expect(await db.getAllAsync('select id from transactions', [])).toEqual([]);
+    expect(await outboxRows(db)).toHaveLength(1);
+  });
+
   it('Undo einer in-place-Öffnung stellt den Vorzustand her und schreibt eine Gegenbuchung', async () => {
-    await insertItem(db, { ...ITEM_BASE, quantity: 1 });
+    await insertItem(db, { ...ITEM_BASE, quantity: 1000 });
     const openHook = await renderMutationHook(() => useOpenInventoryItemMutation());
     await act(async () => {
       await openHook.result.current.mutateAsync({
@@ -667,7 +698,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
   });
 
   it('führt Split-Undo bei einer zwischenzeitlich geänderten Ursprungszeile als Merge-Fallback aus', async () => {
-    await insertItem(db);
+    await insertItem(db, { ...ITEM_BASE, quantity: 3000 });
     const openHook = await renderMutationHook(() => useOpenInventoryItemMutation());
     await act(async () => {
       await openHook.result.current.mutateAsync({ item: { ...ITEM_BASE }, quantity: 1 });
@@ -690,7 +721,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     if (!transaction) throw new Error('Open-Transaktion fehlt.');
 
     await db.runAsync('update fridge_items set quantity = ?, updated_at = ? where id = ?', [
-      7,
+      7000,
       Date.now() + 1,
       'item-1',
     ]);
@@ -717,7 +748,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
   });
 
   it('führt Split-Merge über den generischen Undo-Hook aus und verknüpft die Gegenbuchung', async () => {
-    await insertItem(db, { ...ITEM_BASE, quantity: 3 });
+    await insertItem(db, { ...ITEM_BASE, quantity: 3000 });
     const openHook = await renderMutationHook(() => useOpenInventoryItemMutation());
     await act(async () => {
       await openHook.result.current.mutateAsync({
@@ -954,8 +985,8 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     ['out', 'in'],
     ['waste', 'in'],
   ] as const)('bucht %s innerhalb des Undo-Fensters als %s zurück', async (type, inverse) => {
-    const sourceQuantity = type === 'waste' ? 3 : 2;
-    await insertItem(db, { ...ITEM_BASE, quantity: type === 'in' ? 5 : 3 });
+    const sourceQuantity = type === 'waste' ? 3000 : 2000;
+    await insertItem(db, { ...ITEM_BASE, quantity: type === 'in' ? 5000 : 3000 });
     await insertTransaction(db, {
       id: `source-${type}`,
       type,
@@ -1018,7 +1049,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       ]),
     ).toEqual({
       type: inverse,
-      quantity: sourceQuantity * 1000,
+      quantity: sourceQuantity,
       reversal_of: `source-${type}`,
       notes: '[Undone] Gegenbuchung',
     });
@@ -1034,11 +1065,11 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
   });
 
   it('stellt eine verbrauchte Menge nach 24 Stunden als Manual correction wieder her', async () => {
-    await insertItem(db, { ...ITEM_BASE, quantity: 2 });
+    await insertItem(db, { ...ITEM_BASE, quantity: 2000 });
     await insertTransaction(db, {
       id: 'source-old-out',
       type: 'out',
-      quantity: 1,
+      quantity: 1000,
       created_at: new Date(Date.now() - 24 * 60 * 60 * 1000 - 1).toISOString(),
     });
 
@@ -1067,9 +1098,9 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
   });
 
   it.each([
-    ['in', 'out', 5, 2],
-    ['out', 'in', 3, 1],
-    ['waste', 'in', 3, 3],
+    ['in', 'out', 5000, 2000],
+    ['out', 'in', 3000, 1000],
+    ['waste', 'in', 3000, 3000],
   ] as const)(
     'markiert %s nach 24 Stunden als Manual correction',
     async (type, inverse, currentQuantity, sourceQuantity) => {

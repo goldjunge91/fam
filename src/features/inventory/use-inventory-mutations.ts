@@ -177,30 +177,6 @@ function groupedMoveMutation(input: {
   });
 }
 
-function transactionPayloadFromPlan(
-  transaction: ReturnType<typeof planOpenInventoryItem>['transaction'],
-  id: string,
-  actor: string | null,
-): TransactionDraft {
-  return {
-    id,
-    household_id: transaction.householdId,
-    fridge_item_id: transaction.fridgeItemId,
-    product_id: transaction.productId,
-    actor,
-    type: transaction.type,
-    quantity: transaction.quantity,
-    location_id: transaction.locationId,
-    reason: transaction.reason ?? null,
-    previous_expiry_date: transaction.previousExpiryDate,
-    origin_item_id: transaction.originItemId ?? null,
-    origin_quantity: transaction.originQuantity ?? null,
-    notes: transaction.notes ?? null,
-    undone: false,
-    created_at: transaction.createdAt,
-  };
-}
-
 function lifecycleItemFromLocal(item: LocalInventoryItem) {
   return {
     id: item.id,
@@ -381,9 +357,9 @@ export function useUpdateInventoryItemQuantityMutation() {
       let result: { id: string; newQuantityUnits: number } | undefined;
 
       await enqueueMutationsInExclusiveTransaction(db, async (txn) => {
-        // fridge_items.quantity ist bis zur Persistenzgrenzen-Umstellung
-        // (fam-lem.30.7.1/.30.7.2) noch dezimal gespeichert; die Konversion
-        // zu Integer-Tausendsteln passiert hier am Lesepunkt.
+        // fridge_items.quantity ist seit dem Integer-Cutover (fam-lem.30.2/
+        // .30.6) bereits Integer-Tausendstel; nur `delta` ist ein Dezimal-
+        // UI-Wert und wird an dieser Grenze konvertiert.
         const existing = await txn.getFirstAsync<{
           quantity: number;
           product_id: string | null;
@@ -391,7 +367,7 @@ export function useUpdateInventoryItemQuantityMutation() {
         }>('select quantity, product_id, location_id from fridge_items where id = ?', [id]);
         if (!existing) return [];
 
-        const currentUnits = toInventoryQuantityUnits(existing.quantity);
+        const currentUnits = existing.quantity;
         const requestedDeltaUnits = toInventoryQuantityUnits(delta);
         const newQuantityUnits = Math.max(0, currentUnits + requestedDeltaUnits);
         const effectiveDeltaUnits = newQuantityUnits - currentUnits;
@@ -428,9 +404,9 @@ export function useUpdateInventoryItemQuantityMutation() {
               created_at: now,
             },
             transaction,
-            // Der lokale Spiegel selbst ist bis fam-lem.30.7.1/.30.7.2 noch
-            // dezimal gespeichert, deshalb hier zurueckkonvertiert.
-            resultQuantity: fromInventoryQuantityUnits(newQuantityUnits),
+            // Integer-nativ: der lokale Spiegel erhaelt die berechneten
+            // Einheiten direkt, keine Rueckkonvertierung auf Dezimal.
+            resultQuantity: newQuantityUnits,
             nowMs,
           }),
         ];
@@ -572,7 +548,9 @@ export function useUpdateFridgeItemMutation() {
           metadataPatch.expiry_user_set = item.patch.expiry_user_set;
         }
 
-        const existingQuantityUnits = toInventoryQuantityUnits(existing.quantity);
+        // existing.quantity ist seit dem Integer-Cutover (fam-lem.30.2/.30.6)
+        // bereits Integer-Tausendstel (roher SELECT, nicht ueber mapFridgeItemRow).
+        const existingQuantityUnits = existing.quantity;
         const mutations: EnqueueMutationInput[] = [];
 
         if (Object.keys(metadataPatch).length > 1) {
@@ -688,7 +666,6 @@ export function useUpdateFridgeItemMutation() {
 
 export function useOpenInventoryItemMutation() {
   const queryClient = useQueryClient();
-  const actor = useInventoryActor();
 
   return useMutation({
     mutationFn: async ({ item, quantity }: { item: LocalInventoryItem; quantity: number }) => {
@@ -718,11 +695,12 @@ export function useOpenInventoryItemMutation() {
           now,
           openedItemId,
         );
-        const transaction = transactionPayloadFromPlan(plan.transaction, transactionId, actor);
         result = { itemId: current.id, openedItemId: plan.openedItem?.id ?? current.id };
 
         if (!plan.openedItem) {
-          // In-place-Öffnung: ein einzelnes Los, keine Mengenänderung.
+          // In-place-Öffnung: ein einzelnes Los, keine Mengenänderung. Reines
+          // Öffnen erzeugt keine Ledgerzeile (contract.md Abschnitt 4/5.1,
+          // "open_inventory ... kein Ledger").
           const originalPatch = lifecyclePatchPayload(plan.originalPatch);
           const originalPayload = {
             id: current.id,
@@ -744,10 +722,6 @@ export function useOpenInventoryItemMutation() {
                   nowMs,
                 ),
             },
-            transactionMutation(
-              { ...transaction, quantity: toInventoryQuantityUnits(transaction.quantity) },
-              nowMs,
-            ),
           ];
         }
 
@@ -774,17 +748,8 @@ export function useOpenInventoryItemMutation() {
               created_at: nowIso,
             },
             openedItem: lifecycleItemPayload(plan.openedItem),
-            transaction: {
-              ...transaction,
-              quantity: toInventoryQuantityUnits(transaction.quantity),
-              // origin_quantity muss mit quantity/sealed konsistent in
-              // Einheiten stehen, sonst vergleicht sameSplitIdentity
-              // (inventory-lifecycle.ts) Dezimal- gegen Einheitenwerte.
-              origin_quantity:
-                transaction.origin_quantity != null
-                  ? toInventoryQuantityUnits(transaction.origin_quantity)
-                  : transaction.origin_quantity,
-            },
+            // Kein Ledger: reines Oeffnen (auch mit Struktur-Split) erzeugt
+            // keine Ledgerzeile (contract.md Abschnitt 4/5.1).
             nowMs,
           }),
         ];
@@ -966,18 +931,25 @@ export function useUndoOpenTransactionMutation() {
               excludeDeleted: true,
             })
           : null;
+        // transaction.quantity/.origin_quantity sind rohe Ledger-Reads
+        // (Integer-Tausendstel); die Lifecycle-Domäne (planUndoOpenTransaction,
+        // sameSplitIdentity) rechnet dezimal wie LifecycleItem, deshalb hier
+        // konvertiert.
         const lifecycleTransaction = {
           id: transaction.id,
           actor: transaction.actor,
           type: 'open' as const,
-          quantity: transaction.quantity,
+          quantity: fromInventoryQuantityUnits(transaction.quantity),
           reason: transaction.reason,
           notes: transaction.notes,
           undone: transaction.undone,
           householdId: transaction.household_id,
           fridgeItemId: transaction.fridge_item_id,
           originItemId: splitOriginItemId,
-          originQuantity: transaction.origin_quantity,
+          originQuantity:
+            transaction.origin_quantity !== null && transaction.origin_quantity !== undefined
+              ? fromInventoryQuantityUnits(transaction.origin_quantity)
+              : transaction.origin_quantity,
           productId: transaction.product_id,
           locationId: transaction.location_id,
           previousExpiryDate: transaction.previous_expiry_date,
@@ -1096,7 +1068,10 @@ export function useUndoOpenTransactionMutation() {
                 opened_item_id: openedRow.id,
               },
               sealedItemId: sealedRow.id,
-              sealedQuantityAfterMerge: plan.sealedPatch.quantity,
+              // plan.sealedPatch.quantity ist dezimal (Lifecycle-Domäne);
+              // createInventoryMergeUndoMutation schreibt direkt in die
+              // Integer-Tausendstel-Spalte, deshalb hier konvertiert.
+              sealedQuantityAfterMerge: toInventoryQuantityUnits(plan.sealedPatch.quantity),
               openedItemId: openedRow.id,
               transaction: {
                 id: reversalTransactionId,
@@ -1177,8 +1152,11 @@ async function enqueueQuantityReversal(
     );
     if (existingReversal) throw new Error('Diese Buchung wurde bereits rückgängig gemacht.');
 
+    // item kommt ueber readFridgeItemRow/mapFridgeItemRow (dezimal) und wird
+    // hier konvertiert; transaction.quantity ist ein roher Ledger-Read und
+    // bereits Integer-Tausendstel (keine zweite Konversion).
     const itemUnits = toInventoryQuantityUnits(item.quantity);
-    const transactionUnits = toInventoryQuantityUnits(transaction.quantity);
+    const transactionUnits = transaction.quantity;
     let resultUnits: number;
     const restore = item.deleted_at !== null;
 

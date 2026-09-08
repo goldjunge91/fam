@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { getDatabase } from '@/lib/db/client';
 import type { SqlDatabase, SqlParam } from '@/lib/db/types';
+import { fromInventoryQuantityUnits } from '@/lib/inventory-quantity';
 
 export type LocalInventoryItem = {
   id: string;
@@ -26,18 +27,28 @@ export type LocalInventoryItem = {
   deleted_at?: number | null;
 };
 
-/** Rohzeile wie von der fridge_items-Abfrage geliefert, vor der Persistenz-/View-Grenze. */
-type RawFridgeItemRow = LocalInventoryItem;
+/**
+ * Rohzeile wie von der fridge_items-Abfrage geliefert, vor der Persistenz-/View-Grenze.
+ * `quantity`/`package_size` sind hier Integer-Tausendstel (Spaltenvertrag der
+ * jetzt integer-typisierten fridge_items-Spalten), im Unterschied zu
+ * `LocalInventoryItem`, das die dezimale UI-/Lifecycle-Menge fuehrt.
+ */
+type RawFridgeItemRow = Omit<LocalInventoryItem, 'quantity' | 'package_size'> & {
+  quantity: number;
+  package_size: number | null;
+};
 
 /**
  * Persistenz-/View-Grenze fuer fridge_items (contract.md Abschnitt 3, fam-lem.30).
- * Solange quantity/package_size dezimal gespeichert sind, reicht diese Funktion sie
- * unveraendert durch. Sobald die Spalten auf Integer-Tausendstel umgestellt sind
- * (fam-lem.30.2/.30.3), wird ausschliesslich hier ueber fromInventoryQuantityUnits
- * konvertiert - das ist die einzige vorgesehene Aenderungsstelle.
+ * Einzige Stelle, die Integer-Tausendstel aus der Spalte auf die dezimale
+ * `LocalInventoryItem.quantity`/`package_size` konvertiert.
  */
 export function mapFridgeItemRow(row: RawFridgeItemRow): LocalInventoryItem {
-  return row;
+  return {
+    ...row,
+    quantity: fromInventoryQuantityUnits(row.quantity),
+    package_size: row.package_size === null ? null : fromInventoryQuantityUnits(row.package_size),
+  };
 }
 
 /**

@@ -107,7 +107,11 @@ describe('inventory mutation hooks', () => {
         const inputs = await build(db);
         if (inputs.length > 0) await Outbox.enqueueMutations(db, inputs);
       });
-    jest.mocked(Crypto.randomUUID).mockReturnValue('generated-id');
+    // mockReset statt clearAllMocks fuer randomUUID: raeumt auch eine noch
+    // offene mockReturnValueOnce-Warteschlange ab, sonst leaken nicht
+    // verbrauchte Werte eines vorzeitig abgebrochenen Tests (z.B. eines
+    // bewusst rot stehen gelassenen Tests, fam-lfa.2) in den naechsten Test.
+    jest.mocked(Crypto.randomUUID).mockReset().mockReturnValue('generated-id');
   });
 
   afterAll(() => {
@@ -152,7 +156,7 @@ describe('inventory mutation hooks', () => {
 
   it('protokolliert einen Verbrauch mit der tatsächlich geänderten Menge', async () => {
     mockGetFirstAsync.mockResolvedValue({
-      quantity: 3,
+      quantity: 3000,
       name: 'Senf',
       product_id: 'product-1',
       location_id: 'loc-1',
@@ -180,7 +184,7 @@ describe('inventory mutation hooks', () => {
 
   it('bucht beim Verbrauch bis auf null nur die effektive Menge und löscht lokal', async () => {
     mockGetFirstAsync.mockResolvedValue({
-      quantity: 3,
+      quantity: 3000,
       name: 'Senf',
       product_id: 'product-1',
       location_id: 'loc-1',
@@ -387,7 +391,7 @@ describe('inventory mutation hooks', () => {
   });
 
   it('führt eine Lagerortänderung auch aus der manuellen Bearbeitung als gruppierten Move aus', async () => {
-    mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
+    mockGetFirstAsync.mockResolvedValue({ quantity: 3000, location_id: 'loc-1' });
     jest
       .mocked(Crypto.randomUUID)
       .mockReturnValueOnce('operation-id')
@@ -479,7 +483,7 @@ describe('inventory mutation hooks', () => {
       .mockReturnValueOnce('out-id')
       .mockReturnValueOnce('in-id');
 
-    mockGetFirstAsync.mockResolvedValueOnce({ ...ITEM, quantity: 1 });
+    mockGetFirstAsync.mockResolvedValueOnce({ ...ITEM, quantity: 1000 });
     const openHook = await renderHook(() => useOpenInventoryItemMutation(), { wrapper });
     await act(async () => {
       await openHook.result.current.mutateAsync({ item: { ...ITEM, quantity: 1 }, quantity: 1 });
@@ -518,6 +522,57 @@ describe('inventory mutation hooks', () => {
     });
   });
 
+  // fam-lfa.2 (contract.md Abschnitt 4/5.1): open_inventory erzeugt keine
+  // Ledgerzeile mehr. Der obige Test bleibt bewusst stehen (bisheriges
+  // Verhalten, aktuell rot bei der Open-Assertion) statt geloescht zu werden;
+  // dieser Test deckt Wegwerfen/Verschieben unter dem neuen Vertrag ab.
+  it('bucht beim Öffnen keine Ledgerzeile, bei Wegwerfen und Verschieben weiterhin mit Actor', async () => {
+    jest
+      .mocked(Crypto.randomUUID)
+      .mockReturnValueOnce('open-item-id')
+      .mockReturnValueOnce('open-transaction-id')
+      .mockReturnValueOnce('waste-id')
+      .mockReturnValueOnce('operation-id')
+      .mockReturnValueOnce('out-id')
+      .mockReturnValueOnce('in-id');
+
+    mockGetFirstAsync.mockResolvedValueOnce({ ...ITEM, quantity: 1000 });
+    const openHook = await renderHook(() => useOpenInventoryItemMutation(), { wrapper });
+    await act(async () => {
+      await openHook.result.current.mutateAsync({ item: { ...ITEM, quantity: 1 }, quantity: 1 });
+    });
+    expect(transactionPayloads()).toEqual([]);
+
+    const wasteHook = await renderHook(() => useWasteInventoryItemMutation(), { wrapper });
+    await act(async () => {
+      await wasteHook.result.current.mutateAsync({ item: ITEM, reason: 'expired' });
+    });
+    expect(transactionPayloads()).toEqual([
+      expect.objectContaining({ actor: 'actor-1', type: 'waste', reason: 'expired' }),
+    ]);
+
+    const moveHook = await renderHook(() => useMoveInventoryItemMutation(), { wrapper });
+    await act(async () => {
+      await moveHook.result.current.mutateAsync({ item: ITEM, locationId: 'loc-2' });
+    });
+    expect(lastMutations()).toHaveLength(1);
+    expect(lastMutations()[0]).toMatchObject({
+      entity: 'fridge_items',
+      entityId: 'item-1',
+      op: 'move',
+      payload: {
+        operation_id: 'operation-id',
+        item_id: 'item-1',
+        household_id: 'hh-1',
+        expected_location_id: 'loc-1',
+        new_location_id: 'loc-2',
+        expected_quantity: 3000,
+        out_transaction_id: 'out-id',
+        in_transaction_id: 'in-id',
+      },
+    });
+  });
+
   it('bucht einen Split als eine atomare Server-Operation mit Compare-and-set gegen die frische Menge (fam-n46.1)', async () => {
     jest
       .mocked(Crypto.randomUUID)
@@ -525,7 +580,7 @@ describe('inventory mutation hooks', () => {
       .mockReturnValueOnce('open-transaction-id');
     const item = {
       ...ITEM,
-      quantity: 3,
+      quantity: 3000,
       vacuum_sealed: true,
       expiry_user_set: true,
     };
@@ -560,11 +615,11 @@ describe('inventory mutation hooks', () => {
       .mockResolvedValueOnce({
         ...ITEM,
         id: 'opened-item-id',
-        quantity: 1,
+        quantity: 1000,
         opened_at: '2026-09-04T09:00:00.000Z',
         expiry_date: '2026-09-09',
       })
-      .mockResolvedValueOnce({ ...ITEM, quantity: 2 });
+      .mockResolvedValueOnce({ ...ITEM, quantity: 2000 });
     const transaction: LocalInventoryTransaction = {
       id: 'transaction-1',
       household_id: 'hh-1',
@@ -572,12 +627,12 @@ describe('inventory mutation hooks', () => {
       product_id: 'product-1',
       actor: 'actor-1',
       type: 'open',
-      quantity: 1,
+      quantity: 1000,
       location_id: 'loc-1',
       reason: null,
       previous_expiry_date: '2026-12-31',
       origin_item_id: 'item-1',
-      origin_quantity: 3,
+      origin_quantity: 3000,
       notes: '[Split] origin=item-1',
       undone: false,
       created_at: new Date().toISOString(),
