@@ -23,8 +23,8 @@ export type EntityMeta = {
   normalizeQuantityUnits?: true;
   /** Append-only-Tabelle ohne updated_at/deleted_at auf dem Server. */
   appendOnly?: true;
-  /** Remote-Pull-Cursor; Transaktionen werden nach der Server-Reihenfolge geladen. */
-  syncCursorColumn?: 'updated_at' | 'created_at' | 'sync_sequence';
+  /** Remote-Pull-Cursor; Transaktionen werden nach created_at inkrementell geladen. */
+  syncCursorColumn?: 'updated_at' | 'created_at';
   /** Spalten ohne updated_at/deleted_at/_dirty, id zuerst. 1:1 aus migrations.ts's V1_MIRRORS. */
   columns: readonly string[];
   /** Optionale Fehlerreparatur-Strategie, siehe `ForeignKeyViolationResolver`. */
@@ -77,11 +77,9 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     hasServerTombstone: false,
     householdScoped: true,
     appendOnly: true,
-    syncCursorColumn: 'sync_sequence',
+    syncCursorColumn: 'created_at',
     columns: [
       'id',
-      'operation_id',
-      'reversal_of',
       'household_id',
       'fridge_item_id',
       'product_id',
@@ -91,12 +89,9 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
       'location_id',
       'reason',
       'previous_expiry_date',
-      'origin_item_id',
-      'origin_quantity',
       'notes',
       'undone',
       'created_at',
-      'sync_sequence',
     ],
   },
   shopping_list_items: {
@@ -368,12 +363,8 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
 export const ALL_ENTITIES: readonly Entity[] = [
   'storage_locations',
   'stores',
-  // transactions vor fridge_items: die Ledgerzeile einer bereits vom Server
-  // angewendeten Mengenoperation muss lokal bestaetigt sein (_dirty = 0),
-  // bevor fridge_items rekonziliert wird — sonst zaehlt computeReconciledQuantity
-  // ihr Delta nach Antwortverlust ein zweites Mal (fam-onu).
-  'transactions',
   'fridge_items',
+  'transactions',
   'shopping_list_items',
   'shopping_category_preferences',
   'products',
