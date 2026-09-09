@@ -5,13 +5,19 @@ Letzte Festlegung: 2026-09-09.
 
 ## Harte Grundsätze
 
+- **KISS / DRY / YAGNI:** Jede Änderung wählt den einfachsten bestehenden
+  Owner, vermeidet doppelte fachliche Entscheidungen und führt keine
+  vorsorgliche Erweiterbarkeit ein. Eine neue Datei, Abstraktion oder
+  Indirektion ist nur zulässig, wenn sie für den Contract nachweislich nötig
+  ist und im Beads-Ticket begründet wird.
 - Der Operationsvertrag wird vor Produktionscode erstellt und freigegeben.
 - Jede fachliche Entscheidung besitzt genau einen benannten Produktionscode-Owner.
   Mehrere benannte Verantwortlichkeiten dürfen in einer vorhandenen Datei
   liegen. Eine Operation rechtfertigt keine eigene Datei.
-- Für diesen Plan entstehen keine neuen Produktionsdateien. Bestehende Owner
-  werden genutzt; kein Command-Verzeichnis, kein zusätzliches Contract-Modul.
-  Eine spätere Erweiterung erfordert eine konkrete neue Begründung im Vertrag.
+- Fehlende Owner dürfen erstellt werden, wenn die Aufgabe nach dokumentierter
+  KISS-/DRY-/YAGNI-Prüfung keinen bestehenden Owner sinnvoll erweitern kann.
+  Die neue Datei besitzt genau eine Verantwortung; kein Command-Verzeichnis,
+  kein Executor, keine Registry und kein zusätzliches Contract-Modul.
 - Reine Strukturänderungen und fachliche Korrekturen werden getrennt geprüft.
   Bei Strukturänderungen bleiben Testerwartungen gleich; eine geänderte
   Erwartung muss eine ausdrücklich benannte fachliche Contract-Regel prüfen.
@@ -57,12 +63,14 @@ stehen ausschließlich in `contract.md`, Abschnitt 8.
   das Beads-Ticket, die Zieldateien, direkten Aufrufer und betroffenen Tests
   lesen. Bestehende Änderungen und Baselinefehler zuerst zuordnen.
 - Ein Inkrement hat ein beobachtbares Ergebnis, höchstens drei Abnahmepunkte
-  und maximal fünf handbearbeitete Quell-/Testdateien. Diese Grenze hält den
-  einzelnen Schritt prüfbar; größere Aufgaben werden vorher zerlegt.
+  und maximal vier handbearbeitete Produktionsdateien. Tests und Harnesses
+  werden separat benannt. Diese Grenze hält den einzelnen Schritt prüfbar;
+  größere Aufgaben werden vorher zerlegt.
   Generierte Artefakte werden zusätzlich einzeln genannt.
-- Keine neuen Produktionsdateien, Dependencies, Frameworks oder allgemeinen
-  Executor-/Registry-/Adapter-Schichten. Kein nebenläufiger Umbau derselben
-  Datei. Fachliche Unklarheit blockiert den betroffenen Schritt.
+- Keine neue Produktionsdatei ohne die KISS-/DRY-/YAGNI-Begründung im Ticket,
+  keine Dependencies, Frameworks oder allgemeinen Executor-/Registry-/Adapter-
+  Schichten. Kein nebenläufiger Umbau derselben Datei. Fachliche Unklarheit
+  blockiert den betroffenen Schritt.
 
 ### I2: Typen und Eingangsvalidierung
 
@@ -195,8 +203,10 @@ benannte Contract-Regel oder eine nachvollziehbare Testabdeckung ergänzt.
 
 ### Verbindliche Ratchets
 
-1. Neue oder neu bearbeitete Produktionsdateien bleiben unter 400 Effective
-   LOC. 250 LOC ist keine Mindestgröße.
+1. Neue oder neu bearbeitete Produktionsdateien zielen auf 250–400 Effective
+   LOC. 250 LOC ist keine Auffüllpflicht; eine kleinere kohärente Datei ist
+   zulässig, wenn ihre Verantwortung vollständig und begründet ist. Mehr als
+   400 Effective LOC ist für neue Produktionsdateien nicht zulässig.
 2. Bestehende Produktionsdateien über 400 Effective LOC erhalten eine
    dokumentierte Ausnahme mit Pfad, Baseline, Owner, Reduktionsziel und
    Ablaufdatum. Die Ausnahme erlaubt kein Wachstum.
@@ -243,14 +253,14 @@ vollständig automatisiert. Im Ticket stehen die tatsächlich ausgeführten
 Befehle mit Ergebnis, Testlaufzeit und gegebenenfalls Blocker. Ein übersprungener
 oder durch Konfiguration ausgeschlossener Pfad ist kein bestandener Check.
 `biome.json` erfasst derzeit `src/**` und `scripts/**`, nicht das geplante Gate
-unter `test/conventions/**`; dessen Lint-Nachweis muss in `fam-lem.19.1`
-ausführbar geklärt werden, bevor es als vollständig geprüft gilt.
+unter `test/conventions/**`; dessen Lint-Nachweis muss ausführbar geklärt
+werden, bevor es als vollständig geprüft gilt.
 
 Der aktuelle `test:db`-Wrapper verwendet `--local` und alle SQL-Testdateien;
 ein angehängter Dateipfad macht ihn nicht zu einem gezielten DB-Testlauf.
 Auch `db:types` verwendet derzeit `--local`. Unter dem Verbot lokaler
-DB-Nutzung sind diese Aufrufe kein ausführbarer Nachweis. `fam-lem.23` muss
-den zulässigen Generierungs-/Prüfweg klären; bis dahin bleibt die betroffene
+DB-Nutzung sind diese Aufrufe kein ausführbarer Nachweis. Der zulässige
+Generierungs-/Prüfweg muss geklärt werden; bis dahin bleibt die betroffene
 DB-Abnahme blockiert. Keine ungeprüften generierten Artefakte als Ersatz.
 
 ## Baseline
@@ -259,7 +269,7 @@ Bereits vorhandene, unabhängige Fehler dürfen nicht stillschweigend als Folge
 des Refactors behoben oder verschärft werden. Sie müssen im Beads-Task und im
 Abschlussbericht genannt werden. Der aktuelle Arbeitsstand enthält bekannte
 Fehler in Inventory-Mutationstests; diese gehören zum bestehenden
-`fam-lem.24`-Arbeitsstand und sind kein Freibrief für neue Fehler.
+bestehenden Arbeitsstand und sind kein Freibrief für neue Fehler.
 
 ## Änderungsregel
 

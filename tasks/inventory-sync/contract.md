@@ -8,12 +8,36 @@ und die technische Ausführung der Inventory-Operationen.
 
 Quellenrang: `CONSTRAINTS.md` setzt die Qualitätsgrenzen; dieser Vertrag setzt
 das Zielverhalten; `execution-plan.md` setzt die Reihenfolge. Beads verfolgt
-Arbeit und Nachweise. Die früheren Funktionsverträge in `fam-lem.18` und
-Folgetickets sind historische Ausgangslage, insbesondere ihre Legacy-Pflicht
-und eigenständigen Split-/Open-Ledgerpfade. Sie sind keine parallele normative
-Quelle. Implementiert wird nach diesem freigegebenen Zielvertrag.
+Arbeit und Nachweise. Frühere Entwürfe und Tickets sind keine normative Quelle.
+Implementiert wird nach diesem freigegebenen Zielvertrag.
 Dokumentfreigabe und Implementierungsnachweis
 sind getrennt; vorhandene grüne Tests belegen nicht automatisch das neue Modell.
+
+## 0. Inkrementgrenzen und Owner-Rekonstruktion
+
+### KISS / DRY / YAGNI
+
+KISS, DRY und YAGNI sind verbindliche Regeln für jedes Inkrement. Bevor ein
+neuer Owner, Helper, Adapter oder eine Abstraktion entsteht, muss der
+bestehende Owner geprüft werden: Die Erweiterung ist die einfachste korrekte
+Lösung, die fachliche Entscheidung wird nicht dupliziert, und vorsorgliche
+Erweiterbarkeit ist nicht erforderlich. Eine Abweichung wird im Beads-Ticket
+mit Contract-Grund, betroffener Verantwortung und verworfener einfacherer
+Alternative dokumentiert.
+
+Ein Implementierungsinkrement bearbeitet höchstens vier handbearbeitete
+Produktionsdateien. Tests und Harnesses werden separat benannt und zählen
+nicht als Produktions-Owner. Ein Inkrement hat genau eine beobachtbare
+Wirkung und höchstens drei Abnahmepunkte.
+
+Neue oder wesentlich bearbeitete Produktionsdateien zielen auf 250–400
+Effective LOC. 250 LOC ist keine Auffüllpflicht; eine kleinere kohärente Datei
+ist zulässig, wenn ihre Verantwortung vollständig und begründet ist. Eine
+neue Datei darf nur nach dokumentierter KISS-/DRY-/YAGNI-Prüfung entstehen:
+Der bestehende Owner muss nachweislich ungeeignet sein, keine Entscheidung
+darf dupliziert werden, und die neue Datei darf weder Registry noch Executor
+noch zweite Contract-Schicht werden. Bestehende Dateien über 400 Effective
+LOC wachsen nicht und benötigen ein dokumentiertes Reduktionsziel.
 
 ## 1. Begriffe
 
@@ -131,7 +155,7 @@ Ergebnisse sind `applied`, `replayed`, `conflict` oder `invalid`. Nach einem
 Verbindungsabbruch hält der Client zusätzlich `unknown`. Retry- und
 Konfliktklassifikation verwenden maschinenlesbare Codes, keinen Freitext.
 
-### 2.1 Standardisierter Server-Response-Envelope (fam-lem.23)
+### 2.1 Standardisierter Server-Response-Envelope
 
 Jede fachlich entschiedene Mutation antwortet mit `operation_id`,
 `contract_version: 1` und einem diskriminierten Ergebnis:
@@ -523,7 +547,7 @@ veraltete DB-Spalten:
   sie werden weder ausgeführt noch still gelöscht. Historische Migrationen
   sind keine Laufzeit-Legacypfade und werden nicht nachträglich editiert.
 
-### 9.1 Kanonische Operationsübersicht (fam-lem.19)
+### 9.1 Kanonische Operationsübersicht
 
 | Kanonischer Name (v1) | Bisherige Mutation | Stabile IDs | CAS-Anker & Fehlercodes | Exakter Produktions-Owner |
 | --- | --- | --- | --- | --- |
@@ -568,12 +592,13 @@ Ledger, Tombstone und vollständigen Footprint. Testbefehle und das
 
 ## 11. Status der Vertragsentscheidungen
 
-- `fam-lem.19`: v1-Zielzuordnung in Abschnitt 1 und 9.1; historische Ticketkriterien vor Umsetzung abgleichen.
-- `fam-lem.23`: Receipt und konsistente Serverbasis in Abschnitt 2.1; kein Implementierungsnachweis durch dieses Dokument.
+- Die v1-Zielzuordnung steht in Abschnitt 1 und 9.1.
+- Receipt und konsistente Serverbasis stehen in Abschnitt 2.1; dieses Dokument
+  ist kein Implementierungsnachweis.
 - Tests in Abschnitt 10 sind geforderte Nachweise, keine bereits ausgeführten Prüfungen.
 - Die Dateimatrix steht in `execution-plan.md`, Abschnitt „Verbindliche Dateimatrix“. Vertrag und Matrix sind gemeinsam freigegeben; technische Abnahmegates und Constraints bleiben verbindlich.
 
-### Entscheidungen vom 2026-09-08 (fam-lem.27-Voranalyse)
+### Entscheidungen vom 2026-09-08
 
 Vor dem eigentlichen v1-Cutover wurden drei durch die Pro-Operation-Analyse
 aufgedeckte Vertragslücken von Marco entschieden:

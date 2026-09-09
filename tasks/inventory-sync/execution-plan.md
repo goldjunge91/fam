@@ -1,49 +1,53 @@
 # Inventory-Sync: Ausführungsplan
 
-Status: von Marco am 2026-09-08 gemeinsam mit Contract und Dateimatrix zur schrittweisen Umsetzung freigegeben.
+Status: V3-Capability-Map am 2026-09-09 übernommen; Ausführung erfolgt
+schrittweise über den unabhängigen Beads-Baum `fam-9vt`.
 
 Quellen: `CONSTRAINTS.md` setzt Qualitätsgrenzen, `contract.md` Zielverhalten.
-Beads verfolgt Arbeit; historische Verträge in `fam-lem.18` sind keine zweite
-normative Quelle. Dieser Plan ist der einzige aktive Ausführungsplan.
+Beads verfolgt Arbeit. Dieser Plan ist der einzige aktive Ausführungsplan.
 
-`inventory-plan_V2.md` ist seit 2026-09-09 ungültig und wird hier nicht
-fortgeführt. Seine Slices, Ticketkopplungen und Zwischenreihenfolge sind keine
+Frühere Planentwürfe, Ticketkopplungen und Zwischenreihenfolgen sind keine
 Arbeitsgrundlage.
 
 ## Capability Map und Abhängigkeitsrichtung
 
-Die Map zerlegt den verbleibenden Refactor in unabhängig prüfbare Fähigkeiten.
-Sie ergänzt den Contract nicht und erzeugt keine neuen Produktions-Owner.
-`quality-ratchets` ist eine durchgängige Gate-Schicht, keine abschließende
-Aufräumphase.
+Diese Map ist jetzt die einzige aktive fachliche Reihenfolge. Der Contract
+bleibt die einzige normative Verhaltensquelle; die Map und der Ausführungsplan
+beschreiben nur Abhängigkeiten und Nachweise. Historische Beads werden nicht
+automatisch übernommen. Jeder neue Implementierungsschritt entsteht unter
+`fam-9vt` und darf nur von anderen `fam-9vt`-Tickets abhängen.
 
 | Modul-ID | Verantwortung | Abhängigkeiten |
 | --- | --- | --- |
-| `baseline-and-ownership-gates` | Contract-Nachweise, aktuelle Baselines, Owner- und Dateigrenzen | — |
-| `quality-ratchets` | Effective-LOC-, Duplikat-, Typ-, Lint-, Test- und Architektur-Ratchets | `baseline-and-ownership-gates` |
-| `integer-persistence-boundary` | Integer-Persistenz und alle benannten Mengen-/Read-Grenzen verifizieren | `baseline-and-ownership-gates`, `quality-ratchets` |
-| `local-operation-path` | Lifecycle-Plan, vorhandener lokaler Schreibpfad, Outbox und atomare lokale Ausführung | `integer-persistence-boundary` |
-| `server-atomic-receipt-path` | Serveroperationen, Receipts, Snapshot-Basis, RLS und DB-Nachweise | `local-operation-path` |
-| `reconciliation-and-invalid-state` | Push/Pull/Realtime, Unknown, Konflikte und ungültige lokale Zustände | `server-atomic-receipt-path` |
-| `read-consumer-alignment` | Inventory-Verlauf, Screens und fachliche Verbraucher an den kanonischen Read-Grenzen | `reconciliation-and-invalid-state` |
-| `duplication-consolidation` | Semantisch sichere Zusammenführung von Produktions- und Testduplikaten | `read-consumer-alignment` |
+| `rebaseline-and-activation` | Current-vs-Contract-Matrix, Ticket-Neuzuordnung, Aktivierungsinvarianten und offene Entscheidungen | — |
+| `canonical-contract-and-ownership` | Operationsregister, diskriminierte Union, stabile IDs, Footprint, Provenienz, Ergebnis-Matrix und exakte Owner | `rebaseline-and-activation` |
+| `integer-persistence-boundary` | SQLite-, Supabase-, Wire-, Outbox- und Read-Grenzen als harte Voraussetzung nachweisen | `rebaseline-and-activation`, `canonical-contract-and-ownership` |
+| `quantity-operations-cutover` | Vollständiger Vertical Cutover für `in`, `out`, `waste`, `correct` und `move` | `canonical-contract-and-ownership`, `integer-persistence-boundary` |
+| `open-consume-provenance-cutover` | Ledgerfreies Öffnen, Consume-Rest, Split-Provenienz und MergeSnapshotV1 über alle Schichten | `canonical-contract-and-ownership`, `integer-persistence-boundary` |
+| `undo-reseal-cutover` | Append-only Undo über `reversal_of` und explizites `reseal_inventory` über alle Schichten | `canonical-contract-and-ownership`, `integer-persistence-boundary`, `open-consume-provenance-cutover` |
+| `reconciliation-and-activation` | `success`/`conflict`/`invalid`/`unknown`, Receipts, Snapshots, Push/Pull/Realtime, Quarantäne und Aktivierungsfreigabe | `quantity-operations-cutover`, `open-consume-provenance-cutover`, `undo-reseal-cutover` |
+| `simplification-and-ratchets` | Entfernen alter Contract-Pfade sowie unbegründeter Duplikate und Nachweis aller Ratchets | `reconciliation-and-activation` |
 
-Build order: `baseline-and-ownership-gates` → `quality-ratchets` →
-`integer-persistence-boundary` → `local-operation-path` →
-`server-atomic-receipt-path` → `reconciliation-and-invalid-state` →
-`read-consumer-alignment` → `duplication-consolidation`.
+Build order: `rebaseline-and-activation` →
+`canonical-contract-and-ownership` → `integer-persistence-boundary` →
+die drei vertikalen Operations-Cutovers → `reconciliation-and-activation` →
+`simplification-and-ratchets`.
 
-Der Integer-Schritt prüft bereits abgeschlossene Integer-Arbeiten erneut gegen
-ihre Nachweise; er eröffnet sie nicht ohne konkrete Abweichung neu. Ein
-späterer Schritt darf keinen Zwischenzustand als aktivierte v1-Wahrheit
-veröffentlichen. Jede fachliche Änderung bleibt in einem eigenen Inkrement
-mit höchstens fünf handbearbeiteten Quell-/Testdateien.
+Ein Vertical Cutover umfasst Lifecycle-Planung, lokalen exklusiven Commit,
+Outbox/Wire/RPC, Receipt/Snapshot, Reconciliation, betroffene Reads und
+fokussierte Tests. Kein lokaler oder serverseitiger Teil wird vorher als neue
+v1-Wahrheit aktiviert. Alte und neue fachliche Entscheidungen dürfen nicht
+parallel bestehen; der ersetzte Aufrufpfad wird im selben Inkrement entfernt.
+Die Ratchets aus `CONSTRAINTS.md` gelten für jedes Modul.
 
 ## Verbindliche Dateimatrix
 
-**Keine neuen Produktionsdateien.** Keine Datei pro Operation. Die Matrix
-führt tatsächliche Kernänderungen auf; unveränderte Dateien werden nicht als
-Arbeitspakete inventarisiert. Pfade gelten relativ zur Repositorywurzel.
+Keine Datei pro Operation. Fehlende Owner dürfen nach dokumentierter
+KISS-/DRY-/YAGNI-Prüfung erstellt werden. Die Matrix führt tatsächliche
+Kernänderungen auf; unveränderte Dateien werden nicht als Arbeitspakete
+inventarisiert. Sie ist eine Owner-Referenz für die neuen `fam-9vt`-Specs,
+keine eigenständige Reihenfolge und kein Auftrag, alle genannten Dateien
+gemeinsam zu ändern. Pfade gelten relativ zur Repositorywurzel.
 
 ### Bestehende Owner gezielt ändern
 
@@ -147,96 +151,39 @@ Historische `src/lib/db/migrations.ts` nicht rückwirkend umschreiben.
 Kein Löschen unbekannter Migrationen, kein automatischer DB-Reset und kein
 lokaler Supabase-Start. Nicht ausführbare DB-Gates bleiben offen.
 
-## Umsetzung und Aufgaben
+## Aktive V3-Umsetzung und Aufgaben
 
-Aufgaben und Abnahme stehen in Beads. Dieser Abschnitt ist der geordnete
-Index, keine zweite Aufgabenliste. Der Einstieg ist ausführbar zugeschnitten;
-die anschließenden Sammelaufgaben werden vor Bearbeitung anhand ihres dann
-aktuellen Restumfangs in ebenso kleine Inkremente geteilt. Kein Sammel-Ticket
-ist ein Auftrag, alle dort genannten Dateien auf einmal umzubauen.
+Der aktive Ticketbaum ist ausschließlich `fam-9vt`:
 
-### Einstieg
+| Reihenfolge | Beads | Modul-ID | Ergebnis |
+| ---: | --- | --- | --- |
+| 1 | `fam-9vt.5` | `rebaseline-and-activation` | Current-vs-Contract-Matrix, Aktivierungsinvarianten und offene Entscheidungen |
+| 2 | `fam-9vt.1` | `canonical-contract-and-ownership` | Kanonisches Operationsmodell, Owner, Importgrenzen und Ergebnis-Matrix |
+| 3 | `fam-9vt.9` | `integer-persistence-boundary` | Nachweis oder eng abgegrenzte Lücken an allen Mengen-/Persistence-Grenzen |
+| 4a | `fam-9vt.2` | `quantity-operations-cutover` | Vertical-Cutover-Spec für Mengenoperationen |
+| 4b | `fam-9vt.10` | `open-consume-provenance-cutover` | Vertical-Cutover-Spec für Öffnen, Consume und Provenienz |
+| 5 | `fam-9vt.3` | `undo-reseal-cutover` | Vertical-Cutover-Spec für Undo und Reseal |
+| 6 | `fam-9vt.11` | `reconciliation-and-activation` | Ergebnis-Matrix, Reconciliation und Aktivierungsfreigabe |
+| 7 | `fam-9vt.4` | `simplification-and-ratchets` | Kleine Implementierungs-Child-Tickets und Ratchet-Nachweise |
 
-| Reihenfolge | Beads | Ergebnis | Umfang |
-| --- | --- | --- | --- |
-| 1 | `fam-lem.19` | v1-Typen, strikte Payloadvalidierung und vollständiger Footprint im reinen Lifecycle; noch kein Runtime-Cutover | Lifecycle und bestehender Test, 2 Dateien |
-| 2 | `fam-lem.19.1` | Ownership-Gate für reines Lifecycle-Modul und erlaubte Import-Richtung | 1 neue Testdatei, keine neue Produktionsdatei |
-| 3 | `fam-lem.23` | Vorhandene Servergarantien und ausführbarer DB-Nachweis abgeglichen; fehlende Arbeit konkret abgegrenzt | Read-only, Ergebnis in Beads |
+4a und 4b sind nach den gemeinsamen Voraussetzungen parallel planbar. Code
+beginnt erst, wenn die jeweils vorgelagerte Spec freigegeben ist. Ein neues
+Ticket darf keine Dependency außerhalb des `fam-9vt`-Graphs erhalten.
 
-**Prüfpunkt A:** Typen/Footprint sind eindeutig, der fokussierte Gate-Test
-besteht, DB-Prüfung ist durchführbar oder konkret als Blocker ausgewiesen.
-Bestehende Baselinefehler einschließlich `fam-t04` bleiben sichtbar. Kein
-Schema-Cutover ohne ausführbaren Nachweis. Plan-/Contractfreigabe liegt vor;
-sie ersetzt keine technische Abnahme und keine Aktivierungsprüfung.
+Jedes spätere Implementierungsticket muss enthalten:
 
-### Bestehende Arbeitsstände fortführen
+- genau eine beobachtbare Wirkung und höchstens drei Abnahmepunkte,
+- exakte Owner-Dateien und höchstens vier handbearbeitete Produktionsdateien;
+  Tests und Harnesses werden separat benannt,
+- den KISS-/DRY-/YAGNI-Check für jeden neuen Owner, Helper, Adapter oder jede
+  neue Abstraktion,
+- den vollständigen Vertical-Cutover der betroffenen Operation,
+- die Ergebnis-/Retry-/Unknown-Matrix für die betroffene Grenze,
+- fokussierte Verify-Befehle sowie den Nachweis für Typecheck, Biome,
+  Ownership, Effective LOC und Duplikate.
 
-| Reihenfolge | Beads | Nächstes abgegrenztes Ergebnis / Voraussetzung |
-| --- | --- | --- |
-| 4 | `fam-lem.26`, `fam-lem.24` | Laufenden gemeinsamen Push-Abschluss und expliziten Patch-Arbeitsstand zuerst abgleichen; nur tatsächliche Restfehler schließen |
-| 5 | `fam-lem.27.1` unter `fam-lem.27` | Genau den lokalen Korrektur-Builder in den vorhandenen gemeinsamen Schreibpfad verschieben; höchstens 5 Dateien, unverändertes Verhalten |
-
-**Prüfpunkt B:** Die Korrektur hat nur einen lokalen Builder, bisherige
-Testerwartungen bestehen, keine neue Produktionsdatei und kein neuer
-Transaktionsmanager. Falls der Schritt eine fachliche Änderung verlangt,
-wird diese separat beschrieben; der reine Umzug wird nicht damit vermischt.
-
-| Reihenfolge | Beads | Weiterer Restumfang, vor Ausführung in kleine Schritte teilen |
-| --- | --- | --- |
-| 6 | `fam-lem.27`, `fam-lem.28`, `fam-lem.29` | Weitere lokale Pfade einzeln zusammenführen; Fachpläne für Consume/Open/Undo getrennt korrigieren; Hooks und Einkaufsabschluss an denselben Owner anbinden |
-| 7 | `fam-lem.22`, `fam-n46` | Nach Vorprüfung aus .23 Server-/Persistenzänderung: jeweils eine RPC oder eine Speichergrenze mit zugeordnetem Test; Integer-Umstellung und generierte Artefakte explizit mitführen |
-
-**Prüfpunkt C:** Lokale und serverseitige Wirkung für die bearbeitete Operation
-stimmt überein: Menge, IDs, Ledger, Tombstone, Preconditions und Retry.
-Generierte Artefakte und Typen passen. Weitere Operationen erst nach diesem
-Nachweis fortsetzen; noch keine gemeinsame v1-Aktivierung.
-
-| Reihenfolge | Beads | Weiterer Restumfang, vor Ausführung in kleine Schritte teilen |
-| --- | --- | --- |
-| 8 | `fam-onu` | Dauerhafte Basis/Ack-Speicherung, Snapshot-Projektion und Pull-/Realtime-Anbindung jeweils getrennt mit Rennbedingungsnachweis |
-| 9 | `fam-lem.20`, `fam-lem.25` | Vollständige Abhängigkeiten und anschließend Discard/Reconfirm; unknown niemals blind entfernen |
-| 10 | `fam-lem.21` | Abschließende Nachweisprüfung und Aktivierungsfreigabe; keine neue Sammelimplementierung |
-
-**Prüfpunkt D:** Antwortverlust, verspäteter Ack, neue lokale Mutation während
-Read und Konfliktauflösung sind über den vollständigen Footprint geprüft.
-Jede der fünf Modul-Löschungen hat keine verbleibenden Imports und erhaltene
-Verhaltensnachweise. Integer-/Dezimal-Grenzen sind durchgehend konsistent.
-Erst dann wird der gesamte v1-Schreibpfad als nutzbar freigegeben.
-
-### Regeln für jedes weitere Inkrement
-
-Die Implementierungsregeln I1–I6 aus `CONSTRAINTS.md` sind Bestandteil jeder
-Abnahme, einschließlich der Einstiegstickets. Das Ticket nennt vor dem Edit
-den relevanten Contract-Abschnitt und danach die tatsächlichen Test-/Review-
-Nachweise. Fehlende Toolabdeckung bleibt explizit offen.
-
-- Genau ein beobachtbares Ergebnis und höchstens drei Abnahmepunkte.
-- Höchstens fünf handbearbeitete Quell-/Testdateien. Bei größerem Umfang
-  vor Code in weitere Schritte teilen. Generierte Migrationen/Typen werden
-  zusätzlich vollständig genannt; sie sind kein versteckter Zusatzumfang.
-- Exakte Dateipfade, direkte Verbraucher, Blocker und vollständigen
-  fokussierten Testbefehl im bestehenden Ticket oder einer Kindaufgabe
-  festhalten. Keine neue Produktionsdatei durch die Aufgabenzerlegung.
-- Test: `bun run test <datei> --runInBand --watchman=false`, jeden fokussierten
-  Lauf innerhalb des Limits aus CONSTRAINTS. Bei TS-Änderungen zusätzlich
-  `bun run typecheck` und fokussiertes Biome, danach `git diff --check`.
-- Schemaänderungen ausschließlich deklarativ; generierte Artefakte,
-  `bun run db:types` und gezielte DB-Nachweise gehören zum selben Abnahmestand.
-  Keine lokale Supabase-Instanz starten. Fehlende DB-Ausführung bleibt Blocker.
-- Gemeinsame Dateien werden nacheinander bearbeitet. Laufende In-progress-
-  Tickets zuerst lesen, nicht überschreiben oder für einen neuen Plan schließen.
-
-### Risiken und Umgang
-
-| Risiko | Umgang |
-| --- | --- |
-| Mehrere laufende Arbeiten in denselben Owner-Dateien | Bestehenden Arbeitsstand vor jedem Inkrement prüfen; sequentiell bearbeiten |
-| Bekannte Mutationstest-/Harness-Baseline | Betroffene Reproduktion prüfen und Blocker in `fam-t04` bzw. zugehörigem Ticket führen; keine Testabschwächung |
-| Integer-Umstellung überschreitet lokalen Refactor | Eigener Speicher-/Adapterblock; keine gemischte Aktivierung und keine unverifizierte Migration |
-| Kleine Umzüge ergeben noch kein funktionsfähiges v1 | Zwischenstände nicht aktivieren oder als Featureabschluss ausgeben; Prüfpunkt C/D verlangt Parität |
-| Neue unklare fachliche Voraussetzung | Contract vor Umsetzung präzisieren; keine zweite lokale Ersatzregel erfinden |
-
-Die Detailplanung der späteren Sammelaufgaben erfolgt an den Prüfpunkten,
-weil mehrere davon bereits in Arbeit sind. Ihre hier genannten Ergebnisse
-sind verbindlich; eine noch nicht zerlegte Sammelaufgabe darf nicht direkt
-als großer Implementierungsauftrag gestartet werden.
+Keine neue v1-Payload wird aktiviert, solange ihr lokaler Commit, Serverpfad,
+Receipt/Snapshot, Reconciliation und Read-Verbraucher nicht gemeinsam
+nachgewiesen sind. Eine neue kanonische Entscheidung wird im selben
+Inkrement mit ihrem alten Aufrufpfad entfernt; keine temporäre
+Doppelentscheidung für ein LOC-Ziel.
