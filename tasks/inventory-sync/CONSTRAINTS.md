@@ -3,6 +3,19 @@
 Status: verbindlich für den Inventory-Sync-Refactor.
 Letzte Festlegung: 2026-09-09.
 
+## Arbeitsbereich und Ausführungsgrenzen
+
+- Alle Änderungen, Prüfungen und lokalen Datenbankbefehle dieses Refactors
+  laufen ausschließlich in
+  `/Users/marco/Github.tmp/family_app/fam-worktrees/inventory-sync-clean/`.
+  Andere Worktrees und der Repository-Hauptpfad gehören nicht zum Arbeitsumfang.
+- Die bereits laufende lokale Supabase-Instanz darf vollständig genutzt werden.
+  Eine Remote-/Linked-Verknüpfung ist für `--local` nicht erforderlich; es gibt
+  keinen automatischen Link- oder Projektwechsel.
+- Kein Agent-Device, kein iOS-/Android-Simulator und kein sonstiger mobiler
+  Gerätestart in diesem Plan. Verifikation erfolgt über fokussierte Tests,
+  Typecheck, Biome und die lokale Supabase-DB.
+
 ## Harte Grundsätze
 
 - **KISS / DRY / YAGNI:** Jede Änderung wählt den einfachsten bestehenden
@@ -42,18 +55,24 @@ Letzte Festlegung: 2026-09-09.
   Provenienz gelesen; es gibt keinen Legacy-Eingang.
 - Reines Öffnen ohne Verbrauch ist `open_inventory` ohne Ledger; es wird
   nicht als Verbrauch oder allgemeiner Metadatenpatch getarnt.
-- Integer-Tausendstel gelten auch für Persistenz und Wire-Payloads. Die
-  Umstellung der bisherigen Dezimalspeicherung ist expliziter Arbeitsumfang.
+- Mengen werden als Dezimalwerte in der ausdrücklich gespeicherten `unit`
+  geführt. `300 g` wird als `300` und `0,5 Stück` beziehungsweise `0,5 Dose`
+  als `0,5` gespeichert. Es gibt keine globale Tausendstel-Skalierung; ganze
+  Einheiten und legitime Bruchteile müssen beide abbildbar sein. Zulässig ist
+  höchstens eine Nachkommastelle; `0,05` und `0,01` werden abgewiesen.
+- Der Zielplan verwendet dafür durchgängig die Bezeichnung
+  **Dezimal-Mengen-/Persistenzgrenze**. `Integer-Persistenz`, `Tausendstel` und
+  künstliche Skalierungswerte sind im Zielzustand weder Slice-Namen noch
+  Fixture-Konventionen oder Wire-/Persistenzformat.
 - Ausführungsnachweis und vollständige Serverbasis werden gemäß Contract aus
   einem konsistenten Snapshot übernommen. Antwortverlust bleibt auch nach
   Erreichen des Retry-Limits unbekannt.
 - Keine neue allgemeine Sync-, Queue- oder Plugin-Abstraktion.
 - Keine manuellen Supabase-Migrationen. Quelle bleibt `supabase/schemas/*.sql`.
-- Kein `bun test` und keine vollständige Jest-Suite. Die bereits laufende
-  lokale Supabase-Instanz darf vollständig für fokussierte pgTAP-Tests,
-  `db:types`, `db:diff` und fachliche Verifikation genutzt werden. Kein
-  `supabase start`, kein Remote-/Linked-Projekt und keine ungeplante Änderung
-  der lokalen DB außerhalb des deklarativen Schema-Workflows.
+- Kein `bun test` und keine vollständige Jest-Suite. Supabase-CLI-Befehle und
+  die bereits laufende lokale Instanz dürfen vollständig für fokussierte
+  pgTAP-Tests, `db:types`, `db:diff` und fachliche Verifikation genutzt werden.
+  Änderungen an der DB bleiben am deklarativen Schema-Workflow ausgerichtet.
 - Keine neuen Suppression-Kommentare, keine übersprungenen oder gelöschten Tests und keine unimplementierten Stubs.
 - **Ungeshipped / Zero Legacy:** Die App ist nicht veröffentlicht. Es gibt keine Rückwärtskompatibilitätspflicht für historische Payloads, Freitext-Notes oder veraltete DB-Spalten. Es wird kein Legacy-Decoder gebaut. Veralteter Code wird gelöscht, nicht dekodiert.
 
@@ -125,8 +144,9 @@ stehen ausschließlich in `contract.md`, Abschnitt 8.
   ersetzt. Server prüft Haushalt, Actor, Payload und Preconditions selbst.
   SQL-Werte parametrisieren; keine Payloads, Tokens oder privaten Nutzerdaten
   in Logs. Vorhandene Fehlercodes nutzen statt Fehlertext-Heuristiken.
-- Mengen nur an benannten Grenzen konvertieren, intern Integer-Tausendstel.
-  Keine zweite Rundung, stilles Clamping oder ungeprüfte Number-Konversion.
+- Mengen nur an benannten Grenzen konvertieren und auf die erlaubte
+  Dezimalpräzision der Einheit prüfen. Keine künstliche Skalierung, zweite
+  Rundung, stilles Clamping oder ungeprüfte Number-Konversion.
   Reads und Retries bleiben auf den benötigten Haushalt/Footprint begrenzt;
   keine neue Abfrage pro Listenzeile und keine unbeschränkte Retry-Schleife.
 
@@ -235,17 +255,18 @@ benannte Contract-Regel oder eine nachvollziehbare Testabdeckung ergänzt.
    Biome, fokussierte Tests, 90-Sekunden-Limit, Ownership-Gate und die
    fünf Reviewachsen. Ein Messwert ersetzt keinen Verhaltensnachweis.
 
-### Aktuelle Größen-Ausnahmen
+### Reset-Baseline ohne übernommene Größen-Ausnahmen
 
-| Pfad | Baseline Effective LOC | Owner | Reduktionsziel | Ablauf |
-| --- | ---: | --- | --- | --- |
-| `src/features/inventory/add-item-screen.tsx` | 426 | Inventory-UI | kein Wachstum; bei fachlicher Berührung doppelte Darstellung entfernen | 2026-10-31 |
-| `src/features/inventory/components/inventory-item-actions-sheet.tsx` | 500 | Inventory-UI | kein Wachstum; gemeinsame Ablaufentscheidung mit Group-Sheet prüfen | 2026-10-31 |
-| `src/features/inventory/components/inventory-item-group-sheet.tsx` | 789 | Inventory-UI | kein Wachstum; doppelte Ablauf-/Expiry-Entscheidungen entfernen | 2026-10-31 |
-| `src/features/inventory/inventory-lifecycle.ts` | 1.602 | Inventory-Lifecycle | kein Wachstum; Legacy-Heuristiken und doppelte Planung entfernen | 2026-10-31 |
-| `src/features/inventory/inventory-screen.android.tsx` | 482 | Inventory-UI | kein Wachstum; Plattformduplikate nur bei nachgewiesener Abweichung behalten | 2026-10-31 |
-| `src/features/inventory/inventory-screen.tsx` | 561 | Inventory-UI | kein Wachstum; Undo-/Delete-Entscheidungen nicht doppelt halten | 2026-10-31 |
-| `src/features/inventory/use-inventory-mutations.ts` | 1.222 | Inventory-Mutations | kein Wachstum; Fachplanung und lokale Ausführung an die benannten Owner abgeben | 2026-10-31 |
+Der Clean-Worktree übernimmt keine Größen-Ausnahmen, Pfad-Baselines oder
+Reduktionsziele aus einem früheren Arbeitsstand. Für jede neu angelegte oder
+neu bearbeitete Produktionsdatei gilt der Zielkorridor von 250–400 Effective
+LOC. Bestehende Ausnahmen dürfen erst nach einer Messung im Clean-Worktree
+und einer Eintragung mit aktuellem Pfad, Owner, Reduktionsziel und Ablaufdatum
+entstehen.
+
+Die kanonische Liste der Produktions-Owner steht ausschließlich in
+`tasks/inventory-sync/owner-file-map.md`; diese Constraints-Datei wiederholt
+keine Dateiliste.
 
 Eine abgelaufene Ausnahme blockiert das nächste betroffene Inkrement, bis sie
 erneut begründet oder durch eine tatsächliche Reduktion geschlossen wurde.
@@ -273,7 +294,7 @@ direkt `supabase test db --local <gezielte-testdatei.sql>` verwendet werden.
 `db:types` und `db:diff` dürfen ebenfalls gegen die laufende lokale Instanz
 ausgeführt werden. Schemaänderungen beginnen weiterhin in
 `supabase/schemas/*.sql`; Migrationen und generierte Typen werden danach
-erzeugt und geprüft. Remote-/Linked-Nachweise bleiben ausgeschlossen.
+erzeugt und geprüft. Für lokale Befehle ist kein Link erforderlich.
 
 ## Baseline
 

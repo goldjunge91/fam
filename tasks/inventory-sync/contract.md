@@ -43,8 +43,9 @@ sind getrennt; vorhandene grüne Tests belegen nicht automatisch das neue Modell
   ursprüngliche Ergebnis gemäß Abschnitt 2.1. Die bestehende Ledgertabelle
   heißt `public.transactions`; sie wird nicht in `inventory_transactions`
   umbenannt und ist kein zweiter Idempotenz-Owner.
-- **Mengenbasis:** Persistenz erfolgt immer ganzzahlig (in Tausendsteln) in der
-  Basis-`unit` des Loses (z. B. 300 g oder 1 Stück). Verpackungseinheiten
+- **Mengenbasis:** Persistenz erfolgt als Dezimalwert in der ausdrücklich
+  gespeicherten Basis-`unit` des Loses (z. B. `300 g` als `300` oder `0,5
+  Stück` als `0,5`). Verpackungseinheiten
   (z. B. „0,6 Dose“) sind reine UI-Berechnungsgrößen basierend auf
   `package_size` und werden niemals als Bruchzahl persistiert.
 - **Öffnungsanteil P:** die diskrete Packungsmenge $P$, die bei einem
@@ -55,7 +56,8 @@ sind getrennt; vorhandene grüne Tests belegen nicht automatisch das neue Modell
   „1 Packung anbrechen“.
 - **CAS-Anker:** Compare-and-Set-Erwartungswert. Für Metadaten-Patches:
   `expected_updated_at` (ISO-Timestamp). Für Mengenänderungen:
-  `expected_quantity` (Tausendstel). Stimmt der Serverzustand nicht
+  `expected_quantity` (Dezimalwert in der gespeicherten Einheit). Stimmt der
+  Serverzustand nicht
   überein $\rightarrow$ `STALE_BASE`.
 - **Fehlercodes:** standardisierte maschinenlesbare Codes für Konflikte und
   Validierungsfehler: `STALE_BASE`, `INSUFFICIENT_QUANTITY`,
@@ -253,28 +255,33 @@ Projektion über denselben Owner neu aufgebaut.
 
 ## 3. Mengen-, Snapshot- und Tombstone-Vertrag
 
-- Mengen werden in ganzzahligen Tausendsteln geführt und persistiert:
-  `300 g = 300_000`, `1 Stück = 1_000`. Dies gilt für Inventory-Lose,
-  Ledgermengen, Operationspayloads, Erwartungswerte und Mengensnapshots.
+- Mengen werden als Dezimalwerte der benannten Basis-`unit` geführt und
+  persistiert: `300 g = 300`, `1 Stück = 1`, `0,5 Stück = 0,5`. Dies gilt für
+  Inventory-Lose, Ledgermengen, Operationspayloads, Erwartungswerte und
+  Mengensnapshots.
 - Bestehende Feldnamen wie `quantity` bleiben erhalten, tragen im v1-Vertrag
-  aber Integer-Tausendstel. SQLite verwendet `integer`, Postgres `bigint`.
-  Der bisherige fachliche Maximalwert bleibt `9_999_999.999`, entsprechend
-  `9_999_999_999` Integer-Einheiten; Deltas sind entsprechend signiert.
-  Das liegt innerhalb sicherer JavaScript-Integer. Grenzprüfung und
+  aber Dezimalwerte mit höchstens einer Nachkommastelle. SQLite verwendet
+  `real`, Postgres `numeric(10,1)`. Der fachliche Maximalwert ist
+  `9_999_999.9`; Deltas sind entsprechend signiert. Grenzprüfung und
   UI-Konversion besitzen ausschließlich `src/lib/inventory-quantity.ts`.
-- `package_size` als Konversionssnapshot wird ebenfalls in Tausendsteln
-  seiner `package_size_unit` geführt; bei Stückgut ist P folglich `1_000`.
+- `package_size` als Konversionssnapshot wird ebenfalls als Dezimalwert in
+  seiner `package_size_unit` geführt; bei Stückgut ist P folglich `1`, bei
+  einer halben Dose `0,5`.
   Formeln und Beispiele in diesem Dokument zeigen zur Lesbarkeit physische
-  Mengen. Wire- und Persistenzwerte sind immer skaliert.
-- Dies ist ausdrücklich eine Änderung gegenüber SQLite `real` und Postgres
-  `numeric(10,3)`. Lokale und serverseitige Schemata, Mirror-Adapter,
+  Mengen. Wire- und Persistenzwerte sind dieselben Dezimalwerte in der
+  gespeicherten Einheit, nicht zusätzlich skalierte Anzeigegrößen.
+- Dies ist ausdrücklich eine Änderung gegenüber einer künstlichen
+  Integer-Skalierung. Lokale und serverseitige Schemata, Mirror-Adapter,
   generierte Typen, UI-Konversionsgrenzen und alle Inventory-Schreibquellen
   einschließlich Einkaufslisten-Transfer müssen zusammen umgestellt werden.
   Shopping-, Produktkatalog- und Nutrition-Mengen wechseln nicht implizit
-  ihre Einheit; die jeweilige Inventory-Eingangsgrenze konvertiert einmal.
-- Bestehende deklarierte Dezimalwerte werden in einer generierten Migration
-  genau einmal skaliert; Werte mit Überpräzision werden abgewiesen, nicht
-  gerundet. Das ist eine Schemamigration, kein Laufzeit-Legacy-Decoder.
+  ihre Einheit; die jeweilige Inventory-Eingangsgrenze validiert die Einheit
+  und normalisiert die Dezimalpräzision einmal.
+- Die deklarative Zielquelle verwendet die vereinbarte Dezimaldarstellung.
+  Vorhandene lokale Werte werden nicht zur Laufzeit skaliert oder still
+  gerundet; ein lokaler Reset beziehungsweise eine explizite einmalige
+  Übernahme gehört in den Schema-/Datenbank-Schritt. Das ist kein
+  Laufzeit-Legacy-Decoder.
   Alte Outboxpayloads bleiben nicht ausführbar und werden als `invalid`
   isoliert. Der Entwicklungsbestand wird nicht automatisch gelöscht oder
   zurückgesetzt; ein benötigter Reset ist eine separate explizite Aktion.
@@ -464,8 +471,9 @@ Preconditions:
   `expected_location_id` und `to_location_id` sind Pflichtfelder (nicht
   `null`): Bestand ohne zugewiesenen Lagerort entfällt als Zielzustand
   (Produktentscheidung 2026-09-08). Bestehende Zeilen mit `location_id = null`
-  benötigen vor der v1-Aktivierung eine Datenmigration und eine UI-Pflicht zur
-  Lagerortauswahl; das ist eigener Arbeitsumfang, nicht Teil dieses Dokuments.
+  benötigen vor der v1-Aktivierung eine einmalige Datenbereinigung und eine
+  UI-Pflicht zur Lagerortauswahl. Beides ist ein verpflichtendes
+  Aktivierungsgate und im Ausführungsplan einem eigenen Nachweis zugeordnet.
 - `correct_quantity`: `new_quantity >= 0` und ungleich Erwartungsmenge; Ledger
   enthält exakt das tatsächliche Delta mit `[Manual correction]`.
 - `reseal_inventory`: jederzeit explizit möglich; setzt `opened_at = null` und
@@ -585,7 +593,13 @@ veraltete DB-Spalten:
 
 ### 9.1 Kanonische Operationsübersicht
 
-| Kanonischer Name (v1)                           | Bisherige Mutation                              | Stabile IDs                                                                            | CAS-Anker & Fehlercodes                                          | Exakter Produktions-Owner            |
+Die folgende Tabelle benennt den **Ausführungs-Owner** für den lokalen und
+serverseitig bestätigten Operations-Commit. Die reine fachliche Planung,
+Validierung und Footprint-Berechnung bleibt beim Plan-Owner
+`src/features/inventory/inventory-lifecycle.ts` gemäß Abschnitt 8. Beide
+Owner sind bewusst getrennt; die Tabelle ersetzt diese Trennung nicht.
+
+| Kanonischer Name (v1)                           | Bisherige Mutation                              | Stabile IDs                                                                            | CAS-Anker & Fehlercodes                                          | Exakter Ausführungs-Owner            |
 | ----------------------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------ |
 | `open_inventory`                                | bisheriges Öffnen / `split_open` ohne Verbrauch | `operation_id`, `source_item_id`, optional `opened_item_id`                            | `STALE_BASE`, `PAYLOAD_VALIDATION_FAILED`                        | `src/lib/sync/inventory-quantity.ts` |
 | `insert_inventory`                              | `insert`                                        | `operation_id`, `item_id`, `in_transaction_id`                                         | `PAYLOAD_VALIDATION_FAILED`                                      | `src/lib/sync/inventory-quantity.ts` |
@@ -606,7 +620,7 @@ Zielzustand: `split_open` entfällt als eigenständige Mutation. Das Split-Verha
 
 | Bereich                    | Verbindliche Testpunkte                                                                                                                                                                | Zuständige fokussierte Testdatei                                                                                                                                    |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mengenpräzision            | `-0.001`, `0`, `0.001`, normaler Wert, `9_999_999.999`, Maximum plus `0.001`, mehr als drei Nachkommastellen                                                                           | `src/lib/inventory-quantity.test.ts`                                                                                                                                |
+| Mengenbasis                | `-0.1`, `0`, `1`, `300 g als 300`, `0,5 Stück/Dose als 0,5`, `9_999_999.9`, Maximum plus `0.1`, Werte wie `0,05` und mehr als eine Nachkommastelle                                                                           | `src/lib/inventory-quantity.test.ts`                                                                                                                                |
 | Reduktion & Zustandsmodell | positives Ergebnis; exakt `0` mit Tombstone; negatives Ergebnis vollständig abgelehnt; alle Lifecycle-Übergänge                                                                        | `src/features/inventory/inventory-lifecycle.test.ts`                                                                                                                |
 | Öffnungsanteil P           | `P=0`, kleinste Teilmenge, `P<source`, `P=source`, `P>source`; `C=0` (reines Öffnen ohne Ledger), `C<P`, `C=P`, `C>P`                                                                  | `src/features/inventory/inventory-lifecycle.test.ts`                                                                                                                |
 | Undo-Zeit & Blockade       | unmittelbar davor, exakt bei 24 Stunden, unmittelbar danach; Blockade bei abhängiger Operation                                                                                         | `src/features/inventory/inventory-lifecycle.test.ts`                                                                                                                |
@@ -616,7 +630,7 @@ Zielzustand: `split_open` entfällt als eigenständige Mutation. Das Split-Verha
 | Footprint & Invarianten    | vollständig, fehlendes/zusätzliches Lot, Tombstones, Lot-IDs                                                                                                                           | `src/features/inventory/inventory-lifecycle.test.ts`                                                                                                                |
 | Receipt                    | gleiche ID mit anderem Patch trotz gleichem CAS; fehlend versus null; paralleler Retry; späterer Zustand; RLS und verweigerter direkter Write; Fehler rollt Receipt und Wirkung zurück | `supabase/tests/27_inventory_quantity_atomic.test.sql`                                                                                                              |
 | Reines Öffnen              | source=P, source>P, ungültiges P; konstante Gesamtmenge; null Ledgerzeilen; Retry und expliziter Reseal ohne Merge                                                                     | `src/features/inventory/inventory-lifecycle.test.ts`, `supabase/tests/30_inventory_split_atomic.test.sql`                                                           |
-| Integer-Persistenz         | 300 g als 300000; drei Dezimalstellen; Überpräzision; Maximum; genau eine Skalierung; Transfer aus unverändertem Shopping-Mengenmodell                                                 | `src/lib/inventory-quantity.test.ts`, `src/features/inventory/use-inventory-mutations.integration.test.tsx`, `supabase/tests/27_inventory_quantity_atomic.test.sql` |
+| Mengen-Persistenz          | 300 g als 300; 1 Stück als 1; 0,5 Stück/Dose als 0,5; künstliche Tausendstel werden nicht eingeführt; Maximum; Transfer aus unverändertem Shopping-Mengenmodell | `src/lib/inventory-quantity.test.ts`, `src/features/inventory/use-inventory-mutations.integration.test.tsx`, `supabase/tests/27_inventory_quantity_atomic.test.sql` |
 | Metadaten-Patch            | CAS via `expected_updated_at`, Feld fehlt, Feld enthält Wert, Feld enthält ausdrücklich `null`                                                                                         | `src/features/inventory/use-inventory-mutations.integration.test.tsx`                                                                                               |
 | Retry-Limit                | bei `MAX_ATTEMPTS = 5`: Attempts 4, 5 und 6 mit deterministischem Backoff                                                                                                              | `src/lib/sync/push.test.ts`                                                                                                                                         |
 | Architektur & Grenzen      | genau ein Registereintrag und ein Owner pro Operation; null verbotene Direktimporte                                                                                                    | `test/conventions/inventory-operation-ownership.test.ts`                                                                                                            |
@@ -635,6 +649,6 @@ Ledger, Tombstone und vollständigen Footprint. Testbefehle und das
    `to_location_id` sind Pflichtfelder (Abschnitt 7). Bestand ohne
    zugewiesenen Lagerort ist damit kein gültiger Zielzustand mehr — das ist
    eine Produktentscheidung, keine reine Contract-Präzisierung. Erfordert vor
-   der v1-Aktivierung: Datenmigration bestehender `location_id = null`-Zeilen
-   und eine UI-Pflicht zur Lagerortauswahl beim Anlegen. Beides ist noch nicht
-   umgesetzt und nicht Teil dieses Dokuments.
+   der v1-Aktivierung: Datenbereinigung bestehender `location_id = null`-Zeilen
+   und eine UI-Pflicht zur Lagerortauswahl beim Anlegen. Beides ist ein
+   dokumentiertes Aktivierungsgate des Ausführungsplans.
