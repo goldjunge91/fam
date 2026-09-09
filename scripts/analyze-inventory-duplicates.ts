@@ -61,6 +61,11 @@ type AnalysisReport = {
     }>;
     normalizedTokenCount: number;
   }>;
+  effectiveLoc: Array<{
+    file: string;
+    lines: number;
+  }>;
+  totalEffectiveLoc: number;
   files: string[];
   functions: number;
   similarMatches: ReportSimilarityMatch[];
@@ -161,7 +166,11 @@ function isSourceFile(filePath: string, includeTests: boolean): boolean {
   const extension = filePath.slice(filePath.lastIndexOf('.'));
   if (!SOURCE_EXTENSIONS.has(extension)) return false;
   if (includeTests) return true;
-  return !/\.test\.[jt]sx?$/.test(filePath) && !/\.integration\.test\.[jt]sx?$/.test(filePath);
+  return (
+    !/\.test\.[jt]sx?$/.test(filePath) &&
+    !/\.integration\.test\.[jt]sx?$/.test(filePath) &&
+    !/\.harness\.[jt]sx?$/.test(filePath)
+  );
 }
 
 async function collectFiles(target: string, includeTests: boolean): Promise<string[]> {
@@ -305,6 +314,28 @@ function normalizedTokens(node: ts.Node, sourceFile: ts.SourceFile): string[] {
   }
 
   return tokens;
+}
+
+function effectiveLoc(sourceFile: ts.SourceFile): number {
+  const scanner = ts.createScanner(
+    ts.ScriptTarget.Latest,
+    true,
+    sourceFile.fileName.endsWith('.tsx') ? ts.LanguageVariant.JSX : ts.LanguageVariant.Standard,
+    sourceFile.text,
+  );
+  const lines = new Set<number>();
+  let token = scanner.scan();
+
+  while (token !== ts.SyntaxKind.EndOfFileToken) {
+    const tokenStart = scanner.getTokenPos();
+    const tokenEnd = Math.max(tokenStart, scanner.getTextPos() - 1);
+    const firstLine = sourceFile.getLineAndCharacterOfPosition(tokenStart).line + 1;
+    const lastLine = sourceFile.getLineAndCharacterOfPosition(tokenEnd).line + 1;
+    for (let line = firstLine; line <= lastLine; line += 1) lines.add(line);
+    token = scanner.scan();
+  }
+
+  return lines.size;
 }
 
 function collectCandidates(
@@ -460,6 +491,10 @@ function printReport(report: AnalysisReport, options: Options): void {
 
   console.log('Inventory-Duplikatprüfung');
   console.log(`Dateien: ${report.files.length} | benannte Funktionen: ${report.functions}`);
+  console.log(`Effective LOC: ${report.totalEffectiveLoc}`);
+  for (const file of report.effectiveLoc) {
+    console.log(`  ${file.lines.toString().padStart(5, ' ')} ${file.file}`);
+  }
   console.log(
     `Heuristik: mindestens ${options.minLines} Zeilen, ${options.minTokens} Tokens, Ähnlichkeit ab ${options.threshold.toFixed(2)}`,
   );
@@ -513,6 +548,7 @@ async function analyze(options: Options): Promise<AnalysisReport> {
   if (inputs.length === 0) throw new Error('Keine TypeScript-Dateien zum Prüfen gefunden.');
 
   const candidates: FunctionCandidate[] = [];
+  const effectiveLocByFile: AnalysisReport['effectiveLoc'] = [];
   progress(options, `Lese und parse ${inputs.length} Datei(en) ...`);
   for (const [index, input] of inputs.entries()) {
     const sourceFile = ts.createSourceFile(
@@ -522,6 +558,7 @@ async function analyze(options: Options): Promise<AnalysisReport> {
       true,
       input.filePath.endsWith('.tsx') ? ts.ScriptKind.TSX : ts.ScriptKind.TS,
     );
+    effectiveLocByFile.push({ file: input.relativePath, lines: effectiveLoc(sourceFile) });
     candidates.push(...collectCandidates(sourceFile, input.filePath, input.relativePath, options));
     const processed = index + 1;
     if (processed === 1 || processed % 25 === 0 || processed === inputs.length) {
@@ -533,6 +570,8 @@ async function analyze(options: Options): Promise<AnalysisReport> {
   progress(options, `Vergleiche Funktionen bei Schwelle ${options.threshold.toFixed(2)} ...`);
   const comparison = compareFunctions(candidates, options);
   return {
+    effectiveLoc: effectiveLocByFile.sort((left, right) => left.file.localeCompare(right.file)),
+    totalEffectiveLoc: effectiveLocByFile.reduce((total, file) => total + file.lines, 0),
     exactDuplicateGroups: comparison.exactDuplicateGroups,
     files: inputs.map((input) => input.relativePath),
     functions: candidates.length,

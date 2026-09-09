@@ -6,6 +6,39 @@ Quellen: `CONSTRAINTS.md` setzt Qualitätsgrenzen, `contract.md` Zielverhalten.
 Beads verfolgt Arbeit; historische Verträge in `fam-lem.18` sind keine zweite
 normative Quelle. Dieser Plan ist der einzige aktive Ausführungsplan.
 
+`inventory-plan_V2.md` ist seit 2026-09-09 ungültig und wird hier nicht
+fortgeführt. Seine Slices, Ticketkopplungen und Zwischenreihenfolge sind keine
+Arbeitsgrundlage.
+
+## Capability Map und Abhängigkeitsrichtung
+
+Die Map zerlegt den verbleibenden Refactor in unabhängig prüfbare Fähigkeiten.
+Sie ergänzt den Contract nicht und erzeugt keine neuen Produktions-Owner.
+`quality-ratchets` ist eine durchgängige Gate-Schicht, keine abschließende
+Aufräumphase.
+
+| Modul-ID | Verantwortung | Abhängigkeiten |
+| --- | --- | --- |
+| `baseline-and-ownership-gates` | Contract-Nachweise, aktuelle Baselines, Owner- und Dateigrenzen | — |
+| `quality-ratchets` | Effective-LOC-, Duplikat-, Typ-, Lint-, Test- und Architektur-Ratchets | `baseline-and-ownership-gates` |
+| `integer-persistence-boundary` | Integer-Persistenz und alle benannten Mengen-/Read-Grenzen verifizieren | `baseline-and-ownership-gates`, `quality-ratchets` |
+| `local-operation-path` | Lifecycle-Plan, vorhandener lokaler Schreibpfad, Outbox und atomare lokale Ausführung | `integer-persistence-boundary` |
+| `server-atomic-receipt-path` | Serveroperationen, Receipts, Snapshot-Basis, RLS und DB-Nachweise | `local-operation-path` |
+| `reconciliation-and-invalid-state` | Push/Pull/Realtime, Unknown, Konflikte und ungültige lokale Zustände | `server-atomic-receipt-path` |
+| `read-consumer-alignment` | Inventory-Verlauf, Screens und fachliche Verbraucher an den kanonischen Read-Grenzen | `reconciliation-and-invalid-state` |
+| `duplication-consolidation` | Semantisch sichere Zusammenführung von Produktions- und Testduplikaten | `read-consumer-alignment` |
+
+Build order: `baseline-and-ownership-gates` → `quality-ratchets` →
+`integer-persistence-boundary` → `local-operation-path` →
+`server-atomic-receipt-path` → `reconciliation-and-invalid-state` →
+`read-consumer-alignment` → `duplication-consolidation`.
+
+Der Integer-Schritt prüft bereits abgeschlossene Integer-Arbeiten erneut gegen
+ihre Nachweise; er eröffnet sie nicht ohne konkrete Abweichung neu. Ein
+späterer Schritt darf keinen Zwischenzustand als aktivierte v1-Wahrheit
+veröffentlichen. Jede fachliche Änderung bleibt in einem eigenen Inkrement
+mit höchstens fünf handbearbeiteten Quell-/Testdateien.
+
 ## Verbindliche Dateimatrix
 
 **Keine neuen Produktionsdateien.** Keine Datei pro Operation. Die Matrix

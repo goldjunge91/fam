@@ -1,7 +1,7 @@
 # Constraints
 
 Status: verbindlich für den Inventory-Sync-Refactor.
-Letzte Festlegung: 2026-09-08.
+Letzte Festlegung: 2026-09-09.
 
 ## Harte Grundsätze
 
@@ -156,7 +156,79 @@ stehen ausschließlich in `contract.md`, Abschnitt 8.
 | Format/Lint | Keine neuen Biome-Fehler in betroffenen Dateien | `bun run check` bzw. fokussierter Biome-Aufruf | Ende eines TS-Inkrements |
 | Verhalten | Nur direkt betroffene Tests werden ausgeführt | `bun run test <datei> --runInBand --watchman=false` | nach jedem Inkrement |
 | Testkosten | Ein fokussierter Testlauf darf höchstens 90 Sekunden dauern | Laufzeit des fokussierten Testbefehls | nach jedem Inkrement |
+| Strukturgröße | Neue oder bearbeitete Produktionsdateien höchstens 400 Effective LOC; bestehende Ausnahmen wachsen nicht | `bun scripts/analyze-inventory-duplicates.ts src/features/inventory --quiet --top=100` | vor und nach jedem Struktur-Inkrement |
+| Duplikate | Exakte normalisierte Gruppen dürfen sich nicht erhöhen; semantisch unbegründete Treffer werden entfernt | `bun scripts/analyze-inventory-duplicates.ts src/features/inventory --include-tests --json --quiet --top=100` | vor und nach jedem betroffenen Inkrement |
 | Datenbank | Bei Schemaänderung nur deklarative Quelle, generierte Artefakte danach | `bun run db:diff`, Projekt-DB-Gate und `bun run db:types` | nur bei Schemaänderung |
+
+## Messbare Struktur- und Qualitätsratchets
+
+### Fester Messumfang
+
+Der Produktionsumfang für die Größenmessung ist `src/features/inventory/**`.
+Die Messung schließt Dateien mit `.test.`, `.integration.test.` und
+`.harness.` aus. Tests und Harnesses werden separat mit `--include-tests`
+gemessen und unterliegen nicht der 250–400-LOC-Zielgröße.
+
+`effective LOC` bedeutet: die Anzahl physischer Zeilennummern, die mindestens
+ein nicht-trivia TypeScript-/TSX-Token enthalten. Leerzeilen und reine
+Kommentarzeilen zählen nicht. Ein mehrzeiliges Token zählt jede von ihm
+belegte physische Zeile. Generierte Dateien, SQL und externe Abhängigkeiten
+liegen außerhalb dieses Messumfangs.
+
+Der Analyzer ist deterministisch: Pfadumfang, Scanner, Mindestgröße,
+Token-Normalisierung und Ähnlichkeitsschwelle werden nicht pro Inkrement
+verändert. Eine Änderung am Analyzer erfordert eine neue Baseline und eine
+Begründung im Beads-Ticket.
+
+### Baseline vom 2026-09-09
+
+Die Baseline wurde mit den oben genannten Befehlen gemessen:
+
+| Umfang | Dateien | Effective LOC | Exakte normalisierte Duplikatgruppen |
+| --- | ---: | ---: | ---: |
+| Produktionsdateien | 44 | 9.382 | 4 |
+| Produktionsdateien, Tests und Harnesses | 65 | 16.106 | 8 |
+
+Diese Werte sind Messgrundlage, kein Zielwert für die Gesamtgröße. Ein
+Inkrement darf die passende Baseline nur erhöhen, wenn es eine ausdrücklich
+benannte Contract-Regel oder eine nachvollziehbare Testabdeckung ergänzt.
+
+### Verbindliche Ratchets
+
+1. Neue oder neu bearbeitete Produktionsdateien bleiben unter 400 Effective
+   LOC. 250 LOC ist keine Mindestgröße.
+2. Bestehende Produktionsdateien über 400 Effective LOC erhalten eine
+   dokumentierte Ausnahme mit Pfad, Baseline, Owner, Reduktionsziel und
+   Ablaufdatum. Die Ausnahme erlaubt kein Wachstum.
+3. Eine reine Strukturänderung darf die Gesamtzahl der Effective LOC im
+   betroffenen festen Scope nicht erhöhen. Verschobene Zeilen zählen nur dann
+   als Reduktion, wenn die alte fachliche Implementierung und ihr alter
+   Aufrufpfad entfallen.
+4. Exakte normalisierte Duplikatgruppen dürfen sich nicht erhöhen. Die
+   Baselines sind vier Gruppen ohne Tests und acht Gruppen einschließlich
+   Tests/Harnesses. Jede verbleibende Gruppe wird als fachlich begründet oder
+   als abzubauendes Duplikat im Ticket klassifiziert.
+5. Eine Metrik rechtfertigt keine eigenständige Produktionsänderung. Jede
+   Reduktion muss zugleich eine Contract-Regel, einen Owner-Grenzfall oder
+   eine konkrete doppelte Entscheidung vereinfachen.
+6. Die bestehenden harten Gates bleiben unabhängig davon aktiv: Typecheck,
+   Biome, fokussierte Tests, 90-Sekunden-Limit, Ownership-Gate und die
+   fünf Reviewachsen. Ein Messwert ersetzt keinen Verhaltensnachweis.
+
+### Aktuelle Größen-Ausnahmen
+
+| Pfad | Baseline Effective LOC | Owner | Reduktionsziel | Ablauf |
+| --- | ---: | --- | --- | --- |
+| `src/features/inventory/add-item-screen.tsx` | 426 | Inventory-UI | kein Wachstum; bei fachlicher Berührung doppelte Darstellung entfernen | 2026-10-31 |
+| `src/features/inventory/components/inventory-item-actions-sheet.tsx` | 500 | Inventory-UI | kein Wachstum; gemeinsame Ablaufentscheidung mit Group-Sheet prüfen | 2026-10-31 |
+| `src/features/inventory/components/inventory-item-group-sheet.tsx` | 789 | Inventory-UI | kein Wachstum; doppelte Ablauf-/Expiry-Entscheidungen entfernen | 2026-10-31 |
+| `src/features/inventory/inventory-lifecycle.ts` | 1.602 | Inventory-Lifecycle | kein Wachstum; Legacy-Heuristiken und doppelte Planung entfernen | 2026-10-31 |
+| `src/features/inventory/inventory-screen.android.tsx` | 482 | Inventory-UI | kein Wachstum; Plattformduplikate nur bei nachgewiesener Abweichung behalten | 2026-10-31 |
+| `src/features/inventory/inventory-screen.tsx` | 561 | Inventory-UI | kein Wachstum; Undo-/Delete-Entscheidungen nicht doppelt halten | 2026-10-31 |
+| `src/features/inventory/use-inventory-mutations.ts` | 1.222 | Inventory-Mutations | kein Wachstum; Fachplanung und lokale Ausführung an die benannten Owner abgeben | 2026-10-31 |
+
+Eine abgelaufene Ausnahme blockiert das nächste betroffene Inkrement, bis sie
+erneut begründet oder durch eine tatsächliche Reduktion geschlossen wurde.
 
 Das 90-Sekunden-Limit gilt für einen fokussierten Lauf, damit Tests tatsächlich
 bei jedem Inkrement ausgeführt werden. Eine längere Prüfung gehört in ein

@@ -1,4 +1,14 @@
-# Plan: v1-Cutover-Restumfang abschließen (fam-lfa, fam-8sf, fam-mt6)
+# UNGÜLTIG: Plan: v1-Cutover-Restumfang abschließen (fam-lfa, fam-8sf, fam-mt6)
+
+> **Status: ungültig seit 2026-09-09.** Dieses Dokument ist nur noch ein
+> historisches Prüf- und Planungsartefakt. Es ist keine aktive
+> Ausführungsanweisung und darf nicht als Begründung für neue
+> Produktionsänderungen oder eine eigene Ticketreihenfolge verwendet werden.
+>
+> Maßgeblich bleiben [`CONSTRAINTS.md`](./CONSTRAINTS.md),
+> [`contract.md`](./contract.md) und [`execution-plan.md`](./execution-plan.md).
+> Die in diesem Dokument genannten Slices und Ticketkopplungen müssen in einer
+> neuen, freigegebenen Spezifikation vollständig neu bewertet werden.
 
 ## Context
 
