@@ -60,19 +60,11 @@ async function getNetworkState(): Promise<'online' | 'offline' | 'unknown'> {
   return 'unknown';
 }
 
-function initialCursor(
-  cursorColumn: 'updated_at' | 'created_at' | 'sync_sequence' = 'updated_at',
-): SyncCursor {
-  return {
-    lastSyncedAt: cursorColumn === 'sync_sequence' ? '0' : EPOCH_START,
-    lastSyncedId: MIN_UUID,
-  };
+function initialCursor(): SyncCursor {
+  return { lastSyncedAt: EPOCH_START, lastSyncedId: MIN_UUID };
 }
 
-export function buildOrFilter(
-  cursor: SyncCursor,
-  cursorColumn: 'updated_at' | 'created_at' | 'sync_sequence',
-): string {
+function buildOrFilter(cursor: SyncCursor, cursorColumn: 'updated_at' | 'created_at'): string {
   return `${cursorColumn}.gt.${cursor.lastSyncedAt},and(${cursorColumn}.eq.${cursor.lastSyncedAt},id.gt.${cursor.lastSyncedId})`;
 }
 
@@ -80,17 +72,8 @@ type RemoteRow = Record<string, unknown> & {
   id: string;
   updated_at?: string;
   created_at?: string;
-  sync_sequence?: number;
   deleted_at?: string | null;
 };
-
-function cursorValue(row: RemoteRow, cursorColumn: 'updated_at' | 'created_at' | 'sync_sequence') {
-  const value = row[cursorColumn];
-  if (typeof value !== 'string' && typeof value !== 'number') {
-    throw new Error(`Remote-Zeile hat keinen gültigen ${cursorColumn}-Cursorwert.`);
-  }
-  return String(value);
-}
 
 async function pullEntity(
   db: SqlDatabase,
@@ -118,11 +101,7 @@ async function pullEntity(
   const { cursor: storedCursor, lastError: previousError } = await readSyncState(db, entity);
 
   // Haushalte immer vollständig laden: Beitritte ändern die RLS-Sichtbarkeit ohne Zeilen-Update.
-  const cursorColumn = meta.syncCursorColumn ?? 'updated_at';
-  let cursor =
-    entity === 'households'
-      ? initialCursor(cursorColumn)
-      : (storedCursor ?? initialCursor(cursorColumn));
+  let cursor = entity === 'households' ? initialCursor() : (storedCursor ?? initialCursor());
   let cursorWritten = false;
 
   for (;;) {
@@ -133,8 +112,8 @@ async function pullEntity(
       query = query.in('household_id', householdIds);
     }
     query = query
-      .or(buildOrFilter(cursor, cursorColumn))
-      .order(cursorColumn, { ascending: true })
+      .or(buildOrFilter(cursor, meta.syncCursorColumn ?? 'updated_at'))
+      .order(meta.syncCursorColumn ?? 'updated_at', { ascending: true })
       .order('id', { ascending: true })
       .limit(PAGE_SIZE);
 
@@ -190,7 +169,7 @@ async function pullEntity(
         txn,
         entity,
         {
-          lastSyncedAt: cursorValue(last, cursorColumn),
+          lastSyncedAt: last[meta.syncCursorColumn ?? 'updated_at'] as string,
           lastSyncedId: last.id,
         },
         Date.now(),
@@ -199,7 +178,7 @@ async function pullEntity(
     });
 
     cursor = {
-      lastSyncedAt: cursorValue(last, cursorColumn),
+      lastSyncedAt: last[meta.syncCursorColumn ?? 'updated_at'] as string,
       lastSyncedId: last.id,
     };
 

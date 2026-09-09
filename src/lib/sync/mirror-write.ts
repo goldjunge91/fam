@@ -18,19 +18,6 @@ function mirrorMetaOf(entity: Entity) {
   return meta;
 }
 
-function remoteUpdatedAt(
-  meta: ReturnType<typeof mirrorMetaOf>,
-  remoteRow: Record<string, unknown>,
-) {
-  const value = meta.appendOnly ? remoteRow.created_at : remoteRow.updated_at;
-  if (typeof value !== 'string') {
-    throw new Error(
-      `Remote-Zeile fuer ${meta.entity} hat keinen gültigen ${meta.appendOnly ? 'created_at' : 'updated_at'}-Zeitstempel.`,
-    );
-  }
-  return value;
-}
-
 function toSqlParam(value: unknown): SqlParam {
   if (value === undefined || value === null) return null;
   if (typeof value === 'string' || typeof value === 'number') return value;
@@ -56,7 +43,12 @@ export async function upsertMirrorRow(
 ): Promise<void> {
   const meta = mirrorMetaOf(entity);
 
-  const updatedAt = toEpochMs(remoteUpdatedAt(meta, remoteRow));
+  const cursorColumn = meta.syncCursorColumn ?? 'updated_at';
+  const updatedAtRaw = remoteRow[cursorColumn];
+  if (typeof updatedAtRaw !== 'string') {
+    throw new Error(`Remote-Zeile fuer ${entity} hat keinen ${cursorColumn} als String.`);
+  }
+  const updatedAt = toEpochMs(updatedAtRaw);
 
   const deletedAtRaw = remoteRow.deleted_at;
   const deletedAt =
@@ -81,7 +73,7 @@ export async function upsertMirrorRow(
   );
 }
 
-export type RemoteRow = Record<string, unknown> & {
+type RemoteRow = Record<string, unknown> & {
   id: string;
   updated_at?: string;
   created_at?: string;
@@ -89,177 +81,6 @@ export type RemoteRow = Record<string, unknown> & {
 };
 
 type LocalRowMeta = { updated_at: number; deleted_at: number | null; _dirty: number };
-
-type PendingOutboxRow = { op: string; payload: string };
-
-/**
- * Spalten, die eine offene Outbox-Operation lokal bereits verändert hat und
- * die deshalb bei einer eingehenden Remote-Zeile ihren lokalen Wert behalten
- * müssen. `'all'` bedeutet: die ganze Zeile ist noch unbestätigt lokal
- * (Insert), die Remote-Zeile wird komplett ignoriert.
- */
-function touchedColumns(op: string, payload: Record<string, unknown>): Set<string> | 'all' {
-  switch (op) {
-    case 'insert':
-      return 'all';
-    case 'delete':
-    case 'restore':
-      return new Set(['deleted_at']);
-    case 'move':
-      return new Set(['location_id']);
-    case 'adjust_quantity':
-    case 'correct_quantity':
-    case 'reverse_quantity':
-      return new Set(['quantity', 'deleted_at']);
-    default:
-      // 'update' und unbekannte künftige Ops: nur die tatsächlich gepatchten Felder.
-      return new Set(Object.keys(payload).filter((key) => key !== 'id'));
-  }
-}
-
-const QUANTITY_OPS = new Set(['adjust_quantity', 'correct_quantity', 'reverse_quantity']);
-
-type QuantityLedgerRow = { type: string; quantity: number };
-
-/**
- * Empfangsbeweis-Ersatz fuer adjust_quantity/correct_quantity (fam-onu):
- * `transactions` wird vor `fridge_items` gepullt (sync/entities.ts). Ist die
- * lokal zu dieser Operation gehoerende Ledgerzeile in DIESEM Zyklus bereits
- * bestaetigt (_dirty = 0), hat der Server sie laengst angewendet — die
- * gerade gepullte Remote-Basis enthaelt ihr Delta schon. Ein erneutes
- * Anwenden waere eine Doppelzaehlung nach Antwortverlust.
- */
-async function isLedgerRowConfirmed(txn: SqlDatabase, ledgerId: unknown): Promise<boolean> {
-  if (typeof ledgerId !== 'string') return false;
-  const row = await txn.getFirstAsync<{ dirty: number }>(
-    'select _dirty as dirty from transactions where id = ?',
-    [ledgerId],
-  );
-  return row?.dirty === 0;
-}
-
-/**
- * Rekonstruiert die Bestandsmenge aus der bestätigten Remote-Basis plus den
- * noch offenen, in Reihenfolge angewandten Mengenoperationen. `adjust_quantity`
- * trägt sein Delta direkt im Payload; `reverse_quantity` liest sein Delta aus
- * der bereits lokal eingefügten Ledgerzeile (`reversal_transaction_id`).
- * `correct_quantity` ist ein Compare-and-set: stimmt seine erwartete Basis
- * nicht mit der bis dahin berechneten Menge überein, ist das ein echter
- * Konflikt statt einer still übernommenen Annahme.
- */
-async function computeReconciledQuantity(
-  txn: SqlDatabase,
-  remoteRow: RemoteRow,
-  quantityOps: readonly { op: string; payload: Record<string, unknown> }[],
-): Promise<number | 'conflict'> {
-  let units = Number(remoteRow.quantity);
-
-  for (const { op, payload } of quantityOps) {
-    if (op === 'adjust_quantity') {
-      if (await isLedgerRowConfirmed(txn, payload.transaction_id)) continue;
-      units += Number(payload.delta);
-      // Eine verschobene Remote-Basis kann ein zuvor gueltiges Delta ins
-      // Negative treiben (fam-onu). Eine Bestandsmenge ist nie negativ; das
-      // ist ein echter Konflikt, kein stillschweigend zu clampender Wert.
-      if (units < 0) return 'conflict';
-      continue;
-    }
-    if (op === 'correct_quantity') {
-      if (await isLedgerRowConfirmed(txn, payload.transaction_id)) continue;
-      const expectedUnits = Number(payload.expected_quantity);
-      if (expectedUnits !== units) return 'conflict';
-      units = Number(payload.new_quantity);
-      continue;
-    }
-    // reverse_quantity: das Delta ergibt sich aus der eigenen, bereits lokal
-    // eingefügten Ledgerzeile (type/quantity), nicht aus dem Payload selbst.
-    // Ist genau diese Gegenbuchung nach Antwortverlust bereits bestaetigt,
-    // steckt ihr Effekt schon in der gepullten Remote-Basis (fam-onu).
-    if (await isLedgerRowConfirmed(txn, payload.reversal_transaction_id)) continue;
-    const ledgerRow = await txn.getFirstAsync<QuantityLedgerRow>(
-      'select type, quantity from transactions where id = ?',
-      [String(payload.reversal_transaction_id)],
-    );
-    if (ledgerRow === null) return 'conflict';
-    units += ledgerRow.type === 'in' ? ledgerRow.quantity : -ledgerRow.quantity;
-    if (units < 0) return 'conflict';
-  }
-
-  return units;
-}
-
-/**
- * Wendet eine Remote-Zeile auf eine lokal dirty Zeile an, für die noch
- * Outbox-Operationen offen sind. Remote gilt als bestätigte Basis; von
- * offenen Operationen berührte Spalten behalten ihren lokalen Wert, alle
- * anderen übernehmen die echte Remote-Änderung. Die Menge ist ein Sonderfall:
- * sie wird algebraisch aus Basis plus offenen Deltas neu berechnet statt nur
- * lokal konserviert (fam-onu). `_dirty` bleibt 1, bis die offenen Operationen
- * bestätigt sind.
- */
-async function reconcileDirtyRowWithPendingOps(
-  txn: SqlDatabase,
-  entity: Entity,
-  meta: ReturnType<typeof mirrorMetaOf>,
-  remoteRow: RemoteRow,
-  pendingOps: readonly PendingOutboxRow[],
-): Promise<'written' | 'local-wins'> {
-  const parsedOps = pendingOps.map(({ op, payload }) => ({
-    op,
-    payload: JSON.parse(payload) as Record<string, unknown>,
-  }));
-
-  const touched = new Set<string>();
-  for (const { op, payload } of parsedOps) {
-    const columns = touchedColumns(op, payload);
-    if (columns === 'all') return 'local-wins';
-    for (const column of columns) touched.add(column);
-  }
-
-  const currentRow = await txn.getFirstAsync<Record<string, unknown>>(
-    `select * from ${meta.table} where id = ?`,
-    [remoteRow.id],
-  );
-  if (currentRow === null) {
-    await upsertMirrorRow(txn, entity, remoteRow, { dirty: 0 });
-    return 'written';
-  }
-
-  let reconciledQuantity: number | null = null;
-  const quantityOps = parsedOps.filter(({ op }) => QUANTITY_OPS.has(op));
-  if (quantityOps.length > 0) {
-    const computed = await computeReconciledQuantity(txn, remoteRow, quantityOps);
-    if (computed === 'conflict') return 'local-wins';
-    reconciledQuantity = computed;
-  }
-
-  const deletedAtRaw = remoteRow.deleted_at;
-  const remoteDeletedAt =
-    meta.hasServerTombstone && typeof deletedAtRaw === 'string' ? toEpochMs(deletedAtRaw) : null;
-
-  const columns = [...meta.columns, 'updated_at', 'deleted_at', '_dirty'];
-  const values: SqlParam[] = columns.map((column) => {
-    if (column === '_dirty') return 1;
-    if (column === 'updated_at') return currentRow.updated_at as SqlParam;
-    if (column === 'deleted_at') {
-      return touched.has('deleted_at') ? (currentRow.deleted_at as SqlParam) : remoteDeletedAt;
-    }
-    if (column === 'quantity' && reconciledQuantity !== null) return reconciledQuantity;
-    if (touched.has(column)) return currentRow[column] as SqlParam;
-    return toSqlParam(remoteRow[column]);
-  });
-
-  const placeholders = columns.map(() => '?').join(', ');
-  const updateAssignments = columns.map((column) => `${column} = excluded.${column}`).join(', ');
-
-  await txn.runAsync(
-    `insert into ${meta.table} (${columns.join(', ')})
-     values (${placeholders})
-     on conflict(id) do update set ${updateAssignments}`,
-    values,
-  );
-  return 'written';
-}
 
 /** Wendet Remote-Daten an; lokale Dirty-Zeilen durchlaufen die Konfliktauflösung. */
 export async function applyRemoteRow(
@@ -280,15 +101,6 @@ export async function applyRemoteRow(
     return 'written';
   }
 
-  const pendingOps = await txn.getAllAsync<PendingOutboxRow>(
-    'select op, payload from outbox where entity = ? and entity_id = ? order by id asc',
-    [entity, remoteRow.id],
-  );
-
-  if (pendingOps.length > 0) {
-    return reconcileDirtyRowWithPendingOps(txn, entity, meta, remoteRow, pendingOps);
-  }
-
   const localSide: SyncSide = {
     id: remoteRow.id,
     updatedAt: local.updated_at,
@@ -296,7 +108,7 @@ export async function applyRemoteRow(
   };
   const remoteSide: SyncSide = {
     id: remoteRow.id,
-    updatedAt: toEpochMs(remoteUpdatedAt(meta, remoteRow)),
+    updatedAt: toEpochMs(remoteRow[meta.syncCursorColumn ?? 'updated_at'] as string),
     deletedAt:
       meta.hasServerTombstone && remoteRow.deleted_at ? toEpochMs(remoteRow.deleted_at) : null,
   };
@@ -324,10 +136,6 @@ export async function applyLocalMirrorWrite(
   nowMs: number,
 ): Promise<void> {
   const meta = mirrorMetaOf(entity);
-
-  if (meta.appendOnly && op !== 'insert') {
-    throw new Error(`${entity} ist append-only und akzeptiert ausschliesslich insert.`);
-  }
 
   if (op === 'delete' || op === 'restore') {
     await txn.runAsync(
