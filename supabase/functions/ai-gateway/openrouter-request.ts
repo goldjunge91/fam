@@ -1,5 +1,6 @@
 import { getModelExecutionProfile } from './config.ts';
 
+// OpenRouter soll bei Kochvorschlägen nur dieses feste Antwortformat erzeugen.
 export const COOKING_SUGGESTION_RESPONSE_FORMAT = {
   type: 'json_schema',
   json_schema: {
@@ -70,6 +71,7 @@ export const COOKING_SUGGESTION_RESPONSE_FORMAT = {
   },
 } as const;
 
+// OpenRouter soll bei Inventarerfassung nur ein unverbindliches Proposal erzeugen.
 export const INVENTORY_CAPTURE_RESPONSE_FORMAT = {
   type: 'json_schema',
   json_schema: {
@@ -152,6 +154,7 @@ export const INVENTORY_CAPTURE_RESPONSE_FORMAT = {
 
 export type OpenRouterMessage = { role: 'system' | 'user'; content: string };
 
+// Baut den Provider-Request und wählt das passende JSON-Schema für den Skill.
 export function createOpenRouterChatBody(input: {
   model: string;
   messages: OpenRouterMessage[];
@@ -159,6 +162,7 @@ export function createOpenRouterChatBody(input: {
   maxTokens?: number;
   temperature?: number;
 }): Record<string, unknown> {
+  // Das Modellprofil liefert Temperatur, Token-Limit und optionales Reasoning.
   const profile = getModelExecutionProfile(input.model);
   const responseFormat =
     input.skill === 'fam-inventory-capture'

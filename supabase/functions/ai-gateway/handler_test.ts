@@ -6,6 +6,7 @@ import {
   type GatewayInventoryContext,
 } from './handler.ts';
 
+// Dieser Testkontext simuliert den vom Backend gelieferten Haushalt.
 const CONTEXT: GatewayCookingContext = {
   inventory: {
     source: 'inventory',
@@ -55,6 +56,7 @@ const COOKING_RESULT = {
   ],
 };
 
+// Baut eine HTTP-Anfrage mit dem gleichen Grundaufbau wie die App.
 function request(body: unknown, method = 'POST', extraHeaders: HeadersInit = {}) {
   return new Request('http://localhost/ai-gateway', {
     method,
@@ -67,6 +69,7 @@ function request(body: unknown, method = 'POST', extraHeaders: HeadersInit = {})
   });
 }
 
+// Ersetzt Datenbank, Authentifizierung und Provider durch kontrollierbare Test-Doubles.
 function setup(options: {
   providerContent?: string;
   model?: string;

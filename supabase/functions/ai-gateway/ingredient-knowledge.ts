@@ -114,11 +114,13 @@ export type NormalizedIngredientKnowledgeImport = {
 
 type RecordValue = Record<string, unknown>;
 
+// Vereinheitlicht Regeln, damit Großschreibung nicht die Zuordnung verhindert.
 function normalizeRule(value: string): string {
   return value.trim().toLocaleLowerCase('en-US');
 }
 
 export function allergenIdForProfileRule(value: string): EuAllergenId | null {
+  // Übersetzt bekannte Nutzerregeln in die standardisierte EU-Allergen-ID.
   return PROFILE_RULE_TO_ALLERGEN_ID[normalizeRule(value)] ?? null;
 }
 
@@ -131,6 +133,7 @@ export function recipeHasAllergenConflict(
   recipeAllergens: readonly string[] | null,
   profileRules: readonly string[],
 ): boolean {
+  // Unbekannte Regeln oder fehlende Rezeptdaten werden absichtlich als unsicher behandelt.
   if (profileRules.length === 0) return false;
   if (recipeAllergens === null) return true;
 
@@ -153,6 +156,7 @@ export function recipeHasAllergenConflict(
 export function buildRecipeAllergenProjection(
   ingredients: readonly IngredientAllergenEvidence[],
 ): EuAllergenId[] | null {
+  // Erzeugt nur aus vollständiger, geprüfter Evidenz eine Allergenliste.
   if (ingredients.length === 0) return null;
 
   const allergenIds = new Set<EuAllergenId>();
@@ -176,6 +180,7 @@ export function buildRecipeAllergenProjection(
 }
 
 function recordValue(value: unknown, label: string): RecordValue {
+  // Stellt sicher, dass ein Importdatensatz wirklich ein Objekt ist.
   if (typeof value !== 'object' || value === null || Array.isArray(value)) {
     throw new Error(`${label} must be an object`);
   }
@@ -183,6 +188,7 @@ function recordValue(value: unknown, label: string): RecordValue {
 }
 
 function requiredString(record: RecordValue, key: string): string {
+  // Liest ein Pflichtfeld und lehnt leere Werte ab.
   const value = record[key];
   if (typeof value !== 'string' || value.trim().length === 0) {
     throw new Error(`${key} must be a non-empty string`);
@@ -191,6 +197,7 @@ function requiredString(record: RecordValue, key: string): string {
 }
 
 function optionalString(record: RecordValue, key: string): string | null {
+  // Liest ein optionales Textfeld und vereinheitlicht fehlende Werte zu null.
   const value = record[key];
   if (value === undefined || value === null) return null;
   return requiredString(record, key);
@@ -201,6 +208,7 @@ function oneOf<const T extends readonly string[]>(
   values: T,
   label: string,
 ): T[number] {
+  // Beschränkt einen Wert auf eine vorher festgelegte Liste erlaubter Werte.
   if (typeof value !== 'string' || !values.includes(value)) {
     throw new Error(`${label} is not supported`);
   }
@@ -208,6 +216,7 @@ function oneOf<const T extends readonly string[]>(
 }
 
 function provenanceFrom(record: RecordValue): Provenance {
+  // Liest Herkunft, Version und Lizenz der externen Quelle.
   const sourceUrl = requiredString(record, 'sourceUrl');
   if (!/^https?:\/\//.test(sourceUrl)) {
     throw new Error('sourceUrl must be an http(s) URL');
@@ -220,6 +229,7 @@ function provenanceFrom(record: RecordValue): Provenance {
 }
 
 function allergenIdFrom(value: unknown): EuAllergenId {
+  // Prüft, ob eine Allergen-ID aus der EU-Taxonomie stammt.
   return oneOf(value, EU_ALLERGEN_IDS, 'allergenId');
 }
 
@@ -228,6 +238,7 @@ function normalizeMapping(
   source: KnowledgeSource,
   baseProvenance: Provenance,
 ): NormalizedMappingImport {
+  // Normalisiert eine Allergen-Zuordnung und verlangt nötige Prüfzeitpunkte.
   const record = recordValue(value, 'mapping');
   const mappingSource = oneOf(record.source ?? source, MAPPING_SOURCES, 'mapping source');
   const confidence = oneOf(record.confidence, KNOWLEDGE_CONFIDENCES, 'confidence');
@@ -262,6 +273,7 @@ function normalizeAlias(
   source: KnowledgeSource,
   baseProvenance: Provenance,
 ): NormalizedAliasImport {
+  // Normalisiert einen alternativen Namen aus derselben Datenquelle.
   const record = recordValue(value, 'alias');
   const declaredSource = record.source;
   if (declaredSource !== undefined && declaredSource !== source) {
@@ -277,6 +289,7 @@ function normalizeAlias(
 }
 
 export function normalizeTaxonomyImport(input: unknown): NormalizedTaxonomyImport {
+  // Prüft und normalisiert einen Datensatz der EU-Allergen-Taxonomie.
   const record = recordValue(input, 'taxonomy import');
   if (record.source !== 'eu_lmiv') {
     throw new Error('taxonomy imports must use eu_lmiv');
@@ -296,6 +309,7 @@ export function normalizeTaxonomyImport(input: unknown): NormalizedTaxonomyImpor
 export function normalizeIngredientKnowledgeImport(
   input: unknown,
 ): NormalizedIngredientKnowledgeImport {
+  // Prüft eine komplette Zutatenanreicherung mit Aliasen und Zuordnungen.
   const record = recordValue(input, 'ingredient import');
   const source = oneOf(record.source, KNOWLEDGE_SOURCES, 'source');
   const provenance = provenanceFrom(record);
@@ -342,6 +356,7 @@ function normalizeProviderImport(
   input: unknown,
   expectedSource: KnowledgeSource,
 ): NormalizedIngredientKnowledgeImport {
+  // Stellt sicher, dass ein Import wirklich zur erwarteten Quelle gehört.
   const result = normalizeIngredientKnowledgeImport(input);
   if (result.ingredient.source !== expectedSource) {
     throw new Error(`ingredient import must use ${expectedSource}`);
@@ -350,13 +365,16 @@ function normalizeProviderImport(
 }
 
 export function normalizeOpenFoodFactsImport(input: unknown): NormalizedIngredientKnowledgeImport {
+  // Adapter für Zutatenwissen aus Open Food Facts.
   return normalizeProviderImport(input, 'open_food_facts');
 }
 
 export function normalizeFoodOnImport(input: unknown): NormalizedIngredientKnowledgeImport {
+  // Adapter für Zutatenwissen aus FoodOn.
   return normalizeProviderImport(input, 'foodon');
 }
 
 export function normalizeCuratedImport(input: unknown): NormalizedIngredientKnowledgeImport {
+  // Adapter für redaktionell gepflegtes Zutatenwissen.
   return normalizeProviderImport(input, 'curated');
 }

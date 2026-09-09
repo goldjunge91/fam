@@ -6,6 +6,7 @@ import {
   validateRecipeSuggestionResponse,
 } from './recipe-suggestion-contract.ts';
 
+// Namen werden für Vergleiche vereinheitlicht, ohne die Originaldaten zu ändern.
 const normalize = (value: string) => value.trim().toLocaleLowerCase('de-DE');
 
 type AvailableStock = {
@@ -18,6 +19,7 @@ type AvailableStock = {
 };
 
 function buildStockList(context: RecipeSuggestionContext): AvailableStock[] {
+  // Bestand und ausdrücklich geplante Einkäufe werden als getrennte Vorräte geführt.
   const inventoryStocks = context.priority_foods.map((food) => ({
     id: food.inventory_item_id,
     name: food.name,
@@ -45,6 +47,7 @@ function allocateIngredient(
   used: Map<string, RecipeSuggestionMeal['used_items'][number]>,
   additional: Set<string>,
 ): boolean {
+  // Verteilt eine benötigte Zutat auf passende Vorräte und prüft die Menge.
   if (ingredient.quantity === null || ingredient.unit === null) {
     return false;
   }
@@ -90,6 +93,7 @@ function allocateIngredient(
 }
 
 function recipeFingerprint(recipe: GatewayRecipe, steps: readonly string[]): string {
+  // Gleiche Zutaten und Schritte gelten als dasselbe Rezept, auch bei anderem Titel.
   const sortedIngredients = recipe.ingredients
     .map((item) => normalize(item.normalizedName))
     .sort();
@@ -102,6 +106,7 @@ export function buildCatalogSuggestions(
   context: RecipeSuggestionContext,
   recipes: readonly GatewayRecipe[],
 ): RecipeSuggestionMeal[] {
+  // Katalogrezepte werden ohne KI direkt und damit kostenlos vorgeschlagen.
   const meals: RecipeSuggestionMeal[] = [];
   const fingerprints = new Set<string>();
 

@@ -6,6 +6,7 @@ import {
   createOpenRouterChatBody,
 } from './openrouter-request.ts';
 
+// Diese Tests prüfen die Provider-Schemata und die Modellparameter.
 Deno.test('uses strict JSON Schema output with a closed response object for cooking suggestions', () => {
   assertEquals(COOKING_SUGGESTION_RESPONSE_FORMAT.type, 'json_schema');
   assertEquals(COOKING_SUGGESTION_RESPONSE_FORMAT.json_schema.strict, true);

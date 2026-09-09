@@ -54,24 +54,29 @@ export type RecipeSuggestionContextResult = {
 
 const SHOPPING_QUESTION = 'Willst du heute noch einkaufen?';
 
+// Vereinheitlicht Namen für sichere Vergleiche ohne Beachtung von Großschreibung.
 function normalize(value: string): string {
   return value.trim().toLocaleLowerCase('de-DE');
 }
 
+// Akzeptiert nur Datumswerte im Format YYYY-MM-DD.
 function dateOnly(value: string | null): string | null {
   return value !== null && /^\d{4}-\d{2}-\d{2}$/.test(value) ? value : null;
 }
 
+// Ermittelt das heutige Datum im gleichen Format wie die Inventardaten.
 function todayOnly(today: Date): string {
   return today.toISOString().slice(0, 10);
 }
 
+// Berechnet, wie viele Tage zwischen heute und einem Ablaufdatum liegen.
 function daysUntil(date: string, today: Date): number {
   const target = Date.parse(`${date}T00:00:00Z`);
   const start = Date.parse(`${todayOnly(today)}T00:00:00Z`);
   return Math.round((target - start) / 86_400_000);
 }
 
+// Ein Inventar-Los ist nur mit Name, positiver Menge und gültigem Datum nutzbar.
 function isUsableLot(
   lot: RecipeSuggestionGatewayInput['inventory']['lots'][number],
   today: Date,
@@ -86,6 +91,7 @@ function isUsableLot(
   );
 }
 
+// Je näher das Ablaufdatum liegt, desto höher wird die Nutzungspriorität.
 function lotPriority(
   lot: RecipeSuggestionGatewayInput['inventory']['lots'][number],
   today: Date,
@@ -97,6 +103,7 @@ function lotPriority(
   return 101 + Math.max(0, 100 - days * 10);
 }
 
+// Katalogrezepte werden vor Vorlagen bevorzugt.
 function sourceRank(source: RecipeSuggestionSource): number {
   return source === 'catalog' ? 0 : 1;
 }
@@ -117,6 +124,7 @@ const MEASUREMENT_DEFINITIONS: ReadonlyMap<
   ['portion', { dimension: 'portion', factor: 1 }],
 ]);
 
+// Wandelt Menge und Einheit in einen vergleichbaren Wert um.
 function comparableQuantity(quantity: number | null, unit: string | null): ComparableQuantity | null {
   if (quantity === null || !Number.isFinite(quantity) || quantity <= 0 || unit === null) {
     return null;
@@ -134,6 +142,7 @@ function addComparableToQuantityLedger(
   name: string,
   quantity: ComparableQuantity,
 ): void {
+  // Der Ledger summiert Mengen je Lebensmittel und Messdimension.
   const byDimension = ledger.get(normalize(name)) ?? new Map<MeasurementDimension, number>();
   byDimension.set(
     quantity.dimension,
@@ -148,6 +157,7 @@ function addToQuantityLedger(
   quantity: number | null,
   unit: string | null,
 ): void {
+  // Fügt eine einzelne Inventar- oder Einkaufsmenge in den Ledger ein.
   const comparable = comparableQuantity(quantity, unit ?? 'piece');
   if (comparable === null) return;
   addComparableToQuantityLedger(ledger, name, comparable);
@@ -159,6 +169,7 @@ function hasSufficientRecipeQuantities(
   usableLots: ReadonlyArray<RecipeSuggestionGatewayInput['inventory']['lots'][number]>,
   plannedShoppingItems: ReadonlyArray<NonNullable<RecipeSuggestionGatewayInput['shoppingItems']>[number]>,
 ): boolean {
+  // Prüft, ob alle Rezeptzutaten für die gewünschte Personenzahl vorhanden sind.
   if (recipe.servings === null || !Number.isInteger(recipe.servings) || recipe.servings <= 0) {
     return false;
   }
@@ -195,6 +206,7 @@ function hasSufficientRecipeQuantities(
 export function buildRecipeSuggestionContext(
   input: RecipeSuggestionGatewayInput,
 ): RecipeSuggestionContextResult | null {
+  // Baut den kleinen, geprüften Kontext, den die KI später sehen darf.
   const forbiddenIngredients = new Set((input.forbiddenIngredients ?? []).map(normalize));
   const usableLots = input.inventory.lots
     .map((lot, index) => ({ lot, index }))

@@ -5,10 +5,13 @@ import {
   type RecipeSuggestionResponse,
 } from './recipe-suggestion-contract.ts';
 
+// Diese Tests prüfen Form, Referenzen, Mengen und Sicherheitsregeln der Antwort.
+// Diese kleine Hilfsfunktion ersetzt die Testbibliotheks-Prüfung für einfache Bedingungen.
 function assert(condition: unknown, message: string): asserts condition {
   if (!condition) throw new Error(message);
 }
 
+// Vergleicht verschachtelte Testdaten über ihre JSON-Darstellung.
 function assertDeepEquals(actual: unknown, expected: unknown, message: string): void {
   if (JSON.stringify(actual) !== JSON.stringify(expected)) {
     throw new Error(`${message}\nactual: ${JSON.stringify(actual)}\nexpected: ${JSON.stringify(expected)}`);
@@ -23,6 +26,7 @@ const catalogRecipe = {
 };
 
 function createContext(overrides: Partial<RecipeSuggestionContext> = {}): RecipeSuggestionContext {
+  // Liefert einen kleinen gültigen Kontext als Ausgangspunkt für die Tests.
   return {
     schema_version: 1,
     request: { type: 'recipe_suggestion', servings: 2 },
@@ -50,6 +54,7 @@ function createContext(overrides: Partial<RecipeSuggestionContext> = {}): Recipe
 }
 
 function createCatalogMeal(overrides: Partial<RecipeSuggestionMeal> = {}): RecipeSuggestionMeal {
+  // Erzeugt eine gültige Katalogmahlzeit mit optionalen Teständerungen.
   return {
     title: 'Tomatenpasta',
     source: 'catalog',
@@ -64,10 +69,12 @@ function createCatalogMeal(overrides: Partial<RecipeSuggestionMeal> = {}): Recip
 }
 
 function createModelMeal(overrides: Partial<RecipeSuggestionMeal> = {}): RecipeSuggestionMeal {
+  // Erzeugt eine gültige Fallback-Mahlzeit des Modells.
   return createCatalogMeal({ source: 'model_generated', recipe_id: null, ...overrides });
 }
 
 function createResponse(...meals: RecipeSuggestionMeal[]): RecipeSuggestionResponse {
+  // Verpackt Mahlzeiten in die versionierte Antwortstruktur.
   return { schema_version: 1, meals };
 }
 
@@ -76,6 +83,7 @@ function expectIssue(
   code: string,
   path: string,
 ): void {
+  // Prüft, dass der Validator einen Fehler am erwarteten Pfad meldet.
   assert(!result.ok, 'expected validation to fail');
   assert(
     result.issues.some((candidate) => candidate.code === code && candidate.path === path),

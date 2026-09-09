@@ -123,13 +123,16 @@ function issue(
   path: string,
   message: string,
 ): RecipeSuggestionIssue {
+  // Jede Validierungsabweichung bekommt einen maschinenlesbaren Code und Pfad.
   return { code, path, message };
 }
 
+// Erzeugt eine einheitliche Meldung für strukturell falsche Daten.
 function invalidShape(path: string, message: string): RecipeSuggestionIssue {
   return issue('invalid_shape', path, message);
 }
 
+// Prüft, ob ein unbekannter Wert ein JSON-Objekt ist.
 function isRecord(value: unknown): value is UnknownRecord {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
@@ -140,6 +143,7 @@ function readObject(
   expectedKeys: readonly string[],
   issues: RecipeSuggestionIssue[],
 ): UnknownRecord | null {
+  // Zusätzlich zu fehlenden Feldern werden unbekannte Felder abgelehnt.
   if (!isRecord(value)) {
     issues.push(invalidShape(path, 'must be an object'));
     return null;
@@ -167,6 +171,7 @@ function parseNonEmptyString(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): string | null {
+  // Namen und Texte müssen vorhanden sein und dürfen nicht leer sein.
   if (typeof value !== 'string' || value.trim().length === 0) {
     issues.push(invalidShape(path, 'must be a non-empty string'));
     return null;
@@ -174,6 +179,7 @@ function parseNonEmptyString(
   return value;
 }
 
+// Prüft einen beliebigen String, der auch leer sein darf.
 function parseString(value: unknown, path: string, issues: RecipeSuggestionIssue[]): string | null {
   if (typeof value !== 'string') {
     issues.push(invalidShape(path, 'must be a string'));
@@ -187,6 +193,7 @@ function parseNullableString(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): string | null {
+  // Null ist erlaubt, ansonsten muss der Wert ein String sein.
   if (value === null) return null;
   return parseString(value, path, issues);
 }
@@ -196,6 +203,7 @@ function parseNullableNonEmptyString(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): string | null {
+  // Null ist erlaubt, ein vorhandener String darf aber nicht leer sein.
   if (value === null) return null;
   if (typeof value !== 'string' || value.length === 0) {
     issues.push(invalidShape(path, 'must be a non-empty string or null'));
@@ -209,6 +217,7 @@ function parsePositiveNumber(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): number | null {
+  // Mengen müssen endlich und strikt größer als null sein.
   if (typeof value !== 'number' || !Number.isFinite(value) || value <= 0) {
     issues.push(invalidShape(path, 'must be a finite positive number'));
     return null;
@@ -221,6 +230,7 @@ function parsePositiveInteger(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): number | null {
+  // Personenanzahl und ähnliche Werte müssen positive ganze Zahlen sein.
   if (typeof value !== 'number' || !Number.isInteger(value) || value <= 0) {
     issues.push(invalidShape(path, 'must be a positive integer'));
     return null;
@@ -233,6 +243,7 @@ function parseSchemaVersion(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): 1 | null {
+  // Der Vertrag ist versioniert, damit spätere Änderungen eindeutig bleiben.
   if (value !== RECIPE_SUGGESTION_SCHEMA_VERSION) {
     issues.push(invalidShape(path, 'must be schema version 1'));
     return null;
@@ -247,6 +258,7 @@ function parseStringArray(
   nonEmptyItems: boolean,
   minimumLength = 0,
 ): string[] | null {
+  // Prüft Arrays und optional auch deren Mindestlänge und Inhalte.
   if (!Array.isArray(value)) {
     issues.push(invalidShape(path, 'must be an array'));
     return null;
@@ -271,6 +283,7 @@ function parseCandidateSource(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): CandidateRecipeSource | null {
+  // Kandidaten dürfen nur aus Katalog oder Vorlage stammen.
   if (value !== 'catalog' && value !== 'template') {
     issues.push(invalidShape(path, 'must be catalog or template'));
     return null;
@@ -283,6 +296,7 @@ function parseMealSource(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): RecipeSuggestionSource | null {
+  // Eine Antwort darf zusätzlich ein vom Modell erzeugtes Rezept markieren.
   if (value !== 'catalog' && value !== 'template' && value !== 'model_generated') {
     issues.push(invalidShape(path, 'must be catalog, template, or model_generated'));
     return null;
@@ -295,6 +309,7 @@ function parseIdentifier(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): string | null {
+  // IDs werden auf ein einfaches, erwartbares Zeichenformat begrenzt.
   if (typeof value !== 'string' || !/^[A-Za-z0-9][A-Za-z0-9._:-]*$/.test(value)) {
     issues.push(invalidShape(path, 'must be a valid identifier'));
     return null;
@@ -307,6 +322,7 @@ function parsePriorityFood(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): RecipeSuggestionContext['priority_foods'][number] | null {
+  // Prüft ein Lebensmittel, das die Auswahl des Modells priorisieren soll.
   const object = readObject(value, path, PRIORITY_FOOD_KEYS, issues);
   if (object === null) return null;
 
@@ -353,6 +369,7 @@ function parsePlannedShoppingItem(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): RecipeSuggestionContext['planned_shopping_items'][number] | null {
+  // Prüft einen ausdrücklich erlaubten Einkaufslistenartikel.
   const object = readObject(value, path, PLANNED_SHOPPING_ITEM_KEYS, issues);
   if (object === null) return null;
 
@@ -376,6 +393,7 @@ function parseCandidateRecipe(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): RecipeSuggestionContext['candidate_recipes'][number] | null {
+  // Prüft eine vom Backend vorgeschlagene Rezeptreferenz.
   const object = readObject(value, path, CANDIDATE_RECIPE_KEYS, issues);
   if (object === null) return null;
 
@@ -395,6 +413,7 @@ function parseCandidateRecipe(
 }
 
 function parseContext(input: unknown): RecipeSuggestionValidationResult<RecipeSuggestionContext> {
+  // Liest den kompletten kanonischen Kontext und sammelt alle Fehler.
   const issues: RecipeSuggestionIssue[] = [];
   const object = readObject(input, '$', CONTEXT_KEYS, issues);
   if (object === null) return { ok: false, issues };
@@ -521,6 +540,7 @@ function parseContext(input: unknown): RecipeSuggestionValidationResult<RecipeSu
 }
 
 function contextSemanticIssues(context: RecipeSuggestionContext): RecipeSuggestionIssue[] {
+  // Prüft Regeln, die sich erst über mehrere Kontextfelder erkennen lassen.
   const issues: RecipeSuggestionIssue[] = [];
   const candidateIds = new Set<string>();
 
@@ -564,6 +584,7 @@ function parseUsedItem(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): RecipeSuggestionMeal['used_items'][number] | null {
+  // Prüft eine Inventarverwendung innerhalb einer Mahlzeit.
   const object = readObject(value, path, USED_ITEM_KEYS, issues);
   if (object === null) return null;
 
@@ -584,6 +605,7 @@ function parseMeal(
   path: string,
   issues: RecipeSuggestionIssue[],
 ): RecipeSuggestionMeal | null {
+  // Prüft die reine Form einer einzelnen Mahlzeit.
   const object = readObject(value, path, MEAL_KEYS, issues);
   if (object === null) return null;
 
@@ -640,6 +662,7 @@ function parseMeal(
 }
 
 function parseResponse(input: unknown): RecipeSuggestionValidationResult<RecipeSuggestionResponse> {
+  // Prüft die reine Form der gesamten Modellantwort.
   const issues: RecipeSuggestionIssue[] = [];
   const object = readObject(input, '$', RESPONSE_KEYS, issues);
   if (object === null) return { ok: false, issues };
@@ -690,6 +713,7 @@ const MEASUREMENT_DEFINITIONS: ReadonlyMap<
 ]);
 
 export function comparableMeasurement(quantity: number, unit: string): ComparableMeasurement | null {
+  // Macht kompatible Einheiten vergleichbar, zum Beispiel kg und g.
   const definition = MEASUREMENT_DEFINITIONS.get(normalize(unit));
   if (!definition) return null;
 
@@ -702,6 +726,7 @@ function validateMealSemantics(
   meal: RecipeSuggestionMeal,
   mealIndex: number,
 ): RecipeSuggestionIssue[] {
+  // Prüft zusätzlich, ob Referenzen, Mengen und Zutaten zum Kontext passen.
   const issues: RecipeSuggestionIssue[] = [];
   const path = `$.meals[${mealIndex}]`;
   const usedQuantities = new Map<string, ComparableMeasurement>();
@@ -857,6 +882,7 @@ function validateMealSemantics(
 }
 
 function unableToValidate<T>(): RecipeSuggestionValidationResult<T> {
+  // Liefert einen sicheren Standardfehler, falls die Validierung selbst scheitert.
   return {
     ok: false,
     issues: [invalidShape('$', 'input could not be validated')],
@@ -866,6 +892,7 @@ function unableToValidate<T>(): RecipeSuggestionValidationResult<T> {
 export function validateRecipeSuggestionContext(
   input: unknown,
 ): RecipeSuggestionValidationResult<RecipeSuggestionContext> {
+  // Öffentliche Prüfung für den vom Server erzeugten Kochkontext.
   try {
     return parseContext(input);
   } catch {
@@ -877,6 +904,7 @@ export function validateRecipeSuggestionResponse(
   context: unknown,
   input: unknown,
 ): RecipeSuggestionValidationResult<RecipeSuggestionResponse> {
+  // Öffentliche Prüfung der Modellantwort gegen Kontext und Fachregeln.
   const contextResult = validateRecipeSuggestionContext(context);
   if (!contextResult.ok) return { ok: false, issues: contextResult.issues };
 
@@ -899,5 +927,6 @@ export function validateRecipeSuggestionContract(
   context: unknown,
   input: unknown,
 ): RecipeSuggestionValidationResult<RecipeSuggestionResponse> {
+  // Kompatibler Sammelname für die vollständige Antwortprüfung.
   return validateRecipeSuggestionResponse(context, input);
 }

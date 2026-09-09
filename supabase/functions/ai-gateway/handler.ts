@@ -147,6 +147,7 @@ export const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
 };
 
+// Baut eine JSON-Antwort mit den gemeinsamen Gateway- und CORS-Headern.
 function json(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), {
     status,
@@ -154,14 +155,17 @@ function json(body: unknown, status = 200): Response {
   });
 }
 
+// Prüft, ob ein unbekannter Wert ein JSON-Objekt ist.
 function isRecord(value: unknown): value is JsonRecord {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
+// Akzeptiert nur nichtleere Strings mit einer begrenzten Länge.
 function nonEmptyString(value: unknown): value is string {
   return typeof value === 'string' && value.trim().length > 0 && value.length <= 8_000;
 }
 
+// Prüft und normalisiert die beiden erlaubten Eingangstypen.
 function parseRequest(value: unknown): GatewayRequest | null {
   if (!isRecord(value) || !nonEmptyString(value.skill) || !nonEmptyString(value.householdId)) {
     return null;
@@ -225,6 +229,7 @@ function parseRequest(value: unknown): GatewayRequest | null {
     : null;
 }
 
+// Wählt das angefragte Modell nur aus der serverseitigen Allowlist.
 function modelFor(
   requestedModel: string | undefined,
   allowedModels: readonly string[],
@@ -234,6 +239,7 @@ function modelFor(
   return allowedModels.includes(model) ? model : null;
 }
 
+// Baut die Systemanweisung für den jeweiligen Skill.
 function buildSystemPrompt(
   request: GatewayRequest,
   context: GatewayCookingContext | RecipeSuggestionContext,
@@ -245,6 +251,7 @@ function buildSystemPrompt(
   return `${PROMPTS.common}\n${PROMPTS.cookFromInventory(JSON.stringify(context))}`;
 }
 
+// Baut die Nutzereingabe als JSON für das Modell.
 function buildUserPrompt(request: GatewayRequest): string {
   if (request.skill === 'fam-inventory-capture') {
     return JSON.stringify({ scenario: request.skill, locale: request.locale, text: request.text });
@@ -260,6 +267,7 @@ function buildUserPrompt(request: GatewayRequest): string {
   });
 }
 
+// Liest eine JSON-Objektantwort des Providers ohne Reparaturversuche.
 function parseProviderJson(content: string): JsonRecord | null {
   try {
     const parsed: unknown = JSON.parse(content);
@@ -269,15 +277,18 @@ function parseProviderJson(content: string): JsonRecord | null {
   }
 }
 
+// Prüft, ob ein Wert ein Array nichtleerer Strings ist.
 function validStringArray(value: unknown): value is string[] {
   return Array.isArray(value) && value.every(nonEmptyString);
 }
 
+// Erlaubt nur die Felder, bei denen eine Capture-Antwort Rückfragen stellen darf.
 function validMissingFields(value: unknown): value is string[] {
   const allowed = new Set(['quantity', 'unit', 'storage', 'date']);
   return validStringArray(value) && value.every((field) => allowed.has(field));
 }
 
+// Prüft eine Inventarerfassung und verlangt wörtliche Belege aus dem Nutzertest.
 function validateCaptureResult(result: JsonRecord, request: CaptureRequest): string | null {
   if (result.kind !== 'inventory_capture_proposal.v1') return 'invalid_capture_kind';
   if (!Array.isArray(result.items) || !validStringArray(result.questions) || !validStringArray(result.warnings)) {
@@ -318,6 +329,7 @@ function validateCaptureResult(result: JsonRecord, request: CaptureRequest): str
 
 /** Builds the HTTP handler used by the Deno entrypoint and its tests. */
 export function createAiGatewayHandler(dependencies: Dependencies) {
+  // Abhängigkeiten werden von außen eingesetzt, damit der Ablauf ohne echte Dienste testbar ist.
   const allowedModels = dependencies.allowedModels ?? ALLOWED_MODELS;
   const defaultModel = dependencies.defaultModel ?? DEFAULT_MODEL;
   const now = dependencies.now ?? (() => new Date().toISOString());

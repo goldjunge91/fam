@@ -3,6 +3,7 @@ import { buildCatalogSuggestions } from './catalog-suggestions.ts';
 import type { GatewayRecipe } from './handler.ts';
 import type { RecipeSuggestionContext } from './recipe-suggestion-contract.ts';
 
+// Diese Tests prüfen die kostenlose, deterministische Katalogauswahl.
 const recipe: GatewayRecipe = {
   recipeId: 'tomatoes', title: 'Tomatensalat', source: 'catalog', estimatedMinutes: 5,
   servings: 2, allergens: [], dietaryTags: [], steps: ['Tomaten schneiden und servieren.'],

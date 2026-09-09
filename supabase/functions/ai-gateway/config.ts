@@ -30,6 +30,7 @@ export const DEFAULT_EXECUTION_PROFILE: ModelExecutionProfile = {
   maxTokens: 4_096,
 };
 
+// Einzelne Modelle können von den Standardwerten abweichende Einstellungen brauchen.
 export const MODEL_EXECUTION_PROFILES: Readonly<
   Record<string, Partial<ModelExecutionProfile>>
 > = {
@@ -42,6 +43,7 @@ export const MODEL_EXECUTION_PROFILES: Readonly<
 };
 
 export function getModelExecutionProfile(model: string): ModelExecutionProfile {
+  // Nicht konfigurierte Modelle erhalten das sichere Standardprofil.
   const custom = MODEL_EXECUTION_PROFILES[model] ?? {};
   return {
     ...DEFAULT_EXECUTION_PROFILE,
@@ -49,6 +51,7 @@ export function getModelExecutionProfile(model: string): ModelExecutionProfile {
   };
 }
 
+// Diese Anweisungen begrenzen, was die KI sehen und zurückgeben darf.
 export const PROMPTS = {
   common: `
 Du bist der read-only Haushaltsassistent von fam. Antworte ausschließlich als

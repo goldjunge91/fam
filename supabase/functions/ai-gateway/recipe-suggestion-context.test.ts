@@ -5,8 +5,10 @@ import {
   type RecipeSuggestionGatewayInput,
 } from './recipe-suggestion-context.ts';
 
+// Diese Tests prüfen die deterministische Auswahl sicherer Lebensmittel und Rezepte.
 const today = new Date('2026-09-04T12:00:00.000Z');
 
+// Erstellt einen vollständigen Testkontext, der pro Test überschrieben werden kann.
 function createInput(
   overrides: Partial<RecipeSuggestionGatewayInput> = {},
 ): RecipeSuggestionGatewayInput {

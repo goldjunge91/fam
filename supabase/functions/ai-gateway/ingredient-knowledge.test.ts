@@ -12,6 +12,7 @@ import {
   recipeHasAllergenConflict,
 } from './ingredient-knowledge.ts';
 
+// Diese Tests prüfen Quellenherkunft, Allergenbelege und fail-closed Regeln.
 const provenance = {
   sourceUrl: 'https://example.test/source',
   sourceVersion: '2026-01',
