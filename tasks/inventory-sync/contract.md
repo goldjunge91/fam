@@ -8,10 +8,8 @@ und die technische Ausführung der Inventory-Operationen.
 
 Quellenrang: `CONSTRAINTS.md` setzt die Qualitätsgrenzen; dieser Vertrag setzt
 das Zielverhalten; `execution-plan.md` setzt die Reihenfolge. Beads verfolgt
-Arbeit und Nachweise. Die früheren Funktionsverträge in `fam-lem.18` und
-Folgetickets sind historische Ausgangslage, insbesondere ihre Legacy-Pflicht
-und eigenständigen Split-/Open-Ledgerpfade. Sie sind keine parallele normative
-Quelle. Implementiert wird nach diesem freigegebenen Zielvertrag.
+Arbeit und Nachweise. Frühere Entwürfe und Tickets sind keine normative Quelle.
+Implementiert wird nach diesem freigegebenen Zielvertrag.
 Dokumentfreigabe und Implementierungsnachweis
 sind getrennt; vorhandene grüne Tests belegen nicht automatisch das neue Modell.
 
@@ -83,6 +81,7 @@ sind getrennt; vorhandene grüne Tests belegen nicht automatisch das neue Modell
 4. **`reseal` (wieder-versiegelt):** Manuelle Lifecycle-Aktion für wiederverschließbare Verpackungen. Setzt `opened_at = null` und stellt die versiegelte Haltbarkeitsbasis wieder her. Kein Ledger-Eintrag, kein Los-Merge.
 
 Übergänge:
+
 - `versiegelt` $\rightarrow$ `geöffnet`: via `consume_inventory` (mit `opens_remainder`), bei $C=0$ ausschließlich via `open_inventory` gemäß Abschnitt 5.1.
 - `geöffnet` $\rightarrow$ `versiegelt`: nur via explizitem `reseal_inventory` (Metadaten-Patch) ODER via `merge_undo_open` (Undo des ersten Teilverbrauchs).
 - `geöffnet` $\rightarrow$ `vakuumiert`: via Metadaten-Patch (`vacuum_sealed = true`, Haltbarkeitsverlängerung).
@@ -131,7 +130,7 @@ Ergebnisse sind `applied`, `replayed`, `conflict` oder `invalid`. Nach einem
 Verbindungsabbruch hält der Client zusätzlich `unknown`. Retry- und
 Konfliktklassifikation verwenden maschinenlesbare Codes, keinen Freitext.
 
-### 2.1 Standardisierter Server-Response-Envelope (fam-lem.23)
+### 2.1 Standardisierter Server-Response-Envelope
 
 Jede fachlich entschiedene Mutation antwortet mit `operation_id`,
 `contract_version: 1` und einem diskriminierten Ergebnis:
@@ -154,13 +153,13 @@ Commit empfangen oder in einem konsistenten Read sichtbar wird.
 
 `inventory_applied_operations` besitzt genau diese Verantwortlichkeit:
 
-| Feld | Vertrag |
-| --- | --- |
-| `operation_id` | global eindeutiger UUID-Primärschlüssel |
-| `household_id`, `actor_id` | autorisierter Haushalt und serverseitig ermittelter Akteur |
-| `request` | normalisiertes JSONB: Version, Operationsname, alle IDs, CAS-Werte, Zeit der Absicht, Patch, Mengen, Snapshots und optionale Fachfelder |
-| `result` | unveränderliches ursprüngliches Ergebnis einschließlich vollständigem Footprint, Los- und Ledgerzeilen |
-| `applied_at` | einmaliger Serverzeitpunkt der Erstausführung |
+| Feld                       | Vertrag                                                                                                                                 |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `operation_id`             | global eindeutiger UUID-Primärschlüssel                                                                                                 |
+| `household_id`, `actor_id` | autorisierter Haushalt und serverseitig ermittelter Akteur                                                                              |
+| `request`                  | normalisiertes JSONB: Version, Operationsname, alle IDs, CAS-Werte, Zeit der Absicht, Patch, Mengen, Snapshots und optionale Fachfelder |
+| `result`                   | unveränderliches ursprüngliches Ergebnis einschließlich vollständigem Footprint, Los- und Ledgerzeilen                                  |
+| `applied_at`               | einmaliger Serverzeitpunkt der Erstausführung                                                                                           |
 
 Der Vergleich erfolgt auf dem vollständigen normalisierten JSONB, nicht nur
 auf ID, CAS oder einem Teilhash. Objekt-Key-Reihenfolge ist bedeutungslos;
@@ -298,17 +297,17 @@ Neue Snapshotfelder erfordern eine neue Contract-Version.
 
 ## 4. Operationsregister
 
-| Operation | Stabile IDs | Wirkung und vollständiger Footprint |
-| --- | --- | --- |
-| `insert_inventory` | `operation_id`, `item_id`, `in_transaction_id` | neues sichtbares Los und genau `IN quantity` |
-| `open_inventory` | `operation_id`, `source_item_id`, optional `opened_item_id` | Öffnen ohne Verbrauch, optionaler struktureller Split, kein Ledger; Receipt umfasst alle betroffenen Lose |
-| `consume_inventory` | `operation_id`, `out_transaction_id`, `source_item_id`, optional `opened_item_id` | Quelle, genau `OUT C`, optionaler Öffnungsrest (`opens_remainder`) und alle Tombstones |
-| `waste_inventory` | `operation_id`, `waste_transaction_id`, `item_id` | Menge reduzieren, genau `WASTE W`, Grund und möglicher Tombstone |
-| `move_inventory` | `operation_id`, `out_transaction_id`, `in_transaction_id`, `item_id` | Los, alter/neuer Ort und beide Ledgerbeine |
-| `correct_quantity` | `operation_id`, `transaction_id`, `item_id` | Compare-and-Set, tatsächliches `IN`- oder `OUT`-Delta und Tombstone |
-| `undo_inventory_operation` | `operation_id`, stabile Gegenledger-IDs, jeweiliges `reversal_of` | vollständiger Footprint des Originals; Modus `reverse_quantity`, `reverse_move` oder `merge_undo_open` |
-| `reseal_inventory` | `operation_id`, `item_id` | ausschließlich expliziter Lifecycle-Metadatenpatch, kein Ledger und kein Merge |
-| `patch_inventory_metadata` | `operation_id`, `item_id`, CAS-Anker | ausschließlich genannte Patchfelder, keine Menge und kein impliziter Move |
+| Operation                  | Stabile IDs                                                                       | Wirkung und vollständiger Footprint                                                                       |
+| -------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `insert_inventory`         | `operation_id`, `item_id`, `in_transaction_id`                                    | neues sichtbares Los und genau `IN quantity`                                                              |
+| `open_inventory`           | `operation_id`, `source_item_id`, optional `opened_item_id`                       | Öffnen ohne Verbrauch, optionaler struktureller Split, kein Ledger; Receipt umfasst alle betroffenen Lose |
+| `consume_inventory`        | `operation_id`, `out_transaction_id`, `source_item_id`, optional `opened_item_id` | Quelle, genau `OUT C`, optionaler Öffnungsrest (`opens_remainder`) und alle Tombstones                    |
+| `waste_inventory`          | `operation_id`, `waste_transaction_id`, `item_id`                                 | Menge reduzieren, genau `WASTE W`, Grund und möglicher Tombstone                                          |
+| `move_inventory`           | `operation_id`, `out_transaction_id`, `in_transaction_id`, `item_id`              | Los, alter/neuer Ort und beide Ledgerbeine                                                                |
+| `correct_quantity`         | `operation_id`, `transaction_id`, `item_id`                                       | Compare-and-Set, tatsächliches `IN`- oder `OUT`-Delta und Tombstone                                       |
+| `undo_inventory_operation` | `operation_id`, stabile Gegenledger-IDs, jeweiliges `reversal_of`                 | vollständiger Footprint des Originals; Modus `reverse_quantity`, `reverse_move` oder `merge_undo_open`    |
+| `reseal_inventory`         | `operation_id`, `item_id`                                                         | ausschließlich expliziter Lifecycle-Metadatenpatch, kein Ledger und kein Merge                            |
+| `patch_inventory_metadata` | `operation_id`, `item_id`, CAS-Anker                                              | ausschließlich genannte Patchfelder, keine Menge und kein impliziter Move                                 |
 
 Jede Operation enthält außerdem `household_id`, `created_at`, erwarteten
 Ausgangszustand und die für ihre Ledgerzeilen geltenden Produkt-, Mengenbasis-
@@ -449,6 +448,7 @@ Atomare Wirkung:
 - Es gibt keine separaten Transfer-Gegenbuchungen.
 
 Preconditions:
+
 - Das geöffnete Restlos muss noch exakt die unveränderte Restmenge $R$ aufweisen und das Ursprungslos noch exakt $S_0 - P$.
 - Beide Lose müssen in Ort, Produkt, Mengenbasis und sämtlichen statischen Snapshotfeldern übereinstimmen.
 - Eine spätere abhängige Operation auf einem der beiden Lose blockiert den Merge.
@@ -476,17 +476,17 @@ Preconditions:
 
 ## 8. Owner und Verbot ähnlicher Funktionen
 
-| Entscheidung | Einziger Owner |
-| --- | --- |
-| Lifecycle-Plan für Verbrauch, reines Öffnen, Öffnungsrest, Reseal und Undo | `src/features/inventory/inventory-lifecycle.ts` |
-| Mengenarithmetik | `src/lib/inventory-quantity.ts` |
-| Payloadversion, Normalisierung, IDs und Footprint | `src/features/inventory/inventory-lifecycle.ts` |
-| lokaler atomarer Commit des gelieferten Plans | `src/lib/sync/inventory-quantity.ts` |
-| Serverlocks, Snapshot, Idempotenz und Commit | `supabase/schemas/08_inventory.sql` |
-| Retry, Backoff, Reihenfolge und Push-Abschluss | `src/lib/sync/push.ts` |
-| Reconciliation | `src/lib/sync/mirror-write.ts` |
-| Konfliktauflösung | `src/lib/sync/resolve-inventory-conflict.ts` |
-| React-Orchestrierung | `src/features/inventory/use-inventory-mutations.ts` |
+| Entscheidung                                                               | Einziger Owner                                      |
+| -------------------------------------------------------------------------- | --------------------------------------------------- |
+| Lifecycle-Plan für Verbrauch, reines Öffnen, Öffnungsrest, Reseal und Undo | `src/features/inventory/inventory-lifecycle.ts`     |
+| Mengenarithmetik                                                           | `src/lib/inventory-quantity.ts`                     |
+| Payloadversion, Normalisierung, IDs und Footprint                          | `src/features/inventory/inventory-lifecycle.ts`     |
+| lokaler atomarer Commit des gelieferten Plans                              | `src/lib/sync/inventory-quantity.ts`                |
+| Serverlocks, Snapshot, Idempotenz und Commit                               | `supabase/schemas/08_inventory.sql`                 |
+| Retry, Backoff, Reihenfolge und Push-Abschluss                             | `src/lib/sync/push.ts`                              |
+| Reconciliation                                                             | `src/lib/sync/mirror-write.ts`                      |
+| Konfliktauflösung                                                          | `src/lib/sync/resolve-inventory-conflict.ts`        |
+| React-Orchestrierung                                                       | `src/features/inventory/use-inventory-mutations.ts` |
 
 Owner bezeichnet eine Verantwortung, nicht eine Datei pro Benutzeroperation.
 Alle lokalen Befehle leben als explizite Funktionen im bestehenden
@@ -507,6 +507,66 @@ Eine zweite Funktion ist verboten, wenn sie dieselbe fachliche Entscheidung
 erneut validiert, berechnet, klassifiziert, in einen Footprint übersetzt oder
 reconciliiert. Adapter dürfen nur typisierte Felder abbilden.
 
+### 8.1 Inkrementgrenze und Owner-Rekonstruktion (normativ)
+
+Die V3-Neuimplementierung wird in vertikalen, einzeln beweisbaren
+Inkrementen ausgeliefert:
+
+- KISS, DRY und YAGNI sind für jedes Inkrement verbindlich. Vor einem neuen
+  Owner, Helper, Adapter oder einer Abstraktion wird der bestehende Owner
+  geprüft; das Ticket dokumentiert die einfachere verworfene Alternative,
+  fehlende Duplikation und die konkrete Notwendigkeit.
+
+- Ein Inkrement bearbeitet höchstens vier handeditierte Produktionsdateien;
+  drei bis vier Dateien bilden den Zielkorridor. Test- und Harness-Dateien
+  werden zusätzlich vollständig benannt und bleiben eigene Nachweise, zählen
+  aber nicht als Produktions-Owner. Generierte Artefakte werden separat
+  benannt und niemals von Hand editiert.
+- Ein Inkrement besitzt höchstens drei Abnahmepunkte und ein beobachtbares
+  Ergebnis. Wenn ein Slice mehr als vier Dateien benötigt, wird er zuerst an
+  einer Vertrags- oder Daten-Grenze geteilt. Ein halbfertiger lokaler oder
+  serverseitiger Schreibpfad darf nicht aktiviert werden.
+- Neue oder neu bearbeitete Produktionsdateien liegen grundsätzlich im
+  Zielkorridor von 250 bis 400 Effective LOC. 250 LOC ist keine Aufforderung
+  zu künstlicher Auffüllung; eine kleinere vollständige Owner-Datei ist
+  zulässig. Die Obergrenze von 400 LOC ist hart.
+- Bestehende Produktionsdateien über 400 Effective LOC erhalten eine
+  dokumentierte Ausnahme mit Pfad, Baseline, Owner, Reduktionsziel und
+  Ablaufdatum. Die Ausnahme erlaubt kein Wachstum. Eine reine Verschiebung
+  von Code schließt die Ausnahme nicht.
+- Fehlt ein im Contract benötigter Owner im aktuellen Dateibaum, darf genau
+  diese Owner-Datei neu angelegt werden. Vor jeder neuen Datei muss das
+  Beads-Ticket einen kurzen KISS-, DRY- und YAGNI-Check festhalten: Warum
+  reicht kein bestehender Owner, warum entsteht keine Duplikation und warum
+  ist die Datei für den aktuellen Slice notwendig? Erst danach wird sie in
+  dieser Owner-Matrix benannt. Sie besitzt genau eine Verantwortung und hält
+  den LOC-Korridor ein. Daraus entstehen weder ein Command-Verzeichnis noch
+  eine allgemeine Registry, ein Executor oder eine zweite Contract-Schicht.
+- Die Dateigrenze ist ein Abnahme-Gate. Ein Ticket darf sie nicht durch
+  parallele Teiländerungen, nachträgliche Dateiaufteilung oder versteckte
+  Generierung umgehen.
+
+### 8.2 V3-Reset: fehlende Owner
+
+Der aktuelle Reset enthält mehrere im Operationsregister benötigte Owner nicht.
+Diese Pfade sind deshalb geplante Owner und keine stillschweigend vorausgesetzten
+Bestandsdateien:
+
+| Geplanter Owner                                        | Status im Reset      | Einzige Verantwortung                                    |
+| ------------------------------------------------------ | -------------------- | -------------------------------------------------------- |
+| `src/features/inventory/inventory-lifecycle.ts`        | fehlt, neu anzulegen | reine Planung, kanonische Operationstypen und Footprints |
+| `src/lib/sync/inventory-quantity.ts`                   | fehlt, neu anzulegen | lokaler atomarer Commit von Bestand, Ledger und Outbox   |
+| `src/lib/db/schemas/inventory.ts`                      | fehlt, neu anzulegen | lokales Inventory-Schema und Spiegelspalten              |
+| `supabase/schemas/08_inventory.sql`                    | fehlt, neu anzulegen | Servertabellen, RPCs, Receipts, Snapshots und RLS-Basis  |
+| `src/lib/sync/resolve-inventory-conflict.ts`           | fehlt, neu anzulegen | Konfliktentscheidung und Reconfirm-Orchestrierung        |
+| `src/features/inventory/use-inventory-transactions.ts` | fehlt, neu anzulegen | kanonischer History-Read ohne eigene Fachentscheidung    |
+| `src/features/inventory/use-inventory-conflicts.ts`    | fehlt, neu anzulegen | Darstellung des lokalen Konfliktstatus                   |
+
+Ein zusätzlicher Outbox-Konflikt- oder Push-Owner wird nicht vorsorglich
+angelegt. Vor jeder Erweiterung muss der KISS-/DRY-/YAGNI-Check nachweisen,
+dass die Verantwortung nicht in den bestehenden generischen Push- und
+Outbox-Ownern liegen kann.
+
 ## 9. Ungeshipped State: Keine Legacy-Kompatibilität
 
 Da die App noch nicht in Produktion veröffentlicht ist, gibt es keine
@@ -523,60 +583,50 @@ veraltete DB-Spalten:
   sie werden weder ausgeführt noch still gelöscht. Historische Migrationen
   sind keine Laufzeit-Legacypfade und werden nicht nachträglich editiert.
 
-### 9.1 Kanonische Operationsübersicht (fam-lem.19)
+### 9.1 Kanonische Operationsübersicht
 
-| Kanonischer Name (v1) | Bisherige Mutation | Stabile IDs | CAS-Anker & Fehlercodes | Exakter Produktions-Owner |
-| --- | --- | --- | --- | --- |
-| `open_inventory` | bisheriges Öffnen / `split_open` ohne Verbrauch | `operation_id`, `source_item_id`, optional `opened_item_id` | `STALE_BASE`, `PAYLOAD_VALIDATION_FAILED` | `src/lib/sync/inventory-quantity.ts` |
-| `insert_inventory` | `insert` | `operation_id`, `item_id`, `in_transaction_id` | `PAYLOAD_VALIDATION_FAILED` | `src/lib/sync/inventory-quantity.ts` |
-| `consume_inventory` (`sealed_full` / `opened`) | `adjust_quantity` (negativ, Verzehr) | `operation_id`, `out_transaction_id`, `source_item_id` | `STALE_BASE`, `INSUFFICIENT_QUANTITY` | `src/lib/sync/inventory-quantity.ts` |
-| `consume_inventory` (`sealed_partial`) | ehem. `split_open` | `operation_id`, `out_transaction_id`, `source_item_id`, `opened_item_id` | `STALE_BASE`, `INSUFFICIENT_QUANTITY` | `src/lib/sync/inventory-quantity.ts` |
-| `waste_inventory` | `adjust_quantity` (negativ, Müll) / `delete` | `operation_id`, `waste_transaction_id`, `item_id` | `STALE_BASE`, `INSUFFICIENT_QUANTITY` | `src/lib/sync/inventory-quantity.ts` |
-| `correct_quantity` | `adjust_quantity` (Korrektur) | `operation_id`, `transaction_id`, `item_id` | `STALE_BASE` | `src/lib/sync/inventory-quantity.ts` |
-| `move_inventory` | `move` | `operation_id`, `out_transaction_id`, `in_transaction_id`, `item_id` | `STALE_BASE` | `src/lib/sync/inventory-quantity.ts` |
-| `undo_inventory_operation` (`reverse_quantity`) | `reverse_quantity` / `restore` | `operation_id`, Gegen-Ledger-ID, `reversal_of` | `UNDO_WINDOW_EXPIRED`, `DEPENDENT_MUTATION_EXISTS` | `src/lib/sync/inventory-quantity.ts` |
-| `undo_inventory_operation` (`merge_undo_open`) | `merge_undo_open` | `operation_id`, `in_transaction_id`, `reversal_of`, `source_item_id`, `opened_item_id` | `UNDO_WINDOW_EXPIRED`, `DEPENDENT_MUTATION_EXISTS`, `STALE_BASE` | `src/lib/sync/inventory-quantity.ts` |
-| `undo_inventory_operation` (`reverse_move`) | `reverse_move` | `operation_id`, 2 Gegen-Ledger-IDs, `reversal_of` | `UNDO_WINDOW_EXPIRED`, `DEPENDENT_MUTATION_EXISTS` | `src/lib/sync/inventory-quantity.ts` |
-| `reseal_inventory` | `reseal` | `operation_id`, `item_id` | `STALE_BASE` | `src/lib/sync/inventory-quantity.ts` |
-| `patch_inventory_metadata` | `update` / `patch` | `operation_id`, `item_id` | `expected_updated_at`, `STALE_BASE` | `src/lib/sync/inventory-quantity.ts` |
+| Kanonischer Name (v1)                           | Bisherige Mutation                              | Stabile IDs                                                                            | CAS-Anker & Fehlercodes                                          | Exakter Produktions-Owner            |
+| ----------------------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------ |
+| `open_inventory`                                | bisheriges Öffnen / `split_open` ohne Verbrauch | `operation_id`, `source_item_id`, optional `opened_item_id`                            | `STALE_BASE`, `PAYLOAD_VALIDATION_FAILED`                        | `src/lib/sync/inventory-quantity.ts` |
+| `insert_inventory`                              | `insert`                                        | `operation_id`, `item_id`, `in_transaction_id`                                         | `PAYLOAD_VALIDATION_FAILED`                                      | `src/lib/sync/inventory-quantity.ts` |
+| `consume_inventory` (`sealed_full` / `opened`)  | `adjust_quantity` (negativ, Verzehr)            | `operation_id`, `out_transaction_id`, `source_item_id`                                 | `STALE_BASE`, `INSUFFICIENT_QUANTITY`                            | `src/lib/sync/inventory-quantity.ts` |
+| `consume_inventory` (`sealed_partial`)          | ehem. `split_open`                              | `operation_id`, `out_transaction_id`, `source_item_id`, `opened_item_id`               | `STALE_BASE`, `INSUFFICIENT_QUANTITY`                            | `src/lib/sync/inventory-quantity.ts` |
+| `waste_inventory`                               | `adjust_quantity` (negativ, Müll) / `delete`    | `operation_id`, `waste_transaction_id`, `item_id`                                      | `STALE_BASE`, `INSUFFICIENT_QUANTITY`                            | `src/lib/sync/inventory-quantity.ts` |
+| `correct_quantity`                              | `adjust_quantity` (Korrektur)                   | `operation_id`, `transaction_id`, `item_id`                                            | `STALE_BASE`                                                     | `src/lib/sync/inventory-quantity.ts` |
+| `move_inventory`                                | `move`                                          | `operation_id`, `out_transaction_id`, `in_transaction_id`, `item_id`                   | `STALE_BASE`                                                     | `src/lib/sync/inventory-quantity.ts` |
+| `undo_inventory_operation` (`reverse_quantity`) | `reverse_quantity` / `restore`                  | `operation_id`, Gegen-Ledger-ID, `reversal_of`                                         | `UNDO_WINDOW_EXPIRED`, `DEPENDENT_MUTATION_EXISTS`               | `src/lib/sync/inventory-quantity.ts` |
+| `undo_inventory_operation` (`merge_undo_open`)  | `merge_undo_open`                               | `operation_id`, `in_transaction_id`, `reversal_of`, `source_item_id`, `opened_item_id` | `UNDO_WINDOW_EXPIRED`, `DEPENDENT_MUTATION_EXISTS`, `STALE_BASE` | `src/lib/sync/inventory-quantity.ts` |
+| `undo_inventory_operation` (`reverse_move`)     | `reverse_move`                                  | `operation_id`, 2 Gegen-Ledger-IDs, `reversal_of`                                      | `UNDO_WINDOW_EXPIRED`, `DEPENDENT_MUTATION_EXISTS`               | `src/lib/sync/inventory-quantity.ts` |
+| `reseal_inventory`                              | `reseal`                                        | `operation_id`, `item_id`                                                              | `STALE_BASE`                                                     | `src/lib/sync/inventory-quantity.ts` |
+| `patch_inventory_metadata`                      | `update` / `patch`                              | `operation_id`, `item_id`                                                              | `expected_updated_at`, `STALE_BASE`                              | `src/lib/sync/inventory-quantity.ts` |
 
 Zielzustand: `split_open` entfällt als eigenständige Mutation. Das Split-Verhalten gehört als Struktureffekt zu `consume_inventory` oder `open_inventory`; der alte Payloadname entfällt.
 
 ## 10. Contract-Gate und Test-Zuordnung
 
-| Bereich | Verbindliche Testpunkte | Zuständige fokussierte Testdatei |
-| --- | --- | --- |
-| Mengenpräzision | `-0.001`, `0`, `0.001`, normaler Wert, `9_999_999.999`, Maximum plus `0.001`, mehr als drei Nachkommastellen | `src/lib/inventory-quantity.test.ts` |
-| Reduktion & Zustandsmodell | positives Ergebnis; exakt `0` mit Tombstone; negatives Ergebnis vollständig abgelehnt; alle Lifecycle-Übergänge | `src/features/inventory/inventory-lifecycle.test.ts` |
-| Öffnungsanteil P | `P=0`, kleinste Teilmenge, `P<source`, `P=source`, `P>source`; `C=0` (reines Öffnen ohne Ledger), `C<P`, `C=P`, `C>P` | `src/features/inventory/inventory-lifecycle.test.ts` |
-| Undo-Zeit & Blockade | unmittelbar davor, exakt bei 24 Stunden, unmittelbar danach; Blockade bei abhängiger Operation | `src/features/inventory/inventory-lifecycle.test.ts` |
-| Idempotenz & Server-Commit | erste Ausführung, sequenzieller Retry, paralleler Retry, gleiche ID mit anderem Payload; Response-Envelope | `supabase/tests/27_inventory_quantity_atomic.test.sql` |
-| Timeout & Unknown | vor Serverausführung, nach Commit vor Antwort, verspätete Antwort nach Retry | `src/lib/sync/push.test.ts` |
-| Reconciliation | konsistenter Snapshot; enthalten/absent; Ack nach Snapshot; veralteter Replay-Ack; neue lokale Operation während Read; Accountwechsel; atomarer Mehrlos-Commit | `src/lib/sync/mirror-write.integration.test.ts` |
-| Footprint & Invarianten | vollständig, fehlendes/zusätzliches Lot, Tombstones, Lot-IDs | `src/features/inventory/inventory-lifecycle.test.ts` |
-| Receipt | gleiche ID mit anderem Patch trotz gleichem CAS; fehlend versus null; paralleler Retry; späterer Zustand; RLS und verweigerter direkter Write; Fehler rollt Receipt und Wirkung zurück | `supabase/tests/27_inventory_quantity_atomic.test.sql` |
-| Reines Öffnen | source=P, source>P, ungültiges P; konstante Gesamtmenge; null Ledgerzeilen; Retry und expliziter Reseal ohne Merge | `src/features/inventory/inventory-lifecycle.test.ts`, `supabase/tests/30_inventory_split_atomic.test.sql` |
-| Integer-Persistenz | 300 g als 300000; drei Dezimalstellen; Überpräzision; Maximum; genau eine Skalierung; Transfer aus unverändertem Shopping-Mengenmodell | `src/lib/inventory-quantity.test.ts`, `src/features/inventory/use-inventory-mutations.integration.test.tsx`, `supabase/tests/27_inventory_quantity_atomic.test.sql` |
-| Metadaten-Patch | CAS via `expected_updated_at`, Feld fehlt, Feld enthält Wert, Feld enthält ausdrücklich `null` | `src/features/inventory/use-inventory-mutations.integration.test.tsx` |
-| Retry-Limit | bei `MAX_ATTEMPTS = 5`: Attempts 4, 5 und 6 mit deterministischem Backoff | `src/lib/sync/push.test.ts` |
-| Architektur & Grenzen | genau ein Registereintrag und ein Owner pro Operation; null verbotene Direktimporte | `test/conventions/inventory-operation-ownership.test.ts` |
-| Konfliktmatrix | maschinenlesbare Codes (`STALE_BASE`, `INSUFFICIENT_QUANTITY`, etc.) und deterministische Auflösung | `src/lib/sync/resolve-inventory-conflict.test.ts` |
+| Bereich                    | Verbindliche Testpunkte                                                                                                                                                                | Zuständige fokussierte Testdatei                                                                                                                                    |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mengenpräzision            | `-0.001`, `0`, `0.001`, normaler Wert, `9_999_999.999`, Maximum plus `0.001`, mehr als drei Nachkommastellen                                                                           | `src/lib/inventory-quantity.test.ts`                                                                                                                                |
+| Reduktion & Zustandsmodell | positives Ergebnis; exakt `0` mit Tombstone; negatives Ergebnis vollständig abgelehnt; alle Lifecycle-Übergänge                                                                        | `src/features/inventory/inventory-lifecycle.test.ts`                                                                                                                |
+| Öffnungsanteil P           | `P=0`, kleinste Teilmenge, `P<source`, `P=source`, `P>source`; `C=0` (reines Öffnen ohne Ledger), `C<P`, `C=P`, `C>P`                                                                  | `src/features/inventory/inventory-lifecycle.test.ts`                                                                                                                |
+| Undo-Zeit & Blockade       | unmittelbar davor, exakt bei 24 Stunden, unmittelbar danach; Blockade bei abhängiger Operation                                                                                         | `src/features/inventory/inventory-lifecycle.test.ts`                                                                                                                |
+| Idempotenz & Server-Commit | erste Ausführung, sequenzieller Retry, paralleler Retry, gleiche ID mit anderem Payload; Response-Envelope                                                                             | `supabase/tests/27_inventory_quantity_atomic.test.sql`                                                                                                              |
+| Timeout & Unknown          | vor Serverausführung, nach Commit vor Antwort, verspätete Antwort nach Retry                                                                                                           | `src/lib/sync/push.test.ts`                                                                                                                                         |
+| Reconciliation             | konsistenter Snapshot; enthalten/absent; Ack nach Snapshot; veralteter Replay-Ack; neue lokale Operation während Read; Accountwechsel; atomarer Mehrlos-Commit                         | `src/lib/sync/mirror-write.integration.test.ts`                                                                                                                     |
+| Footprint & Invarianten    | vollständig, fehlendes/zusätzliches Lot, Tombstones, Lot-IDs                                                                                                                           | `src/features/inventory/inventory-lifecycle.test.ts`                                                                                                                |
+| Receipt                    | gleiche ID mit anderem Patch trotz gleichem CAS; fehlend versus null; paralleler Retry; späterer Zustand; RLS und verweigerter direkter Write; Fehler rollt Receipt und Wirkung zurück | `supabase/tests/27_inventory_quantity_atomic.test.sql`                                                                                                              |
+| Reines Öffnen              | source=P, source>P, ungültiges P; konstante Gesamtmenge; null Ledgerzeilen; Retry und expliziter Reseal ohne Merge                                                                     | `src/features/inventory/inventory-lifecycle.test.ts`, `supabase/tests/30_inventory_split_atomic.test.sql`                                                           |
+| Integer-Persistenz         | 300 g als 300000; drei Dezimalstellen; Überpräzision; Maximum; genau eine Skalierung; Transfer aus unverändertem Shopping-Mengenmodell                                                 | `src/lib/inventory-quantity.test.ts`, `src/features/inventory/use-inventory-mutations.integration.test.tsx`, `supabase/tests/27_inventory_quantity_atomic.test.sql` |
+| Metadaten-Patch            | CAS via `expected_updated_at`, Feld fehlt, Feld enthält Wert, Feld enthält ausdrücklich `null`                                                                                         | `src/features/inventory/use-inventory-mutations.integration.test.tsx`                                                                                               |
+| Retry-Limit                | bei `MAX_ATTEMPTS = 5`: Attempts 4, 5 und 6 mit deterministischem Backoff                                                                                                              | `src/lib/sync/push.test.ts`                                                                                                                                         |
+| Architektur & Grenzen      | genau ein Registereintrag und ein Owner pro Operation; null verbotene Direktimporte                                                                                                    | `test/conventions/inventory-operation-ownership.test.ts`                                                                                                            |
+| Konfliktmatrix             | maschinenlesbare Codes (`STALE_BASE`, `INSUFFICIENT_QUANTITY`, etc.) und deterministische Auflösung                                                                                    | `src/lib/sync/resolve-inventory-conflict.test.ts`                                                                                                                   |
 
 Das Gate beweist zusätzlich lokale und serverseitige Parität für IDs, Menge,
 Ledger, Tombstone und vollständigen Footprint. Testbefehle und das
 90-Sekunden-Limit stehen ausschließlich in `CONSTRAINTS.md`.
 
-## 11. Status der Vertragsentscheidungen
-
-- `fam-lem.19`: v1-Zielzuordnung in Abschnitt 1 und 9.1; historische Ticketkriterien vor Umsetzung abgleichen.
-- `fam-lem.23`: Receipt und konsistente Serverbasis in Abschnitt 2.1; kein Implementierungsnachweis durch dieses Dokument.
-- Tests in Abschnitt 10 sind geforderte Nachweise, keine bereits ausgeführten Prüfungen.
-- Die Dateimatrix steht in `execution-plan.md`, Abschnitt „Verbindliche Dateimatrix“. Vertrag und Matrix sind gemeinsam freigegeben; technische Abnahmegates und Constraints bleiben verbindlich.
-
-### Entscheidungen vom 2026-09-08 (fam-lem.27-Voranalyse)
-
-Vor dem eigentlichen v1-Cutover wurden drei durch die Pro-Operation-Analyse
-aufgedeckte Vertragslücken von Marco entschieden:
+### Eventuell aufkommende Punkte:
 
 1. **Undo-`notes`:** Alle drei Undo-Modi tragen jetzt ein optionales `notes`-
    Feld (Abschnitt 6). Vorher fehlte es im Vertrag, obwohl der bestehende
@@ -588,10 +638,3 @@ aufgedeckte Vertragslücken von Marco entschieden:
    der v1-Aktivierung: Datenmigration bestehender `location_id = null`-Zeilen
    und eine UI-Pflicht zur Lagerortauswahl beim Anlegen. Beides ist noch nicht
    umgesetzt und nicht Teil dieses Dokuments.
-3. **Reihenfolge:** Der Integer-Tausendstel-Persistenz-Umbau (Abschnitt 3)
-   geht dem eigentlichen v1-Cutover der fünf Operationen voraus, nicht
-   umgekehrt. Keine Operation wird auf `validateInventoryOperation`
-   umgestellt, solange reale Bestandsmengen noch als Dezimalzahl (SQLite
-   `real`, Postgres `numeric`) gespeichert werden — die Integer-Prüfungen
-   (`isPositiveIntegerThousandths` etc.) würden sonst jede reale Dezimalmenge
-   ablehnen.

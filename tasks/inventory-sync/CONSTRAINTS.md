@@ -5,13 +5,21 @@ Letzte Festlegung: 2026-09-09.
 
 ## Harte Grundsätze
 
+- **KISS / DRY / YAGNI:** Jede Änderung wählt den einfachsten bestehenden
+  Owner, vermeidet doppelte fachliche Entscheidungen und führt keine
+  vorsorgliche Erweiterbarkeit ein. Eine neue Datei, Abstraktion oder
+  Indirektion ist nur zulässig, wenn sie für den Contract nachweislich nötig
+  ist und im Beads-Ticket begründet wird.
 - Der Operationsvertrag wird vor Produktionscode erstellt und freigegeben.
 - Jede fachliche Entscheidung besitzt genau einen benannten Produktionscode-Owner.
   Mehrere benannte Verantwortlichkeiten dürfen in einer vorhandenen Datei
   liegen. Eine Operation rechtfertigt keine eigene Datei.
-- Für diesen Plan entstehen keine neuen Produktionsdateien. Bestehende Owner
-  werden genutzt; kein Command-Verzeichnis, kein zusätzliches Contract-Modul.
-  Eine spätere Erweiterung erfordert eine konkrete neue Begründung im Vertrag.
+- Für die V3-Neuimplementierung werden fehlende Produktions-Owner als
+  ausdrücklich benannte Owner-Dateien neu angelegt. Jede neue Datei besitzt
+  genau eine Verantwortung, bleibt im Contract registriert und rechtfertigt
+  weder ein Command-Verzeichnis noch ein zusätzliches Contract-Modul, eine
+  Registry oder einen allgemeinen Executor. Vorhandene Owner werden nicht
+  dupliziert.
 - Reine Strukturänderungen und fachliche Korrekturen werden getrennt geprüft.
   Bei Strukturänderungen bleiben Testerwartungen gleich; eine geänderte
   Erwartung muss eine ausdrücklich benannte fachliche Contract-Regel prüfen.
@@ -41,7 +49,11 @@ Letzte Festlegung: 2026-09-09.
   Erreichen des Retry-Limits unbekannt.
 - Keine neue allgemeine Sync-, Queue- oder Plugin-Abstraktion.
 - Keine manuellen Supabase-Migrationen. Quelle bleibt `supabase/schemas/*.sql`.
-- Kein `bun test`, keine vollständige Jest-Suite und kein Starten einer lokalen Supabase-Instanz für diesen Refactor.
+- Kein `bun test` und keine vollständige Jest-Suite. Die bereits laufende
+  lokale Supabase-Instanz darf vollständig für fokussierte pgTAP-Tests,
+  `db:types`, `db:diff` und fachliche Verifikation genutzt werden. Kein
+  `supabase start`, kein Remote-/Linked-Projekt und keine ungeplante Änderung
+  der lokalen DB außerhalb des deklarativen Schema-Workflows.
 - Keine neuen Suppression-Kommentare, keine übersprungenen oder gelöschten Tests und keine unimplementierten Stubs.
 - **Ungeshipped / Zero Legacy:** Die App ist nicht veröffentlicht. Es gibt keine Rückwärtskompatibilitätspflicht für historische Payloads, Freitext-Notes oder veraltete DB-Spalten. Es wird kein Legacy-Decoder gebaut. Veralteter Code wird gelöscht, nicht dekodiert.
 
@@ -57,10 +69,15 @@ stehen ausschließlich in `contract.md`, Abschnitt 8.
   das Beads-Ticket, die Zieldateien, direkten Aufrufer und betroffenen Tests
   lesen. Bestehende Änderungen und Baselinefehler zuerst zuordnen.
 - Ein Inkrement hat ein beobachtbares Ergebnis, höchstens drei Abnahmepunkte
-  und maximal fünf handbearbeitete Quell-/Testdateien. Diese Grenze hält den
-  einzelnen Schritt prüfbar; größere Aufgaben werden vorher zerlegt.
+  und maximal vier handbearbeitete Produktionsdateien; drei bis vier Dateien
+  bilden den Zielkorridor. Test- und Harness-Dateien werden zusätzlich
+  vollständig benannt, zählen aber nicht als Produktions-Owner. Diese Grenze
+  hält den einzelnen Schritt prüfbar; größere Aufgaben werden vorher zerlegt.
   Generierte Artefakte werden zusätzlich einzeln genannt.
-- Keine neuen Produktionsdateien, Dependencies, Frameworks oder allgemeinen
+- Keine neuen Produktionsdateien ohne den im Contract vorgeschriebenen
+  KISS-/DRY-/YAGNI-Check. Neue Owner-Dateien, die nach diesem Check notwendig
+  sind, erhalten genau eine Verantwortung und werden vor dem Edit im Contract
+  registriert. Keine neuen Dependencies, Frameworks oder allgemeinen
   Executor-/Registry-/Adapter-Schichten. Kein nebenläufiger Umbau derselben
   Datei. Fachliche Unklarheit blockiert den betroffenen Schritt.
 
@@ -156,7 +173,7 @@ stehen ausschließlich in `contract.md`, Abschnitt 8.
 | Format/Lint | Keine neuen Biome-Fehler in betroffenen Dateien | `bun run check` bzw. fokussierter Biome-Aufruf | Ende eines TS-Inkrements |
 | Verhalten | Nur direkt betroffene Tests werden ausgeführt | `bun run test <datei> --runInBand --watchman=false` | nach jedem Inkrement |
 | Testkosten | Ein fokussierter Testlauf darf höchstens 90 Sekunden dauern | Laufzeit des fokussierten Testbefehls | nach jedem Inkrement |
-| Strukturgröße | Neue oder bearbeitete Produktionsdateien höchstens 400 Effective LOC; bestehende Ausnahmen wachsen nicht | `bun scripts/analyze-inventory-duplicates.ts src/features/inventory --quiet --top=100` | vor und nach jedem Struktur-Inkrement |
+| Strukturgröße | Neue oder neu bearbeitete Produktionsdateien grundsätzlich 250–400 Effective LOC; kleinere vollständige Owner-Dateien sind zulässig, bestehende Ausnahmen über 400 wachsen nicht | `bun scripts/analyze-inventory-duplicates.ts src/features/inventory --quiet --top=100` | vor und nach jedem Struktur-Inkrement |
 | Duplikate | Exakte normalisierte Gruppen dürfen sich nicht erhöhen; semantisch unbegründete Treffer werden entfernt | `bun scripts/analyze-inventory-duplicates.ts src/features/inventory --include-tests --json --quiet --top=100` | vor und nach jedem betroffenen Inkrement |
 | Datenbank | Bei Schemaänderung nur deklarative Quelle, generierte Artefakte danach | `bun run db:diff`, Projekt-DB-Gate und `bun run db:types` | nur bei Schemaänderung |
 
@@ -195,8 +212,11 @@ benannte Contract-Regel oder eine nachvollziehbare Testabdeckung ergänzt.
 
 ### Verbindliche Ratchets
 
-1. Neue oder neu bearbeitete Produktionsdateien bleiben unter 400 Effective
-   LOC. 250 LOC ist keine Mindestgröße.
+1. Neue oder neu bearbeitete Produktionsdateien liegen grundsätzlich im
+   Zielkorridor von 250–400 Effective LOC. 250 LOC ist keine Aufforderung zu
+   künstlicher Auffüllung; eine kleinere vollständige Owner-Datei ist
+   zulässig. Über 400 Effective LOC ist nur für bereits bestehende, explizit
+   ausgenommene Owner-Dateien zulässig.
 2. Bestehende Produktionsdateien über 400 Effective LOC erhalten eine
    dokumentierte Ausnahme mit Pfad, Baseline, Owner, Reduktionsziel und
    Ablaufdatum. Die Ausnahme erlaubt kein Wachstum.
@@ -243,15 +263,17 @@ vollständig automatisiert. Im Ticket stehen die tatsächlich ausgeführten
 Befehle mit Ergebnis, Testlaufzeit und gegebenenfalls Blocker. Ein übersprungener
 oder durch Konfiguration ausgeschlossener Pfad ist kein bestandener Check.
 `biome.json` erfasst derzeit `src/**` und `scripts/**`, nicht das geplante Gate
-unter `test/conventions/**`; dessen Lint-Nachweis muss in `fam-lem.19.1`
-ausführbar geklärt werden, bevor es als vollständig geprüft gilt.
+unter `test/conventions/**`; dessen Lint-Nachweis muss ausführbar geklärt
+werden, bevor es als vollständig geprüft gilt.
 
 Der aktuelle `test:db`-Wrapper verwendet `--local` und alle SQL-Testdateien;
-ein angehängter Dateipfad macht ihn nicht zu einem gezielten DB-Testlauf.
-Auch `db:types` verwendet derzeit `--local`. Unter dem Verbot lokaler
-DB-Nutzung sind diese Aufrufe kein ausführbarer Nachweis. `fam-lem.23` muss
-den zulässigen Generierungs-/Prüfweg klären; bis dahin bleibt die betroffene
-DB-Abnahme blockiert. Keine ungeprüften generierten Artefakte als Ersatz.
+ein angehängter Dateipfad macht ihn nicht zu einem gezielten DB-Testlauf. Für
+einen fokussierten pgTAP-Lauf darf deshalb nach Prüfung der lokalen CLI-Hilfe
+direkt `supabase test db --local <gezielte-testdatei.sql>` verwendet werden.
+`db:types` und `db:diff` dürfen ebenfalls gegen die laufende lokale Instanz
+ausgeführt werden. Schemaänderungen beginnen weiterhin in
+`supabase/schemas/*.sql`; Migrationen und generierte Typen werden danach
+erzeugt und geprüft. Remote-/Linked-Nachweise bleiben ausgeschlossen.
 
 ## Baseline
 
@@ -259,7 +281,7 @@ Bereits vorhandene, unabhängige Fehler dürfen nicht stillschweigend als Folge
 des Refactors behoben oder verschärft werden. Sie müssen im Beads-Task und im
 Abschlussbericht genannt werden. Der aktuelle Arbeitsstand enthält bekannte
 Fehler in Inventory-Mutationstests; diese gehören zum bestehenden
-`fam-lem.24`-Arbeitsstand und sind kein Freibrief für neue Fehler.
+bestehenden Arbeitsstand und sind kein Freibrief für neue Fehler.
 
 ## Änderungsregel
 

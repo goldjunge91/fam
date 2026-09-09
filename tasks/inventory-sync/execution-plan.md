@@ -1,127 +1,84 @@
 # Inventory-Sync: Ausführungsplan
 
-Status: von Marco am 2026-09-08 gemeinsam mit Contract und Dateimatrix zur schrittweisen Umsetzung freigegeben.
+Status: V3-Reset am 2026-09-09 übernommen; die aktive Umsetzung läuft über
+den unabhängigen Beads-Baum `fam-9vt`.
 
 Quellen: `CONSTRAINTS.md` setzt Qualitätsgrenzen, `contract.md` Zielverhalten.
-Beads verfolgt Arbeit; historische Verträge in `fam-lem.18` sind keine zweite
-normative Quelle. Dieser Plan ist der einzige aktive Ausführungsplan.
-
-`inventory-plan_V2.md` ist seit 2026-09-09 ungültig und wird hier nicht
-fortgeführt. Seine Slices, Ticketkopplungen und Zwischenreihenfolge sind keine
-Arbeitsgrundlage.
+Beads verfolgt Arbeit. Die verbindliche Datei-/Owner-Matrix steht in
+`owner-file-map.md`; dort stehen Zielnamen, erlaubte Exporte, Verantwortung
+und die Zuordnung zu den `fam-9vt`-Slices.
 
 ## Capability Map und Abhängigkeitsrichtung
 
-Die Map zerlegt den verbleibenden Refactor in unabhängig prüfbare Fähigkeiten.
-Sie ergänzt den Contract nicht und erzeugt keine neuen Produktions-Owner.
-`quality-ratchets` ist eine durchgängige Gate-Schicht, keine abschließende
-Aufräumphase.
+Die Map zerlegt die Neuimplementierung in sechs vertikale, unabhängig
+prüfbare Fähigkeiten. Sie ergänzt den Contract nicht, sondern benennt die
+konkreten Produktions-Owner und ihre Abhängigkeitsrichtung. `quality-ratchets`
+ist eine durchgängige Gate-Schicht, keine abschließende Aufräumphase.
 
-| Modul-ID | Verantwortung | Abhängigkeiten |
-| --- | --- | --- |
-| `baseline-and-ownership-gates` | Contract-Nachweise, aktuelle Baselines, Owner- und Dateigrenzen | — |
-| `quality-ratchets` | Effective-LOC-, Duplikat-, Typ-, Lint-, Test- und Architektur-Ratchets | `baseline-and-ownership-gates` |
-| `integer-persistence-boundary` | Integer-Persistenz und alle benannten Mengen-/Read-Grenzen verifizieren | `baseline-and-ownership-gates`, `quality-ratchets` |
-| `local-operation-path` | Lifecycle-Plan, vorhandener lokaler Schreibpfad, Outbox und atomare lokale Ausführung | `integer-persistence-boundary` |
-| `server-atomic-receipt-path` | Serveroperationen, Receipts, Snapshot-Basis, RLS und DB-Nachweise | `local-operation-path` |
-| `reconciliation-and-invalid-state` | Push/Pull/Realtime, Unknown, Konflikte und ungültige lokale Zustände | `server-atomic-receipt-path` |
-| `read-consumer-alignment` | Inventory-Verlauf, Screens und fachliche Verbraucher an den kanonischen Read-Grenzen | `reconciliation-and-invalid-state` |
-| `duplication-consolidation` | Semantisch sichere Zusammenführung von Produktions- und Testduplikaten | `read-consumer-alignment` |
+| Modul-ID                          | Verantwortung                                                                      | Abhängigkeiten                 |
+| --------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------ |
+| `baseline-and-owners`             | Contract-Gates, fehlende Owner, KISS-/DRY-/YAGNI-Nachweise und Aktivierungsgrenzen | —                              |
+| `integer-persistence-boundary`    | Integer-Persistenz, lokale Spiegelung und benannte Mengen-/Read-Grenzen            | `baseline-and-owners`          |
+| `local-quantity-operations`       | Insert, Korrektur und Move mit kanonischer Planung und atomarer Outbox-Ausführung  | `integer-persistence-boundary` |
+| `local-lifecycle-operations`      | Open, Consume, Waste und Undo inklusive Provenienz                                 | `local-quantity-operations`    |
+| `server-receipt-path`             | RPCs, Receipts, Idempotenz, Snapshot-Basis, RLS und Push-Ack                       | `local-lifecycle-operations`   |
+| `unknown-conflict-reconciliation` | Unknown, Konflikte, Pull/Realtime-Reconciliation und sichere Projektion            | `server-receipt-path`          |
 
-Build order: `baseline-and-ownership-gates` → `quality-ratchets` →
-`integer-persistence-boundary` → `local-operation-path` →
-`server-atomic-receipt-path` → `reconciliation-and-invalid-state` →
-`read-consumer-alignment` → `duplication-consolidation`.
+Build order: `baseline-and-owners` → `integer-persistence-boundary` →
+`local-quantity-operations` → `local-lifecycle-operations` →
+`server-receipt-path` → `unknown-conflict-reconciliation`.
 
-Der Integer-Schritt prüft bereits abgeschlossene Integer-Arbeiten erneut gegen
-ihre Nachweise; er eröffnet sie nicht ohne konkrete Abweichung neu. Ein
+### Aktive V3-Slices
+
+Jeder Slice bearbeitet höchstens vier Produktionsdateien. Tests und Harnesses
+werden zusätzlich benannt. Vor jeder neuen Owner-Datei ist der im Contract
+geforderte KISS-/DRY-/YAGNI-Check im Beads-Ticket abzulegen.
+
+| Reihenfolge | Slice                                   | Produktionsdateien (max. 4)                                                                                                                                                                        | Primäre Nachweise                                                                  |
+| ----------: | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+|           1 | Integer-Persistenzgrenze                | `src/lib/inventory-quantity.ts`, `src/lib/db/schemas/inventory.ts`, `src/lib/db/schemas/system.ts`, `supabase/schemas/08_inventory.sql`                                                            | Mengen-Unit-Tests, lokale Schema-Tests, pgTAP-Integer-/Atomicity-Tests             |
+|           2 | Insert, Korrektur und Move lokal atomar | `src/features/inventory/inventory-lifecycle.ts`, `src/lib/sync/inventory-quantity.ts`, `src/features/inventory/use-inventory-mutations.ts`, `src/lib/db/outbox.ts`                                 | Lifecycle-Grenzfälle, Mutations-Integration, Rollback-/Outbox-Test, Ownership-Gate |
+|           3 | Open, Consume, Waste und Provenienz     | `src/features/inventory/inventory-lifecycle.ts`, `src/lib/sync/inventory-quantity.ts`, `src/features/inventory/use-inventory-mutations.ts`, `src/features/inventory/use-inventory-transactions.ts` | Lifecycle- und Mutations-Tests für Tombstones, Footprint und Ledger                |
+|           4 | Server-Receipt, Idempotenz und RLS      | `supabase/schemas/08_inventory.sql`, `supabase/schemas/20_privileges.sql`, `src/lib/sync/push.ts`, `src/lib/sync/mirror-write.ts`                                                                  | Receipt-/RLS-/Atomicity-pgTAP, Push- und Mirror-Integration                        |
+|           5 | Unknown und Konfliktauflösung           | `src/lib/sync/push.ts`, `src/lib/sync/mirror-write.ts`, `src/lib/sync/resolve-inventory-conflict.ts`, `src/lib/db/outbox.ts`                                                                       | Antwortverlust, Retry, Konfliktmatrix und Projektion                               |
+|           6 | Pull/Realtime und Read-Verbraucher      | `src/lib/sync/pull.ts`, `src/lib/sync/realtime.ts`, `src/features/inventory/use-inventory-items.ts`, `src/features/shopping-list/hooks/use-complete-shopping-run.ts`                               | Pull-/Realtime-Integration, Read-Mapping und Einkaufsabschluss                     |
+
+`baseline-and-owners` ist ein dokumentarischer Vorlauf ohne Produktionsdatei.
+Die sechs Slices werden erst aktiviert, wenn der jeweilige vorherige Slice
+seine Gates erfüllt; kein Slice darf einen unbuildbaren Zwischenzustand als
+neue Runtime-Wahrheit veröffentlichen.
+
+### Aktive unabhängige Beads-Reihenfolge
+
+| Reihenfolge | Beads                      | Ergebnis                                                               |
+| ----------: | -------------------------- | ---------------------------------------------------------------------- |
+|           1 | `fam-9vt.5` → `fam-9vt.1`  | Rebaseline, Aktivierungsgates, kanonische Operationen und Owner-Matrix |
+|           2 | `fam-9vt.9`                | Integer-Persistence-Boundary über lokale und serverseitige Grenze      |
+|           3 | `fam-9vt.2`                | Vertical Cutover für Insert, Korrektur und Move                        |
+|           4 | `fam-9vt.10`               | Vertical Cutover für Open, Consume und Provenienz                      |
+|           5 | `fam-9vt.3`                | Vertical Cutover für Undo und Reseal                                   |
+|           6 | `fam-9vt.11` → `fam-9vt.4` | Reconciliation, Aktivierungsfreigabe und Ableitung der Kind-Tickets    |
+
+Nur dieser unabhängige Baum ist aktiv.
+
+Der Integer-Schritt prüft die Persistenzgrenze gegen ihre Nachweise. Ein
 späterer Schritt darf keinen Zwischenzustand als aktivierte v1-Wahrheit
 veröffentlichen. Jede fachliche Änderung bleibt in einem eigenen Inkrement
-mit höchstens fünf handbearbeiteten Quell-/Testdateien.
+mit höchstens vier handbearbeiteten Produktionsdateien; Tests werden separat
+benannt. Vor jeder neuen Owner-Datei ist der KISS-/DRY-/YAGNI-Check im Beads-
+Ticket verpflichtend.
 
-## Verbindliche Dateimatrix
+## Owner-/Dateimatrix
 
-**Keine neuen Produktionsdateien.** Keine Datei pro Operation. Die Matrix
-führt tatsächliche Kernänderungen auf; unveränderte Dateien werden nicht als
-Arbeitspakete inventarisiert. Pfade gelten relativ zur Repositorywurzel.
+Die einzige aktive Dateimatrix ist
+[`owner-file-map.md`](owner-file-map.md). Sie ersetzt jede ältere oder
+fragmentierte Dateiliste. Ein Dateiname, eine Exportgrenze oder eine
+Verantwortung darf nur dort für die V3-Implementierung verwendet werden.
 
-### Bestehende Owner gezielt ändern
-
-| Datei | Verbleibende Aufgabe | Was entfällt / wohin die Logik geht |
-| --- | --- | --- |
-| `src/features/inventory/inventory-lifecycle.ts` | Reine Fachpläne, kanonische Operationstypen, Payloadvalidierung und Footprint | Open-/Undone-Notes-Heuristiken entfallen; keine DB-/React-/Sync-Imports |
-| `src/lib/sync/inventory-quantity.ts` | Gemeinsamer lokaler Schreibpfad: frisch lesen, Plan anwenden, Bestand/Ledger/Outbox atomar schreiben | Payloadparser und Entscheidungen → Lifecycle; fünf bisherige Einzelmodule hier zusammenführen |
-| `src/features/inventory/use-inventory-mutations.ts` | Bestehende Hooks und Query-Invalidierung | Fachentscheidungen → Lifecycle; lokale Befehle → vorhandener Schreibpfad |
-| `src/features/inventory/use-inventory-transactions.ts` | Verlauf lesen, gruppieren und beschriften | Eigene Undo-Zeit-/Typheuristik → Lifecycle; keine zweite Undo-Regel |
-| `src/lib/sync/push.ts` | RPC-Transport, Reihenfolge, Retry und Ack | Parser/Footprint → Lifecycle; bestehendes completeInventoryPush nutzen; Basisübernahme → mirror-write |
-| `src/lib/sync/mirror-write.ts` | Konsistenter Snapshot und atomare lokale Projektion | Eigene Facharithmetik → Lifecycle; keine direkte Übernahme historischer Ack-Ergebniszeilen |
-| `src/lib/db/outbox-conflicts.ts` | Konflikt- und Abhängigkeitsdaten lesen | Eigene Operationsliste und entity_id=Footprint-Annahme entfernen |
-| `src/lib/sync/resolve-inventory-conflict.ts` | Discard/Reconfirm orchestrieren | Neue Absicht über lokalen Schreibpfad; Projektion über mirror-write; unbekannten Ausgang zuerst klären |
-| `src/features/shopping-list/hooks/use-complete-shopping-run.ts` | Einkaufsabschluss orchestrieren | Doppelte Inventory-/Ledger-Erzeugung → lokaler Schreibpfad; übriger Abschluss bleibt |
-
-Die Kernänderungen werden durch die folgenden Integrations- und
-Persistenzanpassungen ergänzt.
-
-### Fünf Produktionsdateien nach Zusammenführung löschen
-
-| Datei | Ersatz |
-| --- | --- |
-| `src/lib/sync/inventory-quantity-correction.ts` | Parser/Typen in Lifecycle; lokale Ausführung in sync/inventory-quantity |
-| `src/lib/sync/inventory-quantity-reversal.ts` | Parser/Typen in Lifecycle; lokale Ausführung in sync/inventory-quantity |
-| `src/lib/sync/inventory-move.ts` | Parser/Typen in Lifecycle; lokale Ausführung in sync/inventory-quantity |
-| `src/lib/sync/inventory-open-split.ts` | Fachlich gültige Open-/Consume-Wirkungen im Lifecycle und lokalen Schreibpfad; alter split_open-Payload entfällt |
-| `src/lib/sync/inventory-open-merge.ts` | Merge-Undo-Modus im Lifecycle und lokalen Schreibpfad |
-
-Vor jeder Löschung: keine verbleibenden Imports/Registrierungen, übernommene
-Verhaltensnachweise bestehen, fokussierte Tests und Typ-/Lint-Prüfung bestehen.
-Kein Übergangsdecoder oder Wrapper nur für alte Imports. Bestehende Testdateien
-bleiben und prüfen die neuen Owner; vertraglich ersetzte Erwartungen werden
-explizit zugeordnet, nicht still entfernt. Keine pauschalen Git-Reverts.
-
-### Integration
-
-| Bestehende Dateien | Eng begrenzte Anpassung |
-| --- | --- |
-| `src/lib/db/types.ts`, `src/lib/db/outbox.ts` | Inventory-v1-Typen verwenden, Request unverändert speichern; vorhandene exklusive Transaktion weiterverwenden |
-| `src/lib/sync/coalesce.ts`, `src/lib/db/outbox-retry.ts` | Keine Umschreibung stabiler Inventory-Operationen; Retry-Limit macht unknown nicht zum fachlichen Konflikt |
-| `src/lib/sync/pull.ts`, `src/lib/sync/realtime.ts` | Inventory-Aktualisierung an vorhandenen Reconciliation-Owner delegieren; andere Entitäten behalten ihren Pfad |
-| `src/lib/db/entities.ts` | Spaltenabbildung an Zielmodell anpassen; Inventory-Payload darf nach FK-Fehler nicht still geändert werden |
-
-`src/features/inventory/repair-fridge-item-push.ts`: Bei Umstellung der
-Registrierung den stillen
-location_id=null-Reparaturpfad ausschließen. Erst wenn kein Verbraucher
-verbleibt und die Location-Abhängigkeit nachgewiesen ist, kann die Datei als
-toter Code entfallen; diese zusätzliche Löschung wird dann separat benannt.
-
-### Persistenz und Mengengrenzen: eigener fachlicher Änderungsblock
-
-Inventory-Mengen werden in Persistenz und Wire als Integer-Tausendstel
-geführt. Diese Datenmodelländerung wird getrennt von reinen
-Strukturänderungen umgesetzt und geprüft.
-
-| Bestehende Dateien | Notwendiger Umfang |
-| --- | --- |
-| `src/lib/inventory-quantity.ts` | Integer-Arithmetik und eindeutige Konversion an Domänen-/Anzeigegrenzen; vom lokalen Schreibpfad getrennt halten |
-| `src/lib/db/schemas/inventory.ts`, `src/lib/db/schemas/system.ts` | Lokale Integer-Spalten, v1-Metadaten, dauerhafte Serverbasis und Receipts |
-| `supabase/schemas/08_inventory.sql`, `supabase/schemas/20_privileges.sql` | Autoritative v1-Operationen, Integer-Spalten, Receipt/Snapshot und Privilegien; andere Tabellen nicht umbauen |
-| `src/features/inventory/use-inventory-items.ts` | Persistenz-/View-Grenze einmal konvertieren; vorhandene Screen-Schnittstelle möglichst erhalten |
-| `src/features/meal-planner/use-shopping-needs.ts`, `src/features/recipes/data/use-recipe-shopping-needs.ts` | Direkte Inventory-Reads in bestehende Bedarfs-Mengeneinheit abbilden |
-| `src/features/settings/sync-debug-screen.tsx` | Direkt gelesene Inventory-Mengen korrekt anzeigen |
-
-Mengen im Produktkatalog, Shopping oder Nutrition werden nicht pauschal
-umgestellt. Beim bereits oben genannten Einkaufsabschluss wird einmal an
-der Inventory-Grenze konvertiert. Integer- und Dezimal-Schreibpfade werden
-nicht gleichzeitig aktiviert. Generierte DB-Typen und Migrationen gehören
-zum Abschluss dieses Blocks, nicht zu einer allgemeinen Aufräumaktion.
-
-### Behalten ohne vorsorglichen Umbau
-
-Screens, Sheets, Zeilen, Gruppierung, Lagerorte, Produktsuche, Haltbarkeitsdaten,
-`use-inventory-conflicts.ts`, Sync-Engine und Runner bleiben grundsätzlich.
-Eine UI-Datei wird erst dann Änderungsziel, wenn ein konkreter Aufruf oder
-Datenwert mit dem Zielvertrag unvereinbar ist; betroffene Stelle und Grund
-werden vorher im Beads-Inkrement und hier ergänzt. Ein Suchtreffer allein
-ist kein Änderungsauftrag. Kein Redesign und keine vorsorgliche Umbenennung.
+Screens, Sheets, Zeilen, Gruppierung, Lagerorte, Produktsuche und
+Haltbarkeitsdaten bleiben außerhalb der Matrix, bis ein konkreter Contract-
+Verstoß einen Verbraucheranpassung verlangt. Ein Suchtreffer allein ist kein
+Änderungsauftrag. Keine vorsorgliche Umbenennung und keine Datei pro Operation.
 
 ## Nachweise und Artefakte
 
@@ -145,63 +102,9 @@ ungetrackter Dateien erhalten. Neue Artefakte aus deklarativen Schemata
 ableiten; `drizzle/local/migrations.js` als Index entsprechend ergänzen.
 Historische `src/lib/db/migrations.ts` nicht rückwirkend umschreiben.
 Kein Löschen unbekannter Migrationen, kein automatischer DB-Reset und kein
-lokaler Supabase-Start. Nicht ausführbare DB-Gates bleiben offen.
-
-## Umsetzung und Aufgaben
-
-Aufgaben und Abnahme stehen in Beads. Dieser Abschnitt ist der geordnete
-Index, keine zweite Aufgabenliste. Der Einstieg ist ausführbar zugeschnitten;
-die anschließenden Sammelaufgaben werden vor Bearbeitung anhand ihres dann
-aktuellen Restumfangs in ebenso kleine Inkremente geteilt. Kein Sammel-Ticket
-ist ein Auftrag, alle dort genannten Dateien auf einmal umzubauen.
-
-### Einstieg
-
-| Reihenfolge | Beads | Ergebnis | Umfang |
-| --- | --- | --- | --- |
-| 1 | `fam-lem.19` | v1-Typen, strikte Payloadvalidierung und vollständiger Footprint im reinen Lifecycle; noch kein Runtime-Cutover | Lifecycle und bestehender Test, 2 Dateien |
-| 2 | `fam-lem.19.1` | Ownership-Gate für reines Lifecycle-Modul und erlaubte Import-Richtung | 1 neue Testdatei, keine neue Produktionsdatei |
-| 3 | `fam-lem.23` | Vorhandene Servergarantien und ausführbarer DB-Nachweis abgeglichen; fehlende Arbeit konkret abgegrenzt | Read-only, Ergebnis in Beads |
-
-**Prüfpunkt A:** Typen/Footprint sind eindeutig, der fokussierte Gate-Test
-besteht, DB-Prüfung ist durchführbar oder konkret als Blocker ausgewiesen.
-Bestehende Baselinefehler einschließlich `fam-t04` bleiben sichtbar. Kein
-Schema-Cutover ohne ausführbaren Nachweis. Plan-/Contractfreigabe liegt vor;
-sie ersetzt keine technische Abnahme und keine Aktivierungsprüfung.
-
-### Bestehende Arbeitsstände fortführen
-
-| Reihenfolge | Beads | Nächstes abgegrenztes Ergebnis / Voraussetzung |
-| --- | --- | --- |
-| 4 | `fam-lem.26`, `fam-lem.24` | Laufenden gemeinsamen Push-Abschluss und expliziten Patch-Arbeitsstand zuerst abgleichen; nur tatsächliche Restfehler schließen |
-| 5 | `fam-lem.27.1` unter `fam-lem.27` | Genau den lokalen Korrektur-Builder in den vorhandenen gemeinsamen Schreibpfad verschieben; höchstens 5 Dateien, unverändertes Verhalten |
-
-**Prüfpunkt B:** Die Korrektur hat nur einen lokalen Builder, bisherige
-Testerwartungen bestehen, keine neue Produktionsdatei und kein neuer
-Transaktionsmanager. Falls der Schritt eine fachliche Änderung verlangt,
-wird diese separat beschrieben; der reine Umzug wird nicht damit vermischt.
-
-| Reihenfolge | Beads | Weiterer Restumfang, vor Ausführung in kleine Schritte teilen |
-| --- | --- | --- |
-| 6 | `fam-lem.27`, `fam-lem.28`, `fam-lem.29` | Weitere lokale Pfade einzeln zusammenführen; Fachpläne für Consume/Open/Undo getrennt korrigieren; Hooks und Einkaufsabschluss an denselben Owner anbinden |
-| 7 | `fam-lem.22`, `fam-n46` | Nach Vorprüfung aus .23 Server-/Persistenzänderung: jeweils eine RPC oder eine Speichergrenze mit zugeordnetem Test; Integer-Umstellung und generierte Artefakte explizit mitführen |
-
-**Prüfpunkt C:** Lokale und serverseitige Wirkung für die bearbeitete Operation
-stimmt überein: Menge, IDs, Ledger, Tombstone, Preconditions und Retry.
-Generierte Artefakte und Typen passen. Weitere Operationen erst nach diesem
-Nachweis fortsetzen; noch keine gemeinsame v1-Aktivierung.
-
-| Reihenfolge | Beads | Weiterer Restumfang, vor Ausführung in kleine Schritte teilen |
-| --- | --- | --- |
-| 8 | `fam-onu` | Dauerhafte Basis/Ack-Speicherung, Snapshot-Projektion und Pull-/Realtime-Anbindung jeweils getrennt mit Rennbedingungsnachweis |
-| 9 | `fam-lem.20`, `fam-lem.25` | Vollständige Abhängigkeiten und anschließend Discard/Reconfirm; unknown niemals blind entfernen |
-| 10 | `fam-lem.21` | Abschließende Nachweisprüfung und Aktivierungsfreigabe; keine neue Sammelimplementierung |
-
-**Prüfpunkt D:** Antwortverlust, verspäteter Ack, neue lokale Mutation während
-Read und Konfliktauflösung sind über den vollständigen Footprint geprüft.
-Jede der fünf Modul-Löschungen hat keine verbleibenden Imports und erhaltene
-Verhaltensnachweise. Integer-/Dezimal-Grenzen sind durchgehend konsistent.
-Erst dann wird der gesamte v1-Schreibpfad als nutzbar freigegeben.
+`supabase start`. Die bereits laufende lokale Supabase-Instanz darf für
+gezielte pgTAP-Läufe, `db:types`, `db:diff` und die fachliche Verifikation
+genutzt werden. Remote-/Linked-Nachweise bleiben ausgeschlossen.
 
 ### Regeln für jedes weitere Inkrement
 
@@ -211,30 +114,34 @@ den relevanten Contract-Abschnitt und danach die tatsächlichen Test-/Review-
 Nachweise. Fehlende Toolabdeckung bleibt explizit offen.
 
 - Genau ein beobachtbares Ergebnis und höchstens drei Abnahmepunkte.
-- Höchstens fünf handbearbeitete Quell-/Testdateien. Bei größerem Umfang
-  vor Code in weitere Schritte teilen. Generierte Migrationen/Typen werden
-  zusätzlich vollständig genannt; sie sind kein versteckter Zusatzumfang.
+- Höchstens vier handbearbeitete Produktionsdateien. Tests und Harnesses
+  werden zusätzlich vollständig genannt. Bei größerem Umfang vor Code in
+  weitere Schritte teilen. Generierte Migrationen/Typen werden zusätzlich
+  vollständig genannt; sie sind kein versteckter Zusatzumfang.
 - Exakte Dateipfade, direkte Verbraucher, Blocker und vollständigen
   fokussierten Testbefehl im bestehenden Ticket oder einer Kindaufgabe
   festhalten. Keine neue Produktionsdatei durch die Aufgabenzerlegung.
 - Test: `bun run test <datei> --runInBand --watchman=false`, jeden fokussierten
   Lauf innerhalb des Limits aus CONSTRAINTS. Bei TS-Änderungen zusätzlich
-  `bun run typecheck` und fokussiertes Biome, danach `git diff --check`.
+  `bun run typecheck` und fokussiertes Biome. Git-Kommandos gehören nicht zum
+  Agentenprüfpfad.
 - Schemaänderungen ausschließlich deklarativ; generierte Artefakte,
-  `bun run db:types` und gezielte DB-Nachweise gehören zum selben Abnahmestand.
-  Keine lokale Supabase-Instanz starten. Fehlende DB-Ausführung bleibt Blocker.
+  `bun run db:types`, `bun run db:diff` und gezielte DB-Nachweise gehören zum
+  selben Abnahmestand. Die bereits laufende lokale Supabase-Instanz darf
+  verwendet werden; Remote-/Linked-Nutzung und `supabase start` bleiben
+  ausgeschlossen.
 - Gemeinsame Dateien werden nacheinander bearbeitet. Laufende In-progress-
   Tickets zuerst lesen, nicht überschreiben oder für einen neuen Plan schließen.
 
 ### Risiken und Umgang
 
-| Risiko | Umgang |
-| --- | --- |
-| Mehrere laufende Arbeiten in denselben Owner-Dateien | Bestehenden Arbeitsstand vor jedem Inkrement prüfen; sequentiell bearbeiten |
-| Bekannte Mutationstest-/Harness-Baseline | Betroffene Reproduktion prüfen und Blocker in `fam-t04` bzw. zugehörigem Ticket führen; keine Testabschwächung |
-| Integer-Umstellung überschreitet lokalen Refactor | Eigener Speicher-/Adapterblock; keine gemischte Aktivierung und keine unverifizierte Migration |
-| Kleine Umzüge ergeben noch kein funktionsfähiges v1 | Zwischenstände nicht aktivieren oder als Featureabschluss ausgeben; Prüfpunkt C/D verlangt Parität |
-| Neue unklare fachliche Voraussetzung | Contract vor Umsetzung präzisieren; keine zweite lokale Ersatzregel erfinden |
+| Risiko                                               | Umgang                                                                                                         |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Mehrere laufende Arbeiten in denselben Owner-Dateien | Bestehenden Arbeitsstand vor jedem Inkrement prüfen; sequentiell bearbeiten                                    |
+| Bekannte Mutationstest-/Harness-Baseline             | Betroffene Reproduktion prüfen und Blocker in `fam-t04` bzw. zugehörigem Ticket führen; keine Testabschwächung |
+| Integer-Umstellung überschreitet lokalen Refactor    | Eigener Speicher-/Adapterblock; keine gemischte Aktivierung und keine unverifizierte Migration                 |
+| Kleine Umzüge ergeben noch kein funktionsfähiges v1  | Zwischenstände nicht aktivieren oder als Featureabschluss ausgeben; Prüfpunkt C/D verlangt Parität             |
+| Neue unklare fachliche Voraussetzung                 | Contract vor Umsetzung präzisieren; keine zweite lokale Ersatzregel erfinden                                   |
 
 Die Detailplanung der späteren Sammelaufgaben erfolgt an den Prüfpunkten,
 weil mehrere davon bereits in Arbeit sind. Ihre hier genannten Ergebnisse
