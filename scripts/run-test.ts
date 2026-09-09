@@ -4,8 +4,10 @@ import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const projectRoot = path.resolve(__dirname, '../test_logs');
-process.chdir(projectRoot);
+const repositoryRoot = path.resolve(__dirname, '..');
+const logDirectory = path.join(repositoryRoot, 'test_logs');
+fs.mkdirSync(logDirectory, { recursive: true });
+process.chdir(repositoryRoot);
 
 function formatDate(date = new Date()): string {
   const pad = (value: number) => String(value).padStart(2, '0');
@@ -16,7 +18,7 @@ function nextExecutionNumber(): number {
   const testLogPattern = /^test_(\d+)_\d{2}-\d{2}-\d{2}\.log$/;
   let highestExecutionNumber = 0;
 
-  for (const entry of fs.readdirSync(projectRoot)) {
+  for (const entry of fs.readdirSync(logDirectory)) {
     const match = testLogPattern.exec(entry);
     if (match) {
       highestExecutionNumber = Math.max(highestExecutionNumber, Number(match[1]));
@@ -31,7 +33,7 @@ function createLogFile(): { filePath: string; stream: fs.WriteStream } {
   const date = formatDate();
 
   while (true) {
-    const filePath = path.join(projectRoot, `test_${executionNumber}_${date}.log`);
+    const filePath = path.join(logDirectory, `test_${executionNumber}_${date}.log`);
 
     try {
       const fileDescriptor = fs.openSync(filePath, 'wx');
@@ -60,16 +62,16 @@ function writeToBoth(
 }
 
 const { filePath, stream: logStream } = createLogFile();
-const relativeLogPath = path.relative(projectRoot, filePath);
+const relativeLogPath = path.relative(logDirectory, filePath);
 const testArgs = process.argv.slice(2);
 const dotenvCommand = path.join(
-  projectRoot,
+  repositoryRoot,
   'node_modules',
   '.bin',
   process.platform === 'win32' ? 'dotenv.cmd' : 'dotenv',
 );
 const jestCommand = path.join(
-  projectRoot,
+  repositoryRoot,
   'node_modules',
   '.bin',
   process.platform === 'win32' ? 'jest.cmd' : 'jest',
@@ -84,7 +86,7 @@ const child = spawn(
   dotenvCommand,
   ['-o', '-e', '.env.development.local', '--', jestCommand, ...testArgs],
   {
-    cwd: projectRoot,
+    cwd: repositoryRoot,
     env: {
       ...process.env,
       EXPO_NO_DOTENV: '1',
