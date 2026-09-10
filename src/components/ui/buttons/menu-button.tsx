@@ -1,8 +1,8 @@
-import { Pressable, StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
-import { radius, withAlpha } from "@/components/theme/index";
-import { useTheme } from "@/components/theme/ThemeProvider";
-import { IconButton } from "@/constants/ui";
+import { radius } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { IconButton } from '@/constants/ui';
 
 type MenuButtonProps = {
   onPress: () => void;
@@ -18,7 +18,7 @@ export function MenuButton({ onPress }: MenuButtonProps) {
       onPress={onPress}
       accessibilityLabel="Menü öffnen"
       color={colors.premiumActionText}
-      bg={withAlpha(colors.backgroundElement, 1)}
+      bg={colors.backgroundSoft}
       size={54}
       iconSize={20}
       style={styles.button}

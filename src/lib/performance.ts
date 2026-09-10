@@ -79,7 +79,7 @@ export function metricPerformance(
   try {
     const api = getPerformanceApi();
     if (!api) return;
-    if (detail && value !== 0 && value !== '') {
+    if (detail && value !== '') {
       api.metric(name, { value, detail, startTime: api.now() });
     } else {
       api.metric(name, value);

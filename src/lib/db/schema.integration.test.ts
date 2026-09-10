@@ -338,6 +338,7 @@ describe('lokales Schema', () => {
         'created_at',
         'attempts',
         'last_error',
+        'last_error_kind',
         'next_attempt_at',
       ]),
     );

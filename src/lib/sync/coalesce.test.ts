@@ -27,6 +27,7 @@ function entry(
     created_at: nextId * 1_000,
     attempts: 0,
     last_error: null,
+    last_error_kind: null,
     next_attempt_at: 0,
   };
 }
@@ -332,6 +333,7 @@ describe('coalesce', () => {
       created_at: 0,
       attempts: 0,
       last_error: null,
+      last_error_kind: null,
       next_attempt_at: 0,
     }));
     const twice = coalesce(asOutbox);

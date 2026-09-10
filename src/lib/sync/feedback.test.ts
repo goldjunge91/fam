@@ -3,6 +3,7 @@ import {
   categoryFeedbackMutation,
   pruneOldSyncedFeedbackEvents,
 } from '@/features/shopping-list/preferences/feedback';
+import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation } from '@/lib/db/outbox';
@@ -57,6 +58,7 @@ describe('shopping category feedback sync contract', () => {
   beforeEach(async () => {
     db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
   });
 
   afterEach(() => db.close());

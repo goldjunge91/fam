@@ -75,6 +75,7 @@ export type OutboxEntry = {
   created_at: number;
   attempts: number;
   last_error: string | null;
+  last_error_kind: 'transient' | 'permanent' | null;
   next_attempt_at: number;
 };
 

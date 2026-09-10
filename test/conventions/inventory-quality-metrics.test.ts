@@ -11,7 +11,7 @@ describe('inventory quality metrics', () => {
       'bun',
       [
         'scripts/analyze-inventory-duplicates.ts',
-        'src/features/inventory/api.ts',
+        'src/features/inventory/expiry.ts',
         '--json',
         '--quiet',
         '--top=1',
@@ -21,7 +21,7 @@ describe('inventory quality metrics', () => {
 
     expect(result.status).toBe(0);
     const report = JSON.parse(result.stdout) as MetricsReport;
-    expect(report.effectiveLoc).toEqual([{ file: 'src/features/inventory/api.ts', lines: 1 }]);
-    expect(report.totalEffectiveLoc).toBe(1);
+    expect(report.effectiveLoc).toEqual([{ file: 'src/features/inventory/expiry.ts', lines: 97 }]);
+    expect(report.totalEffectiveLoc).toBe(97);
   });
 });
