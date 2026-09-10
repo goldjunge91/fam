@@ -8,7 +8,112 @@
   "dashboard": {
     "title": "Übersicht",
     "customizeCards": "Karten anpassen",
-    "exitEditMode": "Bearbeitungsmodus beenden"
+    "exitEditMode": "Bearbeitungsmodus beenden",
+    "edit": {
+      "removeCard": "Karte entfernen",
+      "toggleSize": "Kartengröße umschalten"
+    },
+    "empty": {
+      "title": "Keine Karten auf der Übersicht",
+      "description": "Füge Karten über die Galerie hinzu oder passe deine Ansicht an.",
+      "addCards": "+ Karten hinzufügen"
+    },
+    "cards": {
+      "inventory": {
+        "title": "Läuft bald ab",
+        "withoutExpiry": "ohne MHD",
+        "overdue": "überfällig",
+        "today": "heute",
+        "tomorrow": "morgen",
+        "daysRemaining": "in {{count}} Tagen",
+        "empty": "Alles frisch",
+        "accessibility": "Alle bald ablaufenden Artikel im Vorrat anzeigen"
+      },
+      "shopping": {
+        "accessibility": "Einkaufsliste öffnen",
+        "title": "Einkauf",
+        "progress": "{{checked}} von {{total}} erledigt",
+        "empty": "Liste ist leer",
+        "open": "Noch offen",
+        "done": "Erledigt"
+      },
+      "mealPlan": {
+        "accessibility": "Essensplan öffnen",
+        "planned": "GEPLANT",
+        "plannedToday": "HEUTE GEPLANT",
+        "today": "Heute",
+        "nothingPlanned": "Nichts geplant",
+        "nothingPlannedYet": "Noch nichts geplant",
+        "portions": "{{meal}} · {{count}} Portionen",
+        "openWeek": "Wochenplan öffnen",
+        "mealSlots": {
+          "breakfast": "Frühstück",
+          "lunch": "Mittag",
+          "dinner": "Abend"
+        }
+      },
+      "calories": {
+        "ringLabel": "Kalorien",
+        "titleSmall": "KALORIEN",
+        "noGoal": "Kein Ziel",
+        "remaining": "{{count}} kcal übrig",
+        "over": "{{count}} kcal drüber",
+        "today": "Kalorien heute",
+        "noGoalSet": "Noch kein Ziel gesetzt",
+        "remainingLong": "{{count}} kcal verbleibend",
+        "overGoal": "{{count}} kcal über dem Ziel"
+      },
+      "streak": {
+        "title": "KOCHSTREAK",
+        "keepGoing": "Dranbleiben",
+        "yourProgress": "Dein Fortschritt",
+        "activeToday": "Heute aktiv",
+        "activeYesterday": "Gestern aktiv",
+        "startNew": "Neue Serie starten",
+        "startFirst": "Starte deine erste Serie",
+        "days_one": "Tag am Stück",
+        "days_other": "Tage am Stück",
+        "bestValue_one": "Bester Wert: {{count}} Tag",
+        "bestValue_other": "Bester Wert: {{count}} Tage",
+        "activeDays": "{{active}} von {{total}} Streak-Tagen aktiv",
+        "accessibility": "Kochstreak: {{count}} {{unit}}, {{status}}, {{best}}"
+      }
+    },
+    "gallery": {
+      "title": "Karten anpassen",
+      "description": "Füge Karten hinzu oder passe deren Größe an",
+      "close": "Galerie schließen",
+      "done": "Fertig",
+      "add": "+ Hinzufügen",
+      "remove": "Entfernen",
+      "addAccessibility": "{{title}} hinzufügen",
+      "removeAccessibility": "{{title}} entfernen",
+      "small": "Klein",
+      "large": "Groß",
+      "fallbackDescription": "Dashboard Widget",
+      "cards": {
+        "streak": {
+          "title": "Kochstreak",
+          "description": "Sieben-Tage-Ansicht deiner Serie und persönlicher Rekord."
+        },
+        "calories": {
+          "title": "Kalorien & Makros",
+          "description": "Tagesübersicht, Kalorienring und verbleibende kcal."
+        },
+        "mealPlanner": {
+          "title": "Essensplan",
+          "description": "Heutige Mahlzeiten und nächstes geplantes Rezept."
+        },
+        "inventory": {
+          "title": "Vorrat & MHD",
+          "description": "Bald ablaufende Artikel und Vorrats-Schnellcheck."
+        },
+        "shoppingList": {
+          "title": "Einkaufsliste",
+          "description": "Offene Artikel und Fortschritt beim Einkaufen."
+        }
+      }
+    }
   },
   "settings": {
     "title": "Einstellungen",

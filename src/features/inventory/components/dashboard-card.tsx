@@ -1,4 +1,5 @@
 import { router } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { radius, shadow, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -71,17 +72,22 @@ const styles = StyleSheet.create({
   },
 });
 
-function getShortExpiryLabel(expiryDate: string | null, now: Date): string {
+function getShortExpiryLabel(
+  expiryDate: string | null,
+  now: Date,
+  translate: (key: string, options?: { count: number }) => string,
+): string {
   const daysLeft = getExpiryInfo(expiryDate, now).daysLeft;
 
-  if (daysLeft === null) return 'ohne MHD';
-  if (daysLeft < 0) return 'überfällig';
-  if (daysLeft === 0) return 'heute';
-  if (daysLeft === 1) return 'morgen';
-  return `in ${daysLeft} Tagen`;
+  if (daysLeft === null) return translate('dashboard.cards.inventory.withoutExpiry');
+  if (daysLeft < 0) return translate('dashboard.cards.inventory.overdue');
+  if (daysLeft === 0) return translate('dashboard.cards.inventory.today');
+  if (daysLeft === 1) return translate('dashboard.cards.inventory.tomorrow');
+  return translate('dashboard.cards.inventory.daysRemaining', { count: daysLeft });
 }
 
 function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -110,7 +116,7 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
         onLongPress={onLongPress}
         disabled={disabled}
         accessibilityRole="button"
-        accessibilityLabel="Alle bald ablaufenden Artikel im Vorrat anzeigen"
+        accessibilityLabel={t('dashboard.cards.inventory.accessibility')}
         glassStyle={[styles.widget, styles.largeWidget]}
         fallbackStyle={[
           styles.widget,
@@ -130,7 +136,7 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
             numberOfLines={1}
             ellipsizeMode="tail"
             style={styles.headerTitle}>
-            Läuft bald ab
+            {t('dashboard.cards.inventory.title')}
           </Txt>
         </View>
         <View style={styles.content}>
@@ -153,14 +159,14 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
                     numberOfLines={1}
                     ellipsizeMode="tail"
                     style={styles.itemDate}>
-                    {getShortExpiryLabel(item.expiry_date, now)}
+                    {getShortExpiryLabel(item.expiry_date, now, t)}
                   </Txt>
                 </View>
               );
             })
           ) : (
             <Txt variant="body" tone="secondary" numberOfLines={1} ellipsizeMode="tail">
-              Alles frisch
+              {t('dashboard.cards.inventory.empty')}
             </Txt>
           )}
         </View>
@@ -174,7 +180,7 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
       onLongPress={onLongPress}
       disabled={disabled}
       accessibilityRole="button"
-      accessibilityLabel="Alle bald ablaufenden Artikel im Vorrat anzeigen"
+      accessibilityLabel={t('dashboard.cards.inventory.accessibility')}
       glassStyle={styles.widget}
       fallbackStyle={[styles.widget, { backgroundColor: colors.backgroundElement }]}
       outerStyle={[styles.pressable, shadow.sm, { shadowColor: colors.shadowCard }]}>
@@ -184,7 +190,7 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
         </Txt>
       </View>
       <Txt variant="body" tone="secondary" numberOfLines={1} ellipsizeMode="tail">
-        Läuft bald ab
+        {t('dashboard.cards.inventory.title')}
       </Txt>
     </GlassCard>
   );

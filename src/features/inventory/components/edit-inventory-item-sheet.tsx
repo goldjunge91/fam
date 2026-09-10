@@ -1,20 +1,20 @@
-import { useEffect, useRef, useState } from "react";
-import { Dimensions, Modal, Pressable, StyleSheet, View } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-controller";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useEffect, useRef, useState } from 'react';
+import { Dimensions, Modal, Pressable, StyleSheet, View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { DateWheelField } from "@/components/forms/date-wheel-field";
-import { WheelPickerField } from "@/components/forms/wheel-picker-field";
-import { radius, space, withAlpha } from "@/components/theme/index";
-import { useTheme } from "@/components/theme/ThemeProvider";
-import { QuantityStepper } from "@/components/ui/quantity-stepper";
-import { Button, IconButton, TextField, Txt } from "@/constants/ui";
-import type { StorageLocation } from "@/features/inventory/use-storage-locations";
-import { useSheetShadowStyle } from "@/hooks/use-sheet-shadow-style";
-import { UNIT_OPTIONS } from "@/lib/units";
+import { DateWheelField } from '@/components/forms/date-wheel-field';
+import { WheelPickerField } from '@/components/forms/wheel-picker-field';
+import { radius, space, withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { QuantityStepper } from '@/components/ui/quantity-stepper';
+import { Button, IconButton, TextField, Txt } from '@/constants/ui';
+import type { StorageLocation } from '@/features/inventory/use-storage-locations';
+import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
+import { UNIT_OPTIONS } from '@/lib/units';
 
-import type { LocalInventoryItem } from "../use-inventory-items";
-import { useUpdateFridgeItemMutation } from "../use-inventory-mutations";
+import type { LocalInventoryItem } from '../use-inventory-items';
+import { useUpdateFridgeItemMutation } from '../use-inventory-mutations';
 
 type EditInventoryItemSheetProps = {
   visible: boolean;
@@ -34,12 +34,12 @@ export function EditInventoryItemSheet({
   const sheetStyle = useSheetShadowStyle();
   const updateItem = useUpdateFridgeItemMutation();
   const topInset = insets.top > 0 ? insets.top : space.xl;
-  const maxSheetHeight = Dimensions.get("window").height - topInset - space.sm;
-  const [name, setName] = useState("");
+  const maxSheetHeight = Dimensions.get('window').height - topInset - space.sm;
+  const [name, setName] = useState('');
   const [quantity, setQuantity] = useState(1);
-  const [unit, setUnit] = useState("piece");
-  const [locationId, setLocationId] = useState("");
-  const [expiryDate, setExpiryDate] = useState("");
+  const [unit, setUnit] = useState('piece');
+  const [locationId, setLocationId] = useState('');
+  const [expiryDate, setExpiryDate] = useState('');
   const [openedAt, setOpenedAt] = useState<string | null>(null);
   const [vacuumSealed, setVacuumSealed] = useState(false);
   const [expiryUserSet, setExpiryUserSet] = useState(false);
@@ -51,11 +51,11 @@ export function EditInventoryItemSheet({
   // während die Sheet offen bleibt) fälschlich als eigene Bearbeitung erkannt
   // und beim Speichern zurückgesetzt.
   const [baseline, setBaseline] = useState({
-    name: "",
+    name: '',
     quantity: 1,
-    unit: "piece",
-    locationId: "",
-    expiryDate: "",
+    unit: 'piece',
+    locationId: '',
+    expiryDate: '',
     openedAt: null as string | null,
     vacuumSealed: false,
     expiryUserSet: false,
@@ -74,8 +74,8 @@ export function EditInventoryItemSheet({
       name: item.name,
       quantity: item.quantity,
       unit: item.unit,
-      locationId: item.location_id ?? "",
-      expiryDate: item.expiry_date ?? "",
+      locationId: item.location_id ?? '',
+      expiryDate: item.expiry_date ?? '',
       openedAt: item.opened_at ?? null,
       vacuumSealed: item.vacuum_sealed ?? false,
       expiryUserSet: item.expiry_user_set ?? false,
@@ -97,20 +97,19 @@ export function EditInventoryItemSheet({
   const currentItem = item;
 
   const locationOptions = [
-    { value: "", label: "Kein Lagerort" },
+    { value: '', label: 'Kein Lagerort' },
     ...locations.map((location) => ({
       value: location.id,
       label: location.name,
     })),
   ];
   const locationName =
-    locations.find((location) => location.id === locationId)?.name ??
-    "Kein Lagerort";
+    locations.find((location) => location.id === locationId)?.name ?? 'Kein Lagerort';
 
   async function save() {
     const trimmedName = name.trim();
     if (!trimmedName) {
-      setNameError("Bitte einen Artikelnamen eingeben.");
+      setNameError('Bitte einen Artikelnamen eingeben.');
       return;
     }
 
@@ -125,19 +124,11 @@ export function EditInventoryItemSheet({
       patch: {
         ...(trimmedName !== baseline.name ? { name: trimmedName } : {}),
         ...(unit !== baseline.unit ? { unit } : {}),
-        ...(nextLocationId !== baselineLocationId
-          ? { location_id: nextLocationId }
-          : {}),
-        ...(nextExpiryDate !== baselineExpiryDate
-          ? { expiry_date: nextExpiryDate }
-          : {}),
+        ...(nextLocationId !== baselineLocationId ? { location_id: nextLocationId } : {}),
+        ...(nextExpiryDate !== baselineExpiryDate ? { expiry_date: nextExpiryDate } : {}),
         ...(openedAt !== baseline.openedAt ? { opened_at: openedAt } : {}),
-        ...(vacuumSealed !== baseline.vacuumSealed
-          ? { vacuum_sealed: vacuumSealed }
-          : {}),
-        ...(expiryUserSet !== baseline.expiryUserSet
-          ? { expiry_user_set: expiryUserSet }
-          : {}),
+        ...(vacuumSealed !== baseline.vacuumSealed ? { vacuum_sealed: vacuumSealed } : {}),
+        ...(expiryUserSet !== baseline.expiryUserSet ? { expiry_user_set: expiryUserSet } : {}),
       },
       // Menge nur als bewusste Korrektur übergeben, wenn der Stepper wirklich
       // bewegt wurde — sonst würde ein zwischenzeitlicher Verbrauch beim
@@ -160,13 +151,8 @@ export function EditInventoryItemSheet({
   }
 
   return (
-    <Modal
-      visible={visible}
-      transparent
-      animationType="slide"
-      onRequestClose={onClose}
-    >
-      <View style={[StyleSheet.absoluteFill, { justifyContent: "flex-end" }]}>
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+      <View style={[StyleSheet.absoluteFill, { justifyContent: 'flex-end' }]}>
         <Pressable
           className="fridge-actions-backdrop"
           onPress={onClose}
@@ -182,8 +168,7 @@ export function EditInventoryItemSheet({
               maxHeight: maxSheetHeight,
               backgroundColor: colors.backgroundElement,
             },
-          ]}
-        >
+          ]}>
           <View className="fridge-actions-handle" />
 
           <View
@@ -192,8 +177,7 @@ export function EditInventoryItemSheet({
               paddingHorizontal: space.lg,
               paddingTop: space.xs,
               paddingBottom: space.sm,
-            }}
-          >
+            }}>
             <Txt variant="title">Artikel bearbeiten</Txt>
             <IconButton
               icon="x"
@@ -201,7 +185,6 @@ export function EditInventoryItemSheet({
               accessibilityLabel="Schließen"
               // bg={colors.backgroundSoft}
               bg={withAlpha(colors.tomato, 1)}
-
               size={40}
               iconSize={22}
               style={{
@@ -221,8 +204,7 @@ export function EditInventoryItemSheet({
             }}
             keyboardShouldPersistTaps="handled"
             showsVerticalScrollIndicator={false}
-            bottomOffset={24}
-          >
+            bottomOffset={24}>
             <TextField
               label="Artikelname"
               value={name}
@@ -276,11 +258,10 @@ export function EditInventoryItemSheet({
             <Pressable
               onPress={() => setDetailsOpen((current) => !current)}
               accessibilityRole="button"
-              accessibilityLabel={`${detailsOpen ? "Weitere Angaben schließen" : "Weitere Angaben öffnen"}`}
+              accessibilityLabel={`${detailsOpen ? 'Weitere Angaben schließen' : 'Weitere Angaben öffnen'}`}
               accessibilityState={{ expanded: detailsOpen }}
-              className="edit-fridge-details-toggle"
-            >
-              <Txt tone="secondary">{detailsOpen ? "⌄" : "›"}</Txt>
+              className="edit-fridge-details-toggle">
+              <Txt tone="secondary">{detailsOpen ? '⌄' : '›'}</Txt>
               <Txt variant="body" tone="primary">
                 Weitere Angaben
               </Txt>
@@ -302,8 +283,7 @@ export function EditInventoryItemSheet({
                 {openedAt ? (
                   <View className="gap-one">
                     <Txt variant="caption" tone="secondary">
-                      Dieses Los ist seit{" "}
-                      {new Date(openedAt).toLocaleDateString("de-DE")} geöffnet.
+                      Dieses Los ist seit {new Date(openedAt).toLocaleDateString('de-DE')} geöffnet.
                     </Txt>
                     <Button
                       variant="secondary"

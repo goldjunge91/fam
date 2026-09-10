@@ -11,7 +11,10 @@ EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local bun run tools:recipe-catalo
 Danach `http://localhost:8787` im Browser oeffnen. Eine `catalog.json` der
 Version 1 kann dort als Datei geladen oder in das Textfeld eingefuegt werden.
 Anschliessend **Validieren** und danach **Importieren** klicken. Bildpfade in
-`cover` und `steps[].images` werden relativ zum Projektverzeichnis aufgeloest.
+`cover`, `steps[].images` und v2-`images[].localPath` werden relativ zum
+Projektverzeichnis aufgeloest. V2-`localPath`-Bilder werden in den
+`recipe-catalog`-Bucket hochgeladen; `images[].storagePath` ist ihr stabiler
+Zielpfad in Supabase.
 Die `.env.development.local` muss `EXPO_PUBLIC_SUPABASE_URL` und den
 `SUPABASE_SECRET_KEY` enthalten.
 Validierung und Import zeigen ihren Status direkt im Browser. Batch-Imports

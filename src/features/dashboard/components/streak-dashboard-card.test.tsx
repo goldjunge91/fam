@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react-native';
 
+import { i18n } from '@/i18n';
 import { StreakDashboardCard } from './streak-dashboard-card';
 
 let mockStreak = { count: 3, best: 7, activeToday: true };
@@ -13,7 +14,8 @@ jest.mock('@/components/theme/ThemeProvider', () => ({
 }));
 
 describe('StreakDashboardCard', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
     mockStreak = { count: 3, best: 7, activeToday: true };
   });
 

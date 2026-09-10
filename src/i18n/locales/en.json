@@ -8,7 +8,112 @@
   "dashboard": {
     "title": "Overview",
     "customizeCards": "Customize cards",
-    "exitEditMode": "Exit editing mode"
+    "exitEditMode": "Exit editing mode",
+    "edit": {
+      "removeCard": "Remove card",
+      "toggleSize": "Toggle card size"
+    },
+    "empty": {
+      "title": "No cards on the overview",
+      "description": "Add cards from the gallery or customize your view.",
+      "addCards": "+ Add cards"
+    },
+    "cards": {
+      "inventory": {
+        "title": "EXPIRING SOON",
+        "withoutExpiry": "no expiry date",
+        "overdue": "overdue",
+        "today": "today",
+        "tomorrow": "tomorrow",
+        "daysRemaining": "in {{count}} days",
+        "empty": "Everything is fresh",
+        "accessibility": "Show all expiring items in the pantry"
+      },
+      "shopping": {
+        "accessibility": "Open shopping list",
+        "title": "Shopping",
+        "progress": "{{checked}} of {{total}} completed",
+        "empty": "List is empty",
+        "open": "Nothing open",
+        "done": "Done"
+      },
+      "mealPlan": {
+        "accessibility": "Open meal plan",
+        "planned": "PLANNED",
+        "plannedToday": "PLANNED TODAY",
+        "today": "Today",
+        "nothingPlanned": "Nothing planned",
+        "nothingPlannedYet": "Nothing planned yet",
+        "portions": "{{meal}} · {{count}} servings",
+        "openWeek": "Open weekly plan",
+        "mealSlots": {
+          "breakfast": "Breakfast",
+          "lunch": "Lunch",
+          "dinner": "Dinner"
+        }
+      },
+      "calories": {
+        "ringLabel": "Calories",
+        "titleSmall": "CALORIES",
+        "noGoal": "No goal",
+        "remaining": "{{count}} kcal left",
+        "over": "{{count}} kcal over",
+        "today": "Calories today",
+        "noGoalSet": "No goal set yet",
+        "remainingLong": "{{count}} kcal remaining",
+        "overGoal": "{{count}} kcal over goal"
+      },
+      "streak": {
+        "title": "COOKING STREAK",
+        "keepGoing": "Keep going",
+        "yourProgress": "Your progress",
+        "activeToday": "Active today",
+        "activeYesterday": "Active yesterday",
+        "startNew": "Start a new streak",
+        "startFirst": "Start your first streak",
+        "days_one": "day in a row",
+        "days_other": "days in a row",
+        "bestValue_one": "Best: {{count}} day",
+        "bestValue_other": "Best: {{count}} days",
+        "activeDays": "{{active}} of {{total}} streak days active",
+        "accessibility": "Cooking streak: {{count}} {{unit}}, {{status}}, {{best}}"
+      }
+    },
+    "gallery": {
+      "title": "Customize cards",
+      "description": "Add cards or adjust their size",
+      "close": "Close gallery",
+      "done": "Done",
+      "add": "+ Add",
+      "remove": "Remove",
+      "addAccessibility": "Add {{title}}",
+      "removeAccessibility": "Remove {{title}}",
+      "small": "Small",
+      "large": "Large",
+      "fallbackDescription": "Dashboard widget",
+      "cards": {
+        "streak": {
+          "title": "Cooking streak",
+          "description": "Seven-day view of your streak and personal record."
+        },
+        "calories": {
+          "title": "Calories & macros",
+          "description": "Daily overview, calorie ring, and remaining kcal."
+        },
+        "mealPlanner": {
+          "title": "Meal plan",
+          "description": "Today's meals and next planned recipe."
+        },
+        "inventory": {
+          "title": "Pantry & expiry",
+          "description": "Expiring items and a quick pantry check."
+        },
+        "shoppingList": {
+          "title": "Shopping list",
+          "description": "Open items and shopping progress."
+        }
+      }
+    }
   },
   "settings": {
     "title": "Settings",

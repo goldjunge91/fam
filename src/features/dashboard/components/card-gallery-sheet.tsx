@@ -1,4 +1,5 @@
 import * as Haptics from 'expo-haptics';
+import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { withAlpha } from '@/components/theme/index';
@@ -12,30 +13,25 @@ type CardGallerySheetProps = {
   onClose: () => void;
 };
 
-const CARD_METADATA: Record<string, { title: string; desc: string; icon: string }> = {
+const CARD_METADATA: Record<string, { key: string; icon: string }> = {
   streak: {
-    title: 'Kochstreak',
-    desc: 'Sieben-Tage-Ansicht deiner Serie und persönlicher Rekord.',
+    key: 'streak',
     icon: '🔥',
   },
   calories: {
-    title: 'Kalorien & Makros',
-    desc: 'Tagesübersicht, Kalorienring und verbleibende kcal.',
+    key: 'calories',
     icon: '🍎',
   },
   mealPlanner: {
-    title: 'Essensplan',
-    desc: 'Heutige Mahlzeiten und nächstes geplantes Rezept.',
+    key: 'mealPlanner',
     icon: '🗓️',
   },
   inventory: {
-    title: 'Vorrat & MHD',
-    desc: 'Bald ablaufende Artikel und Vorrats-Schnellcheck.',
+    key: 'inventory',
     icon: '🧊',
   },
   shoppingList: {
-    title: 'Einkaufsliste',
-    desc: 'Offene Artikel und Fortschritt beim Einkaufen.',
+    key: 'shoppingList',
     icon: '🛒',
   },
 };
@@ -45,6 +41,7 @@ const CARD_METADATA: Record<string, { title: string; desc: string; icon: string 
  * Erlaubt das Hinzufuegen/Entfernen von Karten und die Groessenauswahl.
  */
 export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const { getSize, setSize, showCard, hideCard, isCardHidden } = useCardSizes();
@@ -71,7 +68,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
           style={[styles.dim, { backgroundColor: 'rgba(0, 0, 0, 0.45)' }]}
           onPress={onClose}
           accessibilityRole="button"
-          accessibilityLabel="Galerie schließen"
+          accessibilityLabel={t('dashboard.gallery.close')}
         />
         <View
           style={[
@@ -88,18 +85,18 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
 
           <View style={styles.header}>
             <View style={styles.headerTextWrap}>
-              <Txt variant="title">Karten anpassen</Txt>
+              <Txt variant="title">{t('dashboard.gallery.title')}</Txt>
               <Txt variant="body" tone="secondary">
-                Füge Karten hinzu oder passe deren Größe an
+                {t('dashboard.gallery.description')}
               </Txt>
             </View>
             <Pressable
               onPress={onClose}
               accessibilityRole="button"
-              accessibilityLabel="Fertig"
+              accessibilityLabel={t('dashboard.gallery.done')}
               style={[styles.doneBtn, { backgroundColor: colors.basil }]}>
               <Txt variant="label" tone="onAccent" weight="600">
-                Fertig
+                {t('dashboard.gallery.done')}
               </Txt>
             </Pressable>
           </View>
@@ -108,11 +105,18 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
             showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.listContent}>
             {allCards.map((card) => {
-              const meta = CARD_METADATA[card.id] ?? {
-                title: card.id,
-                desc: 'Dashboard Widget',
-                icon: '📦',
-              };
+              const metadata = CARD_METADATA[card.id];
+              const meta = metadata
+                ? {
+                    title: t(`dashboard.gallery.cards.${metadata.key}.title`),
+                    desc: t(`dashboard.gallery.cards.${metadata.key}.description`),
+                    icon: metadata.icon,
+                  }
+                : {
+                    title: card.id,
+                    desc: t('dashboard.gallery.fallbackDescription'),
+                    icon: '📦',
+                  };
               const currentSize = getSize(card);
               const isHidden = isCardHidden(card.id);
 
@@ -141,7 +145,9 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                       onPress={() => handleToggleCard(card.id, isHidden)}
                       accessibilityRole="button"
                       accessibilityLabel={
-                        isHidden ? `${meta.title} hinzufügen` : `${meta.title} entfernen`
+                        isHidden
+                          ? t('dashboard.gallery.addAccessibility', { title: meta.title })
+                          : t('dashboard.gallery.removeAccessibility', { title: meta.title })
                       }
                       style={[
                         styles.toggleBtn,
@@ -150,7 +156,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                           : { backgroundColor: withAlpha(colors.tomato, 0.15) },
                       ]}>
                       <Txt variant="label" tone={isHidden ? 'onAccent' : 'danger'} weight="600">
-                        {isHidden ? '+ Hinzufügen' : 'Entfernen'}
+                        {isHidden ? t('dashboard.gallery.add') : t('dashboard.gallery.remove')}
                       </Txt>
                     </Pressable>
                   </View>
@@ -170,7 +176,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                           variant="label"
                           tone={currentSize === 'small' ? 'onAccent' : 'primary'}
                           weight="600">
-                          Klein
+                          {t('dashboard.gallery.small')}
                         </Txt>
                       </Pressable>
                       <Pressable
@@ -185,7 +191,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                           variant="label"
                           tone={currentSize === 'large' ? 'onAccent' : 'primary'}
                           weight="600">
-                          Groß
+                          {t('dashboard.gallery.large')}
                         </Txt>
                       </Pressable>
                     </View>

@@ -212,6 +212,24 @@ it('formatiert das Datum der Übersicht anhand der aktiven Sprache', async () =>
   expect(screen.getByText(expectedDate)).toBeOnTheScreen();
 });
 
+it('zeigt Karten und Karten-Galerie in der aktiven Sprache', async () => {
+  await i18n.changeLanguage('en');
+
+  await renderScreen();
+
+  expect(screen.getByText('EXPIRING SOON')).toBeOnTheScreen();
+  expect(screen.getByText('Shopping')).toBeOnTheScreen();
+  expect(screen.getByText('PLANNED TODAY')).toBeOnTheScreen();
+  expect(screen.getByText('COOKING STREAK')).toBeOnTheScreen();
+  expect(screen.getByText('Calories today')).toBeOnTheScreen();
+
+  await fireEvent(screen.getByLabelText('Open meal plan'), 'longPress');
+  await fireEvent.press(screen.getByLabelText('Customize cards'));
+
+  expect(screen.getByText('Add cards or adjust their size')).toBeOnTheScreen();
+  expect(screen.getByLabelText('Close gallery')).toBeOnTheScreen();
+});
+
 describe('DashboardScreen — Vorrat-Widget "Läuft bald ab"', () => {
   it('zeigt das Widget mit Badge 0, wenn nichts bald ablaeuft', async () => {
     mockFridgeItems = [];

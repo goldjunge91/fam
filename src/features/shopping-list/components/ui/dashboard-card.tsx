@@ -1,4 +1,5 @@
 import { router } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { radius, shadow, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
  * Small = Badge + Label + Action (wie bisher).
  */
 function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
+  const { t } = useTranslation();
   const { colors: theme } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -73,7 +75,7 @@ function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
         onLongPress={onLongPress}
         disabled={disabled}
         accessibilityRole="button"
-        accessibilityLabel="Einkaufsliste öffnen"
+        accessibilityLabel={t('dashboard.cards.shopping.accessibility')}
         glassStyle={[styles.widget, styles.largeWidget]}
         fallbackStyle={[
           styles.widget,
@@ -88,7 +90,7 @@ function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
             </Txt>
           </View>
           <Txt variant="body" weight="700">
-            Einkauf
+            {t('dashboard.cards.shopping.title')}
           </Txt>
         </View>
         <View style={styles.content}>
@@ -96,17 +98,20 @@ function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
             <>
               <ProgressBar value={progress} />
               <Txt variant="body" tone="secondary">
-                {checkedCount} von {totalCount} erledigt
+                {t('dashboard.cards.shopping.progress', {
+                  checked: checkedCount,
+                  total: totalCount,
+                })}
               </Txt>
             </>
           ) : (
             <Txt variant="body" tone="secondary">
-              Liste ist leer
+              {t('dashboard.cards.shopping.empty')}
             </Txt>
           )}
         </View>
         <Txt variant="body" weight="700">
-          {openCount > 0 ? 'Noch offen' : 'Erledigt'}
+          {openCount > 0 ? t('dashboard.cards.shopping.open') : t('dashboard.cards.shopping.done')}
         </Txt>
       </GlassCard>
     );
@@ -118,7 +123,7 @@ function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
       onLongPress={onLongPress}
       disabled={disabled}
       accessibilityRole="button"
-      accessibilityLabel="Einkaufsliste öffnen"
+      accessibilityLabel={t('dashboard.cards.shopping.accessibility')}
       glassStyle={styles.widget}
       fallbackStyle={[styles.widget, { backgroundColor: theme.backgroundElement }]}
       outerStyle={[styles.pressable, shadow.sm, { shadowColor: theme.shadowCard }]}>
@@ -129,10 +134,10 @@ function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
       </View>
       <View style={styles.spacer} />
       <Txt variant="body" tone="secondary">
-        Einkauf
+        {t('dashboard.cards.shopping.title')}
       </Txt>
       <Txt variant="body" weight="700">
-        {openCount > 0 ? 'Noch offen' : 'Erledigt'}
+        {openCount > 0 ? t('dashboard.cards.shopping.open') : t('dashboard.cards.shopping.done')}
       </Txt>
     </GlassCard>
   );

@@ -1,5 +1,6 @@
 import * as Haptics from 'expo-haptics';
 import { type ReactElement, useCallback, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import {
   DraxProvider,
@@ -66,6 +67,7 @@ export function CardList({
   onOpenGallery,
   onDragStateChange,
 }: CardListProps) {
+  const { t } = useTranslation();
   const { width, fontScale } = useWindowDimensions();
   const stackSmallCards = width < 360 || fontScale >= 1.2;
   const { session } = useSession();
@@ -125,14 +127,14 @@ export function CardList({
     return (
       <Surface tone="surface" style={styles.emptyCard}>
         <Txt variant="body" weight="700" style={styles.centeredText}>
-          Keine Karten auf der Übersicht
+          {t('dashboard.empty.title')}
         </Txt>
         <Txt variant="body" tone="secondary" style={styles.centeredText}>
-          Füge Karten über die Galerie hinzu oder passe deine Ansicht an.
+          {t('dashboard.empty.description')}
         </Txt>
         {onOpenGallery ? (
           <Button
-            title="+ Karten hinzufügen"
+            title={t('dashboard.empty.addCards')}
             onPress={onOpenGallery}
             variant="accent"
             accentKey="pantry"

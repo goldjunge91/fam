@@ -1,24 +1,21 @@
-import { FlashList } from "@shopify/flash-list";
-import { Modal, Pressable, StyleSheet, View } from "react-native";
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
+import { FlashList } from '@shopify/flash-list';
+import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { radius, space, withAlpha } from "@/components/theme/index";
-import { useTheme } from "@/components/theme/ThemeProvider";
-import { Button, IconButton, Txt } from "@/constants/ui";
-import { useSheetShadowStyle } from "@/hooks/use-sheet-shadow-style";
-import { formatAmount } from "@/lib/package-size";
+import { radius, space, withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Button, IconButton, Txt } from '@/constants/ui';
+import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
+import { formatAmount } from '@/lib/package-size';
 
 import {
   groupTransactionsByDay,
   isInventoryTransactionUndoable,
+  type LocalInventoryTransaction,
   transactionLabel,
   transactionReasonLabel,
   transactionUndoLabel,
-  type LocalInventoryTransaction,
-} from "../use-inventory-transactions";
+} from '../use-inventory-transactions';
 
 type InventoryHistorySheetProps = {
   visible: boolean;
@@ -46,8 +43,8 @@ type InventoryHistorySheetProps = {
 };
 
 type HistoryRow =
-  | { kind: "header"; id: string; label: string }
-  | { kind: "transaction"; id: string; transaction: LocalInventoryTransaction };
+  | { kind: 'header'; id: string; label: string }
+  | { kind: 'transaction'; id: string; transaction: LocalInventoryTransaction };
 
 export function InventoryHistorySheet({
   visible,
@@ -70,34 +67,25 @@ export function InventoryHistorySheet({
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const sheetStyle = useSheetShadowStyle();
-  const rows: HistoryRow[] = groupTransactionsByDay(transactions).flatMap(
-    (group) => [
-      {
-        kind: "header" as const,
-        id: `header-${group.key}`,
-        label: group.label,
-      },
-      ...group.transactions.map((transaction) => ({
-        kind: "transaction" as const,
-        id: transaction.id,
-        transaction,
-      })),
-    ],
-  );
+  const rows: HistoryRow[] = groupTransactionsByDay(transactions).flatMap((group) => [
+    {
+      kind: 'header' as const,
+      id: `header-${group.key}`,
+      label: group.label,
+    },
+    ...group.transactions.map((transaction) => ({
+      kind: 'transaction' as const,
+      id: transaction.id,
+      transaction,
+    })),
+  ]);
 
   const topInset = insets.top > 0 ? insets.top : space.xl;
 
   const sheet = (
     <View
-      className={
-        fullScreen ? "flex-1 bg-background" : "fridge-actions-sheet flex-1"
-      }
-      style={
-        fullScreen
-          ? undefined
-          : [sheetStyle, { maxHeight: "85%", overflow: "hidden" }]
-      }
-    >
+      className={fullScreen ? 'flex-1 bg-background' : 'fridge-actions-sheet flex-1'}
+      style={fullScreen ? undefined : [sheetStyle, { maxHeight: '85%', overflow: 'hidden' }]}>
       {!fullScreen ? <View className="fridge-actions-handle" /> : null}
       <View
         className="flex-row items-center justify-between"
@@ -105,8 +93,7 @@ export function InventoryHistorySheet({
           paddingHorizontal: fullScreen ? space.lg : 0,
           paddingTop: fullScreen ? space.xs : 0,
           paddingBottom: space.md,
-        }}
-      >
+        }}>
         <View className="flex-1 gap-one pr-three">
           <Txt variant="title">{title}</Txt>
           <Txt variant="caption" tone="secondary">
@@ -127,12 +114,7 @@ export function InventoryHistorySheet({
       {productSummary ? (
         <View
           className="inventory-state-summary"
-          style={
-            fullScreen
-              ? { paddingHorizontal: space.lg, marginBottom: space.sm }
-              : undefined
-          }
-        >
+          style={fullScreen ? { paddingHorizontal: space.lg, marginBottom: space.sm } : undefined}>
           {productSummary.sealed > 0 ? (
             <StateSummaryCard
               label="Versiegelt"
@@ -153,12 +135,7 @@ export function InventoryHistorySheet({
 
       {offline ? (
         <View
-          style={
-            fullScreen
-              ? { paddingHorizontal: space.lg, marginBottom: space.xs }
-              : undefined
-          }
-        >
+          style={fullScreen ? { paddingHorizontal: space.lg, marginBottom: space.xs } : undefined}>
           <Txt variant="caption" tone="secondary">
             Offline: lokale Daten werden angezeigt.
           </Txt>
@@ -180,20 +157,18 @@ export function InventoryHistorySheet({
               variant="caption"
               tone="secondary"
               weight="700"
-              className="mb-two mt-four uppercase"
-            >
+              className="mb-two mt-four uppercase">
               {historyHeading}
             </Txt>
           ) : null
         }
         renderItem={({ item: row }) =>
-          row.kind === "header" ? (
+          row.kind === 'header' ? (
             <Txt
               variant="caption"
               tone="secondary"
               weight="700"
-              className="mb-two mt-four uppercase tracking-[0.5px]"
-            >
+              className="mb-two mt-four uppercase tracking-[0.5px]">
               {row.label}
             </Txt>
           ) : (
@@ -213,11 +188,7 @@ export function InventoryHistorySheet({
         }
         ListFooterComponent={
           footerNote ? (
-            <Txt
-              variant="caption"
-              tone="secondary"
-              className="inventory-history-footer-note"
-            >
+            <Txt variant="caption" tone="secondary" className="inventory-history-footer-note">
               {footerNote}
             </Txt>
           ) : null
@@ -235,11 +206,7 @@ export function InventoryHistorySheet({
                 Verlauf konnte nicht geladen werden.
               </Txt>
               {onRetry ? (
-                <Button
-                  title="Erneut versuchen"
-                  variant="secondary"
-                  onPress={onRetry}
-                />
+                <Button title="Erneut versuchen" variant="secondary" onPress={onRetry} />
               ) : null}
             </View>
           ) : (
@@ -259,9 +226,8 @@ export function InventoryHistorySheet({
       visible={visible}
       transparent={!fullScreen}
       animationType="slide"
-      presentationStyle={fullScreen ? "fullScreen" : undefined}
-      onRequestClose={onClose}
-    >
+      presentationStyle={fullScreen ? 'fullScreen' : undefined}
+      onRequestClose={onClose}>
       <View style={StyleSheet.absoluteFill}>
         {!fullScreen ? (
           <Pressable
@@ -280,16 +246,14 @@ export function InventoryHistorySheet({
               paddingBottom: insets.bottom,
               paddingLeft: insets.left,
               paddingRight: insets.right,
-            }}
-          >
+            }}>
             {sheet}
           </View>
         ) : (
           <SafeAreaView
             style={StyleSheet.absoluteFill}
-            edges={["top", "bottom", "left", "right"]}
-            pointerEvents="box-none"
-          >
+            edges={['top', 'bottom', 'left', 'right']}
+            pointerEvents="box-none">
             {sheet}
           </SafeAreaView>
         )}
@@ -311,14 +275,8 @@ function StateSummaryCard({
 }) {
   return (
     <View
-      className={`inventory-state-card ${open ? "inventory-state-card-open" : "inventory-state-card-sealed"}`}
-    >
-      <Txt
-        variant="caption"
-        tone="secondary"
-        weight="700"
-        className="uppercase"
-      >
+      className={`inventory-state-card ${open ? 'inventory-state-card-open' : 'inventory-state-card-sealed'}`}>
+      <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
         {label}
       </Txt>
       <Txt variant="body" weight="700">
@@ -342,36 +300,34 @@ function HistoryTransactionRow({
   undoPending,
 }: {
   transaction: LocalInventoryTransaction;
-  colors: ReturnType<typeof useTheme>["colors"];
+  colors: ReturnType<typeof useTheme>['colors'];
   compactLabel: boolean;
   lotLabel?: string;
   onUndo?: (transaction: LocalInventoryTransaction) => void;
   undoPending: boolean;
 }) {
-  const isWaste = transaction.type === "waste";
+  const isWaste = transaction.type === 'waste';
   const edgeColor = isWaste
     ? colors.danger
-    : transaction.type === "in"
+    : transaction.type === 'in'
       ? colors.success
-      : transaction.type === "open"
+      : transaction.type === 'open'
         ? colors.warning
         : colors.border;
   const reason = transactionReasonLabel(transaction.reason);
-  const time = new Date(transaction.created_at).toLocaleTimeString("de-DE", {
-    hour: "2-digit",
-    minute: "2-digit",
+  const time = new Date(transaction.created_at).toLocaleTimeString('de-DE', {
+    hour: '2-digit',
+    minute: '2-digit',
   });
   const undoAvailable = isInventoryTransactionUndoable(transaction);
   const userVisibleNotes =
-    transaction.notes && !transaction.notes.startsWith("[Split]")
-      ? transaction.notes
-      : null;
+    transaction.notes && !transaction.notes.startsWith('[Split]') ? transaction.notes : null;
   const quantityPrefix =
-    transaction.type === "waste" || transaction.type === "out"
-      ? "−"
-      : transaction.type === "in"
-        ? "+"
-        : "";
+    transaction.type === 'waste' || transaction.type === 'out'
+      ? '−'
+      : transaction.type === 'in'
+        ? '+'
+        : '';
 
   return (
     <View className="inventory-history-row">
@@ -385,10 +341,7 @@ function HistoryTransactionRow({
       <View className="flex-1 gap-half">
         <View className="flex-row flex-wrap items-center gap-one">
           <Txt variant="body" weight="700">
-            {transactionLabel(
-              transaction,
-              compactLabel ? null : transaction.item_name,
-            )}
+            {transactionLabel(transaction, compactLabel ? null : transaction.item_name)}
           </Txt>
           {lotLabel ? (
             <View className="inventory-history-lot-tag">
@@ -399,10 +352,10 @@ function HistoryTransactionRow({
           ) : null}
         </View>
         <Txt variant="caption" tone="secondary">
-          {transaction.actor ? `${transaction.actor.slice(0, 8)} · ` : ""}
+          {transaction.actor ? `${transaction.actor.slice(0, 8)} · ` : ''}
           {time}
-          {reason && transaction.type !== "waste" ? ` · ${reason}` : ""}
-          {transaction.location_name ? ` · ${transaction.location_name}` : ""}
+          {reason && transaction.type !== 'waste' ? ` · ${reason}` : ''}
+          {transaction.location_name ? ` · ${transaction.location_name}` : ''}
         </Txt>
         {userVisibleNotes ? (
           <Txt variant="caption" tone="secondary">
@@ -411,13 +364,9 @@ function HistoryTransactionRow({
         ) : null}
       </View>
       <View className="items-end gap-one" style={{ paddingRight: space.sm }}>
-        <Txt
-          variant="body"
-          weight="700"
-          style={{ fontVariant: ["tabular-nums"] }}
-        >
+        <Txt variant="body" weight="700" style={{ fontVariant: ['tabular-nums'] }}>
           {quantityPrefix}
-          {formatAmount(transaction.quantity, transaction.item_unit ?? "")}
+          {formatAmount(transaction.quantity, transaction.item_unit ?? '')}
         </Txt>
         {undoAvailable && onUndo ? (
           <Pressable
@@ -425,8 +374,7 @@ function HistoryTransactionRow({
             onPress={() => onUndo(transaction)}
             accessibilityRole="button"
             accessibilityLabel={transactionUndoLabel(transaction)}
-            accessibilityState={{ disabled: undoPending }}
-          >
+            accessibilityState={{ disabled: undoPending }}>
             <Txt variant="caption" color={colors.accent} weight="700">
               Rückgängig
             </Txt>

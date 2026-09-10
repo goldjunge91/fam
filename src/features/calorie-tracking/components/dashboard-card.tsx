@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -65,6 +66,7 @@ function toIsoDate(date: Date): string {
 }
 
 function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
+  const { i18n, t } = useTranslation();
   const { colors } = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -92,7 +94,7 @@ function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProp
         <Surface tone="surface" style={styles.smallCard}>
           <View style={styles.row}>
             <Txt variant="caption" tone="secondary" weight="700" style={{ letterSpacing: 0.5 }}>
-              KALORIEN
+              {t('dashboard.cards.calories.titleSmall')}
             </Txt>
             <Txt variant="label" tone={ziel === 0 ? 'secondary' : 'primary'}>
               {ziel === 0 ? '—' : `${Math.round((aufgenommen / (ziel || 1)) * 100)}%`}
@@ -118,10 +120,10 @@ function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProp
               weight="500"
               numberOfLines={2}>
               {ziel === 0
-                ? 'Kein Ziel'
+                ? t('dashboard.cards.calories.noGoal')
                 : verbleibend >= 0
-                  ? `${verbleibend} kcal übrig`
-                  : `${Math.abs(verbleibend)} kcal drüber`}
+                  ? t('dashboard.cards.calories.remaining', { count: verbleibend })
+                  : t('dashboard.cards.calories.over', { count: Math.abs(verbleibend) })}
             </Txt>
           </View>
         </Surface>
@@ -137,7 +139,7 @@ function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProp
             value={aufgenommen}
             target={ziel}
             preset="dashboard"
-            label="Kalorien"
+            label={t('dashboard.cards.calories.ringLabel')}
             displayMode="percent"
             progressColor={colors.tomato}
             trackColor={colors.border}
@@ -145,17 +147,19 @@ function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProp
         </View>
         <View style={styles.copy}>
           <Txt variant="label" tone="secondary">
-            Kalorien heute
+            {t('dashboard.cards.calories.today')}
           </Txt>
-          <Txt variant="title">{Math.round(aufgenommen).toLocaleString('de-DE')}</Txt>
+          <Txt variant="title">
+            {new Intl.NumberFormat(i18n.language).format(Math.round(aufgenommen))}
+          </Txt>
           <Txt
             variant="body"
             tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}>
             {ziel === 0
-              ? 'Noch kein Ziel gesetzt'
+              ? t('dashboard.cards.calories.noGoalSet')
               : verbleibend >= 0
-                ? `${verbleibend} kcal verbleibend`
-                : `${Math.abs(verbleibend)} kcal über dem Ziel`}
+                ? t('dashboard.cards.calories.remainingLong', { count: verbleibend })
+                : t('dashboard.cards.calories.overGoal', { count: Math.abs(verbleibend) })}
           </Txt>
         </View>
       </Surface>

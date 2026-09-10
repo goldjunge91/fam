@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { radius, shadow, space } from '@/components/theme/index';
@@ -44,13 +45,17 @@ const styles = StyleSheet.create({
 });
 
 function StreakDays({ count, activeToday }: { count: number; activeToday: boolean }) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const activeDays = Math.min(count, DAY_COUNT);
   const todayIndex = activeDays - 1;
 
   return (
     <View
-      accessibilityLabel={`${activeDays} von ${DAY_COUNT} Streak-Tagen aktiv`}
+      accessibilityLabel={t('dashboard.cards.streak.activeDays', {
+        active: activeDays,
+        total: DAY_COUNT,
+      })}
       style={styles.days}>
       {STREAK_DAYS.map((day, index) => {
         const active = index < activeDays;
@@ -76,17 +81,25 @@ function StreakDays({ count, activeToday }: { count: number; activeToday: boolea
 }
 
 function StreakDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const streak = useStreak();
   const hasStreak = streak.count > 0;
   const status = hasStreak
     ? streak.activeToday
-      ? 'Heute aktiv'
-      : 'Gestern aktiv'
+      ? t('dashboard.cards.streak.activeToday')
+      : t('dashboard.cards.streak.activeYesterday')
     : streak.best > 0
-      ? 'Neue Serie starten'
-      : 'Starte deine erste Serie';
-  const accessibilityLabel = `Kochstreak: ${streak.count} ${streak.count === 1 ? 'Tag' : 'Tage'} am Stück, ${status}, bester Wert ${streak.best} Tage`;
+      ? t('dashboard.cards.streak.startNew')
+      : t('dashboard.cards.streak.startFirst');
+  const dayLabel = t('dashboard.cards.streak.days', { count: streak.count });
+  const bestValue = t('dashboard.cards.streak.bestValue', { count: streak.best });
+  const accessibilityLabel = t('dashboard.cards.streak.accessibility', {
+    count: streak.count,
+    unit: dayLabel,
+    status,
+    best: bestValue,
+  });
 
   return (
     <Pressable
@@ -106,10 +119,12 @@ function StreakDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
         ]}>
         <View style={styles.header}>
           <Txt variant="caption" tone="accent" weight="700" style={{ letterSpacing: 0.5 }}>
-            KOCHSTREAK
+            {t('dashboard.cards.streak.title')}
           </Txt>
           <Txt variant="caption" tone="secondary">
-            {hasStreak ? 'Dranbleiben' : 'Dein Fortschritt'}
+            {hasStreak
+              ? t('dashboard.cards.streak.keepGoing')
+              : t('dashboard.cards.streak.yourProgress')}
           </Txt>
         </View>
 
@@ -121,7 +136,7 @@ function StreakDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
             {streak.count}
           </Txt>
           <Txt variant="body" tone="secondary">
-            {streak.count === 1 ? 'Tag am Stück' : 'Tage am Stück'}
+            {dayLabel}
           </Txt>
         </View>
 
@@ -132,7 +147,7 @@ function StreakDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
             {status}
           </Txt>
           <Txt variant="caption" tone="secondary">
-            Bester Wert: {streak.best} Tage
+            {bestValue}
           </Txt>
         </View>
       </Surface>

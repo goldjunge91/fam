@@ -1,0 +1,46 @@
+{
+  "repository": "https://github.com/JiroMusik/FoodAI",
+  "branch": "main",
+  "extractedAt": "2026-09-10T12:12:07.029Z",
+  "staticRecipeCount": 0,
+  "staticRecipes": [],
+  "dynamicSources": [
+    {
+      "kind": "ai-generated",
+      "endpoints": [
+        "POST /api/recipes/generate",
+        "POST /api/recipes/weekly"
+      ],
+      "description": "Recipes are generated at runtime from the current inventory and user preferences."
+    },
+    {
+      "kind": "rss",
+      "endpoint": "GET /api/feed/inspiration",
+      "feeds": {
+        "de": [
+          "https://www.gutekueche.de/feed/tagesrezept",
+          "https://www.gutekueche.de/feed/wochenrezepte"
+        ],
+        "other": [
+          "https://www.bbcgoodfood.com/feed"
+        ]
+      }
+    },
+    {
+      "kind": "external-fallback",
+      "service": "TheMealDB",
+      "description": "Random recipes are fetched at runtime only when the RSS result has fewer than three items."
+    },
+    {
+      "kind": "import",
+      "endpoint": "POST /api/recipes/import",
+      "description": "A recipe can be imported from a user-supplied URL at runtime."
+    }
+  ],
+  "evidence": [
+    "server.ts:635 /api/recipes/weekly",
+    "server.ts:1263 /api/recipes/generate",
+    "server.ts:1546 /api/recipes/import",
+    "server.ts:2024 /api/feed/inspiration"
+  ]
+}

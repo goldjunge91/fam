@@ -1,5 +1,6 @@
 import * as Haptics from 'expo-haptics';
 import { type ReactNode, useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, View } from 'react-native';
 import Animated, {
   cancelAnimation,
@@ -33,6 +34,7 @@ export function JiggleWrapper({
   onDelete,
   children,
 }: JiggleWrapperProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const phase = useSharedValue(0);
 
@@ -78,7 +80,7 @@ export function JiggleWrapper({
       {isEditing && onDelete ? (
         <Pressable
           accessibilityRole="button"
-          accessibilityLabel="Karte entfernen"
+          accessibilityLabel={t('dashboard.edit.removeCard')}
           onPress={() => {
             triggerHaptic();
             onDelete();
@@ -100,7 +102,7 @@ export function JiggleWrapper({
       {isEditing ? (
         <Pressable
           accessibilityRole="button"
-          accessibilityLabel="Kartengröße umschalten"
+          accessibilityLabel={t('dashboard.edit.toggleSize')}
           onPress={() => {
             triggerHaptic();
             onToggleSize();

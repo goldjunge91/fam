@@ -15,6 +15,9 @@ aber von der aktuellen UI nicht dargestellt.
   Kopie der Bildliste.
 - Die Rezept- und Zutaten-JSON-Dateien bleiben die Eingabe für die bereits
   extrahierten Rezeptdaten.
+- Lokale Bilddateien werden über `--local-images` gelesen. Der Dateiname ohne
+  Erweiterung muss exakt einer Waivy-`recipe.id` entsprechen. Es gibt keine
+  Titel- oder Fuzzy-Zuordnung.
 
 ## Bildauflösung
 
@@ -34,6 +37,14 @@ Der Import lädt keine externen Bilder herunter und schreibt keine fremden
 Bilddaten in Supabase Storage. Dadurch bleiben Bildquelle, Lizenzhinweis und
 die Entscheidung über spätere lokale Speicherung getrennt.
 
+Lokale Bilder sind davon getrennt: Das Batchformat führt `localPath` als
+Importpfad und `storagePath` als stabilen Zielpfad. Der Batch-Importer lädt
+`localPath` in den privaten `recipe-catalog`-Bucket hoch und speichert den
+Zielpfad in `catalog_recipe_images.storage_path`. `localPath` wird nicht in
+der App verwendet und ist nur Bestandteil des redaktionellen Import-JSONs.
+Dateien ohne Rezept-ID im gewählten Eingabedatensatz werden als nicht
+zugeordnet gemeldet und nicht hochgeladen.
+
 ## Datenvertrag
 
 - `scripts/convert-waivy-recipes.ts` erzeugt als Ausgabe das direkt
@@ -41,6 +52,9 @@ die Entscheidung über spätere lokale Speicherung getrennt.
   `schemaVersion: 2`. Die Datei kann unverändert an `/api/validate` und
   anschließend an `/api/import` von `tools/batch-import/server.ts` gesendet
   werden.
+- Der produktive Standardimport setzt `status: "published"` und
+  `published_at`. Ein Redaktionsimport muss `--status draft` ausdrücklich
+  anfordern.
 - Die Batchdatei enthält pro Rezept die verschachtelten `components`, `steps`
   und `images`. Der Batch-Importer akzeptiert `schemaVersion: 1` weiterhin für
   bestehende Importe.
