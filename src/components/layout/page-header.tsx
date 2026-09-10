@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Txt } from '@/constants/ui';
 
@@ -11,6 +11,39 @@ type PageHeaderProps = {
   align?: 'start' | 'center';
 };
 
+const styles = StyleSheet.create({
+  header: {
+    height: 74,
+    flexGrow: 0,
+    flexShrink: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 7,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+  },
+  side: {
+    minWidth: 39,
+    minHeight: 39,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  title: {
+    flex: 1,
+    minWidth: 0,
+  },
+  titleCentered: {
+    alignItems: 'center',
+  },
+  trailing: {
+    justifyContent: 'flex-end',
+  },
+  subtitle: {
+    marginBottom: 1,
+  },
+});
+
 /** Kompakter Header fuer die zentralen App-Bereiche aus dem fam-Designsystem. */
 export function PageHeader({
   title,
@@ -20,11 +53,16 @@ export function PageHeader({
   align = 'start',
 }: PageHeaderProps) {
   return (
-    <View className="min-h-[57px] flex-row items-center gap-[7px] px-[14px] py-two">
-      <View className="min-w-[39px] min-h-[39px] flex-row items-center gap-[6px]">{leading}</View>
-      <View className={`flex-1 min-w-0 ${align === 'center' ? 'items-center' : ''}`}>
+    <View style={styles.header}>
+      <View style={styles.side}>{leading}</View>
+      <View style={[styles.title, align === 'center' && styles.titleCentered]}>
         {subtitle ? (
-          <Txt variant="label" tone="secondary" className="mb-[1px]" weight="600" numberOfLines={1}>
+          <Txt
+            variant="label"
+            tone="secondary"
+            style={styles.subtitle}
+            weight="600"
+            numberOfLines={1}>
             {subtitle}
           </Txt>
         ) : null}
@@ -32,9 +70,7 @@ export function PageHeader({
           {title}
         </Txt>
       </View>
-      <View className="min-w-[39px] min-h-[39px] flex-row items-center gap-[6px] justify-end">
-        {trailing}
-      </View>
+      <View style={[styles.side, styles.trailing]}>{trailing}</View>
     </View>
   );
 }

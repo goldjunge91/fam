@@ -85,6 +85,23 @@ function saveButton() {
   return screen.getByRole('button', { name: 'Änderungen speichern' });
 }
 
+it('uses an iOS-safe modal presentation for the visible edit sheet', async () => {
+  await renderSheet();
+
+  const modal = screen.container.queryAll(
+    (instance) =>
+      instance.props.visible === true && typeof instance.props.onRequestClose === 'function',
+  )[0];
+
+  expect(modal?.props.presentationStyle).toBe('overFullScreen');
+  const sheet = screen.container.queryAll(
+    (instance) => instance.props.className === 'edit-fridge-sheet',
+  )[0];
+  expect(sheet?.props.style).toEqual(
+    expect.arrayContaining([expect.objectContaining({ height: expect.any(Number) })]),
+  );
+});
+
 it('renders the edit close button with the configured tomato background', async () => {
   await renderSheet();
 

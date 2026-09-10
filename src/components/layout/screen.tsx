@@ -1,6 +1,13 @@
 import { router } from 'expo-router';
 import type { ReactNode } from 'react';
-import { RefreshControl, ScrollView, type StyleProp, View, type ViewStyle } from 'react-native';
+import {
+  RefreshControl,
+  ScrollView,
+  type StyleProp,
+  StyleSheet,
+  View,
+  type ViewStyle,
+} from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
@@ -20,6 +27,49 @@ import { IconButton, Row, Surface, Txt } from '@/constants/ui';
 export type { BackTarget } from '@/components/ui/buttons';
 
 const SCREEN_BOTTOM_CLEARANCE = 96;
+
+const styles = StyleSheet.create({
+  body: {
+    gap: space.lg,
+  },
+  surface: {
+    flex: 1,
+  },
+  chromeHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: space.sm,
+    height: 94,
+    paddingTop: 13,
+    paddingBottom: 23,
+  },
+  chromeTitle: {
+    flex: 1,
+    alignItems: 'center',
+    gap: 2,
+  },
+  chromeActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.xs,
+  },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: space.lg,
+    paddingTop: space.lg,
+    paddingBottom: space.lg + space.sm,
+  },
+  titleBlock: {
+    flexShrink: 1,
+    gap: space.xs / 2,
+  },
+  fill: {
+    flex: 1,
+  },
+});
 
 /** Kompakter, wiederverwendbarer Header für Screens ohne Hub-Chrome. */
 export function ScreenHeader({
@@ -117,8 +167,8 @@ export function Screen({
   const insets = useSafeAreaInsets();
   const body = (
     <View
-      className="gap-three"
       style={[
+        styles.body,
         {
           width: '100%',
           maxWidth: CONTENT_MAX_WIDTH,
@@ -136,7 +186,7 @@ export function Screen({
   const bottomPadding = applyBottomPadding ? insets.bottom + SCREEN_BOTTOM_CLEARANCE : 0;
 
   return (
-    <Surface tone="page" className="flex-1">
+    <Surface tone="page" style={styles.surface}>
       {backgroundGradient ? <GradientBackground {...backgroundGradient} /> : null}
       <SafeAreaView
         edges={edges}
@@ -168,10 +218,10 @@ export function Screen({
           ) : null}
 
           {chrome ? (
-            <View className="flex-row items-center justify-between gap-two h-[94px] pt-[13px] pb-[23px]">
+            <View style={styles.chromeHeader}>
               <MenuButton onPress={chrome.onMenuPress} />
 
-              <View className="flex-1 items-center gap-[2px]">
+              <View style={styles.chromeTitle}>
                 {subtitle ? (
                   <Txt variant="caption" tone="secondary" center>
                     {subtitle}
@@ -182,7 +232,7 @@ export function Screen({
                 </Txt>
               </View>
 
-              <View className="flex-row items-center gap-one">
+              <View style={styles.chromeActions}>
                 {chrome.trailing}
                 <ProfileButton
                   initials={chrome.initials}
@@ -192,8 +242,8 @@ export function Screen({
               </View>
             </View>
           ) : title ? (
-            <View className="flex-row items-center justify-between gap-three pt-three pb-four">
-              <View className="shrink gap-half">
+            <View style={styles.titleRow}>
+              <View style={styles.titleBlock}>
                 <Txt variant="title">{title}</Txt>
                 {subtitle ? (
                   <Txt variant="body" tone="secondary">
@@ -232,10 +282,10 @@ export function Screen({
             {body}
           </ScrollView>
         ) : (
-          <View className="flex-1" style={{ paddingBottom: bottomPadding }}>
+          <View style={[styles.fill, { paddingBottom: bottomPadding }]}>
             <View
-              className="gap-three"
               style={[
+                styles.body,
                 {
                   flex: 1,
                   width: '100%',

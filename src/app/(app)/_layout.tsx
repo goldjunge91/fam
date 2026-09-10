@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Redirect, router } from 'expo-router';
 import { useEffect } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 
 import AppShell from '@/components/layout/app-shell';
 import { useSession } from '@/features/auth/session-provider';
@@ -17,6 +17,18 @@ import { useSignOutOnOrphanedProfile } from '@/features/profile/hooks/use-sign-o
 import { env } from '@/lib/env';
 import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
 import { useRealtimeSync, useSyncEngine } from '@/lib/sync/sync-runner';
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+  loadingOverlay: {
+    ...StyleSheet.absoluteFill,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+  },
+});
 
 function AppLayoutContent() {
   const { session, seenOnboarding } = useSession();
@@ -78,14 +90,14 @@ function AppLayoutContent() {
 
   // AppShell bleibt bei kurzen Ladephasen gemountet; der Indikator liegt als Overlay darüber.
   return (
-    <>
+    <View style={styles.root}>
       <AppShell />
       {decision.kind === 'warten' ? (
-        <View className="absolute inset-0 items-center justify-center bg-black/5">
+        <View style={styles.loadingOverlay}>
           <ActivityIndicator size="large" />
         </View>
       ) : null}
-    </>
+    </View>
   );
 }
 

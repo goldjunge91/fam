@@ -34,10 +34,20 @@ export function WasteInventoryItemSheet({
   const { colors } = useTheme();
   const sheetStyle = useSheetShadowStyle();
   const [reason, setReason] = useState<WasteReason>('expired');
+  const itemId = item?.id ?? null;
+  const hasItem = Boolean(item);
 
   useEffect(() => {
-    if (visible && item?.id) setReason('expired');
-  }, [visible, item?.id]);
+    if (__DEV__ && visible) {
+      console.log('[InventorySheet] inventory.waste-sheet.open', {
+        sheetId: 'inventory.waste-sheet',
+        itemId,
+        hasItem,
+      });
+    }
+
+    if (visible && itemId) setReason('expired');
+  }, [hasItem, itemId, visible]);
 
   if (!item) return null;
   const amount = formatAmount(item.quantity, item.unit);

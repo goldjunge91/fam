@@ -1,8 +1,9 @@
 import { router } from 'expo-router';
-import { Pressable, View } from 'react-native';
-import { withAlpha } from '@/components/theme/index';
+import { StyleSheet, View } from 'react-native';
+import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
+import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Card, Press, Row, Txt } from '@/constants/ui';
 import { usePremium } from '@/features/premium/premium-provider';
 
 export function PlusAndAiPromoCard() {
@@ -35,35 +36,78 @@ export function PlusAndAiPromoCard() {
       : 'Plus & KI ansehen';
 
   return (
-    <Pressable
-      onPress={() => router.push('/settings/plus-and-ai')}
-      accessibilityRole="button"
-      className="overflow-hidden rounded-sheet p-[14px] active:opacity-85"
-      style={{
-        backgroundColor: colors.basil,
-        experimental_backgroundImage: `linear-gradient(135deg, ${colors.basil} 0%, ${colors.grape} 57%, ${colors.carrot} 100%)`,
-        boxShadow: `0 13px 28px ${withAlpha(colors.text, 0.2)}`,
-      }}>
-      <Txt
-        variant="body"
-        tone="onAccent"
-        className="absolute right-[16px] top-[9px]"
-        style={{ color: withAlpha(colors.inverse, 0.24), fontSize: 58, lineHeight: 64 }}>
-        ✦
-      </Txt>
-      <Txt variant="title" tone="onAccent">
-        {title}
-      </Txt>
-      <Txt variant="body" tone="onAccent" style={{ color: withAlpha(colors.inverse, 0.82) }}>
-        {subtitle}
-      </Txt>
-      <View
-        className="self-start mt-[9px] px-[9px] py-[6px] rounded-control"
-        style={{ backgroundColor: colors.inverse }}>
-        <Txt variant="caption" tone="accent" weight="600">
-          {actionLabel}
-        </Txt>
-      </View>
-    </Pressable>
+    <Press onPress={() => router.push('/settings/plus-and-ai')} accessibilityRole="button">
+      <Card padded={false} elevation="md" style={styles.card}>
+        <View
+          testID="plus-and-ai-promo-surface"
+          style={[styles.cardSurface, { backgroundColor: colors.premiumGradientMid }]}>
+          <Svg
+            pointerEvents="none"
+            width="100%"
+            height="100%"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            style={StyleSheet.absoluteFill}>
+            <Defs>
+              <LinearGradient id="plusAndAiPromoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={colors.premiumGradientStart} />
+                <Stop offset="57%" stopColor={colors.premiumGradientMid} />
+                <Stop offset="100%" stopColor={colors.premiumGradientEnd} />
+              </LinearGradient>
+            </Defs>
+            <Rect width="100" height="100" fill="url(#plusAndAiPromoGradient)" />
+          </Svg>
+          <View style={styles.content}>
+            <Row align="flex-start" gap={space.sm}>
+              <Txt variant="title" color={colors.premiumOnSurface} style={styles.title}>
+                {title}
+              </Txt>
+              <Txt variant="display" color={withAlpha(colors.premiumOnSurface, 0.24)}>
+                ✦
+              </Txt>
+            </Row>
+            <Txt variant="body" color={withAlpha(colors.premiumOnSurface, 0.82)}>
+              {subtitle}
+            </Txt>
+            <View style={[styles.action, { backgroundColor: colors.premiumActionBackground }]}>
+              <Txt variant="caption" color={colors.premiumActionText} weight="600">
+                {actionLabel}
+              </Txt>
+            </View>
+          </View>
+        </View>
+      </Card>
+    </Press>
   );
 }
+
+const styles = StyleSheet.create({
+  card: {
+    flexShrink: 0,
+    borderCurve: 'continuous',
+  },
+  cardSurface: {
+    position: 'relative',
+    overflow: 'hidden',
+    flexShrink: 0,
+    borderRadius: radius.lg,
+    borderCurve: 'continuous',
+  },
+  content: {
+    position: 'relative',
+    zIndex: 1,
+    padding: space.xl,
+    gap: space.xs,
+  },
+  title: {
+    flex: 1,
+  },
+  action: {
+    alignSelf: 'flex-start',
+    marginTop: space.sm,
+    paddingHorizontal: space.md,
+    paddingVertical: space.sm,
+    borderRadius: radius.md,
+    borderCurve: 'continuous',
+  },
+});

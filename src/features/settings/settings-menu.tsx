@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Card, Txt } from '@/constants/ui';
 
 type SettingsGroupProps = {
   title?: string;
@@ -13,15 +14,18 @@ export function SettingsGroup({ title, children }: SettingsGroupProps) {
   const { colors } = useTheme();
 
   return (
-    <View className="gap-one">
+    <View style={styles.group}>
       {title ? (
-        <Txt variant="caption" tone="secondary" className="settings-group-title" weight="700">
+        <Txt variant="caption" tone="secondary" style={styles.groupTitle} weight="700">
           {title.toUpperCase()}
         </Txt>
       ) : null}
-      <View className="settings-group-body" style={{ backgroundColor: colors.surface }}>
+      <Card
+        padded={false}
+        elevation="sm"
+        style={[styles.groupBody, { backgroundColor: colors.surface }]}>
         {children}
-      </View>
+      </Card>
     </View>
   );
 }
@@ -56,21 +60,23 @@ export function SettingsRow({
 
   const content = (
     <View
-      className={`settings-row ${disabled ? 'settings-row-disabled' : ''}`}
-      style={{
-        borderBottomColor: colors.border,
-        borderBottomWidth: last ? 0 : 1,
-        opacity: disabled ? 0.45 : 1,
-      }}>
+      style={[
+        styles.row,
+        {
+          borderBottomColor: colors.border,
+          borderBottomWidth: last ? 0 : StyleSheet.hairlineWidth,
+          opacity: disabled ? 0.45 : 1,
+        },
+      ]}>
       {icon ? (
-        <View className="settings-icon-tile">
+        <View style={[styles.iconTile, { backgroundColor: colors.backgroundSoft }]}>
           <Txt variant="body" center>
             {icon}
           </Txt>
         </View>
       ) : null}
 
-      <View className="settings-label-block">
+      <View style={styles.labelBlock}>
         <Txt variant="body" tone={tone === 'danger' ? 'danger' : 'primary'}>
           {label}
         </Txt>
@@ -82,11 +88,7 @@ export function SettingsRow({
       </View>
 
       {value ? (
-        <Txt
-          variant="caption"
-          tone="secondary"
-          numberOfLines={1}
-          className="flex-shrink text-right max-w-[45%]">
+        <Txt variant="caption" tone="secondary" numberOfLines={1} style={styles.value}>
           {value}
         </Txt>
       ) : null}
@@ -106,8 +108,47 @@ export function SettingsRow({
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={value ? `${label}: ${value}` : label}
-      className="active:opacity-60">
+      style={({ pressed }) => pressed && styles.pressed}>
       {content}
     </Pressable>
   );
 }
+
+const styles = StyleSheet.create({
+  group: {
+    gap: space.xs,
+  },
+  groupTitle: {
+    paddingHorizontal: space.sm,
+    letterSpacing: 0.5,
+  },
+  groupBody: {
+    borderRadius: radius.famLarge,
+    paddingHorizontal: space.lg,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.lg,
+    paddingVertical: space.lg,
+  },
+  iconTile: {
+    width: 34,
+    height: 34,
+    borderRadius: radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  labelBlock: {
+    flex: 1,
+    gap: space.xs / 2,
+  },
+  value: {
+    flexShrink: 1,
+    maxWidth: '45%',
+    textAlign: 'right',
+  },
+  pressed: {
+    opacity: 0.6,
+  },
+});

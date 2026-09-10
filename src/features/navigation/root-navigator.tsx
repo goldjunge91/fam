@@ -20,9 +20,22 @@ export function RootNavigator() {
 
   useEffect(() => {
     if (!session?.user.id) return;
+    if (__DEV__) console.log('[OFFTRACE:ROOT-START]', JSON.stringify({ hasSession: true }));
     getDatabase()
-      .then((database) => initOffDump(database))
+      .then((database) => {
+        if (__DEV__) console.log('[OFFTRACE:ROOT-DB-READY]');
+        return initOffDump(database);
+      })
+      .then(() => {
+        if (__DEV__) console.log('[OFFTRACE:ROOT-OK]');
+      })
       .catch((error) => {
+        if (__DEV__) {
+          console.warn(
+            '[OFFTRACE:ROOT-FAIL]',
+            JSON.stringify({ error: error instanceof Error ? error.message : String(error) }),
+          );
+        }
         console.warn('[OffDump] Laden/Anhaengen fehlgeschlagen:', error);
       });
   }, [session?.user.id]);

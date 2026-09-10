@@ -3,13 +3,49 @@ import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { FamIcon } from '@/components/icons/fam-icon';
-import { space } from '@/components/theme/index';
+import { radius, space, withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { getSpeedDialOptions } from '@/constants/feature-registry';
 import { Txt } from '@/constants/ui';
 import { DEFAULT_FAB_POSITION, useFabPosition } from '@/features/navigation/fab-position-settings';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useNavigationChrome } from './navigation-chrome-provider';
+
+const styles = StyleSheet.create({
+  backdrop: StyleSheet.absoluteFill,
+  column: {
+    position: 'absolute',
+    gap: space.lg,
+  },
+  columnLeft: {
+    alignItems: 'flex-start',
+  },
+  columnRight: {
+    alignItems: 'flex-end',
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.sm,
+  },
+  rowReverse: {
+    flexDirection: 'row-reverse',
+  },
+  chip: {
+    width: 46,
+    height: 46,
+    borderRadius: radius.pill,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  label: {
+    paddingHorizontal: space.lg,
+    paddingVertical: 9,
+    borderRadius: radius.sm,
+    borderWidth: 1,
+  },
+});
 
 export function SpeedDialMenu() {
   const { isQuickAddOpen } = useNavigationChrome();
@@ -24,6 +60,7 @@ export function SpeedDialMenu() {
 
 function SpeedDialMenuContent() {
   const insets = useSafeAreaInsets();
+  const { colors } = useTheme();
   const { isQuickAddOpen, closeQuickAdd } = useNavigationChrome();
   const { data: position = DEFAULT_FAB_POSITION } = useFabPosition();
   const { isFeatureEnabled } = useFeatureAccess();
@@ -41,34 +78,48 @@ function SpeedDialMenuContent() {
     <Modal visible={isQuickAddOpen} transparent animationType="fade" onRequestClose={closeQuickAdd}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
-          className="speed-dial-backdrop"
+          style={styles.backdrop}
           onPress={closeQuickAdd}
           accessibilityRole="button"
           accessibilityLabel="Schließen"
         />
         <View
           pointerEvents="box-none"
-          className={`speed-dial-column ${isRight ? 'items-end' : 'items-start'}`}
-          // Position und Abstand sind Laufzeitwerte.
-          style={{
-            [isRight ? 'right' : 'left']: space.xl,
-            bottom: insets.bottom + space.xl + space.xxxl,
-          }}>
+          style={[
+            styles.column,
+            isRight ? styles.columnRight : styles.columnLeft,
+            {
+              [isRight ? 'right' : 'left']: space.xl,
+              bottom: insets.bottom + space.xl + space.xxxl,
+            },
+          ]}>
           {visibleOptions.map((option) => (
             <Pressable
               key={option.title}
               onPress={() => go(typeof option.href === 'function' ? option.href() : option.href)}
               accessibilityRole="button"
               // Rechts stehen Icon und Label in umgekehrter Reihenfolge.
-              className={`speed-dial-row ${isRight ? 'flex-row-reverse' : ''}`}>
+              style={[styles.row, isRight && styles.rowReverse]}>
               <View
-                className="speed-dial-chip"
-                style={{ backgroundColor: option.backgroundColor, borderCurve: 'continuous' }}>
+                style={[
+                  styles.chip,
+                  {
+                    backgroundColor: option.backgroundColor,
+                    borderCurve: 'continuous',
+                    boxShadow: `0 8px 20px ${withAlpha(colors.shadowCard, 0.09)}`,
+                  },
+                ]}>
                 <FamIcon name={option.icon} size={space.xl} />
               </View>
-              <Txt variant="body" weight="700" className="speed-dial-label">
-                {option.title}
-              </Txt>
+              <View
+                style={[
+                  styles.label,
+                  { backgroundColor: colors.backgroundElement, borderColor: colors.border },
+                ]}>
+                <Txt variant="body" weight="700">
+                  {option.title}
+                </Txt>
+              </View>
             </Pressable>
           ))}
         </View>

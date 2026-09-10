@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Dimensions, Modal, Pressable, StyleSheet, View } from 'react-native';
+import { Dimensions, Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -62,6 +62,17 @@ export function EditInventoryItemSheet({
   });
   // Merkt sich, für welches Item der Entwurf zuletzt initialisiert wurde.
   const initializedItemId = useRef<string | null>(null);
+  const itemId = item?.id ?? null;
+  const hasItem = Boolean(item);
+
+  useEffect(() => {
+    if (!__DEV__ || !visible) return;
+    console.log('[InventorySheet] inventory.edit-sheet.open', {
+      sheetId: 'inventory.edit-sheet',
+      itemId,
+      hasItem,
+    });
+  }, [hasItem, itemId, visible]);
 
   useEffect(() => {
     if (!visible || !item) {
@@ -151,7 +162,12 @@ export function EditInventoryItemSheet({
   }
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal
+      visible={visible}
+      transparent
+      animationType="slide"
+      presentationStyle={Platform.OS === 'ios' ? 'overFullScreen' : undefined}
+      onRequestClose={onClose}>
       <View style={[StyleSheet.absoluteFill, { justifyContent: 'flex-end' }]}>
         <Pressable
           className="fridge-actions-backdrop"
@@ -165,6 +181,8 @@ export function EditInventoryItemSheet({
           style={[
             sheetStyle,
             {
+              width: '100%',
+              height: maxSheetHeight,
               maxHeight: maxSheetHeight,
               backgroundColor: colors.backgroundElement,
             },

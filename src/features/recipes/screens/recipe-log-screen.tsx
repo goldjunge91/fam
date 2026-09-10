@@ -115,7 +115,6 @@ export function RecipeLogScreen() {
 
   return (
     <HubScreen
-      safeAreaClassName="flex-1 w-full max-w-[800px] self-center"
       header={{ title: 'Fertig', leading: <BackButton label="Zurück" variant="header" /> }}>
       <KeyboardAvoidingView
         className="flex-1 justify-end"

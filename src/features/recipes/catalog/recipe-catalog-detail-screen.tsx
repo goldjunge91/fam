@@ -204,7 +204,6 @@ export function RecipeCatalogDetailScreen() {
   if (isLoading || !detail) {
     return (
       <HubScreen
-        safeAreaClassName="flex-1 w-full max-w-[800px] self-center"
         header={{ title: 'Rezept', leading: <BackButton label="Zurück" variant="header" /> }}>
         <Txt variant="body" tone="secondary" className="p-six text-center">
           Rezept wird geladen…
@@ -234,7 +233,6 @@ export function RecipeCatalogDetailScreen() {
 
   return (
     <HubScreen
-      safeAreaClassName="flex-1 w-full max-w-[800px] self-center"
       header={{
         title: 'Rezept',
         leading: <BackButton label="Zurück" variant="header" />,

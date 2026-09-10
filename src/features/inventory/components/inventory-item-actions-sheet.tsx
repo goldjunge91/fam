@@ -1,5 +1,5 @@
 import { Feather } from '@expo/vector-icons';
-import { type ComponentProps, useRef } from 'react';
+import { type ComponentProps, useEffect, useRef } from 'react';
 import { Modal, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { DateWheelField } from '@/components/forms/date-wheel-field';
@@ -30,6 +30,7 @@ type InventoryItemActionsSheetProps = {
   visible: boolean;
   item: LocalInventoryItem | null;
   onClose: () => void;
+  onDismissFinished?: () => void;
   onQuantityChange: (value: number) => void;
   onEdit: () => void;
   onConsume: () => void;
@@ -44,6 +45,7 @@ export function InventoryItemActionsSheet({
   visible,
   item,
   onClose,
+  onDismissFinished,
   onQuantityChange,
   onEdit,
   onConsume,
@@ -56,6 +58,19 @@ export function InventoryItemActionsSheet({
   const { colors } = useTheme();
   const sheetStyle = useSheetShadowStyle();
   const lastItemRef = useRef<LocalInventoryItem | null>(null);
+  const itemId = item?.id ?? null;
+  const hasItem = Boolean(item);
+
+  useEffect(() => {
+    if (!__DEV__ || !visible) return;
+    console.log('[InventorySheet] inventory.actions-sheet.open', {
+      sheetId: 'inventory.actions-sheet',
+      itemId,
+      hasItem,
+      platform: Platform.OS,
+    });
+  }, [hasItem, itemId, visible]);
+
   if (item) {
     lastItemRef.current = item;
   }
@@ -70,6 +85,7 @@ export function InventoryItemActionsSheet({
         visible={isVisible}
         item={displayItem}
         onClose={onClose}
+        onDismissFinished={onDismissFinished}
         onQuantityChange={onQuantityChange}
         onEdit={onEdit}
         onConsume={onConsume}
@@ -86,7 +102,12 @@ export function InventoryItemActionsSheet({
   const packageHint = formatPackageHint(displayItem.package_size, displayItem.package_size_unit);
 
   return (
-    <Modal visible={isVisible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal
+      visible={isVisible}
+      transparent
+      animationType="slide"
+      onRequestClose={onClose}
+      onDismiss={onDismissFinished}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
           className="fridge-actions-backdrop"
@@ -160,6 +181,7 @@ function IosInventoryItemActionsView({
   visible,
   item,
   onClose,
+  onDismissFinished,
   onQuantityChange,
   onEdit,
   onConsume,
@@ -182,7 +204,8 @@ function IosInventoryItemActionsView({
       visible={visible}
       animationType="slide"
       presentationStyle="fullScreen"
-      onRequestClose={onClose}>
+      onRequestClose={onClose}
+      onDismiss={onDismissFinished}>
       <View style={styles.root}>
         {backgroundGradient ? <GradientBackground {...backgroundGradient} /> : null}
         <SafeAreaView

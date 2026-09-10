@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
-import { Pressable } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 
+import { radius } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
@@ -19,8 +20,11 @@ export function ProfileButton({ initials, avatarUrl, onPress }: ProfileButtonPro
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel="Profil öffnen"
-      className="btn-profile overflow-hidden"
-      style={{ backgroundColor: colors.accent }}>
+      style={({ pressed }) => [
+        styles.button,
+        { backgroundColor: colors.accent },
+        pressed && styles.pressed,
+      ]}>
       {avatarUrl ? (
         <Image
           source={{ uri: avatarUrl }}
@@ -36,3 +40,17 @@ export function ProfileButton({ initials, avatarUrl, onPress }: ProfileButtonPro
     </Pressable>
   );
 }
+
+const styles = StyleSheet.create({
+  button: {
+    width: 58,
+    height: 58,
+    borderRadius: radius.famLarge,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  pressed: {
+    opacity: 0.85,
+  },
+});

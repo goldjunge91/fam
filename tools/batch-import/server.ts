@@ -157,6 +157,7 @@ const imageContentType = (imagePath: string) => {
 };
 
 type ImportProgress = { completed: number; total: number; current: string };
+const IMPORT_CONCURRENCY = 8;
 
 async function importBatch(
   batch: Batch,
@@ -170,7 +171,7 @@ async function importBatch(
   );
   const report = [];
   onProgress?.({ completed: 0, total: batch.recipes.length, current: '' });
-  for (const [index, recipe] of batch.recipes.entries()) {
+  const importRecipe = async (recipe: Batch['recipes'][number]) => {
     const { data: savedRecipe, error } = await db
       .from('catalog_recipes')
       .upsert(
@@ -379,8 +380,19 @@ async function importBatch(
         if (imageError) throw new Error(imageError.message);
       }
     }
-    report.push({externalId:recipe.externalId,status:recipe.status});
-    onProgress?.({ completed: index + 1, total: batch.recipes.length, current: recipe.title });
+    return { externalId: recipe.externalId, status: recipe.status };
+  };
+  for (let start = 0; start < batch.recipes.length; start += IMPORT_CONCURRENCY) {
+    const recipes = batch.recipes.slice(start, start + IMPORT_CONCURRENCY);
+    const imported = await Promise.all(recipes.map(importRecipe));
+    report.push(...imported);
+    recipes.forEach((recipe, offset) => {
+      onProgress?.({
+        completed: start + offset + 1,
+        total: batch.recipes.length,
+        current: recipe.title,
+      });
+    });
   }
   return report;
 }

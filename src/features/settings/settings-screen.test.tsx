@@ -1,7 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen, userEvent } from '@testing-library/react-native';
+import { render, screen, userEvent, within } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { CONTENT_MAX_WIDTH } from '@/components/theme/index';
 import { SettingsScreen } from '@/features/settings/settings-screen';
 import { i18n } from '@/i18n';
 
@@ -127,7 +128,25 @@ describe('SettingsScreen', () => {
   });
 
   it('zeigt die Menuepunkte statt der Formulare', async () => {
-    const { getByText, queryByText } = await renderScreen();
+    const { getByText, queryByText, getByTestId, getByLabelText } = await renderScreen();
+    const settingsScrollView = getByTestId('settings-scroll-view');
+
+    // Die Einträge dürfen nicht nur im React-Baum existieren: Der ScrollView
+    // braucht entlang der gesamten HubScreen-Kette einen echten Viewport.
+    expect(settingsScrollView).toHaveStyle({ flex: 1 });
+    expect(settingsScrollView.parent).toHaveStyle({
+      flex: 1,
+      width: '100%',
+      maxWidth: CONTENT_MAX_WIDTH,
+      alignSelf: 'center',
+    });
+    expect(settingsScrollView.parent?.parent).toHaveStyle({ flex: 1 });
+
+    const visibleMenu = within(settingsScrollView);
+    for (const eintrag of ['Mitglieder', 'Lagerorte', 'Berechtigungen', 'Abmelden']) {
+      expect(visibleMenu.getByText(eintrag)).toBeOnTheScreen();
+    }
+    expect(getByLabelText('Profil öffnen')).toBeOnTheScreen();
 
     // "Profil" ist keine eigene Zeile mehr, sondern die grosse Profil-Karte
     // oben (Name + E-Mail statt Label) — geprueft in
@@ -166,6 +185,18 @@ describe('SettingsScreen', () => {
     expect(getByText('Marco Müller')).toBeTruthy();
     expect(getByText('marco@example.com')).toBeTruthy();
     expect(getByText('Familie Tozzi')).toBeTruthy();
+  });
+
+  it('ordnet Profilbild, Profildaten und Pfeil in einer gemeinsamen Kartenzeile an', async () => {
+    await renderScreen();
+
+    const profileCard = screen.getByRole('button', { name: /Marco Müller/ });
+    const profileCardRow = screen.getByTestId('settings-profile-card-row');
+
+    expect(profileCard).toContainElement(profileCardRow);
+    expect(profileCardRow).toHaveStyle({ flexDirection: 'row', alignItems: 'center' });
+    expect(within(profileCardRow).getByText('marco@example.com')).toBeOnTheScreen();
+    expect(within(profileCardRow).getByText('›')).toBeOnTheScreen();
   });
 
   it('zeigt das gespeicherte Profilbild im Settings-Header an', async () => {
@@ -212,9 +243,17 @@ describe('SettingsScreen', () => {
   });
 
   it('bietet ohne Plus/KI einen Einstieg zum Plus-&-KI-Screen an', async () => {
-    const { getByText } = await renderScreen();
-    expect(getByText('Plus & KI für den ganzen Haushalt')).toBeTruthy();
-    expect(getByText('Plus & KI ansehen')).toBeTruthy();
+    await renderScreen();
+
+    const promoButton = screen.getByRole('button', {
+      name: /Plus & KI für den ganzen Haushalt/,
+    });
+    const promoSurface = screen.getByTestId('plus-and-ai-promo-surface');
+
+    expect(promoButton).toContainElement(promoSurface);
+    expect(promoSurface).toHaveStyle({ overflow: 'hidden', flexShrink: 0 });
+    expect(within(promoSurface).getByText('Plus & KI für den ganzen Haushalt')).toBeVisible();
+    expect(within(promoSurface).getByText('Plus & KI ansehen')).toBeVisible();
   });
 
   it('öffnet den Gamification-Screen aus den Einstellungen', async () => {

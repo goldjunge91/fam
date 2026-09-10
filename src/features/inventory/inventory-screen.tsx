@@ -93,6 +93,8 @@ export function InventoryScreen() {
   const [actionReturnGroupId, setActionReturnGroupId] = useState<string | null>(null);
   const [informationItem, setInformationItem] = useState<LocalInventoryItem | null>(null);
   const [editItem, setEditItem] = useState<LocalInventoryItem | null>(null);
+  const pendingActionItemRef = useRef<LocalInventoryItem | null>(null);
+  const pendingEditItemRef = useRef<LocalInventoryItem | null>(null);
   const [openItem, setOpenItem] = useState<LocalInventoryItem | null>(null);
   const [wasteItem, setWasteItem] = useState<LocalInventoryItem | null>(null);
   const [historyOpen, setHistoryOpen] = useState(false);
@@ -199,8 +201,43 @@ export function InventoryScreen() {
   }
 
   function handleEdit(item: LocalInventoryItem) {
+    if (__DEV__) {
+      console.log('[InventorySheet] inventory.screen.actions-to-edit.requested', {
+        itemId: item.id,
+        platform: Platform.OS,
+      });
+    }
+    if (Platform.OS === 'ios') {
+      pendingEditItemRef.current = item;
+      setActionItem(null);
+      return;
+    }
     setActionItem(null);
     setEditItem(item);
+  }
+
+  function handleActionSheetDismissed() {
+    if (__DEV__) {
+      console.log('[InventorySheet] inventory.actions-sheet.dismissed', {
+        pendingEditItemId: pendingEditItemRef.current?.id ?? null,
+      });
+    }
+    const pendingEditItem = pendingEditItemRef.current;
+    if (!pendingEditItem) return;
+    pendingEditItemRef.current = null;
+    setEditItem(pendingEditItem);
+  }
+
+  function handleGroupSheetDismissed() {
+    if (__DEV__) {
+      console.log('[InventorySheet] inventory.group-sheet.dismissed', {
+        pendingActionItemId: pendingActionItemRef.current?.id ?? null,
+      });
+    }
+    const pendingActionItem = pendingActionItemRef.current;
+    if (!pendingActionItem) return;
+    pendingActionItemRef.current = null;
+    setActionItem(pendingActionItem);
   }
 
   function handleConsume(item: LocalInventoryItem) {
@@ -485,6 +522,7 @@ export function InventoryScreen() {
         visible={!!detailGroup}
         group={detailGroup}
         onClose={() => setDetailGroupId(null)}
+        onDismissFinished={handleGroupSheetDismissed}
         backgroundGradient={hubGradient}
         quickActionLoading={openMutation.isPending || updateQty.isPending}
         onQuickOpen={quickOpen}
@@ -497,9 +535,20 @@ export function InventoryScreen() {
         }}
         onSelectLot={(lot) => {
           if (!detailGroup) return;
+          if (__DEV__) {
+            console.log('[InventorySheet] inventory.screen.group-to-actions.requested', {
+              groupId: detailGroup.id,
+              lotId: lot.id,
+              platform: Platform.OS,
+            });
+          }
           setDetailGroupId(null);
           setActionReturnGroupId(detailGroup.id);
-          setActionItem(lot);
+          if (Platform.OS === 'ios') {
+            pendingActionItemRef.current = lot;
+          } else {
+            setActionItem(lot);
+          }
         }}
         conflictsByLotId={inventoryConflicts}
         onDiscardConflict={(conflict) => discardConflict.mutate(conflict)}
@@ -511,6 +560,7 @@ export function InventoryScreen() {
       <InventoryItemActionsSheet
         visible={!!currentActionItem}
         item={currentActionItem}
+        onDismissFinished={handleActionSheetDismissed}
         onClose={() => {
           setActionItem(null);
           if (actionReturnGroupId) setDetailGroupId(actionReturnGroupId);

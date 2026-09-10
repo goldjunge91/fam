@@ -177,6 +177,17 @@ async function renderScreen() {
   return result;
 }
 
+async function openLotActions(user: ReturnType<typeof userEvent.setup>) {
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
+  const groupModal = screen.container.queryAll(
+    (instance) =>
+      instance.props.visible === true && typeof instance.props.onRequestClose === 'function',
+  )[0];
+  expect(groupModal).toBeDefined();
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
+  await act(() => groupModal?.props.onDismiss());
+}
+
 function makeTransaction(
   overrides: Partial<LocalInventoryTransaction> = {},
 ): LocalInventoryTransaction {
@@ -258,8 +269,7 @@ it('öffnet beim kurzen Tap die MHD-Auswahl und ändert danach die Losmenge', as
   const user = userEvent.setup();
 
   await renderScreen();
-  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
-  await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
+  await openLotActions(user);
 
   expect(screen.getByRole('button', { name: 'Bearbeiten' })).toBeOnTheScreen();
   expect(
@@ -278,8 +288,7 @@ it('setzt den Schutzstatus beim manuellen MHD-Schnellzugriff', async () => {
   const user = userEvent.setup();
 
   await renderScreen();
-  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
-  await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
+  await openLotActions(user);
   await user.press(screen.getByRole('button', { name: 'Mindesthaltbarkeitsdatum auswählen' }));
 
   expect(mockUpdateExpiryMutate).toHaveBeenCalledWith(
@@ -296,8 +305,7 @@ it('öffnet den Option-C-Flow und protokolliert die gewählte Menge', async () =
   const user = userEvent.setup();
 
   await renderScreen();
-  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
-  await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
+  await openLotActions(user);
   await user.press(screen.getByRole('button', { name: 'Öffnen' }));
 
   expect(screen.getByText('Milch öffnen')).toBeOnTheScreen();
@@ -316,8 +324,7 @@ it('bucht Verschwendung mit dem ausgewählten Grund', async () => {
   const user = userEvent.setup();
 
   await renderScreen();
-  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
-  await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
+  await openLotActions(user);
   await user.press(screen.getByRole('button', { name: 'Wegwerfen' }));
   await user.press(screen.getByRole('radio', { name: 'Schlecht geworden' }));
   await user.press(screen.getByRole('button', { name: 'Als Verschwendung buchen' }));
@@ -389,9 +396,26 @@ it('bearbeitet einen Vorratsartikel im eigenen Bottom Sheet', async () => {
 
   await renderScreen();
   await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
+  const groupModal = screen.container.queryAll(
+    (instance) =>
+      instance.props.visible === true && typeof instance.props.onRequestClose === 'function',
+  )[0];
+  expect(groupModal).toBeDefined();
+  expect(groupModal?.props.onDismiss).toEqual(expect.any(Function));
   await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
+  expect(screen.queryByRole('button', { name: 'Bearbeiten' })).not.toBeOnTheScreen();
+  await act(() => groupModal?.props.onDismiss());
+  expect(screen.getByRole('button', { name: 'Bearbeiten' })).toBeOnTheScreen();
+  const actionSheetModal = screen.container.queryAll(
+    (instance) =>
+      typeof instance.props.onRequestClose === 'function' &&
+      typeof instance.props.onDismiss === 'function',
+  )[0];
+  expect(actionSheetModal).toBeDefined();
   await user.press(screen.getByRole('button', { name: 'Bearbeiten' }));
 
+  expect(screen.queryByText('Artikel bearbeiten')).not.toBeOnTheScreen();
+  await act(() => actionSheetModal?.props.onDismiss());
   expect(screen.getByText('Artikel bearbeiten')).toBeOnTheScreen();
   await fireEvent.changeText(screen.getByLabelText('Artikelname'), 'Haferdrink');
   await user.press(screen.getByRole('button', { name: 'Menge erhöhen' }));

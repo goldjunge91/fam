@@ -1,4 +1,5 @@
 import { FlashList } from '@shopify/flash-list';
+import { useEffect } from 'react';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -67,6 +68,18 @@ export function InventoryHistorySheet({
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const sheetStyle = useSheetShadowStyle();
+  const transactionCount = transactions.length;
+
+  useEffect(() => {
+    if (!__DEV__ || !visible) return;
+    console.log('[InventorySheet] inventory.history-sheet.open', {
+      sheetId: 'inventory.history-sheet',
+      transactionCount,
+      fullScreen,
+      title,
+    });
+  }, [fullScreen, title, transactionCount, visible]);
+
   const rows: HistoryRow[] = groupTransactionsByDay(transactions).flatMap((group) => [
     {
       kind: 'header' as const,

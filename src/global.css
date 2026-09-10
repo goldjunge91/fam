@@ -85,20 +85,12 @@
     @apply self-end px-three py-two items-center justify-center active:opacity-75;
   }
 
-  .btn-fab-corner {
-    @apply w-[58px] h-[58px] rounded-pill items-center justify-center bg-accent shadow-sheet active:opacity-90;
-  }
-
   .btn-modal-close {
     @apply w-[32px] h-[32px] rounded-control items-center justify-center bg-background-selected active:opacity-75;
   }
 
   .btn-menu {
     @apply w-[58px] h-[58px] rounded-sheet items-center justify-center bg-background-element/70 active:opacity-75;
-  }
-
-  .btn-profile {
-    @apply w-[58px] h-[58px] rounded-fam-large items-center justify-center bg-accent active:opacity-85;
   }
 
   .btn-back-arrow {
@@ -116,15 +108,6 @@
 
   .screen-body {
     @apply flex-1 w-full max-w-content self-center px-three;
-  }
-
-  /* Kein pb-safe: Bottom-Safe-Area ist ein echter Laufzeitwert
-     (useSafeAreaInsets), kann nicht statisch in Tailwind stehen — die
-     Klasse hier existierte nicht und hat den kompletten CSS-Build
-     zerschossen (App zeigte nichts mehr an). Padding kommt jetzt per
-     style-Prop in app-shell.tsx. */
-  .app-shell-wrap {
-    @apply absolute left-0 right-0 bottom-0 justify-start px-four h-action-area;
   }
 
   /* Formulareingaben */
@@ -394,27 +377,6 @@
 
   .dev-zeile-value {
     @apply flex-shrink text-right;
-  }
-
-  /* speed-dial-menu.tsx */
-  .speed-dial-backdrop {
-    @apply absolute inset-0;
-  }
-
-  .speed-dial-column {
-    @apply absolute gap-three;
-  }
-
-  .speed-dial-row {
-    @apply flex-row items-center gap-two;
-  }
-
-  .speed-dial-chip {
-    @apply w-[46px] h-[46px] rounded-pill items-center justify-center shadow-card;
-  }
-
-  .speed-dial-label {
-    @apply px-three py-[9px] rounded-control bg-background-element border border-border;
   }
 
   /* Onboarding (src/features/onboarding) */
@@ -1001,69 +963,6 @@
 
   .profile-sheet-row-subtitle {
     @apply text-[12px] leading-[16px] font-normal;
-  }
-
-  /* navigation-drawer.tsx */
-  .drawer {
-    @apply absolute left-0 top-0 bottom-0 max-w-[340px] px-[20px];
-  }
-
-  .drawer-header {
-    /* Keine feste Hoehe (frueher h-[67px]) — der 34px-Schliessen-Kreis plus
-       Titeltext brauchten mehr Platz als die damals uebrigen 35px
-       (h abzueglich pt/pb). RN clippt Kinder nicht automatisch, dadurch
-       liefen "fam" und das X ueber die feste Box hinaus, genau auf die
-       Trennlinie darunter. Jetzt bestimmt der Inhalt die Hoehe, die Linie
-       sitzt garantiert erst nach pb-[21px] darunter. */
-    @apply flex-row items-center justify-between px-[11px] pt-[11px] pb-[21px] border-b-hairline border-text/15;
-  }
-
-  .drawer-brand {
-    @apply text-[27px] leading-[34px] font-semibold;
-  }
-
-  .drawer-close-btn {
-    @apply w-[34px] h-[34px] rounded-full items-center justify-center bg-background-selected;
-  }
-
-  .drawer-close-glyph {
-    @apply text-[22px] leading-[26px] font-normal;
-  }
-
-  .drawer-group {
-    @apply pt-[14px];
-  }
-
-  .drawer-group-household {
-    @apply mt-[13px] border-t-hairline border-text/15;
-  }
-
-  .drawer-group-title {
-    @apply px-[14px] pb-[5px] text-[12px] leading-[15px] font-normal tracking-[0.76px];
-  }
-
-  .drawer-nav-row {
-    @apply flex-row items-center gap-[11px] h-[55px] px-[14px] rounded-sheet;
-  }
-
-  .drawer-nav-icon {
-    @apply w-[35px] h-[35px];
-  }
-
-  .drawer-nav-label {
-    @apply flex-1 text-[17px] leading-[21px] font-normal;
-  }
-
-  .drawer-nav-label-active {
-    @apply font-semibold;
-  }
-
-  .drawer-manage-row {
-    @apply flex-row items-center gap-[11px] h-[65px] p-[15px] rounded-sheet bg-background-selected;
-  }
-
-  .drawer-settings-icon {
-    @apply w-[37px] h-[35px];
   }
 
   /* premium-screen.tsx — Masse 1:1 aus fam-settings-premium-flow-Mockup
@@ -1752,14 +1651,6 @@
 
   /* diary-screen.tsx — borderCurve bleibt an den betroffenen Views als
      `style` (kein Tailwind-Aequivalent), analog zu dashboard-screen.tsx. */
-  .diary-root {
-    @apply flex-1;
-  }
-
-  .diary-safe-area {
-    @apply flex-1 w-full max-w-content self-center;
-  }
-
   .diary-content {
     @apply px-four pt-[2px] pb-[126px] gap-two;
   }
@@ -2101,14 +1992,6 @@
 
   /* meal-planner-screen.tsx — borderCurve bleibt an actionButton als `style`
      (kein Tailwind-Aequivalent, analog zu dashboard-screen.tsx). */
-  .mp-root {
-    @apply flex-1;
-  }
-
-  .mp-safe-area {
-    @apply flex-1 w-full max-w-content self-center;
-  }
-
   .mp-content {
     @apply flex-1 px-[14px];
   }

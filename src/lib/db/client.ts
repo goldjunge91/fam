@@ -59,12 +59,51 @@ type DatabaseConnection = {
   db: SerializedSqlDatabase;
 };
 
+async function ensureWalJournalMode(db: SerializedSqlDatabase): Promise<void> {
+  const current = await db.getFirstAsync<{ journal_mode?: string }>('PRAGMA journal_mode');
+  if (current?.journal_mode?.toLowerCase() === 'wal') return;
+
+  // Der Wechsel des Journal-Modus benötigt einen exklusiven SQLite-Zugriff.
+  // Nach Fast Refresh kann aber noch eine native Connection aus dem vorherigen
+  // JS-Lauf existieren. Auf einer bereits als WAL geöffneten Datei ist dieser
+  // lock-sensitive Schreibzugriff nicht nötig.
+  await db.execAsync('PRAGMA journal_mode = WAL');
+}
+
 let rawDatabase: import('expo-sqlite').SQLiteDatabase | null = null;
 let database: SerializedSqlDatabase | null = null;
 let drizzleDatabase: DrizzleDatabase | null = null;
 let opening: Promise<SqlDatabase> | null = null;
 let wipeInProgress: Promise<void> | null = null;
 let lifecycleGeneration = 0;
+let openSequence = 0;
+
+type DbTraceDetails = Record<string, boolean | number | string | undefined>;
+
+function dbTrace(code: string, details: DbTraceDetails = {}): void {
+  if (__DEV__) {
+    console.log(`[DBTRACE:${code}]`, JSON.stringify(details));
+  }
+}
+
+function errorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error);
+}
+
+async function runStartupStep(
+  openId: number,
+  step: string,
+  operation: () => Promise<unknown>,
+): Promise<void> {
+  dbTrace('STEP-START', { openId, step });
+  try {
+    await operation();
+    dbTrace('STEP-OK', { openId, step });
+  } catch (error) {
+    dbTrace('STEP-FAIL', { error: errorMessage(error), openId, step });
+    throw error;
+  }
+}
 
 /** Der zuletzt gemeldete angemeldete Nutzer. `null` = noch unbekannt oder abgemeldet. */
 let activeUserId: string | null = null;
@@ -86,7 +125,8 @@ function assertLifecycle(generation: number, userId: string): void {
   }
 }
 
-async function open(): Promise<DatabaseConnection> {
+async function open(openId: number): Promise<DatabaseConnection> {
+  dbTrace('OPEN-START', { openId });
   const SQLite = loadSQLite();
   const databaseDirectory = SQLite.defaultDatabaseDirectory;
   if (typeof databaseDirectory !== 'string') {
@@ -103,7 +143,14 @@ async function open(): Promise<DatabaseConnection> {
     });
     try {
       // Muss das allererste Statement nach openDatabaseAsync bleiben.
-      await keyAndVerifyDatabase(opened, encryptionKey);
+      dbTrace('KEY-START', { openId });
+      try {
+        await keyAndVerifyDatabase(opened, encryptionKey);
+        dbTrace('KEY-OK', { openId });
+      } catch (error) {
+        dbTrace('KEY-FAIL', { error: errorMessage(error), openId });
+        throw error;
+      }
       return opened;
     } catch (error) {
       await opened.closeAsync();
@@ -111,17 +158,24 @@ async function open(): Promise<DatabaseConnection> {
     }
   };
 
-  const openedDatabase = await openEncryptedDatabaseWithCutover(
-    {
-      files,
-      mainFileName: DATABASE_FILE_NAMES.main,
-      encryptedNextFileName: DATABASE_FILE_NAMES.encryptedNext,
-      plaintextRecoveryFileName: DATABASE_FILE_NAMES.plaintextRecovery,
-      openPlaintext,
-      openEncrypted,
-    },
-    key,
-  );
+  let openedDatabase: import('expo-sqlite').SQLiteDatabase;
+  try {
+    openedDatabase = await openEncryptedDatabaseWithCutover(
+      {
+        files,
+        mainFileName: DATABASE_FILE_NAMES.main,
+        encryptedNextFileName: DATABASE_FILE_NAMES.encryptedNext,
+        plaintextRecoveryFileName: DATABASE_FILE_NAMES.plaintextRecovery,
+        openPlaintext,
+        openEncrypted,
+      },
+      key,
+    );
+    dbTrace('OPEN-CONNECTION-OK', { openId });
+  } catch (error) {
+    dbTrace('OPEN-CONNECTION-FAIL', { error: errorMessage(error), openId });
+    throw error;
+  }
   const db = serializeDatabase(toDriver(openedDatabase));
 
   try {
@@ -132,18 +186,21 @@ async function open(): Promise<DatabaseConnection> {
     // WAL-Modus gesetzt werden, damit auch der erste potenziell sperrende
     // Schreibzugriff beim Öffnen warten kann. Wert 5000, weil die UI alle 3 s
     // pollt: kuerzer hiesse, mitten im normalen Takt aufzugeben.
-    await db.execAsync('PRAGMA busy_timeout = 5000');
+    await runStartupStep(openId, 'busy_timeout', () => db.execAsync('PRAGMA busy_timeout = 5000'));
 
     // WAL muss ausserhalb jeder Transaktion gesetzt werden — innerhalb lehnt
-    // SQLite den Moduswechsel ab. Deshalb hier, vor den Migrationen.
-    await db.execAsync('PRAGMA journal_mode = WAL');
+    // SQLite den Moduswechsel ab. Deshalb hier, vor den Migrationen. Bei einer
+    // bereits als WAL geöffneten Datei bleibt der lock-sensitive Wechsel aus.
+    await runStartupStep(openId, 'journal_mode_wal', () => ensureWalJournalMode(db));
 
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await runStartupStep(openId, 'legacy_migrations', () => runMigrations(db, MIGRATIONS));
+    await runStartupStep(openId, 'drizzle_migrations', () => runDrizzleMigrations(db));
+    dbTrace('INIT-OK', { openId });
   } catch (error) {
     // Nie automatisch löschen: In der Datei kann eine nicht synchronisierte
     // Outbox liegen. Insbesondere ein falscher/verlorener Key darf keinen
     // destruktiven "Recovery"-Pfad auslösen.
+    dbTrace('INIT-FAIL', { error: errorMessage(error), openId });
     console.warn('[db] Initialisierung fehlgeschlagen; Datenbank bleibt erhalten:', error);
     try {
       await db.closeForLifecycle(() => openedDatabase.closeAsync());
@@ -160,8 +217,14 @@ async function open(): Promise<DatabaseConnection> {
   return { raw: openedDatabase, db };
 }
 
-async function openAndVerify(generation: number, userId: string): Promise<SqlDatabase> {
-  let connection = database && rawDatabase ? { db: database, raw: rawDatabase } : await open();
+async function openAndVerify(
+  openId: number,
+  generation: number,
+  userId: string,
+): Promise<SqlDatabase> {
+  dbTrace('VERIFY-START', { hasCachedConnection: Boolean(database && rawDatabase), openId });
+  let connection =
+    database && rawDatabase ? { db: database, raw: rawDatabase } : await open(openId);
 
   try {
     assertLifecycle(generation, userId);
@@ -172,7 +235,7 @@ async function openAndVerify(generation: number, userId: string): Promise<SqlDat
         async () => {
           await closeAndDeleteFile(connection);
           assertLifecycle(generation, userId);
-          connection = await open();
+          connection = await open(openId);
           assertLifecycle(generation, userId);
           return connection.db;
         },
@@ -185,8 +248,10 @@ async function openAndVerify(generation: number, userId: string): Promise<SqlDat
     rawDatabase = connection.raw;
     database = connection.db;
     checkedUserId = userId;
+    dbTrace('READY', { openId });
     return connection.db;
   } catch (error) {
+    dbTrace('VERIFY-FAIL', { error: errorMessage(error), openId });
     // Eine noch nicht veröffentlichte Connection gehört ausschließlich diesem
     // fehlgeschlagenen Open-Lauf und darf nicht bis nach dem Wipe offen bleiben.
     if (connection.raw !== rawDatabase) {
@@ -214,17 +279,31 @@ export function getDatabase(): Promise<SqlDatabase> {
   if (wipeInProgress) {
     return Promise.reject(new Error('Die lokale Datenbank wird gerade gelöscht.'));
   }
-  if (database && isVerifiedForActiveUser()) return Promise.resolve(database);
+  if (database && isVerifiedForActiveUser()) {
+    dbTrace('REQUEST-CACHED');
+    return Promise.resolve(database);
+  }
 
   if (!opening) {
+    openSequence += 1;
+    const openId = openSequence;
     const generation = lifecycleGeneration;
     const userId = activeUserId;
-    const pending = measureOperation('db.open', () => openAndVerify(generation, userId)).finally(
-      () => {
-        if (opening === pending) opening = null;
-      },
-    );
+    dbTrace('REQUEST-NEW', { generation, openId });
+    const pending = measureOperation('db.open', async () => {
+      try {
+        return await openAndVerify(openId, generation, userId);
+      } catch (error) {
+        dbTrace('REQUEST-FAIL', { error: errorMessage(error), openId });
+        throw error;
+      }
+    }).finally(() => {
+      dbTrace('REQUEST-SETTLED', { openId });
+      if (opening === pending) opening = null;
+    });
     opening = pending;
+  } else {
+    dbTrace('REQUEST-JOINED');
   }
 
   return opening;

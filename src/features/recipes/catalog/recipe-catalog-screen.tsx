@@ -11,7 +11,6 @@ export function RecipeCatalogScreen() {
   const { data: recipes = [], isLoading } = useCatalogRecipes();
   return (
     <HubScreen
-      safeAreaClassName="flex-1 w-full max-w-[800px] self-center"
       header={{
         title: 'Entdecken',
         align: 'center',

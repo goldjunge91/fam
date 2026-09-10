@@ -53,7 +53,13 @@ export function BarcodeScannerModal({
   // Jedes Oeffnen ist ein neuer Scanversuch: sonst bliebe derselbe Code nach
   // einem "nicht gefunden" dauerhaft gesperrt.
   useEffect(() => {
-    if (visible) scannedRef.current = null;
+    if (!visible) return;
+    scannedRef.current = null;
+    if (__DEV__) {
+      console.log('[InventorySheet] inventory.barcode-modal.open', {
+        sheetId: 'inventory.barcode-modal',
+      });
+    }
   }, [visible]);
 
   function handleBarcodeScanned({ data }: { data: string }) {

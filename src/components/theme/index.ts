@@ -349,6 +349,7 @@ export const radius = {
   lg: 20,
   xl: 26,
   xxl: 32,
+  famLarge: 28,
   pill: 999,
 } as const;
 

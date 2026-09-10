@@ -85,11 +85,15 @@ type FeatherName = React.ComponentProps<typeof Feather>['name'];
 export type TxtVariant =
   | 'display'
   | 'title'
+  | 'brand'
   | 'heading'
   | 'subheading'
   | 'body'
+  | 'navigation'
   | 'label'
-  | 'caption';
+  | 'caption'
+  | 'eyebrow'
+  | 'glyph';
 
 export type TxtTone =
   | 'primary'
@@ -123,6 +127,12 @@ const TXT: Record<TxtVariant, TxtDefinition> = {
     fontWeight: '800',
     tone: 'text',
   },
+  brand: {
+    fontSize: 27,
+    lineHeight: 34,
+    fontWeight: '600',
+    tone: 'text',
+  },
   heading: {
     fontSize: font.sizes.lg,
     lineHeight: font.lineHeights.heading,
@@ -141,6 +151,12 @@ const TXT: Record<TxtVariant, TxtDefinition> = {
     fontWeight: '400',
     tone: 'text',
   },
+  navigation: {
+    fontSize: 17,
+    lineHeight: 21,
+    fontWeight: '400',
+    tone: 'text',
+  },
   label: {
     fontSize: font.sizes.sm,
     lineHeight: font.lineHeights.label,
@@ -152,6 +168,19 @@ const TXT: Record<TxtVariant, TxtDefinition> = {
     lineHeight: font.lineHeights.caption,
     fontWeight: '500',
     tone: 'text',
+  },
+  eyebrow: {
+    fontSize: 12,
+    lineHeight: 15,
+    fontWeight: '400',
+    tone: 'textSecondary',
+    letterSpacing: 0.76,
+  },
+  glyph: {
+    fontSize: 22,
+    lineHeight: 26,
+    fontWeight: '400',
+    tone: 'textSecondary',
   },
 };
 

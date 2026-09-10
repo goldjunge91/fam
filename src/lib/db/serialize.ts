@@ -22,12 +22,26 @@ function isSQLiteBusyError(error: unknown): boolean {
   return /(?:database(?: table)? is locked|SQLITE_BUSY)/i.test(message);
 }
 
+function traceSqlFailure(method: string, source: string, error: unknown): void {
+  if (__DEV__) {
+    console.warn(
+      '[DBTRACE:SQL-FAIL]',
+      JSON.stringify({
+        error: error instanceof Error ? error.message : String(error),
+        method,
+        source: source.trim().slice(0, 180),
+      }),
+    );
+  }
+}
+
 async function execWithBusyRetry(driver: SqlStatementDriver, source: string): Promise<void> {
   for (let attempt = 0; ; attempt += 1) {
     try {
       await driver.execAsync(source);
       return;
     } catch (error) {
+      traceSqlFailure('retry', source, error);
       const delay = BEGIN_RETRY_DELAYS_MS[attempt];
       if (!isSQLiteBusyError(error) || delay === undefined) throw error;
       await new Promise<void>((resolve) => setTimeout(resolve, delay));
@@ -66,7 +80,14 @@ export function serializeDatabase(driver: SqlStatementDriver): SerializedSqlData
   }
 
   const transactionPort: SqlDatabase = {
-    execAsync: (source) => driver.execAsync(source),
+    execAsync: async (source) => {
+      try {
+        await driver.execAsync(source);
+      } catch (error) {
+        traceSqlFailure('transaction.execAsync', source, error);
+        throw error;
+      }
+    },
     runAsync: (source, params) => driver.runAsync(source, params),
     getAllAsync: (source, params) => driver.getAllAsync(source, params),
     getFirstAsync: (source, params) => driver.getFirstAsync(source, params),
@@ -75,7 +96,15 @@ export function serializeDatabase(driver: SqlStatementDriver): SerializedSqlData
   };
 
   return {
-    execAsync: (source) => withLock(() => driver.execAsync(source)),
+    execAsync: (source) =>
+      withLock(async () => {
+        try {
+          await driver.execAsync(source);
+        } catch (error) {
+          traceSqlFailure('execAsync', source, error);
+          throw error;
+        }
+      }),
     runAsync: (source, params) => withLock(() => driver.runAsync(source, params)),
     getAllAsync: (source, params) => withLock(() => driver.getAllAsync(source, params)),
     getFirstAsync: (source, params) => withLock(() => driver.getFirstAsync(source, params)),

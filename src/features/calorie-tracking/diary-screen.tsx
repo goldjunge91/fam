@@ -242,8 +242,6 @@ export function DiaryScreen() {
 
   return (
     <HubScreen
-      rootClassName="diary-root"
-      safeAreaClassName="diary-safe-area"
       header={{
         title: 'Tagebuch',
         align: 'center',

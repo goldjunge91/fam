@@ -263,10 +263,16 @@ export function RecipesScreen() {
   const [templateCalorieFilter, setTemplateCalorieFilter] = useState<number | null>(null);
 
   const { activeHouseholdId } = useActiveHousehold();
-  const { data: recipes = [], isLoading: recipesLoading } = useRecipes(
-    activeHouseholdId ?? undefined,
-  );
-  const { data: templates = [], isLoading: templatesLoading } = useCatalogRecipes();
+  const {
+    data: recipes = [],
+    isLoading: recipesLoading,
+    isError: recipesError,
+  } = useRecipes(activeHouseholdId ?? undefined);
+  const {
+    data: templates = [],
+    isLoading: templatesLoading,
+    isError: templatesError,
+  } = useCatalogRecipes();
   const { favorites } = useRecipeFavorites();
 
   const query = searchQuery.trim().toLocaleLowerCase('de');
@@ -329,6 +335,7 @@ export function RecipesScreen() {
   );
   const activeFilterCount = recipeFilterCount(filters);
   const isLoading = recipesLoading || templatesLoading;
+  const isError = recipesError || templatesError;
 
   function selectCategoryTile(key: string | null) {
     setTemplateCategoryFilter(key);
@@ -373,7 +380,6 @@ export function RecipesScreen() {
 
   return (
     <HubScreen
-      safeAreaClassName="flex-1 w-full max-w-[800px] self-center"
       header={{
         title: screenTitle,
         align: 'center',
@@ -502,6 +508,8 @@ export function RecipesScreen() {
             color={colors.basil}
             style={{ marginTop: space.xxxl }}
           />
+        ) : isError ? (
+          <EmptyPanel>Rezepte konnten nicht geladen werden. Bitte Anmeldung prüfen.</EmptyPanel>
         ) : view === 'favorites' ? (
           /* Favoriten-Ansicht */
           favoriteEntries.length > 0 ? (

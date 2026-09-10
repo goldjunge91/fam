@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Modal, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -20,6 +20,7 @@ type InventoryItemGroupSheetProps = {
   visible: boolean;
   group: InventoryItemGroup | null;
   onClose: () => void;
+  onDismissFinished?: () => void;
   onSelectLot: (lot: LocalInventoryItem) => void;
   onHistory: () => void;
   onQuickOpen?: (lot: LocalInventoryItem) => void;
@@ -78,6 +79,17 @@ function InventoryConflictPanel({
 }) {
   const sheetStyle = useSheetShadowStyle();
   const { colors } = useTheme();
+  const conflictItemId = conflict?.itemId ?? null;
+  const hasConflict = Boolean(conflict);
+
+  useEffect(() => {
+    if (!__DEV__ || !visible) return;
+    console.log('[InventorySheet] inventory.conflict-modal.open', {
+      sheetId: 'inventory.conflict-modal',
+      itemId: conflictItemId,
+      hasConflict,
+    });
+  }, [conflictItemId, hasConflict, visible]);
 
   if (!conflict) return null;
   const correction = conflict.correction;
@@ -163,6 +175,7 @@ export function InventoryItemGroupSheet({
   visible,
   group,
   onClose,
+  onDismissFinished,
   onSelectLot,
   onHistory,
   onQuickOpen,
@@ -178,6 +191,21 @@ export function InventoryItemGroupSheet({
   const { colors } = useTheme();
   const [activeConflictLotId, setActiveConflictLotId] = useState<string | null>(null);
   const lastGroupRef = useRef<InventoryItemGroup | null>(null);
+  const groupId = group?.id ?? null;
+  const lotCount = group?.lots.length ?? 0;
+  const hasGroup = Boolean(group);
+
+  useEffect(() => {
+    if (!__DEV__ || !visible) return;
+    console.log('[InventorySheet] inventory.group-sheet.open', {
+      sheetId: 'inventory.group-sheet',
+      groupId,
+      lotCount,
+      hasGroup,
+      platform: Platform.OS,
+    });
+  }, [groupId, hasGroup, lotCount, visible]);
+
   if (group) {
     lastGroupRef.current = group;
   }
@@ -198,6 +226,7 @@ export function InventoryItemGroupSheet({
         visible={isVisible}
         group={displayGroup}
         onClose={onClose}
+        onDismissFinished={onDismissFinished}
         onSelectLot={onSelectLot}
         onHistory={onHistory}
         onQuickOpen={onQuickOpen}
@@ -213,7 +242,12 @@ export function InventoryItemGroupSheet({
   }
 
   return (
-    <Modal visible={isVisible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal
+      visible={isVisible}
+      transparent
+      animationType="slide"
+      onRequestClose={onClose}
+      onDismiss={onDismissFinished}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
           className="fridge-actions-backdrop"
@@ -405,6 +439,7 @@ function IosInventoryItemGroupView({
   visible,
   group,
   onClose,
+  onDismissFinished,
   onSelectLot,
   onHistory,
   onQuickOpen,
@@ -435,7 +470,8 @@ function IosInventoryItemGroupView({
       visible={visible}
       animationType="slide"
       presentationStyle="fullScreen"
-      onRequestClose={onClose}>
+      onRequestClose={onClose}
+      onDismiss={onDismissFinished}>
       <View style={styles.root}>
         {backgroundGradient ? <GradientBackground {...backgroundGradient} /> : null}
         <View

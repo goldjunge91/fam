@@ -30,6 +30,19 @@ const LAST_SUCCESSFUL_UPDATE_KEY = 'off_dump_last_successful_update_at';
 const LAST_ERROR_KEY = 'off_dump_last_error';
 
 const CHECK_TTL_MS = 6 * 60 * 60 * 1000;
+let offDumpSequence = 0;
+
+type OffDumpTraceDetails = Record<string, boolean | number | string | undefined>;
+
+function offDumpTrace(code: string, details: OffDumpTraceDetails = {}): void {
+  if (__DEV__) {
+    console.log(`[OFFTRACE:${code}]`, JSON.stringify(details));
+  }
+}
+
+function errorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error);
+}
 
 async function getMetaValue(db: SqlDatabase, key: string): Promise<string | null> {
   const row = await db.getFirstAsync<{ value: string | null }>(
@@ -123,36 +136,55 @@ export async function getOffDumpStatus(db: SqlDatabase): Promise<OffDumpStatus> 
 }
 
 export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
-  if (isOffDumpAttached()) return true;
+  if (isOffDumpAttached()) {
+    offDumpTrace('ATTACH-SKIP', { reason: 'already_attached' });
+    return true;
+  }
 
   const { File, Paths } = loadFileSystem();
   const target = new File(Paths.document, DUMP_FILE_NAME);
-  if (!target.exists) return false;
+  if (!target.exists) {
+    offDumpTrace('ATTACH-SKIP', { reason: 'file_missing' });
+    return false;
+  }
 
+  offDumpTrace('ATTACH-START');
   const dumpPath = toFsPath(target.uri);
   try {
     // Bevorzugt als Read-Only einhängen, damit BEGIN IMMEDIATE auf der
     // Hauptdatenbank keine Schreibtransaktion auf dem Produktkatalog erzwingt.
     try {
       await attachPlaintextDatabase(db, `file:${dumpPath}?mode=ro`, 'off_dump', 'sqlcipher');
-    } catch {
+    } catch (error) {
+      offDumpTrace('ATTACH-READONLY-FAIL', { error: errorMessage(error) });
       await attachPlaintextDatabase(db, dumpPath, 'off_dump', 'sqlcipher');
     }
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
-    if (!message.includes('off_dump is already in use')) throw err;
+    if (!message.includes('off_dump is already in use')) {
+      offDumpTrace('ATTACH-FAIL', { error: message });
+      throw err;
+    }
+    offDumpTrace('ATTACH-ALREADY-IN-USE');
   }
   setOffDumpAttached(true);
+  offDumpTrace('ATTACH-OK');
   return true;
 }
 
 async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
+  offDumpSequence += 1;
+  const updateId = offDumpSequence;
+  offDumpTrace('UPDATE-START', { updateId });
   const fileOps = createExpoFileOps(db);
   const paths = dumpPaths();
+  offDumpTrace('UPDATE-INSPECT', { updateId });
   const activeInspection = await inspectAttachedOffDump(db);
 
+  offDumpTrace('UPDATE-MARK-CHECK', { updateId });
   await setMetaValue(db, LAST_CHECK_KEY, new Date().toISOString());
   try {
+    offDumpTrace('UPDATE-REPOSITORY-START', { updateId });
     const outcome = await checkForUpdate({
       db,
       fileOps,
@@ -167,23 +199,32 @@ async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
     } else if (outcome.kind === 'baseline-failed') {
       await setMetaValue(db, LAST_ERROR_KEY, 'Baseline-Installation fehlgeschlagen.');
     }
+    offDumpTrace('UPDATE-OK', { kind: outcome.kind, updateId });
     return outcome;
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
+    offDumpTrace('UPDATE-FAIL', { error: message, updateId });
     await setMetaValue(db, LAST_ERROR_KEY, message);
     return { kind: 'manifest-unavailable' };
   }
 }
 
 async function checkForUpdateIfDue(db: SqlDatabase): Promise<void> {
+  offDumpSequence += 1;
+  const checkId = offDumpSequence;
+  offDumpTrace('DUE-START', { checkId });
   const { File, Paths } = loadFileSystem();
   const hasLocalDump = new File(Paths.document, DUMP_FILE_NAME).exists;
 
   if (hasLocalDump) {
     const lastCheckAt = await getMetaValue(db, LAST_CHECK_KEY);
-    if (lastCheckAt && Date.now() - Date.parse(lastCheckAt) < CHECK_TTL_MS) return;
+    if (lastCheckAt && Date.now() - Date.parse(lastCheckAt) < CHECK_TTL_MS) {
+      offDumpTrace('DUE-SKIP-FRESH', { checkId });
+      return;
+    }
   }
 
+  offDumpTrace('DUE-RUN', { checkId, hasLocalDump });
   await runUpdateCheck(db);
 }
 
@@ -238,11 +279,25 @@ export async function checkOffDumpIntegrity(db: SqlDatabase): Promise<boolean> {
 }
 
 export async function initOffDump(db: SqlDatabase): Promise<void> {
+  offDumpSequence += 1;
+  const initId = offDumpSequence;
+  offDumpTrace('INIT-START', { initId });
   const fileOps = createExpoFileOps(db);
-  await reconcileOnStart(fileOps, dumpPaths());
-  await attachOffDump(db);
+  try {
+    offDumpTrace('INIT-RECONCILE-START', { initId });
+    await reconcileOnStart(fileOps, dumpPaths());
+    offDumpTrace('INIT-RECONCILE-OK', { initId });
+    offDumpTrace('INIT-ATTACH-START', { initId });
+    await attachOffDump(db);
+    offDumpTrace('INIT-ATTACH-OK', { initId });
+  } catch (error) {
+    offDumpTrace('INIT-FAIL', { error: errorMessage(error), initId });
+    throw error;
+  }
 
+  offDumpTrace('INIT-UPDATE-SCHEDULED', { initId });
   checkForUpdateIfDue(db).catch((err) => {
+    offDumpTrace('DUE-FAIL', { error: errorMessage(err), initId });
     console.warn('[OffDump] Update-Check fehlgeschlagen:', err);
   });
 }

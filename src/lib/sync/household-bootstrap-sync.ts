@@ -11,6 +11,19 @@ import { clockCeiling } from '@/lib/sync/server-clock';
 import { reportError } from '@/lib/telemetry';
 
 let isSyncingHouseholds = false;
+let bootstrapSequence = 0;
+
+type BootstrapTraceDetails = Record<string, boolean | number | string | undefined>;
+
+function bootstrapTrace(code: string, details: BootstrapTraceDetails = {}): void {
+  if (__DEV__) {
+    console.log(`[SYNC-HH:${code}]`, JSON.stringify(details));
+  }
+}
+
+function errorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error);
+}
 
 function invalidateHouseholdsQuery(queryClient: QueryClient, userId: string) {
   queryClient.invalidateQueries({ queryKey: householdsQueryKey(userId) });
@@ -20,13 +33,25 @@ export async function triggerHouseholdsPull(
   userId: string,
   queryClient?: QueryClient,
 ): Promise<PullOutcome[] | null> {
-  if (isSyncingHouseholds) return null;
+  if (isSyncingHouseholds) {
+    bootstrapTrace('SKIP-BUSY');
+    return null;
+  }
   const finishAccountSyncRun = beginAccountSyncRun();
-  if (!finishAccountSyncRun) return null;
+  if (!finishAccountSyncRun) {
+    bootstrapTrace('SKIP-GATE');
+    return null;
+  }
+  bootstrapSequence += 1;
+  const runId = bootstrapSequence;
+  bootstrapTrace('START', { hasQueryClient: Boolean(queryClient), runId });
   isSyncingHouseholds = true;
   try {
+    bootstrapTrace('DB-REQUEST', { runId });
     const db = await getDatabase();
+    bootstrapTrace('DB-READY', { runId });
     const supabase = getSupabase();
+    bootstrapTrace('PULL-START', { runId });
     const outcomes = await pullHousehold({
       db,
       supabase,
@@ -40,8 +65,10 @@ export async function triggerHouseholdsPull(
       invalidateHouseholdsQuery(queryClient, userId);
     }
 
+    bootstrapTrace('PULL-OK', { outcomeCount: outcomes.length, runId });
     return outcomes;
   } catch (err) {
+    bootstrapTrace('FAIL', { error: errorMessage(err), runId });
     reportError(err, {
       operation: 'sync.bootstrap',
       entity: 'households',
@@ -52,6 +79,7 @@ export async function triggerHouseholdsPull(
   } finally {
     isSyncingHouseholds = false;
     finishAccountSyncRun();
+    bootstrapTrace('FINISH', { runId });
   }
 }
 

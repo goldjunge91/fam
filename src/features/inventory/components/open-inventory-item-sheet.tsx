@@ -30,10 +30,20 @@ export function OpenInventoryItemSheet({
   const { colors } = useTheme();
   const sheetStyle = useSheetShadowStyle();
   const [quantity, setQuantity] = useState(1);
+  const itemId = item?.id ?? null;
+  const hasItem = Boolean(item);
 
   useEffect(() => {
-    if (visible && item?.id) setQuantity(1);
-  }, [visible, item?.id]);
+    if (__DEV__ && visible) {
+      console.log('[InventorySheet] inventory.open-sheet.open', {
+        sheetId: 'inventory.open-sheet',
+        itemId,
+        hasItem,
+      });
+    }
+
+    if (visible && itemId) setQuantity(1);
+  }, [hasItem, itemId, visible]);
 
   if (!item) return null;
 

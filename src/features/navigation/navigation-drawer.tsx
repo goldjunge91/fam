@@ -10,7 +10,7 @@ import Animated, {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CalendarDayIcon } from '@/components/icons/calendar-day-icon';
 import { FamIcon } from '@/components/icons/fam-icon';
-import { withAlpha } from '@/components/theme/index';
+import { radius, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { getDrawerGroups } from '@/constants/feature-registry';
 import { Txt } from '@/constants/ui';
@@ -20,6 +20,75 @@ import { debugLogEvent } from '@/lib/debug-log';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 const DRAWER_WIDTH_RATIO = 0.84;
+
+const styles = StyleSheet.create({
+  backdrop: StyleSheet.absoluteFill,
+  drawer: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    maxWidth: 340,
+    paddingHorizontal: 20,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 11,
+    paddingTop: 11,
+    paddingBottom: 21,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  closeButton: {
+    width: 34,
+    height: 34,
+    borderRadius: radius.pill,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  scroll: {
+    flex: 1,
+  },
+  group: {
+    paddingTop: 14,
+  },
+  householdGroup: {
+    marginTop: 13,
+    borderTopWidth: StyleSheet.hairlineWidth,
+  },
+  groupTitle: {
+    paddingHorizontal: 14,
+    paddingBottom: 5,
+  },
+  navRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 11,
+    height: 55,
+    paddingHorizontal: 14,
+    borderRadius: radius.lg,
+  },
+  navIcon: {
+    width: 35,
+    height: 35,
+  },
+  navLabel: {
+    flex: 1,
+  },
+  manageRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 11,
+    height: 65,
+    padding: 15,
+    borderRadius: radius.lg,
+  },
+  settingsIcon: {
+    width: 37,
+    height: 35,
+  },
+});
 
 debugLogEvent('navigation-drawer.module-loaded', { variant: 'shared' });
 
@@ -58,17 +127,16 @@ export function NavigationDrawer() {
     <Modal visible={isDrawerOpen} transparent animationType="fade" onRequestClose={closeDrawer}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
-          className="absolute inset-0"
           // Laufzeitwert für die Abdunklung.
-          style={{ backgroundColor: withAlpha(colors.text, 0.3) }}
+          style={[styles.backdrop, { backgroundColor: withAlpha(colors.text, 0.3) }]}
           onPress={closeDrawer}
           accessibilityRole="button"
           accessibilityLabel="Menü schließen"
         />
         <Animated.View
-          className="drawer"
           // Laufzeitwerte für Insets, Breite, Hintergrund und Schatten.
           style={[
+            styles.drawer,
             {
               paddingTop: Math.max(insets.top - 20, 27),
               paddingBottom: Math.max(insets.bottom, 26),
@@ -110,29 +178,31 @@ function DrawerContent() {
 
   return (
     <>
-      <View className="drawer-header">
-        <Txt variant="title" className="drawer-brand">
-          fam
-        </Txt>
+      <View style={[styles.header, { borderBottomColor: withAlpha(colors.text, 0.15) }]}>
+        <Txt variant="brand">fam</Txt>
         <Pressable
           onPress={closeDrawer}
           accessibilityRole="button"
           accessibilityLabel="Menü schließen"
-          className="drawer-close-btn"
+          style={[styles.closeButton, { backgroundColor: colors.backgroundSoft }]}
           hitSlop={8}>
-          <Txt variant="subheading" tone="secondary" weight="400" className="drawer-close-glyph">
-            ×
-          </Txt>
+          <Txt variant="glyph">×</Txt>
         </Pressable>
       </View>
 
-      <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
+      <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
         {visibleGroups.map((group) => (
           <View
             key={group.title}
-            className={`drawer-group ${group.key === 'household' ? 'drawer-group-household' : ''}`}>
+            style={[
+              styles.group,
+              group.key === 'household' && [
+                styles.householdGroup,
+                { borderTopColor: withAlpha(colors.text, 0.15) },
+              ],
+            ]}>
             {group.hideTitle ? null : (
-              <Txt variant="body" tone="secondary" className="drawer-group-title">
+              <Txt variant="eyebrow" style={styles.groupTitle}>
                 {group.title.toUpperCase()}
               </Txt>
             )}
@@ -144,9 +214,8 @@ function DrawerContent() {
                   onPress={() => navigateTo(route.href)}
                   accessibilityRole="button"
                   accessibilityState={{ selected: isActive }}
-                  className="drawer-nav-row"
-                  style={isActive ? { backgroundColor: colors.backgroundSoft } : undefined}>
-                  <View className="drawer-nav-icon">
+                  style={[styles.navRow, isActive && { backgroundColor: colors.backgroundSoft }]}>
+                  <View style={styles.navIcon}>
                     {route.icon === 'calendarDay' ? (
                       <CalendarDayIcon size={35} />
                     ) : (
@@ -158,10 +227,10 @@ function DrawerContent() {
                     )}
                   </View>
                   <Txt
-                    variant="body"
+                    variant="navigation"
                     tone="primary"
                     weight={isActive ? '700' : '500'}
-                    className={`drawer-nav-label ${isActive ? 'drawer-nav-label-active' : ''}`}>
+                    style={styles.navLabel}>
                     {route.label}
                   </Txt>
                   <Txt tone="secondary">›</Txt>
@@ -176,15 +245,15 @@ function DrawerContent() {
         onPress={() => navigateTo('/settings')}
         accessibilityRole="button"
         accessibilityState={{ selected: settingsActive }}
-        className="drawer-manage-row">
-        <View className="drawer-settings-icon">
+        style={[styles.manageRow, { backgroundColor: colors.backgroundSoft }]}>
+        <View style={styles.settingsIcon}>
           <FamIcon name="settings" size={37} color={settingsActive ? colors.basil : colors.text} />
         </View>
         <Txt
-          variant="body"
+          variant="navigation"
           tone="primary"
           weight={settingsActive ? '700' : '500'}
-          className="drawer-nav-label">
+          style={styles.navLabel}>
           Einstellungen
         </Txt>
         <Txt tone="secondary">›</Txt>

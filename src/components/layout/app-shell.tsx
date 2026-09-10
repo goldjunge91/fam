@@ -1,7 +1,8 @@
 import { Stack, usePathname } from 'expo-router';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { PlusIcon } from '@/components/icons/fam-icon';
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { FloatingActionButton } from '@/components/ui/buttons';
 import { SyncBannerVisibilityProvider, SyncStatusBanner } from '@/components/ui/sync-status-banner';
@@ -16,6 +17,39 @@ import { NavigationDrawer } from '@/features/navigation/navigation-drawer';
 import { ProfileSheet } from '@/features/navigation/profile-sheet';
 import { SpeedDialMenu } from '@/features/navigation/speed-dial-menu';
 
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+  navigator: {
+    flex: 1,
+  },
+  adBannerOverlay: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 10,
+  },
+  addButtonWrap: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'flex-start',
+    paddingHorizontal: space.lg + space.sm,
+    height: 88,
+  },
+  addButtonWrapLeft: {
+    alignItems: 'flex-start',
+  },
+  addButtonWrapRight: {
+    alignItems: 'flex-end',
+  },
+});
+
 export default function AppShell() {
   const insets = useSafeAreaInsets();
   const pathname = usePathname();
@@ -24,24 +58,27 @@ export default function AppShell() {
   const isBrochureRoute = pathname === '/brochures' || pathname.includes('/brochures/');
 
   return (
-    <NavigationChromeProvider>
-      <SyncBannerVisibilityProvider enabled={syncEnabled}>
-        <SyncStatusBanner enabled={syncEnabled} />
-        <Stack screenOptions={{ headerShown: false }} />
-        <NavigationDrawer />
-        <ProfileSheet />
-        <SpeedDialMenu />
-        {!isBrochureRoute ? <GlobalAddButton /> : null}
-        {!isBrochureRoute ? (
-          <View
-            pointerEvents="box-none"
-            className="absolute bottom-0 left-0 right-0 items-center justify-center z-10"
-            style={{ paddingBottom: insets.bottom + 65 }}>
-            <AdBanner placement="global_sticky" />
+    <View style={styles.root}>
+      <NavigationChromeProvider>
+        <SyncBannerVisibilityProvider enabled={syncEnabled}>
+          <SyncStatusBanner enabled={syncEnabled} />
+          <View style={styles.navigator}>
+            <Stack screenOptions={{ headerShown: false }} />
           </View>
-        ) : null}
-      </SyncBannerVisibilityProvider>
-    </NavigationChromeProvider>
+          <NavigationDrawer />
+          <ProfileSheet />
+          <SpeedDialMenu />
+          {!isBrochureRoute ? <GlobalAddButton /> : null}
+          {!isBrochureRoute ? (
+            <View
+              pointerEvents="box-none"
+              style={[styles.adBannerOverlay, { paddingBottom: insets.bottom + 65 }]}>
+              <AdBanner placement="global_sticky" />
+            </View>
+          ) : null}
+        </SyncBannerVisibilityProvider>
+      </NavigationChromeProvider>
+    </View>
   );
 }
 
@@ -54,10 +91,13 @@ function GlobalAddButton() {
   return (
     <View
       pointerEvents="box-none"
-      className={`app-shell-wrap ${position === 'left' ? 'items-start' : 'items-end'}`}
-      // Bottom-Safe-Area ist ein echter Laufzeitwert (Geraet-abhaengig),
-      // kann nicht als Tailwind-Klasse ausgedrueckt werden.
-      style={{ paddingBottom: insets.bottom }}>
+      style={[
+        styles.addButtonWrap,
+        position === 'left' ? styles.addButtonWrapLeft : styles.addButtonWrapRight,
+        // Bottom-Safe-Area ist ein echter Laufzeitwert (Geraet-abhaengig),
+        // kann nicht als statischer Layoutwert ausgedrueckt werden.
+        { paddingBottom: insets.bottom },
+      ]}>
       <FloatingActionButton label="Neu hinzufügen" onPress={openQuickAdd}>
         <PlusIcon color={colors.onAccent} />
       </FloatingActionButton>

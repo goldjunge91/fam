@@ -4,12 +4,13 @@ import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Alert, Platform, Pressable, ScrollView, View } from 'react-native';
+import { Alert, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import { HubScreen } from '@/components/layout/hub-screen';
+import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { MenuButton, ProfileButton } from '@/components/ui/buttons';
-import { Button, SegmentedControl, Txt } from '@/constants/ui';
+import { Button, Card, SegmentedControl, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -27,6 +28,55 @@ import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { type AppLanguage, setAppLanguage } from '@/i18n';
 import { debugLogEvent } from '@/lib/debug-log';
 import { env } from '@/lib/env';
+
+const styles = StyleSheet.create({
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    flexGrow: 1,
+    gap: space.lg + space.sm,
+    paddingHorizontal: space.lg,
+    paddingTop: space.md,
+    paddingBottom: 64,
+  },
+  topCards: {
+    gap: space.lg,
+  },
+  profileRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.sm,
+    padding: space.sm,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: space.xl,
+  },
+  profileAvatar: {
+    width: 50,
+    height: 50,
+    borderRadius: space.xl + space.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  profileText: {
+    flex: 1,
+    gap: space.xs / 2,
+  },
+  groups: {
+    gap: space.lg + space.sm,
+  },
+  languageRow: {
+    paddingVertical: space.lg,
+  },
+  signOut: {
+    marginTop: space.sm,
+  },
+  version: {
+    textAlign: 'center',
+    opacity: 0.6,
+  },
+});
 
 export function SettingsScreen() {
   const { i18n, t } = useTranslation();
@@ -93,47 +143,61 @@ export function SettingsScreen() {
           />
         ),
       }}>
-      <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
+      <ScrollView
+        testID="settings-scroll-view"
+        style={styles.scroll}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}>
         {/* Schnellzugriff-Header (Eigenes Profil & Premium-Aktionskarte) */}
-        <View className="gap-[10px]">
+        <View style={styles.topCards}>
           <Pressable
             onPress={() => router.push('/profile')}
             accessibilityRole="button"
-            className="profile-row">
-            <View
-              className="profile-avatar overflow-hidden"
-              style={{ backgroundColor: colors.basil }}>
-              {avatarUrl ? (
-                <Image
-                  source={{ uri: avatarUrl }}
-                  accessibilityLabel="Profilbild in Einstellungen"
-                  style={{ width: '100%', height: '100%' }}
-                  contentFit="cover"
-                />
-              ) : (
-                <Txt variant="body" tone="inverse" weight="700">
-                  {initials}
+            style={({ pressed }) => pressed && { opacity: 0.85 }}>
+            <Card
+              testID="settings-profile-card-row"
+              padded={false}
+              elevation="sm"
+              style={[
+                styles.profileRow,
+                {
+                  backgroundColor: withAlpha(colors.backgroundElement, 0.72),
+                  borderColor: colors.border,
+                },
+              ]}>
+              <View style={[styles.profileAvatar, { backgroundColor: colors.basil }]}>
+                {avatarUrl ? (
+                  <Image
+                    source={{ uri: avatarUrl }}
+                    accessibilityLabel="Profilbild in Einstellungen"
+                    style={{ width: '100%', height: '100%' }}
+                    contentFit="cover"
+                  />
+                ) : (
+                  <Txt variant="body" tone="inverse" weight="700">
+                    {initials}
+                  </Txt>
+                )}
+              </View>
+              <View style={styles.profileText}>
+                <Txt variant="body" weight="700" numberOfLines={1}>
+                  {displayName}
                 </Txt>
-              )}
-            </View>
-            <View className="row-text">
-              <Txt variant="body" weight="700" numberOfLines={1}>
-                {displayName}
+                <Txt variant="body" tone="secondary" numberOfLines={1}>
+                  {session?.user.email ?? '—'}
+                </Txt>
+              </View>
+              <Txt variant="title" tone="secondary">
+                ›
               </Txt>
-              <Txt variant="body" tone="secondary" numberOfLines={1}>
-                {session?.user.email ?? '—'}
-              </Txt>
-            </View>
-            <Txt variant="title" tone="secondary">
-              ›
-            </Txt>
+            </Card>
           </Pressable>
 
           <PlusAndAiPromoCard />
         </View>
 
         {/* Einstellungs-Menügruppen */}
-        <View className="gap-four">
+        <View style={styles.groups}>
           {/* Tracking & Ernährung (Ziele, Vitalwerte, Methoden) */}
           <SettingsGroup title="Tracking & Ernährung">
             <SettingsRow
@@ -179,7 +243,7 @@ export function SettingsScreen() {
           </SettingsGroup>
 
           <SettingsGroup title={t('settings.appGroup')}>
-            <View className="py-three">
+            <View style={styles.languageRow}>
               <SegmentedControl
                 label={t('common.language')}
                 options={[
@@ -261,12 +325,12 @@ export function SettingsScreen() {
         </View>
 
         {/* Abmelden-Aktion */}
-        <View className="mt-two">
+        <View style={styles.signOut}>
           <Button title="Abmelden" variant="danger" onPress={handleSignOut} loading={signingOut} />
         </View>
 
         {/* App-Versionsangabe & Build-Nummer */}
-        <Txt variant="body" center style={{ opacity: 0.6 }}>
+        <Txt variant="body" center style={styles.version}>
           {versionLabel}
         </Txt>
       </ScrollView>

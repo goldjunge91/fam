@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useEffect } from 'react';
 import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -60,6 +61,18 @@ function formatExpiry(value: string | null | undefined): string {
 export function ProductInformation({ visible, item, onClose }: ProductInformationProps) {
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
+  const itemId = item?.product_id ?? null;
+  const hasItem = Boolean(item);
+
+  useEffect(() => {
+    if (!__DEV__ || !visible) return;
+    console.log('[InventorySheet] inventory.product-information.open', {
+      sheetId: 'inventory.product-information',
+      itemId,
+      hasItem,
+    });
+  }, [hasItem, itemId, visible]);
+
   const { data: localProduct } = useProduct(item?.product_id);
   const { data: openFoodFactsProduct, isFetching } = useQuery({
     queryKey: ['open-food-facts-product', localProduct?.barcode],

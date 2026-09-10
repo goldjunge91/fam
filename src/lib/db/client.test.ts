@@ -64,10 +64,10 @@ describe('database client lifecycle', () => {
     await expect(getDatabase()).rejects.toThrow(/Ohne angemeldeten Nutzer/);
 
     setActiveUserId('user-a');
+    mockRawDatabase.getFirstAsync.mockResolvedValueOnce({ journal_mode: 'wal' });
     const db = await getDatabase();
-    expect(mockRawDatabase.execAsync.mock.calls.slice(0, 2)).toEqual([
+    expect(mockRawDatabase.execAsync.mock.calls.slice(0, 1)).toEqual([
       ['PRAGMA busy_timeout = 5000'],
-      ['PRAGMA journal_mode = WAL'],
     ]);
     mockRawDatabase.closeAsync
       .mockRejectedValueOnce(new Error('native close failed'))

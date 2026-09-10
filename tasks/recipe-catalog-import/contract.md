@@ -3,8 +3,8 @@
 ## Zweck
 
 Der Import übernimmt die kanonischen Waivy-Rezepte in den globalen,
-read-only Rezeptkatalog. Zusatzmetadaten und Bildquellen werden gespeichert,
-aber von der aktuellen UI nicht dargestellt.
+read-only Rezeptkatalog. Zusatzmetadaten werden gespeichert, Bildquellen
+werden für die Katalogdarstellung aufgelöst.
 
 ## Owner und Quelle
 
@@ -68,9 +68,9 @@ zugeordnet gemeldet und nicht hochgeladen.
 - `storage_path` bleibt nullable. Ein Bild darf zunächst ausschließlich über
   `source_url` referenziert werden.
 - Eine Zeile muss mindestens `storage_path` oder `source_url` besitzen.
-- Die aktuelle UI verwendet nur vorhandene `storage_path`-Werte. Externe
-  `source_url`-Werte bleiben für eine spätere UI oder Storage-Pipeline
-  verfügbar.
+- Die UI verwendet `storage_path` bevorzugt und fällt bei remote-only Bildern
+  auf `source_url` zurück. Externe URLs werden dabei direkt geladen und nicht
+  automatisch in Supabase Storage gespiegelt.
 - Zutaten behalten `optional` und `note` im Import-JSON als
   `optional`/`source_note`; beim Kopieren in den Haushalt wird `source_note` zu
   `note`.

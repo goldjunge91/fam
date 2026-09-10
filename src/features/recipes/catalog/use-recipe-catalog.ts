@@ -116,6 +116,29 @@ export type CatalogDetail = {
   nutrition: NutritionTotal;
 };
 
+const CATALOG_IMAGE_BATCH_SIZE = 200;
+const CATALOG_RECIPE_LIST_COLUMNS =
+  'id, external_id, slug, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, status, sort_order';
+
+export function splitIntoChunks<T>(items: readonly T[], size: number): T[][] {
+  if (size <= 0) throw new Error('Die Batchgröße muss größer als null sein.');
+  const chunks: T[][] = [];
+  for (let index = 0; index < items.length; index += size) {
+    chunks.push(items.slice(index, index + size));
+  }
+  return chunks;
+}
+
+export function getCatalogImageReference(
+  image: Pick<CatalogImage, 'storage_path' | 'source_url'> | null | undefined,
+): string | null {
+  return image?.storage_path ?? image?.source_url ?? null;
+}
+
+export function resolveCatalogImageUrl(path: string | null | undefined): string | null {
+  return path && /^https?:\/\//i.test(path) ? path : null;
+}
+
 /** Adaptiert ein Katalogrezept für den gemeinsamen Kochmodus. */
 export function toCookingRecipeDetail(detail: CatalogDetail): RecipeDetail {
   const ingredientIdsByStep = new Map<string, string[]>();
@@ -159,7 +182,7 @@ export function toCookingRecipeDetail(detail: CatalogDetail): RecipeDetail {
 const client = () => getSupabase() as unknown as SupabaseClient;
 
 function templateCoverPath(detail: CatalogDetail): string | null {
-  return getCatalogCoverPath(detail.recipe, detail.images[0]?.storage_path);
+  return getCatalogCoverPath(detail.recipe, getCatalogImageReference(detail.images[0]));
 }
 
 function validateCopyDetail(detail: CatalogDetail) {
@@ -213,27 +236,33 @@ export function useCatalogRecipes() {
     queryFn: async () => {
       const { data, error } = await client()
         .from('catalog_recipes')
-        .select('*')
+        .select(CATALOG_RECIPE_LIST_COLUMNS)
         .eq('status', 'published')
         .order('sort_order')
         .order('title');
       if (error) throw error;
       const recipes = (data ?? []) as CatalogRecipe[];
-      const images = recipes.length
-        ? await client()
-            .from('catalog_recipe_images')
-            .select('recipe_id, storage_path')
-            .in(
-              'recipe_id',
-              recipes.map((recipe) => recipe.id),
-            )
-            .order('position')
-        : { data: [], error: null };
-      if (images.error) throw images.error;
+      const imageRows = (
+        await Promise.all(
+          splitIntoChunks(
+            recipes.map((recipe) => recipe.id),
+            CATALOG_IMAGE_BATCH_SIZE,
+          ).map(async (recipeIds) => {
+            const images = await client()
+              .from('catalog_recipe_images')
+              .select('recipe_id, storage_path, source_url')
+              .in('recipe_id', recipeIds)
+              .order('position');
+            if (images.error) throw images.error;
+            return images.data ?? [];
+          }),
+        )
+      ).flat();
       const coverByRecipe = new Map<string, string>();
-      for (const image of images.data ?? []) {
-        if (!coverByRecipe.has(image.recipe_id) && image.storage_path)
-          coverByRecipe.set(image.recipe_id, image.storage_path);
+      for (const image of imageRows) {
+        const imageReference = getCatalogImageReference(image);
+        if (!coverByRecipe.has(image.recipe_id) && imageReference)
+          coverByRecipe.set(image.recipe_id, imageReference);
       }
       return recipes.map((recipe) => ({
         ...recipe,
@@ -319,7 +348,7 @@ export function useCatalogRecipe(slug: string | undefined) {
           ...(recipe as CatalogRecipe),
           cover_image_path: getCatalogCoverPath(
             recipe as CatalogRecipe,
-            images.data?.[0]?.storage_path,
+            getCatalogImageReference(images.data?.[0]),
           ),
         },
         components: (components.data ?? []) as CatalogComponent[],
@@ -341,6 +370,8 @@ export function useCatalogImageUrl(path: string | null | undefined) {
     enabled: Boolean(path),
     queryFn: async () => {
       if (!path) return null;
+      const remoteUrl = resolveCatalogImageUrl(path);
+      if (remoteUrl) return remoteUrl;
       const buckets = path.startsWith('templates/')
         ? ['recipe-covers']
         : ['recipe-catalog', 'recipe-covers'];

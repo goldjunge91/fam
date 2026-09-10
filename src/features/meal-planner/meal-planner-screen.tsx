@@ -203,8 +203,6 @@ export function MealPlannerScreen() {
 
   return (
     <HubScreen
-      rootClassName="mp-root"
-      safeAreaClassName="mp-safe-area"
       header={{
         title: 'Essensplan',
         align: 'center',
