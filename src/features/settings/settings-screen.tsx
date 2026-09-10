@@ -3,12 +3,13 @@ import Constants from 'expo-constants';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, Platform, Pressable, ScrollView, View } from 'react-native';
 
 import { HubScreen } from '@/components/layout/hub-screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { MenuButton, ProfileButton } from '@/components/ui/buttons';
-import { Button, Txt } from '@/constants/ui';
+import { Button, SegmentedControl, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -23,10 +24,12 @@ import { useProfile } from '@/features/profile/api';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { PlusAndAiPromoCard } from '@/features/settings/plus-and-ai-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
+import { type AppLanguage, setAppLanguage } from '@/i18n';
 import { debugLogEvent } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 
 export function SettingsScreen() {
+  const { i18n, t } = useTranslation();
   const { session } = useSession();
   const { colors } = useTheme();
   const { openDrawer } = useNavigationChrome();
@@ -39,6 +42,7 @@ export function SettingsScreen() {
 
   const { data: fabPosition = DEFAULT_FAB_POSITION } = useFabPosition();
   const setFabPosition = useSetFabPosition();
+  const selectedLanguage: AppLanguage = i18n.language.startsWith('en') ? 'en' : 'de';
 
   async function handleSignOut() {
     if (signingOut) return;
@@ -78,7 +82,7 @@ export function SettingsScreen() {
   return (
     <HubScreen
       header={{
-        title: 'Einstellungen',
+        title: t('settings.title'),
         align: 'center',
         leading: <MenuButton onPress={openDrawer} />,
         trailing: (
@@ -174,7 +178,20 @@ export function SettingsScreen() {
             />
           </SettingsGroup>
 
-          <SettingsGroup title="App">
+          <SettingsGroup title={t('settings.appGroup')}>
+            <View className="py-three">
+              <SegmentedControl
+                label={t('common.language')}
+                options={[
+                  { value: 'de', label: t('common.german') },
+                  { value: 'en', label: t('common.english') },
+                ]}
+                selected={selectedLanguage}
+                onSelect={(language: AppLanguage) => void setAppLanguage(language)}
+                appearance="surface"
+                size="compact"
+              />
+            </View>
             <SettingsRow
               icon="🔐"
               label="Berechtigungen"

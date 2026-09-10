@@ -4,8 +4,8 @@ import * as Haptics from 'expo-haptics';
 import { act, type ReactNode } from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
 import { DashboardScreen } from '@/features/dashboard/dashboard-screen';
+import { i18n } from '@/i18n';
 
 jest.mock('react-native/Libraries/Utilities/useWindowDimensions', () => ({
   __esModule: true,
@@ -188,13 +188,28 @@ function renderScreen() {
   );
 }
 
-beforeEach(() => {
+beforeEach(async () => {
+  await i18n.changeLanguage('de');
   mockFridgeItems = [];
   mockTriggerHouseholdSync.mockClear();
   mockDraxProviderMounts = 0;
   mockDraxSpans = [];
   mockSortableItemStyles = [];
   mockRouterPush.mockClear();
+});
+
+it('formatiert das Datum der Übersicht anhand der aktiven Sprache', async () => {
+  await i18n.changeLanguage('en');
+
+  await renderScreen();
+
+  const expectedDate = new Intl.DateTimeFormat('en', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  }).format(new Date());
+
+  expect(screen.getByText(expectedDate)).toBeOnTheScreen();
 });
 
 describe('DashboardScreen — Vorrat-Widget "Läuft bald ab"', () => {

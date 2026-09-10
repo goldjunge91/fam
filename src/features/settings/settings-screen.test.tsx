@@ -2,8 +2,17 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
 import { SettingsScreen } from '@/features/settings/settings-screen';
+import { i18n } from '@/i18n';
+
+const mockLanguageValues = new Map<string, string>();
+
+jest.mock('@/lib/storage/device-storage', () => ({
+  getDeviceStorage: () => ({
+    getString: (key: string) => mockLanguageValues.get(key),
+    set: (key: string, value: string) => mockLanguageValues.set(key, value),
+  }),
+}));
 
 /**
  * Die Einstellungen sind ein Verzeichnis: eine Zeile je Thema, das Thema
@@ -101,7 +110,9 @@ describe('SettingsScreen', () => {
   const originalDevTools = process.env.EXPO_PUBLIC_DEV_TOOLS;
   const originalUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
 
-  beforeEach(() => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
+    mockLanguageValues.clear();
     mockHouseholds = [{ id: 'hh-1', name: 'Familie Tozzi' }];
     mockActiveHousehold = mockHouseholds[0];
     mockAvatarUrl = null;
@@ -213,5 +224,15 @@ describe('SettingsScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Gamification' }));
 
     expect(router.push).toHaveBeenCalledWith('/gamification');
+  });
+
+  it('wechselt die App-Sprache über die Einstellungszeile', async () => {
+    await renderScreen();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('radio', { name: 'Englisch' }));
+
+    expect(await screen.findByRole('radio', { name: 'English', selected: true })).toBeOnTheScreen();
+    expect(mockLanguageValues.get('fam:language')).toBe('en');
   });
 });

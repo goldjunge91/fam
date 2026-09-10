@@ -7,6 +7,7 @@ import { initializeAppRuntime } from '@/features/app-shell/initialize-app-runtim
 import { useAppLifecycle } from '@/features/app-shell/use-app-lifecycle';
 import { RootNavigator } from '@/features/navigation/root-navigator';
 import { useAppDeepLinks } from '@/features/navigation/use-app-deep-links';
+import '@/i18n';
 import { PerformanceMonitorDevTools } from '@/lib/optionals/PerformanceMonitorDevTools';
 import { RozeniteDevTools } from '@/lib/optionals/RozeniteDevTools';
 import { Sentry } from '@/lib/sentry';

@@ -1,5 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -40,6 +41,7 @@ const styles = StyleSheet.create({
 });
 
 export function DashboardScreen() {
+  const { i18n, t } = useTranslation();
   const { colors } = useTheme();
   const hubGradient = useHubGradient();
   const insets = useSafeAreaInsets();
@@ -52,11 +54,11 @@ export function DashboardScreen() {
   const { isEditing, isGalleryOpen, enterEditMode, exitEditMode, openGallery, closeGallery } =
     useDashboardEditMode();
 
-  const heute = new Date().toLocaleDateString('de-DE', {
+  const heute = new Intl.DateTimeFormat(i18n.language, {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
-  });
+  }).format(new Date());
 
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -83,13 +85,13 @@ export function DashboardScreen() {
 
   const editChromeTrailing = isEditing ? (
     <View style={styles.editTrailing}>
-      <HeaderIconButton label="Karten anpassen" onPress={openGallery}>
+      <HeaderIconButton label={t('dashboard.customizeCards')} onPress={openGallery}>
         <PlusIcon color={colors.accent} />
       </HeaderIconButton>
       <Button
-        title="Fertig"
+        title={t('common.done')}
         onPress={exitEditMode}
-        accessibilityLabel="Bearbeitungsmodus beenden"
+        accessibilityLabel={t('dashboard.exitEditMode')}
         variant="accent"
         accentKey="pantry"
         size="sm"
@@ -110,7 +112,7 @@ export function DashboardScreen() {
   return (
     <DashboardCardsProvider>
       <Screen
-        title="Übersicht"
+        title={t('dashboard.title')}
         subtitle={heute}
         scroll={false}
         applyBottomPadding={false}
