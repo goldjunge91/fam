@@ -15,6 +15,8 @@ export type RecipeComponentItem = RecipeComponentItemRow & {
   ingredient_name?: string | null;
   quantity: number | null;
   unit: string;
+  optional?: boolean;
+  note?: string | null;
 };
 
 function nowStamp() {
@@ -203,6 +205,8 @@ export function useAddItemMutation() {
       /** Rohe Nutzereingabe, siehe Kommentar auf recipe_component_items.quantity. */
       quantity?: number | null;
       unit?: string;
+      optional?: boolean;
+      note?: string | null;
     }) => {
       const db = await getDatabase();
       const id = Crypto.randomUUID();
@@ -211,6 +215,8 @@ export function useAddItemMutation() {
       const subComponentId = input.sub_component_id ?? null;
       const quantity = input.quantity ?? null;
       const unit = input.unit ?? 'g';
+      const optional = input.optional ?? false;
+      const note = input.note ?? null;
 
       await enqueueMutation(db, {
         entity: 'recipe_component_items',
@@ -226,6 +232,8 @@ export function useAddItemMutation() {
           grams: input.grams,
           quantity,
           unit,
+          optional,
+          note,
           created_at: iso,
           updated_at: iso,
         },
@@ -244,13 +252,15 @@ export function useAddItemMutation() {
               grams: input.grams,
               quantity,
               unit,
+              optional,
+              note,
               created_at: iso,
             },
             ms,
           ),
       });
 
-      return { id, ...input, quantity, unit };
+      return { id, ...input, quantity, unit, optional, note };
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['recipe-detail', variables.recipe_id] });
@@ -271,11 +281,20 @@ export function useUpdateItemMutation() {
       grams: number;
       quantity?: number | null;
       unit?: string;
+      optional?: boolean;
+      note?: string | null;
     }) => {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
       const quantity = input.quantity ?? null;
       const unit = input.unit ?? 'g';
+      const patch = {
+        grams: input.grams,
+        quantity,
+        unit,
+        ...(input.optional !== undefined && { optional: input.optional }),
+        ...(input.note !== undefined && { note: input.note }),
+      };
 
       await enqueueMutation(db, {
         entity: 'recipe_component_items',
@@ -284,9 +303,7 @@ export function useUpdateItemMutation() {
         payload: {
           id: input.id,
           household_id: input.household_id,
-          grams: input.grams,
-          quantity,
-          unit,
+          ...patch,
           updated_at: iso,
         },
         applyLocally: (txn) =>
@@ -294,7 +311,7 @@ export function useUpdateItemMutation() {
             txn,
             'recipe_component_items',
             'update',
-            { id: input.id, grams: input.grams, quantity, unit },
+            { id: input.id, ...patch },
             ms,
           ),
       });

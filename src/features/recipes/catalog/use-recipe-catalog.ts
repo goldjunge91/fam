@@ -15,7 +15,7 @@ import {
   useAddStepMutation,
   useUpdateStepMutation,
 } from '../hooks/use-recipe-steps';
-import type { RecipeDetail } from '../hooks/use-recipes';
+import type { RecipeDetail, RecipeSubstitution } from '../hooks/use-recipes';
 import {
   useAddRecipeMutation,
   useDeleteRecipeMutation,
@@ -29,7 +29,23 @@ export type CatalogRecipe = {
   slug: string;
   title: string;
   instructions: string | null;
+  prep_time_minutes?: number | null;
   cook_time_minutes: number | null;
+  storage_instructions?: string | null;
+  reheating_instructions?: string | null;
+  cheap_tips?: string[];
+  substitutions?: RecipeSubstitution[];
+  crispiness_level?: string | null;
+  air_fryer_time_minutes?: number | null;
+  air_fryer_temperature_f?: number | null;
+  variant_group?: string | null;
+  variant_type?: string | null;
+  dorm_friendly?: boolean | null;
+  meal_prep_friendly?: boolean | null;
+  why_cheap?: string | null;
+  healthier_tips?: string[];
+  batch_prep_tips?: string[];
+  optional_add_ins?: string[];
   difficulty: 'easy' | 'medium' | 'hard' | null;
   dish_types: string[];
   dietary_tags: string[];
@@ -58,6 +74,8 @@ export type CatalogItem = {
   quantity: number | null;
   unit: string;
   position: number;
+  optional: boolean;
+  note: string | null;
 };
 export type CatalogStep = {
   id: string;
@@ -72,13 +90,27 @@ export type CatalogStepIngredient = {
   recipe_id: string;
   position: number;
 };
+export type CatalogImage = {
+  id: string;
+  recipe_id: string;
+  storage_path: string | null;
+  source_url: string | null;
+  source_page_url: string | null;
+  source_name: string | null;
+  license: string | null;
+  attribution_required: boolean;
+  attribution_text: string | null;
+  verified_match: boolean;
+  alt_text: string | null;
+  position: number;
+};
 export type CatalogDetail = {
   recipe: CatalogRecipe;
   components: CatalogComponent[];
   items: CatalogItem[];
   steps: CatalogStep[];
   stepIngredients: CatalogStepIngredient[];
-  images: { storage_path: string; position: number }[];
+  images: CatalogImage[];
   stepImages: { step_id: string; storage_path: string; position: number }[];
   productsById: Map<string, { name: string } & ProductNutritionRow>;
   nutrition: NutritionTotal;
@@ -199,9 +231,10 @@ export function useCatalogRecipes() {
         : { data: [], error: null };
       if (images.error) throw images.error;
       const coverByRecipe = new Map<string, string>();
-      for (const image of images.data ?? [])
-        if (!coverByRecipe.has(image.recipe_id as string))
-          coverByRecipe.set(image.recipe_id as string, image.storage_path as string);
+      for (const image of images.data ?? []) {
+        if (!coverByRecipe.has(image.recipe_id) && image.storage_path)
+          coverByRecipe.set(image.recipe_id, image.storage_path);
+      }
       return recipes.map((recipe) => ({
         ...recipe,
         cover_image_path: getCatalogCoverPath(recipe, coverByRecipe.get(recipe.id)),
@@ -241,11 +274,7 @@ export function useCatalogRecipe(slug: string | undefined) {
           .select('*')
           .eq('recipe_id', recipe.id)
           .order('position'),
-        db
-          .from('catalog_recipe_images')
-          .select('storage_path, position')
-          .eq('recipe_id', recipe.id)
-          .order('position'),
+        db.from('catalog_recipe_images').select('*').eq('recipe_id', recipe.id).order('position'),
       ]);
       for (const result of [components, items, steps, stepIngredients, images])
         if (result.error) throw result.error;
@@ -290,14 +319,14 @@ export function useCatalogRecipe(slug: string | undefined) {
           ...(recipe as CatalogRecipe),
           cover_image_path: getCatalogCoverPath(
             recipe as CatalogRecipe,
-            (images.data?.[0] as { storage_path?: string } | undefined)?.storage_path,
+            images.data?.[0]?.storage_path,
           ),
         },
         components: (components.data ?? []) as CatalogComponent[],
         items: catalogItems,
         steps: stepRows,
         stepIngredients: (stepIngredients.data ?? []) as CatalogStepIngredient[],
-        images: (images.data ?? []) as { storage_path: string; position: number }[],
+        images: (images.data ?? []) as CatalogImage[],
         stepImages: stepImages as { step_id: string; storage_path: string; position: number }[],
         productsById,
         nutrition,
@@ -358,7 +387,23 @@ export function useCopyCatalogRecipeMutation() {
           title: detail.recipe.title,
           instructions: detail.recipe.instructions,
           cover_image_path: isReusableTemplateCover ? sourceCoverPath : null,
+          prep_time_minutes: detail.recipe.prep_time_minutes ?? null,
           cook_time_minutes: detail.recipe.cook_time_minutes,
+          storage_instructions: detail.recipe.storage_instructions ?? null,
+          reheating_instructions: detail.recipe.reheating_instructions ?? null,
+          cheap_tips: detail.recipe.cheap_tips ?? [],
+          substitutions: detail.recipe.substitutions ?? [],
+          crispiness_level: detail.recipe.crispiness_level ?? null,
+          air_fryer_time_minutes: detail.recipe.air_fryer_time_minutes ?? null,
+          air_fryer_temperature_f: detail.recipe.air_fryer_temperature_f ?? null,
+          variant_group: detail.recipe.variant_group ?? null,
+          variant_type: detail.recipe.variant_type ?? null,
+          dorm_friendly: detail.recipe.dorm_friendly ?? null,
+          meal_prep_friendly: detail.recipe.meal_prep_friendly ?? null,
+          why_cheap: detail.recipe.why_cheap ?? null,
+          healthier_tips: detail.recipe.healthier_tips ?? [],
+          batch_prep_tips: detail.recipe.batch_prep_tips ?? [],
+          optional_add_ins: detail.recipe.optional_add_ins ?? [],
           difficulty: detail.recipe.difficulty,
           dish_types: detail.recipe.dish_types as never,
           dietary_tags: detail.recipe.dietary_tags as never,
@@ -399,7 +444,23 @@ export function useCopyCatalogRecipeMutation() {
             title: detail.recipe.title,
             instructions: detail.recipe.instructions,
             cover_image_path: coverPath,
+            prep_time_minutes: detail.recipe.prep_time_minutes ?? null,
             cook_time_minutes: detail.recipe.cook_time_minutes,
+            storage_instructions: detail.recipe.storage_instructions ?? null,
+            reheating_instructions: detail.recipe.reheating_instructions ?? null,
+            cheap_tips: detail.recipe.cheap_tips ?? [],
+            substitutions: detail.recipe.substitutions ?? [],
+            crispiness_level: detail.recipe.crispiness_level ?? null,
+            air_fryer_time_minutes: detail.recipe.air_fryer_time_minutes ?? null,
+            air_fryer_temperature_f: detail.recipe.air_fryer_temperature_f ?? null,
+            variant_group: detail.recipe.variant_group ?? null,
+            variant_type: detail.recipe.variant_type ?? null,
+            dorm_friendly: detail.recipe.dorm_friendly ?? null,
+            meal_prep_friendly: detail.recipe.meal_prep_friendly ?? null,
+            why_cheap: detail.recipe.why_cheap ?? null,
+            healthier_tips: detail.recipe.healthier_tips ?? [],
+            batch_prep_tips: detail.recipe.batch_prep_tips ?? [],
+            optional_add_ins: detail.recipe.optional_add_ins ?? [],
             difficulty: detail.recipe.difficulty,
             dish_types: detail.recipe.dish_types as never,
             dietary_tags: detail.recipe.dietary_tags as never,
@@ -459,6 +520,8 @@ export function useCopyCatalogRecipeMutation() {
             grams: item.grams,
             quantity: item.quantity,
             unit: item.unit,
+            optional: item.optional,
+            note: item.note,
           });
           itemIds.set(item.id, created.id);
         }

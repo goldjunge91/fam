@@ -1,7 +1,9 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
+import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { PlusAndAiScreen } from '@/features/premium/plus-and-ai-screen';
+import { buyPackage, packagesForEntitlement } from '@/lib/purchases';
 
 let mockHasPlus = false;
 let mockHasAI = false;
@@ -19,6 +21,10 @@ jest.mock('@/features/premium/premium-provider', () => ({
 
 jest.mock('@/features/premium/paywall', () => ({
   presentCustomerCenter: jest.fn(),
+}));
+
+jest.mock('@/features/premium/household-entitlement-sync', () => ({
+  pollHouseholdUntilEntitlementActive: jest.fn().mockResolvedValue(true),
 }));
 
 jest.mock('@/lib/purchases', () => ({
@@ -114,5 +120,57 @@ describe('PlusAndAiScreen', () => {
 
     expect(screen.getByRole('tab', { name: 'KI', selected: true })).toBeOnTheScreen();
     expect(screen.getByText('Kochen mit KI')).toBeOnTheScreen();
+  });
+
+  it('zeigt nach erfolgreichem Plus-Kauf eine Erfolgsmeldung per Alert', async () => {
+    const alertSpy = jest.spyOn(Alert, 'alert');
+    const mockPkg = {
+      identifier: '$rc_annual',
+      product: { price: 44.99, priceString: '44,99 €', currencyCode: 'EUR' },
+    };
+    (packagesForEntitlement as jest.Mock).mockResolvedValue([mockPkg]);
+    (buyPackage as jest.Mock).mockResolvedValue({
+      kind: 'purchased',
+      customerInfo: {},
+    });
+
+    const user = userEvent.setup();
+    await renderScreen('plus');
+
+    const buyButton = await screen.findByRole('button', {
+      name: 'Jahresabo für 44,99 € starten',
+    });
+    await user.press(buyButton);
+
+    expect(alertSpy).toHaveBeenCalledWith(
+      'Erfolgreich',
+      'Fam Plus ist jetzt für deinen Haushalt aktiv!',
+    );
+  });
+
+  it('zeigt nach erfolgreichem KI-Kauf eine Erfolgsmeldung per Alert', async () => {
+    const alertSpy = jest.spyOn(Alert, 'alert');
+    const mockPkg = {
+      identifier: '$rc_annual',
+      product: { price: 74.99, priceString: '74,99 €', currencyCode: 'EUR' },
+    };
+    (packagesForEntitlement as jest.Mock).mockResolvedValue([mockPkg]);
+    (buyPackage as jest.Mock).mockResolvedValue({
+      kind: 'purchased',
+      customerInfo: {},
+    });
+
+    const user = userEvent.setup();
+    await renderScreen('ai');
+
+    const buyButton = await screen.findByRole('button', {
+      name: 'Jahresabo für 74,99 € starten',
+    });
+    await user.press(buyButton);
+
+    expect(alertSpy).toHaveBeenCalledWith(
+      'Erfolgreich',
+      'Fam KI ist jetzt für deinen Haushalt aktiv!',
+    );
   });
 });

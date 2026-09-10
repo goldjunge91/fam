@@ -1,20 +1,35 @@
-import { useState } from 'react';
-import { Modal, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRef, useState } from "react";
+import {
+  Modal,
+  Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  View,
+} from "react-native";
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 
-import { GradientBackground } from '@/components/layout/gradient-background';
-import { type GradientSpec, radius, space, withAlpha } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
-import { BackButton } from '@/components/ui/buttons';
-import { Button, Card, IconButton, Press, Row, Txt } from '@/constants/ui';
-import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
-import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';
-import { sumInventoryQuantities } from '@/lib/inventory-quantity';
-import { formatAmount, formatPackageHint } from '@/lib/package-size';
+import { GradientBackground } from "@/components/layout/gradient-background";
+import {
+  radius,
+  space,
+  withAlpha,
+  type GradientSpec,
+} from "@/components/theme/index";
+import { useTheme } from "@/components/theme/ThemeProvider";
+import { BackButton } from "@/components/ui/buttons";
+import { Button, Card, IconButton, Press, Row, Txt } from "@/constants/ui";
+import { useSheetShadowStyle } from "@/hooks/use-sheet-shadow-style";
+import type { FridgeItemConflict } from "@/lib/db/outbox-conflicts";
+import { sumInventoryQuantities } from "@/lib/inventory-quantity";
+import { formatAmount, formatPackageHint } from "@/lib/package-size";
 
-import { getExpiryInfo } from '../expiry';
-import type { InventoryItemGroup } from '../grouped-items';
-import type { LocalInventoryItem } from '../use-inventory-items';
+import { formatExpiryDate, formatExpiryStatus, getExpiryInfo } from "../expiry";
+import type { InventoryItemGroup } from "../grouped-items";
+import type { LocalInventoryItem } from "../use-inventory-items";
 
 type InventoryItemGroupSheetProps = {
   visible: boolean;
@@ -34,20 +49,6 @@ type InventoryItemGroupSheetProps = {
   resolvingConflictItemId?: string | null;
 };
 
-function formatExpiryDate(value: string | null): string {
-  if (!value) return 'ohne MHD';
-  const date = new Date(`${value}T00:00:00`);
-  if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
-}
-
-function formatExpiryStatus(lot: LocalInventoryItem): string {
-  const expiry = getExpiryInfo(lot.expiry_date, new Date());
-  if (expiry.daysLeft === null) return 'ohne MHD';
-  if (expiry.daysLeft < 0) return expiry.label;
-  return expiry.daysLeft === 0 ? 'heute' : expiry.label;
-}
-
 export function formatStateSubtitle(lots: LocalInventoryItem[]): string {
   const earliest = lots.reduce<LocalInventoryItem | null>((current, lot) => {
     if (!current) return lot;
@@ -59,7 +60,7 @@ export function formatStateSubtitle(lots: LocalInventoryItem[]): string {
       : Number.POSITIVE_INFINITY;
     return lotTime < currentTime ? lot : current;
   }, null);
-  if (!earliest?.expiry_date) return 'unbegrenzt haltbar';
+  if (!earliest?.expiry_date) return "unbegrenzt haltbar";
   return formatExpiryStatus(earliest);
 }
 
@@ -97,7 +98,12 @@ function InventoryConflictPanel({
   const correction = conflict.correction;
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal
+      visible={visible}
+      transparent
+      animationType="slide"
+      onRequestClose={onClose}
+    >
       <View style={StyleSheet.absoluteFill}>
         <Pressable
           className="fridge-actions-backdrop"
@@ -118,7 +124,8 @@ function InventoryConflictPanel({
               backgroundColor: colors.backgroundSoft,
               padding: space.md,
               gap: space.xs,
-            }}>
+            }}
+          >
             {correction ? (
               <>
                 <Row justify="space-between">
@@ -139,7 +146,11 @@ function InventoryConflictPanel({
                 </Row>
               </>
             ) : null}
-            <Txt variant="caption" tone="secondary" style={{ marginTop: space.xs }}>
+            <Txt
+              variant="caption"
+              tone="secondary"
+              style={{ marginTop: space.xs }}
+            >
               {conflict.lastError}
             </Txt>
           </View>
@@ -163,8 +174,8 @@ function InventoryConflictPanel({
             />
           ) : (
             <Txt variant="caption" tone="secondary">
-              Diese Kette aus Mengenänderungen lässt sich nicht eindeutig neu bestätigen. Bitte
-              verwerfen und die Menge danach neu setzen.
+              Diese Kette aus Mengenänderungen lässt sich nicht eindeutig neu
+              bestätigen. Bitte verwerfen und die Menge danach neu setzen.
             </Txt>
           )}
         </View>
@@ -190,21 +201,29 @@ export function InventoryItemGroupSheet({
 }: InventoryItemGroupSheetProps) {
   const sheetStyle = useSheetShadowStyle();
   const { colors } = useTheme();
-  const [activeConflictLotId, setActiveConflictLotId] = useState<string | null>(null);
+  const [activeConflictLotId, setActiveConflictLotId] = useState<string | null>(
+    null,
+  );
+  const lastGroupRef = useRef<InventoryItemGroup | null>(null);
+  if (group) {
+    lastGroupRef.current = group;
+  }
+  const displayGroup = group ?? lastGroupRef.current;
+  const isVisible = visible && Boolean(group);
 
-  if (!group) return null;
+  if (!displayGroup) return null;
 
-  const sealedLots = group.lots.filter((lot) => !lot.opened_at);
-  const openedLots = group.lots.filter((lot) => !!lot.opened_at);
+  const sealedLots = displayGroup.lots.filter((lot) => !lot.opened_at);
+  const openedLots = displayGroup.lots.filter((lot) => !!lot.opened_at);
   const activeConflict = activeConflictLotId
     ? (conflictsByLotId?.get(activeConflictLotId) ?? null)
     : null;
 
-  if (Platform.OS === 'ios') {
+  if (Platform.OS === "ios") {
     return (
       <IosInventoryItemGroupView
-        visible={visible}
-        group={group}
+        visible={isVisible}
+        group={displayGroup}
         onClose={onClose}
         onSelectLot={onSelectLot}
         onHistory={onHistory}
@@ -221,7 +240,12 @@ export function InventoryItemGroupSheet({
   }
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal
+      visible={isVisible}
+      transparent
+      animationType="slide"
+      onRequestClose={onClose}
+    >
       <View style={StyleSheet.absoluteFill}>
         <Pressable
           className="fridge-actions-backdrop"
@@ -234,31 +258,41 @@ export function InventoryItemGroupSheet({
 
           <View className="fridge-group-header">
             <View className="fridge-group-header-copy">
-              <Txt variant="title">{group.name}</Txt>
+              <Txt variant="title">{displayGroup.name}</Txt>
               <Txt variant="caption" tone="secondary">
-                {formatAmount(group.quantity, group.unit)} gesamt · {group.lots.length} MHD-
-                {group.lots.length === 1 ? 'Eintrag' : 'Einträge'}
+                {formatAmount(displayGroup.quantity, displayGroup.unit)} gesamt
+                · {displayGroup.lots.length} MHD-
+                {displayGroup.lots.length === 1 ? "Eintrag" : "Einträge"}
               </Txt>
             </View>
             <IconButton
               icon="x"
               onPress={onClose}
               accessibilityLabel="Schließen"
-              bg={colors.backgroundSoft}
+              bg={colors.tomato}
               size={45}
               iconSize={24}
-              style={{ borderRadius: radius.lg, shadowOpacity: 0, elevation: 0 }}
+              style={{
+                borderRadius: radius.lg,
+                shadowOpacity: 0,
+                elevation: 0,
+              }}
             />
           </View>
 
           <View className="inventory-state-summary">
             {sealedLots.length > 0 ? (
               <View className="inventory-state-card inventory-state-card-sealed">
-                <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
+                <Txt
+                  variant="caption"
+                  tone="secondary"
+                  weight="700"
+                  className="uppercase"
+                >
                   Versiegelt
                 </Txt>
                 <Txt variant="body" weight="700">
-                  {formatAmount(sumQuantity(sealedLots), group.unit)}
+                  {formatAmount(sumQuantity(sealedLots), displayGroup.unit)}
                 </Txt>
                 <Txt variant="caption" tone="secondary">
                   {formatStateSubtitle(sealedLots)}
@@ -267,11 +301,16 @@ export function InventoryItemGroupSheet({
             ) : null}
             {openedLots.length > 0 ? (
               <View className="inventory-state-card inventory-state-card-open">
-                <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
+                <Txt
+                  variant="caption"
+                  tone="secondary"
+                  weight="700"
+                  className="uppercase"
+                >
                   Geöffnet
                 </Txt>
                 <Txt variant="body" weight="700">
-                  {formatAmount(sumQuantity(openedLots), group.unit)}
+                  {formatAmount(sumQuantity(openedLots), displayGroup.unit)}
                 </Txt>
                 <Txt variant="caption" tone="secondary">
                   {formatStateSubtitle(openedLots)}
@@ -280,7 +319,12 @@ export function InventoryItemGroupSheet({
             ) : null}
           </View>
 
-          <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
+          <Txt
+            variant="caption"
+            tone="secondary"
+            weight="700"
+            className="uppercase"
+          >
             MHD-Einträge
           </Txt>
 
@@ -289,14 +333,15 @@ export function InventoryItemGroupSheet({
             variant="secondary"
             size="sm"
             onPress={onHistory}
-            accessibilityLabel={`${group.name} Verlauf öffnen`}
-            style={{ alignSelf: 'flex-start' }}
+            accessibilityLabel={`${displayGroup.name} Verlauf öffnen`}
+            style={{ alignSelf: "flex-start" }}
           />
 
           <ScrollView
             showsVerticalScrollIndicator={false}
-            contentContainerClassName="fridge-group-lots-content">
-            {group.lots.map((lot) => {
+            contentContainerClassName="fridge-group-lots-content"
+          >
+            {displayGroup.lots.map((lot) => {
               // Konflikt-Los: eigene Zeile statt der normalen MHD-Zeile
               // darunter, die fuer diesen Fall unveraendert (auskommentiert
               // nichts) bestehen bleibt.
@@ -307,8 +352,9 @@ export function InventoryItemGroupSheet({
                     key={lot.id}
                     onPress={() => setActiveConflictLotId(lot.id)}
                     accessibilityRole="button"
-                    accessibilityLabel={`${group.name}, Konflikt: ${conflict.lastError}`}
-                    className="fridge-group-lot">
+                    accessibilityLabel={`${displayGroup.name}, Konflikt: ${conflict.lastError}`}
+                    className="fridge-group-lot"
+                  >
                     <View
                       className="fridge-group-lot-status"
                       style={{ backgroundColor: colors.danger }}
@@ -317,7 +363,12 @@ export function InventoryItemGroupSheet({
                       <Txt variant="body" weight="700">
                         MHD {formatExpiryDate(lot.expiry_date)}
                       </Txt>
-                      <Txt variant="caption" tone="danger" weight="700" numberOfLines={1}>
+                      <Txt
+                        variant="caption"
+                        tone="danger"
+                        weight="700"
+                        numberOfLines={1}
+                      >
                         Konflikt: nicht übernommen
                       </Txt>
                     </View>
@@ -325,7 +376,11 @@ export function InventoryItemGroupSheet({
                       variant="body"
                       weight="700"
                       tone="danger"
-                      style={{ fontVariant: ['tabular-nums'], textDecorationLine: 'line-through' }}>
+                      style={{
+                        fontVariant: ["tabular-nums"],
+                        textDecorationLine: "line-through",
+                      }}
+                    >
                       {formatAmount(lot.quantity, lot.unit)}
                     </Txt>
                     <Txt variant="body" tone="secondary">
@@ -335,15 +390,18 @@ export function InventoryItemGroupSheet({
                 );
               }
 
-              const packageHint = formatPackageHint(lot.package_size, lot.package_size_unit);
-              const location = lot.location_name ?? 'Kein Lagerort';
+              const packageHint = formatPackageHint(
+                lot.package_size,
+                lot.package_size_unit,
+              );
+              const location = lot.location_name ?? "Kein Lagerort";
               const amount = formatAmount(lot.quantity, lot.unit);
               const expiryDate = formatExpiryDate(lot.expiry_date);
               const expiry = getExpiryInfo(lot.expiry_date, new Date());
               const statusColor =
-                expiry.themeColor === 'danger'
+                expiry.themeColor === "danger"
                   ? colors.tomato
-                  : lot.opened_at || expiry.themeColor === 'warning'
+                  : lot.opened_at || expiry.themeColor === "warning"
                     ? colors.carrot
                     : colors.success;
               return (
@@ -351,8 +409,9 @@ export function InventoryItemGroupSheet({
                   key={lot.id}
                   onPress={() => onSelectLot(lot)}
                   accessibilityRole="button"
-                  accessibilityLabel={`${group.name}, ${amount}, MHD ${expiryDate}, ${location}`}
-                  className="fridge-group-lot">
+                  accessibilityLabel={`${displayGroup.name}, ${amount}, MHD ${expiryDate}, ${location}`}
+                  className="fridge-group-lot"
+                >
                   <View
                     className="fridge-group-lot-status"
                     style={{
@@ -364,12 +423,16 @@ export function InventoryItemGroupSheet({
                       MHD {expiryDate}
                     </Txt>
                     <Txt variant="caption" tone="secondary" numberOfLines={1}>
-                      {lot.opened_at ? 'Geöffnet' : 'Versiegelt'} · {formatExpiryStatus(lot)} ·{' '}
-                      {location}
-                      {packageHint ? ` · ${packageHint}` : ''}
+                      {lot.opened_at ? "Geöffnet" : "Versiegelt"} ·{" "}
+                      {formatExpiryStatus(lot)} · {location}
+                      {packageHint ? ` · ${packageHint}` : ""}
                     </Txt>
                   </View>
-                  <Txt variant="body" weight="700" style={{ fontVariant: ['tabular-nums'] }}>
+                  <Txt
+                    variant="body"
+                    weight="700"
+                    style={{ fontVariant: ["tabular-nums"] }}
+                  >
                     {amount}
                   </Txt>
                   <Txt variant="body" tone="secondary">
@@ -383,8 +446,8 @@ export function InventoryItemGroupSheet({
       </View>
       <InventoryConflictPanel
         visible={activeConflict !== null}
-        itemName={group.name}
-        unit={group.unit}
+        itemName={displayGroup.name}
+        unit={displayGroup.unit}
         conflict={activeConflict}
         onClose={() => setActiveConflictLotId(null)}
         onDiscard={(conflict) => {
@@ -417,8 +480,11 @@ function IosInventoryItemGroupView({
   resolvingConflictItemId,
 }: InventoryItemGroupSheetProps) {
   const { colors } = useTheme();
+  const insets = useSafeAreaInsets();
   const styles = useThemedGroupStyles();
-  const [activeConflictLotId, setActiveConflictLotId] = useState<string | null>(null);
+  const [activeConflictLotId, setActiveConflictLotId] = useState<string | null>(
+    null,
+  );
   const sealedLots = group?.lots.filter((lot) => !lot.opened_at) ?? [];
   const openedLots = group?.lots.filter((lot) => !!lot.opened_at) ?? [];
   const activeConflict = activeConflictLotId
@@ -427,18 +493,29 @@ function IosInventoryItemGroupView({
 
   if (!group) return null;
 
+  const topInset = insets.top > 0 ? insets.top : space.xl;
+
   return (
     <Modal
       visible={visible}
-      animationType="fade"
+      animationType="slide"
       presentationStyle="fullScreen"
-      onRequestClose={onClose}>
+      onRequestClose={onClose}
+    >
       <View style={styles.root}>
-        {backgroundGradient ? <GradientBackground {...backgroundGradient} /> : null}
-        <SafeAreaView
-          accessibilityViewIsModal
-          style={styles.safeArea}
-          edges={['top', 'bottom', 'left', 'right']}>
+        {backgroundGradient ? (
+          <GradientBackground {...backgroundGradient} />
+        ) : null}
+        <View
+          style={[
+            styles.safeArea,
+            {
+              paddingTop: topInset,
+              paddingLeft: insets.left,
+              paddingRight: insets.right,
+            },
+          ]}
+        >
           <View style={styles.header}>
             <View style={styles.headerSide}>
               <BackButton label="Vorrat" variant="header" onPress={onClose} />
@@ -447,38 +524,65 @@ function IosInventoryItemGroupView({
               {group.name}
             </Txt>
             <View style={[styles.headerSide, styles.headerRight]}>
+              {/* Schließen-Button im Sheet beim ersten Klick auf ein Lebensmittel. */}
               <IconButton
                 icon="x"
                 onPress={onClose}
                 accessibilityLabel="MHD-Details schließen"
-                bg={colors.backgroundSoft}
-                size={45}
-                iconSize={24}
-                style={{ borderRadius: radius.lg, shadowOpacity: 0, elevation: 0 }}
+                bg={colors.tomato}
+                size={40}
+                iconSize={22}
+                style={{
+                  borderRadius: radius.lg,
+                  shadowOpacity: 0,
+                  elevation: 0,
+                }}
               />
             </View>
           </View>
 
           <ScrollView
             style={styles.scroll}
-            contentContainerStyle={styles.content}
-            showsVerticalScrollIndicator={false}>
+            contentContainerStyle={[
+              styles.content,
+              { paddingBottom: Math.max(insets.bottom, space.xl) },
+            ]}
+            showsVerticalScrollIndicator={false}
+          >
             <View style={styles.detailLead}>
-              <Txt variant="title">{formatAmount(group.quantity, group.unit)} gesamt</Txt>
-              <Txt variant="label" tone="secondary" style={styles.detailSubtitle}>
-                {group.lots.length} MHD-{group.lots.length === 1 ? 'Eintrag' : 'Einträge'} ·{' '}
-                {group.lots[0]?.location_name ?? 'Kein Lagerort'}
+              <Txt variant="title">
+                {formatAmount(group.quantity, group.unit)} gesamt
+              </Txt>
+              <Txt
+                variant="label"
+                tone="secondary"
+                style={styles.detailSubtitle}
+              >
+                {group.lots.length} MHD-
+                {group.lots.length === 1 ? "Eintrag" : "Einträge"} ·{" "}
+                {group.lots[0]?.location_name ?? "Kein Lagerort"}
               </Txt>
             </View>
 
-            <View style={styles.stateSummary} accessibilityLabel="Zustandsübersicht">
+            <View
+              style={styles.stateSummary}
+              accessibilityLabel="Zustandsübersicht"
+            >
               <IosStateCard
                 label="Versiegelt"
                 amount={sumQuantity(sealedLots)}
                 unit={group.unit}
-                hint={sealedLots.length ? formatStateSubtitle(sealedLots) : 'Keine Einträge'}
+                hint={
+                  sealedLots.length
+                    ? formatStateSubtitle(sealedLots)
+                    : "Keine Einträge"
+                }
                 disabled={!sealedLots.length}
-                onPress={sealedLots.length ? () => onSelectLot(sealedLots[0]) : undefined}
+                onPress={
+                  sealedLots.length
+                    ? () => onSelectLot(sealedLots[0])
+                    : undefined
+                }
                 styles={styles}
                 colors={colors}
               />
@@ -486,9 +590,17 @@ function IosInventoryItemGroupView({
                 label="Geöffnet"
                 amount={sumQuantity(openedLots)}
                 unit={group.unit}
-                hint={openedLots.length ? formatStateSubtitle(openedLots) : 'Keine Einträge'}
+                hint={
+                  openedLots.length
+                    ? formatStateSubtitle(openedLots)
+                    : "Keine Einträge"
+                }
                 disabled={!openedLots.length}
-                onPress={openedLots.length ? () => onSelectLot(openedLots[0]) : undefined}
+                onPress={
+                  openedLots.length
+                    ? () => onSelectLot(openedLots[0])
+                    : undefined
+                }
                 actionLabel={
                   openedLots.length
                     ? `${formatAmount(1, openedLots[0].unit)} verbrauchen ›`
@@ -510,7 +622,12 @@ function IosInventoryItemGroupView({
               />
             </View>
 
-            <Txt variant="label" tone="secondary" weight="700" style={styles.sectionLabel}>
+            <Txt
+              variant="label"
+              tone="secondary"
+              weight="700"
+              style={styles.sectionLabel}
+            >
               MHD-Einträge
             </Txt>
 
@@ -523,7 +640,11 @@ function IosInventoryItemGroupView({
                     group={group}
                     lot={lot}
                     conflict={conflict ?? null}
-                    onPress={() => (conflict ? setActiveConflictLotId(lot.id) : onSelectLot(lot))}
+                    onPress={() =>
+                      conflict
+                        ? setActiveConflictLotId(lot.id)
+                        : onSelectLot(lot)
+                    }
                     styles={styles}
                     colors={colors}
                   />
@@ -540,11 +661,11 @@ function IosInventoryItemGroupView({
               style={styles.historyButton}
             />
             <Txt variant="caption" tone="secondary" style={styles.helperText}>
-              Tippe auf eine Zustandskarte oder ein MHD-Los, um genau diese Gläser zu bearbeiten
-              oder zu verbrauchen.
+              Tippe auf eine Zustandskarte oder ein MHD-Los, um genau diese
+              Gläser zu bearbeiten oder zu verbrauchen.
             </Txt>
           </ScrollView>
-        </SafeAreaView>
+        </View>
       </View>
       <InventoryConflictPanel
         visible={activeConflict !== null}
@@ -557,7 +678,7 @@ function IosInventoryItemGroupView({
           setActiveConflictLotId(null);
         }}
         onReconfirm={(conflict) => {
-          onReconfirmConflict?.(conflict);
+        onReconfirmConflict?.(conflict);
           setActiveConflictLotId(null);
         }}
         resolving={resolvingConflictItemId === activeConflict?.itemId}
@@ -582,7 +703,7 @@ function IosStateCard({
   actionLoading = false,
   styles,
   colors,
-  tone = 'sealed',
+  tone = "sealed",
 }: {
   label: string;
   amount: number;
@@ -594,8 +715,8 @@ function IosStateCard({
   onAction?: () => void;
   actionLoading?: boolean;
   styles: ReturnType<typeof useThemedGroupStyles>;
-  colors: ReturnType<typeof useTheme>['colors'];
-  tone?: 'sealed' | 'open';
+  colors: ReturnType<typeof useTheme>["colors"];
+  tone?: "sealed" | "open";
 }) {
   return (
     <Card
@@ -603,18 +724,20 @@ function IosStateCard({
       elevation="sm"
       style={[
         styles.stateCard,
-        tone === 'open' && {
+        tone === "open" && {
           backgroundColor: withAlpha(colors.warning, 0.12),
           borderColor: withAlpha(colors.warning, 0.4),
         },
-      ]}>
+      ]}
+    >
       <Press
         onPress={onPress}
         disabled={disabled}
         accessibilityRole="button"
         accessibilityLabel={`${label} ${formatAmount(amount, unit)} anzeigen`}
         accessibilityState={{ disabled }}
-        style={[styles.stateCardMain, disabled && styles.disabledStateCard]}>
+        style={[styles.stateCardMain, disabled && styles.disabledStateCard]}
+      >
         <Txt variant="label" tone="secondary" weight="700">
           {label}
         </Txt>
@@ -630,12 +753,13 @@ function IosStateCard({
           onPress={onAction}
           disabled={actionLoading}
           accessibilityRole="button"
-          accessibilityLabel={actionLabel.replace(' ›', '')}
+          accessibilityLabel={actionLabel.replace(" ›", "")}
           accessibilityState={{ busy: actionLoading, disabled: actionLoading }}
           style={[styles.stateCardAction, { borderTopColor: colors.border }]}
-          haptic="medium">
+          haptic="medium"
+        >
           <Txt variant="label" color={colors.accent} weight="800">
-            {actionLoading ? 'Wird aktualisiert …' : actionLabel}
+            {actionLoading ? "Wird aktualisiert …" : actionLabel}
           </Txt>
         </Press>
       ) : null}
@@ -656,7 +780,7 @@ function IosLotRow({
   conflict?: FridgeItemConflict | null;
   onPress: () => void;
   styles: ReturnType<typeof useThemedGroupStyles>;
-  colors: ReturnType<typeof useTheme>['colors'];
+  colors: ReturnType<typeof useTheme>["colors"];
 }) {
   // Konflikt-Los: eigene Zeile statt der normalen Rueckgabe darunter, die
   // fuer diesen Fall unveraendert bestehen bleibt.
@@ -666,18 +790,25 @@ function IosLotRow({
         onPress={onPress}
         accessibilityRole="button"
         accessibilityLabel={`${group.name}, Konflikt: ${conflict.lastError}`}
-        style={styles.lotRow}>
+        style={styles.lotRow}
+      >
         <View style={[styles.lotStatus, { backgroundColor: colors.danger }]} />
         <View style={styles.lotCopy}>
           <View style={styles.lotTitleLine}>
-            <Txt variant="body" weight="800" numberOfLines={1} style={styles.lotTitle}>
+            <Txt
+              variant="body"
+              weight="800"
+              numberOfLines={1}
+              style={styles.lotTitle}
+            >
               MHD {formatExpiryDate(lot.expiry_date)}
             </Txt>
             <Txt
               variant="body"
               weight="800"
               tone="danger"
-              style={[styles.lotAmount, { textDecorationLine: 'line-through' }]}>
+              style={[styles.lotAmount, { textDecorationLine: "line-through" }]}
+            >
               {formatAmount(lot.quantity, lot.unit)}
             </Txt>
           </View>
@@ -689,15 +820,18 @@ function IosLotRow({
     );
   }
 
-  const packageHint = formatPackageHint(lot.package_size, lot.package_size_unit);
-  const location = lot.location_name ?? 'Kein Lagerort';
+  const packageHint = formatPackageHint(
+    lot.package_size,
+    lot.package_size_unit,
+  );
+  const location = lot.location_name ?? "Kein Lagerort";
   const amount = formatAmount(lot.quantity, lot.unit);
   const expiryDate = formatExpiryDate(lot.expiry_date);
   const expiry = getExpiryInfo(lot.expiry_date, new Date());
   const statusColor =
-    expiry.themeColor === 'danger'
+    expiry.themeColor === "danger"
       ? colors.danger
-      : lot.opened_at || expiry.themeColor === 'warning'
+      : lot.opened_at || expiry.themeColor === "warning"
         ? colors.warning
         : colors.success;
 
@@ -706,11 +840,17 @@ function IosLotRow({
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={`${group.name}, ${amount}, MHD ${expiryDate}, ${location}`}
-      style={styles.lotRow}>
+      style={styles.lotRow}
+    >
       <View style={[styles.lotStatus, { backgroundColor: statusColor }]} />
       <View style={styles.lotCopy}>
         <View style={styles.lotTitleLine}>
-          <Txt variant="body" weight="800" numberOfLines={1} style={styles.lotTitle}>
+          <Txt
+            variant="body"
+            weight="800"
+            numberOfLines={1}
+            style={styles.lotTitle}
+          >
             MHD {expiryDate}
           </Txt>
           <Txt variant="body" weight="800" style={styles.lotAmount}>
@@ -718,8 +858,9 @@ function IosLotRow({
           </Txt>
         </View>
         <Txt variant="caption" tone="secondary" numberOfLines={1}>
-          {lot.opened_at ? 'Geöffnet' : 'Versiegelt'} · {formatExpiryStatus(lot)} · {location}
-          {packageHint ? ` · ${packageHint}` : ''}
+          {lot.opened_at ? "Geöffnet" : "Versiegelt"} ·{" "}
+          {formatExpiryStatus(lot)} · {location}
+          {packageHint ? ` · ${packageHint}` : ""}
         </Txt>
       </View>
       <Txt variant="heading" tone="secondary" style={styles.lotChevron}>
@@ -738,12 +879,12 @@ function useThemedGroupStyles() {
       minHeight: 64,
       paddingHorizontal: space.lg,
       paddingVertical: space.sm,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
     },
-    headerSide: { flex: 1, minWidth: 42, alignItems: 'flex-start' },
-    headerRight: { alignItems: 'flex-end' },
+    headerSide: { flex: 1, minWidth: 42, alignItems: "flex-start" },
+    headerRight: { alignItems: "flex-end" },
     scroll: { flex: 1 },
     content: { paddingHorizontal: space.lg, paddingBottom: space.xxxl },
     detailLead: {
@@ -753,43 +894,65 @@ function useThemedGroupStyles() {
       borderBottomColor: colors.border,
     },
     detailSubtitle: { marginTop: space.xs },
-    stateSummary: { flexDirection: 'row', gap: space.md, marginBottom: space.xxl },
+    stateSummary: {
+      flexDirection: "row",
+      gap: space.md,
+      marginBottom: space.xxl,
+    },
     stateCard: {
       flex: 1,
       minHeight: 116,
-      overflow: 'hidden',
+      overflow: "hidden",
       borderRadius: radius.lg,
     },
     stateCardMain: {
       flex: 1,
       minHeight: 116,
       padding: space.md,
-      justifyContent: 'center',
+      justifyContent: "center",
     },
     disabledStateCard: { opacity: 0.58 },
     stateValue: { marginTop: space.xs, marginBottom: 2 },
     stateCardAction: {
       minHeight: 44,
       paddingHorizontal: space.md,
-      justifyContent: 'center',
+      justifyContent: "center",
       borderTopWidth: StyleSheet.hairlineWidth,
       backgroundColor: withAlpha(colors.accent, 0.08),
     },
-    sectionLabel: { marginBottom: space.sm, textTransform: 'uppercase', letterSpacing: 1 },
+    sectionLabel: {
+      marginBottom: space.sm,
+      textTransform: "uppercase",
+      letterSpacing: 1,
+    },
     lotRow: {
       minHeight: 82,
-      flexDirection: 'row',
-      alignItems: 'stretch',
+      flexDirection: "row",
+      alignItems: "stretch",
       borderBottomWidth: StyleSheet.hairlineWidth,
       borderBottomColor: colors.border,
     },
-    lotStatus: { width: 4, marginVertical: space.md, marginRight: space.md, borderRadius: 3 },
-    lotCopy: { flex: 1, minWidth: 0, justifyContent: 'center', paddingVertical: space.md },
-    lotTitleLine: { flexDirection: 'row', alignItems: 'baseline', gap: space.sm },
+    lotStatus: {
+      width: 4,
+      marginVertical: space.md,
+      marginRight: space.md,
+      borderRadius: 3,
+    },
+    lotCopy: {
+      flex: 1,
+      minWidth: 0,
+      justifyContent: "center",
+      paddingVertical: space.md,
+    },
+    lotTitleLine: {
+      flexDirection: "row",
+      alignItems: "baseline",
+      gap: space.sm,
+    },
     lotTitle: { flex: 1 },
-    lotAmount: { fontVariant: ['tabular-nums'] },
-    lotChevron: { alignSelf: 'center', marginLeft: space.sm },
-    historyButton: { alignSelf: 'flex-start', marginTop: space.lg },
+    lotAmount: { fontVariant: ["tabular-nums"] },
+    lotChevron: { alignSelf: "center", marginLeft: space.sm },
+    historyButton: { alignSelf: "flex-start", marginTop: space.lg },
     helperText: { marginTop: space.sm },
   });
 }

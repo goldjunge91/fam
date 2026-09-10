@@ -68,7 +68,7 @@ describe('repairFridgeItemForeignKeyViolation', () => {
     expect(result).toEqual(payload);
   });
 
-  it('setzt location_id auf null, wenn der Lagerort lokal nicht (mehr) existiert', async () => {
+  it('gibt null zurueck (keine Reparatur), wenn der Lagerort lokal nicht (mehr) existiert', async () => {
     const { client } = fakeSupabase({ error: null });
     const payload = { id: 'item-1', location_id: 'loc-unbekannt', name: 'Milch' };
 
@@ -78,6 +78,6 @@ describe('repairFridgeItemForeignKeyViolation', () => {
       fkError,
     );
 
-    expect(result).toEqual({ ...payload, location_id: null });
+    expect(result).toBeNull();
   });
 });

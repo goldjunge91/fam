@@ -160,30 +160,82 @@ describe('computeMissingIngredients', () => {
     const result = computeMissingIngredients(needs, stock);
 
     expect(result).toEqual([
-      { productId: 'tomaten', neededGrams: 500, availableGrams: 200, missingGrams: 300 },
-      { productId: 'hack', neededGrams: 300, availableGrams: 0, missingGrams: 300 },
+      {
+        productId: 'tomaten',
+        neededGrams: 500,
+        availableGrams: 200,
+        missingGrams: 300,
+        stockGrams: 200,
+        shoppingListGrams: 0,
+      },
+      {
+        productId: 'hack',
+        neededGrams: 300,
+        availableGrams: 0,
+        missingGrams: 300,
+        stockGrams: 0,
+        shoppingListGrams: 0,
+      },
     ]);
   });
 
-  it('nimmt Produkte, die vollstaendig vorraetig sind, mit missingGrams 0 auf statt sie wegzulassen', () => {
+  it('verrechnet Vorrat und bereits ungecheckt auf der Einkaufsliste stehende Menge (fam-lr0)', () => {
+    // Ticket fam-lr0 Szenario: Bolognese zweimal im Wochenplan (800g Tomatenbedarf).
+    // Vorrat hat 100g, 300g wurden bereits auf die Einkaufsliste übertragen.
+    // Verfügbar = 100g + 300g = 400g -> Fehlmenge darf nur 400g betragen!
+    const needs = new Map([['tomaten', 800]]);
+    const stock = new Map([['tomaten', 100]]);
+    const shoppingList = new Map([['tomaten', 300]]);
+
+    const result = computeMissingIngredients(needs, stock, shoppingList);
+
+    expect(result).toEqual([
+      {
+        productId: 'tomaten',
+        neededGrams: 800,
+        availableGrams: 400,
+        missingGrams: 400,
+        stockGrams: 100,
+        shoppingListGrams: 300,
+      },
+    ]);
+  });
+
+  it('nimmt Produkte, die vollstaendig vorraetig oder auf der Liste sind, mit missingGrams 0 auf', () => {
     // Nachschub-Fall (#131-Nachschaerfung): der Nutzer soll einen bereits
     // gedeckten Artikel weiterhin in der Vorschlagsliste sehen und bei
     // Bedarf trotzdem nachkaufen koennen, statt dass er komplett
     // verschwindet.
     const needs = new Map([['tomaten', 200]]);
-    const stock = new Map([['tomaten', 200]]);
+    const stock = new Map([['tomaten', 50]]);
+    const shoppingList = new Map([['tomaten', 150]]);
 
-    expect(computeMissingIngredients(needs, stock)).toEqual([
-      { productId: 'tomaten', neededGrams: 200, availableGrams: 200, missingGrams: 0 },
+    expect(computeMissingIngredients(needs, stock, shoppingList)).toEqual([
+      {
+        productId: 'tomaten',
+        neededGrams: 200,
+        availableGrams: 200,
+        missingGrams: 0,
+        stockGrams: 50,
+        shoppingListGrams: 150,
+      },
     ]);
   });
 
-  it('laesst missingGrams negativ, wenn der Vorrat den Bedarf uebersteigt', () => {
+  it('laesst missingGrams negativ, wenn Vorrat und Einkaufsliste den Bedarf uebersteigen', () => {
     const needs = new Map([['tomaten', 200]]);
-    const stock = new Map([['tomaten', 500]]);
+    const stock = new Map([['tomaten', 300]]);
+    const shoppingList = new Map([['tomaten', 200]]);
 
-    expect(computeMissingIngredients(needs, stock)).toEqual([
-      { productId: 'tomaten', neededGrams: 200, availableGrams: 500, missingGrams: -300 },
+    expect(computeMissingIngredients(needs, stock, shoppingList)).toEqual([
+      {
+        productId: 'tomaten',
+        neededGrams: 200,
+        availableGrams: 500,
+        missingGrams: -300,
+        stockGrams: 300,
+        shoppingListGrams: 200,
+      },
     ]);
   });
 

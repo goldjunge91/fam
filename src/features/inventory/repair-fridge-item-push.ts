@@ -27,5 +27,7 @@ export const repairFridgeItemForeignKeyViolation: ForeignKeyViolationResolver = 
     return payload;
   }
 
-  return { ...payload, location_id: null };
+  // FK-Fehler veraendern keine Absicht (CONSTRAINTS.md I4): existiert der
+  // Lagerort lokal nicht, darf der Payload nicht still veraendert werden.
+  return null;
 };

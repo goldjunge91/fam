@@ -243,6 +243,15 @@ describe('parseInventorySplitPayload', () => {
     ).toThrow('zwei unterschiedliche Bestands-IDs');
   });
 
+  it('akzeptiert numerische Boolean-Werte (1 und 0) aus SQLite fuer expiry_user_set', () => {
+    expect(parseInventorySplitPayload({ ...payload, expiry_user_set: 1 }).expiry_user_set).toBe(
+      true,
+    );
+    expect(parseInventorySplitPayload({ ...payload, expiry_user_set: 0 }).expiry_user_set).toBe(
+      false,
+    );
+  });
+
   it('schreibt Rest-Los, geoeffnetes Los und Ledger lokal in einer Outbox-Operation', async () => {
     const runAsync = jest.fn().mockResolvedValue({ changes: 1, lastInsertRowId: 1 });
     const mutation = createInventorySplitMutation({

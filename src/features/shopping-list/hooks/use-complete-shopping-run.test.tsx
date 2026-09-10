@@ -111,6 +111,7 @@ describe('useCompleteShoppingRun', () => {
         entity: 'fridge_items',
         op: 'insert',
         payload: expect.objectContaining({
+          quantity: 2000,
           opened_at: null,
           vacuum_sealed: false,
           expiry_user_set: false,
@@ -121,7 +122,7 @@ describe('useCompleteShoppingRun', () => {
         op: 'insert',
         payload: expect.objectContaining({
           type: 'in',
-          quantity: 2,
+          quantity: 2000,
           fridge_item_id: expect.any(String),
         }),
       }),

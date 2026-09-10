@@ -5,9 +5,14 @@ import { createRoot } from 'test-renderer';
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
+import {
+  ITEM_BASE,
+  insertItem,
+  insertTransaction,
+  outboxRows,
+  rowsForItem,
+} from '../../../test/inventory-test-fixtures';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
-
-import type { LocalInventoryItem } from './use-inventory-items';
 import type { LocalInventoryTransaction } from './use-inventory-transactions';
 
 jest.doMock('@/features/auth/session-provider', () => ({
@@ -37,7 +42,6 @@ const {
   useMoveInventoryItemMutation,
   useOpenInventoryItemMutation,
   useUndoInventoryTransactionMutation,
-  useUndoOpenTransactionMutation,
   useUpdateFridgeItemMutation,
   useUpdateInventoryItemQuantityMutation,
   useWasteInventoryItemMutation,
@@ -49,26 +53,6 @@ const mockedGetDatabase = jest.mocked(getDatabase);
 const mockedUseSession = jest.mocked(useSession);
 
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
-
-const ITEM_BASE: LocalInventoryItem = {
-  id: 'item-1',
-  household_id: 'hh-1',
-  location_id: 'loc-old',
-  product_id: 'product-1',
-  name: 'Milch',
-  quantity: 3,
-  unit: 'piece',
-  package_size: null,
-  package_size_unit: null,
-  expiry_date: '2026-12-31',
-  opened_at: null,
-  vacuum_sealed: false,
-  expiry_user_set: false,
-  added_by: 'actor-1',
-  created_at: '2026-09-07T10:00:00.000Z',
-  location_kind: 'fridge',
-  location_name: 'Kühlschrank',
-};
 
 function createQueryClient(): QueryClient {
   return new QueryClient({
@@ -112,107 +96,6 @@ async function renderMutationHook<T>(hook: () => T) {
       activeRenderers.delete(renderer);
     },
   };
-}
-
-async function insertItem(db: TestDatabase, item: LocalInventoryItem = ITEM_BASE): Promise<void> {
-  await db.runAsync(
-    `insert into fridge_items
-       (id, household_id, location_id, product_id, name, quantity, unit,
-        package_size, package_size_unit, expiry_date, added_by, created_at,
-        updated_at, deleted_at, _dirty, opened_at, vacuum_sealed, expiry_user_set)
-     values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    [
-      item.id,
-      item.household_id,
-      item.location_id,
-      item.product_id,
-      item.name,
-      item.quantity,
-      item.unit,
-      item.package_size,
-      item.package_size_unit,
-      item.expiry_date,
-      item.added_by,
-      item.created_at,
-      1,
-      null,
-      0,
-      item.opened_at ?? null,
-      item.vacuum_sealed ? 1 : 0,
-      item.expiry_user_set ? 1 : 0,
-    ],
-  );
-}
-
-async function rowsForItem(db: TestDatabase, itemId: string) {
-  return db.getAllAsync<{
-    id: string;
-    type: string;
-    quantity: number;
-    location_id: string | null;
-    operation_id: string | null;
-    reason: string | null;
-    previous_expiry_date: string | null;
-    notes: string | null;
-    reversal_of: string | null;
-  }>(
-    `select id, type, quantity, location_id, operation_id, reason,
-            previous_expiry_date, notes, reversal_of
-       from transactions
-      where fridge_item_id = ?
-      order by rowid`,
-    [itemId],
-  );
-}
-
-async function insertTransaction(
-  db: TestDatabase,
-  transaction: {
-    id: string;
-    household_id?: string;
-    fridge_item_id?: string | null;
-    product_id?: string | null;
-    type: 'in' | 'out' | 'waste' | 'open';
-    quantity: number;
-    location_id?: string | null;
-    reason?: 'expired' | 'spoiled' | 'other' | null;
-    previous_expiry_date?: string | null;
-    notes?: string | null;
-    operation_id?: string | null;
-    reversal_of?: string | null;
-    created_at?: string;
-  },
-): Promise<void> {
-  await db.runAsync(
-    `insert into transactions
-       (id, operation_id, reversal_of, household_id, fridge_item_id, product_id,
-        actor, type, quantity, location_id, reason, previous_expiry_date, notes,
-        undone, created_at, updated_at, _dirty)
-     values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, 0)`,
-    [
-      transaction.id,
-      transaction.operation_id ?? null,
-      transaction.reversal_of ?? null,
-      transaction.household_id ?? 'hh-1',
-      transaction.fridge_item_id ?? 'item-1',
-      transaction.product_id ?? 'product-1',
-      'actor-1',
-      transaction.type,
-      transaction.quantity,
-      transaction.location_id ?? 'loc-old',
-      transaction.reason ?? null,
-      transaction.previous_expiry_date ?? null,
-      transaction.notes ?? null,
-      transaction.created_at ?? new Date().toISOString(),
-      1,
-    ],
-  );
-}
-
-async function outboxRows(db: TestDatabase) {
-  return db.getAllAsync<{ entity: string; entity_id: string; op: string; payload: string }>(
-    'select entity, entity_id, op, payload from outbox order by id',
-  );
 }
 
 describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
@@ -527,7 +410,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
     ]);
   });
 
-  it('open quantity=1 aktualisiert den Bestand in-place und speichert das alte MHD', async () => {
+  it('open quantity=1 aktualisiert den Bestand in-place und erzeugt keine Ledgerzeile', async () => {
     await insertItem(db, { ...ITEM_BASE, quantity: 1000 });
     const { result } = await renderMutationHook(() => useOpenInventoryItemMutation());
 
@@ -549,31 +432,10 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       expiry_date: expect.any(String),
       vacuum_sealed: 0,
     });
-    expect(await rowsForItem(db, 'item-1')).toEqual([
-      expect.objectContaining({
-        type: 'open',
-        quantity: 1000,
-        previous_expiry_date: '2026-12-31',
-      }),
-    ]);
-  });
-
-  // fam-lfa.2 (contract.md Abschnitt 4/5.1): open_inventory erzeugt keine
-  // Ledgerzeile mehr. Der obige Test bleibt bewusst stehen (bisheriges
-  // Verhalten, aktuell rot) statt geloescht zu werden, bis die Undo-/Split-
-  // Provenienz-Nachfolge (fam-lfa.5/.6) das Bild vervollstaendigt.
-  it('open quantity=1 erzeugt keine Ledgerzeile mehr (fam-lfa.2)', async () => {
-    await insertItem(db, { ...ITEM_BASE, quantity: 1000 });
-    const { result } = await renderMutationHook(() => useOpenInventoryItemMutation());
-
-    await act(async () => {
-      await result.current.mutateAsync({ item: { ...ITEM_BASE, quantity: 1 }, quantity: 1 });
-    });
-
     expect(await rowsForItem(db, 'item-1')).toEqual([]);
   });
 
-  it('open quantity>1 splittet, bewahrt die Gesamtmenge und referenziert das neue geöffnete Los', async () => {
+  it('open quantity>1 splittet, bewahrt die Gesamtmenge und erzeugt keine Ledgerzeile', async () => {
     await insertItem(db, { ...ITEM_BASE, quantity: 3000 });
     const { result } = await renderMutationHook(() => useOpenInventoryItemMutation());
 
@@ -594,310 +456,13 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
         order by id`,
       ['hh-1'],
     );
-    const ledger = await db.getAllAsync<{
-      fridge_item_id: string;
-      type: string;
-      quantity: number;
-      notes: string | null;
-    }>('select fridge_item_id, type, quantity, notes from transactions', []);
-
-    // split_open ist integer-nativ (fam-lem.27.8, contract.md Abschnitt 3):
-    // Rest-Los und geoeffnetes Los tragen Integer-Tausendstel.
     expect(items).toHaveLength(2);
     expect(items.map(({ quantity }) => quantity).sort((a, b) => a - b)).toEqual([1000, 2000]);
     expect(items.find(({ opened_at }) => opened_at !== null)).toEqual(
       expect.objectContaining({ quantity: 1000, opened_at: expect.any(String) }),
     );
-    expect(ledger).toEqual([
-      expect.objectContaining({
-        fridge_item_id: expect.not.stringMatching(/^item-1$/),
-        type: 'open',
-        quantity: 1000,
-        notes: '[Split] origin=item-1',
-      }),
-    ]);
-    // Split ist seit der split_open-Konsolidierung (fam-lem.10/fam-n46.1) EINE
-    // atomare Outbox-Operation (Rest-Los, geoeffnetes Los und Ledger gemeinsam),
-    // nicht mehr drei separate Zeilen.
-    expect(await outboxRows(db)).toHaveLength(1);
-  });
-
-  // fam-lfa.2 (contract.md Abschnitt 4/5.1): open_inventory erzeugt auch beim
-  // strukturellen Split keine Ledgerzeile mehr. Der obige Test bleibt bewusst
-  // stehen (bisheriges Verhalten, aktuell rot) statt geloescht zu werden, bis
-  // die Split-Provenienz-Nachfolge (fam-lfa.6) das Bild vervollstaendigt.
-  it('open quantity>1 erzeugt beim Split keine Ledgerzeile mehr (fam-lfa.2)', async () => {
-    await insertItem(db, { ...ITEM_BASE, quantity: 3000 });
-    const { result } = await renderMutationHook(() => useOpenInventoryItemMutation());
-
-    await act(async () => {
-      await result.current.mutateAsync({ item: { ...ITEM_BASE, quantity: 3 }, quantity: 1 });
-    });
-
     expect(await db.getAllAsync('select id from transactions', [])).toEqual([]);
     expect(await outboxRows(db)).toHaveLength(1);
-  });
-
-  it('Undo einer in-place-Öffnung stellt den Vorzustand her und schreibt eine Gegenbuchung', async () => {
-    await insertItem(db, { ...ITEM_BASE, quantity: 1000 });
-    const openHook = await renderMutationHook(() => useOpenInventoryItemMutation());
-    await act(async () => {
-      await openHook.result.current.mutateAsync({
-        item: { ...ITEM_BASE, quantity: 1 },
-        quantity: 1,
-      });
-    });
-    const openedBeforeUndo = await db.getFirstAsync<{ expiry_date: string | null }>(
-      'select expiry_date from fridge_items where id = ?',
-      ['item-1'],
-    );
-    const transaction = await db.getFirstAsync<{
-      id: string;
-      household_id: string;
-      fridge_item_id: string;
-      product_id: string | null;
-      actor: string | null;
-      type: 'open';
-      quantity: number;
-      location_id: string | null;
-      reason: 'expired' | 'spoiled' | 'other' | null;
-      previous_expiry_date: string | null;
-      notes: string | null;
-      undone: boolean;
-      created_at: string;
-    }>("select * from transactions where type = 'open' order by rowid limit 1");
-    if (!transaction) throw new Error('Open-Transaktion fehlt.');
-
-    const undoHook = await renderMutationHook(() => useUndoOpenTransactionMutation());
-    await act(async () => {
-      await undoHook.result.current.mutateAsync({ transaction });
-    });
-
-    const item = await db.getFirstAsync<{ opened_at: string | null; expiry_date: string | null }>(
-      'select opened_at, expiry_date from fridge_items where id = ?',
-      ['item-1'],
-    );
-    expect(item).toEqual({ opened_at: null, expiry_date: '2026-12-31' });
-    expect(
-      await db.getAllAsync<{
-        type: string;
-        notes: string | null;
-        previous_expiry_date: string | null;
-        reversal_of: string | null;
-      }>('select type, notes, previous_expiry_date, reversal_of from transactions order by rowid'),
-    ).toEqual([
-      { type: 'open', notes: null, previous_expiry_date: '2026-12-31', reversal_of: null },
-      {
-        type: 'open',
-        notes: '[Undone] Öffnung rückgängig gemacht',
-        previous_expiry_date: openedBeforeUndo?.expiry_date,
-        reversal_of: expect.any(String),
-      },
-    ]);
-    expect(await outboxRows(db)).toHaveLength(4);
-  });
-
-  it('führt Split-Undo bei einer zwischenzeitlich geänderten Ursprungszeile als Merge-Fallback aus', async () => {
-    await insertItem(db, { ...ITEM_BASE, quantity: 3000 });
-    const openHook = await renderMutationHook(() => useOpenInventoryItemMutation());
-    await act(async () => {
-      await openHook.result.current.mutateAsync({ item: { ...ITEM_BASE }, quantity: 1 });
-    });
-    const transaction = await db.getFirstAsync<{
-      id: string;
-      household_id: string;
-      fridge_item_id: string;
-      product_id: string | null;
-      actor: string | null;
-      type: 'open';
-      quantity: number;
-      location_id: string | null;
-      reason: null;
-      previous_expiry_date: string | null;
-      notes: string | null;
-      undone: boolean;
-      created_at: string;
-    }>("select * from transactions where type = 'open' order by rowid limit 1");
-    if (!transaction) throw new Error('Open-Transaktion fehlt.');
-
-    await db.runAsync('update fridge_items set quantity = ?, updated_at = ? where id = ?', [
-      7000,
-      Date.now() + 1,
-      'item-1',
-    ]);
-
-    const undoHook = await renderMutationHook(() => useUndoOpenTransactionMutation());
-    await act(async () => {
-      await undoHook.result.current.mutateAsync({ transaction });
-    });
-    expect(
-      await db.getFirstAsync<{ opened_at: string | null }>(
-        'select opened_at from fridge_items where id = ?',
-        [transaction.fridge_item_id],
-      ),
-    ).toEqual({ opened_at: expect.any(String) });
-    expect(
-      await db.getFirstAsync<{ reversal_of: string | null; notes: string | null }>(
-        'select reversal_of, notes from transactions where reversal_of = ?',
-        [transaction.id],
-      ),
-    ).toEqual({ reversal_of: transaction.id, notes: '[Undone] Öffnung rückgängig gemacht' });
-    // Split-open (1 atomare Operation) + generische Reversal-Ledgerbuchung
-    // im Fallback-Pfad (1 Operation) = 2, nicht 4 einzelne Zeilen.
-    expect(await outboxRows(db)).toHaveLength(2);
-  });
-
-  it('führt Split-Merge über den generischen Undo-Hook aus und verknüpft die Gegenbuchung', async () => {
-    await insertItem(db, { ...ITEM_BASE, quantity: 3000 });
-    const openHook = await renderMutationHook(() => useOpenInventoryItemMutation());
-    await act(async () => {
-      await openHook.result.current.mutateAsync({
-        item: { ...ITEM_BASE, quantity: 3 },
-        quantity: 1,
-      });
-    });
-    const opened = await db.getFirstAsync<{ id: string; expiry_date: string | null }>(
-      'select id, expiry_date from fridge_items where opened_at is not null',
-    );
-    const source = await db.getFirstAsync<LocalInventoryTransaction>(
-      "select * from transactions where type = 'open'",
-    );
-    if (!opened || !source) throw new Error('Split-Quelle fehlt.');
-
-    const undoHook = await renderMutationHook(() => useUndoInventoryTransactionMutation());
-    await act(async () => {
-      await undoHook.result.current.mutateAsync({ transaction: source });
-    });
-
-    // Integer-Tausendstel seit fam-lem.27.8 (contract.md Abschnitt 3).
-    expect(
-      await db.getFirstAsync<{ quantity: number; deleted_at: number | null }>(
-        'select quantity, deleted_at from fridge_items where id = ?',
-        ['item-1'],
-      ),
-    ).toEqual({ quantity: 3000, deleted_at: null });
-    expect(
-      await db.getFirstAsync<{ deleted_at: number | null }>(
-        'select deleted_at from fridge_items where id = ?',
-        [opened.id],
-      ),
-    ).toEqual({ deleted_at: expect.any(Number) });
-    expect(
-      await db.getFirstAsync<{ previous_expiry_date: string | null; reversal_of: string | null }>(
-        'select previous_expiry_date, reversal_of from transactions where reversal_of = ?',
-        [source.id],
-      ),
-    ).toEqual({ previous_expiry_date: opened.expiry_date, reversal_of: source.id });
-  });
-
-  it('schließt Split-Undo im Merge-Fallback nachvollziehbar ab und merged kein geändertes Ursprungslos', async () => {
-    const openedAt = new Date(Date.now() - 60_000).toISOString();
-    await insertItem(db, { ...ITEM_BASE, quantity: 2 });
-    await insertItem(db, {
-      ...ITEM_BASE,
-      id: 'opened-lot',
-      quantity: 1,
-      opened_at: openedAt,
-      expiry_date: '2026-09-09',
-    });
-    await insertTransaction(db, {
-      id: 'split-open-source',
-      fridge_item_id: 'opened-lot',
-      type: 'open',
-      quantity: 1,
-      previous_expiry_date: '2026-12-31',
-      notes: '[Split] origin=item-1',
-      created_at: openedAt,
-    });
-    await db.runAsync('update fridge_items set quantity = ?, updated_at = ? where id = ?', [
-      5,
-      2,
-      'item-1',
-    ]);
-
-    const undoHook = await renderMutationHook(() => useUndoInventoryTransactionMutation());
-    const source = await db.getFirstAsync<LocalInventoryTransaction>(
-      'select * from transactions where id = ?',
-      ['split-open-source'],
-    );
-    if (!source) throw new Error('Split-Quelle fehlt.');
-
-    await act(async () => {
-      await undoHook.result.current.mutateAsync({ transaction: source });
-    });
-
-    expect(
-      await db.getFirstAsync<{ quantity: number; deleted_at: number | null }>(
-        'select quantity, deleted_at from fridge_items where id = ?',
-        ['item-1'],
-      ),
-    ).toEqual({ quantity: 5, deleted_at: null });
-    expect(
-      await db.getFirstAsync<{ quantity: number; opened_at: string | null }>(
-        'select quantity, opened_at from fridge_items where id = ?',
-        ['opened-lot'],
-      ),
-    ).toEqual({ quantity: 1, opened_at: openedAt });
-    expect(
-      await db.getFirstAsync<{ notes: string | null; reversal_of: string | null }>(
-        'select notes, reversal_of from transactions where reversal_of = ?',
-        ['split-open-source'],
-      ),
-    ).toEqual({ notes: '[Undone] Öffnung rückgängig gemacht', reversal_of: 'split-open-source' });
-    expect(await outboxRows(db)).toHaveLength(1);
-  });
-
-  it('führt Open-Undo nach 24 Stunden als manuelle In-place-Korrektur aus', async () => {
-    const openedAt = new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString();
-    await insertItem(db, {
-      ...ITEM_BASE,
-      quantity: 1,
-      opened_at: openedAt,
-      expiry_date: '2026-09-09',
-    });
-    await insertTransaction(db, {
-      id: 'source-old-open',
-      type: 'open',
-      quantity: 1,
-      previous_expiry_date: '2026-12-31',
-      created_at: new Date(Date.now() - 24 * 60 * 60 * 1000 - 1).toISOString(),
-    });
-
-    const undoHook = await renderMutationHook(() => useUndoInventoryTransactionMutation());
-    const source = await db.getFirstAsync<LocalInventoryTransaction>(
-      'select * from transactions where id = ?',
-      ['source-old-open'],
-    );
-    if (!source) throw new Error('Open-Quelle fehlt.');
-    await act(async () => {
-      await undoHook.result.current.mutateAsync({ transaction: source });
-    });
-
-    expect(
-      await db.getFirstAsync<{
-        opened_at: string | null;
-        expiry_date: string | null;
-        expiry_user_set: number;
-      }>('select opened_at, expiry_date, expiry_user_set from fridge_items where id = ?', [
-        'item-1',
-      ]),
-    ).toEqual({ opened_at: null, expiry_date: '2026-12-31', expiry_user_set: 1 });
-    expect(
-      await db.getFirstAsync<{
-        type: string;
-        notes: string | null;
-        reversal_of: string | null;
-        previous_expiry_date: string | null;
-      }>(
-        'select type, notes, reversal_of, previous_expiry_date from transactions where reversal_of = ?',
-        ['source-old-open'],
-      ),
-    ).toEqual({
-      type: 'open',
-      notes: '[Manual correction]',
-      reversal_of: 'source-old-open',
-      previous_expiry_date: '2026-09-09',
-    });
   });
 
   it('weist einen Update-Hook für einen lokal fehlenden Bestand zurück und enqueut nichts', async () => {
@@ -1009,7 +574,7 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
       fridge_item_id: string;
       product_id: string;
       actor: string;
-      type: 'in' | 'out' | 'waste' | 'open';
+      type: 'in' | 'out' | 'waste';
       quantity: number;
       location_id: string;
       reason: 'expired' | 'spoiled' | 'other' | null;

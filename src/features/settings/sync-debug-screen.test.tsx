@@ -80,7 +80,7 @@ jest.mock('@/features/product-search/hooks/use-product-barcode-lookup', () => ({
 }));
 
 jest.mock('@/hooks/use-sync-status', () => ({
-  useSyncStatus: () => ({ kind: 'idle' }),
+  useSyncStatus: () => ({ kind: 'hidden' }),
 }));
 
 jest.mock('@/lib/analytics', () => ({ trackAnalyticsEvent: jest.fn() }));

@@ -89,10 +89,6 @@
     @apply w-[58px] h-[58px] rounded-pill items-center justify-center bg-accent shadow-sheet active:opacity-90;
   }
 
-  .btn-header-icon {
-    @apply w-[39px] h-[39px] rounded-control items-center justify-center bg-background-element/85 active:opacity-70 active:scale-95;
-  }
-
   .btn-modal-close {
     @apply w-[32px] h-[32px] rounded-control items-center justify-center bg-background-selected active:opacity-75;
   }
@@ -1661,11 +1657,6 @@
   /* frequent-products-quick-select.tsx */
   .frequent-products-chip {
     @apply rounded-card border px-two py-one mr-one max-w-[160px] bg-background-element border-border;
-  }
-
-  /* add-item-screen.tsx (Vorrat) */
-  .ai-scan-btn {
-    @apply w-10 h-10 rounded-control bg-background-selected;
   }
 
   .ai-new-location-box {

@@ -41,7 +41,7 @@ export function SyncSettingsScreen() {
     trackAnalyticsEvent('sync.manual.started', { source: 'sync_settings' });
 
     try {
-      const result = await triggerHouseholdSync([activeHousehold.id], true);
+      const result = await triggerHouseholdSync([activeHousehold.id], true, queryClient);
       trackAnalyticsEvent(
         syncRunHasErrors(result) ? 'sync.manual.failed' : 'sync.manual.completed',
         { source: 'sync_settings' },

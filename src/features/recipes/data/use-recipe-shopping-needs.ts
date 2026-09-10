@@ -15,11 +15,15 @@ export type RecipeShoppingNeed = {
   name: string;
   /** Gesamtbedarf des Rezepts bei den gewaehlten Portionen, in Gramm. */
   neededGrams: number;
-  /** Aktueller Vorratsbestand, in Gramm. */
+  /** Aktuell verfügbare Gesamtmenge (Vorrat + ungecheckte Einkaufsliste), in Gramm. */
   availableGrams: number;
+  /** Menge im physischen Vorrat, in Gramm. */
+  stockGrams?: number;
+  /** Bereits ungecheckt auf der Einkaufsliste stehende Menge, in Gramm. */
+  shoppingListGrams?: number;
   /**
-   * `neededGrams - availableGrams`, kann <= 0 sein, wenn der Vorrat den
-   * Bedarf bereits deckt — solche Zutaten bleiben sichtbar (Nachschub-Fall,
+   * `neededGrams - availableGrams`, kann <= 0 sein, wenn Vorrat und Einkaufsliste den
+   * Bedarf bereits decken — solche Zutaten bleiben sichtbar (Nachschub-Fall,
    * siehe docs/issue-131-missing-ingredients-transfer.md), werden von der UI
    * aber nicht mehr automatisch vorausgewaehlt.
    */
@@ -53,10 +57,15 @@ export function useRecipeShoppingNeeds(
       const db = await getDatabase();
       const productIds = [...needs.keys()];
       const placeholders = productIds.map(() => '?').join(', ');
-      const [rawStockRows, products] = await Promise.all([
+      const [rawStockRows, rawShoppingListRows, products] = await Promise.all([
         db.getAllAsync<{ product_id: string; quantity: number; unit: string }>(
           `select product_id, quantity, unit from fridge_items
            where household_id = ? and product_id is not null and deleted_at is null`,
+          [householdId],
+        ),
+        db.getAllAsync<{ product_id: string; quantity: number; unit: string }>(
+          `select product_id, quantity, unit from shopping_list_items
+           where household_id = ? and product_id is not null and deleted_at is null and checked_at is null`,
           [householdId],
         ),
         db.getAllAsync<{ id: string; name: string; serving_size_g: number | null }>(
@@ -71,7 +80,9 @@ export function useRecipeShoppingNeeds(
         quantity: fromInventoryQuantityUnits(row.quantity),
       }));
       const productsById = new Map(products.map((product) => [product.id, product]));
-      const missing = computeMissingIngredients(needs, stockInGrams(stockRows, productsById));
+      const stock = stockInGrams(stockRows, productsById);
+      const shoppingListStock = stockInGrams(rawShoppingListRows, productsById);
+      const missing = computeMissingIngredients(needs, stock, shoppingListStock);
 
       return Promise.all(
         missing.map(async (item) => {
@@ -86,6 +97,9 @@ export function useRecipeShoppingNeeds(
             name: productsById.get(item.productId)?.name ?? 'Zutat',
             neededGrams: Math.round(item.neededGrams),
             availableGrams: Math.round(item.availableGrams),
+            stockGrams: item.stockGrams !== undefined ? Math.round(item.stockGrams) : undefined,
+            shoppingListGrams:
+              item.shoppingListGrams !== undefined ? Math.round(item.shoppingListGrams) : undefined,
             missingGrams: Math.round(item.missingGrams),
             preferredStoreId: history?.store_id ?? null,
           };

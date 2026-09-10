@@ -7,19 +7,13 @@ import type { Database } from '@/lib/database.types';
 import { getDatabase } from '@/lib/db/client';
 import {
   type EnqueueMutationInput,
-  enqueueMutation,
   enqueueMutations,
   enqueueMutationsInExclusiveTransaction,
 } from '@/lib/db/outbox';
 import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';
-import {
-  fromInventoryQuantityUnits,
-  isPositiveIntegerThousandths,
-  toInventoryQuantityUnits,
-} from '@/lib/inventory-quantity';
+import { isPositiveIntegerThousandths, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
 import { getSupabase } from '@/lib/supabase';
 import {
-  createInventoryMergeUndoMutation,
   createInventoryMoveMutation,
   createInventoryQuantityCorrectionMutation,
   createInventoryQuantityMutation,
@@ -34,12 +28,10 @@ import {
 import { normalizeUnit } from '@/lib/units';
 import type { WasteReason } from './components/waste-inventory-item-sheet';
 import {
-  getSplitOriginItemId,
   inventoryUndoMode,
   inverseTransactionType,
   type LifecycleItem,
   planOpenInventoryItem,
-  planUndoOpenTransaction,
   undoTransactionNotes,
 } from './inventory-lifecycle';
 import type { LocalInventoryItem } from './use-inventory-items';
@@ -188,8 +180,8 @@ function lifecycleItemFromLocal(item: LocalInventoryItem) {
     unit: item.unit,
     expiryDate: item.expiry_date,
     openedAt: item.opened_at ?? null,
-    vacuumSealed: item.vacuum_sealed ?? false,
-    expiryUserSet: item.expiry_user_set ?? false,
+    vacuumSealed: Boolean(item.vacuum_sealed),
+    expiryUserSet: Boolean(item.expiry_user_set),
     packageSize: item.package_size,
     packageSizeUnit: item.package_size_unit,
     addedBy: item.added_by,
@@ -207,7 +199,10 @@ function lifecycleItemPayload(item: LifecycleItem) {
     name: item.name,
     quantity: item.quantity,
     unit: item.unit,
-    package_size: item.packageSize,
+    package_size:
+      item.packageSize !== null && item.packageSize !== undefined
+        ? toInventoryQuantityUnits(item.packageSize)
+        : null,
     package_size_unit: item.packageSizeUnit,
     expiry_date: item.expiryDate,
     added_by: item.addedBy,
@@ -251,7 +246,9 @@ export function useAddFridgeItemMutation() {
         ...item,
         quantity: toInventoryQuantityUnits(item.quantity),
         package_size:
-          item.package_size !== null ? toInventoryQuantityUnits(item.package_size) : null,
+          item.package_size !== null && item.package_size !== undefined
+            ? toInventoryQuantityUnits(item.package_size)
+            : null,
         unit: normUnit,
         package_size_unit: normPackageUnit,
         opened_at: item.opened_at ?? null,
@@ -300,34 +297,6 @@ export function useAddFridgeItemMutation() {
       queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['transactions', variables.household_id] });
-      queryClient.invalidateQueries({ queryKey: ['sync-status'] });
-    },
-  });
-}
-
-export function useRestoreFridgeItemMutation() {
-  const queryClient = useQueryClient();
-
-  return useMutation({
-    mutationFn: async ({ id, household_id }: { id: string; household_id: string }) => {
-      const db = await getDatabase();
-      const now = new Date().toISOString();
-      const nowMs = Date.now();
-
-      await enqueueMutation(db, {
-        entity: 'fridge_items',
-        entityId: id,
-        op: 'restore',
-        payload: { id, household_id, deleted_at: null, updated_at: now },
-        applyLocally: (txn) => applyLocalMirrorWrite(txn, 'fridge_items', 'restore', { id }, nowMs),
-      });
-
-      return id;
-    },
-    onSuccess: (_, variables) => {
-      trackAnalyticsEvent('inventory_item.restore.completed');
-      queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.household_id] });
-      queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });
@@ -511,11 +480,14 @@ export function useUpdateFridgeItemMutation() {
           const unit = normalizeUnit(item.patch.unit);
           metadataPatch.unit = unit;
         }
-        if (
-          item.patch.package_size !== undefined &&
-          item.patch.package_size !== existing.package_size
-        ) {
-          metadataPatch.package_size = item.patch.package_size;
+        const nextPackageSizeUnits =
+          item.patch.package_size === undefined
+            ? undefined
+            : item.patch.package_size === null
+              ? null
+              : toInventoryQuantityUnits(item.patch.package_size);
+        if (nextPackageSizeUnits !== undefined && nextPackageSizeUnits !== existing.package_size) {
+          metadataPatch.package_size = nextPackageSizeUnits;
         }
         if (
           item.patch.package_size_unit !== undefined &&
@@ -867,251 +839,6 @@ export function useMoveInventoryItemMutation() {
   });
 }
 
-export function useUndoOpenTransactionMutation() {
-  const queryClient = useQueryClient();
-  const actor = useInventoryActor();
-
-  return useMutation({
-    mutationFn: async ({ transaction }: { transaction: LocalInventoryTransaction }) => {
-      if (transaction.type !== 'open')
-        throw new Error('Nur Öffnungen können hier rückgängig gemacht werden.');
-      if (transaction.reversal_of || transaction.undone || transaction.notes?.includes('[Undone]'))
-        throw new Error('Diese Öffnung wurde bereits rückgängig gemacht.');
-      const db = await getDatabase();
-      const now = new Date();
-      const nowIso = now.toISOString();
-      const nowMs = now.getTime();
-      let resultHouseholdId: string | undefined;
-
-      // Lesen, Planen und Enqueue laufen in derselben exklusiven Transaktion,
-      // damit kein zweiter lokaler Aufruf zwischen Plan und Enqueue denselben
-      // Split oder dieselbe Öffnung anfasst (fam-n46.1).
-      await enqueueMutationsInExclusiveTransaction(db, async (txn) => {
-        const existingUndo = await txn.getFirstAsync<{ id: string }>(
-          `select id
-             from transactions
-            where household_id = ?
-              and fridge_item_id = ?
-              and (
-                reversal_of = ?
-                or (
-                  type = 'open'
-                  and quantity = ?
-                  and previous_expiry_date is ?
-                  and notes = '[Undone] Öffnung rückgängig gemacht'
-                  and created_at > ?
-                )
-              )
-            limit 1`,
-          [
-            transaction.household_id,
-            transaction.fridge_item_id,
-            transaction.id,
-            transaction.quantity,
-            transaction.previous_expiry_date,
-            transaction.created_at,
-          ],
-        );
-        if (existingUndo) throw new Error('Diese Öffnung wurde bereits rückgängig gemacht.');
-
-        const openedRow = transaction.fridge_item_id
-          ? await readFridgeItemRow(txn, { id: transaction.fridge_item_id, excludeDeleted: true })
-          : null;
-        if (!openedRow) throw new Error('Der geöffnete Bestand ist nicht mehr vorhanden.');
-
-        const splitOriginItemId = getSplitOriginItemId({
-          originItemId: transaction.origin_item_id,
-          notes: transaction.notes,
-        });
-        const sealedRow = splitOriginItemId
-          ? await readFridgeItemRow(txn, {
-              id: splitOriginItemId,
-              householdId: transaction.household_id,
-              excludeOpened: true,
-              excludeDeleted: true,
-            })
-          : null;
-        // transaction.quantity/.origin_quantity sind rohe Ledger-Reads
-        // (Integer-Tausendstel); die Lifecycle-Domäne (planUndoOpenTransaction,
-        // sameSplitIdentity) rechnet dezimal wie LifecycleItem, deshalb hier
-        // konvertiert.
-        const lifecycleTransaction = {
-          id: transaction.id,
-          actor: transaction.actor,
-          type: 'open' as const,
-          quantity: fromInventoryQuantityUnits(transaction.quantity),
-          reason: transaction.reason,
-          notes: transaction.notes,
-          undone: transaction.undone,
-          householdId: transaction.household_id,
-          fridgeItemId: transaction.fridge_item_id,
-          originItemId: splitOriginItemId,
-          originQuantity:
-            transaction.origin_quantity !== null && transaction.origin_quantity !== undefined
-              ? fromInventoryQuantityUnits(transaction.origin_quantity)
-              : transaction.origin_quantity,
-          productId: transaction.product_id,
-          locationId: transaction.location_id,
-          previousExpiryDate: transaction.previous_expiry_date,
-          createdAt: transaction.created_at,
-        };
-        const undoMode = inventoryUndoMode(transaction.created_at, now);
-        const plan =
-          undoMode === 'undo'
-            ? planUndoOpenTransaction(
-                lifecycleTransaction,
-                lifecycleItemFromLocal(openedRow),
-                sealedRow ? lifecycleItemFromLocal(sealedRow) : null,
-                now,
-              )
-            : null;
-
-        resultHouseholdId = transaction.household_id;
-        const notes = undoTransactionNotes(undoMode, 'open');
-        const genericReversalLedger = () =>
-          transactionMutation(
-            {
-              id: Crypto.randomUUID(),
-              household_id: transaction.household_id,
-              fridge_item_id: transaction.fridge_item_id,
-              product_id: transaction.product_id,
-              actor,
-              type: 'open',
-              quantity: transaction.quantity,
-              location_id: transaction.location_id,
-              reason: null,
-              previous_expiry_date: openedRow.expiry_date,
-              notes,
-              undone: false,
-              reversal_of: transaction.id,
-              created_at: nowIso,
-            },
-            nowMs,
-          );
-
-        if (undoMode === 'manual-correction') {
-          if (openedRow.opened_at === null) {
-            throw new Error('Der geöffnete Bestand wurde bereits verändert.');
-          }
-          const patch = {
-            opened_at: null,
-            expiry_date: transaction.previous_expiry_date,
-            expiry_user_set: transaction.previous_expiry_date !== null,
-          };
-          return [
-            {
-              entity: 'fridge_items',
-              entityId: openedRow.id,
-              op: 'update',
-              payload: {
-                id: openedRow.id,
-                household_id: openedRow.household_id,
-                ...patch,
-                updated_at: nowIso,
-              },
-              applyLocally: (innerTxn) =>
-                applyLocalMirrorWrite(
-                  innerTxn,
-                  'fridge_items',
-                  'update',
-                  { id: openedRow.id, ...patch },
-                  nowMs,
-                ),
-            },
-            genericReversalLedger(),
-          ];
-        }
-        if (plan?.mode === 'restore-in-place' && plan.openedPatch) {
-          const patch = lifecyclePatchPayload(plan.openedPatch);
-          return [
-            {
-              entity: 'fridge_items',
-              entityId: openedRow.id,
-              op: 'update',
-              payload: {
-                id: openedRow.id,
-                household_id: openedRow.household_id,
-                ...patch,
-                updated_at: nowIso,
-              },
-              applyLocally: (innerTxn) =>
-                applyLocalMirrorWrite(
-                  innerTxn,
-                  'fridge_items',
-                  'update',
-                  { id: openedRow.id, ...patch },
-                  nowMs,
-                ),
-            },
-            genericReversalLedger(),
-          ];
-        }
-        if (
-          plan?.mode === 'merge-split' &&
-          sealedRow &&
-          plan.sealedPatch &&
-          typeof plan.sealedPatch.quantity === 'number'
-        ) {
-          // Merge: versiegeltes Los, geöffnetes Los und Gegenbuchung laufen
-          // als eine atomare Server-Operation mit Zeilensperren gegen die
-          // referenzierte Split-Buchung — kein absolutes Update aus einem
-          // zwischenzeitlich veralteten Snapshot (fam-n46.1).
-          const reversalTransactionId = Crypto.randomUUID();
-          return [
-            createInventoryMergeUndoMutation({
-              payload: {
-                reversal_transaction_id: reversalTransactionId,
-                reversal_of: transaction.id,
-                household_id: transaction.household_id,
-                created_at: nowIso,
-                notes,
-                opened_item_id: openedRow.id,
-              },
-              sealedItemId: sealedRow.id,
-              // plan.sealedPatch.quantity ist dezimal (Lifecycle-Domäne);
-              // createInventoryMergeUndoMutation schreibt direkt in die
-              // Integer-Tausendstel-Spalte, deshalb hier konvertiert.
-              sealedQuantityAfterMerge: toInventoryQuantityUnits(plan.sealedPatch.quantity),
-              openedItemId: openedRow.id,
-              transaction: {
-                id: reversalTransactionId,
-                household_id: transaction.household_id,
-                fridge_item_id: transaction.fridge_item_id,
-                product_id: transaction.product_id,
-                actor,
-                type: 'open',
-                quantity: transaction.quantity,
-                location_id: transaction.location_id,
-                previous_expiry_date: openedRow.expiry_date,
-                notes,
-                undone: false,
-                reversal_of: transaction.id,
-                created_at: nowIso,
-              },
-              nowMs,
-            }),
-          ];
-        }
-        // plan?.mode === 'fallback': Der Split-Ursprung wurde nach dem Öffnen
-        // verändert. Der Undo bleibt als Provenienzbuchung erhalten, ändert
-        // aber kein Lot.
-        return [genericReversalLedger()];
-      });
-
-      if (resultHouseholdId === undefined) {
-        throw new Error('Der geöffnete Bestand ist nicht mehr vorhanden.');
-      }
-      return resultHouseholdId;
-    },
-    onSuccess: (householdId) => {
-      queryClient.invalidateQueries({ queryKey: ['fridge_items', householdId] });
-      queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', householdId] });
-      queryClient.invalidateQueries({ queryKey: ['transactions', householdId] });
-      queryClient.invalidateQueries({ queryKey: ['sync-status'] });
-    },
-  });
-}
-
 type MoveLedgerLeg = {
   id: string;
   type: 'in' | 'out';
@@ -1133,9 +860,6 @@ async function enqueueQuantityReversal(
   const fridgeItemId = transaction.fridge_item_id;
 
   const inverseType = inverseTransactionType(transaction.type);
-  if (inverseType === 'open') {
-    throw new Error('Öffnungen werden über den Open-Undo-Pfad behandelt.');
-  }
 
   const now = new Date().toISOString();
   const nowMs = Date.now();
@@ -1306,7 +1030,6 @@ async function isMoveTransaction(
 export function useUndoInventoryTransactionMutation() {
   const queryClient = useQueryClient();
   const actor = useInventoryActor();
-  const openUndoMutation = useUndoOpenTransactionMutation();
 
   return useMutation({
     mutationFn: async ({ transaction }: { transaction: LocalInventoryTransaction }) => {
@@ -1315,10 +1038,6 @@ export function useUndoInventoryTransactionMutation() {
       }
       if (transaction.undone) {
         throw new Error('Diese Buchung wurde bereits rückgängig gemacht.');
-      }
-
-      if (transaction.type === 'open') {
-        return openUndoMutation.mutateAsync({ transaction });
       }
 
       const mode = inventoryUndoMode(transaction.created_at, new Date());

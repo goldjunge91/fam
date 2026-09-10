@@ -7,7 +7,7 @@ Dieses Dokument ist eine Arbeitsübersicht und keine zweite normative Quelle. F�
 fachliche Regeln, Owner und Änderungsgrenzen gelten weiterhin:
 
 - `tasks/inventory-sync/contract.md`
-- `tasks/inventory-sync/CONSTRAINTS.md`
+- `CONSTRAINTS.md` (Repository-Root)
 - `tasks/inventory-sync/execution-plan.md`
 
 ## Größen-Hotspots
@@ -214,7 +214,7 @@ Aktion. Der FK-Reparaturpfad darf die fachliche Absicht nicht verändern.
 - `use-inventory-conflicts.ts`
 
 Das ist teilweise das normale React-Query-Muster. Eine neue allgemeine
-Abstraktionsschicht wäre nach `CONSTRAINTS.md` jedoch nicht zulässig.
+Abstraktionsschicht wäre nach `../../CONSTRAINTS.md` jedoch nicht zulässig.
 
 ## Priorisierte Review-Hotspots
 
@@ -227,4 +227,3 @@ Abstraktionsschicht wäre nach `CONSTRAINTS.md` jedoch nicht zulässig.
    `use-inventory-mutations.integration.test.tsx`: größte Test-Duplikation.
 5. `expiry.ts` und `opened-expiry.ts`: Ablaufregeln auf doppelte fachliche
    Berechnung prüfen.
-

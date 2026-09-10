@@ -6,6 +6,7 @@ import { celebrate } from '@/lib/celebration';
 import type { Database } from '@/lib/database.types';
 import { getDatabase } from '@/lib/db/client';
 import { type EnqueueMutationInput, enqueueMutation, enqueueMutations } from '@/lib/db/outbox';
+import { isPositiveIntegerThousandths, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
 import { recordActivity } from '@/lib/streak';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
@@ -36,7 +37,7 @@ type TransactionDraft = Omit<TransactionPayload, 'operation_id' | 'reversal_of'>
 };
 
 function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueMutationInput {
-  if (!Number.isFinite(payload.quantity) || payload.quantity <= 0) {
+  if (!isPositiveIntegerThousandths(payload.quantity)) {
     throw new Error('Ledger-Buchungen benötigen eine positive Menge.');
   }
 
@@ -81,15 +82,20 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
         const transactionId = Crypto.randomUUID();
         const locationId = getLocationId(transfer.locationKind);
         const normUnit = normalizeUnit(transfer.unit);
+        const quantityUnits = toInventoryQuantityUnits(transfer.quantity);
+        const packageSizeUnits =
+          transfer.packageSize !== null && transfer.packageSize !== undefined
+            ? toInventoryQuantityUnits(transfer.packageSize)
+            : null;
         const fridgeItem = {
           id,
           household_id: input.householdId,
           product_id: transfer.productId,
           location_id: locationId,
           name: transfer.name,
-          quantity: transfer.quantity,
+          quantity: quantityUnits,
           unit: normUnit,
-          package_size: transfer.packageSize,
+          package_size: packageSizeUnits,
           package_size_unit: transfer.packageSizeUnit,
           expiry_date: transfer.expiryDate ?? null,
           added_by: input.userId,
@@ -116,7 +122,7 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
               product_id: transfer.productId,
               actor: input.userId,
               type: 'in',
-              quantity: transfer.quantity,
+              quantity: quantityUnits,
               location_id: locationId,
               reason: null,
               previous_expiry_date: null,
@@ -212,6 +218,9 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.householdId] });
       queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.householdId] });
       queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', variables.householdId] });
+      queryClient.invalidateQueries({ queryKey: ['transactions', variables.householdId] });
+      queryClient.invalidateQueries({ queryKey: ['meal-plan-shopping-needs'] });
+      queryClient.invalidateQueries({ queryKey: ['recipe-shopping-needs'] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });

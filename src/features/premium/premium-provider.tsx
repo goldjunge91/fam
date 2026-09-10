@@ -13,7 +13,10 @@ import Purchases, { type CustomerInfo } from 'react-native-purchases';
 
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { useForcePremiumOverrideStore } from '@/features/premium/force-premium-override';
+import {
+  useForceAiOverrideStore,
+  useForcePremiumOverrideStore,
+} from '@/features/premium/force-premium-override';
 import { env } from '@/lib/env';
 import {
   initPurchases,
@@ -23,6 +26,8 @@ import {
   setPurchasesEmail,
   syncPurchasesIdentity,
 } from '@/lib/purchases';
+import { queryClient as defaultQueryClient } from '@/lib/query-client';
+import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 
 type PremiumContextValue = {
   /** Serverautorisierter Plus-Status des aktiven Haushalts. */
@@ -35,6 +40,8 @@ type PremiumContextValue = {
    * `force-premium-override.ts`), z. B. um Plus in einem bereits kompilierten TestFlight-Build umzuschalten.
    */
   isForced: boolean;
+  /** Ob `hasAI` über den Dev-Tools-Override erzwungen ist. */
+  isAiForced: boolean;
   /** `null` ohne konfigurierten RevenueCat-API-Key oder vor dem ersten Laden. */
   customerInfo: CustomerInfo | null;
   loading: boolean;
@@ -111,6 +118,9 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
             info,
             userId: expectedUserId,
           });
+        }
+        if (isCurrent() && expectedUserId) {
+          await triggerHouseholdsPull(expectedUserId, defaultQueryClient);
         }
       } catch (err) {
         console.warn('[Premium] CustomerInfo konnte nicht geladen werden:', err);
@@ -225,17 +235,19 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
   }, [activeHouseholdId, userId, enqueuePurchasesOperation]);
 
   const forcePremiumOverride = useForcePremiumOverrideStore((state) => state.override);
+  const forceAiOverride = useForceAiOverrideStore((state) => state.override);
   const isForced = forcePremiumOverride ?? env.forcePremium;
+  const isAiForced = forceAiOverride ?? false;
   const hasPlus = isForced || (activeHousehold?.plus_active ?? false);
-  const hasAI = activeHousehold?.ai_active ?? false;
+  const hasAI = isAiForced || (activeHousehold?.ai_active ?? false);
   const customerInfo =
     ownedCustomerInfo !== null && ownedCustomerInfo.userId === userId
       ? ownedCustomerInfo.info
       : null;
 
   const value = useMemo(
-    () => ({ hasPlus, hasAI, isForced, customerInfo, loading, refresh }),
-    [hasPlus, hasAI, isForced, customerInfo, loading, refresh],
+    () => ({ hasPlus, hasAI, isForced, isAiForced, customerInfo, loading, refresh }),
+    [hasPlus, hasAI, isForced, isAiForced, customerInfo, loading, refresh],
   );
 
   return <PremiumContext.Provider value={value}>{children}</PremiumContext.Provider>;
@@ -245,6 +257,7 @@ const DEFAULT_PREMIUM_CONTEXT: PremiumContextValue = {
   hasPlus: false,
   hasAI: false,
   isForced: false,
+  isAiForced: false,
   customerInfo: null,
   loading: false,
   refresh: async () => {},

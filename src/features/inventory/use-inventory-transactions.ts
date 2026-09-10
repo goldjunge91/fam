@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { getDatabase } from '@/lib/db/client';
+import { fromInventoryQuantityUnits } from '@/lib/inventory-quantity';
+import type { InventoryTransactionType } from './inventory-lifecycle';
 
-export type InventoryTransactionType = 'in' | 'out' | 'waste' | 'open';
+export type { InventoryTransactionType };
 
 export type LocalInventoryTransaction = {
   id: string;
@@ -68,8 +70,8 @@ export function transactionUndoLabel(transaction: LocalInventoryTransaction): st
   if (isInventoryMoveTransaction(transaction)) return 'Verschiebung rückgängig machen';
   if (transaction.type === 'in') return 'Einkauf rückgängig machen';
   if (transaction.type === 'out') return 'Verbrauch rückgängig machen';
-  if (transaction.type === 'waste') return 'Verschwendung rückgängig machen';
-  return 'Öffnung rückgängig machen';
+  if (transaction.type === 'open') return 'Öffnen rückgängig machen';
+  return 'Verschwendung rückgängig machen';
 }
 
 export function useInventoryTransactions(householdId: string | undefined) {
@@ -79,7 +81,7 @@ export function useInventoryTransactions(householdId: string | undefined) {
       if (!householdId) return [];
 
       const db = await getDatabase();
-      return db.getAllAsync<LocalInventoryTransaction>(
+      const rows = await db.getAllAsync<LocalInventoryTransaction>(
         `select t.id, t.household_id, t.fridge_item_id, t.product_id, t.actor, t.type,
                 t.quantity, t.location_id, t.reason, t.previous_expiry_date, t.notes,
                 t.origin_item_id, t.origin_quantity,
@@ -114,17 +116,27 @@ export function useInventoryTransactions(householdId: string | undefined) {
                        and reversal.reversal_of = t.id
                   )
                 end as has_reversal,
-                coalesce(fi.name, p.name) as item_name,
-                fi.unit as item_unit,
+                coalesce(fi.name, ofi.name, p.name) as item_name,
+                coalesce(fi.unit, ofi.unit) as item_unit,
                 sl.name as location_name
            from transactions t
            left join fridge_items fi on fi.id = t.fridge_item_id
+           left join fridge_items ofi on ofi.id = t.origin_item_id
            left join products p on p.id = t.product_id
            left join storage_locations sl on sl.id = t.location_id
           where t.household_id = ?
           order by t.created_at desc, t.id desc`,
         [householdId],
       );
+
+      return rows.map((row) => ({
+        ...row,
+        quantity: fromInventoryQuantityUnits(row.quantity),
+        origin_quantity:
+          row.origin_quantity !== null && row.origin_quantity !== undefined
+            ? fromInventoryQuantityUnits(row.origin_quantity)
+            : null,
+      }));
     },
     enabled: !!householdId,
   });
@@ -196,7 +208,8 @@ export function transactionLabel(
   transaction: LocalInventoryTransaction,
   itemName?: string | null,
 ): string {
-  const name = itemName?.trim();
+  const resolvedName = itemName !== undefined ? itemName : transaction.item_name;
+  const name = resolvedName?.trim();
   if (transaction.notes?.includes('[Manual correction]')) {
     return name ? `Manuelle Korrektur: ${name}` : 'Manuelle Korrektur';
   }

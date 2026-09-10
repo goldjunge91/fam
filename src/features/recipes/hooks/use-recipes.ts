@@ -19,13 +19,35 @@ import type { DietaryTag, Difficulty, DishType } from '../wizard/recipe-metadata
 
 export type { DietaryTag, Difficulty, DishType } from '../wizard/recipe-metadata-options';
 
+export type RecipeSubstitution = {
+  forIngredientId: string;
+  swap: string;
+  savings?: string;
+};
+
 export type RecipeListItem = {
   id: string;
   household_id: string;
   title: string;
   instructions: string | null;
   cover_image_path: string | null;
+  prep_time_minutes?: number | null;
   cook_time_minutes: number | null;
+  storage_instructions?: string | null;
+  reheating_instructions?: string | null;
+  cheap_tips?: string[];
+  substitutions?: RecipeSubstitution[];
+  crispiness_level?: string | null;
+  air_fryer_time_minutes?: number | null;
+  air_fryer_temperature_f?: number | null;
+  variant_group?: string | null;
+  variant_type?: string | null;
+  dorm_friendly?: boolean | null;
+  meal_prep_friendly?: boolean | null;
+  why_cheap?: string | null;
+  healthier_tips?: string[];
+  batch_prep_tips?: string[];
+  optional_add_ins?: string[];
   difficulty: Difficulty | null;
   dish_types: DishType[];
   dietary_tags: DietaryTag[];
@@ -43,7 +65,23 @@ type RecipeRow = Omit<RecipeListItem, 'dish_types' | 'dietary_tags' | 'hashtags'
   dish_types: string;
   dietary_tags: string;
   hashtags: string;
+  cheap_tips: string;
+  substitutions: string;
+  healthier_tips: string;
+  batch_prep_tips: string;
+  optional_add_ins: string;
+  dorm_friendly: number | null;
+  meal_prep_friendly: number | null;
 };
+
+type RecipeComponentItemDbRow = Omit<RecipeComponentItem, 'note' | 'optional'> & {
+  optional: number;
+  note: string | null;
+};
+
+function nullableBoolean(value: number | null | undefined): boolean | null {
+  return value === null || value === undefined ? null : value === 1;
+}
 
 function toRecipeListItem(row: RecipeRow): RecipeListItem {
   return {
@@ -51,11 +89,22 @@ function toRecipeListItem(row: RecipeRow): RecipeListItem {
     dish_types: parseJsonArray<DishType>(row.dish_types),
     dietary_tags: parseJsonArray<DietaryTag>(row.dietary_tags),
     hashtags: parseJsonArray<string>(row.hashtags),
+    cheap_tips: parseJsonArray<string>(row.cheap_tips),
+    substitutions: parseJsonArray<RecipeSubstitution>(row.substitutions),
+    healthier_tips: parseJsonArray<string>(row.healthier_tips),
+    batch_prep_tips: parseJsonArray<string>(row.batch_prep_tips),
+    optional_add_ins: parseJsonArray<string>(row.optional_add_ins),
+    dorm_friendly: nullableBoolean(row.dorm_friendly),
+    meal_prep_friendly: nullableBoolean(row.meal_prep_friendly),
   };
 }
 
 const RECIPE_COLUMNS = `id, household_id, title, instructions, cover_image_path,
-  cook_time_minutes, difficulty, dish_types, dietary_tags, hashtags, default_servings,
+  prep_time_minutes, cook_time_minutes, storage_instructions, reheating_instructions,
+  cheap_tips, substitutions, crispiness_level, air_fryer_time_minutes,
+  air_fryer_temperature_f, variant_group, variant_type, dorm_friendly,
+  meal_prep_friendly, why_cheap, healthier_tips, batch_prep_tips, optional_add_ins,
+  difficulty, dish_types, dietary_tags, hashtags, default_servings,
   created_by, created_at`;
 
 export type ProductRow = ProductNutritionRow & { name: string };
@@ -66,6 +115,25 @@ export type RecipeDetail = {
   items: RecipeComponentItem[];
   steps: RecipeStep[];
   productsById: Map<string, ProductRow>;
+};
+
+type RecipeMetadataInput = {
+  prep_time_minutes?: number | null;
+  storage_instructions?: string | null;
+  reheating_instructions?: string | null;
+  cheap_tips?: string[];
+  substitutions?: RecipeSubstitution[];
+  crispiness_level?: string | null;
+  air_fryer_time_minutes?: number | null;
+  air_fryer_temperature_f?: number | null;
+  variant_group?: string | null;
+  variant_type?: string | null;
+  dorm_friendly?: boolean | null;
+  meal_prep_friendly?: boolean | null;
+  why_cheap?: string | null;
+  healthier_tips?: string[];
+  batch_prep_tips?: string[];
+  optional_add_ins?: string[];
 };
 
 function nowStamp() {
@@ -176,12 +244,16 @@ export function useRecipeDetail(recipeId: string | undefined) {
         [recipeId],
       );
 
-      const items = await db.getAllAsync<RecipeComponentItem>(
-        `select id, component_id, product_id, sub_component_id, grams, quantity, unit
+      const itemRows = await db.getAllAsync<RecipeComponentItemDbRow>(
+        `select id, component_id, product_id, sub_component_id, grams, quantity, unit, optional, note
          from recipe_component_items
          where recipe_id = ? and deleted_at is null`,
         [recipeId],
       );
+      const items: RecipeComponentItem[] = itemRows.map((row) => ({
+        ...row,
+        optional: row.optional === 1,
+      }));
 
       const stepRows = await db.getAllAsync<Omit<RecipeStep, 'ingredientIds'>>(
         `select id, recipe_id, position, text, image_path, timer_minutes
@@ -234,19 +306,21 @@ export function useAddRecipeMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (input: {
-      household_id: string;
-      title: string;
-      instructions?: string | null;
-      cover_image_path?: string | null;
-      cook_time_minutes?: number | null;
-      difficulty?: Difficulty | null;
-      dish_types?: DishType[];
-      dietary_tags?: DietaryTag[];
-      hashtags?: string[];
-      default_servings?: number;
-      created_by: string;
-    }) => {
+    mutationFn: async (
+      input: {
+        household_id: string;
+        title: string;
+        instructions?: string | null;
+        cover_image_path?: string | null;
+        cook_time_minutes?: number | null;
+        difficulty?: Difficulty | null;
+        dish_types?: DishType[];
+        dietary_tags?: DietaryTag[];
+        hashtags?: string[];
+        default_servings?: number;
+        created_by: string;
+      } & RecipeMetadataInput,
+    ) => {
       const db = await getDatabase();
       const id = Crypto.randomUUID();
       const { iso, ms } = nowStamp();
@@ -257,7 +331,23 @@ export function useAddRecipeMutation() {
         title: input.title,
         instructions: input.instructions ?? null,
         cover_image_path: input.cover_image_path ?? null,
+        prep_time_minutes: input.prep_time_minutes ?? null,
         cook_time_minutes: input.cook_time_minutes ?? null,
+        storage_instructions: input.storage_instructions ?? null,
+        reheating_instructions: input.reheating_instructions ?? null,
+        cheap_tips: input.cheap_tips ?? [],
+        substitutions: input.substitutions ?? [],
+        crispiness_level: input.crispiness_level ?? null,
+        air_fryer_time_minutes: input.air_fryer_time_minutes ?? null,
+        air_fryer_temperature_f: input.air_fryer_temperature_f ?? null,
+        variant_group: input.variant_group ?? null,
+        variant_type: input.variant_type ?? null,
+        dorm_friendly: input.dorm_friendly ?? null,
+        meal_prep_friendly: input.meal_prep_friendly ?? null,
+        why_cheap: input.why_cheap ?? null,
+        healthier_tips: input.healthier_tips ?? [],
+        batch_prep_tips: input.batch_prep_tips ?? [],
+        optional_add_ins: input.optional_add_ins ?? [],
         difficulty: input.difficulty ?? null,
         dish_types: input.dish_types ?? [],
         dietary_tags: input.dietary_tags ?? [],
@@ -288,19 +378,21 @@ export function useUpdateRecipeMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (input: {
-      id: string;
-      household_id: string;
-      title: string;
-      instructions?: string | null;
-      cover_image_path?: string | null;
-      cook_time_minutes?: number | null;
-      difficulty?: Difficulty | null;
-      dish_types?: DishType[];
-      dietary_tags?: DietaryTag[];
-      hashtags?: string[];
-      default_servings?: number;
-    }) => {
+    mutationFn: async (
+      input: {
+        id: string;
+        household_id: string;
+        title: string;
+        instructions?: string | null;
+        cover_image_path?: string | null;
+        cook_time_minutes?: number | null;
+        difficulty?: Difficulty | null;
+        dish_types?: DishType[];
+        dietary_tags?: DietaryTag[];
+        hashtags?: string[];
+        default_servings?: number;
+      } & RecipeMetadataInput,
+    ) => {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
 
@@ -313,6 +405,38 @@ export function useUpdateRecipeMutation() {
         dietary_tags: input.dietary_tags ?? [],
         hashtags: input.hashtags ?? [],
         default_servings: input.default_servings ?? 1,
+        ...(input.prep_time_minutes !== undefined && {
+          prep_time_minutes: input.prep_time_minutes,
+        }),
+        ...(input.storage_instructions !== undefined && {
+          storage_instructions: input.storage_instructions,
+        }),
+        ...(input.reheating_instructions !== undefined && {
+          reheating_instructions: input.reheating_instructions,
+        }),
+        ...(input.cheap_tips !== undefined && { cheap_tips: input.cheap_tips }),
+        ...(input.substitutions !== undefined && { substitutions: input.substitutions }),
+        ...(input.crispiness_level !== undefined && {
+          crispiness_level: input.crispiness_level,
+        }),
+        ...(input.air_fryer_time_minutes !== undefined && {
+          air_fryer_time_minutes: input.air_fryer_time_minutes,
+        }),
+        ...(input.air_fryer_temperature_f !== undefined && {
+          air_fryer_temperature_f: input.air_fryer_temperature_f,
+        }),
+        ...(input.variant_group !== undefined && { variant_group: input.variant_group }),
+        ...(input.variant_type !== undefined && { variant_type: input.variant_type }),
+        ...(input.dorm_friendly !== undefined && { dorm_friendly: input.dorm_friendly }),
+        ...(input.meal_prep_friendly !== undefined && {
+          meal_prep_friendly: input.meal_prep_friendly,
+        }),
+        ...(input.why_cheap !== undefined && { why_cheap: input.why_cheap }),
+        ...(input.healthier_tips !== undefined && { healthier_tips: input.healthier_tips }),
+        ...(input.batch_prep_tips !== undefined && { batch_prep_tips: input.batch_prep_tips }),
+        ...(input.optional_add_ins !== undefined && {
+          optional_add_ins: input.optional_add_ins,
+        }),
       };
 
       await enqueueMutation(db, {

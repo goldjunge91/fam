@@ -60,8 +60,15 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
   async function handleBuy() {
     const outcome = await buySelectedPlan();
     if (outcome.kind === 'purchased') {
-      onPurchased?.();
-      onClose();
+      Alert.alert('Erfolgreich', 'Fam Plus ist jetzt für deinen Haushalt aktiv!', [
+        {
+          text: 'OK',
+          onPress: () => {
+            onPurchased?.();
+            onClose();
+          },
+        },
+      ]);
     } else if (outcome.kind === 'failed') {
       Alert.alert('Kauf fehlgeschlagen', outcome.error.message);
     } else if (outcome.kind === 'unavailable') {

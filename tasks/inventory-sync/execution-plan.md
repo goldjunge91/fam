@@ -3,7 +3,7 @@
 Status: V3-Capability-Map am 2026-09-09 übernommen; Ausführung erfolgt
 schrittweise über den unabhängigen Beads-Baum `fam-9vt`.
 
-Quellen: `CONSTRAINTS.md` setzt Qualitätsgrenzen, `contract.md` Zielverhalten.
+Quellen: `../../CONSTRAINTS.md` setzt Qualitätsgrenzen, `contract.md` Zielverhalten.
 Beads verfolgt Arbeit. Dieser Plan ist der einzige aktive Ausführungsplan.
 
 Frühere Planentwürfe, Ticketkopplungen und Zwischenreihenfolgen sind keine
@@ -38,7 +38,7 @@ Outbox/Wire/RPC, Receipt/Snapshot, Reconciliation, betroffene Reads und
 fokussierte Tests. Kein lokaler oder serverseitiger Teil wird vorher als neue
 v1-Wahrheit aktiviert. Alte und neue fachliche Entscheidungen dürfen nicht
 parallel bestehen; der ersetzte Aufrufpfad wird im selben Inkrement entfernt.
-Die Ratchets aus `CONSTRAINTS.md` gelten für jedes Modul.
+Die Ratchets aus `../../CONSTRAINTS.md` gelten für jedes Modul.
 
 ## Verbindliche Dateimatrix
 
@@ -141,7 +141,7 @@ pgTAP `supabase/tests/01_privileges.test.sql`,
 24 bis 31 bleiben. Pro Inkrement nur direkt betroffene Dateien ausführen.
 Tests werden nicht wegen ihres alten Dateinamens gelöscht. Strukturänderungen
 behalten Erwartungen; Änderungen des fachlichen Vertrags erhalten eigene
-gezielte Nachweise. Grenzen und Befehle stehen in `CONSTRAINTS.md`.
+gezielte Nachweise. Grenzen und Befehle stehen in `../../CONSTRAINTS.md`.
 
 `src/lib/database.types.ts` ausschließlich neu generieren.
 Bestehende Supabase-/Drizzle-Migrationen und Snapshots einschließlich

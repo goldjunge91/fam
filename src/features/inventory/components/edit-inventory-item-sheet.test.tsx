@@ -1,5 +1,7 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 
+import { colorsLight, withAlpha } from '@/components/theme';
+
 import type { LocalInventoryItem } from '../use-inventory-items';
 import { EditInventoryItemSheet } from './edit-inventory-item-sheet';
 
@@ -47,6 +49,14 @@ jest.mock('@/hooks/use-sheet-shadow-style', () => ({
   useSheetShadowStyle: () => ({}),
 }));
 
+jest.mock('react-native-safe-area-context', () => {
+  const actual = jest.requireActual('react-native-safe-area-context');
+  return {
+    ...actual,
+    useSafeAreaInsets: () => ({ top: 47, bottom: 34, left: 0, right: 0 }),
+  };
+});
+
 const AUTO_MHD_ITEM: LocalInventoryItem = {
   id: 'item-1',
   household_id: 'household-1',
@@ -74,6 +84,14 @@ function renderSheet(item: LocalInventoryItem = AUTO_MHD_ITEM) {
 function saveButton() {
   return screen.getByRole('button', { name: 'Änderungen speichern' });
 }
+
+it('renders the edit close button with the configured tomato background', async () => {
+  await renderSheet();
+
+  expect(screen.getByRole('button', { name: 'Schließen' })).toHaveStyle({
+    backgroundColor: withAlpha(colorsLight.tomato, 1),
+  });
+});
 
 describe('EditInventoryItemSheet MHD-Schutzvertrag', () => {
   beforeEach(() => {

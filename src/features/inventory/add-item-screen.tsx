@@ -279,7 +279,7 @@ export function AddItemScreen() {
               <HeaderIconButton
                 label="Barcode scannen"
                 onPress={() => setShowScanner(true)}
-                className="ai-scan-btn">
+                style={{ width: 40, height: 40 }}>
                 <FamIcon name="camera" size={18} color={colors.basil} />
               </HeaderIconButton>
             }

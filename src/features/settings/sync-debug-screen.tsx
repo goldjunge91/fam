@@ -140,7 +140,7 @@ export function SyncDebugScreen() {
     setLoading(true);
     trackAnalyticsEvent('sync.manual.started', { source: 'sync_debug' });
     try {
-      const result = await triggerHouseholdSync([currentHousehold.id], true);
+      const result = await triggerHouseholdSync([currentHousehold.id], true, queryClient);
       trackAnalyticsEvent(
         syncRunHasErrors(result) ? 'sync.manual.failed' : 'sync.manual.completed',
         { source: 'sync_debug' },

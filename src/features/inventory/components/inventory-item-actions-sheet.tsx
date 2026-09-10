@@ -1,25 +1,40 @@
-import { Feather } from '@expo/vector-icons';
-import type { ComponentProps } from 'react';
-import { Modal, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { DateWheelField } from '@/components/forms/date-wheel-field';
-import { GradientBackground } from '@/components/layout/gradient-background';
+import { DateWheelField } from "@/components/forms/date-wheel-field";
+import { GradientBackground } from "@/components/layout/gradient-background";
 import {
   BUTTON_DEPTH,
-  type GradientSpec,
   radius,
   space,
   withAlpha,
-} from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
-import { BackButton } from '@/components/ui/buttons';
-import { QuantityStepper } from '@/components/ui/quantity-stepper';
-import { Card, IconButton, Press, Txt } from '@/constants/ui';
-import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
-import { formatAmount, formatPackageHint } from '@/lib/package-size';
+  type GradientSpec,
+} from "@/components/theme/index";
+import { useTheme } from "@/components/theme/ThemeProvider";
+import { BackButton } from "@/components/ui/buttons";
+import { QuantityStepper } from "@/components/ui/quantity-stepper";
+import { Card, IconButton, Press, Txt } from "@/constants/ui";
+import { useSheetShadowStyle } from "@/hooks/use-sheet-shadow-style";
+import { formatAmount, formatPackageHint } from "@/lib/package-size";
+import { Feather } from "@expo/vector-icons";
+import { useRef, type ComponentProps } from "react";
+import {
+  Modal,
+  Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  View,
+} from "react-native";
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 
-import { type ExpiryThemeColor, getExpiryInfo } from '../expiry';
-import type { LocalInventoryItem } from '../use-inventory-items';
+import {
+  formatExpiryDate,
+  formatExpiryStatus,
+  getExpiryInfo,
+  type ExpiryThemeColor,
+} from "../expiry";
+import type { LocalInventoryItem } from "../use-inventory-items";
 
 type InventoryItemActionsSheetProps = {
   visible: boolean;
@@ -34,20 +49,6 @@ type InventoryItemActionsSheetProps = {
   onExpiryChange: (expiryDate: string) => void;
   backgroundGradient?: GradientSpec;
 };
-
-function formatExpiryDate(value: string | null): string {
-  if (!value) return 'ohne MHD';
-  const date = new Date(`${value}T00:00:00`);
-  if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
-}
-
-function formatExpiryStatus(item: LocalInventoryItem): string {
-  const expiry = getExpiryInfo(item.expiry_date, new Date());
-  if (expiry.daysLeft === null) return 'ohne MHD';
-  if (expiry.daysLeft < 0) return expiry.label;
-  return expiry.daysLeft === 0 ? 'heute' : expiry.label;
-}
 
 export function InventoryItemActionsSheet({
   visible,
@@ -64,14 +65,20 @@ export function InventoryItemActionsSheet({
 }: InventoryItemActionsSheetProps) {
   const { colors } = useTheme();
   const sheetStyle = useSheetShadowStyle();
+  const lastItemRef = useRef<LocalInventoryItem | null>(null);
+  if (item) {
+    lastItemRef.current = item;
+  }
+  const displayItem = item ?? lastItemRef.current;
+  const isVisible = visible && Boolean(item);
 
-  if (!item) return null;
+  if (!displayItem) return null;
 
-  if (Platform.OS === 'ios') {
+  if (Platform.OS === "ios") {
     return (
       <IosInventoryItemActionsView
-        visible={visible}
-        item={item}
+        visible={isVisible}
+        item={displayItem}
         onClose={onClose}
         onQuantityChange={onQuantityChange}
         onEdit={onEdit}
@@ -84,12 +91,20 @@ export function InventoryItemActionsSheet({
     );
   }
 
-  const expiry = getExpiryInfo(item.expiry_date, new Date());
-  const amount = formatAmount(item.quantity, item.unit);
-  const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
+  const expiry = getExpiryInfo(displayItem.expiry_date, new Date());
+  const amount = formatAmount(displayItem.quantity, displayItem.unit);
+  const packageHint = formatPackageHint(
+    displayItem.package_size,
+    displayItem.package_size_unit,
+  );
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal
+      visible={isVisible}
+      transparent
+      animationType="slide"
+      onRequestClose={onClose}
+    >
       <View style={StyleSheet.absoluteFill}>
         <Pressable
           className="fridge-actions-backdrop"
@@ -104,16 +119,33 @@ export function InventoryItemActionsSheet({
             {/* Farbe pro Item dynamisch (Ablaufstatus). */}
             <View
               className="fridge-actions-expiry-bar"
-              style={{ backgroundColor: expiryColor(expiry.themeColor, colors, !!item.opened_at) }}
+              style={{
+                backgroundColor: expiryColor(
+                  expiry.themeColor,
+                  colors,
+                  !!displayItem.opened_at,
+                ),
+              }}
             />
             <View className="fridge-actions-item-copy">
-              <Txt variant="title">{item.name}</Txt>
-              <Txt variant="body" color={expiryColor(expiry.themeColor, colors, !!item.opened_at)}>
+              <Txt variant="title">{displayItem.name}</Txt>
+              <Txt
+                variant="body"
+                color={expiryColor(
+                  expiry.themeColor,
+                  colors,
+                  !!displayItem.opened_at,
+                )}
+              >
                 {expiry.label}
               </Txt>
             </View>
             {/* fontVariant hat keine Tailwind-Entsprechung. */}
-            <Txt variant="body" weight="700" style={{ fontVariant: ['tabular-nums'] }}>
+            <Txt
+              variant="body"
+              weight="700"
+              style={{ fontVariant: ["tabular-nums"] }}
+            >
               {amount}
             </Txt>
           </View>
@@ -121,7 +153,7 @@ export function InventoryItemActionsSheet({
           <View className="fridge-actions-quantity-row">
             <View className="fridge-actions-quantity-copy">
               <QuantityStepper
-                value={item.quantity}
+                value={displayItem.quantity}
                 onChange={onQuantityChange}
                 label="Aktuelle Menge"
                 size="large"
@@ -133,20 +165,33 @@ export function InventoryItemActionsSheet({
           </View>
 
           <View className="fridge-actions-row">
-            <SheetAction label="Bearbeiten" onPress={onEdit} variant="neutral" />
-            {!item.opened_at ? (
+            <SheetAction
+              label="Bearbeiten"
+              onPress={onEdit}
+              variant="neutral"
+            />
+            {!displayItem.opened_at ? (
               <SheetAction label="Öffnen" onPress={onOpen} variant="primary" />
             ) : null}
-            <SheetAction label="Verbraucht" onPress={onConsume} variant="success" />
+            <SheetAction
+              label="Verbraucht"
+              onPress={onConsume}
+              variant="success"
+            />
             <SheetAction label="Wegwerfen" onPress={onWaste} variant="danger" />
             {onRemove ? (
-              <SheetAction label="Entfernen" onPress={onRemove} variant="danger" fullWidth />
+              <SheetAction
+                label="Entfernen"
+                onPress={onRemove}
+                variant="danger"
+                fullWidth
+              />
             ) : null}
           </View>
 
           <DateWheelField
             label="Mindesthaltbarkeitsdatum"
-            value={item.expiry_date ?? ''}
+            value={displayItem.expiry_date ?? ""}
             onChange={onExpiryChange}
           />
         </View>
@@ -166,30 +211,41 @@ function IosInventoryItemActionsView({
   onWaste,
   onExpiryChange,
   backgroundGradient,
-}: Omit<InventoryItemActionsSheetProps, 'onRemove'>) {
+}: Omit<InventoryItemActionsSheetProps, "onRemove">) {
   const { colors } = useTheme();
   const styles = useThemedActionStyles();
+  const insets = useSafeAreaInsets();
   const expiry = getExpiryInfo(item?.expiry_date ?? null, new Date());
-  const amount = item ? formatAmount(item.quantity, item.unit) : '';
-  const packageHint = item ? formatPackageHint(item.package_size, item.package_size_unit) : null;
+  const amount = item ? formatAmount(item.quantity, item.unit) : "";
+  const packageHint = item
+    ? formatPackageHint(item.package_size, item.package_size_unit)
+    : null;
 
   if (!item) return null;
 
   return (
     <Modal
       visible={visible}
-      animationType="fade"
+      animationType="slide"
       presentationStyle="fullScreen"
-      onRequestClose={onClose}>
+      onRequestClose={onClose}
+    >
       <View style={styles.root}>
-        {backgroundGradient ? <GradientBackground {...backgroundGradient} /> : null}
+        {backgroundGradient ? (
+          <GradientBackground {...backgroundGradient} />
+        ) : null}
         <SafeAreaView
           accessibilityViewIsModal
-          style={styles.safeArea}
-          edges={['top', 'bottom', 'left', 'right']}>
+          style={[styles.safeArea, { paddingTop: insets.top }]}
+          edges={["bottom", "left", "right"]}
+        >
           <View style={styles.header}>
             <View style={styles.headerSide}>
-              <BackButton label={item.name} variant="header" onPress={onClose} />
+              <BackButton
+                label={item.name}
+                variant="header"
+                onPress={onClose}
+              />
             </View>
             <Txt variant="heading" center>
               Los-Aktionen
@@ -199,10 +255,14 @@ function IosInventoryItemActionsView({
                 icon="x"
                 onPress={onClose}
                 accessibilityLabel="Artikelaktionen schließen"
-                bg={colors.backgroundSoft}
+                bg={colors.tomato}
                 size={45}
                 iconSize={24}
-                style={{ borderRadius: radius.lg, shadowOpacity: 0, elevation: 0 }}
+                style={{
+                  borderRadius: radius.lg,
+                  shadowOpacity: 0,
+                  elevation: 0,
+                }}
               />
             </View>
           </View>
@@ -211,12 +271,17 @@ function IosInventoryItemActionsView({
             style={styles.scroll}
             contentContainerStyle={styles.content}
             showsVerticalScrollIndicator={false}
-            keyboardShouldPersistTaps="handled">
+            keyboardShouldPersistTaps="handled"
+          >
             <View style={styles.detailLead}>
               <Txt variant="title">{item.name}</Txt>
-              <Txt variant="label" tone="secondary" style={styles.detailSubtitle}>
-                {amount} · {item.opened_at ? 'geöffnet' : 'versiegelt'} ·{' '}
-                {item.location_name ?? 'Kein Lagerort'}
+              <Txt
+                variant="label"
+                tone="secondary"
+                style={styles.detailSubtitle}
+              >
+                {amount} · {item.opened_at ? "geöffnet" : "versiegelt"} ·{" "}
+                {item.location_name ?? "Kein Lagerort"}
               </Txt>
             </View>
 
@@ -224,7 +289,13 @@ function IosInventoryItemActionsView({
               <View
                 style={[
                   styles.heroStatus,
-                  { backgroundColor: expiryColor(expiry.themeColor, colors, !!item.opened_at) },
+                  {
+                    backgroundColor: expiryColor(
+                      expiry.themeColor,
+                      colors,
+                      !!item.opened_at,
+                    ),
+                  },
                 ]}
               />
               <View style={styles.heroCopy}>
@@ -232,7 +303,8 @@ function IosInventoryItemActionsView({
                   MHD {formatExpiryDate(item.expiry_date)}
                 </Txt>
                 <Txt variant="caption" tone="secondary" style={styles.heroHint}>
-                  {formatExpiryStatus(item)} · {item.location_name ?? 'Kein Lagerort'}
+                  {formatExpiryStatus(item)} ·{" "}
+                  {item.location_name ?? "Kein Lagerort"}
                 </Txt>
               </View>
               <Txt variant="body" weight="800" style={styles.heroAmount}>
@@ -295,7 +367,7 @@ function IosInventoryItemActionsView({
 
             <DateWheelField
               label="Mindesthaltbarkeitsdatum"
-              value={item.expiry_date ?? ''}
+              value={item.expiry_date ?? ""}
               onChange={onExpiryChange}
             />
           </ScrollView>
@@ -309,21 +381,21 @@ function IosActionTile({
   icon,
   label,
   hint,
-  variant = 'neutral',
+  variant = "neutral",
   onPress,
   styles,
 }: {
-  icon: ComponentProps<typeof Feather>['name'];
+  icon: ComponentProps<typeof Feather>["name"];
   label: string;
   hint: string;
-  variant?: 'neutral' | 'primary' | 'success' | 'danger';
+  variant?: "neutral" | "primary" | "success" | "danger";
   onPress: () => void;
   styles: ReturnType<typeof useThemedActionStyles>;
 }) {
   const { colors } = useTheme();
-  const isPrimary = variant === 'primary';
-  const isDanger = variant === 'danger';
-  const isSuccess = variant === 'success';
+  const isPrimary = variant === "primary";
+  const isDanger = variant === "danger";
+  const isSuccess = variant === "success";
   const isFilled = isPrimary || isDanger;
   const foreground = isFilled ? colors.onAccent : colors.text;
   const depth = isDanger ? colors.buttonDangerDepth : colors.buttonPrimaryDepth;
@@ -334,26 +406,31 @@ function IosActionTile({
       : isDanger
         ? styles.tileDanger
         : undefined;
-  const hintColor = isFilled ? withAlpha(colors.onAccent, 0.76) : colors.textSecondary;
+  const hintColor = isFilled
+    ? withAlpha(colors.onAccent, 0.76)
+    : colors.textSecondary;
 
   return (
     <View
       style={[
         styles.tileDepth,
         !isFilled && styles.tileDepthFlat,
-        { backgroundColor: isFilled ? depth : 'transparent' },
-      ]}>
+        { backgroundColor: isFilled ? depth : "transparent" },
+      ]}
+    >
       <Press
         onPress={onPress}
         accessibilityRole="button"
         accessibilityLabel={label}
         style={[styles.tile, tileVariantStyle]}
-        containerStyle={styles.tileContainer}>
+        containerStyle={styles.tileContainer}
+      >
         <View
           style={[
             styles.tileIcon,
             { backgroundColor: withAlpha(foreground, isFilled ? 0.18 : 0.14) },
-          ]}>
+          ]}
+        >
           <Feather name={icon} size={18} color={foreground} />
         </View>
         <Txt variant="label" color={foreground} weight="800">
@@ -376,14 +453,18 @@ function useThemedActionStyles() {
       minHeight: 64,
       paddingHorizontal: space.lg,
       paddingVertical: space.sm,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
     },
-    headerSide: { flex: 1, minWidth: 42, alignItems: 'flex-start' },
-    headerRight: { alignItems: 'flex-end' },
+    headerSide: { flex: 1, minWidth: 42, alignItems: "flex-start" },
+    headerRight: { alignItems: "flex-end" },
     scroll: { flex: 1 },
-    content: { paddingHorizontal: space.lg, paddingBottom: space.xxxl, gap: space.lg },
+    content: {
+      paddingHorizontal: space.lg,
+      paddingBottom: space.xxxl,
+      gap: space.lg,
+    },
     detailLead: {
       paddingBottom: space.lg,
       borderBottomWidth: StyleSheet.hairlineWidth,
@@ -392,30 +473,35 @@ function useThemedActionStyles() {
     detailSubtitle: { marginTop: space.xs },
     lotHero: {
       minHeight: 78,
-      flexDirection: 'row',
-      alignItems: 'center',
+      flexDirection: "row",
+      alignItems: "center",
       padding: space.md,
       borderRadius: radius.lg,
     },
-    heroStatus: { width: 5, height: 54, marginRight: space.md, borderRadius: 3 },
+    heroStatus: {
+      width: 5,
+      height: 54,
+      marginRight: space.md,
+      borderRadius: 3,
+    },
     heroCopy: { flex: 1, minWidth: 0 },
     heroHint: { marginTop: space.xs },
-    heroAmount: { marginLeft: space.sm, fontVariant: ['tabular-nums'] },
+    heroAmount: { marginLeft: space.sm, fontVariant: ["tabular-nums"] },
     quantityRow: {
       minHeight: 64,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
       gap: space.md,
       paddingBottom: space.lg,
       borderBottomWidth: StyleSheet.hairlineWidth,
       borderBottomColor: colors.border,
     },
     quantityCopy: { flex: 1, minWidth: 0, gap: space.xs },
-    actionGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: space.md },
+    actionGrid: { flexDirection: "row", flexWrap: "wrap", gap: space.md },
     tileContainer: { flex: 1 },
     tileDepth: {
-      width: '47.5%',
+      width: "47.5%",
       minHeight: 108 + BUTTON_DEPTH,
       minWidth: 140,
       borderRadius: radius.lg,
@@ -424,8 +510,8 @@ function useThemedActionStyles() {
     tileDepthFlat: { minHeight: 108, paddingBottom: 0 },
     tile: {
       minHeight: 108,
-      justifyContent: 'center',
-      alignItems: 'flex-start',
+      justifyContent: "center",
+      alignItems: "flex-start",
       gap: space.xs,
       padding: space.md,
       borderWidth: 1,
@@ -445,8 +531,8 @@ function useThemedActionStyles() {
     tileIcon: {
       width: 30,
       height: 30,
-      alignItems: 'center',
-      justifyContent: 'center',
+      alignItems: "center",
+      justifyContent: "center",
       borderRadius: radius.sm,
       marginBottom: space.xs,
     },
@@ -454,17 +540,17 @@ function useThemedActionStyles() {
 }
 
 const ACTION_VARIANT_CLASSES = {
-  neutral: 'fridge-action-btn-neutral',
-  primary: 'bg-accent',
-  success: 'fridge-action-btn-success border border-success',
-  danger: 'fridge-action-btn-danger',
+  neutral: "fridge-action-btn-neutral",
+  primary: "bg-accent",
+  success: "fridge-action-btn-success border border-success",
+  danger: "fridge-action-btn-danger",
 } as const;
 
 const ACTION_VARIANT_TEXT_COLOR = {
-  neutral: 'primary',
-  primary: 'onAccent',
-  success: 'success',
-  danger: 'danger',
+  neutral: "primary",
+  primary: "onAccent",
+  success: "success",
+  danger: "danger",
 } as const;
 
 function SheetAction({
@@ -483,8 +569,13 @@ function SheetAction({
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={label}
-      className={`fridge-action-btn ${fullWidth ? 'fridge-action-btn-full' : ''} ${ACTION_VARIANT_CLASSES[variant]}`}>
-      <Txt variant="body" tone={ACTION_VARIANT_TEXT_COLOR[variant]} weight="700">
+      className={`fridge-action-btn ${fullWidth ? "fridge-action-btn-full" : ""} ${ACTION_VARIANT_CLASSES[variant]}`}
+    >
+      <Txt
+        variant="body"
+        tone={ACTION_VARIANT_TEXT_COLOR[variant]}
+        weight="700"
+      >
         {label}
       </Txt>
     </Pressable>
@@ -493,11 +584,11 @@ function SheetAction({
 
 function expiryColor(
   themeColor: ExpiryThemeColor,
-  colors: ReturnType<typeof useTheme>['colors'],
+  colors: ReturnType<typeof useTheme>["colors"],
   opened: boolean,
 ): string {
-  if (themeColor === 'danger') return colors.tomato;
-  if (themeColor === 'warning') return colors.carrot;
+  if (themeColor === "danger") return colors.tomato;
+  if (themeColor === "warning") return colors.carrot;
   if (opened) return colors.carrot;
   return colors.textMuted;
 }

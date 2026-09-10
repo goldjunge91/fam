@@ -22,11 +22,14 @@ export function PostHogIdentitySync() {
     if (!client) return;
 
     if (userId) {
-      client.identify(userId);
+      client.identify(userId, {
+        ...(session?.user.email ? { email: session.user.email } : {}),
+        userId,
+      });
     } else {
       client.reset();
     }
-  }, [isLoading, posthogEnabled, userId]);
+  }, [isLoading, posthogEnabled, userId, session?.user.email]);
 
   useEffect(() => {
     // Feature-Flags beim Vordergrundwechsel aktualisieren.

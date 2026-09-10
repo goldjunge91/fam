@@ -1,6 +1,8 @@
-import { Pressable } from 'react-native';
-import { MenuIcon } from '@/components/icons/fam-icon';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { Pressable, StyleSheet } from "react-native";
+
+import { radius, withAlpha } from "@/components/theme/index";
+import { useTheme } from "@/components/theme/ThemeProvider";
+import { IconButton } from "@/constants/ui";
 
 type MenuButtonProps = {
   onPress: () => void;
@@ -11,13 +13,21 @@ export function MenuButton({ onPress }: MenuButtonProps) {
   const { colors } = useTheme();
 
   return (
-    <Pressable
+    <IconButton
+      icon="menu"
       onPress={onPress}
-      accessibilityRole="button"
       accessibilityLabel="Menü öffnen"
-      className="btn-menu"
-      style={{ backgroundColor: colors.backgroundSoft }}>
-      <MenuIcon color={colors.text} />
-    </Pressable>
+      color={colors.premiumActionText}
+      bg={withAlpha(colors.backgroundElement, 1)}
+      size={54}
+      iconSize={20}
+      style={styles.button}
+    />
   );
 }
+
+const styles = StyleSheet.create({
+  button: {
+    borderRadius: radius.lg,
+  },
+});

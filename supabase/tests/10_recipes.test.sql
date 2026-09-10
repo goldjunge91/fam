@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(16);
+select plan(20);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -30,6 +30,31 @@ insert into public.recipes (household_id, title, instructions, created_by)
 values (:'hid', 'Spaghetti Bolognese', 'Kochen.', '11111111-1111-1111-1111-111111111111')
 returning id as recipe_id \gset
 
+update public.recipes
+set prep_time_minutes = 10,
+    storage_instructions = 'Kuehlen.',
+    dorm_friendly = true,
+    cheap_tips = array['Resteverwertung']
+where id = :'recipe_id';
+
+select is(
+  (select prep_time_minutes from public.recipes where id = :'recipe_id'),
+  10,
+  'ein Rezept speichert die Vorbereitungszeit'
+);
+
+select is(
+  (select storage_instructions from public.recipes where id = :'recipe_id'),
+  'Kuehlen.',
+  'ein Rezept speichert Lagerhinweise'
+);
+
+select is(
+  (select dorm_friendly from public.recipes where id = :'recipe_id'),
+  true,
+  'ein Rezept speichert optionale Zielgruppen-Metadaten'
+);
+
 insert into public.recipe_components (recipe_id, household_id, name, serving_grams)
 values (:'recipe_id', :'hid', 'Soße', 200)
 returning id as sauce_id \gset
@@ -50,6 +75,22 @@ select is(
 insert into public.recipe_component_items (component_id, recipe_id, household_id, product_id, grams)
 values (:'sauce_id', :'recipe_id', :'hid', :'tomaten_id', 50)
 returning id as tomaten_item_id \gset
+
+update public.recipe_component_items
+set optional = true, note = 'nach Geschmack'
+where id = :'tomaten_item_id';
+
+select is(
+  (select optional from public.recipe_component_items where id = :'tomaten_item_id'),
+  true,
+  'eine Rezeptzutat kann als optional markiert werden'
+);
+
+select is(
+  (select note from public.recipe_component_items where id = :'tomaten_item_id'),
+  'nach Geschmack',
+  'eine Rezeptzutat kann eine Notiz speichern'
+);
 
 insert into public.recipe_component_items (component_id, recipe_id, household_id, product_id, grams)
 values (:'sauce_id', :'recipe_id', :'hid', :'hack_id', 300);

@@ -12,7 +12,11 @@ import { initMobileAds, useAdsEnabled, useAdsOverrideStore } from '@/features/ad
 import { useSession } from '@/features/auth/session-provider';
 import { VISION_CAMERA_LAB_ENABLED } from '@/features/experimentalscreens/vision-camera-lab';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { useForcePremiumOverrideStore } from '@/features/premium/force-premium-override';
+import { devResetHouseholdPremium } from '@/features/premium/dev-reset-premium';
+import {
+  useForceAiOverrideStore,
+  useForcePremiumOverrideStore,
+} from '@/features/premium/force-premium-override';
 import { usePremium } from '@/features/premium/premium-provider';
 import { type AnalyticsToggle, analyticsToggles } from '@/features/settings/dev/analytics-controls';
 import {
@@ -102,10 +106,13 @@ export function DevToolsScreen() {
   const { session } = useSession();
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
-  const { hasPlus, isForced } = usePremium();
+  const { hasPlus, hasAI, isForced, isAiForced, refresh: refreshPremium } = usePremium();
   const forcePremiumOverride = useForcePremiumOverrideStore((state) => state.override);
   const setForcePremiumOverride = useForcePremiumOverrideStore((state) => state.setOverride);
   const premiumOverrideEnabled = forcePremiumOverride ?? env.forcePremium;
+  const forceAiOverride = useForceAiOverrideStore((state) => state.override);
+  const setForceAiOverride = useForceAiOverrideStore((state) => state.setOverride);
+  const aiOverrideEnabled = forceAiOverride ?? false;
   const adsEnabled = useAdsEnabled();
   const adsOverride = useAdsOverrideStore((state) => state.override);
   const setAdsOverride = useAdsOverrideStore((state) => state.setOverride);
@@ -219,6 +226,22 @@ export function DevToolsScreen() {
     );
   }
 
+  async function handleResetPremium() {
+    if (!activeHousehold?.id) {
+      Alert.alert('Kein aktiver Haushalt', 'Es wurde kein aktiver Haushalt gefunden.');
+      return;
+    }
+    await mitBusy('Plus & KI zurücksetzen', async () => {
+      await devResetHouseholdPremium({
+        householdId: activeHousehold.id,
+        userId: session?.user?.id,
+        queryClient,
+      });
+      await refreshPremium();
+      Alert.alert('Erfolgreich', 'Plus und KI wurden für diesen Haushalt zurückgesetzt.');
+    });
+  }
+
   return (
     <Screen
       title="Entwickler"
@@ -236,28 +259,60 @@ export function DevToolsScreen() {
         />
         <Zeile label="Onboarding erzwungen" wert={env.forceOnboarding ? 'ja' : 'nein'} />
         <Zeile
-          label="Premium"
-          wert={hasPlus ? (isForced ? 'ja (erzwungen)' : 'ja') : 'nein'}
-          tone={isForced ? 'warning' : undefined}
+          label="Plus"
+          wert={hasPlus ? (isForced ? 'aktiv (erzwungen)' : 'aktiv') : 'inaktiv'}
+          tone={isForced ? 'warning' : hasPlus ? 'accent' : undefined}
+        />
+        <Zeile
+          label="KI"
+          wert={hasAI ? (isAiForced ? 'aktiv (erzwungen)' : 'aktiv') : 'inaktiv'}
+          tone={isAiForced ? 'warning' : hasAI ? 'accent' : undefined}
+        />
+        <Button
+          title="Plus & KI für Haushalt zurücksetzen"
+          variant="secondary"
+          loading={busy === 'Plus & KI zurücksetzen'}
+          accessibilityLabel="Plus und KI für aktuellen Haushalt zurücksetzen"
+          onPress={handleResetPremium}
         />
         <View className="dev-zeile">
           <Txt variant="caption" tone="secondary">
-            Premium erzwingen (Override, überlebt Neustart)
+            Plus erzwingen (Override, überlebt Neustart)
           </Txt>
         </View>
         <Button
-          title={`Premium erzwingen: ${premiumOverrideEnabled ? 'AN' : 'AUS'}`}
+          title={`Plus erzwingen: ${premiumOverrideEnabled ? 'AN' : 'AUS'}`}
           variant={premiumOverrideEnabled ? 'primary' : 'secondary'}
           accessibilityLabel={
-            premiumOverrideEnabled ? 'Premium-Override ausschalten' : 'Premium-Override einschalten'
+            premiumOverrideEnabled ? 'Plus-Override ausschalten' : 'Plus-Override einschalten'
           }
           onPress={() => setForcePremiumOverride(!premiumOverrideEnabled)}
         />
         {forcePremiumOverride !== null ? (
           <Button
-            title={`Override zurücksetzen (Build-Wert: ${env.forcePremium ? 'an' : 'aus'})`}
+            title={`Plus-Override zurücksetzen (Build-Wert: ${env.forcePremium ? 'an' : 'aus'})`}
             variant="secondary"
             onPress={() => setForcePremiumOverride(null)}
+          />
+        ) : null}
+        <View className="dev-zeile">
+          <Txt variant="caption" tone="secondary">
+            KI erzwingen (Override, überlebt Neustart)
+          </Txt>
+        </View>
+        <Button
+          title={`KI erzwingen: ${aiOverrideEnabled ? 'AN' : 'AUS'}`}
+          variant={aiOverrideEnabled ? 'primary' : 'secondary'}
+          accessibilityLabel={
+            aiOverrideEnabled ? 'KI-Override ausschalten' : 'KI-Override einschalten'
+          }
+          onPress={() => setForceAiOverride(!aiOverrideEnabled)}
+        />
+        {forceAiOverride !== null ? (
+          <Button
+            title="KI-Override zurücksetzen"
+            variant="secondary"
+            onPress={() => setForceAiOverride(null)}
           />
         ) : null}
         <Zeile

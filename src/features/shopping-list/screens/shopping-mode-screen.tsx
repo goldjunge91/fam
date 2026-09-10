@@ -6,6 +6,7 @@ import {
   SafeAreaView,
 } from 'react-native-safe-area-context';
 import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
+import { HeaderIconButton } from '@/components/ui/buttons';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format-currency';
@@ -123,14 +124,9 @@ export function ShoppingModeScreen({
                 {store.name}
               </Txt>
             </View>
-            <Pressable
-              onPress={onClose}
-              accessibilityRole="button"
-              accessibilityLabel="Einkaufsmodus schließen"
-              hitSlop={8}
-              className="btn-header-icon">
+            <HeaderIconButton onPress={onClose} hitSlop={8} label="Einkaufsmodus schließen">
               <Txt>✕</Txt>
-            </Pressable>
+            </HeaderIconButton>
           </View>
 
           <View className="px-three pb-three gap-[6px]">

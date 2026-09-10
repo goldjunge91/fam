@@ -51,6 +51,10 @@ jest.mock('@/lib/purchases', () => ({
   setPurchasesEmail: jest.fn().mockResolvedValue(undefined),
 }));
 
+jest.mock('@/lib/sync/household-bootstrap-sync', () => ({
+  triggerHouseholdsPull: jest.fn().mockResolvedValue(null),
+}));
+
 describe('PremiumProvider', () => {
   function wrapper({ children }: { children: React.ReactNode }) {
     return <PremiumProvider>{children}</PremiumProvider>;
@@ -350,6 +354,29 @@ describe('PremiumProvider', () => {
       expect(result.current.customerInfo).toBe(refreshedUserTwoInfo);
     });
     expect(result.current.customerInfo).not.toBe(staleInfo);
+  });
+
+  it('stößt beim refresh() auch einen Haushaltsabgleich via triggerHouseholdsPull an', async () => {
+    const { triggerHouseholdsPull } = require('@/lib/sync/household-bootstrap-sync');
+    (isPurchasesConfigured as jest.Mock).mockReturnValue(true);
+    mockSession = { user: { id: 'user-1' } };
+
+    const { result } = await renderHook(() => usePremium(), { wrapper });
+
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+    });
+
+    (Purchases.getCustomerInfo as jest.Mock).mockResolvedValueOnce({
+      entitlements: { active: {} },
+    });
+    (Purchases.getAppUserID as jest.Mock).mockResolvedValue('user-1');
+
+    await act(async () => {
+      await result.current.refresh();
+    });
+
+    expect(triggerHouseholdsPull).toHaveBeenCalledWith('user-1', expect.anything());
   });
 
   it('entfernt den CustomerInfo-Listener beim Unmount', async () => {

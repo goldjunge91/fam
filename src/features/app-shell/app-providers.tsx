@@ -10,12 +10,12 @@ import { AnimatedSplashOverlay } from '@/components/icons/animated-icon';
 import { ThemeProvider as FamThemeProvider, useTheme } from '@/components/theme/ThemeProvider';
 import { SnackbarProvider } from '@/components/ui/snackbar';
 import { PostHogIdentitySync } from '@/features/app-shell/posthog-identity-sync';
-import { SessionProvider } from '@/features/auth/session-provider';
+import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { ActiveHouseholdProvider } from '@/features/household/active-household-provider';
 import { PremiumProvider } from '@/features/premium/premium-provider';
 import { ScreenTracker } from '@/lib/analytics';
-import { env } from '@/lib/env';
-import { PostHogAppProvider } from '@/lib/posthog';
+import { isBugBubbleEnabledForUser, setBugBubbleActive } from '@/lib/analytics/bug-bubble';
+import { PostHogAppProvider, useFeatureFlag } from '@/lib/posthog';
 import { queryClient, removeLegacyPersistedQueryCache } from '@/lib/query-client';
 import { loadShotsFlag } from '@/lib/screenshots';
 import { Sentry } from '@/lib/sentry';
@@ -92,6 +92,22 @@ function ThemeRuntime({
   screenshotMode: boolean;
 }) {
   const { mode } = useTheme();
+  const { session } = useSession();
+  const bugBubbleFlagKebab = useFeatureFlag('bug-bubble', false);
+  const bugBubbleFlagPlain = useFeatureFlag('bugbubble', false);
+  const bugBubbleFlag = bugBubbleFlagKebab || bugBubbleFlagPlain;
+
+  const isBugBubbleAllowed = isBugBubbleEnabledForUser({
+    userId: session?.user.id,
+    email: session?.user.email,
+    flagEnabled: bugBubbleFlag,
+  });
+
+  const showBugBubble = !screenshotMode && isBugBubbleAllowed;
+
+  useEffect(() => {
+    setBugBubbleActive(showBugBubble);
+  }, [showBugBubble]);
 
   return (
     <RouterThemeProvider value={mode === 'dark' ? DarkTheme : DefaultTheme}>
@@ -99,7 +115,7 @@ function ThemeRuntime({
         <AnimatedSplashOverlay />
         {children}
         <CelebrationHost />
-        {env.devTools && !screenshotMode ? <BugBubble config={BUG_BUBBLE_CONFIG} /> : null}
+        {showBugBubble ? <BugBubble config={BUG_BUBBLE_CONFIG} /> : null}
       </SnackbarProvider>
     </RouterThemeProvider>
   );

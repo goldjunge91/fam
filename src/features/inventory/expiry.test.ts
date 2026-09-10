@@ -1,4 +1,9 @@
-import { compareByExpiry, getExpiryInfo } from '@/features/inventory/expiry';
+import {
+  compareByExpiry,
+  formatExpiryDate,
+  formatExpiryStatus,
+  getExpiryInfo,
+} from '@/features/inventory/expiry';
 
 // Fester Bezugstag, damit die Tests unabhaengig vom Ausfuehrungszeitpunkt sind.
 const HEUTE = new Date(2026, 7, 5, 14, 30); // 5. August 2026, 14:30
@@ -80,5 +85,38 @@ describe('compareByExpiry', () => {
     const a = getExpiryInfo(am(2026, 8, 8), HEUTE);
     const b = getExpiryInfo(am(2026, 8, 6), HEUTE);
     expect([a, b].sort(compareByExpiry).map((i) => i.daysLeft)).toEqual([1, 3]);
+  });
+});
+
+describe('formatExpiryDate', () => {
+  it('formatiert ein gueltiges ISO-Datum auf deutsches Format', () => {
+    expect(formatExpiryDate('2026-08-05')).toBe('05.08.2026');
+  });
+
+  it('liefert ohne MHD bei null, undefined oder leer', () => {
+    expect(formatExpiryDate(null)).toBe('ohne MHD');
+    expect(formatExpiryDate(undefined)).toBe('ohne MHD');
+    expect(formatExpiryDate('')).toBe('ohne MHD');
+  });
+
+  it('gibt ungueltige Werte unveraendert zurueck', () => {
+    expect(formatExpiryDate('ungueltig')).toBe('ungueltig');
+  });
+});
+
+describe('formatExpiryStatus', () => {
+  it('liefert heute fuer am selben Tag ablaufende Artikel', () => {
+    expect(formatExpiryStatus('2026-08-05', HEUTE)).toBe('heute');
+    expect(formatExpiryStatus({ expiry_date: '2026-08-05' }, HEUTE)).toBe('heute');
+  });
+
+  it('liefert ohne MHD wenn kein Datum hinterlegt ist', () => {
+    expect(formatExpiryStatus(null, HEUTE)).toBe('ohne MHD');
+    expect(formatExpiryStatus({ expiry_date: null }, HEUTE)).toBe('ohne MHD');
+  });
+
+  it('liefert das passende Label fuer abgelaufene und zukunftige Daten', () => {
+    expect(formatExpiryStatus('2026-08-04', HEUTE)).toBe('seit gestern abgelaufen');
+    expect(formatExpiryStatus('2026-08-08', HEUTE)).toBe('noch 3 Tage');
   });
 });

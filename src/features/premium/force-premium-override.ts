@@ -3,6 +3,7 @@ import { create } from 'zustand';
 import { getDeviceStorage } from '@/lib/storage/device-storage';
 
 const STORAGE_KEY = 'dev.force_premium_override';
+const STORAGE_KEY_AI = 'dev.force_ai_override';
 
 /**
  * Laufzeit-Override für Premium in bereits kompilierten Builds (z. B. TestFlight), in
@@ -12,6 +13,17 @@ const STORAGE_KEY = 'dev.force_premium_override';
 function readStoredOverride(): boolean | null {
   try {
     const raw = getDeviceStorage().getString(STORAGE_KEY);
+    if (raw === 'true') return true;
+    if (raw === 'false') return false;
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+function readStoredAiOverride(): boolean | null {
+  try {
+    const raw = getDeviceStorage().getString(STORAGE_KEY_AI);
     if (raw === 'true') return true;
     if (raw === 'false') return false;
     return null;
@@ -37,6 +49,23 @@ export const useForcePremiumOverrideStore = create<ForcePremiumOverrideStore>((s
       }
     } catch (err) {
       console.warn('[Premium] Override konnte nicht gespeichert werden:', err);
+    }
+    set({ override: value });
+  },
+}));
+
+export const useForceAiOverrideStore = create<ForcePremiumOverrideStore>((set) => ({
+  override: readStoredAiOverride(),
+  setOverride: (value) => {
+    try {
+      const storage = getDeviceStorage();
+      if (value === null) {
+        storage.remove(STORAGE_KEY_AI);
+      } else {
+        storage.set(STORAGE_KEY_AI, String(value));
+      }
+    } catch (err) {
+      console.warn('[AI] Override konnte nicht gespeichert werden:', err);
     }
     set({ override: value });
   },

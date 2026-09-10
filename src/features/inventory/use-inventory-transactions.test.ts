@@ -69,6 +69,10 @@ describe('inventory transaction presentation helpers', () => {
       'Schlecht geworden',
     );
     expect(transactionReasonLabel('expired')).toBe('Abgelaufen');
+    expect(transactionLabel(transaction({ type: 'open' }))).toBe('Geöffnet');
+    expect(transactionLabel(transaction({ type: 'open', item_name: 'Paprika' }))).toBe(
+      'Paprika geöffnet',
+    );
   });
 
   it.each(['in', 'out', 'waste', 'open'] as const)(
@@ -121,6 +125,7 @@ describe('inventory transaction presentation helpers', () => {
     );
     expect(transactionUndoLabel(quantityOut)).toBe('Verbrauch rückgängig machen');
     expect(transactionUndoLabel(quantityIn)).toBe('Einkauf rückgängig machen');
+    expect(transactionUndoLabel(transaction({ type: 'open' }))).toBe('Öffnen rückgängig machen');
   });
 
   it('blendet abgelaufene, zukünftige und bereits reversal-verknüpfte Buchungen aus', () => {

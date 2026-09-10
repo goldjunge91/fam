@@ -27,6 +27,8 @@ let mockFeatureFlags: Record<FeatureFlagKey, boolean> = {
   'tracking-method-cgm': false,
   'tracking-method-volumetrics': false,
   'experimental-vision-camera': false,
+  'bug-bubble': false,
+  bugbubble: false,
 };
 
 jest.mock('expo-router', () => ({
@@ -108,6 +110,8 @@ describe('SpeedDialMenu', () => {
       'tracking-method-cgm': false,
       'tracking-method-volumetrics': false,
       'experimental-vision-camera': false,
+      'bug-bubble': false,
+      bugbubble: false,
     };
   });
 

@@ -576,7 +576,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
                 productSearchRef.current?.dismiss();
                 setShowScanner(true);
               }}
-              className="w-12 h-12 rounded-control bg-background-selected">
+              style={{ width: 48, height: 48 }}>
               <FamIcon name="camera" size={space.xxl} color={theme.basil} />
             </HeaderIconButton>
           }

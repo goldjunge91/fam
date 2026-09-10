@@ -77,9 +77,11 @@ describe('useRecipeShoppingNeeds', () => {
 
   it('berechnet Fehlmengen basierend auf dem Vorratsbestand', async () => {
     // 1. fridge items: 20g vorhanden, Integer-Tausendstel (contract.md Abschnitt 3)
-    // 2. products lookup (Kaufhistorie laeuft ueber getFirstAsync, nicht getAllAsync)
+    // 2. shopping list items: 0g
+    // 3. products lookup
     mockDbGetAllAsync
       .mockResolvedValueOnce([{ product_id: 'prod-basilikum', quantity: 20_000, unit: 'g' }])
+      .mockResolvedValueOnce([])
       .mockResolvedValueOnce([{ id: 'prod-basilikum', name: 'Basilikum', serving_size_g: 50 }]);
 
     const { result } = await renderHook(() => useRecipeShoppingNeeds(mockRecipe, 2, true), {
@@ -93,7 +95,41 @@ describe('useRecipeShoppingNeeds', () => {
     const needs: RecipeShoppingNeed[] = result.current.data ?? [];
     expect(needs).toHaveLength(1);
     expect(needs[0]).toEqual(
-      expect.objectContaining({ missingGrams: 80, neededGrams: 100, availableGrams: 20 }),
+      expect.objectContaining({
+        missingGrams: 80,
+        neededGrams: 100,
+        availableGrams: 20,
+        stockGrams: 20,
+        shoppingListGrams: 0,
+      }),
+    );
+  });
+
+  it('verrechnet bereits auf der Einkaufsliste stehende Mengen gegen den Rezeptbedarf (fam-lr0)', async () => {
+    // Bedarf 100g, 20g im Vorrat, 40g auf der Einkaufsliste -> verfügbar 60g, fehlend 40g
+    mockDbGetAllAsync
+      .mockResolvedValueOnce([{ product_id: 'prod-basilikum', quantity: 20_000, unit: 'g' }])
+      .mockResolvedValueOnce([{ product_id: 'prod-basilikum', quantity: 40, unit: 'g' }])
+      .mockResolvedValueOnce([{ id: 'prod-basilikum', name: 'Basilikum', serving_size_g: 50 }]);
+
+    const { result } = await renderHook(() => useRecipeShoppingNeeds(mockRecipe, 2, true), {
+      wrapper,
+    });
+
+    await waitFor(() => {
+      expect(result.current.isSuccess).toBe(true);
+    });
+
+    const needs: RecipeShoppingNeed[] = result.current.data ?? [];
+    expect(needs).toHaveLength(1);
+    expect(needs[0]).toEqual(
+      expect.objectContaining({
+        missingGrams: 40,
+        neededGrams: 100,
+        availableGrams: 60,
+        stockGrams: 20,
+        shoppingListGrams: 40,
+      }),
     );
   });
 
@@ -103,6 +139,8 @@ describe('useRecipeShoppingNeeds', () => {
     mockDbGetAllAsync
       // Integer-Tausendstel (contract.md Abschnitt 3): 100g = 100_000
       .mockResolvedValueOnce([{ product_id: 'prod-basilikum', quantity: 100_000, unit: 'g' }])
+      // Einkaufsliste leer
+      .mockResolvedValueOnce([])
       .mockResolvedValueOnce([{ id: 'prod-basilikum', name: 'Basilikum', serving_size_g: 50 }]);
 
     const { result } = await renderHook(() => useRecipeShoppingNeeds(mockRecipe, 2, true), {
@@ -116,7 +154,13 @@ describe('useRecipeShoppingNeeds', () => {
     const needs: RecipeShoppingNeed[] = result.current.data ?? [];
     expect(needs).toHaveLength(1);
     expect(needs[0]).toEqual(
-      expect.objectContaining({ missingGrams: 0, neededGrams: 100, availableGrams: 100 }),
+      expect.objectContaining({
+        missingGrams: 0,
+        neededGrams: 100,
+        availableGrams: 100,
+        stockGrams: 100,
+        shoppingListGrams: 0,
+      }),
     );
   });
 });

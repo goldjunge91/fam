@@ -87,3 +87,22 @@ export function compareByExpiry(a: ExpiryInfo, b: ExpiryInfo): number {
   if (b.daysLeft === null) return -1;
   return a.daysLeft - b.daysLeft;
 }
+
+export function formatExpiryDate(value: string | null | undefined): string {
+  if (!value) return 'ohne MHD';
+  const date = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+}
+
+export function formatExpiryStatus(
+  itemOrDate: { expiry_date?: string | null } | string | null | undefined,
+  today: Date = new Date(),
+): string {
+  const date =
+    typeof itemOrDate === 'object' && itemOrDate !== null ? itemOrDate.expiry_date : itemOrDate;
+  const expiry = getExpiryInfo(date, today);
+  if (expiry.daysLeft === null) return 'ohne MHD';
+  if (expiry.daysLeft < 0) return expiry.label;
+  return expiry.daysLeft === 0 ? 'heute' : expiry.label;
+}

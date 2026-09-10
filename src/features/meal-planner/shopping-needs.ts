@@ -117,11 +117,16 @@ export type MissingIngredient = {
   neededGrams: number;
   availableGrams: number;
   missingGrams: number;
+  /** Menge im physischen Vorrat, in Gramm. */
+  stockGrams?: number;
+  /** Bereits ungecheckt auf der Einkaufsliste liegende Menge desselben Produkts, in Gramm. */
+  shoppingListGrams?: number;
 };
 
 export function computeMissingIngredients(
   needs: ReadonlyMap<string, number>,
   stock: ReadonlyMap<string, number>,
+  shoppingList?: ReadonlyMap<string, number>,
 ): MissingIngredient[] {
   // Kein Filter auf missingGrams > 0: bereits vollstaendig gedeckte
   // Artikel bleiben im Ergebnis (missingGrams <= 0), damit der Nutzer sie
@@ -130,9 +135,18 @@ export function computeMissingIngredients(
   // Luecke sorgt dafuer, dass echte Fehlbestaende weiterhin oben stehen.
   const missing: MissingIngredient[] = [];
   for (const [productId, neededGrams] of needs) {
-    const availableGrams = stock.get(productId) ?? 0;
+    const stockGrams = stock.get(productId) ?? 0;
+    const shoppingListGrams = shoppingList?.get(productId) ?? 0;
+    const availableGrams = stockGrams + shoppingListGrams;
     const missingGrams = neededGrams - availableGrams;
-    missing.push({ productId, neededGrams, availableGrams, missingGrams });
+    missing.push({
+      productId,
+      neededGrams,
+      availableGrams,
+      missingGrams,
+      stockGrams,
+      shoppingListGrams,
+    });
   }
   return missing.sort((a, b) => b.missingGrams - a.missingGrams);
 }

@@ -87,6 +87,10 @@ export function getPostHogClient(): PostHog | undefined {
   return client;
 }
 
+export function getPostHogDistinctId(): string | undefined {
+  return client?.getDistinctId();
+}
+
 export async function reloadPostHogFeatureFlags(): Promise<FeatureFlagValues> {
   if (!isAnalyticsProviderEnabled('posthog')) {
     throw new Error('PostHog ist in den Analytics-Einstellungen deaktiviert.');
@@ -155,7 +159,9 @@ export type FeatureFlagKey =
   | 'tracking-method-keto'
   | 'tracking-method-cgm'
   | 'tracking-method-volumetrics'
-  | 'experimental-vision-camera';
+  | 'experimental-vision-camera'
+  | 'bug-bubble'
+  | 'bugbubble';
 
 export function useFeatureFlagState(key: FeatureFlagKey | undefined): boolean | undefined {
   const flags = useContext(FeatureFlagContext);

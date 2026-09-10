@@ -186,7 +186,7 @@ function makeTransaction(
     fridge_item_id: 'item-1',
     product_id: null,
     actor: 'user-1',
-    type: 'open',
+    type: 'in',
     quantity: 1,
     location_id: null,
     reason: null,
@@ -481,7 +481,6 @@ it('zeigt für alle erlaubten Transaktionstypen genau eine Undo-Aktion', async (
     makeTransaction({ id: 'in', type: 'in' }),
     makeTransaction({ id: 'out', type: 'out' }),
     makeTransaction({ id: 'waste', type: 'waste', reason: 'spoiled' }),
-    makeTransaction({ id: 'open', type: 'open' }),
     makeTransaction({ id: 'move-out', operation_id: 'move-1', operation_legs: 2, type: 'out' }),
     moveIn,
   ];
@@ -492,9 +491,8 @@ it('zeigt für alle erlaubten Transaktionstypen genau eine Undo-Aktion', async (
   expect(screen.getByRole('button', { name: 'Einkauf rückgängig machen' })).toBeOnTheScreen();
   expect(screen.getByRole('button', { name: 'Verbrauch rückgängig machen' })).toBeOnTheScreen();
   expect(screen.getByRole('button', { name: 'Verschwendung rückgängig machen' })).toBeOnTheScreen();
-  expect(screen.getByRole('button', { name: 'Öffnung rückgängig machen' })).toBeOnTheScreen();
   expect(screen.getByRole('button', { name: 'Verschiebung rückgängig machen' })).toBeOnTheScreen();
-  expect(screen.getAllByRole('button', { name: /rückgängig machen/ })).toHaveLength(5);
+  expect(screen.getAllByRole('button', { name: /rückgängig machen/ })).toHaveLength(4);
 
   await user.press(screen.getByRole('button', { name: 'Verschiebung rückgängig machen' }));
   expect(mockUndoMutate).toHaveBeenCalledWith({ transaction: moveIn }, expect.any(Object));

@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react-native';
 import { AppState } from 'react-native';
 
-let mockSession: { user: { id: string } } | null = null;
+let mockSession: { user: { id: string; email?: string } } | null = null;
 let mockIsLoading = false;
 
 jest.mock('@/features/auth/session-provider', () => ({
@@ -48,12 +48,15 @@ describe('PostHogIdentitySync', () => {
     jest.restoreAllMocks();
   });
 
-  it('ruft identify() mit der Supabase-User-ID auf, sobald eine Session vorliegt', async () => {
-    mockSession = { user: { id: 'user-1' } };
+  it('ruft identify() mit der Supabase-User-ID und E-Mail auf, sobald eine Session vorliegt', async () => {
+    mockSession = { user: { id: 'user-1', email: 'test@example.com' } };
 
     await render(<PostHogIdentitySync />);
 
-    expect(mockIdentify).toHaveBeenCalledWith('user-1');
+    expect(mockIdentify).toHaveBeenCalledWith('user-1', {
+      email: 'test@example.com',
+      userId: 'user-1',
+    });
     expect(mockReset).not.toHaveBeenCalled();
   });
 

@@ -142,7 +142,7 @@ export async function signOutAndClearLocalData(queryClient: QueryClient): Promis
       localSessionRemovalError = fallbackError as Error;
     }
   }
-  // TODO force delete 
+  // TODO force delete
   // Lokale Daten unabhängig vom Server-Ergebnis bereinigen.
   if (userId) {
     debugLogEvent('auth.sign-out.local-cleanup-started');

@@ -8,7 +8,24 @@ create table if not exists public.catalog_recipes (
   slug text not null unique check (length(trim(slug)) between 1 and 160),
   title text not null check (length(trim(title)) between 1 and 200),
   instructions text,
+  prep_time_minutes integer check (prep_time_minutes > 0),
   cook_time_minutes integer check (cook_time_minutes > 0),
+  storage_instructions text,
+  reheating_instructions text,
+  cheap_tips text[] not null default '{}',
+  substitutions jsonb not null default '[]'::jsonb
+    check (jsonb_typeof(substitutions) = 'array'),
+  crispiness_level text,
+  air_fryer_time_minutes integer check (air_fryer_time_minutes > 0),
+  air_fryer_temperature_f integer check (air_fryer_temperature_f > 0),
+  variant_group text,
+  variant_type text,
+  dorm_friendly boolean,
+  meal_prep_friendly boolean,
+  why_cheap text,
+  healthier_tips text[] not null default '{}',
+  batch_prep_tips text[] not null default '{}',
+  optional_add_ins text[] not null default '{}',
   difficulty text check (difficulty in ('easy', 'medium', 'hard')),
   dish_types text[] not null default '{}'
     check (dish_types <@ array['breakfast', 'lunch', 'dinner', 'snack', 'dessert', 'appetizer', 'brunch']),
@@ -51,6 +68,8 @@ create table if not exists public.catalog_recipe_component_items (
   quantity numeric(10, 2) check (quantity > 0),
   unit text not null default 'g'
     check (unit in ('g', 'kg', 'ml', 'l', 'piece', 'package', 'portion')),
+  optional boolean not null default false,
+  note text,
   position integer not null default 0 check (position >= 0),
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
@@ -89,10 +108,20 @@ create index if not exists catalog_recipe_step_ingredients_recipe_idx
 create table if not exists public.catalog_recipe_images (
   id uuid primary key default gen_random_uuid(),
   recipe_id uuid not null references public.catalog_recipes (id) on delete cascade,
-  storage_path text not null unique,
+  storage_path text unique,
+  source_url text,
+  source_page_url text,
+  source_name text,
+  license text,
+  attribution_required boolean not null default false,
+  attribution_text text,
+  verified_match boolean not null default false,
   alt_text text,
   position integer not null default 0 check (position >= 0),
-  created_at timestamptz not null default now()
+  created_at timestamptz not null default now(),
+  constraint catalog_recipe_images_source_check check (
+    storage_path is not null or source_url is not null
+  )
 );
 
 create index if not exists catalog_recipe_images_recipe_idx

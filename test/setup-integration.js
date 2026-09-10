@@ -86,6 +86,7 @@ jest.mock('@sentry/react-native', () => ({
 }));
 
 jest.mock('@lokal-dev/react-native-bugbubble', () => ({
+  BugBubble: () => null,
   BugBubbleLogger: {
     logAnalytics: jest.fn(),
     logConsole: jest.fn(),

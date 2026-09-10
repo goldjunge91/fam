@@ -50,9 +50,9 @@ export function calculateMonthlyEquivalent(annualPrice: number, currencyCode = '
   }
 }
 
-function findAnnualPackage(packages: PurchasesPackage[]): PurchasesPackage | null {
+function findAnnualPackage(packages: PurchasesPackage[] = []): PurchasesPackage | null {
   return (
-    packages.find(
+    packages?.find?.(
       (p) =>
         p.identifier === '$rc_annual' ||
         p.packageType === 'ANNUAL' ||
@@ -62,9 +62,9 @@ function findAnnualPackage(packages: PurchasesPackage[]): PurchasesPackage | nul
   );
 }
 
-function findMonthlyPackage(packages: PurchasesPackage[]): PurchasesPackage | null {
+function findMonthlyPackage(packages: PurchasesPackage[] = []): PurchasesPackage | null {
   return (
-    packages.find(
+    packages?.find?.(
       (p) =>
         p.identifier === '$rc_monthly' ||
         p.packageType === 'MONTHLY' ||
@@ -77,7 +77,7 @@ function findMonthlyPackage(packages: PurchasesPackage[]): PurchasesPackage | nu
  * Extrahiert und formatiert die kaufbaren Pläne aus den RevenueCat-Packages.
  * Stellt saubere Standardwerte bereit, falls noch keine Packages geladen sind.
  */
-export function extractPaywallPlans(packages: PurchasesPackage[]): ExtractedPaywallPlans {
+export function extractPaywallPlans(packages: PurchasesPackage[] = []): ExtractedPaywallPlans {
   const annualPkg = findAnnualPackage(packages);
   const monthlyPkg = findMonthlyPackage(packages);
 

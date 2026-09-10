@@ -29,7 +29,24 @@ create table if not exists public.recipes (
   instructions text,
 
   cover_image_path text,
+  prep_time_minutes integer check (prep_time_minutes > 0),
   cook_time_minutes integer check (cook_time_minutes > 0),
+  storage_instructions text,
+  reheating_instructions text,
+  cheap_tips text[] not null default '{}',
+  substitutions jsonb not null default '[]'::jsonb
+    check (jsonb_typeof(substitutions) = 'array'),
+  crispiness_level text,
+  air_fryer_time_minutes integer check (air_fryer_time_minutes > 0),
+  air_fryer_temperature_f integer check (air_fryer_temperature_f > 0),
+  variant_group text,
+  variant_type text,
+  dorm_friendly boolean,
+  meal_prep_friendly boolean,
+  why_cheap text,
+  healthier_tips text[] not null default '{}',
+  batch_prep_tips text[] not null default '{}',
+  optional_add_ins text[] not null default '{}',
   difficulty text check (difficulty in ('easy', 'medium', 'hard')),
   -- Mehrfachauswahl im Wizard (z. B. "Snack" + "Brunch" gleichzeitig) — deshalb
   -- Array, nicht ein einzelner Wert wie bei `difficulty`.
@@ -126,6 +143,8 @@ create table if not exists public.recipe_component_items (
   quantity numeric(10, 2) check (quantity > 0),
   unit text not null default 'g'
     check (unit in ('g', 'kg', 'ml', 'l', 'piece', 'package', 'portion')),
+  optional boolean not null default false,
+  note text,
 
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),

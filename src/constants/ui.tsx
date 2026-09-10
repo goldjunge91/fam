@@ -772,14 +772,14 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(function TextFiel
   const resolvedSubmitBehavior = submitBehavior ?? (multiline ? undefined : 'blurAndSubmit');
 
   return (
-    <View className="gap-one">
+    <View style={styles.fieldContainer}>
       {label ? (
         <Txt variant="label" color={focused ? colors.accent : colors.textSecondary}>
           {label}
         </Txt>
       ) : null}
 
-      <View className="relative">
+      <View style={styles.inputWrapper}>
         <TextInput
           ref={ref}
           {...rest}
@@ -814,11 +814,7 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(function TextFiel
             style,
           ]}
         />
-        {trailing ? (
-          <View className="absolute z-10 right-[2px] top-[2px] bottom-[2px] items-center justify-center">
-            {trailing}
-          </View>
-        ) : null}
+        {trailing ? <View style={styles.trailingWrapper}>{trailing}</View> : null}
       </View>
 
       {error ? (
@@ -899,6 +895,12 @@ function makeStyles(c: Palette) {
       flexShrink: 1,
       textAlign: 'center',
     },
+    fieldContainer: {
+      gap: space.xs,
+    },
+    inputWrapper: {
+      position: 'relative',
+    },
     input: {
       backgroundColor: c.backgroundElement,
       borderWidth: 2,
@@ -926,6 +928,15 @@ function makeStyles(c: Palette) {
     },
     inputWithTrailing: {
       paddingRight: 52,
+    },
+    trailingWrapper: {
+      position: 'absolute',
+      zIndex: 10,
+      right: 2,
+      top: 2,
+      bottom: 2,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   });
 }

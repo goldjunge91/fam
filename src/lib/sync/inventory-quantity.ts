@@ -105,10 +105,13 @@ function requiredQuantityUnits(
 
 function requiredBoolean(payload: Record<string, unknown>, key: string, context: string): boolean {
   const value = payload[key];
-  if (typeof value !== 'boolean') {
-    throw new Error(`${context} enthaelt kein gueltiges Feld ${key}.`);
+  if (typeof value === 'boolean') {
+    return value;
   }
-  return value;
+  if (value === 1 || value === 0) {
+    return Boolean(value);
+  }
+  throw new Error(`${context} enthaelt kein gueltiges Feld ${key}.`);
 }
 
 export type InventorySplitPayload = {

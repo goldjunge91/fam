@@ -48,6 +48,8 @@ export function mapFridgeItemRow(row: RawFridgeItemRow): LocalInventoryItem {
     ...row,
     quantity: fromInventoryQuantityUnits(row.quantity),
     package_size: row.package_size === null ? null : fromInventoryQuantityUnits(row.package_size),
+    vacuum_sealed: Boolean(row.vacuum_sealed),
+    expiry_user_set: Boolean(row.expiry_user_set),
   };
 }
 

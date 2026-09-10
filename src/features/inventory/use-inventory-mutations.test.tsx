@@ -5,6 +5,7 @@ import type React from 'react';
 
 import type { EnqueueMutationInput } from '@/lib/db/outbox';
 import * as Outbox from '@/lib/db/outbox';
+import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
 import type { LocalInventoryItem } from './use-inventory-items';
 import {
@@ -12,7 +13,6 @@ import {
   useMoveInventoryItemMutation,
   useOpenInventoryItemMutation,
   useUndoInventoryTransactionMutation,
-  useUndoOpenTransactionMutation,
   useUpdateFridgeItemMutation,
   useUpdateInventoryItemQuantityMutation,
   useWasteInventoryItemMutation,
@@ -364,7 +364,7 @@ describe('inventory mutation hooks', () => {
   });
 
   it('bucht Mengen- und Lagerortkorrektur atomar als eine Outbox-Gruppe', async () => {
-    mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
+    mockGetFirstAsync.mockResolvedValue({ quantity: 3000, location_id: 'loc-1' });
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {
@@ -425,7 +425,7 @@ describe('inventory mutation hooks', () => {
   });
 
   it('soft-deletet eine manuelle Korrektur auf null und bucht die effektive out-Menge', async () => {
-    mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
+    mockGetFirstAsync.mockResolvedValue({ quantity: 3000, location_id: 'loc-1' });
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {
@@ -452,7 +452,7 @@ describe('inventory mutation hooks', () => {
   });
 
   it('bucht bei Entnahme auf null trotz Lagerortänderung nur am bisherigen Lagerort', async () => {
-    mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
+    mockGetFirstAsync.mockResolvedValue({ quantity: 3000, location_id: 'loc-1' });
     const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {
@@ -473,59 +473,6 @@ describe('inventory mutation hooks', () => {
     });
   });
 
-  it('bucht Öffnen, Wegwerfen und Verschieben jeweils mit Actor', async () => {
-    jest
-      .mocked(Crypto.randomUUID)
-      .mockReturnValueOnce('open-item-id')
-      .mockReturnValueOnce('open-transaction-id')
-      .mockReturnValueOnce('waste-id')
-      .mockReturnValueOnce('operation-id')
-      .mockReturnValueOnce('out-id')
-      .mockReturnValueOnce('in-id');
-
-    mockGetFirstAsync.mockResolvedValueOnce({ ...ITEM, quantity: 1000 });
-    const openHook = await renderHook(() => useOpenInventoryItemMutation(), { wrapper });
-    await act(async () => {
-      await openHook.result.current.mutateAsync({ item: { ...ITEM, quantity: 1 }, quantity: 1 });
-    });
-    expect(transactionPayloads()).toEqual([
-      expect.objectContaining({ actor: 'actor-1', type: 'open', quantity: 1000 }),
-    ]);
-
-    const wasteHook = await renderHook(() => useWasteInventoryItemMutation(), { wrapper });
-    await act(async () => {
-      await wasteHook.result.current.mutateAsync({ item: ITEM, reason: 'expired' });
-    });
-    expect(transactionPayloads()).toEqual([
-      expect.objectContaining({ actor: 'actor-1', type: 'waste', reason: 'expired' }),
-    ]);
-
-    const moveHook = await renderHook(() => useMoveInventoryItemMutation(), { wrapper });
-    await act(async () => {
-      await moveHook.result.current.mutateAsync({ item: ITEM, locationId: 'loc-2' });
-    });
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      entityId: 'item-1',
-      op: 'move',
-      payload: {
-        operation_id: 'operation-id',
-        item_id: 'item-1',
-        household_id: 'hh-1',
-        expected_location_id: 'loc-1',
-        new_location_id: 'loc-2',
-        expected_quantity: 3000,
-        out_transaction_id: 'out-id',
-        in_transaction_id: 'in-id',
-      },
-    });
-  });
-
-  // fam-lfa.2 (contract.md Abschnitt 4/5.1): open_inventory erzeugt keine
-  // Ledgerzeile mehr. Der obige Test bleibt bewusst stehen (bisheriges
-  // Verhalten, aktuell rot bei der Open-Assertion) statt geloescht zu werden;
-  // dieser Test deckt Wegwerfen/Verschieben unter dem neuen Vertrag ab.
   it('bucht beim Öffnen keine Ledgerzeile, bei Wegwerfen und Verschieben weiterhin mit Actor', async () => {
     jest
       .mocked(Crypto.randomUUID)
@@ -609,206 +556,6 @@ describe('inventory mutation hooks', () => {
     });
   });
 
-  it('bucht Split-Undo als eine atomare Merge-Operation gegen die referenzierte Split-Buchung (fam-n46.1)', async () => {
-    mockGetFirstAsync
-      .mockResolvedValueOnce(null)
-      .mockResolvedValueOnce({
-        ...ITEM,
-        id: 'opened-item-id',
-        quantity: 1000,
-        opened_at: '2026-09-04T09:00:00.000Z',
-        expiry_date: '2026-09-09',
-      })
-      .mockResolvedValueOnce({ ...ITEM, quantity: 2000 });
-    const transaction: LocalInventoryTransaction = {
-      id: 'transaction-1',
-      household_id: 'hh-1',
-      fridge_item_id: 'opened-item-id',
-      product_id: 'product-1',
-      actor: 'actor-1',
-      type: 'open',
-      quantity: 1000,
-      location_id: 'loc-1',
-      reason: null,
-      previous_expiry_date: '2026-12-31',
-      origin_item_id: 'item-1',
-      origin_quantity: 3000,
-      notes: '[Split] origin=item-1',
-      undone: false,
-      created_at: new Date().toISOString(),
-    };
-    const { result } = await renderHook(() => useUndoOpenTransactionMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({ transaction });
-    });
-
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      entityId: 'item-1',
-      op: 'merge_undo_open',
-      payload: {
-        reversal_of: 'transaction-1',
-        household_id: 'hh-1',
-      },
-    });
-  });
-
-  it('bucht Split-Undo nach einer konkurrierenden Änderung der Ursprungsmenge als Fallback', async () => {
-    const openedAt = new Date(Date.now() - 120_000);
-    mockGetFirstAsync
-      .mockResolvedValueOnce(null)
-      .mockResolvedValueOnce({
-        ...ITEM,
-        id: 'opened-item-id',
-        quantity: 1,
-        opened_at: openedAt.toISOString(),
-        expiry_date: '2026-09-09',
-      })
-      .mockResolvedValueOnce({
-        ...ITEM,
-        quantity: 7,
-        updated_at: Date.now(),
-      });
-    const transaction: LocalInventoryTransaction = {
-      id: 'transaction-1',
-      household_id: 'hh-1',
-      fridge_item_id: 'opened-item-id',
-      product_id: 'product-1',
-      actor: 'actor-1',
-      type: 'open',
-      quantity: 1,
-      location_id: 'loc-1',
-      reason: null,
-      previous_expiry_date: '2026-12-31',
-      notes: '[Split] origin=item-1',
-      undone: false,
-      created_at: new Date(Date.now() - 60_000).toISOString(),
-    };
-    const { result } = await renderHook(() => useUndoOpenTransactionMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({ transaction });
-    });
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'transactions',
-      op: 'insert',
-      payload: {
-        reversal_of: 'transaction-1',
-        notes: '[Undone] Öffnung rückgängig gemacht',
-      },
-    });
-  });
-
-  it('beendet einen bereits rückgängig gemachten Open-Vorgang idempotent', async () => {
-    const transaction: LocalInventoryTransaction = {
-      id: 'transaction-1',
-      household_id: 'hh-1',
-      fridge_item_id: 'item-1',
-      product_id: 'product-1',
-      actor: 'actor-1',
-      type: 'open',
-      quantity: 1,
-      location_id: 'loc-1',
-      reason: null,
-      previous_expiry_date: '2026-12-31',
-      notes: null,
-      undone: true,
-      created_at: new Date().toISOString(),
-    };
-    const { result } = await renderHook(() => useUndoOpenTransactionMutation(), { wrapper });
-
-    await act(async () => {
-      await expect(result.current.mutateAsync({ transaction })).rejects.toThrow(
-        'bereits rückgängig',
-      );
-    });
-    expect(Outbox.enqueueMutations).not.toHaveBeenCalled();
-  });
-
-  it('verhindert einen zweiten Undo desselben Open-Vorgangs anhand der Historie', async () => {
-    const createdAt = new Date(Date.now() - 60_000);
-    const openedRow = {
-      ...ITEM,
-      opened_at: createdAt.toISOString(),
-      expiry_date: '2026-09-09',
-    };
-    mockGetFirstAsync
-      .mockResolvedValueOnce(null)
-      .mockResolvedValueOnce(openedRow)
-      .mockResolvedValueOnce({ id: 'undo-transaction-1' });
-    const transaction: LocalInventoryTransaction = {
-      id: 'transaction-1',
-      household_id: 'hh-1',
-      fridge_item_id: 'item-1',
-      product_id: 'product-1',
-      actor: 'actor-1',
-      type: 'open',
-      quantity: 1,
-      location_id: 'loc-1',
-      reason: null,
-      previous_expiry_date: '2026-12-31',
-      notes: null,
-      undone: false,
-      created_at: createdAt.toISOString(),
-    };
-    const { result } = await renderHook(() => useUndoOpenTransactionMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({ transaction });
-    });
-    await act(async () => {
-      await expect(result.current.mutateAsync({ transaction })).rejects.toThrow(
-        'bereits rückgängig',
-      );
-    });
-    expect(Outbox.enqueueMutations).toHaveBeenCalledTimes(1);
-  });
-
-  it('bucht einen Split mit fehlender Ursprungszeile als Merge-Fallback', async () => {
-    mockGetFirstAsync
-      .mockResolvedValueOnce(null)
-      .mockResolvedValueOnce({
-        ...ITEM,
-        id: 'opened-item-id',
-        quantity: 1,
-        opened_at: '2026-09-04T09:00:00.000Z',
-        expiry_date: '2026-09-09',
-      })
-      .mockResolvedValueOnce(null);
-    const transaction: LocalInventoryTransaction = {
-      id: 'transaction-1',
-      household_id: 'hh-1',
-      fridge_item_id: 'opened-item-id',
-      product_id: 'product-1',
-      actor: 'actor-1',
-      type: 'open',
-      quantity: 1,
-      location_id: 'loc-1',
-      reason: null,
-      previous_expiry_date: '2026-12-31',
-      notes: '[Split] origin=item-1',
-      undone: false,
-      created_at: new Date().toISOString(),
-    };
-    const { result } = await renderHook(() => useUndoOpenTransactionMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({ transaction });
-    });
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'transactions',
-      op: 'insert',
-      payload: {
-        reversal_of: 'transaction-1',
-        notes: '[Undone] Öffnung rückgängig gemacht',
-      },
-    });
-  });
-
   it('behandelt manuelles Wieder-Versiegeln ohne künstliche Mengenbuchung', async () => {
     mockGetFirstAsync.mockResolvedValue({
       ...ITEM,
@@ -839,40 +586,86 @@ describe('inventory mutation hooks', () => {
     expect(transactionPayloads()).toEqual([]);
   });
 
-  it('bucht das Undo einer Öffnung als neue Actor-signierte Gegenbuchung', async () => {
-    mockGetFirstAsync.mockResolvedValueOnce(null).mockResolvedValueOnce({
+  it('konvertiert dezimale package_size beim Update in Integer-Tausendstel', async () => {
+    mockGetFirstAsync.mockResolvedValue({
       ...ITEM,
-      opened_at: new Date().toISOString(),
-      expiry_date: '2026-09-09',
+      package_size: null,
+      package_size_unit: null,
     });
-    const transaction: LocalInventoryTransaction = {
-      id: 'transaction-1',
-      household_id: 'hh-1',
-      fridge_item_id: 'item-1',
-      product_id: 'product-1',
-      actor: 'actor-1',
-      type: 'open',
-      quantity: 1,
-      location_id: 'loc-1',
-      reason: null,
-      previous_expiry_date: '2026-12-31',
-      notes: null,
-      undone: false,
-      created_at: new Date().toISOString(),
-    };
-    const { result } = await renderHook(() => useUndoOpenTransactionMutation(), { wrapper });
+    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
 
     await act(async () => {
-      await result.current.mutateAsync({ transaction });
+      await result.current.mutateAsync({
+        id: ITEM.id,
+        household_id: ITEM.household_id,
+        patch: { package_size: 0.5, package_size_unit: 'l' },
+      });
     });
 
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(transactionPayloads()).toEqual([
+    expect(lastMutations()).toHaveLength(1);
+    expect(lastMutations()[0]?.payload).toMatchObject({
+      id: ITEM.id,
+      household_id: ITEM.household_id,
+      package_size: 500,
+      package_size_unit: 'l',
+    });
+  });
+
+  it('erzeugt keinen Metadatenpatch, wenn dezimale package_size dem DB-Wert entspricht', async () => {
+    mockGetFirstAsync.mockResolvedValue({
+      ...ITEM,
+      package_size: 500,
+      package_size_unit: 'l',
+    });
+    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        id: ITEM.id,
+        household_id: ITEM.household_id,
+        patch: { package_size: 0.5, package_size_unit: 'l' },
+      });
+    });
+
+    expect(Outbox.enqueueMutations).not.toHaveBeenCalled();
+  });
+
+  it('konvertiert package_size auf dem aufgeteilten Los beim Split in Integer-Tausendstel', async () => {
+    jest
+      .mocked(Crypto.randomUUID)
+      .mockReturnValueOnce('opened-item-id')
+      .mockReturnValueOnce('open-transaction-id');
+    const dbRow = {
+      ...ITEM,
+      quantity: 3000,
+      package_size: 500,
+      package_size_unit: 'l',
+      vacuum_sealed: 1,
+      expiry_user_set: 1,
+    };
+    mockGetFirstAsync.mockResolvedValueOnce(dbRow);
+    const { result } = await renderHook(() => useOpenInventoryItemMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        item: { ...ITEM, quantity: 3, package_size: 0.5 },
+        quantity: 1,
+      });
+    });
+
+    expect(lastMutations()).toHaveLength(1);
+    const splitMutation = lastMutations()[0];
+    await splitMutation.applyLocally?.({} as never);
+    expect(applyLocalMirrorWrite).toHaveBeenCalledWith(
+      expect.anything(),
+      'fridge_items',
+      'insert',
       expect.objectContaining({
-        actor: 'actor-1',
-        type: 'open',
-        notes: '[Undone] Öffnung rückgängig gemacht',
+        id: 'opened-item-id',
+        package_size: 500,
+        package_size_unit: 'l',
       }),
-    ]);
+      expect.any(Number),
+    );
   });
 });

@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { PurchasesPackage } from 'react-native-purchases';
 
+import { useSession } from '@/features/auth/session-provider';
+import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
 import { usePremium } from '@/features/premium/premium-provider';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import {
@@ -10,6 +12,7 @@ import {
   packagesForEntitlement,
   restorePurchases,
 } from '@/lib/purchases';
+import { pollHouseholdUntilEntitlementActive } from './household-entitlement-sync';
 import { type ExtractedPaywallPlans, extractPaywallPlans, type PlanPeriod } from './paywall-plans';
 import type { PaywallTier } from './types';
 
@@ -33,6 +36,11 @@ export interface UsePaywallResult {
  */
 export function usePaywall(tier: PaywallTier): UsePaywallResult {
   const { refresh } = usePremium();
+  const { session } = useSession();
+  const activeHouseholdContext = useOptionalActiveHousehold();
+  const activeHouseholdId = activeHouseholdContext?.activeHouseholdId ?? null;
+  const userId = session?.user.id;
+
   const [packages, setPackages] = useState<PurchasesPackage[]>([]);
   const [isLoadingPackages, setIsLoadingPackages] = useState(true);
   const [selectedPeriod, setSelectedPeriod] = useState<PlanPeriod>('yearly');
@@ -93,6 +101,13 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
           tier,
         });
         await refresh();
+        if (userId) {
+          await pollHouseholdUntilEntitlementActive({
+            tier,
+            userId,
+            activeHouseholdId,
+          });
+        }
       } else if (outcome.kind === 'cancelled') {
         trackAnalyticsEvent('purchase.checkout.cancelled', {
           package_id: targetPkg.identifier,
@@ -110,7 +125,7 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
     } finally {
       setIsPurchasing(false);
     }
-  }, [isPurchasing, selectedPackage, selectedPeriod, refresh, tier]);
+  }, [isPurchasing, selectedPackage, selectedPeriod, refresh, tier, userId, activeHouseholdId]);
 
   const restore = useCallback(async (): Promise<{ ok: boolean; error?: unknown }> => {
     if (isRestoring) return { ok: false };
@@ -122,6 +137,13 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
       if (result.ok) {
         trackAnalyticsEvent('purchase.restore.completed');
         await refresh();
+        if (userId) {
+          await pollHouseholdUntilEntitlementActive({
+            tier,
+            userId,
+            activeHouseholdId,
+          });
+        }
       } else {
         const error = result.error;
         trackAnalyticsEvent('purchase.restore.failed', {
@@ -134,7 +156,7 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
     } finally {
       setIsRestoring(false);
     }
-  }, [isRestoring, refresh]);
+  }, [isRestoring, refresh, tier, userId, activeHouseholdId]);
 
   return {
     packages,

@@ -6,7 +6,7 @@ Letzte Festlegung: 2026-09-08
 Dieses Dokument ist die einzige maßgebliche Quelle für fachliche Lifecycle-Zustände
 und die technische Ausführung der Inventory-Operationen.
 
-Quellenrang: `CONSTRAINTS.md` setzt die Qualitätsgrenzen; dieser Vertrag setzt
+Quellenrang: `../../CONSTRAINTS.md` setzt die Qualitätsgrenzen; dieser Vertrag setzt
 das Zielverhalten; `execution-plan.md` setzt die Reihenfolge. Beads verfolgt
 Arbeit und Nachweise. Frühere Entwürfe und Tickets sind keine normative Quelle.
 Implementiert wird nach diesem freigegebenen Zielvertrag.
@@ -588,7 +588,7 @@ Zielzustand: `split_open` entfällt als eigenständige Mutation. Das Split-Verha
 
 Das Gate beweist zusätzlich lokale und serverseitige Parität für IDs, Menge,
 Ledger, Tombstone und vollständigen Footprint. Testbefehle und das
-90-Sekunden-Limit stehen ausschließlich in `CONSTRAINTS.md`.
+90-Sekunden-Limit stehen ausschließlich in `../../CONSTRAINTS.md`.
 
 ## 11. Status der Vertragsentscheidungen
 

@@ -85,7 +85,9 @@ describe('PaywallSheet', () => {
     expect(mockSetSelectedPeriod).toHaveBeenCalledWith('monthly');
   });
 
-  it('führt Kauf aus beim Klick auf den CTA-Button', async () => {
+  it('führt Kauf aus beim Klick auf den CTA-Button und zeigt Erfolgs-Alert', async () => {
+    const { Alert } = require('react-native');
+    const alertSpy = jest.spyOn(Alert, 'alert');
     mockBuySelectedPlan.mockResolvedValue({ kind: 'purchased' });
     const onPurchased = jest.fn();
     const onClose = jest.fn();
@@ -94,5 +96,24 @@ describe('PaywallSheet', () => {
 
     fireEvent.press(screen.getByText('Jahresabo für 49,99 € starten'));
     expect(mockBuySelectedPlan).toHaveBeenCalledTimes(1);
+
+    await Promise.resolve();
+
+    expect(alertSpy).toHaveBeenCalledWith(
+      'Erfolgreich',
+      'Fam Plus ist jetzt für deinen Haushalt aktiv!',
+      expect.arrayContaining([
+        expect.objectContaining({ text: 'OK', onPress: expect.any(Function) }),
+      ]),
+    );
+
+    // Rufe den OK-Callback auf
+    const calls = alertSpy.mock.calls as unknown as Array<
+      [unknown, unknown, Array<{ text?: string; onPress?: () => void }>]
+    >;
+    const buttons = calls[0]?.[2];
+    buttons?.[0]?.onPress?.();
+    expect(onPurchased).toHaveBeenCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 });

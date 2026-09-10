@@ -58,7 +58,14 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
 
   async function handleBuy() {
     const outcome = await buySelectedPlan();
-    if (outcome.kind === 'failed') {
+    if (outcome.kind === 'purchased') {
+      Alert.alert(
+        'Erfolgreich',
+        tier === 'plus'
+          ? 'Fam Plus ist jetzt für deinen Haushalt aktiv!'
+          : 'Fam KI ist jetzt für deinen Haushalt aktiv!',
+      );
+    } else if (outcome.kind === 'failed') {
       Alert.alert('Kauf fehlgeschlagen', outcome.error.message);
     } else if (outcome.kind === 'unavailable') {
       Alert.alert(

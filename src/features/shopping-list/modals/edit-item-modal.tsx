@@ -28,7 +28,7 @@ export function EditItemModal({ item, onDismiss }: EditItemModalProps) {
       header={
         <View className="modal-header min-h-[54px]">
           <Txt variant="heading">Artikel bearbeiten</Txt>
-          <HeaderIconButton label="Schließen" onPress={onDismiss} className="btn-modal-close">
+          <HeaderIconButton label="Schließen" onPress={onDismiss} variant="modal-close">
             <Image
               source="sf:xmark"
               contentFit="contain"

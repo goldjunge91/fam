@@ -127,6 +127,8 @@ export type Database = {
           grams: number
           id: string
           ingredient_name: string | null
+          note: string | null
+          optional: boolean
           position: number
           product_id: string | null
           quantity: number | null
@@ -141,6 +143,8 @@ export type Database = {
           grams: number
           id?: string
           ingredient_name?: string | null
+          note?: string | null
+          optional?: boolean
           position?: number
           product_id?: string | null
           quantity?: number | null
@@ -155,6 +159,8 @@ export type Database = {
           grams?: number
           id?: string
           ingredient_name?: string | null
+          note?: string | null
+          optional?: boolean
           position?: number
           product_id?: string | null
           quantity?: number | null
@@ -234,28 +240,49 @@ export type Database = {
       }
       catalog_recipe_images: {
         Row: {
+          attribution_required: boolean
+          attribution_text: string | null
           alt_text: string | null
           created_at: string
           id: string
+          license: string | null
           position: number
           recipe_id: string
-          storage_path: string
+          source_name: string | null
+          source_page_url: string | null
+          source_url: string | null
+          storage_path: string | null
+          verified_match: boolean
         }
         Insert: {
+          attribution_required?: boolean
+          attribution_text?: string | null
           alt_text?: string | null
           created_at?: string
           id?: string
+          license?: string | null
           position?: number
           recipe_id: string
-          storage_path: string
+          source_name?: string | null
+          source_page_url?: string | null
+          source_url?: string | null
+          storage_path?: string | null
+          verified_match?: boolean
         }
         Update: {
+          attribution_required?: boolean
+          attribution_text?: string | null
           alt_text?: string | null
           created_at?: string
           id?: string
+          license?: string | null
           position?: number
           recipe_id?: string
-          storage_path?: string
+          source_name?: string | null
+          source_page_url?: string | null
+          source_url?: string | null
+          storage_path?: string | null
+          verified_match?: boolean
         }
         Relationships: [
           {
@@ -395,61 +422,106 @@ export type Database = {
       }
       catalog_recipes: {
         Row: {
+          air_fryer_temperature_f: number | null
+          air_fryer_time_minutes: number | null
+          batch_prep_tips: string[]
+          cheap_tips: string[]
           cook_time_minutes: number | null
           created_at: string
           default_servings: number
           dietary_tags: string[]
           difficulty: string | null
           dish_types: string[]
+          dorm_friendly: boolean | null
           external_id: string
           hashtags: string[]
+          healthier_tips: string[]
           id: string
           instructions: string | null
+          meal_prep_friendly: boolean | null
+          optional_add_ins: string[]
+          prep_time_minutes: number | null
           published_at: string | null
+          reheating_instructions: string | null
           slug: string
           sort_order: number
           source_url: string | null
           status: string
+          storage_instructions: string | null
+          substitutions: Json
           title: string
           updated_at: string
+          variant_group: string | null
+          variant_type: string | null
+          why_cheap: string | null
         }
         Insert: {
+          air_fryer_temperature_f?: number | null
+          air_fryer_time_minutes?: number | null
+          batch_prep_tips?: string[]
+          cheap_tips?: string[]
           cook_time_minutes?: number | null
           created_at?: string
           default_servings?: number
           dietary_tags?: string[]
           difficulty?: string | null
           dish_types?: string[]
+          dorm_friendly?: boolean | null
           external_id: string
           hashtags?: string[]
+          healthier_tips?: string[]
           id?: string
           instructions?: string | null
+          meal_prep_friendly?: boolean | null
+          optional_add_ins?: string[]
+          prep_time_minutes?: number | null
           published_at?: string | null
+          reheating_instructions?: string | null
           slug: string
           sort_order?: number
           source_url?: string | null
           status?: string
+          storage_instructions?: string | null
+          substitutions?: Json
           title: string
           updated_at?: string
+          variant_group?: string | null
+          variant_type?: string | null
+          why_cheap?: string | null
         }
         Update: {
+          air_fryer_temperature_f?: number | null
+          air_fryer_time_minutes?: number | null
+          batch_prep_tips?: string[]
+          cheap_tips?: string[]
           cook_time_minutes?: number | null
           created_at?: string
           default_servings?: number
           dietary_tags?: string[]
           difficulty?: string | null
           dish_types?: string[]
+          dorm_friendly?: boolean | null
           external_id?: string
           hashtags?: string[]
+          healthier_tips?: string[]
           id?: string
           instructions?: string | null
+          meal_prep_friendly?: boolean | null
+          optional_add_ins?: string[]
+          prep_time_minutes?: number | null
           published_at?: string | null
+          reheating_instructions?: string | null
           slug?: string
           sort_order?: number
           source_url?: string | null
           status?: string
+          storage_instructions?: string | null
+          substitutions?: Json
           title?: string
           updated_at?: string
+          variant_group?: string | null
+          variant_type?: string | null
+          why_cheap?: string | null
         }
         Relationships: []
       }
@@ -1578,6 +1650,8 @@ export type Database = {
           grams: number
           household_id: string
           id: string
+          note: string | null
+          optional: boolean
           product_id: string | null
           quantity: number | null
           recipe_id: string
@@ -1592,6 +1666,8 @@ export type Database = {
           grams: number
           household_id: string
           id?: string
+          note?: string | null
+          optional?: boolean
           product_id?: string | null
           quantity?: number | null
           recipe_id: string
@@ -1606,6 +1682,8 @@ export type Database = {
           grams?: number
           household_id?: string
           id?: string
+          note?: string | null
+          optional?: boolean
           product_id?: string | null
           quantity?: number | null
           recipe_id?: string
@@ -1993,6 +2071,10 @@ export type Database = {
       }
       recipes: {
         Row: {
+          air_fryer_temperature_f: number | null
+          air_fryer_time_minutes: number | null
+          batch_prep_tips: string[]
+          cheap_tips: string[]
           cook_time_minutes: number | null
           cover_image_path: string | null
           created_at: string
@@ -2002,14 +2084,29 @@ export type Database = {
           dietary_tags: string[]
           difficulty: string | null
           dish_types: string[]
+          dorm_friendly: boolean | null
           hashtags: string[]
+          healthier_tips: string[]
           household_id: string
           id: string
           instructions: string | null
+          meal_prep_friendly: boolean | null
+          optional_add_ins: string[]
+          prep_time_minutes: number | null
+          reheating_instructions: string | null
+          storage_instructions: string | null
+          substitutions: Json
           title: string
           updated_at: string
+          variant_group: string | null
+          variant_type: string | null
+          why_cheap: string | null
         }
         Insert: {
+          air_fryer_temperature_f?: number | null
+          air_fryer_time_minutes?: number | null
+          batch_prep_tips?: string[]
+          cheap_tips?: string[]
           cook_time_minutes?: number | null
           cover_image_path?: string | null
           created_at?: string
@@ -2019,14 +2116,29 @@ export type Database = {
           dietary_tags?: string[]
           difficulty?: string | null
           dish_types?: string[]
+          dorm_friendly?: boolean | null
           hashtags?: string[]
+          healthier_tips?: string[]
           household_id: string
           id?: string
           instructions?: string | null
+          meal_prep_friendly?: boolean | null
+          optional_add_ins?: string[]
+          prep_time_minutes?: number | null
+          reheating_instructions?: string | null
+          storage_instructions?: string | null
+          substitutions?: Json
           title: string
           updated_at?: string
+          variant_group?: string | null
+          variant_type?: string | null
+          why_cheap?: string | null
         }
         Update: {
+          air_fryer_temperature_f?: number | null
+          air_fryer_time_minutes?: number | null
+          batch_prep_tips?: string[]
+          cheap_tips?: string[]
           cook_time_minutes?: number | null
           cover_image_path?: string | null
           created_at?: string
@@ -2036,12 +2148,23 @@ export type Database = {
           dietary_tags?: string[]
           difficulty?: string | null
           dish_types?: string[]
+          dorm_friendly?: boolean | null
           hashtags?: string[]
+          healthier_tips?: string[]
           household_id?: string
           id?: string
           instructions?: string | null
+          meal_prep_friendly?: boolean | null
+          optional_add_ins?: string[]
+          prep_time_minutes?: number | null
+          reheating_instructions?: string | null
+          storage_instructions?: string | null
+          substitutions?: Json
           title?: string
           updated_at?: string
+          variant_group?: string | null
+          variant_type?: string | null
+          why_cheap?: string | null
         }
         Relationships: [
           {
@@ -3314,4 +3437,3 @@ export const Constants = {
     Enums: {},
   },
 } as const
-

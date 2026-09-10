@@ -52,7 +52,9 @@ describe('useMealPlanShoppingNeeds', () => {
       .mockResolvedValueOnce([{ id: 'rec-1', title: 'Kuchen' }])
       // 5. stockRows (fridge_items) - Integer-Tausendstel (contract.md Abschnitt 3): 20g = 20_000
       .mockResolvedValueOnce([{ product_id: 'prod-zucker', quantity: 20_000, unit: 'g' }])
-      // 6. products
+      // 6. shoppingListRows (shopping_list_items) - Dezimalwert: 0g
+      .mockResolvedValueOnce([])
+      // 7. products
       .mockResolvedValueOnce([{ id: 'prod-zucker', name: 'Zucker', serving_size_g: 100 }]);
 
     const { result } = await renderHook(() => useMealPlanShoppingNeeds('plan-1', 'hh-1', true), {
@@ -70,6 +72,56 @@ describe('useMealPlanShoppingNeeds', () => {
         missingGrams: 80,
         neededGrams: 100,
         availableGrams: 20,
+        stockGrams: 20,
+        shoppingListGrams: 0,
+      }),
+    );
+  });
+
+  it('verrechnet bereits auf der Einkaufsliste stehende Mengen gegen den Bedarf (fam-lr0)', async () => {
+    // Ticket fam-lr0: 100g benötigt, 20g im Vorrat, 30g bereits auf der Einkaufsliste
+    // -> Verfügbar = 50g, fehlend = 50g (keine Doppelzählung!)
+    mockDbGetAllAsync
+      // 1. entries
+      .mockResolvedValueOnce([{ recipe_id: 'rec-1', portions: 1 }])
+      // 2. components
+      .mockResolvedValueOnce([{ id: 'comp-1', recipe_id: 'rec-1', serving_grams: 100 }])
+      // 3. items
+      .mockResolvedValueOnce([
+        {
+          component_id: 'comp-1',
+          recipe_id: 'rec-1',
+          product_id: 'prod-zucker',
+          sub_component_id: null,
+          grams: 100,
+        },
+      ])
+      // 4. recipeTitleRows
+      .mockResolvedValueOnce([{ id: 'rec-1', title: 'Kuchen' }])
+      // 5. stockRows (fridge_items): 20g = 20_000
+      .mockResolvedValueOnce([{ product_id: 'prod-zucker', quantity: 20_000, unit: 'g' }])
+      // 6. shoppingListRows: 30g auf der Einkaufsliste
+      .mockResolvedValueOnce([{ product_id: 'prod-zucker', quantity: 30, unit: 'g' }])
+      // 7. products
+      .mockResolvedValueOnce([{ id: 'prod-zucker', name: 'Zucker', serving_size_g: 100 }]);
+
+    const { result } = await renderHook(() => useMealPlanShoppingNeeds('plan-1', 'hh-1', true), {
+      wrapper,
+    });
+
+    await waitFor(() => {
+      expect(result.current.isSuccess).toBe(true);
+    });
+
+    expect(result.current.data).toHaveLength(1);
+    expect(result.current.data?.[0]).toEqual(
+      expect.objectContaining({
+        productId: 'prod-zucker',
+        missingGrams: 50,
+        neededGrams: 100,
+        availableGrams: 50,
+        stockGrams: 20,
+        shoppingListGrams: 30,
       }),
     );
   });
@@ -92,6 +144,8 @@ describe('useMealPlanShoppingNeeds', () => {
       .mockResolvedValueOnce([{ id: 'rec-1', title: 'Kuchen' }])
       // Integer-Tausendstel (contract.md Abschnitt 3): 100g = 100_000
       .mockResolvedValueOnce([{ product_id: 'prod-zucker', quantity: 100_000, unit: 'g' }])
+      // Einkaufsliste leer
+      .mockResolvedValueOnce([])
       .mockResolvedValueOnce([{ id: 'prod-zucker', name: 'Zucker', serving_size_g: 100 }]);
 
     const { result } = await renderHook(() => useMealPlanShoppingNeeds('plan-1', 'hh-1', true), {
@@ -109,6 +163,8 @@ describe('useMealPlanShoppingNeeds', () => {
         missingGrams: 0,
         neededGrams: 100,
         availableGrams: 100,
+        stockGrams: 100,
+        shoppingListGrams: 0,
       }),
     );
   });

@@ -1,7 +1,12 @@
-import { FlashList } from '@shopify/flash-list';
+import {
+  FlashList,
+  type FlashListRef,
+  type ListRenderItemInfo,
+  useBenchmark,
+} from '@shopify/flash-list';
 import { useLocalSearchParams } from 'expo-router';
-import { useDeferredValue, useMemo, useState } from 'react';
-import { Alert, View } from 'react-native';
+import { useCallback, useDeferredValue, useMemo, useRef, useState } from 'react';
+import { Alert, Platform, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HistoryIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
@@ -9,9 +14,9 @@ import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
+import { ProductInformation } from '@/components/ui/product-information';
 import { Button, Divider, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
@@ -52,7 +57,27 @@ import {
 } from './use-inventory-transactions';
 import { type InventorySortMode, selectVisibleInventoryItems } from './visible-items';
 
+const isRunningInTest = typeof process !== 'undefined' && Boolean(process.env.JEST_WORKER_ID);
+
+function InventoryBenchmark({
+  listRef,
+}: {
+  listRef: React.RefObject<FlashListRef<InventoryItemGroup> | null>;
+}) {
+  useBenchmark(
+    listRef as unknown as React.RefObject<FlashListRef<unknown>>,
+    (result) => {
+      if (!result.interrupted && result.formattedString) {
+        console.log('[FlashList Benchmark]', result.formattedString);
+      }
+    },
+    { startDelayInMs: 5000, repeatCount: 1 },
+  );
+  return null;
+}
+
 export function InventoryScreen() {
+  const flashListRef = useRef<FlashListRef<InventoryItemGroup>>(null);
   const { colors } = useTheme();
   const hubGradient = useHubGradient();
   const { openDrawer, openProfile } = useNavigationChrome();
@@ -119,9 +144,12 @@ export function InventoryScreen() {
   );
 
   const { bottom } = useSafeAreaInsets();
-  // Der globale + Button liegt als Overlay in einer 88pt hohen Aktionszone.
+  // Der globale + Button liegt als Overlay in einer 88pt hohen Aktionszone auf iOS.
   // Die letzte Zeile muss vollständig darüber hinausscrollen können.
-  const paddingBottom = Math.max(bottom, space.xxl) + space.xxxl + 88;
+  const paddingBottom =
+    Platform.OS === 'ios'
+      ? Math.max(bottom, space.xxl) + space.xxxl + 88
+      : Math.max(bottom, space.xxl) + space.xxxl;
 
   const deferredSearchQuery = useDeferredValue(searchQuery);
 
@@ -178,13 +206,21 @@ export function InventoryScreen() {
   function handleConsume(item: LocalInventoryItem) {
     if (!householdId) return;
     const returnGroupId = actionReturnGroupId;
+    setActionItem(null);
+    setActionReturnGroupId(null);
     updateQty.mutate(
       { id: item.id, household_id: householdId, delta: -item.quantity },
       {
         onSuccess: () => {
-          setActionItem(null);
-          setActionReturnGroupId(null);
-          if (returnGroupId) setDetailGroupId(returnGroupId);
+          if (returnGroupId) {
+            const group = allGroups.find((g) => g.id === returnGroupId);
+            const remainingLots = group?.lots.filter((l) => l.id !== item.id) ?? [];
+            if (remainingLots.length > 0) {
+              setDetailGroupId(returnGroupId);
+            } else {
+              setDetailGroupId(null);
+            }
+          }
         },
       },
     );
@@ -233,13 +269,22 @@ export function InventoryScreen() {
   function confirmWaste(reason: WasteReason) {
     if (!wasteItem) return;
     const returnGroupId = actionReturnGroupId;
+    const wastedItemId = wasteItem.id;
+    setWasteItem(null);
+    setActionReturnGroupId(null);
     wasteMutation.mutate(
       { item: wasteItem, reason },
       {
         onSuccess: () => {
-          setWasteItem(null);
-          setActionReturnGroupId(null);
-          if (returnGroupId) setDetailGroupId(returnGroupId);
+          if (returnGroupId) {
+            const group = allGroups.find((g) => g.id === returnGroupId);
+            const remainingLots = group?.lots.filter((l) => l.id !== wastedItemId) ?? [];
+            if (remainingLots.length > 0) {
+              setDetailGroupId(returnGroupId);
+            } else {
+              setDetailGroupId(null);
+            }
+          }
         },
       },
     );
@@ -267,27 +312,47 @@ export function InventoryScreen() {
     );
   }
 
-  function handleDeletePress(item: LocalInventoryItem) {
-    if (!householdId) return;
-    setActionItem(null);
-    Alert.alert('Artikel löschen', `"${item.name}" aus dem Vorrat entfernen?`, [
-      { text: 'Abbrechen', style: 'cancel' },
-      {
-        text: 'Löschen',
-        style: 'destructive',
-        onPress: () =>
-          updateQty.mutate({ id: item.id, household_id: householdId, delta: -item.quantity }),
-      },
-    ]);
-  }
+  const handleDeletePress = useCallback(
+    (item: LocalInventoryItem) => {
+      if (!householdId) return;
+      setActionItem(null);
+      Alert.alert('Artikel löschen', `"${item.name}" aus dem Vorrat entfernen?`, [
+        { text: 'Abbrechen', style: 'cancel' },
+        {
+          text: 'Löschen',
+          style: 'destructive',
+          onPress: () =>
+            updateQty.mutate({ id: item.id, household_id: householdId, delta: -item.quantity }),
+        },
+      ]);
+    },
+    [householdId, updateQty],
+  );
 
-  function handleGroupRemove(group: InventoryItemGroup) {
-    if (group.lots.length === 1) {
-      handleDeletePress(group.lots[0]);
-      return;
-    }
-    setDetailGroupId(group.id);
-  }
+  const handleGroupRemove = useCallback(
+    (group: InventoryItemGroup) => {
+      if (group.lots.length === 1) {
+        handleDeletePress(group.lots[0]);
+        return;
+      }
+      setDetailGroupId(group.id);
+    },
+    [handleDeletePress],
+  );
+
+  const renderItem = useCallback(
+    ({ item }: ListRenderItemInfo<InventoryItemGroup>) => (
+      <InventoryItemRow
+        item={item}
+        onPress={() => setDetailGroupId(item.id)}
+        onLongPress={() => setInformationItem(item.lots[0])}
+        onRemove={() => handleGroupRemove(item)}
+      />
+    ),
+    [handleGroupRemove],
+  );
+
+  const keyExtractor = useCallback((item: InventoryItemGroup) => item.id, []);
 
   const chrome = { onMenuPress: openDrawer, onAvatarPress: openProfile, initials, avatarUrl };
 
@@ -380,12 +445,14 @@ export function InventoryScreen() {
 
       {/* FlashList füllt den verbleibenden Platz; nur die Artikelzeilen scrollen. */}
       <FlashList
+        ref={flashListRef}
         data={visibleItems}
-        keyExtractor={(item) => item.id}
+        keyExtractor={keyExtractor}
+        renderItem={renderItem}
         style={{ flex: 1 }}
         contentContainerStyle={{ paddingBottom }}
-        bounces={false}
-        alwaysBounceVertical={false}
+        drawDistance={1000}
+        maintainVisibleContentPosition={{ disabled: true }}
         ListEmptyComponent={
           /* Leerzustand bei leerem Lagerort oder erfolgloser Suche */
           isLoading ? null : visibleItems.length === 0 ? (
@@ -407,16 +474,11 @@ export function InventoryScreen() {
             </View>
           ) : null
         }
-        renderItem={({ item }) => (
-          /* Einzelne Artikelzeile mit MHD-Status und Mengensteuerung */
-          <InventoryItemRow
-            item={item}
-            onPress={() => setDetailGroupId(item.id)}
-            onLongPress={() => setInformationItem(item.lots[0])}
-            onRemove={() => handleGroupRemove(item)}
-          />
-        )}
       />
+
+      {__DEV__ && !isRunningInTest && visibleItems.length > 0 ? (
+        <InventoryBenchmark listRef={flashListRef} />
+      ) : null}
 
       {/* MHD-Sheet für die aggregierte Artikelgruppe */}
       <InventoryItemGroupSheet
@@ -480,7 +542,7 @@ export function InventoryScreen() {
       />
 
       {/* Detail-Modal für Produktinformationen & Nährwerte */}
-      <ProductDetailModal
+      <ProductInformation
         visible={!!informationItem}
         item={informationItem}
         onClose={() => setInformationItem(null)}
@@ -511,6 +573,7 @@ export function InventoryScreen() {
 
       <InventoryHistorySheet
         visible={historyOpen}
+        fullScreen
         title="Verlauf"
         subtitle="Kühlschrank & Vorrat"
         transactions={transactions}

@@ -15,11 +15,15 @@ export type MissingIngredientView = {
   name: string;
   /** Gesamtbedarf aller Rezepte des Wochenplans, in Gramm. */
   neededGrams: number;
-  /** Aktueller Vorratsbestand, in Gramm. */
+  /** Aktuell verfügbare Gesamtmenge (Vorrat + ungecheckte Einkaufsliste), in Gramm. */
   availableGrams: number;
+  /** Menge im physischen Vorrat, in Gramm. */
+  stockGrams?: number;
+  /** Bereits ungecheckt auf der Einkaufsliste stehende Menge, in Gramm. */
+  shoppingListGrams?: number;
   /**
-   * `neededGrams - availableGrams`, kann <= 0 sein, wenn der Vorrat den
-   * Bedarf bereits deckt — solche Artikel bleiben sichtbar (Nachschub-Fall,
+   * `neededGrams - availableGrams`, kann <= 0 sein, wenn Vorrat und Einkaufsliste den
+   * Bedarf bereits decken — solche Artikel bleiben sichtbar (Nachschub-Fall,
    * siehe docs/issue-131-missing-ingredients-transfer.md), werden von der UI
    * aber nicht mehr automatisch vorausgewaehlt.
    */
@@ -86,15 +90,26 @@ export function useMealPlanShoppingNeeds(
       );
       const recipeTitleById = new Map(recipeTitleRows.map((r) => [r.id, r.title]));
 
-      const rawStockRows = await db.getAllAsync<{
-        product_id: string;
-        quantity: number;
-        unit: string;
-      }>(
-        `select product_id, quantity, unit from fridge_items
-         where household_id = ? and product_id is not null and deleted_at is null`,
-        [householdId],
-      );
+      const [rawStockRows, rawShoppingListRows] = await Promise.all([
+        db.getAllAsync<{
+          product_id: string;
+          quantity: number;
+          unit: string;
+        }>(
+          `select product_id, quantity, unit from fridge_items
+           where household_id = ? and product_id is not null and deleted_at is null`,
+          [householdId],
+        ),
+        db.getAllAsync<{
+          product_id: string;
+          quantity: number;
+          unit: string;
+        }>(
+          `select product_id, quantity, unit from shopping_list_items
+           where household_id = ? and product_id is not null and deleted_at is null and checked_at is null`,
+          [householdId],
+        ),
+      ]);
       // Persistenz-/View-Grenze (contract.md Abschnitt 3): fridge_items.quantity
       // ist Integer-Tausendstel, stockInGrams erwartet die dezimale Menge.
       const stockRows = rawStockRows.map((row) => ({
@@ -115,7 +130,9 @@ export function useMealPlanShoppingNeeds(
       const productsById = new Map(products.map((p) => [p.id, p]));
 
       const stock = stockInGrams(stockRows, productsById);
-      const missing = computeMissingIngredients(needs, stock);
+      // shopping_list_items.quantity ist bereits als Dezimalwert hinterlegt
+      const shoppingListStock = stockInGrams(rawShoppingListRows, productsById);
+      const missing = computeMissingIngredients(needs, stock, shoppingListStock);
 
       const result: MissingIngredientView[] = [];
       for (const item of missing) {
@@ -141,6 +158,9 @@ export function useMealPlanShoppingNeeds(
           name: product?.name ?? item.productId,
           neededGrams: Math.round(item.neededGrams),
           availableGrams: Math.round(item.availableGrams),
+          stockGrams: item.stockGrams !== undefined ? Math.round(item.stockGrams) : undefined,
+          shoppingListGrams:
+            item.shoppingListGrams !== undefined ? Math.round(item.shoppingListGrams) : undefined,
           missingGrams: Math.round(item.missingGrams),
           preferredStoreId: historyRow?.store_id ?? null,
           preferredStoreName: historyRow?.store_name ?? null,

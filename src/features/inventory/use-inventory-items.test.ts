@@ -44,4 +44,24 @@ describe('mapFridgeItemRow (Persistenz-/View-Grenze fridge_items)', () => {
 
     expect(item).toEqual({ ...row, quantity: 1.5, package_size: 1 });
   });
+
+  it('konvertiert SQLite-Integer-Werte (1/0) fuer vacuum_sealed und expiry_user_set in echte Booleans', () => {
+    const itemWithOnes = mapFridgeItemRow(
+      rawRow({
+        vacuum_sealed: 1 as unknown as boolean,
+        expiry_user_set: 1 as unknown as boolean,
+      }),
+    );
+    expect(itemWithOnes.vacuum_sealed).toBe(true);
+    expect(itemWithOnes.expiry_user_set).toBe(true);
+
+    const itemWithZeros = mapFridgeItemRow(
+      rawRow({
+        vacuum_sealed: 0 as unknown as boolean,
+        expiry_user_set: 0 as unknown as boolean,
+      }),
+    );
+    expect(itemWithZeros.vacuum_sealed).toBe(false);
+    expect(itemWithZeros.expiry_user_set).toBe(false);
+  });
 });

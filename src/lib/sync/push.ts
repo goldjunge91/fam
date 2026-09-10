@@ -533,27 +533,18 @@ export async function pushOutbox(deps: {
   const nowMs = deps.now ? deps.now() : Date.now();
 
   const pendingEntries = await loadPendingOutboxEntries(deps.db);
-  const pendingByKey = new Map<string, OutboxEntry[]>();
+  const blockedKeys = new Set<string>();
+  const entries: OutboxEntry[] = [];
+
   for (const entry of pendingEntries) {
     const key = `${entry.entity}:${entry.entity_id}`;
-    const entriesForKey = pendingByKey.get(key) ?? [];
-    entriesForKey.push(entry);
-    pendingByKey.set(key, entriesForKey);
+    if (entry.next_attempt_at > nowMs) {
+      blockedKeys.add(key);
+    } else if (!blockedKeys.has(key)) {
+      entries.push(entry);
+    }
   }
 
-  const blockedByBackoff = new Set<string>();
-  const dueEntries = pendingEntries.filter((entry) => entry.next_attempt_at <= nowMs);
-  for (const entry of dueEntries) {
-    const key = `${entry.entity}:${entry.entity_id}`;
-    const earlierPending = pendingByKey
-      .get(key)
-      ?.some((candidate) => candidate.id < entry.id && candidate.next_attempt_at > nowMs);
-    if (earlierPending) blockedByBackoff.add(key);
-  }
-
-  const entries = dueEntries.filter(
-    (entry) => !blockedByBackoff.has(`${entry.entity}:${entry.entity_id}`),
-  );
   const { pushes, discardable } = coalesce(entries);
 
   const outcomes: PushOutcome[] = [];

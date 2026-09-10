@@ -87,6 +87,8 @@ export function useAddShoppingItem() {
     onSuccess: (_, variables) => {
       trackAnalyticsEvent('shopping_item.create.completed');
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });
+      queryClient.invalidateQueries({ queryKey: ['meal-plan-shopping-needs'] });
+      queryClient.invalidateQueries({ queryKey: ['recipe-shopping-needs'] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });
@@ -156,6 +158,8 @@ export function useUpdateShoppingItem() {
     onSuccess: (_, variables) => {
       trackAnalyticsEvent('shopping_item.update.completed');
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });
+      queryClient.invalidateQueries({ queryKey: ['meal-plan-shopping-needs'] });
+      queryClient.invalidateQueries({ queryKey: ['recipe-shopping-needs'] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });
@@ -200,6 +204,8 @@ export function useMoveShoppingItems() {
     onSuccess: (_, variables) => {
       trackAnalyticsEvent('shopping_item.update.completed');
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });
+      queryClient.invalidateQueries({ queryKey: ['meal-plan-shopping-needs'] });
+      queryClient.invalidateQueries({ queryKey: ['recipe-shopping-needs'] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });
@@ -246,6 +252,8 @@ export function useToggleShoppingItem() {
         variables.checked_at ? 'shopping_item.check.completed' : 'shopping_item.uncheck.completed',
       );
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });
+      queryClient.invalidateQueries({ queryKey: ['meal-plan-shopping-needs'] });
+      queryClient.invalidateQueries({ queryKey: ['recipe-shopping-needs'] });
     },
   });
 }
@@ -276,6 +284,8 @@ export function useDeleteShoppingItem() {
     onSuccess: (_, variables) => {
       trackAnalyticsEvent('shopping_item.delete.completed');
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });
+      queryClient.invalidateQueries({ queryKey: ['meal-plan-shopping-needs'] });
+      queryClient.invalidateQueries({ queryKey: ['recipe-shopping-needs'] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });

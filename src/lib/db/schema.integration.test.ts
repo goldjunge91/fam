@@ -97,6 +97,33 @@ describe('lokales Schema', () => {
     );
   });
 
+  it('spiegelt Waivy-Rezeptmetadaten und optionale Zutaten lokal', async () => {
+    expect((await columnsOf(db, 'recipes')).map(({ name }) => name)).toEqual(
+      expect.arrayContaining([
+        'prep_time_minutes',
+        'cook_time_minutes',
+        'storage_instructions',
+        'reheating_instructions',
+        'cheap_tips',
+        'substitutions',
+        'crispiness_level',
+        'air_fryer_time_minutes',
+        'air_fryer_temperature_f',
+        'variant_group',
+        'variant_type',
+        'dorm_friendly',
+        'meal_prep_friendly',
+        'why_cheap',
+        'healthier_tips',
+        'batch_prep_tips',
+        'optional_add_ins',
+      ]),
+    );
+    expect((await columnsOf(db, 'recipe_component_items')).map(({ name }) => name)).toEqual(
+      expect.arrayContaining(['optional', 'note']),
+    );
+  });
+
   it('erzwingt die Ledger-Regeln auch lokal in SQLite', async () => {
     await expect(
       db.runAsync(
@@ -468,7 +495,10 @@ describe('lokale Schema-Upgrades', () => {
         ),
       ).toEqual({ expiry_user_set: 0 });
 
-      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(1);
+      const pendingMigrationCount =
+        Object.keys(localMigrations.migrations).length -
+        Object.keys(migrationsBeforeBackfill).length;
+      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(pendingMigrationCount);
       expect(
         await upgradeDb.getFirstAsync<{ expiry_user_set: number }>(
           'select expiry_user_set from fridge_items where id = ?',
