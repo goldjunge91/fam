@@ -1,6 +1,4 @@
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation, loadDueOutboxEntries, recordOutboxOutcome } from '@/lib/db/outbox';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { SqlDatabase } from '@/lib/db/types';
@@ -23,7 +21,6 @@ describe('retryFailedOutboxEntries', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
     await runDrizzleMigrations(db);
   });
 
@@ -44,7 +41,6 @@ describe('retryFailedOutboxEntries', () => {
     await recordOutboxOutcome(db, [entry.id], {
       attempts: MAX_ATTEMPTS,
       lastError: 'RLS-Verstoss',
-      kind: 'permanent',
       nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
     });
 
@@ -76,7 +72,6 @@ describe('retryFailedOutboxEntries', () => {
     await recordOutboxOutcome(db, [entry.id], {
       attempts: 2,
       lastError: 'timeout',
-      kind: 'transient',
       nextAttemptAtMs: 999_999,
     });
 
@@ -110,7 +105,6 @@ describe('retryFailedOutboxEntries', () => {
     await recordOutboxOutcome(db, [entry.id], {
       attempts: MAX_ATTEMPTS,
       lastError: "Could not find the 'location_kind' column",
-      kind: 'permanent',
       nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
     });
 

@@ -22,7 +22,6 @@ type InventoryItemGroupSheetProps = {
   onClose: () => void;
   onSelectLot: (lot: LocalInventoryItem) => void;
   onHistory: () => void;
-  onQuickOpen?: (lot: LocalInventoryItem) => void;
   onQuickConsume?: (lot: LocalInventoryItem) => void;
   quickActionLoading?: boolean;
   backgroundGradient?: GradientSpec;
@@ -179,7 +178,6 @@ export function InventoryItemGroupSheet({
   onClose,
   onSelectLot,
   onHistory,
-  onQuickOpen,
   onQuickConsume,
   quickActionLoading = false,
   backgroundGradient,
@@ -208,7 +206,6 @@ export function InventoryItemGroupSheet({
         onClose={onClose}
         onSelectLot={onSelectLot}
         onHistory={onHistory}
-        onQuickOpen={onQuickOpen}
         onQuickConsume={onQuickConsume}
         quickActionLoading={quickActionLoading}
         backgroundGradient={backgroundGradient}
@@ -407,7 +404,6 @@ function IosInventoryItemGroupView({
   onClose,
   onSelectLot,
   onHistory,
-  onQuickOpen,
   onQuickConsume,
   quickActionLoading = false,
   backgroundGradient,
@@ -492,17 +488,9 @@ function IosInventoryItemGroupView({
                 actionLabel={
                   openedLots.length
                     ? `${formatAmount(1, openedLots[0].unit)} verbrauchen ›`
-                    : sealedLots.length
-                      ? `${formatAmount(1, sealedLots[0].unit)} öffnen ›`
-                      : undefined
+                    : undefined
                 }
-                onAction={
-                  openedLots.length
-                    ? () => onQuickConsume?.(openedLots[0])
-                    : sealedLots.length
-                      ? () => onQuickOpen?.(sealedLots[0])
-                      : undefined
-                }
+                onAction={openedLots.length ? () => onQuickConsume?.(openedLots[0]) : undefined}
                 actionLoading={quickActionLoading}
                 styles={styles}
                 colors={colors}

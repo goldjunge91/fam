@@ -9,12 +9,9 @@ import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount } from '@/lib/package-size';
 
 import {
-  groupTransactionsByDay,
-  isInventoryTransactionUndoable,
+  getInventoryTransactionLabel,
+  groupInventoryTransactions,
   type LocalInventoryTransaction,
-  transactionLabel,
-  transactionReasonLabel,
-  transactionUndoLabel,
 } from '../use-inventory-transactions';
 
 type InventoryHistorySheetProps = {
@@ -34,8 +31,6 @@ type InventoryHistorySheetProps = {
   footerNote?: string;
   lotLabels?: ReadonlyMap<string, string>;
   fullScreen?: boolean;
-  onUndo?: (transaction: LocalInventoryTransaction) => void;
-  undoPending?: boolean;
   loading?: boolean;
   error?: boolean;
   offline?: boolean;
@@ -45,6 +40,34 @@ type InventoryHistorySheetProps = {
 type HistoryRow =
   | { kind: 'header'; id: string; label: string }
   | { kind: 'transaction'; id: string; transaction: LocalInventoryTransaction };
+
+function selectHistoryTransactions(
+  transactions: readonly LocalInventoryTransaction[],
+): LocalInventoryTransaction[] {
+  const singleLegTransactions: LocalInventoryTransaction[] = [];
+  const operationRepresentatives = new Map<string, LocalInventoryTransaction>();
+
+  for (const transaction of transactions) {
+    if (transaction.operation_leg_count <= 1) {
+      singleLegTransactions.push(transaction);
+      continue;
+    }
+
+    const representative = operationRepresentatives.get(transaction.operation_id);
+    if (!representative || (transaction.type === 'in' && representative.type !== 'in')) {
+      operationRepresentatives.set(transaction.operation_id, transaction);
+    }
+  }
+
+  return [...singleLegTransactions, ...operationRepresentatives.values()];
+}
+
+function transactionReasonLabel(reason: LocalInventoryTransaction['reason']): string | null {
+  if (reason === 'expired') return 'Abgelaufen';
+  if (reason === 'spoiled') return 'Schlecht geworden';
+  if (reason === 'other') return 'Sonstiges';
+  return null;
+}
 
 export function InventoryHistorySheet({
   visible,
@@ -57,8 +80,6 @@ export function InventoryHistorySheet({
   footerNote,
   lotLabels,
   fullScreen = false,
-  onUndo,
-  undoPending = false,
   loading = false,
   error = false,
   offline = false,
@@ -66,7 +87,9 @@ export function InventoryHistorySheet({
 }: InventoryHistorySheetProps) {
   const { colors } = useTheme();
   const sheetStyle = useSheetShadowStyle();
-  const rows: HistoryRow[] = groupTransactionsByDay(transactions).flatMap((group) => [
+  const rows: HistoryRow[] = groupInventoryTransactions(
+    selectHistoryTransactions(transactions),
+  ).flatMap((group) => [
     { kind: 'header' as const, id: `header-${group.key}`, label: group.label },
     ...group.transactions.map((transaction) => ({
       kind: 'transaction' as const,
@@ -160,8 +183,6 @@ export function InventoryHistorySheet({
                   ? lotLabels?.get(row.transaction.fridge_item_id)
                   : undefined
               }
-              onUndo={onUndo}
-              undoPending={undoPending}
             />
           )
         }
@@ -262,30 +283,26 @@ function HistoryTransactionRow({
   colors,
   compactLabel,
   lotLabel,
-  onUndo,
-  undoPending,
 }: {
   transaction: LocalInventoryTransaction;
   colors: ReturnType<typeof useTheme>['colors'];
   compactLabel: boolean;
   lotLabel?: string;
-  onUndo?: (transaction: LocalInventoryTransaction) => void;
-  undoPending: boolean;
 }) {
   const isWaste = transaction.type === 'waste';
   const edgeColor = isWaste
     ? colors.danger
-    : transaction.type === 'in'
-      ? colors.success
-      : transaction.type === 'open'
-        ? colors.warning
+    : transaction.reversal_of !== null || transaction.operation_leg_count > 1
+      ? colors.warning
+      : transaction.type === 'in'
+        ? colors.success
         : colors.border;
   const reason = transactionReasonLabel(transaction.reason);
   const time = new Date(transaction.created_at).toLocaleTimeString('de-DE', {
     hour: '2-digit',
     minute: '2-digit',
   });
-  const undoAvailable = isInventoryTransactionUndoable(transaction);
+  const label = getInventoryTransactionLabel(transaction);
 
   return (
     <View className="inventory-history-row">
@@ -299,7 +316,7 @@ function HistoryTransactionRow({
       <View className="flex-1 gap-half">
         <View className="flex-row flex-wrap items-center gap-one">
           <Txt variant="body" weight="700">
-            {transactionLabel(transaction, compactLabel ? null : transaction.item_name)}
+            {compactLabel || !transaction.item_name ? label : `${label} · ${transaction.item_name}`}
           </Txt>
           {lotLabel ? (
             <View className="inventory-history-lot-tag">
@@ -326,18 +343,6 @@ function HistoryTransactionRow({
           {transaction.type === 'waste' || transaction.type === 'out' ? '−' : '+'}
           {formatAmount(transaction.quantity, transaction.item_unit ?? '')}
         </Txt>
-        {undoAvailable && onUndo ? (
-          <Pressable
-            disabled={undoPending}
-            onPress={() => onUndo(transaction)}
-            accessibilityRole="button"
-            accessibilityLabel={transactionUndoLabel(transaction)}
-            accessibilityState={{ disabled: undoPending }}>
-            <Txt variant="caption" color={colors.accent} weight="700">
-              Rückgängig
-            </Txt>
-          </Pressable>
-        ) : null}
       </View>
     </View>
   );

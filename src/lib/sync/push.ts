@@ -1,10 +1,23 @@
 import { metaOf } from '@/lib/db/entities';
-import { deleteOutboxEntries, loadDueOutboxEntries, recordOutboxOutcome } from '@/lib/db/outbox';
+import {
+  deleteOutboxEntries,
+  loadDueOutboxEntries,
+  parseOutboxEntry,
+  recordOutboxOutcome,
+} from '@/lib/db/outbox';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { backoffDelayMs, classifyError, MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { type CoalescedEntry, coalesce } from '@/lib/sync/coalesce';
+import {
+  type InventoryOperationEnvelope,
+  readInventoryOperationEnvelope,
+} from '@/lib/sync/inventory-quantity';
 import { upsertMirrorRow } from '@/lib/sync/mirror-write';
+import {
+  notifyInventoryConflict,
+  parseInventoryConflict,
+} from '@/lib/sync/resolve-inventory-conflict';
 import { normalizeUnit } from '@/lib/units';
 
 export type PushOutcome =
@@ -17,8 +30,12 @@ export type PushOutcome =
       error: string;
     };
 
+export type InventoryPushOutcome =
+  | { kind: 'conflict'; operation_id: string; code: string; sourceIds: number[] }
+  | { kind: 'pushed'; operation_id: string; sourceIds: number[] };
+
 export type PushResult = {
-  outcomes: PushOutcome[];
+  outcomes: Array<PushOutcome | InventoryPushOutcome>;
   stoppedEarly: boolean;
 };
 
@@ -74,6 +91,236 @@ type GenericQuery<T> = {
   select(columns?: string): GenericQuery<T>;
   eq(column: string, value: unknown): GenericQuery<T>;
 };
+
+type InventoryPushGroup = {
+  envelope: InventoryOperationEnvelope;
+  entries: Array<{
+    entity: Entity;
+    entityId: string;
+    sourceId: number;
+  }>;
+  sequence: number;
+};
+
+type InventoryRpcResponse = {
+  kind: 'applied' | 'replayed' | 'conflict' | 'invalid';
+  operation_id?: string;
+  code?: string;
+  lots?: unknown;
+  transactions?: unknown;
+};
+
+function isInventoryPayload(payload: Record<string, unknown>): boolean {
+  return 'inventory_operation' in payload;
+}
+
+function collectInventoryPushGroups(entries: readonly import('@/lib/db/types').OutboxEntry[]): {
+  groups: InventoryPushGroup[];
+  genericEntries: import('@/lib/db/types').OutboxEntry[];
+  invalidEntries: import('@/lib/db/types').OutboxEntry[];
+} {
+  const grouped = new Map<string, InventoryPushGroup>();
+  const genericEntries: import('@/lib/db/types').OutboxEntry[] = [];
+  const invalidEntries: import('@/lib/db/types').OutboxEntry[] = [];
+
+  for (const entry of entries) {
+    const payload = parseOutboxEntry(entry);
+    if (!isInventoryPayload(payload)) {
+      genericEntries.push(entry);
+      continue;
+    }
+    const envelope = readInventoryOperationEnvelope(entry);
+    if (!envelope) {
+      invalidEntries.push(entry);
+      continue;
+    }
+    const existing = grouped.get(envelope.operation_id);
+    if (existing) {
+      existing.entries.push({
+        entity: entry.entity,
+        entityId: entry.entity_id,
+        sourceId: entry.id,
+      });
+      continue;
+    }
+    grouped.set(envelope.operation_id, {
+      envelope,
+      entries: [{ entity: entry.entity, entityId: entry.entity_id, sourceId: entry.id }],
+      sequence: entry.id,
+    });
+  }
+
+  return {
+    groups: [...grouped.values()].sort((left, right) => left.sequence - right.sequence),
+    genericEntries,
+    invalidEntries,
+  };
+}
+
+function inventoryResponse(value: unknown): InventoryRpcResponse | null {
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) return null;
+  const response = value as {
+    kind?: unknown;
+    operation_id?: unknown;
+    code?: unknown;
+    lots?: unknown;
+    transactions?: unknown;
+  };
+  if (
+    (response.kind !== 'applied' &&
+      response.kind !== 'replayed' &&
+      response.kind !== 'conflict' &&
+      response.kind !== 'invalid') ||
+    (response.operation_id !== undefined && typeof response.operation_id !== 'string') ||
+    (response.code !== undefined && typeof response.code !== 'string')
+  )
+    return null;
+  return {
+    kind: response.kind,
+    operation_id: response.operation_id,
+    code: response.code,
+    lots: response.lots,
+    transactions: response.transactions,
+  };
+}
+
+function rowsOf(value: unknown): Record<string, unknown>[] {
+  return Array.isArray(value)
+    ? value.filter(
+        (row): row is Record<string, unknown> =>
+          typeof row === 'object' && row !== null && !Array.isArray(row),
+      )
+    : [];
+}
+
+async function pushInventoryOperation(
+  db: SqlDatabase,
+  supabase: TypedSupabaseClient,
+  group: InventoryPushGroup,
+  nowMs: number,
+  currentAttempts: number,
+): Promise<{ outcome: PushOutcome | InventoryPushOutcome; stop: boolean }> {
+  const sourceIds = group.entries.map((entry) => entry.sourceId);
+  const response = await supabase.rpc('apply_inventory_operation', {
+    p_operation: group.envelope.request,
+  });
+  if (response.error) {
+    const status = response.error.code === 'PGRST' ? 400 : 0;
+    const kind = classifyError(status === 0 ? null : status);
+    const nextAttempts = currentAttempts + 1;
+    await recordOutboxOutcome(db, sourceIds, {
+      attempts: nextAttempts,
+      lastError: response.error.message,
+      nextAttemptAtMs:
+        kind === 'transient' && nextAttempts < MAX_ATTEMPTS
+          ? nowMs + backoffDelayMs(currentAttempts)
+          : Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'failed-transient',
+        entity: 'fridge_items',
+        entityId:
+          group.envelope.request.type === 'insert_inventory'
+            ? group.envelope.request.item_id
+            : group.envelope.request.type === 'consume_inventory'
+              ? group.envelope.request.source_item_id
+              : group.envelope.request.type === 'waste_inventory' ||
+                  group.envelope.request.type === 'correct_quantity'
+                ? group.envelope.request.item_id
+                : group.envelope.request.item_id,
+        sourceIds,
+        error: response.error.message,
+      },
+      stop: kind === 'transient',
+    };
+  }
+
+  const result = inventoryResponse(response.data);
+  if (!result) {
+    const error = 'Inventory-RPC lieferte eine ungueltige Antwort.';
+    await recordOutboxOutcome(db, sourceIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: error,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'failed-permanent',
+        entity: 'fridge_items',
+        entityId:
+          group.envelope.request.type === 'insert_inventory'
+            ? group.envelope.request.item_id
+            : group.envelope.request.type === 'consume_inventory'
+              ? group.envelope.request.source_item_id
+              : group.envelope.request.item_id,
+        sourceIds,
+        error,
+      },
+      stop: false,
+    };
+  }
+
+  const conflict = parseInventoryConflict(result);
+  if (conflict) {
+    notifyInventoryConflict(conflict);
+    await recordOutboxOutcome(db, sourceIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: conflict.code,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'conflict',
+        operation_id: conflict.operation_id,
+        code: conflict.code,
+        sourceIds,
+      },
+      stop: true,
+    };
+  }
+  if (result.kind === 'invalid') {
+    const error = result.code ?? 'PAYLOAD_VALIDATION_FAILED';
+    await recordOutboxOutcome(db, sourceIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: error,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'failed-permanent',
+        entity: 'fridge_items',
+        entityId:
+          group.envelope.request.type === 'insert_inventory'
+            ? group.envelope.request.item_id
+            : group.envelope.request.type === 'consume_inventory'
+              ? group.envelope.request.source_item_id
+              : group.envelope.request.item_id,
+        sourceIds,
+        error,
+      },
+      stop: false,
+    };
+  }
+
+  const remoteLots = rowsOf(result.lots);
+  const remoteTransactions = rowsOf(result.transactions);
+  await db.withExclusiveTransactionAsync(async (txn) => {
+    await deleteOutboxEntries(txn, sourceIds);
+    for (const row of remoteLots) await upsertMirrorRow(txn, 'fridge_items', row, { dirty: 0 });
+    for (const row of remoteTransactions)
+      await upsertMirrorRow(txn, 'transactions', row, { dirty: 0 });
+    if (remoteLots.length === 0 && remoteTransactions.length === 0) {
+      for (const entry of group.entries) {
+        await txn.runAsync(`update ${entry.entity} set _dirty = 0 where id = ?`, [entry.entityId]);
+      }
+    }
+  });
+  return {
+    outcome: { kind: 'pushed', operation_id: group.envelope.operation_id, sourceIds },
+    stop: false,
+  };
+}
 
 async function attempt(
   supabase: TypedSupabaseClient,
@@ -395,19 +642,75 @@ export async function pushOutbox(deps: {
   const nowMs = deps.now ? deps.now() : Date.now();
 
   const entries = await loadDueOutboxEntries(deps.db, nowMs);
-  const { pushes, discardable } = coalesce(entries);
+  const {
+    groups: inventoryGroups,
+    genericEntries,
+    invalidEntries,
+  } = collectInventoryPushGroups(entries);
+  const { pushes, discardable } = coalesce(genericEntries);
 
-  const outcomes: PushOutcome[] = [];
+  const outcomes: Array<PushOutcome | InventoryPushOutcome> = [];
 
   if (discardable.length > 0) {
     await deleteOutboxEntries(deps.db, discardable);
     outcomes.push({ kind: 'discarded', sourceIds: discardable });
   }
 
+  if (invalidEntries.length > 0) {
+    const invalidIds = invalidEntries.map((entry) => entry.id);
+    const message = 'Inventory-Outbox-Eintrag ist kein gueltiger Phase-1-Request.';
+    await recordOutboxOutcome(deps.db, invalidIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: message,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    for (const entry of invalidEntries) {
+      outcomes.push({
+        kind: 'failed-permanent',
+        entity: entry.entity,
+        entityId: entry.entity_id,
+        sourceIds: [entry.id],
+        error: message,
+      });
+    }
+  }
+
   const attemptsById = new Map(entries.map((e) => [e.id, e.attempts]));
 
   let stoppedEarly = false;
-  for (const push of pushes) {
+  const queue: Array<
+    { kind: 'generic'; push: CoalescedEntry } | { kind: 'inventory'; group: InventoryPushGroup }
+  > = [
+    ...pushes.map((push) => ({ kind: 'generic' as const, push })),
+    ...inventoryGroups.map((group) => ({ kind: 'inventory' as const, group })),
+  ].sort(
+    (left, right) =>
+      (left.kind === 'generic' ? left.push.sequence : left.group.sequence) -
+      (right.kind === 'generic' ? right.push.sequence : right.group.sequence),
+  );
+
+  for (const item of queue) {
+    if (item.kind === 'inventory') {
+      const currentAttempts = Math.max(
+        0,
+        ...item.group.entries.map((entry) => attemptsById.get(entry.sourceId) ?? 0),
+      );
+      const { outcome, stop } = await pushInventoryOperation(
+        deps.db,
+        deps.supabase,
+        item.group,
+        nowMs,
+        currentAttempts,
+      );
+      outcomes.push(outcome);
+      if (stop) {
+        stoppedEarly = true;
+        break;
+      }
+      continue;
+    }
+
+    const push = item.push;
     const currentAttempts = Math.max(0, ...push.sourceIds.map((id) => attemptsById.get(id) ?? 0));
     const { outcome, stop } = await applyOnePush(
       deps.db,

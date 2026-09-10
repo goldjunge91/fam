@@ -192,7 +192,8 @@ export async function triggerHouseholdSync(
     if (queryClient) {
       const changedEntities = new Set<Entity>();
       for (const outcome of result.push.outcomes) {
-        if (outcome.kind === 'pushed' && outcome.entity) changedEntities.add(outcome.entity);
+        if (outcome.kind === 'pushed' && 'entity' in outcome && outcome.entity)
+          changedEntities.add(outcome.entity);
       }
       for (const pull of result.pull) {
         if (pull.rowsWritten > 0) changedEntities.add(pull.entity);

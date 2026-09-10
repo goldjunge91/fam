@@ -116,7 +116,7 @@ describe('SyncDebugScreen', () => {
     jest.clearAllMocks();
   });
 
-  it('zeigt Inventory-Mengen aus Integer-Tausendsteln als physische Menge an', async () => {
+  it('zeigt Inventory-Mengen als physische Dezimalmenge an', async () => {
     const queryClient = new QueryClient({
       defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
     });
@@ -127,6 +127,6 @@ describe('SyncDebugScreen', () => {
       </QueryClientProvider>,
     );
 
-    expect(await screen.findByText('Milch (1.5 ml)')).toBeOnTheScreen();
+    expect(await screen.findByText('Milch (1500 ml)')).toBeOnTheScreen();
   });
 });

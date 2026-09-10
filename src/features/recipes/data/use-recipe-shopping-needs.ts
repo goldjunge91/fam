@@ -6,7 +6,6 @@ import {
   stockInGrams,
 } from '@/features/meal-planner/shopping-needs';
 import { getDatabase } from '@/lib/db/client';
-import { fromInventoryQuantityUnits } from '@/lib/inventory-quantity';
 
 import type { RecipeDetail } from '../hooks/use-recipes';
 
@@ -53,7 +52,7 @@ export function useRecipeShoppingNeeds(
       const db = await getDatabase();
       const productIds = [...needs.keys()];
       const placeholders = productIds.map(() => '?').join(', ');
-      const [rawStockRows, products] = await Promise.all([
+      const [stockRows, products] = await Promise.all([
         db.getAllAsync<{ product_id: string; quantity: number; unit: string }>(
           `select product_id, quantity, unit from fridge_items
            where household_id = ? and product_id is not null and deleted_at is null`,
@@ -65,11 +64,7 @@ export function useRecipeShoppingNeeds(
         ),
       ]);
       // Persistenz-/View-Grenze (contract.md Abschnitt 3): fridge_items.quantity
-      // ist Integer-Tausendstel, stockInGrams erwartet die dezimale Menge.
-      const stockRows = rawStockRows.map((row) => ({
-        ...row,
-        quantity: fromInventoryQuantityUnits(row.quantity),
-      }));
+      // ist bereits der Dezimalwert in der gespeicherten Einheit.
       const productsById = new Map(products.map((product) => [product.id, product]));
       const missing = computeMissingIngredients(needs, stockInGrams(stockRows, productsById));
 

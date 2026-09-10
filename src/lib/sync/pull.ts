@@ -10,7 +10,7 @@ import {
 import type { Entity, SqlDatabase } from '@/lib/db/types';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { EPOCH_START } from '@/lib/sync/cursor';
-import { applyRemoteRow } from '@/lib/sync/mirror-write';
+import { applyRemoteRow, projectPendingInventoryOperations } from '@/lib/sync/mirror-write';
 import { addDiagnosticStep, reportWarning } from '@/lib/telemetry';
 
 /** Unter `config.toml`s `max_rows = 1000`. */
@@ -64,7 +64,10 @@ function initialCursor(): SyncCursor {
   return { lastSyncedAt: EPOCH_START, lastSyncedId: MIN_UUID };
 }
 
-function buildOrFilter(cursor: SyncCursor, cursorColumn: 'updated_at' | 'created_at'): string {
+export function buildOrFilter(
+  cursor: SyncCursor,
+  cursorColumn: 'updated_at' | 'created_at',
+): string {
   return `${cursorColumn}.gt.${cursor.lastSyncedAt},and(${cursorColumn}.eq.${cursor.lastSyncedAt},id.gt.${cursor.lastSyncedId})`;
 }
 
@@ -158,10 +161,16 @@ async function pullEntity(
     const last = page[page.length - 1];
 
     await db.withExclusiveTransactionAsync(async (txn) => {
+      const remoteLotIds = new Set<string>();
       for (const row of page) {
         const result = await applyRemoteRow(txn, entity, row, clockCeilingMs);
         if (result === 'written') outcome.rowsWritten += 1;
         else outcome.rowsSkippedAsLocalWins += 1;
+        if (result === 'written' && entity === 'fridge_items') remoteLotIds.add(row.id);
+      }
+
+      if (entity === 'fridge_items') {
+        await projectPendingInventoryOperations(txn, householdIds, remoteLotIds);
       }
 
       // Cursor erst nach dem vollständigen Seiten-Commit vorrücken; Wiederholung bleibt idempotent.

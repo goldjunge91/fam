@@ -32,6 +32,8 @@ export type EnqueueMutationInput = {
   now?: number;
 };
 
+export type EnqueueMutationBuilder = (txn: SqlDatabase) => Promise<readonly EnqueueMutationInput[]>;
+
 type OutboxChangedListener = () => void;
 const outboxChangedListeners = new Set<OutboxChangedListener>();
 
@@ -46,28 +48,36 @@ function notifyOutboxChanged(): void {
   for (const listener of outboxChangedListeners) listener();
 }
 
-export async function enqueueMutations(
-  db: SqlDatabase,
+async function writeMutations(
+  txn: SqlDatabase,
   inputs: readonly EnqueueMutationInput[],
 ): Promise<void> {
-  if (inputs.length === 0) return;
+  for (const input of inputs) {
+    await input.applyLocally(txn);
+
+    await txn.runAsync(
+      'insert into outbox (entity, entity_id, op, payload, created_at, attempts, next_attempt_at) values (?, ?, ?, ?, ?, 0, 0)',
+      [
+        input.entity,
+        input.entityId,
+        input.op,
+        JSON.stringify(input.payload),
+        input.now ?? Date.now(),
+      ],
+    );
+  }
+}
+
+export async function enqueueMutationsInExclusiveTransaction(
+  db: SqlDatabase,
+  build: EnqueueMutationBuilder,
+): Promise<void> {
+  let inputs: readonly EnqueueMutationInput[] = [];
 
   try {
     await db.withExclusiveTransactionAsync(async (txn) => {
-      for (const input of inputs) {
-        await input.applyLocally(txn);
-
-        await txn.runAsync(
-          'insert into outbox (entity, entity_id, op, payload, created_at, attempts, next_attempt_at) values (?, ?, ?, ?, ?, 0, 0)',
-          [
-            input.entity,
-            input.entityId,
-            input.op,
-            JSON.stringify(input.payload),
-            input.now ?? Date.now(),
-          ],
-        );
-      }
+      inputs = await build(txn);
+      await writeMutations(txn, inputs);
     });
   } catch (error) {
     reportError(error, {
@@ -79,6 +89,8 @@ export async function enqueueMutations(
     throw error;
   }
 
+  if (inputs.length === 0) return;
+
   addDiagnosticStep('outbox.mutation.queued', {
     operation: 'outbox.enqueue',
     entity: inputs[0]?.entity ?? 'unknown',
@@ -88,7 +100,16 @@ export async function enqueueMutations(
   notifyOutboxChanged();
 }
 
-/** Kompatibler Einzelmutations-Wrapper fuer bestehende Aufrufer. */
+export async function enqueueMutations(
+  db: SqlDatabase,
+  inputs: readonly EnqueueMutationInput[],
+): Promise<void> {
+  if (inputs.length === 0) return;
+
+  await enqueueMutationsInExclusiveTransaction(db, async () => inputs);
+}
+
+/** Einzelmutations-Wrapper fuer bestehende Aufrufer. */
 export async function enqueueMutation(db: SqlDatabase, input: EnqueueMutationInput): Promise<void> {
   await enqueueMutations(db, [input]);
 }

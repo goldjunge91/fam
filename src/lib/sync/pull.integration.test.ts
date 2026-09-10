@@ -3,8 +3,6 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { preferenceId } from '@/features/shopping-list/preferences/preference-identity.node';
 import type { Database } from '@/lib/database.types';
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { toEpochMs } from '@/lib/sync/cursor';
 import { pullHousehold } from '@/lib/sync/pull';
 import {
@@ -84,21 +82,156 @@ async function signUpAndCreateHousehold(client: SupabaseClient<Database>) {
   return householdId;
 }
 
+/** Der von `create_household` angelegte Kuehlschrank. `fridge_items.location_id` ist NOT NULL. */
+async function seededLocationId(
+  client: SupabaseClient<Database>,
+  householdId: string,
+): Promise<string> {
+  const { data, error } = await client
+    .from('storage_locations')
+    .select('id')
+    .eq('household_id', householdId)
+    .eq('kind', 'fridge')
+    .single();
+  if (error) throw error;
+  return data.id;
+}
+
 async function seedFridgeItems(
   client: SupabaseClient<Database>,
   householdId: string,
   count: number,
 ) {
-  const CHUNK = 100;
-  for (let start = 0; start < count; start += CHUNK) {
-    const size = Math.min(CHUNK, count - start);
-    const rows = Array.from({ length: size }, (_, i) => ({
-      household_id: householdId,
-      name: `Artikel ${start + i}`,
-    }));
-    const { error } = await client.from('fridge_items').insert(rows);
-    if (error) throw error;
+  const locationId = await seededLocationId(client, householdId);
+  for (let index = 0; index < count; index += 1) {
+    await insertInventory(
+      client,
+      householdId,
+      locationId,
+      `Artikel ${index}`,
+      '2026-09-07T10:00:00Z',
+    );
   }
+}
+
+type InsertInventoryOperation = {
+  contract_version: 1;
+  type: 'insert_inventory';
+  operation_id: string;
+  household_id: string;
+  created_at: string;
+  item_id: string;
+  in_transaction_id: string;
+  quantity: number;
+  product_id: string | null;
+  name: string;
+  unit: string;
+  package_size: number | null;
+  package_size_unit: string | null;
+  location_id: string;
+  expiry_date: string | null;
+  opened_at: string | null;
+  vacuum_sealed: boolean;
+  expiry_user_set: boolean;
+};
+
+async function applyInventoryOperation(
+  client: SupabaseClient<Database>,
+  operation: InsertInventoryOperation,
+): Promise<void> {
+  const { data, error } = await client.rpc('apply_inventory_operation', {
+    p_operation: operation,
+  });
+  if (error) throw error;
+  if (
+    typeof data !== 'object' ||
+    data === null ||
+    Array.isArray(data) ||
+    (data as { kind?: unknown }).kind !== 'applied'
+  ) {
+    throw new Error(`Inventory-Fixture wurde nicht angewendet: ${JSON.stringify(data)}`);
+  }
+}
+
+async function insertInventory(
+  client: SupabaseClient<Database>,
+  householdId: string,
+  locationId: string,
+  name: string,
+  createdAt: string,
+  ids: { itemId?: string; transactionId?: string } = {},
+): Promise<{ itemId: string; transactionId: string }> {
+  const itemId = ids.itemId ?? crypto.randomUUID();
+  const transactionId = ids.transactionId ?? crypto.randomUUID();
+  await applyInventoryOperation(client, {
+    contract_version: 1,
+    type: 'insert_inventory',
+    operation_id: crypto.randomUUID(),
+    household_id: householdId,
+    created_at: createdAt,
+    item_id: itemId,
+    in_transaction_id: transactionId,
+    quantity: 1,
+    product_id: null,
+    name,
+    unit: 'piece',
+    package_size: null,
+    package_size_unit: null,
+    location_id: locationId,
+    expiry_date: null,
+    opened_at: null,
+    vacuum_sealed: false,
+    expiry_user_set: false,
+  });
+  return { itemId, transactionId };
+}
+
+async function wasteInventory(
+  client: SupabaseClient<Database>,
+  householdId: string,
+  itemId: string,
+  locationId: string,
+): Promise<void> {
+  const { data, error } = await client.rpc('apply_inventory_operation', {
+    p_operation: {
+      contract_version: 1,
+      type: 'waste_inventory',
+      operation_id: crypto.randomUUID(),
+      household_id: householdId,
+      created_at: new Date().toISOString(),
+      waste_transaction_id: crypto.randomUUID(),
+      item_id: itemId,
+      expected_quantity: 1,
+      waste_quantity: 1,
+      reason: 'expired',
+      product_id: null,
+      unit: 'piece',
+      location_id: locationId,
+    },
+  });
+  if (error) throw error;
+  if (typeof data !== 'object' || data === null || Array.isArray(data))
+    throw new Error('Waste-Fixture fehlgeschlagen.');
+}
+
+/** Bestandszeile, auf die eine Ledger-Fixture zeigen kann (`fridge_item_id` ist NOT NULL). */
+async function seedFridgeItem(
+  client: SupabaseClient<Database>,
+  householdId: string,
+  name: string,
+  createdAt = '2026-09-07T10:00:00Z',
+  ids: { itemId?: string; transactionId?: string } = {},
+): Promise<{ id: string; locationId: string; updatedAt: string; transactionId: string }> {
+  const locationId = await seededLocationId(client, householdId);
+  const { itemId, transactionId } = await insertInventory(
+    client,
+    householdId,
+    locationId,
+    name,
+    createdAt,
+    ids,
+  );
+  return { id: itemId, locationId, updatedAt: createdAt, transactionId };
 }
 
 describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
@@ -117,7 +250,6 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
     await runDrizzleMigrations(db);
     client = makeClient();
     householdId = await signUpAndCreateHousehold(client);
@@ -158,27 +290,12 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
   }, 60_000);
 
   it('pullt transactions nur fuer die angeforderten Haushalte', async () => {
-    const ownTransactionId = crypto.randomUUID();
-    const { error: ownError } = await client.from('transactions').insert({
-      id: ownTransactionId,
-      household_id: householdId,
-      type: 'in',
-      quantity: 1,
-      created_at: '2026-09-07T10:00:00Z',
-    });
-    expect(ownError).toBeNull();
+    const ownItem = await seedFridgeItem(client, householdId, 'Eigener Bestand');
+    const ownTransactionId = ownItem.transactionId;
 
     const otherClient = makeClient();
     const otherHouseholdId = await signUpAndCreateHousehold(otherClient);
-    const otherTransactionId = crypto.randomUUID();
-    const { error: otherError } = await otherClient.from('transactions').insert({
-      id: otherTransactionId,
-      household_id: otherHouseholdId,
-      type: 'in',
-      quantity: 1,
-      created_at: '2026-09-07T10:00:00Z',
-    });
-    expect(otherError).toBeNull();
+    await seedFridgeItem(otherClient, otherHouseholdId, 'Fremder Bestand');
 
     const outcomes = await pullHousehold({
       db,
@@ -198,15 +315,16 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
     expect(rows).toEqual([{ id: ownTransactionId, household_id: householdId }]);
   }, 30_000);
 
-  it('verwendet bei transactions sync_sequence und erreicht verspätete Offline-Buchungen', async () => {
+  it('verwendet created_at plus id als stabilen transactions-Cursor', async () => {
     const createdAt = '2026-09-07T10:00:00Z';
     const firstId = crypto.randomUUID();
     const secondId = crypto.randomUUID();
-    const { error: seedError } = await client.from('transactions').insert([
-      { id: firstId, household_id: householdId, type: 'in', quantity: 1, created_at: createdAt },
-      { id: secondId, household_id: householdId, type: 'out', quantity: 1, created_at: createdAt },
-    ]);
-    expect(seedError).toBeNull();
+    await seedFridgeItem(client, householdId, 'Sequenz-Bestand A', createdAt, {
+      transactionId: firstId,
+    });
+    await seedFridgeItem(client, householdId, 'Sequenz-Bestand B', createdAt, {
+      transactionId: secondId,
+    });
 
     const firstPull = await pullHousehold({
       db,
@@ -220,15 +338,9 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
     });
 
     const thirdId = crypto.randomUUID();
-    const { error: nextError } = await client.from('transactions').insert({
-      id: thirdId,
-      household_id: householdId,
-      type: 'waste',
-      quantity: 1,
-      reason: 'expired',
-      created_at: '2026-09-07T09:00:00Z',
+    await seedFridgeItem(client, householdId, 'Sequenz-Bestand C', '2026-09-07T11:00:00Z', {
+      transactionId: thirdId,
     });
-    expect(nextError).toBeNull();
 
     const secondPull = await pullHousehold({
       db,
@@ -242,19 +354,14 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
       rowsWritten: 1,
     });
 
-    const rows = await db.getAllAsync<{ id: string }>(
-      'select id from transactions order by sync_sequence',
+    const rows = await db.getAllAsync<{ id: string; created_at: number }>(
+      'select id, created_at from transactions order by created_at, id',
     );
-    expect(rows).toEqual([{ id: firstId }, { id: secondId }, { id: thirdId }]);
+    expect(rows.map((row) => row.id)).toEqual([firstId, secondId, thirdId]);
   }, 30_000);
 
   it('pullt Tombstones — ein remote geloeschter Artikel wird lokal als geloescht markiert', async () => {
-    const { data: created } = await client
-      .from('fridge_items')
-      .insert({ household_id: householdId, name: 'Wird remote geloescht' })
-      .select()
-      .single();
-    const id = created?.id as string;
+    const { id } = await seedFridgeItem(client, householdId, 'Wird remote geloescht');
 
     await pullHousehold({
       db,
@@ -269,7 +376,7 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
     );
     expect(beforeDelete?.deleted_at).toBeNull();
 
-    await client.from('fridge_items').update({ deleted_at: new Date().toISOString() }).eq('id', id);
+    await wasteInventory(client, householdId, id, await seededLocationId(client, householdId));
 
     await pullHousehold({
       db,
@@ -287,12 +394,7 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
   }, 30_000);
 
   it('dirty lokal + neueres remote -> resolve waehlt remote, _dirty wird zurueckgesetzt', async () => {
-    const { data: created } = await client
-      .from('fridge_items')
-      .insert({ household_id: householdId, name: 'Original' })
-      .select()
-      .single();
-    const id = created?.id as string;
+    const { id } = await seedFridgeItem(client, householdId, 'Original');
 
     await pullHousehold({
       db,
@@ -308,9 +410,9 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
       [id],
     );
 
-    // Remote-Update erzeugt ueber den Trigger einen neuen, garantiert
-    // spaeteren Server-Zeitstempel als der lokal gespeicherte.
-    await client.from('fridge_items').update({ name: 'Remote (neuer)' }).eq('id', id);
+    // Die RPC-Mutation erzeugt einen neueren Server-Zeitstempel und einen
+    // Tombstone, ohne den RPC-only Inventory-Schreibpfad zu umgehen.
+    await wasteInventory(client, householdId, id, await seededLocationId(client, householdId));
 
     await pullHousehold({
       db,
@@ -325,18 +427,13 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
       'select name, _dirty from fridge_items where id = ?',
       [id],
     );
-    expect(row?.name).toBe('Remote (neuer)');
+    expect(row?.name).toBe('Original');
     expect(row?._dirty).toBe(0);
   }, 30_000);
 
   it('dirty lokal + aelteres remote -> lokaler Wert bleibt erhalten', async () => {
-    const { data: created } = await client
-      .from('fridge_items')
-      .insert({ household_id: householdId, name: 'Original' })
-      .select()
-      .single();
-    const id = created?.id as string;
-    const remoteUpdatedAtMs = toEpochMs(created?.updated_at ?? '');
+    const { id, locationId, updatedAt } = await seedFridgeItem(client, householdId, 'Original');
+    const remoteUpdatedAtMs = toEpochMs(updatedAt);
 
     // Lokale Zeile existiert bereits, BEVOR je gepullt wurde — simuliert
     // einen Absturz nach `enqueueMutation`, aber vor dem ersten Sync. Der
@@ -344,8 +441,8 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
     // und trifft dort auf einen echten Konflikt.
     const localUpdatedAtMs = remoteUpdatedAtMs + 999_999_999;
     await db.runAsync(
-      'insert into fridge_items (id, household_id, name, updated_at, _dirty) values (?, ?, ?, ?, 1)',
-      [id, householdId, 'Nur lokal', localUpdatedAtMs],
+      'insert into fridge_items (id, household_id, location_id, name, updated_at, _dirty) values (?, ?, ?, ?, ?, 1)',
+      [id, householdId, locationId, 'Nur lokal', localUpdatedAtMs],
     );
 
     const outcomes = await pullHousehold({
@@ -370,7 +467,7 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
   }, 30_000);
 
   it('ein zweiter Pull ohne Aenderungen ist ein echtes No-Op (keine zusaetzlichen Schreibzugriffe)', async () => {
-    await client.from('fridge_items').insert({ household_id: householdId, name: 'Einmalig' });
+    await seedFridgeItem(client, householdId, 'Einmalig');
 
     await pullHousehold({
       db,
@@ -517,7 +614,7 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
 
     // "Zweites Geraet": ein komplett frischer lokaler Spiegel fuer denselben Haushalt.
     const secondDeviceDb = createTestDatabase();
-    await runMigrations(secondDeviceDb, MIGRATIONS);
+    await runDrizzleMigrations(secondDeviceDb);
 
     const outcomes = await pullHousehold({
       db: secondDeviceDb,

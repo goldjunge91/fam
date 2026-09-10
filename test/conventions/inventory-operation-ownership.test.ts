@@ -35,7 +35,7 @@ function matchesOf(source: string, pattern: RegExp): string[] {
 function extractImportSources(source: string): string[] {
   return [
     // Static imports/exports: import ... from 'x' / export ... from 'x'
-    ...matchesOf(source, /(?:^|\n)\s*(?:import|export)\s+.*?\s+from\s+['"]([^'"]+)['"]/g),
+    ...matchesOf(source, /(?:^|\n)\s*(?:import|export)\s+[\s\S]*?\s+from\s+['"]([^'"]+)['"]/g),
     // Bare imports: import 'x'
     ...matchesOf(source, /(?:^|\n)\s*import\s+['"]([^'"]+)['"]/g),
     // Dynamic imports: import('x')
@@ -49,7 +49,8 @@ function extractImportSources(source: string): string[] {
  * Forbidden import patterns for inventory-lifecycle.ts.
  *
  * Each entry has a label (for error messages) and a test function.
- * `@/lib/inventory-quantity` is explicitly allowed per CONSTRAINTS.md.
+ * `@/lib/inventory-quantity` and the shared inventory lifecycle Zod module are
+ * explicitly allowed for this owner per CONSTRAINTS.md.
  */
 const FORBIDDEN_IMPORT_RULES: Array<{
   label: string;
@@ -100,7 +101,11 @@ const FORBIDDEN_IMPORT_RULES: Array<{
  * that the lifecycle module legitimately depends on.
  */
 function isAllowedImport(source: string): boolean {
-  return source === '@/lib/inventory-quantity' || source.startsWith('@/lib/inventory-quantity/');
+  return (
+    source === '@/lib/db/zod/inventory-lifecycle.zod' ||
+    source === '@/lib/inventory-quantity' ||
+    source.startsWith('@/lib/inventory-quantity/')
+  );
 }
 
 describe('Inventory Operation Ownership Gate', () => {
@@ -136,7 +141,7 @@ describe('Inventory Operation Ownership Gate', () => {
     const ALLOWED_MODULE_PATTERNS = [
       // Relative imports within the feature (e.g. ./opened-expiry)
       (s: string) => s.startsWith('.'),
-      // The one explicitly allowed @/ import
+      // The explicitly allowed shared validation and quantity imports
       (s: string) => isAllowedImport(s),
     ];
 
@@ -145,6 +150,17 @@ describe('Inventory Operation Ownership Gate', () => {
     );
 
     expect(unexpectedImports).toEqual([]);
+  });
+
+  describe('schema boundary', () => {
+    it('uses the shared inventory lifecycle Zod module', () => {
+      expect(importSources).toContain('@/lib/db/zod/inventory-lifecycle.zod');
+    });
+
+    it('does not define inline Zod schemas or inferred types', () => {
+      expect(source).not.toMatch(/(?:^|\n)\s*import\s+.*from\s+['"]zod['"]/);
+      expect(source).not.toMatch(/\bz\.(?:object|strictObject|union|discriminatedUnion|infer)\b/);
+    });
   });
 
   describe('no unauthorized production structure', () => {

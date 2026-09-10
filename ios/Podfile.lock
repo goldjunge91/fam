@@ -378,6 +378,28 @@ PODS:
   - Google-Mobile-Ads-SDK (13.1.0):
     - GoogleUserMessagingPlatform (>= 1.1)
   - GoogleUserMessagingPlatform (3.1.0)
+  - HarnessUI (1.4.1):
+    - hermes-engine
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
   - hermes-engine (250829098.0.17):
     - hermes-engine/Pre-built (= 250829098.0.17)
   - hermes-engine/Pre-built (250829098.0.17)
@@ -3004,6 +3026,7 @@ DEPENDENCIES:
   - ExpoWidgets (from `../node_modules/expo-widgets/ios`)
   - EXUpdatesInterface (from `../node_modules/expo-updates-interface/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
+  - "HarnessUI (from `../node_modules/@react-native-harness/ui`)"
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
   - "LiquidGlass (from `../node_modules/@callstack/liquid-glass`)"
   - NitroImage (from `../node_modules/react-native-nitro-image`)
@@ -3232,6 +3255,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-updates-interface/ios"
   FBLazyVector:
     :path: "../node_modules/react-native/Libraries/FBLazyVector"
+  HarnessUI:
+    :path: "../node_modules/@react-native-harness/ui"
   hermes-engine:
     :podspec: "../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec"
     :tag: hermes-v250829098.0.17
@@ -3464,7 +3489,7 @@ SPEC CHECKSUMS:
   ExpoLocalization: 659243b03b3a3e9589793cee2f728a899e181329
   ExpoLocation: 8ff9d333424065fdb779429d9a69e163e8c23796
   ExpoLogBox: 80957303325cd4439137765c90a87d7f22aaf2ff
-  ExpoModulesCore: 2f14d75dfc23382f0f5a9305e0d32b464c143061
+  ExpoModulesCore: d44c62a008ebfb42ca42f07701c9e25ddfca351b
   ExpoModulesJSI: 52f43ddb01b1db76ccfcff4c4df4fed39e31ba7d
   ExpoModulesWorklets: 5e70b46d570c5b1b702c18bc8ac8d1af0171450e
   ExpoModulesWorkletsAdapter: e6b5fe31d23bed76c5cb22e9fbf19e740ce03253
@@ -3483,11 +3508,12 @@ SPEC CHECKSUMS:
   ExpoTrackingTransparency: 43401b22cf6aed3a4a35e0c24d0b320905acc477
   ExpoUI: 3a63ce87d7d2d2a565fd1eabba08ed5ecdae7991
   ExpoWebBrowser: 9b98d939d5f1c5dd8f523f0a0683056fb1204434
-  ExpoWidgets: 9c9229fdc23d1b83373b73a766c6d73d283a7b57
+  ExpoWidgets: dee6831b8c656e89b026d030f55c41bce2ee9104
   EXUpdatesInterface: 92d2aa5194b6fb93ca8ab749db75665cb28b2e60
   FBLazyVector: 2138c6c2ab66c31bf5754dc18097fbc498a49c7f
   Google-Mobile-Ads-SDK: 8429bef6ee1a4e322b0a5571b64217ed8317a3d5
   GoogleUserMessagingPlatform: befe603da6501006420c206222acd449bba45a9c
+  HarnessUI: bb94ae23e70e83983e4e914a8d7573969e33b930
   hermes-engine: 63c5db7d529c36335fada6582fd293ae2a105d77
   JWTDecode: 2eed97c2fa46ccaf3049a787004eedf0be474a87
   LiquidGlass: 4418f983225b9cfd8ae81b2196088d91ef7b973d

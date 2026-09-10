@@ -18,7 +18,6 @@ import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { subtractInventoryQuantities, sumInventoryQuantities } from '@/lib/inventory-quantity';
-import { EditInventoryItemSheet } from './components/edit-inventory-item-sheet';
 import { InventoryHistorySheet } from './components/inventory-history-sheet';
 import { InventoryIconButton } from './components/inventory-icon-button';
 import { InventoryItemActionsSheet } from './components/inventory-item-actions-sheet';
@@ -30,24 +29,17 @@ import { InventoryItemRow } from './components/inventory-item-row';
 import { InventorySearchInput } from './components/inventory-search-field';
 import { InventorySummaryCard } from './components/inventory-summary-card';
 import { InventoryTabBar } from './components/inventory-tab-bar';
-import { OpenInventoryItemSheet } from './components/open-inventory-item-sheet';
 import { WasteInventoryItemSheet, type WasteReason } from './components/waste-inventory-item-sheet';
 import { getExpiryInfo } from './expiry';
 import { groupInventoryItems, type InventoryItemGroup } from './grouped-items';
-import { useInventoryConflicts } from './use-inventory-conflicts';
 import { type LocalInventoryItem, useInventoryItems } from './use-inventory-items';
 import {
-  useDiscardInventoryConflictMutation,
-  useOpenInventoryItemMutation,
-  useReconfirmInventoryConflictMutation,
-  useUndoInventoryTransactionMutation,
-  useUpdateFridgeItemMutation,
+  useConsumeInventoryItemMutation,
   useUpdateInventoryItemQuantityMutation,
   useWasteInventoryItemMutation,
 } from './use-inventory-mutations';
 import {
   filterTransactionsForProduct,
-  type LocalInventoryTransaction,
   useInventoryTransactions,
 } from './use-inventory-transactions';
 import { type InventorySortMode, selectVisibleInventoryItems } from './visible-items';
@@ -67,8 +59,6 @@ export function InventoryScreen() {
   const [detailGroupId, setDetailGroupId] = useState<string | null>(null);
   const [actionReturnGroupId, setActionReturnGroupId] = useState<string | null>(null);
   const [informationItem, setInformationItem] = useState<LocalInventoryItem | null>(null);
-  const [editItem, setEditItem] = useState<LocalInventoryItem | null>(null);
-  const [openItem, setOpenItem] = useState<LocalInventoryItem | null>(null);
   const [wasteItem, setWasteItem] = useState<LocalInventoryItem | null>(null);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [productHistoryGroup, setProductHistoryGroup] = useState<InventoryItemGroup | null>(null);
@@ -88,18 +78,10 @@ export function InventoryScreen() {
     refetch: refetchTransactions,
   } = useInventoryTransactions(householdId);
   const syncStatus = useSyncStatus();
-  const inventoryConflicts = useInventoryConflicts();
-  const discardConflict = useDiscardInventoryConflictMutation();
-  const reconfirmConflict = useReconfirmInventoryConflictMutation();
-  const resolvingConflictItemId: string | null = discardConflict.isPending
-    ? (discardConflict.variables?.itemId ?? null)
-    : reconfirmConflict.isPending
-      ? (reconfirmConflict.variables?.itemId ?? null)
-      : null;
+  // Die Konflikt-UI (Read, Discard, Reconfirm) haengt am Server-Receipt aus Slice 4
+  // und wird erst mit fam-9vt.11.4/fam-9vt.11.5 wieder verdrahtet.
   const updateQty = useUpdateInventoryItemQuantityMutation();
-  const updateItem = useUpdateFridgeItemMutation();
-  const openMutation = useOpenInventoryItemMutation();
-  const undoMutation = useUndoInventoryTransactionMutation();
+  const consumeMutation = useConsumeInventoryItemMutation();
   const wasteMutation = useWasteInventoryItemMutation();
 
   const today = new Date();
@@ -170,16 +152,11 @@ export function InventoryScreen() {
     updateQty.mutate({ id: item.id, household_id: householdId, delta });
   }
 
-  function handleEdit(item: LocalInventoryItem) {
-    setActionItem(null);
-    setEditItem(item);
-  }
-
   function handleConsume(item: LocalInventoryItem) {
     if (!householdId) return;
     const returnGroupId = actionReturnGroupId;
-    updateQty.mutate(
-      { id: item.id, household_id: householdId, delta: -item.quantity },
+    consumeMutation.mutate(
+      { item, quantity: item.quantity },
       {
         onSuccess: () => {
           setActionItem(null);
@@ -190,44 +167,14 @@ export function InventoryScreen() {
     );
   }
 
-  function handleOpen(item: LocalInventoryItem) {
-    setActionItem(null);
-    setOpenItem(item);
-  }
-
   function handleWaste(item: LocalInventoryItem) {
     setActionItem(null);
     setWasteItem(item);
   }
 
-  function closeOpenItem() {
-    if (openItem) setActionItem(openItem);
-    setOpenItem(null);
-  }
-
   function closeWasteItem() {
     if (wasteItem) setActionItem(wasteItem);
     setWasteItem(null);
-  }
-
-  function closeEditItem() {
-    if (editItem) setActionItem(editItem);
-    setEditItem(null);
-  }
-
-  function confirmOpen(quantity: number) {
-    if (!openItem) return;
-    const returnGroupId = actionReturnGroupId;
-    openMutation.mutate(
-      { item: openItem, quantity },
-      {
-        onSuccess: () => {
-          setOpenItem(null);
-          setActionReturnGroupId(null);
-          if (returnGroupId) setDetailGroupId(returnGroupId);
-        },
-      },
-    );
   }
 
   function confirmWaste(reason: WasteReason) {
@@ -245,26 +192,8 @@ export function InventoryScreen() {
     );
   }
 
-  function quickOpen(item: LocalInventoryItem) {
-    openMutation.mutate({ item, quantity: 1 });
-  }
-
   function quickConsume(item: LocalInventoryItem) {
-    if (!householdId) return;
-    updateQty.mutate({ id: item.id, household_id: householdId, delta: -1 });
-  }
-
-  function undoTransaction(transaction: LocalInventoryTransaction) {
-    undoMutation.mutate(
-      { transaction },
-      {
-        onError: (error) =>
-          Alert.alert(
-            'Undo nicht möglich',
-            error instanceof Error ? error.message : 'Bitte später erneut versuchen.',
-          ),
-      },
-    );
+    consumeMutation.mutate({ item, quantity: 1 });
   }
 
   function handleDeletePress(item: LocalInventoryItem) {
@@ -424,8 +353,7 @@ export function InventoryScreen() {
         group={detailGroup}
         onClose={() => setDetailGroupId(null)}
         backgroundGradient={hubGradient}
-        quickActionLoading={openMutation.isPending || updateQty.isPending}
-        onQuickOpen={quickOpen}
+        quickActionLoading={consumeMutation.isPending || updateQty.isPending}
         onQuickConsume={quickConsume}
         onHistory={() => {
           if (!detailGroup) return;
@@ -439,10 +367,6 @@ export function InventoryScreen() {
           setActionReturnGroupId(detailGroup.id);
           setActionItem(lot);
         }}
-        conflictsByLotId={inventoryConflicts}
-        onDiscardConflict={(conflict) => discardConflict.mutate(conflict)}
-        onReconfirmConflict={(conflict) => reconfirmConflict.mutate(conflict)}
-        resolvingConflictItemId={resolvingConflictItemId}
       />
 
       {/* Aktions-Bottom-Sheet für ein konkretes MHD-Los */}
@@ -461,22 +385,9 @@ export function InventoryScreen() {
             subtractInventoryQuantities(value, currentActionItem.quantity),
           )
         }
-        onEdit={() => currentActionItem && handleEdit(currentActionItem)}
         onConsume={() => currentActionItem && handleConsume(currentActionItem)}
-        onOpen={() => currentActionItem && handleOpen(currentActionItem)}
         onWaste={() => currentActionItem && handleWaste(currentActionItem)}
         backgroundGradient={hubGradient}
-        onExpiryChange={(expiryDate) => {
-          if (!currentActionItem) return;
-          updateItem.mutate({
-            id: currentActionItem.id,
-            household_id: currentActionItem.household_id,
-            patch: {
-              expiry_date: expiryDate || null,
-              expiry_user_set: true,
-            },
-          });
-        }}
       />
 
       {/* Detail-Modal für Produktinformationen & Nährwerte */}
@@ -484,21 +395,6 @@ export function InventoryScreen() {
         visible={!!informationItem}
         item={informationItem}
         onClose={() => setInformationItem(null)}
-      />
-
-      <EditInventoryItemSheet
-        visible={!!editItem}
-        item={editItem}
-        locations={locations}
-        onClose={closeEditItem}
-      />
-
-      <OpenInventoryItemSheet
-        visible={!!openItem}
-        item={openItem}
-        onClose={closeOpenItem}
-        onConfirm={confirmOpen}
-        loading={openMutation.isPending}
       />
 
       <WasteInventoryItemSheet
@@ -519,8 +415,6 @@ export function InventoryScreen() {
         error={transactionsError}
         offline={syncStatus.kind === 'offline'}
         onRetry={() => void refetchTransactions()}
-        onUndo={undoTransaction}
-        undoPending={undoMutation.isPending}
       />
 
       <InventoryHistorySheet
@@ -563,13 +457,11 @@ export function InventoryScreen() {
         error={transactionsError}
         offline={syncStatus.kind === 'offline'}
         onRetry={() => void refetchTransactions()}
-        undoPending={undoMutation.isPending}
         onClose={() => {
           setProductHistoryGroup(null);
           if (productHistoryReturnGroupId) setDetailGroupId(productHistoryReturnGroupId);
           setProductHistoryReturnGroupId(null);
         }}
-        onUndo={undoTransaction}
       />
     </Screen>
   );

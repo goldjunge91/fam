@@ -19,16 +19,6 @@ export type SqlDatabase = {
   withExclusiveTransactionAsync(task: (txn: SqlDatabase) => Promise<void>): Promise<void>;
 };
 
-// --------------------------------------------------------------- Migrationen
-
-export type Migration = {
-  /** Fortlaufend ab 1, luecken- und duplikatfrei. */
-  version: number;
-  /** Kurzer Name, taucht nur in Fehlermeldungen auf. */
-  name: string;
-  statements: readonly string[];
-};
-
 // ------------------------------------------------------------------ Entitaeten
 
 /** Serverseitig synchronisierte SQLite-Spiegel. */

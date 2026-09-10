@@ -1,5 +1,4 @@
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
+import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import {
   getFrequentProductUsage,
   type ProductUsageEntry,
@@ -26,7 +25,7 @@ describe('product_usage', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
   });
 
   afterEach(() => {

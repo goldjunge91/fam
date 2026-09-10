@@ -2,7 +2,6 @@ import { Feather } from '@expo/vector-icons';
 import type { ComponentProps } from 'react';
 import { Modal, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { GradientBackground } from '@/components/layout/gradient-background';
 import {
   BUTTON_DEPTH,
@@ -26,12 +25,9 @@ type InventoryItemActionsSheetProps = {
   item: LocalInventoryItem | null;
   onClose: () => void;
   onQuantityChange: (value: number) => void;
-  onEdit: () => void;
   onConsume: () => void;
   onRemove?: () => void;
-  onOpen: () => void;
   onWaste: () => void;
-  onExpiryChange: (expiryDate: string) => void;
   backgroundGradient?: GradientSpec;
 };
 
@@ -54,12 +50,9 @@ export function InventoryItemActionsSheet({
   item,
   onClose,
   onQuantityChange,
-  onEdit,
   onConsume,
   onRemove,
-  onOpen,
   onWaste,
-  onExpiryChange,
   backgroundGradient,
 }: InventoryItemActionsSheetProps) {
   const { colors } = useTheme();
@@ -74,11 +67,8 @@ export function InventoryItemActionsSheet({
         item={item}
         onClose={onClose}
         onQuantityChange={onQuantityChange}
-        onEdit={onEdit}
         onConsume={onConsume}
-        onOpen={onOpen}
         onWaste={onWaste}
-        onExpiryChange={onExpiryChange}
         backgroundGradient={backgroundGradient}
       />
     );
@@ -133,22 +123,12 @@ export function InventoryItemActionsSheet({
           </View>
 
           <View className="fridge-actions-row">
-            <SheetAction label="Bearbeiten" onPress={onEdit} variant="neutral" />
-            {!item.opened_at ? (
-              <SheetAction label="Öffnen" onPress={onOpen} variant="primary" />
-            ) : null}
             <SheetAction label="Verbraucht" onPress={onConsume} variant="success" />
             <SheetAction label="Wegwerfen" onPress={onWaste} variant="danger" />
             {onRemove ? (
               <SheetAction label="Entfernen" onPress={onRemove} variant="danger" fullWidth />
             ) : null}
           </View>
-
-          <DateWheelField
-            label="Mindesthaltbarkeitsdatum"
-            value={item.expiry_date ?? ''}
-            onChange={onExpiryChange}
-          />
         </View>
       </View>
     </Modal>
@@ -160,11 +140,8 @@ function IosInventoryItemActionsView({
   item,
   onClose,
   onQuantityChange,
-  onEdit,
   onConsume,
-  onOpen,
   onWaste,
-  onExpiryChange,
   backgroundGradient,
 }: Omit<InventoryItemActionsSheetProps, 'onRemove'>) {
   const { colors } = useTheme();
@@ -258,23 +235,6 @@ function IosInventoryItemActionsView({
             </View>
 
             <View style={styles.actionGrid}>
-              {!item.opened_at ? (
-                <IosActionTile
-                  icon="package"
-                  label="Öffnen"
-                  hint="Menge aufteilen"
-                  variant="primary"
-                  onPress={onOpen}
-                  styles={styles}
-                />
-              ) : null}
-              <IosActionTile
-                icon="edit-3"
-                label="Bearbeiten"
-                hint="MHD oder Ort"
-                onPress={onEdit}
-                styles={styles}
-              />
               <IosActionTile
                 icon="check"
                 label="Verbrauchen"
@@ -292,12 +252,6 @@ function IosInventoryItemActionsView({
                 styles={styles}
               />
             </View>
-
-            <DateWheelField
-              label="Mindesthaltbarkeitsdatum"
-              value={item.expiry_date ?? ''}
-              onChange={onExpiryChange}
-            />
           </ScrollView>
         </SafeAreaView>
       </View>

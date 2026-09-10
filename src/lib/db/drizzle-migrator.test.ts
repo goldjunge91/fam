@@ -1,33 +1,149 @@
-import { DRIZZLE_BASELINE_NAME } from '@/lib/db/drizzle-baseline';
+import {
+  DRIZZLE_BASELINE_NAME,
+  DRIZZLE_MIGRATIONS_TABLE,
+  hashMigrationSource,
+} from '@/lib/db/drizzle-baseline';
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import localMigrations from '../../../drizzle/local/migrations';
 import { createTestDatabase } from '../../../test/node-sqlite-adapter';
 
 describe('Drizzle-Migrationsrunner', () => {
-  it('baselined V1–V22 und führt danach alle Drizzle-Inkremente genau einmal aus', async () => {
+  it('behandelt exakt gleichen Migrationsnamen und Hash idempotent', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
+    const source = 'create table exact_hash (id text primary key)';
+    const bundle = { migrations: { [DRIZZLE_BASELINE_NAME]: source } };
 
-    await expect(runDrizzleMigrations(db)).resolves.toBe(
-      Object.keys(localMigrations.migrations).length - 1,
+    await expect(runDrizzleMigrations(db, bundle)).resolves.toBe(1);
+    await expect(
+      db.getFirstAsync<{ name: string; hash: string }>(
+        `select name, hash from ${DRIZZLE_MIGRATIONS_TABLE}`,
+      ),
+    ).resolves.toEqual({
+      name: DRIZZLE_BASELINE_NAME,
+      hash: hashMigrationSource(source),
+    });
+    await expect(runDrizzleMigrations(db, bundle)).resolves.toBe(0);
+
+    db.close();
+  });
+
+  it('weist eine bereits gespeicherte Migration mit abweichendem Hash zurück', async () => {
+    const db = createTestDatabase();
+    const bundle = {
+      migrations: { [DRIZZLE_BASELINE_NAME]: 'create table hash_mismatch (id text primary key)' },
+    };
+
+    await runDrizzleMigrations(db, bundle);
+
+    await expect(
+      runDrizzleMigrations(db, {
+        migrations: {
+          [DRIZZLE_BASELINE_NAME]:
+            'create table hash_mismatch (id text primary key, label text not null)',
+        },
+      }),
+    ).rejects.toThrow(/Hash/i);
+
+    db.close();
+  });
+
+  it('weist gespeicherte Migrationen zurück, die im Bundle unbekannt sind', async () => {
+    const db = createTestDatabase();
+    const source = 'create table unknown_migration (id text primary key)';
+    const bundle = { migrations: { [DRIZZLE_BASELINE_NAME]: source } };
+
+    await runDrizzleMigrations(db, bundle);
+    await db.runAsync(
+      `insert into ${DRIZZLE_MIGRATIONS_TABLE} (hash, created_at, name, applied_at)
+       values (?, ?, ?, ?)`,
+      ['unknown-hash', 0, '20260909070000_unknown', '2026-09-09T07:00:00.000Z'],
     );
+
+    await expect(runDrizzleMigrations(db, bundle)).rejects.toThrow(/unbekannt/i);
+
+    db.close();
+  });
+
+  it('weist doppelte Metadaten für eine Migration zurück', async () => {
+    const db = createTestDatabase();
+    const source = 'create table duplicate_metadata (id text primary key)';
+    const bundle = { migrations: { [DRIZZLE_BASELINE_NAME]: source } };
+
+    await runDrizzleMigrations(db, bundle);
+    await db.runAsync(
+      `insert into ${DRIZZLE_MIGRATIONS_TABLE} (hash, created_at, name, applied_at)
+       values (?, ?, ?, ?)`,
+      [hashMigrationSource(source), 0, DRIZZLE_BASELINE_NAME, '2026-09-09T07:00:00.000Z'],
+    );
+
+    await expect(runDrizzleMigrations(db, bundle)).rejects.toThrow(/doppelt/i);
+
+    db.close();
+  });
+
+  it('legt die gebündelte Vollbaseline auf einer frischen Datenbank genau einmal an', async () => {
+    const db = createTestDatabase();
+
+    await expect(runDrizzleMigrations(db)).resolves.toBe(1);
     await expect(runDrizzleMigrations(db)).resolves.toBe(0);
 
     const migrationNames = await db.getAllAsync<{ name: string }>(
-      'select name from __drizzle_migrations order by name',
+      `select name from ${DRIZZLE_MIGRATIONS_TABLE} order by name`,
     );
     expect(migrationNames.map((row) => row.name)).toEqual(
       Object.keys(localMigrations.migrations).sort(),
     );
-    expect(migrationNames[0]?.name).toBe(DRIZZLE_BASELINE_NAME);
+    expect(migrationNames).toEqual([{ name: DRIZZLE_BASELINE_NAME }]);
+    await expect(
+      db.getFirstAsync<{ name: string }>(
+        `select name from sqlite_schema where name = 'fridge_items'`,
+      ),
+    ).resolves.toEqual({ name: 'fridge_items' });
+
     db.close();
   });
 
-  it('trennt lokale Rezeptpräferenzen nach user_id und erzwingt ihre Constraints', async () => {
+  it('führt die gebündelte Baseline auf einer frischen Datenbank atomar aus', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
+    const brokenBaseline = {
+      migrations: {
+        [DRIZZLE_BASELINE_NAME]:
+          'create table should_rollback (id text primary key)\n--> statement-breakpoint\nnot valid sql',
+      },
+    };
+
+    await expect(runDrizzleMigrations(db, brokenBaseline)).rejects.toThrow();
+    await expect(
+      db.getFirstAsync("select name from sqlite_schema where name = 'should_rollback'"),
+    ).resolves.toBeNull();
+    await expect(
+      db.getFirstAsync(`select name from sqlite_schema where name = '${DRIZZLE_MIGRATIONS_TABLE}'`),
+    ).resolves.toBeNull();
+
+    db.close();
+  });
+
+  it('weist ein Bundle ohne die festgelegte Baseline vor jedem Schreibzugriff zurück', async () => {
+    const db = createTestDatabase();
+    const missingBaseline = {
+      migrations: {
+        '20260909060454_only_increment': 'create table should_not_apply (id text primary key)',
+      },
+    };
+
+    await expect(runDrizzleMigrations(db, missingBaseline)).rejects.toThrow(/Baseline/);
+    await expect(
+      db.getFirstAsync(`select name from sqlite_schema where name = '${DRIZZLE_MIGRATIONS_TABLE}'`),
+    ).resolves.toBeNull();
+    await expect(
+      db.getFirstAsync("select name from sqlite_schema where name = 'should_not_apply'"),
+    ).resolves.toBeNull();
+
+    db.close();
+  });
+
+  it('bewahrt die Constraints des gebündelten lokalen Schemas', async () => {
+    const db = createTestDatabase();
     await runDrizzleMigrations(db);
 
     await db.runAsync(
@@ -59,18 +175,7 @@ describe('Drizzle-Migrationsrunner', () => {
         ['alice', 'recipe:2', 1, 11, 1],
       ),
     ).rejects.toThrow();
-    db.close();
-  });
 
-  it('lehnt ein Bundle ohne die festgelegte Baseline ab', async () => {
-    const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-
-    await expect(
-      runDrizzleMigrations(db, {
-        migrations: { '20260826194537_only_increment': 'select 1' },
-      }),
-    ).rejects.toThrow(/Baseline/);
     db.close();
   });
 });

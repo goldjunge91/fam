@@ -814,7 +814,7 @@ export type Database = {
           expiry_user_set: boolean
           household_id: string
           id: string
-          location_id: string | null
+          location_id: string
           name: string
           opened_at: string | null
           package_size: number | null
@@ -833,7 +833,7 @@ export type Database = {
           expiry_user_set?: boolean
           household_id: string
           id?: string
-          location_id?: string | null
+          location_id: string
           name: string
           opened_at?: string | null
           package_size?: number | null
@@ -852,7 +852,7 @@ export type Database = {
           expiry_user_set?: boolean
           household_id?: string
           id?: string
-          location_id?: string | null
+          location_id?: string
           name?: string
           opened_at?: string | null
           package_size?: number | null
@@ -2673,62 +2673,53 @@ export type Database = {
         Row: {
           actor: string | null
           created_at: string
-          fridge_item_id: string | null
+          fridge_item_id: string
           household_id: string
           id: string
-          location_id: string | null
+          location_id: string
           notes: string | null
-          operation_id: string | null
-          origin_item_id: string | null
-          origin_quantity: number | null
-          previous_expiry_date: string | null
+          operation_id: string
+          operation_payload_hash: string | null
           product_id: string | null
           quantity: number
           reason: string | null
           reversal_of: string | null
-          sync_sequence: number
           type: string
-          undone: boolean
+          unit: string
         }
         Insert: {
           actor?: string | null
           created_at?: string
-          fridge_item_id?: string | null
+          fridge_item_id: string
           household_id: string
           id?: string
-          location_id?: string | null
+          location_id: string
           notes?: string | null
-          operation_id?: string | null
-          origin_item_id?: string | null
-          origin_quantity?: number | null
-          previous_expiry_date?: string | null
+          operation_id: string
+          operation_payload_hash?: string | null
           product_id?: string | null
           quantity: number
           reason?: string | null
           reversal_of?: string | null
-          sync_sequence?: number
           type: string
-          undone?: boolean
+          unit?: string
         }
         Update: {
           actor?: string | null
           created_at?: string
-          fridge_item_id?: string | null
+          fridge_item_id?: string
           household_id?: string
           id?: string
-          location_id?: string | null
+          location_id?: string
           notes?: string | null
-          operation_id?: string | null
-          origin_item_id?: string | null
-          origin_quantity?: number | null
-          previous_expiry_date?: string | null
+          operation_id?: string
+          operation_payload_hash?: string | null
           product_id?: string | null
           quantity?: number
           reason?: string | null
           reversal_of?: string | null
-          sync_sequence?: number
           type?: string
-          undone?: boolean
+          unit?: string
         }
         Relationships: [
           {
@@ -2760,17 +2751,17 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "transactions_origin_item_id_fkey"
-            columns: ["origin_item_id"]
-            isOneToOne: false
-            referencedRelation: "fridge_items"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "transactions_product_id_fkey"
             columns: ["product_id"]
             isOneToOne: false
             referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "transactions_reversal_of_fkey"
+            columns: ["reversal_of"]
+            isOneToOne: false
+            referencedRelation: "transactions"
             referencedColumns: ["id"]
           },
         ]
@@ -3023,17 +3014,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      adjust_fridge_item_quantity: {
-        Args: {
-          p_created_at: string
-          p_delta: number
-          p_household_id: string
-          p_item_id: string
-          p_operation_id: string
-          p_transaction_id: string
-        }
-        Returns: string
-      }
+      apply_inventory_operation: { Args: { p_operation: Json }; Returns: Json }
       apply_plus_household_event: {
         Args: {
           p_active: boolean
@@ -3070,18 +3051,6 @@ export type Database = {
           warning_reached: boolean
         }[]
       }
-      correct_fridge_item_quantity: {
-        Args: {
-          p_created_at: string
-          p_expected_quantity: number
-          p_household_id: string
-          p_item_id: string
-          p_new_quantity: number
-          p_operation_id: string
-          p_transaction_id: string
-        }
-        Returns: string
-      }
       create_household: { Args: { household_name: string }; Returns: string }
       deactivate_ai_household: {
         Args: {
@@ -3111,74 +3080,8 @@ export type Database = {
           user_id: string
         }[]
       }
-      merge_undo_fridge_item_open: {
-        Args: {
-          p_created_at: string
-          p_household_id: string
-          p_notes: string
-          p_reversal_of: string
-          p_reversal_transaction_id: string
-        }
-        Returns: string
-      }
-      move_fridge_item: {
-        Args: {
-          p_created_at: string
-          p_expected_location_id: string
-          p_expected_quantity: number
-          p_household_id: string
-          p_in_transaction_id: string
-          p_item_id: string
-          p_new_location_id: string
-          p_operation_id: string
-          p_out_transaction_id: string
-        }
-        Returns: string
-      }
       prepare_account_deletion: { Args: never; Returns: undefined }
       redeem_invite: { Args: { invite_token: string }; Returns: string }
-      reverse_inventory_quantity_transaction: {
-        Args: {
-          p_created_at: string
-          p_household_id: string
-          p_item_id: string
-          p_notes: string
-          p_reversal_of: string
-          p_reversal_transaction_id: string
-        }
-        Returns: string
-      }
-      reverse_move_fridge_item: {
-        Args: {
-          p_created_at: string
-          p_expected_location_id: string
-          p_expected_quantity: number
-          p_household_id: string
-          p_in_transaction_id: string
-          p_item_id: string
-          p_new_location_id: string
-          p_notes: string
-          p_operation_id: string
-          p_out_transaction_id: string
-          p_reversal_of: string
-        }
-        Returns: string
-      }
-      split_fridge_item_open: {
-        Args: {
-          p_created_at: string
-          p_expected_source_quantity: number
-          p_expiry_user_set: boolean
-          p_household_id: string
-          p_new_expiry_date: string
-          p_open_quantity: number
-          p_opened_at: string
-          p_opened_item_id: string
-          p_source_item_id: string
-          p_transaction_id: string
-        }
-        Returns: string
-      }
     }
     Enums: {
       [_ in never]: never
@@ -3197,12 +3100,12 @@ export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
         DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -3226,11 +3129,11 @@ export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -3251,11 +3154,11 @@ export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -3276,11 +3179,11 @@ export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
     | { schema: keyof DatabaseWithoutInternals },
-  EnumName extends DefaultSchemaEnumNameOrOptions extends {
+  EnumName extends (DefaultSchemaEnumNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaEnumNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -3293,11 +3196,11 @@ export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
     | { schema: keyof DatabaseWithoutInternals },
-  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+  CompositeTypeName extends (PublicCompositeTypeNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
-    : never = never,
+    : never) = never,
 > = PublicCompositeTypeNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }

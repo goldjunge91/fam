@@ -64,82 +64,129 @@ describe('coalesce', () => {
     expect(result.pushes[0].payload).toEqual({ name: 'Milch', quantity: 5 });
   });
 
-  it('behandelt einen Move als eigene gruppierte Operation', () => {
-    const move = {
-      operation_id: 'operation-1',
-      item_id: 'row-1',
-      household_id: 'hh-1',
-      expected_location_id: 'loc-1',
-      new_location_id: 'loc-2',
-      expected_quantity: 1,
-      out_transaction_id: 'out-1',
-      in_transaction_id: 'in-1',
-      created_at: '2026-09-07T10:00:00.000Z',
-    };
+  it('fasst den kanonischen Move-Lot-Patch mit einem spaeteren Mengenpatch zusammen', () => {
+    const result = coalesce([
+      entry('update', { location_id: 'loc-2' }, 'row-1'),
+      entry('update', { quantity: 2 }, 'row-1'),
+    ]);
 
-    const result = coalesce([entry('move', move), entry('update', { quantity: 2 }, 'row-1')]);
-
-    expect(result.pushes).toHaveLength(2);
+    expect(result.pushes).toHaveLength(1);
     expect(result.pushes[0]).toEqual(
-      expect.objectContaining({ op: 'move', payload: move, sourceIds: [1] }),
-    );
-    expect(result.pushes[1]).toEqual(
-      expect.objectContaining({ op: 'update', payload: { quantity: 2 }, sourceIds: [2] }),
+      expect.objectContaining({
+        op: 'update',
+        payload: { location_id: 'loc-2', quantity: 2 },
+        sourceIds: [1, 2],
+      }),
     );
   });
 
-  it('schliesst eine offene Update-Gruppe vor dem Move und bewahrt spaetere Updates', () => {
-    const move = {
+  it('fasst kanonische Move-Ledgerzeilen und spaetere Lot-Patches nach Entitaet zusammen', () => {
+    const moveOut = {
+      id: 'out-1',
       operation_id: 'operation-1',
-      item_id: 'row-1',
       household_id: 'hh-1',
-      expected_location_id: 'loc-1',
-      new_location_id: 'loc-2',
-      expected_quantity: 2,
-      out_transaction_id: 'out-1',
-      in_transaction_id: 'in-1',
+      fridge_item_id: 'row-1',
+      product_id: null,
+      actor: 'actor-1',
+      type: 'out',
+      quantity: 2,
+      unit: 'piece',
+      location_id: 'loc-1',
+      reason: null,
+      notes: null,
       created_at: '2026-09-07T10:00:00.000Z',
+      reversal_of: null,
+    };
+    const moveIn = {
+      ...moveOut,
+      id: 'in-1',
+      type: 'in',
+      location_id: 'loc-2',
     };
 
     const result = coalesce([
-      entry('update', { quantity: 2 }),
-      entry('move', move),
-      entry('update', { quantity: 1 }),
+      entry('update', { location_id: 'loc-2' }, 'row-1'),
+      entry('insert', moveOut, 'out-1', 'transactions'),
+      entry('insert', moveIn, 'in-1', 'transactions'),
+      entry('update', { quantity: 1 }, 'row-1'),
     ]);
 
-    expect(result.pushes.map(({ op, sourceIds, payload }) => ({ op, sourceIds, payload }))).toEqual(
-      [
-        { op: 'update', sourceIds: [1], payload: { quantity: 2 } },
-        { op: 'move', sourceIds: [2], payload: move },
-        { op: 'update', sourceIds: [3], payload: { quantity: 1 } },
-      ],
-    );
+    expect(
+      result.pushes.map(({ op, entity, entityId, sourceIds, payload }) => ({
+        op,
+        entity,
+        entityId,
+        sourceIds,
+        payload,
+      })),
+    ).toEqual([
+      {
+        op: 'update',
+        entity: 'fridge_items',
+        entityId: 'row-1',
+        sourceIds: [1, 4],
+        payload: { location_id: 'loc-2', quantity: 1 },
+      },
+      {
+        op: 'insert',
+        entity: 'transactions',
+        entityId: 'out-1',
+        sourceIds: [2],
+        payload: moveOut,
+      },
+      {
+        op: 'insert',
+        entity: 'transactions',
+        entityId: 'in-1',
+        sourceIds: [3],
+        payload: moveIn,
+      },
+    ]);
     expect(result.discardable).toEqual([]);
   });
 
-  it('schliesst eine Insert-Gruppe vor dem Move und laesst ein spaeteres Delete separat', () => {
-    const move = {
+  it('fasst einen bestehenden Lot-Patch mit Delete und kanonischen Move-Ledgerzeilen zusammen', () => {
+    const moveOut = {
+      id: 'out-1',
       operation_id: 'operation-1',
-      item_id: 'row-1',
       household_id: 'hh-1',
-      expected_location_id: 'loc-1',
-      new_location_id: 'loc-2',
-      expected_quantity: 1,
-      out_transaction_id: 'out-1',
-      in_transaction_id: 'in-1',
+      fridge_item_id: 'row-1',
+      product_id: null,
+      actor: 'actor-1',
+      type: 'out',
+      quantity: 1,
+      unit: 'piece',
+      location_id: 'loc-1',
+      reason: null,
+      notes: null,
       created_at: '2026-09-07T10:00:00.000Z',
+      reversal_of: null,
+    };
+    const moveIn = {
+      ...moveOut,
+      id: 'in-1',
+      type: 'in',
+      location_id: 'loc-2',
     };
 
     const result = coalesce([
-      entry('insert', { name: 'Milch', quantity: 1 }),
-      entry('move', move),
-      entry('delete', {}),
+      entry('update', { location_id: 'loc-2' }, 'row-1'),
+      entry('insert', moveOut, 'out-1', 'transactions'),
+      entry('insert', moveIn, 'in-1', 'transactions'),
+      entry('delete', {}, 'row-1'),
     ]);
 
-    expect(result.pushes.map(({ op, sourceIds }) => ({ op, sourceIds }))).toEqual([
-      { op: 'insert', sourceIds: [1] },
-      { op: 'move', sourceIds: [2] },
-      { op: 'delete', sourceIds: [3] },
+    expect(
+      result.pushes.map(({ op, entity, entityId, sourceIds }) => ({
+        op,
+        entity,
+        entityId,
+        sourceIds,
+      })),
+    ).toEqual([
+      { op: 'delete', entity: 'fridge_items', entityId: 'row-1', sourceIds: [1, 4] },
+      { op: 'insert', entity: 'transactions', entityId: 'out-1', sourceIds: [2] },
+      { op: 'insert', entity: 'transactions', entityId: 'in-1', sourceIds: [3] },
     ]);
     expect(result.discardable).toEqual([]);
   });

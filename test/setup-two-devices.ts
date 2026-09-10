@@ -2,8 +2,6 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
 import type { Database } from '@/lib/database.types';
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { createTestDatabase, type TestDatabase } from './node-sqlite-adapter';
 
 /**
@@ -63,6 +61,8 @@ export type TwoDeviceSetup = {
   deviceA: Device;
   deviceB: Device;
   householdId: string;
+  /** Der von `create_household` angelegte Kuehlschrank. `fridge_items.location_id` ist NOT NULL. */
+  locationId: string;
   /** Raeumt alle Server-Daten auf (Haushalt, Members, User). Immer aufrufen — in afterEach oder finally. */
   teardown: () => Promise<void>;
 };
@@ -104,10 +104,16 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
   if (hhError) throw hhError;
   if (!householdId) throw new Error('create_household lieferte keine id');
 
+  const { data: location, error: locationError } = await clientA
+    .from('storage_locations')
+    .select('id')
+    .eq('household_id', householdId)
+    .eq('kind', 'fridge')
+    .single();
+  if (locationError) throw locationError;
+
   const dbA = createTestDatabase();
   const dbB = createTestDatabase();
-  await runMigrations(dbA, MIGRATIONS);
-  await runMigrations(dbB, MIGRATIONS);
   await runDrizzleMigrations(dbA);
   await runDrizzleMigrations(dbB);
 
@@ -145,6 +151,7 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
     deviceA: { db: dbA, client: clientA },
     deviceB: { db: dbB, client: clientB },
     householdId,
+    locationId: location.id,
     teardown,
   };
 }

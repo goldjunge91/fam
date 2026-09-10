@@ -11,11 +11,11 @@ import type { SyncStatusView } from '@/lib/sync/sync-status';
 const mockUpdateQtyMutate = jest.fn();
 const mockUpdateExpiryMutate = jest.fn();
 const mockUpdateItemMutateAsync = jest.fn().mockResolvedValue({});
+const mockResealMutateAsync = jest.fn().mockResolvedValue({});
 const mockOpenMutate = jest.fn();
+const mockConsumeMutate = jest.fn();
 const mockWasteMutate = jest.fn();
 const mockUndoMutate = jest.fn();
-const mockDiscardConflictMutate = jest.fn();
-const mockReconfirmConflictMutate = jest.fn();
 
 let mockItems: LocalInventoryItem[] = [];
 let mockTransactions: LocalInventoryTransaction[] = [];
@@ -108,25 +108,16 @@ jest.mock('@/features/inventory/use-inventory-mutations', () => ({
     isPending: false,
   }),
   useOpenInventoryItemMutation: () => ({ mutate: mockOpenMutate, isPending: false }),
+  useConsumeInventoryItemMutation: () => ({ mutate: mockConsumeMutate, isPending: false }),
   useWasteInventoryItemMutation: () => ({ mutate: mockWasteMutate, isPending: false }),
   useUndoInventoryTransactionMutation: () => ({
     mutate: mockUndoMutate,
     isPending: mockUndoPending,
   }),
-  useDiscardInventoryConflictMutation: () => ({
-    mutate: mockDiscardConflictMutate,
+  useResealInventoryItemMutation: () => ({
+    mutateAsync: mockResealMutateAsync,
     isPending: false,
-    variables: undefined,
   }),
-  useReconfirmInventoryConflictMutation: () => ({
-    mutate: mockReconfirmConflictMutate,
-    isPending: false,
-    variables: undefined,
-  }),
-}));
-
-jest.mock('@/features/inventory/use-inventory-conflicts', () => ({
-  useInventoryConflicts: () => new Map(),
 }));
 
 jest.mock('@/features/inventory/use-product', () => ({
@@ -182,17 +173,20 @@ function makeTransaction(
 ): LocalInventoryTransaction {
   return {
     id: 'transaction-1',
+    operation_id: 'operation-1',
+    reversal_of: null,
     household_id: 'hh-1',
     fridge_item_id: 'item-1',
     product_id: null,
     actor: 'user-1',
-    type: 'open',
+    type: 'in',
     quantity: 1,
-    location_id: null,
+    unit: 'l',
+    location_id: 'location-1',
     reason: null,
-    previous_expiry_date: null,
     notes: null,
-    undone: false,
+    has_reversal: false,
+    operation_leg_count: 1,
     created_at: new Date(Date.now() - 60_000).toISOString(),
     item_name: 'Milch',
     item_unit: 'l',
@@ -239,6 +233,9 @@ beforeEach(() => {
       package_size: null,
       package_size_unit: null,
       expiry_date: null,
+      opened_at: null,
+      vacuum_sealed: false,
+      expiry_user_set: false,
       added_by: null,
       created_at: '',
       location_kind: null,
@@ -249,6 +246,7 @@ beforeEach(() => {
   mockUpdateExpiryMutate.mockClear();
   mockUpdateItemMutateAsync.mockClear();
   mockOpenMutate.mockClear();
+  mockConsumeMutate.mockClear();
   mockWasteMutate.mockClear();
   mockUndoMutate.mockClear();
   mockTransactionsRefetch.mockClear();
@@ -304,12 +302,49 @@ it('öffnet den Option-C-Flow und protokolliert die gewählte Menge', async () =
   expect(screen.getByText('Geöffnete Menge')).toBeOnTheScreen();
   expect(screen.getByText('Versiegelt bleibt')).toBeOnTheScreen();
   expect(screen.getByText('Neu: geöffnet')).toBeOnTheScreen();
-  await user.press(screen.getByRole('button', { name: '1 L öffnen' }));
+  await user.press(screen.getByRole('button', { name: '2 L öffnen' }));
 
   expect(mockOpenMutate).toHaveBeenCalledWith(
-    expect.objectContaining({ item: expect.objectContaining({ id: 'item-1' }), quantity: 1 }),
+    expect.objectContaining({ item: expect.objectContaining({ id: 'item-1' }), quantity: 2 }),
     expect.any(Object),
   );
+});
+
+it('zeigt und bestätigt bei Packungsgröße exakt den vertraglichen Öffnungsanteil', async () => {
+  const user = userEvent.setup();
+  mockItems = [
+    { ...mockItems[0], quantity: 1000, unit: 'g', package_size: 500, package_size_unit: 'g' },
+  ];
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch, 1.000 g, 500 g je Packung' }));
+  await user.press(
+    screen.getByRole('button', { name: 'Milch, 1.000 g, MHD ohne MHD, Kein Lagerort' }),
+  );
+  await user.press(screen.getByRole('button', { name: 'Öffnen' }));
+
+  expect(screen.getByRole('button', { name: '500 g öffnen' })).toBeOnTheScreen();
+  expect(screen.queryByRole('button', { name: '1 g öffnen' })).not.toBeOnTheScreen();
+  await user.press(screen.getByRole('button', { name: '500 g öffnen' }));
+  expect(mockOpenMutate).toHaveBeenCalledWith(
+    expect.objectContaining({ item: expect.objectContaining({ id: 'item-1' }), quantity: 500 }),
+    expect.any(Object),
+  );
+});
+
+it('bucht vollständigen Verbrauch über die kanonische Consume-Mutation', async () => {
+  const user = userEvent.setup();
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
+  await user.press(screen.getByRole('button', { name: /Verbrauch/ }));
+
+  expect(mockConsumeMutate).toHaveBeenCalledWith(
+    { item: expect.objectContaining({ id: 'item-1' }), quantity: 2 },
+    expect.any(Object),
+  );
+  expect(mockUpdateQtyMutate).not.toHaveBeenCalled();
 });
 
 it('bucht Verschwendung mit dem ausgewählten Grund', async () => {
@@ -474,15 +509,19 @@ it('zeigt für alle erlaubten Transaktionstypen genau eine Undo-Aktion', async (
   const moveIn = makeTransaction({
     id: 'move-in',
     operation_id: 'move-1',
-    operation_legs: 2,
+    operation_leg_count: 2,
     type: 'in',
   });
   mockTransactions = [
     makeTransaction({ id: 'in', type: 'in' }),
     makeTransaction({ id: 'out', type: 'out' }),
     makeTransaction({ id: 'waste', type: 'waste', reason: 'spoiled' }),
-    makeTransaction({ id: 'open', type: 'open' }),
-    makeTransaction({ id: 'move-out', operation_id: 'move-1', operation_legs: 2, type: 'out' }),
+    makeTransaction({
+      id: 'move-out',
+      operation_id: 'move-1',
+      operation_leg_count: 2,
+      type: 'out',
+    }),
     moveIn,
   ];
 
@@ -492,12 +531,14 @@ it('zeigt für alle erlaubten Transaktionstypen genau eine Undo-Aktion', async (
   expect(screen.getByRole('button', { name: 'Einkauf rückgängig machen' })).toBeOnTheScreen();
   expect(screen.getByRole('button', { name: 'Verbrauch rückgängig machen' })).toBeOnTheScreen();
   expect(screen.getByRole('button', { name: 'Verschwendung rückgängig machen' })).toBeOnTheScreen();
-  expect(screen.getByRole('button', { name: 'Öffnung rückgängig machen' })).toBeOnTheScreen();
   expect(screen.getByRole('button', { name: 'Verschiebung rückgängig machen' })).toBeOnTheScreen();
-  expect(screen.getAllByRole('button', { name: /rückgängig machen/ })).toHaveLength(5);
+  expect(screen.getAllByRole('button', { name: /rückgängig machen/ })).toHaveLength(4);
 
   await user.press(screen.getByRole('button', { name: 'Verschiebung rückgängig machen' }));
-  expect(mockUndoMutate).toHaveBeenCalledWith({ transaction: moveIn }, expect.any(Object));
+  expect(mockUndoMutate).toHaveBeenCalledWith(
+    { household_id: moveIn.household_id, transaction_id: moveIn.id },
+    expect.any(Object),
+  );
 });
 
 it('blendet eine bereits reversierte Buchung aus dem Undo-Verlauf aus', async () => {
@@ -572,6 +613,9 @@ describe('Sortier-Toggle MHD/Name (#71)', () => {
         package_size: null,
         package_size_unit: null,
         expiry_date: null, // bucket 'none' -> steht bei MHD-Sortierung hinten
+        opened_at: null,
+        vacuum_sealed: false,
+        expiry_user_set: false,
         added_by: null,
         created_at: '',
         location_kind: null,
@@ -588,6 +632,9 @@ describe('Sortier-Toggle MHD/Name (#71)', () => {
         package_size: null,
         package_size_unit: null,
         expiry_date: soon.toISOString().split('T')[0], // bucket 'soon' -> steht bei MHD-Sortierung vorn
+        opened_at: null,
+        vacuum_sealed: false,
+        expiry_user_set: false,
         added_by: null,
         created_at: '',
         location_kind: null,
@@ -642,6 +689,9 @@ describe('filter=expiring vom Dashboard-Widget (#73)', () => {
         package_size: null,
         package_size_unit: null,
         expiry_date: soon.toISOString().split('T')[0],
+        opened_at: null,
+        vacuum_sealed: false,
+        expiry_user_set: false,
         added_by: null,
         created_at: '',
         location_kind: null,
@@ -658,6 +708,9 @@ describe('filter=expiring vom Dashboard-Widget (#73)', () => {
         package_size: null,
         package_size_unit: null,
         expiry_date: farAway.toISOString().split('T')[0],
+        opened_at: null,
+        vacuum_sealed: false,
+        expiry_user_set: false,
         added_by: null,
         created_at: '',
         location_kind: null,

@@ -1,5 +1,4 @@
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
+import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { readSyncState, recordSyncError, writeSyncCursor } from '@/lib/db/sync-state';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
@@ -8,7 +7,7 @@ describe('sync-state', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
   });
 
   afterEach(() => {

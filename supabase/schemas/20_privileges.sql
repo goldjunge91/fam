@@ -41,14 +41,25 @@ grant insert, select on public.ai_credit_bookings to service_role;
 grant delete, insert, select, update on public.products to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_invites to anon, authenticated, service_role;
 grant delete, insert, select, update on public.child_profiles to anon, authenticated, service_role;
-grant delete, insert, select, update on public.storage_locations to anon, authenticated, service_role;
+-- Inventory-Mutationen laufen ausschliesslich ueber apply_inventory_operation().
+-- Direkte INSERT/UPDATE/DELETE-Rechte fuer Clients und Service-Code sind
+-- bewusst entzogen.
+revoke all on public.storage_locations from anon, authenticated, service_role;
+grant select on public.storage_locations to authenticated, service_role;
 grant delete, insert, select, update on public.stores to anon, authenticated, service_role;
-grant delete, insert, select, update on public.fridge_items to anon, authenticated, service_role;
+revoke all on public.fridge_items from anon, authenticated, service_role;
+grant select on public.fridge_items to authenticated, service_role;
 grant delete, insert, select, update on public.shopping_list_items to anon, authenticated, service_role;
 grant delete, insert, select, update on public.shopping_history to anon, authenticated, service_role;
 revoke all on public.transactions from anon, authenticated, service_role;
-grant insert, select on public.transactions to authenticated;
-grant insert, select on public.transactions to service_role;
+grant select on public.transactions to authenticated, service_role;
+
+-- Der autoritative Inventory-RPC ist der einzige Client-Mutationseinstieg.
+-- SECURITY DEFINER does not make a function safe by itself: PUBLIC and the
+-- anonymous/service roles therefore lose EXECUTE explicitly, while the
+-- authenticated role receives only these two signatures.
+revoke execute on function public.apply_inventory_operation(jsonb) from public, anon, service_role;
+grant execute on function public.apply_inventory_operation(jsonb) to authenticated;
 revoke all on public.shopping_category_preferences from authenticated;
 grant insert, select, update on public.shopping_category_preferences to authenticated;
 grant delete, insert, select, update on public.shopping_category_preferences to service_role;
@@ -139,7 +150,6 @@ revoke execute on function private.set_updated_at() from public, anon, authentic
 revoke execute on function private.handle_new_user() from public, anon, authenticated;
 revoke execute on function private.guard_last_admin() from public, anon, authenticated;
 revoke execute on function private.delete_orphaned_household() from public, anon, authenticated;
-revoke execute on function private.assign_transaction_sync_sequence() from public, anon, authenticated;
 
 -- --------------------------------------------------------------------- public
 -- Diese Client-RPCs SOLLEN vom Client aufrufbar sein — anders als die Helfer.
@@ -152,58 +162,6 @@ revoke execute on function private.assign_transaction_sync_sequence() from publi
 -- jedem Push nach.
 revoke execute on function public.create_household(text) from public, anon;
 grant execute on function public.create_household(text) to authenticated;
-
-revoke execute on function public.adjust_fridge_item_quantity(
-  uuid, uuid, uuid, uuid, bigint, timestamptz
-) from public;
-revoke all on function public.adjust_fridge_item_quantity(
-  uuid, uuid, uuid, uuid, bigint, timestamptz
-) from anon;
-grant execute on function public.adjust_fridge_item_quantity(
-  uuid, uuid, uuid, uuid, bigint, timestamptz
-) to authenticated;
-
-revoke execute on function public.correct_fridge_item_quantity(
-  uuid, uuid, uuid, uuid, bigint, bigint, timestamptz
-) from public, anon;
-grant execute on function public.correct_fridge_item_quantity(
-  uuid, uuid, uuid, uuid, bigint, bigint, timestamptz
-) to authenticated;
-
-revoke execute on function public.reverse_inventory_quantity_transaction(
-  uuid, uuid, uuid, uuid, timestamptz, text
-) from public, anon;
-grant execute on function public.reverse_inventory_quantity_transaction(
-  uuid, uuid, uuid, uuid, timestamptz, text
-) to authenticated;
-
-revoke execute on function public.move_fridge_item(
-  uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz
-) from public, anon;
-grant execute on function public.move_fridge_item(
-  uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz
-) to authenticated;
-
-revoke execute on function public.reverse_move_fridge_item(
-  uuid, uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz, text
-) from public, anon;
-grant execute on function public.reverse_move_fridge_item(
-  uuid, uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz, text
-) to authenticated;
-
-revoke execute on function public.split_fridge_item_open(
-  uuid, uuid, uuid, uuid, bigint, bigint, timestamptz, date, boolean, timestamptz
-) from public, anon;
-grant execute on function public.split_fridge_item_open(
-  uuid, uuid, uuid, uuid, bigint, bigint, timestamptz, date, boolean, timestamptz
-) to authenticated;
-
-revoke execute on function public.merge_undo_fridge_item_open(
-  uuid, uuid, uuid, timestamptz, text
-) from public, anon;
-grant execute on function public.merge_undo_fridge_item_open(
-  uuid, uuid, uuid, timestamptz, text
-) to authenticated;
 
 -- redeem_invite() muss von Nicht-Mitgliedern aufrufbar sein — das ist sein
 -- ganzer Zweck. Aber nur von angemeldeten: die Mitgliedschaft braucht eine

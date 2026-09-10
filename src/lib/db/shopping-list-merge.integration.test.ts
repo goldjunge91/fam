@@ -1,5 +1,4 @@
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
+import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { addOrMergeShoppingItem } from '@/lib/db/shopping-list-merge';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
@@ -37,7 +36,7 @@ describe('addOrMergeShoppingItem', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
     nextId = 1;
   });
 

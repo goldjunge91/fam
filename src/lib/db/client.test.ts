@@ -45,7 +45,6 @@ jest.mock('@/lib/db/database-files', () => ({
   })),
 }));
 
-jest.mock('@/lib/db/migrator', () => ({ runMigrations: jest.fn().mockResolvedValue(undefined) }));
 jest.mock('@/lib/db/drizzle-migrator', () => ({
   runDrizzleMigrations: jest.fn().mockResolvedValue(undefined),
 }));

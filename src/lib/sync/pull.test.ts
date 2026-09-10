@@ -1,23 +1,23 @@
 import { buildOrFilter } from '@/lib/sync/pull';
 
-describe('Transaktions-Pull-Cursor', () => {
-  it('startet den serverseitigen Sequenzcursor bei null statt bei einer ISO-Zeit', () => {
+describe('Pull-Cursor', () => {
+  it('ordnet aktualisierte Zeilen stabil nach Zeit und ID', () => {
     expect(
       buildOrFilter(
-        { lastSyncedAt: '0', lastSyncedId: '00000000-0000-0000-0000-000000000000' },
-        'sync_sequence',
-      ),
-    ).toBe('sync_sequence.gt.0,and(sync_sequence.eq.0,id.gt.00000000-0000-0000-0000-000000000000)');
-  });
-
-  it('ordnet Transaktionen nach der serverseitigen Sequenz statt nach Eventzeit', () => {
-    expect(
-      buildOrFilter(
-        { lastSyncedAt: '41', lastSyncedId: '00000000-0000-0000-0000-000000000001' },
-        'sync_sequence',
+        { lastSyncedAt: '2026-09-10T10:00:00.000Z', lastSyncedId: 'item-1' },
+        'updated_at',
       ),
     ).toBe(
-      'sync_sequence.gt.41,and(sync_sequence.eq.41,id.gt.00000000-0000-0000-0000-000000000001)',
+      'updated_at.gt.2026-09-10T10:00:00.000Z,and(updated_at.eq.2026-09-10T10:00:00.000Z,id.gt.item-1)',
     );
+  });
+
+  it('ordnet append-only Ledgerzeilen nach created_at', () => {
+    expect(
+      buildOrFilter(
+        { lastSyncedAt: '2026-09-10T10:00:00.000Z', lastSyncedId: 'txn-1' },
+        'created_at',
+      ),
+    ).toContain('created_at.gt.2026-09-10T10:00:00.000Z');
   });
 });

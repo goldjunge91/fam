@@ -199,7 +199,7 @@
         "test:coverage": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local -- jest --coverage",
         "evaluate-categories": "bun scripts/dump_data/evaluate-categories.ts",
         "debugger:category": "cd tools/category-debugger && bun run dev",
-        "db:diff": "supabase db diff --use-pg-delta",
+        "db:diff": "supabase db schema declarative sync",
         "db:local:generate": "drizzle-kit generate --config drizzle.config.ts",
         "db:reset": "supabase db reset",
         "db:advisors": "supabase db advisors --local --type security && supabase db advisors --local --type performance",

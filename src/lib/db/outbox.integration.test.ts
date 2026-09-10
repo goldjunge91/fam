@@ -1,6 +1,4 @@
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import {
   deleteOutboxEntries,
   enqueueMutation,
@@ -32,7 +30,6 @@ describe('enqueueMutation', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
     await runDrizzleMigrations(db);
   });
 
@@ -122,7 +119,6 @@ describe('loadDueOutboxEntries / deleteOutboxEntries / recordOutboxOutcome', () 
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
     await runDrizzleMigrations(db);
   });
 
@@ -157,7 +153,6 @@ describe('loadDueOutboxEntries / deleteOutboxEntries / recordOutboxOutcome', () 
     await recordOutboxOutcome(db, [entry.id], {
       attempts: 1,
       lastError: 'timeout',
-      kind: 'transient',
       nextAttemptAtMs: 999_999,
     });
 
@@ -172,7 +167,6 @@ describe('loadDueOutboxEntries / deleteOutboxEntries / recordOutboxOutcome', () 
     await recordOutboxOutcome(db, [entry.id], {
       attempts: MAX_ATTEMPTS,
       lastError: 'permanent failure',
-      kind: 'permanent',
       nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
     });
 
@@ -208,7 +202,6 @@ describe('loadDueOutboxEntries / deleteOutboxEntries / recordOutboxOutcome', () 
       recordOutboxOutcome(db, [], {
         attempts: 1,
         lastError: 'x',
-        kind: 'transient',
         nextAttemptAtMs: 0,
       }),
     ).resolves.not.toThrow();

@@ -1,1 +1,0 @@
-ALTER TABLE `transactions` ADD `sync_sequence` integer;

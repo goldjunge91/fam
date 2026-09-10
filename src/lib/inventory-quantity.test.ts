@@ -1,50 +1,62 @@
 import {
-  fromInventoryQuantityUnits,
-  isNonNegativeIntegerThousandths,
-  isPositiveIntegerThousandths,
-  MAX_INVENTORY_QUANTITY_UNITS,
+  isNonNegativeInventoryQuantity,
+  isPositiveInventoryQuantity,
+  MAX_INVENTORY_QUANTITY,
+  normalizeInventoryQuantity,
   subtractInventoryQuantities,
   sumInventoryQuantities,
-  toInventoryQuantityUnits,
 } from '@/lib/inventory-quantity';
 
-describe('inventory quantity precision', () => {
-  it('berechnet aufeinanderfolgende Dezimalverbraeuche exakt in Tausendsteln', () => {
-    const afterFirstConsumption = toInventoryQuantityUnits(1.1) - toInventoryQuantityUnits(1);
-    const afterSecondConsumption = afterFirstConsumption - toInventoryQuantityUnits(0.1);
-
-    expect(fromInventoryQuantityUnits(afterFirstConsumption)).toBe(0.1);
-    expect(fromInventoryQuantityUnits(afterSecondConsumption)).toBe(0);
+describe('inventory quantity boundary (contract.md Abschnitt 3)', () => {
+  it('accepts persisted decimal quantities with at most one decimal place', () => {
+    expect(isPositiveInventoryQuantity(0.1)).toBe(true);
+    expect(isPositiveInventoryQuantity(0.5)).toBe(true);
+    expect(isPositiveInventoryQuantity(300)).toBe(true);
+    expect(isPositiveInventoryQuantity(MAX_INVENTORY_QUANTITY)).toBe(true);
   });
 
-  it('weist Mengen mit mehr als drei Nachkommastellen zurueck', () => {
-    expect(() => toInventoryQuantityUnits(1.0001)).toThrow('drei Nachkommastellen');
+  it('rejects zero, overprecision, non-finite values and values above the maximum', () => {
+    expect(isPositiveInventoryQuantity(0)).toBe(false);
+    expect(isPositiveInventoryQuantity(-0.1)).toBe(false);
+    expect(isPositiveInventoryQuantity(0.01)).toBe(false);
+    expect(isPositiveInventoryQuantity(0.05)).toBe(false);
+    expect(isPositiveInventoryQuantity(1.11)).toBe(false);
+    expect(isPositiveInventoryQuantity(MAX_INVENTORY_QUANTITY + 0.1)).toBe(false);
+    expect(isPositiveInventoryQuantity(Number.NaN)).toBe(false);
+    expect(isPositiveInventoryQuantity(Number.POSITIVE_INFINITY)).toBe(false);
+    expect(isPositiveInventoryQuantity('0.5')).toBe(false);
   });
 
-  it('summiert und subtrahiert Mengen ohne Float-Drift', () => {
-    expect(sumInventoryQuantities([0.1, 0.2, 1])).toBe(1.3);
-    expect(subtractInventoryQuantities(1.1, 1)).toBe(0.1);
+  it('allows zero only at the non-negative boundary', () => {
+    expect(isNonNegativeInventoryQuantity(0)).toBe(true);
+    expect(isNonNegativeInventoryQuantity(0.5)).toBe(true);
+    expect(isNonNegativeInventoryQuantity(-0.1)).toBe(false);
+    expect(isNonNegativeInventoryQuantity(0.05)).toBe(false);
+  });
+
+  it('normalizes valid values without scaling or rounding invalid precision', () => {
+    expect(normalizeInventoryQuantity(300)).toBe(300);
+    expect(normalizeInventoryQuantity(0.5)).toBe(0.5);
+    expect(normalizeInventoryQuantity(-0)).toBe(0);
+    expect(() => normalizeInventoryQuantity(0.05)).toThrow('Nachkommastelle');
+    expect(() => normalizeInventoryQuantity(MAX_INVENTORY_QUANTITY + 0.1)).toThrow('Maximalwert');
   });
 });
 
-describe('inventory quantity bounds (contract.md Abschnitt 3)', () => {
-  it('isPositiveIntegerThousandths validiert positive Ganzzahlen innerhalb der Grenze', () => {
-    expect(isPositiveIntegerThousandths(1_000)).toBe(true);
-    expect(isPositiveIntegerThousandths(300_000)).toBe(true);
-    expect(isPositiveIntegerThousandths(MAX_INVENTORY_QUANTITY_UNITS)).toBe(true);
-    expect(isPositiveIntegerThousandths(0)).toBe(false);
-    expect(isPositiveIntegerThousandths(-1)).toBe(false);
-    expect(isPositiveIntegerThousandths(1.5)).toBe(false);
-    expect(isPositiveIntegerThousandths(MAX_INVENTORY_QUANTITY_UNITS + 1)).toBe(false);
-    expect(isPositiveIntegerThousandths('100')).toBe(false);
+describe('inventory quantity arithmetic', () => {
+  it('sums valid decimal quantities without floating-point drift', () => {
+    expect(sumInventoryQuantities([0.1, 0.2, 1])).toBe(1.3);
+    expect(sumInventoryQuantities([300, 0.5])).toBe(300.5);
+    expect(sumInventoryQuantities([])).toBe(0);
   });
 
-  it('isNonNegativeIntegerThousandths erlaubt null, weist negativ und Bruchzahlen zurueck', () => {
-    expect(isNonNegativeIntegerThousandths(0)).toBe(true);
-    expect(isNonNegativeIntegerThousandths(1_000)).toBe(true);
-    expect(isNonNegativeIntegerThousandths(MAX_INVENTORY_QUANTITY_UNITS)).toBe(true);
-    expect(isNonNegativeIntegerThousandths(MAX_INVENTORY_QUANTITY_UNITS + 1)).toBe(false);
-    expect(isNonNegativeIntegerThousandths(-1)).toBe(false);
-    expect(isNonNegativeIntegerThousandths(0.5)).toBe(false);
+  it('rejects a sum above the persisted maximum', () => {
+    expect(() => sumInventoryQuantities([MAX_INVENTORY_QUANTITY, 0.1])).toThrow('Maximalwert');
+  });
+
+  it('subtracts exactly and rejects a negative persisted result', () => {
+    expect(subtractInventoryQuantities(1.1, 1)).toBe(0.1);
+    expect(subtractInventoryQuantities(0.5, 0.5)).toBe(0);
+    expect(() => subtractInventoryQuantities(0.5, 0.6)).toThrow('negativ');
   });
 });

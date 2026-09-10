@@ -1,1 +1,0 @@
-CREATE UNIQUE INDEX `transactions_operation_type_idx` ON `transactions` (`operation_id`,`type`) WHERE "transactions"."operation_id" is not null;

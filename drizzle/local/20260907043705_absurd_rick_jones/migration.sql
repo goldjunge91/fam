@@ -1,1 +1,0 @@
-CREATE UNIQUE INDEX `transactions_single_reversal_idx` ON `transactions` (`household_id`,`reversal_of`) WHERE "transactions"."reversal_of" is not null and "transactions"."operation_id" is null;

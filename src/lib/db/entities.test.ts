@@ -109,6 +109,36 @@ describe('entities', () => {
     }
   });
 
+  it('bildet den v1-Transactions-Codec ohne Legacy-Felder ab', () => {
+    expect(ENTITIES.transactions.columns).toEqual([
+      'id',
+      'household_id',
+      'fridge_item_id',
+      'product_id',
+      'actor',
+      'type',
+      'quantity',
+      'unit',
+      'location_id',
+      'reason',
+      'notes',
+      'created_at',
+      'operation_id',
+      'operation_payload_hash',
+      'reversal_of',
+    ]);
+
+    expect(ENTITIES.transactions.columns).not.toEqual(
+      expect.arrayContaining([
+        'previous_expiry_date',
+        'undone',
+        'origin_item_id',
+        'origin_quantity',
+        'sync_sequence',
+      ]),
+    );
+  });
+
   it('household-skalierte Entitaeten fuehren household_id in den Spalten', () => {
     for (const entity of ALL_ENTITIES) {
       const meta = metaOf(entity);

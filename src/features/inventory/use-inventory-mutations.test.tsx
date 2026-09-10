@@ -1,878 +1,185 @@
-import { notifyManager, QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { act, renderHook, waitFor } from '@testing-library/react-native';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { renderHook } from '@testing-library/react-native';
 import * as Crypto from 'expo-crypto';
-import type React from 'react';
+import { createElement, type ReactNode } from 'react';
 
-import type { EnqueueMutationInput } from '@/lib/db/outbox';
-import * as Outbox from '@/lib/db/outbox';
+import * as Commit from '@/lib/sync/inventory-quantity';
 
-import type { LocalInventoryItem } from './use-inventory-items';
 import {
   useAddFridgeItemMutation,
+  useConsumeInventoryItemMutation,
   useMoveInventoryItemMutation,
-  useOpenInventoryItemMutation,
-  useUndoInventoryTransactionMutation,
-  useUndoOpenTransactionMutation,
-  useUpdateFridgeItemMutation,
   useUpdateInventoryItemQuantityMutation,
   useWasteInventoryItemMutation,
 } from './use-inventory-mutations';
-import type { LocalInventoryTransaction } from './use-inventory-transactions';
 
-const mockGetFirstAsync = jest.fn();
+const ACTOR_ID = '11111111-1111-4111-8111-111111111111';
+const HOUSEHOLD_ID = '22222222-2222-4222-8222-222222222222';
+const ITEM_ID = '33333333-3333-4333-8333-333333333333';
+const LOCATION_ID = '44444444-4444-4444-8444-444444444444';
+const TARGET_LOCATION_ID = '55555555-5555-4555-8555-555555555555';
+const PRODUCT_ID = '66666666-6666-4666-8666-666666666666';
+const OPERATION_ID = '77777777-7777-4777-8777-777777777777';
+const LEDGER_ID = '88888888-8888-4888-8888-888888888888';
+const OPENED_ITEM_ID = '99999999-9999-4999-8999-999999999999';
+
+const getFirstAsync = jest.fn();
 
 jest.mock('@/features/auth/session-provider', () => ({
-  useSession: () => ({ session: { user: { id: 'actor-1' } } }),
+  useSession: jest.fn(() => ({ session: { user: { id: ACTOR_ID } } })),
 }));
-
 jest.mock('@/lib/analytics', () => ({ trackAnalyticsEvent: jest.fn() }));
-
+jest.mock('@/lib/db/client', () => ({ getDatabase: jest.fn() }));
 jest.mock('expo-crypto', () => ({ randomUUID: jest.fn() }));
-
-jest.mock('@/lib/db/client', () => ({
-  getDatabase: jest.fn().mockResolvedValue({
-    getFirstAsync: (...args: unknown[]) => mockGetFirstAsync(...args),
-  }),
+jest.mock('@/lib/sync/inventory-quantity', () => ({
+  commitInventoryOperation: jest.fn(),
 }));
 
-jest.mock('@/lib/db/outbox', () => ({
-  enqueueMutation: jest.fn(),
-  enqueueMutations: jest.fn(),
-  enqueueMutationsInExclusiveTransaction: jest.fn(),
-}));
-
-jest.mock('@/lib/sync/mirror-write', () => ({
-  applyLocalMirrorWrite: jest.fn().mockResolvedValue(undefined),
-}));
-
-const ITEM: LocalInventoryItem = {
-  id: 'item-1',
-  household_id: 'hh-1',
-  location_id: 'loc-1',
-  product_id: 'product-1',
-  name: 'Senf',
-  quantity: 3,
-  unit: 'piece',
-  package_size: null,
-  package_size_unit: null,
-  expiry_date: '2026-12-31',
-  opened_at: null,
-  vacuum_sealed: false,
-  expiry_user_set: false,
-  added_by: 'actor-1',
-  created_at: '2026-09-04T08:00:00.000Z',
-  location_kind: 'fridge',
-  location_name: 'Kühlschrank',
+const { getDatabase } = jest.requireMock('@/lib/db/client') as {
+  getDatabase: jest.MockedFunction<() => Promise<{ getFirstAsync: typeof getFirstAsync }>>;
 };
 
-function wrapper({ children }: { children: React.ReactNode }) {
-  return (
-    <QueryClientProvider
-      client={
-        new QueryClient({
-          defaultOptions: {
-            queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
-            mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
-          },
-        })
-      }>
-      {children}
-    </QueryClientProvider>
+function wrapper({ children }: { children: ReactNode }) {
+  return createElement(
+    QueryClientProvider,
+    {
+      client: new QueryClient({
+        defaultOptions: { mutations: { retry: false }, queries: { retry: false } },
+      }),
+    },
+    children,
   );
 }
 
-function lastMutations(): EnqueueMutationInput[] {
-  return jest.mocked(Outbox.enqueueMutations).mock.calls.at(-1)?.[1] as EnqueueMutationInput[];
-}
+const ITEM = {
+  id: ITEM_ID,
+  household_id: HOUSEHOLD_ID,
+  location_id: LOCATION_ID,
+  product_id: PRODUCT_ID,
+  name: 'Milch',
+  quantity: 1000,
+  unit: 'g',
+  package_size: 500,
+  package_size_unit: 'g',
+  expiry_date: '2027-01-15',
+};
 
-function transactionPayloads(): Record<string, unknown>[] {
-  return lastMutations()
-    .filter((mutation) => mutation.entity === 'transactions')
-    .map((mutation) => mutation.payload);
-}
+beforeEach(() => {
+  jest.clearAllMocks();
+  jest.mocked(Crypto.randomUUID).mockReturnValue(OPERATION_ID);
+  getDatabase.mockResolvedValue({ getFirstAsync });
+  getFirstAsync.mockResolvedValue({
+    quantity: 1000,
+    product_id: PRODUCT_ID,
+    unit: 'g',
+    location_id: LOCATION_ID,
+    name: 'Milch',
+    package_size: 500,
+    package_size_unit: 'g',
+    expiry_date: '2027-01-15',
+    opened_at: null,
+    vacuum_sealed: false,
+    expiry_user_set: false,
+    added_by: ACTOR_ID,
+    location_kind: 'fridge',
+  });
+  jest.mocked(Commit.commitInventoryOperation).mockResolvedValue({
+    kind: 'applied',
+    operation_id: OPERATION_ID,
+    footprint: {
+      lots: { read: [], created: [], updated: [], restored: [], tombstoned: [] },
+      ledger: { read: [], created: [], reversed: [] },
+    },
+    outbox_count: 1,
+  });
+});
 
-describe('inventory mutation hooks', () => {
-  beforeAll(() => {
-    notifyManager.setScheduler((notify) => notify());
+it('delegates insert construction to the lifecycle owner', async () => {
+  jest
+    .mocked(Crypto.randomUUID)
+    .mockReturnValueOnce(OPERATION_ID)
+    .mockReturnValueOnce(ITEM_ID)
+    .mockReturnValueOnce(LEDGER_ID);
+  const { result } = await renderHook(() => useAddFridgeItemMutation(), { wrapper });
+
+  await result.current.mutateAsync({
+    ...ITEM,
+    quantity: 0.5,
+    package_size: 0.5,
+    package_size_unit: 'Stück',
+    unit: 'Stück',
+    expiry_date: null,
   });
 
-  beforeEach(() => {
-    jest.clearAllMocks();
-    mockGetFirstAsync.mockReset();
-    jest.mocked(Outbox.enqueueMutation).mockResolvedValue(undefined);
-    jest.mocked(Outbox.enqueueMutations).mockResolvedValue(undefined);
-    jest
-      .mocked(Outbox.enqueueMutationsInExclusiveTransaction)
-      .mockImplementation(async (db, build) => {
-        const inputs = await build(db);
-        if (inputs.length > 0) await Outbox.enqueueMutations(db, inputs);
-      });
-    // mockReset statt clearAllMocks fuer randomUUID: raeumt auch eine noch
-    // offene mockReturnValueOnce-Warteschlange ab, sonst leaken nicht
-    // verbrauchte Werte eines vorzeitig abgebrochenen Tests (z.B. eines
-    // bewusst rot stehen gelassenen Tests, fam-lfa.2) in den naechsten Test.
-    jest.mocked(Crypto.randomUUID).mockReset().mockReturnValue('generated-id');
+  expect(Commit.commitInventoryOperation).toHaveBeenCalledWith(
+    expect.anything(),
+    expect.objectContaining({
+      type: 'insert_inventory',
+      operation_id: OPERATION_ID,
+      item_id: ITEM_ID,
+      in_transaction_id: LEDGER_ID,
+      quantity: 0.5,
+      unit: 'piece',
+      package_size_unit: 'piece',
+    }),
+    ACTOR_ID,
+  );
+});
+
+it('passes a sealed partial consume intent with typed recipe fields', async () => {
+  jest
+    .mocked(Crypto.randomUUID)
+    .mockReturnValueOnce(OPERATION_ID)
+    .mockReturnValueOnce(LEDGER_ID)
+    .mockReturnValueOnce(OPENED_ITEM_ID);
+  const { result } = await renderHook(() => useConsumeInventoryItemMutation(), { wrapper });
+
+  await result.current.mutateAsync({
+    item: ITEM,
+    quantity: 200,
+    recipe_id: PRODUCT_ID,
+    recipe_name: 'Porridge',
   });
 
-  afterAll(() => {
-    notifyManager.setScheduler((notify) => setTimeout(notify, 0));
+  expect(Commit.commitInventoryOperation).toHaveBeenCalledWith(
+    expect.anything(),
+    expect.objectContaining({
+      type: 'consume_inventory',
+      mode: 'sealed_partial',
+      source_item_id: ITEM_ID,
+      opened_item_id: OPENED_ITEM_ID,
+      consumed_quantity: 200,
+      portion_quantity: 500,
+      remainder_quantity: 300,
+      recipe_id: PRODUCT_ID,
+      recipe_name: 'Porridge',
+    }),
+    ACTOR_ID,
+  );
+});
+
+it('delegates correction, waste, and move as the remaining phase-1 intents', async () => {
+  jest
+    .mocked(Crypto.randomUUID)
+    .mockReturnValueOnce(OPERATION_ID)
+    .mockReturnValueOnce(LEDGER_ID)
+    .mockReturnValueOnce('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa')
+    .mockReturnValueOnce('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb')
+    .mockReturnValueOnce('cccccccc-cccc-4ccc-8ccc-cccccccccccc')
+    .mockReturnValueOnce('dddddddd-dddd-4ddd-8ddd-dddddddddddd')
+    .mockReturnValueOnce('eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee');
+  const { result: correction } = await renderHook(() => useUpdateInventoryItemQuantityMutation(), {
+    wrapper,
   });
+  await correction.current.mutateAsync({ id: ITEM_ID, household_id: HOUSEHOLD_ID, delta: -200 });
 
-  it('protokolliert einen neuen Zugang mit dem angemeldeten Actor', async () => {
-    const { result } = await renderHook(() => useAddFridgeItemMutation(), { wrapper });
+  const { result: waste } = await renderHook(() => useWasteInventoryItemMutation(), { wrapper });
+  await waste.current.mutateAsync({ item: ITEM, reason: 'spoiled' });
 
-    await act(async () => {
-      await result.current.mutateAsync({
-        household_id: 'hh-1',
-        location_id: 'loc-1',
-        product_id: 'product-1',
-        name: 'Senf',
-        quantity: 2,
-        unit: 'piece',
-        package_size: null,
-        package_size_unit: null,
-        expiry_date: null,
-      });
-    });
+  const { result: move } = await renderHook(() => useMoveInventoryItemMutation(), { wrapper });
+  await move.current.mutateAsync({ item: ITEM, locationId: TARGET_LOCATION_ID });
 
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toHaveLength(2);
-    expect(lastMutations()[0].payload).toEqual(
-      expect.objectContaining({
-        opened_at: null,
-        vacuum_sealed: false,
-        expiry_user_set: false,
-      }),
-    );
-    expect(transactionPayloads()).toEqual([
-      expect.objectContaining({
-        actor: 'actor-1',
-        type: 'in',
-        quantity: 2000,
-        household_id: 'hh-1',
-      }),
-    ]);
-  });
-
-  it('protokolliert einen Verbrauch mit der tatsächlich geänderten Menge', async () => {
-    mockGetFirstAsync.mockResolvedValue({
-      quantity: 3000,
-      name: 'Senf',
-      product_id: 'product-1',
-      location_id: 'loc-1',
-      expiry_date: '2026-12-31',
-    });
-    const { result } = await renderHook(() => useUpdateInventoryItemQuantityMutation(), {
-      wrapper,
-    });
-
-    await act(async () => {
-      await result.current.mutateAsync({ id: 'item-1', household_id: 'hh-1', delta: -1 });
-    });
-
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    // Payload traegt seit fam-lem.27.11 Integer-Tausendstel (contract.md
-    // Abschnitt 3), keine Dezimal-Rueckkonvertierung mehr.
-    expect(lastMutations()).toEqual([
-      expect.objectContaining({
-        entity: 'fridge_items',
-        op: 'adjust_quantity',
-        payload: expect.objectContaining({ delta: -1_000, item_id: 'item-1' }),
-      }),
-    ]);
-  });
-
-  it('bucht beim Verbrauch bis auf null nur die effektive Menge und löscht lokal', async () => {
-    mockGetFirstAsync.mockResolvedValue({
-      quantity: 3000,
-      name: 'Senf',
-      product_id: 'product-1',
-      location_id: 'loc-1',
-      expiry_date: '2026-12-31',
-    });
-    const { result } = await renderHook(() => useUpdateInventoryItemQuantityMutation(), {
-      wrapper,
-    });
-
-    await act(async () => {
-      await result.current.mutateAsync({ id: 'item-1', household_id: 'hh-1', delta: -10 });
-    });
-
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toEqual([
-      expect.objectContaining({
-        entity: 'fridge_items',
-        op: 'adjust_quantity',
-        payload: expect.objectContaining({ delta: -3_000, item_id: 'item-1' }),
-      }),
-    ]);
-  });
-
-  it('behandelt eine Mengenbuchung mit operation_id beim Undo nicht als Move', async () => {
-    mockGetFirstAsync
-      .mockResolvedValueOnce({ ...ITEM, quantity: 3, deleted_at: null })
-      .mockResolvedValueOnce(null);
-    const transaction: LocalInventoryTransaction = {
-      id: 'quantity-transaction-1',
-      operation_id: 'quantity-operation-1',
-      operation_legs: 1,
-      household_id: 'hh-1',
-      fridge_item_id: 'item-1',
-      product_id: 'product-1',
-      actor: 'actor-1',
-      type: 'out',
-      quantity: 1,
-      location_id: 'loc-1',
-      reason: null,
-      previous_expiry_date: null,
-      notes: null,
-      undone: false,
-      created_at: new Date().toISOString(),
-    };
-    const { result } = await renderHook(() => useUndoInventoryTransactionMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({ transaction });
-    });
-
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      op: 'reverse_quantity',
-      payload: {
-        item_id: 'item-1',
-        household_id: 'hh-1',
-        reversal_of: 'quantity-transaction-1',
-      },
-    });
-  });
-
-  it('erzeugt bei einer No-op-Mengenänderung keine Ledger-Buchung', async () => {
-    mockGetFirstAsync.mockResolvedValue({
-      quantity: 3,
-      name: 'Senf',
-      product_id: 'product-1',
-      location_id: 'loc-1',
-      expiry_date: '2026-12-31',
-    });
-    const { result } = await renderHook(() => useUpdateInventoryItemQuantityMutation(), {
-      wrapper,
-    });
-
-    await act(async () => {
-      await result.current.mutateAsync({ id: 'item-1', household_id: 'hh-1', delta: 0 });
-    });
-
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(Outbox.enqueueMutations).not.toHaveBeenCalled();
-  });
-
-  it('sendet bei einer reinen Metadatenänderung weder Menge noch unveränderte Felder', async () => {
-    mockGetFirstAsync.mockResolvedValue({
-      ...ITEM,
-      vacuum_sealed: 0,
-      expiry_user_set: 0,
-    });
-    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({
-        id: ITEM.id,
-        household_id: ITEM.household_id,
-        patch: { name: 'Dijon-Senf' },
-      });
-    });
-
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      op: 'update',
-      payload: { id: 'item-1', household_id: 'hh-1', name: 'Dijon-Senf' },
-    });
-    expect(lastMutations()[0]?.payload).not.toHaveProperty('quantity');
-    expect(lastMutations()[0]?.payload).not.toHaveProperty('unit');
-    expect(lastMutations()[0]?.payload).not.toHaveProperty('expiry_date');
-  });
-
-  it('überschreibt bei reiner Namensänderung keinen zwischenzeitlichen Verbrauch (fam-87p)', async () => {
-    // Lokaler Spiegel hat den Verbrauch bereits übernommen (5 -> 4), der
-    // Dialog wurde aber bei 5 geöffnet und schickt keine quantityCorrection.
-    mockGetFirstAsync.mockResolvedValue({ ...ITEM, quantity: 4 });
-    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({
-        id: ITEM.id,
-        household_id: ITEM.household_id,
-        patch: { name: 'Dijon-Senf' },
-      });
-    });
-
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({ entity: 'fridge_items', op: 'update' });
-    expect(lastMutations()[0]?.payload).not.toHaveProperty('quantity');
-  });
-
-  it('bewahrt bei einem expliziten Namenspatch fremde Metadaten und den aktuellen Bestand', async () => {
-    mockGetFirstAsync.mockResolvedValue({
-      ...ITEM,
-      quantity: 2,
-      expiry_date: '2027-02-01',
-      location_id: 'loc-remote',
-      unit: 'g',
-      vacuum_sealed: 1,
-    });
-    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({
-        id: ITEM.id,
-        household_id: ITEM.household_id,
-        patch: { name: 'Dijon-Senf' },
-      });
-    });
-
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]?.payload).toEqual({
-      id: ITEM.id,
-      household_id: ITEM.household_id,
-      name: 'Dijon-Senf',
-    });
-  });
-
-  it('überträgt bewusstes Löschen als null im expliziten Metadatenpatch', async () => {
-    mockGetFirstAsync.mockResolvedValue(ITEM);
-    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({
-        id: ITEM.id,
-        household_id: ITEM.household_id,
-        patch: { expiry_date: null, expiry_user_set: true },
-      });
-    });
-
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]?.payload).toEqual({
-      id: ITEM.id,
-      household_id: ITEM.household_id,
-      expiry_date: null,
-      expiry_user_set: true,
-    });
-  });
-
-  it('bucht Mengen- und Lagerortkorrektur atomar als eine Outbox-Gruppe', async () => {
-    mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
-    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({
-        id: ITEM.id,
-        household_id: ITEM.household_id,
-        patch: { location_id: 'loc-2' },
-        quantityCorrection: { expectedQuantity: 3, newQuantity: 4 },
-      });
-    });
-
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toHaveLength(2);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      op: 'correct_quantity',
-      payload: { expected_quantity: 3000, new_quantity: 4000 },
-    });
-    expect(lastMutations()[1]).toMatchObject({
-      entity: 'fridge_items',
-      op: 'move',
-      payload: { expected_quantity: 4000 },
-    });
-  });
-
-  it('führt eine Lagerortänderung auch aus der manuellen Bearbeitung als gruppierten Move aus', async () => {
-    mockGetFirstAsync.mockResolvedValue({ quantity: 3000, location_id: 'loc-1' });
-    jest
-      .mocked(Crypto.randomUUID)
-      .mockReturnValueOnce('operation-id')
-      .mockReturnValueOnce('out-id')
-      .mockReturnValueOnce('in-id');
-    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({
-        id: ITEM.id,
-        household_id: ITEM.household_id,
-        patch: { location_id: 'loc-2' },
-      });
-    });
-
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      entityId: 'item-1',
-      op: 'move',
-      payload: {
-        operation_id: 'operation-id',
-        expected_location_id: 'loc-1',
-        new_location_id: 'loc-2',
-        expected_quantity: 3000,
-        out_transaction_id: 'out-id',
-        in_transaction_id: 'in-id',
-      },
-    });
-  });
-
-  it('soft-deletet eine manuelle Korrektur auf null und bucht die effektive out-Menge', async () => {
-    mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
-    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({
-        id: ITEM.id,
-        household_id: ITEM.household_id,
-        patch: {},
-        quantityCorrection: { expectedQuantity: 3, newQuantity: 0 },
-      });
-    });
-
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      op: 'correct_quantity',
-      payload: {
-        item_id: 'item-1',
-        household_id: 'hh-1',
-        expected_quantity: 3000,
-        new_quantity: 0,
-      },
-    });
-  });
-
-  it('bucht bei Entnahme auf null trotz Lagerortänderung nur am bisherigen Lagerort', async () => {
-    mockGetFirstAsync.mockResolvedValue({ quantity: 3, location_id: 'loc-1' });
-    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({
-        id: ITEM.id,
-        household_id: ITEM.household_id,
-        patch: { location_id: 'loc-2' },
-        quantityCorrection: { expectedQuantity: 3, newQuantity: 0 },
-      });
-    });
-
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      op: 'correct_quantity',
-      payload: { expected_quantity: 3000, new_quantity: 0 },
-    });
-  });
-
-  it('bucht Öffnen, Wegwerfen und Verschieben jeweils mit Actor', async () => {
-    jest
-      .mocked(Crypto.randomUUID)
-      .mockReturnValueOnce('open-item-id')
-      .mockReturnValueOnce('open-transaction-id')
-      .mockReturnValueOnce('waste-id')
-      .mockReturnValueOnce('operation-id')
-      .mockReturnValueOnce('out-id')
-      .mockReturnValueOnce('in-id');
-
-    mockGetFirstAsync.mockResolvedValueOnce({ ...ITEM, quantity: 1000 });
-    const openHook = await renderHook(() => useOpenInventoryItemMutation(), { wrapper });
-    await act(async () => {
-      await openHook.result.current.mutateAsync({ item: { ...ITEM, quantity: 1 }, quantity: 1 });
-    });
-    expect(transactionPayloads()).toEqual([
-      expect.objectContaining({ actor: 'actor-1', type: 'open', quantity: 1000 }),
-    ]);
-
-    const wasteHook = await renderHook(() => useWasteInventoryItemMutation(), { wrapper });
-    await act(async () => {
-      await wasteHook.result.current.mutateAsync({ item: ITEM, reason: 'expired' });
-    });
-    expect(transactionPayloads()).toEqual([
-      expect.objectContaining({ actor: 'actor-1', type: 'waste', reason: 'expired' }),
-    ]);
-
-    const moveHook = await renderHook(() => useMoveInventoryItemMutation(), { wrapper });
-    await act(async () => {
-      await moveHook.result.current.mutateAsync({ item: ITEM, locationId: 'loc-2' });
-    });
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      entityId: 'item-1',
-      op: 'move',
-      payload: {
-        operation_id: 'operation-id',
-        item_id: 'item-1',
-        household_id: 'hh-1',
-        expected_location_id: 'loc-1',
-        new_location_id: 'loc-2',
-        expected_quantity: 3000,
-        out_transaction_id: 'out-id',
-        in_transaction_id: 'in-id',
-      },
-    });
-  });
-
-  // fam-lfa.2 (contract.md Abschnitt 4/5.1): open_inventory erzeugt keine
-  // Ledgerzeile mehr. Der obige Test bleibt bewusst stehen (bisheriges
-  // Verhalten, aktuell rot bei der Open-Assertion) statt geloescht zu werden;
-  // dieser Test deckt Wegwerfen/Verschieben unter dem neuen Vertrag ab.
-  it('bucht beim Öffnen keine Ledgerzeile, bei Wegwerfen und Verschieben weiterhin mit Actor', async () => {
-    jest
-      .mocked(Crypto.randomUUID)
-      .mockReturnValueOnce('open-item-id')
-      .mockReturnValueOnce('open-transaction-id')
-      .mockReturnValueOnce('waste-id')
-      .mockReturnValueOnce('operation-id')
-      .mockReturnValueOnce('out-id')
-      .mockReturnValueOnce('in-id');
-
-    mockGetFirstAsync.mockResolvedValueOnce({ ...ITEM, quantity: 1000 });
-    const openHook = await renderHook(() => useOpenInventoryItemMutation(), { wrapper });
-    await act(async () => {
-      await openHook.result.current.mutateAsync({ item: { ...ITEM, quantity: 1 }, quantity: 1 });
-    });
-    expect(transactionPayloads()).toEqual([]);
-
-    const wasteHook = await renderHook(() => useWasteInventoryItemMutation(), { wrapper });
-    await act(async () => {
-      await wasteHook.result.current.mutateAsync({ item: ITEM, reason: 'expired' });
-    });
-    expect(transactionPayloads()).toEqual([
-      expect.objectContaining({ actor: 'actor-1', type: 'waste', reason: 'expired' }),
-    ]);
-
-    const moveHook = await renderHook(() => useMoveInventoryItemMutation(), { wrapper });
-    await act(async () => {
-      await moveHook.result.current.mutateAsync({ item: ITEM, locationId: 'loc-2' });
-    });
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      entityId: 'item-1',
-      op: 'move',
-      payload: {
-        operation_id: 'operation-id',
-        item_id: 'item-1',
-        household_id: 'hh-1',
-        expected_location_id: 'loc-1',
-        new_location_id: 'loc-2',
-        expected_quantity: 3000,
-        out_transaction_id: 'out-id',
-        in_transaction_id: 'in-id',
-      },
-    });
-  });
-
-  it('bucht einen Split als eine atomare Server-Operation mit Compare-and-set gegen die frische Menge (fam-n46.1)', async () => {
-    jest
-      .mocked(Crypto.randomUUID)
-      .mockReturnValueOnce('opened-item-id')
-      .mockReturnValueOnce('open-transaction-id');
-    const item = {
-      ...ITEM,
-      quantity: 3000,
-      vacuum_sealed: true,
-      expiry_user_set: true,
-    };
-    // Der frisch gelesene lokale Stand entscheidet über die Planung, nicht
-    // der (potenziell veraltete) UI-Snapshot im mutateAsync-Argument.
-    mockGetFirstAsync.mockResolvedValueOnce(item);
-    const { result } = await renderHook(() => useOpenInventoryItemMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({ item, quantity: 1 });
-    });
-
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      entityId: 'item-1',
-      op: 'split_open',
-      payload: {
-        transaction_id: 'open-transaction-id',
-        source_item_id: 'item-1',
-        opened_item_id: 'opened-item-id',
-        household_id: 'hh-1',
-        expected_source_quantity: 3000,
-        open_quantity: 1000,
-      },
-    });
-  });
-
-  it('bucht Split-Undo als eine atomare Merge-Operation gegen die referenzierte Split-Buchung (fam-n46.1)', async () => {
-    mockGetFirstAsync
-      .mockResolvedValueOnce(null)
-      .mockResolvedValueOnce({
-        ...ITEM,
-        id: 'opened-item-id',
-        quantity: 1000,
-        opened_at: '2026-09-04T09:00:00.000Z',
-        expiry_date: '2026-09-09',
-      })
-      .mockResolvedValueOnce({ ...ITEM, quantity: 2000 });
-    const transaction: LocalInventoryTransaction = {
-      id: 'transaction-1',
-      household_id: 'hh-1',
-      fridge_item_id: 'opened-item-id',
-      product_id: 'product-1',
-      actor: 'actor-1',
-      type: 'open',
-      quantity: 1000,
-      location_id: 'loc-1',
-      reason: null,
-      previous_expiry_date: '2026-12-31',
-      origin_item_id: 'item-1',
-      origin_quantity: 3000,
-      notes: '[Split] origin=item-1',
-      undone: false,
-      created_at: new Date().toISOString(),
-    };
-    const { result } = await renderHook(() => useUndoOpenTransactionMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({ transaction });
-    });
-
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      entityId: 'item-1',
-      op: 'merge_undo_open',
-      payload: {
-        reversal_of: 'transaction-1',
-        household_id: 'hh-1',
-      },
-    });
-  });
-
-  it('bucht Split-Undo nach einer konkurrierenden Änderung der Ursprungsmenge als Fallback', async () => {
-    const openedAt = new Date(Date.now() - 120_000);
-    mockGetFirstAsync
-      .mockResolvedValueOnce(null)
-      .mockResolvedValueOnce({
-        ...ITEM,
-        id: 'opened-item-id',
-        quantity: 1,
-        opened_at: openedAt.toISOString(),
-        expiry_date: '2026-09-09',
-      })
-      .mockResolvedValueOnce({
-        ...ITEM,
-        quantity: 7,
-        updated_at: Date.now(),
-      });
-    const transaction: LocalInventoryTransaction = {
-      id: 'transaction-1',
-      household_id: 'hh-1',
-      fridge_item_id: 'opened-item-id',
-      product_id: 'product-1',
-      actor: 'actor-1',
-      type: 'open',
-      quantity: 1,
-      location_id: 'loc-1',
-      reason: null,
-      previous_expiry_date: '2026-12-31',
-      notes: '[Split] origin=item-1',
-      undone: false,
-      created_at: new Date(Date.now() - 60_000).toISOString(),
-    };
-    const { result } = await renderHook(() => useUndoOpenTransactionMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({ transaction });
-    });
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'transactions',
-      op: 'insert',
-      payload: {
-        reversal_of: 'transaction-1',
-        notes: '[Undone] Öffnung rückgängig gemacht',
-      },
-    });
-  });
-
-  it('beendet einen bereits rückgängig gemachten Open-Vorgang idempotent', async () => {
-    const transaction: LocalInventoryTransaction = {
-      id: 'transaction-1',
-      household_id: 'hh-1',
-      fridge_item_id: 'item-1',
-      product_id: 'product-1',
-      actor: 'actor-1',
-      type: 'open',
-      quantity: 1,
-      location_id: 'loc-1',
-      reason: null,
-      previous_expiry_date: '2026-12-31',
-      notes: null,
-      undone: true,
-      created_at: new Date().toISOString(),
-    };
-    const { result } = await renderHook(() => useUndoOpenTransactionMutation(), { wrapper });
-
-    await act(async () => {
-      await expect(result.current.mutateAsync({ transaction })).rejects.toThrow(
-        'bereits rückgängig',
-      );
-    });
-    expect(Outbox.enqueueMutations).not.toHaveBeenCalled();
-  });
-
-  it('verhindert einen zweiten Undo desselben Open-Vorgangs anhand der Historie', async () => {
-    const createdAt = new Date(Date.now() - 60_000);
-    const openedRow = {
-      ...ITEM,
-      opened_at: createdAt.toISOString(),
-      expiry_date: '2026-09-09',
-    };
-    mockGetFirstAsync
-      .mockResolvedValueOnce(null)
-      .mockResolvedValueOnce(openedRow)
-      .mockResolvedValueOnce({ id: 'undo-transaction-1' });
-    const transaction: LocalInventoryTransaction = {
-      id: 'transaction-1',
-      household_id: 'hh-1',
-      fridge_item_id: 'item-1',
-      product_id: 'product-1',
-      actor: 'actor-1',
-      type: 'open',
-      quantity: 1,
-      location_id: 'loc-1',
-      reason: null,
-      previous_expiry_date: '2026-12-31',
-      notes: null,
-      undone: false,
-      created_at: createdAt.toISOString(),
-    };
-    const { result } = await renderHook(() => useUndoOpenTransactionMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({ transaction });
-    });
-    await act(async () => {
-      await expect(result.current.mutateAsync({ transaction })).rejects.toThrow(
-        'bereits rückgängig',
-      );
-    });
-    expect(Outbox.enqueueMutations).toHaveBeenCalledTimes(1);
-  });
-
-  it('bucht einen Split mit fehlender Ursprungszeile als Merge-Fallback', async () => {
-    mockGetFirstAsync
-      .mockResolvedValueOnce(null)
-      .mockResolvedValueOnce({
-        ...ITEM,
-        id: 'opened-item-id',
-        quantity: 1,
-        opened_at: '2026-09-04T09:00:00.000Z',
-        expiry_date: '2026-09-09',
-      })
-      .mockResolvedValueOnce(null);
-    const transaction: LocalInventoryTransaction = {
-      id: 'transaction-1',
-      household_id: 'hh-1',
-      fridge_item_id: 'opened-item-id',
-      product_id: 'product-1',
-      actor: 'actor-1',
-      type: 'open',
-      quantity: 1,
-      location_id: 'loc-1',
-      reason: null,
-      previous_expiry_date: '2026-12-31',
-      notes: '[Split] origin=item-1',
-      undone: false,
-      created_at: new Date().toISOString(),
-    };
-    const { result } = await renderHook(() => useUndoOpenTransactionMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({ transaction });
-    });
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'transactions',
-      op: 'insert',
-      payload: {
-        reversal_of: 'transaction-1',
-        notes: '[Undone] Öffnung rückgängig gemacht',
-      },
-    });
-  });
-
-  it('behandelt manuelles Wieder-Versiegeln ohne künstliche Mengenbuchung', async () => {
-    mockGetFirstAsync.mockResolvedValue({
-      ...ITEM,
-      opened_at: '2026-09-04T09:00:00.000Z',
-      vacuum_sealed: 0,
-      expiry_user_set: 0,
-    });
-    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({
-        id: ITEM.id,
-        household_id: ITEM.household_id,
-        patch: { opened_at: null, expiry_user_set: true },
-      });
-    });
-
-    expect(lastMutations()).toHaveLength(1);
-    expect(lastMutations()[0]).toMatchObject({
-      entity: 'fridge_items',
-      entityId: 'item-1',
-      op: 'update',
-      payload: {
-        opened_at: null,
-        expiry_user_set: true,
-      },
-    });
-    expect(transactionPayloads()).toEqual([]);
-  });
-
-  it('bucht das Undo einer Öffnung als neue Actor-signierte Gegenbuchung', async () => {
-    mockGetFirstAsync.mockResolvedValueOnce(null).mockResolvedValueOnce({
-      ...ITEM,
-      opened_at: new Date().toISOString(),
-      expiry_date: '2026-09-09',
-    });
-    const transaction: LocalInventoryTransaction = {
-      id: 'transaction-1',
-      household_id: 'hh-1',
-      fridge_item_id: 'item-1',
-      product_id: 'product-1',
-      actor: 'actor-1',
-      type: 'open',
-      quantity: 1,
-      location_id: 'loc-1',
-      reason: null,
-      previous_expiry_date: '2026-12-31',
-      notes: null,
-      undone: false,
-      created_at: new Date().toISOString(),
-    };
-    const { result } = await renderHook(() => useUndoOpenTransactionMutation(), { wrapper });
-
-    await act(async () => {
-      await result.current.mutateAsync({ transaction });
-    });
-
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(transactionPayloads()).toEqual([
-      expect.objectContaining({
-        actor: 'actor-1',
-        type: 'open',
-        notes: '[Undone] Öffnung rückgängig gemacht',
-      }),
-    ]);
-  });
+  expect(
+    jest.mocked(Commit.commitInventoryOperation).mock.calls.map(([, operation]) => operation.type),
+  ).toEqual(['correct_quantity', 'waste_inventory', 'move_inventory']);
 });

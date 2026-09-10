@@ -13,7 +13,6 @@ import { useSyncStatus } from '@/hooks/use-sync-status';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
 import { deleteOutboxEntries } from '@/lib/db/outbox';
-import { fromInventoryQuantityUnits } from '@/lib/inventory-quantity';
 import { sendTestNotification } from '@/lib/notifications';
 import {
   getActiveSyncEngineIntervalCount,
@@ -120,12 +119,7 @@ export function SyncDebugScreen() {
 
       setOutboxRows(outbox);
       setLocationRows(locs);
-      setItemRows(
-        items.map((item) => ({
-          ...item,
-          quantity: fromInventoryQuantityUnits(item.quantity),
-        })),
-      );
+      setItemRows(items);
     } catch (err) {
       console.error('Fehler beim Laden der Debug-Daten:', err);
     }

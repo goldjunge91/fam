@@ -1,5 +1,4 @@
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
+import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 import { repairShoppingListItemForeignKeyViolation } from './repair-shopping-list-item-push';
@@ -28,7 +27,7 @@ describe('repairShoppingListItemForeignKeyViolation', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
   });
 
   afterEach(() => db.close());

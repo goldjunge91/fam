@@ -1,61 +1,82 @@
-export const INVENTORY_QUANTITY_SCALE = 1_000;
+export const MAX_INVENTORY_QUANTITY = 9_999_999.9;
 
-/** Fachlicher Maximalwert 9_999_999.999, in Integer-Tausendsteln (contract.md Abschnitt 3). */
-export const MAX_INVENTORY_QUANTITY_UNITS = 9_999_999_999;
+const DECIMAL_PLACES = 1;
 
-/** Prueft eine bereits skalierte Menge (Integer-Tausendstel) auf positive Ganzzahligkeit innerhalb der Grenze. */
-export function isPositiveIntegerThousandths(value: unknown): value is number {
-  return (
-    typeof value === 'number' &&
-    Number.isSafeInteger(value) &&
-    value > 0 &&
-    value <= MAX_INVENTORY_QUANTITY_UNITS
-  );
+function hasAllowedPrecision(value: number): boolean {
+  return Number.isInteger(value * 10 ** DECIMAL_PLACES);
 }
 
-/** Wie isPositiveIntegerThousandths, erlaubt zusaetzlich 0 (z. B. aufgebrauchte Lose). */
-export function isNonNegativeIntegerThousandths(value: unknown): value is number {
-  return (
-    typeof value === 'number' &&
-    Number.isSafeInteger(value) &&
-    value >= 0 &&
-    value <= MAX_INVENTORY_QUANTITY_UNITS
-  );
-}
-
-/** Converts an inventory quantity to the canonical integer thousandths representation. */
-export function toInventoryQuantityUnits(quantity: number): number {
-  if (!Number.isFinite(quantity)) {
+function assertValidInventoryQuantity(value: unknown): asserts value is number {
+  if (typeof value !== 'number' || !Number.isFinite(value)) {
     throw new Error('Bestandsmengen muessen endlich sein.');
   }
 
-  const units = Math.round(quantity * INVENTORY_QUANTITY_SCALE);
-  if (!Number.isSafeInteger(units) || units / INVENTORY_QUANTITY_SCALE !== quantity) {
-    throw new Error('Bestandsmengen duerfen hoechstens drei Nachkommastellen haben.');
+  if (value < 0) {
+    throw new Error('Bestandsmengen duerfen nicht negativ sein.');
   }
 
-  return units;
+  if (value > MAX_INVENTORY_QUANTITY) {
+    throw new Error('Bestandsmengen duerfen den Maximalwert nicht ueberschreiten.');
+  }
+
+  if (!hasAllowedPrecision(value)) {
+    throw new Error('Bestandsmengen duerfen hoechstens eine Nachkommastelle haben.');
+  }
 }
 
-/** Converts canonical integer thousandths back to the persisted numeric representation. */
-export function fromInventoryQuantityUnits(units: number): number {
-  if (!Number.isSafeInteger(units)) {
-    throw new Error('Bestandsmengen muessen in ganzzahligen Tausendsteln vorliegen.');
-  }
+export function isPositiveInventoryQuantity(value: unknown): value is number {
+  return (
+    typeof value === 'number' &&
+    Number.isFinite(value) &&
+    value > 0 &&
+    value <= MAX_INVENTORY_QUANTITY &&
+    hasAllowedPrecision(value)
+  );
+}
 
-  return units / INVENTORY_QUANTITY_SCALE;
+export function isNonNegativeInventoryQuantity(value: unknown): value is number {
+  return (
+    typeof value === 'number' &&
+    Number.isFinite(value) &&
+    value >= 0 &&
+    value <= MAX_INVENTORY_QUANTITY &&
+    hasAllowedPrecision(value)
+  );
+}
+
+export function normalizeInventoryQuantity(value: unknown): number {
+  assertValidInventoryQuantity(value);
+  return value === 0 ? 0 : value;
 }
 
 export function sumInventoryQuantities(quantities: Iterable<number>): number {
-  let totalUnits = 0;
+  let totalTenths = 0;
+
   for (const quantity of quantities) {
-    totalUnits += toInventoryQuantityUnits(quantity);
+    const normalizedQuantity = normalizeInventoryQuantity(quantity);
+    totalTenths += normalizedQuantity * 10;
+
+    if (totalTenths > MAX_INVENTORY_QUANTITY * 10) {
+      throw new Error('Bestandsmengen duerfen den Maximalwert nicht ueberschreiten.');
+    }
   }
-  return fromInventoryQuantityUnits(totalUnits);
+
+  return totalTenths / 10;
 }
 
 export function subtractInventoryQuantities(minuend: number, subtrahend: number): number {
-  return fromInventoryQuantityUnits(
-    toInventoryQuantityUnits(minuend) - toInventoryQuantityUnits(subtrahend),
-  );
+  const normalizedMinuend = normalizeInventoryQuantity(minuend);
+  const normalizedSubtrahend = normalizeInventoryQuantity(subtrahend);
+  const resultTenths = normalizedMinuend * 10 - normalizedSubtrahend * 10;
+
+  if (resultTenths < 0) {
+    throw new Error('Bestandsmengen duerfen nicht negativ werden.');
+  }
+
+  return resultTenths === 0 ? 0 : resultTenths / 10;
+}
+
+export function adjustInventoryQuantity(current: number, delta: number): number {
+  if (delta >= 0) return sumInventoryQuantities([current, delta]);
+  return subtractInventoryQuantities(current, -delta);
 }

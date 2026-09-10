@@ -25,7 +25,7 @@ export type EntityMeta = {
   appendOnly?: true;
   /** Remote-Pull-Cursor; Transaktionen werden nach created_at inkrementell geladen. */
   syncCursorColumn?: 'updated_at' | 'created_at';
-  /** Spalten ohne updated_at/deleted_at/_dirty, id zuerst. 1:1 aus migrations.ts's V1_MIRRORS. */
+  /** Spalten ohne updated_at/deleted_at/_dirty, id zuerst. 1:1 aus dem Drizzle-Schema. */
   columns: readonly string[];
   /** Optionale Fehlerreparatur-Strategie, siehe `ForeignKeyViolationResolver`. */
   onForeignKeyViolation?: ForeignKeyViolationResolver;
@@ -86,12 +86,14 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
       'actor',
       'type',
       'quantity',
+      'unit',
       'location_id',
       'reason',
-      'previous_expiry_date',
       'notes',
-      'undone',
       'created_at',
+      'operation_id',
+      'operation_payload_hash',
+      'reversal_of',
     ],
   },
   shopping_list_items: {
@@ -363,8 +365,8 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
 export const ALL_ENTITIES: readonly Entity[] = [
   'storage_locations',
   'stores',
-  'fridge_items',
   'transactions',
+  'fridge_items',
   'shopping_list_items',
   'shopping_category_preferences',
   'products',

@@ -36,6 +36,19 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
   const closed: Group[] = [];
   const passthrough: CoalescedEntry[] = [];
   const discardable: number[] = [];
+  const referencedInventoryItemIds = new Set<string>();
+
+  // A transaction row is append-only and keeps the foreign-key reference in
+  // its own payload. That reference makes an insert+delete lot group
+  // observable to the server, so it must survive coalescing even when the
+  // transaction entry was created before or after the delete entry.
+  for (const entry of entries) {
+    if (entry.entity !== 'transactions' || entry.op !== 'insert') continue;
+    const payload = parseOutboxEntry(entry);
+    if (typeof payload.fridge_item_id === 'string')
+      referencedInventoryItemIds.add(payload.fridge_item_id);
+  }
+
   // Payload einer verworfenen insert+delete-Gruppe, aufgehoben pro entity_id
   // fuer den Fall, dass ein `restore` (#69) danach folgt — siehe Randfall
   // unten bei `entry.op === 'restore'`.
@@ -45,6 +58,29 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
     // Angelegt und wieder geloescht, ohne dass der Server je davon wusste:
     // Ein erfolgreicher Push loescht seine Outbox-Zeilen, also kann eine noch
     // wartende insert-Gruppe den Server nicht erreicht haben.
+    if (
+      group.op === 'delete' &&
+      group.startedWithInsert &&
+      group.entity === 'fridge_items' &&
+      referencedInventoryItemIds.has(group.entityId)
+    ) {
+      const deleteSourceId = group.sourceIds.at(-1);
+      if (deleteSourceId === undefined) throw new Error('Delete-Gruppe hat keine Quellzeile.');
+
+      closed.push({
+        ...group,
+        op: 'insert',
+        sourceIds: group.sourceIds.slice(0, -1),
+      });
+      closed.push({
+        ...group,
+        op: 'delete',
+        sequence: deleteSourceId,
+        sourceIds: [deleteSourceId],
+      });
+      return;
+    }
+
     if (group.op === 'delete' && group.startedWithInsert) {
       discardable.push(...group.sourceIds);
       discardedInsertPayloads.set(`${group.entity}:${group.entityId}`, group.payload);

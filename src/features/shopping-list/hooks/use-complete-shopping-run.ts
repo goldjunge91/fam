@@ -1,12 +1,12 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
-
+import { createInsertInventoryOperation } from '@/features/inventory/inventory-lifecycle';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 import { celebrate } from '@/lib/celebration';
-import type { Database } from '@/lib/database.types';
 import { getDatabase } from '@/lib/db/client';
-import { type EnqueueMutationInput, enqueueMutation, enqueueMutations } from '@/lib/db/outbox';
+import { enqueueMutation } from '@/lib/db/outbox';
 import { recordActivity } from '@/lib/streak';
+import { commitInventoryOperation } from '@/lib/sync/inventory-quantity';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 
@@ -20,40 +20,6 @@ type CompleteShoppingRunInput = {
   checkedItems: LocalShoppingItem[];
   transfers: TransferItem[];
 };
-
-type TransactionPayload = Omit<
-  Database['public']['Tables']['transactions']['Row'],
-  'operation_id' | 'reversal_of' | 'sync_sequence' | 'origin_item_id' | 'origin_quantity'
-> & {
-  operation_id: string | null;
-  reversal_of: string | null;
-  origin_item_id?: string | null;
-  origin_quantity?: number | null;
-};
-type TransactionDraft = Omit<TransactionPayload, 'operation_id' | 'reversal_of'> & {
-  operation_id?: string | null;
-  reversal_of?: string | null;
-};
-
-function transactionMutation(payload: TransactionDraft, nowMs: number): EnqueueMutationInput {
-  if (!Number.isFinite(payload.quantity) || payload.quantity <= 0) {
-    throw new Error('Ledger-Buchungen benötigen eine positive Menge.');
-  }
-
-  const normalizedPayload: TransactionPayload = {
-    operation_id: null,
-    reversal_of: null,
-    ...payload,
-  };
-  return {
-    entity: 'transactions',
-    entityId: normalizedPayload.id,
-    op: 'insert',
-    payload: normalizedPayload,
-    applyLocally: (txn) =>
-      applyLocalMirrorWrite(txn, 'transactions', 'insert', normalizedPayload, nowMs),
-  };
-}
 
 export function useCompleteShoppingRun(householdId: string | undefined) {
   const queryClient = useQueryClient();
@@ -75,58 +41,37 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
         return loc?.id ?? null;
       }
 
+      if (!input.userId) throw new Error('Ein angemeldeter Actor ist erforderlich.');
+
       // Schritt 1: Bestand und Ledger-Buchung pro Transfer atomar enqueuen.
       for (const transfer of input.transfers) {
         const id = Crypto.randomUUID();
         const transactionId = Crypto.randomUUID();
         const locationId = getLocationId(transfer.locationKind);
+        if (!locationId) throw new Error('Ein gültiger Lagerort ist erforderlich.');
         const normUnit = normalizeUnit(transfer.unit);
-        const fridgeItem = {
-          id,
-          household_id: input.householdId,
-          product_id: transfer.productId,
-          location_id: locationId,
-          name: transfer.name,
-          quantity: transfer.quantity,
-          unit: normUnit,
-          package_size: transfer.packageSize,
-          package_size_unit: transfer.packageSizeUnit,
-          expiry_date: transfer.expiryDate ?? null,
-          added_by: input.userId,
-          opened_at: null,
-          vacuum_sealed: false,
-          expiry_user_set: transfer.expiryDate !== null,
-          created_at: now,
-        };
-
-        await enqueueMutations(db, [
-          {
-            entity: 'fridge_items',
-            entityId: id,
-            op: 'insert',
-            payload: { ...fridgeItem, updated_at: now },
-            applyLocally: (txn) =>
-              applyLocalMirrorWrite(txn, 'fridge_items', 'insert', fridgeItem, nowMs),
-          },
-          transactionMutation(
-            {
-              id: transactionId,
-              household_id: input.householdId,
-              fridge_item_id: id,
-              product_id: transfer.productId,
-              actor: input.userId,
-              type: 'in',
-              quantity: transfer.quantity,
-              location_id: locationId,
-              reason: null,
-              previous_expiry_date: null,
-              notes: null,
-              undone: false,
-              created_at: now,
-            },
-            nowMs,
-          ),
-        ]);
+        await commitInventoryOperation(
+          db,
+          createInsertInventoryOperation({
+            operation_id: Crypto.randomUUID(),
+            item_id: id,
+            in_transaction_id: transactionId,
+            household_id: input.householdId,
+            created_at: now,
+            quantity: transfer.quantity,
+            product_id: transfer.productId,
+            name: transfer.name,
+            unit: normUnit,
+            package_size: transfer.packageSize,
+            package_size_unit: transfer.packageSizeUnit
+              ? normalizeUnit(transfer.packageSizeUnit)
+              : null,
+            location_id: locationId,
+            expiry_date: transfer.expiryDate ?? null,
+            expiry_user_set: transfer.expiryDate !== null,
+          }),
+          input.userId,
+        );
       }
 
       for (const item of input.checkedItems) {

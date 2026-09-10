@@ -82,18 +82,19 @@ async function insertFridgeItemLocally(
   device: Device,
   id: string,
   householdId: string,
+  locationId: string,
   name: string,
 ) {
   await enqueueMutation(device.db, {
     entity: 'fridge_items',
     entityId: id,
     op: 'insert',
-    payload: { id, household_id: householdId, name },
+    payload: { id, household_id: householdId, location_id: locationId, name },
     applyLocally: (txn) =>
       txn
         .runAsync(
-          'insert into fridge_items (id, household_id, name, updated_at, _dirty) values (?, ?, ?, ?, 1)',
-          [id, householdId, name, Date.now()],
+          'insert into fridge_items (id, household_id, location_id, name, updated_at, _dirty) values (?, ?, ?, ?, ?, 1)',
+          [id, householdId, locationId, name, Date.now()],
         )
         .then(() => undefined),
   });
@@ -103,7 +104,8 @@ describe('subscribeHouseholdRealtime', () => {
   beforeAll(assertLocalSupabase);
 
   it('AC1: Aenderung auf Geraet B erscheint auf Geraet A in unter 2s (Ziel laut Issue: <1s)', async () => {
-    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices('rt-propagate');
+    const { deviceA, deviceB, householdId, locationId, teardown } =
+      await setupTwoDevices('rt-propagate');
     teardowns.push(teardown);
     const id = crypto.randomUUID();
     const sub = waitForSubscribed(householdId);
@@ -127,9 +129,12 @@ describe('subscribeHouseholdRealtime', () => {
       let isWarm = false;
       for (let i = 0; i < 20; i++) {
         const warmupId = crypto.randomUUID();
-        await deviceB.client
-          .from('fridge_items')
-          .insert({ id: warmupId, household_id: householdId, name: 'Aufwaermen' });
+        await deviceB.client.from('fridge_items').insert({
+          id: warmupId,
+          household_id: householdId,
+          location_id: locationId,
+          name: 'Aufwaermen',
+        });
 
         try {
           await pollUntil(() => fridgeItemName(deviceA, warmupId), {
@@ -145,9 +150,12 @@ describe('subscribeHouseholdRealtime', () => {
       if (!isWarm) throw new Error('Realtime warmup failed after 60s');
 
       const start = Date.now();
-      const { error } = await deviceB.client
-        .from('fridge_items')
-        .insert({ id, household_id: householdId, name: 'Von B via Realtime' });
+      const { error } = await deviceB.client.from('fridge_items').insert({
+        id,
+        household_id: householdId,
+        location_id: locationId,
+        name: 'Von B via Realtime',
+      });
       expect(error).toBeNull();
 
       await pollUntil(() => fridgeItemName(deviceA, id));
@@ -168,7 +176,7 @@ describe('subscribeHouseholdRealtime', () => {
   }, 60_000);
 
   it('kein Echo-Loop: eigener Push kommt als Realtime-Event zurueck, ohne erneuten Outbox-Eintrag oder Duplikat', async () => {
-    const { deviceA, householdId, teardown } = await setupTwoDevices('rt-echo');
+    const { deviceA, householdId, locationId, teardown } = await setupTwoDevices('rt-echo');
     teardowns.push(teardown);
     const id = crypto.randomUUID();
     const sub = waitForSubscribed(householdId);
@@ -185,7 +193,7 @@ describe('subscribeHouseholdRealtime', () => {
     try {
       await sub.ready;
 
-      await insertFridgeItemLocally(deviceA, id, householdId, 'Eigener Push');
+      await insertFridgeItemLocally(deviceA, id, householdId, locationId, 'Eigener Push');
       const result = await pushOutbox({ db: deviceA.db, supabase: deviceA.client });
       expect(result.outcomes.some((o) => o.kind === 'pushed')).toBe(true);
 
@@ -213,7 +221,8 @@ describe('subscribeHouseholdRealtime', () => {
   }, 30_000);
 
   it('Reconnect: waehrend die Subscription abgemeldet ist verpasste Events werden durch einen vollen Pull nachgeholt', async () => {
-    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices('rt-reconnect');
+    const { deviceA, deviceB, householdId, locationId, teardown } =
+      await setupTwoDevices('rt-reconnect');
     teardowns.push(teardown);
     const idBeforeGap = crypto.randomUUID();
     const idDuringGap1 = crypto.randomUUID();
@@ -242,9 +251,12 @@ describe('subscribeHouseholdRealtime', () => {
     await sub1.ready;
 
     // Ein Item vor der Luecke, damit die Subscription nachweislich lief.
-    await deviceB.client
-      .from('fridge_items')
-      .insert({ id: idBeforeGap, household_id: householdId, name: 'Vor der Luecke' });
+    await deviceB.client.from('fridge_items').insert({
+      id: idBeforeGap,
+      household_id: householdId,
+      location_id: locationId,
+      name: 'Vor der Luecke',
+    });
     await pollUntil(() => fridgeItemName(deviceA, idBeforeGap));
 
     // Echte Abmeldung — kein simuliertes Event, ein echter Teardown.
@@ -254,12 +266,18 @@ describe('subscribeHouseholdRealtime', () => {
     // Waehrend A keinen Channel hat, aendert B mehrere Zeilen. Diese Events
     // werden nachweislich nie zugestellt (keine Subscription), nicht nur
     // "so getan als ob".
-    await deviceB.client
-      .from('fridge_items')
-      .insert({ id: idDuringGap1, household_id: householdId, name: 'Waehrend der Luecke 1' });
-    await deviceB.client
-      .from('fridge_items')
-      .insert({ id: idDuringGap2, household_id: householdId, name: 'Waehrend der Luecke 2' });
+    await deviceB.client.from('fridge_items').insert({
+      id: idDuringGap1,
+      household_id: householdId,
+      location_id: locationId,
+      name: 'Waehrend der Luecke 1',
+    });
+    await deviceB.client.from('fridge_items').insert({
+      id: idDuringGap2,
+      household_id: householdId,
+      location_id: locationId,
+      name: 'Waehrend der Luecke 2',
+    });
     await new Promise((r) => setTimeout(r, 500));
     expect(await fridgeItemName(deviceA, idDuringGap1)).toBeUndefined();
     expect(await fridgeItemName(deviceA, idDuringGap2)).toBeUndefined();
@@ -297,7 +315,8 @@ describe('subscribeHouseholdRealtime', () => {
   }, 30_000);
 
   it('Haushalts-Wechsel: nach unsubscribe() kommen keine Events mehr an und der Channel ist aus der Registry entfernt', async () => {
-    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices('rt-switch');
+    const { deviceA, deviceB, householdId, locationId, teardown } =
+      await setupTwoDevices('rt-switch');
     teardowns.push(teardown);
     const idAfterUnsub = crypto.randomUUID();
     const sub = waitForSubscribed(householdId);
@@ -317,9 +336,12 @@ describe('subscribeHouseholdRealtime', () => {
       await unsubscribe();
       await new Promise((r) => setTimeout(r, 300));
 
-      await deviceB.client
-        .from('fridge_items')
-        .insert({ id: idAfterUnsub, household_id: householdId, name: 'Nach dem Abmelden' });
+      await deviceB.client.from('fridge_items').insert({
+        id: idAfterUnsub,
+        household_id: householdId,
+        location_id: locationId,
+        name: 'Nach dem Abmelden',
+      });
 
       await new Promise((r) => setTimeout(r, 1000));
       expect(await fridgeItemName(deviceA, idAfterUnsub)).toBeUndefined();
@@ -344,7 +366,8 @@ describe('subscribeHouseholdRealtime', () => {
     //
     // Hier wird genau dieser Zustand hergestellt: ein subscribter Channel auf
     // dem Topic, den niemand mehr abraeumt.
-    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices('rt-stale');
+    const { deviceA, deviceB, householdId, locationId, teardown } =
+      await setupTwoDevices('rt-stale');
     teardowns.push(teardown);
 
     const leaked = deviceA.client.channel(`household:${householdId}`);
@@ -375,9 +398,12 @@ describe('subscribeHouseholdRealtime', () => {
       // Und das Abo funktioniert wirklich — der Guard hat nicht bloss den
       // Fehler unterdrueckt.
       const id = crypto.randomUUID();
-      await deviceB.client
-        .from('fridge_items')
-        .insert({ id, household_id: householdId, name: 'Nach dem Abraeumen' });
+      await deviceB.client.from('fridge_items').insert({
+        id,
+        household_id: householdId,
+        location_id: locationId,
+        name: 'Nach dem Abraeumen',
+      });
 
       await pollUntil(() => fridgeItemName(deviceA, id));
       expect(await fridgeItemName(deviceA, id)).toBe('Nach dem Abraeumen');
@@ -397,7 +423,8 @@ describe('subscribeHouseholdRealtime', () => {
     // Bewusst OHNE das `setTimeout(300)` der Tests darueber: Genau diese
     // Gnadenfrist hat den Fehler bisher verdeckt. In der App gibt es sie nicht
     // — dort remountet der Hook (Fast Refresh, Haushaltswechsel) sofort.
-    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices('rt-resubscribe');
+    const { deviceA, deviceB, householdId, locationId, teardown } =
+      await setupTwoDevices('rt-resubscribe');
     teardowns.push(teardown);
 
     const first = waitForSubscribed(householdId);
@@ -437,9 +464,12 @@ describe('subscribeHouseholdRealtime', () => {
       // Und das neue Abo funktioniert auch wirklich, ist also nicht bloss
       // fehlerfrei aufgebaut worden.
       const id = crypto.randomUUID();
-      await deviceB.client
-        .from('fridge_items')
-        .insert({ id, household_id: householdId, name: 'Nach dem Neu-Abonnieren' });
+      await deviceB.client.from('fridge_items').insert({
+        id,
+        household_id: householdId,
+        location_id: locationId,
+        name: 'Nach dem Neu-Abonnieren',
+      });
 
       await pollUntil(() => fridgeItemName(deviceA, id));
       expect(await fridgeItemName(deviceA, id)).toBe('Nach dem Neu-Abonnieren');

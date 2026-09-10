@@ -5,16 +5,47 @@ import type React from 'react';
 import { useCompleteShoppingRun } from '@/features/shopping-list/hooks/use-complete-shopping-run';
 import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list';
 import { celebrate } from '@/lib/celebration';
-import { enqueueMutations } from '@/lib/db/outbox';
 import { recordActivity } from '@/lib/streak';
+import { commitInventoryOperation } from '@/lib/sync/inventory-quantity';
 
 jest.mock('expo-crypto', () => ({
-  randomUUID: jest.fn().mockReturnValueOnce('fridge-item-1').mockReturnValueOnce('transaction-1'),
+  randomUUID: jest
+    .fn()
+    .mockReturnValueOnce('11111111-1111-4111-8111-111111111111')
+    .mockReturnValueOnce('22222222-2222-4222-8222-222222222222')
+    .mockReturnValue('33333333-3333-4333-8333-333333333333'),
 }));
 
 // `useStorageLocations` erwartet immer eine Liste; `undefined` ist fuer TanStack Query ungueltig.
 const mockDbGetAllAsync = jest.fn().mockResolvedValue([]);
 const mockDbRunAsync = jest.fn().mockResolvedValue({ changes: 1, lastInsertRowId: 1 });
+const HOUSEHOLD_ID = '22222222-2222-4222-8222-222222222222';
+const PRODUCT_ID = '44444444-4444-4444-8444-444444444444';
+const committedInventoryResult = {
+  kind: 'applied' as const,
+  operation_id: '33333333-3333-4333-8333-333333333333',
+  footprint: {
+    lots: { read: [], created: [], updated: [], restored: [], tombstoned: [] },
+    ledger: { read: [], created: [], reversed: [] },
+  },
+  outbox_count: 2,
+};
+const storageLocationRows = [
+  {
+    id: '55555555-5555-4555-8555-555555555555',
+    household_id: HOUSEHOLD_ID,
+    name: 'Kühlschrank',
+    kind: 'fridge',
+    sort_order: 0,
+  },
+  {
+    id: '66666666-6666-4666-8666-666666666666',
+    household_id: HOUSEHOLD_ID,
+    name: 'Vorratsschrank',
+    kind: 'pantry',
+    sort_order: 1,
+  },
+];
 
 jest.mock('@/lib/db/client', () => ({
   getDatabase: jest.fn().mockResolvedValue({
@@ -25,7 +56,10 @@ jest.mock('@/lib/db/client', () => ({
 
 jest.mock('@/lib/db/outbox', () => ({
   enqueueMutation: jest.fn().mockResolvedValue(undefined),
-  enqueueMutations: jest.fn().mockResolvedValue(undefined),
+}));
+
+jest.mock('@/lib/sync/inventory-quantity', () => ({
+  commitInventoryOperation: jest.fn().mockResolvedValue(committedInventoryResult),
 }));
 
 jest.mock('@/lib/streak', () => ({
@@ -45,9 +79,10 @@ describe('useCompleteShoppingRun', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    mockDbGetAllAsync.mockResolvedValue([]);
+    mockDbGetAllAsync.mockResolvedValue(storageLocationRows);
     jest.mocked(recordActivity).mockReturnValue({ count: 1, increased: true, milestone: false });
     jest.mocked(celebrate).mockClear();
+    jest.mocked(commitInventoryOperation).mockResolvedValue(committedInventoryResult);
     queryClient = new QueryClient({
       defaultOptions: {
         queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
@@ -59,8 +94,8 @@ describe('useCompleteShoppingRun', () => {
   it('überträgt abgehakte Artikel in den Vorrat und schließt den Einkauf ab', async () => {
     const mockItem: LocalShoppingItem = {
       id: 'item-1',
-      household_id: 'hh-1',
-      product_id: 'prod-hafer',
+      household_id: HOUSEHOLD_ID,
+      product_id: PRODUCT_ID,
       name: 'Hafermilch',
       quantity: 2,
       unit: 'l',
@@ -80,17 +115,19 @@ describe('useCompleteShoppingRun', () => {
       updated_at: '2026-08-20T12:00:00Z',
     };
 
-    const { result } = await renderHook(() => useCompleteShoppingRun('hh-1'), { wrapper });
+    const { result } = await renderHook(() => useCompleteShoppingRun(HOUSEHOLD_ID), { wrapper });
+
+    await waitFor(() => expect(mockDbGetAllAsync).toHaveBeenCalled());
 
     await act(async () => {
       await result.current.mutateAsync({
-        householdId: 'hh-1',
+        householdId: HOUSEHOLD_ID,
         userId: 'user-1',
         checkedItems: [mockItem],
         transfers: [
           {
             shoppingItemId: 'item-1',
-            productId: 'prod-hafer',
+            productId: PRODUCT_ID,
             name: 'Hafermilch',
             quantity: 2,
             unit: 'l',
@@ -106,26 +143,16 @@ describe('useCompleteShoppingRun', () => {
     // Die Mutation ist erst nach dem veroeffentlichten Hook-Status vollstaendig sichtbar.
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
-    expect(enqueueMutations).toHaveBeenCalledWith(expect.anything(), [
+    expect(commitInventoryOperation).toHaveBeenCalledWith(
+      expect.anything(),
       expect.objectContaining({
-        entity: 'fridge_items',
-        op: 'insert',
-        payload: expect.objectContaining({
-          opened_at: null,
-          vacuum_sealed: false,
-          expiry_user_set: false,
-        }),
+        type: 'insert_inventory',
+        quantity: 2,
+        name: 'Hafermilch',
+        location_id: '55555555-5555-4555-8555-555555555555',
       }),
-      expect.objectContaining({
-        entity: 'transactions',
-        op: 'insert',
-        payload: expect.objectContaining({
-          type: 'in',
-          quantity: 2,
-          fridge_item_id: expect.any(String),
-        }),
-      }),
-    ]);
+      'user-1',
+    );
     expect(recordActivity).toHaveBeenCalledTimes(1);
   });
 
@@ -154,7 +181,7 @@ describe('useCompleteShoppingRun', () => {
         }),
       ),
     ).rejects.toThrow('positive Menge');
-    expect(enqueueMutations).not.toHaveBeenCalled();
+    expect(commitInventoryOperation).not.toHaveBeenCalled();
   });
 
   it('validiert gemischte Transfers vor dem ersten Bestandszugang', async () => {
@@ -193,7 +220,7 @@ describe('useCompleteShoppingRun', () => {
         }),
       ),
     ).rejects.toThrow('positive Menge');
-    expect(enqueueMutations).not.toHaveBeenCalled();
+    expect(commitInventoryOperation).not.toHaveBeenCalled();
     expect(mockDbRunAsync).not.toHaveBeenCalled();
   });
 

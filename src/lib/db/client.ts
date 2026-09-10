@@ -7,8 +7,6 @@ import {
 import { createExpoDatabaseFileOps, DATABASE_FILE_NAMES } from '@/lib/db/database-files';
 import { createDrizzleDatabase, type DrizzleDatabase } from '@/lib/db/drizzle-driver';
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { ensureDatabaseBelongsTo } from '@/lib/db/ownership';
 import {
   type SerializedSqlDatabase,
@@ -135,10 +133,9 @@ async function open(): Promise<DatabaseConnection> {
     await db.execAsync('PRAGMA busy_timeout = 5000');
 
     // WAL muss ausserhalb jeder Transaktion gesetzt werden — innerhalb lehnt
-    // SQLite den Moduswechsel ab. Deshalb hier, vor den Migrationen.
+    // SQLite den Moduswechsel ab. Deshalb hier, vor Drizzles Initialisierung.
     await db.execAsync('PRAGMA journal_mode = WAL');
 
-    await runMigrations(db, MIGRATIONS);
     await runDrizzleMigrations(db);
   } catch (error) {
     // Nie automatisch löschen: In der Datei kann eine nicht synchronisierte

@@ -1,21 +1,24 @@
+import {
+  createConsumeInventoryOperation,
+  type InventoryIntentLot,
+} from '@/features/inventory/inventory-lifecycle';
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { toEpochMs } from '@/lib/sync/cursor';
+import { commitInventoryOperation } from '@/lib/sync/inventory-quantity';
 import {
   applyLocalMirrorWrite,
   applyRemoteRow,
   deleteMirrorRow,
+  projectPendingInventoryOperations,
   upsertMirrorRow,
 } from '@/lib/sync/mirror-write';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
-describe('upsertMirrorRow', () => {
+describe('mirror-write', () => {
   let db: TestDatabase;
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
     await runDrizzleMigrations(db);
   });
 
@@ -23,7 +26,7 @@ describe('upsertMirrorRow', () => {
     db.close();
   });
 
-  it('schreibt eine neue storage_locations-Zeile mit korrekten Typen', async () => {
+  it('spiegelt eine vollständige Serverzeile mit Zeitstempeln und Dirty-Flag', async () => {
     await upsertMirrorRow(
       db,
       'storage_locations',
@@ -33,1038 +36,257 @@ describe('upsertMirrorRow', () => {
         name: 'Kühlschrank',
         kind: 'fridge',
         sort_order: 0,
-        created_at: '2024-01-01T00:00:00Z',
-        updated_at: '2024-01-15T10:30:00.123456+00:00',
+        created_at: '2026-01-01T00:00:00Z',
+        updated_at: '2026-01-15T10:30:00.123Z',
         deleted_at: null,
       },
       { dirty: 0 },
     );
 
-    const row = await db.getFirstAsync<{
-      id: string;
-      household_id: string;
-      name: string;
-      updated_at: number;
-      deleted_at: number | null;
-      _dirty: number;
-    }>('select * from storage_locations where id = ?', ['loc-1']);
-
-    expect(row?.id).toBe('loc-1');
-    expect(row?.household_id).toBe('hh-1');
-    expect(row?.name).toBe('Kühlschrank');
-    expect(typeof row?.updated_at).toBe('number');
-    expect(row?.updated_at).toBe(toEpochMs('2024-01-15T10:30:00.123456+00:00'));
-    expect(row?.deleted_at).toBeNull();
-    expect(row?._dirty).toBe(0);
-  });
-
-  it('schreibt einen Tombstone als epoch ms', async () => {
-    await upsertMirrorRow(
-      db,
-      'storage_locations',
-      {
-        id: 'loc-2',
-        household_id: 'hh-1',
-        name: 'Vorratsschrank',
-        kind: 'pantry',
-        sort_order: 0,
-        created_at: '2024-01-01T00:00:00Z',
-        updated_at: '2024-01-15T10:30:00Z',
-        deleted_at: '2024-01-16T00:00:00Z',
-      },
-      { dirty: 0 },
-    );
-
-    const row = await db.getFirstAsync<{ deleted_at: number | null }>(
-      'select deleted_at from storage_locations where id = ?',
-      ['loc-2'],
-    );
-    expect(row?.deleted_at).toBe(toEpochMs('2024-01-16T00:00:00Z'));
-  });
-
-  it('products.deleted_at bleibt immer null, auch wenn die Remote-Zeile einen Wert liefert', async () => {
-    await upsertMirrorRow(
-      db,
-      'products',
-      {
-        id: 'prod-1',
-        barcode: '123',
-        name: 'Testprodukt',
-        off_category_tags: ['en:plant-based-foods', 'en:beverages'],
-        off_last_modified_at: '2024-01-14T09:00:00Z',
-        source: 'manual',
-        created_at: '2024-01-01T00:00:00Z',
-        updated_at: '2024-01-15T10:30:00Z',
-        // products hat serverseitig gar kein deleted_at — dieser Test simuliert
-        // trotzdem den fehlerhaften Fall, dass ein Aufrufer einen Wert liefert.
-        deleted_at: '2024-01-16T00:00:00Z',
-      },
-      { dirty: 0 },
-    );
-
-    const row = await db.getFirstAsync<{
-      deleted_at: number | null;
-      off_category_tags: string;
-      off_last_modified_at: string | null;
-    }>('select deleted_at, off_category_tags, off_last_modified_at from products where id = ?', [
-      'prod-1',
-    ]);
-    expect(row?.deleted_at).toBeNull();
-    expect(JSON.parse(row?.off_category_tags ?? '[]')).toEqual([
-      'en:plant-based-foods',
-      'en:beverages',
-    ]);
-    expect(row?.off_last_modified_at).toBe('2024-01-14T09:00:00Z');
-  });
-
-  // Live-Fund: eine Remote-Zeile mit `off_category_tags: null` (Schema-Drift/
-  // veralteter PostgREST-Cache — der Server-Constraint ist `not null default
-  // '{}'`, garantiert das also eigentlich nicht) liess den kompletten
-  // Products-Sync mit "NOT NULL constraint failed" abstuerzen, weil
-  // `upsertMirrorRow` jede Spalte explizit bindet und der SQLite-DEFAULT nie
-  // greift. Der Spiegel muss das tolerieren statt den Sync zu blockieren.
-  it('crasht nicht, wenn eine Remote-Zeile off_category_tags als null liefert', async () => {
     await expect(
-      upsertMirrorRow(
-        db,
-        'products',
-        {
-          id: 'prod-2',
-          barcode: '456',
-          name: 'Produkt ohne OFF-Tags',
-          off_category_tags: null,
-          off_last_modified_at: null,
-          source: 'manual',
-          created_at: '2024-01-01T00:00:00Z',
-          updated_at: '2024-01-15T10:30:00Z',
-          deleted_at: null,
-        },
-        { dirty: 0 },
-      ),
-    ).resolves.not.toThrow();
-
-    const row = await db.getFirstAsync<{ off_category_tags: string | null }>(
-      'select off_category_tags from products where id = ?',
-      ['prod-2'],
-    );
-    // Kein Fallback auf '[]' hier — das waere unehrliche Ersatzdaten fuer eine
-    // Remote-Zeile, die tatsaechlich null lieferte. parseCategoryTagsJson()
-    // behandelt null beim Lesen ohnehin bereits wie eine leere Liste.
-    expect(row?.off_category_tags).toBeNull();
+      db.getFirstAsync<{
+        id: string;
+        updated_at: number;
+        deleted_at: number | null;
+        _dirty: number;
+      }>('select id, updated_at, deleted_at, _dirty from storage_locations where id = ?', [
+        'loc-1',
+      ]),
+    ).resolves.toEqual({
+      id: 'loc-1',
+      updated_at: toEpochMs('2026-01-15T10:30:00.123Z'),
+      deleted_at: null,
+      _dirty: 0,
+    });
   });
 
-  it('spiegelt Preference-Tombstones und nullable category_id', async () => {
-    await upsertMirrorRow(
-      db,
-      'shopping_category_preferences',
-      {
-        id: 'pref-1',
-        household_id: 'hh-1',
-        key_type: 'name',
-        normalized_key_value: 'hafermilch',
-        category_id: null,
-        created_by: 'user-1',
-        created_at: '2024-01-01T00:00:00Z',
-        updated_at: '2024-01-15T10:30:00Z',
-        deleted_at: '2024-01-16T00:00:00Z',
-      },
-      { dirty: 0 },
-    );
-
-    const row = await db.getFirstAsync<{
-      category_id: string | null;
-      deleted_at: number | null;
-    }>('select category_id, deleted_at from shopping_category_preferences where id = ?', [
-      'pref-1',
-    ]);
-    expect(row?.category_id).toBeNull();
-    expect(row?.deleted_at).toBe(toEpochMs('2024-01-16T00:00:00Z'));
-  });
-
-  it('ist ein upsert: ein zweiter Aufruf mit derselben id aktualisiert die Zeile', async () => {
-    const base = {
-      id: 'loc-3',
-      household_id: 'hh-1',
-      kind: 'fridge',
-      sort_order: 0,
-      created_at: '2024-01-01T00:00:00Z',
-    };
-
-    await upsertMirrorRow(
-      db,
-      'storage_locations',
-      { ...base, name: 'Alter Name', updated_at: '2024-01-15T10:00:00Z', deleted_at: null },
-      { dirty: 0 },
-    );
-    await upsertMirrorRow(
-      db,
-      'storage_locations',
-      { ...base, name: 'Neuer Name', updated_at: '2024-01-15T11:00:00Z', deleted_at: null },
-      { dirty: 0 },
-    );
-
-    const rows = await db.getAllAsync<{ id: string }>(
-      'select id from storage_locations where id = ?',
-      ['loc-3'],
-    );
-    expect(rows).toHaveLength(1);
-
-    const row = await db.getFirstAsync<{ name: string; updated_at: number }>(
-      'select name, updated_at from storage_locations where id = ?',
-      ['loc-3'],
-    );
-    expect(row?.name).toBe('Neuer Name');
-    expect(row?.updated_at).toBe(toEpochMs('2024-01-15T11:00:00Z'));
-  });
-
-  it('setzt _dirty gemaess der uebergebenen Option', async () => {
+  it('behält einen lokalen Dirty-Stand bei einer älteren Remote-Zeile', async () => {
     await upsertMirrorRow(
       db,
       'storage_locations',
       {
-        id: 'loc-4',
+        id: 'loc-1',
         household_id: 'hh-1',
-        name: 'X',
+        name: 'Lokal',
         kind: 'fridge',
         sort_order: 0,
-        created_at: '2024-01-01T00:00:00Z',
-        updated_at: '2024-01-15T10:30:00Z',
+        created_at: '2026-01-01T00:00:00Z',
+        updated_at: '2026-01-15T10:00:00Z',
         deleted_at: null,
       },
       { dirty: 1 },
     );
 
-    const row = await db.getFirstAsync<{ _dirty: number }>(
-      'select _dirty from storage_locations where id = ?',
-      ['loc-4'],
-    );
-    expect(row?._dirty).toBe(1);
-  });
-
-  it('wirft, wenn updated_at kein String ist', async () => {
     await expect(
-      upsertMirrorRow(
+      applyRemoteRow(
         db,
         'storage_locations',
         {
-          id: 'loc-5',
+          id: 'loc-1',
           household_id: 'hh-1',
-          name: 'X',
+          name: 'Remote',
           kind: 'fridge',
           sort_order: 0,
-          created_at: '2024-01-01T00:00:00Z',
-          updated_at: null,
+          created_at: '2026-01-01T00:00:00Z',
+          updated_at: '2026-01-15T09:00:00Z',
           deleted_at: null,
         },
-        { dirty: 0 },
+        toEpochMs('2026-01-15T11:00:00Z'),
       ),
-    ).rejects.toThrow(/updated_at/);
-  });
-});
+    ).resolves.toBe('local-wins');
 
-describe('applyRemoteRow', () => {
-  let db: TestDatabase;
-
-  const remoteRow = (overrides: Partial<Record<string, unknown>> = {}) => ({
-    id: 'loc-remote-1',
-    household_id: 'hh-1',
-    name: 'Kühlschrank',
-    kind: 'fridge',
-    sort_order: 0,
-    created_at: '2024-01-01T00:00:00Z',
-    updated_at: '2024-01-15T12:00:00Z',
-    deleted_at: null,
-    ...overrides,
+    await expect(
+      db.getFirstAsync<{ name: string; _dirty: number }>(
+        'select name, _dirty from storage_locations where id = ?',
+        ['loc-1'],
+      ),
+    ).resolves.toEqual({ name: 'Lokal', _dirty: 1 });
   });
 
-  beforeEach(async () => {
-    db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
-  });
-
-  afterEach(() => {
-    db.close();
-  });
-
-  it("schreibt eine neue Zeile ohne resolve() aufzurufen (kein lokales Gegenstueck), gibt 'written' zurueck", async () => {
-    const result = await applyRemoteRow(db, 'storage_locations', remoteRow(), Date.now());
-    expect(result).toBe('written');
-
-    const row = await db.getFirstAsync<{ name: string }>(
-      'select name from storage_locations where id = ?',
-      ['loc-remote-1'],
-    );
-    expect(row?.name).toBe('Kühlschrank');
-  });
-
-  it("ueberschreibt eine lokale, nicht-dirty Zeile kampflos, gibt 'written' zurueck", async () => {
-    await upsertMirrorRow(db, 'storage_locations', remoteRow({ name: 'Alt' }), { dirty: 0 });
-
-    const result = await applyRemoteRow(
-      db,
-      'storage_locations',
-      remoteRow({ name: 'Neu', updated_at: '2024-01-15T13:00:00Z' }),
-      Date.now(),
-    );
-    expect(result).toBe('written');
-
-    const row = await db.getFirstAsync<{ name: string; _dirty: number }>(
-      'select name, _dirty from storage_locations where id = ?',
-      ['loc-remote-1'],
-    );
-    expect(row?.name).toBe('Neu');
-    expect(row?._dirty).toBe(0);
-  });
-
-  it("bei dirty lokal + neuerer Remote-Zeile gewinnt remote via resolve(), gibt 'written' zurueck", async () => {
-    // Lokale, noch nicht gepushte Aenderung — aelter als die eingehende Remote-Zeile.
-    await db.runAsync(
-      `insert into storage_locations
-         (id, household_id, name, kind, sort_order, updated_at, deleted_at, _dirty)
-       values (?, ?, ?, ?, ?, ?, ?, 1)`,
-      ['loc-remote-1', 'hh-1', 'Lokal dirty', 'fridge', 0, toEpochMs('2024-01-15T10:00:00Z'), null],
-    );
-
-    const result = await applyRemoteRow(
-      db,
-      'storage_locations',
-      remoteRow({ name: 'Von remote', updated_at: '2024-01-15T12:00:00Z' }),
-      Date.now(),
-    );
-    expect(result).toBe('written');
-
-    const row = await db.getFirstAsync<{ name: string; _dirty: number }>(
-      'select name, _dirty from storage_locations where id = ?',
-      ['loc-remote-1'],
-    );
-    expect(row?.name).toBe('Von remote');
-    expect(row?._dirty).toBe(0);
-  });
-
-  it("bei dirty lokal + aelterer Remote-Zeile gewinnt lokal via resolve(), gibt 'local-wins' zurueck und laesst die Zeile unangetastet", async () => {
-    await db.runAsync(
-      `insert into storage_locations
-         (id, household_id, name, kind, sort_order, updated_at, deleted_at, _dirty)
-       values (?, ?, ?, ?, ?, ?, ?, 1)`,
-      [
-        'loc-remote-1',
-        'hh-1',
-        'Lokal dirty, neuer',
-        'fridge',
-        0,
-        toEpochMs('2024-01-15T14:00:00Z'),
-        null,
-      ],
-    );
-
-    const result = await applyRemoteRow(
-      db,
-      'storage_locations',
-      remoteRow({ name: 'Von remote, aelter', updated_at: '2024-01-15T12:00:00Z' }),
-      Date.now(),
-    );
-    expect(result).toBe('local-wins');
-
-    const row = await db.getFirstAsync<{ name: string; _dirty: number }>(
-      'select name, _dirty from storage_locations where id = ?',
-      ['loc-remote-1'],
-    );
-    expect(row?.name).toBe('Lokal dirty, neuer');
-    expect(row?._dirty).toBe(1);
-  });
-
-  it('ein Remote-Tombstone schlaegt ein dirty lokales Update, unabhaengig vom Zeitstempel', async () => {
-    await db.runAsync(
-      `insert into storage_locations
-         (id, household_id, name, kind, sort_order, updated_at, deleted_at, _dirty)
-       values (?, ?, ?, ?, ?, ?, ?, 1)`,
-      [
-        'loc-remote-1',
-        'hh-1',
-        'Lokal bearbeitet, neuer',
-        'fridge',
-        0,
-        toEpochMs('2024-01-15T15:00:00Z'),
-        null,
-      ],
-    );
-
-    const result = await applyRemoteRow(
-      db,
-      'storage_locations',
-      remoteRow({ updated_at: '2024-01-15T12:00:00Z', deleted_at: '2024-01-15T12:00:00Z' }),
-      Date.now(),
-    );
-    expect(result).toBe('written');
-
-    const row = await db.getFirstAsync<{ deleted_at: number | null }>(
-      'select deleted_at from storage_locations where id = ?',
-      ['loc-remote-1'],
-    );
-    expect(row?.deleted_at).not.toBeNull();
-  });
-});
-
-describe('applyRemoteRow — Reconciliation mit offenen Outbox-Operationen (fam-onu)', () => {
-  let db: TestDatabase;
-
-  const fridgeItem = (overrides: Partial<Record<string, unknown>> = {}) => ({
-    id: 'fi-remote-1',
-    household_id: 'hh-1',
-    location_id: 'loc-fridge',
-    product_id: null,
-    name: 'Milch',
-    quantity: 5,
-    unit: 'piece',
-    package_size: null,
-    package_size_unit: null,
-    expiry_date: null,
-    added_by: null,
-    created_at: '2024-01-01T00:00:00Z',
-    opened_at: null,
-    vacuum_sealed: false,
-    expiry_user_set: false,
-    updated_at: '2024-01-15T12:00:00Z',
-    deleted_at: null,
-    ...overrides,
-  });
-
-  async function insertLocalDirtyFridgeItem(overrides: Partial<Record<string, unknown>> = {}) {
-    await upsertMirrorRow(db, 'fridge_items', fridgeItem(overrides), { dirty: 1 });
-  }
-
-  async function enqueueOutbox(op: string, payload: Record<string, unknown>) {
-    await db.runAsync(
-      `insert into outbox (entity, entity_id, op, payload, created_at, attempts, next_attempt_at)
-       values ('fridge_items', ?, ?, ?, ?, 0, 0)`,
-      ['fi-remote-1', op, JSON.stringify(payload), Date.now()],
-    );
-  }
-
-  beforeEach(async () => {
-    db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
-  });
-
-  afterEach(() => {
-    db.close();
-  });
-
-  it('behaelt eine offene Menge (adjust_quantity), uebernimmt aber echte Remote-Metadaten', async () => {
-    // Lokal bereits auf 4 verbraucht, Outbox-Op noch offen.
-    await insertLocalDirtyFridgeItem({ quantity: 4, name: 'Milch' });
-    await enqueueOutbox('adjust_quantity', {
-      operation_id: 'op-1',
-      transaction_id: 'tx-1',
-      item_id: 'fi-remote-1',
-      household_id: 'hh-1',
-      delta: -1,
-      created_at: '2024-01-15T11:00:00Z',
-    });
-
-    // Server bestaetigt zwischenzeitlich einen Namensfix eines anderen Geraets,
-    // aber noch die alte Menge 5 (der Delta-Push ist ja noch nicht angekommen).
-    const result = await applyRemoteRow(
-      db,
-      'fridge_items',
-      fridgeItem({ name: 'Vollmilch', quantity: 5, updated_at: '2024-01-15T13:00:00Z' }),
-      Date.now(),
-    );
-    expect(result).toBe('written');
-
-    const row = await db.getFirstAsync<{ quantity: number; name: string; _dirty: number }>(
-      'select quantity, name, _dirty from fridge_items where id = ?',
-      ['fi-remote-1'],
-    );
-    expect(row?.quantity).toBe(4);
-    expect(row?.name).toBe('Vollmilch');
-    expect(row?._dirty).toBe(1);
-  });
-
-  it('rekonstruiert die Menge aus verschobener Remote-Basis plus offenem Delta (fam-onu)', async () => {
-    // Ausgangsmenge 5, lokal bereits um -1 verbraucht (Anzeige: 4), Outbox-Op offen.
-    await insertLocalDirtyFridgeItem({ quantity: 4 });
-    await enqueueOutbox('adjust_quantity', {
-      operation_id: 'op-1',
-      transaction_id: 'tx-1',
-      item_id: 'fi-remote-1',
-      household_id: 'hh-1',
-      delta: -1,
-      created_at: '2024-01-15T11:00:00Z',
-    });
-
-    // Waehrenddessen hat der Server bereits eine andere, bestaetigte Menge:
-    // 3 statt der urspruenglichen 5. Korrekt ist Basis (3) + offenes Delta (-1) = 2.
-    const result = await applyRemoteRow(
-      db,
-      'fridge_items',
-      fridgeItem({ quantity: 3, updated_at: '2024-01-15T13:00:00Z' }),
-      Date.now(),
-    );
-    expect(result).toBe('written');
-
-    const row = await db.getFirstAsync<{ quantity: number; _dirty: number }>(
-      'select quantity, _dirty from fridge_items where id = ?',
-      ['fi-remote-1'],
-    );
-    expect(row?.quantity).toBe(2);
-    expect(row?._dirty).toBe(1);
-  });
-
-  it('behandelt ein offenes Delta, das die neue Remote-Basis ins Negative treiben wuerde, als Konflikt (fam-onu)', async () => {
-    // Lokal auf 0 verbraucht (Basis 1, offenes Delta -1... hier draengender:
-    // ein offenes Delta -2 gegen eine inzwischen auf 1 gesunkene Remote-Basis
-    // waere rechnerisch -1 — eine negative Bestandsmenge ist niemals gueltig
-    // und darf nicht still geschrieben werden.
-    await insertLocalDirtyFridgeItem({ quantity: 0 });
-    await enqueueOutbox('adjust_quantity', {
-      operation_id: 'op-3',
-      transaction_id: 'tx-3',
-      item_id: 'fi-remote-1',
-      household_id: 'hh-1',
-      delta: -2,
-      created_at: '2024-01-15T11:00:00Z',
-    });
-
-    // Server hat inzwischen nur noch 1 statt der urspruenglichen 3 bestaetigt.
-    // 1 + (-2) = -1: unmoeglich, muss als Konflikt behandelt werden statt eine
-    // negative Menge zu schreiben oder die Menge stillschweigend auf 0 zu clampen.
-    const result = await applyRemoteRow(
-      db,
-      'fridge_items',
-      fridgeItem({ quantity: 1, updated_at: '2024-01-15T13:00:00Z' }),
-      Date.now(),
-    );
-
-    expect(result).toBe('local-wins');
-    const row = await db.getFirstAsync<{ quantity: number; _dirty: number }>(
-      'select quantity, _dirty from fridge_items where id = ?',
-      ['fi-remote-1'],
-    );
-    // local-wins: die urspruengliche lokale Zeile bleibt vollstaendig unveraendert.
-    expect(row?.quantity).toBe(0);
-    expect(row?._dirty).toBe(1);
-  });
-
-  it('wendet ein bereits serverseitig angewendetes Delta nach Antwortverlust nicht doppelt an (fam-onu)', async () => {
-    // Lokal optimistisch auf 4 verbraucht (Basis 5, Delta -1), aber die
-    // Serverantwort ging verloren — der Push-Retry steht noch aus. In der
-    // Zwischenzeit hat DIESE Pull-Runde bereits die zugehoerige Ledgerzeile
-    // bestaetigt uebernommen (transactions wird vor fridge_items gepullt,
-    // sync/entities.ts) — das ist der Empfangsbeweis, dass der Server das
-    // Delta bereits angewendet hat.
-    await insertLocalDirtyFridgeItem({ quantity: 4 });
-    await enqueueOutbox('adjust_quantity', {
-      operation_id: 'op-1',
-      transaction_id: 'tx-1',
-      item_id: 'fi-remote-1',
-      household_id: 'hh-1',
-      delta: -1,
-      created_at: '2024-01-15T11:00:00Z',
-    });
+  it('übernimmt eine neuere Remote-Zeile und setzt Dirty zurück', async () => {
     await upsertMirrorRow(
       db,
-      'transactions',
+      'storage_locations',
       {
-        id: 'tx-1',
+        id: 'loc-1',
         household_id: 'hh-1',
-        fridge_item_id: 'fi-remote-1',
-        type: 'out',
-        quantity: 1,
-        undone: false,
-        created_at: '2024-01-15T11:00:00Z',
-      },
-      { dirty: 0 },
-    );
-
-    // Die neue Remote-Basis (4) enthaelt das Delta bereits.
-    const result = await applyRemoteRow(
-      db,
-      'fridge_items',
-      fridgeItem({ quantity: 4, updated_at: '2024-01-15T13:00:00Z' }),
-      Date.now(),
-    );
-    expect(result).toBe('written');
-
-    const row = await db.getFirstAsync<{ quantity: number; _dirty: number }>(
-      'select quantity, _dirty from fridge_items where id = ?',
-      ['fi-remote-1'],
-    );
-    // Ohne Fix wuerde das Delta erneut angewendet: 4 + (-1) = 3, falsch.
-    expect(row?.quantity).toBe(4);
-    expect(row?._dirty).toBe(1);
-  });
-
-  it('behandelt eine verletzte Korrektur-Erwartung gegen die neue Remote-Basis als Konflikt', async () => {
-    await insertLocalDirtyFridgeItem({ quantity: 5 });
-    await enqueueOutbox('correct_quantity', {
-      operation_id: 'op-2',
-      transaction_id: 'tx-2',
-      item_id: 'fi-remote-1',
-      household_id: 'hh-1',
-      // Erwartet Basis 5, aber der Server hat inzwischen 3 bestaetigt.
-      expected_quantity: 5,
-      new_quantity: 8,
-      created_at: '2024-01-15T11:00:00Z',
-    });
-
-    const result = await applyRemoteRow(
-      db,
-      'fridge_items',
-      fridgeItem({ quantity: 3, updated_at: '2024-01-15T13:00:00Z' }),
-      Date.now(),
-    );
-
-    expect(result).toBe('local-wins');
-  });
-
-  it('rekonstruiert die Menge aus einer offenen Ruecknahme anhand des Ledgers', async () => {
-    await insertLocalDirtyFridgeItem({ quantity: 6 });
-    // Die Ruecknahme hat bereits ihre eigene Ledgerzeile lokal eingefuegt
-    // (type/quantity beschreiben ihren Effekt: hier +1).
-    await applyLocalMirrorWrite(
-      db,
-      'transactions',
-      'insert',
-      {
-        id: 'tx-reversal-1',
-        household_id: 'hh-1',
-        fridge_item_id: 'fi-remote-1',
-        type: 'in',
-        quantity: 1,
-        undone: false,
-        created_at: '2024-01-15T11:30:00Z',
-      },
-      1_000,
-    );
-    await enqueueOutbox('reverse_quantity', {
-      reversal_transaction_id: 'tx-reversal-1',
-      reversal_of: 'tx-orig-1',
-      item_id: 'fi-remote-1',
-      household_id: 'hh-1',
-      created_at: '2024-01-15T11:30:00Z',
-      notes: 'Rueckgaengig',
-    });
-
-    // Basis ist zwischenzeitlich von 5 auf 3 gesunken; korrekt ist 3 + 1 = 4.
-    const result = await applyRemoteRow(
-      db,
-      'fridge_items',
-      fridgeItem({ quantity: 3, updated_at: '2024-01-15T13:00:00Z' }),
-      Date.now(),
-    );
-    expect(result).toBe('written');
-
-    const row = await db.getFirstAsync<{ quantity: number; _dirty: number }>(
-      'select quantity, _dirty from fridge_items where id = ?',
-      ['fi-remote-1'],
-    );
-    expect(row?.quantity).toBe(4);
-    expect(row?._dirty).toBe(1);
-  });
-
-  it('verdoppelt die Menge einer Waste-Ruecknahme nicht, wenn sie nach Antwortverlust bereits bestaetigt ist (fam-onu)', async () => {
-    // Ein Waste hat das Los auf 0 tombstoned; die Ruecknahme hat lokal
-    // optimistisch auf 5 restauriert und ihre eigene Ledgerzeile eingefuegt.
-    // Der Server hat die Ruecknahme bereits angewendet, die Antwort ging
-    // verloren — DIESE Pull-Runde hat die Ledgerzeile schon bestaetigt
-    // uebernommen (transactions vor fridge_items, sync/entities.ts).
-    await insertLocalDirtyFridgeItem({ quantity: 5, deleted_at: null });
-    await upsertMirrorRow(
-      db,
-      'transactions',
-      {
-        id: 'tx-reversal-2',
-        household_id: 'hh-1',
-        fridge_item_id: 'fi-remote-1',
-        type: 'in',
-        quantity: 5,
-        undone: false,
-        created_at: '2024-01-15T11:30:00Z',
-      },
-      { dirty: 0 },
-    );
-    await enqueueOutbox('reverse_quantity', {
-      reversal_transaction_id: 'tx-reversal-2',
-      reversal_of: 'tx-waste-1',
-      item_id: 'fi-remote-1',
-      household_id: 'hh-1',
-      created_at: '2024-01-15T11:30:00Z',
-      notes: 'Rueckgaengig',
-    });
-
-    // Die Remote-Basis enthaelt die Restaurierung bereits.
-    const result = await applyRemoteRow(
-      db,
-      'fridge_items',
-      fridgeItem({ quantity: 5, deleted_at: null, updated_at: '2024-01-15T13:00:00Z' }),
-      Date.now(),
-    );
-    expect(result).toBe('written');
-
-    const row = await db.getFirstAsync<{ quantity: number; _dirty: number }>(
-      'select quantity, _dirty from fridge_items where id = ?',
-      ['fi-remote-1'],
-    );
-    // Ohne Fix wuerde das Ledger-Delta erneut angewendet: 5 + 5 = 10, falsch.
-    expect(row?.quantity).toBe(5);
-    expect(row?._dirty).toBe(1);
-  });
-
-  it('behaelt einen offenen Move (location_id), uebernimmt aber echte Remote-Metadaten', async () => {
-    await insertLocalDirtyFridgeItem({ location_id: 'loc-pantry' });
-    await enqueueOutbox('move', {
-      operation_id: 'op-2',
-      item_id: 'fi-remote-1',
-      household_id: 'hh-1',
-      expected_location_id: 'loc-fridge',
-      new_location_id: 'loc-pantry',
-      expected_quantity: 5,
-      out_transaction_id: 'tx-out',
-      in_transaction_id: 'tx-in',
-      created_at: '2024-01-15T11:00:00Z',
-    });
-
-    const result = await applyRemoteRow(
-      db,
-      'fridge_items',
-      fridgeItem({
-        name: 'Vollmilch',
-        location_id: 'loc-fridge',
-        updated_at: '2024-01-15T13:00:00Z',
-      }),
-      Date.now(),
-    );
-    expect(result).toBe('written');
-
-    const row = await db.getFirstAsync<{ location_id: string; name: string; _dirty: number }>(
-      'select location_id, name, _dirty from fridge_items where id = ?',
-      ['fi-remote-1'],
-    );
-    expect(row?.location_id).toBe('loc-pantry');
-    expect(row?.name).toBe('Vollmilch');
-    expect(row?._dirty).toBe(1);
-  });
-
-  it('behaelt nur die per Patch geaenderten Felder, uebernimmt Menge aus einer echten Remote-Aenderung', async () => {
-    await insertLocalDirtyFridgeItem({ name: 'Milch, offen' });
-    await enqueueOutbox('update', { id: 'fi-remote-1', name: 'Milch, offen' });
-
-    // Ein anderes Geraet hat zwischenzeitlich Menge verbraucht und gepusht.
-    const result = await applyRemoteRow(
-      db,
-      'fridge_items',
-      fridgeItem({ quantity: 3, updated_at: '2024-01-15T13:00:00Z' }),
-      Date.now(),
-    );
-    expect(result).toBe('written');
-
-    const row = await db.getFirstAsync<{ quantity: number; name: string; _dirty: number }>(
-      'select quantity, name, _dirty from fridge_items where id = ?',
-      ['fi-remote-1'],
-    );
-    expect(row?.name).toBe('Milch, offen');
-    expect(row?.quantity).toBe(3);
-    expect(row?._dirty).toBe(1);
-  });
-
-  it('laesst eine noch nicht bestaetigte lokale insert unangetastet (local-wins)', async () => {
-    await insertLocalDirtyFridgeItem({ name: 'Nur lokal' });
-    await enqueueOutbox('insert', fridgeItem({ name: 'Nur lokal' }));
-
-    const result = await applyRemoteRow(
-      db,
-      'fridge_items',
-      fridgeItem({ name: 'Fremd', updated_at: '2024-01-15T13:00:00Z' }),
-      Date.now(),
-    );
-    expect(result).toBe('local-wins');
-
-    const row = await db.getFirstAsync<{ name: string; _dirty: number }>(
-      'select name, _dirty from fridge_items where id = ?',
-      ['fi-remote-1'],
-    );
-    expect(row?.name).toBe('Nur lokal');
-    expect(row?._dirty).toBe(1);
-  });
-
-  it('ein echter Remote-Tombstone ohne betroffene offene Operation loescht trotzdem weich', async () => {
-    await insertLocalDirtyFridgeItem({ name: 'Milch, offen' });
-    await enqueueOutbox('update', { id: 'fi-remote-1', name: 'Milch, offen' });
-
-    const result = await applyRemoteRow(
-      db,
-      'fridge_items',
-      fridgeItem({ updated_at: '2024-01-15T13:00:00Z', deleted_at: '2024-01-15T13:00:00Z' }),
-      Date.now(),
-    );
-    expect(result).toBe('written');
-
-    const row = await db.getFirstAsync<{ deleted_at: number | null; name: string }>(
-      'select deleted_at, name from fridge_items where id = ?',
-      ['fi-remote-1'],
-    );
-    expect(row?.deleted_at).not.toBeNull();
-    expect(row?.name).toBe('Milch, offen');
-  });
-});
-
-describe('deleteMirrorRow', () => {
-  let db: TestDatabase;
-
-  beforeEach(async () => {
-    db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
-  });
-
-  afterEach(() => {
-    db.close();
-  });
-
-  it('entfernt eine bestehende Zeile hart', async () => {
-    await upsertMirrorRow(
-      db,
-      'fridge_items',
-      {
-        id: 'fi-1',
-        household_id: 'hh-1',
-        name: 'Milch',
-        quantity: 1,
-        unit: 'piece',
-        created_at: '2024-01-01T00:00:00Z',
-        opened_at: null,
-        vacuum_sealed: false,
-        expiry_user_set: false,
-        updated_at: '2024-01-15T10:00:00Z',
+        name: 'Lokal',
+        kind: 'fridge',
+        sort_order: 0,
+        created_at: '2026-01-01T00:00:00Z',
+        updated_at: '2026-01-15T10:00:00Z',
         deleted_at: null,
       },
-      { dirty: 0 },
+      { dirty: 1 },
     );
 
-    await deleteMirrorRow(db, 'fridge_items', 'fi-1');
+    await expect(
+      applyRemoteRow(
+        db,
+        'storage_locations',
+        {
+          id: 'loc-1',
+          household_id: 'hh-1',
+          name: 'Remote',
+          kind: 'fridge',
+          sort_order: 0,
+          created_at: '2026-01-01T00:00:00Z',
+          updated_at: '2026-01-15T12:00:00Z',
+          deleted_at: null,
+        },
+        toEpochMs('2026-01-15T13:00:00Z'),
+      ),
+    ).resolves.toBe('written');
 
-    const row = await db.getFirstAsync('select id from fridge_items where id = ?', ['fi-1']);
-    expect(row).toBeNull();
+    await expect(
+      db.getFirstAsync<{ name: string; _dirty: number }>(
+        'select name, _dirty from storage_locations where id = ?',
+        ['loc-1'],
+      ),
+    ).resolves.toEqual({ name: 'Remote', _dirty: 0 });
   });
 
-  it('ist ein No-Op, wenn keine Zeile mit dieser id existiert', async () => {
-    await expect(deleteMirrorRow(db, 'fridge_items', 'nicht-vorhanden')).resolves.toBeUndefined();
-  });
-});
-
-describe('applyLocalMirrorWrite', () => {
-  let db: TestDatabase;
-
-  beforeEach(async () => {
-    db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
-  });
-
-  afterEach(() => {
-    db.close();
-  });
-
-  it('insert: schreibt die volle Spaltenliste plus _dirty = 1', async () => {
+  it('schreibt lokale CRUD-Operationen und hält transactions append-only', async () => {
     await applyLocalMirrorWrite(
       db,
-      'storage_locations',
+      'fridge_items',
       'insert',
       {
-        id: 'loc-1',
+        id: 'item-1',
         household_id: 'hh-1',
-        name: 'Kühlschrank',
-        kind: 'fridge',
-        sort_order: 0,
+        location_id: 'loc-1',
+        name: 'Milch',
+        quantity: 1,
+        unit: 'piece',
+        package_size: null,
+        package_size_unit: null,
+        expiry_date: null,
+        added_by: null,
         created_at: '2026-01-01T00:00:00Z',
+        opened_at: null,
+        vacuum_sealed: false,
+        expiry_user_set: false,
       },
       1_000,
     );
+    await applyLocalMirrorWrite(db, 'fridge_items', 'update', { id: 'item-1', quantity: 2 }, 2_000);
 
-    const row = await db.getFirstAsync<Record<string, unknown>>(
-      'select * from storage_locations where id = ?',
-      ['loc-1'],
-    );
-    expect(row).toMatchObject({
-      id: 'loc-1',
+    await expect(
+      db.getFirstAsync<{ quantity: number; deleted_at: number | null; _dirty: number }>(
+        'select quantity, deleted_at, _dirty from fridge_items where id = ?',
+        ['item-1'],
+      ),
+    ).resolves.toEqual({ quantity: 2, deleted_at: null, _dirty: 1 });
+
+    const transaction = {
+      id: 'tx-1',
+      operation_id: 'op-1',
+      operation_payload_hash: 'hash-1',
       household_id: 'hh-1',
-      name: 'Kühlschrank',
-      kind: 'fridge',
-      sort_order: 0,
-      updated_at: 1_000,
-      _dirty: 1,
-    });
-  });
+      fridge_item_id: 'item-1',
+      product_id: null,
+      actor: null,
+      type: 'out',
+      quantity: 1,
+      unit: 'piece',
+      location_id: 'loc-1',
+      reason: null,
+      notes: null,
+      created_at: '2026-01-01T00:00:00Z',
+      reversal_of: null,
+    };
+    await applyLocalMirrorWrite(db, 'transactions', 'insert', transaction, 5_000);
 
-  it('update: setzt nur die im Payload vorhandenen Felder, ruehrt andere nicht an', async () => {
-    await applyLocalMirrorWrite(
-      db,
-      'storage_locations',
-      'insert',
-      {
-        id: 'loc-1',
-        household_id: 'hh-1',
-        name: 'Kühlschrank',
-        kind: 'fridge',
-        sort_order: 0,
-        created_at: '2026-01-01T00:00:00Z',
-      },
-      1_000,
-    );
-
-    await applyLocalMirrorWrite(
-      db,
-      'storage_locations',
-      'update',
-      { id: 'loc-1', name: 'Speisekammer' },
-      2_000,
-    );
-
-    const row = await db.getFirstAsync<Record<string, unknown>>(
-      'select * from storage_locations where id = ?',
-      ['loc-1'],
-    );
-    expect(row).toMatchObject({
-      name: 'Speisekammer',
-      kind: 'fridge', // unveraendert
-      sort_order: 0, // unveraendert
-      updated_at: 2_000,
-      _dirty: 1,
-    });
-  });
-
-  it('delete: setzt deleted_at und _dirty, ruehrt sonst nichts an', async () => {
-    await applyLocalMirrorWrite(
-      db,
-      'fridge_items',
-      'insert',
-      {
-        id: 'fi-1',
-        household_id: 'hh-1',
-        name: 'Milch',
-        quantity: 1,
-        unit: 'piece',
-        created_at: '2026-01-01T00:00:00Z',
-        opened_at: null,
-        vacuum_sealed: false,
-        expiry_user_set: false,
-      },
-      1_000,
-    );
-
-    await applyLocalMirrorWrite(db, 'fridge_items', 'delete', { id: 'fi-1' }, 2_000);
-
-    const row = await db.getFirstAsync<Record<string, unknown>>(
-      'select * from fridge_items where id = ?',
-      ['fi-1'],
-    );
-    expect(row).toMatchObject({ deleted_at: 2_000, updated_at: 2_000, _dirty: 1, name: 'Milch' });
-  });
-
-  it('restore: setzt deleted_at zurueck auf null (#69)', async () => {
-    await applyLocalMirrorWrite(
-      db,
-      'fridge_items',
-      'insert',
-      {
-        id: 'fi-1',
-        household_id: 'hh-1',
-        name: 'Milch',
-        quantity: 1,
-        unit: 'piece',
-        created_at: '2026-01-01T00:00:00Z',
-        opened_at: null,
-        vacuum_sealed: false,
-        expiry_user_set: false,
-      },
-      1_000,
-    );
-    await applyLocalMirrorWrite(db, 'fridge_items', 'delete', { id: 'fi-1' }, 2_000);
-
-    await applyLocalMirrorWrite(db, 'fridge_items', 'restore', { id: 'fi-1' }, 3_000);
-
-    const row = await db.getFirstAsync<Record<string, unknown>>(
-      'select * from fridge_items where id = ?',
-      ['fi-1'],
-    );
-    expect(row).toMatchObject({ deleted_at: null, updated_at: 3_000, _dirty: 1 });
-  });
-
-  it('insert: serialisiert Array-Felder als JSON-Text (dieselbe Konvertierung wie upsertMirrorRow)', async () => {
-    await applyLocalMirrorWrite(
-      db,
-      'products',
-      'insert',
-      {
-        id: 'prod-1',
-        barcode: '123',
-        name: 'Testprodukt',
-        off_category_tags: ['en:meats', 'en:pork'],
-        source: 'user',
-        created_at: '2026-01-01T00:00:00Z',
-      },
-      1_000,
-    );
-
-    const row = await db.getFirstAsync<{ off_category_tags: string }>(
-      'select off_category_tags from products where id = ?',
-      ['prod-1'],
-    );
-    expect(JSON.parse(row?.off_category_tags ?? '[]')).toEqual(['en:meats', 'en:pork']);
-  });
-
-  it('insert: funktioniert auch fuer globale, nicht household-gebundene Entitaeten (products)', async () => {
     await expect(
       applyLocalMirrorWrite(
         db,
-        'products',
-        'insert',
-        {
-          id: 'prod-1',
-          barcode: '123',
-          name: 'Testprodukt',
-          source: 'user',
-          created_at: '2026-01-01T00:00:00Z',
-        },
-        1_000,
+        'transactions',
+        'update',
+        { id: transaction.id, quantity: 2 },
+        6_000,
       ),
-    ).resolves.toBeUndefined();
+    ).rejects.toThrow(/append-only/);
+    await expect(
+      applyLocalMirrorWrite(db, 'transactions', 'delete', { id: transaction.id }, 7_000),
+    ).rejects.toThrow(/append-only/);
   });
 
-  it('transactions bleiben auch am lokalen Schreibadapter append-only', async () => {
-    const payload = {
-      id: 'tx-1',
-      operation_id: null,
-      household_id: 'hh-1',
-      fridge_item_id: null,
+  it('löscht Mirror-Zeilen hart nur für echte Remote-DELETEs', async () => {
+    await applyLocalMirrorWrite(
+      db,
+      'storage_locations',
+      'insert',
+      { id: 'loc-1', household_id: 'hh-1', name: 'Kühlschrank', kind: 'fridge', sort_order: 0 },
+      1_000,
+    );
+    await deleteMirrorRow(db, 'storage_locations', 'loc-1');
+    await expect(
+      db.getFirstAsync('select id from storage_locations where id = ?', ['loc-1']),
+    ).resolves.toBeNull();
+  });
+
+  it('projiziert ausstehendes Inventory-Intent auf eine neue Serverbasis', async () => {
+    const source: InventoryIntentLot = {
+      id: '11111111-1111-4111-8111-111111111111',
+      household_id: '22222222-2222-4222-8222-222222222222',
       product_id: null,
-      actor: null,
-      type: 'in',
-      quantity: 1,
-      location_id: null,
-      reason: null,
-      previous_expiry_date: null,
-      notes: null,
-      undone: false,
-      created_at: '2026-01-01T00:00:00Z',
+      name: 'Milch',
+      quantity: 5,
+      unit: 'piece',
+      package_size: null,
+      package_size_unit: null,
+      location_id: '33333333-3333-4333-8333-333333333333',
+      expiry_date: null,
+      opened_at: '2026-09-01T10:00:00.000Z',
+      vacuum_sealed: false,
+      expiry_user_set: false,
+      added_by: null,
     };
-    await applyLocalMirrorWrite(db, 'transactions', 'insert', payload, 1_000);
+    await applyLocalMirrorWrite(
+      db,
+      'fridge_items',
+      'insert',
+      {
+        ...source,
+        created_at: '2026-09-01T10:00:00.000Z',
+      },
+      toEpochMs('2026-09-01T10:00:00.000Z'),
+    );
+    const operation = createConsumeInventoryOperation({
+      operation_id: '44444444-4444-4444-8444-444444444444',
+      out_transaction_id: '55555555-5555-4555-8555-555555555555',
+      source,
+      consumed_quantity: 1,
+      opened_item_id: '66666666-6666-4666-8666-666666666666',
+      opened_expiry_date: null,
+      created_at: '2026-09-10T10:00:00.000Z',
+    });
+    await commitInventoryOperation(db, operation, 'actor-1');
+
+    await db.withExclusiveTransactionAsync(async (txn) => {
+      await applyRemoteRow(
+        txn,
+        'fridge_items',
+        {
+          ...source,
+          quantity: 3,
+          updated_at: '2026-09-10T11:00:00.000Z',
+          deleted_at: null,
+        },
+        toEpochMs('2026-09-10T12:00:00.000Z'),
+      );
+      await projectPendingInventoryOperations(
+        txn,
+        ['22222222-2222-4222-8222-222222222222'],
+        new Set(['11111111-1111-4111-8111-111111111111']),
+      );
+    });
 
     await expect(
-      applyLocalMirrorWrite(db, 'transactions', 'update', { id: payload.id, quantity: 2 }, 2_000),
-    ).rejects.toThrow(/append-only/);
-    await expect(
-      applyLocalMirrorWrite(db, 'transactions', 'delete', { id: payload.id }, 3_000),
-    ).rejects.toThrow(/append-only/);
-
-    await expect(
-      db.getFirstAsync<{ quantity: number; deleted_at: number | null }>(
-        'select quantity, deleted_at from transactions where id = ?',
-        [payload.id],
+      db.getFirstAsync<{ quantity: number; _dirty: number }>(
+        'select quantity, _dirty from fridge_items where id = ?',
+        ['11111111-1111-4111-8111-111111111111'],
       ),
-    ).resolves.toEqual({ quantity: 1, deleted_at: null });
+    ).resolves.toEqual({ quantity: 2, _dirty: 1 });
   });
 });

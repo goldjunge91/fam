@@ -1,5 +1,4 @@
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
+import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { ensureDatabaseBelongsTo } from '@/lib/db/ownership';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
@@ -14,7 +13,7 @@ import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite
  */
 async function freshDatabase(): Promise<TestDatabase> {
   const db = createTestDatabase();
-  await runMigrations(db, MIGRATIONS);
+  await runDrizzleMigrations(db);
   return db;
 }
 

@@ -1,17 +1,5 @@
-import { mkdtempSync, rmSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
-
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { readUserVersion, runMigrations } from '@/lib/db/migrator';
-import type { Migration } from '@/lib/db/types';
-import localMigrations from '../../../drizzle/local/migrations';
-import {
-  countingDatabase,
-  createTestDatabase,
-  type TestDatabase,
-} from '../../../test/node-sqlite-adapter';
+import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
 /**
  * Das lokale Schema gegen eine echte SQLite-Engine (#45).
@@ -42,7 +30,6 @@ describe('lokales Schema', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
     await runDrizzleMigrations(db);
   });
 
@@ -50,7 +37,7 @@ describe('lokales Schema', () => {
     db.close();
   });
 
-  it('legt die Spiegeltabellen der neuen fam-v2-Baseline an', async () => {
+  it('legt die Spiegeltabellen des lokalen Ziels an', async () => {
     const tables = await db.getAllAsync<{ name: string }>(
       "select name from sqlite_master where type = 'table' order by name",
     );
@@ -61,19 +48,28 @@ describe('lokales Schema', () => {
     }
   });
 
-  it('legt zusaetzlich households an (Migration v6, lokaler Haushalts-Spiegel)', async () => {
+  it('legt zusaetzlich households als lokalen Haushalts-Spiegel an', async () => {
     const tables = await db.getAllAsync<{ name: string }>(
       "select name from sqlite_master where type = 'table' and name = 'households'",
     );
     expect(tables).toHaveLength(1);
   });
 
-  it('legt die Inventory-Lifecycle-Spalten und das Transaktionsschema an', async () => {
+  it('legt die Inventory-Lifecycle-Spalten und das v1-Transaktionsschema an', async () => {
     const itemColumns = (await columnsOf(db, 'fridge_items')).map((column) => column.name);
     expect(itemColumns).toEqual(
-      expect.arrayContaining(['opened_at', 'vacuum_sealed', 'expiry_user_set']),
+      expect.arrayContaining([
+        'opened_at',
+        'vacuum_sealed',
+        'expiry_user_set',
+        'quantity',
+        'package_size',
+        'package_size_unit',
+        'location_id',
+      ]),
     );
-    expect((await columnsOf(db, 'transactions')).map((column) => column.name)).toEqual(
+    const transactionColumns = (await columnsOf(db, 'transactions')).map((column) => column.name);
+    expect(transactionColumns).toEqual(
       expect.arrayContaining([
         'id',
         'operation_id',
@@ -83,163 +79,511 @@ describe('lokales Schema', () => {
         'actor',
         'type',
         'quantity',
+        'unit',
         'location_id',
         'reason',
-        'previous_expiry_date',
         'notes',
-        'undone',
         'created_at',
         'reversal_of',
-        'sync_sequence',
+      ]),
+    );
+    expect(transactionColumns).not.toEqual(
+      expect.arrayContaining([
+        'previous_expiry_date',
+        'undone',
         'origin_item_id',
         'origin_quantity',
       ]),
     );
   });
 
+  it('erzwingt Lagerortnamen und Lagerorttypen in echter SQLite', async () => {
+    const insertStorageLocation = (id: string, name: string, kind: string) =>
+      db.runAsync(
+        `insert into storage_locations
+           (id, household_id, name, kind, sort_order, updated_at)
+         values (?, ?, ?, ?, 0, 0)`,
+        [id, 'household-1', name, kind],
+      );
+
+    for (const [id, kind] of [
+      ['storage-fridge', 'fridge'],
+      ['storage-freezer', 'freezer'],
+      ['storage-pantry', 'pantry'],
+      ['storage-custom', 'custom'],
+    ] as const) {
+      await expect(insertStorageLocation(id, 'Lagerort', kind)).resolves.toEqual(
+        expect.objectContaining({ changes: 1 }),
+      );
+    }
+    await expect(insertStorageLocation('storage-name-one', 'a', 'custom')).resolves.toEqual(
+      expect.objectContaining({ changes: 1 }),
+    );
+    await expect(
+      insertStorageLocation('storage-name-sixty', 'a'.repeat(60), 'custom'),
+    ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
+
+    await expect(insertStorageLocation('storage-name-empty', '   ', 'custom')).rejects.toThrow();
+    await expect(
+      insertStorageLocation('storage-name-too-long', 'a'.repeat(61), 'custom'),
+    ).rejects.toThrow();
+    await expect(
+      insertStorageLocation('storage-kind-invalid', 'Lagerort', 'garage'),
+    ).rejects.toThrow();
+  });
+
+  it('erzwingt Namen, Einheiten und Packungseinheiten fuer Lose in echter SQLite', async () => {
+    const insertFridgeItem = (
+      id: string,
+      name: string,
+      unit: string,
+      packageSize: number | null,
+      packageSizeUnit: string | null,
+    ) =>
+      db.runAsync(
+        `insert into fridge_items
+           (id, household_id, name, quantity, unit, package_size, package_size_unit,
+            location_id, updated_at)
+         values (?, ?, ?, 1, ?, ?, ?, 'pantry', 0)`,
+        [id, 'household-1', name, unit, packageSize, packageSizeUnit],
+      );
+
+    await expect(insertFridgeItem('item-name-one', 'a', 'piece', null, null)).resolves.toEqual(
+      expect.objectContaining({ changes: 1 }),
+    );
+    await expect(
+      insertFridgeItem('item-name-two-hundred', 'a'.repeat(200), 'piece', null, null),
+    ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
+    await expect(insertFridgeItem('item-unit-valid', 'Milch', 'g', null, null)).resolves.toEqual(
+      expect.objectContaining({ changes: 1 }),
+    );
+    await expect(
+      insertFridgeItem('item-package-unit-valid', 'Milch', 'g', 1, 'g'),
+    ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
+
+    await expect(insertFridgeItem('item-name-empty', '   ', 'piece', null, null)).rejects.toThrow();
+    await expect(
+      insertFridgeItem('item-name-too-long', 'a'.repeat(201), 'piece', null, null),
+    ).rejects.toThrow();
+    await expect(insertFridgeItem('item-unit-empty', 'Milch', '   ', null, null)).rejects.toThrow();
+    await expect(
+      insertFridgeItem('item-package-unit-empty', 'Milch', 'g', 1, '   '),
+    ).rejects.toThrow();
+  });
+
+  it('erzwingt Ledger-Einheiten und die Notizgrenze in echter SQLite', async () => {
+    const insertTransaction = (id: string, unit: string, notes: string | null) =>
+      db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, fridge_item_id, type, quantity, unit,
+            location_id, notes, updated_at)
+         values (?, ?, ?, ?, 'out', 1, ?, 'pantry', ?, 0)`,
+        [id, `operation-${id}`, 'household-1', 'item-ledger', unit, notes],
+      );
+
+    await expect(insertTransaction('tx-unit-valid', 'piece', null)).resolves.toEqual(
+      expect.objectContaining({ changes: 1 }),
+    );
+    await expect(
+      insertTransaction('tx-notes-five-hundred', 'piece', 'a'.repeat(500)),
+    ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
+
+    await expect(insertTransaction('tx-unit-empty', '   ', null)).rejects.toThrow();
+    await expect(
+      insertTransaction('tx-notes-five-hundred-one', 'piece', 'a'.repeat(501)),
+    ).rejects.toThrow();
+  });
+
+  it('speichert Inventory-Mengen als REAL und erzwingt den Lagerort', async () => {
+    const itemColumns = await columnsOf(db, 'fridge_items');
+    const transactionColumns = await columnsOf(db, 'transactions');
+
+    expect(itemColumns.find((column) => column.name === 'quantity')?.type.toUpperCase()).toBe(
+      'REAL',
+    );
+    expect(itemColumns.find((column) => column.name === 'package_size')?.type.toUpperCase()).toBe(
+      'REAL',
+    );
+    expect(itemColumns.find((column) => column.name === 'location_id')?.notnull).toBe(1);
+    expect(
+      transactionColumns.find((column) => column.name === 'quantity')?.type.toUpperCase(),
+    ).toBe('REAL');
+    expect(transactionColumns.find((column) => column.name === 'fridge_item_id')?.notnull).toBe(1);
+    expect(transactionColumns.find((column) => column.name === 'operation_id')?.notnull).toBe(1);
+    expect(transactionColumns.find((column) => column.name === 'location_id')?.notnull).toBe(1);
+
+    await expect(
+      db.runAsync(
+        `insert into fridge_items
+           (id, household_id, name, quantity, unit, location_id, updated_at)
+         values (?, ?, ?, 1, 'piece', ?, 0)`,
+        ['item-missing-location', 'household-1', 'Ohne Lagerort', null],
+      ),
+    ).rejects.toThrow();
+    await expect(
+      db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, fridge_item_id, type, quantity, unit, location_id, updated_at)
+         values (?, ?, ?, ?, 'out', 1, 'piece', ?, 0)`,
+        ['tx-missing-location', 'operation-missing-location', 'household-1', 'item-ledger', null],
+      ),
+    ).rejects.toThrow();
+  });
+
+  it('koppelt sichtbare Lose und Tombstones an ihre Menge', async () => {
+    await expect(
+      db.runAsync(
+        `insert into fridge_items
+           (id, household_id, name, quantity, unit, location_id, deleted_at, updated_at)
+         values (?, ?, ?, ?, 'piece', 'pantry', ?, 0)`,
+        ['item-visible-empty', 'household-1', 'Leeres sichtbares Los', 0, null],
+      ),
+    ).rejects.toThrow();
+
+    await expect(
+      db.runAsync(
+        `insert into fridge_items
+           (id, household_id, name, quantity, unit, location_id, deleted_at, updated_at)
+         values (?, ?, ?, ?, 'piece', 'pantry', ?, 0)`,
+        ['item-tombstone-positive', 'household-1', 'Positiver Tombstone', 1, 1],
+      ),
+    ).rejects.toThrow();
+
+    await expect(
+      db.runAsync(
+        `insert into fridge_items
+           (id, household_id, name, quantity, unit, location_id, deleted_at, updated_at)
+         values (?, ?, ?, ?, 'piece', 'pantry', ?, 0)`,
+        ['item-tombstone-empty', 'household-1', 'Leerer Tombstone', 0, 1],
+      ),
+    ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
+  });
+
+  it('erzwingt die Dezimal-Mengen-/Persistenzgrenze fuer Lose und Ledger', async () => {
+    const overMax = 9_999_999.9 + 0.1;
+
+    await expect(
+      db.runAsync(
+        `insert into fridge_items
+           (id, household_id, name, quantity, unit, package_size, package_size_unit, location_id, updated_at)
+         values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        ['item-half', 'household-1', 'Halbe Packung', 0.5, 'piece', 0.5, 'piece', 'pantry', 0],
+      ),
+    ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
+    await expect(
+      db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, fridge_item_id, type, quantity, unit, location_id, updated_at)
+         values (?, ?, ?, ?, 'out', ?, ?, ?, ?)`,
+        ['tx-half', 'operation-half', 'household-1', 'item-ledger', 0.5, 'piece', 'pantry', 0],
+      ),
+    ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
+
+    for (const [id, value] of [
+      ['item-precise-quantity', 0.05],
+      ['item-too-large', overMax],
+    ] as const) {
+      await expect(
+        db.runAsync(
+          `insert into fridge_items
+             (id, household_id, name, quantity, unit, location_id, updated_at)
+           values (?, ?, ?, ?, 'piece', 'pantry', 0)`,
+          [id, 'household-1', 'Ungültige Menge', value],
+        ),
+      ).rejects.toThrow();
+    }
+
+    for (const [id, value] of [
+      ['item-precise-package', 0.05],
+      ['item-too-large-package', overMax],
+    ] as const) {
+      await expect(
+        db.runAsync(
+          `insert into fridge_items
+             (id, household_id, name, quantity, unit, package_size, package_size_unit, location_id, updated_at)
+           values (?, ?, ?, 1, 'piece', ?, 'piece', 'pantry', 0)`,
+          [id, 'household-1', 'Ungültige Packung', value],
+        ),
+      ).rejects.toThrow();
+    }
+
+    await expect(
+      db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, fridge_item_id, type, quantity, unit, location_id, updated_at)
+         values (?, ?, ?, ?, 'out', ?, ?, ?, ?)`,
+        [
+          'tx-precise',
+          'operation-precise',
+          'household-1',
+          'item-ledger',
+          0.05,
+          'piece',
+          'pantry',
+          0,
+        ],
+      ),
+    ).rejects.toThrow();
+    await expect(
+      db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, fridge_item_id, type, quantity, unit, location_id, updated_at)
+         values (?, ?, ?, ?, 'out', ?, ?, ?, ?)`,
+        [
+          'tx-too-large',
+          'operation-too-large',
+          'household-1',
+          'item-ledger',
+          overMax,
+          'piece',
+          'pantry',
+          0,
+        ],
+      ),
+    ).rejects.toThrow();
+  });
+
   it('erzwingt die Ledger-Regeln auch lokal in SQLite', async () => {
     await expect(
       db.runAsync(
-        `insert into transactions (id, household_id, type, quantity, reason, updated_at)
-         values (?, ?, ?, ?, ?, ?)`,
-        ['tx-invalid-reason', 'household-1', 'out', 1, 'expired', 0],
+        `insert into transactions
+           (id, operation_id, household_id, fridge_item_id, type, quantity, reason, location_id, updated_at)
+         values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          'tx-invalid-reason',
+          'operation-invalid-reason',
+          'household-1',
+          'item-ledger',
+          'out',
+          1,
+          'expired',
+          'pantry',
+          0,
+        ],
       ),
     ).rejects.toThrow();
     await expect(
       db.runAsync(
-        `insert into transactions (id, household_id, type, quantity, updated_at)
-         values (?, ?, ?, ?, ?)`,
-        ['tx-invalid-quantity', 'household-1', 'in', 0, 0],
+        `insert into transactions
+           (id, operation_id, household_id, fridge_item_id, type, quantity, location_id, updated_at)
+         values (?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          'tx-invalid-quantity',
+          'operation-invalid-quantity',
+          'household-1',
+          'item-ledger',
+          'in',
+          0,
+          'pantry',
+          0,
+        ],
       ),
     ).rejects.toThrow();
     await expect(
       db.runAsync(
-        `insert into transactions (id, household_id, type, quantity, reason, updated_at)
-         values (?, ?, ?, ?, ?, ?)`,
-        ['tx-unknown-waste-reason', 'household-1', 'waste', 1, 'donated', 0],
+        `insert into transactions
+           (id, operation_id, household_id, fridge_item_id, type, quantity, reason, location_id, updated_at)
+         values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          'tx-unknown-waste-reason',
+          'operation-unknown-waste-reason',
+          'household-1',
+          'item-ledger',
+          'waste',
+          1,
+          'donated',
+          'pantry',
+          0,
+        ],
       ),
     ).rejects.toThrow();
     for (const reason of ['expired', 'spoiled', 'other']) {
       await expect(
         db.runAsync(
-          `insert into transactions (id, household_id, type, quantity, reason, updated_at)
-           values (?, ?, ?, ?, ?, ?)`,
-          [`tx-valid-waste-${reason}`, 'household-1', 'waste', 1, reason, 0],
+          `insert into transactions
+             (id, operation_id, household_id, fridge_item_id, type, quantity, reason, location_id, updated_at)
+           values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            `tx-valid-waste-${reason}`,
+            `operation-valid-waste-${reason}`,
+            'household-1',
+            'item-ledger',
+            'waste',
+            1,
+            reason,
+            'pantry',
+            0,
+          ],
         ),
       ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
     }
     await expect(
       db.runAsync(
-        `insert into transactions (id, household_id, type, quantity, updated_at)
-         values (?, ?, ?, ?, ?)`,
-        ['tx-missing-waste-reason', 'household-1', 'waste', 1, 0],
+        `insert into transactions
+           (id, operation_id, household_id, fridge_item_id, type, quantity, location_id, updated_at)
+         values (?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          'tx-missing-waste-reason',
+          'operation-missing-waste-reason',
+          'household-1',
+          'item-ledger',
+          'waste',
+          1,
+          'pantry',
+          0,
+        ],
       ),
     ).rejects.toThrow();
   });
 
-  it('erlaubt operation_id nur fuer die beiden Ledgerzeilen eines Moves', async () => {
-    for (const type of ['waste', 'open'] as const) {
+  it('beschraenkt Ledger-Typen auf in, out und waste', async () => {
+    await expect(
+      db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, fridge_item_id, type, quantity, location_id, updated_at)
+         values (?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          'tx-operation-open',
+          'operation-open',
+          'household-1',
+          'item-ledger',
+          'open',
+          1,
+          'pantry',
+          0,
+        ],
+      ),
+    ).rejects.toThrow();
+
+    for (const type of ['in', 'out', 'waste'] as const) {
       await expect(
         db.runAsync(
           `insert into transactions
-             (id, operation_id, household_id, type, quantity, reason, previous_expiry_date, updated_at)
-           values (?, ?, ?, ?, ?, ?, ?, ?)`,
+             (id, operation_id, household_id, fridge_item_id, type, quantity, reason, location_id, updated_at)
+           values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
           [
             `tx-operation-${type}`,
-            'operation-1',
+            `operation-${type}`,
             'household-1',
+            'item-ledger',
             type,
             1,
             type === 'waste' ? 'expired' : null,
-            type === 'open' ? '2026-09-01' : null,
+            'pantry',
+            0,
+          ],
+        ),
+      ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
+    }
+  });
+
+  it('erlaubt pro operation_id hoechstens eine Ledgerzeile je Typ', async () => {
+    for (const type of ['in', 'out', 'waste'] as const) {
+      await db.runAsync(
+        `insert into transactions
+           (id, operation_id, household_id, fridge_item_id, type, quantity, reason, location_id, updated_at)
+         values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          `tx-unique-${type}-1`,
+          'operation-unique',
+          'household-1',
+          'item-ledger',
+          type,
+          1,
+          type === 'waste' ? 'expired' : null,
+          'pantry',
+          0,
+        ],
+      );
+
+      await expect(
+        db.runAsync(
+          `insert into transactions
+             (id, operation_id, household_id, fridge_item_id, type, quantity, reason, location_id, updated_at)
+           values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            `tx-unique-${type}-2`,
+            'operation-unique',
+            'household-1',
+            'item-ledger',
+            type,
+            1,
+            type === 'waste' ? 'expired' : null,
+            'pantry',
             0,
           ],
         ),
       ).rejects.toThrow();
     }
-
-    for (const type of ['in', 'out'] as const) {
-      await expect(
-        db.runAsync(
-          `insert into transactions
-             (id, operation_id, household_id, type, quantity, updated_at)
-           values (?, ?, ?, ?, ?, ?)`,
-          [`tx-operation-${type}`, 'operation-1', 'household-1', type, 1, 0],
-        ),
-      ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
-    }
-  });
-
-  it('erlaubt pro operation_id hoechstens eine in- und eine out-Zeile', async () => {
-    for (const [id, type] of [
-      ['tx-unique-in-1', 'in'],
-      ['tx-unique-out-1', 'out'],
-    ] as const) {
-      await db.runAsync(
-        `insert into transactions
-           (id, operation_id, household_id, type, quantity, updated_at)
-         values (?, ?, ?, ?, ?, ?)`,
-        [id, 'operation-unique', 'household-1', type, 1, 0],
-      );
-    }
-
-    await expect(
-      db.runAsync(
-        `insert into transactions
-           (id, operation_id, household_id, type, quantity, updated_at)
-         values (?, ?, ?, ?, ?, ?)`,
-        ['tx-unique-in-2', 'operation-unique', 'household-1', 'in', 1, 0],
-      ),
-    ).rejects.toThrow();
-    await expect(
-      db.runAsync(
-        `insert into transactions
-           (id, operation_id, household_id, type, quantity, updated_at)
-         values (?, ?, ?, ?, ?, ?)`,
-        ['tx-unique-out-2', 'operation-unique', 'household-1', 'out', 1, 0],
-      ),
-    ).rejects.toThrow();
   });
 
   it('erlaubt pro Einzelbuchung höchstens eine Gegenbuchung', async () => {
     await db.runAsync(
       `insert into transactions
-         (id, household_id, type, quantity, reversal_of, updated_at)
-       values (?, ?, 'in', 1, ?, 0)`,
-      ['tx-reversal-1', 'household-1', 'source-1'],
+         (id, operation_id, household_id, fridge_item_id, type, quantity, reversal_of, location_id, updated_at)
+       values (?, ?, ?, ?, 'in', 1, ?, ?, 0)`,
+      ['tx-reversal-1', 'operation-reversal-1', 'household-1', 'item-ledger', 'source-1', 'pantry'],
     );
 
     await expect(
       db.runAsync(
         `insert into transactions
-           (id, household_id, type, quantity, reversal_of, updated_at)
-         values (?, ?, 'out', 1, ?, 0)`,
-        ['tx-reversal-2', 'household-1', 'source-1'],
+           (id, operation_id, household_id, fridge_item_id, type, quantity, reversal_of, location_id, updated_at)
+         values (?, ?, ?, ?, 'out', 1, ?, ?, 0)`,
+        [
+          'tx-reversal-2',
+          'operation-reversal-2',
+          'household-1',
+          'item-ledger',
+          'source-1',
+          'pantry',
+        ],
       ),
     ).rejects.toThrow();
 
     await expect(
       db.runAsync(
         `insert into transactions
-           (id, operation_id, household_id, type, quantity, reversal_of, updated_at)
-         values (?, ?, ?, 'out', 1, ?, 0)`,
-        ['tx-reversal-move-1', 'move-reversal', 'household-1', 'source-move'],
+         (id, operation_id, household_id, fridge_item_id, type, quantity, reversal_of, location_id, updated_at)
+       values (?, ?, ?, ?, 'out', 1, ?, ?, 0)`,
+        [
+          'tx-reversal-move-1',
+          'move-reversal',
+          'household-1',
+          'item-ledger',
+          'source-move-out',
+          'pantry',
+        ],
       ),
     ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
     await expect(
       db.runAsync(
         `insert into transactions
-           (id, operation_id, household_id, type, quantity, reversal_of, updated_at)
-         values (?, ?, ?, 'in', 1, ?, 0)`,
-        ['tx-reversal-move-2', 'move-reversal', 'household-1', 'source-move'],
+         (id, operation_id, household_id, fridge_item_id, type, quantity, reversal_of, location_id, updated_at)
+       values (?, ?, ?, ?, 'in', 1, ?, ?, 0)`,
+        [
+          'tx-reversal-move-2',
+          'move-reversal',
+          'household-1',
+          'item-ledger',
+          'source-move-in',
+          'pantry',
+        ],
       ),
     ).resolves.toEqual(expect.objectContaining({ changes: 1 }));
     await expect(
       db.runAsync(
         `insert into transactions
-           (id, operation_id, household_id, type, quantity, reversal_of, updated_at)
-         values (?, ?, ?, 'out', 1, ?, 0)`,
-        ['tx-reversal-move-3', 'move-reversal-2', 'household-1', 'source-move'],
+           (id, operation_id, household_id, fridge_item_id, type, quantity, reversal_of, location_id, updated_at)
+         values (?, ?, ?, ?, 'out', 1, ?, ?, 0)`,
+        [
+          'tx-reversal-move-3',
+          'move-reversal-2',
+          'household-1',
+          'item-ledger',
+          'source-move-out',
+          'pantry',
+        ],
       ),
     ).rejects.toThrow();
   });
@@ -387,169 +731,5 @@ describe('lokales Schema', () => {
 
     expect(second.lastInsertRowId).toBeGreaterThan(first.lastInsertRowId);
     expect(third.lastInsertRowId).toBeGreaterThan(second.lastInsertRowId);
-  });
-
-  it('setzt user_version auf die hoechste angewandte Migration', async () => {
-    const highest = MIGRATIONS[MIGRATIONS.length - 1].version;
-    expect(await readUserVersion(db)).toBe(highest);
-  });
-});
-
-describe('Transaktionscursor-Migration', () => {
-  it('setzt einen alten Transaktionscursor beim Upgrade zurueck', async () => {
-    const db = createTestDatabase();
-    try {
-      await runMigrations(db, MIGRATIONS.slice(0, -1));
-      await db.runAsync(
-        `insert into sync_state (entity, scope, last_synced_at, last_synced_id)
-         values (?, ?, ?, ?)`,
-        ['transactions', 'default', '2026-09-07T10:00:00.000Z', 'tx-old'],
-      );
-
-      await runMigrations(db, MIGRATIONS);
-
-      expect(
-        await db.getFirstAsync('select * from sync_state where entity = ?', ['transactions']),
-      ).toBeNull();
-    } finally {
-      db.close();
-    }
-  });
-});
-
-describe('lokale Schema-Upgrades', () => {
-  it('erkennt eine vor dem Inventory-Move migrierte Datenbank ohne Migration erneut auszufuehren', async () => {
-    const upgradeDb = createTestDatabase();
-    try {
-      await runMigrations(upgradeDb, MIGRATIONS);
-
-      const stableMigrationName = '20260901043557_chunky_ken_ellis';
-      const legacyMigrations = Object.fromEntries(
-        Object.entries(localMigrations.migrations).filter(([name]) => name <= stableMigrationName),
-      );
-
-      await expect(runDrizzleMigrations(upgradeDb, { migrations: legacyMigrations })).resolves.toBe(
-        4,
-      );
-      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(
-        Object.keys(localMigrations.migrations).length - Object.keys(legacyMigrations).length,
-      );
-      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(0);
-      expect((await columnsOf(upgradeDb, 'households')).map((column) => column.name)).toContain(
-        'plus_active',
-      );
-    } finally {
-      upgradeDb.close();
-    }
-  });
-
-  it('markiert bestehende MHD-Werte beim Upgrade als manuell gesetzt', async () => {
-    const upgradeDb = createTestDatabase();
-    try {
-      await runMigrations(upgradeDb, MIGRATIONS);
-
-      const migrationsBeforeBackfill = Object.fromEntries(
-        Object.entries(localMigrations.migrations).filter(
-          ([name]) => name < '20260907120000_inventory_expiry_user_set_backfill',
-        ),
-      );
-      await runDrizzleMigrations(upgradeDb, { migrations: migrationsBeforeBackfill });
-
-      await upgradeDb.runAsync(
-        `insert into fridge_items
-          (id, household_id, name, quantity, unit, expiry_date, expiry_user_set, updated_at)
-         values (?, ?, ?, ?, ?, ?, ?, ?)`,
-        ['legacy-mhd', 'household-1', 'Legacy MHD', 1, 'piece', '2026-12-31', 0, 0],
-      );
-      expect(
-        await upgradeDb.getFirstAsync<{ expiry_user_set: number }>(
-          'select expiry_user_set from fridge_items where id = ?',
-          ['legacy-mhd'],
-        ),
-      ).toEqual({ expiry_user_set: 0 });
-
-      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(1);
-      expect(
-        await upgradeDb.getFirstAsync<{ expiry_user_set: number }>(
-          'select expiry_user_set from fridge_items where id = ?',
-          ['legacy-mhd'],
-        ),
-      ).toEqual({ expiry_user_set: 1 });
-      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(0);
-    } finally {
-      upgradeDb.close();
-    }
-  });
-});
-
-describe('Migrations-Runner', () => {
-  let directory: string;
-  let path: string;
-
-  beforeEach(() => {
-    directory = mkdtempSync(join(tmpdir(), 'fam-db-'));
-    path = join(directory, 'test.db');
-  });
-
-  afterEach(() => {
-    rmSync(directory, { recursive: true, force: true });
-  });
-
-  it('migriert beim zweiten Oeffnen derselben Datei kein zweites Mal', async () => {
-    const first = createTestDatabase(path);
-    await runMigrations(first, MIGRATIONS);
-    first.close();
-
-    // Dieselbe Datei erneut oeffnen — wie ein App-Neustart.
-    const second = createTestDatabase(path);
-    const counted = countingDatabase(second);
-    await runMigrations(counted, MIGRATIONS);
-
-    expect(counted.executed).toEqual([]);
-    expect(await readUserVersion(second)).toBe(MIGRATIONS[MIGRATIONS.length - 1].version);
-    second.close();
-  });
-
-  it('haelt die Daten aus dem ersten Start ueber den zweiten hinweg', async () => {
-    const first = createTestDatabase(path);
-    await runMigrations(first, MIGRATIONS);
-    await first.runAsync('insert into app_meta (key, value) values (?, ?)', ['user_id', 'alice']);
-    first.close();
-
-    const second = createTestDatabase(path);
-    await runMigrations(second, MIGRATIONS);
-    const row = await second.getFirstAsync<{ value: string }>(
-      'select value from app_meta where key = ?',
-      ['user_id'],
-    );
-
-    expect(row?.value).toBe('alice');
-    second.close();
-  });
-
-  it('hinterlaesst bei einer fehlerhaften Migration keinen halben Zustand', async () => {
-    // Echtes ungueltiges SQL, kein erzwungener Fehler: Die Transaktion muss
-    // die bereits angelegte Tabelle mit zurueckdrehen und user_version darf
-    // nicht steigen — sonst startet die App beim naechsten Mal mit einem
-    // halben Schema und ueberspringt die Migration fuer immer.
-    const broken: readonly Migration[] = [
-      {
-        version: 1,
-        name: 'kaputt',
-        statements: ['create table haelfte (id text primary key)', 'das ist kein sql'],
-      },
-    ];
-
-    const database = createTestDatabase();
-
-    await expect(runMigrations(database, broken)).rejects.toThrow();
-    expect(await readUserVersion(database)).toBe(0);
-
-    const tables = await database.getAllAsync<{ name: string }>(
-      "select name from sqlite_master where type = 'table' and name = 'haelfte'",
-    );
-    expect(tables).toEqual([]);
-
-    database.close();
   });
 });
