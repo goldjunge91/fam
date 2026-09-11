@@ -64,6 +64,16 @@ dynamische `Pressable`-Style-Funktion bereitgestellt werden, weil sonst auf der
 betroffenen Renderstrecke der äußere Tiefen-Wrapper sichtbar bleibt, während
 sekundäre Buttons als unformatierter Text erscheinen.
 
+Das gilt für jeden interaktiven `Pressable`, nicht nur für den kanonischen Button:
+Größe, Hintergrund und Radius liegen immer im statischen Style. Eine
+`style={({ pressed }) => [...]}`-Funktion wird auf dem Gerät nicht angewendet,
+während Jest sie korrekt auflöst; Tests bleiben deshalb grün, obwohl die Fläche
+auf dem Gerät fehlt. Belegter Fall: Der Profilbutton im Dashboard-Header war
+nach der Umstellung auf eine Style-Funktion unsichtbar (nur weiße Initialen bzw.
+ein 0 × 0 Bild ohne Fläche). Pressed-Feedback kommt aus `Press` in `ui.tsx`
+(Skalierung und Haptik) mit statischem Style-Array. Nachweis für solche
+Änderungen ist ein Geräte-Screenshot, kein Unit-Test.
+
 ## Zustände, Ereignisse und Haptik
 
 - Loading und Disabled blockieren Aktivierung und Haptik. Loading meldet `busy`,
