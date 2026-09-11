@@ -7,6 +7,7 @@ import { RecipesScreen } from './recipes-screen';
 let mockRecipes: RecipeListItem[] = [];
 let mockCatalogRecipes: CatalogRecipe[] = [];
 const mockOpenDrawer = jest.fn();
+const mockOpenProfile = jest.fn();
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
@@ -31,7 +32,11 @@ jest.mock('../data/household-recipe-images', () => ({
 }));
 
 jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
-  useNavigationChrome: () => ({ openDrawer: mockOpenDrawer }),
+  useNavigationChrome: () => ({ openDrawer: mockOpenDrawer, openProfile: mockOpenProfile }),
+}));
+
+jest.mock('@/features/navigation/use-profile-initials', () => ({
+  useProfileAvatar: () => ({ initials: 'MM', avatarUrl: null }),
 }));
 
 function makeRecipe(overrides: Partial<RecipeListItem>): RecipeListItem {
@@ -78,6 +83,7 @@ beforeEach(() => {
   mockRecipes = [];
   mockCatalogRecipes = [];
   mockOpenDrawer.mockClear();
+  mockOpenProfile.mockClear();
   (router.push as jest.Mock).mockClear();
 });
 

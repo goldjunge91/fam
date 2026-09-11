@@ -10,6 +10,14 @@ jest.mock('expo-router', () => ({
   useLocalSearchParams: () => ({ id: 'recipe-1' }),
 }));
 
+jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
+  useNavigationChrome: () => ({ openProfile: jest.fn() }),
+}));
+
+jest.mock('@/features/navigation/use-profile-initials', () => ({
+  useProfileAvatar: () => ({ initials: 'MM', avatarUrl: null }),
+}));
+
 jest.mock('../hooks/use-recipes', () => ({
   useRecipeDetail: () => ({ data: mockDetail, isLoading: false }),
 }));

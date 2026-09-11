@@ -8,6 +8,14 @@ import { buyPackage, packagesForEntitlement } from '@/lib/purchases';
 let mockHasPlus = false;
 let mockHasAI = false;
 
+jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
+  useNavigationChrome: () => ({ openProfile: jest.fn() }),
+}));
+
+jest.mock('@/features/navigation/use-profile-initials', () => ({
+  useProfileAvatar: () => ({ initials: 'MM', avatarUrl: null }),
+}));
+
 jest.mock('@/features/premium/premium-provider', () => ({
   usePremium: () => ({
     hasPlus: mockHasPlus,

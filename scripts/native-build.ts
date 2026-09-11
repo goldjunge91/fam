@@ -291,6 +291,10 @@ function assertNativeDirectories(platforms: readonly Platform[] = nativePlatform
   }
 }
 
+function availableNativePlatforms(): readonly Platform[] {
+  return nativePlatformsForHost().filter((platform) => existsSync(join(PROJECT_ROOT, platform)));
+}
+
 async function assertNativeBaseline(
   lock: NativeBuildLock,
   platforms: readonly Platform[] = nativePlatformsForHost(),
@@ -345,7 +349,16 @@ function assertArtifact(
 
 async function status(): Promise<void> {
   const lock = readLock();
-  const platforms = nativePlatformsForHost();
+  const hostPlatforms = nativePlatformsForHost();
+  const platforms = availableNativePlatforms();
+  for (const platform of hostPlatforms) {
+    if (!platforms.includes(platform)) {
+      console.warn(`  Baselineprüfung übersprungen: ${platform}/ ist nicht ausgecheckt.`);
+    }
+  }
+  if (platforms.length === 0) {
+    fail('Kein natives Projekt ausgecheckt. Mindestens ios/ oder android/ wird benötigt.');
+  }
   const current = await assertNativeBaseline(lock, platforms);
   log('Native Baseline ist unverändert.');
 
@@ -657,7 +670,7 @@ const DEV_TARGETS: readonly TargetName[] = [
 ];
 
 async function warnOnBaselineMismatch(platform: Platform): Promise<void> {
-  assertNativeDirectories();
+  assertNativeDirectories([platform]);
   if (!existsSync(LOCK_PATH)) {
     console.warn(
       'Native Build Lock: keine Baseline vorhanden — native:dev läuft trotzdem (Inner Loop blockiert nicht).',

@@ -268,8 +268,8 @@ function ControlShowcase() {
         </View>
       </Subsection>
       <Subsection title="SegmentedControl-Varianten">
-        <View style={styles.segmentedComparison}>
-          <View style={styles.segmentedExample}>
+        <View style={styles.comparisonGroup}>
+          <View style={styles.comparisonExample}>
             <Txt variant="label">Fam UI: constants/ui.tsx (kanonisch)</Txt>
             <FamSegmentedControl
               label="Ansicht"
@@ -279,7 +279,7 @@ function ControlShowcase() {
               selectionRole="tab"
             />
           </View>
-          <View style={styles.segmentedExample}>
+          <View style={styles.comparisonExample}>
             <Txt variant="label">Expo UI: @expo/ui/community/segmented-control</Txt>
             <ExpoSegmentedControl
               values={SHOWCASE_SEGMENT_VALUES}
@@ -294,12 +294,12 @@ function ControlShowcase() {
         </View>
       </Subsection>
       <Subsection title="Bottom Sheet">
-        <View style={styles.sheetComparison}>
-          <View style={styles.sheetExample}>
+        <View style={styles.comparisonGroup}>
+          <View style={styles.comparisonExample}>
             <Txt variant="label">Fam UI: Modal-Eigenbau (aktueller Standard)</Txt>
             <ClassicBottomSheetDemo />
           </View>
-          <View style={styles.sheetExample}>
+          <View style={styles.comparisonExample}>
             <Txt variant="label">Expo UI: @expo/ui/community/bottom-sheet</Txt>
             <ExpoUiBottomSheetDemo />
           </View>
@@ -311,8 +311,8 @@ function ControlShowcase() {
         </CodeSample>
       </Subsection>
       <Subsection title="Gruppierte Liste (Settings-Stil)">
-        <View style={styles.groupedListComparison}>
-          <View style={styles.groupedListExample}>
+        <View style={styles.comparisonGroup}>
+          <View style={styles.comparisonExample}>
             <Txt variant="label">Fam UI: settings-menu.tsx (kanonisch)</Txt>
             <SettingsGroup title="Beispielgruppe">
               <SettingsRow
@@ -329,7 +329,7 @@ function ControlShowcase() {
               />
             </SettingsGroup>
           </View>
-          <View style={styles.groupedListExample}>
+          <View style={styles.comparisonExample}>
             <Txt variant="label">Expo UI: FieldGroup + ListItem</Txt>
             <Host style={styles.expoFieldGroupHost}>
               <FieldGroup>
@@ -541,11 +541,9 @@ const styles = StyleSheet.create({
   },
   progressCardCopy: { flex: 1, minWidth: 0, gap: space.xs },
   progressCardLabel: { letterSpacing: 0.6 },
-  segmentedComparison: { gap: space.lg },
-  segmentedExample: { gap: space.xs },
+  comparisonGroup: { gap: space.lg },
+  comparisonExample: { gap: space.xs },
   expoSegmentedControl: { width: '100%', minHeight: 44 },
-  sheetComparison: { gap: space.lg },
-  sheetExample: { gap: space.xs },
   sheetTrigger: { alignItems: 'flex-start' },
   classicSheet: {
     position: 'absolute',
@@ -571,8 +569,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   expoSheetContent: { flex: 1, padding: space.lg, gap: space.sm },
-  groupedListComparison: { gap: space.lg },
-  groupedListExample: { gap: space.xs },
   // FieldGroup ist ein scrollbarer Container (Form/LazyColumn) und hat daher
   // keine natürliche Inhaltshöhe — matchContents kollabiert hier auf 0.
   // In einem ohnehin scrollenden Screen braucht der Host eine feste Höhe.

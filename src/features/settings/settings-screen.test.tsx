@@ -68,6 +68,7 @@ jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
 
 jest.mock('@/features/navigation/use-profile-initials', () => ({
   useProfileInitials: () => 'MM',
+  useProfileAvatar: () => ({ initials: 'MM', avatarUrl: mockAvatarUrl }),
 }));
 
 // Die lokale FAB-Praeferenz ist fuer diese Menue-Tests nur Darstellungszustand.

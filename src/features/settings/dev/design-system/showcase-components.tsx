@@ -32,6 +32,7 @@ import {
   Surface,
   TextField,
   Txt,
+  type TxtVariant,
 } from '@/constants/ui';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
@@ -61,6 +62,50 @@ const CHEVRON = Icon.select({
   android: import('@expo/material-symbols/chevron_right.xml'),
 });
 
+// Referenz für die volle Typoskala, in Kartenform statt als flache Liste
+// (die reine Token-Referenz lebt unter Foundations → Typografie).
+const TYPE_SCALE: { variant: TxtVariant; sample: string }[] = [
+  { variant: 'display', sample: '1.420 kcal' },
+  { variant: 'title', sample: 'Wocheneinkauf' },
+  { variant: 'brand', sample: 'fam' },
+  { variant: 'heading', sample: 'Vorrat' },
+  { variant: 'subheading', sample: 'Lagerorte' },
+  { variant: 'body', sample: '12 Produkte im Kühlschrank' },
+  { variant: 'navigation', sample: 'Einstellungen' },
+  { variant: 'label', sample: 'STATUS' },
+  { variant: 'caption', sample: 'Zuletzt aktualisiert vor 2 Minuten' },
+  { variant: 'eyebrow', sample: 'WOCHENZIEL' },
+  { variant: 'glyph', sample: '★' },
+];
+
+// 'contrast' ist kein echtes Design-Token — nur zur Verdeutlichung, dass
+// shadowColor grundsätzlich wirkt, obwohl shadowCard/shadowSheet sich kaum
+// unterscheiden (beide dunkles Mauve bei niedriger shadowOpacity).
+type ShadowVariant = 'standard' | 'secondary' | 'contrast';
+
+type ToneKind = 'success' | 'warning' | 'danger';
+
+const TONE_CARDS: { tone: ToneKind; icon: string; title: string; caption: string }[] = [
+  {
+    tone: 'success',
+    icon: '✓',
+    title: 'Synchronisiert',
+    caption: 'Alle Änderungen sind gespeichert.',
+  },
+  {
+    tone: 'warning',
+    icon: '!',
+    title: 'Läuft bald ab',
+    caption: '2 Artikel laufen in 3 Tagen ab.',
+  },
+  {
+    tone: 'danger',
+    icon: '✕',
+    title: 'Synchronisierung fehlgeschlagen',
+    caption: 'Erneut versuchen oder Verbindung prüfen.',
+  },
+];
+
 export function ComponentsShowcase({ category }: { category: ComponentCategory }) {
   if (category === 'surfaces') return <SurfaceShowcase />;
   if (category === 'controls') return <ControlShowcase />;
@@ -69,6 +114,7 @@ export function ComponentsShowcase({ category }: { category: ComponentCategory }
 
 function SurfaceShowcase() {
   const { colors } = useTheme();
+  const [tappedCard, setTappedCard] = useState<string | null>(null);
 
   return (
     <View style={styles.page}>
@@ -98,18 +144,7 @@ function SurfaceShowcase() {
         </Card>
       </Subsection>
       <Subsection title="Cards mit Schatten und Progress-Ringen">
-        <PrimitiveCard
-          elevation="lg"
-          // style={styles.progressCard}
-          style={[
-            styles.progressCard,
-            {
-              shadowColor: colors.danger,
-              shadowOpacity: 1,
-              // marginHorizontal: space.sm,
-              shadowOffset: { width: 6, height: 6 },
-            },
-          ]}>
+        <PrimitiveCard elevation="lg" style={styles.progressCard}>
           <View style={styles.progressCardRow}>
             <View style={styles.progressCardCopy}>
               <Txt variant="label" tone="secondary" style={styles.progressCardLabel}>
@@ -131,7 +166,7 @@ function SurfaceShowcase() {
             elevation="lg" · preset="compact"
           </Txt>
         </PrimitiveCard>
-        <PrimitiveCard elevation="lg" style={[styles.progressCard, { shadowColor: colors.danger }]}>
+        <PrimitiveCard elevation="lg" style={styles.progressCard}>
           <View style={styles.progressCardRow}>
             <ProgressRing
               value={7}
@@ -154,6 +189,100 @@ function SurfaceShowcase() {
             elevation="lg" · preset="dashboard"
           </Txt>
         </PrimitiveCard>
+      </Subsection>
+      <Subsection title="Kartenschatten: Standard- vs. Sekundärfarbe">
+        <View style={styles.comparisonGroup}>
+          <View style={styles.comparisonExample}>
+            <Txt variant="label">Standardfarbe (colors.shadowCard)</Txt>
+            <ShadowProgressCard variant="standard" />
+          </View>
+          <View style={styles.comparisonExample}>
+            <Txt variant="label">Sekundärfarbe (colors.shadowSheet)</Txt>
+            <ShadowProgressCard variant="secondary" />
+          </View>
+          <View style={styles.comparisonExample}>
+            <Txt variant="label">Auffällige Farbe (colors.danger, nur zum Vergleich)</Txt>
+            <ShadowProgressCard variant="contrast" />
+          </View>
+        </View>
+        <CodeSample>
+          {
+            'shadowCard (#594059) und shadowSheet (#2A1F2C) sind unterschiedliche Hex-Werte, aber beide dunkles Mauve — bei shadowOpacity 0.14 kaum zu unterscheiden. shadowColor wirkt trotzdem, wie die dritte Karte mit colors.danger zeigt.\nAuf Android hat shadowColor ohnehin keinen Effekt: elevation zeichnet immer einen neutralen Systemschatten, unabhängig vom Token.'
+          }
+        </CodeSample>
+      </Subsection>
+      <Subsection title="Interaktive Karten">
+        <View style={styles.comparisonGroup}>
+          <View style={styles.comparisonExample}>
+            <Txt variant="label">Standardfarbe, antippbar</Txt>
+            <ShadowProgressCard
+              variant="standard"
+              interactive
+              onPress={() => setTappedCard('Standardfarbe')}
+            />
+          </View>
+          <View style={styles.comparisonExample}>
+            <Txt variant="label">Sekundärfarbe, antippbar</Txt>
+            <ShadowProgressCard
+              variant="secondary"
+              interactive
+              onPress={() => setTappedCard('Sekundärfarbe')}
+            />
+          </View>
+        </View>
+        <Txt variant="caption" tone="secondary">
+          {tappedCard ? `Zuletzt angetippt: ${tappedCard}` : 'Noch keine Karte angetippt.'}
+        </Txt>
+        <CodeSample>
+          {
+            '<Press onPress={...} accessibilityRole="button">\n  <Card elevation="lg">…</Card>\n</Press>\nPress (constants/ui.tsx) liefert Scale- und Haptik-Feedback — die Karte selbst bleibt unverändert.'
+          }
+        </CodeSample>
+      </Subsection>
+      <Subsection title="Karten mit unterschiedlicher Typografie">
+        <PrimitiveCard elevation="sm" style={styles.typographyCard}>
+          {TYPE_SCALE.map(({ variant, sample }) => (
+            <View key={variant} style={styles.typographyRow}>
+              <Txt variant="caption" tone="secondary" style={styles.typographyVariantLabel}>
+                {variant}
+              </Txt>
+              <Txt variant={variant} numberOfLines={1} style={styles.typographySample}>
+                {sample}
+              </Txt>
+            </View>
+          ))}
+        </PrimitiveCard>
+        <View style={styles.comparisonGroup}>
+          <View style={styles.comparisonExample}>
+            <Txt variant="label">Große Hierarchie</Txt>
+            <PrimitiveCard elevation="sm" style={styles.typographyCompositionCard}>
+              <Txt variant="eyebrow">WOCHENZIEL</Txt>
+              <Txt variant="title">7 von 10 Aufgaben</Txt>
+              <Txt variant="body" tone="secondary">
+                Drei Aufgaben verbleiben bis Sonntag.
+              </Txt>
+            </PrimitiveCard>
+          </View>
+          <View style={styles.comparisonExample}>
+            <Txt variant="label">Kompakte Hierarchie</Txt>
+            <PrimitiveCard elevation="sm" style={styles.typographyCompositionCard}>
+              <Txt variant="label" tone="secondary">
+                STATUS
+              </Txt>
+              <Txt variant="heading">Vorrat aktualisiert</Txt>
+              <Txt variant="caption" tone="secondary">
+                Vor 2 Minuten synchronisiert.
+              </Txt>
+            </PrimitiveCard>
+          </View>
+        </View>
+      </Subsection>
+      <Subsection title="Karten nach Ton (Status)">
+        <View style={styles.stack}>
+          {TONE_CARDS.map((item) => (
+            <ToneCard key={item.tone} {...item} />
+          ))}
+        </View>
       </Subsection>
       <Subsection title="Layout- und Basisprimitiven">
         <PrimitiveCard elevation="sm">
@@ -187,6 +316,104 @@ function SurfaceShowcase() {
         correctCode={'<Surface tone="surface">…</Surface>'}
         incorrectCode={"<View style={{ backgroundColor: '#fff', borderRadius: 37 }}>…</View>"}
       />
+    </View>
+  );
+}
+
+/** Identische Karte für den Schatten-Vergleich, optional per Press antippbar. */
+function ShadowProgressCard({
+  variant,
+  interactive = false,
+  onPress,
+}: {
+  variant: ShadowVariant;
+  interactive?: boolean;
+  onPress?: () => void;
+}) {
+  const { colors } = useTheme();
+  const shadowColor =
+    variant === 'standard'
+      ? colors.shadowCard
+      : variant === 'secondary'
+        ? colors.shadowSheet
+        : colors.danger;
+  const tokenName =
+    variant === 'standard'
+      ? 'colors.shadowCard'
+      : variant === 'secondary'
+        ? 'colors.shadowSheet'
+        : 'colors.danger';
+
+  const card = (
+    <PrimitiveCard elevation="lg" style={[styles.progressCard, { shadowColor }]}>
+      <View style={styles.progressCardRow}>
+        <View style={styles.progressCardCopy}>
+          <Txt variant="label" tone="secondary" style={styles.progressCardLabel}>
+            KALORIEN HEUTE
+          </Txt>
+          <Txt variant="title">1.420 kcal</Txt>
+          <Txt tone="secondary">580 kcal übrig</Txt>
+        </View>
+        <ProgressRing
+          value={1420}
+          target={2000}
+          preset="compact"
+          label="Kalorien"
+          displayMode="percent"
+          animated={false}
+        />
+      </View>
+      <Txt variant="caption" tone="secondary">
+        shadowColor="{tokenName}"
+      </Txt>
+    </PrimitiveCard>
+  );
+
+  if (!interactive) return card;
+
+  return (
+    <Press
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={`Beispielkarte mit ${tokenName}, antippen`}>
+      {card}
+    </Press>
+  );
+}
+
+/** Statuskarte mit tonfarbener Tönung — Vorbild: ExamplePanel-Farblogik. */
+function ToneCard({
+  tone,
+  icon,
+  title,
+  caption,
+}: {
+  tone: ToneKind;
+  icon: string;
+  title: string;
+  caption: string;
+}) {
+  const { colors } = useTheme();
+  const toneColor = colors[tone];
+
+  return (
+    <View
+      style={[
+        styles.toneCard,
+        { backgroundColor: withAlpha(toneColor, 0.12), borderColor: toneColor },
+      ]}>
+      <View style={styles.toneCardHeader}>
+        <View style={[styles.toneCardIcon, { backgroundColor: toneColor }]}>
+          <Txt tone="onAccent" weight="700">
+            {icon}
+          </Txt>
+        </View>
+        <Txt variant="label" tone={tone} weight="700">
+          {tone.toUpperCase()}
+        </Txt>
+      </View>
+      <Txt variant="subheading">{title}</Txt>
+      <Txt tone="secondary">{caption}</Txt>
     </View>
   );
 }
@@ -279,8 +506,8 @@ function ControlShowcase() {
         </View>
       </Subsection>
       <Subsection title="SegmentedControl-Varianten">
-        <View style={styles.segmentedComparison}>
-          <View style={styles.segmentedExample}>
+        <View style={styles.comparisonGroup}>
+          <View style={styles.comparisonExample}>
             <Txt variant="label">Fam UI: constants/ui.tsx (kanonisch)</Txt>
             <FamSegmentedControl
               label="Ansicht"
@@ -290,7 +517,7 @@ function ControlShowcase() {
               selectionRole="tab"
             />
           </View>
-          <View style={styles.segmentedExample}>
+          <View style={styles.comparisonExample}>
             <Txt variant="label">Expo UI: @expo/ui/community/segmented-control</Txt>
             <ExpoSegmentedControl
               values={SHOWCASE_SEGMENT_VALUES}
@@ -305,12 +532,12 @@ function ControlShowcase() {
         </View>
       </Subsection>
       <Subsection title="Bottom Sheet">
-        <View style={styles.sheetComparison}>
-          <View style={styles.sheetExample}>
+        <View style={styles.comparisonGroup}>
+          <View style={styles.comparisonExample}>
             <Txt variant="label">Fam UI: Modal-Eigenbau (aktueller Standard)</Txt>
             <ClassicBottomSheetDemo />
           </View>
-          <View style={styles.sheetExample}>
+          <View style={styles.comparisonExample}>
             <Txt variant="label">Expo UI: @expo/ui/community/bottom-sheet</Txt>
             <ExpoUiBottomSheetDemo />
           </View>
@@ -322,8 +549,8 @@ function ControlShowcase() {
         </CodeSample>
       </Subsection>
       <Subsection title="Gruppierte Liste (Settings-Stil)">
-        <View style={styles.groupedListComparison}>
-          <View style={styles.groupedListExample}>
+        <View style={styles.comparisonGroup}>
+          <View style={styles.comparisonExample}>
             <Txt variant="label">Fam UI: settings-menu.tsx (kanonisch)</Txt>
             <SettingsGroup title="Beispielgruppe">
               <SettingsRow
@@ -340,7 +567,7 @@ function ControlShowcase() {
               />
             </SettingsGroup>
           </View>
-          <View style={styles.groupedListExample}>
+          <View style={styles.comparisonExample}>
             <Txt variant="label">Expo UI: FieldGroup + ListItem</Txt>
             <Host style={styles.expoFieldGroupHost}>
               <FieldGroup>
@@ -552,11 +779,12 @@ const styles = StyleSheet.create({
   },
   progressCardCopy: { flex: 1, minWidth: 0, gap: space.xs },
   progressCardLabel: { letterSpacing: 0.6 },
-  segmentedComparison: { gap: space.lg },
-  segmentedExample: { gap: space.xs },
+  // Ein Paar für jeden "Fam UI vs. Alternative"-Vergleich in dieser Datei —
+  // bewusst nicht pro Vergleich neu benannt, sonst vervielfachen sich
+  // identische { gap } -Definitionen bei jedem neuen Beispiel.
+  comparisonGroup: { gap: space.lg },
+  comparisonExample: { gap: space.xs },
   expoSegmentedControl: { width: '100%', minHeight: 44 },
-  sheetComparison: { gap: space.lg },
-  sheetExample: { gap: space.xs },
   sheetTrigger: { alignItems: 'flex-start' },
   classicSheet: {
     position: 'absolute',
@@ -582,8 +810,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   expoSheetContent: { flex: 1, padding: space.lg, gap: space.sm },
-  groupedListComparison: { gap: space.lg },
-  groupedListExample: { gap: space.xs },
   // FieldGroup ist ein scrollbarer Container (Form/LazyColumn) und hat daher
   // keine natürliche Inhaltshöhe — matchContents kollabiert hier auf 0.
   // In einem ohnehin scrollenden Screen braucht der Host eine feste Höhe.
@@ -593,6 +819,25 @@ const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: radius.md,
     padding: space.md,
+    justifyContent: 'center',
+  },
+  typographyCard: { gap: space.sm },
+  typographyRow: { flexDirection: 'row', alignItems: 'baseline', gap: space.sm },
+  typographyVariantLabel: { width: 88 },
+  typographySample: { flex: 1, minWidth: 0 },
+  typographyCompositionCard: { gap: space.xs },
+  toneCard: {
+    borderWidth: 1,
+    borderRadius: radius.lg,
+    padding: space.lg,
+    gap: space.sm,
+  },
+  toneCardHeader: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
+  toneCardIcon: {
+    width: 24,
+    height: 24,
+    borderRadius: radius.pill,
+    alignItems: 'center',
     justifyContent: 'center',
   },
   correctGroup: { borderRadius: radius.md, padding: space.lg, gap: space.sm },

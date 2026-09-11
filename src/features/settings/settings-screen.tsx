@@ -9,7 +9,7 @@ import { Alert, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-
 import { HubScreen } from '@/components/layout/hub-screen';
 import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { MenuButton, ProfileButton } from '@/components/ui/buttons';
+import { MenuButton } from '@/components/ui/buttons';
 import { Button, Card, SegmentedControl, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
@@ -135,13 +135,6 @@ export function SettingsScreen() {
         title: t('settings.title'),
         align: 'center',
         leading: <MenuButton onPress={openDrawer} />,
-        trailing: (
-          <ProfileButton
-            initials={initials}
-            avatarUrl={avatarUrl}
-            onPress={() => router.push('/profile')}
-          />
-        ),
       }}>
       <ScrollView
         testID="settings-scroll-view"

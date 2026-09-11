@@ -97,6 +97,7 @@ jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
 
 jest.mock('@/features/navigation/use-profile-initials', () => ({
   useProfileInitials: () => 'MM',
+  useProfileAvatar: () => ({ initials: 'MM', avatarUrl: null }),
 }));
 
 const mockAddMutate = jest.fn();

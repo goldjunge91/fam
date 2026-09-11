@@ -11,8 +11,8 @@ describe('FloatingActionButton', () => {
     );
 
     expect(screen.getByRole('button')).toHaveStyle({
-      width: 58,
-      height: 58,
+      width: 72,
+      height: 72,
       borderRadius: 999,
       alignItems: 'center',
       justifyContent: 'center',
