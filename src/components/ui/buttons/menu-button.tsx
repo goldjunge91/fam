@@ -1,6 +1,8 @@
-import { Pressable } from 'react-native';
-import { MenuIcon } from '@/components/icons/fam-icon';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { Pressable } from "react-native";
+import { MenuIcon } from "@/components/icons/fam-icon";
+import { useTheme } from "@/components/theme/ThemeProvider";
+import { colors } from "@/components/theme";
+import { accessibilityLabel } from "@expo/ui/swift-ui/modifiers";
 
 type MenuButtonProps = {
   onPress: () => void;
