@@ -8,6 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
@@ -275,12 +276,13 @@ export function AddItemScreen() {
             }}
             onSelectProduct={handleSelectProduct}
             size="large"
+            trailingPlacement="outside"
             trailing={
               <HeaderIconButton
                 label="Barcode scannen"
                 onPress={() => setShowScanner(true)}
-                style={{ width: 40, height: 40 }}>
-                <FamIcon name="camera" size={18} color={colors.basil} />
+                style={{ width: 48, height: 48 }}>
+                <FamIcon name="camera" size={space.xxl} color={colors.basil} />
               </HeaderIconButton>
             }
           />

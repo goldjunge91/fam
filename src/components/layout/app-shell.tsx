@@ -39,8 +39,10 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     justifyContent: 'flex-start',
-    paddingHorizontal: space.lg + space.sm,
-    height: 88,
+    paddingHorizontal: space.xxl + space.xs,
+    height: 104,
+    overflow: 'visible',
+    zIndex: 20,
   },
   addButtonWrapLeft: {
     alignItems: 'flex-start',
@@ -99,7 +101,7 @@ function GlobalAddButton() {
         { paddingBottom: insets.bottom },
       ]}>
       <FloatingActionButton label="Neu hinzufügen" onPress={openQuickAdd}>
-        <PlusIcon color={colors.onAccent} />
+        <PlusIcon size={50} color={colors.onAccent} />
       </FloatingActionButton>
     </View>
   );

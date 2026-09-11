@@ -19,8 +19,9 @@ type FloatingActionButtonProps = {
 export function FloatingActionButton({ label, onPress, children }: FloatingActionButtonProps) {
   const { colors } = useTheme();
   const depth = useSharedValue(0);
+  const pressScale = useSharedValue(1);
   const faceStyle = useAnimatedStyle(() => ({
-    transform: [{ translateY: depth.value }],
+    transform: [{ translateY: depth.value }, { scale: pressScale.value }],
   }));
 
   return (
@@ -51,9 +52,11 @@ export function FloatingActionButton({ label, onPress, children }: FloatingActio
           ]}
           onPressIn={() => {
             depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
+            pressScale.value = withTiming(0.96, { duration: 60 });
           }}
           onPressOut={() => {
             depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
+            pressScale.value = withSpring(1, { damping: 14, stiffness: 320, mass: 0.5 });
           }}>
           {children}
         </Pressable>
@@ -64,8 +67,10 @@ export function FloatingActionButton({ label, onPress, children }: FloatingActio
 
 const styles = StyleSheet.create({
   face: {
-    width: 58,
-    height: 58,
+    width: 72,
+    height: 72,
+    minWidth: 72,
+    minHeight: 72,
     borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',

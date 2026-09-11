@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
   },
   chip: {
-    width: 46,
-    height: 46,
+    width: 54,
+    height: 54,
     borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
@@ -89,8 +89,10 @@ function SpeedDialMenuContent() {
             styles.column,
             isRight ? styles.columnRight : styles.columnLeft,
             {
-              [isRight ? 'right' : 'left']: space.xl,
-              bottom: insets.bottom + space.xl + space.xxxl,
+              // Gleiche Außenkante wie der globale FAB im App-Shell-Container.
+              [isRight ? 'right' : 'left']: space.xxl + space.xs,
+              // Die Liste endet mit konstantem Abstand oberhalb des größeren FAB.
+              bottom: insets.bottom + space.xxxl + space.xxl + space.sm,
             },
           ]}>
           {visibleOptions.map((option) => (
@@ -106,7 +108,7 @@ function SpeedDialMenuContent() {
                   {
                     backgroundColor: option.backgroundColor,
                     borderCurve: 'continuous',
-                    boxShadow: `0 8px 20px ${withAlpha(colors.shadowCard, 0.09)}`,
+                    boxShadow: `0 8px 20px ${withAlpha(colors.shadowCard, 0.2)}`,
                   },
                 ]}>
                 <FamIcon name={option.icon} size={space.xl} />

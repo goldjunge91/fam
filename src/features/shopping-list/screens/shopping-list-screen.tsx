@@ -270,13 +270,15 @@ export function ShoppingListScreen() {
             onPress={() => {
               setScannedProduct(null);
               setScannerOpen(true);
-            }}>
+            }}
+            style={{ width: 48, height: 48 }}>
             <FamIcon name="camera" size={20} color={theme.basil} />
           </HeaderIconButton>
           {!isAllFilter && filteredItems.length > 0 ? (
             <HeaderIconButton
               label={selectionMode ? 'Auswahl schließen' : 'Mehrfachauswahl starten'}
-              onPress={selectionMode ? closeSelection : () => setSelectionMode(true)}>
+              onPress={selectionMode ? closeSelection : () => setSelectionMode(true)}
+              style={{ width: 48, height: 48 }}>
               <Txt variant="heading" weight="700" tone="secondary">
                 {selectionMode ? '✕' : '☑'}
               </Txt>

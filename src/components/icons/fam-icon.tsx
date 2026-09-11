@@ -69,20 +69,29 @@ export function MenuIcon({ color }: { size?: number; color?: string }) {
   );
 }
 
-export function PlusIcon({ color }: { size?: number; color?: string }) {
+export function PlusIcon({ size = 28, color }: { size?: number; color?: string }) {
+  const lineLength = Math.round(size * (16 / 28));
+
   return (
-    <View className="w-[28px] h-[28px] items-center justify-center relative">
+    <View
+      style={{
+        width: size,
+        height: size,
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+      }}>
       <Image
         source={require('@/assets/images/figma/plus-horizontal.svg')}
         contentFit="fill"
         tintColor={color}
-        style={{ width: 16, height: 2, position: 'absolute' }}
+        style={{ width: lineLength, height: 2, position: 'absolute' }}
       />
       <Image
         source={require('@/assets/images/figma/plus-vertical.svg')}
         contentFit="fill"
         tintColor={color}
-        style={{ width: 2, height: 16, position: 'absolute' }}
+        style={{ width: 2, height: lineLength, position: 'absolute' }}
       />
     </View>
   );
