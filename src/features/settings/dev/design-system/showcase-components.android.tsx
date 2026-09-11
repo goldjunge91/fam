@@ -1,8 +1,10 @@
+import { FieldGroup, Host, Icon, ListItem } from '@expo/ui';
+import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import ExpoSegmentedControl from '@expo/ui/community/segmented-control';
-import { useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import { Modal, Pressable, StyleSheet, View } from 'react-native';
 
-import { radius, space } from '@/components/theme/index';
+import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import {
   CompactActionButton,
@@ -31,7 +33,15 @@ import {
   TextField,
   Txt,
 } from '@/constants/ui';
-import { ContractIntro, ExamplePair, ExamplePanel, Subsection } from './showcase-shared';
+import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
+import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
+import {
+  CodeSample,
+  ContractIntro,
+  ExamplePair,
+  ExamplePanel,
+  Subsection,
+} from './showcase-shared';
 
 export type ComponentCategory = 'surfaces' | 'controls' | 'feedback';
 
@@ -43,6 +53,13 @@ const SHOWCASE_SEGMENT_OPTIONS: { label: string; value: ShowcaseSegment }[] = [
 ];
 
 const SHOWCASE_SEGMENT_VALUES = SHOWCASE_SEGMENT_OPTIONS.map(({ label }) => label);
+
+// Offizielles Expo-UI-Muster (docs.expo.dev/.../ui/universal/list): Icon.select
+// statt {ios, android}-Objekt, damit Metro pro Plattform nur eine Seite bündelt.
+const CHEVRON = Icon.select({
+  ios: 'chevron.right',
+  android: import('@expo/material-symbols/chevron_right.xml'),
+});
 
 export function ComponentsShowcase({ category }: { category: ComponentCategory }) {
   if (category === 'surfaces') return <SurfaceShowcase />;
@@ -167,6 +184,7 @@ function ControlShowcase() {
   const [selectedPill, setSelectedPill] = useState(false);
   const [segment, setSegment] = useState<ShowcaseSegment>('all');
   const [quantity, setQuantity] = useState(2);
+  const [tappedRow, setTappedRow] = useState<string | null>(null);
   const { colors } = useTheme();
   const selectedSegmentIndex = SHOWCASE_SEGMENT_OPTIONS.findIndex(
     (option) => option.value === segment,
@@ -275,6 +293,72 @@ function ControlShowcase() {
           </View>
         </View>
       </Subsection>
+      <Subsection title="Bottom Sheet">
+        <View style={styles.sheetComparison}>
+          <View style={styles.sheetExample}>
+            <Txt variant="label">Fam UI: Modal-Eigenbau (aktueller Standard)</Txt>
+            <ClassicBottomSheetDemo />
+          </View>
+          <View style={styles.sheetExample}>
+            <Txt variant="label">Expo UI: @expo/ui/community/bottom-sheet</Txt>
+            <ExpoUiBottomSheetDemo />
+          </View>
+        </View>
+        <CodeSample>
+          {
+            'Eigenbau (17 Sheets): Modal + Pressable-Backdrop + useSheetShadowStyle() — volle Kontrolle über Look, aber Rubber-Banding/System-Dismiss/Safe-Area selbst gepflegt.\n@expo/ui (3 Sheets: paywall, category-order, complete-run): natives Sheet-Verhalten geschenkt, API bereits gorhom-kompatibel (ref.expand()/close(), snapPoints, enablePanDownToClose) — Umstieg von @gorhom/bottom-sheet wäre ein Import-Tausch, kein Rewrite.'
+          }
+        </CodeSample>
+      </Subsection>
+      <Subsection title="Gruppierte Liste (Settings-Stil)">
+        <View style={styles.groupedListComparison}>
+          <View style={styles.groupedListExample}>
+            <Txt variant="label">Fam UI: settings-menu.tsx (kanonisch)</Txt>
+            <SettingsGroup title="Beispielgruppe">
+              <SettingsRow
+                icon="🔔"
+                label="Benachrichtigungen"
+                hint="Push & E-Mail"
+                onPress={() => setTappedRow('Benachrichtigungen (Fam UI)')}
+              />
+              <SettingsRow
+                icon="🔐"
+                label="Berechtigungen"
+                onPress={() => setTappedRow('Berechtigungen (Fam UI)')}
+                last
+              />
+            </SettingsGroup>
+          </View>
+          <View style={styles.groupedListExample}>
+            <Txt variant="label">Expo UI: FieldGroup + ListItem</Txt>
+            <Host style={styles.expoFieldGroupHost}>
+              <FieldGroup>
+                <FieldGroup.Section title="Beispielgruppe">
+                  <ListItem
+                    supportingText="Push & E-Mail"
+                    trailing={<Icon name={CHEVRON} size={14} color={colors.textSecondary} />}
+                    onPress={() => setTappedRow('Benachrichtigungen (Expo UI)')}>
+                    Benachrichtigungen
+                  </ListItem>
+                  <ListItem
+                    trailing={<Icon name={CHEVRON} size={14} color={colors.textSecondary} />}
+                    onPress={() => setTappedRow('Berechtigungen (Expo UI)')}>
+                    Berechtigungen
+                  </ListItem>
+                </FieldGroup.Section>
+              </FieldGroup>
+            </Host>
+          </View>
+        </View>
+        <Txt variant="caption" tone="secondary">
+          {tappedRow ? `Zuletzt angetippt: ${tappedRow}` : 'Noch keine Zeile angetippt.'}
+        </Txt>
+        <CodeSample>
+          {
+            'Eigenbau: eigene Icon-Kacheln, Trennlinien und Theme-Farben (settings-menu.tsx) — auf iOS und Android optisch identisch, volle Kontrolle über jede Zeile.\nExpo UI: FieldGroup rendert echtes SwiftUI Form (iOS) bzw. Compose-LazyColumn (Android) — natives Look-and-feel je Plattform. Chevron per Icon.select (SF Symbol auf iOS, @expo/material-symbols-XML auf Android) statt Emoji-Kachel; kein Icon-Tile-Slot, jede Zeile ein natives Node auf dem JS-Thread (nicht virtualisiert, nur für kurze feste Listen wie Settings-Menüs geeignet).'
+          }
+        </CodeSample>
+      </Subsection>
       <ExamplePair
         correct={<Button title="Speichern" onPress={() => undefined} />}
         incorrect={
@@ -291,6 +375,95 @@ function ControlShowcase() {
           "<Pressable style={{ backgroundColor: '#2FBF71', height: 37 }}>…</Pressable>"
         }
       />
+    </View>
+  );
+}
+
+/** Eigenbau-Sheet: Modal + Backdrop + Handle-Bar, wie in den meisten bestehenden `*-sheet.tsx`-Dateien. */
+function ClassicBottomSheetDemo() {
+  const { colors } = useTheme();
+  const sheetStyle = useSheetShadowStyle();
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <View style={styles.sheetTrigger}>
+      <Button
+        title="Öffnen (Eigenbau)"
+        variant="secondary"
+        size="sm"
+        onPress={() => setVisible(true)}
+      />
+      <Modal
+        visible={visible}
+        transparent
+        animationType="slide"
+        onRequestClose={() => setVisible(false)}>
+        <View style={StyleSheet.absoluteFill}>
+          <Pressable
+            style={[StyleSheet.absoluteFill, { backgroundColor: withAlpha(colors.text, 0.35) }]}
+            onPress={() => setVisible(false)}
+            accessibilityRole="button"
+            accessibilityLabel="Beispiel-Sheet schließen"
+          />
+          <View style={[styles.classicSheet, sheetStyle, { backgroundColor: colors.background }]}>
+            <View style={[styles.sheetHandle, { backgroundColor: colors.border }]} />
+            <View style={styles.sheetHeaderRow}>
+              <Txt variant="heading" weight="700">
+                Beispiel-Sheet
+              </Txt>
+              <Pressable
+                onPress={() => setVisible(false)}
+                accessibilityRole="button"
+                accessibilityLabel="Schließen">
+                <Txt>✕</Txt>
+              </Pressable>
+            </View>
+            <Txt tone="secondary">Modal(transparent, slide) + Pressable-Backdrop + Handle-Bar.</Txt>
+          </View>
+        </View>
+      </Modal>
+    </View>
+  );
+}
+
+/** @expo/ui-Sheet: gorhom-kompatible API (ref.expand()/close()), bereits im Einsatz in 3 Sheets. */
+function ExpoUiBottomSheetDemo() {
+  const { colors } = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
+  const sheetRef = useRef<BottomSheet>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      sheetRef.current?.expand();
+    } else {
+      sheetRef.current?.close();
+    }
+  }, [isOpen]);
+
+  return (
+    <View style={styles.sheetTrigger}>
+      <Button
+        title="Öffnen (@expo/ui)"
+        variant="secondary"
+        size="sm"
+        onPress={() => setIsOpen(true)}
+      />
+      <BottomSheet
+        ref={sheetRef}
+        snapPoints={['35%']}
+        enablePanDownToClose
+        onClose={() => setIsOpen(false)}
+        backgroundStyle={{ backgroundColor: colors.background }}
+        handleIndicatorStyle={{ backgroundColor: colors.border }}>
+        <BottomSheetView style={styles.expoSheetContent}>
+          <Txt variant="heading" weight="700">
+            Beispiel-Sheet
+          </Txt>
+          <Txt tone="secondary">
+            @expo/ui/community/bottom-sheet — API-kompatibel zu @gorhom/bottom-sheet.
+          </Txt>
+        </BottomSheetView>
+      </BottomSheet>
     </View>
   );
 }
@@ -371,6 +544,39 @@ const styles = StyleSheet.create({
   segmentedComparison: { gap: space.lg },
   segmentedExample: { gap: space.xs },
   expoSegmentedControl: { width: '100%', minHeight: 44 },
+  sheetComparison: { gap: space.lg },
+  sheetExample: { gap: space.xs },
+  sheetTrigger: { alignItems: 'flex-start' },
+  classicSheet: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderTopLeftRadius: radius.xl,
+    borderTopRightRadius: radius.xl,
+    paddingHorizontal: space.lg,
+    paddingTop: space.sm,
+    gap: space.sm,
+  },
+  sheetHandle: {
+    alignSelf: 'center',
+    width: 42,
+    height: 4,
+    borderRadius: radius.pill,
+    marginBottom: space.sm,
+  },
+  sheetHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  expoSheetContent: { flex: 1, padding: space.lg, gap: space.sm },
+  groupedListComparison: { gap: space.lg },
+  groupedListExample: { gap: space.xs },
+  // FieldGroup ist ein scrollbarer Container (Form/LazyColumn) und hat daher
+  // keine natürliche Inhaltshöhe — matchContents kollabiert hier auf 0.
+  // In einem ohnehin scrollenden Screen braucht der Host eine feste Höhe.
+  expoFieldGroupHost: { width: '100%', height: 220 },
   surfaceSample: {
     minHeight: 64,
     borderWidth: StyleSheet.hairlineWidth,
