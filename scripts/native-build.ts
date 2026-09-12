@@ -501,15 +501,65 @@ function readCcacheDirFromUserConfig(): string | undefined {
   return match?.[1];
 }
 
+/**
+ * Release-Builds ziehen ihre statischen Tokens aus der Profil-Env-Datei. Ohne
+ * sie bricht der Bundling-Schritt erst nach Minuten ab (z. B. posthog-cli).
+ */
+function loadReleaseEnv(profile: string): Record<string, string> {
+  const fileName = profile === 'production' ? '.env.production' : '.env.preview';
+  const envPath = join(PROJECT_ROOT, fileName);
+  if (!existsSync(envPath)) {
+    fail(`Env-Datei fehlt: ${fileName}. Release-Build abgebrochen.`);
+  }
+
+  const values: Record<string, string> = {};
+  for (const line of readFileSync(envPath, 'utf8').split(/\r?\n/u)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const separator = trimmed.indexOf('=');
+    if (separator === -1) continue;
+    values[trimmed.slice(0, separator).trim()] = trimmed
+      .slice(separator + 1)
+      .trim()
+      .replace(/^(['"])(.*)\1$/u, '$2');
+  }
+
+  const missing = [
+    'EXPO_PUBLIC_SUPABASE_URL',
+    'EXPO_PUBLIC_SUPABASE_KEY',
+    'EXPO_PUBLIC_REVENUECAT_IOS_API_KEY',
+    'POSTHOG_CLI_API_KEY',
+    'POSTHOG_CLI_PROJECT_ID',
+    'POSTHOG_CLI_HOST',
+  ].filter((name) => !values[name]);
+  if (missing.length > 0) {
+    fail(`${fileName}: buildkritische Variablen fehlen: ${missing.join(', ')}`);
+  }
+
+  if (!values.EXPO_PUBLIC_REVENUECAT_IOS_API_KEY.startsWith('appl_')) {
+    fail(`${fileName}: EXPO_PUBLIC_REVENUECAT_IOS_API_KEY muss mit 'appl_' beginnen.`);
+  }
+  if (['true', '1'].includes((values.EXPO_PUBLIC_FORCE_PREMIUM ?? '').toLowerCase())) {
+    fail(`${fileName}: EXPO_PUBLIC_FORCE_PREMIUM muss im Release-Build aus sein.`);
+  }
+
+  log(`Umgebungsvariablen aus ${fileName} geprüft und geladen.`);
+  return values;
+}
+
 async function rebuild(): Promise<void> {
   if (!parseFlag('--approve-rebuild')) {
     fail(`Rebuild blockiert. Nur '--approve-rebuild' erlaubt Prebuild und Kompilierung.`);
   }
   const [targetName, target] = getTarget();
 
+  const releaseEnv = target.configuration === 'Release' ? loadReleaseEnv(target.profile) : {};
+
   log(`Regeneriere ${target.platform}/ kontrolliert für ${targetName}...`);
-  const buildEnvironment =
-    target.platform === 'ios' ? iosBuildEnv(target.configuration === 'Debug') : undefined;
+  const buildEnvironment = {
+    ...releaseEnv,
+    ...(target.platform === 'ios' ? iosBuildEnv(target.configuration === 'Debug') : {}),
+  };
   // Kein EXPO_USE_PRECOMPILED_MODULES mehr setzen: der generierte Podfile
   // setzt es bereits selbst (ENV['EXPO_USE_PRECOMPILED_MODULES'] ||= '1'),
   // und seit SDK 56 ist Precompiled ohnehin default (B7, Plan Phase 3).
