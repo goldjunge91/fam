@@ -172,7 +172,9 @@ fam/
 Alle Dateinamen folgen strikt einheitlichen Konventionen:
 
 ### 1. Kebab-Case als Standard
+
 Alle TypeScript/TSX-Dateien im Projekt werden in **kebab-case** benannt (Kleinbuchstaben mit Bindestrichen).
+
 * **Screens:** `*-screen.tsx` (z. B. `inventory-screen.tsx`, `edit-profile-screen.tsx`)
 * **Hooks:** `use-*.ts` (z. B. `use-theme.ts`, `use-brochures.ts`)
 * **Tests:** `*.test.ts` oder `*.test.tsx` (liegen direkt neben der Implementierungsdatei)
@@ -181,13 +183,16 @@ Alle TypeScript/TSX-Dateien im Projekt werden in **kebab-case** benannt (Kleinbu
 * **Feature Verträge:** `api.ts`, `types.ts`, `EXPLANATION.md`
 
 ### 2. Plattform-Differenzierung (Expo / React Native)
+
 Plattformspezifische Implementierungen nutzen standardmäßige Plattform-Suffixe:
+
 * `.tsx` / `.ts`: Universeller Code (iOS, Android, Web)
 * `.ios.tsx` / `.ios.ts`: Spezifisch für iOS (z. B. native Blur-Effekte, Wheel-Picker)
 * `.android.tsx` / `.android.ts`: Spezifisch für Android (z. B. Material-Effekte, BackHandler)
 * `.web.tsx` / `.web.ts`: Spezifisch für Web
 
 ### 3. Expo Router Konventionen (`src/app/`)
+
 * Layouts: `_layout.tsx`
 * Route Groups (unsichtbar in URL): `(app)`, `(auth)`
 * Dynamische Routen: `[id].tsx`
@@ -200,11 +205,13 @@ Plattformspezifische Implementierungen nutzen standardmäßige Plattform-Suffixe
 Um die Codebase modular und wartbar zu halten, gilt für jede Datei eine eindeutige Zuordnungsregel:
 
 ### 1. `src/app/` — Reine Routing-Schicht
+
 * **Erlaubt:** Expo Router Layouts (`_layout.tsx`), Routen-Dateien, Parameter-Parsing aus der URL, Rendering von Feature-Screens mit `<ModuleGate>`.
 * **Verboten:** Geschäftslogik, komplexe State-Verwaltung, direkte Supabase/SQLite-Aufrufe, umfangreiches UI-Markup.
 * **Faustregel:** Eine Datei in `src/app/` sollte in der Regel nicht mehr als 10–20 Zeilen haben und nur an einen Screen aus `src/features/` delegieren.
 
 ### 2. `src/features/<domain>/` — Fachdomänen
+
 * Jede Fachdomäne bündelt ihre eigene Business-Logik, Screens, Hooks, State und API-Aufrufe.
 * **Standard-Feature (flach, bis ~10 Dateien):**
   * `api.ts` (Supabase / SQLite Abfragen)
@@ -222,19 +229,24 @@ Um die Codebase modular und wartbar zu halten, gilt für jede Datei eine eindeut
   * `api.ts` & `types.ts` & `EXPLANATION.md`
 
 ### 3. `src/components/` — Geteilte, domänenfreie UI
+
 * Komponenten, die in **mindestens zwei unterschiedlichen Fachdomänen** verwendet werden und **keine Bindung an eine bestimmte Domäne** haben (z. B. generische Buttons, Cards, Screen-Wrapper, Layouts, Formular-Felder).
 * UI-Bausteine, die nur in einem Feature gebraucht werden, gehören in das jeweilige Feature (`src/features/<domain>/components/`).
 
 ### 4. `src/lib/` — Infrastruktur & Core-Services (UI-frei)
+
 * Alles Technische ohne React-UI: SQLite-Datenbank (`db/`), Outbox-Sync (`sync/`), Supabase Client (`supabase.ts`), Third-Party SDKs (RevenueCat `purchases.ts`, Aptabase `analytics/`, Sentry, PostHog), OpenFoodFacts API (`open-food-facts.ts`), Umgebungsvariablen (`env.ts`).
 
 ### 5. `src/constants/` — Globale Konstanten
+
 * Design-Tokens (`theme.ts`), Layout-Konstanten (`layout.ts`), Modul-Registrierung (`feature-registry.ts`).
 
 ### 6. `src/hooks/` — App-weite Custom Hooks
+
 * Domänenunabhängige Custom Hooks (`useTheme`, `useColorScheme`, `useSyncStatus`).
 
 ### 7. `supabase/` — Datenbank & RLS (Single Source of Truth)
+
 * **`schemas/*.sql`** ist die einzige deklarative Wahrheit.
 * Niemals Migrationen von Hand schreiben; Migrationen werden ausschließlich über `bun run db:diff` erzeugt.
 * Alle Tabellen müssen RLS-Policies und zugehörige pgTAP-Tests in `supabase/tests/` besitzen.
