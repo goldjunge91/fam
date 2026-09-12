@@ -13,7 +13,14 @@ type CardGallerySheetProps = {
   onClose: () => void;
 };
 
-const CARD_METADATA: Record<string, { key: string; icon: string }> = {
+type DashboardCardMetadataKey =
+  | 'streak'
+  | 'calories'
+  | 'mealPlanner'
+  | 'inventory'
+  | 'shoppingList';
+
+const CARD_METADATA: Record<string, { key: DashboardCardMetadataKey; icon: string }> = {
   streak: {
     key: 'streak',
     icon: '🔥',

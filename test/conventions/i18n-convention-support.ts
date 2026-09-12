@@ -32,6 +32,13 @@ export type TranslationReference = {
   path: string;
 };
 
+export type DynamicTranslationReference = {
+  expression: string;
+  keys: string[] | null;
+  line: number;
+  path: string;
+};
+
 function readSupportedLanguages(): string[] {
   const source = ts.createSourceFile(
     LANGUAGE_SOURCE,
@@ -264,6 +271,101 @@ export function extractLiteralTranslationReferences(
   return references;
 }
 
+function createSourceProgram(): ts.Program {
+  const config = ts.getParsedCommandLineOfConfigFile(
+    path.join(REPO_ROOT, 'tsconfig.json'),
+    {},
+    {
+      ...ts.sys,
+      onUnRecoverableConfigFileDiagnostic: (diagnostic) => {
+        throw new Error(ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n'));
+      },
+    },
+  );
+
+  if (!config) throw new Error('tsconfig.json konnte nicht gelesen werden.');
+  return ts.createProgram(config.fileNames, config.options);
+}
+
+function readStringLiteralValues(type: ts.Type): string[] | null {
+  if (type.isStringLiteral()) {
+    return [type.value];
+  }
+
+  if (!type.isUnion()) return null;
+
+  const values = type.types.flatMap((member) => readStringLiteralValues(member) ?? []);
+  const uniqueValues = [...new Set(values)];
+  return uniqueValues.length === type.types.length && uniqueValues.length > 0 ? uniqueValues : null;
+}
+
+function combineStringValues(left: string[], right: string[]): string[] {
+  return [
+    ...new Set(left.flatMap((leftValue) => right.map((rightValue) => leftValue + rightValue))),
+  ];
+}
+
+function expandStringExpression(
+  expression: ts.Expression,
+  checker: ts.TypeChecker,
+): string[] | null {
+  if (ts.isStringLiteralLike(expression)) return [expression.text];
+
+  if (ts.isTemplateExpression(expression)) {
+    let values = [expression.head.text];
+
+    for (const span of expression.templateSpans) {
+      const expressionValues = readStringLiteralValues(checker.getTypeAtLocation(span.expression));
+      if (!expressionValues) return null;
+
+      values = combineStringValues(values, expressionValues).map(
+        (value) => `${value}${span.literal.text}`,
+      );
+    }
+
+    return values;
+  }
+
+  if (
+    ts.isBinaryExpression(expression) &&
+    expression.operatorToken.kind === ts.SyntaxKind.PlusToken
+  ) {
+    const left = expandStringExpression(expression.left, checker);
+    const right = expandStringExpression(expression.right, checker);
+    return left && right ? combineStringValues(left, right) : null;
+  }
+
+  return readStringLiteralValues(checker.getTypeAtLocation(expression));
+}
+
+function extractDynamicTranslationReferences(
+  source: ts.SourceFile,
+  checker: ts.TypeChecker,
+  sourcePath: string,
+): DynamicTranslationReference[] {
+  const references: DynamicTranslationReference[] = [];
+
+  function visit(node: ts.Node): void {
+    if (ts.isCallExpression(node) && isTranslationCall(node.expression)) {
+      const [keyArgument] = node.arguments;
+      if (keyArgument && !ts.isStringLiteralLike(keyArgument)) {
+        const { line } = source.getLineAndCharacterOfPosition(node.getStart(source));
+        references.push({
+          expression: keyArgument.getText(source),
+          keys: expandStringExpression(keyArgument, checker),
+          line: line + 1,
+          path: sourcePath,
+        });
+      }
+    }
+
+    ts.forEachChild(node, visit);
+  }
+
+  visit(source);
+  return references;
+}
+
 function findProductionSourceFiles(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true })
     .flatMap((entry) => {
@@ -283,6 +385,18 @@ export function findProductionTranslationReferences(): TranslationReference[] {
       path.relative(REPO_ROOT, sourcePath),
     ),
   );
+}
+
+export function findProductionDynamicTranslationReferences(): DynamicTranslationReference[] {
+  const program = createSourceProgram();
+  const checker = program.getTypeChecker();
+
+  return findProductionSourceFiles(path.join(REPO_ROOT, 'src')).flatMap((sourcePath) => {
+    const source = program.getSourceFile(sourcePath);
+    return source
+      ? extractDynamicTranslationReferences(source, checker, path.relative(REPO_ROOT, sourcePath))
+      : [];
+  });
 }
 
 function featureNamespace(feature: string): string {
@@ -328,4 +442,25 @@ export function validateTranslationReferences(
   }
 
   return errors.sort();
+}
+
+export function validateDynamicTranslationReferences(
+  references: DynamicTranslationReference[],
+  snapshot: LocaleCatalogSnapshot,
+): string[] {
+  return references
+    .flatMap((reference) => {
+      if (!reference.keys || reference.keys.length === 0) {
+        return [
+          `Untestable dynamic translation key at ${reference.path}:${reference.line}: ` +
+            reference.expression,
+        ];
+      }
+
+      return validateTranslationReferences(
+        reference.keys.map((key) => ({ key, line: reference.line, path: reference.path })),
+        snapshot,
+      );
+    })
+    .sort();
 }

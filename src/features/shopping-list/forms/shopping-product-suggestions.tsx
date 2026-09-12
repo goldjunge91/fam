@@ -21,10 +21,15 @@ type ShoppingProductSuggestionsProps = {
 
 /** Anzahl Karten in der ersten, immer sichtbaren Reihe. */
 const COLLAPSED_COUNT = 3;
+const PRODUCT_SUGGESTION_UNITS = ['piece', 'g', 'kg', 'ml', 'l', 'package', 'portion'] as const;
+type ProductSuggestionUnit = (typeof PRODUCT_SUGGESTION_UNITS)[number];
+
+function isProductSuggestionUnit(value: string): value is ProductSuggestionUnit {
+  return PRODUCT_SUGGESTION_UNITS.some((candidate) => candidate === value);
+}
 
 function unitLabel(unit: string | null, t: TFunction): string {
-  const key =
-    unit && unit in { piece: 1, g: 1, kg: 1, ml: 1, l: 1, package: 1, portion: 1 } ? unit : 'piece';
+  const key = unit && isProductSuggestionUnit(unit) ? unit : 'piece';
   return t(`shoppingList.productSuggestions.units.${key}`);
 }
 

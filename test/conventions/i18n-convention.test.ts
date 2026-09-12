@@ -1,11 +1,14 @@
 import {
+  type DynamicTranslationReference,
   discoverLocaleCatalogs,
   extractLiteralTranslationReferences,
+  findProductionDynamicTranslationReferences,
   findProductionTranslationReferences,
   type LocaleCatalogSnapshot,
   loadLocaleCatalogs,
   parseLocaleCatalog,
   type TranslationReference,
+  validateDynamicTranslationReferences,
   validateLocaleCatalogs,
   validateTranslationReferences,
 } from './i18n-convention-support';
@@ -179,5 +182,45 @@ describe('i18n-Konventionen', () => {
     expect(errors[0]).toEqual(expect.stringContaining('settings.doesNotExist'));
     expect(errors.join('\n')).toEqual(expect.stringContaining('locale: de'));
     expect(errors.join('\n')).toEqual(expect.stringContaining('locale: en'));
+  });
+
+  it('prüft alle aktuellen dynamischen Referenzen über ihre endlichen Typwerte', () => {
+    const references = findProductionDynamicTranslationReferences();
+
+    expect(references).toHaveLength(8);
+    expect(references.every((reference) => reference.keys?.length)).toBe(true);
+    expect(validateDynamicTranslationReferences(references, loadLocaleCatalogs())).toEqual([]);
+  });
+
+  it('meldet einen fehlenden konkret expandierten dynamischen Key', () => {
+    const reference: DynamicTranslationReference = {
+      expression: 'group',
+      keys: ['settings.groups.data.privacy.missing'],
+      line: 42,
+      path: 'src/features/settings/example.tsx',
+    };
+
+    const errors = validateDynamicTranslationReferences([reference], loadLocaleCatalogs());
+
+    expect(errors).toHaveLength(2);
+    expect(errors.join('\n')).toEqual(
+      expect.stringContaining('settings.groups.data.privacy.missing'),
+    );
+    expect(errors.join('\n')).toEqual(
+      expect.stringContaining('src/features/settings/example.tsx:42'),
+    );
+  });
+
+  it('meldet einen dynamischen Key ohne endliche Wertemenge', () => {
+    const reference: DynamicTranslationReference = {
+      expression: 'serverValue',
+      keys: null,
+      line: 7,
+      path: 'src/features/example.tsx',
+    };
+
+    expect(validateDynamicTranslationReferences([reference], loadLocaleCatalogs())).toEqual([
+      'Untestable dynamic translation key at src/features/example.tsx:7: serverValue',
+    ]);
   });
 });
