@@ -64,10 +64,64 @@ privaten `recipe-catalog`-Bucket und schreibt den Pfad in Supabase.
 Die erzeugte Datei kann direkt gegen `POST /api/validate` geprüft und danach
 gegen `POST /api/import` importiert werden.
 
+Der aktuelle deutsche Arbeitsstand
+`waivy-fam-catalog-import.de.translation-validated-2547-4710.json` enthält den
+vollständigen Katalog mit 7.641 Datensätzen, davon 2.164 vollständig geprüfte
+deutsche Rezepte in den Bereichen `sortOrder` 2547–4710. Alle übrigen
+Datensätze bleiben dort absichtlich in der Quellsprache. Die Datei ist noch
+kein Importstand für die App, bis der gesamte Katalog übersetzt und validiert
+ist. Sie ist der einzige behaltene konsolidierte Übersetzungszwischenstand;
+fehlgeschlagene Slices und alte Zwischenstände werden nicht als
+Projektdateien geführt.
+
 Die Ausgabe startet absichtlich mit `status: "published"`, damit die Rezepte
 nach dem Import direkt im Katalog erscheinen. Für einen Redaktionsimport kann
 `--status draft` oder `--status archived` verwendet werden. Eigene Dateien
 lassen sich über `--input`, `--ingredients` und `--output` angeben.
+
+## Übersetzungsworkflow für Agents
+
+Agents müssen keine eigenen Hilfsscripte schreiben. Der zentrale Runner
+`scripts/recipe-translation-workflow.ts` erzeugt pro Agent einen disjunkten
+Slice mit `candidate.json`, `source.json`, einer initialen `translated.json`
+und `task.json`. Der Agent übersetzt nur `translated.json`; danach prüft der Runner Struktur, Rezeptanzahl,
+IDs, Sortierung, Mengen, Zahlen, Einheiten, URLs und sichtbare englische
+Textreste.
+
+```bash
+# 1. Einen Slice vorbereiten
+bun scripts/recipe-translation-workflow.ts prepare \
+  --candidate docs/recipe-extraction/waivy-fam-catalog-import.json \
+  --source docs/recipe-extraction/waivy-fam-catalog-import.json \
+  --from 0 --to 99 --job de-0000-0099 \
+  --workdir /tmp/fam-recipe-translation
+
+# 2. Agent übersetzt ausschließlich diese Datei:
+#    /tmp/fam-recipe-translation/de-0000-0099/translated.json
+
+# 3. Slice prüfen
+bun scripts/recipe-translation-workflow.ts validate \
+  --input /tmp/fam-recipe-translation/de-0000-0099/candidate.json \
+  --output /tmp/fam-recipe-translation/de-0000-0099/translated.json \
+  --source /tmp/fam-recipe-translation/de-0000-0099/source.json \
+  --report /tmp/fam-recipe-translation/de-0000-0099/validation-report.json
+
+# 4. Fortschritt aller vorbereiteten/geprüften Jobs anzeigen
+bun scripts/recipe-translation-workflow.ts status \
+  --dir /tmp/fam-recipe-translation
+
+# 5. Nur bestandene Slices zusammenführen
+bun scripts/recipe-translation-workflow.ts merge \
+  --base docs/recipe-extraction/waivy-fam-catalog-import.json \
+  --slices /tmp/fam-recipe-translation/de-0000-0099/translated.json \
+  --reports /tmp/fam-recipe-translation/de-0000-0099/validation-report.json \
+  --output /tmp/fam-recipe-translation/waivy-fam-catalog-import.de.json
+```
+
+`merge` validiert jeden Slice zusätzlich erneut anhand seines Reports und der
+darin gespeicherten Eingabe-/Quellpfade. Ein manipulierter oder nachträglich
+veränderter Slice wird daher nicht übernommen. `status` unterscheidet offene
+Jobs (`pending`), fehlgeschlagene Prüfungen und bestandene Slices.
 
 ## FoodAI
 
