@@ -634,6 +634,33 @@ async function rebuild(): Promise<void> {
   };
   writeLock(lock);
   log(`Rebuild abgeschlossen und gelockt: ${relative(PROJECT_ROOT, finalPath)}`);
+
+  await offerSubmit(target, finalPath);
+}
+
+/**
+ * Fragt nach einem Store-Build, ob das Artefakt direkt zu App Store Connect
+ * soll. Ohne TTY (CI, Pipes) wird nur der Befehl ausgegeben.
+ */
+async function offerSubmit(target: Target, artifactPath: string): Promise<void> {
+  if (target.kind !== 'ipa' || target.configuration !== 'Release') return;
+
+  const command = `eas submit --platform ios --profile ${target.profile} --path ${artifactPath}`;
+  if (!process.stdin.isTTY) {
+    log(`Upload nicht angeboten (kein Terminal). Manuell: ${command}`);
+    return;
+  }
+
+  const answer = prompt('Artefakt jetzt zu App Store Connect hochladen? [j/N]')
+    ?.trim()
+    .toLowerCase();
+  if (answer !== 'j' && answer !== 'ja') {
+    log(`Upload übersprungen. Später mit: ${command}`);
+    return;
+  }
+
+  log('Starte eas submit...');
+  run('eas', ['submit', '--platform', 'ios', '--profile', target.profile, '--path', artifactPath]);
 }
 
 async function restore(): Promise<void> {
