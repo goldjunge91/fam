@@ -12,7 +12,7 @@
       "appleTeamId": "SW8RP7PA3W",
       "icon": "./assets/images/icon-fam-v4-pantry.png",
       "bundleIdentifier": "com.goldjunge91.fam1",
-      "buildNumber": "1",
+      "buildNumber": "2",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       },
@@ -152,26 +152,31 @@
       ],
       "@react-native-community/datetimepicker",
       "expo-font",
-    "expo-asset",
-    [
-      "expo-widgets",
-      {
-        "widgets": [
-          {
-            "name": "ShoppingListWidget",
-            "displayName": "Einkaufsliste",
-            "description": "Zeigt die offenen Artikel deiner Einkaufsliste.",
-            "supportedFamilies": ["systemSmall", "systemMedium"]
-          },
-          {
-            "name": "QuickAddShoppingWidget",
-            "displayName": "Schnell hinzufügen",
-            "description": "Fügt Milch direkt zur Einkaufsliste hinzu.",
-            "supportedFamilies": ["systemSmall"]
-          }
-        ]
-      }
-    ]
+      "expo-asset",
+      [
+        "expo-widgets",
+        {
+          "widgets": [
+            {
+              "name": "ShoppingListWidget",
+              "displayName": "Einkaufsliste",
+              "description": "Zeigt die offenen Artikel deiner Einkaufsliste.",
+              "supportedFamilies": [
+                "systemSmall",
+                "systemMedium"
+              ]
+            },
+            {
+              "name": "QuickAddShoppingWidget",
+              "displayName": "Schnell hinzufügen",
+              "description": "Fügt Milch direkt zur Einkaufsliste hinzu.",
+              "supportedFamilies": [
+                "systemSmall"
+              ]
+            }
+          ]
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
