@@ -212,6 +212,16 @@ it('formatiert das Datum der Übersicht anhand der aktiven Sprache', async () =>
   expect(screen.getByText(expectedDate)).toBeOnTheScreen();
 });
 
+it('zeigt den Profilbutton im Header, auch im Bearbeitungsmodus', async () => {
+  await renderScreen();
+
+  expect(screen.getByRole('button', { name: 'Profil öffnen' })).toBeOnTheScreen();
+
+  await fireEvent(screen.getByLabelText('Essensplan öffnen'), 'longPress');
+
+  expect(screen.getByRole('button', { name: 'Profil öffnen' })).toBeOnTheScreen();
+});
+
 it('zeigt Karten und Karten-Galerie in der aktiven Sprache', async () => {
   await i18n.changeLanguage('en');
 

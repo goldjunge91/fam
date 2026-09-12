@@ -53,6 +53,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: space.xs,
+    flexShrink: 0,
+    minWidth: 58,
   },
   titleRow: {
     flexDirection: 'row',

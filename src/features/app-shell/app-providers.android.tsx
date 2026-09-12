@@ -24,6 +24,10 @@ import { reportCapturedError } from '@/lib/telemetry';
 import { CrashFallback } from './crash-fallback';
 
 const BUG_BUBBLE_CONFIG = {
+  // Der Default (top: 100) liegt auf dem Profilbutton im globalen Header.
+  // Links neben der rechten Header-Aktion bleibt das Debug-Overlay erreichbar,
+  // ohne den Profilbutton zu verdecken.
+  floatingButtonPosition: { top: 100, right: 84 },
   trackingOptions: {
     enabled: true,
     options: { console: true },
