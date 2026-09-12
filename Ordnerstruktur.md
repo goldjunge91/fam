@@ -82,8 +82,7 @@ fam/
     │   │   ├── sync-debug.tsx        # /settings/sync-debug
     │   │   ├── sync-settings.tsx     # /settings/sync-settings
     │   │   ├── dev.tsx               # /settings/dev
-    │   │   ├── glass-lab.tsx         # /settings/glass-lab
-    │   │   └── camera-lab.tsx        # /settings/camera-lab
+    │   │   └── glass-lab.tsx         # /settings/glass-lab
     │   │
     │   ├── add-item.tsx              # Schnelleingabe Inventar / Vorrat (Modal)
     │   ├── add-food-entry.tsx        # Schnelleingabe Kalorientagebuch (Modal)
@@ -91,7 +90,6 @@ fam/
     │   └── food-search.tsx           # Globale Produktsuche (Modal)
     │
     ├── components/                   # Geteilte, domänenfreie UI-Komponenten
-    │   ├── components_camera/        # Kamera-Controls, Scanner-Views & Overlays
     │   ├── forms/                    # Formular-Controls (date-picker, text-field, wheel-picker)
     │   ├── icons/                    # Icons (fam-icon, animated-icon, calendar-day-icon)
     │   ├── layout/                   # Layout-Gerüste (screen, page-header, hub-screen, gradient-background, app-shell)
@@ -159,7 +157,6 @@ fam/
         ├── app-shell/                # App-Bootstrap, Lifecycle-Handling, Crash-Fallback, Global Providers
         ├── auth/                     # Sign-In, Sign-Up, Session-Provider, Deep-Links, Account-Isolation
         ├── dashboard/                # Start-Hub, Widgets, Tagesübersichten
-        ├── experimentalscreens/      # Kamera/Video Test-Screens
         ├── navigation/               # TabBar, Header, Drawer-Navigation, FAB-Settings
         ├── onboarding/               # Onboarding-Flow, Präferenzen, Setup-Strecke
         ├── premium/                  # RevenueCat Paywalls, Offerings, Pro-Status-Gating

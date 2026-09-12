@@ -159,7 +159,6 @@ export type FeatureFlagKey =
   | 'tracking-method-keto'
   | 'tracking-method-cgm'
   | 'tracking-method-volumetrics'
-  | 'experimental-vision-camera'
   | 'bug-bubble'
   | 'bugbubble';
 

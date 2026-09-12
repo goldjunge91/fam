@@ -71,7 +71,6 @@ export const TELEMETRY_EVENTS = {
   appBackgrounded: 'app.backgrounded',
   previousSessionUnclean: 'app.previous_session.unclean',
   routeChanged: 'route.changed',
-  cameraLabBlocked: 'camera.lab.blocked',
 } as const;
 
 export type TelemetryEventName = (typeof TELEMETRY_EVENTS)[keyof typeof TELEMETRY_EVENTS] | string;

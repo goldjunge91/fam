@@ -10,7 +10,6 @@ import { getAnalyticsSettings, useAnalyticsSettingsStore } from '@/constants/ana
 import { Button, Txt } from '@/constants/ui';
 import { initMobileAds, useAdsEnabled, useAdsOverrideStore } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
-import { VISION_CAMERA_LAB_ENABLED } from '@/features/experimentalscreens/vision-camera-lab';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { devResetHouseholdPremium } from '@/features/premium/dev-reset-premium';
 import {
@@ -669,13 +668,6 @@ export function DevToolsScreen() {
             variant="secondary"
             onPress={() => router.push('/settings/design-system')}
           />
-          {VISION_CAMERA_LAB_ENABLED ? (
-            <Button
-              title="VisionCamera-Labor öffnen"
-              variant="secondary"
-              onPress={() => router.push('/settings/camera-lab')}
-            />
-          ) : null}
           <Button
             title="Plus-Paywall öffnen (Test Store)"
             variant="secondary"

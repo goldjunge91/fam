@@ -26,7 +26,6 @@ let mockFeatureFlags: Record<FeatureFlagKey, boolean> = {
   'tracking-method-keto': false,
   'tracking-method-cgm': false,
   'tracking-method-volumetrics': false,
-  'experimental-vision-camera': false,
   'bug-bubble': false,
   bugbubble: false,
 };
@@ -109,7 +108,6 @@ describe('SpeedDialMenu', () => {
       'tracking-method-keto': false,
       'tracking-method-cgm': false,
       'tracking-method-volumetrics': false,
-      'experimental-vision-camera': false,
       'bug-bubble': false,
       bugbubble: false,
     };
