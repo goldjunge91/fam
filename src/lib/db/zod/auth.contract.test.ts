@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   confirmationCodeSchema,
+  emailSchema,
+  newPasswordValueSchema,
   PASSWORD_MIN_LENGTH,
   signInSchema,
   signUpSchema,
@@ -35,5 +37,34 @@ describe('auth validation contracts', () => {
   test('accepts confirmation codes only when they contain exactly six digits', () => {
     expect(confirmationCodeSchema.parse({ code: ' 123456 ' })).toEqual({ code: '123456' });
     expect(confirmationCodeSchema.safeParse({ code: '12345a' }).success).toBe(false);
+  });
+
+  test('returns stable translation keys for validation errors', () => {
+    const missingEmail = emailSchema.safeParse('');
+    const shortPassword = newPasswordValueSchema.safeParse('kurz');
+    const mismatchedPasswords = signUpSchema.safeParse({
+      email: 'name@beispiel.de',
+      password: 'langgenug',
+      passwordConfirmation: 'andersgenug',
+    });
+    const invalidCode = confirmationCodeSchema.safeParse({ code: '12345a' });
+
+    expect(missingEmail.success).toBe(false);
+    expect(shortPassword.success).toBe(false);
+    expect(mismatchedPasswords.success).toBe(false);
+    expect(invalidCode.success).toBe(false);
+
+    if (!missingEmail.success) {
+      expect(missingEmail.error.issues[0]?.message).toBe('auth.validation.emailRequired');
+    }
+    if (!shortPassword.success) {
+      expect(shortPassword.error.issues[0]?.message).toBe('auth.validation.passwordMin');
+    }
+    if (!mismatchedPasswords.success) {
+      expect(mismatchedPasswords.error.issues[0]?.message).toBe('auth.validation.passwordMismatch');
+    }
+    if (!invalidCode.success) {
+      expect(invalidCode.error.issues[0]?.message).toBe('auth.validation.codeInvalid');
+    }
   });
 });

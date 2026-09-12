@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { i18n } from '@/i18n';
 import { SignUpScreen } from './sign-up-screen';
 
 const initialMetrics = {
@@ -50,9 +51,22 @@ async function fillAndSubmit() {
 }
 
 describe('SignUpScreen', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     mockSignUp.mockReset();
     (router.replace as jest.Mock).mockReset();
+    await i18n.changeLanguage('de');
+  });
+
+  it('rendert Formular für die Registrierung auf Englisch', async () => {
+    await i18n.changeLanguage('en');
+    await renderScreen();
+
+    expect(screen.getByText('For you and your household')).toBeTruthy();
+    expect(screen.getByLabelText('Email')).toBeTruthy();
+    expect(screen.getByLabelText('Repeat password')).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Create account' })).toBeTruthy();
+    expect(screen.getByText('or continue with')).toBeTruthy();
+    expect(screen.getByText('🌐  Sign in with Google')).toBeTruthy();
   });
 
   it('zeigt den Warteraum, wenn signUp ohne Session zurueckkommt (E-Mail-Bestaetigung noetig)', async () => {

@@ -1,5 +1,6 @@
 import type { Session } from '@supabase/supabase-js';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
   confirmSignUpWithCode,
@@ -9,7 +10,7 @@ import {
 } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { clearAuthDeepLinkError, subscribeAuthDeepLinkError } from '@/lib/auth-deep-link-state';
-import { confirmationCodeSchema } from '@/lib/db/zod/auth.zod';
+import { confirmationCodeSchema, translateAuthValidationMessage } from '@/lib/db/zod/auth.zod';
 import { getSupabase } from '@/lib/supabase';
 
 interface EmailVerificationOptions {
@@ -26,6 +27,7 @@ function isConfirmedSessionForEmail(session: Session | null, email: string): boo
 }
 
 export function useEmailVerification({ email, password, onConfirmed }: EmailVerificationOptions) {
+  const { t } = useTranslation();
   const [code, setCode] = useState('');
   const [codeError, setCodeError] = useState<string | null>(null);
   const [confirming, setConfirming] = useState(false);
@@ -57,9 +59,9 @@ export function useEmailVerification({ email, password, onConfirmed }: EmailVeri
   useEffect(
     () =>
       subscribeAuthDeepLinkError((error) => {
-        if (error) setCodeError(authErrorMessage(new Error(error)));
+        if (error) setCodeError(authErrorMessage(new Error(error), t));
       }),
-    [],
+    [t],
   );
 
   useEffect(() => {
@@ -128,7 +130,8 @@ export function useEmailVerification({ email, password, onConfirmed }: EmailVeri
 
     const parsed = confirmationCodeSchema.safeParse({ code });
     if (!parsed.success) {
-      setCodeError(parsed.error.issues[0]?.message ?? 'Ungültiger Code.');
+      const message = parsed.error.issues[0]?.message;
+      setCodeError(translateAuthValidationMessage(message, t) ?? t('auth.validation.codeInvalid'));
       return;
     }
 
@@ -136,17 +139,20 @@ export function useEmailVerification({ email, password, onConfirmed }: EmailVeri
     try {
       const { data, error } = await confirmSignUpWithCode(email, parsed.data.code);
       if (error) {
-        setCodeError(authErrorMessage(error) ?? 'Der Code konnte nicht geprüft werden.');
+        setCodeError(authErrorMessage(error, t) ?? t('auth.errors.codeCheckFailed'));
         return;
       }
       if (!data.session) {
-        setCodeError('Der Code wurde akzeptiert, aber es kam keine Sitzung zurück.');
+        setCodeError(t('auth.errors.codeAcceptedNoSession'));
         return;
       }
       confirmOnce();
     } catch (error) {
       setCodeError(
-        authErrorMessage(error instanceof Error ? error : new Error('Codeprüfung fehlgeschlagen.')),
+        authErrorMessage(
+          error instanceof Error ? error : new Error(t('auth.errors.codeCheckFailed')),
+          t,
+        ),
       );
     } finally {
       setConfirming(false);
@@ -162,12 +168,12 @@ export function useEmailVerification({ email, password, onConfirmed }: EmailVeri
     try {
       const { data, error } = await signIn(email, password);
       if (error) {
-        setCodeError(authErrorMessage(error) ?? 'Anmeldung fehlgeschlagen.');
+        setCodeError(authErrorMessage(error, t) ?? t('auth.errors.signInFailed'));
         return;
       }
       if (!data.session?.user.email_confirmed_at) {
         await signOut();
-        setCodeError('Deine E-Mail-Adresse ist noch nicht bestätigt.');
+        setCodeError(t('auth.errors.emailNotConfirmedAfterCheck'));
         return;
       }
 
@@ -175,7 +181,10 @@ export function useEmailVerification({ email, password, onConfirmed }: EmailVeri
       confirmOnce();
     } catch (error) {
       setCodeError(
-        authErrorMessage(error instanceof Error ? error : new Error('Anmeldung fehlgeschlagen.')),
+        authErrorMessage(
+          error instanceof Error ? error : new Error(t('auth.errors.signInFailed')),
+          t,
+        ),
       );
     } finally {
       setRecovering(false);
@@ -192,19 +201,19 @@ export function useEmailVerification({ email, password, onConfirmed }: EmailVeri
       const { error } = await resendConfirmationEmail(email);
       if (error) {
         setResendFailed(true);
-        setResendStatus(authErrorMessage(error) ?? 'Fehler beim Senden.');
+        setResendStatus(authErrorMessage(error, t) ?? t('auth.errors.sendFailed'));
         return;
       }
 
-      setResendStatus(
-        'Falls dein Konto noch nicht bestätigt ist, ist eine neue E-Mail unterwegs. ' +
-          'Kommt nichts an, hast du den Link vermutlich schon benutzt — nutze dann den Button darunter.',
-      );
+      setResendStatus(t('auth.verification.resendSuccess'));
       setCooldown(60);
     } catch (error) {
       setResendFailed(true);
       setResendStatus(
-        authErrorMessage(error instanceof Error ? error : new Error('Fehler beim Senden.')),
+        authErrorMessage(
+          error instanceof Error ? error : new Error(t('auth.errors.sendFailed')),
+          t,
+        ),
       );
     } finally {
       setResending(false);

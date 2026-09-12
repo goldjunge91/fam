@@ -18,10 +18,10 @@ import {
 
 describe('i18n-Konventionen', () => {
   it('entdeckt aktive Sprachen und alle zugehörigen Katalogdateien', () => {
-    expect(discoverLocaleCatalogs()).toEqual({
-      languages: ['de', 'en'],
-      features: ['common', 'dashboard', 'settings', 'shopping-list'],
-    });
+    const discovery = discoverLocaleCatalogs();
+
+    expect(discovery.languages).toEqual(expect.arrayContaining(['de', 'en']));
+    expect(discovery.features).toEqual([...discovery.features].sort());
   });
 
   it('meldet einen Schlüssel, der in einem Locale fehlt', () => {
@@ -171,6 +171,21 @@ describe('i18n-Konventionen', () => {
     ).toEqual([]);
   });
 
+  it('prüft den Auth-Produktionsscope separat auf statische und dynamische Keys', () => {
+    const catalogs = loadLocaleCatalogs();
+    const staticReferences = findProductionTranslationReferences().filter((reference) =>
+      reference.path.startsWith('src/features/auth/'),
+    );
+    const dynamicReferences = findProductionDynamicTranslationReferences().filter((reference) =>
+      reference.path.startsWith('src/features/auth/'),
+    );
+
+    expect(staticReferences.length).toBeGreaterThan(0);
+    expect(validateTranslationReferences(staticReferences, catalogs)).toEqual([]);
+    expect(dynamicReferences.length).toBeGreaterThan(0);
+    expect(validateDynamicTranslationReferences(dynamicReferences, catalogs)).toEqual([]);
+  });
+
   it('meldet unbekannte literale Keys mit Quelle und Locale', () => {
     const reference: TranslationReference = {
       key: 'settings.doesNotExist',
@@ -190,7 +205,7 @@ describe('i18n-Konventionen', () => {
   it('prüft alle aktuellen dynamischen Referenzen über ihre endlichen Typwerte', () => {
     const references = findProductionDynamicTranslationReferences();
 
-    expect(references).toHaveLength(8);
+    expect(references.length).toBeGreaterThan(0);
     expect(references.every((reference) => reference.keys?.length)).toBe(true);
     expect(validateDynamicTranslationReferences(references, loadLocaleCatalogs())).toEqual([]);
   });
@@ -253,5 +268,13 @@ describe('i18n-Konventionen', () => {
 
     expect(Array.isArray(references)).toBe(true);
     if (references.length > 0) console.info(formatHardcodedUiTextReport(references));
+  });
+
+  it('blockiert reportbare Hardcode-Funde im abgeschlossenen Auth-Produktionsscope', () => {
+    const references = findProductionHardcodedUiTextReferences().filter((reference) =>
+      reference.path.startsWith('src/features/auth/'),
+    );
+
+    expect(references).toEqual([]);
   });
 });

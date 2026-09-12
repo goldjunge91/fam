@@ -1,36 +1,65 @@
 import type { AuthError } from '@supabase/supabase-js';
 
-export function authErrorMessage(error: AuthError | Error | null): string | null {
-  if (!error) return null;
+export const AUTH_ERROR_KEYS = {
+  invalidCredentials: 'auth.errors.invalidCredentials',
+  emailNotConfirmed: 'auth.errors.emailNotConfirmed',
+  alreadyRegistered: 'auth.errors.alreadyRegistered',
+  passwordTooShort: 'auth.errors.passwordTooShort',
+  rateLimited: 'auth.errors.rateLimited',
+  codeExpired: 'auth.errors.codeExpired',
+  network: 'auth.errors.network',
+  redirectUrlMissing: 'auth.oauth.redirectUrlMissing',
+  callbackInvalid: 'auth.oauth.callbackInvalid',
+  appleTokenMissing: 'auth.oauth.appleTokenMissing',
+  appleSignInFailed: 'auth.oauth.appleSignInFailed',
+} as const;
+
+type AuthErrorKey = (typeof AUTH_ERROR_KEYS)[keyof typeof AUTH_ERROR_KEYS];
+type AuthErrorTranslator = (key: AuthErrorKey) => string;
+
+function classifyAuthError(error: AuthError | Error): AuthErrorKey | null {
+  for (const key of Object.values(AUTH_ERROR_KEYS)) {
+    if (error.message === key) return key;
+  }
 
   const raw = error.message.toLowerCase();
 
   // Keine kontobezogenen Hinweise ausgeben.
   if (raw.includes('invalid login credentials')) {
-    return 'E-Mail oder Passwort stimmt nicht.';
+    return AUTH_ERROR_KEYS.invalidCredentials;
   }
   if (raw.includes('email not confirmed')) {
-    return 'Bitte bestätige zuerst deine E-Mail-Adresse. Wir haben dir einen Link geschickt.';
+    return AUTH_ERROR_KEYS.emailNotConfirmed;
   }
   if (raw.includes('user already registered') || raw.includes('already been registered')) {
-    return 'Für diese Adresse gibt es schon ein Konto. Melde dich an oder setze dein Passwort zurück.';
+    return AUTH_ERROR_KEYS.alreadyRegistered;
   }
   if (raw.includes('password should be at least')) {
-    return 'Das Passwort ist zu kurz.';
+    return AUTH_ERROR_KEYS.passwordTooShort;
   }
   if (raw.includes('email rate limit') || raw.includes('over_email_send_rate_limit')) {
-    return 'Zu viele Versuche. Bitte warte einen Moment.';
+    return AUTH_ERROR_KEYS.rateLimited;
   }
   if (
     raw.includes('token has expired or is invalid') ||
     raw.includes('otp_expired') ||
     raw.includes('email link is invalid or has expired')
   ) {
-    return 'Der Code ist abgelaufen oder wurde schon benutzt. Fordere einen neuen an.';
+    return AUTH_ERROR_KEYS.codeExpired;
   }
   if (raw.includes('network request failed') || raw.includes('fetch failed')) {
-    return 'Keine Verbindung. Prüfe dein Netz und versuch es noch einmal.';
+    return AUTH_ERROR_KEYS.network;
   }
 
-  return error.message;
+  return null;
+}
+
+export function authErrorMessage(
+  error: AuthError | Error | null,
+  translate: AuthErrorTranslator,
+): string | null {
+  if (!error) return null;
+
+  const key = classifyAuthError(error);
+  return key ? translate(key) : error.message;
 }

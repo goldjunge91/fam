@@ -3,6 +3,8 @@ import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import { getDeviceStorage } from '@/lib/storage/device-storage';
+import authDe from './features/auth.de.json';
+import authEn from './features/auth.en.json';
 import commonDe from './features/common.de.json';
 import commonEn from './features/common.en.json';
 import dashboardDe from './features/dashboard.de.json';
@@ -21,6 +23,7 @@ export const LANGUAGE_STORAGE_KEY = 'fam:language';
 const resources = {
   de: {
     translation: {
+      auth: authDe,
       common: commonDe,
       dashboard: dashboardDe,
       settings: settingsDe,
@@ -29,6 +32,7 @@ const resources = {
   },
   en: {
     translation: {
+      auth: authEn,
       common: commonEn,
       dashboard: dashboardEn,
       settings: settingsEn,

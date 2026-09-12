@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { SignInScreen } from '@/features/auth/screens/sign-in-screen';
+import { i18n } from '@/i18n';
 
 const mockSignIn = jest.fn();
 
@@ -31,8 +32,9 @@ describe('SignInScreen', () => {
     );
   }
 
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks();
+    await i18n.changeLanguage('de');
   });
 
   it('rendert Formular für die Anmeldung', async () => {
@@ -44,6 +46,18 @@ describe('SignInScreen', () => {
     expect(screen.getByRole('button', { name: 'Anmelden' })).toBeTruthy();
   });
 
+  it('rendert Formular für die Anmeldung auf Englisch', async () => {
+    await i18n.changeLanguage('en');
+    await renderScreen();
+
+    expect(screen.getByText('Welcome back')).toBeTruthy();
+    expect(screen.getByLabelText('Email')).toBeTruthy();
+    expect(screen.getByLabelText('Password')).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Sign in' })).toBeTruthy();
+    expect(screen.getByText('or sign in with')).toBeTruthy();
+    expect(screen.getByText('🌐  Sign in with Google')).toBeTruthy();
+  });
+
   it('validiert leere Eingaben', async () => {
     await renderScreen();
 
@@ -51,6 +65,16 @@ describe('SignInScreen', () => {
     await fireEvent.press(submitBtn);
 
     expect(mockSignIn).not.toHaveBeenCalled();
+  });
+
+  it('zeigt Validierungsfehler auf Englisch an', async () => {
+    await i18n.changeLanguage('en');
+    await renderScreen();
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Sign in' }));
+
+    expect(await screen.findByText('Please enter your email address.')).toBeOnTheScreen();
+    expect(await screen.findByText('The password needs at least 8 characters.')).toBeOnTheScreen();
   });
 
   it('ruft signIn bei gültigen Zugangsdaten auf', async () => {

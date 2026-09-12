@@ -2,6 +2,7 @@ import { render, screen, userEvent, waitFor } from '@testing-library/react-nativ
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ResetPasswordScreen } from '@/features/auth/screens/reset-password-screen';
+import { i18n } from '@/i18n';
 
 const mockUpdatePassword = jest.fn();
 const mockReplace = jest.fn();
@@ -31,14 +32,24 @@ describe('ResetPasswordScreen', () => {
     );
   }
 
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks();
+    await i18n.changeLanguage('de');
   });
 
   it('rendert Felder für neues Passwort und Bestätigung', async () => {
     await renderScreen();
 
     expect(screen.getByRole('button', { name: 'Passwort speichern' })).toBeTruthy();
+  });
+
+  it('rendert das neue Passwort auf Englisch', async () => {
+    await i18n.changeLanguage('en');
+    await renderScreen();
+
+    expect(screen.getByLabelText('New password')).toBeTruthy();
+    expect(screen.getByLabelText('Repeat password')).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Save password' })).toBeTruthy();
   });
 
   it('validiert abweichende Passwort-Bestätigung', async () => {
@@ -56,6 +67,18 @@ describe('ResetPasswordScreen', () => {
 
     expect(mockUpdatePassword).not.toHaveBeenCalled();
     expect(await screen.findByText('Die Passwörter stimmen nicht überein.')).toBeTruthy();
+  });
+
+  it('zeigt den Passwortabgleich auf Englisch an', async () => {
+    await i18n.changeLanguage('en');
+    await renderScreen();
+
+    const user = userEvent.setup();
+    await user.type(screen.getByLabelText('New password'), 'geheim1234');
+    await user.type(screen.getByLabelText('Repeat password'), 'anders1234');
+    await user.press(screen.getByRole('button', { name: 'Save password' }));
+
+    expect(await screen.findByText('The passwords do not match.')).toBeOnTheScreen();
   });
 
   it('speichert neues Passwort und leitet zur Startseite weiter', async () => {

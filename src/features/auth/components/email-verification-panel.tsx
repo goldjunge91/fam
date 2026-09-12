@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
 import { Button, TextField, Txt } from '@/constants/ui';
@@ -17,6 +18,7 @@ interface EmailVerificationPanelProps {
 //   password,
 // }: EmailVerificationPanelProps) {
 export function EmailVerificationPanel(props: EmailVerificationPanelProps) {
+  const { t } = useTranslation();
   const email = props.email;
   const onConfirmed = props.onConfirmed;
   const onChangeEmail = props.onChangeEmail;
@@ -38,7 +40,7 @@ export function EmailVerificationPanel(props: EmailVerificationPanelProps) {
       <View className="row-center">
         <View className="live-dot" />
         <Txt variant="heading" className="pending-title">
-          Bestätigung ausstehend
+          {t('auth.verification.pendingTitle')}
         </Txt>
       </View>
 
@@ -49,18 +51,17 @@ export function EmailVerificationPanel(props: EmailVerificationPanelProps) {
       </View>
 
       <Txt variant="body" tone="secondary" className="pending-description">
-        Wir haben dir eine E-Mail geschickt. Klick den Link darin — egal auf welchem Gerät, die App
-        merkt das von selbst und geht weiter. Oder gib den 6-stelligen Code aus der E-Mail hier ein.
+        {t('auth.verification.description')}
       </Txt>
 
       <View className="code-block">
         <TextField
           testID="email-verification-code"
-          label="Code aus der E-Mail"
+          label={t('auth.fields.verificationCode')}
           value={verification.code}
           onChangeText={verification.setCodeInput}
           error={verification.codeError ?? undefined}
-          placeholder="123456"
+          placeholder={t('auth.verification.codePlaceholder')}
           keyboardType="number-pad"
           maxLength={6}
           autoComplete="sms-otp"
@@ -71,7 +72,7 @@ export function EmailVerificationPanel(props: EmailVerificationPanelProps) {
         />
 
         <Button
-          title="Bestätigen"
+          title={t('auth.verification.confirm')}
           onPress={verification.confirmCode}
           loading={verification.confirming}
           disabled={verification.code.length !== 6}
@@ -88,8 +89,8 @@ export function EmailVerificationPanel(props: EmailVerificationPanelProps) {
         <Button
           title={
             verification.cooldown > 0
-              ? `Erneut senden (${verification.cooldown}s)`
-              : 'Bestätigungs-E-Mail erneut senden'
+              ? t('auth.verification.resendCooldown', { seconds: verification.cooldown })
+              : t('auth.verification.resend')
           }
           variant="secondary"
           onPress={verification.resendEmail}
@@ -99,7 +100,7 @@ export function EmailVerificationPanel(props: EmailVerificationPanelProps) {
 
         {password ? (
           <Button
-            title="Jetzt prüfen"
+            title={t('auth.verification.checkNow')}
             variant="secondary"
             onPress={verification.checkConfirmation}
             loading={verification.recovering}
@@ -108,7 +109,7 @@ export function EmailVerificationPanel(props: EmailVerificationPanelProps) {
 
         {onChangeEmail ? (
           <Button
-            title="Andere E-Mail-Adresse verwenden"
+            title={t('auth.verification.changeEmail')}
             variant="secondary"
             onPress={onChangeEmail}
           />

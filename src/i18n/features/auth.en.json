@@ -1,0 +1,86 @@
+{
+  "signIn": {
+    "title": "Sign in",
+    "subtitle": "Welcome back",
+    "registerPrompt": "No account yet? Sign up",
+    "forgotPassword": "Forgot password",
+    "submit": "Sign in"
+  },
+  "signUp": {
+    "pendingTitle": "Activate account",
+    "pendingSubtitle": "Email confirmation pending",
+    "title": "Create account",
+    "subtitle": "For you and your household",
+    "privacyNote": "You will share your pantry and shopping list with your household later. Calories, weight, and goals stay private.",
+    "existingAccount": "I already have an account",
+    "submit": "Create account"
+  },
+  "fields": {
+    "email": "Email",
+    "password": "Password",
+    "passwordConfirmation": "Repeat password",
+    "newPassword": "New password",
+    "verificationCode": "Code from the email"
+  },
+  "providers": {
+    "signInDivider": "or sign in with",
+    "signUpDivider": "or continue with",
+    "googleSignIn": "🌐  Sign in with Google"
+  },
+  "verification": {
+    "pendingTitle": "Confirmation pending",
+    "description": "We sent you an email. Tap the link in it. No matter which device you use, the app will notice and continue. Or enter the 6-digit code from the email here.",
+    "confirm": "Confirm",
+    "checkNow": "Check now",
+    "changeEmail": "Use a different email address",
+    "resend": "Resend confirmation email",
+    "resendCooldown": "Resend ({{seconds}}s)",
+    "resendSuccess": "If your account is not confirmed yet, a new email is on its way. If nothing arrives, you probably already used the link. Use the button below instead.",
+    "codePlaceholder": "123456"
+  },
+  "passwordReset": {
+    "sentTitle": "Email on its way",
+    "sentBody": "If an account exists for {{email}}, an email with a reset link is on its way.",
+    "onboarding": "Onboarding",
+    "backToOnboarding": "Back to onboarding",
+    "backToSignIn": "Back to sign in",
+    "title": "Reset password",
+    "subtitle": "We will send you a link",
+    "requestLink": "Request link",
+    "newPasswordTitle": "New password",
+    "newPasswordSubtitle": "You will be signed in right away",
+    "save": "Save password",
+    "back": "Back",
+    "expiredLink": "The link has expired. Request a new one."
+  },
+  "validation": {
+    "emailRequired": "Please enter your email address.",
+    "emailInvalid": "This does not look like an email address.",
+    "passwordMin": "The password needs at least {{count}} characters.",
+    "passwordMax": "The password can have at most {{count}} characters.",
+    "passwordMismatch": "The passwords do not match.",
+    "codeInvalid": "Enter the 6 digits from the email."
+  },
+  "errors": {
+    "invalidCredentials": "The email or password is incorrect.",
+    "emailNotConfirmed": "Please confirm your email address first. We sent you a link.",
+    "alreadyRegistered": "An account already exists for this address. Sign in or reset your password.",
+    "passwordTooShort": "The password is too short.",
+    "rateLimited": "Too many attempts. Please wait a moment.",
+    "codeExpired": "The code has expired or was already used. Request a new one.",
+    "network": "No connection. Check your network and try again.",
+    "linkExpired": "The link has expired. Request a new one.",
+    "codeCheckFailed": "The code could not be checked.",
+    "codeAcceptedNoSession": "The code was accepted, but no session was returned.",
+    "signInFailed": "Sign-in failed.",
+    "sendFailed": "Could not send the email.",
+    "emailNotConfirmedAfterCheck": "Your email address is not confirmed yet.",
+    "unknown": "{{message}}"
+  },
+  "oauth": {
+    "redirectUrlMissing": "The sign-in service did not provide a redirect URL.",
+    "callbackInvalid": "The OAuth callback is invalid.",
+    "appleTokenMissing": "Apple did not provide an identity token.",
+    "appleSignInFailed": "Apple sign-in failed."
+  }
+}

@@ -2,6 +2,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react-nativ
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ForgotPasswordScreen } from '@/features/auth/screens/forgot-password-screen';
+import { i18n } from '@/i18n';
 
 const mockRequestPasswordReset = jest.fn();
 const mockBack = jest.fn();
@@ -39,10 +40,11 @@ describe('ForgotPasswordScreen', () => {
     );
   }
 
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks();
     mockSearchParams = {};
     mockCanGoBack.mockReturnValue(false);
+    await i18n.changeLanguage('de');
   });
 
   it('rendert E-Mail-Eingabe zum Zurücksetzen', async () => {
@@ -50,6 +52,15 @@ describe('ForgotPasswordScreen', () => {
 
     expect(screen.getByText('Passwort zurücksetzen')).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Link anfordern' })).toBeTruthy();
+  });
+
+  it('rendert die Passwort-Reset-Anfrage auf Englisch', async () => {
+    await i18n.changeLanguage('en');
+    await renderScreen();
+
+    expect(screen.getByText('Reset password')).toBeTruthy();
+    expect(screen.getByLabelText('Email')).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Request link' })).toBeTruthy();
   });
 
   it('sendet Reset-Link und wechselt zur Bestätigungsansicht', async () => {
@@ -67,6 +78,21 @@ describe('ForgotPasswordScreen', () => {
       expect(mockRequestPasswordReset).toHaveBeenCalledWith('anna@test.fam');
     });
     expect(await screen.findByText('E-Mail unterwegs')).toBeOnTheScreen();
+  });
+
+  it('setzt die E-Mail-Adresse in den neutralen englischen Hinweis ein', async () => {
+    await i18n.changeLanguage('en');
+    mockRequestPasswordReset.mockResolvedValue({ error: null });
+
+    await renderScreen();
+    await fireEvent.changeText(screen.getByLabelText('Email'), 'anna@test.fam');
+    await fireEvent.press(screen.getByRole('button', { name: 'Request link' }));
+
+    expect(
+      await screen.findByText(
+        'If an account exists for anna@test.fam, an email with a reset link is on its way.',
+      ),
+    ).toBeOnTheScreen();
   });
 
   it('kehrt aus dem Onboarding nach der Anfrage zum Account-Schritt zurück', async () => {

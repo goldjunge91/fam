@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { Button, Txt } from '@/constants/ui';
 import { AppleSignInButton } from '@/features/auth/components/apple-sign-in-button';
@@ -11,26 +12,27 @@ interface AuthProviderOptionsProps {
 }
 
 export function AuthProviderOptions({ mode, onAuthAttempt }: AuthProviderOptionsProps) {
+  const { t } = useTranslation();
   const [oauthError, setOAuthError] = useState<string | null>(null);
 
   return (
     <View className="gap-three">
       <View className="divider">
         <Txt variant="body" tone="secondary">
-          {mode === 'sign_in' ? 'oder anmelden mit' : 'oder weiter mit'}
+          {t(mode === 'sign_in' ? 'auth.providers.signInDivider' : 'auth.providers.signUpDivider')}
         </Txt>
       </View>
 
       <AppleSignInButton onAuthStart={onAuthAttempt} onError={(error) => setOAuthError(error)} />
 
       <Button
-        title="🌐  Mit Google anmelden"
+        title={t('auth.providers.googleSignIn')}
         variant="secondary"
         onPress={async () => {
           setOAuthError(null);
           onAuthAttempt?.();
           const { error } = await signInWithOAuthProvider('google');
-          if (error) setOAuthError(authErrorMessage(error));
+          if (error) setOAuthError(authErrorMessage(error, t));
         }}
       />
 

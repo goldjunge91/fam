@@ -1,0 +1,86 @@
+{
+  "signIn": {
+    "title": "Anmelden",
+    "subtitle": "Schön, dass du wieder da bist",
+    "registerPrompt": "Noch kein Konto? Registrieren",
+    "forgotPassword": "Passwort vergessen",
+    "submit": "Anmelden"
+  },
+  "signUp": {
+    "pendingTitle": "Konto aktivieren",
+    "pendingSubtitle": "E-Mail-Bestätigung ausstehend",
+    "title": "Konto erstellen",
+    "subtitle": "Für dich und deinen Haushalt",
+    "privacyNote": "Vorrat und Einkaufsliste teilst du später mit deinem Haushalt. Kalorien, Gewicht und Ziele bleiben privat.",
+    "existingAccount": "Ich habe schon ein Konto",
+    "submit": "Konto erstellen"
+  },
+  "fields": {
+    "email": "E-Mail",
+    "password": "Passwort",
+    "passwordConfirmation": "Passwort wiederholen",
+    "newPassword": "Neues Passwort",
+    "verificationCode": "Code aus der E-Mail"
+  },
+  "providers": {
+    "signInDivider": "oder anmelden mit",
+    "signUpDivider": "oder weiter mit",
+    "googleSignIn": "🌐  Mit Google anmelden"
+  },
+  "verification": {
+    "pendingTitle": "Bestätigung ausstehend",
+    "description": "Wir haben dir eine E-Mail geschickt. Klick den Link darin. Egal auf welchem Gerät, die App merkt das von selbst und geht weiter. Oder gib den 6-stelligen Code aus der E-Mail hier ein.",
+    "confirm": "Bestätigen",
+    "checkNow": "Jetzt prüfen",
+    "changeEmail": "Andere E-Mail-Adresse verwenden",
+    "resend": "Bestätigungs-E-Mail erneut senden",
+    "resendCooldown": "Erneut senden ({{seconds}}s)",
+    "resendSuccess": "Falls dein Konto noch nicht bestätigt ist, ist eine neue E-Mail unterwegs. Kommt nichts an, hast du den Link vermutlich schon benutzt. Nutze dann den Button darunter.",
+    "codePlaceholder": "123456"
+  },
+  "passwordReset": {
+    "sentTitle": "E-Mail unterwegs",
+    "sentBody": "Falls es zu {{email}} ein Konto gibt, ist eine E-Mail mit einem Link zum Zurücksetzen unterwegs.",
+    "onboarding": "Onboarding",
+    "backToOnboarding": "Zurück zum Onboarding",
+    "backToSignIn": "Zurück zur Anmeldung",
+    "title": "Passwort zurücksetzen",
+    "subtitle": "Wir schicken dir einen Link",
+    "requestLink": "Link anfordern",
+    "newPasswordTitle": "Neues Passwort",
+    "newPasswordSubtitle": "Danach bist du direkt angemeldet",
+    "save": "Passwort speichern",
+    "back": "Zurück",
+    "expiredLink": "Der Link ist abgelaufen. Fordere einen neuen an."
+  },
+  "validation": {
+    "emailRequired": "Bitte gib deine E-Mail-Adresse ein.",
+    "emailInvalid": "Das sieht nicht wie eine E-Mail-Adresse aus.",
+    "passwordMin": "Das Passwort braucht mindestens {{count}} Zeichen.",
+    "passwordMax": "Das Passwort darf höchstens {{count}} Zeichen haben.",
+    "passwordMismatch": "Die Passwörter stimmen nicht überein.",
+    "codeInvalid": "Bitte die 6 Ziffern aus der E-Mail eingeben."
+  },
+  "errors": {
+    "invalidCredentials": "E-Mail oder Passwort stimmt nicht.",
+    "emailNotConfirmed": "Bitte bestätige zuerst deine E-Mail-Adresse. Wir haben dir einen Link geschickt.",
+    "alreadyRegistered": "Für diese Adresse gibt es schon ein Konto. Melde dich an oder setze dein Passwort zurück.",
+    "passwordTooShort": "Das Passwort ist zu kurz.",
+    "rateLimited": "Zu viele Versuche. Bitte warte einen Moment.",
+    "codeExpired": "Der Code ist abgelaufen oder wurde schon benutzt. Fordere einen neuen an.",
+    "network": "Keine Verbindung. Prüfe dein Netz und versuch es noch einmal.",
+    "linkExpired": "Der Link ist abgelaufen. Fordere einen neuen an.",
+    "codeCheckFailed": "Der Code konnte nicht geprüft werden.",
+    "codeAcceptedNoSession": "Der Code wurde akzeptiert, aber es kam keine Sitzung zurück.",
+    "signInFailed": "Anmeldung fehlgeschlagen.",
+    "sendFailed": "Fehler beim Senden.",
+    "emailNotConfirmedAfterCheck": "Deine E-Mail-Adresse ist noch nicht bestätigt.",
+    "unknown": "{{message}}"
+  },
+  "oauth": {
+    "redirectUrlMissing": "Der Anmeldedienst hat keine Weiterleitungs-URL geliefert.",
+    "callbackInvalid": "Der OAuth-Callback ist ungültig.",
+    "appleTokenMissing": "Kein Identity-Token von Apple erhalten.",
+    "appleSignInFailed": "Apple-Anmeldung fehlgeschlagen."
+  }
+}

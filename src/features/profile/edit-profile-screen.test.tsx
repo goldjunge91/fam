@@ -7,6 +7,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { updateProfile, useProfile } from '@/features/profile/api';
 import { EditProfileScreen } from '@/features/profile/edit-profile-screen';
 import { saveProfileFoodRules, useProfileFoodRules } from '@/features/profile/food-rules-api';
+import { i18n } from '@/i18n';
 
 jest.mock('expo-router', () => ({
   router: {
@@ -85,8 +86,9 @@ async function renderScreen(avatarUrl: string | null = null) {
 }
 
 describe('EditProfileScreen', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks();
+    await i18n.changeLanguage('de');
   });
 
   it('rendert Profilbild-Bereich mit Bild auswählen Button und Initialen', async () => {

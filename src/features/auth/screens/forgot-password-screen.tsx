@@ -2,21 +2,27 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { requestPasswordReset } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
-import { type PasswordResetRequestInput, passwordResetRequestSchema } from '@/lib/db/zod/auth.zod';
+import {
+  type PasswordResetRequestInput,
+  passwordResetRequestSchema,
+  translateAuthValidationMessage,
+} from '@/lib/db/zod/auth.zod';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 export function ForgotPasswordScreen() {
+  const { t } = useTranslation();
   const { from } = useLocalSearchParams<{ from?: string }>();
   const fromOnboarding = from === 'onboarding';
   const backTarget = fromOnboarding
-    ? ({ label: 'Onboarding', href: '/onboarding' } as const)
-    : ({ label: 'Anmelden', href: '/sign-in' } as const);
+    ? ({ label: t('auth.passwordReset.onboarding'), href: '/onboarding' } as const)
+    : ({ label: t('auth.signIn.title'), href: '/sign-in' } as const);
   const [formError, setFormError] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
   const {
@@ -45,7 +51,7 @@ export function ForgotPasswordScreen() {
     const { error } = await requestPasswordReset(values.email);
 
     if (error) {
-      setFormError(authErrorMessage(error));
+      setFormError(authErrorMessage(error, t));
       return;
     }
     setSent(true);
@@ -53,19 +59,22 @@ export function ForgotPasswordScreen() {
 
   if (sent) {
     return (
-      <Screen title="E-Mail unterwegs" back={backTarget}>
+      <Screen title={t('auth.passwordReset.sentTitle')} back={backTarget}>
         {/* Bestätigungskarte nach E-Mail-Versand */}
         <Card>
           {/* Bewusst neutral formuliert: Eine Bestaetigung, dass genau diese
               Adresse ein Konto hat, waere eine Auskunft ueber fremde Nutzer. */}
           <Txt variant="body">
-            Falls es zu {email.trim().toLowerCase()} ein Konto gibt, ist eine E-Mail mit einem Link
-            zum Zurücksetzen unterwegs.
+            {t('auth.passwordReset.sentBody', { email: email.trim().toLowerCase() })}
           </Txt>
         </Card>
         {/* Zurück-Aktion */}
         <Button
-          title={fromOnboarding ? 'Zurück zum Onboarding' : 'Zurück zur Anmeldung'}
+          title={
+            fromOnboarding
+              ? t('auth.passwordReset.backToOnboarding')
+              : t('auth.passwordReset.backToSignIn')
+          }
           variant="secondary"
           onPress={handleBack}
         />
@@ -74,17 +83,20 @@ export function ForgotPasswordScreen() {
   }
 
   return (
-    <Screen title="Passwort zurücksetzen" subtitle="Wir schicken dir einen Link" back={backTarget}>
+    <Screen
+      title={t('auth.passwordReset.title')}
+      subtitle={t('auth.passwordReset.subtitle')}
+      back={backTarget}>
       {/* Formular zur Passworteingabe / Reset-Anfrage */}
       <Card>
         <View className="gap-three">
           {/* E-Mail-Eingabefeld */}
           <TextField
             testID="forgot-password-email"
-            label="E-Mail"
+            label={t('auth.fields.email')}
             value={email}
             onChangeText={(value) => setValue('email', value, { shouldValidate: true })}
-            error={errors.email?.message}
+            error={translateAuthValidationMessage(errors.email?.message, t)}
             autoCapitalize="none"
             autoComplete="email"
             keyboardType="email-address"
@@ -103,7 +115,7 @@ export function ForgotPasswordScreen() {
 
           {/* Absende-Button */}
           <Button
-            title="Link anfordern"
+            title={t('auth.passwordReset.requestLink')}
             onPress={() => void handleSubmit(submit)()}
             loading={isSubmitting}
           />
@@ -111,7 +123,11 @@ export function ForgotPasswordScreen() {
       </Card>
 
       {/* Navigation zurück */}
-      <Button title="Zurück" variant="secondary" onPress={() => router.back()} />
+      <Button
+        title={t('auth.passwordReset.back')}
+        variant="secondary"
+        onPress={() => router.back()}
+      />
     </Screen>
   );
 }

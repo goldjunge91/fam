@@ -5,6 +5,7 @@ import * as WebBrowser from 'expo-web-browser';
 import { Platform } from 'react-native';
 
 import { parseOAuthTokensFromUrl } from '@/features/auth/domain/auth-deep-link';
+import { AUTH_ERROR_KEYS } from '@/features/auth/domain/auth-error-message';
 import { getSupabase } from '@/lib/supabase';
 import { reportError } from '@/lib/telemetry';
 
@@ -23,7 +24,7 @@ export async function signInWithOAuthProvider(provider: 'apple' | 'google') {
   if (!data.url) {
     return {
       data,
-      error: new Error('Der Anmeldedienst hat keine Weiterleitungs-URL geliefert.'),
+      error: new Error(AUTH_ERROR_KEYS.redirectUrlMissing),
     };
   }
 
@@ -32,7 +33,7 @@ export async function signInWithOAuthProvider(provider: 'apple' | 'google') {
 
   const tokens = parseOAuthTokensFromUrl(result.url, redirectTo);
   if (!tokens) {
-    return { data, error: new Error('Der OAuth-Callback ist ungültig.') };
+    return { data, error: new Error(AUTH_ERROR_KEYS.callbackInvalid) };
   }
 
   const { error: sessionError } = await supabase.auth.setSession({
@@ -62,7 +63,7 @@ export async function signInWithApple() {
     });
 
     if (!credential.identityToken) {
-      return { data: null, error: new Error('Kein Identity-Token von Apple erhalten.') };
+      return { data: null, error: new Error(AUTH_ERROR_KEYS.appleTokenMissing) };
     }
 
     return await getSupabase().auth.signInWithIdToken({
@@ -82,7 +83,7 @@ export async function signInWithApple() {
 
     return {
       data: null,
-      error: error instanceof Error ? error : new Error('Apple-Anmeldung fehlgeschlagen.'),
+      error: new Error(AUTH_ERROR_KEYS.appleSignInFailed),
     };
   }
 }

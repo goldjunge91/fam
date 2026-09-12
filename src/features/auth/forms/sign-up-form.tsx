@@ -1,11 +1,16 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { signUp } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
-import { type SignUpInput, signUpSchema } from '@/lib/db/zod/auth.zod';
+import {
+  type SignUpInput,
+  signUpSchema,
+  translateAuthValidationMessage,
+} from '@/lib/db/zod/auth.zod';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 export interface PendingSignUp {
@@ -23,9 +28,10 @@ interface SignUpFormProps {
 export function SignUpForm({
   onSuccess,
   onPendingVerification,
-  submitLabel = 'Konto erstellen',
+  submitLabel,
   testIDPrefix = 'sign-up',
 }: SignUpFormProps) {
+  const { t } = useTranslation();
   const [formError, setFormError] = useState<string | null>(null);
   const {
     control,
@@ -47,7 +53,7 @@ export function SignUpForm({
     const { data, error } = await signUp(values.email, values.password);
 
     if (error) {
-      setFormError(authErrorMessage(error));
+      setFormError(authErrorMessage(error, t));
       return;
     }
 
@@ -63,10 +69,10 @@ export function SignUpForm({
     <View className="gap-three">
       <TextField
         testID={`${testIDPrefix}-email`}
-        label="E-Mail"
+        label={t('auth.fields.email')}
         value={email}
         onChangeText={(value) => setValue('email', value, { shouldValidate: true })}
-        error={errors.email?.message}
+        error={translateAuthValidationMessage(errors.email?.message, t)}
         autoCapitalize="none"
         autoComplete="email"
         keyboardType="email-address"
@@ -76,10 +82,10 @@ export function SignUpForm({
 
       <TextField
         testID={`${testIDPrefix}-password`}
-        label="Passwort"
+        label={t('auth.fields.password')}
         value={password}
         onChangeText={(value) => setValue('password', value, { shouldValidate: true })}
-        error={errors.password?.message}
+        error={translateAuthValidationMessage(errors.password?.message, t)}
         secureTextEntry
         autoCapitalize="none"
         autoComplete="new-password"
@@ -88,10 +94,10 @@ export function SignUpForm({
 
       <TextField
         testID={`${testIDPrefix}-password-confirmation`}
-        label="Passwort wiederholen"
+        label={t('auth.fields.passwordConfirmation')}
         value={passwordConfirmation}
         onChangeText={(value) => setValue('passwordConfirmation', value, { shouldValidate: true })}
-        error={errors.passwordConfirmation?.message}
+        error={translateAuthValidationMessage(errors.passwordConfirmation?.message, t)}
         secureTextEntry
         autoCapitalize="none"
         autoComplete="new-password"
@@ -107,7 +113,7 @@ export function SignUpForm({
       ) : null}
 
       <Button
-        title={submitLabel}
+        title={submitLabel ?? t('auth.signUp.submit')}
         onPress={() => void handleSubmit(submit)()}
         loading={isSubmitting}
       />

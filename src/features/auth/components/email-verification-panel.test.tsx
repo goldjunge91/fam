@@ -1,4 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
+import { i18n } from '@/i18n';
 import { EmailVerificationPanel as VerificationPanel } from './email-verification-panel';
 
 /**
@@ -39,6 +40,10 @@ jest.mock('@/hooks/use-theme', () => ({
 }));
 
 describe('EmailVerificationPanel', () => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   afterEach(() => {
     jest.clearAllTimers();
     jest.useRealTimers();
@@ -57,6 +62,26 @@ describe('EmailVerificationPanel', () => {
     expect(screen.getByText('test@example.com')).toBeTruthy();
     expect(screen.getByText('Bestätigungs-E-Mail erneut senden')).toBeTruthy();
     expect(screen.getByText('Andere E-Mail-Adresse verwenden')).toBeTruthy();
+  });
+
+  it('rendert den Bestätigungsbereich auf Englisch', async () => {
+    await i18n.changeLanguage('en');
+
+    await render(
+      <VerificationPanel
+        email="test@example.com"
+        onConfirmed={jest.fn()}
+        onChangeEmail={jest.fn()}
+        password="geheim-genug"
+      />,
+    );
+
+    expect(screen.getByText('Confirmation pending')).toBeTruthy();
+    expect(screen.getByLabelText('Code from the email')).toBeTruthy();
+    expect(screen.getByText('Confirm')).toBeTruthy();
+    expect(screen.getByText('Check now')).toBeTruthy();
+    expect(screen.getByText('Resend confirmation email')).toBeTruthy();
+    expect(screen.getByText('Use a different email address')).toBeTruthy();
   });
 
   it('sollte Re-Send E-Mail auslösen bei Klick auf den Button', async () => {
@@ -295,6 +320,17 @@ describe('EmailVerificationPanel', () => {
       expect(screen.getByText('Bitte die 6 Ziffern aus der E-Mail eingeben.')).toBeTruthy();
     });
 
+    it('zeigt einen ungültigen Code auf Englisch an', async () => {
+      await i18n.changeLanguage('en');
+
+      await render(<VerificationPanel email="test@example.com" onConfirmed={jest.fn()} />);
+
+      await fireEvent.changeText(screen.getByTestId('email-verification-code'), '4729');
+      await fireEvent(screen.getByTestId('email-verification-code'), 'submitEditing');
+
+      expect(await screen.findByText('Enter the 6 digits from the email.')).toBeOnTheScreen();
+    });
+
     it('sollte Nicht-Ziffern aus der Eingabe entfernen (Copy-Paste aus dem Mailclient)', async () => {
       const { confirmSignUpWithCode } = require('@/features/auth/api');
       confirmSignUpWithCode.mockResolvedValueOnce({
@@ -401,5 +437,19 @@ describe('EmailVerificationPanel', () => {
 
     expect(screen.queryByText('Bestätigungs-E-Mail erneut gesendet!')).toBeNull();
     expect(screen.getByText(/Falls dein Konto noch nicht bestätigt ist/)).toBeTruthy();
+  });
+
+  it('zeigt Erfolgsstatus und Countdown auf Englisch', async () => {
+    await i18n.changeLanguage('en');
+    jest.useFakeTimers();
+
+    await render(<VerificationPanel email="test@example.com" onConfirmed={jest.fn()} />);
+
+    await fireEvent.press(screen.getByText('Resend confirmation email'));
+
+    expect(screen.getByText(/If your account is not confirmed yet/)).toBeTruthy();
+    expect(screen.getByText('Resend (60s)')).toBeTruthy();
+
+    jest.useRealTimers();
   });
 });

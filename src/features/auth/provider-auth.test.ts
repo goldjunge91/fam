@@ -20,6 +20,7 @@ jest.mock('expo-web-browser', () => ({
   openAuthSessionAsync: (...args: unknown[]) => mockOpenAuthSessionAsync(...args),
 }));
 
+import { AUTH_ERROR_KEYS } from '@/features/auth/domain/auth-error-message';
 import { signInWithOAuthProvider } from '@/features/auth/provider-auth';
 
 describe('provider auth', () => {
@@ -44,5 +45,28 @@ describe('provider auth', () => {
       access_token: 'abc123',
       refresh_token: 'def456',
     });
+  });
+
+  it('liefert einen stabilen Fehler-Key, wenn keine OAuth-URL vorhanden ist', async () => {
+    mockSignInWithOAuth.mockResolvedValue({ data: {}, error: null });
+
+    const result = await signInWithOAuthProvider('google');
+
+    expect(result.error?.message).toBe(AUTH_ERROR_KEYS.redirectUrlMissing);
+  });
+
+  it('liefert einen stabilen Fehler-Key bei ungültigem OAuth-Callback', async () => {
+    mockSignInWithOAuth.mockResolvedValue({
+      data: { url: 'https://accounts.example.com/oauth' },
+      error: null,
+    });
+    mockOpenAuthSessionAsync.mockResolvedValue({
+      type: 'success',
+      url: 'fam:///other-route#access_token=abc123&refresh_token=def456',
+    });
+
+    const result = await signInWithOAuthProvider('google');
+
+    expect(result.error?.message).toBe(AUTH_ERROR_KEYS.callbackInvalid);
   });
 });

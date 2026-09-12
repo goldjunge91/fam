@@ -1,4 +1,5 @@
 import { Link } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
@@ -7,8 +8,10 @@ import { AuthProviderOptions } from '@/features/auth/components/auth-provider-op
 import { SignInForm } from '@/features/auth/forms/sign-in-form';
 
 export function SignInScreen() {
+  const { t } = useTranslation();
+
   return (
-    <Screen title="Anmelden" subtitle="Schön, dass du wieder da bist">
+    <Screen title={t('auth.signIn.title')} subtitle={t('auth.signIn.subtitle')}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         {/* Haupt-Anmeldeformular */}
         <Card>
@@ -22,13 +25,13 @@ export function SignInScreen() {
         <View className="link-stack">
           <Link href="/sign-up" asChild>
             <Txt variant="label" tone="accent">
-              Noch kein Konto? Registrieren
+              {t('auth.signIn.registerPrompt')}
             </Txt>
           </Link>
 
           <Link href="/forgot-password" asChild>
             <Txt variant="label" tone="secondary">
-              Passwort vergessen
+              {t('auth.signIn.forgotPassword')}
             </Txt>
           </Link>
         </View>

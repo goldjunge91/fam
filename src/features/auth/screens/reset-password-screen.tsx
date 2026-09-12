@@ -2,16 +2,22 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { updatePassword } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
-import { type NewPasswordInput, newPasswordSchema } from '@/lib/db/zod/auth.zod';
+import {
+  type NewPasswordInput,
+  newPasswordSchema,
+  translateAuthValidationMessage,
+} from '@/lib/db/zod/auth.zod';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 export function ResetPasswordScreen() {
+  const { t } = useTranslation();
   const [formError, setFormError] = useState<string | null>(null);
   const {
     control,
@@ -32,7 +38,7 @@ export function ResetPasswordScreen() {
     const { error } = await updatePassword(values.password);
 
     if (error) {
-      setFormError(authErrorMessage(error) ?? 'Der Link ist abgelaufen. Fordere einen neuen an.');
+      setFormError(authErrorMessage(error, t) ?? t('auth.passwordReset.expiredLink'));
       return;
     }
 
@@ -40,16 +46,18 @@ export function ResetPasswordScreen() {
   }
 
   return (
-    <Screen title="Neues Passwort" subtitle="Danach bist du direkt angemeldet">
+    <Screen
+      title={t('auth.passwordReset.newPasswordTitle')}
+      subtitle={t('auth.passwordReset.newPasswordSubtitle')}>
       {/* Formular für neues Passwort */}
       <Card>
         <View className="gap-three">
           {/* Eingabe neues Passwort */}
           <TextField
-            label="Neues Passwort"
+            label={t('auth.fields.newPassword')}
             value={password}
             onChangeText={(value) => setValue('password', value, { shouldValidate: true })}
-            error={errors.password?.message}
+            error={translateAuthValidationMessage(errors.password?.message, t)}
             secureTextEntry
             autoCapitalize="none"
             autoComplete="new-password"
@@ -57,12 +65,12 @@ export function ResetPasswordScreen() {
           />
           {/* Eingabe Passwort-Bestätigung */}
           <TextField
-            label="Passwort wiederholen"
+            label={t('auth.fields.passwordConfirmation')}
             value={passwordConfirmation}
             onChangeText={(value) =>
               setValue('passwordConfirmation', value, { shouldValidate: true })
             }
-            error={errors.passwordConfirmation?.message}
+            error={translateAuthValidationMessage(errors.passwordConfirmation?.message, t)}
             secureTextEntry
             autoCapitalize="none"
             autoComplete="new-password"
@@ -80,7 +88,7 @@ export function ResetPasswordScreen() {
 
           {/* Absende-Button */}
           <Button
-            title="Passwort speichern"
+            title={t('auth.passwordReset.save')}
             onPress={() => void handleSubmit(submit)()}
             loading={isSubmitting}
           />

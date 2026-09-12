@@ -1,11 +1,16 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { signIn } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
-import { type SignInInput, signInSchema } from '@/lib/db/zod/auth.zod';
+import {
+  type SignInInput,
+  signInSchema,
+  translateAuthValidationMessage,
+} from '@/lib/db/zod/auth.zod';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 interface SignInFormProps {
@@ -14,11 +19,8 @@ interface SignInFormProps {
   testIDPrefix?: string;
 }
 
-export function SignInForm({
-  onSuccess,
-  submitLabel = 'Anmelden',
-  testIDPrefix = 'sign-in',
-}: SignInFormProps) {
+export function SignInForm({ onSuccess, submitLabel, testIDPrefix = 'sign-in' }: SignInFormProps) {
+  const { t } = useTranslation();
   const [formError, setFormError] = useState<string | null>(null);
   const {
     control,
@@ -39,7 +41,7 @@ export function SignInForm({
     const { error } = await signIn(values.email, values.password);
 
     if (error) {
-      setFormError(authErrorMessage(error));
+      setFormError(authErrorMessage(error, t));
       return;
     }
 
@@ -50,10 +52,10 @@ export function SignInForm({
     <View className="gap-three">
       <TextField
         testID={`${testIDPrefix}-email`}
-        label="E-Mail"
+        label={t('auth.fields.email')}
         value={email}
         onChangeText={(value) => setValue('email', value, { shouldValidate: true })}
-        error={errors.email?.message}
+        error={translateAuthValidationMessage(errors.email?.message, t)}
         autoCapitalize="none"
         autoComplete="email"
         keyboardType="email-address"
@@ -63,10 +65,10 @@ export function SignInForm({
 
       <TextField
         testID={`${testIDPrefix}-password`}
-        label="Passwort"
+        label={t('auth.fields.password')}
         value={password}
         onChangeText={(value) => setValue('password', value, { shouldValidate: true })}
-        error={errors.password?.message}
+        error={translateAuthValidationMessage(errors.password?.message, t)}
         secureTextEntry
         autoCapitalize="none"
         autoComplete="current-password"
@@ -82,7 +84,7 @@ export function SignInForm({
       ) : null}
 
       <Button
-        title={submitLabel}
+        title={submitLabel ?? t('auth.signIn.submit')}
         onPress={() => void handleSubmit(submit)()}
         loading={isSubmitting}
       />

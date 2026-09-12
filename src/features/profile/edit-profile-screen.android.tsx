@@ -4,6 +4,7 @@ import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Alert, Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
@@ -40,6 +41,7 @@ import {
 import { BiometricsSheet } from '@/features/profile/sheets/biometrics-sheet';
 import { FoodRuleSelectionSheet } from '@/features/profile/sheets/food-rule-selection-sheet';
 import { PasswordChangeSheet } from '@/features/profile/sheets/password-change-sheet';
+import { AUTH_VALIDATION_KEYS, translateAuthValidationMessage } from '@/lib/db/zod/auth.zod';
 import { type ProfileAccountForm, profileAccountFormSchema } from '@/lib/db/zod/profile.zod';
 import { getInitials } from '@/lib/initials';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
@@ -51,6 +53,7 @@ import { getSupabase } from '@/lib/supabase';
  */
 export function EditProfileScreen() {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
   const currentEmail = session?.user.email ?? '';
@@ -241,7 +244,7 @@ export function EditProfileScreen() {
     if (!newPassword) {
       setError('newPassword', {
         type: 'manual',
-        message: 'Das Passwort braucht mindestens 8 Zeichen.',
+        message: AUTH_VALIDATION_KEYS.passwordMin,
       });
       return;
     }
@@ -253,7 +256,7 @@ export function EditProfileScreen() {
     try {
       const { error } = await updatePassword(newPassword);
       if (error) {
-        setPasswordSaveError(authErrorMessage(error));
+        setPasswordSaveError(authErrorMessage(error, t));
         return;
       }
 
@@ -328,7 +331,7 @@ export function EditProfileScreen() {
             label="E-Mail-Adresse"
             value={email}
             onChangeText={(value) => setValue('email', value, { shouldValidate: true })}
-            error={errors.email?.message}
+            error={translateAuthValidationMessage(errors.email?.message, t)}
             autoCapitalize="none"
             keyboardType="email-address"
           />
@@ -358,8 +361,11 @@ export function EditProfileScreen() {
         visible={passwordSheetVisible}
         password={newPassword}
         passwordConfirmation={confirmPassword}
-        passwordError={errors.newPassword?.message}
-        passwordConfirmationError={errors.passwordConfirmation?.message}
+        passwordError={translateAuthValidationMessage(errors.newPassword?.message, t)}
+        passwordConfirmationError={translateAuthValidationMessage(
+          errors.passwordConfirmation?.message,
+          t,
+        )}
         submissionError={passwordSaveError}
         saving={passwordSaving}
         onPasswordChange={(value) => setValue('newPassword', value, { shouldValidate: true })}

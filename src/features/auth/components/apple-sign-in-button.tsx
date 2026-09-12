@@ -3,6 +3,8 @@ import {
   AppleAuthenticationButtonStyle,
   AppleAuthenticationButtonType,
 } from 'expo-apple-authentication';
+import { useTranslation } from 'react-i18next';
+
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { signInWithApple } from '@/features/auth/provider-auth';
@@ -14,6 +16,7 @@ type AppleSignInButtonProps = {
 
 export function AppleSignInButton({ onError, onAuthStart }: AppleSignInButtonProps) {
   const { mode } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <AppleAuthenticationButton
@@ -30,7 +33,7 @@ export function AppleSignInButton({ onError, onAuthStart }: AppleSignInButtonPro
         onAuthStart?.();
         const { error } = await signInWithApple();
         if (error && onError) {
-          onError(authErrorMessage(error));
+          onError(authErrorMessage(error, t));
         }
       }}
     />

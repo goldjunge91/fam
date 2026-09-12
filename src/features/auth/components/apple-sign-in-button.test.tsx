@@ -3,6 +3,8 @@ import { AppleAuthenticationButtonStyle } from 'expo-apple-authentication';
 import type { ComponentProps } from 'react';
 import type { View } from 'react-native';
 
+import { i18n } from '@/i18n';
+
 import { AppleSignInButton } from './apple-sign-in-button';
 
 type AppleButtonMockProps = ComponentProps<typeof View> & {
@@ -38,6 +40,10 @@ jest.mock('@/features/auth/provider-auth', () => ({
 }));
 
 describe('AppleSignInButton', () => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   it('uses the light Apple button style for the light app theme', async () => {
     mockThemeMode = 'light';
 

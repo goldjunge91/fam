@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
@@ -9,14 +10,15 @@ import { EmailVerificationPanel } from '@/features/auth/components/email-verific
 import { type PendingSignUp, SignUpForm } from '@/features/auth/forms/sign-up-form';
 
 export function SignUpScreen() {
+  const { t } = useTranslation();
   const [pendingSignUp, setPendingSignUp] = useState<PendingSignUp | null>(null);
 
   if (pendingSignUp) {
     return (
       <Screen
-        title="Konto aktivieren"
-        subtitle="E-Mail-Bestätigung ausstehend"
-        back={{ label: 'Anmelden', href: '/sign-in' }}>
+        title={t('auth.signUp.pendingTitle')}
+        subtitle={t('auth.signUp.pendingSubtitle')}
+        back={{ label: t('auth.signIn.title'), href: '/sign-in' }}>
         {/* Banner/Hinweis für ausstehende E-Mail-Bestätigung */}
         <EmailVerificationPanel
           email={pendingSignUp.email}
@@ -30,9 +32,9 @@ export function SignUpScreen() {
 
   return (
     <Screen
-      title="Konto erstellen"
-      subtitle="Für dich und deinen Haushalt"
-      back={{ label: 'Anmelden', href: '/sign-in' }}>
+      title={t('auth.signUp.title')}
+      subtitle={t('auth.signUp.subtitle')}
+      back={{ label: t('auth.signIn.title'), href: '/sign-in' }}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         {/* Haupt-Registrierungsformular */}
         <Card>
@@ -45,15 +47,14 @@ export function SignUpScreen() {
 
             {/* Datenschutz- & Haushalts-Hinweis */}
             <Txt variant="body" tone="secondary">
-              Vorrat und Einkaufsliste teilst du später mit deinem Haushalt. Kalorien, Gewicht und
-              Ziele bleiben privat.
+              {t('auth.signUp.privacyNote')}
             </Txt>
           </View>
         </Card>
 
         {/* Wechsel zur Anmeldung */}
         <Button
-          title="Ich habe schon ein Konto"
+          title={t('auth.signUp.existingAccount')}
           variant="secondary"
           onPress={() => router.replace('/sign-in')}
         />
