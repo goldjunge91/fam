@@ -39,6 +39,21 @@ export type DynamicTranslationReference = {
   path: string;
 };
 
+export type HardcodedUiTextReference = {
+  text: string;
+  line: number;
+  path: string;
+  position:
+    | 'jsx-text'
+    | 'attribute:accessibilityHint'
+    | 'attribute:accessibilityLabel'
+    | 'attribute:label'
+    | 'attribute:placeholder'
+    | 'attribute:title'
+    | 'alert-title'
+    | 'alert-message';
+};
+
 function readSupportedLanguages(): string[] {
   const source = ts.createSourceFile(
     LANGUAGE_SOURCE,
@@ -271,6 +286,98 @@ export function extractLiteralTranslationReferences(
   return references;
 }
 
+function normalizeHardcodedUiText(value: string): string | null {
+  const text = value.replace(/\s+/gu, ' ').trim();
+  return /\p{L}/u.test(text) ? text : null;
+}
+
+function readStaticJsxAttributeText(value: ts.JsxAttributeValue | undefined): string | null {
+  if (!value) return null;
+  if (ts.isStringLiteralLike(value)) return normalizeHardcodedUiText(value.text);
+  if (!ts.isJsxExpression(value) || !value.expression) return null;
+  return ts.isStringLiteralLike(value.expression)
+    ? normalizeHardcodedUiText(value.expression.text)
+    : null;
+}
+
+function readHardcodedUiAttributePosition(
+  name: string,
+): HardcodedUiTextReference['position'] | null {
+  switch (name) {
+    case 'accessibilityHint':
+    case 'accessibilityLabel':
+    case 'label':
+    case 'placeholder':
+    case 'title':
+      return `attribute:${name}`;
+    default:
+      return null;
+  }
+}
+
+function isAlertCall(expression: ts.Expression): boolean {
+  return (
+    ts.isPropertyAccessExpression(expression) &&
+    ts.isIdentifier(expression.expression) &&
+    expression.expression.text === 'Alert' &&
+    expression.name.text === 'alert'
+  );
+}
+
+export function extractHardcodedUiTextReferences(
+  content: string,
+  sourcePath: string,
+): HardcodedUiTextReference[] {
+  const source = ts.createSourceFile(
+    sourcePath,
+    content,
+    ts.ScriptTarget.Latest,
+    true,
+    sourcePath.endsWith('.tsx') ? ts.ScriptKind.TSX : ts.ScriptKind.TS,
+  );
+  const references: HardcodedUiTextReference[] = [];
+
+  function addReference(
+    node: ts.Node,
+    text: string | null,
+    position: HardcodedUiTextReference['position'],
+  ): void {
+    if (!text) return;
+    const { line } = source.getLineAndCharacterOfPosition(node.getStart(source));
+    references.push({ text, line: line + 1, path: sourcePath, position });
+  }
+
+  function visit(node: ts.Node): void {
+    if (ts.isJsxText(node)) {
+      addReference(node, normalizeHardcodedUiText(node.text), 'jsx-text');
+    }
+
+    if (ts.isJsxAttribute(node) && ts.isIdentifier(node.name)) {
+      const attributeName = node.name.text;
+      const position = readHardcodedUiAttributePosition(attributeName);
+      if (position) {
+        const text = readStaticJsxAttributeText(node.initializer);
+        addReference(node, text, position);
+      }
+    }
+
+    if (ts.isCallExpression(node) && isAlertCall(node.expression)) {
+      const [title, message] = node.arguments;
+      if (title && ts.isStringLiteralLike(title)) {
+        addReference(title, normalizeHardcodedUiText(title.text), 'alert-title');
+      }
+      if (message && ts.isStringLiteralLike(message)) {
+        addReference(message, normalizeHardcodedUiText(message.text), 'alert-message');
+      }
+    }
+
+    ts.forEachChild(node, visit);
+  }
+
+  visit(source);
+  return references;
+}
+
 function createSourceProgram(): ts.Program {
   const config = ts.getParsedCommandLineOfConfigFile(
     path.join(REPO_ROOT, 'tsconfig.json'),
@@ -385,6 +492,36 @@ export function findProductionTranslationReferences(): TranslationReference[] {
       path.relative(REPO_ROOT, sourcePath),
     ),
   );
+}
+
+export function findProductionHardcodedUiTextReferences(): HardcodedUiTextReference[] {
+  return findProductionSourceFiles(path.join(REPO_ROOT, 'src')).flatMap((sourcePath) =>
+    extractHardcodedUiTextReferences(
+      readFileSync(sourcePath, 'utf8'),
+      path.relative(REPO_ROOT, sourcePath),
+    ),
+  );
+}
+
+export function formatHardcodedUiTextReport(references: HardcodedUiTextReference[]): string {
+  if (references.length === 0) return 'Hardcoded UI text report (report-only): no findings.';
+
+  const maxReportedFindings = 100;
+  const reportedReferences = references.slice(0, maxReportedFindings);
+  const omittedFindings = references.length - reportedReferences.length;
+  const omittedLine =
+    omittedFindings > 0
+      ? [`... ${omittedFindings} further finding(s) omitted from console output.`]
+      : [];
+
+  return [
+    `Hardcoded UI text report (report-only): ${references.length} finding(s)`,
+    ...reportedReferences.map(
+      (reference) =>
+        `- ${reference.path}:${reference.line} [${reference.position}] ${JSON.stringify(reference.text)}`,
+    ),
+    ...omittedLine,
+  ].join('\n');
 }
 
 export function findProductionDynamicTranslationReferences(): DynamicTranslationReference[] {

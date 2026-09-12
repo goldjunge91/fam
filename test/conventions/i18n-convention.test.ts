@@ -1,9 +1,12 @@
 import {
   type DynamicTranslationReference,
   discoverLocaleCatalogs,
+  extractHardcodedUiTextReferences,
   extractLiteralTranslationReferences,
   findProductionDynamicTranslationReferences,
+  findProductionHardcodedUiTextReferences,
   findProductionTranslationReferences,
+  formatHardcodedUiTextReport,
   type LocaleCatalogSnapshot,
   loadLocaleCatalogs,
   parseLocaleCatalog,
@@ -222,5 +225,33 @@ describe('i18n-Konventionen', () => {
     expect(validateDynamicTranslationReferences([reference], loadLocaleCatalogs())).toEqual([
       'Untestable dynamic translation key at src/features/example.tsx:7: serverValue',
     ]);
+  });
+
+  it('erkennt sichtbare hartcodierte JSX- und Alert-Texte mit Position', () => {
+    const references = extractHardcodedUiTextReferences(
+      [
+        '<Text>Anmelden</Text>',
+        '<Button title="Speichern" />',
+        "<TextInput placeholder={'Suchen'} />",
+        "Alert.alert('Fehler', 'Nicht gespeichert');",
+        '<Button testID="technical-id" title={buttonTitle} />',
+      ].join('\n'),
+      'fixture.tsx',
+    );
+
+    expect(references).toEqual([
+      { text: 'Anmelden', line: 1, path: 'fixture.tsx', position: 'jsx-text' },
+      { text: 'Speichern', line: 2, path: 'fixture.tsx', position: 'attribute:title' },
+      { text: 'Suchen', line: 3, path: 'fixture.tsx', position: 'attribute:placeholder' },
+      { text: 'Fehler', line: 4, path: 'fixture.tsx', position: 'alert-title' },
+      { text: 'Nicht gespeichert', line: 4, path: 'fixture.tsx', position: 'alert-message' },
+    ]);
+  });
+
+  it('gibt bestehende Hardcode-Funde report-only aus', () => {
+    const references = findProductionHardcodedUiTextReferences();
+
+    expect(Array.isArray(references)).toBe(true);
+    if (references.length > 0) console.info(formatHardcodedUiTextReport(references));
   });
 });
