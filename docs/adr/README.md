@@ -14,6 +14,7 @@ Schema und in den Tests.
 | [0003](0003-deterministic-preference-identity.md) | Einkaufspräferenzen erhalten deterministische UUIDv5-IDs. | Akzeptiert |
 | [0004](0004-exclusive-tracking-method.md) | Die Tracking-Methode bleibt eine exklusive Single-Choice. | Akzeptiert |
 | [0005](0005-kind-tracking-gehoert-dem-kindprofil.md) | Kind-Tracking gehört fachlich zum Kindprofil; der Umbau ist bis zu einem konkreten Auslöser eingefroren. | Akzeptiert, Umbau eingefroren |
+| [0006](0006-nativewind-als-auslaufende-layout-hilfe.md) | NativeWind wird nicht weiter ausgebaut und nach der Verbrauchermigration entfernt. | Akzeptiert, schrittweise Migration |
 
 ## Lebenszyklus
 

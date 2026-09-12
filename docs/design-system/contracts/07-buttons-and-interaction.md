@@ -72,7 +72,11 @@ auf dem Gerät fehlt. Belegter Fall: Der Profilbutton im Dashboard-Header war
 nach der Umstellung auf eine Style-Funktion unsichtbar (nur weiße Initialen bzw.
 ein 0 × 0 Bild ohne Fläche). Pressed-Feedback kommt aus `Press` in `ui.tsx`
 (Skalierung und Haptik) mit statischem Style-Array. Nachweis für solche
-Änderungen ist ein Geräte-Screenshot, kein Unit-Test.
+Änderungen ist ein Geräte-Screenshot, kein Unit-Test. Diese Regel ist eine
+Übergangsgrenze für den bestehenden NativeWind-Interop-Migrationsbestand und
+keine Zielarchitektur. NativeWind wird gemäß
+[ADR 0006](../../adr/0006-nativewind-als-auslaufende-layout-hilfe.md) nicht
+weiter ausgebaut und nach der Verbrauchermigration entfernt.
 
 ## Zustände, Ereignisse und Haptik
 

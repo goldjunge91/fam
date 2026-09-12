@@ -3,8 +3,29 @@
 ## Zweck
 
 Styling-Verantwortung richtet sich nach der Bedeutung eines Werts. NativeWind
-bleibt installiert und dient ausschließlich einfachem statischem Layout.
+bleibt bis zum Abschluss der Verbrauchermigration installiert, ist aber eine
+auslaufende technische Layout-Hilfe. Der Zielzustand hat keine NativeWind-
+Abhängigkeit. Die Entscheidung und ihre Folgen stehen in
+[ADR 0006](../../adr/0006-nativewind-als-auslaufende-layout-hilfe.md).
 Die drei zentralen Quellen aus der [README](./README.md) besitzen das Design-System.
+
+## Auslaufmodell und Migrationsrichtung
+
+- Neue Komponenten und neue Verbraucher führen keine NativeWind-`className`-
+  Nutzung ein.
+- Bestehende `className`-Verwendungen sind Migrationsbestand und keine Vorlage
+  für neue semantische Entscheidungen.
+- Semantische Darstellung wird verbraucherorientiert nach `ui.tsx`, den Theme-
+  Tokens und lokalen nativen Layoutstilen verschoben. Es entsteht keine neue
+  Theme-Bridge und keine parallele Styling-Runtime.
+- NativeWind wird nicht durch eine zweite Styling-Bibliothek ersetzt. Die
+  Entfernung erfolgt schrittweise, sobald die aktiven Verbraucher auf die
+  zentrale UI-/Theme-Architektur und native Layout-APIs umgestellt sind.
+- Die Abhängigkeit, Babel-/Metro-Integration und unbenutzte Legacy-Definitionen
+  werden erst nach einer plattformübergreifenden Verbraucherprüfung entfernt.
+
+Bis dahin gelten die folgenden Abschnitte als Übergangsgrenze. Sie erlauben
+keine Ausweitung der NativeWind-Verantwortung.
 
 ## Erlaubte Zuständigkeiten
 
