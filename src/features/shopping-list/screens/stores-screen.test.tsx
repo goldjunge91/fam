@@ -4,6 +4,7 @@ import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import type { Store } from '@/features/shopping-list/hooks/use-stores';
 import { StoresScreen } from '@/features/shopping-list/screens/stores-screen';
+import { i18n } from '@/i18n';
 
 const mockAddMutateAsync = jest.fn().mockResolvedValue({});
 const mockUpdateMutateAsync = jest.fn().mockResolvedValue({});
@@ -71,10 +72,11 @@ describe('StoresScreen', () => {
     );
   }
 
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks();
     mockStores = [];
     mockShowPriceInMarketView = false;
+    await i18n.changeLanguage('de');
   });
 
   it('rendert Titel und Formular', async () => {

@@ -1,6 +1,7 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import type React from 'react';
 import { colorsLight } from '@/components/theme';
+import { i18n } from '@/i18n';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import type { Store } from '../hooks/use-stores';
 import { ShoppingModeScreen } from './shopping-mode-screen';
@@ -19,6 +20,10 @@ jest.mock('react-native-safe-area-context', () => {
 });
 
 describe('ShoppingModeScreen', () => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   const store: Store = {
     id: 'store-1',
     household_id: 'hh-1',

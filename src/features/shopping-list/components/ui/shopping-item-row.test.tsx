@@ -1,8 +1,13 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
+import { i18n } from '@/i18n';
 import type { LocalShoppingItem } from '../../hooks/use-shopping-list';
 import { ShoppingItemRow } from './shopping-item-row';
 
 describe('ShoppingItemRow', () => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   const dummyItem: LocalShoppingItem = {
     id: 'item-1',
     household_id: 'hh-1',

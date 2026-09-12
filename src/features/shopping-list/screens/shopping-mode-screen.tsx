@@ -1,4 +1,5 @@
 import { memo, useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 import {
   initialWindowMetrics,
@@ -85,6 +86,7 @@ export function ShoppingModeScreen({
   onClose,
   onFinish,
 }: ShoppingModeScreenProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const styles = useThemedStyles(makeShoppingListStyles);
   const [collapsedOverrides, setCollapsedOverrides] = useState<Record<string, boolean>>({});
@@ -124,7 +126,10 @@ export function ShoppingModeScreen({
                 {store.name}
               </Txt>
             </View>
-            <HeaderIconButton onPress={onClose} hitSlop={8} label="Einkaufsmodus schließen">
+            <HeaderIconButton
+              onPress={onClose}
+              hitSlop={8}
+              label={t('shoppingList.shoppingMode.close')}>
               <Txt>✕</Txt>
             </HeaderIconButton>
           </View>
@@ -133,7 +138,10 @@ export function ShoppingModeScreen({
             <ProgressBar value={totalCount > 0 ? checkedCount / totalCount : 0} />
             <View className="row-between">
               <Txt variant="caption" tone="secondary">
-                {checkedCount} / {totalCount} abgehakt
+                {t('shoppingList.shoppingMode.checkedOfTotal', {
+                  checked: checkedCount,
+                  total: totalCount,
+                })}
               </Txt>
               <Txt variant="caption" tone="secondary">
                 {formatEuro(totalEstimate)}
@@ -158,9 +166,14 @@ export function ShoppingModeScreen({
                     onPress={() => toggleCollapse(group.category, isComplete)}
                     accessibilityRole="button"
                     accessibilityState={{ expanded: !collapsed }}
-                    accessibilityLabel={`${group.category}, ${catChecked} von ${catItems.length}${
-                      collapsed ? ', eingeklappt' : ', aufgeklappt'
-                    }`}
+                    accessibilityLabel={t('shoppingList.shoppingMode.categoryAccessibility', {
+                      category: group.category,
+                      checked: catChecked,
+                      total: catItems.length,
+                      state: collapsed
+                        ? t('shoppingList.shoppingMode.categoryCollapsed')
+                        : t('shoppingList.shoppingMode.categoryExpanded'),
+                    })}
                     style={styles.modeCategoryHeader}>
                     {/* Kategorie-Farbe an Punkt, Name und Zähler — nur der
                         getönte Hintergrund/Rand ist raus (passte nicht). */}
@@ -199,11 +212,14 @@ export function ShoppingModeScreen({
               <Pressable
                 onPress={onFinish}
                 accessibilityRole="button"
-                accessibilityLabel={`Einkauf abschließen, ${checkedCount} von ${totalCount} abgehakt`}
+                accessibilityLabel={t('shoppingList.shoppingMode.finishAccessibility', {
+                  checked: checkedCount,
+                  total: totalCount,
+                })}
                 className="btn-success"
                 style={{ backgroundColor: store.color }}>
                 <Txt variant="body" weight="700" tone="onAccent">
-                  🛒 Einkauf abschließen ({checkedCount})
+                  {t('shoppingList.shoppingMode.finish', { count: checkedCount })}
                 </Txt>
               </Pressable>
             </View>

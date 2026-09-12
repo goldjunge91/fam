@@ -1,8 +1,13 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 
+import { i18n } from '@/i18n';
 import { PlacementZoneField } from './placement-zone-field';
 
 describe('PlacementZoneField', () => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   it('bietet Automatisch und alle kanonischen Zonen an', async () => {
     const user = userEvent.setup();
     await render(

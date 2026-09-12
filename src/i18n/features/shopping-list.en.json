@@ -1,0 +1,215 @@
+{
+  "addItem": "Add item",
+  "itemCount_one": "{{count}} item",
+  "itemCount_other": "{{count}} items",
+  "close": "Close",
+  "editItem": "Edit item",
+  "moveItems": {
+    "title": "Move items",
+    "subtitle_one": "Move {{count}} item to another list",
+    "subtitle_other": "Move {{count}} items to another list",
+    "moveToAccessibility": "Move to {{target}}",
+    "current": "current",
+    "closeAccessibility": "Close move dialog",
+    "unassignedTarget": "No store"
+  },
+  "screen": {
+    "title": "Shopping list",
+    "subtitle": "Shared list",
+    "noHousehold": {
+      "title": "No household yet",
+      "hint": "Create a household in your profile or join one."
+    },
+    "completeAction": "Complete shopping at {{store}}",
+    "completeActionGeneric": "Complete shopping list",
+    "completeAccessibility": "{{label}}, {{count}} items checked",
+    "scanBarcode": "Scan barcode",
+    "closeSelection": "Close selection",
+    "startSelection": "Start multi-select",
+    "selectedCount_one": "{{count}} item selected",
+    "selectedCount_other": "{{count}} items selected",
+    "selectNone": "None",
+    "selectAll": "All",
+    "deselectAllAccessibility": "Clear selection",
+    "selectAllAccessibility": "Select all items",
+    "move": "Move",
+    "testAd": "🎬 Test ad ({{status}})",
+    "testAdReady": "Ready",
+    "testAdLoading": "Loading...",
+    "startShoppingMode": "🛒 Start shopping mode",
+    "startShoppingModeAccessibility": "Start shopping mode for {{store}}",
+    "unassignedStore": "No store",
+    "empty": {
+      "title": "Shopping list is empty",
+      "hint": "Tap '+' to get started."
+    },
+    "emptyUnassigned": "No items without a store",
+    "editOrder": "⠿ Edit order",
+    "editOrderAccessibility": "Edit order for this store",
+    "deleteItemTitle": "Delete item",
+    "deleteItemBody": "Remove \"{{name}}\" from the list?",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "stores": {
+    "priceInMarketView": {
+      "label": "Show price in market view",
+      "hint": "Shows the stored item price next to the quantity."
+    },
+    "addStore": {
+      "title": "Add new store",
+      "namePlaceholder": "e.g. Walmart, Target, Kroger...",
+      "suggestions": "Suggestions",
+      "color": "Color",
+      "colorAccessibility": "Color {{color}}",
+      "add": "Add"
+    },
+    "existingStores": {
+      "title": "Existing stores",
+      "loading": "Loading...",
+      "empty": "No stores yet.",
+      "save": "Save",
+      "cancel": "Cancel",
+      "editAccessibility": "Edit {{store}}",
+      "deleteAccessibility": "Delete {{store}}"
+    },
+    "alreadyExistsTitle": "Store already exists",
+    "alreadyExistsBody": "\"{{store}}\" already exists.",
+    "errorTitle": "Error",
+    "createError": "Error while creating",
+    "updateError": "Error while updating",
+    "deleteError": "Error while deleting",
+    "deleteTitle": "Delete store",
+    "deleteBody": "Do you really want to delete the store \"{{store}}\"?"
+  },
+  "itemRow": {
+    "actionAccessibility": "{{name}} {{action}}",
+    "select": "select",
+    "edit": "edit",
+    "selectionHint": "Tap to select or deselect",
+    "editHint": "Tap to edit, long-press to delete"
+  },
+  "totalEstimateCard": {
+    "title": "Total estimate",
+    "summary_one": "{{items}} items in {{count}} store",
+    "summary_other": "{{items}} items in {{count}} stores"
+  },
+  "storeSummaryCard": {
+    "accessibility": "{{name}}, {{checked}} of {{total}} items, {{estimate}} estimated",
+    "noItems": "no items",
+    "allDone": "all done",
+    "open": "open",
+    "estimated": "estimated"
+  },
+  "storePickerMenu": {
+    "allLists": "All lists",
+    "filterAccessibility": "Filter by store, currently: {{current}}",
+    "unassigned": "No store"
+  },
+  "rowStorePicker": {
+    "chooseStore": "Choose store",
+    "chooseStoreAccessibility": "Choose store, currently: {{current}}",
+    "unassigned": "No store"
+  },
+  "itemForm": {
+    "quantityLabel": "Quantity",
+    "storeLabel": "Store",
+    "unassignedStore": "No store",
+    "moreDetails": "More details",
+    "unitLabel": "Unit",
+    "packageContentLabel": "Content per package",
+    "packageContentPlaceholder": "e.g. 500",
+    "priceLabel": "Estimated price (optional)",
+    "pricePlaceholder": "e.g. $2.49",
+    "ean": "EAN {{barcode}}",
+    "packageContentSummary": "Package content",
+    "quantitySummary": "Quantity",
+    "nameRequired": "Please enter a name."
+  },
+  "addItemForm": {
+    "searchPlaceholderDish": "Search for a dish…",
+    "searchPlaceholderFood": "Search for an item",
+    "sourceAccessibility": "Source: groceries or dishes",
+    "suggestionFilterAccessibility": "Suggestion filter",
+    "manualEntry": "Manual entry",
+    "saveFailed": "Item could not be saved. Please try again.",
+    "submit": "Add to shopping list"
+  },
+  "editItemForm": {
+    "namePlaceholder": "Item name",
+    "quantityPlaceholder": "1",
+    "existingEntry": "Existing entry",
+    "saveFailed": "Save failed. Please try again.",
+    "save": "Save"
+  },
+  "productSuggestions": {
+    "units": {
+      "piece": "pc",
+      "g": "g",
+      "kg": "kg",
+      "ml": "ml",
+      "l": "L",
+      "package": "pack",
+      "portion": "serving"
+    },
+    "cardAccessibility": "{{name}}, {{size}}",
+    "lastStore": "Last: {{store}}",
+    "noStore": "No store",
+    "showLessAccessibility": "Show fewer suggestions",
+    "showMoreAccessibility": "Show more suggestions",
+    "showLess": "Show less",
+    "showMore": "Show {{count}} more"
+  },
+  "placementZoneField": {
+    "defaultLabel": "Shopping area",
+    "automatic": "Automatic",
+    "other": "Other",
+    "changeAccessibility": "{{label}}: {{zone}}. Change",
+    "close": "Close"
+  },
+  "storePickerField": {
+    "label": "Store (optional)",
+    "addNew": "+ New store",
+    "addNewAccessibility": "New store",
+    "unassigned": "No store",
+    "nameLabel": "Store name",
+    "namePlaceholder": "e.g. Walmart",
+    "create": "Create",
+    "cancel": "Cancel",
+    "alreadyExistsTitle": "Store already exists",
+    "alreadyExistsDifferentColorBody": "\"{{store}}\" already exists in a different color. The existing store will be used."
+  },
+  "completeRun": {
+    "storageKind": {
+      "fridge": "Fridge",
+      "freezer": "Freezer",
+      "pantry": "Pantry"
+    },
+    "quantityAccessibility": "Enter quantity for {{item}}",
+    "quantityEditAccessibility": "Quantity for {{item}}, {{amount}}, tap to change",
+    "expiryLabel": "Best before",
+    "title": "Add to pantry",
+    "subtitle_one": "{{count}} item checked",
+    "subtitle_other": "{{count}} items checked",
+    "confirmAccessibility": "Add {{count}} items to pantry",
+    "confirm_one": "✓ Add {{count}} item to pantry",
+    "confirm_other": "✓ Add {{count}} items to pantry",
+    "cancel": "Cancel"
+  },
+  "categoryOrder": {
+    "moveAccessibility": "Move {{category}}",
+    "title": "Edit order",
+    "subtitle": "{{store}} — drag the ⠿ handle",
+    "reset": "Reset to default",
+    "save": "Save"
+  },
+  "shoppingMode": {
+    "close": "Close shopping mode",
+    "checkedOfTotal": "{{checked}} / {{total}} checked",
+    "categoryAccessibility": "{{category}}, {{checked}} of {{total}}{{state}}",
+    "categoryCollapsed": ", collapsed",
+    "categoryExpanded": ", expanded",
+    "finish": "🛒 Finish shopping ({{count}})",
+    "finishAccessibility": "Finish shopping, {{checked}} of {{total}} checked"
+  }
+}

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 import { Button, Txt } from '@/constants/ui';
 import { debugLog } from '@/lib/debug-log';
@@ -27,21 +28,25 @@ export type PlacementZoneFieldProps = {
   onSelectAutomatic: () => void;
 };
 
-const DEFAULT_LABEL = 'Einkaufsbereich';
-
 /** Form field for the V2 placement taxonomy. Persistence belongs to the form save handler. */
 export function PlacementZoneField({
-  label = DEFAULT_LABEL,
+  label,
   selection,
   effectiveZoneId = null,
   categoryOrder,
   onSelectionChange,
   onSelectAutomatic,
 }: PlacementZoneFieldProps) {
+  const { t } = useTranslation();
+  const resolvedLabel = label ?? t('shoppingList.placementZoneField.defaultLabel');
   const [isOpen, setIsOpen] = useState(false);
   const visibleZoneId = selection.mode === 'manual' ? selection.zoneId : effectiveZoneId;
   const zone = placementZoneForId(visibleZoneId);
-  const zoneLabel = zone?.label ?? (selection.mode === 'automatic' ? 'Automatisch' : 'Sonstiges');
+  const zoneLabel =
+    zone?.label ??
+    (selection.mode === 'automatic'
+      ? t('shoppingList.placementZoneField.automatic')
+      : t('shoppingList.placementZoneField.other'));
   const options = orderedZones(categoryOrder);
 
   function selectZone(zoneId: PlacementZoneId) {
@@ -59,12 +64,15 @@ export function PlacementZoneField({
   return (
     <View className="gap-one">
       <Txt variant="body" tone="secondary">
-        {label}
+        {resolvedLabel}
       </Txt>
       <Pressable
         onPress={() => setIsOpen(true)}
         accessibilityRole="button"
-        accessibilityLabel={`${label}: ${zoneLabel}. Ändern`}
+        accessibilityLabel={t('shoppingList.placementZoneField.changeAccessibility', {
+          label: resolvedLabel,
+          zone: zoneLabel,
+        })}
         className="flex-row items-center gap-two rounded-control border-hairline border-border bg-background-element px-three py-two active:opacity-70">
         {zone ? (
           <View
@@ -88,11 +96,11 @@ export function PlacementZoneField({
         <View className="modal-backdrop">
           <View className="modal-sheet">
             <Txt variant="heading" weight="700">
-              {label}
+              {resolvedLabel}
             </Txt>
             <ScrollView style={{ maxHeight: 420 }} className="gap-[2px]">
               <PlacementZoneOption
-                label="Automatisch"
+                label={t('shoppingList.placementZoneField.automatic')}
                 checked={selection.mode === 'automatic'}
                 onPress={selectAutomatic}
               />
@@ -106,7 +114,11 @@ export function PlacementZoneField({
                 />
               ))}
             </ScrollView>
-            <Button title="Schließen" variant="secondary" onPress={() => setIsOpen(false)} />
+            <Button
+              title={t('shoppingList.placementZoneField.close')}
+              variant="secondary"
+              onPress={() => setIsOpen(false)}
+            />
           </View>
         </View>
       </Modal>

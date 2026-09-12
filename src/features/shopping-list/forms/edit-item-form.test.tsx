@@ -4,6 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { EditItemForm } from '@/features/shopping-list/forms/edit-item-form';
 import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list';
+import { i18n } from '@/i18n';
 
 const mockUpdateMutateAsync = jest.fn().mockResolvedValue({});
 const defaultGlobalClassification = {
@@ -165,8 +166,9 @@ describe('EditItemForm', () => {
     );
   }
 
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks();
+    await i18n.changeLanguage('de');
     mockStores = [];
     mockProduct = null;
     mockUpdateMutateAsync.mockResolvedValue({});

@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, View } from 'react-native';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
@@ -34,6 +35,7 @@ export function RowStorePicker({
   label: labelOverride,
   testID,
 }: RowStorePickerProps) {
+  const { t } = useTranslation();
   const { data: stores = [] } = useStores(householdId);
   const [anchor, setAnchor] = useState<Anchor | null>(null);
   const anchorRef = useRef<View>(null);
@@ -41,7 +43,10 @@ export function RowStorePicker({
   const open = anchor !== null;
 
   const activeStore = stores.find((store) => store.id === storeId) ?? null;
-  const computedLabel = storeId === null ? 'Ohne Markt' : (activeStore?.name ?? 'Markt wählen');
+  const computedLabel =
+    storeId === null
+      ? t('shoppingList.rowStorePicker.unassigned')
+      : (activeStore?.name ?? t('shoppingList.rowStorePicker.chooseStore'));
   const label = labelOverride ?? computedLabel;
   const dotColor = storeId === null ? theme.textMuted : (activeStore?.color ?? theme.textMuted);
 
@@ -64,7 +69,9 @@ export function RowStorePicker({
         <Pressable
           onPress={openMenu}
           accessibilityRole="button"
-          accessibilityLabel={`Markt wählen, aktuell: ${label}`}
+          accessibilityLabel={t('shoppingList.rowStorePicker.chooseStoreAccessibility', {
+            current: label,
+          })}
           testID={testID}
           className="row-store-picker-btn">
           <View className="store-picker-dot" style={{ backgroundColor: dotColor }} />
@@ -83,12 +90,12 @@ export function RowStorePicker({
               <Pressable
                 onPress={() => select(null)}
                 accessibilityRole="menuitem"
-                accessibilityLabel="Ohne Markt"
+                accessibilityLabel={t('shoppingList.rowStorePicker.unassigned')}
                 accessibilityState={{ selected: storeId === null }}
                 className={`store-picker-row ${storeId === null ? 'store-picker-row-active' : ''}`}>
                 <View className="store-picker-dot" style={{ backgroundColor: theme.textMuted }} />
                 <Txt variant="body" weight="600" className="flex-1">
-                  Ohne Markt
+                  {t('shoppingList.rowStorePicker.unassigned')}
                 </Txt>
               </Pressable>
 

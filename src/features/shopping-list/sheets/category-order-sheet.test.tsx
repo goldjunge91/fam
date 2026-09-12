@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react-native';
 import type React from 'react';
 import type { Store } from '@/features/shopping-list/hooks/use-stores';
 import { CategoryOrderSheet } from '@/features/shopping-list/sheets/category-order-sheet';
+import { i18n } from '@/i18n';
 
 const mockMutateAsync = jest.fn().mockResolvedValue({});
 
@@ -40,8 +41,9 @@ describe('CategoryOrderSheet', () => {
     category_order: null,
   };
 
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks();
+    await i18n.changeLanguage('de');
   });
 
   it('rendert Kategorienliste für den ausgewählten Markt', async () => {

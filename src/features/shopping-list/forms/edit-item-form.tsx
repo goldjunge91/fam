@@ -1,5 +1,6 @@
 import * as Crypto from 'expo-crypto';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { Button, TextField, Txt } from '@/constants/ui';
@@ -53,6 +54,7 @@ async function resolveAutomaticPreview(
 }
 
 export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
+  const { t } = useTranslation();
   const [name, setName] = useState(item.name);
   const [quantity, setQuantity] = useState(String(item.quantity));
   const [unit, setUnit] = useState(item.unit);
@@ -107,7 +109,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
   const { data: stores = [] } = useStores(item.household_id);
   const feedbackEnabled = useFeatureFlag('shopping-category-feedback-alpha', false);
   const storeOptions = [
-    { value: NO_STORE, label: 'Ohne Markt' },
+    { value: NO_STORE, label: t('shoppingList.itemForm.unassignedStore') },
     ...stores.map((store) => ({ value: store.id, label: store.name })),
   ];
   const parsedPackageSize = Number(packageSizeInput.replace(',', '.'));
@@ -224,7 +226,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
     });
     const trimmed = name.trim();
     if (!trimmed) {
-      setNameError('Bitte einen Namen eingeben.');
+      setNameError(t('shoppingList.itemForm.nameRequired'));
       return;
     }
     setNameError(null);
@@ -373,7 +375,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
       onDismiss();
     } catch (error) {
       console.error('[shopping-list] Artikel konnte nicht gespeichert werden', error);
-      setNameError('Speichern fehlgeschlagen. Bitte erneut versuchen.');
+      setNameError(t('shoppingList.editItemForm.saveFailed'));
     }
   }
 
@@ -382,7 +384,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
       <TextField
         value={name}
         onChangeText={setName}
-        placeholder="Artikelname"
+        placeholder={t('shoppingList.editItemForm.namePlaceholder')}
         autoFocus
         size="large"
         textAlignVertical="center"
@@ -392,18 +394,18 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
       <View className="flex-row items-end gap-[9px]">
         <View className="flex-[1.15]">
           <TextField
-            label="Einkaufsmenge"
+            label={t('shoppingList.itemForm.quantityLabel')}
             value={quantity}
             onChangeText={setQuantity}
             keyboardType="decimal-pad"
-            placeholder="1"
+            placeholder={t('shoppingList.editItemForm.quantityPlaceholder')}
             size="large"
             textAlignVertical="center"
           />
         </View>
         <View className="flex-1">
           <WheelPickerField
-            label="Markt"
+            label={t('shoppingList.itemForm.storeLabel')}
             value={storeId ?? NO_STORE}
             options={storeOptions}
             onChange={(value) => handleStoreChange(value === NO_STORE ? null : value)}
@@ -417,20 +419,20 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
           onPress={() => setDetailsOpen((open) => !open)}
           accessibilityRole="button"
           accessibilityState={{ expanded: detailsOpen }}
-          accessibilityLabel="Weitere Angaben"
+          accessibilityLabel={t('shoppingList.itemForm.moreDetails')}
           className="details-summary">
           <Txt variant="body" tone="secondary" weight="500">
             {detailsOpen ? '▾' : '›'}
           </Txt>
           <Txt variant="body" tone="primary" weight="500">
-            Weitere Angaben
+            {t('shoppingList.itemForm.moreDetails')}
           </Txt>
         </Pressable>
 
         {detailsOpen ? (
           <View className="gap-[10px] pb-one">
             <WheelPickerField
-              label="Einheit"
+              label={t('shoppingList.itemForm.unitLabel')}
               value={unit}
               options={UNIT_OPTIONS}
               onChange={setUnit}
@@ -440,16 +442,16 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
               <View className="flex-row items-end gap-two">
                 <View className="flex-[1.3]">
                   <TextField
-                    label="Inhalt je Packung"
+                    label={t('shoppingList.itemForm.packageContentLabel')}
                     value={packageSizeInput}
                     onChangeText={setPackageSizeInput}
                     keyboardType="decimal-pad"
-                    placeholder="z. B. 500"
+                    placeholder={t('shoppingList.itemForm.packageContentPlaceholder')}
                   />
                 </View>
                 <View className="flex-1">
                   <WheelPickerField
-                    label="Einheit"
+                    label={t('shoppingList.itemForm.unitLabel')}
                     value={packageSizeUnit}
                     options={UNIT_OPTIONS.filter((option) =>
                       ['g', 'kg', 'ml', 'l', 'piece', 'portion'].includes(option.value),
@@ -470,11 +472,11 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
               onSelectAutomatic={handleSelectAutomatic}
             />
             <TextField
-              label="Geschätzter Preis (optional)"
+              label={t('shoppingList.itemForm.priceLabel')}
               value={price}
               onChangeText={setPrice}
               keyboardType="decimal-pad"
-              placeholder="z. B. 2,49 €"
+              placeholder={t('shoppingList.itemForm.pricePlaceholder')}
               size="large"
               textAlignVertical="center"
             />
@@ -489,11 +491,11 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
               {name.trim()}
             </Txt>
             <Txt variant="caption" tone="secondary" weight="500" numberOfLines={1}>
-              {product?.brand ?? 'Bestehender Eintrag'}
+              {product?.brand ?? t('shoppingList.editItemForm.existingEntry')}
             </Txt>
             {product?.barcode ? (
               <Txt variant="caption" tone="secondary" numberOfLines={1}>
-                EAN {product.barcode}
+                {t('shoppingList.itemForm.ean', { barcode: product.barcode })}
               </Txt>
             ) : null}
           </View>
@@ -502,14 +504,16 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
               {packageHint ?? formatAmount(Number(quantity.replace(',', '.')) || 1, unit)}
             </Txt>
             <Txt variant="body" tone="secondary">
-              {packageHint ? 'Packungsinhalt' : 'Menge'}
+              {packageHint
+                ? t('shoppingList.itemForm.packageContentSummary')
+                : t('shoppingList.itemForm.quantitySummary')}
             </Txt>
           </View>
         </View>
       ) : null}
 
       <Button
-        title="Speichern"
+        title={t('shoppingList.editItemForm.save')}
         onPress={handleSave}
         loading={updateItem.isPending}
         disabled={!name.trim()}

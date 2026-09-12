@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, View } from 'react-native';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
@@ -39,6 +40,7 @@ export function StorePickerMenu({
   unassignedCount,
   countForStore,
 }: StorePickerMenuProps) {
+  const { t } = useTranslation();
   const [anchor, setAnchor] = useState<Anchor | null>(null);
   const anchorRef = useRef<View>(null);
   const { colors: theme } = useTheme();
@@ -47,10 +49,10 @@ export function StorePickerMenu({
   const activeStore = stores.find((store) => store.id === activeFilter) ?? null;
   const activeLabel =
     activeFilter === ALL_FILTER
-      ? 'Alle Listen'
+      ? t('shoppingList.storePickerMenu.allLists')
       : activeFilter === UNASSIGNED_FILTER
-        ? 'Ohne Markt'
-        : (activeStore?.name ?? 'Alle Listen');
+        ? t('shoppingList.storePickerMenu.unassigned')
+        : (activeStore?.name ?? t('shoppingList.storePickerMenu.allLists'));
   const activeDotColor =
     activeFilter === ALL_FILTER
       ? theme.text
@@ -77,7 +79,9 @@ export function StorePickerMenu({
         <GlassCard
           onPress={openMenu}
           accessibilityRole="button"
-          accessibilityLabel={`Markt filtern, aktuell: ${activeLabel}`}
+          accessibilityLabel={t('shoppingList.storePickerMenu.filterAccessibility', {
+            current: activeLabel,
+          })}
           fallbackClassName="store-picker-btn"
           glassStyle={GLASS_STYLE}
           outerStyle={{ borderRadius: 999 }}>
@@ -103,7 +107,7 @@ export function StorePickerMenu({
                 }`}>
                 <View className="store-picker-dot" style={{ backgroundColor: theme.text }} />
                 <Txt variant="body" weight="600" className="flex-1">
-                  Alle Listen
+                  {t('shoppingList.storePickerMenu.allLists')}
                 </Txt>
                 <Txt variant="caption" tone="secondary">
                   {totalCount}
@@ -138,7 +142,7 @@ export function StorePickerMenu({
                 }`}>
                 <View className="store-picker-dot" style={{ backgroundColor: theme.textMuted }} />
                 <Txt variant="body" weight="600" className="flex-1">
-                  Ohne Markt
+                  {t('shoppingList.storePickerMenu.unassigned')}
                 </Txt>
                 <Txt variant="caption" tone="secondary">
                   {unassignedCount}

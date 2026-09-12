@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, Pressable, Switch, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -20,6 +21,7 @@ import {
 } from '../preferences/display-settings';
 
 export function StoresScreen() {
+  const { t } = useTranslation();
   const { colors: theme } = useTheme();
   const { session } = useSession();
   const { activeHousehold } = useActiveHousehold();
@@ -47,7 +49,10 @@ export function StoresScreen() {
     // Gross-/Kleinschreibung.
     const existing = findStoreByName(stores ?? [], trimmed);
     if (existing) {
-      Alert.alert('Markt existiert bereits', `"${existing.name}" ist bereits vorhanden.`);
+      Alert.alert(
+        t('shoppingList.stores.alreadyExistsTitle'),
+        t('shoppingList.stores.alreadyExistsBody', { store: existing.name }),
+      );
       setNewStoreName('');
       return;
     }
@@ -60,7 +65,10 @@ export function StoresScreen() {
       });
       setNewStoreName('');
     } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Erstellen');
+      Alert.alert(
+        t('shoppingList.stores.errorTitle'),
+        err instanceof Error ? err.message : t('shoppingList.stores.createError'),
+      );
     }
   }
 
@@ -73,7 +81,10 @@ export function StoresScreen() {
       trimmed,
     );
     if (existing) {
-      Alert.alert('Markt existiert bereits', `"${existing.name}" ist bereits vorhanden.`);
+      Alert.alert(
+        t('shoppingList.stores.alreadyExistsTitle'),
+        t('shoppingList.stores.alreadyExistsBody', { store: existing.name }),
+      );
       return;
     }
 
@@ -87,48 +98,58 @@ export function StoresScreen() {
       setEditingId(null);
       setEditingName('');
     } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Aktualisieren');
+      Alert.alert(
+        t('shoppingList.stores.errorTitle'),
+        err instanceof Error ? err.message : t('shoppingList.stores.updateError'),
+      );
     }
   }
 
   async function handleDelete(id: string, name: string) {
     if (!currentHousehold) return;
-    Alert.alert('Markt löschen', `Möchtest du den Markt "${name}" wirklich löschen?`, [
-      { text: 'Abbrechen', style: 'cancel' },
-      {
-        text: 'Löschen',
-        style: 'destructive',
-        onPress: async () => {
-          try {
-            await deleteMutation.mutateAsync({ id, household_id: currentHousehold.id });
-          } catch (err) {
-            Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Löschen');
-          }
+    Alert.alert(
+      t('shoppingList.stores.deleteTitle'),
+      t('shoppingList.stores.deleteBody', { store: name }),
+      [
+        { text: t('shoppingList.screen.cancel'), style: 'cancel' },
+        {
+          text: t('shoppingList.screen.delete'),
+          style: 'destructive',
+          onPress: async () => {
+            try {
+              await deleteMutation.mutateAsync({ id, household_id: currentHousehold.id });
+            } catch (err) {
+              Alert.alert(
+                t('shoppingList.stores.errorTitle'),
+                err instanceof Error ? err.message : t('shoppingList.stores.deleteError'),
+              );
+            }
+          },
         },
-      },
-    ]);
+      ],
+    );
   }
 
   return (
     <Screen
-      title="Einkaufsliste"
+      title={t('shoppingList.screen.title')}
       subtitle={currentHousehold?.name}
-      back={{ label: 'Einstellungen', href: '/settings' }}
+      back={{ label: t('settings.backToSettings'), href: '/settings' }}
       backStyle="icon">
       <Card>
         <View className="row-between gap-two">
           <View className="flex-1">
             <Txt variant="body" weight="600">
-              Preis in der Marktansicht anzeigen
+              {t('shoppingList.stores.priceInMarketView.label')}
             </Txt>
             <Txt variant="caption" tone="secondary">
-              Zeigt den hinterlegten Artikelpreis neben der Menge.
+              {t('shoppingList.stores.priceInMarketView.hint')}
             </Txt>
           </View>
           <Switch
             value={showPriceInMarketView}
             onValueChange={(value) => setShowPriceInMarketView.mutate(value)}
-            accessibilityLabel="Preis in der Marktansicht anzeigen"
+            accessibilityLabel={t('shoppingList.stores.priceInMarketView.label')}
             trackColor={{ false: theme.border, true: theme.accent }}
             thumbColor={theme.surface}
           />
@@ -136,17 +157,17 @@ export function StoresScreen() {
       </Card>
 
       {/* Formular zum Anlegen eines neuen Supermarkts/Geschäfts */}
-      <Card title="Neuen Markt hinzufügen">
+      <Card title={t('shoppingList.stores.addStore.title')}>
         <View className="gap-three mt-two">
           {/* Eingabefeld für den Marktnamen */}
           <TextField
-            placeholder="z.B. REWE, Aldi, Lidl..."
+            placeholder={t('shoppingList.stores.addStore.namePlaceholder')}
             value={newStoreName}
             onChangeText={setNewStoreName}
           />
           {/* Schnellauswahl beliebter Supermarktketten (Presets) */}
           <Txt variant="body" tone="secondary">
-            Vorschläge
+            {t('shoppingList.stores.addStore.suggestions')}
           </Txt>
           <View className="row-wrap">
             {STORE_PRESETS.map((preset) => (
@@ -172,7 +193,7 @@ export function StoresScreen() {
 
           {/* Farbauswahl-Palette für den Markt */}
           <Txt variant="body" tone="secondary">
-            Farbe
+            {t('shoppingList.stores.addStore.color')}
           </Txt>
           <View className="row-wrap">
             {STORE_COLOR_PALETTE.map((color) => (
@@ -180,7 +201,7 @@ export function StoresScreen() {
                 key={color}
                 onPress={() => setNewStoreColor(color)}
                 accessibilityRole="button"
-                accessibilityLabel={`Farbe ${color}`}
+                accessibilityLabel={t('shoppingList.stores.addStore.colorAccessibility', { color })}
                 accessibilityState={{ selected: newStoreColor === color }}
                 className="store-color-swatch"
                 // Dynamische Palettenfarbe & Auswahlrand
@@ -193,7 +214,7 @@ export function StoresScreen() {
           </View>
           {/* Hinzufügen-Button */}
           <Button
-            title="Hinzufügen"
+            title={t('shoppingList.stores.addStore.add')}
             onPress={handleAdd}
             loading={addMutation.isPending}
             disabled={!newStoreName.trim()}
@@ -202,12 +223,12 @@ export function StoresScreen() {
       </Card>
 
       {/* Liste aller angelegten Märkte mit Bearbeiten- und Löschen-Aktionen */}
-      <Card title="Vorhandene Märkte">
+      <Card title={t('shoppingList.stores.existingStores.title')}>
         {isLoading ? (
-          <Txt>Lädt...</Txt>
+          <Txt>{t('shoppingList.stores.existingStores.loading')}</Txt>
         ) : stores?.length === 0 ? (
           <Txt variant="body" tone="secondary">
-            Keine Märkte vorhanden.
+            {t('shoppingList.stores.existingStores.empty')}
           </Txt>
         ) : (
           <View className="col-gap">
@@ -221,7 +242,7 @@ export function StoresScreen() {
                     <View className="col-gap">
                       <TextField value={editingName} onChangeText={setEditingName} autoFocus />
                       <Txt variant="body" tone="secondary">
-                        Farbe
+                        {t('shoppingList.stores.addStore.color')}
                       </Txt>
                       <View className="row-wrap">
                         {STORE_COLOR_PALETTE.map((color) => (
@@ -229,7 +250,12 @@ export function StoresScreen() {
                             key={color}
                             onPress={() => setEditingColor(color)}
                             accessibilityRole="button"
-                            accessibilityLabel={`Farbe ${color}`}
+                            accessibilityLabel={t(
+                              'shoppingList.stores.addStore.colorAccessibility',
+                              {
+                                color,
+                              },
+                            )}
                             accessibilityState={{ selected: editingColor === color }}
                             className="store-color-swatch"
                             // Dynamische Palettenfarbe & Auswahlrand
@@ -243,7 +269,7 @@ export function StoresScreen() {
                       <View className="input-row mt-one">
                         <View className="flex-1">
                           <Button
-                            title="Speichern"
+                            title={t('shoppingList.stores.existingStores.save')}
                             onPress={() => handleUpdate(store.id)}
                             loading={updateMutation.isPending}
                             disabled={!editingName.trim()}
@@ -251,7 +277,7 @@ export function StoresScreen() {
                         </View>
                         <View className="flex-1">
                           <Button
-                            title="Abbrechen"
+                            title={t('shoppingList.stores.existingStores.cancel')}
                             variant="secondary"
                             onPress={() => {
                               setEditingId(null);
@@ -281,14 +307,22 @@ export function StoresScreen() {
                             setEditingColor(store.color);
                           }}
                           accessibilityRole="button"
-                          accessibilityLabel={`${store.name} bearbeiten`}
+                          accessibilityLabel={t(
+                            'shoppingList.stores.existingStores.editAccessibility',
+                            {
+                              store: store.name,
+                            },
+                          )}
                           className="btn-modal-close">
                           <Txt variant="body">✎</Txt>
                         </Pressable>
                         <Pressable
                           onPress={() => handleDelete(store.id, store.name)}
                           accessibilityRole="button"
-                          accessibilityLabel={`${store.name} löschen`}
+                          accessibilityLabel={t(
+                            'shoppingList.stores.existingStores.deleteAccessibility',
+                            { store: store.name },
+                          )}
                           className="btn-modal-close">
                           <Txt variant="body" tone="danger">
                             🗑

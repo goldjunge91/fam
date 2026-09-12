@@ -1,4 +1,6 @@
+import type { TFunction } from 'i18next';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
 import { Txt } from '@/constants/ui';
 import type { CatalogProduct } from '@/features/product-search/types';
@@ -20,22 +22,19 @@ type ShoppingProductSuggestionsProps = {
 /** Anzahl Karten in der ersten, immer sichtbaren Reihe. */
 const COLLAPSED_COUNT = 3;
 
-function unitLabel(unit: string | null): string {
-  const labels: Record<string, string> = {
-    piece: 'Stück',
-    g: 'g',
-    kg: 'kg',
-    ml: 'ml',
-    l: 'L',
-    package: 'Packung',
-    portion: 'Portion',
-  };
-  return unit ? (labels[unit] ?? unit) : labels.piece;
+function unitLabel(unit: string | null, t: TFunction): string {
+  const key =
+    unit && unit in { piece: 1, g: 1, kg: 1, ml: 1, l: 1, package: 1, portion: 1 } ? unit : 'piece';
+  return t(`shoppingList.productSuggestions.units.${key}`);
 }
 
-export function formatPackageSize(quantity: number | null, unit: string | null): string {
+export function formatPackageSize(
+  quantity: number | null,
+  unit: string | null,
+  t: TFunction,
+): string {
   const amount = quantity ?? 1;
-  const label = unitLabel(unit);
+  const label = unitLabel(unit, t);
   return `${amount.toLocaleString('de-DE')} ${label}`;
 }
 
@@ -61,24 +60,29 @@ function SuggestionCard({
   selected: boolean;
   onPress: () => void;
 }) {
+  const { t } = useTranslation();
+  const size = formatPackageSize(suggestion.quantity, suggestion.unit, t);
+
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
       accessibilityState={{ selected }}
-      accessibilityLabel={`${suggestion.name}, ${formatPackageSize(
-        suggestion.quantity,
-        suggestion.unit,
-      )}`}
+      accessibilityLabel={t('shoppingList.productSuggestions.cardAccessibility', {
+        name: suggestion.name,
+        size,
+      })}
       className={`suggestion-card ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
       <Txt variant="label" weight="700" numberOfLines={1}>
         {suggestion.name}
       </Txt>
       <Txt variant="caption" tone="secondary">
-        {formatPackageSize(suggestion.quantity, suggestion.unit)}
+        {size}
       </Txt>
       <Txt variant="caption" tone="secondary" numberOfLines={1}>
-        {suggestion.last_store_name ? `Zuletzt: ${suggestion.last_store_name}` : 'Ohne Markt'}
+        {suggestion.last_store_name
+          ? t('shoppingList.productSuggestions.lastStore', { store: suggestion.last_store_name })
+          : t('shoppingList.productSuggestions.noStore')}
       </Txt>
     </Pressable>
   );
@@ -91,6 +95,7 @@ export function ShoppingProductSuggestions({
   selectedName,
   onSelect,
 }: ShoppingProductSuggestionsProps) {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const { data: suggestions = [] } = useShoppingProductSuggestions({ userId, householdId, mode });
 
@@ -135,14 +140,18 @@ export function ShoppingProductSuggestions({
             accessibilityRole="button"
             accessibilityState={{ expanded }}
             accessibilityLabel={
-              expanded ? 'Weniger Vorschläge anzeigen' : 'Weitere Vorschläge anzeigen'
+              expanded
+                ? t('shoppingList.productSuggestions.showLessAccessibility')
+                : t('shoppingList.productSuggestions.showMoreAccessibility')
             }
             className="details-summary">
             <Txt variant="body" tone="secondary" weight="500">
               {expanded ? '▾' : '›'}
             </Txt>
             <Txt variant="body" tone="primary" weight="500">
-              {expanded ? 'Weniger anzeigen' : `${rest.length} weitere anzeigen`}
+              {expanded
+                ? t('shoppingList.productSuggestions.showLess')
+                : t('shoppingList.productSuggestions.showMore', { count: rest.length })}
             </Txt>
           </Pressable>
         </>

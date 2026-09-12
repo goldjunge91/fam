@@ -1,5 +1,6 @@
 import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable, ScrollView, TextInput, View } from 'react-native';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
@@ -24,10 +25,10 @@ export type TransferItem = {
   expiryDate: string | null;
 };
 
-const KIND_CONFIG: Record<StorageKind, { label: string; icon: string }> = {
-  fridge: { label: 'Kühl', icon: '🧊' },
-  freezer: { label: 'Frost', icon: '❄️' },
-  pantry: { label: 'Kammer', icon: '🗄' },
+const KIND_ICONS: Record<StorageKind, string> = {
+  fridge: '🧊',
+  freezer: '❄️',
+  pantry: '🗄',
 };
 
 const KINDS: StorageKind[] = ['fridge', 'freezer', 'pantry'];
@@ -55,6 +56,7 @@ function TransferRow({
   onUpdateExpiry,
   onUpdateQuantity,
 }: TransferRowProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
   const [isEditingQty, setIsEditingQty] = useState(false);
@@ -93,7 +95,9 @@ function TransferRow({
               keyboardType="decimal-pad"
               returnKeyType="done"
               onSubmitEditing={commitQtyDraft}
-              accessibilityLabel={`Menge für ${item.name} eingeben`}
+              accessibilityLabel={t('shoppingList.completeRun.quantityAccessibility', {
+                item: item.name,
+              })}
               className="min-w-[32px] p-0 [font-variant:tabular-nums]"
               style={{
                 color: colors.onAccent,
@@ -110,7 +114,10 @@ function TransferRow({
           <Pressable
             onPress={startEditingQty}
             accessibilityRole="button"
-            accessibilityLabel={`Menge für ${item.name}, ${formatAmount(transfer.quantity, item.unit)}, zum Ändern antippen`}
+            accessibilityLabel={t('shoppingList.completeRun.quantityEditAccessibility', {
+              item: item.name,
+              amount: formatAmount(transfer.quantity, item.unit),
+            })}
             className="quantity-badge"
             style={{ flexShrink: 0 }}>
             <Txt variant="body" tone="onAccent" weight="600">
@@ -129,7 +136,7 @@ function TransferRow({
       <View className="col-gap">
         <View className="input-row">
           {KINDS.map((kind) => {
-            const cfg = KIND_CONFIG[kind];
+            const label = t(`shoppingList.completeRun.storageKind.${kind}`);
             const isActive = transfer.locationKind === kind;
             return (
               <Pressable
@@ -137,13 +144,13 @@ function TransferRow({
                 onPress={() => onUpdateKind(kind)}
                 accessibilityRole="radio"
                 accessibilityState={{ selected: isActive }}
-                accessibilityLabel={cfg.label}
+                accessibilityLabel={label}
                 className={`kind-button ${
                   isActive ? 'border-accent bg-accent/10' : 'border-border bg-transparent'
                 }`}>
-                <Txt variant="caption">{cfg.icon}</Txt>
+                <Txt variant="caption">{KIND_ICONS[kind]}</Txt>
                 <Txt variant="caption" tone="primary">
-                  {cfg.label}
+                  {label}
                 </Txt>
               </Pressable>
             );
@@ -153,7 +160,7 @@ function TransferRow({
         {/* MHD */}
         <View className="flex-row items-center">
           <Txt variant="body" tone="secondary" numberOfLines={1} className="flex-1">
-            MHD
+            {t('shoppingList.completeRun.expiryLabel')}
           </Txt>
           <View className="mhd-field-width ml-auto">
             <DateWheelField value={transfer.expiryDate ?? ''} onChange={onUpdateExpiry} />
@@ -176,6 +183,7 @@ interface Props {
 }
 
 export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: Props) {
+  const { t } = useTranslation();
   const { colors: theme } = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
 
@@ -212,8 +220,8 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
   function updateKind(itemId: string, kind: StorageKind) {
     setTransfers((prev) => {
       const next = new Map(prev);
-      const t = next.get(itemId);
-      if (t) next.set(itemId, { ...t, locationKind: kind });
+      const entry = next.get(itemId);
+      if (entry) next.set(itemId, { ...entry, locationKind: kind });
       return next;
     });
   }
@@ -221,8 +229,8 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
   function setExpiryDate(itemId: string, isoDate: string | null) {
     setTransfers((prev) => {
       const next = new Map(prev);
-      const t = next.get(itemId);
-      if (t) next.set(itemId, { ...t, expiryDate: isoDate });
+      const entry = next.get(itemId);
+      if (entry) next.set(itemId, { ...entry, expiryDate: isoDate });
       return next;
     });
   }
@@ -231,8 +239,8 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
   function updateQuantity(itemId: string, quantity: number) {
     setTransfers((prev) => {
       const next = new Map(prev);
-      const t = next.get(itemId);
-      if (t) next.set(itemId, { ...t, quantity });
+      const entry = next.get(itemId);
+      if (entry) next.set(itemId, { ...entry, quantity });
       return next;
     });
   }
@@ -258,16 +266,16 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
           <View className="row-between items-start px-four pt-two pb-three">
             <View>
               <Txt variant="heading" weight="700">
-                In Vorrat übernehmen
+                {t('shoppingList.completeRun.title')}
               </Txt>
               <Txt variant="body" tone="secondary">
-                {count} {count === 1 ? 'Artikel' : 'Artikel'} abgehakt
+                {t('shoppingList.completeRun.subtitle', { count })}
               </Txt>
             </View>
             <Pressable
               onPress={onClose}
               accessibilityRole="button"
-              accessibilityLabel="Schließen"
+              accessibilityLabel={t('shoppingList.close')}
               className="modal-close-btn">
               <Txt>✕</Txt>
             </Pressable>
@@ -297,16 +305,16 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
               onPress={handleConfirm}
               disabled={count === 0}
               accessibilityRole="button"
-              accessibilityLabel={`${count} Artikel in Vorrat übernehmen`}
+              accessibilityLabel={t('shoppingList.completeRun.confirmAccessibility', { count })}
               className={`btn-success ${count === 0 ? 'opacity-50' : 'opacity-100'}`}>
               <Txt variant="body" weight="700" tone="onAccent">
-                ✓ {count} {count === 1 ? 'Artikel' : 'Artikel'} in Vorrat übernehmen
+                {t('shoppingList.completeRun.confirm', { count })}
               </Txt>
             </Pressable>
 
             <Pressable onPress={onClose} accessibilityRole="button" className="py-two">
               <Txt variant="body" tone="secondary">
-                Abbrechen
+                {t('shoppingList.completeRun.cancel')}
               </Txt>
             </Pressable>
           </View>

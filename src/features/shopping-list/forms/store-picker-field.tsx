@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, Pressable, View } from 'react-native';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, TextField, Txt } from '@/constants/ui';
@@ -12,6 +13,7 @@ interface StorePickerFieldProps {
 }
 
 export function StorePickerField({ householdId, storeId, onChange }: StorePickerFieldProps) {
+  const { t } = useTranslation();
   const { colors: theme } = useTheme();
   const { data: stores = [] } = useStores(householdId);
   const addStoreMutation = useAddStoreMutation();
@@ -30,8 +32,10 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
     if (existing) {
       if (existing.color !== newStoreColor) {
         Alert.alert(
-          'Markt existiert bereits',
-          `"${existing.name}" gibt es schon in einer anderen Farbe. Der vorhandene Markt wird verwendet.`,
+          t('shoppingList.storePickerField.alreadyExistsTitle'),
+          t('shoppingList.storePickerField.alreadyExistsDifferentColorBody', {
+            store: existing.name,
+          }),
         );
       }
       onChange(existing.id);
@@ -58,15 +62,15 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
     <View>
       <View className="row-between mt-two">
         <Txt variant="body" weight="700">
-          Markt (optional)
+          {t('shoppingList.storePickerField.label')}
         </Txt>
         {!showAddStore && (
           <Pressable
             onPress={() => setShowAddStore(true)}
             accessibilityRole="button"
-            accessibilityLabel="Neuer Markt">
+            accessibilityLabel={t('shoppingList.storePickerField.addNewAccessibility')}>
             <Txt variant="body" tone="primary">
-              + Neuer Markt
+              {t('shoppingList.storePickerField.addNew')}
             </Txt>
           </Pressable>
         )}
@@ -81,7 +85,7 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
             storeId === null ? 'border-accent bg-accent/10' : 'border-border bg-transparent'
           }`}>
           <Txt variant="body" tone="primary">
-            Ohne Markt
+            {t('shoppingList.storePickerField.unassigned')}
           </Txt>
         </Pressable>
         {stores.map((store) => {
@@ -114,13 +118,13 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
       {showAddStore && (
         <View className="store-add-box">
           <TextField
-            label="Name des Markts"
-            placeholder="z.B. REWE"
+            label={t('shoppingList.storePickerField.nameLabel')}
+            placeholder={t('shoppingList.storePickerField.namePlaceholder')}
             value={newStoreName}
             onChangeText={setNewStoreName}
           />
           <Txt variant="body" tone="secondary">
-            Vorschläge
+            {t('shoppingList.stores.addStore.suggestions')}
           </Txt>
           <View className="row-wrap">
             {STORE_PRESETS.map((preset) => (
@@ -145,7 +149,7 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
           </View>
 
           <Txt variant="body" tone="secondary">
-            Farbe
+            {t('shoppingList.stores.addStore.color')}
           </Txt>
           <View className="row-wrap">
             {STORE_COLOR_PALETTE.map((color) => (
@@ -153,7 +157,9 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
                 key={color}
                 onPress={() => setNewStoreColor(color)}
                 accessibilityRole="button"
-                accessibilityLabel={`Farbe ${color}`}
+                accessibilityLabel={t('shoppingList.stores.addStore.colorAccessibility', {
+                  color,
+                })}
                 accessibilityState={{ selected: newStoreColor === color }}
                 className="store-color-swatch"
                 // Dynamische Palettenfarbe & Auswahlrand
@@ -166,13 +172,13 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
           </View>
           <View className="input-row">
             <Button
-              title="Erstellen"
+              title={t('shoppingList.storePickerField.create')}
               onPress={handleAddStore}
               loading={addStoreMutation.isPending}
               disabled={!newStoreName.trim()}
             />
             <Button
-              title="Abbrechen"
+              title={t('shoppingList.storePickerField.cancel')}
               variant="secondary"
               onPress={() => {
                 setShowAddStore(false);

@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react-native';
 import type React from 'react';
+import { i18n } from '@/i18n';
 import { RowStorePicker } from './row-store-picker';
 
 jest.mock('@/features/shopping-list/hooks/use-stores', () => ({
@@ -44,6 +45,10 @@ function wrapper({ children }: { children: React.ReactNode }) {
 // store-picker.test.tsx). Getestet wird daher der Trigger-Zustand: welche
 // Beschriftung/welcher Markt je nach `storeId` angezeigt wird.
 describe('RowStorePicker', () => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   it('zeigt "Ohne Markt" wenn storeId null ist', async () => {
     await render(<RowStorePicker householdId="hh-1" storeId={null} onChange={jest.fn()} />, {
       wrapper,

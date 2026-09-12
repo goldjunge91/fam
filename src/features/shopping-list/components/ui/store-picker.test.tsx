@@ -5,6 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StorePickerMenu } from '@/features/shopping-list/components/ui/store-picker-menu';
 import { StorePickerField } from '@/features/shopping-list/forms/store-picker-field';
 import type { Store } from '@/features/shopping-list/hooks/use-stores';
+import { i18n } from '@/i18n';
 
 jest.mock('expo-glass-effect', () => ({
   isGlassEffectAPIAvailable: () => false,
@@ -44,6 +45,10 @@ jest.mock('@/features/shopping-list/hooks/use-stores', () => ({
 }));
 
 describe('StorePicker Components', () => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   const mockStores: Store[] = [
     {
       id: 'store-1',

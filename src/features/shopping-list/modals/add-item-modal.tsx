@@ -1,5 +1,6 @@
 import { Image } from 'expo-image';
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -29,6 +30,7 @@ export function AddItemModal({
   onItemAdded,
   onDismissFinished,
 }: AddItemModalProps) {
+  const { t } = useTranslation();
   const { colors: theme } = useTheme();
   const formRef = useRef<AddItemFormHandle>(null);
 
@@ -46,8 +48,11 @@ export function AddItemModal({
       onHeaderPress={() => formRef.current?.closeSearch()}
       header={
         <View className="modal-header min-h-[54px]">
-          <Txt variant="heading">Artikel hinzufügen</Txt>
-          <HeaderIconButton label="Schließen" onPress={onDismiss} variant="modal-close">
+          <Txt variant="heading">{t('shoppingList.addItem')}</Txt>
+          <HeaderIconButton
+            label={t('shoppingList.close')}
+            onPress={onDismiss}
+            variant="modal-close">
             <Image
               source="sf:xmark"
               contentFit="contain"

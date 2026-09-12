@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { colorsLight } from '@/components/theme';
+import { i18n } from '@/i18n';
 
 import { ShoppingListScreen } from './shopping-list-screen';
 
@@ -204,11 +205,12 @@ describe('ShoppingListScreen', () => {
     },
   });
 
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.useFakeTimers();
     mockParams = {};
     mockShoppingListEmpty = false;
     jest.clearAllMocks();
+    await i18n.changeLanguage('de');
   });
 
   afterEach(async () => {

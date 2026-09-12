@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 
+import { i18n } from '@/i18n';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import type { Store } from '../hooks/use-stores';
 import { MoveItemsModal } from './move-items-modal';
@@ -47,6 +48,10 @@ const stores: Store[] = [
 ];
 
 describe('MoveItemsModal', () => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   it('sperrt die aktuelle Liste und meldet das gewaehlte Ziel', async () => {
     const onSelect = jest.fn();
     await render(

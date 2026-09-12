@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
 import { Txt } from '@/constants/ui';
@@ -15,14 +16,16 @@ export function TotalEstimateCard({
   itemCount,
   storeCount,
 }: TotalEstimateCardProps) {
+  const { t } = useTranslation();
+
   return (
     <View className="total-estimate-card">
       <Txt variant="body" tone="primary" weight="600">
-        Gesamtschätzung
+        {t('shoppingList.totalEstimateCard.title')}
       </Txt>
       <Txt variant="title">{formatEuro(totalEstimate)}</Txt>
       <Txt variant="body" tone="secondary">
-        {itemCount} Artikel in {storeCount} {storeCount === 1 ? 'Geschäft' : 'Geschäften'}
+        {t('shoppingList.totalEstimateCard.summary', { items: itemCount, count: storeCount })}
       </Txt>
     </View>
   );

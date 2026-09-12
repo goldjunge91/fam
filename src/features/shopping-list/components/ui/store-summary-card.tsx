@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressBar } from '@/components/ui/progress-bar';
@@ -30,6 +31,7 @@ export function StoreSummaryCard({
   openCategoryColors,
   onPress,
 }: StoreSummaryCardProps) {
+  const { t } = useTranslation();
   const { colors: theme } = useTheme();
   const progress = totalCount > 0 ? checkedCount / totalCount : 0;
   const isComplete = totalCount > 0 && checkedCount === totalCount;
@@ -39,7 +41,12 @@ export function StoreSummaryCard({
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
-      accessibilityLabel={`${name}, ${checkedCount} von ${totalCount} Artikeln, ${formatEuro(totalEstimate)} geschätzt`}
+      accessibilityLabel={t('shoppingList.storeSummaryCard.accessibility', {
+        name,
+        checked: checkedCount,
+        total: totalCount,
+        estimate: formatEuro(totalEstimate),
+      })}
       className="store-summary-row"
       style={{
         backgroundColor: withColorAlpha(color, '16'),
@@ -62,11 +69,11 @@ export function StoreSummaryCard({
         <View className="flex-row items-center gap-1 mt-[1px]">
           {totalCount === 0 ? (
             <Txt variant="caption" tone="secondary">
-              keine Artikel
+              {t('shoppingList.storeSummaryCard.noItems')}
             </Txt>
           ) : isComplete ? (
             <Txt variant="caption" tone="success" weight="600">
-              alles erledigt
+              {t('shoppingList.storeSummaryCard.allDone')}
             </Txt>
           ) : (
             <>
@@ -79,7 +86,7 @@ export function StoreSummaryCard({
                 />
               ))}
               <Txt variant="caption" tone="secondary">
-                offen
+                {t('shoppingList.storeSummaryCard.open')}
               </Txt>
             </>
           )}
@@ -91,7 +98,7 @@ export function StoreSummaryCard({
           {formatEuro(totalEstimate)}
         </Txt>
         <Txt variant="body" tone="secondary">
-          geschätzt
+          {t('shoppingList.storeSummaryCard.estimated')}
         </Txt>
       </View>
     </Pressable>

@@ -3,6 +3,7 @@ import { fireEvent, render, screen, userEvent, waitFor } from '@testing-library/
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AddItemForm } from '@/features/shopping-list/forms/add-item-form';
+import { i18n } from '@/i18n';
 
 const mockAddMutateAsync = jest.fn().mockResolvedValue({});
 const defaultGlobalClassification = {
@@ -119,8 +120,9 @@ describe('AddItemForm', () => {
     );
   }
 
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks();
+    await i18n.changeLanguage('de');
     mockFeedbackEnabled = false;
     mockUserId = null;
     mockAddMutateAsync.mockResolvedValue({});

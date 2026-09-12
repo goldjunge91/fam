@@ -1,4 +1,5 @@
 import { Image } from 'expo-image';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -15,6 +16,7 @@ interface EditItemModalProps {
 
 /** Eigene Seite statt Inline-Formular — analog zu AddItemModal. */
 export function EditItemModal({ item, onDismiss }: EditItemModalProps) {
+  const { t } = useTranslation();
   const { colors: theme } = useTheme();
 
   return (
@@ -27,8 +29,11 @@ export function EditItemModal({ item, onDismiss }: EditItemModalProps) {
       showHandle
       header={
         <View className="modal-header min-h-[54px]">
-          <Txt variant="heading">Artikel bearbeiten</Txt>
-          <HeaderIconButton label="Schließen" onPress={onDismiss} variant="modal-close">
+          <Txt variant="heading">{t('shoppingList.editItem')}</Txt>
+          <HeaderIconButton
+            label={t('shoppingList.close')}
+            onPress={onDismiss}
+            variant="modal-close">
             <Image
               source="sf:xmark"
               contentFit="contain"

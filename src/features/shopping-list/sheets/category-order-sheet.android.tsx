@@ -1,5 +1,6 @@
 import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
 import ReorderableList, {
   type ReorderableListReorderEvent,
@@ -36,6 +37,7 @@ interface RowProps {
 }
 
 function Row({ category }: RowProps) {
+  const { t } = useTranslation();
   const { colors: theme } = useTheme();
   const drag = useReorderableDrag();
   const isActive = useIsActive();
@@ -49,7 +51,9 @@ function Row({ category }: RowProps) {
         onPressIn={drag}
         className="category-order-handle"
         accessibilityRole="adjustable"
-        accessibilityLabel={`${category.label} verschieben`}>
+        accessibilityLabel={t('shoppingList.categoryOrder.moveAccessibility', {
+          category: category.label,
+        })}>
         <Txt variant="heading" weight="700" className="opacity-50">
           ⠿
         </Txt>
@@ -65,6 +69,7 @@ interface Props {
 }
 
 export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
+  const { t } = useTranslation();
   const { colors: theme } = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
 
@@ -136,10 +141,10 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
           ListHeaderComponent={
             <View className="pt-two pb-three gap-[2px]">
               <Txt variant="heading" weight="700">
-                Reihenfolge bearbeiten
+                {t('shoppingList.categoryOrder.title')}
               </Txt>
               <Txt variant="body" tone="secondary">
-                {store?.name ?? ''} — am Griff ⠿ ziehen
+                {t('shoppingList.categoryOrder.subtitle', { store: store?.name ?? '' })}
               </Txt>
             </View>
           }
@@ -147,7 +152,7 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
             <View className="row-between py-four">
               <Pressable onPress={handleReset} accessibilityRole="button" className="py-two">
                 <Txt variant="body" tone="secondary">
-                  Auf Standard zurücksetzen
+                  {t('shoppingList.categoryOrder.reset')}
                 </Txt>
               </Pressable>
               <Pressable
@@ -158,7 +163,7 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
                 // Dynamische Markt-Farbe aus der Datenbank
                 style={{ backgroundColor: store?.color ?? theme.basil }}>
                 <Txt variant="body" tone="onAccent" weight="700">
-                  Speichern
+                  {t('shoppingList.categoryOrder.save')}
                 </Txt>
               </Pressable>
             </View>

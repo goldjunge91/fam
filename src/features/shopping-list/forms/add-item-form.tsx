@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Keyboard, Pressable, View } from 'react-native';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
@@ -85,6 +86,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   { householdId, initialStoreId = null, initialProduct = null, onDismiss, onItemAdded },
   ref,
 ) {
+  const { t } = useTranslation();
   const { colors: theme } = useTheme();
   const [name, setName] = useState('');
   const [purchaseCount, setPurchaseCount] = useState(1);
@@ -220,10 +222,10 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 
   const storeOptions = useMemo(
     () => [
-      { value: NO_STORE, label: 'Ohne Markt' },
+      { value: NO_STORE, label: t('shoppingList.itemForm.unassignedStore') },
       ...stores.map((store) => ({ value: store.id, label: store.name })),
     ],
-    [stores],
+    [stores, t],
   );
   const parsedPackageSize = Number(packageSizeInput.replace(',', '.'));
   const packageSize =
@@ -368,7 +370,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
     });
     const trimmed = name.trim();
     if (!trimmed) {
-      setNameError('Bitte einen Namen eingeben.');
+      setNameError(t('shoppingList.itemForm.nameRequired'));
       return;
     }
     setNameError(null);
@@ -546,7 +548,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
       }
     } catch (error) {
       console.error('Fehler beim lokalen Speichern des Einkaufsartikels:', error);
-      setNameError('Artikel konnte nicht gespeichert werden. Bitte erneut versuchen.');
+      setNameError(t('shoppingList.addItemForm.saveFailed'));
     }
   }
 
@@ -556,7 +558,11 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
         <ProductSearchDropdown
           ref={productSearchRef}
           label=""
-          placeholder={source === 'dish' ? 'Gericht suchen…' : 'Artikel suchen'}
+          placeholder={
+            source === 'dish'
+              ? t('shoppingList.addItemForm.searchPlaceholderDish')
+              : t('shoppingList.addItemForm.searchPlaceholderFood')
+          }
           value={name}
           onChangeText={(text) => {
             productSelectionRef.current += 1;
@@ -571,7 +577,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
           trailingPlacement="outside"
           trailing={
             <HeaderIconButton
-              label="Barcode scannen"
+              label={t('shoppingList.screen.scanBarcode')}
               onPress={() => {
                 productSearchRef.current?.dismiss();
                 setShowScanner(true);
@@ -599,13 +605,13 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
             dismissKeyboard();
             setSource(next);
           }}
-          sourceAccessibilityLabel="Quelle: Lebensmittel oder Gerichte"
+          sourceAccessibilityLabel={t('shoppingList.addItemForm.sourceAccessibility')}
           suggestionFilter={suggestionMode}
           onSuggestionFilterChange={(next) => {
             dismissKeyboard();
             setSuggestionMode(next);
           }}
-          suggestionAccessibilityLabel="Vorschlagsfilter"
+          suggestionAccessibilityLabel={t('shoppingList.addItemForm.suggestionFilterAccessibility')}
         />
 
         <ShoppingProductSuggestions
@@ -624,7 +630,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
         <View className="flex-row items-end gap-[9px]">
           <View className="flex-[1.15] gap-one">
             <Txt variant="label" tone="secondary">
-              Einkaufsmenge
+              {t('shoppingList.itemForm.quantityLabel')}
             </Txt>
             <QuantityStepper
               value={purchaseCount}
@@ -632,14 +638,14 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
                 dismissKeyboard();
                 setPurchaseCount(next);
               }}
-              label="Einkaufsmenge"
+              label={t('shoppingList.itemForm.quantityLabel')}
               size="large"
               fullWidth
             />
           </View>
           <View className="flex-1">
             <WheelPickerField
-              label="Markt"
+              label={t('shoppingList.itemForm.storeLabel')}
               value={storeId ?? NO_STORE}
               options={storeOptions}
               onChange={(value) => {
@@ -659,20 +665,20 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
             }}
             accessibilityRole="button"
             accessibilityState={{ expanded: detailsOpen }}
-            accessibilityLabel="Weitere Angaben"
+            accessibilityLabel={t('shoppingList.itemForm.moreDetails')}
             className="details-summary">
             <Txt variant="body" tone="secondary" weight="500">
               {detailsOpen ? '▾' : '›'}
             </Txt>
             <Txt variant="body" tone="primary" weight="500">
-              Weitere Angaben
+              {t('shoppingList.itemForm.moreDetails')}
             </Txt>
           </Pressable>
 
           {detailsOpen ? (
             <View className="gap-[10px] pb-one">
               <WheelPickerField
-                label="Einheit"
+                label={t('shoppingList.itemForm.unitLabel')}
                 value={unit}
                 options={UNIT_OPTIONS}
                 onChange={(next) => {
@@ -694,16 +700,16 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
                 <View className="flex-row items-end gap-two">
                   <View className="flex-[1.3]">
                     <TextField
-                      label="Inhalt je Packung"
+                      label={t('shoppingList.itemForm.packageContentLabel')}
                       value={packageSizeInput}
                       onChangeText={setPackageSizeInput}
                       keyboardType="decimal-pad"
-                      placeholder="z. B. 500"
+                      placeholder={t('shoppingList.itemForm.packageContentPlaceholder')}
                     />
                   </View>
                   <View className="flex-1">
                     <WheelPickerField
-                      label="Einheit"
+                      label={t('shoppingList.itemForm.unitLabel')}
                       value={packageSizeUnit}
                       options={UNIT_OPTIONS.filter((option) =>
                         ['g', 'kg', 'ml', 'l', 'piece', 'portion'].includes(option.value),
@@ -718,11 +724,11 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
                 </View>
               ) : null}
               <TextField
-                label="Geschätzter Preis (optional)"
+                label={t('shoppingList.itemForm.priceLabel')}
                 value={price}
                 onChangeText={setPrice}
                 keyboardType="decimal-pad"
-                placeholder="z. B. 2,49 €"
+                placeholder={t('shoppingList.itemForm.pricePlaceholder')}
                 size="large"
               />
             </View>
@@ -737,25 +743,27 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
                 {name.trim()}
               </Txt>
               <Txt variant="caption" tone="secondary" weight="500" numberOfLines={1}>
-                {selectedProduct?.brand ?? 'Manueller Eintrag'}
+                {selectedProduct?.brand ?? t('shoppingList.addItemForm.manualEntry')}
               </Txt>
               {selectedProduct?.barcode ? (
                 <Txt variant="caption" tone="secondary" numberOfLines={1}>
-                  EAN {selectedProduct.barcode}
+                  {t('shoppingList.itemForm.ean', { barcode: selectedProduct.barcode })}
                 </Txt>
               ) : null}
             </View>
             <View className="items-end">
               <Txt variant="body">{packageHint ?? purchaseAmount}</Txt>
               <Txt variant="body" tone="secondary">
-                {packageHint ? 'Packungsinhalt' : 'Menge'}
+                {packageHint
+                  ? t('shoppingList.itemForm.packageContentSummary')
+                  : t('shoppingList.itemForm.quantitySummary')}
               </Txt>
             </View>
           </View>
         ) : null}
 
         <Button
-          title="Zur Einkaufsliste hinzufügen"
+          title={t('shoppingList.addItemForm.submit')}
           onPress={handleAdd}
           loading={addItem.isPending}
           disabled={!name.trim()}

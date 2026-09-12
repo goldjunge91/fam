@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, View } from 'react-native';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
@@ -19,6 +20,7 @@ export function MoveItemsModal({
   onSelect,
   onClose,
 }: MoveItemsModalProps) {
+  const { t } = useTranslation();
   const { colors: theme } = useTheme();
   const count = selectedItems.length;
 
@@ -34,7 +36,7 @@ export function MoveItemsModal({
         onPress={() => onSelect(storeId)}
         disabled={disabled}
         accessibilityRole="button"
-        accessibilityLabel={`Auf ${label} verschieben`}
+        accessibilityLabel={t('shoppingList.moveItems.moveToAccessibility', { target: label })}
         accessibilityState={{ disabled }}
         className={`move-items-target ${disabled ? 'opacity-40' : ''}`}>
         <View className="store-picker-dot" style={{ backgroundColor: color }} />
@@ -43,7 +45,7 @@ export function MoveItemsModal({
         </Txt>
         {disabled ? (
           <Txt variant="caption" tone="secondary">
-            aktuell
+            {t('shoppingList.moveItems.current')}
           </Txt>
         ) : null}
       </Pressable>
@@ -57,16 +59,16 @@ export function MoveItemsModal({
           <View className="row-between items-start mb-three">
             <View className="flex-1 gap-half">
               <Txt variant="heading" weight="700">
-                Artikel verschieben
+                {t('shoppingList.moveItems.title')}
               </Txt>
               <Txt variant="body" tone="secondary">
-                {count} {count === 1 ? 'Artikel' : 'Artikel'} in eine andere Liste verschieben
+                {t('shoppingList.moveItems.subtitle', { count })}
               </Txt>
             </View>
             <Pressable
               onPress={onClose}
               accessibilityRole="button"
-              accessibilityLabel="Verschieben schließen"
+              accessibilityLabel={t('shoppingList.moveItems.closeAccessibility')}
               className="modal-close-btn">
               <Txt>✕</Txt>
             </Pressable>
@@ -74,7 +76,7 @@ export function MoveItemsModal({
 
           <View className="gap-one">
             {stores.map((store) => renderTarget(store.name, store.id, store.color))}
-            {renderTarget('Ohne Markt', null, theme.textMuted)}
+            {renderTarget(t('shoppingList.moveItems.unassignedTarget'), null, theme.textMuted)}
           </View>
         </View>
       </View>

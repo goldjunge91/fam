@@ -1,8 +1,13 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 
+import { i18n } from '@/i18n';
 import { CategoryField } from './category-field';
 
 describe('CategoryField', () => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   it('zeigt nur den aktuellen Einkaufsbereich ohne internen Herkunftsstatus', async () => {
     await render(
       <CategoryField

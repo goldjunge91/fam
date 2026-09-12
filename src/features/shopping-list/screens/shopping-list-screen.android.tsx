@@ -1,5 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, ScrollView, SectionList, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FamIcon } from '@/components/icons/fam-icon';
@@ -50,6 +51,7 @@ import { CompleteRunSheet, type TransferItem } from '../sheets/complete-run-shee
 import { ShoppingModeScreen } from './shopping-mode-screen';
 
 export function ShoppingListScreen() {
+  const { t } = useTranslation();
   const params = useLocalSearchParams<{ action?: string }>();
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -192,14 +194,18 @@ export function ShoppingListScreen() {
   }
 
   function handleDeletePress(item: LocalShoppingItem) {
-    Alert.alert('Artikel löschen', `"${item.name}" aus der Liste entfernen?`, [
-      { text: 'Abbrechen', style: 'cancel' },
-      {
-        text: 'Löschen',
-        style: 'destructive',
-        onPress: () => deleteItem.mutate({ id: item.id, household_id: item.household_id }),
-      },
-    ]);
+    Alert.alert(
+      t('shoppingList.screen.deleteItemTitle'),
+      t('shoppingList.screen.deleteItemBody', { name: item.name }),
+      [
+        { text: t('shoppingList.screen.cancel'), style: 'cancel' },
+        {
+          text: t('shoppingList.screen.delete'),
+          style: 'destructive',
+          onPress: () => deleteItem.mutate({ id: item.id, household_id: item.household_id }),
+        },
+      ],
+    );
   }
 
   async function handleCompleteRun(transfers: TransferItem[]) {
@@ -236,20 +242,23 @@ export function ShoppingListScreen() {
 
   if (!householdId) {
     return (
-      <Screen title="Einkaufsliste" subtitle="Gemeinsame Liste" chrome={chrome}>
+      <Screen
+        title={t('shoppingList.screen.title')}
+        subtitle={t('shoppingList.screen.subtitle')}
+        chrome={chrome}>
         <Card>
           <EmptyState
             symbol="cart"
-            title="Noch kein Haushalt"
-            hint="Lege im Profil einen Haushalt an oder tritt einem bei."
+            title={t('shoppingList.screen.noHousehold.title')}
+            hint={t('shoppingList.screen.noHousehold.hint')}
           />
         </Card>
       </Screen>
     );
   }
   const completeActionLabel = activeStore
-    ? `Einkaufsliste bei ${activeStore.name} abschließen`
-    : 'Einkaufliste abschließen';
+    ? t('shoppingList.screen.completeAction', { store: activeStore.name })
+    : t('shoppingList.screen.completeActionGeneric');
 
   const listContentPadding = { paddingBottom: insets.bottom + space.xxxl };
 
@@ -266,7 +275,7 @@ export function ShoppingListScreen() {
         />
         <View className="flex-row items-center gap-one">
           <HeaderIconButton
-            label="Barcode scannen"
+            label={t('shoppingList.screen.scanBarcode')}
             onPress={() => {
               setScannedProduct(null);
               setScannerOpen(true);
@@ -276,7 +285,11 @@ export function ShoppingListScreen() {
           </HeaderIconButton>
           {!isAllFilter && filteredItems.length > 0 ? (
             <HeaderIconButton
-              label={selectionMode ? 'Auswahl schließen' : 'Mehrfachauswahl starten'}
+              label={
+                selectionMode
+                  ? t('shoppingList.screen.closeSelection')
+                  : t('shoppingList.screen.startSelection')
+              }
               onPress={selectionMode ? closeSelection : () => setSelectionMode(true)}
               style={{ width: 48, height: 48 }}>
               <Txt variant="heading" weight="700" tone="secondary">
@@ -289,13 +302,17 @@ export function ShoppingListScreen() {
       {selectionMode ? (
         <View className="gap-one">
           <Txt variant="body" weight="700" numberOfLines={1}>
-            {selectedItems.length} {selectedItems.length === 1 ? 'Artikel' : 'Artikel'} ausgewählt
+            {t('shoppingList.screen.selectedCount', { count: selectedItems.length })}
           </Txt>
           <View className="flex-row items-center justify-end gap-two">
             <Button
               size="sm"
               variant="link"
-              title={selectedItems.length === filteredItems.length ? 'Keine' : 'Alle'}
+              title={
+                selectedItems.length === filteredItems.length
+                  ? t('shoppingList.screen.selectNone')
+                  : t('shoppingList.screen.selectAll')
+              }
               onPress={
                 selectedItems.length === filteredItems.length
                   ? () => setSelectedItemIds(new Set())
@@ -303,13 +320,13 @@ export function ShoppingListScreen() {
               }
               accessibilityLabel={
                 selectedItems.length === filteredItems.length
-                  ? 'Auswahl aufheben'
-                  : 'Alle Artikel auswählen'
+                  ? t('shoppingList.screen.deselectAllAccessibility')
+                  : t('shoppingList.screen.selectAllAccessibility')
               }
             />
             <Button
               size="sm"
-              title="Verschieben"
+              title={t('shoppingList.screen.move')}
               disabled={selectedItems.length === 0}
               onPress={() => setMoveModalOpen(true)}
             />
@@ -320,7 +337,11 @@ export function ShoppingListScreen() {
         <Button
           size="sm"
           variant="secondary"
-          title={`🎬 Test Werbung (${interstitialAd.isLoaded ? 'Bereit' : 'Wird geladen...'})`}
+          title={t('shoppingList.screen.testAd', {
+            status: interstitialAd.isLoaded
+              ? t('shoppingList.screen.testAdReady')
+              : t('shoppingList.screen.testAdLoading'),
+          })}
           onPress={() => {
             console.log('[TestAd] Button gedrückt, isLoaded:', interstitialAd.isLoaded);
             interstitialAd.show();
@@ -340,7 +361,10 @@ export function ShoppingListScreen() {
           accentKey="fiber"
           title={`🛒 ${completeActionLabel} (${checkedItems.length})`}
           onPress={() => setSheetOpen(true)}
-          accessibilityLabel={`${completeActionLabel}, ${checkedItems.length} Artikel abgehakt`}
+          accessibilityLabel={t('shoppingList.screen.completeAccessibility', {
+            label: completeActionLabel,
+            count: checkedItems.length,
+          })}
         />
       </View>
     );
@@ -353,18 +377,24 @@ export function ShoppingListScreen() {
         <Button
           size="sm"
           variant="secondary"
-          title="🛒 Einkaufsmodus starten"
+          title={t('shoppingList.screen.startShoppingMode')}
           onPress={() => {
             if (canStartShoppingMode) setShoppingModeOpen(true);
           }}
-          accessibilityLabel={`Einkaufsmodus für ${activeStore.name} starten`}
+          accessibilityLabel={t('shoppingList.screen.startShoppingModeAccessibility', {
+            store: activeStore.name,
+          })}
         />
       </View>
     );
   };
 
   return (
-    <Screen title="Einkaufsliste" scroll={false} chrome={chrome} backgroundGradient={hubGradient}>
+    <Screen
+      title={t('shoppingList.screen.title')}
+      scroll={false}
+      chrome={chrome}
+      backgroundGradient={hubGradient}>
       {isLoading ? null : isAllFilter ? (
         /* Gesamtübersicht: Zusammenfassung aller Märkte & Gesamtschätzung */
         <ScrollView
@@ -398,7 +428,7 @@ export function ShoppingListScreen() {
 
             {/* Übersichtszeile für Artikel ohne Marktzuordnung */}
             <StoreSummaryCard
-              name="Ohne Markt"
+              name={t('shoppingList.screen.unassignedStore')}
               color={theme.textMuted}
               totalCount={unassignedItems.length}
               checkedCount={unassignedItems.filter((i) => i.checked_at !== null).length}
@@ -413,8 +443,8 @@ export function ShoppingListScreen() {
               <Card>
                 <EmptyState
                   symbol="cart"
-                  title="Einkaufsliste ist leer"
-                  hint="Tippe auf '+' um zu starten."
+                  title={t('shoppingList.screen.empty.title')}
+                  hint={t('shoppingList.screen.empty.hint')}
                 />
               </Card>
             ) : (
@@ -444,9 +474,9 @@ export function ShoppingListScreen() {
               {activeStore && (
                 <Button
                   variant="link"
-                  title="⠿ Reihenfolge bearbeiten"
+                  title={t('shoppingList.screen.editOrder')}
                   onPress={() => setOrderSheetOpen(true)}
-                  accessibilityLabel="Reihenfolge für diesen Markt bearbeiten"
+                  accessibilityLabel={t('shoppingList.screen.editOrderAccessibility')}
                 />
               )}
             </>
@@ -462,8 +492,12 @@ export function ShoppingListScreen() {
               <Card>
                 <EmptyState
                   symbol="cart"
-                  title={isUnassignedFilter ? 'Keine Artikel ohne Markt' : 'Einkaufsliste ist leer'}
-                  hint="Tippe auf '+' um zu starten."
+                  title={
+                    isUnassignedFilter
+                      ? t('shoppingList.screen.emptyUnassigned')
+                      : t('shoppingList.screen.empty.title')
+                  }
+                  hint={t('shoppingList.screen.empty.hint')}
                 />
               </Card>
             </View>

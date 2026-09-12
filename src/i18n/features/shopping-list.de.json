@@ -1,0 +1,215 @@
+{
+  "addItem": "Artikel hinzufügen",
+  "itemCount_one": "{{count}} Artikel",
+  "itemCount_other": "{{count}} Artikel",
+  "close": "Schließen",
+  "editItem": "Artikel bearbeiten",
+  "moveItems": {
+    "title": "Artikel verschieben",
+    "subtitle_one": "{{count}} Artikel in eine andere Liste verschieben",
+    "subtitle_other": "{{count}} Artikel in eine andere Liste verschieben",
+    "moveToAccessibility": "Auf {{target}} verschieben",
+    "current": "aktuell",
+    "closeAccessibility": "Verschieben schließen",
+    "unassignedTarget": "Ohne Markt"
+  },
+  "screen": {
+    "title": "Einkaufsliste",
+    "subtitle": "Gemeinsame Liste",
+    "noHousehold": {
+      "title": "Noch kein Haushalt",
+      "hint": "Lege im Profil einen Haushalt an oder tritt einem bei."
+    },
+    "completeAction": "Einkaufsliste bei {{store}} abschließen",
+    "completeActionGeneric": "Einkaufliste abschließen",
+    "completeAccessibility": "{{label}}, {{count}} Artikel abgehakt",
+    "scanBarcode": "Barcode scannen",
+    "closeSelection": "Auswahl schließen",
+    "startSelection": "Mehrfachauswahl starten",
+    "selectedCount_one": "{{count}} Artikel ausgewählt",
+    "selectedCount_other": "{{count}} Artikel ausgewählt",
+    "selectNone": "Keine",
+    "selectAll": "Alle",
+    "deselectAllAccessibility": "Auswahl aufheben",
+    "selectAllAccessibility": "Alle Artikel auswählen",
+    "move": "Verschieben",
+    "testAd": "🎬 Test Werbung ({{status}})",
+    "testAdReady": "Bereit",
+    "testAdLoading": "Wird geladen...",
+    "startShoppingMode": "🛒 Einkaufsmodus starten",
+    "startShoppingModeAccessibility": "Einkaufsmodus für {{store}} starten",
+    "unassignedStore": "Ohne Markt",
+    "empty": {
+      "title": "Einkaufsliste ist leer",
+      "hint": "Tippe auf '+' um zu starten."
+    },
+    "emptyUnassigned": "Keine Artikel ohne Markt",
+    "editOrder": "⠿ Reihenfolge bearbeiten",
+    "editOrderAccessibility": "Reihenfolge für diesen Markt bearbeiten",
+    "deleteItemTitle": "Artikel löschen",
+    "deleteItemBody": "\"{{name}}\" aus der Liste entfernen?",
+    "cancel": "Abbrechen",
+    "delete": "Löschen"
+  },
+  "stores": {
+    "priceInMarketView": {
+      "label": "Preis in der Marktansicht anzeigen",
+      "hint": "Zeigt den hinterlegten Artikelpreis neben der Menge."
+    },
+    "addStore": {
+      "title": "Neuen Markt hinzufügen",
+      "namePlaceholder": "z.B. REWE, Aldi, Lidl...",
+      "suggestions": "Vorschläge",
+      "color": "Farbe",
+      "colorAccessibility": "Farbe {{color}}",
+      "add": "Hinzufügen"
+    },
+    "existingStores": {
+      "title": "Vorhandene Märkte",
+      "loading": "Lädt...",
+      "empty": "Keine Märkte vorhanden.",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "editAccessibility": "{{store}} bearbeiten",
+      "deleteAccessibility": "{{store}} löschen"
+    },
+    "alreadyExistsTitle": "Markt existiert bereits",
+    "alreadyExistsBody": "\"{{store}}\" ist bereits vorhanden.",
+    "errorTitle": "Fehler",
+    "createError": "Fehler beim Erstellen",
+    "updateError": "Fehler beim Aktualisieren",
+    "deleteError": "Fehler beim Löschen",
+    "deleteTitle": "Markt löschen",
+    "deleteBody": "Möchtest du den Markt \"{{store}}\" wirklich löschen?"
+  },
+  "itemRow": {
+    "actionAccessibility": "{{name}} {{action}}",
+    "select": "auswählen",
+    "edit": "bearbeiten",
+    "selectionHint": "Antippen zum Auswählen oder Abwählen",
+    "editHint": "Antippen zum Bearbeiten, lang drücken zum Löschen"
+  },
+  "totalEstimateCard": {
+    "title": "Gesamtschätzung",
+    "summary_one": "{{items}} Artikel in {{count}} Geschäft",
+    "summary_other": "{{items}} Artikel in {{count}} Geschäften"
+  },
+  "storeSummaryCard": {
+    "accessibility": "{{name}}, {{checked}} von {{total}} Artikeln, {{estimate}} geschätzt",
+    "noItems": "keine Artikel",
+    "allDone": "alles erledigt",
+    "open": "offen",
+    "estimated": "geschätzt"
+  },
+  "storePickerMenu": {
+    "allLists": "Alle Listen",
+    "filterAccessibility": "Markt filtern, aktuell: {{current}}",
+    "unassigned": "Ohne Markt"
+  },
+  "rowStorePicker": {
+    "chooseStore": "Markt wählen",
+    "chooseStoreAccessibility": "Markt wählen, aktuell: {{current}}",
+    "unassigned": "Ohne Markt"
+  },
+  "itemForm": {
+    "quantityLabel": "Einkaufsmenge",
+    "storeLabel": "Markt",
+    "unassignedStore": "Ohne Markt",
+    "moreDetails": "Weitere Angaben",
+    "unitLabel": "Einheit",
+    "packageContentLabel": "Inhalt je Packung",
+    "packageContentPlaceholder": "z. B. 500",
+    "priceLabel": "Geschätzter Preis (optional)",
+    "pricePlaceholder": "z. B. 2,49 €",
+    "ean": "EAN {{barcode}}",
+    "packageContentSummary": "Packungsinhalt",
+    "quantitySummary": "Menge",
+    "nameRequired": "Bitte einen Namen eingeben."
+  },
+  "addItemForm": {
+    "searchPlaceholderDish": "Gericht suchen…",
+    "searchPlaceholderFood": "Artikel suchen",
+    "sourceAccessibility": "Quelle: Lebensmittel oder Gerichte",
+    "suggestionFilterAccessibility": "Vorschlagsfilter",
+    "manualEntry": "Manueller Eintrag",
+    "saveFailed": "Artikel konnte nicht gespeichert werden. Bitte erneut versuchen.",
+    "submit": "Zur Einkaufsliste hinzufügen"
+  },
+  "editItemForm": {
+    "namePlaceholder": "Artikelname",
+    "quantityPlaceholder": "1",
+    "existingEntry": "Bestehender Eintrag",
+    "saveFailed": "Speichern fehlgeschlagen. Bitte erneut versuchen.",
+    "save": "Speichern"
+  },
+  "productSuggestions": {
+    "units": {
+      "piece": "Stück",
+      "g": "g",
+      "kg": "kg",
+      "ml": "ml",
+      "l": "L",
+      "package": "Packung",
+      "portion": "Portion"
+    },
+    "cardAccessibility": "{{name}}, {{size}}",
+    "lastStore": "Zuletzt: {{store}}",
+    "noStore": "Ohne Markt",
+    "showLessAccessibility": "Weniger Vorschläge anzeigen",
+    "showMoreAccessibility": "Weitere Vorschläge anzeigen",
+    "showLess": "Weniger anzeigen",
+    "showMore": "{{count}} weitere anzeigen"
+  },
+  "placementZoneField": {
+    "defaultLabel": "Einkaufsbereich",
+    "automatic": "Automatisch",
+    "other": "Sonstiges",
+    "changeAccessibility": "{{label}}: {{zone}}. Ändern",
+    "close": "Schließen"
+  },
+  "storePickerField": {
+    "label": "Markt (optional)",
+    "addNew": "+ Neuer Markt",
+    "addNewAccessibility": "Neuer Markt",
+    "unassigned": "Ohne Markt",
+    "nameLabel": "Name des Markts",
+    "namePlaceholder": "z.B. REWE",
+    "create": "Erstellen",
+    "cancel": "Abbrechen",
+    "alreadyExistsTitle": "Markt existiert bereits",
+    "alreadyExistsDifferentColorBody": "\"{{store}}\" gibt es schon in einer anderen Farbe. Der vorhandene Markt wird verwendet."
+  },
+  "completeRun": {
+    "storageKind": {
+      "fridge": "Kühl",
+      "freezer": "Frost",
+      "pantry": "Kammer"
+    },
+    "quantityAccessibility": "Menge für {{item}} eingeben",
+    "quantityEditAccessibility": "Menge für {{item}}, {{amount}}, zum Ändern antippen",
+    "expiryLabel": "MHD",
+    "title": "In Vorrat übernehmen",
+    "subtitle_one": "{{count}} Artikel abgehakt",
+    "subtitle_other": "{{count}} Artikel abgehakt",
+    "confirmAccessibility": "{{count}} Artikel in Vorrat übernehmen",
+    "confirm_one": "✓ {{count}} Artikel in Vorrat übernehmen",
+    "confirm_other": "✓ {{count}} Artikel in Vorrat übernehmen",
+    "cancel": "Abbrechen"
+  },
+  "categoryOrder": {
+    "moveAccessibility": "{{category}} verschieben",
+    "title": "Reihenfolge bearbeiten",
+    "subtitle": "{{store}} — am Griff ⠿ ziehen",
+    "reset": "Auf Standard zurücksetzen",
+    "save": "Speichern"
+  },
+  "shoppingMode": {
+    "close": "Einkaufsmodus schließen",
+    "checkedOfTotal": "{{checked}} / {{total}} abgehakt",
+    "categoryAccessibility": "{{category}}, {{checked}} von {{total}}{{state}}",
+    "categoryCollapsed": ", eingeklappt",
+    "categoryExpanded": ", aufgeklappt",
+    "finish": "🛒 Einkauf abschließen ({{count}})",
+    "finishAccessibility": "Einkauf abschließen, {{checked}} von {{total}} abgehakt"
+  }
+}

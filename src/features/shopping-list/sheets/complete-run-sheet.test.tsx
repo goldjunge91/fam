@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react-native';
 import type React from 'react';
 import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list';
 import { CompleteRunSheet } from '@/features/shopping-list/sheets/complete-run-sheet';
+import { i18n } from '@/i18n';
 
 jest.mock('@expo/ui/community/bottom-sheet', () => {
   const React = require('react');
@@ -51,8 +52,9 @@ describe('CompleteRunSheet', () => {
     },
   ];
 
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks();
+    await i18n.changeLanguage('de');
   });
 
   it('rendert abgehakte Artikel im Transfer-Dialog', async () => {

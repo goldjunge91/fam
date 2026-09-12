@@ -1,8 +1,13 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 
+import { i18n } from '@/i18n';
 import { StoreSummaryCard } from './store-summary-card';
 
 describe('StoreSummaryCard', () => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   it('zeigt die Marktfarbe als kräftigen Kartenakzent', async () => {
     await render(
       <StoreSummaryCard

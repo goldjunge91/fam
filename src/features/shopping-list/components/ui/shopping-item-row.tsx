@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
 
 import { useThemedStyles } from '@/components/theme/ThemeProvider';
@@ -28,6 +29,7 @@ export const ShoppingItemRow = memo(function ShoppingItemRow({
   onSelect,
   showPrice = false,
 }: ShoppingItemRowProps) {
+  const { t } = useTranslation();
   const styles = useThemedStyles(makeShoppingListStyles);
   const isChecked = item.checked_at !== null;
   const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
@@ -38,11 +40,14 @@ export const ShoppingItemRow = memo(function ShoppingItemRow({
         onPress={selectionMode ? onSelect : onEdit}
         onLongPress={selectionMode ? undefined : onDelete}
         accessibilityRole="button"
-        accessibilityLabel={`${item.name} ${selectionMode ? 'auswählen' : 'bearbeiten'}`}
+        accessibilityLabel={t('shoppingList.itemRow.actionAccessibility', {
+          name: item.name,
+          action: selectionMode ? t('shoppingList.itemRow.select') : t('shoppingList.itemRow.edit'),
+        })}
         accessibilityHint={
           selectionMode
-            ? 'Antippen zum Auswählen oder Abwählen'
-            : 'Antippen zum Bearbeiten, lang drücken zum Löschen'
+            ? t('shoppingList.itemRow.selectionHint')
+            : t('shoppingList.itemRow.editHint')
         }
         accessibilityState={selectionMode ? { selected } : undefined}
         style={styles.itemMain}>
