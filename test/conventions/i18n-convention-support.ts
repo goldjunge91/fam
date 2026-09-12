@@ -26,6 +26,12 @@ export type LocaleCatalogSnapshot = {
   catalogs: LocaleCatalog[];
 };
 
+export type TranslationReference = {
+  key: string;
+  line: number;
+  path: string;
+};
+
 function readSupportedLanguages(): string[] {
   const source = ts.createSourceFile(
     LANGUAGE_SOURCE,
@@ -211,6 +217,112 @@ export function validateLocaleCatalogs(snapshot: LocaleCatalogSnapshot): string[
               `expected ${expected.join(', ') || 'none'}, found ${actual.join(', ') || 'none'}`,
           );
         }
+      }
+    }
+  }
+
+  return errors.sort();
+}
+
+function isTranslationCall(expression: ts.Expression): boolean {
+  if (ts.isIdentifier(expression)) return expression.text === 't';
+
+  return (
+    ts.isPropertyAccessExpression(expression) &&
+    ts.isIdentifier(expression.expression) &&
+    expression.expression.text === 'i18n' &&
+    expression.name.text === 't'
+  );
+}
+
+export function extractLiteralTranslationReferences(
+  content: string,
+  sourcePath: string,
+): TranslationReference[] {
+  const source = ts.createSourceFile(
+    sourcePath,
+    content,
+    ts.ScriptTarget.Latest,
+    true,
+    sourcePath.endsWith('.tsx') ? ts.ScriptKind.TSX : ts.ScriptKind.TS,
+  );
+  const references: TranslationReference[] = [];
+
+  function visit(node: ts.Node): void {
+    if (ts.isCallExpression(node) && isTranslationCall(node.expression)) {
+      const [keyArgument] = node.arguments;
+      if (keyArgument && ts.isStringLiteralLike(keyArgument)) {
+        const { line } = source.getLineAndCharacterOfPosition(node.getStart(source));
+        references.push({ key: keyArgument.text, line: line + 1, path: sourcePath });
+      }
+    }
+
+    ts.forEachChild(node, visit);
+  }
+
+  visit(source);
+  return references;
+}
+
+function findProductionSourceFiles(directory: string): string[] {
+  return readdirSync(directory, { withFileTypes: true })
+    .flatMap((entry) => {
+      const entryPath = path.join(directory, entry.name);
+      if (entry.isDirectory()) return findProductionSourceFiles(entryPath);
+      if (!entry.isFile() || !/\.tsx?$/.test(entry.name)) return [];
+      if (/\.test\.tsx?$/.test(entry.name)) return [];
+      return [entryPath];
+    })
+    .sort();
+}
+
+export function findProductionTranslationReferences(): TranslationReference[] {
+  return findProductionSourceFiles(path.join(REPO_ROOT, 'src')).flatMap((sourcePath) =>
+    extractLiteralTranslationReferences(
+      readFileSync(sourcePath, 'utf8'),
+      path.relative(REPO_ROOT, sourcePath),
+    ),
+  );
+}
+
+function featureNamespace(feature: string): string {
+  return feature.replace(/-([a-z])/g, (_, letter: string) => letter.toUpperCase());
+}
+
+function hasCatalogKey(key: string, catalog: LocaleCatalog): boolean {
+  return (
+    catalog.values.has(key) ||
+    catalog.values.has(`${key}_one`) ||
+    catalog.values.has(`${key}_other`)
+  );
+}
+
+export function validateTranslationReferences(
+  references: TranslationReference[],
+  snapshot: LocaleCatalogSnapshot,
+): string[] {
+  const errors: string[] = [];
+
+  for (const reference of references) {
+    const separator = reference.key.indexOf('.');
+    const namespace = separator === -1 ? reference.key : reference.key.slice(0, separator);
+    const catalogKey = separator === -1 ? '' : reference.key.slice(separator + 1);
+    const feature = snapshot.features.find(
+      (candidate) => featureNamespace(candidate) === namespace,
+    );
+
+    for (const language of snapshot.languages) {
+      const catalog = feature
+        ? snapshot.catalogs.find(
+            (candidate) => candidate.feature === feature && candidate.language === language,
+          )
+        : undefined;
+
+      if (!catalog || catalog.missing || !catalogKey || !hasCatalogKey(catalogKey, catalog)) {
+        errors.push(
+          `Missing translation key "${reference.key}" at ${reference.path}:${reference.line} ` +
+            `(locale: ${language})`,
+        );
       }
     }
   }
