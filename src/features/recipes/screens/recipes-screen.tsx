@@ -1,9 +1,11 @@
+import { FlashList } from '@shopify/flash-list';
 import { router } from 'expo-router';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
   ScrollView,
+  StyleSheet,
   TextInput,
   useWindowDimensions,
   View,
@@ -45,6 +47,10 @@ const MEAL_SECTIONS: { key: string; title: string; dishTypes: DishType[] }[] = [
   { key: 'dinner', title: 'Abendessen', dishTypes: ['dinner'] },
   { key: 'snackDessert', title: 'Snacks & Dessert', dishTypes: ['snack', 'dessert'] },
 ];
+
+// Die Karussells sind eine Vorschau, keine Vollliste. Ohne Grenze mountet der
+// Katalog hier tausende Karten und blockiert den Main-Thread im Text-Layout.
+const MEAL_SECTION_PREVIEW_LIMIT = 10;
 
 type RecipeView = 'discover' | 'favorites' | 'filtered' | 'household' | 'templates';
 
@@ -183,24 +189,15 @@ function favoriteKey(entry: RecipeEntry): RecipeFavoriteKey {
   return `${entry.kind}:${entry.id}`;
 }
 
-function RecipeList({ entries }: { entries: RecipeEntry[] }) {
-  return (
-    <View className="gap-[10px]">
-      {entries.map((entry, index) => (
-        <RecipePreviewCard
-          key={entry.key}
-          title={entry.title}
-          coverImagePath={entry.coverImagePath}
-          coverSource={entry.kind === 'catalog' ? 'catalog' : 'household'}
-          cookTimeMinutes={entry.cookTimeMinutes}
-          difficultyLabel={entry.difficultyLabel}
-          servings={entry.servings}
-          paletteIndex={index + entry.title.length}
-          onPress={() => openEntry(entry)}
-        />
-      ))}
-    </View>
-  );
+const listStyles = StyleSheet.create({
+  content: { paddingHorizontal: 15, paddingTop: 4, paddingBottom: 126 },
+  gap: { height: 10 },
+});
+
+const listContentStyle = listStyles.content;
+
+function ListGap() {
+  return <View style={listStyles.gap} />;
 }
 
 /** Horizontal scrollende Foto-Karten fuer eine Mahlzeitenkategorie. */
@@ -318,6 +315,7 @@ export function RecipesScreen() {
         ...section,
         entries: searchedTemplates
           .filter((t) => section.dishTypes.some((type) => t.dish_types.includes(type)))
+          .slice(0, MEAL_SECTION_PREVIEW_LIMIT)
           .map(templateEntry),
       })).filter((section) => section.entries.length > 0),
     [searchedTemplates],
@@ -336,6 +334,37 @@ export function RecipesScreen() {
   const activeFilterCount = recipeFilterCount(filters);
   const isLoading = recipesLoading || templatesLoading;
   const isError = recipesError || templatesError;
+
+  const listKeyExtractor = useCallback((entry: RecipeEntry) => entry.key, []);
+  const renderListEntry = useCallback(
+    ({ item, index }: { item: RecipeEntry; index: number }) => (
+      <RecipePreviewCard
+        title={item.title}
+        coverImagePath={item.coverImagePath}
+        coverSource={item.kind === 'catalog' ? 'catalog' : 'household'}
+        cookTimeMinutes={item.cookTimeMinutes}
+        difficultyLabel={item.difficultyLabel}
+        servings={item.servings}
+        paletteIndex={index + item.title.length}
+        onPress={() => openEntry(item)}
+      />
+    ),
+    [],
+  );
+
+  // Listen-Ansichten laufen virtualisiert; nur "Entdecken" bleibt ein ScrollView.
+  const listView =
+    isLoading || isError
+      ? null
+      : view === 'favorites'
+        ? { entries: favoriteEntries, empty: 'Noch keine Favoriten gespeichert.' }
+        : view === 'filtered'
+          ? { entries: filteredEntries, empty: 'Keine Rezepte für diese Filter.' }
+          : view === 'household'
+            ? { entries: householdEntries, empty: 'Noch keine eigenen Rezepte.' }
+            : view === 'templates'
+              ? { entries: filteredTemplateEntries, empty: 'Keine Vorlagen für diesen Filter.' }
+              : null;
 
   function selectCategoryTile(key: string | null) {
     setTemplateCategoryFilter(key);
@@ -378,6 +407,78 @@ export function RecipesScreen() {
             ? (activeCategoryTile?.label ?? activeCalorieBucket?.label ?? 'Vorlagen')
             : 'Rezepte';
 
+  const headerContent = (
+    <>
+      {/* Aufklappbare Textsuche für Rezepttitel */}
+      {showSearch ? (
+        <View
+          className="h-[42px] flex-row items-center gap-[9px] rounded-fam-large px-[13px] mb-[10px]"
+          style={{ backgroundColor: colors.surface }}>
+          <SearchIcon color={colors.textMuted} />
+          <TextInput
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+            role="searchbox"
+            aria-label="Rezepte durchsuchen"
+            placeholder="Rezepte durchsuchen…"
+            placeholderTextColor={colors.textMuted}
+            autoFocus
+            className="flex-1 h-full py-0"
+            style={{ color: colors.text, fontSize: 14, lineHeight: 20, fontWeight: '500' }}
+          />
+        </View>
+      ) : null}
+
+      {/* Tab-Leiste (Entdecken vs. Eigene Rezepte vs. Meine Favoriten) */}
+      {view === 'discover' || view === 'favorites' || view === 'household' ? (
+        <View className="flex-row gap-two mb-[18px]">
+          <Pressable
+            onPress={() => setView('discover')}
+            role="button"
+            aria-label="Entdecken"
+            aria-selected={view === 'discover'}
+            className="tab-btn"
+            style={{
+              backgroundColor: view === 'discover' ? colors.basil : colors.backgroundSoft,
+              borderColor: view === 'discover' ? colors.basil : colors.border,
+            }}>
+            <Txt variant="body" tone={view === 'discover' ? 'onAccent' : 'secondary'} weight="700">
+              Entdecken
+            </Txt>
+          </Pressable>
+          <Pressable
+            onPress={() => setView('household')}
+            role="button"
+            aria-label="Eigene Rezepte"
+            aria-selected={view === 'household'}
+            className="tab-btn"
+            style={{
+              backgroundColor: view === 'household' ? colors.basil : colors.backgroundSoft,
+              borderColor: view === 'household' ? colors.basil : colors.border,
+            }}>
+            <Txt variant="body" tone={view === 'household' ? 'onAccent' : 'secondary'} weight="700">
+              Eigene Rezepte
+            </Txt>
+          </Pressable>
+          <Pressable
+            onPress={() => setView('favorites')}
+            role="button"
+            aria-label="Meine Favoriten"
+            aria-selected={view === 'favorites'}
+            className="tab-btn"
+            style={{
+              backgroundColor: view === 'favorites' ? colors.basil : colors.backgroundSoft,
+              borderColor: view === 'favorites' ? colors.basil : colors.border,
+            }}>
+            <Txt variant="body" tone={view === 'favorites' ? 'onAccent' : 'secondary'} weight="700">
+              Meine Favoriten
+            </Txt>
+          </Pressable>
+        </View>
+      ) : null}
+    </>
+  );
+
   return (
     <HubScreen
       header={{
@@ -419,160 +520,76 @@ export function RecipesScreen() {
         onClose={() => setShowFilters(false)}
       />
 
-      <ScrollView
-        className="flex-1"
-        contentContainerClassName="px-[15px] pt-one pb-[126px]"
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}>
-        {/* Aufklappbare Textsuche für Rezepttitel */}
-        {showSearch ? (
-          <View
-            className="h-[42px] flex-row items-center gap-[9px] rounded-fam-large px-[13px] mb-[10px]"
-            style={{ backgroundColor: colors.surface }}>
-            <SearchIcon color={colors.textMuted} />
-            <TextInput
-              value={searchQuery}
-              onChangeText={setSearchQuery}
-              role="searchbox"
-              aria-label="Rezepte durchsuchen"
-              placeholder="Rezepte durchsuchen…"
-              placeholderTextColor={colors.textMuted}
-              autoFocus
-              className="flex-1 h-full py-0"
-              style={{ color: colors.text, fontSize: 14, lineHeight: 20, fontWeight: '500' }}
+      {listView ? (
+        <FlashList
+          data={listView.entries}
+          keyExtractor={listKeyExtractor}
+          renderItem={renderListEntry}
+          ItemSeparatorComponent={ListGap}
+          ListHeaderComponent={headerContent}
+          ListEmptyComponent={<EmptyPanel>{listView.empty}</EmptyPanel>}
+          contentContainerStyle={listContentStyle}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        />
+      ) : (
+        <ScrollView
+          className="flex-1"
+          contentContainerClassName="px-[15px] pt-one pb-[126px]"
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}>
+          {headerContent}
+          {isLoading ? (
+            <ActivityIndicator
+              accessibilityLabel="Rezepte werden geladen"
+              color={colors.basil}
+              style={{ marginTop: space.xxxl }}
             />
-          </View>
-        ) : null}
-
-        {/* Tab-Leiste (Entdecken vs. Eigene Rezepte vs. Meine Favoriten) */}
-        {view === 'discover' || view === 'favorites' || view === 'household' ? (
-          <View className="flex-row gap-two mb-[18px]">
-            <Pressable
-              onPress={() => setView('discover')}
-              role="button"
-              aria-label="Entdecken"
-              aria-selected={view === 'discover'}
-              className="tab-btn"
-              style={{
-                backgroundColor: view === 'discover' ? colors.basil : colors.backgroundSoft,
-                borderColor: view === 'discover' ? colors.basil : colors.border,
-              }}>
-              <Txt
-                variant="body"
-                tone={view === 'discover' ? 'onAccent' : 'secondary'}
-                weight="700">
-                Entdecken
-              </Txt>
-            </Pressable>
-            <Pressable
-              onPress={() => setView('household')}
-              role="button"
-              aria-label="Eigene Rezepte"
-              aria-selected={view === 'household'}
-              className="tab-btn"
-              style={{
-                backgroundColor: view === 'household' ? colors.basil : colors.backgroundSoft,
-                borderColor: view === 'household' ? colors.basil : colors.border,
-              }}>
-              <Txt
-                variant="body"
-                tone={view === 'household' ? 'onAccent' : 'secondary'}
-                weight="700">
-                Eigene Rezepte
-              </Txt>
-            </Pressable>
-            <Pressable
-              onPress={() => setView('favorites')}
-              role="button"
-              aria-label="Meine Favoriten"
-              aria-selected={view === 'favorites'}
-              className="tab-btn"
-              style={{
-                backgroundColor: view === 'favorites' ? colors.basil : colors.backgroundSoft,
-                borderColor: view === 'favorites' ? colors.basil : colors.border,
-              }}>
-              <Txt
-                variant="body"
-                tone={view === 'favorites' ? 'onAccent' : 'secondary'}
-                weight="700">
-                Meine Favoriten
-              </Txt>
-            </Pressable>
-          </View>
-        ) : null}
-
-        {/* Ladezustand */}
-        {isLoading ? (
-          <ActivityIndicator
-            accessibilityLabel="Rezepte werden geladen"
-            color={colors.basil}
-            style={{ marginTop: space.xxxl }}
-          />
-        ) : isError ? (
-          <EmptyPanel>Rezepte konnten nicht geladen werden. Bitte Anmeldung prüfen.</EmptyPanel>
-        ) : view === 'favorites' ? (
-          /* Favoriten-Ansicht */
-          favoriteEntries.length > 0 ? (
-            <RecipeList entries={favoriteEntries} />
-          ) : (
-            <EmptyPanel>Noch keine Favoriten gespeichert.</EmptyPanel>
-          )
-        ) : view === 'filtered' ? (
-          /* Gefilterte Ergebnisse aus dem Filter-Modal */
-          filteredEntries.length > 0 ? (
-            <RecipeList entries={filteredEntries} />
-          ) : (
-            <EmptyPanel>Keine Rezepte für diese Filter.</EmptyPanel>
-          )
-        ) : view === 'household' ? (
-          /* Liste aller eigenen Haushaltsrezepte */
-          householdEntries.length > 0 ? (
-            <RecipeList entries={householdEntries} />
-          ) : (
-            <EmptyPanel>Noch keine eigenen Rezepte.</EmptyPanel>
-          )
-        ) : view === 'templates' ? (
-          /* Gefilterte Rezeptvorlagen */
-          filteredTemplateEntries.length > 0 ? (
-            <RecipeList entries={filteredTemplateEntries} />
-          ) : (
-            <EmptyPanel>Keine Vorlagen für diesen Filter.</EmptyPanel>
-          )
-        ) : householdEntries.length > 0 || templates.length > 0 ? (
-          /* Standard Entdecken-Ansicht mit Karussells und Mahlzeitenbereichen */
-          <>
-            {/* Karussell: Themenkategorien (z. B. Vegan, Schnell, High-Protein) */}
-            <View className="mb-five">
-              <SectionHeading title="Kategorien" />
-              <CategoryCarousel
-                selectedKey={templateCategoryFilter}
-                onSelect={selectCategoryTile}
-              />
-            </View>
-
-            {/* Karussell: Kalorien-Buckets (<400 kcal, 400-600 kcal, etc.) */}
-            <View className="mb-five">
-              <SectionHeading title="Rezepte nach Kalorien" />
-              <CalorieCarousel selectedIndex={templateCalorieFilter} onSelect={selectCalorieTile} />
-            </View>
-
-            {mealSections.length > 0 ? (
+          ) : isError ? (
+            <EmptyPanel>Rezepte konnten nicht geladen werden. Bitte Anmeldung prüfen.</EmptyPanel>
+          ) : householdEntries.length > 0 || templates.length > 0 ? (
+            /* Standard Entdecken-Ansicht mit Karussells und Mahlzeitenbereichen */
+            <>
+              {/* Karussell: Themenkategorien (z. B. Vegan, Schnell, High-Protein) */}
               <View className="mb-five">
-                <SectionHeading
-                  title="Nach Mahlzeiten"
-                  titleClassName="text-heading-sm leading-[26px]"
+                <SectionHeading title="Kategorien" />
+                <CategoryCarousel
+                  selectedKey={templateCategoryFilter}
+                  onSelect={selectCategoryTile}
                 />
-                {mealSections.map((section) => (
-                  <MealSection key={section.key} title={section.title} entries={section.entries} />
-                ))}
               </View>
-            ) : null}
-          </>
-        ) : (
-          /* Leerzustand wenn keine Rezepte/Vorlagen vorhanden sind */
-          <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
-        )}
-      </ScrollView>
+
+              {/* Karussell: Kalorien-Buckets (<400 kcal, 400-600 kcal, etc.) */}
+              <View className="mb-five">
+                <SectionHeading title="Rezepte nach Kalorien" />
+                <CalorieCarousel
+                  selectedIndex={templateCalorieFilter}
+                  onSelect={selectCalorieTile}
+                />
+              </View>
+
+              {mealSections.length > 0 ? (
+                <View className="mb-five">
+                  <SectionHeading
+                    title="Nach Mahlzeiten"
+                    titleClassName="text-heading-sm leading-[26px]"
+                  />
+                  {mealSections.map((section) => (
+                    <MealSection
+                      key={section.key}
+                      title={section.title}
+                      entries={section.entries}
+                    />
+                  ))}
+                </View>
+              ) : null}
+            </>
+          ) : (
+            /* Leerzustand wenn keine Rezepte/Vorlagen vorhanden sind */
+            <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
+          )}
+        </ScrollView>
+      )}
     </HubScreen>
   );
 }
