@@ -10,10 +10,13 @@ describe('native build host platform', () => {
     expect(isNativePlatformSupportedOnHost('android', 'win32')).toBe(true);
   });
 
-  it('keeps iOS and Android checks on macOS and Linux', () => {
-    expect(nativePlatformsForHost('darwin')).toEqual(['ios', 'android']);
-    expect(nativePlatformsForHost('linux')).toEqual(['ios', 'android']);
+  it('checks only iOS on macOS', () => {
+    expect(nativePlatformsForHost('darwin')).toEqual(['ios']);
     expect(isNativePlatformSupportedOnHost('ios', 'darwin')).toBe(true);
+  });
+
+  it('checks only Android on Linux', () => {
+    expect(nativePlatformsForHost('linux')).toEqual(['android']);
     expect(isNativePlatformSupportedOnHost('ios', 'linux')).toBe(true);
   });
 });

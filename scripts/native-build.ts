@@ -49,7 +49,7 @@ type ArtifactLock = {
 
 type NativeBuildLock = {
   schemaVersion: 1;
-  nativeFingerprints: Record<Platform, NativeFingerprint>;
+  nativeFingerprints: Partial<Record<Platform, NativeFingerprint>>;
   artifacts: Partial<Record<TargetName, ArtifactLock>>;
 };
 
@@ -402,27 +402,24 @@ async function baseline(): Promise<void> {
   if (!parseFlag('--approve-rebuild')) {
     fail(`Baseline-Schreibvorgang benötigt '--approve-rebuild'.`);
   }
-  assertNativeDirectories();
-  const [iosFull, androidFull] = await Promise.all([
-    fingerprintFull('ios'),
-    fingerprintFull('android'),
-  ]);
-  saveFingerprintSnapshot('ios', iosFull);
-  saveFingerprintSnapshot('android', androidFull);
+  const platforms = nativePlatformsForHost();
+  assertNativeDirectories(platforms);
+  const fingerprints = await Promise.all(
+    platforms.map(async (platform) => [platform, await fingerprintFull(platform)] as const),
+  );
 
-  const lock: NativeBuildLock = {
-    schemaVersion: 1,
-    nativeFingerprints: {
-      ios: { hash: iosFull.hash, expoSdk: getExpoSdk() },
-      android: { hash: androidFull.hash, expoSdk: getExpoSdk() },
-    },
-    artifacts: {},
-  };
-  if (existsSync(LOCK_PATH)) {
-    lock.artifacts = readLock().artifacts;
+  const lock: NativeBuildLock = existsSync(LOCK_PATH)
+    ? readLock()
+    : { schemaVersion: 1, nativeFingerprints: {}, artifacts: {} };
+  for (const [platform, full] of fingerprints) {
+    saveFingerprintSnapshot(platform, full);
+    lock.nativeFingerprints[platform] = { hash: full.hash, expoSdk: getExpoSdk() };
   }
+
   writeLock(lock);
-  log(`Native Baseline gespeichert: ${relative(PROJECT_ROOT, LOCK_PATH)}`);
+  log(
+    `Native Baseline gespeichert (${platforms.join(', ')}): ${relative(PROJECT_ROOT, LOCK_PATH)}`,
+  );
 }
 
 function prepareArtifactOutput(path: string): void {
@@ -562,22 +559,24 @@ async function rebuild(): Promise<void> {
     rmSync(buildOutput, { force: true });
   }
 
-  const [iosFull, androidFull] = await Promise.all([
-    fingerprintFull('ios'),
-    fingerprintFull('android'),
-  ]);
-  saveFingerprintSnapshot('ios', iosFull);
-  saveFingerprintSnapshot('android', androidFull);
-  const currentFingerprints: Record<Platform, NativeFingerprint> = {
-    ios: { hash: iosFull.hash, expoSdk: getExpoSdk() },
-    android: { hash: androidFull.hash, expoSdk: getExpoSdk() },
-  };
+  const fingerprints = await Promise.all(
+    nativePlatformsForHost().map(
+      async (platform) => [platform, await fingerprintFull(platform)] as const,
+    ),
+  );
   const lock: NativeBuildLock = existsSync(LOCK_PATH)
     ? readLock()
-    : { schemaVersion: 1, nativeFingerprints: currentFingerprints, artifacts: {} };
-  lock.nativeFingerprints = currentFingerprints;
+    : { schemaVersion: 1, nativeFingerprints: {}, artifacts: {} };
+  for (const [platform, full] of fingerprints) {
+    saveFingerprintSnapshot(platform, full);
+    lock.nativeFingerprints[platform] = { hash: full.hash, expoSdk: getExpoSdk() };
+  }
+  const builtFingerprint = lock.nativeFingerprints[target.platform];
+  if (!builtFingerprint) {
+    fail(`Kein Fingerprint für ${target.platform} ermittelt — Artefakt bleibt ungelockt.`);
+  }
   lock.artifacts[targetName] = {
-    fingerprint: currentFingerprints[target.platform].hash,
+    fingerprint: builtFingerprint.hash,
     configuration: target.configuration,
     kind: target.kind,
     relativePath: relative(PROJECT_ROOT, finalPath),
