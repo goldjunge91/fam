@@ -79,6 +79,9 @@ coverage/**/*
 logs/
 reports/
 
+# Codex SDD citation cache; origin validators are local runtime state.
+.codex/sdd-cache/
+
 # Python (scripts/dump_data)
 __pycache__/
 *.pyc

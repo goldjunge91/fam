@@ -1,5 +1,20 @@
 {
+  "description": "Project-local Codex lifecycle hooks for Beads and source-driven-development.",
   "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "^WebFetch$",
+        "hooks": [
+          {
+            "command": "root=\"$PWD\"; while [ \"$root\" != \"/\" ]; do script=\"$root/.codex/hooks/sdd-cache-post.sh\"; if [ -f \"$script\" ]; then SDD_CACHE_ROOT=\"$root\" exec bash \"$script\"; fi; root=\"$(dirname \"$root\")\"; done; exit 0",
+            "async": true,
+            "statusMessage": "Updating SDD citation cache",
+            "timeout": 10,
+            "type": "command"
+          }
+        ]
+      }
+    ],
     "PostCompact": [
       {
         "hooks": [
@@ -22,6 +37,19 @@
           }
         ],
         "matcher": "manual|auto"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "^WebFetch$",
+        "hooks": [
+          {
+            "command": "root=\"$PWD\"; while [ \"$root\" != \"/\" ]; do script=\"$root/.codex/hooks/sdd-cache-pre.sh\"; if [ -f \"$script\" ]; then SDD_CACHE_ROOT=\"$root\" exec bash \"$script\"; fi; root=\"$(dirname \"$root\")\"; done; exit 0",
+            "statusMessage": "Checking SDD citation cache",
+            "timeout": 10,
+            "type": "command"
+          }
+        ]
       }
     ],
     "SessionStart": [
