@@ -12,6 +12,8 @@ import { SnackbarProvider } from '@/components/ui/snackbar';
 import { PostHogIdentitySync } from '@/features/app-shell/posthog-identity-sync';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { ActiveHouseholdProvider } from '@/features/household/active-household-provider';
+import { NavigationChromeProvider } from '@/features/navigation/navigation-chrome-provider';
+import { ProfileSheet } from '@/features/navigation/profile-sheet';
 import { PremiumProvider } from '@/features/premium/premium-provider';
 import { ScreenTracker } from '@/lib/analytics';
 import { isBugBubbleEnabledForUser, setBugBubbleActive } from '@/lib/analytics/bug-bubble';
@@ -117,7 +119,10 @@ function ThemeRuntime({
     <RouterThemeProvider value={mode === 'dark' ? DarkTheme : DefaultTheme}>
       <SnackbarProvider>
         <AnimatedSplashOverlay />
-        {children}
+        <NavigationChromeProvider>
+          {children}
+          <ProfileSheet />
+        </NavigationChromeProvider>
         <CelebrationHost />
         {showBugBubble ? <BugBubble config={BUG_BUBBLE_CONFIG} /> : null}
       </SnackbarProvider>

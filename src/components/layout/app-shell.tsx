@@ -9,12 +9,8 @@ import { SyncBannerVisibilityProvider, SyncStatusBanner } from '@/components/ui/
 import { AdBanner } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { DEFAULT_FAB_POSITION, useFabPosition } from '@/features/navigation/fab-position-settings';
-import {
-  NavigationChromeProvider,
-  useNavigationChrome,
-} from '@/features/navigation/navigation-chrome-provider';
+import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { NavigationDrawer } from '@/features/navigation/navigation-drawer';
-import { ProfileSheet } from '@/features/navigation/profile-sheet';
 import { SpeedDialMenu } from '@/features/navigation/speed-dial-menu';
 
 const styles = StyleSheet.create({
@@ -61,25 +57,22 @@ export default function AppShell() {
 
   return (
     <View style={styles.root}>
-      <NavigationChromeProvider>
-        <SyncBannerVisibilityProvider enabled={syncEnabled}>
-          <SyncStatusBanner enabled={syncEnabled} />
-          <View style={styles.navigator}>
-            <Stack screenOptions={{ headerShown: false }} />
+      <SyncBannerVisibilityProvider enabled={syncEnabled}>
+        <SyncStatusBanner enabled={syncEnabled} />
+        <View style={styles.navigator}>
+          <Stack screenOptions={{ headerShown: false }} />
+        </View>
+        <NavigationDrawer />
+        <SpeedDialMenu />
+        {!isBrochureRoute ? <GlobalAddButton /> : null}
+        {!isBrochureRoute ? (
+          <View
+            pointerEvents="box-none"
+            style={[styles.adBannerOverlay, { paddingBottom: insets.bottom + 65 }]}>
+            <AdBanner placement="global_sticky" />
           </View>
-          <NavigationDrawer />
-          <ProfileSheet />
-          <SpeedDialMenu />
-          {!isBrochureRoute ? <GlobalAddButton /> : null}
-          {!isBrochureRoute ? (
-            <View
-              pointerEvents="box-none"
-              style={[styles.adBannerOverlay, { paddingBottom: insets.bottom + 65 }]}>
-              <AdBanner placement="global_sticky" />
-            </View>
-          ) : null}
-        </SyncBannerVisibilityProvider>
-      </NavigationChromeProvider>
+        ) : null}
+      </SyncBannerVisibilityProvider>
     </View>
   );
 }
