@@ -1,0 +1,160 @@
+---
+title: Getting started
+description: How to get started with Unistyles
+---
+
+import { Card, CardGrid, Aside, Tabs, TabItem } from '@astrojs/starlight/components'
+import Seo from '../../../../components/Seo.astro'
+
+<Seo
+    seo={{
+        title: 'Getting started',
+        description: 'Learn how to get started with Unistyles'
+    }}
+>
+
+We’ve made Unistyles incredibly easy to use. You no longer need the `useStyle` hook or wrap your app in React Provider. Unistyles integrates seamlessly with your existing code, so you can start using it immediately.
+
+### Prerequisites
+
+Unistyles 3.0 is tightly integrated with `Fabric` and the latest versions of React Native. Therefore, you must use the **New Architecture** and at least **React Native 0.78.0**. Additionally, Unistyles relies on `react-native-nitro-modules`.
+
+<Aside>Learn more about how Unistyles leverages Nitro Modules and React Native Edge to Edge [here](/v3/other/dependencies).</Aside>
+
+**Table of requirements:**
+|                    | Required                  | Note                        |
+|--------------------|---------------------------|-----------------------------|
+| React Native       | 0.78.0+                   |                             |
+| New Architecture   | enabled                   | no option to opt-out        |
+| Expo SDK           | 53+                       | (if you use Expo)           |
+| Xcode              | 16+ (recommended 16.3+)   | Required by Nitro Modules   |
+| Platform           | iOS / Android / Web / SSR | Follow instructions below |
+
+Since Unistyles relies on `Fabric`, it cannot run on the `Old Architecture` or older versions of React Native. If you can’t meet these requirements, you can use Unistyles 2.0+, which is compatible with those versions.
+
+### Installation
+
+```shell title="Install Unistyles and its dependencies"
+yarn add react-native-unistyles react-native-nitro-modules
+```
+
+:::caution
+To avoid unexpected behaviors always use a fixed version of `react-native-nitro-modules`.
+Check compatibility table [here](https://github.com/jpudysz/react-native-unistyles?tab=readme-ov-file#installation).
+:::
+
+<Aside title="react-native-edge-to-edge is optional since v3.1.0">
+`react-native-edge-to-edge` is no longer a required dependency. We **strongly recommend** setting `edgeToEdgeEnabled=true` in your `android/gradle.properties` — it enforces translucent system bars on modals, disables legacy StatusBar hacks, and enables additional React Native core fixes.
+
+- **Expo SDK 54+**: Already enabled automatically
+- **Expo SDK 53 / Bare React Native**: Add `edgeToEdgeEnabled=true` to `android/gradle.properties`
+
+You can still install `react-native-edge-to-edge` alongside this property for ecosystem compatibility (e.g. `react-native-bootsplash`, `react-native-permissions`). Learn more [here](/v3/other/dependencies).
+</Aside>
+
+Add babel plugin:
+
+```js title="babel.config.js"
+module.exports = function (api) {
+  api.cache(true)
+
+  return {
+    // for bare React Native
+    // presets: ['module:@react-native/babel-preset'],
+
+    // or for Expo
+    // presets: ['babel-preset-expo'],
+
+    // other config
+    plugins: [
+        // other plugins
+        ['react-native-unistyles/plugin', {
+            // pass root folder of your application
+            // all files under this folder will be processed by the Babel plugin
+            // if you need to include more folders, or customize discovery process
+            // check available babel options
+            root: 'src'
+        }]
+    ]
+  }
+}
+```
+
+<Aside>
+See additional Babel plugin configuration options [here](/v3/other/babel-plugin#extra-configuration).
+
+Learn why you need Babel plugin [here](/v3/other/babel-plugin).
+</Aside>
+
+Finish installation based on your platform:
+
+<Tabs>
+  <TabItem label="Expo">
+    ```shell
+    yarn expo prebuild --clean
+    ```
+    <Aside type="caution" title="Do you use Expo Router?">
+      Finish installation for Expo Router [here](/v3/guides/expo-router).
+    </Aside>
+    <Aside type="caution" title="Dev client only">
+      Unistyles includes custom native code, which means it does not support **Expo Go.**
+    </Aside>
+  </TabItem>
+  <TabItem label="React Native">
+    ```shell
+    cd ios && pod install
+    ```
+  </TabItem>
+  <TabItem label="React Native Web">
+    Unistyles offers first-class support for React Native Web. To run the project, we recommend following the guidelines provided by [Expo](https://docs.expo.dev/workflow/web/).
+  </TabItem>
+  <TabItem label="Custom Web">
+    You can use Unistyles without React Native Web as a dependency. Check [this guide](/v3/guides/custom-web) for more details.
+  </TabItem>
+  <TabItem label="SSR">
+    Unistyles offers first-class support for Next.js Server Side Rendering. To run the project, we recommend following the guidelines provided by [Next.JS](https://nextjs.org/docs).
+
+    Then follow [SSR guide](/v3/guides/server-side-rendering).
+
+    <Aside type="caution" title="Babel only">
+      You need to disable SWC and rely on Babel for transpiling your code.
+    </Aside>
+  </TabItem>
+</Tabs>
+
+### As easy as React Native StyleSheet
+
+Getting started with Unistyles couldn’t be easier. Simply replace React Native’s `StyleSheet` with the `StyleSheet` exported from Unistyles. From that moment, you’ll be using a `StyleSheet` with superpowers 🦸🏼‍♂️.
+
+```diff lang="tsx" title="Example.tsx"
+- import { StyleSheet } from 'react-native'
++ import { StyleSheet } from 'react-native-unistyles'
+
+const MyComponent = () => {
+  return (
+    <View style={styles.container}>
+      <Text>Hello world from Unistyles</Text>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+   container: {
+     backgroundColor: 'red'
+   }
+})
+```
+
+By replacing `StyleSheet`, you immediately gain several benefits that aren’t available in React Native’s `StyleSheet`:
+
+- [Variants](/v3/references/variants)
+- [Compound variants](/v3/references/compound-variants)
+- [Dynamic functions](/v3/references/dynamic-functions)
+- [Media queries](/v3/references/media-queries)
+- [Horizontal and vertical breakpoints for Native](/v3/references/breakpoints#built-in-breakpoints-landscape-and-portrait)
+- [Custom web styles](/v3/references/web-styles)
+- [Web only features](/v3/references/web-only)
+
+When you're ready to customize your styles and unlock additional features you can [configure](/v3/start/configuration) Unistyles.
+
+</Seo>

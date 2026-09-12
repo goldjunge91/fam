@@ -1,0 +1,145 @@
+---
+title: SSR
+description: Learn about SSR with Unistyles 3.0
+---
+
+import { Card, Aside, Tabs,TabItem } from '@astrojs/starlight/components'
+import Seo from '../../../../components/Seo.astro'
+
+<Seo
+    seo={{
+        title: 'SSR using Unistyles 3.0',
+        description: 'Learn about SSR with Unistyles 3.0'
+    }}
+>
+
+Unistyles 3.0 is fully compatible with Next.js Server Side Rendering (SSR). We're supporting both client and server components.
+
+### Usage
+
+<Tabs>
+    <TabItem label="App router">
+        To use server-side rendered styles, create the following **client-side** component:
+
+        ```tsx title="Style.tsx" /useServerUnistyles/ /useServerInsertedHTML/ /'use client'/
+        'use client'
+
+        import { PropsWithChildren, useRef } from 'react'
+        import { useServerUnistyles } from 'react-native-unistyles/server'
+        import { useServerInsertedHTML } from 'next/navigation'
+        import './unistyles'
+
+        export const Style = ({ children }: PropsWithChildren) => {
+            const isServerInserted = useRef(false)
+            const unistyles = useServerUnistyles()
+
+            useServerInsertedHTML(() => {
+                if (isServerInserted.current) {
+                    return null
+                }
+
+                isServerInserted.current = true
+
+                return unistyles
+            })
+
+            return <>{children}</>
+        }
+        ```
+
+        With the component in place, make sure it wraps your body's children:
+
+        ```diff lang="tsx" title="layout.tsx"
+        + import '../unistyles'
+        + import { Style } from '../Style'
+
+        export default function RootLayout({
+        children,
+        }: Readonly<{
+        children: React.ReactNode;
+        }>) {
+        return (
+            <html lang="en">
+            <body>
+        +        <Style>
+                    {children}
+        +        </Style>
+            </body>
+            </html>
+        );
+        }
+        ```
+
+        <Aside>
+        The `unistyles.ts` file is where Unistyles is configured. For more details, refer to the [configuration guide](/v3/start/configuration).
+        </Aside>
+
+        With this setup, we will ensure that Unistyles is initialized correctly and injects CSS on the server-side.
+
+        ### Config (Optional)
+
+        `useServerUnistyles` accepts an optional config object:
+
+        - **`includeRNWStyles`** – a boolean that enables or disables injecting React Native Web default CSS styles. Defaults to `true`.
+    </TabItem>
+    <TabItem label="Pages router">
+        To use server-side rendered styles, add the following code to your codebase:
+
+        ```diff lang="tsx" title="_document.tsx"
+        + import { getServerUnistyles, resetServerUnistyles } from 'react-native-unistyles/server'
+
+            export default class Document extends NextDocument {
+        +       static async getInitialProps({ renderPage }: DocumentContext) {
+        +           const page = await renderPage()
+        +           const styles = getServerUnistyles()
+
+        +           resetServerUnistyles()
+
+        +           return {
+        +               ...page,
+        +               styles
+        +           }
+        +       }
+        ```
+
+        And add the following use effect to your `_app.tsx`
+        ```diff lang="tsx" title="_app.tsx"
+        + import { hydrateServerUnistyles } from 'react-native-unistyles/server'
+
+        {/* JSX of your component */}
+        + useEffect(() => {
+        +     hydrateServerUnistyles()
+        + }, [])
+        ```
+
+         ### Config (Optional)
+
+        `getServerUnistyles` accepts an optional config object:
+
+        - **`includeRNWStyles`** – a boolean that enables or disables injecting React Native Web default CSS styles. Defaults to `true`.
+    </TabItem>
+</Tabs>
+
+
+</Seo>
+
+## Troubleshooting
+
+### Hydration error
+
+If you're not using adaptive themes, you might encounter hydration error on your root html element.
+This is because unistyles is adding a className to it based on the current theme.
+
+To fix this simply add `suppressHydrationWarning` to your root html element.
+
+```diff lang="tsx" title="layout.tsx"
+- <html lang="en">
++ <html lang="en" suppressHydrationWarning>
+```
+
+Or you can directly add the className to your root html element.
+
+```diff lang="tsx" title="layout.tsx"
+- <html lang="en">
++ <html lang="en" className="dark">
+```

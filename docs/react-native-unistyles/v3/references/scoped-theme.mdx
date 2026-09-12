@@ -1,0 +1,289 @@
+---
+title: Scoped Theme
+description: Learn about scoped theme in Unistyles 3.0
+---
+
+import { Card } from '@astrojs/starlight/components'
+import Seo from '../../../../components/Seo.astro'
+
+<Seo
+    seo={{
+        title: 'Scoped Theme',
+        description: 'Learn about scoped theme in Unistyles 3.0'
+    }}
+>
+
+There are cases where you may want to render specific components or screens with a fixed theme. For instance, a `Camera` view might require a dark background for better contrast, even if the user has selected light mode for the app. Other examples include modals, dialogs, or enabling users to preview the app in different themes to choose their preferred one.
+
+To address this, Unistyles 3.0 introduces the concept of a `Scoped Theme`, which allows you to assign a fixed theme to a specific component or screen.
+
+### Usage with named theme
+
+To use scoped theme, you need to import `ScopedTheme` component from `react-native-unistyles`:
+
+```ts
+import { ScopedTheme } from 'react-native-unistyles'
+```
+
+Scoped theme accepts one of your registered theme names as a prop:
+
+```tsx
+<ScopedTheme name="dark">
+    // components here will be fixed to dark theme
+    <View style={styles.container}>
+        <Text style={styles.text}>
+            Hello world
+        </Text>
+    </View>
+</ScopedTheme>
+```
+
+You can also nest `ScopedTheme` components:
+```tsx
+<ScopedTheme name="dark">
+    // I will be dark!
+    <View style={styles.container}>
+        <Text style={styles.text}>
+            Dark
+        </Text>
+    </View>
+    <ScopedTheme name="light">
+        // I will be light!
+        <View style={styles.container}>
+            <Text style={styles.text}>
+                Light
+            </Text>
+        </View>
+    </ScopedTheme>
+    // I will be dark again!
+    <View style={styles.container}>
+        <Text style={styles.text}>
+            Dark
+        </Text>
+    </View>
+</ScopedTheme>
+```
+
+### Usage with inverted adaptive theme
+
+
+You can also use `ScopedTheme` with the `invertedAdaptive` prop. This prop cannot be used together with a named `ScopedTheme`, as these options are mutually exclusive. The purpose of `invertedAdaptive` is to apply the opposite adaptive theme to the one that is currently active.
+
+In other words, if your app supports [adaptive themes](/v3/guides/theming#adaptive-themes) and you use `ScopedTheme` with the `invertedAdaptive` prop, it will apply:
+
+```
+the dark theme when the color scheme is light
+the light theme when the color scheme is dark
+```
+
+**Use Cases**:
+
+The `invertedAdaptive` prop is useful in scenarios where you want to highlight a specific section of your app by contrasting it with the current theme. For example:
+
+- **Modal dialogs or popups:** Make a modal stand out by using the opposite theme, drawing the user's attention
+- **Preview components:** Show users how your app looks in both light and dark modes by inverting the theme for a preview section
+- **Special content areas:** Emphasize warnings, tips, or promotional banners by displaying them with a contrasting theme
+
+By using `invertedAdaptive`, you can create visually distinct areas in your app that improve user experience and accessibility.
+
+```tsx /invertedAdaptive/
+<ScopedTheme invertedAdaptive>
+    <View style={styles.container}>
+        <Text style={styles.text}>
+            Text is light when color scheme is dark and dark when color scheme is light
+        </Text>
+    </View>
+</ScopedTheme>
+```
+
+You can also nest other `ScopedThemes` inside `ScopedTheme` with `invertedAdaptive` prop.
+
+### Reset
+
+If you wrap multiple children in `ScopedTheme` you can disable scoped theme for some of them by using `reset` prop:
+
+```tsx /reset/
+<ScopedTheme name="dark">
+    <View style={styles.container}>
+        <Text style={styles.text}>
+            I will be dark!
+        </Text>
+    </View>
+    <ScopedTheme reset>
+        <View style={styles.container}>
+            <Text style={styles.text}>
+                I will be light again!
+            </Text>
+        </View>
+    </ScopedTheme>
+    <View style={styles.container}>
+        <Text style={styles.text}>
+            I'm dark again
+        </Text>
+    </View>
+</ScopedTheme>
+```
+
+### Reading current scoped theme
+
+Information about the current `ScopedTheme` is temporary and only available during the component render phase.
+
+For the following example, `themeName` will be different based on the place where we access it:
+
+```tsx /themeName/
+import { UnistylesRuntime, ScopedTheme } from 'react-native-unistyles'
+
+const MyComponent = () => {
+    // themeName will be 'light' here 💥
+    const themeName = UnistylesRuntime.themeName
+
+    return (
+        <ScopedTheme name="dark">
+            <ScopedText>
+                I'm scoped
+            </ScopedText>
+        </ScopedTheme>
+    )
+}
+
+const ScopedText = ({ children }) => {
+    // themeName will be 'dark' here ✅
+    // because we're "inside" of the ScopedTheme
+    const themeName = UnistylesRuntime.themeName
+
+    return (
+        <Text style={styles.text}>
+            {children}
+        </Text>
+    )
+}
+```
+
+If you want to react to changes in the scoped theme, you can use the `useUnistyles` hook or the `withUnistyles` helper:
+
+```tsx /useUnistyles/
+import { useUnistyles, ScopedTheme } from 'react-native-unistyles'
+
+// My parent is wrapped with ScopedTheme invertedAdaptive
+const ScopedComponent = () => {
+    // reading themeName from `useUnistyles` will always log
+    // correctly parent scoped theme name 🤯
+    const { rt } = useUnistyles()
+
+    return (
+        <Text>
+            {rt.themeName} // light for dark mode, dark for light mode
+        </Text>
+    )
+}
+
+// JSX
+<ScopedTheme invertedAdaptive>
+    <ScopedComponent />
+</ScopedTheme>
+```
+
+Same goes for the `withUnistyles` helper:
+
+```tsx /withUnistyles/
+import { withUnistyles, ScopedTheme } from 'react-native-unistyles'
+
+const ScopedTextInput = withUnistyles(TextInput, (theme, rt) => ({
+    // I will always take in count parent scoped theme
+    color: rt.themeName === 'light'
+        ? theme.colors.text
+        : theme.colors.background
+}))
+
+// My parent is wrapped with ScopedTheme invertedAdaptive
+const ScopedComponent = () => {
+    return (
+        <ScopedTextInput />
+    )
+}
+
+// JSX
+<ScopedTheme invertedAdaptive>
+    <ScopedComponent />
+</ScopedTheme>
+```
+
+### Scoped Theme with Suspense
+
+When using `ScopedTheme` with React's `Suspense`, there's an important consideration about component placement due to how React handles suspension and re-rendering.
+
+React Suspense works by catching promises thrown by child components that are waiting for data. When this happens:
+
+1. React pauses rendering and shows the fallback content
+2. Components that successfully rendered before the suspension may be reused
+3. Parent components might not re-render when the suspended data becomes available
+
+This means if you place `ScopedTheme` above a component that suspends, the scoped theme might not be applied correctly when the component finally renders:
+
+
+```tsx
+// ❌ This won't work correctly
+<Suspense fallback={<Loading />}>
+    <ScopedTheme name="dark">
+        <SuspendedComponent /> {/* ScopedTheme already rendered before suspension */}
+    </ScopedTheme>
+</Suspense>
+```
+
+Unistyles ScopedTheme is only available during render phase, we decided to not use `React.Context` to keep the API performant and easy to use.
+
+To fix this issue, you can move the `ScopedTheme` inside the suspended component:
+
+```tsx
+// ✅ Place ScopedTheme inside the component that suspends
+const SuspendedComponent = () => {
+    const data = useSuspenseQuery(); // This throws a promise
+
+    return (
+        <ScopedTheme name="dark">
+            <View style={styles.container}>
+                <Text style={styles.text}>
+                    {data.title}
+                </Text>
+            </View>
+        </ScopedTheme>
+    );
+};
+
+<Suspense fallback={<Loading />}>
+    <SuspendedComponent />
+</Suspense>
+```
+
+The key is to ensure that `ScopedTheme` is rendered **after** the suspension occurs, so that when React re-renders the suspended component tree, the scoped theme context is properly established.
+
+This pattern ensures that your themed components will render with the correct theme once the suspended data becomes available.
+
+### Scoped Theme and Hot Module Reloading (HMR)
+
+When working with `ScopedTheme` in development, you might notice that Hot Module Reloading doesn't always update the theme when you make changes to child components. This is a limitation of Metro's Fast Refresh system.
+
+Unlike Webpack, Metro's Fast Refresh only re-runs code in the file you're actively editing and its direct imports. It doesn't have a global event system that can notify parent components when child modules change.
+
+Metro provides these HMR functions:
+
+```tsx
+module.hot.accept(fn)   // fires if *this* module is updated
+module.hot.dispose(fn)  // fires just before *this* module is replaced
+```
+
+However, **neither of these runs** when other modules change. This means that changes in child components won't trigger a re-render of their parent `ScopedTheme`:
+
+```tsx
+<ScopedTheme name="light">
+    <ChildComponent /> {/* Changes in this file won't trigger ScopedTheme to update */}
+</ScopedTheme>
+```
+
+#### Why We Don't Use React Context
+
+The "ideal" solution would be to use React Context for theme propagation, which would work seamlessly with HMR. However, we've chosen performance over convenience. Using React Context would introduce additional re-renders and overhead that could impact your app's performance, especially in complex component trees.
+
+We prioritize keeping the API fast and lightweight, even if it means accepting some development-time limitations with HMR.
+
+</Seo>
