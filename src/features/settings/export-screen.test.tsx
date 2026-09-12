@@ -2,12 +2,17 @@ import { render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ExportScreen } from '@/features/settings/export-screen';
+import { i18n } from '@/i18n';
 
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: { user: { id: 'user-1' } } }),
 }));
 
 describe('ExportScreen', () => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   async function renderScreen() {
     return render(
       <SafeAreaProvider

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Pressable, Switch, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
@@ -15,6 +16,7 @@ import { useFeatureAccess } from '@/features/settings/use-feature-access';
 const SETTINGS_MODULES = getSettingsModules();
 
 export function ModuleSettingsScreen() {
+  const { t } = useTranslation();
   const { session } = useSession();
   const { colors } = useTheme();
   const userId = session?.user.id;
@@ -28,11 +30,14 @@ export function ModuleSettingsScreen() {
   }
 
   return (
-    <Screen title="Module" back={{ label: 'Einstellungen', href: '/settings' }} backStyle="icon">
+    <Screen
+      title={t('settings.groups.app.modules.label')}
+      back={{ label: t('settings.backToSettings'), href: '/settings' }}
+      backStyle="icon">
       {/* Hinweistext zur Ausblendung von Modulen */}
       <Card>
         <Txt variant="body" tone="secondary">
-          Deaktivierte Module verschwinden aus der Navigation, deine Daten bleiben erhalten.
+          {t('settings.groups.app.modules.disableHint')}
         </Txt>
       </Card>
 

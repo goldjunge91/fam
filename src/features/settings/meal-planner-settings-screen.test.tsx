@@ -1,6 +1,7 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { i18n } from '@/i18n';
 import { MealPlannerSettingsScreen } from './meal-planner-settings-screen';
 
 const mockNavigation = { canGoBack: () => true, addListener: () => () => {} };
@@ -28,8 +29,9 @@ function renderScreen() {
   );
 }
 
-beforeEach(() => {
+beforeEach(async () => {
   mockSetPortionsPerPerson.mockClear();
+  await i18n.changeLanguage('de');
 });
 
 describe('MealPlannerSettingsScreen', () => {

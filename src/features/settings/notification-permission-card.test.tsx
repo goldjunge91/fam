@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react-native';
+import { i18n } from '@/i18n';
 import { getNotificationPermissionStatus } from '@/lib/notifications';
 import { NotificationPermissionCard } from './notification-permission-card';
 import { PermissionCard } from './permission-card';
@@ -26,6 +27,7 @@ describe('NotificationPermissionCard', () => {
   });
 
   it('reicht Benachrichtigungs-Copy und die Benachrichtigungs-Berechtigungsfunktionen an das geteilte Muster weiter', async () => {
+    await i18n.changeLanguage('de');
     await render(<NotificationPermissionCard />);
 
     const props = jest.mocked(PermissionCard).mock.calls[0]?.[0];

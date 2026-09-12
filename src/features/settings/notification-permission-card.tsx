@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { AppState, type StyleProp, type ViewStyle } from 'react-native';
 import {
   disableNotificationReminders,
@@ -53,13 +54,15 @@ type NotificationPermissionCardProps = {
 };
 
 export function NotificationPermissionCard({ style }: NotificationPermissionCardProps) {
+  const { t } = useTranslation();
+
   return (
     <PermissionCard
       style={style}
-      title="Benachrichtigungen"
-      label="Benachrichtigungs-Zugriff"
-      grantedCopy="Damit Erinnerungen an ablaufende Vorräte ankommen."
-      deniedCopy="In den Systemeinstellungen deaktiviert. Zum Ändern antippen."
+      title={t('settings.groups.app.permissions.notifications.title')}
+      label={t('settings.groups.app.permissions.notifications.label')}
+      grantedCopy={t('settings.groups.app.permissions.notifications.grantedHint')}
+      deniedCopy={t('settings.groups.app.permissions.deniedHint')}
       usePermission={useNotificationPermission}
       onDisable={disableNotificationReminders}
     />

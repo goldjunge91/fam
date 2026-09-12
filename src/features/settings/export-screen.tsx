@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
@@ -7,6 +8,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { buildUserDataExport } from '@/features/settings/data-export';
 
 export function ExportScreen() {
+  const { t } = useTranslation();
   const { session } = useSession();
   const [exporting, setExporting] = useState(false);
 
@@ -30,31 +32,39 @@ export function ExportScreen() {
       if (await Sharing.isAvailableAsync()) {
         await Sharing.shareAsync(file.uri, {
           mimeType: 'application/json',
-          dialogTitle: 'Daten exportieren',
+          dialogTitle: t('settings.groups.data.export.shareDialogTitle'),
         });
       } else {
-        Alert.alert('Export erstellt', `Datei liegt unter ${file.uri}`);
+        Alert.alert(
+          t('settings.groups.data.export.createdTitle'),
+          t('settings.groups.data.export.createdBody', { path: file.uri }),
+        );
       }
     } catch (error) {
-      Alert.alert('Export fehlgeschlagen', (error as Error).message);
+      Alert.alert(t('settings.groups.data.export.failedTitle'), (error as Error).message);
     } finally {
       setExporting(false);
     }
   }
 
   return (
-    <Screen title="Export" back={{ label: 'Einstellungen', href: '/settings' }} backStyle="icon">
+    <Screen
+      title={t('settings.groups.data.export.label')}
+      back={{ label: t('settings.backToSettings'), href: '/settings' }}
+      backStyle="icon">
       {/* Hinweiskarte zum DSGVO-Datenexportumfang */}
       <Card>
         <Txt variant="body" tone="secondary">
-          Exportiert dein Profil, deine Ziele, das Ernährungstagebuch, deinen Gewichtsverlauf und
-          deine Haushaltsmitgliedschaften als JSON-Datei — keine Daten anderer Haushaltsmitglieder.
-          Die Datei ist auch ohne die App lesbar.
+          {t('settings.groups.data.export.hint')}
         </Txt>
       </Card>
       {/* Export-Aktionsbutton */}
       <View className="mt-four">
-        <Button title="Daten exportieren" onPress={handleExport} loading={exporting} />
+        <Button
+          title={t('settings.groups.data.export.exportButton')}
+          onPress={handleExport}
+          loading={exporting}
+        />
       </View>
     </Screen>
   );

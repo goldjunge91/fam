@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable, type StyleProp, View, type ViewStyle } from 'react-native';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
@@ -12,9 +13,9 @@ import {
 
 const THRESHOLD_OPTIONS = [1, 3, 5, 7];
 const TIME_OPTIONS = [
-  { label: '08:00 Uhr', hour: 8, minute: 0 },
-  { label: '09:00 Uhr', hour: 9, minute: 0 },
-  { label: '18:00 Uhr', hour: 18, minute: 0 },
+  { time: '08:00', hour: 8, minute: 0 },
+  { time: '09:00', hour: 9, minute: 0 },
+  { time: '18:00', hour: 18, minute: 0 },
 ];
 
 type NotificationSettingsCardProps = {
@@ -23,6 +24,7 @@ type NotificationSettingsCardProps = {
 
 export function NotificationSettingsCard({ style }: NotificationSettingsCardProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const [settings, setSettings] = useState<NotificationSettings>(DEFAULT_NOTIFICATION_SETTINGS);
 
   useEffect(() => {
@@ -36,11 +38,11 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
 
   return (
     <View style={style}>
-      <Card title="Benachrichtigungen">
+      <Card title={t('settings.groups.app.notifications.label')}>
         <View className="gap-three">
           <View className="gap-two">
             <Txt variant="label" weight="700">
-              Erinnern ab (Tage im Voraus):
+              {t('settings.groups.app.notifications.reminderThresholdLabel')}
             </Txt>
             <View className="row-wrap">
               {THRESHOLD_OPTIONS.map((days) => {
@@ -56,7 +58,7 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
                       borderWidth: 1,
                     }}>
                     <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
-                      {days} {days === 1 ? 'Tag' : 'Tage'}
+                      {days} {t('settings.groups.app.notifications.day', { count: days })}
                     </Txt>
                   </Pressable>
                 );
@@ -66,7 +68,7 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
 
           <View className="gap-two">
             <Txt variant="label" weight="700">
-              Uhrzeit der Erinnerung:
+              {t('settings.groups.app.notifications.reminderTimeLabel')}
             </Txt>
             <View className="row-wrap">
               {TIME_OPTIONS.map((time) => {
@@ -74,7 +76,7 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
                   settings.reminderHour === time.hour && settings.reminderMinute === time.minute;
                 return (
                   <Pressable
-                    key={time.label}
+                    key={time.time}
                     onPress={() =>
                       updateSettings({
                         ...settings,
@@ -89,7 +91,7 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
                       borderWidth: 1,
                     }}>
                     <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
-                      {time.label}
+                      {t('settings.groups.app.notifications.timeLabel', { time: time.time })}
                     </Txt>
                   </Pressable>
                 );

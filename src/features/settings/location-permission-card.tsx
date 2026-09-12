@@ -1,4 +1,5 @@
 import * as Location from 'expo-location';
+import { useTranslation } from 'react-i18next';
 import type { StyleProp, ViewStyle } from 'react-native';
 import { PermissionCard } from './permission-card';
 
@@ -7,13 +8,15 @@ type LocationPermissionCardProps = {
 };
 
 export function LocationPermissionCard({ style }: LocationPermissionCardProps) {
+  const { t } = useTranslation();
+
   return (
     <PermissionCard
       style={style}
-      title="Standort"
-      label="Standort-Zugriff"
-      grantedCopy="Für Prospekte aus deiner Umgebung."
-      deniedCopy="In den Systemeinstellungen deaktiviert. Zum Ändern antippen."
+      title={t('settings.groups.app.permissions.location.title')}
+      label={t('settings.groups.app.permissions.location.label')}
+      grantedCopy={t('settings.groups.app.permissions.location.grantedHint')}
+      deniedCopy={t('settings.groups.app.permissions.deniedHint')}
       usePermission={Location.useForegroundPermissions}
     />
   );

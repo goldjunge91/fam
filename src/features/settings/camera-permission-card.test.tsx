@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react-native';
+import { i18n } from '@/i18n';
 import { CameraPermissionCard } from './camera-permission-card';
 import { PermissionCard } from './permission-card';
 
@@ -8,6 +9,7 @@ jest.mock('./permission-card', () => ({
 
 describe('CameraPermissionCard', () => {
   it('reicht Kamera-Copy und die Kamera-Berechtigungsfunktion an das geteilte Muster weiter', async () => {
+    await i18n.changeLanguage('de');
     await render(<CameraPermissionCard />);
 
     const props = jest.mocked(PermissionCard).mock.calls[0]?.[0];

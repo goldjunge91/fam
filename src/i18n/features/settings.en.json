@@ -1,0 +1,176 @@
+{
+  "title": "Settings",
+  "appGroup": "App",
+  "backToSettings": "Settings",
+  "signOut": "Sign out",
+  "signOutFailedTitle": "Sign out failed",
+  "noName": "No name",
+  "profileImageAccessibility": "Profile picture in settings",
+  "sync": {
+    "title": "Sync",
+    "statusTitle": "Status",
+    "backgroundHint": "Data syncs automatically in the background.",
+    "errorPrefix": "Cause: {{error}}",
+    "retryButton": "Retry failed",
+    "syncNowButton": "Sync now",
+    "diagnosticsButton": "Show sync diagnostics & outbox",
+    "status": {
+      "allSynced": "All data is synced",
+      "allSyncedShort": "Up to date",
+      "offlineNoPending": "Offline (no internet connection)",
+      "offlineShort": "Offline",
+      "offlinePending": "Offline ({{count}} changes pending)",
+      "offlinePendingShort": "Offline, {{count}} pending",
+      "failed": "{{count}} changes could not be synced.",
+      "failedShort": "{{count}} failed"
+    }
+  },
+  "mealPlannerSettings": {
+    "title": "Servings per person",
+    "explanation": "In the people mode of the weekly plan, the number of people is converted into servings using this factor (default: {{factor}}).",
+    "fieldLabel": "Servings per person",
+    "invalidHint": "Must be greater than 0.",
+    "save": "Save",
+    "saved": "Saved."
+  },
+  "groups": {
+    "tracking": {
+      "title": "Tracking & nutrition",
+      "myTracking": {
+        "label": "My tracking",
+        "hint": "Method, goals, vitals & rhythm"
+      }
+    },
+    "household": {
+      "title": "Household",
+      "members": {
+        "label": "Members",
+        "noHousehold": "No household",
+        "switchOrJoinHint": "Switch or join a household"
+      },
+      "storageLocations": {
+        "label": "Storage locations",
+        "hint": "Fridge, freezer, pantry"
+      },
+      "shoppingList": {
+        "label": "Shopping list",
+        "hint": "REWE, Aldi, Lidl, ..."
+      },
+      "productSearch": {
+        "label": "Product search",
+        "hint": "Choose your preferred store for results"
+      }
+    },
+    "app": {
+      "title": "App",
+      "permissions": {
+        "label": "Permissions",
+        "deniedHint": "Disabled in system settings. Tap to change.",
+        "camera": {
+          "title": "Camera",
+          "label": "Camera access",
+          "grantedHint": "For barcode scanning and QR code join."
+        },
+        "location": {
+          "title": "Location",
+          "label": "Location access",
+          "grantedHint": "For flyers from your area."
+        },
+        "notifications": {
+          "title": "Notifications",
+          "label": "Notification access",
+          "grantedHint": "So reminders for expiring items arrive."
+        }
+      },
+      "notifications": {
+        "label": "Notifications",
+        "reminderThresholdLabel": "Remind starting (days ahead):",
+        "reminderTimeLabel": "Reminder time:",
+        "day_one": "day",
+        "day_other": "days",
+        "timeLabel": "{{time}}"
+      },
+      "modules": {
+        "label": "Modules",
+        "hint": "Pantry, shopping, diary, recipes",
+        "disableHint": "Disabled modules disappear from navigation, your data stays intact."
+      },
+      "gamification": {
+        "label": "Gamification",
+        "hint": "Streaks & rewards"
+      },
+      "fabPosition": {
+        "label": "Plus button",
+        "hint": "Corner where the + sits",
+        "left": "Left",
+        "right": "Right"
+      },
+      "feedback": {
+        "label": "Give feedback"
+      }
+    },
+    "data": {
+      "title": "Data",
+      "export": {
+        "label": "Export",
+        "hint": "Exports your profile, goals, nutrition diary, weight history, and household memberships as a JSON file — no data from other household members. The file is readable even without the app.",
+        "exportButton": "Export data",
+        "shareDialogTitle": "Export data",
+        "createdTitle": "Export created",
+        "createdBody": "File is at {{path}}",
+        "failedTitle": "Export failed"
+      },
+      "deleteAccount": {
+        "label": "Delete account",
+        "hint": "Permanently deletes your account and all private data — profile, nutrition diary, weight history, and goals. Shared household data (e.g. the fridge inventory) remains for the other household members. If you are the last admin somewhere with other members, resolve that in the household settings first.",
+        "deleteButton": "Delete account",
+        "confirmTitle": "Really delete account?",
+        "confirmBody": "Your profile, nutrition diary, weight history, and goals will be permanently deleted. Shared household data remains for the other members. This cannot be undone.",
+        "cancel": "Cancel",
+        "confirmDelete": "Delete permanently",
+        "notYetPossibleTitle": "Not possible yet",
+        "notYetPossibleBody": "You are the last admin in at least one household with other members. Transfer the admin role there first, or delete the household in the member settings — then you can delete your account.",
+        "failedTitle": "Deletion failed",
+        "unknownError": "Unknown error"
+      },
+      "privacy": {
+        "title": "Privacy",
+        "sections": {
+          "dataProtection": {
+            "title": "How your data is protected",
+            "body": "There is no end-to-end encryption — the server needs to read data to filter it by household and sync it in real time. Instead: transport encryption (TLS), encryption at rest on the database level, and access separation via Row Level Security — personal health data (diary, weight, goals, profile) is not visible even to household admins. Access tokens live exclusively in the device's Keychain/Keystore."
+          },
+          "dataProcessed": {
+            "title": "What data is processed",
+            "body": "Account (email), profile (display name, birth date, height, activity level), health/nutrition data (diary, weight, goals — private, not shared with the household), child profiles, household data (name, members, roles — shared with the household), fridge and shopping list data (shared with the household), product data (barcode, nutrition facts)."
+          },
+          "thirdParties": {
+            "title": "Third-party services",
+            "body": "Open Food Facts: when scanning a barcode or searching for a product, the barcode/search term is sent to the public Open Food Facts API — without account or health data. Supabase hosts the database, authentication, and realtime sync. Google AdMob serves ads for the free version. RevenueCat handles purchase and subscription status. Sentry, PostHog, and Aptabase help with error diagnosis, product improvement, and usage analytics."
+          },
+          "permissions": {
+            "title": "Permissions",
+            "body": "Camera: barcode scanning and QR code join (optional, manual entry always works). Notifications: local reminder before a fridge item expires (optional). Location and photo library are only requested for their respective features. The microphone is only technically provided in the camera context and is not used for advertising."
+          },
+          "adsAndTracking": {
+            "title": "Ads and tracking",
+            "body": "The free version uses Google AdMob. On iOS we ask for app tracking permission before showing personalized ads. If you decline, the app can still show non-personalized or limited ads. You can change your choice via the ad settings."
+          },
+          "yourRights": {
+            "title": "Your rights",
+            "body": "Access/export via Settings → Export as JSON. Deletion via Settings → Delete account — shared household data remains for the remaining members, only your private data is removed. Profile and diary data can be edited directly in the app."
+          }
+        },
+        "adsSettings": {
+          "title": "Ad settings",
+          "description": "Manage consent for personalized advertising and the providers involved.",
+          "openButton": "Open ad settings",
+          "noOptionsTitle": "No ad settings available",
+          "noOptionsBody": "Google does not currently provide an additional privacy options form for this device.",
+          "errorTitle": "Ad settings unavailable",
+          "errorBody": "The ad settings could not be loaded right now."
+        }
+      }
+    }
+  }
+}

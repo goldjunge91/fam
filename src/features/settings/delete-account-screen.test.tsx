@@ -4,6 +4,7 @@ import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { DeleteAccountScreen } from '@/features/settings/delete-account-screen';
+import { i18n } from '@/i18n';
 
 const mockInvoke = jest.fn().mockResolvedValue({ data: { success: true }, error: null });
 const mockReplace = jest.fn();
@@ -52,10 +53,11 @@ describe('DeleteAccountScreen', () => {
     );
   }
 
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks();
     mockInvoke.mockResolvedValue({ data: { success: true }, error: null });
     mockSignOutAndClearLocalData.mockResolvedValue({ error: null });
+    await i18n.changeLanguage('de');
   });
 
   it('rendert Warnhinweise und Lösch-Button', async () => {

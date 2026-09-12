@@ -1,8 +1,16 @@
+import type { TFunction } from 'i18next';
 import type { SyncStatusView } from '@/lib/sync/sync-status';
 
 export type SyncStatusTone = 'accent' | 'warning' | 'danger';
 
-export function describeSyncStatus(status: SyncStatusView): {
+/**
+ * Der Text muss in der Menuezeile und auf der Sync-Seite dasselbe aussagen —
+ * deshalb kommt er aus einer Funktion und nicht zweimal aus dem JSX.
+ */
+export function describeSyncStatus(
+  status: SyncStatusView,
+  t: TFunction,
+): {
   text: string;
   short: string;
   tone: SyncStatusTone;
@@ -11,24 +19,27 @@ export function describeSyncStatus(status: SyncStatusView): {
     return {
       text:
         status.pendingCount > 0
-          ? `Offline (${status.pendingCount} Änderungen ausstehend)`
-          : 'Offline (Keine Internetverbindung)',
-      short: status.pendingCount > 0 ? `Offline, ${status.pendingCount} offen` : 'Offline',
+          ? t('settings.sync.status.offlinePending', { count: status.pendingCount })
+          : t('settings.sync.status.offlineNoPending'),
+      short:
+        status.pendingCount > 0
+          ? t('settings.sync.status.offlinePendingShort', { count: status.pendingCount })
+          : t('settings.sync.status.offlineShort'),
       tone: 'warning',
     };
   }
 
   if (status.kind === 'failed') {
     return {
-      text: `${status.failedCount} Änderungen konnten nicht synchronisiert werden.`,
-      short: `${status.failedCount} fehlgeschlagen`,
+      text: t('settings.sync.status.failed', { count: status.failedCount }),
+      short: t('settings.sync.status.failedShort', { count: status.failedCount }),
       tone: 'danger',
     };
   }
 
   return {
-    text: 'Alle Daten sind synchronisiert',
-    short: 'Aktuell',
+    text: t('settings.sync.status.allSynced'),
+    short: t('settings.sync.status.allSyncedShort'),
     tone: 'accent',
   };
 }

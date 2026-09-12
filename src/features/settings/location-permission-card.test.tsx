@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react-native';
+import { i18n } from '@/i18n';
 import { LocationPermissionCard } from './location-permission-card';
 import { PermissionCard } from './permission-card';
 
@@ -8,6 +9,7 @@ jest.mock('./permission-card', () => ({
 
 describe('LocationPermissionCard', () => {
   it('reicht Standort-Copy und die Standort-Berechtigungsfunktion an das geteilte Muster weiter', async () => {
+    await i18n.changeLanguage('de');
     await render(<LocationPermissionCard />);
 
     const props = jest.mocked(PermissionCard).mock.calls[0]?.[0];

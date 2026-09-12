@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
+import { i18n } from '@/i18n';
 import { saveNotificationSettings } from '@/lib/notifications';
 import { NotificationSettingsCard } from './notification-settings-card';
 
@@ -19,8 +20,9 @@ jest.mock('@/lib/notifications', () => ({
 }));
 
 describe('NotificationSettingsCard', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks();
+    await i18n.changeLanguage('de');
   });
 
   it('sollte Titel und Zeitplan-Optionen direkt rendern, ohne Berechtigungs-Schalter', async () => {

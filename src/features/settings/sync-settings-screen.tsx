@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
@@ -13,6 +14,7 @@ import { getDatabase } from '@/lib/db/client';
 import { syncRunHasErrors, triggerHouseholdSync } from '@/lib/sync/sync-runner';
 
 export function SyncSettingsScreen() {
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
   const syncStatus = useSyncStatus(getDatabase);
@@ -52,16 +54,16 @@ export function SyncSettingsScreen() {
     }
   }
 
-  const { text, tone } = describeSyncStatus(syncStatus);
+  const { text, tone } = describeSyncStatus(syncStatus, t);
 
   return (
     <Screen
-      title="Synchronisation"
-      back={{ label: 'Einstellungen', href: '/settings' }}
+      title={t('settings.sync.title')}
+      back={{ label: t('settings.backToSettings'), href: '/settings' }}
       backStyle="icon">
-      <Card title="Status">
+      <Card title={t('settings.sync.statusTitle')}>
         <Txt variant="body" tone="secondary">
-          Daten werden im Hintergrund automatisch synchronisiert.
+          {t('settings.sync.backgroundHint')}
         </Txt>
         {/* Die Card-Komponente setzt den Abstand zwischen ihren Kindern. */}
         <Txt variant="body" weight="700" tone={tone}>
@@ -69,7 +71,7 @@ export function SyncSettingsScreen() {
         </Txt>
         {lastErrorMsg ? (
           <Txt variant="body" tone="danger">
-            Ursache: {lastErrorMsg}
+            {t('settings.sync.errorPrefix', { error: lastErrorMsg })}
           </Txt>
         ) : null}
 
@@ -77,15 +79,15 @@ export function SyncSettingsScreen() {
           <Button
             title={
               syncStatus.kind === 'failed'
-                ? 'Fehlgeschlagene erneut versuchen'
-                : 'Jetzt synchronisieren'
+                ? t('settings.sync.retryButton')
+                : t('settings.sync.syncNowButton')
             }
             onPress={handleManualSync}
             loading={isSyncing}
             disabled={!activeHousehold}
           />
           <Button
-            title="Sync-Diagnose & Outbox anzeigen"
+            title={t('settings.sync.diagnosticsButton')}
             variant="secondary"
             onPress={() => router.push('/settings/sync-debug')}
           />

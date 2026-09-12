@@ -104,14 +104,14 @@ export function SettingsScreen() {
     setSigningOut(false);
 
     if (error) {
-      Alert.alert('Abmelden fehlgeschlagen', error.message);
+      Alert.alert(t('settings.signOutFailedTitle'), error.message);
     } else {
       router.replace('/onboarding');
     }
   }
 
   const hasHousehold = Boolean(activeHousehold);
-  const displayName = profile?.display_name || 'Ohne Namen';
+  const displayName = profile?.display_name || t('settings.noName');
   const avatarUrl = profile?.avatar_url;
 
   // Entwicklungsziel direkt in der Übersicht anzeigen.
@@ -162,7 +162,7 @@ export function SettingsScreen() {
                 {avatarUrl ? (
                   <Image
                     source={{ uri: avatarUrl }}
-                    accessibilityLabel="Profilbild in Einstellungen"
+                    accessibilityLabel={t('settings.profileImageAccessibility')}
                     style={{ width: '100%', height: '100%' }}
                     contentFit="cover"
                   />
@@ -192,43 +192,45 @@ export function SettingsScreen() {
         {/* Einstellungs-Menügruppen */}
         <View style={styles.groups}>
           {/* Tracking & Ernährung (Ziele, Vitalwerte, Methoden) */}
-          <SettingsGroup title="Tracking & Ernährung">
+          <SettingsGroup title={t('settings.groups.tracking.title')}>
             <SettingsRow
               icon="🎯"
-              label="Mein Tracking"
-              hint="Methode, Ziele, Vitalwerte & Rhythmus"
+              label={t('settings.groups.tracking.myTracking.label')}
+              hint={t('settings.groups.tracking.myTracking.hint')}
               onPress={() => router.push('/profile/tracking')}
               last
             />
           </SettingsGroup>
 
           {/* Haushalt (Mitglieder, Lagerorte, Einkaufsliste) */}
-          <SettingsGroup title="Haushalt">
+          <SettingsGroup title={t('settings.groups.household.title')}>
             <SettingsRow
               icon="🏠"
-              label="Mitglieder"
-              value={activeHousehold?.name ?? 'Kein Haushalt'}
-              hint={hasHousehold ? undefined : 'Haushalt wechseln oder beitreten'}
+              label={t('settings.groups.household.members.label')}
+              value={activeHousehold?.name ?? t('settings.groups.household.members.noHousehold')}
+              hint={
+                hasHousehold ? undefined : t('settings.groups.household.members.switchOrJoinHint')
+              }
               onPress={() => router.push('/household/members')}
             />
             <SettingsRow
               icon="📦"
-              label="Lagerorte"
-              hint="Kühlschrank, Tiefkühler, Vorratskammer"
+              label={t('settings.groups.household.storageLocations.label')}
+              hint={t('settings.groups.household.storageLocations.hint')}
               onPress={hasHousehold ? () => router.push('/household/storage-locations') : undefined}
               disabled={!hasHousehold}
             />
             <SettingsRow
               icon="🏬"
-              label="Einkaufsliste"
-              hint="REWE, Aldi, Lidl, ..."
+              label={t('settings.groups.household.shoppingList.label')}
+              hint={t('settings.groups.household.shoppingList.hint')}
               onPress={hasHousehold ? () => router.push('/household/stores') : undefined}
               disabled={!hasHousehold}
             />
             <SettingsRow
               icon="🔎"
-              label="Produktsuche"
-              hint="Bevorzugten Markt für Treffer wählen"
+              label={t('settings.groups.household.productSearch.label')}
+              hint={t('settings.groups.household.productSearch.hint')}
               onPress={hasHousehold ? () => router.push('/settings/product-search') : undefined}
               disabled={!hasHousehold}
               last
@@ -251,52 +253,60 @@ export function SettingsScreen() {
             </View>
             <SettingsRow
               icon="🔐"
-              label="Berechtigungen"
+              label={t('settings.groups.app.permissions.label')}
               onPress={() => router.push('/settings/permissions')}
             />
             <SettingsRow
               icon="🔔"
-              label="Benachrichtigungen"
+              label={t('settings.groups.app.notifications.label')}
               onPress={() => router.push('/settings/notifications')}
             />
             <SettingsRow
               icon="🧩"
-              label="Module"
-              hint="Vorrat, Einkauf, Tagebuch, Rezepte"
+              label={t('settings.groups.app.modules.label')}
+              hint={t('settings.groups.app.modules.hint')}
               onPress={() => router.push('/settings/modules')}
             />
             <SettingsRow
               icon="🏆"
-              label="Gamification"
-              hint="Streaks & Belohnungen"
+              label={t('settings.groups.app.gamification.label')}
+              hint={t('settings.groups.app.gamification.hint')}
               onPress={() => router.push('/gamification')}
             />
             <SettingsRow
               icon="➕"
-              label="Plus-Button"
-              value={fabPosition === 'left' ? 'Links' : 'Rechts'}
-              hint="Ecke, in der das + sitzt"
+              label={t('settings.groups.app.fabPosition.label')}
+              value={
+                fabPosition === 'left'
+                  ? t('settings.groups.app.fabPosition.left')
+                  : t('settings.groups.app.fabPosition.right')
+              }
+              hint={t('settings.groups.app.fabPosition.hint')}
               onPress={() => setFabPosition(fabPosition === 'left' ? 'right' : 'left')}
             />
             <SettingsRow
               icon="💬"
-              label="Feedback geben"
+              label={t('settings.groups.app.feedback.label')}
               onPress={() => router.push('/settings/feedback')}
               last
             />
           </SettingsGroup>
 
           {/* Datenverwaltung & Datenschutz (Export, DSGVO, Löschen) */}
-          <SettingsGroup title="Daten">
-            <SettingsRow icon="📤" label="Export" onPress={() => router.push('/settings/export')} />
+          <SettingsGroup title={t('settings.groups.data.title')}>
+            <SettingsRow
+              icon="📤"
+              label={t('settings.groups.data.export.label')}
+              onPress={() => router.push('/settings/export')}
+            />
             <SettingsRow
               icon="🔒"
-              label="Datenschutz"
+              label={t('settings.groups.data.privacy.label')}
               onPress={() => router.push('/settings/privacy')}
             />
             <SettingsRow
               icon="🗑️"
-              label="Konto löschen"
+              label={t('settings.groups.data.deleteAccount.label')}
               onPress={() => router.push('/settings/delete-account')}
               last
             />
@@ -319,7 +329,12 @@ export function SettingsScreen() {
 
         {/* Abmelden-Aktion */}
         <View style={styles.signOut}>
-          <Button title="Abmelden" variant="danger" onPress={handleSignOut} loading={signingOut} />
+          <Button
+            title={t('settings.signOut')}
+            variant="danger"
+            onPress={handleSignOut}
+            loading={signingOut}
+          />
         </View>
 
         {/* App-Versionsangabe & Build-Nummer */}

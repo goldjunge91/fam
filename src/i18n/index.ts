@@ -3,6 +3,10 @@ import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import { getDeviceStorage } from '@/lib/storage/device-storage';
+import commonDe from './features/common.de.json';
+import commonEn from './features/common.en.json';
+import settingsDe from './features/settings.de.json';
+import settingsEn from './features/settings.en.json';
 import de from './locales/de.json';
 import en from './locales/en.json';
 
@@ -12,9 +16,12 @@ export type AppLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 export const DEFAULT_LANGUAGE: AppLanguage = 'de';
 export const LANGUAGE_STORAGE_KEY = 'fam:language';
 
+const { common: _legacyCommonDe, settings: _legacySettingsDe, ...restDe } = de;
+const { common: _legacyCommonEn, settings: _legacySettingsEn, ...restEn } = en;
+
 const resources = {
-  de: { translation: de },
-  en: { translation: en },
+  de: { translation: { ...restDe, common: commonDe, settings: settingsDe } },
+  en: { translation: { ...restEn, common: commonEn, settings: settingsEn } },
 };
 
 function isAppLanguage(value: string): value is AppLanguage {

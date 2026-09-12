@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type { StyleProp, ViewStyle } from 'react-native';
 import { PermissionCard } from './permission-card';
 
@@ -18,13 +19,15 @@ type CameraPermissionCardProps = {
 };
 
 export function CameraPermissionCard({ style }: CameraPermissionCardProps) {
+  const { t } = useTranslation();
+
   return (
     <PermissionCard
       style={style}
-      title="Kamera"
-      label="Kamera-Zugriff"
-      grantedCopy="Für Barcode-Scan und QR-Code-Beitritt."
-      deniedCopy="In den Systemeinstellungen deaktiviert. Zum Ändern antippen."
+      title={t('settings.groups.app.permissions.camera.title')}
+      label={t('settings.groups.app.permissions.camera.label')}
+      grantedCopy={t('settings.groups.app.permissions.camera.grantedHint')}
+      deniedCopy={t('settings.groups.app.permissions.deniedHint')}
       usePermission={useCameraPermissionsHook}
     />
   );
