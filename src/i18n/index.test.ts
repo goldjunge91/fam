@@ -43,9 +43,13 @@ describe('app language', () => {
   it('loads bundled translations for both supported languages', async () => {
     await i18n.changeLanguage('de');
     expect(i18n.t('shoppingList.addItem')).toBe('Artikel hinzufügen');
+    expect(i18n.t('settings.groups.data.privacy.label')).toBe('Datenschutz');
+    expect(i18n.t('shoppingList.screen.completeActionGeneric')).toBe('Einkaufsliste abschließen');
 
     await i18n.changeLanguage('en');
     expect(i18n.t('shoppingList.addItem')).toBe('Add item');
+    expect(i18n.t('settings.groups.data.privacy.label')).toBe('Privacy');
+    expect(i18n.t('shoppingList.screen.completeActionGeneric')).toBe('Complete shopping list');
   });
 
   it('prefers and persists an explicit language selection', async () => {
