@@ -49,10 +49,11 @@ Autofill, Tastaturtyp, Secure-Text und React-Hook-Form-/Fokus-Refs bleiben nutzb
 | Fehler + Fokus | Fehler bleibt sichtbar; zusätzlicher Fokusindikator | keiner der beiden Zustände wird verdrängt |
 | Nicht editierbar | zentrales Disabled-Rezept | Eingabe gesperrt und Zustand erkennbar |
 
-Der bisherige Fokusvertrag mit 1,5-Punkte-Basiskontur und 2-Punkte-Fokuskontur
-bleibt als Maßvorgabe erhalten. Das zentrale Rezept muss den Unterschied
-geometrisch ausgleichen, sodass weder Feld noch Nachbarlayout springen. Die
-Farbzuordnung berücksichtigt Fehler + Fokus; sie wird nicht pro Formular neu erfunden.
+Der bisherige Fokusvertrag mit `borderWidth.base` (1,5 Punkte) als Basiskontur
+und `borderWidth.strong` (2 Punkte) als betonter Kontur bleibt als Maßvorgabe
+erhalten. Das zentrale Rezept muss den Unterschied geometrisch ausgleichen,
+sodass weder Feld noch Nachbarlayout springen. Die Farbzuordnung berücksichtigt
+Fehler + Fokus; sie wird nicht pro Formular neu erfunden.
 
 Alle Feldbestandteile folgen der App-Präferenz, auch bei abweichendem Systemtheme.
 Explizite `accessibilityLabel`-/Hint-Props haben Vorrang vor abgeleiteten Defaults.

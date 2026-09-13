@@ -1,8 +1,68 @@
 import { Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import type { ExtractedPaywallPlans, PlanPeriod } from './paywall-plans';
+
+const styles = StyleSheet.create((theme) => ({
+  container: {
+    width: '100%',
+    gap: theme.space.md,
+  },
+  card: {
+    position: 'relative',
+    borderWidth: theme.borderWidth.base,
+    borderRadius: theme.radius.lg,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    minHeight: 76,
+    borderCurve: 'continuous',
+  },
+  savingsBadge: {
+    position: 'absolute',
+    top: -theme.space.sm,
+    right: theme.space.lg,
+    paddingHorizontal: theme.space.sm,
+    paddingVertical: theme.space.xs / 2,
+    borderRadius: theme.radius.pill,
+    zIndex: 1,
+  },
+  planLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.md,
+    flex: 1,
+    paddingRight: theme.space.sm,
+  },
+  radio: {
+    width: 24,
+    height: 24,
+    borderRadius: theme.radius.pill,
+    borderWidth: theme.borderWidth.strong,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+  },
+  radioDot: {
+    width: 12,
+    height: 12,
+    borderRadius: theme.radius.pill,
+  },
+  planInfo: {
+    flex: 1,
+    minWidth: 0,
+    gap: theme.space.xs / 2,
+  },
+  priceBlock: {
+    alignItems: 'flex-end',
+    marginLeft: theme.space.sm,
+    flexShrink: 0,
+  },
+}));
 
 interface PaywallPlanCardProps {
   plans: ExtractedPaywallPlans;
@@ -27,7 +87,7 @@ export function PaywallPlanCard({
   const isMonthlySelected = selectedPeriod === 'monthly';
 
   return (
-    <View className="gap-three w-full">
+    <View style={styles.container}>
       {/* Jahresabo Karte (Empfohlen mit Spar-Badge) */}
       <Pressable
         onPress={() => onSelectPeriod('yearly')}
@@ -35,36 +95,35 @@ export function PaywallPlanCard({
         accessibilityRole="radio"
         accessibilityState={{ selected: isYearlySelected }}
         accessibilityLabel={`${plans.yearly.title}, ${plans.yearly.priceString} pro Jahr, ${plans.yearly.savingsBadge ?? ''}`}
-        style={{
-          borderColor: isYearlySelected ? colors.basil : colors.border,
-          backgroundColor: colors.surface,
-        }}
-        className="relative border-[1.5px] rounded-[18px] px-four py-[14px] flex-row items-center justify-between">
+        style={[
+          styles.card,
+          {
+            borderColor: isYearlySelected ? colors.basil : colors.border,
+            backgroundColor: colors.surface,
+          },
+        ]}>
         {/* Dynamisches Spar-Badge */}
         {plans.yearly.savingsBadge ? (
-          <View
-            style={{ backgroundColor: colors.basil }}
-            className="absolute -top-[10px] right-four px-two py-[2px] rounded-full shadow-sm">
-            <Txt variant="caption" tone="inverse" weight="700" className="tracking-wider">
+          <View style={[styles.savingsBadge, { backgroundColor: colors.basil }]}>
+            <Txt variant="caption" tone="inverse" weight="700">
               {plans.yearly.savingsBadge}
             </Txt>
           </View>
         ) : null}
 
         {/* Linke Seite: Radio + Titel/Subtext */}
-        <View className="flex-row items-center gap-three flex-1 pr-two">
+        <View style={styles.planLeft}>
           <View
-            style={{ borderColor: isYearlySelected ? colors.basil : colors.border }}
-            className="w-5 h-5 rounded-full border-2 items-center justify-center">
+            style={[
+              styles.radio,
+              { borderColor: isYearlySelected ? colors.basil : colors.border },
+            ]}>
             {isYearlySelected ? (
-              <View
-                style={{ backgroundColor: colors.basil }}
-                className="w-2.5 h-2.5 rounded-full"
-              />
+              <View style={[styles.radioDot, { backgroundColor: colors.basil }]} />
             ) : null}
           </View>
 
-          <View className="gap-[2px] flex-1">
+          <View style={styles.planInfo}>
             <Txt variant="body" weight="700">
               {plans.yearly.title}
             </Txt>
@@ -75,7 +134,7 @@ export function PaywallPlanCard({
         </View>
 
         {/* Rechte Seite: Preis + Periode */}
-        <View className="items-end">
+        <View style={styles.priceBlock}>
           <Txt variant="body" weight="700">
             {plans.yearly.priceString}
           </Txt>
@@ -92,25 +151,26 @@ export function PaywallPlanCard({
         accessibilityRole="radio"
         accessibilityState={{ selected: isMonthlySelected }}
         accessibilityLabel={`${plans.monthly.title}, ${plans.monthly.priceString} pro Monat`}
-        style={{
-          borderColor: isMonthlySelected ? colors.basil : colors.border,
-          backgroundColor: colors.surface,
-        }}
-        className="border-[1.5px] rounded-[18px] px-four py-[14px] flex-row items-center justify-between">
+        style={[
+          styles.card,
+          {
+            borderColor: isMonthlySelected ? colors.basil : colors.border,
+            backgroundColor: colors.surface,
+          },
+        ]}>
         {/* Linke Seite: Radio + Titel/Subtext */}
-        <View className="flex-row items-center gap-three flex-1 pr-two">
+        <View style={styles.planLeft}>
           <View
-            style={{ borderColor: isMonthlySelected ? colors.basil : colors.border }}
-            className="w-5 h-5 rounded-full border-2 items-center justify-center">
+            style={[
+              styles.radio,
+              { borderColor: isMonthlySelected ? colors.basil : colors.border },
+            ]}>
             {isMonthlySelected ? (
-              <View
-                style={{ backgroundColor: colors.basil }}
-                className="w-2.5 h-2.5 rounded-full"
-              />
+              <View style={[styles.radioDot, { backgroundColor: colors.basil }]} />
             ) : null}
           </View>
 
-          <View className="gap-[2px] flex-1">
+          <View style={styles.planInfo}>
             <Txt variant="body" weight="700">
               {plans.monthly.title}
             </Txt>
@@ -121,7 +181,7 @@ export function PaywallPlanCard({
         </View>
 
         {/* Rechte Seite: Preis + Periode */}
-        <View className="items-end">
+        <View style={styles.priceBlock}>
           <Txt variant="body" weight="700">
             {plans.monthly.priceString}
           </Txt>

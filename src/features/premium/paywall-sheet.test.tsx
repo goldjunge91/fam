@@ -76,6 +76,18 @@ describe('PaywallSheet', () => {
     expect(screen.getByText('17 % Ersparnis')).toBeOnTheScreen();
     expect(screen.getByText('Monatsabo')).toBeOnTheScreen();
     expect(screen.getByText('Jahresabo für 49,99 € starten')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Schließen' })).toHaveStyle({
+      minHeight: 44,
+      minWidth: 44,
+    });
+    expect(screen.getByRole('radio', { name: /Jahresabo/ })).toHaveStyle({
+      flexDirection: 'row',
+      minHeight: 76,
+    });
+    expect(screen.getByRole('button', { name: 'Käufe wiederherstellen' })).toHaveStyle({
+      minHeight: 44,
+      minWidth: 44,
+    });
   });
 
   it('erlaubt Plan-Umschaltung per Klick', async () => {

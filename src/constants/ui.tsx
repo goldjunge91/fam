@@ -33,6 +33,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import {
   type AccentKey,
   BUTTON_DEPTH,
+  borderWidth,
   font,
   type Palette,
   radius,
@@ -703,7 +704,7 @@ export function Pill({
         paddingVertical: 10,
         borderRadius: radius.pill,
         backgroundColor: selected ? a.main : colors.backgroundElement,
-        borderWidth: 1.5,
+        borderWidth: borderWidth.base,
         borderColor: selected ? a.main : colors.border,
         opacity: disabled ? 0.5 : 1,
       }}>
@@ -953,7 +954,7 @@ function makeStyles(c: Palette) {
     },
     input: {
       backgroundColor: c.backgroundElement,
-      borderWidth: 2,
+      borderWidth: borderWidth.strong,
       borderColor: c.border,
       borderRadius: radius.md,
       paddingHorizontal: 14,

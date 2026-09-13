@@ -2,15 +2,19 @@
 
 ## Zweck und Zuständigkeit
 
-Form und Tiefe bleiben über Screens konsistent. `radius`, `shadow`, `BUTTON_DEPTH`,
-`Gradients` und `GradientSpec` stammen aus `index.ts`. Ihre semantische Verwendung
-in Cards, Buttons, Overlays und anderen Komponenten wird in `ui.tsx` definiert.
+Form und Tiefe bleiben über Screens konsistent. `radius`, `borderWidth`, `shadow`,
+`BUTTON_DEPTH`, `Gradients` und `GradientSpec` stammen aus `index.ts`. Ihre
+semantische Verwendung in Cards, Buttons, Overlays und anderen Komponenten wird
+in `ui.tsx` definiert.
 `Fonts` gehört zum [Typografievertrag](./02-typography.md).
 
 ## Form und Tiefe
 
 - Radien wählen die zentralen Werte von `radius.sm` bis `radius.pill`.
   Wiederkehrende neue Formen brauchen eine zentrale Entscheidung.
+- Konturstärken wählen die zentralen Werte `borderWidth.base` (1,5 Punkte) für
+  normale Konturen und `borderWidth.strong` (2 Punkte) für betonte Konturen.
+  Features legen keine eigenen wiederkehrenden Konturstärken an.
 - Schattenrezepte verwenden die aktive Palette aus dem ThemeProvider. Ein
   unveränderter Spread von `shadow.sm` im Feature ist kein semantisches Rezept.
 - Schattenfarben sind ausschließlich für Schatten vorgesehen, nicht für

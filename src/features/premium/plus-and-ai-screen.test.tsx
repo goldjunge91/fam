@@ -2,6 +2,7 @@ import { render, screen, userEvent } from '@testing-library/react-native';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { rs } from '@/components/theme/index';
 import { PlusAndAiScreen } from '@/features/premium/plus-and-ai-screen';
 import { buyPackage, packagesForEntitlement } from '@/lib/purchases';
 
@@ -76,7 +77,13 @@ describe('PlusAndAiScreen', () => {
     await renderScreen('plus');
 
     expect(screen.getByText('Mehr für euren Haushalt')).toBeOnTheScreen();
+    expect(screen.getByText(/Ein Abo schaltet Plus/)).toHaveStyle({ maxWidth: rs(320) });
+    expect(screen.queryByText('✦')).not.toBeOnTheScreen();
     expect(screen.getByText('Geführter Kochmodus')).toBeOnTheScreen();
+    expect(screen.getByRole('radio', { name: /Jahresabo/ })).toHaveStyle({
+      flexDirection: 'row',
+      minHeight: 76,
+    });
     expect(screen.getByRole('button', { name: 'Jahresabo für 49,99 € starten' })).toBeOnTheScreen();
     expect(screen.queryByText('Auf KI upgraden')).not.toBeOnTheScreen();
   });

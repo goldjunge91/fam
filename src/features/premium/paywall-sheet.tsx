@@ -1,6 +1,7 @@
 import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef } from 'react';
 import { Alert, Pressable, ScrollView, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -23,6 +24,78 @@ const BENEFITS: { icon: string; title: string; hint: string }[] = [
     hint: 'Niedrige Vorräte auf die Einkaufsliste setzen',
   },
 ];
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    flex: 1,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: theme.space.lg,
+    paddingTop: theme.space.sm,
+    paddingBottom: theme.space.sm,
+  },
+  closeButton: {
+    width: 44,
+    height: 44,
+    minWidth: 44,
+    minHeight: 44,
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.backgroundElement,
+    borderCurve: 'continuous',
+  },
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingHorizontal: theme.space.lg,
+    paddingBottom: theme.space.lg,
+    gap: theme.space.lg,
+  },
+  hero: {
+    alignItems: 'center',
+    gap: theme.space.sm,
+    paddingTop: theme.space.sm,
+  },
+  heroBadge: {
+    width: 56,
+    height: 56,
+    borderRadius: theme.radius.md,
+    overflow: 'hidden',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderCurve: 'continuous',
+  },
+  heroSubtitle: {
+    paddingHorizontal: theme.space.sm,
+  },
+  cta: {
+    width: '100%',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    paddingTop: theme.space.sm,
+  },
+  restoreRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.space.md,
+    paddingTop: theme.space.xs,
+  },
+  restoreButton: {
+    minWidth: 44,
+    minHeight: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  restoreText: {
+    textDecorationLine: 'underline',
+  },
+}));
 
 interface PaywallSheetProps {
   isOpen: boolean;
@@ -107,9 +180,9 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
       backgroundStyle={{ backgroundColor: colors.bg }}
       handleIndicatorStyle={{ backgroundColor: colors.border }}>
       <BottomSheetView style={{ flex: 1 }}>
-        <View className="flex-1">
+        <View style={styles.root}>
           {/* Header mit Schließen-Button */}
-          <View className="row-between items-center px-four pt-two pb-two">
+          <View style={styles.header}>
             <Txt variant="title" weight="700">
               fam Premium
             </Txt>
@@ -117,7 +190,7 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
               onPress={onClose}
               accessibilityRole="button"
               accessibilityLabel="Schließen"
-              className="modal-close-btn">
+              style={styles.closeButton}>
               <Txt variant="body" tone="secondary">
                 ✕
               </Txt>
@@ -125,21 +198,23 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
           </View>
 
           <ScrollView
-            className="flex-1"
-            contentContainerClassName="px-four pb-four gap-four"
+            style={styles.scroll}
+            contentContainerStyle={styles.scrollContent}
             showsVerticalScrollIndicator={false}>
             {/* Hero-Bereich */}
-            <View className="items-center text-center gap-two pt-two">
-              <View className="w-12 h-12 rounded-[16px] overflow-hidden items-center justify-center shadow-md">
-                <GradientBackground colors={[colors.basil, colors.carrot]} />
-                <Txt variant="body" tone="onAccent" style={{ fontSize: 22 }}>
+            <View style={styles.hero}>
+              <View style={styles.heroBadge}>
+                <GradientBackground
+                  colors={[colors.premiumGradientStart, colors.premiumGradientEnd]}
+                />
+                <Txt variant="glyph" tone="onAccent">
                   ✦
                 </Txt>
               </View>
-              <Txt variant="title" weight="700" center>
+              <Txt variant="heading" weight="700" center>
                 Mehr für euren Haushalt
               </Txt>
-              <Txt variant="body" tone="secondary" center className="px-two">
+              <Txt variant="body" tone="secondary" center style={styles.heroSubtitle}>
                 Ein Abo schaltet alle Funktionen für alle Mitglieder im aktuellen Haushalt frei.
               </Txt>
             </View>
@@ -166,7 +241,7 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
             />
 
             {/* CTA & Aktionen */}
-            <View className="gap-two pt-two items-center w-full">
+            <View style={styles.cta}>
               <Button
                 title={ctaLabel}
                 onPress={handleBuy}
@@ -179,12 +254,13 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
                 Jederzeit im App Store kündbar.
               </Txt>
 
-              <View className="flex-row items-center justify-center gap-three pt-one">
+              <View style={styles.restoreRow}>
                 <Pressable
                   onPress={handleRestore}
                   disabled={isPurchasing || isRestoring}
-                  accessibilityRole="button">
-                  <Txt variant="caption" tone="secondary" className="underline">
+                  accessibilityRole="button"
+                  style={styles.restoreButton}>
+                  <Txt variant="label" tone="secondary" style={styles.restoreText}>
                     Käufe wiederherstellen
                   </Txt>
                 </Pressable>

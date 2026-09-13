@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Alert, ScrollView, View } from 'react-native';
-import { GradientBackground } from '@/components/layout/gradient-background';
+import { StyleSheet } from 'react-native-unistyles';
 import { HubScreen } from '@/components/layout/hub-screen';
+import { rs, withAlpha } from '@/components/theme/index';
 import { BackButton } from '@/components/ui/buttons';
 import { Button, SegmentedControl, Txt } from '@/constants/ui';
 import { presentCustomerCenter } from '@/features/premium/paywall';
@@ -17,6 +18,38 @@ const TIER_OPTIONS = [
   { value: 'plus', label: TIER_CONTENT.plus.tabLabel },
   { value: 'ai', label: TIER_CONTENT.ai.tabLabel },
 ] as const;
+
+const styles = StyleSheet.create((theme) => ({
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingHorizontal: theme.space.md,
+    paddingBottom: theme.space.xxl,
+    gap: theme.space.md,
+  },
+  hero: {
+    alignItems: 'center',
+    paddingTop: theme.space.xs,
+    gap: theme.space.xs,
+  },
+  heroSubtitle: {
+    maxWidth: rs(320),
+    marginTop: theme.space.xs,
+  },
+  activeBox: {
+    padding: theme.space.lg,
+    borderRadius: theme.radius.famLarge,
+    backgroundColor: withAlpha(theme.success, 0.12),
+  },
+  upgradeBanner: {
+    marginTop: theme.space.md,
+    padding: theme.space.md,
+    borderRadius: theme.radius.famLarge,
+    backgroundColor: theme.backgroundSoft,
+    gap: theme.space.xs / 2,
+  },
+}));
 
 interface PlusAndAiScreenProps {
   /** Tier, mit dem der Screen geoeffnet wurde — entscheidet der jeweilige Einstiegspunkt. */
@@ -110,7 +143,10 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
         align: 'center',
         leading: <BackButton label="Einstellungen" href="/settings" variant="arrow" />,
       }}>
-      <ScrollView contentContainerClassName="premium-scroll" showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={styles.scroll}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}>
         <SegmentedControl
           label="Tier auswählen"
           options={TIER_OPTIONS}
@@ -120,18 +156,12 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
           appearance="surface"
         />
 
-        {/* Hero-Banner (Krone-Icon, Ueberschrift, Haushalts-Erklaerung fuer das aktive Tab-Tier) */}
-        <View className="premium-hero">
-          <View className="premium-crown">
-            <GradientBackground colors={['#705573', '#c38b75']} />
-            <Txt variant="body" tone="inverse" className="premium-crown-glyph">
-              ✦
-            </Txt>
-          </View>
-          <Txt variant="title" className="premium-hero-title">
+        {/* Hero-Banner (Ueberschrift und Haushalts-Erklaerung fuer das aktive Tab-Tier) */}
+        <View style={styles.hero}>
+          <Txt variant="heading" center>
             {owned ? content.heroTitleActive : content.heroTitleInactive}
           </Txt>
-          <Txt variant="body" tone="secondary" className="premium-hero-subtitle">
+          <Txt variant="body" tone="secondary" center style={styles.heroSubtitle}>
             {owned ? content.heroSubtitleActive : content.heroSubtitleInactive}
           </Txt>
         </View>
@@ -151,11 +181,11 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
         {owned ? (
           /* Aktiver Status & Abo-Verwaltungs-Button fuer das aktive Tab-Tier */
           <>
-            <View className="premium-active-box">
-              <Txt variant="body" tone="success" className="premium-active-title">
+            <View style={styles.activeBox}>
+              <Txt variant="body" tone="success" weight="700">
                 ✓ {content.activeLabel}
               </Txt>
-              <Txt variant="body" tone="secondary" className="premium-active-hint">
+              <Txt variant="body" tone="secondary">
                 {isForced && tier === 'plus'
                   ? 'Für diesen Build erzwungen (Entwicklermodus).'
                   : 'Gilt für alle aktuellen Haushaltsmitglieder.'}
@@ -166,11 +196,11 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
             {/* Upgrade-Hinweis zum jeweils anderen Tab, solange dieser noch nicht aktiv ist */}
             {!otherOwned ? (
               <>
-                <View className="premium-upgrade-banner">
-                  <Txt variant="body" weight="700" className="premium-upgrade-title">
+                <View style={styles.upgradeBanner}>
+                  <Txt variant="body" weight="700">
                     {otherContent.crossSellTitle}
                   </Txt>
-                  <Txt variant="body" tone="secondary" className="premium-upgrade-hint">
+                  <Txt variant="body" tone="secondary">
                     {otherContent.crossSellHint}
                   </Txt>
                 </View>

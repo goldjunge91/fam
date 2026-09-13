@@ -9,6 +9,7 @@ import { getDeviceStorage } from '@/lib/storage/device-storage';
 
 import {
   BUTTON_DEPTH,
+  borderWidth,
   colorsDark,
   colorsLight,
   font,
@@ -85,6 +86,8 @@ describe('fam theme tokens', () => {
     expect(makeAccent(colorsLight).pantry.main).toBe(colorsLight.basil);
     expect(makeCategoryTone(colorsLight).vegetable.tint).toBe(colorsLight.basilTint);
     expect(radius.md).toBe(16);
+    expect(borderWidth.base).toBe(1.5);
+    expect(borderWidth.strong).toBe(2);
     expect(space.md).toBeGreaterThan(0);
     expect(font.sizes.base).toBeGreaterThan(0);
     expect(shadow.sm.elevation).toBe(2);

@@ -341,7 +341,7 @@ export const IS_TABLET = SCREEN_W >= 600;
 /** Cap the column width on tablets/large screens so the phone layout stays readable. */
 export const CONTENT_MAX_WIDTH = 600;
 const _scale = Math.max(0.9, Math.min(1.06, Math.min(SCREEN_W, 430) / 393));
-const rs = (n: number) => Math.round(n * _scale);
+export const rs = (n: number) => Math.round(n * _scale);
 
 export const radius = {
   sm: 12,
@@ -351,6 +351,12 @@ export const radius = {
   xxl: 32,
   famLarge: 28,
   pill: 999,
+} as const;
+
+/** Shared contour widths for regular and emphasized controls. */
+export const borderWidth = {
+  base: 1.5,
+  strong: 2,
 } as const;
 
 export const space = {
@@ -489,7 +495,7 @@ export const Fonts = Platform.select({
   },
 });
 
-export const theme = { colors, accent, radius, space, font, shadow, BUTTON_DEPTH };
+export const theme = { colors, accent, radius, borderWidth, space, font, shadow, BUTTON_DEPTH };
 export default theme;
 
 // ─── Unistyles v3 Configuration ──────────────────────────────────────────────
@@ -498,8 +504,8 @@ export default theme;
 import { StyleSheet } from 'react-native-unistyles';
 
 const unistylesThemes = {
-  light: { ...colorsLight, space, font, radius, shadow },
-  dark: { ...colorsDark, space, font, radius, shadow },
+  light: { ...colorsLight, space, font, radius, borderWidth, shadow },
+  dark: { ...colorsDark, space, font, radius, borderWidth, shadow },
 };
 
 type AppThemes = typeof unistylesThemes;
