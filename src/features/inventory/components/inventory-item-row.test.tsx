@@ -73,6 +73,25 @@ describe('InventoryItemRow', () => {
     expect(screen.queryByText('V')).not.toBeOnTheScreen();
   });
 
+  it('legt die Zeilen-Geometrie über native Styles fest', async () => {
+    await render(
+      <InventoryItemRow
+        item={dummyItem}
+        onPress={jest.fn()}
+        onLongPress={jest.fn()}
+        onRemove={jest.fn()}
+      />,
+    );
+
+    expect(screen.getByRole('button', { name: 'Vollmilch, 1 L' })).toHaveStyle({
+      minHeight: 92,
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingRight: 4,
+      paddingVertical: 17,
+    });
+  });
+
   it('sollte onPress beim Antippen der Zeile auslösen', async () => {
     const onPressMock = jest.fn();
     const user = userEvent.setup();

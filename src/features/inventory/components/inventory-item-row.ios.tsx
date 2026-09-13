@@ -3,6 +3,7 @@ import { Pressable, View } from 'react-native';
 import ReanimatedSwipeable, {
   type SwipeableMethods,
 } from 'react-native-gesture-handler/ReanimatedSwipeable';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
@@ -11,6 +12,37 @@ import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import type { ExpiryBucket } from '../expiry';
 import { groupInventoryItems, type InventoryItemGroup } from '../grouped-items';
 import type { LocalInventoryItem } from '../use-inventory-items';
+
+const styles = StyleSheet.create((theme) => ({
+  row: {
+    minHeight: 92,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+    paddingRight: theme.space.xs,
+    paddingVertical: 17,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  expiryBar: {
+    width: 5,
+    height: 53,
+    borderRadius: theme.space.xs,
+  },
+  main: {
+    flex: 1,
+    gap: theme.space.xs,
+  },
+  quantity: {
+    minWidth: 58,
+    textAlign: 'right',
+  },
+  removeAction: {
+    width: 96,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}));
 
 const EXPIRY_COLOR_KEY: Record<ExpiryBucket, 'danger' | 'warning' | 'success' | null> = {
   expired: 'danger',
@@ -67,7 +99,7 @@ export const InventoryItemRow = memo(function InventoryItemRow({
   ) {
     return (
       <Pressable
-        className="fridge-item-remove-action"
+        style={[styles.removeAction, { backgroundColor: colors.danger }]}
         accessibilityRole="button"
         accessibilityLabel={`${group.name} ${removeLabel.toLocaleLowerCase('de-DE')}`}
         onPress={() => {
@@ -90,15 +122,15 @@ export const InventoryItemRow = memo(function InventoryItemRow({
       renderRightActions={renderRemoveAction}
       containerStyle={{ overflow: 'hidden' }}>
       <Pressable
-        className="inventory-item-row"
+        style={styles.row}
         onPress={onPress}
         onLongPress={onLongPress}
         accessibilityRole="button"
         accessibilityLabel={`${group.name}, ${amount}${group.lots.length > 1 ? `, ${group.lots.length} MHD-Einträge` : packageHint ? `, ${packageHint}` : ''}`}
         accessibilityHint="Tippen für Aktionen, lang drücken für Produktinformationen, nach links wischen zum Entfernen">
-        <View className="fridge-item-expiry-bar" style={{ backgroundColor: expiryColor }} />
+        <View style={[styles.expiryBar, { backgroundColor: expiryColor }]} />
 
-        <View className="fridge-item-main">
+        <View style={styles.main}>
           <Txt variant="body" weight="800" numberOfLines={1}>
             {group.name}
           </Txt>
@@ -112,8 +144,7 @@ export const InventoryItemRow = memo(function InventoryItemRow({
         <Txt
           variant="subheading"
           weight="800"
-          className="fridge-item-quantity"
-          style={{ fontVariant: ['tabular-nums'] }}>
+          style={[styles.quantity, { fontVariant: ['tabular-nums'] }]}>
           {amount}
         </Txt>
       </Pressable>

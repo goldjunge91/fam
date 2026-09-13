@@ -31,9 +31,11 @@ describe('InventoryTabBar Component', () => {
     await user.press(
       screen.getByRole('button', { name: 'Lagerort auswählen, aktuell Kühlschrank' }),
     );
-    expect(screen.getByRole('menuitem', { name: 'Tiefkühltruhe' })).toBeOnTheScreen();
+    const freezerOption = screen.getByRole('menuitem', { name: 'Tiefkühltruhe' });
+    expect(freezerOption).toBeOnTheScreen();
+    expect(freezerOption).toHaveStyle({ flexDirection: 'row', minHeight: 44 });
 
-    await user.press(screen.getByRole('menuitem', { name: 'Tiefkühltruhe' }));
+    await user.press(freezerOption);
     expect(handleTabChange).toHaveBeenCalledTimes(1);
     expect(handleTabChange).toHaveBeenCalledWith('loc-2');
     expect(screen.queryByRole('menuitem', { name: 'Tiefkühltruhe' })).not.toBeOnTheScreen();

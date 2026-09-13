@@ -3,6 +3,7 @@ import { Pressable, View } from 'react-native';
 import ReanimatedSwipeable, {
   type SwipeableMethods,
 } from 'react-native-gesture-handler/ReanimatedSwipeable';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
@@ -11,6 +12,37 @@ import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import type { ExpiryBucket } from '../expiry';
 import { groupInventoryItems, type InventoryItemGroup } from '../grouped-items';
 import type { LocalInventoryItem } from '../use-inventory-items';
+
+const styles = StyleSheet.create((theme) => ({
+  row: {
+    minHeight: 92,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+    paddingRight: theme.space.xs,
+    paddingVertical: 17,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  expiryBar: {
+    width: 5,
+    height: 53,
+    borderRadius: theme.space.xs,
+  },
+  main: {
+    flex: 1,
+    gap: theme.space.xs,
+  },
+  quantity: {
+    minWidth: 58,
+    textAlign: 'right',
+  },
+  removeAction: {
+    width: 96,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}));
 
 // MHD-Ampel als linker Streifen an der Zeile — Farbe kommt aus dem Theme,
 // damit sie mit dem Rest der Statusfarben (Badge, Dark Mode) mitzieht.
@@ -85,7 +117,7 @@ export const InventoryItemRow = memo(function InventoryItemRow({
           swipeable.close();
           onRemove();
         }}
-        className="fridge-item-remove-action">
+        style={[styles.removeAction, { backgroundColor: colors.danger }]}>
         <Txt variant="body" tone="onAccent" weight="700">
           {removeLabel}
         </Txt>
@@ -100,24 +132,22 @@ export const InventoryItemRow = memo(function InventoryItemRow({
       rightThreshold={48}
       overshootRight={false}
       renderRightActions={renderRemoveAction}
-      // ReanimatedSwipeable (react-native-gesture-handler) ist nicht
-      // NativeWind-registriert — className wird ignoriert, style bleibt.
       // Kein backgroundColor hier: Zeilen liegen direkt auf dem Screen-
       // Gradient, nicht auf einer durchgehenden Kartenflaeche mit harten
       // Ecken (die vorher ueber alle Zeilen hinweg sichtbar war).
       containerStyle={{ overflow: 'hidden' }}>
       <Pressable
+        style={styles.row}
         onPress={onPress}
         onLongPress={onLongPress}
         accessibilityRole="button"
         accessibilityLabel={`${group.name}, ${amount}${group.lots.length > 1 ? `, ${group.lots.length} MHD-Einträge` : packageHint ? `, ${packageHint}` : ''}`}
-        accessibilityHint="Tippen für Aktionen, lang drücken für Produktinformationen, nach links wischen zum Entfernen"
-        className="inventory-item-row">
+        accessibilityHint="Tippen für Aktionen, lang drücken für Produktinformationen, nach links wischen zum Entfernen">
         {/* MHD-Ampel — linker farbiger Streifen, Farbe pro Item dynamisch. */}
-        <View className="fridge-item-expiry-bar" style={{ backgroundColor: borderColor }} />
+        <View style={[styles.expiryBar, { backgroundColor: borderColor }]} />
 
         {/* Inhalt */}
-        <View className="fridge-item-main">
+        <View style={styles.main}>
           <Txt variant="body" weight="700" numberOfLines={1}>
             {group.name}
           </Txt>
@@ -132,8 +162,7 @@ export const InventoryItemRow = memo(function InventoryItemRow({
         <Txt
           variant="body"
           weight="700"
-          className="fridge-item-quantity"
-          style={{ fontVariant: ['tabular-nums'] }}>
+          style={[styles.quantity, { fontVariant: ['tabular-nums'] }]}>
           {amount}
         </Txt>
       </Pressable>

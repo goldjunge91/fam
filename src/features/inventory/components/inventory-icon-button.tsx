@@ -7,11 +7,28 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { BUTTON_DEPTH, radius } from '@/components/theme/index';
+import { BUTTON_DEPTH } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { useGlassAvailable } from '@/components/ui/glass-card';
 import { medium as hapticMedium } from '@/lib/haptics';
+
+const styles = StyleSheet.create((theme) => ({
+  outer: {
+    paddingBottom: BUTTON_DEPTH,
+    borderRadius: theme.radius.lg,
+    backgroundColor: theme.border,
+  },
+  face: {
+    width: 54,
+    height: 54,
+    borderRadius: theme.radius.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderCurve: 'continuous',
+  },
+}));
 
 type InventoryIconButtonProps = {
   label: string;
@@ -35,22 +52,8 @@ export function InventoryIconButton({
   }));
   const backgroundColor = active ? colors.backgroundSoft : colors.backgroundElement;
 
-  const face = {
-    width: 54,
-    height: 54,
-    borderRadius: radius.lg,
-    alignItems: 'center' as const,
-    justifyContent: 'center' as const,
-    borderCurve: 'continuous' as const,
-  };
-
   return (
-    <View
-      style={{
-        paddingBottom: BUTTON_DEPTH,
-        borderRadius: radius.lg,
-        backgroundColor: colors.border,
-      }}>
+    <View style={styles.outer}>
       <Animated.View style={faceStyle}>
         <Pressable
           onPress={() => {
@@ -67,7 +70,7 @@ export function InventoryIconButton({
             depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
           }}
           style={[
-            face,
+            styles.face,
             !canUseGlass && {
               backgroundColor,
               borderWidth: 1,
@@ -75,7 +78,7 @@ export function InventoryIconButton({
             },
           ]}>
           {canUseGlass ? (
-            <GlassView glassEffectStyle="regular" isInteractive style={face}>
+            <GlassView glassEffectStyle="regular" isInteractive style={styles.face}>
               {children}
             </GlassView>
           ) : (

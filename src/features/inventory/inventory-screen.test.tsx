@@ -3,6 +3,7 @@ import { act, fireEvent, render, screen, userEvent } from '@testing-library/reac
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { font } from '@/components/theme/index';
 import { InventoryScreen } from '@/features/inventory/inventory-screen';
 import type { LocalInventoryItem } from '@/features/inventory/use-inventory-items';
 import type { LocalInventoryTransaction } from '@/features/inventory/use-inventory-transactions';
@@ -439,9 +440,11 @@ it('bietet im Vorrat keine Lagerort-Verwaltung an', async () => {
 it('zeigt die Ablauf-Ringe über der kompakten Arbeitsliste', async () => {
   await renderScreen();
 
-  expect(
-    screen.getByLabelText('0 Artikel laufen bald ab, 0 bald fällig, 1 insgesamt im Vorrat'),
-  ).toBeTruthy();
+  const summaryRow = screen.getByLabelText(
+    '0 Artikel laufen bald ab, 0 bald fällig, 1 insgesamt im Vorrat',
+  );
+  expect(summaryRow).toBeOnTheScreen();
+  expect(summaryRow).toHaveStyle({ flexDirection: 'row' });
   expect(screen.getByText('Läuft bald ab')).toBeTruthy();
   expect(screen.getByText('Bald fällig')).toBeTruthy();
   expect(screen.getByRole('button', { name: 'Milch, 2 L' })).toBeTruthy();
@@ -634,6 +637,15 @@ describe('Sortier-Toggle MHD/Name (#71)', () => {
   it('schaltet den Sortiermodus per Toggle auf alphabetisch um', async () => {
     const user = userEvent.setup();
     await renderScreen();
+    expect(screen.getByText('Nach Haltbarkeit').parent).toHaveStyle({
+      flexDirection: 'row',
+      alignItems: 'center',
+    });
+    expect(screen.getByText('Sortieren')).toHaveStyle({
+      fontSize: font.sizes.base,
+      lineHeight: font.lineHeights.body,
+      fontWeight: '600',
+    });
     await user.press(
       screen.getByRole('button', {
         name: 'Sortierung ändern, aktuell nach Haltbarkeit',
