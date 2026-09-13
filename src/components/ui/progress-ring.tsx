@@ -97,7 +97,7 @@ export function ProgressRing({
 
   return (
     <View
-      className="items-center justify-center self-center"
+      style={{ alignItems: 'center', justifyContent: 'center', alignSelf: 'center' }}
       accessible
       accessibilityRole="progressbar"
       accessibilityLabel={accessibilityLabel}
@@ -139,15 +139,25 @@ export function ProgressRing({
         ) : null}
       </Svg>
 
-      <View className="absolute inset-0 items-center justify-center gap-half [pointer-events:none]">
+      <View
+        pointerEvents="none"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 2,
+        }}>
         {children !== undefined ? (
           children
         ) : displayMode === 'count' ? (
           <Txt
             variant="body"
             weight="700"
-            className="text-center"
-            style={{ fontVariant: ['tabular-nums'] }}>
+            style={{ textAlign: 'center', fontVariant: ['tabular-nums'] }}>
             {value}
           </Txt>
         ) : displayMode === 'percent' ? (
@@ -174,7 +184,7 @@ export function ProgressRing({
                 variant="body"
                 tone={exceeded ? 'warning' : 'secondary'}
                 weight="500"
-                className="mt-half">
+                style={{ marginTop: 2 }}>
                 {exceeded ? `${Math.abs(remaining)} darüber` : `${remaining} übrig`}
               </Txt>
             ) : null}

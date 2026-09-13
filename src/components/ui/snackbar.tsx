@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useRef, useState } from 'react'
 import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
 export type ShowUndoSnackbarInput = {
@@ -22,6 +23,7 @@ const DEFAULT_DURATION_MS = 4000;
 type SnackbarState = { message: string; onUndo: () => void } | null;
 
 export function SnackbarProvider({ children }: { children: React.ReactNode }) {
+  const { colors } = useTheme();
   const [snackbar, setSnackbar] = useState<SnackbarState>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -51,10 +53,22 @@ export function SnackbarProvider({ children }: { children: React.ReactNode }) {
       {snackbar ? (
         <SafeAreaView
           edges={['bottom']}
-          className="absolute left-0 right-0 bottom-0"
+          style={{ position: 'absolute', left: 0, right: 0, bottom: 0 }}
           pointerEvents="box-none">
-          <View className="snackbar-bar">
-            <Txt variant="body" tone="inverse" weight="500" className="flex-1">
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginHorizontal: 16,
+              marginBottom: 16,
+              paddingHorizontal: 16,
+              paddingVertical: 8,
+              borderRadius: 12,
+              gap: 16,
+              backgroundColor: colors.text,
+            }}>
+            <Txt variant="body" tone="inverse" weight="500" style={{ flex: 1 }}>
               {snackbar.message}
             </Txt>
             <Pressable

@@ -7,29 +7,27 @@ type ProgressBarProps = {
   color?: string;
   height?: number;
   trackColor?: string;
-  className?: string;
 };
 
-export function ProgressBar({
-  value,
-  color,
-  height = 4,
-  trackColor,
-  className = '',
-}: ProgressBarProps) {
+export function ProgressBar({ value, color, height = 4, trackColor }: ProgressBarProps) {
   const { colors } = useTheme();
   const clamped = Math.min(Math.max(value, 0), 1);
 
   return (
     <View
-      className={`w-full overflow-hidden rounded-full ${height === 4 ? 'h-1' : ''} ${className}`.trim()}
-      style={{ height, backgroundColor: trackColor ?? colors.border, borderRadius: height / 2 }}>
+      style={{
+        width: '100%',
+        overflow: 'hidden',
+        height,
+        backgroundColor: trackColor ?? colors.border,
+        borderRadius: height / 2,
+      }}>
       <View
-        className="h-full rounded-full"
         style={{
+          height: '100%',
           width: `${clamped * 100}%`,
           backgroundColor: color ?? colors.accent,
-          ...(height !== 4 ? { borderRadius: height / 2 } : {}),
+          borderRadius: height / 2,
         }}
       />
     </View>

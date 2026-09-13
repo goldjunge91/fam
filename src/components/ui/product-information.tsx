@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import { useEffect } from 'react';
-import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { ActivityIndicator, Modal, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { withAlpha } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { type Palette, withAlpha } from '@/components/theme/index';
+import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useProduct } from '@/features/inventory/use-product';
 import { offApiSource } from '@/features/product-search/sources/off-api-source';
@@ -34,14 +35,41 @@ const NUTRI_BADGE_COLORS: Record<NutriScoreGrade, string> = {
   e: '#E63E11',
 };
 
-const styles = StyleSheet.create({
-  details: {
-    borderWidth: 0.5,
+const staticStyles = StyleSheet.create({
+  closeButton: {
+    width: 34,
+    height: 34,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  detailRowDivider: {
-    borderBottomWidth: 0.5,
+  closePressed: {
+    opacity: 0.75,
   },
 });
+
+function makeStyles(c: Palette) {
+  return StyleSheet.create({
+    details: {
+      borderWidth: 0.5,
+      borderColor: c.border,
+      borderRadius: 20,
+      overflow: 'hidden',
+    },
+    detailRow: {
+      minHeight: 50,
+      paddingHorizontal: 14,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: 16,
+    },
+    detailRowWithDivider: {
+      borderBottomWidth: 0.5,
+      borderBottomColor: c.border,
+    },
+  });
+}
 
 function formatNumber(value: number | null | undefined, digits = 1): string {
   if (value === null || value === undefined || Number.isNaN(value)) return '–';
@@ -60,6 +88,9 @@ function formatExpiry(value: string | null | undefined): string {
 
 export function ProductInformation({ visible, item, onClose }: ProductInformationProps) {
   const { colors } = useTheme();
+  const styles = useThemedStyles(makeStyles);
+  const [closePressed, setClosePressed] = useState(false);
+
   const insets = useSafeAreaInsets();
   const itemId = item?.product_id ?? null;
   const hasItem = Boolean(item);
@@ -115,33 +146,49 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
-      <View className="absolute inset-0">
+      <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
         <Pressable
-          className="absolute inset-0"
-          style={{ backgroundColor: colors.scrim }}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: colors.scrim,
+          }}
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel="Produktinformationen schließen"
         />
 
         <View
-          className="absolute left-3 right-3 bottom-[10px] max-h-[82%] rounded-fam-large overflow-hidden"
-          // Bottom-Safe-Area ist ein echter Laufzeitwert (Geraet-abhaengig),
-          // kann nicht als Tailwind-Klasse ausgedrueckt werden. 24px = pb-four.
           style={{
+            position: 'absolute',
+            left: 12,
+            right: 12,
+            bottom: 10,
+            maxHeight: '82%',
+            borderRadius: 28,
+            overflow: 'hidden',
             backgroundColor: colors.backgroundElement,
             paddingBottom: insets.bottom + 24,
             boxShadow: `0 10px 22px ${withAlpha(colors.shadowSheet, 0.22)}`,
           }}>
           <View
-            className="w-[42px] h-[4px] rounded-hairline self-center mt-[11px]"
-            style={{ backgroundColor: colors.border }}
+            style={{
+              width: 42,
+              height: 4,
+              borderRadius: 999,
+              alignSelf: 'center',
+              marginTop: 11,
+              backgroundColor: colors.border,
+            }}
           />
           <ScrollView
             showsVerticalScrollIndicator={false}
-            contentContainerClassName="p-[20px] gap-[14px]">
-            <View className="flex-row items-start gap-three">
-              <View className="flex-1 gap-[3px]">
+            contentContainerStyle={{ padding: 20, gap: 14 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 12 }}>
+              <View style={{ flex: 1, gap: 3 }}>
                 <Txt variant="title" weight="600" selectable>
                   {item.name}
                 </Txt>
@@ -153,11 +200,13 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                 onPress={onClose}
                 accessibilityRole="button"
                 accessibilityLabel="Schließen"
-                className="w-[34px] h-[34px] rounded-sheet items-center justify-center"
-                style={({ pressed }) => ({
-                  backgroundColor: colors.backgroundSoft,
-                  opacity: pressed ? 0.75 : 1,
-                })}>
+                onPressIn={() => setClosePressed(true)}
+                onPressOut={() => setClosePressed(false)}
+                style={[
+                  staticStyles.closeButton,
+                  { backgroundColor: colors.backgroundSoft },
+                  closePressed && staticStyles.closePressed,
+                ]}>
                 <Txt variant="body" tone="secondary">
                   ×
                 </Txt>
@@ -165,18 +214,29 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
             </View>
 
             <View
-              className="min-h-[88px] rounded-sheet p-[12px] flex-row items-center gap-[12px]"
-              style={{ backgroundColor: colors.background }}>
+              style={{
+                minHeight: 88,
+                borderRadius: 20,
+                padding: 12,
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 12,
+                backgroundColor: colors.background,
+              }}>
               <View
-                className="w-[62px] h-[62px] rounded-card items-center justify-center"
                 style={{
+                  width: 62,
+                  height: 62,
+                  borderRadius: 16,
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   backgroundColor: score ? NUTRI_BADGE_COLORS[score] : colors.backgroundSoft,
                 }}>
                 <Txt variant="subheading" weight="700" tone={score ? 'inverse' : 'primary'}>
                   {score?.toUpperCase() ?? '–'}
                 </Txt>
               </View>
-              <View className="flex-1 gap-[3px]">
+              <View style={{ flex: 1, gap: 3 }}>
                 <Txt variant="body" weight="700">
                   Nutri-Score {score?.toUpperCase() ?? '–'}
                 </Txt>
@@ -187,12 +247,8 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
               {isFetching ? <ActivityIndicator size="small" color={colors.accent} /> : null}
             </View>
 
-            <View
-              className="rounded-sheet overflow-hidden"
-              style={[styles.details, { borderColor: colors.border }]}>
-              <View
-                className="min-h-[50px] px-[14px] flex-row items-center justify-between gap-three"
-                style={[styles.detailRowDivider, { borderBottomColor: colors.border }]}>
+            <View style={styles.details}>
+              <View style={[styles.detailRow, styles.detailRowWithDivider]}>
                 <Txt variant="body" tone="secondary" weight="500">
                   Menge und Einheit
                 </Txt>
@@ -200,7 +256,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                   {item.quantity} {item.unit}
                 </Txt>
               </View>
-              <View className="min-h-[50px] px-[14px] flex-row items-center justify-between gap-three">
+              <View style={styles.detailRow}>
                 <Txt variant="body" tone="secondary" weight="500">
                   Mindesthaltbarkeitsdatum
                 </Txt>
@@ -211,8 +267,12 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
             </View>
 
             <View
-              className="rounded-sheet p-[14px] gap-[6px]"
-              style={{ backgroundColor: colors.background }}>
+              style={{
+                borderRadius: 20,
+                padding: 14,
+                gap: 6,
+                backgroundColor: colors.background,
+              }}>
               <Txt variant="body" weight="700">
                 Zutaten
               </Txt>
@@ -222,8 +282,12 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
             </View>
 
             <View
-              className="rounded-sheet p-[14px] gap-[6px]"
-              style={{ backgroundColor: colors.background }}>
+              style={{
+                borderRadius: 20,
+                padding: 14,
+                gap: 6,
+                backgroundColor: colors.background,
+              }}>
               <Txt variant="body" weight="700">
                 Allergene
               </Txt>
@@ -235,12 +299,18 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
             <Txt variant="body" weight="700">
               Nährwerte pro {referenceUnit}
             </Txt>
-            <View className="flex-row flex-wrap gap-[8px]">
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
               {nutrients.map((nutrient) => (
                 <View
                   key={nutrient.label}
-                  className="w-[31.6%] min-h-[62px] rounded-card p-[10px] gap-[5px]"
-                  style={{ backgroundColor: colors.backgroundSoft }}>
+                  style={{
+                    width: '31.6%',
+                    minHeight: 62,
+                    borderRadius: 16,
+                    padding: 10,
+                    gap: 5,
+                    backgroundColor: colors.backgroundSoft,
+                  }}>
                   <Txt variant="body" weight="700" selectable>
                     {nutrient.value}
                   </Txt>

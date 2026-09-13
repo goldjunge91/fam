@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Pressable, StyleSheet, TextInput, View } from 'react-native';
-import { font } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { Pressable, TextInput, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { font, type Palette } from '@/components/theme/index';
+import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
 type QuantityStepperProps = {
@@ -15,6 +16,31 @@ type QuantityStepperProps = {
   fullWidth?: boolean;
 };
 
+function makeStyles(c: Palette) {
+  return StyleSheet.create({
+    container: {
+      height: 44,
+      flexDirection: 'row',
+      alignItems: 'stretch',
+      overflow: 'hidden',
+      borderWidth: 1,
+      borderColor: c.border,
+      borderRadius: 12,
+      backgroundColor: c.backgroundElement,
+    },
+    btn: {
+      width: 42,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: c.backgroundSoft,
+    },
+    largeValue: {
+      fontSize: font.sizes.md,
+      lineHeight: font.lineHeights.subheading,
+    },
+  });
+}
+
 export function QuantityStepper({
   value,
   onChange,
@@ -25,8 +51,12 @@ export function QuantityStepper({
   fullWidth = false,
 }: QuantityStepperProps) {
   const { colors } = useTheme();
+  const styles = useThemedStyles(makeStyles);
+
   const [isEditing, setIsEditing] = useState(false);
   const [draftValue, setDraftValue] = useState(String(value));
+  const decrementDisabled = value <= min;
+  const incrementDisabled = value >= max;
 
   function update(delta: number) {
     onChange(Math.min(max, Math.max(min, value + delta)));
@@ -50,15 +80,17 @@ export function QuantityStepper({
       accessibilityRole="adjustable"
       accessibilityLabel={label}
       accessibilityValue={{ min, max, now: value }}
-      className="stepper-container"
-      style={fullWidth ? styles.fullWidthContainer : undefined}>
+      style={[styles.container, fullWidth && staticStyles.fullWidthContainer]}>
       <Pressable
         onPress={() => update(-1)}
-        disabled={value <= min}
+        disabled={decrementDisabled}
         accessibilityRole="button"
         accessibilityLabel={`${label} verringern`}
-        className="stepper-btn"
-        style={[fullWidth && styles.fullWidthSegment, { opacity: value <= min ? 0.45 : 1 }]}>
+        style={[
+          styles.btn,
+          fullWidth && staticStyles.fullWidthSegment,
+          decrementDisabled ? staticStyles.disabled : staticStyles.enabled,
+        ]}>
         <Txt variant="subheading">−</Txt>
       </Pressable>
 
@@ -72,27 +104,36 @@ export function QuantityStepper({
           keyboardType="number-pad"
           returnKeyType="done"
           accessibilityLabel={`${label} eingeben`}
-          className={`${fullWidth ? 'self-stretch' : 'w-[42px]'} px-two py-0 text-center [font-variant:tabular-nums]`}
-          style={{
-            ...(fullWidth ? styles.fullWidthSegment : {}),
-            color: colors.text,
-            fontSize: size === 'large' ? font.sizes.md : font.sizes.base,
-            lineHeight: size === 'large' ? font.lineHeights.subheading : font.lineHeights.body,
-            fontWeight: '600',
-          }}
+          style={[
+            fullWidth ? staticStyles.fullWidthSegment : staticStyles.fixedWidth,
+            {
+              paddingHorizontal: 8,
+              paddingVertical: 0,
+              textAlign: 'center',
+              fontVariant: ['tabular-nums'],
+              color: colors.text,
+              fontSize: size === 'large' ? font.sizes.md : font.sizes.base,
+              lineHeight: size === 'large' ? font.lineHeights.subheading : font.lineHeights.body,
+              fontWeight: '600',
+            },
+          ]}
         />
       ) : (
         <Pressable
           onPress={startEditing}
           accessibilityRole="button"
           accessibilityLabel={`${label} direkt eingeben`}
-          className={`${fullWidth ? '' : 'w-[42px] '}items-center justify-center`}
-          style={fullWidth ? styles.fullWidthSegment : undefined}>
+          style={[
+            fullWidth ? staticStyles.fullWidthSegment : staticStyles.fixedWidth,
+            staticStyles.centerContent,
+          ]}>
           <Txt
             variant="body"
             weight="600"
-            className="text-center [font-variant:tabular-nums]"
-            style={size === 'large' ? styles.largeValue : undefined}>
+            style={[
+              { textAlign: 'center', fontVariant: ['tabular-nums'] },
+              size === 'large' ? styles.largeValue : undefined,
+            ]}>
             {value}
           </Txt>
         </Pressable>
@@ -100,22 +141,26 @@ export function QuantityStepper({
 
       <Pressable
         onPress={() => update(1)}
-        disabled={value >= max}
+        disabled={incrementDisabled}
         accessibilityRole="button"
         accessibilityLabel={`${label} erhöhen`}
-        className="stepper-btn"
-        style={[fullWidth && styles.fullWidthSegment, { opacity: value >= max ? 0.45 : 1 }]}>
+        style={[
+          styles.btn,
+          fullWidth && staticStyles.fullWidthSegment,
+          incrementDisabled ? staticStyles.disabled : staticStyles.enabled,
+        ]}>
         <Txt variant="subheading">+</Txt>
       </Pressable>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+/** Static styles that don't depend on theme colors. */
+const staticStyles = StyleSheet.create({
   fullWidthContainer: { width: '100%' },
   fullWidthSegment: { flex: 1 },
-  largeValue: {
-    fontSize: font.sizes.md,
-    lineHeight: font.lineHeights.subheading,
-  },
+  fixedWidth: { width: 42 },
+  centerContent: { alignItems: 'center', justifyContent: 'center' },
+  enabled: { opacity: 1 },
+  disabled: { opacity: 0.45 },
 });
