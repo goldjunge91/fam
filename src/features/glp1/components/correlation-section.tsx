@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { SegmentedControl, Txt } from '@/constants/ui';
 import type { CorrelationSeriesPoint } from '@/features/glp1/domain/correlation-series';
 
@@ -14,6 +15,36 @@ const PERIOD_OPTIONS = [
   { value: '30', label: '30 Tage' },
   { value: '90', label: '90 Tage' },
 ] as const;
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    gap: theme.space.sm,
+  },
+  row: {
+    gap: theme.space.xs,
+    paddingVertical: theme.space.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  rowHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+  },
+  injection: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
+  metrics: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+  },
+}));
 
 function formatDate(date: string): string {
   const [year, month, day] = date.split('-').map(Number);
@@ -37,8 +68,8 @@ function formatWeight(weightKg: number | null): string {
 
 function CorrelationRow({ point }: { point: CorrelationSeriesPoint }) {
   return (
-    <View className="gap-one border-b border-border py-two">
-      <View className="flex-row items-center justify-between gap-two">
+    <View style={styles.row}>
+      <View style={styles.rowHeader}>
         <Txt variant="label" weight="700">
           {formatDate(point.date)}
         </Txt>
@@ -50,7 +81,7 @@ function CorrelationRow({ point }: { point: CorrelationSeriesPoint }) {
       </View>
 
       {point.injection ? (
-        <View className="flex-row flex-wrap items-center gap-two">
+        <View style={styles.injection}>
           <Txt variant="caption" tone="secondary">
             Injektion {point.injection.dose ?? '–'} {point.injection.unit}
           </Txt>
@@ -62,7 +93,7 @@ function CorrelationRow({ point }: { point: CorrelationSeriesPoint }) {
         </View>
       ) : null}
 
-      <View className="flex-row items-center justify-between gap-two">
+      <View style={styles.metrics}>
         <Txt variant="body">{formatCalories(point.calories)}</Txt>
         <Txt variant="body">{formatWeight(point.weightKg)}</Txt>
       </View>
@@ -75,7 +106,7 @@ export function CorrelationSection({ series }: CorrelationSectionProps) {
   const visibleSeries = series.slice(-Number(period));
 
   return (
-    <View className="gap-two">
+    <View style={styles.root}>
       <Txt variant="label" weight="700">
         Injektion, Kalorien und Gewicht
       </Txt>

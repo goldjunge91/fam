@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { StyleSheet } from 'react-native-unistyles';
 import { Txt } from '@/constants/ui';
 import type { Glp1HistoryItem } from '@/features/glp1/domain/log-history';
 import { INJECTION_SITE_LABELS, isInjectionSite } from '@/features/glp1/domain/medication-options';
@@ -13,6 +13,41 @@ type Glp1LogHistoryProps = {
   onEditSymptom: (log: SymptomLogRow) => void;
   onDeleteSymptom: (log: SymptomLogRow) => void;
 };
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    paddingTop: theme.space.xs,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: theme.border,
+  },
+  toggle: {
+    minHeight: 44,
+    paddingVertical: theme.space.xs,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  history: {
+    gap: theme.space.sm,
+    paddingTop: theme.space.sm,
+  },
+  entry: {
+    gap: theme.space.xs,
+    padding: theme.space.sm,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+  actions: {
+    flexDirection: 'row',
+    gap: theme.space.lg,
+  },
+  action: {
+    minHeight: 44,
+    justifyContent: 'center',
+  },
+}));
 
 function formatHistoryTimestamp(timestamp: string): string {
   return new Date(timestamp).toLocaleString('de-DE', {
@@ -31,18 +66,17 @@ export function Glp1LogHistory({
   onEditSymptom,
   onDeleteSymptom,
 }: Glp1LogHistoryProps) {
-  const { colors } = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
 
   if (items.length === 0) return null;
 
   return (
-    <View className="pt-one border-t border-border">
+    <View style={styles.root}>
       <Pressable
         accessibilityRole="button"
         accessibilityLabel={isExpanded ? 'Verlauf ausblenden' : 'Bisherigen Verlauf anzeigen'}
         onPress={() => setIsExpanded((current) => !current)}
-        className="py-one flex-row items-center justify-between">
+        style={styles.toggle}>
         <Txt variant="body" tone="secondary">
           {isExpanded ? 'Verlauf ausblenden' : 'Bisherigen Verlauf anzeigen'}
         </Txt>
@@ -52,15 +86,12 @@ export function Glp1LogHistory({
       </Pressable>
 
       {isExpanded ? (
-        <View className="gap-two pt-two">
+        <View style={styles.history}>
           {items.slice(0, 10).map((item) => {
             if (item.kind === 'injection') {
               const { log } = item;
               return (
-                <View
-                  key={`medication-${log.id}`}
-                  className="p-two rounded-lg border gap-one"
-                  style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
+                <View key={`medication-${log.id}`} style={styles.entry}>
                   <Txt variant="body" weight="700">
                     Injektion · {log.medication_name} {log.dose ?? '–'} {log.unit}
                   </Txt>
@@ -71,11 +102,12 @@ export function Glp1LogHistory({
                       : ''}
                   </Txt>
                   {log.notes ? <Txt variant="body">{log.notes}</Txt> : null}
-                  <View className="flex-row gap-three">
+                  <View style={styles.actions}>
                     <Pressable
                       accessibilityRole="button"
                       accessibilityLabel="Injektion bearbeiten"
-                      onPress={() => onEditMedication(log)}>
+                      onPress={() => onEditMedication(log)}
+                      style={styles.action}>
                       <Txt variant="caption" tone="primary">
                         Bearbeiten
                       </Txt>
@@ -83,7 +115,8 @@ export function Glp1LogHistory({
                     <Pressable
                       accessibilityRole="button"
                       accessibilityLabel="Injektion löschen"
-                      onPress={() => onDeleteMedication(log)}>
+                      onPress={() => onDeleteMedication(log)}
+                      style={styles.action}>
                       <Txt variant="caption" tone="danger">
                         Löschen
                       </Txt>
@@ -95,10 +128,7 @@ export function Glp1LogHistory({
 
             const { log } = item;
             return (
-              <View
-                key={`symptom-${log.id}`}
-                className="p-two rounded-lg border gap-one"
-                style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
+              <View key={`symptom-${log.id}`} style={styles.entry}>
                 <Txt variant="body" weight="700">
                   Symptome · Appetit {log.appetite_level ?? '–'}/5 · Sättigung{' '}
                   {log.satiety_level ?? '–'}/5
@@ -110,11 +140,12 @@ export function Glp1LogHistory({
                   <Txt variant="body">{log.side_effects.join(' · ')}</Txt>
                 ) : null}
                 {log.notes ? <Txt variant="body">{log.notes}</Txt> : null}
-                <View className="flex-row gap-three">
+                <View style={styles.actions}>
                   <Pressable
                     accessibilityRole="button"
                     accessibilityLabel="Symptome bearbeiten"
-                    onPress={() => onEditSymptom(log)}>
+                    onPress={() => onEditSymptom(log)}
+                    style={styles.action}>
                     <Txt variant="caption" tone="primary">
                       Bearbeiten
                     </Txt>
@@ -122,7 +153,8 @@ export function Glp1LogHistory({
                   <Pressable
                     accessibilityRole="button"
                     accessibilityLabel="Symptome löschen"
-                    onPress={() => onDeleteSymptom(log)}>
+                    onPress={() => onDeleteSymptom(log)}
+                    style={styles.action}>
                     <Txt variant="caption" tone="danger">
                       Löschen
                     </Txt>

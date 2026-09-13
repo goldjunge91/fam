@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { space } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { StyleSheet } from 'react-native-unistyles';
 import { Card } from '@/components/ui/card';
 import { useSnackbar } from '@/components/ui/snackbar';
 import { Txt } from '@/constants/ui';
@@ -41,6 +40,55 @@ type ActiveForm =
   | { kind: 'injection'; log?: MedicationLogRow }
   | { kind: 'symptom'; log?: SymptomLogRow };
 
+const styles = StyleSheet.create((theme) => ({
+  card: {
+    padding: 24,
+    gap: theme.space.lg,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  headerTitle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
+  summary: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    gap: theme.space.sm,
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+  summaryColumn: {
+    flex: 1,
+  },
+  summaryValue: {
+    marginTop: theme.space.xs,
+  },
+  actions: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  action: {
+    flex: 1,
+    minHeight: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: theme.space.sm,
+    paddingHorizontal: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+}));
+
 function injectionFormValue(log: MedicationLogRow): InjectionFormValue {
   return {
     medicationName: log.medication_name,
@@ -77,7 +125,6 @@ export function Glp1Card({
   logicalDate,
   dayStartTime = '00:00',
 }: Glp1CardProps) {
-  const { colors } = useTheme();
   const selectedLogicalDate = logicalDate ?? getLogicalDateForTimestamp(new Date(), dayStartTime);
   const [activeForm, setActiveForm] = useState<ActiveForm | null>(null);
   const { showUndoSnackbar } = useSnackbar();
@@ -174,9 +221,9 @@ export function Glp1Card({
   }
 
   return (
-    <Card style={{ padding: 24, gap: space.lg }}>
-      <View className="flex-row items-center justify-between">
-        <View className="flex-row items-center gap-two">
+    <Card style={styles.card}>
+      <View style={styles.header}>
+        <View style={styles.headerTitle}>
           <Txt variant="body" weight="700">
             💉 GLP-1 & Medikation
           </Txt>
@@ -186,15 +233,13 @@ export function Glp1Card({
         </Txt>
       </View>
 
-      <View
-        className="flex-row justify-between p-three rounded-xl border gap-two"
-        style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
-        <View className="flex-1">
+      <View style={styles.summary}>
+        <View style={styles.summaryColumn}>
           <Txt variant="caption" tone="secondary">
             Letzte Injektion
           </Txt>
           {latestInjection ? (
-            <View className="mt-one">
+            <View style={styles.summaryValue}>
               <Txt variant="body" weight="700">
                 {latestInjection.medication_name} ({latestInjection.dose} {latestInjection.unit})
               </Txt>
@@ -203,18 +248,18 @@ export function Glp1Card({
               </Txt>
             </View>
           ) : (
-            <Txt variant="body" tone="secondary" className="mt-one">
+            <Txt variant="body" tone="secondary" style={styles.summaryValue}>
               Keine Injektion erfasst
             </Txt>
           )}
         </View>
 
-        <View className="flex-1">
+        <View style={styles.summaryColumn}>
           <Txt variant="caption" tone="secondary">
             Letzter Sättigungs-Status
           </Txt>
           {latestSymptom ? (
-            <View className="mt-one">
+            <View style={styles.summaryValue}>
               <Txt variant="body" weight="700">
                 Appetit {latestSymptom.appetite_level}/5 · Sättigung {latestSymptom.satiety_level}
                 /5
@@ -232,7 +277,7 @@ export function Glp1Card({
               )}
             </View>
           ) : (
-            <Txt variant="body" tone="secondary" className="mt-one">
+            <Txt variant="body" tone="secondary" style={styles.summaryValue}>
               Kein Symptom-Log
             </Txt>
           )}
@@ -245,15 +290,14 @@ export function Glp1Card({
         childProfileId={childProfileId}
       />
 
-      <View className="flex-row gap-two">
+      <View style={styles.actions}>
         <Pressable
           onPress={() =>
             setActiveForm((current) =>
               current?.kind === 'injection' ? null : { kind: 'injection' },
             )
           }
-          className="flex-1 py-two px-three rounded-xl border items-center justify-center"
-          style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
+          style={styles.action}>
           <Txt variant="label" weight="700">
             {activeForm?.kind === 'injection' ? 'Abbrechen' : '+ Injektion eintragen'}
           </Txt>
@@ -262,8 +306,7 @@ export function Glp1Card({
           onPress={() =>
             setActiveForm((current) => (current?.kind === 'symptom' ? null : { kind: 'symptom' }))
           }
-          className="flex-1 py-two px-three rounded-xl border items-center justify-center"
-          style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
+          style={styles.action}>
           <Txt variant="label" weight="700">
             {activeForm?.kind === 'symptom' ? 'Abbrechen' : '+ Symptome loggen'}
           </Txt>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { StyleSheet } from 'react-native-unistyles';
 import { Txt } from '@/constants/ui';
 import { calculateInjectionDue } from '@/features/glp1/domain/injection-due';
 import { toMedicationUnit } from '@/features/glp1/domain/medication-options';
@@ -28,6 +28,44 @@ const STATUS_CONTENT = {
   overdue: { label: 'Überfällig', color: 'danger' },
 } as const;
 
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    gap: theme.space.sm,
+  },
+  createButton: {
+    minHeight: 44,
+    alignItems: 'center',
+    paddingVertical: theme.space.sm,
+    paddingHorizontal: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+  planCard: {
+    gap: theme.space.xs,
+    padding: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  actions: {
+    flexDirection: 'row',
+    gap: theme.space.lg,
+    paddingTop: theme.space.xs,
+  },
+  action: {
+    minHeight: 44,
+    justifyContent: 'center',
+  },
+}));
+
 function planFormValue(plan: InjectionPlanRow): InjectionPlanFormValue {
   return {
     medicationName: plan.medication_name,
@@ -40,7 +78,6 @@ function planFormValue(plan: InjectionPlanRow): InjectionPlanFormValue {
 }
 
 export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
-  const { colors } = useTheme();
   useInjectionReminder(userId);
   const [showForm, setShowForm] = useState(false);
   const { data: recentInjectionLogs = [] } = useRecentMedicationLogs(userId);
@@ -84,8 +121,7 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
         accessibilityRole="button"
         accessibilityLabel="Injektionsplan anlegen"
         onPress={() => setShowForm(true)}
-        className="py-two px-three rounded-xl border items-center"
-        style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
+        style={styles.createButton}>
         <Txt variant="label" weight="700">
           Injektionsplan anlegen
         </Txt>
@@ -106,11 +142,9 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
   const status = STATUS_CONTENT[due.status];
 
   return (
-    <View className="gap-two">
-      <View
-        className="p-three rounded-xl border gap-one"
-        style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}>
-        <View className="flex-row items-center justify-between">
+    <View style={styles.root}>
+      <View style={styles.planCard}>
+        <View style={styles.header}>
           <Txt variant="caption" tone="secondary">
             Nächste Injektion
           </Txt>
@@ -130,11 +164,12 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
         <Txt variant="caption" tone="secondary">
           {plan.medication_name} · {plan.dose} {plan.unit} · alle {plan.cadence_days} Tage
         </Txt>
-        <View className="flex-row gap-three pt-one">
+        <View style={styles.actions}>
           <Pressable
             accessibilityRole="button"
             accessibilityLabel="Injektionsplan bearbeiten"
-            onPress={() => setShowForm((current) => !current)}>
+            onPress={() => setShowForm((current) => !current)}
+            style={styles.action}>
             <Txt variant="caption" tone="primary">
               Bearbeiten
             </Txt>
@@ -148,7 +183,8 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
                 { id: plan.id, userId },
                 { onSuccess: () => setShowForm(false) },
               )
-            }>
+            }
+            style={styles.action}>
             <Txt variant="caption" tone="danger">
               Entfernen
             </Txt>
