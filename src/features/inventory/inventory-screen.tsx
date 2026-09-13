@@ -8,6 +8,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { useCallback, useDeferredValue, useMemo, useRef, useState } from 'react';
 import { Alert, Platform, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 import { HistoryIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { space, withAlpha } from '@/components/theme/index';
@@ -58,6 +59,41 @@ import {
 import { type InventorySortMode, selectVisibleInventoryItems } from './visible-items';
 
 const isRunningInTest = typeof process !== 'undefined' && Boolean(process.env.JEST_WORKER_ID);
+
+const styles = StyleSheet.create((theme) => ({
+  inventoryToolbar: {
+    marginTop: theme.space.xl + theme.space.xs,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  inventoryToolbarActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.md,
+  },
+  inventorySortContainer: {
+    marginTop: theme.space.xxl + theme.space.xs,
+    paddingHorizontal: theme.space.xs,
+  },
+  inventorySortRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  inventorySortLabel: {
+    textTransform: 'uppercase',
+    letterSpacing: 1,
+  },
+  inventoryHeader: {
+    paddingBottom: theme.space.sm,
+  },
+  emptyState: {
+    alignItems: 'center',
+    gap: theme.space.sm,
+    paddingVertical: theme.space.lg + theme.space.sm,
+  },
+}));
 
 function InventoryBenchmark({
   listRef,
@@ -421,7 +457,7 @@ export function InventoryScreen() {
       scroll={false}
       applyBottomPadding={false}>
       {/* Der Steuerbereich bleibt stehen, während nur die Artikel darunter scrollen. */}
-      <View className="pb-two">
+      <View style={styles.inventoryHeader}>
         {/* Vorrats-Statistik: Gesamtanzahl & kritische/bald ablaufende Artikel */}
         <InventorySummaryCard
           totalCount={allGroups.length}
@@ -430,13 +466,13 @@ export function InventoryScreen() {
         />
 
         {/* Lagerort, Suche und Verlauf folgen direkt unter den Statuskarten. */}
-        <View className="mt-four flex-row items-center justify-between">
+        <View style={styles.inventoryToolbar}>
           <InventoryTabBar
             activeTab={selectedLocationId}
             onTabChange={setActiveLocationId}
             locations={locations}
           />
-          <View className="flex-row items-center gap-two">
+          <View style={styles.inventoryToolbarActions}>
             <InventoryIconButton
               label="Artikel suchen"
               active={searchOpen}
@@ -457,17 +493,14 @@ export function InventoryScreen() {
 
         {/* Sortierleiste (nach Haltbarkeit / alphabetisch) */}
         {allItems.length > 0 ? (
-          <View className="mt-five px-one">
-            <View className="flex-row items-center justify-between">
-              <Txt
-                variant="label"
-                tone="secondary"
-                weight="700"
-                className="uppercase tracking-[1px]">
+          <View style={styles.inventorySortContainer}>
+            <View style={styles.inventorySortRow}>
+              <Txt variant="label" tone="secondary" weight="700" style={styles.inventorySortLabel}>
                 {sortMode === 'expiry' ? 'Nach Haltbarkeit' : 'Alphabetisch'}
               </Txt>
               <Button
                 variant="link"
+                size="lg"
                 title="Sortieren"
                 accessibilityLabel={`Sortierung ändern, aktuell ${
                   sortMode === 'expiry' ? 'nach Haltbarkeit' : 'alphabetisch'
@@ -493,7 +526,7 @@ export function InventoryScreen() {
         ListEmptyComponent={
           /* Leerzustand bei leerem Lagerort oder erfolgloser Suche */
           isLoading ? null : visibleItems.length === 0 ? (
-            <View className="items-center gap-two py-four">
+            <View style={styles.emptyState}>
               <Txt>
                 {deferredSearchQuery.trim()
                   ? `Keine Treffer für "${deferredSearchQuery.trim()}"`

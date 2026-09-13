@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { Pressable, ScrollView } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { Txt } from '@/constants/ui';
 import type { CatalogProduct } from '@/features/product-search/types';
@@ -31,6 +32,22 @@ function toOpenFoodFactsProduct(row: ProductUsageRow): CatalogProduct {
 
 const MAX_CHIPS = 8;
 
+const styles = StyleSheet.create((theme) => ({
+  scroll: {
+    flexDirection: 'row',
+  },
+  chip: {
+    maxWidth: 160,
+    marginRight: theme.space.xs,
+    paddingHorizontal: theme.space.sm,
+    paddingVertical: theme.space.xs,
+    borderRadius: theme.radius.md,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    backgroundColor: theme.backgroundElement,
+  },
+}));
+
 interface FrequentProductsQuickSelectProps {
   feature: ProductUsageFeature;
   userId: string | undefined;
@@ -60,14 +77,14 @@ export function FrequentProductsQuickSelect({
   if (chips.length === 0) return null;
 
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-row">
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.scroll}>
       {chips.map((row) => (
         <Pressable
           key={row.name.toLowerCase()}
           onPress={() => onSelectProduct(toOpenFoodFactsProduct(row))}
           role="button"
           aria-label={row.name}
-          className="frequent-products-chip">
+          style={styles.chip}>
           <Txt variant="body" numberOfLines={1}>
             {row.name}
           </Txt>

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Alert, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { Button, TextField, Txt } from '@/constants/ui';
@@ -10,6 +12,33 @@ import {
   useStorageLocations,
   useUpdateStorageLocationMutation,
 } from '@/features/inventory/use-storage-locations';
+
+const styles = StyleSheet.create((theme) => ({
+  addForm: {
+    gap: theme.space.lg,
+    marginTop: theme.space.sm,
+  },
+  locationList: {
+    gap: theme.space.sm,
+  },
+  locationRow: {
+    gap: theme.space.sm,
+    paddingVertical: theme.space.lg,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  editContent: {
+    gap: theme.space.sm,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+    marginTop: theme.space.xs,
+  },
+  flex: {
+    flex: 1,
+  },
+}));
 
 export function StorageLocationsScreen() {
   const { activeHousehold } = useActiveHousehold();
@@ -81,7 +110,7 @@ export function StorageLocationsScreen() {
       backStyle="icon">
       {/* Formular zum Anlegen eines neuen Lagerorts */}
       <Card title="Neuen Lagerort hinzufügen">
-        <View className="gap-three mt-two">
+        <View style={styles.addForm}>
           <TextField
             placeholder="z.B. Abstellkammer, Keller, Vorratsschrank..."
             value={newLocationName}
@@ -105,18 +134,18 @@ export function StorageLocationsScreen() {
             Keine Lagerorte vorhanden.
           </Txt>
         ) : (
-          <View className="gap-two">
+          <View style={styles.locationList}>
             {locations?.map((loc) => {
               const isEditing = editingId === loc.id;
 
               return (
-                <View key={loc.id} className="storage-location-row">
+                <View key={loc.id} style={styles.locationRow}>
                   {isEditing ? (
                     /* Inline-Bearbeitung für Lagerort-Namen */
-                    <View className="gap-two">
+                    <View style={styles.editContent}>
                       <TextField value={editingName} onChangeText={setEditingName} autoFocus />
-                      <View className="storage-location-btn-row">
-                        <View className="flex-1">
+                      <View style={styles.buttonRow}>
+                        <View style={styles.flex}>
                           <Button
                             title="Speichern"
                             onPress={() => handleUpdate(loc.id)}
@@ -124,7 +153,7 @@ export function StorageLocationsScreen() {
                             disabled={!editingName.trim()}
                           />
                         </View>
-                        <View className="flex-1">
+                        <View style={styles.flex}>
                           <Button
                             title="Abbrechen"
                             variant="secondary"
@@ -139,10 +168,10 @@ export function StorageLocationsScreen() {
                   ) : (
                     /* Anzeigezeile für Lagerort mit Umbenennen und Löschen */
                     <>
-                      <Txt variant="body" weight="700" className="storage-location-name">
+                      <Txt variant="body" weight="700">
                         {loc.name}
                       </Txt>
-                      <View className="storage-location-btn-row">
+                      <View style={styles.buttonRow}>
                         <Button
                           title="Umbenennen"
                           variant="secondary"

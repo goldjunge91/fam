@@ -19,8 +19,9 @@ import {
   useWindowDimensions,
   View,
 } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { space } from '@/components/theme/index';
+import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { TextField, Txt } from '@/constants/ui';
 import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
@@ -41,6 +42,87 @@ const PANEL_FALLBACK_HEIGHT = 220;
 
 /** Seitengroesse fuer das Nachladen beim Scrollen. */
 const PAGE_SIZE = 100;
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    position: 'relative',
+    zIndex: 10,
+  },
+  trailingInside: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.xs,
+  },
+  outsideTrailingRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
+  outsideTrailingInput: {
+    flex: 1,
+    minWidth: 0,
+  },
+  panelWrapper: {
+    position: 'relative',
+  },
+  panelClose: {
+    position: 'absolute',
+    top: theme.space.xs,
+    right: theme.space.xs,
+    zIndex: 30,
+    width: theme.space.lg + theme.space.sm,
+    height: theme.space.lg + theme.space.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: theme.radius.pill,
+    backgroundColor: theme.backgroundSoft,
+  },
+  panelClosePressed: {
+    opacity: 0.7,
+  },
+  panel: {
+    position: 'absolute',
+    top: '100%',
+    left: 0,
+    right: 0,
+    zIndex: 20,
+    marginTop: theme.space.xs,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    backgroundColor: theme.background,
+    boxShadow: `0 10px 22px ${withAlpha(theme.shadowSheet, 0.22)}`,
+  },
+  panelContent: {
+    flexGrow: 1,
+    paddingBottom: theme.space.sm,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    padding: theme.space.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  thumb: {
+    width: theme.space.lg * 2,
+    height: theme.space.lg * 2,
+    borderRadius: theme.radius.sm,
+  },
+  thumbFallback: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.backgroundElement,
+  },
+  flex: {
+    flex: 1,
+  },
+  loadingMore: {
+    alignItems: 'center',
+    paddingVertical: theme.space.sm,
+  },
+}));
 
 interface ProductSearchDropdownProps {
   label?: string;
@@ -175,7 +257,7 @@ export const ProductSearchDropdown = forwardRef<
     isTrailingOutside ? (
       loadingIndicator
     ) : (
-      <View className="flex-row items-center gap-one">
+      <View style={styles.trailingInside}>
         {loadingIndicator}
         {trailing}
       </View>
@@ -185,12 +267,9 @@ export const ProductSearchDropdown = forwardRef<
   );
 
   return (
-    <View
-      ref={wrapperRef}
-      className="relative z-10"
-      onTouchStart={(event) => event.stopPropagation()}>
-      <View className={isTrailingOutside ? 'flex-row items-center gap-two' : undefined}>
-        <View className={isTrailingOutside ? 'flex-1' : undefined}>
+    <View ref={wrapperRef} style={styles.root} onTouchStart={(event) => event.stopPropagation()}>
+      <View style={isTrailingOutside ? styles.outsideTrailingRow : undefined}>
+        <View style={isTrailingOutside ? styles.outsideTrailingInput : undefined}>
           <TextField
             label={label}
             placeholder={placeholder}
@@ -213,27 +292,28 @@ export const ProductSearchDropdown = forwardRef<
       </View>
 
       {showDropdown && (suggestions.length > 0 || showEmptyState) && (
-        <View className="relative">
+        <View style={styles.panelWrapper}>
           {}
           <Pressable
             onPress={dismiss}
             accessibilityRole="button"
             accessibilityLabel="Trefferliste schließen"
-            className="psd-panel-close">
+            style={({ pressed }) => [styles.panelClose, pressed && styles.panelClosePressed]}>
             <Txt variant="caption" tone="secondary" weight="700">
               ✕
             </Txt>
           </Pressable>
           <ScrollView
-            className="psd-panel"
+            style={[
+              styles.panel,
+              { elevation: 4, maxHeight: panelMaxHeight ?? PANEL_FALLBACK_HEIGHT },
+            ]}
             // elevation ist ein Android-only-Wert ohne Tailwind-Aequivalent
             // (boxShadow deckt nur den iOS/Web-Schatten ab). maxHeight kommt aus
             // der Live-Messung oben statt einer festen Klasse — die Liste soll
             // bis zum unteren Rand reichen, nicht pauschal bei 220px kappen.
-            style={{ elevation: 4, maxHeight: panelMaxHeight ?? PANEL_FALLBACK_HEIGHT }}
             // Ohne das stoesst die letzte Zeile direkt an den unteren, abgerundeten
             // Panel-Rand — sieht abgeschnitten aus (#UI-Feedback: "Liste ist zu tief").
-            contentContainerClassName="pb-two"
             // `flexGrow: 1` sorgt dafuer, dass bei wenigen Treffern echte
             // Leerflaeche im Content-Container entsteht (statt shrink-wrap auf
             // die paar Zeilen) — die faengt der Pressable am Ende des Contents
@@ -241,7 +321,7 @@ export const ProductSearchDropdown = forwardRef<
             // "Leerflaeche neben dem Suchfeld schliesst Tastatur nicht"; das
             // randfuellende Panel bedeckt bei offener Suche fast den ganzen
             // Bildschirm, ein Formular-weiter Blank-Tap-Handler erreicht es nicht).
-            contentContainerStyle={{ flexGrow: 1 }}
+            contentContainerStyle={styles.panelContent}
             keyboardShouldPersistTaps="handled"
             showsVerticalScrollIndicator
             onScroll={({ nativeEvent }) => {
@@ -261,8 +341,8 @@ export const ProductSearchDropdown = forwardRef<
                     params: { prefillName: value.trim() },
                   });
                 }}
-                className="psd-row">
-                <View className="flex-1">
+                style={styles.row}>
+                <View style={styles.flex}>
                   <Txt variant="body" weight="700">
                     + &quot;{value.trim()}&quot; manuell anlegen
                   </Txt>
@@ -284,19 +364,16 @@ export const ProductSearchDropdown = forwardRef<
                   // nicht"), sonst bleibt sie ohne erkennbaren Grund offen.
                   Keyboard.dismiss();
                 }}
-                className="psd-row">
+                style={styles.row}>
                 {item.imageUrl ? (
-                  <Image
-                    source={{ uri: item.imageUrl }}
-                    style={{ width: 32, height: 32, borderRadius: 12 }}
-                  />
+                  <Image source={{ uri: item.imageUrl }} style={styles.thumb} />
                 ) : (
-                  <View className="psd-thumb-fallback">
+                  <View style={[styles.thumb, styles.thumbFallback]}>
                     <Txt variant="body">🥫</Txt>
                   </View>
                 )}
 
-                <View className="flex-1">
+                <View style={styles.flex}>
                   <Txt variant="body" weight="700" numberOfLines={1}>
                     {item.name}
                   </Txt>
@@ -314,12 +391,12 @@ export const ProductSearchDropdown = forwardRef<
               </Pressable>
             ))}
             {loadingMore && (
-              <View className="py-two items-center">
+              <View style={styles.loadingMore}>
                 <ActivityIndicator size="small" color={colors.basil} />
               </View>
             )}
             {}
-            <Pressable className="flex-1" accessible={false} onPress={() => Keyboard.dismiss()} />
+            <Pressable style={styles.flex} accessible={false} onPress={() => Keyboard.dismiss()} />
           </ScrollView>
         </View>
       )}
