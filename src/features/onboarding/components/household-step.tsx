@@ -19,6 +19,9 @@ interface HouseholdStepFormProps {
 }
 
 const styles = StyleSheet.create((theme) => ({
+  scroll: {
+    flex: 1,
+  },
   content: {
     gap: theme.space.lg,
     // Preserve the scroll tail from the onboarding layout below the actions.
@@ -126,6 +129,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
   return (
     // Eigene KeyboardAwareScrollView für den Haushalts-Schritt.
     <KeyboardAwareScrollView
+      style={styles.scroll}
       bottomOffset={24}
       keyboardShouldPersistTaps="handled"
       showsVerticalScrollIndicator={false}

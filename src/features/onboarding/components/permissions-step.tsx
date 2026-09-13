@@ -1,19 +1,28 @@
 import * as Location from 'expo-location';
-import { useState } from 'react';
-import { Linking, Switch, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { AppState, Linking, Switch, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Press, Txt } from '@/constants/ui';
-import { requestNotificationPermissions } from '@/lib/notifications';
+import {
+  getNotificationPermissionStatus,
+  type NotificationPermissionStatus,
+  requestNotificationPermissions,
+} from '@/lib/notifications';
 import { useOnboarding } from '../onboarding-store';
 
 // Defensiver Import: expo-camera ist nur in einem nativen Dev-Build verfügbar.
 // Gleiches Hook-Pattern wie in barcode-scanner-modal.tsx, damit der Systemdialog
 // wirklich über die native Kamera-API ausgelöst wird.
 type CameraPermission = { granted: boolean; canAskAgain: boolean };
-type CameraPermissionHook = () => [CameraPermission | null, () => Promise<CameraPermission>];
+type CameraPermissionHook = () => [
+  CameraPermission | null,
+  () => Promise<CameraPermission>,
+  () => Promise<CameraPermission>,
+];
 
 let useCameraPermissionsHook: CameraPermissionHook = () => [
   null,
+  async () => ({ granted: false, canAskAgain: false }),
   async () => ({ granted: false, canAskAgain: false }),
 ];
 try {
@@ -71,24 +80,64 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps) {
-  const { state, updatePermissionsData } = useOnboarding();
-  const [cameraPermission, requestCameraPermission] = useCameraPermissionsHook();
-  const [locationPermission, requestLocationPermission] = Location.useForegroundPermissions();
+  const { updatePermissionsData } = useOnboarding();
+  const [cameraPermission, requestCameraPermission, getCameraPermission] =
+    useCameraPermissionsHook();
+  const [locationPermission, requestLocationPermission, getLocationPermission] =
+    Location.useForegroundPermissions();
 
-  const [notifications, setNotifications] = useState(
-    state.permissions.notificationsRequested ?? true,
-  );
+  const [notificationPermission, setNotificationPermission] =
+    useState<NotificationPermissionStatus>({
+      granted: false,
+      canAskAgain: true,
+    });
+
+  useEffect(() => {
+    let active = true;
+
+    async function refreshNotifications() {
+      const nextStatus = await getNotificationPermissionStatus();
+      if (active) setNotificationPermission(nextStatus);
+    }
+
+    void refreshNotifications();
+    const subscription = AppState.addEventListener('change', (appState) => {
+      if (appState === 'active') void refreshNotifications();
+    });
+
+    return () => {
+      active = false;
+      subscription.remove();
+    };
+  }, []);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', (appState) => {
+      if (appState !== 'active') return;
+      void getCameraPermission();
+      void getLocationPermission();
+    });
+
+    return () => subscription.remove();
+  }, [getCameraPermission, getLocationPermission]);
 
   // Spiegelt den echten Systemstatus wider, sobald einmal abgefragt wurde.
-  const camera = cameraPermission?.granted ?? state.permissions.cameraRequested ?? false;
-  const location = locationPermission?.granted ?? state.permissions.locationRequested ?? false;
+  const notifications = notificationPermission.granted;
+  const camera = cameraPermission?.granted ?? false;
+  const location = locationPermission?.granted ?? false;
 
   const handleToggleNotifications = async (value: boolean) => {
-    setNotifications(value);
-    if (!value) return;
+    if (!value) {
+      if (notifications) Linking.openSettings();
+      return;
+    }
+    if (!notificationPermission.canAskAgain) {
+      Linking.openSettings();
+      return;
+    }
     // Löst den echten System-Dialog sofort beim Umschalten aus, nicht erst bei "Weiter".
-    const granted = await requestNotificationPermissions();
-    if (!granted) setNotifications(false);
+    await requestNotificationPermissions();
+    setNotificationPermission(await getNotificationPermissionStatus());
   };
 
   // Apps können iOS/Android-Berechtigungen nicht selbst zurücknehmen — beim
