@@ -1,9 +1,10 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Txt } from '@/constants/ui';
+import { Button, Press, Surface, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { usePremium } from '@/features/premium/premium-provider';
@@ -20,6 +21,52 @@ debugLogEvent('meal-planner.missing-ingredients-screen.module-loaded', { variant
 // dieselbe Endlosschleife wie in recipe-shopping-sheet.tsx (siehe dortigen
 // Fix): setSelected -> Re-Render -> neues [] -> Effekt feuert erneut.
 const EMPTY_MISSING: MissingIngredientView[] = [];
+
+// Die 24px-Checkbox und die 2px-Zeilenluft sind bestehende lokale Geometrie.
+// Semantische Flächen, Farben, Konturen und Abstände kommen aus den Theme-/UI-
+// Verantwortlichen; Press-Wrapper erhalten ihre Layoutgröße über containerStyle.
+const styles = StyleSheet.create((theme) => ({
+  list: {
+    gap: theme.space.sm,
+  },
+  loading: {
+    marginTop: theme.space.xxl + theme.space.xs,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    padding: theme.space.sm,
+    borderRadius: theme.radius.sm,
+  },
+  rowToggleContainer: {
+    flex: 1,
+  },
+  rowToggle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
+  checkbox: {
+    width: theme.space.xl + theme.space.xs,
+    height: theme.space.xl + theme.space.xs,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: theme.borderWidth.strong,
+    borderColor: theme.accent,
+    borderRadius: theme.radius.sm,
+  },
+  checkboxSelected: {
+    backgroundColor: theme.accent,
+  },
+  checkboxIdle: {
+    backgroundColor: 'transparent',
+  },
+  rowText: {
+    flex: 1,
+    gap: theme.space.xs / 2,
+  },
+}));
 
 export function MissingIngredientsScreen() {
   const { colors } = useTheme();
@@ -148,7 +195,7 @@ export function MissingIngredientsScreen() {
       back={{ label: 'Wochenplan' }}>
       {/* Paywall-Hinweis falls kein aktives Plus-Abo vorhanden ist */}
       {!hasPlus ? (
-        <View className="mis-list">
+        <View style={styles.list}>
           <Txt variant="body" tone="secondary">
             fam vergleicht den Bedarf des ganzen Wochenplans mit eurem Vorrat und übernimmt nur
             Fehlendes in die Einkaufsliste.
@@ -157,7 +204,7 @@ export function MissingIngredientsScreen() {
         </View>
       ) : isLoading ? (
         /* Ladeindikator beim Berechnen der Vorratsabgleiche */
-        <View className="mis-loading">
+        <View style={styles.loading}>
           <ActivityIndicator color={colors.accent} />
         </View>
       ) : missing.length === 0 ? (
@@ -167,7 +214,7 @@ export function MissingIngredientsScreen() {
         </Txt>
       ) : (
         /* Auswahlliste aller fehlenden Zutaten mit Mengenangaben und Übertrags-Button */
-        <View className="mis-list">
+        <View style={styles.list}>
           {missing.map((item) => (
             <IngredientRow
               key={item.productId}
@@ -206,34 +253,34 @@ function IngredientRow({
   selected: boolean;
   onToggle: () => void;
 }) {
-  const { colors } = useTheme();
-
   return (
-    <Pressable
-      accessibilityRole="checkbox"
-      accessibilityState={{ checked: selected }}
-      accessibilityLabel={item.name}
-      onPress={onToggle}
-      className="mis-row">
-      <View
-        className="mis-checkbox"
-        style={{ backgroundColor: selected ? colors.basil : 'transparent' }}>
-        {selected ? <Txt tone="onAccent">✓</Txt> : null}
-      </View>
-      <View className="mis-row-text">
-        <Txt variant="body" weight="700">
-          {item.name}
-        </Txt>
-        <Txt variant="body" tone="secondary">
-          {item.missingGrams} g fehlen
-          {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
-        </Txt>
-        {item.recipeNames.length > 0 ? (
-          <Txt variant="body" tone="secondary" numberOfLines={1}>
-            🍽️ {item.recipeNames.join(', ')}
+    <Surface tone="surface" style={styles.row}>
+      <Press
+        accessibilityRole="checkbox"
+        accessibilityState={{ checked: selected }}
+        accessibilityLabel={item.name}
+        onPress={onToggle}
+        haptic="selection"
+        containerStyle={styles.rowToggleContainer}
+        style={styles.rowToggle}>
+        <View style={[styles.checkbox, selected ? styles.checkboxSelected : styles.checkboxIdle]}>
+          {selected ? <Txt tone="onAccent">✓</Txt> : null}
+        </View>
+        <View style={styles.rowText}>
+          <Txt variant="body" weight="700">
+            {item.name}
           </Txt>
-        ) : null}
-      </View>
-    </Pressable>
+          <Txt variant="body" tone="secondary">
+            {item.missingGrams} g fehlen
+            {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
+          </Txt>
+          {item.recipeNames.length > 0 ? (
+            <Txt variant="body" tone="secondary" numberOfLines={1}>
+              🍽️ {item.recipeNames.join(', ')}
+            </Txt>
+          ) : null}
+        </View>
+      </Press>
+    </Surface>
   );
 }

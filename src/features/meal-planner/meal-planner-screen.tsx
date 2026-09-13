@@ -1,12 +1,14 @@
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, Pressable, View } from 'react-native';
+import { Alert, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { HubScreen } from '@/components/layout/hub-screen';
+import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
@@ -46,6 +48,80 @@ import {
 
 type PendingDrop = { date: string; slot: MealSlot; recipe: DraggableRecipe };
 type PendingCell = { date: string; slot: MealSlot };
+
+// Die festen 14/43/34/42/9/7-Werte erhalten die bestehende Kalendernavigation.
+// Semantische Farben, Radien und Abstände greifen auf die zentralen Theme-Tokens
+// zurück; Press-Wrapper erhalten ihre Layoutgröße über containerStyle.
+const styles = StyleSheet.create((theme) => ({
+  content: {
+    flex: 1,
+    paddingHorizontal: 14,
+  },
+  tabs: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  tabContainer: {
+    flex: 1,
+  },
+  tab: {
+    minHeight: 46,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: theme.borderWidth.base,
+    borderRadius: theme.radius.sm + 2,
+  },
+  tabActive: {
+    backgroundColor: theme.accent,
+    borderColor: theme.accent,
+  },
+  tabIdle: {
+    backgroundColor: theme.backgroundSoft,
+    borderColor: theme.border,
+  },
+  periodRow: {
+    height: 43,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 9,
+  },
+  periodButtonContainer: {
+    width: 36,
+    height: 34,
+  },
+  periodButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  periodCopy: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  actionsRow: {
+    flexDirection: 'row',
+    gap: 7,
+    paddingTop: 9,
+  },
+  actionContainer: {
+    flex: 1,
+  },
+  actionButton: {
+    minHeight: 42,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: theme.radius.sm + 2,
+    paddingHorizontal: theme.space.sm,
+    backgroundColor: withAlpha(theme.backgroundElement, 0.78),
+    borderCurve: 'continuous',
+  },
+  actionButtonDisabled: {
+    opacity: 0.45,
+  },
+  calendarIcon: {
+    width: 19,
+    height: 19,
+  },
+}));
 
 export function MealPlannerScreen() {
   const { colors } = useTheme();
@@ -215,78 +291,75 @@ export function MealPlannerScreen() {
               source="sf:calendar"
               contentFit="contain"
               tintColor={colors.accent}
-              // expo-image ist nicht NativeWind-registriert, className wird
-              // still ignoriert.
-              style={{ width: 19, height: 19 }}
+              style={styles.calendarIcon}
             />
           </HeaderIconButton>
         ),
       }}>
-      <View className="mp-content">
+      <View style={styles.content}>
         {/* Ansichtsmodus-Tabs (Tag / 3 Tage / Woche) */}
-        <View className="flex-row gap-two" role="tablist" aria-label="Zeitraum">
+        <View accessibilityRole="tablist" accessibilityLabel="Zeitraum" style={styles.tabs}>
           {VIEW_MODES.map((mode) => (
-            <Pressable
+            <Press
               key={mode}
               onPress={() => setViewMode(mode)}
-              role="tab"
-              aria-label={`${VIEW_MODE_LABELS[mode]}-Ansicht`}
-              aria-selected={viewMode === mode}
-              className={`tab-btn ${viewMode === mode ? 'tab-btn-active' : 'tab-btn-idle'}`}>
-              <Txt
-                variant="subheading"
-                tone={viewMode === mode ? 'onAccent' : 'secondary'}
-                weight="700"
-                className="tab-btn-label">
+              accessibilityRole="tab"
+              accessibilityLabel={`${VIEW_MODE_LABELS[mode]}-Ansicht`}
+              accessibilityState={{ selected: viewMode === mode }}
+              haptic="selection"
+              containerStyle={styles.tabContainer}
+              style={[styles.tab, viewMode === mode ? styles.tabActive : styles.tabIdle]}>
+              <Txt variant="label" tone={viewMode === mode ? 'onAccent' : 'secondary'} weight="700">
                 {VIEW_MODE_LABELS[mode]}
               </Txt>
-            </Pressable>
+            </Press>
           ))}
         </View>
 
         {/* Zeitraum-Navigation mit Pfeilen & Monats-/Datumsangabe */}
-        <View className="mp-period-row">
-          <Pressable
-            role="button"
-            aria-label="Vorheriger Zeitraum"
+        <View style={styles.periodRow}>
+          <Press
+            accessibilityRole="button"
+            accessibilityLabel="Vorheriger Zeitraum"
             onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, -1))}
-            className="mp-period-button">
+            containerStyle={styles.periodButtonContainer}
+            style={styles.periodButton}>
             <Txt variant="title" tone="secondary">
               ‹
             </Txt>
-          </Pressable>
-          <View className="mp-period-copy">
+          </Press>
+          <View style={styles.periodCopy}>
             <Txt variant="body" weight="700">
               {periodLabel(dates)}
             </Txt>
           </View>
-          <Pressable
-            role="button"
-            aria-label="Nächster Zeitraum"
+          <Press
+            accessibilityRole="button"
+            accessibilityLabel="Nächster Zeitraum"
             onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, 1))}
-            className="mp-period-button">
+            containerStyle={styles.periodButtonContainer}
+            style={styles.periodButton}>
             <Txt variant="title" tone="secondary">
               ›
             </Txt>
-          </Pressable>
+          </Press>
         </View>
 
         {viewMode === 'week' ? (
-          <View className="mp-actions-row">
-            <Pressable
-              role="button"
-              aria-label="Vorwoche übernehmen"
+          <View style={styles.actionsRow}>
+            <Press
+              accessibilityRole="button"
+              accessibilityLabel="Vorwoche übernehmen"
               onPress={handleReuseLastWeek}
-              className="mp-action-button"
-              // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-              style={{ borderCurve: 'continuous' }}>
+              containerStyle={styles.actionContainer}
+              style={styles.actionButton}>
               <Txt variant="label" tone="primary" weight="700" center>
                 Vorwoche übernehmen
               </Txt>
-            </Pressable>
-            <Pressable
-              role="button"
-              aria-label="Einkauf vorbereiten"
+            </Press>
+            <Press
+              accessibilityRole="button"
+              accessibilityLabel="Einkauf vorbereiten"
               disabled={!plan}
               onPress={() => {
                 if (!plan) return;
@@ -295,13 +368,12 @@ export function MealPlannerScreen() {
                   params: { mealPlanId: plan.id },
                 });
               }}
-              className={`mp-action-button ${!plan ? 'mp-action-button-disabled' : ''}`}
-              // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-              style={{ borderCurve: 'continuous' }}>
+              containerStyle={styles.actionContainer}
+              style={[styles.actionButton, !plan && styles.actionButtonDisabled]}>
               <Txt variant="label" tone="primary" weight="700" center>
                 Einkauf vorbereiten
               </Txt>
-            </Pressable>
+            </Press>
           </View>
         ) : null}
 
