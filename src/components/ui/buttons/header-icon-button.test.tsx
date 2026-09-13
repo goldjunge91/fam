@@ -5,6 +5,7 @@ import {
   colorsLight as mockColorsLight,
   makeAccent as mockMakeAccent,
   radius,
+  space,
   withAlpha,
 } from '@/components/theme';
 
@@ -49,10 +50,10 @@ describe('HeaderIconButton', () => {
     const button = screen.getByRole('button', { name: 'Schließen' });
     expect(button.props.hitSlop).toBe(6);
     expect(button).toHaveStyle({
-      width: 32,
-      height: 32,
+      minWidth: space.xxl + space.md + space.xs,
+      minHeight: space.xxl + space.md + space.xs,
       borderRadius: radius.sm,
-      backgroundColor: mockColorsLight.backgroundElement,
+      backgroundColor: mockColorsLight.backgroundSoft,
     });
   });
 

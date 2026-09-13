@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { Txt } from '@/constants/ui';
@@ -17,6 +18,56 @@ interface StoreSummaryCardProps {
 }
 
 const MAX_CATEGORY_DOTS = 4;
+
+const styles = StyleSheet.create((theme) => ({
+  card: {
+    minHeight: 92,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.md,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.md,
+    borderRadius: theme.radius.lg,
+    overflow: 'hidden',
+  },
+  stripe: {
+    width: 8,
+    alignSelf: 'stretch',
+    marginVertical: 2,
+    borderRadius: theme.radius.sm,
+  },
+  main: {
+    flex: 1,
+    minWidth: 0,
+    gap: theme.space.xs,
+  },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+  },
+  title: {
+    flex: 1,
+    minWidth: 0,
+  },
+  statusRow: {
+    minHeight: 18,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.xs,
+  },
+  dot: {
+    width: 7,
+    height: 7,
+    borderRadius: 4,
+  },
+  trailing: {
+    flexShrink: 0,
+    alignItems: 'flex-end',
+    gap: 2,
+  },
+}));
 
 function withColorAlpha(color: string, alpha: string): string {
   return /^#[0-9a-f]{6}$/i.test(color) ? `${color}${alpha}` : color;
@@ -47,18 +98,20 @@ export function StoreSummaryCard({
         total: totalCount,
         estimate: formatEuro(totalEstimate),
       })}
-      className="store-summary-row"
-      style={{
-        backgroundColor: withColorAlpha(color, '16'),
-        borderColor: withColorAlpha(color, '66'),
-        borderWidth: 1,
-      }}>
+      style={[
+        styles.card,
+        {
+          backgroundColor: withColorAlpha(color, '16'),
+          borderColor: withColorAlpha(color, '66'),
+          borderWidth: 1,
+        },
+      ]}>
       {/* Dynamische Markt-Farbe aus der Datenbank */}
-      <View className="store-summary-stripe" style={{ backgroundColor: color, width: 8 }} />
+      <View style={[styles.stripe, { backgroundColor: color }]} />
 
-      <View className="flex-1 gap-1">
-        <View className="flex-row items-baseline justify-between gap-two">
-          <Txt variant="body" weight="700" numberOfLines={1} className="flex-1">
+      <View style={styles.main}>
+        <View style={styles.titleRow}>
+          <Txt variant="body" weight="700" numberOfLines={1} style={styles.title}>
             {name}
           </Txt>
           <Txt variant="caption" tone="secondary">
@@ -66,7 +119,7 @@ export function StoreSummaryCard({
           </Txt>
         </View>
         <ProgressBar height={4} value={progress} color={isComplete ? theme.success : color} />
-        <View className="flex-row items-center gap-1 mt-[1px]">
+        <View style={styles.statusRow}>
           {totalCount === 0 ? (
             <Txt variant="caption" tone="secondary">
               {t('shoppingList.storeSummaryCard.noItems')}
@@ -79,11 +132,7 @@ export function StoreSummaryCard({
             <>
               {visibleDots.map((dotColor) => (
                 // Farben sind bereits dedupliziert und daher eindeutige Keys.
-                <View
-                  key={dotColor}
-                  className="w-[7px] h-[7px] rounded-full"
-                  style={{ backgroundColor: dotColor }}
-                />
+                <View key={dotColor} style={[styles.dot, { backgroundColor: dotColor }]} />
               ))}
               <Txt variant="caption" tone="secondary">
                 {t('shoppingList.storeSummaryCard.open')}
@@ -93,7 +142,7 @@ export function StoreSummaryCard({
         </View>
       </View>
 
-      <View className="items-end gap-[2px]">
+      <View style={styles.trailing}>
         <Txt variant="body" weight="700">
           {formatEuro(totalEstimate)}
         </Txt>

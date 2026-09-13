@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
+import { useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProduct } from '@/features/inventory/use-product';
@@ -16,6 +17,7 @@ import {
   type PlacementZoneId,
 } from '../classification/placement-taxonomy';
 import type { CategorySource } from '../classification/types';
+import { makeShoppingListStyles } from '../components/ui/shopping-list-styles';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import { useUpdateShoppingItem } from '../hooks/use-shopping-list-mutations';
 import { useStores } from '../hooks/use-stores';
@@ -55,6 +57,7 @@ async function resolveAutomaticPreview(
 
 export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
   const { t } = useTranslation();
+  const shoppingStyles = useThemedStyles(makeShoppingListStyles);
   const [name, setName] = useState(item.name);
   const [quantity, setQuantity] = useState(String(item.quantity));
   const [unit, setUnit] = useState(item.unit);
@@ -380,7 +383,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
   }
 
   return (
-    <View className="gap-[10px]">
+    <View style={shoppingStyles.form}>
       <TextField
         value={name}
         onChangeText={setName}
@@ -391,8 +394,8 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
         error={nameError ?? undefined}
       />
 
-      <View className="flex-row items-end gap-[9px]">
-        <View className="flex-[1.15]">
+      <View style={shoppingStyles.formRow}>
+        <View style={[shoppingStyles.formColumn, { flex: 1.15 }]}>
           <TextField
             label={t('shoppingList.itemForm.quantityLabel')}
             value={quantity}
@@ -403,7 +406,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
             textAlignVertical="center"
           />
         </View>
-        <View className="flex-1">
+        <View style={shoppingStyles.formColumn}>
           <WheelPickerField
             label={t('shoppingList.itemForm.storeLabel')}
             value={storeId ?? NO_STORE}
@@ -414,13 +417,13 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
         </View>
       </View>
 
-      <View className="border-t-hairline border-border">
+      <View style={shoppingStyles.detailsSection}>
         <Pressable
           onPress={() => setDetailsOpen((open) => !open)}
           accessibilityRole="button"
           accessibilityState={{ expanded: detailsOpen }}
           accessibilityLabel={t('shoppingList.itemForm.moreDetails')}
-          className="details-summary">
+          style={shoppingStyles.detailsSummary}>
           <Txt variant="body" tone="secondary" weight="500">
             {detailsOpen ? '▾' : '›'}
           </Txt>
@@ -430,7 +433,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
         </Pressable>
 
         {detailsOpen ? (
-          <View className="gap-[10px] pb-one">
+          <View style={shoppingStyles.detailsContent}>
             <WheelPickerField
               label={t('shoppingList.itemForm.unitLabel')}
               value={unit}
@@ -439,8 +442,8 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
               size="large"
             />
             {unit === 'package' ? (
-              <View className="flex-row items-end gap-two">
-                <View className="flex-[1.3]">
+              <View style={shoppingStyles.formRow}>
+                <View style={[shoppingStyles.formColumn, { flex: 1.3 }]}>
                   <TextField
                     label={t('shoppingList.itemForm.packageContentLabel')}
                     value={packageSizeInput}
@@ -449,7 +452,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
                     placeholder={t('shoppingList.itemForm.packageContentPlaceholder')}
                   />
                 </View>
-                <View className="flex-1">
+                <View style={shoppingStyles.formColumn}>
                   <WheelPickerField
                     label={t('shoppingList.itemForm.unitLabel')}
                     value={packageSizeUnit}
@@ -485,8 +488,8 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
       </View>
 
       {name.trim() ? (
-        <View className="product-summary">
-          <View className="flex-1 min-w-0">
+        <View style={shoppingStyles.productSummary}>
+          <View style={shoppingStyles.productCopy}>
             <Txt variant="body" weight="700" numberOfLines={1}>
               {name.trim()}
             </Txt>
@@ -499,7 +502,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
               </Txt>
             ) : null}
           </View>
-          <View className="items-end">
+          <View style={shoppingStyles.productMeta}>
             <Txt variant="body">
               {packageHint ?? formatAmount(Number(quantity.replace(',', '.')) || 1, unit)}
             </Txt>

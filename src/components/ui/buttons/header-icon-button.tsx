@@ -29,10 +29,12 @@ const styles = StyleSheet.create((theme) => ({
     backgroundColor: theme.backgroundElement,
   },
   modalClose: {
-    width: 32,
-    height: 32,
+    minWidth: theme.space.xxl + theme.space.md + theme.space.xs,
+    minHeight: theme.space.xxl + theme.space.md + theme.space.xs,
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.backgroundElement,
+    backgroundColor: theme.backgroundSoft,
   },
 }));
 

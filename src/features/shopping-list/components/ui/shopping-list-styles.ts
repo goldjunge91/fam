@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { type Palette, radius, space } from '@/components/theme';
 
@@ -114,6 +114,50 @@ export function makeShoppingListStyles(colors: Palette) {
     categoryChevron: {
       width: 24,
       textAlign: 'center',
+    },
+    form: {
+      gap: 10,
+    },
+    formRow: {
+      flexDirection: 'row',
+      alignItems: 'flex-end',
+      gap: 9,
+    },
+    formColumn: {
+      flex: 1,
+      gap: space.xs,
+    },
+    detailsSection: {
+      borderTopWidth: StyleSheet.hairlineWidth,
+      borderTopColor: colors.border,
+    },
+    detailsSummary: {
+      minHeight: 34,
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: space.sm,
+    },
+    detailsContent: {
+      gap: 10,
+      paddingBottom: space.xs,
+    },
+    productSummary: {
+      minHeight: 49,
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: space.sm,
+      paddingHorizontal: 11,
+      paddingVertical: 9,
+      borderRadius: radius.famLarge,
+      backgroundColor: colors.backgroundSoft,
+    },
+    productCopy: {
+      flex: 1,
+      minWidth: 0,
+      gap: space.xs / 2,
+    },
+    productMeta: {
+      alignItems: 'flex-end',
     },
   });
 }

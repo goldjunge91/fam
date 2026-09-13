@@ -2,6 +2,7 @@ import { Image } from 'expo-image';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/buttons';
@@ -9,6 +10,17 @@ import { Txt } from '@/constants/ui';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { AddItemForm, type AddItemFormHandle } from '../forms/add-item-form';
 import { ItemModalShell } from './item-modal-shell';
+
+const styles = StyleSheet.create((theme) => ({
+  header: {
+    minHeight: 54,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingTop: theme.space.sm,
+    paddingBottom: theme.space.lg,
+  },
+}));
 
 interface AddItemModalProps {
   visible: boolean;
@@ -39,15 +51,13 @@ export function AddItemModal({
       visible={visible}
       onDismiss={onDismiss}
       onDismissFinished={onDismissFinished}
-      rootClassName="flex-1 bg-background"
-      scrollContentClassName="pb-four"
       contentInsetAdjustmentBehavior="automatic"
       showHandle
       // Tap auf den Header schliesst Tastatur UND eine offene Trefferliste
       // (#UI-Feedback) — die Suche lebt in AddItemForm, nicht hier.
       onHeaderPress={() => formRef.current?.closeSearch()}
       header={
-        <View className="modal-header min-h-[54px]">
+        <View style={styles.header}>
           <Txt variant="heading">{t('shoppingList.addItem')}</Txt>
           <HeaderIconButton
             label={t('shoppingList.close')}

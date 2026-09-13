@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Button, Txt } from '@/constants/ui';
 import { debugLog } from '@/lib/debug-log';
 import {
@@ -12,6 +13,63 @@ import {
   type StoredPlacementZoneId,
 } from '../classification/placement-taxonomy';
 import type { CategorySource } from '../classification/types';
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    gap: theme.space.xs,
+  },
+  field: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.sm,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: theme.border,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.backgroundElement,
+  },
+  dot: {
+    width: 10,
+    height: 10,
+    flexShrink: 0,
+    borderRadius: 5,
+  },
+  flex: {
+    flex: 1,
+    minWidth: 0,
+  },
+  backdrop: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: theme.space.lg,
+    backgroundColor: theme.scrim,
+  },
+  sheet: {
+    gap: theme.space.lg,
+    padding: theme.space.lg,
+    borderRadius: theme.radius.famLarge,
+    backgroundColor: theme.background,
+  },
+  options: {
+    gap: 2,
+  },
+  option: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.xs,
+    paddingVertical: theme.space.sm,
+    borderRadius: theme.radius.sm,
+  },
+  optionSelected: {
+    backgroundColor: theme.backgroundSoft,
+  },
+  optionLabel: {
+    flex: 1,
+    minWidth: 0,
+  },
+}));
 
 export type PlacementZoneSelection =
   | { mode: 'automatic' }
@@ -62,7 +120,7 @@ export function PlacementZoneField({
   }
 
   return (
-    <View className="gap-one">
+    <View style={styles.root}>
       <Txt variant="body" tone="secondary">
         {resolvedLabel}
       </Txt>
@@ -73,14 +131,9 @@ export function PlacementZoneField({
           label: resolvedLabel,
           zone: zoneLabel,
         })}
-        className="flex-row items-center gap-two rounded-control border-hairline border-border bg-background-element px-three py-two active:opacity-70">
-        {zone ? (
-          <View
-            className="w-[10px] h-[10px] rounded-pill"
-            style={{ backgroundColor: zone.color }}
-          />
-        ) : null}
-        <View className="flex-1 min-w-0">
+        style={styles.field}>
+        {zone ? <View style={[styles.dot, { backgroundColor: zone.color }]} /> : null}
+        <View style={styles.flex}>
           <Txt variant="body" numberOfLines={1}>
             {zoneLabel}
           </Txt>
@@ -93,12 +146,12 @@ export function PlacementZoneField({
         transparent
         animationType="fade"
         onRequestClose={() => setIsOpen(false)}>
-        <View className="modal-backdrop">
-          <View className="modal-sheet">
+        <View style={styles.backdrop}>
+          <View style={styles.sheet}>
             <Txt variant="heading" weight="700">
               {resolvedLabel}
             </Txt>
-            <ScrollView style={{ maxHeight: 420 }} className="gap-[2px]">
+            <ScrollView style={{ maxHeight: 420 }} contentContainerStyle={styles.options}>
               <PlacementZoneOption
                 label={t('shoppingList.placementZoneField.automatic')}
                 checked={selection.mode === 'automatic'}
@@ -153,13 +206,13 @@ function PlacementZoneOption({
       accessibilityRole="button"
       accessibilityLabel={label}
       accessibilityState={{ selected: checked }}
-      className="flex-row items-center gap-two py-two px-one active:opacity-70">
+      style={[styles.option, checked && styles.optionSelected]}>
       {color ? (
-        <View className="w-[10px] h-[10px] rounded-pill" style={{ backgroundColor: color }} />
+        <View style={[styles.dot, { backgroundColor: color }]} />
       ) : (
-        <View className="w-[10px] h-[10px]" />
+        <View style={styles.dot} />
       )}
-      <Txt variant="body" className="flex-1">
+      <Txt variant="body" style={styles.optionLabel}>
         {label}
       </Txt>
       {checked ? <Txt tone="success">✓</Txt> : null}

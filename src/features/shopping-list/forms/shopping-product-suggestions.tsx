@@ -2,9 +2,11 @@ import type { TFunction } from 'i18next';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import type { CatalogProduct } from '@/features/product-search/types';
-
+import { makeShoppingListStyles } from '../components/ui/shopping-list-styles';
 import {
   type ShoppingProductSuggestion,
   type ShoppingSuggestionMode,
@@ -23,6 +25,41 @@ type ShoppingProductSuggestionsProps = {
 const COLLAPSED_COUNT = 3;
 const PRODUCT_SUGGESTION_UNITS = ['piece', 'g', 'kg', 'ml', 'l', 'package', 'portion'] as const;
 type ProductSuggestionUnit = (typeof PRODUCT_SUGGESTION_UNITS)[number];
+
+const styles = StyleSheet.create((theme) => ({
+  suggestions: {
+    gap: theme.space.sm,
+  },
+  row: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  card: {
+    flex: 1,
+    minWidth: 0,
+    minHeight: 75,
+    justifyContent: 'center',
+    padding: theme.space.sm,
+    borderWidth: 1,
+    borderRadius: theme.radius.md,
+  },
+  selected: {
+    backgroundColor: theme.accent,
+    borderColor: theme.accent,
+  },
+  idle: {
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.space.sm,
+  },
+  gridItem: {
+    width: '31.5%',
+  },
+}));
 
 function isProductSuggestionUnit(value: string): value is ProductSuggestionUnit {
   return PRODUCT_SUGGESTION_UNITS.some((candidate) => candidate === value);
@@ -77,7 +114,7 @@ function SuggestionCard({
         name: suggestion.name,
         size,
       })}
-      className={`suggestion-card ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
+      style={[styles.card, selected ? styles.selected : styles.idle]}>
       <Txt variant="label" weight="700" numberOfLines={1}>
         {suggestion.name}
       </Txt>
@@ -101,6 +138,7 @@ export function ShoppingProductSuggestions({
   onSelect,
 }: ShoppingProductSuggestionsProps) {
   const { t } = useTranslation();
+  const shoppingStyles = useThemedStyles(makeShoppingListStyles);
   const [expanded, setExpanded] = useState(false);
   const { data: suggestions = [] } = useShoppingProductSuggestions({ userId, householdId, mode });
 
@@ -112,8 +150,8 @@ export function ShoppingProductSuggestions({
     selectedName.trim().toLowerCase() === suggestion.name.toLowerCase();
 
   return (
-    <View className="gap-two">
-      <View className="input-row">
+    <View style={styles.suggestions}>
+      <View style={styles.row}>
         {firstRow.map((suggestion) => (
           <SuggestionCard
             key={suggestion.name.toLowerCase()}
@@ -127,9 +165,9 @@ export function ShoppingProductSuggestions({
       {rest.length > 0 ? (
         <>
           {expanded ? (
-            <View className="flex-row flex-wrap gap-two">
+            <View style={styles.grid}>
               {rest.map((suggestion) => (
-                <View key={suggestion.name.toLowerCase()} className="w-[31.5%]">
+                <View key={suggestion.name.toLowerCase()} style={styles.gridItem}>
                   <SuggestionCard
                     suggestion={suggestion}
                     selected={isSelected(suggestion)}
@@ -149,7 +187,7 @@ export function ShoppingProductSuggestions({
                 ? t('shoppingList.productSuggestions.showLessAccessibility')
                 : t('shoppingList.productSuggestions.showMoreAccessibility')
             }
-            className="details-summary">
+            style={shoppingStyles.detailsSummary}>
             <Txt variant="body" tone="secondary" weight="500">
               {expanded ? '▾' : '›'}
             </Txt>

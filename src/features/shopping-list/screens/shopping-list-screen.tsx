@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, ScrollView, SectionList, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
@@ -49,6 +50,48 @@ import { useShowPriceInMarketView } from '../preferences/display-settings';
 import { CategoryOrderSheet } from '../sheets/category-order-sheet';
 import { CompleteRunSheet, type TransferItem } from '../sheets/complete-run-sheet';
 import { ShoppingModeScreen } from './shopping-mode-screen';
+
+const styles = StyleSheet.create((theme) => ({
+  flex: {
+    flex: 1,
+  },
+  header: {
+    gap: theme.space.md,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.md,
+  },
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
+  selection: {
+    gap: theme.space.sm,
+  },
+  selectionActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    gap: theme.space.md,
+  },
+  buttonSpacing: {
+    marginTop: theme.space.md,
+  },
+  summaryScrollContent: {
+    gap: theme.space.lg,
+  },
+  summaryGroups: {
+    gap: theme.space.lg,
+    paddingTop: theme.space.sm,
+  },
+  emptyState: {
+    paddingTop: theme.space.xxxl,
+  },
+}));
 
 export function ShoppingListScreen() {
   const { t } = useTranslation();
@@ -263,8 +306,8 @@ export function ShoppingListScreen() {
   const listContentPadding = { paddingBottom: insets.bottom + space.xxxl };
 
   const renderHeader = () => (
-    <View className="gap-two">
-      <View className="row-between">
+    <View style={styles.header}>
+      <View style={styles.headerRow}>
         <StorePickerMenu
           activeFilter={storeFilter}
           onFilterChange={handleFilterChange}
@@ -273,7 +316,7 @@ export function ShoppingListScreen() {
           unassignedCount={unassignedItems.length}
           countForStore={(storeId) => allItems.filter((i) => i.store_id === storeId).length}
         />
-        <View className="flex-row items-center gap-one">
+        <View style={styles.headerActions}>
           <HeaderIconButton
             label={t('shoppingList.screen.scanBarcode')}
             onPress={() => {
@@ -300,11 +343,11 @@ export function ShoppingListScreen() {
         </View>
       </View>
       {selectionMode ? (
-        <View className="gap-one">
+        <View style={styles.selection}>
           <Txt variant="body" weight="700" numberOfLines={1}>
             {t('shoppingList.screen.selectedCount', { count: selectedItems.length })}
           </Txt>
-          <View className="flex-row items-center justify-end gap-two">
+          <View style={styles.selectionActions}>
             <Button
               size="sm"
               variant="link"
@@ -354,7 +397,7 @@ export function ShoppingListScreen() {
   const renderCompleteButton = () => {
     if (!hasCheckedItems) return null;
     return (
-      <View className="mt-two">
+      <View style={styles.buttonSpacing}>
         <Button
           size="sm"
           variant="accent"
@@ -373,7 +416,7 @@ export function ShoppingListScreen() {
   const renderShoppingModeButton = () => {
     if (!canStartShoppingMode || !activeStore) return null;
     return (
-      <View className="mt-two">
+      <View style={styles.buttonSpacing}>
         <Button
           size="sm"
           variant="secondary"
@@ -399,12 +442,11 @@ export function ShoppingListScreen() {
         /* Gesamtübersicht: Zusammenfassung aller Märkte & Gesamtschätzung */
         <ScrollView
           ref={scrollRef}
-          className="flex-1"
+          style={styles.flex}
           showsVerticalScrollIndicator={false}
-          contentContainerClassName="gap-three"
-          contentContainerStyle={listContentPadding}>
+          contentContainerStyle={[styles.summaryScrollContent, listContentPadding]}>
           {renderHeader()}
-          <View className="gap-three pt-two">
+          <View style={styles.summaryGroups}>
             {storeAggregates.map(
               ({
                 store,
@@ -462,7 +504,7 @@ export function ShoppingListScreen() {
         /* Marktspezifische Checkliste, nach Kategorien sortiert */
         <SectionList
           ref={sectionListRef}
-          className="flex-1"
+          style={styles.flex}
           contentContainerStyle={listContentPadding}
           showsVerticalScrollIndicator={false}
           sections={sections}
@@ -488,7 +530,7 @@ export function ShoppingListScreen() {
             </>
           }
           ListEmptyComponent={
-            <View className="pt-three">
+            <View style={styles.emptyState}>
               <Card>
                 <EmptyState
                   symbol="cart"

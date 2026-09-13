@@ -1,7 +1,16 @@
 import type { ReactNode } from 'react';
-import { Keyboard, Modal, Pressable, type ScrollViewProps, View } from 'react-native';
+import {
+  Keyboard,
+  Modal,
+  Pressable,
+  type ScrollViewProps,
+  type StyleProp,
+  View,
+  type ViewStyle,
+} from 'react-native';
 import { KeyboardAwareScrollView, KeyboardToolbar } from 'react-native-keyboard-controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { Surface } from '@/constants/ui';
 
@@ -19,11 +28,38 @@ type ItemModalShellProps = {
   onHeaderPress?: () => void;
   /** Ziehgriff oberhalb der Kopfzeile, aktuell nur im Add-Sheet sichtbar. */
   showHandle?: boolean;
-  rootClassName?: string;
-  scrollContentClassName?: string;
+  rootStyle?: StyleProp<ViewStyle>;
+  scrollContentStyle?: StyleProp<ViewStyle>;
   contentInsetAdjustmentBehavior?: ScrollViewProps['contentInsetAdjustmentBehavior'];
   children: ReactNode;
 };
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    flex: 1,
+  },
+  safeArea: {
+    flex: 1,
+    paddingHorizontal: theme.space.xl + theme.space.xs,
+  },
+  headerPressable: {
+    flexShrink: 0,
+  },
+  handle: {
+    width: 36,
+    height: 4,
+    alignSelf: 'center',
+    marginTop: 10,
+    borderRadius: 2,
+    backgroundColor: theme.border,
+  },
+  flex: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingBottom: theme.space.xl + theme.space.xs,
+  },
+}));
 
 export function ItemModalShell({
   visible,
@@ -32,26 +68,29 @@ export function ItemModalShell({
   header,
   onHeaderPress,
   showHandle = false,
-  rootClassName = 'flex-1',
-  scrollContentClassName,
+  rootStyle,
+  scrollContentStyle,
   contentInsetAdjustmentBehavior,
   children,
 }: ItemModalShellProps) {
   if (!visible && process.env.NODE_ENV === 'test') return null;
 
   const content = (
-    <Surface className={rootClassName}>
-      <SafeAreaView className="modal-safe-area" edges={['top', 'left', 'right', 'bottom']}>
+    <Surface style={[styles.root, rootStyle]}>
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         {}
-        <Pressable onPress={onHeaderPress ?? (() => Keyboard.dismiss())} accessible={false}>
-          {showHandle ? <View className="modal-handle" /> : null}
+        <Pressable
+          onPress={onHeaderPress ?? (() => Keyboard.dismiss())}
+          accessible={false}
+          style={styles.headerPressable}>
+          {showHandle ? <View style={styles.handle} /> : null}
           {header}
         </Pressable>
 
         <KeyboardAwareScrollView
-          className="flex-1"
+          style={styles.flex}
           bottomOffset={24}
-          contentContainerClassName={scrollContentClassName}
+          contentContainerStyle={[styles.scrollContent, scrollContentStyle]}
           contentInsetAdjustmentBehavior={contentInsetAdjustmentBehavior}
           keyboardShouldPersistTaps="handled">
           {children}

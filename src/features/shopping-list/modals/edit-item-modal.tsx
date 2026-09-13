@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/buttons';
@@ -8,6 +9,17 @@ import { Txt } from '@/constants/ui';
 import { EditItemForm } from '../forms/edit-item-form';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import { ItemModalShell } from './item-modal-shell';
+
+const styles = StyleSheet.create((theme) => ({
+  header: {
+    minHeight: 54,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingTop: theme.space.sm,
+    paddingBottom: theme.space.lg,
+  },
+}));
 
 interface EditItemModalProps {
   item: LocalShoppingItem | null;
@@ -23,12 +35,10 @@ export function EditItemModal({ item, onDismiss }: EditItemModalProps) {
     <ItemModalShell
       visible={item !== null}
       onDismiss={onDismiss}
-      rootClassName="flex-1 bg-background"
-      scrollContentClassName="pb-four"
       contentInsetAdjustmentBehavior="automatic"
       showHandle
       header={
-        <View className="modal-header min-h-[54px]">
+        <View style={styles.header}>
           <Txt variant="heading">{t('shoppingList.editItem')}</Txt>
           <HeaderIconButton
             label={t('shoppingList.close')}

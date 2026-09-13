@@ -6,7 +6,7 @@ import { Keyboard, Pressable, View } from 'react-native';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { space } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
@@ -33,6 +33,7 @@ import {
   type PlacementZoneId,
 } from '../classification/placement-taxonomy';
 import type { CategorySource } from '../classification/types';
+import { makeShoppingListStyles } from '../components/ui/shopping-list-styles';
 import { findLastStoreForProduct } from '../domain-logik/product-store-preference';
 import { useAddShoppingItem } from '../hooks/use-shopping-list-mutations';
 import type {
@@ -88,6 +89,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 ) {
   const { t } = useTranslation();
   const { colors: theme } = useTheme();
+  const shoppingStyles = useThemedStyles(makeShoppingListStyles);
   const [name, setName] = useState('');
   const [purchaseCount, setPurchaseCount] = useState(1);
   const [unit, setUnit] = useState('piece');
@@ -553,7 +555,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   }
 
   return (
-    <View className="gap-[10px]">
+    <View style={shoppingStyles.form}>
       <View style={{ marginTop: space.sm }}>
         <ProductSearchDropdown
           ref={productSearchRef}
@@ -590,7 +592,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
       </View>
 
       {}
-      <Pressable className="gap-[10px]" onPress={dismissKeyboard} accessible={false}>
+      <Pressable style={shoppingStyles.form} onPress={dismissKeyboard} accessible={false}>
         {nameError ? (
           <Txt variant="body" tone="danger" weight="500">
             {nameError}
@@ -627,8 +629,8 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
           }}
         />
 
-        <View className="flex-row items-end gap-[9px]">
-          <View className="flex-[1.15] gap-one">
+        <View style={shoppingStyles.formRow}>
+          <View style={[shoppingStyles.formColumn, { flex: 1.15 }]}>
             <Txt variant="label" tone="secondary">
               {t('shoppingList.itemForm.quantityLabel')}
             </Txt>
@@ -643,7 +645,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
               fullWidth
             />
           </View>
-          <View className="flex-1">
+          <View style={shoppingStyles.formColumn}>
             <WheelPickerField
               label={t('shoppingList.itemForm.storeLabel')}
               value={storeId ?? NO_STORE}
@@ -657,7 +659,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
           </View>
         </View>
 
-        <View className="border-t-hairline border-border">
+        <View style={shoppingStyles.detailsSection}>
           <Pressable
             onPress={() => {
               dismissKeyboard();
@@ -666,7 +668,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
             accessibilityRole="button"
             accessibilityState={{ expanded: detailsOpen }}
             accessibilityLabel={t('shoppingList.itemForm.moreDetails')}
-            className="details-summary">
+            style={shoppingStyles.detailsSummary}>
             <Txt variant="body" tone="secondary" weight="500">
               {detailsOpen ? '▾' : '›'}
             </Txt>
@@ -676,7 +678,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
           </Pressable>
 
           {detailsOpen ? (
-            <View className="gap-[10px] pb-one">
+            <View style={shoppingStyles.detailsContent}>
               <WheelPickerField
                 label={t('shoppingList.itemForm.unitLabel')}
                 value={unit}
@@ -697,8 +699,8 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
                 onSelectAutomatic={handleSelectAutomatic}
               />
               {unit === 'package' ? (
-                <View className="flex-row items-end gap-two">
-                  <View className="flex-[1.3]">
+                <View style={shoppingStyles.formRow}>
+                  <View style={[shoppingStyles.formColumn, { flex: 1.3 }]}>
                     <TextField
                       label={t('shoppingList.itemForm.packageContentLabel')}
                       value={packageSizeInput}
@@ -707,7 +709,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
                       placeholder={t('shoppingList.itemForm.packageContentPlaceholder')}
                     />
                   </View>
-                  <View className="flex-1">
+                  <View style={shoppingStyles.formColumn}>
                     <WheelPickerField
                       label={t('shoppingList.itemForm.unitLabel')}
                       value={packageSizeUnit}
@@ -737,8 +739,8 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 
         {}
         {name.trim() ? (
-          <View className="product-summary">
-            <View className="flex-1 min-w-0">
+          <View style={shoppingStyles.productSummary}>
+            <View style={shoppingStyles.productCopy}>
               <Txt variant="body" weight="700" numberOfLines={1}>
                 {name.trim()}
               </Txt>
@@ -751,7 +753,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
                 </Txt>
               ) : null}
             </View>
-            <View className="items-end">
+            <View style={shoppingStyles.productMeta}>
               <Txt variant="body">{packageHint ?? purchaseAmount}</Txt>
               <Txt variant="body" tone="secondary">
                 {packageHint
