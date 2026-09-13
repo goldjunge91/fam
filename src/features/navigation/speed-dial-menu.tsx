@@ -1,5 +1,6 @@
 import { router, usePathname } from 'expo-router';
-import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { useEffect } from 'react';
+import { BackHandler, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { FamIcon } from '@/components/icons/fam-icon';
@@ -9,14 +10,13 @@ import { getSpeedDialOptions } from '@/constants/feature-registry';
 import { Txt } from '@/constants/ui';
 import { DEFAULT_FAB_POSITION, useFabPosition } from '@/features/navigation/fab-position-settings';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
-import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 const styles = StyleSheet.create({
   backdrop: StyleSheet.absoluteFill,
   column: {
     position: 'absolute',
-    gap: space.lg,
+    gap: space.md,
   },
   columnLeft: {
     alignItems: 'flex-start',
@@ -33,17 +33,26 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
   },
   chip: {
-    width: 54,
-    height: 54,
+    width: 48,
+    height: 48,
     borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
   },
   label: {
-    paddingHorizontal: space.lg,
-    paddingVertical: 9,
+    paddingHorizontal: space.md,
+    paddingVertical: space.sm,
     borderRadius: radius.sm,
     borderWidth: 1,
+  },
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+  overlay: {
+    zIndex: 19,
   },
 });
 
@@ -51,17 +60,16 @@ export function SpeedDialMenu() {
   const { isQuickAddOpen } = useNavigationChrome();
   const pathname = usePathname();
   const isBrochureRoute = pathname === '/brochures' || pathname.includes('/brochures/');
-  const mounted = useDeferredMount(isQuickAddOpen && !isBrochureRoute, 180);
 
-  if (!mounted || isBrochureRoute) return null;
+  if (isBrochureRoute) return null;
 
-  return <SpeedDialMenuContent />;
+  return <SpeedDialMenuContent isOpen={isQuickAddOpen} />;
 }
 
-function SpeedDialMenuContent() {
+function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
-  const { isQuickAddOpen, closeQuickAdd } = useNavigationChrome();
+  const { closeQuickAdd } = useNavigationChrome();
   const { data: position = DEFAULT_FAB_POSITION } = useFabPosition();
   const { isFeatureEnabled } = useFeatureAccess();
   const isRight = position !== 'left';
@@ -74,58 +82,71 @@ function SpeedDialMenuContent() {
   const speedDialOptions = getSpeedDialOptions();
   const visibleOptions = speedDialOptions.filter((option) => isFeatureEnabled(option.feature));
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
+      closeQuickAdd();
+      return true;
+    });
+    return () => subscription.remove();
+  }, [closeQuickAdd, isOpen]);
+
   return (
-    <Modal visible={isQuickAddOpen} transparent animationType="fade" onRequestClose={closeQuickAdd}>
-      <View style={StyleSheet.absoluteFill}>
-        <Pressable
-          style={styles.backdrop}
-          onPress={closeQuickAdd}
-          accessibilityRole="button"
-          accessibilityLabel="Schließen"
-        />
-        <View
-          pointerEvents="box-none"
-          style={[
-            styles.column,
-            isRight ? styles.columnRight : styles.columnLeft,
-            {
-              // Gleiche Außenkante wie der globale FAB im App-Shell-Container.
-              [isRight ? 'right' : 'left']: space.xxl + space.xs,
-              // Die Liste endet mit konstantem Abstand oberhalb des größeren FAB.
-              bottom: insets.bottom + space.xxxl + space.xxl + space.sm,
-            },
-          ]}>
-          {visibleOptions.map((option) => (
-            <Pressable
-              key={option.title}
-              onPress={() => go(typeof option.href === 'function' ? option.href() : option.href)}
-              accessibilityRole="button"
-              // Rechts stehen Icon und Label in umgekehrter Reihenfolge.
-              style={[styles.row, isRight && styles.rowReverse]}>
-              <View
-                style={[
-                  styles.chip,
-                  {
-                    backgroundColor: option.backgroundColor,
-                    borderCurve: 'continuous',
-                    boxShadow: `0 8px 20px ${withAlpha(colors.shadowCard, 0.2)}`,
-                  },
-                ]}>
-                <FamIcon name={option.icon} size={space.xl} />
-              </View>
-              <View
-                style={[
-                  styles.label,
-                  { backgroundColor: colors.backgroundElement, borderColor: colors.border },
-                ]}>
-                <Txt variant="body" weight="700">
-                  {option.title}
-                </Txt>
-              </View>
-            </Pressable>
-          ))}
-        </View>
+    <View
+      accessibilityViewIsModal={isOpen}
+      accessibilityElementsHidden={!isOpen}
+      importantForAccessibility={isOpen ? 'yes' : 'no-hide-descendants'}
+      pointerEvents={isOpen ? 'auto' : 'none'}
+      style={[StyleSheet.absoluteFill, styles.overlay, isOpen ? styles.visible : styles.hidden]}>
+      <Pressable
+        style={styles.backdrop}
+        onPress={closeQuickAdd}
+        accessibilityRole="button"
+        accessibilityLabel="Schließen"
+      />
+      <View
+        pointerEvents="box-none"
+        style={[
+          styles.column,
+          isRight ? styles.columnRight : styles.columnLeft,
+          {
+            // Gleiche Außenkante wie der globale FAB im App-Shell-Container.
+            [isRight ? 'right' : 'left']: space.xxl + space.xs,
+            // Die kompakte Liste endet mit konstantem Abstand oberhalb des FAB.
+            bottom: insets.bottom + space.xxxl + space.xl,
+          },
+        ]}>
+        {visibleOptions.map((option) => (
+          <Pressable
+            key={option.title}
+            onPress={() => go(typeof option.href === 'function' ? option.href() : option.href)}
+            accessibilityRole="button"
+            // Rechts stehen Icon und Label in umgekehrter Reihenfolge.
+            style={[styles.row, isRight && styles.rowReverse]}>
+            <View
+              style={[
+                styles.chip,
+                {
+                  backgroundColor: option.backgroundColor,
+                  borderCurve: 'continuous',
+                  boxShadow: `0 4px 10px ${withAlpha(colors.shadowCard, 0.14)}`,
+                },
+              ]}>
+              <FamIcon name={option.icon} size={space.xl} />
+            </View>
+            <View
+              style={[
+                styles.label,
+                { backgroundColor: colors.backgroundElement, borderColor: colors.border },
+              ]}>
+              <Txt variant="body" weight="700">
+                {option.title}
+              </Txt>
+            </View>
+          </Pressable>
+        ))}
       </View>
-    </Modal>
+    </View>
   );
 }

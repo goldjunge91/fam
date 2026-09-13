@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: 'flex-start',
     paddingHorizontal: space.xxl + space.xs,
-    height: 104,
+    height: 90,
     overflow: 'visible',
     zIndex: 20,
   },
@@ -79,7 +79,7 @@ export default function AppShell() {
 
 function GlobalAddButton() {
   const { colors } = useTheme();
-  const { openQuickAdd } = useNavigationChrome();
+  const { isQuickAddOpen, toggleQuickAdd } = useNavigationChrome();
   const insets = useSafeAreaInsets();
   const { data: position = DEFAULT_FAB_POSITION } = useFabPosition();
 
@@ -93,8 +93,10 @@ function GlobalAddButton() {
         // kann nicht als statischer Layoutwert ausgedrueckt werden.
         { paddingBottom: insets.bottom },
       ]}>
-      <FloatingActionButton label="Neu hinzufügen" onPress={openQuickAdd}>
-        <PlusIcon size={50} color={colors.onAccent} />
+      <FloatingActionButton
+        label={isQuickAddOpen ? 'Menü schließen' : 'Neu hinzufügen'}
+        onPress={toggleQuickAdd}>
+        <PlusIcon size={space.xl} color={colors.onAccent} />
       </FloatingActionButton>
     </View>
   );

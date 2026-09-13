@@ -41,6 +41,7 @@ interface NavigationActions {
   openProfile: () => void;
   closeProfile: () => void;
   openQuickAdd: () => void;
+  toggleQuickAdd: () => void;
   closeQuickAdd: () => void;
 }
 
@@ -60,6 +61,7 @@ export function NavigationChromeProvider({ children }: { children: React.ReactNo
     openProfile: () => store.set('profile'),
     closeProfile: () => store.set('none'),
     openQuickAdd: () => store.set('quickAdd'),
+    toggleQuickAdd: () => store.set(store.get() === 'quickAdd' ? 'none' : 'quickAdd'),
     closeQuickAdd: () => store.set('none'),
   }));
 

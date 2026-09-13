@@ -33,5 +33,21 @@ describe('NavigationChromeProvider', () => {
     await waitFor(() => {
       expect(result.current.isDrawerOpen).toBe(false);
     });
+
+    await act(() => {
+      result.current.toggleQuickAdd();
+    });
+
+    await waitFor(() => {
+      expect(result.current.isQuickAddOpen).toBe(true);
+    });
+
+    await act(() => {
+      result.current.toggleQuickAdd();
+    });
+
+    await waitFor(() => {
+      expect(result.current.isQuickAddOpen).toBe(false);
+    });
   });
 });

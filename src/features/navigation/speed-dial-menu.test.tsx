@@ -70,10 +70,6 @@ jest.mock('@/lib/posthog', () => ({
     mockFeatureFlags[key] ?? defaultValue,
 }));
 
-jest.mock('@/hooks/use-deferred-mount', () => ({
-  useDeferredMount: () => true,
-}));
-
 function renderSpeedDial() {
   return render(
     <SafeAreaProvider
