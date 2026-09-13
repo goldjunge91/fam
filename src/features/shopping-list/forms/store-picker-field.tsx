@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, TextField, Txt } from '@/constants/ui';
+import { debugError } from '@/lib/debug-log';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../domain-logik/store-presets';
 import { findStoreByName, useAddStoreMutation, useStores } from '../hooks/use-stores';
 
@@ -11,6 +14,67 @@ interface StorePickerFieldProps {
   storeId: string | null;
   onChange: (storeId: string | null) => void;
 }
+
+const styles = StyleSheet.create((theme) => ({
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+    marginTop: theme.space.sm,
+  },
+  chipRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.space.sm,
+  },
+  storeChip: {
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.xs + theme.space.xs / 2,
+    borderRadius: theme.radius.lg,
+    borderWidth: theme.borderWidth.base,
+  },
+  selectedChip: {
+    borderColor: theme.accent,
+    backgroundColor: withAlpha(theme.accent, 0.1),
+  },
+  unselectedChip: {
+    borderColor: theme.border,
+    backgroundColor: 'transparent',
+  },
+  addBox: {
+    gap: theme.space.lg,
+    padding: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    marginTop: theme.space.sm,
+  },
+  presetChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.xs,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.xs + theme.space.xs / 2,
+    borderRadius: theme.radius.lg,
+    borderWidth: theme.borderWidth.base,
+  },
+  presetDot: {
+    width: theme.space.sm,
+    height: theme.space.sm,
+    borderRadius: theme.radius.sm / 3,
+  },
+  colorSwatch: {
+    width: theme.space.xxl + theme.space.xs,
+    height: theme.space.xxl + theme.space.xs,
+    borderRadius: theme.radius.md,
+    borderWidth: theme.borderWidth.strong,
+  },
+  inputRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+}));
 
 export function StorePickerField({ householdId, storeId, onChange }: StorePickerFieldProps) {
   const { t } = useTranslation();
@@ -54,13 +118,13 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
       setNewStoreName('');
       setShowAddStore(false);
     } catch (err) {
-      console.error('Fehler beim Erstellen des Markts:', err);
+      debugError('Fehler beim Erstellen des Markts:', err);
     }
   }
 
   return (
     <View>
-      <View className="row-between mt-two">
+      <View style={styles.header}>
         <Txt variant="body" weight="700">
           {t('shoppingList.storePickerField.label')}
         </Txt>
@@ -76,14 +140,15 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
         )}
       </View>
 
-      <View className="row-wrap">
+      <View style={styles.chipRow}>
         <Pressable
           onPress={() => onChange(null)}
           accessibilityRole="radio"
           accessibilityState={{ selected: storeId === null }}
-          className={`store-chip ${
-            storeId === null ? 'border-accent bg-accent/10' : 'border-border bg-transparent'
-          }`}>
+          style={[
+            styles.storeChip,
+            storeId === null ? styles.selectedChip : styles.unselectedChip,
+          ]}>
           <Txt variant="body" tone="primary">
             {t('shoppingList.storePickerField.unassigned')}
           </Txt>
@@ -96,13 +161,13 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
               onPress={() => onChange(store.id)}
               accessibilityRole="radio"
               accessibilityState={{ selected: isActive }}
-              className={`store-chip ${isActive ? '' : 'border-border bg-transparent'}`}
               // Dynamische Markt-Farbe aus der Datenbank
-              style={
+              style={[
+                styles.storeChip,
                 isActive
                   ? { borderColor: store.color, backgroundColor: `${store.color}22` }
-                  : undefined
-              }>
+                  : styles.unselectedChip,
+              ]}>
               <Txt
                 variant="body"
                 tone={isActive ? undefined : 'secondary'}
@@ -116,7 +181,7 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
       </View>
 
       {showAddStore && (
-        <View className="store-add-box">
+        <View style={styles.addBox}>
           <TextField
             label={t('shoppingList.storePickerField.nameLabel')}
             placeholder={t('shoppingList.storePickerField.namePlaceholder')}
@@ -126,17 +191,19 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
           <Txt variant="body" tone="secondary">
             {t('shoppingList.stores.addStore.suggestions')}
           </Txt>
-          <View className="row-wrap">
+          <View style={styles.chipRow}>
             {STORE_PRESETS.map((preset) => (
               <Pressable
                 key={preset.name}
                 onPress={() => setNewStoreName(preset.name)}
                 accessibilityRole="button"
-                className="store-preset-chip"
                 // Dynamische Preset-Farbe
-                style={{ backgroundColor: `${preset.color}18`, borderColor: preset.color }}>
+                style={[
+                  styles.presetChip,
+                  { backgroundColor: `${preset.color}18`, borderColor: preset.color },
+                ]}>
                 {/* Dynamische Preset-Farbe */}
-                <View className="store-preset-dot" style={{ backgroundColor: preset.color }} />
+                <View style={[styles.presetDot, { backgroundColor: preset.color }]} />
                 <Txt
                   variant="body"
                   weight="600"
@@ -151,7 +218,7 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
           <Txt variant="body" tone="secondary">
             {t('shoppingList.stores.addStore.color')}
           </Txt>
-          <View className="row-wrap">
+          <View style={styles.chipRow}>
             {STORE_COLOR_PALETTE.map((color) => (
               <Pressable
                 key={color}
@@ -161,16 +228,18 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
                   color,
                 })}
                 accessibilityState={{ selected: newStoreColor === color }}
-                className="store-color-swatch"
                 // Dynamische Palettenfarbe & Auswahlrand
-                style={{
-                  backgroundColor: color,
-                  borderColor: newStoreColor === color ? theme.text : 'transparent',
-                }}
+                style={[
+                  styles.colorSwatch,
+                  {
+                    backgroundColor: color,
+                    borderColor: newStoreColor === color ? theme.text : 'transparent',
+                  },
+                ]}
               />
             ))}
           </View>
-          <View className="input-row">
+          <View style={styles.inputRow}>
             <Button
               title={t('shoppingList.storePickerField.create')}
               onPress={handleAddStore}
