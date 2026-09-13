@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { i18n } from '@/i18n';
-import { saveNotificationSettings } from '@/lib/notifications';
+import { getNotificationSettings, saveNotificationSettings } from '@/lib/notifications';
 import { NotificationSettingsCard } from './notification-settings-card';
 
 jest.mock('@/lib/notifications', () => ({
@@ -42,5 +42,18 @@ describe('NotificationSettingsCard', () => {
     expect(saveNotificationSettings).toHaveBeenCalledWith(
       expect.objectContaining({ daysThreshold: 5 }),
     );
+  });
+
+  it('sollte eine gespeicherte Uhrzeit mit nicht angebotenen Minuten nicht auswählen', async () => {
+    jest.mocked(getNotificationSettings).mockResolvedValueOnce({
+      enabled: true,
+      daysThreshold: 3,
+      reminderHour: 9,
+      reminderMinute: 15,
+    });
+
+    await render(<NotificationSettingsCard />);
+
+    expect(screen.getByRole('radio', { name: '09:00 Uhr' })).not.toBeSelected();
   });
 });

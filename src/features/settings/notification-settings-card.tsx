@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { type StyleProp, View, type ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Card } from '@/components/ui/card';
-import { Press, Txt } from '@/constants/ui';
+import { SegmentedControl, Txt } from '@/constants/ui';
 import {
   DEFAULT_NOTIFICATION_SETTINGS,
   getNotificationSettings,
@@ -24,25 +24,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   group: {
     gap: theme.space.sm,
-  },
-  rowWrap: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: theme.space.sm,
-  },
-  chip: {
-    paddingHorizontal: theme.space.lg,
-    paddingVertical: theme.space.xs + theme.space.xs / 2,
-    borderRadius: theme.radius.lg,
-    borderWidth: theme.borderWidth.base,
-  },
-  chipSelected: {
-    backgroundColor: theme.accent,
-    borderColor: theme.accent,
-  },
-  chipIdle: {
-    backgroundColor: theme.backgroundElement,
-    borderColor: theme.border,
   },
 }));
 
@@ -71,65 +52,40 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
             <Txt variant="label" weight="700">
               {t('settings.groups.app.notifications.reminderThresholdLabel')}
             </Txt>
-            <View
-              accessibilityRole="radiogroup"
-              accessibilityLabel={t('settings.groups.app.notifications.reminderThresholdLabel')}
-              style={styles.rowWrap}>
-              {THRESHOLD_OPTIONS.map((days) => {
-                const isSelected = settings.daysThreshold === days;
-                return (
-                  <Press
-                    key={days}
-                    onPress={() => void updateSettings({ ...settings, daysThreshold: days })}
-                    accessibilityRole="radio"
-                    accessibilityLabel={`${days} ${t('settings.groups.app.notifications.day', { count: days })}`}
-                    accessibilityState={{ selected: isSelected }}
-                    haptic="selection"
-                    style={[styles.chip, isSelected ? styles.chipSelected : styles.chipIdle]}>
-                    <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
-                      {days} {t('settings.groups.app.notifications.day', { count: days })}
-                    </Txt>
-                  </Press>
-                );
-              })}
-            </View>
+            <SegmentedControl
+              label={t('settings.groups.app.notifications.reminderThresholdLabel')}
+              selected={String(settings.daysThreshold)}
+              options={THRESHOLD_OPTIONS.map((days) => ({
+                value: String(days),
+                label: `${days} ${t('settings.groups.app.notifications.day', { count: days })}`,
+              }))}
+              onSelect={(value) =>
+                void updateSettings({ ...settings, daysThreshold: Number(value) })
+              }
+            />
           </View>
 
           <View style={styles.group}>
             <Txt variant="label" weight="700">
               {t('settings.groups.app.notifications.reminderTimeLabel')}
             </Txt>
-            <View
-              accessibilityRole="radiogroup"
-              accessibilityLabel={t('settings.groups.app.notifications.reminderTimeLabel')}
-              style={styles.rowWrap}>
-              {TIME_OPTIONS.map((time) => {
-                const isSelected =
-                  settings.reminderHour === time.hour && settings.reminderMinute === time.minute;
-                return (
-                  <Press
-                    key={time.time}
-                    onPress={() =>
-                      void updateSettings({
-                        ...settings,
-                        reminderHour: time.hour,
-                        reminderMinute: time.minute,
-                      })
-                    }
-                    accessibilityRole="radio"
-                    accessibilityLabel={t('settings.groups.app.notifications.timeLabel', {
-                      time: time.time,
-                    })}
-                    accessibilityState={{ selected: isSelected }}
-                    haptic="selection"
-                    style={[styles.chip, isSelected ? styles.chipSelected : styles.chipIdle]}>
-                    <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
-                      {t('settings.groups.app.notifications.timeLabel', { time: time.time })}
-                    </Txt>
-                  </Press>
-                );
-              })}
-            </View>
+            <SegmentedControl
+              label={t('settings.groups.app.notifications.reminderTimeLabel')}
+              selected={`${settings.reminderHour.toString().padStart(2, '0')}:${settings.reminderMinute.toString().padStart(2, '0')}`}
+              options={TIME_OPTIONS.map((time) => ({
+                value: time.time,
+                label: t('settings.groups.app.notifications.timeLabel', { time: time.time }),
+              }))}
+              onSelect={(value) => {
+                const time = TIME_OPTIONS.find((option) => option.time === value);
+                if (!time) return;
+                void updateSettings({
+                  ...settings,
+                  reminderHour: time.hour,
+                  reminderMinute: time.minute,
+                });
+              }}
+            />
           </View>
         </View>
       </Card>

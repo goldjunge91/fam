@@ -12,6 +12,7 @@ import {
   ActivityIndicator,
   Pressable,
   type PressableProps,
+  type PressableStateCallbackType,
   type StyleProp,
   Text,
   TextInput,
@@ -101,6 +102,21 @@ const closeButtonStyles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
     borderRadius: theme.radius.sm,
     backgroundColor: theme.backgroundSoft,
+  },
+}));
+
+const pressSelectionStyles = StyleSheet.create((theme) => ({
+  idle: {
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+    borderWidth: theme.borderWidth.base,
+    borderRadius: theme.radius.md,
+  },
+  selected: {
+    backgroundColor: theme.backgroundSoft,
+    borderColor: theme.accent,
+    borderWidth: theme.borderWidth.base,
+    borderRadius: theme.radius.md,
   },
 }));
 
@@ -389,15 +405,30 @@ export function Press({
   containerStyle,
   children,
   disabled,
+  selected,
   ...rest
 }: PressableProps & {
   haptic?: HapticKind;
   scaleTo?: number;
   /** Layout style for the animated wrapper (e.g. flex:1 so the item stretches). */
   containerStyle?: StyleProp<ViewStyle>;
+  /** Applies the central selected/idle surface recipe when explicitly provided. */
+  selected?: boolean;
 }) {
   const s = useSharedValue(1);
   const reducedMotion = useReducedMotion();
+  const selectionStyle =
+    selected === undefined
+      ? undefined
+      : selected
+        ? pressSelectionStyles.selected
+        : pressSelectionStyles.idle;
+  const resolvedStyle: PressableProps['style'] =
+    selectionStyle === undefined
+      ? style
+      : typeof style === 'function'
+        ? (state: PressableStateCallbackType) => [selectionStyle, style(state)]
+        : [selectionStyle, style];
   const aStyle = useAnimatedStyle(() => ({
     transform: [{ scale: reducedMotion ? 1 : s.value }],
   }));
@@ -425,7 +456,7 @@ export function Press({
           fireHaptic(haptic);
           onPress?.(e);
         }}
-        style={style}>
+        style={resolvedStyle}>
         {children}
       </Pressable>
     </Animated.View>

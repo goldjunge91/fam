@@ -26,17 +26,7 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'space-between',
     gap: theme.space.lg,
     padding: theme.space.lg,
-    borderWidth: theme.borderWidth.base,
-    borderRadius: theme.radius.md,
     overflow: 'hidden',
-  },
-  moduleSelected: {
-    backgroundColor: theme.backgroundSoft,
-    borderColor: theme.accent,
-  },
-  moduleIdle: {
-    backgroundColor: theme.backgroundElement,
-    borderColor: theme.border,
   },
   rowText: {
     flex: 1,
@@ -87,10 +77,8 @@ export function ModuleSettingsScreen() {
               accessibilityLabel={row.title}
               accessibilityState={{ disabled: locked, selected: modules[row.key] }}
               haptic="selection"
-              style={[
-                styles.moduleRow,
-                modules[row.key] ? styles.moduleSelected : styles.moduleIdle,
-              ]}>
+              selected={modules[row.key]}
+              style={styles.moduleRow}>
               <View style={[styles.rowText, locked && styles.lockedContent]}>
                 <Txt variant="body" weight="700">
                   {row.icon} {row.title}
