@@ -19,19 +19,25 @@ describe('StreakDashboardCard', () => {
     mockStreak = { count: 3, best: 7, activeToday: true };
   });
 
-  it('zeigt die aktuelle Serie, den heutigen Status und den Rekord', async () => {
+  it('zeigt die allgemeine Serie im kleinen Modus kompakt an', async () => {
     await render(<StreakDashboardCard size="small" />);
 
-    expect(screen.getByText('KOCHSTREAK')).toBeOnTheScreen();
+    expect(screen.getByText('STREAK')).toBeOnTheScreen();
     expect(screen.getByText('3')).toBeOnTheScreen();
-    expect(screen.getByText('Heute aktiv')).toBeOnTheScreen();
-    expect(screen.getByText('Bester Wert: 7 Tage')).toBeOnTheScreen();
+    expect(screen.getByText('Tage')).toBeOnTheScreen();
+    expect(screen.queryByText('🔥')).toBeNull();
+    expect(screen.queryByText('Tage am Stück')).toBeNull();
+    expect(screen.queryByTestId('streak-day-1')).toBeNull();
+    expect(screen.queryByText('Heute aktiv')).toBeNull();
+    expect(screen.queryByText('Bester Wert: 7 Tage')).toBeNull();
   });
 
-  it('zeigt bei einer unterbrochenen Serie einen Neustart-Hinweis', async () => {
+  it('zeigt im großen Modus Status und Rekord', async () => {
     mockStreak = { count: 0, best: 7, activeToday: false };
     await render(<StreakDashboardCard size="large" />);
 
+    expect(screen.getByText('🔥')).toBeOnTheScreen();
+    expect(screen.getByTestId('streak-day-1')).toBeOnTheScreen();
     expect(screen.getByText('Neue Serie starten')).toBeOnTheScreen();
     expect(screen.getByText('Bester Wert: 7 Tage')).toBeOnTheScreen();
   });

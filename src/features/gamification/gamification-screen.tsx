@@ -80,7 +80,7 @@ export function GamificationScreen() {
         <View style={styles.heroHeader}>
           <View style={{ flex: 1, gap: space.sm }}>
             <Txt variant="caption" tone="inverse" weight="700">
-              DEIN KOCHSTREAK
+              DEIN STREAK
             </Txt>
             <View style={styles.heroMetric}>
               <Txt variant="display" tone="inverse" selectable>

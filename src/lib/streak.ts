@@ -1,6 +1,6 @@
 /**
- * Cooking streak — the Duolingo-style "don't break the chain" reward.
- * Counts consecutive days the user completes a cooking flow or shopping run.
+ * Activity streak — the Duolingo-style "don't break the chain" reward.
+ * Counts consecutive days the user completes a tracked cooking flow or shopping run.
  * Stored locally in the device preference store. The dashboard consumes the
  * reactive `useStreak()` view and renders the 🔥 card.
  */

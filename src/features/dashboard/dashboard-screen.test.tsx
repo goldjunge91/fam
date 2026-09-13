@@ -230,7 +230,7 @@ it('zeigt Karten und Karten-Galerie in der aktiven Sprache', async () => {
   expect(screen.getByText('EXPIRING SOON')).toBeOnTheScreen();
   expect(screen.getByText('Shopping')).toBeOnTheScreen();
   expect(screen.getByText('PLANNED TODAY')).toBeOnTheScreen();
-  expect(screen.getByText('COOKING STREAK')).toBeOnTheScreen();
+  expect(screen.getByText('STREAK')).toBeOnTheScreen();
   expect(screen.getByText('Calories today')).toBeOnTheScreen();
 
   await fireEvent(screen.getByLabelText('Open meal plan'), 'longPress');
@@ -295,12 +295,12 @@ describe('DashboardScreen — Essensplan-Karte', () => {
   });
 });
 
-describe('DashboardScreen — Kochstreak-Karte', () => {
-  it('zeigt die Kochstreak auf der Übersicht', async () => {
+describe('DashboardScreen — Streak-Karte', () => {
+  it('zeigt die allgemeine Serie auf der Übersicht', async () => {
     await renderScreen();
 
-    expect(screen.getByText('KOCHSTREAK')).toBeOnTheScreen();
-    expect(screen.getByText('Starte deine erste Serie')).toBeOnTheScreen();
+    expect(screen.getByText('STREAK')).toBeOnTheScreen();
+    expect(screen.getByLabelText(/Streak:/)).toBeOnTheScreen();
   });
 });
 
@@ -332,7 +332,7 @@ describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
     // Plus-Button öffnet das Galerie-Sheet
     await fireEvent.press(screen.getByLabelText('Karten anpassen'));
     expect(screen.getByText('Karten anpassen')).toBeTruthy();
-    expect(screen.getByText(/Kochstreak/)).toBeOnTheScreen();
+    expect(screen.getByText(/Streak/)).toBeOnTheScreen();
 
     // Fertig-Knopf in Galerie schließt Sheet
     await fireEvent.press(screen.getByLabelText('Galerie schließen'));

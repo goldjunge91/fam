@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { radius, shadow, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -25,12 +26,20 @@ const styles = StyleSheet.create({
     borderRadius: radius.xl,
     borderCurve: 'continuous',
   },
+  smallCard: {
+    justifyContent: 'space-between',
+  },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
   metric: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: space.sm,
+  },
+  smallMetric: {
     flexDirection: 'row',
     alignItems: 'baseline',
     gap: space.sm,
@@ -84,6 +93,7 @@ function StreakDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
   const { t } = useTranslation();
   const { colors } = useTheme();
   const streak = useStreak();
+  const isSmall = size === 'small';
   const hasStreak = streak.count > 0;
   const status = hasStreak
     ? streak.activeToday
@@ -111,6 +121,7 @@ function StreakDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
         tone="surface"
         style={[
           styles.card,
+          isSmall && styles.smallCard,
           shadow.sm,
           {
             minHeight: size === 'large' ? 140 : 138,
@@ -121,35 +132,52 @@ function StreakDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
           <Txt variant="caption" tone="accent" weight="700" style={{ letterSpacing: 0.5 }}>
             {t('dashboard.cards.streak.title')}
           </Txt>
-          <Txt variant="caption" tone="secondary">
-            {hasStreak
-              ? t('dashboard.cards.streak.keepGoing')
-              : t('dashboard.cards.streak.yourProgress')}
-          </Txt>
+          {!isSmall ? (
+            <Txt variant="caption" tone="secondary">
+              {hasStreak
+                ? t('dashboard.cards.streak.keepGoing')
+                : t('dashboard.cards.streak.yourProgress')}
+            </Txt>
+          ) : null}
         </View>
 
-        <View style={styles.metric}>
-          <Txt variant="body" selectable>
-            🔥
-          </Txt>
-          <Txt variant="title" selectable>
-            {streak.count}
-          </Txt>
-          <Txt variant="body" tone="secondary">
-            {dayLabel}
-          </Txt>
-        </View>
+        {isSmall ? (
+          <View style={styles.smallMetric}>
+            <Txt variant="title" selectable>
+              {streak.count}
+            </Txt>
+            <Txt variant="body" tone="secondary">
+              {t('dashboard.cards.streak.daysShort', { count: streak.count })}
+            </Txt>
+          </View>
+        ) : (
+          <>
+            <View style={styles.metric}>
+              <Txt variant="body" selectable>
+                🔥
+              </Txt>
+              <Txt variant="title" selectable>
+                {streak.count}
+              </Txt>
+              <Txt variant="body" tone="secondary">
+                {dayLabel}
+              </Txt>
+            </View>
 
-        <StreakDays count={streak.count} activeToday={streak.activeToday} />
+            <StreakDays count={streak.count} activeToday={streak.activeToday} />
+          </>
+        )}
 
-        <View style={[styles.status, { borderTopColor: colors.border }]}>
-          <Txt variant="body" tone={hasStreak ? 'success' : 'secondary'} weight="600">
-            {status}
-          </Txt>
-          <Txt variant="caption" tone="secondary">
-            {bestValue}
-          </Txt>
-        </View>
+        {!isSmall ? (
+          <View style={[styles.status, { borderTopColor: colors.border }]}>
+            <Txt variant="body" tone={hasStreak ? 'success' : 'secondary'} weight="600">
+              {status}
+            </Txt>
+            <Txt variant="caption" tone="secondary">
+              {bestValue}
+            </Txt>
+          </View>
+        ) : null}
       </Surface>
     </Pressable>
   );

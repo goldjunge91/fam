@@ -57,7 +57,7 @@
       "overGoal": "{{count}} kcal over goal"
     },
     "streak": {
-      "title": "COOKING STREAK",
+      "title": "STREAK",
       "keepGoing": "Keep going",
       "yourProgress": "Your progress",
       "activeToday": "Active today",
@@ -69,7 +69,9 @@
       "bestValue_one": "Best: {{count}} day",
       "bestValue_other": "Best: {{count}} days",
       "activeDays": "{{active}} of {{total}} streak days active",
-      "accessibility": "Cooking streak: {{count}} {{unit}}, {{status}}, {{best}}"
+      "daysShort_one": "day",
+      "daysShort_other": "days",
+      "accessibility": "Streak: {{count}} {{unit}}, {{status}}, {{best}}"
     }
   },
   "gallery": {
@@ -86,7 +88,7 @@
     "fallbackDescription": "Dashboard widget",
     "cards": {
       "streak": {
-        "title": "Cooking streak",
+        "title": "Streak",
         "description": "Seven-day view of your streak and personal record."
       },
       "calories": {

@@ -50,6 +50,7 @@ describe('GamificationScreen', () => {
     await renderScreen();
 
     expect(screen.getByText('Gamification')).toBeOnTheScreen();
+    expect(screen.getByText('DEIN STREAK')).toBeOnTheScreen();
     expect(screen.getByText('3')).toBeOnTheScreen();
     expect(screen.getByText('Heute aktiv')).toBeOnTheScreen();
     expect(screen.getAllByText('7 Tage')).toHaveLength(2);
