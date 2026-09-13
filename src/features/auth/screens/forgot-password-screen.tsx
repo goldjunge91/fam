@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { Button, TextField, Txt } from '@/constants/ui';
@@ -15,6 +16,12 @@ import {
   translateAuthValidationMessage,
 } from '@/lib/db/zod/auth.zod';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
+
+const styles = StyleSheet.create((theme) => ({
+  form: {
+    gap: theme.space.lg,
+  },
+}));
 
 export function ForgotPasswordScreen() {
   const { t } = useTranslation();
@@ -89,7 +96,7 @@ export function ForgotPasswordScreen() {
       back={backTarget}>
       {/* Formular zur Passworteingabe / Reset-Anfrage */}
       <Card>
-        <View className="gap-three">
+        <View style={styles.form}>
           {/* E-Mail-Eingabefeld */}
           <TextField
             testID="forgot-password-email"

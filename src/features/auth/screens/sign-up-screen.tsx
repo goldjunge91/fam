@@ -2,12 +2,19 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { Button, Txt } from '@/constants/ui';
 import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
 import { EmailVerificationPanel } from '@/features/auth/components/email-verification-panel';
 import { type PendingSignUp, SignUpForm } from '@/features/auth/forms/sign-up-form';
+
+const styles = StyleSheet.create((theme) => ({
+  form: {
+    gap: theme.space.lg,
+  },
+}));
 
 export function SignUpScreen() {
   const { t } = useTranslation();
@@ -38,7 +45,7 @@ export function SignUpScreen() {
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         {/* Haupt-Registrierungsformular */}
         <Card>
-          <View className="gap-three">
+          <View style={styles.form}>
             <SignUpForm
               onSuccess={() => router.replace('/onboarding')}
               onPendingVerification={setPendingSignUp}
