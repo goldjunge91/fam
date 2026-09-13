@@ -8,6 +8,7 @@ import ReorderableList, {
   useIsActive,
   useReorderableDrag,
 } from 'react-native-reorderable-list';
+import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import {
@@ -16,6 +17,60 @@ import {
   type ShoppingCategory,
 } from '../domain-logik/shopping-categories';
 import { type Store, useSetStoreCategoryOrderMutation } from '../hooks/use-stores';
+
+const styles = StyleSheet.create((theme) => ({
+  sheetBackground: {
+    backgroundColor: theme.background,
+  },
+  sheetIndicator: {
+    backgroundColor: theme.border,
+  },
+  bottomSheet: {
+    flex: 1,
+  },
+  listContent: {
+    flexGrow: 1,
+    paddingHorizontal: theme.space.xl + theme.space.xs,
+  },
+  row: {
+    height: 52,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  rowActive: {
+    backgroundColor: theme.backgroundElement,
+  },
+  handle: {
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.sm,
+  },
+  handleLabel: {
+    opacity: 0.5,
+  },
+  header: {
+    paddingTop: theme.space.sm,
+    paddingBottom: theme.space.lg,
+    gap: theme.space.xs / 2,
+  },
+  footer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+    paddingVertical: theme.space.xl + theme.space.xs,
+  },
+  resetButton: {
+    paddingVertical: theme.space.sm,
+  },
+  saveButton: {
+    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingVertical: theme.space.lg,
+    borderRadius: theme.radius.md,
+  },
+}));
 
 function resolveOrder(store: Store | null): ShoppingCategory[] {
   const customIds = parseCategoryOrder(store?.category_order);
@@ -35,23 +90,20 @@ interface RowProps {
 
 function Row({ category }: RowProps) {
   const { t } = useTranslation();
-  const { colors: theme } = useTheme();
   const drag = useReorderableDrag();
   const isActive = useIsActive();
 
   return (
-    <View
-      className="category-order-row"
-      style={isActive ? { backgroundColor: theme.surface } : undefined}>
+    <View style={[styles.row, isActive && styles.rowActive]}>
       <Txt variant="body">{category.label}</Txt>
       <Pressable
         onPressIn={drag}
-        className="category-order-handle"
+        style={styles.handle}
         accessibilityRole="adjustable"
         accessibilityLabel={t('shoppingList.categoryOrder.moveAccessibility', {
           category: category.label,
         })}>
-        <Txt variant="heading" weight="700" className="opacity-50">
+        <Txt variant="heading" weight="700" style={styles.handleLabel}>
           ⠿
         </Txt>
       </Pressable>
@@ -110,10 +162,10 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
       snapPoints={['70%', '90%']}
       enablePanDownToClose
       onClose={onClose}
-      backgroundStyle={{ backgroundColor: theme.bg }}
-      handleIndicatorStyle={{ backgroundColor: theme.border }}>
+      backgroundStyle={styles.sheetBackground}
+      handleIndicatorStyle={styles.sheetIndicator}>
       {}
-      <BottomSheetView style={{ flex: 1 }}>
+      <BottomSheetView style={styles.bottomSheet}>
         <ReorderableList
           data={order}
           keyExtractor={(category) => category.id}
@@ -121,9 +173,9 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
           onReorder={handleReorder}
           shouldUpdateActiveItem
           autoscrollThreshold={0.2}
-          contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 24 }}
+          contentContainerStyle={styles.listContent}
           ListHeaderComponent={
-            <View className="pt-two pb-three gap-[2px]">
+            <View style={styles.header}>
               <Txt variant="heading" weight="700">
                 {t('shoppingList.categoryOrder.title')}
               </Txt>
@@ -133,8 +185,11 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
             </View>
           }
           ListFooterComponent={
-            <View className="row-between py-four">
-              <Pressable onPress={handleReset} accessibilityRole="button" className="py-two">
+            <View style={styles.footer}>
+              <Pressable
+                onPress={handleReset}
+                accessibilityRole="button"
+                style={styles.resetButton}>
                 <Txt variant="body" tone="secondary">
                   {t('shoppingList.categoryOrder.reset')}
                 </Txt>
@@ -143,9 +198,8 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
                 onPress={handleSave}
                 disabled={saveMutation.isPending}
                 accessibilityRole="button"
-                className="px-four py-three rounded-card"
                 // Dynamische Markt-Farbe aus der Datenbank
-                style={{ backgroundColor: store?.color ?? theme.basil }}>
+                style={[styles.saveButton, { backgroundColor: store?.color ?? theme.basil }]}>
                 <Txt variant="body" tone="onAccent" weight="700">
                   {t('shoppingList.categoryOrder.save')}
                 </Txt>

@@ -2,10 +2,10 @@ import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, ScrollView, TextInput, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
-import { font } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { withAlpha } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { type StorageKind, storageKindForCategory } from '../domain-logik/shopping-categories';
@@ -33,6 +33,140 @@ const KIND_ICONS: Record<StorageKind, string> = {
 
 const KINDS: StorageKind[] = ['fridge', 'freezer', 'pantry'];
 
+const styles = StyleSheet.create((theme) => ({
+  sheetBackground: {
+    backgroundColor: theme.background,
+  },
+  sheetIndicator: {
+    backgroundColor: theme.border,
+  },
+  bottomSheet: {
+    flex: 1,
+  },
+  root: {
+    flex: 1,
+  },
+  transferRow: {
+    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingVertical: theme.space.lg,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+    gap: theme.space.sm,
+  },
+  itemHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+  },
+  itemName: {
+    flex: 1,
+    minWidth: 0,
+  },
+  quantityBadge: {
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.xs,
+    borderRadius: theme.radius.lg,
+    backgroundColor: theme.success,
+  },
+  quantityEditRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.xs / 2,
+    flexShrink: 0,
+  },
+  quantityInput: {
+    minWidth: theme.space.xxl + theme.space.xs,
+    padding: 0,
+    fontVariant: ['tabular-nums'],
+    color: theme.onAccent,
+    fontSize: theme.font.sizes.base,
+    lineHeight: theme.font.lineHeights.body,
+    fontWeight: theme.font.weight.semibold,
+  },
+  quantityButton: {
+    flexShrink: 0,
+  },
+  locationGroup: {
+    gap: theme.space.sm,
+  },
+  kindRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  kindButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.space.xs,
+    paddingVertical: theme.space.xs,
+    paddingHorizontal: theme.space.xs,
+    borderRadius: theme.radius.lg,
+    borderWidth: theme.borderWidth.base,
+  },
+  kindButtonSelected: {
+    borderColor: theme.accent,
+    backgroundColor: withAlpha(theme.accent, 0.1),
+  },
+  kindButtonIdle: {
+    borderColor: theme.border,
+    backgroundColor: 'transparent',
+  },
+  expiryRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  expiryLabel: {
+    flex: 1,
+  },
+  expiryField: {
+    width: 140,
+    marginLeft: 'auto',
+  },
+  sheetHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingTop: theme.space.sm,
+    paddingBottom: theme.space.lg,
+  },
+  closeButton: {
+    width: theme.space.xxl + theme.space.xs,
+    height: theme.space.xxl + theme.space.xs,
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.backgroundElement,
+  },
+  scroll: {
+    flex: 1,
+  },
+  footer: {
+    alignItems: 'center',
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingTop: theme.space.lg,
+    paddingBottom: theme.space.xl + theme.space.xs,
+  },
+  confirmButton: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: theme.space.lg,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.success,
+  },
+  confirmButtonDisabled: {
+    opacity: 0.5,
+  },
+  cancelButton: {
+    paddingVertical: theme.space.sm,
+  },
+}));
+
 function defaultKind(item: LocalShoppingItem): StorageKind {
   return storageKindForCategory(item.category);
 }
@@ -57,7 +191,6 @@ function TransferRow({
   onUpdateQuantity,
 }: TransferRowProps) {
   const { t } = useTranslation();
-  const { colors } = useTheme();
   const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
   const [isEditingQty, setIsEditingQty] = useState(false);
   const [qtyDraft, setQtyDraft] = useState(String(transfer.quantity));
@@ -75,17 +208,17 @@ function TransferRow({
   }
 
   return (
-    <View className="transfer-row">
+    <View style={styles.transferRow}>
       {/* Artikel-Header */}
-      <View className="row-between">
-        <Txt variant="subheading" weight="700" numberOfLines={2} className="flex-1 min-w-0">
+      <View style={styles.itemHeader}>
+        <Txt variant="subheading" weight="700" numberOfLines={2} style={styles.itemName}>
           {item.name}
         </Txt>
 
         {/* Menge — grüner Pill-Badge, per Antippen als Zahl editierbar
             (Feedback: "im Laden nur 5 statt 6 Brötchen bekommen") */}
         {isEditingQty ? (
-          <View className="quantity-badge flex-row items-center gap-half" style={{ flexShrink: 0 }}>
+          <View style={[styles.quantityBadge, styles.quantityEditRow]}>
             <TextInput
               value={qtyDraft}
               onChangeText={setQtyDraft}
@@ -98,13 +231,7 @@ function TransferRow({
               accessibilityLabel={t('shoppingList.completeRun.quantityAccessibility', {
                 item: item.name,
               })}
-              className="min-w-[32px] p-0 [font-variant:tabular-nums]"
-              style={{
-                color: colors.onAccent,
-                fontSize: font.sizes.base,
-                lineHeight: font.lineHeights.body,
-                fontWeight: '600',
-              }}
+              style={styles.quantityInput}
             />
             <Txt variant="body" tone="onAccent" weight="600">
               {item.unit}
@@ -118,8 +245,7 @@ function TransferRow({
               item: item.name,
               amount: formatAmount(transfer.quantity, item.unit),
             })}
-            className="quantity-badge"
-            style={{ flexShrink: 0 }}>
+            style={[styles.quantityBadge, styles.quantityButton]}>
             <Txt variant="body" tone="onAccent" weight="600">
               {formatAmount(transfer.quantity, item.unit)}
             </Txt>
@@ -133,8 +259,8 @@ function TransferRow({
       ) : null}
 
       {/* Location-Picker + MHD */}
-      <View className="col-gap">
-        <View className="input-row">
+      <View style={styles.locationGroup}>
+        <View style={styles.kindRow}>
           {KINDS.map((kind) => {
             const label = t(`shoppingList.completeRun.storageKind.${kind}`);
             const isActive = transfer.locationKind === kind;
@@ -145,9 +271,10 @@ function TransferRow({
                 accessibilityRole="radio"
                 accessibilityState={{ selected: isActive }}
                 accessibilityLabel={label}
-                className={`kind-button ${
-                  isActive ? 'border-accent bg-accent/10' : 'border-border bg-transparent'
-                }`}>
+                style={[
+                  styles.kindButton,
+                  isActive ? styles.kindButtonSelected : styles.kindButtonIdle,
+                ]}>
                 <Txt variant="caption">{KIND_ICONS[kind]}</Txt>
                 <Txt variant="caption" tone="primary">
                   {label}
@@ -158,11 +285,11 @@ function TransferRow({
         </View>
 
         {/* MHD */}
-        <View className="flex-row items-center">
-          <Txt variant="body" tone="secondary" numberOfLines={1} className="flex-1">
+        <View style={styles.expiryRow}>
+          <Txt variant="body" tone="secondary" numberOfLines={1} style={styles.expiryLabel}>
             {t('shoppingList.completeRun.expiryLabel')}
           </Txt>
-          <View className="mhd-field-width ml-auto">
+          <View style={styles.expiryField}>
             <DateWheelField value={transfer.expiryDate ?? ''} onChange={onUpdateExpiry} />
           </View>
         </View>
@@ -184,7 +311,6 @@ interface Props {
 
 export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: Props) {
   const { t } = useTranslation();
-  const { colors: theme } = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
 
   const [transfers, setTransfers] = useState<Map<string, TransferItem>>(new Map());
@@ -257,13 +383,13 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
       snapPoints={['60%', '90%']}
       enablePanDownToClose
       onClose={onClose}
-      backgroundStyle={{ backgroundColor: theme.bg }}
-      handleIndicatorStyle={{ backgroundColor: theme.border }}>
+      backgroundStyle={styles.sheetBackground}
+      handleIndicatorStyle={styles.sheetIndicator}>
       {}
-      <BottomSheetView style={{ flex: 1 }}>
-        <View className="flex-1">
+      <BottomSheetView style={styles.bottomSheet}>
+        <View style={styles.root}>
           {/* Header */}
-          <View className="row-between items-start px-four pt-two pb-three">
+          <View style={styles.sheetHeader}>
             <View>
               <Txt variant="heading" weight="700">
                 {t('shoppingList.completeRun.title')}
@@ -276,13 +402,13 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
               onPress={onClose}
               accessibilityRole="button"
               accessibilityLabel={t('shoppingList.close')}
-              className="modal-close-btn">
+              style={styles.closeButton}>
               <Txt>✕</Txt>
             </Pressable>
           </View>
 
           {/* Artikel-Liste */}
-          <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
+          <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
             {checkedItems.map((item) => {
               const transfer = transfers.get(item.id);
               if (!transfer) return null;
@@ -300,19 +426,19 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
           </ScrollView>
 
           {/* Confirm-Button — volle Breite, grün, wie im Screenshot */}
-          <View className="px-four pt-three pb-four gap-two items-center">
+          <View style={styles.footer}>
             <Pressable
               onPress={handleConfirm}
               disabled={count === 0}
               accessibilityRole="button"
               accessibilityLabel={t('shoppingList.completeRun.confirmAccessibility', { count })}
-              className={`btn-success ${count === 0 ? 'opacity-50' : 'opacity-100'}`}>
+              style={[styles.confirmButton, count === 0 && styles.confirmButtonDisabled]}>
               <Txt variant="body" weight="700" tone="onAccent">
                 {t('shoppingList.completeRun.confirm', { count })}
               </Txt>
             </Pressable>
 
-            <Pressable onPress={onClose} accessibilityRole="button" className="py-two">
+            <Pressable onPress={onClose} accessibilityRole="button" style={styles.cancelButton}>
               <Txt variant="body" tone="secondary">
                 {t('shoppingList.completeRun.cancel')}
               </Txt>
