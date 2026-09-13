@@ -1,11 +1,12 @@
 import { useQueryClient } from '@tanstack/react-query';
 import * as Clipboard from 'expo-clipboard';
+import type { ReactNode } from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
-import { Button, Press, Txt } from '@/constants/ui';
+import { Button, Divider, Press, Row, Txt, type TxtTone } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
@@ -56,38 +57,40 @@ type ItemRow = {
 };
 
 const styles = StyleSheet.create((theme) => ({
-  debugRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: theme.space.xs,
-  },
-  debugItem: {
-    paddingVertical: theme.space.sm,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: theme.border,
-    gap: theme.space.xs,
-  },
-  actionStack: {
-    marginTop: theme.space.lg,
-    gap: theme.space.sm,
-  },
-  syncButtonContainer: {
-    marginTop: theme.space.lg,
-  },
-  copyActions: {
-    flexDirection: 'row',
-    gap: theme.space.sm,
-    marginTop: theme.space.xs,
-  },
-  flex: {
-    flex: 1,
-  },
-  payload: {
-    marginTop: theme.space.xs / 2,
-    fontFamily: 'monospace',
-  },
+  debugRow: { paddingVertical: theme.space.xs },
+  debugItem: { paddingVertical: theme.space.sm, gap: theme.space.xs },
+  debugAction: { minHeight: 44, justifyContent: 'center' },
+  actionStack: { marginTop: theme.space.lg, gap: theme.space.sm },
+  copyActions: { marginTop: theme.space.xs },
+  flex: { flex: 1 },
+  payload: { marginTop: theme.space.xs / 2, fontFamily: 'monospace' },
 }));
+
+type DebugRowProps = {
+  label: string;
+  tone?: TxtTone;
+  children: ReactNode;
+};
+
+function DebugRow({ label, tone, children }: DebugRowProps) {
+  return (
+    <Row justify="space-between" gap={0} style={styles.debugRow}>
+      <Txt variant="caption">{label}</Txt>
+      <Txt variant="caption" weight="700" tone={tone}>
+        {children}
+      </Txt>
+    </Row>
+  );
+}
+
+function DebugItem({ children }: { children: ReactNode }) {
+  return (
+    <>
+      <View style={styles.debugItem}>{children}</View>
+      <Divider />
+    </>
+  );
+}
 
 export function SyncDebugScreen() {
   const queryClient = useQueryClient();
@@ -249,66 +252,34 @@ export function SyncDebugScreen() {
       back={{ label: 'Synchronisation', href: '/settings/sync' }}
       backStyle="icon">
       <Card title="Letzter Synchronisations-Lauf">
-        <View style={styles.debugRow}>
-          <Txt variant="caption">Uhrzeit:</Txt>
-          <Txt variant="caption" weight="700">
-            {formattedLastSync}
-          </Txt>
-        </View>
+        <DebugRow label="Uhrzeit:">{formattedLastSync}</DebugRow>
         {lastSyncInfo && (
           <>
-            <View style={styles.debugRow}>
-              <Txt variant="caption">Hochgeladen (Pushed):</Txt>
-              <Txt variant="caption" weight="700">
-                {lastSyncInfo.pushedCount} Einträge
-              </Txt>
-            </View>
-            <View style={styles.debugRow}>
-              <Txt variant="caption">Empfangen (Pulled):</Txt>
-              <Txt variant="caption" weight="700">
-                {lastSyncInfo.pulledCount} Zeilen
-              </Txt>
-            </View>
+            <DebugRow label="Hochgeladen (Pushed):">{lastSyncInfo.pushedCount} Einträge</DebugRow>
+            <DebugRow label="Empfangen (Pulled):">{lastSyncInfo.pulledCount} Zeilen</DebugRow>
           </>
         )}
-        <View style={styles.debugRow}>
-          <Txt variant="caption">Aktueller Sync-Status:</Txt>
-          <Txt variant="caption" weight="700">
-            {syncStatus.kind.toUpperCase()}
-          </Txt>
-        </View>
-        <View style={styles.debugRow}>
-          <Txt variant="caption">Realtime-Verbindung:</Txt>
-          <Txt
-            variant="caption"
-            weight="700"
-            tone={realtimeStatus === 'SUBSCRIBED' ? 'success' : 'danger'}>
-            {realtimeStatus ?? 'nie verbunden'}
-          </Txt>
-        </View>
-        <View style={styles.debugRow}>
-          <Txt variant="caption">Aktive Poll-Intervalle:</Txt>
-          <Txt variant="caption" weight="700" tone={activeIntervalCount > 1 ? 'danger' : 'success'}>
-            {activeIntervalCount}
-            {activeIntervalCount > 1 ? ' — sollte 1 sein!' : ''}
-          </Txt>
-        </View>
-        <View style={styles.debugRow}>
-          <Txt variant="caption">Realtime Status-Wechsel gesamt:</Txt>
-          <Txt variant="caption" weight="700">
-            {realtimeDiagnostics.statusChangeCount}
-          </Txt>
-        </View>
-        <View style={styles.debugRow}>
-          <Txt variant="caption">Realtime Reconnects gesamt:</Txt>
-          <Txt
-            variant="caption"
-            weight="700"
-            tone={realtimeDiagnostics.reconnectCount > 0 ? 'danger' : 'success'}>
-            {realtimeDiagnostics.reconnectCount}
-          </Txt>
-        </View>
-        <View style={styles.syncButtonContainer}>
+        <DebugRow label="Aktueller Sync-Status:">{syncStatus.kind.toUpperCase()}</DebugRow>
+        <DebugRow
+          label="Realtime-Verbindung:"
+          tone={realtimeStatus === 'SUBSCRIBED' ? 'success' : 'danger'}>
+          {realtimeStatus ?? 'nie verbunden'}
+        </DebugRow>
+        <DebugRow
+          label="Aktive Poll-Intervalle:"
+          tone={activeIntervalCount > 1 ? 'danger' : 'success'}>
+          {activeIntervalCount}
+          {activeIntervalCount > 1 ? ' — sollte 1 sein!' : ''}
+        </DebugRow>
+        <DebugRow label="Realtime Status-Wechsel gesamt:">
+          {realtimeDiagnostics.statusChangeCount}
+        </DebugRow>
+        <DebugRow
+          label="Realtime Reconnects gesamt:"
+          tone={realtimeDiagnostics.reconnectCount > 0 ? 'danger' : 'success'}>
+          {realtimeDiagnostics.reconnectCount}
+        </DebugRow>
+        <View style={styles.actionStack}>
           <Button
             title="Jetzt synchronisieren & prüfen"
             onPress={handleSyncNow}
@@ -326,36 +297,29 @@ export function SyncDebugScreen() {
           </Txt>
         ) : (
           <>
-            <View style={styles.debugRow}>
-              <Txt variant="caption">Letzte Latenz:</Txt>
-              <Txt
-                variant="caption"
-                weight="700"
-                tone={
-                  (latencySamples[latencySamples.length - 1].latencyMs ?? 0) > 2000
-                    ? 'danger'
-                    : 'success'
-                }>
-                {latencySamples[latencySamples.length - 1].latencyMs ?? '—'} ms
-              </Txt>
-            </View>
-            <View style={styles.debugRow}>
-              <Txt variant="caption">Durchschnitt:</Txt>
-              <Txt variant="caption" weight="700">
-                {averageLatencyMs === null ? '—' : `${averageLatencyMs} ms`}
-              </Txt>
-            </View>
+            <DebugRow
+              label="Letzte Latenz:"
+              tone={
+                (latencySamples[latencySamples.length - 1].latencyMs ?? 0) > 2000
+                  ? 'danger'
+                  : 'success'
+              }>
+              {latencySamples[latencySamples.length - 1].latencyMs ?? '—'} ms
+            </DebugRow>
+            <DebugRow label="Durchschnitt:">
+              {averageLatencyMs === null ? '—' : `${averageLatencyMs} ms`}
+            </DebugRow>
             {latencySamples
               .slice()
               .reverse()
               .map((sample, i) => (
                 // biome-ignore lint/suspicious/noArrayIndexKey: Ringpuffer ohne stabile Id, Reihenfolge aendert sich nicht rueckwirkend
-                <View key={i} style={styles.debugItem}>
+                <DebugItem key={i}>
                   <Txt variant="caption" tone="secondary">
                     {new Date(sample.timestamp).toLocaleTimeString('de-DE')} —{' '}
                     {sample.op.toUpperCase()} {sample.entity}: {sample.latencyMs ?? '—'} ms
                   </Txt>
-                </View>
+                </DebugItem>
               ))}
           </>
         )}
@@ -379,18 +343,12 @@ export function SyncDebugScreen() {
 
       {/* Aktiver Haushalt in der lokalen SQLite-DB */}
       <Card title="Aktueller Haushalt in DB">
-        <View style={styles.debugRow}>
-          <Txt variant="caption">Haushalts-Name:</Txt>
-          <Txt variant="caption" weight="700">
-            {currentHousehold?.name ?? 'Kein Haushalt geladen'}
-          </Txt>
-        </View>
-        <View style={styles.debugRow}>
-          <Txt variant="caption">Haushalts-ID:</Txt>
-          <Txt variant="caption" tone="secondary">
-            {currentHousehold?.id ?? '—'}
-          </Txt>
-        </View>
+        <DebugRow label="Haushalts-Name:">
+          {currentHousehold?.name ?? 'Kein Haushalt geladen'}
+        </DebugRow>
+        <DebugRow label="Haushalts-ID:" tone="secondary">
+          {currentHousehold?.id ?? '—'}
+        </DebugRow>
       </Card>
 
       {/* Lokale Outbox-Warteschlange mit Mutations-Payloads und Fehlern */}
@@ -401,7 +359,7 @@ export function SyncDebugScreen() {
           </Txt>
         ) : (
           outboxRows.map((row) => (
-            <View key={row.id} style={styles.debugItem}>
+            <DebugItem key={row.id}>
               <Txt variant="caption" weight="700">
                 #{row.id} {row.op.toUpperCase()} {row.entity}
               </Txt>
@@ -412,7 +370,8 @@ export function SyncDebugScreen() {
                 <Press
                   onPress={() => void handleCopyOutbox(row)}
                   accessibilityRole="button"
-                  accessibilityLabel="Fehler kopieren">
+                  accessibilityLabel="Fehler kopieren"
+                  style={styles.debugAction}>
                   <Txt variant="caption" tone="danger">
                     Fehler: {row.last_error}
                   </Txt>
@@ -422,12 +381,13 @@ export function SyncDebugScreen() {
               <Press
                 onPress={() => void handleCopyOutbox(row)}
                 accessibilityRole="button"
-                accessibilityLabel="Payload kopieren">
+                accessibilityLabel="Payload kopieren"
+                style={styles.debugAction}>
                 <Txt variant="caption" style={styles.payload}>
                   Payload: {row.payload}
                 </Txt>
               </Press>
-              <View style={styles.copyActions}>
+              <Row style={styles.copyActions}>
                 <View style={styles.flex}>
                   <Button
                     title={copiedRowId === row.id ? '✓ Kopiert' : '📋 Kopieren'}
@@ -442,13 +402,13 @@ export function SyncDebugScreen() {
                     onPress={() => handleDeleteOutboxEntry(row)}
                   />
                 </View>
-              </View>
-            </View>
+              </Row>
+            </DebugItem>
           ))
         )}
 
         {outboxRows.length > 0 && (
-          <View style={styles.syncButtonContainer}>
+          <View style={styles.actionStack}>
             <Button title="Outbox leeren (Notfall)" variant="danger" onPress={handleClearOutbox} />
           </View>
         )}
@@ -462,14 +422,14 @@ export function SyncDebugScreen() {
           </Txt>
         ) : (
           locationRows.map((loc) => (
-            <View key={loc.id} style={styles.debugItem}>
+            <DebugItem key={loc.id}>
               <Txt variant="caption" weight="700">
                 {loc.name}
               </Txt>
               <Txt variant="caption" tone="secondary">
                 Typ: {loc.kind} | ID: {loc.id}
               </Txt>
-            </View>
+            </DebugItem>
           ))
         )}
       </Card>
@@ -482,14 +442,14 @@ export function SyncDebugScreen() {
           </Txt>
         ) : (
           itemRows.map((item) => (
-            <View key={item.id} style={styles.debugItem}>
+            <DebugItem key={item.id}>
               <Txt variant="caption" weight="700">
                 {item.name} ({item.quantity} {item.unit})
               </Txt>
               <Txt variant="caption" tone="secondary">
                 Lagerort-ID: {item.location_id ?? 'Keiner'} | Artikel-ID: {item.id}
               </Txt>
-            </View>
+            </DebugItem>
           ))
         )}
       </Card>

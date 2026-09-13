@@ -52,13 +52,18 @@ jest.mock('@/components/ui/card', () => {
 });
 
 jest.mock('@/constants/ui', () => {
-  const { Text: MockText } = jest.requireActual('react-native') as typeof import('react-native');
+  const { Text: MockText, View: MockView } = jest.requireActual(
+    'react-native',
+  ) as typeof import('react-native');
   type MockButtonProps = { title: string };
   type MockTextProps = { children: import('react').ReactNode };
 
   return {
     Button: ({ title }: MockButtonProps) => <MockText>{title}</MockText>,
     Txt: ({ children }: MockTextProps) => <MockText>{children}</MockText>,
+    Divider: MockView,
+    Press: MockView,
+    Row: MockView,
   };
 });
 
