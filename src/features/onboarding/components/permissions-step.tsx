@@ -1,7 +1,8 @@
 import * as Location from 'expo-location';
 import { useState } from 'react';
-import { Linking, Pressable, Switch, View } from 'react-native';
-import { Button, Txt } from '@/constants/ui';
+import { Linking, Switch, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { Button, Press, Txt } from '@/constants/ui';
 import { requestNotificationPermissions } from '@/lib/notifications';
 import { useOnboarding } from '../onboarding-store';
 
@@ -28,6 +29,46 @@ interface PermissionsStepFormProps {
   onNext: () => void;
   onSkip: () => void;
 }
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    gap: theme.space.lg,
+  },
+  list: {
+    gap: theme.space.sm,
+    marginTop: theme.space.xs,
+  },
+  card: {
+    padding: theme.space.lg,
+    borderWidth: theme.borderWidth.base,
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.backgroundElement,
+  },
+  cardSelected: {
+    backgroundColor: theme.accent,
+    borderColor: theme.accent,
+  },
+  cardIdle: {
+    borderColor: theme.border,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  text: {
+    flex: 1,
+    paddingRight: theme.space.sm,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+    marginTop: theme.space.lg,
+  },
+  flex: {
+    flex: 1,
+  },
+}));
 
 export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps) {
   const { state, updatePermissionsData } = useOnboarding();
@@ -88,7 +129,7 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
   };
 
   return (
-    <View className="gap-three">
+    <View style={styles.root}>
       <Txt variant="subheading" weight="700">
         Erlaubnisse & Funktionen
       </Txt>
@@ -96,12 +137,16 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
         Damit die App optimal funktioniert, empfehlen wir folgende Berechtigungen:
       </Txt>
 
-      <View className="perm-list">
-        <Pressable
-          onPress={() => handleToggleNotifications(!notifications)}
-          className={`perm-card ${notifications ? 'perm-card-selected' : 'perm-card-idle'}`}>
-          <View className="perm-row">
-            <View className="perm-text-col">
+      <View style={styles.list}>
+        <Press
+          onPress={() => void handleToggleNotifications(!notifications)}
+          accessibilityRole="switch"
+          accessibilityLabel="Benachrichtigungen"
+          accessibilityState={{ checked: notifications }}
+          haptic="selection"
+          style={[styles.card, notifications ? styles.cardSelected : styles.cardIdle]}>
+          <View style={styles.row}>
+            <View style={styles.text}>
               <Txt variant="body" weight="700" tone={notifications ? 'onAccent' : 'primary'}>
                 🔔 Benachrichtigungen
               </Txt>
@@ -111,13 +156,17 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
             </View>
             <Switch value={notifications} onValueChange={handleToggleNotifications} />
           </View>
-        </Pressable>
+        </Press>
 
-        <Pressable
-          onPress={() => handleToggleCamera(!camera)}
-          className={`perm-card ${camera ? 'perm-card-selected' : 'perm-card-idle'}`}>
-          <View className="perm-row">
-            <View className="perm-text-col">
+        <Press
+          onPress={() => void handleToggleCamera(!camera)}
+          accessibilityRole="switch"
+          accessibilityLabel="Kamera-Zugriff"
+          accessibilityState={{ checked: camera }}
+          haptic="selection"
+          style={[styles.card, camera ? styles.cardSelected : styles.cardIdle]}>
+          <View style={styles.row}>
+            <View style={styles.text}>
               <Txt variant="body" weight="700" tone={camera ? 'onAccent' : 'primary'}>
                 📷 Kamera-Zugriff
               </Txt>
@@ -127,13 +176,17 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
             </View>
             <Switch value={camera} onValueChange={handleToggleCamera} />
           </View>
-        </Pressable>
+        </Press>
 
-        <Pressable
-          onPress={() => handleToggleLocation(!location)}
-          className={`perm-card ${location ? 'perm-card-selected' : 'perm-card-idle'}`}>
-          <View className="perm-row">
-            <View className="perm-text-col">
+        <Press
+          onPress={() => void handleToggleLocation(!location)}
+          accessibilityRole="switch"
+          accessibilityLabel="Standort-Zugriff"
+          accessibilityState={{ checked: location }}
+          haptic="selection"
+          style={[styles.card, location ? styles.cardSelected : styles.cardIdle]}>
+          <View style={styles.row}>
+            <View style={styles.text}>
               <Txt variant="body" weight="700" tone={location ? 'onAccent' : 'primary'}>
                 📍 Standort-Zugriff
               </Txt>
@@ -143,14 +196,14 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
             </View>
             <Switch value={location} onValueChange={handleToggleLocation} />
           </View>
-        </Pressable>
+        </Press>
       </View>
 
-      <View className="perm-button-row">
-        <View className="flex-1">
+      <View style={styles.buttonRow}>
+        <View style={styles.flex}>
           <Button title="Weiter" onPress={handleNext} />
         </View>
-        <View className="flex-1">
+        <View style={styles.flex}>
           <Button title="Jetzt nicht" variant="secondary" onPress={onSkip} />
         </View>
       </View>

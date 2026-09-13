@@ -1,8 +1,9 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Pressable, View } from 'react-native';
-import { Button, TextField, Txt } from '@/constants/ui';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { Button, Press, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProfile } from '@/features/profile/api';
 import {
@@ -37,6 +38,62 @@ interface ProfileStepFormProps {
   onNext: () => void;
   onSkip: () => void;
 }
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    gap: theme.space.lg,
+  },
+  formSection: {
+    gap: theme.space.lg,
+    marginTop: theme.space.xs,
+  },
+  inputRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  flex: {
+    flex: 1,
+  },
+  sectionLabel: {
+    marginTop: theme.space.sm,
+  },
+  sexRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  sexButton: {
+    flex: 1,
+    minHeight: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 10,
+    borderWidth: theme.borderWidth.base,
+    borderRadius: theme.radius.sm,
+    paddingHorizontal: theme.space.lg,
+  },
+  choiceList: {
+    gap: theme.space.sm,
+  },
+  choice: {
+    paddingVertical: 10,
+    paddingHorizontal: theme.space.lg,
+    borderWidth: theme.borderWidth.base,
+    borderRadius: theme.radius.sm,
+  },
+  selected: {
+    backgroundColor: theme.accent,
+    borderColor: theme.accent,
+  },
+  idle: {
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+    marginTop: theme.space.lg,
+  },
+}));
 
 export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   const { state, updateProfileData } = useOnboarding();
@@ -93,7 +150,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   };
 
   return (
-    <View className="gap-three">
+    <View style={styles.root}>
       <Txt variant="subheading" weight="700">
         Dein Profil & Körperwerte
       </Txt>
@@ -101,7 +158,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
         Alle Angaben sind freiwillig und dienen der genauen Kalorienberechnung.
       </Txt>
 
-      <View className="profile-form-section">
+      <View style={styles.formSection}>
         <TextField
           label="Rufname / Anzeigename"
           value={displayName}
@@ -122,8 +179,8 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           error={errors.birthDate?.message}
         />
 
-        <View className="input-row">
-          <View className="flex-1">
+        <View style={styles.inputRow}>
+          <View style={styles.flex}>
             <TextField
               label="Größe (cm)"
               value={heightCm}
@@ -134,7 +191,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
               error={errors.heightCm?.message}
             />
           </View>
-          <View className="flex-1">
+          <View style={styles.flex}>
             <TextField
               label="Gewicht (kg)"
               value={weightKg}
@@ -147,69 +204,88 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           </View>
         </View>
 
-        <Txt variant="body" weight="600" className="mt-two">
+        <Txt variant="body" weight="600" style={styles.sectionLabel}>
           Berechnungsbasis (Geschlecht)
         </Txt>
-        <View className="sex-row">
+        <View style={styles.sexRow} accessibilityRole="radiogroup" accessibilityLabel="Geschlecht">
           {SEX_OPTIONS.map((opt) => {
             const selected = sex === opt.value;
             return (
-              <Pressable
+              <Press
                 key={opt.value}
                 onPress={() => setValue('sex', selected ? undefined : opt.value)}
-                className={`option-button ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
+                accessibilityRole="radio"
+                accessibilityLabel={opt.label}
+                accessibilityState={{ selected }}
+                haptic="selection"
+                containerStyle={styles.flex}
+                style={[styles.sexButton, selected ? styles.selected : styles.idle]}>
                 <Txt variant="body" tone={selected ? 'onAccent' : 'primary'} weight="600">
                   {opt.label}
                 </Txt>
-              </Pressable>
+              </Press>
             );
           })}
         </View>
 
-        <Txt variant="body" weight="600" className="mt-two">
+        <Txt variant="body" weight="600" style={styles.sectionLabel}>
           Ernährungsziel
         </Txt>
-        <View className="gap-two">
+        <View
+          style={styles.choiceList}
+          accessibilityRole="radiogroup"
+          accessibilityLabel="Ernährungsziel">
           {GOAL_OPTIONS.map((opt) => {
             const selected = weightGoal === opt.value;
             return (
-              <Pressable
+              <Press
                 key={opt.value}
                 onPress={() => setValue('weightGoal', selected ? undefined : opt.value)}
-                className={`profile-choice-card ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
+                accessibilityRole="radio"
+                accessibilityLabel={opt.label}
+                accessibilityState={{ selected }}
+                haptic="selection"
+                style={[styles.choice, selected ? styles.selected : styles.idle]}>
                 <Txt variant="body" tone={selected ? 'onAccent' : 'primary'} weight="500">
                   {opt.label}
                 </Txt>
-              </Pressable>
+              </Press>
             );
           })}
         </View>
 
-        <Txt variant="body" weight="600" className="mt-two">
+        <Txt variant="body" weight="600" style={styles.sectionLabel}>
           Aktivitätslevel im Alltag
         </Txt>
-        <View className="gap-two">
+        <View
+          style={styles.choiceList}
+          accessibilityRole="radiogroup"
+          accessibilityLabel="Aktivitätslevel im Alltag">
           {ACTIVITY_OPTIONS.map((opt) => {
             const selected = activityLevel === opt.value;
             return (
-              <Pressable
+              <Press
                 key={opt.value}
                 onPress={() => setValue('activityLevel', selected ? undefined : opt.value)}
-                className={`profile-choice-card ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
+                accessibilityRole="radio"
+                accessibilityLabel={opt.label}
+                accessibilityState={{ selected }}
+                haptic="selection"
+                style={[styles.choice, selected ? styles.selected : styles.idle]}>
                 <Txt variant="body" tone={selected ? 'onAccent' : 'primary'} weight="500">
                   {opt.label}
                 </Txt>
-              </Pressable>
+              </Press>
             );
           })}
         </View>
       </View>
 
-      <View className="perm-button-row">
-        <View className="flex-1">
+      <View style={styles.buttonRow}>
+        <View style={styles.flex}>
           <Button title="Weiter" onPress={() => void handleSubmit(submit)()} />
         </View>
-        <View className="flex-1">
+        <View style={styles.flex}>
           <Button title="Später ausfüllen" variant="secondary" onPress={onSkip} />
         </View>
       </View>

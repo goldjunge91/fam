@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Pressable, View } from 'react-native';
-import { Button, Txt } from '@/constants/ui';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { Button, Press, Surface, Txt } from '@/constants/ui';
 
 const SLIDES = [
   {
@@ -30,6 +31,54 @@ interface WelcomeCarouselProps {
   onStart: () => void;
 }
 
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    alignItems: 'center',
+    gap: theme.space.lg,
+    paddingVertical: theme.space.sm,
+  },
+  iconCircle: {
+    width: 96,
+    height: 96,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: theme.space.sm,
+    borderRadius: theme.radius.pill,
+  },
+  subtitle: {
+    paddingHorizontal: theme.space.sm,
+  },
+  paginationRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: theme.space.sm,
+  },
+  paginationButton: {
+    minWidth: 44,
+    minHeight: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paginationDot: {
+    height: theme.space.sm,
+    marginHorizontal: theme.space.xs,
+    borderRadius: theme.space.xs,
+  },
+  paginationDotActive: {
+    width: 24,
+    backgroundColor: theme.accent,
+  },
+  paginationDotIdle: {
+    width: theme.space.sm,
+    backgroundColor: theme.border,
+  },
+  buttonContainer: {
+    width: '100%',
+    marginTop: theme.space.sm,
+  },
+}));
+
 export function WelcomeCarousel({ onStart }: WelcomeCarouselProps) {
   const [slideIndex, setSlideIndex] = useState(0);
 
@@ -37,32 +86,45 @@ export function WelcomeCarousel({ onStart }: WelcomeCarouselProps) {
   const current = SLIDES[slideIndex];
 
   return (
-    <View className="complete-container">
-      <View className="complete-icon-circle">
+    <View style={styles.root}>
+      <Surface tone="surface" style={styles.iconCircle}>
         <Txt variant="display" center>
           {current.icon}
         </Txt>
-      </View>
+      </Surface>
 
       <Txt variant="subheading" weight="700" center>
         {current.title}
       </Txt>
 
-      <Txt variant="body" tone="secondary" center className="px-two">
+      <Txt variant="body" tone="secondary" center style={styles.subtitle}>
         {current.description}
       </Txt>
 
-      <View className="pagination-row">
+      <View
+        style={styles.paginationRow}
+        accessibilityRole="tablist"
+        accessibilityLabel="Onboarding-Folien">
         {SLIDES.map((slide, idx) => (
-          <Pressable
+          <Press
             key={slide.id}
             onPress={() => setSlideIndex(idx)}
-            className={`pagination-dot ${idx === slideIndex ? 'pagination-dot-active' : 'pagination-dot-idle'}`}
-          />
+            accessibilityRole="tab"
+            accessibilityLabel={`Folie ${idx + 1}`}
+            accessibilityState={{ selected: idx === slideIndex }}
+            haptic="selection"
+            style={styles.paginationButton}>
+            <View
+              style={[
+                styles.paginationDot,
+                idx === slideIndex ? styles.paginationDotActive : styles.paginationDotIdle,
+              ]}
+            />
+          </Press>
         ))}
       </View>
 
-      <View className="complete-button-container">
+      <View style={styles.buttonContainer}>
         {isLast ? (
           <Button title="Jetzt starten" onPress={onStart} />
         ) : (

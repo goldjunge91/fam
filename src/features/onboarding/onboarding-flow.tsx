@@ -1,11 +1,12 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton } from '@/components/ui/buttons';
 import { ProgressBar } from '@/components/ui/progress-bar';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { trackAnalyticsEvent } from '@/lib/analytics';
@@ -30,6 +31,23 @@ const STEP_NAMES: Record<number, string> = {
   6: 'permissions',
   7: 'complete',
 };
+
+const styles = StyleSheet.create((theme) => ({
+  progressContainer: {
+    paddingHorizontal: theme.space.xl + theme.space.xs,
+    marginBottom: theme.space.sm,
+  },
+  signoutLink: {
+    alignSelf: 'center',
+    minHeight: 44,
+    justifyContent: 'center',
+    marginTop: theme.space.sm,
+    paddingHorizontal: theme.space.sm,
+  },
+  signoutText: {
+    textDecorationLine: 'underline',
+  },
+}));
 
 function OnboardingContent() {
   const { colors } = useTheme();
@@ -56,19 +74,23 @@ function OnboardingContent() {
       // Schritt 4 verwaltet seine ScrollView selbst.
       scroll={currentStep !== 4}>
       {currentStep > 1 && currentStep < TOTAL_STEPS && (
-        <View className="progress-container">
+        <View style={styles.progressContainer}>
           {/* Nutzt bewusst `prevStep` aus dem Context statt Routing — die
               Schritte sind kein eigener Screen, sondern nur `currentStep`
               im Onboarding-State. */}
           <BackButton label="Zurück" onPress={prevStep} />
-          {/* ProgressBar erwartet einen echten Farbwert (kein className-Prop). */}
+          {/* ProgressBar erwartet einen echten Farbwert aus dem aktiven Theme. */}
           <ProgressBar value={currentStep / TOTAL_STEPS} color={colors.accent} />
           {session && (
-            <Pressable onPress={handleEmergencySignOut} className="signout-link">
-              <Txt variant="caption" tone="secondary" className="signout-text">
+            <Press
+              onPress={() => void handleEmergencySignOut()}
+              accessibilityRole="button"
+              accessibilityLabel="Abmelden und Onboarding neu starten"
+              style={styles.signoutLink}>
+              <Txt variant="caption" tone="secondary" style={styles.signoutText}>
                 Nicht du? Abmelden und neu starten
               </Txt>
-            </Pressable>
+            </Press>
           )}
         </View>
       )}
