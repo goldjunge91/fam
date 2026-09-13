@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
   list: { flex: 1 },
   content: { paddingHorizontal: 15, paddingTop: 4, paddingBottom: 126 },
   separator: { height: 10 },
+  footer: { paddingVertical: 18 },
 });
 
 function CardSeparator() {
@@ -20,7 +21,20 @@ function CardSeparator() {
 }
 
 export function RecipeCatalogScreen() {
-  const { data: recipes = [], isLoading } = useCatalogRecipes();
+  const {
+    data: recipes = [],
+    isLoading,
+    isError,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isFetchNextPageError,
+  } = useCatalogRecipes();
+
+  function loadMoreRecipes() {
+    if (!hasNextPage || isFetchingNextPage) return;
+    void fetchNextPage();
+  }
 
   const renderItem = useCallback(
     ({ item, index }: { item: CatalogRecipe; index: number }) => (
@@ -64,10 +78,23 @@ export function RecipeCatalogScreen() {
         ListEmptyComponent={
           isLoading ? (
             <ActivityIndicator />
+          ) : isError ? (
+            <Txt variant="body">Der Rezeptkatalog konnte nicht geladen werden.</Txt>
           ) : (
             <Txt variant="body">Der Rezeptkatalog ist noch leer.</Txt>
           )
         }
+        ListFooterComponent={
+          isFetchingNextPage ? (
+            <ActivityIndicator style={styles.footer} />
+          ) : isFetchNextPageError ? (
+            <Txt variant="body" tone="secondary" style={styles.footer}>
+              Weitere Rezepte konnten nicht geladen werden.
+            </Txt>
+          ) : null
+        }
+        onEndReached={loadMoreRecipes}
+        onEndReachedThreshold={0.4}
       />
     </HubScreen>
   );

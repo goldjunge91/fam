@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
@@ -116,18 +116,23 @@ export type CatalogDetail = {
   nutrition: NutritionTotal;
 };
 
-const CATALOG_IMAGE_BATCH_SIZE = 200;
+export const CATALOG_RECIPE_PAGE_SIZE = 20;
 const CATALOG_RECIPE_LIST_COLUMNS =
   'id, external_id, slug, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, status, sort_order';
 
-export function splitIntoChunks<T>(items: readonly T[], size: number): T[][] {
-  if (size <= 0) throw new Error('Die Batchgröße muss größer als null sein.');
-  const chunks: T[][] = [];
-  for (let index = 0; index < items.length; index += size) {
-    chunks.push(items.slice(index, index + size));
-  }
-  return chunks;
-}
+export type CatalogRecipeQueryOptions = {
+  dishTypes?: readonly string[];
+  searchQuery?: string;
+};
+
+export type CatalogRecipePage = {
+  recipes: CatalogRecipe[];
+  hasMore: boolean;
+};
+
+type CatalogRecipePageRequest = CatalogRecipeQueryOptions & {
+  offset: number;
+};
 
 export function getCatalogImageReference(
   image: Pick<CatalogImage, 'storage_path' | 'source_url'> | null | undefined,
@@ -181,6 +186,71 @@ export function toCookingRecipeDetail(detail: CatalogDetail): RecipeDetail {
 
 const client = () => getSupabase() as unknown as SupabaseClient;
 
+function escapeIlikePattern(value: string) {
+  return value.replace(/[\\%_]/g, (character) => `\\${character}`);
+}
+
+async function fetchCatalogRecipePage({
+  offset,
+  dishTypes,
+  searchQuery,
+}: CatalogRecipePageRequest): Promise<CatalogRecipePage> {
+  let request = client()
+    .from('catalog_recipes')
+    .select(CATALOG_RECIPE_LIST_COLUMNS)
+    .eq('status', 'published');
+
+  if (dishTypes?.length) request = request.overlaps('dish_types', [...dishTypes]);
+
+  const normalizedSearchQuery = searchQuery?.trim();
+  if (normalizedSearchQuery) {
+    request = request.ilike('title', `%${escapeIlikePattern(normalizedSearchQuery)}%`);
+  }
+
+  const { data, error } = await request
+    .order('sort_order', { ascending: true })
+    .order('title', { ascending: true })
+    .order('id', { ascending: true })
+    .range(offset, offset + CATALOG_RECIPE_PAGE_SIZE - 1);
+  if (error) throw error;
+
+  const recipes = (data ?? []) as CatalogRecipe[];
+  if (recipes.length === 0) return { recipes, hasMore: false };
+
+  const { data: imageRows, error: imageError } = await client()
+    .from('catalog_recipe_images')
+    .select('recipe_id, storage_path, source_url')
+    .in(
+      'recipe_id',
+      recipes.map((recipe) => recipe.id),
+    )
+    .order('position', { ascending: true });
+  if (imageError) throw imageError;
+
+  const coverByRecipe = new Map<string, string>();
+  for (const image of imageRows ?? []) {
+    const imageReference = getCatalogImageReference(image);
+    if (!coverByRecipe.has(image.recipe_id) && imageReference) {
+      coverByRecipe.set(image.recipe_id, imageReference);
+    }
+  }
+
+  return {
+    recipes: recipes.map((recipe) => ({
+      ...recipe,
+      cover_image_path: getCatalogCoverPath(recipe, coverByRecipe.get(recipe.id)),
+    })),
+    hasMore: recipes.length === CATALOG_RECIPE_PAGE_SIZE,
+  };
+}
+
+export function getNextCatalogPageParam(
+  lastPage: CatalogRecipePage,
+  lastPageParam: number,
+): number | undefined {
+  return lastPage.hasMore ? lastPageParam + CATALOG_RECIPE_PAGE_SIZE : undefined;
+}
+
 function templateCoverPath(detail: CatalogDetail): string | null {
   return getCatalogCoverPath(detail.recipe, getCatalogImageReference(detail.images[0]));
 }
@@ -230,45 +300,18 @@ function validateCopyDetail(detail: CatalogDetail) {
   }
 }
 
-export function useCatalogRecipes() {
-  return useQuery({
-    queryKey: ['catalog-recipes'],
-    queryFn: async () => {
-      const { data, error } = await client()
-        .from('catalog_recipes')
-        .select(CATALOG_RECIPE_LIST_COLUMNS)
-        .eq('status', 'published')
-        .order('sort_order')
-        .order('title');
-      if (error) throw error;
-      const recipes = (data ?? []) as CatalogRecipe[];
-      const imageRows = (
-        await Promise.all(
-          splitIntoChunks(
-            recipes.map((recipe) => recipe.id),
-            CATALOG_IMAGE_BATCH_SIZE,
-          ).map(async (recipeIds) => {
-            const images = await client()
-              .from('catalog_recipe_images')
-              .select('recipe_id, storage_path, source_url')
-              .in('recipe_id', recipeIds)
-              .order('position');
-            if (images.error) throw images.error;
-            return images.data ?? [];
-          }),
-        )
-      ).flat();
-      const coverByRecipe = new Map<string, string>();
-      for (const image of imageRows) {
-        const imageReference = getCatalogImageReference(image);
-        if (!coverByRecipe.has(image.recipe_id) && imageReference)
-          coverByRecipe.set(image.recipe_id, imageReference);
-      }
-      return recipes.map((recipe) => ({
-        ...recipe,
-        cover_image_path: getCatalogCoverPath(recipe, coverByRecipe.get(recipe.id)),
-      }));
-    },
+export function useCatalogRecipes(options: CatalogRecipeQueryOptions = {}) {
+  const dishTypes = options.dishTypes ?? [];
+  const searchQuery = options.searchQuery?.trim() ?? '';
+
+  return useInfiniteQuery({
+    queryKey: ['catalog-recipes', dishTypes.join(','), searchQuery],
+    initialPageParam: 0,
+    queryFn: ({ pageParam }) =>
+      fetchCatalogRecipePage({ offset: pageParam, dishTypes, searchQuery }),
+    getNextPageParam: (lastPage, _pages, lastPageParam) =>
+      getNextCatalogPageParam(lastPage, lastPageParam),
+    select: (result) => result.pages.flatMap((page) => page.recipes),
   });
 }
 

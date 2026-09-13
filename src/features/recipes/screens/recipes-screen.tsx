@@ -49,10 +49,6 @@ const MEAL_SECTIONS: { key: string; title: string; dishTypes: DishType[] }[] = [
   { key: 'snackDessert', title: 'Snacks & Dessert', dishTypes: ['snack', 'dessert'] },
 ];
 
-// Die Karussells rendern in Seiten, damit der erste Aufbau nicht den kompletten
-// Katalog in den React-Baum übernimmt. Weitere Seiten erscheinen beim Scrollen.
-const MEAL_SECTION_PAGE_SIZE = 10;
-
 type RecipeView = 'discover' | 'favorites' | 'filtered' | 'household' | 'templates';
 
 type RecipeEntry = {
@@ -264,6 +260,10 @@ const styles = StyleSheet.create((theme) => ({
   loading: {
     marginTop: space.xxxl,
   },
+  mealLoading: {
+    paddingHorizontal: rs(18),
+    alignSelf: 'center',
+  },
 }));
 
 function ListGap() {
@@ -273,16 +273,25 @@ function ListGap() {
 /** Horizontal scrollende Foto-Karten fuer eine Mahlzeitenkategorie. */
 function MealSection({
   title,
-  entries,
-  hasMore,
-  onLoadMore,
+  dishTypes,
+  searchQuery,
 }: {
   title: string;
-  entries: RecipeEntry[];
-  hasMore: boolean;
-  onLoadMore: () => void;
+  dishTypes: readonly string[];
+  searchQuery: string;
 }) {
+  const { colors } = useTheme();
   const { width: windowWidth } = useWindowDimensions();
+  const {
+    data: templates = [],
+    isLoading,
+    isError,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isFetchNextPageError,
+  } = useCatalogRecipes({ dishTypes, searchQuery });
+  const entries = useMemo(() => templates.map(templateEntry), [templates]);
   const requestedMore = useRef(false);
   const previousEntries = useRef(entries);
   const contentWidth = Math.min(windowWidth, 800) - 30;
@@ -295,7 +304,8 @@ function MealSection({
   }, [entries]);
 
   function handleScroll(event: NativeSyntheticEvent<NativeScrollEvent>) {
-    if (!hasMore) return;
+    if (!hasNextPage || isFetchingNextPage) return;
+    if (isFetchNextPageError) requestedMore.current = false;
 
     const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent;
     const distanceToEnd = contentSize.width - (contentOffset.x + layoutMeasurement.width);
@@ -303,11 +313,37 @@ function MealSection({
     if (distanceToEnd <= threshold) {
       if (requestedMore.current) return;
       requestedMore.current = true;
-      onLoadMore();
+      void fetchNextPage();
       return;
     }
     requestedMore.current = false;
   }
+
+  if (isLoading) {
+    return (
+      <View style={styles.section}>
+        <SectionHeading title={title} />
+        <ActivityIndicator
+          accessibilityLabel={`${title} Rezepte werden geladen`}
+          color={colors.basil}
+          style={styles.mealLoading}
+        />
+      </View>
+    );
+  }
+
+  if (isError) {
+    return (
+      <View style={styles.section}>
+        <SectionHeading title={title} />
+        <Txt variant="body" tone="secondary">
+          Rezepte konnten nicht geladen werden.
+        </Txt>
+      </View>
+    );
+  }
+
+  if (entries.length === 0) return null;
 
   return (
     <View style={styles.section}>
@@ -341,6 +377,17 @@ function MealSection({
             />
           </View>
         ))}
+        {isFetchingNextPage ? (
+          <ActivityIndicator
+            accessibilityLabel={`${title}: weitere Rezepte werden geladen`}
+            color={colors.basil}
+            style={styles.mealLoading}
+          />
+        ) : isFetchNextPageError ? (
+          <Txt variant="body" tone="secondary" style={styles.mealLoading}>
+            Weitere Rezepte konnten nicht geladen werden.
+          </Txt>
+        ) : null}
       </ScrollView>
     </View>
   );
@@ -368,7 +415,6 @@ export function RecipesScreen() {
   const [filters, setFilters] = useState<RecipeFilters>(EMPTY_RECIPE_FILTERS);
   const [templateCategoryFilter, setTemplateCategoryFilter] = useState<string | null>(null);
   const [templateCalorieFilter, setTemplateCalorieFilter] = useState<number | null>(null);
-  const [mealSectionLimits, setMealSectionLimits] = useState<Record<string, number>>({});
 
   const { activeHouseholdId } = useActiveHousehold();
   const {
@@ -380,6 +426,10 @@ export function RecipesScreen() {
     data: templates = [],
     isLoading: templatesLoading,
     isError: templatesError,
+    fetchNextPage: fetchNextCatalogPage,
+    hasNextPage: hasNextCatalogPage,
+    isFetchingNextPage: isFetchingNextCatalogPage,
+    isFetchNextPageError: isFetchNextCatalogPageError,
   } = useCatalogRecipes();
   const { favorites } = useRecipeFavorites();
 
@@ -419,22 +469,6 @@ export function RecipesScreen() {
       .map(templateEntry)
       .filter((entry) => !bucket || matchesTemplateCalorieBucket(entry, bucket));
   }, [searchedTemplates, templateEntries, templateCategoryFilter, templateCalorieFilter]);
-
-  const mealSections = useMemo(
-    () =>
-      MEAL_SECTIONS.map((section) => {
-        const matchingTemplates = searchedTemplates.filter((template) =>
-          section.dishTypes.some((type) => template.dish_types.includes(type)),
-        );
-        const limit = mealSectionLimits[section.key] ?? MEAL_SECTION_PAGE_SIZE;
-        return {
-          ...section,
-          totalCount: matchingTemplates.length,
-          entries: matchingTemplates.slice(0, limit).map(templateEntry),
-        };
-      }).filter((section) => section.entries.length > 0),
-    [mealSectionLimits, searchedTemplates],
-  );
 
   const allEntries = [...householdEntries, ...templateEntries];
   const availableTags = [...new Set(recipes.flatMap((recipe) => recipe.hashtags))].sort((a, b) =>
@@ -506,11 +540,9 @@ export function RecipesScreen() {
     setView(recipeFilterCount(nextFilters) > 0 ? 'filtered' : 'discover');
   }
 
-  function loadMoreMealSection(key: string) {
-    setMealSectionLimits((current) => ({
-      ...current,
-      [key]: (current[key] ?? MEAL_SECTION_PAGE_SIZE) + MEAL_SECTION_PAGE_SIZE,
-    }));
+  function loadMoreCatalogRecipes() {
+    if (!hasNextCatalogPage || isFetchingNextCatalogPage) return;
+    void fetchNextCatalogPage();
   }
 
   const activeCategoryTile = templateCategoryFilter
@@ -659,9 +691,24 @@ export function RecipesScreen() {
           ItemSeparatorComponent={ListGap}
           ListHeaderComponent={headerContent}
           ListEmptyComponent={<EmptyPanel>{listView.empty}</EmptyPanel>}
+          ListFooterComponent={
+            view !== 'household' && isFetchingNextCatalogPage ? (
+              <ActivityIndicator
+                accessibilityLabel="Weitere Katalogrezepte werden geladen"
+                color={colors.basil}
+                style={styles.mealLoading}
+              />
+            ) : view !== 'household' && isFetchNextCatalogPageError ? (
+              <Txt variant="body" tone="secondary" style={styles.mealLoading}>
+                Weitere Rezepte konnten nicht geladen werden.
+              </Txt>
+            ) : null
+          }
           contentContainerStyle={styles.listContent}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
+          onEndReached={view === 'household' ? undefined : loadMoreCatalogRecipes}
+          onEndReachedThreshold={0.4}
         />
       ) : (
         <ScrollView
@@ -699,20 +746,17 @@ export function RecipesScreen() {
                 />
               </View>
 
-              {mealSections.length > 0 ? (
-                <View style={styles.section}>
-                  <SectionHeading title="Nach Mahlzeiten" titleVariant="heading" />
-                  {mealSections.map((section) => (
-                    <MealSection
-                      key={section.key}
-                      title={section.title}
-                      entries={section.entries}
-                      hasMore={section.entries.length < section.totalCount}
-                      onLoadMore={() => loadMoreMealSection(section.key)}
-                    />
-                  ))}
-                </View>
-              ) : null}
+              <View style={styles.section}>
+                <SectionHeading title="Nach Mahlzeiten" titleVariant="heading" />
+                {MEAL_SECTIONS.map((section) => (
+                  <MealSection
+                    key={section.key}
+                    title={section.title}
+                    dishTypes={section.dishTypes}
+                    searchQuery={query}
+                  />
+                ))}
+              </View>
             </>
           ) : (
             /* Leerzustand wenn keine Rezepte/Vorlagen vorhanden sind */

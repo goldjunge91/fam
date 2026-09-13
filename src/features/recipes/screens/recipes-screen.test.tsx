@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, userEvent, within } from '@testing-library/react-native';
 import { router } from 'expo-router';
-import type { CatalogRecipe } from '../catalog/use-recipe-catalog';
+import type { CatalogRecipe, CatalogRecipeQueryOptions } from '../catalog/use-recipe-catalog';
 import type { RecipeListItem } from '../hooks/use-recipes';
 import { RecipesScreen } from './recipes-screen';
 
@@ -8,6 +8,7 @@ let mockRecipes: RecipeListItem[] = [];
 let mockCatalogRecipes: CatalogRecipe[] = [];
 const mockOpenDrawer = jest.fn();
 const mockOpenProfile = jest.fn();
+const mockFetchNextPage = jest.fn();
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
@@ -23,7 +24,28 @@ jest.mock('../hooks/use-recipes', () => ({
 }));
 
 jest.mock('../catalog/use-recipe-catalog', () => ({
-  useCatalogRecipes: () => ({ data: mockCatalogRecipes, isLoading: false }),
+  useCatalogRecipes: ({ dishTypes, searchQuery }: CatalogRecipeQueryOptions = {}) => {
+    const matches = mockCatalogRecipes
+      .filter(
+        (recipe) =>
+          !dishTypes?.length || dishTypes.some((dishType) => recipe.dish_types.includes(dishType)),
+      )
+      .filter(
+        (recipe) =>
+          !searchQuery ||
+          recipe.title.toLocaleLowerCase('de').includes(searchQuery.toLocaleLowerCase('de')),
+      );
+    const isMealSection = Boolean(dishTypes?.length);
+    return {
+      data: isMealSection ? matches.slice(0, 10) : matches,
+      isLoading: false,
+      isError: false,
+      fetchNextPage: mockFetchNextPage,
+      hasNextPage: isMealSection && matches.length > 10,
+      isFetchingNextPage: false,
+      isFetchNextPageError: false,
+    };
+  },
   useCatalogImageUrl: () => ({ data: null }),
 }));
 
@@ -84,6 +106,7 @@ beforeEach(() => {
   mockCatalogRecipes = [];
   mockOpenDrawer.mockClear();
   mockOpenProfile.mockClear();
+  mockFetchNextPage.mockClear();
   (router.push as jest.Mock).mockClear();
 });
 
@@ -154,7 +177,7 @@ describe('RecipesScreen — Entdecken', () => {
     expect(screen.getByRole('button', { name: 'Pizza Home' })).toBeOnTheScreen();
   });
 
-  it('rendert weitere Rezepte einer Mahlzeit beim Scrollen nach', async () => {
+  it('fordert weitere Rezepte einer Mahlzeit beim Scrollen nach an', async () => {
     mockCatalogRecipes = Array.from({ length: 21 }, (_, index) =>
       makeCatalogRecipe({
         id: `breakfast-${index + 1}`,
@@ -177,18 +200,15 @@ describe('RecipesScreen — Entdecken', () => {
       },
     });
 
-    expect(screen.getByRole('button', { name: 'Frühstück 11' })).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Frühstück 20' })).toBeOnTheScreen();
-
     await fireEvent.scroll(screen.getByTestId('meal-section-Frühstück'), {
       nativeEvent: {
-        contentOffset: { x: 9700, y: 0 },
-        contentSize: { width: 10000, height: 200 },
+        contentOffset: { x: 4700, y: 0 },
+        contentSize: { width: 5000, height: 200 },
         layoutMeasurement: { width: 350, height: 200 },
       },
     });
 
-    expect(screen.getByRole('button', { name: 'Frühstück 21' })).toBeOnTheScreen();
+    expect(mockFetchNextPage).toHaveBeenCalledTimes(1);
   });
 
   it('öffnet das Navigationsmenü über den Header', async () => {
