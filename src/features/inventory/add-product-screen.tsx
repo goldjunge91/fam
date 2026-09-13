@@ -1,11 +1,29 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Alert, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { Button, TextField } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { setPendingProductSelection } from '@/features/inventory/pending-product-selection';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
+
+const styles = StyleSheet.create((theme) => ({
+  form: {
+    gap: theme.space.lg,
+    marginTop: theme.space.lg,
+  },
+  nutritionRow: {
+    flexDirection: 'row',
+    gap: theme.space.xl + theme.space.xs,
+  },
+  flex: {
+    flex: 1,
+  },
+  saveAction: {
+    marginTop: theme.space.lg,
+  },
+}));
 
 function parseOptionalNumber(value: string): number | undefined {
   const trimmed = value.trim();
@@ -64,7 +82,7 @@ export function AddProductScreen() {
 
   return (
     <Screen title="Produkt anlegen" back={{ label: 'Abbrechen' }}>
-      <View className="gap-three mt-three">
+      <View style={styles.form}>
         {/* Produkt-Stammdaten: Name und optionale Marke */}
         <TextField
           label="Name"
@@ -75,8 +93,8 @@ export function AddProductScreen() {
         <TextField label="Marke (optional)" value={brand} onChangeText={setBrand} />
 
         {/* Nährwert-Eingaben bezogen auf 100g (kcal, Kohlenhydrate, Eiweiß, Fett) */}
-        <View className="flex-row gap-four">
-          <View className="flex-1">
+        <View style={styles.nutritionRow}>
+          <View style={styles.flex}>
             <TextField
               label="kcal pro 100g"
               value={kcalInput}
@@ -84,7 +102,7 @@ export function AddProductScreen() {
               keyboardType="numeric"
             />
           </View>
-          <View className="flex-1">
+          <View style={styles.flex}>
             <TextField
               label="Kohlenhydrate pro 100g"
               value={carbsInput}
@@ -93,8 +111,8 @@ export function AddProductScreen() {
             />
           </View>
         </View>
-        <View className="flex-row gap-four">
-          <View className="flex-1">
+        <View style={styles.nutritionRow}>
+          <View style={styles.flex}>
             <TextField
               label="Eiweiß pro 100g"
               value={proteinInput}
@@ -102,7 +120,7 @@ export function AddProductScreen() {
               keyboardType="numeric"
             />
           </View>
-          <View className="flex-1">
+          <View style={styles.flex}>
             <TextField
               label="Fett pro 100g"
               value={fatInput}
@@ -122,7 +140,7 @@ export function AddProductScreen() {
         />
 
         {/* Aktions-Buttons: Produkt anlegen / Abbrechen */}
-        <View className="mt-three">
+        <View style={styles.saveAction}>
           <Button
             title="Speichern"
             onPress={handleSave}

@@ -5,6 +5,7 @@ import { useCallback, useRef, useState } from 'react';
 import { Keyboard, Pressable, View } from 'react-native';
 import { KeyboardAwareScrollView, KeyboardToolbar } from 'react-native-keyboard-controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
@@ -76,6 +77,101 @@ function quickDateOffset(key: QuickDateKey): string {
       return '';
   }
 }
+
+const styles = StyleSheet.create((theme) => ({
+  flex: {
+    flex: 1,
+  },
+  modalSafeArea: {
+    flex: 1,
+    paddingHorizontal: theme.space.xl + theme.space.xs,
+  },
+  modalHandle: {
+    width: 36,
+    height: 4,
+    alignSelf: 'center',
+    marginTop: 10,
+    borderRadius: 2,
+    backgroundColor: theme.border,
+  },
+  modalHeader: {
+    minHeight: 54,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingTop: theme.space.sm,
+    paddingBottom: theme.space.lg,
+  },
+  modalClose: {
+    width: 32,
+    height: 32,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.backgroundElement,
+  },
+  scrollContent: {
+    gap: theme.space.lg,
+    paddingBottom: theme.space.xl + theme.space.xs,
+  },
+  scannerButton: {
+    width: 48,
+    height: 48,
+  },
+  productCard: {
+    minHeight: 62,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.sm,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.backgroundSoft,
+  },
+  productCopy: {
+    flex: 1,
+    gap: theme.space.xs / 2,
+  },
+  productQuantity: {
+    alignItems: 'flex-end',
+    gap: theme.space.xs / 2,
+  },
+  controlsRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    gap: theme.space.sm,
+  },
+  controlColumn: {
+    flex: 1,
+    gap: theme.space.xs,
+  },
+  selfStart: {
+    alignSelf: 'flex-start',
+  },
+  newLocationBox: {
+    gap: theme.space.lg,
+    padding: theme.space.lg,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    borderRadius: theme.radius.sm,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  detailsToggle: {
+    minHeight: 36,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  details: {
+    gap: theme.space.lg,
+  },
+}));
 
 export function AddItemScreen() {
   const { colors } = useTheme();
@@ -233,8 +329,8 @@ export function AddItemScreen() {
   }
 
   return (
-    <Surface tone="page" className="flex-1">
-      <SafeAreaView className="modal-safe-area" edges={['top', 'left', 'right', 'bottom']}>
+    <Surface tone="page" style={styles.flex}>
+      <SafeAreaView style={styles.modalSafeArea} edges={['top', 'left', 'right', 'bottom']}>
         {}
         <Pressable
           onPress={() => {
@@ -242,14 +338,14 @@ export function AddItemScreen() {
             Keyboard.dismiss();
           }}
           accessible={false}>
-          <View className="modal-handle" />
-          <View className="modal-header min-h-[54px]">
+          <View style={styles.modalHandle} />
+          <View style={styles.modalHeader}>
             <Txt variant="heading">Artikel hinzufügen</Txt>
             <Pressable
               onPress={() => router.back()}
               accessibilityRole="button"
               accessibilityLabel="Schließen"
-              className="modal-close-btn">
+              style={styles.modalClose}>
               <Txt variant="body" tone="secondary">
                 ✕
               </Txt>
@@ -259,9 +355,9 @@ export function AddItemScreen() {
 
         {}
         <KeyboardAwareScrollView
-          className="flex-1"
+          style={styles.flex}
           bottomOffset={24}
-          contentContainerClassName="gap-three pb-four"
+          contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}>
           {/* Produktsuche mit integriertem Barcode-Scan-Button */}
@@ -281,8 +377,8 @@ export function AddItemScreen() {
               <HeaderIconButton
                 label="Barcode scannen"
                 onPress={() => setShowScanner(true)}
-                style={{ width: 48, height: 48 }}>
-                <FamIcon name="camera" size={space.xxl} color={colors.basil} />
+                style={styles.scannerButton}>
+                <FamIcon name="camera" size={space.xxl} color={colors.accent} />
               </HeaderIconButton>
             }
           />
@@ -307,8 +403,8 @@ export function AddItemScreen() {
 
           {/* Zusammenfassungskarte des ausgewählten Produkts */}
           {name.trim() ? (
-            <View className="edit-fridge-product-card">
-              <View className="edit-fridge-product-copy">
+            <View style={styles.productCard}>
+              <View style={styles.productCopy}>
                 <Txt variant="body" weight="700" numberOfLines={1}>
                   {name.trim()}
                 </Txt>
@@ -316,7 +412,7 @@ export function AddItemScreen() {
                   {selectedProduct?.brand ?? 'Manueller Eintrag'}
                 </Txt>
               </View>
-              <View className="edit-fridge-product-quantity">
+              <View style={styles.productQuantity}>
                 <Txt variant="body" weight="700">
                   {packageSize ? `${packageSize} ${packageSizeUnit}` : `${quantity} ${unit}`}
                 </Txt>
@@ -328,8 +424,8 @@ export function AddItemScreen() {
           ) : null}
 
           {/* Eingabefelder für Menge und Lagerort */}
-          <View className="edit-fridge-controls-row">
-            <View className="edit-fridge-control-column">
+          <View style={styles.controlsRow}>
+            <View style={styles.controlColumn}>
               <Txt variant="body" tone="secondary">
                 Menge
               </Txt>
@@ -341,7 +437,7 @@ export function AddItemScreen() {
                 size="large"
               />
             </View>
-            <View className="edit-fridge-control-column">
+            <View style={styles.controlColumn}>
               {locationsLoading ? (
                 <Txt variant="body" tone="secondary">
                   Lädt Lagerorte…
@@ -367,21 +463,21 @@ export function AddItemScreen() {
             <Pressable
               onPress={() => setShowAddLocation(true)}
               accessibilityRole="button"
-              className="self-start">
+              style={styles.selfStart}>
               <Txt variant="body" tone="primary" weight="700">
                 + Neuer Lagerort
               </Txt>
             </Pressable>
           ) : (
-            <View className="ai-new-location-box">
+            <View style={styles.newLocationBox}>
               <TextField
                 label="Name des Lagerorts"
                 placeholder="z.B. Keller, Regalfach, Gefrierfach"
                 value={newLocationName}
                 onChangeText={setNewLocationName}
               />
-              <View className="flex-row gap-two">
-                <View className="flex-1">
+              <View style={styles.buttonRow}>
+                <View style={styles.flex}>
                   <Button
                     title="Erstellen"
                     onPress={handleAddLocation}
@@ -389,7 +485,7 @@ export function AddItemScreen() {
                     disabled={!newLocationName.trim()}
                   />
                 </View>
-                <View className="flex-1">
+                <View style={styles.flex}>
                   <Button
                     title="Abbrechen"
                     variant="secondary"
@@ -409,7 +505,7 @@ export function AddItemScreen() {
             accessibilityRole="button"
             accessibilityLabel={`${detailsOpen ? 'Weitere Angaben schließen' : 'Weitere Angaben öffnen'}`}
             accessibilityState={{ expanded: detailsOpen }}
-            className="edit-fridge-details-toggle">
+            style={styles.detailsToggle}>
             <Txt tone="secondary">{detailsOpen ? '⌄' : '›'}</Txt>
             <Txt variant="body" tone="primary">
               Weitere Angaben
@@ -417,7 +513,7 @@ export function AddItemScreen() {
           </Pressable>
 
           {detailsOpen ? (
-            <View className="gap-three">
+            <View style={styles.details}>
               {/* Einheitenauswahl */}
               <WheelPickerField
                 label="Einheit"

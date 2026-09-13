@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import { Dimensions, Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
+import { Dimensions, Modal, Platform, Pressable, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
-import { radius, space, withAlpha } from '@/components/theme/index';
+import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Button, IconButton, TextField, Txt } from '@/constants/ui';
@@ -22,6 +23,97 @@ type EditInventoryItemSheetProps = {
   locations: StorageLocation[];
   onClose: () => void;
 };
+
+const styles = StyleSheet.create((theme) => ({
+  modalRoot: {
+    justifyContent: 'flex-end',
+  },
+  backdrop: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: theme.scrim,
+  },
+  sheet: {
+    maxHeight: '91%',
+    paddingTop: 10,
+    borderTopLeftRadius: theme.radius.famLarge,
+    borderTopRightRadius: theme.radius.famLarge,
+    backgroundColor: theme.backgroundElement,
+  },
+  handle: {
+    width: 42,
+    height: 4,
+    alignSelf: 'center',
+    borderRadius: 2,
+    backgroundColor: theme.border,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: theme.space.lg,
+    paddingTop: theme.space.xs,
+    paddingBottom: theme.space.sm,
+  },
+  closeButton: {
+    borderRadius: theme.radius.lg,
+    shadowOpacity: 0,
+    elevation: 0,
+  },
+  content: {
+    flex: 1,
+  },
+  contentContainer: {
+    gap: theme.space.md,
+    paddingHorizontal: theme.space.lg,
+    paddingBottom: theme.space.md,
+  },
+  productCard: {
+    minHeight: 62,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.sm,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.backgroundSoft,
+  },
+  productCopy: {
+    flex: 1,
+    gap: theme.space.xs / 2,
+  },
+  productQuantity: {
+    alignItems: 'flex-end',
+    gap: theme.space.xs / 2,
+  },
+  controlsRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    gap: theme.space.sm,
+  },
+  controlColumn: {
+    flex: 1,
+    gap: theme.space.xs,
+  },
+  detailsToggle: {
+    minHeight: 36,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  details: {
+    gap: theme.space.lg,
+  },
+  openedDetails: {
+    gap: theme.space.xs,
+  },
+}));
 
 export function EditInventoryItemSheet({
   visible,
@@ -168,34 +260,28 @@ export function EditInventoryItemSheet({
       animationType="slide"
       presentationStyle={Platform.OS === 'ios' ? 'overFullScreen' : undefined}
       onRequestClose={onClose}>
-      <View style={[StyleSheet.absoluteFill, { justifyContent: 'flex-end' }]}>
+      <View style={[StyleSheet.absoluteFill, styles.modalRoot]}>
         <Pressable
-          className="fridge-actions-backdrop"
+          style={styles.backdrop}
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel="Artikel bearbeiten schließen"
         />
 
         <View
-          className="edit-fridge-sheet"
+          testID="edit-inventory-item-sheet"
           style={[
+            styles.sheet,
             sheetStyle,
             {
               width: '100%',
               height: maxSheetHeight,
               maxHeight: maxSheetHeight,
-              backgroundColor: colors.backgroundElement,
             },
           ]}>
-          <View className="fridge-actions-handle" />
+          <View style={styles.handle} />
 
-          <View
-            className="flex-row items-center justify-between"
-            style={{
-              paddingHorizontal: space.lg,
-              paddingTop: space.xs,
-              paddingBottom: space.sm,
-            }}>
+          <View style={styles.header}>
             <Txt variant="title">Artikel bearbeiten</Txt>
             <IconButton
               icon="x"
@@ -205,21 +291,13 @@ export function EditInventoryItemSheet({
               bg={withAlpha(colors.tomato, 1)}
               size={40}
               iconSize={22}
-              style={{
-                borderRadius: radius.lg,
-                shadowOpacity: 0,
-                elevation: 0,
-              }}
+              style={styles.closeButton}
             />
           </View>
 
           <KeyboardAwareScrollView
-            style={{ flex: 1 }}
-            contentContainerStyle={{
-              paddingHorizontal: space.lg,
-              paddingBottom: space.md,
-              gap: space.md,
-            }}
+            style={styles.content}
+            contentContainerStyle={styles.contentContainer}
             keyboardShouldPersistTaps="handled"
             showsVerticalScrollIndicator={false}
             bottomOffset={24}>
@@ -231,8 +309,8 @@ export function EditInventoryItemSheet({
               placeholder="z. B. Vollmilch"
             />
 
-            <View className="edit-fridge-product-card">
-              <View className="edit-fridge-product-copy">
+            <View style={styles.productCard}>
+              <View style={styles.productCopy}>
                 <Txt variant="body" weight="700">
                   {name.trim() || currentItem.name}
                 </Txt>
@@ -240,7 +318,7 @@ export function EditInventoryItemSheet({
                   {locationName}
                 </Txt>
               </View>
-              <View className="edit-fridge-product-quantity">
+              <View style={styles.productQuantity}>
                 <Txt variant="body" weight="700">
                   {quantity} {unit}
                 </Txt>
@@ -250,8 +328,8 @@ export function EditInventoryItemSheet({
               </View>
             </View>
 
-            <View className="edit-fridge-controls-row">
-              <View className="edit-fridge-control-column">
+            <View style={styles.controlsRow}>
+              <View style={styles.controlColumn}>
                 <Txt variant="body" tone="secondary">
                   Menge
                 </Txt>
@@ -263,7 +341,7 @@ export function EditInventoryItemSheet({
                 />
               </View>
 
-              <View className="edit-fridge-control-column">
+              <View style={styles.controlColumn}>
                 <WheelPickerField
                   label="Lagerort"
                   value={locationId}
@@ -278,7 +356,7 @@ export function EditInventoryItemSheet({
               accessibilityRole="button"
               accessibilityLabel={`${detailsOpen ? 'Weitere Angaben schließen' : 'Weitere Angaben öffnen'}`}
               accessibilityState={{ expanded: detailsOpen }}
-              className="edit-fridge-details-toggle">
+              style={styles.detailsToggle}>
               <Txt tone="secondary">{detailsOpen ? '⌄' : '›'}</Txt>
               <Txt variant="body" tone="primary">
                 Weitere Angaben
@@ -286,7 +364,7 @@ export function EditInventoryItemSheet({
             </Pressable>
 
             {detailsOpen ? (
-              <View className="gap-three">
+              <View style={styles.details}>
                 <WheelPickerField
                   label="Einheit"
                   value={unit}
@@ -299,7 +377,7 @@ export function EditInventoryItemSheet({
                   onChange={handleExpiryDateChange}
                 />
                 {openedAt ? (
-                  <View className="gap-one">
+                  <View style={styles.openedDetails}>
                     <Txt variant="caption" tone="secondary">
                       Dieses Los ist seit {new Date(openedAt).toLocaleDateString('de-DE')} geöffnet.
                     </Txt>

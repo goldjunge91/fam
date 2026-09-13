@@ -1,8 +1,64 @@
 import * as Haptics from 'expo-haptics';
 import { useEffect, useRef } from 'react';
-import { ActivityIndicator, Modal, Pressable, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, Modal, Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Txt } from '@/constants/ui';
+
+const styles = StyleSheet.create((theme) => ({
+  backdrop: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    backgroundColor: theme.scrim,
+  },
+  modalBox: {
+    height: '80%',
+    padding: theme.space.xl + theme.space.xs,
+    gap: theme.space.lg,
+    borderTopLeftRadius: theme.radius.famLarge,
+    borderTopRightRadius: theme.radius.famLarge,
+    backgroundColor: theme.background,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  closeButton: {
+    minWidth: 44,
+    minHeight: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  permission: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.space.lg,
+    paddingHorizontal: theme.space.lg,
+  },
+  camera: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    borderRadius: theme.radius.md,
+  },
+  targetFrame: {
+    width: 220,
+    height: 140,
+    borderWidth: theme.borderWidth.strong,
+    borderRadius: theme.radius.sm,
+    borderColor: theme.accent,
+    backgroundColor: 'transparent',
+  },
+  status: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.space.sm,
+  },
+}));
 
 // Defensiver Import: Verhindert App-Crashes ("Cannot find native module ExpoCamera"),
 // wenn der Native Dev Build noch nicht kompiliert wurde oder Expo Go genutzt wird.
@@ -71,11 +127,16 @@ export function BarcodeScannerModal({
 
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
-      <View className="scanner-backdrop">
-        <View className="scanner-modal-box bg-background">
-          <View className="modal-header-row">
+      <View style={styles.backdrop}>
+        <View style={styles.modalBox}>
+          <View style={styles.header}>
             <Txt variant="title">📷 Barcode scannen</Txt>
-            <Pressable onPress={onClose} hitSlop={10}>
+            <Pressable
+              onPress={onClose}
+              hitSlop={10}
+              accessibilityRole="button"
+              accessibilityLabel="Schließen"
+              style={styles.closeButton}>
               <Txt variant="subheading" tone="secondary">
                 ✕
               </Txt>
@@ -83,7 +144,7 @@ export function BarcodeScannerModal({
           </View>
 
           {!isCameraSupported ? (
-            <View className="scanner-permission-box">
+            <View style={styles.permission}>
               <Txt tone="secondary" center>
                 Der Kamera-Barcode-Scanner benötigt ein natives Build (`bun run ios` oder `bun run
                 android`). Im Simulator (kein Kamerazugriff) oder ohne Kamera gib den Barcode
@@ -91,14 +152,14 @@ export function BarcodeScannerModal({
               </Txt>
             </View>
           ) : !permission?.granted ? (
-            <View className="scanner-permission-box">
+            <View style={styles.permission}>
               <Txt center>
                 Kamera-Berechtigung ist erforderlich, um Produkt-Barcodes zu scannen.
               </Txt>
               <Button title="Kamera erlauben" onPress={requestPermission} />
             </View>
           ) : (
-            <View className="scanner-camera-container">
+            <View style={styles.camera}>
               {/* CameraViewComp (expo-camera) ist nicht NativeWind-registriert. */}
               <CameraViewComp
                 style={StyleSheet.absoluteFill}
@@ -107,13 +168,13 @@ export function BarcodeScannerModal({
                 }}
                 onBarcodeScanned={handleBarcodeScanned}
               />
-              <View className="scanner-target-frame" />
+              <View style={styles.targetFrame} />
             </View>
           )}
 
           {looking && (
-            <View className="scanner-status-box">
-              <ActivityIndicator color={colors.basil} />
+            <View style={styles.status}>
+              <ActivityIndicator color={colors.accent} />
               <Txt variant="body">Suche Produktdaten...</Txt>
             </View>
           )}

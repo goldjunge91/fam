@@ -1,9 +1,10 @@
 import { FlashList } from '@shopify/flash-list';
 import { useEffect } from 'react';
-import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { Modal, Pressable, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { radius, space, withAlpha } from '@/components/theme/index';
+import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, IconButton, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
@@ -46,6 +47,178 @@ type InventoryHistorySheetProps = {
 type HistoryRow =
   | { kind: 'header'; id: string; label: string }
   | { kind: 'transaction'; id: string; transaction: LocalInventoryTransaction };
+
+const styles = StyleSheet.create((theme) => ({
+  sheet: {
+    flex: 1,
+  },
+  fullScreenSheet: {
+    backgroundColor: theme.background,
+  },
+  bottomSheet: {
+    position: 'absolute',
+    left: 10,
+    right: 10,
+    bottom: 10,
+    flex: 1,
+    maxHeight: '85%',
+    overflow: 'hidden',
+    gap: 14,
+    paddingHorizontal: 14,
+    paddingTop: 11,
+    borderRadius: theme.radius.famLarge,
+    backgroundColor: theme.backgroundElement,
+  },
+  handle: {
+    width: 42,
+    height: 4,
+    alignSelf: 'center',
+    borderRadius: 2,
+    backgroundColor: theme.border,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingBottom: theme.space.md,
+  },
+  closeButton: {
+    borderRadius: theme.radius.lg,
+    shadowOpacity: 0,
+    elevation: 0,
+  },
+  fullScreenHeader: {
+    paddingHorizontal: theme.space.lg,
+    paddingTop: theme.space.xs,
+  },
+  titleCopy: {
+    flex: 1,
+    gap: theme.space.xs,
+    paddingRight: theme.space.lg,
+  },
+  fullScreenSummary: {
+    paddingHorizontal: theme.space.lg,
+    marginBottom: theme.space.sm,
+  },
+  fullScreenOffline: {
+    paddingHorizontal: theme.space.lg,
+    marginBottom: theme.space.xs,
+  },
+  list: {
+    flex: 1,
+  },
+  fullScreenListContent: {
+    paddingHorizontal: theme.space.lg,
+  },
+  historyHeading: {
+    marginTop: theme.space.lg,
+    marginBottom: theme.space.sm,
+    textTransform: 'uppercase',
+  },
+  transactionHeading: {
+    letterSpacing: 0.5,
+  },
+  footerNote: {
+    marginTop: theme.space.lg,
+    paddingTop: theme.space.lg,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: theme.border,
+  },
+  loadingEmpty: {
+    paddingVertical: 64,
+  },
+  errorEmpty: {
+    alignItems: 'flex-start',
+    gap: theme.space.sm,
+    paddingVertical: 64,
+  },
+  empty: {
+    paddingVertical: 64,
+  },
+  backdrop: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: theme.scrim,
+  },
+  fullScreenContainer: {
+    flex: 1,
+    backgroundColor: theme.background,
+  },
+  stateSummary: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  stateCard: {
+    flex: 1,
+    gap: theme.space.xs / 2,
+    padding: theme.space.lg,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.backgroundSoft,
+  },
+  stateCardOpen: {
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.warning,
+    backgroundColor: withAlpha(theme.warning, 0.16),
+  },
+  stateCardLabel: {
+    textTransform: 'uppercase',
+  },
+  historyRow: {
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    gap: theme.space.sm,
+    marginBottom: theme.space.sm,
+    paddingBottom: theme.space.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  timeline: {
+    position: 'relative',
+    width: 16,
+    alignItems: 'center',
+  },
+  timelineLine: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    width: 2,
+    backgroundColor: theme.border,
+  },
+  timelineDot: {
+    zIndex: 1,
+    width: 12,
+    height: 12,
+    marginTop: theme.space.sm,
+    borderRadius: theme.radius.pill,
+  },
+  transactionContent: {
+    flex: 1,
+    gap: theme.space.xs / 2,
+  },
+  transactionTitleRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    gap: theme.space.xs,
+  },
+  lotTag: {
+    paddingHorizontal: theme.space.xs,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: theme.border,
+    borderRadius: 4,
+  },
+  amountColumn: {
+    alignItems: 'flex-end',
+    gap: theme.space.xs,
+    paddingRight: theme.space.sm,
+  },
+  amount: {
+    fontVariant: ['tabular-nums'],
+  },
+}));
 
 export function InventoryHistorySheet({
   visible,
@@ -97,17 +270,13 @@ export function InventoryHistorySheet({
 
   const sheet = (
     <View
-      className={fullScreen ? 'flex-1 bg-background' : 'fridge-actions-sheet flex-1'}
-      style={fullScreen ? undefined : [sheetStyle, { maxHeight: '85%', overflow: 'hidden' }]}>
-      {!fullScreen ? <View className="fridge-actions-handle" /> : null}
-      <View
-        className="flex-row items-center justify-between"
-        style={{
-          paddingHorizontal: fullScreen ? space.lg : 0,
-          paddingTop: fullScreen ? space.xs : 0,
-          paddingBottom: space.md,
-        }}>
-        <View className="flex-1 gap-one pr-three">
+      style={[
+        styles.sheet,
+        fullScreen ? styles.fullScreenSheet : [styles.bottomSheet, sheetStyle],
+      ]}>
+      {!fullScreen ? <View style={styles.handle} /> : null}
+      <View style={[styles.header, fullScreen && styles.fullScreenHeader]}>
+        <View style={styles.titleCopy}>
           <Txt variant="title">{title}</Txt>
           <Txt variant="caption" tone="secondary">
             {subtitle}
@@ -120,14 +289,12 @@ export function InventoryHistorySheet({
           bg={withAlpha(colors.tomato, 1)}
           size={40}
           iconSize={22}
-          style={{ borderRadius: radius.lg, shadowOpacity: 0, elevation: 0 }}
+          style={styles.closeButton}
         />
       </View>
 
       {productSummary ? (
-        <View
-          className="inventory-state-summary"
-          style={fullScreen ? { paddingHorizontal: space.lg, marginBottom: space.sm } : undefined}>
+        <View style={[styles.stateSummary, fullScreen && styles.fullScreenSummary]}>
           {productSummary.sealed > 0 ? (
             <StateSummaryCard
               label="Versiegelt"
@@ -147,8 +314,7 @@ export function InventoryHistorySheet({
       ) : null}
 
       {offline ? (
-        <View
-          style={fullScreen ? { paddingHorizontal: space.lg, marginBottom: space.xs } : undefined}>
+        <View style={fullScreen && styles.fullScreenOffline}>
           <Txt variant="caption" tone="secondary">
             Offline: lokale Daten werden angezeigt.
           </Txt>
@@ -158,19 +324,15 @@ export function InventoryHistorySheet({
       <FlashList
         data={rows}
         keyExtractor={(row) => row.id}
-        style={{ flex: 1 }}
+        style={styles.list}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          paddingHorizontal: fullScreen ? space.lg : 0,
-          paddingBottom: Math.max(insets.bottom, space.xl),
-        }}
+        contentContainerStyle={[
+          fullScreen && styles.fullScreenListContent,
+          { paddingBottom: Math.max(insets.bottom, space.xl) },
+        ]}
         ListHeaderComponent={
           historyHeading ? (
-            <Txt
-              variant="caption"
-              tone="secondary"
-              weight="700"
-              className="mb-two mt-four uppercase">
+            <Txt variant="caption" tone="secondary" weight="700" style={styles.historyHeading}>
               {historyHeading}
             </Txt>
           ) : null
@@ -181,7 +343,7 @@ export function InventoryHistorySheet({
               variant="caption"
               tone="secondary"
               weight="700"
-              className="mb-two mt-four uppercase tracking-[0.5px]">
+              style={[styles.historyHeading, styles.transactionHeading]}>
               {row.label}
             </Txt>
           ) : (
@@ -201,20 +363,20 @@ export function InventoryHistorySheet({
         }
         ListFooterComponent={
           footerNote ? (
-            <Txt variant="caption" tone="secondary" className="inventory-history-footer-note">
+            <Txt variant="caption" tone="secondary" style={styles.footerNote}>
               {footerNote}
             </Txt>
           ) : null
         }
         ListEmptyComponent={
           loading ? (
-            <View className="py-six">
+            <View style={styles.loadingEmpty}>
               <Txt variant="body" tone="secondary">
                 Verlauf wird geladen…
               </Txt>
             </View>
           ) : error ? (
-            <View className="items-start gap-two py-six">
+            <View style={styles.errorEmpty}>
               <Txt variant="body" tone="secondary">
                 Verlauf konnte nicht geladen werden.
               </Txt>
@@ -223,7 +385,7 @@ export function InventoryHistorySheet({
               ) : null}
             </View>
           ) : (
-            <View className="py-six">
+            <View style={styles.empty}>
               <Txt variant="body" tone="secondary">
                 Noch keine Bewegungen vorhanden.
               </Txt>
@@ -244,7 +406,7 @@ export function InventoryHistorySheet({
       <View style={StyleSheet.absoluteFill}>
         {!fullScreen ? (
           <Pressable
-            className="fridge-actions-backdrop"
+            style={styles.backdrop}
             onPress={onClose}
             accessibilityRole="button"
             accessibilityLabel="Verlauf schließen"
@@ -252,14 +414,15 @@ export function InventoryHistorySheet({
         ) : null}
         {fullScreen ? (
           <View
-            style={{
-              flex: 1,
-              backgroundColor: colors.background,
-              paddingTop: topInset,
-              paddingBottom: insets.bottom,
-              paddingLeft: insets.left,
-              paddingRight: insets.right,
-            }}>
+            style={[
+              styles.fullScreenContainer,
+              {
+                paddingTop: topInset,
+                paddingBottom: insets.bottom,
+                paddingLeft: insets.left,
+                paddingRight: insets.right,
+              },
+            ]}>
             {sheet}
           </View>
         ) : (
@@ -287,9 +450,8 @@ function StateSummaryCard({
   open?: boolean;
 }) {
   return (
-    <View
-      className={`inventory-state-card ${open ? 'inventory-state-card-open' : 'inventory-state-card-sealed'}`}>
-      <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
+    <View style={[styles.stateCard, open && styles.stateCardOpen]}>
+      <Txt variant="caption" tone="secondary" weight="700" style={styles.stateCardLabel}>
         {label}
       </Txt>
       <Txt variant="body" weight="700">
@@ -343,21 +505,18 @@ function HistoryTransactionRow({
         : '';
 
   return (
-    <View className="inventory-history-row">
-      <View className="relative w-[16px] items-center">
-        <View className="absolute inset-y-0 w-[2px] bg-border" />
-        <View
-          className="z-10 mt-two h-[12px] w-[12px] rounded-pill"
-          style={{ backgroundColor: edgeColor }}
-        />
+    <View style={styles.historyRow}>
+      <View style={styles.timeline}>
+        <View style={styles.timelineLine} />
+        <View style={[styles.timelineDot, { backgroundColor: edgeColor }]} />
       </View>
-      <View className="flex-1 gap-half">
-        <View className="flex-row flex-wrap items-center gap-one">
+      <View style={styles.transactionContent}>
+        <View style={styles.transactionTitleRow}>
           <Txt variant="body" weight="700">
             {transactionLabel(transaction, compactLabel ? null : transaction.item_name)}
           </Txt>
           {lotLabel ? (
-            <View className="inventory-history-lot-tag">
+            <View style={styles.lotTag}>
               <Txt variant="caption" tone="secondary" weight="700">
                 {lotLabel}
               </Txt>
@@ -376,8 +535,8 @@ function HistoryTransactionRow({
           </Txt>
         ) : null}
       </View>
-      <View className="items-end gap-one" style={{ paddingRight: space.sm }}>
-        <Txt variant="body" weight="700" style={{ fontVariant: ['tabular-nums'] }}>
+      <View style={styles.amountColumn}>
+        <Txt variant="body" weight="700" style={styles.amount}>
           {quantityPrefix}
           {formatAmount(transaction.quantity, transaction.item_unit ?? '')}
         </Txt>
