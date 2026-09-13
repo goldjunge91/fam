@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
   usePreferredProductMarket,
@@ -28,6 +28,9 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     gap: theme.space.sm,
   },
+  storeButtonContainer: {
+    flex: 1,
+  },
   storeButton: {
     flex: 1,
     width: '100%',
@@ -45,9 +48,6 @@ const styles = StyleSheet.create((theme) => ({
   orderButton: {
     paddingHorizontal: theme.space.sm,
     paddingVertical: theme.space.sm,
-  },
-  pressed: {
-    opacity: 0.75,
   },
 }));
 
@@ -121,38 +121,45 @@ export default function ProductSearchSettingsRoute() {
                 const position = selectedStoreIds.indexOf(store.id);
                 return (
                   <View key={store.id} style={styles.storeRow}>
-                    <Pressable
+                    <Press
                       onPress={() => toggleStore(store.id)}
+                      haptic="selection"
+                      scaleTo={0.98}
+                      containerStyle={styles.storeButtonContainer}
                       accessibilityRole="checkbox"
                       accessibilityState={{ checked: selected }}
                       accessibilityLabel={`${store.name} auswählen`}
-                      style={({ pressed }) => [styles.storeButton, pressed && styles.pressed]}>
+                      style={styles.storeButton}>
                       <Txt variant="body" tone="primary">
                         {selected ? `✓  ${position + 1}. ${store.name}` : store.name}
                       </Txt>
-                    </Pressable>
+                    </Press>
                     {selected ? (
                       <View style={styles.orderControls}>
-                        <Pressable
+                        <Press
                           onPress={() => moveStore(position, -1)}
+                          haptic="selection"
+                          scaleTo={0.98}
                           disabled={position === 0}
                           accessibilityRole="button"
                           accessibilityLabel={`${store.name} nach oben bewegen`}
-                          style={({ pressed }) => [styles.orderButton, pressed && styles.pressed]}>
+                          style={styles.orderButton}>
                           <Txt variant="body" tone="secondary">
                             ↑
                           </Txt>
-                        </Pressable>
-                        <Pressable
+                        </Press>
+                        <Press
                           onPress={() => moveStore(position, 1)}
+                          haptic="selection"
+                          scaleTo={0.98}
                           disabled={position === selectedStoreIds.length - 1}
                           accessibilityRole="button"
                           accessibilityLabel={`${store.name} nach unten bewegen`}
-                          style={({ pressed }) => [styles.orderButton, pressed && styles.pressed]}>
+                          style={styles.orderButton}>
                           <Txt variant="body" tone="secondary">
                             ↓
                           </Txt>
-                        </Pressable>
+                        </Press>
                       </View>
                     ) : null}
                   </View>
