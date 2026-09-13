@@ -1,11 +1,18 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { buildUserDataExport } from '@/features/settings/data-export';
+
+const styles = StyleSheet.create((theme) => ({
+  exportButtonContainer: {
+    marginTop: theme.space.xl + theme.space.xs,
+  },
+}));
 
 export function ExportScreen() {
   const { t } = useTranslation();
@@ -59,7 +66,7 @@ export function ExportScreen() {
         </Txt>
       </Card>
       {/* Export-Aktionsbutton */}
-      <View className="mt-four">
+      <View style={styles.exportButtonContainer}>
         <Button
           title={t('settings.groups.data.export.exportButton')}
           onPress={handleExport}

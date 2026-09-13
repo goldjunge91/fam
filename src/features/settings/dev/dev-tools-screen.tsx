@@ -4,6 +4,7 @@ import { Observe } from 'expo-observe';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { Alert, Platform, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { getAnalyticsSettings, useAnalyticsSettingsStore } from '@/constants/analytics';
@@ -75,6 +76,26 @@ type DbSnapshot = {
   storageLocations: number;
 };
 
+const styles = StyleSheet.create((theme) => ({
+  devRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    gap: theme.space.lg,
+    paddingVertical: theme.space.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  devRowValue: {
+    flexShrink: 1,
+    textAlign: 'right',
+  },
+  actionStack: {
+    marginTop: theme.space.lg,
+    gap: theme.space.sm,
+  },
+}));
+
 function Zeile({
   label,
   wert,
@@ -85,7 +106,7 @@ function Zeile({
   tone?: 'accent' | 'warning' | 'danger';
 }) {
   return (
-    <View className="dev-zeile">
+    <View style={styles.devRow}>
       <Txt variant="caption" tone="secondary">
         {label}
       </Txt>
@@ -94,7 +115,7 @@ function Zeile({
         weight="700"
         tone={tone ?? 'primary'}
         numberOfLines={2}
-        className="dev-zeile-value">
+        style={styles.devRowValue}>
         {wert}
       </Txt>
     </View>
@@ -274,7 +295,7 @@ export function DevToolsScreen() {
           accessibilityLabel="Plus und KI für aktuellen Haushalt zurücksetzen"
           onPress={handleResetPremium}
         />
-        <View className="dev-zeile">
+        <View style={styles.devRow}>
           <Txt variant="caption" tone="secondary">
             Plus erzwingen (Override, überlebt Neustart)
           </Txt>
@@ -294,7 +315,7 @@ export function DevToolsScreen() {
             onPress={() => setForcePremiumOverride(null)}
           />
         ) : null}
-        <View className="dev-zeile">
+        <View style={styles.devRow}>
           <Txt variant="caption" tone="secondary">
             KI erzwingen (Override, überlebt Neustart)
           </Txt>
@@ -319,7 +340,7 @@ export function DevToolsScreen() {
           wert={adsEnabled ? 'an' : 'aus'}
           tone={adsEnabled ? undefined : 'warning'}
         />
-        <View className="dev-zeile">
+        <View style={styles.devRow}>
           <Txt variant="caption" tone="secondary">
             Werbung umschalten (Override, überlebt Neustart)
           </Txt>
@@ -451,7 +472,7 @@ export function DevToolsScreen() {
           </>
         )}
 
-        <View className="action-stack">
+        <View style={styles.actionStack}>
           <Button title="Neu einlesen" variant="secondary" onPress={ladeSnapshot} />
         </View>
       </Card>
@@ -481,7 +502,7 @@ export function DevToolsScreen() {
           tone={offDump?.lastError ? 'danger' : undefined}
         />
 
-        <View className="action-stack">
+        <View style={styles.actionStack}>
           <Button
             title="Jetzt aktualisieren"
             variant="secondary"
@@ -534,7 +555,7 @@ export function DevToolsScreen() {
 
       {/* Diagnose- & Test-Aktionen (Sentry, Push, EAS Observe, Paywall, DB-Wipe) */}
       <Card title="Aktionen">
-        <View className="action-stack">
+        <View style={styles.actionStack}>
           <Button
             title="Sentry-Testfehler senden"
             variant="secondary"
