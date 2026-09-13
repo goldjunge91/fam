@@ -8,6 +8,7 @@ let mockSessionState: {
   isLoading: boolean;
   seenOnboarding: boolean;
 };
+let mockDevTools = false;
 const mockGetDatabase = jest.fn().mockResolvedValue({});
 
 jest.mock('expo-router', () => {
@@ -27,7 +28,14 @@ jest.mock('@/lib/db/client', () => ({
   getDatabase: (...args: unknown[]) => mockGetDatabase(...args),
 }));
 jest.mock('@/lib/off-dump/off-dump', () => ({ initOffDump: jest.fn() }));
-jest.mock('@/lib/env', () => ({ env: { forceOnboarding: false } }));
+jest.mock('@/lib/env', () => ({
+  env: {
+    forceOnboarding: false,
+    get devTools() {
+      return mockDevTools;
+    },
+  },
+}));
 
 const privateRootRoutes = [
   'household',
@@ -43,6 +51,7 @@ const privateRootRoutes = [
 describe('RootNavigator', () => {
   it('registriert private Root-Routen ausschließlich mit einer Session', async () => {
     jest.clearAllMocks();
+    mockDevTools = false;
     mockSessionState = { session: null, isLoading: false, seenOnboarding: true };
     const view = await render(<RootNavigator />);
 
@@ -65,5 +74,19 @@ describe('RootNavigator', () => {
       expect(screen.getByText(route)).toBeOnTheScreen();
     }
     expect(screen.queryByText('meal-planner')).not.toBeOnTheScreen();
+    expect(screen.queryByText('(auth)')).not.toBeOnTheScreen();
+  });
+
+  it('stellt Auth-Routen für die Dev-Tools auch mit Session bereit', async () => {
+    mockDevTools = true;
+    mockSessionState = {
+      session: { user: { id: 'user-1' } },
+      isLoading: false,
+      seenOnboarding: true,
+    };
+
+    await render(<RootNavigator />);
+
+    expect(screen.getByText('(auth)')).toBeOnTheScreen();
   });
 });

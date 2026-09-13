@@ -43,6 +43,8 @@ export function RootNavigator() {
   if (isLoading) return null;
 
   const isNewUser = !seenOnboarding || env.forceOnboarding;
+  // Developer tools may exercise the real auth screens without changing the production guard.
+  const authPreviewEnabled = __DEV__ && env.devTools;
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
@@ -67,7 +69,7 @@ export function RootNavigator() {
         <Stack.Screen name="add-food-entry" options={{ presentation: 'modal' }} />
       </Stack.Protected>
 
-      <Stack.Protected guard={!session && !isNewUser}>
+      <Stack.Protected guard={(!session && !isNewUser) || authPreviewEnabled}>
         <Stack.Screen name="(auth)" />
       </Stack.Protected>
     </Stack>

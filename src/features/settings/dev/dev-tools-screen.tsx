@@ -669,6 +669,11 @@ export function DevToolsScreen() {
             onPress={() => router.push('/settings/design-system')}
           />
           <Button
+            title="Auth-Seiten testen"
+            variant="secondary"
+            onPress={() => router.push('/settings/auth-preview')}
+          />
+          <Button
             title="Plus-Paywall öffnen (Test Store)"
             variant="secondary"
             onPress={() =>
