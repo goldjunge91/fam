@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Modal, Pressable, ScrollView, View } from 'react-native';
+import { Modal, ScrollView, View } from 'react-native';
 
-import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, TextField, Txt } from '@/constants/ui';
+import { Button, CloseButton, Press, Surface, TextField, Txt } from '@/constants/ui';
 import {
   ACTIVITY_OPTIONS,
   type ProfileBiometrics,
@@ -11,6 +10,7 @@ import {
   SEX_OPTIONS,
   toProfileBiometricsDraft,
 } from '@/features/profile/domain/biometrics';
+import { biometricsSheetStyles } from '@/features/profile/sheets/biometrics-sheet-styles';
 
 type DraftErrors = Partial<Record<keyof ProfileBiometricsDraft, string>>;
 
@@ -25,7 +25,6 @@ export function BiometricsSheet({
   onApply: (value: ProfileBiometrics) => void;
   onClose: () => void;
 }) {
-  const { colors } = useTheme();
   const [draft, setDraft] = useState<ProfileBiometricsDraft>(() => toProfileBiometricsDraft(value));
   const [errors, setErrors] = useState<DraftErrors>({});
 
@@ -73,33 +72,23 @@ export function BiometricsSheet({
       animationType="slide"
       statusBarTranslucent
       onRequestClose={onClose}>
-      <View className="profile-food-rules-sheet-backdrop">
-        <View className="profile-food-rules-sheet" style={{ backgroundColor: colors.surface }}>
-          <View className="modal-handle" />
-          <View className="profile-food-rules-sheet-header">
-            <View className="flex-1 gap-half">
+      <View style={biometricsSheetStyles.backdrop}>
+        <Surface tone="surface" style={biometricsSheetStyles.sheet}>
+          <View style={biometricsSheetStyles.handle} />
+          <View style={biometricsSheetStyles.header}>
+            <View style={biometricsSheetStyles.headerCopy}>
               <Txt variant="heading">Körper &amp; Aktivität</Txt>
               <Txt variant="caption" tone="secondary">
                 Persönliche Werte für deine Berechnungen
               </Txt>
             </View>
-            <Pressable
-              onPress={onClose}
-              role="button"
-              aria-label="Körper & Aktivität schließen"
-              className="modal-close-btn">
-              <Txt variant="body" tone="secondary" aria-hidden>
-                ✕
-              </Txt>
-            </Pressable>
+            <CloseButton onPress={onClose} accessibilityLabel="Körper & Aktivität schließen" />
           </View>
 
           <ScrollView
             showsVerticalScrollIndicator={false}
-            contentContainerClassName="gap-three pb-two">
-            <View
-              className="profile-biometrics-weight-editor"
-              style={{ backgroundColor: colors.backgroundSoft }}>
+            contentContainerStyle={biometricsSheetStyles.content}>
+            <Surface tone="soft">
               <TextField
                 label="Aktuelles Gewicht (kg)"
                 value={draft.weightKg}
@@ -113,7 +102,7 @@ export function BiometricsSheet({
               <Txt variant="caption" tone="secondary">
                 Eine Änderung wird als neuer privater Verlaufseintrag gespeichert.
               </Txt>
-            </View>
+            </Surface>
 
             <Txt variant="label" weight="700">
               Profilangaben
@@ -140,36 +129,44 @@ export function BiometricsSheet({
               error={errors.birthDate}
             />
 
-            <View className="gap-two">
+            <View style={biometricsSheetStyles.group}>
               <Txt variant="label" weight="700">
                 Berechnungsbasis
               </Txt>
-              <View className="input-row" role="radiogroup" aria-label="Berechnungsbasis">
+              <View
+                style={biometricsSheetStyles.inputRow}
+                accessibilityRole="radiogroup"
+                accessibilityLabel="Berechnungsbasis">
                 {SEX_OPTIONS.map((option) => {
                   const selected = draft.sex === option.value;
                   return (
-                    <Pressable
+                    <Press
                       key={option.value}
                       onPress={() => updateDraft('sex', selected ? null : option.value)}
-                      role="radio"
-                      aria-checked={selected}
-                      aria-label={option.label}
-                      className="flex-1 option-button"
-                      style={{
-                        backgroundColor: selected ? colors.basil : colors.surface,
-                        borderColor: selected ? colors.basil : colors.border,
-                        borderWidth: 1,
-                      }}>
+                      accessibilityRole="radio"
+                      accessibilityLabel={option.label}
+                      accessibilityState={{ selected }}
+                      haptic="selection"
+                      containerStyle={biometricsSheetStyles.optionContainer}
+                      style={[
+                        biometricsSheetStyles.option,
+                        selected
+                          ? biometricsSheetStyles.optionSelected
+                          : biometricsSheetStyles.optionIdle,
+                      ]}>
                       <Txt tone={selected ? 'onAccent' : 'primary'} variant="body">
                         {option.label}
                       </Txt>
-                    </Pressable>
+                    </Press>
                   );
                 })}
               </View>
             </View>
 
-            <View className="gap-two" role="radiogroup" aria-label="Aktivitätslevel">
+            <View
+              style={biometricsSheetStyles.group}
+              accessibilityRole="radiogroup"
+              accessibilityLabel="Aktivitätslevel">
               <Txt variant="label" weight="700">
                 Aktivitätslevel
               </Txt>
@@ -178,26 +175,28 @@ export function BiometricsSheet({
                 ACTIVITY_OPTIONS.slice(2, 4),
                 ACTIVITY_OPTIONS.slice(4),
               ].map((row) => (
-                <View key={row[0]?.value} className="input-row">
+                <View key={row[0]?.value} style={biometricsSheetStyles.inputRow}>
                   {row.map((option) => {
                     const selected = draft.activityLevel === option.value;
                     return (
-                      <Pressable
+                      <Press
                         key={option.value}
                         onPress={() => updateDraft('activityLevel', selected ? null : option.value)}
-                        role="radio"
-                        aria-checked={selected}
-                        aria-label={option.label}
-                        className="flex-1 option-button"
-                        style={{
-                          backgroundColor: selected ? colors.basil : colors.surface,
-                          borderColor: selected ? colors.basil : colors.border,
-                          borderWidth: 1,
-                        }}>
+                        accessibilityRole="radio"
+                        accessibilityLabel={option.label}
+                        accessibilityState={{ selected }}
+                        haptic="selection"
+                        containerStyle={biometricsSheetStyles.optionContainer}
+                        style={[
+                          biometricsSheetStyles.option,
+                          selected
+                            ? biometricsSheetStyles.optionSelected
+                            : biometricsSheetStyles.optionIdle,
+                        ]}>
                         <Txt variant="label" tone={selected ? 'onAccent' : 'primary'} weight="700">
                           {option.label}
                         </Txt>
-                      </Pressable>
+                      </Press>
                     );
                   })}
                 </View>
@@ -206,7 +205,7 @@ export function BiometricsSheet({
           </ScrollView>
 
           <Button title="Angaben übernehmen" onPress={handleApply} />
-        </View>
+        </Surface>
       </View>
     </Modal>
   );
