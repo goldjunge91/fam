@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
@@ -12,6 +13,67 @@ type MoveItemsModalProps = {
   onSelect: (storeId: string | null) => void;
   onClose: () => void;
 };
+
+const styles = StyleSheet.create((theme) => ({
+  backdrop: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    backgroundColor: theme.scrim,
+  },
+  panel: {
+    borderTopLeftRadius: theme.radius.lg,
+    borderTopRightRadius: theme.radius.lg,
+    borderTopWidth: theme.borderWidth.base,
+    borderTopColor: theme.border,
+    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingTop: theme.space.xl + theme.space.xs,
+    paddingBottom: theme.space.xxl + theme.space.xs,
+    backgroundColor: theme.background,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+    marginBottom: theme.space.lg,
+  },
+  headingGroup: {
+    flex: 1,
+    gap: theme.space.xs / 2,
+  },
+  closeButton: {
+    width: theme.space.xxl + theme.space.xs,
+    height: theme.space.xxl + theme.space.xs,
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.backgroundElement,
+  },
+  targetList: {
+    gap: theme.space.xs,
+  },
+  target: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.lg,
+  },
+  targetDisabled: {
+    opacity: 0.4,
+  },
+  targetDot: {
+    width: theme.space.sm,
+    height: theme.space.sm,
+    borderRadius: theme.radius.pill,
+  },
+  targetLabel: {
+    flex: 1,
+  },
+}));
 
 export function MoveItemsModal({
   visible,
@@ -38,9 +100,9 @@ export function MoveItemsModal({
         accessibilityRole="button"
         accessibilityLabel={t('shoppingList.moveItems.moveToAccessibility', { target: label })}
         accessibilityState={{ disabled }}
-        className={`move-items-target ${disabled ? 'opacity-40' : ''}`}>
-        <View className="store-picker-dot" style={{ backgroundColor: color }} />
-        <Txt variant="body" className="flex-1">
+        style={[styles.target, disabled && styles.targetDisabled]}>
+        <View style={[styles.targetDot, { backgroundColor: color }]} />
+        <Txt variant="body" style={styles.targetLabel}>
           {label}
         </Txt>
         {disabled ? (
@@ -54,10 +116,10 @@ export function MoveItemsModal({
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
-      <View className="move-items-backdrop">
-        <View className="move-items-panel" style={{ backgroundColor: theme.bg }}>
-          <View className="row-between items-start mb-three">
-            <View className="flex-1 gap-half">
+      <View style={styles.backdrop}>
+        <View style={styles.panel}>
+          <View style={styles.header}>
+            <View style={styles.headingGroup}>
               <Txt variant="heading" weight="700">
                 {t('shoppingList.moveItems.title')}
               </Txt>
@@ -69,12 +131,12 @@ export function MoveItemsModal({
               onPress={onClose}
               accessibilityRole="button"
               accessibilityLabel={t('shoppingList.moveItems.closeAccessibility')}
-              className="modal-close-btn">
+              style={styles.closeButton}>
               <Txt>✕</Txt>
             </Pressable>
           </View>
 
-          <View className="gap-one">
+          <View style={styles.targetList}>
             {stores.map((store) => renderTarget(store.name, store.id, store.color))}
             {renderTarget(t('shoppingList.moveItems.unassignedTarget'), null, theme.textMuted)}
           </View>
