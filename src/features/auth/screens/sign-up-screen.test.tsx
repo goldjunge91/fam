@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { i18n } from '@/i18n';
@@ -77,6 +77,29 @@ describe('SignUpScreen', () => {
 
     expect(await screen.findByText('Warteraum: family@example.com')).toBeTruthy();
     expect(router.replace).not.toHaveBeenCalled();
+  });
+
+  it('kann Passwort und Bestätigung beim Erstellen eines Kontos anzeigen', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    const passwordInput = screen.getByLabelText('Passwort');
+    const confirmationInput = screen.getByLabelText('Passwort wiederholen');
+
+    await user.type(passwordInput, 'supersecret');
+    await user.type(confirmationInput, 'supersecret');
+    expect(passwordInput).toHaveProp('secureTextEntry', true);
+    expect(confirmationInput).toHaveProp('secureTextEntry', true);
+
+    await user.press(screen.getByRole('button', { name: 'Passwort anzeigen' }));
+    expect(passwordInput).toHaveProp('secureTextEntry', false);
+    expect(passwordInput).toHaveDisplayValue('supersecret');
+    expect(screen.getByRole('button', { name: 'Passwort verbergen' })).toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Passwortbestätigung anzeigen' }));
+    expect(confirmationInput).toHaveProp('secureTextEntry', false);
+    expect(confirmationInput).toHaveDisplayValue('supersecret');
+    expect(screen.getByRole('button', { name: 'Passwortbestätigung verbergen' })).toBeOnTheScreen();
   });
 
   it('navigiert direkt weiter, wenn signUp mit aktiver Session zurueckkommt', async () => {
