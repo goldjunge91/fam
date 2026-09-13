@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { View } from 'react-native';
 import { KeyboardToolbar } from 'react-native-keyboard-controller';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
-import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { FilterChipBar, type FilterChipOption } from '@/components/ui/filter-chip-bar';
 import { Badge, Txt } from '@/constants/ui';
@@ -35,6 +35,18 @@ const FOUNDATION_CATEGORIES: readonly ShowcaseCategory[] = [
 
 const COMPONENT_CATEGORIES: readonly ShowcaseCategory[] = ['surfaces', 'controls', 'feedback'];
 
+const styles = StyleSheet.create((theme) => ({
+  screenContent: {
+    gap: theme.space.xl,
+  },
+  categoryRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+  },
+}));
+
 function isFoundation(category: ShowcaseCategory): category is FoundationCategory {
   return FOUNDATION_CATEGORIES.includes(category);
 }
@@ -55,8 +67,8 @@ export function DesignSystemScreen() {
         subtitle="Lebende Referenz mit Vertragsbeispielen"
         back={{ label: 'Entwickler', href: '/settings/dev' }}
         backStyle="icon"
-        contentStyle={{ gap: space.xl }}>
-        <View className="flex-row items-center justify-between gap-two">
+        contentStyle={styles.screenContent}>
+        <View style={styles.categoryRow}>
           <Txt variant="caption" tone="secondary">
             Kategorie {categoryIndex} von {CATEGORIES.length}
           </Txt>

@@ -3,11 +3,18 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { Button, Txt } from '@/constants/ui';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { getSupabase } from '@/lib/supabase';
+
+const styles = StyleSheet.create((theme) => ({
+  deleteButtonContainer: {
+    marginTop: theme.space.xl + theme.space.xs,
+  },
+}));
 
 export function DeleteAccountScreen() {
   const { t } = useTranslation();
@@ -82,7 +89,7 @@ export function DeleteAccountScreen() {
         </Txt>
       </Card>
       {/* Gefahren-Aktionsbutton zum Einleiten der Kontolöschung */}
-      <View className="mt-four">
+      <View style={styles.deleteButtonContainer}>
         <Button
           title={t('settings.groups.data.deleteAccount.deleteButton')}
           variant="danger"
