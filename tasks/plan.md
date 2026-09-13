@@ -112,8 +112,12 @@ Retirement wartet auf alle Consumer-Slices.
 
 ### Checkpoint: Alle Consumers
 
-- Der aktive Scan meldet keine `className`- oder
+- Abschlusskriterium: Der aktive Scan meldet keine `className`- oder
   `contentContainerClassName`-Verwendung.
+- Audit-Stand 2026-09-14: noch nicht erfüllt. Der Scan findet aktive Treffer in
+  `inventory-search-field.tsx`, `inventory-item-actions-sheet.tsx`,
+  `inventory-item-group-sheet.tsx`, `shopping-mode-screen.tsx` und
+  `stores-screen.tsx`.
 - Jeder Domänenblock hat seine fokussierten Verhaltenstests bestanden.
 - Es gibt keine Änderung an Datenbank, RLS, SQLite, Outbox oder Sync.
 
