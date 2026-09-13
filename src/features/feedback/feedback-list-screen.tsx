@@ -2,9 +2,9 @@ import { FlashList } from '@shopify/flash-list';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
-import { space } from '@/components/theme/index';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
 import { Button, Surface, Txt } from '@/constants/ui';
@@ -24,12 +24,35 @@ const STATUS_TONE = {
   success: 'success',
 } as const;
 
+const styles = StyleSheet.create((theme) => ({
+  ticketContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  ticketCopy: {
+    flex: 1,
+    gap: theme.space.xs,
+  },
+  banner: {
+    borderRadius: theme.radius.md,
+    padding: theme.space.sm,
+    marginBottom: theme.space.sm,
+  },
+  listContent: {
+    paddingVertical: theme.space.sm,
+  },
+  separator: {
+    height: theme.space.sm,
+  },
+}));
+
 function TicketRow({ ticket }: { ticket: FeedbackTicket }) {
   return (
     <Pressable onPress={() => router.push(`/settings/feedback/${ticket.id}`)}>
       <Card>
-        <View className="flex-row items-center justify-between">
-          <View className="flex-1 gap-one">
+        <View style={styles.ticketContent}>
+          <View style={styles.ticketCopy}>
             <Txt variant="body" weight="700">{`#${ticket.ticket_number} · ${ticket.subject}`}</Txt>
             <Txt variant="body" tone="secondary">
               {`${FEEDBACK_TYPE_LABELS[ticket.type]} · ${new Date(ticket.created_at).toLocaleDateString('de-DE')}`}
@@ -96,15 +119,15 @@ export function FeedbackListScreen() {
       scroll={false}
       back={{ label: 'Einstellungen', href: '/settings' }}>
       {banner ? (
-        <Surface tone="surface" className="rounded-card p-two mb-two">
+        <Surface tone="surface" style={styles.banner}>
           <Txt variant="body">{banner}</Txt>
         </Surface>
       ) : null}
       <FlashList
         data={tickets}
         keyExtractor={(item) => item.id}
-        contentContainerStyle={{ paddingVertical: space.sm }}
-        ItemSeparatorComponent={() => <View style={{ height: space.sm }} />}
+        contentContainerStyle={styles.listContent}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
         renderItem={({ item }) => <TicketRow ticket={item} />}
       />
     </Screen>

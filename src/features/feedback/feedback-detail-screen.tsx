@@ -1,6 +1,7 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
 import { withAlpha } from '@/components/theme/index';
@@ -28,6 +29,32 @@ const STATUS_TONE = {
   success: 'success',
 } as const;
 
+const styles = StyleSheet.create((theme) => ({
+  messageBubble: {
+    gap: theme.space.xs,
+    borderRadius: theme.radius.md,
+    padding: theme.space.sm,
+  },
+  banner: {
+    borderRadius: theme.radius.md,
+    padding: theme.space.sm,
+  },
+  ticketSummary: {
+    gap: theme.space.xs,
+  },
+  ticketMeta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  messages: {
+    gap: theme.space.sm,
+  },
+  replyForm: {
+    gap: theme.space.lg,
+  },
+}));
+
 function MessageBubble({ message }: { message: FeedbackMessage }) {
   const { colors } = useTheme();
   const isStaff = message.author_type === 'staff';
@@ -35,8 +62,10 @@ function MessageBubble({ message }: { message: FeedbackMessage }) {
   return (
     <Surface
       tone="surface"
-      className="gap-one rounded-card p-two"
-      style={{ backgroundColor: isStaff ? withAlpha(colors.basil, 0.1) : colors.surface }}>
+      style={[
+        styles.messageBubble,
+        { backgroundColor: isStaff ? withAlpha(colors.basil, 0.1) : colors.surface },
+      ]}>
       <Txt variant="body" tone="secondary">
         {isStaff ? 'Team' : 'Du'} · {new Date(message.created_at).toLocaleDateString('de-DE')}
       </Txt>
@@ -88,17 +117,17 @@ export function FeedbackDetailScreen() {
   return (
     <Screen title={ticket ? `#${ticket.ticket_number}` : 'Ticket'} back={{ label: 'Feedback' }}>
       {banner ? (
-        <Surface tone="surface" className="rounded-card p-two">
+        <Surface tone="surface" style={styles.banner}>
           <Txt variant="body">{banner}</Txt>
         </Surface>
       ) : null}
       {ticket ? (
         <Card>
-          <View className="gap-one">
+          <View style={styles.ticketSummary}>
             <Txt variant="body" weight="700">
               {ticket.subject}
             </Txt>
-            <View className="flex-row items-center justify-between">
+            <View style={styles.ticketMeta}>
               <Txt variant="body" tone="secondary">
                 {FEEDBACK_TYPE_LABELS[ticket.type]}
               </Txt>
@@ -113,7 +142,7 @@ export function FeedbackDetailScreen() {
         </Card>
       ) : null}
 
-      <View className="gap-two">
+      <View style={styles.messages}>
         {(messages ?? []).map((message) => (
           <MessageBubble key={message.id} message={message} />
         ))}
@@ -125,7 +154,7 @@ export function FeedbackDetailScreen() {
         </Txt>
       ) : (
         <Card>
-          <View className="gap-three">
+          <View style={styles.replyForm}>
             <TextField
               label="Antworten"
               value={reply}

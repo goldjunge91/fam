@@ -1,6 +1,7 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
@@ -12,6 +13,12 @@ import { FEEDBACK_TYPE_LABELS } from '@/features/feedback/labels';
 const TYPE_OPTIONS = (Object.keys(FEEDBACK_TYPE_LABELS) as FeedbackType[]).map((value) => ({
   value,
   label: FEEDBACK_TYPE_LABELS[value],
+}));
+
+const styles = StyleSheet.create((theme) => ({
+  form: {
+    gap: theme.space.lg,
+  },
 }));
 
 export function FeedbackFormScreen() {
@@ -54,7 +61,7 @@ export function FeedbackFormScreen() {
     return (
       <Screen title="Feedback geben" back={{ label: 'Feedback' }}>
         <Card>
-          <View className="gap-three">
+          <View style={styles.form}>
             <Txt variant="body" weight="700">
               Danke für dein Feedback!
             </Txt>
@@ -72,7 +79,7 @@ export function FeedbackFormScreen() {
   return (
     <Screen title="Feedback geben" back={{ label: 'Zurück' }}>
       <Card>
-        <View className="gap-three">
+        <View style={styles.form}>
           <SegmentedControl
             label="Art des Feedbacks"
             options={TYPE_OPTIONS}
