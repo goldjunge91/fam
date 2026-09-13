@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+
 import { Button, TextField, Txt } from '@/constants/ui';
 import { signIn } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
@@ -12,6 +14,12 @@ import {
   translateAuthValidationMessage,
 } from '@/lib/db/zod/auth.zod';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
+
+const styles = StyleSheet.create((theme) => ({
+  form: {
+    gap: theme.space.lg,
+  },
+}));
 
 interface SignInFormProps {
   onSuccess?: () => void;
@@ -49,7 +57,7 @@ export function SignInForm({ onSuccess, submitLabel, testIDPrefix = 'sign-in' }:
   }
 
   return (
-    <View className="gap-three">
+    <View style={styles.form}>
       <TextField
         testID={`${testIDPrefix}-email`}
         label={t('auth.fields.email')}

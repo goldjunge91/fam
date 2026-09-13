@@ -1,10 +1,22 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+
 import { Button, Txt } from '@/constants/ui';
 import { AppleSignInButton } from '@/features/auth/components/apple-sign-in-button';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { signInWithOAuthProvider } from '@/features/auth/provider-auth';
+
+const styles = StyleSheet.create((theme) => ({
+  container: {
+    gap: theme.space.lg,
+  },
+  divider: {
+    alignItems: 'center',
+    marginVertical: theme.space.xs,
+  },
+}));
 
 interface AuthProviderOptionsProps {
   mode: 'sign_in' | 'sign_up';
@@ -16,8 +28,8 @@ export function AuthProviderOptions({ mode, onAuthAttempt }: AuthProviderOptions
   const [oauthError, setOAuthError] = useState<string | null>(null);
 
   return (
-    <View className="gap-three">
-      <View className="divider">
+    <View style={styles.container}>
+      <View style={styles.divider}>
         <Txt variant="body" tone="secondary">
           {t(mode === 'sign_in' ? 'auth.providers.signInDivider' : 'auth.providers.signUpDivider')}
         </Txt>

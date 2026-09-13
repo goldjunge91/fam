@@ -1,7 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { Button, TextField, Txt } from '@/constants/ui';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Button, Card, Row, Surface, TextField, Txt } from '@/constants/ui';
 import { useEmailVerification } from '@/features/auth/hooks/use-email-verification';
 
 interface EmailVerificationPanelProps {
@@ -11,50 +13,113 @@ interface EmailVerificationPanelProps {
   password?: string;
 }
 
-// export function EmailVerificationPanel({
-//   email,
-//   onConfirmed,
-//   onChangeEmail,
-//   password,
-// }: EmailVerificationPanelProps) {
-export function EmailVerificationPanel(props: EmailVerificationPanelProps) {
+const styles = StyleSheet.create((theme) => ({
+  pendingCard: {
+    alignItems: 'center',
+    gap: theme.space.lg,
+    padding: theme.space.xl + theme.space.xs,
+  },
+  heroContainer: {
+    width: 64,
+    height: 64,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: theme.space.xs,
+  },
+  pulseRing: {
+    position: 'absolute',
+    width: 64,
+    height: 64,
+    borderRadius: theme.radius.pill,
+    opacity: 0.2,
+  },
+  iconCircle: {
+    width: 48,
+    height: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: theme.radius.famLarge,
+  },
+  pendingTitle: {
+    // Preserve the existing verification heading's intentionally tall line box.
+    fontSize: 18,
+    lineHeight: 44,
+  },
+  iconGlyph: {
+    lineHeight: 24,
+  },
+  liveDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: theme.warning,
+  },
+  emailCapsule: {
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.xs,
+    borderRadius: theme.radius.md,
+  },
+  pendingDescription: {
+    paddingHorizontal: theme.space.sm,
+  },
+  codeBlock: {
+    width: '100%',
+    gap: theme.space.sm,
+  },
+  codeInput: {
+    textAlign: 'center',
+    fontSize: theme.font.sizes.xl,
+    letterSpacing: 8,
+  },
+  actionList: {
+    width: '100%',
+    gap: theme.space.sm,
+    marginTop: theme.space.xs,
+  },
+}));
+
+export function EmailVerificationPanel({
+  email,
+  onConfirmed,
+  onChangeEmail,
+  password,
+}: EmailVerificationPanelProps) {
   const { t } = useTranslation();
-  const email = props.email;
-  const onConfirmed = props.onConfirmed;
-  const onChangeEmail = props.onChangeEmail;
-  const password = props.password;
-  // onConfirmed weitergereicht an useEmailVerification
+  const { colors } = useTheme();
   const verification = useEmailVerification({ email, password, onConfirmed });
 
   return (
-    <View className="pending-card">
-      <View className="hero-container">
-        <View className="pulse-ring opacity-20" />
-        <View className="icon-circle">
-          <Txt variant="heading" style={{ fontSize: 22, lineHeight: 24 }}>
+    <Card padded={false} elevation="none" style={styles.pendingCard}>
+      <View style={styles.heroContainer}>
+        <Surface tone="accent" style={styles.pulseRing} />
+        <Card
+          padded={false}
+          elevation="sm"
+          style={[styles.iconCircle, { backgroundColor: colors.accent, borderWidth: 0 }]}>
+          <Txt variant="glyph" style={styles.iconGlyph}>
             ✉️
           </Txt>
-        </View>
+        </Card>
       </View>
 
-      <View className="row-center">
-        <View className="live-dot" />
-        <Txt variant="heading" className="pending-title">
+      <Row>
+        <View style={styles.liveDot} />
+        <Txt variant="heading" style={styles.pendingTitle}>
           {t('auth.verification.pendingTitle')}
         </Txt>
-      </View>
+      </Row>
 
-      <View className="email-capsule">
+      <Surface tone="soft" style={styles.emailCapsule}>
         <Txt variant="body" tone="primary" weight="700">
           {email}
         </Txt>
-      </View>
+      </Surface>
 
-      <Txt variant="body" tone="secondary" className="pending-description">
+      <Txt variant="body" tone="secondary" center style={styles.pendingDescription}>
         {t('auth.verification.description')}
       </Txt>
 
-      <View className="code-block">
+      <View style={styles.codeBlock}>
         <TextField
           testID="email-verification-code"
           label={t('auth.fields.verificationCode')}
@@ -68,7 +133,7 @@ export function EmailVerificationPanel(props: EmailVerificationPanelProps) {
           textContentType="oneTimeCode"
           returnKeyType="go"
           onSubmitEditing={verification.confirmCode}
-          className="code-input"
+          style={styles.codeInput}
         />
 
         <Button
@@ -85,7 +150,7 @@ export function EmailVerificationPanel(props: EmailVerificationPanelProps) {
         </Txt>
       ) : null}
 
-      <View className="action-list">
+      <View style={styles.actionList}>
         <Button
           title={
             verification.cooldown > 0
@@ -115,6 +180,6 @@ export function EmailVerificationPanel(props: EmailVerificationPanelProps) {
           />
         ) : null}
       </View>
-    </View>
+    </Card>
   );
 }
