@@ -7,6 +7,7 @@ import {
   type ProfileBiometrics,
   SEX_OPTIONS,
 } from '@/features/profile/domain/biometrics';
+import { profileEditStyles } from '@/features/profile/profile-edit-styles';
 
 function formatNumber(value: number | null, unit: string) {
   return value === null
@@ -31,8 +32,8 @@ export function BiometricsSummary({
   const accessibleSummary = `${height}, ${weight}, ${birthDate}, ${sex}, ${activity}`;
 
   return (
-    <View className="gap-two">
-      <View className="profile-section-header">
+    <View style={profileEditStyles.summaryRoot}>
+      <View style={profileEditStyles.biometricsHeader}>
         <Txt variant="body" weight="700">
           Körper &amp; Aktivität
         </Txt>
@@ -40,16 +41,16 @@ export function BiometricsSummary({
           onPress={onPress}
           role="button"
           aria-label={`Körper & Aktivität bearbeiten. ${accessibleSummary}`}
-          className="profile-section-edit">
+          style={profileEditStyles.biometricsEdit}>
           <Txt variant="body" tone="primary" weight="700">
             Bearbeiten
           </Txt>
         </Pressable>
       </View>
 
-      <Surface tone="surface" className="profile-biometrics-summary">
-        <View className="profile-biometrics-weight">
-          <View className="gap-half">
+      <Surface tone="surface" style={profileEditStyles.summarySurface}>
+        <View style={profileEditStyles.biometricsWeight}>
+          <View style={profileEditStyles.biometricsWeightCopy}>
             <Txt variant="body" tone="secondary">
               Aktuelles Gewicht
             </Txt>
@@ -60,8 +61,13 @@ export function BiometricsSummary({
           </Txt>
         </View>
 
-        <View className="profile-biometrics-facts-row profile-biometrics-facts-row-bordered">
-          <View className="profile-biometrics-fact profile-biometrics-fact-bordered">
+        <View
+          style={[
+            profileEditStyles.biometricsFactsRow,
+            profileEditStyles.biometricsFactsRowBordered,
+          ]}>
+          <View
+            style={[profileEditStyles.biometricsFact, profileEditStyles.biometricsFactBordered]}>
             <Txt variant="caption" tone="secondary">
               Größe
             </Txt>
@@ -69,7 +75,7 @@ export function BiometricsSummary({
               {height}
             </Txt>
           </View>
-          <View className="profile-biometrics-fact">
+          <View style={profileEditStyles.biometricsFact}>
             <Txt variant="caption" tone="secondary">
               Geburtsdatum
             </Txt>
@@ -79,8 +85,9 @@ export function BiometricsSummary({
           </View>
         </View>
 
-        <View className="profile-biometrics-facts-row">
-          <View className="profile-biometrics-fact profile-biometrics-fact-bordered">
+        <View style={profileEditStyles.biometricsFactsRow}>
+          <View
+            style={[profileEditStyles.biometricsFact, profileEditStyles.biometricsFactBordered]}>
             <Txt variant="caption" tone="secondary">
               Berechnungsbasis
             </Txt>
@@ -88,7 +95,7 @@ export function BiometricsSummary({
               {sex}
             </Txt>
           </View>
-          <View className="profile-biometrics-fact">
+          <View style={profileEditStyles.biometricsFact}>
             <Txt variant="caption" tone="secondary">
               Aktivität
             </Txt>
@@ -99,7 +106,7 @@ export function BiometricsSummary({
         </View>
       </Surface>
 
-      <Txt variant="caption" tone="secondary" className="px-one">
+      <Txt variant="caption" tone="secondary" style={profileEditStyles.privateNote}>
         Privat · im Verlauf gespeichert
       </Txt>
     </View>

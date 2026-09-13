@@ -155,6 +155,10 @@ describe('EditProfileScreen', () => {
 
     expect(screen.getByText('Bild ändern')).toBeOnTheScreen();
     expect(screen.getByText('Bild entfernen')).toBeOnTheScreen();
+    expect(screen.getByTestId('profile-avatar')).toHaveStyle({
+      width: 80,
+      height: 80,
+    });
     expect(screen.getByLabelText('Profilbild bearbeiten')).toHaveStyle({
       width: '100%',
       height: '100%',

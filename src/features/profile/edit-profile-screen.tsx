@@ -1,14 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
-import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Alert, Pressable, View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { space } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { updatePassword } from '@/features/auth/api';
@@ -17,6 +14,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { updateProfile, useProfile } from '@/features/profile/api';
 import { pickAvatarImage, uploadAvatarImage } from '@/features/profile/avatar-uploader';
 import { FoodRulesSummary } from '@/features/profile/components/food-rules-summary';
+import { ProfileAvatarEditor } from '@/features/profile/components/profile-avatar-editor';
 import {
   ALLERGY_PRESETS,
   EMPTY_PROFILE_FOOD_RULES,
@@ -28,6 +26,7 @@ import {
   saveProfileFoodRules,
   useProfileFoodRules,
 } from '@/features/profile/food-rules-api';
+import { profileEditStyles } from '@/features/profile/profile-edit-styles';
 import { FoodRuleSelectionSheet } from '@/features/profile/sheets/food-rule-selection-sheet';
 import { PasswordChangeSheet } from '@/features/profile/sheets/password-change-sheet';
 import { AUTH_VALIDATION_KEYS, translateAuthValidationMessage } from '@/lib/db/zod/auth.zod';
@@ -41,7 +40,6 @@ import { getSupabase } from '@/lib/supabase';
  * Verwaltet Profilbild (Upload/Löschen), Name, E-Mail-Adresse und Passwort.
  */
 export function EditProfileScreen() {
-  const { colors } = useTheme();
   const { t } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -227,47 +225,18 @@ export function EditProfileScreen() {
       backStyle="icon">
       {/* Profilbild-Karte mit Upload- & Löschen-Optionen */}
       <Card title="Profilbild">
-        <View className="flex-row items-center gap-four">
-          <View
-            style={{ backgroundColor: colors.basil }}
-            className="w-20 h-20 rounded-full overflow-hidden items-center justify-center border-2 border-border">
-            {avatarUrl ? (
-              <Image
-                source={{ uri: avatarUrl }}
-                accessibilityLabel="Profilbild bearbeiten"
-                style={{ width: '100%', height: '100%' }}
-                contentFit="cover"
-              />
-            ) : (
-              <Txt variant="subheading" tone="inverse" weight="700">
-                {initials}
-              </Txt>
-            )}
-          </View>
-
-          <View className="flex-1 gap-two">
-            <Button
-              title={
-                uploadingImage ? 'Wird geladen...' : avatarUrl ? 'Bild ändern' : 'Bild auswählen'
-              }
-              variant="secondary"
-              onPress={handlePickImage}
-              loading={uploadingImage}
-            />
-            {avatarUrl ? (
-              <Pressable onPress={handleDeleteImage} hitSlop={8} className="py-one items-center">
-                <Txt variant="caption" tone="danger">
-                  Bild entfernen
-                </Txt>
-              </Pressable>
-            ) : null}
-          </View>
-        </View>
+        <ProfileAvatarEditor
+          avatarUrl={avatarUrl}
+          initials={initials}
+          uploading={uploadingImage}
+          onPick={() => void handlePickImage()}
+          onDelete={() => void handleDeleteImage()}
+        />
       </Card>
 
       {/* Persönliche Angaben (Name & E-Mail-Adresse) */}
       <Card title="Persönliche Angaben">
-        <View className="gap-three">
+        <View style={profileEditStyles.fields}>
           <TextField
             label="Name"
             value={displayName}
@@ -291,12 +260,12 @@ export function EditProfileScreen() {
           title="Passwort ändern"
           variant="secondary"
           size="sm"
-          style={{ marginTop: space.sm }}
+          style={profileEditStyles.passwordButton}
           onPress={() => setPasswordSheetVisible(true)}
         />
       </Card>
 
-      <View className="mt-two">
+      <View style={profileEditStyles.foodRulesOffset}>
         <FoodRulesSummary rules={foodRules} onSelect={setActiveFoodRule} />
       </View>
 
@@ -354,7 +323,7 @@ export function EditProfileScreen() {
 
       {/* Fehlermeldungs-Anzeige */}
       {formError ? (
-        <Txt variant="body" tone="danger" className="px-one">
+        <Txt variant="body" tone="danger" style={profileEditStyles.formError}>
           {formError}
         </Txt>
       ) : null}

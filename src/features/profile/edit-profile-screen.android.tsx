@@ -1,14 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
-import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Alert, Pressable, View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { space } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { updatePassword } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
@@ -22,6 +19,7 @@ import {
 } from '@/features/profile/biometrics-api';
 import { BiometricsSummary } from '@/features/profile/components/biometrics-summary';
 import { FoodRulesSummary } from '@/features/profile/components/food-rules-summary';
+import { ProfileAvatarEditor } from '@/features/profile/components/profile-avatar-editor';
 import {
   EMPTY_PROFILE_BIOMETRICS,
   type ProfileBiometrics,
@@ -38,6 +36,7 @@ import {
   saveProfileFoodRules,
   useProfileFoodRules,
 } from '@/features/profile/food-rules-api';
+import { profileEditStyles } from '@/features/profile/profile-edit-styles';
 import { BiometricsSheet } from '@/features/profile/sheets/biometrics-sheet';
 import { FoodRuleSelectionSheet } from '@/features/profile/sheets/food-rule-selection-sheet';
 import { PasswordChangeSheet } from '@/features/profile/sheets/password-change-sheet';
@@ -52,7 +51,6 @@ import { getSupabase } from '@/lib/supabase';
  * Verwaltet Accountdaten, Biometrie und persönliche Lebensmittelregeln.
  */
 export function EditProfileScreen() {
-  const { colors } = useTheme();
   const { t } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -273,52 +271,23 @@ export function EditProfileScreen() {
       title="Profil & Account"
       back={{ label: 'Mein Profil', href: '/profile' }}
       backStyle="icon">
-      <View className="gap-two">
+      <View style={profileEditStyles.section}>
         <Txt variant="body" weight="700">
           Profilbild
         </Txt>
-        <View className="flex-row items-center gap-four">
-          <View
-            style={{ backgroundColor: colors.basil }}
-            className="w-20 h-20 rounded-full overflow-hidden items-center justify-center border-2 border-border">
-            {avatarUrl ? (
-              <Image
-                source={{ uri: avatarUrl }}
-                accessibilityLabel="Profilbild bearbeiten"
-                style={{ width: '100%', height: '100%' }}
-                contentFit="cover"
-              />
-            ) : (
-              <Txt variant="subheading" tone="inverse" weight="700">
-                {initials}
-              </Txt>
-            )}
-          </View>
-
-          <View className="flex-1 gap-two">
-            <Button
-              title={
-                uploadingImage ? 'Wird geladen...' : avatarUrl ? 'Bild ändern' : 'Bild auswählen'
-              }
-              variant="secondary"
-              onPress={handlePickImage}
-              loading={uploadingImage}
-            />
-            {avatarUrl ? (
-              <Pressable onPress={handleDeleteImage} hitSlop={8} className="py-one items-center">
-                <Txt variant="caption" tone="danger">
-                  Bild entfernen
-                </Txt>
-              </Pressable>
-            ) : null}
-          </View>
-        </View>
+        <ProfileAvatarEditor
+          avatarUrl={avatarUrl}
+          initials={initials}
+          uploading={uploadingImage}
+          onPick={() => void handlePickImage()}
+          onDelete={() => void handleDeleteImage()}
+        />
       </View>
-      <View className="gap-two">
+      <View style={profileEditStyles.section}>
         <Txt variant="body" weight="700">
           Persönliche Angaben
         </Txt>
-        <View className="gap-three">
+        <View style={profileEditStyles.fields}>
           <TextField
             label="Name"
             value={displayName}
@@ -340,12 +309,12 @@ export function EditProfileScreen() {
           title="Passwort ändern"
           variant="secondary"
           size="sm"
-          style={{ marginTop: space.sm }}
+          style={profileEditStyles.passwordButton}
           onPress={() => setPasswordSheetVisible(true)}
         />
       </View>
 
-      <View className="gap-four mt-two">
+      <View style={profileEditStyles.summaries}>
         <BiometricsSummary value={biometrics} onPress={() => setBiometricsSheetVisible(true)} />
         <FoodRulesSummary rules={foodRules} onSelect={setActiveFoodRule} />
       </View>
@@ -410,7 +379,7 @@ export function EditProfileScreen() {
       />
 
       {formError ? (
-        <Txt role="alert" variant="body" tone="danger" className="px-one">
+        <Txt role="alert" variant="body" tone="danger" style={profileEditStyles.formError}>
           {formError}
         </Txt>
       ) : null}

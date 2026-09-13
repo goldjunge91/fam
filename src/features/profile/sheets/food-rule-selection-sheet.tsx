@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, TextField, Txt } from '@/constants/ui';
 import {
   addFoodSelection,
@@ -9,6 +8,7 @@ import {
   customFoodLabelSchema,
   type FoodSelection,
 } from '@/features/profile/domain/food-rules';
+import { foodRuleSelectionSheetStyles } from '@/features/profile/sheets/food-rule-selection-sheet-styles';
 
 type FoodPreset<Code extends string> = {
   code: Code;
@@ -38,7 +38,6 @@ export function FoodRuleSelectionSheet<Code extends string>({
   onApply,
   onClose,
 }: FoodRuleSelectionSheetProps<Code>) {
-  const { colors } = useTheme();
   const [draft, setDraft] = useState<FoodSelection<Code>[]>(value);
   const [query, setQuery] = useState('');
   const [inputError, setInputError] = useState<string | null>(null);
@@ -105,11 +104,11 @@ export function FoodRuleSelectionSheet<Code extends string>({
       animationType="slide"
       statusBarTranslucent
       onRequestClose={onClose}>
-      <View className="profile-food-rules-sheet-backdrop">
-        <View className="profile-food-rules-sheet" style={{ backgroundColor: colors.surface }}>
-          <View className="modal-handle" />
-          <View className="profile-food-rules-sheet-header">
-            <View className="flex-1 gap-half">
+      <View style={foodRuleSelectionSheetStyles.backdrop}>
+        <View style={foodRuleSelectionSheetStyles.sheet}>
+          <View style={foodRuleSelectionSheetStyles.handle} />
+          <View style={foodRuleSelectionSheetStyles.header}>
+            <View style={foodRuleSelectionSheetStyles.headerCopy}>
               <Txt variant="heading">{title}</Txt>
               <Txt variant="caption" tone="secondary">
                 {presets.length > 0
@@ -121,7 +120,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
               onPress={onClose}
               role="button"
               aria-label={`${title} schließen`}
-              className="modal-close-btn">
+              style={foodRuleSelectionSheetStyles.closeButton}>
               <Txt variant="body" tone="secondary" aria-hidden>
                 ✕
               </Txt>
@@ -142,7 +141,10 @@ export function FoodRuleSelectionSheet<Code extends string>({
           />
           <Button title={addLabel} variant="secondary" onPress={addCustomEntry} />
 
-          <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="pb-two">
+          <ScrollView
+            style={foodRuleSelectionSheetStyles.options}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={foodRuleSelectionSheetStyles.optionsContent}>
             {filteredPresets.map((preset, index) => {
               const selected = isPresetSelected(preset.code);
               return (
@@ -152,22 +154,20 @@ export function FoodRuleSelectionSheet<Code extends string>({
                   role="checkbox"
                   aria-label={preset.label}
                   aria-checked={selected}
-                  className="profile-food-rules-option"
-                  style={{
-                    backgroundColor: selected ? colors.basilSoft : colors.surface,
-                    borderBottomColor: colors.border,
-                    borderBottomWidth: index < filteredPresets.length - 1 ? 1 : 0,
-                  }}>
-                  <Txt variant="body" className="flex-1">
+                  style={[
+                    foodRuleSelectionSheetStyles.option,
+                    selected && foodRuleSelectionSheetStyles.optionSelected,
+                    index < filteredPresets.length - 1 &&
+                      foodRuleSelectionSheetStyles.optionBordered,
+                  ]}>
+                  <Txt variant="body" style={foodRuleSelectionSheetStyles.optionLabel}>
                     {preset.label}
                   </Txt>
                   <View
-                    className="checkbox-base"
-                    style={{
-                      backgroundColor: selected ? colors.basil : 'transparent',
-                      borderColor: colors.basil,
-                      borderWidth: 1.5,
-                    }}>
+                    style={[
+                      foodRuleSelectionSheetStyles.checkbox,
+                      selected && foodRuleSelectionSheetStyles.checkboxSelected,
+                    ]}>
                     {selected ? (
                       <Txt variant="caption" tone="onAccent">
                         ✓
@@ -181,8 +181,10 @@ export function FoodRuleSelectionSheet<Code extends string>({
             {draft
               .filter((selection) => selection.source === 'custom')
               .map((selection) => (
-                <View key={selection.normalizedLabel} className="profile-food-rules-custom-row">
-                  <Txt variant="body" className="flex-1">
+                <View
+                  key={selection.normalizedLabel}
+                  style={foodRuleSelectionSheetStyles.customRow}>
+                  <Txt variant="body" style={foodRuleSelectionSheetStyles.customLabel}>
                     {selection.label}
                   </Txt>
                   <Pressable
@@ -197,8 +199,8 @@ export function FoodRuleSelectionSheet<Code extends string>({
                     }
                     role="button"
                     aria-label={`${selection.label} entfernen`}
-                    className="profile-food-rules-remove">
-                    <Txt variant="caption" tone="secondary">
+                    style={foodRuleSelectionSheetStyles.removeButton}>
+                    <Txt variant="label" tone="primary" weight="700">
                       Entfernen
                     </Txt>
                   </Pressable>
