@@ -1,6 +1,7 @@
 import { Host, Switch } from '@expo/ui';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { TimeWheelField } from '@/components/forms/time-wheel-field';
 import { Card } from '@/components/ui/card';
 import { Txt } from '@/constants/ui';
@@ -11,6 +12,15 @@ import {
   useUpdateInjectionPlanMutation,
 } from '@/features/glp1/hooks/injection-plan-api';
 import { useInjectionReminder } from '@/features/glp1/hooks/use-injection-reminder';
+
+const styles = StyleSheet.create((theme) => ({
+  content: {
+    gap: theme.space.sm,
+  },
+  timeGroup: {
+    gap: theme.space.sm,
+  },
+}));
 
 type InjectionReminderSettingsCardProps = {
   userId: string | undefined;
@@ -80,7 +90,7 @@ export function InjectionReminderSettingsCard({ userId }: InjectionReminderSetti
           Lege zuerst einen Injektionsplan an, um die Erinnerung zu aktivieren.
         </Txt>
       ) : (
-        <View className="gap-two">
+        <View style={styles.content}>
           <Txt variant="caption" tone="secondary">
             Erinnert dich vor dem nächsten fälligen Termin aus deinem Injektionsplan.
           </Txt>
@@ -92,7 +102,7 @@ export function InjectionReminderSettingsCard({ userId }: InjectionReminderSetti
               disabled={updateMutation.isPending}
             />
           </Host>
-          <View className="gap-two">
+          <View style={styles.timeGroup}>
             <TimeWheelField
               label="Uhrzeit der Injektions-Erinnerung"
               value={reminderTime}

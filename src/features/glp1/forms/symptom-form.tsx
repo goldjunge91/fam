@@ -1,10 +1,9 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
-import { Pressable, TextInput, View } from 'react-native';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { z } from 'zod';
-import { font } from '@/components/theme';
-import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Txt } from '@/constants/ui';
+import { Button, Card, SegmentedControl, TextField, Txt } from '@/constants/ui';
 import { formatDateTimeInput } from '@/features/glp1/domain/date-time-input';
 import {
   dateTimeInputSchema,
@@ -12,6 +11,32 @@ import {
   sideEffectsInputSchema,
 } from '@/features/glp1/domain/form-schema-primitives';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
+
+const styles = StyleSheet.create((theme) => ({
+  form: {
+    gap: theme.space.lg,
+  },
+  levelPicker: {
+    gap: theme.space.xs,
+  },
+  summary: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+    padding: theme.space.sm,
+  },
+  fieldGroup: {
+    gap: theme.space.xs,
+  },
+  multilineInput: {
+    minHeight: 64,
+    textAlignVertical: 'top',
+  },
+  submit: {
+    marginTop: theme.space.xs,
+  },
+}));
 
 const symptomFormSchema = z.object({
   appetiteLevel: z.number().int().min(1).max(5),
@@ -41,33 +66,18 @@ type LevelPickerProps = {
 };
 
 function LevelPicker({ label, levels, selected, onSelect }: LevelPickerProps) {
-  const { colors } = useTheme();
   return (
-    <View className="gap-one">
+    <View style={styles.levelPicker}>
       <Txt variant="caption" tone="secondary">
         {label}
       </Txt>
-      <View className="flex-row gap-two justify-between">
-        {levels.map((level) => {
-          const isSelected = selected === level;
-          return (
-            <Pressable
-              key={level}
-              onPress={() => onSelect(level)}
-              accessibilityRole="radio"
-              accessibilityState={{ selected: isSelected }}
-              style={{
-                backgroundColor: isSelected ? colors.accent : colors.backgroundElement,
-                borderColor: isSelected ? colors.accent : colors.border,
-              }}
-              className="flex-1 h-9 rounded-xl items-center justify-center border">
-              <Txt variant="label" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
-                {level}
-              </Txt>
-            </Pressable>
-          );
-        })}
-      </View>
+      <SegmentedControl
+        label={label}
+        options={levels.map((level) => ({ value: String(level), label: String(level) }))}
+        selected={String(selected)}
+        onSelect={(value) => onSelect(Number(value))}
+        size="compact"
+      />
     </View>
   );
 }
@@ -78,7 +88,6 @@ export function SymptomForm({
   initialValue,
   mode = 'create',
 }: SymptomFormProps) {
-  const { colors } = useTheme();
   const {
     control,
     formState: { errors },
@@ -101,21 +110,9 @@ export function SymptomForm({
   const appetite = watch('appetiteLevel');
   const satiety = watch('satietyLevel');
   const nausea = watch('nauseaLevel');
-  const surfaceStyle = {
-    backgroundColor: colors.backgroundElement,
-    borderColor: colors.border,
-  };
-  const inputStyle = {
-    color: colors.text,
-    backgroundColor: colors.backgroundElement,
-    borderColor: colors.border,
-    fontSize: font.sizes.md,
-    lineHeight: font.lineHeights.subheading,
-  };
-  const multilineInputStyle = { ...inputStyle, textAlignVertical: 'top' as const };
 
   return (
-    <View className="p-three rounded-xl gap-three border" style={surfaceStyle}>
+    <Card elevation="none" style={styles.form}>
       <Txt variant="label" weight="700">
         {mode === 'edit' ? 'Symptome bearbeiten' : 'Symptom- & Sättigungs-Verlauf'}
       </Txt>
@@ -145,103 +142,78 @@ export function SymptomForm({
         }
       />
 
-      <View className="gap-one">
-        <Txt variant="caption" tone="secondary">
-          Konkrete Nebenwirkungen:
-        </Txt>
+      <View style={styles.fieldGroup}>
         <Controller
           control={control}
           name="sideEffects"
           render={({ field: { onChange, value } }) => (
-            <TextInput
+            <TextField
               value={value}
               onChangeText={onChange}
+              label="Konkrete Nebenwirkungen:"
               accessibilityLabel="Konkrete Nebenwirkungen"
               placeholder="z. B. Kopfschmerz, Müdigkeit"
-              className="p-two rounded-lg border"
-              placeholderTextColor={colors.textSecondary}
-              style={inputStyle}
+              error={errors.sideEffects?.message}
+              size="large"
             />
           )}
         />
-        {errors.sideEffects ? (
-          <Txt variant="caption" tone="danger">
-            {errors.sideEffects.message}
-          </Txt>
-        ) : null}
       </View>
 
-      <View className="gap-one">
-        <Txt variant="caption" tone="secondary">
-          Zeitpunkt:
-        </Txt>
+      <View style={styles.fieldGroup}>
         <Controller
           control={control}
           name="loggedAt"
           render={({ field: { onChange, value } }) => (
-            <TextInput
+            <TextField
               value={value}
               onChangeText={onChange}
+              label="Zeitpunkt:"
               accessibilityLabel="Zeitpunkt der Symptome"
               placeholder="JJJJ-MM-TT HH:MM"
               autoCapitalize="none"
-              className="p-two rounded-lg border"
-              placeholderTextColor={colors.textSecondary}
-              style={inputStyle}
+              error={errors.loggedAt?.message}
+              size="large"
             />
           )}
         />
-        {errors.loggedAt ? (
-          <Txt variant="caption" tone="danger">
-            {errors.loggedAt.message}
-          </Txt>
-        ) : null}
       </View>
 
-      <View className="gap-one">
-        <Txt variant="caption" tone="secondary">
-          Notiz:
-        </Txt>
+      <View style={styles.fieldGroup}>
         <Controller
           control={control}
           name="notes"
           render={({ field: { onChange, value } }) => (
-            <TextInput
+            <TextField
               value={value}
               onChangeText={onChange}
+              label="Notiz:"
               accessibilityLabel="Notiz zu den Symptomen"
               placeholder="Optional"
               multiline
-              className="p-two rounded-lg border min-h-16"
-              placeholderTextColor={colors.textSecondary}
-              style={multilineInputStyle}
+              error={errors.notes?.message}
+              size="large"
+              style={styles.multilineInput}
             />
           )}
         />
-        {errors.notes ? (
-          <Txt variant="caption" tone="danger">
-            {errors.notes.message}
-          </Txt>
-        ) : null}
       </View>
 
-      <View
-        className="p-two rounded-lg border flex-row items-center justify-between"
-        style={surfaceStyle}>
+      <Card padded={false} elevation="none" style={styles.summary}>
         <Txt variant="body" tone="secondary">
           Ausgewählt:
         </Txt>
         <Txt variant="body" weight="700">
           Appetit {appetite}/5 · Sättigung {satiety}/5 · Übelkeit {nausea}/5
         </Txt>
-      </View>
+      </Card>
 
       <Button
         title={mode === 'edit' ? 'Änderungen speichern' : 'Status speichern'}
         onPress={() => void handleSubmit((value) => onSubmit(value))()}
         loading={isPending}
-        style={{ marginTop: 4 }}
+        style={styles.submit}
       />
-    </View>
+    </Card>
   );
 }

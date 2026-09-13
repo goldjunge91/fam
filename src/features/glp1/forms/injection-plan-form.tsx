@@ -1,18 +1,38 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
-import { Pressable, TextInput, View } from 'react-native';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { z } from 'zod';
-import { font } from '@/components/theme';
-import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Txt } from '@/constants/ui';
+import type { SegmentedControlOption } from '@/constants/ui';
+import { Button, Card, SegmentedControl, TextField, Txt } from '@/constants/ui';
 import { formatDateTimeInput } from '@/features/glp1/domain/date-time-input';
 import {
   dateTimeInputSchema,
   medicationNameInputSchema,
   positiveDoseInputSchema,
 } from '@/features/glp1/domain/form-schema-primitives';
-import { MEDICATION_UNITS } from '@/features/glp1/domain/medication-options';
+import { MEDICATION_UNITS, type MedicationUnit } from '@/features/glp1/domain/medication-options';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
+
+const UNIT_OPTIONS: readonly SegmentedControlOption<MedicationUnit>[] = MEDICATION_UNITS.map(
+  (value) => ({ value, label: value }),
+);
+
+const styles = StyleSheet.create((theme) => ({
+  form: {
+    gap: theme.space.lg,
+  },
+  fieldGroup: {
+    gap: theme.space.xs,
+  },
+  row: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  flex: {
+    flex: 1,
+  },
+}));
 
 const injectionPlanFormSchema = z.object({
   medicationName: medicationNameInputSchema,
@@ -47,7 +67,6 @@ export function InjectionPlanForm({
   mode,
   onSubmit,
 }: InjectionPlanFormProps) {
-  const { colors } = useTheme();
   const {
     control,
     formState: { errors },
@@ -67,154 +86,97 @@ export function InjectionPlanForm({
   });
   useRozeniteRHFDevTools({ control, id: 'glp1-injection-plan' });
   const unit = watch('unit');
-  const surfaceStyle = {
-    backgroundColor: colors.backgroundElement,
-    borderColor: colors.border,
-  };
-  const inputStyle = {
-    color: colors.text,
-    backgroundColor: colors.backgroundElement,
-    borderColor: colors.border,
-    fontSize: font.sizes.md,
-    lineHeight: font.lineHeights.subheading,
-  };
 
   return (
-    <View className="p-three rounded-xl gap-three border" style={surfaceStyle}>
+    <Card elevation="none" style={styles.form}>
       <Txt variant="label" weight="700">
         {mode === 'edit' ? 'Injektionsplan bearbeiten' : 'Injektionsplan anlegen'}
       </Txt>
 
-      <View className="gap-one">
-        <Txt variant="caption" tone="secondary">
-          Medikament:
-        </Txt>
+      <View style={styles.fieldGroup}>
         <Controller
           control={control}
           name="medicationName"
           render={({ field: { onChange, value } }) => (
-            <TextInput
+            <TextField
               value={value}
               onChangeText={onChange}
+              label="Medikament:"
               accessibilityLabel="Medikament im Injektionsplan"
-              className="p-two rounded-lg border"
-              placeholderTextColor={colors.textSecondary}
-              style={inputStyle}
+              error={errors.medicationName?.message}
+              size="large"
             />
           )}
         />
-        {errors.medicationName ? (
-          <Txt variant="caption" tone="danger">
-            {errors.medicationName.message}
-          </Txt>
-        ) : null}
       </View>
 
-      <View className="gap-one">
+      <View style={styles.fieldGroup}>
         <Txt variant="caption" tone="secondary">
           Einheit:
         </Txt>
-        <View className="flex-row flex-wrap gap-two">
-          {MEDICATION_UNITS.map((value) => {
-            const isSelected = unit === value;
-            return (
-              <Pressable
-                key={value}
-                onPress={() => setValue('unit', value, { shouldDirty: true, shouldValidate: true })}
-                accessibilityRole="radio"
-                accessibilityState={{ selected: isSelected }}
-                style={{
-                  backgroundColor: isSelected ? colors.accent : colors.backgroundElement,
-                  borderColor: isSelected ? colors.accent : colors.border,
-                }}
-                className="py-one px-three rounded-xl border">
-                <Txt variant="body" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
-                  {value}
-                </Txt>
-              </Pressable>
-            );
-          })}
-        </View>
+        <SegmentedControl
+          label="Einheit"
+          options={UNIT_OPTIONS}
+          selected={unit}
+          onSelect={(value) => setValue('unit', value, { shouldDirty: true, shouldValidate: true })}
+          size="compact"
+        />
       </View>
 
-      <View className="flex-row gap-two">
-        <View className="flex-1 gap-one">
-          <Txt variant="caption" tone="secondary">
-            Dosis ({unit}):
-          </Txt>
+      <View style={styles.row}>
+        <View style={styles.flex}>
           <Controller
             control={control}
             name="dose"
             render={({ field: { onChange, value } }) => (
-              <TextInput
+              <TextField
                 value={value}
                 onChangeText={onChange}
+                label={`Dosis (${unit}):`}
                 accessibilityLabel="Dosis im Injektionsplan"
                 keyboardType="decimal-pad"
-                className="p-two rounded-lg border"
-                placeholderTextColor={colors.textSecondary}
-                style={inputStyle}
+                error={errors.dose?.message}
+                size="large"
               />
             )}
           />
-          {errors.dose ? (
-            <Txt variant="caption" tone="danger">
-              {errors.dose.message}
-            </Txt>
-          ) : null}
         </View>
-        <View className="flex-1 gap-one">
-          <Txt variant="caption" tone="secondary">
-            Alle wie viele Tage:
-          </Txt>
+        <View style={styles.flex}>
           <Controller
             control={control}
             name="cadenceDays"
             render={({ field: { onChange, value } }) => (
-              <TextInput
+              <TextField
                 value={value}
                 onChangeText={onChange}
+                label="Alle wie viele Tage:"
                 accessibilityLabel="Kadenz in Tagen"
                 keyboardType="number-pad"
-                className="p-two rounded-lg border"
-                placeholderTextColor={colors.textSecondary}
-                style={inputStyle}
+                error={errors.cadenceDays?.message}
+                size="large"
               />
             )}
           />
-          {errors.cadenceDays ? (
-            <Txt variant="caption" tone="danger">
-              {errors.cadenceDays.message}
-            </Txt>
-          ) : null}
         </View>
       </View>
 
-      <View className="gap-one">
-        <Txt variant="caption" tone="secondary">
-          Erster Fälligkeitszeitpunkt:
-        </Txt>
+      <View style={styles.fieldGroup}>
         <Controller
           control={control}
           name="anchorAt"
           render={({ field: { onChange, value } }) => (
-            <TextInput
+            <TextField
               value={value}
               onChangeText={onChange}
+              label="Erster Fälligkeitszeitpunkt:"
               accessibilityLabel="Ankerzeitpunkt des Injektionsplans"
               placeholder="JJJJ-MM-TT HH:MM"
               autoCapitalize="none"
-              className="p-two rounded-lg border"
-              placeholderTextColor={colors.textSecondary}
-              style={inputStyle}
+              error={errors.anchorAt?.message}
+              size="large"
             />
           )}
         />
-        {errors.anchorAt ? (
-          <Txt variant="caption" tone="danger">
-            {errors.anchorAt.message}
-          </Txt>
-        ) : null}
       </View>
 
       <Button
@@ -222,6 +184,6 @@ export function InjectionPlanForm({
         onPress={() => void handleSubmit((value) => onSubmit(value))()}
         loading={isPending}
       />
-    </View>
+    </Card>
   );
 }
