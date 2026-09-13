@@ -13,7 +13,6 @@ import {
   Pressable,
   type PressableProps,
   type StyleProp,
-  StyleSheet,
   Text,
   TextInput,
   type TextInputProps,
@@ -30,6 +29,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
+import { StyleSheet } from 'react-native-unistyles';
 import {
   type AccentKey,
   BUTTON_DEPTH,
@@ -52,12 +52,24 @@ import {
 const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;
 const POP_SPRING = { damping: 9, stiffness: 380, mass: 0.5 } as const;
 
-function makeShadowStyles(c: Palette) {
+type ShadowTier = (typeof shadow)[keyof typeof shadow];
+
+function makeThemeShadow(tier: ShadowTier, color: string) {
   return {
-    sm: { ...shadow.sm, shadowColor: c.shadowCard },
-    md: { ...shadow.md, shadowColor: c.shadowCard },
-    lg: { ...shadow.lg, shadowColor: c.shadowCard },
+    shadowColor: color,
+    shadowOffset: tier.shadowOffset,
+    shadowOpacity: tier.shadowOpacity,
+    shadowRadius: tier.shadowRadius,
+    elevation: tier.elevation,
   };
+}
+
+function makeShadowStyles(c: Palette) {
+  return StyleSheet.create({
+    sm: makeThemeShadow(shadow.sm, c.shadowCard),
+    md: makeThemeShadow(shadow.md, c.shadowCard),
+    lg: makeThemeShadow(shadow.lg, c.shadowCard),
+  });
 }
 
 type HapticKind = 'none' | 'light' | 'medium' | 'heavy' | 'selection' | 'success';
@@ -207,7 +219,6 @@ export type TxtProps = TextProps & {
   weight?: TextStyle['fontWeight'];
   center?: boolean;
   muted?: boolean;
-  className?: string;
 };
 
 export function Txt({
@@ -217,7 +228,6 @@ export function Txt({
   weight,
   center,
   muted,
-  className,
   style,
   children,
   ...rest
@@ -228,7 +238,6 @@ export function Txt({
   return (
     <Text
       {...rest}
-      className={className}
       style={[
         {
           fontSize: base.fontSize,
@@ -284,16 +293,14 @@ export function Row({
 
 type SurfaceTone = 'page' | 'surface' | 'soft' | 'accent';
 
-/** A semantic themed container. Layout utilities remain available via className. */
+/** A semantic themed container. */
 export function Surface({
   tone = 'page',
-  className,
   style,
   children,
   ...rest
 }: ViewProps & {
   tone?: SurfaceTone;
-  className?: string;
 }) {
   const { colors } = useTheme();
   const backgroundColor =
@@ -306,7 +313,7 @@ export function Surface({
           : colors.accent;
 
   return (
-    <View {...rest} className={className} style={[{ backgroundColor }, style]}>
+    <View {...rest} style={[{ backgroundColor }, style]}>
       {children}
     </View>
   );
@@ -330,7 +337,7 @@ export function Card({
   elevation = 'sm',
   children,
   ...rest
-}: Omit<ViewProps, 'className' | 'style'> & {
+}: Omit<ViewProps, 'style'> & {
   padded?: boolean;
   soft?: boolean;
   elevation?: 'none' | 'sm' | 'md' | 'lg';
@@ -747,6 +754,7 @@ export function SegmentedControl<T extends string>({
               styles.segmentItem,
               size === 'compact' ? styles.segmentItemCompact : styles.segmentItemDefault,
               active && activeStyle,
+              active && appearance === 'surface' && styles.shadowSm,
               option.disabled && styles.segmentItemDisabled,
             ]}>
             <Txt
@@ -770,7 +778,6 @@ export type TextFieldProps = TextInputProps & {
   size?: 'default' | 'large';
   error?: string;
   trailing?: ReactNode;
-  className?: string;
 };
 
 export const TextField = forwardRef<TextInput, TextFieldProps>(function TextField(
@@ -780,7 +787,6 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(function TextFiel
     error,
     trailing,
     style,
-    className,
     accessibilityLabel,
     accessibilityHint,
     accessibilityState,
@@ -832,7 +838,6 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(function TextFiel
             setFocused(false);
             onBlur?.(event);
           }}
-          className={className}
           style={[
             styles.input,
             size === 'large' ? styles.inputLarge : null,
@@ -885,6 +890,7 @@ export function SectionHeading({
 
 function makeStyles(c: Palette) {
   return StyleSheet.create({
+    shadowSm: makeThemeShadow(shadow.sm, c.shadowCard),
     segment: {
       flexDirection: 'row',
       alignItems: 'stretch',
@@ -914,8 +920,6 @@ function makeStyles(c: Palette) {
     },
     segmentItemActiveSurface: {
       backgroundColor: c.backgroundElement,
-      ...shadow.sm,
-      shadowColor: c.shadowCard,
     },
     segmentItemDisabled: {
       opacity: 0.55,

@@ -491,3 +491,27 @@ export const Fonts = Platform.select({
 
 export const theme = { colors, accent, radius, space, font, shadow, BUTTON_DEPTH };
 export default theme;
+
+// ─── Unistyles v3 Configuration ──────────────────────────────────────────────
+// StyleSheet.configure must be called before any StyleSheet.create.
+// Loaded as a Jest setupFile so the mock receives the config in tests too.
+import { StyleSheet } from 'react-native-unistyles';
+
+const unistylesThemes = {
+  light: { ...colorsLight, space, font, radius, shadow },
+  dark: { ...colorsDark, space, font, radius, shadow },
+};
+
+type AppThemes = typeof unistylesThemes;
+
+declare module 'react-native-unistyles' {
+  export interface UnistylesThemes extends AppThemes {}
+}
+
+StyleSheet.configure({
+  themes: unistylesThemes,
+  settings: {
+    // Adaptive themes: Unistyles follows OS colour scheme automatically.
+    adaptiveThemes: true,
+  },
+});
