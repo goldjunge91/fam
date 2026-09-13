@@ -1,7 +1,8 @@
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Pressable, View } from 'react-native';
-import { Button, Txt } from '@/constants/ui';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { Button, Press, Surface, Txt } from '@/constants/ui';
 import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
 import { EmailVerificationPanel } from '@/features/auth/components/email-verification-panel';
 import { SignInForm } from '@/features/auth/forms/sign-in-form';
@@ -11,6 +12,45 @@ import { useSession } from '@/features/auth/session-provider';
 interface AccountStepFormProps {
   onNext: () => void;
 }
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    gap: theme.space.lg,
+  },
+  activeContainer: {
+    gap: theme.space.xl + theme.space.xs,
+    marginTop: theme.space.sm,
+  },
+  activeBanner: {
+    gap: theme.space.xs,
+    padding: theme.space.lg,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    borderRadius: theme.radius.sm,
+  },
+  form: {
+    gap: theme.space.lg,
+    marginTop: theme.space.sm,
+  },
+  tabToggle: {
+    flexDirection: 'row',
+    overflow: 'hidden',
+    marginBottom: theme.space.xs,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    borderRadius: theme.radius.sm,
+  },
+  tabContainer: {
+    flex: 1,
+  },
+  tabButton: {
+    alignItems: 'center',
+    paddingVertical: theme.space.sm,
+  },
+  tabButtonActive: {
+    backgroundColor: theme.accent,
+  },
+}));
 
 export function AccountStepForm({ onNext }: AccountStepFormProps) {
   const { session } = useSession();
@@ -25,7 +65,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
 
   if (pendingSignUp) {
     return (
-      <View className="gap-three">
+      <View style={styles.root}>
         <EmailVerificationPanel
           email={pendingSignUp.email}
           password={pendingSignUp.password}
@@ -37,7 +77,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
   }
 
   return (
-    <View className="gap-three">
+    <View style={styles.root}>
       <Txt variant="subheading" weight="700">
         Dein Account
       </Txt>
@@ -46,41 +86,54 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
       </Txt>
 
       {session ? (
-        <View className="account-active-container">
-          <View className="account-active-banner">
+        <View style={styles.activeContainer}>
+          <Surface tone="surface" style={styles.activeBanner}>
             <Txt variant="label" tone="accent" weight="700">
               ✓ Angemeldet als: {session.user.email}
             </Txt>
             <Txt variant="label" tone="secondary">
               Dein Account ist aktiv. Du kannst jetzt direkt zum nächsten Schritt wechseln.
             </Txt>
-          </View>
+          </Surface>
 
           <Button title="Weiter" onPress={onNext} />
         </View>
       ) : (
-        <View className="account-form">
-          <View className="account-tab-toggle">
-            <Pressable
+        <View style={styles.form}>
+          <View
+            accessibilityRole="tablist"
+            accessibilityLabel="Anmeldeart"
+            style={styles.tabToggle}>
+            <Press
               onPress={() => setAuthMode('sign_up')}
-              className={`account-tab-button ${authMode === 'sign_up' ? 'account-tab-button-active' : ''}`}>
+              accessibilityRole="tab"
+              accessibilityLabel="Registrieren"
+              accessibilityState={{ selected: authMode === 'sign_up' }}
+              haptic="selection"
+              containerStyle={styles.tabContainer}
+              style={[styles.tabButton, authMode === 'sign_up' && styles.tabButtonActive]}>
               <Txt
                 variant="body"
                 tone={authMode === 'sign_up' ? 'onAccent' : 'primary'}
                 weight="600">
                 Registrieren
               </Txt>
-            </Pressable>
-            <Pressable
+            </Press>
+            <Press
               onPress={() => setAuthMode('sign_in')}
-              className={`account-tab-button ${authMode === 'sign_in' ? 'account-tab-button-active' : ''}`}>
+              accessibilityRole="tab"
+              accessibilityLabel="Anmelden"
+              accessibilityState={{ selected: authMode === 'sign_in' }}
+              haptic="selection"
+              containerStyle={styles.tabContainer}
+              style={[styles.tabButton, authMode === 'sign_in' && styles.tabButtonActive]}>
               <Txt
                 variant="body"
                 tone={authMode === 'sign_in' ? 'onAccent' : 'primary'}
                 weight="600">
                 Anmelden
               </Txt>
-            </Pressable>
+            </Press>
           </View>
 
           {authMode === 'sign_up' ? (

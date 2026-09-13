@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
-import { Button, TextField, Txt } from '@/constants/ui';
+import { StyleSheet } from 'react-native-unistyles';
+import { withAlpha } from '@/components/theme/index';
+import { Button, Press, Surface, TextField, Txt } from '@/constants/ui';
 import {
   useCreateHouseholdMutation,
   useHouseholds,
@@ -15,6 +17,56 @@ interface HouseholdStepFormProps {
   onNext: () => void;
   onSkip: () => void;
 }
+
+const styles = StyleSheet.create((theme) => ({
+  content: {
+    gap: theme.space.lg,
+    // Preserve the scroll tail from the onboarding layout below the actions.
+    paddingBottom: 64,
+  },
+  activeCard: {
+    gap: theme.space.xs,
+    padding: theme.space.lg,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.success,
+    borderRadius: theme.radius.sm,
+    marginVertical: theme.space.xs,
+    backgroundColor: withAlpha(theme.success, 0.1),
+  },
+  activeBadge: {
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  choices: {
+    gap: theme.space.sm,
+    marginTop: theme.space.xs,
+  },
+  choice: {
+    gap: theme.space.xs,
+    padding: theme.space.lg,
+    borderWidth: theme.borderWidth.base,
+    borderRadius: theme.radius.sm,
+  },
+  choiceSelected: {
+    backgroundColor: theme.accent,
+    borderColor: theme.accent,
+  },
+  choiceIdle: {
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+  error: {
+    marginTop: theme.space.xs,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+    marginTop: theme.space.lg,
+  },
+  flex: {
+    flex: 1,
+  },
+}));
 
 export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
   const { state, updateHouseholdData } = useOnboarding();
@@ -77,7 +129,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
       bottomOffset={24}
       keyboardShouldPersistTaps="handled"
       showsVerticalScrollIndicator={false}
-      contentContainerClassName="gap-three pb-six">
+      contentContainerStyle={styles.content}>
       <Txt variant="subheading" weight="700">
         Dein Haushalt
       </Txt>
@@ -87,42 +139,56 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
 
       {/* Aktiver Haushalt Banner */}
       {activeHousehold ? (
-        <View className="household-active-card">
-          <Txt variant="label" tone="success" weight="700" className="uppercase tracking-[0.5px]">
+        <Surface tone="surface" style={styles.activeCard}>
+          <Txt variant="label" tone="success" weight="700" style={styles.activeBadge}>
             ✓ Aktiver Haushalt erkannt
           </Txt>
           <Txt variant="body" weight="700">
             {activeHousehold.name}
           </Txt>
-        </View>
+        </Surface>
       ) : null}
 
-      <View className="perm-list">
-        <Pressable
+      <View style={styles.choices} accessibilityRole="radiogroup" accessibilityLabel="Haushalt">
+        <Press
           onPress={() => setChoice('create')}
-          className={`household-choice-card ${choice === 'create' ? 'household-choice-card-selected' : 'household-choice-card-idle'}`}>
+          accessibilityRole="radio"
+          accessibilityLabel="Neuen Haushalt erstellen"
+          accessibilityState={{ selected: choice === 'create' }}
+          haptic="selection"
+          style={[styles.choice, choice === 'create' ? styles.choiceSelected : styles.choiceIdle]}>
           <Txt variant="body" tone={choice === 'create' ? 'onAccent' : 'primary'} weight="700">
             🏠 Neuen Haushalt erstellen
           </Txt>
           <Txt variant="label" tone={choice === 'create' ? 'onAccent' : 'secondary'}>
             Erstelle eine eigene Gruppe für deine Familie oder WG und lade Mitglieder ein.
           </Txt>
-        </Pressable>
+        </Press>
 
-        <Pressable
+        <Press
           onPress={() => setChoice('join')}
-          className={`household-choice-card ${choice === 'join' ? 'household-choice-card-selected' : 'household-choice-card-idle'}`}>
+          accessibilityRole="radio"
+          accessibilityLabel="Einem Haushalt beitreten"
+          accessibilityState={{ selected: choice === 'join' }}
+          haptic="selection"
+          style={[styles.choice, choice === 'join' ? styles.choiceSelected : styles.choiceIdle]}>
           <Txt variant="body" tone={choice === 'join' ? 'onAccent' : 'primary'} weight="700">
             🔗 Einem Haushalt beitreten
           </Txt>
           <Txt variant="label" tone={choice === 'join' ? 'onAccent' : 'secondary'}>
             Gib den Einladungscode ein, den du erhalten hast.
           </Txt>
-        </Pressable>
+        </Press>
 
-        <Pressable
+        <Press
           onPress={() => setChoice('solo')}
-          className={`household-choice-card ${choice === 'solo' ? 'household-choice-card-selected' : 'household-choice-card-idle'}`}>
+          accessibilityRole="radio"
+          accessibilityLabel={
+            activeHousehold ? `Mit ${activeHousehold.name} fortfahren` : 'Vorerst alleine nutzen'
+          }
+          accessibilityState={{ selected: choice === 'solo' }}
+          haptic="selection"
+          style={[styles.choice, choice === 'solo' ? styles.choiceSelected : styles.choiceIdle]}>
           <Txt variant="body" tone={choice === 'solo' ? 'onAccent' : 'primary'} weight="700">
             👤{' '}
             {activeHousehold
@@ -134,7 +200,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
               ? 'Behalte deinen bestehenden Haushalt und fahre fort.'
               : 'Starte mit einem privaten Bereich. Du kannst jederzeit andere einladen.'}
           </Txt>
-        </Pressable>
+        </Press>
       </View>
 
       {choice === 'create' && (
@@ -162,16 +228,16 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
       )}
 
       {errorMsg ? (
-        <Txt variant="label" tone="danger" className="mt-one">
+        <Txt variant="label" tone="danger" style={styles.error}>
           {errorMsg}
         </Txt>
       ) : null}
 
-      <View className="perm-button-row">
-        <View className="flex-1">
+      <View style={styles.buttonRow}>
+        <View style={styles.flex}>
           <Button title="Weiter" onPress={handleNext} loading={isPending} />
         </View>
-        <View className="flex-1">
+        <View style={styles.flex}>
           <Button title="Überspringen" variant="secondary" onPress={onSkip} disabled={isPending} />
         </View>
       </View>
