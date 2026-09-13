@@ -1,4 +1,5 @@
 import { Linking, type StyleProp, Switch, View, type ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
 import { Txt } from '@/constants/ui';
@@ -26,6 +27,19 @@ type PermissionCardProps = {
   onDisable?: () => Promise<void> | void;
   style?: StyleProp<ViewStyle>;
 };
+
+const styles = StyleSheet.create((theme) => ({
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+  },
+  rowText: {
+    flex: 1,
+    gap: theme.space.xs / 2,
+  },
+}));
 
 /**
  * Geteiltes Muster für "OS-Berechtigung anzeigen und umschalten": zeigt den aktuellen
@@ -63,8 +77,8 @@ export function PermissionCard({
   return (
     <View style={style}>
       <Card title={title}>
-        <View className="row-between">
-          <View className="row-text">
+        <View style={styles.row}>
+          <View style={styles.rowText}>
             <Txt variant="body" weight="700">
               {label}
             </Txt>
@@ -75,7 +89,7 @@ export function PermissionCard({
           <Switch
             value={granted}
             onValueChange={handleToggle}
-            trackColor={{ false: colors.border, true: colors.basil }}
+            trackColor={{ false: colors.border, true: colors.accent }}
           />
         </View>
       </Card>

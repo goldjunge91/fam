@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { DEFAULT_PORTIONS_PER_PERSON } from '@/features/meal-planner/servings';
 import { usePortionsPerPerson, useSetPortionsPerPerson } from '@/features/meal-planner/settings';
+
+const styles = StyleSheet.create((theme) => ({
+  form: {
+    gap: theme.space.lg,
+  },
+}));
 
 /**
  * Umrechnungsfaktor Portionen/Person fuer den Meal-Planner (#130-AC:
@@ -36,7 +43,7 @@ export function MealPlannerSettingsScreen() {
       back={{ label: t('settings.backToSettings') }}
       backStyle="icon">
       {/* Portions-Faktor Formular (Erklärung, Eingabefeld und Speichern-Aktion) */}
-      <View className="gap-three">
+      <View style={styles.form}>
         <Txt variant="body" tone="secondary">
           {t('settings.mealPlannerSettings.explanation', {
             factor: DEFAULT_PORTIONS_PER_PERSON,

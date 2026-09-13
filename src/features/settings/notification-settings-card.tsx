@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, type StyleProp, View, type ViewStyle } from 'react-native';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { type StyleProp, View, type ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import {
   DEFAULT_NOTIFICATION_SETTINGS,
   getNotificationSettings,
@@ -18,12 +18,39 @@ const TIME_OPTIONS = [
   { time: '18:00', hour: 18, minute: 0 },
 ];
 
+const styles = StyleSheet.create((theme) => ({
+  content: {
+    gap: theme.space.lg,
+  },
+  group: {
+    gap: theme.space.sm,
+  },
+  rowWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.space.sm,
+  },
+  chip: {
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.xs + theme.space.xs / 2,
+    borderRadius: theme.radius.lg,
+    borderWidth: theme.borderWidth.base,
+  },
+  chipSelected: {
+    backgroundColor: theme.accent,
+    borderColor: theme.accent,
+  },
+  chipIdle: {
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+}));
+
 type NotificationSettingsCardProps = {
   style?: StyleProp<ViewStyle>;
 };
 
 export function NotificationSettingsCard({ style }: NotificationSettingsCardProps) {
-  const { colors } = useTheme();
   const { t } = useTranslation();
   const [settings, setSettings] = useState<NotificationSettings>(DEFAULT_NOTIFICATION_SETTINGS);
 
@@ -39,61 +66,67 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
   return (
     <View style={style}>
       <Card title={t('settings.groups.app.notifications.label')}>
-        <View className="gap-three">
-          <View className="gap-two">
+        <View style={styles.content}>
+          <View style={styles.group}>
             <Txt variant="label" weight="700">
               {t('settings.groups.app.notifications.reminderThresholdLabel')}
             </Txt>
-            <View className="row-wrap">
+            <View
+              accessibilityRole="radiogroup"
+              accessibilityLabel={t('settings.groups.app.notifications.reminderThresholdLabel')}
+              style={styles.rowWrap}>
               {THRESHOLD_OPTIONS.map((days) => {
                 const isSelected = settings.daysThreshold === days;
                 return (
-                  <Pressable
+                  <Press
                     key={days}
-                    onPress={() => updateSettings({ ...settings, daysThreshold: days })}
-                    className="chip"
-                    style={{
-                      backgroundColor: isSelected ? colors.basil : colors.surface,
-                      borderColor: isSelected ? colors.basil : colors.border,
-                      borderWidth: 1,
-                    }}>
+                    onPress={() => void updateSettings({ ...settings, daysThreshold: days })}
+                    accessibilityRole="radio"
+                    accessibilityLabel={`${days} ${t('settings.groups.app.notifications.day', { count: days })}`}
+                    accessibilityState={{ selected: isSelected }}
+                    haptic="selection"
+                    style={[styles.chip, isSelected ? styles.chipSelected : styles.chipIdle]}>
                     <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
                       {days} {t('settings.groups.app.notifications.day', { count: days })}
                     </Txt>
-                  </Pressable>
+                  </Press>
                 );
               })}
             </View>
           </View>
 
-          <View className="gap-two">
+          <View style={styles.group}>
             <Txt variant="label" weight="700">
               {t('settings.groups.app.notifications.reminderTimeLabel')}
             </Txt>
-            <View className="row-wrap">
+            <View
+              accessibilityRole="radiogroup"
+              accessibilityLabel={t('settings.groups.app.notifications.reminderTimeLabel')}
+              style={styles.rowWrap}>
               {TIME_OPTIONS.map((time) => {
                 const isSelected =
                   settings.reminderHour === time.hour && settings.reminderMinute === time.minute;
                 return (
-                  <Pressable
+                  <Press
                     key={time.time}
                     onPress={() =>
-                      updateSettings({
+                      void updateSettings({
                         ...settings,
                         reminderHour: time.hour,
                         reminderMinute: time.minute,
                       })
                     }
-                    className="chip"
-                    style={{
-                      backgroundColor: isSelected ? colors.basil : colors.surface,
-                      borderColor: isSelected ? colors.basil : colors.border,
-                      borderWidth: 1,
-                    }}>
+                    accessibilityRole="radio"
+                    accessibilityLabel={t('settings.groups.app.notifications.timeLabel', {
+                      time: time.time,
+                    })}
+                    accessibilityState={{ selected: isSelected }}
+                    haptic="selection"
+                    style={[styles.chip, isSelected ? styles.chipSelected : styles.chipIdle]}>
                     <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
                       {t('settings.groups.app.notifications.timeLabel', { time: time.time })}
                     </Txt>
-                  </Pressable>
+                  </Press>
                 );
               })}
             </View>

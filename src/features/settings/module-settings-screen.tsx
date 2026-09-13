@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import { Pressable, Switch, View } from 'react-native';
+import { Switch, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
 import { getSettingsModules } from '@/constants/feature-registry';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type ModulePreferences,
@@ -15,10 +15,42 @@ import { useFeatureAccess } from '@/features/settings/use-feature-access';
 
 const SETTINGS_MODULES = getSettingsModules();
 
+const styles = StyleSheet.create((theme) => ({
+  list: {
+    gap: theme.space.sm,
+  },
+  moduleRow: {
+    position: 'relative',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.lg,
+    padding: theme.space.lg,
+    borderWidth: theme.borderWidth.base,
+    borderRadius: theme.radius.md,
+    overflow: 'hidden',
+  },
+  moduleSelected: {
+    backgroundColor: theme.backgroundSoft,
+    borderColor: theme.accent,
+  },
+  moduleIdle: {
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+  rowText: {
+    flex: 1,
+    minWidth: 0,
+    gap: theme.space.xs / 2,
+  },
+  lockedContent: {
+    opacity: 0.3,
+  },
+}));
+
 export function ModuleSettingsScreen() {
   const { t } = useTranslation();
   const { session } = useSession();
-  const { colors } = useTheme();
   const userId = session?.user.id;
 
   const { modules, isModuleLocked } = useFeatureAccess();
@@ -41,22 +73,25 @@ export function ModuleSettingsScreen() {
         </Txt>
       </Card>
 
-      <View className="gap-two">
+      <View style={styles.list}>
         {SETTINGS_MODULES.map((row) => {
           // Gesperrte Module bleiben sichtbar, der Switch ist deaktiviert.
           const locked = isModuleLocked(row.featureFlag);
 
           return (
-            <Pressable
+            <Press
               key={row.key}
               onPress={() => !locked && toggle(row.key)}
               disabled={locked}
-              className="module-row"
-              style={{
-                backgroundColor: modules[row.key] ? colors.backgroundSoft : colors.surface,
-                borderColor: colors.border,
-              }}>
-              <View className={`row-text ${locked ? 'module-row-locked-content' : ''}`}>
+              accessibilityRole="button"
+              accessibilityLabel={row.title}
+              accessibilityState={{ disabled: locked, selected: modules[row.key] }}
+              haptic="selection"
+              style={[
+                styles.moduleRow,
+                modules[row.key] ? styles.moduleSelected : styles.moduleIdle,
+              ]}>
+              <View style={[styles.rowText, locked && styles.lockedContent]}>
                 <Txt variant="body" weight="700">
                   {row.icon} {row.title}
                 </Txt>
@@ -64,7 +99,7 @@ export function ModuleSettingsScreen() {
                   {row.desc}
                 </Txt>
               </View>
-              <View className={locked ? 'module-row-locked-content' : undefined}>
+              <View style={locked ? styles.lockedContent : undefined}>
                 <Switch
                   value={modules[row.key]}
                   onValueChange={() => toggle(row.key)}
@@ -72,7 +107,7 @@ export function ModuleSettingsScreen() {
                 />
               </View>
               {locked && <ModuleLockedOverlay />}
-            </Pressable>
+            </Press>
           );
         })}
       </View>
