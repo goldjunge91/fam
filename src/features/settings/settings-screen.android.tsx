@@ -137,7 +137,7 @@ export function SettingsScreen() {
         {/* Schnellzugriff-Header (Eigenes Profil & Premium-Aktionskarte) */}
         <View style={styles.topCards}>
           <Pressable
-            onPress={() => router.push('/profile')}
+            onPress={() => router.push('/profile/edit')}
             accessibilityRole="button"
             style={({ pressed }) => pressed && { opacity: 0.85 }}>
             <Card

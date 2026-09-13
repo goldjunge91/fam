@@ -98,7 +98,7 @@ function ProfileSheetContent() {
             icon="profile"
             title="Mein Profil"
             subtitle="Persönliche Daten und Einstellungen"
-            onPress={() => go('/profile')}
+            onPress={() => go('/profile/edit')}
             borderColor={colors.border}
           />
           <ProfileRow

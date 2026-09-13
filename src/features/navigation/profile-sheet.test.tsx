@@ -82,4 +82,20 @@ describe('ProfileSheet', () => {
 
     expect(mockPush).toHaveBeenCalledWith('/household/members');
   });
+
+  it('öffnet das Profil direkt beim Klick auf Mein Profil', async () => {
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <ProfileSheet />
+      </SafeAreaProvider>,
+    );
+
+    await fireEvent.press(screen.getByText('Mein Profil'));
+
+    expect(mockPush).toHaveBeenCalledWith('/profile/edit');
+  });
 });

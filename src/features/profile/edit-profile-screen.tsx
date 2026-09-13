@@ -221,7 +221,7 @@ export function EditProfileScreen() {
   return (
     <Screen
       title="Profil & Account"
-      back={{ label: 'Mein Profil', href: '/profile' }}
+      back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
       {/* Profilbild-Karte mit Upload- & Löschen-Optionen */}
       <Card title="Profilbild">

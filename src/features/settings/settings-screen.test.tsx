@@ -200,6 +200,15 @@ describe('SettingsScreen', () => {
     expect(within(profileCardRow).getByText('›')).toBeOnTheScreen();
   });
 
+  it('öffnet das Profil direkt aus der Profilkarte', async () => {
+    await renderScreen();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: /Marco Müller/ }));
+
+    expect(router.push).toHaveBeenCalledWith('/profile/edit');
+  });
+
   it('zeigt das gespeicherte Profilbild im Settings-Header an', async () => {
     mockAvatarUrl = 'https://example.com/avatar.jpg';
 

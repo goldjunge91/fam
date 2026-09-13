@@ -1,5 +1,5 @@
-import { ProfileHubScreen } from '@/features/profile/profile-hub-screen';
+import { Redirect } from 'expo-router';
 
 export default function ProfilePage() {
-  return <ProfileHubScreen />;
+  return <Redirect href="/profile/edit" />;
 }

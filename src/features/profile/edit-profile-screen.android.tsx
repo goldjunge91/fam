@@ -269,7 +269,7 @@ export function EditProfileScreen() {
   return (
     <Screen
       title="Profil & Account"
-      back={{ label: 'Mein Profil', href: '/profile' }}
+      back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
       <View style={profileEditStyles.section}>
         <Txt variant="body" weight="700">

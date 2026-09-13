@@ -532,7 +532,7 @@ export function TrackingScreen() {
   return (
     <Screen
       title="Mein Tracking"
-      back={{ label: 'Mein Profil', href: '/profile' }}
+      back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
       <SettingsGroup title="Deine Tracking-Methode">
         <View style={styles.groupContent}>
