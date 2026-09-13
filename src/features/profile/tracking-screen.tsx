@@ -2,11 +2,11 @@ import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { Fragment, useEffect, useMemo, useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { useDevSettingsStore } from '@/constants/dev-settings';
-import { Button, TextField, Txt } from '@/constants/ui';
+import { Button, Surface, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type TrackingMethod,
@@ -46,6 +46,215 @@ const ACTIVITY_LABELS: Record<string, string> = {
   very_active: 'Sehr aktiv',
 };
 
+const styles = StyleSheet.create((theme) => ({
+  timePicker: {
+    gap: theme.space.lg,
+  },
+  timeDisplay: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.md,
+    padding: theme.space.xl + theme.space.xs,
+    borderRadius: theme.radius.md,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+  },
+  timeDisplayButton: {
+    flex: 1,
+    marginRight: theme.space.sm,
+  },
+  timeValue: {
+    marginTop: theme.space.xs,
+  },
+  stepper: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  stepperButton: {
+    width: 48,
+    height: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+  },
+  presetLabel: {
+    marginBottom: theme.space.xs,
+  },
+  presets: {
+    gap: theme.space.sm,
+  },
+  preset: {
+    minWidth: 84,
+    alignItems: 'center',
+    paddingVertical: theme.space.sm,
+    paddingHorizontal: theme.space.md,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+  },
+  presetSelected: {
+    backgroundColor: theme.basil,
+    borderColor: theme.basil,
+  },
+  modalBackdrop: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    backgroundColor: theme.scrim,
+  },
+  modal: {
+    padding: theme.space.xl + theme.space.xs,
+    gap: theme.space.xl + theme.space.xs,
+    borderTopLeftRadius: theme.radius.xl,
+    borderTopRightRadius: theme.radius.xl,
+    maxHeight: '85%',
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.md,
+    paddingBottom: theme.space.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  modalClose: {
+    minWidth: 44,
+    minHeight: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalFields: {
+    gap: theme.space.lg,
+  },
+  modalActions: {
+    gap: theme.space.sm,
+    paddingTop: theme.space.sm,
+  },
+  groupContent: {
+    gap: theme.space.sm,
+    padding: theme.space.lg,
+  },
+  groupContentWide: {
+    gap: theme.space.lg,
+    padding: theme.space.lg,
+  },
+  methodList: {
+    gap: theme.space.sm,
+  },
+  methodOption: {
+    minHeight: 64,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    backgroundColor: theme.surface,
+  },
+  methodOptionSelected: {
+    backgroundColor: theme.basil,
+    borderColor: theme.basil,
+  },
+  methodOptionDisabled: {
+    opacity: 0.55,
+  },
+  methodCopy: {
+    flex: 1,
+    minWidth: 0,
+    marginRight: theme.space.sm,
+  },
+  metricHero: {
+    alignItems: 'center',
+    padding: theme.space.xl + theme.space.xs,
+    borderRadius: theme.radius.md,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+  },
+  metricValue: {
+    marginTop: theme.space.xs,
+  },
+  metricRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  metricCard: {
+    flex: 1,
+    minWidth: 0,
+    padding: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+  },
+  macroCard: {
+    alignItems: 'center',
+  },
+  energyBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    padding: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+  },
+  energyItem: {
+    flex: 1,
+    alignItems: 'center',
+    minWidth: 0,
+  },
+  energyDivider: {
+    width: StyleSheet.hairlineWidth,
+    height: theme.space.xxl + theme.space.xs,
+    backgroundColor: theme.border,
+  },
+  choiceLabel: {
+    marginBottom: theme.space.xs,
+  },
+  choiceRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  choiceButton: {
+    flex: 1,
+    alignItems: 'center',
+    paddingVertical: theme.space.sm,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    backgroundColor: theme.surface,
+  },
+  choiceButtonSelected: {
+    backgroundColor: theme.basil,
+    borderColor: theme.basil,
+  },
+  activityList: {
+    gap: theme.space.sm,
+  },
+  activityOption: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.md,
+    paddingVertical: theme.space.sm,
+    paddingHorizontal: theme.space.md,
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    backgroundColor: theme.surface,
+  },
+  activityOptionSelected: {
+    backgroundColor: theme.basil,
+    borderColor: theme.basil,
+  },
+  modalScroll: {
+    flexShrink: 1,
+  },
+}));
+
 function TimePicker({
   value,
   onChange,
@@ -55,7 +264,6 @@ function TimePicker({
   onChange: (time: string) => void;
   disabled?: boolean;
 }) {
-  const { colors } = useTheme();
   const [modalVisible, setModalVisible] = useState(false);
   const [inputTime, setInputTime] = useState(value);
   const [inputError, setInputError] = useState<string | null>(null);
@@ -92,34 +300,31 @@ function TimePicker({
   }
 
   return (
-    <View className="gap-three">
+    <View style={styles.timePicker}>
       {/* Große digitale Uhr & Stepper */}
-      <View
-        style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-        className="p-four rounded-2xl border flex-row items-center justify-between">
+      <Surface tone="surface" style={styles.timeDisplay}>
         <Pressable
           onPress={handleOpenModal}
           disabled={disabled}
           accessibilityRole="button"
           accessibilityLabel="Uhrzeit für Tagesstart manuell anpassen"
-          className="flex-1 mr-two">
+          style={styles.timeDisplayButton}>
           <Txt variant="caption" tone="secondary">
             Individueller Tagesstart (Tippen zum Anpassen)
           </Txt>
-          <Txt variant="display" className="mt-one">
+          <Txt variant="display" style={styles.timeValue}>
             {value} Uhr ✏️
           </Txt>
         </Pressable>
 
         {/* Stepper Buttons (-1h / +1h) */}
-        <View className="flex-row gap-two">
+        <View style={styles.stepper}>
           <Pressable
             onPress={() => step(-1)}
             disabled={disabled}
             accessibilityRole="button"
             accessibilityLabel="Eine Stunde früher"
-            style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-            className="w-12 h-12 rounded-xl border items-center justify-center">
+            style={styles.stepperButton}>
             <Txt variant="body" weight="700">
               -1h
             </Txt>
@@ -129,21 +334,23 @@ function TimePicker({
             disabled={disabled}
             accessibilityRole="button"
             accessibilityLabel="Eine Stunde später"
-            style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-            className="w-12 h-12 rounded-xl border items-center justify-center">
+            style={styles.stepperButton}>
             <Txt variant="body" weight="700">
               +1h
             </Txt>
           </Pressable>
         </View>
-      </View>
+      </Surface>
 
       {/* Schicht-Presets */}
       <View>
-        <Txt variant="caption" tone="secondary" className="mb-one">
+        <Txt variant="caption" tone="secondary" style={styles.presetLabel}>
           Schnellauswahl für Schichtmodelle:
         </Txt>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-row gap-two">
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.presets}>
           {TIME_PRESETS.map((preset) => {
             const isSelected = value === preset.label;
             return (
@@ -151,11 +358,7 @@ function TimePicker({
                 key={preset.hour}
                 onPress={() => onChange(preset.label)}
                 disabled={disabled}
-                style={{
-                  backgroundColor: isSelected ? colors.basil : colors.surface,
-                  borderColor: isSelected ? colors.basil : colors.border,
-                }}
-                className="py-two px-three rounded-xl border mr-two items-center">
+                style={[styles.preset, isSelected && styles.presetSelected]}>
                 <Txt variant="body" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                   {preset.label}
                 </Txt>
@@ -181,18 +384,23 @@ function TimePicker({
         transparent
         animationType="slide"
         onRequestClose={() => setModalVisible(false)}>
-        <View className="flex-1 justify-end bg-black/50">
-          <View style={{ backgroundColor: colors.bg }} className="p-four rounded-t-3xl gap-four">
-            <View className="flex-row justify-between items-center pb-two border-b border-border">
+        <View style={styles.modalBackdrop}>
+          <Surface tone="page" style={styles.modal}>
+            <View style={styles.modalHeader}>
               <Txt variant="title">Tagesstart festlegen</Txt>
-              <Pressable onPress={() => setModalVisible(false)} hitSlop={12}>
+              <Pressable
+                onPress={() => setModalVisible(false)}
+                hitSlop={12}
+                accessibilityRole="button"
+                accessibilityLabel="Tagesstart festlegen schließen"
+                style={styles.modalClose}>
                 <Txt variant="title" tone="secondary">
                   ×
                 </Txt>
               </Pressable>
             </View>
 
-            <View className="gap-three">
+            <View style={styles.modalFields}>
               <TextField
                 label="Uhrzeit (HH:MM)"
                 value={inputTime}
@@ -207,7 +415,7 @@ function TimePicker({
               </Txt>
             </View>
 
-            <View className="pt-two gap-two">
+            <View style={styles.modalActions}>
               <Button title="Uhrzeit übernehmen" onPress={handleSaveCustomTime} />
               <Button
                 title="Abbrechen"
@@ -215,7 +423,7 @@ function TimePicker({
                 onPress={() => setModalVisible(false)}
               />
             </View>
-          </View>
+          </Surface>
         </View>
       </Modal>
     </View>
@@ -223,7 +431,6 @@ function TimePicker({
 }
 
 export function TrackingScreen() {
-  const { colors } = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
   const { data: profile } = useProfile(userId);
@@ -339,241 +546,220 @@ export function TrackingScreen() {
       title="Mein Tracking"
       back={{ label: 'Mein Profil', href: '/profile' }}
       backStyle="icon">
-      <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
-        <SettingsGroup title="Deine Tracking-Methode">
-          <View className="p-three gap-two">
-            <Txt variant="body" tone="secondary" className="mb-one">
-              Wähle deine aktive Methode für das Ernährungstagebuch:
-            </Txt>
-            <View className="gap-two">
-              {TRACKING_METHODS.map((m) => {
-                const isSelected = selectedMethod === m.id;
-                const isEnabled = trackingMethodEnabled[m.id];
-                return (
-                  <Fragment key={m.id}>
-                    <Pressable
-                      onPress={() => handleSelectMethod(m.id)}
-                      disabled={!isEnabled}
-                      accessibilityRole="radio"
-                      accessibilityState={{ selected: isSelected, disabled: !isEnabled }}
-                      style={{
-                        backgroundColor: isSelected ? colors.basil : colors.surface,
-                        borderColor: isSelected ? colors.basil : colors.border,
-                        opacity: isEnabled ? 1 : 0.55,
-                      }}
-                      className="p-three rounded-xl border flex-row items-center justify-between">
-                      <View className="flex-1 mr-two">
-                        <Txt
-                          variant="body"
-                          weight="700"
-                          tone={isSelected ? 'onAccent' : isEnabled ? 'primary' : 'secondary'}>
-                          {m.label}
-                        </Txt>
-                        <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
-                          {m.desc}
-                        </Txt>
-                      </View>
-                      {isSelected ? (
-                        <Txt variant="body" weight="700" tone="onAccent">
-                          Aktiv ✓
-                        </Txt>
-                      ) : !isEnabled ? (
-                        <Txt variant="caption" tone="secondary">
-                          Demnächst verfügbar
-                        </Txt>
-                      ) : null}
-                    </Pressable>
-                    {m.id === 'glp1' && isSelected ? (
-                      <InjectionPlanSection userId={userId} />
+      <SettingsGroup title="Deine Tracking-Methode">
+        <View style={styles.groupContent}>
+          <Txt variant="body" tone="secondary">
+            Wähle deine aktive Methode für das Ernährungstagebuch:
+          </Txt>
+          <View style={styles.methodList}>
+            {TRACKING_METHODS.map((m) => {
+              const isSelected = selectedMethod === m.id;
+              const isEnabled = trackingMethodEnabled[m.id];
+              return (
+                <Fragment key={m.id}>
+                  <Pressable
+                    onPress={() => handleSelectMethod(m.id)}
+                    disabled={!isEnabled}
+                    accessibilityRole="radio"
+                    accessibilityState={{ selected: isSelected, disabled: !isEnabled }}
+                    style={[
+                      styles.methodOption,
+                      isSelected && styles.methodOptionSelected,
+                      !isEnabled && styles.methodOptionDisabled,
+                    ]}>
+                    <View style={styles.methodCopy}>
+                      <Txt
+                        variant="body"
+                        weight="700"
+                        tone={isSelected ? 'onAccent' : isEnabled ? 'primary' : 'secondary'}>
+                        {m.label}
+                      </Txt>
+                      <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
+                        {m.desc}
+                      </Txt>
+                    </View>
+                    {isSelected ? (
+                      <Txt variant="body" weight="700" tone="onAccent">
+                        Aktiv ✓
+                      </Txt>
+                    ) : !isEnabled ? (
+                      <Txt variant="caption" tone="secondary">
+                        Demnächst verfügbar
+                      </Txt>
                     ) : null}
-                  </Fragment>
-                );
-              })}
-            </View>
+                  </Pressable>
+                  {m.id === 'glp1' && isSelected ? <InjectionPlanSection userId={userId} /> : null}
+                </Fragment>
+              );
+            })}
           </View>
-        </SettingsGroup>
+        </View>
+      </SettingsGroup>
 
-        {/* 2. Ernährung & Tagesziele (Kalorienziel & Makros) */}
-        <SettingsGroup title="Ernährung & Tagesziele">
-          <View className="p-three gap-three">
-            {/* Große Tagesziel-Kachel für Kalorien */}
-            <View
-              style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-              className="p-four rounded-2xl border items-center">
+      {/* 2. Ernährung & Tagesziele (Kalorienziel & Makros) */}
+      <SettingsGroup title="Ernährung & Tagesziele">
+        <View style={styles.groupContentWide}>
+          {/* Große Tagesziel-Kachel für Kalorien */}
+          <Surface tone="surface" style={styles.metricHero}>
+            <Txt variant="caption" tone="secondary">
+              🎯 Kalorien-Tagesziel
+            </Txt>
+            <Txt variant="display" style={styles.metricValue}>
+              {currentGoal?.daily_kcal ? `${currentGoal.daily_kcal} kcal` : 'Nicht festgelegt'}
+            </Txt>
+          </Surface>
+
+          {/* 3 Makronährstoff-Kacheln (Protein, Carbs, Fett) */}
+          <View style={styles.metricRow}>
+            <Surface tone="surface" style={[styles.metricCard, styles.macroCard]}>
               <Txt variant="caption" tone="secondary">
-                🎯 Kalorien-Tagesziel
+                🥩 Protein
               </Txt>
-              <Txt variant="display" className="mt-one">
-                {currentGoal?.daily_kcal ? `${currentGoal.daily_kcal} kcal` : 'Nicht festgelegt'}
+              <Txt variant="body" weight="700" style={styles.metricValue}>
+                {currentGoal ? `${currentGoal.protein_g}g` : '–'}
+              </Txt>
+            </Surface>
+
+            <Surface tone="surface" style={[styles.metricCard, styles.macroCard]}>
+              <Txt variant="caption" tone="secondary">
+                🍞 Carbs
+              </Txt>
+              <Txt variant="body" weight="700" style={styles.metricValue}>
+                {currentGoal ? `${currentGoal.carbs_g}g` : '–'}
+              </Txt>
+            </Surface>
+
+            <Surface tone="surface" style={[styles.metricCard, styles.macroCard]}>
+              <Txt variant="caption" tone="secondary">
+                🥑 Fett
+              </Txt>
+              <Txt variant="body" weight="700" style={styles.metricValue}>
+                {currentGoal ? `${currentGoal.fat_g}g` : '–'}
+              </Txt>
+            </Surface>
+          </View>
+
+          {/* Button zum Bearbeiten der Ziele */}
+          <Button
+            title="Ziele & Makros bearbeiten"
+            variant="secondary"
+            onPress={() => router.push('/settings/goals')}
+          />
+        </View>
+      </SettingsGroup>
+
+      <SettingsGroup title="Vitalwerte & Biometrie">
+        <View style={styles.groupContentWide}>
+          {/* 2x2 Grid für Kern-Messwerte */}
+          <View style={styles.metricRow}>
+            <Surface tone="surface" style={styles.metricCard}>
+              <Txt variant="caption" tone="secondary">
+                📏 Körpergröße
+              </Txt>
+              <Txt variant="body" weight="700" style={styles.metricValue}>
+                {profile?.height_cm ? `${profile.height_cm} cm` : 'Nicht gesetzt'}
+              </Txt>
+            </Surface>
+
+            <Surface tone="surface" style={styles.metricCard}>
+              <Txt variant="caption" tone="secondary">
+                ⚖️ Aktuelles Gewicht
+              </Txt>
+              <Txt variant="body" weight="700" style={styles.metricValue}>
+                {logicalDayWeight?.weight_kg ? `${logicalDayWeight.weight_kg} kg` : 'Kein Log'}
+              </Txt>
+            </Surface>
+          </View>
+
+          <View style={styles.metricRow}>
+            <Surface tone="surface" style={styles.metricCard}>
+              <Txt variant="caption" tone="secondary">
+                🧬 Geschlecht & Alter
+              </Txt>
+              <Txt variant="body" weight="700" style={styles.metricValue}>
+                {profile?.sex === 'male'
+                  ? 'Männlich'
+                  : profile?.sex === 'female'
+                    ? 'Weiblich'
+                    : '–'}
+                {ageYears !== null ? ` · ${ageYears} J.` : ''}
+              </Txt>
+            </Surface>
+
+            <Surface tone="surface" style={styles.metricCard}>
+              <Txt variant="caption" tone="secondary">
+                🏃 Aktivitätslevel
+              </Txt>
+              <Txt variant="body" weight="700" style={styles.metricValue} numberOfLines={1}>
+                {profile?.activity_level
+                  ? (ACTIVITY_LABELS[profile.activity_level] ?? profile.activity_level)
+                  : 'Nicht gesetzt'}
+              </Txt>
+            </Surface>
+          </View>
+
+          {/* BMR & TDEE Energie-Banner */}
+          <Surface tone="surface" style={styles.energyBanner}>
+            <View style={styles.energyItem}>
+              <Txt variant="caption" tone="secondary">
+                Grundumsatz (BMR)
+              </Txt>
+              <Txt variant="body" weight="700" style={styles.metricValue}>
+                {bmrKcal ? `${bmrKcal} kcal` : '–'}
               </Txt>
             </View>
-
-            {/* 3 Makronährstoff-Kacheln (Protein, Carbs, Fett) */}
-            <View className="flex-row gap-two">
-              <View
-                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-                className="flex-1 p-three rounded-xl border items-center">
-                <Txt variant="caption" tone="secondary">
-                  🥩 Protein
-                </Txt>
-                <Txt variant="body" weight="700" className="mt-one">
-                  {currentGoal ? `${currentGoal.protein_g}g` : '–'}
-                </Txt>
-              </View>
-
-              <View
-                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-                className="flex-1 p-three rounded-xl border items-center">
-                <Txt variant="caption" tone="secondary">
-                  🍞 Carbs
-                </Txt>
-                <Txt variant="body" weight="700" className="mt-one">
-                  {currentGoal ? `${currentGoal.carbs_g}g` : '–'}
-                </Txt>
-              </View>
-
-              <View
-                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-                className="flex-1 p-three rounded-xl border items-center">
-                <Txt variant="caption" tone="secondary">
-                  🥑 Fett
-                </Txt>
-                <Txt variant="body" weight="700" className="mt-one">
-                  {currentGoal ? `${currentGoal.fat_g}g` : '–'}
-                </Txt>
-              </View>
+            <View style={styles.energyDivider} />
+            <View style={styles.energyItem}>
+              <Txt variant="caption" tone="secondary">
+                Gesamtbedarf (TDEE)
+              </Txt>
+              <Txt variant="body" weight="700" style={styles.metricValue}>
+                {tdeeKcal ? `${tdeeKcal} kcal` : '–'}
+              </Txt>
             </View>
+          </Surface>
 
-            {/* Button zum Bearbeiten der Ziele */}
-            <Button
-              title="Ziele & Makros bearbeiten"
-              variant="secondary"
-              onPress={() => router.push('/settings/goals')}
-            />
-          </View>
-        </SettingsGroup>
+          {/* Button zum Bearbeiten der Biometrie */}
+          <Button title="Biometrie bearbeiten" variant="secondary" onPress={openBiometricsModal} />
+        </View>
+      </SettingsGroup>
 
-        <SettingsGroup title="Vitalwerte & Biometrie">
-          <View className="p-three gap-three">
-            {/* 2x2 Grid für Kern-Messwerte */}
-            <View className="flex-row gap-two">
-              <View
-                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-                className="flex-1 p-three rounded-xl border">
-                <Txt variant="caption" tone="secondary">
-                  📏 Körpergröße
-                </Txt>
-                <Txt variant="body" weight="700" className="mt-one">
-                  {profile?.height_cm ? `${profile.height_cm} cm` : 'Nicht gesetzt'}
-                </Txt>
-              </View>
-
-              <View
-                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-                className="flex-1 p-three rounded-xl border">
-                <Txt variant="caption" tone="secondary">
-                  ⚖️ Aktuelles Gewicht
-                </Txt>
-                <Txt variant="body" weight="700" className="mt-one">
-                  {logicalDayWeight?.weight_kg ? `${logicalDayWeight.weight_kg} kg` : 'Kein Log'}
-                </Txt>
-              </View>
-            </View>
-
-            <View className="flex-row gap-two">
-              <View
-                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-                className="flex-1 p-three rounded-xl border">
-                <Txt variant="caption" tone="secondary">
-                  🧬 Geschlecht & Alter
-                </Txt>
-                <Txt variant="body" weight="700" className="mt-one">
-                  {profile?.sex === 'male'
-                    ? 'Männlich'
-                    : profile?.sex === 'female'
-                      ? 'Weiblich'
-                      : '–'}
-                  {ageYears !== null ? ` · ${ageYears} J.` : ''}
-                </Txt>
-              </View>
-
-              <View
-                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-                className="flex-1 p-three rounded-xl border">
-                <Txt variant="caption" tone="secondary">
-                  🏃 Aktivitätslevel
-                </Txt>
-                <Txt variant="body" weight="700" className="mt-one" numberOfLines={1}>
-                  {profile?.activity_level
-                    ? (ACTIVITY_LABELS[profile.activity_level] ?? profile.activity_level)
-                    : 'Nicht gesetzt'}
-                </Txt>
-              </View>
-            </View>
-
-            {/* BMR & TDEE Energie-Banner */}
-            <View
-              style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-              className="p-three rounded-xl border flex-row items-center justify-around">
-              <View className="items-center">
-                <Txt variant="caption" tone="secondary">
-                  Grundumsatz (BMR)
-                </Txt>
-                <Txt variant="body" weight="700" className="mt-one">
-                  {bmrKcal ? `${bmrKcal} kcal` : '–'}
-                </Txt>
-              </View>
-              <View style={{ backgroundColor: colors.border }} className="w-px h-8" />
-              <View className="items-center">
-                <Txt variant="caption" tone="secondary">
-                  Gesamtbedarf (TDEE)
-                </Txt>
-                <Txt variant="body" weight="700" className="mt-one">
-                  {tdeeKcal ? `${tdeeKcal} kcal` : '–'}
-                </Txt>
-              </View>
-            </View>
-
-            {/* Button zum Bearbeiten der Biometrie */}
-            <Button
-              title="Biometrie bearbeiten"
-              variant="secondary"
-              onPress={openBiometricsModal}
-            />
-          </View>
-        </SettingsGroup>
-
-        {/* 4. Tracking-Rhythmus & Zeitfenster (Tagesstart-Uhrzeit) */}
-        <SettingsGroup title="Tracking-Rhythmus & Zeitfenster">
-          <View className="p-three">
-            <TimePicker
-              value={selectedStartTime}
-              onChange={handleSelectStartTime}
-              disabled={updateStartTimeMutation.isPending}
-            />
-          </View>
-        </SettingsGroup>
-      </ScrollView>
+      {/* 4. Tracking-Rhythmus & Zeitfenster (Tagesstart-Uhrzeit) */}
+      <SettingsGroup title="Tracking-Rhythmus & Zeitfenster">
+        <View style={styles.groupContent}>
+          <TimePicker
+            value={selectedStartTime}
+            onChange={handleSelectStartTime}
+            disabled={updateStartTimeMutation.isPending}
+          />
+        </View>
+      </SettingsGroup>
 
       <Modal
         visible={biometricsModalVisible}
         transparent
         animationType="slide"
         onRequestClose={() => setBiometricsModalVisible(false)}>
-        <View className="flex-1 justify-end bg-black/50">
-          <View
-            style={{ backgroundColor: colors.bg }}
-            className="p-four rounded-t-3xl gap-four max-h-[85%]">
-            <View className="flex-row justify-between items-center pb-two border-b border-border">
+        <View style={styles.modalBackdrop}>
+          <Surface tone="page" style={styles.modal}>
+            <View style={styles.modalHeader}>
               <Txt variant="title">Biometrie bearbeiten</Txt>
-              <Pressable onPress={() => setBiometricsModalVisible(false)} hitSlop={12}>
+              <Pressable
+                onPress={() => setBiometricsModalVisible(false)}
+                hitSlop={12}
+                accessibilityRole="button"
+                accessibilityLabel="Biometrie bearbeiten schließen"
+                style={styles.modalClose}>
                 <Txt variant="title" tone="secondary">
                   ×
                 </Txt>
               </Pressable>
             </View>
 
-            <ScrollView showsVerticalScrollIndicator={false} className="gap-three">
+            <ScrollView
+              showsVerticalScrollIndicator={false}
+              style={styles.modalScroll}
+              contentContainerStyle={styles.modalFields}>
               <TextField
                 label="Größe in cm"
                 value={editHeightCm}
@@ -582,18 +768,17 @@ export function TrackingScreen() {
                 keyboardType="numeric"
               />
 
-              <View className="gap-one">
-                <Txt variant="caption" tone="secondary">
+              <View>
+                <Txt variant="caption" tone="secondary" style={styles.choiceLabel}>
                   Geschlecht (Rechenbasis für Grundumsatz)
                 </Txt>
-                <View className="flex-row gap-two">
+                <View style={styles.choiceRow}>
                   <Pressable
                     onPress={() => setEditSex('male')}
-                    style={{
-                      backgroundColor: editSex === 'male' ? colors.basil : colors.surface,
-                      borderColor: editSex === 'male' ? colors.basil : colors.border,
-                    }}
-                    className="flex-1 py-two rounded-xl border items-center">
+                    style={[
+                      styles.choiceButton,
+                      editSex === 'male' && styles.choiceButtonSelected,
+                    ]}>
                     <Txt
                       variant="body"
                       weight="700"
@@ -603,11 +788,10 @@ export function TrackingScreen() {
                   </Pressable>
                   <Pressable
                     onPress={() => setEditSex('female')}
-                    style={{
-                      backgroundColor: editSex === 'female' ? colors.basil : colors.surface,
-                      borderColor: editSex === 'female' ? colors.basil : colors.border,
-                    }}
-                    className="flex-1 py-two rounded-xl border items-center">
+                    style={[
+                      styles.choiceButton,
+                      editSex === 'female' && styles.choiceButtonSelected,
+                    ]}>
                     <Txt
                       variant="body"
                       weight="700"
@@ -625,11 +809,11 @@ export function TrackingScreen() {
                 placeholder="1990-05-15"
               />
 
-              <View className="gap-one">
-                <Txt variant="caption" tone="secondary">
+              <View>
+                <Txt variant="caption" tone="secondary" style={styles.choiceLabel}>
                   Aktivitätslevel
                 </Txt>
-                <View className="gap-two">
+                <View style={styles.activityList}>
                   {(
                     ['sedentary', 'light', 'moderate', 'active', 'very_active'] as ActivityLevel[]
                   ).map((level) => {
@@ -638,11 +822,10 @@ export function TrackingScreen() {
                       <Pressable
                         key={level}
                         onPress={() => setEditActivityLevel(level)}
-                        style={{
-                          backgroundColor: isSelected ? colors.basil : colors.surface,
-                          borderColor: isSelected ? colors.basil : colors.border,
-                        }}
-                        className="py-two px-three rounded-xl border flex-row justify-between items-center">
+                        style={[
+                          styles.activityOption,
+                          isSelected && styles.activityOptionSelected,
+                        ]}>
                         <Txt variant="body" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                           {ACTIVITY_LABELS[level]}
                         </Txt>
@@ -658,7 +841,7 @@ export function TrackingScreen() {
               </View>
             </ScrollView>
 
-            <View className="pt-two gap-two">
+            <View style={styles.modalActions}>
               <Button
                 title="Biometrie speichern"
                 onPress={handleSaveBiometrics}
@@ -670,7 +853,7 @@ export function TrackingScreen() {
                 onPress={() => setBiometricsModalVisible(false)}
               />
             </View>
-          </View>
+          </Surface>
         </View>
       </Modal>
     </Screen>

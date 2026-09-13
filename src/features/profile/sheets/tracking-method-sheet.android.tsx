@@ -1,8 +1,8 @@
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import type { TrackingMethod } from '@/features/calorie-tracking/api';
+import { profileSheetStyles } from '@/features/profile/sheets/profile-sheet-styles';
 
 export type TrackingMethodOption = {
   id: TrackingMethod;
@@ -26,7 +26,6 @@ export function TrackingMethodSheet({
   onSelect,
   onClose,
 }: TrackingMethodSheetProps) {
-  const { colors } = useTheme();
   return (
     <Modal
       visible={visible}
@@ -34,11 +33,11 @@ export function TrackingMethodSheet({
       animationType="slide"
       statusBarTranslucent
       onRequestClose={onClose}>
-      <View className="profile-food-rules-sheet-backdrop">
-        <View className="profile-food-rules-sheet" style={{ backgroundColor: colors.surface }}>
-          <View className="modal-handle" />
-          <View className="profile-food-rules-sheet-header">
-            <View className="flex-1 gap-half">
+      <View style={profileSheetStyles.backdrop}>
+        <View style={profileSheetStyles.sheet}>
+          <View style={profileSheetStyles.handle} />
+          <View style={profileSheetStyles.header}>
+            <View style={profileSheetStyles.headerCopy}>
               <Txt variant="heading">Tracking-Methode</Txt>
               <Txt variant="caption" tone="secondary">
                 Bestimmt dein Ernährungstagebuch
@@ -48,7 +47,7 @@ export function TrackingMethodSheet({
               onPress={onClose}
               role="button"
               aria-label="Tracking-Methode schließen"
-              className="modal-close-btn">
+              style={profileSheetStyles.closeButton}>
               <Txt variant="body" tone="secondary" aria-hidden>
                 ✕
               </Txt>
@@ -57,7 +56,8 @@ export function TrackingMethodSheet({
 
           <ScrollView
             showsVerticalScrollIndicator={false}
-            contentContainerClassName="pb-two"
+            style={profileSheetStyles.options}
+            contentContainerStyle={profileSheetStyles.optionsContent}
             role="radiogroup"
             aria-label="Tracking-Methode">
             {methods.map((method, index) => {
@@ -69,13 +69,12 @@ export function TrackingMethodSheet({
                   role="radio"
                   aria-label={method.label}
                   aria-checked={isSelected}
-                  className="profile-food-rules-option"
-                  style={{
-                    backgroundColor: isSelected ? colors.basilSoft : colors.surface,
-                    borderBottomColor: colors.border,
-                    borderBottomWidth: index < methods.length - 1 ? 1 : 0,
-                  }}>
-                  <View className="flex-1">
+                  style={[
+                    profileSheetStyles.option,
+                    isSelected && profileSheetStyles.optionSelected,
+                    index < methods.length - 1 && profileSheetStyles.optionBordered,
+                  ]}>
+                  <View style={profileSheetStyles.optionLabel}>
                     <Txt variant="label" weight="700">
                       {method.label}
                     </Txt>
@@ -84,12 +83,10 @@ export function TrackingMethodSheet({
                     </Txt>
                   </View>
                   <View
-                    className="checkbox-base"
-                    style={{
-                      backgroundColor: isSelected ? colors.basil : 'transparent',
-                      borderColor: colors.basil,
-                      borderWidth: 1.5,
-                    }}>
+                    style={[
+                      profileSheetStyles.checkbox,
+                      isSelected && profileSheetStyles.checkboxSelected,
+                    ]}>
                     {isSelected ? (
                       <Txt variant="caption" tone="onAccent">
                         ✓

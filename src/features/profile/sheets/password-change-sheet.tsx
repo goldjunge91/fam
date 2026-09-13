@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, TextField, Txt } from '@/constants/ui';
+import { Button, Press, TextField, Txt } from '@/constants/ui';
+import { profileSheetStyles } from '@/features/profile/sheets/profile-sheet-styles';
 
 type PasswordChangeSheetProps = {
   visible: boolean;
@@ -44,13 +45,14 @@ export function PasswordChangeSheet({
 
   function visibilityButton(label: string, visibleValue: boolean, onPress: () => void) {
     return (
-      <Pressable
+      <Press
         onPress={onPress}
+        haptic="none"
         role="button"
         aria-label={`${label} ${visibleValue ? 'verbergen' : 'anzeigen'}`}
         aria-pressed={visibleValue}
         hitSlop={4}
-        className="w-12 h-full items-center justify-center active:opacity-70">
+        style={profileSheetStyles.visibilityButton}>
         <SymbolView
           name={
             visibleValue
@@ -60,7 +62,7 @@ export function PasswordChangeSheet({
           size={20}
           tintColor={colors.textMuted}
         />
-      </Pressable>
+      </Press>
     );
   }
 
@@ -71,11 +73,11 @@ export function PasswordChangeSheet({
       animationType="slide"
       statusBarTranslucent
       onRequestClose={onClose}>
-      <View className="profile-food-rules-sheet-backdrop">
-        <View className="profile-password-sheet" style={{ backgroundColor: colors.surface }}>
-          <View className="modal-handle" />
-          <View className="profile-food-rules-sheet-header">
-            <View className="flex-1 gap-half">
+      <View style={profileSheetStyles.backdrop}>
+        <View style={profileSheetStyles.passwordSheet}>
+          <View style={profileSheetStyles.handle} />
+          <View style={profileSheetStyles.header}>
+            <View style={profileSheetStyles.headerCopy}>
               <Txt variant="title">Passwort ändern</Txt>
               <Txt variant="caption" tone="secondary">
                 Speichere dein neues Passwort direkt hier.
@@ -85,14 +87,14 @@ export function PasswordChangeSheet({
               onPress={onClose}
               role="button"
               aria-label="Passwort ändern schließen"
-              className="modal-close-btn">
+              style={profileSheetStyles.closeButton}>
               <Txt variant="body" tone="secondary" aria-hidden>
                 ✕
               </Txt>
             </Pressable>
           </View>
 
-          <View className="gap-three">
+          <View style={profileSheetStyles.passwordFields}>
             <TextField
               label="Neues Passwort"
               value={password}
