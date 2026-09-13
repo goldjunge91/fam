@@ -64,6 +64,7 @@ import {
   Button,
   Card,
   Pill,
+  Press,
   SectionHeading,
   SegmentedControl,
   Surface,
@@ -135,6 +136,33 @@ describe('core theme UI primitives', () => {
     expect(mockHaptics.medium).toHaveBeenCalledTimes(1);
   });
 
+  it('forwards Press callbacks once and skips motion under Reduced Motion', async () => {
+    reducedMotionMock.mockReturnValue(true);
+    const onPress = jest.fn();
+    const onPressIn = jest.fn();
+    const onPressOut = jest.fn();
+    await render(
+      <Press
+        accessibilityRole="button"
+        accessibilityLabel="Aktion"
+        onPress={onPress}
+        onPressIn={onPressIn}
+        onPressOut={onPressOut}
+      />,
+    );
+
+    const button = screen.getByRole('button', { name: 'Aktion' });
+    await fireEvent(button, 'pressIn');
+    await fireEvent(button, 'pressOut');
+    await fireEvent.press(button);
+
+    expect(onPressIn).toHaveBeenCalledTimes(1);
+    expect(onPressOut).toHaveBeenCalledTimes(1);
+    expect(onPress).toHaveBeenCalledTimes(1);
+    expect(withTimingSpy).not.toHaveBeenCalled();
+    expect(withSpringSpy).not.toHaveBeenCalled();
+  });
+
   it('keeps disabled and loading Buttons inactive and haptic-free', async () => {
     const disabledPress = jest.fn();
     const loadingPress = jest.fn();
@@ -164,6 +192,7 @@ describe('core theme UI primitives', () => {
     await render(
       <>
         <Button title="Mehr anzeigen" variant="link" onPress={jest.fn()} />
+        <Button title="Großer Link" variant="link" size="lg" onPress={jest.fn()} />
         <Button title="Flach" variant="primary" flat onPress={jest.fn()} />
         <Button title="Tief" variant="primary" onPress={jest.fn()} />
       </>,
@@ -182,6 +211,12 @@ describe('core theme UI primitives', () => {
       color: mockColorsLight.accent,
       fontSize: font.sizes.sm,
       fontWeight: '400',
+    });
+    expect(screen.getByText('Großer Link')).toHaveStyle({
+      color: mockColorsLight.accent,
+      fontSize: font.sizes.base,
+      lineHeight: font.lineHeights.body,
+      fontWeight: '600',
     });
 
     const flatDepth = screen.getByRole('button', { name: 'Flach' }).parent?.parent?.props.style;

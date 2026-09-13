@@ -10,12 +10,17 @@ describe('FloatingActionButton', () => {
       </FloatingActionButton>,
     );
 
-    expect(screen.getByRole('button')).toHaveStyle({
+    const button = screen.getByRole('button');
+
+    expect(button).toHaveStyle({
       width: 72,
       height: 72,
       borderRadius: 999,
       alignItems: 'center',
       justifyContent: 'center',
     });
+
+    expect(button.props.className).toBeUndefined();
+    expect(typeof button.props.style).not.toBe('function');
   });
 });

@@ -1,6 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { radius } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { IconButton } from '@/constants/ui';
 
@@ -26,8 +25,8 @@ export function MenuButton({ onPress }: MenuButtonProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create((theme) => ({
   button: {
-    borderRadius: radius.lg,
+    borderRadius: theme.radius.lg,
   },
-});
+}));

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen } from '@testing-library/react-native';
 import { Text } from 'react-native';
 
 import {
@@ -29,6 +29,8 @@ describe('HeaderIconButton', () => {
 
     const button = screen.getByRole('button', { name: 'Filter öffnen' });
     expect(button.props.className).toBeUndefined();
+    expect(typeof button.props.style).not.toBe('function');
+    expect(button.props.hitSlop).toBe(3);
     expect(button).toHaveStyle({
       width: 39,
       height: 39,
@@ -44,7 +46,9 @@ describe('HeaderIconButton', () => {
       </HeaderIconButton>,
     );
 
-    expect(screen.getByRole('button', { name: 'Schließen' })).toHaveStyle({
+    const button = screen.getByRole('button', { name: 'Schließen' });
+    expect(button.props.hitSlop).toBe(6);
+    expect(button).toHaveStyle({
       width: 32,
       height: 32,
       borderRadius: radius.sm,
@@ -65,5 +69,18 @@ describe('HeaderIconButton', () => {
     expect(screen.getByRole('button', { name: 'Filter öffnen' })).toHaveStyle({
       backgroundColor: withAlpha(mockColorsLight.backgroundElement, 1),
     });
+  });
+
+  it('fires the supplied callback exactly once', async () => {
+    const onPress = jest.fn();
+    await render(
+      <HeaderIconButton label="Filter öffnen" onPress={onPress}>
+        <Text>Filter</Text>
+      </HeaderIconButton>,
+    );
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Filter öffnen' }));
+
+    expect(onPress).toHaveBeenCalledTimes(1);
   });
 });

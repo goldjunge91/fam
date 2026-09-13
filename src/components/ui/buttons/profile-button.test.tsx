@@ -1,4 +1,6 @@
 import { render, screen } from '@testing-library/react-native';
+
+import { colorsLight } from '@/components/theme';
 import { ProfileButton } from '@/components/ui/buttons/profile-button';
 
 describe('ProfileButton', () => {
@@ -12,9 +14,15 @@ describe('ProfileButton', () => {
     );
 
     expect(screen.queryByText('MM')).not.toBeOnTheScreen();
-    expect(screen.getByLabelText('Profilbild')).toHaveProp('source', [
-      { uri: 'https://example.com/avatar.jpg' },
-    ]);
-    expect(screen.getByLabelText('Profilbild')).toHaveStyle({ width: '100%', height: '100%' });
+    expect(screen.getByLabelText('Profilbild')).toHaveProp('accessible', false);
+
+    const button = screen.getByRole('button', { name: 'Profil öffnen' });
+    expect(button.props.className).toBeUndefined();
+    expect(typeof button.props.style).not.toBe('function');
+    expect(button).toHaveStyle({
+      width: 58,
+      height: 58,
+      backgroundColor: colorsLight.accent,
+    });
   });
 });

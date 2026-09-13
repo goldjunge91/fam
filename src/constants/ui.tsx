@@ -369,6 +369,8 @@ export function Card({
 
 export function Press({
   onPress,
+  onPressIn,
+  onPressOut,
   haptic = 'light',
   scaleTo = 0.96,
   style,
@@ -383,18 +385,29 @@ export function Press({
   containerStyle?: StyleProp<ViewStyle>;
 }) {
   const s = useSharedValue(1);
-  const aStyle = useAnimatedStyle(() => ({ transform: [{ scale: s.value }] }));
+  const reducedMotion = useReducedMotion();
+  const aStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: reducedMotion ? 1 : s.value }],
+  }));
   return (
     <Animated.View style={[aStyle, containerStyle]}>
       <Pressable
         {...rest}
         disabled={disabled}
-        onPressIn={() => {
-          s.value = withTiming(scaleTo, { duration: 70 });
+        onPressIn={(event) => {
+          if (!reducedMotion) {
+            s.value = withTiming(scaleTo, { duration: 70 });
+          }
+          onPressIn?.(event);
         }}
-        onPressOut={() => {
+        onPressOut={(event) => {
           // spring back with a touch of overshoot — the "pop".
-          s.value = withSpring(1, POP_SPRING);
+          if (reducedMotion) {
+            s.value = 1;
+          } else {
+            s.value = withSpring(1, POP_SPRING);
+          }
+          onPressOut?.(event);
         }}
         onPress={(e) => {
           fireHaptic(haptic);
@@ -490,12 +503,15 @@ export function Button({
         : { paddingVertical: 13, paddingHorizontal: 18 };
   const fSize =
     variant === 'link'
-      ? font.sizes.sm
+      ? size === 'lg'
+        ? font.sizes.base
+        : font.sizes.sm
       : size === 'sm'
         ? font.sizes.sm
         : size === 'lg'
           ? font.sizes.md
           : font.sizes.base;
+  const isLargeLink = variant === 'link' && size === 'lg';
   const isDisabled = disabled || loading;
   const hasDepth = isFilled && !flat;
   const buttonFaceStyle: ViewStyle = {
@@ -561,7 +577,8 @@ export function Button({
                 style={{
                   color: fg,
                   fontSize: fSize,
-                  fontWeight: variant === 'link' ? '400' : '700',
+                  fontWeight: isLargeLink ? '600' : variant === 'link' ? '400' : '700',
+                  lineHeight: isLargeLink ? font.lineHeights.body : undefined,
                 }}>
                 {title}
               </Text>

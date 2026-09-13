@@ -1,15 +1,9 @@
 import type { ReactNode } from 'react';
 
-import {
-  Pressable,
-  type PressableProps,
-  type StyleProp,
-  StyleSheet,
-  type ViewStyle,
-} from 'react-native';
+import type { PressableProps, StyleProp, ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { radius } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { Press } from '@/constants/ui';
 
 export type HeaderIconButtonVariant = 'header' | 'modal-close';
 
@@ -23,6 +17,25 @@ type HeaderIconButtonProps = {
   variant?: HeaderIconButtonVariant;
 };
 
+const styles = StyleSheet.create((theme) => ({
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  header: {
+    width: 39,
+    height: 39,
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.backgroundElement,
+  },
+  modalClose: {
+    width: 32,
+    height: 32,
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.backgroundElement,
+  },
+}));
+
 /** Einheitlicher 39-Punkt-Glasbutton fuer kompakte Header-Aktionen. */
 export function HeaderIconButton({
   label,
@@ -33,47 +46,17 @@ export function HeaderIconButton({
   style,
   variant = 'header',
 }: HeaderIconButtonProps) {
-  const { colors } = useTheme();
   const sizeStyle = variant === 'modal-close' ? styles.modalClose : styles.header;
-  const pressedStyle = variant === 'modal-close' ? styles.modalClosePressed : styles.headerPressed;
+  const defaultHitSlop = variant === 'modal-close' ? 6 : 3;
 
   return (
-    <Pressable
+    <Press
       onPress={onPress}
-      hitSlop={hitSlop}
+      hitSlop={hitSlop ?? defaultHitSlop}
       accessibilityRole="button"
       accessibilityLabel={label}
-      style={({ pressed }) => [
-        styles.button,
-        sizeStyle,
-        { backgroundColor: bg ?? colors.backgroundElement },
-        style,
-        pressed && pressedStyle,
-      ]}>
+      style={[styles.button, sizeStyle, bg ? { backgroundColor: bg } : undefined, style]}>
       {children}
-    </Pressable>
+    </Press>
   );
 }
-
-const styles = StyleSheet.create({
-  button: {
-    borderRadius: radius.sm,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  header: {
-    width: 39,
-    height: 39,
-  },
-  modalClose: {
-    width: 32,
-    height: 32,
-  },
-  headerPressed: {
-    opacity: 0.7,
-    transform: [{ scale: 0.95 }],
-  },
-  modalClosePressed: {
-    opacity: 0.75,
-  },
-});
