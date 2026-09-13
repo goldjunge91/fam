@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { Button, Txt } from '@/constants/ui';
 import { showAdsPrivacyOptions } from '@/features/ads';
+
+const styles = StyleSheet.create((theme) => ({
+  sectionList: {
+    gap: theme.space.lg,
+  },
+}));
 
 // Reihenfolge und Inhalt der Abschnitte in settings.groups.data.privacy.sections.
 // Gekürzte In-App-Fassung von docs/architecture/DATENSCHUTZ.md. Volltext dort pflegen und
@@ -49,7 +56,7 @@ export function PrivacyScreen() {
       title={t('settings.groups.data.privacy.title')}
       back={{ label: t('settings.backToSettings'), href: '/settings' }}
       backStyle="icon">
-      <View className="gap-three">
+      <View style={styles.sectionList}>
         {SECTION_KEYS.map((key) => (
           <Card key={key}>
             {/* Die Card-Komponente setzt den Abstand zwischen Titel und Text. */}

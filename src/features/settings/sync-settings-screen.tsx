@@ -3,6 +3,7 @@ import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { Button, Txt } from '@/constants/ui';
@@ -12,6 +13,13 @@ import { useSyncStatus } from '@/hooks/use-sync-status';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
 import { syncRunHasErrors, triggerHouseholdSync } from '@/lib/sync/sync-runner';
+
+const styles = StyleSheet.create((theme) => ({
+  actionStack: {
+    marginTop: theme.space.lg,
+    gap: theme.space.sm,
+  },
+}));
 
 export function SyncSettingsScreen() {
   const { t } = useTranslation();
@@ -75,7 +83,7 @@ export function SyncSettingsScreen() {
           </Txt>
         ) : null}
 
-        <View className="action-stack">
+        <View style={styles.actionStack}>
           <Button
             title={
               syncStatus.kind === 'failed'
