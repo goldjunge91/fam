@@ -2,7 +2,7 @@
 
 ## Status
 
-Akzeptiert, schrittweise Migration
+Superseded durch [ADR 0007](0007-nativewind-retirement-unistyles-v3.md)
 
 ## Datum
 

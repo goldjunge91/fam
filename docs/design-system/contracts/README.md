@@ -35,9 +35,10 @@ Planung und Arbeitsstatus werden separat geführt, Arbeitspakete in Beads.
 | `src/constants/ui.tsx` | Semantische Primitive und gemeinsame Rezepte für Typografie, Farbpaare, Flächen, Konturen, Interaktionszustände, Motion und Haptikzuordnung |
 
 Höhere Komponenten besitzen Verhalten, Komposition, Accessibility-Metadaten und
-lokales Layout. Sie wenden die zentralen Rezepte an. NativeWind bleibt auf
-statisches Layout beschränkt. `global.css` und `tailwind.config.js` besitzen keine
-zusätzlichen Designentscheidungen; ihre semantischen Bestände werden migriert.
+lokales Layout. Sie wenden die zentralen Rezepte an. `className` ist verboten;
+Styles entstehen über typisierte Unistyles-Theme-Callbacks.
+`global.css` und `tailwind.config.js` sind Retirement-Dateien ohne aktive
+Designentscheidungen.
 
 Der kanonische allgemeine `Button`, `TextField`, `SegmentedControl`, `Txt` und
 `Surface` werden direkt aus `src/constants/ui.tsx` importiert.
@@ -56,7 +57,7 @@ denselben Komponentenvertrag sind kein zulässiger Endzustand.
 2. [Typografie](./02-typography.md)
 3. [Spacing und Layout](./03-spacing-and-layout.md)
 4. [Radien, Schatten und Verläufe](./04-radius-shadow-gradient.md)
-5. [NativeWind und StyleSheet](./05-nativewind-and-stylesheet.md)
+5. [Unistyles und StyleSheet](./05-unistyles-and-stylesheet.md)
 6. [Surfaces und Cards](./06-surfaces-and-cards.md)
 7. [Buttons und Interaktion](./07-buttons-and-interaction.md)
 8. [Felder und Auswahl](./08-fields-and-selection.md)

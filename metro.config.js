@@ -1,21 +1,10 @@
-const { withNativeWind } = require("nativewind/metro");
 const { getSentryExpoConfig } = require("@sentry/react-native/metro");
 const { getPostHogExpoConfig } = require("posthog-react-native/metro");
 const { withRozenite } = require('@rozenite/metro');
 
-// const config = getPostHogExpoConfig(__dirname, {
-//   getDefaultConfig: (projectRoot, options = {}) => {
-//     const { getDefaultConfig: _ignored, ...metroOptions } = options;
-//     return getSentryExpoConfig(projectRoot, {
-//       ...metroOptions,
-//       includeWebReplay: false,
-//     });
-//   },
-// });
 const config = getPostHogExpoConfig(__dirname, {
   getDefaultConfig: (projectRoot, options = {}) => {
     const { getDefaultConfig: _ignored, ...metroOptions } = options;
-
     return getSentryExpoConfig(projectRoot, {
       ...metroOptions,
       includeWebReplay: false,
@@ -39,8 +28,6 @@ config.transformer.getTransformOptions = async () => ({
   },
 });
 
-module.exports = withRozenite(
-  withNativeWind(config, { input: "./src/global.css" }),
-  {
-    enabled: process.env.WITH_ROZENITE === 'true',
-  });
+module.exports = withRozenite(config, {
+  enabled: process.env.WITH_ROZENITE === 'true',
+});

@@ -1,7 +1,13 @@
 /** @type {import('jest').Config} */
 module.exports = {
   preset: 'jest-expo',
-  setupFiles: ['<rootDir>/test/setup.js'],
+  setupFiles: [
+    '<rootDir>/test/setup.js',
+    // Unistyles v3 stubs — muss vor der App-Konfiguration stehen,
+    // damit StyleSheet.configure in theme/index.ts auf den Mock trifft.
+    'react-native-unistyles/mocks',
+    '<rootDir>/src/components/theme/index.ts',
+  ],
   // React-Native/Babel-Worker sind speicherintensiv. Vier parallele Worker
   // erzeugen im Gesamtlauf GC-/CPU-Konkurrenz und dadurch falsche 15s-Timeouts.
   maxWorkers: 2,
@@ -28,7 +34,7 @@ module.exports = {
   // Muster bricht jeden Test, der (auch nur transitiv, z. B. ueber
   // `lib/sentry.ts`) `@sentry/react-native` importiert.
   transformIgnorePatterns: [
-    'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/.*|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*|standard-navigation|@aptabase/.*|react-native-google-mobile-ads))',
+    'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/.*|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*|standard-navigation|@aptabase/.*|react-native-google-mobile-ads|react-native-unistyles|react-native-nitro-modules))',
   ],
 
   // Default (5000ms) ist zu knapp fuer Tests mit echten Timern/Intervallen

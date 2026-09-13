@@ -5,7 +5,7 @@
 Eingaben und Auswahl verwenden gemeinsame Darstellung und zeigen Zustand nicht
 nur über Farbe. Rezepte für Form, Typografie, Farbpaare, Konturen und Zustände
 liegen in `ui.tsx`; Werte stammen aus `index.ts` und dem aktiven ThemeProvider.
-NativeWind übernimmt nur lokales Layout.
+Lokales Layout verwendet native `style`-Props und Unistyles-Theme-Callbacks.
 
 ## Öffentliche Komponenten und gemeinsame Basis
 

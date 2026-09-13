@@ -20,7 +20,7 @@ und `setPref()`. Ihre Existenz macht nicht jede Kombination ihrer Werte zulässi
 - Themewechsel benötigt keinen Remount und erhält Formulareingaben und Fokus.
 - Der bestehende Präferenzschlüssel bleibt kompatibel. Ohne verfügbare Persistenz
   funktioniert die Auswahl während der Sitzung weiter.
-- NativeWind/CSS erhalten keine zweite Themeauflösung und keine `vars()`-Bridge.
+- Keine `vars()`-Bridge und keine zweite parallele Themeauflösung.
   Die noch vorhandenen CSS-Farben sind Migrationsbestand, keine normative Palette.
 
 ## Farbpaare und Semantik
@@ -77,7 +77,7 @@ import { Surface, Txt } from '@/constants/ui';
 Ein eigenes `backgroundColor: '#FFFFFF'` am Feature oder eine Schattenfarbe als
 Badge-Schrift umgeht den Vertrag, auch wenn der Wert zufällig zur Light-Palette passt.
 Offizielle Kennzeichnungen und Medienfarben folgen den Integrationsregeln aus
-[Vertrag 05](./05-nativewind-and-stylesheet.md).
+[Vertrag 05](./05-unistyles-and-stylesheet.md).
 
 ## Nachweis und Migrationsgrenze
 

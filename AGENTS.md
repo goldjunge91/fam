@@ -23,17 +23,19 @@ Vor jeder Codeänderung `CONSTRAINTS.md` im Repository-Root lesen. Die dort fest
 - **Backend & Auth:** Supabase (Postgres, GoTrue Auth, Realtime, Storage) via Docker (`supabase start`); RevenueCat für In-App-Käufe und Abonnements.
 - Wir haben jetzt einen Apple-Developer-Account. iOS-Distribution über EAS (TestFlight, App Store) ist damit möglich — `eas submit` und Store-Builds (`preview-testflight`, `production`) können genutzt werden.
 
-Für die verbleibenden statischen NativeWind-Layoututilities gilt die lokale
-Referenz unter `.claude/nativewind.dev_llms.txt`. Nativwind depecreated `className`-Utilities werden nicht mehr ergänzt, sondern nur noch in `src/constants/ui.tsx` als semantische Tokens abgebildet. Neue Komponenten greifen auf diese Tokens, nicht auf die alten Klassen zu. Die alten Klassen werden schrittweise entfernt.
-
 ## Verbindliche UI-Styling-Architektur
 
-Das fam-Design-System hat genau drei zentrale Verantwortliche. Zusammen regeln
-sie alle projektweiten Designentscheidungen:
+`react-native-unistyles` v3 ist die einzige aktive Styling-Runtime.
+NativeWind und `className`-Nutzung sind im Endzustand vollständig entfernt.
+Während der laufenden Migration (`fam-978`) existiert ein kurzfristiger
+Mischbetrieb — er ist kein Zielzustand.
+
+Das fam-Design-System hat genau drei zentrale Verantwortliche:
 
 1. `src/components/theme/index.ts` besitzt alle wiederverwendbaren
    Design-Tokens: Light-/Dark-Paletten, Abstände, Radien, Schriftmaße,
-   Schriftgewichte, Schatten, Verläufe und gemeinsame Maße.
+   Schriftgewichte, Schatten, Verläufe, gemeinsame Maße und die
+   Unistyles-Theme-Konfiguration.
 2. `src/components/theme/ThemeProvider.tsx` besitzt die Theme-Präferenz, die
    Auflösung von `system | light | dark`, die aktive Palette sowie `useTheme()`
    und `useThemedStyles()`.
@@ -44,34 +46,29 @@ sie alle projektweiten Designentscheidungen:
 
 Verbindliche Grenzen:
 
-- NativeWind bleibt installiert, wird aber nur für einfaches statisches Layout
-  verwendet, zum Beispiel Flex-Richtung, Ausrichtung, Gap, Padding, Margin,
-  Positionierung und feste Layoutgrößen.
+- `className` und `contentContainerClassName` sind verboten. Aktive NativeWind-API
+  wird nicht ergänzt.
+- Styles werden über `StyleSheet` aus `react-native-unistyles` mit
+  callback-basierten Theme-Zugriffen erstellt:
+  `StyleSheet.create((theme) => ({ root: { backgroundColor: theme.background } }))`.
 - Semantische Farben, Typografie, Hintergründe, Konturen, Schatten sowie
   pressed-, focused-, selected-, disabled- und loading-Darstellungen werden in
   `ui.tsx` definiert. Darauf aufbauende Komponenten wenden diese Definitionen
   an und besitzen nur Verhalten, Komposition und lokales Layout.
 - Komponenten- und Feature-StyleSheets sind auf nicht semantisches lokales
   Layout, berechnete Laufzeitwerte und native Integrationsgrenzen beschränkt.
-  Benötigt eine solche Grenze die aktive Palette, bezieht sie diese über
-  `useTheme()` oder `useThemedStyles()` aus `ThemeProvider.tsx`.
-- `src/global.css` und `tailwind.config.js` sind technische Bestandsdateien,
-  keine Design-System-Quellen. Dort werden keine neuen Komponentenklassen,
-  Farbpaletten, Typografieskalen oder semantischen Zustände ergänzt.
-- Es wird keine zusätzliche NativeWind-Runtime-Theme-Schicht und keine
-  `vars()`-Bridge als parallele Farbquelle eingeführt. Themefarben kommen aus
-  `ThemeProvider.tsx` und `index.ts`.
+  Benötigt eine solche Grenze die aktive Palette, bezieht sie diese über den
+  Unistyles-Theme-Callback oder `useTheme()` aus `ThemeProvider.tsx`.
+- Es wird keine vierte globale Theme- oder Style-Quelle eingeführt, keine
+  `vars()`-Bridge und keine parallele Farbquelle.
 - Neue Feature-Komponenten erfinden keine Hexfarben, Typografierollen oder
   semantischen Tokens. Fehlt eine projektweite Entscheidung, wird sie in genau
   einer der drei zentralen Dateien ergänzt. Rein lokales Layout darf lokal
   bleiben.
-- Bestehende globale NativeWind-Komponentenklassen und semantische Farbklassen
-  sind Migrationsbestand. Sie werden schrittweise ersetzt; sie sind kein
-  Vorbild für neuen Code.
 
 Die normativen Verträge stehen unter `docs/design-system/contracts/`.
-`docs/specs/nativewind-styling/` dokumentiert nur die abgeschlossene
-Entstehungsgeschichte und ist keine zweite aktuelle Design-System-Quelle.
+`docs/specs/nativewind-styling/` dokumentiert die abgeschlossene NativeWind-Entstehungsgeschichte.
+`docs/specs/nativewind-unistyles-migration/` dokumentiert die laufende Migration.
 
 ---
 

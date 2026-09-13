@@ -3,8 +3,9 @@
 ## Zweck und Zuständigkeit
 
 Wiederkehrende Abstände und Maße stammen aus `src/components/theme/index.ts`.
-NativeWind beschreibt einfaches statisches Layout. Features besitzen ihr lokales
-Layout; gemeinsame Komponentenmaße und Darstellungsrezepte werden zentral gehalten.
+Lokales nicht-semantisches Layout wird über native `style`-Props und
+Unistyles-Theme-Callbacks ausgedrückt. Features besitzen ihr lokales Layout;
+gemeinsame Komponentenmaße und Darstellungsrezepte werden zentral gehalten.
 
 ## Verbindliche Abstandsskala
 
@@ -34,11 +35,9 @@ verwendet. Zusätzliche Fensterbreite darf die Abstände nicht unnötig vergrö�
 Umbruch, flexible Anordnung und ein begrenztes Wachstum sind gegenüber einer
 proportionalen Vergrößerung der gesamten UI zu bevorzugen.
 
-Bestehende statische NativeWind-Utilities dürfen weiterverwendet werden. Für
-wiederkehrende Abstände ist der numerische Tokenwert maßgeblich, nicht eine
-angenommene Gleichheit zwischen Namen wie `gap-three` und `space.md`. Derselbe
-wiederkehrende Abstand muss denselben Wert besitzen. Neue gemeinsame Abstände
-werden nicht zusätzlich in `tailwind.config.js` definiert.
+Für wiederkehrende Abstände ist der numerische Tokenwert maßgeblich, nicht ein
+angenommener Namensgleichklang. Derselbe wiederkehrende Abstand muss denselben
+Wert besitzen. Neue gemeinsame Abstände werden in `index.ts` definiert.
 
 Ein einmaliger begründeter Layoutwert ist erlaubt. Wiederholt sich die Entscheidung,
 wird sie als gemeinsames Maß zentralisiert. Es ist kein Ziel, jeden einzelnen
@@ -67,9 +66,14 @@ Pixelwert eines Screens in ein neues Token umzuwandeln.
 
 ```tsx
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { space } from '@/components/theme/index';
 
-<View className="flex-row items-center" style={{ gap: space.md }}>
+const styles = StyleSheet.create((theme) => ({
+  row: { flexDirection: 'row', alignItems: 'center', gap: theme.space.md },
+}));
+
+<View style={styles.row}>
   {children}
 </View>
 ```

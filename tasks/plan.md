@@ -1,113 +1,172 @@
-# Implementation Plan: i18n Translation Quality Gate
+# Implementation Plan: Vollständige NativeWind-Ablösung durch Unistyles v3
 
-Status: umgesetzt.
+Status: Entwurf zur menschlichen Plan-Abnahme
+Spec: `docs/specs/nativewind-unistyles-migration/SPEC.md`
+Capability Map: `docs/specs/nativewind-unistyles-migration/CAPABILITY_MAP.md`
+Beads: `fam-978` und die unten aufgeführten Kind-Tasks
 
 ## Overview
 
-Der bestehende Draft unter `docs/specs/i18n-translation-quality-gate/SPEC.md`
-wird als automatischer Jest-Konventionscheck umgesetzt. Der Gate prüft
-Locale-Dateien, Platzhalter und statische sowie dynamische Übersetzungsschlüssel.
-Hardcodierte UI-Texte gehören zum selben Qualitätsziel, werden wegen des
-aktuellen Rückstands zunächst nur als Bericht ausgegeben und später blockierend
-gemacht.
+Die bestätigte Migration wird vom aktiven Contract über die Foundation und die
+drei Design-System-Owner durch Shared UI und alle Consumer bis zur Entfernung
+der Legacy-Runtime geführt. Tasks werden ausschließlich in Beads geführt. Diese
+Datei ist der geordnete Plan und keine zweite Aufgaben-Checkliste.
 
-Tasks werden in Beads verfolgt. Dieses Dokument ist nur der geordnete Plan und
-enthält keine parallele Aufgaben-Checkliste.
+Der bestehende `tasks/plan.md`-Eintrag zur bereits umgesetzten i18n-Arbeit wird
+durch diesen aktuellen Initiativenplan ersetzt; die fachliche Historie bleibt
+in Git und der zugehörigen Spec dokumentiert.
 
 ## Architecture Decisions
 
-- Der Test bleibt unter `test/conventions/i18n-convention.test.ts` und liest die
-  Kataloge direkt aus dem Dateisystem.
-- Unterstützte Sprachen werden aus `SUPPORTED_LANGUAGES` in
-  `src/i18n/index.ts` abgeleitet. Ein Dateipaar allein aktiviert keine Sprache.
-- Es gibt keine globale Allowlist aller Übersetzungsschlüssel.
-- Dynamische Keys werden nur akzeptiert, wenn ihre Variablen aus einer
-  endlichen, im Produktionscode vorhandenen Wertemenge stammen. Der Gate
-  expandiert diese Wertemenge und prüft jeden konkreten Key.
-- Ein dynamischer Key aus einem unbeschränkten `string`, Serverdaten oder
-  Nutzereingaben ist ein Fehler, nicht ein ignorierter Prüfgrenzfall.
-- Die Hardcoded-UI-Prüfung wird technisch getrennt ausgewertet, bleibt aber
-  Teil desselben Übersetzungsqualitätsziels. Bestehende Funde blockieren in der
-  ersten Migrationsphase nicht.
-- Es werden keine neuen Runtime- oder Parser-Abhängigkeiten eingeführt, bevor
-  der vorhandene TypeScript-AST und die bestehende Jest-Konfiguration geprüft
-  sind.
+- Unistyles v3 ist die einzige Styling-Runtime im Zielzustand.
+- `src/components/theme/index.ts`, `ThemeProvider.tsx` und
+  `src/constants/ui.tsx` bleiben die einzigen zentralen Design-System-Owner.
+- Die Migration ist inkrementell. Der Mischbetrieb ist nur eine kurzlebige
+  Übergangsgrenze und kein zulässiger Abschluss.
+- Semantische Darstellung wird nicht mechanisch in neue Klassen übertragen.
+  Verbraucher verwenden zentrale Primitive und typed native Styles.
+- Native Integrationen wie FlashList, SVG, `expo-image`, Bottom Sheets und
+  Reanimated behalten ihre tatsächlichen Style-Grenzen.
+- Beads ist der externe Task-Tracker; `tasks/todo.md` wird nicht angelegt.
 
 ## Dependency Graph
 
 ```text
-Runtime-Sprachen und Katalogdateien
-        |
-        +--> Katalog-/Platzhalter-Parität
-        |
-        +--> AST-Erkennung statischer Keys
-        |          |
-        |          +--> endliche dynamische Key-Familien
-        |
-        +--> Hardcoded-UI-Bericht (nicht blockierend in Phase 1)
+fam-978.1 → fam-978.2 → fam-978.3
+                    ↓
+                 fam-978.4 → fam-978.5 → fam-978.6
+                                      ↓
+                           fam-978.7 → fam-978.8
+                                      ↓
+                  fam-978.9 / .10 / .11 / .12 / .13
+                                      ↓
+                  fam-978.14 … .46, .61 … .64
+                                      ↓
+                           fam-978.65 → fam-978.66 → fam-978.67
+                                      ↓
+                                   fam-978.68
 ```
+
+Die Consumer-Slices `.14` bis `.46` und `.61` bis `.64` sind nach Shared UI
+untereinander unabhängig und können domänenweise parallel bearbeitet werden.
+Retirement wartet auf alle Consumer-Slices.
 
 ## Task List
 
-### Phase 1: Blockinges Fundament
+### Phase 1: Migration Contract
 
-1. `fam-b0p.1` Katalogdateien, Locale-Parität und Platzhalter prüfen.
-2. `fam-b0p.2` Statische Übersetzungsreferenzen per TypeScript-AST prüfen.
+1. `fam-978.1` AGENTS und CLAUDE auf den Unistyles-Endzustand ausrichten.
+2. `fam-978.2` Aktive Design-System-Verträge aktualisieren.
+3. `fam-978.3` NativeWind-ADR supersedieren und Interaktionsverträge anpassen.
 
-### Checkpoint: Blockinges Fundament
+### Phase 2: Unistyles Foundation
 
-Nach `fam-b0p.1` und `fam-b0p.2` müssen der aktuelle Katalog und alle aktuellen
-statischen Referenzen grün sein. Der gezielte Konventionscheck, `bun run check`
-und `bun run typecheck` werden ausgeführt.
+4. `fam-978.4` Offizielle v3-Kompatibilität und native Voraussetzungen
+   verifizieren.
+5. `fam-978.5` Unistyles-Dependency sowie Babel-/Metro-Grundlage ergänzen,
+   ohne Legacy-Verbraucher zu entfernen.
+6. `fam-978.6` Native Artefakte regenerieren und Fingerprint-Auswirkung prüfen.
 
-### Phase 2: Dynamische Keys
+### Checkpoint: Foundation
 
-3. `fam-b0p.3` Endliche dynamische Key-Familien automatisch expandieren und
-   unbeschränkte dynamische Keys als Fehler melden.
-4. `fam-b0p.4` Regression-Fixtures für fehlende dynamische Werte und
-   untestbare dynamische Ausdrücke ergänzen.
+- Kompatibilität ist belegt.
+- Config-, Typecheck- und Biome-Gates sind grün.
+- Der Dev-Client-Rebuild ist für die native Änderung eingeplant.
 
-### Checkpoint: Dynamische Keys
+### Phase 3: Design-System Core
 
-Nach `fam-b0p.3` und `fam-b0p.4` darf kein dynamischer Übersetzungsschlüssel
-mehr stillschweigend aus der Prüfung fallen. Ein neuer gültiger Wert in einer
-Produktionswertemenge wird ohne Änderung der Testdatei geprüft.
+7. `fam-978.7` Theme-Tokens und Runtime migrieren.
+8. `fam-978.8` Semantische UI-Primitiven migrieren.
 
-### Phase 3: Gestufter Hardcoded-UI-Bericht
+### Phase 4: Shared UI
 
-5. `fam-b0p.5` Sichtbare hartcodierte UI-Texte erkennen und zunächst als
-   nicht-blockierenden Bericht ausgeben. Die Ausgabe muss Datei, Zeile und
-   erkannte UI-Position nennen, ohne Marken, technische Werte oder Testcode
-   pauschal als Übersetzung zu behandeln.
+9. `fam-978.9` Datum-/Zeit-Fields.
+10. `fam-978.10` Wheel-Picker und Animated-Icon-Varianten.
+11. `fam-978.11` Gemeinsame Icons, Heading, Overlay und Cards.
+12. `fam-978.12` Product-, Progress-, Quantity- und Snackbar-Komponenten.
+13. `fam-978.13` Buttons und reale Pressable-Gerätegrenzen.
 
-### Checkpoint: Gesamt-Gate
+### Checkpoint: Core und Shared UI
 
-Nach `fam-b0p.5` laufen alle Prüfungen unter `bun run test`; Parität und
-Missing-Key-Prüfungen bleiben blockierend, bestehende Hardcoded-UI-Funde bleiben
-report-only. Eine spätere Umstellung auf blockierend ist eine explizite
-Migrationsentscheidung.
+- Die drei Owner enthalten keine aktive NativeWind-API.
+- Alle Shared-Slices bestehen fokussierte Tests, `bun run check` und
+  `bun run typecheck`.
+- iOS-/Android-Stichproben belegen essenzielle interaktive Flächen.
 
-## Verification
+### Phase 5: Feature Consumers
 
-- Fokustest: `bun run test --runInBand --no-watchman test/conventions/i18n-convention.test.ts`
-- Vollständige Unit-Tests: `bun run test`
-- Format/Lint: `bun run check`
-- Typen: `bun run typecheck`
-- Vor Abschluss: gezielte Prüfung der Testfehlermeldungen anhand absichtlich
-  fehlerhafter kleiner Fixtures.
+14. `fam-978.14` und `.15` Auth.
+15. `fam-978.16` und `.17` Calorie Tracking.
+16. `fam-978.18` Feedback.
+17. `fam-978.19` und `.20` GLP-1.
+18. `fam-978.21` und `.22` Household.
+19. `fam-978.23` bis `.26` Inventory.
+20. `fam-978.27` und `.28` Meal Planner.
+21. `fam-978.29` und `.30` Onboarding.
+22. `fam-978.31` Premium.
+23. `fam-978.32` bis `.35` Profile.
+24. `fam-978.36` bis `.40` Recipes.
+25. `fam-978.41` bis `.44` Settings.
+26. `fam-978.45`, `.46` und `.61` bis `.63` Shopping List.
+27. `fam-978.64` verbleibende Product-Search-Route.
+
+### Checkpoint: Alle Consumers
+
+- Der aktive Scan meldet keine `className`- oder
+  `contentContainerClassName`-Verwendung.
+- Jeder Domänenblock hat seine fokussierten Verhaltenstests bestanden.
+- Es gibt keine Änderung an Datenbank, RLS, SQLite, Outbox oder Sync.
+
+### Phase 6: NativeWind Retirement
+
+28. `fam-978.65` NativeWind-/Tailwind-Pakete und unbenutzte Tailwind-Assets
+    entfernen.
+29. `fam-978.66` NativeWind-Babel-/Metro-Integration entfernen.
+30. `fam-978.67` Statisches Removal-Architektur-Gate und aktive Dokumentation
+    finalisieren.
+
+### Phase 7: Verification und Release-Nachweis
+
+31. `fam-978.68` iOS-/Android-Migrationsnachweis, fokussierte Gates und
+    Fingerprint-/Rebuild-Nachweis abschließen.
+
+## Verification Checkpoints
+
+Nach jedem Beads-Slice:
+
+1. Betroffene fokussierte Tests mit `bun run test <file>`.
+2. `bun run check` und `bun run typecheck`.
+3. Scan des betroffenen aktiven Bereichs auf verbotene Legacy-APIs.
+
+Vor dem Abschluss:
+
+- `bun run test test/conventions/nativewind-removal.test.ts`
+- `bun run native:status -- --diff`
+- iOS- und Android-Dev-Client-Nachweise
+- Diff-Review in Korrektheit, Lesbarkeit, Architektur, Sicherheit und
+  Performance, dokumentiert in Beads `fam-978`.
 
 ## Risks and Mitigations
 
-| Risk | Impact | Mitigation |
+| Risiko | Auswirkung | Mitigation |
 | --- | --- | --- |
-| AST-Scanner erkennt React-/i18next-Varianten unvollständig | Hoch | Fixtures für `t`, `i18n.t`, Template-Literale und Plural-Basisschlüssel |
-| Dynamische Wertemengen werden doppelt im Test gepflegt | Hoch | Wertemenge bleibt Produktionsquelle; Test expandiert sie nur |
-| Hardcoded-Scanner meldet zu viele False Positives | Mittel | Zunächst report-only, konservative UI-Positionen und Ausschluss von Tests |
-| Expo-Runtime wird im Konventionstest geladen | Mittel | Kataloge und statische Quellen direkt lesen, keine Runtime-Initialisierung |
-| Neue Sprache wird nur als JSON-Datei angelegt | Mittel | Ableitung aus `SUPPORTED_LANGUAGES` und Prüfung des Dateipaars |
+| Unistyles-/Expo-/Native-Kompatibilität weicht ab | Hoch | Primärquellen-Spike vor Dependency-Änderung, kleiner Foundation-Slice, Fingerprint-Prüfung |
+| Semantik geht bei mechanischer Klassenübersetzung verloren | Hoch | Drei Owner bleiben verbindlich; Core zuerst migrieren; fokussierte Verhaltenstests |
+| Plattformpaare driften auseinander | Hoch | Android-/iOS-/Shared-Dateien je Slice gemeinsam bearbeiten und prüfen |
+| Pressable-Flächen fehlen nur auf Geräten | Hoch | Statische Face-Styles und iOS-/Android-Gerätenachweis, nicht nur Jest |
+| Große Consumer-Menge erzeugt Regressionen | Mittel | Domänenweise S-/M-Slices, Gates nach jedem Slice, unabhängige Parallelisierung erst nach Shared UI |
+| Historische Docs werden irrtümlich als aktiv genutzt | Mittel | Supersedierendes ADR, aktive Contract-Referenzen, explizite Scan-Ausnahmen |
+
+## Open Questions
+
+- Die exakte Unistyles-v3-Version, Peer-Abhängigkeiten und Edge-to-Edge-Konfiguration
+  werden in `fam-978.4` aus offiziellen Quellen festgelegt.
+- Der Plan erweitert den bestätigten Scope nicht; neue native Abhängigkeiten,
+  visuelle Änderungen oder CI-/Datenbankänderungen erfordern eine erneute
+  Maintainer-Entscheidung.
 
 ## Approval Gate
 
-Der Plan wurde vom Maintainer freigegeben und in den vier inkrementellen
-Commits für Parität, statische Keys, dynamische Keys und den report-only
-Hardcoded-UI-Check umgesetzt.
+Der Plan ist zur menschlichen Abnahme vor Implementierungsbeginn vorzulegen.
+Nach Freigabe wird jeweils genau ein Beads-Slice geclaimt, implementiert,
+gezielt geprüft und erst dann geschlossen.
