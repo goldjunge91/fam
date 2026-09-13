@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 
+import { debugWarn } from '@/lib/debug-log';
 import { getDeviceStorage } from '@/lib/storage/device-storage';
 
 export const analyticsConfig = {
@@ -87,7 +88,7 @@ function persistOverrides(overrides: AnalyticsOverrides): void {
     }
     storage.set(STORAGE_KEY, JSON.stringify(overrides));
   } catch (error) {
-    if (__DEV__) console.warn('[Analytics] Overrides konnten nicht gespeichert werden:', error);
+    debugWarn('[Analytics] Overrides konnten nicht gespeichert werden:', error);
   }
 }
 

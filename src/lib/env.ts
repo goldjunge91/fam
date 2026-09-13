@@ -122,9 +122,3 @@ export const env = {
     );
   },
 };
-
-// Loggt die aktive Supabase-URL nur in Entwicklungs-Builds.
-if (typeof __DEV__ !== 'undefined' && __DEV__) {
-  const url = process.env.EXPO_PUBLIC_SUPABASE_URL;
-  console.log(`[env] EXPO_PUBLIC_SUPABASE_URL = ${url ?? '(nicht gesetzt)'}`);
-}

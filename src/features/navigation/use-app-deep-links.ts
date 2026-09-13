@@ -6,6 +6,7 @@ import {
   parseAuthTokensFromUrl,
 } from '@/features/auth/domain/auth-deep-link';
 import { setAuthDeepLinkError } from '@/lib/auth-deep-link-state';
+import { debugError, debugWarn } from '@/lib/debug-log';
 import { savePendingInviteToken } from '@/lib/pending-invite';
 import { getSupabase } from '@/lib/supabase';
 import { reportError, reportWarning } from '@/lib/telemetry';
@@ -29,7 +30,7 @@ export function useAppDeepLinks(): void {
                 operation: 'auth.deep_link_session',
                 error_code: 'deep_link_session_failed',
               });
-              console.error('Fehler beim Anwenden der Deep-Link-Session:', error);
+              debugError('Fehler beim Anwenden der Deep-Link-Session:', error);
               setAuthDeepLinkError(
                 'Die Anmeldung ueber den Link hat nicht geklappt. Gib stattdessen den 6-stelligen Code aus der E-Mail ein.',
               );
@@ -43,7 +44,7 @@ export function useAppDeepLinks(): void {
             operation: 'auth.deep_link',
             error_code: 'auth_deep_link_error',
           });
-          console.warn('Deep Link meldet einen Auth-Fehler:', authError);
+          debugWarn('Deep Link meldet einen Auth-Fehler:', authError);
           setAuthDeepLinkError(authError);
           return;
         }
@@ -57,7 +58,7 @@ export function useAppDeepLinks(): void {
           operation: 'auth.deep_link_parse',
           error_code: 'deep_link_parse_failed',
         });
-        console.error('Fehler beim Parsen des Deep Links:', error);
+        debugError('Fehler beim Parsen des Deep Links:', error);
       }
     }
 

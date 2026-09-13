@@ -4,7 +4,7 @@ import type {
   CatalogSource,
   ProductSearchResult,
 } from '@/features/product-search/types';
-import { debugLogEvent } from '@/lib/debug-log';
+import { debugError, debugLogEvent } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 
 /**
@@ -260,7 +260,7 @@ export function createOffApiSource(): CatalogSource {
         // Abgebrochene, durch neue Eingaben ueberholte Anfragen ignorieren.
         if (signal?.aborted) return EMPTY;
         debugLogEvent('open-food-facts.search.failed', { reason: 'network-or-parse-error' });
-        console.error('Fehler bei Open Food Facts Suche:', err);
+        debugError('Fehler bei Open Food Facts Suche:', err);
         return { products: [], hasMore: false, failed: true };
       }
     },
@@ -293,7 +293,7 @@ export function createOffApiSource(): CatalogSource {
       } catch (err) {
         if (signal?.aborted) return null;
         debugLogEvent('open-food-facts.barcode.failed', { reason: 'network-or-parse-error' });
-        console.error('Fehler bei Open Food Facts Barcode-Abfrage:', err);
+        debugError('Fehler bei Open Food Facts Barcode-Abfrage:', err);
         return null;
       }
     },

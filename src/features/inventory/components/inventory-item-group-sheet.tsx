@@ -9,6 +9,7 @@ import { BackButton } from '@/components/ui/buttons';
 import { Button, Card, IconButton, Press, Row, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';
+import { debugLog } from '@/lib/debug-log';
 import { sumInventoryQuantities } from '@/lib/inventory-quantity';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
@@ -84,7 +85,7 @@ function InventoryConflictPanel({
 
   useEffect(() => {
     if (!__DEV__ || !visible) return;
-    console.log('[InventorySheet] inventory.conflict-modal.open', {
+    debugLog('[InventorySheet] inventory.conflict-modal.open', {
       sheetId: 'inventory.conflict-modal',
       itemId: conflictItemId,
       hasConflict,
@@ -197,7 +198,7 @@ export function InventoryItemGroupSheet({
 
   useEffect(() => {
     if (!__DEV__ || !visible) return;
-    console.log('[InventorySheet] inventory.group-sheet.open', {
+    debugLog('[InventorySheet] inventory.group-sheet.open', {
       sheetId: 'inventory.group-sheet',
       groupId,
       lotCount,

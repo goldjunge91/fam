@@ -1,6 +1,7 @@
 import { useNavigationContainerRef } from 'expo-router';
 import { useEffect } from 'react';
 
+import { debugWarn } from '@/lib/debug-log';
 import { markPerformance, measurePerformance, metricPerformance } from '@/lib/performance';
 import { startQueryEnvironmentSync } from '@/lib/query-client';
 import { navigationIntegration } from '@/lib/sentry';
@@ -68,7 +69,7 @@ export function useAppLifecycle(): void {
 
   useEffect(() => {
     registerBackgroundSync().catch((error) => {
-      console.warn('[BackgroundSync] Registrierung fehlgeschlagen:', error);
+      debugWarn('[BackgroundSync] Registrierung fehlgeschlagen:', error);
     });
   }, []);
 }

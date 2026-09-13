@@ -11,6 +11,7 @@ import Purchases, {
   type PurchasesPackage,
 } from 'react-native-purchases';
 
+import { debugInfo, debugWarn } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 
 export { ENTITLEMENT_VERIFICATION_MODE, VERIFICATION_RESULT };
@@ -93,7 +94,7 @@ export function initPurchases(): void {
   });
 
   if (!apiKey) {
-    console.warn(
+    debugWarn(
       '[Purchases] Kein RevenueCat-API-Key gesetzt (EXPO_PUBLIC_REVENUECAT_TEST_STORE_API_KEY ' +
         'fuer die Entwicklung, sonst EXPO_PUBLIC_REVENUECAT_IOS_API_KEY / _ANDROID_API_KEY). ' +
         'Kaeufe bleiben deaktiviert; EXPO_PUBLIC_FORCE_PREMIUM=true schaltet Premium-Funktionen ' +
@@ -105,10 +106,10 @@ export function initPurchases(): void {
   if (__DEV__) {
     Purchases.setLogLevel(LOG_LEVEL.DEBUG);
 
-    // SDK-Warnungen über console.log ausgeben, damit LogBox keine Vollbildwarnung zeigt.
+    // SDK-Warnungen über den Dev-Logger ausgeben, damit LogBox keine Vollbildwarnung zeigt.
     Purchases.setLogHandler((_level, message) => {
       if (message.includes('unknown workflow trigger type')) return;
-      console.log(`[RevenueCat] ${message}`);
+      debugInfo(`[RevenueCat] ${message}`);
     });
   }
 
@@ -132,7 +133,7 @@ export function checkEntitlementVerification(customerInfo: CustomerInfo | null):
   if (!customerInfo) return true;
 
   if (customerInfo.entitlements.verification === VERIFICATION_RESULT.FAILED) {
-    console.warn(
+    debugWarn(
       '[Purchases] Entitlement-Verifikation fehlgeschlagen: Die Server-Antwort konnte nicht kryptografisch verifiziert werden.',
     );
     return false;
@@ -219,7 +220,7 @@ export async function syncPurchasesIdentity(
     }
     return customerInfo;
   } catch (err) {
-    console.warn('[Purchases] syncPurchasesIdentity fehlgeschlagen:', err);
+    debugWarn('[Purchases] syncPurchasesIdentity fehlgeschlagen:', err);
     return null;
   }
 }
@@ -235,7 +236,7 @@ export async function setPurchasesAttributes(
   try {
     await Purchases.setAttributes(attributes);
   } catch (err) {
-    console.warn('[Purchases] setPurchasesAttributes fehlgeschlagen:', err);
+    debugWarn('[Purchases] setPurchasesAttributes fehlgeschlagen:', err);
   }
 }
 
@@ -248,7 +249,7 @@ export async function setPurchasesEmail(email: string | null): Promise<void> {
   try {
     await Purchases.setEmail(email);
   } catch (err) {
-    console.warn('[Purchases] setPurchasesEmail fehlgeschlagen:', err);
+    debugWarn('[Purchases] setPurchasesEmail fehlgeschlagen:', err);
   }
 }
 
@@ -263,7 +264,7 @@ export async function resetPurchasesIdentity(): Promise<CustomerInfo | null> {
     if (isAnon) return null;
     return await Purchases.logOut();
   } catch (err) {
-    console.warn('[Purchases] resetPurchasesIdentity fehlgeschlagen:', err);
+    debugWarn('[Purchases] resetPurchasesIdentity fehlgeschlagen:', err);
     return null;
   }
 }

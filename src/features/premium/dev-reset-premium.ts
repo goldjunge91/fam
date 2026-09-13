@@ -6,6 +6,7 @@ import {
   useForcePremiumOverrideStore,
 } from '@/features/premium/force-premium-override';
 import { getDatabase } from '@/lib/db/client';
+import { debugWarn } from '@/lib/debug-log';
 import { getSupabase } from '@/lib/supabase';
 
 export interface DevResetHouseholdPremiumOptions {
@@ -44,7 +45,7 @@ export async function devResetHouseholdPremium({
       })
       .eq('id', householdId);
   } catch (err) {
-    console.warn('[devResetHouseholdPremium] Supabase-Aktualisierung fehlgeschlagen:', err);
+    debugWarn('[devResetHouseholdPremium] Supabase-Aktualisierung fehlgeschlagen:', err);
   }
 
   // 3. Lokale SQLite-Datenbank aktualisieren
@@ -63,14 +64,14 @@ export async function devResetHouseholdPremium({
       [householdId],
     );
   } catch (err) {
-    console.warn('[devResetHouseholdPremium] SQLite-Aktualisierung fehlgeschlagen:', err);
+    debugWarn('[devResetHouseholdPremium] SQLite-Aktualisierung fehlgeschlagen:', err);
   }
 
   // 4. RevenueCat CustomerInfo Cache invalidieren
   try {
     await Purchases.invalidateCustomerInfoCache();
   } catch (err) {
-    console.warn('[devResetHouseholdPremium] RevenueCat Cache-Invalidierung fehlgeschlagen:', err);
+    debugWarn('[devResetHouseholdPremium] RevenueCat Cache-Invalidierung fehlgeschlagen:', err);
   }
 
   // 5. Query Cache invalidieren

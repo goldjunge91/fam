@@ -3,6 +3,7 @@ import {
   deleteDatabaseEncryptionKey,
   openEncryptedDatabaseWithCutover,
 } from '@/lib/db/database-encryption';
+import { debugLog } from '@/lib/debug-log';
 
 const mockExistingFiles = new Set(['fam-v2.db', 'fam-v2.db-wal']);
 const mockDeleteFile = jest.fn(async (fileName: string) => {
@@ -57,6 +58,10 @@ jest.mock('@/lib/off-dump/off-dump-state', () => ({ resetOffDumpAttachment: jest
 jest.mock('@/lib/telemetry', () => ({
   measureOperation: (_name: string, operation: () => Promise<unknown>) => operation(),
 }));
+jest.mock('@/lib/debug-log', () => ({
+  debugLog: jest.fn(),
+  debugWarn: jest.fn(),
+}));
 
 describe('database client lifecycle', () => {
   it('blockiert ohne Session und drained eine laufende Query vor einem fail-closed Wipe', async () => {
@@ -66,6 +71,13 @@ describe('database client lifecycle', () => {
     setActiveUserId('user-a');
     mockRawDatabase.getFirstAsync.mockResolvedValueOnce({ journal_mode: 'wal' });
     const db = await getDatabase();
+    jest.mocked(debugLog).mockClear();
+    await getDatabase();
+    expect(
+      jest
+        .mocked(debugLog)
+        .mock.calls.filter(([message]) => message === '[DBTRACE:REQUEST-CACHED]'),
+    ).toHaveLength(0);
     expect(mockRawDatabase.execAsync.mock.calls.slice(0, 1)).toEqual([
       ['PRAGMA busy_timeout = 5000'],
     ]);

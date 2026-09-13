@@ -2,6 +2,7 @@ import { File, Paths } from 'expo-file-system';
 import type { Href } from 'expo-router';
 import { getDatabase } from '@/lib/db/client';
 import type { SqlDatabase } from '@/lib/db/types';
+import { debugError, debugInfo, debugLog, debugWarn } from '@/lib/debug-log';
 
 // Ein Tour-Schritt beschreibt Dateiname, Navigationsziel und erwarteten aktiven Pfad.
 export type ScreenshotTourStep = {
@@ -121,7 +122,7 @@ export async function waitForScreenshotFixture(
   const timeoutMs = options.timeoutMs ?? 30_000;
   // Die absolute Deadline verhindert eine unbegrenzte Warteschleife.
   const deadline = Date.now() + timeoutMs;
-  console.log(`[ScreenshotTour] warte auf Fixture (timeoutMs=${timeoutMs}).`);
+  debugLog(`[ScreenshotTour] warte auf Fixture (timeoutMs=${timeoutMs}).`);
   // Der zuletzt gesehene Fehler landet im finalen Timeout, statt spurlos verworfen zu werden.
   let lastError: unknown;
 
@@ -135,7 +136,7 @@ export async function waitForScreenshotFixture(
       const readiness = await getScreenshotFixtureReadiness();
       // Vollständige Daten beenden das Warten sofort.
       if (isFixtureReady(readiness)) {
-        console.log('[ScreenshotTour] Fixture ist bereit.');
+        debugInfo('[ScreenshotTour] Fixture ist bereit.');
         return readiness;
       }
     } catch (error) {
@@ -263,17 +264,17 @@ export async function loadShotsFlag(): Promise<ShotsConfig | null> {
     const config = parseShotsConfig(JSON.parse(await FLAG_FILE.text()));
     // Ein abgebrochener Capture-Lauf darf bei einem späteren normalen Start nicht nachwirken.
     if (!config || !isRecentScreenshotFlag(config.armedAt)) {
-      console.warn('[ScreenshotTour] shots.json verworfen: ungültig oder nicht frisch armiert.');
+      debugWarn('[ScreenshotTour] shots.json verworfen: ungültig oder nicht frisch armiert.');
       FLAG_FILE.delete();
       return null;
     }
-    console.log(
+    debugInfo(
       `[ScreenshotTour] shots.json akzeptiert (Arming vor ${Date.now() - config.armedAt}ms).`,
     );
     return config;
   } catch {
     // Unlesbare oder unvollständige Dateien deaktivieren den Modus sicher.
-    console.warn('[ScreenshotTour] shots.json konnte nicht gelesen werden.');
+    debugWarn('[ScreenshotTour] shots.json konnte nicht gelesen werden.');
     return null;
   }
 }
@@ -282,7 +283,7 @@ export async function loadShotsFlag(): Promise<ShotsConfig | null> {
 export async function announce(name: string): Promise<void> {
   // Das Überschreiben hält immer nur den neuesten Tourzustand bereit.
   STATUS_FILE.write(name);
-  console.log(`[ScreenshotTour] Status: ${name}`);
+  debugInfo(`[ScreenshotTour] Status: ${name}`);
 }
 
 // Diese Funktion veröffentlicht die Anzahl der aktuell aktivierten Tour-Einträge.
@@ -302,7 +303,7 @@ export async function waitForScreenshotCapture(
 ): Promise<void> {
   // Die absolute Deadline begrenzt die Dateiabfrage zuverlässig.
   const deadline = Date.now() + timeoutMs;
-  console.log(`[ScreenshotTour] warte auf Capture-Bestätigung für ${name}.`);
+  debugLog(`[ScreenshotTour] warte auf Capture-Bestätigung für ${name}.`);
   // Die Schleife prüft regelmäßig die vom Skript geschriebene Bestätigung.
   while (Date.now() <= deadline) {
     // Ein App-Abbruch beendet das Warten sofort.
@@ -311,7 +312,7 @@ export async function waitForScreenshotCapture(
     try {
       // Erst der passende Name beweist, dass genau das aktuelle PNG fertig ist.
       if (CAPTURED_FILE.exists && (await CAPTURED_FILE.text()).trim() === name) {
-        console.log(`[ScreenshotTour] Capture bestätigt: ${name}`);
+        debugInfo(`[ScreenshotTour] Capture bestätigt: ${name}`);
         return;
       }
     } catch {
@@ -321,6 +322,6 @@ export async function waitForScreenshotCapture(
     await new Promise((resolve) => setTimeout(resolve, 50));
   }
   // Ohne Bestätigung darf die App nicht unbemerkt zum nächsten Screen wechseln.
-  console.error(`[ScreenshotTour] Capture-Timeout für ${name} nach ${timeoutMs}ms.`);
+  debugError(`[ScreenshotTour] Capture-Timeout für ${name} nach ${timeoutMs}ms.`);
   throw new Error(`Screenshot was not captured before the timeout: ${name}`);
 }

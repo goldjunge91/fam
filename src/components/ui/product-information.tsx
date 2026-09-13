@@ -10,6 +10,7 @@ import { Txt } from '@/constants/ui';
 import { useProduct } from '@/features/inventory/use-product';
 import { offApiSource } from '@/features/product-search/sources/off-api-source';
 import type { CatalogProduct } from '@/features/product-search/types';
+import { debugLog } from '@/lib/debug-log';
 
 export type ProductInformationItem = {
   product_id: string | null;
@@ -97,7 +98,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
 
   useEffect(() => {
     if (!__DEV__ || !visible) return;
-    console.log('[InventorySheet] inventory.product-information.open', {
+    debugLog('[InventorySheet] inventory.product-information.open', {
       sheetId: 'inventory.product-information',
       itemId,
       hasItem,

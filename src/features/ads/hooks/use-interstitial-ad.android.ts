@@ -5,6 +5,7 @@ import {
   useInterstitialAd as useGoogleInterstitialAd,
 } from 'react-native-google-mobile-ads';
 import { usePremium } from '@/features/premium/premium-provider';
+import { debugInfo, debugWarn } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 import { useAdsConsentReady } from '../ads-consent';
 import { useAdsEnabled } from '../ads-override';
@@ -50,13 +51,13 @@ export function useInterstitialAd({
 
   useEffect(() => {
     if (error && __DEV__) {
-      console.warn('[AdMob Interstitial] Fehler beim Laden der Anzeige:', error);
+      debugWarn('[AdMob Interstitial] Fehler beim Laden der Anzeige:', error);
     }
   }, [error]);
 
   useEffect(() => {
     if (isLoaded && __DEV__) {
-      console.log('[AdMob Interstitial] Anzeige erfolgreich im Hintergrund vorgeladen.');
+      debugInfo('[AdMob Interstitial] Anzeige erfolgreich im Hintergrund vorgeladen.');
     }
   }, [isLoaded]);
 
@@ -72,7 +73,7 @@ export function useInterstitialAd({
       !isClosed
     ) {
       if (__DEV__) {
-        console.log(`[AdMob Interstitial] Lade Interstitial-Anzeige (Unit-ID: ${resolvedUnitId})…`);
+        debugInfo(`[AdMob Interstitial] Lade Interstitial-Anzeige (Unit-ID: ${resolvedUnitId})…`);
       }
       requestLoad();
     }
@@ -93,7 +94,7 @@ export function useInterstitialAd({
   useEffect(() => {
     if (adsEnabled && adsConsentReady && !hasPlus && !hasAI && autoLoad && isClosed) {
       if (__DEV__) {
-        console.log('[AdMob Interstitial] Anzeige geschlossen. Lade nächste Anzeige vor…');
+        debugInfo('[AdMob Interstitial] Anzeige geschlossen. Lade nächste Anzeige vor…');
       }
       requestLoad();
     }
@@ -102,7 +103,7 @@ export function useInterstitialAd({
   const show = useCallback(() => {
     if (!adsEnabled || !adsConsentReady || hasPlus || hasAI) {
       if (__DEV__) {
-        console.log(
+        debugInfo(
           `[AdMob Interstitial] show() übersprungen: Werbung ist ${adsEnabled ? 'für Plus/AI deaktiviert' : 'global deaktiviert'}.`,
         );
       }
@@ -110,12 +111,12 @@ export function useInterstitialAd({
     }
     if (isLoaded) {
       if (__DEV__) {
-        console.log('[AdMob Interstitial] show() - Vollbildanzeige wird geöffnet.');
+        debugInfo('[AdMob Interstitial] show() - Vollbildanzeige wird geöffnet.');
       }
       rawShow();
     } else {
       if (__DEV__) {
-        console.warn(
+        debugWarn(
           '[AdMob Interstitial] show() aufgerufen, aber Anzeige ist noch nicht bereit (isLoaded=false). ' +
             (error
               ? `Letzter Ladefehler: ${error.message}`

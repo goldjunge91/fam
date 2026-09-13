@@ -41,6 +41,7 @@ import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-pro
 import type { CatalogProduct } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
+import { debugError } from '@/lib/debug-log';
 import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';
 
 function formatOffsetDate(days: number): string {
@@ -260,7 +261,7 @@ export function AddItemScreen() {
       setNewLocationName('');
       setShowAddLocation(false);
     } catch (err) {
-      console.error('Fehler beim Erstellen des Lagerorts:', err);
+      debugError('Fehler beim Erstellen des Lagerorts:', err);
     }
   }
 
@@ -304,7 +305,7 @@ export function AddItemScreen() {
         } catch (err) {
           // Die History ist Zusatzfunktion: Ein erfolgreicher Vorrat-Save
           // darf nicht nachtraeglich als Fehler erscheinen.
-          console.error('Fehler beim Protokollieren der Nutzung:', err);
+          debugError('Fehler beim Protokollieren der Nutzung:', err);
         }
       }
 
@@ -317,7 +318,7 @@ export function AddItemScreen() {
         }, 700);
       }
     } catch (err) {
-      console.error(err);
+      debugError(err);
     }
   }
 

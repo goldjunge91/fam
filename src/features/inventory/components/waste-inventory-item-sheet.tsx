@@ -5,6 +5,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { withAlpha } from '@/components/theme/index';
 import { Button, Press, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
+import { debugLog } from '@/lib/debug-log';
 import { formatAmount } from '@/lib/package-size';
 
 import type { LocalInventoryItem } from '../use-inventory-items';
@@ -109,7 +110,7 @@ export function WasteInventoryItemSheet({
 
   useEffect(() => {
     if (__DEV__ && visible) {
-      console.log('[InventorySheet] inventory.waste-sheet.open', {
+      debugLog('[InventorySheet] inventory.waste-sheet.open', {
         sheetId: 'inventory.waste-sheet',
         itemId,
         hasItem,

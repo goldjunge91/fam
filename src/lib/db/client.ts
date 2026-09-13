@@ -16,6 +16,7 @@ import {
   serializeDatabase,
 } from '@/lib/db/serialize';
 import type { SqlDatabase } from '@/lib/db/types';
+import { debugLog, debugWarn } from '@/lib/debug-log';
 import { resetOffDumpAttachment } from '@/lib/off-dump/off-dump-state';
 import { measureOperation } from '@/lib/telemetry';
 
@@ -81,9 +82,7 @@ let openSequence = 0;
 type DbTraceDetails = Record<string, boolean | number | string | undefined>;
 
 function dbTrace(code: string, details: DbTraceDetails = {}): void {
-  if (__DEV__) {
-    console.log(`[DBTRACE:${code}]`, JSON.stringify(details));
-  }
+  debugLog(`[DBTRACE:${code}]`, details);
 }
 
 function errorMessage(error: unknown): string {
@@ -201,7 +200,7 @@ async function open(openId: number): Promise<DatabaseConnection> {
     // Outbox liegen. Insbesondere ein falscher/verlorener Key darf keinen
     // destruktiven "Recovery"-Pfad auslösen.
     dbTrace('INIT-FAIL', { error: errorMessage(error), openId });
-    console.warn('[db] Initialisierung fehlgeschlagen; Datenbank bleibt erhalten:', error);
+    debugWarn('[db] Initialisierung fehlgeschlagen; Datenbank bleibt erhalten:', error);
     try {
       await db.closeForLifecycle(() => openedDatabase.closeAsync());
     } catch (closeError) {
@@ -280,7 +279,6 @@ export function getDatabase(): Promise<SqlDatabase> {
     return Promise.reject(new Error('Die lokale Datenbank wird gerade gelöscht.'));
   }
   if (database && isVerifiedForActiveUser()) {
-    dbTrace('REQUEST-CACHED');
     return Promise.resolve(database);
   }
 

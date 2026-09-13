@@ -3,7 +3,7 @@ import type { QueryClient } from '@tanstack/react-query';
 import { signOut as signOutSession } from '@/features/auth/api';
 import { setStoredActiveHouseholdId } from '@/features/household/active-household-store';
 import { deleteLocalDatabase, setActiveUserId } from '@/lib/db/client';
-import { debugLogEvent } from '@/lib/debug-log';
+import { debugLogEvent, debugWarn } from '@/lib/debug-log';
 import { cancelUserNotificationReminders } from '@/lib/notifications';
 import { removeLegacyPersistedQueryCache } from '@/lib/query-client';
 import { resetLocalAccountModuleCaches } from '@/lib/storage/account-cache-registry';
@@ -33,7 +33,7 @@ export function clearLocalAccountData(queryClient: QueryClient, userId: string):
     try {
       await queryClient.cancelQueries();
     } catch (cleanupError) {
-      console.warn('[auth] laufende Queries nicht gestoppt:', (cleanupError as Error).message);
+      debugWarn('[auth] laufende Queries nicht gestoppt:', cleanupError);
     }
 
     try {
@@ -45,16 +45,13 @@ export function clearLocalAccountData(queryClient: QueryClient, userId: string):
     try {
       await cancelUserNotificationReminders(userId);
     } catch (cleanupError) {
-      console.warn(
-        '[auth] geplante Account-Erinnerungen nicht entfernt:',
-        (cleanupError as Error).message,
-      );
+      debugWarn('[auth] geplante Account-Erinnerungen nicht entfernt:', cleanupError);
     }
     // TODO Force delete needed
     try {
       queryClient.clear();
     } catch (cleanupError) {
-      console.warn('[auth] Query-Cache nicht geleert:', (cleanupError as Error).message);
+      debugWarn('[auth] Query-Cache nicht geleert:', cleanupError);
     }
 
     try {
@@ -91,16 +88,13 @@ export function clearLocalAccountData(queryClient: QueryClient, userId: string):
     try {
       resetLocalAccountModuleCaches(userId);
     } catch (cleanupError) {
-      console.warn('[auth] Modulcaches nicht geleert:', (cleanupError as Error).message);
+      debugWarn('[auth] Modulcaches nicht geleert:', cleanupError);
     }
 
     try {
       await setStoredActiveHouseholdId(null);
     } catch (cleanupError) {
-      console.warn(
-        '[auth] aktiver Haushalt nicht zurueckgesetzt:',
-        (cleanupError as Error).message,
-      );
+      debugWarn('[auth] aktiver Haushalt nicht zurueckgesetzt:', cleanupError);
     }
 
     if (essentialError) throw essentialError;
@@ -153,7 +147,7 @@ export async function signOutAndClearLocalData(queryClient: QueryClient): Promis
   }
 
   if (serverError) {
-    console.warn('[auth] Server-Session konnte nicht widerrufen werden:', serverError.message);
+    debugWarn('[auth] Server-Session konnte nicht widerrufen werden:', serverError);
   }
 
   return { error: localSessionRemovalError };

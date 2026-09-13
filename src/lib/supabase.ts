@@ -5,6 +5,7 @@ import { AppState, type AppStateStatus, Platform } from 'react-native';
 
 import { createChunkedStorage, type KeyValueStore } from '@/lib/chunked-storage';
 import type { Database } from '@/lib/database.types';
+import { debugWarn } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 import { createServerClock } from '@/lib/sync/server-clock';
 
@@ -62,7 +63,7 @@ export function startSupabaseAutoRefresh(): () => void {
   try {
     supabase = getSupabase();
   } catch (error) {
-    console.warn('[supabase] Auto-Refresh nicht gestartet:', (error as Error).message);
+    debugWarn('[supabase] Auto-Refresh nicht gestartet:', error);
     return () => {};
   }
 
@@ -76,7 +77,7 @@ export function startSupabaseAutoRefresh(): () => void {
         state === 'active' ? supabase.auth.startAutoRefresh() : supabase.auth.stopAutoRefresh(),
       )
       .catch((error) => {
-        console.warn('[supabase] Auto-Refresh-Zustandswechsel fehlgeschlagen:', error);
+        debugWarn('[supabase] Auto-Refresh-Zustandswechsel fehlgeschlagen:', error);
       });
   };
 

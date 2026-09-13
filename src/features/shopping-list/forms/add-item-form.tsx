@@ -23,7 +23,7 @@ import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-pro
 import type { CatalogProduct } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
-import { debugLog } from '@/lib/debug-log';
+import { debugError, debugLog } from '@/lib/debug-log';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { useFeatureFlag } from '@/lib/posthog';
 import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';
@@ -217,7 +217,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
           setPendingPreferenceResetScope(preferenceScopeForSource(current.source, storeId));
         })
         .catch((error) => {
-          console.error('Einkaufsbereich konnte nicht lokal aufgelöst werden:', error);
+          debugError('Einkaufsbereich konnte nicht lokal aufgelöst werden:', error);
         });
     }
   }
@@ -302,7 +302,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
         }
       })
       .catch((error) => {
-        console.error('Markt des Produkts konnte nicht ermittelt werden:', error);
+        debugError('Markt des Produkts konnte nicht ermittelt werden:', error);
       });
   }
 
@@ -539,7 +539,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
         } catch (err) {
           // Die History ist Zusatzfunktion: Der Einkaufslisten-Save bleibt
           // erfolgreich, falls der lokale History-Write fehlschlaegt.
-          console.error('Fehler beim Protokollieren der Nutzung:', err);
+          debugError('Fehler beim Protokollieren der Nutzung:', err);
         }
       }
 
@@ -549,7 +549,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
         onDismiss();
       }
     } catch (error) {
-      console.error('Fehler beim lokalen Speichern des Einkaufsartikels:', error);
+      debugError('Fehler beim lokalen Speichern des Einkaufsartikels:', error);
       setNameError(t('shoppingList.addItemForm.saveFailed'));
     }
   }

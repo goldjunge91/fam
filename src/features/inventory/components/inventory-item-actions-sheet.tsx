@@ -16,6 +16,7 @@ import { BackButton } from '@/components/ui/buttons';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Card, IconButton, Press, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
+import { debugLog } from '@/lib/debug-log';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
 import {
@@ -63,7 +64,7 @@ export function InventoryItemActionsSheet({
 
   useEffect(() => {
     if (!__DEV__ || !visible) return;
-    console.log('[InventorySheet] inventory.actions-sheet.open', {
+    debugLog('[InventorySheet] inventory.actions-sheet.open', {
       sheetId: 'inventory.actions-sheet',
       itemId,
       hasItem,

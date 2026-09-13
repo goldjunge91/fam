@@ -1,5 +1,6 @@
 import type { QueryClient } from '@tanstack/react-query';
 import { getDatabase } from '@/lib/db/client';
+import { debugWarn } from '@/lib/debug-log';
 import { queryClient as defaultQueryClient } from '@/lib/query-client';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 import type { PaywallTier } from './types';
@@ -51,7 +52,7 @@ export async function pollHouseholdUntilEntitlementActive({
         if (tier === 'ai' && match.ai_active === 1) return true;
       }
     } catch (err) {
-      console.warn(
+      debugWarn(
         '[pollHouseholdUntilEntitlementActive] Fehler beim Prüfen der Haushaltszeile:',
         err,
       );

@@ -31,6 +31,7 @@ import { useChildProfiles } from '@/features/household/api';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
+import { debugError } from '@/lib/debug-log';
 
 const UNIT_LABELS: Record<string, string> = {
   g: 'g',
@@ -213,7 +214,7 @@ export function AddFoodEntryScreen() {
         } catch (err) {
           // Der Tagebucheintrag ist bereits gespeichert; ein History-Fehler
           // darf den Nutzer nicht von der naechsten Ansicht abhalten.
-          console.error('Fehler beim Protokollieren der Nutzung:', err);
+          debugError('Fehler beim Protokollieren der Nutzung:', err);
         }
       }
       // Kommt der Eintrag aus einem vorgelagerten Sheet (z.B. "Rezept fertig

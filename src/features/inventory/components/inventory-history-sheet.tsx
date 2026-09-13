@@ -8,6 +8,7 @@ import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, IconButton, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
+import { debugLog } from '@/lib/debug-log';
 import { formatAmount } from '@/lib/package-size';
 
 import {
@@ -245,7 +246,7 @@ export function InventoryHistorySheet({
 
   useEffect(() => {
     if (!__DEV__ || !visible) return;
-    console.log('[InventorySheet] inventory.history-sheet.open', {
+    debugLog('[InventorySheet] inventory.history-sheet.open', {
       sheetId: 'inventory.history-sheet',
       transactionCount,
       fullScreen,

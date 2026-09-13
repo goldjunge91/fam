@@ -1,4 +1,5 @@
 import type { SqlDatabase } from '@/lib/db/types';
+import { debugWarn } from '@/lib/debug-log';
 
 /** Der Teil des Ports, den ein Treiber direkt erfuellen kann — alles ausser Transaktionen. */
 export type SqlStatementDriver = Omit<SqlDatabase, 'withExclusiveTransactionAsync'>;
@@ -23,16 +24,11 @@ function isSQLiteBusyError(error: unknown): boolean {
 }
 
 function traceSqlFailure(method: string, source: string, error: unknown): void {
-  if (__DEV__) {
-    console.warn(
-      '[DBTRACE:SQL-FAIL]',
-      JSON.stringify({
-        error: error instanceof Error ? error.message : String(error),
-        method,
-        source: source.trim().slice(0, 180),
-      }),
-    );
-  }
+  debugWarn('[DBTRACE:SQL-FAIL]', {
+    error: error instanceof Error ? error.message : String(error),
+    method,
+    source: source.trim().slice(0, 180),
+  });
 }
 
 async function execWithBusyRetry(driver: SqlStatementDriver, source: string): Promise<void> {
@@ -125,7 +121,7 @@ export function serializeDatabase(driver: SqlStatementDriver): SerializedSqlData
             await driver.execAsync('ROLLBACK');
           } catch (rollbackError) {
             // Den ursprünglichen Fehler erhalten; ein Rollback-Fehler wird nur protokolliert.
-            console.warn('[db] ROLLBACK fehlgeschlagen:', rollbackError);
+            debugWarn('[db] ROLLBACK fehlgeschlagen:', rollbackError);
           }
           throw error;
         }

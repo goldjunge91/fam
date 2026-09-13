@@ -14,6 +14,7 @@ import { useSyncStatus } from '@/hooks/use-sync-status';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
 import { deleteOutboxEntries } from '@/lib/db/outbox';
+import { debugError } from '@/lib/debug-log';
 import { fromInventoryQuantityUnits } from '@/lib/inventory-quantity';
 import { sendTestNotification } from '@/lib/notifications';
 import {
@@ -162,7 +163,7 @@ export function SyncDebugScreen() {
         })),
       );
     } catch (err) {
-      console.error('Fehler beim Laden der Debug-Daten:', err);
+      debugError('Fehler beim Laden der Debug-Daten:', err);
     }
   }, []);
 

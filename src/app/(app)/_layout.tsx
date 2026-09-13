@@ -14,6 +14,7 @@ import {
 } from '@/features/onboarding/onboarding-completion';
 import { useProfile } from '@/features/profile/api';
 import { useSignOutOnOrphanedProfile } from '@/features/profile/hooks/use-sign-out-on-orphaned-profile';
+import { debugError } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
 import { useRealtimeSync, useSyncEngine } from '@/lib/sync/sync-runner';
@@ -56,7 +57,7 @@ function AppLayoutContent() {
           await clearPendingInviteToken();
           router.replace('/');
         } catch (err) {
-          console.error('Automatische Einloesung fehlgeschlagen:', err);
+          debugError('Automatische Einloesung fehlgeschlagen:', err);
         }
       }
     });

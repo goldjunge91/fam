@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import * as ImagePicker from 'expo-image-picker';
 
+import { debugError } from '@/lib/debug-log';
 import { getSupabase } from '@/lib/supabase';
 
 /** Cache-Dauer: eine Sitzung, ohne gelöschte Bilder dauerhaft zu behalten. */
@@ -81,7 +82,7 @@ function useSignedImageUrl(
           const {
             data: { session },
           } = await supabase.auth.getSession();
-          console.log(`[${queryKeyPrefix}] signed-url:error`, {
+          debugError(`[${queryKeyPrefix}] signed-url:error`, {
             path,
             authenticated: session !== null,
             message: error.message,

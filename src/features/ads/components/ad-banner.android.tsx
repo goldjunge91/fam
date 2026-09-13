@@ -9,6 +9,7 @@ import {
 } from 'react-native-google-mobile-ads';
 import { AdFormat } from 'react-native-purchases';
 import { usePremium } from '@/features/premium/premium-provider';
+import { debugWarn } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 import { useAdsConsentReady } from '../ads-consent';
 import { useAdsEnabled } from '../ads-override';
@@ -84,7 +85,7 @@ export function AdBanner({
 
   const handleError = (error: Error) => {
     if (__DEV__) {
-      console.warn('[AdBanner] Banner konnte nicht geladen werden:', error);
+      debugWarn('[AdBanner] Banner konnte nicht geladen werden:', error);
     }
     setFailedToLoad(true);
     onAdFailedToLoad?.(error);

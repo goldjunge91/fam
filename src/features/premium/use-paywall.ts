@@ -5,6 +5,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
 import { usePremium } from '@/features/premium/premium-provider';
 import { trackAnalyticsEvent } from '@/lib/analytics';
+import { debugWarn } from '@/lib/debug-log';
 import {
   buyPackage,
   ENTITLEMENT_IDS,
@@ -56,7 +57,7 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
       const pkgs = await packagesForEntitlement(entitlementId);
       setPackages(pkgs);
     } catch (err) {
-      console.warn('[usePaywall] Packages konnten nicht geladen werden:', err);
+      debugWarn('[usePaywall] Packages konnten nicht geladen werden:', err);
     } finally {
       setIsLoadingPackages(false);
     }

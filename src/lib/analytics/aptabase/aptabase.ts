@@ -8,6 +8,7 @@ import Aptabase, {
 } from '@aptabase/react-native';
 import Constants from 'expo-constants';
 
+import { debugError, debugWarn } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 import { isAnalyticsProviderEnabled } from '@/lib/telemetry/policy';
 
@@ -22,7 +23,7 @@ export function initAptabase(customOptions?: Partial<AptabaseOptions>): void {
   const appKey = env.aptabaseAppKey;
   if (!appKey) {
     if (__DEV__) {
-      console.warn(
+      debugWarn(
         '[aptabase] EXPO_PUBLIC_APTABASE_APP_KEY fehlt — Aptabase-Tracking ist deaktiviert. ' +
           'Siehe README "Umgebungsvariablen" fuer die Einrichtung.',
       );
@@ -41,7 +42,7 @@ export function initAptabase(customOptions?: Partial<AptabaseOptions>): void {
     });
   } catch (err) {
     initializationError = err instanceof Error ? err.message : String(err);
-    console.error('[aptabase] Init fehlgeschlagen — Tracking bleibt aus:', err);
+    debugError('[aptabase] Init fehlgeschlagen — Tracking bleibt aus:', err);
   }
 }
 
@@ -64,7 +65,7 @@ export function trackAptabaseEvent(
     aptabaseTrackEvent(eventName, props);
   } catch (err) {
     if (__DEV__) {
-      console.warn('[aptabase] Event konnte nicht gesendet werden:', err);
+      debugWarn('[aptabase] Event konnte nicht gesendet werden:', err);
     }
   }
 }
@@ -78,7 +79,7 @@ export function trackAptabaseError(error: unknown, options?: TrackErrorOptions):
     aptabaseTrackError(error, options);
   } catch (err) {
     if (__DEV__) {
-      console.warn('[aptabase] Fehlerbericht konnte nicht gesendet werden:', err);
+      debugWarn('[aptabase] Fehlerbericht konnte nicht gesendet werden:', err);
     }
   }
 }
@@ -91,7 +92,7 @@ export function disposeAptabase(): void {
     aptabaseDispose();
   } catch (err) {
     if (__DEV__) {
-      console.warn('[aptabase] Dispose fehlgeschlagen:', err);
+      debugWarn('[aptabase] Dispose fehlgeschlagen:', err);
     }
   } finally {
     configured = false;

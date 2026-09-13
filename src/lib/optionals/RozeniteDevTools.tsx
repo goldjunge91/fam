@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { Control, FieldValues, UseFormReset } from 'react-hook-form';
-
 import { getDatabase } from '@/lib/db/client';
 import type { SqlParam } from '@/lib/db/types';
+import { debugWarn } from '@/lib/debug-log';
 import {
   clearPerformanceEntries,
   getPerformanceMeasureDuration,
@@ -90,7 +90,7 @@ function loadRozeniteRuntime(): RozeniteRuntime | null {
       ],
     };
   } catch (error) {
-    console.warn('[rozenite] DevTools konnten nicht geladen werden:', error);
+    debugWarn('[rozenite] DevTools konnten nicht geladen werden:', error);
     runtime = null;
   }
 

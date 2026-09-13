@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-
+import { debugWarn } from '@/lib/debug-log';
 import { getDeviceStorage } from '@/lib/storage/device-storage';
 
 const STORAGE_KEY = 'dev.force_premium_override';
@@ -48,7 +48,7 @@ export const useForcePremiumOverrideStore = create<ForcePremiumOverrideStore>((s
         storage.set(STORAGE_KEY, String(value));
       }
     } catch (err) {
-      console.warn('[Premium] Override konnte nicht gespeichert werden:', err);
+      debugWarn('[Premium] Override konnte nicht gespeichert werden:', err);
     }
     set({ override: value });
   },
@@ -65,7 +65,7 @@ export const useForceAiOverrideStore = create<ForcePremiumOverrideStore>((set) =
         storage.set(STORAGE_KEY_AI, String(value));
       }
     } catch (err) {
-      console.warn('[AI] Override konnte nicht gespeichert werden:', err);
+      debugWarn('[AI] Override konnte nicht gespeichert werden:', err);
     }
     set({ override: value });
   },

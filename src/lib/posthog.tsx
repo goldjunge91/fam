@@ -2,6 +2,7 @@ import PostHog, { PostHogProvider } from 'posthog-react-native';
 import { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
 
 import { useAnalyticsSettingsStore } from '@/constants/analytics';
+import { debugError, debugLogEvent, debugWarn } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 import { isAnalyticsProviderEnabled } from '@/lib/telemetry/policy';
 
@@ -45,7 +46,7 @@ export function initPostHog(): void {
   const apiKey = env.posthogApiKey;
   if (!apiKey) {
     if (__DEV__) {
-      console.warn(
+      debugWarn(
         '[posthog] EXPO_PUBLIC_POSTHOG_API_KEY fehlt — Feature-Flags fallen auf ihren ' +
           'Default-Wert zurueck. Siehe README "Umgebungsvariablen" fuer die Einrichtung.',
       );
@@ -67,9 +68,10 @@ export function initPostHog(): void {
         },
       },
     });
+    debugLogEvent('posthog.initialized', { host: env.posthogHost });
   } catch (err) {
     initializationError = err instanceof Error ? err.message : String(err);
-    console.error('[posthog] Client-Konstruktion fehlgeschlagen — Tracking bleibt aus:', err);
+    debugError('[posthog] Client-Konstruktion fehlgeschlagen — Tracking bleibt aus:', err);
   }
 }
 

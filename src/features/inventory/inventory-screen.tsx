@@ -23,6 +23,7 @@ import { useNavigationChrome } from '@/features/navigation/navigation-chrome-pro
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useSyncStatus } from '@/hooks/use-sync-status';
+import { debugLog } from '@/lib/debug-log';
 import { subtractInventoryQuantities, sumInventoryQuantities } from '@/lib/inventory-quantity';
 import { EditInventoryItemSheet } from './components/edit-inventory-item-sheet';
 import { InventoryHistorySheet } from './components/inventory-history-sheet';
@@ -104,7 +105,7 @@ function InventoryBenchmark({
     listRef as unknown as React.RefObject<FlashListRef<unknown>>,
     (result) => {
       if (!result.interrupted && result.formattedString) {
-        console.log('[FlashList Benchmark]', result.formattedString);
+        debugLog('[FlashList Benchmark]', result.formattedString);
       }
     },
     { startDelayInMs: 5000, repeatCount: 1 },
@@ -238,7 +239,7 @@ export function InventoryScreen() {
 
   function handleEdit(item: LocalInventoryItem) {
     if (__DEV__) {
-      console.log('[InventorySheet] inventory.screen.actions-to-edit.requested', {
+      debugLog('[InventorySheet] inventory.screen.actions-to-edit.requested', {
         itemId: item.id,
         platform: Platform.OS,
       });
@@ -254,7 +255,7 @@ export function InventoryScreen() {
 
   function handleActionSheetDismissed() {
     if (__DEV__) {
-      console.log('[InventorySheet] inventory.actions-sheet.dismissed', {
+      debugLog('[InventorySheet] inventory.actions-sheet.dismissed', {
         pendingEditItemId: pendingEditItemRef.current?.id ?? null,
       });
     }
@@ -266,7 +267,7 @@ export function InventoryScreen() {
 
   function handleGroupSheetDismissed() {
     if (__DEV__) {
-      console.log('[InventorySheet] inventory.group-sheet.dismissed', {
+      debugLog('[InventorySheet] inventory.group-sheet.dismissed', {
         pendingActionItemId: pendingActionItemRef.current?.id ?? null,
       });
     }
@@ -569,7 +570,7 @@ export function InventoryScreen() {
         onSelectLot={(lot) => {
           if (!detailGroup) return;
           if (__DEV__) {
-            console.log('[InventorySheet] inventory.screen.group-to-actions.requested', {
+            debugLog('[InventorySheet] inventory.screen.group-to-actions.requested', {
               groupId: detailGroup.id,
               lotId: lot.id,
               platform: Platform.OS,

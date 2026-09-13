@@ -6,6 +6,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { rs } from '@/components/theme/index';
 import { Press, Txt } from '@/constants/ui';
+import { debugError, debugLog } from '@/lib/debug-log';
 import { useCatalogImageUrl } from '../catalog/use-recipe-catalog';
 import { useRecipeCoverUrl } from '../data/household-recipe-images';
 
@@ -108,7 +109,7 @@ function flushRecipeImageLoadLog() {
     cacheTypes.set(cacheType, (cacheTypes.get(cacheType) ?? 0) + 1);
   }
 
-  console.log('[RecipeCover] images:loaded', {
+  debugLog('[RecipeCover] images:loaded', {
     count: loads.length,
     uniqueTitles: titles.size,
     titles: Object.fromEntries(titles),
@@ -155,7 +156,7 @@ export function RecipeArtwork({
         }}
         onError={({ error }) => {
           if (__DEV__) {
-            console.log('[RecipeCover] image:error', {
+            debugError('[RecipeCover] image:error', {
               title,
               path: coverPath ?? null,
               message: error,

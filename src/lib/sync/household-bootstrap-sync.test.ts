@@ -105,8 +105,7 @@ describe('triggerHouseholdsPull', () => {
 
     await expect(triggerHouseholdsPull('user-1')).resolves.toBeNull();
     expect(consoleWarn).toHaveBeenCalledWith(
-      '[HouseholdBootstrapSync] Pull fehlgeschlagen:',
-      expect.objectContaining({ message: 'offline' }),
+      '[HouseholdBootstrapSync] Pull fehlgeschlagen: {"name":"Error","message":"offline"}',
     );
   });
 });

@@ -14,6 +14,7 @@ import {
   useRevokeInviteMutation,
 } from '@/features/household/api';
 import { formatInviteUrl } from '@/features/household/household-helpers';
+import { debugError } from '@/lib/debug-log';
 
 const styles = StyleSheet.create((theme) => ({
   backdrop: {
@@ -134,7 +135,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
       setCopyFeedback('code');
       setTimeout(() => setCopyFeedback(null), 2000);
     } catch (err) {
-      console.error('Fehler beim Kopieren des Codes:', err);
+      debugError('Fehler beim Kopieren des Codes:', err);
     }
   }
 
@@ -145,7 +146,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
       setCopyFeedback('link');
       setTimeout(() => setCopyFeedback(null), 2000);
     } catch (err) {
-      console.error('Fehler beim Kopieren des Links:', err);
+      debugError('Fehler beim Kopieren des Links:', err);
     }
   }
 
@@ -156,7 +157,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
         message: `Tritt unserem Haushalt "${householdName}" in Fam bei!\n\nEinladungs-Code: ${token}\nLink: ${inviteUrl}`,
       });
     } catch (err) {
-      console.error(err);
+      debugError(err);
     }
   }
 

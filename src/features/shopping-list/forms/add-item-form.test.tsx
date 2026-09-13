@@ -420,8 +420,7 @@ describe('AddItemForm', () => {
       ).toBeOnTheScreen();
       expect(onDismiss).not.toHaveBeenCalled();
       expect(consoleErrorSpy).toHaveBeenCalledWith(
-        'Fehler beim lokalen Speichern des Einkaufsartikels:',
-        saveError,
+        'Fehler beim lokalen Speichern des Einkaufsartikels: {"name":"Error","message":"SQLite write failed"}',
       );
     } finally {
       consoleErrorSpy.mockRestore();

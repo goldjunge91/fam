@@ -1,5 +1,6 @@
 import * as Sentry from '@sentry/react-native';
 
+import { debugError, debugWarn } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 
 let configured = false;
@@ -24,7 +25,7 @@ export function initSentry(): void {
   const dsn = env.sentryDsn;
   if (!dsn) {
     if (__DEV__) {
-      console.warn(
+      debugWarn(
         '[sentry] EXPO_PUBLIC_SENTRY_DSN fehlt — Fehler-Tracking ist deaktiviert. ' +
           'Siehe README "Umgebungsvariablen" fuer die Einrichtung.',
       );
@@ -51,7 +52,7 @@ export function initSentry(): void {
     });
   } catch (err) {
     // Initialisierungsfehler dürfen den App-Start nicht abbrechen.
-    console.error('[sentry] Init fehlgeschlagen — Fehler-Tracking bleibt aus:', err);
+    debugError('[sentry] Init fehlgeschlagen — Fehler-Tracking bleibt aus:', err);
   }
 }
 

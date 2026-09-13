@@ -10,6 +10,7 @@ import {
 } from 'react-native-google-mobile-ads';
 import { create } from 'zustand';
 
+import { debugWarn } from '@/lib/debug-log';
 import { getAdsEnabled } from './ads-override';
 
 type AdsConsentState = {
@@ -81,7 +82,7 @@ export async function gatherAdsConsent(): Promise<boolean> {
     } catch {
       useAdsConsentStore.getState().setReady(false);
       if (__DEV__) {
-        console.warn('[AdMob] Consent konnte nicht geprüft werden:', error);
+        debugWarn('[AdMob] Consent konnte nicht geprüft werden:', error);
       }
       return false;
     }

@@ -6,6 +6,7 @@ import { persistOnboardingCompleted } from '@/features/onboarding/onboarding-com
 import { updateProfile } from '@/features/profile/api';
 import { saveModulePreferences } from '@/features/settings/module-preferences';
 import { trackAnalyticsEvent } from '@/lib/analytics';
+import { debugWarn } from '@/lib/debug-log';
 import { getSupabase } from '@/lib/supabase';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 import type {
@@ -83,8 +84,7 @@ export function useOnboarding() {
         .from('households')
         .select('id')
         .limit(1);
-      if (householdError)
-        console.warn('Hinweis beim Prüfen bestehender Haushalte:', householdError.message);
+      if (householdError) debugWarn('Hinweis beim Prüfen bestehender Haushalte:', householdError);
       if (!households?.length) {
         const request =
           state.household.choice === 'join' && state.household.inviteCode

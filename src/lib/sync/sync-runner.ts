@@ -11,6 +11,7 @@ import { getDatabase } from '@/lib/db/client';
 import { onOutboxChanged } from '@/lib/db/outbox';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { Entity } from '@/lib/db/types';
+import { debugWarn } from '@/lib/debug-log';
 import { startPerformanceSpan } from '@/lib/performance';
 import { getSupabase, serverClock } from '@/lib/supabase';
 import { beginAccountSyncRun, registerAccountSyncStopper } from '@/lib/sync/account-sync-gate';
@@ -208,7 +209,7 @@ export async function triggerHouseholdSync(
   } catch (err) {
     finishPerformance('failed');
     reportError(err, { operation: 'sync.run', error_code: 'sync_run_failed' });
-    console.warn('[SyncRunner] Sync fehlgeschlagen:', err);
+    debugWarn('[SyncRunner] Sync fehlgeschlagen:', err);
     return null;
   } finally {
     isSyncing = false;

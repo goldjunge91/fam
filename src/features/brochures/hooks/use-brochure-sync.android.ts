@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { getDatabase } from '@/lib/db/client';
-import { debugLog } from '@/lib/debug-log';
+import { debugError, debugLog } from '@/lib/debug-log';
 import { getSupabase } from '@/lib/supabase';
 import { reportError } from '@/lib/telemetry';
 import { type BrochureDump, writeBrochureDump } from '../brochure-sync';
@@ -95,7 +95,7 @@ export function useBrochureSync(zipCode: string | null) {
       } catch (e) {
         debugLog('[brochures] sync failed', e);
         reportError(e, { operation: 'brochure.sync', error_code: 'brochure_sync_failed' });
-        console.error('Brochure sync failed', e);
+        debugError('Brochure sync failed', e);
       } finally {
         if (isMounted) {
           setIsSyncing(false);

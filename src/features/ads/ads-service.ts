@@ -1,6 +1,7 @@
 import mobileAds, { type PaidEvent, RevenuePrecisions } from 'react-native-google-mobile-ads';
 import Purchases, { AdFormat, AdMediatorName, AdRevenuePrecision } from 'react-native-purchases';
 
+import { debugInfo, debugWarn } from '@/lib/debug-log';
 import { isPurchasesConfigured } from '@/lib/purchases';
 import { gatherAdsConsent } from './ads-consent';
 import { getAdsEnabled } from './ads-override';
@@ -24,10 +25,10 @@ export async function initMobileAds(): Promise<void> {
       const status = await mobileAds().initialize();
       initialized = true;
       if (__DEV__) {
-        console.log('[AdMob] SDK erfolgreich initialisiert:', status);
+        debugInfo('[AdMob] SDK erfolgreich initialisiert:', status);
       }
     } catch (error) {
-      console.warn('[AdMob] Initialisierung fehlgeschlagen:', error);
+      debugWarn('[AdMob] Initialisierung fehlgeschlagen:', error);
     }
   })();
 
@@ -81,7 +82,7 @@ export async function trackAdRevenueToRevenueCat(params: {
     });
   } catch (error) {
     if (__DEV__) {
-      console.warn('[AdMob] Fehler beim Weiterleiten des Ad-Revenue an RevenueCat:', error);
+      debugWarn('[AdMob] Fehler beim Weiterleiten des Ad-Revenue an RevenueCat:', error);
     }
   }
 }

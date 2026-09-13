@@ -21,6 +21,7 @@ import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
+import { debugLog } from '@/lib/debug-log';
 import { ShoppingItemRow } from '../components/ui/shopping-item-row';
 import { makeShoppingListStyles } from '../components/ui/shopping-list-styles';
 import { ALL_FILTER, StorePickerMenu, UNASSIGNED_FILTER } from '../components/ui/store-picker-menu';
@@ -386,7 +387,7 @@ export function ShoppingListScreen() {
               : t('shoppingList.screen.testAdLoading'),
           })}
           onPress={() => {
-            console.log('[TestAd] Button gedrückt, isLoaded:', interstitialAd.isLoaded);
+            debugLog('[TestAd] Button gedrückt, isLoaded:', interstitialAd.isLoaded);
             interstitialAd.show();
           }}
         />

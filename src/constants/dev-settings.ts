@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 
 import type { TrackingMethod } from '@/features/calorie-tracking/api';
+import { debugWarn } from '@/lib/debug-log';
 import { getDeviceStorage } from '@/lib/storage/device-storage';
 
 export type TrackingMethodOverrides = Partial<Record<TrackingMethod, boolean>>;
@@ -50,7 +51,7 @@ function persistTrackingMethodOverrides(overrides: TrackingMethodOverrides): voi
     }
     storage.set(TRACKING_METHOD_OVERRIDES_STORAGE_KEY, JSON.stringify(overrides));
   } catch (error) {
-    if (__DEV__) console.warn('[DevSettings] Overrides konnten nicht gespeichert werden:', error);
+    debugWarn('[DevSettings] Overrides konnten nicht gespeichert werden:', error);
   }
 }
 

@@ -7,7 +7,7 @@ import { useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProduct } from '@/features/inventory/use-product';
-import { debugLog } from '@/lib/debug-log';
+import { debugError, debugLog } from '@/lib/debug-log';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { useFeatureFlag } from '@/lib/posthog';
 import { UNIT_OPTIONS } from '@/lib/units';
@@ -191,7 +191,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
           setPendingPreferenceResetScope(preferenceScopeForSource(current.source, storeId));
         })
         .catch((error) => {
-          console.error(
+          debugError(
             '[shopping-list] Automatischer Einkaufsbereich konnte nicht aufgelöst werden',
             error,
           );
@@ -377,7 +377,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
 
       onDismiss();
     } catch (error) {
-      console.error('[shopping-list] Artikel konnte nicht gespeichert werden', error);
+      debugError('[shopping-list] Artikel konnte nicht gespeichert werden', error);
       setNameError(t('shoppingList.editItemForm.saveFailed'));
     }
   }

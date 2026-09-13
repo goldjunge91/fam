@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 
+import { debugWarn } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 import { getDeviceStorage } from '@/lib/storage/device-storage';
 
@@ -33,7 +34,7 @@ export const useAdsOverrideStore = create<AdsOverrideStore>((set) => ({
         storage.set(STORAGE_KEY, String(value));
       }
     } catch (err) {
-      console.warn('[Ads] Override konnte nicht gespeichert werden:', err);
+      debugWarn('[Ads] Override konnte nicht gespeichert werden:', err);
     }
     set({ override: value });
   },

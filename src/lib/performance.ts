@@ -1,6 +1,8 @@
 type PerformanceDetail = Readonly<Record<string, string | number | boolean | null>>;
 type PerformanceApi = typeof import('react-native-performance').default;
 
+import { debugWarn } from '@/lib/debug-log';
+
 export type PerformanceMonitorSnapshot = {
   available: boolean;
   enabled: boolean;
@@ -27,7 +29,7 @@ function getPerformanceApi(): PerformanceApi | null {
       require('react-native-performance') as typeof import('react-native-performance')
     ).default;
   } catch (error) {
-    console.warn('[performance] react-native-performance ist nicht verfügbar:', error);
+    debugWarn('[performance] react-native-performance ist nicht verfügbar:', error);
     performanceApi = null;
   }
 
@@ -49,7 +51,7 @@ export function markPerformance(name: string, detail?: PerformanceDetail): void 
   try {
     getPerformanceApi()?.mark(name, detail ? { detail } : undefined);
   } catch (error) {
-    if (__DEV__) console.warn(`[performance] Mark "${name}" fehlgeschlagen:`, error);
+    debugWarn(`[performance] Mark "${name}" fehlgeschlagen:`, error);
   }
 }
 
@@ -66,7 +68,7 @@ export function measurePerformance(
       detail ? { start: startMark, end: endMark, detail } : { start: startMark, end: endMark },
     );
   } catch (error) {
-    if (__DEV__) console.warn(`[performance] Measure "${name}" fehlgeschlagen:`, error);
+    debugWarn(`[performance] Measure "${name}" fehlgeschlagen:`, error);
   }
 }
 
@@ -85,7 +87,7 @@ export function metricPerformance(
       api.metric(name, value);
     }
   } catch (error) {
-    if (__DEV__) console.warn(`[performance] Metric "${name}" fehlgeschlagen:`, error);
+    debugWarn(`[performance] Metric "${name}" fehlgeschlagen:`, error);
   }
 }
 

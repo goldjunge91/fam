@@ -12,6 +12,7 @@ import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Button, IconButton, TextField, Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
+import { debugLog } from '@/lib/debug-log';
 import { UNIT_OPTIONS } from '@/lib/units';
 
 import type { LocalInventoryItem } from '../use-inventory-items';
@@ -159,7 +160,7 @@ export function EditInventoryItemSheet({
 
   useEffect(() => {
     if (!__DEV__ || !visible) return;
-    console.log('[InventorySheet] inventory.edit-sheet.open', {
+    debugLog('[InventorySheet] inventory.edit-sheet.open', {
       sheetId: 'inventory.edit-sheet',
       itemId,
       hasItem,

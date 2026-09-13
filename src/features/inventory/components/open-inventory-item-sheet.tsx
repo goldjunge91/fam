@@ -6,6 +6,7 @@ import { withAlpha } from '@/components/theme/index';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Button, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
+import { debugLog } from '@/lib/debug-log';
 import { subtractInventoryQuantities } from '@/lib/inventory-quantity';
 import { formatAmount } from '@/lib/package-size';
 
@@ -98,7 +99,7 @@ export function OpenInventoryItemSheet({
 
   useEffect(() => {
     if (__DEV__ && visible) {
-      console.log('[InventorySheet] inventory.open-sheet.open', {
+      debugLog('[InventorySheet] inventory.open-sheet.open', {
         sheetId: 'inventory.open-sheet',
         itemId,
         hasItem,

@@ -141,8 +141,7 @@ describe('Aptabase Analytics', () => {
 
       expect(() => trackAptabaseEvent('test_event')).not.toThrow();
       expect(consoleWarn).toHaveBeenCalledWith(
-        expect.stringContaining('[aptabase] Event konnte nicht gesendet werden:'),
-        expect.any(Error),
+        '[aptabase] Event konnte nicht gesendet werden: {"name":"Error","message":"Track failed"}',
       );
     });
   });

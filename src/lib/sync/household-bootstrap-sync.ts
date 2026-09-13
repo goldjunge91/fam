@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import { AppState } from 'react-native';
 import { householdsQueryKey } from '@/features/household/query-keys';
 import { getDatabase } from '@/lib/db/client';
+import { debugLog, debugWarn } from '@/lib/debug-log';
 import { getSupabase, serverClock } from '@/lib/supabase';
 import { beginAccountSyncRun, registerAccountSyncStopper } from '@/lib/sync/account-sync-gate';
 import { startNetworkReconnectTrigger } from '@/lib/sync/network-trigger';
@@ -11,20 +12,6 @@ import { clockCeiling } from '@/lib/sync/server-clock';
 import { reportError } from '@/lib/telemetry';
 
 let isSyncingHouseholds = false;
-let bootstrapSequence = 0;
-
-type BootstrapTraceDetails = Record<string, boolean | number | string | undefined>;
-
-function bootstrapTrace(code: string, details: BootstrapTraceDetails = {}): void {
-  if (__DEV__) {
-    console.log(`[SYNC-HH:${code}]`, JSON.stringify(details));
-  }
-}
-
-function errorMessage(error: unknown): string {
-  return error instanceof Error ? error.message : String(error);
-}
-
 function invalidateHouseholdsQuery(queryClient: QueryClient, userId: string) {
   queryClient.invalidateQueries({ queryKey: householdsQueryKey(userId) });
 }
@@ -33,25 +20,13 @@ export async function triggerHouseholdsPull(
   userId: string,
   queryClient?: QueryClient,
 ): Promise<PullOutcome[] | null> {
-  if (isSyncingHouseholds) {
-    bootstrapTrace('SKIP-BUSY');
-    return null;
-  }
+  if (isSyncingHouseholds) return null;
   const finishAccountSyncRun = beginAccountSyncRun();
-  if (!finishAccountSyncRun) {
-    bootstrapTrace('SKIP-GATE');
-    return null;
-  }
-  bootstrapSequence += 1;
-  const runId = bootstrapSequence;
-  bootstrapTrace('START', { hasQueryClient: Boolean(queryClient), runId });
+  if (!finishAccountSyncRun) return null;
   isSyncingHouseholds = true;
   try {
-    bootstrapTrace('DB-REQUEST', { runId });
     const db = await getDatabase();
-    bootstrapTrace('DB-READY', { runId });
     const supabase = getSupabase();
-    bootstrapTrace('PULL-START', { runId });
     const outcomes = await pullHousehold({
       db,
       supabase,
@@ -65,21 +40,27 @@ export async function triggerHouseholdsPull(
       invalidateHouseholdsQuery(queryClient, userId);
     }
 
-    bootstrapTrace('PULL-OK', { outcomeCount: outcomes.length, runId });
+    debugLog('[HouseholdSync] pull completed', {
+      entityCount: outcomes.length,
+      failedEntities: outcomes.filter((outcome) => outcome.error).map((outcome) => outcome.entity),
+      rowsSkippedAsLocalWins: outcomes.reduce(
+        (total, outcome) => total + outcome.rowsSkippedAsLocalWins,
+        0,
+      ),
+      rowsWritten: outcomes.reduce((total, outcome) => total + outcome.rowsWritten, 0),
+    });
     return outcomes;
   } catch (err) {
-    bootstrapTrace('FAIL', { error: errorMessage(err), runId });
     reportError(err, {
       operation: 'sync.bootstrap',
       entity: 'households',
       error_code: 'household_bootstrap_sync_failed',
     });
-    console.warn('[HouseholdBootstrapSync] Pull fehlgeschlagen:', err);
+    debugWarn('[HouseholdBootstrapSync] Pull fehlgeschlagen:', err);
     return null;
   } finally {
     isSyncingHouseholds = false;
     finishAccountSyncRun();
-    bootstrapTrace('FINISH', { runId });
   }
 }
 

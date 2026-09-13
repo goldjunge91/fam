@@ -3,6 +3,7 @@ import { Platform } from 'react-native';
 
 import { trackAptabaseError, trackAptabaseEvent } from '@/lib/analytics/aptabase';
 import { bugBubbleAnalytics, bugBubbleConsole } from '@/lib/analytics/bug-bubble';
+import { debugLogEvent, debugWarn } from '@/lib/debug-log';
 import { markPerformance, measurePerformance, metricPerformance } from '@/lib/performance';
 import { getPostHogClient, isPostHogConfigured } from '@/lib/posthog';
 import { Sentry } from '@/lib/sentry';
@@ -100,15 +101,19 @@ function captureEvent(
   try {
     if (isAnalyticsProviderEnabled('aptabase')) trackAptabaseEvent(name, properties);
   } catch (error) {
-    if (__DEV__) console.warn(`[telemetry] Aptabase-Event "${name}" fehlgeschlagen:`, error);
+    debugWarn(`[telemetry] Aptabase-Event "${name}" fehlgeschlagen`, error);
   }
 
   try {
     if (isAnalyticsProviderEnabled('posthog') && isPostHogConfigured()) {
-      getPostHogClient()?.capture(name, properties);
+      const postHogClient = getPostHogClient();
+      if (postHogClient) {
+        postHogClient.capture(name, properties);
+        debugLogEvent('posthog.capture', { event: name, properties });
+      }
     }
   } catch (error) {
-    if (__DEV__) console.warn(`[telemetry] PostHog-Event "${name}" fehlgeschlagen:`, error);
+    debugWarn(`[telemetry] PostHog-Event "${name}" fehlgeschlagen`, error);
   }
 }
 
@@ -163,16 +168,23 @@ function sendError(error: unknown, context: TelemetryProperties, captureInSentry
         extra: properties,
       });
     } catch (reportingError) {
-      if (__DEV__) console.warn('[telemetry] Sentry-Fehlerbericht fehlgeschlagen:', reportingError);
+      debugWarn('[telemetry] Sentry-Fehlerbericht fehlgeschlagen', reportingError);
     }
   }
 
   try {
     if (isAnalyticsProviderEnabled('posthog') && shouldCaptureTelemetry('errorReports')) {
-      if (isPostHogConfigured()) getPostHogClient()?.captureException(error, properties);
+      const postHogClient = isPostHogConfigured() ? getPostHogClient() : undefined;
+      if (postHogClient) {
+        postHogClient.captureException(error, properties);
+        debugLogEvent('posthog.capture-exception', {
+          event: TELEMETRY_EVENTS.errorOccurred,
+          properties,
+        });
+      }
     }
   } catch (reportingError) {
-    if (__DEV__) console.warn('[telemetry] PostHog-Fehlerbericht fehlgeschlagen:', reportingError);
+    debugWarn('[telemetry] PostHog-Fehlerbericht fehlgeschlagen', reportingError);
   }
 
   try {
@@ -180,7 +192,7 @@ function sendError(error: unknown, context: TelemetryProperties, captureInSentry
       trackAptabaseError(error);
     }
   } catch (reportingError) {
-    if (__DEV__) console.warn('[telemetry] Aptabase-Fehlerbericht fehlgeschlagen:', reportingError);
+    debugWarn('[telemetry] Aptabase-Fehlerbericht fehlgeschlagen', reportingError);
   }
 
   captureEvent(TELEMETRY_EVENTS.errorOccurred, properties, 'errorReports');
@@ -213,7 +225,7 @@ export function reportWarning(message: string, context: TelemetryProperties = {}
       extra: properties,
     });
   } catch (reportingError) {
-    if (__DEV__) console.warn('[telemetry] Sentry-Warnung fehlgeschlagen:', reportingError);
+    debugWarn('[telemetry] Sentry-Warnung fehlgeschlagen', reportingError);
   }
 
   captureEvent(TELEMETRY_EVENTS.warningOccurred, properties, 'errorReports');
@@ -233,16 +245,19 @@ export function addDiagnosticStep(
       data: properties,
     });
   } catch (reportingError) {
-    if (__DEV__) console.warn('[telemetry] Sentry-Breadcrumb fehlgeschlagen:', reportingError);
+    debugWarn('[telemetry] Sentry-Breadcrumb fehlgeschlagen', reportingError);
   }
 
   try {
     if (isAnalyticsProviderEnabled('posthog') && shouldCaptureTelemetry('diagnostics')) {
-      if (isPostHogConfigured()) getPostHogClient()?.addExceptionStep(name, properties);
+      const postHogClient = isPostHogConfigured() ? getPostHogClient() : undefined;
+      if (postHogClient) {
+        postHogClient.addExceptionStep(name, properties);
+        debugLogEvent('posthog.add-exception-step', { step: name, properties });
+      }
     }
   } catch (reportingError) {
-    if (__DEV__)
-      console.warn('[telemetry] PostHog-Diagnoseschritt fehlgeschlagen:', reportingError);
+    debugWarn('[telemetry] PostHog-Diagnoseschritt fehlgeschlagen', reportingError);
   }
 
   captureEvent(name, properties, 'diagnostics');

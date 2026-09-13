@@ -29,12 +29,19 @@ jest.mock('@/lib/sentry', () => ({
   },
 }));
 
+function hasPostHogOperation(value: string, operation: string): boolean {
+  return value.includes('[PostHog]') && value.includes(` ${operation} `);
+}
+
 describe('telemetry fan-out', () => {
   const capture = jest.fn();
   const captureException = jest.fn();
   const addExceptionStep = jest.fn();
+  let originalDebugLogs: string | undefined;
 
   beforeEach(() => {
+    originalDebugLogs = process.env.EXPO_PUBLIC_DEBUG_LOGS;
+    process.env.EXPO_PUBLIC_DEBUG_LOGS = 'false';
     jest.clearAllMocks();
     useAnalyticsSettingsStore.getState().resetOverrides();
     useAnalyticsSettingsStore.getState().setOverride('providers.aptabase', true);
@@ -48,6 +55,8 @@ describe('telemetry fan-out', () => {
   });
 
   afterEach(() => {
+    if (originalDebugLogs === undefined) delete process.env.EXPO_PUBLIC_DEBUG_LOGS;
+    else process.env.EXPO_PUBLIC_DEBUG_LOGS = originalDebugLogs;
     jest.useRealTimers();
   });
 
@@ -71,6 +80,80 @@ describe('telemetry fan-out', () => {
         user_id: 'user-123',
       }),
     );
+  });
+
+  it('spiegelt die gesendete PostHog-Event-Payload sicher ins Dev-Terminal', () => {
+    const consoleLog = jest.spyOn(console, 'log').mockImplementation(() => undefined);
+    process.env.EXPO_PUBLIC_DEBUG_LOGS = 'true';
+
+    try {
+      setTelemetryUserId('user-123');
+      trackEvent('sync.pull.completed', { entity: 'households', duration_ms: 42 });
+
+      const postHogLine = consoleLog.mock.calls
+        .map(([value]) => value)
+        .find((value): value is string => hasPostHogOperation(value, 'capture'));
+      const terminalPayload = JSON.parse(postHogLine?.slice(postHogLine.indexOf('{')) ?? '{}');
+
+      expect(terminalPayload).toEqual(
+        expect.objectContaining({
+          event: 'sync.pull.completed',
+          properties: expect.objectContaining({
+            entity: 'households',
+            duration_ms: 42,
+            user_id: '[redacted]',
+          }),
+        }),
+      );
+      expect(capture.mock.calls[0][1]).toEqual(
+        expect.objectContaining({ user_id: 'user-123', entity: 'households' }),
+      );
+      expect(postHogLine).not.toContain('user-123');
+    } finally {
+      consoleLog.mockRestore();
+    }
+  });
+
+  it('spiegelt PostHog-Fehlerberichte und Diagnoseschritte ins Dev-Terminal', () => {
+    const consoleLog = jest.spyOn(console, 'log').mockImplementation(() => undefined);
+    process.env.EXPO_PUBLIC_DEBUG_LOGS = 'true';
+
+    try {
+      reportError(new Error('Fehler für marco@example.com'), {
+        operation: 'sync.pull',
+        user_id: 'user-123',
+      });
+      addDiagnosticStep('route.changed', { route: '/settings', user_id: 'user-123' });
+
+      const captureExceptionLine = consoleLog.mock.calls
+        .map(([value]) => value)
+        .find((value): value is string => hasPostHogOperation(value, 'capture-exception'));
+      const captureExceptionPayload = JSON.parse(
+        captureExceptionLine?.slice(captureExceptionLine.indexOf('{')) ?? '{}',
+      );
+      const addExceptionStepLine = consoleLog.mock.calls
+        .map(([value]) => value)
+        .find((value): value is string => hasPostHogOperation(value, 'add-exception-step'));
+      const addExceptionStepPayload = JSON.parse(
+        addExceptionStepLine?.slice(addExceptionStepLine.indexOf('{')) ?? '{}',
+      );
+
+      expect(captureExceptionPayload).toEqual(
+        expect.objectContaining({
+          event: 'error.occurred',
+          properties: expect.objectContaining({ user_id: '[redacted]' }),
+        }),
+      );
+      expect(addExceptionStepPayload).toEqual(
+        expect.objectContaining({
+          step: 'route.changed',
+          properties: expect.objectContaining({ user_id: '[redacted]' }),
+        }),
+      );
+      expect(consoleLog.mock.calls.flat().join(' ')).not.toContain('marco@example.com');
+    } finally {
+      consoleLog.mockRestore();
+    }
   });
 
   it('spiegelt behandelte Fehler zu Sentry, PostHog und Aptabase', () => {

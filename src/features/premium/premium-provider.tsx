@@ -17,6 +17,7 @@ import {
   useForceAiOverrideStore,
   useForcePremiumOverrideStore,
 } from '@/features/premium/force-premium-override';
+import { debugWarn } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 import {
   initPurchases,
@@ -123,7 +124,7 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
           await triggerHouseholdsPull(expectedUserId, defaultQueryClient);
         }
       } catch (err) {
-        console.warn('[Premium] CustomerInfo konnte nicht geladen werden:', err);
+        debugWarn('[Premium] CustomerInfo konnte nicht geladen werden:', err);
       } finally {
         if (isCurrent()) setLoading(false);
       }
@@ -202,7 +203,7 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
           setOwnedCustomerInfo(null);
         }
       } catch (err) {
-        console.warn('[Premium] RevenueCat-Identitaet konnte nicht synchronisiert werden:', err);
+        debugWarn('[Premium] RevenueCat-Identitaet konnte nicht synchronisiert werden:', err);
       } finally {
         if (isCurrent()) setLoading(false);
       }
@@ -229,7 +230,7 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
           $posthogUserId: userId,
         });
       } catch (err) {
-        console.warn('[Premium] RevenueCat-Attribute konnten nicht gesetzt werden:', err);
+        debugWarn('[Premium] RevenueCat-Attribute konnten nicht gesetzt werden:', err);
       }
     });
   }, [activeHouseholdId, userId, enqueuePurchasesOperation]);

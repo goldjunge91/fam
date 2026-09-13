@@ -27,14 +27,8 @@ describe('RecipeCover image logging', () => {
     jest.advanceTimersByTime(250);
 
     expect(consoleLog).toHaveBeenCalledTimes(1);
-    expect(consoleLog).toHaveBeenCalledWith('[RecipeCover] images:loaded', {
-      count: 3,
-      uniqueTitles: 2,
-      titles: {
-        'Overnight Oats': 1,
-        'Rührei mit Gouda': 2,
-      },
-      cacheTypes: { none: 3 },
-    });
+    expect(consoleLog).toHaveBeenCalledWith(
+      '[RecipeCover] images:loaded {"count":3,"uniqueTitles":2,"titles":{"Overnight Oats":1,"Rührei mit Gouda":2},"cacheTypes":{"none":3}}',
+    );
   });
 });

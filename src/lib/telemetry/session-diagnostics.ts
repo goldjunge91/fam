@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppState, type AppStateStatus } from 'react-native';
 
+import { debugWarn } from '@/lib/debug-log';
 import type { TelemetryProperties } from './schema';
 
 const SESSION_MARKER_KEY = '@fam/telemetry-session.v1';
@@ -51,7 +52,7 @@ async function persistMarker(): Promise<void> {
   try {
     await AsyncStorage.setItem(SESSION_MARKER_KEY, JSON.stringify(currentMarker));
   } catch (error) {
-    if (__DEV__) console.warn('[telemetry] Session-Marker konnte nicht gespeichert werden:', error);
+    debugWarn('[telemetry] Session-Marker konnte nicht gespeichert werden:', error);
   }
 }
 
@@ -87,7 +88,7 @@ export async function startSessionDiagnostics(callbacks: {
   try {
     previous = parseMarker(await AsyncStorage.getItem(SESSION_MARKER_KEY));
   } catch (error) {
-    if (__DEV__) console.warn('[telemetry] Session-Marker konnte nicht gelesen werden:', error);
+    debugWarn('[telemetry] Session-Marker konnte nicht gelesen werden:', error);
   }
 
   currentMarker = {

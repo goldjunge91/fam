@@ -45,6 +45,7 @@ jest.mock('react-native-purchases', () => ({
 
 jest.mock('@/lib/env', () => ({
   env: {
+    debugLogsEnabled: true,
     revenueCatTestStoreApiKey: 'test_12345',
     revenueCatApiKeyIos: 'appl_12345',
     revenueCatApiKeyAndroid: 'goog_12345',

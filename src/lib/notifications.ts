@@ -1,4 +1,5 @@
 import { Platform } from 'react-native';
+import { debugError } from '@/lib/debug-log';
 
 const NOTIF_SETTINGS_KEY = 'fam_notification_settings_v1';
 export const EXPIRY_NOTIFICATION_IDENTIFIER = 'fam.inventory.expiry.v1';
@@ -92,7 +93,7 @@ export async function saveNotificationSettings(settings: NotificationSettings): 
   try {
     await storageSetItem(NOTIF_SETTINGS_KEY, JSON.stringify(settings));
   } catch (err) {
-    console.error('Fehler beim Speichern der Benachrichtigungs-Einstellungen:', err);
+    debugError('Fehler beim Speichern der Benachrichtigungs-Einstellungen:', err);
   }
 }
 
@@ -142,7 +143,7 @@ export async function getNotificationPermissionStatus(): Promise<NotificationPer
       canAskAgain: permission.canAskAgain ?? true,
     };
   } catch (err) {
-    console.error('Fehler bei getNotificationPermissionStatus:', err);
+    debugError('Fehler bei getNotificationPermissionStatus:', err);
     return { granted: false, canAskAgain: true };
   }
 }
@@ -173,7 +174,7 @@ export async function requestNotificationPermissions(): Promise<boolean> {
 
     return hasNotificationPermission(requested);
   } catch (err) {
-    console.error('Fehler bei requestNotificationPermissions:', err);
+    debugError('Fehler bei requestNotificationPermissions:', err);
     return false;
   }
 }

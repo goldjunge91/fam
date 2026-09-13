@@ -399,8 +399,7 @@ describe('EditItemForm', () => {
       ).toBeOnTheScreen();
       expect(onDismiss).not.toHaveBeenCalled();
       expect(consoleErrorSpy).toHaveBeenCalledWith(
-        '[shopping-list] Artikel konnte nicht gespeichert werden',
-        saveError,
+        '[shopping-list] Artikel konnte nicht gespeichert werden {"name":"Error","message":"SQLite write failed"}',
       );
     } finally {
       consoleErrorSpy.mockRestore();

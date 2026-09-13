@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 
 import { useSession } from '@/features/auth/session-provider';
 import { getDatabase } from '@/lib/db/client';
+import { debugLog, debugWarn } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 import { initOffDump } from '@/lib/off-dump/off-dump';
 
@@ -20,23 +21,20 @@ export function RootNavigator() {
 
   useEffect(() => {
     if (!session?.user.id) return;
-    if (__DEV__) console.log('[OFFTRACE:ROOT-START]', JSON.stringify({ hasSession: true }));
+    if (__DEV__) debugLog('[OFFTRACE:ROOT-START]', { hasSession: true });
     getDatabase()
       .then((database) => {
-        if (__DEV__) console.log('[OFFTRACE:ROOT-DB-READY]');
+        if (__DEV__) debugLog('[OFFTRACE:ROOT-DB-READY]');
         return initOffDump(database);
       })
       .then(() => {
-        if (__DEV__) console.log('[OFFTRACE:ROOT-OK]');
+        if (__DEV__) debugLog('[OFFTRACE:ROOT-OK]');
       })
       .catch((error) => {
         if (__DEV__) {
-          console.warn(
-            '[OFFTRACE:ROOT-FAIL]',
-            JSON.stringify({ error: error instanceof Error ? error.message : String(error) }),
-          );
+          debugWarn('[OFFTRACE:ROOT-FAIL]', { error });
         }
-        console.warn('[OffDump] Laden/Anhaengen fehlgeschlagen:', error);
+        debugWarn('[OffDump] Laden/Anhaengen fehlgeschlagen:', error);
       });
   }, [session?.user.id]);
 

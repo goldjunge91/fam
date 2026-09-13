@@ -1,5 +1,6 @@
 import { DATABASE_FILE_NAMES } from '@/lib/db/database-files';
 import type { SqlDatabase } from '@/lib/db/types';
+import { debugLog, debugWarn } from '@/lib/debug-log';
 import { installBaseline } from './baseline-installer';
 import { createExpoFileOps } from './expo-file-ops';
 import type { DumpInspection } from './file-ops';
@@ -35,9 +36,7 @@ let offDumpSequence = 0;
 type OffDumpTraceDetails = Record<string, boolean | number | string | undefined>;
 
 function offDumpTrace(code: string, details: OffDumpTraceDetails = {}): void {
-  if (__DEV__) {
-    console.log(`[OFFTRACE:${code}]`, JSON.stringify(details));
-  }
+  debugLog(`[OFFTRACE:${code}]`, details);
 }
 
 function errorMessage(error: unknown): string {
@@ -298,6 +297,6 @@ export async function initOffDump(db: SqlDatabase): Promise<void> {
   offDumpTrace('INIT-UPDATE-SCHEDULED', { initId });
   checkForUpdateIfDue(db).catch((err) => {
     offDumpTrace('DUE-FAIL', { error: errorMessage(err), initId });
-    console.warn('[OffDump] Update-Check fehlgeschlagen:', err);
+    debugWarn('[OffDump] Update-Check fehlgeschlagen:', err);
   });
 }

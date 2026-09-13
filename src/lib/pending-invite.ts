@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { debugError } from '@/lib/debug-log';
 
 const PENDING_INVITE_KEY = '@fam/pending_invite_token';
 
@@ -8,7 +9,7 @@ export async function savePendingInviteToken(token: string): Promise<void> {
       await AsyncStorage.setItem(PENDING_INVITE_KEY, token.trim());
     }
   } catch (err) {
-    console.error('Fehler beim Speichern des Einladungs-Tokens:', err);
+    debugError('Fehler beim Speichern des Einladungs-Tokens:', err);
   }
 }
 
@@ -21,7 +22,7 @@ export async function consumePendingInviteToken(): Promise<string | null> {
     }
     return null;
   } catch (err) {
-    console.error('Fehler beim Lesen des Einladungs-Tokens:', err);
+    debugError('Fehler beim Lesen des Einladungs-Tokens:', err);
     return null;
   }
 }
@@ -38,6 +39,6 @@ export async function clearPendingInviteToken(): Promise<void> {
   try {
     await AsyncStorage.removeItem(PENDING_INVITE_KEY);
   } catch (err) {
-    console.error('Fehler beim Löschen des Einladungs-Tokens:', err);
+    debugError('Fehler beim Löschen des Einladungs-Tokens:', err);
   }
 }
