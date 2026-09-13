@@ -93,6 +93,17 @@ function fireHaptic(kind: HapticKind) {
 
 type FeatherName = React.ComponentProps<typeof Feather>['name'];
 
+const closeButtonStyles = StyleSheet.create((theme) => ({
+  button: {
+    minWidth: theme.space.xxl + theme.space.md + theme.space.xs,
+    minHeight: theme.space.xxl + theme.space.md + theme.space.xs,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.backgroundSoft,
+  },
+}));
+
 // ─── Text ────────────────────────────────────────────────────────────────────
 
 export type TxtVariant =
@@ -418,6 +429,36 @@ export function Press({
         {children}
       </Pressable>
     </Animated.View>
+  );
+}
+
+/** A themed, accessible close action for dialogs and sheets. */
+export function CloseButton({
+  onPress,
+  accessibilityLabel,
+  hitSlop = 6,
+  style,
+  ...rest
+}: Omit<
+  PressableProps,
+  'accessibilityLabel' | 'accessibilityRole' | 'children' | 'onPress' | 'style'
+> & {
+  accessibilityLabel: string;
+  onPress: () => void;
+  style?: StyleProp<ViewStyle>;
+}) {
+  const { colors } = useTheme();
+
+  return (
+    <Press
+      {...rest}
+      onPress={onPress}
+      hitSlop={hitSlop}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+      style={[closeButtonStyles.button, style]}>
+      <Feather name="x" size={font.sizes.md} color={colors.textSecondary} />
+    </Press>
   );
 }
 

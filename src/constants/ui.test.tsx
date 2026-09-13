@@ -63,6 +63,7 @@ import {
   Badge,
   Button,
   Card,
+  CloseButton,
   Pill,
   Press,
   SectionHeading,
@@ -161,6 +162,25 @@ describe('core theme UI primitives', () => {
     expect(onPress).toHaveBeenCalledTimes(1);
     expect(withTimingSpy).not.toHaveBeenCalled();
     expect(withSpringSpy).not.toHaveBeenCalled();
+  });
+
+  it('renders a themed accessible CloseButton and forwards activation', async () => {
+    const onPress = jest.fn();
+    const user = userEvent.setup();
+    await render(<CloseButton accessibilityLabel="Dialog schließen" onPress={onPress} />);
+
+    const button = screen.getByRole('button', { name: 'Dialog schließen' });
+    expect(button.props.hitSlop).toBe(6);
+    expect(button).toHaveStyle({
+      minWidth: space.xxl + space.md + space.xs,
+      minHeight: space.xxl + space.md + space.xs,
+      borderRadius: radius.sm,
+      backgroundColor: mockColorsLight.backgroundSoft,
+    });
+
+    await user.press(button);
+
+    expect(onPress).toHaveBeenCalledTimes(1);
   });
 
   it('keeps disabled and loading Buttons inactive and haptic-free', async () => {
