@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Card } from '@/components/ui/card';
 import { useSnackbar } from '@/components/ui/snackbar';
-import { Txt } from '@/constants/ui';
+import { Button, Card as FoundationCard, Txt } from '@/constants/ui';
 import { CorrelationMenuItem } from '@/features/glp1/components/correlation-menu-item';
 import { Glp1LogHistory } from '@/features/glp1/components/glp1-log-history';
 import { formatDaysSince } from '@/features/glp1/domain/format-days-since';
@@ -42,7 +42,7 @@ type ActiveForm =
 
 const styles = StyleSheet.create((theme) => ({
   card: {
-    padding: 24,
+    padding: theme.space.xl + theme.space.xs,
     gap: theme.space.lg,
   },
   header: {
@@ -59,11 +59,7 @@ const styles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: theme.space.lg,
-    borderRadius: theme.radius.sm,
-    borderWidth: theme.borderWidth.base,
     gap: theme.space.sm,
-    backgroundColor: theme.backgroundElement,
-    borderColor: theme.border,
   },
   summaryColumn: {
     flex: 1,
@@ -77,15 +73,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   action: {
     flex: 1,
-    minHeight: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: theme.space.sm,
-    paddingHorizontal: theme.space.lg,
-    borderRadius: theme.radius.sm,
-    borderWidth: theme.borderWidth.base,
-    backgroundColor: theme.backgroundElement,
-    borderColor: theme.border,
   },
 }));
 
@@ -233,7 +220,7 @@ export function Glp1Card({
         </Txt>
       </View>
 
-      <View style={styles.summary}>
+      <FoundationCard padded={false} elevation="none" style={styles.summary}>
         <View style={styles.summaryColumn}>
           <Txt variant="caption" tone="secondary">
             Letzte Injektion
@@ -282,7 +269,7 @@ export function Glp1Card({
             </Txt>
           )}
         </View>
-      </View>
+      </FoundationCard>
 
       <CorrelationMenuItem
         logicalDate={selectedLogicalDate}
@@ -291,26 +278,34 @@ export function Glp1Card({
       />
 
       <View style={styles.actions}>
-        <Pressable
+        <Button
+          title={activeForm?.kind === 'injection' ? 'Abbrechen' : '+ Injektion eintragen'}
+          variant="secondary"
+          haptic="light"
+          accessibilityLabel={
+            activeForm?.kind === 'injection'
+              ? 'Injektionsformular abbrechen'
+              : 'Injektion eintragen'
+          }
           onPress={() =>
             setActiveForm((current) =>
               current?.kind === 'injection' ? null : { kind: 'injection' },
             )
           }
-          style={styles.action}>
-          <Txt variant="label" weight="700">
-            {activeForm?.kind === 'injection' ? 'Abbrechen' : '+ Injektion eintragen'}
-          </Txt>
-        </Pressable>
-        <Pressable
+          style={styles.action}
+        />
+        <Button
+          title={activeForm?.kind === 'symptom' ? 'Abbrechen' : '+ Symptome loggen'}
+          variant="secondary"
+          haptic="light"
+          accessibilityLabel={
+            activeForm?.kind === 'symptom' ? 'Symptomformular abbrechen' : 'Symptome loggen'
+          }
           onPress={() =>
             setActiveForm((current) => (current?.kind === 'symptom' ? null : { kind: 'symptom' }))
           }
-          style={styles.action}>
-          <Txt variant="label" weight="700">
-            {activeForm?.kind === 'symptom' ? 'Abbrechen' : '+ Symptome loggen'}
-          </Txt>
-        </Pressable>
+          style={styles.action}
+        />
       </View>
 
       {activeForm?.kind === 'injection' ? (

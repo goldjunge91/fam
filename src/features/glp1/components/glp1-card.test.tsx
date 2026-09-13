@@ -1,5 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
+import { radius } from '@/components/theme/index';
 import { Glp1Card } from './glp1-card';
 
 const mockMutateMed = jest.fn();
@@ -93,6 +94,9 @@ describe('Glp1Card', () => {
     expect(screen.getByText(/GLP-1 & Medikation/)).toBeOnTheScreen();
     expect(screen.getByText('Keine Injektion erfasst')).toBeOnTheScreen();
     expect(screen.getByText('Kein Symptom-Log')).toBeOnTheScreen();
+    expect(screen.getByText('Letzte Injektion').parent?.parent).toHaveStyle({
+      borderRadius: radius.lg,
+    });
   });
 
   it('liest Medikation und Symptome im ausgewaehlten logischen Tagesfenster', async () => {

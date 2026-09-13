@@ -1,4 +1,5 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
+import { radius } from '@/components/theme/index';
 import { InjectionPlanSection } from './injection-plan-section';
 
 const mockCreatePlan = jest.fn();
@@ -101,6 +102,15 @@ describe('InjectionPlanSection', () => {
     } finally {
       jest.useRealTimers();
     }
+  });
+
+  it('verwendet die zentrale Card-Fläche für den bestehenden Plan', async () => {
+    mockPlan = plan('2026-09-02T08:00:00.000Z');
+    await render(<InjectionPlanSection userId="user-1" />);
+
+    expect(screen.getByText('Nächste Injektion').parent?.parent).toHaveStyle({
+      borderRadius: radius.lg,
+    });
   });
 
   it('legt einen Injektionsplan an', async () => {

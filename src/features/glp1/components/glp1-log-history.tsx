@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Txt } from '@/constants/ui';
+import { Button, Card, Press, Txt } from '@/constants/ui';
 import type { Glp1HistoryItem } from '@/features/glp1/domain/log-history';
 import { INJECTION_SITE_LABELS, isInjectionSite } from '@/features/glp1/domain/medication-options';
 import type { MedicationLogRow, SymptomLogRow } from '@/features/glp1/hooks/glp1-api';
@@ -26,6 +26,8 @@ const styles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    borderRadius: theme.radius.sm,
+    backgroundColor: 'transparent',
   },
   history: {
     gap: theme.space.sm,
@@ -34,18 +36,10 @@ const styles = StyleSheet.create((theme) => ({
   entry: {
     gap: theme.space.xs,
     padding: theme.space.sm,
-    borderRadius: theme.radius.sm,
-    borderWidth: theme.borderWidth.base,
-    backgroundColor: theme.backgroundElement,
-    borderColor: theme.border,
   },
   actions: {
     flexDirection: 'row',
     gap: theme.space.lg,
-  },
-  action: {
-    minHeight: 44,
-    justifyContent: 'center',
   },
 }));
 
@@ -72,7 +66,7 @@ export function Glp1LogHistory({
 
   return (
     <View style={styles.root}>
-      <Pressable
+      <Press
         accessibilityRole="button"
         accessibilityLabel={isExpanded ? 'Verlauf ausblenden' : 'Bisherigen Verlauf anzeigen'}
         onPress={() => setIsExpanded((current) => !current)}
@@ -83,7 +77,7 @@ export function Glp1LogHistory({
         <Txt variant="body" tone="secondary">
           {isExpanded ? '▲' : '▼'}
         </Txt>
-      </Pressable>
+      </Press>
 
       {isExpanded ? (
         <View style={styles.history}>
@@ -91,7 +85,11 @@ export function Glp1LogHistory({
             if (item.kind === 'injection') {
               const { log } = item;
               return (
-                <View key={`medication-${log.id}`} style={styles.entry}>
+                <Card
+                  key={`medication-${log.id}`}
+                  padded={false}
+                  elevation="none"
+                  style={styles.entry}>
                   <Txt variant="body" weight="700">
                     Injektion · {log.medication_name} {log.dose ?? '–'} {log.unit}
                   </Txt>
@@ -103,32 +101,31 @@ export function Glp1LogHistory({
                   </Txt>
                   {log.notes ? <Txt variant="body">{log.notes}</Txt> : null}
                   <View style={styles.actions}>
-                    <Pressable
-                      accessibilityRole="button"
+                    <Button
+                      title="Bearbeiten"
+                      variant="link"
+                      size="sm"
+                      haptic="light"
                       accessibilityLabel="Injektion bearbeiten"
                       onPress={() => onEditMedication(log)}
-                      style={styles.action}>
-                      <Txt variant="caption" tone="primary">
-                        Bearbeiten
-                      </Txt>
-                    </Pressable>
-                    <Pressable
-                      accessibilityRole="button"
+                    />
+                    <Button
+                      title="Löschen"
+                      variant="danger"
+                      size="sm"
+                      flat
+                      haptic="light"
                       accessibilityLabel="Injektion löschen"
                       onPress={() => onDeleteMedication(log)}
-                      style={styles.action}>
-                      <Txt variant="caption" tone="danger">
-                        Löschen
-                      </Txt>
-                    </Pressable>
+                    />
                   </View>
-                </View>
+                </Card>
               );
             }
 
             const { log } = item;
             return (
-              <View key={`symptom-${log.id}`} style={styles.entry}>
+              <Card key={`symptom-${log.id}`} padded={false} elevation="none" style={styles.entry}>
                 <Txt variant="body" weight="700">
                   Symptome · Appetit {log.appetite_level ?? '–'}/5 · Sättigung{' '}
                   {log.satiety_level ?? '–'}/5
@@ -141,26 +138,25 @@ export function Glp1LogHistory({
                 ) : null}
                 {log.notes ? <Txt variant="body">{log.notes}</Txt> : null}
                 <View style={styles.actions}>
-                  <Pressable
-                    accessibilityRole="button"
+                  <Button
+                    title="Bearbeiten"
+                    variant="link"
+                    size="sm"
+                    haptic="light"
                     accessibilityLabel="Symptome bearbeiten"
                     onPress={() => onEditSymptom(log)}
-                    style={styles.action}>
-                    <Txt variant="caption" tone="primary">
-                      Bearbeiten
-                    </Txt>
-                  </Pressable>
-                  <Pressable
-                    accessibilityRole="button"
+                  />
+                  <Button
+                    title="Löschen"
+                    variant="danger"
+                    size="sm"
+                    flat
+                    haptic="light"
                     accessibilityLabel="Symptome löschen"
                     onPress={() => onDeleteSymptom(log)}
-                    style={styles.action}>
-                    <Txt variant="caption" tone="danger">
-                      Löschen
-                    </Txt>
-                  </Pressable>
+                  />
                 </View>
-              </View>
+              </Card>
             );
           })}
         </View>

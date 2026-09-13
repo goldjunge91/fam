@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
-import { type StyleProp, StyleSheet, type ViewStyle } from 'react-native';
+import type { StyleProp, ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { space } from '@/components/theme/index';
 import { Card as FoundationCard, Txt } from '@/constants/ui';
 
 type CardProps = {
@@ -26,8 +26,8 @@ export function Card({ children, title, footer, style }: CardProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create((theme) => ({
   content: {
-    gap: space.sm,
+    gap: theme.space.sm,
   },
-});
+}));

@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Txt } from '@/constants/ui';
+import { Card, Press, Txt } from '@/constants/ui';
 
 type CorrelationMenuItemProps = {
   logicalDate: string;
@@ -10,6 +10,12 @@ type CorrelationMenuItemProps = {
 };
 
 const styles = StyleSheet.create((theme) => ({
+  pressContainer: {
+    alignSelf: 'stretch',
+  },
+  pressSurface: {
+    alignSelf: 'stretch',
+  },
   item: {
     minHeight: 44,
     flexDirection: 'row',
@@ -17,10 +23,6 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'space-between',
     paddingVertical: theme.space.sm,
     paddingHorizontal: theme.space.lg,
-    borderRadius: theme.radius.sm,
-    borderWidth: theme.borderWidth.base,
-    backgroundColor: theme.backgroundElement,
-    borderColor: theme.border,
   },
   content: {
     gap: theme.space.xs,
@@ -33,7 +35,7 @@ export function CorrelationMenuItem({
   childProfileId,
 }: CorrelationMenuItemProps) {
   return (
-    <Pressable
+    <Press
       accessibilityRole="button"
       accessibilityLabel="Korrelationsanalyse öffnen"
       onPress={() =>
@@ -46,18 +48,21 @@ export function CorrelationMenuItem({
           },
         })
       }
-      style={styles.item}>
-      <View style={styles.content}>
-        <Txt variant="label" weight="700">
-          Korrelationsanalyse
+      containerStyle={styles.pressContainer}
+      style={styles.pressSurface}>
+      <Card padded={false} elevation="none" style={styles.item}>
+        <View style={styles.content}>
+          <Txt variant="label" weight="700">
+            Korrelationsanalyse
+          </Txt>
+          <Txt variant="caption" tone="secondary">
+            Injektion, Kalorien und Gewicht
+          </Txt>
+        </View>
+        <Txt variant="label" weight="700" tone="primary">
+          Öffnen
         </Txt>
-        <Txt variant="caption" tone="secondary">
-          Injektion, Kalorien und Gewicht
-        </Txt>
-      </View>
-      <Txt variant="label" weight="700" tone="primary">
-        Öffnen
-      </Txt>
-    </Pressable>
+      </Card>
+    </Press>
   );
 }

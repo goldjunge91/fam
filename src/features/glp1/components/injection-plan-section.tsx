@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Txt } from '@/constants/ui';
+import { Button, Card, Txt } from '@/constants/ui';
 import { calculateInjectionDue } from '@/features/glp1/domain/injection-due';
 import { toMedicationUnit } from '@/features/glp1/domain/medication-options';
 import {
@@ -32,23 +32,8 @@ const styles = StyleSheet.create((theme) => ({
   root: {
     gap: theme.space.sm,
   },
-  createButton: {
-    minHeight: 44,
-    alignItems: 'center',
-    paddingVertical: theme.space.sm,
-    paddingHorizontal: theme.space.lg,
-    borderRadius: theme.radius.sm,
-    borderWidth: theme.borderWidth.base,
-    backgroundColor: theme.backgroundElement,
-    borderColor: theme.border,
-  },
   planCard: {
     gap: theme.space.xs,
-    padding: theme.space.lg,
-    borderRadius: theme.radius.sm,
-    borderWidth: theme.borderWidth.base,
-    backgroundColor: theme.backgroundElement,
-    borderColor: theme.border,
   },
   header: {
     flexDirection: 'row',
@@ -59,10 +44,6 @@ const styles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
     gap: theme.space.lg,
     paddingTop: theme.space.xs,
-  },
-  action: {
-    minHeight: 44,
-    justifyContent: 'center',
   },
 }));
 
@@ -117,15 +98,13 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
     return showForm ? (
       <InjectionPlanForm mode="create" isPending={createMutation.isPending} onSubmit={save} />
     ) : (
-      <Pressable
-        accessibilityRole="button"
-        accessibilityLabel="Injektionsplan anlegen"
+      <Button
+        title="Injektionsplan anlegen"
+        variant="secondary"
+        haptic="light"
+        full
         onPress={() => setShowForm(true)}
-        style={styles.createButton}>
-        <Txt variant="label" weight="700">
-          Injektionsplan anlegen
-        </Txt>
-      </Pressable>
+      />
     );
   }
 
@@ -143,7 +122,7 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
 
   return (
     <View style={styles.root}>
-      <View style={styles.planCard}>
+      <Card elevation="none" style={styles.planCard}>
         <View style={styles.header}>
           <Txt variant="caption" tone="secondary">
             Nächste Injektion
@@ -165,17 +144,20 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
           {plan.medication_name} · {plan.dose} {plan.unit} · alle {plan.cadence_days} Tage
         </Txt>
         <View style={styles.actions}>
-          <Pressable
-            accessibilityRole="button"
+          <Button
+            title="Bearbeiten"
+            variant="link"
+            size="sm"
+            haptic="light"
             accessibilityLabel="Injektionsplan bearbeiten"
             onPress={() => setShowForm((current) => !current)}
-            style={styles.action}>
-            <Txt variant="caption" tone="primary">
-              Bearbeiten
-            </Txt>
-          </Pressable>
-          <Pressable
-            accessibilityRole="button"
+          />
+          <Button
+            title="Entfernen"
+            variant="danger"
+            size="sm"
+            flat
+            haptic="light"
             accessibilityLabel="Injektionsplan entfernen"
             onPress={() =>
               userId &&
@@ -184,13 +166,9 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
                 { onSuccess: () => setShowForm(false) },
               )
             }
-            style={styles.action}>
-            <Txt variant="caption" tone="danger">
-              Entfernen
-            </Txt>
-          </Pressable>
+          />
         </View>
-      </View>
+      </Card>
 
       {showForm ? (
         <InjectionPlanForm

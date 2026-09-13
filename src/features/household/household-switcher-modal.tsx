@@ -1,9 +1,9 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { Button, Txt } from '@/constants/ui';
+import { Button, CloseButton, Press, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 
 const styles = StyleSheet.create((theme) => ({
@@ -24,12 +24,6 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  closeButton: {
-    minWidth: 44,
-    minHeight: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   householdList: {
     gap: theme.space.xs,
   },
@@ -43,6 +37,7 @@ const styles = StyleSheet.create((theme) => ({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,
     borderRadius: theme.radius.md,
+    backgroundColor: 'transparent',
   },
   householdRowSelected: {
     backgroundColor: theme.backgroundElement,
@@ -91,16 +86,11 @@ export function HouseholdSwitcherModal({
             <Txt variant="title" weight="600">
               Haushalt wechseln
             </Txt>
-            <Pressable
+            <CloseButton
               onPress={onClose}
               hitSlop={10}
-              accessibilityRole="button"
               accessibilityLabel="Haushalt wechseln schließen"
-              style={styles.closeButton}>
-              <Txt variant="subheading" tone="secondary" weight="500">
-                ✕
-              </Txt>
-            </Pressable>
+            />
           </View>
 
           <View
@@ -110,8 +100,9 @@ export function HouseholdSwitcherModal({
             {households.map((hh) => {
               const isSelected = hh.id === currentSelectedId;
               return (
-                <Pressable
+                <Press
                   key={hh.id}
+                  haptic="selection"
                   onPress={() => handleSelect(hh.id)}
                   accessibilityRole="radio"
                   accessibilityLabel={hh.name}
@@ -127,7 +118,7 @@ export function HouseholdSwitcherModal({
                       ✓ Aktiv
                     </Txt>
                   )}
-                </Pressable>
+                </Press>
               );
             })}
           </View>

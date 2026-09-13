@@ -1,5 +1,6 @@
-import { act, fireEvent, render, screen } from '@testing-library/react-native';
+import { act, fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import * as Clipboard from 'expo-clipboard';
+import { selection as hapticSelection } from '@/lib/haptics';
 
 import { InviteModal } from './invite-modal';
 
@@ -10,6 +11,14 @@ jest.mock('@/features/auth/session-provider', () => ({
 
 jest.mock('expo-clipboard', () => ({
   setStringAsync: jest.fn().mockResolvedValue(true),
+}));
+
+jest.mock('@/lib/haptics', () => ({
+  heavy: jest.fn(),
+  light: jest.fn(),
+  medium: jest.fn(),
+  selection: jest.fn(),
+  success: jest.fn(),
 }));
 
 jest.mock('@/features/household/api', () => ({
@@ -43,6 +52,7 @@ describe('InviteModal & QR Code Component', () => {
   beforeEach(() => {
     jest.useFakeTimers();
     jest.clearAllMocks();
+    jest.mocked(hapticSelection).mockClear();
   });
 
   afterEach(async () => {
@@ -104,6 +114,22 @@ describe('InviteModal & QR Code Component', () => {
     expect(screen.getByText('Einladungs-Code & QR-Code')).toBeTruthy();
     expect(screen.getByText('Code kopieren')).toBeTruthy();
     expect(screen.getByText('Link kopieren')).toBeTruthy();
+  });
+
+  it('verwendet Selection-Feedback bei der Auswahl einer Einladung', async () => {
+    const user = userEvent.setup();
+    await render(
+      <InviteModal
+        visible={true}
+        householdId="hh-1"
+        householdName="Test Haushalt"
+        onClose={jest.fn()}
+      />,
+    );
+
+    await user.press(screen.getByRole('button', { name: 'Einladung token-abc-123 auswählen' }));
+
+    expect(hapticSelection).toHaveBeenCalledTimes(1);
   });
 
   it('sollte reinen Code und Link separat in die Zwischenablage kopieren', async () => {

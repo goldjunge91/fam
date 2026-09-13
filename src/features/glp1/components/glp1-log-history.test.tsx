@@ -1,6 +1,16 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
+import { radius } from '@/components/theme/index';
 import type { MedicationLogRow, SymptomLogRow } from '@/features/glp1/hooks/glp1-api';
+import { light as hapticLight } from '@/lib/haptics';
 import { Glp1LogHistory } from './glp1-log-history';
+
+jest.mock('@/lib/haptics', () => ({
+  heavy: jest.fn(),
+  light: jest.fn(),
+  medium: jest.fn(),
+  selection: jest.fn(),
+  success: jest.fn(),
+}));
 
 const medicationLog = {
   id: 'medication-1',
@@ -33,6 +43,10 @@ const symptomLog = {
 } satisfies SymptomLogRow;
 
 describe('Glp1LogHistory', () => {
+  beforeEach(() => {
+    jest.mocked(hapticLight).mockClear();
+  });
+
   it('zeigt Zeitstempel, Einheiten, Injektionsstelle, Nebenwirkungen und Notizen', async () => {
     const user = userEvent.setup();
     await render(
@@ -56,6 +70,9 @@ describe('Glp1LogHistory', () => {
     expect(screen.getByText('Symptome · Appetit 3/5 · Sättigung 4/5')).toBeOnTheScreen();
     expect(screen.getByText('Kopfschmerz · Müdigkeit')).toBeOnTheScreen();
     expect(screen.getByText('Nach dem Frühstück')).toBeOnTheScreen();
+    expect(screen.getByText('Injektion · Semaglutid 0.5 mg').parent).toHaveStyle({
+      borderRadius: radius.lg,
+    });
   });
 
   it('stellt Bearbeiten und Löschen pro Log bereit', async () => {
@@ -79,6 +96,7 @@ describe('Glp1LogHistory', () => {
     await user.press(screen.getByRole('button', { name: 'Injektion bearbeiten' }));
     await user.press(screen.getByRole('button', { name: 'Symptome löschen' }));
 
+    expect(hapticLight).toHaveBeenCalledTimes(3);
     expect(onEditMedication).toHaveBeenCalledWith(medicationLog);
     expect(onDeleteSymptom).toHaveBeenCalledWith(symptomLog);
   });

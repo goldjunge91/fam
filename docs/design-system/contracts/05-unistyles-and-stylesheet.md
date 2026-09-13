@@ -50,6 +50,12 @@ werden nicht pauschal in die fam-Palette umgefärbt.
 Für jede Ausnahme wird in diesem Vertrag ein Eintrag mit **Pfad, Plattform, Grund,
 betroffener Regel und Prüffall** dokumentiert.
 
+## Dokumentierte native Integrationsausnahmen
+
+| Pfad | Plattform | Grund | Betroffene Regel | Prüffall |
+| --- | --- | --- | --- | --- |
+| `src/features/household/invite-modal.tsx` (`QRCode`) | iOS/Android | Die opake weiße Quiet-Zone ist für zuverlässiges Scannen auf unterschiedlichen Hintergründen erforderlich. | Keine freie Feature-Farbe für semantische Flächen; die QR-Renderfläche folgt der nativen QR-API. | QR-Code im hellen und dunklen App-Theme auf iOS und Android mit einem zweiten Gerät scannen. |
+
 ## Beispiel
 
 ```tsx

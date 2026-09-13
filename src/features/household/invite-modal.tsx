@@ -1,12 +1,12 @@
 import * as Clipboard from 'expo-clipboard';
 import { useState } from 'react';
-import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
+import { Alert, Modal, ScrollView, Share, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { withAlpha } from '@/components/theme/index';
 import { Card } from '@/components/ui/card';
-import { Button, Txt } from '@/constants/ui';
+import { Button, CloseButton, IconButton, Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   useCreateInviteMutation,
@@ -36,12 +36,6 @@ const styles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
-  closeButton: {
-    minWidth: 44,
-    minHeight: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   inviteToken: {
     paddingVertical: theme.space.sm,
@@ -83,16 +77,16 @@ const styles = StyleSheet.create((theme) => ({
     backgroundColor: withAlpha(theme.accent, 0.08),
     borderRadius: theme.radius.sm,
   },
+  inviteRowSelection: {
+    flex: 1,
+    minHeight: 44,
+    justifyContent: 'center',
+    borderRadius: theme.radius.sm,
+    backgroundColor: 'transparent',
+  },
   inviteRowButtons: {
     flexDirection: 'row',
     gap: theme.space.sm,
-  },
-  inviteActionIconButton: {
-    minWidth: 44,
-    minHeight: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: theme.space.xs,
   },
 }));
 
@@ -195,16 +189,11 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
               <Txt variant="title" weight="600">
                 Mitglied einladen
               </Txt>
-              <Pressable
+              <CloseButton
                 onPress={onClose}
                 hitSlop={10}
-                accessibilityRole="button"
                 accessibilityLabel="Mitglied einladen schließen"
-                style={styles.closeButton}>
-                <Txt variant="subheading" tone="secondary" weight="500">
-                  ✕
-                </Txt>
-              </Pressable>
+              />
             </View>
 
             <Txt variant="body" tone="secondary" weight="500">
@@ -280,8 +269,10 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                   <View
                     key={inv.id}
                     style={[styles.inviteRow, isSelected && styles.inviteRowSelected]}>
-                    <Pressable
-                      style={styles.flex}
+                    <Press
+                      containerStyle={styles.flex}
+                      style={styles.inviteRowSelection}
+                      haptic="selection"
                       onPress={() => {
                         setSelectedToken(inv.token);
                         setShowQrCode(true);
@@ -296,32 +287,32 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                         Gültig bis {new Date(inv.expires_at).toLocaleDateString('de-DE')} ·{' '}
                         {inv.uses}/{inv.max_uses} genutzt
                       </Txt>
-                    </Pressable>
+                    </Press>
                     <View style={styles.inviteRowButtons}>
-                      <Pressable
+                      <IconButton
+                        icon="smartphone"
+                        iconSize={20}
+                        size={44}
                         onPress={() => {
                           setSelectedToken(inv.token);
                           setShowQrCode(true);
                         }}
                         accessibilityLabel="QR-Code anzeigen"
-                        accessibilityRole="button"
-                        style={styles.inviteActionIconButton}>
-                        <Txt variant="body">📱</Txt>
-                      </Pressable>
-                      <Pressable
+                      />
+                      <IconButton
+                        icon="share-2"
+                        iconSize={20}
+                        size={44}
                         onPress={() => handleShare(inv.token)}
                         accessibilityLabel="Teilen"
-                        accessibilityRole="button"
-                        style={styles.inviteActionIconButton}>
-                        <Txt variant="body">📤</Txt>
-                      </Pressable>
-                      <Pressable
+                      />
+                      <IconButton
+                        icon="trash-2"
+                        iconSize={20}
+                        size={44}
                         onPress={() => handleRevoke(inv.id)}
                         accessibilityLabel="Zurückziehen"
-                        accessibilityRole="button"
-                        style={styles.inviteActionIconButton}>
-                        <Txt variant="body">🗑</Txt>
-                      </Pressable>
+                      />
                     </View>
                   </View>
                 );
