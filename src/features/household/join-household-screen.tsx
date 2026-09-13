@@ -1,11 +1,18 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { useRedeemInviteMutation } from '@/features/household/api';
 import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
+
+const styles = StyleSheet.create((theme) => ({
+  form: {
+    gap: theme.space.lg,
+  },
+}));
 
 export function JoinHouseholdScreen() {
   const params = useLocalSearchParams<{ token?: string }>();
@@ -54,7 +61,7 @@ export function JoinHouseholdScreen() {
       backStyle="icon">
       {/* Eingabe-Formular für den Einladungs-Code / Token */}
       <Card title="Einlösung">
-        <View className="gap-three">
+        <View style={styles.form}>
           {/* Eingabefeld für Einladungs-Token */}
           <TextField
             label="Einladungs-Code / Token"

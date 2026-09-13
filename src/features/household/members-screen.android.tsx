@@ -3,9 +3,9 @@ import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { space, withAlpha } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { withAlpha } from '@/components/theme/index';
 import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -20,9 +20,90 @@ import { isHouseholdAdmin } from '@/features/household/household-helpers';
 import { HouseholdSwitcherModal } from '@/features/household/household-switcher-modal';
 import { InviteModal } from '@/features/household/invite-modal';
 
+const styles = StyleSheet.create((theme) => ({
+  switcher: {
+    marginBottom: theme.space.sm,
+  },
+  adminActions: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+    marginBottom: theme.space.lg,
+  },
+  flex: {
+    flex: 1,
+  },
+  list: {
+    flex: 1,
+  },
+  listContent: {
+    paddingVertical: theme.space.sm,
+  },
+  separator: {
+    height: theme.space.sm,
+  },
+  memberRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+    paddingVertical: theme.space.lg,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: theme.radius.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    backgroundColor: theme.backgroundElement,
+  },
+  avatarSelected: {
+    borderColor: theme.accent,
+    borderWidth: 2,
+  },
+  avatarImage: {
+    width: '100%',
+    height: '100%',
+  },
+  memberCopy: {
+    flex: 1,
+  },
+  memberActions: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+    alignItems: 'center',
+  },
+  roleTag: {
+    minHeight: 44,
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.sm,
+    paddingVertical: theme.space.xs,
+    borderRadius: theme.radius.sm,
+    backgroundColor: withAlpha(theme.accent, 0.1),
+  },
+  removeTag: {
+    minHeight: 44,
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.sm,
+    paddingVertical: theme.space.xs,
+    borderRadius: theme.radius.sm,
+    backgroundColor: withAlpha(theme.danger, 0.1),
+  },
+  footer: {
+    marginTop: 64,
+  },
+  footerButton: {
+    marginBottom: theme.space.lg,
+  },
+  destructiveActions: {
+    gap: theme.space.sm,
+  },
+}));
+
 export function MembersScreen() {
   const { session } = useSession();
-  const { colors } = useTheme();
   const currentUserId = session?.user.id;
 
   const { activeHousehold, activeHouseholdId, households } = useActiveHousehold();
@@ -157,7 +238,7 @@ export function MembersScreen() {
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
       {/* Button zum Wechseln oder Beitreten eines anderen Haushalts */}
-      <View className="mb-two">
+      <View style={styles.switcher}>
         <Button
           title={
             households.length > 1
@@ -171,8 +252,8 @@ export function MembersScreen() {
 
       {/* Admin-Aktionen: Einladen neuer Mitglieder & Kinder-Profile */}
       {isAdmin && currentHousehold && (
-        <View className="flex-row gap-two mb-three">
-          <View className="flex-1">
+        <View style={styles.adminActions}>
+          <View style={styles.flex}>
             <Button title="+ Mitglied einladen" onPress={() => setShowInviteModal(true)} />
           </View>
           <Button
@@ -185,13 +266,13 @@ export function MembersScreen() {
 
       {/* Liste aller Haushaltsmitglieder mit Rollenanzeige & Verwaltungsoptionen */}
       <FlashList
-        style={{ flex: 1 }}
+        style={styles.list}
         data={members}
         keyExtractor={(item) => item.user_id}
         // FlashList positioniert Zeilen selbst, `gap` im Container greift nicht
         // — der Zeilenabstand kommt deshalb ueber einen Separator (#139).
-        contentContainerStyle={{ paddingVertical: space.sm }}
-        ItemSeparatorComponent={() => <View style={{ height: space.sm }} />}
+        contentContainerStyle={styles.listContent}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
         renderItem={({ item }) => {
           const isMe = item.user_id === currentUserId;
           const displayName = item.display_name || 'Unbekanntes Mitglied';
@@ -199,19 +280,13 @@ export function MembersScreen() {
 
           return (
             /* Mitglieder-Zeile mit Avatar, Name, Rolle und Admin-Aktionen */
-            <View className="member-row">
-              <View
-                className="member-avatar"
-                style={{
-                  backgroundColor: colors.backgroundElement,
-                  borderColor: isMe ? colors.accent : undefined,
-                  borderWidth: isMe ? 2 : undefined,
-                }}>
+            <View style={styles.memberRow}>
+              <View style={[styles.avatar, isMe && styles.avatarSelected]}>
                 {item.avatar_url ? (
                   <Image
                     source={{ uri: item.avatar_url }}
                     accessibilityLabel={`Profilbild von ${displayName}`}
-                    style={{ width: '100%', height: '100%' }}
+                    style={styles.avatarImage}
                     contentFit="cover"
                   />
                 ) : (
@@ -221,7 +296,7 @@ export function MembersScreen() {
                 )}
               </View>
 
-              <View className="flex-1">
+              <View style={styles.memberCopy}>
                 <Txt variant="body" weight={isMe ? '700' : '400'}>
                   {displayName} {isMe ? '(Du)' : ''}
                 </Txt>
@@ -231,19 +306,21 @@ export function MembersScreen() {
               </View>
 
               {isAdmin && !isMe && (
-                <View className="member-actions">
+                <View style={styles.memberActions}>
                   <Pressable
                     onPress={() => handleToggleRole(item.user_id, item.role, displayName)}
-                    className="member-role-tag"
-                    style={{ backgroundColor: withAlpha(colors.accent, 0.1) }}>
+                    accessibilityRole="button"
+                    accessibilityLabel={`${item.role === 'admin' ? 'Admin' : 'Mitglied'}-Rolle ändern`}
+                    style={styles.roleTag}>
                     <Txt variant="caption" tone="primary">
                       {item.role === 'admin' ? 'Admin ▾' : 'Mitglied ▾'}
                     </Txt>
                   </Pressable>
                   <Pressable
                     onPress={() => handleRemoveMember(item.user_id, displayName)}
-                    className="member-remove-tag"
-                    style={{ backgroundColor: withAlpha(colors.tomato, 0.1) }}>
+                    accessibilityRole="button"
+                    accessibilityLabel={`${displayName} entfernen`}
+                    style={styles.removeTag}>
                     <Txt variant="caption" tone="danger">
                       Entfernen
                     </Txt>
@@ -256,9 +333,9 @@ export function MembersScreen() {
         ListFooterComponent={
           !isLoading ? (
             /* Footer-Bereich: Kinder-Profile (Nicht-Admins), Verlassen & Löschen */
-            <View className="mt-six">
+            <View style={styles.footer}>
               {!isAdmin && (
-                <View className="mb-three">
+                <View style={styles.footerButton}>
                   <Button
                     title="👶 Kinder-Profile verwalten"
                     variant="secondary"
@@ -268,7 +345,7 @@ export function MembersScreen() {
               )}
 
               {isAdmin ? (
-                <View className="gap-two">
+                <View style={styles.destructiveActions}>
                   <Button
                     title="Haushalt verlassen"
                     variant="danger"
