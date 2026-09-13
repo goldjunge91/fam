@@ -13,6 +13,7 @@ import Animated, {
   withSequence,
   withTiming,
 } from 'react-native-reanimated';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { useSession } from '@/features/auth/session-provider';
 
@@ -24,6 +25,55 @@ const SPLASH_BACKGROUND = '#F8F4EF';
 const SPLASH_ICON = require('@/assets/splash/fam-splash-icon.png');
 const SPLASH_COLOR_STOPS = ['#F8F4EF', '#FF3D81', '#7137FF', '#00D9FF', '#F8F4EF'];
 const SPLASH_COLOR_INPUTS = [0, 0.25, 0.5, 0.75, 1];
+
+const styles = StyleSheet.create({
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 1000,
+    backgroundColor: SPLASH_BACKGROUND,
+  },
+  splashImageContainer: {
+    width: SPLASH_ICON_SIZE,
+    height: SPLASH_ICON_SIZE,
+  },
+  splashImage: {
+    width: SPLASH_ICON_SIZE,
+    height: SPLASH_ICON_SIZE,
+  },
+  iconRoot: {
+    width: 128,
+    height: 128,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 100,
+  },
+  glow: {
+    width: 201,
+    height: 201,
+    position: 'absolute',
+  },
+  expoLogoBackground: {
+    width: 128,
+    height: 128,
+    position: 'absolute',
+    borderRadius: 40,
+    backgroundColor: '#208AEF',
+  },
+  logoContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  expoLogo: {
+    width: 76,
+    height: 71,
+  },
+});
 
 export function AnimatedSplashOverlay() {
   const { isLoading } = useSession();
@@ -114,18 +164,14 @@ export function AnimatedSplashOverlay() {
 
   if (!visible) return null;
 
-  // Image (expo-image) ist bei NativeWind nicht registriert (kein
-  // cssInterop) — className wird stillschweigend ignoriert, style bleibt
-  // hier zwingend.
   return (
     <Animated.View
       accessible
       accessibilityLabel="fam wird geladen"
       accessibilityRole="progressbar"
-      className="absolute inset-0 items-center justify-center z-[1000]"
-      style={[{ backgroundColor: SPLASH_BACKGROUND }, overlayStyle]}>
-      <Animated.View style={[{ width: SPLASH_ICON_SIZE, height: SPLASH_ICON_SIZE }, imageStyle]}>
-        <Image style={{ width: SPLASH_ICON_SIZE, height: SPLASH_ICON_SIZE }} source={SPLASH_ICON} />
+      style={[styles.overlay, overlayStyle]}>
+      <Animated.View style={[styles.splashImageContainer, imageStyle]}>
+        <Image style={styles.splashImage} source={SPLASH_ICON} />
       </Animated.View>
     </Animated.View>
   );
@@ -169,29 +215,14 @@ const glowKeyframe = new Keyframe({
 
 export function AnimatedIcon() {
   return (
-    <View className="justify-center items-center w-[128px] h-[128px] z-[100]">
-      <Animated.View
-        entering={glowKeyframe.duration(60 * 1000 * 4)}
-        className="w-[201px] h-[201px] absolute">
-        {/* Image (expo-image) ist bei NativeWind nicht registriert. */}
-        <Image
-          style={{ width: 201, height: 201, position: 'absolute' }}
-          source={require('@/assets/images/logo-glow.png')}
-        />
+    <View style={styles.iconRoot}>
+      <Animated.View entering={glowKeyframe.duration(60 * 1000 * 4)} style={styles.glow}>
+        <Image style={styles.glow} source={require('@/assets/images/logo-glow.png')} />
       </Animated.View>
 
-      <Animated.View
-        entering={keyframe.duration(DURATION)}
-        className="w-[128px] h-[128px] rounded-[40px] absolute bg-[#208AEF]"
-      />
-      <Animated.View
-        className="justify-center items-center"
-        entering={logoKeyframe.duration(DURATION)}>
-        {/* Image (expo-image) ist bei NativeWind nicht registriert. */}
-        <Image
-          style={{ width: 76, height: 71 }}
-          source={require('@/assets/images/expo-logo.png')}
-        />
+      <Animated.View entering={keyframe.duration(DURATION)} style={styles.expoLogoBackground} />
+      <Animated.View style={styles.logoContainer} entering={logoKeyframe.duration(DURATION)}>
+        <Image style={styles.expoLogo} source={require('@/assets/images/expo-logo.png')} />
       </Animated.View>
     </View>
   );

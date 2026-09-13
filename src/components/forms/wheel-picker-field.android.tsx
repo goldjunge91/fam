@@ -1,6 +1,7 @@
 import { Picker } from '@expo/ui/community/picker';
 import { View } from 'react-native';
-
+import { StyleSheet } from 'react-native-unistyles';
+import { space } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 
 export type WheelPickerOption = {
@@ -22,7 +23,7 @@ export interface WheelPickerFieldProps {
  */
 export function WheelPickerField({ label, value, options, onChange }: WheelPickerFieldProps) {
   return (
-    <View className="gap-one">
+    <View style={styles.root}>
       {label && (
         <Txt variant="label" tone="secondary">
           {label}
@@ -36,3 +37,9 @@ export function WheelPickerField({ label, value, options, onChange }: WheelPicke
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  root: {
+    gap: space.xs,
+  },
+});

@@ -1,10 +1,39 @@
 import { Image } from 'expo-image';
+import { LinearGradient } from 'expo-linear-gradient';
 import { View } from 'react-native';
 import Animated, { Easing, Keyframe } from 'react-native-reanimated';
-
-import classes from './animated-icon.module.css';
+import { StyleSheet } from 'react-native-unistyles';
 
 const DURATION = 300;
+
+const styles = StyleSheet.create({
+  iconRoot: {
+    width: 128,
+    height: 128,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  glow: {
+    width: 201,
+    height: 201,
+    position: 'absolute',
+  },
+  expoLogoBackground: {
+    width: 128,
+    height: 128,
+    position: 'absolute',
+    borderRadius: 40,
+  },
+  logoContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  expoLogo: {
+    width: 76,
+    height: 71,
+    position: 'absolute',
+  },
+});
 
 export function AnimatedSplashOverlay() {
   return null;
@@ -57,30 +86,17 @@ const glowKeyframe = new Keyframe({
 
 export function AnimatedIcon() {
   return (
-    <View className="justify-center items-center w-[128px] h-[128px]">
-      <Animated.View
-        entering={glowKeyframe.duration(60 * 1000 * 4)}
-        className="w-[201px] h-[201px] absolute">
-        {/* Image (expo-image) ist bei NativeWind nicht registriert. */}
-        <Image
-          style={{ width: 201, height: 201, position: 'absolute' }}
-          source={require('@/assets/images/logo-glow.png')}
-        />
+    <View style={styles.iconRoot}>
+      <Animated.View entering={glowKeyframe.duration(60 * 1000 * 4)} style={styles.glow}>
+        <Image style={styles.glow} source={require('@/assets/images/logo-glow.png')} />
       </Animated.View>
 
-      <Animated.View
-        className="w-[128px] h-[128px] absolute"
-        entering={keyframe.duration(DURATION)}>
-        <div className={classes.expoLogoBackground} />
+      <Animated.View entering={keyframe.duration(DURATION)} style={styles.expoLogoBackground}>
+        <LinearGradient colors={['#3c9ffe', '#0274df']} style={styles.expoLogoBackground} />
       </Animated.View>
 
-      <Animated.View
-        className="justify-center items-center"
-        entering={logoKeyframe.duration(DURATION)}>
-        <Image
-          style={{ width: 76, height: 71, position: 'absolute' }}
-          source={require('@/assets/images/expo-logo.png')}
-        />
+      <Animated.View style={styles.logoContainer} entering={logoKeyframe.duration(DURATION)}>
+        <Image style={styles.expoLogo} source={require('@/assets/images/expo-logo.png')} />
       </Animated.View>
     </View>
   );

@@ -1,8 +1,10 @@
 import { Picker } from '@expo/ui/community/picker';
 import { useState } from 'react';
-import { Modal, Pressable, StyleSheet, View } from 'react-native';
-import { font } from '@/components/theme/index';
-import { Button, Txt } from '@/constants/ui';
+import { Modal, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { font, type Palette, radius, space } from '@/components/theme/index';
+import { useThemedStyles } from '@/components/theme/ThemeProvider';
+import { Button, Press, Txt } from '@/constants/ui';
 
 export type WheelPickerOption = {
   value: string;
@@ -24,6 +26,7 @@ export function WheelPickerField({
   onChange,
   size = 'default',
 }: WheelPickerFieldProps) {
+  const styles = useThemedStyles(makeStyles);
   const [isOpen, setIsOpen] = useState(false);
   const [pendingValue, setPendingValue] = useState(value);
 
@@ -44,25 +47,28 @@ export function WheelPickerField({
   }
 
   return (
-    <View className="gap-one">
+    <View style={styles.root}>
       {label && (
         <Txt variant="label" tone="secondary">
           {label}
         </Txt>
       )}
-      <Pressable
+      <Press
         onPress={open}
+        haptic="none"
+        scaleTo={0.98}
         accessibilityRole="button"
         accessibilityLabel={label ? `${label} ${selectedLabel} ändern` : `${selectedLabel} ändern`}
-        className="input-field active:opacity-75">
+        containerStyle={styles.pressContainer}
+        style={styles.inputField}>
         <Txt variant="body" tone="primary" style={size === 'large' ? styles.largeValue : undefined}>
           {selectedLabel}
         </Txt>
-      </Pressable>
+      </Press>
 
       <Modal visible={isOpen} transparent animationType="fade" onRequestClose={cancel}>
-        <View className="modal-backdrop">
-          <View className="modal-sheet">
+        <View style={styles.modalBackdrop}>
+          <View style={styles.modalSheet}>
             {label && (
               <Txt variant="heading" weight="700">
                 {label}
@@ -73,11 +79,11 @@ export function WheelPickerField({
                 <Picker.Item key={option.value} label={option.label} value={option.value} />
               ))}
             </Picker>
-            <View className="flex-row gap-two mt-two">
-              <View className="flex-1">
+            <View style={styles.footerRow}>
+              <View style={styles.flex}>
                 <Button title="Übernehmen" onPress={confirm} />
               </View>
-              <View className="flex-1">
+              <View style={styles.flex}>
                 <Button title="Abbrechen" variant="secondary" onPress={cancel} />
               </View>
             </View>
@@ -88,9 +94,46 @@ export function WheelPickerField({
   );
 }
 
-const styles = StyleSheet.create({
-  largeValue: {
-    fontSize: font.sizes.md,
-    lineHeight: font.lineHeights.subheading,
-  },
-});
+function makeStyles(colors: Palette) {
+  return StyleSheet.create({
+    root: {
+      gap: space.xs,
+    },
+    pressContainer: {
+      width: '100%',
+    },
+    inputField: {
+      width: '100%',
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: radius.md,
+      paddingHorizontal: space.lg,
+      paddingVertical: 10,
+      backgroundColor: colors.backgroundElement,
+    },
+    largeValue: {
+      fontSize: font.sizes.md,
+      lineHeight: font.lineHeights.subheading,
+    },
+    modalBackdrop: {
+      flex: 1,
+      backgroundColor: colors.scrim,
+      justifyContent: 'center',
+      padding: 24,
+    },
+    modalSheet: {
+      gap: space.lg,
+      padding: 24,
+      borderRadius: radius.lg,
+      backgroundColor: colors.background,
+    },
+    footerRow: {
+      flexDirection: 'row',
+      gap: space.sm,
+      marginTop: space.sm,
+    },
+    flex: {
+      flex: 1,
+    },
+  });
+}
