@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { radius, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
@@ -70,7 +70,14 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
       <GlassCard
         outerStyle={{ borderRadius: radius.lg, flex: 1 }}
         glassStyle={TRIGGER_GLASS_STYLE}
-        fallbackClassName="inventory-tab-bar-trigger"
+        fallbackStyle={[
+          TRIGGER_GLASS_STYLE,
+          {
+            backgroundColor: withAlpha(colors.backgroundElement, 0.91),
+            borderWidth: StyleSheet.hairlineWidth,
+            borderColor: colors.border,
+          },
+        ]}
         onPress={toggleMenu}
         accessibilityRole="button"
         accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}>

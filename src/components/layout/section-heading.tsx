@@ -1,14 +1,38 @@
+import { useState } from 'react';
 import { Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { Txt } from '@/constants/ui';
+import { space } from '@/components/theme/index';
+import { Txt, type TxtVariant } from '@/constants/ui';
 
 type SectionHeadingProps = {
   title: string;
   eyebrow?: string;
   actionLabel?: string;
   onActionPress?: () => void;
-  titleClassName?: string;
+  titleVariant?: TxtVariant;
 };
+
+const styles = StyleSheet.create({
+  root: {
+    minHeight: 24,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    gap: space.md,
+    marginBottom: space.md,
+  },
+  content: {
+    flexShrink: 1,
+  },
+  eyebrow: {
+    textTransform: 'uppercase',
+    letterSpacing: 0.7,
+  },
+  actionPressed: {
+    opacity: 0.65,
+  },
+});
 
 /** Kleine Abschnittszeile fuer Kartenraster und horizontale Sammlungen. */
 export function SectionHeading({
@@ -16,22 +40,19 @@ export function SectionHeading({
   eyebrow,
   actionLabel,
   onActionPress,
-  titleClassName = '',
+  titleVariant = 'body',
 }: SectionHeadingProps) {
+  const [actionPressed, setActionPressed] = useState(false);
+
   return (
-    <View className="min-h-[24px] flex-row items-end justify-between gap-[12px] mb-two">
-      <View className="shrink">
+    <View style={styles.root}>
+      <View style={styles.content}>
         {eyebrow ? (
-          <Txt
-            variant="caption"
-            tone="secondary"
-            weight="600"
-            className="uppercase"
-            style={{ letterSpacing: 0.7 }}>
+          <Txt variant="caption" tone="secondary" weight="600" style={styles.eyebrow}>
             {eyebrow}
           </Txt>
         ) : null}
-        <Txt variant="body" weight="700" className={titleClassName}>
+        <Txt variant={titleVariant} weight="700">
           {title}
         </Txt>
       </View>
@@ -41,7 +62,9 @@ export function SectionHeading({
           role="button"
           aria-label={actionLabel}
           hitSlop={8}
-          className="active:opacity-65">
+          onPressIn={() => setActionPressed(true)}
+          onPressOut={() => setActionPressed(false)}
+          style={actionPressed ? styles.actionPressed : undefined}>
           <Txt variant="caption" tone="primary" weight="700">
             {actionLabel}
           </Txt>

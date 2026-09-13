@@ -1,6 +1,15 @@
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
+import { space } from '@/components/theme/index';
 import { InlineSelect } from '@/components/ui/inline-select';
+
+const styles = StyleSheet.create({
+  root: {
+    flexDirection: 'row',
+    gap: space.sm,
+  },
+});
 
 export type ItemSource = 'food' | 'dish';
 
@@ -25,7 +34,7 @@ export function ItemSourceFilterRow({
   suggestionAccessibilityLabel,
 }: ItemSourceFilterRowProps) {
   return (
-    <View className="flex-row gap-two">
+    <View style={styles.root}>
       <InlineSelect
         value={source}
         accessibilityLabel={sourceAccessibilityLabel}

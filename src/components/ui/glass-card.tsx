@@ -7,6 +7,16 @@ import {
   type StyleProp,
   type ViewStyle,
 } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+
+const styles = StyleSheet.create({
+  glassContent: {
+    flex: 1,
+  },
+  fallbackPressed: {
+    opacity: 0.8,
+  },
+});
 
 function useReduceTransparency(): boolean {
   const [reduceTransparency, setReduceTransparency] = useState(false);
@@ -37,12 +47,9 @@ export function useGlassAvailable(): boolean {
 type GlassCardProps = {
   /** Groesse/Position der Kachel (Hoehe, evtl. `flex: 1` fuer nebeneinander stehende Widgets). */
   outerStyle?: StyleProp<ViewStyle>;
-  /** (s. docs/design-system/nativewind-liquid-glass-migration.md,
-   * Abschnitt "KRITISCH"), deshalb hier als RN-Style statt Tailwind-Klasse. */
+  /** GlassView-Styles bleiben native Styles, da GlassView keine CSS-Interop hat. */
   glassStyle: StyleProp<ViewStyle>;
-  /** Legacy-Tailwind-Fallback fuer bestehende Aufrufer. */
-  fallbackClassName?: string;
-  /** Native fallback styles for callers that do not use a global class. */
+  /** Styles for the solid fallback when the platform glass API is unavailable. */
   fallbackStyle?: StyleProp<ViewStyle>;
   onPress: () => void;
   onLongPress?: () => void;
@@ -55,7 +62,6 @@ type GlassCardProps = {
 export function GlassCard({
   outerStyle,
   glassStyle,
-  fallbackClassName,
   fallbackStyle,
   onPress,
   onLongPress,
@@ -65,6 +71,7 @@ export function GlassCard({
   children,
 }: GlassCardProps) {
   const canUseGlass = useGlassAvailable();
+  const [fallbackPressed, setFallbackPressed] = useState(false);
 
   if (!canUseGlass) {
     return (
@@ -74,8 +81,9 @@ export function GlassCard({
         disabled={disabled}
         accessibilityRole={accessibilityRole}
         accessibilityLabel={accessibilityLabel}
-        className={fallbackClassName}
-        style={[fallbackStyle, outerStyle]}>
+        onPressIn={() => setFallbackPressed(true)}
+        onPressOut={() => setFallbackPressed(false)}
+        style={[fallbackStyle, outerStyle, fallbackPressed && styles.fallbackPressed]}>
         {children}
       </Pressable>
     );
@@ -92,7 +100,7 @@ export function GlassCard({
       <GlassView
         glassEffectStyle="regular"
         isInteractive={!disabled}
-        style={[{ flex: 1 }, glassStyle]}>
+        style={[styles.glassContent, glassStyle]}>
         {children}
       </GlassView>
     </Pressable>

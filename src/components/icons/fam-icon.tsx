@@ -1,8 +1,36 @@
 import { Image } from 'expo-image';
 import { View } from 'react-native';
 import Svg, { Circle, Path } from 'react-native-svg';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { space } from '@/components/theme/index';
+
+const styles = StyleSheet.create({
+  menu: {
+    width: 26,
+    height: 26,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 4,
+  },
+  menuLine: {
+    width: 17,
+    height: 2,
+  },
+  plus: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+  },
+  plusHorizontal: {
+    height: 2,
+    position: 'absolute',
+  },
+  plusVertical: {
+    width: 2,
+    position: 'absolute',
+  },
+});
 
 const ICONS = {
   overview: require('@/assets/images/figma/nav-overview.svg'),
@@ -46,24 +74,24 @@ export function FamIcon({
 
 export function MenuIcon({ color }: { size?: number; color?: string }) {
   return (
-    <View className="w-[26px] h-[26px] items-center justify-center gap-[4px]">
+    <View style={styles.menu}>
       <Image
         source={require('@/assets/images/figma/menu-line.svg')}
         contentFit="fill"
         tintColor={color}
-        style={{ width: 17, height: 2 }}
+        style={styles.menuLine}
       />
       <Image
         source={require('@/assets/images/figma/menu-line.svg')}
         contentFit="fill"
         tintColor={color}
-        style={{ width: 17, height: 2 }}
+        style={styles.menuLine}
       />
       <Image
         source={require('@/assets/images/figma/menu-line.svg')}
         contentFit="fill"
         tintColor={color}
-        style={{ width: 17, height: 2 }}
+        style={styles.menuLine}
       />
     </View>
   );
@@ -73,25 +101,18 @@ export function PlusIcon({ size = 28, color }: { size?: number; color?: string }
   const lineLength = Math.round(size * (16 / 28));
 
   return (
-    <View
-      style={{
-        width: size,
-        height: size,
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-      }}>
+    <View style={[styles.plus, { width: size, height: size }]}>
       <Image
         source={require('@/assets/images/figma/plus-horizontal.svg')}
         contentFit="fill"
         tintColor={color}
-        style={{ width: lineLength, height: 2, position: 'absolute' }}
+        style={[styles.plusHorizontal, { width: lineLength }]}
       />
       <Image
         source={require('@/assets/images/figma/plus-vertical.svg')}
         contentFit="fill"
         tintColor={color}
-        style={{ width: 2, height: lineLength, position: 'absolute' }}
+        style={[styles.plusVertical, { height: lineLength }]}
       />
     </View>
   );

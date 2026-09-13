@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, View } from 'react-native';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Txt } from '@/constants/ui';
@@ -82,7 +83,17 @@ export function StorePickerMenu({
           accessibilityLabel={t('shoppingList.storePickerMenu.filterAccessibility', {
             current: activeLabel,
           })}
-          fallbackClassName="store-picker-btn"
+          fallbackStyle={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: space.sm,
+            paddingHorizontal: space.lg,
+            paddingVertical: space.md,
+            borderRadius: radius.pill,
+            borderWidth: 1,
+            borderColor: theme.border,
+            backgroundColor: theme.backgroundElement,
+          }}
           glassStyle={GLASS_STYLE}
           outerStyle={{ borderRadius: 999 }}>
           <View className="store-picker-dot" style={{ backgroundColor: activeDotColor }} />

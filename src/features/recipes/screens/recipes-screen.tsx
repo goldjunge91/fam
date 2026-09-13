@@ -570,10 +570,7 @@ export function RecipesScreen() {
 
               {mealSections.length > 0 ? (
                 <View className="mb-five">
-                  <SectionHeading
-                    title="Nach Mahlzeiten"
-                    titleClassName="text-heading-sm leading-[26px]"
-                  />
+                  <SectionHeading title="Nach Mahlzeiten" titleVariant="heading" />
                   {mealSections.map((section) => (
                     <MealSection
                       key={section.key}
