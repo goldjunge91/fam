@@ -43,14 +43,6 @@ export const profileSheetStyles = StyleSheet.create((theme) => ({
     flex: 1,
     gap: theme.space.xs,
   },
-  closeButton: {
-    minWidth: theme.space.xxl + theme.space.md + theme.space.xs,
-    minHeight: theme.space.xxl + theme.space.md + theme.space.xs,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.backgroundSoft,
-  },
   options: {
     flexShrink: 1,
   },

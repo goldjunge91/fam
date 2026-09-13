@@ -1,9 +1,9 @@
 import { SymbolView } from 'expo-symbols';
 import { useEffect, useState } from 'react';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, View } from 'react-native';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Press, TextField, Txt } from '@/constants/ui';
+import { Button, CloseButton, Press, TextField, Txt } from '@/constants/ui';
 import { profileSheetStyles } from '@/features/profile/sheets/profile-sheet-styles';
 
 type PasswordChangeSheetProps = {
@@ -83,15 +83,7 @@ export function PasswordChangeSheet({
                 Speichere dein neues Passwort direkt hier.
               </Txt>
             </View>
-            <Pressable
-              onPress={onClose}
-              role="button"
-              aria-label="Passwort ändern schließen"
-              style={profileSheetStyles.closeButton}>
-              <Txt variant="body" tone="secondary" aria-hidden>
-                ✕
-              </Txt>
-            </Pressable>
+            <CloseButton onPress={onClose} accessibilityLabel="Passwort ändern schließen" />
           </View>
 
           <View style={profileSheetStyles.passwordFields}>

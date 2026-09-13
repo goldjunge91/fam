@@ -6,7 +6,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
 import { useDevSettingsStore } from '@/constants/dev-settings';
-import { Button, Surface, TextField, Txt } from '@/constants/ui';
+import { Button, CloseButton, Surface, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type TrackingMethod,
@@ -119,12 +119,6 @@ const styles = StyleSheet.create((theme) => ({
     paddingBottom: theme.space.sm,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,
-  },
-  modalClose: {
-    minWidth: 44,
-    minHeight: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   modalFields: {
     gap: theme.space.lg,
@@ -388,16 +382,10 @@ function TimePicker({
           <Surface tone="page" style={styles.modal}>
             <View style={styles.modalHeader}>
               <Txt variant="title">Tagesstart festlegen</Txt>
-              <Pressable
+              <CloseButton
                 onPress={() => setModalVisible(false)}
-                hitSlop={12}
-                accessibilityRole="button"
                 accessibilityLabel="Tagesstart festlegen schließen"
-                style={styles.modalClose}>
-                <Txt variant="title" tone="secondary">
-                  ×
-                </Txt>
-              </Pressable>
+              />
             </View>
 
             <View style={styles.modalFields}>
@@ -744,16 +732,10 @@ export function TrackingScreen() {
           <Surface tone="page" style={styles.modal}>
             <View style={styles.modalHeader}>
               <Txt variant="title">Biometrie bearbeiten</Txt>
-              <Pressable
+              <CloseButton
                 onPress={() => setBiometricsModalVisible(false)}
-                hitSlop={12}
-                accessibilityRole="button"
                 accessibilityLabel="Biometrie bearbeiten schließen"
-                style={styles.modalClose}>
-                <Txt variant="title" tone="secondary">
-                  ×
-                </Txt>
-              </Pressable>
+              />
             </View>
 
             <ScrollView

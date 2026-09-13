@@ -1,6 +1,6 @@
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 
-import { Txt } from '@/constants/ui';
+import { CloseButton, Txt } from '@/constants/ui';
 import type { TrackingMethod } from '@/features/calorie-tracking/api';
 import { profileSheetStyles } from '@/features/profile/sheets/profile-sheet-styles';
 
@@ -43,15 +43,7 @@ export function TrackingMethodSheet({
                 Bestimmt dein Ernährungstagebuch
               </Txt>
             </View>
-            <Pressable
-              onPress={onClose}
-              role="button"
-              aria-label="Tracking-Methode schließen"
-              style={profileSheetStyles.closeButton}>
-              <Txt variant="body" tone="secondary" aria-hidden>
-                ✕
-              </Txt>
-            </Pressable>
+            <CloseButton onPress={onClose} accessibilityLabel="Tracking-Methode schließen" />
           </View>
 
           <ScrollView
