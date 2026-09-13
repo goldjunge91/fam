@@ -1,10 +1,18 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { useCreateHouseholdMutation } from '@/features/household/api';
+
+const styles = StyleSheet.create((theme) => ({
+  form: {
+    gap: theme.space.lg,
+  },
+}));
 
 export function CreateHouseholdScreen() {
   const [householdName, setHouseholdName] = useState('');
@@ -44,7 +52,7 @@ export function CreateHouseholdScreen() {
       back={{ label: 'Haushalte' }}>
       {/* Formular zur Erstellung eines neuen Haushalts */}
       <Card>
-        <View className="gap-three">
+        <View style={styles.form}>
           {/* Eingabefeld für Haushaltsname */}
           <TextField
             label="Name deines Haushalts"

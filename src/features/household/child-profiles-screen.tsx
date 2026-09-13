@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Alert, Pressable, View } from 'react-native';
+import { Alert, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+
 import { DatePicker } from '@/components/forms/date-picker';
 import { Screen } from '@/components/layout/screen';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
-import { Button, TextField, Txt } from '@/constants/ui';
+import { Button, Press, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
@@ -15,9 +16,67 @@ import {
 } from '@/features/household/api';
 import { parseChildHeight } from '@/features/household/household-helpers';
 
+const styles = StyleSheet.create((theme) => ({
+  form: {
+    gap: theme.space.lg,
+  },
+  sectionLabel: {
+    marginTop: theme.space.xs,
+  },
+  sexRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  sexButton: {
+    flex: 1,
+    minHeight: 44,
+    paddingVertical: 10,
+    borderWidth: theme.borderWidth.base,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  sexButtonSelected: {
+    backgroundColor: theme.accent,
+    borderColor: theme.accent,
+  },
+  sexButtonIdle: {
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+  actionRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+    marginTop: theme.space.xs,
+  },
+  flex: {
+    flex: 1,
+  },
+  addButtonContainer: {
+    marginBottom: theme.space.xl + theme.space.xs,
+  },
+  childEditCard: {
+    gap: theme.space.lg,
+    paddingVertical: theme.space.lg,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  childRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    paddingVertical: theme.space.lg,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  childActionButtons: {
+    flexDirection: 'row',
+    gap: theme.space.xs,
+  },
+}));
+
 export function ChildProfilesScreen() {
   const { session } = useSession();
-  const { colors } = useTheme();
   const userId = session?.user.id;
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
@@ -119,7 +178,7 @@ export function ChildProfilesScreen() {
       {/* Formular zum Anlegen eines neuen Kinder-Profils (ausklappbar) */}
       {showAddForm ? (
         <Card title="Kinder-Profil hinzufügen">
-          <View className="gap-three">
+          <View style={styles.form}>
             <TextField
               label="Name des Kindes"
               placeholder="z. B. Paul"
@@ -132,32 +191,43 @@ export function ChildProfilesScreen() {
               onChangeText={setBirthDate}
             />
 
-            <Txt variant="body" weight="700" className="mt-one">
+            <Txt variant="body" weight="700" style={styles.sectionLabel}>
               Geschlecht (optional)
             </Txt>
-            <View className="sex-row">
-              <Pressable
+            <View
+              style={styles.sexRow}
+              accessibilityRole="radiogroup"
+              accessibilityLabel="Geschlecht (optional)">
+              <Press
                 onPress={() => setSex(sex === 'male' ? null : 'male')}
-                className="child-segment-btn"
-                style={{
-                  backgroundColor: sex === 'male' ? colors.basil : colors.surface,
-                  borderColor: sex === 'male' ? colors.basil : colors.border,
-                }}>
+                containerStyle={styles.flex}
+                accessibilityRole="radio"
+                accessibilityLabel="Männlich"
+                accessibilityState={{ selected: sex === 'male' }}
+                haptic="selection"
+                style={[
+                  styles.sexButton,
+                  sex === 'male' ? styles.sexButtonSelected : styles.sexButtonIdle,
+                ]}>
                 <Txt variant="body" tone={sex === 'male' ? 'onAccent' : 'primary'}>
                   👦 Männlich
                 </Txt>
-              </Pressable>
-              <Pressable
+              </Press>
+              <Press
                 onPress={() => setSex(sex === 'female' ? null : 'female')}
-                className="child-segment-btn"
-                style={{
-                  backgroundColor: sex === 'female' ? colors.basil : colors.surface,
-                  borderColor: sex === 'female' ? colors.basil : colors.border,
-                }}>
+                containerStyle={styles.flex}
+                accessibilityRole="radio"
+                accessibilityLabel="Weiblich"
+                accessibilityState={{ selected: sex === 'female' }}
+                haptic="selection"
+                style={[
+                  styles.sexButton,
+                  sex === 'female' ? styles.sexButtonSelected : styles.sexButtonIdle,
+                ]}>
                 <Txt variant="body" tone={sex === 'female' ? 'onAccent' : 'primary'}>
                   👧 Weiblich
                 </Txt>
-              </Pressable>
+              </Press>
             </View>
 
             <TextField
@@ -168,8 +238,8 @@ export function ChildProfilesScreen() {
               keyboardType="numeric"
             />
 
-            <View className="flex-row gap-two mt-one">
-              <View className="flex-1">
+            <View style={styles.actionRow}>
+              <View style={styles.flex}>
                 <Button
                   title="Speichern"
                   onPress={handleAdd}
@@ -177,7 +247,7 @@ export function ChildProfilesScreen() {
                   disabled={!name.trim()}
                 />
               </View>
-              <View className="flex-1">
+              <View style={styles.flex}>
                 <Button
                   title="Abbrechen"
                   variant="secondary"
@@ -189,7 +259,7 @@ export function ChildProfilesScreen() {
         </Card>
       ) : (
         /* Button zum Öffnen des Anlege-Formulars */
-        <View className="mb-four">
+        <View style={styles.addButtonContainer}>
           <Button title="+ Kinder-Profil anlegen" onPress={() => setShowAddForm(true)} />
         </View>
       )}
@@ -211,7 +281,7 @@ export function ChildProfilesScreen() {
             if (isEditing) {
               return (
                 /* Inline-Bearbeitungsformular für ein Kind */
-                <View key={item.id} className="child-edit-card">
+                <View key={item.id} style={styles.childEditCard}>
                   <TextField label="Name des Kindes" value={editName} onChangeText={setEditName} />
                   <DatePicker
                     label="Geburtsdatum"
@@ -219,32 +289,43 @@ export function ChildProfilesScreen() {
                     onChangeText={setEditBirthDate}
                   />
 
-                  <Txt variant="body" weight="700" className="mt-one">
+                  <Txt variant="body" weight="700" style={styles.sectionLabel}>
                     Geschlecht
                   </Txt>
-                  <View className="sex-row">
-                    <Pressable
+                  <View
+                    style={styles.sexRow}
+                    accessibilityRole="radiogroup"
+                    accessibilityLabel="Geschlecht">
+                    <Press
                       onPress={() => setEditSex(editSex === 'male' ? null : 'male')}
-                      className="child-segment-btn"
-                      style={{
-                        backgroundColor: editSex === 'male' ? colors.basil : colors.surface,
-                        borderColor: editSex === 'male' ? colors.basil : colors.border,
-                      }}>
+                      containerStyle={styles.flex}
+                      accessibilityRole="radio"
+                      accessibilityLabel="Männlich"
+                      accessibilityState={{ selected: editSex === 'male' }}
+                      haptic="selection"
+                      style={[
+                        styles.sexButton,
+                        editSex === 'male' ? styles.sexButtonSelected : styles.sexButtonIdle,
+                      ]}>
                       <Txt variant="body" tone={editSex === 'male' ? 'onAccent' : 'primary'}>
                         👦 Männlich
                       </Txt>
-                    </Pressable>
-                    <Pressable
+                    </Press>
+                    <Press
                       onPress={() => setEditSex(editSex === 'female' ? null : 'female')}
-                      className="child-segment-btn"
-                      style={{
-                        backgroundColor: editSex === 'female' ? colors.basil : colors.surface,
-                        borderColor: editSex === 'female' ? colors.basil : colors.border,
-                      }}>
+                      containerStyle={styles.flex}
+                      accessibilityRole="radio"
+                      accessibilityLabel="Weiblich"
+                      accessibilityState={{ selected: editSex === 'female' }}
+                      haptic="selection"
+                      style={[
+                        styles.sexButton,
+                        editSex === 'female' ? styles.sexButtonSelected : styles.sexButtonIdle,
+                      ]}>
                       <Txt variant="body" tone={editSex === 'female' ? 'onAccent' : 'primary'}>
                         👧 Weiblich
                       </Txt>
-                    </Pressable>
+                    </Press>
                   </View>
 
                   <TextField
@@ -254,8 +335,8 @@ export function ChildProfilesScreen() {
                     keyboardType="numeric"
                   />
 
-                  <View className="flex-row gap-two mt-one">
-                    <View className="flex-1">
+                  <View style={styles.actionRow}>
+                    <View style={styles.flex}>
                       <Button
                         title="Übernehmen"
                         onPress={() => handleUpdate(item.id)}
@@ -263,7 +344,7 @@ export function ChildProfilesScreen() {
                         disabled={!editName.trim()}
                       />
                     </View>
-                    <View className="flex-1">
+                    <View style={styles.flex}>
                       <Button
                         title="Abbrechen"
                         variant="secondary"
@@ -277,8 +358,8 @@ export function ChildProfilesScreen() {
 
             return (
               /* Zeile mit Profil-Stammdaten und Aktions-Buttons */
-              <View key={item.id} className="child-row">
-                <View className="flex-1">
+              <View key={item.id} style={styles.childRow}>
+                <View style={styles.flex}>
                   <Txt variant="body" weight="700">
                     {item.sex === 'female' ? '👧' : item.sex === 'male' ? '👦' : '👶'}{' '}
                     {item.display_name}
@@ -296,7 +377,7 @@ export function ChildProfilesScreen() {
                   </Txt>
                 </View>
 
-                <View className="child-action-buttons">
+                <View style={styles.childActionButtons}>
                   <Button title="Bearbeiten" variant="secondary" onPress={() => startEdit(item)} />
                   <Button
                     title="Löschen"
