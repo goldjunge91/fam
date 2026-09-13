@@ -1,7 +1,8 @@
-import { Pressable, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 
 type CategoryMatchInput = {
   dish_types: string[];
@@ -80,6 +81,24 @@ type CategoryCarouselProps = {
   onSelect: (key: string | null) => void;
 };
 
+const styles = StyleSheet.create((theme) => ({
+  content: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  tile: {
+    width: 92,
+    minHeight: 78,
+    borderWidth: 1,
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.space.xs,
+    paddingHorizontal: theme.space.sm,
+    paddingVertical: theme.space.sm,
+  },
+}));
+
 /** Horizontale Kategorie-Kacheln mit Icon und Label. */
 export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProps) {
   const { colors } = useTheme();
@@ -87,21 +106,23 @@ export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProp
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      contentContainerClassName="flex-row gap-two">
+      contentContainerStyle={styles.content}>
       {CATEGORY_TILES.map((tile) => {
         const selected = tile.key === selectedKey;
         return (
-          <Pressable
+          <Press
             key={tile.key}
             onPress={() => onSelect(selected ? null : tile.key)}
             role="button"
             aria-label={tile.label}
             aria-selected={selected}
-            className="category-tile"
-            style={{
-              backgroundColor: selected ? colors.accent : colors.backgroundElement,
-              borderColor: selected ? colors.accent : colors.border,
-            }}>
+            style={[
+              styles.tile,
+              {
+                backgroundColor: selected ? colors.accent : colors.backgroundElement,
+                borderColor: selected ? colors.accent : colors.border,
+              },
+            ]}>
             <Txt variant="subheading">{tile.emoji}</Txt>
             <Txt
               variant="caption"
@@ -111,7 +132,7 @@ export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProp
               numberOfLines={1}>
               {tile.label}
             </Txt>
-          </Pressable>
+          </Press>
         );
       })}
     </ScrollView>

@@ -1,4 +1,4 @@
-import { render, screen, userEvent, within } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent, within } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import type { CatalogRecipe } from '../catalog/use-recipe-catalog';
 import type { RecipeListItem } from '../hooks/use-recipes';
@@ -152,6 +152,43 @@ describe('RecipesScreen — Entdecken', () => {
 
     expect(screen.getByText('100–200')).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Pizza Home' })).toBeOnTheScreen();
+  });
+
+  it('rendert weitere Rezepte einer Mahlzeit beim Scrollen nach', async () => {
+    mockCatalogRecipes = Array.from({ length: 21 }, (_, index) =>
+      makeCatalogRecipe({
+        id: `breakfast-${index + 1}`,
+        slug: `breakfast-${index + 1}`,
+        title: `Frühstück ${index + 1}`,
+        dish_types: ['breakfast'],
+      }),
+    );
+
+    await render(<RecipesScreen />);
+
+    expect(screen.getByRole('button', { name: 'Frühstück 10' })).toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Frühstück 11' })).not.toBeOnTheScreen();
+
+    await fireEvent.scroll(screen.getByTestId('meal-section-Frühstück'), {
+      nativeEvent: {
+        contentOffset: { x: 4700, y: 0 },
+        contentSize: { width: 5000, height: 200 },
+        layoutMeasurement: { width: 350, height: 200 },
+      },
+    });
+
+    expect(screen.getByRole('button', { name: 'Frühstück 11' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Frühstück 20' })).toBeOnTheScreen();
+
+    await fireEvent.scroll(screen.getByTestId('meal-section-Frühstück'), {
+      nativeEvent: {
+        contentOffset: { x: 9700, y: 0 },
+        contentSize: { width: 10000, height: 200 },
+        layoutMeasurement: { width: 350, height: 200 },
+      },
+    });
+
+    expect(screen.getByRole('button', { name: 'Frühstück 21' })).toBeOnTheScreen();
   });
 
   it('öffnet das Navigationsmenü über den Header', async () => {

@@ -18,7 +18,6 @@ interface StepMentionTextProps extends TextProps {
   ingredients: MentionableIngredient[];
   variant?: StepMentionVariant;
   tone?: StepMentionTone;
-  className?: string;
   color?: string;
   weight?: TextStyle['fontWeight'];
   center?: boolean;
@@ -29,7 +28,6 @@ export function StepMentionText({
   ingredients,
   variant = 'body',
   tone,
-  className,
   color,
   weight,
   center,
@@ -42,7 +40,6 @@ export function StepMentionText({
       {...rest}
       variant={variant}
       tone={tone}
-      className={className}
       color={color}
       weight={weight}
       center={center}

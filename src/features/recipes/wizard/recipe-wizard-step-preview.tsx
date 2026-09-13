@@ -1,8 +1,10 @@
 import { Image } from 'expo-image';
 import { useState } from 'react';
-import { Pressable, ScrollView, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/hooks/use-recipes';
 import { UNIT_OPTIONS } from '@/lib/units';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
@@ -37,6 +39,107 @@ interface RecipeWizardStepPreviewProps {
 }
 
 type PreviewTab = 'ingredients' | 'instructions';
+
+const styles = StyleSheet.create((theme) => ({
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingHorizontal: rs(24),
+    paddingBottom: rs(64),
+  },
+  eyebrow: {
+    paddingTop: rs(8),
+    letterSpacing: 1.5,
+  },
+  heading: {
+    paddingTop: rs(6),
+    paddingBottom: rs(16),
+  },
+  cover: {
+    width: '100%',
+    height: rs(200),
+    borderRadius: theme.radius.lg,
+    overflow: 'hidden',
+    marginBottom: rs(24),
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    marginBottom: rs(24),
+  },
+  tabs: {
+    flexDirection: 'row',
+    borderRadius: theme.radius.famLarge,
+    padding: rs(4),
+    marginBottom: rs(24),
+  },
+  tabContainer: {
+    flex: 1,
+  },
+  tab: {
+    flex: 1,
+    alignItems: 'center',
+    borderRadius: theme.radius.famLarge,
+    paddingVertical: rs(10),
+  },
+  section: {
+    gap: rs(16),
+  },
+  wrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: rs(8),
+  },
+  infoChip: {
+    borderRadius: theme.radius.famLarge,
+    paddingHorizontal: rs(24),
+    paddingVertical: rs(6),
+  },
+  tagChip: {
+    borderRadius: theme.radius.sm,
+    paddingHorizontal: rs(10),
+    paddingVertical: rs(5),
+  },
+  component: {
+    gap: rs(4),
+  },
+  stepCard: {
+    borderRadius: theme.radius.lg,
+    padding: rs(16),
+    gap: rs(8),
+  },
+  stepImage: {
+    width: '100%',
+    height: rs(140),
+    borderRadius: theme.radius.sm,
+  },
+  stepIngredientWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: rs(6),
+  },
+  stepIngredient: {
+    borderRadius: theme.radius.sm,
+    paddingHorizontal: rs(10),
+    paddingVertical: rs(4),
+  },
+  actions: {
+    flexDirection: 'row',
+    gap: rs(14),
+    marginTop: rs(32),
+    marginBottom: rs(16),
+  },
+  actionContainer: {
+    flex: 1,
+  },
+  action: {
+    minHeight: rs(48),
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}));
 
 export function RecipeWizardStepPreview({
   coverPreviewUri,
@@ -77,18 +180,16 @@ export function RecipeWizardStepPreview({
 
   return (
     <ScrollView
-      className="flex-1"
-      contentContainerClassName="px-four pb-six"
+      style={styles.scroll}
+      contentContainerStyle={styles.scrollContent}
       showsVerticalScrollIndicator={false}>
-      <Txt variant="caption" tone="secondary" className="pt-two tracking-widest" weight="500">
+      <Txt variant="caption" tone="secondary" style={styles.eyebrow} weight="500">
         SCHRITT 4 VON 4
       </Txt>
-      <Txt variant="heading" className="pt-[6px] pb-three">
+      <Txt variant="heading" style={styles.heading}>
         Vorschau
       </Txt>
-      <View
-        className="w-full h-[200px] rounded-sheet overflow-hidden mb-four justify-center items-center"
-        style={{ backgroundColor: colors.backgroundElement }}>
+      <View style={[styles.cover, { backgroundColor: colors.backgroundElement }]}>
         {coverPreviewUri ? (
           <Image
             source={{ uri: coverPreviewUri }}
@@ -103,60 +204,58 @@ export function RecipeWizardStepPreview({
         )}
       </View>
 
-      <Txt variant="heading" className="mb-four">
+      <Txt variant="heading" style={styles.title}>
         {title || 'Ohne Titel'}
       </Txt>
 
-      <View
-        className="flex-row rounded-fam-large p-one mb-four"
-        style={{ backgroundColor: colors.backgroundElement }}>
-        <Pressable
+      <View style={[styles.tabs, { backgroundColor: colors.backgroundElement }]}>
+        <Press
           onPress={() => setTab('ingredients')}
           accessibilityRole="tab"
           accessibilityState={{ selected: tab === 'ingredients' }}
-          className="flex-1 py-[10px] rounded-fam-large items-center"
-          style={{ backgroundColor: tab === 'ingredients' ? colors.accent : 'transparent' }}>
+          containerStyle={styles.tabContainer}
+          style={[
+            styles.tab,
+            { backgroundColor: tab === 'ingredients' ? colors.accent : 'transparent' },
+          ]}>
           <Txt variant="body" tone={tab === 'ingredients' ? 'onAccent' : 'primary'} weight="600">
             Zutaten
           </Txt>
-        </Pressable>
-        <Pressable
+        </Press>
+        <Press
           onPress={() => setTab('instructions')}
           accessibilityRole="tab"
           accessibilityState={{ selected: tab === 'instructions' }}
-          className="flex-1 py-[10px] rounded-fam-large items-center"
-          style={{ backgroundColor: tab === 'instructions' ? colors.accent : 'transparent' }}>
+          containerStyle={styles.tabContainer}
+          style={[
+            styles.tab,
+            { backgroundColor: tab === 'instructions' ? colors.accent : 'transparent' },
+          ]}>
           <Txt variant="body" tone={tab === 'instructions' ? 'onAccent' : 'primary'} weight="600">
             Anleitung
           </Txt>
-        </Pressable>
+        </Press>
       </View>
 
       {tab === 'ingredients' ? (
-        <View className="gap-three">
+        <View style={styles.section}>
           {description ? <Txt variant="body">{description}</Txt> : null}
 
-          <View className="row-wrap gap-two">
+          <View style={styles.wrap}>
             {cookTimeMinutes ? (
-              <View
-                className="px-three py-[6px] rounded-fam-large"
-                style={{ backgroundColor: colors.backgroundElement }}>
+              <View style={[styles.infoChip, { backgroundColor: colors.backgroundElement }]}>
                 <Txt variant="label" weight="600">
                   ⏱ {cookTimeMinutes} Min.
                 </Txt>
               </View>
             ) : null}
-            <View
-              className="px-three py-[6px] rounded-fam-large"
-              style={{ backgroundColor: colors.backgroundElement }}>
+            <View style={[styles.infoChip, { backgroundColor: colors.backgroundElement }]}>
               <Txt variant="label" weight="600">
                 🍽 {defaultServings} Portionen
               </Txt>
             </View>
             {difficulty ? (
-              <View
-                className="px-three py-[6px] rounded-fam-large"
-                style={{ backgroundColor: colors.backgroundElement }}>
+              <View style={[styles.infoChip, { backgroundColor: colors.backgroundElement }]}>
                 <Txt variant="label" weight="600">
                   {labelFor(DIFFICULTIES, difficulty)}
                 </Txt>
@@ -165,22 +264,16 @@ export function RecipeWizardStepPreview({
           </View>
 
           {dishTypes.length > 0 || dietaryTags.length > 0 ? (
-            <View className="row-wrap gap-two">
+            <View style={styles.wrap}>
               {dishTypes.map((d) => (
-                <View
-                  key={d}
-                  className="px-[10px] py-[5px] rounded-control"
-                  style={{ backgroundColor: colors.backgroundSoft }}>
+                <View key={d} style={[styles.tagChip, { backgroundColor: colors.backgroundSoft }]}>
                   <Txt variant="caption" tone="primary" weight="600">
                     {labelFor(DISH_TYPES, d)}
                   </Txt>
                 </View>
               ))}
               {dietaryTags.map((d) => (
-                <View
-                  key={d}
-                  className="px-[10px] py-[5px] rounded-control"
-                  style={{ backgroundColor: colors.backgroundSoft }}>
+                <View key={d} style={[styles.tagChip, { backgroundColor: colors.backgroundSoft }]}>
                   <Txt variant="caption" tone="primary" weight="600">
                     {labelFor(DIETARY_TAGS, d)}
                   </Txt>
@@ -196,7 +289,7 @@ export function RecipeWizardStepPreview({
           ) : null}
 
           {components.map((comp) => (
-            <View key={comp.id} className="gap-one">
+            <View key={comp.id} style={styles.component}>
               <Txt variant="body" weight="700">
                 {comp.title}
               </Txt>
@@ -212,14 +305,13 @@ export function RecipeWizardStepPreview({
           ))}
         </View>
       ) : (
-        <View className="gap-three">
+        <View style={styles.section}>
           {steps
             .filter((step) => step.text.trim())
             .map((step, index) => (
               <View
                 key={step.id}
-                className="rounded-sheet p-three gap-two"
-                style={{ backgroundColor: colors.backgroundElement }}>
+                style={[styles.stepCard, { backgroundColor: colors.backgroundElement }]}>
                 <Txt variant="label" tone="primary" weight="700">
                   Schritt {index + 1}
                 </Txt>
@@ -227,7 +319,7 @@ export function RecipeWizardStepPreview({
                   <Image
                     source={{ uri: step.localImageUri }}
                     // expo-image benötigt inline styles
-                    style={{ width: '100%', height: 140, borderRadius: 12 }}
+                    style={styles.stepImage}
                     contentFit="cover"
                   />
                 ) : null}
@@ -238,12 +330,14 @@ export function RecipeWizardStepPreview({
                   </Txt>
                 ) : null}
                 {step.ingredientIds.length > 0 ? (
-                  <View className="row-wrap gap-[6px]">
+                  <View style={styles.stepIngredientWrap}>
                     {step.ingredientIds.map((id) => (
                       <View
                         key={id}
-                        className="px-[10px] py-one rounded-control"
-                        style={{ backgroundColor: colors.backgroundElement }}>
+                        style={[
+                          styles.stepIngredient,
+                          { backgroundColor: colors.backgroundElement },
+                        ]}>
                         <Txt variant="caption" tone="primary" weight="600">
                           {ingredientLabelById.get(id) ?? id}
                         </Txt>
@@ -256,25 +350,25 @@ export function RecipeWizardStepPreview({
         </View>
       )}
 
-      <View className="flex-row gap-[14px] mt-five mb-three">
-        <Pressable
-          className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
-          style={{ backgroundColor: colors.backgroundElement }}
+      <View style={styles.actions}>
+        <Press
+          containerStyle={styles.actionContainer}
+          style={[styles.action, { backgroundColor: colors.backgroundElement }]}
           onPress={onBack}>
           <Txt variant="caption" tone="primary" weight="600">
             Zurück
           </Txt>
-        </Pressable>
-        <Pressable
-          className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
-          style={{ backgroundColor: colors.accent, opacity: saving ? 0.5 : 1 }}
+        </Press>
+        <Press
+          containerStyle={styles.actionContainer}
+          style={[styles.action, { backgroundColor: colors.accent, opacity: saving ? 0.5 : 1 }]}
           accessibilityRole="button"
           onPress={onSave}
           disabled={saving}>
           <Txt variant="caption" tone="onAccent" weight="600">
             {saving ? 'Speichert…' : 'Speichern'}
           </Txt>
-        </Pressable>
+        </Press>
       </View>
     </ScrollView>
   );

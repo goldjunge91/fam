@@ -1,14 +1,16 @@
 import { Image } from 'expo-image';
 import { memo, useState } from 'react';
-import { Pressable, TextInput, TouchableOpacity, View } from 'react-native';
+import { TextInput, TouchableOpacity, View } from 'react-native';
 import ReorderableList, {
   type ReorderableListReorderEvent,
   reorderItems,
   useReorderableDrag,
 } from 'react-native-reorderable-list';
 import Svg, { Path } from 'react-native-svg';
+import { StyleSheet } from 'react-native-unistyles';
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { StepMentionText } from '@/features/recipes/components/step-mention-text';
 import { pickRecipeImage } from '@/features/recipes/data/household-recipe-images';
 import {
@@ -18,6 +20,169 @@ import {
   mentionedIngredientIds,
 } from '@/features/recipes/domain/ingredient-mentions';
 import type { IngredientComponentGroup, WizardStepItem } from './types';
+
+const styles = StyleSheet.create((theme) => ({
+  ledger: {
+    marginBottom: theme.space.sm,
+    paddingBottom: theme.space.sm,
+  },
+  ledgerToggle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: theme.space.xs,
+  },
+  ledgerSummary: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
+  ledgerBody: {
+    gap: rs(6),
+    paddingTop: theme.space.xs,
+  },
+  ledgerRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+  },
+  progress: {
+    height: rs(2),
+    borderRadius: rs(2),
+    overflow: 'hidden',
+  },
+  progressFill: {
+    height: '100%',
+  },
+  stepCard: {
+    borderRadius: theme.radius.lg,
+    padding: rs(11),
+    marginBottom: theme.space.lg,
+    gap: rs(10),
+  },
+  stepHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: rs(10),
+  },
+  dragButton: {
+    padding: theme.space.xs,
+  },
+  stepTitle: {
+    flex: 1,
+  },
+  deleteStep: {
+    width: rs(36),
+    height: rs(36),
+    borderRadius: theme.radius.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  editorWrap: {
+    position: 'relative',
+  },
+  editor: {
+    borderRadius: theme.radius.md,
+    minHeight: rs(132),
+    paddingHorizontal: rs(24),
+    paddingVertical: rs(16),
+    fontSize: 15,
+    lineHeight: 21,
+  },
+  mentionPanel: {
+    position: 'absolute',
+    top: '100%',
+    left: 0,
+    right: 0,
+    zIndex: 20,
+    marginTop: theme.space.xs,
+    borderRadius: theme.radius.sm,
+    borderWidth: 1,
+    padding: theme.space.xs,
+    ...theme.shadow.md,
+  },
+  mentionRow: {
+    paddingHorizontal: rs(24),
+    paddingVertical: theme.space.sm,
+    borderBottomWidth: 0.5,
+  },
+  mentionHint: {
+    paddingHorizontal: rs(24),
+    paddingVertical: theme.space.sm,
+  },
+  mentionPreview: {
+    paddingHorizontal: theme.space.xs,
+  },
+  imageBlock: {
+    gap: rs(6),
+  },
+  stepImage: {
+    width: '100%',
+    height: rs(140),
+    borderRadius: theme.radius.sm,
+  },
+  inlineLink: {
+    alignSelf: 'flex-start',
+  },
+  timerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
+  timerInput: {
+    width: rs(70),
+    borderRadius: theme.radius.md,
+    paddingHorizontal: rs(24),
+    paddingVertical: theme.space.sm,
+    fontSize: 15,
+    lineHeight: 21,
+  },
+  screen: {
+    flex: 1,
+    paddingHorizontal: rs(24),
+  },
+  screenEyebrow: {
+    paddingTop: theme.space.sm,
+    paddingBottom: rs(6),
+    letterSpacing: 1.5,
+  },
+  screenTitle: {
+    marginBottom: theme.space.xs,
+  },
+  screenHint: {
+    marginBottom: theme.space.sm,
+  },
+  reorderable: {
+    flex: 1,
+  },
+  reorderableContent: {
+    paddingBottom: rs(64),
+  },
+  addStep: {
+    width: '100%',
+    height: rs(42),
+    borderRadius: theme.radius.famLarge,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: theme.space.xs,
+    marginBottom: rs(64),
+  },
+  actions: {
+    flexDirection: 'row',
+    gap: rs(14),
+    marginBottom: theme.space.lg,
+  },
+  actionContainer: {
+    flex: 1,
+  },
+  action: {
+    minHeight: rs(48),
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}));
 
 function flattenIngredients(components: IngredientComponentGroup[]): MentionableIngredient[] {
   const result: MentionableIngredient[] = [];
@@ -67,18 +232,16 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
   const doneCount = ingredients.filter((i) => (used.get(i.itemId) ?? 0) >= i.quantity).length;
 
   return (
-    <View
-      className="mb-two pb-two"
-      style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
-      <Pressable
-        className="flex-row items-center justify-between py-one"
+    <View style={[styles.ledger, { borderBottomColor: colors.border, borderBottomWidth: 1 }]}>
+      <Press
+        style={styles.ledgerToggle}
         onPress={() => setExpanded((prev) => !prev)}
         accessibilityRole="button"
         accessibilityLabel={expanded ? 'Zutatenliste einklappen' : 'Zutatenliste ausklappen'}>
-        <Txt variant="caption" tone="secondary" className="tracking-widest" weight="700">
+        <Txt variant="caption" tone="secondary" style={{ letterSpacing: 1.5 }} weight="700">
           ZUTATEN
         </Txt>
-        <View className="flex-row items-center gap-two">
+        <View style={styles.ledgerSummary}>
           {!expanded ? (
             <Txt variant="caption" tone="secondary">
               {doneCount}/{ingredients.length} aufgebraucht
@@ -88,10 +251,10 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
             {expanded ? '▾' : '▸'}
           </Txt>
         </View>
-      </Pressable>
+      </Press>
 
       {expanded ? (
-        <View className="gap-[6px] pt-one">
+        <View style={styles.ledgerBody}>
           {ingredients.map((ing) => {
             const usedAmount = used.get(ing.itemId) ?? 0;
             const pct =
@@ -100,7 +263,7 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
             const remaining = Math.max(0, ing.quantity - usedAmount);
             return (
               <View key={ing.itemId}>
-                <View className="flex-row items-baseline justify-between gap-two">
+                <View style={styles.ledgerRow}>
                   <Txt
                     variant="body"
                     weight="700"
@@ -118,12 +281,12 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
                     {full ? 'aufgebraucht' : `${remaining}${ing.unit} übrig`}
                   </Txt>
                 </View>
-                <View
-                  className="h-[2px] rounded-hairline overflow-hidden"
-                  style={{ backgroundColor: colors.border }}>
+                <View style={[styles.progress, { backgroundColor: colors.border }]}>
                   <View
-                    className="h-full"
-                    style={{ width: `${pct}%`, backgroundColor: colors.basil }}
+                    style={[
+                      styles.progressFill,
+                      { width: `${pct}%`, backgroundColor: colors.basil },
+                    ]}
                   />
                 </View>
               </View>
@@ -176,25 +339,22 @@ const StepCard = memo(function StepCard({
   }
 
   return (
-    <View
-      className="rounded-sheet p-[11px] mb-three gap-[10px]"
-      style={{ backgroundColor: colors.surface }}>
-      <View className="row-center gap-[10px]">
+    <View style={[styles.stepCard, { backgroundColor: colors.surface }]}>
+      <View style={styles.stepHeader}>
         <TouchableOpacity
           onLongPress={drag}
-          className="p-one"
+          style={styles.dragButton}
           accessibilityLabel="Schritt verschieben">
           <Txt variant="heading" tone="secondary">
             ≡
           </Txt>
         </TouchableOpacity>
-        <Txt variant="label" tone="primary" weight="700" className="flex-1">
+        <Txt variant="label" tone="primary" weight="700" style={styles.stepTitle}>
           Schritt {index + 1}
         </Txt>
         <TouchableOpacity
           onPress={() => onRemoveStep(step.id)}
-          className="w-9 h-9 rounded-sheet items-center justify-center"
-          style={{ backgroundColor: colors.backgroundSoft }}
+          style={[styles.deleteStep, { backgroundColor: colors.backgroundSoft }]}
           accessibilityRole="button"
           accessibilityLabel="Delete step">
           <Svg width={16} height={16} viewBox="0 0 24 24" fill="none">
@@ -209,15 +369,9 @@ const StepCard = memo(function StepCard({
         </TouchableOpacity>
       </View>
 
-      <View className="relative">
+      <View style={styles.editorWrap}>
         <TextInput
-          className="rounded-card min-h-[132px] px-four py-three"
-          style={{
-            backgroundColor: colors.bg,
-            color: colors.text,
-            fontSize: 15,
-            lineHeight: 21,
-          }}
+          style={[styles.editor, { backgroundColor: colors.bg, color: colors.text }]}
           value={step.text}
           onChangeText={handleChangeText}
           placeholder={`Was ist in Schritt ${index + 1} zu tun? Zutat mit @ einfügen, z. B. @Wurst50`}
@@ -226,11 +380,15 @@ const StepCard = memo(function StepCard({
           textAlignVertical="top"
         />
         {autocomplete ? (
-          <View className="mention-panel">
+          <View
+            style={[
+              styles.mentionPanel,
+              { backgroundColor: colors.bg, borderColor: colors.border },
+            ]}>
             {autocomplete.matches.slice(0, 6).map((ing) => (
               <TouchableOpacity
                 key={ing.itemId}
-                className="mention-row"
+                style={[styles.mentionRow, { borderBottomColor: colors.border }]}
                 onPress={() => insertMention(ing)}>
                 <Txt variant="body" weight="700">
                   {ing.name}{' '}
@@ -241,7 +399,7 @@ const StepCard = memo(function StepCard({
                 </Txt>
               </TouchableOpacity>
             ))}
-            <View className="mention-hint">
+            <View style={styles.mentionHint}>
               <Txt variant="caption" tone="secondary">
                 Danach direkt eine Zahl tippen, z. B. „{autocomplete.matches[0].name}50“
               </Txt>
@@ -256,20 +414,20 @@ const StepCard = memo(function StepCard({
           ingredients={ingredients}
           variant="caption"
           tone="secondary"
-          className="px-one"
+          style={styles.mentionPreview}
         />
       ) : null}
 
       {step.localImageUri ? (
-        <View className="gap-[6px]">
+        <View style={styles.imageBlock}>
           <Image
             source={{ uri: step.localImageUri }}
             // expo-image benötigt inline Dimensionen
-            style={{ width: '100%', height: 140, borderRadius: 12 }}
+            style={styles.stepImage}
             contentFit="cover"
           />
           <TouchableOpacity
-            className="self-start"
+            style={styles.inlineLink}
             onPress={() => onUpdateStep(step.id, { localImageUri: null, existingImagePath: null })}>
             <Txt variant="label" tone="primary" weight="600">
               Bild entfernen
@@ -277,7 +435,7 @@ const StepCard = memo(function StepCard({
           </TouchableOpacity>
         </View>
       ) : (
-        <TouchableOpacity className="self-start" onPress={() => onPickImage(step.id)}>
+        <TouchableOpacity style={styles.inlineLink} onPress={() => onPickImage(step.id)}>
           <Txt variant="label" tone="primary" weight="600">
             + Bild hinzufügen
           </Txt>
@@ -304,7 +462,7 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
 
   if (minutes !== null) {
     return (
-      <View className="row-center gap-two">
+      <View style={styles.timerRow}>
         <Txt variant="label" tone="primary" weight="600">
           ⏱ {minutes} Min. Timer
         </Txt>
@@ -319,10 +477,9 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
 
   if (editing) {
     return (
-      <View className="row-center gap-two">
+      <View style={styles.timerRow}>
         <TextInput
-          className="rounded-card px-three py-two w-[70px]"
-          style={{ backgroundColor: colors.bg, color: colors.text, fontSize: 15, lineHeight: 21 }}
+          style={[styles.timerInput, { backgroundColor: colors.bg, color: colors.text }]}
           value={draft}
           onChangeText={setDraft}
           placeholder="Min."
@@ -361,7 +518,7 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
   }
 
   return (
-    <TouchableOpacity className="self-start" onPress={() => setEditing(true)}>
+    <TouchableOpacity style={styles.inlineLink} onPress={() => setEditing(true)}>
       <Txt variant="label" tone="primary" weight="600">
         + Timer hinzufügen
       </Txt>
@@ -416,18 +573,14 @@ export function RecipeWizardStepSteps({
   }
 
   return (
-    <View className="flex-1 px-four">
-      <Txt
-        variant="caption"
-        tone="secondary"
-        className="pt-two pb-[6px] tracking-widest"
-        weight="500">
+    <View style={styles.screen}>
+      <Txt variant="caption" tone="secondary" style={styles.screenEyebrow} weight="500">
         SCHRITT 3 VON 4
       </Txt>
-      <Txt variant="heading" className="mb-one">
+      <Txt variant="heading" style={styles.screenTitle}>
         Zubereitungsschritte
       </Txt>
-      <Txt variant="label" tone="secondary" className="mb-two">
+      <Txt variant="label" tone="secondary" style={styles.screenHint}>
         Zutat mit @ einfügen (z. B. @Wurst50 = 50 g Wurst). Zum Umsortieren einen Schritt gedrückt
         halten und ziehen.
       </Txt>
@@ -435,8 +588,8 @@ export function RecipeWizardStepSteps({
       <IngredientLedger ingredients={ingredients} used={used} />
 
       <ReorderableList
-        className="flex-1"
-        contentContainerClassName="pb-six"
+        style={styles.reorderable}
+        contentContainerStyle={styles.reorderableContent}
         showsVerticalScrollIndicator={false}
         data={steps}
         onReorder={handleReorder}
@@ -454,32 +607,31 @@ export function RecipeWizardStepSteps({
         ListFooterComponent={
           <>
             <TouchableOpacity
-              className="w-full h-[42px] rounded-fam-large items-center justify-center mt-one mb-seven active:opacity-75"
-              style={{ backgroundColor: colors.surface }}
+              style={[styles.addStep, { backgroundColor: colors.surface }]}
               onPress={addStep}>
               <Txt variant="caption" tone="primary" weight="600">
                 + Schritt hinzufügen
               </Txt>
             </TouchableOpacity>
 
-            <View className="flex-row gap-[14px] mb-three">
-              <Pressable
-                className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
-                style={{ backgroundColor: colors.surface }}
+            <View style={styles.actions}>
+              <Press
+                containerStyle={styles.actionContainer}
+                style={[styles.action, { backgroundColor: colors.surface }]}
                 onPress={onBack}>
                 <Txt variant="caption" tone="primary" weight="600">
                   Zurück
                 </Txt>
-              </Pressable>
-              <Pressable
-                className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
-                style={{ backgroundColor: colors.basil }}
+              </Press>
+              <Press
+                containerStyle={styles.actionContainer}
+                style={[styles.action, { backgroundColor: colors.basil }]}
                 accessibilityRole="button"
                 onPress={onNext}>
                 <Txt variant="caption" tone="onAccent" weight="600">
                   Weiter
                 </Txt>
-              </Pressable>
+              </Press>
             </View>
           </>
         }

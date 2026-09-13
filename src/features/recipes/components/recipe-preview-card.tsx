@@ -1,9 +1,11 @@
 import { Image } from 'expo-image';
 import { useId } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { Txt } from '@/constants/ui';
+import { rs } from '@/components/theme/index';
+import { Press, Txt } from '@/constants/ui';
 import { useCatalogImageUrl } from '../catalog/use-recipe-catalog';
 import { useRecipeCoverUrl } from '../data/household-recipe-images';
 
@@ -30,6 +32,59 @@ const PALETTES = [
 ] as const;
 
 const RECIPE_IMAGE_LOG_DEBOUNCE_MS = 250;
+
+const styles = StyleSheet.create((theme) => ({
+  previewContainer: {
+    width: '100%',
+    height: rs(200),
+  },
+  previewCard: {
+    width: '100%',
+    height: '100%',
+    borderRadius: theme.radius.lg,
+    overflow: 'hidden',
+  },
+  heroContainer: {
+    width: '100%',
+    height: rs(170),
+  },
+  heroCard: {
+    width: '100%',
+    height: '100%',
+    borderRadius: theme.radius.famLarge,
+    overflow: 'hidden',
+  },
+  heroOverlay: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: theme.shadowSheet,
+    opacity: 0.2,
+  },
+  copy: {
+    position: 'absolute',
+    right: rs(24),
+    bottom: rs(14),
+    left: rs(24),
+  },
+  title: {
+    letterSpacing: -0.25,
+  },
+  meta: {
+    marginTop: rs(3),
+    opacity: 0.85,
+  },
+  eyebrow: {
+    textTransform: 'uppercase',
+    letterSpacing: 1.2,
+    opacity: 0.8,
+  },
+  heroTitle: {
+    marginTop: rs(2),
+  },
+}));
 
 type RecipeImageLoad = {
   title: string;
@@ -182,7 +237,12 @@ export function RecipePreviewCard({
   const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings });
 
   return (
-    <Pressable onPress={onPress} role="button" aria-label={title} className="recipe-preview-card">
+    <Press
+      onPress={onPress}
+      role="button"
+      aria-label={title}
+      containerStyle={styles.previewContainer}
+      style={styles.previewCard}>
       <RecipeArtwork
         title={title}
         coverUrl={coverUrl}
@@ -190,26 +250,20 @@ export function RecipePreviewCard({
         paletteIndex={paletteIndex ?? title.length}
       />
       <FadeShade height="62%" />
-      <View className="card-copy-bottom">
+      <View style={styles.copy}>
         <Txt
           variant="subheading"
           tone="inverse"
           weight="700"
-          className="tracking-tight"
+          style={styles.title}
           numberOfLines={1}>
           {title}
         </Txt>
-        <Txt
-          variant="caption"
-          tone="inverse"
-          weight="600"
-          className="mt-[3px]"
-          style={{ opacity: 0.85 }}
-          numberOfLines={1}>
+        <Txt variant="caption" tone="inverse" weight="600" style={styles.meta} numberOfLines={1}>
           {[meta.left, meta.right].filter(Boolean).join(' · ') || 'Rezept'}
         </Txt>
       </View>
-    </Pressable>
+    </Press>
   );
 }
 
@@ -235,36 +289,30 @@ export function RecipeHeroCard({
   const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings });
 
   return (
-    <Pressable onPress={onPress} role="button" aria-label={title} className="recipe-hero-card">
+    <Press
+      onPress={onPress}
+      role="button"
+      aria-label={title}
+      containerStyle={styles.heroContainer}
+      style={styles.heroCard}>
       <RecipeArtwork
         title={title}
         coverUrl={coverUrl}
         coverPath={coverImagePath}
         paletteIndex={paletteIndex ?? title.length}
       />
-      <View className="absolute inset-0 bg-[#261d29]/20" />
-      <View className="card-copy-bottom">
-        <Txt
-          variant="caption"
-          tone="inverse"
-          weight="700"
-          className="uppercase tracking-widest"
-          style={{ opacity: 0.8 }}>
+      <View style={styles.heroOverlay} />
+      <View style={styles.copy}>
+        <Txt variant="caption" tone="inverse" weight="700" style={styles.eyebrow}>
           {eyebrow}
         </Txt>
-        <Txt variant="body" tone="inverse" weight="700" className="mt-half" numberOfLines={2}>
+        <Txt variant="body" tone="inverse" weight="700" style={styles.heroTitle} numberOfLines={2}>
           {title}
         </Txt>
-        <Txt
-          variant="caption"
-          tone="inverse"
-          weight="600"
-          className="mt-[3px]"
-          style={{ opacity: 0.85 }}
-          numberOfLines={1}>
+        <Txt variant="caption" tone="inverse" weight="600" style={styles.meta} numberOfLines={1}>
           {[meta.left, meta.right].filter(Boolean).join(' · ') || 'Entdecke dieses Rezept'}
         </Txt>
       </View>
-    </Pressable>
+    </Press>
   );
 }

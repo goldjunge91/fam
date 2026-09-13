@@ -1,12 +1,13 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { Alert, KeyboardAvoidingView, Pressable, ScrollView, TextInput, View } from 'react-native';
+import { Alert, KeyboardAvoidingView, ScrollView, TextInput, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { font } from '@/components/theme/index';
+import { font, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
-import { Button, Txt } from '@/constants/ui';
+import { Button, Press, Txt } from '@/constants/ui';
 import type { MealType } from '@/features/calorie-tracking/api';
 import { calculateAdjustedServingNutrition } from '../domain/nutrition';
 import { useUpdateComponentMutation } from '../hooks/use-recipe-components';
@@ -18,6 +19,118 @@ const MEAL_OPTIONS: { value: MealType; label: string }[] = [
   { value: 'dinner', label: 'Abend' },
   { value: 'snack', label: 'Snacks' },
 ];
+
+const styles = StyleSheet.create((theme) => ({
+  keyboard: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  hero: {
+    flex: 1,
+    minHeight: rs(150),
+    alignItems: 'center',
+    paddingTop: rs(30),
+    opacity: 0.55,
+  },
+  heroIcon: {
+    width: rs(82),
+    height: rs(82),
+    borderRadius: theme.radius.famLarge,
+  },
+  heroTitle: {
+    paddingTop: rs(18),
+  },
+  heroSubtitle: {
+    paddingTop: rs(5),
+    textAlign: 'center',
+  },
+  sheet: {
+    maxHeight: '72%',
+    minHeight: rs(360),
+    borderTopLeftRadius: theme.radius.famLarge,
+    borderTopRightRadius: theme.radius.famLarge,
+    paddingHorizontal: theme.space.lg,
+    paddingTop: rs(10),
+    paddingBottom: rs(19),
+  },
+  handle: {
+    width: rs(36),
+    height: rs(4),
+    alignSelf: 'center',
+    borderRadius: rs(2),
+    marginTop: rs(10),
+  },
+  sheetHeader: {
+    minHeight: rs(65),
+    paddingTop: rs(13),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+  },
+  sheetHeaderCopy: {
+    flex: 1,
+  },
+  sheetSubtitle: {
+    paddingTop: rs(7),
+  },
+  close: {
+    width: rs(32),
+    height: rs(32),
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  loading: {
+    paddingVertical: rs(30),
+    textAlign: 'center',
+  },
+  scrollContent: {
+    gap: theme.space.sm,
+    paddingVertical: theme.space.xs,
+  },
+  componentList: {
+    gap: rs(10),
+  },
+  componentRow: {
+    minHeight: rs(40),
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: rs(9),
+  },
+  componentName: {
+    flex: 1,
+  },
+  gramsField: {
+    width: rs(90),
+    height: rs(40),
+    borderWidth: 1,
+    borderRadius: theme.radius.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: rs(10),
+  },
+  gramsInput: {
+    flex: 1,
+    height: '100%',
+    paddingVertical: 0,
+    textAlign: 'right',
+  },
+  gramsUnit: {
+    paddingLeft: theme.space.xs,
+  },
+  total: {
+    minHeight: rs(53),
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: rs(11),
+  },
+  totalDetails: {
+    paddingTop: rs(3),
+    textAlign: 'center',
+  },
+}));
 
 function round(value: number): number {
   return Math.round(value);
@@ -117,18 +230,15 @@ export function RecipeLogScreen() {
     <HubScreen
       header={{ title: 'Fertig', leading: <BackButton label="Zurück" variant="header" /> }}>
       <KeyboardAvoidingView
-        className="flex-1 justify-end"
+        style={styles.keyboard}
         behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}>
         {/* Hintergrund-Header (Erfolgs-Icon & Glückwunsch-Text) */}
-        <View className="flex-1 min-h-[150px] items-center pt-[30px] opacity-55">
-          <View
-            className="w-[82px] h-[82px] rounded-fam-large"
-            style={{ backgroundColor: colors.backgroundSoft }}
-          />
-          <Txt variant="heading" className="pt-[18px]">
+        <View style={styles.hero}>
+          <View style={[styles.heroIcon, { backgroundColor: colors.backgroundSoft }]} />
+          <Txt variant="heading" style={styles.heroTitle}>
             Guten Appetit!
           </Txt>
-          <Txt variant="caption" tone="secondary" className="pt-[5px] text-center" weight="500">
+          <Txt variant="caption" tone="secondary" style={styles.heroSubtitle} weight="500">
             {isWeighMode
               ? 'Verbessere die Mengen deines Haushaltsrezepts.'
               : 'Trage deine tatsächliche Portion ins Tagebuch ein.'}
@@ -136,41 +246,40 @@ export function RecipeLogScreen() {
         </View>
 
         {/* Unteres Eingabe-Sheet für Mengen & Tagebucheintrag / Gewichte */}
-        <View className="recipe-log-sheet">
-          <View className="modal-handle" />
-          <View className="min-h-[65px] pt-[13px] flex-row items-center justify-between gap-three">
-            <View>
+        <View style={[styles.sheet, { backgroundColor: colors.backgroundElement }]}>
+          <View style={[styles.handle, { backgroundColor: colors.border }]} />
+          <View style={styles.sheetHeader}>
+            <View style={styles.sheetHeaderCopy}>
               <Txt variant="heading">
                 {isWeighMode ? 'Zubereitete Gewichte' : 'Ins Tagebuch eintragen'}
               </Txt>
-              <Txt variant="caption" tone="secondary" className="pt-[7px]" weight="500">
+              <Txt variant="caption" tone="secondary" style={styles.sheetSubtitle} weight="500">
                 {isWeighMode
                   ? 'Diese Werte verbessern die Berechnung in deinem Haushaltsrezept.'
                   : 'Wie viel davon war auf deinem Teller?'}
               </Txt>
             </View>
-            <Pressable
+            <Press
               onPress={() => router.back()}
               role="button"
               aria-label="Schließen"
-              className="w-8 h-8 rounded-control items-center justify-center"
-              style={{ backgroundColor: colors.backgroundSoft }}>
+              style={[styles.close, { backgroundColor: colors.backgroundSoft }]}>
               <Txt variant="body" tone="secondary" weight="500">
                 ×
               </Txt>
-            </Pressable>
+            </Press>
           </View>
 
           {isLoading || !data ? (
             /* Ladezustand */
-            <Txt variant="body" tone="secondary" className="py-[30px] text-center">
+            <Txt variant="body" tone="secondary" style={styles.loading}>
               Rezept wird geladen…
             </Txt>
           ) : (
             <ScrollView
               showsVerticalScrollIndicator={false}
               keyboardShouldPersistTaps="handled"
-              contentContainerClassName="gap-three py-one">
+              contentContainerStyle={styles.scrollContent}>
               {/* Mahlzeitenfilter (Frühstück, Mittag, Abend, Snacks) im Tagebuch-Modus */}
               {!isWeighMode ? (
                 <FilterChipBar
@@ -182,28 +291,30 @@ export function RecipeLogScreen() {
               ) : null}
 
               {/* Liste aller Rezept-Komponenten mit Gramm-Eingabefeldern */}
-              <View className="gap-[10px]">
+              <View style={styles.componentList}>
                 {topLevelComponents.map((component) => (
-                  <View key={component.id} className="min-h-[40px] flex-row items-center gap-[9px]">
-                    <Txt variant="caption" weight="700" className="flex-1">
+                  <View key={component.id} style={styles.componentRow}>
+                    <Txt variant="caption" weight="700" style={styles.componentName}>
                       {component.name}
                     </Txt>
-                    <View className="grams-field">
+                    <View style={[styles.gramsField, { borderColor: colors.border }]}>
                       <TextInput
                         value={String(gramsById?.[component.id] ?? component.serving_grams ?? 0)}
                         onChangeText={(value) => updateGrams(component.id, value)}
                         keyboardType="decimal-pad"
                         accessibilityLabel={`Grammmenge für ${component.name}`}
-                        className="flex-1 h-full py-0 text-right"
-                        style={{
-                          color: colors.text,
-                          fontSize: font.sizes.xs,
-                          lineHeight: font.lineHeights.caption,
-                          fontWeight: '500',
-                        }}
+                        style={[
+                          styles.gramsInput,
+                          {
+                            color: colors.text,
+                            fontSize: font.sizes.xs,
+                            lineHeight: font.lineHeights.caption,
+                            fontWeight: '500',
+                          },
+                        ]}
                         placeholderTextColor={colors.textSecondary}
                       />
-                      <Txt variant="caption" tone="secondary" className="pl-one">
+                      <Txt variant="caption" tone="secondary" style={styles.gramsUnit}>
                         g
                       </Txt>
                     </View>
@@ -212,17 +323,11 @@ export function RecipeLogScreen() {
               </View>
 
               {total && !isWeighMode ? (
-                <View
-                  className="min-h-[53px] rounded-card items-center justify-center px-[11px]"
-                  style={{ backgroundColor: colors.backgroundSoft }}>
+                <View style={[styles.total, { backgroundColor: colors.backgroundSoft }]}>
                   <Txt variant="body" weight="700">
                     {round(total.kcal)} kcal
                   </Txt>
-                  <Txt
-                    variant="caption"
-                    tone="secondary"
-                    className="pt-[3px] text-center"
-                    weight="500">
+                  <Txt variant="caption" tone="secondary" style={styles.totalDetails} weight="500">
                     {round(total.protein_g)} g Protein · {round(total.carbs_g)} g Kohlenhydrate ·{' '}
                     {round(total.fat_g)} g Fett
                   </Txt>

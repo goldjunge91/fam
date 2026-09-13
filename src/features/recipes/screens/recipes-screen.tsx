@@ -1,22 +1,23 @@
 import { FlashList } from '@shopify/flash-list';
 import { router } from 'expo-router';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
-  Pressable,
+  type NativeScrollEvent,
+  type NativeSyntheticEvent,
   ScrollView,
-  StyleSheet,
   TextInput,
   useWindowDimensions,
   View,
 } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { FilterIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { SectionHeading } from '@/components/layout/section-heading';
-import { space } from '@/components/theme/index';
+import { rs, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton, HeaderIconButton, MenuButton } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
@@ -48,9 +49,9 @@ const MEAL_SECTIONS: { key: string; title: string; dishTypes: DishType[] }[] = [
   { key: 'snackDessert', title: 'Snacks & Dessert', dishTypes: ['snack', 'dessert'] },
 ];
 
-// Die Karussells sind eine Vorschau, keine Vollliste. Ohne Grenze mountet der
-// Katalog hier tausende Karten und blockiert den Main-Thread im Text-Layout.
-const MEAL_SECTION_PREVIEW_LIMIT = 10;
+// Die Karussells rendern in Seiten, damit der erste Aufbau nicht den kompletten
+// Katalog in den React-Baum übernimmt. Weitere Seiten erscheinen beim Scrollen.
+const MEAL_SECTION_PAGE_SIZE = 10;
 
 type RecipeView = 'discover' | 'favorites' | 'filtered' | 'household' | 'templates';
 
@@ -189,34 +190,145 @@ function favoriteKey(entry: RecipeEntry): RecipeFavoriteKey {
   return `${entry.kind}:${entry.id}`;
 }
 
-const listStyles = StyleSheet.create({
-  content: { paddingHorizontal: 15, paddingTop: 4, paddingBottom: 126 },
-  gap: { height: 10 },
-});
-
-const listContentStyle = listStyles.content;
+const styles = StyleSheet.create((theme) => ({
+  listContent: {
+    paddingHorizontal: rs(15),
+    paddingTop: rs(4),
+    paddingBottom: rs(126),
+  },
+  listGap: {
+    height: rs(10),
+  },
+  section: {
+    marginBottom: rs(32),
+  },
+  mealScrollContent: {
+    paddingHorizontal: rs(6),
+  },
+  mealCardFrame: {
+    flexShrink: 0,
+  },
+  mealCardSpacing: {
+    marginRight: rs(10),
+  },
+  emptyPanel: {
+    minHeight: rs(124),
+    borderRadius: theme.radius.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: rs(56),
+    paddingVertical: rs(22),
+  },
+  searchRow: {
+    height: rs(42),
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: rs(9),
+    borderRadius: theme.radius.famLarge,
+    paddingHorizontal: rs(13),
+    marginBottom: rs(10),
+  },
+  searchInput: {
+    flex: 1,
+    height: '100%',
+    paddingVertical: 0,
+  },
+  tabRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+    marginBottom: rs(18),
+  },
+  tabContainer: {
+    flex: 1,
+  },
+  tab: {
+    width: '100%',
+    height: rs(46),
+    borderRadius: theme.radius.sm,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headerActions: {
+    flexDirection: 'row',
+    gap: rs(6),
+  },
+  discoverScroll: {
+    flex: 1,
+  },
+  discoverContent: {
+    paddingHorizontal: rs(15),
+    paddingTop: theme.space.xs,
+    paddingBottom: rs(126),
+  },
+  loading: {
+    marginTop: space.xxxl,
+  },
+}));
 
 function ListGap() {
-  return <View style={listStyles.gap} />;
+  return <View style={styles.listGap} />;
 }
 
 /** Horizontal scrollende Foto-Karten fuer eine Mahlzeitenkategorie. */
-function MealSection({ title, entries }: { title: string; entries: RecipeEntry[] }) {
+function MealSection({
+  title,
+  entries,
+  hasMore,
+  onLoadMore,
+}: {
+  title: string;
+  entries: RecipeEntry[];
+  hasMore: boolean;
+  onLoadMore: () => void;
+}) {
   const { width: windowWidth } = useWindowDimensions();
+  const requestedMore = useRef(false);
+  const previousEntries = useRef(entries);
   const contentWidth = Math.min(windowWidth, 800) - 30;
   const cardWidth = Math.max(260, contentWidth - 12);
 
+  useEffect(() => {
+    if (previousEntries.current === entries) return;
+    previousEntries.current = entries;
+    requestedMore.current = false;
+  }, [entries]);
+
+  function handleScroll(event: NativeSyntheticEvent<NativeScrollEvent>) {
+    if (!hasMore) return;
+
+    const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent;
+    const distanceToEnd = contentSize.width - (contentOffset.x + layoutMeasurement.width);
+    const threshold = Math.max(120, cardWidth * 0.35);
+    if (distanceToEnd <= threshold) {
+      if (requestedMore.current) return;
+      requestedMore.current = true;
+      onLoadMore();
+      return;
+    }
+    requestedMore.current = false;
+  }
+
   return (
-    <View className="mb-five">
+    <View style={styles.section}>
       <SectionHeading title={title} />
       <ScrollView
         horizontal
         role="list"
         aria-label={`${title} Rezepte`}
+        testID={`meal-section-${title}`}
         showsHorizontalScrollIndicator={false}
-        contentContainerClassName="gap-[10px] px-[6px]">
+        contentContainerStyle={styles.mealScrollContent}
+        onScroll={handleScroll}
+        scrollEventThrottle={100}>
         {entries.map((entry, index) => (
-          <View key={entry.key} style={{ width: cardWidth }}>
+          <View
+            key={entry.key}
+            style={[
+              styles.mealCardFrame,
+              { width: cardWidth },
+              index < entries.length - 1 ? styles.mealCardSpacing : undefined,
+            ]}>
             <RecipePreviewCard
               title={entry.title}
               coverImagePath={entry.coverImagePath}
@@ -238,9 +350,7 @@ function EmptyPanel({ children }: { children: string }) {
   const { colors } = useTheme();
 
   return (
-    <View
-      className="min-h-[124px] rounded-sheet items-center justify-center px-seven py-[22px]"
-      style={{ backgroundColor: colors.surface }}>
+    <View style={[styles.emptyPanel, { backgroundColor: colors.surface }]}>
       <Txt variant="body" weight="700" center>
         {children}
       </Txt>
@@ -258,6 +368,7 @@ export function RecipesScreen() {
   const [filters, setFilters] = useState<RecipeFilters>(EMPTY_RECIPE_FILTERS);
   const [templateCategoryFilter, setTemplateCategoryFilter] = useState<string | null>(null);
   const [templateCalorieFilter, setTemplateCalorieFilter] = useState<number | null>(null);
+  const [mealSectionLimits, setMealSectionLimits] = useState<Record<string, number>>({});
 
   const { activeHouseholdId } = useActiveHousehold();
   const {
@@ -311,14 +422,18 @@ export function RecipesScreen() {
 
   const mealSections = useMemo(
     () =>
-      MEAL_SECTIONS.map((section) => ({
-        ...section,
-        entries: searchedTemplates
-          .filter((t) => section.dishTypes.some((type) => t.dish_types.includes(type)))
-          .slice(0, MEAL_SECTION_PREVIEW_LIMIT)
-          .map(templateEntry),
-      })).filter((section) => section.entries.length > 0),
-    [searchedTemplates],
+      MEAL_SECTIONS.map((section) => {
+        const matchingTemplates = searchedTemplates.filter((template) =>
+          section.dishTypes.some((type) => template.dish_types.includes(type)),
+        );
+        const limit = mealSectionLimits[section.key] ?? MEAL_SECTION_PAGE_SIZE;
+        return {
+          ...section,
+          totalCount: matchingTemplates.length,
+          entries: matchingTemplates.slice(0, limit).map(templateEntry),
+        };
+      }).filter((section) => section.entries.length > 0),
+    [mealSectionLimits, searchedTemplates],
   );
 
   const allEntries = [...householdEntries, ...templateEntries];
@@ -391,6 +506,13 @@ export function RecipesScreen() {
     setView(recipeFilterCount(nextFilters) > 0 ? 'filtered' : 'discover');
   }
 
+  function loadMoreMealSection(key: string) {
+    setMealSectionLimits((current) => ({
+      ...current,
+      [key]: (current[key] ?? MEAL_SECTION_PAGE_SIZE) + MEAL_SECTION_PAGE_SIZE,
+    }));
+  }
+
   const activeCategoryTile = templateCategoryFilter
     ? CATEGORY_TILES.find((t) => t.key === templateCategoryFilter)
     : null;
@@ -411,9 +533,7 @@ export function RecipesScreen() {
     <>
       {/* Aufklappbare Textsuche für Rezepttitel */}
       {showSearch ? (
-        <View
-          className="h-[42px] flex-row items-center gap-[9px] rounded-fam-large px-[13px] mb-[10px]"
-          style={{ backgroundColor: colors.surface }}>
+        <View style={[styles.searchRow, { backgroundColor: colors.surface }]}>
           <SearchIcon color={colors.textMuted} />
           <TextInput
             value={searchQuery}
@@ -423,57 +543,68 @@ export function RecipesScreen() {
             placeholder="Rezepte durchsuchen…"
             placeholderTextColor={colors.textMuted}
             autoFocus
-            className="flex-1 h-full py-0"
-            style={{ color: colors.text, fontSize: 14, lineHeight: 20, fontWeight: '500' }}
+            style={[
+              styles.searchInput,
+              { color: colors.text, fontSize: 14, lineHeight: 20, fontWeight: '500' },
+            ]}
           />
         </View>
       ) : null}
 
       {/* Tab-Leiste (Entdecken vs. Eigene Rezepte vs. Meine Favoriten) */}
       {view === 'discover' || view === 'favorites' || view === 'household' ? (
-        <View className="flex-row gap-two mb-[18px]">
-          <Pressable
+        <View style={styles.tabRow}>
+          <Press
             onPress={() => setView('discover')}
             role="button"
             aria-label="Entdecken"
             aria-selected={view === 'discover'}
-            className="tab-btn"
-            style={{
-              backgroundColor: view === 'discover' ? colors.basil : colors.backgroundSoft,
-              borderColor: view === 'discover' ? colors.basil : colors.border,
-            }}>
+            containerStyle={styles.tabContainer}
+            style={[
+              styles.tab,
+              {
+                backgroundColor: view === 'discover' ? colors.basil : colors.backgroundSoft,
+                borderColor: view === 'discover' ? colors.basil : colors.border,
+              },
+            ]}>
             <Txt variant="body" tone={view === 'discover' ? 'onAccent' : 'secondary'} weight="700">
               Entdecken
             </Txt>
-          </Pressable>
-          <Pressable
+          </Press>
+          <Press
             onPress={() => setView('household')}
             role="button"
             aria-label="Eigene Rezepte"
             aria-selected={view === 'household'}
-            className="tab-btn"
-            style={{
-              backgroundColor: view === 'household' ? colors.basil : colors.backgroundSoft,
-              borderColor: view === 'household' ? colors.basil : colors.border,
-            }}>
+            containerStyle={styles.tabContainer}
+            style={[
+              styles.tab,
+              {
+                backgroundColor: view === 'household' ? colors.basil : colors.backgroundSoft,
+                borderColor: view === 'household' ? colors.basil : colors.border,
+              },
+            ]}>
             <Txt variant="body" tone={view === 'household' ? 'onAccent' : 'secondary'} weight="700">
               Eigene Rezepte
             </Txt>
-          </Pressable>
-          <Pressable
+          </Press>
+          <Press
             onPress={() => setView('favorites')}
             role="button"
             aria-label="Meine Favoriten"
             aria-selected={view === 'favorites'}
-            className="tab-btn"
-            style={{
-              backgroundColor: view === 'favorites' ? colors.basil : colors.backgroundSoft,
-              borderColor: view === 'favorites' ? colors.basil : colors.border,
-            }}>
+            containerStyle={styles.tabContainer}
+            style={[
+              styles.tab,
+              {
+                backgroundColor: view === 'favorites' ? colors.basil : colors.backgroundSoft,
+                borderColor: view === 'favorites' ? colors.basil : colors.border,
+              },
+            ]}>
             <Txt variant="body" tone={view === 'favorites' ? 'onAccent' : 'secondary'} weight="700">
               Meine Favoriten
             </Txt>
-          </Pressable>
+          </Press>
         </View>
       ) : null}
     </>
@@ -491,7 +622,7 @@ export function RecipesScreen() {
             <BackButton label="Zurück zu Rezepte" variant="header" onPress={goBackToDiscover} />
           ),
         trailing: (
-          <View className="flex-row gap-[6px]">
+          <View style={styles.headerActions}>
             <HeaderIconButton
               label="Rezepte durchsuchen"
               onPress={() => setShowSearch((visible) => !visible)}>
@@ -528,14 +659,14 @@ export function RecipesScreen() {
           ItemSeparatorComponent={ListGap}
           ListHeaderComponent={headerContent}
           ListEmptyComponent={<EmptyPanel>{listView.empty}</EmptyPanel>}
-          contentContainerStyle={listContentStyle}
+          contentContainerStyle={styles.listContent}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
         />
       ) : (
         <ScrollView
-          className="flex-1"
-          contentContainerClassName="px-[15px] pt-one pb-[126px]"
+          style={styles.discoverScroll}
+          contentContainerStyle={styles.discoverContent}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}>
           {headerContent}
@@ -551,7 +682,7 @@ export function RecipesScreen() {
             /* Standard Entdecken-Ansicht mit Karussells und Mahlzeitenbereichen */
             <>
               {/* Karussell: Themenkategorien (z. B. Vegan, Schnell, High-Protein) */}
-              <View className="mb-five">
+              <View style={styles.section}>
                 <SectionHeading title="Kategorien" />
                 <CategoryCarousel
                   selectedKey={templateCategoryFilter}
@@ -560,7 +691,7 @@ export function RecipesScreen() {
               </View>
 
               {/* Karussell: Kalorien-Buckets (<400 kcal, 400-600 kcal, etc.) */}
-              <View className="mb-five">
+              <View style={styles.section}>
                 <SectionHeading title="Rezepte nach Kalorien" />
                 <CalorieCarousel
                   selectedIndex={templateCalorieFilter}
@@ -569,13 +700,15 @@ export function RecipesScreen() {
               </View>
 
               {mealSections.length > 0 ? (
-                <View className="mb-five">
+                <View style={styles.section}>
                   <SectionHeading title="Nach Mahlzeiten" titleVariant="heading" />
                   {mealSections.map((section) => (
                     <MealSection
                       key={section.key}
                       title={section.title}
                       entries={section.entries}
+                      hasMore={section.entries.length < section.totalCount}
+                      onLoadMore={() => loadMoreMealSection(section.key)}
                     />
                   ))}
                 </View>

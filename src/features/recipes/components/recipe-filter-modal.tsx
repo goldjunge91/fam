@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Modal, Pressable, ScrollView, View } from 'react-native';
+import { Modal, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { PageHeader } from '@/components/layout/page-header';
 import { SectionHeading } from '@/components/layout/section-heading';
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton } from '@/components/ui/buttons';
-import { Button, Txt } from '@/constants/ui';
+import { Button, Press, Txt } from '@/constants/ui';
 import { CalorieCarousel } from '@/features/recipes/components/calorie-carousel';
 import { CategoryCarousel } from '@/features/recipes/components/category-carousel';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
@@ -31,6 +33,66 @@ export const MEAL_FILTERS = [
   { key: 'dinner', label: 'Abendessen', emoji: '🍗' },
   { key: 'snackDessert', label: 'Snacks & Dessert', emoji: '🥪' },
 ] as const;
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    flex: 1,
+  },
+  safeArea: {
+    flex: 1,
+    width: '100%',
+    maxWidth: 800,
+    alignSelf: 'center',
+  },
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingHorizontal: rs(15),
+    paddingTop: theme.space.xs,
+    paddingBottom: theme.space.lg,
+  },
+  filterSection: {
+    paddingBottom: rs(22),
+  },
+  mealScrollContent: {
+    gap: theme.space.sm,
+  },
+  mealTile: {
+    width: rs(104),
+    minHeight: rs(68),
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.space.xs,
+    padding: theme.space.sm,
+    borderWidth: 1,
+  },
+  mealEmoji: {
+    fontSize: rs(22),
+    lineHeight: rs(26),
+  },
+  tagRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.space.sm,
+  },
+  tagPill: {
+    minHeight: rs(36),
+    borderRadius: theme.radius.sm,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.sm,
+  },
+  footer: {
+    borderTopWidth: 0.5,
+    paddingHorizontal: rs(15),
+    paddingTop: theme.space.lg,
+    paddingBottom: theme.space.sm,
+  },
+}));
 
 type RecipeFilterModalProps = {
   visible: boolean;
@@ -84,11 +146,11 @@ export function RecipeFilterModal({
       animationType="slide"
       presentationStyle="fullScreen"
       onRequestClose={onClose}>
-      <View className="flex-1">
+      <View style={styles.root}>
         <GradientBackground {...hubGradient} />
         <SafeAreaView
           accessibilityViewIsModal
-          className="flex-1 w-full max-w-[800px] self-center"
+          style={styles.safeArea}
           edges={['top', 'bottom', 'left', 'right']}>
           <PageHeader
             title="Rezepte filtern"
@@ -106,10 +168,10 @@ export function RecipeFilterModal({
 
           <ScrollView
             aria-label="Filterauswahl"
-            className="flex-1"
-            contentContainerClassName="px-[15px] pt-one pb-four"
+            style={styles.scroll}
+            contentContainerStyle={styles.scrollContent}
             showsVerticalScrollIndicator={false}>
-            <View className="pb-[22px]">
+            <View style={styles.filterSection}>
               <SectionHeading title="Kategorien" />
               <CategoryCarousel
                 selectedKey={draft.categoryKey}
@@ -117,7 +179,7 @@ export function RecipeFilterModal({
               />
             </View>
 
-            <View className="pb-[22px]">
+            <View style={styles.filterSection}>
               <SectionHeading title="Rezepte nach Kalorien" />
               <CalorieCarousel
                 selectedIndex={draft.calorieIndex}
@@ -125,16 +187,16 @@ export function RecipeFilterModal({
               />
             </View>
 
-            <View className="pb-[22px]">
+            <View style={styles.filterSection}>
               <SectionHeading title="Nach Mahlzeiten" />
               <ScrollView
                 horizontal
                 showsHorizontalScrollIndicator={false}
-                contentContainerClassName="gap-two">
+                contentContainerStyle={styles.mealScrollContent}>
                 {MEAL_FILTERS.map((meal) => {
                   const selected = meal.key === draft.mealKey;
                   return (
-                    <Pressable
+                    <Press
                       key={meal.key}
                       role="button"
                       aria-label={meal.label}
@@ -145,13 +207,14 @@ export function RecipeFilterModal({
                           mealKey: selected ? null : meal.key,
                         }))
                       }
-                      className="meal-tile"
-                      style={{
-                        backgroundColor: selected ? colors.basil : colors.surface,
-                        borderColor: selected ? colors.basil : colors.border,
-                        borderWidth: 1,
-                      }}>
-                      <Txt variant="body" center style={{ fontSize: 22, lineHeight: 26 }}>
+                      style={[
+                        styles.mealTile,
+                        {
+                          backgroundColor: selected ? colors.basil : colors.surface,
+                          borderColor: selected ? colors.basil : colors.border,
+                        },
+                      ]}>
+                      <Txt variant="body" center style={styles.mealEmoji}>
                         {meal.emoji}
                       </Txt>
                       <Txt
@@ -162,20 +225,20 @@ export function RecipeFilterModal({
                         numberOfLines={1}>
                         {meal.label}
                       </Txt>
-                    </Pressable>
+                    </Press>
                   );
                 })}
               </ScrollView>
             </View>
 
             {tags.length > 0 ? (
-              <View className="pb-[22px]">
+              <View style={styles.filterSection}>
                 <SectionHeading title="Tags aus deinen Rezepten" />
-                <View className="row-wrap gap-two">
+                <View style={styles.tagRow}>
                   {tags.map((tag) => {
                     const selected = draft.tags.includes(tag);
                     return (
-                      <Pressable
+                      <Press
                         key={tag}
                         role="button"
                         aria-label={`Tag ${tag}`}
@@ -186,16 +249,17 @@ export function RecipeFilterModal({
                             tags: toggleTag(current.tags, tag),
                           }))
                         }
-                        className="tag-pill"
-                        style={{
-                          backgroundColor: selected ? colors.backgroundSoft : colors.surface,
-                          borderColor: selected ? colors.basil : colors.border,
-                          borderWidth: 1,
-                        }}>
+                        style={[
+                          styles.tagPill,
+                          {
+                            backgroundColor: selected ? colors.backgroundSoft : colors.surface,
+                            borderColor: selected ? colors.basil : colors.border,
+                          },
+                        ]}>
                         <Txt variant="caption" tone="primary" weight="700">
                           #{tag}
                         </Txt>
-                      </Pressable>
+                      </Press>
                     );
                   })}
                 </View>
@@ -203,7 +267,11 @@ export function RecipeFilterModal({
             ) : null}
           </ScrollView>
 
-          <View className="recipe-modal-footer">
+          <View
+            style={[
+              styles.footer,
+              { borderTopColor: colors.border, backgroundColor: colors.background },
+            ]}>
             <Button
               title={resultLabel}
               size="lg"

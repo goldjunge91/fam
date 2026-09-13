@@ -1,12 +1,14 @@
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { ActivityIndicator, Alert, Pressable, ScrollView, View } from 'react-native';
+import { ActivityIndicator, Alert, ScrollView, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { HubScreen } from '@/components/layout/hub-screen';
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { HeartGlyph, HeroArtwork } from '@/features/recipes/components/recipe-detail-primitives';
@@ -28,6 +30,183 @@ function round(value: number): number {
   return Math.round(value);
 }
 
+const styles = StyleSheet.create((theme) => ({
+  detailFact: {
+    flex: 1,
+    minWidth: 0,
+    alignItems: 'center',
+    paddingHorizontal: theme.space.xs,
+  },
+  detailFactLabel: {
+    paddingTop: 3,
+    textAlign: 'center',
+  },
+  step: {
+    gap: theme.space.lg,
+    paddingVertical: rs(24),
+  },
+  stepContent: {
+    flexDirection: 'row',
+    gap: rs(10),
+  },
+  stepIndex: {
+    width: 30,
+  },
+  stepCopy: {
+    flex: 1,
+    gap: theme.space.xs,
+  },
+  ingredients: {
+    gap: rs(18),
+  },
+  ingredientGroup: {
+    paddingTop: 14,
+  },
+  ingredientHeader: {
+    minHeight: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: rs(10),
+  },
+  ingredientTitle: {
+    flex: 1,
+  },
+  ingredientRow: {
+    minHeight: 44,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.lg,
+  },
+  ingredientName: {
+    flex: 1,
+  },
+  emptyText: {
+    paddingVertical: rs(24),
+  },
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingHorizontal: rs(24),
+    paddingBottom: 108,
+  },
+  hero: {
+    height: 178,
+    marginHorizontal: -rs(24),
+    overflow: 'hidden',
+  },
+  title: {
+    paddingTop: 18,
+    letterSpacing: -0.3,
+  },
+  tabs: {
+    flexDirection: 'row',
+    marginTop: rs(32),
+    borderBottomWidth: 1,
+  },
+  tab: {
+    flex: 1,
+    minHeight: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomWidth: 3,
+  },
+  facts: {
+    flexDirection: 'row',
+    paddingVertical: rs(24),
+    borderBottomWidth: 1,
+  },
+  instructions: {
+    paddingTop: rs(24),
+  },
+  tags: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    columnGap: theme.space.lg,
+    rowGap: theme.space.sm,
+    paddingTop: theme.space.lg,
+  },
+  tagMore: {
+    textDecorationLine: 'underline',
+  },
+  ingredientsHeading: {
+    minHeight: 58,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.lg,
+    marginTop: rs(18),
+    borderBottomWidth: 1,
+  },
+  servingLabel: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
+  stepper: {
+    width: 112,
+    height: 44,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: theme.radius.sm,
+  },
+  stepperButton: {
+    width: 44,
+    height: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  stepperValue: {
+    flex: 1,
+    minWidth: 24,
+    textAlign: 'center',
+  },
+  preparationHeading: {
+    minHeight: 58,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.lg,
+    marginTop: rs(18),
+    borderBottomWidth: 1,
+  },
+  reviewsEmpty: {
+    alignItems: 'center',
+    paddingVertical: 64,
+  },
+  reviewHint: {
+    paddingTop: 6,
+  },
+  footer: {
+    position: 'absolute',
+    left: 15,
+    right: 15,
+    bottom: theme.space.lg,
+  },
+  footerActions: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  footerPress: {
+    flex: 1,
+  },
+  footerButton: {
+    minHeight: 48,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.sm,
+    borderRadius: theme.radius.sm,
+  },
+  loading: {
+    padding: 64,
+    textAlign: 'center',
+  },
+}));
+
 function DetailFact({
   value,
   label,
@@ -41,12 +220,14 @@ function DetailFact({
 
   return (
     <View
-      className="flex-1 min-w-0 items-center px-one"
-      style={withDivider ? { borderLeftColor: colors.border, borderLeftWidth: 1 } : undefined}>
+      style={[
+        styles.detailFact,
+        withDivider ? { borderLeftColor: colors.border, borderLeftWidth: 1 } : undefined,
+      ]}>
       <Txt variant="heading" center>
         {value}
       </Txt>
-      <Txt variant="caption" tone="secondary" className="pt-[3px] text-center">
+      <Txt variant="caption" tone="secondary" style={styles.detailFactLabel}>
         {label}
       </Txt>
     </View>
@@ -69,8 +250,10 @@ function CatalogStepItem({
 
   return (
     <View
-      className="gap-three py-four"
-      style={!isLast ? { borderBottomColor: colors.border, borderBottomWidth: 1 } : undefined}>
+      style={[
+        styles.step,
+        !isLast ? { borderBottomColor: colors.border, borderBottomWidth: 1 } : undefined,
+      ]}>
       {imageUrl ? (
         <Image
           source={{ uri: imageUrl }}
@@ -79,11 +262,11 @@ function CatalogStepItem({
           style={{ width: '100%', height: 180, borderRadius: 16 }}
         />
       ) : null}
-      <View className="flex-row gap-[10px]">
-        <Txt variant="heading" tone="primary" className="w-[30px]">
+      <View style={styles.stepContent}>
+        <Txt variant="heading" tone="primary" style={styles.stepIndex}>
           {index + 1}
         </Txt>
-        <View className="flex-1 gap-one">
+        <View style={styles.stepCopy}>
           <Txt variant="body" weight="500">
             {step.text}
           </Txt>
@@ -106,24 +289,26 @@ function IngredientGroups({ detail, servings }: { detail: CatalogDetail; serving
 
   if (detail.components.length === 0) {
     return (
-      <Txt variant="body" tone="secondary" className="py-four">
+      <Txt variant="body" tone="secondary" style={styles.emptyText}>
         Noch keine Zutaten hinterlegt.
       </Txt>
     );
   }
 
   return (
-    <View className="gap-[18px]">
+    <View style={styles.ingredients}>
       {detail.components.map((component) => {
         const items = detail.items.filter((item) => item.component_id === component.id);
         const preparedGrams = (component.serving_grams ?? 0) * servings;
 
         return (
-          <View key={component.id} className="pt-[14px]">
+          <View key={component.id} style={styles.ingredientGroup}>
             <View
-              className="min-h-[40px] row-between gap-[10px]"
-              style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
-              <Txt variant="heading" weight="700" className="flex-1">
+              style={[
+                styles.ingredientHeader,
+                { borderBottomColor: colors.border, borderBottomWidth: 1 },
+              ]}>
+              <Txt variant="heading" weight="700" style={styles.ingredientTitle}>
                 {component.name}
               </Txt>
               {component.serving_grams !== null ? (
@@ -147,13 +332,13 @@ function IngredientGroups({ detail, servings }: { detail: CatalogDetail; serving
               return (
                 <View
                   key={item.id}
-                  className="min-h-[44px] row-between gap-three"
-                  style={
+                  style={[
+                    styles.ingredientRow,
                     index < items.length - 1
                       ? { borderBottomColor: colors.border, borderBottomWidth: 1 }
-                      : undefined
-                  }>
-                  <Txt variant="body" weight="700" className="flex-1" numberOfLines={1}>
+                      : undefined,
+                  ]}>
+                  <Txt variant="body" weight="700" style={styles.ingredientName} numberOfLines={1}>
                     {name}
                   </Txt>
                   <Txt variant="body" tone="secondary" weight="500">
@@ -163,7 +348,7 @@ function IngredientGroups({ detail, servings }: { detail: CatalogDetail; serving
               );
             })}
             {items.length === 0 ? (
-              <Txt variant="body" tone="secondary" className="py-three">
+              <Txt variant="body" tone="secondary" style={styles.emptyText}>
                 Noch keine Zutaten in dieser Gruppe.
               </Txt>
             ) : null}
@@ -205,7 +390,7 @@ export function RecipeCatalogDetailScreen() {
     return (
       <HubScreen
         header={{ title: 'Rezept', leading: <BackButton label="Zurück" variant="header" /> }}>
-        <Txt variant="body" tone="secondary" className="p-six text-center">
+        <Txt variant="body" tone="secondary" style={styles.loading}>
           Rezept wird geladen…
         </Txt>
       </HubScreen>
@@ -245,45 +430,44 @@ export function RecipeCatalogDetailScreen() {
         ),
       }}>
       <ScrollView
-        className="flex-1"
-        contentContainerClassName="px-four pb-[108px]"
+        style={styles.scroll}
+        contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}>
-        <View className="h-[178px] -mx-four overflow-hidden">
+        <View style={styles.hero}>
           <HeroArtwork coverUrl={coverUrl} title={recipe.title} />
         </View>
 
-        <Txt variant="title" weight="700" className="pt-[18px] tracking-tight">
+        <Txt variant="title" weight="700" style={styles.title}>
           {recipe.title}
         </Txt>
 
-        <View
-          className="flex-row mt-five"
-          style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
+        <View style={[styles.tabs, { borderBottomColor: colors.border }]}>
           {(['details', 'ratings'] as const).map((tab) => {
             const selected = activeTab === tab;
             const label = tab === 'details' ? 'Details' : 'Bewertungen';
             return (
-              <Pressable
+              <Press
                 key={tab}
                 onPress={() => setActiveTab(tab)}
                 role="tab"
                 aria-label={label}
                 aria-selected={selected}
-                className="flex-1 min-h-[48px] items-center justify-center border-b-[3px]"
-                style={{ borderBottomColor: selected ? colors.accent : 'transparent' }}>
+                containerStyle={styles.footerPress}
+                style={[
+                  styles.tab,
+                  { borderBottomColor: selected ? colors.accent : 'transparent' },
+                ]}>
                 <Txt variant="heading" tone={selected ? 'primary' : 'secondary'}>
                   {label}
                 </Txt>
-              </Pressable>
+              </Press>
             );
           })}
         </View>
 
         {activeTab === 'details' ? (
           <View>
-            <View
-              className="flex-row py-four"
-              style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
+            <View style={[styles.facts, { borderBottomColor: colors.border }]}>
               <DetailFact
                 value={kcalPer100g !== null ? `${kcalPer100g} kcal` : '–'}
                 label="pro 100 g"
@@ -301,78 +485,72 @@ export function RecipeCatalogDetailScreen() {
             </View>
 
             {recipe.instructions ? (
-              <Txt variant="body" className="pt-four" weight="500">
+              <Txt variant="body" style={styles.instructions} weight="500">
                 {recipe.instructions}
               </Txt>
             ) : null}
 
             {tags.length > 0 ? (
-              <View className="flex-row flex-wrap items-center gap-x-three gap-y-two pt-three">
+              <View style={styles.tags}>
                 {visibleTags.map((tag) => (
                   <Txt key={tag} variant="caption" tone="secondary" weight="500">
                     {tag.startsWith('#') ? tag : `#${tag}`}
                   </Txt>
                 ))}
                 {tags.length > 3 ? (
-                  <Pressable
+                  <Press
                     onPress={() => setShowAllTags((visible) => !visible)}
                     role="button"
                     aria-label={showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'}
                     aria-expanded={showAllTags}
                     hitSlop={8}>
-                    <Txt variant="caption" tone="secondary" className="underline" weight="500">
+                    <Txt variant="caption" tone="secondary" style={styles.tagMore} weight="500">
                       {showAllTags ? 'Weniger' : `+${tags.length - 3} mehr`}
                     </Txt>
-                  </Pressable>
+                  </Press>
                 ) : null}
               </View>
             ) : null}
 
-            <View
-              className="min-h-[58px] row-between gap-three mt-[18px]"
-              style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
+            <View style={[styles.ingredientsHeading, { borderBottomColor: colors.border }]}>
               <Txt variant="heading" weight="700">
                 Zutatenliste
               </Txt>
-              <View className="flex-row items-center gap-two">
+              <View style={styles.servingLabel}>
                 <Txt variant="body" weight="700">
                   Portionen
                 </Txt>
-                <View
-                  className="w-[112px] h-[44px] rounded-control flex-row items-center"
-                  style={{ backgroundColor: colors.backgroundElement }}>
-                  <Pressable
+                <View style={[styles.stepper, { backgroundColor: colors.backgroundElement }]}>
+                  <Press
                     onPress={() =>
                       setServings((value) => Math.max(1, (value ?? currentServings) - 1))
                     }
                     role="button"
                     aria-label="Weniger Portionen"
-                    className="w-[44px] h-[44px] items-center justify-center">
+                    style={styles.stepperButton}>
                     <Txt variant="subheading" tone="secondary" weight="500">
                       −
                     </Txt>
-                  </Pressable>
-                  <Txt variant="body" weight="700" className="min-w-[24px] flex-1 text-center">
+                  </Press>
+                  <Txt variant="body" weight="700" style={styles.stepperValue}>
                     {currentServings}
                   </Txt>
-                  <Pressable
+                  <Press
                     onPress={() => setServings((value) => (value ?? currentServings) + 1)}
                     role="button"
                     aria-label="Mehr Portionen"
-                    className="w-[44px] h-[44px] items-center justify-center">
+                    style={styles.stepperButton}>
                     <Txt variant="subheading" tone="secondary" weight="500">
                       +
                     </Txt>
-                  </Pressable>
+                  </Press>
                 </View>
               </View>
             </View>
 
             <IngredientGroups detail={detail} servings={scale} />
 
-            <View
-              className="min-h-[58px] row-between gap-three mt-[18px]"
-              style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
+            <View style={[styles.preparationHeading, { borderBottomColor: colors.border }]}>
               <Txt variant="heading">Zubereitung</Txt>
               <Txt variant="caption" tone="secondary" weight="500">
                 {detail.steps.length} {detail.steps.length === 1 ? 'Schritt' : 'Schritte'}
@@ -394,44 +572,50 @@ export function RecipeCatalogDetailScreen() {
                 ))}
               </View>
             ) : (
-              <Txt variant="body" tone="secondary" className="py-four">
+              <Txt variant="body" tone="secondary" style={styles.emptyText}>
                 Noch keine Zubereitungsschritte hinterlegt.
               </Txt>
             )}
           </View>
         ) : (
-          <View className="items-center py-six">
+          <View style={styles.reviewsEmpty}>
             <Txt variant="heading">Noch keine Bewertungen</Txt>
-            <Txt variant="body" tone="secondary" className="pt-[6px] text-center">
+            <Txt variant="body" tone="secondary" style={styles.reviewHint} center>
               Bewertungen sind für Katalogrezepte noch nicht verfügbar.
             </Txt>
           </View>
         )}
       </ScrollView>
 
-      <View className="absolute left-[15px] right-[15px] bottom-three">
-        <View className="flex-row gap-two">
-          <Pressable
+      <View style={styles.footer}>
+        <View style={styles.footerActions}>
+          <Press
             onPress={() => router.push({ pathname: '/recipe/cook', params: { slug: recipe.slug } })}
             role="button"
             aria-label="Kochmodus starten"
-            className="min-h-[48px] flex-1 rounded-control items-center justify-center px-two active:opacity-75"
-            style={{
-              backgroundColor: colors.backgroundElement,
-              borderColor: colors.accent,
-              borderWidth: 1,
-            }}>
+            containerStyle={styles.footerPress}
+            style={[
+              styles.footerButton,
+              {
+                backgroundColor: colors.backgroundElement,
+                borderColor: colors.accent,
+                borderWidth: 1,
+              },
+            ]}>
             <Txt variant="label" tone="primary" weight="700" center>
               Kochmodus starten
             </Txt>
-          </Pressable>
-          <Pressable
+          </Press>
+          <Press
             onPress={() => void copyToHousehold()}
             disabled={buttonDisabled}
             role="button"
             aria-label="Rezept in meine Rezepte übernehmen"
-            className="min-h-[48px] flex-1 rounded-control items-center justify-center px-two active:opacity-75"
-            style={{ backgroundColor: colors.accent, opacity: buttonDisabled ? 0.45 : 1 }}>
+            containerStyle={styles.footerPress}
+            style={[
+              styles.footerButton,
+              { backgroundColor: colors.accent, opacity: buttonDisabled ? 0.45 : 1 },
+            ]}>
             {copyRecipe.isPending ? (
               <ActivityIndicator color={colors.onAccent} />
             ) : (
@@ -439,7 +623,7 @@ export function RecipeCatalogDetailScreen() {
                 In meine Rezepte übernehmen
               </Txt>
             )}
-          </Pressable>
+          </Press>
         </View>
       </View>
     </HubScreen>

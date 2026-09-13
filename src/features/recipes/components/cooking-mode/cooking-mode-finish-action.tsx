@@ -1,13 +1,38 @@
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 
 type CookingModeFinishActionProps = {
   title: string;
   subtitle: string;
   onPress: () => void;
 };
+
+const styles = StyleSheet.create((theme) => ({
+  action: {
+    minHeight: 62,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm + theme.space.xs / 2,
+    paddingHorizontal: 11,
+    paddingVertical: 9,
+    borderRadius: theme.radius.lg,
+  },
+  icon: {
+    width: 38,
+    height: 38,
+    borderRadius: theme.radius.md,
+  },
+  copy: {
+    flex: 1,
+    minWidth: 0,
+  },
+  subtitle: {
+    paddingTop: theme.space.xs / 2,
+  },
+}));
 
 export function CookingModeFinishAction({
   title,
@@ -17,26 +42,22 @@ export function CookingModeFinishAction({
   const { colors } = useTheme();
 
   return (
-    <Pressable
+    <Press
       onPress={onPress}
       role="button"
-      className="min-h-[62px] rounded-sheet px-[11px] py-[9px] flex-row items-center gap-[10px] active:opacity-75"
-      style={{ backgroundColor: colors.backgroundElement }}>
-      <View
-        className="w-[38px] h-[38px] rounded-control"
-        style={{ backgroundColor: colors.backgroundSoft }}
-      />
-      <View className="flex-1 min-w-0">
+      style={[styles.action, { backgroundColor: colors.backgroundElement }]}>
+      <View style={[styles.icon, { backgroundColor: colors.backgroundSoft }]} />
+      <View style={styles.copy}>
         <Txt variant="caption" weight="700">
           {title}
         </Txt>
-        <Txt variant="caption" tone="secondary" className="pt-half">
+        <Txt variant="caption" tone="secondary" style={styles.subtitle}>
           {subtitle}
         </Txt>
       </View>
       <Txt variant="subheading" tone="secondary">
         ›
       </Txt>
-    </Pressable>
+    </Press>
   );
 }

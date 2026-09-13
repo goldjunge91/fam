@@ -1,25 +1,77 @@
 import type { ReactNode } from 'react';
-import { KeyboardAvoidingView, Modal, Pressable, View } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Modal,
+  Pressable,
+  type StyleProp,
+  View,
+  type ViewStyle,
+} from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 
 type RecipeBottomSheetProps = {
   visible: boolean;
   onClose: () => void;
   title: string;
-  /** Zusaetzliche Klassen fuer die Sheet-Flaeche, z. B. eine Hoehenbegrenzung. */
-  sheetClassName?: string;
+  /** Lokale Erweiterung der Sheet-Flaeche, z. B. eine Hoehenbegrenzung. */
+  sheetStyle?: StyleProp<ViewStyle>;
   /** Fuer Sheets mit Texteingabe, damit die Tastatur sie nicht verdeckt. */
   avoidKeyboard?: boolean;
   children: ReactNode;
 };
 
+const styles = StyleSheet.create((theme) => ({
+  backdrop: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  sheet: {
+    borderTopLeftRadius: theme.radius.famLarge,
+    borderTopRightRadius: theme.radius.famLarge,
+    paddingHorizontal: rs(24),
+    paddingTop: rs(10),
+    paddingBottom: rs(19),
+    backgroundColor: theme.backgroundElement,
+  },
+  handle: {
+    width: rs(36),
+    height: rs(4),
+    alignSelf: 'center',
+    borderRadius: rs(2),
+    marginTop: rs(10),
+  },
+  header: {
+    minHeight: rs(58),
+    paddingTop: rs(13),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.lg,
+  },
+  title: {
+    flex: 1,
+  },
+  close: {
+    width: rs(32),
+    height: rs(32),
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  keyboard: {
+    flex: 1,
+  },
+}));
+
 export function RecipeBottomSheet({
   visible,
   onClose,
   title,
-  sheetClassName = '',
+  sheetStyle,
   avoidKeyboard = false,
   children,
 }: RecipeBottomSheetProps) {
@@ -27,29 +79,24 @@ export function RecipeBottomSheet({
   if (!visible) return null;
 
   const body = (
-    <Pressable
-      className="flex-1 justify-end"
-      style={{ backgroundColor: colors.scrim }}
-      onPress={onClose}>
+    <Pressable style={[styles.backdrop, { backgroundColor: colors.scrim }]} onPress={onClose}>
       <Pressable
-        className={`recipe-sheet-surface ${sheetClassName}`.trim()}
-        style={{ backgroundColor: colors.surface }}
+        style={[styles.sheet, { backgroundColor: colors.surface }, sheetStyle]}
         onPress={(event) => event.stopPropagation()}>
-        <View className="modal-handle" />
-        <View className="min-h-[58px] pt-[13px] flex-row items-center justify-between gap-three">
-          <Txt variant="heading" className="flex-1">
+        <View style={[styles.handle, { backgroundColor: colors.border }]} />
+        <View style={styles.header}>
+          <Txt variant="heading" style={styles.title}>
             {title}
           </Txt>
-          <Pressable
+          <Press
             onPress={onClose}
             role="button"
             aria-label="Schließen"
-            className="btn-modal-close"
-            style={{ backgroundColor: colors.backgroundSoft }}>
+            style={[styles.close, { backgroundColor: colors.backgroundSoft }]}>
             <Txt variant="subheading" tone="secondary" weight="500">
               ×
             </Txt>
-          </Pressable>
+          </Press>
         </View>
         {children}
       </Pressable>
@@ -70,7 +117,7 @@ export function RecipeBottomSheet({
       {avoidKeyboard ? (
         <KeyboardAvoidingView
           behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}
-          className="flex-1">
+          style={styles.keyboard}>
           {body}
         </KeyboardAvoidingView>
       ) : (

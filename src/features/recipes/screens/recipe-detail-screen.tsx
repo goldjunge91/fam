@@ -17,10 +17,12 @@ import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { HubScreen } from '@/components/layout/hub-screen';
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { HeartGlyph, HeroArtwork } from '../components/recipe-detail-primitives';
 import { RecipeRatingSheet } from '../components/recipe-rating-sheet';
 import { RecipeShoppingSheet } from '../components/recipe-shopping-sheet';
@@ -38,13 +40,271 @@ import {
   DISH_TYPE_LABELS,
 } from '../wizard/recipe-metadata-options';
 
+const styles = StyleSheet.create((theme) => ({
+  loading: {
+    padding: rs(64),
+    textAlign: 'center',
+  },
+  detailFact: {
+    flex: 1,
+    minWidth: 0,
+    alignItems: 'center',
+    paddingHorizontal: theme.space.xs,
+  },
+  factLabel: {
+    paddingTop: rs(3),
+    textAlign: 'center',
+  },
+  step: {
+    gap: theme.space.lg,
+    paddingVertical: theme.space.lg,
+  },
+  stepImage: {
+    width: '100%',
+    height: rs(180),
+    borderRadius: theme.radius.md,
+  },
+  stepRow: {
+    flexDirection: 'row',
+    gap: rs(10),
+  },
+  stepNumber: {
+    width: rs(30),
+  },
+  stepCopy: {
+    flex: 1,
+    gap: theme.space.xs,
+  },
+  nutritionStat: {
+    flex: 1,
+    minHeight: rs(58),
+    minWidth: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.xs,
+  },
+  manageRow: {
+    minHeight: rs(45),
+    justifyContent: 'center',
+    paddingHorizontal: rs(6),
+  },
+  ingredients: {
+    gap: rs(18),
+  },
+  ingredientGroup: {
+    paddingTop: rs(14),
+  },
+  ingredientHeader: {
+    minHeight: rs(40),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: rs(10),
+  },
+  ingredientItem: {
+    minHeight: rs(44),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.lg,
+  },
+  ingredientName: {
+    flex: 1,
+  },
+  emptyIngredients: {
+    paddingVertical: theme.space.lg,
+  },
+  emptyIngredientGroup: {
+    paddingVertical: theme.space.md,
+  },
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingHorizontal: theme.space.lg,
+    paddingBottom: rs(108),
+  },
+  hero: {
+    height: rs(178),
+    marginHorizontal: -theme.space.lg,
+    overflow: 'hidden',
+  },
+  title: {
+    paddingTop: rs(18),
+    letterSpacing: -0.25,
+  },
+  tabs: {
+    flexDirection: 'row',
+    marginTop: rs(32),
+  },
+  tabContainer: {
+    flex: 1,
+  },
+  tab: {
+    width: '100%',
+    minHeight: rs(48),
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomWidth: 3,
+  },
+  facts: {
+    flexDirection: 'row',
+    paddingVertical: theme.space.lg,
+  },
+  instructions: {
+    paddingTop: theme.space.lg,
+  },
+  tags: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    columnGap: theme.space.lg,
+    rowGap: theme.space.sm,
+    paddingTop: theme.space.md,
+  },
+  tagMore: {
+    textDecorationLine: 'underline',
+  },
+  ingredientHeaderRow: {
+    minHeight: rs(58),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+    marginTop: rs(18),
+  },
+  stepper: {
+    width: rs(156),
+    height: rs(44),
+    borderRadius: theme.radius.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  stepperButtonContainer: {
+    width: rs(44),
+    height: rs(44),
+  },
+  stepperButton: {
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  servings: {
+    flex: 1,
+    textAlign: 'center',
+  },
+  missingButton: {
+    minHeight: rs(48),
+    marginTop: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.sm,
+  },
+  nutrition: {
+    flexDirection: 'row',
+    marginTop: theme.space.lg,
+  },
+  preparationHeader: {
+    minHeight: rs(58),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+    marginTop: rs(18),
+  },
+  emptySteps: {
+    paddingVertical: theme.space.lg,
+  },
+  ratings: {
+    paddingTop: rs(22),
+  },
+  ratingRow: {
+    minHeight: rs(58),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.xl,
+    paddingBottom: theme.space.lg,
+  },
+  noteTitle: {
+    paddingTop: rs(32),
+  },
+  noteBody: {
+    paddingTop: theme.space.xs,
+  },
+  ratingEmpty: {
+    alignItems: 'center',
+    paddingVertical: theme.space.xxxl,
+  },
+  ratingHint: {
+    paddingTop: rs(6),
+    textAlign: 'center',
+  },
+  ratingButton: {
+    minHeight: rs(48),
+    marginTop: rs(32),
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.lg,
+  },
+  floatingContainer: {
+    position: 'absolute',
+    left: rs(15),
+    right: rs(15),
+    bottom: theme.space.sm,
+  },
+  floatingButton: {
+    minHeight: rs(48),
+    alignSelf: 'center',
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.xxl,
+  },
+  manageBackdrop: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  manageSheet: {
+    borderTopLeftRadius: theme.radius.famLarge,
+    borderTopRightRadius: theme.radius.famLarge,
+    paddingHorizontal: theme.space.lg,
+    paddingTop: rs(10),
+    paddingBottom: rs(19),
+  },
+  manageHandle: {
+    width: rs(38),
+    height: rs(4),
+    alignSelf: 'center',
+    borderRadius: rs(2),
+  },
+  manageHeader: {
+    minHeight: rs(58),
+    paddingTop: rs(13),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+  },
+  manageClose: {
+    width: rs(32),
+    height: rs(32),
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}));
+
 function round(value: number): number {
   return Math.round(value);
 }
 
 function MoreGlyph() {
   return (
-    <Txt variant="caption" weight="800" className="tracking-widest">
+    <Txt variant="caption" weight="800" style={{ letterSpacing: 1.5 }}>
       •••
     </Txt>
   );
@@ -63,12 +323,14 @@ function DetailFact({
 
   return (
     <View
-      className="flex-1 min-w-0 items-center px-one"
-      style={withDivider ? { borderLeftColor: colors.border, borderLeftWidth: 1 } : undefined}>
+      style={[
+        styles.detailFact,
+        withDivider && { borderLeftColor: colors.border, borderLeftWidth: 1 },
+      ]}>
       <Txt variant="heading" center>
         {value}
       </Txt>
-      <Txt variant="caption" tone="secondary" className="pt-[3px] text-center">
+      <Txt variant="caption" tone="secondary" style={styles.factLabel}>
         {label}
       </Txt>
     </View>
@@ -92,22 +354,21 @@ function RecipeStepItem({
 
   return (
     <View
-      className="gap-three py-four"
-      style={!isLast ? { borderBottomColor: colors.border, borderBottomWidth: 1 } : undefined}>
+      style={[styles.step, !isLast && { borderBottomColor: colors.border, borderBottomWidth: 1 }]}>
       {imageUrl ? (
         <Image
           source={{ uri: imageUrl }}
           contentFit="cover"
           accessibilityLabel={`Bild für Schritt ${index + 1}`}
           // expo-image benötigt inline Dimensionen
-          style={{ width: '100%', height: 180, borderRadius: 16 }}
+          style={styles.stepImage}
         />
       ) : null}
-      <View className="flex-row gap-[10px]">
-        <Txt variant="heading" tone="primary" className="w-[30px]">
+      <View style={styles.stepRow}>
+        <Txt variant="heading" tone="primary" style={styles.stepNumber}>
           {index + 1}
         </Txt>
-        <View className="flex-1 gap-one">
+        <View style={styles.stepCopy}>
           <StepMentionText text={step.text} ingredients={ingredients} variant="body" weight="500" />
           {step.timer_minutes !== null ? (
             <Txt variant="caption" tone="secondary">
@@ -123,9 +384,9 @@ function RecipeStepItem({
 /** Zelle der Nährwerttabelle (Wert + Label untereinander). */
 function NutritionStat({ value, label }: { value: string; label: string }) {
   return (
-    <View className="flex-1 min-h-[58px] min-w-0 items-center justify-center px-half">
+    <View style={styles.nutritionStat}>
       <Txt variant="heading">{value}</Txt>
-      <Txt variant="caption" tone="secondary" className="pt-[3px]" weight="500">
+      <Txt variant="caption" tone="secondary" style={styles.factLabel} weight="500">
         {label}
       </Txt>
     </View>
@@ -146,15 +407,17 @@ function ManageRow({
   const { colors } = useTheme();
 
   return (
-    <Pressable
+    <Press
       onPress={onPress}
       role="button"
-      className="min-h-[45px] justify-center px-[6px] active:opacity-75"
-      style={!isLast ? { borderBottomColor: colors.border, borderBottomWidth: 1 } : undefined}>
+      style={[
+        styles.manageRow,
+        !isLast && { borderBottomColor: colors.border, borderBottomWidth: 1 },
+      ]}>
       <Txt variant="caption" tone={danger ? 'danger' : 'primary'} weight="500">
         {label}
       </Txt>
-    </Pressable>
+    </Press>
   );
 }
 
@@ -169,24 +432,26 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
 
   if (groups.length === 0) {
     return (
-      <Txt variant="body" tone="secondary" className="py-four">
+      <Txt variant="body" tone="secondary" style={styles.emptyIngredients}>
         Noch keine Zutaten hinterlegt.
       </Txt>
     );
   }
 
   return (
-    <View className="gap-[18px]">
+    <View style={styles.ingredients}>
       {groups.map((component) => {
         const items = data.items.filter((item) => item.component_id === component.id);
         const preparedGrams = (component.serving_grams ?? 0) * servings;
 
         return (
-          <View key={component.id} className="pt-[14px]">
+          <View key={component.id} style={styles.ingredientGroup}>
             <View
-              className="min-h-[40px] row-between gap-[10px]"
-              style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
-              <Txt variant="heading" className="flex-1">
+              style={[
+                styles.ingredientHeader,
+                { borderBottomColor: colors.border, borderBottomWidth: 1 },
+              ]}>
+              <Txt variant="heading" style={styles.ingredientName}>
                 {component.name}
               </Txt>
               <Txt variant="caption" tone="secondary">
@@ -201,13 +466,14 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
               return (
                 <View
                   key={item.id}
-                  className="min-h-[44px] row-between gap-three"
-                  style={
-                    index < items.length - 1
-                      ? { borderBottomColor: colors.border, borderBottomWidth: 1 }
-                      : undefined
-                  }>
-                  <Txt variant="body" weight="500" className="flex-1" numberOfLines={1}>
+                  style={[
+                    styles.ingredientItem,
+                    index < items.length - 1 && {
+                      borderBottomColor: colors.border,
+                      borderBottomWidth: 1,
+                    },
+                  ]}>
+                  <Txt variant="body" weight="500" style={styles.ingredientName} numberOfLines={1}>
                     {product?.name ?? 'Zutat'}
                   </Txt>
                   <Txt variant="body" tone="secondary" weight="500">
@@ -217,7 +483,7 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
               );
             })}
             {items.length === 0 ? (
-              <Txt variant="body" tone="secondary" className="py-three">
+              <Txt variant="body" tone="secondary" style={styles.emptyIngredientGroup}>
                 Noch keine Zutaten in dieser Gruppe.
               </Txt>
             ) : null}
@@ -280,7 +546,7 @@ export function RecipeDetailScreen() {
     return (
       <HubScreen
         header={{ title: 'Rezept', leading: <BackButton label="Zurück" variant="header" /> }}>
-        <Txt variant="body" tone="secondary" className="p-six text-center">
+        <Txt variant="body" tone="secondary" style={styles.loading}>
           Rezept wird geladen…
         </Txt>
       </HubScreen>
@@ -316,39 +582,40 @@ export function RecipeDetailScreen() {
         ),
       }}>
       <ScrollView
-        className="flex-1"
-        contentContainerClassName="px-four pb-[108px]"
+        style={styles.scroll}
+        contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}>
         {/* Rezept-Titelbild / Artwork */}
-        <View className="h-[178px] -mx-four overflow-hidden">
+        <View style={styles.hero}>
           <HeroArtwork coverUrl={coverUrl} title={recipe.title} />
         </View>
 
         {/* Rezepttitel */}
-        <Txt variant="title" weight="700" className="pt-[18px] tracking-tight">
+        <Txt variant="title" weight="700" style={styles.title}>
           {recipe.title}
         </Txt>
 
         {/* Tab-Leiste (Details vs. Bewertungen) */}
-        <View
-          className="flex-row mt-five"
-          style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
+        <View style={[styles.tabs, { borderBottomColor: colors.border, borderBottomWidth: 1 }]}>
           {(['details', 'ratings'] as const).map((tab) => {
             const selected = activeTab === tab;
             const label = tab === 'details' ? 'Details' : 'Bewertungen';
             return (
-              <Pressable
+              <Press
                 key={tab}
                 onPress={() => setActiveTab(tab)}
                 role="tab"
                 aria-label={label}
                 aria-selected={selected}
-                className="flex-1 min-h-[48px] items-center justify-center border-b-[3px]"
-                style={{ borderBottomColor: selected ? colors.accent : 'transparent' }}>
+                containerStyle={styles.tabContainer}
+                style={[
+                  styles.tab,
+                  { borderBottomColor: selected ? colors.accent : 'transparent' },
+                ]}>
                 <Txt variant="heading" tone={selected ? 'primary' : 'secondary'}>
                   {label}
                 </Txt>
-              </Pressable>
+              </Press>
             );
           })}
         </View>
@@ -357,8 +624,7 @@ export function RecipeDetailScreen() {
           <View>
             {/* Basis-Fakten (Kalorien, Zubereitungszeit, Schwierigkeitsgrad) */}
             <View
-              className="flex-row py-four"
-              style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
+              style={[styles.facts, { borderBottomColor: colors.border, borderBottomWidth: 1 }]}>
               <DetailFact
                 value={scaledServing ? `${round(scaledServing.kcal)} kcal` : '–'}
                 label="pro Portion"
@@ -377,63 +643,65 @@ export function RecipeDetailScreen() {
 
             {/* Beschreibung / Allgemeine Kochanleitung */}
             {recipe.instructions ? (
-              <Txt variant="body" weight="500" className="pt-four">
+              <Txt variant="body" weight="500" style={styles.instructions}>
                 {recipe.instructions}
               </Txt>
             ) : null}
 
             {/* Kategorien- und Hashtags */}
             {tags.length > 0 ? (
-              <View className="flex-row flex-wrap items-center gap-x-three gap-y-two pt-three">
+              <View style={styles.tags}>
                 {visibleTags.map((tag) => (
                   <Txt key={tag} variant="caption" tone="secondary" weight="500">
                     {tag.startsWith('#') ? tag : `#${tag}`}
                   </Txt>
                 ))}
                 {tags.length > 3 ? (
-                  <Pressable
+                  <Press
                     onPress={() => setShowAllTags((visible) => !visible)}
                     role="button"
                     aria-label={showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'}
                     aria-expanded={showAllTags}
                     hitSlop={8}>
-                    <Txt variant="caption" tone="secondary" className="underline" weight="500">
+                    <Txt variant="caption" tone="secondary" style={styles.tagMore} weight="500">
                       {showAllTags ? 'Weniger' : `+${tags.length - 3} mehr`}
                     </Txt>
-                  </Pressable>
+                  </Press>
                 ) : null}
               </View>
             ) : null}
 
             {/* Zutaten-Kopf mit Portionsrechner-Stepper (+ / -) */}
             <View
-              className="min-h-[58px] row-between gap-three mt-[18px]"
-              style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
+              style={[
+                styles.ingredientHeaderRow,
+                { borderBottomColor: colors.border, borderBottomWidth: 1 },
+              ]}>
               <Txt variant="heading">Zutaten</Txt>
-              <View
-                className="w-[156px] h-[44px] rounded-control flex-row items-center"
-                style={{ backgroundColor: colors.backgroundElement }}>
-                <Pressable
+              <View style={[styles.stepper, { backgroundColor: colors.backgroundElement }]}>
+                <Press
                   onPress={() => setServings((value) => Math.max(1, value - 1))}
                   role="button"
                   aria-label="Weniger Portionen"
-                  className="w-[44px] h-[44px] items-center justify-center">
+                  containerStyle={styles.stepperButtonContainer}
+                  style={styles.stepperButton}>
                   <Txt variant="subheading" tone="secondary" weight="500">
                     −
                   </Txt>
-                </Pressable>
-                <Txt variant="body" weight="700" className="flex-1 text-center">
+                </Press>
+                <Txt variant="body" weight="700" style={styles.servings}>
                   {servings} Portionen
                 </Txt>
-                <Pressable
+                <Press
                   onPress={() => setServings((value) => value + 1)}
                   role="button"
                   aria-label="Mehr Portionen"
-                  className="w-[44px] h-[44px] items-center justify-center">
+                  containerStyle={styles.stepperButtonContainer}
+                  style={styles.stepperButton}>
                   <Txt variant="subheading" tone="secondary" weight="500">
                     +
                   </Txt>
-                </Pressable>
+                </Press>
               </View>
             </View>
 
@@ -441,27 +709,28 @@ export function RecipeDetailScreen() {
             <IngredientGroups data={data} servings={servings} />
 
             {/* Button zur Übernahme fehlender Zutaten in die Einkaufsliste */}
-            <Pressable
+            <Press
               role="button"
               aria-label="Fehlende Zutaten zur Einkaufsliste hinzufügen"
               onPress={() => setShoppingOpen(true)}
-              className="min-h-[48px] mt-four rounded-control items-center justify-center px-three active:opacity-75"
-              style={{ borderColor: colors.border, borderWidth: 1 }}>
+              style={[styles.missingButton, { borderColor: colors.border, borderWidth: 1 }]}>
               <Txt variant="heading" tone="primary" center>
                 Fehlende Zutaten zur Einkaufsliste
               </Txt>
-            </Pressable>
+            </Press>
 
             {/* Nährwerttabelle (kcal, Protein, Kohlenhydrate, Fett) */}
             {scaledServing ? (
               <View
-                className="flex-row mt-four"
-                style={{
-                  borderTopColor: colors.border,
-                  borderTopWidth: 1,
-                  borderBottomColor: colors.border,
-                  borderBottomWidth: 1,
-                }}>
+                style={[
+                  styles.nutrition,
+                  {
+                    borderTopColor: colors.border,
+                    borderTopWidth: 1,
+                    borderBottomColor: colors.border,
+                    borderBottomWidth: 1,
+                  },
+                ]}>
                 <NutritionStat value={String(round(scaledServing.kcal))} label="kcal" />
                 <NutritionStat value={`${round(scaledServing.protein_g)} g`} label="Protein" />
                 <NutritionStat value={`${round(scaledServing.carbs_g)} g`} label="Kohlenhydrate" />
@@ -471,8 +740,10 @@ export function RecipeDetailScreen() {
 
             {/* Zubereitungsschritte mit Bildern und Text */}
             <View
-              className="min-h-[58px] row-between gap-three mt-[18px]"
-              style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
+              style={[
+                styles.preparationHeader,
+                { borderBottomColor: colors.border, borderBottomWidth: 1 },
+              ]}>
               <Txt variant="heading">Zubereitung</Txt>
               <Txt variant="caption" tone="secondary" weight="500">
                 {data.steps.length} {data.steps.length === 1 ? 'Schritt' : 'Schritte'}
@@ -491,20 +762,22 @@ export function RecipeDetailScreen() {
                 ))}
               </View>
             ) : (
-              <Txt variant="body" tone="secondary" className="py-four">
+              <Txt variant="body" tone="secondary" style={styles.emptySteps}>
                 Noch keine Zubereitungsschritte hinterlegt.
               </Txt>
             )}
           </View>
         ) : (
           /* Bewertungen & Notizen Tab */
-          <View className="pt-[22px]">
+          <View style={styles.ratings}>
             {rating ? (
               <>
                 {/* Anzeige der eigenen Punktebewertung */}
                 <View
-                  className="min-h-[58px] row-between gap-four pb-four"
-                  style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
+                  style={[
+                    styles.ratingRow,
+                    { borderBottomColor: colors.border, borderBottomWidth: 1 },
+                  ]}>
                   <Txt variant="title" weight="700">
                     ★ {rating.score}{' '}
                     <Txt variant="heading" tone="secondary">
@@ -518,10 +791,10 @@ export function RecipeDetailScreen() {
                 {/* Eigene persönliche Notiz zum Rezept */}
                 {rating.note ? (
                   <>
-                    <Txt variant="heading" className="pt-five">
+                    <Txt variant="heading" style={styles.noteTitle}>
                       Deine Notiz
                     </Txt>
-                    <Txt variant="body" weight="500" className="pt-two">
+                    <Txt variant="body" weight="500" style={styles.noteBody}>
                       {rating.note}
                     </Txt>
                   </>
@@ -529,40 +802,38 @@ export function RecipeDetailScreen() {
               </>
             ) : (
               /* Leerzustand für Bewertungen */
-              <View className="items-center py-six">
+              <View style={styles.ratingEmpty}>
                 <Txt variant="heading">Noch keine Bewertung</Txt>
-                <Txt variant="body" tone="secondary" weight="500" className="pt-[6px] text-center">
+                <Txt variant="body" tone="secondary" weight="500" style={styles.ratingHint}>
                   Halte fest, wie dir dieses Rezept gefallen hat.
                 </Txt>
               </View>
             )}
             {/* Button zum Erstellen/Bearbeiten der Bewertung */}
-            <Pressable
+            <Press
               onPress={() => setRatingOpen(true)}
               role="button"
               aria-label={rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
-              className="min-h-[48px] mt-five rounded-control items-center justify-center px-four active:opacity-75"
-              style={{ backgroundColor: colors.accent }}>
+              style={[styles.ratingButton, { backgroundColor: colors.accent }]}>
               <Txt variant="heading" tone="onAccent">
                 {rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
               </Txt>
-            </Pressable>
+            </Press>
           </View>
         )}
       </ScrollView>
 
       {/* Fixierter Floating-Button zum Starten des Kochmodus */}
-      <View className="absolute left-[15px] right-[15px] bottom-three">
-        <Pressable
+      <View style={styles.floatingContainer}>
+        <Press
           onPress={() => router.push({ pathname: '/recipe/cook', params: { id: recipe.id } })}
           role="button"
           aria-label="Kochmodus starten"
-          className="min-h-[48px] self-center rounded-control items-center justify-center px-six active:opacity-75"
-          style={{ backgroundColor: colors.accent }}>
+          style={[styles.floatingButton, { backgroundColor: colors.accent }]}>
           <Txt variant="heading" tone="onAccent">
             Kochmodus starten
           </Txt>
-        </Pressable>
+        </Press>
       </View>
 
       {/* Aktions-Modal zur Rezeptverwaltung (Bearbeiten, Teilen, Löschen) */}
@@ -573,28 +844,25 @@ export function RecipeDetailScreen() {
         animationType="slide"
         onRequestClose={() => setManageOpen(false)}>
         <Pressable
-          className="flex-1 justify-end"
-          style={{ backgroundColor: colors.scrim }}
+          style={[styles.manageBackdrop, { backgroundColor: colors.scrim }]}
           onPress={() => setManageOpen(false)}>
           <Pressable
-            className="rounded-t-fam-large px-four pt-[10px] pb-[19px]"
-            style={{ backgroundColor: colors.backgroundElement }}
-            onPress={() => {}}>
-            <View className="w-[38px] h-1 rounded-sm self-center bg-border" />
-            <View className="min-h-[58px] pt-[13px] row-between gap-three">
+            style={[styles.manageSheet, { backgroundColor: colors.backgroundElement }]}
+            onPress={(event) => event.stopPropagation()}>
+            <View style={[styles.manageHandle, { backgroundColor: colors.border }]} />
+            <View style={styles.manageHeader}>
               <Txt variant="heading" weight="700">
                 Rezept verwalten
               </Txt>
-              <Pressable
+              <Press
                 onPress={() => setManageOpen(false)}
                 role="button"
                 aria-label="Schließen"
-                className="w-8 h-8 rounded-control items-center justify-center"
-                style={{ backgroundColor: colors.backgroundSoft }}>
+                style={[styles.manageClose, { backgroundColor: colors.backgroundSoft }]}>
                 <Txt variant="heading" tone="secondary">
                   ×
                 </Txt>
-              </Pressable>
+              </Press>
             </View>
             <ManageRow
               label="Bearbeiten"

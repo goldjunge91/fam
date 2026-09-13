@@ -1,7 +1,9 @@
-import { Pressable, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import type { RecipeDetail } from '../../hooks/use-recipes';
 
 type CookingModeNoStepsProps = {
@@ -9,26 +11,47 @@ type CookingModeNoStepsProps = {
   onFinish: () => void;
 };
 
+const styles = StyleSheet.create((theme) => ({
+  content: {
+    flexGrow: 1,
+    paddingHorizontal: rs(24),
+    paddingBottom: rs(24),
+  },
+  title: {
+    paddingTop: rs(6),
+  },
+  instructions: {
+    paddingTop: theme.space.lg,
+  },
+  finish: {
+    minHeight: rs(48),
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.lg,
+    marginTop: 'auto',
+  },
+}));
+
 export function CookingModeNoSteps({ recipe, onFinish }: CookingModeNoStepsProps) {
   const { colors } = useTheme();
 
   return (
-    <ScrollView contentContainerClassName="flex-grow px-four pb-four">
-      <Txt variant="heading" className="pt-[6px]">
+    <ScrollView contentContainerStyle={styles.content}>
+      <Txt variant="heading" style={styles.title}>
         {recipe.title}
       </Txt>
-      <Txt variant="caption" tone="secondary" className="pt-three">
+      <Txt variant="caption" tone="secondary" style={styles.instructions}>
         {recipe.instructions ?? 'Für dieses Rezept sind noch keine Schritte hinterlegt.'}
       </Txt>
-      <Pressable
+      <Press
         onPress={onFinish}
         role="button"
-        className="min-h-[48px] rounded-card items-center justify-center px-three active:opacity-75 mt-auto"
-        style={{ backgroundColor: colors.basil }}>
+        style={[styles.finish, { backgroundColor: colors.basil }]}>
         <Txt variant="caption" tone="inverse" weight="700" center>
           Zubereitung abschließen
         </Txt>
-      </Pressable>
+      </Press>
     </ScrollView>
   );
 }

@@ -1,9 +1,11 @@
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
+import { ActivityIndicator, Alert, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Txt } from '@/constants/ui';
+import { Button, Press, Txt } from '@/constants/ui';
 import { usePremium } from '@/features/premium/premium-provider';
 import { RowStorePicker } from '@/features/shopping-list/components/ui/row-store-picker';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
@@ -24,6 +26,56 @@ type Props = {
 // jedem Render ein neues Array an, das `useEffect`-Dependency unten wuerde
 // das als Aenderung sehen und in eine Endlosschleife aus setState laufen.
 const EMPTY_MISSING: RecipeShoppingNeed[] = [];
+
+const styles = StyleSheet.create((theme) => ({
+  sheet: {
+    maxHeight: '82%',
+  },
+  bulkRow: {
+    marginTop: rs(10),
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  missingList: {
+    marginTop: rs(14),
+    borderRadius: theme.radius.lg,
+    overflow: 'hidden',
+  },
+  itemRow: {
+    minHeight: rs(45),
+    paddingHorizontal: theme.space.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: rs(10),
+  },
+  itemMainContainer: {
+    flex: 1,
+  },
+  itemMain: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: rs(10),
+  },
+  checkbox: {
+    width: rs(22),
+    height: rs(22),
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1.5,
+  },
+  itemName: {
+    flex: 1,
+  },
+  divider: {
+    borderBottomWidth: 1,
+  },
+  sheetButton: {
+    alignSelf: 'stretch',
+    marginTop: rs(14),
+  },
+}));
 
 export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Props) {
   const { colors } = useTheme();
@@ -121,7 +173,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
       visible={visible}
       onClose={onClose}
       title={hasPlus ? 'Fehlende Zutaten' : 'Mit Plus einkaufen'}
-      sheetClassName="max-h-[82%]">
+      sheetStyle={styles.sheet}>
       {!hasPlus ? (
         <>
           <Txt variant="caption" tone="secondary">
@@ -146,7 +198,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
             Bereits vorhandene Mengen wurden abgezogen. Wähle aus, was auf die Einkaufsliste soll.
           </Txt>
           {/* Bulk-Aktion: allen Zutaten auf einen Schlag denselben Markt zuweisen (#342) */}
-          <View className="mt-[10px] flex-row justify-end">
+          <View style={styles.bulkRow}>
             <RowStorePicker
               householdId={detail.recipe.household_id}
               storeId={null}
@@ -159,40 +211,40 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
               testID="recipe-bulk-store-picker"
             />
           </View>
-          <View
-            className="mt-[14px] rounded-sheet overflow-hidden"
-            style={{ backgroundColor: colors.backgroundSoft }}>
+          <View style={[styles.missingList, { backgroundColor: colors.backgroundSoft }]}>
             {missing.map((item, index) => {
               const checked = selected.has(item.productId);
               return (
                 <View
                   key={item.productId}
-                  className="min-h-[45px] px-three flex-row items-center gap-[10px]"
-                  style={
+                  style={[
+                    styles.itemRow,
                     index < missing.length - 1
-                      ? { borderBottomColor: colors.border, borderBottomWidth: 1 }
-                      : undefined
-                  }>
-                  <Pressable
+                      ? [styles.divider, { borderBottomColor: colors.border }]
+                      : undefined,
+                  ]}>
+                  <Press
                     onPress={() => toggle(item.productId)}
                     role="checkbox"
                     accessibilityState={{ checked }}
                     accessibilityLabel={item.name}
-                    className="flex-1 flex-row items-center gap-[10px]">
+                    containerStyle={styles.itemMainContainer}
+                    style={styles.itemMain}>
                     <View
-                      className="w-[22px] h-[22px] rounded-fam-sm items-center justify-center"
-                      style={{
-                        backgroundColor: checked ? colors.accent : 'transparent',
-                        borderColor: colors.accent,
-                        borderWidth: 1.5,
-                      }}>
+                      style={[
+                        styles.checkbox,
+                        {
+                          backgroundColor: checked ? colors.accent : 'transparent',
+                          borderColor: colors.accent,
+                        },
+                      ]}>
                       {checked ? (
                         <Txt variant="caption" tone="onAccent" weight="700">
                           ✓
                         </Txt>
                       ) : null}
                     </View>
-                    <Txt variant="label" weight="700" className="flex-1" numberOfLines={1}>
+                    <Txt variant="label" weight="700" style={styles.itemName} numberOfLines={1}>
                       {item.name}
                     </Txt>
                     <Txt variant="caption" tone="secondary">
@@ -200,7 +252,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
                         ? `${item.missingGrams} g`
                         : `${item.neededGrams}g / ${item.availableGrams}g`}
                     </Txt>
-                  </Pressable>
+                  </Press>
                   <RowStorePicker
                     householdId={detail.recipe.household_id}
                     storeId={storeIdFor(item)}
@@ -243,7 +295,7 @@ function SheetButton({
       loading={loading}
       disabled={disabled}
       size="lg"
-      style={{ alignSelf: 'stretch', marginTop: 14 }}
+      style={styles.sheetButton}
     />
   );
 }

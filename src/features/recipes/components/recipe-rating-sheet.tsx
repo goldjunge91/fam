@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, TextInput, View } from 'react-native';
+import { ActivityIndicator, TextInput, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { getRecipeRating, saveRecipeRating } from '../domain/recipe-ratings';
 import { RecipeBottomSheet } from './recipe-bottom-sheet';
@@ -12,6 +14,46 @@ type Props = {
   visible: boolean;
   onClose: () => void;
 };
+
+const styles = StyleSheet.create((theme) => ({
+  scoreRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: rs(7),
+    paddingTop: rs(14),
+  },
+  scoreButton: {
+    width: '18%',
+    minWidth: rs(52),
+    height: rs(50),
+    borderRadius: theme.radius.famLarge,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.space.xs,
+  },
+  scoreHint: {
+    paddingTop: rs(10),
+  },
+  note: {
+    minHeight: rs(92),
+    marginTop: theme.space.lg,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: rs(11),
+    borderWidth: 0.5,
+    borderRadius: theme.radius.md,
+  },
+  submitContainer: {
+    alignSelf: 'stretch',
+    marginTop: rs(14),
+  },
+  submit: {
+    height: rs(48),
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}));
 
 export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
   const { colors } = useTheme();
@@ -58,29 +100,31 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
         Wie hat dir das Rezept gefallen?
       </Txt>
 
-      <View className="flex-row flex-wrap gap-[7px] pt-[14px]">
+      <View style={styles.scoreRow}>
         {Array.from({ length: 10 }, (_, index) => index + 1).map((value) => {
           const isSelected = score === value;
           return (
-            <Pressable
+            <Press
               key={value}
               onPress={() => setScore(value)}
               role="button"
               aria-label={`${value} von 10 Sternen`}
               accessibilityState={{ selected: isSelected }}
-              className="recipe-score-btn"
-              style={{ backgroundColor: isSelected ? colors.accent : colors.backgroundSoft }}>
+              style={[
+                styles.scoreButton,
+                { backgroundColor: isSelected ? colors.accent : colors.backgroundSoft },
+              ]}>
               <Txt variant="label" tone={isSelected ? 'onAccent' : 'secondary'}>
                 ★
               </Txt>
               <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'} weight="700">
                 {value}
               </Txt>
-            </Pressable>
+            </Press>
           );
         })}
       </View>
-      <Txt variant="caption" tone="primary" weight="700" className="pt-[10px]">
+      <Txt variant="caption" tone="primary" weight="700" style={styles.scoreHint}>
         {score > 0 ? `${score} / 10` : 'Noch keine Bewertung gewählt'}
       </Txt>
 
@@ -92,16 +136,25 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
         multiline
         maxLength={500}
         textAlignVertical="top"
-        className="recipe-rating-input"
-        style={{ color: colors.text }}
+        style={[
+          styles.note,
+          {
+            color: colors.text,
+            borderColor: colors.border,
+            backgroundColor: colors.backgroundSoft,
+          },
+        ]}
       />
 
-      <Pressable
+      <Press
         onPress={submit}
         disabled={score === 0 || saving}
         role="button"
-        className="h-12 mt-[14px] rounded-card items-center justify-center active:opacity-75"
-        style={{ backgroundColor: colors.accent, opacity: score === 0 || saving ? 0.45 : 1 }}>
+        containerStyle={styles.submitContainer}
+        style={[
+          styles.submit,
+          { backgroundColor: colors.accent, opacity: score === 0 || saving ? 0.45 : 1 },
+        ]}>
         {saving ? (
           <ActivityIndicator color={colors.onAccent} />
         ) : (
@@ -109,7 +162,7 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
             Bewertung speichern
           </Txt>
         )}
-      </Pressable>
+      </Press>
     </RecipeBottomSheet>
   );
 }

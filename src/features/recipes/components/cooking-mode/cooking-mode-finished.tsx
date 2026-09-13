@@ -1,9 +1,10 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, ScrollView, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import type { RecipeDetail } from '../../hooks/use-recipes';
 import { RecipeRatingSheet } from '../recipe-rating-sheet';
 import { CookingModeFinishAction } from './cooking-mode-finish-action';
@@ -15,6 +16,37 @@ type CookingModeFinishedProps = {
   isCatalog?: boolean;
 };
 
+const styles = StyleSheet.create((theme) => ({
+  content: {
+    flexGrow: 1,
+    alignItems: 'center',
+    paddingHorizontal: 24,
+    paddingTop: 38,
+    paddingBottom: 64,
+  },
+  artwork: {
+    width: 82,
+    height: 82,
+    borderRadius: theme.radius.famLarge,
+  },
+  title: {
+    paddingTop: 18,
+  },
+  hint: {
+    paddingTop: 6,
+  },
+  actions: {
+    width: '100%',
+    gap: theme.space.sm,
+    paddingTop: 64,
+  },
+  close: {
+    marginTop: 'auto',
+    paddingHorizontal: 10,
+    paddingVertical: theme.space.lg,
+  },
+}));
+
 export function CookingModeFinished({
   recipe,
   onBack,
@@ -25,22 +57,17 @@ export function CookingModeFinished({
 
   return (
     <CookingModeShell title="Fertig" backLabel="Zurück zum letzten Schritt" onBack={onBack}>
-      <ScrollView
-        contentContainerClassName="flex-grow items-center px-four pt-[38px] pb-six"
-        showsVerticalScrollIndicator={false}>
-        <View
-          className="w-[82px] h-[82px] rounded-fam-large"
-          style={{ backgroundColor: colors.backgroundSoft }}
-        />
-        <Txt variant="heading" className="pt-[18px]">
+      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+        <View style={[styles.artwork, { backgroundColor: colors.backgroundSoft }]} />
+        <Txt variant="heading" style={styles.title}>
           Guten Appetit!
         </Txt>
-        <Txt variant="caption" tone="secondary" center className="pt-[6px]">
+        <Txt variant="caption" tone="secondary" center style={styles.hint}>
           Alles Weitere ist freiwillig und kann übersprungen werden.
         </Txt>
 
         {!isCatalog ? (
-          <View className="w-full gap-two pt-six">
+          <View style={styles.actions}>
             <CookingModeFinishAction
               title="Zubereitete Gruppen wiegen"
               subtitle="Werte im eigenen Rezept verbessern"
@@ -64,14 +91,11 @@ export function CookingModeFinished({
           </View>
         ) : null}
 
-        <Pressable
-          onPress={() => router.back()}
-          role="button"
-          className="mt-auto px-[10px] py-three">
+        <Press onPress={() => router.back()} role="button" style={styles.close}>
           <Txt variant="caption" tone="secondary">
             Ohne Angaben schließen
           </Txt>
-        </Pressable>
+        </Press>
       </ScrollView>
 
       {!isCatalog ? (

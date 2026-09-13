@@ -1,7 +1,8 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { rs } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 import { usePremium } from '@/features/premium/premium-provider';
 import { celebrate } from '@/lib/celebration';
@@ -21,16 +22,17 @@ import { flattenRecipeItems } from '../domain/ingredient-mentions';
 import { useCookingTimer } from '../hooks/use-cooking-timer';
 import { useRecipeDetail } from '../hooks/use-recipes';
 
-function CookingModeLoading() {
-  const { colors } = useTheme();
+const styles = StyleSheet.create(() => ({
+  loading: {
+    padding: rs(64),
+    textAlign: 'center',
+  },
+}));
 
+function CookingModeLoading() {
   return (
     <CookingModeShell title="Kochmodus" backLabel="Zurück">
-      <Txt
-        variant="caption"
-        tone="secondary"
-        className="p-six text-center"
-        style={{ color: colors.textMuted }}>
+      <Txt variant="caption" tone="secondary" style={styles.loading}>
         Kochmodus wird geladen…
       </Txt>
     </CookingModeShell>

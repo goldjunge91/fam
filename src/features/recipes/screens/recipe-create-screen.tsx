@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Alert, KeyboardAvoidingView, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { PageHeader } from '@/components/layout/page-header';
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
@@ -69,6 +71,41 @@ type ResolvedIngredient = {
   quantity: number;
   unit: string;
 };
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    flex: 1,
+  },
+  safeArea: {
+    flex: 1,
+    width: '100%',
+    maxWidth: 800,
+    alignSelf: 'center',
+  },
+  progress: {
+    height: rs(16),
+    flexDirection: 'row',
+    gap: rs(5),
+    paddingHorizontal: rs(16),
+    paddingTop: rs(2),
+    paddingBottom: rs(10),
+  },
+  progressSegment: {
+    flex: 1,
+    height: rs(4),
+    borderRadius: rs(2),
+  },
+  keyboard: {
+    flex: 1,
+  },
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingHorizontal: rs(16),
+    paddingBottom: theme.space.lg,
+  },
+}));
 
 export function RecipeCreateScreen() {
   const { colors } = useTheme();
@@ -645,11 +682,9 @@ export function RecipeCreateScreen() {
   const coverPreviewUri = localCoverUri ?? existingCoverUrl ?? null;
 
   return (
-    <View className="flex-1">
+    <View style={styles.root}>
       <GradientBackground {...hubGradient} />
-      <SafeAreaView
-        className="flex-1 w-full max-w-[800px] self-center"
-        edges={['top', 'left', 'right']}>
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         {/* Header mit Titel (Erstellen/Bearbeiten) und Abbrechen-Button */}
         <PageHeader
           title={isEditing ? 'Rezept bearbeiten' : 'Rezept erstellen'}
@@ -657,25 +692,27 @@ export function RecipeCreateScreen() {
         />
 
         {/* 4-stufiger Wizard-Fortschrittsbalken */}
-        <View className="h-4 flex-row gap-[5px] px-4 pt-0.5 pb-[10px]">
+        <View style={styles.progress}>
           {[1, 2, 3, 4].map((step) => (
             <View
               key={step}
-              className="flex-1 h-1 rounded-sm"
-              style={{ backgroundColor: step <= wizardStep ? colors.basil : colors.backgroundSoft }}
+              style={[
+                styles.progressSegment,
+                { backgroundColor: step <= wizardStep ? colors.basil : colors.backgroundSoft },
+              ]}
             />
           ))}
         </View>
 
         <KeyboardAvoidingView
-          className="flex-1"
+          style={styles.keyboard}
           behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}
           keyboardVerticalOffset={12}>
           {wizardStep === 1 ? (
             /* Schritt 1: Basisdaten (Titel, Foto, Zeit, Portionen, Tags) */
             <ScrollView
-              className="flex-1"
-              contentContainerClassName="px-4 pb-6"
+              style={styles.scroll}
+              contentContainerStyle={styles.scrollContent}
               showsVerticalScrollIndicator={false}
               keyboardShouldPersistTaps="handled">
               <RecipeWizardStepBasics
@@ -701,8 +738,8 @@ export function RecipeCreateScreen() {
           ) : wizardStep === 2 ? (
             /* Schritt 2: Zutaten & Komponentengruppen */
             <ScrollView
-              className="flex-1"
-              contentContainerClassName="px-4 pb-6"
+              style={styles.scroll}
+              contentContainerStyle={styles.scrollContent}
               showsVerticalScrollIndicator={false}
               keyboardShouldPersistTaps="handled">
               <RecipeWizardStepBasics

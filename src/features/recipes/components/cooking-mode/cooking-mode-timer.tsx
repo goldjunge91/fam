@@ -1,8 +1,37 @@
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import type { RecipeStep } from '../../hooks/use-recipe-steps';
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    minHeight: rs(58),
+    marginTop: rs(14),
+    borderRadius: theme.radius.lg,
+    paddingHorizontal: rs(13),
+    paddingVertical: theme.space.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: rs(5),
+  },
+  copy: {
+    flex: 1,
+    minWidth: 0,
+  },
+  status: {
+    paddingTop: rs(2),
+  },
+  action: {
+    width: rs(34),
+    height: rs(34),
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}));
 
 export function getCookingTimerDurationSeconds(step: RecipeStep | undefined): number | null {
   if (!step) return null;
@@ -41,36 +70,32 @@ export function CookingModeTimer({
   if (!durationSeconds) return null;
 
   return (
-    <View
-      className="min-h-[58px] mt-[14px] rounded-sheet px-[13px] py-three flex-row items-center gap-[5px]"
-      style={{ backgroundColor: colors.surface }}>
-      <View className="flex-1 min-w-0">
+    <View style={[styles.root, { backgroundColor: colors.surface }]}>
+      <View style={styles.copy}>
         <Txt variant="heading">{formatTimer(remainingSeconds)}</Txt>
-        <Txt variant="caption" tone="secondary" className="pt-half">
+        <Txt variant="caption" tone="secondary" style={styles.status}>
           {remainingSeconds === 0 ? 'Abgelaufen' : running ? 'Läuft' : 'Pausiert'}
         </Txt>
       </View>
-      <Pressable
+      <Press
         onPress={() => (running ? onPause() : onStart())}
         disabled={remainingSeconds === 0}
         role="button"
         aria-label={running ? 'Timer pausieren' : 'Timer fortsetzen'}
-        className="w-[34px] h-[34px] rounded-control items-center justify-center"
-        style={{ backgroundColor: colors.backgroundSoft }}>
+        style={[styles.action, { backgroundColor: colors.backgroundSoft }]}>
         <Txt variant="caption" tone="primary" weight="700">
           {running ? 'Ⅱ' : '▶'}
         </Txt>
-      </Pressable>
-      <Pressable
+      </Press>
+      <Press
         onPress={onReset}
         role="button"
         aria-label="Timer zurücksetzen"
-        className="w-[34px] h-[34px] rounded-control items-center justify-center"
-        style={{ backgroundColor: colors.backgroundSoft }}>
+        style={[styles.action, { backgroundColor: colors.backgroundSoft }]}>
         <Txt variant="caption" tone="primary" weight="700">
           ↺
         </Txt>
-      </Pressable>
+      </Press>
     </View>
   );
 }
