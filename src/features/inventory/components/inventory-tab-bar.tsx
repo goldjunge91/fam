@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
-import { Modal, Pressable, StyleSheet, View } from 'react-native';
-import { radius, withAlpha } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { Modal, Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { withAlpha } from '@/components/theme/index';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
@@ -16,23 +16,91 @@ type MenuPosition = { top: number; left: number; width: number };
 
 const FALLBACK_MENU_POSITION: MenuPosition = { top: 0, left: 0, width: 220 };
 
-// `GlassView` hat kein cssInterop (s. glass-card.tsx), deshalb hier als
-// RN-Style statt Tailwind-Klasse — muss in Radius/Padding mit
-// `.inventory-tab-bar-trigger` in global.css in Sync bleiben. Die
-// Vorrats-Referenz verwendet eine kompakte rechteckige Glass-Fläche mit
-// weichen Ecken, keine Kapsel.
-const TRIGGER_GLASS_STYLE = {
-  borderRadius: radius.lg,
-  flexDirection: 'row' as const,
-  alignItems: 'center' as const,
-  justifyContent: 'space-between' as const,
-  gap: 8,
-  paddingHorizontal: 14,
-  paddingVertical: 15,
-};
+const styles = StyleSheet.create((theme) => ({
+  container: {
+    flex: 1,
+    position: 'relative',
+    zIndex: 30,
+  },
+  triggerOuter: {
+    flex: 1,
+    borderRadius: theme.radius.lg,
+  },
+  trigger: {
+    minHeight: 54,
+    borderRadius: theme.radius.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    // GlassView has no CSS interop; keep the original 8/14/15pt geometry.
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.md + 2,
+    paddingVertical: theme.space.lg - 1,
+  },
+  triggerFallback: {
+    minHeight: 54,
+    borderRadius: theme.radius.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.md + 2,
+    paddingVertical: theme.space.lg - 1,
+    backgroundColor: withAlpha(theme.backgroundElement, 0.91),
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: theme.border,
+  },
+  chevron: {
+    width: 10,
+    height: 6,
+  },
+  chevronLine: {
+    position: 'absolute',
+    top: 2,
+    width: 6,
+    height: 1.5,
+    borderRadius: 2,
+    backgroundColor: theme.textSecondary,
+  },
+  chevronLeft: {
+    left: 0,
+    transform: [{ rotate: '38deg' }],
+  },
+  chevronRight: {
+    right: 0,
+    transform: [{ rotate: '-38deg' }],
+  },
+  overlay: {
+    flex: 1,
+  },
+  menu: {
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: theme.radius.sm,
+    overflow: 'hidden',
+    boxShadow: `0 10px 28px ${withAlpha(theme.text, 0.18)}`,
+  },
+  option: {
+    minHeight: 44,
+    paddingHorizontal: theme.space.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  optionBorder: {
+    borderTopColor: theme.border,
+    borderTopWidth: StyleSheet.hairlineWidth,
+  },
+  optionSelected: {
+    backgroundColor: theme.backgroundSoft,
+  },
+  optionPressed: {
+    opacity: 0.72,
+  },
+}));
 
 export function InventoryTabBar({ activeTab, onTabChange, locations }: InventoryTabBarProps) {
-  const { colors } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [menuPosition, setMenuPosition] = useState<MenuPosition>(FALLBACK_MENU_POSITION);
   const triggerRef = useRef<View>(null);
@@ -64,20 +132,11 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
   }
 
   return (
-    <View ref={triggerRef} className="inventory-tab-bar-container flex-1">
-      {/* Liquid Glass auf iOS 26+ (expo-glass-effect), sonst solide Karte
-          wie vor der Umstellung — s. glass-card.tsx. */}
+    <View ref={triggerRef} style={styles.container}>
       <GlassCard
-        outerStyle={{ borderRadius: radius.lg, flex: 1 }}
-        glassStyle={TRIGGER_GLASS_STYLE}
-        fallbackStyle={[
-          TRIGGER_GLASS_STYLE,
-          {
-            backgroundColor: withAlpha(colors.backgroundElement, 0.91),
-            borderWidth: StyleSheet.hairlineWidth,
-            borderColor: colors.border,
-          },
-        ]}
+        outerStyle={styles.triggerOuter}
+        glassStyle={styles.trigger}
+        fallbackStyle={styles.triggerFallback}
         onPress={toggleMenu}
         accessibilityRole="button"
         accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}>
@@ -85,11 +144,9 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
           {activeLocation?.name ?? 'Lagerort auswählen'}
         </Txt>
         {}
-        <View
-          className="w-[10px] h-[6px]"
-          style={{ transform: [{ rotate: isOpen ? '180deg' : '0deg' }] }}>
-          <View className="absolute top-[2px] left-0 w-[6px] h-[1.5px] rounded-hairline bg-text-secondary rotate-[38deg]" />
-          <View className="absolute top-[2px] right-0 w-[6px] h-[1.5px] rounded-hairline bg-text-secondary -rotate-[38deg]" />
+        <View style={[styles.chevron, { transform: [{ rotate: isOpen ? '180deg' : '0deg' }] }]}>
+          <View style={[styles.chevronLine, styles.chevronLeft]} />
+          <View style={[styles.chevronLine, styles.chevronRight]} />
         </View>
       </GlassCard>
 
@@ -99,26 +156,24 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
         animationType="fade"
         onRequestClose={() => setIsOpen(false)}>
         <Pressable
-          className="flex-1"
+          style={styles.overlay}
           accessibilityRole="button"
           accessibilityLabel="Menü schließen"
           onPress={() => setIsOpen(false)}>
           {isOpen ? (
             <View
               accessibilityRole="menu"
-              className="inventory-tab-bar-menu"
-              // Position kommt aus der Fenstermessung, boxShadow (dynamische
-              // Opazitaet), borderCurve und elevation sind echte Laufzeit-/
-              // Plattform-Werte — alles ohne Tailwind-Entsprechung.
-              style={{
-                position: 'absolute',
-                top: menuPosition.top,
-                left: menuPosition.left,
-                width: menuPosition.width,
-                boxShadow: `0 10px 28px ${withAlpha(colors.text, 0.18)}`,
-                borderCurve: 'continuous',
-                elevation: 8,
-              }}>
+              style={[
+                styles.menu,
+                {
+                  position: 'absolute',
+                  top: menuPosition.top,
+                  left: menuPosition.left,
+                  width: menuPosition.width,
+                  borderCurve: 'continuous',
+                  elevation: 8,
+                },
+              ]}>
               {options.map((location, index) => {
                 const selected = location.id === activeTab;
                 return (
@@ -128,8 +183,12 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
                     accessibilityLabel={location.name}
                     accessibilityState={{ selected }}
                     onPress={() => selectLocation(location.id)}
-                    className={`inventory-tab-bar-option ${index > 0 ? 'inventory-tab-bar-option-bordered' : ''}`}
-                    style={selected ? { backgroundColor: colors.backgroundSoft } : undefined}>
+                    style={({ pressed }) => [
+                      styles.option,
+                      index > 0 && styles.optionBorder,
+                      selected && styles.optionSelected,
+                      pressed && styles.optionPressed,
+                    ]}>
                     <Txt variant="body" weight={selected ? '700' : '400'}>
                       {location.name}
                     </Txt>

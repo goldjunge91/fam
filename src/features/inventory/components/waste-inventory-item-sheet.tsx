@@ -1,12 +1,83 @@
 import { useEffect, useState } from 'react';
-import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { Modal, Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { withAlpha } from '@/components/theme/index';
 import { Button, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount } from '@/lib/package-size';
 
 import type { LocalInventoryItem } from '../use-inventory-items';
+
+const styles = StyleSheet.create((theme) => ({
+  backdrop: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: withAlpha(theme.text, 0.32),
+  },
+  sheet: {
+    position: 'absolute',
+    left: 10,
+    right: 10,
+    bottom: 10,
+    gap: theme.space.sm + theme.space.xs + 2,
+    paddingHorizontal: theme.space.sm + theme.space.xs + 2,
+    paddingTop: theme.space.sm + theme.space.xs - 1,
+    borderRadius: theme.radius.famLarge,
+    backgroundColor: theme.backgroundElement,
+  },
+  handle: {
+    width: 42,
+    height: 4,
+    alignSelf: 'center',
+    borderRadius: 2,
+    backgroundColor: theme.border,
+  },
+  titleCopy: {
+    gap: theme.space.xs,
+  },
+  reasonSection: {
+    gap: theme.space.sm,
+    paddingVertical: theme.space.lg,
+  },
+  reasonList: {
+    flexDirection: 'column',
+  },
+  reasonItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.lg,
+    paddingHorizontal: theme.space.xs,
+    paddingVertical: theme.space.lg,
+  },
+  reasonItemBorder: {
+    borderBottomWidth: theme.borderWidth.base,
+    borderBottomColor: theme.border,
+  },
+  reasonRadio: {
+    width: 18,
+    height: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: theme.radius.pill,
+    borderWidth: theme.borderWidth.strong,
+  },
+  reasonRadioSelected: {
+    borderColor: theme.danger,
+  },
+  reasonRadioIdle: {
+    borderColor: theme.border,
+  },
+  reasonDot: {
+    width: theme.space.sm,
+    height: theme.space.sm,
+    borderRadius: theme.radius.pill,
+    backgroundColor: theme.danger,
+  },
+}));
 
 export type WasteReason = 'expired' | 'spoiled' | 'other';
 
@@ -31,7 +102,6 @@ export function WasteInventoryItemSheet({
   onConfirm,
   loading = false,
 }: WasteInventoryItemSheetProps) {
-  const { colors } = useTheme();
   const sheetStyle = useSheetShadowStyle();
   const [reason, setReason] = useState<WasteReason>('expired');
   const itemId = item?.id ?? null;
@@ -56,25 +126,25 @@ export function WasteInventoryItemSheet({
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
-          className="fridge-actions-backdrop"
+          style={styles.backdrop}
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel="Verschwendung schließen"
         />
-        <View className="fridge-actions-sheet" style={sheetStyle}>
-          <View className="fridge-actions-handle" />
-          <View className="gap-one">
+        <View style={[styles.sheet, sheetStyle]}>
+          <View style={styles.handle} />
+          <View style={styles.titleCopy}>
             <Txt variant="title">{item.name} wegwerfen</Txt>
             <Txt variant="caption" tone="secondary">
               {amount} · {item.location_name ?? 'Kein Lagerort'}
             </Txt>
           </View>
 
-          <View className="gap-two py-three">
+          <View style={styles.reasonSection}>
             <Txt variant="body" weight="700">
               Warum wird es weggeworfen?
             </Txt>
-            <View className="inventory-reason-list">
+            <View style={styles.reasonList}>
               {REASONS.map((option) => {
                 const selected = reason === option.value;
                 return (
@@ -84,16 +154,16 @@ export function WasteInventoryItemSheet({
                     accessibilityRole="radio"
                     accessibilityLabel={option.label}
                     accessibilityState={{ selected }}
-                    className={`inventory-reason-item ${option.value !== 'other' ? 'border-b border-border' : ''}`}>
+                    style={[
+                      styles.reasonItem,
+                      option.value !== 'other' && styles.reasonItemBorder,
+                    ]}>
                     <View
-                      className="h-[18px] w-[18px] items-center justify-center rounded-full border-2"
-                      style={{ borderColor: selected ? colors.danger : colors.border }}>
-                      {selected ? (
-                        <View
-                          className="h-2 w-2 rounded-full"
-                          style={{ backgroundColor: colors.danger }}
-                        />
-                      ) : null}
+                      style={[
+                        styles.reasonRadio,
+                        selected ? styles.reasonRadioSelected : styles.reasonRadioIdle,
+                      ]}>
+                      {selected ? <View style={styles.reasonDot} /> : null}
                     </View>
                     <Txt variant="body" weight="700">
                       {option.icon}

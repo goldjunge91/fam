@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { Modal, Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { withAlpha } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Button, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
@@ -11,6 +11,70 @@ import { formatAmount } from '@/lib/package-size';
 
 import { calculateOpenedExpiryDate } from '../opened-expiry';
 import type { LocalInventoryItem } from '../use-inventory-items';
+
+const styles = StyleSheet.create((theme) => ({
+  backdrop: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: withAlpha(theme.text, 0.32),
+  },
+  sheet: {
+    position: 'absolute',
+    left: 10,
+    right: 10,
+    bottom: 10,
+    gap: theme.space.sm + theme.space.xs + 2,
+    paddingHorizontal: theme.space.sm + theme.space.xs + 2,
+    paddingTop: theme.space.sm + theme.space.xs - 1,
+    borderRadius: theme.radius.famLarge,
+    backgroundColor: theme.backgroundElement,
+  },
+  handle: {
+    width: 42,
+    height: 4,
+    alignSelf: 'center',
+    borderRadius: 2,
+    backgroundColor: theme.border,
+  },
+  titleCopy: {
+    gap: theme.space.xs,
+  },
+  quantitySection: {
+    gap: theme.space.sm,
+    paddingVertical: theme.space.lg,
+  },
+  quantityRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  compareBlock: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    marginVertical: theme.space.sm,
+  },
+  compareCard: {
+    flex: 1,
+    gap: theme.space.xs / 2,
+    padding: theme.space.lg,
+    borderRadius: theme.radius.md,
+  },
+  compareBefore: {
+    backgroundColor: theme.backgroundSoft,
+  },
+  compareAfter: {
+    borderWidth: theme.borderWidth.base,
+    borderColor: withAlpha(theme.warning, 0.4),
+    backgroundColor: withAlpha(theme.warning, 0.16),
+  },
+  eyebrow: {
+    textTransform: 'uppercase',
+  },
+}));
 
 type OpenInventoryItemSheetProps = {
   visible: boolean;
@@ -27,7 +91,6 @@ export function OpenInventoryItemSheet({
   onConfirm,
   loading = false,
 }: OpenInventoryItemSheetProps) {
-  const { colors } = useTheme();
   const sheetStyle = useSheetShadowStyle();
   const [quantity, setQuantity] = useState(1);
   const itemId = item?.id ?? null;
@@ -76,22 +139,22 @@ export function OpenInventoryItemSheet({
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
-          className="fridge-actions-backdrop"
+          style={styles.backdrop}
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel="Öffnen schließen"
         />
-        <View className="fridge-actions-sheet" style={sheetStyle}>
-          <View className="fridge-actions-handle" />
-          <View className="gap-one">
+        <View style={[styles.sheet, sheetStyle]}>
+          <View style={styles.handle} />
+          <View style={styles.titleCopy}>
             <Txt variant="title">{item.name} öffnen</Txt>
             <Txt variant="caption" tone="secondary">
               {item.location_name ?? 'Kein Lagerort'} · {total} versiegelt
             </Txt>
           </View>
 
-          <View className="gap-two py-three">
-            <View className="flex-row items-center justify-between">
+          <View style={styles.quantitySection}>
+            <View style={styles.quantityRow}>
               <Txt variant="body" tone="secondary" weight="700">
                 Geöffnete Menge
               </Txt>
@@ -105,9 +168,9 @@ export function OpenInventoryItemSheet({
             </View>
           </View>
 
-          <View className="inventory-compare-block">
-            <View className="inventory-compare-card inventory-compare-before">
-              <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
+          <View style={styles.compareBlock}>
+            <View style={[styles.compareCard, styles.compareBefore]}>
+              <Txt variant="caption" tone="secondary" weight="700" style={styles.eyebrow}>
                 Versiegelt bleibt
               </Txt>
               <Txt variant="body" weight="700">
@@ -120,13 +183,8 @@ export function OpenInventoryItemSheet({
             <Txt variant="body" tone="secondary">
               →
             </Txt>
-            <View
-              className="inventory-compare-card inventory-compare-after"
-              style={{
-                backgroundColor: withAlpha(colors.warning, 0.16),
-                borderColor: withAlpha(colors.warning, 0.4),
-              }}>
-              <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
+            <View style={[styles.compareCard, styles.compareAfter]}>
+              <Txt variant="caption" tone="secondary" weight="700" style={styles.eyebrow}>
                 Neu: geöffnet
               </Txt>
               <Txt variant="body" weight="700">

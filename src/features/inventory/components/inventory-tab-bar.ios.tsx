@@ -1,14 +1,14 @@
 import { useRef, useState } from 'react';
-import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { Modal, Pressable, View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { BUTTON_DEPTH, type Palette, radius, shadow, space } from '@/components/theme/index';
-import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
+import { BUTTON_DEPTH, space } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { medium as hapticMedium } from '@/lib/haptics';
@@ -23,42 +23,70 @@ type MenuPosition = { top: number; left: number; width: number };
 
 const FALLBACK_MENU_POSITION: MenuPosition = { top: 0, left: 0, width: 220 };
 
-function makeStyles(colors: Palette) {
-  return StyleSheet.create({
-    trigger: {
-      backgroundColor: colors.backgroundElement,
-      borderColor: colors.border,
-      borderWidth: 1,
-      borderRadius: radius.lg,
-      borderCurve: 'continuous',
-    },
-    triggerOpen: {
-      backgroundColor: colors.backgroundSoft,
-      borderColor: colors.accent,
-    },
-    menu: {
-      backgroundColor: colors.backgroundElement,
-      borderColor: colors.border,
-      borderWidth: 1,
-      borderRadius: radius.md,
-      borderCurve: 'continuous',
-      overflow: 'hidden',
-      ...shadow.lg,
-    },
-    optionBorder: {
-      borderTopColor: colors.border,
-      borderTopWidth: StyleSheet.hairlineWidth,
-    },
-    optionSelected: {
-      backgroundColor: colors.backgroundSoft,
-    },
-  });
-}
+const styles = StyleSheet.create((theme) => ({
+  container: {
+    width: '50%',
+    flexShrink: 0,
+  },
+  depth: {
+    paddingBottom: BUTTON_DEPTH,
+    borderRadius: theme.radius.lg,
+    backgroundColor: theme.backgroundSoft,
+  },
+  trigger: {
+    minHeight: 54,
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+    borderWidth: 1,
+    borderRadius: theme.radius.lg,
+    borderCurve: 'continuous',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: theme.space.lg,
+  },
+  triggerOpen: {
+    backgroundColor: theme.backgroundSoft,
+    borderColor: theme.accent,
+  },
+  triggerPressed: {
+    opacity: 0.9,
+  },
+  overlay: {
+    flex: 1,
+  },
+  menu: {
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+    borderWidth: 1,
+    borderRadius: theme.radius.md,
+    borderCurve: 'continuous',
+    overflow: 'hidden',
+    shadowColor: theme.shadow.lg.shadowColor,
+    shadowOffset: theme.shadow.lg.shadowOffset,
+    shadowOpacity: theme.shadow.lg.shadowOpacity,
+    shadowRadius: theme.shadow.lg.shadowRadius,
+    elevation: theme.shadow.lg.elevation,
+  },
+  option: {
+    minHeight: 44,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: theme.space.lg,
+  },
+  optionBorder: {
+    borderTopColor: theme.border,
+    borderTopWidth: StyleSheet.hairlineWidth,
+  },
+  optionSelected: {
+    backgroundColor: theme.backgroundSoft,
+  },
+}));
 
 export function InventoryTabBar({ activeTab, onTabChange, locations }: InventoryTabBarProps) {
-  const { colors } = useTheme();
-  const styles = useThemedStyles(makeStyles);
   const [isOpen, setIsOpen] = useState(false);
+  const [triggerPressed, setTriggerPressed] = useState(false);
   const [menuPosition, setMenuPosition] = useState<MenuPosition>(FALLBACK_MENU_POSITION);
   const triggerRef = useRef<View>(null);
   const depth = useSharedValue(0);
@@ -86,25 +114,25 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
   }
 
   return (
-    <View ref={triggerRef} className="w-1/2 shrink-0">
-      <View
-        style={{
-          paddingBottom: BUTTON_DEPTH,
-          borderRadius: radius.lg,
-          backgroundColor: colors.backgroundSoft,
-        }}>
+    <View ref={triggerRef} style={styles.container}>
+      <View style={styles.depth}>
         <Animated.View style={faceStyle}>
           <Pressable
-            className="min-h-[54px] flex-row items-center justify-between px-three active:opacity-90"
-            style={[styles.trigger, isOpen && styles.triggerOpen]}
+            style={[
+              styles.trigger,
+              isOpen && styles.triggerOpen,
+              triggerPressed && styles.triggerPressed,
+            ]}
             onPress={() => {
               hapticMedium();
               toggleMenu();
             }}
             onPressIn={() => {
+              setTriggerPressed(true);
               depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
             }}
             onPressOut={() => {
+              setTriggerPressed(false);
               depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
             }}
             accessibilityRole="button"
@@ -123,7 +151,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
         animationType="fade"
         onRequestClose={() => setIsOpen(false)}>
         <Pressable
-          style={{ flex: 1 }}
+          style={styles.overlay}
           accessibilityRole="button"
           accessibilityLabel="Menü schließen"
           onPress={() => setIsOpen(false)}>
@@ -145,8 +173,11 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
                 return (
                   <Pressable
                     key={location.id}
-                    className="min-h-[44px] flex-row items-center justify-between px-three"
-                    style={[index > 0 && styles.optionBorder, selected && styles.optionSelected]}
+                    style={[
+                      styles.option,
+                      index > 0 && styles.optionBorder,
+                      selected && styles.optionSelected,
+                    ]}
                     accessibilityRole="menuitem"
                     accessibilityLabel={location.name}
                     accessibilityState={{ selected }}
