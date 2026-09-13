@@ -75,7 +75,8 @@ const styles = StyleSheet.create((theme) => ({
     backgroundColor: theme.backgroundElement,
     borderColor: theme.border,
     borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: theme.radius.sm,
+    // Keep the retired control-lg geometry (14pt) in the central radius scale.
+    borderRadius: theme.radius.sm + 2,
     overflow: 'hidden',
     boxShadow: `0 10px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
   },

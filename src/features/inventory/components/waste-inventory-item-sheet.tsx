@@ -3,7 +3,7 @@ import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { withAlpha } from '@/components/theme/index';
-import { Button, Txt } from '@/constants/ui';
+import { Button, Press, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount } from '@/lib/package-size';
 
@@ -148,8 +148,9 @@ export function WasteInventoryItemSheet({
               {REASONS.map((option) => {
                 const selected = reason === option.value;
                 return (
-                  <Pressable
+                  <Press
                     key={option.value}
+                    haptic="selection"
                     onPress={() => setReason(option.value)}
                     accessibilityRole="radio"
                     accessibilityLabel={option.label}
@@ -171,7 +172,7 @@ export function WasteInventoryItemSheet({
                     <Txt variant="body" weight="700">
                       {option.label}
                     </Txt>
-                  </Pressable>
+                  </Press>
                 );
               })}
             </View>

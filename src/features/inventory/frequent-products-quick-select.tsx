@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import { Pressable, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/client';
 import {
@@ -37,6 +37,7 @@ const styles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
   },
   chip: {
+    minHeight: theme.space.xxl + theme.space.md + theme.space.xs,
     maxWidth: 160,
     marginRight: theme.space.xs,
     paddingHorizontal: theme.space.sm,
@@ -79,8 +80,9 @@ export function FrequentProductsQuickSelect({
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.scroll}>
       {chips.map((row) => (
-        <Pressable
+        <Press
           key={row.name.toLowerCase()}
+          haptic="selection"
           onPress={() => onSelectProduct(toOpenFoodFactsProduct(row))}
           role="button"
           aria-label={row.name}
@@ -88,7 +90,7 @@ export function FrequentProductsQuickSelect({
           <Txt variant="body" numberOfLines={1}>
             {row.name}
           </Txt>
-        </Pressable>
+        </Press>
       ))}
     </ScrollView>
   );

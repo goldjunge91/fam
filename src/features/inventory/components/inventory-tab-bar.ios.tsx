@@ -9,9 +9,8 @@ import Animated, {
 import { StyleSheet } from 'react-native-unistyles';
 
 import { BUTTON_DEPTH, space } from '@/components/theme/index';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
-import { medium as hapticMedium } from '@/lib/haptics';
 
 interface InventoryTabBarProps {
   activeTab: string;
@@ -117,14 +116,15 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
     <View ref={triggerRef} style={styles.container}>
       <View style={styles.depth}>
         <Animated.View style={faceStyle}>
-          <Pressable
+          <Press
+            haptic="medium"
+            scaleTo={1}
             style={[
               styles.trigger,
               isOpen && styles.triggerOpen,
               triggerPressed && styles.triggerPressed,
             ]}
             onPress={() => {
-              hapticMedium();
               toggleMenu();
             }}
             onPressIn={() => {
@@ -142,7 +142,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
               {activeLocation?.name ?? 'Lagerort auswählen'}
             </Txt>
             <Txt tone="accent">{isOpen ? '⌃' : '⌄'}</Txt>
-          </Pressable>
+          </Press>
         </Animated.View>
       </View>
       <Modal
@@ -171,8 +171,9 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
                 const selected = location.id === activeTab;
 
                 return (
-                  <Pressable
+                  <Press
                     key={location.id}
+                    haptic="selection"
                     style={[
                       styles.option,
                       index > 0 && styles.optionBorder,
@@ -186,7 +187,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
                       {location.name}
                     </Txt>
                     {selected ? <Txt tone="accent">✓</Txt> : null}
-                  </Pressable>
+                  </Press>
                 );
               })}
             </View>

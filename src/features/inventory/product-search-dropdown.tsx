@@ -97,6 +97,7 @@ const styles = StyleSheet.create((theme) => ({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
+    minHeight: theme.space.xxl + theme.space.md + theme.space.xs,
     gap: theme.space.sm,
     padding: theme.space.sm,
     borderBottomWidth: StyleSheet.hairlineWidth,
@@ -294,6 +295,7 @@ export const ProductSearchDropdown = forwardRef<
           {}
           <Press
             onPress={dismiss}
+            hitSlop={10}
             accessibilityRole="button"
             accessibilityLabel="Trefferliste schließen"
             style={styles.panelClose}>
@@ -330,7 +332,8 @@ export const ProductSearchDropdown = forwardRef<
             }}
             scrollEventThrottle={100}>
             {showEmptyState ? (
-              <Pressable
+              <Press
+                haptic="selection"
                 onPress={() => {
                   setShowDropdown(false);
                   Keyboard.dismiss();
@@ -348,11 +351,12 @@ export const ProductSearchDropdown = forwardRef<
                     Kein Treffer bei Open Food Facts gefunden
                   </Txt>
                 </View>
-              </Pressable>
+              </Press>
             ) : null}
             {suggestions.map((item) => (
-              <Pressable
+              <Press
                 key={item.productId || item.barcode || item.name}
+                haptic="selection"
                 onPress={() => {
                   setSelectedName(item.name);
                   onSelectProduct(item);
@@ -386,7 +390,7 @@ export const ProductSearchDropdown = forwardRef<
                     </Txt>
                   ) : null}
                 </View>
-              </Pressable>
+              </Press>
             ))}
             {loadingMore && (
               <View style={styles.loadingMore}>
