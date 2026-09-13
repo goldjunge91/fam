@@ -1,9 +1,61 @@
 import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useStores } from '../../hooks/use-stores';
+
+const styles = StyleSheet.create((theme) => ({
+  trigger: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.sm,
+    paddingVertical: theme.space.xs,
+    borderRadius: theme.radius.pill,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    backgroundColor: theme.backgroundElement,
+  },
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: theme.radius.pill,
+  },
+  triggerLabel: {
+    maxWidth: 110,
+  },
+  backdrop: {
+    flex: 1,
+  },
+  panel: {
+    width: 200,
+    gap: theme.space.xs / 2,
+    padding: theme.space.xs,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.background,
+    overflow: 'hidden',
+    ...theme.shadow.lg,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.sm,
+    paddingVertical: theme.space.sm,
+    borderRadius: theme.radius.sm,
+  },
+  rowActive: {
+    backgroundColor: theme.backgroundSoft,
+  },
+  rowLabel: {
+    flex: 1,
+    minWidth: 0,
+  },
+}));
 
 type Anchor = { x: number; y: number; height: number };
 
@@ -73,28 +125,30 @@ export function RowStorePicker({
             current: label,
           })}
           testID={testID}
-          className="row-store-picker-btn">
-          <View className="store-picker-dot" style={{ backgroundColor: dotColor }} />
-          <Txt variant="body" numberOfLines={1} className="max-w-[110px]">
+          style={styles.trigger}>
+          <View style={[styles.dot, { backgroundColor: dotColor }]} />
+          <Txt variant="body" numberOfLines={1} style={styles.triggerLabel}>
             {label}
           </Txt>
         </Pressable>
       </View>
 
       <Modal visible={open} transparent animationType="fade" onRequestClose={closeMenu}>
-        <Pressable className="store-picker-backdrop" onPress={closeMenu}>
+        <Pressable style={styles.backdrop} onPress={closeMenu}>
           {anchor && (
             <View
-              className="store-picker-panel"
-              style={{ position: 'absolute', top: anchor.y + anchor.height + 6, left: anchor.x }}>
+              style={[
+                styles.panel,
+                { position: 'absolute', top: anchor.y + anchor.height + 6, left: anchor.x },
+              ]}>
               <Pressable
                 onPress={() => select(null)}
                 accessibilityRole="menuitem"
                 accessibilityLabel={t('shoppingList.rowStorePicker.unassigned')}
                 accessibilityState={{ selected: storeId === null }}
-                className={`store-picker-row ${storeId === null ? 'store-picker-row-active' : ''}`}>
-                <View className="store-picker-dot" style={{ backgroundColor: theme.textMuted }} />
-                <Txt variant="body" weight="600" className="flex-1">
+                style={[styles.row, storeId === null && styles.rowActive]}>
+                <View style={[styles.dot, { backgroundColor: theme.textMuted }]} />
+                <Txt variant="body" weight="600" style={styles.rowLabel}>
                   {t('shoppingList.rowStorePicker.unassigned')}
                 </Txt>
               </Pressable>
@@ -106,11 +160,9 @@ export function RowStorePicker({
                   accessibilityRole="menuitem"
                   accessibilityLabel={store.name}
                   accessibilityState={{ selected: storeId === store.id }}
-                  className={`store-picker-row ${
-                    storeId === store.id ? 'store-picker-row-active' : ''
-                  }`}>
-                  <View className="store-picker-dot" style={{ backgroundColor: store.color }} />
-                  <Txt variant="body" weight="600" numberOfLines={1} className="flex-1">
+                  style={[styles.row, storeId === store.id && styles.rowActive]}>
+                  <View style={[styles.dot, { backgroundColor: store.color }]} />
+                  <Txt variant="body" weight="600" numberOfLines={1} style={styles.rowLabel}>
                     {store.name}
                   </Txt>
                 </Pressable>
