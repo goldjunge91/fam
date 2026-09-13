@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Modal, Pressable, ScrollView, View } from 'react-native';
+import { Modal, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Button, Txt } from '@/constants/ui';
+import { Button, Press, Txt } from '@/constants/ui';
 import { debugLog } from '@/lib/debug-log';
 import {
   normalizePlacementOrder,
@@ -124,7 +124,7 @@ export function PlacementZoneField({
       <Txt variant="body" tone="secondary">
         {resolvedLabel}
       </Txt>
-      <Pressable
+      <Press
         onPress={() => setIsOpen(true)}
         accessibilityRole="button"
         accessibilityLabel={t('shoppingList.placementZoneField.changeAccessibility', {
@@ -139,7 +139,7 @@ export function PlacementZoneField({
           </Txt>
         </View>
         <Txt tone="secondary">⌄</Txt>
-      </Pressable>
+      </Press>
 
       <Modal
         visible={isOpen}
@@ -201,11 +201,12 @@ function PlacementZoneOption({
   onPress: () => void;
 }) {
   return (
-    <Pressable
+    <Press
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={label}
       accessibilityState={{ selected: checked }}
+      haptic="selection"
       style={[styles.option, checked && styles.optionSelected]}>
       {color ? (
         <View style={[styles.dot, { backgroundColor: color }]} />
@@ -216,7 +217,7 @@ function PlacementZoneOption({
         {label}
       </Txt>
       {checked ? <Txt tone="success">✓</Txt> : null}
-    </Pressable>
+    </Press>
   );
 }
 

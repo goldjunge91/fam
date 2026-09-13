@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Alert, Pressable, View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, TextField, Txt } from '@/constants/ui';
+import { Button, Press, TextField, Txt } from '@/constants/ui';
 import { debugError } from '@/lib/debug-log';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../domain-logik/store-presets';
 import { findStoreByName, useAddStoreMutation, useStores } from '../hooks/use-stores';
@@ -74,6 +74,10 @@ const styles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
     gap: theme.space.sm,
   },
+  addNew: {
+    minHeight: 44,
+    justifyContent: 'center',
+  },
 }));
 
 export function StorePickerField({ householdId, storeId, onChange }: StorePickerFieldProps) {
@@ -129,22 +133,24 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
           {t('shoppingList.storePickerField.label')}
         </Txt>
         {!showAddStore && (
-          <Pressable
+          <Press
             onPress={() => setShowAddStore(true)}
             accessibilityRole="button"
-            accessibilityLabel={t('shoppingList.storePickerField.addNewAccessibility')}>
+            accessibilityLabel={t('shoppingList.storePickerField.addNewAccessibility')}
+            style={styles.addNew}>
             <Txt variant="body" tone="primary">
               {t('shoppingList.storePickerField.addNew')}
             </Txt>
-          </Pressable>
+          </Press>
         )}
       </View>
 
       <View style={styles.chipRow}>
-        <Pressable
+        <Press
           onPress={() => onChange(null)}
           accessibilityRole="radio"
           accessibilityState={{ selected: storeId === null }}
+          haptic="selection"
           style={[
             styles.storeChip,
             storeId === null ? styles.selectedChip : styles.unselectedChip,
@@ -152,15 +158,16 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
           <Txt variant="body" tone="primary">
             {t('shoppingList.storePickerField.unassigned')}
           </Txt>
-        </Pressable>
+        </Press>
         {stores.map((store) => {
           const isActive = storeId === store.id;
           return (
-            <Pressable
+            <Press
               key={store.id}
               onPress={() => onChange(store.id)}
               accessibilityRole="radio"
               accessibilityState={{ selected: isActive }}
+              haptic="selection"
               // Dynamische Markt-Farbe aus der Datenbank
               style={[
                 styles.storeChip,
@@ -175,7 +182,7 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
                 style={isActive ? { color: store.color } : undefined}>
                 {store.name}
               </Txt>
-            </Pressable>
+            </Press>
           );
         })}
       </View>
@@ -193,10 +200,11 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
           </Txt>
           <View style={styles.chipRow}>
             {STORE_PRESETS.map((preset) => (
-              <Pressable
+              <Press
                 key={preset.name}
                 onPress={() => setNewStoreName(preset.name)}
                 accessibilityRole="button"
+                haptic="selection"
                 // Dynamische Preset-Farbe
                 style={[
                   styles.presetChip,
@@ -211,7 +219,7 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
                   style={{ color: preset.color }}>
                   {preset.name}
                 </Txt>
-              </Pressable>
+              </Press>
             ))}
           </View>
 
@@ -220,7 +228,7 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
           </Txt>
           <View style={styles.chipRow}>
             {STORE_COLOR_PALETTE.map((color) => (
-              <Pressable
+              <Press
                 key={color}
                 onPress={() => setNewStoreColor(color)}
                 accessibilityRole="button"
@@ -228,6 +236,7 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
                   color,
                 })}
                 accessibilityState={{ selected: newStoreColor === color }}
+                haptic="selection"
                 // Dynamische Palettenfarbe & Auswahlrand
                 style={[
                   styles.colorSwatch,

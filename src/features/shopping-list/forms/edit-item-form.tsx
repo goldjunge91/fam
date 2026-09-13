@@ -1,10 +1,10 @@
 import * as Crypto from 'expo-crypto';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { useThemedStyles } from '@/components/theme/ThemeProvider';
-import { Button, TextField, Txt } from '@/constants/ui';
+import { Button, Press, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProduct } from '@/features/inventory/use-product';
 import { debugError, debugLog } from '@/lib/debug-log';
@@ -418,7 +418,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
       </View>
 
       <View style={shoppingStyles.detailsSection}>
-        <Pressable
+        <Press
           onPress={() => setDetailsOpen((open) => !open)}
           accessibilityRole="button"
           accessibilityState={{ expanded: detailsOpen }}
@@ -430,7 +430,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
           <Txt variant="body" tone="primary" weight="500">
             {t('shoppingList.itemForm.moreDetails')}
           </Txt>
-        </Pressable>
+        </Press>
 
         {detailsOpen ? (
           <View style={shoppingStyles.detailsContent}>

@@ -1,10 +1,10 @@
 import type { TFunction } from 'i18next';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useThemedStyles } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { makeShoppingListStyles } from '../components/ui/shopping-list-styles';
 import {
@@ -42,6 +42,10 @@ const styles = StyleSheet.create((theme) => ({
     padding: theme.space.sm,
     borderWidth: 1,
     borderRadius: theme.radius.md,
+  },
+  cardContainer: {
+    flex: 1,
+    minWidth: 0,
   },
   selected: {
     backgroundColor: theme.accent,
@@ -106,7 +110,7 @@ function SuggestionCard({
   const size = formatPackageSize(suggestion.quantity, suggestion.unit, t);
 
   return (
-    <Pressable
+    <Press
       onPress={onPress}
       accessibilityRole="button"
       accessibilityState={{ selected }}
@@ -114,6 +118,8 @@ function SuggestionCard({
         name: suggestion.name,
         size,
       })}
+      haptic="selection"
+      containerStyle={styles.cardContainer}
       style={[styles.card, selected ? styles.selected : styles.idle]}>
       <Txt variant="label" weight="700" numberOfLines={1}>
         {suggestion.name}
@@ -126,7 +132,7 @@ function SuggestionCard({
           ? t('shoppingList.productSuggestions.lastStore', { store: suggestion.last_store_name })
           : t('shoppingList.productSuggestions.noStore')}
       </Txt>
-    </Pressable>
+    </Press>
   );
 }
 
@@ -178,7 +184,7 @@ export function ShoppingProductSuggestions({
             </View>
           ) : null}
 
-          <Pressable
+          <Press
             onPress={() => setExpanded((current) => !current)}
             accessibilityRole="button"
             accessibilityState={{ expanded }}
@@ -196,7 +202,7 @@ export function ShoppingProductSuggestions({
                 ? t('shoppingList.productSuggestions.showLess')
                 : t('shoppingList.productSuggestions.showMore', { count: rest.length })}
             </Txt>
-          </Pressable>
+          </Press>
         </>
       ) : null}
     </View>
