@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
@@ -10,8 +10,48 @@ import {
 } from '@/features/product-search/preferred-market';
 import { useStores } from '@/features/shopping-list/hooks/use-stores';
 
+const styles = StyleSheet.create((theme) => ({
+  content: {
+    gap: theme.space.lg,
+  },
+  section: {
+    gap: theme.space.sm,
+  },
+  sectionHeading: {
+    gap: theme.space.xs,
+  },
+  storeList: {
+    gap: theme.space.xs,
+  },
+  storeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
+  storeButton: {
+    flex: 1,
+    width: '100%',
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    borderRadius: theme.radius.md,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: 10,
+    backgroundColor: theme.backgroundElement,
+  },
+  orderControls: {
+    flexDirection: 'row',
+    gap: theme.space.xs,
+  },
+  orderButton: {
+    paddingHorizontal: theme.space.sm,
+    paddingVertical: theme.space.sm,
+  },
+  pressed: {
+    opacity: 0.75,
+  },
+}));
+
 export default function ProductSearchSettingsRoute() {
-  const { colors } = useTheme();
   const { activeHousehold } = useActiveHousehold();
   const householdId = activeHousehold?.id;
   const { data: stores = [], isLoading: storesLoading } = useStores(householdId);
@@ -58,7 +98,7 @@ export default function ProductSearchSettingsRoute() {
 
   return (
     <Screen title="Produktsuche" back={{ label: 'Einstellungen' }} backStyle="icon">
-      <View className="gap-three">
+      <View style={styles.content}>
         <Txt variant="body" tone="secondary">
           Der bevorzugte Markt beeinflusst die Reihenfolge der Suchtreffer. Passende Eigenmarken
           werden etwas weiter nach vorne sortiert. Die Einstellung ist persönlich und nur auf diesem
@@ -66,8 +106,8 @@ export default function ProductSearchSettingsRoute() {
         </Txt>
 
         {loading ? null : (
-          <View className="gap-two">
-            <View className="gap-one">
+          <View style={styles.section}>
+            <View style={styles.sectionHeading}>
               <Txt variant="caption" tone="secondary">
                 Bevorzugte Märkte
               </Txt>
@@ -75,31 +115,30 @@ export default function ProductSearchSettingsRoute() {
                 Wähle mehrere Märkte. Die Reihenfolge bestimmt die Priorität.
               </Txt>
             </View>
-            <View className="gap-one">
+            <View style={styles.storeList}>
               {orderedStores.map((store) => {
                 const selected = selectedStoreIds.includes(store.id);
                 const position = selectedStoreIds.indexOf(store.id);
                 return (
-                  <View key={store.id} className="flex-row items-center gap-two">
+                  <View key={store.id} style={styles.storeRow}>
                     <Pressable
                       onPress={() => toggleStore(store.id)}
                       accessibilityRole="checkbox"
                       accessibilityState={{ checked: selected }}
                       accessibilityLabel={`${store.name} auswählen`}
-                      className="input-field flex-1 active:opacity-75"
-                      style={{ backgroundColor: colors.surface, borderColor: colors.border }}>
+                      style={({ pressed }) => [styles.storeButton, pressed && styles.pressed]}>
                       <Txt variant="body" tone="primary">
                         {selected ? `✓  ${position + 1}. ${store.name}` : store.name}
                       </Txt>
                     </Pressable>
                     {selected ? (
-                      <View className="flex-row gap-one">
+                      <View style={styles.orderControls}>
                         <Pressable
                           onPress={() => moveStore(position, -1)}
                           disabled={position === 0}
                           accessibilityRole="button"
                           accessibilityLabel={`${store.name} nach oben bewegen`}
-                          className="px-two py-two active:opacity-75">
+                          style={({ pressed }) => [styles.orderButton, pressed && styles.pressed]}>
                           <Txt variant="body" tone="secondary">
                             ↑
                           </Txt>
@@ -109,7 +148,7 @@ export default function ProductSearchSettingsRoute() {
                           disabled={position === selectedStoreIds.length - 1}
                           accessibilityRole="button"
                           accessibilityLabel={`${store.name} nach unten bewegen`}
-                          className="px-two py-two active:opacity-75">
+                          style={({ pressed }) => [styles.orderButton, pressed && styles.pressed]}>
                           <Txt variant="body" tone="secondary">
                             ↓
                           </Txt>
