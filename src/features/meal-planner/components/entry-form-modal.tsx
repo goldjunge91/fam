@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Modal, Platform, Pressable, View } from 'react-native';
+import { Modal, Platform, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Surface, TextField, Txt } from '@/constants/ui';
+import { StyleSheet } from 'react-native-unistyles';
+import { Button, CloseButton, Press, Surface, TextField, Txt } from '@/constants/ui';
 import { DEFAULT_PORTIONS_PER_PERSON, type ResolvedServings, resolveServings } from '../servings';
 import { MEAL_SLOT_LABELS, type MealSlot } from '../week';
 
@@ -27,6 +27,55 @@ type EntryFormModalProps = {
   onDelete?: () => void;
 };
 
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    flex: 1,
+  },
+  safeArea: {
+    flex: 1,
+    paddingHorizontal: theme.space.xl + theme.space.xs,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: theme.space.lg,
+  },
+  headerText: {
+    flex: 1,
+    gap: theme.space.xs / 2,
+    marginRight: theme.space.sm,
+  },
+  content: {
+    gap: theme.space.lg,
+  },
+  modeRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  modeButtonContainer: {
+    flex: 1,
+  },
+  modeButton: {
+    alignItems: 'center',
+    paddingVertical: theme.space.sm,
+    borderRadius: theme.radius.sm,
+  },
+  modeButtonSelected: {
+    backgroundColor: theme.accent,
+  },
+  modeButtonIdle: {
+    backgroundColor: theme.surface,
+  },
+  wholeHouseholdButton: {
+    alignSelf: 'flex-start',
+  },
+  actions: {
+    gap: theme.space.sm,
+    marginTop: theme.space.lg,
+  },
+}));
+
 /**
  * Anlegen/Bearbeiten eines Wochenplan-Eintrags (#130): Umschalter
  * Portionen-Modus vs. Personen-Modus, Shortcut "ganzer Haushalt isst".
@@ -43,7 +92,6 @@ export function EntryFormModal({
   onSave,
   onDelete,
 }: EntryFormModalProps) {
-  const { colors } = useTheme();
   const [mode, setMode] = useState<'portions' | 'people'>(initial?.servings_mode ?? 'portions');
   const [portionsText, setPortionsText] = useState(String(initial?.portions ?? 1));
   const [peopleText, setPeopleText] = useState(String(initial?.people_count ?? ''));
@@ -91,10 +139,10 @@ export function EntryFormModal({
       animationType="slide"
       presentationStyle={Platform.OS === 'ios' ? 'pageSheet' : undefined}
       onRequestClose={onDismiss}>
-      <Surface tone="page" className="rpm-root">
-        <SafeAreaView className="rpm-safe-area" edges={['top', 'left', 'right', 'bottom']}>
-          <View className="rpm-header">
-            <View className="efm-header-text">
+      <Surface tone="page" style={styles.root}>
+        <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
+          <View style={styles.header}>
+            <View style={styles.headerText}>
               <Txt variant="title" numberOfLines={1}>
                 {recipeTitle}
               </Txt>
@@ -102,46 +150,44 @@ export function EntryFormModal({
                 {MEAL_SLOT_LABELS[mealSlot]} · {entryDate}
               </Txt>
             </View>
-            <Pressable
-              onPress={onDismiss}
-              accessibilityRole="button"
-              accessibilityLabel="Schließen"
-              className="rpm-close-button">
-              <Txt variant="body">✕</Txt>
-            </Pressable>
+            <CloseButton onPress={onDismiss} accessibilityLabel="Schließen" />
           </View>
 
-          <View className="efm-content">
-            <View className="efm-mode-row">
-              <Pressable
+          <View style={styles.content}>
+            <View style={styles.modeRow}>
+              <Press
+                haptic="selection"
                 accessibilityRole="button"
                 accessibilityLabel="Portionen-Modus"
                 accessibilityState={{ selected: mode === 'portions' }}
                 onPress={() => setMode('portions')}
-                className="efm-mode-button"
-                style={{
-                  backgroundColor: mode === 'portions' ? colors.accent : colors.backgroundElement,
-                }}>
+                containerStyle={styles.modeButtonContainer}
+                style={[
+                  styles.modeButton,
+                  mode === 'portions' ? styles.modeButtonSelected : styles.modeButtonIdle,
+                ]}>
                 <Txt
                   variant="body"
                   tone={mode === 'portions' ? 'onAccent' : 'primary'}
                   weight="700">
                   Portionen
                 </Txt>
-              </Pressable>
-              <Pressable
+              </Press>
+              <Press
+                haptic="selection"
                 accessibilityRole="button"
                 accessibilityLabel="Personen-Modus"
                 accessibilityState={{ selected: mode === 'people' }}
                 onPress={() => setMode('people')}
-                className="efm-mode-button"
-                style={{
-                  backgroundColor: mode === 'people' ? colors.accent : colors.backgroundElement,
-                }}>
+                containerStyle={styles.modeButtonContainer}
+                style={[
+                  styles.modeButton,
+                  mode === 'people' ? styles.modeButtonSelected : styles.modeButtonIdle,
+                ]}>
                 <Txt variant="body" tone={mode === 'people' ? 'onAccent' : 'primary'} weight="700">
                   Personen
                 </Txt>
-              </Pressable>
+              </Press>
             </View>
 
             {mode === 'portions' ? (
@@ -161,16 +207,17 @@ export function EntryFormModal({
                   keyboardType="number-pad"
                   placeholder="z. B. 4"
                 />
-                <Pressable
+                <Press
+                  haptic="selection"
                   accessibilityRole="button"
                   accessibilityLabel="Ganzer Haushalt isst"
                   onPress={handleWholeHousehold}
-                  className="efm-whole-household-button">
+                  style={styles.wholeHouseholdButton}>
                   <Txt variant="label" tone="primary" weight="400">
                     Ganzer Haushalt isst ({householdMemberCount}{' '}
                     {householdMemberCount === 1 ? 'Person' : 'Personen'})
                   </Txt>
-                </Pressable>
+                </Press>
                 <Txt variant="body" tone="secondary">
                   {previewPortions !== null
                     ? `≈ ${previewPortions} Portionen (${factor} Portionen/Person)`
@@ -179,7 +226,7 @@ export function EntryFormModal({
               </>
             )}
 
-            <View className="efm-actions">
+            <View style={styles.actions}>
               <Button title="Speichern" onPress={handleSave} disabled={saveDisabled} />
               {onDelete ? (
                 <Button title="Eintrag entfernen" variant="danger" onPress={onDelete} />

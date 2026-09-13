@@ -1,10 +1,10 @@
 import { FlashList } from '@shopify/flash-list';
 import { useMemo, useState } from 'react';
-import { Modal, Platform, Pressable, View } from 'react-native';
+import { Modal, Platform, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { space } from '@/components/theme/index';
-import { Surface, TextField, Txt } from '@/constants/ui';
+import { CloseButton, Press, Surface, TextField, Txt } from '@/constants/ui';
 import type { DraggableRecipe } from './week-grid';
 
 type RecipePickerModalProps = {
@@ -13,6 +13,37 @@ type RecipePickerModalProps = {
   onDismiss: () => void;
   onSelect: (recipe: DraggableRecipe) => void;
 };
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    flex: 1,
+  },
+  safeArea: {
+    flex: 1,
+    paddingHorizontal: theme.space.xl + theme.space.xs,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: theme.space.lg,
+  },
+  empty: {
+    marginTop: theme.space.xxl + theme.space.xs,
+    textAlign: 'center',
+  },
+  list: {
+    flex: 1,
+  },
+  listContent: {
+    paddingVertical: theme.space.sm,
+  },
+  recipeRow: {
+    paddingVertical: theme.space.lg,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+}));
 
 export function RecipePickerModal({
   visible,
@@ -34,17 +65,11 @@ export function RecipePickerModal({
       animationType="slide"
       presentationStyle={Platform.OS === 'ios' ? 'pageSheet' : undefined}
       onRequestClose={onDismiss}>
-      <Surface tone="page" className="rpm-root">
-        <SafeAreaView className="rpm-safe-area" edges={['top', 'left', 'right', 'bottom']}>
-          <View className="rpm-header">
+      <Surface tone="page" style={styles.root}>
+        <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
+          <View style={styles.header}>
             <Txt variant="title">Rezept auswählen</Txt>
-            <Pressable
-              onPress={onDismiss}
-              accessibilityRole="button"
-              accessibilityLabel="Schließen"
-              className="rpm-close-button">
-              <Txt variant="body">✕</Txt>
-            </Pressable>
+            <CloseButton onPress={onDismiss} accessibilityLabel="Schließen" />
           </View>
 
           <TextField
@@ -55,7 +80,7 @@ export function RecipePickerModal({
           />
 
           {filtered.length === 0 ? (
-            <Txt variant="body" tone="secondary" className="rpm-empty">
+            <Txt variant="body" tone="secondary" style={styles.empty}>
               {recipes.length === 0
                 ? 'Noch keine Rezepte vorhanden. Lege zuerst ein Rezept an.'
                 : 'Kein Rezept gefunden.'}
@@ -64,18 +89,16 @@ export function RecipePickerModal({
             <FlashList
               data={filtered}
               keyExtractor={(item) => item.id}
-              // FlashList hat kein cssInterop, deshalb RN-Styles statt
-              // Tailwind-Klassen — s. glass-card.tsx (#139).
-              style={{ flex: 1 }}
-              contentContainerStyle={{ paddingVertical: space.sm }}
+              style={styles.list}
+              contentContainerStyle={styles.listContent}
               renderItem={({ item }) => (
-                <Pressable
+                <Press
                   accessibilityRole="button"
                   accessibilityLabel={`${item.title} eintragen`}
                   onPress={() => onSelect(item)}
-                  className="rpm-recipe-row">
+                  style={styles.recipeRow}>
                   <Txt variant="body">{item.title}</Txt>
-                </Pressable>
+                </Press>
               )}
             />
           )}

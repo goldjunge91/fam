@@ -1,10 +1,11 @@
 import { useCallback, useRef, useState } from 'react';
-import { Pressable, ScrollView, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+import { StyleSheet } from 'react-native-unistyles';
 
-import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { withAlpha } from '@/components/theme/index';
+import { Press, Txt } from '@/constants/ui';
 import { RecipeArtwork } from '@/features/recipes/components/recipe-preview-card';
 import { useRecipeCoverUrl } from '@/features/recipes/data/household-recipe-images';
 import type { MealPlanEntry, MealSlot } from '../use-meal-plans';
@@ -33,6 +34,140 @@ const SLOT_LABELS: Record<MealSlot, string> = {
   lunch: 'Mittag',
   dinner: 'Abendessen',
 };
+
+// Diese festen Werte sind bestehende Kalender-/Drag-Geometrie bzw. native
+// Integrationsgrenzen (Zellenhoehe, Artwork-Groesse und Drop-Overlay), keine
+// semantischen Farb-, Typografie- oder Spacing-Tokens.
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    flex: 1,
+  },
+  scroll: {
+    flex: 1,
+  },
+  content: {
+    gap: 10,
+    paddingTop: 10,
+    paddingBottom: 126,
+  },
+  dayCard: {
+    overflow: 'hidden',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: theme.border,
+    borderRadius: theme.radius.lg,
+    backgroundColor: theme.surface,
+    borderCurve: 'continuous',
+  },
+  dayHeader: {
+    height: 38,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: theme.space.lg,
+  },
+  slotColumn: {
+    flexDirection: 'column',
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: withAlpha(theme.text, 0.07),
+  },
+  slot: {
+    minWidth: 0,
+    minHeight: 116,
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.lg,
+  },
+  slotDivider: {
+    borderTopColor: withAlpha(theme.text, 0.07),
+  },
+  slotLabel: {
+    textTransform: 'uppercase',
+    letterSpacing: 0.55,
+  },
+  entryChip: {
+    justifyContent: 'center',
+    minHeight: 46,
+    borderRadius: theme.radius.sm,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: 9,
+    backgroundColor: theme.backgroundSoft,
+    borderCurve: 'continuous',
+  },
+  addButton: {
+    minHeight: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: theme.radius.sm,
+    paddingHorizontal: theme.space.sm,
+    borderWidth: theme.borderWidth.base,
+    borderStyle: 'dashed',
+    borderColor: theme.border,
+    borderCurve: 'continuous',
+  },
+  tray: {
+    overflow: 'hidden',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: theme.border,
+    borderRadius: theme.radius.lg,
+    paddingVertical: theme.space.lg,
+    backgroundColor: theme.surface,
+    borderCurve: 'continuous',
+  },
+  trayTitle: {
+    paddingHorizontal: theme.space.lg,
+  },
+  trayLabel: {
+    paddingHorizontal: theme.space.lg,
+    paddingTop: 1,
+    paddingBottom: theme.space.sm,
+  },
+  trayGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+    paddingHorizontal: theme.space.lg,
+  },
+  recipeCard: {
+    width: '47%',
+    borderRadius: theme.radius.md,
+    padding: theme.space.sm,
+    gap: 6,
+    backgroundColor: theme.backgroundSoft,
+    borderCurve: 'continuous',
+  },
+  recipeArtwork: {
+    height: 118,
+    overflow: 'hidden',
+    borderRadius: theme.radius.sm,
+    borderCurve: 'continuous',
+  },
+  dragOverlay: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+  },
+  dragPreviewCard: {
+    width: 112,
+    borderRadius: theme.radius.md,
+    borderWidth: theme.borderWidth.strong,
+    borderColor: theme.accent,
+    padding: 6,
+    gap: 4,
+    opacity: 0.94,
+    backgroundColor: theme.backgroundSoft,
+    shadowColor: theme.text,
+    shadowOpacity: 0.22,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
+    borderCurve: 'continuous',
+  },
+  dragPreviewArtwork: {
+    height: 68,
+    overflow: 'hidden',
+    borderRadius: theme.radius.sm,
+    borderCurve: 'continuous',
+  },
+}));
 
 function portionLabel(portions: number) {
   return `${portions} ${portions === 1 ? 'Portion' : 'Portionen'}`;
@@ -105,27 +240,21 @@ export function WeekGrid({
   }));
 
   return (
-    <View className="wg-root">
+    <View style={styles.root}>
       <ScrollView
-        className="wg-scroll"
-        contentContainerClassName="wg-content"
+        style={styles.scroll}
+        contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}>
         {dates.map((date) => (
-          <View
-            key={date}
-            className="wg-day-card"
-            // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-            style={{ borderCurve: 'continuous' }}>
-            <View className="wg-day-header">
-              <Txt variant="heading" className="wg-day-name">
-                {weekdayLabel(date)}
-              </Txt>
-              <Txt variant="body" tone="secondary" className="wg-day-date">
+          <View key={date} style={styles.dayCard}>
+            <View style={styles.dayHeader}>
+              <Txt variant="heading">{weekdayLabel(date)}</Txt>
+              <Txt variant="caption" tone="secondary">
                 {dateLabel(date)}
               </Txt>
             </View>
 
-            <View className="wg-slot-column">
+            <View style={styles.slotColumn}>
               {MEAL_SLOTS.map((slot, slotIndex) => {
                 const key = `${date}|${slot}`;
                 const cellEntries = entriesByCell.get(key) ?? [];
@@ -133,41 +262,37 @@ export function WeekGrid({
                   <View
                     key={slot}
                     ref={(node) => registerCell(key, node)}
-                    className={`wg-slot ${slotIndex > 0 ? 'wg-slot-divider' : ''}`}>
-                    <Txt variant="body" tone="secondary" className="wg-slot-label">
+                    style={[styles.slot, slotIndex > 0 && styles.slotDivider]}>
+                    <Txt variant="eyebrow" tone="secondary" weight="700" style={styles.slotLabel}>
                       {SLOT_LABELS[slot]}
                     </Txt>
 
                     {cellEntries.map((entry) => (
-                      <Pressable
+                      <Press
                         key={entry.id}
                         role="button"
                         aria-label={`${entry.recipe_title}, ${portionLabel(entry.portions)}`}
                         onPress={() => onTapEntry(entry)}
-                        className="wg-entry-chip"
-                        // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-                        style={{ borderCurve: 'continuous' }}>
-                        <Txt variant="body" className="wg-entry-title" numberOfLines={1}>
+                        style={styles.entryChip}>
+                        <Txt variant="label" weight="700" numberOfLines={1}>
                           {entry.recipe_title}
                         </Txt>
-                        <Txt variant="body" tone="secondary" className="wg-entry-meta">
+                        <Txt variant="caption" tone="secondary">
                           {portionLabel(entry.portions)}
                         </Txt>
-                      </Pressable>
+                      </Press>
                     ))}
 
-                    <Pressable
+                    <Press
                       role="button"
                       aria-label={`${SLOT_LABELS[slot]} am ${weekdayLabel(date)}, Gericht hinzufügen`}
                       disabled={!canAddRecipes}
                       onPress={() => onTapEmptyCell(date, slot)}
-                      className="wg-add-button"
-                      // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-                      style={{ borderCurve: 'continuous' }}>
-                      <Txt variant="body" tone="primary" className="wg-add-text">
+                      style={styles.addButton}>
+                      <Txt variant="label" tone="primary" weight="700">
                         {cellEntries.length > 0 ? '+ Weiteres' : '+ Gericht'}
                       </Txt>
-                    </Pressable>
+                    </Press>
                   </View>
                 );
               })}
@@ -176,17 +301,14 @@ export function WeekGrid({
         ))}
 
         {recipes.length > 0 ? (
-          <View
-            className="wg-tray"
-            // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-            style={{ borderCurve: 'continuous' }}>
-            <Txt variant="caption" className="wg-tray-title" weight="700">
+          <View style={styles.tray}>
+            <Txt variant="eyebrow" style={styles.trayTitle} weight="700">
               Rezepte zum Ziehen
             </Txt>
-            <Txt variant="body" tone="secondary" className="wg-tray-label">
+            <Txt variant="caption" tone="secondary" style={styles.trayLabel}>
               Karte halten und auf eine Mahlzeit ziehen
             </Txt>
-            <View className="wg-tray-grid">
+            <View style={styles.trayGrid}>
               {recipes.map((recipe) => (
                 <DraggableRecipeCard
                   key={recipe.id}
@@ -203,7 +325,7 @@ export function WeekGrid({
       </ScrollView>
 
       {draggingRecipe ? (
-        <Animated.View pointerEvents="none" className="wg-drag-overlay" style={overlayStyle}>
+        <Animated.View pointerEvents="none" style={[styles.dragOverlay, overlayStyle]}>
           <DragPreviewCard recipe={draggingRecipe} />
         </Animated.View>
       ) : null}
@@ -251,11 +373,11 @@ function DraggableRecipeCard({
 
   return (
     <GestureDetector gesture={pan}>
-      <View className="wg-recipe-card" style={{ borderCurve: 'continuous' }}>
-        <View className="wg-recipe-card-artwork" style={{ borderCurve: 'continuous' }}>
+      <View style={styles.recipeCard}>
+        <View style={styles.recipeArtwork}>
           <RecipeArtwork title={recipe.title} coverUrl={coverUrl} paletteIndex={recipe.id.length} />
         </View>
-        <Txt variant="body" className="wg-recipe-card-text" numberOfLines={2}>
+        <Txt variant="caption" weight="700" numberOfLines={2}>
           {recipe.title}
         </Txt>
       </View>
@@ -265,26 +387,14 @@ function DraggableRecipeCard({
 
 /** Schwebende Vorschau waehrend des Ziehens — dieselbe Bildkachel, etwas kleiner. */
 function DragPreviewCard({ recipe }: { recipe: DraggableRecipe }) {
-  const { colors } = useTheme();
   const { data: coverUrl } = useRecipeCoverUrl(recipe.coverImagePath);
 
   return (
-    <View
-      className="wg-drag-preview-card"
-      // borderCurve und der Schatten (individuelle Opazitaet/Radius/Offset,
-      // keine passende boxShadow-Preset-Klasse) sind echte Laufzeitwerte
-      // ohne Tailwind-Aequivalent.
-      style={{
-        borderCurve: 'continuous',
-        shadowColor: colors.text,
-        shadowOpacity: 0.22,
-        shadowRadius: 12,
-        shadowOffset: { width: 0, height: 6 },
-      }}>
-      <View className="wg-drag-preview-artwork" style={{ borderCurve: 'continuous' }}>
+    <View style={styles.dragPreviewCard}>
+      <View style={styles.dragPreviewArtwork}>
         <RecipeArtwork title={recipe.title} coverUrl={coverUrl} paletteIndex={recipe.id.length} />
       </View>
-      <Txt variant="body" className="wg-drag-preview-text" numberOfLines={1}>
+      <Txt variant="caption" weight="700" numberOfLines={1}>
         {recipe.title}
       </Txt>
     </View>
