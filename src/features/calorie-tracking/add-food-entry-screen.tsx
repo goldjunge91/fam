@@ -3,6 +3,7 @@ import * as Crypto from 'expo-crypto';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Image, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -41,6 +42,69 @@ const UNIT_LABELS: Record<string, string> = {
   portion: 'Portion',
 };
 const UNITS = Object.keys(UNIT_LABELS);
+
+const styles = StyleSheet.create((theme) => ({
+  form: {
+    gap: theme.space.lg,
+    marginTop: theme.space.sm,
+  },
+  hero: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.lg,
+  },
+  heroImage: {
+    width: 56,
+    height: 56,
+    borderRadius: 16,
+  },
+  heroImagePlaceholder: {
+    width: 56,
+    height: 56,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.backgroundElement,
+  },
+  heroText: {
+    flex: 1,
+    gap: 2,
+  },
+  nutriBadge: {
+    width: 34,
+    height: 34,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.accent,
+  },
+  nutriBadgeText: {
+    fontSize: 15,
+  },
+  badgeRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.space.xs,
+  },
+  badge: {
+    paddingHorizontal: 10,
+    paddingVertical: theme.space.xs,
+    borderRadius: theme.radius.sm,
+  },
+  nutritionRow: {
+    flexDirection: 'row',
+    gap: theme.space.xl + theme.space.xs,
+  },
+  field: {
+    flex: 1,
+  },
+  quantityLabel: {
+    marginTop: theme.space.xs,
+  },
+  saveAction: {
+    marginTop: theme.space.sm,
+  },
+}));
 
 export function AddFoodEntryScreen() {
   const params = useLocalSearchParams<{
@@ -194,7 +258,7 @@ export function AddFoodEntryScreen() {
 
   return (
     <Screen title={title} back={{ label: 'Abbrechen' }}>
-      <View className="afe-form">
+      <View style={styles.form}>
         {!isEditing ? (
           <FoodSearchDropdown
             mealType={params.mealType}
@@ -236,20 +300,17 @@ export function AddFoodEntryScreen() {
         ) : null}
 
         {/* Lebensmittel-Header mit Bild, Name, Marke und Nutri-Score */}
-        <View className="afe-hero">
+        <View style={styles.hero}>
           {productMeta.imageUrl ? (
-            <Image
-              source={{ uri: productMeta.imageUrl }}
-              style={{ width: 56, height: 56, borderRadius: 16 }}
-            />
+            <Image source={{ uri: productMeta.imageUrl }} style={styles.heroImage} />
           ) : (
-            <View className="afe-hero-image-placeholder">
+            <View style={styles.heroImagePlaceholder}>
               <Txt variant="body" style={{ fontSize: 28 }}>
                 🍽️
               </Txt>
             </View>
           )}
-          <View className="afe-hero-text">
+          <View style={styles.heroText}>
             {isEditing ? (
               <Txt variant="body" weight="700">
                 {values.name}
@@ -262,8 +323,8 @@ export function AddFoodEntryScreen() {
             ) : null}
           </View>
           {productMeta.nutriScore ? (
-            <View className="afe-nutri-badge">
-              <Txt variant="label" tone="inverse" className="afe-nutri-badge-text">
+            <View style={styles.nutriBadge}>
+              <Txt variant="label" tone="inverse" weight="800" style={styles.nutriBadgeText}>
                 {productMeta.nutriScore.toUpperCase()}
               </Txt>
             </View>
@@ -272,17 +333,19 @@ export function AddFoodEntryScreen() {
 
         {/* Nährwert- & Verarbeitungs-Badges (z. B. Fettarm, Nova 4) */}
         {productMeta.badges.length > 0 ? (
-          <View className="afe-badge-row">
+          <View style={styles.badgeRow}>
             {productMeta.badges.map((badge) => (
               <View
                 key={badge.label}
-                className="afe-badge"
-                style={{
-                  backgroundColor: withAlpha(
-                    badge.tone === 'good' ? colors.basil : colors.carrot,
-                    0.13,
-                  ),
-                }}>
+                style={[
+                  styles.badge,
+                  {
+                    backgroundColor: withAlpha(
+                      badge.tone === 'good' ? colors.basil : colors.carrot,
+                      0.13,
+                    ),
+                  },
+                ]}>
                 <Txt variant="body" tone={badge.tone === 'good' ? 'success' : 'warning'}>
                   {badge.tone === 'good' ? '🟢' : '⚠️'} {badge.label}
                 </Txt>
@@ -292,8 +355,8 @@ export function AddFoodEntryScreen() {
         ) : null}
 
         {/* Nährwert-Eingabefelder (Kalorien, Kohlenhydrate, Eiweiß, Fett) */}
-        <View className="flex-row gap-four">
-          <View className="flex-1">
+        <View style={styles.nutritionRow}>
+          <View style={styles.field}>
             <TextField
               label="kcal"
               value={values.kcal}
@@ -301,7 +364,7 @@ export function AddFoodEntryScreen() {
               keyboardType="numeric"
             />
           </View>
-          <View className="flex-1">
+          <View style={styles.field}>
             <TextField
               label="Kohlenhydrate (g)"
               value={values.carbsG}
@@ -310,8 +373,8 @@ export function AddFoodEntryScreen() {
             />
           </View>
         </View>
-        <View className="flex-row gap-four">
-          <View className="flex-1">
+        <View style={styles.nutritionRow}>
+          <View style={styles.field}>
             <TextField
               label="Eiweiß (g)"
               value={values.proteinG}
@@ -319,7 +382,7 @@ export function AddFoodEntryScreen() {
               keyboardType="numeric"
             />
           </View>
-          <View className="flex-1">
+          <View style={styles.field}>
             <TextField
               label="Fett (g)"
               value={values.fatG}
@@ -330,7 +393,7 @@ export function AddFoodEntryScreen() {
         </View>
 
         {/* Mengen- und Einheitenauswahl */}
-        <Txt variant="body" weight="700" className="mt-one">
+        <Txt variant="body" weight="700" style={styles.quantityLabel}>
           Menge
         </Txt>
         <QuantityStepper
@@ -353,7 +416,7 @@ export function AddFoodEntryScreen() {
         ) : null}
 
         {/* Aktions-Buttons (Speichern, Löschen, Abbrechen) */}
-        <View className="mt-two">
+        <View style={styles.saveAction}>
           <Button
             title="Speichern"
             onPress={handleSave}

@@ -1,13 +1,14 @@
 import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { Pressable, ScrollView, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { PlusIcon } from '@/components/icons/fam-icon';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { MenuButton } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { ProgressBar } from '@/components/ui/progress-bar';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -32,6 +33,107 @@ export const MEAL_LABELS: Record<MealType, string> = {
   dinner: 'Abendessen',
   snack: 'Snacks',
 };
+
+const styles = StyleSheet.create((theme) => ({
+  content: {
+    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingTop: 2,
+    paddingBottom: 126,
+    gap: theme.space.sm,
+  },
+  macroChip: {
+    width: '48%',
+    backgroundColor: theme.backgroundElement,
+    borderWidth: 1,
+    borderColor: theme.border,
+    borderRadius: theme.radius.sm,
+    padding: theme.space.lg,
+    gap: 6,
+  },
+  mealSection: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  mealHeader: {
+    minHeight: 44,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.lg,
+    paddingTop: 6,
+  },
+  mealHeading: {
+    flex: 1,
+    minWidth: 0,
+  },
+  addButton: {
+    width: 28,
+    height: 28,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.accent,
+    borderCurve: 'continuous',
+  },
+  entryRow: {
+    minHeight: 36,
+    marginBottom: 6,
+    paddingVertical: 4,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 10,
+  },
+  entryInfo: {
+    flex: 1,
+    minWidth: 0,
+  },
+  dateRow: {
+    height: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  dateArrow: {
+    width: 48,
+    height: 46,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  dateCopy: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  hero: {
+    paddingBottom: theme.space.lg,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+    gap: 6,
+  },
+  heroRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: theme.space.sm,
+  },
+  heroBar: {
+    marginTop: 2,
+  },
+  macroGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    rowGap: theme.space.sm,
+    paddingBottom: theme.space.lg,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  textOffset: {
+    marginTop: 1,
+  },
+  loadingText: {
+    paddingVertical: theme.space.xl + theme.space.xs,
+  },
+}));
 
 function parseIsoDate(iso: string): Date {
   const [year, month, day] = iso.split('-').map(Number);
@@ -79,7 +181,7 @@ function MacroChip({ label, value, target }: { label: string; value: number; tar
 
   return (
     <View
-      className="diary-macro-chip"
+      style={styles.macroChip}
       accessible
       accessibilityRole="progressbar"
       accessibilityLabel={
@@ -116,32 +218,32 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
   const mealKcal = entries.reduce((sum, entry) => sum + (entry.kcal ?? 0), 0);
 
   return (
-    <View className={!isLast ? 'diary-meal-section' : undefined}>
-      <View className="diary-meal-header pt-[6px]">
-        <View className="diary-meal-heading">
+    <View style={!isLast ? styles.mealSection : undefined}>
+      <View style={styles.mealHeader}>
+        <View style={styles.mealHeading}>
           <Txt variant="subheading">{MEAL_LABELS[meal]}</Txt>
-          <Txt variant="caption" tone="secondary" className="mt-[1px]">
+          <Txt variant="caption" tone="secondary" style={styles.textOffset}>
             {formatKcal(mealKcal)}
           </Txt>
         </View>
-        <Pressable
+        <Press
           onPress={onAdd}
           role="button"
           aria-label={`Zu ${MEAL_LABELS[meal]} hinzufügen`}
-          className="diary-add-button"
-          // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-          style={{ borderCurve: 'continuous' }}>
+          hitSlop={8}
+          style={styles.addButton}>
           <PlusIcon size={18} color={colors.inverse} />
-        </Pressable>
+        </Press>
       </View>
       {entries.map((entry) => (
-        <Pressable
+        <Press
           key={entry.id}
           onPress={() => onEntry(entry.id)}
           role="button"
           aria-label={`${entry.name} bearbeiten`}
-          className="diary-entry-row">
-          <View className="diary-entry-info">
+          hitSlop={4}
+          style={styles.entryRow}>
+          <View style={styles.entryInfo}>
             <Txt variant="caption" weight="700" numberOfLines={1}>
               {entry.name}
             </Txt>
@@ -149,7 +251,7 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
               variant="caption"
               tone="secondary"
               weight="500"
-              className="mt-[1px]"
+              style={styles.textOffset}
               numberOfLines={1}>
               {entry.quantity} {entry.unit}
             </Txt>
@@ -157,7 +259,7 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
           <Txt variant="caption" tone="secondary" weight="600">
             {entry.kcal !== null ? formatKcal(entry.kcal) : '–'}
           </Txt>
-        </Pressable>
+        </Press>
       ))}
     </View>
   );
@@ -249,7 +351,7 @@ export function DiaryScreen() {
       }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerClassName="diary-content"
+        contentContainerStyle={styles.content}
         contentInsetAdjustmentBehavior="never">
         {/* Profil-Auswahl (Erwachsener vs. Kind-Profile) */}
         {childProfiles.length > 0 ? (
@@ -262,21 +364,23 @@ export function DiaryScreen() {
         ) : null}
 
         {/* Datumsnavigation (Gestern, Heute, Morgen, Datumswahl) */}
-        <View className="diary-date-row">
-          <Pressable
+        <View style={styles.dateRow}>
+          <Press
             onPress={() => setSelectedLogicalDate((date) => addDays(date, -1))}
             role="button"
             aria-label="Vorheriger Tag"
-            className="diary-date-arrow">
+            hitSlop={4}
+            style={styles.dateArrow}>
             <Txt variant="title" tone="secondary">
               ‹
             </Txt>
-          </Pressable>
-          <Pressable
+          </Press>
+          <Press
             onPress={() => setSelectedLogicalDate(todayLogicalDate)}
             role="button"
             aria-label="Heutigen Tag anzeigen"
-            className="diary-date-copy">
+            containerStyle={styles.dateCopy}
+            style={styles.dateCopy}>
             <Txt variant="label" tone="primary" weight="700">
               {relativeDateLabel(selectedLogicalDate, todayLogicalDate)}
             </Txt>
@@ -284,26 +388,27 @@ export function DiaryScreen() {
               variant="body"
               tone="secondary"
               weight="500"
-              className="mt-[1px]"
+              style={styles.textOffset}
               numberOfLines={1}>
               {fullDateLabel(selectedLogicalDate)}
             </Txt>
-          </Pressable>
-          <Pressable
+          </Press>
+          <Press
             onPress={() => setSelectedLogicalDate((date) => addDays(date, 1))}
             role="button"
             aria-label="Nächster Tag"
-            className="diary-date-arrow">
+            hitSlop={4}
+            style={styles.dateArrow}>
             <Txt variant="title" tone="secondary">
               ›
             </Txt>
-          </Pressable>
+          </Press>
         </View>
 
         {/* Kalorien-Bilanz: grosse Zahl + duenner Balken statt Ring + vier
             Textzeilen (Redesign "Kompakter Fokus", Design-Audit 2026-08-29) */}
         <View
-          className="diary-hero"
+          style={styles.hero}
           accessible
           accessibilityRole="text"
           accessibilityLabel={
@@ -311,7 +416,7 @@ export function DiaryScreen() {
               ? `${formatKcal(Math.abs(remaining))} ${remaining < 0 ? 'über dem Tagesziel' : 'übrig'}, Ziel ${formatKcal(calorieGoal)}`
               : `${formatKcal(totals.kcal)} gegessen, kein Tagesziel hinterlegt`
           }>
-          <View className="diary-hero-row">
+          <View style={styles.heroRow}>
             <Txt variant="title" weight="700">
               {Math.round(calorieGoal > 0 ? Math.abs(remaining) : totals.kcal).toLocaleString(
                 'de-DE',
@@ -323,17 +428,18 @@ export function DiaryScreen() {
                 : 'kcal gegessen · kein Tagesziel'}
             </Txt>
           </View>
-          <ProgressBar
-            value={calorieGoal > 0 ? totals.kcal / calorieGoal : 0}
-            color={remaining < 0 ? colors.carrot : colors.basil}
-            trackColor={colors.backgroundSoft}
-            height={6}
-            className="diary-hero-bar"
-          />
+          <View style={styles.heroBar}>
+            <ProgressBar
+              value={calorieGoal > 0 ? totals.kcal / calorieGoal : 0}
+              color={remaining < 0 ? colors.carrot : colors.basil}
+              trackColor={colors.backgroundSoft}
+              height={6}
+            />
+          </View>
         </View>
 
         {/* Makronährstoff-Chips (Protein, Kohlenhydrate, Fett) */}
-        <View className="diary-macro-grid">
+        <View style={styles.macroGrid}>
           <MacroChip label="Protein" value={totals.proteinG} target={currentGoal?.protein_g ?? 0} />
           <MacroChip
             label="Kohlenhydrate"
@@ -360,7 +466,7 @@ export function DiaryScreen() {
 
         {/* Mahlzeiten-Abschnitte (Frühstück, Mittagessen, Abendessen, Snacks) */}
         {isLoading ? (
-          <Txt variant="caption" tone="secondary" className="diary-loading-text">
+          <Txt variant="caption" tone="secondary" style={styles.loadingText}>
             Lade Tagebuch...
           </Txt>
         ) : (

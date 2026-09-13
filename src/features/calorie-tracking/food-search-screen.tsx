@@ -1,7 +1,7 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import { Pressable } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import type { MealType } from '@/features/calorie-tracking/api';
 import type { FoodHistoryEntry } from '@/features/calorie-tracking/food-history';
 import { FoodSearchDropdown } from '@/features/calorie-tracking/food-search-dropdown';
@@ -14,6 +14,20 @@ const MEAL_LABELS: Record<string, string> = {
   dinner: 'Abendessen',
   snack: 'Snacks',
 };
+
+const styles = StyleSheet.create((theme) => ({
+  quickEntryButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.space.sm,
+    paddingVertical: theme.space.lg,
+    borderRadius: 14,
+    marginTop: theme.space.lg,
+    marginBottom: theme.space.xl + theme.space.xs,
+    backgroundColor: theme.backgroundElement,
+  },
+}));
 
 /** Kompatibilitaetsroute fuer alte Deep Links; das Tagebuch nutzt direkt das Erfassungs-Modal. */
 export function FoodSearchScreen() {
@@ -52,14 +66,17 @@ export function FoodSearchScreen() {
         onProductSelect={selectProduct}
         onHistorySelect={selectHistoryEntry}
       />
-      <Pressable onPress={() => goToDetail({})} className="fss-quick-entry-btn">
+      <Press
+        onPress={() => goToDetail({})}
+        accessibilityRole="button"
+        style={styles.quickEntryButton}>
         <Txt variant="body" style={{ fontSize: 18 }}>
           🍽️
         </Txt>
         <Txt variant="body" weight="700">
           Schneller Eintrag
         </Txt>
-      </Pressable>
+      </Press>
     </Screen>
   );
 }
