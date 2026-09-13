@@ -1,8 +1,8 @@
 import { router } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
@@ -55,9 +55,55 @@ function parsePercent(input: string): number {
   return Number.isNaN(value) ? 0 : value;
 }
 
+const styles = StyleSheet.create((theme) => ({
+  formStack: {
+    gap: theme.space.lg,
+  },
+  segmentedRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  segmentButton: {
+    flex: 1,
+    paddingVertical: 10,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  segmentButtonSelected: {
+    backgroundColor: theme.accent,
+    borderColor: theme.accent,
+  },
+  segmentButtonIdle: {
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+  macroHeading: {
+    marginTop: theme.space.xs,
+  },
+  customRatioRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  flex: {
+    flex: 1,
+  },
+  saveRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+    marginTop: theme.space.xs,
+  },
+  preview: {
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: theme.border,
+    borderRadius: theme.radius.md,
+    padding: theme.space.lg,
+    gap: theme.space.xs,
+  },
+}));
+
 export function GoalSetupScreen() {
   const { session } = useSession();
-  const { colors } = useTheme();
   const userId = session?.user.id;
 
   const { data: profile } = useProfile(userId);
@@ -232,21 +278,20 @@ export function GoalSetupScreen() {
           {/* Formular zur Zieldefinition (Art, Tempo, Makros, Kalorien-Override) */}
           {formVisible ? (
             <Card title="Neues Ziel">
-              <View className="gap-three">
+              <View style={styles.formStack}>
                 {/* Zielart: Abnehmen / Halten / Zunehmen */}
                 <Txt variant="body" weight="700">
                   Ziel-Art
                 </Txt>
-                <View className="gs-segmented-row">
+                <View style={styles.segmentedRow}>
                   {(Object.keys(GOAL_LABELS) as GoalType[]).map((type) => (
                     <Pressable
                       key={type}
                       onPress={() => setGoalType(type)}
-                      className="gs-segment-btn"
-                      style={{
-                        backgroundColor: goalType === type ? colors.basil : colors.surface,
-                        borderColor: goalType === type ? colors.basil : colors.border,
-                      }}>
+                      style={[
+                        styles.segmentButton,
+                        goalType === type ? styles.segmentButtonSelected : styles.segmentButtonIdle,
+                      ]}>
                       <Txt variant="body" tone={goalType === type ? 'onAccent' : 'primary'}>
                         {GOAL_LABELS[type]}
                       </Txt>
@@ -264,19 +309,18 @@ export function GoalSetupScreen() {
                   />
                 ) : null}
 
-                <Txt variant="body" weight="700" className="mt-one">
+                <Txt variant="body" weight="700" style={styles.macroHeading}>
                   Makro-Verteilung
                 </Txt>
-                <View className="gs-segmented-row">
+                <View style={styles.segmentedRow}>
                   {(Object.keys(SEGMENT_LABELS) as PresetSelection[]).map((p) => (
                     <Pressable
                       key={p}
                       onPress={() => setPreset(p)}
-                      className="gs-segment-btn"
-                      style={{
-                        backgroundColor: preset === p ? colors.basil : colors.surface,
-                        borderColor: preset === p ? colors.basil : colors.border,
-                      }}>
+                      style={[
+                        styles.segmentButton,
+                        preset === p ? styles.segmentButtonSelected : styles.segmentButtonIdle,
+                      ]}>
                       <Txt variant="body" tone={preset === p ? 'onAccent' : 'primary'}>
                         {SEGMENT_LABELS[p]}
                       </Txt>
@@ -286,9 +330,9 @@ export function GoalSetupScreen() {
 
                 {/* Benutzerdefinierte Prozentaufteilung (Eiweiß, Kohlenhydrate, Fett) */}
                 {preset === 'custom' ? (
-                  <View className="gap-three">
-                    <View className="flex-row gap-two">
-                      <View className="flex-1">
+                  <View style={styles.formStack}>
+                    <View style={styles.customRatioRow}>
+                      <View style={styles.flex}>
                         <TextField
                           label="Eiweiß %"
                           value={customProteinPct}
@@ -296,7 +340,7 @@ export function GoalSetupScreen() {
                           keyboardType="numeric"
                         />
                       </View>
-                      <View className="flex-1">
+                      <View style={styles.flex}>
                         <TextField
                           label="Kohlenhydrate %"
                           value={customCarbsPct}
@@ -304,7 +348,7 @@ export function GoalSetupScreen() {
                           keyboardType="numeric"
                         />
                       </View>
-                      <View className="flex-1">
+                      <View style={styles.flex}>
                         <TextField
                           label="Fett %"
                           value={customFatPct}
@@ -334,7 +378,7 @@ export function GoalSetupScreen() {
 
                 {/* Berechnete Zielkalorien-Vorschau mit manuellem Override & Hinweisen */}
                 {targetPreview ? (
-                  <View className="gs-preview">
+                  <View style={styles.preview}>
                     <TextField
                       label="Ziel-Kalorien (kcal/Tag)"
                       value={manualKcalInput}
@@ -373,8 +417,8 @@ export function GoalSetupScreen() {
                 )}
 
                 {/* Aktions-Buttons (Ziel speichern / Abbrechen) */}
-                <View className="gs-save-row">
-                  <View className="flex-1">
+                <View style={styles.saveRow}>
+                  <View style={styles.flex}>
                     <Button
                       title="Ziel speichern"
                       onPress={handleSave}
@@ -383,7 +427,7 @@ export function GoalSetupScreen() {
                     />
                   </View>
                   {currentGoal ? (
-                    <View className="flex-1">
+                    <View style={styles.flex}>
                       <Button
                         title="Abbrechen"
                         variant="secondary"

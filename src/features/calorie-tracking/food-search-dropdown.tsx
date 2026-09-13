@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
 import { useState } from 'react';
 import { ActivityIndicator, Keyboard, Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { TextField, Txt } from '@/constants/ui';
@@ -28,6 +29,72 @@ type FoodSearchDropdownProps = {
 };
 
 type HistoryTab = 'recent' | 'frequent';
+
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    gap: theme.space.sm,
+  },
+  searchRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
+  flex: {
+    flex: 1,
+  },
+  scanButton: {
+    width: 48,
+    height: 48,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.backgroundElement,
+  },
+  dropdown: {
+    borderRadius: theme.radius.md,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: theme.border,
+    overflow: 'hidden',
+  },
+  centered: {
+    marginTop: theme.space.xl + theme.space.xs,
+  },
+  centerLoader: {
+    marginTop: theme.space.xl + theme.space.xs,
+  },
+  failedBox: {
+    alignItems: 'center',
+    gap: theme.space.sm,
+    marginTop: theme.space.xl + theme.space.xs,
+  },
+  moreButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: theme.space.sm,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: theme.border,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    paddingVertical: theme.space.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  rowImagePlaceholder: {
+    width: 36,
+    height: 36,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.backgroundElement,
+  },
+  rowText: {
+    flex: 1,
+    gap: 2,
+  },
+}));
 
 /** Produktsuche und Verlauf als Inline-Dropdown fuer das Erfassungs-Modal. */
 export function FoodSearchDropdown({
@@ -111,9 +178,9 @@ export function FoodSearchDropdown({
   }
 
   return (
-    <View className="fsd-root">
-      <View className="fss-search-row">
-        <View className="flex-1">
+    <View style={styles.root}>
+      <View style={styles.searchRow}>
+        <View style={styles.flex}>
           <TextField
             label="Lebensmittel suchen"
             placeholder="Wonach suchst du?"
@@ -126,7 +193,7 @@ export function FoodSearchDropdown({
           onPress={() => setShowScanner(true)}
           accessibilityRole="button"
           accessibilityLabel="Barcode scannen"
-          className="fss-scan-btn">
+          style={styles.scanButton}>
           <Txt variant="body" style={{ fontSize: 20 }}>
             📷
           </Txt>
@@ -145,14 +212,14 @@ export function FoodSearchDropdown({
       ) : null}
 
       {showDropdown ? (
-        <View className="fsd-dropdown">
+        <View style={styles.dropdown}>
           {isSearchMode ? (
             searching ? (
-              <View className="fss-center-loader">
+              <View style={styles.centerLoader}>
                 <ActivityIndicator color={colors.accent} />
               </View>
             ) : results.length === 0 && searchFailed ? (
-              <View className="fss-failed-box">
+              <View style={styles.failedBox}>
                 <Txt variant="body" tone="warning" center>
                   Open Food Facts ist gerade nicht erreichbar. Versuch's gleich nochmal.
                 </Txt>
@@ -163,7 +230,7 @@ export function FoodSearchDropdown({
                 </Pressable>
               </View>
             ) : results.length === 0 ? (
-              <Txt variant="body" tone="secondary" center className="fss-centered">
+              <Txt variant="body" tone="secondary" center style={styles.centered}>
                 Keine Treffer für „{query}".
               </Txt>
             ) : (
@@ -180,7 +247,7 @@ export function FoodSearchDropdown({
                     onPress={loadMoreResults}
                     disabled={loadingMore}
                     accessibilityRole="button"
-                    className="fsd-more-button">
+                    style={styles.moreButton}>
                     {loadingMore ? (
                       <ActivityIndicator color={colors.basil} />
                     ) : (
@@ -193,11 +260,11 @@ export function FoodSearchDropdown({
               </>
             )
           ) : historyLoading ? (
-            <View className="fss-center-loader">
+            <View style={styles.centerLoader}>
               <ActivityIndicator color={colors.accent} />
             </View>
           ) : historyList.length === 0 ? (
-            <Txt variant="body" tone="secondary" center className="fss-centered">
+            <Txt variant="body" tone="secondary" center style={styles.centered}>
               Noch keine Einträge. Suche oben nach einem Lebensmittel.
             </Txt>
           ) : (
@@ -225,20 +292,20 @@ export function FoodSearchDropdown({
 
 function ProductRow({ product, onPress }: { product: CatalogProduct; onPress: () => void }) {
   return (
-    <Pressable onPress={onPress} className="fss-row">
+    <Pressable onPress={onPress} style={styles.row}>
       {product.imageUrl ? (
         <Image
           source={{ uri: product.imageUrl }}
           style={{ width: 36, height: 36, borderRadius: 12 }}
         />
       ) : (
-        <View className="fss-row-img-placeholder">
+        <View style={styles.rowImagePlaceholder}>
           <Txt variant="body" style={{ fontSize: 16 }}>
             🥫
           </Txt>
         </View>
       )}
-      <View className="fss-row-text">
+      <View style={styles.rowText}>
         <Txt variant="body" weight="700" numberOfLines={1}>
           {product.name}
         </Txt>
@@ -255,13 +322,13 @@ function ProductRow({ product, onPress }: { product: CatalogProduct; onPress: ()
 
 function HistoryRow({ entry, onPress }: { entry: FoodHistoryEntry; onPress: () => void }) {
   return (
-    <Pressable onPress={onPress} className="fss-row">
-      <View className="fss-row-img-placeholder">
+    <Pressable onPress={onPress} style={styles.row}>
+      <View style={styles.rowImagePlaceholder}>
         <Txt variant="body" style={{ fontSize: 16 }}>
           🥫
         </Txt>
       </View>
-      <View className="fss-row-text">
+      <View style={styles.rowText}>
         <Txt variant="body" weight="700" numberOfLines={1}>
           {entry.name}
         </Txt>

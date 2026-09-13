@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { space } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { StyleSheet } from 'react-native-unistyles';
 import { Card } from '@/components/ui/card';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { Txt } from '@/constants/ui';
@@ -24,6 +23,95 @@ const PROTOCOLS: {
   { key: 'omad', label: 'OMAD', desc: '23h Fasten (One Meal A Day)' },
 ];
 
+const styles = StyleSheet.create((theme) => ({
+  card: {
+    padding: 24,
+    gap: theme.space.lg,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  headerTitle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
+  stack: {
+    gap: theme.space.lg,
+  },
+  protocolRow: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  protocolButton: {
+    flex: 1,
+    paddingVertical: theme.space.sm,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+  },
+  protocolButtonSelected: {
+    backgroundColor: theme.accent,
+    borderColor: theme.accent,
+  },
+  protocolButtonIdle: {
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+  protocolDescription: {
+    padding: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+    borderWidth: 1,
+  },
+  startButton: {
+    paddingVertical: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.accent,
+  },
+  statusBox: {
+    padding: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    gap: theme.space.sm,
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+    borderWidth: 1,
+  },
+  statusHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  elapsedRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: theme.space.sm,
+  },
+  progressMetaRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingTop: theme.space.xs,
+  },
+  endButton: {
+    paddingVertical: theme.space.lg,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+    borderWidth: 1,
+  },
+}));
+
 function formatDuration(minutes: number): string {
   const h = Math.floor(minutes / 60);
   const m = minutes % 60;
@@ -38,7 +126,6 @@ type FastingCardProps = {
 };
 
 export function FastingCard({ userId, childProfileId }: FastingCardProps) {
-  const { colors } = useTheme();
   const [selectedProtocol, setSelectedProtocol] =
     useState<Exclude<FastingProtocol, 'custom' | '5:2'>>('16:8');
   const [now, setNow] = useState(() => Date.now());
@@ -85,10 +172,10 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
   const isTargetReached = elapsedMinutes >= targetMinutes;
 
   return (
-    <Card style={{ padding: 24, gap: space.lg }}>
+    <Card style={styles.card}>
       {/* Header */}
-      <View className="flex-row items-center justify-between">
-        <View className="flex-row items-center gap-two">
+      <View style={styles.header}>
+        <View style={styles.headerTitle}>
           <Txt variant="body" weight="700">
             ⏱️ Intervallfasten {activeSession ? `(${activeSession.protocol})` : ''}
           </Txt>
@@ -100,13 +187,13 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
 
       {!activeSession ? (
         // Inaktiver Zustand: Protokollauswahl
-        <View className="gap-three">
+        <View style={styles.stack}>
           <Txt variant="caption" tone="secondary">
             Wähle dein Fastenprotokoll und starte dein Fastenfenster:
           </Txt>
 
           {/* Protokoll-Chips */}
-          <View className="flex-row gap-two">
+          <View style={styles.protocolRow}>
             {PROTOCOLS.map((p) => {
               const isSelected = selectedProtocol === p.key;
               return (
@@ -115,11 +202,10 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
                   onPress={() => setSelectedProtocol(p.key)}
                   accessibilityRole="radio"
                   accessibilityState={{ selected: isSelected }}
-                  style={{
-                    backgroundColor: isSelected ? colors.basil : colors.surface,
-                    borderColor: isSelected ? colors.basil : colors.border,
-                  }}
-                  className="flex-1 py-two rounded-xl items-center justify-center border">
+                  style={[
+                    styles.protocolButton,
+                    isSelected ? styles.protocolButtonSelected : styles.protocolButtonIdle,
+                  ]}>
                   <Txt variant="label" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                     {p.label}
                   </Txt>
@@ -128,17 +214,14 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
             })}
           </View>
 
-          <View
-            className="p-three rounded-xl flex-row items-center justify-between"
-            style={{ backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1 }}>
+          <View style={styles.protocolDescription}>
             <Txt variant="body">{PROTOCOLS.find((p) => p.key === selectedProtocol)?.desc}</Txt>
           </View>
 
           <Pressable
             onPress={handleStartFast}
             disabled={startFastMutation.isPending}
-            style={{ backgroundColor: colors.basil }}
-            className="py-three rounded-xl items-center justify-center">
+            style={styles.startButton}>
             <Txt variant="label" tone="onAccent" weight="700">
               {startFastMutation.isPending ? 'Wird gestartet...' : 'Fasten starten'}
             </Txt>
@@ -146,12 +229,10 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
         </View>
       ) : (
         // Aktiver Zustand: Laufender Timer
-        <View className="gap-three">
+        <View style={styles.stack}>
           {/* Status-Übersicht */}
-          <View
-            className="p-three rounded-xl gap-two"
-            style={{ backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1 }}>
-            <View className="flex-row justify-between items-center">
+          <View style={styles.statusBox}>
+            <View style={styles.statusHeader}>
               <Txt variant="caption" tone="secondary">
                 Gefastet seit{' '}
                 {new Date(activeSession.started_at).toLocaleTimeString('de-DE', {
@@ -165,7 +246,7 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
               </Txt>
             </View>
 
-            <View className="flex-row items-baseline gap-two">
+            <View style={styles.elapsedRow}>
               <Txt variant="display">{formatDuration(elapsedMinutes)}</Txt>
               <Txt variant="body" tone="secondary">
                 / Ziel: {formatDuration(targetMinutes)}
@@ -174,7 +255,7 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
 
             <ProgressBar value={progressRatio} />
 
-            <View className="flex-row justify-between pt-one">
+            <View style={styles.progressMetaRow}>
               <Txt variant="caption" tone="secondary">
                 {isTargetReached
                   ? `+${formatDuration(elapsedMinutes - targetMinutes)} über Zielzeit`
@@ -189,8 +270,7 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
           <Pressable
             onPress={handleEndFast}
             disabled={endFastMutation.isPending}
-            className="py-three rounded-xl items-center justify-center"
-            style={{ backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1 }}>
+            style={styles.endButton}>
             <Txt variant="label" tone="danger" weight="700">
               {endFastMutation.isPending ? 'Wird beendet...' : 'Fasten beenden'}
             </Txt>
