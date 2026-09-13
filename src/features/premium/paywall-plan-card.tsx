@@ -1,8 +1,7 @@
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import type { ExtractedPaywallPlans, PlanPeriod } from './paywall-plans';
 
 const styles = StyleSheet.create((theme) => ({
@@ -21,6 +20,16 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'space-between',
     minHeight: 76,
     borderCurve: 'continuous',
+    backgroundColor: theme.backgroundElement,
+  },
+  cardSelected: {
+    borderColor: theme.accent,
+  },
+  cardIdle: {
+    borderColor: theme.border,
+  },
+  cardDisabled: {
+    opacity: 0.55,
   },
   savingsBadge: {
     position: 'absolute',
@@ -43,14 +52,19 @@ const styles = StyleSheet.create((theme) => ({
     height: 24,
     borderRadius: theme.radius.pill,
     borderWidth: theme.borderWidth.strong,
+    borderColor: theme.border,
     alignItems: 'center',
     justifyContent: 'center',
     flexShrink: 0,
+  },
+  radioSelected: {
+    borderColor: theme.accent,
   },
   radioDot: {
     width: 12,
     height: 12,
     borderRadius: theme.radius.pill,
+    backgroundColor: theme.accent,
   },
   planInfo: {
     flex: 1,
@@ -61,6 +75,9 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'flex-end',
     marginLeft: theme.space.sm,
     flexShrink: 0,
+  },
+  savingsBadgeBackground: {
+    backgroundColor: theme.accent,
   },
 }));
 
@@ -81,30 +98,28 @@ export function PaywallPlanCard({
   onSelectPeriod,
   disabled = false,
 }: PaywallPlanCardProps) {
-  const { colors } = useTheme();
-
   const isYearlySelected = selectedPeriod === 'yearly';
   const isMonthlySelected = selectedPeriod === 'monthly';
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} accessibilityRole="radiogroup" accessibilityLabel="Abozeitraum">
       {/* Jahresabo Karte (Empfohlen mit Spar-Badge) */}
-      <Pressable
+      <Press
         onPress={() => onSelectPeriod('yearly')}
         disabled={disabled}
         accessibilityRole="radio"
-        accessibilityState={{ selected: isYearlySelected }}
+        accessibilityState={{ selected: isYearlySelected, disabled }}
         accessibilityLabel={`${plans.yearly.title}, ${plans.yearly.priceString} pro Jahr, ${plans.yearly.savingsBadge ?? ''}`}
+        haptic="selection"
+        scaleTo={0.98}
         style={[
           styles.card,
-          {
-            borderColor: isYearlySelected ? colors.basil : colors.border,
-            backgroundColor: colors.surface,
-          },
+          isYearlySelected ? styles.cardSelected : styles.cardIdle,
+          disabled && styles.cardDisabled,
         ]}>
         {/* Dynamisches Spar-Badge */}
         {plans.yearly.savingsBadge ? (
-          <View style={[styles.savingsBadge, { backgroundColor: colors.basil }]}>
+          <View style={[styles.savingsBadge, styles.savingsBadgeBackground]}>
             <Txt variant="caption" tone="inverse" weight="700">
               {plans.yearly.savingsBadge}
             </Txt>
@@ -113,14 +128,8 @@ export function PaywallPlanCard({
 
         {/* Linke Seite: Radio + Titel/Subtext */}
         <View style={styles.planLeft}>
-          <View
-            style={[
-              styles.radio,
-              { borderColor: isYearlySelected ? colors.basil : colors.border },
-            ]}>
-            {isYearlySelected ? (
-              <View style={[styles.radioDot, { backgroundColor: colors.basil }]} />
-            ) : null}
+          <View style={[styles.radio, isYearlySelected && styles.radioSelected]}>
+            {isYearlySelected ? <View style={styles.radioDot} /> : null}
           </View>
 
           <View style={styles.planInfo}>
@@ -142,32 +151,26 @@ export function PaywallPlanCard({
             {plans.yearly.periodLabel}
           </Txt>
         </View>
-      </Pressable>
+      </Press>
 
       {/* Monatsabo Karte */}
-      <Pressable
+      <Press
         onPress={() => onSelectPeriod('monthly')}
         disabled={disabled}
         accessibilityRole="radio"
-        accessibilityState={{ selected: isMonthlySelected }}
+        accessibilityState={{ selected: isMonthlySelected, disabled }}
         accessibilityLabel={`${plans.monthly.title}, ${plans.monthly.priceString} pro Monat`}
+        haptic="selection"
+        scaleTo={0.98}
         style={[
           styles.card,
-          {
-            borderColor: isMonthlySelected ? colors.basil : colors.border,
-            backgroundColor: colors.surface,
-          },
+          isMonthlySelected ? styles.cardSelected : styles.cardIdle,
+          disabled && styles.cardDisabled,
         ]}>
         {/* Linke Seite: Radio + Titel/Subtext */}
         <View style={styles.planLeft}>
-          <View
-            style={[
-              styles.radio,
-              { borderColor: isMonthlySelected ? colors.basil : colors.border },
-            ]}>
-            {isMonthlySelected ? (
-              <View style={[styles.radioDot, { backgroundColor: colors.basil }]} />
-            ) : null}
+          <View style={[styles.radio, isMonthlySelected && styles.radioSelected]}>
+            {isMonthlySelected ? <View style={styles.radioDot} /> : null}
           </View>
 
           <View style={styles.planInfo}>
@@ -189,7 +192,7 @@ export function PaywallPlanCard({
             {plans.monthly.periodLabel}
           </Txt>
         </View>
-      </Pressable>
+      </Press>
     </View>
   );
 }

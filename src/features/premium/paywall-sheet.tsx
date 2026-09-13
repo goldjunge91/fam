@@ -1,11 +1,11 @@
 import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef } from 'react';
-import { Alert, Pressable, ScrollView, View } from 'react-native';
+import { Alert, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Txt } from '@/constants/ui';
+import { Button, CloseButton, Press, Txt } from '@/constants/ui';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { PaywallPlanCard } from './paywall-plan-card';
@@ -29,6 +29,15 @@ const styles = StyleSheet.create((theme) => ({
   root: {
     flex: 1,
   },
+  sheetBackground: {
+    backgroundColor: theme.background,
+  },
+  sheetIndicator: {
+    backgroundColor: theme.border,
+  },
+  bottomSheet: {
+    flex: 1,
+  },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -38,15 +47,9 @@ const styles = StyleSheet.create((theme) => ({
     paddingBottom: theme.space.sm,
   },
   closeButton: {
-    width: 44,
-    height: 44,
+    // Keep the sheet header hit target at the established 44pt contract.
     minWidth: 44,
     minHeight: 44,
-    borderRadius: theme.radius.md,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: theme.backgroundElement,
-    borderCurve: 'continuous',
   },
   scroll: {
     flex: 1,
@@ -91,6 +94,9 @@ const styles = StyleSheet.create((theme) => ({
     minHeight: 44,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  restoreButtonDisabled: {
+    opacity: 0.55,
   },
   restoreText: {
     textDecorationLine: 'underline',
@@ -177,24 +183,20 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
       snapPoints={['75%', '92%']}
       enablePanDownToClose
       onClose={onClose}
-      backgroundStyle={{ backgroundColor: colors.bg }}
-      handleIndicatorStyle={{ backgroundColor: colors.border }}>
-      <BottomSheetView style={{ flex: 1 }}>
+      backgroundStyle={styles.sheetBackground}
+      handleIndicatorStyle={styles.sheetIndicator}>
+      <BottomSheetView style={styles.bottomSheet}>
         <View style={styles.root}>
           {/* Header mit Schließen-Button */}
           <View style={styles.header}>
             <Txt variant="title" weight="700">
               fam Premium
             </Txt>
-            <Pressable
+            <CloseButton
               onPress={onClose}
-              accessibilityRole="button"
               accessibilityLabel="Schließen"
-              style={styles.closeButton}>
-              <Txt variant="body" tone="secondary">
-                ✕
-              </Txt>
-            </Pressable>
+              style={styles.closeButton}
+            />
           </View>
 
           <ScrollView
@@ -255,15 +257,20 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
               </Txt>
 
               <View style={styles.restoreRow}>
-                <Pressable
-                  onPress={handleRestore}
+                <Press
+                  onPress={() => void handleRestore()}
                   disabled={isPurchasing || isRestoring}
                   accessibilityRole="button"
-                  style={styles.restoreButton}>
+                  accessibilityLabel="Käufe wiederherstellen"
+                  haptic="selection"
+                  style={[
+                    styles.restoreButton,
+                    (isPurchasing || isRestoring) && styles.restoreButtonDisabled,
+                  ]}>
                   <Txt variant="label" tone="secondary" style={styles.restoreText}>
                     Käufe wiederherstellen
                   </Txt>
-                </Pressable>
+                </Press>
               </View>
             </View>
           </ScrollView>
