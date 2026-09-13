@@ -1,7 +1,9 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { useState } from 'react';
+import { Pressable } from 'react-native';
 
+import { space } from '@/components/theme/index';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
 import type { UseProductSearchResult } from '@/features/product-search/hooks/use-product-search';
 import type { CatalogProduct } from '@/features/product-search/types';
@@ -152,4 +154,30 @@ it('sucht wieder, sobald der Nutzer die Auswahl ueberschreibt', async () => {
   await waitFor(() => {
     expect(mockUseProductSearch).toHaveBeenLastCalledWith('Hafermilch Barista', expect.anything());
   });
+});
+
+it('ordnet eine externe Nebenaktion neben dem Suchfeld an', async () => {
+  await render(
+    <ProductSearchDropdown
+      value=""
+      onChangeText={() => {}}
+      onSelectProduct={() => {}}
+      trailingPlacement="outside"
+      trailing={<Pressable accessibilityRole="button" accessibilityLabel="Barcode scannen" />}
+    />,
+  );
+
+  const input = screen.getByPlaceholderText('z. B. Hafermilch');
+  const inputColumn = input.parent?.parent?.parent;
+  const searchRow = inputColumn?.parent;
+
+  expect(searchRow).not.toHaveProp('className');
+  expect(inputColumn).not.toHaveProp('className');
+  expect(searchRow).toHaveStyle({
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.sm,
+  });
+  expect(inputColumn).toHaveStyle({ flex: 1, minWidth: 0 });
+  expect(screen.getByRole('button', { name: 'Barcode scannen' })).toBeOnTheScreen();
 });

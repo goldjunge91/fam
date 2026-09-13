@@ -1,5 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
+import { Image } from 'expo-image';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useRef, useState } from 'react';
 import { Keyboard, Pressable, View } from 'react-native';
@@ -101,14 +102,6 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'space-between',
     paddingTop: theme.space.sm,
     paddingBottom: theme.space.lg,
-  },
-  modalClose: {
-    width: 32,
-    height: 32,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: theme.radius.md,
-    backgroundColor: theme.backgroundElement,
   },
   scrollContent: {
     gap: theme.space.lg,
@@ -341,15 +334,14 @@ export function AddItemScreen() {
           <View style={styles.modalHandle} />
           <View style={styles.modalHeader}>
             <Txt variant="heading">Artikel hinzufügen</Txt>
-            <Pressable
-              onPress={() => router.back()}
-              accessibilityRole="button"
-              accessibilityLabel="Schließen"
-              style={styles.modalClose}>
-              <Txt variant="body" tone="secondary">
-                ✕
-              </Txt>
-            </Pressable>
+            <HeaderIconButton label="Schließen" onPress={() => router.back()} variant="modal-close">
+              <Image
+                source="sf:xmark"
+                contentFit="contain"
+                tintColor={colors.textMuted}
+                style={{ width: space.md, height: space.md }}
+              />
+            </HeaderIconButton>
           </View>
         </Pressable>
 

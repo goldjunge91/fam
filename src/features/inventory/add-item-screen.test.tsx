@@ -3,6 +3,8 @@ import { fireEvent, render, screen } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { colorsLight, radius, space } from '@/components/theme';
+
 import { AddItemScreen } from './add-item-screen';
 
 function renderScreen() {
@@ -104,6 +106,20 @@ beforeEach(() => {
   mockAddProductMutateAsync.mockClear();
   mockGetFirstAsync.mockClear();
   mockGetFirstAsync.mockResolvedValue(null);
+});
+
+it('verwendet die zentralen Modal-Schließen-Tokens', async () => {
+  await renderScreen();
+
+  const closeButton = screen.getByRole('button', { name: 'Schließen' });
+
+  expect(closeButton.props.hitSlop).toBe(6);
+  expect(closeButton).toHaveStyle({
+    minWidth: space.xxl + space.md + space.xs,
+    minHeight: space.xxl + space.md + space.xs,
+    borderRadius: radius.sm,
+    backgroundColor: colorsLight.backgroundSoft,
+  });
 });
 
 it('persistiert einen OFF-Treffer in products, wenn er zum Bestand hinzugefuegt wird', async () => {
