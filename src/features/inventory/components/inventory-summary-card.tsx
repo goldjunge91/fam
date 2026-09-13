@@ -20,7 +20,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
     paddingHorizontal: theme.space.lg,
     paddingVertical: theme.space.lg + 2,
-    boxShadow: `0 16px 30px ${withAlpha(theme.text, 0.16)}`,
+    boxShadow: `0 16px 30px ${withAlpha(theme.shadowCard, 0.16)}`,
   },
 }));
 

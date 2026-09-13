@@ -70,7 +70,7 @@ const styles = StyleSheet.create((theme) => ({
   inventoryToolbarActions: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: theme.space.md,
+    gap: theme.space.sm,
   },
   inventorySortContainer: {
     marginTop: theme.space.xxl + theme.space.xs,

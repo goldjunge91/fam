@@ -344,6 +344,7 @@ const _scale = Math.max(0.9, Math.min(1.06, Math.min(SCREEN_W, 430) / 393));
 export const rs = (n: number) => Math.round(n * _scale);
 
 export const radius = {
+  xs: 8,
   sm: 12,
   md: 16,
   lg: 20,

@@ -23,7 +23,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { TextField, Txt } from '@/constants/ui';
+import { Press, TextField, Txt } from '@/constants/ui';
 import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
 import { useProductSearch } from '@/features/product-search/hooks/use-product-search';
 import { usePreferredProductMarketName } from '@/features/product-search/preferred-market';
@@ -77,9 +77,6 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.pill,
     backgroundColor: theme.backgroundSoft,
   },
-  panelClosePressed: {
-    opacity: 0.7,
-  },
   panel: {
     position: 'absolute',
     top: '100%',
@@ -113,6 +110,7 @@ const styles = StyleSheet.create((theme) => ({
   thumbFallback: {
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: theme.radius.xs,
     backgroundColor: theme.backgroundElement,
   },
   flex: {
@@ -294,15 +292,15 @@ export const ProductSearchDropdown = forwardRef<
       {showDropdown && (suggestions.length > 0 || showEmptyState) && (
         <View style={styles.panelWrapper}>
           {}
-          <Pressable
+          <Press
             onPress={dismiss}
             accessibilityRole="button"
             accessibilityLabel="Trefferliste schließen"
-            style={({ pressed }) => [styles.panelClose, pressed && styles.panelClosePressed]}>
+            style={styles.panelClose}>
             <Txt variant="caption" tone="secondary" weight="700">
               ✕
             </Txt>
-          </Pressable>
+          </Press>
           <ScrollView
             style={[
               styles.panel,

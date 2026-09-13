@@ -3,7 +3,7 @@ import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { withAlpha } from '@/components/theme/index';
 import { GlassCard } from '@/components/ui/glass-card';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 
 interface InventoryTabBarProps {
@@ -27,7 +27,6 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.lg,
   },
   trigger: {
-    minHeight: 54,
     borderRadius: theme.radius.lg,
     flexDirection: 'row',
     alignItems: 'center',
@@ -38,7 +37,6 @@ const styles = StyleSheet.create((theme) => ({
     paddingVertical: theme.space.lg - 1,
   },
   triggerFallback: {
-    minHeight: 54,
     borderRadius: theme.radius.lg,
     flexDirection: 'row',
     alignItems: 'center',
@@ -79,7 +77,7 @@ const styles = StyleSheet.create((theme) => ({
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: theme.radius.sm,
     overflow: 'hidden',
-    boxShadow: `0 10px 28px ${withAlpha(theme.text, 0.18)}`,
+    boxShadow: `0 10px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
   },
   option: {
     minHeight: 44,
@@ -94,9 +92,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   optionSelected: {
     backgroundColor: theme.backgroundSoft,
-  },
-  optionPressed: {
-    opacity: 0.72,
   },
 }));
 
@@ -177,23 +172,23 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
               {options.map((location, index) => {
                 const selected = location.id === activeTab;
                 return (
-                  <Pressable
+                  <Press
                     key={location.id}
+                    haptic="selection"
                     accessibilityRole="menuitem"
                     accessibilityLabel={location.name}
                     accessibilityState={{ selected }}
                     onPress={() => selectLocation(location.id)}
-                    style={({ pressed }) => [
+                    style={[
                       styles.option,
                       index > 0 && styles.optionBorder,
                       selected && styles.optionSelected,
-                      pressed && styles.optionPressed,
                     ]}>
                     <Txt variant="body" weight={selected ? '700' : '400'}>
                       {location.name}
                     </Txt>
                     {selected ? <Txt tone="success">✓</Txt> : null}
-                  </Pressable>
+                  </Press>
                 );
               })}
             </View>
