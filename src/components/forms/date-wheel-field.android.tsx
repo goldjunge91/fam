@@ -1,6 +1,9 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { type Palette, radius, space } from '@/components/theme/index';
+import { useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
 export interface DateWheelFieldProps {
@@ -32,6 +35,7 @@ export function DateWheelField({
   onChange,
   placeholder = 'TT.MM.JJJJ',
 }: DateWheelFieldProps) {
+  const styles = useThemedStyles(makeStyles);
   const [isOpen, setIsOpen] = useState(false);
   const pendingDate = value ? new Date(value) : new Date();
 
@@ -44,7 +48,7 @@ export function DateWheelField({
   }
 
   return (
-    <View className="gap-one">
+    <View style={styles.root}>
       {label && (
         <Txt variant="body" tone="secondary">
           {label}
@@ -58,7 +62,7 @@ export function DateWheelField({
             ? `${label ?? 'Datum'} ${formatIsoDate(value)} ändern`
             : `${label ?? 'Datum'} auswählen`
         }
-        className="input-field active:opacity-75">
+        style={({ pressed }) => [styles.inputField, pressed && styles.pressed]}>
         <Txt variant="body" tone={value ? 'primary' : 'secondary'}>
           {value ? formatIsoDate(value) : placeholder}
         </Txt>
@@ -79,4 +83,24 @@ export function DateWheelField({
       )}
     </View>
   );
+}
+
+function makeStyles(colors: Palette) {
+  return StyleSheet.create({
+    root: {
+      gap: space.xs,
+    },
+    inputField: {
+      width: '100%',
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: radius.md,
+      paddingHorizontal: space.lg,
+      paddingVertical: 10,
+      backgroundColor: colors.backgroundElement,
+    },
+    pressed: {
+      opacity: 0.75,
+    },
+  });
 }

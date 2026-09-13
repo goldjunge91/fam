@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { type Palette, radius, space } from '@/components/theme/index';
+import { useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Button, TextField, Txt } from '@/constants/ui';
 
 interface DatePickerProps {
@@ -17,6 +20,7 @@ export function DatePicker({
   placeholder = 'JJJJ-MM-TT (z.B. 2020-05-14)',
   error,
 }: DatePickerProps) {
+  const styles = useThemedStyles(makeStyles);
   const [showModal, setShowModal] = useState(false);
 
   // Default year/month/day selection state in modal
@@ -54,9 +58,9 @@ export function DatePicker({
   }
 
   return (
-    <View className="gap-one">
-      <View className="flex-row items-end gap-two">
-        <View className="flex-1">
+    <View style={styles.root}>
+      <View style={styles.dateRow}>
+        <View style={styles.flex}>
           <TextField
             label={label}
             placeholder={placeholder}
@@ -70,13 +74,13 @@ export function DatePicker({
           onPress={() => setShowModal(true)}
           accessibilityRole="button"
           accessibilityLabel="Datum auswählen"
-          className="h-[48px] px-three rounded-control border-hairline items-center justify-center bg-background-element border-border">
+          style={styles.calendarButton}>
           <Txt variant="body">📅</Txt>
         </Pressable>
       </View>
 
       {formattedDisplay && (
-        <Txt variant="body" tone="secondary" className="ml-one -mt-[2px]">
+        <Txt variant="body" tone="secondary" style={styles.formattedDate}>
           📅 {formattedDisplay}
         </Txt>
       )}
@@ -87,22 +91,22 @@ export function DatePicker({
         transparent
         animationType="fade"
         onRequestClose={() => setShowModal(false)}>
-        <View className="modal-backdrop">
-          <View className="modal-sheet">
+        <View style={styles.modalBackdrop}>
+          <View style={styles.modalSheet}>
             <Txt variant="title" weight="600">
               Datum auswählen
             </Txt>
 
-            <View className="flex-row justify-around my-two">
+            <View style={styles.dateColumns}>
               {/* Year Adjust */}
-              <View className="items-center gap-two">
+              <View style={styles.column}>
                 <Txt variant="body" weight="700">
                   Jahr
                 </Txt>
-                <View className="items-center gap-[6px]">
+                <View style={styles.adjustments}>
                   <Pressable
                     onPress={() => setSelYear((y) => Math.max(1900, y - 1))}
-                    className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
+                    style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       -
                     </Txt>
@@ -112,7 +116,7 @@ export function DatePicker({
                   </Txt>
                   <Pressable
                     onPress={() => setSelYear((y) => Math.min(2100, y + 1))}
-                    className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
+                    style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       +
                     </Txt>
@@ -121,14 +125,14 @@ export function DatePicker({
               </View>
 
               {/* Month Adjust */}
-              <View className="items-center gap-two">
+              <View style={styles.column}>
                 <Txt variant="body" weight="700">
                   Monat
                 </Txt>
-                <View className="items-center gap-[6px]">
+                <View style={styles.adjustments}>
                   <Pressable
                     onPress={() => setSelMonth((m) => (m <= 1 ? 12 : m - 1))}
-                    className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
+                    style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       -
                     </Txt>
@@ -138,7 +142,7 @@ export function DatePicker({
                   </Txt>
                   <Pressable
                     onPress={() => setSelMonth((m) => (m >= 12 ? 1 : m + 1))}
-                    className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
+                    style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       +
                     </Txt>
@@ -147,14 +151,14 @@ export function DatePicker({
               </View>
 
               {/* Day Adjust */}
-              <View className="items-center gap-two">
+              <View style={styles.column}>
                 <Txt variant="body" weight="700">
                   Tag
                 </Txt>
-                <View className="items-center gap-[6px]">
+                <View style={styles.adjustments}>
                   <Pressable
                     onPress={() => setSelDay((d) => (d <= 1 ? 31 : d - 1))}
-                    className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
+                    style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       -
                     </Txt>
@@ -164,7 +168,7 @@ export function DatePicker({
                   </Txt>
                   <Pressable
                     onPress={() => setSelDay((d) => (d >= 31 ? 1 : d + 1))}
-                    className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
+                    style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       +
                     </Txt>
@@ -173,11 +177,11 @@ export function DatePicker({
               </View>
             </View>
 
-            <View className="flex-row gap-two mt-two">
-              <View className="flex-1">
+            <View style={styles.footerRow}>
+              <View style={styles.flex}>
                 <Button title="Übernehmen" onPress={handleApplyModal} />
               </View>
-              <View className="flex-1">
+              <View style={styles.flex}>
                 <Button title="Abbrechen" variant="secondary" onPress={() => setShowModal(false)} />
               </View>
             </View>
@@ -186,4 +190,72 @@ export function DatePicker({
       </Modal>
     </View>
   );
+}
+
+function makeStyles(colors: Palette) {
+  return StyleSheet.create({
+    root: {
+      gap: space.xs,
+    },
+    dateRow: {
+      flexDirection: 'row',
+      alignItems: 'flex-end',
+      gap: space.sm,
+    },
+    flex: {
+      flex: 1,
+    },
+    calendarButton: {
+      height: 48,
+      paddingHorizontal: space.lg,
+      borderRadius: radius.sm,
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: colors.border,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: colors.backgroundElement,
+    },
+    formattedDate: {
+      marginLeft: space.xs,
+      marginTop: -2,
+    },
+    modalBackdrop: {
+      flex: 1,
+      backgroundColor: colors.scrim,
+      justifyContent: 'center',
+      padding: 24,
+    },
+    modalSheet: {
+      gap: space.lg,
+      padding: 24,
+      borderRadius: radius.lg,
+      backgroundColor: colors.background,
+    },
+    dateColumns: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      marginVertical: space.sm,
+    },
+    column: {
+      alignItems: 'center',
+      gap: space.sm,
+    },
+    adjustments: {
+      alignItems: 'center',
+      gap: 6,
+    },
+    adjustButton: {
+      width: 40,
+      height: 40,
+      borderRadius: radius.lg,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: colors.backgroundElement,
+    },
+    footerRow: {
+      flexDirection: 'row',
+      gap: space.sm,
+      marginTop: space.sm,
+    },
+  });
 }

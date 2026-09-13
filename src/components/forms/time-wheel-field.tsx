@@ -1,6 +1,9 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { type Palette, radius, space } from '@/components/theme/index';
+import { useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Button, Txt } from '@/constants/ui';
 
 function toTime(date: Date): string {
@@ -21,6 +24,7 @@ type TimeWheelFieldProps = {
 };
 
 export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) {
+  const styles = useThemedStyles(makeStyles);
   const [isOpen, setIsOpen] = useState(false);
   const [pendingTime, setPendingTime] = useState(() => fromTime(value));
 
@@ -35,7 +39,7 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
   }
 
   return (
-    <View className="gap-one">
+    <View style={styles.root}>
       {label ? (
         <Txt variant="caption" tone="secondary">
           {label}
@@ -47,7 +51,7 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
         accessibilityLabel={
           value ? `${label ?? 'Uhrzeit'} ${value} ändern` : `${label ?? 'Uhrzeit'} auswählen`
         }
-        className="input-field active:opacity-75">
+        style={({ pressed }) => [styles.inputField, pressed && styles.pressed]}>
         <Txt variant="body">{value || 'Uhrzeit auswählen'}</Txt>
       </Pressable>
 
@@ -56,8 +60,8 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
         transparent
         animationType="fade"
         onRequestClose={() => setIsOpen(false)}>
-        <View className="modal-backdrop">
-          <View className="modal-sheet">
+        <View style={styles.modalBackdrop}>
+          <View style={styles.modalSheet}>
             <Txt variant="title" weight="600">
               {label ?? 'Uhrzeit auswählen'}
             </Txt>
@@ -67,11 +71,11 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
               display="spinner"
               onValueChange={(_event, date) => setPendingTime(date)}
             />
-            <View className="flex-row gap-two mt-two">
-              <View className="flex-1">
+            <View style={styles.footerRow}>
+              <View style={styles.flex}>
                 <Button title="Übernehmen" onPress={confirm} />
               </View>
-              <View className="flex-1">
+              <View style={styles.flex}>
                 <Button title="Abbrechen" variant="secondary" onPress={() => setIsOpen(false)} />
               </View>
             </View>
@@ -80,4 +84,44 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
       </Modal>
     </View>
   );
+}
+
+function makeStyles(colors: Palette) {
+  return StyleSheet.create({
+    root: {
+      gap: space.xs,
+    },
+    inputField: {
+      width: '100%',
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: radius.md,
+      paddingHorizontal: space.lg,
+      paddingVertical: 10,
+      backgroundColor: colors.backgroundElement,
+    },
+    pressed: {
+      opacity: 0.75,
+    },
+    modalBackdrop: {
+      flex: 1,
+      backgroundColor: colors.scrim,
+      justifyContent: 'center',
+      padding: 24,
+    },
+    modalSheet: {
+      gap: space.lg,
+      padding: 24,
+      borderRadius: radius.lg,
+      backgroundColor: colors.background,
+    },
+    footerRow: {
+      flexDirection: 'row',
+      gap: space.sm,
+      marginTop: space.sm,
+    },
+    flex: {
+      flex: 1,
+    },
+  });
 }

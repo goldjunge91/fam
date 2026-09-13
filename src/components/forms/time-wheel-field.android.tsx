@@ -1,6 +1,9 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { type Palette, radius, space } from '@/components/theme/index';
+import { useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
 function toTime(date: Date): string {
@@ -21,11 +24,12 @@ export interface TimeWheelFieldProps {
 }
 
 export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) {
+  const styles = useThemedStyles(makeStyles);
   const [isOpen, setIsOpen] = useState(false);
   const pickerDate = fromTime(value);
 
   return (
-    <View className="gap-one">
+    <View style={styles.root}>
       {label ? (
         <Txt variant="caption" tone="secondary">
           {label}
@@ -37,7 +41,7 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
         accessibilityLabel={
           value ? `${label ?? 'Uhrzeit'} ${value} ändern` : `${label ?? 'Uhrzeit'} auswählen`
         }
-        className="input-field active:opacity-75">
+        style={({ pressed }) => [styles.inputField, pressed && styles.pressed]}>
         <Txt variant="body">{value || 'Uhrzeit auswählen'}</Txt>
       </Pressable>
       {isOpen ? (
@@ -55,4 +59,24 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
       ) : null}
     </View>
   );
+}
+
+function makeStyles(colors: Palette) {
+  return StyleSheet.create({
+    root: {
+      gap: space.xs,
+    },
+    inputField: {
+      width: '100%',
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: radius.md,
+      paddingHorizontal: space.lg,
+      paddingVertical: 10,
+      backgroundColor: colors.backgroundElement,
+    },
+    pressed: {
+      opacity: 0.75,
+    },
+  });
 }
