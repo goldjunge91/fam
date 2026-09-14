@@ -1,5 +1,11 @@
 import { debugLog } from '@/lib/debug-log';
 
+/**
+ * Domain-Owner: Placement-Taxonomie.
+ *
+ * Die Farben sind Teil der kanonischen Einkaufslisten-Klassifikation und
+ * dürfen nur als Kategorie-Indikatoren aus diesem Modul weitergereicht werden.
+ */
 export const PLACEMENT_TAXONOMY_VERSION = 'placement-taxonomy-v2' as const;
 export const PLACEMENT_CLASSIFIER_VERSION = 'placement-v2.0.0' as const;
 

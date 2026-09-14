@@ -122,6 +122,16 @@ export const legacyWaivyColors = {
     shadowCard: '#594059', // helleres Mauve, fuer Karten auf dem Screen-Hintergrund
     shadowSheet: '#2A1F2C', // dunkles Mauve/Violett, fuer Sheets/Overlays/Dropdowns
  */
+export const SPEED_DIAL_COLOR_KEYS = [
+  'speedDialPantry',
+  'speedDialShopping',
+  'speedDialRecipes',
+  'speedDialCalories',
+] as const;
+
+export type SpeedDialColorKey = (typeof SPEED_DIAL_COLOR_KEYS)[number];
+
+/** Theme-owned surfaces for the four primary actions in the SpeedDial. */
 const famColorsLight = {
   text: '#2D2830', // fam/color/text-primary
   background: '#F8F4EF', // fam/color/bg-app
@@ -143,6 +153,10 @@ const famColorsLight = {
   buttonPrimaryDepth: '#5E4861',
   buttonDangerDepth: '#A94C40',
   buttonAccentDepth: '#A87343',
+  speedDialPantry: '#F0E2DF',
+  speedDialShopping: '#EBE5F1',
+  speedDialRecipes: '#E4EDE3',
+  speedDialCalories: '#F3E9D7',
   shadowCard: '#594059',
   shadowSheet: '#2A1F2C',
 } as const;
@@ -168,6 +182,10 @@ const famColorsDark = {
   buttonPrimaryDepth: '#5E4861',
   buttonDangerDepth: '#A94C40',
   buttonAccentDepth: '#A87343',
+  speedDialPantry: '#F0E2DF',
+  speedDialShopping: '#EBE5F1',
+  speedDialRecipes: '#E4EDE3',
+  speedDialCalories: '#F3E9D7',
   shadowCard: '#594059',
   shadowSheet: '#2A1F2C',
 } as const;

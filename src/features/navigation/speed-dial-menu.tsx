@@ -129,7 +129,7 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
               style={[
                 styles.chip,
                 {
-                  backgroundColor: option.backgroundColor,
+                  backgroundColor: colors[option.backgroundToken],
                   borderCurve: 'continuous',
                   boxShadow: `0 4px 10px ${withAlpha(colors.shadowCard, 0.14)}`,
                 },

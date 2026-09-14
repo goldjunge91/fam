@@ -41,6 +41,14 @@ Prüfung aller Verbraucher entfernt. `legacyWaivyColors` darf ausschließlich
 historische Vergleichsdarstellung versorgen. Domain-Accent-Keys bleiben zulässig,
 wenn sie eine belegte Bedeutung und geprüfte Farbpaare besitzen.
 
+### SpeedDial-Funktionsflächen
+
+Die festen Flächen der vier SpeedDial-Aktionen sind UI-Semantik und gehören als
+typisierte Light-/Dark-Tokens nach `src/components/theme/index.ts`. Die
+Feature-Registry transportiert ausschließlich den semantischen Theme-Key; sie
+definiert keine Hexwerte und keine zweite Farbzuordnung. Der Consumer löst den
+Key über die aktive Palette auf.
+
 ## Kontrastvertrag
 
 | Verwendung | Mindestkontrast |

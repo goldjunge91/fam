@@ -43,6 +43,22 @@ Präferenz aus, bevor er den gewählten Modus setzt.
 Keine vierte globale Theme- oder Style-Quelle. Keine `vars()`-Bridge.
 Semantische Entscheidungen gehören in genau eine der drei zentralen Dateien.
 
+## Fachliche Domain-Paletten
+
+Nicht jede dynamische Farbe ist ein Theme-Token. Die folgenden Quellen besitzen
+fachliche Identität und bleiben deshalb außerhalb der globalen Theme-Paletten:
+
+| Pfad | Owner und Bedeutung | Zulässige UI-Nutzung |
+| --- | --- | --- |
+| `src/features/shopping-list/domain-logik/store-presets.ts` und gespeichertes `store.color` | Markt-Preset- und haushaltsbezogene Nutzerfarbe | Dynamische Marktstreifen, Punkte und Auswahlmarkierungen; keine globale App-Fläche und kein informativer Text ohne eigenes Kontrast-Rezept |
+| `src/features/shopping-list/classification/placement-taxonomy.ts` über `shopping-categories.ts` | Kanonische Placement-/Einkaufslisten-Klassifikation | Kategorie-Indikatoren und definierte Markierungen; die Taxonomie bleibt der fachliche Owner |
+
+Diese Domainfarben werden nicht nach `src/components/theme/index.ts` kopiert und
+nicht in `src/constants/ui.tsx` neu klassifiziert. Gemeinsame Alpha-, Fallback-
+oder Kontrastrezepte dürfen in `ui.tsx` liegen, wenn mehrere Consumer dasselbe
+Darstellungsverhalten benötigen. Die Daten-/Taxonomieentscheidung bleibt dabei
+im jeweiligen Domain-Owner.
+
 ## Integrationsausnahmen
 
 Native Views ohne Unistyles-Interop verwenden ihre tatsächliche `style`-/Prop-API —

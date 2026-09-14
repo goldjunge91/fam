@@ -1,4 +1,5 @@
 import {
+  colorForCategory,
   distinctCategoryColors,
   sortOrderForCategory,
   storageKindForCategory,
@@ -9,6 +10,13 @@ describe('distinctCategoryColors', () => {
     expect(
       distinctCategoryColors(['Sonstiges', 'Obst & Gemüse', 'Sonstiges', 'Obst & Gemüse']),
     ).toEqual(['#748C5B', '#786F79']);
+  });
+});
+
+describe('colorForCategory', () => {
+  it('bezieht die Markierungsfarbe aus der kanonischen Placement-Taxonomie', () => {
+    expect(colorForCategory('Obst & Gemüse')).toBe('#748C5B');
+    expect(colorForCategory('Unbekannte Kategorie')).toBeNull();
   });
 });
 

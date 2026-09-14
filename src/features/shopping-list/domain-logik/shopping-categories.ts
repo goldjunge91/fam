@@ -38,6 +38,7 @@ export function storageKindForCategory(label: string | null): StorageKind {
   return placementZoneForLabel(label)?.storageKind ?? 'pantry';
 }
 
+/** Domain-Adapter: die Kategorie-Farbe kommt aus der kanonischen Taxonomie. */
 export function colorForCategory(label: string | null): string | null {
   return placementZoneForLabel(label)?.color ?? null;
 }

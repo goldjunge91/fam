@@ -1,4 +1,5 @@
 import type { FamIconName } from '@/components/icons/fam-icon';
+import type { SpeedDialColorKey } from '@/components/theme/index';
 import type { MealType } from '@/features/calorie-tracking/api';
 import type { ModulePreferences } from '@/features/settings/module-preferences';
 import type { FeatureFlagKey } from '@/lib/posthog';
@@ -34,7 +35,7 @@ export interface SpeedDialConfig {
   title: string;
   icon: FamIconName;
   href: string | (() => string);
-  backgroundColor: string;
+  backgroundToken: SpeedDialColorKey;
   order?: number;
 }
 
@@ -100,7 +101,7 @@ export const APP_FEATURES = [
       title: 'Vorratsartikel',
       icon: 'fridge',
       href: '/add-item',
-      backgroundColor: '#F0E2DF',
+      backgroundToken: 'speedDialPantry',
       order: 1,
     },
     settings: {
@@ -124,7 +125,7 @@ export const APP_FEATURES = [
       title: 'Einkaufsartikel',
       icon: 'shopping',
       href: '/shopping-list?action=add',
-      backgroundColor: '#EBE5F1',
+      backgroundToken: 'speedDialShopping',
       order: 2,
     },
     settings: {
@@ -149,7 +150,7 @@ export const APP_FEATURES = [
       title: 'Rezept',
       icon: 'recipes',
       href: '/recipe/create',
-      backgroundColor: '#E4EDE3',
+      backgroundToken: 'speedDialRecipes',
       order: 4,
     },
     settings: {
@@ -192,7 +193,7 @@ export const APP_FEATURES = [
       title: 'Tagebucheintrag',
       icon: 'diary',
       href: () => `/add-food-entry?date=${todayIso()}&mealType=${defaultMealType()}`,
-      backgroundColor: '#F3E9D7',
+      backgroundToken: 'speedDialCalories',
       order: 3,
     },
     settings: {
@@ -282,7 +283,7 @@ export type SpeedDialOptionItem = {
   title: string;
   icon: FamIconName;
   href: string | (() => string);
-  backgroundColor: string;
+  backgroundToken: SpeedDialColorKey;
   feature: FeatureDefinition;
 };
 
@@ -296,7 +297,7 @@ export function getSpeedDialOptions(): SpeedDialOptionItem[] {
       title: f.speedDial.title,
       icon: f.speedDial.icon,
       href: f.speedDial.href,
-      backgroundColor: f.speedDial.backgroundColor,
+      backgroundToken: f.speedDial.backgroundToken,
       feature: f,
     }));
 }

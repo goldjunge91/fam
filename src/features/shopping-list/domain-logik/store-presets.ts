@@ -3,6 +3,13 @@ export type StorePreset = {
   color: string;
 };
 
+/**
+ * Domain-Owner: Store-Presets.
+ *
+ * Presetfarben und gespeicherte `store.color`-Werte gehören zur Markt- und
+ * Haushaltsdomäne. Sie werden als Streifen, Punkte und Auswahlmarkierungen
+ * dargestellt, aber nicht als globale Theme-Flächen oder Textfarben verwendet.
+ */
 // Gedaempfte, erdige Toene statt roher Marken-Buntfarben (#E2001A,
 // #00549F, #FFD100, ...) — die lagen weit ausserhalb der warmen Mauve-/
 // Creme-Palette und wirkten wie ein Fremdkoerper neben Accent/Success/
