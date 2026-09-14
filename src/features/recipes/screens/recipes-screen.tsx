@@ -13,11 +13,10 @@ import {
 import { StyleSheet } from 'react-native-unistyles';
 import { FilterIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { SectionHeading } from '@/components/layout/section-heading';
 import { rs, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton, HeaderIconButton, MenuButton } from '@/components/ui/buttons';
-import { Press, Txt } from '@/constants/ui';
+import { Press, SectionHeading, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
@@ -322,7 +321,7 @@ function MealSection({
   if (isLoading) {
     return (
       <View style={styles.section}>
-        <SectionHeading title={title} />
+        <SectionHeading title={title} titleVariant="body" />
         <ActivityIndicator
           accessibilityLabel={`${title} Rezepte werden geladen`}
           color={colors.basil}
@@ -335,7 +334,7 @@ function MealSection({
   if (isError) {
     return (
       <View style={styles.section}>
-        <SectionHeading title={title} />
+        <SectionHeading title={title} titleVariant="body" />
         <Txt variant="body" tone="secondary">
           Rezepte konnten nicht geladen werden.
         </Txt>
@@ -347,7 +346,7 @@ function MealSection({
 
   return (
     <View style={styles.section}>
-      <SectionHeading title={title} />
+      <SectionHeading title={title} titleVariant="body" />
       <ScrollView
         horizontal
         role="list"
@@ -730,7 +729,7 @@ export function RecipesScreen() {
             <>
               {/* Karussell: Themenkategorien (z. B. Vegan, Schnell, High-Protein) */}
               <View style={styles.section}>
-                <SectionHeading title="Kategorien" />
+                <SectionHeading title="Kategorien" titleVariant="body" />
                 <CategoryCarousel
                   selectedKey={templateCategoryFilter}
                   onSelect={selectCategoryTile}
@@ -739,7 +738,7 @@ export function RecipesScreen() {
 
               {/* Karussell: Kalorien-Buckets (<400 kcal, 400-600 kcal, etc.) */}
               <View style={styles.section}>
-                <SectionHeading title="Rezepte nach Kalorien" />
+                <SectionHeading title="Rezepte nach Kalorien" titleVariant="body" />
                 <CalorieCarousel
                   selectedIndex={templateCalorieFilter}
                   onSelect={selectCalorieTile}

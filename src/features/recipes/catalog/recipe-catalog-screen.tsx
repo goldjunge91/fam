@@ -4,8 +4,7 @@ import { useCallback } from 'react';
 import { ActivityIndicator, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { SectionHeading } from '@/components/layout/section-heading';
-import { Txt } from '@/constants/ui';
+import { SectionHeading, Txt } from '@/constants/ui';
 import { RecipePreviewCard } from '../components/recipe-preview-card';
 import { getCatalogCoverPath } from './recipe-catalog-image';
 import { type CatalogRecipe, useCatalogRecipes } from './use-recipe-catalog';
@@ -75,7 +74,7 @@ export function RecipeCatalogScreen() {
         ItemSeparatorComponent={CardSeparator}
         style={styles.list}
         contentContainerStyle={styles.content}
-        ListHeaderComponent={<SectionHeading title="Rezepte für euch" />}
+        ListHeaderComponent={<SectionHeading title="Rezepte für euch" titleVariant="body" />}
         ListEmptyComponent={
           isLoading ? (
             <ActivityIndicator />

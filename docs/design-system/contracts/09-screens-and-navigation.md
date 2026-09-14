@@ -31,6 +31,21 @@ zusammendrücken. Titel verwenden die zentrale Typografie. Zusätzliche dekorati
 Untertitelzeilen werden nicht eingeführt. Änderungen an bestehender Header-Copy
 oder konkreter Anordnung benötigen die vorgesehene Mockauswahl.
 
+### `SectionHeading`
+
+`SectionHeading` wird ausschließlich aus `src/constants/ui.tsx` importiert. Es
+gibt keine parallele Layout-Implementierung unter `src/components/layout/`.
+Die Primitive verwendet `title`, optional `eyebrow`, `titleVariant`, optional
+`action`/`onAction` sowie ein lokales `style`-Override. Der Default ist die
+zentrale Variante `heading`; ein Consumer darf `body` ausdrücklich wählen, wenn
+der bestehende Screen diese Hierarchie benötigt.
+
+Eine Abschnittsaktion ist nur mit sichtbarer Beschriftung und Callback interaktiv.
+Sie besitzt einen zugänglichen Namen, eine native Button-Rolle und einen
+wirksamen Touchbereich. Pressed- und Reduced-Motion-Feedback laufen über die
+zentrale `Press`-Basis. Consumer liefern keine eigene semantische Farbe,
+Typografie oder zweite Pressable-Darstellung.
+
 ## Scrollen, Safe Area und Tastatur
 
 - Pro Inhaltsbereich gibt es einen verantwortlichen Scrollcontainer. Nutzt ein

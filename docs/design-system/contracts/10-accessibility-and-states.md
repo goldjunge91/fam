@@ -26,6 +26,26 @@ Domänen entscheiden über Datenzustände; sie erfinden keine neue gemeinsame Da
   sofortiges Zustandsfeedback bleibt erhalten. Keine neuen dauerhaften dekorativen
   Pulse-, Shimmer- oder Blur-Animationen.
 
+Für `QuantityStepper`, `FilterChipBar`, `InlineSelect`, `IconButton` und
+`HeaderIconButton` ist der wirksame Touchbereich Teil des Component-Vertrags:
+Die sichtbare interaktive Fläche wird statisch am nativen Element definiert und
+Pressed-Feedback läuft über `Press`. Auswahl-Chips verwenden native Rolle,
+Label und `accessibilityState.selected`; Web-ARIA-Attribute gelten nicht als
+Ersatz. `IconButton`-Instanzen müssen einen zugänglichen Namen besitzen. Die
+kompakte Header-Variante darf 39 Punkte visualisieren, wenn der reale
+`hitSlop`-Bereich mindestens 44 Punkte erreicht und weder abgeschnitten wird
+noch mit einer Nachbaraktion kollidiert.
+
+## Abschnittsaktionen
+
+Die kanonische `SectionHeading`-Primitive aus `src/constants/ui.tsx` rendert
+optionale Abschnittsaktionen als echte Buttons. Eine Aktion besitzt eine sichtbare
+Beschriftung, `accessibilityRole="button"`, einen verständlichen zugänglichen
+Namen und mindestens 44 × 44 logische Einheiten wirksamen Touchbereich. Ohne
+Callback wird keine interaktive Aktion dargestellt. Pressed- und Reduced-Motion-
+Feedback verwenden die zentrale `Press`-Basis und keine dynamische Pressable-
+Style-Funktion als einzige sichtbare Fläche.
+
 Der [Farbvertrag](./01-theme-and-colors.md) setzt 4,5:1 für informative Texte auf
 unterstützten Flächen und 3:1 für notwendige nichttextliche Zustandsmerkmale/Fokus.
 Ausnahmen für deaktivierte Controls, dekorative Konturen und native Darstellung

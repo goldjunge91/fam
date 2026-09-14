@@ -546,6 +546,61 @@ describe('core theme UI primitives', () => {
     expect(screen.getByRole('button', { name: 'Eintrag anlegen' })).toBeOnTheScreen();
   });
 
+  it('renders an eyebrow, a selected title variant and a long title', async () => {
+    await render(
+      <SectionHeading
+        eyebrow="Wochenplan"
+        title="Eine sehr lange Abschnittsüberschrift bleibt vollständig erreichbar"
+        titleVariant="body"
+      />,
+    );
+
+    expect(screen.getByText('Wochenplan')).toHaveStyle({
+      textTransform: 'uppercase',
+      color: mockColorsLight.textSecondary,
+      fontWeight: '600',
+    });
+    expect(
+      screen.getByText('Eine sehr lange Abschnittsüberschrift bleibt vollständig erreichbar'),
+    ).toHaveStyle({
+      fontSize: font.sizes.base,
+      fontWeight: '700',
+    });
+  });
+
+  it('renders a native accessible action with a static touch target and forwards activation', async () => {
+    const onAction = jest.fn();
+    const user = userEvent.setup();
+    await render(<SectionHeading title="Listen" action="Alle anzeigen" onAction={onAction} />);
+
+    const action = screen.getByRole('button', { name: 'Alle anzeigen' });
+    expect(action).toHaveAccessibleName('Alle anzeigen');
+    expect(action.props.accessibilityRole).toBe('button');
+    expect(action.props.hitSlop).toBe(8);
+    expect(action).toHaveStyle({ minHeight: 44, minWidth: 44 });
+    expect(typeof action.props.style).not.toBe('function');
+
+    await user.press(action);
+
+    expect(onAction).toHaveBeenCalledTimes(1);
+    expect(mockHaptics.selection).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not render an action without a callback and keeps local style last', async () => {
+    await render(
+      <>
+        <SectionHeading title="Ohne Callback" action="Nicht ausführen" />
+        <SectionHeading title="Mit Override" style={{ marginBottom: 99 }} />
+      </>,
+    );
+
+    expect(screen.queryByRole('button', { name: 'Nicht ausführen' })).not.toBeOnTheScreen();
+    expect(screen.queryByText('Nicht ausführen')).not.toBeOnTheScreen();
+
+    const root = screen.getByText('Mit Override').parent?.parent;
+    expect(root).toHaveStyle({ marginBottom: 99 });
+  });
+
   it('exposes single-selection state, disabled options and large touch targets', async () => {
     const onSelect = jest.fn();
     const user = userEvent.setup();

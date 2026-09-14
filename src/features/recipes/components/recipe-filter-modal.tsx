@@ -4,11 +4,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { PageHeader } from '@/components/layout/page-header';
-import { SectionHeading } from '@/components/layout/section-heading';
 import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton } from '@/components/ui/buttons';
-import { Button, Press, Txt } from '@/constants/ui';
+import { Button, Press, SectionHeading, Txt } from '@/constants/ui';
 import { CalorieCarousel } from '@/features/recipes/components/calorie-carousel';
 import { CategoryCarousel } from '@/features/recipes/components/category-carousel';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
@@ -172,7 +171,7 @@ export function RecipeFilterModal({
             contentContainerStyle={styles.scrollContent}
             showsVerticalScrollIndicator={false}>
             <View style={styles.filterSection}>
-              <SectionHeading title="Kategorien" />
+              <SectionHeading title="Kategorien" titleVariant="body" />
               <CategoryCarousel
                 selectedKey={draft.categoryKey}
                 onSelect={(categoryKey) => setDraft((current) => ({ ...current, categoryKey }))}
@@ -180,7 +179,7 @@ export function RecipeFilterModal({
             </View>
 
             <View style={styles.filterSection}>
-              <SectionHeading title="Rezepte nach Kalorien" />
+              <SectionHeading title="Rezepte nach Kalorien" titleVariant="body" />
               <CalorieCarousel
                 selectedIndex={draft.calorieIndex}
                 onSelect={(calorieIndex) => setDraft((current) => ({ ...current, calorieIndex }))}
@@ -188,7 +187,7 @@ export function RecipeFilterModal({
             </View>
 
             <View style={styles.filterSection}>
-              <SectionHeading title="Nach Mahlzeiten" />
+              <SectionHeading title="Nach Mahlzeiten" titleVariant="body" />
               <ScrollView
                 horizontal
                 showsHorizontalScrollIndicator={false}
@@ -233,7 +232,7 @@ export function RecipeFilterModal({
 
             {tags.length > 0 ? (
               <View style={styles.filterSection}>
-                <SectionHeading title="Tags aus deinen Rezepten" />
+                <SectionHeading title="Tags aus deinen Rezepten" titleVariant="body" />
                 <View style={styles.tagRow}>
                   {tags.map((tag) => {
                     const selected = draft.tags.includes(tag);

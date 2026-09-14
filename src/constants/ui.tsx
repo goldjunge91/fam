@@ -1114,24 +1114,64 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(function TextFiel
 
 // ─── Section heading ─────────────────────────────────────────────────────────
 
+const sectionHeadingStyles = StyleSheet.create((theme) => ({
+  root: {
+    alignItems: 'flex-end',
+    gap: theme.space.md,
+    marginBottom: theme.space.md,
+    minHeight: 24,
+  },
+  content: {
+    flexShrink: 1,
+  },
+  eyebrow: {
+    letterSpacing: 0.7,
+    textTransform: 'uppercase',
+  },
+  action: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: 44,
+    minWidth: 44,
+  },
+}));
+
 export function SectionHeading({
   title,
+  eyebrow,
+  titleVariant = 'heading',
   action,
   onAction,
   style,
 }: {
   title: string;
+  eyebrow?: string;
+  titleVariant?: TxtVariant;
   action?: string;
   onAction?: () => void;
   style?: StyleProp<ViewStyle>;
 }) {
-  const { colors } = useTheme();
   return (
-    <Row justify="space-between" style={[{ marginBottom: space.sm }, style]}>
-      <Txt variant="heading">{title}</Txt>
-      {action ? (
-        <Press onPress={onAction} haptic="selection">
-          <Txt variant="label" color={colors.accent} weight="700">
+    <Row justify="space-between" style={[sectionHeadingStyles.root, style]}>
+      <View style={sectionHeadingStyles.content}>
+        {eyebrow ? (
+          <Txt variant="caption" tone="secondary" weight="600" style={sectionHeadingStyles.eyebrow}>
+            {eyebrow}
+          </Txt>
+        ) : null}
+        <Txt variant={titleVariant} weight="700">
+          {title}
+        </Txt>
+      </View>
+      {action && onAction ? (
+        <Press
+          accessibilityLabel={action}
+          accessibilityRole="button"
+          hitSlop={8}
+          haptic="selection"
+          onPress={onAction}
+          style={sectionHeadingStyles.action}>
+          <Txt variant="caption" tone="primary" weight="700">
             {action}
           </Txt>
         </Press>
