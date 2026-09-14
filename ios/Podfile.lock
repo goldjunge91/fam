@@ -454,7 +454,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - NitroModules (0.37.0):
+  - NitroModules (0.37.1):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -2919,6 +2919,29 @@ PODS:
     - SwiftyRSA/ObjC (= 1.7.0)
   - SwiftyRSA/ObjC (1.7.0)
   - UMAppLoader (57.0.1)
+  - Unistyles (3.3.0):
+    - hermes-engine
+    - NitroModules
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -3075,6 +3098,7 @@ DEPENDENCIES:
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNWorklets (from `../node_modules/react-native-worklets`)
   - UMAppLoader (from `../node_modules/unimodules-app-loader/ios`)
+  - Unistyles (from `../node_modules/react-native-unistyles`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -3397,6 +3421,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-worklets"
   UMAppLoader:
     :path: "../node_modules/unimodules-app-loader/ios"
+  Unistyles:
+    :path: "../node_modules/react-native-unistyles"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -3466,7 +3492,7 @@ SPEC CHECKSUMS:
   MMKVCore: 3d16ce9f7d411e135020915fde98a056859a1efa
   NitroImage: 5daf897d2f37ed419186278d6b0fcdd8aab313b0
   NitroMmkv: 85a251e15c39d7c95fe58cf40786fa126b8d143c
-  NitroModules: cda827b31eb05c1bfcc0e2bbd9b647a69c6c314f
+  NitroModules: 38f8754287858ff1294e43fd43f614a664e54050
   PostHog: 74932903a73c9108417df6bb293fc711244052e0
   posthog-react-native-plugin: 29a9e29e1aae90115c205cfb6e78c3fafbbd4d00
   PurchasesHybridCommon: c3e8f89551e2c8b66691b9f3460ff0ba2e387ea8
@@ -3564,6 +3590,7 @@ SPEC CHECKSUMS:
   Sentry: d587a8fe91ca13503ecd69a1905f3e8a0fcf61be
   SwiftyRSA: 8c6dd1ea7db1b8dc4fb517a202f88bb1354bc2c6
   UMAppLoader: 173cb90a3039aa9c1b84bace4487e1907a4a5a39
+  Unistyles: 5b9f9a08b494a93d552dafcdb079754c7e3d252a
   Yoga: 18b74b3ade30bebc1904004dfaceae1dd02a330a
 
 PODFILE CHECKSUM: 7f45701b27a3f3fb9bc12089d46b44e7397f52e1
