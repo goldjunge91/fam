@@ -1,30 +1,11 @@
 import { type Href, router, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { StyleSheet } from 'react-native-unistyles';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Press, Txt } from '@/constants/ui';
+import { backButtonStyles, Press, Txt } from '@/constants/ui';
 
 const ARROW_BUTTON_SIZE = space.xxxl;
-
-const styles = StyleSheet.create((theme) => ({
-  arrowButton: {
-    width: 45,
-    height: 45,
-    borderRadius: theme.radius.lg,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: theme.backgroundSoft,
-  },
-  textButton: {
-    alignSelf: 'flex-start',
-    minHeight: 44,
-    paddingTop: theme.space.sm,
-    paddingBottom: theme.space.xs,
-    paddingRight: theme.space.lg,
-  },
-}));
 
 export type BackTarget = {
   /** Das Ziel beim Namen, z. B. `Einstellungen`. Erscheint als `‹ Einstellungen` bzw. als Accessibility-Label. */
@@ -58,7 +39,7 @@ export function BackButton({ label, href, variant = 'text', onPress }: BackButto
         onPress={handlePress}
         accessibilityRole="button"
         accessibilityLabel={variant === 'header' ? label : `Zurück zu ${label}`}
-        style={styles.arrowButton}>
+        style={backButtonStyles.arrow}>
         <FamIcon name="arrow" size={ARROW_BUTTON_SIZE} color={colors.text} />
       </Press>
     );
@@ -69,7 +50,7 @@ export function BackButton({ label, href, variant = 'text', onPress }: BackButto
       onPress={handlePress}
       accessibilityRole="button"
       accessibilityLabel={`Zurück zu ${label}`}
-      style={styles.textButton}>
+      style={backButtonStyles.text}>
       <Txt variant="body" tone="primary" weight="700">
         {`‹ ${label}`}
       </Txt>

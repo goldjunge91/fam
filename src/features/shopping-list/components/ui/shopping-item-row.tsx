@@ -2,13 +2,12 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
 
-import { useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format-currency';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
 import type { LocalShoppingItem } from '../../hooks/use-shopping-list';
-import { makeShoppingListStyles } from './shopping-list-styles';
+import { shoppingListStyles } from './shopping-list-styles';
 
 interface ShoppingItemRowProps {
   item: LocalShoppingItem;
@@ -30,7 +29,7 @@ export const ShoppingItemRow = memo(function ShoppingItemRow({
   showPrice = false,
 }: ShoppingItemRowProps) {
   const { t } = useTranslation();
-  const styles = useThemedStyles(makeShoppingListStyles);
+  const styles = shoppingListStyles;
   const isChecked = item.checked_at !== null;
   const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
 

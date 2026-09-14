@@ -1,8 +1,5 @@
 import { Image } from 'expo-image';
-import { StyleSheet } from 'react-native-unistyles';
-
-import { useTheme } from '@/components/theme/ThemeProvider';
-import { Press, Txt } from '@/constants/ui';
+import { Press, profileButtonStyles, Txt } from '@/constants/ui';
 
 type ProfileButtonProps = {
   initials: string;
@@ -12,8 +9,6 @@ type ProfileButtonProps = {
 
 /** Runder Profilbutton im Haupt-Header: zeigt das Profilbild, sonst die Initialen. */
 export function ProfileButton({ initials, avatarUrl, onPress }: ProfileButtonProps) {
-  const { colors } = useTheme();
-
   // Statischer Style statt Pressable-Style-Funktion: Letztere wird auf dem Gerät
   // nicht angewendet, der Button blieb dann ohne Größe und Hintergrund unsichtbar.
   return (
@@ -21,7 +16,7 @@ export function ProfileButton({ initials, avatarUrl, onPress }: ProfileButtonPro
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel="Profil öffnen"
-      style={[styles.button, { backgroundColor: colors.accent }]}>
+      style={profileButtonStyles.button}>
       {avatarUrl ? (
         <Image
           source={{ uri: avatarUrl }}
@@ -38,14 +33,3 @@ export function ProfileButton({ initials, avatarUrl, onPress }: ProfileButtonPro
     </Press>
   );
 }
-
-const styles = StyleSheet.create((theme) => ({
-  button: {
-    width: 58,
-    height: 58,
-    borderRadius: theme.radius.famLarge,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-  },
-}));

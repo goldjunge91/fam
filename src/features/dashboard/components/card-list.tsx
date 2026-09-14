@@ -1,7 +1,7 @@
 import * as Haptics from 'expo-haptics';
 import { type ReactElement, useCallback, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { ScrollView, useWindowDimensions, View } from 'react-native';
 import {
   DraxProvider,
   type GridItemSpan,
@@ -10,6 +10,7 @@ import {
   SortableItem,
   useSortableList,
 } from 'react-native-drax';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { radius, space } from '@/components/theme/index';
 import { Button, Surface, Txt } from '@/constants/ui';

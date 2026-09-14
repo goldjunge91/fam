@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import { StyleSheet } from 'react-native';
 import Animated from 'react-native-reanimated';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { space } from '@/components/theme/index';
 import { DASHBOARD_LAYOUT_TRANSITION } from './drag-context';

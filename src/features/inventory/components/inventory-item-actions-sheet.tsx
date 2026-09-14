@@ -282,7 +282,7 @@ function IosInventoryItemActionsView({
   backgroundGradient,
 }: Omit<InventoryItemActionsSheetProps, 'onRemove'>) {
   const { colors } = useTheme();
-  const styles = useThemedActionStyles();
+  const styles = actionStyles;
   const insets = useSafeAreaInsets();
   const expiry = getExpiryInfo(item?.expiry_date ?? null, new Date());
   const amount = item ? formatAmount(item.quantity, item.unit) : '';
@@ -440,7 +440,7 @@ function IosActionTile({
   hint: string;
   variant?: 'neutral' | 'primary' | 'success' | 'danger';
   onPress: () => void;
-  styles: ReturnType<typeof useThemedActionStyles>;
+  styles: typeof actionStyles;
 }) {
   const { colors } = useTheme();
   const isPrimary = variant === 'primary';
@@ -489,100 +489,97 @@ function IosActionTile({
   );
 }
 
-function useThemedActionStyles() {
-  const { colors } = useTheme();
-  return StyleSheet.create({
-    root: { flex: 1, backgroundColor: colors.background },
-    safeArea: { flex: 1 },
-    header: {
-      minHeight: 64,
-      paddingHorizontal: space.lg,
-      paddingVertical: space.sm,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-    },
-    headerSide: { flex: 1, minWidth: 42, alignItems: 'flex-start' },
-    headerRight: { alignItems: 'flex-end' },
-    scroll: { flex: 1 },
-    content: {
-      paddingHorizontal: space.lg,
-      paddingBottom: space.xxxl,
-      gap: space.lg,
-    },
-    detailLead: {
-      paddingBottom: space.lg,
-      borderBottomWidth: StyleSheet.hairlineWidth,
-      borderBottomColor: colors.border,
-    },
-    detailSubtitle: { marginTop: space.xs },
-    lotHero: {
-      minHeight: 78,
-      flexDirection: 'row',
-      alignItems: 'center',
-      padding: space.md,
-      borderRadius: radius.lg,
-    },
-    heroStatus: {
-      width: 5,
-      height: 54,
-      marginRight: space.md,
-      borderRadius: 3,
-    },
-    heroCopy: { flex: 1, minWidth: 0 },
-    heroHint: { marginTop: space.xs },
-    heroAmount: { marginLeft: space.sm, fontVariant: ['tabular-nums'] },
-    quantityRow: {
-      minHeight: 64,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      gap: space.md,
-      paddingBottom: space.lg,
-      borderBottomWidth: StyleSheet.hairlineWidth,
-      borderBottomColor: colors.border,
-    },
-    quantityCopy: { flex: 1, minWidth: 0, gap: space.xs },
-    actionGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: space.md },
-    tileContainer: { flex: 1 },
-    tileDepth: {
-      width: '47.5%',
-      minHeight: 108 + BUTTON_DEPTH,
-      minWidth: 140,
-      borderRadius: radius.lg,
-      paddingBottom: BUTTON_DEPTH,
-    },
-    tileDepthFlat: { minHeight: 108, paddingBottom: 0 },
-    tile: {
-      minHeight: 108,
-      justifyContent: 'center',
-      alignItems: 'flex-start',
-      gap: space.xs,
-      padding: space.md,
-      borderWidth: 1,
-      borderColor: colors.border,
-      borderRadius: radius.lg,
-      backgroundColor: colors.backgroundSoft,
-    },
-    tilePrimary: { borderColor: colors.accent, backgroundColor: colors.accent },
-    tileDanger: {
-      borderColor: colors.danger,
-      backgroundColor: colors.danger,
-    },
-    tileSuccess: {
-      borderColor: colors.success,
-      backgroundColor: withAlpha(colors.success, 0.5),
-    },
-    tileIcon: {
-      width: 30,
-      height: 30,
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: radius.sm,
-      marginBottom: space.xs,
-    },
-  });
-}
+const actionStyles = StyleSheet.create((theme) => ({
+  root: { flex: 1, backgroundColor: theme.background },
+  safeArea: { flex: 1 },
+  header: {
+    minHeight: 64,
+    paddingHorizontal: space.lg,
+    paddingVertical: space.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  headerSide: { flex: 1, minWidth: 42, alignItems: 'flex-start' },
+  headerRight: { alignItems: 'flex-end' },
+  scroll: { flex: 1 },
+  content: {
+    paddingHorizontal: space.lg,
+    paddingBottom: space.xxxl,
+    gap: space.lg,
+  },
+  detailLead: {
+    paddingBottom: space.lg,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  detailSubtitle: { marginTop: space.xs },
+  lotHero: {
+    minHeight: 78,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: space.md,
+    borderRadius: radius.lg,
+  },
+  heroStatus: {
+    width: 5,
+    height: 54,
+    marginRight: space.md,
+    borderRadius: 3,
+  },
+  heroCopy: { flex: 1, minWidth: 0 },
+  heroHint: { marginTop: space.xs },
+  heroAmount: { marginLeft: space.sm, fontVariant: ['tabular-nums'] },
+  quantityRow: {
+    minHeight: 64,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: space.md,
+    paddingBottom: space.lg,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  quantityCopy: { flex: 1, minWidth: 0, gap: space.xs },
+  actionGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: space.md },
+  tileContainer: { flex: 1 },
+  tileDepth: {
+    width: '47.5%',
+    minHeight: 108 + BUTTON_DEPTH,
+    minWidth: 140,
+    borderRadius: radius.lg,
+    paddingBottom: BUTTON_DEPTH,
+  },
+  tileDepthFlat: { minHeight: 108, paddingBottom: 0 },
+  tile: {
+    minHeight: 108,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    gap: space.xs,
+    padding: space.md,
+    borderWidth: 1,
+    borderColor: theme.border,
+    borderRadius: radius.lg,
+    backgroundColor: theme.backgroundSoft,
+  },
+  tilePrimary: { borderColor: theme.accent, backgroundColor: theme.accent },
+  tileDanger: {
+    borderColor: theme.danger,
+    backgroundColor: theme.danger,
+  },
+  tileSuccess: {
+    borderColor: theme.success,
+    backgroundColor: withAlpha(theme.success, 0.5),
+  },
+  tileIcon: {
+    width: 30,
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: radius.sm,
+    marginBottom: space.xs,
+  },
+}));
 
 const ACTION_VARIANT_TEXT_COLOR = {
   neutral: 'primary',

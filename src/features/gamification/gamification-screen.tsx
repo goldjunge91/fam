@@ -1,4 +1,5 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
 import { font, radius, space } from '@/components/theme';
@@ -71,12 +72,7 @@ export function GamificationScreen() {
       subtitle="Kleine Schritte, die sich summieren"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      <Card
-        style={{
-          ...styles.hero,
-          backgroundColor: colors.accent,
-          borderColor: colors.accent,
-        }}>
+      <Card style={[styles.hero, { backgroundColor: colors.accent, borderColor: colors.accent }]}>
         <View style={styles.heroHeader}>
           <View style={{ flex: 1, gap: space.sm }}>
             <Txt variant="caption" tone="inverse" weight="700">

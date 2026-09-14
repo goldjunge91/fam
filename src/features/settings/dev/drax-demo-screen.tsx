@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { ScrollView, useWindowDimensions, View } from 'react-native';
 import {
   DraxProvider,
   type GridItemSpan,
@@ -11,6 +11,7 @@ import {
   useSortableList,
 } from 'react-native-drax';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
 import { Button, Surface, Txt } from '@/constants/ui';

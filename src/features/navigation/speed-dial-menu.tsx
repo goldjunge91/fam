@@ -1,7 +1,8 @@
 import { router, usePathname } from 'expo-router';
 import { useEffect } from 'react';
-import { BackHandler, Pressable, StyleSheet, View } from 'react-native';
+import { BackHandler, Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { FamIcon } from '@/components/icons/fam-icon';
 import { radius, space, withAlpha } from '@/components/theme/index';

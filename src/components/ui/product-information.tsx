@@ -4,8 +4,8 @@ import { ActivityIndicator, Modal, Pressable, ScrollView, View } from 'react-nat
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { type Palette, withAlpha } from '@/components/theme/index';
-import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useProduct } from '@/features/inventory/use-product';
 import { offApiSource } from '@/features/product-search/sources/off-api-source';
@@ -49,28 +49,26 @@ const staticStyles = StyleSheet.create({
   },
 });
 
-function makeStyles(c: Palette) {
-  return StyleSheet.create({
-    details: {
-      borderWidth: 0.5,
-      borderColor: c.border,
-      borderRadius: 20,
-      overflow: 'hidden',
-    },
-    detailRow: {
-      minHeight: 50,
-      paddingHorizontal: 14,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      gap: 16,
-    },
-    detailRowWithDivider: {
-      borderBottomWidth: 0.5,
-      borderBottomColor: c.border,
-    },
-  });
-}
+const styles = StyleSheet.create((theme) => ({
+  details: {
+    borderWidth: 0.5,
+    borderColor: theme.border,
+    borderRadius: 20,
+    overflow: 'hidden',
+  },
+  detailRow: {
+    minHeight: 50,
+    paddingHorizontal: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 16,
+  },
+  detailRowWithDivider: {
+    borderBottomWidth: 0.5,
+    borderBottomColor: theme.border,
+  },
+}));
 
 function formatNumber(value: number | null | undefined, digits = 1): string {
   if (value === null || value === undefined || Number.isNaN(value)) return '–';
@@ -89,7 +87,6 @@ function formatExpiry(value: string | null | undefined): string {
 
 export function ProductInformation({ visible, item, onClose }: ProductInformationProps) {
   const { colors } = useTheme();
-  const styles = useThemedStyles(makeStyles);
   const [closePressed, setClosePressed] = useState(false);
 
   const insets = useSafeAreaInsets();

@@ -549,7 +549,7 @@ function IosInventoryItemGroupView({
 }: InventoryItemGroupSheetProps) {
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
-  const styles = useThemedGroupStyles();
+  const styles = groupStyles;
   const [activeConflictLotId, setActiveConflictLotId] = useState<string | null>(null);
   const sealedLots = group?.lots.filter((lot) => !lot.opened_at) ?? [];
   const openedLots = group?.lots.filter((lot) => !!lot.opened_at) ?? [];
@@ -742,7 +742,7 @@ function IosStateCard({
   actionLabel?: string;
   onAction?: () => void;
   actionLoading?: boolean;
-  styles: ReturnType<typeof useThemedGroupStyles>;
+  styles: typeof groupStyles;
   colors: ReturnType<typeof useTheme>['colors'];
   tone?: 'sealed' | 'open';
 }) {
@@ -804,7 +804,7 @@ function IosLotRow({
   lot: LocalInventoryItem;
   conflict?: FridgeItemConflict | null;
   onPress: () => void;
-  styles: ReturnType<typeof useThemedGroupStyles>;
+  styles: typeof groupStyles;
   colors: ReturnType<typeof useTheme>['colors'];
 }) {
   // Konflikt-Los: eigene Zeile statt der normalen Rueckgabe darunter, die
@@ -878,89 +878,86 @@ function IosLotRow({
   );
 }
 
-function useThemedGroupStyles() {
-  const { colors } = useTheme();
-  return StyleSheet.create({
-    root: { flex: 1, backgroundColor: colors.background },
-    safeArea: { flex: 1 },
-    header: {
-      minHeight: 64,
-      paddingHorizontal: space.lg,
-      paddingVertical: space.sm,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-    },
-    headerSide: { flex: 1, minWidth: 42, alignItems: 'flex-start' },
-    headerRight: { alignItems: 'flex-end' },
-    scroll: { flex: 1 },
-    content: { paddingHorizontal: space.lg, paddingBottom: space.xxxl },
-    detailLead: {
-      paddingBottom: space.lg,
-      marginBottom: space.lg,
-      borderBottomWidth: StyleSheet.hairlineWidth,
-      borderBottomColor: colors.border,
-    },
-    detailSubtitle: { marginTop: space.xs },
-    stateSummary: {
-      flexDirection: 'row',
-      gap: space.md,
-      marginBottom: space.xxl,
-    },
-    stateCard: {
-      flex: 1,
-      minHeight: 116,
-      overflow: 'hidden',
-      borderRadius: radius.lg,
-    },
-    stateCardMain: {
-      flex: 1,
-      minHeight: 116,
-      padding: space.md,
-      justifyContent: 'center',
-    },
-    disabledStateCard: { opacity: 0.58 },
-    stateValue: { marginTop: space.xs, marginBottom: 2 },
-    stateCardAction: {
-      minHeight: 44,
-      paddingHorizontal: space.md,
-      justifyContent: 'center',
-      borderTopWidth: StyleSheet.hairlineWidth,
-      backgroundColor: withAlpha(colors.accent, 0.08),
-    },
-    sectionLabel: {
-      marginBottom: space.sm,
-      textTransform: 'uppercase',
-      letterSpacing: 1,
-    },
-    lotRow: {
-      minHeight: 82,
-      flexDirection: 'row',
-      alignItems: 'stretch',
-      borderBottomWidth: StyleSheet.hairlineWidth,
-      borderBottomColor: colors.border,
-    },
-    lotStatus: {
-      width: 4,
-      marginVertical: space.md,
-      marginRight: space.md,
-      borderRadius: 3,
-    },
-    lotCopy: {
-      flex: 1,
-      minWidth: 0,
-      justifyContent: 'center',
-      paddingVertical: space.md,
-    },
-    lotTitleLine: {
-      flexDirection: 'row',
-      alignItems: 'baseline',
-      gap: space.sm,
-    },
-    lotTitle: { flex: 1 },
-    lotAmount: { fontVariant: ['tabular-nums'] },
-    lotChevron: { alignSelf: 'center', marginLeft: space.sm },
-    historyButton: { alignSelf: 'flex-start', marginTop: space.lg },
-    helperText: { marginTop: space.sm },
-  });
-}
+const groupStyles = StyleSheet.create((theme) => ({
+  root: { flex: 1, backgroundColor: theme.background },
+  safeArea: { flex: 1 },
+  header: {
+    minHeight: 64,
+    paddingHorizontal: space.lg,
+    paddingVertical: space.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  headerSide: { flex: 1, minWidth: 42, alignItems: 'flex-start' },
+  headerRight: { alignItems: 'flex-end' },
+  scroll: { flex: 1 },
+  content: { paddingHorizontal: space.lg, paddingBottom: space.xxxl },
+  detailLead: {
+    paddingBottom: space.lg,
+    marginBottom: space.lg,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  detailSubtitle: { marginTop: space.xs },
+  stateSummary: {
+    flexDirection: 'row',
+    gap: space.md,
+    marginBottom: space.xxl,
+  },
+  stateCard: {
+    flex: 1,
+    minHeight: 116,
+    overflow: 'hidden',
+    borderRadius: radius.lg,
+  },
+  stateCardMain: {
+    flex: 1,
+    minHeight: 116,
+    padding: space.md,
+    justifyContent: 'center',
+  },
+  disabledStateCard: { opacity: 0.58 },
+  stateValue: { marginTop: space.xs, marginBottom: 2 },
+  stateCardAction: {
+    minHeight: 44,
+    paddingHorizontal: space.md,
+    justifyContent: 'center',
+    borderTopWidth: StyleSheet.hairlineWidth,
+    backgroundColor: withAlpha(theme.accent, 0.08),
+  },
+  sectionLabel: {
+    marginBottom: space.sm,
+    textTransform: 'uppercase',
+    letterSpacing: 1,
+  },
+  lotRow: {
+    minHeight: 82,
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  lotStatus: {
+    width: 4,
+    marginVertical: space.md,
+    marginRight: space.md,
+    borderRadius: 3,
+  },
+  lotCopy: {
+    flex: 1,
+    minWidth: 0,
+    justifyContent: 'center',
+    paddingVertical: space.md,
+  },
+  lotTitleLine: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: space.sm,
+  },
+  lotTitle: { flex: 1 },
+  lotAmount: { fontVariant: ['tabular-nums'] },
+  lotChevron: { alignSelf: 'center', marginLeft: space.sm },
+  historyButton: { alignSelf: 'flex-start', marginTop: space.lg },
+  helperText: { marginTop: space.sm },
+}));

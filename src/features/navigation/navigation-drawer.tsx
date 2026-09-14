@@ -1,6 +1,6 @@
 import { router, usePathname } from 'expo-router';
 import { useEffect } from 'react';
-import { Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Modal, Pressable, ScrollView, View } from 'react-native';
 import Animated, {
   interpolate,
   useAnimatedStyle,
@@ -8,6 +8,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 import { CalendarDayIcon } from '@/components/icons/calendar-day-icon';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { radius, withAlpha } from '@/components/theme/index';

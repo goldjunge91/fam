@@ -1,6 +1,6 @@
 # Implementation Plan: Vollständige NativeWind-Ablösung durch Unistyles v3
 
-Status: Abgeschlossen · Code-Umsetzung und iOS-Laufzeitnachweis erbracht, Android übersprungen · 2026-09-14
+Status: Abgeschlossen · Unistyles-Vollständigkeit in `fam-7xer` umgesetzt, Android übersprungen · 2026-09-14
 Spec: `docs/specs/nativewind-unistyles-migration/SPEC.md`
 Capability Map: `docs/specs/nativewind-unistyles-migration/CAPABILITY_MAP.md`
 Beads: `fam-978` und die unten aufgeführten Kind-Tasks
@@ -181,6 +181,24 @@ Dateiscope und fokussierte Nachweise stehen je Modul im Reparatur-Spec.
 34. `fam-978.68` iOS-Migrationsnachweis, fokussierte Gates und
     Fingerprint-/Rebuild-Nachweis abschließen; Android ist ausgenommen.
 
+### Phase 9: Unistyles-Vollständigkeit (`fam-7xer`)
+
+35. Alle iOS-/Shared-`StyleSheet`-Imports aus React Native auf Unistyles
+    umstellen und verbleibende Style-Spreads entfernen.
+36. Semantische Rezepte der gemeinsamen UI-Primitiven in `ui.tsx` bündeln;
+    Feature-Dateien behalten nur Layout, Verhalten und dokumentierte native
+    Integrationsgrenzen.
+37. Themeabhängige StyleSheets als `StyleSheet.create((theme) => ...)`
+    definieren. `adaptiveThemes: true`, die drei Owner und Android-Ausnahme
+    bleiben unverändert.
+
+Die erste Umsetzungsscheibe ist erledigt: 39 iOS-/Shared-Dateien, zentrale
+Button-/Overlay-/Onboarding-Rezepte, `ui.tsx`-Primitive und Shopping-List-
+Styles verwenden Unistyles-Callbacks. Die verbleibenden Scan-Kandidaten wurden
+als feature-spezifische Laufzeitwerte, nutzergewählte Farben, Medien-/Native-
+Integrationsgrenzen oder reine Layout-Styles klassifiziert; gemeinsame
+semantische Rezepte liegen in `ui.tsx`.
+
 ## Verification Checkpoints
 
 Nach jedem Beads-Slice:
@@ -227,5 +245,6 @@ Vor dem Abschluss:
 
 ## Completion Gate
 
-Die Initiative ist nach dokumentiertem iOS-Nachweis von `fam-978.68`
-abgeschlossen; Android ist explizit ausgenommen.
+Die ursprüngliche Migration und die anschließende Unistyles-Vollständigkeit
+sind nach dem dokumentierten iOS-Nachweis von `fam-978.68` und dem Abschluss
+von `fam-7xer` abgeschlossen. Android ist explizit ausgenommen.

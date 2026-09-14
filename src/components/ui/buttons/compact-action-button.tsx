@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { Press, Txt } from '@/constants/ui';
+import { compactActionButtonStyles, Press, Txt } from '@/constants/ui';
 
 type CompactActionButtonProps = {
   label: string;
@@ -10,31 +10,10 @@ type CompactActionButtonProps = {
   expanded?: boolean;
 };
 
-const styles = StyleSheet.create((theme) => ({
-  button: {
-    width: '100%',
-    height: 34,
-    minHeight: 34,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: theme.radius.sm,
-    paddingHorizontal: theme.space.lg,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: theme.backgroundElement,
-    borderColor: theme.border,
-  },
+const styles = StyleSheet.create({
   chevron: {
     width: 12,
     height: 7,
-  },
-  chevronLine: {
-    position: 'absolute',
-    top: 2,
-    width: 7,
-    height: 1.5,
-    borderRadius: 2,
-    backgroundColor: theme.textSecondary,
   },
   chevronLeft: {
     left: 0,
@@ -44,7 +23,7 @@ const styles = StyleSheet.create((theme) => ({
     right: 0,
     transform: [{ rotate: '-38deg' }],
   },
-}));
+});
 
 /** Vollbreite 34-Punkt-Aktion für kompakte Menüs und Bottom Sheets. */
 export function CompactActionButton({
@@ -60,11 +39,11 @@ export function CompactActionButton({
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel ?? label}
       accessibilityState={{ expanded }}
-      style={styles.button}>
+      style={compactActionButtonStyles.button}>
       <Txt variant="body">{label}</Txt>
       <View style={[styles.chevron, { transform: [{ rotate: expanded ? '180deg' : '0deg' }] }]}>
-        <View style={[styles.chevronLine, styles.chevronLeft]} />
-        <View style={[styles.chevronLine, styles.chevronRight]} />
+        <View style={[compactActionButtonStyles.chevronLine, styles.chevronLeft]} />
+        <View style={[compactActionButtonStyles.chevronLine, styles.chevronRight]} />
       </View>
     </Press>
   );

@@ -7,42 +7,15 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
-import { StyleSheet } from 'react-native-unistyles';
 
-import { BUTTON_DEPTH, withAlpha } from '@/components/theme/index';
-import { Press } from '@/constants/ui';
+import { BUTTON_DEPTH } from '@/components/theme/index';
+import { floatingActionButtonStyles, Press } from '@/constants/ui';
 
 type FloatingActionButtonProps = {
   label: string;
   onPress: () => void;
   children: ReactNode;
 };
-
-const styles = StyleSheet.create((theme) => ({
-  outer: {
-    paddingBottom: BUTTON_DEPTH,
-    borderRadius: theme.radius.pill,
-    backgroundColor: theme.buttonPrimaryDepth,
-  },
-  face: {
-    width: 48,
-    height: 48,
-    minWidth: 48,
-    minHeight: 48,
-    borderRadius: theme.radius.pill,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    backgroundColor: theme.accent,
-    boxShadow: `0 6px 14px ${withAlpha(theme.shadowSheet, 0.16)}`,
-    borderCurve: 'continuous',
-    elevation: 4,
-    shadowColor: theme.shadowSheet,
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.16,
-    shadowRadius: 8,
-  },
-}));
 
 export function FloatingActionButton({ label, onPress, children }: FloatingActionButtonProps) {
   const depth = useSharedValue(0);
@@ -52,13 +25,13 @@ export function FloatingActionButton({ label, onPress, children }: FloatingActio
   }));
 
   return (
-    <View style={styles.outer}>
+    <View style={floatingActionButtonStyles.outer}>
       <Animated.View style={faceStyle}>
         <Press
           onPress={onPress}
           accessibilityRole="button"
           accessibilityLabel={label}
-          style={styles.face}
+          style={floatingActionButtonStyles.face}
           onPressIn={() => {
             if (!reducedMotion) {
               depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });

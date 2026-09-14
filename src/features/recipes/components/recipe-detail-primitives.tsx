@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
-import { StyleSheet } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { Txt } from '@/constants/ui';
 

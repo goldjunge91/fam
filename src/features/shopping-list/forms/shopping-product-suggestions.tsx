@@ -3,10 +3,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { makeShoppingListStyles } from '../components/ui/shopping-list-styles';
+import { shoppingListStyles } from '../components/ui/shopping-list-styles';
 import {
   type ShoppingProductSuggestion,
   type ShoppingSuggestionMode,
@@ -135,7 +134,7 @@ export function ShoppingProductSuggestions({
   onSelect,
 }: ShoppingProductSuggestionsProps) {
   const { t } = useTranslation();
-  const shoppingStyles = useThemedStyles(makeShoppingListStyles);
+  const shoppingStyles = shoppingListStyles;
   const [expanded, setExpanded] = useState(false);
   const { data: suggestions = [] } = useShoppingProductSuggestions({ userId, householdId, mode });
 

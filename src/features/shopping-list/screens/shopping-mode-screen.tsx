@@ -8,13 +8,13 @@ import {
 } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { space } from '@/components/theme';
-import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { Press, Row, Surface, Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format-currency';
 import { formatAmount } from '@/lib/package-size';
-import { makeShoppingListStyles } from '../components/ui/shopping-list-styles';
+import { shoppingListStyles } from '../components/ui/shopping-list-styles';
 import { colorForCategory, parseCategoryOrder } from '../domain-logik/shopping-categories';
 import { groupByCategory, type LocalShoppingItem } from '../hooks/use-shopping-list';
 import type { Store } from '../hooks/use-stores';
@@ -76,7 +76,7 @@ export const ShoppingModeRow = memo(function ShoppingModeRow({
   item,
   onToggle,
 }: ShoppingModeRowProps) {
-  const styles = useThemedStyles(makeShoppingListStyles);
+  const styles = shoppingListStyles;
   const isChecked = item.checked_at !== null;
   const handlePress = useCallback(() => {
     onToggle(item);
@@ -139,7 +139,7 @@ export function ShoppingModeScreen({
 }: ShoppingModeScreenProps) {
   const { t } = useTranslation();
   const { colors } = useTheme();
-  const styles = useThemedStyles(makeShoppingListStyles);
+  const styles = shoppingListStyles;
   const [collapsedOverrides, setCollapsedOverrides] = useState<Record<string, boolean>>({});
 
   const groups = useMemo(

@@ -2,7 +2,8 @@ import { FieldGroup, Host, Icon, ListItem } from '@expo/ui';
 import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import ExpoSegmentedControl from '@expo/ui/community/segmented-control';
 import { useEffect, useRef, useState } from 'react';
-import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { Modal, Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';

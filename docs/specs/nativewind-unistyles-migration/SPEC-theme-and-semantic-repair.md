@@ -1,6 +1,6 @@
 # Spec: Theme- und Semantik-Reparatur
 
-Status: Abgeschlossen; iOS-Laufzeitnachweis erbracht, Android übersprungen · 2026-09-14
+Status: Abgeschlossen; Vollständigkeits-Follow-up `fam-7xer` umgesetzt · Android übersprungen · 2026-09-14
 Referenzen: `fam-978.76`, Review `fam-978.74`, [Umsetzungsplan](../../../tasks/plan.md)
 
 ## Ziel und Scope
@@ -14,6 +14,12 @@ Verbindlich bleiben die Design-System-Verträge
 [05 Unistyles](../../design-system/contracts/05-unistyles-and-stylesheet.md) und
 [07 Interaktion](../../design-system/contracts/07-buttons-and-interaction.md).
 Dieser Spec konkretisiert deren Verhalten für die Reparatur.
+
+Die ursprüngliche Theme-/Semantik-Reparatur und die anschließende
+Vollständigkeitsarbeit in `fam-7xer` sind umgesetzt. React-Native-StyleSheet-
+Imports, semantische Ownership und Theme-Callbacks entsprechen dem aktuellen
+Dateistand; verbleibende Scan-Kandidaten sind dokumentierte Laufzeit-, Nutzer-
+oder native Integrationswerte.
 
 ## Entscheidungen
 
@@ -116,6 +122,6 @@ bun run native:status -- --diff
 - Außerhalb des Scopes: Datenbank, Auth, RLS, SQLite, Outbox, Sync und
   Removal-Gate-Arbeit aus `fam-978.75`/`fam-978.67`.
 
-Die Gestaltungs- und Architekturentscheidungen sind festgelegt und umgesetzt.
-Die iOS-Laufzeit ist nachgewiesen. Android ist gemäß aktueller Entscheidung
-aus dieser Abnahme ausgenommen.
+Die Gestaltungs- und Architekturentscheidungen dieses Specs sind festgelegt und
+umgesetzt. Die iOS-Laufzeit ist nachgewiesen; Android ist gemäß aktueller
+Entscheidung aus dieser Abnahme ausgenommen.

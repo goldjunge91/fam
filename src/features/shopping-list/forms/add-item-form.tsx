@@ -6,7 +6,7 @@ import { Keyboard, Pressable, View } from 'react-native';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { space } from '@/components/theme/index';
-import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
@@ -33,7 +33,7 @@ import {
   type PlacementZoneId,
 } from '../classification/placement-taxonomy';
 import type { CategorySource } from '../classification/types';
-import { makeShoppingListStyles } from '../components/ui/shopping-list-styles';
+import { shoppingListStyles } from '../components/ui/shopping-list-styles';
 import { findLastStoreForProduct } from '../domain-logik/product-store-preference';
 import { useAddShoppingItem } from '../hooks/use-shopping-list-mutations';
 import type {
@@ -89,7 +89,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 ) {
   const { t } = useTranslation();
   const { colors: theme } = useTheme();
-  const shoppingStyles = useThemedStyles(makeShoppingListStyles);
+  const shoppingStyles = shoppingListStyles;
   const [name, setName] = useState('');
   const [purchaseCount, setPurchaseCount] = useState(1);
   const [unit, setUnit] = useState('piece');

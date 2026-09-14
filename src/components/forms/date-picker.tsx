@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { type Palette, radius, space } from '@/components/theme/index';
-import { useThemedStyles } from '@/components/theme/ThemeProvider';
+import { radius, space } from '@/components/theme/index';
 import { Button, TextField, Txt } from '@/constants/ui';
 
 interface DatePickerProps {
@@ -20,7 +19,6 @@ export function DatePicker({
   placeholder = 'JJJJ-MM-TT (z.B. 2020-05-14)',
   error,
 }: DatePickerProps) {
-  const styles = useThemedStyles(makeStyles);
   const [showModal, setShowModal] = useState(false);
 
   // Default year/month/day selection state in modal
@@ -192,70 +190,68 @@ export function DatePicker({
   );
 }
 
-function makeStyles(colors: Palette) {
-  return StyleSheet.create({
-    root: {
-      gap: space.xs,
-    },
-    dateRow: {
-      flexDirection: 'row',
-      alignItems: 'flex-end',
-      gap: space.sm,
-    },
-    flex: {
-      flex: 1,
-    },
-    calendarButton: {
-      height: 48,
-      paddingHorizontal: space.lg,
-      borderRadius: radius.sm,
-      borderWidth: StyleSheet.hairlineWidth,
-      borderColor: colors.border,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: colors.backgroundElement,
-    },
-    formattedDate: {
-      marginLeft: space.xs,
-      marginTop: -2,
-    },
-    modalBackdrop: {
-      flex: 1,
-      backgroundColor: colors.scrim,
-      justifyContent: 'center',
-      padding: 24,
-    },
-    modalSheet: {
-      gap: space.lg,
-      padding: 24,
-      borderRadius: radius.lg,
-      backgroundColor: colors.background,
-    },
-    dateColumns: {
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-      marginVertical: space.sm,
-    },
-    column: {
-      alignItems: 'center',
-      gap: space.sm,
-    },
-    adjustments: {
-      alignItems: 'center',
-      gap: 6,
-    },
-    adjustButton: {
-      width: 40,
-      height: 40,
-      borderRadius: radius.lg,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: colors.backgroundElement,
-    },
-    footerRow: {
-      flexDirection: 'row',
-      gap: space.sm,
-      marginTop: space.sm,
-    },
-  });
-}
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    gap: space.xs,
+  },
+  dateRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    gap: space.sm,
+  },
+  flex: {
+    flex: 1,
+  },
+  calendarButton: {
+    height: 48,
+    paddingHorizontal: space.lg,
+    borderRadius: radius.sm,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: theme.border,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.backgroundElement,
+  },
+  formattedDate: {
+    marginLeft: space.xs,
+    marginTop: -2,
+  },
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: theme.scrim,
+    justifyContent: 'center',
+    padding: 24,
+  },
+  modalSheet: {
+    gap: space.lg,
+    padding: 24,
+    borderRadius: radius.lg,
+    backgroundColor: theme.background,
+  },
+  dateColumns: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: space.sm,
+  },
+  column: {
+    alignItems: 'center',
+    gap: space.sm,
+  },
+  adjustments: {
+    alignItems: 'center',
+    gap: 6,
+  },
+  adjustButton: {
+    width: 40,
+    height: 40,
+    borderRadius: radius.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.backgroundElement,
+  },
+  footerRow: {
+    flexDirection: 'row',
+    gap: space.sm,
+    marginTop: space.sm,
+  },
+}));

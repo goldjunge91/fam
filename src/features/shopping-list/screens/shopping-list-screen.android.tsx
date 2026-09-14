@@ -7,7 +7,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
-import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
@@ -23,7 +23,7 @@ import type { CatalogProduct } from '@/features/product-search/types';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { debugLog } from '@/lib/debug-log';
 import { ShoppingItemRow } from '../components/ui/shopping-item-row';
-import { makeShoppingListStyles } from '../components/ui/shopping-list-styles';
+import { shoppingListStyles } from '../components/ui/shopping-list-styles';
 import { ALL_FILTER, StorePickerMenu, UNASSIGNED_FILTER } from '../components/ui/store-picker-menu';
 import { StoreSummaryCard } from '../components/ui/store-summary-card';
 import { TotalEstimateCard } from '../components/ui/total-estimate-card';
@@ -112,7 +112,7 @@ export function ShoppingListScreen() {
   const adsEnabled = useAdsEnabled();
   const interstitialAd = useInterstitialAd();
   const { colors: theme } = useTheme();
-  const shoppingStyles = useThemedStyles(makeShoppingListStyles);
+  const shoppingStyles = shoppingListStyles;
   const hubGradient = useHubGradient();
   const scrollRef = useRef<ScrollView>(null);
   const sectionListRef =

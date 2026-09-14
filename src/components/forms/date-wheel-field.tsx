@@ -2,8 +2,7 @@ import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { type Palette, radius, space } from '@/components/theme/index';
-import { useThemedStyles } from '@/components/theme/ThemeProvider';
+import { radius, space } from '@/components/theme/index';
 import { Button, Txt } from '@/constants/ui';
 
 function toIsoDate(date: Date): string {
@@ -32,7 +31,6 @@ export function DateWheelField({
   onChange,
   placeholder = 'TT.MM.JJJJ',
 }: DateWheelFieldProps) {
-  const styles = useThemedStyles(makeStyles);
   const [isOpen, setIsOpen] = useState(false);
   const [pendingDate, setPendingDate] = useState(() => (value ? new Date(value) : new Date()));
 
@@ -98,42 +96,40 @@ export function DateWheelField({
   );
 }
 
-function makeStyles(colors: Palette) {
-  return StyleSheet.create({
-    root: {
-      gap: space.xs,
-    },
-    inputField: {
-      width: '100%',
-      borderWidth: 1,
-      borderColor: colors.border,
-      borderRadius: radius.md,
-      paddingHorizontal: space.lg,
-      paddingVertical: 10,
-      backgroundColor: colors.backgroundElement,
-    },
-    pressed: {
-      opacity: 0.75,
-    },
-    modalBackdrop: {
-      flex: 1,
-      backgroundColor: colors.scrim,
-      justifyContent: 'center',
-      padding: 24,
-    },
-    modalSheet: {
-      gap: space.lg,
-      padding: 24,
-      borderRadius: radius.lg,
-      backgroundColor: colors.background,
-    },
-    footerRow: {
-      flexDirection: 'row',
-      gap: space.sm,
-      marginTop: space.sm,
-    },
-    flex: {
-      flex: 1,
-    },
-  });
-}
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    gap: space.xs,
+  },
+  inputField: {
+    width: '100%',
+    borderWidth: 1,
+    borderColor: theme.border,
+    borderRadius: radius.md,
+    paddingHorizontal: space.lg,
+    paddingVertical: 10,
+    backgroundColor: theme.backgroundElement,
+  },
+  pressed: {
+    opacity: 0.75,
+  },
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: theme.scrim,
+    justifyContent: 'center',
+    padding: 24,
+  },
+  modalSheet: {
+    gap: space.lg,
+    padding: 24,
+    borderRadius: radius.lg,
+    backgroundColor: theme.background,
+  },
+  footerRow: {
+    flexDirection: 'row',
+    gap: space.sm,
+    marginTop: space.sm,
+  },
+  flex: {
+    flex: 1,
+  },
+}));

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { type StyleProp, StyleSheet, View, type ViewStyle } from 'react-native';
+import { type StyleProp, View, type ViewStyle } from 'react-native';
 import {
   BannerAd,
   BannerAdSize,
@@ -8,6 +8,7 @@ import {
   TestIds,
 } from 'react-native-google-mobile-ads';
 import { AdFormat } from 'react-native-purchases';
+import { StyleSheet } from 'react-native-unistyles';
 import { usePremium } from '@/features/premium/premium-provider';
 import { debugWarn } from '@/lib/debug-log';
 import { env } from '@/lib/env';

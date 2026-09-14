@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
-import { useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Button, Press, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProduct } from '@/features/inventory/use-product';
@@ -17,7 +16,7 @@ import {
   type PlacementZoneId,
 } from '../classification/placement-taxonomy';
 import type { CategorySource } from '../classification/types';
-import { makeShoppingListStyles } from '../components/ui/shopping-list-styles';
+import { shoppingListStyles } from '../components/ui/shopping-list-styles';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import { useUpdateShoppingItem } from '../hooks/use-shopping-list-mutations';
 import { useStores } from '../hooks/use-stores';
@@ -57,7 +56,7 @@ async function resolveAutomaticPreview(
 
 export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
   const { t } = useTranslation();
-  const shoppingStyles = useThemedStyles(makeShoppingListStyles);
+  const shoppingStyles = shoppingListStyles;
   const [name, setName] = useState(item.name);
   const [quantity, setQuantity] = useState(String(item.quantity));
   const [unit, setUnit] = useState(item.unit);

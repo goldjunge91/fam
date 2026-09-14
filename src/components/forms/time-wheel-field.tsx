@@ -2,8 +2,7 @@ import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { type Palette, radius, space } from '@/components/theme/index';
-import { useThemedStyles } from '@/components/theme/ThemeProvider';
+import { radius, space } from '@/components/theme/index';
 import { Button, Press, Txt } from '@/constants/ui';
 
 function toTime(date: Date): string {
@@ -24,7 +23,6 @@ type TimeWheelFieldProps = {
 };
 
 export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) {
-  const styles = useThemedStyles(makeStyles);
   const [isOpen, setIsOpen] = useState(false);
   const [pendingTime, setPendingTime] = useState(() => fromTime(value));
 
@@ -87,39 +85,37 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
   );
 }
 
-function makeStyles(colors: Palette) {
-  return StyleSheet.create({
-    root: {
-      gap: space.xs,
-    },
-    inputField: {
-      width: '100%',
-      borderWidth: 1,
-      borderColor: colors.border,
-      borderRadius: radius.md,
-      paddingHorizontal: space.lg,
-      paddingVertical: 10,
-      backgroundColor: colors.backgroundElement,
-    },
-    modalBackdrop: {
-      flex: 1,
-      backgroundColor: colors.scrim,
-      justifyContent: 'center',
-      padding: 24,
-    },
-    modalSheet: {
-      gap: space.lg,
-      padding: 24,
-      borderRadius: radius.lg,
-      backgroundColor: colors.background,
-    },
-    footerRow: {
-      flexDirection: 'row',
-      gap: space.sm,
-      marginTop: space.sm,
-    },
-    flex: {
-      flex: 1,
-    },
-  });
-}
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    gap: space.xs,
+  },
+  inputField: {
+    width: '100%',
+    borderWidth: 1,
+    borderColor: theme.border,
+    borderRadius: radius.md,
+    paddingHorizontal: space.lg,
+    paddingVertical: 10,
+    backgroundColor: theme.backgroundElement,
+  },
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: theme.scrim,
+    justifyContent: 'center',
+    padding: 24,
+  },
+  modalSheet: {
+    gap: space.lg,
+    padding: 24,
+    borderRadius: radius.lg,
+    backgroundColor: theme.background,
+  },
+  footerRow: {
+    flexDirection: 'row',
+    gap: space.sm,
+    marginTop: space.sm,
+  },
+  flex: {
+    flex: 1,
+  },
+}));

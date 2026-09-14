@@ -1,14 +1,8 @@
 import { router } from 'expo-router';
 import type { ReactNode } from 'react';
-import {
-  RefreshControl,
-  ScrollView,
-  type StyleProp,
-  StyleSheet,
-  View,
-  type ViewStyle,
-} from 'react-native';
+import { RefreshControl, ScrollView, type StyleProp, View, type ViewStyle } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
 import type { GradientSpec } from '@/components/theme/index';

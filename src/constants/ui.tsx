@@ -40,8 +40,9 @@ import {
   radius,
   shadow,
   space,
+  withAlpha,
 } from '@/components/theme/index';
-import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import {
   heavy as hapticHeavy,
   light as hapticLight,
@@ -66,13 +67,11 @@ function makeThemeShadow(tier: ShadowTier, color: string) {
   };
 }
 
-function makeShadowStyles(c: Palette) {
-  return StyleSheet.create({
-    sm: makeThemeShadow(shadow.sm, c.shadowCard),
-    md: makeThemeShadow(shadow.md, c.shadowCard),
-    lg: makeThemeShadow(shadow.lg, c.shadowCard),
-  });
-}
+const shadowStyles = StyleSheet.create((theme) => ({
+  sm: makeThemeShadow(shadow.sm, theme.shadowCard),
+  md: makeThemeShadow(shadow.md, theme.shadowCard),
+  lg: makeThemeShadow(shadow.lg, theme.shadowCard),
+}));
 
 type HapticKind = 'none' | 'light' | 'medium' | 'heavy' | 'selection' | 'success';
 function fireHaptic(kind: HapticKind) {
@@ -105,6 +104,159 @@ export const iconButtonStyles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.sm,
     backgroundColor: theme.backgroundSoft,
   },
+}));
+
+export const floatingActionButtonStyles = StyleSheet.create((theme) => ({
+  outer: {
+    paddingBottom: BUTTON_DEPTH,
+    borderRadius: theme.radius.pill,
+    backgroundColor: theme.buttonPrimaryDepth,
+  },
+  face: {
+    width: 48,
+    height: 48,
+    minWidth: 48,
+    minHeight: 48,
+    borderRadius: theme.radius.pill,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    backgroundColor: theme.accent,
+    boxShadow: `0 6px 14px ${withAlpha(theme.shadowSheet, 0.16)}`,
+    borderCurve: 'continuous',
+    elevation: 4,
+    shadowColor: theme.shadowSheet,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.16,
+    shadowRadius: 8,
+  },
+}));
+
+export const compactActionButtonStyles = StyleSheet.create((theme) => ({
+  button: {
+    width: '100%',
+    height: 34,
+    minHeight: 34,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: theme.radius.sm,
+    paddingHorizontal: theme.space.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+  },
+  chevronLine: {
+    position: 'absolute',
+    top: 2,
+    width: 7,
+    height: 1.5,
+    borderRadius: 2,
+    backgroundColor: theme.textSecondary,
+  },
+}));
+
+export const backButtonStyles = StyleSheet.create((theme) => ({
+  arrow: {
+    width: 45,
+    height: 45,
+    borderRadius: theme.radius.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.backgroundSoft,
+  },
+  text: {
+    alignSelf: 'flex-start',
+    minHeight: 44,
+    paddingTop: theme.space.sm,
+    paddingBottom: theme.space.xs,
+    paddingRight: theme.space.lg,
+  },
+}));
+
+export const profileButtonStyles = StyleSheet.create((theme) => ({
+  button: {
+    width: 58,
+    height: 58,
+    borderRadius: theme.radius.famLarge,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    backgroundColor: theme.accent,
+  },
+}));
+
+export const moduleLockedOverlayStyles = StyleSheet.create((theme) => ({
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: withAlpha(theme.backgroundElement, 0.4),
+  },
+  pill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.xs,
+    paddingHorizontal: theme.space.md,
+    paddingVertical: 7,
+    borderRadius: theme.radius.pill,
+    backgroundColor: theme.text,
+  },
+  dot: {
+    width: 5,
+    height: 5,
+    borderRadius: theme.radius.pill,
+    backgroundColor: theme.warning,
+  },
+  label: {
+    color: theme.background,
+  },
+}));
+
+export const onboardingStyles = StyleSheet.create((theme) => ({
+  activeHousehold: {
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.success,
+    borderRadius: theme.radius.sm,
+    backgroundColor: withAlpha(theme.success, 0.1),
+  },
+}));
+
+const surfaceStyles = StyleSheet.create((theme) => ({
+  page: { backgroundColor: theme.background },
+  surface: { backgroundColor: theme.backgroundElement },
+  soft: { backgroundColor: theme.backgroundSoft },
+  accent: { backgroundColor: theme.accent },
+}));
+
+const dividerStyles = StyleSheet.create((theme) => ({
+  root: { height: 1, backgroundColor: theme.border },
+}));
+
+const cardStyles = StyleSheet.create((theme) => ({
+  base: {
+    backgroundColor: theme.backgroundElement,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: theme.border,
+  },
+  soft: { backgroundColor: theme.backgroundSoft },
+  padded: { padding: space.lg },
+}));
+
+const textToneStyles = StyleSheet.create((theme) => ({
+  text: { color: theme.text },
+  textSecondary: { color: theme.textSecondary },
+  accent: { color: theme.accent },
+  onAccent: { color: theme.onAccent },
+  success: { color: theme.success },
+  warning: { color: theme.warning },
+  danger: { color: theme.danger },
 }));
 
 const pressSelectionStyles = StyleSheet.create((theme) => ({
@@ -278,18 +430,17 @@ export function Txt({
   children,
   ...rest
 }: TxtProps) {
-  const { colors } = useTheme();
   const base = TXT[variant];
-  const textColor = tone ? colors[TEXT_TONE[tone]] : colors[muted ? 'textSecondary' : base.tone];
+  const textTone = tone ? TEXT_TONE[tone] : muted ? 'textSecondary' : base.tone;
   return (
     <Text
       {...rest}
       style={[
+        textToneStyles[textTone],
         {
           fontSize: base.fontSize,
           lineHeight: base.lineHeight,
           fontWeight: base.fontWeight,
-          color: textColor,
           letterSpacing: base.letterSpacing,
           fontFamily: base.fontFamily,
         },
@@ -348,18 +499,8 @@ export function Surface({
 }: ViewProps & {
   tone?: SurfaceTone;
 }) {
-  const { colors } = useTheme();
-  const backgroundColor =
-    tone === 'page'
-      ? colors.background
-      : tone === 'surface'
-        ? colors.backgroundElement
-        : tone === 'soft'
-          ? colors.backgroundSoft
-          : colors.accent;
-
   return (
-    <View {...rest} style={[{ backgroundColor }, style]}>
+    <View {...rest} style={[surfaceStyles[tone], style]}>
       {children}
     </View>
   );
@@ -370,8 +511,7 @@ export function Spacer({ h = space.md }: { h?: number }) {
 }
 
 export function Divider({ style }: { style?: StyleProp<ViewStyle> }) {
-  const { colors } = useTheme();
-  return <View style={[{ height: 1, backgroundColor: colors.border }, style]} />;
+  return <View style={[dividerStyles.root, style]} />;
 }
 
 // ─── Card ────────────────────────────────────────────────────────────────────
@@ -389,21 +529,14 @@ export function Card({
   elevation?: 'none' | 'sm' | 'md' | 'lg';
   style?: StyleProp<ViewStyle>;
 }) {
-  const { colors } = useTheme();
-  const themedShadow = useThemedStyles(makeShadowStyles);
   return (
     <View
       {...rest}
       style={[
-        {
-          backgroundColor: colors.backgroundElement,
-          borderRadius: radius.lg,
-          borderWidth: 1,
-          borderColor: colors.border,
-        },
-        soft && { backgroundColor: colors.backgroundSoft },
-        padded && { padding: space.lg },
-        elevation !== 'none' && themedShadow[elevation],
+        cardStyles.base,
+        soft && cardStyles.soft,
+        padded && cardStyles.padded,
+        elevation !== 'none' && shadowStyles[elevation],
         style,
       ]}>
       {children}
@@ -707,7 +840,6 @@ export function IconButton({
   accessibilityLabel?: string;
 }) {
   const { colors } = useTheme();
-  const themedShadow = useThemedStyles(makeShadowStyles);
   const fg = color ?? colors.text;
   const background = bg ?? colors.backgroundElement;
   return (
@@ -726,7 +858,7 @@ export function IconButton({
           justifyContent: 'center',
           opacity: disabled ? 0.5 : 1,
         },
-        themedShadow.sm,
+        shadowStyles.sm,
         style,
       ]}>
       <Feather name={icon} size={iconSize} color={fg} />
@@ -839,7 +971,7 @@ export function SegmentedControl<T extends string>({
   appearance = 'accent',
   size = 'default',
 }: SegmentedControlProps<T>) {
-  const styles = useThemedStyles(makeStyles);
+  const styles = controlStyles;
   return (
     <View
       accessibilityRole={selectionRole === 'tab' ? 'tablist' : 'radiogroup'}
@@ -915,7 +1047,7 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(function TextFiel
   ref,
 ) {
   const { colors } = useTheme();
-  const styles = useThemedStyles(makeStyles);
+  const styles = controlStyles;
   const [focused, setFocused] = useState(false);
   const resolvedReturnKeyType = returnKeyType ?? (multiline ? undefined : 'done');
   const resolvedSubmitBehavior = submitBehavior ?? (multiline ? undefined : 'blurAndSubmit');
@@ -1004,90 +1136,88 @@ export function SectionHeading({
   );
 }
 
-function makeStyles(c: Palette) {
-  return StyleSheet.create({
-    shadowSm: makeThemeShadow(shadow.sm, c.shadowCard),
-    segment: {
-      flexDirection: 'row',
-      alignItems: 'stretch',
-      backgroundColor: c.backgroundSoft,
-      borderRadius: radius.md,
-      padding: space.xs,
-      gap: space.xs,
-    },
-    segmentItem: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: 44,
-      borderRadius: radius.sm,
-      paddingHorizontal: space.sm,
-    },
-    segmentItemDefault: {
-      minHeight: 48,
-      paddingVertical: space.sm,
-    },
-    segmentItemCompact: {
-      minHeight: 44,
-      paddingVertical: space.xs,
-    },
-    segmentItemActiveAccent: {
-      backgroundColor: c.accent,
-    },
-    segmentItemActiveSurface: {
-      backgroundColor: c.backgroundElement,
-    },
-    segmentItemDisabled: {
-      opacity: 0.55,
-    },
-    segmentLabel: {
-      flexShrink: 1,
-      textAlign: 'center',
-    },
-    fieldContainer: {
-      gap: space.xs,
-    },
-    inputWrapper: {
-      position: 'relative',
-    },
-    input: {
-      backgroundColor: c.backgroundElement,
-      borderWidth: borderWidth.strong,
-      borderColor: c.border,
-      borderRadius: radius.md,
-      paddingHorizontal: 14,
-      paddingVertical: 12,
-      fontSize: font.sizes.base,
-      lineHeight: font.lineHeights.body,
-      color: c.text,
-    },
-    inputLarge: {
-      fontSize: font.sizes.md,
-      lineHeight: font.lineHeights.subheading,
-    },
-    inputFocused: {
-      borderColor: c.accent,
-    },
-    inputError: {
-      borderColor: c.danger,
-    },
-    inputDisabled: {
-      backgroundColor: c.backgroundSoft,
-      color: c.textSecondary,
-    },
-    inputWithTrailing: {
-      paddingRight: 52,
-    },
-    trailingWrapper: {
-      position: 'absolute',
-      zIndex: 10,
-      right: 2,
-      top: 2,
-      bottom: 2,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
-}
+const controlStyles = StyleSheet.create((theme) => ({
+  shadowSm: makeThemeShadow(shadow.sm, theme.shadowCard),
+  segment: {
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    backgroundColor: theme.backgroundSoft,
+    borderRadius: radius.md,
+    padding: space.xs,
+    gap: space.xs,
+  },
+  segmentItem: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: 44,
+    borderRadius: radius.sm,
+    paddingHorizontal: space.sm,
+  },
+  segmentItemDefault: {
+    minHeight: 48,
+    paddingVertical: space.sm,
+  },
+  segmentItemCompact: {
+    minHeight: 44,
+    paddingVertical: space.xs,
+  },
+  segmentItemActiveAccent: {
+    backgroundColor: theme.accent,
+  },
+  segmentItemActiveSurface: {
+    backgroundColor: theme.backgroundElement,
+  },
+  segmentItemDisabled: {
+    opacity: 0.55,
+  },
+  segmentLabel: {
+    flexShrink: 1,
+    textAlign: 'center',
+  },
+  fieldContainer: {
+    gap: space.xs,
+  },
+  inputWrapper: {
+    position: 'relative',
+  },
+  input: {
+    backgroundColor: theme.backgroundElement,
+    borderWidth: borderWidth.strong,
+    borderColor: theme.border,
+    borderRadius: radius.md,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: font.sizes.base,
+    lineHeight: font.lineHeights.body,
+    color: theme.text,
+  },
+  inputLarge: {
+    fontSize: font.sizes.md,
+    lineHeight: font.lineHeights.subheading,
+  },
+  inputFocused: {
+    borderColor: theme.accent,
+  },
+  inputError: {
+    borderColor: theme.danger,
+  },
+  inputDisabled: {
+    backgroundColor: theme.backgroundSoft,
+    color: theme.textSecondary,
+  },
+  inputWithTrailing: {
+    paddingRight: 52,
+  },
+  trailingWrapper: {
+    position: 'absolute',
+    zIndex: 10,
+    right: 2,
+    top: 2,
+    bottom: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}));
 
 export type { FeatherName };

@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { StyleSheet } from 'react-native-unistyles';
-import { withAlpha } from '@/components/theme/index';
-import { Button, Press, Surface, TextField, Txt } from '@/constants/ui';
+import { Button, onboardingStyles, Press, Surface, TextField, Txt } from '@/constants/ui';
 import {
   useCreateHouseholdMutation,
   useHouseholds,
@@ -30,15 +29,7 @@ const styles = StyleSheet.create((theme, rt) => ({
   activeCard: {
     gap: theme.space.xs,
     padding: theme.space.lg,
-    borderWidth: theme.borderWidth.base,
-    borderColor: theme.success,
-    borderRadius: theme.radius.sm,
     marginVertical: theme.space.xs,
-    backgroundColor: withAlpha(theme.success, 0.1),
-  },
-  activeBadge: {
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
   },
   choices: {
     gap: theme.space.sm,
@@ -133,8 +124,8 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
 
       {/* Aktiver Haushalt Banner */}
       {activeHousehold ? (
-        <Surface tone="surface" style={styles.activeCard}>
-          <Txt variant="label" tone="success" weight="700" style={styles.activeBadge}>
+        <Surface tone="surface" style={[styles.activeCard, onboardingStyles.activeHousehold]}>
+          <Txt variant="eyebrow" tone="success" weight="700">
             ✓ Aktiver Haushalt erkannt
           </Txt>
           <Txt variant="body" weight="700">

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Pressable, TextInput, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { font, type Palette } from '@/components/theme/index';
-import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
+import { font } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
 type QuantityStepperProps = {
@@ -16,30 +16,28 @@ type QuantityStepperProps = {
   fullWidth?: boolean;
 };
 
-function makeStyles(c: Palette) {
-  return StyleSheet.create({
-    container: {
-      height: 44,
-      flexDirection: 'row',
-      alignItems: 'stretch',
-      overflow: 'hidden',
-      borderWidth: 1,
-      borderColor: c.border,
-      borderRadius: 12,
-      backgroundColor: c.backgroundElement,
-    },
-    btn: {
-      width: 42,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: c.backgroundSoft,
-    },
-    largeValue: {
-      fontSize: font.sizes.md,
-      lineHeight: font.lineHeights.subheading,
-    },
-  });
-}
+const styles = StyleSheet.create((theme) => ({
+  container: {
+    height: 44,
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: theme.border,
+    borderRadius: 12,
+    backgroundColor: theme.backgroundElement,
+  },
+  btn: {
+    width: 42,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.backgroundSoft,
+  },
+  largeValue: {
+    fontSize: font.sizes.md,
+    lineHeight: font.lineHeights.subheading,
+  },
+}));
 
 export function QuantityStepper({
   value,
@@ -51,8 +49,6 @@ export function QuantityStepper({
   fullWidth = false,
 }: QuantityStepperProps) {
   const { colors } = useTheme();
-  const styles = useThemedStyles(makeStyles);
-
   const [isEditing, setIsEditing] = useState(false);
   const [draftValue, setDraftValue] = useState(String(value));
   const decrementDisabled = value <= min;

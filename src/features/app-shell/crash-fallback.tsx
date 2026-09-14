@@ -1,4 +1,5 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 /** Provider-unabhängiger Fallback für Fehler aus dem gesamten App-Baum. */
 export function CrashFallback({ resetError }: { resetError: () => void }) {
