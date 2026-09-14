@@ -30,6 +30,10 @@ const styles = StyleSheet.create((theme) => ({
   loading: {
     marginTop: theme.space.xxl + theme.space.xs,
   },
+  errorState: {
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
   bulkStore: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
@@ -78,11 +82,29 @@ export function MissingIngredientsScreen() {
   const householdId = activeHouseholdId ?? undefined;
   const { hasPlus } = usePremium();
 
-  const { data: missing = EMPTY_MISSING, isLoading } = useMealPlanShoppingNeeds(
-    mealPlanId,
-    householdId,
-    hasPlus,
-  );
+  const {
+    data: missing,
+    isLoading,
+    isError,
+    refetch,
+  } = useMealPlanShoppingNeeds(mealPlanId, householdId, hasPlus);
+  const displayedMissing = missing ?? EMPTY_MISSING;
+  const hasLoadedMissing = missing !== undefined;
+  const errorState = isError ? (
+    <View style={styles.errorState}>
+      <Txt variant="body" tone="danger" accessibilityRole="alert">
+        {hasLoadedMissing
+          ? 'Fehlende Zutaten konnten nicht aktualisiert werden.'
+          : 'Fehlende Zutaten konnten nicht geladen werden.'}
+      </Txt>
+      <Button
+        title="Erneut versuchen"
+        variant="secondary"
+        size="sm"
+        onPress={() => void refetch()}
+      />
+    </View>
+  ) : null;
   const [selected, setSelected] = useState<Set<string>>(new Set());
   // Marktzuweisung pro Zeile, vom Nutzer manuell ueberschrieben (Fallback:
   // item.preferredStoreId aus der Kaufhistorie). `productId in storeOverrides`
@@ -99,8 +121,10 @@ export function MissingIngredientsScreen() {
   useEffect(() => {
     // Nur Artikel mit echtem Fehlbetrag vorauswaehlen — bereits gedeckte
     // Artikel (Nachschub-Fall) bleiben sichtbar, aber abgewaehlt.
-    setSelected(new Set(missing.filter((m) => m.missingGrams > 0).map((m) => m.productId)));
-  }, [missing]);
+    setSelected(
+      new Set(displayedMissing.filter((m) => m.missingGrams > 0).map((m) => m.productId)),
+    );
+  }, [displayedMissing]);
 
   function toggle(productId: string) {
     setSelected((prev) => {
@@ -121,7 +145,7 @@ export function MissingIngredientsScreen() {
     if (!householdId) return;
     setIsSubmitting(true);
     try {
-      const toAdd = missing.filter((m) => selected.has(m.productId));
+      const toAdd = displayedMissing.filter((m) => selected.has(m.productId));
       for (const item of toAdd) {
         // Alle Erzeugungswege nutzen den Resolver (#223 Abschnitt 10) — hier
         // ohne `categoryTags`, da diese Zutaten nur als Produkt-Id/Name
@@ -180,14 +204,20 @@ export function MissingIngredientsScreen() {
         <View style={styles.loading}>
           <ActivityIndicator color={colors.accent} />
         </View>
-      ) : missing.length === 0 ? (
+      ) : !hasLoadedMissing && isError ? (
+        errorState
+      ) : displayedMissing.length === 0 ? (
         /* Statusanzeige wenn alle Zutaten im Vorrat vorhanden sind */
-        <Txt variant="body" tone="secondary">
-          Für die geplanten Rezepte fehlt nichts – der Vorrat reicht.
-        </Txt>
+        <View style={styles.list}>
+          {errorState}
+          <Txt variant="body" tone="secondary">
+            Für die geplanten Rezepte fehlt nichts – der Vorrat reicht.
+          </Txt>
+        </View>
       ) : (
         /* Auswahlliste aller fehlenden Zutaten mit Mengenangaben und Übertrags-Button */
         <View style={styles.list}>
+          {errorState}
           {/* Bulk-Aktion: allen Artikeln auf einen Schlag denselben Markt zuweisen (#342) */}
           {householdId ? (
             <View style={styles.bulkStore}>
@@ -197,7 +227,7 @@ export function MissingIngredientsScreen() {
                 label="Allen einen Markt zuweisen"
                 onChange={(storeId) =>
                   setStoreOverrides(
-                    Object.fromEntries(missing.map((item) => [item.productId, storeId])),
+                    Object.fromEntries(displayedMissing.map((item) => [item.productId, storeId])),
                   )
                 }
                 testID="bulk-store-picker"
@@ -205,7 +235,7 @@ export function MissingIngredientsScreen() {
             </View>
           ) : null}
 
-          {missing.map((item) => (
+          {displayedMissing.map((item) => (
             <IngredientRow
               key={item.productId}
               item={item}

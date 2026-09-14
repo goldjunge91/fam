@@ -32,6 +32,10 @@ const styles = StyleSheet.create((theme) => ({
   loading: {
     marginTop: theme.space.xxl + theme.space.xs,
   },
+  errorState: {
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -76,18 +80,38 @@ export function MissingIngredientsScreen() {
   const householdId = activeHouseholdId ?? undefined;
   const { hasPlus } = usePremium();
 
-  const { data: missing = EMPTY_MISSING, isLoading } = useMealPlanShoppingNeeds(
-    mealPlanId,
-    householdId,
-    hasPlus,
-  );
+  const {
+    data: missing,
+    isLoading,
+    isError,
+    refetch,
+  } = useMealPlanShoppingNeeds(mealPlanId, householdId, hasPlus);
+  const displayedMissing = missing ?? EMPTY_MISSING;
+  const hasLoadedMissing = missing !== undefined;
+  const errorState = isError ? (
+    <View style={styles.errorState}>
+      <Txt variant="body" tone="danger" accessibilityRole="alert">
+        {hasLoadedMissing
+          ? 'Fehlende Zutaten konnten nicht aktualisiert werden.'
+          : 'Fehlende Zutaten konnten nicht geladen werden.'}
+      </Txt>
+      <Button
+        title="Erneut versuchen"
+        variant="secondary"
+        size="sm"
+        onPress={() => void refetch()}
+      />
+    </View>
+  ) : null;
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const addShoppingItem = useAddShoppingItem();
   const [addedCount, setAddedCount] = useState<number | null>(null);
 
   useEffect(() => {
-    setSelected(new Set(missing.map((m) => m.productId)));
-  }, [missing]);
+    setSelected(
+      new Set(displayedMissing.filter((m) => m.missingGrams > 0).map((m) => m.productId)),
+    );
+  }, [displayedMissing]);
 
   function toggle(productId: string) {
     setSelected((prev) => {
@@ -107,19 +131,20 @@ export function MissingIngredientsScreen() {
       return;
     }
 
-    const toAdd = missing.filter((m) => selected.has(m.productId));
+    const toAdd = displayedMissing.filter((m) => selected.has(m.productId));
     debugLogEvent('meal-planner.shopping-needs.transfer.started', {
       variant: 'android',
-      missingCount: missing.length,
+      missingCount: displayedMissing.length,
       selectedCount: toAdd.length,
     });
 
     for (const item of toAdd) {
+      const quantity = item.missingGrams > 0 ? item.missingGrams : item.neededGrams;
       debugLogEvent('meal-planner.shopping-needs.transfer.item.started', {
         variant: 'android',
         productId: item.productId,
         name: item.name,
-        quantity: item.missingGrams,
+        quantity,
       });
 
       try {
@@ -153,7 +178,7 @@ export function MissingIngredientsScreen() {
         const entityId = await addShoppingItem.mutateAsync({
           household_id: householdId,
           name: item.name,
-          quantity: item.missingGrams,
+          quantity,
           unit: 'g',
           product_id: item.productId,
           category_id: classification?.categoryId ?? null,
@@ -207,15 +232,21 @@ export function MissingIngredientsScreen() {
         <View style={styles.loading}>
           <ActivityIndicator color={colors.accent} />
         </View>
-      ) : missing.length === 0 ? (
+      ) : !hasLoadedMissing && isError ? (
+        errorState
+      ) : displayedMissing.length === 0 ? (
         /* Statusanzeige wenn alle Zutaten im Vorrat vorhanden sind */
-        <Txt variant="body" tone="secondary">
-          Für die geplanten Rezepte fehlt nichts – der Vorrat reicht.
-        </Txt>
+        <View style={styles.list}>
+          {errorState}
+          <Txt variant="body" tone="secondary">
+            Für die geplanten Rezepte fehlt nichts – der Vorrat reicht.
+          </Txt>
+        </View>
       ) : (
         /* Auswahlliste aller fehlenden Zutaten mit Mengenangaben und Übertrags-Button */
         <View style={styles.list}>
-          {missing.map((item) => (
+          {errorState}
+          {displayedMissing.map((item) => (
             <IngredientRow
               key={item.productId}
               item={item}
@@ -270,10 +301,17 @@ function IngredientRow({
           <Txt variant="body" weight="700">
             {item.name}
           </Txt>
-          <Txt variant="body" tone="secondary">
-            {item.missingGrams} g fehlen
-            {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
-          </Txt>
+          {item.missingGrams > 0 ? (
+            <Txt variant="body" tone="secondary">
+              {item.missingGrams} g fehlen
+              {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
+            </Txt>
+          ) : (
+            <Txt variant="body" tone="secondary">
+              {item.neededGrams} g benötigt / {item.availableGrams} g im Vorrat
+              {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
+            </Txt>
+          )}
           {item.recipeNames.length > 0 ? (
             <Txt variant="body" tone="secondary" numberOfLines={1}>
               🍽️ {item.recipeNames.join(', ')}

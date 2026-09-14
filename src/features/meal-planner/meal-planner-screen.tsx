@@ -5,10 +5,9 @@ import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { HubScreen } from '@/components/layout/hub-screen';
-import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
-import { Press, Txt } from '@/constants/ui';
+import { Button, Press, SegmentedControl, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
@@ -52,32 +51,10 @@ type PendingCell = { date: string; slot: MealSlot };
 // Die festen 14/43/34/42/9/7-Werte erhalten die bestehende Kalendernavigation.
 // Semantische Farben, Radien und Abstände greifen auf die zentralen Theme-Tokens
 // zurück; Press-Wrapper erhalten ihre Layoutgröße über containerStyle.
-const styles = StyleSheet.create((theme) => ({
+const styles = StyleSheet.create((_theme) => ({
   content: {
     flex: 1,
     paddingHorizontal: 14,
-  },
-  tabs: {
-    flexDirection: 'row',
-    gap: theme.space.sm,
-  },
-  tabContainer: {
-    flex: 1,
-  },
-  tab: {
-    minHeight: 46,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: theme.borderWidth.base,
-    borderRadius: theme.radius.sm + 2,
-  },
-  tabActive: {
-    backgroundColor: theme.accent,
-    borderColor: theme.accent,
-  },
-  tabIdle: {
-    backgroundColor: theme.backgroundSoft,
-    borderColor: theme.border,
   },
   periodRow: {
     height: 43,
@@ -104,18 +81,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   actionContainer: {
     flex: 1,
-  },
-  actionButton: {
-    minHeight: 42,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: theme.radius.sm + 2,
-    paddingHorizontal: theme.space.sm,
-    backgroundColor: withAlpha(theme.backgroundElement, 0.78),
-    borderCurve: 'continuous',
-  },
-  actionButtonDisabled: {
-    opacity: 0.45,
   },
   calendarIcon: {
     width: 19,
@@ -297,24 +262,19 @@ export function MealPlannerScreen() {
         ),
       }}>
       <View style={styles.content}>
-        {/* Ansichtsmodus-Tabs (Tag / 3 Tage / Woche) */}
-        <View accessibilityRole="tablist" accessibilityLabel="Zeitraum" style={styles.tabs}>
-          {VIEW_MODES.map((mode) => (
-            <Press
-              key={mode}
-              onPress={() => setViewMode(mode)}
-              accessibilityRole="tab"
-              accessibilityLabel={`${VIEW_MODE_LABELS[mode]}-Ansicht`}
-              accessibilityState={{ selected: viewMode === mode }}
-              haptic="selection"
-              containerStyle={styles.tabContainer}
-              style={[styles.tab, viewMode === mode ? styles.tabActive : styles.tabIdle]}>
-              <Txt variant="label" tone={viewMode === mode ? 'onAccent' : 'secondary'} weight="700">
-                {VIEW_MODE_LABELS[mode]}
-              </Txt>
-            </Press>
-          ))}
-        </View>
+        {/* Ansichtsmodus-Tabs (Tag / Woche) */}
+        <SegmentedControl
+          label="Zeitraum"
+          options={VIEW_MODES.map((mode) => ({
+            value: mode,
+            label: VIEW_MODE_LABELS[mode],
+            accessibilityLabel: `${VIEW_MODE_LABELS[mode]}-Ansicht`,
+          }))}
+          selected={viewMode}
+          onSelect={setViewMode}
+          selectionRole="tab"
+          appearance="surface"
+        />
 
         {/* Zeitraum-Navigation mit Pfeilen & Monats-/Datumsangabe */}
         <View style={styles.periodRow}>
@@ -347,18 +307,19 @@ export function MealPlannerScreen() {
 
         {viewMode === 'week' ? (
           <View style={styles.actionsRow}>
-            <Press
-              accessibilityRole="button"
+            <Button
+              title="Vorwoche übernehmen"
+              variant="secondary"
+              size="sm"
+              style={styles.actionContainer}
               accessibilityLabel="Vorwoche übernehmen"
               onPress={handleReuseLastWeek}
-              containerStyle={styles.actionContainer}
-              style={styles.actionButton}>
-              <Txt variant="label" tone="primary" weight="700" center>
-                Vorwoche übernehmen
-              </Txt>
-            </Press>
-            <Press
-              accessibilityRole="button"
+            />
+            <Button
+              title="Einkauf vorbereiten"
+              variant="secondary"
+              size="sm"
+              style={styles.actionContainer}
               accessibilityLabel="Einkauf vorbereiten"
               disabled={!plan}
               onPress={() => {
@@ -368,12 +329,7 @@ export function MealPlannerScreen() {
                   params: { mealPlanId: plan.id },
                 });
               }}
-              containerStyle={styles.actionContainer}
-              style={[styles.actionButton, !plan && styles.actionButtonDisabled]}>
-              <Txt variant="label" tone="primary" weight="700" center>
-                Einkauf vorbereiten
-              </Txt>
-            </Press>
+            />
           </View>
         ) : null}
 

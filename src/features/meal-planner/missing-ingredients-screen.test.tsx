@@ -2,6 +2,7 @@ import { render, screen, userEvent, waitFor } from '@testing-library/react-nativ
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { MissingIngredientsScreen } from './missing-ingredients-screen';
+import { MissingIngredientsScreen as MissingIngredientsScreenAndroid } from './missing-ingredients-screen.android';
 
 const mockRouterBack = jest.fn();
 
@@ -116,21 +117,28 @@ const mockMissingIngredients = [
   },
 ];
 
+let mockMissingData: typeof mockMissingIngredients | undefined = mockMissingIngredients;
+let mockIsLoading = false;
+let mockIsError = false;
+const mockRefetch = jest.fn().mockResolvedValue({});
+
 jest.mock('./use-shopping-needs', () => ({
   useMealPlanShoppingNeeds: () => ({
-    data: mockMissingIngredients,
-    isLoading: false,
+    data: mockMissingData,
+    isLoading: mockIsLoading,
+    isError: mockIsError,
+    refetch: mockRefetch,
   }),
 }));
 
-function renderScreen() {
+function renderScreen(Component: typeof MissingIngredientsScreen = MissingIngredientsScreen) {
   return render(
     <SafeAreaProvider
       initialMetrics={{
         frame: { x: 0, y: 0, width: 390, height: 844 },
         insets: { top: 47, left: 0, right: 0, bottom: 34 },
       }}>
-      <MissingIngredientsScreen />
+      <Component />
     </SafeAreaProvider>,
   );
 }
@@ -141,6 +149,10 @@ beforeEach(() => {
   mockRouterPush.mockClear();
   mockRouterBack.mockClear();
   mockIsPremium = true;
+  mockMissingData = mockMissingIngredients;
+  mockIsLoading = false;
+  mockIsError = false;
+  mockRefetch.mockClear();
 });
 
 describe('MissingIngredientsScreen', () => {
@@ -292,6 +304,84 @@ describe('MissingIngredientsScreen', () => {
 
     expect(mockAddMutateAsync).toHaveBeenCalledTimes(1);
     expect(mockAddMutateAsync).toHaveBeenCalledWith(expect.objectContaining({ name: 'Tomaten' }));
+  });
+
+  it('zeigt bei einem initialen Fehler eine sichtbare Fehlermeldung mit Retry', async () => {
+    const user = userEvent.setup();
+    mockMissingData = undefined;
+    mockIsError = true;
+
+    await renderScreen();
+
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      'Fehlende Zutaten konnten nicht geladen werden.',
+    );
+    await user.press(screen.getByRole('button', { name: 'Erneut versuchen' }));
+
+    expect(mockRefetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('zeigt bei einem stale Fehler die vorhandenen Daten und Retry weiter an', async () => {
+    const user = userEvent.setup();
+    mockIsError = true;
+
+    await renderScreen();
+
+    expect(screen.getByText('Tomaten')).toBeOnTheScreen();
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      'Fehlende Zutaten konnten nicht aktualisiert werden.',
+    );
+    await user.press(screen.getByRole('button', { name: 'Erneut versuchen' }));
+
+    expect(mockRefetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('zeigt bei einem stale Fehler ohne Zutaten den leeren Zustand und Retry an', async () => {
+    const user = userEvent.setup();
+    mockMissingData = [];
+    mockIsError = true;
+
+    await renderScreen();
+
+    expect(
+      screen.getByText('Für die geplanten Rezepte fehlt nichts – der Vorrat reicht.'),
+    ).toBeOnTheScreen();
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      'Fehlende Zutaten konnten nicht aktualisiert werden.',
+    );
+    await user.press(screen.getByRole('button', { name: 'Erneut versuchen' }));
+
+    expect(mockRefetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('überträgt in der Android-Variante bei gedecktem Bedarf die volle benötigte Menge', async () => {
+    const user = userEvent.setup();
+    mockMissingData = [mockMissingIngredients[2]];
+
+    await renderScreen(MissingIngredientsScreenAndroid);
+
+    expect(screen.getByText('0 Artikel zur Einkaufsliste hinzufügen')).toBeOnTheScreen();
+    await user.press(screen.getByRole('checkbox', { name: 'Salz' }));
+    await user.press(screen.getByText('1 Artikel zur Einkaufsliste hinzufügen'));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ name: 'Salz', quantity: 50, unit: 'g' }),
+    );
+  });
+
+  it('zeigt den initialen Fehler auch in der Android-Variante mit Retry', async () => {
+    const user = userEvent.setup();
+    mockMissingData = undefined;
+    mockIsError = true;
+
+    await renderScreen(MissingIngredientsScreenAndroid);
+
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      'Fehlende Zutaten konnten nicht geladen werden.',
+    );
+    await user.press(screen.getByRole('button', { name: 'Erneut versuchen' }));
+
+    expect(mockRefetch).toHaveBeenCalledTimes(1);
   });
 
   it('zeigt ohne Plus einen Paywall-Hinweis statt der Zutatenliste', async () => {
