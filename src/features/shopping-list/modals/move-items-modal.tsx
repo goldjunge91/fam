@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { CloseButton, Press, Surface, Txt } from '@/constants/ui';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import type { Store } from '../hooks/use-stores';
 
@@ -28,7 +28,6 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: theme.space.xl + theme.space.xs,
     paddingTop: theme.space.xl + theme.space.xs,
     paddingBottom: theme.space.xxl + theme.space.xs,
-    backgroundColor: theme.background,
   },
   header: {
     flexDirection: 'row',
@@ -41,14 +40,6 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
     gap: theme.space.xs / 2,
   },
-  closeButton: {
-    width: theme.space.xxl + theme.space.xs,
-    height: theme.space.xxl + theme.space.xs,
-    borderRadius: theme.radius.md,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: theme.backgroundElement,
-  },
   targetList: {
     gap: theme.space.xs,
   },
@@ -59,6 +50,7 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.sm,
     borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
+    minHeight: 44,
     paddingHorizontal: theme.space.lg,
     paddingVertical: theme.space.lg,
   },
@@ -93,7 +85,8 @@ export function MoveItemsModal({
   function renderTarget(label: string, storeId: string | null, color: string) {
     const disabled = isCurrentTarget(storeId);
     return (
-      <Pressable
+      <Press
+        haptic="selection"
         key={storeId ?? 'unassigned'}
         onPress={() => onSelect(storeId)}
         disabled={disabled}
@@ -110,14 +103,14 @@ export function MoveItemsModal({
             {t('shoppingList.moveItems.current')}
           </Txt>
         ) : null}
-      </Pressable>
+      </Press>
     );
   }
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={styles.backdrop}>
-        <View style={styles.panel}>
+        <Surface tone="page" style={styles.panel}>
           <View style={styles.header}>
             <View style={styles.headingGroup}>
               <Txt variant="heading" weight="700">
@@ -127,20 +120,17 @@ export function MoveItemsModal({
                 {t('shoppingList.moveItems.subtitle', { count })}
               </Txt>
             </View>
-            <Pressable
+            <CloseButton
               onPress={onClose}
-              accessibilityRole="button"
               accessibilityLabel={t('shoppingList.moveItems.closeAccessibility')}
-              style={styles.closeButton}>
-              <Txt>✕</Txt>
-            </Pressable>
+            />
           </View>
 
           <View style={styles.targetList}>
             {stores.map((store) => renderTarget(store.name, store.id, store.color))}
             {renderTarget(t('shoppingList.moveItems.unassignedTarget'), null, theme.textMuted)}
           </View>
-        </View>
+        </Surface>
       </View>
     </Modal>
   );

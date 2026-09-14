@@ -1,5 +1,6 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { render, screen, userEvent } from '@testing-library/react-native';
 
+import { space } from '@/components/theme';
 import { i18n } from '@/i18n';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import type { Store } from '../hooks/use-stores';
@@ -53,6 +54,7 @@ describe('MoveItemsModal', () => {
   });
 
   it('sperrt die aktuelle Liste und meldet das gewaehlte Ziel', async () => {
+    const user = userEvent.setup();
     const onSelect = jest.fn();
     await render(
       <MoveItemsModal
@@ -68,7 +70,49 @@ describe('MoveItemsModal', () => {
     const target = screen.getByRole('button', { name: 'Auf Discounter verschieben' });
     expect(target).toBeEnabled();
 
-    await fireEvent.press(target);
+    await user.press(target);
     expect(onSelect).toHaveBeenCalledWith('store-2');
+  });
+
+  it('meldet das Entfernen vom Markt als unzugewiesenes Ziel', async () => {
+    const user = userEvent.setup();
+    const onSelect = jest.fn();
+    await render(
+      <MoveItemsModal
+        visible
+        selectedItems={[item]}
+        stores={stores}
+        onSelect={onSelect}
+        onClose={jest.fn()}
+      />,
+    );
+
+    await user.press(screen.getByRole('button', { name: 'Auf Ohne Markt verschieben' }));
+
+    expect(onSelect).toHaveBeenCalledWith(null);
+  });
+
+  it('bietet eine zentrale, erreichbare Schließen-Aktion an', async () => {
+    const user = userEvent.setup();
+    const onClose = jest.fn();
+    await render(
+      <MoveItemsModal
+        visible
+        selectedItems={[item]}
+        stores={stores}
+        onSelect={jest.fn()}
+        onClose={onClose}
+      />,
+    );
+
+    const closeButton = screen.getByRole('button', { name: 'Verschieben schließen' });
+    expect(closeButton).toHaveStyle({
+      minWidth: space.xxl + space.md + space.xs,
+      minHeight: space.xxl + space.md + space.xs,
+    });
+
+    await user.press(closeButton);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 });
