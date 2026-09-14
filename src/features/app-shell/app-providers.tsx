@@ -9,6 +9,7 @@ import { CelebrationHost } from '@/components/celebration/celebration-host';
 import { AnimatedSplashOverlay } from '@/components/icons/animated-icon';
 import { ThemeProvider as FamThemeProvider, useTheme } from '@/components/theme/ThemeProvider';
 import { SnackbarProvider } from '@/components/ui/snackbar';
+import { Surface } from '@/constants/ui';
 import { PostHogIdentitySync } from '@/features/app-shell/posthog-identity-sync';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { ActiveHouseholdProvider } from '@/features/household/active-household-provider';
@@ -118,13 +119,15 @@ function ThemeRuntime({
   return (
     <RouterThemeProvider value={mode === 'dark' ? DarkTheme : DefaultTheme}>
       <SnackbarProvider>
-        <AnimatedSplashOverlay />
-        <NavigationChromeProvider>
-          {children}
-          <ProfileSheet />
-        </NavigationChromeProvider>
-        <CelebrationHost />
-        {showBugBubble ? <BugBubble config={BUG_BUBBLE_CONFIG} /> : null}
+        <Surface tone="page" style={{ flex: 1 }}>
+          <AnimatedSplashOverlay />
+          <NavigationChromeProvider>
+            {children}
+            <ProfileSheet />
+          </NavigationChromeProvider>
+          <CelebrationHost />
+          {showBugBubble ? <BugBubble config={BUG_BUBBLE_CONFIG} /> : null}
+        </Surface>
       </SnackbarProvider>
     </RouterThemeProvider>
   );

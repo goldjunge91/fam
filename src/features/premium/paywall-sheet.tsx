@@ -3,8 +3,6 @@ import { useEffect, useRef } from 'react';
 import { Alert, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { GradientBackground } from '@/components/layout/gradient-background';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, CloseButton, Press, Txt } from '@/constants/ui';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { trackAnalyticsEvent } from '@/lib/analytics';
@@ -68,6 +66,7 @@ const styles = StyleSheet.create((theme) => ({
     width: 56,
     height: 56,
     borderRadius: theme.radius.md,
+    backgroundColor: theme.premiumGradientMid,
     overflow: 'hidden',
     alignItems: 'center',
     justifyContent: 'center',
@@ -114,7 +113,6 @@ interface PaywallSheetProps {
  * bei Feature-Sperren (z. B. Kochmodus, Rezept-Übernahme in Einkaufsliste).
  */
 export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps) {
-  const { colors } = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
   const {
     plans,
@@ -206,9 +204,6 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
             {/* Hero-Bereich */}
             <View style={styles.hero}>
               <View style={styles.heroBadge}>
-                <GradientBackground
-                  colors={[colors.premiumGradientStart, colors.premiumGradientEnd]}
-                />
                 <Txt variant="glyph" tone="onAccent">
                   ✦
                 </Txt>

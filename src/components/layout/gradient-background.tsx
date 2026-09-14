@@ -1,28 +1,18 @@
-import { StyleSheet } from 'react-native';
-import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import type { GradientSpec } from '@/components/theme/index';
 
 type GradientBackgroundProps = GradientSpec;
 
-export function GradientBackground({ colors, locations }: GradientBackgroundProps) {
-  const resolvedLocations = locations ?? (colors.length === 3 ? [0, 0.40385, 0.96154] : undefined);
-  const stops = colors.map((color, index) => ({
-    offset: resolvedLocations?.[index] ?? (colors.length > 1 ? index / (colors.length - 1) : 0),
-    color,
-  }));
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: theme.background,
+  },
+}));
 
-  return (
-    // SVG unterstützt hier kein NativeWind-className; absolute Positionierung bleibt im Style.
-    <Svg style={StyleSheet.absoluteFill} width="100%" height="100%">
-      <Defs>
-        <LinearGradient id="screenGradient" x1="0%" y1="44%" x2="100%" y2="56%">
-          {stops.map((stop) => (
-            <Stop key={stop.offset} offset={stop.offset} stopColor={stop.color} />
-          ))}
-        </LinearGradient>
-      </Defs>
-      <Rect x={0} y={0} width="100%" height="100%" fill="url(#screenGradient)" />
-    </Svg>
-  );
+/** Preserves the screen-background contract while rendering a flat theme surface. */
+export function GradientBackground(_props: GradientBackgroundProps) {
+  return <View pointerEvents="none" style={styles.root} />;
 }
