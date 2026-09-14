@@ -65,6 +65,7 @@ import {
   Button,
   Card,
   CloseButton,
+  IconButton,
   Pill,
   Press,
   SectionHeading,
@@ -579,5 +580,27 @@ describe('core theme UI primitives', () => {
 
     expect(onSelect).toHaveBeenCalledTimes(1);
     expect(onSelect).toHaveBeenCalledWith('long');
+  });
+
+  it('keeps icon-only actions named and at least 44 points by default', async () => {
+    await render(<IconButton icon="heart" accessibilityLabel="Favorit" onPress={jest.fn()} />);
+
+    const button = screen.getByRole('button', { name: 'Favorit' });
+
+    expect(button).toHaveAccessibleName('Favorit');
+    expect(button).toHaveStyle({ width: 44, height: 44 });
+    expect(typeof button.props.style).not.toBe('function');
+  });
+
+  it('clamps explicit compact icon sizes and exposes disabled state', async () => {
+    await render(
+      <IconButton icon="x" size={40} accessibilityLabel="Schließen" disabled onPress={jest.fn()} />,
+    );
+
+    const button = screen.getByRole('button', { name: 'Schließen', disabled: true });
+
+    expect(button).toHaveStyle({ width: 44, height: 44 });
+    expect(button.props.accessibilityState).toEqual({ disabled: true });
+    expect(button).toBeDisabled();
   });
 });

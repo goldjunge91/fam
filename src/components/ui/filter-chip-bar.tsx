@@ -1,8 +1,8 @@
-import { Pressable, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 
 export type FilterChipOption<T extends string> = {
   value: T;
@@ -22,13 +22,10 @@ const styles = StyleSheet.create({
     paddingRight: 15,
   },
   chip: {
-    minHeight: 28,
+    minHeight: 44,
     justifyContent: 'center',
     paddingHorizontal: 13,
     borderRadius: radius.sm,
-  },
-  pressed: {
-    opacity: 0.75,
   },
 });
 
@@ -44,26 +41,26 @@ export function FilterChipBar<T extends string>({
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      aria-label={label}
+      accessibilityLabel={label}
       contentContainerStyle={styles.content}>
       {options.map((option) => {
         const active = option.value === selected;
         return (
-          <Pressable
+          <Press
             key={option.value}
             onPress={() => onSelect(option.value)}
-            role="button"
-            aria-label={`${label}: ${option.label}`}
-            aria-pressed={active}
-            style={({ pressed }) => [
+            accessibilityRole="button"
+            accessibilityLabel={`${label}: ${option.label}`}
+            accessibilityState={{ selected: active }}
+            haptic="selection"
+            style={[
               styles.chip,
               { backgroundColor: active ? colors.accent : colors.backgroundElement },
-              pressed && styles.pressed,
             ]}>
             <Txt variant="caption" tone={active ? 'onAccent' : 'secondary'} weight="600">
               {option.label}
             </Txt>
-          </Pressable>
+          </Press>
         );
       })}
     </ScrollView>

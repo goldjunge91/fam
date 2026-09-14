@@ -74,6 +74,16 @@ ein 0 × 0 Bild ohne Fläche). Pressed-Feedback kommt aus `Press` in `ui.tsx`
 (Skalierung und Haptik) mit statischem Style-Array. Nachweis für solche
 Änderungen ist ein Geräte-Screenshot, kein Unit-Test.
 
+Für den gemeinsamen Touch-Slice gilt diese Grenze konkret für `QuantityStepper`,
+`FilterChipBar`, `InlineSelect`, `IconButton` und `HeaderIconButton`. Die ersten
+drei verwenden die zentrale `Press`-Basis statt eigener roher Pressed-Styles.
+`FilterChipBar` beschreibt Auswahl nativ über `accessibilityState.selected`,
+nicht über Web-ARIA-Attribute. `IconButton`-Aufrufer liefern für die reine
+Icon-Aktion einen verpflichtenden zugänglichen Namen. Die kompakte 39-Punkt-
+Visualisierung von `HeaderIconButton` ist nur zulässig, wenn ihr `hitSlop` auf
+dem Gerät einen nicht abgeschnittenen und nicht überlappenden Bereich von
+mindestens 44 Punkten sicherstellt.
+
 ## Zustände, Ereignisse und Haptik
 
 - Loading und Disabled blockieren Aktivierung und Haptik. Loading meldet `busy`,

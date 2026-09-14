@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Pressable, TextInput, View } from 'react-native';
+import { TextInput, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { font } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 
 type QuantityStepperProps = {
   value: number;
@@ -28,7 +28,7 @@ const styles = StyleSheet.create((theme) => ({
     backgroundColor: theme.backgroundElement,
   },
   btn: {
-    width: 42,
+    width: 44,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.backgroundSoft,
@@ -77,18 +77,19 @@ export function QuantityStepper({
       accessibilityLabel={label}
       accessibilityValue={{ min, max, now: value }}
       style={[styles.container, fullWidth && staticStyles.fullWidthContainer]}>
-      <Pressable
+      <Press
         onPress={() => update(-1)}
         disabled={decrementDisabled}
         accessibilityRole="button"
         accessibilityLabel={`${label} verringern`}
+        containerStyle={fullWidth ? staticStyles.fullWidthSegment : undefined}
         style={[
           styles.btn,
           fullWidth && staticStyles.fullWidthSegment,
           decrementDisabled ? staticStyles.disabled : staticStyles.enabled,
         ]}>
         <Txt variant="subheading">−</Txt>
-      </Pressable>
+      </Press>
 
       {isEditing ? (
         <TextInput
@@ -115,10 +116,11 @@ export function QuantityStepper({
           ]}
         />
       ) : (
-        <Pressable
+        <Press
           onPress={startEditing}
           accessibilityRole="button"
           accessibilityLabel={`${label} direkt eingeben`}
+          containerStyle={fullWidth ? staticStyles.fullWidthSegment : undefined}
           style={[
             fullWidth ? staticStyles.fullWidthSegment : staticStyles.fixedWidth,
             staticStyles.centerContent,
@@ -132,21 +134,22 @@ export function QuantityStepper({
             ]}>
             {value}
           </Txt>
-        </Pressable>
+        </Press>
       )}
 
-      <Pressable
+      <Press
         onPress={() => update(1)}
         disabled={incrementDisabled}
         accessibilityRole="button"
         accessibilityLabel={`${label} erhöhen`}
+        containerStyle={fullWidth ? staticStyles.fullWidthSegment : undefined}
         style={[
           styles.btn,
           fullWidth && staticStyles.fullWidthSegment,
           incrementDisabled ? staticStyles.disabled : staticStyles.enabled,
         ]}>
         <Txt variant="subheading">+</Txt>
-      </Pressable>
+      </Press>
     </View>
   );
 }
@@ -155,7 +158,7 @@ export function QuantityStepper({
 const staticStyles = StyleSheet.create({
   fullWidthContainer: { width: '100%' },
   fullWidthSegment: { flex: 1 },
-  fixedWidth: { width: 42 },
+  fixedWidth: { width: 44 },
   centerContent: { alignItems: 'center', justifyContent: 'center' },
   enabled: { opacity: 1 },
   disabled: { opacity: 0.45 },

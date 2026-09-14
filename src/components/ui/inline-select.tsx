@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { radius, shadow, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 
 export type InlineSelectOption = {
   value: string;
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   button: {
-    height: 42,
+    height: 44,
     borderRadius: radius.sm,
     borderWidth: 1,
     flexDirection: 'row',
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   option: {
+    minHeight: 44,
     borderRadius: radius.sm,
     paddingHorizontal: space.sm,
     paddingVertical: space.sm,
@@ -72,7 +73,8 @@ export function InlineSelect({ value, options, onChange, accessibilityLabel }: I
 
   return (
     <View style={styles.root}>
-      <Pressable
+      <Press
+        haptic="selection"
         onPress={() => setOpen((current) => !current)}
         accessibilityRole="button"
         accessibilityLabel={accessibilityLabel}
@@ -91,7 +93,7 @@ export function InlineSelect({ value, options, onChange, accessibilityLabel }: I
         <Txt variant="caption" tone="secondary">
           {open ? '︿' : '⌄'}
         </Txt>
-      </Pressable>
+      </Press>
 
       {open ? (
         <View
@@ -107,7 +109,8 @@ export function InlineSelect({ value, options, onChange, accessibilityLabel }: I
           {options.map((option) => {
             const active = option.value === value;
             return (
-              <Pressable
+              <Press
+                haptic="selection"
                 key={option.value}
                 disabled={option.disabled}
                 onPress={() => {
@@ -135,7 +138,7 @@ export function InlineSelect({ value, options, onChange, accessibilityLabel }: I
                     {option.disabledHint}
                   </Txt>
                 ) : null}
-              </Pressable>
+              </Press>
             );
           })}
         </View>

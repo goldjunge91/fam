@@ -32,6 +32,7 @@ describe('HeaderIconButton', () => {
     expect(button.props.className).toBeUndefined();
     expect(typeof button.props.style).not.toBe('function');
     expect(button.props.hitSlop).toBe(3);
+    expect(39 + 2 * button.props.hitSlop).toBeGreaterThanOrEqual(44);
     expect(button).toHaveStyle({
       width: 39,
       height: 39,

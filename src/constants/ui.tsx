@@ -823,7 +823,7 @@ export function IconButton({
   onPress,
   color,
   bg,
-  size = 42,
+  size = 44,
   iconSize = 20,
   style,
   disabled,
@@ -837,22 +837,26 @@ export function IconButton({
   iconSize?: number;
   style?: StyleProp<ViewStyle>;
   disabled?: boolean;
-  accessibilityLabel?: string;
+  accessibilityLabel: string;
 }) {
   const { colors } = useTheme();
   const fg = color ?? colors.text;
   const background = bg ?? colors.backgroundElement;
+  const effectiveSize = Math.max(size, 44);
   return (
     <Press
       onPress={onPress}
       disabled={disabled}
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel}
+      accessibilityState={disabled ? { disabled: true } : undefined}
       style={[
         {
-          width: size,
-          height: size,
-          borderRadius: size / 2,
+          width: effectiveSize,
+          height: effectiveSize,
+          minWidth: 44,
+          minHeight: 44,
+          borderRadius: effectiveSize / 2,
           backgroundColor: background,
           alignItems: 'center',
           justifyContent: 'center',
