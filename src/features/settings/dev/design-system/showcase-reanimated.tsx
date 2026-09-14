@@ -142,22 +142,33 @@ function MotionBasicsDemo() {
   const startAnimation = () => {
     setRuns((currentRuns) => currentRuns + 1);
 
+    if (reducedMotion) {
+      scale.value = 1;
+      return;
+    }
+
     if (mode === 'spring') {
-      scale.value = withSpring(1, { damping: 14, stiffness: 320, mass: 0.5 });
+      scale.value = withSequence(
+        withSpring(1.18, { damping: 7, stiffness: 240, mass: 0.7 }),
+        withSpring(1, { damping: 13, stiffness: 260, mass: 0.5 }),
+      );
       return;
     }
 
     if (mode === 'timing') {
       scale.value = withSequence(
-        withTiming(0.9, { duration: reducedMotion ? 0 : 120 }),
-        withTiming(1, { duration: reducedMotion ? 0 : 220 }),
+        withTiming(0.78, { duration: 180 }),
+        withTiming(1.16, { duration: 520 }),
+        withTiming(1, { duration: 180 }),
       );
       return;
     }
 
     scale.value = withSequence(
-      withTiming(0.88, { duration: reducedMotion ? 0 : 90 }),
-      withSpring(1, { damping: 14, stiffness: 320, mass: 0.5 }),
+      withTiming(0.8, { duration: 90 }),
+      withTiming(1.2, { duration: 90 }),
+      withTiming(0.9, { duration: 90 }),
+      withTiming(1, { duration: 90 }),
     );
   };
 
@@ -194,12 +205,9 @@ function MotionBasicsDemo() {
         </Txt>
       </Surface>
       <CodeSample>
-        {`const scale = useSharedValue(1)
-
-scale.value = withSequence(
-  withTiming(0.9, { duration: 90 }),
-  withSpring(1),
-)`}
+        {`Spring:   withSequence(withSpring(1.18), withSpring(1))
+Timing:   withTiming(0.78, { duration: 180 }) → 1.16 → 1
+Sequence: 0.8 → 1.2 → 0.9 → 1`}
       </CodeSample>
     </Subsection>
   );
