@@ -30,6 +30,10 @@ const styles = StyleSheet.create((theme) => ({
   editContent: {
     gap: theme.space.sm,
   },
+  state: {
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
   buttonRow: {
     flexDirection: 'row',
     gap: theme.space.sm,
@@ -44,7 +48,14 @@ export function StorageLocationsScreen() {
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
 
-  const { data: locations, isLoading } = useStorageLocations(currentHousehold?.id);
+  const {
+    data: locations,
+    isLoading,
+    isError,
+    refetch,
+  } = useStorageLocations(currentHousehold?.id);
+  const displayedLocations = locations ?? [];
+  const hasLoadedLocations = locations !== undefined;
   const addMutation = useAddStorageLocationMutation();
   const updateMutation = useUpdateStorageLocationMutation();
   const deleteMutation = useDeleteStorageLocationMutation();
@@ -129,69 +140,111 @@ export function StorageLocationsScreen() {
       <Card title="Vorhandene Lagerorte">
         {isLoading ? (
           <Txt variant="body">Lädt...</Txt>
-        ) : locations?.length === 0 ? (
-          <Txt variant="body" tone="secondary">
-            Keine Lagerorte vorhanden.
-          </Txt>
+        ) : !hasLoadedLocations && isError ? (
+          <View style={styles.state}>
+            <Txt variant="body" tone="danger" accessibilityRole="alert">
+              Lagerorte konnten nicht geladen werden.
+            </Txt>
+            <Button
+              title="Erneut versuchen"
+              variant="secondary"
+              size="sm"
+              onPress={() => void refetch()}
+            />
+          </View>
+        ) : displayedLocations.length === 0 ? (
+          <>
+            {isError ? (
+              <View style={styles.state}>
+                <Txt variant="body" tone="danger" accessibilityRole="alert">
+                  Lagerorte konnten nicht aktualisiert werden.
+                </Txt>
+                <Button
+                  title="Erneut versuchen"
+                  variant="secondary"
+                  size="sm"
+                  onPress={() => void refetch()}
+                />
+              </View>
+            ) : null}
+            <Txt variant="body" tone="secondary">
+              Keine Lagerorte vorhanden.
+            </Txt>
+          </>
         ) : (
-          <View style={styles.locationList}>
-            {locations?.map((loc) => {
-              const isEditing = editingId === loc.id;
+          <>
+            {isError ? (
+              <View style={styles.state}>
+                <Txt variant="body" tone="danger" accessibilityRole="alert">
+                  Lagerorte konnten nicht aktualisiert werden.
+                </Txt>
+                <Button
+                  title="Erneut versuchen"
+                  variant="secondary"
+                  size="sm"
+                  onPress={() => void refetch()}
+                />
+              </View>
+            ) : null}
+            <View style={styles.locationList}>
+              {displayedLocations.map((loc) => {
+                const isEditing = editingId === loc.id;
 
-              return (
-                <View key={loc.id} style={styles.locationRow}>
-                  {isEditing ? (
-                    /* Inline-Bearbeitung für Lagerort-Namen */
-                    <View style={styles.editContent}>
-                      <TextField value={editingName} onChangeText={setEditingName} autoFocus />
-                      <View style={styles.buttonRow}>
-                        <View style={styles.flex}>
-                          <Button
-                            title="Speichern"
-                            onPress={() => handleUpdate(loc.id)}
-                            loading={updateMutation.isPending}
-                            disabled={!editingName.trim()}
-                          />
+                return (
+                  <View key={loc.id} style={styles.locationRow}>
+                    {isEditing ? (
+                      /* Inline-Bearbeitung für Lagerort-Namen */
+                      <View style={styles.editContent}>
+                        <TextField value={editingName} onChangeText={setEditingName} autoFocus />
+                        <View style={styles.buttonRow}>
+                          <View style={styles.flex}>
+                            <Button
+                              title="Speichern"
+                              onPress={() => handleUpdate(loc.id)}
+                              loading={updateMutation.isPending}
+                              disabled={!editingName.trim()}
+                            />
+                          </View>
+                          <View style={styles.flex}>
+                            <Button
+                              title="Abbrechen"
+                              variant="secondary"
+                              onPress={() => {
+                                setEditingId(null);
+                                setEditingName('');
+                              }}
+                            />
+                          </View>
                         </View>
-                        <View style={styles.flex}>
+                      </View>
+                    ) : (
+                      /* Anzeigezeile für Lagerort mit Umbenennen und Löschen */
+                      <>
+                        <Txt variant="body" weight="700">
+                          {loc.name}
+                        </Txt>
+                        <View style={styles.buttonRow}>
                           <Button
-                            title="Abbrechen"
+                            title="Umbenennen"
                             variant="secondary"
                             onPress={() => {
-                              setEditingId(null);
-                              setEditingName('');
+                              setEditingId(loc.id);
+                              setEditingName(loc.name);
                             }}
                           />
+                          <Button
+                            title="Löschen"
+                            variant="danger"
+                            onPress={() => handleDelete(loc.id, loc.name)}
+                          />
                         </View>
-                      </View>
-                    </View>
-                  ) : (
-                    /* Anzeigezeile für Lagerort mit Umbenennen und Löschen */
-                    <>
-                      <Txt variant="body" weight="700">
-                        {loc.name}
-                      </Txt>
-                      <View style={styles.buttonRow}>
-                        <Button
-                          title="Umbenennen"
-                          variant="secondary"
-                          onPress={() => {
-                            setEditingId(loc.id);
-                            setEditingName(loc.name);
-                          }}
-                        />
-                        <Button
-                          title="Löschen"
-                          variant="danger"
-                          onPress={() => handleDelete(loc.id, loc.name)}
-                        />
-                      </View>
-                    </>
-                  )}
-                </View>
-              );
-            })}
-          </View>
+                      </>
+                    )}
+                  </View>
+                );
+              })}
+            </View>
+          </>
         )}
       </Card>
     </Screen>

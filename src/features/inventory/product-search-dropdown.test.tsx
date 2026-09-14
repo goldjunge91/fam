@@ -138,6 +138,20 @@ it('bietet "manuell anlegen" an, wenn nichts gefunden wurde', async () => {
   });
 });
 
+it('zeigt bei einem Suchfehler einen Retry an', async () => {
+  const retry = jest.fn();
+  mockUseProductSearch.mockReturnValue(searchState({ searched: true, failed: true, retry }));
+
+  await render(<ControlledDropdown onSelectProduct={() => {}} />);
+  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Fantasieprodukt');
+
+  expect(await screen.findByText('Open Food Facts ist gerade nicht erreichbar.')).toBeOnTheScreen();
+  await fireEvent.press(screen.getByRole('button', { name: 'Erneut versuchen' }));
+
+  expect(retry).toHaveBeenCalledTimes(1);
+  expect(screen.queryByText(/manuell anlegen/)).not.toBeOnTheScreen();
+});
+
 it('sucht nicht, wenn mit bereits gesetztem Wert gemountet wird (Rezept bearbeiten)', async () => {
   await render(<ControlledDropdown initialValue="Hafermilch" onSelectProduct={() => {}} />);
 

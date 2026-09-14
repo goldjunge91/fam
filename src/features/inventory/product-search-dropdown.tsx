@@ -23,7 +23,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Press, TextField, Txt } from '@/constants/ui';
+import { Button, Press, TextField, Txt } from '@/constants/ui';
 import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
 import { useProductSearch } from '@/features/product-search/hooks/use-product-search';
 import { usePreferredProductMarketName } from '@/features/product-search/preferred-market';
@@ -120,6 +120,11 @@ const styles = StyleSheet.create((theme) => ({
   loadingMore: {
     alignItems: 'center',
     paddingVertical: theme.space.sm,
+  },
+  errorState: {
+    alignItems: 'center',
+    gap: theme.space.sm,
+    padding: theme.space.lg,
   },
 }));
 
@@ -235,15 +240,18 @@ export const ProductSearchDropdown = forwardRef<
     results: suggestions,
     searching,
     loadingMore,
+    failed,
     searched,
     loadMore,
+    retry,
   } = useProductSearch(searchQuery, { preferredMarket, pageSize: PAGE_SIZE });
 
   useEffect(() => {
     if (searched) setShowDropdown(true);
   }, [searched]);
 
-  const showEmptyState = searched && !searching && suggestions.length === 0;
+  const showErrorState = searched && !searching && failed && suggestions.length === 0;
+  const showEmptyState = searched && !searching && !failed && suggestions.length === 0;
   const isTrailingOutside = trailingPlacement === 'outside';
   const loadingIndicator = (
     <ActivityIndicator
@@ -290,7 +298,7 @@ export const ProductSearchDropdown = forwardRef<
         {isTrailingOutside ? trailing : null}
       </View>
 
-      {showDropdown && (suggestions.length > 0 || showEmptyState) && (
+      {showDropdown && (suggestions.length > 0 || showEmptyState || showErrorState) && (
         <View style={styles.panelWrapper}>
           {}
           <Press
@@ -331,7 +339,19 @@ export const ProductSearchDropdown = forwardRef<
               if (distanceToBottom < LOAD_MORE_THRESHOLD_PX) loadMore();
             }}
             scrollEventThrottle={100}>
-            {showEmptyState ? (
+            {showErrorState ? (
+              <View style={styles.errorState}>
+                <Txt variant="body" tone="danger" center accessibilityRole="alert">
+                  Open Food Facts ist gerade nicht erreichbar.
+                </Txt>
+                <Button
+                  title="Erneut versuchen"
+                  variant="secondary"
+                  size="sm"
+                  onPress={() => void retry()}
+                />
+              </View>
+            ) : showEmptyState ? (
               <Press
                 haptic="selection"
                 onPress={() => {
@@ -342,6 +362,8 @@ export const ProductSearchDropdown = forwardRef<
                     params: { prefillName: value.trim() },
                   });
                 }}
+                accessibilityRole="button"
+                accessibilityLabel={`${value.trim()} manuell anlegen`}
                 style={styles.row}>
                 <View style={styles.flex}>
                   <Txt variant="body" weight="700">
@@ -357,6 +379,8 @@ export const ProductSearchDropdown = forwardRef<
               <Press
                 key={item.productId || item.barcode || item.name}
                 haptic="selection"
+                accessibilityRole="button"
+                accessibilityLabel={item.name}
                 onPress={() => {
                   setSelectedName(item.name);
                   onSelectProduct(item);
