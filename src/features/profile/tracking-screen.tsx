@@ -1,4 +1,3 @@
-import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { Fragment, useEffect, useMemo, useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
@@ -11,18 +10,13 @@ import { useSession } from '@/features/auth/session-provider';
 import {
   type TrackingMethod,
   useCurrentGoal,
-  useLatestWeightEntry,
   useUpdateTrackingDayStartTimeMutation,
   useUpdateTrackingMethodMutation,
-  useWeightEntries,
 } from '@/features/calorie-tracking/api';
-import { calculateAgeYears, calculateBmr } from '@/features/calorie-tracking/bmr';
-import { type ActivityLevel, calculateTdee } from '@/features/calorie-tracking/tdee';
 import { InjectionPlanSection } from '@/features/glp1/components/injection-plan-section';
-import { updateProfile, useProfile } from '@/features/profile/api';
+import { useProfile } from '@/features/profile/api';
 import { getTrackingMethodSettings, TRACKING_METHODS } from '@/features/profile/tracking-methods';
 import { SettingsGroup } from '@/features/settings/settings-menu';
-import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
 import { useFeatureFlags } from '@/lib/posthog';
 
 function formatHourString(hour: number): string {
@@ -37,14 +31,6 @@ const TIME_PRESETS: { hour: number; label: string; tag: string }[] = [
   { hour: 14, label: '14:00', tag: 'Spätschicht' },
   { hour: 22, label: '22:00', tag: 'Nachtschicht' },
 ];
-
-const ACTIVITY_LABELS: Record<string, string> = {
-  sedentary: 'Kaum Bewegung',
-  light: 'Leicht aktiv',
-  moderate: 'Mäßig aktiv',
-  active: 'Aktiv',
-  very_active: 'Sehr aktiv',
-};
 
 const styles = StyleSheet.create((theme) => ({
   timePicker: {
@@ -185,67 +171,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   macroCard: {
     alignItems: 'center',
-  },
-  energyBanner: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    padding: theme.space.lg,
-    borderRadius: theme.radius.sm,
-    borderWidth: theme.borderWidth.base,
-    borderColor: theme.border,
-  },
-  energyItem: {
-    flex: 1,
-    alignItems: 'center',
-    minWidth: 0,
-  },
-  energyDivider: {
-    width: StyleSheet.hairlineWidth,
-    height: theme.space.xxl + theme.space.xs,
-    backgroundColor: theme.border,
-  },
-  choiceLabel: {
-    marginBottom: theme.space.xs,
-  },
-  choiceRow: {
-    flexDirection: 'row',
-    gap: theme.space.sm,
-  },
-  choiceButton: {
-    flex: 1,
-    alignItems: 'center',
-    paddingVertical: theme.space.sm,
-    borderRadius: theme.radius.sm,
-    borderWidth: theme.borderWidth.base,
-    borderColor: theme.border,
-    backgroundColor: theme.surface,
-  },
-  choiceButtonSelected: {
-    backgroundColor: theme.basil,
-    borderColor: theme.basil,
-  },
-  activityList: {
-    gap: theme.space.sm,
-  },
-  activityOption: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: theme.space.md,
-    paddingVertical: theme.space.sm,
-    paddingHorizontal: theme.space.md,
-    borderRadius: theme.radius.sm,
-    borderWidth: theme.borderWidth.base,
-    borderColor: theme.border,
-    backgroundColor: theme.surface,
-  },
-  activityOptionSelected: {
-    backgroundColor: theme.basil,
-    borderColor: theme.basil,
-  },
-  modalScroll: {
-    flexShrink: 1,
   },
 }));
 
@@ -423,27 +348,9 @@ export function TrackingScreen() {
   const userId = session?.user.id;
   const { data: profile } = useProfile(userId);
   const { data: currentGoal } = useCurrentGoal(userId);
-  const { data: latestWeight } = useLatestWeightEntry(userId);
   const featureFlags = useFeatureFlags();
   const trackingMethodOverrides = useDevSettingsStore((state) => state.trackingMethodOverrides);
   const trackingMethodEnabled = getTrackingMethodSettings(featureFlags, trackingMethodOverrides);
-  const dayStartTime = profile?.tracking_day_start_time ?? '00:00';
-  const selectedLogicalDate = getLogicalDateForTimestamp(new Date(), dayStartTime);
-  const { data: logicalDayWeightEntries = [] } = useWeightEntries(
-    userId,
-    null,
-    selectedLogicalDate,
-    dayStartTime,
-  );
-  const logicalDayWeight = logicalDayWeightEntries.at(-1);
-  const queryClient = useQueryClient();
-
-  const [biometricsModalVisible, setBiometricsModalVisible] = useState(false);
-  const [editHeightCm, setEditHeightCm] = useState('');
-  const [editSex, setEditSex] = useState<'male' | 'female' | null>(null);
-  const [editBirthDate, setEditBirthDate] = useState('');
-  const [editActivityLevel, setEditActivityLevel] = useState<ActivityLevel | null>(null);
-  const [savingBiometrics, setSavingBiometrics] = useState(false);
 
   // Synchroner lokaler State für Tracking-Methode und Tagesstart
   const [selectedMethod, setSelectedMethod] = useState<TrackingMethod>('standard');
@@ -471,62 +378,6 @@ export function TrackingScreen() {
     if (!userId || time === selectedStartTime) return;
     setSelectedStartTime(time);
     updateStartTimeMutation.mutate({ userId, time });
-  }
-
-  // BMR / TDEE / Alter
-  const bmrResult = useMemo(() => {
-    if (!profile) return null;
-    return calculateBmr(
-      {
-        sex: (profile.sex as 'male' | 'female') ?? null,
-        birthDate: profile.birth_date ?? null,
-        heightCm: profile.height_cm ?? null,
-        weightKg: latestWeight?.weight_kg ?? null,
-      },
-      new Date(),
-    );
-  }, [profile, latestWeight]);
-
-  const bmrKcal = bmrResult?.ok ? Math.round(bmrResult.bmrKcal) : null;
-  const tdeeKcal =
-    bmrResult?.ok && profile?.activity_level
-      ? Math.round(calculateTdee(bmrResult.bmrKcal, profile.activity_level as ActivityLevel))
-      : null;
-
-  const ageYears = useMemo(() => {
-    if (!profile?.birth_date) return null;
-    const parts = profile.birth_date.split('-');
-    if (parts.length !== 3) return null;
-    const d = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-    return Number.isNaN(d.getTime()) ? null : calculateAgeYears(d, new Date());
-  }, [profile?.birth_date]);
-
-  function openBiometricsModal() {
-    if (profile) {
-      setEditHeightCm(profile.height_cm ? String(profile.height_cm) : '');
-      setEditSex((profile.sex as 'male' | 'female') ?? null);
-      setEditBirthDate(profile.birth_date ?? '');
-      setEditActivityLevel((profile.activity_level as ActivityLevel) ?? null);
-    }
-    setBiometricsModalVisible(true);
-  }
-
-  async function handleSaveBiometrics() {
-    if (!userId || savingBiometrics) return;
-    setSavingBiometrics(true);
-
-    const heightNum = editHeightCm.trim() ? Number(editHeightCm.replace(',', '.')) : undefined;
-
-    await updateProfile(userId, {
-      heightCm: Number.isNaN(heightNum) ? undefined : heightNum,
-      sex: editSex ?? undefined,
-      birthDate: editBirthDate.trim() || undefined,
-      activityLevel: editActivityLevel ?? undefined,
-    });
-
-    await queryClient.invalidateQueries({ queryKey: ['profile', userId] });
-    setSavingBiometrics(false);
-    setBiometricsModalVisible(false);
   }
 
   return (
@@ -636,83 +487,7 @@ export function TrackingScreen() {
         </View>
       </SettingsGroup>
 
-      <SettingsGroup title="Vitalwerte & Biometrie">
-        <View style={styles.groupContentWide}>
-          {/* 2x2 Grid für Kern-Messwerte */}
-          <View style={styles.metricRow}>
-            <Surface tone="surface" style={styles.metricCard}>
-              <Txt variant="caption" tone="secondary">
-                📏 Körpergröße
-              </Txt>
-              <Txt variant="body" weight="700" style={styles.metricValue}>
-                {profile?.height_cm ? `${profile.height_cm} cm` : 'Nicht gesetzt'}
-              </Txt>
-            </Surface>
-
-            <Surface tone="surface" style={styles.metricCard}>
-              <Txt variant="caption" tone="secondary">
-                ⚖️ Aktuelles Gewicht
-              </Txt>
-              <Txt variant="body" weight="700" style={styles.metricValue}>
-                {logicalDayWeight?.weight_kg ? `${logicalDayWeight.weight_kg} kg` : 'Kein Log'}
-              </Txt>
-            </Surface>
-          </View>
-
-          <View style={styles.metricRow}>
-            <Surface tone="surface" style={styles.metricCard}>
-              <Txt variant="caption" tone="secondary">
-                🧬 Geschlecht & Alter
-              </Txt>
-              <Txt variant="body" weight="700" style={styles.metricValue}>
-                {profile?.sex === 'male'
-                  ? 'Männlich'
-                  : profile?.sex === 'female'
-                    ? 'Weiblich'
-                    : '–'}
-                {ageYears !== null ? ` · ${ageYears} J.` : ''}
-              </Txt>
-            </Surface>
-
-            <Surface tone="surface" style={styles.metricCard}>
-              <Txt variant="caption" tone="secondary">
-                🏃 Aktivitätslevel
-              </Txt>
-              <Txt variant="body" weight="700" style={styles.metricValue} numberOfLines={1}>
-                {profile?.activity_level
-                  ? (ACTIVITY_LABELS[profile.activity_level] ?? profile.activity_level)
-                  : 'Nicht gesetzt'}
-              </Txt>
-            </Surface>
-          </View>
-
-          {/* BMR & TDEE Energie-Banner */}
-          <Surface tone="surface" style={styles.energyBanner}>
-            <View style={styles.energyItem}>
-              <Txt variant="caption" tone="secondary">
-                Grundumsatz (BMR)
-              </Txt>
-              <Txt variant="body" weight="700" style={styles.metricValue}>
-                {bmrKcal ? `${bmrKcal} kcal` : '–'}
-              </Txt>
-            </View>
-            <View style={styles.energyDivider} />
-            <View style={styles.energyItem}>
-              <Txt variant="caption" tone="secondary">
-                Gesamtbedarf (TDEE)
-              </Txt>
-              <Txt variant="body" weight="700" style={styles.metricValue}>
-                {tdeeKcal ? `${tdeeKcal} kcal` : '–'}
-              </Txt>
-            </View>
-          </Surface>
-
-          {/* Button zum Bearbeiten der Biometrie */}
-          <Button title="Biometrie bearbeiten" variant="secondary" onPress={openBiometricsModal} />
-        </View>
-      </SettingsGroup>
-
-      {/* 4. Tracking-Rhythmus & Zeitfenster (Tagesstart-Uhrzeit) */}
+      {/* 3. Tracking-Rhythmus & Zeitfenster (Tagesstart-Uhrzeit) */}
       <SettingsGroup title="Tracking-Rhythmus & Zeitfenster">
         <View style={styles.groupContent}>
           <TimePicker
@@ -722,122 +497,6 @@ export function TrackingScreen() {
           />
         </View>
       </SettingsGroup>
-
-      <Modal
-        visible={biometricsModalVisible}
-        transparent
-        animationType="slide"
-        onRequestClose={() => setBiometricsModalVisible(false)}>
-        <View style={styles.modalBackdrop}>
-          <Surface tone="page" style={styles.modal}>
-            <View style={styles.modalHeader}>
-              <Txt variant="title">Biometrie bearbeiten</Txt>
-              <CloseButton
-                onPress={() => setBiometricsModalVisible(false)}
-                accessibilityLabel="Biometrie bearbeiten schließen"
-              />
-            </View>
-
-            <ScrollView
-              showsVerticalScrollIndicator={false}
-              style={styles.modalScroll}
-              contentContainerStyle={styles.modalFields}>
-              <TextField
-                label="Größe in cm"
-                value={editHeightCm}
-                onChangeText={setEditHeightCm}
-                placeholder="z. B. 180"
-                keyboardType="numeric"
-              />
-
-              <View>
-                <Txt variant="caption" tone="secondary" style={styles.choiceLabel}>
-                  Geschlecht (Rechenbasis für Grundumsatz)
-                </Txt>
-                <View style={styles.choiceRow}>
-                  <Pressable
-                    onPress={() => setEditSex('male')}
-                    style={[
-                      styles.choiceButton,
-                      editSex === 'male' && styles.choiceButtonSelected,
-                    ]}>
-                    <Txt
-                      variant="body"
-                      weight="700"
-                      tone={editSex === 'male' ? 'onAccent' : 'primary'}>
-                      Männlich
-                    </Txt>
-                  </Pressable>
-                  <Pressable
-                    onPress={() => setEditSex('female')}
-                    style={[
-                      styles.choiceButton,
-                      editSex === 'female' && styles.choiceButtonSelected,
-                    ]}>
-                    <Txt
-                      variant="body"
-                      weight="700"
-                      tone={editSex === 'female' ? 'onAccent' : 'primary'}>
-                      Weiblich
-                    </Txt>
-                  </Pressable>
-                </View>
-              </View>
-
-              <TextField
-                label="Geburtsdatum (JJJJ-MM-TT)"
-                value={editBirthDate}
-                onChangeText={setEditBirthDate}
-                placeholder="1990-05-15"
-              />
-
-              <View>
-                <Txt variant="caption" tone="secondary" style={styles.choiceLabel}>
-                  Aktivitätslevel
-                </Txt>
-                <View style={styles.activityList}>
-                  {(
-                    ['sedentary', 'light', 'moderate', 'active', 'very_active'] as ActivityLevel[]
-                  ).map((level) => {
-                    const isSelected = editActivityLevel === level;
-                    return (
-                      <Pressable
-                        key={level}
-                        onPress={() => setEditActivityLevel(level)}
-                        style={[
-                          styles.activityOption,
-                          isSelected && styles.activityOptionSelected,
-                        ]}>
-                        <Txt variant="body" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
-                          {ACTIVITY_LABELS[level]}
-                        </Txt>
-                        {isSelected ? (
-                          <Txt variant="caption" tone="onAccent">
-                            ✓
-                          </Txt>
-                        ) : null}
-                      </Pressable>
-                    );
-                  })}
-                </View>
-              </View>
-            </ScrollView>
-
-            <View style={styles.modalActions}>
-              <Button
-                title="Biometrie speichern"
-                onPress={handleSaveBiometrics}
-                loading={savingBiometrics}
-              />
-              <Button
-                title="Abbrechen"
-                variant="secondary"
-                onPress={() => setBiometricsModalVisible(false)}
-              />
-            </View>
-          </Surface>
-        </View>
-      </Modal>
     </Screen>
   );
 }

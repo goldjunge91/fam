@@ -10,9 +10,6 @@ export const profileEditStyles = StyleSheet.create((theme) => ({
   passwordButton: {
     marginTop: theme.space.sm,
   },
-  foodRulesOffset: {
-    marginTop: theme.space.sm,
-  },
   summaries: {
     gap: theme.space.lg + theme.space.sm,
     marginTop: theme.space.sm,
@@ -20,14 +17,11 @@ export const profileEditStyles = StyleSheet.create((theme) => ({
   formError: {
     paddingHorizontal: theme.space.xs,
   },
-  summaryRoot: {
-    gap: theme.space.sm,
-  },
   summaryHeading: {
     gap: theme.space.xs / 2,
     marginBottom: theme.space.sm,
   },
-  summarySurface: {
+  biometricsCard: {
     borderRadius: theme.radius.famLarge,
     paddingHorizontal: theme.space.lg,
   },

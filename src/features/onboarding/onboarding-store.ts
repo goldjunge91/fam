@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { create } from 'zustand';
 import { useSession } from '@/features/auth/session-provider';
+import { createWeightEntry, latestWeightEntryQueryKey } from '@/features/calorie-tracking/api';
 import { markOnboardingCompleted } from '@/features/onboarding/api';
 import { persistOnboardingCompleted } from '@/features/onboarding/onboarding-completion';
 import { updateProfile } from '@/features/profile/api';
@@ -73,9 +74,23 @@ export function useOnboarding() {
     store.setStatus({ isLoading: true, error: null });
     try {
       const state = useOnboardingStore.getState().state;
-      if (Object.keys(state.profile).length > 0) {
-        const { error } = await updateProfile(session.user.id, state.profile);
+      const profileData = {
+        displayName: state.profile.displayName,
+        birthDate: state.profile.birthDate,
+        heightCm: state.profile.heightCm,
+        sex: state.profile.sex,
+        activityLevel: state.profile.activityLevel,
+      };
+      const hasProfileData = Object.values(profileData).some((value) => value !== undefined);
+      if (hasProfileData) {
+        const { error } = await updateProfile(session.user.id, profileData);
         if (error) throw error;
+      }
+      if (state.profile.weightKg !== undefined) {
+        await createWeightEntry({ userId: session.user.id, weightKg: state.profile.weightKg });
+        await queryClient.invalidateQueries({
+          queryKey: latestWeightEntryQueryKey(session.user.id),
+        });
       }
       const { error: modulesError } = await saveModulePreferences(session.user.id, state.modules);
       if (modulesError) throw modulesError;

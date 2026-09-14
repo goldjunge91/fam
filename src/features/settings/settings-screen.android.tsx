@@ -24,6 +24,7 @@ import { useProfile } from '@/features/profile/api';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { PlusAndAiPromoCard } from '@/features/settings/plus-and-ai-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
+import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { debugLogEvent } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 
@@ -83,6 +84,7 @@ export function SettingsScreen() {
   const { data: profile } = useProfile(session?.user.id);
   const initials = useProfileInitials();
   const { activeHousehold } = useActiveHousehold();
+  const { isFeatureEnabled } = useFeatureAccess();
 
   const { data: fabPosition = DEFAULT_FAB_POSITION } = useFabPosition();
   const setFabPosition = useSetFabPosition();
@@ -184,16 +186,18 @@ export function SettingsScreen() {
 
         {/* Einstellungs-Menügruppen */}
         <View style={styles.groups}>
-          {/* Tracking & Ernährung (Ziele, Vitalwerte, Methoden) */}
-          <SettingsGroup title="Tracking & Ernährung">
-            <SettingsRow
-              icon="🎯"
-              label="Mein Tracking"
-              hint="Methode, Ziele, Vitalwerte & Rhythmus"
-              onPress={() => router.push('/profile/tracking')}
-              last
-            />
-          </SettingsGroup>
+          {/* Tracking & Ernährung (Ziele, Methoden) */}
+          {isFeatureEnabled('calories') ? (
+            <SettingsGroup title="Tracking & Ernährung">
+              <SettingsRow
+                icon="🎯"
+                label="Mein Tracking"
+                hint="Methode, Ziele & Rhythmus"
+                onPress={() => router.push('/profile/tracking')}
+                last
+              />
+            </SettingsGroup>
+          ) : null}
 
           {/* Haushalt (Mitglieder, Lagerorte, Einkaufsliste) */}
           <SettingsGroup title="Haushalt">

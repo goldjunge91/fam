@@ -1,6 +1,6 @@
 import { Pressable, View } from 'react-native';
 
-import { Surface, Txt } from '@/constants/ui';
+import { Card, Txt } from '@/constants/ui';
 import {
   ACTIVITY_OPTIONS,
   formatBirthDate,
@@ -32,7 +32,7 @@ export function BiometricsSummary({
   const accessibleSummary = `${height}, ${weight}, ${birthDate}, ${sex}, ${activity}`;
 
   return (
-    <View style={profileEditStyles.summaryRoot}>
+    <Card style={profileEditStyles.biometricsCard}>
       <View style={profileEditStyles.biometricsHeader}>
         <Txt variant="body" weight="700">
           Körper &amp; Aktivität
@@ -48,67 +48,62 @@ export function BiometricsSummary({
         </Pressable>
       </View>
 
-      <Surface tone="surface" style={profileEditStyles.summarySurface}>
-        <View style={profileEditStyles.biometricsWeight}>
-          <View style={profileEditStyles.biometricsWeightCopy}>
-            <Txt variant="body" tone="secondary">
-              Aktuelles Gewicht
-            </Txt>
-            <Txt variant="heading">{weight}</Txt>
-          </View>
+      <View style={profileEditStyles.biometricsWeight}>
+        <View style={profileEditStyles.biometricsWeightCopy}>
+          <Txt variant="body" tone="secondary">
+            Aktuelles Gewicht
+          </Txt>
+          <Txt variant="heading">{weight}</Txt>
+        </View>
+        <Txt variant="caption" tone="secondary">
+          Neuester Eintrag
+        </Txt>
+      </View>
+
+      <View
+        style={[
+          profileEditStyles.biometricsFactsRow,
+          profileEditStyles.biometricsFactsRowBordered,
+        ]}>
+        <View style={[profileEditStyles.biometricsFact, profileEditStyles.biometricsFactBordered]}>
           <Txt variant="caption" tone="secondary">
-            Neuester Eintrag
+            Größe
+          </Txt>
+          <Txt variant="body" weight="700">
+            {height}
           </Txt>
         </View>
-
-        <View
-          style={[
-            profileEditStyles.biometricsFactsRow,
-            profileEditStyles.biometricsFactsRowBordered,
-          ]}>
-          <View
-            style={[profileEditStyles.biometricsFact, profileEditStyles.biometricsFactBordered]}>
-            <Txt variant="caption" tone="secondary">
-              Größe
-            </Txt>
-            <Txt variant="body" weight="700">
-              {height}
-            </Txt>
-          </View>
-          <View style={profileEditStyles.biometricsFact}>
-            <Txt variant="caption" tone="secondary">
-              Geburtsdatum
-            </Txt>
-            <Txt variant="body" weight="700">
-              {birthDate}
-            </Txt>
-          </View>
+        <View style={profileEditStyles.biometricsFact}>
+          <Txt variant="caption" tone="secondary">
+            Geburtsdatum
+          </Txt>
+          <Txt variant="body" weight="700">
+            {birthDate}
+          </Txt>
         </View>
+      </View>
 
-        <View style={profileEditStyles.biometricsFactsRow}>
-          <View
-            style={[profileEditStyles.biometricsFact, profileEditStyles.biometricsFactBordered]}>
-            <Txt variant="caption" tone="secondary">
-              Berechnungsbasis
-            </Txt>
-            <Txt variant="body" weight="700">
-              {sex}
-            </Txt>
-          </View>
-          <View style={profileEditStyles.biometricsFact}>
-            <Txt variant="caption" tone="secondary">
-              Aktivität
-            </Txt>
-            <Txt variant="body" weight="700">
-              {activity}
-            </Txt>
-          </View>
+      <View style={profileEditStyles.biometricsFactsRow}>
+        <View style={[profileEditStyles.biometricsFact, profileEditStyles.biometricsFactBordered]}>
+          <Txt variant="caption" tone="secondary">
+            Berechnungsbasis
+          </Txt>
+          <Txt variant="body" weight="700">
+            {sex}
+          </Txt>
         </View>
-      </Surface>
-
+        <View style={profileEditStyles.biometricsFact}>
+          <Txt variant="caption" tone="secondary">
+            Aktivität
+          </Txt>
+          <Txt variant="body" weight="700">
+            {activity}
+          </Txt>
+        </View>
+      </View>
       <Txt variant="caption" tone="secondary" style={profileEditStyles.privateNote}>
         Privat · im Verlauf gespeichert
       </Txt>
-    </View>
+    </Card>
   );
 }

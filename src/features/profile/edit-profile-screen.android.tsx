@@ -40,6 +40,7 @@ import { profileEditStyles } from '@/features/profile/profile-edit-styles';
 import { BiometricsSheet } from '@/features/profile/sheets/biometrics-sheet';
 import { FoodRuleSelectionSheet } from '@/features/profile/sheets/food-rule-selection-sheet';
 import { PasswordChangeSheet } from '@/features/profile/sheets/password-change-sheet';
+import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { AUTH_VALIDATION_KEYS, translateAuthValidationMessage } from '@/lib/db/zod/auth.zod';
 import { type ProfileAccountForm, profileAccountFormSchema } from '@/lib/db/zod/profile.zod';
 import { getInitials } from '@/lib/initials';
@@ -57,7 +58,11 @@ export function EditProfileScreen() {
   const currentEmail = session?.user.email ?? '';
   const { data: profile, isLoading: profileLoading } = useProfile(userId);
   const { data: storedFoodRules, isLoading: foodRulesLoading } = useProfileFoodRules(userId);
-  const { data: latestWeight, isLoading: latestWeightLoading } = useLatestProfileWeight(userId);
+  const { isFeatureEnabled } = useFeatureAccess();
+  const caloriesTrackingEnabled = isFeatureEnabled('calories');
+  const { data: latestWeight, isLoading: latestWeightLoading } = useLatestProfileWeight(
+    caloriesTrackingEnabled ? userId : undefined,
+  );
   const addWeightMutation = useAddWeightEntryMutation();
   const queryClient = useQueryClient();
 
@@ -121,7 +126,7 @@ export function EditProfileScreen() {
   }, [storedFoodRules, userId]);
 
   useEffect(() => {
-    if (!userId) {
+    if (!userId || !caloriesTrackingEnabled) {
       hydratedBiometricsUserId.current = null;
       setBiometrics(EMPTY_PROFILE_BIOMETRICS);
       setBiometricsSheetVisible(false);
@@ -141,7 +146,7 @@ export function EditProfileScreen() {
       }),
     );
     setBiometricsSheetVisible(false);
-  }, [latestWeight, latestWeightLoading, profile, userId]);
+  }, [caloriesTrackingEnabled, latestWeight, latestWeightLoading, profile, userId]);
 
   async function handlePickImage() {
     if (!userId || uploadingImage) return;
@@ -188,14 +193,17 @@ export function EditProfileScreen() {
     setFormError(null);
 
     try {
-      const { error: profileErr } = await updateProfile(userId, {
-        displayName: values.displayName,
-        avatarUrl,
-        birthDate: biometrics.birthDate,
-        heightCm: biometrics.heightCm,
-        sex: biometrics.sex,
-        activityLevel: biometrics.activityLevel,
-      });
+      const profileUpdate = caloriesTrackingEnabled
+        ? {
+            displayName: values.displayName,
+            avatarUrl,
+            birthDate: biometrics.birthDate,
+            heightCm: biometrics.heightCm,
+            sex: biometrics.sex,
+            activityLevel: biometrics.activityLevel,
+          }
+        : { displayName: values.displayName, avatarUrl };
+      const { error: profileErr } = await updateProfile(userId, profileUpdate);
       if (profileErr) throw profileErr;
 
       if (values.email !== currentEmail) {
@@ -208,6 +216,7 @@ export function EditProfileScreen() {
       await saveProfileFoodRules(userId, foodRules);
 
       if (
+        caloriesTrackingEnabled &&
         biometrics.weightKg !== null &&
         biometrics.weightKg !== (latestWeight?.weight_kg ?? null)
       ) {
@@ -216,7 +225,9 @@ export function EditProfileScreen() {
 
       await queryClient.invalidateQueries({ queryKey: ['profile', userId] });
       await queryClient.invalidateQueries({ queryKey: profileFoodRulesQueryKey(userId) });
-      await queryClient.invalidateQueries({ queryKey: profileLatestWeightQueryKey(userId) });
+      if (caloriesTrackingEnabled) {
+        await queryClient.invalidateQueries({ queryKey: profileLatestWeightQueryKey(userId) });
+      }
 
       Alert.alert('Erfolg', 'Deine Profil- & Account-Daten wurden erfolgreich aktualisiert.', [
         { text: 'OK', onPress: () => router.back() },
@@ -315,16 +326,20 @@ export function EditProfileScreen() {
       </View>
 
       <View style={profileEditStyles.summaries}>
-        <BiometricsSummary value={biometrics} onPress={() => setBiometricsSheetVisible(true)} />
+        {caloriesTrackingEnabled ? (
+          <BiometricsSummary value={biometrics} onPress={() => setBiometricsSheetVisible(true)} />
+        ) : null}
         <FoodRulesSummary rules={foodRules} onSelect={setActiveFoodRule} />
       </View>
 
-      <BiometricsSheet
-        visible={biometricsSheetVisible}
-        value={biometrics}
-        onApply={setBiometrics}
-        onClose={() => setBiometricsSheetVisible(false)}
-      />
+      {caloriesTrackingEnabled ? (
+        <BiometricsSheet
+          visible={biometricsSheetVisible}
+          value={biometrics}
+          onApply={setBiometrics}
+          onClose={() => setBiometricsSheetVisible(false)}
+        />
+      ) : null}
 
       <PasswordChangeSheet
         visible={passwordSheetVisible}

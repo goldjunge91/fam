@@ -24,6 +24,7 @@ jest.mock('@/lib/storage/device-storage', () => ({
 let mockHouseholds: { id: string; name: string }[] = [{ id: 'hh-1', name: 'Familie Tozzi' }];
 let mockActiveHousehold: { id: string; name: string } | null = mockHouseholds[0];
 let mockAvatarUrl: string | null = null;
+let mockCaloriesTrackingEnabled = true;
 
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({
@@ -83,6 +84,12 @@ jest.mock('@/features/profile/api', () => ({
   useProfile: () => ({ data: { display_name: 'Marco Müller', avatar_url: mockAvatarUrl } }),
 }));
 
+jest.mock('@/features/settings/use-feature-access', () => ({
+  useFeatureAccess: () => ({
+    isFeatureEnabled: () => mockCaloriesTrackingEnabled,
+  }),
+}));
+
 // `Screen` fragt den Router, ob es etwas zum Zurueckgehen gibt; ausserhalb
 // eines Navigators gibt es dafuer keinen Zustand.
 jest.mock('expo-router', () => ({
@@ -118,6 +125,7 @@ describe('SettingsScreen', () => {
     mockHouseholds = [{ id: 'hh-1', name: 'Familie Tozzi' }];
     mockActiveHousehold = mockHouseholds[0];
     mockAvatarUrl = null;
+    mockCaloriesTrackingEnabled = true;
     jest.mocked(router.push).mockClear();
     process.env.EXPO_PUBLIC_DEV_TOOLS = 'false';
     process.env.EXPO_PUBLIC_SUPABASE_URL = 'http://127.0.0.1:54321';
@@ -224,6 +232,15 @@ describe('SettingsScreen', () => {
   it('blendet den Entwickler-Bereich ohne Flag aus', async () => {
     const { queryByText } = await renderScreen();
     expect(queryByText('Entwickler-Werkzeuge')).toBeNull();
+  });
+
+  it('blendet Mein Tracking ohne aktiviertes Kalorien-Tracking aus', async () => {
+    mockCaloriesTrackingEnabled = false;
+
+    await renderScreen();
+
+    expect(screen.queryByText('Mein Tracking')).not.toBeOnTheScreen();
+    expect(screen.queryByText('TRACKING & ERNÄHRUNG')).not.toBeOnTheScreen();
   });
 
   it('zeigt den Entwickler-Bereich samt Ziel-Projekt, sobald das Flag gesetzt ist', async () => {

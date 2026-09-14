@@ -6,6 +6,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Button, Press, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProfile } from '@/features/profile/api';
+import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import {
   type OnboardingProfileForm,
   type OnboardingProfileFormInput,
@@ -91,6 +92,8 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   const { state, updateProfileData } = useOnboarding();
   const { session } = useSession();
   const { data: userProfile } = useProfile(session?.user.id);
+  const { isFeatureEnabled } = useFeatureAccess();
+  const caloriesTrackingEnabled = isFeatureEnabled('calories');
 
   const {
     control,
@@ -144,10 +147,12 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   return (
     <View style={styles.root}>
       <Txt variant="subheading" weight="700">
-        Dein Profil & Körperwerte
+        Dein Profil
       </Txt>
       <Txt variant="body" tone="secondary">
-        Alle Angaben sind freiwillig und dienen der genauen Kalorienberechnung.
+        {caloriesTrackingEnabled
+          ? 'Alle Angaben sind freiwillig und dienen der genauen Kalorienberechnung.'
+          : 'Dein Anzeigename hilft dir, dich in der App wiederzuerkennen.'}
       </Txt>
 
       <View style={styles.formSection}>
@@ -158,122 +163,133 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           placeholder="Wie möchtest du genannt werden?"
         />
 
-        <TextField
-          label="Geburtsdatum (TT.MM.JJJJ)"
-          value={birthDate}
-          onChangeText={(text) =>
-            setValue('birthDate', formatGermanDateInput(text), { shouldValidate: true })
-          }
-          placeholder="15.05.1990"
-          inputMode="numeric"
-          keyboardType="number-pad"
-          maxLength={10}
-          error={errors.birthDate?.message}
-        />
+        {caloriesTrackingEnabled ? (
+          <>
+            <Txt variant="body" weight="700" style={styles.sectionLabel}>
+              Körper &amp; Aktivität
+            </Txt>
 
-        <View style={styles.inputRow}>
-          <View style={styles.flex}>
             <TextField
-              label="Größe (cm)"
-              value={heightCm}
-              onChangeText={(value) => setValue('heightCm', value, { shouldValidate: true })}
-              placeholder="178"
+              label="Geburtsdatum (TT.MM.JJJJ)"
+              value={birthDate}
+              onChangeText={(text) =>
+                setValue('birthDate', formatGermanDateInput(text), { shouldValidate: true })
+              }
+              placeholder="15.05.1990"
               inputMode="numeric"
               keyboardType="number-pad"
-              error={errors.heightCm?.message}
+              maxLength={10}
+              error={errors.birthDate?.message}
             />
-          </View>
-          <View style={styles.flex}>
-            <TextField
-              label="Gewicht (kg)"
-              value={weightKg}
-              onChangeText={(value) => setValue('weightKg', value, { shouldValidate: true })}
-              placeholder="75"
-              inputMode="numeric"
-              keyboardType="number-pad"
-              error={errors.weightKg?.message}
-            />
-          </View>
-        </View>
 
-        <Txt variant="body" weight="600" style={styles.sectionLabel}>
-          Berechnungsbasis (Geschlecht)
-        </Txt>
-        <View style={styles.sexRow} accessibilityRole="radiogroup" accessibilityLabel="Geschlecht">
-          {SEX_OPTIONS.map((opt) => {
-            const selected = sex === opt.value;
-            return (
-              <Press
-                key={opt.value}
-                onPress={() => setValue('sex', selected ? undefined : opt.value)}
-                accessibilityRole="radio"
-                accessibilityLabel={opt.label}
-                accessibilityState={{ selected }}
-                haptic="selection"
-                containerStyle={styles.flex}
-                selected={selected}
-                style={styles.sexButton}>
-                <Txt variant="body" tone="primary" weight="600">
-                  {opt.label}
-                </Txt>
-              </Press>
-            );
-          })}
-        </View>
+            <View style={styles.inputRow}>
+              <View style={styles.flex}>
+                <TextField
+                  label="Größe (cm)"
+                  value={heightCm}
+                  onChangeText={(value) => setValue('heightCm', value, { shouldValidate: true })}
+                  placeholder="178"
+                  inputMode="numeric"
+                  keyboardType="number-pad"
+                  error={errors.heightCm?.message}
+                />
+              </View>
+              <View style={styles.flex}>
+                <TextField
+                  label="Gewicht (kg)"
+                  value={weightKg}
+                  onChangeText={(value) => setValue('weightKg', value, { shouldValidate: true })}
+                  placeholder="75"
+                  inputMode="numeric"
+                  keyboardType="number-pad"
+                  error={errors.weightKg?.message}
+                />
+              </View>
+            </View>
 
-        <Txt variant="body" weight="600" style={styles.sectionLabel}>
-          Ernährungsziel
-        </Txt>
-        <View
-          style={styles.choiceList}
-          accessibilityRole="radiogroup"
-          accessibilityLabel="Ernährungsziel">
-          {GOAL_OPTIONS.map((opt) => {
-            const selected = weightGoal === opt.value;
-            return (
-              <Press
-                key={opt.value}
-                onPress={() => setValue('weightGoal', selected ? undefined : opt.value)}
-                accessibilityRole="radio"
-                accessibilityLabel={opt.label}
-                accessibilityState={{ selected }}
-                haptic="selection"
-                selected={selected}
-                style={styles.choice}>
-                <Txt variant="body" tone="primary" weight="500">
-                  {opt.label}
-                </Txt>
-              </Press>
-            );
-          })}
-        </View>
+            <Txt variant="body" weight="600" style={styles.sectionLabel}>
+              Berechnungsbasis (Geschlecht)
+            </Txt>
+            <View
+              style={styles.sexRow}
+              accessibilityRole="radiogroup"
+              accessibilityLabel="Geschlecht">
+              {SEX_OPTIONS.map((opt) => {
+                const selected = sex === opt.value;
+                return (
+                  <Press
+                    key={opt.value}
+                    onPress={() => setValue('sex', selected ? undefined : opt.value)}
+                    accessibilityRole="radio"
+                    accessibilityLabel={opt.label}
+                    accessibilityState={{ selected }}
+                    haptic="selection"
+                    containerStyle={styles.flex}
+                    selected={selected}
+                    style={styles.sexButton}>
+                    <Txt variant="body" tone="primary" weight="600">
+                      {opt.label}
+                    </Txt>
+                  </Press>
+                );
+              })}
+            </View>
 
-        <Txt variant="body" weight="600" style={styles.sectionLabel}>
-          Aktivitätslevel im Alltag
-        </Txt>
-        <View
-          style={styles.choiceList}
-          accessibilityRole="radiogroup"
-          accessibilityLabel="Aktivitätslevel im Alltag">
-          {ACTIVITY_OPTIONS.map((opt) => {
-            const selected = activityLevel === opt.value;
-            return (
-              <Press
-                key={opt.value}
-                onPress={() => setValue('activityLevel', selected ? undefined : opt.value)}
-                accessibilityRole="radio"
-                accessibilityLabel={opt.label}
-                accessibilityState={{ selected }}
-                haptic="selection"
-                selected={selected}
-                style={styles.choice}>
-                <Txt variant="body" tone="primary" weight="500">
-                  {opt.label}
-                </Txt>
-              </Press>
-            );
-          })}
-        </View>
+            <Txt variant="body" weight="600" style={styles.sectionLabel}>
+              Ernährungsziel
+            </Txt>
+            <View
+              style={styles.choiceList}
+              accessibilityRole="radiogroup"
+              accessibilityLabel="Ernährungsziel">
+              {GOAL_OPTIONS.map((opt) => {
+                const selected = weightGoal === opt.value;
+                return (
+                  <Press
+                    key={opt.value}
+                    onPress={() => setValue('weightGoal', selected ? undefined : opt.value)}
+                    accessibilityRole="radio"
+                    accessibilityLabel={opt.label}
+                    accessibilityState={{ selected }}
+                    haptic="selection"
+                    selected={selected}
+                    style={styles.choice}>
+                    <Txt variant="body" tone="primary" weight="500">
+                      {opt.label}
+                    </Txt>
+                  </Press>
+                );
+              })}
+            </View>
+
+            <Txt variant="body" weight="600" style={styles.sectionLabel}>
+              Aktivitätslevel im Alltag
+            </Txt>
+            <View
+              style={styles.choiceList}
+              accessibilityRole="radiogroup"
+              accessibilityLabel="Aktivitätslevel im Alltag">
+              {ACTIVITY_OPTIONS.map((opt) => {
+                const selected = activityLevel === opt.value;
+                return (
+                  <Press
+                    key={opt.value}
+                    onPress={() => setValue('activityLevel', selected ? undefined : opt.value)}
+                    accessibilityRole="radio"
+                    accessibilityLabel={opt.label}
+                    accessibilityState={{ selected }}
+                    haptic="selection"
+                    selected={selected}
+                    style={styles.choice}>
+                    <Txt variant="body" tone="primary" weight="500">
+                      {opt.label}
+                    </Txt>
+                  </Press>
+                );
+              })}
+            </View>
+          </>
+        ) : null}
       </View>
 
       <View style={styles.buttonRow}>

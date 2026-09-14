@@ -223,6 +223,11 @@ export function getFeature(id: FeatureId | (string & {})): FeatureDefinition | u
   return allFeatures.find((f) => f.id === id);
 }
 
+export function getFeatureByFlag(featureFlag: FeatureFlagKey): FeatureDefinition | undefined {
+  const allFeatures: readonly FeatureDefinition[] = APP_FEATURES;
+  return allFeatures.find((f) => f.featureFlag === featureFlag);
+}
+
 export const DRAWER_GROUPS_META: readonly {
   key: DrawerGroupKey;
   title: string;

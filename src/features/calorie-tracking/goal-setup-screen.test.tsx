@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
+import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { GoalSetupScreen } from '@/features/calorie-tracking/goal-setup-screen';
@@ -81,6 +82,15 @@ describe('GoalSetupScreen', () => {
     await renderScreen();
     expect(screen.getByText('Profil vervollständigen')).toBeTruthy();
     expect(screen.queryByText('Ziel speichern')).toBeNull();
+  });
+
+  it('verlinkt fehlende Körperdaten mit Profil & Account', async () => {
+    mockProfile = { sex: null, birth_date: null, height_cm: null, activity_level: null };
+    await renderScreen();
+
+    await fireEvent.press(screen.getByText('Zum Profil & Account'));
+
+    expect(router.push).toHaveBeenCalledWith('/profile/edit');
   });
 
   it('zeigt eine Kalorien-Vorschau, sobald Profil und Gewicht vorhanden sind', async () => {

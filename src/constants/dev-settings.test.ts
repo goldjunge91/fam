@@ -14,6 +14,7 @@ describe('dev settings', () => {
   beforeEach(() => {
     mockStorageData.clear();
     useDevSettingsStore.getState().resetTrackingMethodOverrides();
+    useDevSettingsStore.getState().resetModuleFeatureFlagOverrides();
   });
 
   it('persistiert Tracking-Methoden-Overrides wie die Analytics-Overrides', () => {
@@ -35,5 +36,26 @@ describe('dev settings', () => {
 
     expect(useDevSettingsStore.getState().trackingMethodOverrides).toEqual({});
     expect(mockStorageData.has('dev.tracking_method_overrides.v1')).toBe(false);
+  });
+
+  it('persistiert Modul-Feature-Flag-Overrides', () => {
+    useDevSettingsStore.getState().setModuleFeatureFlagOverride('calories', true);
+    useDevSettingsStore.getState().setModuleFeatureFlagOverride('fridge', false);
+
+    expect(useDevSettingsStore.getState().moduleFeatureFlagOverrides).toEqual({
+      calories: true,
+      fridge: false,
+    });
+    expect(mockStorageData.get('dev.module_feature_flag_overrides.v1')).toBe(
+      JSON.stringify({ calories: true, fridge: false }),
+    );
+  });
+
+  it('setzt Modul-Feature-Flag-Overrides zurück', () => {
+    useDevSettingsStore.getState().setModuleFeatureFlagOverride('calories', false);
+    useDevSettingsStore.getState().resetModuleFeatureFlagOverrides();
+
+    expect(useDevSettingsStore.getState().moduleFeatureFlagOverrides).toEqual({});
+    expect(mockStorageData.has('dev.module_feature_flag_overrides.v1')).toBe(false);
   });
 });

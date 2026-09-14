@@ -17,7 +17,7 @@ type ModuleGateProps = {
 
 export function ModuleGate({ feature, title: customTitle, children }: ModuleGateProps) {
   const featureDef = getFeature(feature);
-  const { modules, getFeatureFlagState } = useFeatureAccess();
+  const { modules, getFeatureFlagState, getModuleFeatureFlagOverride } = useFeatureAccess();
 
   if (!featureDef) {
     if (__DEV__) {
@@ -31,6 +31,9 @@ export function ModuleGate({ feature, title: customTitle, children }: ModuleGate
   const title = customTitle ?? featureDef.title;
   const targetModule = featureDef.moduleKey ?? featureDef.parentModule;
   const featureFlagState = getFeatureFlagState(featureDef.featureFlag);
+  const moduleFeatureFlagOverride = targetModule
+    ? getModuleFeatureFlagOverride(targetModule)
+    : undefined;
 
   if (modules && targetModule && modules[targetModule] === false) {
     return (
@@ -50,7 +53,7 @@ export function ModuleGate({ feature, title: customTitle, children }: ModuleGate
     );
   }
 
-  if (featureFlagState === false) {
+  if (featureFlagState === false || moduleFeatureFlagOverride === false) {
     return (
       <Screen title={title}>
         <Card>

@@ -18,6 +18,15 @@ let mockFeatureFlags: Record<string, boolean | string> | undefined = {
   'module-meal-planner': true,
   'module-calories': true,
 };
+let mockModuleFeatureFlagOverrides: Partial<Record<keyof ModulePreferences, boolean>> = {};
+
+jest.mock('@/constants/dev-settings', () => ({
+  useDevSettingsStore: (
+    selector: (state: {
+      moduleFeatureFlagOverrides: Partial<Record<keyof ModulePreferences, boolean>>;
+    }) => unknown,
+  ) => selector({ moduleFeatureFlagOverrides: mockModuleFeatureFlagOverrides }),
+}));
 
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: { user: { id: 'user-1' } } }),
@@ -48,6 +57,8 @@ jest.mock('@/lib/posthog', () => ({
 }));
 
 describe('useFeatureAccess', () => {
+  const originalDevTools = process.env.EXPO_PUBLIC_DEV_TOOLS;
+
   beforeEach(() => {
     mockModulePreferences = {
       fridge: true,
@@ -64,6 +75,13 @@ describe('useFeatureAccess', () => {
       'module-meal-planner': true,
       'module-calories': true,
     };
+    mockModuleFeatureFlagOverrides = {};
+    process.env.EXPO_PUBLIC_DEV_TOOLS = 'false';
+  });
+
+  afterAll(() => {
+    if (originalDevTools === undefined) delete process.env.EXPO_PUBLIC_DEV_TOOLS;
+    else process.env.EXPO_PUBLIC_DEV_TOOLS = originalDevTools;
   });
 
   it('erkennt ein aktives Modul ohne Feature Flag per FeatureId (z.B. fridge)', async () => {
@@ -127,5 +145,38 @@ describe('useFeatureAccess', () => {
     const { result: hydrated } = await renderHook(() => useFeatureAccess());
     expect(hydrated.current.getFeatureFlagState('module-recipes')).toBe(true);
     expect(hydrated.current.getFeatureFlagState('module-calories')).toBe(false);
+  });
+
+  it('wendet den lokalen Kalorien-Flag-Override im Entwickler-Modus an', async () => {
+    mockFeatureFlags = { 'module-calories': false };
+    mockModuleFeatureFlagOverrides = { calories: true };
+    process.env.EXPO_PUBLIC_DEV_TOOLS = 'true';
+
+    const { result } = await renderHook(() => useFeatureAccess());
+
+    expect(result.current.getFeatureFlagState('module-calories')).toBe(true);
+    expect(result.current.isFeatureEnabled('calories')).toBe(true);
+    expect(result.current.isModuleLocked('module-calories')).toBe(false);
+  });
+
+  it('ignoriert den lokalen Override außerhalb des Entwickler-Modus', async () => {
+    mockFeatureFlags = { 'module-calories': false };
+    mockModuleFeatureFlagOverrides = { calories: true };
+
+    const { result } = await renderHook(() => useFeatureAccess());
+
+    expect(result.current.getFeatureFlagState('module-calories')).toBe(false);
+    expect(result.current.isFeatureEnabled('calories')).toBe(false);
+    expect(result.current.isModuleLocked('module-calories')).toBe(true);
+  });
+
+  it('wendet den lokalen Override auch auf ein Modul ohne Remote-Flag an', async () => {
+    mockModuleFeatureFlagOverrides = { fridge: false };
+    process.env.EXPO_PUBLIC_DEV_TOOLS = 'true';
+
+    const { result } = await renderHook(() => useFeatureAccess());
+
+    expect(result.current.getModuleFeatureFlagOverride('fridge')).toBe(false);
+    expect(result.current.isFeatureEnabled('fridge')).toBe(false);
   });
 });

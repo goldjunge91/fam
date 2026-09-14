@@ -1,10 +1,18 @@
 import { useCallback } from 'react';
-import { type FeatureDefinition, type FeatureId, getFeature } from '@/constants/feature-registry';
+import { useDevSettingsStore } from '@/constants/dev-settings';
+import {
+  type FeatureDefinition,
+  type FeatureId,
+  getFeature,
+  getFeatureByFlag,
+} from '@/constants/feature-registry';
 import { useSession } from '@/features/auth/session-provider';
 import {
   DEFAULT_MODULE_PREFERENCES,
+  type ModulePreferences,
   useModulePreferences,
 } from '@/features/settings/module-preferences';
+import { env } from '@/lib/env';
 import { type FeatureFlagKey, useFeatureFlags } from '@/lib/posthog';
 
 export function useFeatureAccess() {
@@ -12,26 +20,41 @@ export function useFeatureAccess() {
   const { data: rawModules, isLoading } = useModulePreferences(session?.user.id);
   const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
   const posthogFlags = useFeatureFlags();
+  const moduleFeatureFlagOverrides = useDevSettingsStore(
+    (state) => state.moduleFeatureFlagOverrides,
+  );
+
+  const getModuleFeatureFlagOverride = useCallback(
+    (module: keyof ModulePreferences): boolean | undefined => {
+      if (!env.devTools) return undefined;
+      return moduleFeatureFlagOverrides[module];
+    },
+    [moduleFeatureFlagOverrides],
+  );
 
   const getFeatureFlagState = useCallback(
     (featureFlag?: FeatureFlagKey): boolean | undefined => {
       if (featureFlag === undefined) return undefined;
+      const flaggedFeature = getFeatureByFlag(featureFlag);
+      if (flaggedFeature?.moduleKey) {
+        const override = getModuleFeatureFlagOverride(flaggedFeature.moduleKey);
+        if (override !== undefined) return override;
+      }
       if (posthogFlags === undefined) return undefined;
       const value = posthogFlags[featureFlag];
       if (value === true) return true;
       if (value === false) return false;
       return undefined;
     },
-    [posthogFlags],
+    [getModuleFeatureFlagOverride, posthogFlags],
   );
 
   const isModuleLocked = useCallback(
     (featureFlag?: FeatureFlagKey): boolean => {
       if (featureFlag === undefined) return false;
-      if (posthogFlags === undefined) return true;
-      return posthogFlags[featureFlag] !== true;
+      return getFeatureFlagState(featureFlag) !== true;
     },
-    [posthogFlags],
+    [getFeatureFlagState],
   );
 
   const isFeatureEnabled = useCallback(
@@ -40,22 +63,25 @@ export function useFeatureAccess() {
       if (!feature) return false;
 
       const targetModule = feature.moduleKey ?? feature.parentModule;
+      if (targetModule && getModuleFeatureFlagOverride(targetModule) === false) {
+        return false;
+      }
       if (targetModule && modules[targetModule] === false) {
         return false;
       }
       if (feature.featureFlag) {
-        if (!posthogFlags) return false;
-        return posthogFlags[feature.featureFlag] === true;
+        return getFeatureFlagState(feature.featureFlag) === true;
       }
       return true;
     },
-    [modules, posthogFlags],
+    [getFeatureFlagState, getModuleFeatureFlagOverride, modules],
   );
 
   return {
     isFeatureEnabled,
     isModuleLocked,
     getFeatureFlagState,
+    getModuleFeatureFlagOverride,
     modules,
     flags: posthogFlags ?? {},
     isLoading,

@@ -15,6 +15,10 @@ jest.mock('expo-router', () => ({
 
 let mockFeatureFlagState: boolean | undefined = true;
 const mockGetFeatureFlagState = jest.fn((_key: string | undefined) => mockFeatureFlagState);
+let mockModuleFeatureFlagOverride: boolean | undefined;
+const mockGetModuleFeatureFlagOverride = jest.fn(
+  (_module: string) => mockModuleFeatureFlagOverride,
+);
 
 jest.mock('@/features/settings/use-feature-access', () => ({
   useFeatureAccess: () => ({
@@ -22,6 +26,7 @@ jest.mock('@/features/settings/use-feature-access', () => ({
       return mockModules;
     },
     getFeatureFlagState: mockGetFeatureFlagState,
+    getModuleFeatureFlagOverride: mockGetModuleFeatureFlagOverride,
   }),
 }));
 
@@ -48,8 +53,10 @@ beforeEach(() => {
     mealPlanner: true,
   };
   mockFeatureFlagState = true;
+  mockModuleFeatureFlagOverride = undefined;
   (router.push as jest.Mock).mockClear();
   mockGetFeatureFlagState.mockClear();
+  mockGetModuleFeatureFlagOverride.mockClear();
 });
 
 describe('ModuleGate', () => {
@@ -85,6 +92,15 @@ describe('ModuleGate', () => {
     await renderGate('fridge');
     expect(screen.getByText('Echter Inhalt')).toBeTruthy();
     expect(mockGetFeatureFlagState).toHaveBeenCalledWith(undefined);
+  });
+
+  it('beachtet den lokalen Entwickler-Override auch bei Modulen ohne Remote-Flag', async () => {
+    mockModuleFeatureFlagOverride = false;
+    await renderGate('fridge');
+
+    expect(screen.queryByText('Echter Inhalt')).toBeNull();
+    expect(screen.getByText('Noch nicht verfügbar')).toBeTruthy();
+    expect(mockGetModuleFeatureFlagOverride).toHaveBeenCalledWith('fridge');
   });
 
   it('rendert die Kinder wenn Nutzer-Praeferenz UND Feature-Flag beide zustimmen', async () => {

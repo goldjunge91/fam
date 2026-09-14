@@ -25,6 +25,7 @@ import {
   formatTokenExpiry,
   maskSecret,
 } from '@/features/settings/dev/dev-info';
+import { FeatureFlagControls } from '@/features/settings/dev/feature-flag-controls';
 import { TrackingMethodControls } from '@/features/settings/dev/tracking-method-controls';
 import {
   disposeAptabase,
@@ -401,6 +402,8 @@ export function DevToolsScreen() {
           }
         />
       </Card>
+
+      <FeatureFlagControls />
 
       <Card title="Analytics-Steuerung">
         <Zeile label="Standardwerte" wert="alle an" tone="accent" />

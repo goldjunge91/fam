@@ -6,10 +6,8 @@ import { useDevSettingsStore } from '@/constants/dev-settings';
 import { useSession } from '@/features/auth/session-provider';
 import {
   useCurrentGoal,
-  useLatestWeightEntry,
   useUpdateTrackingDayStartTimeMutation,
   useUpdateTrackingMethodMutation,
-  useWeightEntries,
 } from '@/features/calorie-tracking/api';
 import { useProfile } from '@/features/profile/api';
 import { TrackingScreen } from '@/features/profile/tracking-screen';
@@ -30,13 +28,10 @@ jest.mock('@/features/auth/session-provider', () => ({
 
 jest.mock('@/features/profile/api', () => ({
   useProfile: jest.fn(),
-  updateProfile: jest.fn().mockResolvedValue({ error: null }),
 }));
 
 jest.mock('@/features/calorie-tracking/api', () => ({
   useCurrentGoal: jest.fn(),
-  useLatestWeightEntry: jest.fn(),
-  useWeightEntries: jest.fn(),
   useUpdateTrackingMethodMutation: jest.fn(),
   useUpdateTrackingDayStartTimeMutation: jest.fn(),
 }));
@@ -64,10 +59,8 @@ const mockMutateStartTime = jest.fn();
 
 async function renderScreen({
   trackingDayStartTime = '00:00',
-  logicalDayWeightEntries = [{ weight_kg: 80 }],
 }: {
   trackingDayStartTime?: string;
-  logicalDayWeightEntries?: { weight_kg: number }[];
 } = {}) {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -106,16 +99,6 @@ async function renderScreen({
       goal_type: 'maintain',
       valid_from: '2026-01-01',
     },
-    isLoading: false,
-  });
-
-  (useLatestWeightEntry as jest.Mock).mockReturnValue({
-    data: { weight_kg: 80 },
-    isLoading: false,
-  });
-
-  (useWeightEntries as jest.Mock).mockReturnValue({
-    data: logicalDayWeightEntries,
     isLoading: false,
   });
 
@@ -180,30 +163,13 @@ describe('TrackingScreen', () => {
     expect(router.push).toHaveBeenCalledWith('/settings/goals');
   });
 
-  it('zeigt berechneten Grundumsatz (BMR) und Gesamtbedarf (TDEE) an', async () => {
+  it('hält Körper- und Aktivitätsdaten außerhalb von Mein Tracking', async () => {
     await renderScreen();
 
-    expect(screen.getByText('Grundumsatz (BMR)')).toBeOnTheScreen();
-    expect(screen.getByText('Gesamtbedarf (TDEE)')).toBeOnTheScreen();
-    expect(screen.getByText('180 cm')).toBeOnTheScreen();
-    expect(screen.getByText('80 kg')).toBeOnTheScreen();
-  });
-
-  it('zeigt vor 06:00 das Gewicht des vorherigen logischen Tages an', async () => {
-    jest.useFakeTimers();
-    jest.setSystemTime(new Date(2026, 7, 19, 5, 15));
-
-    try {
-      await renderScreen({
-        trackingDayStartTime: '06:00',
-        logicalDayWeightEntries: [{ weight_kg: 78.4 }],
-      });
-
-      expect(useWeightEntries).toHaveBeenCalledWith('user-1', null, '2026-08-18', '06:00');
-      expect(screen.getByText('78.4 kg')).toBeOnTheScreen();
-    } finally {
-      jest.useRealTimers();
-    }
+    expect(screen.queryByText('Vitalwerte & Biometrie')).not.toBeOnTheScreen();
+    expect(screen.queryByText('Biometrie bearbeiten')).not.toBeOnTheScreen();
+    expect(screen.queryByText('Grundumsatz (BMR)')).not.toBeOnTheScreen();
+    expect(screen.queryByText('180 cm')).not.toBeOnTheScreen();
   });
 
   it('aendert den individuellen Tagesstart per Stepper', async () => {
