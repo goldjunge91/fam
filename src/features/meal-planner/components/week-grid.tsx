@@ -1,8 +1,9 @@
 import { useCallback, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { scheduleOnRN } from 'react-native-worklets';
 
 import { withAlpha } from '@/components/theme/index';
 import { Press, Txt } from '@/constants/ui';
@@ -359,7 +360,7 @@ function DraggableRecipeCard({
       'worklet';
       translateX.value = event.absoluteX;
       translateY.value = event.absoluteY;
-      runOnJS(onDragStart)(recipe);
+      scheduleOnRN(onDragStart, recipe);
     })
     .onUpdate((event) => {
       'worklet';
@@ -368,7 +369,7 @@ function DraggableRecipeCard({
     })
     .onEnd((event) => {
       'worklet';
-      runOnJS(onDragEnd)(event.absoluteX, event.absoluteY, recipe);
+      scheduleOnRN(onDragEnd, event.absoluteX, event.absoluteY, recipe);
     });
 
   return (

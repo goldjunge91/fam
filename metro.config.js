@@ -1,5 +1,8 @@
 const { getSentryExpoConfig } = require("@sentry/react-native/metro");
 const { getPostHogExpoConfig } = require("posthog-react-native/metro");
+const {
+  wrapWithReanimatedMetroConfig,
+} = require("react-native-reanimated/metro-config");
 const { withRozenite } = require('@rozenite/metro');
 
 const config = getPostHogExpoConfig(__dirname, {
@@ -28,6 +31,6 @@ config.transformer.getTransformOptions = async () => ({
   },
 });
 
-module.exports = withRozenite(config, {
+module.exports = withRozenite(wrapWithReanimatedMetroConfig(config), {
   enabled: process.env.WITH_ROZENITE === 'true',
 });
