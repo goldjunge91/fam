@@ -388,6 +388,11 @@ export const space = {
   xxxl: rs(40),
 } as const;
 
+/** Gemeinsame Maße für eigenständige Aktionsflächen. */
+export const controlSizes = {
+  headerAction: rs(48),
+} as const;
+
 export const font = {
   // System rounded gives an SF-Rounded look on iOS — friendly + food-app warm.
   // Falls back to system on Android.
@@ -514,7 +519,17 @@ export const Fonts = Platform.select({
   },
 });
 
-export const theme = { colors, accent, radius, borderWidth, space, font, shadow, BUTTON_DEPTH };
+export const theme = {
+  colors,
+  accent,
+  radius,
+  borderWidth,
+  space,
+  controlSizes,
+  font,
+  shadow,
+  BUTTON_DEPTH,
+};
 export default theme;
 
 // ─── Unistyles v3 Configuration ──────────────────────────────────────────────
@@ -523,8 +538,8 @@ export default theme;
 import { StyleSheet } from 'react-native-unistyles';
 
 const unistylesThemes = {
-  light: { ...colorsLight, space, font, radius, borderWidth, shadow },
-  dark: { ...colorsDark, space, font, radius, borderWidth, shadow },
+  light: { ...colorsLight, space, controlSizes, font, radius, borderWidth, shadow },
+  dark: { ...colorsDark, space, controlSizes, font, radius, borderWidth, shadow },
 };
 
 type AppThemes = typeof unistylesThemes;

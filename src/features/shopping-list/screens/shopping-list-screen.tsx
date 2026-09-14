@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Alert, ScrollView, SectionList, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { FamIcon } from '@/components/icons/fam-icon';
+import { FamIcon, PlusIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -81,6 +81,10 @@ const styles = StyleSheet.create((theme) => ({
   },
   buttonSpacing: {
     marginTop: theme.space.md,
+  },
+  headerAction: {
+    width: theme.controlSizes.headerAction,
+    height: theme.controlSizes.headerAction,
   },
   summaryScrollContent: {
     gap: theme.space.lg,
@@ -324,8 +328,14 @@ export function ShoppingListScreen() {
               setScannedProduct(null);
               setScannerOpen(true);
             }}
-            style={{ width: 48, height: 48 }}>
+            style={styles.headerAction}>
             <FamIcon name="camera" size={20} color={theme.basil} />
+          </HeaderIconButton>
+          <HeaderIconButton
+            label={t('shoppingList.addItem')}
+            onPress={() => setAddModalOpen(true)}
+            style={styles.headerAction}>
+            <PlusIcon size={space.xl} color={theme.basil} />
           </HeaderIconButton>
           {!isAllFilter && filteredItems.length > 0 ? (
             <HeaderIconButton
@@ -335,7 +345,7 @@ export function ShoppingListScreen() {
                   : t('shoppingList.screen.startSelection')
               }
               onPress={selectionMode ? closeSelection : () => setSelectionMode(true)}
-              style={{ width: 48, height: 48 }}>
+              style={styles.headerAction}>
               <Txt variant="heading" weight="700" tone="secondary">
                 {selectionMode ? '✕' : '☑'}
               </Txt>
@@ -489,6 +499,12 @@ export function ShoppingListScreen() {
                   symbol="cart"
                   title={t('shoppingList.screen.empty.title')}
                   hint={t('shoppingList.screen.empty.hint')}
+                  action={
+                    <Button
+                      title={t('shoppingList.addItem')}
+                      onPress={() => setAddModalOpen(true)}
+                    />
+                  }
                 />
               </Card>
             ) : (
@@ -542,6 +558,12 @@ export function ShoppingListScreen() {
                       : t('shoppingList.screen.empty.title')
                   }
                   hint={t('shoppingList.screen.empty.hint')}
+                  action={
+                    <Button
+                      title={t('shoppingList.addItem')}
+                      onPress={() => setAddModalOpen(true)}
+                    />
+                  }
                 />
               </Card>
             </View>

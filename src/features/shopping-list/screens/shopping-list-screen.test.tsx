@@ -248,6 +248,18 @@ describe('ShoppingListScreen', () => {
     await renderScreen();
 
     expect(screen.queryByRole('button', { name: /Einkaufsmodus .* starten/ })).toBeNull();
+    expect(screen.getAllByRole('button', { name: 'Artikel hinzufügen' })).toHaveLength(2);
+  });
+
+  it('zeigt auch im leeren Marktfilter die Hinzufügen-Aktion', async () => {
+    await renderScreen();
+
+    await fireEvent.press(screen.getByRole('button', { name: /Ohne Markt, 0 von 0 Artikeln/ }));
+    await act(() => {
+      jest.advanceTimersByTime(60);
+    });
+
+    expect(screen.getAllByRole('button', { name: 'Artikel hinzufügen' })).toHaveLength(2);
   });
 
   it('verwendet für Start und Abschluss dasselbe gefüllte CTA-Rezept', async () => {
@@ -309,6 +321,20 @@ describe('ShoppingListScreen', () => {
     await fireEvent.press(scannerButton);
 
     expect(await screen.findByText('Barcode scanner geöffnet')).toBeTruthy();
+  });
+
+  it('zeigt Barcode und Hinzufügen als Header-Aktionen', async () => {
+    await renderScreen();
+
+    const scannerButton = screen.getByRole('button', { name: 'Barcode scannen' });
+    const addButton = screen.getByRole('button', { name: 'Artikel hinzufügen' });
+
+    expect(scannerButton).toBeOnTheScreen();
+    expect(addButton).toBeOnTheScreen();
+
+    await fireEvent.press(addButton);
+
+    expect((await screen.findAllByText('Artikel hinzufügen')).length).toBeGreaterThan(0);
   });
 
   it('verschiebt mehrere ausgewählte Artikel in eine andere Liste', async () => {
