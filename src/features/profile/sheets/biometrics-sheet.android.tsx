@@ -146,15 +146,11 @@ export function BiometricsSheet({
                       accessibilityRole="radio"
                       accessibilityLabel={option.label}
                       accessibilityState={{ selected }}
+                      selected={selected}
                       haptic="selection"
                       containerStyle={biometricsSheetStyles.optionContainer}
-                      style={[
-                        biometricsSheetStyles.option,
-                        selected
-                          ? biometricsSheetStyles.optionSelected
-                          : biometricsSheetStyles.optionIdle,
-                      ]}>
-                      <Txt tone={selected ? 'onAccent' : 'primary'} variant="body">
+                      style={biometricsSheetStyles.option}>
+                      <Txt tone="primary" variant="body">
                         {option.label}
                       </Txt>
                     </Press>
@@ -185,15 +181,11 @@ export function BiometricsSheet({
                         accessibilityRole="radio"
                         accessibilityLabel={option.label}
                         accessibilityState={{ selected }}
+                        selected={selected}
                         haptic="selection"
                         containerStyle={biometricsSheetStyles.optionContainer}
-                        style={[
-                          biometricsSheetStyles.option,
-                          selected
-                            ? biometricsSheetStyles.optionSelected
-                            : biometricsSheetStyles.optionIdle,
-                        ]}>
-                        <Txt variant="label" tone={selected ? 'onAccent' : 'primary'} weight="700">
+                        style={biometricsSheetStyles.option}>
+                        <Txt variant="label" tone="primary" weight="700">
                           {option.label}
                         </Txt>
                       </Press>

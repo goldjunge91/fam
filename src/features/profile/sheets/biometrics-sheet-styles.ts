@@ -53,15 +53,5 @@ export const biometricsSheetStyles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
     paddingHorizontal: theme.space.lg,
     paddingVertical: 10,
-    borderWidth: theme.borderWidth.base,
-    borderRadius: theme.radius.sm,
-  },
-  optionSelected: {
-    backgroundColor: theme.accent,
-    borderColor: theme.accent,
-  },
-  optionIdle: {
-    backgroundColor: theme.surface,
-    borderColor: theme.border,
   },
 }));
