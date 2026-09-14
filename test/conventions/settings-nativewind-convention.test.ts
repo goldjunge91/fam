@@ -5,6 +5,7 @@ const REPO_ROOT = path.resolve(__dirname, '..', '..');
 
 const SETTINGS_CONSUMERS = [
   'src/features/settings/dev/design-system/showcase-patterns.tsx',
+  'src/features/settings/dev/design-system/showcase-reanimated.tsx',
   'src/features/settings/dev/dev-tools-screen.android.tsx',
   'src/features/settings/dev/dev-tools-screen.tsx',
   'src/features/settings/export-screen.tsx',
@@ -23,5 +24,17 @@ describe('fam-978.42 settings consumers', () => {
         /import\s+\{[^}]*\bStyleSheet\b[^}]*\}\s+from ['"]react-native['"]/u,
       );
     }
+  });
+});
+
+describe('design-system showcase categories', () => {
+  it('registers the Reanimated lab', () => {
+    const source = fs.readFileSync(
+      path.join(REPO_ROOT, 'src/features/settings/dev/design-system/design-system-screen.tsx'),
+      'utf8',
+    );
+
+    expect(source).toContain("{ value: 'reanimated', label: 'Reanimated' }");
+    expect(source).toContain('<ReanimatedShowcase />');
   });
 });

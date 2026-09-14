@@ -290,7 +290,7 @@ function TokenShowcase() {
     <View style={styles.page}>
       <ContractIntro
         title="Abstände, Formen und Effekte"
-        contract="Wiederkehrende Maße stammen aus Tokens. Layout bleibt in NativeWind oder StyleSheet; dynamische Farben kommen aus dem Theme."
+        contract="Wiederkehrende Maße stammen aus Tokens. Layout nutzt native StyleSheets; dynamische Farben kommen aus dem Theme."
         source="index.ts: space, radius, shadow, font, Gradients und responsive Werte"
       />
       <Subsection title="Spacing">

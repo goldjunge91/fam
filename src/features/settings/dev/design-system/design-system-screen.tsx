@@ -10,8 +10,13 @@ import { Badge, Txt } from '@/constants/ui';
 import { type ComponentCategory, ComponentsShowcase } from './showcase-components';
 import { type FoundationCategory, FoundationsShowcase } from './showcase-foundations';
 import { type PatternCategory, PatternsShowcase } from './showcase-patterns';
+import { type ReanimatedCategory, ReanimatedShowcase } from './showcase-reanimated';
 
-type ShowcaseCategory = FoundationCategory | ComponentCategory | PatternCategory;
+type ShowcaseCategory =
+  | FoundationCategory
+  | ComponentCategory
+  | PatternCategory
+  | ReanimatedCategory;
 
 const CATEGORIES = [
   { value: 'theme', label: 'Theme' },
@@ -24,6 +29,7 @@ const CATEGORIES = [
   { value: 'screens', label: 'Screens' },
   { value: 'hybrid', label: 'Hybrid' },
   { value: 'accessibility', label: 'Zustände' },
+  { value: 'reanimated', label: 'Reanimated' },
 ] as const satisfies readonly FilterChipOption<ShowcaseCategory>[];
 
 const FOUNDATION_CATEGORIES: readonly ShowcaseCategory[] = [
@@ -82,7 +88,9 @@ export function DesignSystemScreen() {
           onSelect={setCategory}
         />
 
-        {isFoundation(category) ? (
+        {category === 'reanimated' ? (
+          <ReanimatedShowcase />
+        ) : isFoundation(category) ? (
           <FoundationsShowcase category={category} />
         ) : isComponent(category) ? (
           <ComponentsShowcase category={category} />
