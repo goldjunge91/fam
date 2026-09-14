@@ -1,7 +1,11 @@
 import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
-import { trackAptabaseError, trackAptabaseEvent } from '@/lib/analytics/aptabase';
+import {
+  isAptabaseConfigured,
+  trackAptabaseError,
+  trackAptabaseEvent,
+} from '@/lib/analytics/aptabase';
 import { bugBubbleAnalytics, bugBubbleConsole } from '@/lib/analytics/bug-bubble';
 import { debugLogEvent, debugWarn } from '@/lib/debug-log';
 import { markPerformance, measurePerformance, metricPerformance } from '@/lib/performance';
@@ -65,6 +69,15 @@ function errorDetails(error: unknown): { error_code: string; error_message: stri
   return { error_code: 'unknown_error', error_message: String(error) };
 }
 
+function getTelemetryTargets(channel: TelemetryChannel, shouldCapture: boolean): string[] {
+  const targets: string[] = [];
+  if (channel === 'errorReports') targets.push('Sentry');
+  if (!shouldCapture) return targets;
+  if (isAnalyticsProviderEnabled('posthog') && isPostHogConfigured()) targets.push('PostHog');
+  if (isAnalyticsProviderEnabled('aptabase') && isAptabaseConfigured()) targets.push('Aptabase');
+  return targets;
+}
+
 function commonProperties(
   name: TelemetryEventName,
   properties: TelemetryProperties = {},
@@ -96,7 +109,13 @@ function captureEvent(
   recordSessionOperation(String(properties.operation ?? name));
   bugBubbleAnalytics(name, properties);
 
-  if (!shouldCaptureTelemetry(channel, name)) return;
+  const shouldCapture = shouldCaptureTelemetry(channel, name);
+  debugLogEvent(`telemetry.${channel}`, {
+    event: name,
+    status: shouldCapture ? 'allowed' : 'blocked',
+    destinations: getTelemetryTargets(channel, shouldCapture),
+  });
+  if (!shouldCapture) return;
 
   try {
     if (isAnalyticsProviderEnabled('aptabase')) trackAptabaseEvent(name, properties);

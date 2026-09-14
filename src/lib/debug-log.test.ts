@@ -86,4 +86,29 @@ describe('Dev-Terminal-Logging', () => {
       '\u001b[38;5;39m[HouseholdSync]\u001b[0m pull completed {"rowsWritten":2}',
     );
   });
+
+  it('trennt Telemetrie-Kanaele farbig und nimmt keine Payload in die Kanalzeile auf', () => {
+    debugLogEvent('telemetry.productEvents', {
+      event: 'shopping_item.create.completed',
+      status: 'blocked',
+      destinations: [],
+      properties: { email: 'marco@example.com' },
+    });
+    debugLogEvent('telemetry.errorReports', {
+      event: 'error.occurred',
+      status: 'allowed',
+      destinations: ['Sentry', 'PostHog'],
+    });
+    debugLogEvent('telemetry.diagnostics', {
+      event: 'route.changed',
+      status: 'allowed',
+      destinations: ['PostHog', 'Aptabase'],
+    });
+
+    expect(consoleLog.mock.calls.map(([value]) => value)).toEqual([
+      '\u001b[38;5;42m[Produkt]\u001b[0m shopping_item.create.completed (blocked) → keine',
+      '\u001b[38;5;196m[Fehler]\u001b[0m error.occurred → Sentry, PostHog',
+      '\u001b[38;5;220m[Diagnose]\u001b[0m route.changed → PostHog, Aptabase',
+    ]);
+  });
 });

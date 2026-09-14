@@ -7,6 +7,11 @@ const REDACTED_VALUE = '[redacted]';
 const POSTHOG_COLOR = '\u001b[38;5;203m';
 const BLUE_COLOR = '\u001b[38;5;39m';
 const COLOR_RESET = '\u001b[0m';
+const TELEMETRY_CHANNEL_STYLES: Record<string, { label: string; color: string }> = {
+  productEvents: { label: 'Produkt', color: '\u001b[38;5;42m' },
+  errorReports: { label: 'Fehler', color: '\u001b[38;5;196m' },
+  diagnostics: { label: 'Diagnose', color: '\u001b[38;5;220m' },
+};
 const SENSITIVE_KEY_PATTERN =
   /(?:token|secret|password|api.?key|authorization|cookie|email|phone|user.?id|error.?message|stack)/iu;
 const SENSITIVE_STRING_PATTERNS = [
@@ -94,6 +99,29 @@ function formatProviderMessage(message: string): string {
   return message;
 }
 
+function formatTelemetryRecord(event: string, details: DebugValue | undefined): string | undefined {
+  if (!event.startsWith('telemetry.')) return undefined;
+
+  const style = TELEMETRY_CHANNEL_STYLES[event.slice('telemetry.'.length)];
+  if (
+    !style ||
+    details === undefined ||
+    !isDebugRecord(details) ||
+    typeof details.event !== 'string'
+  ) {
+    return undefined;
+  }
+
+  const status = details.status === 'blocked' ? ' (blocked)' : '';
+  const destinations = Array.isArray(details.destinations)
+    ? details.destinations.filter((value): value is string => typeof value === 'string')
+    : [];
+  const destinationSuffix = Array.isArray(details.destinations)
+    ? ` → ${destinations.length > 0 ? destinations.join(', ') : 'keine'}`
+    : '';
+  return `${style.color}[${style.label}]${COLOR_RESET} ${details.event}${status}${destinationSuffix}`;
+}
+
 function formatDebugRecord(record: DebugValue): string {
   if (isDebugRecord(record)) {
     if (typeof record.message === 'string') {
@@ -103,6 +131,9 @@ function formatDebugRecord(record: DebugValue): string {
     }
 
     if (typeof record.event === 'string') {
+      const telemetryLine = formatTelemetryRecord(record.event, record.details);
+      if (telemetryLine) return telemetryLine;
+
       const eventLabel = record.event.startsWith('posthog.')
         ? `${POSTHOG_COLOR}[PostHog]${COLOR_RESET} ${record.event.slice('posthog.'.length)}`
         : `[${record.event}]`;

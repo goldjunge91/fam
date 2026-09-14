@@ -1,5 +1,9 @@
 import { useAnalyticsSettingsStore } from '@/constants/analytics';
-import { trackAptabaseError, trackAptabaseEvent } from '@/lib/analytics/aptabase';
+import {
+  isAptabaseConfigured,
+  trackAptabaseError,
+  trackAptabaseEvent,
+} from '@/lib/analytics/aptabase';
 import { getPostHogClient, isPostHogConfigured } from '@/lib/posthog';
 import { Sentry } from '@/lib/sentry';
 import {
@@ -12,6 +16,7 @@ import {
 } from '@/lib/telemetry';
 
 jest.mock('@/lib/analytics/aptabase', () => ({
+  isAptabaseConfigured: jest.fn(),
   trackAptabaseError: jest.fn(),
   trackAptabaseEvent: jest.fn(),
 }));
@@ -46,6 +51,7 @@ describe('telemetry fan-out', () => {
     useAnalyticsSettingsStore.getState().resetOverrides();
     useAnalyticsSettingsStore.getState().setOverride('providers.aptabase', true);
     setTelemetryUserId(null);
+    (isAptabaseConfigured as jest.Mock).mockReturnValue(true);
     (isPostHogConfigured as jest.Mock).mockReturnValue(true);
     (getPostHogClient as jest.Mock).mockReturnValue({
       capture,
@@ -245,6 +251,40 @@ describe('telemetry fan-out', () => {
     expect(trackAptabaseError).not.toHaveBeenCalled();
     expect(captureException).not.toHaveBeenCalled();
     expect(capture).not.toHaveBeenCalledWith('error.occurred', expect.any(Object));
+  });
+
+  it('markiert blockierte Produkt-Events im Dev-Terminal als Produktkanal', () => {
+    const consoleLog = jest.spyOn(console, 'log').mockImplementation(() => undefined);
+    process.env.EXPO_PUBLIC_DEBUG_LOGS = 'true';
+
+    try {
+      useAnalyticsSettingsStore.getState().setOverride('features.shoppingList', false);
+
+      trackEvent('shopping_item.create.completed', {}, 'productEvents');
+
+      expect(consoleLog).toHaveBeenCalledWith(
+        '\u001b[38;5;42m[Produkt]\u001b[0m shopping_item.create.completed (blocked) → keine',
+      );
+      expect(capture).not.toHaveBeenCalled();
+      expect(trackAptabaseEvent).not.toHaveBeenCalled();
+    } finally {
+      consoleLog.mockRestore();
+    }
+  });
+
+  it('zeigt aktive Analytics-Ziele in der farbigen Kanalzeile', () => {
+    const consoleLog = jest.spyOn(console, 'log').mockImplementation(() => undefined);
+    process.env.EXPO_PUBLIC_DEBUG_LOGS = 'true';
+
+    try {
+      trackEvent('sync.pull.completed', { entity: 'households' });
+
+      expect(consoleLog).toHaveBeenCalledWith(
+        '\u001b[38;5;220m[Diagnose]\u001b[0m sync.pull.completed → PostHog, Aptabase',
+      );
+    } finally {
+      consoleLog.mockRestore();
+    }
   });
 
   it('misst erfolgreiche Operationen mit einer gemeinsamen Korrelation', async () => {
