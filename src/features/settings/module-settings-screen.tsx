@@ -3,7 +3,6 @@ import { Switch, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
-import { Card } from '@/components/ui/card';
 import { getSettingsModules } from '@/constants/feature-registry';
 import { Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
@@ -57,11 +56,11 @@ export function ModuleSettingsScreen() {
       back={{ label: t('settings.backToSettings'), href: '/settings' }}
       backStyle="icon">
       {/* Hinweistext zur Ausblendung von Modulen */}
-      <Card>
+      {/* <Card>
         <Txt variant="body" tone="secondary">
           {t('settings.groups.app.modules.disableHint')}
         </Txt>
-      </Card>
+      </Card> */}
 
       <View style={styles.list}>
         {SETTINGS_MODULES.map((row) => {

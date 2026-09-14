@@ -129,7 +129,7 @@ const famColorsLight = {
   backgroundSoft: '#E9E1E7', // fam/color/bg-soft
   textSecondary: '#786F79', // fam/color/text-secondary
   border: '#E4DDE3',
-  accent: '#705773', // fam/color/bg-accent
+  accent: '#8B5E63', // fam/color/bg-accent
   onAccent: '#FFFFFF',
   premiumGradientStart: '#715574',
   premiumGradientMid: '#A36E72',
