@@ -1,12 +1,12 @@
 import { memo } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import ReanimatedSwipeable, {
   type SwipeableMethods,
 } from 'react-native-gesture-handler/ReanimatedSwipeable';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
 import type { ExpiryBucket } from '../expiry';
@@ -27,7 +27,7 @@ const styles = StyleSheet.create((theme) => ({
   expiryBar: {
     width: 5,
     height: 53,
-    borderRadius: theme.space.xs,
+    borderRadius: theme.radius.xs,
   },
   main: {
     flex: 1,
@@ -38,9 +38,16 @@ const styles = StyleSheet.create((theme) => ({
     textAlign: 'right',
   },
   removeAction: {
-    width: 96,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  removeActionContainer: {
+    width: 96,
+    justifyContent: 'center',
+  },
+  rowContainer: {
+    flex: 1,
   },
 }));
 
@@ -98,7 +105,8 @@ export const InventoryItemRow = memo(function InventoryItemRow({
     swipeable: SwipeableMethods,
   ) {
     return (
-      <Pressable
+      <Press
+        containerStyle={styles.removeActionContainer}
         style={[styles.removeAction, { backgroundColor: colors.danger }]}
         accessibilityRole="button"
         accessibilityLabel={`${group.name} ${removeLabel.toLocaleLowerCase('de-DE')}`}
@@ -109,7 +117,7 @@ export const InventoryItemRow = memo(function InventoryItemRow({
         <Txt variant="body" tone="onAccent" weight="700">
           {removeLabel}
         </Txt>
-      </Pressable>
+      </Press>
     );
   }
 
@@ -121,7 +129,8 @@ export const InventoryItemRow = memo(function InventoryItemRow({
       overshootRight={false}
       renderRightActions={renderRemoveAction}
       containerStyle={{ overflow: 'hidden' }}>
-      <Pressable
+      <Press
+        containerStyle={styles.rowContainer}
         style={styles.row}
         onPress={onPress}
         onLongPress={onLongPress}
@@ -147,7 +156,7 @@ export const InventoryItemRow = memo(function InventoryItemRow({
           style={[styles.quantity, { fontVariant: ['tabular-nums'] }]}>
           {amount}
         </Txt>
-      </Pressable>
+      </Press>
     </ReanimatedSwipeable>
   );
 });
