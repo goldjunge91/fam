@@ -10,10 +10,10 @@ import { BackButton } from '@/components/ui/buttons';
 import { Button, Card, IconButton, Press, Row, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';
-import { debugLog } from '@/lib/debug-log';
+import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
 import { sumInventoryQuantities } from '@/lib/inventory-quantity';
-import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
+import { debugLog } from '@/lib/observability/debug-log';
 import { formatExpiryDate, formatExpiryStatus, getExpiryInfo } from '../expiry';
 import type { InventoryItemGroup } from '../grouped-items';
 import type { LocalInventoryItem } from '../use-inventory-items';

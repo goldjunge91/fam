@@ -3,9 +3,9 @@ import { Stack } from 'expo-router';
 import { useEffect } from 'react';
 
 import { useSession } from '@/features/auth/session-provider';
+import { env } from '@/lib/config/env';
 import { getDatabase } from '@/lib/db/client';
-import { debugLog, debugWarn } from '@/lib/debug-log';
-import { env } from '@/lib/env';
+import { debugLog, debugWarn } from '@/lib/observability/debug-log';
 import { initOffDump } from '@/lib/off-dump/off-dump';
 
 /** Wechselt zwischen Onboarding, Auth und den sessiongeschützten App-Routen. */

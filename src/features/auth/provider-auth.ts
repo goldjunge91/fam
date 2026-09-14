@@ -6,7 +6,7 @@ import { Platform } from 'react-native';
 
 import { parseOAuthTokensFromUrl } from '@/features/auth/domain/auth-deep-link';
 import { AUTH_ERROR_KEYS } from '@/features/auth/domain/auth-error-message';
-import { getSupabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import { reportError } from '@/lib/telemetry';
 
 export async function signInWithOAuthProvider(provider: 'apple' | 'google') {

@@ -21,7 +21,7 @@ jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: mockSession, isLoading: mockIsLoading }),
 }));
 
-jest.mock('@/lib/screenshots', () => ({
+jest.mock('@/lib/devtools/screenshots', () => ({
   announce: (...args: unknown[]) => mockAnnounce(...args),
   announceExpectedScreenshotCount: (...args: unknown[]) =>
     mockAnnounceExpectedScreenshotCount(...args),

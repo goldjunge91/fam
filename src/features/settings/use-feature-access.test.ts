@@ -46,7 +46,7 @@ jest.mock('@/features/settings/module-preferences', () => ({
   }),
 }));
 
-jest.mock('@/lib/posthog', () => ({
+jest.mock('@/lib/observability/providers/posthog', () => ({
   useFeatureFlags: () => mockFeatureFlags,
   useFeatureFlag: (key: string, defaultValue: boolean) =>
     mockFeatureFlags?.[key] === true

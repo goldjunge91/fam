@@ -31,7 +31,7 @@ let mockFeatureFlags: Record<string, boolean> = {
   'module-calories': true,
 };
 
-jest.mock('@/lib/posthog', () => ({
+jest.mock('@/lib/observability/providers/posthog', () => ({
   useFeatureFlags: () => mockFeatureFlags,
   useFeatureFlag: (key: string | undefined, defaultValue: boolean) =>
     key ? (mockFeatureFlags[key] ?? defaultValue) : defaultValue,

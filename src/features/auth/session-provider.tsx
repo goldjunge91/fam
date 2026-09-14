@@ -2,14 +2,14 @@ import type { Session } from '@supabase/supabase-js';
 import { createContext, type ReactNode, use, useEffect, useState } from 'react';
 import { migrateLegacyAccountData } from '@/features/auth/migrations/legacy-account-data';
 import { hasSeenOnboarding } from '@/features/onboarding/onboarding-completion';
+import { getSupabase, startSupabaseAutoRefresh } from '@/lib/backend/supabase/client';
+import { queryClient, startAccountQueryPersistence } from '@/lib/data/query-client';
 import { setActiveUserId } from '@/lib/db/client';
-import { queryClient, startAccountQueryPersistence } from '@/lib/query-client';
 import {
   activateEncryptedAccountStorage,
   getRememberedLocalAccountUserId,
   rememberLocalAccountUserId,
 } from '@/lib/storage/account-storage';
-import { getSupabase, startSupabaseAutoRefresh } from '@/lib/supabase';
 import { resumeAccountSync } from '@/lib/sync/account-sync-gate';
 import {
   addDiagnosticStep,

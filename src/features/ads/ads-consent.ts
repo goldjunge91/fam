@@ -10,7 +10,7 @@ import {
 } from 'react-native-google-mobile-ads';
 import { create } from 'zustand';
 
-import { debugWarn } from '@/lib/debug-log';
+import { debugWarn } from '@/lib/observability/debug-log';
 import { getAdsEnabled } from './ads-override';
 
 type AdsConsentState = {

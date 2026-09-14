@@ -49,7 +49,7 @@ import {
   medium as hapticMedium,
   selection as hapticSelection,
   success as hapticSuccess,
-} from '@/lib/haptics';
+} from '@/lib/platform/haptics';
 
 // Springs tuned for a satisfying, Duolingo-ish "pop" on press/release.
 const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;

@@ -10,7 +10,7 @@ import {
   resetPurchasesIdentity,
   setPurchasesEmail,
   syncPurchasesIdentity,
-} from '@/lib/purchases';
+} from '@/lib/backend/revenuecat';
 
 let mockActiveHousehold: { id: string; plus_active: boolean; ai_active?: boolean } | null = null;
 let mockSession: { user: { id: string; email?: string } } | null = null;
@@ -41,7 +41,7 @@ jest.mock('@/features/auth/session-provider', () => ({
   }),
 }));
 
-jest.mock('@/lib/purchases', () => ({
+jest.mock('@/lib/backend/revenuecat', () => ({
   isPurchasesConfigured: jest.fn(),
   hasPlusEntitlement: jest.fn().mockReturnValue(false),
   initPurchases: jest.fn(),

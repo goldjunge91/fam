@@ -1,9 +1,9 @@
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation, recordOutboxOutcome } from '@/lib/db/outbox';
 import { type FridgeItemConflict, getFridgeItemConflicts } from '@/lib/db/outbox-conflicts';
-import type { TypedSupabaseClient } from '@/lib/supabase';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { createInventoryQuantityCorrectionMutation } from '@/lib/sync/inventory-quantity';
 

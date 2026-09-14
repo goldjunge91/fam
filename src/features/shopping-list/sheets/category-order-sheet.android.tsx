@@ -11,7 +11,7 @@ import ReorderableList, {
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Surface, Txt } from '@/constants/ui';
-import { debugLogEvent } from '@/lib/debug-log';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import {
   parseCategoryOrder,
   SHOPPING_CATEGORIES,

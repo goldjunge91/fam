@@ -5,8 +5,8 @@ import {
   useInterstitialAd as useGoogleInterstitialAd,
 } from 'react-native-google-mobile-ads';
 import { usePremium } from '@/features/premium/premium-provider';
-import { debugInfo, debugWarn } from '@/lib/debug-log';
-import { env } from '@/lib/env';
+import { env } from '@/lib/config/env';
+import { debugInfo, debugWarn } from '@/lib/observability/debug-log';
 import { useAdsConsentReady } from '../ads-consent';
 import { useAdsEnabled } from '../ads-override';
 

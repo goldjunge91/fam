@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react-native';
 import { i18n } from '@/i18n';
-import { getNotificationPermissionStatus } from '@/lib/notifications';
+import { getNotificationPermissionStatus } from '@/lib/platform/notifications';
 import { NotificationPermissionCard } from './notification-permission-card';
 import { PermissionCard } from './permission-card';
 
-jest.mock('@/lib/notifications', () => ({
+jest.mock('@/lib/platform/notifications', () => ({
   disableNotificationReminders: jest.fn().mockResolvedValue(undefined),
   getNotificationPermissionStatus: jest.fn().mockResolvedValue({
     granted: false,

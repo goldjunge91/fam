@@ -10,7 +10,7 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { usePremium } from '@/features/premium/premium-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { resolveCategoryForItem } from '@/features/shopping-list/preferences/api';
-import { debugLogEvent } from '@/lib/debug-log';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import { type MissingIngredientView, useMealPlanShoppingNeeds } from './use-shopping-needs';
 
 debugLogEvent('meal-planner.missing-ingredients-screen.module-loaded', { variant: 'android' });

@@ -1,6 +1,6 @@
 import { DATABASE_FILE_NAMES } from '@/lib/db/database-files';
 import type { SqlDatabase } from '@/lib/db/types';
-import { debugLog, debugWarn } from '@/lib/debug-log';
+import { debugLog, debugWarn } from '@/lib/observability/debug-log';
 import { installBaseline } from './baseline-installer';
 import { createExpoFileOps } from './expo-file-ops';
 import type { DumpInspection } from './file-ops';

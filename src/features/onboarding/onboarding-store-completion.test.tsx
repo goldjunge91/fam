@@ -58,11 +58,11 @@ jest.mock('@/lib/analytics', () => ({
   trackAnalyticsEvent: (event: string) => mockTrackAnalyticsEvent(event),
 }));
 
-jest.mock('@/lib/debug-log', () => ({
+jest.mock('@/lib/observability/debug-log', () => ({
   debugWarn: jest.fn(),
 }));
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: () => ({
     from: jest.fn(() => ({
       select: jest.fn(() => ({ limit: mockHouseholdLimit })),

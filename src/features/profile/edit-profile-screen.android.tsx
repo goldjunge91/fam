@@ -31,6 +31,7 @@ import {
   INTOLERANCE_PRESETS,
   type ProfileFoodRules,
 } from '@/features/profile/domain/food-rules';
+import { getInitials } from '@/features/profile/domain/initials';
 import {
   profileFoodRulesQueryKey,
   saveProfileFoodRules,
@@ -41,11 +42,10 @@ import { BiometricsSheet } from '@/features/profile/sheets/biometrics-sheet';
 import { FoodRuleSelectionSheet } from '@/features/profile/sheets/food-rule-selection-sheet';
 import { PasswordChangeSheet } from '@/features/profile/sheets/password-change-sheet';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import { AUTH_VALIDATION_KEYS, translateAuthValidationMessage } from '@/lib/db/zod/auth.zod';
 import { type ProfileAccountForm, profileAccountFormSchema } from '@/lib/db/zod/profile.zod';
-import { getInitials } from '@/lib/initials';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
-import { getSupabase } from '@/lib/supabase';
 
 /**
  * Profil- und Account-Einstellungen:

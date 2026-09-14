@@ -1,4 +1,4 @@
-import { createChunkedStorage, type KeyValueStore } from '@/lib/chunked-storage';
+import { createChunkedStorage, type KeyValueStore } from '@/lib/storage/chunked-storage';
 
 /**
  * Echter In-Memory-Speicher, kein Testdouble: Er verhaelt sich wie der

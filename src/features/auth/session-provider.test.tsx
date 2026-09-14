@@ -16,7 +16,7 @@ const mockStartAccountQueryPersistence = jest.fn();
 let authStateCallback: ((event: string, session: { user: { id: string } } | null) => void) | null =
   null;
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: () => ({
     auth: {
       getSession: (...args: unknown[]) => mockGetSession(...args),
@@ -30,7 +30,7 @@ jest.mock('@/lib/db/client', () => ({
   setActiveUserId: (...args: unknown[]) => mockSetActiveUserId(...args),
 }));
 
-jest.mock('@/lib/query-client', () => ({
+jest.mock('@/lib/data/query-client', () => ({
   queryClient: {},
   startAccountQueryPersistence: (...args: unknown[]) => mockStartAccountQueryPersistence(...args),
 }));

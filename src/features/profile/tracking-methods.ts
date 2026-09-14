@@ -1,6 +1,6 @@
 import type { TrackingMethodOverrides } from '@/constants/dev-settings';
 import type { TrackingMethod } from '@/features/calorie-tracking/api';
-import type { FeatureFlagKey, FeatureFlagValues } from '@/lib/posthog';
+import type { FeatureFlagKey, FeatureFlagValues } from '@/lib/observability/providers/posthog';
 
 export type TrackingMethodOption = {
   id: TrackingMethod;

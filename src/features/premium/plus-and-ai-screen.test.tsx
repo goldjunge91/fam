@@ -4,7 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { rs } from '@/components/theme/index';
 import { PlusAndAiScreen } from '@/features/premium/plus-and-ai-screen';
-import { buyPackage, packagesForEntitlement, restorePurchases } from '@/lib/purchases';
+import { buyPackage, packagesForEntitlement, restorePurchases } from '@/lib/backend/revenuecat';
 
 let mockHasPlus = false;
 let mockHasAI = false;
@@ -36,7 +36,7 @@ jest.mock('@/features/premium/household-entitlement-sync', () => ({
   pollHouseholdUntilEntitlementActive: jest.fn().mockResolvedValue(true),
 }));
 
-jest.mock('@/lib/purchases', () => ({
+jest.mock('@/lib/backend/revenuecat', () => ({
   ENTITLEMENT_IDS: { PLUS: 'Plus', AI: 'AI' },
   restorePurchases: jest.fn(),
   packagesForEntitlement: jest.fn().mockResolvedValue([]),

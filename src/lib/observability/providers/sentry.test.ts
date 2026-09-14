@@ -25,7 +25,7 @@ describe('initSentry', () => {
   it('bleibt ohne DSN ein No-op', () => {
     delete process.env.EXPO_PUBLIC_SENTRY_DSN;
     const consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
-    const { initSentry } = require('@/lib/sentry');
+    const { initSentry } = require('@/lib/observability/providers/sentry');
 
     initSentry();
 
@@ -35,7 +35,7 @@ describe('initSentry', () => {
 
   it('initialisiert Sentry mit DSN', () => {
     process.env.EXPO_PUBLIC_SENTRY_DSN = 'https://example@o1.ingest.sentry.io/1';
-    const { initSentry } = require('@/lib/sentry');
+    const { initSentry } = require('@/lib/observability/providers/sentry');
 
     initSentry();
 
@@ -53,7 +53,7 @@ describe('initSentry', () => {
   });
 
   it('verwendet bei aktiviertem Replay kleine Sample-Raten', () => {
-    const { getSentryReplayOptions } = require('@/lib/sentry');
+    const { getSentryReplayOptions } = require('@/lib/observability/providers/sentry');
 
     expect(getSentryReplayOptions(false)).toEqual({
       replaysOnErrorSampleRate: 0.1,
@@ -67,7 +67,7 @@ describe('initSentry', () => {
       throw new Error('init fehlgeschlagen');
     });
     const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { initSentry } = require('@/lib/sentry');
+    const { initSentry } = require('@/lib/observability/providers/sentry');
 
     expect(() => initSentry()).not.toThrow();
 

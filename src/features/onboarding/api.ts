@@ -1,4 +1,4 @@
-import { getSupabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/backend/supabase/client';
 
 export async function markOnboardingCompleted(userId: string) {
   const { error } = await getSupabase()

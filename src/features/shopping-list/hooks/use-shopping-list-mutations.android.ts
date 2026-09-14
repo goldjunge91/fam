@@ -8,7 +8,7 @@ import {
   addOrMergeShoppingItem,
   buildAddOrMergeShoppingItemMutation,
 } from '@/lib/db/shopping-list-merge';
-import { debugLogEvent } from '@/lib/debug-log';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 import type { CategorySource } from '../classification/types';

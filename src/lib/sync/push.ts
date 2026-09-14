@@ -1,3 +1,4 @@
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
 import { type EntityMeta, metaOf } from '@/lib/db/entities';
 import {
   deleteOutboxEntries,
@@ -5,7 +6,6 @@ import {
   recordOutboxOutcome,
 } from '@/lib/db/outbox';
 import type { Entity, OutboxEntry, SqlDatabase } from '@/lib/db/types';
-import type { TypedSupabaseClient } from '@/lib/supabase';
 import { backoffDelayMs, classifyError, MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { type CoalescedEntry, coalesce } from '@/lib/sync/coalesce';
 import {

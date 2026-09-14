@@ -17,8 +17,6 @@ import {
   useForceAiOverrideStore,
   useForcePremiumOverrideStore,
 } from '@/features/premium/force-premium-override';
-import { debugWarn } from '@/lib/debug-log';
-import { env } from '@/lib/env';
 import {
   initPurchases,
   isPurchasesConfigured,
@@ -26,8 +24,10 @@ import {
   setPurchasesAttributes,
   setPurchasesEmail,
   syncPurchasesIdentity,
-} from '@/lib/purchases';
-import { queryClient as defaultQueryClient } from '@/lib/query-client';
+} from '@/lib/backend/revenuecat';
+import { env } from '@/lib/config/env';
+import { queryClient as defaultQueryClient } from '@/lib/data/query-client';
+import { debugWarn } from '@/lib/observability/debug-log';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 
 type PremiumContextValue = {

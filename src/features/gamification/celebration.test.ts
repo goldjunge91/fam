@@ -1,7 +1,7 @@
+import { celebrate as hapticCelebrate } from '@/lib/platform/haptics';
 import { celebrate, subscribeToCelebrations } from './celebration';
-import { celebrate as hapticCelebrate } from './haptics';
 
-jest.mock('./haptics', () => ({
+jest.mock('@/lib/platform/haptics', () => ({
   celebrate: jest.fn(),
 }));
 

@@ -1,4 +1,4 @@
-import { debugLog } from '@/lib/debug-log';
+import { debugLog } from '@/lib/observability/debug-log';
 
 /**
  * Domain-Owner: Placement-Taxonomie.

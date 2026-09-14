@@ -60,7 +60,7 @@ jest.mock('expo-location', () => ({
   useForegroundPermissions: () => mockUseForegroundPermissions(),
 }));
 
-jest.mock('@/lib/notifications', () => ({
+jest.mock('@/lib/platform/notifications', () => ({
   getNotificationPermissionStatus: (...args: unknown[]) =>
     mockGetNotificationPermissionStatus(...args),
   requestNotificationPermissions: (...args: unknown[]) =>
@@ -93,7 +93,7 @@ jest.mock('@/features/settings/module-preferences', () => ({
 
 // Diese Komponententests pruefen die Onboarding-Schritte, nicht die
 // PostHog-Anbindung. Alle optionalen Module sind hier bewusst freigeschaltet.
-jest.mock('@/lib/posthog', () => ({
+jest.mock('@/lib/observability/providers/posthog', () => ({
   useFeatureFlags: () => mockFeatureFlags,
   useFeatureFlag: (key: string | undefined, defaultValue: boolean) =>
     key ? (mockFeatureFlags[key] ?? defaultValue) : defaultValue,

@@ -4,8 +4,8 @@ import type {
   CatalogSource,
   ProductSearchResult,
 } from '@/features/product-search/types';
-import { debugError, debugLogEvent } from '@/lib/debug-log';
-import { env } from '@/lib/env';
+import { env } from '@/lib/config/env';
+import { debugError, debugLogEvent } from '@/lib/observability/debug-log';
 
 /**
  * Formatiert rohe Open-Food-Facts-Produkt-Objekte in das quellneutrale

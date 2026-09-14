@@ -1,4 +1,4 @@
-import { getSupabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import { createTicket, myTicketsQueryKey, sendReply, ticketMessagesQueryKey } from './api';
 
 const mockSelect = jest.fn();
@@ -8,7 +8,7 @@ const mockOrder = jest.fn();
 const mockEq = jest.fn();
 const mockFrom = jest.fn();
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: jest.fn(),
 }));
 

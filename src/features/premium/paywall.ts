@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 import RevenueCatUI from 'react-native-purchases-ui';
 
-import { isPurchasesConfigured } from '@/lib/purchases';
+import { isPurchasesConfigured } from '@/lib/backend/revenuecat';
 
 function isPaywallUiAvailable(): boolean {
   return Platform.OS === 'ios' || Platform.OS === 'android';

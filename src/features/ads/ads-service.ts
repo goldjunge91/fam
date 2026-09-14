@@ -1,8 +1,7 @@
 import mobileAds, { type PaidEvent, RevenuePrecisions } from 'react-native-google-mobile-ads';
 import Purchases, { AdFormat, AdMediatorName, AdRevenuePrecision } from 'react-native-purchases';
-
-import { debugInfo, debugWarn } from '@/lib/debug-log';
-import { isPurchasesConfigured } from '@/lib/purchases';
+import { isPurchasesConfigured } from '@/lib/backend/revenuecat';
+import { debugInfo, debugWarn } from '@/lib/observability/debug-log';
 import { gatherAdsConsent } from './ads-consent';
 import { getAdsEnabled } from './ads-override';
 

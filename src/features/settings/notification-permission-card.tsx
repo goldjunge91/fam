@@ -5,7 +5,7 @@ import {
   disableNotificationReminders,
   getNotificationPermissionStatus,
   requestNotificationPermissions,
-} from '@/lib/notifications';
+} from '@/lib/platform/notifications';
 import { PermissionCard, type PermissionState } from './permission-card';
 
 /**

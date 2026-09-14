@@ -6,8 +6,8 @@ import {
   getLogicalDateForTimestamp,
   getTimeRangeForLogicalDate,
 } from '@/features/tracking/domain/day-boundary';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import type { Database } from '@/lib/database.types';
-import { getSupabase } from '@/lib/supabase';
 
 export type FoodEntryRow = Database['public']['Tables']['food_entries']['Row'];
 export type UserGoalRow = Database['public']['Tables']['user_goals']['Row'];

@@ -37,7 +37,7 @@ jest.mock('@/features/auth/session-provider', () => ({
   }),
 }));
 
-jest.mock('@/lib/posthog', () => ({
+jest.mock('@/lib/observability/providers/posthog', () => ({
   useFeatureFlag: () => mockFeedbackEnabled,
 }));
 

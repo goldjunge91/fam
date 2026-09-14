@@ -6,7 +6,7 @@ import { radius, shadow, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Surface, Txt } from '@/constants/ui';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
-import { useStreak } from '@/lib/streak';
+import { useStreak } from '@/features/gamification/streak';
 
 const DAY_COUNT = 7;
 const STREAK_DAYS = ['day-1', 'day-2', 'day-3', 'day-4', 'day-5', 'day-6', 'day-7'] as const;

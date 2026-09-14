@@ -1,5 +1,5 @@
 import * as Linking from 'expo-linking';
-import { getSupabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/backend/supabase/client';
 
 export async function signUp(email: string, password: string) {
   const { data, error } = await getSupabase().auth.signUp({ email, password });

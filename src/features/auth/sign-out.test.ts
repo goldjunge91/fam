@@ -36,12 +36,12 @@ jest.mock('@/lib/storage/account-storage', () => ({
     mockGetRememberedLocalAccountUserId(...args),
 }));
 
-jest.mock('@/lib/query-client', () => ({
+jest.mock('@/lib/data/query-client', () => ({
   removeLegacyPersistedQueryCache: (...args: unknown[]) =>
     mockRemoveLegacyPersistedQueryCache(...args),
 }));
 
-jest.mock('@/lib/notifications', () => ({
+jest.mock('@/lib/platform/notifications', () => ({
   cancelUserNotificationReminders: (...args: unknown[]) =>
     mockCancelUserNotificationReminders(...args),
 }));
@@ -54,7 +54,7 @@ jest.mock('@/lib/storage/account-cache-registry', () => ({
   resetLocalAccountModuleCaches: (...args: unknown[]) => mockResetLocalAccountModuleCaches(...args),
 }));
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: () => ({
     auth: {
       getSession: (...args: unknown[]) => mockGetSession(...args),

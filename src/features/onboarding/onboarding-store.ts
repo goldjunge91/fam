@@ -7,8 +7,8 @@ import { persistOnboardingCompleted } from '@/features/onboarding/onboarding-com
 import { updateProfile } from '@/features/profile/api';
 import { saveModulePreferences } from '@/features/settings/module-preferences';
 import { trackAnalyticsEvent } from '@/lib/analytics';
-import { debugWarn } from '@/lib/debug-log';
-import { getSupabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/backend/supabase/client';
+import { debugWarn } from '@/lib/observability/debug-log';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 import type {
   HouseholdOnboardingData,

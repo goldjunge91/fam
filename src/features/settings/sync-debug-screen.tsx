@@ -15,9 +15,9 @@ import { useSyncStatus } from '@/hooks/use-sync-status';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
 import { deleteOutboxEntries } from '@/lib/db/outbox';
-import { debugError } from '@/lib/debug-log';
 import { fromInventoryQuantityUnits } from '@/lib/inventory-quantity';
-import { sendTestNotification } from '@/lib/notifications';
+import { debugError } from '@/lib/observability/debug-log';
+import { sendTestNotification } from '@/lib/platform/notifications';
 import {
   getActiveSyncEngineIntervalCount,
   getLastRealtimeStatus,

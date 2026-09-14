@@ -2,9 +2,9 @@ import PostHog, { PostHogProvider } from 'posthog-react-native';
 import { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
 
 import { useAnalyticsSettingsStore } from '@/constants/analytics';
-import { debugError, debugLogEvent, debugWarn } from '@/lib/debug-log';
-import { env } from '@/lib/env';
+import { env } from '@/lib/config/env';
 import { isAnalyticsProviderEnabled } from '@/lib/telemetry/policy';
+import { debugError, debugLogEvent, debugWarn } from '../debug-log';
 
 let client: PostHog | undefined;
 let attempted = false;

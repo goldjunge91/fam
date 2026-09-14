@@ -17,7 +17,7 @@ import { getDrawerGroups } from '@/constants/feature-registry';
 import { Txt } from '@/constants/ui';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
-import { debugLogEvent } from '@/lib/debug-log';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 const DRAWER_WIDTH_RATIO = 0.84;

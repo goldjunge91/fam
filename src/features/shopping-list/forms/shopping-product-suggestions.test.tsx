@@ -8,7 +8,7 @@ import { ShoppingProductSuggestions } from './shopping-product-suggestions';
 
 const mockUseShoppingProductSuggestions = jest.fn();
 
-jest.mock('@/lib/haptics', () => ({
+jest.mock('@/lib/platform/haptics', () => ({
   heavy: jest.fn(),
   light: jest.fn(),
   medium: jest.fn(),

@@ -7,10 +7,14 @@ import {
   trackAptabaseEvent,
 } from '@/lib/analytics/aptabase';
 import { bugBubbleAnalytics, bugBubbleConsole } from '@/lib/analytics/bug-bubble';
-import { debugLogEvent, debugWarn } from '@/lib/debug-log';
-import { markPerformance, measurePerformance, metricPerformance } from '@/lib/performance';
-import { getPostHogClient, isPostHogConfigured } from '@/lib/posthog';
-import { Sentry } from '@/lib/sentry';
+import {
+  markPerformance,
+  measurePerformance,
+  metricPerformance,
+} from '@/lib/observability/performance';
+import { getPostHogClient, isPostHogConfigured } from '@/lib/observability/providers/posthog';
+import { Sentry } from '@/lib/observability/providers/sentry';
+import { debugLogEvent, debugWarn } from '../observability/debug-log';
 import {
   getTelemetryChannelForEvent,
   isAnalyticsProviderEnabled,

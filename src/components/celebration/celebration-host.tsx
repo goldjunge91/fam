@@ -13,7 +13,10 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { font, type Palette, radius, shadow } from '@/components/theme';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { type CelebrationBurst, subscribeToCelebrations } from '@/lib/celebration';
+import {
+  type CelebrationBurst,
+  subscribeToCelebrations,
+} from '@/features/gamification/celebration';
 
 const PIECES = 28;
 const PIECE_IDS = Array.from({ length: PIECES }, (_, index) => `piece-${index}`);

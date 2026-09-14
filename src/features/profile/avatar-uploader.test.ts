@@ -12,11 +12,11 @@ jest.mock('expo-file-system', () => ({
   File: jest.fn(() => ({ bytes: mockBytes })),
 }));
 
-jest.mock('@/lib/debug-log', () => ({
+jest.mock('@/lib/observability/debug-log', () => ({
   debugLogEvent: jest.fn(),
 }));
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: () => ({
     storage: { from: mockFrom },
   }),

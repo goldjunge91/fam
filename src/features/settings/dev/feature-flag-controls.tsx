@@ -5,7 +5,7 @@ import { useDevSettingsStore } from '@/constants/dev-settings';
 import { getSettingsModules } from '@/constants/feature-registry';
 import { Button, Txt } from '@/constants/ui';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
-import { useFeatureFlags } from '@/lib/posthog';
+import { useFeatureFlags } from '@/lib/observability/providers/posthog';
 
 const SETTINGS_MODULES = getSettingsModules();
 

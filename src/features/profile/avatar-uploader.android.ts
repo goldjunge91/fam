@@ -1,5 +1,5 @@
 import * as ImagePicker from 'expo-image-picker';
-import { getSupabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/backend/supabase/client';
 
 const AVATAR_BUCKET = 'avatars';
 

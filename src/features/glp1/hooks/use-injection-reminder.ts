@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { resolveInjectionReminder } from '@/features/glp1/domain/injection-reminder';
 import { useLatestMedicationLog } from '@/features/glp1/hooks/glp1-api';
 import { useInjectionPlan } from '@/features/glp1/hooks/injection-plan-api';
-import { cancelLocalReminder, scheduleLocalReminder } from '@/lib/notifications';
+import { cancelLocalReminder, scheduleLocalReminder } from '@/lib/platform/notifications';
 
 export function injectionReminderIdentifier(userId: string): string {
   return `fam.glp1.injection-due.v1.${userId}`;

@@ -59,7 +59,7 @@ jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: null }),
 }));
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: () => ({
     auth: {
       getSession: (...args: unknown[]) => mockGetSession(...args),

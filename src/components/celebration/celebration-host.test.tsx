@@ -1,13 +1,13 @@
 import { act, render, screen } from '@testing-library/react-native';
 
-import { celebrate } from '@/lib/celebration';
+import { celebrate } from '@/features/gamification/celebration';
 import { CelebrationHost } from './celebration-host';
 
 jest.mock('@/components/theme/ThemeProvider', () => ({
   useTheme: () => ({ colors: require('@/components/theme').colorsLight }),
 }));
 
-jest.mock('@/lib/haptics', () => ({
+jest.mock('@/lib/platform/haptics', () => ({
   celebrate: jest.fn(),
 }));
 

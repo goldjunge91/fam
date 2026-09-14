@@ -13,7 +13,7 @@ const mockReset = jest.fn();
 const mockReloadFeatureFlags = jest.fn();
 let mockConfigured = true;
 
-jest.mock('@/lib/posthog', () => ({
+jest.mock('@/lib/observability/providers/posthog', () => ({
   isPostHogConfigured: () => mockConfigured,
   getPostHogClient: () =>
     mockConfigured

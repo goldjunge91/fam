@@ -2,7 +2,7 @@ import { Card } from '@/components/ui/card';
 import { useDevSettingsStore } from '@/constants/dev-settings';
 import { Button, Txt } from '@/constants/ui';
 import { getTrackingMethodSettings, TRACKING_METHODS } from '@/features/profile/tracking-methods';
-import { useFeatureFlags } from '@/lib/posthog';
+import { useFeatureFlags } from '@/lib/observability/providers/posthog';
 
 /** Lokale Freischaltung von Tracking-Methoden für Dev-Builds und TestFlight. */
 export function TrackingMethodControls() {

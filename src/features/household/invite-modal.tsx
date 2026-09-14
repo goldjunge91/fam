@@ -14,7 +14,7 @@ import {
   useRevokeInviteMutation,
 } from '@/features/household/api';
 import { formatInviteUrl } from '@/features/household/household-helpers';
-import { debugError } from '@/lib/debug-log';
+import { debugError } from '@/lib/observability/debug-log';
 
 const styles = StyleSheet.create((theme) => ({
   backdrop: {

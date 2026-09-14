@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import { debugError } from '@/lib/debug-log';
+import { debugError } from '../observability/debug-log';
 
 const NOTIF_SETTINGS_KEY = 'fam_notification_settings_v1';
 export const EXPIRY_NOTIFICATION_IDENTIFIER = 'fam.inventory.expiry.v1';

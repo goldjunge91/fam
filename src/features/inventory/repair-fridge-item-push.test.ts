@@ -1,6 +1,6 @@
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
-import type { TypedSupabaseClient } from '@/lib/supabase';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 import { repairFridgeItemForeignKeyViolation } from './repair-fridge-item-push';
 

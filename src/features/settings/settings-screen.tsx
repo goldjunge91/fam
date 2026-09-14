@@ -28,8 +28,8 @@ import { PlusAndAiPromoCard } from '@/features/settings/plus-and-ai-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { type AppLanguage, setAppLanguage } from '@/i18n';
-import { debugLogEvent } from '@/lib/debug-log';
-import { env } from '@/lib/env';
+import { env } from '@/lib/config/env';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 
 const styles = StyleSheet.create({
   scroll: {

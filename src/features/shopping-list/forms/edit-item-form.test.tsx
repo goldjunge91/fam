@@ -118,7 +118,7 @@ jest.mock('../preferences/api', () => ({
   resolvePlacementForItem: (...args: unknown[]) => mockResolvePlacementForItem(...args),
 }));
 
-jest.mock('@/lib/posthog', () => ({
+jest.mock('@/lib/observability/providers/posthog', () => ({
   useFeatureFlag: () => false,
 }));
 

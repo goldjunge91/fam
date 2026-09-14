@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import * as Clipboard from 'expo-clipboard';
-import { selection as hapticSelection } from '@/lib/haptics';
+import { selection as hapticSelection } from '@/lib/platform/haptics';
 
 import { InviteModal } from './invite-modal';
 
@@ -13,7 +13,7 @@ jest.mock('expo-clipboard', () => ({
   setStringAsync: jest.fn().mockResolvedValue(true),
 }));
 
-jest.mock('@/lib/haptics', () => ({
+jest.mock('@/lib/platform/haptics', () => ({
   heavy: jest.fn(),
   light: jest.fn(),
   medium: jest.fn(),

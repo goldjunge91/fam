@@ -3,7 +3,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { SpeedDialMenu } from '@/features/navigation/speed-dial-menu';
 import type { ModulePreferences } from '@/features/settings/module-preferences';
-import type { FeatureFlagKey } from '@/lib/posthog';
+import type { FeatureFlagKey } from '@/lib/observability/providers/posthog';
 
 const mockCloseQuickAdd = jest.fn();
 let mockPathname = '/';
@@ -64,7 +64,7 @@ jest.mock('@/features/settings/module-preferences', () => ({
   }),
 }));
 
-jest.mock('@/lib/posthog', () => ({
+jest.mock('@/lib/observability/providers/posthog', () => ({
   useFeatureFlags: () => mockFeatureFlags,
   useFeatureFlag: (key: FeatureFlagKey, defaultValue: boolean) =>
     mockFeatureFlags[key] ?? defaultValue,

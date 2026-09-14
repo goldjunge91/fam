@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { Control, FieldValues, UseFormReset } from 'react-hook-form';
+import { queryClient } from '@/lib/data/query-client';
 import { getDatabase } from '@/lib/db/client';
 import type { SqlParam } from '@/lib/db/types';
-import { debugWarn } from '@/lib/debug-log';
 import {
   clearPerformanceEntries,
   getPerformanceMeasureDuration,
@@ -12,9 +12,9 @@ import {
   measurePerformance,
   metricPerformance,
   setPerformanceInstrumentationEnabled,
-} from '@/lib/performance';
-import { queryClient } from '@/lib/query-client';
+} from '@/lib/observability/performance';
 import { getDeviceStorage } from '@/lib/storage/device-storage';
+import { debugWarn } from '../observability/debug-log';
 
 type RozeniteModules = {
   network: typeof import('@rozenite/network-activity-plugin');

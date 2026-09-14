@@ -10,7 +10,7 @@ import { Txt } from '@/constants/ui';
 import { useProduct } from '@/features/inventory/use-product';
 import { offApiSource } from '@/features/product-search/sources/off-api-source';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { debugLog } from '@/lib/debug-log';
+import { debugLog } from '@/lib/observability/debug-log';
 
 export type ProductInformationItem = {
   product_id: string | null;

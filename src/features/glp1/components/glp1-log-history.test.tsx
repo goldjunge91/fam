@@ -1,10 +1,10 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { radius } from '@/components/theme/index';
 import type { MedicationLogRow, SymptomLogRow } from '@/features/glp1/hooks/glp1-api';
-import { light as hapticLight } from '@/lib/haptics';
+import { light as hapticLight } from '@/lib/platform/haptics';
 import { Glp1LogHistory } from './glp1-log-history';
 
-jest.mock('@/lib/haptics', () => ({
+jest.mock('@/lib/platform/haptics', () => ({
   heavy: jest.fn(),
   light: jest.fn(),
   medium: jest.fn(),

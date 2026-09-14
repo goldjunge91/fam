@@ -6,9 +6,9 @@ import { withAlpha } from '@/components/theme/index';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Button, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
-import { debugLog } from '@/lib/debug-log';
+import { formatAmount } from '@/lib/format/package-size';
 import { subtractInventoryQuantities } from '@/lib/inventory-quantity';
-import { formatAmount } from '@/lib/package-size';
+import { debugLog } from '@/lib/observability/debug-log';
 
 import { calculateOpenedExpiryDate } from '../opened-expiry';
 import type { LocalInventoryItem } from '../use-inventory-items';

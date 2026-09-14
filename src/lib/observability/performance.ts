@@ -1,7 +1,7 @@
 type PerformanceDetail = Readonly<Record<string, string | number | boolean | null>>;
 type PerformanceApi = typeof import('react-native-performance').default;
 
-import { debugWarn } from '@/lib/debug-log';
+import { debugWarn } from '@/lib/observability/debug-log';
 
 export type PerformanceMonitorSnapshot = {
   available: boolean;

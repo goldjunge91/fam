@@ -11,7 +11,7 @@ import { Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { trackAnalyticsEvent } from '@/lib/analytics';
-import { debugLogEvent } from '@/lib/debug-log';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import { AccountStepForm } from './components/account-step';
 import { CompleteStepForm } from './components/complete-step';
 import { HouseholdStepForm } from './components/household-step';

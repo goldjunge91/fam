@@ -3,6 +3,7 @@ import * as Crypto from 'expo-crypto';
 
 import { useSession } from '@/features/auth/session-provider';
 import { trackAnalyticsEvent } from '@/lib/analytics';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import type { Database } from '@/lib/database.types';
 import { getDatabase } from '@/lib/db/client';
 import {
@@ -12,7 +13,6 @@ import {
 } from '@/lib/db/outbox';
 import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';
 import { isPositiveIntegerThousandths, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
-import { getSupabase } from '@/lib/supabase';
 import {
   createInventoryMoveMutation,
   createInventoryQuantityCorrectionMutation,

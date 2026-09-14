@@ -4,8 +4,8 @@ import {
   useForceAiOverrideStore,
   useForcePremiumOverrideStore,
 } from '@/features/premium/force-premium-override';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import { getDatabase } from '@/lib/db/client';
-import { getSupabase } from '@/lib/supabase';
 import { devResetHouseholdPremium } from './dev-reset-premium';
 
 jest.mock('react-native-purchases', () => ({
@@ -19,7 +19,7 @@ jest.mock('@/lib/db/client', () => ({
   getDatabase: jest.fn(),
 }));
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: jest.fn(),
 }));
 

@@ -16,10 +16,10 @@ import { ActiveHouseholdProvider } from '@/features/household/active-household-p
 import { PremiumProvider } from '@/features/premium/premium-provider';
 import { ScreenTracker } from '@/lib/analytics';
 import { isBugBubbleEnabledForUser, setBugBubbleActive } from '@/lib/analytics/bug-bubble';
-import { PostHogAppProvider, useFeatureFlag } from '@/lib/posthog';
-import { queryClient, removeLegacyPersistedQueryCache } from '@/lib/query-client';
-import { loadShotsFlag } from '@/lib/screenshots';
-import { Sentry } from '@/lib/sentry';
+import { queryClient, removeLegacyPersistedQueryCache } from '@/lib/data/query-client';
+import { loadShotsFlag } from '@/lib/devtools/screenshots';
+import { PostHogAppProvider, useFeatureFlag } from '@/lib/observability/providers/posthog';
+import { Sentry } from '@/lib/observability/providers/sentry';
 import { reportCapturedError } from '@/lib/telemetry';
 
 import { CrashFallback } from './crash-fallback';

@@ -101,7 +101,7 @@ jest.mock('@/lib/db/outbox', () => ({
   deleteOutboxEntries: jest.fn(),
 }));
 
-jest.mock('@/lib/notifications', () => ({
+jest.mock('@/lib/platform/notifications', () => ({
   sendTestNotification: jest.fn(),
 }));
 

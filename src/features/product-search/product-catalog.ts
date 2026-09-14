@@ -7,7 +7,7 @@ import type {
   CatalogSource,
   ProductSearchResult,
 } from '@/features/product-search/types';
-import { debugLogEvent } from '@/lib/debug-log';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 
 /** Unter dieser Zahl lokaler Treffer lohnt sich der zusaetzliche OFF-Request noch. */
 export const LOCAL_RESULT_THRESHOLD = 5;

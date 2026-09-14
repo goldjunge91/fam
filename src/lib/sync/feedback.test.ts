@@ -3,11 +3,11 @@ import {
   categoryFeedbackMutation,
   pruneOldSyncedFeedbackEvents,
 } from '@/features/shopping-list/preferences/feedback';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation } from '@/lib/db/outbox';
-import type { TypedSupabaseClient } from '@/lib/supabase';
 import { applyRemoteRow, upsertMirrorRow } from '@/lib/sync/mirror-write';
 import { pullHousehold } from '@/lib/sync/pull';
 import { pushOutbox } from '@/lib/sync/push';

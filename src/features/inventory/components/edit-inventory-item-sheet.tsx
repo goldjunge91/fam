@@ -12,9 +12,8 @@ import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Button, IconButton, TextField, Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
-import { debugLog } from '@/lib/debug-log';
+import { debugLog } from '@/lib/observability/debug-log';
 import { UNIT_OPTIONS } from '@/lib/units';
-
 import type { LocalInventoryItem } from '../use-inventory-items';
 import { useUpdateFridgeItemMutation } from '../use-inventory-mutations';
 

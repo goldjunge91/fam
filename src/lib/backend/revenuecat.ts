@@ -11,8 +11,8 @@ import Purchases, {
   type PurchasesPackage,
 } from 'react-native-purchases';
 
-import { debugInfo, debugWarn } from '@/lib/debug-log';
-import { env } from '@/lib/env';
+import { env } from '@/lib/config/env';
+import { debugInfo, debugWarn } from '../observability/debug-log';
 
 export { ENTITLEMENT_VERIFICATION_MODE, VERIFICATION_RESULT };
 

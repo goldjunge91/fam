@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { isOrphanedProfileError } from '@/features/profile/orphaned-profile-error';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import type { Database } from '@/lib/database.types';
 import {
   type ProfileUpdateInput,
   profileUpdateSchema,
   toProfileDatabaseUpdate,
 } from '@/lib/db/zod/profile.zod';
-import { getSupabase } from '@/lib/supabase';
 
 export function useProfile(userId: string | undefined) {
   return useQuery({

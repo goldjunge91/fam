@@ -1,4 +1,3 @@
-import type { KeyValueStore } from '@/lib/chunked-storage';
 import {
   type CipherDatabase,
   createDatabaseKeyManager,
@@ -9,6 +8,7 @@ import {
   toSqlCipherKeyPragma,
 } from '@/lib/db/database-encryption';
 import type { DatabaseFileOps } from '@/lib/db/database-files';
+import type { KeyValueStore } from '@/lib/storage/chunked-storage';
 
 jest.mock('@/lib/telemetry', () => ({ addDiagnosticStep: jest.fn() }));
 

@@ -12,7 +12,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { BUTTON_DEPTH } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { useGlassAvailable } from '@/components/ui/glass-card';
-import { medium as hapticMedium } from '@/lib/haptics';
+import { medium as hapticMedium } from '@/lib/platform/haptics';
 
 const styles = StyleSheet.create((theme) => ({
   outer: {

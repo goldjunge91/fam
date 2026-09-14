@@ -10,7 +10,7 @@ import {
   getNotificationSettings,
   type NotificationSettings,
   saveNotificationSettings,
-} from '@/lib/notifications';
+} from '@/lib/platform/notifications';
 
 const THRESHOLD_OPTIONS = [1, 3, 5, 7];
 

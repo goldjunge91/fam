@@ -41,7 +41,7 @@ import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-pro
 import type { CatalogProduct } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
-import { debugError } from '@/lib/debug-log';
+import { debugError } from '@/lib/observability/debug-log';
 import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';
 
 function formatOffsetDate(days: number): string {

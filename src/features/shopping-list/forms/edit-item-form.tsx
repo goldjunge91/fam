@@ -6,9 +6,9 @@ import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { Button, Press, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProduct } from '@/features/inventory/use-product';
-import { debugError, debugLog } from '@/lib/debug-log';
-import { formatAmount, formatPackageHint } from '@/lib/package-size';
-import { useFeatureFlag } from '@/lib/posthog';
+import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
+import { debugError, debugLog } from '@/lib/observability/debug-log';
+import { useFeatureFlag } from '@/lib/observability/providers/posthog';
 import { UNIT_OPTIONS } from '@/lib/units';
 import {
   normalizePlacementZoneIdNullable,

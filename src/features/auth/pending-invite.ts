@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { debugError } from '@/lib/debug-log';
+import { debugError } from '@/lib/observability/debug-log';
 
 const PENDING_INVITE_KEY = '@fam/pending_invite_token';
 

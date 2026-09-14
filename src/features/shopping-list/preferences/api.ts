@@ -2,7 +2,7 @@ import { parseCategoryTagsJson } from '@/features/product-search/product-parsing
 import { getDatabase } from '@/lib/db/client';
 import { type EnqueueMutationInput, enqueueMutations } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
-import { debugLog } from '@/lib/debug-log';
+import { debugLog } from '@/lib/observability/debug-log';
 import { normalizePlacementZoneIdNullable } from '../classification/placement-taxonomy';
 import type { ShoppingCategoryId } from '../classification/shopping-category-id';
 import type { PlacementClassificationInput } from '../classification/types';

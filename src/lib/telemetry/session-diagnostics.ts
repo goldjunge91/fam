@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppState, type AppStateStatus } from 'react-native';
 
-import { debugWarn } from '@/lib/debug-log';
+import { debugWarn } from '../observability/debug-log';
 import type { TelemetryProperties } from './schema';
 
 const SESSION_MARKER_KEY = '@fam/telemetry-session.v1';

@@ -4,7 +4,7 @@ import { ActivityIndicator, Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Txt } from '@/constants/ui';
-import { debugLog } from '@/lib/debug-log';
+import { debugLog } from '@/lib/observability/debug-log';
 
 const styles = StyleSheet.create((theme) => ({
   backdrop: {

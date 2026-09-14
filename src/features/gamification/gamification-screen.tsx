@@ -5,8 +5,8 @@ import { Screen } from '@/components/layout/screen';
 import { font, radius, space } from '@/components/theme';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Card, Txt } from '@/constants/ui';
-import { celebrate } from '@/lib/celebration';
-import { useStreak } from '@/lib/streak';
+import { celebrate } from './celebration';
+import { useStreak } from './streak';
 
 const STREAK_MILESTONES = [3, 7, 14, 30, 50, 100, 365] as const;
 

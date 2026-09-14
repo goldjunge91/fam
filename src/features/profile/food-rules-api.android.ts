@@ -5,8 +5,8 @@ import {
   type ProfileFoodRules,
   toStoredProfileFoodRules,
 } from '@/features/profile/domain/food-rules';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import type { Database } from '@/lib/database.types';
-import { getSupabase } from '@/lib/supabase';
 
 export function profileFoodRulesQueryKey(userId: string | undefined) {
   return ['profile-food-rules', userId] as const;

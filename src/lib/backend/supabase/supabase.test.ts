@@ -13,7 +13,7 @@ jest.mock('@supabase/supabase-js', () => ({
   createClient: (...args: unknown[]) => mockCreateClient(...args),
 }));
 
-jest.mock('@/lib/env', () => ({
+jest.mock('@/lib/config/env', () => ({
   env: {
     supabaseUrl: 'https://example.supabase.co',
     supabaseKey: 'test-key',
@@ -26,7 +26,7 @@ jest.mock('expo-secure-store', () => ({
   deleteItemAsync: jest.fn().mockResolvedValue(undefined),
 }));
 
-import { getSupabase, startSupabaseAutoRefresh } from '@/lib/supabase';
+import { getSupabase, startSupabaseAutoRefresh } from '@/lib/backend/supabase/client';
 
 describe('Supabase Native Lifecycle', () => {
   let appStateListener: ((state: AppStateStatus) => void) | undefined;

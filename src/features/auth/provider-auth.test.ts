@@ -2,7 +2,7 @@ const mockSignInWithOAuth = jest.fn();
 const mockOpenAuthSessionAsync = jest.fn();
 const mockSetSession = jest.fn();
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: () => ({
     auth: {
       setSession: mockSetSession,

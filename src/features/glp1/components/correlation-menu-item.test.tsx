@@ -1,10 +1,10 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
-import { light as hapticLight } from '@/lib/haptics';
+import { light as hapticLight } from '@/lib/platform/haptics';
 import { CorrelationMenuItem } from './correlation-menu-item';
 
 jest.mock('expo-router', () => ({ router: { push: jest.fn() } }));
-jest.mock('@/lib/haptics', () => ({
+jest.mock('@/lib/platform/haptics', () => ({
   heavy: jest.fn(),
   light: jest.fn(),
   medium: jest.fn(),

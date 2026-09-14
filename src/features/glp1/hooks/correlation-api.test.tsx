@@ -1,9 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { renderHook, waitFor } from '@testing-library/react-native';
 import React from 'react';
-
+import { getSupabase } from '@/lib/backend/supabase/client';
 import { getDatabase } from '@/lib/db/client';
-import { getSupabase } from '@/lib/supabase';
 import { correlationSeriesQueryKey, useCorrelationSeries } from './correlation-api';
 
 const mockGetAllAsync = jest.fn();
@@ -15,7 +14,7 @@ jest.mock('@/lib/db/client', () => ({
   getDatabase: jest.fn(),
 }));
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: jest.fn(),
 }));
 

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getSupabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/backend/supabase/client';
 
 export function profileLatestWeightQueryKey(userId: string | undefined) {
   return ['profile', 'latest-weight', userId] as const;

@@ -70,7 +70,7 @@ jest.mock('@/features/settings/module-preferences', () => ({
   }),
 }));
 
-jest.mock('@/lib/posthog', () => ({
+jest.mock('@/lib/observability/providers/posthog', () => ({
   useFeatureFlags: () => ({ 'module-recipes': mockRecipesFeatureFlag }),
   useFeatureFlag: () => mockRecipesFeatureFlag,
 }));

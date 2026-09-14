@@ -2,7 +2,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import type { MMKV } from 'react-native-mmkv';
 
-import { removeLegacyPersistedQueryCache, startAccountQueryPersistence } from '@/lib/query-client';
+import {
+  removeLegacyPersistedQueryCache,
+  startAccountQueryPersistence,
+} from '@/lib/data/query-client';
 import { reportError } from '@/lib/telemetry';
 
 const mockGetEncryptedAccountStorage = jest.fn<Promise<MMKV>, [string]>();

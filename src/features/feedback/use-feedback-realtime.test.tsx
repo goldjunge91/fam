@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { renderHook } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
 
-import { getSupabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import { useFeedbackRealtime } from './use-feedback-realtime';
 
 const handlers: Record<string, (payload: unknown) => void> = {};
@@ -16,7 +16,7 @@ function channelBuilder() {
   return { on: mockOn, subscribe: mockSubscribe };
 }
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: jest.fn(),
 }));
 

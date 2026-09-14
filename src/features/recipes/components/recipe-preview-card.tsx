@@ -6,7 +6,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { rs } from '@/components/theme/index';
 import { Press, Txt } from '@/constants/ui';
-import { debugError, debugLog } from '@/lib/debug-log';
+import { debugError, debugLog } from '@/lib/observability/debug-log';
 import { useCatalogImageUrl } from '../catalog/use-recipe-catalog';
 import { useRecipeCoverUrl } from '../data/household-recipe-images';
 

@@ -46,7 +46,7 @@ jest.mock('@/lib/storage/device-storage', () => ({
 
 let mockFeatureFlags: Record<string, boolean> = {};
 
-jest.mock('@/lib/posthog', () => ({
+jest.mock('@/lib/observability/providers/posthog', () => ({
   useFeatureFlags: () => mockFeatureFlags,
 }));
 

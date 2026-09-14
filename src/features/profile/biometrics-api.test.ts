@@ -2,7 +2,7 @@ import {
   fetchLatestProfileWeight,
   profileLatestWeightQueryKey,
 } from '@/features/profile/biometrics-api';
-import { getSupabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/backend/supabase/client';
 
 const mockEq = jest.fn();
 const mockIs = jest.fn();
@@ -12,7 +12,7 @@ const mockOrder = jest.fn();
 const mockSelect = jest.fn();
 const mockFrom = jest.fn();
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: jest.fn(),
 }));
 

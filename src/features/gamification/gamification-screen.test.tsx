@@ -1,16 +1,16 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { celebrate } from '@/lib/celebration';
+import { celebrate } from '@/features/gamification/celebration';
 import { GamificationScreen } from './gamification-screen';
 
 let mockStreak = { count: 3, best: 7, activeToday: true };
 
-jest.mock('@/lib/celebration', () => ({
+jest.mock('@/features/gamification/celebration', () => ({
   celebrate: jest.fn(),
 }));
 
-jest.mock('@/lib/streak', () => ({
+jest.mock('@/features/gamification/streak', () => ({
   useStreak: () => mockStreak,
 }));
 

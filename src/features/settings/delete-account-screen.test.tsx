@@ -22,7 +22,7 @@ jest.mock('expo-router', () => ({
   },
 }));
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: () => ({
     functions: {
       invoke: (...args: unknown[]) => mockInvoke(...args),

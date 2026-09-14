@@ -4,8 +4,8 @@ import {
   trackAptabaseError,
   trackAptabaseEvent,
 } from '@/lib/analytics/aptabase';
-import { getPostHogClient, isPostHogConfigured } from '@/lib/posthog';
-import { Sentry } from '@/lib/sentry';
+import { getPostHogClient, isPostHogConfigured } from '@/lib/observability/providers/posthog';
+import { Sentry } from '@/lib/observability/providers/sentry';
 import {
   addDiagnosticStep,
   measureOperation,
@@ -21,12 +21,12 @@ jest.mock('@/lib/analytics/aptabase', () => ({
   trackAptabaseEvent: jest.fn(),
 }));
 
-jest.mock('@/lib/posthog', () => ({
+jest.mock('@/lib/observability/providers/posthog', () => ({
   getPostHogClient: jest.fn(),
   isPostHogConfigured: jest.fn(),
 }));
 
-jest.mock('@/lib/sentry', () => ({
+jest.mock('@/lib/observability/providers/sentry', () => ({
   Sentry: {
     addBreadcrumb: jest.fn(),
     captureException: jest.fn(),

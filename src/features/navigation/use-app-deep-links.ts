@@ -1,14 +1,13 @@
 import * as Linking from 'expo-linking';
 import { useEffect } from 'react';
-
+import { setAuthDeepLinkError } from '@/features/auth/auth-deep-link-state';
 import {
   parseAuthErrorFromUrl,
   parseAuthTokensFromUrl,
 } from '@/features/auth/domain/auth-deep-link';
-import { setAuthDeepLinkError } from '@/lib/auth-deep-link-state';
-import { debugError, debugWarn } from '@/lib/debug-log';
-import { savePendingInviteToken } from '@/lib/pending-invite';
-import { getSupabase } from '@/lib/supabase';
+import { savePendingInviteToken } from '@/features/auth/pending-invite';
+import { getSupabase } from '@/lib/backend/supabase/client';
+import { debugError, debugWarn } from '@/lib/observability/debug-log';
 import { reportError, reportWarning } from '@/lib/telemetry';
 
 /** Verarbeitet Auth- und Einladungslinks an der zentralen App-Grenze. */

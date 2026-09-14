@@ -8,10 +8,13 @@ import {
   signIn,
   signOut,
 } from '@/features/auth/api';
+import {
+  clearAuthDeepLinkError,
+  subscribeAuthDeepLinkError,
+} from '@/features/auth/auth-deep-link-state';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
-import { clearAuthDeepLinkError, subscribeAuthDeepLinkError } from '@/lib/auth-deep-link-state';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import { confirmationCodeSchema, translateAuthValidationMessage } from '@/lib/db/zod/auth.zod';
-import { getSupabase } from '@/lib/supabase';
 
 interface EmailVerificationOptions {
   email: string;

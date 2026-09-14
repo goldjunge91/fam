@@ -9,8 +9,8 @@ import {
 } from 'react-native-google-mobile-ads';
 import { AdFormat } from 'react-native-purchases';
 import { usePremium } from '@/features/premium/premium-provider';
-import { debugWarn } from '@/lib/debug-log';
-import { env } from '@/lib/env';
+import { env } from '@/lib/config/env';
+import { debugWarn } from '@/lib/observability/debug-log';
 import { useAdsConsentReady } from '../ads-consent';
 import { useAdsEnabled } from '../ads-override';
 import { trackAdRevenueToRevenueCat } from '../ads-service';

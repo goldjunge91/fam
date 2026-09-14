@@ -3,7 +3,7 @@ import { create } from 'zustand';
 import { getSettingsModules } from '@/constants/feature-registry';
 import type { TrackingMethod } from '@/features/calorie-tracking/api';
 import type { ModulePreferences } from '@/features/settings/module-preferences';
-import { debugWarn } from '@/lib/debug-log';
+import { debugWarn } from '@/lib/observability/debug-log';
 import { getDeviceStorage } from '@/lib/storage/device-storage';
 
 export type TrackingMethodOverrides = Partial<Record<TrackingMethod, boolean>>;

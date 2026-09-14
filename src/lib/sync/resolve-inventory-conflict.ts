@@ -1,7 +1,7 @@
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
 import { deleteOutboxEntries, enqueueMutationsInExclusiveTransaction } from '@/lib/db/outbox';
 import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';
 import type { SqlDatabase } from '@/lib/db/types';
-import type { TypedSupabaseClient } from '@/lib/supabase';
 
 import { createInventoryQuantityCorrectionMutation } from './inventory-quantity';
 import { deleteMirrorRow, upsertMirrorRow } from './mirror-write';

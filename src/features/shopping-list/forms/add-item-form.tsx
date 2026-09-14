@@ -23,9 +23,9 @@ import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-pro
 import type { CatalogProduct } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
-import { debugError, debugLog } from '@/lib/debug-log';
-import { formatAmount, formatPackageHint } from '@/lib/package-size';
-import { useFeatureFlag } from '@/lib/posthog';
+import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
+import { debugError, debugLog } from '@/lib/observability/debug-log';
+import { useFeatureFlag } from '@/lib/observability/providers/posthog';
 import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';
 import {
   normalizePlacementZoneIdNullable,

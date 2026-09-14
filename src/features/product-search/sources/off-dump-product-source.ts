@@ -5,7 +5,7 @@ import {
 } from '@/features/product-search/product-parsing';
 import type { CatalogProduct, CatalogSource } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/client';
-import { debugLogEvent } from '@/lib/debug-log';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 
 export type OffDumpProductRow = {
   code: string | null;

@@ -1,16 +1,14 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
-
+import { celebrate } from '@/features/gamification/celebration';
+import { recordActivity } from '@/features/gamification/streak';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
-import { celebrate } from '@/lib/celebration';
 import type { Database } from '@/lib/database.types';
 import { getDatabase } from '@/lib/db/client';
 import { type EnqueueMutationInput, enqueueMutation, enqueueMutations } from '@/lib/db/outbox';
 import { isPositiveIntegerThousandths, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
-import { recordActivity } from '@/lib/streak';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
-
 import type { TransferItem } from '../sheets/complete-run-sheet';
 import type { LocalShoppingItem } from './use-shopping-list';
 

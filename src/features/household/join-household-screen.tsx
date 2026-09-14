@@ -5,8 +5,8 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { Button, TextField, Txt } from '@/constants/ui';
+import { clearPendingInviteToken, peekPendingInviteToken } from '@/features/auth/pending-invite';
 import { useRedeemInviteMutation } from '@/features/household/api';
-import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
 
 const styles = StyleSheet.create((theme) => ({
   form: {

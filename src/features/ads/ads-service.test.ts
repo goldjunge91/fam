@@ -5,7 +5,7 @@ import { initMobileAds, trackAdRevenueToRevenueCat } from './ads-service';
 let mockPurchasesConfigured = false;
 const mockTrackAdRevenue = jest.fn();
 
-jest.mock('@/lib/purchases', () => ({
+jest.mock('@/lib/backend/revenuecat', () => ({
   isPurchasesConfigured: () => mockPurchasesConfigured,
 }));
 

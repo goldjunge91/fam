@@ -3,10 +3,10 @@ import 'react-native-url-polyfill/auto';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { AppState, type AppStateStatus, Platform } from 'react-native';
 
-import { createChunkedStorage, type KeyValueStore } from '@/lib/chunked-storage';
+import { env } from '@/lib/config/env';
 import type { Database } from '@/lib/database.types';
-import { debugWarn } from '@/lib/debug-log';
-import { env } from '@/lib/env';
+import { debugWarn } from '@/lib/observability/debug-log';
+import { createChunkedStorage, type KeyValueStore } from '@/lib/storage/chunked-storage';
 import { createServerClock } from '@/lib/sync/server-clock';
 
 export type TypedSupabaseClient = SupabaseClient<Database>;

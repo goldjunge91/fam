@@ -1,4 +1,4 @@
-import { celebrate as hapticCelebrate } from './haptics';
+import { celebrate as hapticCelebrate } from '@/lib/platform/haptics';
 
 export type CelebrationBurst = {
   id: number;

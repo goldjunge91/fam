@@ -24,7 +24,7 @@ jest.mock('@/features/auth/domain/auth-error-message', () => ({
   authErrorMessage: jest.fn((error) => error?.message || 'Fehler'),
 }));
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: () => ({
     auth: {
       getSession: jest.fn().mockResolvedValue({ data: { session: null } }),

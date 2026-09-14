@@ -4,9 +4,9 @@ import { configureReanimatedLogger } from 'react-native-reanimated';
 
 import { initMobileAds } from '@/features/ads';
 import { initAptabase } from '@/lib/analytics/aptabase';
-import { markPerformance, startPerformanceSpan } from '@/lib/performance';
-import { initPostHog } from '@/lib/posthog';
-import { initSentry } from '@/lib/sentry';
+import { markPerformance, startPerformanceSpan } from '@/lib/observability/performance';
+import { initPostHog } from '@/lib/observability/providers/posthog';
+import { initSentry } from '@/lib/observability/providers/sentry';
 import { defineBackgroundSyncTask } from '@/lib/sync/background-sync';
 import QuickAddShoppingWidget from '@/widgets/quick-add-shopping-widget';
 import ShoppingListWidget from '@/widgets/shopping-list-widget';

@@ -1,4 +1,4 @@
-import { getSupabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import {
   createWeightEntry,
   fetchWeightEntriesForLogicalDay,
@@ -15,7 +15,7 @@ const mockSingle = jest.fn();
 const mockInsert = jest.fn();
 const mockFrom = jest.fn();
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: jest.fn(),
 }));
 

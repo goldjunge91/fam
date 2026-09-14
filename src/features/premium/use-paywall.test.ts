@@ -1,7 +1,7 @@
 import { act, renderHook } from '@testing-library/react-native';
 import type { PurchasesPackage } from 'react-native-purchases';
 
-import { buyPackage, packagesForEntitlement, restorePurchases } from '@/lib/purchases';
+import { buyPackage, packagesForEntitlement, restorePurchases } from '@/lib/backend/revenuecat';
 import { pollHouseholdUntilEntitlementActive } from './household-entitlement-sync';
 import { usePaywall } from './use-paywall';
 
@@ -25,7 +25,7 @@ jest.mock('@/lib/analytics', () => ({
   trackAnalyticsEvent: jest.fn(),
 }));
 
-jest.mock('@/lib/purchases', () => ({
+jest.mock('@/lib/backend/revenuecat', () => ({
   ENTITLEMENT_IDS: { PLUS: 'Plus', AI: 'AI' },
   buyPackage: jest.fn(),
   packagesForEntitlement: jest.fn(),

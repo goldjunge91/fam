@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import type { Database } from '@/lib/database.types';
-import { getSupabase } from '@/lib/supabase';
 
 export type FastingSessionRow = Database['public']['Tables']['fasting_sessions']['Row'];
 export type FastingProtocol = '16:8' | '18:6' | '20:4' | '5:2' | 'omad' | 'custom';

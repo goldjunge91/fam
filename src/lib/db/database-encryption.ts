@@ -1,5 +1,5 @@
-import type { KeyValueStore } from '@/lib/chunked-storage';
 import type { DatabaseFileOps } from '@/lib/db/database-files';
+import type { KeyValueStore } from '@/lib/storage/chunked-storage';
 import { addDiagnosticStep } from '@/lib/telemetry';
 
 const DATABASE_KEY_STORAGE_KEY = 'fam.database.sqlcipher-key.v1';

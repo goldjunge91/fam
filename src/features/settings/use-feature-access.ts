@@ -12,8 +12,8 @@ import {
   type ModulePreferences,
   useModulePreferences,
 } from '@/features/settings/module-preferences';
-import { env } from '@/lib/env';
-import { type FeatureFlagKey, useFeatureFlags } from '@/lib/posthog';
+import { env } from '@/lib/config/env';
+import { type FeatureFlagKey, useFeatureFlags } from '@/lib/observability/providers/posthog';
 
 export function useFeatureAccess() {
   const { session } = useSession();

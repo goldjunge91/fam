@@ -11,7 +11,7 @@ jest.mock('@/lib/db/client', () => ({
   getDatabase: (...args: unknown[]) => mockGetDatabase(...args),
 }));
 
-jest.mock('@/lib/supabase', () => ({
+jest.mock('@/lib/backend/supabase/client', () => ({
   getSupabase: (...args: unknown[]) => mockGetSupabase(...args),
   serverClock: {
     serverNowMs: () => mockServerNowMs(),

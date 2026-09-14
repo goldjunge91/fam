@@ -2,9 +2,9 @@ import { fireEvent, render, screen } from '@testing-library/react-native';
 import * as Reanimated from 'react-native-reanimated';
 
 import { Button } from '@/constants/ui';
-import { medium as hapticMedium } from '@/lib/haptics';
+import { medium as hapticMedium } from '@/lib/platform/haptics';
 
-jest.mock('@/lib/haptics', () => ({
+jest.mock('@/lib/platform/haptics', () => ({
   medium: jest.fn(),
 }));
 

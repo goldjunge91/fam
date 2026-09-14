@@ -17,7 +17,7 @@ import {
   DEFAULT_MODULE_PREFERENCES,
   useModulePreferences,
 } from '@/features/settings/module-preferences';
-import { useFeatureFlag } from '@/lib/posthog';
+import { useFeatureFlag } from '@/lib/observability/providers/posthog';
 import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
 import { RecipePickerModal } from './components/recipe-picker-modal';
 import { type DraggableRecipe, WeekGrid } from './components/week-grid';

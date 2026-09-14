@@ -2,17 +2,17 @@ import type { QueryClient } from '@tanstack/react-query';
 
 import { signOut as signOutSession } from '@/features/auth/api';
 import { setStoredActiveHouseholdId } from '@/features/household/active-household-store';
+import { getSupabase } from '@/lib/backend/supabase/client';
+import { removeLegacyPersistedQueryCache } from '@/lib/data/query-client';
 import { deleteLocalDatabase, setActiveUserId } from '@/lib/db/client';
-import { debugLogEvent, debugWarn } from '@/lib/debug-log';
-import { cancelUserNotificationReminders } from '@/lib/notifications';
-import { removeLegacyPersistedQueryCache } from '@/lib/query-client';
+import { debugLogEvent, debugWarn } from '@/lib/observability/debug-log';
+import { cancelUserNotificationReminders } from '@/lib/platform/notifications';
 import { resetLocalAccountModuleCaches } from '@/lib/storage/account-cache-registry';
 import {
   deleteEncryptedAccountStorage,
   forgetLocalAccountUserId,
   getRememberedLocalAccountUserId,
 } from '@/lib/storage/account-storage';
-import { getSupabase } from '@/lib/supabase';
 import { stopAccountSyncAndWait } from '@/lib/sync/account-sync-gate';
 
 const cleanupByUserId = new Map<string, Promise<void>>();

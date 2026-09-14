@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { getDatabase } from '@/lib/db/client';
-import { debugLog } from '@/lib/debug-log';
+import { debugLog } from '@/lib/observability/debug-log';
 import type { LocalBrochure, LocalBrochurePage, LocalBrochureStore } from '../types';
 
 export function useBrochures() {

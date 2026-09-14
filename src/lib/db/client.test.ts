@@ -3,7 +3,7 @@ import {
   deleteDatabaseEncryptionKey,
   openEncryptedDatabaseWithCutover,
 } from '@/lib/db/database-encryption';
-import { debugLog } from '@/lib/debug-log';
+import { debugLog } from '@/lib/observability/debug-log';
 
 const mockExistingFiles = new Set(['fam-v2.db', 'fam-v2.db-wal']);
 const mockDeleteFile = jest.fn(async (fileName: string) => {
@@ -58,7 +58,7 @@ jest.mock('@/lib/off-dump/off-dump-state', () => ({ resetOffDumpAttachment: jest
 jest.mock('@/lib/telemetry', () => ({
   measureOperation: (_name: string, operation: () => Promise<unknown>) => operation(),
 }));
-jest.mock('@/lib/debug-log', () => ({
+jest.mock('@/lib/observability/debug-log', () => ({
   debugLog: jest.fn(),
   debugWarn: jest.fn(),
 }));

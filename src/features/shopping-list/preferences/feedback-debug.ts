@@ -1,4 +1,4 @@
-import { debugLog } from '@/lib/debug-log';
+import { debugLog } from '@/lib/observability/debug-log';
 import type { CategoryPreferenceMutation } from './api';
 import type { CategoryFeedbackInput } from './feedback';
 

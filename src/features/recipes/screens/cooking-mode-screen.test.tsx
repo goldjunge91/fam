@@ -1,8 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { celebrate } from '@/lib/celebration';
-import { recordActivity } from '@/lib/streak';
+import { celebrate } from '@/features/gamification/celebration';
+import { recordActivity } from '@/features/gamification/streak';
 import type { CatalogDetail } from '../catalog/use-recipe-catalog';
 import type { RecipeDetail } from '../hooks/use-recipes';
 import { CookingModeScreen } from './cooking-mode-screen';
@@ -38,11 +38,11 @@ jest.mock('@/features/premium/premium-provider', () => ({
   usePremium: () => ({ hasPlus: mockIsPremium }),
 }));
 
-jest.mock('@/lib/streak', () => ({
+jest.mock('@/features/gamification/streak', () => ({
   recordActivity: jest.fn(() => ({ count: 1, increased: true, milestone: false })),
 }));
 
-jest.mock('@/lib/celebration', () => ({
+jest.mock('@/features/gamification/celebration', () => ({
   celebrate: jest.fn(),
 }));
 

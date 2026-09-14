@@ -18,7 +18,7 @@ import {
   restorePurchases,
   selectRevenueCatApiKey,
   VERIFICATION_RESULT,
-} from './purchases';
+} from './revenuecat';
 
 jest.mock('react-native-purchases', () => ({
   __esModule: true,
@@ -43,7 +43,7 @@ jest.mock('react-native-purchases', () => ({
   },
 }));
 
-jest.mock('@/lib/env', () => ({
+jest.mock('@/lib/config/env', () => ({
   env: {
     debugLogsEnabled: true,
     revenueCatTestStoreApiKey: 'test_12345',

@@ -1,5 +1,5 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
-import { selection as hapticSelection } from '@/lib/haptics';
+import { selection as hapticSelection } from '@/lib/platform/haptics';
 import { HouseholdSwitcherModal } from './household-switcher-modal';
 
 const mockSetActiveHouseholdId = jest.fn().mockResolvedValue(undefined);
@@ -24,7 +24,7 @@ jest.mock('@/features/household/active-household-provider', () => ({
   }),
 }));
 
-jest.mock('@/lib/haptics', () => ({
+jest.mock('@/lib/platform/haptics', () => ({
   heavy: jest.fn(),
   light: jest.fn(),
   medium: jest.fn(),

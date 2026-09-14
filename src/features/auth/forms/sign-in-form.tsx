@@ -13,7 +13,7 @@ import {
   signInSchema,
   translateAuthValidationMessage,
 } from '@/lib/db/zod/auth.zod';
-import { debugLogEvent } from '@/lib/debug-log';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 const styles = StyleSheet.create((theme) => ({

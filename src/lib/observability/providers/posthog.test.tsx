@@ -56,7 +56,7 @@ describe('initPostHog / isPostHogConfigured', () => {
   it('bleibt ohne API-Key ein No-op', () => {
     delete process.env.EXPO_PUBLIC_POSTHOG_API_KEY;
     const consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
-    const { initPostHog, isPostHogConfigured } = require('@/lib/posthog');
+    const { initPostHog, isPostHogConfigured } = require('@/lib/observability/providers/posthog');
 
     initPostHog();
 
@@ -68,7 +68,7 @@ describe('initPostHog / isPostHogConfigured', () => {
   it('konfiguriert den Client mit API-Key und Host', () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
     process.env.EXPO_PUBLIC_POSTHOG_HOST = 'https://eu.i.posthog.com';
-    const { initPostHog, isPostHogConfigured } = require('@/lib/posthog');
+    const { initPostHog, isPostHogConfigured } = require('@/lib/observability/providers/posthog');
 
     initPostHog();
 
@@ -94,7 +94,7 @@ describe('initPostHog / isPostHogConfigured', () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
     const { useAnalyticsSettingsStore } = require('@/constants/analytics');
     useAnalyticsSettingsStore.getState().setOverride('providers.posthog', false);
-    const { initPostHog, isPostHogConfigured } = require('@/lib/posthog');
+    const { initPostHog, isPostHogConfigured } = require('@/lib/observability/providers/posthog');
 
     initPostHog();
 
@@ -112,7 +112,7 @@ describe('initPostHog / isPostHogConfigured', () => {
       getPostHogInitializationError,
       initPostHog,
       isPostHogConfigured,
-    } = require('@/lib/posthog');
+    } = require('@/lib/observability/providers/posthog');
 
     expect(() => initPostHog()).not.toThrow();
     expect(isPostHogConfigured()).toBe(false);
@@ -129,7 +129,10 @@ describe('initPostHog / isPostHogConfigured', () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
     const networkError = new Error('Netzwerk nicht erreichbar');
     mockReloadFeatureFlagsAsync.mockRejectedValueOnce(networkError);
-    const { initPostHog, reloadPostHogFeatureFlags } = require('@/lib/posthog');
+    const {
+      initPostHog,
+      reloadPostHogFeatureFlags,
+    } = require('@/lib/observability/providers/posthog');
 
     initPostHog();
 
@@ -140,7 +143,7 @@ describe('initPostHog / isPostHogConfigured', () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
     const { useAnalyticsSettingsStore } = require('@/constants/analytics');
     useAnalyticsSettingsStore.getState().setOverride('providers.posthog', false);
-    const { reloadPostHogFeatureFlags } = require('@/lib/posthog');
+    const { reloadPostHogFeatureFlags } = require('@/lib/observability/providers/posthog');
 
     await expect(reloadPostHogFeatureFlags()).rejects.toThrow(
       'Analytics-Einstellungen deaktiviert',
@@ -151,7 +154,10 @@ describe('initPostHog / isPostHogConfigured', () => {
   it('meldet eine fehlende SDK-Antwort als Konfigurations- oder Netzwerkfehler', async () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
     mockReloadFeatureFlagsAsync.mockResolvedValueOnce(undefined);
-    const { initPostHog, reloadPostHogFeatureFlags } = require('@/lib/posthog');
+    const {
+      initPostHog,
+      reloadPostHogFeatureFlags,
+    } = require('@/lib/observability/providers/posthog');
 
     initPostHog();
 
@@ -163,7 +169,10 @@ describe('initPostHog / isPostHogConfigured', () => {
     try {
       process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
       mockReloadFeatureFlagsAsync.mockReturnValueOnce(new Promise(() => {}));
-      const { initPostHog, reloadPostHogFeatureFlags } = require('@/lib/posthog');
+      const {
+        initPostHog,
+        reloadPostHogFeatureFlags,
+      } = require('@/lib/observability/providers/posthog');
       initPostHog();
 
       const reload = reloadPostHogFeatureFlags();
@@ -192,7 +201,7 @@ describe('PostHogAppProvider', () => {
 
   it('rendert Children ohne <PostHogProvider>, wenn kein API-Key konfiguriert ist', async () => {
     delete process.env.EXPO_PUBLIC_POSTHOG_API_KEY;
-    const { PostHogAppProvider } = require('@/lib/posthog');
+    const { PostHogAppProvider } = require('@/lib/observability/providers/posthog');
 
     await render(
       <PostHogAppProvider>
@@ -206,7 +215,11 @@ describe('PostHogAppProvider', () => {
 
   it('haengt <PostHogProvider> mit dem konfigurierten Client und Touch-Autocapture ein', async () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
-    const { PostHogAppProvider, initPostHog, getPostHogClient } = require('@/lib/posthog');
+    const {
+      PostHogAppProvider,
+      initPostHog,
+      getPostHogClient,
+    } = require('@/lib/observability/providers/posthog');
     initPostHog();
 
     await render(
@@ -230,7 +243,7 @@ describe('useFeatureFlag', () => {
   });
 
   it('liefert defaultValue wenn noch kein Wert vom Server bestaetigt wurde', async () => {
-    const { useFeatureFlag } = require('@/lib/posthog');
+    const { useFeatureFlag } = require('@/lib/observability/providers/posthog');
 
     const { result } = await renderHook(() => useFeatureFlag('test-feature', true));
 
@@ -240,7 +253,11 @@ describe('useFeatureFlag', () => {
   it('liefert true wenn das Flag serverseitig aktiv ist', async () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
     mockGetFeatureFlags.mockReturnValue({ 'test-feature': true });
-    const { PostHogAppProvider, initPostHog, useFeatureFlag } = require('@/lib/posthog');
+    const {
+      PostHogAppProvider,
+      initPostHog,
+      useFeatureFlag,
+    } = require('@/lib/observability/providers/posthog');
     initPostHog();
 
     const { result } = await renderHook(() => useFeatureFlag('test-feature', false), {
@@ -253,7 +270,11 @@ describe('useFeatureFlag', () => {
   it('liefert false wenn das Flag serverseitig inaktiv ist, unabhaengig vom defaultValue', async () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
     mockGetFeatureFlags.mockReturnValue({ 'test-feature': false });
-    const { PostHogAppProvider, initPostHog, useFeatureFlag } = require('@/lib/posthog');
+    const {
+      PostHogAppProvider,
+      initPostHog,
+      useFeatureFlag,
+    } = require('@/lib/observability/providers/posthog');
     initPostHog();
 
     const { result } = await renderHook(() => useFeatureFlag('test-feature', true), {
@@ -267,7 +288,7 @@ describe('useFeatureFlag', () => {
     // SDK-Mock liefert bewusst das Gegenteil von defaultValue: nur wenn der
     // Wrapper den SDK-Rueckgabewert ignoriert und direkt defaultValue
     // zurueckgibt, kommt hier `true` heraus statt `false`.
-    const { useFeatureFlag } = require('@/lib/posthog');
+    const { useFeatureFlag } = require('@/lib/observability/providers/posthog');
 
     const { result } = await renderHook(() => useFeatureFlag(undefined, true));
 
@@ -281,7 +302,7 @@ describe('useFeatureFlagState', () => {
   });
 
   it('liefert undefined solange kein Wert vom Server bestaetigt wurde', async () => {
-    const { useFeatureFlagState } = require('@/lib/posthog');
+    const { useFeatureFlagState } = require('@/lib/observability/providers/posthog');
 
     const { result } = await renderHook(() => useFeatureFlagState('test-feature'));
 
@@ -291,7 +312,11 @@ describe('useFeatureFlagState', () => {
   it('liefert true wenn das Flag serverseitig aktiv ist', async () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
     mockGetFeatureFlags.mockReturnValue({ 'test-feature': true });
-    const { PostHogAppProvider, initPostHog, useFeatureFlagState } = require('@/lib/posthog');
+    const {
+      PostHogAppProvider,
+      initPostHog,
+      useFeatureFlagState,
+    } = require('@/lib/observability/providers/posthog');
     initPostHog();
 
     const { result } = await renderHook(() => useFeatureFlagState('test-feature'), {
@@ -304,7 +329,11 @@ describe('useFeatureFlagState', () => {
   it('liefert false wenn das Flag serverseitig inaktiv ist', async () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
     mockGetFeatureFlags.mockReturnValue({ 'test-feature': false });
-    const { PostHogAppProvider, initPostHog, useFeatureFlagState } = require('@/lib/posthog');
+    const {
+      PostHogAppProvider,
+      initPostHog,
+      useFeatureFlagState,
+    } = require('@/lib/observability/providers/posthog');
     initPostHog();
 
     const { result } = await renderHook(() => useFeatureFlagState('test-feature'), {
@@ -315,7 +344,7 @@ describe('useFeatureFlagState', () => {
   });
 
   it('liefert undefined ohne Key, unabhaengig vom SDK-Rueckgabewert', async () => {
-    const { useFeatureFlagState } = require('@/lib/posthog');
+    const { useFeatureFlagState } = require('@/lib/observability/providers/posthog');
 
     const { result } = await renderHook(() => useFeatureFlagState(undefined));
 
@@ -331,7 +360,11 @@ describe('useFeatureFlags', () => {
   it('liefert alle aktiven Flags aus dem SDK', async () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
     mockGetFeatureFlags.mockReturnValue({ 'module-recipes': true, 'workout-log': false });
-    const { PostHogAppProvider, initPostHog, useFeatureFlags } = require('@/lib/posthog');
+    const {
+      PostHogAppProvider,
+      initPostHog,
+      useFeatureFlags,
+    } = require('@/lib/observability/providers/posthog');
     initPostHog();
 
     const { result } = await renderHook(() => useFeatureFlags(), {
@@ -342,7 +375,7 @@ describe('useFeatureFlags', () => {
   });
 
   it('liefert undefined wenn noch keine Flags geladen sind', async () => {
-    const { useFeatureFlags } = require('@/lib/posthog');
+    const { useFeatureFlags } = require('@/lib/observability/providers/posthog');
 
     const { result } = await renderHook(() => useFeatureFlags());
 

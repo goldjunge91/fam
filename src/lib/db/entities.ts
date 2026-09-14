@@ -1,7 +1,7 @@
 import { repairFridgeItemForeignKeyViolation } from '@/features/inventory/repair-fridge-item-push';
 import { repairShoppingListItemForeignKeyViolation } from '@/features/shopping-list/repair-shopping-list-item-push';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
-import type { TypedSupabaseClient } from '@/lib/supabase';
 
 export type ForeignKeyViolationResolver = (
   ctx: { db: SqlDatabase; supabase: TypedSupabaseClient },

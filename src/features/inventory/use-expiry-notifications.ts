@@ -2,7 +2,10 @@ import { useEffect } from 'react';
 
 import { getExpiryInfo } from '@/features/inventory/expiry';
 import { useInventoryItems } from '@/features/inventory/use-inventory-items';
-import { getNotificationSettings, scheduleExpiryNotificationReminder } from '@/lib/notifications';
+import {
+  getNotificationSettings,
+  scheduleExpiryNotificationReminder,
+} from '@/lib/platform/notifications';
 
 export function useExpiryNotifications(householdId: string | undefined) {
   const { data: fridgeItems = [] } = useInventoryItems(householdId);

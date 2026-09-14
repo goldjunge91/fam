@@ -1,8 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { z } from 'zod';
-
+import { getSupabase } from '@/lib/backend/supabase/client';
 import type { Database } from '@/lib/database.types';
-import { getSupabase } from '@/lib/supabase';
 
 // Generierte Row-Typen kennen `type`/`status` nur als `string` — Postgres-Check-
 // Constraints werden nicht als TS-Union exportiert. Deshalb hier eigene Literal-

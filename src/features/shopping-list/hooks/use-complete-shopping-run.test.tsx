@@ -1,12 +1,11 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, renderHook, waitFor } from '@testing-library/react-native';
 import type React from 'react';
-
+import { celebrate } from '@/features/gamification/celebration';
+import { recordActivity } from '@/features/gamification/streak';
 import { useCompleteShoppingRun } from '@/features/shopping-list/hooks/use-complete-shopping-run';
 import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list';
-import { celebrate } from '@/lib/celebration';
 import { enqueueMutations } from '@/lib/db/outbox';
-import { recordActivity } from '@/lib/streak';
 
 jest.mock('expo-crypto', () => ({
   randomUUID: jest.fn().mockReturnValueOnce('fridge-item-1').mockReturnValueOnce('transaction-1'),
@@ -28,11 +27,11 @@ jest.mock('@/lib/db/outbox', () => ({
   enqueueMutations: jest.fn().mockResolvedValue(undefined),
 }));
 
-jest.mock('@/lib/streak', () => ({
+jest.mock('@/features/gamification/streak', () => ({
   recordActivity: jest.fn(() => ({ count: 1, increased: true, milestone: false })),
 }));
 
-jest.mock('@/lib/celebration', () => ({
+jest.mock('@/features/gamification/celebration', () => ({
   celebrate: jest.fn(),
 }));
 

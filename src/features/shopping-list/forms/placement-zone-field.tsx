@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Modal, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Press, Txt } from '@/constants/ui';
-import { debugLog } from '@/lib/debug-log';
+import { debugLog } from '@/lib/observability/debug-log';
 import {
   normalizePlacementOrder,
   normalizePlacementZoneIdNullable,

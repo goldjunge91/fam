@@ -20,8 +20,8 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { findStoreByName, useStores } from '@/features/shopping-list/hooks/use-stores';
 import { resolveCategoryForItem } from '@/features/shopping-list/preferences/api';
-import { debugLog } from '@/lib/debug-log';
-import { formatEuro } from '@/lib/format-currency';
+import { formatEuro } from '@/lib/format/format-currency';
+import { debugLog } from '@/lib/observability/debug-log';
 import { BrochureHotspot } from '../components/brochure-hotspot';
 import { useBrochurePages } from '../hooks/use-brochures';
 import type { Hotspot, LocalBrochurePage } from '../types';

@@ -1,5 +1,5 @@
 import type { SqlDatabase } from '@/lib/db/types';
-import { debugWarn } from '@/lib/debug-log';
+import { debugWarn } from '../observability/debug-log';
 
 /** Der Teil des Ports, den ein Treiber direkt erfuellen kann — alles ausser Transaktionen. */
 export type SqlStatementDriver = Omit<SqlDatabase, 'withExclusiveTransactionAsync'>;

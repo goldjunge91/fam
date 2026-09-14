@@ -1,5 +1,5 @@
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
 import type { SqlDatabase } from '@/lib/db/types';
-import type { TypedSupabaseClient } from '@/lib/supabase';
 import { type PullOutcome, pullHousehold } from '@/lib/sync/pull';
 import { type PushResult, pushOutbox } from '@/lib/sync/push';
 import { clockCeiling, type ServerClock } from '@/lib/sync/server-clock';

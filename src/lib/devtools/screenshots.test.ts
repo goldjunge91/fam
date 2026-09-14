@@ -4,7 +4,7 @@ import {
   isRecentScreenshotFlag,
   normalizeScreenshotPath,
   parseShotsConfig,
-} from '@/lib/screenshots';
+} from '@/lib/devtools/screenshots';
 
 describe('screenshot tour', () => {
   it('enthält genau die aktuell aktivierten Galerie-Screens', () => {

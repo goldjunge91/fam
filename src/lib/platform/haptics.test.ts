@@ -22,7 +22,7 @@ const mockHaptics = {
 };
 
 jest.mock('expo-haptics', () => mockHaptics);
-jest.mock('./storage/device-storage', () => ({
+jest.mock('@/lib/storage/device-storage', () => ({
   getDeviceStorage: () => mockStorage,
 }));
 

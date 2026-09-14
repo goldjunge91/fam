@@ -31,7 +31,7 @@ import { useChildProfiles } from '@/features/household/api';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
-import { debugError } from '@/lib/debug-log';
+import { debugError } from '@/lib/observability/debug-log';
 
 const UNIT_LABELS: Record<string, string> = {
   g: 'g',

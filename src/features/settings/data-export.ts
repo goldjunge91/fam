@@ -1,5 +1,5 @@
+import { getSupabase } from '@/lib/backend/supabase/client';
 import type { Database } from '@/lib/database.types';
-import { getSupabase } from '@/lib/supabase';
 
 const PAGE_SIZE = 1000;
 

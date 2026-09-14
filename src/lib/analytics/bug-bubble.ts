@@ -1,6 +1,6 @@
 import { BugBubbleLogger } from '@lokal-dev/react-native-bugbubble';
 
-import { env } from '@/lib/env';
+import { env } from '@/lib/config/env';
 
 let active = (typeof __DEV__ !== 'undefined' && __DEV__) || env.devTools;
 

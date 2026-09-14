@@ -2,7 +2,7 @@ import { File, Paths } from 'expo-file-system';
 import type { Href } from 'expo-router';
 import { getDatabase } from '@/lib/db/client';
 import type { SqlDatabase } from '@/lib/db/types';
-import { debugError, debugInfo, debugLog, debugWarn } from '@/lib/debug-log';
+import { debugError, debugInfo, debugLog, debugWarn } from '@/lib/observability/debug-log';
 
 // Ein Tour-Schritt beschreibt Dateiname, Navigationsziel und erwarteten aktiven Pfad.
 export type ScreenshotTourStep = {

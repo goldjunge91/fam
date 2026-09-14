@@ -3,7 +3,7 @@ import {
   consumePendingInviteToken,
   peekPendingInviteToken,
   savePendingInviteToken,
-} from '@/lib/pending-invite';
+} from '@/features/auth/pending-invite';
 import {
   canAdminLeaveHousehold,
   canDeleteHousehold,

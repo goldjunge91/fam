@@ -4,7 +4,7 @@ const mockStorage = {
   addOnValueChangedListener: jest.fn(() => ({ remove: jest.fn() })),
 };
 
-jest.mock('./storage/device-storage', () => ({
+jest.mock('@/lib/storage/device-storage', () => ({
   getDeviceStorage: () => mockStorage,
 }));
 

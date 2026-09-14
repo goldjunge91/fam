@@ -1,10 +1,13 @@
 import { useNavigationContainerRef } from 'expo-router';
 import { useEffect } from 'react';
-
-import { debugWarn } from '@/lib/debug-log';
-import { markPerformance, measurePerformance, metricPerformance } from '@/lib/performance';
-import { startQueryEnvironmentSync } from '@/lib/query-client';
-import { navigationIntegration } from '@/lib/sentry';
+import { startQueryEnvironmentSync } from '@/lib/data/query-client';
+import { debugWarn } from '@/lib/observability/debug-log';
+import {
+  markPerformance,
+  measurePerformance,
+  metricPerformance,
+} from '@/lib/observability/performance';
+import { navigationIntegration } from '@/lib/observability/providers/sentry';
 import { registerBackgroundSync } from '@/lib/sync/background-sync';
 import { addDiagnosticStep, reportError, trackEvent } from '@/lib/telemetry';
 import { startSessionDiagnostics } from '@/lib/telemetry/session-diagnostics';

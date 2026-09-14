@@ -7,9 +7,8 @@ import Aptabase, {
   type TrackErrorOptions,
 } from '@aptabase/react-native';
 import Constants from 'expo-constants';
-
-import { debugError, debugWarn } from '@/lib/debug-log';
-import { env } from '@/lib/env';
+import { env } from '@/lib/config/env';
+import { debugError, debugWarn } from '@/lib/observability/debug-log';
 import { isAnalyticsProviderEnabled } from '@/lib/telemetry/policy';
 
 let configured = false;

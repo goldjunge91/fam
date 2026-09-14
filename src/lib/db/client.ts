@@ -16,9 +16,9 @@ import {
   serializeDatabase,
 } from '@/lib/db/serialize';
 import type { SqlDatabase } from '@/lib/db/types';
-import { debugLog, debugWarn } from '@/lib/debug-log';
 import { resetOffDumpAttachment } from '@/lib/off-dump/off-dump-state';
 import { measureOperation } from '@/lib/telemetry';
+import { debugLog, debugWarn } from '../observability/debug-log';
 
 const REBUILD_HINT =
   'expo-sqlite ist im installierten Build nicht enthalten. Native Module kommen ' +

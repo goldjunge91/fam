@@ -17,7 +17,7 @@ import { InjectionPlanSection } from '@/features/glp1/components/injection-plan-
 import { useProfile } from '@/features/profile/api';
 import { getTrackingMethodSettings, TRACKING_METHODS } from '@/features/profile/tracking-methods';
 import { SettingsGroup } from '@/features/settings/settings-menu';
-import { useFeatureFlags } from '@/lib/posthog';
+import { useFeatureFlags } from '@/lib/observability/providers/posthog';
 
 function formatHourString(hour: number): string {
   const clamped = Math.max(0, Math.min(23, Math.round(hour)));

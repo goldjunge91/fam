@@ -6,8 +6,8 @@ import {
   injectionPlanMutationSchema,
   updateInjectionPlanMutationSchema,
 } from '@/features/glp1/domain/mutation-schemas';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import type { Database } from '@/lib/database.types';
-import { getSupabase } from '@/lib/supabase';
 
 export type InjectionPlanRow = Database['public']['Tables']['injection_plans']['Row'];
 

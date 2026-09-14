@@ -1,8 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import * as ImagePicker from 'expo-image-picker';
-
-import { debugError } from '@/lib/debug-log';
-import { getSupabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/backend/supabase/client';
+import { debugError } from '@/lib/observability/debug-log';
 
 /** Cache-Dauer: eine Sitzung, ohne gelöschte Bilder dauerhaft zu behalten. */
 const SIGNED_URL_TTL_SECONDS = 60 * 60;

@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Press, TextField, Txt } from '@/constants/ui';
-import { debugError } from '@/lib/debug-log';
+import { debugError } from '@/lib/observability/debug-log';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../domain-logik/store-presets';
 import { findStoreByName, useAddStoreMutation, useStores } from '../hooks/use-stores';
 

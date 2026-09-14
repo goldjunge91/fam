@@ -1,5 +1,5 @@
 import { renderHook, waitFor } from '@testing-library/react-native';
-import { cancelLocalReminder, scheduleLocalReminder } from '@/lib/notifications';
+import { cancelLocalReminder, scheduleLocalReminder } from '@/lib/platform/notifications';
 import { injectionReminderIdentifier, useInjectionReminder } from './use-injection-reminder';
 
 const mockUseLatestMedicationLog = jest.fn();
@@ -25,7 +25,7 @@ jest.mock('@/features/glp1/hooks/glp1-api', () => ({
   useLatestMedicationLog: (...args: unknown[]) => mockUseLatestMedicationLog(...args),
 }));
 
-jest.mock('@/lib/notifications', () => ({
+jest.mock('@/lib/platform/notifications', () => ({
   cancelLocalReminder: jest.fn().mockResolvedValue(undefined),
   scheduleLocalReminder: jest.fn().mockResolvedValue(true),
 }));

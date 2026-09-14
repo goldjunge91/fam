@@ -1,4 +1,4 @@
-import { env, isFlagEnabled, MissingEnvError, requireEnv } from '@/lib/env';
+import { env, isFlagEnabled, MissingEnvError, requireEnv } from '@/lib/config/env';
 
 describe('requireEnv', () => {
   it('gibt einen gesetzten Wert zurueck', () => {
@@ -48,7 +48,7 @@ describe('env.forceOnboarding', () => {
   });
 
   it('gibt true zurueck wenn EXPO_PUBLIC_FORCE_ONBOARDING auf true oder 1 gesetzt ist', () => {
-    const { env } = require('@/lib/env');
+    const { env } = require('@/lib/config/env');
     process.env.EXPO_PUBLIC_FORCE_ONBOARDING = 'true';
     expect(env.forceOnboarding).toBe(true);
 
@@ -57,7 +57,7 @@ describe('env.forceOnboarding', () => {
   });
 
   it('gibt false zurueck wenn EXPO_PUBLIC_FORCE_ONBOARDING nicht true oder 1 ist', () => {
-    const { env } = require('@/lib/env');
+    const { env } = require('@/lib/config/env');
     process.env.EXPO_PUBLIC_FORCE_ONBOARDING = 'false';
     expect(env.forceOnboarding).toBe(false);
 

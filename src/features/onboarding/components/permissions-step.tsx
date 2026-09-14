@@ -7,7 +7,7 @@ import {
   getNotificationPermissionStatus,
   type NotificationPermissionStatus,
   requestNotificationPermissions,
-} from '@/lib/notifications';
+} from '@/lib/platform/notifications';
 import { useOnboarding } from '../onboarding-store';
 
 // Defensiver Import: expo-camera ist nur in einem nativen Dev-Build verfügbar.

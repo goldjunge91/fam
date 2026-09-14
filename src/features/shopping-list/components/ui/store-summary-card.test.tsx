@@ -4,7 +4,7 @@ import { borderWidth } from '@/components/theme';
 import { i18n } from '@/i18n';
 import { StoreSummaryCard } from './store-summary-card';
 
-jest.mock('@/lib/haptics', () => ({
+jest.mock('@/lib/platform/haptics', () => ({
   heavy: jest.fn(),
   light: jest.fn(),
   medium: jest.fn(),

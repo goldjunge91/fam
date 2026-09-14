@@ -10,8 +10,8 @@ import {
   getLogicalDateForTimestamp,
   getTimeRangeForLogicalDate,
 } from '@/features/tracking/domain/day-boundary';
+import { getSupabase } from '@/lib/backend/supabase/client';
 import { getDatabase } from '@/lib/db/client';
-import { getSupabase } from '@/lib/supabase';
 
 const localMedicationSchema = z.object({
   administered_at: z.string(),

@@ -38,7 +38,7 @@ jest.mock(
   { virtual: true },
 );
 
-jest.mock('@/lib/haptics', () => ({
+jest.mock('@/lib/platform/haptics', () => ({
   heavy: jest.fn(),
   light: jest.fn(),
   medium: jest.fn(),
@@ -75,7 +75,7 @@ import {
   Txt,
 } from './ui';
 
-const mockHaptics = jest.requireMock('@/lib/haptics') as Record<
+const mockHaptics = jest.requireMock('@/lib/platform/haptics') as Record<
   'heavy' | 'light' | 'medium' | 'selection' | 'success',
   jest.Mock
 >;

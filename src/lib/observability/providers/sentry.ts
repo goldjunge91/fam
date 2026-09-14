@@ -1,7 +1,6 @@
 import * as Sentry from '@sentry/react-native';
-
-import { debugError, debugWarn } from '@/lib/debug-log';
-import { env } from '@/lib/env';
+import { env } from '@/lib/config/env';
+import { debugError, debugWarn } from '@/lib/observability/debug-log';
 
 let configured = false;
 

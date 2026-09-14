@@ -1,4 +1,4 @@
-import { env } from './env';
+import { env } from '../config/env';
 
 type DebugLogLevel = 'debug' | 'info' | 'warn' | 'error';
 type DebugValue = string | number | boolean | null | DebugValue[] | { [key: string]: DebugValue };

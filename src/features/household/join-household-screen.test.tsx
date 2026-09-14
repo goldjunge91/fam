@@ -33,7 +33,7 @@ jest.mock('@/features/household/api', () => ({
   }),
 }));
 
-jest.mock('@/lib/pending-invite', () => ({
+jest.mock('@/features/auth/pending-invite', () => ({
   clearPendingInviteToken: () => mockClearPendingInviteToken(),
   peekPendingInviteToken: () => mockPeekPendingInviteToken(),
 }));

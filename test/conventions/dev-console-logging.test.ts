@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const SOURCE_ROOT = path.join(REPO_ROOT, 'src');
-const DEBUG_LOG_OWNER = path.join(SOURCE_ROOT, 'lib', 'debug-log.ts');
+const DEBUG_LOG_OWNER = path.join(SOURCE_ROOT, 'lib', 'observability', 'debug-log.ts');
 
 function getSourceFiles(directory: string): string[] {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {

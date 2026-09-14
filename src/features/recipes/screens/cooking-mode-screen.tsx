@@ -4,9 +4,9 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { rs } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
+import { celebrate } from '@/features/gamification/celebration';
+import { recordActivity } from '@/features/gamification/streak';
 import { usePremium } from '@/features/premium/premium-provider';
-import { celebrate } from '@/lib/celebration';
-import { recordActivity } from '@/lib/streak';
 import {
   toCookingRecipeDetail,
   useCatalogImageUrl,

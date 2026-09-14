@@ -2,7 +2,7 @@ import type { FamIconName } from '@/components/icons/fam-icon';
 import type { SpeedDialColorKey } from '@/components/theme/index';
 import type { MealType } from '@/features/calorie-tracking/api';
 import type { ModulePreferences } from '@/features/settings/module-preferences';
-import type { FeatureFlagKey } from '@/lib/posthog';
+import type { FeatureFlagKey } from '@/lib/observability/providers/posthog';
 
 /** Lokales Datum, nicht UTC — sonst rutscht das Datum kurz nach Mitternacht. */
 function todayIso(): string {

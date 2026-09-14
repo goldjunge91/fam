@@ -4,10 +4,10 @@
  * davon sichtbar, bis das Bash-Skript das fertig gespeicherte PNG bestätigt.
  * Ohne shots.json bleibt er vollständig inaktiv.
  */
+
 import { router, usePathname } from 'expo-router';
 import { useEffect, useRef } from 'react';
 import { useSession } from '@/features/auth/session-provider';
-import { debugError, debugLog } from '@/lib/debug-log';
 import {
   announce,
   announceExpectedScreenshotCount,
@@ -19,7 +19,8 @@ import {
   TOUR_STATUS,
   waitForScreenshotCapture,
   waitForScreenshotFixture,
-} from '@/lib/screenshots';
+} from '@/lib/devtools/screenshots';
+import { debugError, debugLog } from '@/lib/observability/debug-log';
 
 // Alle kontrollierten Abbrüche verwenden dieselbe, in screenshots.ts gepflegte Meldung.
 const ABORT_MESSAGE = SCREENSHOT_ABORT_MESSAGE;

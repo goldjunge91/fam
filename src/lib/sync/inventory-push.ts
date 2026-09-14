@@ -3,9 +3,10 @@
 // teilen sich Fehlerklassifikation, Backoff und lokalen Bestaetigungsablauf
 // ueber completeInventoryPush(). Fachliche Parser und konkrete RPC-Aufrufe
 // bleiben je Operation explizit.
+
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
 import { deleteOutboxEntries, recordOutboxOutcome } from '@/lib/db/outbox';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
-import type { TypedSupabaseClient } from '@/lib/supabase';
 import { backoffDelayMs, classifyError, MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import type { CoalescedEntry } from '@/lib/sync/coalesce';
 import {

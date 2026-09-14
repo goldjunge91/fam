@@ -23,8 +23,8 @@ import { useNavigationChrome } from '@/features/navigation/navigation-chrome-pro
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useSyncStatus } from '@/hooks/use-sync-status';
-import { debugLog } from '@/lib/debug-log';
 import { subtractInventoryQuantities, sumInventoryQuantities } from '@/lib/inventory-quantity';
+import { debugLog } from '@/lib/observability/debug-log';
 import { EditInventoryItemSheet } from './components/edit-inventory-item-sheet';
 import { InventoryHistorySheet } from './components/inventory-history-sheet';
 import { InventoryIconButton } from './components/inventory-icon-button';

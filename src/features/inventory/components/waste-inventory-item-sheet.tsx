@@ -5,9 +5,9 @@ import { StyleSheet } from 'react-native-unistyles';
 import { withAlpha } from '@/components/theme/index';
 import { Button, Press, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
-import { debugLog } from '@/lib/debug-log';
-import { formatAmount } from '@/lib/package-size';
+import { formatAmount } from '@/lib/format/package-size';
 
+import { debugLog } from '@/lib/observability/debug-log';
 import type { LocalInventoryItem } from '../use-inventory-items';
 
 const styles = StyleSheet.create((theme) => ({

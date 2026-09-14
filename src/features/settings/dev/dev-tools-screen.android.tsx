@@ -34,16 +34,8 @@ import {
   isAptabaseConfigured,
 } from '@/lib/analytics/aptabase';
 import { trackAnalyticsEvent } from '@/lib/analytics/events';
+import { env } from '@/lib/config/env';
 import { deleteLocalDatabase, getDatabase } from '@/lib/db/client';
-import { env } from '@/lib/env';
-import { sendTestNotification } from '@/lib/notifications';
-import {
-  checkOffDumpIntegrity,
-  forceRefreshOffDump,
-  getOffDumpStatus,
-  type OffDumpStatus,
-  reinstallOffDumpBaseline,
-} from '@/lib/off-dump/off-dump';
 import {
   getPostHogClient,
   getPostHogInitializationError,
@@ -52,7 +44,15 @@ import {
   reloadPostHogFeatureFlags,
   useFeatureFlag,
   useFeatureFlags,
-} from '@/lib/posthog';
+} from '@/lib/observability/providers/posthog';
+import {
+  checkOffDumpIntegrity,
+  forceRefreshOffDump,
+  getOffDumpStatus,
+  type OffDumpStatus,
+  reinstallOffDumpBaseline,
+} from '@/lib/off-dump/off-dump';
+import { sendTestNotification } from '@/lib/platform/notifications';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { reportError } from '@/lib/telemetry';
 

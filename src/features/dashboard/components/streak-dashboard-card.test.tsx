@@ -5,7 +5,7 @@ import { StreakDashboardCard } from './streak-dashboard-card';
 
 let mockStreak = { count: 3, best: 7, activeToday: true };
 
-jest.mock('@/lib/streak', () => ({
+jest.mock('@/features/gamification/streak', () => ({
   useStreak: () => mockStreak,
 }));
 

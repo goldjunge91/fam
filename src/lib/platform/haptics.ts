@@ -8,8 +8,7 @@
  * burst. Keep these mapped to intent (see the helpers at the bottom).
  */
 import * as Haptics from 'expo-haptics';
-
-import { getDeviceStorage } from './storage/device-storage';
+import { getDeviceStorage } from '../storage/device-storage';
 
 const HAPTICS_KEY = 'srf:haptics-enabled';
 

@@ -1,5 +1,5 @@
 import * as Network from 'expo-network';
-
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
 import { ALL_ENTITIES, metaOf } from '@/lib/db/entities';
 import {
   readSyncState,
@@ -8,7 +8,6 @@ import {
   writeSyncCursor,
 } from '@/lib/db/sync-state';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
-import type { TypedSupabaseClient } from '@/lib/supabase';
 import { EPOCH_START } from '@/lib/sync/cursor';
 import { applyRemoteRow } from '@/lib/sync/mirror-write';
 import { addDiagnosticStep, reportWarning } from '@/lib/telemetry';

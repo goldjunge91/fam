@@ -14,7 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
 import { Button, Surface, Txt } from '@/constants/ui';
-import { debugLog } from '@/lib/debug-log';
+import { debugLog } from '@/lib/observability/debug-log';
 
 // Source: nuclearpasta/react-native-drax, docs-site/docs/examples/mixed-grid.mdx.
 // Keep Drax's grid/hover mechanics intact; only labels and theme use fam primitives.

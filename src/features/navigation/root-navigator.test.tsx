@@ -28,7 +28,7 @@ jest.mock('@/lib/db/client', () => ({
   getDatabase: (...args: unknown[]) => mockGetDatabase(...args),
 }));
 jest.mock('@/lib/off-dump/off-dump', () => ({ initOffDump: jest.fn() }));
-jest.mock('@/lib/env', () => ({
+jest.mock('@/lib/config/env', () => ({
   env: {
     forceOnboarding: false,
     get devTools() {

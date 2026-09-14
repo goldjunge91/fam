@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { i18n } from '@/i18n';
-import { getNotificationSettings, saveNotificationSettings } from '@/lib/notifications';
+import { getNotificationSettings, saveNotificationSettings } from '@/lib/platform/notifications';
 import { NotificationSettingsCard } from './notification-settings-card';
 
 jest.mock('@expo/ui/community/datetime-picker', () => {
@@ -31,7 +31,7 @@ jest.mock('@expo/ui/community/datetime-picker', () => {
   return MockDateTimePicker;
 });
 
-jest.mock('@/lib/notifications', () => ({
+jest.mock('@/lib/platform/notifications', () => ({
   DEFAULT_NOTIFICATION_SETTINGS: {
     enabled: true,
     daysThreshold: 3,

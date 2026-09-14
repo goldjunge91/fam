@@ -31,7 +31,7 @@ jest.mock('@/features/settings/use-feature-access', () => ({
   }),
 }));
 
-jest.mock('@/lib/posthog', () => ({
+jest.mock('@/lib/observability/providers/posthog', () => ({
   useFeatureFlags: () => mockFlags,
 }));
 

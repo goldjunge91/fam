@@ -7,19 +7,19 @@ import {
   medicationLogsRootQueryKey,
   symptomLogsRootQueryKey,
 } from '@/features/glp1/domain/query-keys';
+import { getSupabase, serverClock } from '@/lib/backend/supabase/client';
 import { getDatabase } from '@/lib/db/client';
 import { onOutboxChanged } from '@/lib/db/outbox';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { Entity } from '@/lib/db/types';
-import { debugWarn } from '@/lib/debug-log';
-import { startPerformanceSpan } from '@/lib/performance';
-import { getSupabase, serverClock } from '@/lib/supabase';
+import { startPerformanceSpan } from '@/lib/observability/performance';
 import { beginAccountSyncRun, registerAccountSyncStopper } from '@/lib/sync/account-sync-gate';
 import { setBackgroundSyncHandler } from '@/lib/sync/background-sync';
 import { type SyncRunResult, syncHousehold } from '@/lib/sync/engine';
 import { startNetworkReconnectTrigger } from '@/lib/sync/network-trigger';
 import { type RealtimeSubscribeState, subscribeHouseholdRealtime } from '@/lib/sync/realtime';
 import { addDiagnosticStep, reportError, trackEvent } from '@/lib/telemetry';
+import { debugWarn } from '../observability/debug-log';
 
 export { serverClock };
 

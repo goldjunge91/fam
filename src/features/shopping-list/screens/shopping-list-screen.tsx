@@ -21,7 +21,7 @@ import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { debugLog } from '@/lib/debug-log';
+import { debugLog } from '@/lib/observability/debug-log';
 import { ShoppingItemRow } from '../components/ui/shopping-item-row';
 import { shoppingListStyles } from '../components/ui/shopping-list-styles';
 import { ALL_FILTER, StorePickerMenu, UNASSIGNED_FILTER } from '../components/ui/store-picker-menu';

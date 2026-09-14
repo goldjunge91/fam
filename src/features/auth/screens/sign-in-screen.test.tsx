@@ -20,7 +20,7 @@ jest.mock('@/features/auth/domain/auth-error-message', () => ({
   authErrorMessage: (error: { message: string }) => error.message,
 }));
 
-jest.mock('@/lib/debug-log', () => ({
+jest.mock('@/lib/observability/debug-log', () => ({
   debugLogEvent: (...args: unknown[]) => mockDebugLogEvent(...args),
 }));
 

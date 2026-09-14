@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { FoodEntryRow } from '@/features/calorie-tracking/api';
 import { productFromRouteParams } from '@/features/calorie-tracking/product-route-params';
 import type { CatalogProduct, NutrientLevel } from '@/features/product-search/types';
-import { debugLogEvent } from '@/lib/debug-log';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import { scaleToQuantity } from '@/lib/units';
 
 export type FoodEntryFormValues = {

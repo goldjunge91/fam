@@ -5,6 +5,7 @@ import { ActivityIndicator, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import AppShell from '@/components/layout/app-shell';
+import { clearPendingInviteToken, peekPendingInviteToken } from '@/features/auth/pending-invite';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useRedeemInviteMutation } from '@/features/household/api';
@@ -15,9 +16,8 @@ import {
 } from '@/features/onboarding/onboarding-completion';
 import { useProfile } from '@/features/profile/api';
 import { useSignOutOnOrphanedProfile } from '@/features/profile/hooks/use-sign-out-on-orphaned-profile';
-import { debugError } from '@/lib/debug-log';
-import { env } from '@/lib/env';
-import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
+import { env } from '@/lib/config/env';
+import { debugError } from '@/lib/observability/debug-log';
 import { useRealtimeSync, useSyncEngine } from '@/lib/sync/sync-runner';
 
 const styles = StyleSheet.create({

@@ -5,14 +5,14 @@ import { useSession } from '@/features/auth/session-provider';
 import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
 import { usePremium } from '@/features/premium/premium-provider';
 import { trackAnalyticsEvent } from '@/lib/analytics';
-import { debugWarn } from '@/lib/debug-log';
 import {
   buyPackage,
   ENTITLEMENT_IDS,
   type PurchaseOutcome,
   packagesForEntitlement,
   restorePurchases,
-} from '@/lib/purchases';
+} from '@/lib/backend/revenuecat';
+import { debugWarn } from '@/lib/observability/debug-log';
 import { pollHouseholdUntilEntitlementActive } from './household-entitlement-sync';
 import { type ExtractedPaywallPlans, extractPaywallPlans, type PlanPeriod } from './paywall-plans';
 import type { PaywallTier } from './types';
