@@ -128,7 +128,7 @@ The rest of this document is meant to help you navigate the codebase and make ch
 ## Tooling, Commands & CLI Quirks
 
 - **Paketmanager:** `bun` für alle Paketoperationen und Skripte (`bun run <cmd>`).
-- **Linter & Formatter:** Biome (`bun run check` zum Prüfen, `bun run check:fix` zum Beheben). Kein ESLint / Prettier. `bun run check` validiert zusätzlich `src/global.css` gegen die Tailwind-CLI (`bun run check:css`) — fängt kaputte Arbitrary-Value-Syntax (z. B. Leerzeichen in `bg-[rgba(31, 26, 33, 0.3)]`), die sonst erst als Metro-Hänger bei 99% auffällt.
+- **Linter & Formatter:** Biome (`bun run check` zum Prüfen, `bun run check:fix` zum Beheben). Kein ESLint / Prettier. `bun run check` prüft den TypeScript-/TSX-Quellbestand mit Biome.
 - **Typecheck:** `bun run typecheck` (`tsc --noEmit`).
 - **Tests:** `bun run test` (Jest Unit-Tests) und `bun run test:db` (pgTAP DB-Tests).
 - **Datenbank-Workflow:**
@@ -253,7 +253,7 @@ also make sure to read `.agents/rules/react-native-testing-library.md` for react
 ## Verification & Pull Request Instructions
 
 - **Lokale Verifikation vor Fertigstellung:**
-  1. `bun run check` (Biome Lint/Format + Tailwind-CSS-Validierung)
+  1. `bun run check` (Biome Lint/Format)
   2. `bun run typecheck` (TypeScript)
   3. `bun run test` (Jest Unit Tests)
   4. `bun run test:db` (sofern DB-Schemas betroffen sind)

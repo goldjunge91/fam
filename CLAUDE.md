@@ -19,7 +19,7 @@ bash scripts/ios-dev.sh         # voller Dev-Client-Build+Install+Metro-Flow (si
 Quality gate vor jedem Commit (siehe auch AGENTS.md "Verification"):
 
 ```bash
-bun run check        # Biome lint+format + Tailwind-CSS-Validierung (src/global.css), bun run check:fix zum Beheben
+bun run check        # Biome lint+format, bun run check:fix zum Beheben
 bun run typecheck    # tsc --noEmit
 bun run test         # Jest unit tests — NIEMALS `bun test` (nutzt Buns Runner, ignoriert jest.config.js)
 bun run test:db      # pgTAP gegen lokales Postgres (nur bei Supabase-Schema-Änderungen)

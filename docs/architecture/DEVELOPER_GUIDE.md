@@ -58,9 +58,9 @@ fam/
 3. **Styling & Theme**: Projektweite Designentscheidungen liegen in
    [`src/components/theme/index.ts`](../../src/components/theme/index.ts),
    [`ThemeProvider.tsx`](../../src/components/theme/ThemeProvider.tsx) und
-   [`src/constants/ui.tsx`](../../src/constants/ui.tsx). NativeWind bleibt auf
-   statisches Layout beschränkt; semantische Farben, Typografie und Zustände
-   kommen aus dem Design-System.
+   [`src/constants/ui.tsx`](../../src/constants/ui.tsx). `react-native-unistyles`
+   ist die aktive Styling-Runtime; semantische Farben, Typografie und Zustände
+   kommen aus dem Design-System, lokales Layout aus nativen StyleSheets.
 
 4. **Datenbank & Offline-Sync (Supabase + SQLite)**:
    - **Regel laut [`AGENTS.md`](../../AGENTS.md)**: Das Datenbank-Schema wird
@@ -416,15 +416,15 @@ of undefined`. Die eigentliche Ursache steht dann ganz oben im Log.
 | --- | --- |
 | Runtime | Expo SDK 57, React Native 0.86, React 19.2 |
 | Routing | Expo Router (NativeTabs, typedRoutes) |
-| Styling | `src/components/theme/` + `src/constants/ui.tsx`, NativeWind nur für statisches Layout |
+| Styling | `src/components/theme/` + `src/constants/ui.tsx`, `react-native-unistyles` für native StyleSheets |
 | Backend | Supabase (Postgres, Auth, Realtime, RLS) |
 | Offline | `expo-sqlite` + Outbox-Sync (Pull/Push/LWW), mit Realtime-Bridge, Netzwerk-Reconnect, Background-Sync und Poll-Fallback |
 | Server-State | TanStack Query |
 | Tests | jest-expo + Testing Library, pgTAP-RLS-Tests |
 
-NativeWind bleibt als technische Layout-Hilfe installiert. Es liefert keine
-zweite Theme-Schicht: semantische Farben, Typografie, Flächen, Konturen und
-Zustände kommen aus dem Design-System. Die verbindlichen Regeln stehen in den
+`react-native-unistyles` ist die einzige aktive Styling-Runtime. Sie liefert
+keine zweite Theme-Schicht: semantische Farben, Typografie, Flächen, Konturen
+und Zustände kommen aus dem Design-System. Die verbindlichen Regeln stehen in den
 [Design-System-Verträgen](../design-system/contracts/README.md).
 
 ## Datenbankschema — Referenz
