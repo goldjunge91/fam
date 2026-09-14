@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
+import { i18n } from '@/i18n';
 import { AccountStepForm } from './account-step';
 
 const mockSignUp = jest.fn();
@@ -52,10 +53,11 @@ async function fillAndSubmit() {
 }
 
 describe('AccountStepForm', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     mockSignUp.mockReset();
     mockSignIn.mockReset();
     mockPush.mockReset();
+    await i18n.changeLanguage('de');
   });
 
   it('bietet Apple und Google sowie beim Anmelden den Passwort-Reset an', async () => {

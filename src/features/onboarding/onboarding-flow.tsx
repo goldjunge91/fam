@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { View } from 'react-native';
+import { KeyboardToolbar } from 'react-native-keyboard-controller';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -32,7 +33,7 @@ const STEP_NAMES: Record<number, string> = {
   7: 'complete',
 };
 
-const styles = StyleSheet.create((theme) => ({
+const styles = StyleSheet.create((theme, rt) => ({
   progressContainer: {
     paddingHorizontal: theme.space.xl + theme.space.xs,
     marginBottom: theme.space.sm,
@@ -46,6 +47,9 @@ const styles = StyleSheet.create((theme) => ({
   },
   signoutText: {
     textDecorationLine: 'underline',
+  },
+  keyboardContent: {
+    paddingBottom: rt.insets.ime,
   },
 }));
 
@@ -69,56 +73,60 @@ function OnboardingContent() {
   }
 
   return (
-    <Screen
-      title={currentStep === 1 ? 'Willkommen' : `Schritt ${currentStep} von ${TOTAL_STEPS}`}
-      // Schritt 4 verwaltet seinen ScrollView und den unteren Inhaltsabstand selbst.
-      scroll={currentStep !== 4}
-      applyBottomPadding={currentStep !== 4}>
-      {currentStep > 1 && currentStep < TOTAL_STEPS && (
-        <View style={styles.progressContainer}>
-          {/* Nutzt bewusst `prevStep` aus dem Context statt Routing — die
-              Schritte sind kein eigener Screen, sondern nur `currentStep`
-              im Onboarding-State. */}
-          <BackButton label="Zurück" onPress={prevStep} />
-          {/* ProgressBar erwartet einen echten Farbwert aus dem aktiven Theme. */}
-          <ProgressBar value={currentStep / TOTAL_STEPS} color={colors.accent} />
-          {session && (
-            <Press
-              onPress={() => void handleEmergencySignOut()}
-              accessibilityRole="button"
-              accessibilityLabel="Abmelden und Onboarding neu starten"
-              style={styles.signoutLink}>
-              <Txt variant="caption" tone="secondary" style={styles.signoutText}>
-                Nicht du? Abmelden und neu starten
-              </Txt>
-            </Press>
-          )}
-        </View>
-      )}
+    <>
+      <Screen
+        title={currentStep === 1 ? 'Willkommen' : `Schritt ${currentStep} von ${TOTAL_STEPS}`}
+        // Schritt 4 verwaltet seinen ScrollView und den unteren Inhaltsabstand selbst.
+        scroll={currentStep !== 4}
+        applyBottomPadding={currentStep !== 4}
+        contentStyle={currentStep === 2 || currentStep === 3 ? styles.keyboardContent : undefined}>
+        {currentStep > 1 && currentStep < TOTAL_STEPS && (
+          <View style={styles.progressContainer}>
+            {/* Nutzt bewusst `prevStep` aus dem Context statt Routing — die
+                Schritte sind kein eigener Screen, sondern nur `currentStep`
+                im Onboarding-State. */}
+            <BackButton label="Zurück" onPress={prevStep} />
+            {/* ProgressBar erwartet einen echten Farbwert aus dem aktiven Theme. */}
+            <ProgressBar value={currentStep / TOTAL_STEPS} color={colors.accent} />
+            {session && (
+              <Press
+                onPress={() => void handleEmergencySignOut()}
+                accessibilityRole="button"
+                accessibilityLabel="Abmelden und Onboarding neu starten"
+                style={styles.signoutLink}>
+                <Txt variant="caption" tone="secondary" style={styles.signoutText}>
+                  Nicht du? Abmelden und neu starten
+                </Txt>
+              </Press>
+            )}
+          </View>
+        )}
 
-      {/* Schritt 1: Willkommens-Karussell / Feature-Überblick */}
-      {currentStep === 1 && (
-        <WelcomeCarousel
-          onStart={() => {
-            trackAnalyticsEvent('onboarding.flow.started');
-            setStep(2);
-          }}
-        />
-      )}
+        {/* Schritt 1: Willkommens-Karussell / Feature-Überblick */}
+        {currentStep === 1 && (
+          <WelcomeCarousel
+            onStart={() => {
+              trackAnalyticsEvent('onboarding.flow.started');
+              setStep(2);
+            }}
+          />
+        )}
 
-      {/* Schritt 2: Account anlegen / Anmelden */}
-      {currentStep === 2 && <AccountStepForm onNext={() => setStep(3)} />}
-      {/* Schritt 3: Persönliches Profil (Körperdaten, Aktivitätslevel, Ziele) */}
-      {currentStep === 3 && <ProfileStepForm onNext={nextStep} onSkip={nextStep} />}
-      {/* Schritt 4: Haushalt erstellen oder beitreten */}
-      {currentStep === 4 && <HouseholdStepForm onNext={nextStep} onSkip={nextStep} />}
-      {/* Schritt 5: Modulauswahl (Vorrat, Kalorien, Einkaufsliste, Essensplaner) */}
-      {currentStep === 5 && <ModuleSelectorForm onNext={nextStep} onSkip={nextStep} />}
-      {/* Schritt 6: System-Berechtigungen (Benachrichtigungen, Kamera) */}
-      {currentStep === 6 && <PermissionsStepForm onNext={nextStep} onSkip={nextStep} />}
-      {/* Schritt 7: Abschluss & Starten der App */}
-      {currentStep === 7 && <CompleteStepForm />}
-    </Screen>
+        {/* Schritt 2: Account anlegen / Anmelden */}
+        {currentStep === 2 && <AccountStepForm onNext={() => setStep(3)} />}
+        {/* Schritt 3: Persönliches Profil (Körperdaten, Aktivitätslevel, Ziele) */}
+        {currentStep === 3 && <ProfileStepForm onNext={nextStep} onSkip={nextStep} />}
+        {/* Schritt 4: Haushalt erstellen oder beitreten */}
+        {currentStep === 4 && <HouseholdStepForm onNext={nextStep} onSkip={nextStep} />}
+        {/* Schritt 5: Modulauswahl (Vorrat, Kalorien, Einkaufsliste, Essensplaner) */}
+        {currentStep === 5 && <ModuleSelectorForm onNext={nextStep} onSkip={nextStep} />}
+        {/* Schritt 6: System-Berechtigungen (Benachrichtigungen, Kamera) */}
+        {currentStep === 6 && <PermissionsStepForm onNext={nextStep} onSkip={nextStep} />}
+        {/* Schritt 7: Abschluss & Starten der App */}
+        {currentStep === 7 && <CompleteStepForm />}
+      </Screen>
+      {currentStep >= 2 && currentStep <= 4 ? <KeyboardToolbar /> : null}
+    </>
   );
 }
 

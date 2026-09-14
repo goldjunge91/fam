@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { i18n } from '@/i18n';
 import { OnboardingFlow } from './onboarding-flow';
 
 const initialMetrics = {
@@ -20,6 +21,15 @@ const mockGetSession = jest.fn().mockResolvedValue({ data: { session: null } });
 jest.mock('expo-router', () => ({
   router: { replace: jest.fn(), back: jest.fn(), canGoBack: jest.fn(() => false) },
 }));
+
+jest.mock('react-native-keyboard-controller', () => {
+  const React = require('react');
+  const { View } = require('react-native');
+
+  return {
+    KeyboardToolbar: () => React.createElement(View, { testID: 'onboarding-keyboard-toolbar' }),
+  };
+});
 
 // Die Regression prueft den Schritt-Zustand im Flow. Die Inhalte der spaeteren
 // Formulare sind dafuer irrelevant und wuerden nur deren Hooks mitladen.
@@ -82,6 +92,8 @@ async function advanceToPendingConfirmation() {
   await fireEvent.press(screen.getByRole('button', { name: 'Weiter' }));
   await fireEvent.press(screen.getByRole('button', { name: 'Jetzt starten' }));
 
+  expect(screen.getByTestId('onboarding-keyboard-toolbar')).toBeOnTheScreen();
+
   await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'family@example.com');
   await fireEvent.changeText(screen.getByLabelText('Passwort'), 'supersecret');
   await fireEvent.changeText(screen.getByLabelText('Passwort wiederholen'), 'supersecret');
@@ -91,11 +103,12 @@ async function advanceToPendingConfirmation() {
 }
 
 describe('OnboardingFlow — Bestaetigung waehrend Schritt 2 (#Bruchteil-Sekunde-Bug)', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks();
     capturedAuthStateCallback = undefined;
     mockGetSession.mockResolvedValue({ data: { session: null } });
     mockSignUp.mockResolvedValue({ data: { session: null }, error: null });
+    await i18n.changeLanguage('de');
   });
 
   it('landet bei Schritt 3 (ProfileStepForm), wenn onAuthStateChange zweimal quasi gleichzeitig feuert', async () => {

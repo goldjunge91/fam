@@ -13,6 +13,7 @@ import {
   signInSchema,
   translateAuthValidationMessage,
 } from '@/lib/db/zod/auth.zod';
+import { debugLogEvent } from '@/lib/debug-log';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 const styles = StyleSheet.create((theme) => ({
@@ -26,6 +27,8 @@ interface SignInFormProps {
   submitLabel?: string;
   testIDPrefix?: string;
 }
+
+type SignInSubmitSource = 'button' | 'keyboard';
 
 export function SignInForm({ onSuccess, submitLabel, testIDPrefix = 'sign-in' }: SignInFormProps) {
   const { t } = useTranslation();
@@ -44,16 +47,47 @@ export function SignInForm({ onSuccess, submitLabel, testIDPrefix = 'sign-in' }:
   const email = watch('email');
   const password = watch('password');
 
-  async function submit(values: SignInInput) {
+  async function submit(values: SignInInput, source: SignInSubmitSource) {
     setFormError(null);
+    debugLogEvent('auth.sign-in.submit.started', {
+      source,
+      identifierPresent: values.email.trim().length > 0,
+      credentialPresent: values.password.length > 0,
+    });
     const { error } = await signIn(values.email, values.password);
 
     if (error) {
+      debugLogEvent('auth.sign-in.submit.failed', {
+        source,
+        errorCode: error.code ?? 'unknown',
+        errorStatus: error.status ?? null,
+      });
       setFormError(authErrorMessage(error, t));
       return;
     }
 
+    debugLogEvent('auth.sign-in.submit.succeeded', { source });
     onSuccess?.();
+  }
+
+  function requestSubmit(source: SignInSubmitSource) {
+    if (source === 'button') {
+      debugLogEvent('auth.sign-in.button-clicked', {
+        source,
+        identifierPresent: email.trim().length > 0,
+        credentialPresent: password.length > 0,
+      });
+    }
+
+    void handleSubmit(
+      (values) => submit(values, source),
+      (validationErrors) => {
+        debugLogEvent('auth.sign-in.validation.failed', {
+          source,
+          invalidFields: Object.keys(validationErrors),
+        });
+      },
+    )();
   }
 
   return (
@@ -81,7 +115,7 @@ export function SignInForm({ onSuccess, submitLabel, testIDPrefix = 'sign-in' }:
         autoCapitalize="none"
         autoComplete="current-password"
         textContentType="password"
-        onSubmitEditing={() => void handleSubmit(submit)()}
+        onSubmitEditing={() => requestSubmit('keyboard')}
         returnKeyType="go"
       />
 
@@ -93,7 +127,7 @@ export function SignInForm({ onSuccess, submitLabel, testIDPrefix = 'sign-in' }:
 
       <Button
         title={submitLabel ?? t('auth.signIn.submit')}
-        onPress={() => void handleSubmit(submit)()}
+        onPress={() => requestSubmit('button')}
         loading={isSubmitting}
       />
     </View>

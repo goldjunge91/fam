@@ -5,6 +5,7 @@ import { SignInScreen } from '@/features/auth/screens/sign-in-screen';
 import { i18n } from '@/i18n';
 
 const mockSignIn = jest.fn();
+const mockDebugLogEvent = jest.fn();
 
 jest.mock('@/features/auth/api', () => ({
   signIn: (...args: unknown[]) => mockSignIn(...args),
@@ -17,6 +18,10 @@ jest.mock('@/features/auth/provider-auth', () => ({
 
 jest.mock('@/features/auth/domain/auth-error-message', () => ({
   authErrorMessage: (error: { message: string }) => error.message,
+}));
+
+jest.mock('@/lib/debug-log', () => ({
+  debugLogEvent: (...args: unknown[]) => mockDebugLogEvent(...args),
 }));
 
 describe('SignInScreen', () => {
@@ -92,6 +97,44 @@ describe('SignInScreen', () => {
     await fireEvent.press(submitBtn);
 
     expect(mockSignIn).toHaveBeenCalledWith('max@test.fam', 'password123');
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('auth.sign-in.button-clicked', {
+      source: 'button',
+      identifierPresent: true,
+      credentialPresent: true,
+    });
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('auth.sign-in.submit.started', {
+      source: 'button',
+      identifierPresent: true,
+      credentialPresent: true,
+    });
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('auth.sign-in.submit.succeeded', {
+      source: 'button',
+    });
+  });
+
+  it('submit mit der Tastatur löst keinen Button-Click aus', async () => {
+    mockSignIn.mockResolvedValue({ data: { session: {} }, error: null });
+
+    await renderScreen();
+
+    await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'max@test.fam');
+    const passwordInput = screen.getByLabelText('Passwort');
+    await fireEvent.changeText(passwordInput, 'password123');
+    await fireEvent(passwordInput, 'submitEditing');
+
+    expect(mockSignIn).toHaveBeenCalledWith('max@test.fam', 'password123');
+    expect(mockDebugLogEvent).not.toHaveBeenCalledWith(
+      'auth.sign-in.button-clicked',
+      expect.anything(),
+    );
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('auth.sign-in.submit.started', {
+      source: 'keyboard',
+      identifierPresent: true,
+      credentialPresent: true,
+    });
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('auth.sign-in.submit.succeeded', {
+      source: 'keyboard',
+    });
   });
 
   it('zeigt Fehler an wenn Anmeldung fehlschlägt', async () => {

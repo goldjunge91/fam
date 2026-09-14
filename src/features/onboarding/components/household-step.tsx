@@ -18,14 +18,14 @@ interface HouseholdStepFormProps {
   onSkip: () => void;
 }
 
-const styles = StyleSheet.create((theme) => ({
+const styles = StyleSheet.create((theme, rt) => ({
   scroll: {
     flex: 1,
   },
   content: {
     gap: theme.space.lg,
     // Preserve the scroll tail from the onboarding layout below the actions.
-    paddingBottom: 64,
+    paddingBottom: 64 + rt.insets.ime,
   },
   activeCard: {
     gap: theme.space.xs,

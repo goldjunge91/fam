@@ -80,7 +80,7 @@ function quickDateOffset(key: QuickDateKey): string {
   }
 }
 
-const styles = StyleSheet.create((theme) => ({
+const styles = StyleSheet.create((theme, rt) => ({
   flex: {
     flex: 1,
   },
@@ -106,7 +106,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   scrollContent: {
     gap: theme.space.lg,
-    paddingBottom: theme.space.xl + theme.space.xs,
+    paddingBottom: theme.space.xl + theme.space.xs + rt.insets.ime,
   },
   scannerButton: {
     width: 48,

@@ -122,6 +122,21 @@ it('verwendet die zentralen Modal-Schließen-Tokens', async () => {
   });
 });
 
+it('hält den unteren Inhalt mit KeyboardAwareScrollView erreichbar', async () => {
+  await renderScreen();
+
+  const [scrollView] = screen.container.queryAll(
+    (instance) => instance.props.keyboardShouldPersistTaps === 'handled',
+  );
+  if (!scrollView) throw new Error('AddItemScreen did not render a keyboard-aware scroll view');
+
+  expect(scrollView.props.bottomOffset).toBe(24);
+  expect(scrollView.props.keyboardShouldPersistTaps).toBe('handled');
+  expect(scrollView.props.contentContainerStyle).toEqual(
+    expect.objectContaining({ paddingBottom: space.xl + space.xs }),
+  );
+});
+
 it('persistiert einen OFF-Treffer in products, wenn er zum Bestand hinzugefuegt wird', async () => {
   await renderScreen();
 
