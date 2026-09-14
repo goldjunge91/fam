@@ -12,6 +12,7 @@ const SHOPPING_CONSUMERS = [
 ] as const;
 
 const UNISTYLES_CONSUMERS = SHOPPING_CONSUMERS.slice(0, 4);
+const SHOPPING_STYLE_OWNER = 'src/features/shopping-list/components/ui/shopping-list-styles.ts';
 
 describe('fam-978.45 shopping list consumers', () => {
   it('contains no active NativeWind or device-unsafe Pressable styling', () => {
@@ -44,6 +45,13 @@ describe('fam-978.45 shopping list consumers', () => {
       path.join(REPO_ROOT, 'src/features/shopping-list/forms/add-item-form.tsx'),
       'utf8',
     );
-    expect(formSource).toContain('useThemedStyles(makeShoppingListStyles)');
+    const styleOwnerSource = fs.readFileSync(path.join(REPO_ROOT, SHOPPING_STYLE_OWNER), 'utf8');
+
+    expect(styleOwnerSource).toContain("from 'react-native-unistyles'");
+    expect(styleOwnerSource).toMatch(/StyleSheet\.create\(\s*\(theme\)/u);
+    expect(formSource).toContain(
+      "import { shoppingListStyles } from '../components/ui/shopping-list-styles';",
+    );
+    expect(formSource).toContain('const shoppingStyles = shoppingListStyles;');
   });
 });
