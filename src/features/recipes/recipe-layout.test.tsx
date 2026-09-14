@@ -28,6 +28,7 @@ jest.mock('@/features/settings/use-feature-access', () => ({
       };
     },
     getFeatureFlagState: () => mockRecipesFeatureFlag,
+    getModuleFeatureFlagOverride: () => undefined,
   }),
 }));
 

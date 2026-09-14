@@ -27,7 +27,6 @@ jest.doMock('expo-crypto', () => ({
 }));
 
 jest.doMock('@/lib/db/client', () => ({ getDatabase: jest.fn() }));
-jest.doMock('react-native-css-interop', () => ({}));
 jest.doMock('react-native', () => ({ Platform: { OS: 'node' } }));
 
 const { getDatabase } = jest.requireMock('@/lib/db/client') as {
