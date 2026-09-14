@@ -1,10 +1,10 @@
-import { render, screen, userEvent } from '@testing-library/react-native';
+import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { rs } from '@/components/theme/index';
 import { PlusAndAiScreen } from '@/features/premium/plus-and-ai-screen';
-import { buyPackage, packagesForEntitlement } from '@/lib/purchases';
+import { buyPackage, packagesForEntitlement, restorePurchases } from '@/lib/purchases';
 
 let mockHasPlus = false;
 let mockHasAI = false;
@@ -64,6 +64,10 @@ describe('PlusAndAiScreen', () => {
   beforeEach(() => {
     mockHasPlus = false;
     mockHasAI = false;
+    (packagesForEntitlement as jest.Mock).mockReset();
+    (packagesForEntitlement as jest.Mock).mockResolvedValue([]);
+    (buyPackage as jest.Mock).mockReset();
+    (restorePurchases as jest.Mock).mockReset();
   });
 
   it('zeigt die Segmented Tabs Plus/KI', async () => {
@@ -80,12 +84,23 @@ describe('PlusAndAiScreen', () => {
     expect(screen.getByText(/Ein Abo schaltet Plus/)).toHaveStyle({ maxWidth: rs(320) });
     expect(screen.queryByText('✦')).not.toBeOnTheScreen();
     expect(screen.getByText('Geführter Kochmodus')).toBeOnTheScreen();
+    expect(screen.getByText('Fehlendes direkt einkaufen')).toBeOnTheScreen();
+    expect(screen.getByText('Bestände automatisch ergänzen')).toBeOnTheScreen();
     expect(screen.getByRole('radio', { name: /Jahresabo/ })).toHaveStyle({
       flexDirection: 'row',
       minHeight: 76,
     });
     expect(screen.getByRole('button', { name: 'Jahresabo für 49,99 € starten' })).toBeOnTheScreen();
     expect(screen.queryByText('Auf KI upgraden')).not.toBeOnTheScreen();
+  });
+
+  it('wechselt zwischen Jahres- und Monatsabo', async () => {
+    const user = userEvent.setup();
+    await renderScreen('plus');
+
+    await user.press(screen.getByRole('radio', { name: /Monatsabo/ }));
+
+    expect(screen.getByRole('button', { name: 'Monatsabo für 4,99 € starten' })).toBeOnTheScreen();
   });
 
   it('zeigt mit aktivem Plus die Verwalten-Variante und einen KI-Upgrade-Hinweis', async () => {
@@ -187,5 +202,68 @@ describe('PlusAndAiScreen', () => {
       'Erfolgreich',
       'Fam KI ist jetzt für deinen Haushalt aktiv!',
     );
+  });
+
+  it('meldet Laden als busy und blockiert den Kauf-CTA', async () => {
+    (packagesForEntitlement as jest.Mock).mockImplementationOnce(
+      () => new Promise(() => undefined),
+    );
+
+    await renderScreen('plus');
+
+    const buyButton = screen.getByRole('button', { name: 'Jahresabo für 49,99 € starten' });
+    expect(buyButton).toBeDisabled();
+    expect(buyButton).toBeBusy();
+  });
+
+  it('meldet Wiederherstellen als busy und blockiert Auswahl und Kauf', async () => {
+    (restorePurchases as jest.Mock).mockImplementationOnce(() => new Promise(() => undefined));
+    const user = userEvent.setup();
+    await renderScreen('plus');
+
+    await user.press(screen.getByRole('button', { name: 'Käufe wiederherstellen' }));
+
+    expect(screen.getByRole('button', { name: 'Käufe wiederherstellen' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Käufe wiederherstellen' })).toBeBusy();
+    expect(screen.getByRole('button', { name: 'Jahresabo für 49,99 € starten' })).toBeDisabled();
+    expect(screen.getByRole('radio', { name: /Jahresabo/ })).toBeDisabled();
+    expect(screen.getByRole('radio', { name: /Monatsabo/ })).toBeDisabled();
+  });
+
+  it('zeigt einen Kauf-Fehler als Alert an', async () => {
+    const alertSpy = jest.spyOn(Alert, 'alert');
+    const mockPkg = {
+      identifier: '$rc_annual',
+      product: { price: 44.99, priceString: '44,99 €', currencyCode: 'EUR' },
+    };
+    (packagesForEntitlement as jest.Mock).mockResolvedValueOnce([mockPkg]);
+    (buyPackage as jest.Mock).mockResolvedValueOnce({
+      kind: 'failed',
+      error: { code: 'STORE_ERROR', message: 'Storefehler' },
+    });
+    const user = userEvent.setup();
+    await renderScreen('plus');
+
+    await user.press(await screen.findByRole('button', { name: 'Jahresabo für 44,99 € starten' }));
+
+    await waitFor(() => {
+      expect(alertSpy).toHaveBeenCalledWith('Kauf fehlgeschlagen', 'Storefehler');
+    });
+  });
+
+  it('zeigt einen Fehler beim Wiederherstellen als Alert an', async () => {
+    const alertSpy = jest.spyOn(Alert, 'alert');
+    (restorePurchases as jest.Mock).mockResolvedValueOnce({
+      ok: false,
+      error: new Error('Restorefehler'),
+    });
+    const user = userEvent.setup();
+    await renderScreen('plus');
+
+    await user.press(screen.getByRole('button', { name: 'Käufe wiederherstellen' }));
+
+    await waitFor(() => {
+      expect(alertSpy).toHaveBeenCalledWith('Wiederherstellen fehlgeschlagen', 'Restorefehler');
+    });
   });
 });

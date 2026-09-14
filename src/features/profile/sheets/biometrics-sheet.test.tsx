@@ -2,7 +2,6 @@ import { render, screen, userEvent } from '@testing-library/react-native';
 
 import type { ProfileBiometrics } from '@/features/profile/domain/biometrics';
 import { BiometricsSheet } from '@/features/profile/sheets/biometrics-sheet';
-import { BiometricsSheet as AndroidBiometricsSheet } from '@/features/profile/sheets/biometrics-sheet.android';
 
 const emptyBiometrics: ProfileBiometrics = {
   birthDate: null,
@@ -99,18 +98,13 @@ describe('BiometricsSheet', () => {
     expect(onApply).not.toHaveBeenCalled();
   });
 
-  test('bewahrt den Apply- und Auswahlvertrag auf Android', async () => {
+  test('bewahrt den Apply- und Auswahlvertrag ohne Plattformspiegel', async () => {
     const user = userEvent.setup();
     const onApply = jest.fn();
     const onClose = jest.fn();
 
     await render(
-      <AndroidBiometricsSheet
-        visible
-        value={emptyBiometrics}
-        onApply={onApply}
-        onClose={onClose}
-      />,
+      <BiometricsSheet visible value={emptyBiometrics} onApply={onApply} onClose={onClose} />,
     );
 
     await user.type(screen.getByLabelText('Körpergröße (cm)'), '180');
