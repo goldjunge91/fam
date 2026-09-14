@@ -7,8 +7,8 @@ Use this repository-specific reference before suggesting or executing iOS releas
 - `AGENTS.md` for the active project rules.
 - `app.json` for bundle ID, app version, permissions, privacy manifest, encryption declaration, plugins, and EAS project ID.
 - `eas.json` for the current build and submit profiles.
-- `native-build-lock.json` and `docs/native-fingerprint-drift-debugging.md` for the native fingerprint contract.
-- `docs/EAS_BUILD_COMMANDS.md` for repository-approved command forms.
+- `native-build-lock.json` and `docs/features/native-fingerpint-faster-build/native-fingerprint-drift-debugging.md` for the native fingerprint contract.
+- `docs/architecture/EAS_BUILD_COMMANDS.md` for repository-approved command forms.
 - `docs/revenuecat/App Subscription Launch Checklist.md` when subscriptions are in the release.
 - Environment selection and release keys without printing secret values.
 
@@ -36,7 +36,7 @@ If it reports drift, inspect the source:
 bun run native:status -- --diff
 ```
 
-Do not paper over drift. Read `docs/native-fingerprint-drift-debugging.md`, determine whether the change is intentional, and explain the rebuild consequence. A baseline update or rebuild requires the project's explicit `--approve-rebuild` switch and user authorization.
+Do not paper over drift. Read `docs/features/native-fingerpint-faster-build/native-fingerprint-drift-debugging.md`, determine whether the change is intentional, and explain the rebuild consequence. A baseline update or rebuild requires the project's explicit `--approve-rebuild` switch and user authorization.
 
 Project-controlled local release builds are:
 

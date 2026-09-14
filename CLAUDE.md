@@ -75,22 +75,15 @@ bun run user:create / user:list / user:clean / user:delete
 
 ## Weiterführende Docs
 
-- `docs/VISION.md`, `docs/ROADMAP.md`
+- `docs/features/VISION.md`, `docs/features/ROADMAP.md`
 - `.agents/rules/react-native-testing-library.md` — RNTL-Konventionen für diesen Codebase (vor Komponententests lesen)
 
 ## Agent skills
 
-### Issue tracker
+### Project context and task tracking
 
-GitHub Issues (`gh`-CLI) gegen `goldjunge91/fam`. Siehe `docs/agents/issue-tracker.md`.
-
-### Triage labels
-
-Standard-Vokabular (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). Siehe `docs/agents/triage-labels.md`.
-
-### Domain docs
-
-Single-Context (`CONTEXT.md` + `docs/adr/` im Root). Siehe `docs/agents/domain.md`.
+Beads (`bd`) is the project tracker. Domain vocabulary and ownership live in
+`CONTEXT.md`; durable architecture decisions live in `docs/adr/`.
 
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:970c3bf2 -->
 ## Beads Issue Tracker
