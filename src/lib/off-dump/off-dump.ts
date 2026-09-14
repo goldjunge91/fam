@@ -150,14 +150,7 @@ export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
   offDumpTrace('ATTACH-START');
   const dumpPath = toFsPath(target.uri);
   try {
-    // Bevorzugt als Read-Only einhängen, damit BEGIN IMMEDIATE auf der
-    // Hauptdatenbank keine Schreibtransaktion auf dem Produktkatalog erzwingt.
-    try {
-      await attachPlaintextDatabase(db, `file:${dumpPath}?mode=ro`, 'off_dump', 'sqlcipher');
-    } catch (error) {
-      offDumpTrace('ATTACH-READONLY-FAIL', { error: errorMessage(error) });
-      await attachPlaintextDatabase(db, dumpPath, 'off_dump', 'sqlcipher');
-    }
+    await attachPlaintextDatabase(db, dumpPath, 'off_dump', 'sqlcipher');
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     if (!message.includes('off_dump is already in use')) {
@@ -181,7 +174,6 @@ async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
   const activeInspection = await inspectAttachedOffDump(db);
 
   offDumpTrace('UPDATE-MARK-CHECK', { updateId });
-  await setMetaValue(db, LAST_CHECK_KEY, new Date().toISOString());
   try {
     offDumpTrace('UPDATE-REPOSITORY-START', { updateId });
     const outcome = await checkForUpdate({
@@ -191,6 +183,7 @@ async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
       paths,
       activeInspection,
     });
+    await setMetaValue(db, LAST_CHECK_KEY, new Date().toISOString());
     if (outcome.kind === 'patched' || outcome.kind === 'baseline-installed') {
       await setMetaValue(db, LAST_SUCCESSFUL_UPDATE_KEY, new Date().toISOString());
       await setMetaValue(db, LAST_ERROR_KEY, '');
@@ -204,7 +197,7 @@ async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
     const message = err instanceof Error ? err.message : String(err);
     offDumpTrace('UPDATE-FAIL', { error: message, updateId });
     await setMetaValue(db, LAST_ERROR_KEY, message);
-    return { kind: 'manifest-unavailable' };
+    return { kind: 'update-failed', error: message };
   }
 }
 
@@ -234,6 +227,9 @@ export async function forceRefreshOffDump(db: SqlDatabase): Promise<UpdateOutcom
   }
   if (outcome.kind === 'baseline-failed') {
     throw new Error('Baseline-Installation fehlgeschlagen (Pruefsumme/Schema ungueltig).');
+  }
+  if (outcome.kind === 'update-failed') {
+    throw new Error(outcome.error);
   }
   return outcome;
 }

@@ -12,6 +12,7 @@ export type DumpPaths = { activePath: string; nextPath: string; recoveryPath: st
 export type UpdateOutcome =
   | { kind: 'up-to-date' }
   | { kind: 'manifest-unavailable' }
+  | { kind: 'update-failed'; error: string }
   | { kind: 'patched'; dataVersion: string }
   | { kind: 'baseline-installed'; dataVersion: string }
   | { kind: 'baseline-failed' };
