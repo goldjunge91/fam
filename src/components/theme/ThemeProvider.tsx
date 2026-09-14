@@ -16,7 +16,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { useColorScheme } from 'react-native';
+import { AppState, useColorScheme } from 'react-native';
 import type { MMKV } from 'react-native-mmkv';
 import { UnistylesRuntime } from 'react-native-unistyles';
 
@@ -78,7 +78,18 @@ const ThemeContext = createContext<ThemeValue>(resolve(DEFAULT_THEME_PREF, 'ligh
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const storage = useMemo(getThemeStorage, []);
   const [pref, setPrefState] = useState<ThemePref>(() => readThemePref(storage));
+  const [foregroundVersion, setForegroundVersion] = useState(0);
   const system = useColorScheme() === 'dark' ? 'dark' : 'light';
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', (nextState) => {
+      if (nextState === 'active') {
+        setForegroundVersion((version) => version + 1);
+      }
+    });
+
+    return () => subscription.remove();
+  }, []);
 
   useEffect(() => {
     if (!storage) return;
@@ -107,13 +118,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const value = useMemo(() => resolve(pref, system, setPref), [pref, system, setPref]);
 
   useLayoutEffect(() => {
+    // The counter forces this runtime sync again after the app becomes active.
+    void foregroundVersion;
     const followsSystem = value.pref === 'system';
     UnistylesRuntime.setAdaptiveThemes(followsSystem);
 
     if (!followsSystem) {
       UnistylesRuntime.setTheme(value.mode);
     }
-  }, [value.mode, value.pref]);
+  }, [value.mode, value.pref, foregroundVersion]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
