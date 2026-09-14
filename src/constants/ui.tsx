@@ -97,6 +97,8 @@ export const iconButtonStyles = StyleSheet.create((theme) => ({
   header: {
     borderRadius: theme.radius.sm,
     backgroundColor: theme.backgroundElement,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
   },
   modalClose: {
     minWidth: theme.space.xxl + theme.space.md + theme.space.xs,

@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react-native';
 import { Text } from 'react-native';
 
 import {
+  borderWidth,
   colorsLight as mockColorsLight,
   makeAccent as mockMakeAccent,
   radius,
@@ -38,6 +39,8 @@ describe('HeaderIconButton', () => {
       height: 39,
       borderRadius: radius.sm,
       backgroundColor: mockColorsLight.backgroundElement,
+      borderWidth: borderWidth.base,
+      borderColor: mockColorsLight.border,
     });
   });
 
