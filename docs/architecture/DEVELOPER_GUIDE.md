@@ -120,6 +120,33 @@ Vor Änderungen an React-Native-Komponententests zuerst
 `.agents/rules/react-native-testing-library.md` und die lokale Dokumentation
 von `@testing-library/react-native` lesen.
 
+#### Unistyles-Testgrenze
+
+Unistyles v3 wird in Jest über `react-native-unistyles/mocks` geladen. Der Mock
+steht in `jest.config.js` vor `src/components/theme/index.ts`, damit die
+Konfiguration auf die bereitgestellten Stubs trifft. Das Babel-Plugin ist in
+der Testumgebung automatisch deaktiviert.
+
+Jest-Tests prüfen Verhalten, Accessibility, Interaktionen, Zustandswechsel und
+reine Token- oder Domänenlogik. Sie prüfen nicht, wie Unistyles Styles parst
+oder ob ein Element aufgrund von Theme, Breakpoints oder Insets sichtbar ist.
+Assertions wie `toHaveStyle`, `.props.style`, `StyleSheet.flatten` und
+abhängiges `toBeVisible` gehören deshalb nicht in neue Jest-Komponententests.
+
+Die native Darstellung wird mit Maestro beziehungsweise den vorhandenen
+E2E-Flows unter `.maestro/flows/` geprüft. Das umfasst Theme-Wechsel,
+Style-Varianten, Keyboard-Insets, Layout und visuelle Zustände.
+
+Für Reanimated kombinieren wir Unistyles- und Animations-Styles über ein
+Style-Array. Theme-Werte in Worklets kommen über `useAnimatedTheme` bzw.
+`useAnimatedVariantColor` aus `react-native-unistyles/reanimated`. Für
+Keyboard-Abstände verwenden wir `rt.insets.ime` im Unistyles-Callback, wo die
+Komponente keinen separaten nativen Keyboard-Container benötigt.
+
+Bestehende Style-Assertions gelten als Migrationsbestand. Neue Tests dürfen
+ihn nicht vergrößern; einzelne Fälle werden bei Berührung auf Verhalten oder
+Maestro verschoben.
+
 ### Development-Build-Targets
 
 **iOS:**

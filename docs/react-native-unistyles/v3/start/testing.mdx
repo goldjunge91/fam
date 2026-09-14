@@ -67,4 +67,39 @@ Instead, configure E2E tests using eg. Playwright or Maestro.
 
 In these environments, you can test how Unistyles parses your styles and how your app looks like.
 
+## Haushaltsapp: Testgrenze
+
+Für diese App gilt dieselbe Trennung wie in der Unistyles-Dokumentation:
+Jest prüft beobachtbares Verhalten, nicht die von Unistyles berechnete Darstellung.
+
+### Was in Jest getestet wird
+
+- Rendering, Accessibility-Rollen und -Namen sowie Interaktionen
+- Zustandswechsel, Navigation und sichtbare Inhalte, wenn sie nicht von der
+  Style-Auflösung abhängen
+- Reine Design-System-Funktionen und Token-Mappings
+
+Verwende in diesen Tests keine Assertions auf `toHaveStyle`, `.props.style`,
+`StyleSheet.flatten` oder `toBeVisible`, wenn das Ergebnis von Unistyles,
+Theme, Breakpoints oder Insets abhängt. Solche Assertions können im Jest-Mock
+grün sein, obwohl die native Darstellung anders ist.
+
+### Was als Runtime-Test getestet wird
+
+Maestro ist in diesem Repository die Quelle der Wahrheit für die native
+Darstellung. Dort gehören Theme-Wechsel, Style-Varianten, Keyboard-Verhalten,
+Layout, Sichtbarkeit und visuelle Zustände hin. Die E2E-Skripte stehen in
+`package.json` und unter `.maestro/flows/`.
+
+Für Reanimated gilt zusätzlich: Unistyles-Styles und animierte Styles werden
+als getrennte Einträge in einem Style-Array kombiniert. Wenn ein Worklet das
+aktive Theme oder eine animierte Variant-Farbe liest, verwendet der
+Produktionscode `useAnimatedTheme` oder `useAnimatedVariantColor` aus
+`react-native-unistyles/reanimated`. Für Keyboard-Abstände wird bevorzugt
+`rt.insets.ime` im `StyleSheet.create`-Callback verwendet.
+
+Die bestehenden Jest-Style-Assertions sind ein dokumentierter
+Migrationsbestand. Neue Tests dürfen diese Grenze nicht erweitern; betroffene
+Bestandsfälle werden schrittweise in Verhaltens- oder Maestro-Tests überführt.
+
 </Seo>

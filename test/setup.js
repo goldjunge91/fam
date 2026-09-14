@@ -76,10 +76,6 @@ jest.mock('react-native-reorderable-list', () => {
   };
 });
 
-jest.mock('react-native-nitro-modules', () => ({
-  NitroModules: {},
-}));
-
 jest.mock('react-native-nitro-image', () => ({
   NitroImage: 'NitroImage',
 }));
