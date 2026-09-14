@@ -15,7 +15,7 @@ import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
-import { ProductInformation } from '@/components/ui/product-information';
+import { ProductInformation } from '@/features/inventory/components/product-information';
 import { Button, Divider, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
