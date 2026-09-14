@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen } from '@testing-library/react-native';
+import { render, screen, userEvent } from '@testing-library/react-native';
 import type React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StorePickerMenu } from '@/features/shopping-list/components/ui/store-picker-menu';
@@ -115,6 +115,19 @@ describe('StorePicker Components', () => {
       });
 
       expect(screen.getByText('Rewe')).toBeTruthy();
+    });
+
+    it('meldet eine ausgewählte Marktoption über die zugängliche Radio-Fläche', async () => {
+      const user = userEvent.setup();
+      const onChange = jest.fn();
+      await render(<StorePickerField householdId="hh-1" storeId={null} onChange={onChange} />, {
+        wrapper,
+      });
+
+      expect(screen.getByRole('radio', { name: 'Ohne Markt' })).toBeSelected();
+      await user.press(screen.getByRole('radio', { name: 'Rewe' }));
+
+      expect(onChange).toHaveBeenCalledWith('store-1');
     });
   });
 });
