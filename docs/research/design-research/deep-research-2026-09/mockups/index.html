@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fam Inventar-Redesign · Mockups</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f8f4ef;
+        --surface: #fbf7f2;
+        --soft: #e9e1e7;
+        --text: #2d2830;
+        --muted: #786f79;
+        --border: #e4dde3;
+        --accent: #8b5e63;
+        --accent-deep: #5e4861;
+        --success: #78906f;
+        --warning: #c69059;
+        --danger: #c65f50;
+        --shadow: rgba(89, 64, 89, 0.14);
+        --radius-lg: 24px;
+        --radius-md: 16px;
+        --radius-sm: 10px;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        background: var(--bg);
+        color: var(--text);
+        font: 15px/1.45 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      button, input { font: inherit; }
+
+      button {
+        border: 0;
+        cursor: default;
+      }
+
+      .page {
+        width: min(1440px, calc(100% - 48px));
+        margin: 0 auto;
+        padding: 42px 0 80px;
+      }
+
+      .masthead {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 28px;
+        margin-bottom: 34px;
+      }
+
+      .eyebrow {
+        margin: 0 0 7px;
+        color: var(--accent);
+        font-size: 11px;
+        font-weight: 760;
+        letter-spacing: .13em;
+        text-transform: uppercase;
+      }
+
+      h1, h2, h3, p { margin-top: 0; }
+      h1 { margin-bottom: 9px; font-size: clamp(30px, 4vw, 52px); line-height: 1; letter-spacing: -.045em; }
+      h2 { margin-bottom: 8px; font-size: 24px; line-height: 1.05; letter-spacing: -.03em; }
+      h3 { margin-bottom: 5px; font-size: 16px; line-height: 1.15; }
+      .lede { max-width: 670px; margin-bottom: 0; color: var(--muted); font-size: 16px; }
+
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: end;
+        gap: 8px 18px;
+        max-width: 420px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .legend span { display: inline-flex; align-items: center; gap: 7px; }
+      .legend i { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+      .legend .green { background: var(--success); }
+      .legend .orange { background: var(--warning); }
+      .legend .red { background: var(--danger); }
+
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        margin: 38px 0 16px;
+      }
+
+      .section-head p { margin: 0; color: var(--muted); font-size: 13px; }
+
+      .screen-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(220px, 1fr));
+        align-items: start;
+        gap: 20px;
+      }
+
+      .screen-label {
+        min-height: 66px;
+        padding: 0 10px 13px;
+      }
+
+      .screen-label .number {
+        display: inline-block;
+        min-width: 23px;
+        margin-right: 5px;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .screen-label p { margin: 0; color: var(--muted); font-size: 12px; }
+
+      .phone {
+        position: relative;
+        overflow: hidden;
+        min-height: 760px;
+        border: 8px solid #342c38;
+        border-radius: 36px;
+        background: var(--bg);
+        box-shadow: 0 18px 42px var(--shadow), 0 2px 0 rgba(255,255,255,.55) inset;
+      }
+
+      .phone::before {
+        content: "";
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        left: 50%;
+        width: 92px;
+        height: 22px;
+        border-radius: 0 0 16px 16px;
+        background: #342c38;
+        transform: translateX(-50%);
+      }
+
+      .phone-content { min-height: 744px; padding: 38px 15px 64px; }
+
+      .app-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      .app-head h3 { margin: 0; font-size: 26px; letter-spacing: -.04em; }
+      .app-head p { margin: 2px 0 0; color: var(--muted); font-size: 11px; }
+
+      .icon {
+        display: grid;
+        width: 35px;
+        height: 35px;
+        flex: 0 0 35px;
+        place-items: center;
+        border: 1px solid var(--border);
+        border-radius: 50%;
+        background: var(--surface);
+        color: var(--accent);
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .mode-switch {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 19px;
+        padding: 3px;
+        border-radius: 12px;
+        background: var(--soft);
+      }
+
+      .mode-switch span {
+        padding: 8px 5px;
+        border-radius: 9px;
+        color: var(--muted);
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .mode-switch .active { background: var(--surface); color: var(--text); font-weight: 750; box-shadow: 0 2px 7px var(--shadow); }
+
+      .intro-line { display: flex; align-items: end; justify-content: space-between; gap: 10px; margin-bottom: 13px; }
+      .intro-line h4 { margin: 0; font-size: 18px; letter-spacing: -.025em; }
+      .intro-line small { color: var(--muted); font-size: 11px; }
+
+      .focus-card {
+        margin-bottom: 12px;
+        padding: 15px;
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--warning);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+      }
+
+      .focus-card.critical { border-left-color: var(--danger); }
+      .focus-card.safe { border-left-color: var(--success); }
+
+      .product-line { display: flex; align-items: start; gap: 11px; }
+      .product-art {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        flex: 0 0 42px;
+        place-items: center;
+        border-radius: 12px;
+        background: var(--soft);
+        font-size: 23px;
+      }
+
+      .product-copy { min-width: 0; flex: 1; }
+      .product-copy strong { display: block; font-size: 14px; }
+      .product-copy span { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; }
+      .reason { margin: 13px 0 12px 53px; color: var(--text); font-size: 12px; }
+      .reason b { color: var(--warning); }
+      .critical .reason b { color: var(--danger); }
+      .safe .reason b { color: var(--success); }
+
+      .action-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-left: 53px; }
+      .primary-action {
+        padding: 9px 12px;
+        border-radius: 10px;
+        background: var(--accent);
+        color: white;
+        font-size: 12px;
+        font-weight: 760;
+      }
+
+      .quiet-action { padding: 6px 0; background: transparent; color: var(--accent); font-size: 11px; font-weight: 720; }
+
+      .thin-link { color: var(--accent); font-size: 11px; font-weight: 720; }
+      .rule { height: 1px; margin: 19px 0; background: var(--border); }
+
+      .hint {
+        display: flex;
+        align-items: start;
+        gap: 10px;
+        padding: 12px;
+        border-radius: var(--radius-sm);
+        background: var(--soft);
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .hint b { display: block; margin-bottom: 2px; color: var(--text); font-size: 12px; }
+      .hint .hint-icon { color: var(--accent); font-size: 16px; }
+
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 42px;
+        margin-bottom: 12px;
+        padding: 0 12px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--surface);
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .filter-row { display: flex; gap: 7px; overflow: hidden; margin: 0 -2px 20px; white-space: nowrap; }
+      .filter { padding: 6px 9px; border-bottom: 2px solid transparent; color: var(--muted); font-size: 11px; }
+      .filter.active { border-color: var(--accent); color: var(--accent); font-weight: 760; }
+
+      .stock-section { margin-bottom: 22px; }
+      .stock-section header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
+      .stock-section header strong { font-size: 13px; }
+      .stock-section header span { color: var(--muted); font-size: 11px; }
+
+      .stock-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 58px;
+        padding: 9px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .stock-row:last-child { border-bottom: 0; }
+      .stock-row .product-art { width: 35px; height: 35px; flex-basis: 35px; border-radius: 9px; font-size: 18px; }
+      .stock-row .product-copy strong { font-size: 12px; }
+      .stock-row .product-copy span { font-size: 10px; }
+      .stock-meta { margin-left: auto; color: var(--muted); font-size: 11px; text-align: right; }
+      .stock-meta b { display: block; color: var(--text); font-size: 12px; }
+      .stock-meta .urgent { color: var(--warning); }
+      .stock-meta .danger { color: var(--danger); }
+
+      .bottom-nav {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 11px 10px 14px;
+        border-top: 1px solid var(--border);
+        background: rgba(251,247,242,.96);
+      }
+
+      .bottom-nav span { color: var(--muted); font-size: 10px; text-align: center; }
+      .bottom-nav .active { color: var(--accent); font-weight: 800; }
+      .bottom-nav b { display: block; margin-bottom: 3px; font-size: 15px; }
+
+      .back-line { display: flex; align-items: center; gap: 7px; margin-bottom: 22px; color: var(--accent); font-size: 12px; font-weight: 760; }
+      .detail-title { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+      .detail-title .product-art { width: 60px; height: 60px; flex-basis: 60px; font-size: 31px; }
+      .detail-title h3 { margin: 0 0 3px; font-size: 23px; }
+      .detail-title p { margin: 0; color: var(--muted); font-size: 12px; }
+
+      .quantity-line { display: flex; align-items: center; justify-content: space-between; margin: 0 0 18px; padding: 14px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+      .quantity-line span { color: var(--muted); font-size: 12px; }
+      .quantity-line strong { font-size: 21px; }
+
+      .date-panel { margin-bottom: 17px; padding: 13px; border-left: 4px solid var(--warning); background: var(--surface); }
+      .date-panel.danger { border-color: var(--danger); }
+      .date-panel h4 { margin: 0 0 4px; font-size: 13px; }
+      .date-panel p { margin: 0; color: var(--muted); font-size: 11px; }
+      .date-panel b { color: var(--text); }
+
+      .wide-action { width: 100%; margin-bottom: 8px; padding: 12px; border-radius: 11px; background: var(--accent); color: white; font-size: 13px; font-weight: 800; }
+      .secondary-action { width: 100%; padding: 11px; border: 1px solid var(--border); border-radius: 11px; background: transparent; color: var(--accent); font-size: 12px; font-weight: 760; }
+
+      .detail-section { margin-top: 23px; }
+      .detail-section header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 9px; }
+      .detail-section header strong { font-size: 13px; }
+      .detail-section header span { color: var(--accent); font-size: 11px; font-weight: 720; }
+
+      .activity { display: grid; grid-template-columns: 25px 1fr auto; align-items: center; gap: 9px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+      .avatar { display: grid; width: 25px; height: 25px; place-items: center; border-radius: 50%; background: var(--soft); color: var(--accent); font-size: 10px; font-weight: 800; }
+      .activity p { margin: 0; font-size: 11px; }
+      .activity small { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; }
+      .undo { color: var(--accent); font-size: 10px; font-weight: 760; }
+
+      .conflict-banner { display: flex; align-items: start; gap: 10px; margin-bottom: 17px; padding: 12px; border: 1px solid rgba(198,95,80,.38); border-radius: var(--radius-sm); background: rgba(198,95,80,.07); }
+      .conflict-banner b { display: block; margin-bottom: 3px; color: var(--danger); font-size: 12px; }
+      .conflict-banner p { margin: 0; color: var(--muted); font-size: 11px; }
+
+      .sync-state { display: flex; align-items: center; justify-content: space-between; margin: -10px 0 19px; color: var(--muted); font-size: 10px; }
+      .sync-state span:first-child::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 5px; border-radius: 50%; background: var(--warning); }
+      .sync-state .link { color: var(--accent); font-weight: 700; }
+
+      .aspect-grid { display: grid; grid-template-columns: repeat(4, minmax(180px, 1fr)); gap: 16px; }
+      .aspect { min-height: 258px; padding: 18px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); }
+      .aspect > p { margin-bottom: 16px; color: var(--muted); font-size: 12px; }
+      .aspect .label { display: block; margin-bottom: 4px; color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+      .aspect .sample { padding: 12px 0; border-top: 1px solid var(--border); }
+
+      .date-sample { display: grid; grid-template-columns: 12px 1fr; gap: 9px; align-items: start; }
+      .date-dot { width: 9px; height: 9px; margin-top: 4px; border-radius: 50%; background: var(--warning); }
+      .date-dot.red { background: var(--danger); }
+      .date-dot.green { background: var(--success); }
+      .date-sample strong { display: block; font-size: 13px; }
+      .date-sample span { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; }
+
+      .segmented-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+      .segmented-actions div { padding: 11px 7px; border: 1px solid var(--border); border-radius: 9px; background: var(--bg); color: var(--text); font-size: 11px; text-align: center; }
+      .segmented-actions .selected { border-color: var(--accent); background: var(--accent); color: white; }
+      .segmented-actions .danger { color: var(--danger); }
+
+      .sync-sample { display: grid; grid-template-columns: 29px 1fr; gap: 9px; align-items: start; }
+      .sync-sample .avatar { width: 29px; height: 29px; }
+      .sync-sample strong { display: block; font-size: 12px; }
+      .sync-sample span { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
+      .sync-sample button { margin-top: 8px; padding: 0; background: transparent; color: var(--accent); font-size: 11px; font-weight: 750; }
+
+      .priority-card { padding: 14px; border: 1px solid var(--border); border-radius: 13px; background: var(--bg); }
+      .priority-card strong { display: block; font-size: 14px; }
+      .priority-card span { display: block; margin: 3px 0 13px; color: var(--muted); font-size: 11px; }
+      .priority-card .reason { margin: 0 0 12px; font-size: 11px; }
+      .priority-card .primary-action { display: inline-block; }
+
+      .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .principle { padding: 17px; border-top: 3px solid var(--accent); background: transparent; }
+      .principle:nth-child(2) { border-top-color: var(--warning); }
+      .principle:nth-child(3) { border-top-color: var(--success); }
+      .principle strong { display: block; margin-bottom: 5px; font-size: 13px; }
+      .principle p { margin: 0; color: var(--muted); font-size: 12px; }
+
+      .notes { margin-top: 34px; padding: 22px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); }
+      .notes p { max-width: 920px; margin-bottom: 0; color: var(--muted); font-size: 13px; }
+      code { color: var(--accent); font-size: .92em; }
+
+      @media (max-width: 1120px) {
+        .screen-grid { grid-template-columns: repeat(2, minmax(260px, 390px)); justify-content: center; }
+        .aspect-grid { grid-template-columns: repeat(2, minmax(220px, 1fr)); }
+      }
+
+      @media (max-width: 680px) {
+        .page { width: min(100% - 28px, 430px); padding-top: 28px; }
+        .masthead { display: block; }
+        .legend { justify-content: start; margin-top: 18px; }
+        .screen-grid, .aspect-grid, .principles { grid-template-columns: 1fr; }
+        .phone { min-height: 700px; }
+        .phone-content { min-height: 684px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">Fam · Inventar-Redesign · V0.1</p>
+          <h1>Der Bestand zeigt<br />den nächsten Schritt.</h1>
+          <p class="lede">Vier statische Screen-Varianten und vier Detailstudien, abgeleitet aus <code>FINDINGS.md</code>. Mobile first, warm, dicht und erklärbar.</p>
+        </div>
+        <div class="legend" aria-label="Farblegende">
+          <span><i class="red"></i> Sicherheitsrelevant</span>
+          <span><i class="orange"></i> Bald verwenden</span>
+          <span><i class="green"></i> Ruhiger Bestand</span>
+        </div>
+      </header>
+
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Screen-Varianten</p>
+          <h2>Vier mögliche Einstiege</h2>
+        </div>
+        <p>Nur Ansicht und Hierarchie. Aktionen sind bewusst statisch.</p>
+      </div>
+
+      <section class="screen-grid" aria-label="Screen-Mockups">
+        <article>
+          <div class="screen-label">
+            <span class="number">01</span><strong>Use-first</strong>
+            <p>Die tägliche Entscheidung steht oben.</p>
+          </div>
+          <div class="phone">
+            <div class="phone-content">
+              <div class="app-head">
+                <div><h3>Vorrat</h3><p>Familie · 34 Artikel</p></div>
+                <span class="icon">⌕</span>
+              </div>
+              <div class="mode-switch"><span class="active">Jetzt</span><span>Bestand</span></div>
+              <div class="intro-line"><h4>Jetzt verwenden</h4><small>3 Vorschläge</small></div>
+
+              <div class="focus-card critical">
+                <div class="product-line"><div class="product-art">🥬</div><div class="product-copy"><strong>Babyspinat</strong><span>1 Beutel · Kühlschrank</span></div></div>
+                <p class="reason"><b>Heute verwenden</b><br />Verbrauchsdatum heute · geöffnet vor 2 Tagen</p>
+                <div class="action-row"><button class="primary-action">1 verwendet</button><button class="quiet-action">Mehr</button></div>
+              </div>
+
+              <div class="focus-card">
+                <div class="product-line"><div class="product-art">🥛</div><div class="product-copy"><strong>Naturjoghurt</strong><span>2 Becher · Kühlschrank</span></div></div>
+                <p class="reason"><b>MHD morgen</b><br />Passt gut zum Frühstück</p>
+                <div class="action-row"><button class="primary-action">1 verwendet</button><button class="quiet-action">Mehr</button></div>
+              </div>
+
+              <div class="focus-card safe">
+                <div class="product-line"><div class="product-art">🥑</div><div class="product-copy"><strong>Avocado</strong><span>2 Stück · Obstkorb</span></div></div>
+                <p class="reason"><b>Bald verwenden</b><br />Reif · kein Datum hinterlegt</p>
+                <div class="action-row"><button class="primary-action">1 verwendet</button><button class="quiet-action">Mehr</button></div>
+              </div>
+
+              <div class="rule"></div>
+              <div class="hint"><span class="hint-icon">↗</span><div><b>Gesamten Bestand öffnen</b>Suche, Lagerorte und Kategorien bleiben eine Ebene entfernt.</div></div>
+            </div>
+            <nav class="bottom-nav"><span class="active"><b>⌂</b>Vorrat</span><span><b>▱</b>Plan</span><span><b>◎</b>Profil</span></nav>
+          </div>
+        </article>
+
+        <article>
+          <div class="screen-label">
+            <span class="number">02</span><strong>Vollständiger Bestand</strong>
+            <p>Verwalten, suchen und sortieren ohne Prioritätsverlust.</p>
+          </div>
+          <div class="phone">
+            <div class="phone-content">
+              <div class="app-head">
+                <div><h3>Bestand</h3><p>Alles im Haushalt</p></div>
+                <span class="icon">＋</span>
+              </div>
+              <div class="search"><span>⌕</span><span>Artikel suchen</span><span style="margin-left:auto">⌘</span></div>
+              <div class="filter-row"><span class="filter active">Alle 34</span><span class="filter">Kühlschrank</span><span class="filter">Vorrat</span><span class="filter">Ohne Datum</span></div>
+
+              <section class="stock-section">
+                <header><strong>Kühlschrank</strong><span>12 Artikel</span></header>
+                <div class="stock-row"><div class="product-art">🥬</div><div class="product-copy"><strong>Babyspinat</strong><span>geöffnet · heute verwenden</span></div><div class="stock-meta"><b class="danger">1 Beutel</b>heute</div></div>
+                <div class="stock-row"><div class="product-art">🥛</div><div class="product-copy"><strong>Naturjoghurt</strong><span>MHD morgen</span></div><div class="stock-meta"><b class="urgent">2 Becher</b>morgen</div></div>
+                <div class="stock-row"><div class="product-art">🧀</div><div class="product-copy"><strong>Gouda</strong><span>ungeöffnet</span></div><div class="stock-meta"><b>1 Stück</b>12.09.</div></div>
+                <div class="stock-row"><div class="product-art">🥚</div><div class="product-copy"><strong>Eier</strong><span>untere Ablage</span></div><div class="stock-meta"><b>8 Stück</b>18.09.</div></div>
+              </section>
+
+              <section class="stock-section">
+                <header><strong>Vorrat</strong><span>18 Artikel</span></header>
+                <div class="stock-row"><div class="product-art">🍅</div><div class="product-copy"><strong>Tomaten stückig</strong><span>Konserven · ungeöffnet</span></div><div class="stock-meta"><b>3 Dosen</b>05.12.</div></div>
+                <div class="stock-row"><div class="product-art">🍚</div><div class="product-copy"><strong>Basmatireis</strong><span>trocken</span></div><div class="stock-meta"><b>1 Packung</b>ohne Datum</div></div>
+                <div class="stock-row"><div class="product-art">🍝</div><div class="product-copy"><strong>Spaghetti</strong><span>trocken</span></div><div class="stock-meta"><b>2 Packungen</b>ohne Datum</div></div>
+              </section>
+
+              <div class="hint"><span class="hint-icon">i</span><div><b>Priorität bleibt sichtbar</b>Die Liste zeigt den Grund, nicht nur eine farbige Warnung.</div></div>
+            </div>
+            <nav class="bottom-nav"><span class="active"><b>⌂</b>Vorrat</span><span><b>▱</b>Plan</span><span><b>◎</b>Profil</span></nav>
+          </div>
+        </article>
+
+        <article>
+          <div class="screen-label">
+            <span class="number">03</span><strong>Artikeldetail</strong>
+            <p>Semantik, Mengenänderung und Verlauf an einem Ort.</p>
+          </div>
+          <div class="phone">
+            <div class="phone-content">
+              <div class="back-line">‹ <span>Zurück zum Bestand</span></div>
+              <div class="detail-title"><div class="product-art">🥬</div><div><h3>Babyspinat</h3><p>Kühlschrank · 1 Beutel</p></div></div>
+
+              <div class="quantity-line"><span>Aktuelle Menge</span><strong>1 Beutel</strong></div>
+
+              <div class="date-panel danger"><h4>Verbrauchsdatum heute</h4><p>Sicherheitsrelevant. <b>Nicht wie ein MHD behandeln.</b></p></div>
+              <div class="date-panel"><h4>Geöffnet vor 2 Tagen</h4><p>Angabe aus dem Haushalt · Folgeinformation prüfen</p></div>
+
+              <button class="wide-action">1 verwendet</button>
+              <button class="secondary-action">Teilmenge oder anderen Status eintragen</button>
+
+              <section class="detail-section">
+                <header><strong>Letzte Änderungen</strong><span>Alle anzeigen</span></header>
+                <div class="activity"><span class="avatar">M</span><div><p>Mara hat 1 Beutel hinzugefügt</p><small>gestern · synchronisiert</small></div><span></span></div>
+                <div class="activity"><span class="avatar">D</span><div><p>Du hast den Spinat geöffnet</p><small>vor 2 Tagen · dieses Gerät</small></div><button class="undo">Rückgängig</button></div>
+              </section>
+
+              <div class="rule"></div>
+              <div class="thin-link">Artikel bearbeiten · Lagerort ändern</div>
+            </div>
+            <nav class="bottom-nav"><span class="active"><b>⌂</b>Vorrat</span><span><b>▱</b>Plan</span><span><b>◎</b>Profil</span></nav>
+          </div>
+        </article>
+
+        <article>
+          <div class="screen-label">
+            <span class="number">04</span><strong>Sync-Konflikt</strong>
+            <p>Der Haushalt sieht, was gerade passiert ist.</p>
+          </div>
+          <div class="phone">
+            <div class="phone-content">
+              <div class="app-head">
+                <div><h3>Vorrat</h3><p>Familie · gemeinsam</p></div>
+                <span class="icon">⋯</span>
+              </div>
+              <div class="sync-state"><span>Wird abgeglichen</span><span class="link">Details</span></div>
+              <div class="conflict-banner"><span class="hint-icon">!</span><div><b>Menge wurde aktualisiert</b><p>Eine Änderung von Leo ist gerade eingetroffen. Wir zeigen den neuesten Stand.</p></div></div>
+
+              <div class="intro-line"><h4>Milch</h4><small>2 × 1 l</small></div>
+              <div class="focus-card safe">
+                <div class="product-line"><div class="product-art">🥛</div><div class="product-copy"><strong>H-Milch</strong><span>Kühlschrank · ungeöffnet</span></div></div>
+                <p class="reason"><b>Bestand aktuell</b><br />Leo hat gerade 1 Packung ergänzt</p>
+                <div class="action-row"><button class="primary-action">1 verwendet</button><button class="quiet-action">Mehr</button></div>
+              </div>
+
+              <section class="detail-section">
+                <header><strong>Im Haushalt passiert</strong><span>Verlauf</span></header>
+                <div class="activity"><span class="avatar">L</span><div><p>Leo hat 1 Milch hinzugefügt</p><small>gerade eben · bestätigt</small></div><span class="success-mark">✓</span></div>
+                <div class="activity"><span class="avatar">M</span><div><p>Mara hat 1 Joghurt verwendet</p><small>vor 6 Min. · bestätigt</small></div><span class="success-mark">✓</span></div>
+                <div class="activity"><span class="avatar">D</span><div><p>Du hast Spinat geöffnet</p><small>vor 2 Tagen · bestätigt</small></div><button class="undo">Undo</button></div>
+              </section>
+
+              <div class="rule"></div>
+              <div class="hint"><span class="hint-icon">↻</span><div><b>Kein Aktivitätsranking</b>Der Verlauf erklärt Änderungen, er bewertet keine Personen.</div></div>
+            </div>
+            <nav class="bottom-nav"><span class="active"><b>⌂</b>Vorrat</span><span><b>▱</b>Plan</span><span><b>◎</b>Profil</span></nav>
+          </div>
+        </article>
+      </section>
+
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Aspect studies</p>
+          <h2>Einzelne Bausteine</h2>
+        </div>
+        <p>Diese Elemente können unabhängig kombiniert und getestet werden.</p>
+      </div>
+
+      <section class="aspect-grid" aria-label="Detailstudien">
+        <article class="aspect">
+          <span class="label">01 · Datumssemantik</span>
+          <h3>Der Grund ist Teil der Information.</h3>
+          <p>Keine undifferenzierte rote Ablaufwarnung. Datumsart und Öffnungsstatus erklären die Priorität.</p>
+          <div class="sample"><div class="date-sample"><i class="date-dot red"></i><div><strong>Verbrauchsdatum heute</strong><span>Sicherheitsrelevant</span></div></div></div>
+          <div class="sample"><div class="date-sample"><i class="date-dot"></i><div><strong>MHD morgen</strong><span>Qualität · bald verwenden</span></div></div></div>
+          <div class="sample"><div class="date-sample"><i class="date-dot green"></i><div><strong>Kein Datum</strong><span>Neutral · keine künstliche Präzision</span></div></div></div>
+        </article>
+
+        <article class="aspect">
+          <span class="label">02 · Verbrauchsaktion</span>
+          <h3>Ein Tap für den häufigsten Schritt.</h3>
+          <p>Der Bestand wird nach einer echten Handlung aktualisiert. Seltene Korrekturen bleiben erreichbar.</p>
+          <div class="sample"><div class="priority-card"><strong>Naturjoghurt</strong><span>2 Becher · MHD morgen</span><div class="reason"><b>Als Nächstes verwenden</b></div><button class="primary-action">1 verwendet</button></div></div>
+          <div class="sample"><div class="segmented-actions"><div class="selected">1 verwendet</div><div>Teilmenge</div><div>Eingefroren</div><div class="danger">Weggeworfen</div></div></div>
+        </article>
+
+        <article class="aspect">
+          <span class="label">03 · Haushaltssync</span>
+          <h3>Vertrauen durch Attribution.</h3>
+          <p>Person, Zeit und Status helfen bei gemeinsamen Änderungen. Keine Schuld- oder Aktivitätsrangliste.</p>
+          <div class="sample"><div class="sync-sample"><span class="avatar">M</span><div><strong>Mara hat 1 verwendet</strong><span>Joghurt · gerade eben</span><button>Rückgängig</button></div></div></div>
+          <div class="sample"><div class="sync-sample"><span class="avatar">L</span><div><strong>Leo hat 1 ergänzt</strong><span>Milch · synchronisiert</span><button>Details ansehen</button></div></div></div>
+        </article>
+
+        <article class="aspect">
+          <span class="label">04 · Prioritätsgrund</span>
+          <h3>Eine kleine Erklärung statt Score.</h3>
+          <p>Die Rangfolge bleibt nachvollziehbar, ohne eine undurchsichtige Food-Waste-Punktzahl.</p>
+          <div class="sample"><div class="priority-card"><strong>Babyspinat</strong><span>1 Beutel · Kühlschrank</span><div class="reason"><b>Heute verwenden</b><br />Verbrauchsdatum heute · geöffnet</div><button class="primary-action">1 verwendet</button></div></div>
+        </article>
+      </section>
+
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Design direction</p>
+          <h2>Was diese Variante bewusst nicht tut</h2>
+        </div>
+      </div>
+      <section class="principles" aria-label="Designprinzipien">
+        <article class="principle"><strong>Kein virtuelles 3D-Regal als Hauptnavigation</strong><p>Visuelle Produkte helfen beim Wiederfinden, dürfen aber nicht die schnelle Bestandsprüfung verlangsamen.</p></article>
+        <article class="principle"><strong>Kein universelles „abgelaufen“</strong><p>MHD, Verbrauchsdatum, geöffnet und unbekannt bleiben unterscheidbar und handlungsrelevant.</p></article>
+        <article class="principle"><strong>Keine Sichtbarkeit ohne nächste Handlung</strong><p>Die wichtigste Karte führt zu einer echten, reversiblen Mengen- oder Statusänderung.</p></article>
+      </section>
+
+      <aside class="notes">
+        <h3>Prototyp-Notiz</h3>
+        <p>Dies ist ein statischer Richtungsprototyp auf Basis der lokalen Research-Datei. Die vier Varianten sind bewusst nebeneinander gestellt, damit zuerst die Informationsarchitektur gewählt werden kann. Noch nicht dargestellt: leere Bestände, Offline-Queue im Detail, Accessibility-Verhalten, Dark Mode und reale Datenbindung.</p>
+      </aside>
+    </main>
+  </body>
+</html>

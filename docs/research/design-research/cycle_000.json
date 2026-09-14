@@ -1,0 +1,51 @@
+{
+  "cycle": "000",
+  "sub_question": "Konkrete visuelle Design-Referenzen + Onboarding / Cold-Start-Patterns für Urgency-first Lebensmittelinventar",
+  "summary": "Vier konkrete Design-Referenzen identifiziert: (1) Eatable App (UX-Bootcamp) — user-getestetes Urgency-first-Tab-Konzept mit Bestätigung 'People don't care about storage location, more care about expiry date'. (2) Blūm App (Capstone 2025–26) — Receipt-Upload als primärer Onboarding-Einstieg, AI-gestützte Ablaufdatum-Schätzung, Streak+Rewards-System; usability-getestete Erkenntnis: Rewards erst nach Home-Screen-Sichtbarkeit trugen zur Verhaltensänderung bei; Logging-Zeit durch Receipt-Upload um 42% reduziert. (3) Stockpile/Sleek Inventory Template — 'stock health bar' als visuelles Metapattern: füllt sich grün wenn alles OK, kippt amber bei Unterschreitung des Reorder-Schwellwerts — direkt auf Ablaufdatum-Ampel übertragbar. (4) Tokki (Behance) — kommerzielles Anti-Food-Waste UI-Kit mit vollständigem Onboarding-Flow. (5) Cooklist (ScreensDesign) — Pantry-App mit Loyalty-Card-Sync als Cold-Start-Lösung: App importiert automatisch Kaufhistorie über verknüpfte Supermarkt-Treuekarten.",
+  "key_insight": "Der stärkste Cold-Start-Hebel ist der Receipt-Upload / Loyalty-Card-Sync: kein manuelles Eintippen beim Erstzugang. Blūm-Tests zeigen, dass Rewards erst wirken, wenn sie auf dem Home Screen sichtbar sind (nicht versteckt in einer Tab). Das Stockpile 'health bar'-Muster ist die visuelle Sprache, die direkt auf den Haushalt-Score Banner übertragbar ist.",
+  "sources_checked": [
+    "https://cathyzhao.squarespace.com/eatableapp/ (Eatable UX Case Study)",
+    "https://crow-ferret-8f3z.squarespace.com/uiux-design/blum (Blūm Capstone 2025–26)",
+    "https://sleek.design/es/templates/inventory-app (Stockpile Inventory Template)",
+    "http://portfolios.scad.edu/asset/536071/Tokki---Fight-Food-Waste-App-UI-Kit (Tokki Behance)",
+    "https://screensdesign.com/apps/cooklist-pantry-meals-recipes/ (Cooklist ScreensDesign)"
+  ],
+  "sources_empty": [],
+  "new_findings_count": 5,
+  "evidence_strength": "moderate",
+  "design_references": {
+    "eatable": {
+      "url": "https://cathyzhao.squarespace.com/eatableapp/",
+      "key_pattern": "Urgency-first Tabs (Expired / Hurry / Fresh) — user-tested, feedback direkt: 'don't care about location, care about expiry'",
+      "transferable": "Tab-Struktur für Jetzt verwenden / Diese Woche / OK"
+    },
+    "blum": {
+      "url": "https://crow-ferret-8f3z.squarespace.com/uiux-design/blum",
+      "key_pattern": "Receipt-Upload als primäres Onboarding + AI-Ablaufdatum-Schätzung + Streak auf Home Screen sichtbar",
+      "cold_start": "Receipt-Upload → AI erkennt Items → Ablaufdaten automatisch vorgeschlagen → Review-Screen → fertig. Logging-Zeit -42%.",
+      "onboarding_decision": "Upload Receipt (primary, filled CTA) vs. Add Manually (secondary, outline) — visuelle Hierarchie treibt richtiges Verhalten",
+      "transferable": "Exakt das gleiche Muster für den eigenen Einkaufsliste→Vorrat-Flow: Quittungs-Scan als primäre Eingabe"
+    },
+    "stockpile": {
+      "url": "https://sleek.design/es/templates/inventory-app",
+      "key_pattern": "Stock Health Bar: füllt sich grün wenn voll, kippt amber bei Reorder-Schwellwert — rekurriert auf Dashboard, Listenzeile und Detailview",
+      "transferable": "Health Bar → Haushalt-Score Banner: ein einziges visuelles Element das überall auftaucht und den Zustand kommuniziert"
+    },
+    "cooklist": {
+      "url": "https://screensdesign.com/apps/cooklist-pantry-meals-recipes/",
+      "key_pattern": "Loyalty-Card-Sync: App verbindet sich mit Supermarkt-Treuekarte und importiert Kaufhistorie automatisch — nullt das Cold-Start-Problem komplett",
+      "transferable": "Für das eigene Produkt: Kassenbon-Scan bei Einkauf über Einkaufsliste löst dieses Problem bereits"
+    }
+  },
+  "onboarding_cold_start_synthesis": {
+    "problem": "Leeres Inventar beim ersten App-Start ist der häufigste Abbruchgrund (Your Food nennt es selbst als Top-Einwand)",
+    "best_practices": [
+      "Receipt/Kassenbon-Upload als primäre Eingabe (Blūm, Cooklist, Sous) — AI schätzt Items + Ablaufdaten automatisch",
+      "Barcode-Scan als sekundäre Option (Einzelartikel nachpflegen)",
+      "Manuell als letzte Option — nicht prominent, nicht der Default",
+      "Sofortiges Feedback nach erstem Upload: Pantry zeigt direkt die erkannten Items, keine leere Liste",
+      "Einmalige Einführungssequenz: 1 Slide erklärt 'Jetzt verwenden'-Tab-Logik — nicht 5 Screens"
+    ],
+    "visual_hierarchy_lesson": "Primary CTA = filled/colored (Receipt Upload), Secondary = outline (Barcode), Tertiary = text-only (Manuell). Blūm-Tests belegen: ohne diese Hierarchie wählen Nutzer den falschen, aufwändigen Weg."
+  }
+}
