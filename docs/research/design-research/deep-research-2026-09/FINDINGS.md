@@ -262,6 +262,10 @@ Der Erfolg ist nicht die schönste Oberfläche. Erfolg ist ein Bestand, der im A
 
 Die zusätzliche Recherche zu weiteren Inventar-, Küchen-, Einkaufslisten- und Haushalts-Apps ist in [additional-apps-2026-09.md](additional-apps-2026-09.md) dokumentiert. Sie ergänzt die ursprünglichen Zyklen 000–006 um die Zyklen 007–010.
 
+## Visuelle UI-Recherche
+
+Die separate Screenshot-Sammlung mit 12 öffentlich zugänglichen UI-Referenzen und einer zitierten Auswertung liegt in [ui-ideas-2026-09.md](ui-ideas-2026-09.md). Die lokal gespeicherten Bilder und ihre Provenienz stehen in [ui-inspiration-screenshots-2026-09/README.md](ui-inspiration-screenshots-2026-09/README.md). Die visuelle Galerie ist [ui-inspiration-gallery.html](ui-inspiration-gallery.html).
+
 ## Quellen
 
 1. KitchenPal, „Kitchen Inventory & Storage FAQs“, https://kitchenpalapp.com/en/faqs/kitchen.html
