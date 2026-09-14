@@ -1,0 +1,826 @@
+<div id="fam-inventory-research-independent">
+  <style>
+    #fam-inventory-research-independent {
+      --ind-ink: light-dark(#2e2430, #f7eee8);
+      --ind-muted: light-dark(#786a75, #bcaeb8);
+      --ind-primary: light-dark(#704560, #d2a4bc);
+      --ind-primary-strong: light-dark(#553249, #efc9de);
+      --ind-surface: light-dark(#fffaf5, #30262e);
+      --ind-surface-raised: light-dark(#f8eee7, #3b3039);
+      --ind-background: light-dark(#efe2db, #211b20);
+      --ind-line: light-dark(#e6d7cf, #594b56);
+      --ind-critical: light-dark(#b34a50, #f08b91);
+      --ind-warm: light-dark(#c47c43, #efb57f);
+      --ind-cool: light-dark(#547982, #99c5cd);
+      --ind-shadow: light-dark(rgba(85, 50, 73, 0.2), rgba(0, 0, 0, 0.34));
+      box-sizing: border-box;
+      min-height: 100%;
+      padding: 38px 24px 60px;
+      color: var(--ind-ink);
+      color-scheme: light dark;
+      background: var(--ind-background);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    #fam-inventory-research-independent *,
+    #fam-inventory-research-independent *::before,
+    #fam-inventory-research-independent *::after {
+      box-sizing: border-box;
+    }
+
+    #fam-inventory-research-independent .ind-intro {
+      max-width: 1110px;
+      margin: 0 auto 28px;
+    }
+
+    #fam-inventory-research-independent .ind-kicker {
+      margin: 0 0 8px;
+      color: var(--ind-primary-strong);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-research-independent h1,
+    #fam-inventory-research-independent h2,
+    #fam-inventory-research-independent h3,
+    #fam-inventory-research-independent p {
+      margin-top: 0;
+    }
+
+    #fam-inventory-research-independent h1 {
+      max-width: 680px;
+      margin-bottom: 9px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 4vw, 44px);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    #fam-inventory-research-independent .ind-intro-copy {
+      max-width: 650px;
+      margin: 0;
+      color: var(--ind-muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    #fam-inventory-research-independent .ind-options {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(280px, 1fr));
+      gap: 22px;
+      max-width: 1110px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    #fam-inventory-research-independent .ind-option {
+      min-width: 0;
+    }
+
+    #fam-inventory-research-independent .ind-option-header {
+      min-height: 91px;
+      padding: 0 3px 16px;
+    }
+
+    #fam-inventory-research-independent .ind-option-code {
+      margin-right: 8px;
+      color: var(--ind-primary);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+    }
+
+    #fam-inventory-research-independent h2 {
+      display: inline;
+      margin-bottom: 7px;
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    #fam-inventory-research-independent .ind-option-description {
+      margin: 7px 0 0;
+      color: var(--ind-muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    #fam-inventory-research-independent .ind-option-note {
+      display: block;
+      margin-top: 8px;
+      color: var(--ind-primary-strong);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-research-independent .ind-phone {
+      width: 100%;
+      max-width: 352px;
+      min-height: 706px;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 6px solid light-dark(#342933, #160f14);
+      border-radius: 31px;
+      background: var(--ind-surface);
+      box-shadow: 0 17px 36px var(--ind-shadow);
+    }
+
+    #fam-inventory-research-independent .ind-screen {
+      min-height: 694px;
+      background: var(--ind-surface);
+    }
+
+    #fam-inventory-research-independent .ind-statusbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 16px 6px;
+      color: var(--ind-ink);
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-independent .ind-status-icons {
+      letter-spacing: 0.08em;
+    }
+
+    #fam-inventory-research-independent .ind-appbar {
+      display: grid;
+      grid-template-columns: 34px 1fr 34px;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 15px;
+      border-bottom: 1px solid var(--ind-line);
+    }
+
+    #fam-inventory-research-independent .ind-appbar-title {
+      margin: 0;
+      color: var(--ind-primary-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    #fam-inventory-research-independent .ind-icon-button {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      place-items: center;
+      border: 0;
+      color: var(--ind-ink);
+      background: transparent;
+    }
+
+    #fam-inventory-research-independent .ind-icon-button:last-child {
+      justify-self: end;
+    }
+
+    #fam-inventory-research-independent .ind-avatar {
+      display: grid;
+      width: 25px;
+      height: 25px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ind-surface);
+      background: var(--ind-primary);
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-independent .ind-content {
+      padding: 18px 16px 21px;
+    }
+
+    #fam-inventory-research-independent .ind-topline {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--ind-line);
+    }
+
+    #fam-inventory-research-independent .ind-total {
+      color: var(--ind-primary-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    #fam-inventory-research-independent .ind-total small {
+      color: var(--ind-muted);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0;
+    }
+
+    #fam-inventory-research-independent .ind-alert {
+      color: var(--ind-critical);
+      font-size: 11px;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    #fam-inventory-research-independent .ind-alert small {
+      display: block;
+      margin-top: 4px;
+      color: var(--ind-muted);
+      font-size: 9px;
+      font-weight: 400;
+    }
+
+    #fam-inventory-research-independent .ind-section-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin: 20px 0 8px;
+    }
+
+    #fam-inventory-research-independent .ind-section-title strong {
+      color: var(--ind-ink);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-research-independent .ind-section-title span {
+      color: var(--ind-muted);
+      font-size: 10px;
+    }
+
+    #fam-inventory-research-independent .ind-rescue-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      margin-top: 21px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--ind-line);
+    }
+
+    #fam-inventory-research-independent .ind-rescue-eyebrow {
+      margin-bottom: 7px;
+      color: var(--ind-critical);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-research-independent .ind-rescue-head strong {
+      display: block;
+      color: var(--ind-ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    #fam-inventory-research-independent .ind-rescue-count {
+      color: var(--ind-critical);
+      font-size: 24px;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    #fam-inventory-research-independent .ind-rescue-count small {
+      display: block;
+      margin-top: 3px;
+      color: var(--ind-muted);
+      font-size: 9px;
+      font-weight: 400;
+    }
+
+    #fam-inventory-research-independent .ind-rescue-feature {
+      padding: 16px 0 13px;
+      border-bottom: 1px solid var(--ind-line);
+    }
+
+    #fam-inventory-research-independent .ind-rescue-feature-name {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    #fam-inventory-research-independent .ind-rescue-feature-name strong {
+      color: var(--ind-ink);
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-independent .ind-rescue-feature-name span {
+      color: var(--ind-critical);
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-independent .ind-rescue-feature-meta {
+      display: block;
+      margin-top: 5px;
+      color: var(--ind-muted);
+      font-size: 10px;
+    }
+
+    #fam-inventory-research-independent .ind-action-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      margin-top: 13px;
+    }
+
+    #fam-inventory-research-independent .ind-action-button,
+    #fam-inventory-research-independent .ind-outline-action {
+      min-height: 42px;
+      padding: 0 8px;
+      border: 1px solid var(--ind-primary);
+      border-radius: 10px;
+      color: var(--ind-primary-strong);
+      background: transparent;
+      font: inherit;
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-independent .ind-action-button {
+      color: var(--ind-surface);
+      background: var(--ind-primary);
+    }
+
+    #fam-inventory-research-independent .ind-queue {
+      border-top: 1px solid var(--ind-line);
+    }
+
+    #fam-inventory-research-independent .ind-queue-row {
+      display: grid;
+      grid-template-columns: 8px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      min-height: 52px;
+      border-bottom: 1px solid var(--ind-line);
+    }
+
+    #fam-inventory-research-independent .ind-queue-mark {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--ind-critical);
+    }
+
+    #fam-inventory-research-independent .ind-queue-mark.warm {
+      background: var(--ind-warm);
+    }
+
+    #fam-inventory-research-independent .ind-queue-name {
+      display: block;
+      color: var(--ind-ink);
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-independent .ind-queue-meta {
+      display: block;
+      margin-top: 3px;
+      color: var(--ind-muted);
+      font-size: 9px;
+    }
+
+    #fam-inventory-research-independent .ind-queue-date {
+      color: var(--ind-critical);
+      font-size: 9px;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    #fam-inventory-research-independent .ind-text-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 45px;
+      margin-top: 4px;
+      padding: 0;
+      border: 0;
+      border-bottom: 1px solid var(--ind-line);
+      color: var(--ind-primary-strong);
+      background: transparent;
+      font: inherit;
+      font-size: 10px;
+      text-align: left;
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 19px 0 22px;
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-metric {
+      min-height: 66px;
+      padding: 9px 8px 8px;
+      border-bottom: 3px solid var(--ind-line);
+      background: var(--ind-surface-raised);
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-metric.critical {
+      border-color: var(--ind-critical);
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-metric.cool {
+      border-color: var(--ind-cool);
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-metric strong {
+      display: block;
+      color: var(--ind-ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-metric span {
+      display: block;
+      margin-top: 5px;
+      color: var(--ind-muted);
+      font-size: 9px;
+      line-height: 1.1;
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-list {
+      border-top: 1px solid var(--ind-line);
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      min-height: 55px;
+      border-bottom: 1px solid var(--ind-line);
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-row strong {
+      display: block;
+      color: var(--ind-ink);
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-row span {
+      display: block;
+      margin-top: 3px;
+      color: var(--ind-muted);
+      font-size: 9px;
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-value {
+      color: var(--ind-critical);
+      font-size: 10px;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-value.cool {
+      color: var(--ind-cool);
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-divider {
+      display: flex;
+      justify-content: space-between;
+      margin: 22px 0 8px;
+      color: var(--ind-ink);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-independent .ind-cockpit-divider span {
+      color: var(--ind-muted);
+      font-size: 10px;
+      font-weight: 400;
+    }
+
+    #fam-inventory-research-independent .ind-input-actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      margin-top: 19px;
+      padding-top: 13px;
+      border-top: 1px solid var(--ind-line);
+    }
+
+    #fam-inventory-research-independent .ind-input-action {
+      display: flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 0 3px;
+      border: 0;
+      color: var(--ind-primary-strong);
+      background: transparent;
+      font: inherit;
+      font-size: 9px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-independent .ind-stream-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--ind-line);
+    }
+
+    #fam-inventory-research-independent .ind-stream-title strong {
+      display: block;
+      color: var(--ind-ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    #fam-inventory-research-independent .ind-stream-title span {
+      display: block;
+      margin-top: 5px;
+      color: var(--ind-muted);
+      font-size: 10px;
+    }
+
+    #fam-inventory-research-independent .ind-stream-search {
+      display: flex;
+      min-height: 38px;
+      align-items: center;
+      gap: 7px;
+      padding: 0 10px;
+      border: 1px solid var(--ind-line);
+      border-radius: 10px;
+      color: var(--ind-muted);
+      font-size: 10px;
+    }
+
+    #fam-inventory-research-independent .ind-stream-tools {
+      display: flex;
+      justify-content: space-between;
+      margin: 17px 0 7px;
+      color: var(--ind-muted);
+      font-size: 10px;
+    }
+
+    #fam-inventory-research-independent .ind-stream-tools strong {
+      color: var(--ind-ink);
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-independent .ind-stream-list {
+      border-top: 1px solid var(--ind-line);
+    }
+
+    #fam-inventory-research-independent .ind-stream-row {
+      display: grid;
+      grid-template-columns: 5px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      min-height: 63px;
+      border-bottom: 1px solid var(--ind-line);
+    }
+
+    #fam-inventory-research-independent .ind-stream-mark {
+      width: 5px;
+      height: 42px;
+      border-radius: 4px;
+      background: var(--ind-critical);
+    }
+
+    #fam-inventory-research-independent .ind-stream-mark.warm {
+      background: var(--ind-warm);
+    }
+
+    #fam-inventory-research-independent .ind-stream-mark.cool {
+      background: var(--ind-cool);
+    }
+
+    #fam-inventory-research-independent .ind-stream-name {
+      display: block;
+      color: var(--ind-ink);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-independent .ind-stream-meta {
+      display: block;
+      margin-top: 4px;
+      color: var(--ind-muted);
+      font-size: 9px;
+    }
+
+    #fam-inventory-research-independent .ind-stream-side {
+      text-align: right;
+    }
+
+    #fam-inventory-research-independent .ind-stream-date {
+      display: block;
+      color: var(--ind-critical);
+      font-size: 10px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    #fam-inventory-research-independent .ind-stream-date.cool {
+      color: var(--ind-cool);
+    }
+
+    #fam-inventory-research-independent .ind-stream-person {
+      display: block;
+      margin-top: 4px;
+      color: var(--ind-muted);
+      font-size: 8px;
+    }
+
+    #fam-inventory-research-independent .ind-stream-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 45px;
+      margin-top: 4px;
+      padding: 0;
+      border: 0;
+      border-bottom: 1px solid var(--ind-line);
+      color: var(--ind-primary-strong);
+      background: transparent;
+      font: inherit;
+      font-size: 10px;
+      text-align: left;
+    }
+
+    #fam-inventory-research-independent .ind-stream-summary {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      color: var(--ind-muted);
+      font-size: 9px;
+    }
+
+    #fam-inventory-research-independent .ind-add-button {
+      display: grid;
+      width: 45px;
+      height: 45px;
+      margin: 18px 0 0 auto;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: var(--ind-surface);
+      background: var(--ind-primary);
+      box-shadow: 0 6px 13px var(--ind-shadow);
+    }
+
+    #fam-inventory-research-independent .ind-home-indicator {
+      width: 103px;
+      height: 4px;
+      margin: 5px auto 4px;
+      border-radius: 5px;
+      background: var(--ind-ink);
+      opacity: 0.75;
+    }
+
+    @media (max-width: 980px) {
+      #fam-inventory-research-independent .ind-options {
+        grid-template-columns: 1fr;
+        max-width: 384px;
+      }
+
+      #fam-inventory-research-independent .ind-option-header {
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 440px) {
+      #fam-inventory-research-independent {
+        padding: 28px 11px 44px;
+      }
+
+      #fam-inventory-research-independent .ind-phone {
+        border-width: 5px;
+      }
+    }
+  </style>
+
+  <section class="ind-intro" aria-label="Drei research-basierte Vorrat-Screen Varianten">
+    <p class="ind-kicker">Vorrat · unabhängig gedacht</p>
+    <h1>Was moderne Pantry-Apps aus dem Bestand machen</h1>
+    <p class="ind-intro-copy">Drei neue Richtungen ohne Horizont- oder Shelf-Vorgabe: Handlung, Cockpit oder eine einzige intelligente Liste.</p>
+  </section>
+
+  <main class="ind-options">
+    <article class="ind-option" aria-labelledby="ind-option-a-title">
+      <header class="ind-option-header">
+        <span class="ind-option-code">A</span><h2 id="ind-option-a-title">Use It First</h2>
+        <p class="ind-option-description">Der Vorrat startet mit dem, was gerettet werden kann, nicht mit einer vollständigen Liste.</p>
+        <span class="ind-option-note">Aktionsorientiert</span>
+      </header>
+
+      <div class="ind-phone" aria-label="Variante A: Use It First">
+        <div class="ind-screen">
+          <div class="ind-statusbar"><span>9:41</span><span class="ind-status-icons">◦◦◦ ᴡɪғɪ ▰</span></div>
+          <div class="ind-appbar"><button type="button" class="ind-icon-button" aria-label="Menü"><i data-lucide="menu" aria-hidden="true"></i></button><h3 class="ind-appbar-title">Vorrat</h3><button type="button" class="ind-icon-button" aria-label="Profil"><span class="ind-avatar">M</span></button></div>
+          <div class="ind-content">
+            <div class="ind-topline"><div><span class="ind-total">31 <small>Artikel</small></span></div><div class="ind-alert">6 retten<small>0 bald · 25 stabil</small></div></div>
+            <div class="ind-rescue-head"><div><div class="ind-rescue-eyebrow">Use It First</div><strong>Heute retten</strong></div><div class="ind-rescue-count">6<small>Artikel</small></div></div>
+            <div class="ind-rescue-feature"><div class="ind-rescue-feature-name"><strong>Naturjoghurt</strong><span>heute</span></div><span class="ind-rescue-feature-meta">2 Becher · Kühlschrank</span><div class="ind-action-row"><button type="button" class="ind-action-button">Verbrauchen</button><button type="button" class="ind-outline-action">Zum Essensplan</button></div></div>
+            <div class="ind-section-title"><strong>Als Nächstes</strong><span>2 von 6</span></div>
+            <div class="ind-queue">
+              <div class="ind-queue-row"><span class="ind-queue-mark"></span><div><span class="ind-queue-name">Vollmilch</span><span class="ind-queue-meta">1 L · Kühlschrank</span></div><span class="ind-queue-date">morgen</span></div>
+              <div class="ind-queue-row"><span class="ind-queue-mark warm"></span><div><span class="ind-queue-name">Tomaten</span><span class="ind-queue-meta">500 g · Kühlschrank</span></div><span class="ind-queue-date">2 Tage</span></div>
+            </div>
+            <button type="button" class="ind-text-link"><span>Alle 6 rettbaren Artikel öffnen</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            <div class="ind-section-title"><strong>Was passt dazu?</strong><span>Bestand nutzen</span></div>
+            <div class="ind-queue">
+              <div class="ind-queue-row"><span class="ind-queue-mark warm"></span><div><span class="ind-queue-name">Schnelle Tomaten-Pasta</span><span class="ind-queue-meta">3 Zutaten sind schon da</span></div><span class="ind-queue-date">15 Min.</span></div>
+              <div class="ind-queue-row"><span class="ind-queue-mark warm"></span><div><span class="ind-queue-name">Joghurt mit Obst</span><span class="ind-queue-meta">2 Zutaten sind schon da</span></div><span class="ind-queue-date">5 Min.</span></div>
+            </div>
+            <button type="button" class="ind-text-link"><span>Alle Rezeptideen aus dem Vorrat</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            <button type="button" class="ind-add-button" aria-label="Artikel hinzufügen"><i data-lucide="plus" aria-hidden="true"></i></button>
+          </div>
+          <div class="ind-home-indicator"></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ind-option" aria-labelledby="ind-option-b-title">
+      <header class="ind-option-header">
+        <span class="ind-option-code">B</span><h2 id="ind-option-b-title">Kitchen Cockpit</h2>
+        <p class="ind-option-description">Ein kompakter Status-Screen wie ein Home-Screen-Widget, mit den wenigen Signalen, die den Alltag steuern.</p>
+        <span class="ind-option-note">Widget-inspiriert</span>
+      </header>
+
+      <div class="ind-phone" aria-label="Variante B: Kitchen Cockpit">
+        <div class="ind-screen">
+          <div class="ind-statusbar"><span>9:41</span><span class="ind-status-icons">◦◦◦ ᴡɪғɪ ▰</span></div>
+          <div class="ind-appbar"><button type="button" class="ind-icon-button" aria-label="Menü"><i data-lucide="menu" aria-hidden="true"></i></button><h3 class="ind-appbar-title">Vorrat</h3><button type="button" class="ind-icon-button" aria-label="Profil"><span class="ind-avatar">M</span></button></div>
+          <div class="ind-content">
+            <div class="ind-topline"><div><span class="ind-total">31 <small>im Haus</small></span></div><div class="ind-alert">6 kritisch<small>gemeinsam aktuell</small></div></div>
+            <div class="ind-cockpit-metrics"><div class="ind-cockpit-metric critical"><strong>6</strong><span>Ablauf<br>in Kürze</span></div><div class="ind-cockpit-metric"><strong>Milch</strong><span>niedrige<br>Menge</span></div><div class="ind-cockpit-metric cool"><strong>25</strong><span>stabil<br>gelagert</span></div></div>
+            <div class="ind-cockpit-divider"><strong>Ablauf in Kürze</strong><span>direkt handeln</span></div>
+            <div class="ind-cockpit-list">
+              <div class="ind-cockpit-row"><div><strong>Naturjoghurt</strong><span>2 Becher · heute · Kühlschrank</span></div><span class="ind-cockpit-value">verwenden</span></div>
+              <div class="ind-cockpit-row"><div><strong>Vollmilch</strong><span>1 L · morgen · Kühlschrank</span></div><span class="ind-cockpit-value">verwenden</span></div>
+              <div class="ind-cockpit-row"><div><strong>Tomaten</strong><span>500 g · 2 Tage · Kühlschrank</span></div><span class="ind-cockpit-value">prüfen</span></div>
+            </div>
+            <button type="button" class="ind-text-link"><span>Alle kritischen Artikel</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            <div class="ind-cockpit-divider"><strong>Nachkaufen</strong><span>Bestand prüfen</span></div>
+            <div class="ind-cockpit-list">
+              <div class="ind-cockpit-row"><div><strong>Milch</strong><span>1 L vorhanden · Kühlschrank</span></div><span class="ind-cockpit-value">prüfen</span></div>
+              <div class="ind-cockpit-row"><div><strong>Eier</strong><span>keine Menge hinterlegt · Kühlschrank</span></div><span class="ind-cockpit-value cool">ergänzen</span></div>
+            </div>
+            <button type="button" class="ind-text-link"><span>Auf Einkaufsliste übertragen</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            <div class="ind-input-actions"><button type="button" class="ind-input-action"><i data-lucide="scan-barcode" aria-hidden="true"></i>Scan</button><button type="button" class="ind-input-action"><i data-lucide="camera" aria-hidden="true"></i>Foto</button><button type="button" class="ind-input-action"><i data-lucide="mic" aria-hidden="true"></i>Sprache</button></div>
+          </div>
+          <div class="ind-home-indicator"></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="ind-option" aria-labelledby="ind-option-c-title">
+      <header class="ind-option-header">
+        <span class="ind-option-code">C</span><h2 id="ind-option-c-title">Single Stream</h2>
+        <p class="ind-option-description">Eine einzige lesbare Liste, aber jede Zeile kennt Relevanz, Lagerort, Menge und Haushaltskontext.</p>
+        <span class="ind-option-note">Maximal verständlich</span>
+      </header>
+
+      <div class="ind-phone" aria-label="Variante C: Single Stream">
+        <div class="ind-screen">
+          <div class="ind-statusbar"><span>9:41</span><span class="ind-status-icons">◦◦◦ ᴡɪғɪ ▰</span></div>
+          <div class="ind-appbar"><button type="button" class="ind-icon-button" aria-label="Menü"><i data-lucide="menu" aria-hidden="true"></i></button><h3 class="ind-appbar-title">Vorrat</h3><button type="button" class="ind-icon-button" aria-label="Profil"><span class="ind-avatar">M</span></button></div>
+          <div class="ind-content">
+            <div class="ind-stream-head"><div class="ind-stream-title"><strong>Alles im Haus</strong><span>31 Artikel · nach Relevanz</span></div><div class="ind-stream-search"><i data-lucide="search" aria-hidden="true"></i>Suche</div></div>
+            <div class="ind-stream-tools"><strong>Alle Lagerorte</strong><span>↕ Relevanz</span></div>
+            <div class="ind-stream-list">
+              <div class="ind-stream-row"><span class="ind-stream-mark"></span><div><span class="ind-stream-name">Naturjoghurt</span><span class="ind-stream-meta">2 Becher · Kühlschrank</span></div><div class="ind-stream-side"><span class="ind-stream-date">heute</span><span class="ind-stream-person">von Marco</span></div></div>
+              <div class="ind-stream-row"><span class="ind-stream-mark"></span><div><span class="ind-stream-name">Vollmilch</span><span class="ind-stream-meta">1 L · Kühlschrank</span></div><div class="ind-stream-side"><span class="ind-stream-date">morgen</span><span class="ind-stream-person">von Lisa</span></div></div>
+              <div class="ind-stream-row"><span class="ind-stream-mark warm"></span><div><span class="ind-stream-name">Tomaten</span><span class="ind-stream-meta">500 g · Kühlschrank</span></div><div class="ind-stream-side"><span class="ind-stream-date">2 Tage</span><span class="ind-stream-person">von Marco</span></div></div>
+              <div class="ind-stream-row"><span class="ind-stream-mark cool"></span><div><span class="ind-stream-name">Bananen</span><span class="ind-stream-meta">6 Stück · Vorrat</span></div><div class="ind-stream-side"><span class="ind-stream-date cool">4 Tage</span><span class="ind-stream-person">von Lisa</span></div></div>
+              <div class="ind-stream-row"><span class="ind-stream-mark cool"></span><div><span class="ind-stream-name">Paprika rot</span><span class="ind-stream-meta">3 Stück · Kühlschrank</span></div><div class="ind-stream-side"><span class="ind-stream-date cool">12 Tage</span><span class="ind-stream-person">von Marco</span></div></div>
+              <div class="ind-stream-row"><span class="ind-stream-mark cool"></span><div><span class="ind-stream-name">Gouda</span><span class="ind-stream-meta">250 g · Kühlschrank</span></div><div class="ind-stream-side"><span class="ind-stream-date cool">18 Tage</span><span class="ind-stream-person">von Lisa</span></div></div>
+            </div>
+            <button type="button" class="ind-stream-action"><span>Bei einem Artikel nach links: Einkauf oder Menge ändern</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            <div class="ind-stream-summary"><span>6 kritisch · 25 stabil</span><span>Zuletzt synchronisiert</span></div>
+            <button type="button" class="ind-add-button" aria-label="Artikel hinzufügen"><i data-lucide="plus" aria-hidden="true"></i></button>
+          </div>
+          <div class="ind-home-indicator"></div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    const independentInventoryMock = document.getElementById("fam-inventory-research-independent");
+    void independentInventoryMock;
+  </script>
+</div>

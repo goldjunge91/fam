@@ -1,0 +1,758 @@
+<div id="fam-inventory-overview-options">
+  <style>
+    #fam-inventory-overview-options {
+      --fam-ink: #2e2430;
+      --fam-muted: #796b78;
+      --fam-mauve: #8c5c78;
+      --fam-mauve-dark: #68405a;
+      --fam-cream: #f8f1e9;
+      --fam-paper: #fffaf4;
+      --fam-line: #e7d9d0;
+      --fam-critical: #c24e53;
+      --fam-soon: #d4884a;
+      --fam-cool: #6b8790;
+      box-sizing: border-box;
+      min-height: 100%;
+      padding: 42px 28px 64px;
+      color: var(--fam-ink);
+      background: #efe3dc;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    #fam-inventory-overview-options *,
+    #fam-inventory-overview-options *::before,
+    #fam-inventory-overview-options *::after {
+      box-sizing: border-box;
+    }
+
+    #fam-inventory-overview-options .fam-overview-intro {
+      max-width: 1120px;
+      margin: 0 auto 30px;
+    }
+
+    #fam-inventory-overview-options .fam-kicker {
+      margin: 0 0 8px;
+      color: var(--fam-mauve-dark);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-overview-options h1,
+    #fam-inventory-overview-options h2,
+    #fam-inventory-overview-options h3,
+    #fam-inventory-overview-options p {
+      margin-top: 0;
+    }
+
+    #fam-inventory-overview-options h1 {
+      max-width: 560px;
+      margin-bottom: 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    #fam-inventory-overview-options .fam-overview-intro-copy {
+      max-width: 650px;
+      margin-bottom: 0;
+      color: var(--fam-muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    #fam-inventory-overview-options .fam-overview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1120px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    #fam-inventory-overview-options .fam-option {
+      min-width: 0;
+      padding: 20px 18px 18px;
+      border: 1px solid rgba(104, 64, 90, 0.18);
+      background: rgba(255, 250, 244, 0.48);
+    }
+
+    #fam-inventory-overview-options .fam-option-header {
+      min-height: 88px;
+      margin-bottom: 18px;
+    }
+
+    #fam-inventory-overview-options .fam-option-heading {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    #fam-inventory-overview-options .fam-option-key {
+      color: var(--fam-mauve);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    #fam-inventory-overview-options h2 {
+      margin-bottom: 6px;
+      font-size: 17px;
+      font-weight: 760;
+      letter-spacing: -0.02em;
+    }
+
+    #fam-inventory-overview-options .fam-option-description {
+      margin: 0;
+      color: var(--fam-muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    #fam-inventory-overview-options .fam-option-note {
+      display: inline-block;
+      margin-top: 10px;
+      color: var(--fam-mauve-dark);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-overview-options .fam-phone {
+      width: 100%;
+      max-width: 354px;
+      min-height: 720px;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 7px solid #342933;
+      border-radius: 34px;
+      background: var(--fam-cream);
+      box-shadow: 0 18px 38px rgba(75, 45, 64, 0.2);
+    }
+
+    #fam-inventory-overview-options .fam-screen {
+      min-height: 706px;
+      background: var(--fam-cream);
+    }
+
+    #fam-inventory-overview-options .fam-statusbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 13px 16px 7px;
+      color: var(--fam-ink);
+      font-size: 10px;
+      font-weight: 760;
+    }
+
+    #fam-inventory-overview-options .fam-status-icons {
+      letter-spacing: 0.1em;
+    }
+
+    #fam-inventory-overview-options .fam-appbar {
+      display: grid;
+      grid-template-columns: 28px 1fr 28px;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--fam-line);
+      background: var(--fam-paper);
+    }
+
+    #fam-inventory-overview-options .fam-appbar-title {
+      margin: 0;
+      color: var(--fam-mauve-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    #fam-inventory-overview-options .fam-menu {
+      width: 18px;
+      height: 12px;
+      border-top: 2px solid var(--fam-ink);
+      border-bottom: 2px solid var(--fam-ink);
+      position: relative;
+    }
+
+    #fam-inventory-overview-options .fam-menu::after {
+      position: absolute;
+      top: 3px;
+      left: 0;
+      width: 13px;
+      border-top: 2px solid var(--fam-ink);
+      content: "";
+    }
+
+    #fam-inventory-overview-options .fam-avatar {
+      display: grid;
+      width: 25px;
+      height: 25px;
+      place-items: center;
+      justify-self: end;
+      border-radius: 50%;
+      color: var(--fam-paper);
+      background: var(--fam-mauve);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    #fam-inventory-overview-options .fam-content {
+      padding: 18px 16px 20px;
+    }
+
+    #fam-inventory-overview-options .fam-summary-line {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--fam-line);
+    }
+
+    #fam-inventory-overview-options .fam-summary-number {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--fam-mauve-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      line-height: 0.95;
+    }
+
+    #fam-inventory-overview-options .fam-summary-label,
+    #fam-inventory-overview-options .fam-summary-side-label {
+      color: var(--fam-muted);
+      font-size: 11px;
+    }
+
+    #fam-inventory-overview-options .fam-summary-side {
+      text-align: right;
+    }
+
+    #fam-inventory-overview-options .fam-summary-side-number {
+      display: block;
+      color: var(--fam-critical);
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    #fam-inventory-overview-options .fam-section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin: 21px 0 8px;
+    }
+
+    #fam-inventory-overview-options .fam-section-heading h3 {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-overview-options .fam-section-count {
+      color: var(--fam-muted);
+      font-size: 11px;
+    }
+
+    #fam-inventory-overview-options .fam-item-list {
+      border-top: 1px solid var(--fam-line);
+    }
+
+    #fam-inventory-overview-options .fam-item-row {
+      display: grid;
+      grid-template-columns: 5px minmax(0, 1fr) auto;
+      gap: 11px;
+      align-items: center;
+      min-height: 61px;
+      border-bottom: 1px solid var(--fam-line);
+    }
+
+    #fam-inventory-overview-options .fam-item-bar {
+      width: 5px;
+      height: 39px;
+      border-radius: 4px;
+      background: var(--fam-critical);
+    }
+
+    #fam-inventory-overview-options .fam-item-bar.soon {
+      background: var(--fam-soon);
+    }
+
+    #fam-inventory-overview-options .fam-item-bar.ok {
+      background: var(--fam-cool);
+    }
+
+    #fam-inventory-overview-options .fam-item-name {
+      overflow: hidden;
+      margin: 0 0 3px;
+      font-size: 13px;
+      font-weight: 760;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #fam-inventory-overview-options .fam-item-meta {
+      overflow: hidden;
+      margin: 0;
+      color: var(--fam-muted);
+      font-size: 10px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #fam-inventory-overview-options .fam-item-date {
+      color: var(--fam-critical);
+      font-size: 10px;
+      font-weight: 800;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    #fam-inventory-overview-options .fam-item-date.ok {
+      color: var(--fam-cool);
+    }
+
+    #fam-inventory-overview-options .fam-overflow-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 13px 0;
+      color: var(--fam-mauve-dark);
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    #fam-inventory-overview-options .fam-overflow-arrow {
+      font-size: 15px;
+      line-height: 0.8;
+    }
+
+    #fam-inventory-overview-options .fam-toolbar {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 8px;
+      align-items: center;
+      margin-top: 22px;
+      padding-top: 12px;
+      border-top: 1px solid var(--fam-line);
+      color: var(--fam-muted);
+      font-size: 10px;
+    }
+
+    #fam-inventory-overview-options .fam-toolbar-main {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+      color: var(--fam-ink);
+      font-weight: 760;
+    }
+
+    #fam-inventory-overview-options .fam-toolbar-icon {
+      display: inline-block;
+      width: 13px;
+      height: 13px;
+      border: 1.5px solid currentColor;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    #fam-inventory-overview-options .fam-toolbar-icon::after {
+      position: absolute;
+      right: -4px;
+      bottom: -2px;
+      width: 5px;
+      border-top: 1.5px solid currentColor;
+      transform: rotate(45deg);
+      content: "";
+    }
+
+    #fam-inventory-overview-options .fam-location-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin: 18px -16px 0;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--fam-line);
+    }
+
+    #fam-inventory-overview-options .fam-location-tab {
+      padding: 0 2px 11px;
+      color: var(--fam-muted);
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    #fam-inventory-overview-options .fam-location-tab strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--fam-ink);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    #fam-inventory-overview-options .fam-location-tab.active {
+      border-bottom: 2px solid var(--fam-mauve);
+      color: var(--fam-mauve-dark);
+    }
+
+    #fam-inventory-overview-options .fam-location-tab.active strong {
+      color: var(--fam-mauve-dark);
+    }
+
+    #fam-inventory-overview-options .fam-location-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 22px 0 7px;
+      color: var(--fam-muted);
+      font-size: 10px;
+      font-weight: 760;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-overview-options .fam-location-label strong {
+      color: var(--fam-ink);
+      font-size: 13px;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    #fam-inventory-overview-options .fam-location-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      min-height: 53px;
+      border-bottom: 1px solid var(--fam-line);
+    }
+
+    #fam-inventory-overview-options .fam-location-row-main {
+      min-width: 0;
+    }
+
+    #fam-inventory-overview-options .fam-location-row-name {
+      display: block;
+      overflow: hidden;
+      margin-bottom: 3px;
+      font-size: 13px;
+      font-weight: 760;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #fam-inventory-overview-options .fam-location-row-meta {
+      display: block;
+      overflow: hidden;
+      color: var(--fam-muted);
+      font-size: 10px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #fam-inventory-overview-options .fam-location-row-quantity {
+      color: var(--fam-ink);
+      font-size: 11px;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    #fam-inventory-overview-options .fam-location-row-quantity em {
+      display: block;
+      margin-top: 3px;
+      color: var(--fam-critical);
+      font-size: 9px;
+      font-style: normal;
+      font-weight: 750;
+    }
+
+    #fam-inventory-overview-options .fam-dense-summary {
+      display: flex;
+      gap: 18px;
+      align-items: baseline;
+      padding-bottom: 13px;
+      border-bottom: 1px solid var(--fam-line);
+    }
+
+    #fam-inventory-overview-options .fam-dense-summary strong {
+      color: var(--fam-mauve-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      font-weight: 600;
+    }
+
+    #fam-inventory-overview-options .fam-dense-summary span {
+      color: var(--fam-muted);
+      font-size: 11px;
+    }
+
+    #fam-inventory-overview-options .fam-dense-actions {
+      display: flex;
+      justify-content: space-between;
+      padding: 13px 0 11px;
+      color: var(--fam-muted);
+      font-size: 10px;
+    }
+
+    #fam-inventory-overview-options .fam-dense-actions strong {
+      color: var(--fam-ink);
+      font-weight: 800;
+    }
+
+    #fam-inventory-overview-options .fam-dense-group {
+      margin-top: 11px;
+    }
+
+    #fam-inventory-overview-options .fam-dense-group-heading {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0 5px;
+      color: var(--fam-critical);
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-overview-options .fam-dense-group-heading.ok {
+      color: var(--fam-cool);
+    }
+
+    #fam-inventory-overview-options .fam-dense-row {
+      display: grid;
+      grid-template-columns: 4px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      min-height: 47px;
+      border-bottom: 1px solid var(--fam-line);
+    }
+
+    #fam-inventory-overview-options .fam-dense-bar {
+      width: 4px;
+      height: 29px;
+      border-radius: 3px;
+      background: var(--fam-critical);
+    }
+
+    #fam-inventory-overview-options .fam-dense-bar.ok {
+      background: var(--fam-cool);
+    }
+
+    #fam-inventory-overview-options .fam-dense-name {
+      overflow: hidden;
+      font-size: 12px;
+      font-weight: 760;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #fam-inventory-overview-options .fam-dense-meta {
+      display: block;
+      margin-top: 2px;
+      color: var(--fam-muted);
+      font-size: 9px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-overview-options .fam-dense-value {
+      color: var(--fam-ink);
+      font-size: 10px;
+      font-weight: 800;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    #fam-inventory-overview-options .fam-dense-value.critical {
+      color: var(--fam-critical);
+    }
+
+    #fam-inventory-overview-options .fam-fab {
+      display: grid;
+      width: 43px;
+      height: 43px;
+      margin: 19px 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--fam-paper);
+      background: var(--fam-mauve);
+      font-size: 25px;
+      font-weight: 350;
+      line-height: 1;
+      box-shadow: 0 5px 12px rgba(104, 64, 90, 0.24);
+    }
+
+    #fam-inventory-overview-options .fam-home-indicator {
+      width: 105px;
+      height: 4px;
+      margin: 6px auto 4px;
+      border-radius: 4px;
+      background: #342933;
+      opacity: 0.86;
+    }
+
+    @media (max-width: 1020px) {
+      #fam-inventory-overview-options .fam-overview-grid {
+        grid-template-columns: 1fr;
+        max-width: 390px;
+      }
+
+      #fam-inventory-overview-options .fam-option {
+        padding: 20px 18px 22px;
+      }
+
+      #fam-inventory-overview-options .fam-option-header {
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      #fam-inventory-overview-options {
+        padding: 28px 12px 44px;
+      }
+
+      #fam-inventory-overview-options .fam-option {
+        padding: 16px 10px 18px;
+      }
+    }
+  </style>
+
+  <section class="fam-overview-intro" aria-label="Auswahl für die Vorrat-Optimierung">
+    <p class="fam-kicker">Vorrat · drei Richtungen</p>
+    <h1>Mehr Überblick, weniger Suchen</h1>
+    <p class="fam-overview-intro-copy">
+      Jede Variante setzt einen anderen ersten Blickpunkt: dringende Artikel, Lagerorte oder maximale Listendichte.
+      Die Datenbasis bleibt gleich: 31 Artikel, davon 6 mit kritischem MHD.
+    </p>
+  </section>
+
+  <main class="fam-overview-grid">
+    <article class="fam-option" aria-labelledby="fam-option-a-title">
+      <header class="fam-option-header">
+        <div class="fam-option-heading">
+          <span class="fam-option-key">A</span>
+          <h2 id="fam-option-a-title">Priorität zuerst</h2>
+        </div>
+        <p class="fam-option-description">Der Screen zeigt zuerst, was heute oder als Nächstes erledigt werden sollte.</p>
+        <span class="fam-option-note">Meine Empfehlung</span>
+      </header>
+
+      <div class="fam-phone" aria-label="Variante A: Priorität zuerst">
+        <div class="fam-screen">
+          <div class="fam-statusbar"><span>9:41</span><span class="fam-status-icons">◦◦◦ ᴡɪғɪ ▰</span></div>
+          <div class="fam-appbar"><span class="fam-menu" aria-hidden="true"></span><h3 class="fam-appbar-title">Vorrat</h3><span class="fam-avatar">M</span></div>
+          <div class="fam-content">
+            <div class="fam-summary-line">
+              <div><span class="fam-summary-number">31</span><span class="fam-summary-label">Artikel insgesamt</span></div>
+              <div class="fam-summary-side"><span class="fam-summary-side-number">6</span><span class="fam-summary-side-label">jetzt prüfen</span></div>
+            </div>
+
+            <div class="fam-section-heading"><h3>Zuerst aufbrauchen</h3><span class="fam-section-count">6 Artikel</span></div>
+            <div class="fam-item-list">
+              <div class="fam-item-row"><span class="fam-item-bar"></span><div><p class="fam-item-name">Naturjoghurt</p><p class="fam-item-meta">2 Becher · Kühlschrank</p></div><span class="fam-item-date">heute</span></div>
+              <div class="fam-item-row"><span class="fam-item-bar"></span><div><p class="fam-item-name">Vollmilch</p><p class="fam-item-meta">1 L · Kühlschrank</p></div><span class="fam-item-date">morgen</span></div>
+              <div class="fam-item-row"><span class="fam-item-bar soon"></span><div><p class="fam-item-name">Tomaten</p><p class="fam-item-meta">500 g · Kühlschrank</p></div><span class="fam-item-date">2 Tage</span></div>
+            </div>
+            <div class="fam-overflow-row"><span>3 weitere kritische Artikel</span><span class="fam-overflow-arrow">›</span></div>
+
+            <div class="fam-section-heading"><h3>Alles im Blick</h3><span class="fam-section-count">25 Artikel</span></div>
+            <div class="fam-item-list">
+              <div class="fam-item-row"><span class="fam-item-bar ok"></span><div><p class="fam-item-name">Paprika rot</p><p class="fam-item-meta">3 Stück · Kühlschrank</p></div><span class="fam-item-date ok">12 Tage</span></div>
+              <div class="fam-item-row"><span class="fam-item-bar ok"></span><div><p class="fam-item-name">Gouda</p><p class="fam-item-meta">250 g · Kühlschrank</p></div><span class="fam-item-date ok">18 Tage</span></div>
+            </div>
+            <div class="fam-toolbar"><span class="fam-toolbar-main"><span class="fam-toolbar-icon"></span>Alle Lagerorte</span><span>⌕ Suche</span><span>↕ Sortieren</span></div>
+            <div class="fam-fab">＋</div>
+          </div>
+          <div class="fam-home-indicator"></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="fam-option" aria-labelledby="fam-option-b-title">
+      <header class="fam-option-header">
+        <div class="fam-option-heading">
+          <span class="fam-option-key">B</span>
+          <h2 id="fam-option-b-title">Lagerorte zuerst</h2>
+        </div>
+        <p class="fam-option-description">Die Mengen pro Ort sind sofort sichtbar. Gut, wenn man direkt am Kühlschrank oder Regal steht.</p>
+      </header>
+
+      <div class="fam-phone" aria-label="Variante B: Lagerorte zuerst">
+        <div class="fam-screen">
+          <div class="fam-statusbar"><span>9:41</span><span class="fam-status-icons">◦◦◦ ᴡɪғɪ ▰</span></div>
+          <div class="fam-appbar"><span class="fam-menu" aria-hidden="true"></span><h3 class="fam-appbar-title">Vorrat</h3><span class="fam-avatar">M</span></div>
+          <div class="fam-content">
+            <div class="fam-summary-line">
+              <div><span class="fam-summary-number">31</span><span class="fam-summary-label">Artikel insgesamt</span></div>
+              <div class="fam-summary-side"><span class="fam-summary-side-number">6</span><span class="fam-summary-side-label">mit MHD-Hinweis</span></div>
+            </div>
+
+            <div class="fam-location-tabs" aria-label="Lagerort-Auswahl">
+              <span class="fam-location-tab active"><strong>31</strong>Alle</span>
+              <span class="fam-location-tab"><strong>18</strong>Kühl</span>
+              <span class="fam-location-tab"><strong>9</strong>Vorrat</span>
+              <span class="fam-location-tab"><strong>4</strong>Tiefkühl</span>
+            </div>
+
+            <div class="fam-location-label"><strong>Alle Lagerorte</strong><span>MHD zuerst</span></div>
+            <div class="fam-item-list">
+              <div class="fam-location-row"><div class="fam-location-row-main"><span class="fam-location-row-name">Naturjoghurt</span><span class="fam-location-row-meta">Kühlschrank · heute</span></div><span class="fam-location-row-quantity">2 Becher<em>aufbrauchen</em></span></div>
+              <div class="fam-location-row"><div class="fam-location-row-main"><span class="fam-location-row-name">Vollmilch</span><span class="fam-location-row-meta">Kühlschrank · morgen</span></div><span class="fam-location-row-quantity">1 L<em>aufbrauchen</em></span></div>
+              <div class="fam-location-row"><div class="fam-location-row-main"><span class="fam-location-row-name">Tomaten</span><span class="fam-location-row-meta">Kühlschrank · in 2 Tagen</span></div><span class="fam-location-row-quantity">500 g<em>aufbrauchen</em></span></div>
+              <div class="fam-location-row"><div class="fam-location-row-main"><span class="fam-location-row-name">Bio Paprika Rot</span><span class="fam-location-row-meta">Vorrat · in 12 Tagen</span></div><span class="fam-location-row-quantity">2 Stück</span></div>
+              <div class="fam-location-row"><div class="fam-location-row-main"><span class="fam-location-row-name">Bananen</span><span class="fam-location-row-meta">Vorrat · in 4 Tagen</span></div><span class="fam-location-row-quantity">6 Stück</span></div>
+              <div class="fam-location-row"><div class="fam-location-row-main"><span class="fam-location-row-name">Milch</span><span class="fam-location-row-meta">Kühlschrank · in 6 Tagen</span></div><span class="fam-location-row-quantity">1 L</span></div>
+            </div>
+            <div class="fam-toolbar"><span class="fam-toolbar-main"><span class="fam-toolbar-icon"></span>Lagerort wechseln</span><span>⌕ Suche</span><span>＋ Neu</span></div>
+          </div>
+          <div class="fam-home-indicator"></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="fam-option" aria-labelledby="fam-option-c-title">
+      <header class="fam-option-header">
+        <div class="fam-option-heading">
+          <span class="fam-option-key">C</span>
+          <h2 id="fam-option-c-title">Dichte Listenansicht</h2>
+        </div>
+        <p class="fam-option-description">Weniger Zwischenräume, mehr Einträge pro Bildschirm. Für Nutzer, die schnell scannen wollen.</p>
+      </header>
+
+      <div class="fam-phone" aria-label="Variante C: Dichte Listenansicht">
+        <div class="fam-screen">
+          <div class="fam-statusbar"><span>9:41</span><span class="fam-status-icons">◦◦◦ ᴡɪғɪ ▰</span></div>
+          <div class="fam-appbar"><span class="fam-menu" aria-hidden="true"></span><h3 class="fam-appbar-title">Vorrat</h3><span class="fam-avatar">M</span></div>
+          <div class="fam-content">
+            <div class="fam-dense-summary"><strong>31 Artikel</strong><span><b style="color: var(--fam-critical);">6 kritisch</b></span><span>0 bald</span></div>
+            <div class="fam-dense-actions"><strong>Alle Lagerorte</strong><span>⌕ Suche</span><span>↕ MHD</span></div>
+
+            <div class="fam-dense-group">
+              <div class="fam-dense-group-heading"><span>Jetzt prüfen</span><span>6</span></div>
+              <div class="fam-dense-row"><span class="fam-dense-bar"></span><div><span class="fam-dense-name">Naturjoghurt</span><span class="fam-dense-meta">2 Becher · Kühlschrank</span></div><span class="fam-dense-value critical">heute</span></div>
+              <div class="fam-dense-row"><span class="fam-dense-bar"></span><div><span class="fam-dense-name">Vollmilch</span><span class="fam-dense-meta">1 L · Kühlschrank</span></div><span class="fam-dense-value critical">morgen</span></div>
+              <div class="fam-dense-row"><span class="fam-dense-bar"></span><div><span class="fam-dense-name">Tomaten</span><span class="fam-dense-meta">500 g · Kühlschrank</span></div><span class="fam-dense-value critical">2 Tage</span></div>
+            </div>
+
+            <div class="fam-dense-group">
+              <div class="fam-dense-group-heading ok"><span>Später</span><span>25</span></div>
+              <div class="fam-dense-row"><span class="fam-dense-bar ok"></span><div><span class="fam-dense-name">Paprika rot</span><span class="fam-dense-meta">3 Stück · Kühlschrank</span></div><span class="fam-dense-value">12 Tage</span></div>
+              <div class="fam-dense-row"><span class="fam-dense-bar ok"></span><div><span class="fam-dense-name">Gouda</span><span class="fam-dense-meta">250 g · Kühlschrank</span></div><span class="fam-dense-value">18 Tage</span></div>
+              <div class="fam-dense-row"><span class="fam-dense-bar ok"></span><div><span class="fam-dense-name">Bananen</span><span class="fam-dense-meta">6 Stück · Vorrat</span></div><span class="fam-dense-value">4 Tage</span></div>
+              <div class="fam-dense-row"><span class="fam-dense-bar ok"></span><div><span class="fam-dense-name">Milch</span><span class="fam-dense-meta">1 L · Kühlschrank</span></div><span class="fam-dense-value">6 Tage</span></div>
+            </div>
+            <div class="fam-overflow-row"><span>21 weitere Artikel</span><span class="fam-overflow-arrow">›</span></div>
+            <div class="fam-fab">＋</div>
+          </div>
+          <div class="fam-home-indicator"></div>
+        </div>
+      </div>
+    </article>
+  </main>
+</div>

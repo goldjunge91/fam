@@ -1,0 +1,938 @@
+<div id="fam-profile-current-mockup" aria-label="Aktueller Profilbereich im fam-Design">
+  <style>
+    #fam-profile-current-mockup {
+      --fam-page: light-dark(#f8f4ef, #211d23);
+      --fam-element: light-dark(#fbf7f2, #2b262e);
+      --fam-soft: light-dark(#e9e1e7, #382f3b);
+      --fam-text: light-dark(#2d2830, #f2ece7);
+      --fam-secondary: light-dark(#786f79, #b7adb3);
+      --fam-border: light-dark(#e4dde3, #3e3640);
+      --fam-accent: light-dark(#705773, #b79cba);
+      --fam-on-accent: light-dark(#ffffff, #211d23);
+      --fam-button-depth: #5e4861;
+      --fam-shadow-card: light-dark(rgba(89, 64, 89, 0.1), rgba(0, 0, 0, 0.34));
+      --fam-shadow-sheet: light-dark(rgba(42, 31, 44, 0.18), rgba(0, 0, 0, 0.42));
+      --fam-hub-start: light-dark(#ffccb2, #3b2b2b);
+      --fam-hub-mid: light-dark(#f9f2eb, #211d23);
+      --fam-hub-end: light-dark(#e8def2, #2e2638);
+      color-scheme: light dark;
+      color: var(--fam-text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI", sans-serif;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    #fam-profile-current-mockup * {
+      box-sizing: border-box;
+    }
+
+    #fam-profile-current-mockup .fam-board {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px;
+      border-radius: 26px;
+      background: var(--fam-page);
+    }
+
+    #fam-profile-current-mockup .fam-board-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    #fam-profile-current-mockup .fam-eyebrow {
+      color: var(--fam-secondary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    #fam-profile-current-mockup h2 {
+      margin: 4px 0 0;
+      color: var(--fam-text);
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 44px;
+    }
+
+    #fam-profile-current-mockup .fam-board-note {
+      max-width: 430px;
+      margin: 0;
+      color: var(--fam-secondary);
+      font-size: 13px;
+    }
+
+    #fam-profile-current-mockup .fam-states {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+
+    #fam-profile-current-mockup .fam-state-heading {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      min-height: 66px;
+      margin: 0 2px 12px;
+    }
+
+    #fam-profile-current-mockup .fam-state-letter {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: var(--fam-soft);
+      color: var(--fam-accent);
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    #fam-profile-current-mockup .fam-state-title {
+      margin: 1px 0 3px;
+      color: var(--fam-text);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    #fam-profile-current-mockup .fam-state-note {
+      margin: 0;
+      color: var(--fam-secondary);
+      font-size: 12px;
+    }
+
+    #fam-profile-current-mockup .fam-screen {
+      position: relative;
+      height: 860px;
+      overflow: hidden;
+      border: 1px solid var(--fam-border);
+      border-radius: 24px;
+      background: var(--fam-page);
+      color: var(--fam-text);
+    }
+
+    #fam-profile-current-mockup .fam-screen-top {
+      padding: 16px 16px 0;
+    }
+
+    #fam-profile-current-mockup .fam-back {
+      display: grid;
+      place-items: center;
+      width: 45px;
+      height: 45px;
+      padding: 0;
+      border: 0;
+      border-radius: 20px;
+      background: var(--fam-soft);
+      color: var(--fam-text);
+    }
+
+    #fam-profile-current-mockup .fam-back svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    #fam-profile-current-mockup .fam-title-row {
+      padding: 16px 0 24px;
+    }
+
+    #fam-profile-current-mockup .fam-screen-title {
+      margin: 0;
+      color: var(--fam-text);
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 44px;
+    }
+
+    #fam-profile-current-mockup .fam-screen-scroll {
+      height: calc(100% - 129px);
+      padding: 0 16px 72px;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    #fam-profile-current-mockup .fam-screen-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    #fam-profile-current-mockup .fam-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    #fam-profile-current-mockup .fam-section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    #fam-profile-current-mockup .fam-section-title {
+      color: var(--fam-text);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+    }
+
+    #fam-profile-current-mockup .fam-avatar-editor-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #fam-profile-current-mockup .fam-avatar-editor {
+      display: grid;
+      place-items: center;
+      width: 80px;
+      height: 80px;
+      flex: 0 0 auto;
+      border: 2px solid var(--fam-border);
+      border-radius: 999px;
+      background: var(--fam-accent);
+      color: var(--fam-on-accent);
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    #fam-profile-current-mockup .fam-edit-actions {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    #fam-profile-current-mockup .fam-secondary-button,
+    #fam-profile-current-mockup .fam-primary-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 44px;
+      padding: 13px 18px;
+      border: 0;
+      border-radius: 16px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+    }
+
+    #fam-profile-current-mockup .fam-secondary-button {
+      background: var(--fam-soft);
+      color: var(--fam-text);
+    }
+
+    #fam-profile-current-mockup .fam-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    #fam-profile-current-mockup .fam-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    #fam-profile-current-mockup .fam-field-label {
+      color: var(--fam-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 17px;
+    }
+
+    #fam-profile-current-mockup .fam-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid var(--fam-border);
+      border-radius: 16px;
+      background: var(--fam-element);
+      color: var(--fam-text);
+      font-family: inherit;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    #fam-profile-current-mockup .fam-password-button {
+      width: auto;
+      min-width: 44px;
+      margin-top: 8px;
+      padding: 9px 14px;
+      font-size: 13px;
+      line-height: 17px;
+    }
+
+    #fam-profile-current-mockup .fam-food-offset {
+      margin-top: 8px;
+    }
+
+    #fam-profile-current-mockup .fam-summary-card {
+      padding: 16px;
+      border: 1px solid var(--fam-border);
+      border-radius: 28px;
+      background: var(--fam-element);
+      box-shadow: 0 2px 6px var(--fam-shadow-card);
+    }
+
+    #fam-profile-current-mockup .fam-summary-heading {
+      margin-bottom: 8px;
+      color: var(--fam-text);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+    }
+
+    #fam-profile-current-mockup .fam-summary-row {
+      display: grid;
+      grid-template-columns: 128px minmax(0, 1fr) 24px;
+      align-items: center;
+      gap: 8px;
+      min-height: 56px;
+      padding: 8px 0;
+      border: 0;
+      border-bottom: 1px solid var(--fam-border);
+      background: transparent;
+      color: var(--fam-text);
+      text-align: left;
+    }
+
+    #fam-profile-current-mockup .fam-summary-row:last-child {
+      border-bottom: 0;
+    }
+
+    #fam-profile-current-mockup .fam-summary-label {
+      color: var(--fam-text);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+    }
+
+    #fam-profile-current-mockup .fam-summary-value {
+      min-width: 0;
+      color: var(--fam-secondary);
+      font-size: 16px;
+      line-height: 22px;
+      text-align: right;
+    }
+
+    #fam-profile-current-mockup .fam-summary-chevron {
+      color: var(--fam-secondary);
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 44px;
+      text-align: right;
+    }
+
+    #fam-profile-current-mockup .fam-primary-depth {
+      padding-bottom: 4px;
+      border-radius: 16px;
+      background: var(--fam-button-depth);
+    }
+
+    #fam-profile-current-mockup .fam-primary-button {
+      background: var(--fam-accent);
+      color: var(--fam-on-accent);
+    }
+
+    #fam-profile-current-mockup .fam-summaries {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    #fam-profile-current-mockup .fam-biometrics {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    #fam-profile-current-mockup .fam-biometrics-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      min-height: 44px;
+    }
+
+    #fam-profile-current-mockup .fam-biometrics-action {
+      min-height: 44px;
+      padding: 8px 0 8px 10px;
+      border: 0;
+      background: transparent;
+      color: var(--fam-text);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+    }
+
+    #fam-profile-current-mockup .fam-biometrics-surface {
+      overflow: hidden;
+      border-radius: 28px;
+      background: var(--fam-element);
+    }
+
+    #fam-profile-current-mockup .fam-biometrics-weight {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    #fam-profile-current-mockup .fam-biometrics-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    #fam-profile-current-mockup .fam-muted-body {
+      color: var(--fam-secondary);
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    #fam-profile-current-mockup .fam-heading-value {
+      color: var(--fam-text);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 26px;
+    }
+
+    #fam-profile-current-mockup .fam-caption {
+      color: var(--fam-secondary);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 15px;
+    }
+
+    #fam-profile-current-mockup .fam-biometrics-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    #fam-profile-current-mockup .fam-biometrics-facts.is-bordered {
+      border-top: 1px solid var(--fam-border);
+    }
+
+    #fam-profile-current-mockup .fam-biometrics-fact {
+      min-width: 0;
+    }
+
+    #fam-profile-current-mockup .fam-biometrics-fact.is-divided {
+      padding-right: 16px;
+      border-right: 1px solid var(--fam-border);
+    }
+
+    #fam-profile-current-mockup .fam-fact-value {
+      margin-top: 2px;
+      color: var(--fam-text);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+    }
+
+    #fam-profile-current-mockup .fam-private-note {
+      padding: 0 4px;
+      color: var(--fam-secondary);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 15px;
+    }
+
+    #fam-profile-current-mockup .fam-hub-stage {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      background: linear-gradient(110deg, var(--fam-hub-start) 0%, var(--fam-hub-mid) 40.385%, var(--fam-hub-end) 96.154%);
+    }
+
+    #fam-profile-current-mockup .fam-hub-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px;
+      gap: 8px;
+      padding: 8px 14px;
+    }
+
+    #fam-profile-current-mockup .fam-menu-button,
+    #fam-profile-current-mockup .fam-profile-button {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      padding: 0;
+      border: 0;
+    }
+
+    #fam-profile-current-mockup .fam-menu-button {
+      width: 54px;
+      height: 54px;
+      border-radius: 20px;
+      background: var(--fam-soft);
+      color: var(--fam-accent);
+    }
+
+    #fam-profile-current-mockup .fam-menu-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    #fam-profile-current-mockup .fam-hub-title {
+      flex: 1;
+      color: var(--fam-text);
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 44px;
+      text-align: center;
+    }
+
+    #fam-profile-current-mockup .fam-profile-button {
+      width: 58px;
+      height: 58px;
+      border-radius: 28px;
+      background: var(--fam-accent);
+      color: var(--fam-on-accent);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    #fam-profile-current-mockup .fam-settings-preview {
+      height: calc(100% - 74px);
+      padding: 12px 16px 72px;
+      overflow: hidden;
+    }
+
+    #fam-profile-current-mockup .fam-settings-profile-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid var(--fam-border);
+      border-radius: 20px;
+      background: color-mix(in srgb, var(--fam-element) 72%, transparent);
+      box-shadow: 0 2px 6px var(--fam-shadow-card);
+    }
+
+    #fam-profile-current-mockup .fam-avatar-medium {
+      display: grid;
+      place-items: center;
+      width: 50px;
+      height: 50px;
+      flex: 0 0 auto;
+      border-radius: 28px;
+      background: var(--fam-accent);
+      color: var(--fam-on-accent);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    #fam-profile-current-mockup .fam-settings-copy {
+      min-width: 0;
+      flex: 1;
+    }
+
+    #fam-profile-current-mockup .fam-settings-name {
+      color: var(--fam-text);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+    }
+
+    #fam-profile-current-mockup .fam-settings-email {
+      overflow: hidden;
+      color: var(--fam-secondary);
+      font-size: 16px;
+      line-height: 22px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #fam-profile-current-mockup .fam-settings-placeholder {
+      margin-top: 20px;
+      padding: 16px;
+      border: 1px solid var(--fam-border);
+      border-radius: 28px;
+      background: var(--fam-element);
+      box-shadow: 0 2px 6px var(--fam-shadow-card);
+    }
+
+    #fam-profile-current-mockup .fam-placeholder-title {
+      margin-bottom: 14px;
+      color: var(--fam-secondary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    #fam-profile-current-mockup .fam-placeholder-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-height: 60px;
+      border-top: 1px solid var(--fam-border);
+    }
+
+    #fam-profile-current-mockup .fam-placeholder-icon {
+      font-size: 24px;
+    }
+
+    #fam-profile-current-mockup .fam-placeholder-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    #fam-profile-current-mockup .fam-placeholder-copy strong {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    #fam-profile-current-mockup .fam-placeholder-copy span {
+      color: var(--fam-secondary);
+      font-size: 12px;
+    }
+
+    #fam-profile-current-mockup .fam-modal-dim {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: color-mix(in srgb, var(--fam-text) 30%, transparent);
+    }
+
+    #fam-profile-current-mockup .fam-profile-sheet {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      left: 16px;
+      z-index: 3;
+      padding: 12px 20px 20px;
+      border-radius: 20px;
+      background: var(--fam-element);
+      box-shadow: 0 -8px 28px var(--fam-shadow-sheet);
+    }
+
+    #fam-profile-current-mockup .fam-sheet-handle {
+      width: 44px;
+      height: 5px;
+      margin: 0 auto;
+      border-radius: 12px;
+      background: var(--fam-border);
+    }
+
+    #fam-profile-current-mockup .fam-sheet-profile {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      height: 82px;
+      padding: 8px 0 14px;
+      border-bottom: 1px solid var(--fam-border);
+    }
+
+    #fam-profile-current-mockup .fam-avatar-sheet {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      flex: 0 0 auto;
+      border-radius: 20px;
+      background: var(--fam-accent);
+      color: var(--fam-on-accent);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    #fam-profile-current-mockup .fam-sheet-identity {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    #fam-profile-current-mockup .fam-sheet-name {
+      color: var(--fam-text);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    #fam-profile-current-mockup .fam-sheet-email {
+      overflow: hidden;
+      color: var(--fam-secondary);
+      font-size: 13px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #fam-profile-current-mockup .fam-sheet-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      min-height: 61px;
+      padding: 8px 0;
+      border: 0;
+      border-bottom: 1px solid var(--fam-border);
+      background: transparent;
+      color: var(--fam-text);
+      text-align: left;
+    }
+
+    #fam-profile-current-mockup .fam-sheet-row:last-child {
+      border-bottom: 0;
+    }
+
+    #fam-profile-current-mockup .fam-sheet-icon {
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      flex: 0 0 auto;
+      color: var(--fam-text);
+    }
+
+    #fam-profile-current-mockup .fam-sheet-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 1.6;
+    }
+
+    #fam-profile-current-mockup .fam-sheet-copy {
+      min-width: 0;
+      flex: 1;
+    }
+
+    #fam-profile-current-mockup .fam-sheet-title {
+      color: var(--fam-text);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 22px;
+    }
+
+    #fam-profile-current-mockup .fam-sheet-subtitle {
+      margin-top: 4px;
+      color: var(--fam-secondary);
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    #fam-profile-current-mockup .fam-sheet-chevron {
+      color: var(--fam-secondary);
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1020px) {
+      #fam-profile-current-mockup .fam-states {
+        grid-template-columns: minmax(280px, 390px);
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 560px) {
+      #fam-profile-current-mockup .fam-board {
+        padding: 18px 12px 24px;
+        border-radius: 18px;
+      }
+
+      #fam-profile-current-mockup .fam-board-head {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      #fam-profile-current-mockup .fam-screen {
+        height: 820px;
+      }
+
+      #fam-profile-current-mockup .fam-summary-row {
+        grid-template-columns: 112px minmax(0, 1fr) 24px;
+      }
+    }
+  </style>
+
+  <section class="fam-board">
+    <header class="fam-board-head">
+      <div>
+        <div class="fam-eyebrow">Aktive Fam UI · Profil</div>
+        <h2>Profil &amp; Account</h2>
+      </div>
+      <p class="fam-board-note">Jetzt direkt aus dem aktuellen Arbeitsstand abgeleitet: Screen-Header, einfache Sections, Fam-Cards, Summary-Flächen und der kanonische 3D-Speichern-Button.</p>
+    </header>
+
+    <div class="fam-states">
+      <article>
+        <div class="fam-state-heading">
+          <div class="fam-state-letter">A</div>
+          <div>
+            <div class="fam-state-title">iOS · Profil &amp; Account</div>
+            <p class="fam-state-note">Aktuelle gemeinsame Screen-Struktur ohne Android-spezifische Biometrie-Zusammenfassung.</p>
+          </div>
+        </div>
+
+        <div class="fam-screen">
+          <div class="fam-screen-top">
+            <button class="fam-back" type="button" aria-label="Zurück zu Einstellungen"><i data-lucide="arrow-left" aria-hidden="true"></i></button>
+            <div class="fam-title-row"><h3 class="fam-screen-title">Profil &amp; Account</h3></div>
+          </div>
+
+          <div class="fam-screen-scroll">
+            <div class="fam-flow">
+              <section class="fam-section">
+                <div class="fam-section-title">Profilbild</div>
+                <div class="fam-avatar-editor-row">
+                  <div class="fam-avatar-editor">MM</div>
+                  <div class="fam-edit-actions"><button class="fam-secondary-button" type="button">Bild auswählen</button></div>
+                </div>
+              </section>
+
+              <section class="fam-section">
+                <div class="fam-section-title">Persönliche Angaben</div>
+                <div class="fam-fields">
+                  <label class="fam-field"><span class="fam-field-label">Name</span><input class="fam-input" type="text" value="Max Mustermann" aria-label="Name" readonly /></label>
+                  <label class="fam-field"><span class="fam-field-label">E-Mail-Adresse</span><input class="fam-input" type="email" value="max@example.com" aria-label="E-Mail-Adresse" readonly /></label>
+                </div>
+                <button class="fam-secondary-button fam-password-button" type="button">Passwort ändern</button>
+              </section>
+
+              <div class="fam-food-offset">
+                <section class="fam-summary-card">
+                  <div class="fam-summary-heading">Lebensmittel &amp; Verträglichkeit</div>
+                  <button class="fam-summary-row" type="button" aria-label="Allergien bearbeiten"><span class="fam-summary-label">Allergien</span><span class="fam-summary-value">Keine Angaben</span><span class="fam-summary-chevron" aria-hidden="true">›</span></button>
+                  <button class="fam-summary-row" type="button" aria-label="Unverträglichkeiten bearbeiten"><span class="fam-summary-label">Unverträglichkeiten</span><span class="fam-summary-value">Keine Angaben</span><span class="fam-summary-chevron" aria-hidden="true">›</span></button>
+                  <button class="fam-summary-row" type="button" aria-label="Mag ich nicht bearbeiten"><span class="fam-summary-label">Mag ich nicht</span><span class="fam-summary-value">Keine Angaben</span><span class="fam-summary-chevron" aria-hidden="true">›</span></button>
+                </section>
+              </div>
+
+              <div class="fam-primary-depth"><button class="fam-primary-button" type="button">Änderungen speichern</button></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <div class="fam-state-heading">
+          <div class="fam-state-letter">B</div>
+          <div>
+            <div class="fam-state-title">Android · Profil &amp; Account</div>
+            <p class="fam-state-note">Gleicher Screen, ergänzt um den aktuell vorhandenen privaten Biometrie-Bereich.</p>
+          </div>
+        </div>
+
+        <div class="fam-screen">
+          <div class="fam-screen-top">
+            <button class="fam-back" type="button" aria-label="Zurück zu Einstellungen"><i data-lucide="arrow-left" aria-hidden="true"></i></button>
+            <div class="fam-title-row"><h3 class="fam-screen-title">Profil &amp; Account</h3></div>
+          </div>
+
+          <div class="fam-screen-scroll">
+            <div class="fam-flow">
+              <section class="fam-section">
+                <div class="fam-section-title">Profilbild</div>
+                <div class="fam-avatar-editor-row">
+                  <div class="fam-avatar-editor">MM</div>
+                  <div class="fam-edit-actions"><button class="fam-secondary-button" type="button">Bild auswählen</button></div>
+                </div>
+              </section>
+
+              <section class="fam-section">
+                <div class="fam-section-title">Persönliche Angaben</div>
+                <div class="fam-fields">
+                  <label class="fam-field"><span class="fam-field-label">Name</span><input class="fam-input" type="text" value="Max Mustermann" aria-label="Name" readonly /></label>
+                  <label class="fam-field"><span class="fam-field-label">E-Mail-Adresse</span><input class="fam-input" type="email" value="max@example.com" aria-label="E-Mail-Adresse" readonly /></label>
+                </div>
+                <button class="fam-secondary-button fam-password-button" type="button">Passwort ändern</button>
+              </section>
+
+              <div class="fam-summaries">
+                <section class="fam-biometrics">
+                  <div class="fam-biometrics-head"><div class="fam-section-title">Körper &amp; Aktivität</div><button class="fam-biometrics-action" type="button">Bearbeiten</button></div>
+                  <div class="fam-biometrics-surface">
+                    <div class="fam-biometrics-weight"><div class="fam-biometrics-copy"><div class="fam-muted-body">Aktuelles Gewicht</div><div class="fam-heading-value">79,5 kg</div></div><div class="fam-caption">Neuester Eintrag</div></div>
+                    <div class="fam-biometrics-facts is-bordered"><div class="fam-biometrics-fact is-divided"><div class="fam-caption">Größe</div><div class="fam-fact-value">181 cm</div></div><div class="fam-biometrics-fact"><div class="fam-caption">Geburtsdatum</div><div class="fam-fact-value">15.05.1990</div></div></div>
+                    <div class="fam-biometrics-facts"><div class="fam-biometrics-fact is-divided"><div class="fam-caption">Berechnungsbasis</div><div class="fam-fact-value">Männlich</div></div><div class="fam-biometrics-fact"><div class="fam-caption">Aktivität</div><div class="fam-fact-value">Mäßig aktiv</div></div></div>
+                  </div>
+                  <div class="fam-private-note">Privat · im Verlauf gespeichert</div>
+                </section>
+
+                <section class="fam-summary-card">
+                  <div class="fam-summary-heading">Lebensmittel &amp; Verträglichkeit</div>
+                  <button class="fam-summary-row" type="button" aria-label="Allergien bearbeiten"><span class="fam-summary-label">Allergien</span><span class="fam-summary-value">Keine Angaben</span><span class="fam-summary-chevron" aria-hidden="true">›</span></button>
+                  <button class="fam-summary-row" type="button" aria-label="Unverträglichkeiten bearbeiten"><span class="fam-summary-label">Unverträglichkeiten</span><span class="fam-summary-value">Keine Angaben</span><span class="fam-summary-chevron" aria-hidden="true">›</span></button>
+                  <button class="fam-summary-row" type="button" aria-label="Mag ich nicht bearbeiten"><span class="fam-summary-label">Mag ich nicht</span><span class="fam-summary-value">Keine Angaben</span><span class="fam-summary-chevron" aria-hidden="true">›</span></button>
+                </section>
+              </div>
+
+              <div class="fam-primary-depth"><button class="fam-primary-button" type="button">Änderungen speichern</button></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <div class="fam-state-heading">
+          <div class="fam-state-letter">C</div>
+          <div>
+            <div class="fam-state-title">Globales Profil-Sheet</div>
+            <p class="fam-state-note">Aktueller Overlay-Zustand aus dem Header von Einstellungen und Hub-Screens.</p>
+          </div>
+        </div>
+
+        <div class="fam-screen">
+          <div class="fam-hub-stage">
+            <div class="fam-hub-header">
+              <button class="fam-menu-button" type="button" aria-label="Menü öffnen"><i data-lucide="menu" aria-hidden="true"></i></button>
+              <div class="fam-hub-title">Einstellungen</div>
+              <button class="fam-profile-button" type="button" aria-label="Profil öffnen">MM</button>
+            </div>
+            <div class="fam-settings-preview">
+              <div class="fam-settings-profile-row">
+                <div class="fam-avatar-medium">MM</div>
+                <div class="fam-settings-copy"><div class="fam-settings-name">Max Mustermann</div><div class="fam-settings-email">max@example.com</div></div>
+                <span class="fam-chevron" aria-hidden="true">›</span>
+              </div>
+              <div class="fam-settings-placeholder">
+                <div class="fam-placeholder-title">TRACKING &amp; ERNÄHRUNG</div>
+                <div class="fam-placeholder-row"><span class="fam-placeholder-icon" aria-hidden="true">🎯</span><span class="fam-placeholder-copy"><strong>Mein Tracking</strong><span>Methode, Tagesbedarf und Rhythmus</span></span></div>
+                <div class="fam-placeholder-row"><span class="fam-placeholder-icon" aria-hidden="true">🏠</span><span class="fam-placeholder-copy"><strong>Haushalt</strong><span>Mitglieder und gemeinsame Daten</span></span></div>
+              </div>
+            </div>
+
+            <div class="fam-modal-dim"></div>
+            <section class="fam-profile-sheet" aria-label="Profilmenü geöffnet">
+              <div class="fam-sheet-handle"></div>
+              <div class="fam-sheet-profile">
+                <div class="fam-avatar-sheet">MM</div>
+                <div class="fam-sheet-identity"><div class="fam-sheet-name">Max Mustermann</div><div class="fam-sheet-email">max@example.com</div></div>
+              </div>
+              <button class="fam-sheet-row" type="button" aria-label="Mein Profil öffnen">
+                <span class="fam-sheet-icon"><i data-lucide="user-round" aria-hidden="true"></i></span>
+                <span class="fam-sheet-copy"><span class="fam-sheet-title">Mein Profil</span><span class="fam-sheet-subtitle">Persönliche Daten und Einstellungen</span></span>
+                <span class="fam-sheet-chevron" aria-hidden="true">›</span>
+              </button>
+              <button class="fam-sheet-row" type="button" aria-label="Familie öffnen">
+                <span class="fam-sheet-icon"><i data-lucide="house" aria-hidden="true"></i></span>
+                <span class="fam-sheet-copy"><span class="fam-sheet-title">Familie</span><span class="fam-sheet-subtitle">Haushalt verwalten</span></span>
+                <span class="fam-sheet-chevron" aria-hidden="true">›</span>
+              </button>
+              <button class="fam-sheet-row" type="button" aria-label="Plus und KI öffnen">
+                <span class="fam-sheet-icon"><i data-lucide="gem" aria-hidden="true"></i></span>
+                <span class="fam-sheet-copy"><span class="fam-sheet-title">Plus &amp; KI</span><span class="fam-sheet-subtitle">Jetzt freischalten</span></span>
+                <span class="fam-sheet-chevron" aria-hidden="true">›</span>
+              </button>
+            </section>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>

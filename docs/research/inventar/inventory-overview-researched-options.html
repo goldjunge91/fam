@@ -1,0 +1,923 @@
+<div id="fam-inventory-research-options">
+  <style>
+    #fam-inventory-research-options {
+      --research-ink: light-dark(#2e2430, #f7eee8);
+      --research-muted: light-dark(#786a75, #bcaeb8);
+      --research-primary: light-dark(#704560, #d2a4bc);
+      --research-primary-strong: light-dark(#553249, #efc9de);
+      --research-surface: light-dark(#fffaf5, #30262e);
+      --research-surface-raised: light-dark(#f8eee7, #3b3039);
+      --research-background: light-dark(#efe2db, #211b20);
+      --research-line: light-dark(#e6d7cf, #594b56);
+      --research-critical: light-dark(#b34a50, #f08b91);
+      --research-warm: light-dark(#c47c43, #efb57f);
+      --research-cool: light-dark(#547982, #99c5cd);
+      --research-shadow: light-dark(rgba(85, 50, 73, 0.2), rgba(0, 0, 0, 0.34));
+      box-sizing: border-box;
+      min-height: 100%;
+      padding: 38px 24px 60px;
+      color: var(--research-ink);
+      color-scheme: light dark;
+      background: var(--research-background);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    #fam-inventory-research-options *,
+    #fam-inventory-research-options *::before,
+    #fam-inventory-research-options *::after {
+      box-sizing: border-box;
+    }
+
+    #fam-inventory-research-options .research-intro {
+      max-width: 1110px;
+      margin: 0 auto 28px;
+    }
+
+    #fam-inventory-research-options .research-kicker {
+      margin: 0 0 8px;
+      color: var(--research-primary-strong);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-research-options h1,
+    #fam-inventory-research-options h2,
+    #fam-inventory-research-options h3,
+    #fam-inventory-research-options p {
+      margin-top: 0;
+    }
+
+    #fam-inventory-research-options h1 {
+      max-width: 650px;
+      margin-bottom: 9px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 4vw, 44px);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    #fam-inventory-research-options .research-intro-copy {
+      max-width: 670px;
+      margin: 0;
+      color: var(--research-muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    #fam-inventory-research-options .research-options {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(280px, 1fr));
+      gap: 22px;
+      max-width: 1110px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    #fam-inventory-research-options .research-option {
+      min-width: 0;
+    }
+
+    #fam-inventory-research-options .research-option-header {
+      min-height: 91px;
+      padding: 0 3px 16px;
+    }
+
+    #fam-inventory-research-options .research-option-code {
+      margin-right: 8px;
+      color: var(--research-primary);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+    }
+
+    #fam-inventory-research-options h2 {
+      display: inline;
+      margin-bottom: 7px;
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    #fam-inventory-research-options .research-option-description {
+      margin: 7px 0 0;
+      color: var(--research-muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    #fam-inventory-research-options .research-option-note {
+      display: block;
+      margin-top: 8px;
+      color: var(--research-primary-strong);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-research-options .research-phone {
+      width: 100%;
+      max-width: 352px;
+      min-height: 706px;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 6px solid light-dark(#342933, #160f14);
+      border-radius: 31px;
+      background: var(--research-surface);
+      box-shadow: 0 17px 36px var(--research-shadow);
+    }
+
+    #fam-inventory-research-options .research-screen {
+      min-height: 694px;
+      background: var(--research-surface);
+    }
+
+    #fam-inventory-research-options .research-statusbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 16px 6px;
+      color: var(--research-ink);
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-options .research-status-icons {
+      letter-spacing: 0.08em;
+    }
+
+    #fam-inventory-research-options .research-appbar {
+      display: grid;
+      grid-template-columns: 34px 1fr 34px;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 15px;
+      border-bottom: 1px solid var(--research-line);
+    }
+
+    #fam-inventory-research-options .research-appbar-title {
+      margin: 0;
+      color: var(--research-primary-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    #fam-inventory-research-options .research-icon-button {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      place-items: center;
+      border: 0;
+      color: var(--research-ink);
+      background: transparent;
+    }
+
+    #fam-inventory-research-options .research-icon-button:last-child {
+      justify-self: end;
+    }
+
+    #fam-inventory-research-options .research-avatar {
+      display: grid;
+      width: 25px;
+      height: 25px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--research-surface);
+      background: var(--research-primary);
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-options .research-content {
+      padding: 18px 16px 21px;
+    }
+
+    #fam-inventory-research-options .research-topline,
+    #fam-inventory-research-options .research-location-topline {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--research-line);
+    }
+
+    #fam-inventory-research-options .research-total {
+      color: var(--research-primary-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    #fam-inventory-research-options .research-total small {
+      color: var(--research-muted);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0;
+    }
+
+    #fam-inventory-research-options .research-alert {
+      color: var(--research-critical);
+      font-size: 11px;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    #fam-inventory-research-options .research-alert small {
+      display: block;
+      margin-top: 4px;
+      color: var(--research-muted);
+      font-size: 9px;
+      font-weight: 400;
+    }
+
+    #fam-inventory-research-options .research-section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin: 20px 0 8px;
+    }
+
+    #fam-inventory-research-options .research-section-heading strong {
+      color: var(--research-ink);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-research-options .research-section-heading span {
+      color: var(--research-muted);
+      font-size: 10px;
+    }
+
+    #fam-inventory-research-options .research-horizon {
+      display: grid;
+      grid-template-columns: 46px 1fr 46px;
+      gap: 10px;
+      align-items: center;
+      margin: 4px 0 17px;
+      color: var(--research-muted);
+      font-size: 9px;
+      font-weight: 500;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-research-options .research-horizon strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--research-ink);
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: none;
+    }
+
+    #fam-inventory-research-options .research-horizon-track {
+      height: 5px;
+      border-radius: 5px;
+      background: linear-gradient(90deg, var(--research-critical) 0 28%, var(--research-warm) 28% 43%, var(--research-line) 43% 100%);
+      position: relative;
+    }
+
+    #fam-inventory-research-options .research-horizon-track::before,
+    #fam-inventory-research-options .research-horizon-track::after {
+      position: absolute;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--research-surface);
+      border-radius: 50%;
+      background: var(--research-critical);
+      box-shadow: 0 0 0 1px var(--research-critical);
+      content: "";
+      transform: translateY(-50%);
+    }
+
+    #fam-inventory-research-options .research-horizon-track::before {
+      left: 27%;
+    }
+
+    #fam-inventory-research-options .research-horizon-track::after {
+      left: 42%;
+      background: var(--research-warm);
+      box-shadow: 0 0 0 1px var(--research-warm);
+    }
+
+    #fam-inventory-research-options .research-shelf-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin: 18px 0 7px;
+    }
+
+    #fam-inventory-research-options .research-shelf-heading strong {
+      color: var(--research-ink);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-options .research-shelf-heading span {
+      color: var(--research-muted);
+      font-size: 10px;
+    }
+
+    #fam-inventory-research-options .research-shelf {
+      display: flex;
+      height: 83px;
+      align-items: end;
+      gap: 5px;
+      padding: 0 8px 7px;
+      border-bottom: 3px solid var(--research-primary);
+    }
+
+    #fam-inventory-research-options .research-shelf-item {
+      display: flex;
+      width: 31px;
+      height: 47px;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 3px;
+      border: 1px solid var(--research-line);
+      border-radius: 5px 5px 2px 2px;
+      color: var(--research-ink);
+      background: var(--research-surface-raised);
+      font-size: 8px;
+      font-weight: 500;
+      line-height: 1;
+      text-align: center;
+      writing-mode: vertical-rl;
+    }
+
+    #fam-inventory-research-options .research-shelf-item.tall {
+      height: 64px;
+    }
+
+    #fam-inventory-research-options .research-shelf-item.short {
+      height: 37px;
+    }
+
+    #fam-inventory-research-options .research-shelf-item.critical {
+      border-color: var(--research-critical);
+      color: var(--research-critical);
+      background: color-mix(in srgb, var(--research-critical) 12%, var(--research-surface));
+    }
+
+    #fam-inventory-research-options .research-shelf-item.warm {
+      border-color: var(--research-warm);
+      color: var(--research-warm);
+      background: color-mix(in srgb, var(--research-warm) 12%, var(--research-surface));
+    }
+
+    #fam-inventory-research-options .research-shelf-item.cool {
+      border-color: var(--research-cool);
+      color: var(--research-cool);
+      background: color-mix(in srgb, var(--research-cool) 10%, var(--research-surface));
+    }
+
+    #fam-inventory-research-options .research-use-first {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      margin-top: 16px;
+      padding: 12px 0;
+      border-top: 1px solid var(--research-line);
+      border-bottom: 1px solid var(--research-line);
+    }
+
+    #fam-inventory-research-options .research-use-first small,
+    #fam-inventory-research-options .research-use-first span {
+      display: block;
+      color: var(--research-muted);
+      font-size: 9px;
+    }
+
+    #fam-inventory-research-options .research-use-first strong {
+      display: block;
+      margin: 4px 0;
+      overflow: hidden;
+      color: var(--research-ink);
+      font-size: 11px;
+      font-weight: 500;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #fam-inventory-research-options .research-action {
+      min-height: 40px;
+      padding: 0 10px;
+      border: 1px solid var(--research-primary);
+      border-radius: 10px;
+      color: var(--research-primary-strong);
+      background: transparent;
+      font: inherit;
+      font-size: 10px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    #fam-inventory-research-options .research-secondary-shelf {
+      display: flex;
+      height: 44px;
+      align-items: end;
+      gap: 4px;
+      padding: 0 8px 5px;
+      border-bottom: 2px solid var(--research-line);
+    }
+
+    #fam-inventory-research-options .research-secondary-shelf span {
+      display: block;
+      width: 20px;
+      height: 27px;
+      border-radius: 4px 4px 1px 1px;
+      background: var(--research-surface-raised);
+    }
+
+    #fam-inventory-research-options .research-secondary-shelf span.tall {
+      height: 36px;
+    }
+
+    #fam-inventory-research-options .research-footer-line {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 18px;
+      color: var(--research-muted);
+      font-size: 9px;
+    }
+
+    #fam-inventory-research-options .research-location-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 18px 0 20px;
+    }
+
+    #fam-inventory-research-options .research-location-tab {
+      min-height: 49px;
+      padding: 8px 5px;
+      border: 0;
+      border-bottom: 2px solid var(--research-line);
+      color: var(--research-muted);
+      background: transparent;
+      font: inherit;
+      font-size: 10px;
+      text-align: left;
+    }
+
+    #fam-inventory-research-options .research-location-tab strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--research-ink);
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-options .research-location-tab.active {
+      border-color: var(--research-primary);
+      color: var(--research-primary-strong);
+    }
+
+    #fam-inventory-research-options .research-location-tab.active strong {
+      color: var(--research-primary-strong);
+    }
+
+    #fam-inventory-research-options .research-local-horizon {
+      display: grid;
+      grid-template-columns: 49px 1fr 49px;
+      gap: 8px;
+      align-items: center;
+      margin: 6px 0 17px;
+      color: var(--research-muted);
+      font-size: 9px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-research-options .research-local-track {
+      height: 4px;
+      border-radius: 4px;
+      background: var(--research-line);
+      position: relative;
+    }
+
+    #fam-inventory-research-options .research-local-track::before {
+      position: absolute;
+      top: 50%;
+      left: 17%;
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--research-surface);
+      border-radius: 50%;
+      background: var(--research-critical);
+      box-shadow: 0 0 0 1px var(--research-critical);
+      content: "";
+      transform: translateY(-50%);
+    }
+
+    #fam-inventory-research-options .research-location-shelf {
+      display: grid;
+      grid-template-columns: 63px minmax(0, 1fr) 31px;
+      gap: 8px;
+      align-items: end;
+      height: 101px;
+      border-bottom: 3px solid var(--research-primary);
+    }
+
+    #fam-inventory-research-options .research-location-label {
+      align-self: center;
+      color: var(--research-ink);
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    #fam-inventory-research-options .research-location-label small {
+      display: block;
+      margin-top: 4px;
+      color: var(--research-muted);
+      font-size: 9px;
+      font-weight: 400;
+    }
+
+    #fam-inventory-research-options .research-location-items {
+      display: flex;
+      height: 91px;
+      align-items: end;
+      gap: 5px;
+      padding: 0 2px 7px;
+    }
+
+    #fam-inventory-research-options .research-location-item {
+      display: flex;
+      width: 27px;
+      height: 55px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--research-line);
+      border-radius: 5px 5px 2px 2px;
+      color: var(--research-ink);
+      background: var(--research-surface-raised);
+      font-size: 8px;
+      font-weight: 500;
+      line-height: 1;
+      text-align: center;
+      writing-mode: vertical-rl;
+    }
+
+    #fam-inventory-research-options .research-location-item.critical {
+      height: 73px;
+      border-color: var(--research-critical);
+      color: var(--research-critical);
+      background: color-mix(in srgb, var(--research-critical) 12%, var(--research-surface));
+    }
+
+    #fam-inventory-research-options .research-location-item.warm {
+      border-color: var(--research-warm);
+      color: var(--research-warm);
+    }
+
+    #fam-inventory-research-options .research-location-count {
+      align-self: center;
+      color: var(--research-primary-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      text-align: right;
+    }
+
+    #fam-inventory-research-options .research-place-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 45px;
+      margin-top: 16px;
+      padding: 0;
+      border: 0;
+      border-bottom: 1px solid var(--research-line);
+      color: var(--research-primary-strong);
+      background: transparent;
+      font: inherit;
+      font-size: 11px;
+      text-align: left;
+    }
+
+    #fam-inventory-research-options .research-mini-location {
+      display: grid;
+      grid-template-columns: 61px minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+      min-height: 56px;
+      border-bottom: 1px solid var(--research-line);
+    }
+
+    #fam-inventory-research-options .research-mini-location strong {
+      color: var(--research-ink);
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-options .research-mini-location span {
+      color: var(--research-muted);
+      font-size: 9px;
+    }
+
+    #fam-inventory-research-options .research-mini-location em {
+      color: var(--research-primary-strong);
+      font-size: 10px;
+      font-style: normal;
+    }
+
+    #fam-inventory-research-options .research-briefing-title {
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--research-line);
+    }
+
+    #fam-inventory-research-options .research-briefing-eyebrow {
+      margin-bottom: 7px;
+      color: var(--research-critical);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    #fam-inventory-research-options .research-briefing-title strong {
+      display: block;
+      color: var(--research-ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 29px;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    #fam-inventory-research-options .research-briefing-title span {
+      display: block;
+      margin-top: 5px;
+      color: var(--research-muted);
+      font-size: 10px;
+    }
+
+    #fam-inventory-research-options .research-briefing-step {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      min-height: 61px;
+      border-bottom: 1px solid var(--research-line);
+    }
+
+    #fam-inventory-research-options .research-step-number {
+      display: grid;
+      width: 22px;
+      height: 22px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--research-surface);
+      background: var(--research-primary);
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-options .research-briefing-step strong {
+      display: block;
+      color: var(--research-ink);
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-options .research-briefing-step span {
+      display: block;
+      margin-top: 3px;
+      color: var(--research-muted);
+      font-size: 9px;
+    }
+
+    #fam-inventory-research-options .research-step-action {
+      color: var(--research-primary-strong);
+      font-size: 9px;
+      font-weight: 500;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    #fam-inventory-research-options .research-briefing-shelf-title {
+      display: flex;
+      justify-content: space-between;
+      margin: 22px 0 8px;
+      color: var(--research-ink);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-options .research-briefing-shelf-title span {
+      color: var(--research-muted);
+      font-size: 10px;
+    }
+
+    #fam-inventory-research-options .research-briefing-shelf {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+    }
+
+    #fam-inventory-research-options .research-briefing-zone {
+      min-height: 70px;
+      padding: 8px 8px 6px;
+      border-bottom: 3px solid var(--research-line);
+      background: var(--research-surface-raised);
+    }
+
+    #fam-inventory-research-options .research-briefing-zone.critical {
+      border-color: var(--research-critical);
+    }
+
+    #fam-inventory-research-options .research-briefing-zone strong {
+      display: block;
+      color: var(--research-ink);
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    #fam-inventory-research-options .research-briefing-zone span {
+      display: block;
+      margin-top: 5px;
+      color: var(--research-muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 19px;
+    }
+
+    #fam-inventory-research-options .research-meal-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 47px;
+      margin-top: 17px;
+      padding: 0;
+      border: 0;
+      border-top: 1px solid var(--research-line);
+      border-bottom: 1px solid var(--research-line);
+      color: var(--research-primary-strong);
+      background: transparent;
+      font: inherit;
+      font-size: 11px;
+      text-align: left;
+    }
+
+    #fam-inventory-research-options .research-household-note {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 18px;
+      color: var(--research-muted);
+      font-size: 9px;
+    }
+
+    #fam-inventory-research-options .research-add-button {
+      display: grid;
+      width: 45px;
+      height: 45px;
+      margin: 20px 0 0 auto;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: var(--research-surface);
+      background: var(--research-primary);
+      box-shadow: 0 6px 13px var(--research-shadow);
+    }
+
+    #fam-inventory-research-options .research-home-indicator {
+      width: 103px;
+      height: 4px;
+      margin: 5px auto 4px;
+      border-radius: 5px;
+      background: var(--research-ink);
+      opacity: 0.75;
+    }
+
+    @media (max-width: 980px) {
+      #fam-inventory-research-options .research-options {
+        grid-template-columns: 1fr;
+        max-width: 384px;
+      }
+
+      #fam-inventory-research-options .research-option-header {
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 440px) {
+      #fam-inventory-research-options {
+        padding: 28px 11px 44px;
+      }
+
+      #fam-inventory-research-options .research-phone {
+        border-width: 5px;
+      }
+    }
+  </style>
+
+  <section class="research-intro" aria-label="Drei neue Vorrat-Screen Varianten">
+    <p class="research-kicker">Vorrat · recherchierte Richtungen</p>
+    <h1>Zeit, Ort und nächste Aktion in einem Blick</h1>
+    <p class="research-intro-copy">Drei neue Varianten aus den stärksten Mustern moderner Pantry-Apps, mit echter Shelf-Orientierung statt dekorativer Visualisierung.</p>
+  </section>
+
+  <main class="research-options">
+    <article class="research-option" aria-labelledby="research-option-a-title">
+      <header class="research-option-header">
+        <span class="research-option-code">A</span><h2 id="research-option-a-title">Use-first Shelf</h2>
+        <p class="research-option-description">Der Horizont entscheidet, welche aufrechten Shelf-Artikel gerade Aufmerksamkeit bekommen.</p>
+        <span class="research-option-note">MHD wird Handlung</span>
+      </header>
+
+      <div class="research-phone" aria-label="Variante A: Use-first Shelf">
+        <div class="research-screen">
+          <div class="research-statusbar"><span>9:41</span><span class="research-status-icons">◦◦◦ ᴡɪғɪ ▰</span></div>
+          <div class="research-appbar"><button type="button" class="research-icon-button" aria-label="Menü"><i data-lucide="menu" aria-hidden="true"></i></button><h3 class="research-appbar-title">Vorrat</h3><button type="button" class="research-icon-button" aria-label="Profil"><span class="research-avatar">M</span></button></div>
+          <div class="research-content">
+            <div class="research-topline"><div><span class="research-total">31 <small>Artikel</small></span></div><div class="research-alert">6 zuerst<small>0 bald</small></div></div>
+            <div class="research-section-heading"><strong>Dein Horizont</strong><span>MHD</span></div>
+            <div class="research-horizon" aria-label="6 Artikel heute, 25 später"><span>Heute<strong>6</strong></span><span class="research-horizon-track" aria-hidden="true"></span><span>Später<strong>25</strong></span></div>
+            <div class="research-shelf-heading"><strong>Kühlschrank</strong><span>18 Artikel · 3 im Fokus</span></div>
+            <div class="research-shelf" aria-label="Aufrechte Artikel im Kühlschrank, Naturjoghurt, Vollmilch und Tomaten zuerst verwenden">
+              <span class="research-shelf-item tall critical">Joghurt</span><span class="research-shelf-item tall critical">Milch</span><span class="research-shelf-item warm">Tomaten</span><span class="research-shelf-item short cool">Gouda</span><span class="research-shelf-item short cool">Paprika</span><span class="research-shelf-item short">Eier</span>
+            </div>
+            <div class="research-use-first"><div><small>Als Nächstes</small><strong>Naturjoghurt + Vollmilch</strong><span>2 Artikel · heute</span></div><button type="button" class="research-action">Verbrauchen</button></div>
+            <div class="research-shelf-heading"><strong>Weitere Orte</strong><span>13 Artikel</span></div>
+            <div class="research-secondary-shelf" aria-label="Weitere Lagerorte"><span class="tall"></span><span></span><span></span><span class="tall"></span><span></span><span></span><span></span></div>
+            <div class="research-footer-line"><span>Tippe einen Punkt an</span><span><i data-lucide="search" aria-hidden="true"></i> Suchen</span></div>
+            <button type="button" class="research-add-button" aria-label="Artikel hinzufügen"><i data-lucide="plus" aria-hidden="true"></i></button>
+          </div>
+          <div class="research-home-indicator"></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="research-option" aria-labelledby="research-option-b-title">
+      <header class="research-option-header">
+        <span class="research-option-code">B</span><h2 id="research-option-b-title">Location Lens</h2>
+        <p class="research-option-description">Der Lagerort ist der Einstieg. Innerhalb eines Ortes zeigt eine kleine Zeitlinie, was zuerst raus muss.</p>
+        <span class="research-option-note">Für den Griff ins Regal</span>
+      </header>
+
+      <div class="research-phone" aria-label="Variante B: Location Lens">
+        <div class="research-screen">
+          <div class="research-statusbar"><span>9:41</span><span class="research-status-icons">◦◦◦ ᴡɪғɪ ▰</span></div>
+          <div class="research-appbar"><button type="button" class="research-icon-button" aria-label="Menü"><i data-lucide="menu" aria-hidden="true"></i></button><h3 class="research-appbar-title">Vorrat</h3><button type="button" class="research-icon-button" aria-label="Profil"><span class="research-avatar">M</span></button></div>
+          <div class="research-content">
+            <div class="research-location-topline"><div><span class="research-total">18 <small>im Kühlschrank</small></span></div><div class="research-alert">3 zuerst<small>hier prüfen</small></div></div>
+            <div class="research-location-tabs" aria-label="Lagerorte"><button type="button" class="research-location-tab active" aria-pressed="true"><strong>18</strong>Kühlschrank</button><button type="button" class="research-location-tab" aria-pressed="false"><strong>9</strong>Vorrat</button><button type="button" class="research-location-tab" aria-pressed="false"><strong>4</strong>Tiefkühl</button></div>
+            <div class="research-section-heading"><strong>Dieser Ort</strong><span>lokaler Horizont</span></div>
+            <div class="research-local-horizon" aria-label="Kühlschrank: 3 Artikel heute, 15 später"><span>Heute<strong>3</strong></span><span class="research-local-track" aria-hidden="true"></span><span>Später<strong>15</strong></span></div>
+            <div class="research-location-shelf" aria-label="Aufrechte Kühlschrank-Artikel"><div class="research-location-label">Kühlfach<small>erste Reihe</small></div><div class="research-location-items"><span class="research-location-item critical">Joghurt</span><span class="research-location-item critical">Milch</span><span class="research-location-item warm">Tomaten</span><span class="research-location-item">Gouda</span><span class="research-location-item">Paprika</span></div><span class="research-location-count">18</span></div>
+            <button type="button" class="research-place-action"><span>3 Artikel zuerst verwenden</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            <div class="research-shelf-heading"><strong>Weitere Regale</strong><span>im selben Ort</span></div>
+            <div class="research-mini-location"><strong>Tür</strong><span>Milch · Butter · Eier</span><em>6</em></div>
+            <div class="research-mini-location"><strong>Unteres Fach</strong><span>Gouda · Gemüse · Reste</span><em>9</em></div>
+            <button type="button" class="research-action" style="width: 100%; margin-top: 17px;">Ort wechseln</button>
+            <div class="research-footer-line"><span>Zuletzt geprüft: heute</span><span><i data-lucide="search" aria-hidden="true"></i> Suchen</span></div>
+          </div>
+          <div class="research-home-indicator"></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="research-option" aria-labelledby="research-option-c-title">
+      <header class="research-option-header">
+        <span class="research-option-code">C</span><h2 id="research-option-c-title">Household Briefing</h2>
+        <p class="research-option-description">Der Vorrat wird zur kurzen Haushaltsbesprechung: verwenden, planen, nachkaufen.</p>
+        <span class="research-option-note">Am stärksten vernetzt</span>
+      </header>
+
+      <div class="research-phone" aria-label="Variante C: Household Briefing">
+        <div class="research-screen">
+          <div class="research-statusbar"><span>9:41</span><span class="research-status-icons">◦◦◦ ᴡɪғɪ ▰</span></div>
+          <div class="research-appbar"><button type="button" class="research-icon-button" aria-label="Menü"><i data-lucide="menu" aria-hidden="true"></i></button><h3 class="research-appbar-title">Vorrat</h3><button type="button" class="research-icon-button" aria-label="Profil"><span class="research-avatar">M</span></button></div>
+          <div class="research-content">
+            <div class="research-briefing-title"><div class="research-briefing-eyebrow">Heute im Haushalt</div><strong>6 Artikel brauchen dich</strong><span>31 insgesamt · 0 bald · gemeinsam aktuell</span></div>
+            <div class="research-section-heading"><strong>Dein nächster Schritt</strong><span>3 kurze Wege</span></div>
+            <div class="research-briefing-step"><span class="research-step-number">1</span><div><strong>Jetzt verwenden</strong><span>Naturjoghurt, Vollmilch, Tomaten</span></div><span class="research-step-action">3 Artikel →</span></div>
+            <div class="research-briefing-step"><span class="research-step-number">2</span><div><strong>In den Essensplan</strong><span>Aus dem Bestand kochen</span></div><span class="research-step-action">Vorschläge →</span></div>
+            <div class="research-briefing-step"><span class="research-step-number">3</span><div><strong>Nachkaufen</strong><span>Wenn ein Bestand wirklich leer ist</span></div><span class="research-step-action">Einkauf →</span></div>
+            <div class="research-briefing-shelf-title"><strong>Bestand nach Ort</strong><span>31 Artikel</span></div>
+            <div class="research-briefing-shelf" aria-label="Bestand nach Lagerort"><div class="research-briefing-zone critical"><strong>Kühlschrank</strong><span>18</span></div><div class="research-briefing-zone"><strong>Vorrat</strong><span>9</span></div><div class="research-briefing-zone"><strong>Tiefkühl</strong><span>4</span></div></div>
+            <button type="button" class="research-meal-action"><span><i data-lucide="utensils" aria-hidden="true"></i> Was kann ich damit kochen?</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            <div class="research-household-note"><span>Zuletzt aktualisiert von Marco</span><span>vor 2 Min.</span></div>
+            <button type="button" class="research-add-button" aria-label="Artikel hinzufügen"><i data-lucide="plus" aria-hidden="true"></i></button>
+          </div>
+          <div class="research-home-indicator"></div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    const inventoryResearchMock = document.getElementById("fam-inventory-research-options");
+    void inventoryResearchMock;
+  </script>
+</div>
