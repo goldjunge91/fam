@@ -314,15 +314,10 @@ This component provides a UI card for managing push notification preferences reg
 14: } from '@/lib/notifications';
 15: 
 16: const THRESHOLD_OPTIONS = [1, 3, 5, 7];
-17: const TIME_OPTIONS = [
-18:   { label: '08:00 Uhr', hour: 8, minute: 0 },
-19:   { label: '09:00 Uhr', hour: 9, minute: 0 },
-20:   { label: '18:00 Uhr', hour: 18, minute: 0 },
-21: ];
 ```
 - **Lines 1–14:** Imports React hooks, React Native UI components, custom theme primitives, and local notification helper functions/types from `@/lib/notifications`.
 - **Line 16 (`THRESHOLD_OPTIONS`):** Array of advance warning options in days (1, 3, 5, 7 days before food expiration).
-- **Lines 17–21 (`TIME_OPTIONS`):** Preset reminder times (8:00 AM, 9:00 AM, 6:00 PM).
+- Reminder times are not presets. `TimeWheelField` provides the native hour/minute picker and keeps the exact `HH:mm` value, including values such as `09:08`, `09:15`, and `10:12`.
 
 #### Component Signature & State Initialization (Lines 23–33)
 ```tsx
@@ -413,52 +408,16 @@ This component provides a UI card for managing push notification preferences reg
 - **Lines 62–92:** Sub-section rendered only when notifications are enabled. Renders selectable chip elements (`Pressable`) for picking how many days prior to food item expiration reminders should fire.
 
 ```tsx
-94:               <View style={styles.section}>
-95:                 <ThemedText type="smallBold">Uhrzeit der Erinnerung:</ThemedText>
-96:                 <View style={styles.chipRow}>
-97:                   {TIME_OPTIONS.map((time) => {
-98:                     const isSelected =
-99:                       settings.reminderHour === time.hour &&
-100:                       settings.reminderMinute === time.minute;
-101:                     return (
-102:                       <Pressable
-103:                         key={time.label}
-104:                         onPress={() =>
-105:                           updateSettings({
-106:                             ...settings,
-107:                             reminderHour: time.hour,
-108:                             reminderMinute: time.minute,
-109:                           })
-110:                         }
-111:                         style={[
-112:                           styles.chip,
-113:                           {
-114:                             borderColor: isSelected ? theme.accent : theme.border,
-115:                             backgroundColor: isSelected ? `${theme.accent}18` : 'transparent',
-116:                           },
-117:                         ]}>
-118:                         <ThemedText
-119:                           type="small"
-120:                           style={{
-121:                             color: isSelected ? theme.accent : theme.text,
-122:                             fontWeight: isSelected ? 'bold' : 'normal',
-123:                           }}>
-124:                           {time.label}
-125:                         </ThemedText>
-126:                       </Pressable>
-127:                     );
-128:                   })}
-129:                 </View>
-130:               </View>
-131:             </>
-132:           )}
-133:         </View>
-134:       </Card>
-135:     </View>
-136:   );
-137: }
+<TimeWheelField
+  label={t('settings.groups.app.notifications.reminderTimeLabel')}
+  value={`${String(settings.reminderHour).padStart(2, '0')}:${String(settings.reminderMinute).padStart(2, '0')}`}
+  onChange={(value) => {
+    const [hour, minute] = value.split(':').map(Number);
+    void updateSettings({ ...settings, reminderHour: hour, reminderMinute: minute });
+  }}
+/>
 ```
-- **Lines 94–137:** Chip list for selecting the reminder hour and minute. Visual highlighting (accent border and semi-transparent accent background `${theme.accent}18`) indicates the selected choice.
+- **Lines 94–104:** `TimeWheelField` opens the native hour/minute picker. The handler validates the `HH:mm` value and persists both fields unchanged, so non-preset minutes such as `09:08`, `09:15`, and `10:12` remain selected after reopening the screen.
 
 #### Styles (Lines 139–168)
 ```tsx
