@@ -42,9 +42,14 @@ Designentscheidungen.
 
 Das Repo-weite Removal-Gate
 `test/conventions/nativewind-removal.test.ts` schützt diesen Endzustand. Es
-prüft den aktiven `src/`-Baum auf `className`,
-`contentContainerClassName` und NativeWind-Imports; historische Migrationsdoku
-außerhalb von `src/` bleibt ausdrücklich außerhalb des Scopes.
+prüft JavaScript/TypeScript unter `src/` und im Root per Syntaxbaum auf verbotene
+Props (auch in Objekt-Spreads) und NativeWind-/Tailwind-/CSS-Interop-Referenzen.
+Root-Konfiguration, direkte Pakete in `package.json` und im Bun-Root-Workspace
+sowie entfernte Styling-Assets und aktive Tailwind-CSS-Direktiven sind ebenfalls
+abgesichert. Kommentare, historische Docs und eigenständige Tools bleiben
+ausgenommen; das transitive Tailwind-Paket der Rozenite-Oberfläche ist keine
+App-Styling-Abhängigkeit. Gegenbeispiele prüfen die Erkennung in temporären
+Dateibäumen.
 
 Der kanonische allgemeine `Button`, `TextField`, `SegmentedControl`, `Txt` und
 `Surface` werden direkt aus `src/constants/ui.tsx` importiert.

@@ -77,8 +77,11 @@ Migrationsaufwand erzeugen, ohne strukturellen Vorteil.
   NativeWind-/Tailwind-Pakete, keine Babel-/Metro-Integration, kein
   `global.css` als aktive Quelle und kein `className` in Komponenten.
 - Nachweis: `bun run test test/conventions/nativewind-removal.test.ts` scannt
-  alle TypeScript-Quellen in `src/` auf `className`,
-  `contentContainerClassName` und NativeWind-Imports. Historische Docs liegen
-  außerhalb dieses aktiven Scopes.
+  JavaScript/TypeScript unter `src/` und im Root per Syntaxbaum auf verbotene
+  Props einschließlich Objekt-Spreads und Legacy-Paketreferenzen. Root-Konfig,
+  direkte Manifest-/Bun-Workspace-Abhängigkeiten, entfernte Styling-Assets und
+  aktive Tailwind-CSS-Direktiven werden ebenfalls geprüft. Historische Docs
+  und eigenständige Tools einschließlich Rozenites transitivem Tailwind-Paket
+  liegen außerhalb der App-Styling-Grenze.
 - iOS- und Android-Geräteprüfung belegen essenzielle interaktive Flächen.
 - Abschluss wird in `fam-978.68` dokumentiert.

@@ -116,10 +116,13 @@ Retirement wartet auf alle Consumer-Slices.
   `contentContainerClassName`-Verwendung.
 - Audit-Stand 2026-09-14: Der aktive Scan findet keine Treffer mehr in
   `src/`. Die verbindliche Regression-Schranke ist
-  `test/conventions/nativewind-removal.test.ts`; sie prüft alle TypeScript-
-  Quellen im aktiven Baum auf beide verbotenen Props sowie auf
-  NativeWind-Imports. Historische Dokumentation liegt außerhalb von `src/`
-  und wird nicht als aktiver Code bewertet.
+  `test/conventions/nativewind-removal.test.ts`; sie prüft JavaScript/TypeScript
+  unter `src/` und im Root per Syntaxbaum auf beide verbotenen Props (auch in
+  Objekt-Spreads) und Legacy-Paketreferenzen. Root-Konfiguration, direkte
+  Manifest-/Bun-Workspace-Abhängigkeiten, entfernte Styling-Assets und aktive
+  Tailwind-CSS-Direktiven sind eingeschlossen. Gegenbeispiele sichern die
+  Erkennung ab. Historische Docs und eigenständige Tools einschließlich
+  Rozenites transitivem Tailwind-Paket bleiben außerhalb der App-Styling-Grenze.
 - Jeder Domänenblock hat seine fokussierten Verhaltenstests bestanden.
 - Es gibt keine Änderung an Datenbank, RLS, SQLite, Outbox oder Sync.
 

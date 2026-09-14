@@ -19,7 +19,8 @@ function getSourceFiles(directory: string, insideSource = false): string[] {
     if (entry.isDirectory()) {
       return insideSource || entry.name === 'src' ? getSourceFiles(filePath, true) : [];
     }
-    return entry.isFile() && (SOURCE_FILE.test(entry.name) || (!insideSource && JSON_CONFIG.test(entry.name)))
+    return entry.isFile() &&
+      (SOURCE_FILE.test(entry.name) || (!insideSource && JSON_CONFIG.test(entry.name)))
       ? [filePath]
       : [];
   });
@@ -44,60 +45,91 @@ function objectProperty(node: ts.Node, name: string): ts.Expression {
 }
 
 function findViolations(root: string): string[] {
-  return getSourceFiles(root).sort().flatMap((filePath) => {
-    const relativePath = path.relative(root, filePath).split(path.sep).join('/');
-    const filename = path.basename(filePath);
-    if (RETIRED_ASSET.test(filename)) return [`${relativePath}:1`];
+  return getSourceFiles(root)
+    .sort()
+    .flatMap((filePath) => {
+      const relativePath = path.relative(root, filePath).split(path.sep).join('/');
+      const filename = path.basename(filePath);
+      if (RETIRED_ASSET.test(filename)) return [`${relativePath}:1`];
 
-    const text = fs.readFileSync(filePath, 'utf8');
-    if (filePath.endsWith('.css')) {
-      const withoutComments = text.replace(/\/\*[\s\S]*?\*\//gu, (comment) => comment.replace(/[^\n]/gu, ' '));
-      return [...withoutComments.matchAll(/@(?:tailwind|apply|theme|utility|custom-variant|variant|source|config|plugin)\b|@import\s+['"](?:tailwindcss|nativewind)(?:\/|['"])/gu)]
-        .map((match) => `${relativePath}:${text.slice(0, match.index).split('\n').length}`);
-    }
-
-    const source = JSON_CONFIG.test(filename)
-      ? ts.parseJsonText(filePath, text)
-      : ts.createSourceFile(filePath, text, ts.ScriptTarget.Latest, true);
-    const violations = new Set<string>();
-    const referencePattern = path.dirname(filePath) === root ? CONFIG_REFERENCE : MODULE_REFERENCE;
-    const report = (node: ts.Node) => {
-      const { line } = source.getLineAndCharacterOfPosition(node.getStart(source));
-      violations.add(`${relativePath}:${line + 1}`);
-    };
-
-    function visit(node: ts.Node) {
-      if ((ts.isStringLiteralLike(node) || ts.isIdentifier(node)) && referencePattern.test(node.text)) {
-        report(node);
+      const text = fs.readFileSync(filePath, 'utf8');
+      if (filePath.endsWith('.css')) {
+        const withoutComments = text.replace(/\/\*[\s\S]*?\*\//gu, (comment) =>
+          comment.replace(/[^\n]/gu, ' '),
+        );
+        return [
+          ...withoutComments.matchAll(
+            /@(?:tailwind|apply|theme|utility|custom-variant|variant|source|config|plugin)\b|@import\s+['"](?:tailwindcss|nativewind)(?:\/|['"])/gu,
+          ),
+        ].map((match) => `${relativePath}:${text.slice(0, match.index).split('\n').length}`);
       }
 
-      // Reads in absence assertions remain legal; declarations and writes do not.
-      if (ts.isJsxAttribute(node) || ts.isPropertyAssignment(node) || ts.isShorthandPropertyAssignment(node) || ts.isPropertySignature(node) || ts.isPropertyDeclaration(node)) {
-        if (FORBIDDEN_PROPS.has(propertyName(node.name) ?? '')) report(node.name);
-      }
-      if (ts.isBinaryExpression(node) && node.operatorToken.kind >= ts.SyntaxKind.FirstAssignment && node.operatorToken.kind <= ts.SyntaxKind.LastAssignment) {
-        const target = node.left;
-        const name = ts.isPropertyAccessExpression(target) ? target.name : ts.isElementAccessExpression(target) ? target.argumentExpression : undefined;
-        if (FORBIDDEN_PROPS.has(propertyName(name) ?? '')) report(target);
-      }
-      ts.forEachChild(node, visit);
-    }
+    const isJson = JSON_CONFIG.test(filename);
+    const source = isJson
+        ? ts.parseJsonText(filePath, text)
+        : ts.createSourceFile(filePath, text, ts.ScriptTarget.Latest, true);
+      const violations = new Set<string>();
+      const referencePattern =
+        path.dirname(filePath) === root ? CONFIG_REFERENCE : MODULE_REFERENCE;
+      const report = (node: ts.Node) => {
+        const { line } = source.getLineAndCharacterOfPosition(node.getStart(source));
+        violations.add(`${relativePath}:${line + 1}`);
+      };
 
-    if (filename === 'bun.lock') {
-      // Rozenite has an independent Tailwind UI; only the app workspace is forbidden.
-      const statement = source.statements[0];
-      if (!statement || !ts.isExpressionStatement(statement)) throw new Error('Ungültiges Bun-Lockfile.');
-      visit(objectProperty(objectProperty(statement.expression, 'workspaces'), ''));
-    } else {
-      visit(source);
-      for (const reference of source.typeReferenceDirectives) {
-        if (MODULE_REFERENCE.test(reference.fileName)) {
-          violations.add(`${relativePath}:${source.getLineAndCharacterOfPosition(reference.pos).line + 1}`);
+      function visit(node: ts.Node) {
+        if (
+          (ts.isStringLiteralLike(node) || ts.isIdentifier(node)) &&
+          referencePattern.test(node.text)
+        ) {
+          report(node);
+        }
+
+        // Reads in absence assertions remain legal; declarations and writes do not.
+        if (
+          ts.isJsxAttribute(node) ||
+          ts.isPropertyAssignment(node) ||
+          ts.isShorthandPropertyAssignment(node) ||
+          ts.isPropertySignature(node) ||
+          ts.isPropertyDeclaration(node)
+        ) {
+          if (FORBIDDEN_PROPS.has(propertyName(node.name) ?? '')) report(node.name);
+        }
+        if (
+          ts.isBinaryExpression(node) &&
+          node.operatorToken.kind >= ts.SyntaxKind.FirstAssignment &&
+          node.operatorToken.kind <= ts.SyntaxKind.LastAssignment
+        ) {
+          const target = node.left;
+          const name = ts.isPropertyAccessExpression(target)
+            ? target.name
+            : ts.isElementAccessExpression(target)
+              ? target.argumentExpression
+              : undefined;
+          if (FORBIDDEN_PROPS.has(propertyName(name) ?? '')) report(target);
+        }
+        ts.forEachChild(node, visit);
+      }
+
+      if (filename === 'bun.lock') {
+        // Rozenite has an independent Tailwind UI; only the app workspace is forbidden.
+        const statement = source.statements[0];
+        if (!statement || !ts.isExpressionStatement(statement))
+          throw new Error('Ungültiges Bun-Lockfile.');
+        visit(objectProperty(objectProperty(statement.expression, 'workspaces'), ''));
+      } else {
+        visit(source);
+      if (!isJson) {
+        for (const reference of source.typeReferenceDirectives) {
+          if (MODULE_REFERENCE.test(reference.fileName)) {
+            violations.add(
+              `${relativePath}:${source.getLineAndCharacterOfPosition(reference.pos).line + 1}`,
+            );
+          }
         }
       }
-    }
-    return [...violations];
-  });
+      }
+      return [...violations];
+    });
 }
 
 describe('NativeWind-Removal-Gate', () => {
@@ -185,7 +217,9 @@ describe('Removal-Gate erkennt Wiedereinführungen', () => {
   );
 
   it('erlaubt Kommentare, Textbeispiele, Unistyles und unabhängige Tools', () => {
-    writeFixture('src/view.tsx', `
+    writeFixture(
+      'src/view.tsx',
+      `
       // import "nativewind"; <View className="p-4" />
       /* require("tailwindcss"); */
       import { StyleSheet } from 'react-native-unistyles';
@@ -195,12 +229,19 @@ describe('Removal-Gate erkennt Wiedereinführungen', () => {
       expect(button).not.toHaveProp('className');
       const styles = StyleSheet.create(theme => ({ root: { padding: theme.space.md } }));
       export const View = () => <Txt style={styles.root}>className ist entfernt</Txt>;
-    `);
+    `,
+    );
     writeFixture('docs/specs/nativewind-styling/example.tsx', '<View className="p-4" />;');
     writeFixture('tools/preview/view.tsx', '<View className="p-4" />;');
     writeFixture('src/icon.module.css', '/* @tailwind utilities; */\n.icon { opacity: 1; }');
-    writeFixture('babel.config.js', 'module.exports = { plugins: ["react-native-unistyles/plugin"] };');
-    writeFixture('bun.lock', '{"workspaces":{"":{"dependencies":{"react-native-unistyles":"3.3.0"}}},"packages":{"tailwindcss":["tailwindcss@4.2.2"]}}');
+    writeFixture(
+      'babel.config.js',
+      'module.exports = { plugins: ["react-native-unistyles/plugin"] };',
+    );
+    writeFixture(
+      'bun.lock',
+      '{"workspaces":{"":{"dependencies":{"react-native-unistyles":"3.3.0"}}},"packages":{"tailwindcss":["tailwindcss@4.2.2"]}}',
+    );
 
     expect(findViolations(root)).toEqual([]);
   });

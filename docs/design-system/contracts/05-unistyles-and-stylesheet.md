@@ -80,6 +80,11 @@ const styles = StyleSheet.create((theme) => ({
 Eine vollständige Migration hat keine unbegründeten aktiven `className`-Verbraucher.
 Der verbindliche Nachweis ist
 `bun run test test/conventions/nativewind-removal.test.ts`. Das Gate scannt
-alle TypeScript-Quellen unter `src/` und meldet beide verbotenen Props sowie
-NativeWind-Imports. Historische Docs liegen außerhalb des aktiven `src/`-Baums
-und werden deshalb nicht als Produktcode bewertet.
+JavaScript/TypeScript unter `src/` und im Root per Syntaxbaum und meldet beide
+verbotenen Props auch in Objekt-Spreads sowie NativeWind-/Tailwind-/CSS-Interop-
+Referenzen. Es prüft außerdem Root-Konfiguration, direkte Pakete in
+`package.json` und im Bun-Root-Workspace, entfernte Styling-Assets sowie aktive
+Tailwind-CSS-Direktiven. Kommentare, historische Docs und eigenständige Tools
+bleiben ausgenommen. Rozenites transitive Tailwind-Abhängigkeit bleibt zulässig,
+weil sie keine App-Styling-Quelle ist. Positive und negative Gegenbeispiele
+verwenden temporäre Dateibäume und verändern keine App-Dateien.
