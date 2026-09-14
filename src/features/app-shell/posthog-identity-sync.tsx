@@ -13,23 +13,22 @@ export function PostHogIdentitySync() {
   const posthogEnabled = useAnalyticsSettingsStore(
     (state) => state.overrides.enabled !== false && state.overrides.providers?.posthog !== false,
   );
+  const posthogClient = getPostHogClient();
 
   useEffect(() => {
     if (isLoading) return;
     setTelemetryUserId(userId);
-    if (!posthogEnabled || !isPostHogConfigured()) return;
-    const client = getPostHogClient();
-    if (!client) return;
+    if (!posthogEnabled || !isPostHogConfigured() || !posthogClient) return;
 
     if (userId) {
-      client.identify(userId, {
+      posthogClient.identify(userId, {
         ...(session?.user.email ? { email: session.user.email } : {}),
         userId,
       });
     } else {
-      client.reset();
+      posthogClient.reset();
     }
-  }, [isLoading, posthogEnabled, userId, session?.user.email]);
+  }, [isLoading, posthogEnabled, posthogClient, userId, session?.user.email]);
 
   useEffect(() => {
     // Feature-Flags beim Vordergrundwechsel aktualisieren.

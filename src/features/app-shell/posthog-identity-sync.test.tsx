@@ -89,6 +89,23 @@ describe('PostHogIdentitySync', () => {
     expect(mockReset).not.toHaveBeenCalled();
   });
 
+  it('identifiziert den User wenn der PostHog-Client nach dem ersten Render verfuegbar wird', async () => {
+    mockConfigured = false;
+    mockSession = { user: { id: 'user-1', email: 'test@example.com' } };
+
+    const view = await render(<PostHogIdentitySync />);
+
+    expect(mockIdentify).not.toHaveBeenCalled();
+
+    mockConfigured = true;
+    await view.rerender(<PostHogIdentitySync />);
+
+    expect(mockIdentify).toHaveBeenCalledWith('user-1', {
+      email: 'test@example.com',
+      userId: 'user-1',
+    });
+  });
+
   it('laedt Feature-Flags nicht innerhalb des automatischen 12-Stunden-Intervalls', async () => {
     await render(<PostHogIdentitySync />);
 
