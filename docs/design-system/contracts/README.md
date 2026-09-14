@@ -17,9 +17,9 @@ ist kein Nachweis, dass App-Code und Referenzseite bereits vollständig entsprec
 - **Nachweis:** gezielter Test, Codeprüfung oder dokumentierte Geräteprüfung.
   Ein Screenshot von Web belegt kein natives Verhalten.
 
-Die [Konsolidierungs-Spezifikation](../../specs/ui-consolidation/SPEC.md) enthält
-Begründung, Umfang und Abnahmekriterien der Überarbeitung. Die Contracts besitzen
-weiterhin die laufenden Regeln; die Spec ist keine parallele Designquelle.
+Die abgeschlossene UI-Konsolidierung ist in den Beads-Aufgaben `fam-978` und
+`fam-7xer` nachverfolgbar. Die Contracts besitzen die laufenden Regeln; ein
+separater Konsolidierungsplan ist keine parallele Designquelle.
 `docs/specs/nativewind-styling/` bleibt historische Dokumentation.
 
 Die Dokumentationsüberarbeitung autorisiert keine App-Codeänderung. Bei späterer

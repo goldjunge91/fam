@@ -131,7 +131,7 @@ Nicht verfügbare Geräte oder Testdaten werden als fehlender Nachweis benannt,
 niemals als bestanden. Keine vollständige Testsuite, pauschale Coverage-Quote oder
 neue Screenshot-Infrastruktur allein zur Erfüllung dieses Vertrags.
 
-Die [Spec](../../specs/ui-consolidation/SPEC.md) enthält konkrete bestehende
-Testbefehle und übergreifende Abnahmekriterien. Die Referenzseite zeigt echte
+Die abgeschlossene Konsolidierung ist in den Beads-Aufgaben `fam-978` und
+`fam-7xer` nachverfolgbar. Die Referenzseite zeigt echte
 Produktkomponenten; ein positives Beispiel dort ist noch kein Nachweis für jeden
 Produktverbraucher.
