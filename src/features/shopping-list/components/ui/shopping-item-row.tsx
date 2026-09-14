@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
 
 import { Txt } from '@/constants/ui';
-import { formatEuro } from '@/lib/format-currency';
-import { formatAmount, formatPackageHint } from '@/lib/package-size';
+import { formatEuro } from '@/lib/format/format-currency';
+import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
 
 import type { LocalShoppingItem } from '../../hooks/use-shopping-list';
 import { shoppingListStyles } from './shopping-list-styles';

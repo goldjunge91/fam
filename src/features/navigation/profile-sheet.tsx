@@ -11,8 +11,8 @@ import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useProfile } from '@/features/profile/api';
+import { getInitials } from '@/features/profile/domain/initials';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
-import { getInitials } from '@/lib/initials';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 export function ProfileSheet() {

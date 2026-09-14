@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { Press, Txt } from '@/constants/ui';
-import { formatEuro } from '@/lib/format-currency';
+import { formatEuro } from '@/lib/format/format-currency';
 
 interface StoreSummaryCardProps {
   name: string;

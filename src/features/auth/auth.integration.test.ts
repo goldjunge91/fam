@@ -1,7 +1,6 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
-
-import { createChunkedStorage, type KeyValueStore } from '@/lib/chunked-storage';
 import type { Database } from '@/lib/database.types';
+import { createChunkedStorage, type KeyValueStore } from '@/lib/storage/chunked-storage';
 
 /**
  * Auth gegen die Remote/Lokale Supabase-Instanz — keine Testdoubles.

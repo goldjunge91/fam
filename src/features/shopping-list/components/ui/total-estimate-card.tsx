@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Surface, Txt } from '@/constants/ui';
-import { formatEuro } from '@/lib/format-currency';
+import { formatEuro } from '@/lib/format/format-currency';
 
 interface TotalEstimateCardProps {
   totalEstimate: number;

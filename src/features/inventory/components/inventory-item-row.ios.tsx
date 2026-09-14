@@ -7,7 +7,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
-import { formatAmount, formatPackageHint } from '@/lib/package-size';
+import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
 
 import type { ExpiryBucket } from '../expiry';
 import { groupInventoryItems, type InventoryItemGroup } from '../grouped-items';

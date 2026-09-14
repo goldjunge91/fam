@@ -1,4 +1,4 @@
-import { rankByName } from '@/lib/rank-by-name';
+import { rankByName } from '@/features/calorie-tracking/domain/rank-by-name';
 
 export type FoodHistoryEntry = {
   name: string;

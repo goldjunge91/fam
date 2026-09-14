@@ -1,6 +1,6 @@
 import { useSession } from '@/features/auth/session-provider';
 import { useProfile } from '@/features/profile/api';
-import { getInitials } from '@/lib/initials';
+import { getInitials } from '@/features/profile/domain/initials';
 
 type ProfileAvatar = {
   initials: string;

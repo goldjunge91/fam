@@ -6,7 +6,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { Button, CloseButton, Press, TextField, Txt } from '@/constants/ui';
-import { formatAmount, formatPackageHint } from '@/lib/package-size';
+import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
 import { type StorageKind, storageKindForCategory } from '../domain-logik/shopping-categories';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 
