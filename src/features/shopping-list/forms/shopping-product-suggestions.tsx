@@ -40,20 +40,10 @@ const styles = StyleSheet.create((theme) => ({
     minHeight: 75,
     justifyContent: 'center',
     padding: theme.space.sm,
-    borderWidth: 1,
-    borderRadius: theme.radius.md,
   },
   cardContainer: {
     flex: 1,
     minWidth: 0,
-  },
-  selected: {
-    backgroundColor: theme.accent,
-    borderColor: theme.accent,
-  },
-  idle: {
-    backgroundColor: theme.backgroundElement,
-    borderColor: theme.border,
   },
   grid: {
     flexDirection: 'row',
@@ -119,15 +109,16 @@ function SuggestionCard({
         size,
       })}
       haptic="selection"
+      selected={selected}
       containerStyle={styles.cardContainer}
-      style={[styles.card, selected ? styles.selected : styles.idle]}>
+      style={styles.card}>
       <Txt variant="label" weight="700" numberOfLines={1}>
         {suggestion.name}
       </Txt>
-      <Txt variant="caption" tone="secondary">
+      <Txt variant="caption" tone="primary">
         {size}
       </Txt>
-      <Txt variant="caption" tone="secondary" numberOfLines={1}>
+      <Txt variant="caption" tone="primary" numberOfLines={1}>
         {suggestion.last_store_name
           ? t('shoppingList.productSuggestions.lastStore', { store: suggestion.last_store_name })
           : t('shoppingList.productSuggestions.noStore')}

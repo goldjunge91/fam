@@ -518,7 +518,8 @@ declare module 'react-native-unistyles' {
 StyleSheet.configure({
   themes: unistylesThemes,
   settings: {
-    // Adaptive themes: Unistyles follows OS colour scheme automatically.
+    // The system preference is resolved by Unistyles. ThemeProvider toggles
+    // this runtime setting off only for an explicit light/dark preference.
     adaptiveThemes: true,
   },
 });

@@ -4,6 +4,7 @@ import { Text } from 'react-native';
 import * as Reanimated from 'react-native-reanimated';
 
 import {
+  colorsDark,
   font,
   colorsLight as mockColorsLight,
   makeAccent as mockMakeAccent,
@@ -82,6 +83,27 @@ const reducedMotionMock = Reanimated.useReducedMotion as jest.MockedFunction<
 >;
 const withSpringSpy = jest.spyOn(Reanimated, 'withSpring');
 const withTimingSpy = jest.spyOn(Reanimated, 'withTiming');
+
+function contrastRatio(background: string, foreground: string) {
+  const relativeLuminance = (hex: string) => {
+    const channels = hex
+      .slice(1)
+      .match(/../g)
+      ?.map((channel) => Number.parseInt(channel, 16) / 255);
+    if (channels?.length !== 3) throw new Error(`Invalid color: ${hex}`);
+    const linear = channels.map((channel) =>
+      channel <= 0.03928 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4,
+    );
+    return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2];
+  };
+
+  const backgroundLuminance = relativeLuminance(background);
+  const foregroundLuminance = relativeLuminance(foreground);
+  return (
+    (Math.max(backgroundLuminance, foregroundLuminance) + 0.05) /
+    (Math.min(backgroundLuminance, foregroundLuminance) + 0.05)
+  );
+}
 
 const buttonVariants = ['primary', 'secondary', 'ghost', 'danger', 'accent', 'link'] as const;
 const buttonSizes = ['sm', 'md', 'lg'] as const;
@@ -162,6 +184,33 @@ describe('core theme UI primitives', () => {
     expect(onPress).toHaveBeenCalledTimes(1);
     expect(withTimingSpy).not.toHaveBeenCalled();
     expect(withSpringSpy).not.toHaveBeenCalled();
+  });
+
+  it('keeps selected and idle surfaces in the central Press recipe', async () => {
+    await render(
+      <>
+        <Press selected accessibilityRole="button" accessibilityLabel="Ausgewählt" />
+        <Press selected={false} accessibilityRole="button" accessibilityLabel="Nicht ausgewählt" />
+      </>,
+    );
+
+    expect(screen.getByRole('button', { name: 'Ausgewählt' })).toHaveStyle({
+      backgroundColor: mockColorsLight.backgroundSoft,
+      borderColor: mockColorsLight.accent,
+      borderRadius: radius.md,
+    });
+    expect(screen.getByRole('button', { name: 'Nicht ausgewählt' })).toHaveStyle({
+      backgroundColor: mockColorsLight.backgroundElement,
+      borderColor: mockColorsLight.border,
+      borderRadius: radius.md,
+    });
+  });
+
+  it('keeps selected-surface text readable in both palettes', () => {
+    expect(
+      contrastRatio(mockColorsLight.backgroundSoft, mockColorsLight.text),
+    ).toBeGreaterThanOrEqual(4.5);
+    expect(contrastRatio(colorsDark.backgroundSoft, colorsDark.text)).toBeGreaterThanOrEqual(4.5);
   });
 
   it('keeps success surfaces in the central Press and TextField recipes', async () => {

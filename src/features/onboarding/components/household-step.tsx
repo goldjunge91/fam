@@ -47,16 +47,6 @@ const styles = StyleSheet.create((theme, rt) => ({
   choice: {
     gap: theme.space.xs,
     padding: theme.space.lg,
-    borderWidth: theme.borderWidth.base,
-    borderRadius: theme.radius.sm,
-  },
-  choiceSelected: {
-    backgroundColor: theme.accent,
-    borderColor: theme.accent,
-  },
-  choiceIdle: {
-    backgroundColor: theme.backgroundElement,
-    borderColor: theme.border,
   },
   error: {
     marginTop: theme.space.xs,
@@ -160,11 +150,12 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
           accessibilityLabel="Neuen Haushalt erstellen"
           accessibilityState={{ selected: choice === 'create' }}
           haptic="selection"
-          style={[styles.choice, choice === 'create' ? styles.choiceSelected : styles.choiceIdle]}>
-          <Txt variant="body" tone={choice === 'create' ? 'onAccent' : 'primary'} weight="700">
+          selected={choice === 'create'}
+          style={styles.choice}>
+          <Txt variant="body" tone="primary" weight="700">
             🏠 Neuen Haushalt erstellen
           </Txt>
-          <Txt variant="label" tone={choice === 'create' ? 'onAccent' : 'secondary'}>
+          <Txt variant="label" tone="primary">
             Erstelle eine eigene Gruppe für deine Familie oder WG und lade Mitglieder ein.
           </Txt>
         </Press>
@@ -175,11 +166,12 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
           accessibilityLabel="Einem Haushalt beitreten"
           accessibilityState={{ selected: choice === 'join' }}
           haptic="selection"
-          style={[styles.choice, choice === 'join' ? styles.choiceSelected : styles.choiceIdle]}>
-          <Txt variant="body" tone={choice === 'join' ? 'onAccent' : 'primary'} weight="700">
+          selected={choice === 'join'}
+          style={styles.choice}>
+          <Txt variant="body" tone="primary" weight="700">
             🔗 Einem Haushalt beitreten
           </Txt>
-          <Txt variant="label" tone={choice === 'join' ? 'onAccent' : 'secondary'}>
+          <Txt variant="label" tone="primary">
             Gib den Einladungscode ein, den du erhalten hast.
           </Txt>
         </Press>
@@ -192,14 +184,15 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
           }
           accessibilityState={{ selected: choice === 'solo' }}
           haptic="selection"
-          style={[styles.choice, choice === 'solo' ? styles.choiceSelected : styles.choiceIdle]}>
-          <Txt variant="body" tone={choice === 'solo' ? 'onAccent' : 'primary'} weight="700">
+          selected={choice === 'solo'}
+          style={styles.choice}>
+          <Txt variant="body" tone="primary" weight="700">
             👤{' '}
             {activeHousehold
               ? `Mit "${activeHousehold.name}" fortfahren`
               : 'Vorerst alleine nutzen'}
           </Txt>
-          <Txt variant="label" tone={choice === 'solo' ? 'onAccent' : 'secondary'}>
+          <Txt variant="label" tone="primary">
             {activeHousehold
               ? 'Behalte deinen bestehenden Haushalt und fahre fort.'
               : 'Starte mit einem privaten Bereich. Du kannst jederzeit andere einladen.'}

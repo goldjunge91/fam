@@ -12,11 +12,13 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useState,
 } from 'react';
 import { useColorScheme } from 'react-native';
 import type { MMKV } from 'react-native-mmkv';
+import { UnistylesRuntime } from 'react-native-unistyles';
 
 import { getDeviceStorage } from '@/lib/storage/device-storage';
 
@@ -103,6 +105,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   );
 
   const value = useMemo(() => resolve(pref, system, setPref), [pref, system, setPref]);
+
+  useLayoutEffect(() => {
+    const followsSystem = value.pref === 'system';
+    UnistylesRuntime.setAdaptiveThemes(followsSystem);
+
+    if (!followsSystem) {
+      UnistylesRuntime.setTheme(value.mode);
+    }
+  }, [value.mode, value.pref]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }

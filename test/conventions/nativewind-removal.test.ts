@@ -64,8 +64,8 @@ function findViolations(root: string): string[] {
         ].map((match) => `${relativePath}:${text.slice(0, match.index).split('\n').length}`);
       }
 
-    const isJson = JSON_CONFIG.test(filename);
-    const source = isJson
+      const isJson = JSON_CONFIG.test(filename);
+      const source = isJson
         ? ts.parseJsonText(filePath, text)
         : ts.createSourceFile(filePath, text, ts.ScriptTarget.Latest, true);
       const violations = new Set<string>();
@@ -118,15 +118,15 @@ function findViolations(root: string): string[] {
         visit(objectProperty(objectProperty(statement.expression, 'workspaces'), ''));
       } else {
         visit(source);
-      if (!isJson) {
-        for (const reference of source.typeReferenceDirectives) {
-          if (MODULE_REFERENCE.test(reference.fileName)) {
-            violations.add(
-              `${relativePath}:${source.getLineAndCharacterOfPosition(reference.pos).line + 1}`,
-            );
+        if (!isJson) {
+          for (const reference of source.typeReferenceDirectives) {
+            if (MODULE_REFERENCE.test(reference.fileName)) {
+              violations.add(
+                `${relativePath}:${source.getLineAndCharacterOfPosition(reference.pos).line + 1}`,
+              );
+            }
           }
         }
-      }
       }
       return [...violations];
     });

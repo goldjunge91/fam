@@ -26,6 +26,11 @@ const styles = StyleSheet.create((theme) => ({
 `global.css` und `tailwind.config.js` sind Retirement-Dateien und besitzen
 keine aktiven semantischen Klassen, Paletten oder Zustände.
 
+`StyleSheet.configure` registriert die Light-/Dark-Themes mit
+`adaptiveThemes: true`. Der `ThemeProvider` lässt diese native OS-Auflösung für
+`system` aktiv und schaltet sie nur für eine explizite `light`-/`dark`-
+Präferenz aus, bevor er den gewählten Modus setzt.
+
 ## Zuständigkeiten
 
 | Bereich | Zulässig |

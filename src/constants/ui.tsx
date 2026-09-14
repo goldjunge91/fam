@@ -94,12 +94,14 @@ function fireHaptic(kind: HapticKind) {
 
 type FeatherName = React.ComponentProps<typeof Feather>['name'];
 
-const closeButtonStyles = StyleSheet.create((theme) => ({
-  button: {
+export const iconButtonStyles = StyleSheet.create((theme) => ({
+  header: {
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.backgroundElement,
+  },
+  modalClose: {
     minWidth: theme.space.xxl + theme.space.md + theme.space.xs,
     minHeight: theme.space.xxl + theme.space.md + theme.space.xs,
-    alignItems: 'center',
-    justifyContent: 'center',
     borderRadius: theme.radius.sm,
     backgroundColor: theme.backgroundSoft,
   },
@@ -507,7 +509,7 @@ export function CloseButton({
       hitSlop={hitSlop}
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel}
-      style={[closeButtonStyles.button, style]}>
+      style={[iconButtonStyles.modalClose, style]}>
       <Feather name="x" size={font.sizes.md} color={colors.textSecondary} />
     </Press>
   );

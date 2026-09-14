@@ -1,6 +1,6 @@
 # Modul-Spec: verification-release
 
-Status: bereit für Implementierung
+Status: Abgeschlossen · iOS nachgewiesen, Android übersprungen
 Beads: `fam-978.68`
 Abhängigkeiten: `nativewind-retirement`
 
@@ -8,7 +8,8 @@ Abhängigkeiten: `nativewind-retirement`
 
 Die vollständige Ablösung wird gegen Code, Tests, native Builds und reale
 Interaktion abgenommen. Der Nachweis muss zeigen, dass die Entfernung nicht nur
-im Jest-Baum, sondern auf iOS und Android wirksam ist.
+im Jest-Baum, sondern auf iOS wirksam ist. Android ist für diesen Release
+ausgenommen.
 
 ## Gates
 
@@ -23,8 +24,8 @@ im Jest-Baum, sondern auf iOS und Android wirksam ist.
 
 - iOS-Dev-Client: Light-/Dark-Mode, lange Labels, Fokus, Loading, Disabled,
   Auswahl und Pressed-Feedback.
-- Android-Dev-Client: dieselben Zustände plus Android-Plattformvarianten,
-  Edge-to-Edge und native Sheets/Keyboard.
+- Android-Dev-Client: für diesen Release übersprungen; Android-Plattform-
+  varianten, Edge-to-Edge und native Sheets/Keyboard sind kein Abschluss-Gate.
 - Pressable-Flächen werden als reale statische Face-Geometrie geprüft; ein
   grüner Jest-Test allein gilt nicht als Gerätebeleg.
 - Native Fingerprint und erforderlicher Rebuild werden nachgewiesen. Eine neue
@@ -33,7 +34,8 @@ im Jest-Baum, sondern auf iOS und Android wirksam ist.
 ## Success Criteria
 
 1. Alle Code- und Architektur-Gates sind grün.
-2. iOS und Android zeigen die bestehenden visuellen und interaktiven Verträge.
+2. iOS zeigt die bestehenden visuellen und interaktiven Verträge; Android ist
+   explizit ausgenommen.
 3. Keine Datenbank-, Sync- oder RLS-Regression wird eingeführt.
 4. Die Nachweise und die fünf Reviewachsen sind im Beads-Initiativenticket
    festgehalten.

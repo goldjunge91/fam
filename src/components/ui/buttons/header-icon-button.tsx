@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import type { PressableProps, StyleProp, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { Press } from '@/constants/ui';
+import { iconButtonStyles, Press } from '@/constants/ui';
 
 export type HeaderIconButtonVariant = 'header' | 'modal-close';
 
@@ -17,7 +17,7 @@ type HeaderIconButtonProps = {
   variant?: HeaderIconButtonVariant;
 };
 
-const styles = StyleSheet.create((theme) => ({
+const styles = StyleSheet.create((_theme) => ({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -25,16 +25,6 @@ const styles = StyleSheet.create((theme) => ({
   header: {
     width: 39,
     height: 39,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.backgroundElement,
-  },
-  modalClose: {
-    minWidth: theme.space.xxl + theme.space.md + theme.space.xs,
-    minHeight: theme.space.xxl + theme.space.md + theme.space.xs,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.backgroundSoft,
   },
 }));
 
@@ -48,7 +38,10 @@ export function HeaderIconButton({
   style,
   variant = 'header',
 }: HeaderIconButtonProps) {
-  const sizeStyle = variant === 'modal-close' ? styles.modalClose : styles.header;
+  const sizeStyle =
+    variant === 'modal-close'
+      ? iconButtonStyles.modalClose
+      : [iconButtonStyles.header, styles.header];
   const defaultHitSlop = variant === 'modal-close' ? 6 : 3;
 
   return (

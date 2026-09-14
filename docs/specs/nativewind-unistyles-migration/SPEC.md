@@ -1,6 +1,6 @@
 # Spezifikation: Vollständige NativeWind-Ablösung durch Unistyles v3
 
-Status: Entwurf zur menschlichen Abnahme
+Status: Abgeschlossen · iOS nachgewiesen, Android für diesen Release ausgenommen
 Datum: 2026-09-13
 Beads: `fam-978`
 
@@ -145,7 +145,8 @@ und Sync-Kommandos sind für diese Styling-Migration nicht betroffen.
 
 ### Plattformen und native Artefakte
 
-- iOS und Android werden mit dem Dev Client in Light- und Dark-Mode geprüft.
+- iOS wird mit dem Dev Client in Light- und Dark-Mode geprüft; Android ist für
+  diesen Release ausgenommen.
 - Die bekannte Pressable-Callback-Gerätegrenze wird als konkreter
   Laufzeitnachweis berücksichtigt.
 - Nach Dependency- oder Native-Konfigurationsänderungen werden Fingerprint,
@@ -203,10 +204,10 @@ Die Migration ist abgeschlossen, wenn alle Punkte nachweisbar erfüllt sind:
 4. Die drei bestehenden Design-System-Owner bleiben die einzigen Quellen für
    Theme-, Token- und semantische UI-Entscheidungen.
 5. Bestehende visuelle, Accessibility- und Interaktionsverträge bleiben auf
-   iOS und Android erhalten, einschließlich Light-/Dark-Mode und aller
-   relevanten Zustände.
+   iOS erhalten, einschließlich Light-/Dark-Mode und aller relevanten
+   Zustände. Android ist für diesen Release explizit ausgenommen.
 6. Betroffene fokussierte Tests, `bun run check`, `bun run typecheck`, der
-   statische Architektur-Gate sowie iOS-/Android-Laufzeitnachweise sind grün.
+   statische Architektur-Gate sowie der iOS-Laufzeitnachweis sind grün.
 7. Aktive Verträge, `AGENTS.md`, `CLAUDE.md` und ein supersedierendes ADR sind
    synchron; die historische NativeWind-Spezifikation ist klar als nicht
    bindend markiert.

@@ -28,16 +28,7 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'space-between',
     gap: theme.space.lg,
     padding: theme.space.lg,
-    borderWidth: theme.borderWidth.base,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.backgroundElement,
     overflow: 'hidden',
-  },
-  moduleSelected: {
-    borderColor: theme.accent,
-  },
-  moduleIdle: {
-    borderColor: theme.border,
   },
   moduleCopy: {
     flex: 1,
@@ -93,10 +84,8 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
               accessibilityLabel={row.title}
               accessibilityState={{ disabled: locked, selected: state.modules[row.key] }}
               haptic="selection"
-              style={[
-                styles.moduleRow,
-                state.modules[row.key] ? styles.moduleSelected : styles.moduleIdle,
-              ]}>
+              selected={state.modules[row.key]}
+              style={styles.moduleRow}>
               <View style={[styles.moduleCopy, locked && styles.lockedContent]}>
                 <Txt variant="body" weight="700">
                   {row.icon} {row.title}

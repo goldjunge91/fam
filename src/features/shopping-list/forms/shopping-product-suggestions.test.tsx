@@ -111,9 +111,10 @@ describe('ShoppingProductSuggestions', () => {
     const selectedSuggestion = screen.getByRole('button', { name: 'Hafermilch, 1 Packung' });
     expect(selectedSuggestion).toBeSelected();
     expect(selectedSuggestion).toHaveStyle({
-      backgroundColor: colorsLight.accent,
+      backgroundColor: colorsLight.backgroundSoft,
       borderColor: colorsLight.accent,
     });
+    expect(screen.getByText('1 Packung')).toHaveStyle({ color: colorsLight.text });
     expect(screen.getByText('Zuletzt: Rewe')).toBeOnTheScreen();
     expect(screen.queryByRole('button', { name: 'Joghurt, 2 Packungen' })).not.toBeOnTheScreen();
 

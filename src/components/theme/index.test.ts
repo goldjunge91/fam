@@ -2,7 +2,7 @@ import { act, renderHook } from '@testing-library/react-native';
 import { createElement, type ReactNode } from 'react';
 import * as ReactNative from 'react-native';
 import type { MMKV } from 'react-native-mmkv';
-import { StyleSheet } from 'react-native-unistyles';
+import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles';
 
 import { Colors } from '@/components/theme/index';
 import { getDeviceStorage } from '@/lib/storage/device-storage';
@@ -98,11 +98,15 @@ describe('fam theme tokens', () => {
 describe('Fam theme provider', () => {
   let storage: ThemeStorage;
   let colorSchemeMock: jest.SpyInstance;
+  let setThemeMock: jest.SpyInstance;
+  let setAdaptiveThemesMock: jest.SpyInstance;
 
   beforeEach(() => {
     storage = createThemeStorage();
     jest.mocked(getDeviceStorage).mockReturnValue(storage as MMKV);
     colorSchemeMock = jest.spyOn(ReactNative, 'useColorScheme').mockReturnValue('light');
+    setThemeMock = jest.spyOn(UnistylesRuntime, 'setTheme');
+    setAdaptiveThemesMock = jest.spyOn(UnistylesRuntime, 'setAdaptiveThemes');
   });
 
   afterEach(() => {
@@ -117,6 +121,8 @@ describe('Fam theme provider', () => {
     expect(result.current.pref).toBe(DEFAULT_THEME_PREF);
     expect(result.current.mode).toBe('dark');
     expect(result.current.colors).toBe(require('./index').colorsDark);
+    expect(setAdaptiveThemesMock).toHaveBeenLastCalledWith(true);
+    expect(setThemeMock).not.toHaveBeenCalled();
   });
 
   it.each([
@@ -133,6 +139,8 @@ describe('Fam theme provider', () => {
 
       expect(result.current.pref).toBe(pref);
       expect(result.current.mode).toBe(mode);
+      expect(setAdaptiveThemesMock).toHaveBeenLastCalledWith(false);
+      expect(setThemeMock).toHaveBeenLastCalledWith(mode);
     },
   );
 
@@ -145,6 +153,8 @@ describe('Fam theme provider', () => {
 
     expect(storage.set).toHaveBeenCalledWith(THEME_KEY, 'dark');
     expect(result.current.pref).toBe('dark');
+    expect(setAdaptiveThemesMock).toHaveBeenLastCalledWith(false);
+    expect(setThemeMock).toHaveBeenLastCalledWith('dark');
 
     await act(async () => {
       storage.set(THEME_KEY, 'light');
@@ -152,6 +162,7 @@ describe('Fam theme provider', () => {
 
     expect(result.current.pref).toBe('light');
     expect(result.current.mode).toBe('light');
+    expect(setThemeMock).toHaveBeenLastCalledWith('light');
   });
 
   it('falls back to system for invalid stored values', async () => {
@@ -163,6 +174,8 @@ describe('Fam theme provider', () => {
 
     expect(result.current.pref).toBe('system');
     expect(result.current.mode).toBe('dark');
+    expect(setAdaptiveThemesMock).toHaveBeenLastCalledWith(true);
+    expect(setThemeMock).not.toHaveBeenCalled();
   });
 });
 
