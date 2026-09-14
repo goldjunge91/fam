@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Alert, Pressable, Switch, View } from 'react-native';
+import { Alert, Switch, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { HeaderIconButton } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { Button, TextField, Txt } from '@/constants/ui';
+import { Button, Divider, Press, Row, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../domain-logik/store-presets';
@@ -19,6 +21,55 @@ import {
   useSetShowPriceInMarketView,
   useShowPriceInMarketView,
 } from '../preferences/display-settings';
+
+const styles = StyleSheet.create((theme) => ({
+  flex: {
+    flex: 1,
+    minWidth: 0,
+  },
+  form: {
+    gap: theme.space.lg,
+    marginTop: theme.space.sm,
+  },
+  presetChip: {
+    minHeight: 44,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.xs,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: 6,
+    borderRadius: theme.radius.xl,
+    borderWidth: theme.borderWidth.base,
+  },
+  presetDot: {
+    width: 8,
+    height: 8,
+    borderRadius: theme.radius.xs / 2,
+  },
+  swatchButton: {
+    minWidth: 44,
+    minHeight: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  swatch: {
+    width: 32,
+    height: 32,
+    borderRadius: theme.radius.lg,
+  },
+  storeList: {
+    gap: theme.space.sm,
+  },
+  manageRow: {
+    gap: theme.space.sm,
+    paddingVertical: theme.space.lg,
+  },
+  storeColorDot: {
+    width: 14,
+    height: 14,
+    borderRadius: theme.radius.xs,
+  },
+}));
 
 export function StoresScreen() {
   const { t } = useTranslation();
@@ -137,8 +188,8 @@ export function StoresScreen() {
       back={{ label: t('settings.backToSettings'), href: '/settings' }}
       backStyle="icon">
       <Card>
-        <View className="row-between gap-two">
-          <View className="flex-1">
+        <Row justify="space-between">
+          <View style={styles.flex}>
             <Txt variant="body" weight="600">
               {t('shoppingList.stores.priceInMarketView.label')}
             </Txt>
@@ -153,12 +204,12 @@ export function StoresScreen() {
             trackColor={{ false: theme.border, true: theme.accent }}
             thumbColor={theme.surface}
           />
-        </View>
+        </Row>
       </Card>
 
       {/* Formular zum Anlegen eines neuen Supermarkts/Geschäfts */}
       <Card title={t('shoppingList.stores.addStore.title')}>
-        <View className="gap-three mt-two">
+        <View style={styles.form}>
           {/* Eingabefeld für den Marktnamen */}
           <TextField
             placeholder={t('shoppingList.stores.addStore.namePlaceholder')}
@@ -169,49 +220,50 @@ export function StoresScreen() {
           <Txt variant="body" tone="secondary">
             {t('shoppingList.stores.addStore.suggestions')}
           </Txt>
-          <View className="row-wrap">
+          <Row wrap>
             {STORE_PRESETS.map((preset) => (
-              <Pressable
+              <Press
                 key={preset.name}
                 onPress={() => setNewStoreName(preset.name)}
                 accessibilityRole="button"
-                className="store-preset-chip"
+                haptic="selection"
                 // Dynamische Preset-Farbe
-                style={{ backgroundColor: `${preset.color}18`, borderColor: preset.color }}>
+                style={[
+                  styles.presetChip,
+                  { backgroundColor: `${preset.color}18`, borderColor: preset.color },
+                ]}>
                 {/* Dynamische Preset-Farbe */}
-                <View className="store-preset-dot" style={{ backgroundColor: preset.color }} />
+                <View style={[styles.presetDot, { backgroundColor: preset.color }]} />
                 <Txt
                   variant="body"
                   weight="600"
                   // Dynamische Preset-Farbe
-                  style={{ color: preset.color }}>
+                  color={preset.color}>
                   {preset.name}
                 </Txt>
-              </Pressable>
+              </Press>
             ))}
-          </View>
+          </Row>
 
           {/* Farbauswahl-Palette für den Markt */}
           <Txt variant="body" tone="secondary">
             {t('shoppingList.stores.addStore.color')}
           </Txt>
-          <View className="row-wrap">
+          <Row wrap>
             {STORE_COLOR_PALETTE.map((color) => (
-              <Pressable
+              <Press
                 key={color}
                 onPress={() => setNewStoreColor(color)}
                 accessibilityRole="button"
                 accessibilityLabel={t('shoppingList.stores.addStore.colorAccessibility', { color })}
                 accessibilityState={{ selected: newStoreColor === color }}
-                className="store-color-swatch"
-                // Dynamische Palettenfarbe & Auswahlrand
-                style={{
-                  backgroundColor: color,
-                  borderColor: newStoreColor === color ? theme.text : 'transparent',
-                }}
-              />
+                selected={newStoreColor === color}
+                style={styles.swatchButton}
+                haptic="selection">
+                <View style={[styles.swatch, { backgroundColor: color }]} />
+              </Press>
             ))}
-          </View>
+          </Row>
           {/* Hinzufügen-Button */}
           <Button
             title={t('shoppingList.stores.addStore.add')}
@@ -231,106 +283,98 @@ export function StoresScreen() {
             {t('shoppingList.stores.existingStores.empty')}
           </Txt>
         ) : (
-          <View className="col-gap">
-            {stores?.map((store) => {
+          <View style={styles.storeList}>
+            {stores?.map((store, index) => {
               const isEditing = editingId === store.id;
 
               return (
-                <View key={store.id} className="store-manage-row">
-                  {isEditing ? (
-                    /* Inline-Bearbeitung für Markt (Name & Farbe) */
-                    <View className="col-gap">
-                      <TextField value={editingName} onChangeText={setEditingName} autoFocus />
-                      <Txt variant="body" tone="secondary">
-                        {t('shoppingList.stores.addStore.color')}
-                      </Txt>
-                      <View className="row-wrap">
-                        {STORE_COLOR_PALETTE.map((color) => (
-                          <Pressable
-                            key={color}
-                            onPress={() => setEditingColor(color)}
-                            accessibilityRole="button"
-                            accessibilityLabel={t(
-                              'shoppingList.stores.addStore.colorAccessibility',
-                              {
-                                color,
-                              },
-                            )}
-                            accessibilityState={{ selected: editingColor === color }}
-                            className="store-color-swatch"
-                            // Dynamische Palettenfarbe & Auswahlrand
-                            style={{
-                              backgroundColor: color,
-                              borderColor: editingColor === color ? theme.text : 'transparent',
-                            }}
-                          />
-                        ))}
-                      </View>
-                      <View className="input-row mt-one">
-                        <View className="flex-1">
-                          <Button
-                            title={t('shoppingList.stores.existingStores.save')}
-                            onPress={() => handleUpdate(store.id)}
-                            loading={updateMutation.isPending}
-                            disabled={!editingName.trim()}
-                          />
-                        </View>
-                        <View className="flex-1">
-                          <Button
-                            title={t('shoppingList.stores.existingStores.cancel')}
-                            variant="secondary"
-                            onPress={() => {
-                              setEditingId(null);
-                              setEditingName('');
-                            }}
-                          />
-                        </View>
-                      </View>
-                    </View>
-                  ) : (
-                    <View className="row-between">
-                      <View className="row-center flex-1">
-                        {/* Dynamische Markt-Farbe */}
-                        <View
-                          className="store-color-dot"
-                          style={{ backgroundColor: store.color }}
-                        />
-                        <Txt variant="body" weight="700" numberOfLines={1} className="flex-1">
-                          {store.name}
+                <View key={store.id}>
+                  <View style={styles.manageRow}>
+                    {isEditing ? (
+                      /* Inline-Bearbeitung für Markt (Name & Farbe) */
+                      <View style={styles.storeList}>
+                        <TextField value={editingName} onChangeText={setEditingName} autoFocus />
+                        <Txt variant="body" tone="secondary">
+                          {t('shoppingList.stores.addStore.color')}
                         </Txt>
+                        <Row wrap>
+                          {STORE_COLOR_PALETTE.map((color) => (
+                            <Press
+                              key={color}
+                              onPress={() => setEditingColor(color)}
+                              accessibilityRole="button"
+                              accessibilityLabel={t(
+                                'shoppingList.stores.addStore.colorAccessibility',
+                                {
+                                  color,
+                                },
+                              )}
+                              accessibilityState={{ selected: editingColor === color }}
+                              selected={editingColor === color}
+                              style={styles.swatchButton}
+                              haptic="selection">
+                              <View style={[styles.swatch, { backgroundColor: color }]} />
+                            </Press>
+                          ))}
+                        </Row>
+                        <Row align="stretch">
+                          <View style={styles.flex}>
+                            <Button
+                              title={t('shoppingList.stores.existingStores.save')}
+                              onPress={() => handleUpdate(store.id)}
+                              loading={updateMutation.isPending}
+                              disabled={!editingName.trim()}
+                            />
+                          </View>
+                          <View style={styles.flex}>
+                            <Button
+                              title={t('shoppingList.stores.existingStores.cancel')}
+                              variant="secondary"
+                              onPress={() => {
+                                setEditingId(null);
+                                setEditingName('');
+                              }}
+                            />
+                          </View>
+                        </Row>
                       </View>
-                      <View className="row-center">
-                        <Pressable
-                          onPress={() => {
-                            setEditingId(store.id);
-                            setEditingName(store.name);
-                            setEditingColor(store.color);
-                          }}
-                          accessibilityRole="button"
-                          accessibilityLabel={t(
-                            'shoppingList.stores.existingStores.editAccessibility',
-                            {
-                              store: store.name,
-                            },
-                          )}
-                          className="btn-modal-close">
-                          <Txt variant="body">✎</Txt>
-                        </Pressable>
-                        <Pressable
-                          onPress={() => handleDelete(store.id, store.name)}
-                          accessibilityRole="button"
-                          accessibilityLabel={t(
-                            'shoppingList.stores.existingStores.deleteAccessibility',
-                            { store: store.name },
-                          )}
-                          className="btn-modal-close">
-                          <Txt variant="body" tone="danger">
-                            🗑
+                    ) : (
+                      <Row justify="space-between">
+                        <Row style={styles.flex}>
+                          {/* Dynamische Markt-Farbe */}
+                          <View style={[styles.storeColorDot, { backgroundColor: store.color }]} />
+                          <Txt variant="body" weight="700" numberOfLines={1} style={styles.flex}>
+                            {store.name}
                           </Txt>
-                        </Pressable>
-                      </View>
-                    </View>
-                  )}
+                        </Row>
+                        <Row>
+                          <HeaderIconButton
+                            onPress={() => {
+                              setEditingId(store.id);
+                              setEditingName(store.name);
+                              setEditingColor(store.color);
+                            }}
+                            label={t('shoppingList.stores.existingStores.editAccessibility', {
+                              store: store.name,
+                            })}
+                            variant="modal-close">
+                            <Txt variant="body">✎</Txt>
+                          </HeaderIconButton>
+                          <HeaderIconButton
+                            onPress={() => handleDelete(store.id, store.name)}
+                            label={t('shoppingList.stores.existingStores.deleteAccessibility', {
+                              store: store.name,
+                            })}
+                            variant="modal-close">
+                            <Txt variant="body" tone="danger">
+                              🗑
+                            </Txt>
+                          </HeaderIconButton>
+                        </Row>
+                      </Row>
+                    )}
+                  </View>
+                  {index < (stores?.length ?? 0) - 1 ? <Divider /> : null}
                 </View>
               );
             })}

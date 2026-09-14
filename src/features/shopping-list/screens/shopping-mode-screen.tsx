@@ -1,21 +1,71 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Modal, Pressable, ScrollView, View } from 'react-native';
+import { Modal, ScrollView, View } from 'react-native';
 import {
   initialWindowMetrics,
   SafeAreaProvider,
   SafeAreaView,
 } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
+import { space } from '@/components/theme';
 import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { ProgressBar } from '@/components/ui/progress-bar';
-import { Txt } from '@/constants/ui';
+import { Press, Row, Surface, Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format-currency';
 import { formatAmount } from '@/lib/package-size';
 import { makeShoppingListStyles } from '../components/ui/shopping-list-styles';
 import { colorForCategory, parseCategoryOrder } from '../domain-logik/shopping-categories';
 import { groupByCategory, type LocalShoppingItem } from '../hooks/use-shopping-list';
 import type { Store } from '../hooks/use-stores';
+
+const screenStyles = StyleSheet.create((theme) => ({
+  safeArea: {
+    flex: 1,
+  },
+  header: {
+    paddingHorizontal: theme.space.md,
+    paddingTop: theme.space.sm,
+    paddingBottom: theme.space.sm,
+  },
+  storeName: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  storeDot: {
+    width: 9,
+    height: 9,
+    borderRadius: 5,
+  },
+  progress: {
+    paddingHorizontal: theme.space.md,
+    paddingBottom: theme.space.lg,
+    gap: 6,
+  },
+  progressMeta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  list: {
+    flex: 1,
+  },
+  listContent: {
+    paddingBottom: 64,
+  },
+  finishFooter: {
+    paddingHorizontal: theme.space.md,
+    paddingBottom: theme.space.sm,
+  },
+  finishButton: {
+    width: '100%',
+    minHeight: 44,
+    paddingVertical: theme.space.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: theme.radius.lg,
+  },
+}));
 
 type ShoppingModeRowProps = {
   item: LocalShoppingItem;
@@ -33,8 +83,9 @@ export const ShoppingModeRow = memo(function ShoppingModeRow({
   }, [item, onToggle]);
 
   return (
-    <Pressable
+    <Press
       onPress={handlePress}
+      haptic="selection"
       accessibilityRole="checkbox"
       accessibilityState={{ checked: isChecked }}
       accessibilityLabel={item.name}
@@ -64,7 +115,7 @@ export const ShoppingModeRow = memo(function ShoppingModeRow({
           </Txt>
         ) : null}
       </View>
-    </Pressable>
+    </Press>
   );
 });
 
@@ -113,118 +164,117 @@ export function ShoppingModeScreen({
       animationType="slide"
       onRequestClose={onClose}
       presentationStyle="fullScreen">
-      {}
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-        <SafeAreaView className="flex-1 bg-background" edges={['top', 'bottom']}>
-          <View className="row-between px-three pt-two pb-two">
-            <View className="flex-row items-center gap-two">
-              <View
-                className="w-[9px] h-[9px] rounded-full"
-                style={{ backgroundColor: store.color }}
-              />
-              <Txt variant="body" weight="700">
-                {store.name}
-              </Txt>
-            </View>
-            <HeaderIconButton
-              onPress={onClose}
-              hitSlop={8}
-              label={t('shoppingList.shoppingMode.close')}>
-              <Txt>✕</Txt>
-            </HeaderIconButton>
-          </View>
-
-          <View className="px-three pb-three gap-[6px]">
-            <ProgressBar value={totalCount > 0 ? checkedCount / totalCount : 0} />
-            <View className="row-between">
-              <Txt variant="caption" tone="secondary">
-                {t('shoppingList.shoppingMode.checkedOfTotal', {
-                  checked: checkedCount,
-                  total: totalCount,
-                })}
-              </Txt>
-              <Txt variant="caption" tone="secondary">
-                {formatEuro(totalEstimate)}
-              </Txt>
-            </View>
-          </View>
-
-          <ScrollView
-            className="flex-1"
-            contentContainerClassName="pb-six"
-            showsVerticalScrollIndicator={false}>
-            {groups.map((group) => {
-              const catItems = group.items;
-              const catChecked = catItems.filter((i) => i.checked_at !== null).length;
-              const isComplete = catItems.length > 0 && catChecked === catItems.length;
-              const collapsed = collapsedOverrides[group.category] ?? isComplete;
-              const color = colorForCategory(group.category) ?? colors.textSecondary;
-
-              return (
-                <View key={group.category}>
-                  <Pressable
-                    onPress={() => toggleCollapse(group.category, isComplete)}
-                    accessibilityRole="button"
-                    accessibilityState={{ expanded: !collapsed }}
-                    accessibilityLabel={t('shoppingList.shoppingMode.categoryAccessibility', {
-                      category: group.category,
-                      checked: catChecked,
-                      total: catItems.length,
-                      state: collapsed
-                        ? t('shoppingList.shoppingMode.categoryCollapsed')
-                        : t('shoppingList.shoppingMode.categoryExpanded'),
-                    })}
-                    style={styles.modeCategoryHeader}>
-                    {/* Kategorie-Farbe an Punkt, Name und Zähler — nur der
-                        getönte Hintergrund/Rand ist raus (passte nicht). */}
-                    <View style={[styles.modeCategoryDot, { backgroundColor: color }]} />
-                    <Txt variant="label" weight="700" tone="primary" style={styles.categoryName}>
-                      {group.category}
-                    </Txt>
-                    <Txt variant="label" tone="primary" weight="600">
-                      {catChecked}/{catItems.length}
-                      {isComplete ? ' ✓' : ''}
-                    </Txt>
-                    <Txt
-                      variant="subheading"
-                      tone="primary"
-                      style={[
-                        styles.categoryChevron,
-                        { transform: [{ rotate: collapsed ? '-90deg' : '0deg' }] },
-                      ]}>
-                      ⌄
-                    </Txt>
-                  </Pressable>
-
-                  {!collapsed &&
-                    catItems.map((item) => (
-                      <ShoppingModeRow key={item.id} item={item} onToggle={onToggle} />
-                    ))}
-                </View>
-              );
-            })}
-          </ScrollView>
-
-          {/* Abschließen geht mit jeder Anzahl abgehakter Artikel — im Laden
-              findet man selten wirklich alles, das darf kein Blocker sein. */}
-          {checkedCount > 0 ? (
-            <View className="px-three pb-two">
-              <Pressable
-                onPress={onFinish}
-                accessibilityRole="button"
-                accessibilityLabel={t('shoppingList.shoppingMode.finishAccessibility', {
-                  checked: checkedCount,
-                  total: totalCount,
-                })}
-                className="btn-success"
-                style={{ backgroundColor: store.color }}>
-                <Txt variant="body" weight="700" tone="onAccent">
-                  {t('shoppingList.shoppingMode.finish', { count: checkedCount })}
+        <Surface tone="page" style={screenStyles.safeArea}>
+          <SafeAreaView style={screenStyles.safeArea} edges={['top', 'bottom']}>
+            <Row justify="space-between" style={screenStyles.header}>
+              <Row gap={space.sm} style={screenStyles.storeName}>
+                <View style={[screenStyles.storeDot, { backgroundColor: store.color }]} />
+                <Txt variant="body" weight="700">
+                  {store.name}
                 </Txt>
-              </Pressable>
+              </Row>
+              <HeaderIconButton
+                onPress={onClose}
+                hitSlop={8}
+                label={t('shoppingList.shoppingMode.close')}>
+                <Txt>✕</Txt>
+              </HeaderIconButton>
+            </Row>
+
+            <View style={screenStyles.progress}>
+              <ProgressBar value={totalCount > 0 ? checkedCount / totalCount : 0} />
+              <Row justify="space-between" style={screenStyles.progressMeta}>
+                <Txt variant="caption" tone="secondary">
+                  {t('shoppingList.shoppingMode.checkedOfTotal', {
+                    checked: checkedCount,
+                    total: totalCount,
+                  })}
+                </Txt>
+                <Txt variant="caption" tone="secondary">
+                  {formatEuro(totalEstimate)}
+                </Txt>
+              </Row>
             </View>
-          ) : null}
-        </SafeAreaView>
+
+            <ScrollView
+              style={screenStyles.list}
+              contentContainerStyle={screenStyles.listContent}
+              showsVerticalScrollIndicator={false}>
+              {groups.map((group) => {
+                const catItems = group.items;
+                const catChecked = catItems.filter((i) => i.checked_at !== null).length;
+                const isComplete = catItems.length > 0 && catChecked === catItems.length;
+                const collapsed = collapsedOverrides[group.category] ?? isComplete;
+                const color = colorForCategory(group.category) ?? colors.textSecondary;
+
+                return (
+                  <View key={group.category}>
+                    <Press
+                      onPress={() => toggleCollapse(group.category, isComplete)}
+                      haptic="selection"
+                      accessibilityRole="button"
+                      accessibilityState={{ expanded: !collapsed }}
+                      accessibilityLabel={t('shoppingList.shoppingMode.categoryAccessibility', {
+                        category: group.category,
+                        checked: catChecked,
+                        total: catItems.length,
+                        state: collapsed
+                          ? t('shoppingList.shoppingMode.categoryCollapsed')
+                          : t('shoppingList.shoppingMode.categoryExpanded'),
+                      })}
+                      style={styles.modeCategoryHeader}>
+                      {/* Kategorie-Farbe an Punkt, Name und Zähler — nur der
+                        getönte Hintergrund/Rand ist raus (passte nicht). */}
+                      <View style={[styles.modeCategoryDot, { backgroundColor: color }]} />
+                      <Txt variant="label" weight="700" tone="primary" style={styles.categoryName}>
+                        {group.category}
+                      </Txt>
+                      <Txt variant="label" tone="primary" weight="600">
+                        {catChecked}/{catItems.length}
+                        {isComplete ? ' ✓' : ''}
+                      </Txt>
+                      <Txt
+                        variant="subheading"
+                        tone="primary"
+                        style={[
+                          styles.categoryChevron,
+                          { transform: [{ rotate: collapsed ? '-90deg' : '0deg' }] },
+                        ]}>
+                        ⌄
+                      </Txt>
+                    </Press>
+
+                    {!collapsed &&
+                      catItems.map((item) => (
+                        <ShoppingModeRow key={item.id} item={item} onToggle={onToggle} />
+                      ))}
+                  </View>
+                );
+              })}
+            </ScrollView>
+
+            {/* Abschließen geht mit jeder Anzahl abgehakter Artikel — im Laden
+              findet man selten wirklich alles, das darf kein Blocker sein. */}
+            {checkedCount > 0 ? (
+              <View style={screenStyles.finishFooter}>
+                <Press
+                  onPress={onFinish}
+                  haptic="success"
+                  accessibilityRole="button"
+                  accessibilityLabel={t('shoppingList.shoppingMode.finishAccessibility', {
+                    checked: checkedCount,
+                    total: totalCount,
+                  })}
+                  style={[screenStyles.finishButton, { backgroundColor: store.color }]}>
+                  <Txt variant="body" weight="700" tone="onAccent">
+                    {t('shoppingList.shoppingMode.finish', { count: checkedCount })}
+                  </Txt>
+                </Press>
+              </View>
+            ) : null}
+          </SafeAreaView>
+        </Surface>
       </SafeAreaProvider>
     </Modal>
   );
