@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Press, Txt } from '@/constants/ui';
+import { Card, Press, Txt } from '@/constants/ui';
 import { useStores } from '../../hooks/use-stores';
 
 const styles = StyleSheet.create((theme) => ({
@@ -15,9 +15,6 @@ const styles = StyleSheet.create((theme) => ({
     paddingVertical: theme.space.xs,
     minHeight: 44,
     borderRadius: theme.radius.pill,
-    borderWidth: theme.borderWidth.base,
-    borderColor: theme.border,
-    backgroundColor: theme.backgroundElement,
   },
   dot: {
     width: theme.space.sm,
@@ -34,12 +31,7 @@ const styles = StyleSheet.create((theme) => ({
     width: 200,
     gap: theme.space.xs / 2,
     padding: theme.space.xs,
-    borderWidth: theme.borderWidth.base,
-    borderColor: theme.border,
-    borderRadius: theme.radius.md,
-    backgroundColor: theme.background,
     overflow: 'hidden',
-    ...theme.shadow.lg,
   },
   row: {
     minHeight: 44,
@@ -48,10 +40,6 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
     paddingHorizontal: theme.space.sm,
     paddingVertical: theme.space.sm,
-    borderRadius: theme.radius.sm,
-  },
-  rowActive: {
-    backgroundColor: theme.backgroundSoft,
   },
   rowLabel: {
     flex: 1,
@@ -122,6 +110,7 @@ export function RowStorePicker({
       <View ref={anchorRef} collapsable={false}>
         <Press
           onPress={openMenu}
+          selected={false}
           accessibilityRole="button"
           accessibilityLabel={t('shoppingList.rowStorePicker.chooseStoreAccessibility', {
             current: label,
@@ -139,7 +128,9 @@ export function RowStorePicker({
       <Modal visible={open} transparent animationType="fade" onRequestClose={closeMenu}>
         <Pressable style={styles.backdrop} onPress={closeMenu}>
           {anchor && (
-            <View
+            <Card
+              padded={false}
+              elevation="lg"
               style={[
                 styles.panel,
                 { position: 'absolute', top: anchor.y + anchor.height + 6, left: anchor.x },
@@ -150,7 +141,8 @@ export function RowStorePicker({
                 accessibilityLabel={t('shoppingList.rowStorePicker.unassigned')}
                 accessibilityState={{ selected: storeId === null }}
                 haptic="selection"
-                style={[styles.row, storeId === null && styles.rowActive]}>
+                selected={storeId === null}
+                style={styles.row}>
                 <View style={[styles.dot, { backgroundColor: theme.textMuted }]} />
                 <Txt variant="body" weight="600" style={styles.rowLabel}>
                   {t('shoppingList.rowStorePicker.unassigned')}
@@ -165,14 +157,15 @@ export function RowStorePicker({
                   accessibilityLabel={store.name}
                   accessibilityState={{ selected: storeId === store.id }}
                   haptic="selection"
-                  style={[styles.row, storeId === store.id && styles.rowActive]}>
+                  selected={storeId === store.id}
+                  style={styles.row}>
                   <View style={[styles.dot, { backgroundColor: store.color }]} />
                   <Txt variant="body" weight="600" numberOfLines={1} style={styles.rowLabel}>
                     {store.name}
                   </Txt>
                 </Press>
               ))}
-            </View>
+            </Card>
           )}
         </Pressable>
       </Modal>

@@ -4,7 +4,7 @@ import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
-import { Press, Txt } from '@/constants/ui';
+import { Card, Press, Txt } from '@/constants/ui';
 import type { Store } from '../../hooks/use-stores';
 
 export const ALL_FILTER = 'all';
@@ -21,12 +21,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   pickerGlass: {
     borderRadius: theme.radius.pill,
-  },
-  pickerFallback: {
-    borderRadius: theme.radius.pill,
-    borderWidth: theme.borderWidth.base,
-    borderColor: theme.border,
-    backgroundColor: theme.backgroundElement,
   },
   pickerOuter: {
     borderRadius: theme.radius.pill,
@@ -47,12 +41,7 @@ const styles = StyleSheet.create((theme) => ({
     width: 200,
     gap: theme.space.xs / 2,
     padding: theme.space.xs,
-    borderWidth: theme.borderWidth.base,
-    borderColor: theme.border,
-    borderRadius: theme.radius.md,
-    backgroundColor: theme.background,
     overflow: 'hidden',
-    ...theme.shadow.lg,
   },
   row: {
     minHeight: 44,
@@ -61,10 +50,6 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
     paddingHorizontal: theme.space.md,
     paddingVertical: theme.space.sm,
-    borderRadius: theme.radius.sm,
-  },
-  rowActive: {
-    backgroundColor: theme.backgroundSoft,
   },
   rowLabel: {
     flex: 1,
@@ -127,26 +112,30 @@ export function StorePickerMenu({
   return (
     <>
       <View ref={anchorRef} collapsable={false}>
-        <GlassCard
-          onPress={openMenu}
-          accessibilityRole="button"
-          accessibilityLabel={t('shoppingList.storePickerMenu.filterAccessibility', {
-            current: activeLabel,
-          })}
-          fallbackStyle={[styles.pickerLayout, styles.pickerFallback]}
-          glassStyle={[styles.pickerLayout, styles.pickerGlass]}
-          outerStyle={styles.pickerOuter}>
-          <View style={[styles.activeDot, { backgroundColor: activeDotColor }]} />
-          <Txt variant="body" weight="700" numberOfLines={1} style={styles.activeLabel}>
-            {activeLabel}
-          </Txt>
-        </GlassCard>
+        <Card padded={false} elevation="none" style={styles.pickerOuter}>
+          <GlassCard
+            onPress={openMenu}
+            accessibilityRole="button"
+            accessibilityLabel={t('shoppingList.storePickerMenu.filterAccessibility', {
+              current: activeLabel,
+            })}
+            fallbackStyle={styles.pickerLayout}
+            glassStyle={[styles.pickerLayout, styles.pickerGlass]}
+            outerStyle={styles.pickerOuter}>
+            <View style={[styles.activeDot, { backgroundColor: activeDotColor }]} />
+            <Txt variant="body" weight="700" numberOfLines={1} style={styles.activeLabel}>
+              {activeLabel}
+            </Txt>
+          </GlassCard>
+        </Card>
       </View>
 
       <Modal visible={open} transparent animationType="fade" onRequestClose={closeMenu}>
         <Pressable style={styles.backdrop} onPress={closeMenu}>
           {anchor && (
-            <View
+            <Card
+              padded={false}
+              elevation="lg"
               style={[
                 styles.panel,
                 { position: 'absolute', top: anchor.y + anchor.height + 6, left: anchor.x },
@@ -156,7 +145,8 @@ export function StorePickerMenu({
                 accessibilityRole="menuitem"
                 accessibilityState={{ selected: activeFilter === ALL_FILTER }}
                 haptic="selection"
-                style={[styles.row, activeFilter === ALL_FILTER && styles.rowActive]}>
+                selected={activeFilter === ALL_FILTER}
+                style={styles.row}>
                 <View style={[styles.activeDot, { backgroundColor: theme.text }]} />
                 <Txt variant="body" weight="600" style={styles.rowLabel}>
                   {t('shoppingList.storePickerMenu.allLists')}
@@ -173,7 +163,8 @@ export function StorePickerMenu({
                   accessibilityRole="menuitem"
                   accessibilityState={{ selected: activeFilter === store.id }}
                   haptic="selection"
-                  style={[styles.row, activeFilter === store.id && styles.rowActive]}>
+                  selected={activeFilter === store.id}
+                  style={styles.row}>
                   <View style={[styles.activeDot, { backgroundColor: store.color }]} />
                   <Txt variant="body" weight="600" numberOfLines={1} style={styles.rowLabel}>
                     {store.name}
@@ -189,7 +180,8 @@ export function StorePickerMenu({
                 accessibilityRole="menuitem"
                 accessibilityState={{ selected: activeFilter === UNASSIGNED_FILTER }}
                 haptic="selection"
-                style={[styles.row, activeFilter === UNASSIGNED_FILTER && styles.rowActive]}>
+                selected={activeFilter === UNASSIGNED_FILTER}
+                style={styles.row}>
                 <View style={[styles.activeDot, { backgroundColor: theme.textMuted }]} />
                 <Txt variant="body" weight="600" style={styles.rowLabel}>
                   {t('shoppingList.storePickerMenu.unassigned')}
@@ -198,7 +190,7 @@ export function StorePickerMenu({
                   {unassignedCount}
                 </Txt>
               </Press>
-            </View>
+            </Card>
           )}
         </Pressable>
       </Modal>
