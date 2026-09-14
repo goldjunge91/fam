@@ -1,4 +1,3 @@
-import '../global.css';
 import { ObserveRoot } from 'expo-observe';
 
 import { ScreenshotDriver } from '@/components/ScreenshotDriver';

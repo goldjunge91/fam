@@ -37,16 +37,6 @@
           "test": "all"
         }
       }
-    },
-    {
-      "includes": ["src/**/*.css"],
-      "linter": {
-        "rules": {
-          "suspicious": {
-            "noUnknownAtRules": "off"
-          }
-        }
-      }
     }
   ],
   "javascript": {
@@ -59,9 +49,6 @@
     }
   },
   "css": {
-    "parser": {
-      "tailwindDirectives": true
-    },
     "formatter": {
       "quoteStyle": "single"
     }

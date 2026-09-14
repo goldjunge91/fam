@@ -26,8 +26,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts",
-    "nativewind-env.d.ts"
+    "expo-env.d.ts"
   ],
   // Edge Functions laufen auf Deno, nicht auf React Native: Sie kennen globale
   // Namen wie `Deno`, die es im App-Bundle nicht gibt, und umgekehrt nichts aus
