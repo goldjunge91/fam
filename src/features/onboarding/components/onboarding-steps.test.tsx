@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 
 import { ModuleSelectorForm } from '@/features/onboarding/components/module-selector';
 import { PermissionsStepForm } from '@/features/onboarding/components/permissions-step';
@@ -146,6 +146,24 @@ describe('Onboarding Components', () => {
   });
 
   describe('PermissionsStepForm', () => {
+    it('stellt genau einen zugänglichen Switch pro Berechtigung bereit und toggelt per Karte', async () => {
+      const user = userEvent.setup();
+      mockRequestNotificationPermissions.mockResolvedValue(true);
+      mockGetNotificationPermissionStatus
+        .mockResolvedValueOnce({ granted: false, canAskAgain: true })
+        .mockResolvedValue({ granted: true, canAskAgain: false });
+
+      await render(<PermissionsStepForm onNext={jest.fn()} onSkip={jest.fn()} />);
+
+      expect(screen.getAllByRole('switch')).toHaveLength(3);
+      const notifications = screen.getByRole('switch', { name: 'Benachrichtigungen' });
+      expect(notifications).not.toBeChecked();
+
+      await user.press(notifications);
+
+      expect(screen.getByRole('switch', { name: 'Benachrichtigungen' })).toBeChecked();
+    });
+
     it('startet alle Toggles aus, solange der native Status noch unbekannt ist', async () => {
       mockGetNotificationPermissionStatus.mockReturnValue(new Promise(() => {}));
 

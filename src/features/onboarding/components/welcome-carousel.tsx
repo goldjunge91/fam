@@ -61,17 +61,13 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
   },
   paginationDot: {
+    width: theme.space.sm,
     height: theme.space.sm,
     marginHorizontal: theme.space.xs,
     borderRadius: theme.space.xs,
   },
-  paginationDotActive: {
+  paginationDotExpanded: {
     width: 24,
-    backgroundColor: theme.accent,
-  },
-  paginationDotIdle: {
-    width: theme.space.sm,
-    backgroundColor: theme.border,
   },
   buttonContainer: {
     width: '100%',
@@ -113,12 +109,10 @@ export function WelcomeCarousel({ onStart }: WelcomeCarouselProps) {
             accessibilityLabel={`Folie ${idx + 1}`}
             accessibilityState={{ selected: idx === slideIndex }}
             haptic="selection"
+            selected={idx === slideIndex}
             style={styles.paginationButton}>
             <View
-              style={[
-                styles.paginationDot,
-                idx === slideIndex ? styles.paginationDotActive : styles.paginationDotIdle,
-              ]}
+              style={[styles.paginationDot, idx === slideIndex && styles.paginationDotExpanded]}
             />
           </Press>
         ))}

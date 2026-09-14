@@ -51,14 +51,6 @@ const styles = StyleSheet.create((theme) => ({
     padding: theme.space.lg,
     borderWidth: theme.borderWidth.base,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.backgroundElement,
-  },
-  cardSelected: {
-    backgroundColor: theme.accent,
-    borderColor: theme.accent,
-  },
-  cardIdle: {
-    borderColor: theme.border,
   },
   row: {
     flexDirection: 'row',
@@ -193,17 +185,18 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           accessibilityLabel="Benachrichtigungen"
           accessibilityState={{ checked: notifications }}
           haptic="selection"
-          style={[styles.card, notifications ? styles.cardSelected : styles.cardIdle]}>
+          selected={notifications}
+          style={styles.card}>
           <View style={styles.row}>
             <View style={styles.text}>
-              <Txt variant="body" weight="700" tone={notifications ? 'onAccent' : 'primary'}>
+              <Txt variant="body" weight="700" tone="primary">
                 🔔 Benachrichtigungen
               </Txt>
-              <Txt variant="label" tone={notifications ? 'onAccent' : 'secondary'}>
+              <Txt variant="label" tone="secondary">
                 Erhalte rechtzeitige Erinnerungen, bevor Lebensmittel im Kühlschrank ablaufen.
               </Txt>
             </View>
-            <Switch value={notifications} onValueChange={handleToggleNotifications} />
+            <Switch value={notifications} accessible={false} pointerEvents="none" />
           </View>
         </Press>
 
@@ -213,17 +206,18 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           accessibilityLabel="Kamera-Zugriff"
           accessibilityState={{ checked: camera }}
           haptic="selection"
-          style={[styles.card, camera ? styles.cardSelected : styles.cardIdle]}>
+          selected={camera}
+          style={styles.card}>
           <View style={styles.row}>
             <View style={styles.text}>
-              <Txt variant="body" weight="700" tone={camera ? 'onAccent' : 'primary'}>
+              <Txt variant="body" weight="700" tone="primary">
                 📷 Kamera-Zugriff
               </Txt>
-              <Txt variant="label" tone={camera ? 'onAccent' : 'secondary'}>
+              <Txt variant="label" tone="secondary">
                 Scanne Barcodes von Lebensmitteln oder QR-Codes für den Haushaltsbeitritt.
               </Txt>
             </View>
-            <Switch value={camera} onValueChange={handleToggleCamera} />
+            <Switch value={camera} accessible={false} pointerEvents="none" />
           </View>
         </Press>
 
@@ -233,17 +227,18 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           accessibilityLabel="Standort-Zugriff"
           accessibilityState={{ checked: location }}
           haptic="selection"
-          style={[styles.card, location ? styles.cardSelected : styles.cardIdle]}>
+          selected={location}
+          style={styles.card}>
           <View style={styles.row}>
             <View style={styles.text}>
-              <Txt variant="body" weight="700" tone={location ? 'onAccent' : 'primary'}>
+              <Txt variant="body" weight="700" tone="primary">
                 📍 Standort-Zugriff
               </Txt>
-              <Txt variant="label" tone={location ? 'onAccent' : 'secondary'}>
+              <Txt variant="label" tone="secondary">
                 Für Prospekte aus deiner Umgebung.
               </Txt>
             </View>
-            <Switch value={location} onValueChange={handleToggleLocation} />
+            <Switch value={location} accessible={false} pointerEvents="none" />
           </View>
         </Press>
       </View>

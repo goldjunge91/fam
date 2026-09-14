@@ -80,14 +80,6 @@ const styles = StyleSheet.create((theme) => ({
     borderWidth: theme.borderWidth.base,
     borderRadius: theme.radius.sm,
   },
-  selected: {
-    backgroundColor: theme.accent,
-    borderColor: theme.accent,
-  },
-  idle: {
-    backgroundColor: theme.backgroundElement,
-    borderColor: theme.border,
-  },
   buttonRow: {
     flexDirection: 'row',
     gap: theme.space.sm,
@@ -219,8 +211,9 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                 accessibilityState={{ selected }}
                 haptic="selection"
                 containerStyle={styles.flex}
-                style={[styles.sexButton, selected ? styles.selected : styles.idle]}>
-                <Txt variant="body" tone={selected ? 'onAccent' : 'primary'} weight="600">
+                selected={selected}
+                style={styles.sexButton}>
+                <Txt variant="body" tone="primary" weight="600">
                   {opt.label}
                 </Txt>
               </Press>
@@ -245,8 +238,9 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                 accessibilityLabel={opt.label}
                 accessibilityState={{ selected }}
                 haptic="selection"
-                style={[styles.choice, selected ? styles.selected : styles.idle]}>
-                <Txt variant="body" tone={selected ? 'onAccent' : 'primary'} weight="500">
+                selected={selected}
+                style={styles.choice}>
+                <Txt variant="body" tone="primary" weight="500">
                   {opt.label}
                 </Txt>
               </Press>
@@ -271,8 +265,9 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                 accessibilityLabel={opt.label}
                 accessibilityState={{ selected }}
                 haptic="selection"
-                style={[styles.choice, selected ? styles.selected : styles.idle]}>
-                <Txt variant="body" tone={selected ? 'onAccent' : 'primary'} weight="500">
+                selected={selected}
+                style={styles.choice}>
+                <Txt variant="body" tone="primary" weight="500">
                   {opt.label}
                 </Txt>
               </Press>
