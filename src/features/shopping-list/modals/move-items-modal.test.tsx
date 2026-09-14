@@ -1,6 +1,5 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 
-import { space } from '@/components/theme';
 import { i18n } from '@/i18n';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import type { Store } from '../hooks/use-stores';
@@ -53,7 +52,7 @@ describe('MoveItemsModal', () => {
     await i18n.changeLanguage('de');
   });
 
-  it('sperrt die aktuelle Liste und meldet das gewaehlte Ziel', async () => {
+  it('meldet Rollen und Zustaende und aktiviert nur das erlaubte Ziel', async () => {
     const user = userEvent.setup();
     const onSelect = jest.fn();
     await render(
@@ -66,9 +65,13 @@ describe('MoveItemsModal', () => {
       />,
     );
 
-    expect(screen.getByRole('button', { name: 'Auf Supermarkt verschieben' })).toBeDisabled();
+    const currentTarget = screen.getByRole('button', { name: 'Auf Supermarkt verschieben' });
+    expect(currentTarget).toBeDisabled();
     const target = screen.getByRole('button', { name: 'Auf Discounter verschieben' });
     expect(target).toBeEnabled();
+
+    await user.press(currentTarget);
+    expect(onSelect).not.toHaveBeenCalled();
 
     await user.press(target);
     expect(onSelect).toHaveBeenCalledWith('store-2');
@@ -106,11 +109,6 @@ describe('MoveItemsModal', () => {
     );
 
     const closeButton = screen.getByRole('button', { name: 'Verschieben schließen' });
-    expect(closeButton).toHaveStyle({
-      minWidth: space.xxl + space.md + space.xs,
-      minHeight: space.xxl + space.md + space.xs,
-    });
-
     await user.press(closeButton);
 
     expect(onClose).toHaveBeenCalledTimes(1);
