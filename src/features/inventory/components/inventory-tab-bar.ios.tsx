@@ -150,6 +150,8 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
         transparent
         animationType="fade"
         onRequestClose={() => setIsOpen(false)}>
+        {/* The full-screen scrim is a native dismiss target, not a visible action;
+            Press would add haptics and scale feedback to the backdrop. */}
         <Pressable
           style={styles.overlay}
           accessibilityRole="button"

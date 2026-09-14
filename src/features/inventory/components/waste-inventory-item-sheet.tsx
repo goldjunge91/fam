@@ -126,6 +126,7 @@ export function WasteInventoryItemSheet({
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={StyleSheet.absoluteFill}>
+        {/* The scrim stays a native Pressable so dismissal has no button haptics or scale. */}
         <Pressable
           style={styles.backdrop}
           onPress={onClose}
