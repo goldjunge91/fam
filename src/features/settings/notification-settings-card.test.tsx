@@ -83,9 +83,7 @@ describe('NotificationSettingsCard', () => {
 
     await render(<NotificationSettingsCard />);
 
-    await user.press(
-      screen.getByRole('button', { name: 'Uhrzeit der Erinnerung: 09:15 ändern' }),
-    );
+    await user.press(screen.getByRole('button', { name: 'Uhrzeit der Erinnerung: 09:15 ändern' }));
     await user.press(screen.getByRole('button', { name: 'Testzeit 10:12 einstellen' }));
     await user.press(screen.getByRole('button', { name: 'Übernehmen' }));
 
