@@ -22,6 +22,7 @@ const mockEnsureMutateAsync = jest.fn().mockResolvedValue({ id: 'plan-1' });
 const mockReuseMutate = jest.fn();
 let mockRecipesPreference = true;
 let mockRecipesFeatureFlag = true;
+let mockRecipes = [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }];
 
 // Stabile Objektidentitaet noetig: `AutoBackButton` (Screen) haengt seinen
 // Effekt an `[navigation]` - ein bei jedem Aufruf neu erzeugtes Objekt
@@ -76,7 +77,7 @@ jest.mock('@/lib/posthog', () => ({
 
 jest.mock('@/features/recipes/hooks/use-recipes', () => ({
   useRecipes: () => ({
-    data: [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }],
+    data: mockRecipes,
   }),
 }));
 
@@ -140,6 +141,7 @@ beforeEach(() => {
   mockAddMutate.mockClear();
   mockRecipesPreference = true;
   mockRecipesFeatureFlag = true;
+  mockRecipes = [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }];
 });
 
 describe('MealPlannerScreen', () => {
@@ -195,6 +197,44 @@ describe('MealPlannerScreen', () => {
     // Rezept-Picker schliesst sich, Portionen-/Personen-Formular oeffnet sich fuer die Auswahl.
     expect(screen.queryByText('Rezept auswählen')).not.toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Speichern' })).toBeOnTheScreen();
+  });
+
+  it('stellt den Portionen-Modus als fachliche Radio-Auswahl dar', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(
+      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
+    );
+    await user.press(screen.getByRole('button', { name: 'Spaghetti Bolognese eintragen' }));
+
+    expect(
+      screen.getByRole('radio', { name: 'Portionen-Modus', selected: true }),
+    ).toBeOnTheScreen();
+    expect(
+      screen.getByRole('radio', { name: 'Personen-Modus', selected: false }),
+    ).toBeOnTheScreen();
+
+    await user.press(screen.getByRole('radio', { name: 'Personen-Modus' }));
+
+    expect(screen.getByRole('radio', { name: 'Personen-Modus', selected: true })).toBeOnTheScreen();
+    expect(
+      screen.getByRole('radio', { name: 'Portionen-Modus', selected: false }),
+    ).toBeOnTheScreen();
+  });
+
+  it('zeigt im Rezept-Picker den echten Leerzustand ohne Rezepte', async () => {
+    mockRecipes = [];
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(
+      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
+    );
+
+    expect(
+      screen.getByText('Noch keine Rezepte vorhanden. Lege zuerst ein Rezept an.'),
+    ).toBeOnTheScreen();
   });
 
   it('sperrt Rezept-Picker und Drag-Ablage, wenn module-recipes deaktiviert ist', async () => {

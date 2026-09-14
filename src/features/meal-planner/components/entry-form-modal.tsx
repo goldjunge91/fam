@@ -2,7 +2,15 @@ import { useEffect, useState } from 'react';
 import { Modal, Platform, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { Button, CloseButton, Press, Surface, TextField, Txt } from '@/constants/ui';
+import {
+  Button,
+  CloseButton,
+  Press,
+  SegmentedControl,
+  Surface,
+  TextField,
+  Txt,
+} from '@/constants/ui';
 import { DEFAULT_PORTIONS_PER_PERSON, type ResolvedServings, resolveServings } from '../servings';
 import { MEAL_SLOT_LABELS, type MealSlot } from '../week';
 
@@ -27,6 +35,19 @@ type EntryFormModalProps = {
   onDelete?: () => void;
 };
 
+const SERVINGS_MODE_OPTIONS = [
+  {
+    value: 'portions',
+    label: 'Portionen',
+    accessibilityLabel: 'Portionen-Modus',
+  },
+  {
+    value: 'people',
+    label: 'Personen',
+    accessibilityLabel: 'Personen-Modus',
+  },
+] as const;
+
 const styles = StyleSheet.create((theme) => ({
   root: {
     flex: 1,
@@ -48,24 +69,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   content: {
     gap: theme.space.lg,
-  },
-  modeRow: {
-    flexDirection: 'row',
-    gap: theme.space.sm,
-  },
-  modeButtonContainer: {
-    flex: 1,
-  },
-  modeButton: {
-    alignItems: 'center',
-    paddingVertical: theme.space.sm,
-    borderRadius: theme.radius.sm,
-  },
-  modeButtonSelected: {
-    backgroundColor: theme.accent,
-  },
-  modeButtonIdle: {
-    backgroundColor: theme.surface,
   },
   wholeHouseholdButton: {
     alignSelf: 'flex-start',
@@ -154,41 +157,12 @@ export function EntryFormModal({
           </View>
 
           <View style={styles.content}>
-            <View style={styles.modeRow}>
-              <Press
-                haptic="selection"
-                accessibilityRole="button"
-                accessibilityLabel="Portionen-Modus"
-                accessibilityState={{ selected: mode === 'portions' }}
-                onPress={() => setMode('portions')}
-                containerStyle={styles.modeButtonContainer}
-                style={[
-                  styles.modeButton,
-                  mode === 'portions' ? styles.modeButtonSelected : styles.modeButtonIdle,
-                ]}>
-                <Txt
-                  variant="body"
-                  tone={mode === 'portions' ? 'onAccent' : 'primary'}
-                  weight="700">
-                  Portionen
-                </Txt>
-              </Press>
-              <Press
-                haptic="selection"
-                accessibilityRole="button"
-                accessibilityLabel="Personen-Modus"
-                accessibilityState={{ selected: mode === 'people' }}
-                onPress={() => setMode('people')}
-                containerStyle={styles.modeButtonContainer}
-                style={[
-                  styles.modeButton,
-                  mode === 'people' ? styles.modeButtonSelected : styles.modeButtonIdle,
-                ]}>
-                <Txt variant="body" tone={mode === 'people' ? 'onAccent' : 'primary'} weight="700">
-                  Personen
-                </Txt>
-              </Press>
-            </View>
+            <SegmentedControl
+              label="Portionen-/Personen-Modus"
+              options={SERVINGS_MODE_OPTIONS}
+              selected={mode}
+              onSelect={setMode}
+            />
 
             {mode === 'portions' ? (
               <TextField
