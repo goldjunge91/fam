@@ -38,3 +38,17 @@ describe('design-system showcase categories', () => {
     expect(source).toContain('<ReanimatedShowcase />');
   });
 });
+
+describe('Reanimated showcase motion profiles', () => {
+  it('keeps Spring, Timing and Sequence visibly distinct', () => {
+    const source = fs.readFileSync(
+      path.join(REPO_ROOT, 'src/features/settings/dev/design-system/showcase-reanimated.tsx'),
+      'utf8',
+    );
+
+    expect(source).toContain('withSpring(1.18');
+    expect(source).toContain('withTiming(0.78, { duration: 180 })');
+    expect(source).toContain('withTiming(1.2, { duration: 90 })');
+    expect(source).toContain('scale.value = 1;');
+  });
+});
