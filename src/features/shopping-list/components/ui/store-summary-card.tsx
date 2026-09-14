@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressBar } from '@/components/ui/progress-bar';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format-currency';
 
 interface StoreSummaryCardProps {
@@ -28,6 +28,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: theme.space.lg,
     paddingVertical: theme.space.md,
     borderRadius: theme.radius.lg,
+    borderWidth: theme.borderWidth.base,
     overflow: 'hidden',
   },
   stripe: {
@@ -60,7 +61,7 @@ const styles = StyleSheet.create((theme) => ({
   dot: {
     width: 7,
     height: 7,
-    borderRadius: 4,
+    borderRadius: theme.radius.pill,
   },
   trailing: {
     flexShrink: 0,
@@ -89,7 +90,7 @@ export function StoreSummaryCard({
   const visibleDots = openCategoryColors.slice(0, MAX_CATEGORY_DOTS);
 
   return (
-    <Pressable
+    <Press
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={t('shoppingList.storeSummaryCard.accessibility', {
@@ -103,9 +104,9 @@ export function StoreSummaryCard({
         {
           backgroundColor: withColorAlpha(color, '16'),
           borderColor: withColorAlpha(color, '66'),
-          borderWidth: 1,
         },
-      ]}>
+      ]}
+      haptic="light">
       {/* Dynamische Markt-Farbe aus der Datenbank */}
       <View style={[styles.stripe, { backgroundColor: color }]} />
 
@@ -150,6 +151,6 @@ export function StoreSummaryCard({
           {t('shoppingList.storeSummaryCard.estimated')}
         </Txt>
       </View>
-    </Pressable>
+    </Press>
   );
 }

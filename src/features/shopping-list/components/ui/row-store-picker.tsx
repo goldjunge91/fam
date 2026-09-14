@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { useStores } from '../../hooks/use-stores';
 
 const styles = StyleSheet.create((theme) => ({
@@ -13,14 +13,15 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
     paddingHorizontal: theme.space.sm,
     paddingVertical: theme.space.xs,
+    minHeight: 44,
     borderRadius: theme.radius.pill,
     borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
     backgroundColor: theme.backgroundElement,
   },
   dot: {
-    width: 8,
-    height: 8,
+    width: theme.space.sm,
+    height: theme.space.sm,
     borderRadius: theme.radius.pill,
   },
   triggerLabel: {
@@ -41,6 +42,7 @@ const styles = StyleSheet.create((theme) => ({
     ...theme.shadow.lg,
   },
   row: {
+    minHeight: 44,
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.space.sm,
@@ -118,19 +120,20 @@ export function RowStorePicker({
   return (
     <>
       <View ref={anchorRef} collapsable={false}>
-        <Pressable
+        <Press
           onPress={openMenu}
           accessibilityRole="button"
           accessibilityLabel={t('shoppingList.rowStorePicker.chooseStoreAccessibility', {
             current: label,
           })}
           testID={testID}
+          haptic="selection"
           style={styles.trigger}>
           <View style={[styles.dot, { backgroundColor: dotColor }]} />
           <Txt variant="body" numberOfLines={1} style={styles.triggerLabel}>
             {label}
           </Txt>
-        </Pressable>
+        </Press>
       </View>
 
       <Modal visible={open} transparent animationType="fade" onRequestClose={closeMenu}>
@@ -141,31 +144,33 @@ export function RowStorePicker({
                 styles.panel,
                 { position: 'absolute', top: anchor.y + anchor.height + 6, left: anchor.x },
               ]}>
-              <Pressable
+              <Press
                 onPress={() => select(null)}
                 accessibilityRole="menuitem"
                 accessibilityLabel={t('shoppingList.rowStorePicker.unassigned')}
                 accessibilityState={{ selected: storeId === null }}
+                haptic="selection"
                 style={[styles.row, storeId === null && styles.rowActive]}>
                 <View style={[styles.dot, { backgroundColor: theme.textMuted }]} />
                 <Txt variant="body" weight="600" style={styles.rowLabel}>
                   {t('shoppingList.rowStorePicker.unassigned')}
                 </Txt>
-              </Pressable>
+              </Press>
 
               {stores.map((store) => (
-                <Pressable
+                <Press
                   key={store.id}
                   onPress={() => select(store.id)}
                   accessibilityRole="menuitem"
                   accessibilityLabel={store.name}
                   accessibilityState={{ selected: storeId === store.id }}
+                  haptic="selection"
                   style={[styles.row, storeId === store.id && styles.rowActive]}>
                   <View style={[styles.dot, { backgroundColor: store.color }]} />
                   <Txt variant="body" weight="600" numberOfLines={1} style={styles.rowLabel}>
                     {store.name}
                   </Txt>
-                </Pressable>
+                </Press>
               ))}
             </View>
           )}

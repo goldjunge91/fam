@@ -142,6 +142,19 @@ describe('AddItemForm', () => {
     expect(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' })).toBeTruthy();
   });
 
+  it('stellt Weitere Angaben als zugängliches 44-Punkt-Ziel bereit', async () => {
+    const user = userEvent.setup();
+    await renderForm();
+
+    const toggle = screen.getByRole('button', { name: 'Weitere Angaben' });
+    expect(toggle).toBeCollapsed();
+    expect(toggle).toHaveStyle({ minHeight: 44 });
+
+    await user.press(toggle);
+
+    expect(screen.getByRole('button', { name: 'Weitere Angaben' })).toBeExpanded();
+  });
+
   it('übermittelt den neuen Artikel bei korrekter Eingabe', async () => {
     await renderForm();
 

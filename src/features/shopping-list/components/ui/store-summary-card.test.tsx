@@ -1,7 +1,16 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { render, screen, userEvent } from '@testing-library/react-native';
 
+import { borderWidth } from '@/components/theme';
 import { i18n } from '@/i18n';
 import { StoreSummaryCard } from './store-summary-card';
+
+jest.mock('@/lib/haptics', () => ({
+  heavy: jest.fn(),
+  light: jest.fn(),
+  medium: jest.fn(),
+  selection: jest.fn(),
+  success: jest.fn(),
+}));
 
 describe('StoreSummaryCard', () => {
   beforeEach(async () => {
@@ -9,6 +18,7 @@ describe('StoreSummaryCard', () => {
   });
 
   it('zeigt die Marktfarbe als kräftigen Kartenakzent', async () => {
+    const onPress = jest.fn();
     await render(
       <StoreSummaryCard
         name="REWE"
@@ -17,7 +27,7 @@ describe('StoreSummaryCard', () => {
         checkedCount={1}
         totalEstimate={8.4}
         openCategoryColors={['#748C5B']}
-        onPress={jest.fn()}
+        onPress={onPress}
       />,
     );
 
@@ -25,9 +35,11 @@ describe('StoreSummaryCard', () => {
     expect(card).toHaveStyle({
       backgroundColor: '#B5623F16',
       borderColor: '#B5623F66',
-      borderWidth: 1,
+      borderWidth: borderWidth.base,
+      minHeight: 92,
     });
 
-    await fireEvent.press(card);
+    await userEvent.setup().press(card);
+    expect(onPress).toHaveBeenCalledTimes(1);
   });
 });

@@ -53,7 +53,10 @@ describe('RowStorePicker', () => {
     await render(<RowStorePicker householdId="hh-1" storeId={null} onChange={jest.fn()} />, {
       wrapper,
     });
-    expect(screen.getByText('Ohne Markt')).toBeOnTheScreen();
+
+    const trigger = screen.getByRole('button', { name: /Ohne Markt/ });
+    expect(trigger).toBeOnTheScreen();
+    expect(trigger).toHaveStyle({ minHeight: 44 });
   });
 
   it('zeigt den Namen des zugewiesenen Markts', async () => {

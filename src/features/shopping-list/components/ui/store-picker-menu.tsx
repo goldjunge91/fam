@@ -2,33 +2,40 @@ import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import type { Store } from '../../hooks/use-stores';
 
 export const ALL_FILTER = 'all';
 export const UNASSIGNED_FILTER = 'unassigned';
 
-// Gleiche Vertikal-/Horizontal-Skala wie der kompakte "+ Artikel
-// hinzufügen"-Button (size="compact" -> py-two px-three), damit beide
-// Buttons in der Kopfzeile dieselbe Hoehe haben.
-const GLASS_STYLE = {
-  borderRadius: 999,
-  flexDirection: 'row' as const,
-  alignItems: 'center' as const,
-  gap: 8,
-  paddingHorizontal: 16,
-  paddingVertical: 8,
-};
-
 const styles = StyleSheet.create((theme) => ({
+  pickerLayout: {
+    minHeight: 44,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.xs + theme.space.xs,
+  },
+  pickerGlass: {
+    borderRadius: theme.radius.pill,
+  },
+  pickerFallback: {
+    borderRadius: theme.radius.pill,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    backgroundColor: theme.backgroundElement,
+  },
+  pickerOuter: {
+    borderRadius: theme.radius.pill,
+  },
   activeDot: {
-    width: 8,
-    height: 8,
+    width: theme.space.sm,
+    height: theme.space.sm,
     flexShrink: 0,
-    borderRadius: 4,
+    borderRadius: theme.radius.pill,
   },
   activeLabel: {
     maxWidth: 130,
@@ -38,9 +45,9 @@ const styles = StyleSheet.create((theme) => ({
   },
   panel: {
     width: 200,
-    gap: 2,
+    gap: theme.space.xs / 2,
     padding: theme.space.xs,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
     borderRadius: theme.radius.md,
     backgroundColor: theme.background,
@@ -126,19 +133,9 @@ export function StorePickerMenu({
           accessibilityLabel={t('shoppingList.storePickerMenu.filterAccessibility', {
             current: activeLabel,
           })}
-          fallbackStyle={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: space.sm,
-            paddingHorizontal: space.lg,
-            paddingVertical: space.md,
-            borderRadius: radius.pill,
-            borderWidth: 1,
-            borderColor: theme.border,
-            backgroundColor: theme.backgroundElement,
-          }}
-          glassStyle={GLASS_STYLE}
-          outerStyle={{ borderRadius: 999 }}>
+          fallbackStyle={[styles.pickerLayout, styles.pickerFallback]}
+          glassStyle={[styles.pickerLayout, styles.pickerGlass]}
+          outerStyle={styles.pickerOuter}>
           <View style={[styles.activeDot, { backgroundColor: activeDotColor }]} />
           <Txt variant="body" weight="700" numberOfLines={1} style={styles.activeLabel}>
             {activeLabel}
@@ -154,10 +151,11 @@ export function StorePickerMenu({
                 styles.panel,
                 { position: 'absolute', top: anchor.y + anchor.height + 6, left: anchor.x },
               ]}>
-              <Pressable
+              <Press
                 onPress={() => select(ALL_FILTER)}
                 accessibilityRole="menuitem"
                 accessibilityState={{ selected: activeFilter === ALL_FILTER }}
+                haptic="selection"
                 style={[styles.row, activeFilter === ALL_FILTER && styles.rowActive]}>
                 <View style={[styles.activeDot, { backgroundColor: theme.text }]} />
                 <Txt variant="body" weight="600" style={styles.rowLabel}>
@@ -166,14 +164,15 @@ export function StorePickerMenu({
                 <Txt variant="caption" tone="secondary">
                   {totalCount}
                 </Txt>
-              </Pressable>
+              </Press>
 
               {stores.map((store) => (
-                <Pressable
+                <Press
                   key={store.id}
                   onPress={() => select(store.id)}
                   accessibilityRole="menuitem"
                   accessibilityState={{ selected: activeFilter === store.id }}
+                  haptic="selection"
                   style={[styles.row, activeFilter === store.id && styles.rowActive]}>
                   <View style={[styles.activeDot, { backgroundColor: store.color }]} />
                   <Txt variant="body" weight="600" numberOfLines={1} style={styles.rowLabel}>
@@ -182,13 +181,14 @@ export function StorePickerMenu({
                   <Txt variant="caption" tone="secondary">
                     {countForStore(store.id)}
                   </Txt>
-                </Pressable>
+                </Press>
               ))}
 
-              <Pressable
+              <Press
                 onPress={() => select(UNASSIGNED_FILTER)}
                 accessibilityRole="menuitem"
                 accessibilityState={{ selected: activeFilter === UNASSIGNED_FILTER }}
+                haptic="selection"
                 style={[styles.row, activeFilter === UNASSIGNED_FILTER && styles.rowActive]}>
                 <View style={[styles.activeDot, { backgroundColor: theme.textMuted }]} />
                 <Txt variant="body" weight="600" style={styles.rowLabel}>
@@ -197,7 +197,7 @@ export function StorePickerMenu({
                 <Txt variant="caption" tone="secondary">
                   {unassignedCount}
                 </Txt>
-              </Pressable>
+              </Press>
             </View>
           )}
         </Pressable>

@@ -10,7 +10,7 @@ import { useTheme, useThemedStyles } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
-import { Button, TextField, Txt } from '@/constants/ui';
+import { Button, Press, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
@@ -660,7 +660,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
         </View>
 
         <View style={shoppingStyles.detailsSection}>
-          <Pressable
+          <Press
             onPress={() => {
               dismissKeyboard();
               setDetailsOpen((open) => !open);
@@ -668,14 +668,15 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
             accessibilityRole="button"
             accessibilityState={{ expanded: detailsOpen }}
             accessibilityLabel={t('shoppingList.itemForm.moreDetails')}
-            style={shoppingStyles.detailsSummary}>
+            style={[shoppingStyles.detailsSummary, { minHeight: 44 }]}
+            haptic="light">
             <Txt variant="body" tone="secondary" weight="500">
               {detailsOpen ? '▾' : '›'}
             </Txt>
             <Txt variant="body" tone="primary" weight="500">
               {t('shoppingList.itemForm.moreDetails')}
             </Txt>
-          </Pressable>
+          </Press>
 
           {detailsOpen ? (
             <View style={shoppingStyles.detailsContent}>
