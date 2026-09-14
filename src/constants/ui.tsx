@@ -120,6 +120,22 @@ const pressSelectionStyles = StyleSheet.create((theme) => ({
   },
 }));
 
+const pressSuccessStyles = StyleSheet.create((theme) => ({
+  surface: {
+    backgroundColor: theme.success,
+    borderRadius: theme.radius.lg,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.xs,
+  },
+  field: {
+    backgroundColor: theme.success,
+    borderRadius: theme.radius.lg,
+  },
+  foreground: {
+    color: theme.onAccent,
+  },
+}));
+
 // ─── Text ────────────────────────────────────────────────────────────────────
 
 export type TxtVariant =
@@ -406,6 +422,7 @@ export function Press({
   children,
   disabled,
   selected,
+  success,
   ...rest
 }: PressableProps & {
   haptic?: HapticKind;
@@ -414,6 +431,8 @@ export function Press({
   containerStyle?: StyleProp<ViewStyle>;
   /** Applies the central selected/idle surface recipe when explicitly provided. */
   selected?: boolean;
+  /** Applies the central semantic success surface recipe. */
+  success?: boolean;
 }) {
   const s = useSharedValue(1);
   const reducedMotion = useReducedMotion();
@@ -423,12 +442,13 @@ export function Press({
       : selected
         ? pressSelectionStyles.selected
         : pressSelectionStyles.idle;
+  const semanticStyle = success ? pressSuccessStyles.surface : undefined;
   const resolvedStyle: PressableProps['style'] =
-    selectionStyle === undefined
+    selectionStyle === undefined && semanticStyle === undefined
       ? style
       : typeof style === 'function'
-        ? (state: PressableStateCallbackType) => [selectionStyle, style(state)]
-        : [selectionStyle, style];
+        ? (state: PressableStateCallbackType) => [semanticStyle, selectionStyle, style(state)]
+        : [semanticStyle, selectionStyle, style];
   const aStyle = useAnimatedStyle(() => ({
     transform: [{ scale: reducedMotion ? 1 : s.value }],
   }));
@@ -868,6 +888,7 @@ export type TextFieldProps = TextInputProps & {
   size?: 'default' | 'large';
   error?: string;
   trailing?: ReactNode;
+  success?: boolean;
 };
 
 export const TextField = forwardRef<TextInput, TextFieldProps>(function TextField(
@@ -876,6 +897,7 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(function TextFiel
     size = 'default',
     error,
     trailing,
+    success,
     style,
     accessibilityLabel,
     accessibilityHint,
@@ -933,6 +955,8 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(function TextFiel
             size === 'large' ? styles.inputLarge : null,
             focused ? styles.inputFocused : null,
             error ? styles.inputError : null,
+            success ? pressSuccessStyles.field : null,
+            success ? pressSuccessStyles.foreground : null,
             editable === false ? styles.inputDisabled : null,
             trailing ? styles.inputWithTrailing : null,
             style,

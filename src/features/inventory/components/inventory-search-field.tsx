@@ -1,7 +1,8 @@
 import { TextInput } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { SearchIcon } from '@/components/icons/fam-icon';
-import { space } from '@/components/theme/index';
+import { font } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/constants/ui';
 
@@ -42,6 +43,26 @@ interface InventorySearchInputProps {
   onChangeText: (value: string) => void;
 }
 
+const styles = StyleSheet.create((theme) => ({
+  inputCard: {
+    marginTop: 10,
+    minHeight: 48,
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.xs,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: 11,
+  },
+  input: {
+    flex: 1,
+    padding: 0,
+    color: theme.text,
+    fontSize: font.sizes.sm,
+    lineHeight: font.lineHeights.label,
+  },
+}));
+
 /** Sichtbares Eingabefeld der aufgeklappten Artikelsuche. */
 export function InventorySearchInput({ value, onChangeText }: InventorySearchInputProps) {
   const { colors } = useTheme();
@@ -56,7 +77,7 @@ export function InventorySearchInput({ value, onChangeText }: InventorySearchInp
         placeholder="Artikel suchen"
         placeholderTextColor={colors.textSecondary}
         selectionColor={colors.accent}
-        className="inventory-search-input"
+        style={styles.input}
         accessibilityLabel="Artikel suchen"
         returnKeyType="search"
         clearButtonMode="while-editing"
@@ -64,16 +85,3 @@ export function InventorySearchInput({ value, onChangeText }: InventorySearchInp
     </Card>
   );
 }
-
-const styles = {
-  inputCard: {
-    marginTop: 10,
-    minHeight: 48,
-    width: '100%' as const,
-    flexDirection: 'row' as const,
-    alignItems: 'center' as const,
-    gap: space.xs,
-    paddingHorizontal: space.lg,
-    paddingVertical: 11,
-  },
-};

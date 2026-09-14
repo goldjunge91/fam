@@ -76,7 +76,9 @@ Migrationsaufwand erzeugen, ohne strukturellen Vorteil.
 - Nach `fam-978.65`–`.67` enthält der Produktionscode keine
   NativeWind-/Tailwind-Pakete, keine Babel-/Metro-Integration, kein
   `global.css` als aktive Quelle und kein `className` in Komponenten.
-- Nachweis: repo-weiter `rg`-Scan für `className=` und
-  `contentContainerClassName=` in `src/` meldet keine Treffer.
+- Nachweis: `bun run test test/conventions/nativewind-removal.test.ts` scannt
+  alle TypeScript-Quellen in `src/` auf `className`,
+  `contentContainerClassName` und NativeWind-Imports. Historische Docs liegen
+  außerhalb dieses aktiven Scopes.
 - iOS- und Android-Geräteprüfung belegen essenzielle interaktive Flächen.
 - Abschluss wird in `fam-978.68` dokumentiert.

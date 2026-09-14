@@ -48,6 +48,7 @@ Autofill, Tastaturtyp, Secure-Text und React-Hook-Form-/Fokus-Refs bleiben nutzb
 | Fehler | lesbarer Fehlertext und Fehlerkennzeichnung | Meldung ist dem Feld zugänglich zugeordnet |
 | Fehler + Fokus | Fehler bleibt sichtbar; zusätzlicher Fokusindikator | keiner der beiden Zustände wird verdrängt |
 | Nicht editierbar | zentrales Disabled-Rezept | Eingabe gesperrt und Zustand erkennbar |
+| Success-Workflow | zentrale Success-Fläche für eine kompakte bestätigte Eingabe | positive Bedeutung wird zusätzlich über Beschriftung oder Kontext vermittelt |
 
 Der bisherige Fokusvertrag mit `borderWidth.base` (1,5 Punkte) als Basiskontur
 und `borderWidth.strong` (2 Punkte) als betonter Kontur bleibt als Maßvorgabe

@@ -420,7 +420,8 @@ export function ShoppingListScreen() {
       <View style={styles.buttonSpacing}>
         <Button
           size="sm"
-          variant="secondary"
+          variant="accent"
+          accentKey="fiber"
           title={t('shoppingList.screen.startShoppingMode')}
           onPress={() => {
             if (canStartShoppingMode) setShoppingModeOpen(true);

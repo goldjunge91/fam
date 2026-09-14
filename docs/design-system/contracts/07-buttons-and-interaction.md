@@ -3,7 +3,7 @@
 ## Zweck und öffentliche Grenze
 
 Buttons machen Priorität, Gefahr und Interaktion konsistent. Produktcode importiert
-den kanonischen Button aus `src/constants/ui.tsx`. Die Foundation-API verwendet
+den kanonischen Button und `Press` aus `src/constants/ui.tsx`. Die Foundation-API verwendet
 `title`, `onPress`, `variant`, `size`, `loading` und `disabled`; `icon`,
 `accentKey`, `full`, `haptic`, `flat` und `accessibilityLabel` bleiben unterstützte
 Ergänzungen.
@@ -91,6 +91,13 @@ ein 0 × 0 Bild ohne Fläche). Pressed-Feedback kommt aus `Press` in `ui.tsx`
   verwendet standardmäßig Medium, Auswahl Selection, generisches Press Light.
   Vorhandene dokumentierte
   Overrides und Haptikpräferenzen bleiben wirksam.
+
+`Press success` ist die zentrale Success-Flächenrezeptur für kompakte Aktionen,
+die einen bestätigten Status oder eine positive Abschlussaktion darstellen.
+Sie bündelt Success-Hintergrund, Radius und Innenabstand in `ui.tsx`; Verbraucher
+liefern nur Verhalten, Accessibility und lokales Layout. `TextField success`
+verwendet dieselbe zentrale Fläche für eine editierbare Zahl innerhalb eines
+Success-Workflows.
 
 ## Touch, Fokus und Beschriftung
 

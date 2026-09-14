@@ -164,6 +164,28 @@ describe('core theme UI primitives', () => {
     expect(withSpringSpy).not.toHaveBeenCalled();
   });
 
+  it('keeps success surfaces in the central Press and TextField recipes', async () => {
+    await render(
+      <>
+        <Press success accessibilityRole="button" accessibilityLabel="Erfolg">
+          <Txt tone="onAccent">Speichern</Txt>
+        </Press>
+        <TextField success accessibilityLabel="Menge" value="2" onChangeText={jest.fn()} />
+      </>,
+    );
+
+    expect(screen.getByRole('button', { name: 'Erfolg' })).toHaveStyle({
+      backgroundColor: mockColorsLight.success,
+      borderRadius: radius.lg,
+      paddingHorizontal: space.lg,
+      paddingVertical: space.xs,
+    });
+    expect(screen.getByDisplayValue('2')).toHaveStyle({
+      backgroundColor: mockColorsLight.success,
+      color: mockColorsLight.onAccent,
+    });
+  });
+
   it('renders a themed accessible CloseButton and forwards activation', async () => {
     const onPress = jest.fn();
     const user = userEvent.setup();

@@ -55,6 +55,8 @@ betroffener Regel und Prüffall** dokumentiert.
 | Pfad | Plattform | Grund | Betroffene Regel | Prüffall |
 | --- | --- | --- | --- | --- |
 | `src/features/household/invite-modal.tsx` (`QRCode`) | iOS/Android | Die opake weiße Quiet-Zone ist für zuverlässiges Scannen auf unterschiedlichen Hintergründen erforderlich. | Keine freie Feature-Farbe für semantische Flächen; die QR-Renderfläche folgt der nativen QR-API. | QR-Code im hellen und dunklen App-Theme auf iOS und Android mit einem zweiten Gerät scannen. |
+| `src/features/shopping-list/sheets/category-order-sheet.tsx` und `.android.tsx` | iOS/Android | `@expo/ui/community/bottom-sheet` nimmt `backgroundStyle` und `handleIndicatorStyle` als native Props entgegen und besitzt an dieser Grenze keinen Unistyles-Interop. | Palette bleibt aus dem Unistyles-Theme-Callback; die Feature-Dateien transportieren sie ausschließlich in die native Sheet-API. | Kategorie-Sheet öffnen, Handle/Sheet sichtbar prüfen, native Verschiebungsaktion auslösen, schließen und Speichern testen. |
+| `src/features/shopping-list/sheets/complete-run-sheet.tsx` und `.android.tsx` | iOS/Android | `@expo/ui/community/bottom-sheet` nimmt `backgroundStyle` und `handleIndicatorStyle` als native Props entgegen und besitzt an dieser Grenze keinen Unistyles-Interop. | Palette bleibt aus dem Unistyles-Theme-Callback; die Feature-Dateien transportieren sie ausschließlich in die native Sheet-API. | Abschluss-Sheet öffnen, Menge editieren, Lagerort auswählen, schließen und Bestätigen testen. |
 
 ## Beispiel
 
@@ -76,5 +78,8 @@ const styles = StyleSheet.create((theme) => ({
 ## Nachweis und Abschluss
 
 Eine vollständige Migration hat keine unbegründeten aktiven `className`-Verbraucher.
-Prüfung: repo-weiter `rg`-Scan für `className=` und `contentContainerClassName=`
-in `src/` — ausgenommen historische Docs und explizit begründete Ausnahmen.
+Der verbindliche Nachweis ist
+`bun run test test/conventions/nativewind-removal.test.ts`. Das Gate scannt
+alle TypeScript-Quellen unter `src/` und meldet beide verbotenen Props sowie
+NativeWind-Imports. Historische Docs liegen außerhalb des aktiven `src/`-Baums
+und werden deshalb nicht als Produktcode bewertet.

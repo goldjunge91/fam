@@ -8,6 +8,7 @@ import { ShoppingListScreen } from './shopping-list-screen';
 
 let mockParams: { action?: string } = {};
 let mockShoppingListEmpty = false;
+let mockShoppingListChecked = false;
 
 jest.mock('expo-router', () => ({
   useLocalSearchParams: () => mockParams,
@@ -63,8 +64,8 @@ jest.mock('../hooks/use-shopping-list', () => {
                   category_source: 'name_fallback',
                   category_classifier_version: null,
                   category: 'Obst & Gemüse',
-                  checked_at: null,
-                  checked_by: null,
+                  checked_at: mockShoppingListChecked ? '2026-03-29T11:00:00Z' : null,
+                  checked_by: mockShoppingListChecked ? 'user-1' : null,
                   store_id: 'store-1',
                   notes: null,
                   recipe_names: [],
@@ -82,8 +83,8 @@ jest.mock('../hooks/use-shopping-list', () => {
                   category_source: 'name_fallback',
                   category_classifier_version: null,
                   category: 'Getränke',
-                  checked_at: null,
-                  checked_by: null,
+                  checked_at: mockShoppingListChecked ? '2026-03-29T11:00:00Z' : null,
+                  checked_by: mockShoppingListChecked ? 'user-1' : null,
                   store_id: 'store-1',
                   notes: null,
                   recipe_names: [],
@@ -209,6 +210,7 @@ describe('ShoppingListScreen', () => {
     jest.useFakeTimers();
     mockParams = {};
     mockShoppingListEmpty = false;
+    mockShoppingListChecked = false;
     jest.clearAllMocks();
     await i18n.changeLanguage('de');
   });
@@ -246,6 +248,26 @@ describe('ShoppingListScreen', () => {
     await renderScreen();
 
     expect(screen.queryByRole('button', { name: /Einkaufsmodus .* starten/ })).toBeNull();
+  });
+
+  it('verwendet für Start und Abschluss dasselbe gefüllte CTA-Rezept', async () => {
+    mockShoppingListChecked = true;
+    await renderScreen();
+
+    await fireEvent.press(screen.getByText('Supermarkt'));
+    await act(() => {
+      jest.advanceTimersByTime(60);
+    });
+
+    const startButton = await screen.findByRole('button', {
+      name: 'Einkaufsmodus für Supermarkt starten',
+    });
+    const completeButton = await screen.findByRole('button', {
+      name: /Einkaufsliste bei Supermarkt abschließen/,
+    });
+
+    expect(startButton).toHaveStyle({ backgroundColor: colorsLight.basil, minHeight: 44 });
+    expect(completeButton).toHaveStyle({ backgroundColor: colorsLight.basil, minHeight: 44 });
   });
 
   it('hakt Artikel in der Marktliste nicht mehr per Antippen ab — das passiert nur im Einkaufsmodus', async () => {

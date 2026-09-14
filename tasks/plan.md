@@ -114,10 +114,12 @@ Retirement wartet auf alle Consumer-Slices.
 
 - Abschlusskriterium: Der aktive Scan meldet keine `className`- oder
   `contentContainerClassName`-Verwendung.
-- Audit-Stand 2026-09-14: noch nicht erfüllt. Der Scan findet aktive Treffer in
-  `inventory-search-field.tsx`, `inventory-item-actions-sheet.tsx`,
-  `inventory-item-group-sheet.tsx`, `shopping-mode-screen.tsx` und
-  `stores-screen.tsx`.
+- Audit-Stand 2026-09-14: Der aktive Scan findet keine Treffer mehr in
+  `src/`. Die verbindliche Regression-Schranke ist
+  `test/conventions/nativewind-removal.test.ts`; sie prüft alle TypeScript-
+  Quellen im aktiven Baum auf beide verbotenen Props sowie auf
+  NativeWind-Imports. Historische Dokumentation liegt außerhalb von `src/`
+  und wird nicht als aktiver Code bewertet.
 - Jeder Domänenblock hat seine fokussierten Verhaltenstests bestanden.
 - Es gibt keine Änderung an Datenbank, RLS, SQLite, Outbox oder Sync.
 

@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import type React from 'react';
+import { colorsLight } from '@/components/theme';
 import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list';
 import { CompleteRunSheet } from '@/features/shopping-list/sheets/complete-run-sheet';
 import { i18n } from '@/i18n';
@@ -95,6 +96,22 @@ describe('CompleteRunSheet', () => {
         }),
       ]),
     );
+  });
+
+  it('verwendet für die Vorratsübernahme das zentrale gefüllte CTA-Rezept', async () => {
+    await render(
+      <CompleteRunSheet
+        isOpen={true}
+        checkedItems={mockCheckedItems}
+        onConfirm={mockOnConfirm}
+        onClose={mockOnClose}
+      />,
+    );
+
+    expect(screen.getByRole('button', { name: /in Vorrat übernehmen/i })).toHaveStyle({
+      backgroundColor: colorsLight.basil,
+      minHeight: 44,
+    });
   });
 
   it('erlaubt das Korrigieren der Menge per Zifferneingabe', async () => {

@@ -63,7 +63,7 @@ const screenStyles = StyleSheet.create((theme) => ({
     paddingVertical: theme.space.lg,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: theme.radius.lg,
+    borderRadius: theme.radius.md,
   },
 }));
 

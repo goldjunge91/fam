@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { Modal, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Modal, Platform, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { type GradientSpec, radius, space, withAlpha } from '@/components/theme/index';
@@ -35,6 +36,107 @@ type InventoryItemGroupSheetProps = {
   /** itemId des Konflikts, dessen Aufloesung gerade laeuft (Buttons deaktivieren). */
   resolvingConflictItemId?: string | null;
 };
+
+const androidStyles = StyleSheet.create((theme) => ({
+  backdrop: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: theme.scrim,
+  },
+  sheet: {
+    position: 'absolute',
+    left: 10,
+    right: 10,
+    bottom: 10,
+    maxHeight: '86%',
+    gap: theme.space.sm + theme.space.xs + 2,
+    paddingHorizontal: theme.space.sm + theme.space.xs + 2,
+    paddingTop: theme.space.sm + theme.space.xs - 1,
+    borderRadius: theme.radius.famLarge,
+    backgroundColor: theme.backgroundElement,
+  },
+  handle: {
+    width: 42,
+    height: 4,
+    alignSelf: 'center',
+    borderRadius: 2,
+    backgroundColor: theme.border,
+  },
+  header: {
+    minHeight: 58,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.lg,
+    paddingBottom: theme.space.md,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  headerCopy: {
+    flex: 1,
+    gap: theme.space.xs / 2,
+  },
+  stateSummary: {
+    flexDirection: 'row',
+    gap: theme.space.md,
+  },
+  stateCard: {
+    flex: 1,
+    gap: theme.space.xs / 2,
+    padding: theme.space.lg,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.backgroundSoft,
+  },
+  stateCardOpen: {
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.warning,
+    backgroundColor: withAlpha(theme.warning, 0.16),
+  },
+  uppercase: {
+    textTransform: 'uppercase',
+  },
+  historyButton: {
+    alignSelf: 'flex-start',
+  },
+  lotsContent: {
+    paddingBottom: theme.space.md,
+  },
+  lotRow: {
+    minHeight: 66,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.md,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  lotStatus: {
+    width: 5,
+    height: 42,
+    borderRadius: 3,
+  },
+  lotCopy: {
+    flex: 1,
+    gap: theme.space.xs / 2,
+  },
+  lotAmount: {
+    fontVariant: ['tabular-nums'],
+  },
+  lotChevron: {
+    marginLeft: theme.space.xs,
+  },
+  conflictSummary: {
+    gap: theme.space.xs,
+    padding: theme.space.md,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.backgroundSoft,
+  },
+  conflictError: {
+    marginTop: theme.space.xs,
+  },
+}));
 
 export function formatStateSubtitle(lots: LocalInventoryItem[]): string {
   const earliest = lots.reduce<LocalInventoryItem | null>((current, lot) => {
@@ -79,7 +181,6 @@ function InventoryConflictPanel({
   resolving: boolean;
 }) {
   const sheetStyle = useSheetShadowStyle();
-  const { colors } = useTheme();
   const conflictItemId = conflict?.itemId ?? null;
   const hasConflict = Boolean(conflict);
 
@@ -98,26 +199,20 @@ function InventoryConflictPanel({
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={StyleSheet.absoluteFill}>
-        <Pressable
-          className="fridge-actions-backdrop"
+        <Press
+          style={androidStyles.backdrop}
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel="Konflikt schließen"
         />
-        <View className="fridge-actions-sheet" style={sheetStyle}>
-          <View className="fridge-actions-handle" />
+        <View style={[androidStyles.sheet, sheetStyle]}>
+          <View style={androidStyles.handle} />
           <Txt variant="title">{itemName}</Txt>
           <Txt variant="caption" tone="secondary">
             Korrektur nicht übernommen
           </Txt>
 
-          <View
-            style={{
-              borderRadius: radius.md,
-              backgroundColor: colors.backgroundSoft,
-              padding: space.md,
-              gap: space.xs,
-            }}>
+          <View style={androidStyles.conflictSummary}>
             {correction ? (
               <>
                 <Row justify="space-between">
@@ -138,7 +233,7 @@ function InventoryConflictPanel({
                 </Row>
               </>
             ) : null}
-            <Txt variant="caption" tone="secondary" style={{ marginTop: space.xs }}>
+            <Txt variant="caption" tone="secondary" style={androidStyles.conflictError}>
               {conflict.lastError}
             </Txt>
           </View>
@@ -250,17 +345,17 @@ export function InventoryItemGroupSheet({
       onRequestClose={onClose}
       onDismiss={onDismissFinished}>
       <View style={StyleSheet.absoluteFill}>
-        <Pressable
-          className="fridge-actions-backdrop"
+        <Press
+          style={androidStyles.backdrop}
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel="MHD-Details schließen"
         />
-        <View className="fridge-group-sheet" style={sheetStyle}>
-          <View className="fridge-actions-handle" />
+        <View style={[androidStyles.sheet, sheetStyle]}>
+          <View style={androidStyles.handle} />
 
-          <View className="fridge-group-header">
-            <View className="fridge-group-header-copy">
+          <View style={androidStyles.header}>
+            <View style={androidStyles.headerCopy}>
               <Txt variant="title">{displayGroup.name}</Txt>
               <Txt variant="caption" tone="secondary">
                 {formatAmount(displayGroup.quantity, displayGroup.unit)} gesamt ·{' '}
@@ -283,10 +378,14 @@ export function InventoryItemGroupSheet({
             />
           </View>
 
-          <View className="inventory-state-summary">
+          <View style={androidStyles.stateSummary}>
             {sealedLots.length > 0 ? (
-              <View className="inventory-state-card inventory-state-card-sealed">
-                <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
+              <View style={androidStyles.stateCard}>
+                <Txt
+                  variant="caption"
+                  tone="secondary"
+                  weight="700"
+                  style={androidStyles.uppercase}>
                   Versiegelt
                 </Txt>
                 <Txt variant="body" weight="700">
@@ -298,8 +397,12 @@ export function InventoryItemGroupSheet({
               </View>
             ) : null}
             {openedLots.length > 0 ? (
-              <View className="inventory-state-card inventory-state-card-open">
-                <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
+              <View style={[androidStyles.stateCard, androidStyles.stateCardOpen]}>
+                <Txt
+                  variant="caption"
+                  tone="secondary"
+                  weight="700"
+                  style={androidStyles.uppercase}>
                   Geöffnet
                 </Txt>
                 <Txt variant="body" weight="700">
@@ -312,7 +415,7 @@ export function InventoryItemGroupSheet({
             ) : null}
           </View>
 
-          <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
+          <Txt variant="caption" tone="secondary" weight="700" style={androidStyles.uppercase}>
             MHD-Einträge
           </Txt>
 
@@ -322,12 +425,12 @@ export function InventoryItemGroupSheet({
             size="sm"
             onPress={onHistory}
             accessibilityLabel={`${displayGroup.name} Verlauf öffnen`}
-            style={{ alignSelf: 'flex-start' }}
+            style={androidStyles.historyButton}
           />
 
           <ScrollView
             showsVerticalScrollIndicator={false}
-            contentContainerClassName="fridge-group-lots-content">
+            contentContainerStyle={androidStyles.lotsContent}>
             {displayGroup.lots.map((lot) => {
               // Konflikt-Los: eigene Zeile statt der normalen MHD-Zeile
               // darunter, die fuer diesen Fall unveraendert (auskommentiert
@@ -335,17 +438,14 @@ export function InventoryItemGroupSheet({
               const conflict = conflictsByLotId?.get(lot.id);
               if (conflict) {
                 return (
-                  <Pressable
+                  <Press
                     key={lot.id}
                     onPress={() => setActiveConflictLotId(lot.id)}
                     accessibilityRole="button"
                     accessibilityLabel={`${displayGroup.name}, Konflikt: ${conflict.lastError}`}
-                    className="fridge-group-lot">
-                    <View
-                      className="fridge-group-lot-status"
-                      style={{ backgroundColor: colors.danger }}
-                    />
-                    <View className="fridge-group-lot-copy">
+                    style={androidStyles.lotRow}>
+                    <View style={[androidStyles.lotStatus, { backgroundColor: colors.danger }]} />
+                    <View style={androidStyles.lotCopy}>
                       <Txt variant="body" weight="700">
                         MHD {formatExpiryDate(lot.expiry_date)}
                       </Txt>
@@ -366,7 +466,7 @@ export function InventoryItemGroupSheet({
                     <Txt variant="body" tone="secondary">
                       ›
                     </Txt>
-                  </Pressable>
+                  </Press>
                 );
               }
 
@@ -382,19 +482,14 @@ export function InventoryItemGroupSheet({
                     ? colors.carrot
                     : colors.success;
               return (
-                <Pressable
+                <Press
                   key={lot.id}
                   onPress={() => onSelectLot(lot)}
                   accessibilityRole="button"
                   accessibilityLabel={`${displayGroup.name}, ${amount}, MHD ${expiryDate}, ${location}`}
-                  className="fridge-group-lot">
-                  <View
-                    className="fridge-group-lot-status"
-                    style={{
-                      backgroundColor: statusColor,
-                    }}
-                  />
-                  <View className="fridge-group-lot-copy">
+                  style={androidStyles.lotRow}>
+                  <View style={[androidStyles.lotStatus, { backgroundColor: statusColor }]} />
+                  <View style={androidStyles.lotCopy}>
                     <Txt variant="body" weight="700">
                       MHD {expiryDate}
                     </Txt>
@@ -404,13 +499,13 @@ export function InventoryItemGroupSheet({
                       {packageHint ? ` · ${packageHint}` : ''}
                     </Txt>
                   </View>
-                  <Txt variant="body" weight="700" style={{ fontVariant: ['tabular-nums'] }}>
+                  <Txt variant="body" weight="700" style={androidStyles.lotAmount}>
                     {amount}
                   </Txt>
                   <Txt variant="body" tone="secondary">
                     ›
                   </Txt>
-                </Pressable>
+                </Press>
               );
             })}
           </ScrollView>

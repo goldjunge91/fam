@@ -1,7 +1,8 @@
 import { Feather } from '@expo/vector-icons';
 import { type ComponentProps, useEffect, useRef } from 'react';
-import { Modal, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Modal, Platform, ScrollView, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { GradientBackground } from '@/components/layout/gradient-background';
 import {
@@ -41,6 +42,93 @@ type InventoryItemActionsSheetProps = {
   onExpiryChange: (expiryDate: string) => void;
   backgroundGradient?: GradientSpec;
 };
+
+const androidStyles = StyleSheet.create((theme) => ({
+  backdrop: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: theme.scrim,
+  },
+  sheet: {
+    position: 'absolute',
+    left: 10,
+    right: 10,
+    bottom: 10,
+    gap: theme.space.sm + theme.space.xs + 2,
+    paddingHorizontal: theme.space.sm + theme.space.xs + 2,
+    paddingTop: theme.space.sm + theme.space.xs - 1,
+    borderRadius: theme.radius.famLarge,
+    backgroundColor: theme.backgroundElement,
+  },
+  handle: {
+    width: 42,
+    height: 4,
+    alignSelf: 'center',
+    borderRadius: 2,
+    backgroundColor: theme.border,
+  },
+  itemHeader: {
+    minHeight: 76,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.md,
+    paddingBottom: theme.space.md,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  expiryBar: {
+    width: 6,
+    height: 52,
+    borderRadius: 3,
+  },
+  itemCopy: {
+    flex: 1,
+    gap: theme.space.xs / 2,
+  },
+  quantityRow: {
+    minHeight: 56,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
+  quantityCopy: {
+    flex: 1,
+    alignItems: 'stretch',
+    gap: 2,
+  },
+  actionRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.space.md,
+  },
+  action: {
+    width: '48%',
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: theme.radius.md,
+  },
+  actionFull: {
+    width: '100%',
+  },
+  actionNeutral: {
+    backgroundColor: theme.backgroundSoft,
+  },
+  actionPrimary: {
+    backgroundColor: theme.accent,
+  },
+  actionSuccess: {
+    backgroundColor: withAlpha(theme.success, 0.5),
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.success,
+  },
+  actionDanger: {
+    backgroundColor: withAlpha(theme.danger, 0.13),
+  },
+}));
 
 export function InventoryItemActionsSheet({
   visible,
@@ -110,24 +198,26 @@ export function InventoryItemActionsSheet({
       onRequestClose={onClose}
       onDismiss={onDismissFinished}>
       <View style={StyleSheet.absoluteFill}>
-        <Pressable
-          className="fridge-actions-backdrop"
+        <Press
+          style={androidStyles.backdrop}
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel="Artikelaktionen schließen"
         />
-        <View className="fridge-actions-sheet" style={sheetStyle}>
-          <View className="fridge-actions-handle" />
+        <View style={[androidStyles.sheet, sheetStyle]}>
+          <View style={androidStyles.handle} />
 
-          <View className="fridge-actions-item-header">
+          <View style={androidStyles.itemHeader}>
             {/* Farbe pro Item dynamisch (Ablaufstatus). */}
             <View
-              className="fridge-actions-expiry-bar"
-              style={{
-                backgroundColor: expiryColor(expiry.themeColor, colors, !!displayItem.opened_at),
-              }}
+              style={[
+                androidStyles.expiryBar,
+                {
+                  backgroundColor: expiryColor(expiry.themeColor, colors, !!displayItem.opened_at),
+                },
+              ]}
             />
-            <View className="fridge-actions-item-copy">
+            <View style={androidStyles.itemCopy}>
               <Txt variant="title">{displayItem.name}</Txt>
               <Txt
                 variant="body"
@@ -141,8 +231,8 @@ export function InventoryItemActionsSheet({
             </Txt>
           </View>
 
-          <View className="fridge-actions-quantity-row">
-            <View className="fridge-actions-quantity-copy">
+          <View style={androidStyles.quantityRow}>
+            <View style={androidStyles.quantityCopy}>
               <QuantityStepper
                 value={displayItem.quantity}
                 onChange={onQuantityChange}
@@ -155,7 +245,7 @@ export function InventoryItemActionsSheet({
             </View>
           </View>
 
-          <View className="fridge-actions-row">
+          <View style={androidStyles.actionRow}>
             <SheetAction label="Bearbeiten" onPress={onEdit} variant="neutral" />
             {!displayItem.opened_at ? (
               <SheetAction label="Öffnen" onPress={onOpen} variant="primary" />
@@ -494,13 +584,6 @@ function useThemedActionStyles() {
   });
 }
 
-const ACTION_VARIANT_CLASSES = {
-  neutral: 'fridge-action-btn-neutral',
-  primary: 'bg-accent',
-  success: 'fridge-action-btn-success border border-success',
-  danger: 'fridge-action-btn-danger',
-} as const;
-
 const ACTION_VARIANT_TEXT_COLOR = {
   neutral: 'primary',
   primary: 'onAccent',
@@ -516,19 +599,26 @@ function SheetAction({
 }: {
   label: string;
   onPress: () => void;
-  variant: keyof typeof ACTION_VARIANT_CLASSES;
+  variant: 'neutral' | 'primary' | 'success' | 'danger';
   fullWidth?: boolean;
 }) {
   return (
-    <Pressable
+    <Press
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={label}
-      className={`fridge-action-btn ${fullWidth ? 'fridge-action-btn-full' : ''} ${ACTION_VARIANT_CLASSES[variant]}`}>
+      style={[
+        androidStyles.action,
+        fullWidth && androidStyles.actionFull,
+        variant === 'neutral' && androidStyles.actionNeutral,
+        variant === 'primary' && androidStyles.actionPrimary,
+        variant === 'success' && androidStyles.actionSuccess,
+        variant === 'danger' && androidStyles.actionDanger,
+      ]}>
       <Txt variant="body" tone={ACTION_VARIANT_TEXT_COLOR[variant]} weight="700">
         {label}
       </Txt>
-    </Pressable>
+    </Press>
   );
 }
 

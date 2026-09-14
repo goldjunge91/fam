@@ -40,6 +40,12 @@ Styles entstehen über typisierte Unistyles-Theme-Callbacks.
 `global.css` und `tailwind.config.js` sind Retirement-Dateien ohne aktive
 Designentscheidungen.
 
+Das Repo-weite Removal-Gate
+`test/conventions/nativewind-removal.test.ts` schützt diesen Endzustand. Es
+prüft den aktiven `src/`-Baum auf `className`,
+`contentContainerClassName` und NativeWind-Imports; historische Migrationsdoku
+außerhalb von `src/` bleibt ausdrücklich außerhalb des Scopes.
+
 Der kanonische allgemeine `Button`, `TextField`, `SegmentedControl`, `Txt` und
 `Surface` werden direkt aus `src/constants/ui.tsx` importiert.
 Spezifische Produktkompositionen wie Back-, Header- oder Floating-Action-Buttons

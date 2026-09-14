@@ -38,7 +38,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.xs,
     paddingHorizontal: theme.space.lg,
     paddingVertical: 6,
-    borderRadius: theme.radius.xl,
+    borderRadius: theme.radius.lg,
     borderWidth: theme.borderWidth.base,
   },
   presetDot: {
@@ -59,6 +59,9 @@ const styles = StyleSheet.create((theme) => ({
   },
   storeList: {
     gap: theme.space.sm,
+  },
+  errorState: {
+    gap: theme.space.lg,
   },
   manageRow: {
     gap: theme.space.sm,
@@ -81,7 +84,7 @@ export function StoresScreen() {
   const { data: showPriceInMarketView = false } = useShowPriceInMarketView(userId);
   const setShowPriceInMarketView = useSetShowPriceInMarketView(userId);
 
-  const { data: stores, isLoading } = useStores(currentHousehold?.id);
+  const { data: stores, isError, isLoading, refetch } = useStores(currentHousehold?.id);
   const addMutation = useAddStoreMutation();
   const updateMutation = useUpdateStoreMutation();
   const deleteMutation = useDeleteStoreMutation();
@@ -278,6 +281,17 @@ export function StoresScreen() {
       <Card title={t('shoppingList.stores.existingStores.title')}>
         {isLoading ? (
           <Txt>{t('shoppingList.stores.existingStores.loading')}</Txt>
+        ) : isError && !stores ? (
+          <View accessibilityRole="alert" style={styles.errorState}>
+            <Txt variant="body" tone="danger">
+              {t('shoppingList.stores.existingStores.loadError')}
+            </Txt>
+            <Button
+              title={t('shoppingList.stores.existingStores.retry')}
+              variant="secondary"
+              onPress={() => void refetch()}
+            />
+          </View>
         ) : stores?.length === 0 ? (
           <Txt variant="body" tone="secondary">
             {t('shoppingList.stores.existingStores.empty')}

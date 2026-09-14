@@ -1,11 +1,11 @@
 import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ScrollView, TextInput, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
-import { CloseButton, Press, Txt } from '@/constants/ui';
+import { Button, CloseButton, Press, TextField, Txt } from '@/constants/ui';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { type StorageKind, storageKindForCategory } from '../domain-logik/shopping-categories';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
@@ -62,29 +62,8 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
     minWidth: 0,
   },
-  quantityBadge: {
-    paddingHorizontal: theme.space.lg,
-    paddingVertical: theme.space.xs,
-    borderRadius: theme.radius.lg,
-    backgroundColor: theme.success,
-  },
-  quantityEditRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: theme.space.xs / 2,
-    flexShrink: 0,
-  },
   quantityInput: {
     minWidth: theme.space.xxl + theme.space.xs,
-    padding: 0,
-    fontVariant: ['tabular-nums'],
-    color: theme.onAccent,
-    fontSize: theme.font.sizes.base,
-    lineHeight: theme.font.lineHeights.body,
-    fontWeight: theme.font.weight.semibold,
-  },
-  quantityButton: {
-    flexShrink: 0,
   },
   locationGroup: {
     gap: theme.space.sm,
@@ -138,12 +117,6 @@ const styles = StyleSheet.create((theme) => ({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: theme.space.lg,
-    borderRadius: theme.radius.md,
-    backgroundColor: theme.success,
-  },
-  confirmButtonDisabled: {
-    opacity: 0.5,
   },
   cancelButton: {
     paddingVertical: theme.space.sm,
@@ -201,34 +174,36 @@ function TransferRow({
         {/* Menge — grüner Pill-Badge, per Antippen als Zahl editierbar
             (Feedback: "im Laden nur 5 statt 6 Brötchen bekommen") */}
         {isEditingQty ? (
-          <View style={[styles.quantityBadge, styles.quantityEditRow]}>
-            <TextInput
-              value={qtyDraft}
-              onChangeText={setQtyDraft}
-              onBlur={commitQtyDraft}
-              autoFocus
-              selectTextOnFocus
-              keyboardType="decimal-pad"
-              returnKeyType="done"
-              onSubmitEditing={commitQtyDraft}
-              accessibilityLabel={t('shoppingList.completeRun.quantityAccessibility', {
-                item: item.name,
-              })}
-              style={styles.quantityInput}
-            />
-            <Txt variant="body" tone="onAccent" weight="600">
-              {item.unit}
-            </Txt>
-          </View>
+          <TextField
+            value={qtyDraft}
+            onChangeText={setQtyDraft}
+            onBlur={commitQtyDraft}
+            autoFocus
+            selectTextOnFocus
+            keyboardType="decimal-pad"
+            returnKeyType="done"
+            onSubmitEditing={commitQtyDraft}
+            accessibilityLabel={t('shoppingList.completeRun.quantityAccessibility', {
+              item: item.name,
+            })}
+            success
+            trailing={
+              <Txt variant="body" tone="onAccent" weight="600">
+                {item.unit}
+              </Txt>
+            }
+            style={styles.quantityInput}
+          />
         ) : (
           <Press
             onPress={startEditingQty}
+            success
             accessibilityRole="button"
             accessibilityLabel={t('shoppingList.completeRun.quantityEditAccessibility', {
               item: item.name,
               amount: formatAmount(transfer.quantity, item.unit),
             })}
-            style={[styles.quantityBadge, styles.quantityButton]}>
+            style={styles.quantityInput}>
             <Txt variant="body" tone="onAccent" weight="600">
               {formatAmount(transfer.quantity, item.unit)}
             </Txt>
@@ -403,16 +378,18 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
 
           {/* Confirm-Button — volle Breite, grün, wie im Screenshot */}
           <View style={styles.footer}>
-            <Press
+            <Button
+              title={t('shoppingList.completeRun.confirm', { count })}
               onPress={handleConfirm}
               disabled={count === 0}
-              accessibilityRole="button"
               accessibilityLabel={t('shoppingList.completeRun.confirmAccessibility', { count })}
-              style={[styles.confirmButton, count === 0 && styles.confirmButtonDisabled]}>
-              <Txt variant="body" weight="700" tone="onAccent">
-                {t('shoppingList.completeRun.confirm', { count })}
-              </Txt>
-            </Press>
+              variant="accent"
+              accentKey="fiber"
+              size="sm"
+              haptic="success"
+              full
+              style={styles.confirmButton}
+            />
 
             <Press onPress={onClose} accessibilityRole="button" style={styles.cancelButton}>
               <Txt variant="body" tone="secondary">
