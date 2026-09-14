@@ -1,12 +1,11 @@
 import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, ScrollView, TextInput, View } from 'react-native';
+import { ScrollView, TextInput, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
-import { withAlpha } from '@/components/theme/index';
-import { Txt } from '@/constants/ui';
+import { CloseButton, Press, Txt } from '@/constants/ui';
 import { debugLogEvent } from '@/lib/debug-log';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { type StorageKind, storageKindForCategory } from '../domain-logik/shopping-categories';
@@ -108,14 +107,6 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.lg,
     borderWidth: theme.borderWidth.base,
   },
-  kindButtonSelected: {
-    borderColor: theme.accent,
-    backgroundColor: withAlpha(theme.accent, 0.1),
-  },
-  kindButtonIdle: {
-    borderColor: theme.border,
-    backgroundColor: 'transparent',
-  },
   expiryRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -135,14 +126,6 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: theme.space.xl + theme.space.xs,
     paddingTop: theme.space.sm,
     paddingBottom: theme.space.lg,
-  },
-  closeButton: {
-    width: theme.space.xxl + theme.space.xs,
-    height: theme.space.xxl + theme.space.xs,
-    borderRadius: theme.radius.md,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: theme.backgroundElement,
   },
   scroll: {
     flex: 1,
@@ -241,7 +224,7 @@ function TransferRow({
             </Txt>
           </View>
         ) : (
-          <Pressable
+          <Press
             onPress={startEditingQty}
             accessibilityRole="button"
             accessibilityLabel={t('shoppingList.completeRun.quantityEditAccessibility', {
@@ -252,7 +235,7 @@ function TransferRow({
             <Txt variant="body" tone="onAccent" weight="600">
               {formatAmount(transfer.quantity, item.unit)}
             </Txt>
-          </Pressable>
+          </Press>
         )}
       </View>
       {packageHint ? (
@@ -268,21 +251,20 @@ function TransferRow({
             const label = t(`shoppingList.completeRun.storageKind.${kind}`);
             const isActive = transfer.locationKind === kind;
             return (
-              <Pressable
+              <Press
                 key={kind}
                 onPress={() => onUpdateKind(kind)}
+                selected={isActive}
+                containerStyle={{ flex: 1 }}
                 accessibilityRole="radio"
                 accessibilityState={{ selected: isActive }}
                 accessibilityLabel={label}
-                style={[
-                  styles.kindButton,
-                  isActive ? styles.kindButtonSelected : styles.kindButtonIdle,
-                ]}>
+                style={styles.kindButton}>
                 <Txt variant="caption">{KIND_ICONS[kind]}</Txt>
                 <Txt variant="caption" tone="primary">
                   {label}
                 </Txt>
-              </Pressable>
+              </Press>
             );
           })}
         </View>
@@ -417,13 +399,7 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
                 {t('shoppingList.completeRun.subtitle', { count })}
               </Txt>
             </View>
-            <Pressable
-              onPress={onClose}
-              accessibilityRole="button"
-              accessibilityLabel={t('shoppingList.close')}
-              style={styles.closeButton}>
-              <Txt>✕</Txt>
-            </Pressable>
+            <CloseButton onPress={onClose} accessibilityLabel={t('shoppingList.close')} />
           </View>
 
           {/* Artikel-Liste */}
@@ -446,7 +422,7 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
 
           {/* Confirm-Button — volle Breite, grün, wie im Screenshot */}
           <View style={styles.footer}>
-            <Pressable
+            <Press
               onPress={handleConfirm}
               disabled={count === 0}
               accessibilityRole="button"
@@ -455,13 +431,13 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
               <Txt variant="body" weight="700" tone="onAccent">
                 {t('shoppingList.completeRun.confirm', { count })}
               </Txt>
-            </Pressable>
+            </Press>
 
-            <Pressable onPress={onClose} accessibilityRole="button" style={styles.cancelButton}>
+            <Press onPress={onClose} accessibilityRole="button" style={styles.cancelButton}>
               <Txt variant="body" tone="secondary">
                 {t('shoppingList.completeRun.cancel')}
               </Txt>
-            </Pressable>
+            </Press>
           </View>
         </View>
       </BottomSheetView>

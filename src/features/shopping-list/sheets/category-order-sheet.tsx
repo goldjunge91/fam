@@ -1,7 +1,7 @@
 import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import ReorderableList, {
   type ReorderableListReorderEvent,
   reorderItems,
@@ -10,7 +10,7 @@ import ReorderableList, {
 } from 'react-native-reorderable-list';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Surface, Txt } from '@/constants/ui';
 import {
   parseCategoryOrder,
   SHOPPING_CATEGORIES,
@@ -40,10 +40,9 @@ const styles = StyleSheet.create((theme) => ({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,
   },
-  rowActive: {
-    backgroundColor: theme.backgroundElement,
-  },
   handle: {
+    minWidth: 44,
+    minHeight: 44,
     paddingHorizontal: theme.space.lg,
     paddingVertical: theme.space.sm,
   },
@@ -63,9 +62,12 @@ const styles = StyleSheet.create((theme) => ({
     paddingVertical: theme.space.xl + theme.space.xs,
   },
   resetButton: {
+    minWidth: 44,
+    minHeight: 44,
     paddingVertical: theme.space.sm,
   },
   saveButton: {
+    minHeight: 44,
     paddingHorizontal: theme.space.xl + theme.space.xs,
     paddingVertical: theme.space.lg,
     borderRadius: theme.radius.md,
@@ -94,9 +96,10 @@ function Row({ category }: RowProps) {
   const isActive = useIsActive();
 
   return (
-    <View style={[styles.row, isActive && styles.rowActive]}>
+    <Surface tone={isActive ? 'surface' : 'page'} style={styles.row}>
       <Txt variant="body">{category.label}</Txt>
-      <Pressable
+      <Press
+        haptic="none"
         onPressIn={drag}
         style={styles.handle}
         accessibilityRole="adjustable"
@@ -106,8 +109,8 @@ function Row({ category }: RowProps) {
         <Txt variant="heading" weight="700" style={styles.handleLabel}>
           ⠿
         </Txt>
-      </Pressable>
-    </View>
+      </Press>
+    </Surface>
   );
 }
 
@@ -186,15 +189,17 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
           }
           ListFooterComponent={
             <View style={styles.footer}>
-              <Pressable
+              <Press
+                haptic="selection"
                 onPress={handleReset}
                 accessibilityRole="button"
                 style={styles.resetButton}>
                 <Txt variant="body" tone="secondary">
                   {t('shoppingList.categoryOrder.reset')}
                 </Txt>
-              </Pressable>
-              <Pressable
+              </Press>
+              <Press
+                haptic="success"
                 onPress={handleSave}
                 disabled={saveMutation.isPending}
                 accessibilityRole="button"
@@ -203,7 +208,7 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
                 <Txt variant="body" tone="onAccent" weight="700">
                   {t('shoppingList.categoryOrder.save')}
                 </Txt>
-              </Pressable>
+              </Press>
             </View>
           }
         />
