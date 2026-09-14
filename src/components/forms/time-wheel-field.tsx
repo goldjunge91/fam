@@ -1,10 +1,10 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { type Palette, radius, space } from '@/components/theme/index';
 import { useThemedStyles } from '@/components/theme/ThemeProvider';
-import { Button, Txt } from '@/constants/ui';
+import { Button, Press, Txt } from '@/constants/ui';
 
 function toTime(date: Date): string {
   return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
@@ -45,15 +45,16 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
           {label}
         </Txt>
       ) : null}
-      <Pressable
+      <Press
         onPress={open}
         accessibilityRole="button"
         accessibilityLabel={
           value ? `${label ?? 'Uhrzeit'} ${value} ändern` : `${label ?? 'Uhrzeit'} auswählen`
         }
-        style={({ pressed }) => [styles.inputField, pressed && styles.pressed]}>
+        haptic="selection"
+        style={styles.inputField}>
         <Txt variant="body">{value || 'Uhrzeit auswählen'}</Txt>
-      </Pressable>
+      </Press>
 
       <Modal
         visible={isOpen}
@@ -99,9 +100,6 @@ function makeStyles(colors: Palette) {
       paddingHorizontal: space.lg,
       paddingVertical: 10,
       backgroundColor: colors.backgroundElement,
-    },
-    pressed: {
-      opacity: 0.75,
     },
     modalBackdrop: {
       flex: 1,

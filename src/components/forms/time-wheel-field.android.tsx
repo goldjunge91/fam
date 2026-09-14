@@ -1,10 +1,10 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { type Palette, radius, space } from '@/components/theme/index';
 import { useThemedStyles } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 
 function toTime(date: Date): string {
   return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
@@ -35,15 +35,16 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
           {label}
         </Txt>
       ) : null}
-      <Pressable
+      <Press
         onPress={() => setIsOpen(true)}
         accessibilityRole="button"
         accessibilityLabel={
           value ? `${label ?? 'Uhrzeit'} ${value} ändern` : `${label ?? 'Uhrzeit'} auswählen`
         }
-        style={({ pressed }) => [styles.inputField, pressed && styles.pressed]}>
+        haptic="selection"
+        style={styles.inputField}>
         <Txt variant="body">{value || 'Uhrzeit auswählen'}</Txt>
-      </Pressable>
+      </Press>
       {isOpen ? (
         <DateTimePicker
           value={pickerDate}
@@ -74,9 +75,6 @@ function makeStyles(colors: Palette) {
       paddingHorizontal: space.lg,
       paddingVertical: 10,
       backgroundColor: colors.backgroundElement,
-    },
-    pressed: {
-      opacity: 0.75,
     },
   });
 }

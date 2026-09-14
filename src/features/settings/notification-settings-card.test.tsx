@@ -1,7 +1,35 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { i18n } from '@/i18n';
 import { getNotificationSettings, saveNotificationSettings } from '@/lib/notifications';
 import { NotificationSettingsCard } from './notification-settings-card';
+
+jest.mock('@expo/ui/community/datetime-picker', () => {
+  const { Pressable } = jest.requireActual('react-native') as typeof import('react-native');
+
+  function MockDateTimePicker({
+    onValueChange,
+  }: {
+    onValueChange?: (
+      event: { nativeEvent: { timestamp: number; utcOffset: number } },
+      date: Date,
+    ) => void;
+  }) {
+    return (
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel="Testzeit 10:12 einstellen"
+        onPress={() =>
+          onValueChange?.(
+            { nativeEvent: { timestamp: 0, utcOffset: 0 } },
+            new Date(2026, 0, 1, 10, 12),
+          )
+        }
+      />
+    );
+  }
+
+  return MockDateTimePicker;
+});
 
 jest.mock('@/lib/notifications', () => ({
   DEFAULT_NOTIFICATION_SETTINGS: {
@@ -44,7 +72,8 @@ describe('NotificationSettingsCard', () => {
     );
   });
 
-  it('sollte eine gespeicherte Uhrzeit mit nicht angebotenen Minuten nicht auswählen', async () => {
+  it('sollte frei wählbare Stunden und Minuten exakt speichern', async () => {
+    const user = userEvent.setup();
     jest.mocked(getNotificationSettings).mockResolvedValueOnce({
       enabled: true,
       daysThreshold: 3,
@@ -54,6 +83,14 @@ describe('NotificationSettingsCard', () => {
 
     await render(<NotificationSettingsCard />);
 
-    expect(screen.getByRole('radio', { name: '09:00 Uhr' })).not.toBeSelected();
+    await user.press(
+      screen.getByRole('button', { name: 'Uhrzeit der Erinnerung: 09:15 ändern' }),
+    );
+    await user.press(screen.getByRole('button', { name: 'Testzeit 10:12 einstellen' }));
+    await user.press(screen.getByRole('button', { name: 'Übernehmen' }));
+
+    expect(saveNotificationSettings).toHaveBeenCalledWith(
+      expect.objectContaining({ reminderHour: 10, reminderMinute: 12 }),
+    );
   });
 });
