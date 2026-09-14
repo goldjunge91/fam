@@ -262,6 +262,10 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
                   disabled={isPurchasing || isRestoring}
                   accessibilityRole="button"
                   accessibilityLabel="Käufe wiederherstellen"
+                  accessibilityState={{
+                    disabled: isPurchasing || isRestoring,
+                    busy: isRestoring,
+                  }}
                   haptic="selection"
                   style={[
                     styles.restoreButton,
