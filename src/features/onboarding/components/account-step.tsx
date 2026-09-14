@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Button, Press, Surface, Txt } from '@/constants/ui';
+import { Button, SegmentedControl, Surface, Txt } from '@/constants/ui';
 import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
 import { EmailVerificationPanel } from '@/features/auth/components/email-verification-panel';
 import { SignInForm } from '@/features/auth/forms/sign-in-form';
@@ -32,25 +32,12 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.lg,
     marginTop: theme.space.sm,
   },
-  tabToggle: {
-    flexDirection: 'row',
-    overflow: 'hidden',
-    marginBottom: theme.space.xs,
-    borderWidth: theme.borderWidth.base,
-    borderColor: theme.border,
-    borderRadius: theme.radius.sm,
-  },
-  tabContainer: {
-    flex: 1,
-  },
-  tabButton: {
-    alignItems: 'center',
-    paddingVertical: theme.space.sm,
-  },
-  tabButtonActive: {
-    backgroundColor: theme.accent,
-  },
 }));
+
+const AUTH_MODE_OPTIONS = [
+  { value: 'sign_up', label: 'Registrieren', accessibilityLabel: 'Registrieren' },
+  { value: 'sign_in', label: 'Anmelden', accessibilityLabel: 'Anmelden' },
+] as const;
 
 export function AccountStepForm({ onNext }: AccountStepFormProps) {
   const { session } = useSession();
@@ -100,41 +87,13 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
         </View>
       ) : (
         <View style={styles.form}>
-          <View
-            accessibilityRole="tablist"
-            accessibilityLabel="Anmeldeart"
-            style={styles.tabToggle}>
-            <Press
-              onPress={() => setAuthMode('sign_up')}
-              accessibilityRole="tab"
-              accessibilityLabel="Registrieren"
-              accessibilityState={{ selected: authMode === 'sign_up' }}
-              haptic="selection"
-              containerStyle={styles.tabContainer}
-              style={[styles.tabButton, authMode === 'sign_up' && styles.tabButtonActive]}>
-              <Txt
-                variant="body"
-                tone={authMode === 'sign_up' ? 'onAccent' : 'primary'}
-                weight="600">
-                Registrieren
-              </Txt>
-            </Press>
-            <Press
-              onPress={() => setAuthMode('sign_in')}
-              accessibilityRole="tab"
-              accessibilityLabel="Anmelden"
-              accessibilityState={{ selected: authMode === 'sign_in' }}
-              haptic="selection"
-              containerStyle={styles.tabContainer}
-              style={[styles.tabButton, authMode === 'sign_in' && styles.tabButtonActive]}>
-              <Txt
-                variant="body"
-                tone={authMode === 'sign_in' ? 'onAccent' : 'primary'}
-                weight="600">
-                Anmelden
-              </Txt>
-            </Press>
-          </View>
+          <SegmentedControl
+            label="Anmeldeart"
+            options={AUTH_MODE_OPTIONS}
+            selected={authMode}
+            onSelect={setAuthMode}
+            selectionRole="tab"
+          />
 
           {authMode === 'sign_up' ? (
             <>
