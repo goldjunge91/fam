@@ -4,8 +4,6 @@
 - **Mental Anchor / Comparison:** Denke an Haushaltsapp als eine datenschutzorientierte, kollaborative Kombination aus _Bring!_ und _MyFitnessPal_ mit strikter Trennung zwischen Haushalts- und Privatdaten.
 - **Goal:** Schnelle, zuverlässige mobile Workflows für iOS und Android mit robuster Offline-Fähigkeit und synchronisiertem Haushaltszustand.
 
-Vor jeder Codeänderung `CONSTRAINTS.md` im Repository-Root lesen. Die dort festgelegten Grenzen dürfen nicht abgeschwächt werden, um eine Änderung erfolgreich erscheinen zu lassen.
-
 ---
 
 ## What Makes Haushaltsapp Special (1–4 Non-Negotiable Pillars)
@@ -26,49 +24,40 @@ Vor jeder Codeänderung `CONSTRAINTS.md` im Repository-Root lesen. Die dort fest
 ## Verbindliche UI-Styling-Architektur
 
 `react-native-unistyles` v3 ist die einzige aktive Styling-Runtime.
-NativeWind und `className`-Nutzung sind im Endzustand vollständig entfernt.
-Während der laufenden Migration (`fam-978`) existiert ein kurzfristiger
-Mischbetrieb — er ist kein Zielzustand.
+Das fam-Design-System hat genau drei zentrale Owner:
 
-Das fam-Design-System hat genau drei zentrale Verantwortliche:
+1. `src/components/theme/index.ts` besitzt Themes, Paletten und wiederverwendbare
+   Design-Tokens wie Abstände, Radien, Schriftmaße, Schriftgewichte und Schatten.
+2. `src/components/theme/ThemeProvider.tsx` besitzt die Präferenz `system | light |
+   dark`, ihre Auflösung gegen das Betriebssystem sowie `useTheme()` und
+   `useThemedStyles()`.
+3. `src/constants/ui.tsx` besitzt die gemeinsamen semantischen UI-Primitiven und
+   ihre Darstellung, einschließlich Typografie, Farben, Flächen, Konturen,
+   Schatten und Interaktionszuständen.
 
-1. `src/components/theme/index.ts` besitzt alle wiederverwendbaren
-   Design-Tokens: Light-/Dark-Paletten, Abstände, Radien, Schriftmaße,
-   Schriftgewichte, Schatten, Verläufe, gemeinsame Maße und die
-   Unistyles-Theme-Konfiguration.
-2. `src/components/theme/ThemeProvider.tsx` besitzt die Theme-Präferenz, die
-   Auflösung von `system | light | dark`, die aktive Palette sowie `useTheme()`
-   und `useThemedStyles()`.
-3. `src/constants/ui.tsx` besitzt die semantischen UI-Primitiven und die gesamte
-   gemeinsame Darstellung: Typografierezepte, Farbrollenzuordnungen, Flächen,
-   Konturen, Schatten, Interaktionszustände und die Basisverträge, auf denen
-   weitere Komponenten aufbauen.
+Verbindliche Regeln:
 
-Verbindliche Grenzen:
+- Stylesheets importieren `StyleSheet` ausschließlich aus
+  `react-native-unistyles`. `StyleSheet.configure()` wird vor dem Import von
+  Komponenten mit Unistyles-Styles ausgeführt.
+- Theme- oder Runtime-abhängige Styles verwenden
+  `StyleSheet.create((theme, rt) => ({ ... }))`; rein statisches lokales Layout
+  darf `StyleSheet.create({ ... })` verwenden.
+- Unistyles-Styles werden mit Style-Arrays kombiniert, niemals mit dem
+  Spread-Operator. `StyleSheet` wird nicht über Barrel-Dateien re-exportiert.
+- Gemeinsame semantische Entscheidungen liegen ausschließlich in den drei
+  Owner-Dateien. Feature-Komponenten enthalten nur Verhalten, Komposition und
+  lokales Layout sowie begründete native Integrationsgrenzen.
+- Neue Feature-Komponenten erfinden keine Palette, Hexfarben, Typografierollen
+  oder semantischen Tokens. Fehlende projektweite Entscheidungen werden in
+  genau einem der drei Owner ergänzt.
+- `className`, `contentContainerClassName` und aktive NativeWind-/Tailwind-APIs
+  werden nicht verwendet.
 
-- `className` und `contentContainerClassName` sind verboten. Aktive NativeWind-API
-  wird nicht ergänzt.
-- Styles werden über `StyleSheet` aus `react-native-unistyles` mit
-  callback-basierten Theme-Zugriffen erstellt:
-  `StyleSheet.create((theme) => ({ root: { backgroundColor: theme.background } }))`.
-- Semantische Farben, Typografie, Hintergründe, Konturen, Schatten sowie
-  pressed-, focused-, selected-, disabled- und loading-Darstellungen werden in
-  `ui.tsx` definiert. Darauf aufbauende Komponenten wenden diese Definitionen
-  an und besitzen nur Verhalten, Komposition und lokales Layout.
-- Komponenten- und Feature-StyleSheets sind auf nicht semantisches lokales
-  Layout, berechnete Laufzeitwerte und native Integrationsgrenzen beschränkt.
-  Benötigt eine solche Grenze die aktive Palette, bezieht sie diese über den
-  Unistyles-Theme-Callback oder `useTheme()` aus `ThemeProvider.tsx`.
-- Es wird keine vierte globale Theme- oder Style-Quelle eingeführt, keine
-  `vars()`-Bridge und keine parallele Farbquelle.
-- Neue Feature-Komponenten erfinden keine Hexfarben, Typografierollen oder
-  semantischen Tokens. Fehlt eine projektweite Entscheidung, wird sie in genau
-  einer der drei zentralen Dateien ergänzt. Rein lokales Layout darf lokal
-  bleiben.
+Arbeitsreferenzen:
 
-Die normativen Verträge stehen unter `docs/design-system/contracts/`.
-`docs/specs/nativewind-styling/` dokumentiert die abgeschlossene NativeWind-Entstehungsgeschichte.
-`docs/specs/nativewind-unistyles-migration/` dokumentiert die laufende Migration.
+- Unistyles-v3-Tutorial: `docs/react-native-unistyles/v3/react-native-unistyles_v3_tutorial/`
+- Projekt-Skill: `.agents/skills/react-native-unistyles-v3/SKILL.md`
 
 ---
 
@@ -144,39 +133,60 @@ The rest of this document is meant to help you navigate the codebase and make ch
 
 ## Native Fingerprint & Build Lock
 
-`native-build-lock.json` sperrt gebaute native Artefakte (`native-artifacts/`) an einen Fingerprint-Hash (`@expo/fingerprint`, je Plattform). `bun run native:status` bricht hart ab, sobald der aktuelle Fingerprint vom gelockten abweicht — das ist beabsichtigt, kein Bug. Vor einem erneuten "Mismatch"-Debugging immer zuerst `docs/features/native-fingerpint-faster-build/native-fingerprint-drift-debugging.md` lesen (Root Cause, Ausschlussverfahren, Diff-Tool) statt bei Null anzufangen.
+`ios/` und `android/` sind versionierte native Projekte. `native-build-lock.json`
+enthält eine `@expo/fingerprint`-Baseline je Plattform und optional lokal
+vorhandene native Artefakte mit SHA-256-Prüfung. Die Baseline wird pro Host
+gepflegt: macOS berechnet iOS, Windows und Linux Android. Ein Eintrag der
+anderen Plattform bleibt dabei erhalten.
 
-**Löst einen neuen Fingerprint aus** (Rebuild nötig):
+Der Lock ist ein Release- und Artefakt-Gate, kein Blocker für den normalen
+Development-Inner-Loop:
 
-- Jede Änderung unter `ios/` bzw. `android/` (getrackte Dateien).
-- `app.json`/`app.config.*` — außer den unten explizit ausgenommenen Feldern.
-- Neue/geänderte native Dependency (`bun add`, `package.json`-Dependencies, nicht Scripts).
-- Config-Plugins selbst (`plugins/*.js`) und ihre Optionen in `app.json`.
-- `.gitignore`-Inhalt (wird als Hash-Quelle gelesen, nicht nur als Ignore-Regel).
-- `package.json`-Scripts (außer `android`/`ios`, wenn sie kein `run` enthalten — Default-Skip von `@expo/fingerprint`).
+Die wichtigsten Befehle und ihr Sperrverhalten:
 
-**Löst KEINEN neuen Fingerprint aus** (bewusst über `fingerprint.config.js`/`.fingerprintignore` ausgenommen, siehe `docs/features/native-fingerpint-faster-build/native-fingerprint-drift-debugging.md`):
+- `bun run native:status` prüft die aktuelle Baseline und alle registrierten,
+  lokal vorhandenen Artefakte. Ein Fingerprint- oder Artefakt-Mismatch schlägt
+  fehl; fehlende lokale Artefakte werden nur gemeldet.
+- `bun run native:baseline -- --approve-rebuild` schreibt die Baseline der
+  verfügbaren Host-Plattform. Der Befehl kompiliert nicht. Erst nach
+  abgeschlossenem `expo prebuild` und, auf iOS, `pod install` ausführen. Eine
+  neue Baseline aktualisiert registrierte Artefakte nicht automatisch.
+- `bun run native:status -- --diff` zeigt bei einem Mismatch die abweichenden
+  Fingerprint-Sources, sofern ein lokaler Snapshot unter
+  `.native-fingerprint-cache/` vorhanden ist.
+- `bun run native:dev -- --target <dev-target>` nutzt den Inner Loop über
+  `expo run:*`. Ein Mismatch wird sichtbar gewarnt, blockiert den Development-
+  Build aber nicht. Gültige Targets sind `ios-development-simulator`,
+  `ios-development-device` und `android-development`.
+- `bun run native:rebuild -- --target <target> --approve-rebuild` ist der
+  ausdrücklich freizugebende lokale EAS-Pfad (`eas build --local`). Er führt
+  ein kontrolliertes Prebuild aus, baut das Ziel und registriert das Artefakt.
+- `bun run native:run -- --target <target>` verwendet ausschließlich ein
+  registriertes und unverändertes Artefakt. Es kompiliert nicht automatisch.
+  `native:restore` kann ein passendes EAS-Artefakt wiederherstellen.
 
-- `version`, `ios.buildNumber`, `android.versionCode` in `app.json`.
-- Anzeigename/Beschreibung (`name`, `description`) in `app.json`.
-- EAS-Projekt-Metadaten (`extra.eas`) in `app.json`.
-- Das `extra`-Feld in `app.json` generell (nur zur Laufzeit über `expo-constants` sichtbar).
-- `eas.json`/`.easignore` (Abwägung: steuert _wie_ gebaut wird, nicht was kompiliert wird — Restrisiko dokumentiert).
-- Lokal generierte Xcode-Dateien (`project.xcworkspace`, `xcuserdata`, `.DS_Store`, `.xcode.env.local`).
+Ein neuer Fingerprint ist zu erwarten, wenn sich native Compile-Eingaben
+ändern, insbesondere:
 
-**Bei echtem Mismatch:**
+- native Dateien unter `ios/` oder `android/`;
+- native Dependencies, Lockfile oder Config-Plugins;
+- native relevante Optionen in `app.json` oder `app.config.*`;
+- `package.json`-Scripts, die einen nativen Lauf beeinflussen, sowie der Inhalt
+  von `.gitignore`.
 
-```bash
-bun run native:status -- --diff        # zeigt die abweichende Fingerprint-Quelle direkt
-bun run native:baseline -- --approve-rebuild   # Baseline nach geprüfter, gewollter Änderung neu setzen
-```
+Die zentrale Ausnahmekonfiguration liegt in `fingerprint.config.js`.
 
-**Zwei Build-Pfade, bewusst getrennt:**
+Bei einem echten Mismatch zuerst `bun run native:status -- --diff` ausführen
+und danach die Ursache dokumentiert beheben. Eine neue Baseline oder ein neuer
+Rebuild ist nur mit `--approve-rebuild` zulässig. Arbeitsweise und bekannte
+Drift-Ursachen stehen in
+`docs/features/native-fingerpint-faster-build/native-fingerprint-drift-debugging.md`.
 
-- `native:dev -- --target <dev-target>` — Inner Loop (`expo run:*`), für Simulator/Emulator während der Entwicklung. Läuft in-place, profitiert von ccache und DerivedData-Wiederverwendung. Baseline-Mismatch blockiert hier nur als Warnung.
-- `native:rebuild -- --target <target> --approve-rebuild` — Release-Pfad (`eas build --local`), reproduzierbar/signiert, für TestFlight/Production. Blockiert hart bei Mismatch.
-
-ccache ist für beide Pfade verdrahtet (`plugins/withIosCcacheDir.js`, `scripts/native-build.ts`) — Xcode reicht Build-Settings nicht als Env-Vars an Compile-Subprozesse durch, deshalb eigenständige Wrapper-Skripte statt Env-Var-Vertrauen. Für den TestFlight-Pfad zusätzlich `EAS_LOCAL_BUILD_WORKINGDIR` (festes statt zufälliges Arbeitsverzeichnis pro `eas build --local`-Lauf). Details, Messwerte und die verworfenen Lösungswege: `docs/features/native-fingerpint-faster-build/native-fingerprint-drift-debugging.md`.
+`native:dev` profitiert auf iOS vom lokalen ccache und von DerivedData. Das
+Flag `--no-build-cache` leert dabei nur lokales DerivedData und umgeht nicht den
+Remote-Cache-Lookup aus `app.json`. Der lokale EAS-Rebuild verwendet bei
+konfiguriertem ccache ein festes `EAS_LOCAL_BUILD_WORKINGDIR`; die Details liegen
+in `plugins/withIosCcacheDir.js` und `scripts/native-build.ts`.
 
 ## Coding preferences - general
 
@@ -214,9 +224,8 @@ ccache ist für beide Pfade verdrahtet (`plugins/withIosCcacheDir.js`, `scripts/
 
 ## Visual and design work
 
-- Do not edit real components first. For any non-trivial Ul, layout, or copy change, build several distinct static mocks, publish them with the html-communication skill, report the URL, and stop. Wait for a pick before implementing.
+- Do not edit real components first. For any non-trivial Ul, layout, or copy change,ask marco if he want u to build several distinct static mocks, publish them with the html-communication skill, report the URL, and stop. Wait for a pick before implementing.
 - Standing constraints: the warm fam mauve/cream palette (`src/components/theme/index.ts`, light and dark). Information-dense, no decorative card/pill chrome, no light-gray subtitle lines above sections. Minimal copy. No em dashes.
-- Avoid continuously repainting CSS animations (pulse, shimmer, blur, spinners); they peg the GPU on high-refresh displays.
 
 # Expo HAS CHANGED
 

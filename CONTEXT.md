@@ -1,7 +1,13 @@
 # fam: Projektkontext
 
+Status: Veraltete Version, Nicht weiterverwenden oder weiterlesen so lange der status nicht auf freigegeben steht.
+Datum: 2026-09-15
+___
+
+
 Kurzreferenz für Maintainer, Entwickler und Agents. fam ist eine
-datenschutzorientierte, kollaborative App für Haushalte: geteilte Bestands-,
+Weniger Lebensmittel sichernde, Einkaufslisten Huashaltsapp die Familien helfen soll
+Haushalte: geteilte Bestands-,
 Einkaufs- und Rezeptdaten werden mit privatem Kalorien-, Nährwert- und
 Gesundheits-Tracking kombiniert. Der Name ist ein Arbeitstitel; im Code und in
 der technischen Dokumentation ist `fam` der aktuelle Projektname.
@@ -44,7 +50,7 @@ Unterlagen.
   sind davon getrennt, sofern ihr Datenmodell keinen Sync vorsieht.
 - **UI-Verantwortung:** Projektweite Tokens, Theme-Auflösung und semantische
   UI-Rezepte liegen ausschließlich in den drei Quellen der UI-Designsystem-
-  Tabelle oben. NativeWind bleibt auf statisches Layout beschränkt.
+  Tabelle oben. Unistyles
 - **Feature-first:** `src/app/` enthält Routing. Fachlogik lebt in
   `src/features/<domain>/`, geteilte UI in `src/components/`.
 - **Native Runtime:** Expo SDK 57 und native Module setzen einen Dev Client
@@ -73,22 +79,16 @@ Unterlagen.
 - Bei UI-Änderungen gelten die Verträge unter
   [`docs/design-system/contracts/`](docs/design-system/contracts/README.md).
   Nichttriviale Layout- oder Copy-Änderungen brauchen vor der Implementierung
-  statische Mocks und eine Auswahl.
-- Lokale Supabase-Datenbanken, Simulatoren, Metro-Prozesse und Container werden
-  nicht eigenmächtig gestartet oder beendet. Bestehende Entwicklerprozesse sind
-  zu schützen.
+- A. Die Erlaubnis des Maintainers ohne Mockups oder B. Statische Mockups (die die app wiederspiegeln), die dem Maintainer eine auswahl geben und ihn überzeugen.
+- Die Dev Maschine hat nur 8 GB RAM und 256gb internen speicher so wie externen Speicher der verwendet werden kann, eine Lokale Supabase-Datenbanken / Docker, kann nicht gleichzeitig neben dem Simulatoren, Metro-Prozess laufen da dies zuviele Ressourcen verbraucht. Die Dev Maschine ist daher ist es wichtig immer einmal kurz auslastung und rücksprache mit dem Maintainer zu halten, bevor man die Dev Maschine mit zuvielen Prozessen belastet.
 
 ## Language
 
-**Tracking**:
-Oberbegriff für alle privaten, per RLS isolierten Nutzerdaten — Nutrition Tracking, Medications & Symptoms, Fasting, Vital Logs, Workouts. Nicht haushaltsgebunden, nur für den einzelnen Nutzer sichtbar.
-_Avoid_: Diary, Tagebuch, Journal, Log (als Oberbegriff)
+**Kind im Haushalt**:
+Unter Haushalt kann man "Kinder" anlegen bei diesen "Kindern" geht es rein um die Verwaltung und Kalkulation von Lebensmittel Mahlzeiten, es ist rein virtuell und hat nichts mit einem realen Kind zutun oder ist ein Account. Ein Kind kann nicht selbstständig auf die App zugreifen, es hat keine eigenen Login-Daten und kann nicht selbstständig Mahlzeiten oder Rezepte anlegen. Ein Kind ist ein virtuelles Profil, das von einem Erwachsenen verwaltet wird.
 
 **Kind-Tracking**:
 Tracking-Einträge, die zu einem Child Profile statt zu einem Account gehören, erfasst durch einen verwaltenden Erwachsenen. Zielmodell: der Eintrag gehört dem Child Profile, sichtbar für alle, die es verwalten dürfen; wer ihn erfasst hat, ist nur Herkunftsangabe. Keine Aufweichung der Tracking-Privatheit — die schützt Daten von Accounts, und ein Kind hat keinen. Gilt pro Domäne, nicht pauschal: ja bei Ernährung, Gewicht, Medikamenten, Symptomen, Glukose und Workouts, nicht bei Fasten, Ketonen und Aktivität. Umbau eingefroren, siehe ADR 0005.
-
-**Volljährigkeits-Übergabe**:
-Verknüpfung eines Child Profile mit einem echten Account, wenn das Kind selbst übernimmt: die Daten bleiben liegen, der Elternzugriff endet. Noch nicht gebaut, aber der Grund, warum Kind-Tracking-Einträge dem Child Profile gehören müssen und nicht dem Elternteil.
 
 **Nutrition Tracking**:
 Der Ernährungs- und Gewichtsteil von Tracking: Mahlzeiten (`food_entries`), Gewicht (`weight_entries`), Ziele (`user_goals`). Eine von mehreren Tracking-Domänen, kein Oberbegriff.
