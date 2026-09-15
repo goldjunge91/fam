@@ -165,6 +165,10 @@ describe('resolveCatalogImageUrl', () => {
     );
   });
 
+  it('rejects insecure HTTP image URLs', () => {
+    expect(resolveCatalogImageUrl('http://images.example/recipe.jpg')).toBeNull();
+  });
+
   it('returns null for a storage path', () => {
     expect(resolveCatalogImageUrl('waivy/recipe.jpg')).toBeNull();
   });

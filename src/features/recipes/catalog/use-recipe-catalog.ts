@@ -141,7 +141,8 @@ export function getCatalogImageReference(
 }
 
 export function resolveCatalogImageUrl(path: string | null | undefined): string | null {
-  return path && /^https?:\/\//i.test(path) ? path : null;
+  // iOS App Transport Security blocks direct HTTP image loads.
+  return path && /^https:\/\//i.test(path) ? path : null;
 }
 
 /** Adaptiert ein Katalogrezept für den gemeinsamen Kochmodus. */
