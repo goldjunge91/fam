@@ -131,6 +131,14 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'space-between',
     gap: theme.space.lg,
   },
+  detailLabel: {
+    flex: 1,
+    flexShrink: 1,
+  },
+  detailValue: {
+    flexShrink: 1,
+    textAlign: 'right',
+  },
   detailRowWithDivider: {
     borderBottomWidth: 0.5,
     borderBottomColor: theme.border,
@@ -290,18 +298,18 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
 
             <View style={styles.details}>
               <View style={[styles.detailRow, styles.detailRowWithDivider]}>
-                <Txt variant="body" tone="secondary" weight="500">
+                <Txt variant="body" tone="secondary" weight="500" style={styles.detailLabel}>
                   Menge und Einheit
                 </Txt>
-                <Txt variant="body" weight="700" selectable>
+                <Txt variant="body" weight="700" selectable style={styles.detailValue}>
                   {item.quantity} {item.unit}
                 </Txt>
               </View>
               <View style={styles.detailRow}>
-                <Txt variant="body" tone="secondary" weight="500">
+                <Txt variant="body" tone="secondary" weight="500" style={styles.detailLabel}>
                   Mindesthaltbarkeitsdatum
                 </Txt>
-                <Txt variant="body" weight="700" selectable>
+                <Txt variant="body" weight="700" selectable style={styles.detailValue}>
                   {formatExpiry(item.expiry_date)}
                 </Txt>
               </View>

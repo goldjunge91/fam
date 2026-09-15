@@ -117,6 +117,19 @@ describe('ProductInformation', () => {
     expect(screen.getByText('–')).toBeOnTheScreen();
   });
 
+  it('lässt lange Detailwerte innerhalb der Sheet-Zeile umbrechen', async () => {
+    await renderSheet();
+
+    expect(screen.getByText('Mindesthaltbarkeitsdatum')).toHaveStyle({
+      flex: 1,
+      flexShrink: 1,
+    });
+    expect(screen.getByText('31. Oktober 2026')).toHaveStyle({
+      flexShrink: 1,
+      textAlign: 'right',
+    });
+  });
+
   it('ruft den Close-Callback über die sichtbare Schließen-Aktion auf', async () => {
     const onClose = await renderSheet();
     const user = userEvent.setup();
