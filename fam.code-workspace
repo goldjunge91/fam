@@ -41,5 +41,17 @@
   ],
   "files.eol": "\n",
   "git.enabled": true
-	}
+  },
+  "launch": {
+    "configurations": [
+      {
+        "name": "Radon IDE panel",
+        "type": "radon-ide",
+        "request": "launch",
+        "appRoot": "./",
+        "env": {},
+        "usePrebuild": false
+      }
+    ]
+  }
 }
