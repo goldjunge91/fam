@@ -179,12 +179,14 @@ describe('core theme UI primitives', () => {
 
     const button = screen.getByRole('button', { name: 'Aktion' });
     await fireEvent(button, 'pressIn');
+    expect(button.parent).toHaveStyle({ opacity: 0.78 });
     await fireEvent(button, 'pressOut');
     await fireEvent.press(button);
 
     expect(onPressIn).toHaveBeenCalledTimes(1);
     expect(onPressOut).toHaveBeenCalledTimes(1);
     expect(onPress).toHaveBeenCalledTimes(1);
+    expect(button.parent).not.toHaveStyle({ opacity: 0.78 });
     expect(withTimingSpy).not.toHaveBeenCalled();
     expect(withSpringSpy).not.toHaveBeenCalled();
   });
@@ -586,6 +588,18 @@ describe('core theme UI primitives', () => {
 
     expect(onAction).toHaveBeenCalledTimes(1);
     expect(mockHaptics.selection).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps section actions visibly pressed when Reduced Motion is enabled', async () => {
+    reducedMotionMock.mockReturnValue(true);
+    await render(<SectionHeading title="Listen" action="Alle anzeigen" onAction={jest.fn()} />);
+
+    const action = screen.getByRole('button', { name: 'Alle anzeigen' });
+    await fireEvent(action, 'pressIn');
+    expect(action.parent).toHaveStyle({ opacity: 0.78 });
+
+    await fireEvent(action, 'pressOut');
+    expect(action.parent).not.toHaveStyle({ opacity: 0.78 });
   });
 
   it('does not render an action without a callback and keeps local style last', async () => {

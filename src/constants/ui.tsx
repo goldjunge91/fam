@@ -292,6 +292,12 @@ const pressSuccessStyles = StyleSheet.create((theme) => ({
   },
 }));
 
+const pressInteractionStyles = StyleSheet.create({
+  reducedMotionPressed: {
+    opacity: 0.78,
+  },
+});
+
 // ─── Text ────────────────────────────────────────────────────────────────────
 
 export type TxtVariant =
@@ -573,6 +579,7 @@ export function Press({
 }) {
   const s = useSharedValue(1);
   const reducedMotion = useReducedMotion();
+  const [isPressed, setIsPressed] = useState(false);
   const selectionStyle =
     selected === undefined
       ? undefined
@@ -590,17 +597,24 @@ export function Press({
     transform: [{ scale: reducedMotion ? 1 : s.value }],
   }));
   return (
-    <Animated.View style={[aStyle, containerStyle]}>
+    <Animated.View
+      style={[
+        aStyle,
+        containerStyle,
+        reducedMotion && isPressed && pressInteractionStyles.reducedMotionPressed,
+      ]}>
       <Pressable
         {...rest}
         disabled={disabled}
         onPressIn={(event) => {
+          setIsPressed(true);
           if (!reducedMotion) {
             s.value = withTiming(scaleTo, { duration: 70 });
           }
           onPressIn?.(event);
         }}
         onPressOut={(event) => {
+          setIsPressed(false);
           // spring back with a touch of overshoot — the "pop".
           if (reducedMotion) {
             s.value = 1;
