@@ -1,7 +1,7 @@
 # SPEC: Nutzer-Feedback-Tool
 
-Quelle: `tasks/feedback-tool/plan.md` (Aufgaben-Breakdown & Reihenfolge),
-`tasks/feedback-tool/todo.md` (Checkliste).
+Quelle: `../../docs/archive/feedback-tool/plan.md` (Aufgaben-Breakdown &
+Reihenfolge), `../../docs/archive/feedback-tool/todo.md` (historische Checkliste).
 
 ## 1. Objective
 
@@ -143,7 +143,8 @@ Indizes: `feedback_tickets(user_id)`, `feedback_messages(ticket_id)`.
 
 ## Aufgaben-Reihenfolge
 
-Siehe `tasks/feedback-tool/plan.md` (Abhängigkeitsgraph) und
-`tasks/feedback-tool/todo.md` (Checkliste): 1) DB-Schema & RLS →
+Siehe den archivierten [Plan](../../docs/archive/feedback-tool/plan.md)
+(Abhängigkeitsgraph) und die archivierte Checkliste
+(`../../docs/archive/feedback-tool/todo.md`): 1) DB-Schema & RLS →
 2)+3) Ticket erstellen / Ticket-Liste (parallel) → 4) Ticket-Detail &
 Thread → 5) Realtime-Benachrichtigung.
