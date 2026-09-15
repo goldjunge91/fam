@@ -1,6 +1,8 @@
 # Research Brief
 
-**Question:** führe eine ausführliche websuche durch wie man das inventar design neu gestalten kann ich möchte etwas innovatives
+**Wie kann die Verbindung zwischen Inventar und Einkaufsliste in einer mobilen Food-Management-App innovativ gestaltet werden, damit Haushalte ihre Lebensmittel übersichtlich verwalten, Einkäufe effizient planen und Lebensmittelverschwendung reduzieren können?**
+
+**Question:** Führe eine ausführliche Webrecherche zur innovativen Neugestaltung von Inventar und Einkaufsliste einer mobilen Food-Management-App durch. Untersuche, wie beide Bereiche miteinander verbunden werden können: Produkte sollen nach dem Einkauf möglichst nahtlos aus der Einkaufsliste in das Inventar übernommen werden. Gleichzeitig soll das Inventar Informationen wie Mengen, Kategorien und Ablaufdaten liefern und daraus intelligente Empfehlungen für die nächste Einkaufsliste ableiten.
 
 konkurrenz produkte sind unter anderem
 KitchenPal
@@ -9,15 +11,22 @@ PantryVault
 NoWaste
 zimmerfood
 
-es wird bestimmt mehr geben.
+Analysiere Wettbewerber wie KitchenPal, Your Food, PantryVault, NoWaste und zimmerfood sowie weitere relevante Anwendungen. Untersuche deren UX-Patterns, visuelle Gestaltung, Produktübernahme, Kategorisierung, Ablaufdaten-Management und Verknüpfung zwischen Inventar und Einkaufsliste.
+
+Entwickle zusätzlich innovative Konzepte aus anderen Bereichen, etwa visuelle Regale, smarte Empfehlungen, Gamification oder kontextbezogene Erinnerungen. Der Schwerpunkt liegt auf einer mobilen Nutzung für iOS und Android; eine responsive Webansicht ist sekundär. Das übergeordnete Ziel ist, Haushalte bei der Organisation ihrer Lebensmittel zu unterstützen und Lebensmittelverschwendung zu vermeiden.
 
 ## Scope & Constraints
 
+- Welche UX- und UI-Patterns verwenden relevante Wettbewerber in ihren Inventaransichten?
 - Welche Plattform(en) soll das neue Inventar-Design primär bedienen — Mobile (iOS/Android), Web-App, oder beides gleichzeitig? → Mobile-first, mit responsiver Web-Ansicht als sekundär
+- Welche gemeinsamen Schwächen zeigen sich, beispielsweise flache Listen, geringe Sichtbarkeit von Ablaufdaten oder fehlende Kategorisierung?
 - Was ist der primäre Nutzer-Job: Verbrauch tracken & Ablaufdaten managen, oder Einkaufslisten & Vorratshaltung planen? → die seite heisst aktuell vorrat soll quasi den haushalt darstellen und alle lebensmittel wiederspiegeln. wichtigste ist anti food waste
 - Soll die Produkterfassung hauptsächlich über Barcode-Scan erfolgen, manuelle Eingabe, oder KI-gestützte Bilderkennung (z.B. Foto des Kühlschranks)? → eigentlich werden die produkte über die einkaufsliste nach einem einkauf übertragen werden.
+- Welche innovativen Interaktionsmuster aus anderen Produktkategorien lassen sich auf Kühlschrank und Vorratskammer übertragen?
+- Welche Designlösung eignet sich am besten für eine mobile-first Anwendung mit responsiver Webansicht?
 
 **Sub-questions (authoritative checklist — answer each; do NOT invent your own initial set). Items tagged _(emergent)_ were discovered mid-research; items tagged _(user guidance)_ are directives the user added — follow them, even if phrased as an instruction rather than a question:**
+
 - Welche UX-Patterns und visuellen Designs nutzen KitchenPal, Your Food, PantryVault, NoWaste und zimmerfood für ihre Inventaransicht — und wo liegen die gemeinsamen Schwachstellen (z.B. flache Listen, schlechte Ablaufdatum-Salienz, fehlende Kategorisierung)?
 - Welche innovativen Inventar-Interaktionsparadigmen existieren außerhalb der Food-Kategorie (z.B. visuelle Regalansichten, Gamification, Ambient-Display-Konzepte), die auf einen Kühlschrank/Vorratskammer-Kontext übertragbar sind?
 
