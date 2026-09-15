@@ -35,9 +35,9 @@ Details zu Produktentscheidungen und Grenzen: [Produktvision](docs/features/VISI
 Phase 0–2 (Foundation, MVP, Core) sind abgeschlossen. Aktuell laufen
 Phase 3 (Advanced) sowie die Vorbereitung des App-Store-Release. Der
 verbindliche Überblick über offene Arbeit steht in der
-[Roadmap](docs/features/ROADMAP.md); Quelle der Wahrheit für den Stand sind
-die [GitHub Milestones](https://github.com/goldjunge91/fam/milestones) und
-[Epics](https://github.com/goldjunge91/fam/issues?q=is%3Aissue+label%3Aepic).
+[Roadmap](docs/features/ROADMAP.md). Die operativen Aufgaben und ihr
+Bearbeitungsstatus werden in Beads geführt; GitHub-Milestones und Epics dienen
+weiterhin als öffentliche Produktübersicht.
 
 ## Gebaut ✅
 
