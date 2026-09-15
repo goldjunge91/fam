@@ -19,12 +19,6 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: theme.space.lg,
     paddingVertical: theme.space.xs + theme.space.xs,
   },
-  pickerGlass: {
-    borderRadius: theme.radius.pill,
-  },
-  pickerOuter: {
-    borderRadius: theme.radius.pill,
-  },
   activeDot: {
     width: theme.space.sm,
     height: theme.space.sm,
@@ -112,22 +106,20 @@ export function StorePickerMenu({
   return (
     <>
       <View ref={anchorRef} collapsable={false}>
-        <Card padded={false} elevation="none" style={styles.pickerOuter}>
-          <GlassCard
-            onPress={openMenu}
-            accessibilityRole="button"
-            accessibilityLabel={t('shoppingList.storePickerMenu.filterAccessibility', {
-              current: activeLabel,
-            })}
-            fallbackStyle={styles.pickerLayout}
-            glassStyle={[styles.pickerLayout, styles.pickerGlass]}
-            outerStyle={styles.pickerOuter}>
-            <View style={[styles.activeDot, { backgroundColor: activeDotColor }]} />
-            <Txt variant="body" weight="700" numberOfLines={1} style={styles.activeLabel}>
-              {activeLabel}
-            </Txt>
-          </GlassCard>
-        </Card>
+        <GlassCard
+          shape="pill"
+          onPress={openMenu}
+          accessibilityRole="button"
+          accessibilityLabel={t('shoppingList.storePickerMenu.filterAccessibility', {
+            current: activeLabel,
+          })}
+          fallbackStyle={styles.pickerLayout}
+          glassStyle={styles.pickerLayout}>
+          <View style={[styles.activeDot, { backgroundColor: activeDotColor }]} />
+          <Txt variant="body" weight="700" numberOfLines={1} style={styles.activeLabel}>
+            {activeLabel}
+          </Txt>
+        </GlassCard>
       </View>
 
       <Modal visible={open} transparent animationType="fade" onRequestClose={closeMenu}>

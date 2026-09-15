@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { FamIcon } from '@/components/icons/fam-icon';
-import { radius, shadow, space } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { space } from '@/components/theme/index';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Txt } from '@/constants/ui';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
@@ -30,8 +29,6 @@ const styles = StyleSheet.create({
     gap: space.sm,
     paddingHorizontal: space.lg,
     paddingVertical: 14,
-    borderRadius: radius.xl,
-    borderCurve: 'continuous',
   },
   smallContent: {
     flex: 1,
@@ -56,8 +53,6 @@ const styles = StyleSheet.create({
     paddingLeft: space.lg,
     paddingRight: 18,
     paddingVertical: space.lg,
-    borderRadius: radius.xl,
-    borderCurve: 'continuous',
   },
   largeCopy: {
     minWidth: 0,
@@ -68,7 +63,6 @@ const styles = StyleSheet.create({
 
 function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
   const { t } = useTranslation();
-  const { colors } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
   const todayIso = toIsoDate(new Date());
@@ -95,8 +89,8 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
         accessibilityRole="button"
         accessibilityLabel={t('dashboard.cards.mealPlan.accessibility')}
         glassStyle={styles.smallCard}
-        fallbackStyle={[styles.smallCard, { backgroundColor: colors.backgroundElement }]}
-        outerStyle={[styles.pressable, shadow.sm, { shadowColor: colors.shadowCard }]}>
+        fallbackStyle={styles.smallCard}
+        outerStyle={styles.pressable}>
         <View style={styles.smallContent}>
           <View style={styles.smallHeader}>
             <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.5 }}>
@@ -125,8 +119,8 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
       accessibilityRole="button"
       accessibilityLabel={t('dashboard.cards.mealPlan.accessibility')}
       glassStyle={styles.largeCard}
-      fallbackStyle={[styles.largeCard, { backgroundColor: colors.backgroundElement }]}
-      outerStyle={[styles.pressable, shadow.sm, { shadowColor: colors.shadowCard }]}>
+      fallbackStyle={styles.largeCard}
+      outerStyle={styles.pressable}>
       <FamIcon name="mealArtwork" size={79} />
       <View style={styles.largeCopy}>
         <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.1 }}>

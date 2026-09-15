@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { radius, shadow, space, withAlpha } from '@/components/theme/index';
+import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Txt } from '@/constants/ui';
@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
   widget: {
     width: '100%',
     minHeight: 138,
-    borderRadius: radius.xl,
     padding: space.lg,
     gap: space.sm,
     overflow: 'hidden',
@@ -119,12 +118,8 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
         accessibilityRole="button"
         accessibilityLabel={t('dashboard.cards.inventory.accessibility')}
         glassStyle={[styles.widget, styles.largeWidget]}
-        fallbackStyle={[
-          styles.widget,
-          styles.largeWidget,
-          { backgroundColor: colors.backgroundElement },
-        ]}
-        outerStyle={[styles.pressable, shadow.sm, { shadowColor: colors.shadowCard }]}>
+        fallbackStyle={[styles.widget, styles.largeWidget]}
+        outerStyle={styles.pressable}>
         <View style={styles.header}>
           <View style={[styles.badge, { backgroundColor: withAlpha(colors.warning, 0.2) }]}>
             <Txt variant="body" tone="warning" weight="700">
@@ -183,8 +178,8 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
       accessibilityRole="button"
       accessibilityLabel={t('dashboard.cards.inventory.accessibility')}
       glassStyle={styles.widget}
-      fallbackStyle={[styles.widget, { backgroundColor: colors.backgroundElement }]}
-      outerStyle={[styles.pressable, shadow.sm, { shadowColor: colors.shadowCard }]}>
+      fallbackStyle={styles.widget}
+      outerStyle={styles.pressable}>
       <View style={[styles.badge, { backgroundColor: withAlpha(colors.warning, 0.2) }]}>
         <Txt variant="body" tone="warning" weight="700">
           {expiringCount}

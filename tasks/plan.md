@@ -70,13 +70,13 @@ kanonische Farbzuordnung und der Alias-Lifecycle gemeinsam bestätigt sind.
 
 ### Phase 3: Glass-UI
 
-- [ ] `fam-d2af.2` GlassCard und InventoryIconButton auf Tokens und Unistyles ausrichten
+- [x] `fam-d2af.2` GlassCard und InventoryIconButton auf Tokens und Unistyles ausrichten
 
 ### Checkpoint: Abschluss
 
 - [x] Keine unbeabsichtigten Legacy-Verbraucher verbleiben
 - [x] Biome, Typecheck und fokussierte Verhaltenstests sind grün
-- [ ] Native Sicht-/Interaktionsprüfung für die betroffenen Glass-Flächen ist durchgeführt
+- [x] Native Sicht-/Interaktionsprüfung für die betroffenen Glass-Flächen ist durchgeführt
 
 ## Risiken und Gegenmaßnahmen
 
@@ -86,6 +86,11 @@ kanonische Farbzuordnung und der Alias-Lifecycle gemeinsam bestätigt sind.
 | Domain-Accent und Palette werden vermischt | Verlust fachlicher Farbbedeutungen | `makeAccent()` und Domain-Keys separat behandeln |
 | GlassView wird wie eine normale RN-Fläche abstrahiert | Plattform-/Accessibility-Regression | Native Glass-Grenze und Fallback beibehalten |
 | `ui.tsx`-Mapping wird zu aggressiv vereinfacht | Kontrast- oder Variant-Verhalten ändert sich | Bestehende UI-Tests als Verhaltensvertrag nutzen |
+
+Die produktiven Glass-Flächen wurden im iOS-Simulator visuell und interaktiv
+geprüft. Der vollständige Biome-Lauf ist derzeit nur durch die untracked
+Nutzerdatei `test/conventions/dev-menu-categories.test.ts` blockiert; der
+scoped Check aller geänderten Glass-Dateien ist grün.
 
 ## Zielmodell für den gemeinsamen Durchgang
 

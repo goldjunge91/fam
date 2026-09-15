@@ -9,8 +9,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { BUTTON_DEPTH } from '@/components/theme/index';
-import { useTheme } from '@/components/theme/ThemeProvider';
+import { BUTTON_DEPTH, withAlpha } from '@/components/theme/index';
 import { useGlassAvailable } from '@/components/ui/glass-card';
 import { medium as hapticMedium } from '@/lib/platform/haptics';
 
@@ -18,7 +17,8 @@ const styles = StyleSheet.create((theme) => ({
   outer: {
     paddingBottom: BUTTON_DEPTH,
     borderRadius: theme.radius.lg,
-    backgroundColor: theme.border,
+    backgroundColor: theme.buttonPrimaryDepth,
+    boxShadow: `0 ${theme.shadow.sm.shadowOffset.height}px ${theme.shadow.sm.shadowRadius}px ${withAlpha(theme.shadowCard, theme.shadow.sm.shadowOpacity)}`,
   },
   face: {
     width: 54,
@@ -26,7 +26,20 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.lg,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: theme.backgroundElement,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
     borderCurve: 'continuous',
+    overflow: 'hidden',
+  },
+  activeFace: {
+    backgroundColor: theme.backgroundSoft,
+  },
+  glass: {
+    flex: 1,
+    alignSelf: 'stretch',
+    borderRadius: theme.radius.lg,
+    overflow: 'hidden',
   },
 }));
 
@@ -44,14 +57,11 @@ export function InventoryIconButton({
   children,
   active = false,
 }: InventoryIconButtonProps) {
-  const { colors } = useTheme();
   const canUseGlass = useGlassAvailable();
   const depth = useSharedValue(0);
   const faceStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: depth.value }],
   }));
-  const backgroundColor = active ? colors.backgroundSoft : colors.backgroundElement;
-
   return (
     <View style={styles.outer}>
       <Animated.View style={faceStyle}>
@@ -69,16 +79,9 @@ export function InventoryIconButton({
           onPressOut={() => {
             depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
           }}
-          style={[
-            styles.face,
-            !canUseGlass && {
-              backgroundColor,
-              borderWidth: 1,
-              borderColor: colors.border,
-            },
-          ]}>
+          style={[styles.face, active && styles.activeFace]}>
           {canUseGlass ? (
-            <GlassView glassEffectStyle="regular" isInteractive style={styles.face}>
+            <GlassView glassEffectStyle="regular" isInteractive style={styles.glass}>
               {children}
             </GlassView>
           ) : (

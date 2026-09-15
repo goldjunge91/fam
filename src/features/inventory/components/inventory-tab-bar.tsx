@@ -24,10 +24,8 @@ const styles = StyleSheet.create((theme) => ({
   },
   triggerOuter: {
     flex: 1,
-    borderRadius: theme.radius.lg,
   },
   trigger: {
-    borderRadius: theme.radius.lg,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -37,16 +35,12 @@ const styles = StyleSheet.create((theme) => ({
     paddingVertical: theme.space.lg - 1,
   },
   triggerFallback: {
-    borderRadius: theme.radius.lg,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: theme.space.sm,
     paddingHorizontal: theme.space.md + 2,
     paddingVertical: theme.space.lg - 1,
-    backgroundColor: withAlpha(theme.backgroundElement, 0.91),
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: theme.border,
   },
   chevron: {
     width: 10,
@@ -130,6 +124,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
   return (
     <View ref={triggerRef} style={styles.container}>
       <GlassCard
+        shape="control"
         outerStyle={styles.triggerOuter}
         glassStyle={styles.trigger}
         fallbackStyle={styles.triggerFallback}

@@ -8,15 +8,43 @@ import {
   type ViewStyle,
 } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { shadow, withAlpha } from '@/components/theme';
 
-const styles = StyleSheet.create({
+export type GlassCardShape = 'card' | 'control' | 'pill';
+
+const styles = StyleSheet.create((theme) => ({
+  shape: {
+    variants: {
+      shape: {
+        card: {
+          borderRadius: theme.radius.xl,
+          borderCurve: 'continuous',
+        },
+        control: {
+          borderRadius: theme.radius.lg,
+          borderCurve: 'continuous',
+        },
+        pill: {
+          borderRadius: theme.radius.pill,
+        },
+      },
+    },
+  },
+  outer: {
+    boxShadow: `0 ${shadow.sm.shadowOffset.height}px ${shadow.sm.shadowRadius}px ${withAlpha(theme.shadowCard, shadow.sm.shadowOpacity)}`,
+  },
+  fallback: {
+    backgroundColor: theme.backgroundElement,
+    borderColor: theme.border,
+    borderWidth: theme.borderWidth.base,
+  },
   glassContent: {
     flex: 1,
   },
   fallbackPressed: {
     opacity: 0.8,
   },
-});
+}));
 
 function useReduceTransparency(): boolean {
   const [reduceTransparency, setReduceTransparency] = useState(false);
@@ -45,12 +73,14 @@ export function useGlassAvailable(): boolean {
 }
 
 type GlassCardProps = {
-  /** Groesse/Position der Kachel (Hoehe, evtl. `flex: 1` fuer nebeneinander stehende Widgets). */
+  /** Layout-Styles; Form, Schatten und Fläche bleiben beim GlassCard-Rezept. */
   outerStyle?: StyleProp<ViewStyle>;
-  /** GlassView-Styles bleiben native Styles, da GlassView keine CSS-Interop hat. */
+  /** Layout-Styles für GlassView; Form und native GlassView-API bleiben getrennt. */
   glassStyle: StyleProp<ViewStyle>;
-  /** Styles for the solid fallback when the platform glass API is unavailable. */
+  /** Layout-Styles für den Fallback; die Fläche kommt aus dem aktiven Theme. */
   fallbackStyle?: StyleProp<ViewStyle>;
+  /** Zentrale Form des GlassCard-Rezepts. */
+  shape?: GlassCardShape;
   onPress: () => void;
   onLongPress?: () => void;
   disabled?: boolean;
@@ -63,6 +93,7 @@ export function GlassCard({
   outerStyle,
   glassStyle,
   fallbackStyle,
+  shape = 'card',
   onPress,
   onLongPress,
   disabled = false,
@@ -72,6 +103,7 @@ export function GlassCard({
 }: GlassCardProps) {
   const canUseGlass = useGlassAvailable();
   const [fallbackPressed, setFallbackPressed] = useState(false);
+  styles.useVariants({ shape });
 
   if (!canUseGlass) {
     return (
@@ -83,7 +115,14 @@ export function GlassCard({
         accessibilityLabel={accessibilityLabel}
         onPressIn={() => setFallbackPressed(true)}
         onPressOut={() => setFallbackPressed(false)}
-        style={[fallbackStyle, outerStyle, fallbackPressed && styles.fallbackPressed]}>
+        style={[
+          fallbackStyle,
+          outerStyle,
+          styles.outer,
+          styles.fallback,
+          styles.shape,
+          fallbackPressed && styles.fallbackPressed,
+        ]}>
         {children}
       </Pressable>
     );
@@ -96,11 +135,11 @@ export function GlassCard({
       disabled={disabled}
       accessibilityRole={accessibilityRole}
       accessibilityLabel={accessibilityLabel}
-      style={outerStyle}>
+      style={[outerStyle, styles.outer, styles.shape]}>
       <GlassView
         glassEffectStyle="regular"
         isInteractive={!disabled}
-        style={[styles.glassContent, glassStyle]}>
+        style={[styles.glassContent, glassStyle, styles.shape]}>
         {children}
       </GlassView>
     </Pressable>

@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { radius, shadow, space, withAlpha } from '@/components/theme/index';
+import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
 import { ProgressBar } from '@/components/ui/progress-bar';
@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
   widget: {
     width: '100%',
     minHeight: 138,
-    borderRadius: radius.xl,
     padding: space.lg,
     gap: space.sm,
   },
@@ -78,12 +77,8 @@ function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
         accessibilityRole="button"
         accessibilityLabel={t('dashboard.cards.shopping.accessibility')}
         glassStyle={[styles.widget, styles.largeWidget]}
-        fallbackStyle={[
-          styles.widget,
-          styles.largeWidget,
-          { backgroundColor: theme.backgroundElement },
-        ]}
-        outerStyle={[styles.pressable, shadow.sm, { shadowColor: theme.shadowCard }]}>
+        fallbackStyle={[styles.widget, styles.largeWidget]}
+        outerStyle={styles.pressable}>
         <View style={styles.header}>
           <View style={[styles.badge, { backgroundColor: withAlpha(theme.accent, 0.15) }]}>
             <Txt variant="body" weight="700" tone="primary">
@@ -126,8 +121,8 @@ function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
       accessibilityRole="button"
       accessibilityLabel={t('dashboard.cards.shopping.accessibility')}
       glassStyle={styles.widget}
-      fallbackStyle={[styles.widget, { backgroundColor: theme.backgroundElement }]}
-      outerStyle={[styles.pressable, shadow.sm, { shadowColor: theme.shadowCard }]}>
+      fallbackStyle={styles.widget}
+      outerStyle={styles.pressable}>
       <View style={[styles.badge, { backgroundColor: withAlpha(theme.accent, 0.15) }]}>
         <Txt variant="body" weight="700" tone="primary">
           {openCount}
