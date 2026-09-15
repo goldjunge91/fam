@@ -38,6 +38,8 @@ const styles = StyleSheet.create((theme) => ({
   glass: {
     flex: 1,
     alignSelf: 'stretch',
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: theme.radius.lg,
     overflow: 'hidden',
   },
