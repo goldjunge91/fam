@@ -12,6 +12,10 @@ module.exports = {
   // erzeugen im Gesamtlauf GC-/CPU-Konkurrenz und dadurch falsche 15s-Timeouts.
   maxWorkers: 2,
 
+  // Watchman kann in der Codex-Ausfuehrungsumgebung seinen State-Ordner nicht
+  // per fchmod auf 2700 setzen. Metro/Expo darf Watchman weiterhin verwenden.
+  watchman: false,
+
   // Ohne diesen Resolver landet `react-native-reanimated/mock` (ueber
   // `react-native-worklets`) trotzdem bei den `.native.ts`-Dateien und damit
   // beim echten nativen Worklets-Modul, das es unter Jest nicht gibt (#129,
