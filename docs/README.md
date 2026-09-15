@@ -61,9 +61,10 @@ Datenbankschemas, Quellcode und gezielte Tests die technische Referenz.
   Integrationsnotizen.
 - [`testing/`](testing/) – testbezogene Projektunterlagen.
 
-Die Dateien unter `docs/specs/nativewind-styling/` dokumentieren die abgeschlossene
-Entstehungsgeschichte der NativeWind- und Designsystem-Entscheidungen. Die
-laufenden UI-Regeln stehen ausschließlich in
+Die abgeschlossenen NativeWind-/Unistyles-Migrationsunterlagen liegen im
+Archiv unter [`archive/nativewind-styling/`](archive/nativewind-styling/) und
+[`archive/nativewind-unistyles-migration/`](archive/nativewind-unistyles-migration/).
+Die laufenden UI-Regeln stehen ausschließlich in
 [`design-system/contracts/`](design-system/contracts/README.md).
 
 ## Arbeitsmaterial und Historie

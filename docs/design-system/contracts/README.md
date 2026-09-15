@@ -20,7 +20,7 @@ ist kein Nachweis, dass App-Code und Referenzseite bereits vollständig entsprec
 Die abgeschlossene UI-Konsolidierung ist in den Beads-Aufgaben `fam-978` und
 `fam-7xer` nachverfolgbar. Die Contracts besitzen die laufenden Regeln; ein
 separater Konsolidierungsplan ist keine parallele Designquelle.
-`docs/specs/nativewind-styling/` bleibt historische Dokumentation.
+`docs/archive/nativewind-styling/` bleibt historische Dokumentation.
 
 Die Dokumentationsüberarbeitung autorisiert keine App-Codeänderung. Bei späterer
 Umsetzung müssen Code, Contracts und Referenzseite denselben Zustand erreichen.

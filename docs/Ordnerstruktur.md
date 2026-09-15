@@ -82,7 +82,6 @@ fam/
     │   │   ├── sync-debug.tsx        # /settings/sync-debug
     │   │   ├── sync-settings.tsx     # /settings/sync-settings
     │   │   ├── dev.tsx               # /settings/dev
-    │   │   └── glass-lab.tsx         # /settings/glass-lab
     │   │
     │   ├── add-item.tsx              # Schnelleingabe Inventar / Vorrat (Modal)
     │   ├── add-food-entry.tsx        # Schnelleingabe Kalorientagebuch (Modal)

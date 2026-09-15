@@ -97,10 +97,10 @@ und Sync-Kommandos sind für diese Styling-Migration nicht betroffen.
   migration entfernen, sofern kein unabhängiger aktiver Verbraucher besteht.
 - `docs/design-system/contracts/`, `AGENTS.md`, `CLAUDE.md` und `docs/adr/`:
   aktive Regeln synchronisieren und die neue Entscheidung dokumentieren.
-- `docs/specs/nativewind-styling/`: historische Entstehungsgeschichte
+- `docs/archive/nativewind-styling/`: historische Entstehungsgeschichte
   behalten und deutlich auf den supersedierenden Vertrag verweisen.
-- `docs/specs/nativewind-unistyles-migration/`: lebender Scope, Spec und
-  später die freigegebenen Modul-Spezifikationen.
+- `docs/archive/nativewind-unistyles-migration/`: archivierter Scope, Spec und
+  abgeschlossene Modul-Spezifikationen.
 
 ## 5. Code Style
 
@@ -137,7 +137,7 @@ und Sync-Kommandos sind für diese Styling-Migration nicht betroffen.
 - Ein Architektur-Gate erkennt verbotene Imports und aktive Verwendungen von
   `nativewind`, `tailwindcss`, Tailwind-Styles, `className` und
   `contentContainerClassName`; es zählt nicht nur Dateien.
-- Historische Dokumente unter `docs/specs/nativewind-styling/` dürfen die
+- Historische Dokumente unter `docs/archive/nativewind-styling/` dürfen die
   Begriffe als Geschichte enthalten, müssen aber als historisch und nicht
   bindend gekennzeichnet sein.
 - Die Gates laufen mindestens nach jedem Migrationsslice: `bun run check`,

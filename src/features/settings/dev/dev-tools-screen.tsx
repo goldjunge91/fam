@@ -678,11 +678,6 @@ export function DevToolsScreen() {
             onPress={() => router.push('/settings/sync-debug')}
           />
           <Button
-            title="Liquid-Glass-Labor öffnen"
-            variant="secondary"
-            onPress={() => router.push('/settings/glass-lab')}
-          />
-          <Button
             title="Drax-Drag-Demo öffnen"
             variant="secondary"
             onPress={() => router.push('/settings/drax-demo')}

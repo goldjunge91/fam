@@ -16,11 +16,11 @@ kanonisch.
 - `AGENTS.md` und `CLAUDE.md` synchronisieren.
 - `docs/design-system/contracts/README.md`, `01-theme-and-colors.md`,
   `02-typography.md`, `03-spacing-and-layout.md`,
-  `05-nativewind-and-stylesheet.md`, `07-buttons-and-interaction.md` und
+  `05-unistyles-and-stylesheet.md`, `07-buttons-and-interaction.md` und
   `08-fields-and-selection.md` aktualisieren.
 - `docs/adr/README.md` aktualisieren und
-  `docs/adr/0007-unistyles-als-einzige-styling-runtime.md` ergänzen.
-- `docs/specs/nativewind-styling/` nicht löschen. Die Dokumente bleiben als
+  `docs/adr/0007-nativewind-retirement-unistyles-v3.md` ergänzen.
+- `docs/archive/nativewind-styling/` nicht als aktive Quelle behandeln. Die Dokumente bleiben als
   historische Quelle gekennzeichnet und sind nicht bindend.
 
 ## Vertrag

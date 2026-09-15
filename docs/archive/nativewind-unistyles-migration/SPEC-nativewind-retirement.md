@@ -18,7 +18,7 @@ aktive Dokumentationsverweise.
   `src/global.css` gemeinsam gegen alle Verbraucher prüfen.
 - `prettier-plugin-tailwindcss` oder weitere Tailwind-only Pakete nur entfernen,
   wenn `rg` keinen unabhängigen Verbraucher belegt.
-- Historische Docs unter `docs/specs/nativewind-styling/` und ADR 0006 bleiben
+- Historische Docs unter `docs/archive/nativewind-styling/` und ADR 0006 bleiben
   erhalten und tragen einen klaren Verweis auf den neuen Endzustand.
 - Der neue Architekturtest erkennt verbotene Imports und APIs, nicht nur
   Dateinamen.

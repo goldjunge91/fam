@@ -204,34 +204,6 @@ Es werden keine neuen Abhängigkeiten und keine nativen Module benötigt.
 
 ## 8. Commands
 
-Vor einer späteren Implementierung werden die versionierten Expo-SDK-57-Dokumente gelesen. Für die Umsetzung und Verifikation gelten diese ausführbaren Befehle:
-
-```bash
-# Deklaratives Datenbankschema in Migration überführen
-bun run db:diff -- -f personal_food_rules
-
-# Gezielte Datenbanktests
-bun run test:db supabase/tests/02_profiles.test.sql
-
-# Supabase-Typen nach Schemaänderung aktualisieren
-bun run db:types
-
-# Gezielte Jest-Tests
-bun run test src/lib/db/zod/profile.contract.test.ts
-bun run test src/features/profile/edit-profile-screen.test.tsx
-bun run test src/features/profile/food-rules.test.ts
-
-# Repository-Prüfungen
-bun run check
-bun run typecheck
-
-# Nachweis, dass kein weiterer Schema-Drift verbleibt
-bun run db:diff
-
-# Manueller Lauf im vorhandenen Dev Client
-bun run ios:development
-bun run android:development
-```
 
 Die vollständige Jest-Suite wird für diese Änderung nicht ausgeführt. Datenbankprozesse, Metro, Simulatoren und Container werden nicht eigenmächtig gestartet oder beendet.
 

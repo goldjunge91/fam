@@ -1,7 +1,7 @@
 # Spec: Theme- und Semantik-Reparatur
 
 Status: Abgeschlossen; Vollständigkeits-Follow-up `fam-7xer` umgesetzt · Android übersprungen · 2026-09-14
-Referenzen: `fam-978.76`, Review `fam-978.74`, [Umsetzungsplan](../../../tasks/plan.md)
+Referenzen: `fam-978.76`, Review `fam-978.74`, [archivierter Umsetzungsplan](./implementation-plan.md)
 
 ## Ziel und Scope
 

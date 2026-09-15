@@ -1,8 +1,8 @@
 # Feature Documentation: Feedback (`src/features/feedback`)
 
 Kurzüberblick über das Nutzer-Feedback-Tool (Issue #347). Details zu
-Datenmodell, RLS und Entscheidungen stehen in `SPEC.md` (Projekt-Root) und
-`tasks/feedback-tool/plan.md`; dieses Dokument beschreibt nur den
+Datenmodell, RLS und Entscheidungen stehen im [Feature-Spec](../../../tasks/feedback-tool/SPEC.md)
+und im [archivierten Umsetzungsplan](../../../docs/archive/feedback-tool/plan.md); dieses Dokument beschreibt nur den
 Client-Feature-Ordner.
 
 ## Zweck
