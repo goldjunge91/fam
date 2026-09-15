@@ -110,7 +110,7 @@ export function SignUpForm({
               : { ios: 'eye', android: 'visibility', web: 'visibility' }
           }
           size={20}
-          tintColor={colors.textMuted}
+          tintColor={colors.textSecondary}
         />
       </Press>
     );

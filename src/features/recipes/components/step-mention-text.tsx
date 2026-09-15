@@ -11,7 +11,7 @@ type StepMentionTone =
   | 'success'
   | 'warning'
   | 'danger'
-  | 'inverse';
+  | 'onAccent';
 
 interface StepMentionTextProps extends TextProps {
   text: string;

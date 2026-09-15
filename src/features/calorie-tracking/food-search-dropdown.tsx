@@ -249,7 +249,7 @@ export function FoodSearchDropdown({
                     accessibilityRole="button"
                     style={styles.moreButton}>
                     {loadingMore ? (
-                      <ActivityIndicator color={colors.basil} />
+                      <ActivityIndicator color={colors.accent} />
                     ) : (
                       <Txt variant="body" tone="primary" weight="700">
                         Mehr anzeigen

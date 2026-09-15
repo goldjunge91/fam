@@ -7,93 +7,6 @@
 import { Dimensions, Platform } from 'react-native';
 
 /**
- * Legacy ui reference values.
- *
- * These values remain available for gradual migration or visual comparison,
- * but they are not used by the active Fam palette. This prevents the old
- * green text and espresso shadow from returning through an accidental import.
- */
-export const legacyWaivyColors = {
-  light: {
-    bg: '#FFF8ED',
-    surface: '#FFFFFF',
-    surfaceSoft: '#FFF1D9',
-    oat: '#F6E7CF',
-    borderSoft: '#E8D8C4',
-    border: '#EADBC7',
-    text: '#241A12',
-    textMuted: '#6B5A4A',
-    textFaint: '#A3937F',
-    inverse: '#FFFFFF',
-    basil: '#2FBF71',
-    basilShadow: '#16834A',
-    basilSoft: '#E8FAF0',
-    carrot: '#FF8A3D',
-    carrotShadow: '#C75F18',
-    butter: '#FFD166',
-    butterShadow: '#C99A23',
-    tomato: '#EF4444',
-    tomatoShadow: '#B91C1C',
-    grape: '#7C5CFF',
-    grapeShadow: '#4F38C7',
-    teal: '#20C7A5',
-    tealShadow: '#0E8E76',
-    sky: '#3BA7FF',
-    skyShadow: '#1E72C2',
-    pink: '#FF6B9E',
-    pinkShadow: '#C73E70',
-    basilTint: '#E3F7EC',
-    carrotTint: '#FFEAD9',
-    butterTint: '#FFF3D2',
-    grapeTint: '#ECE6FF',
-    tealTint: '#D8F6EF',
-    skyTint: '#DCEEFF',
-    pinkTint: '#FFE2EC',
-    tomatoTint: '#FCE3E3',
-    scrim: 'rgba(36,26,18,0.45)',
-  },
-  dark: {
-    bg: '#120E0B',
-    surface: '#1C1714',
-    surfaceSoft: '#262019',
-    oat: '#262019',
-    borderSoft: '#3A312A',
-    border: '#3A312A',
-    text: '#F3ECE2',
-    textMuted: '#B6A896',
-    textFaint: '#8A7C6C',
-    inverse: '#FFFFFF',
-    basil: '#34CF7C',
-    basilShadow: '#16834A',
-    basilSoft: '#10301F',
-    carrot: '#FF8A3D',
-    carrotShadow: '#C75F18',
-    butter: '#FFD166',
-    butterShadow: '#C99A23',
-    tomato: '#F2554E',
-    tomatoShadow: '#B91C1C',
-    grape: '#9B82FF',
-    grapeShadow: '#4F38C7',
-    teal: '#20C7A5',
-    tealShadow: '#0E8E76',
-    sky: '#5AB6FF',
-    skyShadow: '#1E72C2',
-    pink: '#FF6B9E',
-    pinkShadow: '#C73E70',
-    basilTint: '#122E20',
-    carrotTint: '#33210F',
-    butterTint: '#2E2710',
-    grapeTint: '#221A3D',
-    tealTint: '#0F2E28',
-    skyTint: '#102532',
-    pinkTint: '#3A1722',
-    tomatoTint: '#3A1717',
-    scrim: 'rgba(0,0,0,0.55)',
-  },
-  shadow: '#241A12',
-} as const;
-
-/**
  * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
  * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
  */
@@ -159,6 +72,7 @@ const famColorsLight = {
   speedDialCalories: '#F3E9D7',
   shadowCard: '#594059',
   shadowSheet: '#2A1F2C',
+  scrim: 'rgba(42,31,44,0.45)',
 } as const;
 
 const famColorsDark = {
@@ -188,166 +102,46 @@ const famColorsDark = {
   speedDialCalories: '#F3E9D7',
   shadowCard: '#594059',
   shadowSheet: '#2A1F2C',
+  scrim: 'rgba(0,0,0,0.55)',
 } as const;
 
-/** Canonical Fam names retained while feature code uses the shorter aliases below. */
+/** Canonical Fam names used by the active palette and feature code. */
 export const Colors = {
   light: famColorsLight,
   dark: famColorsDark,
 } as const;
 
-/** Runtime aliases used by the shared primitives. Every alias maps to a Fam token. */
-export const colorsLight = {
-  ...famColorsLight,
-  bg: famColorsLight.background,
-  surface: famColorsLight.backgroundElement,
-  oat: famColorsLight.premiumActionBackground,
-  borderSoft: famColorsLight.border,
-  textMuted: famColorsLight.textSecondary,
-  textFaint: famColorsLight.textSecondary,
-  inverse: famColorsLight.onAccent,
-  basil: famColorsLight.accent,
-  basilShadow: famColorsLight.shadowCard,
-  basilSoft: famColorsLight.backgroundSoft,
-  carrot: famColorsLight.warning,
-  carrotShadow: famColorsLight.shadowCard,
-  butter: famColorsLight.premiumGradientEnd,
-  butterShadow: famColorsLight.shadowCard,
-  tomato: famColorsLight.danger,
-  tomatoShadow: famColorsLight.shadowSheet,
-  grape: famColorsLight.premiumGradientStart,
-  grapeShadow: famColorsLight.shadowSheet,
-  teal: famColorsLight.premiumGradientMid,
-  tealShadow: famColorsLight.shadowCard,
-  sky: famColorsLight.premiumGradientEnd,
-  skyShadow: famColorsLight.shadowCard,
-  pink: famColorsLight.premiumActionText,
-  pinkShadow: famColorsLight.shadowSheet,
-  basilTint: famColorsLight.backgroundSoft,
-  carrotTint: famColorsLight.premiumActionBackground,
-  butterTint: famColorsLight.premiumActionBackground,
-  grapeTint: famColorsLight.backgroundSoft,
-  tealTint: famColorsLight.premiumActionBackground,
-  skyTint: famColorsLight.backgroundSoft,
-  pinkTint: famColorsLight.premiumActionBackground,
-  tomatoTint: famColorsLight.premiumActionBackground,
-  scrim: 'rgba(42,31,44,0.45)',
-} as const;
+export type Palette = { -readonly [K in keyof typeof famColorsLight]: string };
 
-export type Palette = { -readonly [K in keyof typeof colorsLight]: string };
-
-/**
- * Dark Fam palette. The semantic names are the same as light mode and the
- * aliases below point to the canonical Fam values above.
- */
-// The canonical dark values are retained here for comparison with the aliases.
-/**
- *  text: '#F2ECE7',
-    background: '#211D23',
-    backgroundElement: '#2B262E',
-    backgroundSoft: '#382F3B',
-    textSecondary: '#B7ADB3',
-    border: '#3E3640',
-    accent: '#B79CBA',
-    onAccent: '#211D23',
-    premiumGradientStart: '#4F3D52',
-    premiumGradientMid: '#765158',
-    premiumGradientEnd: '#8B6755',
-    premiumOnSurface: '#FFF9F6',
-    premiumActionBackground: '#F0E6E1',
-    premiumActionText: '#4B384F',
-    success: '#8FAE86',
-    warning: '#D9A86C',
-    danger: '#D9776A',
-    shadowCard: '#594059',
-    shadowSheet: '#2A1F2C',
- */
-export const colorsDark: Palette = {
-  ...famColorsDark,
-  bg: famColorsDark.background,
-  surface: famColorsDark.backgroundElement,
-  oat: famColorsDark.backgroundSoft,
-  borderSoft: famColorsDark.border,
-  textMuted: famColorsDark.textSecondary,
-  textFaint: famColorsDark.textSecondary,
-  inverse: famColorsDark.onAccent,
-  basil: famColorsDark.accent,
-  basilShadow: famColorsDark.shadowCard,
-  basilSoft: famColorsDark.backgroundSoft,
-  carrot: famColorsDark.warning,
-  carrotShadow: famColorsDark.shadowCard,
-  butter: famColorsDark.premiumGradientEnd,
-  butterShadow: famColorsDark.shadowCard,
-  tomato: famColorsDark.danger,
-  tomatoShadow: famColorsDark.shadowSheet,
-  grape: famColorsDark.premiumGradientStart,
-  grapeShadow: famColorsDark.shadowSheet,
-  teal: famColorsDark.premiumGradientMid,
-  tealShadow: famColorsDark.shadowCard,
-  sky: famColorsDark.premiumGradientEnd,
-  skyShadow: famColorsDark.shadowCard,
-  pink: famColorsDark.premiumActionText,
-  pinkShadow: famColorsDark.shadowSheet,
-  basilTint: famColorsDark.backgroundSoft,
-  carrotTint: famColorsDark.backgroundSoft,
-  butterTint: famColorsDark.backgroundSoft,
-  grapeTint: famColorsDark.backgroundSoft,
-  tealTint: famColorsDark.backgroundSoft,
-  skyTint: famColorsDark.backgroundSoft,
-  pinkTint: famColorsDark.backgroundSoft,
-  tomatoTint: famColorsDark.backgroundSoft,
-  scrim: 'rgba(0,0,0,0.55)',
-};
+export const colorsLight: Palette = famColorsLight;
+export const colorsDark: Palette = famColorsDark;
 
 /** Back-compat default export (light). Converted screens use useTheme(). */
 export const colors = colorsLight;
 
-/** Maps a product/category to its accent + soft tint + shadow + on-color. */
+/** Maps a domain key to canonical Fam accent roles. */
 export function makeAccent(c: Palette) {
+  const shared = { tint: c.backgroundSoft, shadow: c.shadowCard, on: c.onAccent };
+
   return {
-    'ai-chef': { main: c.grape, tint: c.grapeTint, shadow: c.grapeShadow, on: c.inverse },
-    pantry: { main: c.basil, tint: c.basilTint, shadow: c.basilShadow, on: c.inverse },
-    nourish: { main: c.carrot, tint: c.carrotTint, shadow: c.carrotShadow, on: c.inverse },
-    grocery: { main: c.teal, tint: c.tealTint, shadow: c.tealShadow, on: c.inverse },
-    cheap: { main: c.butter, tint: c.butterTint, shadow: c.butterShadow, on: c.text },
-    saved: { main: c.pink, tint: c.pinkTint, shadow: c.pinkShadow, on: c.inverse },
-    explore: { main: c.sky, tint: c.skyTint, shadow: c.skyShadow, on: c.inverse },
-    protein: { main: c.grape, tint: c.grapeTint, shadow: c.grapeShadow, on: c.inverse },
-    carbs: { main: c.sky, tint: c.skyTint, shadow: c.skyShadow, on: c.inverse },
-    fat: { main: c.butter, tint: c.butterTint, shadow: c.butterShadow, on: c.text },
-    fiber: { main: c.basil, tint: c.basilTint, shadow: c.basilShadow, on: c.inverse },
-    water: { main: c.sky, tint: c.skyTint, shadow: c.skyShadow, on: c.inverse },
+    'ai-chef': { ...shared, main: c.premiumGradientStart, shadow: c.shadowSheet },
+    pantry: { ...shared, main: c.accent },
+    nourish: { ...shared, main: c.warning, on: c.text },
+    grocery: { ...shared, main: c.success, on: c.text },
+    cheap: { ...shared, main: c.premiumGradientEnd, on: c.text },
+    saved: { ...shared, main: c.premiumActionText, on: c.premiumOnSurface },
+    explore: { ...shared, main: c.premiumGradientMid, on: c.premiumOnSurface },
+    protein: { ...shared, main: c.premiumGradientStart, shadow: c.shadowSheet },
+    carbs: { ...shared, main: c.accent },
+    fat: { ...shared, main: c.premiumGradientEnd, on: c.text },
+    fiber: { ...shared, main: c.accent },
+    water: { ...shared, main: c.success, on: c.text },
   } as const;
 }
 
 export const accent = makeAccent(colorsLight);
 
 export type AccentKey = keyof ReturnType<typeof makeAccent>;
-
-/**
- * Soft tint + text/icon color + a Feather icon for each of the 10 ingredient
- * CATEGORIES, so pantry items can be color-coded by category. Mirrors the web
- * `PANTRY_TONE_BY_CATEGORY` intent (grain→gold, protein→grape, veg→basil,
- * fruit→pink, dairy→sky, canned→carrot, condiment→teal, spice→tomato) using
- * existing palette tokens so it flips in dark mode for free. `icon` strings are
- * valid Feather glyph names.
- */
-export function makeCategoryTone(c: Palette) {
-  return {
-    protein: { tint: c.grapeTint, color: c.grapeShadow, icon: 'zap' },
-    vegetable: { tint: c.basilTint, color: c.basilShadow, icon: 'feather' },
-    fruit: { tint: c.pinkTint, color: c.pinkShadow, icon: 'heart' },
-    dairy: { tint: c.skyTint, color: c.skyShadow, icon: 'droplet' },
-    grain: { tint: c.butterTint, color: c.butterShadow, icon: 'circle' },
-    canned: { tint: c.carrotTint, color: c.carrotShadow, icon: 'archive' },
-    frozen: { tint: c.skyTint, color: c.skyShadow, icon: 'cloud-snow' },
-    condiment: { tint: c.tealTint, color: c.tealShadow, icon: 'coffee' },
-    spice: { tint: c.tomatoTint, color: c.tomatoShadow, icon: 'thermometer' },
-    snack: { tint: c.oat, color: c.textMuted, icon: 'box' },
-  } as const;
-}
-
-export type CategoryToneKey = keyof ReturnType<typeof makeCategoryTone>;
 
 // ─── Responsive scale ────────────────────────────────────────────────────────
 // The layout was tuned at ~393pt (iPhone 17). Scale spacing + type to the device

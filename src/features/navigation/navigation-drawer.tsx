@@ -143,7 +143,7 @@ export function NavigationDrawer() {
               paddingBottom: Math.max(insets.bottom, 26),
               width: `${DRAWER_WIDTH_RATIO * 100}%`,
               // Deckender Hintergrund verhindert Durchscheinen im Header.
-              backgroundColor: colors.surface,
+              backgroundColor: colors.backgroundElement,
               boxShadow: `24px 0 64px ${withAlpha(colors.text, 0.18)}`,
             },
             animatedStyle,
@@ -223,7 +223,7 @@ function DrawerContent() {
                       <FamIcon
                         name={route.icon}
                         size={35}
-                        color={isActive ? colors.basil : colors.text}
+                        color={isActive ? colors.accent : colors.text}
                       />
                     )}
                   </View>
@@ -248,7 +248,7 @@ function DrawerContent() {
         accessibilityState={{ selected: settingsActive }}
         style={[styles.manageRow, { backgroundColor: colors.backgroundSoft }]}>
         <View style={styles.settingsIcon}>
-          <FamIcon name="settings" size={37} color={settingsActive ? colors.basil : colors.text} />
+          <FamIcon name="settings" size={37} color={settingsActive ? colors.accent : colors.text} />
         </View>
         <Txt
           variant="navigation"

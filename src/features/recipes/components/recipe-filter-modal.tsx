@@ -209,8 +209,8 @@ export function RecipeFilterModal({
                       style={[
                         styles.mealTile,
                         {
-                          backgroundColor: selected ? colors.basil : colors.surface,
-                          borderColor: selected ? colors.basil : colors.border,
+                          backgroundColor: selected ? colors.accent : colors.backgroundElement,
+                          borderColor: selected ? colors.accent : colors.border,
                         },
                       ]}>
                       <Txt variant="body" center style={styles.mealEmoji}>
@@ -251,8 +251,10 @@ export function RecipeFilterModal({
                         style={[
                           styles.tagPill,
                           {
-                            backgroundColor: selected ? colors.backgroundSoft : colors.surface,
-                            borderColor: selected ? colors.basil : colors.border,
+                            backgroundColor: selected
+                              ? colors.backgroundSoft
+                              : colors.backgroundElement,
+                            borderColor: selected ? colors.accent : colors.border,
                           },
                         ]}>
                         <Txt variant="caption" tone="primary" weight="700">

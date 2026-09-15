@@ -104,7 +104,7 @@ it('renders the edit close button with the configured tomato background', async 
   await renderSheet();
 
   expect(screen.getByRole('button', { name: 'Schließen' })).toHaveStyle({
-    backgroundColor: withAlpha(colorsLight.tomato, 1),
+    backgroundColor: withAlpha(colorsLight.danger, 1),
   });
 });
 

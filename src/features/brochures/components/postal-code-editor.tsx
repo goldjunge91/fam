@@ -53,9 +53,9 @@ export function PostalCodeEditor({ onSubmit, onCancel }: PostalCodeEditorProps) 
           onPress={handleSubmit}
           style={[
             styles.button,
-            { backgroundColor: colors.basil, opacity: !isValid || isSubmitting ? 0.5 : 1 },
+            { backgroundColor: colors.accent, opacity: !isValid || isSubmitting ? 0.5 : 1 },
           ]}>
-          <Txt variant="body" tone="inverse" weight="700">
+          <Txt variant="body" tone="onAccent" weight="700">
             {isSubmitting ? 'Speichert...' : 'Übernehmen'}
           </Txt>
         </Pressable>

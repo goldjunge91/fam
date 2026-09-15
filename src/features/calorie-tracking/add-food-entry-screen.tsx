@@ -325,7 +325,7 @@ export function AddFoodEntryScreen() {
           </View>
           {productMeta.nutriScore ? (
             <View style={styles.nutriBadge}>
-              <Txt variant="label" tone="inverse" weight="800" style={styles.nutriBadgeText}>
+              <Txt variant="label" tone="onAccent" weight="800" style={styles.nutriBadgeText}>
                 {productMeta.nutriScore.toUpperCase()}
               </Txt>
             </View>
@@ -342,7 +342,7 @@ export function AddFoodEntryScreen() {
                   styles.badge,
                   {
                     backgroundColor: withAlpha(
-                      badge.tone === 'good' ? colors.basil : colors.carrot,
+                      badge.tone === 'good' ? colors.accent : colors.warning,
                       0.13,
                     ),
                   },

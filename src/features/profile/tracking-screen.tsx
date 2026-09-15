@@ -82,8 +82,8 @@ const styles = StyleSheet.create((theme) => ({
     borderColor: theme.border,
   },
   presetSelected: {
-    backgroundColor: theme.basil,
-    borderColor: theme.basil,
+    backgroundColor: theme.accent,
+    borderColor: theme.accent,
   },
   modalBackdrop: {
     flex: 1,
@@ -133,11 +133,11 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.sm,
     borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
-    backgroundColor: theme.surface,
+    backgroundColor: theme.backgroundElement,
   },
   methodOptionSelected: {
-    backgroundColor: theme.basil,
-    borderColor: theme.basil,
+    backgroundColor: theme.accent,
+    borderColor: theme.accent,
   },
   methodOptionDisabled: {
     opacity: 0.55,

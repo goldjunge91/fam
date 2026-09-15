@@ -109,7 +109,7 @@ function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProp
               preset="compact"
               label="kcal"
               displayMode="count"
-              progressColor={colors.tomato}
+              progressColor={colors.danger}
               trackColor={colors.border}
             />
           </View>
@@ -142,7 +142,7 @@ function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProp
             preset="dashboard"
             label={t('dashboard.cards.calories.ringLabel')}
             displayMode="percent"
-            progressColor={colors.tomato}
+            progressColor={colors.danger}
             trackColor={colors.border}
           />
         </View>

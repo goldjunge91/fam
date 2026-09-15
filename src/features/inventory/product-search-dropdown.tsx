@@ -256,7 +256,7 @@ export const ProductSearchDropdown = forwardRef<
   const loadingIndicator = (
     <ActivityIndicator
       size={isTrailingOutside ? 'large' : 'small'}
-      color={colors.basil}
+      color={colors.accent}
       style={isTrailingOutside ? { marginRight: space.md } : undefined}
     />
   );
@@ -418,7 +418,7 @@ export const ProductSearchDropdown = forwardRef<
             ))}
             {loadingMore && (
               <View style={styles.loadingMore}>
-                <ActivityIndicator size="small" color={colors.basil} />
+                <ActivityIndicator size="small" color={colors.accent} />
               </View>
             )}
             {}

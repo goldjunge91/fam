@@ -120,7 +120,7 @@ export function PaywallPlanCard({
         {/* Dynamisches Spar-Badge */}
         {plans.yearly.savingsBadge ? (
           <View style={[styles.savingsBadge, styles.savingsBadgeBackground]}>
-            <Txt variant="caption" tone="inverse" weight="700">
+            <Txt variant="caption" tone="onAccent" weight="700">
               {plans.yearly.savingsBadge}
             </Txt>
           </View>

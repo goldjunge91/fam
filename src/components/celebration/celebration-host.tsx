@@ -47,14 +47,14 @@ function ConfettiPiece({
   const size = 7 + Math.floor(random(5) * 7);
   const rotationAmount = (random(8) > 0.5 ? 1 : -1) * (720 + random(9) * 720);
   const colorPalette = [
-    colors.basil,
-    colors.butter,
-    colors.tomato,
-    colors.grape,
-    colors.sky,
-    colors.carrot,
-    colors.pink,
-    colors.teal,
+    colors.accent,
+    colors.premiumGradientEnd,
+    colors.danger,
+    colors.premiumGradientStart,
+    colors.premiumGradientMid,
+    colors.warning,
+    colors.premiumActionText,
+    colors.success,
   ];
   const color = colorPalette[index % colorPalette.length];
   const round = random(6) > 0.5;

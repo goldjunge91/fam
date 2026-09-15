@@ -64,7 +64,9 @@ function MessageBubble({ message }: { message: FeedbackMessage }) {
       tone="surface"
       style={[
         styles.messageBubble,
-        { backgroundColor: isStaff ? withAlpha(colors.basil, 0.1) : colors.surface },
+        {
+          backgroundColor: isStaff ? withAlpha(colors.accent, 0.1) : colors.backgroundElement,
+        },
       ]}>
       <Txt variant="body" tone="secondary">
         {isStaff ? 'Team' : 'Du'} · {new Date(message.created_at).toLocaleDateString('de-DE')}

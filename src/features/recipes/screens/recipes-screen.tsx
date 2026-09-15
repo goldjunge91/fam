@@ -324,7 +324,7 @@ function MealSection({
         <SectionHeading title={title} titleVariant="body" />
         <ActivityIndicator
           accessibilityLabel={`${title} Rezepte werden geladen`}
-          color={colors.basil}
+          color={colors.accent}
           style={styles.mealLoading}
         />
       </View>
@@ -379,7 +379,7 @@ function MealSection({
         {isFetchingNextPage ? (
           <ActivityIndicator
             accessibilityLabel={`${title}: weitere Rezepte werden geladen`}
-            color={colors.basil}
+            color={colors.accent}
             style={styles.mealLoading}
           />
         ) : isFetchNextPageError ? (
@@ -396,7 +396,7 @@ function EmptyPanel({ children }: { children: string }) {
   const { colors } = useTheme();
 
   return (
-    <View style={[styles.emptyPanel, { backgroundColor: colors.surface }]}>
+    <View style={[styles.emptyPanel, { backgroundColor: colors.backgroundElement }]}>
       <Txt variant="body" weight="700" center>
         {children}
       </Txt>
@@ -564,15 +564,15 @@ export function RecipesScreen() {
     <>
       {/* Aufklappbare Textsuche für Rezepttitel */}
       {showSearch ? (
-        <View style={[styles.searchRow, { backgroundColor: colors.surface }]}>
-          <SearchIcon color={colors.textMuted} />
+        <View style={[styles.searchRow, { backgroundColor: colors.backgroundElement }]}>
+          <SearchIcon color={colors.textSecondary} />
           <TextInput
             value={searchQuery}
             onChangeText={setSearchQuery}
             role="searchbox"
             aria-label="Rezepte durchsuchen"
             placeholder="Rezepte durchsuchen…"
-            placeholderTextColor={colors.textMuted}
+            placeholderTextColor={colors.textSecondary}
             autoFocus
             style={[
               styles.searchInput,
@@ -594,8 +594,8 @@ export function RecipesScreen() {
             style={[
               styles.tab,
               {
-                backgroundColor: view === 'discover' ? colors.basil : colors.backgroundSoft,
-                borderColor: view === 'discover' ? colors.basil : colors.border,
+                backgroundColor: view === 'discover' ? colors.accent : colors.backgroundSoft,
+                borderColor: view === 'discover' ? colors.accent : colors.border,
               },
             ]}>
             <Txt variant="body" tone={view === 'discover' ? 'onAccent' : 'secondary'} weight="700">
@@ -611,8 +611,8 @@ export function RecipesScreen() {
             style={[
               styles.tab,
               {
-                backgroundColor: view === 'household' ? colors.basil : colors.backgroundSoft,
-                borderColor: view === 'household' ? colors.basil : colors.border,
+                backgroundColor: view === 'household' ? colors.accent : colors.backgroundSoft,
+                borderColor: view === 'household' ? colors.accent : colors.border,
               },
             ]}>
             <Txt variant="body" tone={view === 'household' ? 'onAccent' : 'secondary'} weight="700">
@@ -628,8 +628,8 @@ export function RecipesScreen() {
             style={[
               styles.tab,
               {
-                backgroundColor: view === 'favorites' ? colors.basil : colors.backgroundSoft,
-                borderColor: view === 'favorites' ? colors.basil : colors.border,
+                backgroundColor: view === 'favorites' ? colors.accent : colors.backgroundSoft,
+                borderColor: view === 'favorites' ? colors.accent : colors.border,
               },
             ]}>
             <Txt variant="body" tone={view === 'favorites' ? 'onAccent' : 'secondary'} weight="700">
@@ -666,8 +666,11 @@ export function RecipesScreen() {
                   : 'Rezepte filtern'
               }
               onPress={() => setShowFilters(true)}
-              style={activeFilterCount > 0 ? { backgroundColor: colors.basil } : undefined}>
-              <FilterIcon size={space.xl} color={activeFilterCount > 0 ? colors.bg : colors.text} />
+              style={activeFilterCount > 0 ? { backgroundColor: colors.accent } : undefined}>
+              <FilterIcon
+                size={space.xl}
+                color={activeFilterCount > 0 ? colors.background : colors.text}
+              />
             </HeaderIconButton>
           </View>
         ),
@@ -694,7 +697,7 @@ export function RecipesScreen() {
             view !== 'household' && isFetchingNextCatalogPage ? (
               <ActivityIndicator
                 accessibilityLabel="Weitere Katalogrezepte werden geladen"
-                color={colors.basil}
+                color={colors.accent}
                 style={styles.mealLoading}
               />
             ) : view !== 'household' && isFetchNextCatalogPageError ? (
@@ -719,7 +722,7 @@ export function RecipesScreen() {
           {isLoading ? (
             <ActivityIndicator
               accessibilityLabel="Rezepte werden geladen"
-              color={colors.basil}
+              color={colors.accent}
               style={{ marginTop: space.xxxl }}
             />
           ) : isError ? (

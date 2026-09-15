@@ -339,7 +339,7 @@ export function AddItemScreen() {
               <Image
                 source="sf:xmark"
                 contentFit="contain"
-                tintColor={colors.textMuted}
+                tintColor={colors.textSecondary}
                 style={{ width: space.md, height: space.md }}
               />
             </HeaderIconButton>

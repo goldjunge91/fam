@@ -315,7 +315,7 @@ function IosInventoryItemActionsView({
                 icon="x"
                 onPress={onClose}
                 accessibilityLabel="Artikelaktionen schließen"
-                bg={colors.tomato}
+                bg={colors.danger}
                 size={45}
                 iconSize={24}
                 style={{
@@ -624,8 +624,8 @@ function expiryColor(
   colors: ReturnType<typeof useTheme>['colors'],
   opened: boolean,
 ): string {
-  if (themeColor === 'danger') return colors.tomato;
-  if (themeColor === 'warning') return colors.carrot;
-  if (opened) return colors.carrot;
-  return colors.textMuted;
+  if (themeColor === 'danger') return colors.danger;
+  if (themeColor === 'warning') return colors.warning;
+  if (opened) return colors.warning;
+  return colors.textSecondary;
 }

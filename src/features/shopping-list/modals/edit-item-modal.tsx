@@ -47,7 +47,7 @@ export function EditItemModal({ item, onDismiss }: EditItemModalProps) {
             <Image
               source="sf:xmark"
               contentFit="contain"
-              tintColor={theme.textMuted}
+              tintColor={theme.textSecondary}
               style={{ width: space.md, height: space.md }}
             />
           </HeaderIconButton>

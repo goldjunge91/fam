@@ -8,8 +8,9 @@ Tokens und Palettentypen gehören nach `src/components/theme/index.ts`, die akti
 Palette zum `ThemeProvider`, ihre Zuordnung zur Darstellung nach `ui.tsx`.
 
 Wichtige bestehende APIs sind `Colors`, `colorsLight`, `colorsDark`, `Palette`,
-`makeAccent()`, `makeCategoryTone()`, `ThemeProvider`, `useTheme()`, `useThemedStyles()`
-und `setPref()`. Ihre Existenz macht nicht jede Kombination ihrer Werte zulässig.
+`makeAccent()`, `ThemeProvider`, `useTheme()`, `useThemedStyles()` und `setPref()`.
+`makeCategoryTone()` gehört nicht zum Zielzustand. Die Existenz einer API macht
+nicht jede Kombination ihrer Werte zulässig.
 
 ## Eine aktive Themeentscheidung
 
@@ -36,10 +37,11 @@ Produktrezepte. Neue Verwendungen wählen kanonische Bedeutungen wie `accent`,
 `warning`, `danger`, `backgroundElement` und `textSecondary`.
 
 Statische Light-Exports wie `colors`, `accent` und `theme.colors` dürfen keine
-themeabhängige Produktdarstellung versorgen. Legacy-Exports werden erst nach
-Prüfung aller Verbraucher entfernt. `legacyWaivyColors` darf ausschließlich
-historische Vergleichsdarstellung versorgen. Domain-Accent-Keys bleiben zulässig,
-wenn sie eine belegte Bedeutung und geprüfte Farbpaare besitzen.
+themeabhängige Produktdarstellung versorgen. `colorsLight` und `colorsDark`
+stellen ausschließlich kanonische Rollen bereit. Die Waivy-Palette und ihre
+Aliase werden entfernt. Domain-Accent-Keys bleiben zulässig, wenn sie eine
+belegte Bedeutung und geprüfte Farbpaare besitzen; `makeAccent()` löst sie aus
+kanonischen Fam-Tokens auf.
 
 ### SpeedDial-Funktionsflächen
 

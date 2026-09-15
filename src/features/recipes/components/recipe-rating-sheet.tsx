@@ -132,7 +132,7 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
         value={note}
         onChangeText={setNote}
         placeholder="Optional: Was war besonders gut?"
-        placeholderTextColor={colors.textMuted}
+        placeholderTextColor={colors.textSecondary}
         multiline
         maxLength={500}
         textAlignVertical="top"

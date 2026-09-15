@@ -126,7 +126,7 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
         ]}
         outerStyle={[styles.pressable, shadow.sm, { shadowColor: colors.shadowCard }]}>
         <View style={styles.header}>
-          <View style={[styles.badge, { backgroundColor: withAlpha(colors.carrot, 0.2) }]}>
+          <View style={[styles.badge, { backgroundColor: withAlpha(colors.warning, 0.2) }]}>
             <Txt variant="body" tone="warning" weight="700">
               {expiringCount}
             </Txt>
@@ -185,7 +185,7 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
       glassStyle={styles.widget}
       fallbackStyle={[styles.widget, { backgroundColor: colors.backgroundElement }]}
       outerStyle={[styles.pressable, shadow.sm, { shadowColor: colors.shadowCard }]}>
-      <View style={[styles.badge, { backgroundColor: withAlpha(colors.carrot, 0.2) }]}>
+      <View style={[styles.badge, { backgroundColor: withAlpha(colors.warning, 0.2) }]}>
         <Txt variant="body" tone="warning" weight="700">
           {expiringCount}
         </Txt>

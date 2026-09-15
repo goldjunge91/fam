@@ -10,8 +10,6 @@ import {
   font,
   Gradients,
   IS_TABLET,
-  legacyWaivyColors,
-  makeCategoryTone,
   radius,
   SCREEN_W,
   shadow,
@@ -123,14 +121,13 @@ function ThemeShowcase() {
 
 function ColorShowcase() {
   const { colors, accent } = useTheme();
-  const categoryTones = makeCategoryTone(colors);
 
   return (
     <View style={styles.page}>
       <ContractIntro
         title="Farben und Töne"
-        contract="Screens wählen eine semantische Rolle. Produktbereiche verwenden Accent- oder Category-Tones, aber keine zufälligen Hexwerte."
-        source="index.ts: Palette, makeAccent(), makeCategoryTone()"
+        contract="Screens wählen eine semantische Rolle. Produktbereiche verwenden Accent-Domains und keine zufälligen Hexwerte."
+        source="index.ts: Palette und makeAccent()"
       />
       <Subsection title="Aktive Palette">
         <TokenGrid>
@@ -164,7 +161,7 @@ function ColorShowcase() {
           })}
         </TokenGrid>
       </Subsection>
-      <Subsection title="Akzente">
+      <Subsection title="Akzente nach Domäne">
         <TokenGrid>
           {entries(accent).map(([name, value]) => (
             <TokenItem
@@ -174,42 +171,6 @@ function ColorShowcase() {
               color={value.main}
             />
           ))}
-        </TokenGrid>
-      </Subsection>
-      <Subsection title="Lebensmittel-Kategorien">
-        <TokenGrid>
-          {entries(categoryTones).map(([name, value]) => (
-            <TokenItem
-              key={String(name)}
-              name={String(name)}
-              value={`${value.icon} · ${value.color}`}
-              color={value.tint}
-            />
-          ))}
-        </TokenGrid>
-      </Subsection>
-      <Subsection title="Legacy-Waivy-Referenz, nicht aktiv">
-        <Txt variant="body" tone="secondary">
-          Diese Werte bleiben nur für Migration und Vergleich erhalten. Produktcode verwendet sie
-          nicht als Standardpalette.
-        </Txt>
-        <TokenGrid>
-          {entries(legacyWaivyColors.light).map(([name, lightValue]) => {
-            const darkValue = legacyWaivyColors.dark[name];
-            return (
-              <TokenItem
-                key={String(name)}
-                name={String(name)}
-                value={`${lightValue} · ${darkValue}`}
-                preview={
-                  <View style={styles.colorPair}>
-                    <View style={[styles.colorHalf, { backgroundColor: lightValue }]} />
-                    <View style={[styles.colorHalf, { backgroundColor: darkValue }]} />
-                  </View>
-                }
-              />
-            );
-          })}
         </TokenGrid>
       </Subsection>
       <ExamplePair

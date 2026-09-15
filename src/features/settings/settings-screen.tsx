@@ -161,7 +161,7 @@ export function SettingsScreen() {
                   borderColor: colors.border,
                 },
               ]}>
-              <View style={[styles.profileAvatar, { backgroundColor: colors.basil }]}>
+              <View style={[styles.profileAvatar, { backgroundColor: colors.accent }]}>
                 {avatarUrl ? (
                   <Image
                     source={{ uri: avatarUrl }}
@@ -170,7 +170,7 @@ export function SettingsScreen() {
                     contentFit="cover"
                   />
                 ) : (
-                  <Txt variant="body" tone="inverse" weight="700">
+                  <Txt variant="body" tone="onAccent" weight="700">
                     {initials}
                   </Txt>
                 )}

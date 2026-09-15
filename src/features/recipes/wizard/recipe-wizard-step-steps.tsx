@@ -269,7 +269,7 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
                     weight="700"
                     style={
                       full
-                        ? { color: colors.textMuted, textDecorationLine: 'line-through' }
+                        ? { color: colors.textSecondary, textDecorationLine: 'line-through' }
                         : undefined
                     }>
                     {ing.name}
@@ -285,7 +285,7 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
                   <View
                     style={[
                       styles.progressFill,
-                      { width: `${pct}%`, backgroundColor: colors.basil },
+                      { width: `${pct}%`, backgroundColor: colors.accent },
                     ]}
                   />
                 </View>
@@ -339,7 +339,7 @@ const StepCard = memo(function StepCard({
   }
 
   return (
-    <View style={[styles.stepCard, { backgroundColor: colors.surface }]}>
+    <View style={[styles.stepCard, { backgroundColor: colors.backgroundElement }]}>
       <View style={styles.stepHeader}>
         <TouchableOpacity
           onLongPress={drag}
@@ -371,11 +371,11 @@ const StepCard = memo(function StepCard({
 
       <View style={styles.editorWrap}>
         <TextInput
-          style={[styles.editor, { backgroundColor: colors.bg, color: colors.text }]}
+          style={[styles.editor, { backgroundColor: colors.background, color: colors.text }]}
           value={step.text}
           onChangeText={handleChangeText}
           placeholder={`Was ist in Schritt ${index + 1} zu tun? Zutat mit @ einfügen, z. B. @Wurst50`}
-          placeholderTextColor={colors.textMuted}
+          placeholderTextColor={colors.textSecondary}
           multiline
           textAlignVertical="top"
         />
@@ -383,7 +383,7 @@ const StepCard = memo(function StepCard({
           <View
             style={[
               styles.mentionPanel,
-              { backgroundColor: colors.bg, borderColor: colors.border },
+              { backgroundColor: colors.background, borderColor: colors.border },
             ]}>
             {autocomplete.matches.slice(0, 6).map((ing) => (
               <TouchableOpacity
@@ -479,11 +479,11 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
     return (
       <View style={styles.timerRow}>
         <TextInput
-          style={[styles.timerInput, { backgroundColor: colors.bg, color: colors.text }]}
+          style={[styles.timerInput, { backgroundColor: colors.background, color: colors.text }]}
           value={draft}
           onChangeText={setDraft}
           placeholder="Min."
-          placeholderTextColor={colors.textMuted}
+          placeholderTextColor={colors.textSecondary}
           keyboardType="number-pad"
           autoFocus
           onSubmitEditing={() => {
@@ -607,7 +607,7 @@ export function RecipeWizardStepSteps({
         ListFooterComponent={
           <>
             <TouchableOpacity
-              style={[styles.addStep, { backgroundColor: colors.surface }]}
+              style={[styles.addStep, { backgroundColor: colors.backgroundElement }]}
               onPress={addStep}>
               <Txt variant="caption" tone="primary" weight="600">
                 + Schritt hinzufügen
@@ -617,7 +617,7 @@ export function RecipeWizardStepSteps({
             <View style={styles.actions}>
               <Press
                 containerStyle={styles.actionContainer}
-                style={[styles.action, { backgroundColor: colors.surface }]}
+                style={[styles.action, { backgroundColor: colors.backgroundElement }]}
                 onPress={onBack}>
                 <Txt variant="caption" tone="primary" weight="600">
                   Zurück
@@ -625,7 +625,7 @@ export function RecipeWizardStepSteps({
               </Press>
               <Press
                 containerStyle={styles.actionContainer}
-                style={[styles.action, { backgroundColor: colors.basil }]}
+                style={[styles.action, { backgroundColor: colors.accent }]}
                 accessibilityRole="button"
                 onPress={onNext}>
                 <Txt variant="caption" tone="onAccent" weight="600">

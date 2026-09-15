@@ -78,9 +78,9 @@ function StreakDays({ count, activeToday }: { count: number; activeToday: boolea
               width: 12,
               height: 12,
               borderRadius: 6,
-              backgroundColor: active ? colors.carrot : colors.backgroundSoft,
+              backgroundColor: active ? colors.warning : colors.backgroundSoft,
               borderWidth: isToday ? 2 : 0,
-              borderColor: isToday ? colors.basil : 'transparent',
+              borderColor: isToday ? colors.accent : 'transparent',
             }}
           />
         );

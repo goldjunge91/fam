@@ -585,7 +585,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
                 setShowScanner(true);
               }}
               style={{ width: 48, height: 48 }}>
-              <FamIcon name="camera" size={space.xxl} color={theme.basil} />
+              <FamIcon name="camera" size={space.xxl} color={theme.accent} />
             </HeaderIconButton>
           }
         />

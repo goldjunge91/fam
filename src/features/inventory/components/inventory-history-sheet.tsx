@@ -287,7 +287,7 @@ export function InventoryHistorySheet({
           icon="x"
           onPress={onClose}
           accessibilityLabel="Schließen"
-          bg={withAlpha(colors.tomato, 1)}
+          bg={withAlpha(colors.danger, 1)}
           size={40}
           iconSize={22}
           style={styles.closeButton}

@@ -14,7 +14,6 @@ import {
   colorsLight,
   font,
   makeAccent,
-  makeCategoryTone,
   radius,
   shadow,
   space,
@@ -61,7 +60,7 @@ function ThemeProbe() {
 }
 
 describe('fam theme tokens', () => {
-  it('maps canonical tokens and legacy aliases to the existing Fam palette', () => {
+  it('maps canonical tokens to the existing Fam palette', () => {
     expect(colorsLight.background).toBe(Colors.light.background);
     expect(colorsLight.backgroundElement).toBe(Colors.light.backgroundElement);
     expect(colorsLight.backgroundSoft).toBe(Colors.light.backgroundSoft);
@@ -72,24 +71,23 @@ describe('fam theme tokens', () => {
     expect(colorsLight.shadowCard).toBe(Colors.light.shadowCard);
     expect(colorsLight.shadowSheet).toBe(Colors.light.shadowSheet);
 
-    expect(colorsLight.bg).toBe(Colors.light.background);
-    expect(colorsLight.surface).toBe(Colors.light.backgroundElement);
-    expect(colorsLight.textMuted).toBe(Colors.light.textSecondary);
     expect(colorsLight.border).toBe(Colors.light.border);
-    expect(colorsLight.basil).toBe(Colors.light.accent);
-
-    expect(colorsDark.bg).toBe(Colors.dark.background);
-    expect(colorsDark.surface).toBe(Colors.dark.backgroundElement);
-    expect(colorsDark.textMuted).toBe(Colors.dark.textSecondary);
+    expect(colorsDark.background).toBe(Colors.dark.background);
+    expect(colorsDark.backgroundElement).toBe(Colors.dark.backgroundElement);
+    expect(colorsDark.backgroundSoft).toBe(Colors.dark.backgroundSoft);
+    expect(colorsDark.accent).toBe(Colors.dark.accent);
+    expect(colorsDark.textSecondary).toBe(Colors.dark.textSecondary);
     expect(colorsDark.border).toBe(Colors.dark.border);
-    expect(colorsDark.basil).toBe(Colors.dark.accent);
 
     expect(Object.keys(colorsDark).sort()).toEqual(Object.keys(colorsLight).sort());
   });
 
   it('keeps the existing primitive token surface available', () => {
-    expect(makeAccent(colorsLight).pantry.main).toBe(colorsLight.basil);
-    expect(makeCategoryTone(colorsLight).vegetable.tint).toBe(colorsLight.basilTint);
+    const accents = makeAccent(colorsLight);
+
+    expect(accents.pantry.main).toBe(colorsLight.accent);
+    expect(accents.nourish.main).toBe(colorsLight.warning);
+    expect(accents.grocery.main).toBe(colorsLight.success);
     expect(radius.md).toBe(16);
     expect(borderWidth.base).toBe(1.5);
     expect(borderWidth.strong).toBe(2);

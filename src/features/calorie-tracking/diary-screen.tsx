@@ -197,7 +197,7 @@ function MacroChip({ label, value, target }: { label: string; value: number; tar
       </Txt>
       <ProgressBar
         value={target > 0 ? value / target : 0}
-        color={exceeded ? colors.carrot : colors.basil}
+        color={exceeded ? colors.warning : colors.accent}
         trackColor={colors.backgroundSoft}
         height={4}
       />
@@ -232,7 +232,7 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
           aria-label={`Zu ${MEAL_LABELS[meal]} hinzufügen`}
           hitSlop={8}
           style={styles.addButton}>
-          <PlusIcon size={18} color={colors.inverse} />
+          <PlusIcon size={18} color={colors.onAccent} />
         </Press>
       </View>
       {entries.map((entry) => (
@@ -431,7 +431,7 @@ export function DiaryScreen() {
           <View style={styles.heroBar}>
             <ProgressBar
               value={calorieGoal > 0 ? totals.kcal / calorieGoal : 0}
-              color={remaining < 0 ? colors.carrot : colors.basil}
+              color={remaining < 0 ? colors.warning : colors.accent}
               trackColor={colors.backgroundSoft}
               height={6}
             />

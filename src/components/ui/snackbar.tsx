@@ -68,7 +68,7 @@ export function SnackbarProvider({ children }: { children: React.ReactNode }) {
               gap: 16,
               backgroundColor: colors.text,
             }}>
-            <Txt variant="body" tone="inverse" weight="500" style={{ flex: 1 }}>
+            <Txt variant="body" tone="onAccent" weight="500" style={{ flex: 1 }}>
               {snackbar.message}
             </Txt>
             <Pressable

@@ -12,6 +12,8 @@ import {
   space,
 } from '@/components/theme/index';
 
+const mockAccent = mockMakeAccent(mockColorsLight);
+
 jest.mock(
   '@expo/vector-icons',
   () => {
@@ -51,11 +53,11 @@ jest.mock('@/components/theme/ThemeProvider', () => ({
     mode: 'light',
     pref: 'light',
     colors: mockColorsLight,
-    accent: mockMakeAccent(mockColorsLight),
+    accent: mockAccent,
   }),
   useThemedStyles: (
     factory: (colors: typeof mockColorsLight, accent: ReturnType<typeof mockMakeAccent>) => unknown,
-  ) => factory(mockColorsLight, mockMakeAccent(mockColorsLight)),
+  ) => factory(mockColorsLight, mockAccent),
 }));
 
 import { Card as ProductCard } from '@/components/ui/card';
@@ -123,7 +125,7 @@ describe('core theme UI primitives', () => {
     );
 
     const text = screen.getByText('Akzent');
-    expect(text).toHaveStyle({ color: mockColorsLight.basil, fontWeight: '700' });
+    expect(text).toHaveStyle({ color: mockColorsLight.accent, fontWeight: '700' });
     expect(text.props.style.at(-1)).toEqual({ fontSize: 99 });
   });
 
@@ -137,13 +139,13 @@ describe('core theme UI primitives', () => {
     );
 
     expect(screen.getByLabelText('page surface')).toHaveStyle({
-      backgroundColor: mockColorsLight.bg,
+      backgroundColor: mockColorsLight.background,
     });
     expect(screen.getByLabelText('soft surface')).toHaveStyle({
       backgroundColor: mockColorsLight.backgroundSoft,
     });
     expect(screen.getByLabelText('accent surface')).toHaveStyle({
-      backgroundColor: mockColorsLight.basil,
+      backgroundColor: mockColorsLight.accent,
     });
   });
 
@@ -434,7 +436,7 @@ describe('core theme UI primitives', () => {
     );
 
     expect(screen.getByLabelText('card')).toHaveStyle({
-      backgroundColor: mockColorsLight.surface,
+      backgroundColor: mockColorsLight.backgroundElement,
       borderColor: mockColorsLight.border,
     });
     expect(screen.getByText('Name')).toBeOnTheScreen();

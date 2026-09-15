@@ -109,7 +109,7 @@ describe('CompleteRunSheet', () => {
     );
 
     expect(screen.getByRole('button', { name: /in Vorrat übernehmen/i })).toHaveStyle({
-      backgroundColor: colorsLight.basil,
+      backgroundColor: colorsLight.accent,
       minHeight: 44,
     });
   });

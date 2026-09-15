@@ -82,7 +82,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
           style={[
             styles.sheet,
             {
-              backgroundColor: colors.bg,
+              backgroundColor: colors.background,
               paddingBottom: Math.max(insets.bottom, 24),
               boxShadow: `0 -10px 30px ${withAlpha(colors.text, 0.2)}`,
             },
@@ -102,7 +102,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
               onPress={onClose}
               accessibilityRole="button"
               accessibilityLabel={t('dashboard.gallery.done')}
-              style={[styles.doneBtn, { backgroundColor: colors.basil }]}>
+              style={[styles.doneBtn, { backgroundColor: colors.accent }]}>
               <Txt variant="label" tone="onAccent" weight="600">
                 {t('dashboard.gallery.done')}
               </Txt>
@@ -134,8 +134,8 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                   style={[
                     styles.cardRow,
                     {
-                      backgroundColor: colors.surface,
-                      borderColor: isHidden ? colors.border : withAlpha(colors.basil, 0.3),
+                      backgroundColor: colors.backgroundElement,
+                      borderColor: isHidden ? colors.border : withAlpha(colors.accent, 0.3),
                       opacity: isHidden ? 0.85 : 1,
                     },
                   ]}>
@@ -160,8 +160,8 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                       style={[
                         styles.toggleBtn,
                         isHidden
-                          ? { backgroundColor: colors.basil }
-                          : { backgroundColor: withAlpha(colors.tomato, 0.15) },
+                          ? { backgroundColor: colors.accent }
+                          : { backgroundColor: withAlpha(colors.danger, 0.15) },
                       ]}>
                       <Txt variant="label" tone={isHidden ? 'onAccent' : 'danger'} weight="600">
                         {isHidden ? t('dashboard.gallery.add') : t('dashboard.gallery.remove')}
@@ -177,7 +177,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                         style={[
                           styles.sizeBtn,
                           currentSize === 'small'
-                            ? [styles.sizeBtnActive, { backgroundColor: colors.basil }]
+                            ? [styles.sizeBtnActive, { backgroundColor: colors.accent }]
                             : [styles.sizeBtnInactive, { backgroundColor: colors.backgroundSoft }],
                         ]}>
                         <Txt
@@ -192,7 +192,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                         style={[
                           styles.sizeBtn,
                           currentSize === 'large'
-                            ? [styles.sizeBtnActive, { backgroundColor: colors.basil }]
+                            ? [styles.sizeBtnActive, { backgroundColor: colors.accent }]
                             : [styles.sizeBtnInactive, { backgroundColor: colors.backgroundSoft }],
                         ]}>
                         <Txt

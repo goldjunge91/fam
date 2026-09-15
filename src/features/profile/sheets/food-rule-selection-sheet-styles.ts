@@ -14,7 +14,7 @@ export const foodRuleSelectionSheetStyles = StyleSheet.create((theme) => ({
     gap: theme.space.lg,
     borderTopLeftRadius: theme.radius.famLarge,
     borderTopRightRadius: theme.radius.famLarge,
-    backgroundColor: theme.surface,
+    backgroundColor: theme.backgroundElement,
   },
   handle: {
     width: theme.space.xxl + theme.space.sm,
@@ -55,10 +55,10 @@ export const foodRuleSelectionSheetStyles = StyleSheet.create((theme) => ({
     marginVertical: theme.space.xs,
     paddingHorizontal: theme.space.md,
     paddingVertical: theme.space.sm,
-    backgroundColor: theme.surface,
+    backgroundColor: theme.backgroundElement,
   },
   optionSelected: {
-    backgroundColor: theme.basilSoft,
+    backgroundColor: theme.backgroundSoft,
     borderRadius: theme.radius.lg,
   },
   optionBordered: {
@@ -75,12 +75,12 @@ export const foodRuleSelectionSheetStyles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: theme.borderWidth.base,
-    borderColor: theme.basil,
+    borderColor: theme.accent,
     borderRadius: theme.radius.sm,
     backgroundColor: 'transparent',
   },
   checkboxSelected: {
-    backgroundColor: theme.basil,
+    backgroundColor: theme.accent,
   },
   customRow: {
     minHeight: theme.space.xxl + theme.space.xl,
@@ -100,8 +100,8 @@ export const foodRuleSelectionSheetStyles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
     paddingHorizontal: theme.space.sm,
     borderWidth: theme.borderWidth.base,
-    borderColor: theme.basil,
+    borderColor: theme.accent,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.basilSoft,
+    backgroundColor: theme.backgroundSoft,
   },
 }));

@@ -89,7 +89,7 @@ export function ScreenHeader({
             icon="chevron-left"
             onPress={() => router.back()}
             size={40}
-            bg={colors.surface}
+            bg={colors.backgroundElement}
             accessibilityLabel="Zurück"
           />
         ) : null}
@@ -269,8 +269,8 @@ export function Screen({
                 <RefreshControl
                   refreshing={Boolean(refreshing)}
                   onRefresh={onRefresh}
-                  tintColor={colors.basil}
-                  colors={[colors.basil]}
+                  tintColor={colors.accent}
+                  colors={[colors.accent]}
                   progressViewOffset={insets.top + 4}
                 />
               ) : undefined

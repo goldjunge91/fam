@@ -14,7 +14,7 @@ export const profileSheetStyles = StyleSheet.create((theme) => ({
     gap: theme.space.lg,
     borderTopLeftRadius: theme.radius.famLarge,
     borderTopRightRadius: theme.radius.famLarge,
-    backgroundColor: theme.surface,
+    backgroundColor: theme.backgroundElement,
   },
   passwordSheet: {
     maxHeight: '88%',
@@ -24,7 +24,7 @@ export const profileSheetStyles = StyleSheet.create((theme) => ({
     gap: theme.space.xl + theme.space.xs,
     borderTopLeftRadius: theme.radius.famLarge,
     borderTopRightRadius: theme.radius.famLarge,
-    backgroundColor: theme.surface,
+    backgroundColor: theme.backgroundElement,
   },
   handle: {
     width: theme.space.xxl + theme.space.sm,
@@ -57,10 +57,10 @@ export const profileSheetStyles = StyleSheet.create((theme) => ({
     marginVertical: theme.space.xs,
     paddingHorizontal: theme.space.md,
     paddingVertical: theme.space.sm,
-    backgroundColor: theme.surface,
+    backgroundColor: theme.backgroundElement,
   },
   optionSelected: {
-    backgroundColor: theme.basilSoft,
+    backgroundColor: theme.backgroundSoft,
     borderRadius: theme.radius.lg,
   },
   optionBordered: {
@@ -77,12 +77,12 @@ export const profileSheetStyles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: theme.borderWidth.base,
-    borderColor: theme.basil,
+    borderColor: theme.accent,
     borderRadius: theme.radius.sm,
     backgroundColor: 'transparent',
   },
   checkboxSelected: {
-    backgroundColor: theme.basil,
+    backgroundColor: theme.accent,
   },
   passwordFields: {
     gap: theme.space.md,

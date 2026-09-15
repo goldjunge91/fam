@@ -89,11 +89,11 @@ export function JiggleWrapper({
             styles.badge,
             styles.deleteBadge,
             {
-              backgroundColor: colors.tomato,
+              backgroundColor: colors.danger,
               boxShadow: `0 2px 8px ${withAlpha(colors.text, 0.25)}`,
             },
           ]}>
-          <Txt variant="subheading" tone="inverse" weight="700">
+          <Txt variant="subheading" tone="onAccent" weight="700">
             −
           </Txt>
         </Pressable>
@@ -111,11 +111,11 @@ export function JiggleWrapper({
             styles.badge,
             styles.resizeBadge,
             {
-              backgroundColor: colors.basil,
+              backgroundColor: colors.accent,
               boxShadow: `0 2px 8px ${withAlpha(colors.text, 0.25)}`,
             },
           ]}>
-          <Txt variant="body" tone="inverse" weight="700">
+          <Txt variant="body" tone="onAccent" weight="700">
             ⤢
           </Txt>
         </Pressable>

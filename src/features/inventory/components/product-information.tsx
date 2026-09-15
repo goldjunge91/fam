@@ -230,7 +230,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                   justifyContent: 'center',
                   backgroundColor: score ? NUTRI_BADGE_COLORS[score] : colors.backgroundSoft,
                 }}>
-                <Txt variant="subheading" weight="700" tone={score ? 'inverse' : 'primary'}>
+                <Txt variant="subheading" weight="700" tone={score ? 'onAccent' : 'primary'}>
                   {score?.toUpperCase() ?? '–'}
                 </Txt>
               </View>

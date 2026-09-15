@@ -254,13 +254,13 @@ export function RecipePreviewCard({
       <View style={styles.copy}>
         <Txt
           variant="subheading"
-          tone="inverse"
+          tone="onAccent"
           weight="700"
           style={styles.title}
           numberOfLines={1}>
           {title}
         </Txt>
-        <Txt variant="caption" tone="inverse" weight="600" style={styles.meta} numberOfLines={1}>
+        <Txt variant="caption" tone="onAccent" weight="600" style={styles.meta} numberOfLines={1}>
           {[meta.left, meta.right].filter(Boolean).join(' · ') || 'Rezept'}
         </Txt>
       </View>
@@ -304,13 +304,13 @@ export function RecipeHeroCard({
       />
       <View style={styles.heroOverlay} />
       <View style={styles.copy}>
-        <Txt variant="caption" tone="inverse" weight="700" style={styles.eyebrow}>
+        <Txt variant="caption" tone="onAccent" weight="700" style={styles.eyebrow}>
           {eyebrow}
         </Txt>
-        <Txt variant="body" tone="inverse" weight="700" style={styles.heroTitle} numberOfLines={2}>
+        <Txt variant="body" tone="onAccent" weight="700" style={styles.heroTitle} numberOfLines={2}>
           {title}
         </Txt>
-        <Txt variant="caption" tone="inverse" weight="600" style={styles.meta} numberOfLines={1}>
+        <Txt variant="caption" tone="onAccent" weight="600" style={styles.meta} numberOfLines={1}>
           {[meta.left, meta.right].filter(Boolean).join(' · ') || 'Entdecke dieses Rezept'}
         </Txt>
       </View>

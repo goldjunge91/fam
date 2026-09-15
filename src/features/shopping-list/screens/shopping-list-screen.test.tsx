@@ -278,8 +278,8 @@ describe('ShoppingListScreen', () => {
       name: /Einkaufsliste bei Supermarkt abschließen/,
     });
 
-    expect(startButton).toHaveStyle({ backgroundColor: colorsLight.basil, minHeight: 44 });
-    expect(completeButton).toHaveStyle({ backgroundColor: colorsLight.basil, minHeight: 44 });
+    expect(startButton).toHaveStyle({ backgroundColor: colorsLight.accent, minHeight: 44 });
+    expect(completeButton).toHaveStyle({ backgroundColor: colorsLight.accent, minHeight: 44 });
   });
 
   it('hakt Artikel in der Marktliste nicht mehr per Antippen ab — das passiert nur im Einkaufsmodus', async () => {

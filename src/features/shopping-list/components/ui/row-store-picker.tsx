@@ -90,7 +90,8 @@ export function RowStorePicker({
       ? t('shoppingList.rowStorePicker.unassigned')
       : (activeStore?.name ?? t('shoppingList.rowStorePicker.chooseStore'));
   const label = labelOverride ?? computedLabel;
-  const dotColor = storeId === null ? theme.textMuted : (activeStore?.color ?? theme.textMuted);
+  const dotColor =
+    storeId === null ? theme.textSecondary : (activeStore?.color ?? theme.textSecondary);
 
   function openMenu() {
     anchorRef.current?.measureInWindow((x, y, _width, height) => setAnchor({ x, y, height }));
@@ -143,7 +144,7 @@ export function RowStorePicker({
                 haptic="selection"
                 selected={storeId === null}
                 style={styles.row}>
-                <View style={[styles.dot, { backgroundColor: theme.textMuted }]} />
+                <View style={[styles.dot, { backgroundColor: theme.textSecondary }]} />
                 <Txt variant="body" weight="600" style={styles.rowLabel}>
                   {t('shoppingList.rowStorePicker.unassigned')}
                 </Txt>

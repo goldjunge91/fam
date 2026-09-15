@@ -75,14 +75,14 @@ export function GamificationScreen() {
       <Card style={[styles.hero, { backgroundColor: colors.accent, borderColor: colors.accent }]}>
         <View style={styles.heroHeader}>
           <View style={{ flex: 1, gap: space.sm }}>
-            <Txt variant="caption" tone="inverse" weight="700">
+            <Txt variant="caption" tone="onAccent" weight="700">
               DEIN STREAK
             </Txt>
             <View style={styles.heroMetric}>
-              <Txt variant="display" tone="inverse" selectable>
+              <Txt variant="display" tone="onAccent" selectable>
                 {streak.count}
               </Txt>
-              <Txt variant="body" tone="inverse">
+              <Txt variant="body" tone="onAccent">
                 {streak.count === 1 ? 'Tag am Stück' : 'Tage am Stück'}
               </Txt>
             </View>
@@ -91,7 +91,7 @@ export function GamificationScreen() {
             🔥
           </Txt>
         </View>
-        <Txt variant="body" tone="inverse" weight="700">
+        <Txt variant="body" tone="onAccent" weight="700">
           {status}
         </Txt>
       </Card>

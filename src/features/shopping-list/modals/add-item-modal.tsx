@@ -66,7 +66,7 @@ export function AddItemModal({
             <Image
               source="sf:xmark"
               contentFit="contain"
-              tintColor={theme.textMuted}
+              tintColor={theme.textSecondary}
               // expo-image unterstützt kein cssInterop; statische Abmessungen als style
               style={{ width: space.md, height: space.md }}
             />

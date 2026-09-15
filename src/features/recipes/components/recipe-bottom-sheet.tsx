@@ -81,7 +81,7 @@ export function RecipeBottomSheet({
   const body = (
     <Pressable style={[styles.backdrop, { backgroundColor: colors.scrim }]} onPress={onClose}>
       <Pressable
-        style={[styles.sheet, { backgroundColor: colors.surface }, sheetStyle]}
+        style={[styles.sheet, { backgroundColor: colors.backgroundElement }, sheetStyle]}
         onPress={(event) => event.stopPropagation()}>
         <View style={[styles.handle, { backgroundColor: colors.border }]} />
         <View style={styles.header}>

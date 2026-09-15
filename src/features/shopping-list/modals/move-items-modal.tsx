@@ -128,7 +128,7 @@ export function MoveItemsModal({
 
           <View style={styles.targetList}>
             {stores.map((store) => renderTarget(store.name, store.id, store.color))}
-            {renderTarget(t('shoppingList.moveItems.unassignedTarget'), null, theme.textMuted)}
+            {renderTarget(t('shoppingList.moveItems.unassignedTarget'), null, theme.textSecondary)}
           </View>
         </Surface>
       </View>

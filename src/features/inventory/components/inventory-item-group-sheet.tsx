@@ -367,7 +367,7 @@ export function InventoryItemGroupSheet({
               icon="x"
               onPress={onClose}
               accessibilityLabel="Schließen"
-              bg={colors.tomato}
+              bg={colors.danger}
               size={45}
               iconSize={24}
               style={{
@@ -477,9 +477,9 @@ export function InventoryItemGroupSheet({
               const expiry = getExpiryInfo(lot.expiry_date, new Date());
               const statusColor =
                 expiry.themeColor === 'danger'
-                  ? colors.tomato
+                  ? colors.danger
                   : lot.opened_at || expiry.themeColor === 'warning'
-                    ? colors.carrot
+                    ? colors.warning
                     : colors.success;
               return (
                 <Press
@@ -592,7 +592,7 @@ function IosInventoryItemGroupView({
                 icon="x"
                 onPress={onClose}
                 accessibilityLabel="MHD-Details schließen"
-                bg={colors.tomato}
+                bg={colors.danger}
                 size={40}
                 iconSize={22}
                 style={{

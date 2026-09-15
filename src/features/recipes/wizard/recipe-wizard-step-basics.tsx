@@ -230,7 +230,7 @@ export function RecipeWizardStepBasics({
         <>
           {/* Titelbild */}
           <TouchableOpacity
-            style={[styles.cover, { backgroundColor: colors.surface }]}
+            style={[styles.cover, { backgroundColor: colors.backgroundElement }]}
             activeOpacity={0.85}
             onPress={onPickCover}>
             {coverPreviewUri ? (
@@ -242,9 +242,9 @@ export function RecipeWizardStepBasics({
               />
             ) : (
               <View style={styles.coverPlaceholder}>
-                <View style={[styles.coverIcon, { backgroundColor: colors.basil }]}>
+                <View style={[styles.coverIcon, { backgroundColor: colors.accent }]}>
                   <Svg width={24} height={24} viewBox="0 0 24 24" fill="none">
-                    <Path d="M8 5v14l11-7z" fill={colors.inverse} />
+                    <Path d="M8 5v14l11-7z" fill={colors.onAccent} />
                   </Svg>
                 </View>
                 <Txt variant="body" weight="500" style={styles.coverActionText}>
@@ -270,7 +270,7 @@ export function RecipeWizardStepBasics({
                     onBlur={onBlur}
                     onChangeText={onChange}
                     placeholder="Rezepttitel"
-                    placeholderTextColor={colors.textMuted}
+                    placeholderTextColor={colors.textSecondary}
                   />
                   <FieldError message={error?.message} />
                 </>
@@ -294,7 +294,7 @@ export function RecipeWizardStepBasics({
                     onBlur={onBlur}
                     onChangeText={onChange}
                     placeholder="Kurze Beschreibung des Rezepts"
-                    placeholderTextColor={colors.textMuted}
+                    placeholderTextColor={colors.textSecondary}
                     multiline
                     numberOfLines={3}
                     textAlignVertical="top"
@@ -322,7 +322,7 @@ export function RecipeWizardStepBasics({
                       onBlur={onBlur}
                       onChangeText={onChange}
                       placeholder="30"
-                      placeholderTextColor={colors.textMuted}
+                      placeholderTextColor={colors.textSecondary}
                       keyboardType="numeric"
                     />
                     <FieldError message={error?.message} />
@@ -340,7 +340,11 @@ export function RecipeWizardStepBasics({
                 name="defaultServings"
                 render={({ field: { onChange, value }, fieldState: { error } }) => (
                   <>
-                    <View style={[styles.servingsControl, { backgroundColor: colors.surface }]}>
+                    <View
+                      style={[
+                        styles.servingsControl,
+                        { backgroundColor: colors.backgroundElement },
+                      ]}>
                       <Press
                         accessibilityRole="button"
                         accessibilityLabel="Eine Portion weniger"
@@ -388,8 +392,8 @@ export function RecipeWizardStepBasics({
                         style={[
                           styles.tag,
                           {
-                            backgroundColor: selected ? colors.basil : colors.surface,
-                            borderColor: selected ? colors.basil : colors.border,
+                            backgroundColor: selected ? colors.accent : colors.backgroundElement,
+                            borderColor: selected ? colors.accent : colors.border,
                           },
                         ]}
                         onPress={() => onChange(selected ? null : difficulty.value)}>
@@ -427,8 +431,8 @@ export function RecipeWizardStepBasics({
                         style={[
                           styles.tag,
                           {
-                            backgroundColor: selected ? colors.basil : colors.surface,
-                            borderColor: selected ? colors.basil : colors.border,
+                            backgroundColor: selected ? colors.accent : colors.backgroundElement,
+                            borderColor: selected ? colors.accent : colors.border,
                           },
                         ]}
                         onPress={() => onChange(toggle(value, dishType.value))}>
@@ -466,8 +470,8 @@ export function RecipeWizardStepBasics({
                         style={[
                           styles.tag,
                           {
-                            backgroundColor: selected ? colors.basil : colors.surface,
-                            borderColor: selected ? colors.basil : colors.border,
+                            backgroundColor: selected ? colors.accent : colors.backgroundElement,
+                            borderColor: selected ? colors.accent : colors.border,
                           },
                         ]}
                         onPress={() => onChange(toggle(value, dietaryTag.value))}>
@@ -502,7 +506,7 @@ export function RecipeWizardStepBasics({
                     onBlur={onBlur}
                     onChangeText={onChange}
                     placeholder="#vegan #schnell"
-                    placeholderTextColor={colors.textMuted}
+                    placeholderTextColor={colors.textSecondary}
                   />
                   <FieldError message={error?.message} />
                 </>
@@ -516,14 +520,14 @@ export function RecipeWizardStepBasics({
           {components.map((comp) => (
             <View
               key={comp.id}
-              style={[styles.componentGroup, { backgroundColor: colors.surface }]}>
+              style={[styles.componentGroup, { backgroundColor: colors.backgroundElement }]}>
               <View style={styles.componentHeader}>
                 <TextInput
                   style={[styles.field, styles.componentTitle, fieldStyle, { fontWeight: '700' }]}
                   value={comp.title}
                   onChangeText={(val) => onUpdateComponentTitle(comp.id, val)}
                   placeholder="Gruppenname, z. B. Für den Teig"
-                  placeholderTextColor={colors.textMuted}
+                  placeholderTextColor={colors.textSecondary}
                 />
                 {components.length > 1 ? (
                   <TouchableOpacity
@@ -553,7 +557,7 @@ export function RecipeWizardStepBasics({
                       value={item.quantity}
                       onChangeText={(val) => onUpdateQuantity(comp.id, item.id, val)}
                       placeholder="Menge"
-                      placeholderTextColor={colors.textMuted}
+                      placeholderTextColor={colors.textSecondary}
                       keyboardType="numeric"
                     />
                     <View style={styles.unitField}>
@@ -599,7 +603,7 @@ export function RecipeWizardStepBasics({
           ))}
 
           <Press
-            style={[styles.addGroup, { backgroundColor: colors.surface }]}
+            style={[styles.addGroup, { backgroundColor: colors.backgroundElement }]}
             onPress={onAddComponentGroup}
             accessibilityRole="button"
             accessibilityLabel="Add Componente">
@@ -613,7 +617,7 @@ export function RecipeWizardStepBasics({
       <View style={styles.actions}>
         <Press
           containerStyle={styles.actionContainer}
-          style={[styles.action, { backgroundColor: colors.surface }]}
+          style={[styles.action, { backgroundColor: colors.backgroundElement }]}
           onPress={onCancel}>
           <Txt variant="caption" tone="primary" weight="600">
             {mode === 'details' ? 'Abbrechen' : 'Zurück'}
@@ -624,7 +628,7 @@ export function RecipeWizardStepBasics({
           style={[
             styles.action,
             {
-              backgroundColor: colors.basil,
+              backgroundColor: colors.accent,
               opacity: !title.trim() || saving ? 0.5 : 1,
             },
           ]}

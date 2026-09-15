@@ -30,7 +30,7 @@ export function ProfileAvatarEditor({
             contentFit="cover"
           />
         ) : (
-          <Txt variant="subheading" tone="inverse" weight="700">
+          <Txt variant="subheading" tone="onAccent" weight="700">
             {initials}
           </Txt>
         )}
@@ -74,7 +74,7 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
     borderWidth: theme.borderWidth.strong,
     borderColor: theme.border,
-    backgroundColor: theme.basil,
+    backgroundColor: theme.accent,
   },
   image: {
     width: '100%',

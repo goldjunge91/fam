@@ -93,7 +93,7 @@ export function StorePickerMenu({
     activeFilter === ALL_FILTER
       ? theme.text
       : activeFilter === UNASSIGNED_FILTER
-        ? theme.textMuted
+        ? theme.textSecondary
         : (activeStore?.color ?? theme.text);
 
   function openMenu() {
@@ -182,7 +182,7 @@ export function StorePickerMenu({
                 haptic="selection"
                 selected={activeFilter === UNASSIGNED_FILTER}
                 style={styles.row}>
-                <View style={[styles.activeDot, { backgroundColor: theme.textMuted }]} />
+                <View style={[styles.activeDot, { backgroundColor: theme.textSecondary }]} />
                 <Txt variant="body" weight="600" style={styles.rowLabel}>
                   {t('shoppingList.storePickerMenu.unassigned')}
                 </Txt>

@@ -698,7 +698,7 @@ export function RecipeCreateScreen() {
               key={step}
               style={[
                 styles.progressSegment,
-                { backgroundColor: step <= wizardStep ? colors.basil : colors.backgroundSoft },
+                { backgroundColor: step <= wizardStep ? colors.accent : colors.backgroundSoft },
               ]}
             />
           ))}

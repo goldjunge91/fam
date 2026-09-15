@@ -114,7 +114,7 @@ export function CookingModeStep({
             key={step.id}
             style={[
               styles.progressSegment,
-              { backgroundColor: index <= stepIndex ? colors.basil : colors.backgroundSoft },
+              { backgroundColor: index <= stepIndex ? colors.accent : colors.backgroundSoft },
             ]}
           />
         ))}
@@ -169,8 +169,8 @@ export function CookingModeStep({
           onPress={onNextStep}
           role="button"
           containerStyle={styles.nextContainer}
-          style={[styles.next, { backgroundColor: colors.basil }]}>
-          <Txt variant="caption" tone="inverse" weight="700" center>
+          style={[styles.next, { backgroundColor: colors.accent }]}>
+          <Txt variant="caption" tone="onAccent" weight="700" center>
             {stepIndex === steps.length - 1 ? 'Zubereitung abschließen' : 'Nächster Schritt'}
           </Txt>
         </Press>

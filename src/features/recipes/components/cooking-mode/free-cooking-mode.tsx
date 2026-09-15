@@ -119,8 +119,8 @@ export function FreeCookingMode({ data }: { data: RecipeDetail }) {
           }
           role="button"
           containerStyle={styles.unlockContainer}
-          style={[styles.unlock, { backgroundColor: colors.basil }]}>
-          <Txt variant="caption" tone="inverse" weight="700" center>
+          style={[styles.unlock, { backgroundColor: colors.accent }]}>
+          <Txt variant="caption" tone="onAccent" weight="700" center>
             Geführten Kochmodus freischalten
           </Txt>
         </Press>
@@ -150,7 +150,7 @@ function IngredientGroups({ data }: { data: RecipeDetail }) {
   }
 
   return (
-    <View style={[styles.groups, { backgroundColor: colors.surface }]}>
+    <View style={[styles.groups, { backgroundColor: colors.backgroundElement }]}>
       {groups.map((component) => {
         const items = data.items.filter((item) => item.component_id === component.id);
 

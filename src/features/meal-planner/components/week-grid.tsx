@@ -56,7 +56,7 @@ const styles = StyleSheet.create((theme) => ({
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: theme.border,
     borderRadius: theme.radius.lg,
-    backgroundColor: theme.surface,
+    backgroundColor: theme.backgroundElement,
     borderCurve: 'continuous',
   },
   dayHeader: {
@@ -111,7 +111,7 @@ const styles = StyleSheet.create((theme) => ({
     borderColor: theme.border,
     borderRadius: theme.radius.lg,
     paddingVertical: theme.space.lg,
-    backgroundColor: theme.surface,
+    backgroundColor: theme.backgroundElement,
     borderCurve: 'continuous',
   },
   trayTitle: {

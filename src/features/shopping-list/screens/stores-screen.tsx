@@ -205,7 +205,7 @@ export function StoresScreen() {
             onValueChange={(value) => setShowPriceInMarketView.mutate(value)}
             accessibilityLabel={t('shoppingList.stores.priceInMarketView.label')}
             trackColor={{ false: theme.border, true: theme.accent }}
-            thumbColor={theme.surface}
+            thumbColor={theme.backgroundElement}
           />
         </Row>
       </Card>

@@ -204,7 +204,7 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
                 disabled={saveMutation.isPending}
                 accessibilityRole="button"
                 // Dynamische Markt-Farbe aus der Datenbank
-                style={[styles.saveButton, { backgroundColor: store?.color ?? theme.basil }]}>
+                style={[styles.saveButton, { backgroundColor: store?.color ?? theme.accent }]}>
                 <Txt variant="body" tone="onAccent" weight="700">
                   {t('shoppingList.categoryOrder.save')}
                 </Txt>

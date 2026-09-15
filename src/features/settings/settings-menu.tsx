@@ -24,7 +24,7 @@ export function SettingsGroup({ title, children }: SettingsGroupProps) {
       <Card
         padded={false}
         elevation="sm"
-        style={[styles.groupBody, { backgroundColor: colors.surface }]}>
+        style={[styles.groupBody, { backgroundColor: colors.backgroundElement }]}>
         {children}
       </Card>
     </View>

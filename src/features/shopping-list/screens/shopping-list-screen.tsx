@@ -329,13 +329,13 @@ export function ShoppingListScreen() {
               setScannerOpen(true);
             }}
             style={styles.headerAction}>
-            <FamIcon name="camera" size={20} color={theme.basil} />
+            <FamIcon name="camera" size={20} color={theme.accent} />
           </HeaderIconButton>
           <HeaderIconButton
             label={t('shoppingList.addItem')}
             onPress={() => setAddModalOpen(true)}
             style={styles.headerAction}>
-            <PlusIcon size={space.xl} color={theme.basil} />
+            <PlusIcon size={space.xl} color={theme.accent} />
           </HeaderIconButton>
           {!isAllFilter && filteredItems.length > 0 ? (
             <HeaderIconButton
@@ -483,7 +483,7 @@ export function ShoppingListScreen() {
             {/* Übersichtszeile für Artikel ohne Marktzuordnung */}
             <StoreSummaryCard
               name={t('shoppingList.screen.unassignedStore')}
-              color={theme.textMuted}
+              color={theme.textSecondary}
               totalCount={unassignedItems.length}
               checkedCount={unassignedItems.filter((i) => i.checked_at !== null).length}
               totalEstimate={unassignedItems.reduce((sum, i) => sum + (i.price_estimate ?? 0), 0)}
@@ -569,7 +569,7 @@ export function ShoppingListScreen() {
             </View>
           }
           renderSectionHeader={({ section }) => {
-            const color = colorForCategory(section.title) ?? theme.textMuted;
+            const color = colorForCategory(section.title) ?? theme.textSecondary;
             return (
               <View style={shoppingStyles.categoryHeader}>
                 <View style={[shoppingStyles.categoryDot, { backgroundColor: color }]} />

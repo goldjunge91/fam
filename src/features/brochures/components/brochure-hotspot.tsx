@@ -59,25 +59,25 @@ export function BrochureHotspot({ hotspot, onPress, isActive, isVisible }: Broch
         {
           left: `${hotspot.x + hotspot.width / 2}%`,
           top: `${hotspot.y + hotspot.height / 2}%`,
-          backgroundColor: isLinkout ? colors.basil : colors.inverse,
-          borderColor: isActive ? colors.basil : withAlpha(colors.inverse, 0.86),
+          backgroundColor: isLinkout ? colors.accent : colors.onAccent,
+          borderColor: isActive ? colors.accent : withAlpha(colors.onAccent, 0.86),
           zIndex: isActive ? 100 : 1,
         },
         animatedStyle,
       ]}>
       <Animated.View
         pointerEvents="none"
-        style={[styles.aura, { borderColor: colors.basil }, auraStyle]}
+        style={[styles.aura, { borderColor: colors.accent }, auraStyle]}
       />
       <Pressable
         role="button"
         aria-label={`${hotspot.title}${hotspot.discount ? `, ${hotspot.discount}` : ''}`}
         style={styles.pressableArea}
         onPress={() => onPress(hotspot)}
-        android_ripple={{ color: withAlpha(colors.basil, 0.2) }}>
-        {isActive && <View style={[styles.activeBorder, { borderColor: colors.basil }]} />}
+        android_ripple={{ color: withAlpha(colors.accent, 0.2) }}>
+        {isActive && <View style={[styles.activeBorder, { borderColor: colors.accent }]} />}
         {isLinkout ? (
-          <Txt variant="body" tone="inverse" style={styles.linkoutArrow}>
+          <Txt variant="body" tone="onAccent" style={styles.linkoutArrow}>
             ↗
           </Txt>
         ) : null}

@@ -70,7 +70,7 @@ export function CookingModeTimer({
   if (!durationSeconds) return null;
 
   return (
-    <View style={[styles.root, { backgroundColor: colors.surface }]}>
+    <View style={[styles.root, { backgroundColor: colors.backgroundElement }]}>
       <View style={styles.copy}>
         <Txt variant="heading">{formatTimer(remainingSeconds)}</Txt>
         <Txt variant="caption" tone="secondary" style={styles.status}>
