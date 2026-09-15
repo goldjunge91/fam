@@ -88,8 +88,9 @@ grün sein, obwohl die native Darstellung anders ist.
 
 Maestro ist in diesem Repository die Quelle der Wahrheit für die native
 Darstellung. Dort gehören Theme-Wechsel, Style-Varianten, Keyboard-Verhalten,
-Layout, Sichtbarkeit und visuelle Zustände hin. Die E2E-Skripte stehen in
-`package.json` und unter `.maestro/flows/`.
+Layout, Sichtbarkeit und visuelle Zustände hin. Ausführbare Flows liegen unter
+`.maestro/ios/flows/` und `.maestro/android/flows/`; die Runner und lokalen
+Fixture-Helfer liegen unter `.maestro/scripts/`, nicht in `package.json`.
 
 Für Reanimated gilt zusätzlich: Unistyles-Styles und animierte Styles werden
 als getrennte Einträge in einem Style-Array kombiniert. Wenn ein Worklet das
