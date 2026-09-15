@@ -1,10 +1,12 @@
-import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
-import { useEffect, useRef, useState } from 'react';
+import { BottomSheet, Group, Host, RNHostView } from '@expo/ui/swift-ui';
+import { presentationDetents, presentationDragIndicator } from '@expo/ui/swift-ui/modifiers';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, CloseButton, Press, TextField, Txt } from '@/constants/ui';
 import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
 import { type StorageKind, storageKindForCategory } from '../domain-logik/shopping-categories';
@@ -41,6 +43,10 @@ const styles = StyleSheet.create((theme) => ({
   },
   bottomSheet: {
     flex: 1,
+    backgroundColor: theme.background,
+  },
+  nativeHost: {
+    position: 'absolute',
   },
   root: {
     flex: 1,
@@ -268,7 +274,7 @@ interface Props {
 
 export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: Props) {
   const { t } = useTranslation();
-  const sheetRef = useRef<BottomSheet>(null);
+  const { colors: theme } = useTheme();
 
   const [transfers, setTransfers] = useState<Map<string, TransferItem>>(new Map());
 
@@ -290,15 +296,6 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
     }
     setTransfers(map);
   }, [checkedItems]);
-
-  // Sheet öffnen/schließen via ref
-  useEffect(() => {
-    if (isOpen) {
-      sheetRef.current?.expand();
-    } else {
-      sheetRef.current?.close();
-    }
-  }, [isOpen]);
 
   function updateKind(itemId: string, kind: StorageKind) {
     setTransfers((prev) => {
@@ -335,70 +332,79 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
   const count = checkedItems.length;
 
   return (
-    <BottomSheet
-      ref={sheetRef}
-      snapPoints={['60%', '90%']}
-      enablePanDownToClose
-      onClose={onClose}
-      backgroundStyle={styles.sheetBackground}
-      handleIndicatorStyle={styles.sheetIndicator}>
-      {}
-      <BottomSheetView style={styles.bottomSheet}>
-        <View style={styles.root}>
-          {/* Header */}
-          <View style={styles.sheetHeader}>
-            <View>
-              <Txt variant="heading" weight="700">
-                {t('shoppingList.completeRun.title')}
-              </Txt>
-              <Txt variant="body" tone="secondary">
-                {t('shoppingList.completeRun.subtitle', { count })}
-              </Txt>
+    <Host style={styles.nativeHost} seedColor={theme.accent}>
+      <BottomSheet
+        isPresented={isOpen}
+        onIsPresentedChange={(presented) => {
+          if (!presented && isOpen) onClose();
+        }}>
+        <Group
+          modifiers={[
+            presentationDetents([{ fraction: 0.6 }, { fraction: 0.9 }]),
+            presentationDragIndicator('visible'),
+          ]}>
+          <RNHostView>
+            <View style={styles.bottomSheet}>
+              <View style={styles.root}>
+                {/* Header */}
+                <View style={styles.sheetHeader}>
+                  <View>
+                    <Txt variant="heading" weight="700">
+                      {t('shoppingList.completeRun.title')}
+                    </Txt>
+                    <Txt variant="body" tone="secondary">
+                      {t('shoppingList.completeRun.subtitle', { count })}
+                    </Txt>
+                  </View>
+                  <CloseButton onPress={onClose} accessibilityLabel={t('shoppingList.close')} />
+                </View>
+
+                {/* Artikel-Liste */}
+                <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
+                  {checkedItems.map((item) => {
+                    const transfer = transfers.get(item.id);
+                    if (!transfer) return null;
+                    return (
+                      <TransferRow
+                        key={item.id}
+                        item={item}
+                        transfer={transfer}
+                        onUpdateKind={(kind) => updateKind(item.id, kind)}
+                        onUpdateExpiry={(isoDate) => setExpiryDate(item.id, isoDate)}
+                        onUpdateQuantity={(quantity) => updateQuantity(item.id, quantity)}
+                      />
+                    );
+                  })}
+                </ScrollView>
+
+                {/* Confirm-Button — volle Breite, grün, wie im Screenshot */}
+                <View style={styles.footer}>
+                  <Button
+                    title={t('shoppingList.completeRun.confirm', { count })}
+                    onPress={handleConfirm}
+                    disabled={count === 0}
+                    accessibilityLabel={t('shoppingList.completeRun.confirmAccessibility', {
+                      count,
+                    })}
+                    variant="accent"
+                    accentKey="fiber"
+                    size="sm"
+                    haptic="success"
+                    full
+                    style={styles.confirmButton}
+                  />
+
+                  <Press onPress={onClose} accessibilityRole="button" style={styles.cancelButton}>
+                    <Txt variant="body" tone="secondary">
+                      {t('shoppingList.completeRun.cancel')}
+                    </Txt>
+                  </Press>
+                </View>
+              </View>
             </View>
-            <CloseButton onPress={onClose} accessibilityLabel={t('shoppingList.close')} />
-          </View>
-
-          {/* Artikel-Liste */}
-          <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
-            {checkedItems.map((item) => {
-              const transfer = transfers.get(item.id);
-              if (!transfer) return null;
-              return (
-                <TransferRow
-                  key={item.id}
-                  item={item}
-                  transfer={transfer}
-                  onUpdateKind={(kind) => updateKind(item.id, kind)}
-                  onUpdateExpiry={(isoDate) => setExpiryDate(item.id, isoDate)}
-                  onUpdateQuantity={(quantity) => updateQuantity(item.id, quantity)}
-                />
-              );
-            })}
-          </ScrollView>
-
-          {/* Confirm-Button — volle Breite, grün, wie im Screenshot */}
-          <View style={styles.footer}>
-            <Button
-              title={t('shoppingList.completeRun.confirm', { count })}
-              onPress={handleConfirm}
-              disabled={count === 0}
-              accessibilityLabel={t('shoppingList.completeRun.confirmAccessibility', { count })}
-              variant="accent"
-              accentKey="fiber"
-              size="sm"
-              haptic="success"
-              full
-              style={styles.confirmButton}
-            />
-
-            <Press onPress={onClose} accessibilityRole="button" style={styles.cancelButton}>
-              <Txt variant="body" tone="secondary">
-                {t('shoppingList.completeRun.cancel')}
-              </Txt>
-            </Press>
-          </View>
-        </View>
-      </BottomSheetView>
-    </BottomSheet>
+          </RNHostView>
+        </Group>
+      </BottomSheet>
+    </Host>
   );
 }

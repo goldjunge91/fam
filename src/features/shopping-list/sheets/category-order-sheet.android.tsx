@@ -1,6 +1,5 @@
-import { BottomSheet, Group, Host, RNHostView } from '@expo/ui/swift-ui';
-import { presentationDetents, presentationDragIndicator } from '@expo/ui/swift-ui/modifiers';
-import { useEffect, useState } from 'react';
+import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import ReorderableList, {
@@ -28,10 +27,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   bottomSheet: {
     flex: 1,
-    backgroundColor: theme.background,
-  },
-  nativeHost: {
-    position: 'absolute',
   },
   listContent: {
     flexGrow: 1,
@@ -55,7 +50,7 @@ const styles = StyleSheet.create((theme) => ({
     opacity: 0.5,
   },
   header: {
-    paddingTop: theme.space.lg,
+    paddingTop: theme.space.sm,
     paddingBottom: theme.space.lg,
     gap: theme.space.xs / 2,
   },
@@ -128,6 +123,7 @@ interface Props {
 export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
   const { t } = useTranslation();
   const { colors: theme } = useTheme();
+  const sheetRef = useRef<BottomSheet>(null);
 
   const [order, setOrder] = useState<ShoppingCategory[]>(() => resolveOrder(store));
 
@@ -139,6 +135,9 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
   useEffect(() => {
     if (isOpen) {
       setOrder(resolveOrder(store));
+      sheetRef.current?.expand();
+    } else {
+      sheetRef.current?.close();
     }
   }, [isOpen]);
 
@@ -161,69 +160,59 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
   }
 
   return (
-    <Host style={styles.nativeHost} seedColor={theme.accent}>
-      <BottomSheet
-        isPresented={isOpen}
-        onIsPresentedChange={(presented) => {
-          if (!presented && isOpen) onClose();
-        }}>
-        <Group
-          modifiers={[
-            presentationDetents([{ fraction: 0.7 }, { fraction: 0.9 }]),
-            presentationDragIndicator('visible'),
-          ]}>
-          <RNHostView>
-            <View style={styles.bottomSheet}>
-              <ReorderableList
-                data={order}
-                keyExtractor={(category) => category.id}
-                renderItem={({ item }) => <Row category={item} />}
-                onReorder={handleReorder}
-                shouldUpdateActiveItem
-                autoscrollThreshold={0.2}
-                contentContainerStyle={styles.listContent}
-                ListHeaderComponent={
-                  <View style={styles.header}>
-                    <Txt variant="heading" weight="700">
-                      {t('shoppingList.categoryOrder.title')}
-                    </Txt>
-                    <Txt variant="body" tone="secondary">
-                      {t('shoppingList.categoryOrder.subtitle', { store: store?.name ?? '' })}
-                    </Txt>
-                  </View>
-                }
-                ListFooterComponent={
-                  <View style={styles.footer}>
-                    <Press
-                      haptic="selection"
-                      onPress={handleReset}
-                      accessibilityRole="button"
-                      style={styles.resetButton}>
-                      <Txt variant="body" tone="secondary">
-                        {t('shoppingList.categoryOrder.reset')}
-                      </Txt>
-                    </Press>
-                    <Press
-                      haptic="success"
-                      onPress={handleSave}
-                      disabled={saveMutation.isPending}
-                      accessibilityRole="button"
-                      // Dynamische Markt-Farbe aus der Datenbank
-                      style={[
-                        styles.saveButton,
-                        { backgroundColor: store?.color ?? theme.accent },
-                      ]}>
-                      <Txt variant="body" tone="onAccent" weight="700">
-                        {t('shoppingList.categoryOrder.save')}
-                      </Txt>
-                    </Press>
-                  </View>
-                }
-              />
+    <BottomSheet
+      ref={sheetRef}
+      snapPoints={['70%', '90%']}
+      enablePanDownToClose
+      onClose={onClose}
+      backgroundStyle={styles.sheetBackground}
+      handleIndicatorStyle={styles.sheetIndicator}>
+      {}
+      <BottomSheetView style={styles.bottomSheet}>
+        <ReorderableList
+          data={order}
+          keyExtractor={(category) => category.id}
+          renderItem={({ item }) => <Row category={item} />}
+          onReorder={handleReorder}
+          shouldUpdateActiveItem
+          autoscrollThreshold={0.2}
+          contentContainerStyle={styles.listContent}
+          ListHeaderComponent={
+            <View style={styles.header}>
+              <Txt variant="heading" weight="700">
+                {t('shoppingList.categoryOrder.title')}
+              </Txt>
+              <Txt variant="body" tone="secondary">
+                {t('shoppingList.categoryOrder.subtitle', { store: store?.name ?? '' })}
+              </Txt>
             </View>
-          </RNHostView>
-        </Group>
-      </BottomSheet>
-    </Host>
+          }
+          ListFooterComponent={
+            <View style={styles.footer}>
+              <Press
+                haptic="selection"
+                onPress={handleReset}
+                accessibilityRole="button"
+                style={styles.resetButton}>
+                <Txt variant="body" tone="secondary">
+                  {t('shoppingList.categoryOrder.reset')}
+                </Txt>
+              </Press>
+              <Press
+                haptic="success"
+                onPress={handleSave}
+                disabled={saveMutation.isPending}
+                accessibilityRole="button"
+                // Dynamische Markt-Farbe aus der Datenbank
+                style={[styles.saveButton, { backgroundColor: store?.color ?? theme.accent }]}>
+                <Txt variant="body" tone="onAccent" weight="700">
+                  {t('shoppingList.categoryOrder.save')}
+                </Txt>
+              </Press>
+            </View>
+          }
+        />
+      </BottomSheetView>
+    </BottomSheet>
   );
 }

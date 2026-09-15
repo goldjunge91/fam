@@ -10,24 +10,25 @@ jest.mock('@/features/shopping-list/hooks/use-stores', () => ({
   useSetStoreCategoryOrderMutation: () => ({ mutateAsync: mockMutateAsync, isPending: false }),
 }));
 
-jest.mock('@expo/ui/community/bottom-sheet', () => {
-  const React = require('react');
+jest.mock('@expo/ui/swift-ui', () => {
   const { View } = require('react-native');
-  const BottomSheet = React.forwardRef(
-    ({ children }: { children: React.ReactNode }, ref: unknown) => {
-      React.useImperativeHandle(ref, () => ({
-        expand: jest.fn(),
-        close: jest.fn(),
-      }));
-      return <View testID="category-order-bottom-sheet">{children}</View>;
-    },
+  const Wrapper = ({ children }: { children: React.ReactNode }) => <View>{children}</View>;
+  const BottomSheet = ({ children }: { children: React.ReactNode }) => (
+    <View testID="category-order-bottom-sheet">{children}</View>
   );
   return {
     __esModule: true,
-    default: BottomSheet,
-    BottomSheetView: ({ children }: { children: React.ReactNode }) => <View>{children}</View>,
+    BottomSheet,
+    Group: Wrapper,
+    Host: Wrapper,
+    RNHostView: Wrapper,
   };
 });
+
+jest.mock('@expo/ui/swift-ui/modifiers', () => ({
+  presentationDetents: jest.fn(),
+  presentationDragIndicator: jest.fn(),
+}));
 
 describe('CategoryOrderSheet', () => {
   const mockClose = jest.fn();

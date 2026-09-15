@@ -5,24 +5,25 @@ import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopp
 import { CompleteRunSheet } from '@/features/shopping-list/sheets/complete-run-sheet';
 import { i18n } from '@/i18n';
 
-jest.mock('@expo/ui/community/bottom-sheet', () => {
-  const React = require('react');
+jest.mock('@expo/ui/swift-ui', () => {
   const { View } = require('react-native');
-  const BottomSheet = React.forwardRef(
-    ({ children }: { children: React.ReactNode }, ref: unknown) => {
-      React.useImperativeHandle(ref, () => ({
-        expand: jest.fn(),
-        close: jest.fn(),
-      }));
-      return <View testID="complete-run-bottom-sheet">{children}</View>;
-    },
+  const Wrapper = ({ children }: { children: React.ReactNode }) => <View>{children}</View>;
+  const BottomSheet = ({ children }: { children: React.ReactNode }) => (
+    <View testID="complete-run-bottom-sheet">{children}</View>
   );
   return {
     __esModule: true,
-    default: BottomSheet,
-    BottomSheetView: ({ children }: { children: React.ReactNode }) => <View>{children}</View>,
+    BottomSheet,
+    Group: Wrapper,
+    Host: Wrapper,
+    RNHostView: Wrapper,
   };
 });
+
+jest.mock('@expo/ui/swift-ui/modifiers', () => ({
+  presentationDetents: jest.fn(),
+  presentationDragIndicator: jest.fn(),
+}));
 
 describe('CompleteRunSheet', () => {
   const mockOnConfirm = jest.fn();

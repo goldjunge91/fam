@@ -1,7 +1,22 @@
 import { FieldGroup, Host, Icon, ListItem } from '@expo/ui';
-import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import ExpoSegmentedControl from '@expo/ui/community/segmented-control';
-import { useEffect, useRef, useState } from 'react';
+import {
+  ConfirmationDialog,
+  RNHostView,
+  BottomSheet as SwiftUIBottomSheet,
+  Button as SwiftUIButton,
+  DatePicker as SwiftUIDatePicker,
+  Group as SwiftUIGroup,
+  Host as SwiftUIHost,
+  Text as SwiftUIText,
+  VStack as SwiftUIVStack,
+} from '@expo/ui/swift-ui';
+import {
+  datePickerStyle,
+  presentationDetents,
+  presentationDragIndicator,
+} from '@expo/ui/swift-ui/modifiers';
+import { useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -55,6 +70,9 @@ const SHOWCASE_SEGMENT_OPTIONS: { label: string; value: ShowcaseSegment }[] = [
 ];
 
 const SHOWCASE_SEGMENT_VALUES = SHOWCASE_SEGMENT_OPTIONS.map(({ label }) => label);
+
+const NATIVE_DESTRUCTIVE_ROLE = 'destructive';
+const NATIVE_CANCEL_ROLE = 'cancel';
 
 // Offizielles Expo-UI-Muster (docs.expo.dev/.../ui/universal/list): Icon.select
 // statt {ios, android}-Objekt, damit Metro pro Plattform nur eine Seite bündelt.
@@ -506,6 +524,15 @@ function ControlShowcase() {
           <QuantityStepper value={quantity} onChange={setQuantity} min={0} max={20} />
         </View>
       </Subsection>
+      <Subsection title="Native iOS-DatePicker">
+        <View style={styles.stack}>
+          <Txt variant="label">SwiftUI: kontrollierte Datumsauswahl</Txt>
+          <NativeDatePickerExample />
+        </View>
+        <CodeSample>
+          {"DatePicker: selection + onDateChange + datePickerStyle('compact')"}
+        </CodeSample>
+      </Subsection>
       <Subsection title="SegmentedControl-Varianten">
         <View style={styles.comparisonGroup}>
           <View style={styles.comparisonExample}>
@@ -532,20 +559,28 @@ function ControlShowcase() {
           </View>
         </View>
       </Subsection>
-      <Subsection title="Bottom Sheet">
+      <Subsection title="Modal und Sheets">
         <View style={styles.comparisonGroup}>
           <View style={styles.comparisonExample}>
-            <Txt variant="label">Fam UI: Modal-Eigenbau (aktueller Standard)</Txt>
+            <Txt variant="label">RN-Modal: Center-Dialog (Sonderfall)</Txt>
+            <ClassicModalDemo />
+          </View>
+          <View style={styles.comparisonExample}>
+            <Txt variant="label">RN-Modal: Bottom-Sheet-Eigenbau</Txt>
             <ClassicBottomSheetDemo />
           </View>
           <View style={styles.comparisonExample}>
-            <Txt variant="label">Expo UI: @expo/ui/community/bottom-sheet</Txt>
-            <ExpoUiBottomSheetDemo />
+            <Txt variant="label">SwiftUI: echtes Bottom Sheet</Txt>
+            <NativeBottomSheetExample />
+          </View>
+          <View style={styles.comparisonExample}>
+            <Txt variant="label">SwiftUI: echtes iOS-Action-Sheet</Txt>
+            <NativeActionSheetExample />
           </View>
         </View>
         <CodeSample>
           {
-            'Eigenbau (17 Sheets): Modal + Pressable-Backdrop + useSheetShadowStyle() — volle Kontrolle über Look, aber Rubber-Banding/System-Dismiss/Safe-Area selbst gepflegt.\n@expo/ui (3 Sheets: paywall, category-order, complete-run): natives Sheet-Verhalten geschenkt, API bereits gorhom-kompatibel (ref.expand()/close(), snapPoints, enablePanDownToClose) — Umstieg von @gorhom/bottom-sheet wäre ein Import-Tausch, kein Rewrite.'
+            'RN-Modal bleibt auf begründete Center-/Fullscreen-/System-Sonderfälle begrenzt. Für Inhaltsfluss nutzt die iOS-Referenz SwiftUI BottomSheet mit kontrolliertem isPresented-State und nativen Detents. ConfirmationDialog ist die native Action-Sheet-Semantik mit cancel und destructive-Rolle.'
           }
         </CodeSample>
       </Subsection>
@@ -619,6 +654,40 @@ function ControlShowcase() {
 }
 
 /** Eigenbau-Sheet: Modal + Backdrop + Handle-Bar, wie in den meisten bestehenden `*-sheet.tsx`-Dateien. */
+function ClassicModalDemo() {
+  const { colors } = useTheme();
+  const modalStyle = useSheetShadowStyle();
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <View style={styles.sheetTrigger}>
+      <Button title="Modal öffnen" variant="secondary" size="sm" onPress={() => setVisible(true)} />
+      <Modal
+        visible={visible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setVisible(false)}>
+        <View style={styles.modalBackdrop}>
+          <Pressable
+            style={StyleSheet.absoluteFill}
+            onPress={() => setVisible(false)}
+            accessibilityRole="button"
+            accessibilityLabel="Beispiel-Modal schließen"
+          />
+          <View style={[styles.classicModal, modalStyle, { backgroundColor: colors.background }]}>
+            <Txt variant="heading" weight="700">
+              Beispiel-Modal
+            </Txt>
+            <Txt tone="secondary">Für kurze Bestätigungen und fokussierte Interaktionen.</Txt>
+            <Button title="Modal schließen" onPress={() => setVisible(false)} />
+          </View>
+        </View>
+      </Modal>
+    </View>
+  );
+}
+
+/** Eigenbau-Sheet: Modal + Backdrop + Handle-Bar, wie in den meisten bestehenden `*-sheet.tsx`-Dateien. */
 function ClassicBottomSheetDemo() {
   const { colors } = useTheme();
   const sheetStyle = useSheetShadowStyle();
@@ -665,44 +734,114 @@ function ClassicBottomSheetDemo() {
   );
 }
 
-/** @expo/ui-Sheet: gorhom-kompatible API (ref.expand()/close()), bereits im Einsatz in 3 Sheets. */
-function ExpoUiBottomSheetDemo() {
+function NativeBottomSheetExample() {
   const { colors } = useTheme();
-  const [isOpen, setIsOpen] = useState(false);
-  const sheetRef = useRef<BottomSheet>(null);
-
-  useEffect(() => {
-    if (isOpen) {
-      sheetRef.current?.expand();
-    } else {
-      sheetRef.current?.close();
-    }
-  }, [isOpen]);
+  const [isPresented, setIsPresented] = useState(false);
 
   return (
     <View style={styles.sheetTrigger}>
-      <Button
-        title="Öffnen (@expo/ui)"
-        variant="secondary"
-        size="sm"
-        onPress={() => setIsOpen(true)}
-      />
-      <BottomSheet
-        ref={sheetRef}
-        snapPoints={['35%']}
-        enablePanDownToClose
-        onClose={() => setIsOpen(false)}
-        backgroundStyle={{ backgroundColor: colors.background }}
-        handleIndicatorStyle={{ backgroundColor: colors.border }}>
-        <BottomSheetView style={styles.expoSheetContent}>
-          <Txt variant="heading" weight="700">
-            Beispiel-Sheet
-          </Txt>
-          <Txt tone="secondary">
-            @expo/ui/community/bottom-sheet — API-kompatibel zu @gorhom/bottom-sheet.
-          </Txt>
-        </BottomSheetView>
-      </BottomSheet>
+      <SwiftUIHost style={styles.nativeHost} seedColor={colors.accent}>
+        <SwiftUIVStack>
+          <SwiftUIBottomSheet
+            isPresented={isPresented}
+            onIsPresentedChange={setIsPresented}
+            onDismiss={() => setIsPresented(false)}
+            anchor={
+              <RNHostView matchContents>
+                <Button
+                  title="Bottom Sheet öffnen"
+                  variant="secondary"
+                  size="sm"
+                  onPress={() => setIsPresented(true)}
+                />
+              </RNHostView>
+            }>
+            <SwiftUIGroup
+              modifiers={[
+                presentationDetents([{ fraction: 0.5 }, { fraction: 0.9 }]),
+                presentationDragIndicator('visible'),
+              ]}>
+              <SwiftUIText>Vorrat-Details</SwiftUIText>
+              <SwiftUIText>Detailinhalte mit nativen iOS-Höhen.</SwiftUIText>
+              <SwiftUIButton label="Sheet schließen" onPress={() => setIsPresented(false)} />
+            </SwiftUIGroup>
+          </SwiftUIBottomSheet>
+        </SwiftUIVStack>
+      </SwiftUIHost>
+    </View>
+  );
+}
+
+function NativeActionSheetExample() {
+  const { colors } = useTheme();
+  const [isPresented, setIsPresented] = useState(false);
+  const [lastAction, setLastAction] = useState('Noch keine Aktion gewählt.');
+
+  function chooseAction(action: string) {
+    setLastAction(`${action} gewählt.`);
+    setIsPresented(false);
+  }
+
+  return (
+    <View style={styles.sheetTrigger}>
+      <SwiftUIHost style={styles.nativeHost} seedColor={colors.accent}>
+        <SwiftUIVStack>
+          <ConfirmationDialog
+            title="Eintrag verwalten"
+            isPresented={isPresented}
+            onIsPresentedChange={setIsPresented}
+            titleVisibility="visible">
+            <ConfirmationDialog.Trigger>
+              <RNHostView matchContents>
+                <Button
+                  title="Action Sheet öffnen"
+                  variant="secondary"
+                  size="sm"
+                  onPress={() => setIsPresented(true)}
+                />
+              </RNHostView>
+            </ConfirmationDialog.Trigger>
+            <ConfirmationDialog.Message>
+              <SwiftUIText>Eine Aktion auswählen.</SwiftUIText>
+            </ConfirmationDialog.Message>
+            <ConfirmationDialog.Actions>
+              <SwiftUIButton label="Bearbeiten" onPress={() => chooseAction('Bearbeiten')} />
+              <SwiftUIButton label="Teilen" onPress={() => chooseAction('Teilen')} />
+              <SwiftUIButton
+                label="Löschen"
+                role={NATIVE_DESTRUCTIVE_ROLE}
+                onPress={() => chooseAction('Löschen')}
+              />
+              <SwiftUIButton label="Abbrechen" role={NATIVE_CANCEL_ROLE} />
+            </ConfirmationDialog.Actions>
+          </ConfirmationDialog>
+        </SwiftUIVStack>
+      </SwiftUIHost>
+      <Txt variant="caption" tone="secondary">
+        {lastAction}
+      </Txt>
+    </View>
+  );
+}
+
+function NativeDatePickerExample() {
+  const { colors } = useTheme();
+  const [selectedDate, setSelectedDate] = useState(() => new Date(2026, 8, 15, 12));
+
+  return (
+    <View style={styles.nativeDatePickerExample}>
+      <SwiftUIHost style={styles.datePickerHost} seedColor={colors.accent}>
+        <SwiftUIDatePicker
+          title="Datum"
+          selection={selectedDate}
+          displayedComponents={['date']}
+          onDateChange={setSelectedDate}
+          modifiers={[datePickerStyle('compact')]}
+        />
+      </SwiftUIHost>
+      <Txt variant="caption" tone="secondary">
+        Auswahl: {selectedDate.toLocaleDateString('de-DE')}
+      </Txt>
     </View>
   );
 }
@@ -787,6 +926,23 @@ const styles = StyleSheet.create({
   comparisonExample: { gap: space.xs },
   expoSegmentedControl: { width: '100%', minHeight: 44 },
   sheetTrigger: { alignItems: 'flex-start' },
+  nativeHost: { width: '100%' },
+  datePickerHost: { width: '100%', minHeight: 48 },
+  nativeDatePickerExample: { gap: space.sm },
+  modalBackdrop: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: space.lg,
+    backgroundColor: 'rgba(0, 0, 0, 0.35)',
+  },
+  classicModal: {
+    width: '100%',
+    maxWidth: 360,
+    borderRadius: radius.xl,
+    padding: space.lg,
+    gap: space.sm,
+  },
   classicSheet: {
     position: 'absolute',
     left: 0,
@@ -810,7 +966,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  expoSheetContent: { flex: 1, padding: space.lg, gap: space.sm },
   // FieldGroup ist ein scrollbarer Container (Form/LazyColumn) und hat daher
   // keine natürliche Inhaltshöhe — matchContents kollabiert hier auf 0.
   // In einem ohnehin scrollenden Screen braucht der Host eine feste Höhe.
