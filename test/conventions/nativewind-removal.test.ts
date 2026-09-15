@@ -231,7 +231,7 @@ describe('Removal-Gate erkennt Wiedereinführungen', () => {
       export const View = () => <Txt style={styles.root}>className ist entfernt</Txt>;
     `,
     );
-    writeFixture('docs/specs/nativewind-styling/example.tsx', '<View className="p-4" />;');
+    writeFixture('docs/archive/nativewind-styling/example.tsx', '<View className="p-4" />;');
     writeFixture('tools/preview/view.tsx', '<View className="p-4" />;');
     writeFixture('src/icon.module.css', '/* @tailwind utilities; */\n.icon { opacity: 1; }');
     writeFixture(
