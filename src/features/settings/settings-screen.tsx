@@ -4,14 +4,14 @@ import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Alert, Platform, Pressable, ScrollView, View } from 'react-native';
+import { Alert, Platform, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { HubScreen } from '@/components/layout/hub-screen';
 import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { MenuButton } from '@/components/ui/buttons';
-import { Button, Card, SegmentedControl, Txt } from '@/constants/ui';
+import { Button, Card, Press, SegmentedControl, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -146,10 +146,11 @@ export function SettingsScreen() {
         showsVerticalScrollIndicator={false}>
         {/* Schnellzugriff-Header (Eigenes Profil & Premium-Aktionskarte) */}
         <View style={styles.topCards}>
-          <Pressable
+          <Press
             onPress={() => router.push('/profile/edit')}
             accessibilityRole="button"
-            style={({ pressed }) => pressed && { opacity: 0.85 }}>
+            haptic="none"
+            scaleTo={0.99}>
             <Card
               testID="settings-profile-card-row"
               padded={false}
@@ -187,7 +188,7 @@ export function SettingsScreen() {
                 ›
               </Txt>
             </Card>
-          </Pressable>
+          </Press>
 
           <PlusAndAiPromoCard />
         </View>
@@ -336,6 +337,7 @@ export function SettingsScreen() {
         <View style={styles.signOut}>
           <Button
             title={t('settings.signOut')}
+            testID="settings-sign-out"
             variant="danger"
             onPress={handleSignOut}
             loading={signingOut}

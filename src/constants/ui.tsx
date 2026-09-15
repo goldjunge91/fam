@@ -672,6 +672,7 @@ type ButtonSize = 'sm' | 'md' | 'lg';
 export function Button({
   title,
   accessibilityLabel,
+  testID,
   onPress,
   variant = 'primary',
   size = 'md',
@@ -686,6 +687,7 @@ export function Button({
 }: {
   title: string;
   accessibilityLabel?: string;
+  testID?: string;
   onPress?: () => void;
   variant?: ButtonVariant;
   size?: ButtonSize;
@@ -782,6 +784,7 @@ export function Button({
         }}>
         <Animated.View style={faceStyle}>
           <Pressable
+            testID={testID}
             disabled={isDisabled}
             accessibilityRole="button"
             accessibilityLabel={accessibilityLabel ?? title}
@@ -837,6 +840,7 @@ export function Button({
 export function IconButton({
   icon,
   onPress,
+  testID,
   color,
   bg,
   size = 44,
@@ -847,6 +851,7 @@ export function IconButton({
 }: {
   icon: FeatherName;
   onPress?: () => void;
+  testID?: string;
   color?: string;
   bg?: string;
   size?: number;
@@ -861,6 +866,7 @@ export function IconButton({
   const effectiveSize = Math.max(size, 44);
   return (
     <Press
+      testID={testID}
       onPress={onPress}
       disabled={disabled}
       accessibilityRole="button"

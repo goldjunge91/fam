@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Card, Txt } from '@/constants/ui';
+import { Card, Press, Txt } from '@/constants/ui';
 
 type SettingsGroupProps = {
   title?: string;
@@ -105,13 +105,14 @@ export function SettingsRow({
   if (!isNavigable) return content;
 
   return (
-    <Pressable
+    <Press
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={value ? `${label}: ${value}` : label}
-      style={({ pressed }) => pressed && styles.pressed}>
+      haptic="none"
+      scaleTo={0.99}>
       {content}
-    </Pressable>
+    </Press>
   );
 }
 
@@ -148,8 +149,5 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     maxWidth: '45%',
     textAlign: 'right',
-  },
-  pressed: {
-    opacity: 0.6,
   },
 });

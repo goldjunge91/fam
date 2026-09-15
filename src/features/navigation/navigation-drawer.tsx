@@ -243,6 +243,7 @@ function DrawerContent() {
       </ScrollView>
 
       <Pressable
+        testID="navigation-drawer-settings"
         onPress={() => navigateTo('/settings')}
         accessibilityRole="button"
         accessibilityState={{ selected: settingsActive }}

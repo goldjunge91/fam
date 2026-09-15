@@ -1,9 +1,9 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
-import { Button, Txt } from '@/constants/ui';
+import { Button, Press, Txt } from '@/constants/ui';
 
 function toIsoDate(date: Date): string {
   const y = date.getFullYear();
@@ -55,7 +55,7 @@ export function DateWheelField({
           {label}
         </Txt>
       )}
-      <Pressable
+      <Press
         onPress={open}
         accessibilityRole="button"
         accessibilityLabel={
@@ -63,11 +63,14 @@ export function DateWheelField({
             ? `${label ?? 'Datum'} ${formatIsoDate(value)} ändern`
             : `${label ?? 'Datum'} auswählen`
         }
-        style={({ pressed }) => [styles.inputField, pressed && styles.pressed]}>
+        haptic="selection"
+        scaleTo={0.98}
+        containerStyle={styles.inputPressContainer}
+        style={styles.inputField}>
         <Txt variant="body" tone={value ? 'primary' : 'secondary'}>
           {value ? formatIsoDate(value) : placeholder}
         </Txt>
-      </Pressable>
+      </Press>
 
       <Modal visible={isOpen} transparent animationType="fade" onRequestClose={cancel}>
         <View style={styles.modalBackdrop}>
@@ -109,8 +112,8 @@ const styles = StyleSheet.create((theme) => ({
     paddingVertical: 10,
     backgroundColor: theme.backgroundElement,
   },
-  pressed: {
-    opacity: 0.75,
+  inputPressContainer: {
+    width: '100%',
   },
   modalBackdrop: {
     flex: 1,
