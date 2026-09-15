@@ -1,0 +1,16 @@
+appId: com.goldjunge91.fam
+env:
+  TEST_EMAIL: ${TEST_EMAIL || "maestro-e2e@example.com"}
+  TEST_PASSWORD: ${TEST_PASSWORD || "Passwort123!"}
+---
+# Atomare Aufgabe: einen bestehenden, bestätigten Account im Onboarding
+# anmelden.
+- tapOn: "Anmelden"
+- tapOn:
+    id: "onboarding-account-email"
+- inputText: "${TEST_EMAIL}"
+- tapOn:
+    id: "onboarding-account-password"
+- inputText: "${TEST_PASSWORD}"
+- hideKeyboard
+- tapOn: "Anmelden & weiter"

@@ -1,8 +1,9 @@
 # Developer Guide
 
 fam ist eine Expo-/React-Native-App für gemeinsame Haushaltsdaten und private
-Tracking-Daten. Die App läuft auf iOS und Android mit einem Dev Build; Expo Go
-reicht wegen SQLite, Kamera, SecureStore und Notifications nicht aus.
+Tracking-Daten. Die App läuft ausschließlich auf iOS und Android mit nativen
+Development Builds. Expo Go wird wegen SQLite, Kamera, SecureStore und
+Notifications nicht verwendet.
 
 Die vollständige Dokumentationslandkarte steht in
 [docs/README.md](../README.md). Domänenbegriffe und Eigentümerschaft stehen in
@@ -134,8 +135,9 @@ Assertions wie `toHaveStyle`, `.props.style`, `StyleSheet.flatten` und
 abhängiges `toBeVisible` gehören deshalb nicht in neue Jest-Komponententests.
 
 Die native Darstellung wird mit Maestro beziehungsweise den vorhandenen
-E2E-Flows unter `.maestro/flows/` geprüft. Das umfasst Theme-Wechsel,
-Style-Varianten, Keyboard-Insets, Layout und visuelle Zustände.
+E2E-Flows unter `.maestro/ios/flows/` und `.maestro/android/flows/` geprüft.
+Das umfasst Theme-Wechsel, Style-Varianten, Keyboard-Insets, Layout und
+visuelle Zustände. Die iOS-Suite wird vor der Android-Suite abgenommen.
 
 Für Reanimated kombinieren wir Unistyles- und Animations-Styles über ein
 Style-Array. Theme-Werte in Worklets kommen über `useAnimatedTheme` bzw.
@@ -179,19 +181,122 @@ bun run native:dev -- --target ios-development-simulator
 
 ## Befehle
 
-- `bun run e2e` — Maestro-Flows gegen einen laufenden Simulator/Emulator
-  (Dev Build + konfiguriertes Backend + Testaccount nötig, siehe
-  `.maestro/flows/onboarding-sign-in.yaml`)
-- `bun run e2e:signed-in` — schneller Maestro-Start auf der Übersicht; erhält
-  den App-Zustand und setzt eine bereits gespeicherte Anmeldung voraus
-- `bun run e2e:household-create` / `bun run e2e:household-join` — Haushalts-
-  Erstellung/-Beitritt im Onboarding; seeden sich ihren Testaccount selbst
-  (siehe `scripts/maestro/lib/e2e-fixtures.ts`)
-- `bun run e2e:alpha` — Einkaufsbereiche-Alpha: automatische Einordnung,
-  vollständiger Bereichs-Picker, manuelles Speichern/Abbrechen/Reset und
-  Markt-Scope; jeder Flow erhält einen frischen Fixture-Account
-- `bun run e2e:all` — führt die reguläre Suite und alle Fixture-Suites
-  nacheinander aus
+Maestro wird direkt über `.maestro/scripts/` gestartet. Dafür braucht es einen
+installierten Dev Build, einen laufenden Metro-Server, ein erreichbares
+Supabase-Backend und je nach Flow einen vorbereiteten Testaccount. `package.json`
+enthält bewusst keine Maestro-Einstiege.
+
+### Maestro-Architektur
+
+Ausführbare User-Journeys liegen unter `.maestro/<platform>/flows/`. Jeder
+Journey-Flow ist einzeln startbar, beschreibt die fachliche Reihenfolge direkt
+und endet mit einer sichtbaren Zustandsprüfung. Wiederverwendbare Aufgaben
+liegen unter `.maestro/<platform>/subflows/` und haben genau eine
+Verantwortung, zum Beispiel Welcome, Login, Onboarding-Abschluss, Logout oder
+Kaltstart. Ein Gesamt-Journey-Subflow wird nicht verwendet.
+
+Die vier iOS-Kernjourneys sind:
+
+1. `ios/flows/auth/onboarding-registration-successful.yaml` — Registrierung,
+   lokale E-Mail-Bestätigung und Dashboard
+2. `ios/flows/auth/onboarding-login-successful.yaml` — bestätigter Login und
+   Dashboard
+3. `ios/flows/auth/onboarding-invalid-credentials-forgot-password-login-successful.yaml`
+   — falsches Passwort, falsche E-Mail, Reset-Anforderung und erfolgreicher
+   Login
+4. `ios/flows/session/sign-out-and-relaunch.yaml` — Login, Dashboard, Logout,
+   Kaltstart und eigenständiger Sign-in-Screen
+
+Der lokale iOS-Start ist ausschließlich der installierte fam-Development-Client:
+
+```yaml
+- openLink:
+    link: "fam://expo-development-client/?url=${METRO_MANIFEST_URL}"
+```
+
+`METRO_MANIFEST_URL` wird URL-encodiert übergeben und zeigt standardmäßig auf
+`http://127.0.0.1:8081`. Das ist ein Dev-Client-Deep-Link, kein Expo-Go-
+`exp://`-Link. Auf einem physischen Gerät muss stattdessen die erreichbare
+LAN-Adresse des Macs verwendet werden.
+
+Die JavaScript-Dateien unter `.maestro/scripts/` erzeugen ausschließlich
+Fixture-Daten oder lesen lokale Test-Mail. UI-Interaktionen bleiben in YAML.
+Die Registrierungsjourney benötigt lokale Supabase-Mailzustellung über
+Inbucket (`127.0.0.1:54324`) und endet erst nach Eingabe des sechsstelligen
+Bestätigungscodes im echten UI. Ist Inbucket nicht erreichbar, ist nur dieser
+Journey blockiert; die E-Mail-Bestätigung wird nicht abgeschaltet und es wird
+kein Remote-Projekt verwendet.
+
+Tags trennen zustandsabhängige oder manuelle Flows vom regulären Lauf:
+
+- `fixture`: legt gezielt lokale Nutzer, Haushalte oder Einladungen an
+- `local-session`: setzt eine bereits vorbereitete Session voraus
+- `manual`: bleibt für interaktive UI-/Design-Abnahmen außerhalb des Smoke-Laufs
+
+Die Plattformreihenfolge ist verbindlich: erst iOS-Kern und iOS-Domain-Flows,
+dann Android. Die Android-Suite besitzt eigene `appId`, Config und Subflows;
+zwischen den Plattformen werden keine Flow-Dateien geteilt.
+
+### iOS, zuerst ausführen
+
+```bash
+# Reguläre iOS-Suite, ohne zustandsabhängige oder manuelle Flows
+bun .maestro/scripts/maestro.ts test \
+  --config .maestro/ios/config.yaml \
+  --device <ios-simulator-udid> \
+  --exclude-tags fixture,local-session,manual \
+  .maestro/ios
+
+# Einzelner iOS-Flow mit überschriebenen Credentials
+bun .maestro/scripts/maestro.ts test \
+  --config .maestro/ios/config.yaml \
+  --device <ios-simulator-udid> \
+  -e TEST_EMAIL=other@example.com \
+  -e TEST_PASSWORD='Other123!' \
+  .maestro/ios/flows/auth/onboarding-sign-in.yaml
+
+# Bereits angemeldete Session prüfen
+bun .maestro/scripts/maestro.ts test \
+  --config .maestro/ios/config.yaml \
+  --device <ios-simulator-udid> \
+  .maestro/ios/flows/session/signed-in-dashboard.yaml
+
+# Fixture-Flows mit frischen Accounts und lokalem Service-Role-Key
+bun .maestro/scripts/e2e-household-create.ts
+bun .maestro/scripts/e2e-household-join.ts
+
+# Manueller Einkaufsbereich-Flow
+bun .maestro/scripts/maestro.ts test \
+  --config .maestro/ios/config.yaml \
+  --device <ios-simulator-udid> \
+  .maestro/ios/flows/shopping/shopping-category-alpha-manual.yaml
+```
+
+Der Dev-Client-Endpunkt wird als URL-encodierter Parameter übergeben, wenn
+der Standard nicht passt, zum Beispiel
+`-e METRO_MANIFEST_URL=http%3A%2F%2F127.0.0.1%3A8081`.
+
+### Android, erst nach grüner iOS-Abnahme
+
+```bash
+# Reguläre Android-Suite; der Runner erkennt standardmäßig das ADB-Gerät
+bun .maestro/scripts/android.ts
+
+# Einzelner Flow relativ zu .maestro/android/flows
+bun .maestro/scripts/android.ts auth/onboarding-sign-in.yaml \
+  --device emulator-5554
+
+# Einzelner Domain-Flow
+bun .maestro/scripts/android.ts shopping/shopping-list-add-remove.yaml \
+  --device emulator-5554
+```
+
+Einen Sammellauf über beide Plattformen gibt es absichtlich nicht als
+Package-Script. Die Plattformen werden separat und in der Reihenfolge iOS,
+dann Android, ausgeführt.
+
+- `bun .maestro/scripts/lib/e2e-fixtures.ts` ist eine Bibliothek und kein
+  eigenständiger Runner.
 - `bun run user:create` / `bun run user:list` / `bun run user:clean` / `bun run user:delete` — Verwaltung lokaler Test-Accounts (`scripts/test-users.ts`)
 - `bash scripts/create-user-with-household.sh` — Erstellt Test-User mit Haushalt und befüllter Einkaufsliste
 - `bun run ios:testflight -- --app-version 0.0.2` (App-Versionsnummer anpassen)
@@ -404,8 +509,7 @@ SQLite-Spiegelung unter `src/lib/db/schemas/*.ts` ist davon getrennt.
 ## Development Build
 
 Barcode-Scanner, lokale Datenbank, Benachrichtigungen und der sichere
-Session-Speicher laufen **nicht in Expo Go**. Dafür wird ein Development Build
-gebraucht:
+Session-Speicher laufen ausschließlich im nativen Development Build:
 
 Alles in einem Schritt — bauen, laden, installieren, Simulator und Metro starten:
 
@@ -475,5 +579,5 @@ Elterntabellen müssen vor ihren Fremdschlüsseln kommen.
 ## Hinweis zu nativen Modulen
 
 Barcode-Scanner, lokale Datenbank, Benachrichtigungen und der sichere
-Session-Speicher laufen **nicht in Expo Go**. Dafür wird ein Development Build
-gebraucht ([#27](https://github.com/goldjunge91/fam/issues/27)).
+Session-Speicher laufen ausschließlich im nativen Development Build
+([#27](https://github.com/goldjunge91/fam/issues/27)).

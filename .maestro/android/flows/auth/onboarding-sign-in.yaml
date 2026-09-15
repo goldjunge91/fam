@@ -1,0 +1,17 @@
+appId: com.goldjunge91.fam
+env:
+  TEST_EMAIL: maestro-e2e@example.com
+  TEST_PASSWORD: Passwort123!
+---
+# Compatibility journey for the original Android flow name. Keep its
+# functional path while exposing the same atomic composition as the named
+# golden-path journey.
+- runFlow: ../../subflows/launch-local-dev-client.yaml
+- runFlow: ../../subflows/onboarding-welcome.yaml
+- runFlow:
+    file: ../../subflows/onboarding-sign-in.yaml
+    env:
+      TEST_EMAIL: "${TEST_EMAIL}"
+      TEST_PASSWORD: "${TEST_PASSWORD}"
+- runFlow: ../../subflows/onboarding-finish.yaml
+- assertVisible: "^(Übersicht|Overview)$"

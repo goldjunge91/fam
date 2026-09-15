@@ -1,0 +1,70 @@
+appId: com.goldjunge91.fam1
+tags:
+  - fixture
+env:
+  HOUSEHOLD_NAME: Maestro E2E Haushalt
+---
+# Prueft die tatsaechliche Haushalts-ERSTELLUNG im Onboarding
+# (household-step.tsx, choice "create") - nicht nur das Ueberspringen wie in
+# onboarding-sign-in.yaml. Braucht dafuer einen Account OHNE bestehenden
+# Haushalt: sobald `activeHousehold` gesetzt ist, kuerzt household-step.tsx
+# jede Auswahl per `onNext()` sofort ab, ohne create_household() aufzurufen.
+#
+# `tags: [fixture]` hält diesen Flow aus dem regulären iOS-Lauf
+# (`bun .maestro/scripts/maestro.ts test .maestro/ios --exclude-tags fixture,local-session,manual`)
+# heraus. EMAIL/PASSWORD kommen von einem Seed-Script, nicht aus einem
+# manuell angelegten Testaccount. Direkt ausführen:
+#   bun .maestro/scripts/e2e-household-create.ts
+
+- runFlow: ../../subflows/launch-local-dev-client.yaml
+
+- tapOn: "Weiter"
+- tapOn: "Weiter"
+- tapOn: "Jetzt starten"
+
+- tapOn: "Anmelden"
+- tapOn:
+    id: "onboarding-account-email"
+- inputText: "${EMAIL}"
+- tapOn:
+    id: "keyboard.toolbar.next"
+- inputText: "${PASSWORD}"
+- tapOn:
+    id: "keyboard.toolbar.done"
+- tapOn: "Anmelden & weiter"
+
+# iOS' eigener Keychain-Dialog ("Passwort sichern?") kann nach dem Absenden
+# erscheinen - kein App-UI, exakter Match damit "Später" nicht versehentlich
+# den folgenden "Später ausfüllen"-Button trifft.
+- tapOn:
+    text: "^(Später|Not Now)$"
+    optional: true
+
+- scrollUntilVisible:
+    element: "Später ausfüllen"
+- tapOn: "Später ausfüllen" # Profil-Step
+
+- tapOn: "Neuen Haushalt erstellen"
+- tapOn:
+    id: "onboarding-household-name"
+- inputText: "${HOUSEHOLD_NAME}"
+- tapOn:
+    id: "keyboard.toolbar.done"
+- tapOn: "Weiter"
+
+- tapOn: "Überspringen" # Modul-Auswahl
+- tapOn: "Jetzt nicht" # Berechtigungen
+- tapOn: "Zum Dashboard" # Abschluss-Step
+
+- assertVisible: "Übersicht"
+
+# Der neue Haushaltsname erscheint in den Einstellungen aus dem Navigationsdrawer
+# (settings-screen.tsx, Zeile "Aktueller Haushalt") - zuverlaessiger als eine
+# Assertion auf den Complete-Step-Untertitel, dessen Text je nach
+# React-Query-Timing zwischen dem echten Namen und einem generischen
+# Platzhalter wechseln kann.
+- tapOn:
+    id: "navigation-menu-open"
+- tapOn:
+    id: "navigation-drawer-settings"
+- assertVisible: "${HOUSEHOLD_NAME}"

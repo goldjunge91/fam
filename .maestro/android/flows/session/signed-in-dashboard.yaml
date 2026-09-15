@@ -1,0 +1,6 @@
+appId: com.goldjunge91.fam
+tags:
+  - local-session
+---
+- runFlow: ../../subflows/launch-signed-in-dashboard.yaml
+- assertVisible: "Übersicht"

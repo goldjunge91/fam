@@ -1,0 +1,10 @@
+appId: com.goldjunge91.fam
+---
+# Atomare Aufgabe: nach dem Logout ohne State-Clear kalt starten und den
+# eigenständigen Auth-Screen statt des Onboardings erreichen.
+- launchApp:
+    clearState: false
+- extendedWaitUntil:
+    visible:
+      id: "sign-in-email"
+    timeout: 30000

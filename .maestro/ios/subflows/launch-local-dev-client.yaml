@@ -1,0 +1,39 @@
+appId: com.goldjunge91.fam1
+env:
+  # URL-encoded because the Dev Client receives it as the `url` query value.
+  METRO_MANIFEST_URL: ${METRO_MANIFEST_URL || "http%3A%2F%2F127.0.0.1%3A8081"}
+---
+# Lokaler iOS-Startvertrag: Metro läuft auf dem Simulator unter 127.0.0.1:8081.
+# Der installierte fam-Development-Client wird über seinen eigenen Launcher-
+# Scheme geöffnet. Expo Go und exp:// werden nicht verwendet.
+- launchApp:
+    clearState: true
+    clearKeychain: true
+- openLink:
+    link: "fam://expo-development-client/?url=${METRO_MANIFEST_URL}"
+- extendedWaitUntil:
+    visible: 'Open in "fam"'
+    timeout: 10000
+    optional: true
+- tapOn:
+    text: "Open"
+    optional: true
+- extendedWaitUntil:
+    visible: "Continue"
+    timeout: 10000
+    optional: true
+- tapOn:
+    text: "Continue"
+    optional: true
+- extendedWaitUntil:
+    visible: "Close"
+    timeout: 10000
+    optional: true
+- tapOn:
+    text: "Close"
+    optional: true
+- extendedWaitUntil:
+    visible: "Weiter"
+    timeout: 50000
+
+#„fam" möchte dir Mitteilungen senden

@@ -1,0 +1,24 @@
+appId: com.goldjunge91.fam1
+env:
+  TEST_EMAIL: ${TEST_EMAIL || "maestro-e2e@example.com"}
+  TEST_PASSWORD: ${TEST_PASSWORD || "FalschesPasswort123!"}
+---
+# Atomare Aufgabe: genau einen fehlgeschlagenen Loginversuch ausführen und
+# die sichere gemeinsame Credential-Fehlermeldung bestätigen.
+- tapOn: "Anmelden"
+- tapOn:
+    id: "onboarding-account-email"
+- eraseText
+- inputText: "${TEST_EMAIL}"
+- tapOn:
+    id: "keyboard.toolbar.next"
+- eraseText
+- inputText: "${TEST_PASSWORD}"
+- tapOn:
+    id: "keyboard.toolbar.done"
+- tapOn: "Anmelden & weiter"
+
+- tapOn:
+    text: "^(Später|Not Now)$"
+    optional: true
+- assertVisible: "E-Mail oder Passwort stimmt nicht."

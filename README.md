@@ -129,6 +129,26 @@ bash scripts/ios-dev.sh
 Alle weiteren Befehle, Umgebungsvariablen, Test-Accounts, Telemetrie-Setup und
 die volle Architektur stehen im [Developer Guide](docs/architecture/DEVELOPER_GUIDE.md).
 
+## Maestro E2E
+
+Die ausführbaren Maestro-Journeys liegen unter `.maestro/ios/flows/` und
+`.maestro/android/flows/`. Wiederverwendbare Einzelschritte liegen getrennt
+unter den jeweiligen `subflows/`-Ordnern. Der lokale iOS-Dev-Client wird über
+`fam://expo-development-client/?url=...` mit einem laufenden Metro-Server
+gestartet. Expo Go und `exp://` gehören nicht zum Testsetup.
+
+Die iOS-Kernjourneys werden zuerst abgenommen:
+
+- Registrierung mit lokaler Inbucket-Bestätigung bis zum Dashboard
+- erfolgreicher Login bis zum Dashboard
+- falsche Credentials, Passwort-Reset-Anforderung und erfolgreicher Login
+- Abmelden, Kaltstart und erneuter Sign-in
+
+Maestro wird direkt über `.maestro/scripts/maestro.ts` beziehungsweise
+`.maestro/scripts/android.ts` ausgeführt. Es gibt absichtlich keine Maestro-
+oder E2E-Scripts in `package.json`. Voraussetzungen, Parameter, Tags und die
+vollständige Reihenfolge stehen im [Developer Guide](docs/architecture/DEVELOPER_GUIDE.md#maestro-architektur).
+
 ## React Native Harness
 
 Die Anleitung für Harness-Tests, Dev-Builds, Plattform-Runner und den DEV-

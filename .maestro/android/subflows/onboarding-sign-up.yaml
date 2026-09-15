@@ -1,0 +1,35 @@
+appId: com.goldjunge91.fam
+env:
+  TEST_PASSWORD: ${TEST_PASSWORD || "Passwort123!"}
+---
+# Atomare Aufgabe: einen neuen Account über die echte UI registrieren und die
+# lokale E-Mail-Bestätigung mit dem Inbucket-OTP abschließen.
+- runScript:
+    file: ../../scripts/auth/generate-registration-data.js
+    env:
+      TEST_PASSWORD: "${TEST_PASSWORD}"
+
+- tapOn:
+    id: "onboarding-account-email"
+- inputText: "${output.auth.email}"
+- tapOn:
+    id: "onboarding-account-password"
+- inputText: "${output.auth.password}"
+- tapOn:
+    id: "onboarding-account-password-confirmation"
+- inputText: "${output.auth.password}"
+- hideKeyboard
+- tapOn: "Konto erstellen & weiter"
+
+- extendedWaitUntil:
+    visible: "Bestätigung ausstehend"
+    timeout: 15000
+- runScript: ../../scripts/auth/read-local-confirmation-code.js
+- tapOn:
+    id: "email-verification-code"
+- inputText: "${output.auth.confirmationCode}"
+- hideKeyboard
+- tapOn: "Bestätigen"
+- extendedWaitUntil:
+    visible: "Später ausfüllen"
+    timeout: 20000

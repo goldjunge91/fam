@@ -1,0 +1,22 @@
+appId: com.goldjunge91.fam1
+env:
+  TEST_EMAIL: ${TEST_EMAIL || "maestro-e2e@example.com"}
+  TEST_PASSWORD: ${TEST_PASSWORD || "Passwort123!"}
+---
+# Atomare Aufgabe: einen bestehenden, bestätigten Account im Onboarding anmelden.
+- tapOn: "Anmelden"
+- tapOn:
+    id: "onboarding-account-email"
+- inputText: "${TEST_EMAIL}"
+- tapOn:
+    id: "keyboard.toolbar.next"
+- inputText: "${TEST_PASSWORD}"
+- tapOn:
+    id: "keyboard.toolbar.done"
+- tapOn: "Anmelden & weiter"
+
+# iOS' eigener Keychain-Dialog ist kein App-UI und kann nach dem Absenden
+# erscheinen. Der exakte Match verhindert einen Treffer auf spätere App-Buttons.
+- tapOn:
+    text: "^(Später|Not Now)$"
+    optional: true

@@ -1,0 +1,44 @@
+appId: com.goldjunge91.fam1
+env:
+  TEST_PASSWORD: ${TEST_PASSWORD || "Passwort123!"}
+---
+# Atomare Aufgabe: einen neuen Account über die echte UI registrieren und die
+# lokale E-Mail-Bestätigung mit dem Inbucket-OTP abschließen.
+- runScript:
+    file: ../../scripts/auth/generate-registration-data.js
+    env:
+      TEST_PASSWORD: "${TEST_PASSWORD}"
+
+- tapOn:
+    id: "onboarding-account-email"
+- inputText: "${output.auth.email}"
+- tapOn:
+    id: "keyboard.toolbar.next"
+- inputText: "${output.auth.password}"
+- tapOn:
+    id: "keyboard.toolbar.next"
+- inputText: "${output.auth.password}"
+- tapOn:
+    id: "keyboard.toolbar.done"
+- tapOn: "Konto erstellen & weiter"
+
+# iOS' eigener Keychain-Dialog ist kein App-UI und kann nach dem Absenden
+# erscheinen. Der exakte Match trifft nicht den späteren Profil-Button.
+- tapOn:
+    text: "^(Später|Not Now)$"
+    optional: true
+
+- extendedWaitUntil:
+    visible: "Bestätigung ausstehend"
+    timeout: 15000
+- runScript: ../../scripts/auth/read-local-confirmation-code.js
+- tapOn:
+    id: "email-verification-code"
+- inputText: "${output.auth.confirmationCode}"
+- tapOn:
+    id: "keyboard.toolbar.done"
+    optional: true
+- tapOn: "Bestätigen"
+- extendedWaitUntil:
+    visible: "Später ausfüllen"
+    timeout: 20000

@@ -1,0 +1,49 @@
+appId: com.goldjunge91.fam1
+tags:
+  - local-session
+  - manual
+---
+# iOS-Referenz: Modal, direktes SwiftUI-BottomSheet und ConfirmationDialog.
+- runFlow: ../../subflows/launch-signed-in-dashboard.yaml
+- tapOn:
+    id: "navigation-menu-open"
+- tapOn:
+    id: "navigation-drawer-settings"
+- scrollUntilVisible:
+    element: "Entwickler-Werkzeuge: Remote — echte Daten"
+    direction: DOWN
+- tapOn:
+    text: "Entwickler-Werkzeuge: Remote — echte Daten"
+    point: "50%,5%"
+- scrollUntilVisible:
+    element: "^(Vorschauen & Labs|Previews & Labs)$"
+    direction: DOWN
+- tapOn:
+    text: "^(Vorschauen & Labs|Previews & Labs)$"
+- tapOn: "Design-System-Referenz öffnen"
+- swipe:
+    start: 75%,29%
+    end: 43%,29%
+    duration: 400
+- tapOn: "Design-System-Kategorie: Bedienung"
+- scrollUntilVisible:
+    element: "Modal und Sheets"
+    direction: DOWN
+- tapOn: "Modal öffnen"
+- assertVisible: "Beispiel-Modal"
+- tapOn: "Modal schließen"
+- assertNotVisible: "Beispiel-Modal"
+- tapOn: "Bottom Sheet öffnen"
+- assertVisible: "Vorrat-Details"
+- tapOn: "Sheet schließen"
+- assertNotVisible: "Vorrat-Details"
+- scrollUntilVisible:
+    element: "Action Sheet öffnen"
+    direction: DOWN
+- tapOn: "Action Sheet öffnen"
+- assertVisible: "Eintrag verwalten"
+- tapOn: "Bearbeiten"
+- scrollUntilVisible:
+    element: "Bearbeiten gewählt."
+    direction: DOWN
+- assertVisible: "Bearbeiten gewählt."

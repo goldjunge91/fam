@@ -1,0 +1,16 @@
+appId: com.goldjunge91.fam
+env:
+  TEST_EMAIL: ${TEST_EMAIL || "maestro-e2e@example.com"}
+  TEST_PASSWORD: ${TEST_PASSWORD || "Passwort123!"}
+---
+# Vollständige Journey: frischer Start -> Onboarding -> erfolgreicher Login ->
+# Dashboard. Die Android-UI-Schritte liegen in atomaren Subflows.
+- runFlow: ../../subflows/launch-local-dev-client.yaml
+- runFlow: ../../subflows/onboarding-welcome.yaml
+- runFlow:
+    file: ../../subflows/onboarding-sign-in.yaml
+    env:
+      TEST_EMAIL: "${TEST_EMAIL}"
+      TEST_PASSWORD: "${TEST_PASSWORD}"
+- runFlow: ../../subflows/onboarding-finish.yaml
+- assertVisible: "^(Übersicht|Overview)$"

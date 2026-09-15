@@ -1,0 +1,36 @@
+appId: com.goldjunge91.fam
+---
+# Atomare Aufgabe: optionale Onboarding-Schritte bis zum Dashboard abschließen.
+- scrollUntilVisible:
+    element: "Später ausfüllen"
+- tapOn: "Später ausfüllen" # Profil-Step
+
+# Ein bestehender Testaccount kann bereits einem Haushalt angehören. Ein neuer
+# Account erhält stattdessen die Auswahl zum Erstellen eines Haushalts.
+- runFlow:
+    when:
+      visible: "Neuen Haushalt erstellen"
+      notVisible: ".*Aktiver Haushalt erkannt.*"
+    commands:
+      - scrollUntilVisible:
+          element: "Neuen Haushalt erstellen"
+      - tapOn: "Neuen Haushalt erstellen"
+      - tapOn:
+          id: "onboarding-household-name"
+      - inputText: "Familie E2E"
+      - hideKeyboard
+      - tapOn: "Weiter"
+
+- runFlow:
+    when:
+      visible: ".*Aktiver Haushalt erkannt.*"
+    commands:
+      - scrollUntilVisible:
+          element: "Weiter"
+      - tapOn: "Weiter"
+
+- scroll
+- tapOn: "Überspringen" # Modul-Auswahl
+- tapOn: "Jetzt nicht" # Berechtigungen
+- tapOn: "Zum Dashboard" # Abschluss-Step
+- assertVisible: "^(Übersicht|Overview)$"

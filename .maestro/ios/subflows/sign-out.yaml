@@ -1,0 +1,16 @@
+appId: com.goldjunge91.fam1
+---
+# Atomare Aufgabe: die aktive Dashboard-Session über die UI abmelden.
+- tapOn:
+    id: "navigation-menu-open"
+- waitForAnimationToEnd
+- tapOn:
+    id: "navigation-drawer-settings"
+- waitForAnimationToEnd
+- scrollUntilVisible:
+    element:
+      id: "settings-sign-out"
+    direction: DOWN
+- tapOn:
+    id: "settings-sign-out"
+- assertVisible: "Willkommen"

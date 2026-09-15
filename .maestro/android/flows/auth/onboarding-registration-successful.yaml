@@ -1,0 +1,14 @@
+appId: com.goldjunge91.fam
+env:
+  REGISTRATION_PASSWORD: ${REGISTRATION_PASSWORD || "Passwort123!"}
+---
+# Vollständige Journey: frischer Start -> Onboarding -> Registrierung ->
+# lokale E-Mail-Bestätigung -> optionales Onboarding -> Dashboard.
+- runFlow: ../../subflows/launch-local-dev-client.yaml
+- runFlow: ../../subflows/onboarding-welcome.yaml
+- runFlow:
+    file: ../../subflows/onboarding-sign-up.yaml
+    env:
+      TEST_PASSWORD: "${REGISTRATION_PASSWORD}"
+- runFlow: ../../subflows/onboarding-finish.yaml
+- assertVisible: "^(Übersicht|Overview)$"
