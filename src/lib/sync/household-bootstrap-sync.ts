@@ -1,5 +1,5 @@
 import type { QueryClient } from '@tanstack/react-query';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AppState } from 'react-native';
 import { householdsQueryKey } from '@/features/household/query-keys';
 import { getSupabase, serverClock } from '@/lib/backend/supabase/client';
@@ -12,8 +12,24 @@ import { clockCeiling } from '@/lib/sync/server-clock';
 import { reportError } from '@/lib/telemetry';
 
 let isSyncingHouseholds = false;
-function invalidateHouseholdsQuery(queryClient: QueryClient, userId: string) {
-  queryClient.invalidateQueries({ queryKey: householdsQueryKey(userId) });
+async function invalidateHouseholdsQuery(queryClient: QueryClient, userId: string) {
+  const queryKey = householdsQueryKey(userId);
+  const hadInFlightQuery = queryClient.getQueryState?.(queryKey)?.fetchStatus === 'fetching';
+
+  await queryClient.invalidateQueries({
+    queryKey,
+    // Der Pull kann schneller fertig sein als die erste lokale Query aktiv
+    // wird. Auch in diesem Fall muss der Guard den aktualisierten Spiegel
+    // sehen, bevor er eine Haushaltsentscheidung trifft.
+    refetchType: 'all',
+  });
+
+  // Wenn der Pull parallel zur allerersten lokalen Query fertig wird, sieht
+  // `invalidateQueries` nur deren bereits laufenden Fetch. Danach ist ein
+  // zweiter Fetch nötig, damit der Guard wirklich den Pull-Zustand liest.
+  if (hadInFlightQuery) {
+    await queryClient.refetchQueries({ queryKey, type: 'all' });
+  }
 }
 
 export async function triggerHouseholdsPull(
@@ -37,7 +53,7 @@ export async function triggerHouseholdsPull(
     });
 
     if (queryClient) {
-      invalidateHouseholdsQuery(queryClient, userId);
+      await invalidateHouseholdsQuery(queryClient, userId);
     }
 
     debugLog('[HouseholdSync] pull completed', {
@@ -66,36 +82,75 @@ export async function triggerHouseholdsPull(
 
 const POLL_INTERVAL_MS = 20_000;
 
-export function useHouseholdsBootstrapSync(userId: string | undefined, queryClient?: QueryClient) {
+export type HouseholdBootstrapSyncState = {
+  /** Ein erfolgreicher Pull inklusive lokalem Refetch ist abgeschlossen. */
+  isInitialSyncComplete: boolean;
+  /** Der Pull lief, aber mindestens eine Haushaltsabfrage ist fehlgeschlagen. */
+  isInitialSyncError: boolean;
+};
+
+type InternalHouseholdBootstrapSyncState = HouseholdBootstrapSyncState & {
+  userId: string | undefined;
+};
+
+const EMPTY_BOOTSTRAP_STATE: HouseholdBootstrapSyncState = {
+  isInitialSyncComplete: false,
+  isInitialSyncError: false,
+};
+
+export function useHouseholdsBootstrapSync(
+  userId: string | undefined,
+  queryClient?: QueryClient,
+): HouseholdBootstrapSyncState {
+  const [syncState, setSyncState] = useState<InternalHouseholdBootstrapSyncState>({
+    userId,
+    isInitialSyncComplete: false,
+    isInitialSyncError: false,
+  });
   const userIdRef = useRef(userId);
   userIdRef.current = userId;
 
   useEffect(() => {
-    if (!userId) return;
+    if (!userId) {
+      setSyncState({ userId, ...EMPTY_BOOTSTRAP_STATE });
+      return;
+    }
 
-    triggerHouseholdsPull(userId, queryClient);
+    let stopped = false;
+
+    const pull = async () => {
+      const outcomes = await triggerHouseholdsPull(userId, queryClient);
+      if (stopped || outcomes === null) return;
+
+      setSyncState({
+        userId,
+        isInitialSyncComplete: true,
+        isInitialSyncError: outcomes.some((outcome) => outcome.error !== undefined),
+      });
+    };
+
+    void pull();
 
     const interval = setInterval(() => {
       if (userIdRef.current && AppState.currentState === 'active') {
-        triggerHouseholdsPull(userIdRef.current, queryClient);
+        void pull();
       }
     }, POLL_INTERVAL_MS);
 
     const subscription = AppState.addEventListener('change', (nextState) => {
       if (nextState === 'active' && userIdRef.current) {
-        triggerHouseholdsPull(userIdRef.current, queryClient);
+        void pull();
       }
     });
 
     const stopNetworkTrigger = startNetworkReconnectTrigger({
       onReconnect: async () => {
         if (userIdRef.current) {
-          await triggerHouseholdsPull(userIdRef.current, queryClient);
+          await pull();
         }
       },
     });
 
-    let stopped = false;
     const stop = () => {
       if (stopped) return;
       stopped = true;
@@ -110,4 +165,6 @@ export function useHouseholdsBootstrapSync(userId: string | undefined, queryClie
       stop();
     };
   }, [userId, queryClient]);
+
+  return syncState.userId === userId ? syncState : EMPTY_BOOTSTRAP_STATE;
 }

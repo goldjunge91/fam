@@ -81,6 +81,27 @@ describe('resolveAppEntry', () => {
     });
   });
 
+  it('prüft das Onboarding erst nach dem vollständigen Start-Ladevorgang', () => {
+    expect(
+      resolveAppEntry({
+        ...angemeldetUndEingerichtet,
+        isLoading: true,
+        shouldPromptOnboarding: true,
+      }),
+    ).toEqual({ kind: 'warten' });
+  });
+
+  it('wartet bei Haushaltsfehlern auch für einen neuen Nutzer', () => {
+    expect(
+      resolveAppEntry({
+        ...angemeldetUndEingerichtet,
+        householdCount: 0,
+        shouldPromptOnboarding: true,
+        householdsError: true,
+      }),
+    ).toEqual({ kind: 'warten' });
+  });
+
   it('folgt dem Onboarding-Guard fuer unvollstaendige Konten', () => {
     expect(resolveAppEntry({ ...angemeldetUndEingerichtet, shouldPromptOnboarding: true })).toEqual(
       { kind: 'umleiten', to: '/onboarding' },

@@ -75,7 +75,7 @@ function AppLayoutContent() {
     isLoading: profileLoading || householdsLoading,
     shouldPromptOnboarding: shouldPrompt,
     householdCount: households?.length ?? 0,
-    householdsError,
+    householdsError: householdsError || Boolean(profileError),
   });
 
   // Ein vollständiger App-Zustand gilt als eingerichtet; das Geräte-Flag wird nachgetragen.
@@ -90,15 +90,22 @@ function AppLayoutContent() {
     return <Redirect href={decision.to} />;
   }
 
-  // AppShell bleibt bei kurzen Ladephasen gemountet; der Indikator liegt als Overlay darüber.
-  return (
-    <View style={styles.root}>
-      <AppShell />
-      {decision.kind === 'warten' ? (
+  // Während des Kaltstarts bleibt der AppShell ungemountet. Dadurch prüfen
+  // Dashboard und Feature-Hooks keinen Zwischenzustand, bevor Profil und
+  // Haushalts-Bootstrap abgeschlossen sind.
+  if (decision.kind === 'warten') {
+    return (
+      <View style={styles.root}>
         <View style={styles.loadingOverlay}>
           <ActivityIndicator size="large" />
         </View>
-      ) : null}
+      </View>
+    );
+  }
+
+  return (
+    <View style={styles.root}>
+      <AppShell />
     </View>
   );
 }

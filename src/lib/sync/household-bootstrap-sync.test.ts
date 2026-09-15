@@ -90,6 +90,7 @@ describe('triggerHouseholdsPull', () => {
 
     expect(queryClient.invalidateQueries).toHaveBeenCalledWith({
       queryKey: ['households', 'by-user', 'user-1'],
+      refetchType: 'all',
     });
   });
 

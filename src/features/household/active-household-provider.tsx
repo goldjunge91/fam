@@ -27,6 +27,11 @@ interface ActiveHouseholdContextType {
 
 const ActiveHouseholdContext = createContext<ActiveHouseholdContextType | undefined>(undefined);
 
+const DEFAULT_BOOTSTRAP_STATE = {
+  isInitialSyncComplete: false,
+  isInitialSyncError: false,
+};
+
 export function ActiveHouseholdProvider({ children }: { children: React.ReactNode }) {
   const { session } = useSession();
   const userId = session?.user.id ?? null;
@@ -36,7 +41,11 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
   const [isStoreLoaded, setIsStoreLoaded] = useState(false);
 
   // Hält den lokalen Haushaltsspiegel über Pull, Poll und Reconnect aktuell.
-  useHouseholdsBootstrapSync(userId ?? undefined, queryClient);
+  const bootstrapState =
+    useHouseholdsBootstrapSync(userId ?? undefined, queryClient) ?? DEFAULT_BOOTSTRAP_STATE;
+  const hasHouseholds = households.length > 0;
+  const waitingForInitialBootstrap =
+    Boolean(userId) && !hasHouseholds && !bootstrapState.isInitialSyncComplete;
 
   useEffect(() => {
     getStoredActiveHouseholdId().then((storedId) => {
@@ -87,8 +96,8 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       activeHousehold,
       households,
       // Hintergrund-Refetches dürfen den aktiven Screen nicht als Ladezustand behandeln.
-      isLoading: isLoading || !isStoreLoaded,
-      isError,
+      isLoading: isLoading || !isStoreLoaded || waitingForInitialBootstrap,
+      isError: isError || bootstrapState.isInitialSyncError,
       setActiveHouseholdId: handleSetActiveHouseholdId,
     }),
     [
@@ -98,6 +107,8 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       isLoading,
       isStoreLoaded,
       isError,
+      waitingForInitialBootstrap,
+      bootstrapState.isInitialSyncError,
       handleSetActiveHouseholdId,
     ],
   );

@@ -20,11 +20,12 @@ export function resolveAppEntry(input: {
   // Während des Ladens keine Haushaltsentscheidung treffen.
   if (input.isLoading) return { kind: 'warten' };
 
-  // Profil-Onboarding hat Vorrang vor der Haushaltsauswahl.
-  if (input.shouldPromptOnboarding) return { kind: 'umleiten', to: '/onboarding' };
-
   // Fehler nicht als leeren Haushalt interpretieren.
   if (input.householdsError) return { kind: 'warten' };
+
+  // Profil-Onboarding hat erst nach einem belastbaren Startzustand Vorrang
+  // vor der Haushaltsauswahl.
+  if (input.shouldPromptOnboarding) return { kind: 'umleiten', to: '/onboarding' };
 
   // Angemeldete Nutzer ohne Haushalt legen einen neuen Haushalt an.
   if (input.householdCount === 0) return { kind: 'umleiten', to: '/household/create' };
