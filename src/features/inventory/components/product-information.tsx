@@ -37,23 +37,90 @@ const NUTRI_BADGE_COLORS: Record<NutriScoreGrade, string> = {
 };
 
 const staticStyles = StyleSheet.create({
-  closeButton: {
-    width: 34,
-    height: 34,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   closePressed: {
     opacity: 0.75,
   },
 });
 
 const styles = StyleSheet.create((theme) => ({
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  backdrop: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  sheet: {
+    position: 'absolute',
+    left: 12,
+    right: 12,
+    bottom: 10,
+    maxHeight: '82%',
+    borderRadius: theme.radius.famLarge,
+    overflow: 'hidden',
+    backgroundColor: theme.backgroundElement,
+    boxShadow: `0 10px 22px ${withAlpha(theme.shadowSheet, 0.22)}`,
+  },
+  grabHandle: {
+    width: 42,
+    height: 4,
+    borderRadius: theme.radius.pill,
+    alignSelf: 'center',
+    marginTop: 11,
+    backgroundColor: theme.border,
+  },
+  content: {
+    padding: theme.space.xl,
+    gap: 14,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: theme.space.md,
+  },
+  titleGroup: {
+    flex: 1,
+  },
+  metaStack: {
+    gap: 3,
+  },
+  closeButton: {
+    width: 34,
+    height: 34,
+    borderRadius: theme.radius.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  scoreCard: {
+    minHeight: 88,
+    borderRadius: theme.radius.lg,
+    padding: theme.space.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.md,
+    backgroundColor: theme.background,
+  },
+  scoreBadge: {
+    width: 62,
+    height: 62,
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  scoreContent: {
+    flex: 1,
+  },
   details: {
     borderWidth: 0.5,
     borderColor: theme.border,
-    borderRadius: 20,
+    borderRadius: theme.radius.lg,
     overflow: 'hidden',
   },
   detailRow: {
@@ -62,11 +129,30 @@ const styles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 16,
+    gap: theme.space.lg,
   },
   detailRowWithDivider: {
     borderBottomWidth: 0.5,
     borderBottomColor: theme.border,
+  },
+  section: {
+    borderRadius: theme.radius.lg,
+    padding: 14,
+    gap: 6,
+    backgroundColor: theme.background,
+  },
+  nutrients: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.space.sm,
+  },
+  nutrientCard: {
+    width: '31.6%',
+    minHeight: 62,
+    borderRadius: theme.radius.md,
+    padding: 10,
+    gap: 5,
+    backgroundColor: theme.backgroundSoft,
   },
 }));
 
@@ -144,49 +230,19 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
-      <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+      <View style={styles.overlay}>
         <Pressable
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: colors.scrim,
-          }}
+          style={[styles.backdrop, { backgroundColor: colors.scrim }]}
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel="Produktinformationen schließen"
         />
 
-        <View
-          style={{
-            position: 'absolute',
-            left: 12,
-            right: 12,
-            bottom: 10,
-            maxHeight: '82%',
-            borderRadius: 28,
-            overflow: 'hidden',
-            backgroundColor: colors.backgroundElement,
-            paddingBottom: insets.bottom + 24,
-            boxShadow: `0 10px 22px ${withAlpha(colors.shadowSheet, 0.22)}`,
-          }}>
-          <View
-            style={{
-              width: 42,
-              height: 4,
-              borderRadius: 999,
-              alignSelf: 'center',
-              marginTop: 11,
-              backgroundColor: colors.border,
-            }}
-          />
-          <ScrollView
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{ padding: 20, gap: 14 }}>
-            <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 12 }}>
-              <View style={{ flex: 1, gap: 3 }}>
+        <View style={[styles.sheet, { paddingBottom: insets.bottom + 24 }]}>
+          <View style={styles.grabHandle} />
+          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
+            <View style={styles.header}>
+              <View style={[styles.titleGroup, styles.metaStack]}>
                 <Txt variant="title" weight="600" selectable>
                   {item.name}
                 </Txt>
@@ -201,7 +257,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                 onPressIn={() => setClosePressed(true)}
                 onPressOut={() => setClosePressed(false)}
                 style={[
-                  staticStyles.closeButton,
+                  styles.closeButton,
                   { backgroundColor: colors.backgroundSoft },
                   closePressed && staticStyles.closePressed,
                 ]}>
@@ -211,30 +267,17 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
               </Pressable>
             </View>
 
-            <View
-              style={{
-                minHeight: 88,
-                borderRadius: 20,
-                padding: 12,
-                flexDirection: 'row',
-                alignItems: 'center',
-                gap: 12,
-                backgroundColor: colors.background,
-              }}>
+            <View style={styles.scoreCard}>
               <View
-                style={{
-                  width: 62,
-                  height: 62,
-                  borderRadius: 16,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: score ? NUTRI_BADGE_COLORS[score] : colors.backgroundSoft,
-                }}>
+                style={[
+                  styles.scoreBadge,
+                  { backgroundColor: score ? NUTRI_BADGE_COLORS[score] : colors.backgroundSoft },
+                ]}>
                 <Txt variant="subheading" weight="700" tone={score ? 'onAccent' : 'primary'}>
                   {score?.toUpperCase() ?? '–'}
                 </Txt>
               </View>
-              <View style={{ flex: 1, gap: 3 }}>
+              <View style={[styles.scoreContent, styles.metaStack]}>
                 <Txt variant="body" weight="700">
                   Nutri-Score {score?.toUpperCase() ?? '–'}
                 </Txt>
@@ -264,13 +307,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
               </View>
             </View>
 
-            <View
-              style={{
-                borderRadius: 20,
-                padding: 14,
-                gap: 6,
-                backgroundColor: colors.background,
-              }}>
+            <View style={styles.section}>
               <Txt variant="body" weight="700">
                 Zutaten
               </Txt>
@@ -279,13 +316,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
               </Txt>
             </View>
 
-            <View
-              style={{
-                borderRadius: 20,
-                padding: 14,
-                gap: 6,
-                backgroundColor: colors.background,
-              }}>
+            <View style={styles.section}>
               <Txt variant="body" weight="700">
                 Allergene
               </Txt>
@@ -297,18 +328,9 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
             <Txt variant="body" weight="700">
               Nährwerte pro {referenceUnit}
             </Txt>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+            <View style={styles.nutrients}>
               {nutrients.map((nutrient) => (
-                <View
-                  key={nutrient.label}
-                  style={{
-                    width: '31.6%',
-                    minHeight: 62,
-                    borderRadius: 16,
-                    padding: 10,
-                    gap: 5,
-                    backgroundColor: colors.backgroundSoft,
-                  }}>
+                <View key={nutrient.label} style={styles.nutrientCard}>
                   <Txt variant="body" weight="700" selectable>
                     {nutrient.value}
                   </Txt>

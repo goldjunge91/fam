@@ -71,10 +71,35 @@ werden nicht pauschal in die fam-Palette umgefärbt.
 Für jede Ausnahme wird in diesem Vertrag ein Eintrag mit **Pfad, Plattform, Grund,
 betroffener Regel und Prüffall** dokumentiert.
 
+### ProductInformation und Nutri-Score
+
+`src/features/inventory/components/product-information.tsx` bleibt der Owner für
+Verhalten, Komposition, Accessibility und lokales Layout des
+Produktinformations-Sheets. Die fünf Werte der lokalen Map
+`NUTRI_BADGE_COLORS` sind die offizielle Nutri-Score-Kennzeichnung aus der
+externen Quelle Open Food Facts. Sie dürfen ausschließlich als Badge-Fläche für
+den angezeigten Nutri-Score verwendet werden.
+
+Die Ausnahme erlaubt keine Verlagerung dieser Werte nach
+`src/components/theme/index.ts`, `ThemeProvider.tsx` oder `src/constants/ui.tsx`,
+keinen zweiten Farb-Map-Owner unter `src/` und keine Verwendung als fam-eigene
+Status-, Marken- oder Surface-Farbe. Alle übrigen Farben und semantischen Rezepte
+des Sheets kommen aus `useTheme()` beziehungsweise den drei zentralen Ownern.
+Lokale numerische Layoutwerte bleiben zulässig, wenn sie einmalige Geometrie
+ausdrücken; wiederkehrende App-Maße werden im nachgelagerten Token-Schritt an
+bestehende Theme-Tokens gebunden.
+
+Der fokussierte Contract-Test prüft den eindeutigen Map-Owner, die fünf Grade
+`a` bis `e`, die Beschränkung der offiziellen Hexwerte auf diese Map und die
+Dokumentationsmarker. Der Farb-/Kontrastvertrag aus Vertrag 01 bleibt auch für
+die externe Kennzeichnung gültig; ein Gradwert darf nicht stillschweigend als
+allgemeines `onAccent`-Rezept interpretiert werden.
+
 ## Dokumentierte native Integrationsausnahmen
 
 | Pfad | Plattform | Grund | Betroffene Regel | Prüffall |
 | --- | --- | --- | --- | --- |
+| `src/features/inventory/components/product-information.tsx` (`NUTRI_BADGE_COLORS`) | iOS (Android außerhalb dieses Vorhabens) | Offizielle Nutri-Score-Produktkennzeichnung von Open Food Facts; die Quelle ist keine fam-eigene Palette. | Die externen A–E-Werte bleiben lokal auf die Nutri-Score-Badge-Fläche begrenzt; keine Kopie in globale Theme-Owner und keine Verwendung für app-eigene Status-/Surface-Semantik. | Contract-Gate, fokussierter Nutri-Score-/Fallback-Test und iOS-Prüfung in Light/Dark; Kontrastabweichungen werden sichtbar dokumentiert. |
 | `src/features/household/invite-modal.tsx` (`QRCode`) | iOS/Android | Die opake weiße Quiet-Zone ist für zuverlässiges Scannen auf unterschiedlichen Hintergründen erforderlich. | Keine freie Feature-Farbe für semantische Flächen; die QR-Renderfläche folgt der nativen QR-API. | QR-Code im hellen und dunklen App-Theme auf iOS und Android mit einem zweiten Gerät scannen. |
 | `src/features/shopping-list/sheets/category-order-sheet.tsx` und `.android.tsx` | iOS/Android | `@expo/ui/community/bottom-sheet` nimmt `backgroundStyle` und `handleIndicatorStyle` als native Props entgegen und besitzt an dieser Grenze keinen Unistyles-Interop. | Palette bleibt aus dem Unistyles-Theme-Callback; die Feature-Dateien transportieren sie ausschließlich in die native Sheet-API. | Kategorie-Sheet öffnen, Handle/Sheet sichtbar prüfen, native Verschiebungsaktion auslösen, schließen und Speichern testen. |
 | `src/features/shopping-list/sheets/complete-run-sheet.tsx` und `.android.tsx` | iOS/Android | `@expo/ui/community/bottom-sheet` nimmt `backgroundStyle` und `handleIndicatorStyle` als native Props entgegen und besitzt an dieser Grenze keinen Unistyles-Interop. | Palette bleibt aus dem Unistyles-Theme-Callback; die Feature-Dateien transportieren sie ausschließlich in die native Sheet-API. | Abschluss-Sheet öffnen, Menge editieren, Lagerort auswählen, schließen und Bestätigen testen. |
