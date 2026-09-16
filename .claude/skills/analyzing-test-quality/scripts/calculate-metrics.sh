@@ -1,149 +1,180 @@
 #!/bin/bash
 # Test Quality Metrics Calculator
-# Calculates basic test quality metrics for a project
+# Reports metrics for the same Jest unit-test scope used by CI.
 
-set -e
+set -euo pipefail
 
-echo "📊 Test Quality Metrics Calculator"
-echo "==================================="
-echo ""
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+PROJECT_ROOT=$(cd "$SCRIPT_DIR/../../../../" && pwd)
+JEST_BIN="$PROJECT_ROOT/node_modules/.bin/jest"
+CI_TEST_PATTERN='^(?!.*test/native-build-(baseline|artifact)[.]test[.]ts$).*'
 
-# Colors
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-RED='\033[0;31m'
-NC='\033[0m'
-
-# Initialize counters
-TOTAL_TESTS=0
-TEST_FILES=0
-SOURCE_FILES=0
-SOURCE_LINES=0
-TEST_LINES=0
-
-echo "🔍 Analyzing codebase..."
-echo ""
-
-# Count test files
-TEST_FILES=$(find . -name "*.test.ts" -o -name "*.test.tsx" -o -name "*.test.js" -o -name "*.spec.ts" -o -name "*.spec.tsx" 2>/dev/null | grep -v node_modules | wc -l)
-
-# Count source files (excluding tests and node_modules)
-SOURCE_FILES=$(find . -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" 2>/dev/null | grep -v node_modules | grep -v ".test." | grep -v ".spec." | grep -v "__tests__" | wc -l)
-
-# Count test lines
-if [ "$TEST_FILES" -gt 0 ]; then
-    TEST_LINES=$(find . \( -name "*.test.ts" -o -name "*.test.tsx" -o -name "*.test.js" -o -name "*.spec.ts" \) ! -path "*/node_modules/*" -exec cat {} \; 2>/dev/null | wc -l)
+if [ ! -x "$JEST_BIN" ]; then
+  echo "Jest wurde nicht gefunden: $JEST_BIN" >&2
+  exit 1
 fi
 
-# Count source lines
-if [ "$SOURCE_FILES" -gt 0 ]; then
-    SOURCE_LINES=$(find . \( -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" \) ! -path "*/node_modules/*" ! -name "*.test.*" ! -name "*.spec.*" ! -path "*/__tests__/*" -exec cat {} \; 2>/dev/null | wc -l)
+cd "$PROJECT_ROOT"
+
+TEST_FILES=()
+JEST_SCOPE_OUTPUT=$("$JEST_BIN" \
+  --config "$PROJECT_ROOT/jest.config.js" \
+  --listTests \
+  --runInBand \
+  --testPathPattern="$CI_TEST_PATTERN")
+while IFS= read -r file; do
+  [ -n "$file" ] && TEST_FILES+=("$file")
+done <<< "$JEST_SCOPE_OUTPUT"
+
+if [ "${#TEST_FILES[@]}" -eq 0 ]; then
+  echo "Jest hat keine Unit-Testdateien im CI-Scope gefunden." >&2
+  exit 1
 fi
 
-# Count individual tests (it/test blocks)
-if [ "$TEST_FILES" -gt 0 ]; then
-    TOTAL_TESTS=$(find . \( -name "*.test.ts" -o -name "*.test.tsx" -o -name "*.test.js" -o -name "*.spec.ts" \) ! -path "*/node_modules/*" -exec grep -h "^\s*\(it\|test\)(" {} \; 2>/dev/null | wc -l)
-fi
+count_lines() {
+  local total=0
+  local file
+  for file in "$@"; do
+    total=$((total + $(wc -l < "$file")))
+  done
+  printf '%s' "$total"
+}
 
-# Calculate ratios
-if [ "$SOURCE_FILES" -gt 0 ]; then
-    TEST_FILE_RATIO=$(echo "scale=2; $TEST_FILES / $SOURCE_FILES" | bc)
+count_matching_files() {
+  local pattern="$1"
+  shift
+  local count=0
+  local file
+  for file in "$@"; do
+    if rg -q --pcre2 "$pattern" "$file"; then
+      count=$((count + 1))
+    fi
+  done
+  printf '%s' "$count"
+}
+
+json_value() {
+  local path="$1"
+  node -e '
+    let input = "";
+    process.stdin.on("data", (chunk) => { input += chunk; });
+    process.stdin.on("end", () => {
+      const [root, key] = process.argv[1].split(":", 2);
+      const report = JSON.parse(input);
+      console.log(key === undefined ? report[root] : report[root][key]);
+    });
+  ' "$path" <<< "$ANALYSIS_JSON"
+}
+
+SOURCE_FILES=()
+SOURCE_FILE_OUTPUT=$(rg --files src \
+  -g '*.ts' -g '*.tsx' -g '*.js' -g '*.jsx' \
+  | rg -v '\.(test|spec)\.[jt]sx?$' || true)
+while IFS= read -r file; do
+  [ -n "$file" ] && SOURCE_FILES+=("$PROJECT_ROOT/$file")
+done <<< "$SOURCE_FILE_OUTPUT"
+
+TEST_LINES=$(count_lines "${TEST_FILES[@]}")
+SOURCE_LINES=$(count_lines "${SOURCE_FILES[@]}")
+TEST_FILE_COUNT=${#TEST_FILES[@]}
+SOURCE_FILE_COUNT=${#SOURCE_FILES[@]}
+
+if [ "$SOURCE_FILE_COUNT" -gt 0 ]; then
+  TEST_FILE_RATIO=$(awk -v tests="$TEST_FILE_COUNT" -v source="$SOURCE_FILE_COUNT" 'BEGIN { printf "%.2f", tests / source }')
 else
-    TEST_FILE_RATIO="N/A"
+  TEST_FILE_RATIO='N/A'
 fi
 
 if [ "$SOURCE_LINES" -gt 0 ]; then
-    TEST_LINE_RATIO=$(echo "scale=2; $TEST_LINES / $SOURCE_LINES" | bc)
+  TEST_LINE_RATIO=$(awk -v tests="$TEST_LINES" -v source="$SOURCE_LINES" 'BEGIN { printf "%.2f", tests / source }')
 else
-    TEST_LINE_RATIO="N/A"
+  TEST_LINE_RATIO='N/A'
 fi
 
-# Output results
-echo "📈 Test Metrics"
-echo "==============="
-echo ""
-printf "%-25s %s\n" "Test Files:" "$TEST_FILES"
-printf "%-25s %s\n" "Source Files:" "$SOURCE_FILES"
-printf "%-25s %s\n" "Test File Ratio:" "$TEST_FILE_RATIO"
-echo ""
-printf "%-25s %s\n" "Test Lines:" "$TEST_LINES"
-printf "%-25s %s\n" "Source Lines:" "$SOURCE_LINES"
-printf "%-25s %s\n" "Test Line Ratio:" "$TEST_LINE_RATIO"
-echo ""
-printf "%-25s %s\n" "Total Tests:" "$TOTAL_TESTS"
+ANALYSIS_JSON=$(bun "$PROJECT_ROOT/scripts/analyze-test-declarations.ts" "${TEST_FILES[@]}")
+TOTAL_TESTS=$(json_value testDeclarations)
+DESCRIBE_BLOCKS=$(json_value describeBlocks)
+ONLY_MARKERS=$(json_value 'markers:.only')
+SKIP_MARKERS=$(json_value 'markers:.skip')
+FIT_MARKERS=$(json_value 'markers:fit')
+FDESCRIBE_MARKERS=$(json_value 'markers:fdescribe')
+XIT_MARKERS=$(json_value 'markers:xit')
+XDESCRIBE_MARKERS=$(json_value 'markers:xdescribe')
 
-# Check for describe blocks
-DESCRIBE_BLOCKS=$(find . \( -name "*.test.ts" -o -name "*.test.tsx" -o -name "*.test.js" -o -name "*.spec.ts" \) ! -path "*/node_modules/*" -exec grep -h "^\s*describe(" {} \; 2>/dev/null | wc -l)
-printf "%-25s %s\n" "Describe Blocks:" "$DESCRIBE_BLOCKS"
+BEFORE_EACH=$(count_matching_files '\bbeforeEach\b' "${TEST_FILES[@]}")
+MOCKS=$(count_matching_files '\b(jest|vi)\.mock\s*\(' "${TEST_FILES[@]}")
+ASYNC_TESTS=$(count_matching_files '\b(async|await|resolves|rejects)\b' "${TEST_FILES[@]}")
+TIMEOUTS=$(count_matching_files '\bsetTimeout\s*\(' "${TEST_FILES[@]}")
 
-echo ""
-echo "📊 Quality Indicators"
-echo "====================="
-echo ""
+echo "📊 Test Quality Metrics"
+echo "======================="
+echo
+echo "Scope"
+echo "-----"
+echo "CI unit command: bun run test -- --testPathPattern='$CI_TEST_PATTERN'"
+echo "Jest config: jest.config.js"
+echo "Test discovery: Jest --listTests --runInBand"
+echo "Test input files: $TEST_FILE_COUNT"
+echo "Production source scope: src/ ($SOURCE_FILE_COUNT files)"
+echo
+echo "CI unit input files"
+echo "-------------------"
+for file in "${TEST_FILES[@]}"; do
+  printf '%s\n' "${file#"$PROJECT_ROOT"/}"
+done
+echo
+echo "Metrics"
+echo "-------"
+printf '%-25s %s\n' 'Test Files:' "$TEST_FILE_COUNT"
+printf '%-25s %s\n' 'Source Files:' "$SOURCE_FILE_COUNT"
+printf '%-25s %s\n' 'Test File Ratio:' "$TEST_FILE_RATIO"
+printf '%-25s %s\n' 'Test Lines:' "$TEST_LINES"
+printf '%-25s %s\n' 'Source Lines:' "$SOURCE_LINES"
+printf '%-25s %s\n' 'Test Line Ratio:' "$TEST_LINE_RATIO"
+printf '%-25s %s\n' 'Test Declarations:' "$TOTAL_TESTS"
+printf '%-25s %s\n' 'Describe Blocks:' "$DESCRIBE_BLOCKS"
+echo
+echo "Marker-Prüfung"
+echo "--------------"
+printf '%-25s %s\n' '.only:' "$ONLY_MARKERS"
+printf '%-25s %s\n' '.skip:' "$SKIP_MARKERS"
+printf '%-25s %s\n' 'fit:' "$FIT_MARKERS"
+printf '%-25s %s\n' 'fdescribe:' "$FDESCRIBE_MARKERS"
+printf '%-25s %s\n' 'xit:' "$XIT_MARKERS"
+printf '%-25s %s\n' 'xdescribe:' "$XDESCRIBE_MARKERS"
 
-# Evaluate test file ratio
-if [ "$TEST_FILE_RATIO" != "N/A" ]; then
-    if (( $(echo "$TEST_FILE_RATIO >= 0.8" | bc -l) )); then
-        echo -e "Test File Ratio: ${GREEN}✅ Good ($TEST_FILE_RATIO)${NC}"
-    elif (( $(echo "$TEST_FILE_RATIO >= 0.5" | bc -l) )); then
-        echo -e "Test File Ratio: ${YELLOW}⚠️ Acceptable ($TEST_FILE_RATIO)${NC}"
-    else
-        echo -e "Test File Ratio: ${RED}❌ Low ($TEST_FILE_RATIO)${NC}"
-    fi
+MARKER_TOTAL=$((ONLY_MARKERS + SKIP_MARKERS + FIT_MARKERS + FDESCRIBE_MARKERS + XIT_MARKERS + XDESCRIBE_MARKERS))
+if [ "$MARKER_TOTAL" -gt 0 ]; then
+  echo
+  echo "Marker-Dateien"
+  echo "--------------"
+  node -e '
+    let input = "";
+    process.stdin.on("data", (chunk) => { input += chunk; });
+    process.stdin.on("end", () => {
+      const report = JSON.parse(input);
+      for (const file of report.files) {
+        const markers = Object.entries(file.markers).filter(([, count]) => count > 0);
+        if (markers.length > 0) {
+          console.log(`${file.file}: ${markers.map(([name, count]) => `${name}=${count}`).join(", ")}`);
+        }
+      }
+    });
+  ' <<< "$ANALYSIS_JSON"
 fi
 
-# Check for common patterns
-echo ""
-echo "🔍 Pattern Analysis"
-echo "==================="
-echo ""
-
-# Check for beforeEach usage
-BEFORE_EACH=$(find . \( -name "*.test.ts" -o -name "*.test.tsx" -o -name "*.test.js" \) ! -path "*/node_modules/*" -exec grep -l "beforeEach" {} \; 2>/dev/null | wc -l)
-if [ "$BEFORE_EACH" -gt 0 ]; then
-    echo -e "${GREEN}✅ Setup hooks used ($BEFORE_EACH files)${NC}"
-else
-    echo -e "${YELLOW}⚠️ No beforeEach hooks found${NC}"
-fi
-
-# Check for mocking
-MOCKS=$(find . \( -name "*.test.ts" -o -name "*.test.tsx" -o -name "*.test.js" \) ! -path "*/node_modules/*" -exec grep -l "jest.mock\|vi.mock" {} \; 2>/dev/null | wc -l)
-if [ "$MOCKS" -gt 0 ]; then
-    echo -e "${GREEN}✅ Mocking used ($MOCKS files)${NC}"
-fi
-
-# Check for async tests
-ASYNC_TESTS=$(find . \( -name "*.test.ts" -o -name "*.test.tsx" -o -name "*.test.js" \) ! -path "*/node_modules/*" -exec grep -l "async\|await\|resolves\|rejects" {} \; 2>/dev/null | wc -l)
-if [ "$ASYNC_TESTS" -gt 0 ]; then
-    echo -e "${GREEN}✅ Async testing used ($ASYNC_TESTS files)${NC}"
-fi
-
-# Check for potential issues
-echo ""
-echo "⚠️ Potential Issues"
-echo "==================="
-echo ""
-
-# Check for setTimeout in tests (potential flaky test)
-TIMEOUTS=$(find . \( -name "*.test.ts" -o -name "*.test.tsx" -o -name "*.test.js" \) ! -path "*/node_modules/*" -exec grep -l "setTimeout" {} \; 2>/dev/null | wc -l)
-if [ "$TIMEOUTS" -gt 0 ]; then
-    echo -e "${YELLOW}⚠️ setTimeout found in $TIMEOUTS test file(s) - potential flakiness${NC}"
-fi
-
-# Check for .only (forgotten focus)
-ONLY=$(find . \( -name "*.test.ts" -o -name "*.test.tsx" -o -name "*.test.js" \) ! -path "*/node_modules/*" -exec grep -l "\.only\|fdescribe\|fit" {} \; 2>/dev/null | wc -l)
-if [ "$ONLY" -gt 0 ]; then
-    echo -e "${RED}❌ .only found in $ONLY file(s) - tests may be skipped${NC}"
-fi
-
-# Check for .skip
-SKIP=$(find . \( -name "*.test.ts" -o -name "*.test.tsx" -o -name "*.test.js" \) ! -path "*/node_modules/*" -exec grep -l "\.skip\|xdescribe\|xit" {} \; 2>/dev/null | wc -l)
-if [ "$SKIP" -gt 0 ]; then
-    echo -e "${YELLOW}⚠️ .skip found in $SKIP file(s) - tests being skipped${NC}"
-fi
-
-echo ""
-echo "==================================="
-echo "Analysis complete!"
-echo ""
-echo "Run 'npm test -- --coverage' for detailed coverage metrics"
+echo
+echo "Pattern Analysis"
+echo "-----------------"
+printf '%-25s %s\n' 'Setup hooks:' "$BEFORE_EACH files"
+printf '%-25s %s\n' 'Mocking:' "$MOCKS files"
+printf '%-25s %s\n' 'Async tests:' "$ASYNC_TESTS files"
+printf '%-25s %s\n' 'setTimeout files:' "$TIMEOUTS"
+echo
+echo "Known heuristic boundaries"
+echo "--------------------------"
+echo "- Jest discovery is authoritative for the listed CI unit scope."
+echo "- TypeScript AST matching ignores comments and string literals."
+echo "- Only statically named Jest calls (it/test/describe and supported variants) are counted."
+echo "- Computed properties, aliases and dynamically generated test calls are not inferred."
+echo "- Marker findings are report-only; this helper never changes or skips tests."
