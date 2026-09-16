@@ -72,8 +72,8 @@ jobs:
         if: matrix.task.name == 'Unit-Tests'
         run: bun run test:functions
 
-  native-build-lock:
-    name: Native-Build-Lock
+  native-build-baseline:
+    name: Native-Build-Baseline
     runs-on: ubuntu-latest
     env:
       # Der Lock beschreibt den Release-Native-Graphen ohne HarnessUI.
@@ -96,8 +96,34 @@ jobs:
       - name: Dependencies installieren
         run: bun install --frozen-lockfile
 
-      - name: Native-Build-Lock-Test
-        run: bun run test test/native-build-lock.test.ts --runInBand
+      - name: Native-Build-Baseline-Tests
+        run: bun run test test/native-build-baseline.test.ts --runInBand
+
+  native-build-artifact:
+    name: Native-Build-Artefakt-Lock
+    runs-on: ubuntu-latest
+    env:
+      FAM_HARNESS_UI: "0"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.1
+
+      - name: Cache Bun Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Dependencies installieren
+        run: bun install --frozen-lockfile
+
+      - name: Native-Build-Artefakt-Tests
+        run: bun run test test/native-build-artifact.test.ts --runInBand
 
   # Braucht eine echte lokale Supabase-Instanz (Docker) — RLS-Policies lassen
   # sich nicht sinnvoll mocken (CLAUDE.md, #43: "Ein Fehler hier ist ein
