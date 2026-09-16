@@ -8,6 +8,8 @@ Wie können wir Nutzern ermöglichen, mehrere Einkaufsartikel schnell per Sprach
 
 Die App erhält eine lokale Sprachaufnahme innerhalb der Einkaufsliste. Eingaben wie „4x Skyr von JA, zwei Liter Milch und Brot“ werden in einzelne Artikel mit Name, Menge, Einheit und Marke zerlegt. Im MVP erfolgt die Erkennung über native On-Device-Spracherkennung, die durch ein eigenes Expo-Native-Modul und einen gemeinsamen App-Adapter gekapselt wird. Nach dem MVP kann React Native ExecuTorch als lokaler Whisper-Fallback für kompatible Geräte mit verfügbarer lokaler Modellbasis ergänzt werden.
 
+Die Sprachfunktion wird im MVP nur auf Geräten angeboten, die native On-Device-Spracherkennung unterstützen. Auf nicht unterstützten Geräten bleibt die Texteingabe verfügbar; ein alternativer Sprachmodus ist dort nicht Bestandteil des MVP.
+
 Die Zuordnung zur Einkaufsliste erfolgt über das lokal gespeicherte und haushaltsweit geteilte Einkaufsverhalten. Beispielsweise wird `Skyr` nach bestätigten früheren Zuordnungen automatisch REWE zugeordnet. Korrekturen des Nutzers werden als Feedback gesammelt und nicht sofort als neue automatische Lernregel übernommen.
 
 Das System arbeitet in zwei Stufen:
@@ -50,6 +52,7 @@ Die Zustimmung erfolgt in zwei getrennten, klar beschrifteten Opt-ins: eines fü
 - Sprachaufnahme direkt innerhalb der Einkaufsliste
 - Texteingabe und Spracheingabe über denselben lokalen Parser
 - Native On-Device-Spracherkennung über ein eigenes Expo-Native-Modul mit gemeinsamem App-Adapter
+- Sprachfunktion im MVP nur auf Geräten mit verfügbarer nativer On-Device-Erkennung
 - Mehrere Artikel in einer Eingabe
 - Erkennung von Artikelname, Menge, Einheit und Marke
 - Typische deutsche Einkaufsformen wie `3 Äpfel`, `3x Joghurt`, `2 Liter Milch` und `Skyr von JA`
