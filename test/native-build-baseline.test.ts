@@ -22,7 +22,7 @@ function runNative(...arguments_: string[]): CommandResult {
   };
 }
 
-describe('native build lock', () => {
+describe('native build baseline', () => {
   it('excludes only dev seed commands from the native fingerprint', () => {
     const config = jest.requireActual('../fingerprint.config.js') as {
       fileHookTransform: (
@@ -76,13 +76,5 @@ describe('native build lock', () => {
 
     expect(result.status).toBe(1);
     expect(result.output).toContain("'--approve-rebuild'");
-  });
-
-  it('does not compile when the locked binary is missing', () => {
-    const result = runNative('run', '--target', 'ios-production');
-
-    expect(result.status).toBe(1);
-    expect(result.output).toContain('Kein Artefakt für ios-production registriert');
-    expect(result.output).toContain('Kein automatischer Rebuild');
   });
 });

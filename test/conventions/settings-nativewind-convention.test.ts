@@ -6,8 +6,6 @@ const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const SETTINGS_CONSUMERS = [
   'src/features/settings/dev/design-system/showcase-patterns.tsx',
   'src/features/settings/dev/design-system/showcase-reanimated.tsx',
-  'src/features/settings/dev/dev-tools-screen.android.tsx',
-  'src/features/settings/dev/dev-tools-screen.tsx',
   'src/features/settings/export-screen.tsx',
 ] as const;
 

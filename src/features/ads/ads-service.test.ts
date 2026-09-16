@@ -48,9 +48,20 @@ jest.mock('react-native-purchases', () => ({
 }));
 
 describe('ads-service', () => {
+  const originalAdsEnabled = process.env.EXPO_PUBLIC_ADS_ENABLED;
+
   beforeEach(() => {
+    process.env.EXPO_PUBLIC_ADS_ENABLED = 'true';
     mockPurchasesConfigured = false;
     jest.clearAllMocks();
+  });
+
+  afterEach(() => {
+    if (originalAdsEnabled === undefined) {
+      delete process.env.EXPO_PUBLIC_ADS_ENABLED;
+    } else {
+      process.env.EXPO_PUBLIC_ADS_ENABLED = originalAdsEnabled;
+    }
   });
 
   it('initMobileAds initialisiert ohne Fehler', async () => {

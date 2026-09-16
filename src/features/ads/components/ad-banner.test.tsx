@@ -21,6 +21,7 @@ describe('AdBanner', () => {
   const originalAdsEnabled = process.env.EXPO_PUBLIC_ADS_ENABLED;
 
   beforeEach(() => {
+    process.env.EXPO_PUBLIC_ADS_ENABLED = 'true';
     mockHasPlus = false;
     mockHasAI = false;
     useAdsConsentStore.getState().setReady(true);

@@ -19,13 +19,9 @@ afterAll(async () => {
  * Realtime → SQLite Bridge (#48) — kein Mock, echte lokale Supabase-
  * Realtime-Instanz, zwei echte Clients ("Geraete"), zwei echte node:sqlite-DBs.
  *
- * Die WebSocket-Verbindungen der Clients bleiben nach Testende offen —
- * `client.realtime.disconnect()` haengt sich in dieser Umgebung selbst auf
- * (probiert, verworfen), statt zuverlaessig aufzuraeumen. `test:integration`
- * laeuft deshalb mit `--forceExit` (siehe package.json) — Jest meldet erst
- * alle Ergebnisse und beendet den Prozess danach hart, unabhaengig von
- * offenen Handles. Betrifft nur den Prozessabschluss, nicht die
- * Testergebnisse selbst.
+ * Die Test-Teardowns schliessen Channels, Timer und WebSocket-Transport
+ * deterministisch. Der Integrationstest muss deshalb ohne `--forceExit`
+ * und ohne offene Async-Handles enden.
  */
 
 async function pollUntil<T>(

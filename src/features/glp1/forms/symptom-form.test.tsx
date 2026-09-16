@@ -7,7 +7,7 @@ describe('SymptomForm', () => {
     const onSubmit = jest.fn();
     await render(<SymptomForm isPending={false} onSubmit={onSubmit} />);
 
-    await user.type(screen.getByLabelText('Konkrete Nebenwirkungen'), 'x'.repeat(201));
+    await user.paste(screen.getByLabelText('Konkrete Nebenwirkungen'), 'x'.repeat(201));
     await user.press(screen.getByRole('button', { name: 'Status speichern' }));
 
     expect(
