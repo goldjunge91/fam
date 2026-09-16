@@ -6,7 +6,7 @@ Wie können wir Nutzern ermöglichen, mehrere Einkaufsartikel schnell per Sprach
 
 ## Recommended Direction
 
-Die App erhält eine lokale Sprachaufnahme innerhalb der Einkaufsliste. Eingaben wie „4x Skyr von JA, zwei Liter Milch und Brot“ werden in einzelne Artikel mit Name, Menge, Einheit und Marke zerlegt. Im MVP erfolgt die Erkennung über native On-Device-Spracherkennung mit `expo-speech-recognition`, gekapselt durch einen gemeinsamen App-Adapter. Nach dem MVP kann React Native ExecuTorch als lokaler Whisper-Fallback für kompatible Geräte mit verfügbarer lokaler Modellbasis ergänzt werden.
+Die App erhält eine lokale Sprachaufnahme innerhalb der Einkaufsliste. Eingaben wie „4x Skyr von JA, zwei Liter Milch und Brot“ werden in einzelne Artikel mit Name, Menge, Einheit und Marke zerlegt. Im MVP erfolgt die Erkennung über native On-Device-Spracherkennung mit `expo-speech-recognition@^57.0.0`, gekapselt durch einen gemeinsamen App-Adapter. Nach dem MVP kann React Native ExecuTorch als lokaler Whisper-Fallback für kompatible Geräte mit verfügbarer lokaler Modellbasis ergänzt werden.
 
 Die Sprachfunktion wird im MVP nur auf Geräten angeboten, die native On-Device-Spracherkennung unterstützen. Auf nicht unterstützten Geräten bleibt die Texteingabe verfügbar; ein alternativer Sprachmodus ist dort nicht Bestandteil des MVP.
 
@@ -55,7 +55,7 @@ Die Zustimmung erfolgt in zwei getrennten, klar beschrifteten Opt-ins: eines fü
 
 - Sprachaufnahme direkt innerhalb der Einkaufsliste
 - Texteingabe und Spracheingabe über denselben lokalen Parser
-- Native On-Device-Spracherkennung über `expo-speech-recognition` mit gemeinsamem App-Adapter
+- Native On-Device-Spracherkennung über `expo-speech-recognition@^57.0.0` mit gemeinsamem App-Adapter
 - Sprachfunktion im MVP nur auf Geräten mit verfügbarer nativer On-Device-Erkennung
 - Mehrere Artikel in einer Eingabe
 - Erkennung von Artikelname, Menge, Einheit und Marke
@@ -105,6 +105,5 @@ Die Zustimmung erfolgt in zwei getrennten, klar beschrifteten Opt-ins: eines fü
 
 ## Open Questions
 
-- Welche konkreten nativen APIs und Mindestversionen muss die Laufzeitprüfung im MVP unterstützen?
 - Welche React-Native-ExecuTorch-Whisper-Variante und welche Modellbereitstellung eignen sich für den späteren Fallback?
 - Welche konkrete Ausgestaltung erhält die datenschutzverstärkte Telemetrie für die Produktionsauslieferung?
