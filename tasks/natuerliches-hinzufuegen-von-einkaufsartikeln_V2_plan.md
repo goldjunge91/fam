@@ -6,11 +6,13 @@ Quelle: [natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md](./natuerliches-hin
 
 Capability Map: [capability-map.md](./capability-map.md)
 
+Beads-Epic: `fam-gbv7`
+
 ## Überblick
 
 Die V2 wird als vollständig getrennte Beta umgesetzt. Sie besitzt einen eigenen Einstieg, ein eigenes Gate, eigene lokale Lern-/Session-/Consent-Daten und eine eigene Parser-, Routing- und Workflow-Schicht. Nur ein explizit bestätigter Beta-Output darf über eine schmale Integrationsgrenze in die bestehende Einkaufslisten-Domäne geschrieben werden. Der normale Einkaufsworkflow importiert keinen Beta-Code und bleibt bei deaktivierter Beta unverändert.
 
-Die Beads-Tasks beider Planquellen wurden gelöscht. Dieses Dokument bleibt die fachliche Planquelle und enthält den geordneten Index, die Abhängigkeiten, Checkpoints und die Architekturentscheidungen. Neue Tracker-Tasks werden erst nach einer separaten Freigabe aus diesem deutschen V2-Plan erstellt.
+Die V2-Tasks werden ausschließlich unter `fam-gbv7` in Beads verfolgt. Dieses Dokument bleibt die fachliche Planquelle und enthält den geordneten Index, die Abhängigkeiten, Checkpoints und Architekturentscheidungen. Die englischen Legacy-Artefakte und ihre Tasks bleiben vollständig getrennt und werden nicht neu angelegt.
 
 ## Planannahmen
 
@@ -56,19 +58,19 @@ Die fachlichen Slices, Akzeptanzkriterien und Verifikationsschritte bleiben in d
 
 ### Phase 1: Foundation und frühes Plattformrisiko
 
-1. **T1 — V2 Beta-Verträge und Feature-Gate definieren**
+1. **fam-gbv7.1 / T1 — V2 Beta-Verträge und Feature-Gate definieren**
    Abhängigkeiten: keine.
    Capability Map: `beta-isolation`.
 
-2. **T2 — Getrennten Beta-Speicher und Sessionzustand anlegen**
+2. **fam-gbv7.2 / T2 — Getrennten Beta-Speicher und Sessionzustand anlegen**
    Abhängigkeit: T1.
    Capability Map: `beta-isolation`.
 
-3. **T3 — Deterministischen lokalen Einkaufsartikel-Parser implementieren**
+3. **fam-gbv7.3 / T3 — Deterministischen lokalen Einkaufsartikel-Parser implementieren**
    Abhängigkeit: T1.
    Capability Map: `item-parser`.
 
-4. **T4 — Native On-Device-Spracherkennung mit Text-Fallback anbinden**
+4. **fam-gbv7.4 / T4 — Native On-Device-Spracherkennung mit Text-Fallback anbinden**
    Abhängigkeit: T1.
    Capability Map: `speech-input`.
    Freigabegate: Native Dependency, Config-Plugin und Dev-Client-Rebuild vor Umsetzung.
@@ -83,15 +85,15 @@ Die fachlichen Slices, Akzeptanzkriterien und Verifikationsschritte bleiben in d
 
 ### Phase 2: Domäne und bestätigter Output
 
-5. **T5 — Haushaltsrouting, Lernphase und Konfliktmodus bauen**
+5. **fam-gbv7.5 / T5 — Haushaltsrouting, Lernphase und Konfliktmodus bauen**
    Abhängigkeiten: T2, T3.
    Capability Map: `household-routing-learning`.
 
-6. **T6 — Bestätigten Beta-Output über den bestehenden Listenadapter speichern**
+6. **fam-gbv7.6 / T6 — Bestätigten Beta-Output über den bestehenden Listenadapter speichern**
    Abhängigkeit: T1.
    Capability Map: `shopping-list-integration`.
 
-7. **T7 — Textbasierte Beta als vertikalen Mehrfachartikel-Workflow verbinden**
+7. **fam-gbv7.7 / T7 — Textbasierte Beta als vertikalen Mehrfachartikel-Workflow verbinden**
    Abhängigkeiten: T2, T3, T5, T6.
    Capability Map: `natural-language-addition-workflow`.
 
@@ -106,16 +108,16 @@ Die fachlichen Slices, Akzeptanzkriterien und Verifikationsschritte bleiben in d
 
 ### Phase 3: Sprache und Beta-Oberfläche
 
-8. **T8 — Sprachpfad an den Beta-Workflow anschließen**
+8. **fam-gbv7.8 / T8 — Sprachpfad an den Beta-Workflow anschließen**
    Abhängigkeiten: T4, T7.
    Capability Map: `speech-input`, `natural-language-addition-workflow`.
 
-9. **T9 — Beta-Vorschau und kompakte Artikel-Rückfragen umsetzen**
+9. **fam-gbv7.9 / T9 — Beta-Vorschau und kompakte Artikel-Rückfragen umsetzen**
    Abhängigkeit: T7.
    Capability Map: `natural-language-addition-workflow`.
    UX-Gate: Vor konkreter UI-Implementierung ist ein separater Mock-Review mit Marco erforderlich.
 
-10. **T10 — Nutzerfreigabe, widerrufbaren Consent und Beta-Feedback anbinden**
+10. **fam-gbv7.10 / T10 — Nutzerfreigabe, widerrufbaren Consent und Beta-Feedback anbinden**
     Abhängigkeiten: T2, T7, T9.
     Capability Map: `household-routing-learning`, `privacy-quality-data`.
 
@@ -132,12 +134,12 @@ Die fachlichen Slices, Akzeptanzkriterien und Verifikationsschritte bleiben in d
 
 ### Phase 4: Qualität und Auslieferung
 
-11. **T11 — Lokale Qualitätsmetriken und anonymisierte Beta-Daten sichern**
+11. **fam-gbv7.11 / T11 — Lokale Qualitätsmetriken und anonymisierte Beta-Daten sichern**
     Abhängigkeiten: T2, T7, T9, T10.
     Capability Map: `privacy-quality-data`.
     Freigabegate: Produktionsausgestaltung der Telemetrie bleibt bis zur offenen Entscheidung außerhalb des MVP-Releases.
 
-12. **T12 — Beta auf verfügbaren iOS-/Android-Targets verifizieren und auslieferbar machen**
+12. **fam-gbv7.12 / T12 — Beta auf verfügbaren iOS-/Android-Targets verifizieren und auslieferbar machen**
     Abhängigkeiten: T8, T9, T10, T11.
     Capability Map: alle Module.
     Freigabegate: keine breitere Aktivierung und keine Modellübernahme ohne separate Freigabe.
@@ -189,7 +191,7 @@ Jeder Beads-Task trägt seine fokussierte Test- und Build-Verifikation. Die Umse
 
 ## Definition of Done für diese Planung
 
-- [ ] Die früheren Beads-Tasks beider Planquellen sind gelöscht; die fachlichen Umsetzungsschritte bleiben als T1 bis T12 in diesem V2-Plan erhalten.
+- [ ] Der deutsche V2-Plan ist unter `fam-gbv7` mit `fam-gbv7.1` bis `fam-gbv7.12` verknüpft; englische Legacy-Tasks bleiben gelöscht und getrennt.
 - [ ] Kein Task ist als unteilbares XL-Paket formuliert; die fachlichen Slices bleiben einzeln testbar.
 - [ ] Checkpoints liegen nach den Foundation-, Text- und Beta-Nutzerfluss-Phasen.
 - [ ] Plan, Spec und Capability Map verweisen eindeutig aufeinander.
