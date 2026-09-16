@@ -1,6 +1,7 @@
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, SegmentedControl, Surface, Txt } from '@/constants/ui';
 import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
@@ -13,9 +14,13 @@ interface AccountStepFormProps {
   onNext: () => void;
 }
 
-const styles = StyleSheet.create((theme) => ({
-  root: {
+const styles = StyleSheet.create((theme, rt) => ({
+  scroll: {
+    flex: 1,
+  },
+  content: {
     gap: theme.space.lg,
+    paddingBottom: 64 + rt.insets.ime,
   },
   activeContainer: {
     gap: theme.space.xl + theme.space.xs,
@@ -39,6 +44,8 @@ const AUTH_MODE_OPTIONS = [
   { value: 'sign_in', label: 'Anmelden', accessibilityLabel: 'Anmelden' },
 ] as const;
 
+const ACCOUNT_KEYBOARD_BOTTOM_OFFSET = 180;
+
 export function AccountStepForm({ onNext }: AccountStepFormProps) {
   const { session } = useSession();
 
@@ -50,80 +57,91 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
     if (session && oauthAttempted) onNext();
   }, [session, oauthAttempted, onNext]);
 
-  if (pendingSignUp) {
-    return (
-      <View style={styles.root}>
+  return (
+    <KeyboardAwareScrollView
+      style={styles.scroll}
+      // Die Toolbar liegt als Input-Accessory über der Systemtastatur und
+      // braucht deshalb zusätzlichen Abstand zum fokussierten Feld.
+      bottomOffset={ACCOUNT_KEYBOARD_BOTTOM_OFFSET}
+      keyboardShouldPersistTaps="handled"
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.content}>
+      {pendingSignUp ? (
         <EmailVerificationPanel
           email={pendingSignUp.email}
           password={pendingSignUp.password}
           onConfirmed={onNext}
           onChangeEmail={() => setPendingSignUp(null)}
         />
-      </View>
-    );
-  }
-
-  return (
-    <View style={styles.root}>
-      <Txt variant="subheading" weight="700">
-        Dein Account
-      </Txt>
-      <Txt variant="body" tone="secondary">
-        Erstelle ein Konto oder melde dich an, um deine Daten zu synchronisieren.
-      </Txt>
-
-      {session ? (
-        <View style={styles.activeContainer}>
-          <Surface tone="surface" style={styles.activeBanner}>
-            <Txt variant="label" tone="accent" weight="700">
-              ✓ Angemeldet als: {session.user.email}
-            </Txt>
-            <Txt variant="label" tone="secondary">
-              Dein Account ist aktiv. Du kannst jetzt direkt zum nächsten Schritt wechseln.
-            </Txt>
-          </Surface>
-
-          <Button title="Weiter" onPress={onNext} />
-        </View>
       ) : (
-        <View style={styles.form}>
-          <SegmentedControl
-            label="Anmeldeart"
-            options={AUTH_MODE_OPTIONS}
-            selected={authMode}
-            onSelect={setAuthMode}
-            selectionRole="tab"
-          />
+        <>
+          <Txt variant="subheading" weight="700">
+            Dein Account
+          </Txt>
+          <Txt variant="body" tone="secondary">
+            Erstelle ein Konto oder melde dich an, um deine Daten zu synchronisieren.
+          </Txt>
 
-          {authMode === 'sign_up' ? (
-            <>
-              <SignUpForm
-                onSuccess={onNext}
-                onPendingVerification={setPendingSignUp}
-                submitLabel="Konto erstellen & weiter"
-                testIDPrefix="onboarding-account"
-              />
-              <AuthProviderOptions mode="sign_up" onAuthAttempt={() => setOAuthAttempted(true)} />
-            </>
+          {session ? (
+            <View style={styles.activeContainer}>
+              <Surface tone="surface" style={styles.activeBanner}>
+                <Txt variant="label" tone="accent" weight="700">
+                  ✓ Angemeldet als: {session.user.email}
+                </Txt>
+                <Txt variant="label" tone="secondary">
+                  Dein Account ist aktiv. Du kannst jetzt direkt zum nächsten Schritt wechseln.
+                </Txt>
+              </Surface>
+
+              <Button title="Weiter" onPress={onNext} />
+            </View>
           ) : (
-            <>
-              <SignInForm
-                onSuccess={onNext}
-                submitLabel="Anmelden & weiter"
-                testIDPrefix="onboarding-account"
+            <View style={styles.form}>
+              <SegmentedControl
+                label="Anmeldeart"
+                options={AUTH_MODE_OPTIONS}
+                selected={authMode}
+                onSelect={setAuthMode}
+                selectionRole="tab"
               />
-              <AuthProviderOptions mode="sign_in" onAuthAttempt={() => setOAuthAttempted(true)} />
-              <Button
-                title="Passwort vergessen"
-                variant="link"
-                onPress={() =>
-                  router.push({ pathname: '/forgot-password', params: { from: 'onboarding' } })
-                }
-              />
-            </>
+
+              {authMode === 'sign_up' ? (
+                <>
+                  <SignUpForm
+                    onSuccess={onNext}
+                    onPendingVerification={setPendingSignUp}
+                    submitLabel="Konto erstellen & weiter"
+                    testIDPrefix="onboarding-account"
+                  />
+                  <AuthProviderOptions
+                    mode="sign_up"
+                    onAuthAttempt={() => setOAuthAttempted(true)}
+                  />
+                </>
+              ) : (
+                <>
+                  <SignInForm
+                    onSuccess={onNext}
+                    submitLabel="Anmelden & weiter"
+                    testIDPrefix="onboarding-account"
+                  />
+                  <AuthProviderOptions
+                    mode="sign_in"
+                    onAuthAttempt={() => setOAuthAttempted(true)}
+                  />
+                  <Button
+                    title="Passwort vergessen"
+                    variant="link"
+                    onPress={() =>
+                      router.push({ pathname: '/forgot-password', params: { from: 'onboarding' } })
+                    }
+                  />
+                </>
+              )}
+            </View>
           )}
-        </View>
+        </>
       )}
-    </View>
+    </KeyboardAwareScrollView>
   );
 }

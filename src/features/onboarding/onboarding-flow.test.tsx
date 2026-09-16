@@ -28,6 +28,12 @@ jest.mock('react-native-keyboard-controller', () => {
 
   return {
     KeyboardToolbar: () => React.createElement(View, { testID: 'onboarding-keyboard-toolbar' }),
+    KeyboardAwareScrollView: (props: Record<string, unknown>) =>
+      React.createElement(
+        View,
+        { ...props, testID: 'onboarding-account-keyboard-aware-scroll' },
+        props.children,
+      ),
   };
 });
 
@@ -93,6 +99,7 @@ async function advanceToPendingConfirmation() {
   await fireEvent.press(screen.getByRole('button', { name: 'Jetzt starten' }));
 
   expect(screen.getByTestId('onboarding-keyboard-toolbar')).toBeOnTheScreen();
+  expect(screen.getByTestId('onboarding-account-keyboard-aware-scroll')).toBeOnTheScreen();
 
   await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'family@example.com');
   await fireEvent.changeText(screen.getByLabelText('Passwort'), 'supersecret');

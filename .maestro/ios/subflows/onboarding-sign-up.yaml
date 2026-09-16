@@ -15,8 +15,15 @@ env:
 - tapOn:
     id: "keyboard.toolbar.next"
 - inputText: "${output.auth.password}"
+- scrollUntilVisible:
+    element:
+      id: "onboarding-account-password-confirmation"
+    direction: DOWN
 - tapOn:
-    id: "keyboard.toolbar.next"
+    id: "onboarding-account-password-confirmation"
+    retryTapIfNoChange: true
+    waitToSettleTimeoutMs: 10000
+- waitForAnimationToEnd
 - inputText: "${output.auth.password}"
 - tapOn:
     id: "keyboard.toolbar.done"
@@ -29,16 +36,23 @@ env:
     optional: true
 
 - extendedWaitUntil:
-    visible: "Bestätigung ausstehend"
-    timeout: 15000
-- runScript: ../../scripts/auth/read-local-confirmation-code.js
-- tapOn:
-    id: "email-verification-code"
-- inputText: "${output.auth.confirmationCode}"
-- tapOn:
-    id: "keyboard.toolbar.done"
-    optional: true
-- tapOn: "Bestätigen"
-- extendedWaitUntil:
-    visible: "Später ausfüllen"
-    timeout: 20000
+    visible: "^(Bestätigung ausstehend|Später ausfüllen)$"
+    timeout: 30000
+
+# Je nach lokaler Supabase-Konfiguration liefert signUp bereits eine Session
+# (direkt weiter) oder verlangt zuerst die E-Mail-Bestätigung.
+- runFlow:
+    when:
+      visible: "Bestätigung ausstehend"
+    commands:
+      - runScript: ../../scripts/auth/read-local-confirmation-code.js
+      - tapOn:
+          id: "email-verification-code"
+      - inputText: "${output.auth.confirmationCode}"
+      - tapOn:
+          id: "keyboard.toolbar.done"
+          optional: true
+      - tapOn: "Bestätigen"
+      - extendedWaitUntil:
+          visible: "Später ausfüllen"
+          timeout: 20000

@@ -76,10 +76,11 @@ function OnboardingContent() {
     <>
       <Screen
         title={currentStep === 1 ? 'Willkommen' : `Schritt ${currentStep} von ${TOTAL_STEPS}`}
-        // Schritt 4 verwaltet seinen ScrollView und den unteren Inhaltsabstand selbst.
-        scroll={currentStep !== 4}
-        applyBottomPadding={currentStep !== 4}
-        contentStyle={currentStep === 2 || currentStep === 3 ? styles.keyboardContent : undefined}>
+        // Schritte 2 und 4 verwalten ihren KeyboardAwareScrollView und den
+        // unteren Inhaltsabstand selbst.
+        scroll={currentStep !== 2 && currentStep !== 4}
+        applyBottomPadding={currentStep !== 2 && currentStep !== 4}
+        contentStyle={currentStep === 3 ? styles.keyboardContent : undefined}>
         {currentStep > 1 && currentStep < TOTAL_STEPS && (
           <View style={styles.progressContainer}>
             {/* Nutzt bewusst `prevStep` aus dem Context statt Routing — die
