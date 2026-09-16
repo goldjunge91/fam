@@ -6,7 +6,7 @@ Wie können wir Nutzern ermöglichen, mehrere Einkaufsartikel schnell per Sprach
 
 ## Recommended Direction
 
-Die App erhält eine lokale Sprachaufnahme innerhalb der Einkaufsliste. Eingaben wie „4x Skyr von JA, zwei Liter Milch und Brot“ werden in einzelne Artikel mit Name, Menge, Einheit und Marke zerlegt. Im MVP erfolgt die Erkennung über native On-Device-Spracherkennung mit `expo-speech-recognition@^57.0.0`, gekapselt durch einen gemeinsamen App-Adapter. Nach dem MVP wird zunächst ein multilinguales Whisper Tiny mit React Native ExecuTorch direkt gebündelt. Später kann ein weiteres lokales Modell optional heruntergeladen werden, ohne die gebündelte Baseline zu ersetzen.
+Die App erhält eine lokale Sprachaufnahme innerhalb der Einkaufsliste. Eingaben wie „4x Skyr von JA, zwei Liter Milch und Brot“ werden in einzelne Artikel mit Name, Menge, Einheit und Marke zerlegt. Im MVP erfolgt die Erkennung über native On-Device-Spracherkennung mit `expo-speech-recognition@^57.0.0`, gekapselt durch einen gemeinsamen App-Adapter. Nach dem MVP wird zunächst ein multilinguales Whisper Tiny mit React Native ExecuTorch direkt gebündelt. Später kann ein weiteres lokales Modell optional heruntergeladen werden, ohne die gebündelte Baseline zu ersetzen. Welches Modell dafür geeignet ist, entscheiden wir erst nach Tests mit Tiny.
 
 Die Sprachfunktion wird im MVP nur auf Geräten angeboten, die native On-Device-Spracherkennung unterstützen. Auf nicht unterstützten Geräten bleibt die Texteingabe verfügbar; ein alternativer Sprachmodus ist dort nicht Bestandteil des MVP.
 
@@ -105,5 +105,4 @@ Die Zustimmung erfolgt in zwei getrennten, klar beschrifteten Opt-ins: eines fü
 
 ## Open Questions
 
-- Welches weitere lokale Modell soll später zusätzlich zum gebündelten Whisper Tiny angeboten werden?
 - Welche konkrete Ausgestaltung erhält die datenschutzverstärkte Telemetrie für die Produktionsauslieferung?
