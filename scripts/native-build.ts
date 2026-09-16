@@ -266,8 +266,14 @@ function run(
     env: { ...process.env, ...environment },
     stdio: 'inherit',
   });
+  if (result.error) {
+    fail(`${program} konnte nicht gestartet werden: ${result.error.message}`);
+  }
   if (result.status !== 0) {
-    fail(`${program} ${commandArgs.join(' ')} ist fehlgeschlagen.`);
+    const reason = result.signal
+      ? `Signal ${result.signal}`
+      : `Exit-Code ${result.status ?? 'unbekannt'}`;
+    fail(`${program} ${commandArgs.join(' ')} ist fehlgeschlagen (${reason}).`);
   }
 }
 
@@ -482,12 +488,24 @@ function iosBuildEnv(includeHarnessUI: boolean): Record<string, string> {
 // verlangt allerdings, dass dieser Arbeitsordner beim Start leer ist. Wir
 // löschen deshalb nur den alten Arbeitsinhalt, nicht den benachbarten ccache.
 function easLocalBuildEnv(): Record<string, string> {
+  const configuredWorkingDir = process.env.EAS_LOCAL_BUILD_WORKINGDIR;
   const ccacheDir = readCcacheDirFromUserConfig();
-  if (!ccacheDir) return {};
-  const workingDir = join(dirname(ccacheDir), 'eas-build-local-workingdir');
+  const workingDir =
+    configuredWorkingDir ??
+    (ccacheDir ? join(dirname(ccacheDir), 'eas-build-local-workingdir') : undefined);
+  if (!workingDir) {
+    log('Kein fester EAS-Local-Workingdir konfiguriert. EAS verwendet seinen Standardpfad.');
+    return {};
+  }
   rmSync(workingDir, { force: true, recursive: true });
   mkdirSync(workingDir, { recursive: true });
-  return { EAS_LOCAL_BUILD_WORKINGDIR: workingDir };
+  log(`EAS-Local-Workingdir: ${workingDir}`);
+  return {
+    EAS_LOCAL_BUILD_WORKINGDIR: workingDir,
+    ...(process.env.EAS_LOCAL_BUILD_SKIP_CLEANUP === '1'
+      ? { EAS_LOCAL_BUILD_SKIP_CLEANUP: '1' }
+      : {}),
+  };
 }
 
 function readCcacheDirFromUserConfig(): string | undefined {
@@ -576,7 +594,12 @@ async function rebuild(): Promise<void> {
     run('pod', ['install'], buildEnvironment, join(PROJECT_ROOT, 'ios'));
   }
 
-  const outputDirectory = join(ARTIFACT_ROOT, targetName);
+  const localBuildEnvironment =
+    target.platform === 'ios' ? { ...buildEnvironment, ...easLocalBuildEnv() } : undefined;
+  const outputRoot = localBuildEnvironment?.EAS_LOCAL_BUILD_WORKINGDIR
+    ? join(dirname(localBuildEnvironment.EAS_LOCAL_BUILD_WORKINGDIR), 'native-build-artifacts')
+    : ARTIFACT_ROOT;
+  const outputDirectory = join(outputRoot, targetName);
   mkdirSync(outputDirectory, { recursive: true });
   const buildOutput = join(
     outputDirectory,
@@ -585,8 +608,9 @@ async function rebuild(): Promise<void> {
   prepareArtifactOutput(buildOutput);
 
   run(
-    'eas',
+    'bunx',
     [
+      'eas-cli',
       'build',
       '--local',
       '--platform',
@@ -597,7 +621,7 @@ async function rebuild(): Promise<void> {
       '--output',
       buildOutput,
     ],
-    target.platform === 'ios' ? { ...buildEnvironment, ...easLocalBuildEnv() } : undefined,
+    localBuildEnvironment,
   );
 
   const finalPath = artifactPath(targetName, target.kind);
@@ -660,7 +684,16 @@ async function offerSubmit(target: Target, artifactPath: string): Promise<void> 
   }
 
   log('Starte eas submit...');
-  run('eas', ['submit', '--platform', 'ios', '--profile', target.profile, '--path', artifactPath]);
+  run('bunx', [
+    'eas-cli',
+    'submit',
+    '--platform',
+    'ios',
+    '--profile',
+    target.profile,
+    '--path',
+    artifactPath,
+  ]);
 }
 
 async function restore(): Promise<void> {
