@@ -6,7 +6,8 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { HubScreen } from '@/components/layout/hub-screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
+import { HeaderIconButton } from '@/components/ui/header-icon-button';
+import { MenuButton } from '@/components/ui/menu-button';
 import { Button, Press, SegmentedControl, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';

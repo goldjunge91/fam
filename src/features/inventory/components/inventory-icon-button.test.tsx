@@ -18,6 +18,8 @@ jest.mock('@/components/ui/glass-card', () => ({
   useGlassAvailable: () => true,
 }));
 
+import { colorsLight } from '@/components/theme';
+
 import { InventoryIconButton } from './inventory-icon-button';
 
 type MockGlassViewProps = ViewProps & {
@@ -37,6 +39,19 @@ describe('InventoryIconButton', () => {
     expect(screen.getByTestId('glass-view')).toHaveStyle({
       alignItems: 'center',
       justifyContent: 'center',
+    });
+  });
+
+  it('zeigt den aktiven Zustand mit eigener Fläche und Kontur', async () => {
+    await render(
+      <InventoryIconButton label="Artikel suchen" onPress={jest.fn()} active>
+        <View />
+      </InventoryIconButton>,
+    );
+
+    expect(screen.getByRole('button', { name: 'Artikel suchen' })).toHaveStyle({
+      backgroundColor: colorsLight.accent,
+      borderColor: colorsLight.accent,
     });
   });
 });

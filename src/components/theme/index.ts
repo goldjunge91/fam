@@ -66,6 +66,7 @@ const famColorsLight = {
   buttonPrimaryDepth: '#5E4861',
   buttonDangerDepth: '#A94C40',
   buttonAccentDepth: '#A87343',
+  speedDialDepth: '#704B51',
   speedDialPantry: '#F0E2DF',
   speedDialShopping: '#EBE5F1',
   speedDialRecipes: '#E4EDE3',
@@ -96,6 +97,7 @@ const famColorsDark = {
   buttonPrimaryDepth: '#5E4861',
   buttonDangerDepth: '#A94C40',
   buttonAccentDepth: '#A87343',
+  speedDialDepth: '#806B83',
   speedDialPantry: '#F0E2DF',
   speedDialShopping: '#EBE5F1',
   speedDialRecipes: '#E4EDE3',
@@ -180,6 +182,12 @@ export const space = {
   xl: rs(20),
   xxl: rs(28),
   xxxl: rs(40),
+} as const;
+
+/** Standardmaße für Dashboard-Widgets in den beiden unterstützten Ansichten. */
+export const dashboardCardSizes = {
+  small: { height: 138, padding: space.lg },
+  large: { height: 176, padding: space.lg },
 } as const;
 
 /** Gemeinsame Maße für eigenständige Aktionsflächen. */

@@ -1,8 +1,10 @@
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { BackButton } from '@/components/layout/back-button';
+import { ProfileButton } from '@/components/layout/profile-button';
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { BackButton, MenuButton, ProfileButton } from '@/components/ui/buttons';
+import { MenuButton } from '@/components/ui/menu-button';
 import { Button, Pill, Press, Surface, Txt } from '@/constants/ui';
 import { CodeSample, ContractIntro, ExamplePair, Subsection } from './showcase-shared';
 

@@ -9,6 +9,16 @@ und beziehen ihre Werte aus `index.ts` sowie dem aktiven ThemeProvider.
 
 Höhere Cards dürfen Inhalt, Verhalten und lokales Layout komponieren. Sie besitzen
 keine unabhängige Flächenpalette oder selbst zusammengesetzte semantische Styles.
+Dashboard-Widgets verwenden für ihre beiden Ansichten die zentralen
+`dashboardCardSizes`-Tokens aus dem Theme-Owner: klein 138pt, groß 176pt, jeweils
+mit dem gemeinsamen `space.lg`-Innenabstand. Die Card-Hülle verwendet diese
+Tokens als feste Höhen, damit alle Widgets derselben Ansicht exakt ausgerichtet
+bleiben. Wrapper für Reordering und Animation verwenden keine zweite feste
+Höhe. Der Inhalt darf diese Standardmaße nicht durch eigene Größenkonstanten
+ersetzen.
+Die Dashboard-Widgets verwenden dafür `DashboardCardShell` als gemeinsame
+äußere Foundation; Feature-Komponenten liefern nur ihr inneres Layout und den
+Inhalt.
 
 ## Surface- und Card-Vertrag
 

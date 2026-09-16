@@ -5,8 +5,8 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { PageHeader } from '@/components/layout/page-header';
+import { ProfileButton } from '@/components/layout/profile-button';
 import { CONTENT_MAX_WIDTH } from '@/components/theme/index';
-import { ProfileButton } from '@/components/ui/buttons';
 import { useSyncBannerVisible } from '@/components/ui/sync-status-banner';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';

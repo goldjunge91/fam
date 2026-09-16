@@ -7,7 +7,7 @@ const SHARED_TOUCH_PATHS = [
   'src/components/ui/filter-chip-bar.tsx',
   'src/components/ui/inline-select.tsx',
   'src/constants/ui.tsx',
-  'src/components/ui/buttons/header-icon-button.tsx',
+  'src/components/ui/header-icon-button.tsx',
 ];
 
 describe('Shared-Touch-Vertrag', () => {

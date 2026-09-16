@@ -112,7 +112,7 @@ export const floatingActionButtonStyles = StyleSheet.create((theme) => ({
   outer: {
     paddingBottom: BUTTON_DEPTH,
     borderRadius: theme.radius.pill,
-    backgroundColor: theme.buttonPrimaryDepth,
+    backgroundColor: theme.speedDialDepth,
   },
   face: {
     width: 48,
@@ -124,13 +124,7 @@ export const floatingActionButtonStyles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
     overflow: 'hidden',
     backgroundColor: theme.accent,
-    boxShadow: `0 6px 14px ${withAlpha(theme.shadowSheet, 0.16)}`,
     borderCurve: 'continuous',
-    elevation: 4,
-    shadowColor: theme.shadowSheet,
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.16,
-    shadowRadius: 8,
   },
 }));
 

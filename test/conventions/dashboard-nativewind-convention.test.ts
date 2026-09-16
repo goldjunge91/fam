@@ -9,12 +9,10 @@ const DASHBOARD_SURFACE_PATHS = [
   'src/app/(app)/index.tsx',
   'src/components/layout/app-shell.tsx',
   'src/components/layout/screen.tsx',
-  'src/components/layout/screen.android.tsx',
-  'src/components/ui/buttons/profile-button.tsx',
-  'src/components/ui/buttons/profile-button.android.tsx',
-  'src/components/ui/buttons/floating-action-button.tsx',
+  'src/components/layout/profile-button.tsx',
+  'src/components/layout/profile-button.android.tsx',
+  'src/components/ui/floating-action-button.tsx',
   'src/features/navigation/navigation-drawer.tsx',
-  'src/features/navigation/navigation-drawer.android.tsx',
   'src/features/navigation/speed-dial-menu.tsx',
 ];
 

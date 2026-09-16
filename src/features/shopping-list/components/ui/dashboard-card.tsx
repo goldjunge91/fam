@@ -4,26 +4,19 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { GlassCard } from '@/components/ui/glass-card';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { Txt } from '@/constants/ui';
+import { DashboardCardShell } from '@/features/dashboard/components/dashboard-card-shell';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useShoppingList } from '@/features/shopping-list/hooks/use-shopping-list';
 
 const styles = StyleSheet.create({
-  pressable: {
-    width: '100%',
-  },
   widget: {
-    width: '100%',
-    minHeight: 138,
-    padding: space.lg,
     gap: space.sm,
   },
   largeWidget: {
     flexDirection: 'column',
-    minHeight: 140,
   },
   header: {
     flexDirection: 'row',
@@ -70,15 +63,14 @@ function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
     const progress = totalCount > 0 ? checkedCount / totalCount : 0;
 
     return (
-      <GlassCard
+      <DashboardCardShell
+        size={size}
         onPress={() => router.push('/shopping-list')}
         onLongPress={onLongPress}
         disabled={disabled}
         accessibilityRole="button"
         accessibilityLabel={t('dashboard.cards.shopping.accessibility')}
-        glassStyle={[styles.widget, styles.largeWidget]}
-        fallbackStyle={[styles.widget, styles.largeWidget]}
-        outerStyle={styles.pressable}>
+        style={[styles.widget, styles.largeWidget]}>
         <View style={styles.header}>
           <View style={[styles.badge, { backgroundColor: withAlpha(theme.accent, 0.15) }]}>
             <Txt variant="body" weight="700" tone="primary">
@@ -109,20 +101,19 @@ function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
         <Txt variant="body" weight="700">
           {openCount > 0 ? t('dashboard.cards.shopping.open') : t('dashboard.cards.shopping.done')}
         </Txt>
-      </GlassCard>
+      </DashboardCardShell>
     );
   }
 
   return (
-    <GlassCard
+    <DashboardCardShell
+      size={size}
       onPress={() => router.push('/shopping-list')}
       onLongPress={onLongPress}
       disabled={disabled}
       accessibilityRole="button"
       accessibilityLabel={t('dashboard.cards.shopping.accessibility')}
-      glassStyle={styles.widget}
-      fallbackStyle={styles.widget}
-      outerStyle={styles.pressable}>
+      style={styles.widget}>
       <View style={[styles.badge, { backgroundColor: withAlpha(theme.accent, 0.15) }]}>
         <Txt variant="body" weight="700" tone="primary">
           {openCount}
@@ -135,7 +126,7 @@ function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
       <Txt variant="body" weight="700">
         {openCount > 0 ? t('dashboard.cards.shopping.open') : t('dashboard.cards.shopping.done')}
       </Txt>
-    </GlassCard>
+    </DashboardCardShell>
   );
 }
 

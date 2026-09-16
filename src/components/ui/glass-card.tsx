@@ -44,6 +44,9 @@ const styles = StyleSheet.create((theme) => ({
   fallbackPressed: {
     opacity: 0.8,
   },
+  dashboardTint: {
+    backgroundColor: withAlpha(theme.accent, 0.08),
+  },
 }));
 
 function useReduceTransparency(): boolean {
@@ -79,12 +82,14 @@ type GlassCardProps = {
   glassStyle: StyleProp<ViewStyle>;
   /** Layout-Styles für den Fallback; die Fläche kommt aus dem aktiven Theme. */
   fallbackStyle?: StyleProp<ViewStyle>;
+  /** Aktiviert den dezenten, zentralen Dashboard-Farbakzent. */
+  tinted?: boolean;
   /** Zentrale Form des GlassCard-Rezepts. */
   shape?: GlassCardShape;
-  onPress: () => void;
+  onPress?: () => void;
   onLongPress?: () => void;
   disabled?: boolean;
-  accessibilityRole: AccessibilityRole;
+  accessibilityRole?: AccessibilityRole;
   accessibilityLabel: string;
   children: ReactNode;
 };
@@ -93,6 +98,7 @@ export function GlassCard({
   outerStyle,
   glassStyle,
   fallbackStyle,
+  tinted = false,
   shape = 'card',
   onPress,
   onLongPress,
@@ -120,6 +126,7 @@ export function GlassCard({
           outerStyle,
           styles.outer,
           styles.fallback,
+          tinted && styles.dashboardTint,
           styles.shape,
           fallbackPressed && styles.fallbackPressed,
         ]}>
@@ -139,7 +146,7 @@ export function GlassCard({
       <GlassView
         glassEffectStyle="regular"
         isInteractive={!disabled}
-        style={[styles.glassContent, glassStyle, styles.shape]}>
+        style={[styles.glassContent, glassStyle, tinted && styles.dashboardTint, styles.shape]}>
         {children}
       </GlassView>
     </Pressable>

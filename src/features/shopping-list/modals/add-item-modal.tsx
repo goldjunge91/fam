@@ -5,7 +5,7 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { HeaderIconButton } from '@/components/ui/buttons';
+import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { Txt } from '@/constants/ui';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { AddItemForm, type AddItemFormHandle } from '../forms/add-item-form';

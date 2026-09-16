@@ -12,6 +12,7 @@ import {
   borderWidth,
   colorsDark,
   colorsLight,
+  dashboardCardSizes,
   font,
   makeAccent,
   radius,
@@ -95,6 +96,8 @@ describe('fam theme tokens', () => {
     expect(font.sizes.base).toBeGreaterThan(0);
     expect(shadow.sm.elevation).toBe(2);
     expect(BUTTON_DEPTH).toBe(4);
+    expect(dashboardCardSizes.small).toEqual({ height: 138, padding: space.lg });
+    expect(dashboardCardSizes.large).toEqual({ height: 176, padding: space.lg });
   });
 });
 

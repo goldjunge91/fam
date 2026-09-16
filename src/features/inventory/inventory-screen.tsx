@@ -478,7 +478,7 @@ export function InventoryScreen() {
               label="Artikel suchen"
               active={searchOpen}
               onPress={() => setSearchOpen((open) => !open)}>
-              <SearchIcon color={colors.text} />
+              <SearchIcon color={searchOpen ? colors.onAccent : colors.text} />
             </InventoryIconButton>
             <InventoryIconButton
               label="Gesamten Vorratsverlauf öffnen"

@@ -1,11 +1,12 @@
+import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { space } from '@/components/theme/index';
-import { GlassCard } from '@/components/ui/glass-card';
 import { Txt } from '@/constants/ui';
+import { DashboardCardShell } from '@/features/dashboard/components/dashboard-card-shell';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useMealPlanEntriesInRange } from '@/features/meal-planner/use-meal-plans';
@@ -19,16 +20,9 @@ function toIsoDate(date: Date): string {
 }
 
 const styles = StyleSheet.create({
-  pressable: {
-    width: '100%',
-  },
   smallCard: {
-    width: '100%',
-    minHeight: 138,
     justifyContent: 'space-between',
     gap: space.sm,
-    paddingHorizontal: space.lg,
-    paddingVertical: 14,
   },
   smallContent: {
     flex: 1,
@@ -42,24 +36,37 @@ const styles = StyleSheet.create({
   smallArtwork: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: space.xs,
   },
   largeCard: {
-    width: '100%',
-    minHeight: 140,
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: space.lg,
-    paddingLeft: space.lg,
-    paddingRight: 18,
-    paddingVertical: space.lg,
+    alignItems: 'stretch',
+    gap: 0,
+    padding: 0,
+  },
+  largeArtwork: {
+    width: '50%',
+    height: '100%',
+  },
+  largeArtworkImage: {
+    width: '100%',
+    height: '100%',
   },
   largeCopy: {
     minWidth: 0,
     flex: 1,
+    justifyContent: 'center',
     gap: space.xs,
+    padding: space.lg,
+  },
+  largeFooter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: space.sm,
   },
 });
+
+const mealArtwork = require('@/assets/images/figma/meal-artwork.svg');
 
 function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
   const { t } = useTranslation();
@@ -82,15 +89,14 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
 
   if (size === 'small') {
     return (
-      <GlassCard
+      <DashboardCardShell
+        size={size}
         onPress={() => router.push('/meal-planner')}
         onLongPress={onLongPress}
         disabled={disabled}
         accessibilityRole="button"
         accessibilityLabel={t('dashboard.cards.mealPlan.accessibility')}
-        glassStyle={styles.smallCard}
-        fallbackStyle={styles.smallCard}
-        outerStyle={styles.pressable}>
+        style={styles.smallCard}>
         <View style={styles.smallContent}>
           <View style={styles.smallHeader}>
             <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.5 }}>
@@ -107,21 +113,27 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
             {nextMeal?.recipe_title ?? t('dashboard.cards.mealPlan.nothingPlanned')}
           </Txt>
         </View>
-      </GlassCard>
+      </DashboardCardShell>
     );
   }
 
   return (
-    <GlassCard
+    <DashboardCardShell
+      size={size}
       onPress={() => router.push('/meal-planner')}
       onLongPress={onLongPress}
       disabled={disabled}
       accessibilityRole="button"
       accessibilityLabel={t('dashboard.cards.mealPlan.accessibility')}
-      glassStyle={styles.largeCard}
-      fallbackStyle={styles.largeCard}
-      outerStyle={styles.pressable}>
-      <FamIcon name="mealArtwork" size={79} />
+      style={styles.largeCard}>
+      <View style={styles.largeArtwork}>
+        <Image
+          testID="meal-plan-large-artwork"
+          source={mealArtwork}
+          contentFit="fill"
+          style={styles.largeArtworkImage}
+        />
+      </View>
       <View style={styles.largeCopy}>
         <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.1 }}>
           {t('dashboard.cards.mealPlan.plannedToday')}
@@ -129,17 +141,19 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
         <Txt variant="body" weight="700" numberOfLines={2}>
           {nextMeal?.recipe_title ?? t('dashboard.cards.mealPlan.nothingPlannedYet')}
         </Txt>
-        <Txt variant="caption" tone="secondary">
-          {nextMeal
-            ? t('dashboard.cards.mealPlan.portions', {
-                meal: nextMealLabel,
-                count: nextMeal.portions,
-              })
-            : t('dashboard.cards.mealPlan.openWeek')}
-        </Txt>
+        <View style={styles.largeFooter}>
+          <Txt variant="caption" tone="secondary">
+            {nextMeal
+              ? t('dashboard.cards.mealPlan.portions', {
+                  meal: nextMealLabel,
+                  count: nextMeal.portions,
+                })
+              : t('dashboard.cards.mealPlan.openWeek')}
+          </Txt>
+          <FamIcon name="chevron" size={20} />
+        </View>
       </View>
-      <FamIcon name="chevron" size={20} />
-    </GlassCard>
+    </DashboardCardShell>
   );
 }
 

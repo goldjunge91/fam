@@ -12,7 +12,7 @@ import {
 } from 'react-native-drax';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { radius, space } from '@/components/theme/index';
+import { dashboardCardSizes, radius, space } from '@/components/theme/index';
 import { Button, Surface, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { type CardSize, type DashboardCardDef, getCards } from '@/features/dashboard/registry';
@@ -264,14 +264,19 @@ function EditingCardGrid({
   const stackSmallCards = width < 360 || fontScale >= 1.2;
   const columns = 2;
   const gap = space.md;
-  // Drax requires integer row spans. Small row units fit natural widget heights
-  // without reserving a full 180pt cell for every card.
+  // Drax requires integer row spans. Use the same fixed height as the rendered
+  // card before its first native layout measurement is available.
   const rowUnit = 4;
   const getItemSpan = useCallback(
-    (card: DashboardCardDef): GridItemSpan => ({
-      colSpan: getSize(card) === 'small' && !stackSmallCards ? 1 : 2,
-      rowSpan: Math.ceil(((heights[card.id] ?? 140) + gap) / rowUnit),
-    }),
+    (card: DashboardCardDef): GridItemSpan => {
+      const size = getSize(card);
+      const height = heights[card.id] ?? dashboardCardSizes[size].height;
+
+      return {
+        colSpan: size === 'small' && !stackSmallCards ? 1 : 2,
+        rowSpan: Math.ceil((height + gap) / rowUnit),
+      };
+    },
     [getSize, stackSmallCards, heights],
   );
 

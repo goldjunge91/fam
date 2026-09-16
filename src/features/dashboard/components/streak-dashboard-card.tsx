@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { radius, shadow, space } from '@/components/theme/index';
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Surface, Txt } from '@/constants/ui';
+import { Txt } from '@/constants/ui';
+import { DashboardCardShell } from '@/features/dashboard/components/dashboard-card-shell';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
 import { useStreak } from '@/features/gamification/streak';
 
@@ -16,15 +17,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: space.xs,
-  },
-  cardPressable: {
-    width: '100%',
-  },
-  card: {
-    width: '100%',
-    padding: space.lg,
-    borderRadius: radius.xl,
-    borderCurve: 'continuous',
   },
   smallCard: {
     justifyContent: 'space-between',
@@ -112,74 +104,63 @@ function StreakDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
   });
 
   return (
-    <Pressable
+    <DashboardCardShell
+      size={size}
       onLongPress={onLongPress}
       disabled={disabled}
       accessibilityLabel={accessibilityLabel}
-      style={styles.cardPressable}>
-      <Surface
-        tone="surface"
-        style={[
-          styles.card,
-          isSmall && styles.smallCard,
-          shadow.sm,
-          {
-            minHeight: size === 'large' ? 140 : 138,
-            shadowColor: colors.shadowCard,
-          },
-        ]}>
-        <View style={styles.header}>
-          <Txt variant="caption" tone="accent" weight="700" style={{ letterSpacing: 0.5 }}>
-            {t('dashboard.cards.streak.title')}
+      style={isSmall ? styles.smallCard : undefined}>
+      <View style={styles.header}>
+        <Txt variant="caption" tone="accent" weight="700" style={{ letterSpacing: 0.5 }}>
+          {t('dashboard.cards.streak.title')}
+        </Txt>
+        {!isSmall ? (
+          <Txt variant="caption" tone="secondary">
+            {hasStreak
+              ? t('dashboard.cards.streak.keepGoing')
+              : t('dashboard.cards.streak.yourProgress')}
           </Txt>
-          {!isSmall ? (
-            <Txt variant="caption" tone="secondary">
-              {hasStreak
-                ? t('dashboard.cards.streak.keepGoing')
-                : t('dashboard.cards.streak.yourProgress')}
-            </Txt>
-          ) : null}
-        </View>
+        ) : null}
+      </View>
 
-        {isSmall ? (
-          <View style={styles.smallMetric}>
+      {isSmall ? (
+        <View style={styles.smallMetric}>
+          <Txt variant="title" selectable>
+            {streak.count}
+          </Txt>
+          <Txt variant="body" tone="secondary">
+            {t('dashboard.cards.streak.daysShort', { count: streak.count })}
+          </Txt>
+        </View>
+      ) : (
+        <>
+          <View style={styles.metric}>
+            <Txt variant="body" selectable>
+              🔥
+            </Txt>
             <Txt variant="title" selectable>
               {streak.count}
             </Txt>
             <Txt variant="body" tone="secondary">
-              {t('dashboard.cards.streak.daysShort', { count: streak.count })}
+              {dayLabel}
             </Txt>
           </View>
-        ) : (
-          <>
-            <View style={styles.metric}>
-              <Txt variant="body" selectable>
-                🔥
-              </Txt>
-              <Txt variant="title" selectable>
-                {streak.count}
-              </Txt>
-              <Txt variant="body" tone="secondary">
-                {dayLabel}
-              </Txt>
-            </View>
 
-            <StreakDays count={streak.count} activeToday={streak.activeToday} />
-          </>
-        )}
+          <StreakDays count={streak.count} activeToday={streak.activeToday} />
+        </>
+      )}
 
-        {!isSmall ? (
-          <View style={[styles.status, { borderTopColor: colors.border }]}>
-            <Txt variant="body" tone={hasStreak ? 'success' : 'secondary'} weight="600">
-              {status}
-            </Txt>
-            <Txt variant="caption" tone="secondary">
-              {bestValue}
-            </Txt>
-          </View>
-        ) : null}
-      </Surface>
-    </Pressable>
+      {!isSmall ? (
+        <View style={[styles.status, { borderTopColor: colors.border }]}>
+          <Txt variant="body" tone={hasStreak ? 'success' : 'secondary'} weight="600">
+            {status}
+          </Txt>
+          <Txt variant="caption" tone="secondary">
+            {bestValue}
+          </Txt>
+        </View>
+      ) : null}
+    </DashboardCardShell>
   );
 }
 

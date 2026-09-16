@@ -293,6 +293,15 @@ describe('DashboardScreen — Essensplan-Karte', () => {
     await renderScreen();
     expect(screen.getByLabelText('Essensplan öffnen')).toBeTruthy();
   });
+
+  it('zeigt das Large-Artwork über die volle Kartenhöhe und mindestens halbbreit', async () => {
+    await renderScreen();
+
+    const artwork = screen.getByTestId('meal-plan-large-artwork');
+
+    expect(artwork).toHaveStyle({ width: '100%', height: '100%' });
+    expect(artwork.parent).toHaveStyle({ width: '50%', height: '100%' });
+  });
 });
 
 describe('DashboardScreen — Streak-Karte', () => {

@@ -2,11 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Modal, Platform, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-
+import { BackButton } from '@/components/layout/back-button';
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { type GradientSpec, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { BackButton } from '@/components/ui/buttons';
 import { Button, Card, IconButton, Press, Row, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';

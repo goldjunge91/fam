@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { HeaderIconButton } from '@/components/ui/buttons';
+import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { Txt } from '@/constants/ui';
 import { EditItemForm } from '../forms/edit-item-form';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';

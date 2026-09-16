@@ -13,12 +13,19 @@ import { BUTTON_DEPTH, withAlpha } from '@/components/theme/index';
 import { useGlassAvailable } from '@/components/ui/glass-card';
 import { medium as hapticMedium } from '@/lib/platform/haptics';
 
+const ICON_BUTTON_DEPTH = BUTTON_DEPTH / 2;
+
 const styles = StyleSheet.create((theme) => ({
   outer: {
-    paddingBottom: BUTTON_DEPTH,
+    paddingBottom: ICON_BUTTON_DEPTH,
     borderRadius: theme.radius.lg,
     backgroundColor: theme.buttonPrimaryDepth,
     boxShadow: `0 ${theme.shadow.sm.shadowOffset.height}px ${theme.shadow.sm.shadowRadius}px ${withAlpha(theme.shadowCard, theme.shadow.sm.shadowOpacity)}`,
+  },
+  activeOuter: {
+    paddingBottom: 0,
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
   },
   face: {
     width: 54,
@@ -33,7 +40,8 @@ const styles = StyleSheet.create((theme) => ({
     overflow: 'hidden',
   },
   activeFace: {
-    backgroundColor: theme.backgroundSoft,
+    backgroundColor: theme.accent,
+    borderColor: theme.accent,
   },
   glass: {
     flex: 1,
@@ -65,7 +73,7 @@ export function InventoryIconButton({
     transform: [{ translateY: depth.value }],
   }));
   return (
-    <View style={styles.outer}>
+    <View style={[styles.outer, active && styles.activeOuter]}>
       <Animated.View style={faceStyle}>
         <Pressable
           onPress={() => {
@@ -76,13 +84,13 @@ export function InventoryIconButton({
           accessibilityLabel={label}
           accessibilityState={{ expanded: active }}
           onPressIn={() => {
-            depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
+            depth.value = withTiming(ICON_BUTTON_DEPTH, { duration: 60 });
           }}
           onPressOut={() => {
             depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
           }}
           style={[styles.face, active && styles.activeFace]}>
-          {canUseGlass ? (
+          {canUseGlass && !active ? (
             <GlassView glassEffectStyle="regular" isInteractive style={styles.glass}>
               {children}
             </GlassView>

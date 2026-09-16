@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react-native';
 
 import { colorsLight } from '@/components/theme';
-import { ProfileButton } from '@/components/ui/buttons/profile-button';
+import { ProfileButton } from './profile-button';
 
 describe('ProfileButton', () => {
   it('zeigt die Avatar-URL anstelle der Initialen', async () => {

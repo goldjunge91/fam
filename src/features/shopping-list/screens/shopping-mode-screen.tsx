@@ -9,7 +9,7 @@ import {
 import { StyleSheet } from 'react-native-unistyles';
 import { space } from '@/components/theme';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { HeaderIconButton } from '@/components/ui/buttons';
+import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { Press, Row, Surface, Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format/format-currency';

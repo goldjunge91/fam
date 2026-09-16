@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Alert, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { rs, withAlpha } from '@/components/theme/index';
-import { BackButton } from '@/components/ui/buttons';
 import { Button, SegmentedControl, Txt } from '@/constants/ui';
 import { presentCustomerCenter } from '@/features/premium/paywall';
 import { PaywallPlanCard } from '@/features/premium/paywall-plan-card';

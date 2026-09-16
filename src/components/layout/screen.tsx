@@ -3,22 +3,17 @@ import type { ReactNode } from 'react';
 import { RefreshControl, ScrollView, type StyleProp, View, type ViewStyle } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-
+import { AutoBackButton, BackButton, type BackTarget } from '@/components/layout/back-button';
 import { GradientBackground } from '@/components/layout/gradient-background';
+import { ProfileButton } from '@/components/layout/profile-button';
 import type { GradientSpec } from '@/components/theme/index';
 import { CONTENT_MAX_WIDTH, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import {
-  AutoBackButton,
-  BackButton,
-  type BackTarget,
-  MenuButton,
-  ProfileButton,
-} from '@/components/ui/buttons';
+import { MenuButton } from '@/components/ui/menu-button';
 import { useSyncBannerVisible } from '@/components/ui/sync-status-banner';
 import { IconButton, Row, Surface, Txt } from '@/constants/ui';
 
-export type { BackTarget } from '@/components/ui/buttons';
+export type { BackTarget } from '@/components/layout/back-button';
 
 const SCREEN_BOTTOM_CLEARANCE = 96;
 

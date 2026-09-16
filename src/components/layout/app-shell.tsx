@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { PlusIcon } from '@/components/icons/fam-icon';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { FloatingActionButton } from '@/components/ui/buttons';
+import { FloatingActionButton } from '@/components/ui/floating-action-button';
 import { SyncBannerVisibilityProvider, SyncStatusBanner } from '@/components/ui/sync-status-banner';
 import { AdBanner } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';

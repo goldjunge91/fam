@@ -11,7 +11,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
-import { withAlpha } from '@/components/theme/index';
+import { dashboardCardSizes, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import type { CardSize } from '@/features/dashboard/registry';
@@ -134,14 +134,14 @@ const styles = StyleSheet.create({
   },
   smallContainer: {
     flex: 1,
-    minHeight: 138,
+    minHeight: dashboardCardSizes.small.height,
   },
   largeCardContent: {
     width: '100%',
   },
   smallCardContent: {
     width: '100%',
-    minHeight: 138,
+    minHeight: dashboardCardSizes.small.height,
   },
   badge: {
     position: 'absolute',

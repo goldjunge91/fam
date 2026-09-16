@@ -4,27 +4,20 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { GlassCard } from '@/components/ui/glass-card';
 import { Txt } from '@/constants/ui';
+import { DashboardCardShell } from '@/features/dashboard/components/dashboard-card-shell';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { getExpiryInfo } from '@/features/inventory/expiry';
 import { useInventoryItems } from '@/features/inventory/use-inventory-items';
 
 const styles = StyleSheet.create({
-  pressable: {
-    width: '100%',
-  },
   widget: {
-    width: '100%',
-    minHeight: 138,
-    padding: space.lg,
     gap: space.sm,
     overflow: 'hidden',
   },
   largeWidget: {
     flexDirection: 'column',
-    minHeight: 140,
   },
   header: {
     flexDirection: 'row',
@@ -111,15 +104,14 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
     const topItems = expiringItems.slice(0, 3);
 
     return (
-      <GlassCard
+      <DashboardCardShell
+        size={size}
         onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
         onLongPress={onLongPress}
         disabled={disabled}
         accessibilityRole="button"
         accessibilityLabel={t('dashboard.cards.inventory.accessibility')}
-        glassStyle={[styles.widget, styles.largeWidget]}
-        fallbackStyle={[styles.widget, styles.largeWidget]}
-        outerStyle={styles.pressable}>
+        style={[styles.widget, styles.largeWidget]}>
         <View style={styles.header}>
           <View style={[styles.badge, { backgroundColor: withAlpha(colors.warning, 0.2) }]}>
             <Txt variant="body" tone="warning" weight="700">
@@ -166,20 +158,19 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
             </Txt>
           )}
         </View>
-      </GlassCard>
+      </DashboardCardShell>
     );
   }
 
   return (
-    <GlassCard
+    <DashboardCardShell
+      size={size}
       onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
       onLongPress={onLongPress}
       disabled={disabled}
       accessibilityRole="button"
       accessibilityLabel={t('dashboard.cards.inventory.accessibility')}
-      glassStyle={styles.widget}
-      fallbackStyle={styles.widget}
-      outerStyle={styles.pressable}>
+      style={styles.widget}>
       <View style={[styles.badge, { backgroundColor: withAlpha(colors.warning, 0.2) }]}>
         <Txt variant="body" tone="warning" weight="700">
           {expiringCount}
@@ -188,7 +179,7 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
       <Txt variant="body" tone="secondary" numberOfLines={1} ellipsizeMode="tail">
         {t('dashboard.cards.inventory.title')}
       </Txt>
-    </GlassCard>
+    </DashboardCardShell>
   );
 }
 

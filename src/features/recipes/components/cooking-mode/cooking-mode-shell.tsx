@@ -2,10 +2,9 @@ import type { ReactNode } from 'react';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-
+import { BackButton } from '@/components/layout/back-button';
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { PageHeader } from '@/components/layout/page-header';
-import { BackButton } from '@/components/ui/buttons';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 
 const styles = StyleSheet.create(() => ({

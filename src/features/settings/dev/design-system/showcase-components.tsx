@@ -22,13 +22,11 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import {
-  CompactActionButton,
-  FloatingActionButton,
-  HeaderIconButton,
-} from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { CompactActionButton } from '@/components/ui/compact-action-button';
 import { EmptyState } from '@/components/ui/empty-state';
+import { FloatingActionButton } from '@/components/ui/floating-action-button';
+import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { ProgressRing } from '@/components/ui/progress-ring';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
