@@ -19,6 +19,7 @@ jest.mock('@aptabase/react-native', () => ({
 
 describe('Aptabase Analytics', () => {
   const originalKey = process.env.EXPO_PUBLIC_APTABASE_APP_KEY;
+  const originalDebugLogs = process.env.EXPO_PUBLIC_DEBUG_LOGS;
 
   function enableAptabaseForTest() {
     const { useAnalyticsSettingsStore } =
@@ -32,6 +33,11 @@ describe('Aptabase Analytics', () => {
     } else {
       process.env.EXPO_PUBLIC_APTABASE_APP_KEY = originalKey;
     }
+    if (originalDebugLogs === undefined) {
+      delete process.env.EXPO_PUBLIC_DEBUG_LOGS;
+    } else {
+      process.env.EXPO_PUBLIC_DEBUG_LOGS = originalDebugLogs;
+    }
     jest.resetModules();
     jest.restoreAllMocks();
     jest.clearAllMocks();
@@ -40,6 +46,7 @@ describe('Aptabase Analytics', () => {
   describe('initAptabase / isAptabaseConfigured', () => {
     it('bleibt ohne App-Key ein No-op', () => {
       delete process.env.EXPO_PUBLIC_APTABASE_APP_KEY;
+      process.env.EXPO_PUBLIC_DEBUG_LOGS = 'true';
       enableAptabaseForTest();
       const consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
       const { initAptabase, isAptabaseConfigured } = require('@/lib/analytics/aptabase');
@@ -131,6 +138,7 @@ describe('Aptabase Analytics', () => {
 
     it('fängt Fehler beim Tracken ab ohne zu crashen', () => {
       process.env.EXPO_PUBLIC_APTABASE_APP_KEY = 'A-EU-1234567890';
+      process.env.EXPO_PUBLIC_DEBUG_LOGS = 'true';
       enableAptabaseForTest();
       mockTrackEvent.mockImplementationOnce(() => {
         throw new Error('Track failed');

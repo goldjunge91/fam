@@ -10,12 +10,18 @@ jest.mock('@sentry/react-native', () => ({
 
 describe('initSentry', () => {
   const originalDsn = process.env.EXPO_PUBLIC_SENTRY_DSN;
+  const originalDebugLogs = process.env.EXPO_PUBLIC_DEBUG_LOGS;
 
   afterEach(() => {
     if (originalDsn === undefined) {
       delete process.env.EXPO_PUBLIC_SENTRY_DSN;
     } else {
       process.env.EXPO_PUBLIC_SENTRY_DSN = originalDsn;
+    }
+    if (originalDebugLogs === undefined) {
+      delete process.env.EXPO_PUBLIC_DEBUG_LOGS;
+    } else {
+      process.env.EXPO_PUBLIC_DEBUG_LOGS = originalDebugLogs;
     }
     jest.resetModules();
     jest.restoreAllMocks();
@@ -24,6 +30,7 @@ describe('initSentry', () => {
 
   it('bleibt ohne DSN ein No-op', () => {
     delete process.env.EXPO_PUBLIC_SENTRY_DSN;
+    process.env.EXPO_PUBLIC_DEBUG_LOGS = 'true';
     const consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
     const { initSentry } = require('@/lib/observability/providers/sentry');
 

@@ -41,12 +41,18 @@ jest.mock('posthog-react-native', () => ({
 
 describe('initPostHog / isPostHogConfigured', () => {
   const originalKey = process.env.EXPO_PUBLIC_POSTHOG_API_KEY;
+  const originalDebugLogs = process.env.EXPO_PUBLIC_DEBUG_LOGS;
 
   afterEach(() => {
     if (originalKey === undefined) {
       delete process.env.EXPO_PUBLIC_POSTHOG_API_KEY;
     } else {
       process.env.EXPO_PUBLIC_POSTHOG_API_KEY = originalKey;
+    }
+    if (originalDebugLogs === undefined) {
+      delete process.env.EXPO_PUBLIC_DEBUG_LOGS;
+    } else {
+      process.env.EXPO_PUBLIC_DEBUG_LOGS = originalDebugLogs;
     }
     jest.resetModules();
     jest.restoreAllMocks();
@@ -55,6 +61,7 @@ describe('initPostHog / isPostHogConfigured', () => {
 
   it('bleibt ohne API-Key ein No-op', () => {
     delete process.env.EXPO_PUBLIC_POSTHOG_API_KEY;
+    process.env.EXPO_PUBLIC_DEBUG_LOGS = 'true';
     const consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
     const { initPostHog, isPostHogConfigured } = require('@/lib/observability/providers/posthog');
 

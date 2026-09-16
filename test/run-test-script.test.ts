@@ -11,7 +11,7 @@ function listLogFiles(): string[] {
 }
 
 describe('scripts/run-test.ts', () => {
-  it('starts dotenv and Jest from the repository root', () => {
+  it('starts Jest from the repository root', () => {
     const logsBeforeRun = new Set(listLogFiles());
     const result = spawnSync('bun', ['scripts/run-test.ts', '--version'], {
       cwd: repositoryRoot,

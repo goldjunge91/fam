@@ -3,6 +3,7 @@
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { applyUnitTestEnv } from '../test/unit-test-env';
 
 const repositoryRoot = path.resolve(__dirname, '..');
 const logDirectory = path.join(repositoryRoot, 'test_logs');
@@ -64,12 +65,6 @@ function writeToBoth(
 const { filePath, stream: logStream } = createLogFile();
 const relativeLogPath = path.relative(logDirectory, filePath);
 const testArgs = process.argv.slice(2);
-const dotenvCommand = path.join(
-  repositoryRoot,
-  'node_modules',
-  '.bin',
-  process.platform === 'win32' ? 'dotenv.cmd' : 'dotenv',
-);
 const jestCommand = path.join(
   repositoryRoot,
   'node_modules',
@@ -82,19 +77,16 @@ logStream.write(`${runDescription}\nLogdatei: ${relativeLogPath}\n\n`);
 console.log(runDescription);
 console.log(`Logdatei: ${relativeLogPath}`);
 
-const child = spawn(
-  dotenvCommand,
-  ['-o', '-e', '.env.development.local', '--', jestCommand, ...testArgs],
-  {
-    cwd: repositoryRoot,
-    env: {
-      ...process.env,
-      EXPO_NO_DOTENV: '1',
-    },
-    shell: process.platform === 'win32',
-    stdio: ['inherit', 'pipe', 'pipe'],
-  },
-);
+const child = spawn(jestCommand, testArgs, {
+  cwd: repositoryRoot,
+  env: (() => {
+    const testEnvironment = { ...process.env };
+    applyUnitTestEnv(testEnvironment);
+    return testEnvironment;
+  })(),
+  shell: process.platform === 'win32',
+  stdio: ['inherit', 'pipe', 'pipe'],
+});
 
 child.stdout?.on('data', (chunk: Buffer) => {
   writeToBoth(process.stdout, logStream, chunk);
