@@ -6,11 +6,13 @@ Wie können wir Nutzern ermöglichen, mehrere Einkaufsartikel schnell per Sprach
 
 ## Recommended Direction
 
-Die App erhält eine lokale Sprachaufnahme innerhalb der Einkaufsliste. Eingaben wie „4x Skyr von JA, zwei Liter Milch und Brot“ werden in einzelne Artikel mit Name, Menge, Einheit und Marke zerlegt. Im MVP erfolgt die Erkennung über native On-Device-Spracherkennung, die durch ein eigenes Expo-Native-Modul und einen gemeinsamen App-Adapter gekapselt wird. Nach dem MVP kann React Native ExecuTorch als lokaler Whisper-Fallback für kompatible Geräte mit verfügbarer lokaler Modellbasis ergänzt werden.
+Die App erhält eine lokale Sprachaufnahme innerhalb der Einkaufsliste. Eingaben wie „4x Skyr von JA, zwei Liter Milch und Brot“ werden in einzelne Artikel mit Name, Menge, Einheit und Marke zerlegt. Im MVP erfolgt die Erkennung über native On-Device-Spracherkennung mit `expo-speech-recognition`, gekapselt durch einen gemeinsamen App-Adapter. Nach dem MVP kann React Native ExecuTorch als lokaler Whisper-Fallback für kompatible Geräte mit verfügbarer lokaler Modellbasis ergänzt werden.
 
 Die Sprachfunktion wird im MVP nur auf Geräten angeboten, die native On-Device-Spracherkennung unterstützen. Auf nicht unterstützten Geräten bleibt die Texteingabe verfügbar; ein alternativer Sprachmodus ist dort nicht Bestandteil des MVP.
 
 Die Unterstützung wird zur Laufzeit über die nativen Fähigkeiten des Geräts geprüft. Eine feste Geräte-Whitelist ist nicht erforderlich; bei einer negativen oder nicht verfügbaren Prüfung bleibt die Spracheingabe deaktiviert und die Texteingabe nutzbar.
+
+Der App-Adapter prüft die Verfügbarkeit des nativen Erkennungsdienstes und der On-Device-Erkennung und startet die Erkennung ausschließlich mit `requiresOnDeviceRecognition: true`. Fehlt der lokale Dienst oder das erforderliche Sprachmodell, gilt Sprache auf diesem Gerät als nicht verfügbar.
 
 Die Zuordnung zur Einkaufsliste erfolgt über das lokal gespeicherte und haushaltsweit geteilte Einkaufsverhalten. Beispielsweise wird `Skyr` nach bestätigten früheren Zuordnungen automatisch REWE zugeordnet. Korrekturen des Nutzers werden als Feedback gesammelt und nicht sofort als neue automatische Lernregel übernommen.
 
@@ -41,7 +43,7 @@ Die Zustimmung erfolgt in zwei getrennten, klar beschrifteten Opt-ins: eines fü
 - [ ] Nutzer akzeptieren eine gebündelte Rückfrage ab mindestens drei Vorschlägen besser als einzelne Rückfragen.
 - [ ] Korrekturen des Nutzers verbessern die haushaltsweiten Zuordnungen, ohne unbestätigte Regeln sofort zu verstärken.
 - [ ] Geteilte Lernregeln erzeugen im Haushalt mehr Nutzen als Konflikte zwischen unterschiedlichen Einkaufsgewohnheiten.
-- [ ] Ein eigenes Expo-Native-Modul kann die nativen On-Device-Schnittstellen zuverlässig und ohne Cloud-Fallback kapseln.
+- [ ] `expo-speech-recognition` kann die nativen On-Device-Schnittstellen zuverlässig und ohne Cloud-Fallback über den App-Adapter kapseln.
 - [ ] Ein späterer React-Native-ExecuTorch-Fallback liefert auf kompatiblen Geräten ausreichend gute lokale Transkriptionen.
 - [ ] Ausgewogene, sicherheitsorientierte und geschwindigkeitsorientierte Metriken liefern gemeinsam genug Signal zur Anpassung der Schwellenwerte.
 - [ ] Der Workflow erreicht mindestens 95 % korrekt erkannte Zuordnungen, höchstens 1 % falsche Einkaufslisten, höchstens 10 % manuelle Korrekturen und eine mediane Hinzufügezeit von höchstens 6 Sekunden.
@@ -53,7 +55,7 @@ Die Zustimmung erfolgt in zwei getrennten, klar beschrifteten Opt-ins: eines fü
 
 - Sprachaufnahme direkt innerhalb der Einkaufsliste
 - Texteingabe und Spracheingabe über denselben lokalen Parser
-- Native On-Device-Spracherkennung über ein eigenes Expo-Native-Modul mit gemeinsamem App-Adapter
+- Native On-Device-Spracherkennung über `expo-speech-recognition` mit gemeinsamem App-Adapter
 - Sprachfunktion im MVP nur auf Geräten mit verfügbarer nativer On-Device-Erkennung
 - Mehrere Artikel in einer Eingabe
 - Erkennung von Artikelname, Menge, Einheit und Marke
@@ -78,6 +80,13 @@ Die Zustimmung erfolgt in zwei getrennten, klar beschrifteten Opt-ins: eines fü
 - Nutzung dieser Daten für Parser-, Routing-, Prognose- und direkt verwandte Einkaufsfunktionen
 - Lokale Entfernung direkter Identifikatoren vor der Übertragung
 - Rohes Audio bleibt vollständig auf dem Gerät
+
+## Technische Quellen und Rollen
+
+- [`expo-audio`](https://docs.expo.dev/versions/v57.0.0/sdk/audio/) für optionale Audioaufnahme und Wiedergabe, nicht für die Spracherkennung
+- [`expo-speech`](https://docs.expo.dev/versions/v57.0.0/sdk/speech/) für Text-to-Speech, nicht für Spracheingabe
+- [`expo-speech-recognition`](https://github.com/jamsch/expo-speech-recognition) als MVP-Brücke zu iOS `SFSpeechRecognizer` und Android `SpeechRecognizer`, inklusive Verfügbarkeits- und On-Device-Prüfung
+- [React Native ExecuTorch](https://docs.swmansion.com/react-native-executorch/docs/fundamentals/getting-started) und [Speech-to-Text](https://docs.swmansion.com/react-native-executorch/docs/extensions/speech-to-text) als späterer lokaler Whisper-Fallback
 
 ## Not Doing
 
