@@ -23,6 +23,8 @@ Bestätigungen und Korrekturen werden als einzelne Ereignisse lokal erfasst und 
 
 Nutzer können im MVP separat zustimmen, pseudonymisierte Transkripte, Artikel, Marken, Ziel-Listen und Korrekturergebnisse für die Verbesserung des Parsers, der Listen-Zuordnung, eigener Prognosen und direkt verwandter Einkaufsfunktionen zu teilen. Rohes Audio bleibt immer auf dem Gerät. Diese Produktverbesserungsdaten werden getrennt von der normalen App-Nutzung und pro Nutzer verwaltet.
 
+Ein Widerruf stoppt die zukünftige Verarbeitung sofort. Pseudonymisierte Quelldaten werden innerhalb der festgelegten 90-Tage-Frist gelöscht. Bereits exportierte Trainings- oder Prognosemodelle bleiben im MVP bestehen; ihre nachträgliche Entfernung ist nicht Teil des ersten technischen Löschpfads.
+
 ## Key Assumptions to Validate
 
 - [ ] 10–12 bestätigte, unterschiedliche Artikel-plus-Marke-Zuordnungen reichen aus, damit Nutzer dem Automatikmodus vertrauen.
@@ -87,8 +89,6 @@ Nutzer können im MVP separat zustimmen, pseudonymisierte Transkripte, Artikel, 
 
 - Welche nativen On-Device-Spracherkennungs-APIs und Geräteverfügbarkeiten gelten auf iOS und Android im MVP?
 - Welche React-Native-ExecuTorch-Whisper-Variante und welche Modellbereitstellung eignen sich für den späteren Fallback?
-- Welche Aufbewahrungs- und Löschfristen gelten für pseudonymisierte Produktverbesserungsdaten?
-- Wie wirkt sich ein Widerruf auf bereits exportierte Trainings- oder Prognosemodelle aus?
 - Wie werden pseudonymisierte Transkripte auf seltene oder indirekt identifizierende Einkaufsinhalte geprüft?
 - Welche konkrete Ausgestaltung erhält die datenschutzverstärkte Telemetrie für die Produktionsauslieferung?
 - Welche rechtliche Prüfung und welche Einwilligungstexte benötigen Produktverbesserung und eigene Prognosen?
