@@ -1,5 +1,17 @@
 # Implementierungsplan: Testqualität und CI-Stabilität
 
+## Abschlussstatus
+
+**Vollständig erledigt** — 2026-09-16
+
+- Beads-Epic `fam-okaa` ist geschlossen; alle 14 Unteraufgaben sind erledigt.
+- Die Checkpoints für reproduzierbare Tests, Sync-Qualität und Qualitätsgates
+  sind vollständig verifiziert und oben als abgeschlossen markiert.
+- Nachweise: fokussierte Konventions-Regressionstests (3 Suites, 22 Tests),
+  CI-Scope-Metriklauf und dokumentierter Coverage-/Mutation-Pilot.
+- Dieser Plan ist abgeschlossen und wird nicht mehr als aktive Aufgabenquelle
+  verwendet. Neue Verbesserungen erhalten eigene Beads-Aufgaben.
+
 ## Überblick
 
 Die letzte CI-Ausführung scheiterte mit 8 fehlgeschlagenen Suiten und 9
