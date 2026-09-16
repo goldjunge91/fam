@@ -54,6 +54,12 @@ export type HardcodedUiTextReference = {
     | 'alert-message';
 };
 
+export type HardcodedUiTextReportOptions = {
+  detailed?: boolean;
+};
+
+const HARD_CODED_UI_REPORT_PATH_LIMIT = 20;
+
 function readSupportedLanguages(): string[] {
   const source = ts.createSourceFile(
     LANGUAGE_SOURCE,
@@ -503,7 +509,13 @@ export function findProductionHardcodedUiTextReferences(): HardcodedUiTextRefere
   );
 }
 
-export function formatHardcodedUiTextReport(references: HardcodedUiTextReference[]): string {
+function sortCountedEntries(entries: Map<string, number>): [string, number][] {
+  return [...entries].sort(([leftKey, leftCount], [rightKey, rightCount]) => {
+    return rightCount - leftCount || leftKey.localeCompare(rightKey);
+  });
+}
+
+function formatDetailedHardcodedUiTextReport(references: HardcodedUiTextReference[]): string {
   if (references.length === 0) return 'Hardcoded UI text report (report-only): no findings.';
 
   const maxReportedFindings = 100;
@@ -521,6 +533,37 @@ export function formatHardcodedUiTextReport(references: HardcodedUiTextReference
         `- ${reference.path}:${reference.line} [${reference.position}] ${JSON.stringify(reference.text)}`,
     ),
     ...omittedLine,
+  ].join('\n');
+}
+
+export function formatHardcodedUiTextReport(
+  references: HardcodedUiTextReference[],
+  options: HardcodedUiTextReportOptions = {},
+): string {
+  if (options.detailed) return formatDetailedHardcodedUiTextReport(references);
+  if (references.length === 0) return 'Hardcoded UI text report (report-only): no findings.';
+
+  const positionCounts = new Map<string, number>();
+  const pathCounts = new Map<string, number>();
+
+  for (const reference of references) {
+    positionCounts.set(reference.position, (positionCounts.get(reference.position) ?? 0) + 1);
+    pathCounts.set(reference.path, (pathCounts.get(reference.path) ?? 0) + 1);
+  }
+
+  const sortedPositions = sortCountedEntries(positionCounts);
+  const sortedPaths = sortCountedEntries(pathCounts);
+  const reportedPaths = sortedPaths.slice(0, HARD_CODED_UI_REPORT_PATH_LIMIT);
+  const omittedPaths = sortedPaths.length - reportedPaths.length;
+
+  return [
+    `Hardcoded UI text report (report-only): ${references.length} finding(s)`,
+    'By position:',
+    ...sortedPositions.map(([position, count]) => `- ${position}: ${count}`),
+    `By path (top ${reportedPaths.length} of ${sortedPaths.length}):`,
+    ...reportedPaths.map(([sourcePath, count]) => `- ${sourcePath}: ${count}`),
+    ...(omittedPaths > 0 ? [`- ... ${omittedPaths} further path(s) omitted.`] : []),
+    'Use I18N_CONVENTION_VERBOSE=1 for detailed findings.',
   ].join('\n');
 }
 

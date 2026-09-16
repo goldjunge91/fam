@@ -267,7 +267,62 @@ describe('i18n-Konventionen', () => {
     const references = findProductionHardcodedUiTextReferences();
 
     expect(Array.isArray(references)).toBe(true);
-    if (references.length > 0) console.info(formatHardcodedUiTextReport(references));
+    if (references.length > 0) {
+      const detailed = process.env.I18N_CONVENTION_VERBOSE === '1';
+      console.info(formatHardcodedUiTextReport(references, { detailed }));
+    }
+  });
+
+  it('aggregiert report-only Funde deterministisch nach Kategorie und Pfad', () => {
+    const report = formatHardcodedUiTextReport([
+      {
+        text: 'Titel',
+        line: 4,
+        path: 'src/z-screen.tsx',
+        position: 'jsx-text',
+      },
+      {
+        text: 'Speichern',
+        line: 8,
+        path: 'src/a-screen.tsx',
+        position: 'attribute:title',
+      },
+      {
+        text: 'Abbrechen',
+        line: 9,
+        path: 'src/a-screen.tsx',
+        position: 'attribute:title',
+      },
+    ]);
+
+    expect(report).toBe(
+      [
+        'Hardcoded UI text report (report-only): 3 finding(s)',
+        'By position:',
+        '- attribute:title: 2',
+        '- jsx-text: 1',
+        'By path (top 2 of 2):',
+        '- src/a-screen.tsx: 2',
+        '- src/z-screen.tsx: 1',
+        'Use I18N_CONVENTION_VERBOSE=1 for detailed findings.',
+      ].join('\n'),
+    );
+  });
+
+  it('behält Einzelbefunde im ausführlichen Diagnosemodus', () => {
+    const report = formatHardcodedUiTextReport(
+      [
+        {
+          text: 'Speichern',
+          line: 8,
+          path: 'src/a-screen.tsx',
+          position: 'attribute:title',
+        },
+      ],
+      { detailed: true },
+    );
+
+    expect(report).toContain('- src/a-screen.tsx:8 [attribute:title] "Speichern"');
   });
 
   it('blockiert reportbare Hardcode-Funde im abgeschlossenen Auth-Produktionsscope', () => {
