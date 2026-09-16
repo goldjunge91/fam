@@ -21,7 +21,7 @@ import {
   useDeleteRecipeMutation,
   useUpdateRecipeMutation,
 } from '../hooks/use-recipes';
-import { getCatalogCoverPath } from './recipe-catalog-image';
+import { getCatalogCoverPath, isCatalogStoragePath } from './recipe-catalog-image';
 
 export type CatalogRecipe = {
   id: string;
@@ -506,7 +506,7 @@ export function useCopyCatalogRecipeMutation() {
         };
 
         let coverPath = sourceCoverPath;
-        if (coverPath && !isReusableTemplateCover) {
+        if (coverPath && !isReusableTemplateCover && isCatalogStoragePath(coverPath)) {
           coverPath = await copyAsset(
             'recipe-catalog',
             coverPath,
