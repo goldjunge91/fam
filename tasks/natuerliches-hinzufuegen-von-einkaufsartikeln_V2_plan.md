@@ -10,7 +10,7 @@ Capability Map: [capability-map.md](./capability-map.md)
 
 Die V2 wird als vollständig getrennte Beta umgesetzt. Sie besitzt einen eigenen Einstieg, ein eigenes Gate, eigene lokale Lern-/Session-/Consent-Daten und eine eigene Parser-, Routing- und Workflow-Schicht. Nur ein explizit bestätigter Beta-Output darf über eine schmale Integrationsgrenze in die bestehende Einkaufslisten-Domäne geschrieben werden. Der normale Einkaufsworkflow importiert keinen Beta-Code und bleibt bei deaktivierter Beta unverändert.
 
-Die Tasks sind in Beads erfasst. Dieses Dokument ist die Planquelle und enthält deshalb nur den geordneten Index, die Abhängigkeiten, Checkpoints und die Architekturentscheidungen. Es wird keine parallele `tasks/todo.md` angelegt.
+Die Beads-Tasks beider Planquellen wurden gelöscht. Dieses Dokument bleibt die fachliche Planquelle und enthält den geordneten Index, die Abhängigkeiten, Checkpoints und die Architekturentscheidungen. Neue Tracker-Tasks werden erst nach einer separaten Freigabe aus diesem deutschen V2-Plan erstellt.
 
 ## Planannahmen
 
@@ -52,24 +52,24 @@ T8 + T9 + T10 + T11 ──> T12 Geräte-/Auslieferungsverifikation
 
 ## Task-Liste
 
-Die vollständigen Beschreibungen, Akzeptanzkriterien, Verifikationsschritte und erwarteten Dateien liegen in den verknüpften Beads-Tasks. Die Reihenfolge ist verbindlich, parallele Arbeit ist nur innerhalb der angegebenen Abhängigkeiten vorgesehen.
+Die fachlichen Slices, Akzeptanzkriterien und Verifikationsschritte bleiben in diesem Plan dokumentiert. Die Reihenfolge ist verbindlich, parallele Arbeit ist nur innerhalb der angegebenen Abhängigkeiten vorgesehen.
 
 ### Phase 1: Foundation und frühes Plattformrisiko
 
-1. `fam-e3a7` — V2 Beta-Verträge und Feature-Gate definieren
+1. **T1 — V2 Beta-Verträge und Feature-Gate definieren**
    Abhängigkeiten: keine.
    Capability Map: `beta-isolation`.
 
-2. `fam-vod9` — Getrennten Beta-Speicher und Sessionzustand anlegen
-   Abhängigkeit: `fam-e3a7`.
+2. **T2 — Getrennten Beta-Speicher und Sessionzustand anlegen**
+   Abhängigkeit: T1.
    Capability Map: `beta-isolation`.
 
-3. `fam-chtp` — Deterministischen lokalen Einkaufsartikel-Parser implementieren
-   Abhängigkeit: `fam-e3a7`.
+3. **T3 — Deterministischen lokalen Einkaufsartikel-Parser implementieren**
+   Abhängigkeit: T1.
    Capability Map: `item-parser`.
 
-4. `fam-8uq5` — Native On-Device-Spracherkennung mit Text-Fallback anbinden
-   Abhängigkeit: `fam-e3a7`.
+4. **T4 — Native On-Device-Spracherkennung mit Text-Fallback anbinden**
+   Abhängigkeit: T1.
    Capability Map: `speech-input`.
    Freigabegate: Native Dependency, Config-Plugin und Dev-Client-Rebuild vor Umsetzung.
 
@@ -83,16 +83,16 @@ Die vollständigen Beschreibungen, Akzeptanzkriterien, Verifikationsschritte und
 
 ### Phase 2: Domäne und bestätigter Output
 
-5. `fam-6y2j` — Haushaltsrouting, Lernphase und Konfliktmodus bauen
-   Abhängigkeiten: `fam-vod9`, `fam-chtp`.
+5. **T5 — Haushaltsrouting, Lernphase und Konfliktmodus bauen**
+   Abhängigkeiten: T2, T3.
    Capability Map: `household-routing-learning`.
 
-6. `fam-zw6s` — Bestätigten Beta-Output über den bestehenden Listenadapter speichern
-   Abhängigkeit: `fam-e3a7`.
+6. **T6 — Bestätigten Beta-Output über den bestehenden Listenadapter speichern**
+   Abhängigkeit: T1.
    Capability Map: `shopping-list-integration`.
 
-7. `fam-13kc` — Textbasierte Beta als vertikalen Mehrfachartikel-Workflow verbinden
-   Abhängigkeiten: `fam-vod9`, `fam-chtp`, `fam-6y2j`, `fam-zw6s`.
+7. **T7 — Textbasierte Beta als vertikalen Mehrfachartikel-Workflow verbinden**
+   Abhängigkeiten: T2, T3, T5, T6.
    Capability Map: `natural-language-addition-workflow`.
 
 ### Checkpoint: Lokaler Text-Vertical-Slice
@@ -106,17 +106,17 @@ Die vollständigen Beschreibungen, Akzeptanzkriterien, Verifikationsschritte und
 
 ### Phase 3: Sprache und Beta-Oberfläche
 
-8. `fam-nlxd` — Sprachpfad an den Beta-Workflow anschließen
-   Abhängigkeiten: `fam-8uq5`, `fam-13kc`.
+8. **T8 — Sprachpfad an den Beta-Workflow anschließen**
+   Abhängigkeiten: T4, T7.
    Capability Map: `speech-input`, `natural-language-addition-workflow`.
 
-9. `fam-9tun` — Beta-Vorschau und kompakte Artikel-Rückfragen umsetzen
-   Abhängigkeit: `fam-13kc`.
+9. **T9 — Beta-Vorschau und kompakte Artikel-Rückfragen umsetzen**
+   Abhängigkeit: T7.
    Capability Map: `natural-language-addition-workflow`.
    UX-Gate: Vor konkreter UI-Implementierung ist ein separater Mock-Review mit Marco erforderlich.
 
-10. `fam-tf7z` — Nutzerfreigabe, widerrufbaren Consent und Beta-Feedback anbinden
-    Abhängigkeiten: `fam-vod9`, `fam-13kc`, `fam-9tun`.
+10. **T10 — Nutzerfreigabe, widerrufbaren Consent und Beta-Feedback anbinden**
+    Abhängigkeiten: T2, T7, T9.
     Capability Map: `household-routing-learning`, `privacy-quality-data`.
 
 ### Checkpoint: Beta-Nutzerfluss
@@ -132,13 +132,13 @@ Die vollständigen Beschreibungen, Akzeptanzkriterien, Verifikationsschritte und
 
 ### Phase 4: Qualität und Auslieferung
 
-11. `fam-ih2q` — Lokale Qualitätsmetriken und anonymisierte Beta-Daten sichern
-    Abhängigkeiten: `fam-vod9`, `fam-13kc`, `fam-9tun`, `fam-tf7z`.
+11. **T11 — Lokale Qualitätsmetriken und anonymisierte Beta-Daten sichern**
+    Abhängigkeiten: T2, T7, T9, T10.
     Capability Map: `privacy-quality-data`.
     Freigabegate: Produktionsausgestaltung der Telemetrie bleibt bis zur offenen Entscheidung außerhalb des MVP-Releases.
 
-12. `fam-9387` — Beta auf verfügbaren iOS-/Android-Targets verifizieren und auslieferbar machen
-    Abhängigkeiten: `fam-nlxd`, `fam-9tun`, `fam-tf7z`, `fam-ih2q`.
+12. **T12 — Beta auf verfügbaren iOS-/Android-Targets verifizieren und auslieferbar machen**
+    Abhängigkeiten: T8, T9, T10, T11.
     Capability Map: alle Module.
     Freigabegate: keine breitere Aktivierung und keine Modellübernahme ohne separate Freigabe.
 
@@ -182,14 +182,14 @@ Jeder Beads-Task trägt seine fokussierte Test- und Build-Verifikation. Die Umse
 ## Offene Entscheidungen und Freigabegates
 
 - Die konkrete Produktionsausgestaltung der datenschutzverstärkten Telemetrie ist die einzige offene Frage aus der Spec und muss vor einem Produktionsrelease entschieden werden.
-- Die native Abhängigkeit `expo-speech-recognition` sowie ein möglicher Config-Plugin-/Dev-Client-Rebuild benötigen vor Task `fam-8uq5` eine gesonderte Freigabe.
+- Die native Abhängigkeit `expo-speech-recognition` sowie ein möglicher Config-Plugin-/Dev-Client-Rebuild benötigen vor der nativen Umsetzung eine gesonderte Freigabe.
 - Whisper Tiny ist post-MVP. Ein alternatives lokales Modell wird erst anhand von Tests entschieden und gehört nicht in das MVP-Implementierungsgate.
 - Eine spätere Übernahme von Beta-Lernregeln, Beta-Daten oder Beta-Metriken in produktive Systeme ist ein separates Vorhaben.
 - Die konkrete UI darf erst nach dem Mock-Review mit Marco umgesetzt werden.
 
 ## Definition of Done für diese Planung
 
-- [ ] Jeder Umsetzungsschritt ist als eigener Beads-Task mit Akzeptanzkriterien, Verifikation, Abhängigkeiten und erwarteten Dateien erfasst.
+- [ ] Die früheren Beads-Tasks beider Planquellen sind gelöscht; die fachlichen Umsetzungsschritte bleiben als T1 bis T12 in diesem V2-Plan erhalten.
 - [ ] Kein Task ist als unteilbares XL-Paket formuliert; die fachlichen Slices bleiben einzeln testbar.
 - [ ] Checkpoints liegen nach den Foundation-, Text- und Beta-Nutzerfluss-Phasen.
 - [ ] Plan, Spec und Capability Map verweisen eindeutig aufeinander.
