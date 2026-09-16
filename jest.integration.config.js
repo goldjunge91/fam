@@ -5,6 +5,9 @@
 module.exports = {
   testEnvironment: "node",
   maxWorkers: 1,
+  // Watchman kann bei den grossen lokalen Worktrees wiederholt recrawlen;
+  // Integrationstests brauchen den Dateiwatcher nicht.
+  watchman: false,
   // Integrationstests leben ausschliesslich im echten Projekt-Quellbaum.
   // Ohne diese Grenze sammelt Jest lokal auch Tests aus Codex-/Claude-
   // Worktrees ein und fuehrt dieselbe Suite mehrfach gegen dieselbe DB aus.

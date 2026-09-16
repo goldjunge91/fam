@@ -59,6 +59,50 @@ function uniqueEmail(prefix: string) {
 
 export type Device = { db: TestDatabase; client: SupabaseClient<Database> };
 
+type RealtimeConnection = {
+  close: (code?: number, reason?: string, wasClean?: boolean) => void;
+};
+
+type RealtimeSocket = {
+  clearHeartbeats: () => void;
+  closeWasClean: boolean;
+  conn: RealtimeConnection | null | undefined;
+  disconnecting: boolean;
+  reconnectTimer: { reset: () => void };
+};
+
+type RealtimeInternals = {
+  _pendingDisconnectTimer: ReturnType<typeof setTimeout> | null;
+  socketAdapter: {
+    getSocket: () => RealtimeSocket;
+  };
+};
+
+/**
+ * Beendet den Realtime-Transport fuer Test-Teardown ohne auf den asynchronen
+ * Socket-Close-Callback von `RealtimeClient.disconnect()` zu warten. Dieser
+ * Callback kann mit node:ws offen bleiben, obwohl der Socket bereits schliesst.
+ */
+function closeRealtimeClient(client: SupabaseClient<Database>): void {
+  for (const channel of client.realtime.getChannels()) channel.teardown();
+
+  const realtime = client.realtime as unknown as RealtimeInternals;
+  if (realtime._pendingDisconnectTimer !== null) {
+    clearTimeout(realtime._pendingDisconnectTimer);
+    realtime._pendingDisconnectTimer = null;
+  }
+
+  const socket = realtime.socketAdapter.getSocket();
+  socket.closeWasClean = true;
+  socket.disconnecting = true;
+  socket.reconnectTimer.reset();
+  socket.clearHeartbeats();
+
+  const connection = socket.conn;
+  socket.conn = null;
+  connection?.close();
+}
+
 export type TwoDeviceSetup = {
   deviceA: Device;
   deviceB: Device;
@@ -112,33 +156,29 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
   await runDrizzleMigrations(dbB);
 
   const teardown = async () => {
-    // Reihenfolge: Kind-Tabellen → Elterntabellen → auth.users.
-    // Direkt per service-role RPC, nicht ueber admin.auth.admin.deleteUser —
-    // das scheitert am Household-Admin-Constraint und hinterlaesst Leichen.
-    const admin = adminClient();
-    await admin.from('symptom_logs').delete().eq('user_id', userId);
-    await admin.from('medication_logs').delete().eq('user_id', userId);
-    await admin.from('shopping_list_items').delete().eq('household_id', householdId);
-    await admin.from('fridge_items').delete().eq('household_id', householdId);
-    await admin.from('storage_locations').delete().eq('household_id', householdId);
-    await admin.from('household_members').delete().eq('household_id', householdId);
-    await admin.from('households').delete().eq('id', householdId);
-    // Jetzt ist der User kein Admin mehr → deleteUser greift.
-    await admin.auth.admin.deleteUser(userId);
-
-    // Versuche, offene WebSocket-Handles und SQLite-Verbindungen abzubauen, damit Jest sauber beenden kann
     try {
-      await clientA.removeAllChannels();
-      await clientB.removeAllChannels();
-      await clientA.realtime.disconnect();
-      await clientB.realtime.disconnect();
-      (clientA.realtime as any).conn?.close();
-      (clientB.realtime as any).conn?.close();
-    } catch {
-      // Ignoriere Fehler bei bereits geschlossenen Sockets
+      // Reihenfolge: Kind-Tabellen → Elterntabellen → auth.users.
+      // Direkt per service-role RPC, nicht ueber admin.auth.admin.deleteUser —
+      // das scheitert am Household-Admin-Constraint und hinterlaesst Leichen.
+      const admin = adminClient();
+      await admin.from('symptom_logs').delete().eq('user_id', userId);
+      await admin.from('medication_logs').delete().eq('user_id', userId);
+      await admin.from('shopping_list_items').delete().eq('household_id', householdId);
+      await admin.from('fridge_items').delete().eq('household_id', householdId);
+      await admin.from('storage_locations').delete().eq('household_id', householdId);
+      await admin.from('household_members').delete().eq('household_id', householdId);
+      await admin.from('households').delete().eq('id', householdId);
+      // Jetzt ist der User kein Admin mehr → deleteUser greift.
+      await admin.auth.admin.deleteUser(userId);
+    } finally {
+      // `removeAllChannels()` wartet auf einen Socket-Close-Callback, der mit
+      // node:ws offen bleiben kann. Fuer Tests werden die privaten Timer und
+      // der Transport deshalb direkt und synchron beendet.
+      closeRealtimeClient(clientA);
+      closeRealtimeClient(clientB);
+      dbA.close();
+      dbB.close();
     }
-    dbA.close();
-    dbB.close();
   };
 
   return {
