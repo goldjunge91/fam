@@ -25,6 +25,8 @@ let mockHouseholds: { id: string; name: string }[] = [{ id: 'hh-1', name: 'Famil
 let mockActiveHousehold: { id: string; name: string } | null = mockHouseholds[0];
 let mockAvatarUrl: string | null = null;
 let mockCaloriesTrackingEnabled = true;
+const mockSignOutAndClearLocalData = jest.fn();
+const mockPersistOnboardingCompleted = jest.fn();
 
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({
@@ -33,6 +35,14 @@ jest.mock('@/features/auth/session-provider', () => ({
     seenOnboarding: true,
     error: null,
   }),
+}));
+
+jest.mock('@/features/auth/sign-out', () => ({
+  signOutAndClearLocalData: (...args: unknown[]) => mockSignOutAndClearLocalData(...args),
+}));
+
+jest.mock('@/features/onboarding/onboarding-completion', () => ({
+  persistOnboardingCompleted: (...args: unknown[]) => mockPersistOnboardingCompleted(...args),
 }));
 
 jest.mock('@/features/household/active-household-provider', () => ({
@@ -127,6 +137,11 @@ describe('SettingsScreen', () => {
     mockAvatarUrl = null;
     mockCaloriesTrackingEnabled = true;
     jest.mocked(router.push).mockClear();
+    jest.mocked(router.replace).mockClear();
+    mockSignOutAndClearLocalData.mockClear();
+    mockPersistOnboardingCompleted.mockClear();
+    mockSignOutAndClearLocalData.mockResolvedValue({ error: null });
+    mockPersistOnboardingCompleted.mockResolvedValue(undefined);
     process.env.EXPO_PUBLIC_DEV_TOOLS = 'false';
     process.env.EXPO_PUBLIC_SUPABASE_URL = 'http://127.0.0.1:54321';
   });
@@ -300,5 +315,16 @@ describe('SettingsScreen', () => {
 
     expect(await screen.findByRole('radio', { name: 'English', selected: true })).toBeOnTheScreen();
     expect(mockLanguageValues.get('fam:language')).toBe('en');
+  });
+
+  it('öffnet nach erfolgreichem Logout direkt den Sign-in-Screen', async () => {
+    await renderScreen();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'Abmelden' }));
+
+    expect(mockSignOutAndClearLocalData).toHaveBeenCalledTimes(1);
+    expect(mockPersistOnboardingCompleted).toHaveBeenCalledTimes(1);
+    expect(router.replace).toHaveBeenCalledWith('/sign-in');
   });
 });

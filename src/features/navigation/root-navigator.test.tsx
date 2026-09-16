@@ -55,6 +55,21 @@ const privateRootRoutes = [
 ];
 
 describe('RootNavigator', () => {
+  it('zeigt neuen Nutzern das Onboarding und noch keine Auth-Routen', async () => {
+    mockDevTools = false;
+    mockSessionState = {
+      session: null,
+      accountReady: true,
+      isLoading: false,
+      seenOnboarding: false,
+    };
+
+    await render(<RootNavigator />);
+
+    expect(screen.getByText('onboarding')).toBeOnTheScreen();
+    expect(screen.queryByText('(auth)')).not.toBeOnTheScreen();
+  });
+
   it('registriert private Root-Routen ausschließlich mit einer Session', async () => {
     jest.clearAllMocks();
     mockDevTools = false;
@@ -71,6 +86,8 @@ describe('RootNavigator', () => {
     for (const route of privateRootRoutes) {
       expect(screen.queryByText(route)).not.toBeOnTheScreen();
     }
+    expect(screen.queryByText('onboarding')).not.toBeOnTheScreen();
+    expect(screen.getByText('(auth)')).toBeOnTheScreen();
 
     mockSessionState = {
       session: { user: { id: 'user-1' } },
@@ -85,6 +102,7 @@ describe('RootNavigator', () => {
     for (const route of privateRootRoutes) {
       expect(screen.getByText(route)).toBeOnTheScreen();
     }
+    expect(screen.getByText('onboarding')).toBeOnTheScreen();
     expect(screen.queryByText('meal-planner')).not.toBeOnTheScreen();
     expect(screen.queryByText('(auth)')).not.toBeOnTheScreen();
   });

@@ -48,7 +48,9 @@ export function RootNavigator() {
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="onboarding" />
+      <Stack.Protected guard={!!session || isNewUser}>
+        <Stack.Screen name="onboarding" />
+      </Stack.Protected>
 
       {/* (app) behält den bestehenden Onboarding-Einstieg für Erstnutzer. */}
       <Stack.Protected guard={!!session || isNewUser}>

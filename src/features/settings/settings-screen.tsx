@@ -113,7 +113,7 @@ export function SettingsScreen() {
       // Bekannte Nutzer starten nach dem Logout direkt im Auth-Screen,
       // statt beim naechsten Kaltstart erneut das Welcome-Onboarding zu sehen.
       await persistOnboardingCompleted();
-      router.replace('/onboarding');
+      router.replace('/sign-in');
     }
   }
 

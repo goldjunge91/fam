@@ -116,6 +116,7 @@ describe('encrypted account storage', () => {
     expect(storage.dispose).toHaveBeenCalledTimes(1);
     expect(deleteMMKV).toHaveBeenCalledWith('fam-account-user-d-v1');
     expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith('fam.mmkv.account-key.v1.hash-d');
+    expect(SecureStore.deleteItemAsync).not.toHaveBeenCalledWith('fam_onboarding_completed_v1');
   });
 
   it('lässt einen veralteten asynchronen Open nach begonnenem Cleanup nichts neu anlegen', async () => {
