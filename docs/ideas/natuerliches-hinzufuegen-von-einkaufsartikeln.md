@@ -10,6 +10,8 @@ Die App erhält eine lokale Sprachaufnahme innerhalb der Einkaufsliste. Eingaben
 
 Die Sprachfunktion wird im MVP nur auf Geräten angeboten, die native On-Device-Spracherkennung unterstützen. Auf nicht unterstützten Geräten bleibt die Texteingabe verfügbar; ein alternativer Sprachmodus ist dort nicht Bestandteil des MVP.
 
+Die Unterstützung wird zur Laufzeit über die nativen Fähigkeiten des Geräts geprüft. Eine feste Geräte-Whitelist ist nicht erforderlich; bei einer negativen oder nicht verfügbaren Prüfung bleibt die Spracheingabe deaktiviert und die Texteingabe nutzbar.
+
 Die Zuordnung zur Einkaufsliste erfolgt über das lokal gespeicherte und haushaltsweit geteilte Einkaufsverhalten. Beispielsweise wird `Skyr` nach bestätigten früheren Zuordnungen automatisch REWE zugeordnet. Korrekturen des Nutzers werden als Feedback gesammelt und nicht sofort als neue automatische Lernregel übernommen.
 
 Das System arbeitet in zwei Stufen:
@@ -34,7 +36,7 @@ Die Zustimmung erfolgt in zwei getrennten, klar beschrifteten Opt-ins: eines fü
 ## Key Assumptions to Validate
 
 - [ ] 10–12 bestätigte, unterschiedliche Artikel-plus-Marke-Zuordnungen reichen aus, damit Nutzer dem Automatikmodus vertrauen.
-- [ ] Native On-Device-Sprach-zu-Text-Verarbeitung funktioniert auf iOS und Android ausreichend zuverlässig und offline.
+- [ ] Die Laufzeitprüfung erkennt zuverlässig, ob Offline-Spracherkennung verfügbar ist, und verhindert die Spracheingabe auf nicht unterstützten Geräten.
 - [ ] Artikel-, Marken- und Laden-Zuordnungen lassen sich aus dem haushaltsweiten Einkaufsverhalten zuverlässig ableiten.
 - [ ] Nutzer akzeptieren eine gebündelte Rückfrage ab mindestens drei Vorschlägen besser als einzelne Rückfragen.
 - [ ] Korrekturen des Nutzers verbessern die haushaltsweiten Zuordnungen, ohne unbestätigte Regeln sofort zu verstärken.
@@ -94,6 +96,6 @@ Die Zustimmung erfolgt in zwei getrennten, klar beschrifteten Opt-ins: eines fü
 
 ## Open Questions
 
-- Welche nativen On-Device-Spracherkennungs-APIs und Geräteverfügbarkeiten gelten auf iOS und Android im MVP?
+- Welche konkreten nativen APIs und Mindestversionen muss die Laufzeitprüfung im MVP unterstützen?
 - Welche React-Native-ExecuTorch-Whisper-Variante und welche Modellbereitstellung eignen sich für den späteren Fallback?
 - Welche konkrete Ausgestaltung erhält die datenschutzverstärkte Telemetrie für die Produktionsauslieferung?
