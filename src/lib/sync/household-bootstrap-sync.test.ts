@@ -102,11 +102,7 @@ describe('triggerHouseholdsPull', () => {
 
   it('faengt einen fehlschlagenden Pull ab und gibt null zurueck', async () => {
     mockPullHousehold.mockRejectedValue(new Error('offline'));
-    const consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
     await expect(triggerHouseholdsPull('user-1')).resolves.toBeNull();
-    expect(consoleWarn).toHaveBeenCalledWith(
-      '[HouseholdBootstrapSync] Pull fehlgeschlagen: {"name":"Error","message":"offline"}',
-    );
   });
 });

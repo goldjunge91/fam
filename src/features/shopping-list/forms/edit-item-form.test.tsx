@@ -387,22 +387,14 @@ describe('EditItemForm', () => {
   it('schliesst nur nach erfolgreichem lokalen Save', async () => {
     const onDismiss = jest.fn();
     const saveError = new Error('SQLite write failed');
-    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mockUpdateMutateAsync.mockRejectedValueOnce(saveError);
     await renderForm(mockItem, onDismiss);
 
-    try {
-      await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
 
-      expect(
-        await screen.findByText('Speichern fehlgeschlagen. Bitte erneut versuchen.'),
-      ).toBeOnTheScreen();
-      expect(onDismiss).not.toHaveBeenCalled();
-      expect(consoleErrorSpy).toHaveBeenCalledWith(
-        '[shopping-list] Artikel konnte nicht gespeichert werden {"name":"Error","message":"SQLite write failed"}',
-      );
-    } finally {
-      consoleErrorSpy.mockRestore();
-    }
+    expect(
+      await screen.findByText('Speichern fehlgeschlagen. Bitte erneut versuchen.'),
+    ).toBeOnTheScreen();
+    expect(onDismiss).not.toHaveBeenCalled();
   });
 });

@@ -40,7 +40,9 @@ jobs:
           - name: Linter und Formatter (Biome)
             command: bun run check
           - name: Unit-Tests
-            command: bun run test -- --testPathPattern='^(?!.*test/native-build-lock[.]test[.]ts$).*'
+            command: bun run test:unit
+          - name: Unit-Coverage
+            command: bun run test:coverage:unit
     steps:
       - uses: actions/checkout@v4
 

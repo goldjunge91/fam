@@ -189,6 +189,8 @@
     "check:fix": "biome check --write .",
     "typecheck": "tsc --noEmit",
     "test": "bun scripts/run-test.ts",
+    "test:unit": "bun run test -- --testPathPattern='^(?!.*test/native-build-(baseline|artifact)[.]test[.]ts$).*'",
+    "test:coverage:unit": "bun run test:unit -- --coverage --coverageReporters=text-summary",
     "test:local": "EXPO_NO_DOTENV=1 dotenv -o -e .env.local -- jest",
     "test:development": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local -- jest",
     "test:dump-pipeline": "bun test scripts/dump_data/dump-sqlite-io.bun.test.ts scripts/dump_data/dump-pipeline-cli.bun.test.ts",

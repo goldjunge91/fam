@@ -95,4 +95,17 @@ module.exports = {
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
   // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.
   collectCoverage: false,
+
+  // Der Coverage-Lauf wird separat im CI-Unit-Scope ausgefuehrt. Die Schwellen
+  // starten bewusst unter der verifizierten Baseline und werden nach weiteren
+  // Sync-Test-Slices schrittweise angehoben.
+  coverageReporters: ['text-summary'],
+  coverageThreshold: {
+    global: {
+      statements: 70,
+      branches: 60,
+      functions: 65,
+      lines: 72,
+    },
+  },
 };
