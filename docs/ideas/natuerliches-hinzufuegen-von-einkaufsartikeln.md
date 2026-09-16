@@ -6,7 +6,7 @@ Wie können wir Nutzern ermöglichen, mehrere Einkaufsartikel schnell per Sprach
 
 ## Recommended Direction
 
-Die App erhält eine lokale Sprachaufnahme innerhalb der Einkaufsliste. Eingaben wie „4x Skyr von JA, zwei Liter Milch und Brot“ werden in einzelne Artikel mit Name, Menge, Einheit und Marke zerlegt. Im MVP erfolgt die Erkennung über native On-Device-Spracherkennung mit `expo-speech-recognition@^57.0.0`, gekapselt durch einen gemeinsamen App-Adapter. Nach dem MVP kann React Native ExecuTorch als lokaler Whisper-Fallback für kompatible Geräte mit verfügbarer lokaler Modellbasis ergänzt werden.
+Die App erhält eine lokale Sprachaufnahme innerhalb der Einkaufsliste. Eingaben wie „4x Skyr von JA, zwei Liter Milch und Brot“ werden in einzelne Artikel mit Name, Menge, Einheit und Marke zerlegt. Im MVP erfolgt die Erkennung über native On-Device-Spracherkennung mit `expo-speech-recognition@^57.0.0`, gekapselt durch einen gemeinsamen App-Adapter. Nach dem MVP wird zunächst ein multilinguales Whisper Tiny mit React Native ExecuTorch direkt gebündelt. Später kann ein weiteres lokales Modell optional heruntergeladen werden, ohne die gebündelte Baseline zu ersetzen.
 
 Die Sprachfunktion wird im MVP nur auf Geräten angeboten, die native On-Device-Spracherkennung unterstützen. Auf nicht unterstützten Geräten bleibt die Texteingabe verfügbar; ein alternativer Sprachmodus ist dort nicht Bestandteil des MVP.
 
@@ -44,7 +44,7 @@ Die Zustimmung erfolgt in zwei getrennten, klar beschrifteten Opt-ins: eines fü
 - [ ] Korrekturen des Nutzers verbessern die haushaltsweiten Zuordnungen, ohne unbestätigte Regeln sofort zu verstärken.
 - [ ] Geteilte Lernregeln erzeugen im Haushalt mehr Nutzen als Konflikte zwischen unterschiedlichen Einkaufsgewohnheiten.
 - [ ] `expo-speech-recognition` kann die nativen On-Device-Schnittstellen zuverlässig und ohne Cloud-Fallback über den App-Adapter kapseln.
-- [ ] Ein späterer React-Native-ExecuTorch-Fallback liefert auf kompatiblen Geräten ausreichend gute lokale Transkriptionen.
+- [ ] Das gebündelte multilinguale Whisper Tiny liefert auf kompatiblen Geräten ausreichend gute lokale Transkriptionen.
 - [ ] Ausgewogene, sicherheitsorientierte und geschwindigkeitsorientierte Metriken liefern gemeinsam genug Signal zur Anpassung der Schwellenwerte.
 - [ ] Der Workflow erreicht mindestens 95 % korrekt erkannte Zuordnungen, höchstens 1 % falsche Einkaufslisten, höchstens 10 % manuelle Korrekturen und eine mediane Hinzufügezeit von höchstens 6 Sekunden.
 - [ ] Nutzer akzeptieren im MVP eine separate Zustimmung zur pseudonymisierten Produktverbesserung und opt-in-aggregierten Metriken.
@@ -105,5 +105,5 @@ Die Zustimmung erfolgt in zwei getrennten, klar beschrifteten Opt-ins: eines fü
 
 ## Open Questions
 
-- Welche React-Native-ExecuTorch-Whisper-Variante und welche Modellbereitstellung eignen sich für den späteren Fallback?
+- Welches weitere lokale Modell soll später zusätzlich zum gebündelten Whisper Tiny angeboten werden?
 - Welche konkrete Ausgestaltung erhält die datenschutzverstärkte Telemetrie für die Produktionsauslieferung?
