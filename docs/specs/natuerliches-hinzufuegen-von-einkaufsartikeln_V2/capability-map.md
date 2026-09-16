@@ -1,6 +1,6 @@
 # Capability Map: natuerliches-hinzufuegen-von-einkaufsartikeln_V2
 
-Status: Draft, Beta-Scope, vor menschlicher Freigabe
+Status: Freigegeben, Beta-Scope
 
 ## Quelle und Geltungsbereich
 
@@ -8,6 +8,7 @@ Diese Map gehört ausschließlich zur V2-Initiative `natuerliches-hinzufuegen-vo
 
 - Produktquelle: [natuerliches-hinzufuegen-von-einkaufsartikeln.md](../../ideas/natuerliches-hinzufuegen-von-einkaufsartikeln.md)
 - Ausführende Spec: [natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md](./natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md)
+- Implementierungsplan: [natuerliches-hinzufuegen-von-einkaufsartikeln_V2_plan.md](../../../tasks/natuerliches-hinzufuegen-von-einkaufsartikeln_V2_plan.md)
 - Die Idea-Datei definiert die Produktabsicht. Diese Map definiert die fachlichen Module und ihre Abhängigkeiten.
 - Auslieferungsrahmen: getrennte Beta-Oberfläche und getrennte Beta-Daten. Der bestätigte Listen-Output darf ausschließlich über einen bestehenden Adapter in reale Einkaufslisten geschrieben werden.
 - Andere gleichnamige Specs, Pläne oder Beads-Epics sind weder Quelle noch Scope dieser Initiative.
@@ -57,4 +58,4 @@ workflow -> privacy-quality-data
 
 ## Freigabegate
 
-Die Map und die zugehörige Spec müssen gemeinsam geprüft und freigegeben werden. Erst danach werden ein Implementierungsplan und konkrete Entwicklungstasks erstellt. Für den MVP bleibt die native Erkennung der gewählte Eingangspfad; ein gebündeltes Whisper-Tiny-Modell und spätere alternative Modelle sind ausdrücklich nachgelagerte Arbeit. Die Funktion wird zunächst ausschließlich als getrennte Beta ausgeliefert.
+Die Map und die zugehörige Spec wurden gemeinsam geprüft und für die getrennte Beta sowie deren Implementierungsplanung freigegeben. Der Implementierungsplan und die konkreten Entwicklungstasks sind verknüpft. Für den MVP bleibt die native Erkennung der gewählte Eingangspfad; ein gebündeltes Whisper-Tiny-Modell und spätere alternative Modelle sind ausdrücklich nachgelagerte Arbeit. Die Funktion wird zunächst ausschließlich als getrennte Beta ausgeliefert.

@@ -1,6 +1,6 @@
 # Spec: natuerliches-hinzufuegen-von-einkaufsartikeln_V2
 
-Status: Draft, Beta-Scope, vor menschlicher Freigabe
+Status: Freigegeben, Beta-Scope
 
 ## Herkunft und Zuordnung
 
@@ -309,4 +309,6 @@ Diese Frage wurde bewusst vertagt. Bis zur Entscheidung bleibt die Produktions-T
 
 ## 14. Freigabestatus
 
-Vor der nächsten Phase müssen Capability Map und Spec gemeinsam geprüft werden. Nach Freigabe kann eine separate Aufgabenplanung für die Beta erstellt werden. Bis dahin werden keine Implementierungsdateien, Datenbankschemas oder nativen Abhängigkeiten geändert. Eine Aktivierung der Beta für Nutzer und eine spätere Übernahme in Produktion benötigen jeweils eine eigene Freigabe.
+Capability Map und Spec wurden gemeinsam geprüft und für die getrennte Beta sowie deren Implementierungsplanung freigegeben. Der Implementierungsplan liegt unter [natuerliches-hinzufuegen-von-einkaufsartikeln_V2_plan.md](../../../tasks/natuerliches-hinzufuegen-von-einkaufsartikeln_V2_plan.md). Die Umsetzung bleibt vom normalen Einkaufsworkflow getrennt.
+
+Die offene Frage zur Produktions-Telemetrie sowie Entscheidungen über Whisper Tiny, alternative lokale Modelle, eine breitere Aktivierung und eine spätere Übernahme in Produktion bleiben separate Freigabegates.
