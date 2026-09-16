@@ -82,6 +82,15 @@ Unterlagen.
 - A. Die Erlaubnis des Maintainers ohne Mockups oder B. Statische Mockups (die die app wiederspiegeln), die dem Maintainer eine auswahl geben und ihn überzeugen.
 - Die Dev Maschine hat nur 8 GB RAM und 256gb internen speicher so wie externen Speicher der verwendet werden kann, eine Lokale Supabase-Datenbanken / Docker, kann nicht gleichzeitig neben dem Simulatoren, Metro-Prozess laufen da dies zuviele Ressourcen verbraucht. Die Dev Maschine ist daher ist es wichtig immer einmal kurz auslastung und rücksprache mit dem Maintainer zu halten, bevor man die Dev Maschine mit zuvielen Prozessen belastet.
 
+## Testqualität und Mutation Testing
+
+- Der fokussierte Mutation-Testing-Pilot ist in [`docs/spec/spec-mutation-testing-pilot.md`](docs/spec/spec-mutation-testing-pilot.md) und [`docs/spec/mutation-testing-pilot-report.md`](docs/spec/mutation-testing-pilot-report.md) dokumentiert.
+- Ausführung: `bunx --no-install stryker run stryker.config.mjs`. StrykerJS `10.0.0` und `@stryker-mutator/jest-runner@10.0.0` sind als gepinnte Dev-Dependencies installiert.
+- Der Pilot bleibt bewusst klein: `src/lib/sync/backoff.ts:7-8` und `src/features/auth/domain/auth-error-message.ts:20-25`, jeweils mit den zugehörigen Jest-Tests.
+- Baseline vom 2026-09-16: 8 Mutanten, 6 getötet, 0 überlebt, 2 Timeouts. Der von Stryker gemeldete Score von 100 % schließt die Timeouts aus und ist deshalb kein vollständiger Qualitätsnachweis.
+- Die beiden Backoff-Timeouts sind als Stryker-/Jest-Runner-Limit klassifiziert. Vor einer Ausweitung oder einem CI-Mutationsgate muss dieses Verhalten separat untersucht werden.
+- Mutation Testing läuft zunächst fokussiert und manuell außerhalb des normalen CI-Unit-Gates.
+
 ## Language
 
 **Kind im Haushalt**:
