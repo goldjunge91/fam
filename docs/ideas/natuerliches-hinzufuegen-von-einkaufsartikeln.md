@@ -6,7 +6,7 @@ Wie können wir Nutzern ermöglichen, mehrere Einkaufsartikel schnell per Sprach
 
 ## Recommended Direction
 
-Die App erhält eine lokale Sprachaufnahme innerhalb der Einkaufsliste. Eingaben wie „4x Skyr von JA, zwei Liter Milch und Brot“ werden in einzelne Artikel mit Name, Menge, Einheit und Marke zerlegt. Im MVP erfolgt die Erkennung über native On-Device-Spracherkennung, die durch ein eigenes Expo-Native-Modul und einen gemeinsamen App-Adapter gekapselt wird.
+Die App erhält eine lokale Sprachaufnahme innerhalb der Einkaufsliste. Eingaben wie „4x Skyr von JA, zwei Liter Milch und Brot“ werden in einzelne Artikel mit Name, Menge, Einheit und Marke zerlegt. Im MVP erfolgt die Erkennung über native On-Device-Spracherkennung, die durch ein eigenes Expo-Native-Modul und einen gemeinsamen App-Adapter gekapselt wird. Nach dem MVP kann React Native ExecuTorch als lokaler Whisper-Fallback für kompatible Geräte mit verfügbarer lokaler Modellbasis ergänzt werden.
 
 Die Zuordnung zur Einkaufsliste erfolgt über das lokal gespeicherte und haushaltsweit geteilte Einkaufsverhalten. Beispielsweise wird `Skyr` nach bestätigten früheren Zuordnungen automatisch REWE zugeordnet. Korrekturen des Nutzers werden als Feedback gesammelt und nicht sofort als neue automatische Lernregel übernommen.
 
@@ -28,6 +28,7 @@ Für jeden unklaren Artikel zeigt die gemeinsame Vorschau die wahrscheinlichsten
 - [ ] Korrekturen des Nutzers verbessern die haushaltsweiten Zuordnungen, ohne unbestätigte Regeln sofort zu verstärken.
 - [ ] Geteilte Lernregeln erzeugen im Haushalt mehr Nutzen als Konflikte zwischen unterschiedlichen Einkaufsgewohnheiten.
 - [ ] Ein eigenes Expo-Native-Modul kann die nativen On-Device-Schnittstellen zuverlässig und ohne Cloud-Fallback kapseln.
+- [ ] Ein späterer React-Native-ExecuTorch-Fallback liefert auf kompatiblen Geräten ausreichend gute lokale Transkriptionen.
 - [ ] Ausgewogene, sicherheitsorientierte und geschwindigkeitsorientierte Metriken liefern gemeinsam genug Signal zur Anpassung der Schwellenwerte.
 
 ## MVP Scope
@@ -52,12 +53,13 @@ Für jeden unklaren Artikel zeigt die gemeinsame Vorschau die wahrscheinlichsten
 - Widerruf des Automatikmodus in den Einstellungen
 - Native On-Device-Spracherkennung ohne verpflichtenden externen KI-Dienst
 - Auswertung von Produkt-, Sicherheits- und Geschwindigkeitsmetriken
+- Texteingabe als Fallback, wenn lokale Spracherkennung auf dem Gerät nicht verfügbar ist
 
 ## Not Doing
 
 - Dialogischer Einkaufsassistent
 - Cloud-KI oder verpflichtende externe Sprachverarbeitung
-- Ein gebündeltes Offline-Sprachmodell im MVP; dieses wird erst nach dem MVP geplant
+- React Native ExecuTorch oder ein anderes gebündeltes Offline-Sprachmodell im MVP; der lokale Modell-Fallback wird erst nach dem MVP geplant
 - Homescreen-Widget im MVP
 - Vollständiges Verständnis beliebiger freier Sätze
 - Globale Marken- und Händlerdatenbank
@@ -67,7 +69,8 @@ Für jeden unklaren Artikel zeigt die gemeinsame Vorschau die wahrscheinlichsten
 
 ## Open Questions
 
-- Welche nativen On-Device-Spracherkennungs-APIs sind auf iOS und Android im MVP verfügbar?
+- Welche nativen On-Device-Spracherkennungs-APIs und Geräteverfügbarkeiten gelten auf iOS und Android im MVP?
+- Welche React-Native-ExecuTorch-Whisper-Variante und welche Modellbereitstellung eignen sich für den späteren Fallback?
 - Wie werden haushaltsweit geteilte Lernregeln bei gleichzeitigen Offline-Korrekturen synchronisiert?
 - Wie wird ein Gleichstand behandelt, wenn keine klare Mehrheit für eine Einkaufsliste entsteht?
 - Welche Zielwerte gelten für Produktqualität, Sicherheit und Geschwindigkeit?
