@@ -125,17 +125,19 @@ export function logRecipeImageLoaded(load: RecipeImageLoad) {
   recipeImageLogTimer = setTimeout(flushRecipeImageLoadLog, RECIPE_IMAGE_LOG_DEBOUNCE_MS);
 }
 
-/** Bild-Kachel mit Farbverlauf-Fallback ohne Cover — auch fuer den Drag-Tray des Essensplans. */
+/** Bild-Kachel mit Farbverlauf-Fallback ohne Cover. */
 export function RecipeArtwork({
   coverUrl,
   coverPath,
   title,
   paletteIndex = 0,
+  testID,
 }: {
   coverUrl?: string | null;
   coverPath?: string | null;
   title: string;
   paletteIndex?: number;
+  testID?: string;
 }) {
   const rawId = useId();
   const gradientId = `recipe-art-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
@@ -145,6 +147,7 @@ export function RecipeArtwork({
   if (source) {
     return (
       <Image
+        testID={testID}
         source={source}
         contentFit="cover"
         transition={180}

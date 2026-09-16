@@ -1,5 +1,6 @@
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
@@ -10,8 +11,10 @@ import { DashboardCardShell } from '@/features/dashboard/components/dashboard-ca
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useMealPlanEntriesInRange } from '@/features/meal-planner/use-meal-plans';
-import { MEAL_SLOTS } from '@/features/meal-planner/week';
+import { RecipeArtwork } from '@/features/recipes/components/recipe-preview-card';
 import { useRecipeCoverUrl } from '@/features/recipes/data/household-recipe-images';
+import { addDays } from '../week';
+import { getUpcomingMealEntries } from './dashboard-meals';
 
 function toIsoDate(date: Date): string {
   const y = date.getFullYear();
@@ -22,25 +25,24 @@ function toIsoDate(date: Date): string {
 
 const styles = StyleSheet.create({
   smallCard: {
-    justifyContent: 'space-between',
-    gap: space.sm,
+    padding: 0,
   },
   smallContent: {
     flex: 1,
-    justifyContent: 'space-between',
-  },
-  smallHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
   },
   smallArtwork: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    position: 'relative',
+    flex: 1,
+    overflow: 'hidden',
   },
   smallArtworkImage: {
-    width: 44,
-    height: 44,
+    flex: 1,
+  },
+  smallTitle: {
+    position: 'absolute',
+    right: space.lg,
+    bottom: space.lg,
+    left: space.lg,
   },
   largeCard: {
     flexDirection: 'row',
@@ -79,15 +81,32 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
   const householdId = activeHouseholdId ?? undefined;
   const todayIso = toIsoDate(new Date());
 
-  const { data: todayMealEntries = [] } = useMealPlanEntriesInRange(
+  const { data: mealEntries = [] } = useMealPlanEntriesInRange(
     householdId,
     todayIso,
-    todayIso,
+    addDays(todayIso, 1),
   );
 
-  const nextMeal = [...todayMealEntries].sort(
-    (a, b) => MEAL_SLOTS.indexOf(a.meal_slot) - MEAL_SLOTS.indexOf(b.meal_slot),
-  )[0];
+  const upcomingMeals = getUpcomingMealEntries(mealEntries, new Date());
+  const upcomingMealKey = upcomingMeals
+    .map((meal) => `${meal.id}:${meal.entry_date}:${meal.meal_slot}`)
+    .join('|');
+  const [rotationIndex, setRotationIndex] = useState(0);
+
+  useEffect(() => {
+    if (!upcomingMealKey) return;
+    setRotationIndex(0);
+  }, [upcomingMealKey]);
+
+  useEffect(() => {
+    if (upcomingMeals.length <= 1) return;
+    const interval = setInterval(() => {
+      setRotationIndex((current) => (current + 1) % upcomingMeals.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [upcomingMeals.length]);
+
+  const nextMeal = upcomingMeals[rotationIndex % Math.max(upcomingMeals.length, 1)];
   const nextMealLabel = nextMeal
     ? t(`dashboard.cards.mealPlan.mealSlots.${nextMeal.meal_slot}`)
     : null;
@@ -105,29 +124,25 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
         accessibilityLabel={t('dashboard.cards.mealPlan.accessibility')}
         style={styles.smallCard}>
         <View style={styles.smallContent}>
-          <View style={styles.smallHeader}>
-            <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.5 }}>
-              {t('dashboard.cards.mealPlan.planned')}
-            </Txt>
-            <Txt variant="caption" tone="secondary">
-              {nextMealLabel ?? t('dashboard.cards.mealPlan.today')}
-            </Txt>
-          </View>
           <View style={styles.smallArtwork}>
-            {coverUrl ? (
-              <Image
-                testID="meal-plan-small-artwork"
-                source={artworkSource}
-                contentFit="cover"
-                style={styles.smallArtworkImage}
-              />
+            {nextMeal ? (
+              <View style={styles.smallArtworkImage}>
+                <RecipeArtwork
+                  title={nextMeal.recipe_title}
+                  coverUrl={coverUrl}
+                  coverPath={nextMeal.recipe_cover_image_path}
+                  paletteIndex={nextMeal.recipe_id.length}
+                />
+              </View>
             ) : (
-              <FamIcon name="mealArtwork" size={44} />
+              <Image source={mealArtwork} contentFit="fill" style={styles.smallArtworkImage} />
             )}
+            <View style={styles.smallTitle}>
+              <Txt variant="body" tone="onAccent" numberOfLines={2}>
+                {nextMeal?.recipe_title ?? t('dashboard.cards.mealPlan.nothingPlanned')}
+              </Txt>
+            </View>
           </View>
-          <Txt variant="body" weight="700" numberOfLines={2}>
-            {nextMeal?.recipe_title ?? t('dashboard.cards.mealPlan.nothingPlanned')}
-          </Txt>
         </View>
       </DashboardCardShell>
     );
@@ -143,12 +158,22 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
       accessibilityLabel={t('dashboard.cards.mealPlan.accessibility')}
       style={styles.largeCard}>
       <View style={styles.largeArtwork}>
-        <Image
-          testID="meal-plan-large-artwork"
-          source={artworkSource}
-          contentFit={coverUrl ? 'cover' : 'fill'}
-          style={styles.largeArtworkImage}
-        />
+        {nextMeal ? (
+          <RecipeArtwork
+            testID="meal-plan-large-artwork"
+            title={nextMeal.recipe_title}
+            coverUrl={coverUrl}
+            coverPath={nextMeal.recipe_cover_image_path}
+            paletteIndex={nextMeal.recipe_id.length}
+          />
+        ) : (
+          <Image
+            testID="meal-plan-large-artwork"
+            source={artworkSource}
+            contentFit="fill"
+            style={styles.largeArtworkImage}
+          />
+        )}
       </View>
       <View style={styles.largeCopy}>
         <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.1 }}>

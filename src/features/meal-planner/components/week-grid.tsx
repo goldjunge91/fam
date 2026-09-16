@@ -1,31 +1,15 @@
-import { useCallback, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
-import { scheduleOnRN } from 'react-native-worklets';
 
 import { withAlpha } from '@/components/theme/index';
 import { Press, Txt } from '@/constants/ui';
-import { RecipeArtwork } from '@/features/recipes/components/recipe-preview-card';
-import { useRecipeCoverUrl } from '@/features/recipes/data/household-recipe-images';
 import type { MealPlanEntry, MealSlot } from '../use-meal-plans';
 import { dateLabel, MEAL_SLOTS, weekdayLabel } from '../week';
-
-export type DraggableRecipe = {
-  id: string;
-  title: string;
-  coverImagePath?: string | null;
-};
-
-type CellRect = { x: number; y: number; width: number; height: number };
 
 type WeekGridProps = {
   dates: readonly string[];
   entries: readonly MealPlanEntry[];
-  recipes: readonly DraggableRecipe[];
   canAddRecipes?: boolean;
-  onDropRecipe: (date: string, slot: MealSlot, recipe: DraggableRecipe) => void;
   onTapEntry: (entry: MealPlanEntry) => void;
   onTapEmptyCell: (date: string, slot: MealSlot) => void;
 };
@@ -36,8 +20,8 @@ const SLOT_LABELS: Record<MealSlot, string> = {
   dinner: 'Abendessen',
 };
 
-// Diese festen Werte sind bestehende Kalender-/Drag-Geometrie bzw. native
-// Integrationsgrenzen (Zellenhoehe, Artwork-Groesse und Drop-Overlay), keine
+// Diese festen Werte sind bestehende Kalender-Geometrie bzw. native
+// Integrationsgrenzen (Zellenhoehe und Artwork-Groesse), keine
 // semantischen Farb-, Typografie- oder Spacing-Tokens.
 const styles = StyleSheet.create((theme) => ({
   root: {
@@ -105,69 +89,6 @@ const styles = StyleSheet.create((theme) => ({
     borderColor: theme.border,
     borderCurve: 'continuous',
   },
-  tray: {
-    overflow: 'hidden',
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: theme.border,
-    borderRadius: theme.radius.lg,
-    paddingVertical: theme.space.lg,
-    backgroundColor: theme.backgroundElement,
-    borderCurve: 'continuous',
-  },
-  trayTitle: {
-    paddingHorizontal: theme.space.lg,
-  },
-  trayLabel: {
-    paddingHorizontal: theme.space.lg,
-    paddingTop: 1,
-    paddingBottom: theme.space.sm,
-  },
-  trayGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
-    paddingHorizontal: theme.space.lg,
-  },
-  recipeCard: {
-    width: '47%',
-    borderRadius: theme.radius.md,
-    padding: theme.space.sm,
-    gap: 6,
-    backgroundColor: theme.backgroundSoft,
-    borderCurve: 'continuous',
-  },
-  recipeArtwork: {
-    height: 118,
-    overflow: 'hidden',
-    borderRadius: theme.radius.sm,
-    borderCurve: 'continuous',
-  },
-  dragOverlay: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-  },
-  dragPreviewCard: {
-    width: 112,
-    borderRadius: theme.radius.md,
-    borderWidth: theme.borderWidth.strong,
-    borderColor: theme.accent,
-    padding: 6,
-    gap: 4,
-    opacity: 0.94,
-    backgroundColor: theme.backgroundSoft,
-    shadowColor: theme.text,
-    shadowOpacity: 0.22,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 6 },
-    borderCurve: 'continuous',
-  },
-  dragPreviewArtwork: {
-    height: 68,
-    overflow: 'hidden',
-    borderRadius: theme.radius.sm,
-    borderCurve: 'continuous',
-  },
 }));
 
 function portionLabel(portions: number) {
@@ -177,21 +98,10 @@ function portionLabel(portions: number) {
 export function WeekGrid({
   dates,
   entries,
-  recipes,
   canAddRecipes = true,
-  onDropRecipe,
   onTapEntry,
   onTapEmptyCell,
 }: WeekGridProps) {
-  // Knoten statt vormessener Rechtecke: die Woche-/3-Tage-Liste ist vertikal
-  // scrollbar, ein einmal beim Mount gemessenes Rechteck waere nach dem
-  // Scrollen falsch und der Drop wuerde ins Leere treffen. Stattdessen wird
-  // beim Loslassen live neu gemessen (measureInWindow).
-  const cellNodes = useRef(new Map<string, View>());
-  const [draggingRecipe, setDraggingRecipe] = useState<DraggableRecipe | null>(null);
-  const translateX = useSharedValue(0);
-  const translateY = useSharedValue(0);
-
   const entriesByCell = new Map<string, MealPlanEntry[]>();
   for (const entry of entries) {
     const key = `${entry.entry_date}|${entry.meal_slot}`;
@@ -199,46 +109,6 @@ export function WeekGrid({
     list.push(entry);
     entriesByCell.set(key, list);
   }
-
-  const registerCell = useCallback((key: string, node: View | null) => {
-    if (node) cellNodes.current.set(key, node);
-    else cellNodes.current.delete(key);
-  }, []);
-
-  const measureCell = useCallback((node: View): Promise<CellRect> => {
-    return new Promise((resolve) => {
-      node.measureInWindow((x, y, width, height) => resolve({ x, y, width, height }));
-    });
-  }, []);
-
-  const handleDrop = useCallback(
-    async (absoluteX: number, absoluteY: number, recipe: DraggableRecipe) => {
-      setDraggingRecipe(null);
-      const cells = Array.from(cellNodes.current.entries());
-      const rects = await Promise.all(cells.map(([, node]) => measureCell(node)));
-      for (let i = 0; i < cells.length; i++) {
-        const [key] = cells[i];
-        const rect = rects[i];
-        if (
-          absoluteX >= rect.x &&
-          absoluteX <= rect.x + rect.width &&
-          absoluteY >= rect.y &&
-          absoluteY <= rect.y + rect.height
-        ) {
-          const [date, slot] = key.split('|') as [string, MealSlot];
-          onDropRecipe(date, slot, recipe);
-          return;
-        }
-      }
-    },
-    [measureCell, onDropRecipe],
-  );
-
-  // Karte mittig ueber dem Finger, nach oben versetzt: der Finger verdeckt
-  // sonst genau die Zelle, ueber der losgelassen werden soll.
-  const overlayStyle = useAnimatedStyle(() => ({
-    transform: [{ translateX: translateX.value - 56 }, { translateY: translateY.value - 130 }],
-  }));
 
   return (
     <View style={styles.root}>
@@ -260,10 +130,7 @@ export function WeekGrid({
                 const key = `${date}|${slot}`;
                 const cellEntries = entriesByCell.get(key) ?? [];
                 return (
-                  <View
-                    key={slot}
-                    ref={(node) => registerCell(key, node)}
-                    style={[styles.slot, slotIndex > 0 && styles.slotDivider]}>
+                  <View key={slot} style={[styles.slot, slotIndex > 0 && styles.slotDivider]}>
                     <Txt variant="eyebrow" tone="secondary" weight="700" style={styles.slotLabel}>
                       {SLOT_LABELS[slot]}
                     </Txt>
@@ -300,104 +167,7 @@ export function WeekGrid({
             </View>
           </View>
         ))}
-
-        {recipes.length > 0 ? (
-          <View style={styles.tray}>
-            <Txt variant="eyebrow" style={styles.trayTitle} weight="700">
-              Rezepte zum Ziehen
-            </Txt>
-            <Txt variant="caption" tone="secondary" style={styles.trayLabel}>
-              Karte halten und auf eine Mahlzeit ziehen
-            </Txt>
-            <View style={styles.trayGrid}>
-              {recipes.map((recipe) => (
-                <DraggableRecipeCard
-                  key={recipe.id}
-                  recipe={recipe}
-                  translateX={translateX}
-                  translateY={translateY}
-                  onDragStart={setDraggingRecipe}
-                  onDragEnd={handleDrop}
-                />
-              ))}
-            </View>
-          </View>
-        ) : null}
       </ScrollView>
-
-      {draggingRecipe ? (
-        <Animated.View pointerEvents="none" style={[styles.dragOverlay, overlayStyle]}>
-          <DragPreviewCard recipe={draggingRecipe} />
-        </Animated.View>
-      ) : null}
-    </View>
-  );
-}
-
-/** Card im horizontalen Tray — groß genug, um das Rezeptbild erkennbar zu zeigen. */
-function DraggableRecipeCard({
-  recipe,
-  translateX,
-  translateY,
-  onDragStart,
-  onDragEnd,
-}: {
-  recipe: DraggableRecipe;
-  translateX: import('react-native-reanimated').SharedValue<number>;
-  translateY: import('react-native-reanimated').SharedValue<number>;
-  onDragStart: (recipe: DraggableRecipe) => void;
-  onDragEnd: (absoluteX: number, absoluteY: number, recipe: DraggableRecipe) => Promise<void>;
-}) {
-  const { data: coverUrl } = useRecipeCoverUrl(recipe.coverImagePath);
-
-  // `activateAfterLongPress` laesst der umgebenden horizontalen ScrollView
-  // kurze Wischgesten zum Scrollen — erst ein kurzes Halten startet den Drag.
-  // Ohne das gewinnt mal die ScrollView, mal der Pan, je nach Zufall der
-  // ersten Bewegungsrichtung — das war das kaputte Ziehverhalten.
-  const pan = Gesture.Pan()
-    .activateAfterLongPress(150)
-    .onBegin((event) => {
-      'worklet';
-      translateX.value = event.absoluteX;
-      translateY.value = event.absoluteY;
-      scheduleOnRN(onDragStart, recipe);
-    })
-    .onUpdate((event) => {
-      'worklet';
-      translateX.value = event.absoluteX;
-      translateY.value = event.absoluteY;
-    })
-    .onEnd((event) => {
-      'worklet';
-      scheduleOnRN(onDragEnd, event.absoluteX, event.absoluteY, recipe);
-    });
-
-  return (
-    <GestureDetector gesture={pan}>
-      <View style={styles.recipeCard}>
-        <View style={styles.recipeArtwork}>
-          <RecipeArtwork title={recipe.title} coverUrl={coverUrl} paletteIndex={recipe.id.length} />
-        </View>
-        <Txt variant="caption" weight="700" numberOfLines={2}>
-          {recipe.title}
-        </Txt>
-      </View>
-    </GestureDetector>
-  );
-}
-
-/** Schwebende Vorschau waehrend des Ziehens — dieselbe Bildkachel, etwas kleiner. */
-function DragPreviewCard({ recipe }: { recipe: DraggableRecipe }) {
-  const { data: coverUrl } = useRecipeCoverUrl(recipe.coverImagePath);
-
-  return (
-    <View style={styles.dragPreviewCard}>
-      <View style={styles.dragPreviewArtwork}>
-        <RecipeArtwork title={recipe.title} coverUrl={coverUrl} paletteIndex={recipe.id.length} />
-      </View>
-      <Txt variant="caption" weight="700" numberOfLines={1}>
-        {recipe.title}
-      </Txt>
     </View>
   );
 }

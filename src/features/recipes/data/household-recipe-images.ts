@@ -70,6 +70,7 @@ function useSignedImageUrl(
     queryKey: [queryKeyPrefix, path],
     queryFn: async () => {
       if (!path) return null;
+      if (/^https?:\/\//i.test(path)) return path;
 
       const supabase = getSupabase();
       const { data, error } = await supabase.storage

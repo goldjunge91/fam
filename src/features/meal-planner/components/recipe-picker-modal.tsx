@@ -5,13 +5,20 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { CloseButton, Press, Surface, TextField, Txt } from '@/constants/ui';
-import type { DraggableRecipe } from './week-grid';
+import { RecipeArtwork } from '@/features/recipes/components/recipe-preview-card';
+import { useRecipeCoverUrl } from '@/features/recipes/data/household-recipe-images';
+
+export type RecipeOption = {
+  id: string;
+  title: string;
+  coverImagePath?: string | null;
+};
 
 type RecipePickerModalProps = {
   visible: boolean;
-  recipes: readonly DraggableRecipe[];
+  recipes: readonly RecipeOption[];
   onDismiss: () => void;
-  onSelect: (recipe: DraggableRecipe) => void;
+  onSelect: (recipe: RecipeOption) => void;
 };
 
 const styles = StyleSheet.create((theme) => ({
@@ -39,11 +46,55 @@ const styles = StyleSheet.create((theme) => ({
     paddingVertical: theme.space.sm,
   },
   recipeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.md,
     paddingVertical: theme.space.lg,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,
   },
+  recipeArtwork: {
+    width: 160,
+    height: 120,
+    overflow: 'hidden',
+    borderRadius: theme.radius.sm,
+    borderCurve: 'continuous',
+  },
+  recipeTitle: {
+    flex: 1,
+    minWidth: 0,
+  },
 }));
+
+function RecipePickerRow({
+  recipe,
+  onSelect,
+}: {
+  recipe: RecipeOption;
+  onSelect: (recipe: RecipeOption) => void;
+}) {
+  const { data: coverUrl } = useRecipeCoverUrl(recipe.coverImagePath);
+
+  return (
+    <Press
+      accessibilityRole="button"
+      accessibilityLabel={`${recipe.title} eintragen`}
+      onPress={() => onSelect(recipe)}
+      style={styles.recipeRow}>
+      <View style={styles.recipeArtwork}>
+        <RecipeArtwork
+          title={recipe.title}
+          coverUrl={coverUrl}
+          coverPath={recipe.coverImagePath}
+          paletteIndex={recipe.id.length}
+        />
+      </View>
+      <Txt variant="body" weight="700" numberOfLines={2} style={styles.recipeTitle}>
+        {recipe.title}
+      </Txt>
+    </Press>
+  );
+}
 
 export function RecipePickerModal({
   visible,
@@ -91,15 +142,7 @@ export function RecipePickerModal({
               keyExtractor={(item) => item.id}
               style={styles.list}
               contentContainerStyle={styles.listContent}
-              renderItem={({ item }) => (
-                <Press
-                  accessibilityRole="button"
-                  accessibilityLabel={`${item.title} eintragen`}
-                  onPress={() => onSelect(item)}
-                  style={styles.recipeRow}>
-                  <Txt variant="body">{item.title}</Txt>
-                </Press>
-              )}
+              renderItem={({ item }) => <RecipePickerRow recipe={item} onSelect={onSelect} />}
             />
           )}
         </SafeAreaView>

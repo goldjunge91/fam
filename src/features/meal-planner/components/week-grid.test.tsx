@@ -26,14 +26,7 @@ const WEEK = weekDates('2026-08-17');
 describe('WeekGrid', () => {
   it('zeigt die drei Mahlzeiten-Slots als Spaltenkoepfe, ohne Snack', async () => {
     await render(
-      <WeekGrid
-        dates={WEEK}
-        entries={[]}
-        recipes={[]}
-        onDropRecipe={jest.fn()}
-        onTapEntry={jest.fn()}
-        onTapEmptyCell={jest.fn()}
-      />,
+      <WeekGrid dates={WEEK} entries={[]} onTapEntry={jest.fn()} onTapEmptyCell={jest.fn()} />,
     );
 
     expect(screen.getAllByText('Frühstück').length).toBe(WEEK.length);
@@ -44,14 +37,7 @@ describe('WeekGrid', () => {
 
   it('zeigt einen leeren, tippbaren Platzhalter fuer eine Zelle ohne Eintrag', async () => {
     await render(
-      <WeekGrid
-        dates={WEEK}
-        entries={[]}
-        recipes={[]}
-        onDropRecipe={jest.fn()}
-        onTapEntry={jest.fn()}
-        onTapEmptyCell={jest.fn()}
-      />,
+      <WeekGrid dates={WEEK} entries={[]} onTapEntry={jest.fn()} onTapEmptyCell={jest.fn()} />,
     );
 
     expect(screen.getAllByText('+ Gericht').length).toBe(21); // 7 Tage x 3 Slots
@@ -62,8 +48,6 @@ describe('WeekGrid', () => {
       <WeekGrid
         dates={['2026-08-17', '2026-08-18', '2026-08-19']}
         entries={[]}
-        recipes={[]}
-        onDropRecipe={jest.fn()}
         onTapEntry={jest.fn()}
         onTapEmptyCell={jest.fn()}
       />,
@@ -75,14 +59,7 @@ describe('WeekGrid', () => {
   it('zeigt einen zugeordneten Wochenplan-Eintrag mit Rezepttitel und Portionen', async () => {
     const entry = makeEntry({});
     await render(
-      <WeekGrid
-        dates={WEEK}
-        entries={[entry]}
-        recipes={[]}
-        onDropRecipe={jest.fn()}
-        onTapEntry={jest.fn()}
-        onTapEmptyCell={jest.fn()}
-      />,
+      <WeekGrid dates={WEEK} entries={[entry]} onTapEntry={jest.fn()} onTapEmptyCell={jest.fn()} />,
     );
 
     expect(screen.getByText('Spaghetti Bolognese')).toBeOnTheScreen();
@@ -98,8 +75,6 @@ describe('WeekGrid', () => {
       <WeekGrid
         dates={WEEK}
         entries={[entry]}
-        recipes={[]}
-        onDropRecipe={jest.fn()}
         onTapEntry={onTapEntry}
         onTapEmptyCell={jest.fn()}
       />,
@@ -115,14 +90,7 @@ describe('WeekGrid', () => {
     const onTapEmptyCell = jest.fn();
 
     await render(
-      <WeekGrid
-        dates={WEEK}
-        entries={[]}
-        recipes={[]}
-        onDropRecipe={jest.fn()}
-        onTapEntry={jest.fn()}
-        onTapEmptyCell={onTapEmptyCell}
-      />,
+      <WeekGrid dates={WEEK} entries={[]} onTapEntry={jest.fn()} onTapEmptyCell={onTapEmptyCell} />,
     );
 
     await user.press(
@@ -137,8 +105,6 @@ describe('WeekGrid', () => {
       <WeekGrid
         dates={['2026-08-17']}
         entries={[]}
-        recipes={[]}
-        onDropRecipe={jest.fn()}
         onTapEntry={jest.fn()}
         onTapEmptyCell={jest.fn()}
       />,

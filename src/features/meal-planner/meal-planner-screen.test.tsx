@@ -24,6 +24,7 @@ let mockRecipesPreference = true;
 let mockRecipesFeatureFlag: boolean | undefined = true;
 let mockRecipesFeatureFlagOverride: boolean | undefined;
 let mockRecipes = [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }];
+let mockRecipeCoverUrl: string | null = null;
 
 // Stabile Objektidentitaet noetig: `AutoBackButton` (Screen) haengt seinen
 // Effekt an `[navigation]` - ein bei jedem Aufruf neu erzeugtes Objekt
@@ -88,11 +89,11 @@ jest.mock('@/features/recipes/hooks/use-recipes', () => ({
   }),
 }));
 
-// Die Drag-Card im Tray zeigt das Rezeptbild ueber `useRecipeCoverUrl` (echtes
+// Der Rezept-Picker zeigt das Rezeptbild ueber `useRecipeCoverUrl` (echtes
 // `useQuery`) — ohne QueryClientProvider in diesem Test-Setup wuerde das
 // werfen, siehe react-query-Fehlermeldung "No QueryClient set".
 jest.mock('@/features/recipes/data/household-recipe-images', () => ({
-  useRecipeCoverUrl: () => ({ data: null }),
+  useRecipeCoverUrl: () => ({ data: mockRecipeCoverUrl }),
 }));
 
 jest.mock('./settings', () => ({
@@ -150,6 +151,7 @@ beforeEach(() => {
   mockRecipesFeatureFlag = true;
   mockRecipesFeatureFlagOverride = undefined;
   mockRecipes = [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }];
+  mockRecipeCoverUrl = null;
 });
 
 describe('MealPlannerScreen', () => {
@@ -276,15 +278,29 @@ describe('MealPlannerScreen', () => {
     ).toBeOnTheScreen();
   });
 
-  it('sperrt Rezept-Picker und Drag-Ablage, wenn module-recipes deaktiviert ist', async () => {
+  it('zeigt Rezeptname und Coverbild im Picker ohne Rezept-Tray', async () => {
+    mockRecipeCoverUrl = 'https://example.com/spaghetti-bolognese.jpg';
+    const user = userEvent.setup();
+
+    await renderScreen();
+
+    expect(screen.queryByText('Rezepte zum Ziehen')).not.toBeOnTheScreen();
+
+    await user.press(
+      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
+    );
+
+    expect(screen.getByRole('button', { name: 'Spaghetti Bolognese eintragen' })).toBeOnTheScreen();
+    expect(screen.getByLabelText('Bild von Spaghetti Bolognese')).toBeOnTheScreen();
+  });
+
+  it('sperrt die Rezeptauswahl, wenn module-recipes deaktiviert ist', async () => {
     mockRecipesFeatureFlag = false;
     const user = userEvent.setup();
 
     await renderScreen();
 
     expect(screen.getAllByText('Spaghetti Bolognese')[0]).toBeOnTheScreen();
-    expect(screen.queryByText('Rezepte zum Ziehen')).not.toBeOnTheScreen();
-
     const addButton = screen.getByRole('button', {
       name: 'Frühstück am Montag, Gericht hinzufügen',
     });
@@ -300,7 +316,6 @@ describe('MealPlannerScreen', () => {
     await renderScreen();
 
     expect(screen.getAllByText('Spaghetti Bolognese')[0]).toBeOnTheScreen();
-    expect(screen.queryByText('Rezepte zum Ziehen')).not.toBeOnTheScreen();
     expect(
       screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
     ).toBeDisabled();

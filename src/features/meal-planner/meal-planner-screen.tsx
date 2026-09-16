@@ -20,8 +20,8 @@ import {
 } from '@/features/settings/module-preferences';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
-import { RecipePickerModal } from './components/recipe-picker-modal';
-import { type DraggableRecipe, WeekGrid } from './components/week-grid';
+import { type RecipeOption, RecipePickerModal } from './components/recipe-picker-modal';
+import { WeekGrid } from './components/week-grid';
 import type { ResolvedServings } from './servings';
 import { usePortionsPerPerson } from './settings';
 import {
@@ -46,7 +46,7 @@ import {
   type ViewMode,
 } from './week';
 
-type PendingDrop = { date: string; slot: MealSlot; recipe: DraggableRecipe };
+type PendingRecipe = { date: string; slot: MealSlot; recipe: RecipeOption };
 type PendingCell = { date: string; slot: MealSlot };
 
 // Die festen 14/43/34/42/9/7-Werte erhalten die bestehende Kalendernavigation.
@@ -105,7 +105,7 @@ export function MealPlannerScreen() {
   const [viewMode, setViewMode] = useState<ViewMode>('week');
   const [anchorDate, setAnchorDate] = useState(() => todayIso());
   const [pendingCell, setPendingCell] = useState<PendingCell | null>(null);
-  const [pendingDrop, setPendingDrop] = useState<PendingDrop | null>(null);
+  const [pendingRecipe, setPendingRecipe] = useState<PendingRecipe | null>(null);
   const [editingEntry, setEditingEntry] = useState<MealPlanEntry | null>(null);
 
   const dates = rangeDates(anchorDate, viewMode);
@@ -131,7 +131,7 @@ export function MealPlannerScreen() {
   const deleteEntry = useDeleteEntryMutation();
   const reuseLastWeek = useReuseLastWeekMutation();
 
-  const draggableRecipes: DraggableRecipe[] = recipesEnabled
+  const recipeOptions: RecipeOption[] = recipesEnabled
     ? recipes.map((r) => ({
         id: r.id,
         title: r.title,
@@ -139,18 +139,14 @@ export function MealPlannerScreen() {
       }))
     : [];
 
-  function handleDropRecipe(date: string, slot: MealSlot, recipe: DraggableRecipe) {
-    setPendingDrop({ date, slot, recipe });
-  }
-
   function handleTapEmptyCell(date: string, slot: MealSlot) {
     if (!recipesEnabled) return;
     setPendingCell({ date, slot });
   }
 
-  function handlePickRecipe(recipe: DraggableRecipe) {
+  function handlePickRecipe(recipe: RecipeOption) {
     if (!pendingCell) return;
-    setPendingDrop({ date: pendingCell.date, slot: pendingCell.slot, recipe });
+    setPendingRecipe({ date: pendingCell.date, slot: pendingCell.slot, recipe });
     setPendingCell(null);
   }
 
@@ -171,21 +167,21 @@ export function MealPlannerScreen() {
   }
 
   async function handleSaveNewEntry(resolved: ResolvedServings) {
-    if (!pendingDrop || !householdId || !userId) return;
-    const targetPlan = await ensurePlanForDate(pendingDrop.date);
+    if (!pendingRecipe || !householdId || !userId) return;
+    const targetPlan = await ensurePlanForDate(pendingRecipe.date);
     addEntry.mutate(
       {
         meal_plan_id: targetPlan.id,
         household_id: householdId,
-        recipe_id: pendingDrop.recipe.id,
-        entry_date: pendingDrop.date,
-        meal_slot: pendingDrop.slot,
+        recipe_id: pendingRecipe.recipe.id,
+        entry_date: pendingRecipe.date,
+        meal_slot: pendingRecipe.slot,
         servings_mode: resolved.servings_mode,
         portions: resolved.portions,
         people_count: resolved.people_count,
         created_by: userId,
       },
-      { onSuccess: () => setPendingDrop(null) },
+      { onSuccess: () => setPendingRecipe(null) },
     );
   }
 
@@ -338,9 +334,7 @@ export function MealPlannerScreen() {
         <WeekGrid
           dates={dates}
           entries={entries}
-          recipes={draggableRecipes}
           canAddRecipes={recipesEnabled}
-          onDropRecipe={handleDropRecipe}
           onTapEntry={handleTapEntry}
           onTapEmptyCell={handleTapEmptyCell}
         />
@@ -349,21 +343,21 @@ export function MealPlannerScreen() {
       {/* Rezept-Auswahlmodal beim Tippen auf einen leeren Slot */}
       <RecipePickerModal
         visible={pendingCell !== null}
-        recipes={draggableRecipes}
+        recipes={recipeOptions}
         onDismiss={() => setPendingCell(null)}
         onSelect={handlePickRecipe}
       />
 
       {/* Portions- & Slot-Formular für neu hinzugefügte Mahlzeiten */}
-      {pendingDrop ? (
+      {pendingRecipe ? (
         <EntryFormModal
           visible
-          recipeTitle={pendingDrop.recipe.title}
-          entryDate={pendingDrop.date}
-          mealSlot={pendingDrop.slot}
+          recipeTitle={pendingRecipe.recipe.title}
+          entryDate={pendingRecipe.date}
+          mealSlot={pendingRecipe.slot}
           portionsPerPerson={portionsPerPerson ?? 1.25}
           householdMemberCount={members.length}
-          onDismiss={() => setPendingDrop(null)}
+          onDismiss={() => setPendingRecipe(null)}
           onSave={handleSaveNewEntry}
         />
       ) : null}
