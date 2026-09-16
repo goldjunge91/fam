@@ -27,6 +27,8 @@ Ein Widerruf stoppt die zukünftige Verarbeitung sofort. Pseudonymisierte Quelld
 
 Vor der Übertragung filtert das Gerät lokal auf die erlaubten Einkaufsfelder. Verdächtige oder indirekt identifizierende Inhalte werden aus dem Produktverbesserungsereignis entfernt oder das Ereignis wird gar nicht übertragen.
 
+Die Zustimmung erfolgt in zwei getrennten, klar beschrifteten Opt-ins: eines für aggregierte Qualitäts- und Nutzungsmetriken und eines für pseudonymisierte Inhaltsdaten. Beide Zustimmungen sind unabhängig voneinander widerrufbar und gelten nicht pauschal für unverbundene zukünftige Zwecke.
+
 ## Key Assumptions to Validate
 
 - [ ] 10–12 bestätigte, unterschiedliche Artikel-plus-Marke-Zuordnungen reichen aus, damit Nutzer dem Automatikmodus vertrauen.
@@ -92,4 +94,3 @@ Vor der Übertragung filtert das Gerät lokal auf die erlaubten Einkaufsfelder. 
 - Welche nativen On-Device-Spracherkennungs-APIs und Geräteverfügbarkeiten gelten auf iOS und Android im MVP?
 - Welche React-Native-ExecuTorch-Whisper-Variante und welche Modellbereitstellung eignen sich für den späteren Fallback?
 - Welche konkrete Ausgestaltung erhält die datenschutzverstärkte Telemetrie für die Produktionsauslieferung?
-- Welche rechtliche Prüfung und welche Einwilligungstexte benötigen Produktverbesserung und eigene Prognosen?
