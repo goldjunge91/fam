@@ -29,6 +29,8 @@ export type MealPlanEntry = {
   people_count: number | null;
   /** Aus recipes gejoint, fuer die Chip-Beschriftung im Grid. */
   recipe_title: string;
+  /** Aus recipes gejoint, damit Karten das private Rezept-Cover laden können. */
+  recipe_cover_image_path: string | null;
 };
 
 function nowStamp() {
@@ -69,7 +71,8 @@ export function useMealPlanEntriesInRange(
       return db.getAllAsync<MealPlanEntry>(
         `select e.id, e.meal_plan_id, e.household_id, e.recipe_id, e.entry_date, e.meal_slot,
                 e.servings_mode, e.portions, e.people_count,
-                coalesce(r.title, '?') as recipe_title
+                coalesce(r.title, '?') as recipe_title,
+                r.cover_image_path as recipe_cover_image_path
          from meal_plan_entries e
          left join recipes r on r.id = e.recipe_id
          where e.household_id = ? and e.deleted_at is null
@@ -91,7 +94,8 @@ export function useMealPlanEntries(mealPlanId: string | undefined) {
       return db.getAllAsync<MealPlanEntry>(
         `select e.id, e.meal_plan_id, e.household_id, e.recipe_id, e.entry_date, e.meal_slot,
                 e.servings_mode, e.portions, e.people_count,
-                coalesce(r.title, '?') as recipe_title
+                coalesce(r.title, '?') as recipe_title,
+                r.cover_image_path as recipe_cover_image_path
          from meal_plan_entries e
          left join recipes r on r.id = e.recipe_id
          where e.meal_plan_id = ? and e.deleted_at is null

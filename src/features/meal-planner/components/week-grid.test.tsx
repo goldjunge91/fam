@@ -16,6 +16,7 @@ function makeEntry(overrides: Partial<MealPlanEntry>): MealPlanEntry {
     portions: 4,
     people_count: null,
     recipe_title: 'Spaghetti Bolognese',
+    recipe_cover_image_path: null,
     ...overrides,
   };
 }

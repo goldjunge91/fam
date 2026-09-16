@@ -11,6 +11,7 @@ import { type DashboardCardProps, registerCard } from '@/features/dashboard/regi
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useMealPlanEntriesInRange } from '@/features/meal-planner/use-meal-plans';
 import { MEAL_SLOTS } from '@/features/meal-planner/week';
+import { useRecipeCoverUrl } from '@/features/recipes/data/household-recipe-images';
 
 function toIsoDate(date: Date): string {
   const y = date.getFullYear();
@@ -36,6 +37,10 @@ const styles = StyleSheet.create({
   smallArtwork: {
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  smallArtworkImage: {
+    width: 44,
+    height: 44,
   },
   largeCard: {
     flexDirection: 'row',
@@ -86,6 +91,8 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
   const nextMealLabel = nextMeal
     ? t(`dashboard.cards.mealPlan.mealSlots.${nextMeal.meal_slot}`)
     : null;
+  const { data: coverUrl } = useRecipeCoverUrl(nextMeal?.recipe_cover_image_path);
+  const artworkSource = coverUrl ? { uri: coverUrl } : mealArtwork;
 
   if (size === 'small') {
     return (
@@ -107,7 +114,16 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
             </Txt>
           </View>
           <View style={styles.smallArtwork}>
-            <FamIcon name="mealArtwork" size={44} />
+            {coverUrl ? (
+              <Image
+                testID="meal-plan-small-artwork"
+                source={artworkSource}
+                contentFit="cover"
+                style={styles.smallArtworkImage}
+              />
+            ) : (
+              <FamIcon name="mealArtwork" size={44} />
+            )}
           </View>
           <Txt variant="body" weight="700" numberOfLines={2}>
             {nextMeal?.recipe_title ?? t('dashboard.cards.mealPlan.nothingPlanned')}
@@ -129,8 +145,8 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
       <View style={styles.largeArtwork}>
         <Image
           testID="meal-plan-large-artwork"
-          source={mealArtwork}
-          contentFit="fill"
+          source={artworkSource}
+          contentFit={coverUrl ? 'cover' : 'fill'}
           style={styles.largeArtworkImage}
         />
       </View>

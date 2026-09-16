@@ -80,6 +80,8 @@ jest.mock('@/components/ui/progress-bar', () => ({ ProgressBar: () => null }));
 jest.mock('@/lib/analytics', () => ({ trackAnalyticsEvent: jest.fn() }));
 
 let mockFridgeItems: unknown[] = [];
+let mockMealPlanEntries: unknown[] = [];
+let mockMealCoverUrl: string | null = null;
 
 jest.mock('expo-router', () => ({
   router: {
@@ -121,7 +123,11 @@ jest.mock('@/features/shopping-list/hooks/use-shopping-list', () => ({
 }));
 
 jest.mock('@/features/meal-planner/use-meal-plans', () => ({
-  useMealPlanEntriesInRange: () => ({ data: [] }),
+  useMealPlanEntriesInRange: () => ({ data: mockMealPlanEntries }),
+}));
+
+jest.mock('@/features/recipes/data/household-recipe-images', () => ({
+  useRecipeCoverUrl: () => ({ data: mockMealCoverUrl }),
 }));
 
 jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
@@ -191,6 +197,8 @@ function renderScreen() {
 beforeEach(async () => {
   await i18n.changeLanguage('de');
   mockFridgeItems = [];
+  mockMealPlanEntries = [];
+  mockMealCoverUrl = null;
   mockTriggerHouseholdSync.mockClear();
   mockDraxProviderMounts = 0;
   mockDraxSpans = [];
@@ -289,6 +297,31 @@ describe('DashboardScreen — Vorrat-Widget "Läuft bald ab"', () => {
 });
 
 describe('DashboardScreen — Essensplan-Karte', () => {
+  it('zeigt das echte Coverbild des heutigen Gerichts', async () => {
+    mockMealPlanEntries = [
+      {
+        id: 'entry-1',
+        meal_plan_id: 'plan-1',
+        household_id: 'hh-1',
+        recipe_id: 'recipe-1',
+        entry_date: '2026-09-16',
+        meal_slot: 'dinner',
+        servings_mode: 'portions',
+        portions: 4,
+        people_count: null,
+        recipe_title: 'Spaghetti Bolognese',
+        recipe_cover_image_path: 'hh-1/recipe-1.jpg',
+      },
+    ];
+    mockMealCoverUrl = 'https://example.com/recipe-1.jpg';
+
+    await renderScreen();
+
+    expect(screen.getByTestId('meal-plan-large-artwork').props.source).toEqual([
+      { uri: 'https://example.com/recipe-1.jpg' },
+    ]);
+  });
+
   it('zeigt Essensplan-Karte mit Label zum Oeffnen', async () => {
     await renderScreen();
     expect(screen.getByLabelText('Essensplan öffnen')).toBeTruthy();
