@@ -19,6 +19,8 @@ Nach Zustimmung werden sichere Zuordnungen direkt gespeichert. Bei einer Unsiche
 
 Für jeden unklaren Artikel zeigt die gemeinsame Vorschau die wahrscheinlichsten Einkaufslisten. Bei widersprüchlichen Zuordnungen wird die wahrscheinlichste Liste als `Best Match ?` markiert, aber nicht automatisch ausgewählt. Die Auswahl gilt zunächst nur für die aktuelle Eingabe. Sie wird als Feedback behandelt und nicht direkt als neue haushaltsweite Lernregel gespeichert. Erst drei Bestätigungen derselben Artikel-plus-Marke-Zuordnung in getrennten Eingaben machen daraus eine automatische Regel.
 
+Bestätigungen und Korrekturen werden als einzelne Ereignisse lokal erfasst und nach der Synchronisierung per Mehrheit ausgewertet. So bleiben gleichzeitige Offline-Rückmeldungen erhalten und können nicht durch eine einfache letzte Änderung verloren gehen.
+
 ## Key Assumptions to Validate
 
 - [ ] 10–12 bestätigte, unterschiedliche Artikel-plus-Marke-Zuordnungen reichen aus, damit Nutzer dem Automatikmodus vertrauen.
@@ -30,6 +32,8 @@ Für jeden unklaren Artikel zeigt die gemeinsame Vorschau die wahrscheinlichsten
 - [ ] Ein eigenes Expo-Native-Modul kann die nativen On-Device-Schnittstellen zuverlässig und ohne Cloud-Fallback kapseln.
 - [ ] Ein späterer React-Native-ExecuTorch-Fallback liefert auf kompatiblen Geräten ausreichend gute lokale Transkriptionen.
 - [ ] Ausgewogene, sicherheitsorientierte und geschwindigkeitsorientierte Metriken liefern gemeinsam genug Signal zur Anpassung der Schwellenwerte.
+- [ ] Der Workflow erreicht mindestens 95 % korrekt erkannte Zuordnungen, höchstens 1 % falsche Einkaufslisten, höchstens 10 % manuelle Korrekturen und eine mediane Hinzufügezeit von höchstens 6 Sekunden.
+- [ ] Nutzer akzeptieren im MVP opt-in-aggregierte Metriken und eine spätere datenschutzverstärkte Telemetrie für die Produktionsauslieferung.
 
 ## MVP Scope
 
@@ -54,12 +58,14 @@ Für jeden unklaren Artikel zeigt die gemeinsame Vorschau die wahrscheinlichsten
 - Native On-Device-Spracherkennung ohne verpflichtenden externen KI-Dienst
 - Auswertung von Produkt-, Sicherheits- und Geschwindigkeitsmetriken
 - Texteingabe als Fallback, wenn lokale Spracherkennung auf dem Gerät nicht verfügbar ist
+- Opt-in-aggregierte Metriken im MVP ohne Audio oder Transkript
 
 ## Not Doing
 
 - Dialogischer Einkaufsassistent
 - Cloud-KI oder verpflichtende externe Sprachverarbeitung
 - React Native ExecuTorch oder ein anderes gebündeltes Offline-Sprachmodell im MVP; der lokale Modell-Fallback wird erst nach dem MVP geplant
+- Datenschutzverstärkte Telemetrie im MVP; sie wird für die Produktionsauslieferung geplant
 - Homescreen-Widget im MVP
 - Vollständiges Verständnis beliebiger freier Sätze
 - Globale Marken- und Händlerdatenbank
@@ -71,7 +77,6 @@ Für jeden unklaren Artikel zeigt die gemeinsame Vorschau die wahrscheinlichsten
 
 - Welche nativen On-Device-Spracherkennungs-APIs und Geräteverfügbarkeiten gelten auf iOS und Android im MVP?
 - Welche React-Native-ExecuTorch-Whisper-Variante und welche Modellbereitstellung eignen sich für den späteren Fallback?
-- Wie werden haushaltsweit geteilte Lernregeln bei gleichzeitigen Offline-Korrekturen synchronisiert?
-- Wie wird ein Gleichstand behandelt, wenn keine klare Mehrheit für eine Einkaufsliste entsteht?
-- Welche Zielwerte gelten für Produktqualität, Sicherheit und Geschwindigkeit?
-- Wie werden diese Metriken datensparsam und ohne Speicherung von Audiodaten erhoben?
+- Wie werden gleiche haushaltsweite Feedback-Ereignisse bei der Synchronisierung dedupliziert?
+- Wie werden Produktidentität und Korrektheit für die Metriken eindeutig bewertet?
+- Welche konkrete Ausgestaltung erhält die datenschutzverstärkte Telemetrie für die Produktionsauslieferung?
