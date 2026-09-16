@@ -131,15 +131,20 @@ export function HistoryIcon({ size = space.xl, color }: { size?: number; color?:
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <Path
-        d="M3.5 8.5V4.5m0 0h4m-4 0 3 3a8.5 8.5 0 1 1-1.4 10.8"
+        d="M12 7.5v5l3 1.8"
         stroke={color}
         strokeWidth={1.8}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Circle cx={12} cy={12} r={8.5} stroke={color} strokeWidth={1.8} />
       <Path
-        d="M12 7.5v5l3 1.8"
+        d="M19.2 8.3A8.5 8.5 0 1 0 20 12"
+        stroke={color}
+        strokeWidth={1.8}
+        strokeLinecap="round"
+      />
+      <Path
+        d="M16.8 5.2h3.4v3.4"
         stroke={color}
         strokeWidth={1.8}
         strokeLinecap="round"
