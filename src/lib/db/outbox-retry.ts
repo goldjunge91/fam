@@ -35,7 +35,13 @@ export async function retryFailedOutboxEntries(
   );
 
   for (const entry of staleInventoryEntries) {
-    const parsed: unknown = JSON.parse(entry.payload);
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(entry.payload);
+    } catch {
+      continue;
+    }
+
     if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) continue;
 
     const fixedPayload = JSON.stringify(
