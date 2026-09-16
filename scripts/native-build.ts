@@ -16,6 +16,7 @@ import { basename, dirname, extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Fingerprint, FingerprintSource } from '@expo/fingerprint';
 import { createFingerprintAsync, diffFingerprints } from 'expo/fingerprint';
+import { createEasLocalBuildEnvironment } from './native-build-eas-env';
 import {
   isNativePlatformSupportedOnHost,
   type NativePlatform,
@@ -488,24 +489,16 @@ function iosBuildEnv(includeHarnessUI: boolean): Record<string, string> {
 // verlangt allerdings, dass dieser Arbeitsordner beim Start leer ist. Wir
 // löschen deshalb nur den alten Arbeitsinhalt, nicht den benachbarten ccache.
 function easLocalBuildEnv(): Record<string, string> {
-  const configuredWorkingDir = process.env.EAS_LOCAL_BUILD_WORKINGDIR;
-  const ccacheDir = readCcacheDirFromUserConfig();
-  const workingDir =
-    configuredWorkingDir ??
-    (ccacheDir ? join(dirname(ccacheDir), 'eas-build-local-workingdir') : undefined);
-  if (!workingDir) {
-    log('Kein fester EAS-Local-Workingdir konfiguriert. EAS verwendet seinen Standardpfad.');
-    return {};
-  }
+  const { workingDir, environment } = createEasLocalBuildEnvironment({
+    configuredWorkingDir: process.env.EAS_LOCAL_BUILD_WORKINGDIR,
+    ccacheDir: readCcacheDirFromUserConfig(),
+    projectRoot: PROJECT_ROOT,
+  });
   rmSync(workingDir, { force: true, recursive: true });
   mkdirSync(workingDir, { recursive: true });
   log(`EAS-Local-Workingdir: ${workingDir}`);
-  return {
-    EAS_LOCAL_BUILD_WORKINGDIR: workingDir,
-    ...(process.env.EAS_LOCAL_BUILD_SKIP_CLEANUP === '1'
-      ? { EAS_LOCAL_BUILD_SKIP_CLEANUP: '1' }
-      : {}),
-  };
+  log('EAS-Local-Diagnostik: Cleanup bleibt nach Fehlern erhalten.');
+  return environment;
 }
 
 function readCcacheDirFromUserConfig(): string | undefined {
