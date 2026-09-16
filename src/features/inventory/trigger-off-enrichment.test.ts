@@ -27,8 +27,8 @@ describe('triggerOffEnrichment', () => {
     mockInvoke.mockRejectedValueOnce(new Error('offline'));
 
     expect(() => triggerOffEnrichment('4008400401027')).not.toThrow();
-    // Der abgelehnten Promise Zeit geben, damit ein ungefangener Reject den Test träfe.
-    await new Promise((resolve) => setTimeout(resolve, 0));
+    // Der Catch-Handler wird synchron an die abgelehnte Promise angehaengt.
+    await Promise.resolve();
   });
 
   it('wirft nie, wenn getSupabase() selbst synchron wirft (z.B. fehlende Env-Variable)', () => {

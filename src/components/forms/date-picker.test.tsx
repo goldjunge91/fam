@@ -1,10 +1,15 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { DatePicker } from './date-picker';
 
-// Wichtig für userEvent (was wir später für Klicks/Eingaben nutzen werden)
-jest.useFakeTimers();
-
 describe('DatePicker', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   describe('rendering', () => {
     it('renders corrrectly with default props', async () => {
       // 1. Rendere die Komponente (in v14 immer mit await!)
@@ -30,7 +35,7 @@ describe('DatePicker', () => {
     it('calls onChangeText when typing in the text field', async () => {
       // Setup: Ein Mock-Funktion erstellen, um zu prüfen, ob sie gerufen wird
       const onChangeTextMock = jest.fn();
-      const user = userEvent.setup();
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
       await render(<DatePicker value="" onChangeText={onChangeTextMock} />);
       // Das Textfeld anhand des Platzhalters finden

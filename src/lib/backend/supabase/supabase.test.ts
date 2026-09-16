@@ -61,7 +61,7 @@ describe('Supabase Native Lifecycle', () => {
     appStateListener?.('active');
     appStateListener?.('background');
     stopLifecycle();
-    await new Promise((resolve) => setTimeout(resolve, 0));
+    await flushMicrotasks();
 
     expect(mockStartAutoRefresh).toHaveBeenCalled();
     expect(mockStopAutoRefresh).toHaveBeenCalled();
@@ -71,3 +71,9 @@ describe('Supabase Native Lifecycle', () => {
     );
   });
 });
+
+async function flushMicrotasks(): Promise<void> {
+  for (let attempt = 0; attempt < 10; attempt += 1) {
+    await Promise.resolve();
+  }
+}

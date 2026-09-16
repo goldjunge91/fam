@@ -71,36 +71,47 @@ describe('useProductBarcodeLookup', () => {
   });
 
   it('loest bei mehrfach erkanntem Code nur einen Lookup aus', async () => {
-    const { catalog, calls } = fakeCatalog(async () => {
-      await new Promise((resolve) => setTimeout(resolve, 20));
-      return hafermilch;
-    });
+    const pending = deferred<CatalogProduct | null>();
+    const { catalog, calls } = fakeCatalog(() => pending.promise);
 
     const { result: hook } = await renderHook(() => useProductBarcodeLookup({ catalog }));
-    await act(async () => {
-      const first = hook.current.lookup('4008400401027');
-      const second = hook.current.lookup('4008400401027');
-      const third = hook.current.lookup('4008400401027');
-      await Promise.all([first, second, third]);
+    let first: Promise<CatalogProduct | null>;
+    let second: Promise<CatalogProduct | null>;
+    let third: Promise<CatalogProduct | null>;
+    act(() => {
+      first = hook.current.lookup('4008400401027');
+      second = hook.current.lookup('4008400401027');
+      third = hook.current.lookup('4008400401027');
     });
 
     expect(calls).toEqual(['4008400401027']);
+
+    await act(async () => {
+      pending.resolve(hafermilch);
+      await Promise.all([first, second, third]);
+    });
   });
 
   it('laesst waehrend eines laufenden Lookups keinen zweiten Code durch', async () => {
     // Zwei Barcodes im Kamerabild duerfen nicht zwei Navigationen ausloesen.
     const onFound = jest.fn();
-    const { catalog, calls } = fakeCatalog(async () => {
-      await new Promise((resolve) => setTimeout(resolve, 20));
-      return hafermilch;
-    });
+    const pending = deferred<CatalogProduct | null>();
+    const { catalog, calls } = fakeCatalog(() => pending.promise);
 
     const { result: hook } = await renderHook(() => useProductBarcodeLookup({ catalog, onFound }));
-    await act(async () => {
-      await Promise.all([hook.current.lookup('4008400401027'), hook.current.lookup('999')]);
+    let first: Promise<CatalogProduct | null>;
+    let second: Promise<CatalogProduct | null>;
+    act(() => {
+      first = hook.current.lookup('4008400401027');
+      second = hook.current.lookup('999');
     });
 
     expect(calls).toEqual(['4008400401027']);
+
+    await act(async () => {
+      pending.resolve(hafermilch);
+      await Promise.all([first, second]);
+    });
     expect(onFound).toHaveBeenCalledTimes(1);
   });
 

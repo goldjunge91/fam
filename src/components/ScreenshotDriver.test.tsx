@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react-native';
 import { router } from 'expo-router';
+import { act } from 'react';
 
 import { runScreenshotTour, ScreenshotDriver } from '@/components/ScreenshotDriver';
 
@@ -46,6 +47,7 @@ jest.mock('@/lib/devtools/screenshots', () => ({
 
 describe('ScreenshotDriver', () => {
   beforeEach(() => {
+    jest.useFakeTimers();
     jest.clearAllMocks();
     mockSession = { user: { id: 'user-1' } };
     mockIsLoading = false;
@@ -54,6 +56,10 @@ describe('ScreenshotDriver', () => {
       householdId: 'household-1',
       recipeId: 'recipe-1',
     });
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
   });
 
   it('bleibt ohne shots.json vollständig inaktiv', async () => {
@@ -73,12 +79,14 @@ describe('ScreenshotDriver', () => {
       mockPathname = typeof target === 'string' ? target : target.pathname;
     });
 
-    await runScreenshotTour(
+    const tour = runScreenshotTour(
       new AbortController().signal,
       { enabled: true, armedAt: Date.now(), settleMs: 0 },
       'recipe-1',
       () => mockPathname,
     );
+
+    await settleWithFakeTimers(tour);
 
     expect(mockAnnounce.mock.calls.map(([name]) => name)).toEqual([
       '__starting__',
@@ -102,11 +110,18 @@ describe('ScreenshotDriver', () => {
 
   it('wartet auf den tatsächlich aktiven Pfad, bevor es den Status meldet', async () => {
     let activePath = '/pending';
+    let activateRoute: (() => void) | undefined;
+    let delayFirstRoute = true;
     (router.replace as jest.Mock).mockImplementation((target) => {
       const nextPath = typeof target === 'string' ? target : target.pathname;
-      setTimeout(() => {
+      if (delayFirstRoute) {
+        delayFirstRoute = false;
+        activateRoute = () => {
+          activePath = nextPath;
+        };
+      } else {
         activePath = nextPath;
-      }, 20);
+      }
     });
     const getCurrentPath = () => activePath;
     const tour = runScreenshotTour(
@@ -116,11 +131,42 @@ describe('ScreenshotDriver', () => {
       getCurrentPath,
     );
 
-    await new Promise((resolve) => setTimeout(resolve, 0));
+    await act(async () => {
+      await Promise.resolve();
+    });
     expect(mockAnnounce).toHaveBeenCalledWith('__starting__');
     expect(mockAnnounce).not.toHaveBeenCalledWith('01-home');
 
-    await tour;
+    act(() => {
+      activateRoute?.();
+    });
+    act(() => {
+      jest.advanceTimersByTime(50);
+    });
+    await settleWithFakeTimers(tour);
+
     expect(mockAnnounce).toHaveBeenCalledWith('01-home');
   });
 });
+
+async function settleWithFakeTimers(tour: Promise<void>): Promise<void> {
+  let settled = false;
+  const completion = tour.then(
+    () => {
+      settled = true;
+    },
+    (error: unknown) => {
+      settled = true;
+      throw error;
+    },
+  );
+
+  for (let attempt = 0; attempt < 20 && !settled; attempt += 1) {
+    await Promise.resolve();
+    act(() => {
+      if (jest.getTimerCount() > 0) jest.runOnlyPendingTimers();
+    });
+  }
+
+  await completion;
+}

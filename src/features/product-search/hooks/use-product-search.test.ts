@@ -47,120 +47,143 @@ function deferred<T>() {
   return { promise, resolve };
 }
 
-// Kurze Debounces statt Fake-Timer: Letztere geraten mit renderHooks eigenem
-// Scheduling durcheinander (siehe use-food-search.test.ts).
+// Die kleinen Werte halten die Tests schnell; die Zeit wird deterministisch
+// mit Fake-Timern vorgerueckt, statt den Testlauf real warten zu lassen.
 const fast = { localDebounceMs: 5, apiDebounceMs: 10 };
 
 describe('useProductSearch', () => {
-  it('sucht nach dem Debounce und liefert die Treffer', async () => {
-    const { catalog, calls } = fakeCatalog(() => result([product('Hafermilch')]));
-
-    const { result: hook } = await renderHook(() =>
-      useProductSearch('Hafermilch', { catalog, ...fast }),
-    );
-
-    await waitFor(() => expect(hook.current.results).toHaveLength(1));
-    expect(calls[0].query).toBe('Hafermilch');
-    await waitFor(() => expect(hook.current.searching).toBe(false));
-  });
-
-  it('sucht ohne Online-Ebene zuerst und ergaenzt danach still online', async () => {
-    const { catalog, calls } = fakeCatalog(({ options }) =>
-      options.allowApi === false
-        ? result([product('Hafermilch lokal', '1')])
-        : result([product('Hafermilch lokal', '1'), product('Hafermilch online', '2')]),
-    );
-
-    const { result: hook } = await renderHook(() =>
-      useProductSearch('Hafermilch', { catalog, ...fast }),
-    );
-
-    await waitFor(() => expect(hook.current.results).toHaveLength(2));
-    await waitFor(() => expect(hook.current.searching).toBe(false));
-    expect(calls).toHaveLength(2);
-    expect(calls[0].options.allowApi).toBe(false);
-    // Die zweite Stufe sperrt die Online-Ebene nicht mehr.
-    expect(calls[1].options.allowApi).not.toBe(false);
-  });
-
-  it('wartet mit der Online-Stufe auf eine langsame lokale Antwort', async () => {
-    const localPage = deferred<ProductCatalogSearchResult>();
-    const { catalog, calls } = fakeCatalog(({ options }) =>
-      options.allowApi === false
-        ? localPage.promise
-        : result([product('Hafermilch lokal', '1'), product('Hafermilch online', '2')]),
-    );
-
-    const { result: hook } = await renderHook(() =>
-      useProductSearch('Hafermilch', { catalog, ...fast }),
-    );
-
-    await new Promise((resolve) => setTimeout(resolve, 30));
-    expect(calls).toHaveLength(1);
-
-    await act(() => {
-      localPage.resolve(result([product('Hafermilch lokal', '1')]));
+  describe('Debounce und Antwortreihenfolge', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
     });
 
-    await waitFor(() => expect(hook.current.results).toHaveLength(2));
-    expect(hook.current.results.map((item) => item.name)).toEqual([
-      'Hafermilch lokal',
-      'Hafermilch online',
-    ]);
-  });
-
-  it('bleibt zwischen lokaler und Online-Stufe im Suchzustand', async () => {
-    const onlinePage = deferred<ProductCatalogSearchResult>();
-    const { catalog } = fakeCatalog(({ options }) => {
-      if (options.allowApi === false) return result([]);
-      return onlinePage.promise;
+    afterEach(() => {
+      jest.useRealTimers();
     });
 
-    const { result: hook } = await renderHook(() =>
-      useProductSearch('Hafermilch', { catalog, ...fast }),
-    );
+    it('sucht nach dem Debounce und liefert die Treffer', async () => {
+      const { catalog, calls } = fakeCatalog(() => result([product('Hafermilch')]));
 
-    // Ohne das blitzt zwischen den Stufen der Leerzustand auf.
-    await waitFor(() => expect(hook.current.searched).toBe(true));
-    expect(hook.current.searching).toBe(true);
+      const { result: hook } = await renderHook(() =>
+        useProductSearch('Hafermilch', { catalog, ...fast }),
+      );
 
-    await act(() => {
-      onlinePage.resolve(result([product('Hafermilch online', '1')]));
+      await advanceTimers(5);
+      expect(hook.current.results).toHaveLength(1);
+      expect(calls[0].query).toBe('Hafermilch');
+      await advanceTimers(5);
+      expect(hook.current.searching).toBe(false);
     });
 
-    await waitFor(() => expect(hook.current.results).toHaveLength(1));
-    await waitFor(() => expect(hook.current.searching).toBe(false));
-  });
+    it('sucht ohne Online-Ebene zuerst und ergaenzt danach still online', async () => {
+      const { catalog, calls } = fakeCatalog(({ options }) =>
+        options.allowApi === false
+          ? result([product('Hafermilch lokal', '1')])
+          : result([product('Hafermilch lokal', '1'), product('Hafermilch online', '2')]),
+      );
 
-  it('sucht bei zu kurzer Eingabe gar nicht', async () => {
-    const { catalog, calls } = fakeCatalog(() => result([product('Hafermilch')]));
+      const { result: hook } = await renderHook(() =>
+        useProductSearch('Hafermilch', { catalog, ...fast }),
+      );
 
-    const { result: hook } = await renderHook(() => useProductSearch('H', { catalog, ...fast }));
-
-    await new Promise((resolve) => setTimeout(resolve, 30));
-    expect(calls).toHaveLength(0);
-    expect(hook.current.results).toEqual([]);
-  });
-
-  it('verwirft die Antwort einer ueberholten Suche', async () => {
-    const { catalog } = fakeCatalog(async ({ query }) => {
-      // Die erste Eingabe antwortet bewusst spaeter als die zweite.
-      if (query === 'Hafer') {
-        await new Promise((resolve) => setTimeout(resolve, 60));
-        return result([product('Hafer alt')]);
-      }
-      return result([product('Haferflocken neu')]);
+      await advanceTimers(5);
+      expect(hook.current.results).toHaveLength(1);
+      await advanceTimers(5);
+      expect(hook.current.results).toHaveLength(2);
+      expect(hook.current.searching).toBe(false);
+      expect(calls).toHaveLength(2);
+      expect(calls[0].options.allowApi).toBe(false);
+      // Die zweite Stufe sperrt die Online-Ebene nicht mehr.
+      expect(calls[1].options.allowApi).not.toBe(false);
     });
 
-    const { result: hook, rerender } = await renderHook(
-      ({ query }: { query: string }) => useProductSearch(query, { catalog, ...fast }),
-      { initialProps: { query: 'Hafer' } },
-    );
-    await rerender({ query: 'Haferflocken' });
+    it('wartet mit der Online-Stufe auf eine langsame lokale Antwort', async () => {
+      const localPage = deferred<ProductCatalogSearchResult>();
+      const { catalog, calls } = fakeCatalog(({ options }) =>
+        options.allowApi === false
+          ? localPage.promise
+          : result([product('Hafermilch lokal', '1'), product('Hafermilch online', '2')]),
+      );
 
-    await waitFor(() => expect(hook.current.results).toHaveLength(1));
-    await new Promise((resolve) => setTimeout(resolve, 80));
-    expect(hook.current.results[0].name).toBe('Haferflocken neu');
+      const { result: hook } = await renderHook(() =>
+        useProductSearch('Hafermilch', { catalog, ...fast }),
+      );
+
+      await advanceTimers(5);
+      expect(calls).toHaveLength(1);
+
+      act(() => {
+        localPage.resolve(result([product('Hafermilch lokal', '1')]));
+      });
+      await flushMicrotasks();
+      await advanceTimers(5);
+
+      expect(hook.current.results).toHaveLength(2);
+      expect(hook.current.results.map((item) => item.name)).toEqual([
+        'Hafermilch lokal',
+        'Hafermilch online',
+      ]);
+    });
+
+    it('bleibt zwischen lokaler und Online-Stufe im Suchzustand', async () => {
+      const onlinePage = deferred<ProductCatalogSearchResult>();
+      const { catalog } = fakeCatalog(({ options }) => {
+        if (options.allowApi === false) return result([]);
+        return onlinePage.promise;
+      });
+
+      const { result: hook } = await renderHook(() =>
+        useProductSearch('Hafermilch', { catalog, ...fast }),
+      );
+
+      // Ohne das blitzt zwischen den Stufen der Leerzustand auf.
+      await advanceTimers(5);
+      expect(hook.current.searched).toBe(true);
+      expect(hook.current.searching).toBe(true);
+
+      await advanceTimers(5);
+      act(() => {
+        onlinePage.resolve(result([product('Hafermilch online', '1')]));
+      });
+      await flushMicrotasks();
+
+      expect(hook.current.results).toHaveLength(1);
+      expect(hook.current.searching).toBe(false);
+    });
+
+    it('sucht bei zu kurzer Eingabe gar nicht', async () => {
+      const { catalog, calls } = fakeCatalog(() => result([product('Hafermilch')]));
+
+      const { result: hook } = await renderHook(() => useProductSearch('H', { catalog, ...fast }));
+
+      expect(calls).toHaveLength(0);
+      expect(hook.current.results).toEqual([]);
+    });
+
+    it('verwirft die Antwort einer ueberholten Suche', async () => {
+      const firstPage = deferred<ProductCatalogSearchResult>();
+      const { catalog } = fakeCatalog(({ query }) => {
+        // Die erste Eingabe antwortet bewusst spaeter als die zweite.
+        if (query === 'Hafer') return firstPage.promise;
+        return result([product('Haferflocken neu')]);
+      });
+
+      const { result: hook, rerender } = await renderHook(
+        ({ query }: { query: string }) => useProductSearch(query, { catalog, ...fast }),
+        { initialProps: { query: 'Hafer' } },
+      );
+      await advanceTimers(5);
+      await rerender({ query: 'Haferflocken' });
+      await advanceTimers(5);
+
+      expect(hook.current.results).toHaveLength(1);
+      expect(hook.current.results[0].name).toBe('Haferflocken neu');
+
+      act(() => {
+        firstPage.resolve(result([product('Hafer alt')]));
+      });
+      await flushMicrotasks();
+    });
   });
 
   it('haengt beim Nachladen an, statt die Liste zuruecksetzen', async () => {
@@ -270,3 +293,17 @@ describe('useProductSearch', () => {
     expect(hook.current.searched).toBe(false);
   });
 });
+
+async function advanceTimers(ms: number): Promise<void> {
+  act(() => {
+    jest.advanceTimersByTime(ms);
+  });
+  await flushMicrotasks();
+}
+
+async function flushMicrotasks(): Promise<void> {
+  await act(async () => {
+    await Promise.resolve();
+    await Promise.resolve();
+  });
+}
