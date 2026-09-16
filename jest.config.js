@@ -8,6 +8,7 @@ module.exports = {
     'react-native-unistyles/mocks',
     '<rootDir>/src/components/theme/index.ts',
   ],
+  setupFilesAfterEnv: ['<rootDir>/test/setup-after-env.js'],
   // React-Native/Babel-Worker sind speicherintensiv. Vier parallele Worker
   // erzeugen im Gesamtlauf GC-/CPU-Konkurrenz und dadurch falsche 15s-Timeouts.
   maxWorkers: 2,
