@@ -21,7 +21,8 @@ const mockEnsureMutate = jest.fn();
 const mockEnsureMutateAsync = jest.fn().mockResolvedValue({ id: 'plan-1' });
 const mockReuseMutate = jest.fn();
 let mockRecipesPreference = true;
-let mockRecipesFeatureFlag = true;
+let mockRecipesFeatureFlag: boolean | undefined = true;
+let mockRecipesFeatureFlagOverride: boolean | undefined;
 let mockRecipes = [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }];
 
 // Stabile Objektidentitaet noetig: `AutoBackButton` (Screen) haengt seinen
@@ -73,6 +74,12 @@ jest.mock('@/features/settings/module-preferences', () => ({
 jest.mock('@/lib/observability/providers/posthog', () => ({
   useFeatureFlags: () => ({ 'module-recipes': mockRecipesFeatureFlag }),
   useFeatureFlag: () => mockRecipesFeatureFlag,
+}));
+
+jest.mock('@/features/settings/use-feature-access', () => ({
+  useFeatureAccess: () => ({
+    getFeatureFlagState: () => mockRecipesFeatureFlagOverride ?? mockRecipesFeatureFlag,
+  }),
 }));
 
 jest.mock('@/features/recipes/hooks/use-recipes', () => ({
@@ -141,6 +148,7 @@ beforeEach(() => {
   mockAddMutate.mockClear();
   mockRecipesPreference = true;
   mockRecipesFeatureFlag = true;
+  mockRecipesFeatureFlagOverride = undefined;
   mockRecipes = [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }];
 });
 
@@ -197,6 +205,37 @@ describe('MealPlannerScreen', () => {
     // Rezept-Picker schliesst sich, Portionen-/Personen-Formular oeffnet sich fuer die Auswahl.
     expect(screen.queryByText('Rezept auswählen')).not.toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Speichern' })).toBeOnTheScreen();
+  });
+
+  it('lässt den Rezept-Picker offen, solange module-recipes noch nicht bestätigt ist', async () => {
+    mockRecipesFeatureFlag = undefined;
+    const user = userEvent.setup();
+    await renderScreen();
+
+    const addButton = screen.getByRole('button', {
+      name: 'Frühstück am Montag, Gericht hinzufügen',
+    });
+    expect(addButton).toBeEnabled();
+
+    await user.press(addButton);
+
+    expect(screen.getByText('Rezept auswählen')).toBeOnTheScreen();
+  });
+
+  it('berücksichtigt den Entwickler-Override für das Rezepte-Feature', async () => {
+    mockRecipesFeatureFlag = false;
+    mockRecipesFeatureFlagOverride = true;
+    const user = userEvent.setup();
+    await renderScreen();
+
+    const addButton = screen.getByRole('button', {
+      name: 'Frühstück am Montag, Gericht hinzufügen',
+    });
+    expect(addButton).toBeEnabled();
+
+    await user.press(addButton);
+
+    expect(screen.getByText('Rezept auswählen')).toBeOnTheScreen();
   });
 
   it('stellt den Portionen-Modus als fachliche Radio-Auswahl dar', async () => {

@@ -1,3 +1,10 @@
+/**
+ * Zentrale Quelle fuer die statische Beschreibung aller App-Features und
+ * Top-Level-Module: Schluessel, Titel, Routen, Remote-Flags und Einstellungen.
+ *
+ * Laufzeitwerte gehoeren nicht hierher. Nutzerentscheidungen kommen aus
+ * `module-preferences.ts`, lokale Entwickler-Overrides aus `dev-settings.ts`.
+ */
 import type { FamIconName } from '@/components/icons/fam-icon';
 import type { SpeedDialColorKey } from '@/components/theme/index';
 import type { MealType } from '@/features/calorie-tracking/api';
@@ -219,11 +226,13 @@ export const APP_FEATURES = [
 
 export type FeatureId = (typeof APP_FEATURES)[number]['id'];
 
+/** Liefert die statische Definition eines Features anhand seiner ID. */
 export function getFeature(id: FeatureId | (string & {})): FeatureDefinition | undefined {
   const allFeatures: readonly FeatureDefinition[] = APP_FEATURES;
   return allFeatures.find((f) => f.id === id);
 }
 
+/** Findet das Feature, das ein bestimmtes Remote-Flag besitzt. */
 export function getFeatureByFlag(featureFlag: FeatureFlagKey): FeatureDefinition | undefined {
   const allFeatures: readonly FeatureDefinition[] = APP_FEATURES;
   return allFeatures.find((f) => f.featureFlag === featureFlag);
@@ -254,6 +263,7 @@ export type DrawerGroup = {
   routes: DrawerRouteItem[];
 };
 
+/** Baut die nach Navigationsgruppe und Reihenfolge sortierten Drawer-Routen. */
 export function getDrawerGroups(): DrawerGroup[] {
   const allFeatures: readonly FeatureDefinition[] = APP_FEATURES;
   return DRAWER_GROUPS_META.map((meta) => {
@@ -287,6 +297,7 @@ export type SpeedDialOptionItem = {
   feature: FeatureDefinition;
 };
 
+/** Liefert die aktivierbaren Schnellaktionen in ihrer Anzeigereihenfolge. */
 export function getSpeedDialOptions(): SpeedDialOptionItem[] {
   const allFeatures: readonly FeatureDefinition[] = APP_FEATURES;
   return allFeatures
@@ -311,6 +322,7 @@ export type SettingsModuleItem = {
   feature: FeatureDefinition;
 };
 
+/** Leitet die Modul-Schalter fuer die Einstellungen aus der Registry ab. */
 export function getSettingsModules(): SettingsModuleItem[] {
   const allFeatures: readonly FeatureDefinition[] = APP_FEATURES;
   return allFeatures

@@ -6,6 +6,10 @@ import type { ModulePreferences } from '@/features/settings/module-preferences';
 import { debugWarn } from '@/lib/observability/debug-log';
 import { getDeviceStorage } from '@/lib/storage/device-storage';
 
+/**
+ * Technischer Speicher fuer lokale Entwickler-Overrides.
+ * Diese Datei rendert keine UI; die Setter werden vom Dev-Menue aufgerufen.
+ */
 export type TrackingMethodOverrides = Partial<Record<TrackingMethod, boolean>>;
 
 const TRACKING_METHOD_IDS: readonly TrackingMethod[] = [

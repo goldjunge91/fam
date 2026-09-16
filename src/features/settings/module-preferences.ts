@@ -1,3 +1,9 @@
+/**
+ * Supabase-Adapter fuer die persoenlichen Modul-Praeferenzen eines Nutzers.
+ * Die statischen Moduldefinitionen und ihre Feature-Flags liegen in
+ * `src/constants/feature-registry.ts`; diese Datei liest und schreibt nur die
+ * Werte in `profiles.module_*`.
+ */
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { getSupabase } from '@/lib/backend/supabase/client';
 import type { Database } from '@/lib/database.types';
@@ -18,10 +24,12 @@ export const DEFAULT_MODULE_PREFERENCES: ModulePreferences = {
   mealPlanner: true,
 };
 
+/** Erstellt den React-Query-Schluessel fuer die Modul-Praeferenzen eines Nutzers. */
 export function modulePreferencesQueryKey(userId: string | undefined) {
   return ['settings', 'module-preferences', userId] as const;
 }
 
+/** Liest die Modul-Praeferenzen aus dem Profil und verwendet sichere Defaults. */
 export function useModulePreferences(userId: string | undefined) {
   return useQuery({
     queryKey: modulePreferencesQueryKey(userId),
@@ -53,6 +61,7 @@ export function useModulePreferences(userId: string | undefined) {
   });
 }
 
+/** Speichert einzelne Modul-Praeferenzen mit optimistischem Cache-Update. */
 export function useUpdateModulePreferencesMutation() {
   const queryClient = useQueryClient();
 
@@ -97,6 +106,7 @@ export function useUpdateModulePreferencesMutation() {
   });
 }
 
+/** Speichert den vollstaendigen Modul-Praeferenzsatz direkt in Supabase. */
 export async function saveModulePreferences(userId: string, modules: ModulePreferences) {
   const { error } = await getSupabase()
     .from('profiles')

@@ -18,7 +18,7 @@ import {
   DEFAULT_MODULE_PREFERENCES,
   useModulePreferences,
 } from '@/features/settings/module-preferences';
-import { useFeatureFlag } from '@/lib/observability/providers/posthog';
+import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
 import { RecipePickerModal } from './components/recipe-picker-modal';
 import { type DraggableRecipe, WeekGrid } from './components/week-grid';
@@ -97,7 +97,8 @@ export function MealPlannerScreen() {
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
   const { data: rawModules } = useModulePreferences(userId);
-  const recipesFeatureEnabled = useFeatureFlag('module-recipes', false);
+  const { getFeatureFlagState } = useFeatureAccess();
+  const recipesFeatureEnabled = getFeatureFlagState('module-recipes') !== false;
   const recipesEnabled =
     (rawModules ?? DEFAULT_MODULE_PREFERENCES).recipes && recipesFeatureEnabled;
 

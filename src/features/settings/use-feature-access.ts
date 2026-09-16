@@ -15,6 +15,10 @@ import {
 import { env } from '@/lib/config/env';
 import { type FeatureFlagKey, useFeatureFlags } from '@/lib/observability/providers/posthog';
 
+/**
+ * Einziger Laufzeit-Entscheidungspunkt fuer Feature-Zugriff.
+ * Fuehrt Nutzer-Praeferenz, Remote-Flag und lokales Dev-Override zusammen.
+ */
 export function useFeatureAccess() {
   const { session } = useSession();
   const { data: rawModules, isLoading } = useModulePreferences(session?.user.id);
