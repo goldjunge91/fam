@@ -452,13 +452,13 @@ describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
 });
 
 describe('DashboardScreen — Pull-to-Refresh', () => {
-  it('clippt den Dashboard-ScrollView nicht an der Kartenkante', async () => {
+  it('begrenzt den Dashboard-ScrollView unterhalb des Headers', async () => {
     await renderScreen();
 
     const scrollView = screen.getByTestId('dashboard-scroll-view');
 
     expect(StyleSheet.flatten(scrollView.props.style)).toEqual(
-      expect.objectContaining({ overflow: 'visible' }),
+      expect.objectContaining({ overflow: 'hidden' }),
     );
   });
 
