@@ -17,6 +17,10 @@ env:
 
 # iOS' eigener Keychain-Dialog ist kein App-UI und kann nach dem Absenden
 # erscheinen. Der exakte Match verhindert einen Treffer auf spätere App-Buttons.
+- extendedWaitUntil:
+    visible: "^(Später|Not Now)$"
+    timeout: 5000
+    optional: true
 - tapOn:
     text: "^(Später|Not Now)$"
     optional: true

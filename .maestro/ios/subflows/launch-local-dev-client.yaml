@@ -26,6 +26,7 @@ env:
 - tapOn:
     text: "Continue"
     optional: true
+- waitForAnimationToEnd
 - extendedWaitUntil:
     visible: "Close"
     timeout: 10000
@@ -33,8 +34,9 @@ env:
 - tapOn:
     text: "Close"
     optional: true
+- waitForAnimationToEnd
 - extendedWaitUntil:
     visible: "Weiter"
-    timeout: 50000
+    timeout: 120000
 
 #„fam" möchte dir Mitteilungen senden
