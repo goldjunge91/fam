@@ -25,6 +25,8 @@ Nutzer können im MVP separat zustimmen, pseudonymisierte Transkripte, Artikel, 
 
 Ein Widerruf stoppt die zukünftige Verarbeitung sofort. Pseudonymisierte Quelldaten werden innerhalb der festgelegten 90-Tage-Frist gelöscht. Bereits exportierte Trainings- oder Prognosemodelle bleiben im MVP bestehen; ihre nachträgliche Entfernung ist nicht Teil des ersten technischen Löschpfads.
 
+Vor der Übertragung filtert das Gerät lokal auf die erlaubten Einkaufsfelder. Verdächtige oder indirekt identifizierende Inhalte werden aus dem Produktverbesserungsereignis entfernt oder das Ereignis wird gar nicht übertragen.
+
 ## Key Assumptions to Validate
 
 - [ ] 10–12 bestätigte, unterschiedliche Artikel-plus-Marke-Zuordnungen reichen aus, damit Nutzer dem Automatikmodus vertrauen.
@@ -89,6 +91,5 @@ Ein Widerruf stoppt die zukünftige Verarbeitung sofort. Pseudonymisierte Quelld
 
 - Welche nativen On-Device-Spracherkennungs-APIs und Geräteverfügbarkeiten gelten auf iOS und Android im MVP?
 - Welche React-Native-ExecuTorch-Whisper-Variante und welche Modellbereitstellung eignen sich für den späteren Fallback?
-- Wie werden pseudonymisierte Transkripte auf seltene oder indirekt identifizierende Einkaufsinhalte geprüft?
 - Welche konkrete Ausgestaltung erhält die datenschutzverstärkte Telemetrie für die Produktionsauslieferung?
 - Welche rechtliche Prüfung und welche Einwilligungstexte benötigen Produktverbesserung und eigene Prognosen?
