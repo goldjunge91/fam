@@ -21,6 +21,8 @@ Für jeden unklaren Artikel zeigt die gemeinsame Vorschau die wahrscheinlichsten
 
 Bestätigungen und Korrekturen werden als einzelne Ereignisse lokal erfasst und nach der Synchronisierung per Mehrheit ausgewertet. So bleiben gleichzeitige Offline-Rückmeldungen erhalten und können nicht durch eine einfache letzte Änderung verloren gehen.
 
+Nutzer können im MVP separat zustimmen, pseudonymisierte Transkripte, Artikel, Marken, Ziel-Listen und Korrekturergebnisse für die Verbesserung des Parsers, der Listen-Zuordnung, eigener Prognosen und direkt verwandter Einkaufsfunktionen zu teilen. Rohes Audio bleibt immer auf dem Gerät. Diese Produktverbesserungsdaten werden getrennt von der normalen App-Nutzung und pro Nutzer verwaltet.
+
 ## Key Assumptions to Validate
 
 - [ ] 10–12 bestätigte, unterschiedliche Artikel-plus-Marke-Zuordnungen reichen aus, damit Nutzer dem Automatikmodus vertrauen.
@@ -33,7 +35,9 @@ Bestätigungen und Korrekturen werden als einzelne Ereignisse lokal erfasst und 
 - [ ] Ein späterer React-Native-ExecuTorch-Fallback liefert auf kompatiblen Geräten ausreichend gute lokale Transkriptionen.
 - [ ] Ausgewogene, sicherheitsorientierte und geschwindigkeitsorientierte Metriken liefern gemeinsam genug Signal zur Anpassung der Schwellenwerte.
 - [ ] Der Workflow erreicht mindestens 95 % korrekt erkannte Zuordnungen, höchstens 1 % falsche Einkaufslisten, höchstens 10 % manuelle Korrekturen und eine mediane Hinzufügezeit von höchstens 6 Sekunden.
-- [ ] Nutzer akzeptieren im MVP opt-in-aggregierte Metriken und eine spätere datenschutzverstärkte Telemetrie für die Produktionsauslieferung.
+- [ ] Nutzer akzeptieren im MVP eine separate Zustimmung zur pseudonymisierten Produktverbesserung und opt-in-aggregierten Metriken.
+- [ ] Eine datenschutzverstärkte Telemetrie kann für die Produktionsauslieferung zusätzlich eingesetzt werden, ohne Audio zu übertragen.
+- [ ] Die lokale Entfernung direkter Identifikatoren reduziert die Linkbarkeit von Transkripten und Einkaufsinhalten ausreichend.
 
 ## MVP Scope
 
@@ -59,6 +63,10 @@ Bestätigungen und Korrekturen werden als einzelne Ereignisse lokal erfasst und 
 - Auswertung von Produkt-, Sicherheits- und Geschwindigkeitsmetriken
 - Texteingabe als Fallback, wenn lokale Spracherkennung auf dem Gerät nicht verfügbar ist
 - Opt-in-aggregierte Metriken im MVP ohne Audio oder Transkript
+- Separate Zustimmung pro Nutzer für pseudonymisierte Transkripte, Artikel, Marken, Ziel-Listen und Korrekturergebnisse
+- Nutzung dieser Daten für Parser-, Routing-, Prognose- und direkt verwandte Einkaufsfunktionen
+- Lokale Entfernung direkter Identifikatoren vor der Übertragung
+- Rohes Audio bleibt vollständig auf dem Gerät
 
 ## Not Doing
 
@@ -66,6 +74,8 @@ Bestätigungen und Korrekturen werden als einzelne Ereignisse lokal erfasst und 
 - Cloud-KI oder verpflichtende externe Sprachverarbeitung
 - React Native ExecuTorch oder ein anderes gebündeltes Offline-Sprachmodell im MVP; der lokale Modell-Fallback wird erst nach dem MVP geplant
 - Datenschutzverstärkte Telemetrie im MVP; sie wird für die Produktionsauslieferung geplant
+- Nutzung der Daten für Werbung, Tracking oder nicht verwandte Produktbereiche
+- Unbegrenzte Weiterverwendung unter einer pauschalen Zustimmung für beliebige zukünftige Zwecke
 - Homescreen-Widget im MVP
 - Vollständiges Verständnis beliebiger freier Sätze
 - Globale Marken- und Händlerdatenbank
@@ -77,6 +87,8 @@ Bestätigungen und Korrekturen werden als einzelne Ereignisse lokal erfasst und 
 
 - Welche nativen On-Device-Spracherkennungs-APIs und Geräteverfügbarkeiten gelten auf iOS und Android im MVP?
 - Welche React-Native-ExecuTorch-Whisper-Variante und welche Modellbereitstellung eignen sich für den späteren Fallback?
-- Wie werden gleiche haushaltsweite Feedback-Ereignisse bei der Synchronisierung dedupliziert?
-- Wie werden Produktidentität und Korrektheit für die Metriken eindeutig bewertet?
+- Welche Aufbewahrungs- und Löschfristen gelten für pseudonymisierte Produktverbesserungsdaten?
+- Wie wirkt sich ein Widerruf auf bereits exportierte Trainings- oder Prognosemodelle aus?
+- Wie werden pseudonymisierte Transkripte auf seltene oder indirekt identifizierende Einkaufsinhalte geprüft?
 - Welche konkrete Ausgestaltung erhält die datenschutzverstärkte Telemetrie für die Produktionsauslieferung?
+- Welche rechtliche Prüfung und welche Einwilligungstexte benötigen Produktverbesserung und eigene Prognosen?
