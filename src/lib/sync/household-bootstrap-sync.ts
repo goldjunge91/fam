@@ -101,6 +101,7 @@ const EMPTY_BOOTSTRAP_STATE: HouseholdBootstrapSyncState = {
 export function useHouseholdsBootstrapSync(
   userId: string | undefined,
   queryClient?: QueryClient,
+  retryToken = 0,
 ): HouseholdBootstrapSyncState {
   const [syncState, setSyncState] = useState<InternalHouseholdBootstrapSyncState>({
     userId,
@@ -111,21 +112,46 @@ export function useHouseholdsBootstrapSync(
   userIdRef.current = userId;
 
   useEffect(() => {
+    // Der Token startet denselben initialen Pull nach einem manuellen Retry
+    // erneut, auch wenn sich der Benutzer nicht geändert hat.
+    void retryToken;
     if (!userId) {
       setSyncState({ userId, ...EMPTY_BOOTSTRAP_STATE });
       return;
     }
 
     let stopped = false;
+    let initialSyncComplete = false;
+    setSyncState({ userId, ...EMPTY_BOOTSTRAP_STATE });
 
     const pull = async () => {
       const outcomes = await triggerHouseholdsPull(userId, queryClient);
-      if (stopped || outcomes === null) return;
+      if (stopped) return;
+      if (initialSyncComplete) return;
+      if (outcomes === null) {
+        setSyncState({
+          userId,
+          isInitialSyncComplete: false,
+          isInitialSyncError: true,
+        });
+        return;
+      }
 
+      const hasInitialSyncError = outcomes.some((outcome) => outcome.error !== undefined);
+      if (hasInitialSyncError) {
+        setSyncState({
+          userId,
+          isInitialSyncComplete: false,
+          isInitialSyncError: true,
+        });
+        return;
+      }
+
+      initialSyncComplete = true;
       setSyncState({
         userId,
         isInitialSyncComplete: true,
-        isInitialSyncError: outcomes.some((outcome) => outcome.error !== undefined),
+        isInitialSyncError: false,
       });
     };
 
@@ -164,7 +190,7 @@ export function useHouseholdsBootstrapSync(
       unregisterAccountStopper();
       stop();
     };
-  }, [userId, queryClient]);
+  }, [userId, queryClient, retryToken]);
 
   return syncState.userId === userId ? syncState : EMPTY_BOOTSTRAP_STATE;
 }

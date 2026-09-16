@@ -1,51 +1,22 @@
-import { useQueryClient } from '@tanstack/react-query';
 import type React from 'react';
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
-import { useSession } from '@/features/auth/session-provider';
 import { type Household, useHouseholds } from '@/features/household/api';
-import { useHouseholdsBootstrapSync } from '@/lib/sync/household-bootstrap-sync';
 import { getStoredActiveHouseholdId, setStoredActiveHouseholdId } from './active-household-store';
 
 interface ActiveHouseholdContextType {
   activeHouseholdId: string | null;
   activeHousehold: Household | null;
   households: Household[];
-  isLoading: boolean;
-  /** Der Haushalts-Request ist fehlgeschlagen — siehe Kommentar in `app-entry.ts`. */
-  isError: boolean;
   setActiveHouseholdId: (id: string) => Promise<void>;
 }
 
 const ActiveHouseholdContext = createContext<ActiveHouseholdContextType | undefined>(undefined);
 
-const DEFAULT_BOOTSTRAP_STATE = {
-  isInitialSyncComplete: false,
-  isInitialSyncError: false,
-};
-
 export function ActiveHouseholdProvider({ children }: { children: React.ReactNode }) {
-  const { session } = useSession();
-  const userId = session?.user.id ?? null;
-  const queryClient = useQueryClient();
-  const { data: households = [], isLoading, isError } = useHouseholds();
+  const { data: households = [] } = useHouseholds();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isStoreLoaded, setIsStoreLoaded] = useState(false);
-
-  // Hält den lokalen Haushaltsspiegel über Pull, Poll und Reconnect aktuell.
-  const bootstrapState =
-    useHouseholdsBootstrapSync(userId ?? undefined, queryClient) ?? DEFAULT_BOOTSTRAP_STATE;
-  const hasHouseholds = households.length > 0;
-  const waitingForInitialBootstrap =
-    Boolean(userId) && !hasHouseholds && !bootstrapState.isInitialSyncComplete;
 
   useEffect(() => {
     getStoredActiveHouseholdId().then((storedId) => {
@@ -55,16 +26,6 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       setIsStoreLoaded(true);
     });
   }, []);
-
-  const previousUserIdRef = useRef<string | null>(null);
-  useEffect(() => {
-    const previousUserId = previousUserIdRef.current;
-    previousUserIdRef.current = userId;
-
-    if (previousUserId === null || previousUserId === userId) return;
-
-    setSelectedId(null);
-  }, [userId]);
 
   // Wähle den aktiven Haushalt aus der geladenen Liste (mit Fallback auf den ersten)
   const activeHousehold = useMemo(() => {
@@ -95,22 +56,9 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       activeHouseholdId,
       activeHousehold,
       households,
-      // Hintergrund-Refetches dürfen den aktiven Screen nicht als Ladezustand behandeln.
-      isLoading: isLoading || !isStoreLoaded || waitingForInitialBootstrap,
-      isError: isError || bootstrapState.isInitialSyncError,
       setActiveHouseholdId: handleSetActiveHouseholdId,
     }),
-    [
-      activeHouseholdId,
-      activeHousehold,
-      households,
-      isLoading,
-      isStoreLoaded,
-      isError,
-      waitingForInitialBootstrap,
-      bootstrapState.isInitialSyncError,
-      handleSetActiveHouseholdId,
-    ],
+    [activeHouseholdId, activeHousehold, households, handleSetActiveHouseholdId],
   );
 
   return (

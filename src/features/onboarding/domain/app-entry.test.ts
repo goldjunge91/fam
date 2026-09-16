@@ -91,7 +91,7 @@ describe('resolveAppEntry', () => {
     ).toEqual({ kind: 'warten' });
   });
 
-  it('wartet bei Haushaltsfehlern auch für einen neuen Nutzer', () => {
+  it('zeigt bei Haushaltsfehlern einen Retry-Zustand', () => {
     expect(
       resolveAppEntry({
         ...angemeldetUndEingerichtet,
@@ -99,7 +99,7 @@ describe('resolveAppEntry', () => {
         shouldPromptOnboarding: true,
         householdsError: true,
       }),
-    ).toEqual({ kind: 'warten' });
+    ).toEqual({ kind: 'fehler' });
   });
 
   it('folgt dem Onboarding-Guard fuer unvollstaendige Konten', () => {
@@ -125,7 +125,7 @@ describe('resolveAppEntry', () => {
         householdCount: 0,
         householdsError: true,
       }),
-    ).toEqual({ kind: 'warten' });
+    ).toEqual({ kind: 'fehler' });
   });
 
   it('bevorzugt das Onboarding gegenueber der Haushalts-Weiche', () => {

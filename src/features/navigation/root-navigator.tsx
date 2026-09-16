@@ -2,6 +2,7 @@ import { useObserve } from 'expo-observe';
 import { Stack } from 'expo-router';
 import { useEffect } from 'react';
 
+import { CrashFallback } from '@/features/app-shell/crash-fallback';
 import { useSession } from '@/features/auth/session-provider';
 import { env } from '@/lib/config/env';
 import { getDatabase } from '@/lib/db/client';
@@ -10,7 +11,7 @@ import { initOffDump } from '@/lib/off-dump/off-dump';
 
 /** Wechselt zwischen Onboarding, Auth und den sessiongeschützten App-Routen. */
 export function RootNavigator() {
-  const { session, isLoading, seenOnboarding } = useSession();
+  const { session, accountReady, isLoading, seenOnboarding, error, retry } = useSession();
   const { markInteractive } = useObserve();
 
   useEffect(() => {
@@ -20,7 +21,7 @@ export function RootNavigator() {
   }, [isLoading, markInteractive]);
 
   useEffect(() => {
-    if (!session?.user.id) return;
+    if (!session?.user.id || !accountReady || isLoading || error) return;
     if (__DEV__) debugLog('[OFFTRACE:ROOT-START]', { hasSession: true });
     getDatabase()
       .then((database) => {
@@ -36,9 +37,10 @@ export function RootNavigator() {
         }
         debugWarn('[OffDump] Laden/Anhaengen fehlgeschlagen:', error);
       });
-  }, [session?.user.id]);
+  }, [accountReady, error, isLoading, session?.user.id]);
 
   if (isLoading) return null;
+  if (error) return <CrashFallback resetError={retry} />;
 
   const isNewUser = !seenOnboarding || env.forceOnboarding;
   // Developer tools may exercise the real auth screens without changing the production guard.

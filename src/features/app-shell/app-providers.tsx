@@ -10,12 +10,11 @@ import { AnimatedSplashOverlay } from '@/components/icons/animated-icon';
 import { ThemeProvider as FamThemeProvider, useTheme } from '@/components/theme/ThemeProvider';
 import { SnackbarProvider } from '@/components/ui/snackbar';
 import { Surface } from '@/constants/ui';
+import { AccountProviderGate } from '@/features/app-shell/account-provider-gate';
 import { PostHogIdentitySync } from '@/features/app-shell/posthog-identity-sync';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
-import { ActiveHouseholdProvider } from '@/features/household/active-household-provider';
 import { NavigationChromeProvider } from '@/features/navigation/navigation-chrome-provider';
 import { ProfileSheet } from '@/features/navigation/profile-sheet';
-import { PremiumProvider } from '@/features/premium/premium-provider';
 import { ScreenTracker } from '@/lib/analytics';
 import { isBugBubbleEnabledForUser, setBugBubbleActive } from '@/lib/analytics/bug-bubble';
 import { queryClient, removeLegacyPersistedQueryCache } from '@/lib/data/query-client';
@@ -74,13 +73,11 @@ export function AppProviders({ children }: { children: ReactNode }) {
                 <PostHogAppProvider>
                   <PostHogIdentitySync />
                   <ScreenTracker />
-                  <ActiveHouseholdProvider>
-                    <PremiumProvider>
-                      <FamThemeProvider>
-                        <ThemeRuntime screenshotMode={screenshotMode}>{children}</ThemeRuntime>
-                      </FamThemeProvider>
-                    </PremiumProvider>
-                  </ActiveHouseholdProvider>
+                  <AccountProviderGate>
+                    <FamThemeProvider>
+                      <ThemeRuntime screenshotMode={screenshotMode}>{children}</ThemeRuntime>
+                    </FamThemeProvider>
+                  </AccountProviderGate>
                 </PostHogAppProvider>
               </SessionProvider>
             </QueryClientProvider>

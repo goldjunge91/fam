@@ -26,10 +26,12 @@ const mockDbGetAllAsync = jest.fn();
 const mockRpc = jest.fn();
 const mockFrom = jest.fn();
 let mockUserId: string | null = 'user-1';
+let mockAccountReady = true;
 
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({
     session: mockUserId ? { user: { id: mockUserId } } : null,
+    accountReady: mockAccountReady,
   }),
 }));
 
@@ -104,6 +106,7 @@ describe('household api', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockUserId = 'user-1';
+    mockAccountReady = true;
     mockDbGetAllAsync.mockResolvedValue([]);
     mockRpc.mockResolvedValue({ data: null, error: null });
     mockFrom.mockImplementation(() => createSupabaseBuilder());
@@ -168,6 +171,17 @@ describe('household api', () => {
 
   it('startet ohne angemeldeten Nutzer keine Haushaltsabfrage', async () => {
     mockUserId = null;
+
+    const { result } = await renderHook(() => useHouseholds(), {
+      wrapper: HouseholdApiProviders,
+    });
+
+    expect(result.current.fetchStatus).toBe('idle');
+    expect(mockDbGetAllAsync).not.toHaveBeenCalled();
+  });
+
+  it('startet trotz Session keine Haushaltsabfrage vor dem Account-Bootstrap', async () => {
+    mockAccountReady = false;
 
     const { result } = await renderHook(() => useHouseholds(), {
       wrapper: HouseholdApiProviders,

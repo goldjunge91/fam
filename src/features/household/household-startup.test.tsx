@@ -1,11 +1,10 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider, useQueryClient } from '@tanstack/react-query';
 import { act, render, screen, waitFor } from '@testing-library/react-native';
 import { Text } from 'react-native';
-import {
-  ActiveHouseholdProvider,
-  useActiveHousehold,
-} from '@/features/household/active-household-provider';
+import { useSession } from '@/features/auth/session-provider';
+import { useHouseholds } from '@/features/household/api';
 import { resolveAppEntry } from '@/features/onboarding/domain/app-entry';
+import { useHouseholdsBootstrapSync } from '@/lib/sync/household-bootstrap-sync';
 import type { PullOutcome } from '@/lib/sync/pull';
 
 const mockPullHousehold = jest.fn();
@@ -14,7 +13,7 @@ const mockDecision = jest.fn();
 let mockReconnect: () => Promise<void>;
 
 jest.mock('@/features/auth/session-provider', () => ({
-  useSession: () => ({ session: { user: { id: 'user-1' } } }),
+  useSession: () => ({ session: { user: { id: 'user-1' } }, accountReady: true }),
 }));
 jest.mock('@/lib/db/client', () => ({
   getDatabase: async () => ({ getAllAsync: mockReadHouseholds }),
@@ -52,14 +51,18 @@ function deferred<T>() {
 }
 
 function EntryProbe() {
-  const { households, isLoading, isError } = useActiveHousehold();
+  const queryClient = useQueryClient();
+  const { session } = useSession();
+  const { data: households = [], isLoading, isError } = useHouseholds();
+  const bootstrapState = useHouseholdsBootstrapSync(session?.user.id, queryClient);
   const decision = resolveAppEntry({
     hasSession: true,
     hasSeenOnboarding: true,
     shouldPromptOnboarding: false,
     householdCount: households.length,
-    isLoading,
-    householdsError: isError,
+    isLoading:
+      isLoading || (!bootstrapState.isInitialSyncComplete && !bootstrapState.isInitialSyncError),
+    householdsError: isError || bootstrapState.isInitialSyncError,
   });
   const destination = decision.kind === 'umleiten' ? decision.to : decision.kind;
   mockDecision(destination);
@@ -72,9 +75,7 @@ describe('Haushaltsentscheidung beim Kaltstart', () => {
   async function start() {
     await render(
       <QueryClientProvider client={queryClient}>
-        <ActiveHouseholdProvider>
-          <EntryProbe />
-        </ActiveHouseholdProvider>
+        <EntryProbe />
       </QueryClientProvider>,
     );
     await waitFor(() => expect(mockReadHouseholds).toHaveBeenCalled());
@@ -124,7 +125,7 @@ describe('Haushaltsentscheidung beim Kaltstart', () => {
     mockPullHousehold.mockResolvedValue([{ ...successfulPullOutcome, error: 'offline' }]);
     await start();
     await waitFor(() => expect(mockReadHouseholds).toHaveBeenCalledTimes(2));
-    expect(screen.getByText('warten')).toBeOnTheScreen();
+    expect(screen.getByText('fehler')).toBeOnTheScreen();
 
     mockPullHousehold.mockImplementation(async () => {
       mockReadHouseholds.mockResolvedValue([household]);
@@ -135,13 +136,34 @@ describe('Haushaltsentscheidung beim Kaltstart', () => {
     expect(mockDecision).not.toHaveBeenCalledWith('/household/create');
   });
 
-  it('oeffnet einen lokal gespeicherten Haushalt auch ohne abgeschlossenen Server-Pull', async () => {
+  it('wartet auch mit lokalem Haushalt auf den abgeschlossenen Server-Pull', async () => {
     const pull = deferred<PullOutcome[]>();
     mockPullHousehold.mockReturnValue(pull.promise);
     mockReadHouseholds.mockResolvedValue([household]);
     await start();
-    expect(await screen.findByText('weiter')).toBeOnTheScreen();
+    expect(screen.getByText('warten')).toBeOnTheScreen();
     await act(async () => pull.resolve(successfulPull));
+    expect(await screen.findByText('weiter')).toBeOnTheScreen();
+    expect(mockDecision).not.toHaveBeenCalledWith('/household/create');
+  });
+
+  it('setzt die laufende App bei einem spaeteren Hintergrund-Pull nicht zurueck', async () => {
+    mockPullHousehold.mockResolvedValue(successfulPull);
+    mockReadHouseholds.mockResolvedValue([household]);
+    await start();
+    expect(await screen.findByText('weiter')).toBeOnTheScreen();
+
+    mockPullHousehold.mockResolvedValue([{ ...successfulPullOutcome, error: 'offline' }]);
+    await act(async () => mockReconnect());
+
+    expect(screen.getByText('weiter')).toBeOnTheScreen();
+  });
+
+  it('zeigt einen Fehlerzustand bei einem fehlgeschlagenen Bootstrap-Pull', async () => {
+    mockPullHousehold.mockRejectedValue(new Error('offline'));
+    await start();
+
+    expect(await screen.findByText('fehler')).toBeOnTheScreen();
     expect(mockDecision).not.toHaveBeenCalledWith('/household/create');
   });
 });

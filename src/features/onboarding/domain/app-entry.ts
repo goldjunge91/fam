@@ -1,5 +1,6 @@
 export type AppEntryDecision =
   | { kind: 'warten' }
+  | { kind: 'fehler' }
   | { kind: 'weiter' }
   | { kind: 'umleiten'; to: '/onboarding' | '/sign-in' | '/household/create' };
 
@@ -20,8 +21,9 @@ export function resolveAppEntry(input: {
   // Während des Ladens keine Haushaltsentscheidung treffen.
   if (input.isLoading) return { kind: 'warten' };
 
-  // Fehler nicht als leeren Haushalt interpretieren.
-  if (input.householdsError) return { kind: 'warten' };
+  // Fehler nicht als leeren Haushalt interpretieren oder stillschweigend
+  // weiterladen. Die UI zeigt einen expliziten Retry-Zustand.
+  if (input.householdsError) return { kind: 'fehler' };
 
   // Profil-Onboarding hat erst nach einem belastbaren Startzustand Vorrang
   // vor der Haushaltsauswahl.

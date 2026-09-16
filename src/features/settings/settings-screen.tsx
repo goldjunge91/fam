@@ -10,7 +10,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { MenuButton } from '@/components/ui/buttons';
+import { MenuButton } from '@/components/ui/menu-button';
 import { Button, Card, Press, SegmentedControl, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
@@ -22,6 +22,7 @@ import {
 } from '@/features/navigation/fab-position-settings';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
+import { persistOnboardingCompleted } from '@/features/onboarding/onboarding-completion';
 import { useProfile } from '@/features/profile/api';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { PlusAndAiPromoCard } from '@/features/settings/plus-and-ai-promo-card';
@@ -109,6 +110,9 @@ export function SettingsScreen() {
     if (error) {
       Alert.alert(t('settings.signOutFailedTitle'), error.message);
     } else {
+      // Bekannte Nutzer starten nach dem Logout direkt im Auth-Screen,
+      // statt beim naechsten Kaltstart erneut das Welcome-Onboarding zu sehen.
+      await persistOnboardingCompleted();
       router.replace('/onboarding');
     }
   }

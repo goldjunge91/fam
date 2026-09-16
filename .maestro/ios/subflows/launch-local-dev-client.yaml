@@ -6,6 +6,7 @@ env:
 # Lokaler iOS-Startvertrag: Metro läuft auf dem Simulator unter 127.0.0.1:8081.
 # Der installierte fam-Development-Client wird über seinen eigenen Launcher-
 # Scheme geöffnet. Expo Go und exp:// werden nicht verwendet.
+- stopApp
 - launchApp:
     clearState: true
     clearKeychain: true

@@ -7,10 +7,16 @@ appId: com.goldjunge91.fam1
 - tapOn:
     id: "navigation-drawer-settings"
 - waitForAnimationToEnd
+- extendedWaitUntil:
+    visible: "^(Einstellungen|Settings)$"
+    timeout: 30000
 - scrollUntilVisible:
     element:
       id: "settings-sign-out"
     direction: DOWN
 - tapOn:
     id: "settings-sign-out"
-- assertVisible: "Willkommen"
+- extendedWaitUntil:
+    visible:
+      text: "Alles bereit!"
+    timeout: 30000

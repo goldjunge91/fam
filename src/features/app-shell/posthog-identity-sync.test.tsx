@@ -3,9 +3,16 @@ import { AppState } from 'react-native';
 
 let mockSession: { user: { id: string; email?: string } } | null = null;
 let mockIsLoading = false;
+let mockAccountReady = true;
+let mockSessionError: Error | null = null;
 
 jest.mock('@/features/auth/session-provider', () => ({
-  useSession: () => ({ session: mockSession, isLoading: mockIsLoading }),
+  useSession: () => ({
+    session: mockSession,
+    isLoading: mockIsLoading,
+    accountReady: mockAccountReady,
+    error: mockSessionError,
+  }),
 }));
 
 const mockIdentify = jest.fn();
@@ -36,6 +43,8 @@ describe('PostHogIdentitySync', () => {
     jest.spyOn(Date, 'now').mockImplementation(() => currentTime);
     mockSession = null;
     mockIsLoading = false;
+    mockAccountReady = true;
+    mockSessionError = null;
     mockConfigured = true;
     mockAppStateHandler = undefined;
     jest.spyOn(AppState, 'addEventListener').mockImplementation((_event, handler) => {
@@ -69,14 +78,24 @@ describe('PostHogIdentitySync', () => {
     expect(mockIdentify).not.toHaveBeenCalled();
   });
 
-  it('tut nichts solange die Session noch laedt', async () => {
+  it('setzt keine Identitaet solange die Session noch laedt', async () => {
     mockIsLoading = true;
     mockSession = null;
 
     await render(<PostHogIdentitySync />);
 
     expect(mockIdentify).not.toHaveBeenCalled();
-    expect(mockReset).not.toHaveBeenCalled();
+    expect(mockReset).toHaveBeenCalled();
+  });
+
+  it('synchronisiert keine Identitaet vor erfolgreichem Account-Bootstrap', async () => {
+    mockAccountReady = false;
+    mockSession = { user: { id: 'user-1', email: 'test@example.com' } };
+
+    await render(<PostHogIdentitySync />);
+
+    expect(mockIdentify).not.toHaveBeenCalled();
+    expect(mockReset).toHaveBeenCalled();
   });
 
   it('tut nichts ohne konfigurierten PostHog-Client', async () => {

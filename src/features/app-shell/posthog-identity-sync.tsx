@@ -8,7 +8,7 @@ import { setTelemetryUserId } from '@/lib/telemetry';
 const FEATURE_FLAG_AUTO_RELOAD_INTERVAL_MS = 12 * 60 * 60 * 1000;
 
 export function PostHogIdentitySync() {
-  const { session, isLoading } = useSession();
+  const { session, isLoading, accountReady, error } = useSession();
   const userId = session?.user.id;
   const posthogEnabled = useAnalyticsSettingsStore(
     (state) => state.overrides.enabled !== false && state.overrides.providers?.posthog !== false,
@@ -16,7 +16,14 @@ export function PostHogIdentitySync() {
   const posthogClient = getPostHogClient();
 
   useEffect(() => {
-    if (isLoading) return;
+    if (isLoading || !accountReady || error) {
+      setTelemetryUserId(null);
+      if (posthogEnabled && isPostHogConfigured() && posthogClient) {
+        posthogClient.reset();
+      }
+      return;
+    }
+
     setTelemetryUserId(userId);
     if (!posthogEnabled || !isPostHogConfigured() || !posthogClient) return;
 
@@ -28,7 +35,7 @@ export function PostHogIdentitySync() {
     } else {
       posthogClient.reset();
     }
-  }, [isLoading, posthogEnabled, posthogClient, userId, session?.user.email]);
+  }, [accountReady, error, isLoading, posthogEnabled, posthogClient, userId, session?.user.email]);
 
   useEffect(() => {
     // Feature-Flags beim Vordergrundwechsel aktualisieren.

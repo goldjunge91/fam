@@ -36,6 +36,7 @@ const mockHouseholdsByUser: Record<string, { id: string; name: string }[]> = {
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({
     session: mockCurrentUserId ? { user: { id: mockCurrentUserId } } : null,
+    accountReady: true,
     isLoading: false,
     seenOnboarding: true,
     error: null,

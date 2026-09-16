@@ -31,8 +31,8 @@ type HouseholdRow = Omit<Household, 'plus_active' | 'ai_active'> & {
 };
 
 export function useHouseholds() {
-  const { session } = useSession();
-  const userId = session?.user.id;
+  const { session, accountReady } = useSession();
+  const userId = accountReady ? session?.user.id : undefined;
 
   return useQuery({
     queryKey: householdsQueryKey(userId),
@@ -50,7 +50,7 @@ export function useHouseholds() {
         ai_active: row.ai_active === 1,
       }));
     },
-    enabled: !!userId,
+    enabled: accountReady && !!userId,
   });
 }
 

@@ -3,6 +3,12 @@ appId: com.goldjunge91.fam1
 # Atomare Aufgabe: Welcome-Carousel bis zum Account-Schritt.
 - tapOn: "Weiter"
 - waitForAnimationToEnd
+- extendedWaitUntil:
+    visible: "Geteilte Einkaufsliste"
+    timeout: 10000
 - tapOn: "Weiter"
 - waitForAnimationToEnd
+- extendedWaitUntil:
+    visible: "Privates Kalorien-Tracking"
+    timeout: 10000
 - tapOn: "Jetzt starten"
