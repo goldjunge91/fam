@@ -1,0 +1,112 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { View } from 'react-native';
+import { models, useSpeechToText, WHISPER_SAMPLE_RATE_HZ } from 'react-native-executorch';
+
+import { Screen } from '@/components/layout/screen';
+import { Card } from '@/components/ui/card';
+import { Button, Txt } from '@/constants/ui';
+
+import { useExecuTorchAudioRecorder } from './use-executorch-audio-recorder';
+
+const MODEL = models.speechToText.WHISPER.TINY.DEFAULT;
+
+export function ExecuTorchSpeechToTextScreen() {
+  const [modelRequested, setModelRequested] = useState(false);
+  const [committedText, setCommittedText] = useState('');
+  const [nonCommittedText, setNonCommittedText] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const recorder = useExecuTorchAudioRecorder();
+  const streamTaskRef = useRef<Promise<void> | null>(null);
+  const stt = useSpeechToText(MODEL, { preventLoad: !modelRequested });
+
+  const stopStreaming = useCallback(async () => {
+    await recorder.stopRecording();
+    stt.streamStop?.();
+  }, [recorder.stopRecording, stt.streamStop]);
+
+  useEffect(() => {
+    return () => {
+      stt.streamStop?.();
+      void recorder.stopRecording();
+    };
+  }, [recorder.stopRecording, stt.streamStop]);
+
+  const startStreaming = async () => {
+    if (recorder.isRecording || !stt.isReady || !stt.stream || !stt.streamInsert) {
+      return;
+    }
+
+    setError(null);
+    setCommittedText('');
+    setNonCommittedText('');
+
+    const textStream = stt.stream({ language: 'de' });
+    streamTaskRef.current = (async () => {
+      try {
+        for await (const update of textStream) {
+          setCommittedText(update.committed);
+          setNonCommittedText(update.nonCommitted);
+        }
+      } catch (streamError) {
+        setError(streamError instanceof Error ? streamError.message : String(streamError));
+      } finally {
+        streamTaskRef.current = null;
+      }
+    })();
+
+    try {
+      await recorder.startRecording(WHISPER_SAMPLE_RATE_HZ, (samples) => {
+        stt.streamInsert?.(samples);
+      });
+    } catch (recordingError) {
+      setError(recordingError instanceof Error ? recordingError.message : String(recordingError));
+      await stopStreaming();
+    }
+  };
+
+  const modelStatus = !modelRequested
+    ? 'Nicht geladen'
+    : stt.error
+      ? `Fehler: ${stt.error.message}`
+      : stt.isReady
+        ? 'Bereit'
+        : `Lade Modell: ${stt.downloadProgress.toFixed(0)} %`;
+
+  return (
+    <Screen
+      title="ExecuTorch Speech-to-Text"
+      subtitle="Whisper Tiny · lokal auf dem Gerät"
+      back={{ label: 'Entwickler', href: '/settings/dev' }}
+      backStyle="icon">
+      <Card title="Modell">
+        <View style={{ gap: 12 }}>
+          <Txt variant="body">{modelStatus}</Txt>
+          {!modelRequested ? (
+            <Button title="Whisper-Modell laden" onPress={() => setModelRequested(true)} full />
+          ) : null}
+        </View>
+      </Card>
+
+      <Card title="Transkript">
+        <Txt variant="body">
+          {committedText || nonCommittedText
+            ? `${committedText}${committedText && nonCommittedText ? ' ' : ''}${nonCommittedText}`
+            : 'Noch keine Sprache erkannt'}
+        </Txt>
+      </Card>
+
+      <Card title="Mikrofon">
+        <View style={{ gap: 12 }}>
+          {error ? <Txt variant="body">{error}</Txt> : null}
+          <Txt variant="body">Whisper verwendet den Sprachcode „de“ für Deutsch (de-DE).</Txt>
+          <Button
+            title={recorder.isRecording ? 'Aufnahme stoppen' : 'Aufnahme starten'}
+            disabled={!stt.isReady}
+            onPress={() => void (recorder.isRecording ? stopStreaming() : startStreaming())}
+            full
+          />
+        </View>
+      </Card>
+    </Screen>
+  );
+}

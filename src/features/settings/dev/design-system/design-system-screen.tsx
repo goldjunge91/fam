@@ -9,6 +9,7 @@ import { FilterChipBar, type FilterChipOption } from '@/components/ui/filter-chi
 import { Badge, Txt } from '@/constants/ui';
 import { type ComponentCategory, ComponentsShowcase } from './showcase-components';
 import { type FoundationCategory, FoundationsShowcase } from './showcase-foundations';
+import { type ModalCategory, ModalsShowcase } from './showcase-modals';
 import { type PatternCategory, PatternsShowcase } from './showcase-patterns';
 import { type ReanimatedCategory, ReanimatedShowcase } from './showcase-reanimated';
 
@@ -16,7 +17,8 @@ type ShowcaseCategory =
   | FoundationCategory
   | ComponentCategory
   | PatternCategory
-  | ReanimatedCategory;
+  | ReanimatedCategory
+  | ModalCategory;
 
 const CATEGORIES = [
   { value: 'theme', label: 'Theme' },
@@ -30,6 +32,7 @@ const CATEGORIES = [
   { value: 'hybrid', label: 'Hybrid' },
   { value: 'accessibility', label: 'Zustände' },
   { value: 'reanimated', label: 'Reanimated' },
+  { value: 'modal-comparison', label: 'Modale' },
 ] as const satisfies readonly FilterChipOption<ShowcaseCategory>[];
 
 const FOUNDATION_CATEGORIES: readonly ShowcaseCategory[] = [
@@ -88,7 +91,9 @@ export function DesignSystemScreen() {
           onSelect={setCategory}
         />
 
-        {category === 'reanimated' ? (
+        {category === 'modal-comparison' ? (
+          <ModalsShowcase />
+        ) : category === 'reanimated' ? (
           <ReanimatedShowcase />
         ) : isFoundation(category) ? (
           <FoundationsShowcase category={category} />
