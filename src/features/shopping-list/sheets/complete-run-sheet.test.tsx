@@ -5,9 +5,20 @@ import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopp
 import { CompleteRunSheet } from '@/features/shopping-list/sheets/complete-run-sheet';
 import { i18n } from '@/i18n';
 
+jest.mock('@expo/ui', () => {
+  const { View } = require('react-native');
+  const Host = ({ children, ...props }: { children: React.ReactNode }) => (
+    <View {...props}>{children}</View>
+  );
+  return { __esModule: true, Host };
+});
+
 jest.mock('@expo/ui/swift-ui', () => {
   const { View } = require('react-native');
   const Wrapper = ({ children }: { children: React.ReactNode }) => <View>{children}</View>;
+  const Host = ({ children, ...props }: { children: React.ReactNode }) => (
+    <View {...props}>{children}</View>
+  );
   const BottomSheet = ({ children }: { children: React.ReactNode }) => (
     <View testID="complete-run-bottom-sheet">{children}</View>
   );
@@ -15,7 +26,7 @@ jest.mock('@expo/ui/swift-ui', () => {
     __esModule: true,
     BottomSheet,
     Group: Wrapper,
-    Host: Wrapper,
+    Host,
     RNHostView: Wrapper,
   };
 });
@@ -57,6 +68,19 @@ describe('CompleteRunSheet', () => {
   beforeEach(async () => {
     jest.clearAllMocks();
     await i18n.changeLanguage('de');
+  });
+
+  it('lässt Taps bei geschlossenem Sheet durch die native Host-Fläche durch', async () => {
+    await render(
+      <CompleteRunSheet
+        isOpen={false}
+        checkedItems={mockCheckedItems}
+        onConfirm={mockOnConfirm}
+        onClose={mockOnClose}
+      />,
+    );
+
+    expect(screen.getByTestId('complete-run-host')).toHaveProp('pointerEvents', 'none');
   });
 
   it('rendert abgehakte Artikel im Transfer-Dialog', async () => {

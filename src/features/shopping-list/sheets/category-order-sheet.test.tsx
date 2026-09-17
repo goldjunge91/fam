@@ -10,9 +10,20 @@ jest.mock('@/features/shopping-list/hooks/use-stores', () => ({
   useSetStoreCategoryOrderMutation: () => ({ mutateAsync: mockMutateAsync, isPending: false }),
 }));
 
+jest.mock('@expo/ui', () => {
+  const { View } = require('react-native');
+  const Host = ({ children, ...props }: { children: React.ReactNode }) => (
+    <View {...props}>{children}</View>
+  );
+  return { __esModule: true, Host };
+});
+
 jest.mock('@expo/ui/swift-ui', () => {
   const { View } = require('react-native');
   const Wrapper = ({ children }: { children: React.ReactNode }) => <View>{children}</View>;
+  const Host = ({ children, ...props }: { children: React.ReactNode }) => (
+    <View {...props}>{children}</View>
+  );
   const BottomSheet = ({ children }: { children: React.ReactNode }) => (
     <View testID="category-order-bottom-sheet">{children}</View>
   );
@@ -20,7 +31,7 @@ jest.mock('@expo/ui/swift-ui', () => {
     __esModule: true,
     BottomSheet,
     Group: Wrapper,
-    Host: Wrapper,
+    Host,
     RNHostView: Wrapper,
   };
 });
@@ -52,6 +63,12 @@ describe('CategoryOrderSheet', () => {
 
     expect(screen.getByText('Reihenfolge bearbeiten')).toBeTruthy();
     expect(screen.getByText('Obst & Gemüse')).toBeTruthy();
+  });
+
+  it('rendert den nativen Host bei geschlossenem Sheet nicht', async () => {
+    await render(<CategoryOrderSheet isOpen={false} store={mockStore} onClose={mockClose} />);
+
+    expect(screen.queryByTestId('category-order-host')).toBeNull();
   });
 
   it('speichert die Reihenfolge beim Klick auf Speichern', async () => {

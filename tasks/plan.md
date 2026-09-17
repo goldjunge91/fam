@@ -13,13 +13,17 @@ architecture“:
 - `package.json` erhält keine Maestro- oder E2E-Aufrufe.
 - Android wird erst nach dem grünen iOS-Kern-Checkpoint umgesetzt.
 
-Die vier verbindlichen iOS-Journeys sind:
+Die eigenständig ausführbaren iOS-Auth-Flows sind:
 
 1. Onboarding → Registrierung → E-Mail-Bestätigung → Dashboard
 2. Onboarding → erfolgreicher Login → Dashboard
-3. Onboarding → falsches Passwort → falsche E-Mail → Passwort vergessen →
-   erfolgreicher Login → Dashboard
-4. Onboarding → Login → Dashboard → Abmelden → Kaltstart → Sign-in-Screen
+3. Onboarding → falsches Passwort → Fehlermeldung
+4. Onboarding → falsche E-Mail → Fehlermeldung
+5. Onboarding → Passwort vergessen → Reset-Link-Anforderung
+
+Die eigenständige Session-Journey ist:
+
+6. Onboarding → Login → Dashboard → Abmelden → Kaltstart → Sign-in-Screen
 
 ## Architektur
 
@@ -32,9 +36,12 @@ direkt und endet mit einer aussagekräftigen Assertion.
 ```text
 .maestro/ios/flows/
 ├── auth/
-│   ├── onboarding-registration-successful.yaml
-│   ├── onboarding-login-successful.yaml
-│   └── onboarding-invalid-credentials-forgot-password-login-successful.yaml
+│   ├── login.yaml
+│   ├── login-wrong-email.yaml
+│   ├── login-wrong-password.yaml
+│   ├── password-reset.yaml
+│   ├── registration.yaml
+│   └── registration-pending-confirmation.yaml
 └── session/
     └── sign-out-and-relaunch.yaml
 ```
@@ -88,7 +95,7 @@ Skripte werden nicht nach `scripts/` zurückverschoben und nicht in
 
 ### 1. Registrierung erfolgreich
 
-Datei: `.maestro/ios/flows/auth/onboarding-registration-successful.yaml`
+Datei: `.maestro/ios/flows/auth/registration.yaml`
 
 ```yaml
 - runFlow: ../../subflows/launch-local-dev-client.yaml
@@ -104,7 +111,7 @@ UI, liest den sechsstelligen Code aus dem lokalen Inbucket und bestätigt ihn in
 
 ### 2. Login erfolgreich
 
-Datei: `.maestro/ios/flows/auth/onboarding-login-successful.yaml`
+Datei: `.maestro/ios/flows/auth/login.yaml`
 
 ```yaml
 - runFlow: ../../subflows/launch-local-dev-client.yaml
@@ -121,28 +128,31 @@ Datei: `.maestro/ios/flows/auth/onboarding-login-successful.yaml`
 `TEST_EMAIL` und `TEST_PASSWORD` kommen aus der Laufzeitumgebung. Der Account
 muss lokal bereits bestätigt sein.
 
-### 3. Credential- und Recovery-Journey
+### 3. Falsches Passwort
 
-Datei:
-`.maestro/ios/flows/auth/onboarding-invalid-credentials-forgot-password-login-successful.yaml`
+Datei: `.maestro/ios/flows/auth/login-wrong-password.yaml`
 
-Der Journey-Flow zeigt direkt:
+Der Flow startet frisch, meldet sich mit der gültigen Test-E-Mail und einem
+absichtlich falschen Passwort an und bestätigt die sichere gemeinsame
+Fehlermeldung.
 
-1. Setup und Welcome
-2. falsches Passwort mit gültiger E-Mail und sichere Fehlermeldung
-3. falsche E-Mail mit falschem Passwort und sichere Fehlermeldung
-4. Passwort-vergessen öffnen, E-Mail eingeben und Reset-Link anfordern
-5. „E-Mail unterwegs“ bestätigen
-6. zum Onboarding-Login zurückkehren
-7. parametrisierten erfolgreichen Login-Subflow ausführen
-8. Onboarding abschließen und Dashboard bestätigen
+### 4. Falsche E-Mail
 
-Der aktuelle Produktflow ändert das Passwort nicht in diesem Screen. Dieser
-Journey prüft deshalb bewusst die Reset-Anforderung und den anschließenden
-Login mit dem unveränderten gültigen Passwort. Ein echter Deep-Link-
-Passwortwechsel ist ein separater Scope.
+Datei: `.maestro/ios/flows/auth/login-wrong-email.yaml`
 
-### 4. Sign-out-and-relaunch
+Der Flow startet frisch, verwendet eine nicht registrierte E-Mail und bestätigt
+dieselbe sichere Fehlermeldung. Die Credential-Prüfung bleibt damit getrennt
+vom Passwort-Flow ausführbar.
+
+### 5. Passwort-Reset
+
+Datei: `.maestro/ios/flows/auth/password-reset.yaml`
+
+Der Flow startet frisch, öffnet aus dem Onboarding den Passwort-Reset, fordert
+den Reset-Link an und bestätigt „E-Mail unterwegs“. Ein echter Passwortwechsel
+über einen Deep-Link bleibt ein separater Scope.
+
+### 6. Sign-out-and-relaunch
 
 Datei: `.maestro/ios/flows/session/sign-out-and-relaunch.yaml`
 
@@ -214,14 +224,17 @@ Die Aufgaben werden im Beads-Epic `fam-uqat` verfolgt.
 - [ ] `fam-uqat.10`: Inbucket-Endpunkt, Code-Extraktion und lokaler
   Registrierungs-POC
 - [ ] `fam-uqat.4`: atomare iOS-Subflows und positive Journey-Grundlage
-- [ ] `fam-uqat.11`: kombinierter Credential-/Recovery-Flow
+- [x] `fam-uqat.11`: getrennte Auth-Flows für Login, Registrierung und Recovery
 - [ ] `fam-uqat.12`: Sign-out-and-relaunch-Flow
+- [ ] `fam-uqat.12.1`: iOS-Routingfehler nach Logout und Kaltstart beheben
 
 Checkpoint vor Android:
 
-- [ ] Registrierung endet nach echter Bestätigung im Dashboard
+- [x] Registrierung endet nach echter Bestätigung im Dashboard
 - [x] Erfolgreicher Login endet im Dashboard
-- [ ] Recovery-Journey läuft vollständig bis zum Dashboard
+- [x] `login-wrong-password.yaml` läuft eigenständig bis zur Fehlermeldung
+- [x] `login-wrong-email.yaml` läuft eigenständig bis zur Fehlermeldung
+- [x] `password-reset.yaml` läuft eigenständig bis zur Reset-Bestätigung
 - [ ] Sign-out-and-relaunch erreicht den Sign-in-Screen
 - [ ] kein Gesamt-Journey-Subflow bleibt übrig
 - [ ] `package.json` enthält keine Maestro-Aufrufe
@@ -250,7 +263,8 @@ Checkpoint vor Android:
 
 ## Aktueller Abnahme-Stand (2026-09-16)
 
-Die Zielstruktur ist umgesetzt und statisch geprüft:
+Die Zielstruktur ist umgesetzt und statisch sowie für die Auth-Flows auf iOS
+zur Laufzeit geprüft:
 
 - iOS- und Android-Journeys verwenden atomare Subflows; der alte
   `reach-dashboard-via-sign-in`-Subflow ist entfernt.
@@ -259,14 +273,17 @@ Die Zielstruktur ist umgesetzt und statisch geprüft:
   `package.json` enthält keine Maestro- oder E2E-Einstiege.
 - `README.md`, der Developer Guide und die Unistyles-Testdokumentation nennen
   die neuen Pfade und den ausschließlichen `fam://`-Dev-Client-Start.
-- Maestro-Syntax aller Flow-Dateien, Typecheck, Biome und die fokussierten
-  Navigationstests sind erfolgreich.
+- Maestro-Syntax der neuen Flow-Dateien und `git diff --check` sind erfolgreich.
+- `login.yaml`, `registration.yaml`, `login-wrong-password.yaml`,
+  `login-wrong-email.yaml` und `password-reset.yaml` laufen auf dem bekannten
+  iOS-Simulator bis zum erwarteten Ergebnis grün.
+- Der Session-Flow läuft bis zum Logout grün; der anschließende Kaltstart zeigt
+  statt des erwarteten Sign-in-Screens erneut das Welcome-Onboarding. Dieser
+  Befund ist als `fam-uqat.12.1` dokumentiert.
 
-Die Runtime-Gates bleiben offen, bis die Geräte wieder erreichbar sind:
+Die verbleibenden Runtime-Gates sind:
 
-- Der iOS-Simulator wird von Maestro gelistet, liefert aber weiterhin
-  `Device became unreachable during viewHierarchy`; deshalb sind nach dem
-  letzten Simulator-Absturz keine neuen iOS-Journey-Abnahmen möglich.
+- Der iOS-Logout-/Kaltstart-Routingfehler muss behoben werden.
 - Die Registrierung benötigt zusätzlich eine laufende lokale Inbucket-/Supabase-
   Zustellung auf Port `54324`.
 - Android wurde strukturell vorbereitet, aber entsprechend der iOS-first-Regel
@@ -300,10 +317,12 @@ weil Dialog-, Tastatur- und Deep-Link-Abweichungen sonst Fehler vervielfachen.
 
 ## Definition of Done
 
-- [ ] Vier iOS-Journey-Flows sind vollständig, einzeln ausführbar und grün.
+- [ ] Fünf iOS-Auth-Flows und der Session-Flow sind vollständig, einzeln
+  ausführbar und grün.
 - [ ] Gemeinsame Schritte sind atomare Subflows mit klarer Verantwortung.
 - [ ] Registrierung endet nach echter Bestätigung im Dashboard.
-- [ ] Recovery prüft beide Credential-Fehler, Reset-Anforderung und Login.
+- [x] Falsches Passwort, falsche E-Mail und Passwort-Reset sind getrennte,
+  einzeln ausführbare Auth-Flows.
 - [ ] Sign-out-and-relaunch prüft Logout und eigenständigen Kaltstart.
 - [ ] iOS-Domain-Flows verwenden keine versteckte Gesamt-Journey.
 - [ ] Android wird erst nach iOS abgenommen.

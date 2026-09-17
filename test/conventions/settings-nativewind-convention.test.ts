@@ -6,6 +6,10 @@ const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const SETTINGS_CONSUMERS = [
   'src/features/settings/dev/design-system/showcase-patterns.tsx',
   'src/features/settings/dev/design-system/showcase-reanimated.tsx',
+  'src/features/settings/dev/design-system/showcase-modals.tsx',
+  'src/features/settings/dev/design-system/showcase-modal-content.tsx',
+  'src/features/settings/dev/design-system/showcase-modal-swift-ui.tsx',
+  'src/features/settings/dev/design-system/showcase-modal-swift-ui.ios.tsx',
   'src/features/settings/export-screen.tsx',
 ] as const;
 
@@ -33,7 +37,9 @@ describe('design-system showcase categories', () => {
     );
 
     expect(source).toContain("{ value: 'reanimated', label: 'Reanimated' }");
+    expect(source).toContain("{ value: 'modal-comparison', label: 'Modale' }");
     expect(source).toContain('<ReanimatedShowcase />');
+    expect(source).toContain('<ModalsShowcase />');
   });
 });
 

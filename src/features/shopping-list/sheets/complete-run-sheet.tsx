@@ -1,4 +1,5 @@
-import { BottomSheet, Group, Host, RNHostView } from '@expo/ui/swift-ui';
+import { Host } from '@expo/ui';
+import { BottomSheet, Group, RNHostView } from '@expo/ui/swift-ui';
 import { presentationDetents, presentationDragIndicator } from '@expo/ui/swift-ui/modifiers';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -332,7 +333,11 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
   const count = checkedItems.length;
 
   return (
-    <Host style={styles.nativeHost} seedColor={theme.accent}>
+    <Host
+      testID="complete-run-host"
+      style={styles.nativeHost}
+      seedColor={theme.accent}
+      pointerEvents={isOpen ? 'auto' : 'none'}>
       <BottomSheet
         isPresented={isOpen}
         onIsPresentedChange={(presented) => {

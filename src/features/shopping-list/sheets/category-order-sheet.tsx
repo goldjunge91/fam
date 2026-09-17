@@ -1,4 +1,5 @@
-import { BottomSheet, Group, Host, RNHostView } from '@expo/ui/swift-ui';
+import { Host } from '@expo/ui';
+import { BottomSheet, Group, RNHostView } from '@expo/ui/swift-ui';
 import { presentationDetents, presentationDragIndicator } from '@expo/ui/swift-ui/modifiers';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -160,8 +161,14 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
     setOrder([...SHOPPING_CATEGORIES]);
   }
 
+  if (!isOpen) return null;
+
   return (
-    <Host style={styles.nativeHost} seedColor={theme.accent}>
+    <Host
+      testID="category-order-host"
+      style={styles.nativeHost}
+      seedColor={theme.accent}
+      pointerEvents={isOpen ? 'auto' : 'none'}>
       <BottomSheet
         isPresented={isOpen}
         onIsPresentedChange={(presented) => {

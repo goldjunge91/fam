@@ -82,7 +82,7 @@ Die UI-Schritte bleiben in YAML und werden nicht durch API-Aufrufe ersetzt.
 ### Flow 1: Registrierung erfolgreich
 
 Datei:
-.maestro/ios/flows/auth/onboarding-registration-successful.yaml
+.maestro/ios/flows/auth/registration.yaml
 
 Komposition:
 

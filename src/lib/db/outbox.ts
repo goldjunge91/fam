@@ -115,6 +115,53 @@ export async function enqueueMutationsInExclusiveTransaction(
   notifyOutboxChanged();
 }
 
+/**
+ * Baut und schreibt abhängige Mutationen schrittweise in einer Transaktion.
+ *
+ * Der normale Builder bleibt für unabhängige Mutationen optimiert. Dieser
+ * Builder schreibt jeden bestätigten Schritt sofort in den Transaktions-Handle,
+ * damit der nächste Schritt den gerade lokal gemergten Zustand sehen kann.
+ */
+export type EnqueueMutationStepBuilder = (
+  txn: SqlDatabase,
+  append: (input: EnqueueMutationInput) => Promise<void>,
+) => Promise<void>;
+
+export async function enqueueMutationStepsInExclusiveTransaction(
+  db: SqlDatabase,
+  build: EnqueueMutationStepBuilder,
+): Promise<void> {
+  const inputs: EnqueueMutationInput[] = [];
+
+  try {
+    await runQueuedExclusive(db, async () => {
+      await db.withExclusiveTransactionAsync(async (txn) => {
+        await build(txn, async (input) => {
+          await writeOutboxEntries(txn, [input]);
+          inputs.push(input);
+        });
+      });
+    });
+  } catch (error) {
+    reportError(error, {
+      operation: 'outbox.enqueue',
+      entity: inputs[0]?.entity ?? 'unknown',
+      error_code: 'outbox_enqueue_failed',
+      outbox_count: inputs.length,
+    });
+    throw error;
+  }
+
+  if (inputs.length === 0) return;
+
+  addDiagnosticStep('outbox.mutation.queued', {
+    operation: 'outbox.enqueue',
+    entity: inputs[0]?.entity ?? 'unknown',
+    outbox_count: inputs.length,
+  });
+  notifyOutboxChanged();
+}
+
 export async function enqueueMutations(
   db: SqlDatabase,
   inputs: readonly EnqueueMutationInput[],
