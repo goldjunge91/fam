@@ -1,0 +1,34 @@
+{
+  "skill_name": "ios-build-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "!ios-build testflight",
+      "expected_output": "The agent executes exactly one TestFlight workflow, waits for the native build and upload to finish, verifies the fresh IPA and submission status, and reports success, pending processing, or a concrete failure without claiming more than the evidence supports.",
+      "assertions": [
+        "The workflow uses the registered hook or explicitly records that the hook already ran, without starting a duplicate runner.",
+        "The TestFlight sequence includes native status, a fresh build path, fresh artifact validation, upload of that artifact, and submission-status verification in that order.",
+        "The final report distinguishes accepted upload, pending submission, and errored or canceled submission."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Wie funktioniert TestFlight bei unserer App? Bitte starte keinen Build, ich möchte nur den Ablauf verstehen.",
+      "expected_output": "The agent explains the distinction between building, uploading, Apple processing, App Review, and release without invoking the iOS build hook or any native command.",
+      "assertions": [
+        "No build, upload, or native workflow is started for this explanatory request.",
+        "The explanation distinguishes TestFlight upload from App Review submission and release."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "!ios-build testflight. Der Hook und Runner haben offenbar kein Execute-Bit, und /Volumes/Programme/fam-build-workflow/native-build.lock existiert schon.",
+      "expected_output": "The agent invokes the script through bash, recognizes the existing lock as contention, does not delete it or blindly retry, and reports the exact blocker and safe next action.",
+      "assertions": [
+        "The hook and runner are invoked through bash rather than requiring direct executable permissions.",
+        "An existing lock causes one bounded blocker result instead of an automatic retry or duplicate build.",
+        "The agent does not claim that an IPA was built or uploaded when the lock prevented execution."
+      ]
+    }
+  ]
+}

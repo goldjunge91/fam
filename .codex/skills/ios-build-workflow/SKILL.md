@@ -1,29 +1,44 @@
 ---
 name: ios-build-workflow
-description: Run Fam's repeatable iOS Simulator and preview TestFlight workflow through explicit !ios-build triggers, with cache-aware fresh IPA builds, Xcode build-path preflight, mandatory upload, and status verification. Do not use for Android, cloud simulators, App Review submission, or production release planning.
+description: "Use when the user explicitly asks to run the local Fam iOS build workflow with !ios-build simulator, !ios-build testflight, or !ios-build both, or asks to build, archive, export, or upload the iOS app locally. Covers native status checks, cache-aware fastpath vs rebuild fallback, fresh IPA validation, and upload verification. Do not use for general iOS/TestFlight explanations, Android builds, App Review submission, or production release planning."
 ---
 
-# Fam iOS Build Workflow
+# iOS Build Workflow
 
-Use this skill for the repository's local iOS verification path. Read the live project files before acting: `AGENTS.md`, `app.json`, `eas.json`, `native-build-lock.json`, and `docs/architecture/EAS_BUILD_COMMANDS.md`. For store-release policy or App Store Connect review work, also use the existing `apple-app-store-release` skill.
+Use this skill when the user asks to build or upload the iOS app with explicit build commands, or when the prompt includes one of these triggers:
 
-## Execution contract
+- `!ios-build simulator`
+- `!ios-build testflight`
+- `!ios-build both`
 
-- Treat the Simulator and TestFlight paths as independent modes. A Simulator result neither gates nor authorizes the TestFlight path, and a failed Simulator build must not stop a requested TestFlight build and upload.
-- When both modes are requested, execute and report them independently. They may be run one after the other when local Xcode resources make parallel builds unsafe, but never make the second mode conditional on the first mode's result.
-- The explicit triggers are `!ios-build simulator`, `!ios-build testflight`, and `!ios-build both`. `both` may run the two local branches one after the other for resource safety, but the TestFlight branch must still run after a Simulator failure.
-- In this project, `!ios-build testflight` means a fresh build plus upload of the produced IPA. Do not stop after creating the IPA.
-- The TestFlight path always produces a new app-specific version/build, archive, signature, and IPA, and always uploads that newly produced IPA after a successful build. A previously registered IPA must not be used as a substitute for the current run's artifact.
-- Building an artifact, uploading it, submitting a version for App Review, and releasing a version remain distinct operations. TestFlight mode combines only the first two.
-- The explicit hook executes the requested runner synchronously. After it has run, do not repeat the commands automatically. Ordinary prose remains non-executing and only selects this skill for guidance.
-- A running native build or upload is an exclusive critical section. Once `native:dev`, the fastpath, `native:rebuild`, `xcodebuild archive`, `xcodebuild -exportArchive`, or `eas submit` has started, wait passively for that same child process to exit naturally.
-- During that critical section, never run `ps`, `pgrep`, `top`, `ccache -s`, extra `native:status`, log-polling commands, or parallel builds. Never read or edit project/build files, change a version or build number, correct inputs, retry, choose a fallback, or inspect a second artifact while the process is active.
-- Never call `kill`, `pkill`, `killall`, send `SIGINT`/`SIGTERM`, press Ctrl-C, terminate a shell or child process, or otherwise abort a build automatically. Only an explicit user cancellation request can authorize stopping it.
-- A hook timeout, warning, apparent hang, or unexpected output is not permission to intervene. The configured hook timeout is deliberately longer than the expected 30–40 minute build and upload window; report an external timeout as incomplete/unknown and do not restart or repair the run automatically.
-- Evaluate fallback and post-build status only after the relevant child process has returned. A cache-preflight fallback is a post-exit decision, never an action against a running build.
-- Treat `expo.version` and `expo.ios.buildNumber` as separate values. The app version stays semantic (for example `0.0.6`); the iOS build number is an integer `CFBundleVersion` (for example `22`, followed by `23`), never `0.0.23`.
-- The hook, runner, and fastpath must never invoke `eas build:version:set` or `eas build:version:sync`. If the remote EAS build number is dotted or otherwise non-integer, fail the preflight before any build/rebuild/upload and report that a separate explicit EAS version preflight is required.
+This workflow is for the repository's local iOS verification path. Read the live repo state before acting: `AGENTS.md`, `app.json`, `eas.json`, and `native-build-lock.json`.
+
+Do not use for Android.
+
+## Bundled files
+
+The implementation stays in this skill directory:
+
+- `hooks/ios-build-workflow.sh` parses the explicit prompt and delegates once.
+- `hooks/ios-build-workflow-runner.sh` owns the native workflow and lock.
+- `scripts/native-testflight-fastpath.sh` creates and validates a fresh IPA.
+- `hooks/ios-build-workflow-test.sh` checks the hook contract and symlink layout.
+
+The repository paths `.codex/hooks/ios-build-workflow*.sh` and
+`scripts/native-testflight-fastpath.sh` are relative compatibility symlinks.
+Edit and execute the skill-local files through `bash`; do not copy a second
+implementation into the compatibility paths.
+
+## Core behavior
+
+- Treat simulator and TestFlight as separate execution paths. A simulator failure does not block a separately requested TestFlight upload.
+- `both` may run simulator first and TestFlight second, but the TestFlight branch must still execute even if simulator fails.
+- `!ios-build testflight` means a fresh build plus upload of the freshly produced IPA. Do not stop after creating the archive.
+- The workflow must use the artifact generated by the current run and not a stale or previously registered build.
+- No remote EAS version mutation is allowed: never run `eas build:version:set` or `eas build:version:sync`.
 - Do not expose credentials or copy secret values into output.
+
+This workflow has a critical section. Once a native build or upload starts, wait passively for it to exit naturally. Never run `ps`, `pgrep`, `top`, `ccache -s`, or extra `native:status` while the build is active. Never call `kill`, `pkill`, or `killall`. The hook timeout is deliberately long; do not intervene or restart the run. The workflow lock covers the build and upload, and the build must always upload the freshly produced IPA.
 
 ## Known Xcode build-location finding
 
@@ -59,120 +74,123 @@ upload. A second invocation stops safely while the lock is held. A stale lock
 is never removed automatically; first verify that no workflow is active, then
 remove it deliberately before retrying.
 
-## Active build critical section
+## Execution order
 
-The command that starts a native build owns the terminal until it exits. This
-rule applies equally to the Simulator branch, the cache-aware TestFlight
-fastpath, the controlled rebuild fallback, archive/export, and the EAS upload.
-The hook and the skill must not turn progress observation into intervention:
+### 1) Trigger and lock
 
-1. Start the requested command synchronously.
-2. Leave its process tree and its inputs untouched while it runs. The runner
-   acquires the workflow lock before starting a native command. Do not poll
-   with process or cache diagnostics, tail logs through a second command, or
-   make corrective edits.
-3. Continue only after the command has returned an exit code.
-4. Interpret that exit code and then, if the workflow explicitly requires it,
-   run the next post-exit status, fallback, or upload step.
+When an exact `!ios-build ...` prompt arrives, run the workspace hook once from the repo root. The hook should delegate to the runner instead of doing native work itself.
 
-If a command is slow, the correct behavior is still to wait. Do not infer that
-it is stuck from elapsed time or warnings. The only exception is a direct,
-explicit user request to cancel the active operation.
+```bash
+printf '%s\n' '{"prompt":"!ios-build testflight"}' \
+  | bash .codex/hooks/ios-build-workflow.sh
+```
 
-## Simulator stage
+If the UserPromptSubmit hook already reports that the command `already ran`,
+do not invoke the hook, runner, or build command again. If the hook or runner
+is not executable, keep using `bash` and repair only the documented symlink or
+source-file location, never by creating a duplicate script.
 
-Before a release build, run the read-only lock check:
+Important rules:
+
+- If the workflow lock is already active, stop with the lock message and do not retry automatically.
+- Do not run a second build while a native command is active.
+- Wait for the active build/upload process to exit naturally; do not poll, inspect, kill, retry, or restart it.
+- A timeout, warning, or apparent hang is not permission to intervene. Report it as incomplete or unknown and wait for the process to finish or for the user to cancel explicitly.
+
+### 2) Simulator mode
+
+Use the repo wrapper for the local simulator build:
 
 ```bash
 bun run native:status
-```
-
-If the status reports drift, inspect it with `bun run native:status -- --diff`. Do not hide unexpected drift. For the requested local development build, use the repository wrapper:
-
-```bash
 bun run native:dev -- --target ios-development-simulator
 ```
 
-Add `--device <name>` only when the user selected a specific simulator. `native:dev` is the development inner loop and is allowed to compile without the release rebuild lock. Report a failed compile or install as the Simulator result, but do not use it to block a separately requested TestFlight build and upload. If only the final macOS automatic-open handoff fails after a confirmed successful compile/install, report that as a separate launch limitation rather than calling the compile failed.
+- Only pass `--device <name>` if the user selected a specific simulator.
+- Report a compile or install failure as the simulator result.
+- Keep this path independent from TestFlight when both are requested.
 
-## TestFlight stage
+### 3) TestFlight mode
 
-For this repeatable local workflow, the TestFlight path is cache-aware: validate first, use the fastpath when the native state and compile caches match, fall back to the controlled rebuild only when they do not, and then upload the new IPA. The runner starts with the read-only check:
+Use this sequence:
 
 ```bash
 bun run native:status
 ```
 
-`native:status` verifies the native fingerprint and the registered artifact without changing either. If it fails because the artifact or fingerprint no longer matches, the runner uses the explicit fallback:
+If status reports drift or mismatch, inspect the mismatch with:
 
 ```bash
-bun run native:rebuild -- --target ios-preview-testflight --approve-rebuild </dev/null
+bun run native:status -- --diff
 ```
 
-`native:rebuild` is therefore an exception path, not the normal TestFlight path. It may run `expo prebuild --clean`, `pod install`, and a complete local build when the reuse assumptions are no longer safe.
+Then choose the correct branch:
 
-When `native:status` succeeds, the runner calls the fastpath. The fastpath
-preflight must complete in this order:
-
-1. Validate the required tools, ccache, CocoaPods checkout, workspace, and
-   warm Release DerivedData.
-2. Run `xcodebuild -showBuildSettings` with the exact `OBJROOT`, `SYMROOT`,
-   and `SHARED_PRECOMPS_DIR` overrides that the archive will use.
-3. Verify that `BUILD_DIR`, `CONFIGURATION_BUILD_DIR`,
-   `CONFIGURATION_TEMP_DIR`, `MODULE_CACHE_DIR`, `OBJROOT`, `SYMROOT`,
-   `SHARED_PRECOMPS_DIR`, and the other generated-output paths remain inside
-   the selected DerivedData directory.
-4. Read and validate the remote integer build number.
-5. Create the new archive and IPA, then verify its metadata.
-
-The settings preflight is read-only and must stop with a configuration error
-before `xcodebuild archive` when the effective paths are unsafe. Exit code 42
-continues to mean cache-preflight failure and is the only fastpath result that
-may select the controlled rebuild fallback. Configuration errors, metadata
-mismatches, and real compile or signing failures must not trigger a retry.
-
-The settings parser runs with `pipefail` enabled and must consume the complete
-`xcodebuild -showBuildSettings` stream. Do not let `awk` exit after the first
-match in a producer-consumer pipeline, because the producer can receive
-SIGPIPE and turn a successful preflight into exit 141.
-
-The fastpath command is:
+- If the native fingerprint and artifact are still valid, use the cache-aware fastpath:
 
 ```bash
 bash scripts/native-testflight-fastpath.sh
 ```
 
-The fastpath requires the existing CocoaPods checkout, a populated `ccache`, and matching Release `DerivedData`. It does not run `prebuild --clean`, `pod install`, `native:run`, or `native:restore`. It reuses the compiled Expo/React-Native/Pod/Xcode inputs through `ccache` and `DerivedData`, pins Xcode's effective build paths into that DerivedData tree, overrides only the new app build/version values, creates a new signed archive and IPA with `xcodebuild`, verifies the exported IPA's `CFBundleShortVersionString` and integer `CFBundleVersion`, and refreshes the artifact hash in the lock. A cache-preflight exit code falls back to `native:rebuild`; a non-integer remote build-number configuration error, unsafe effective build paths, metadata mismatch, and real compile/signing failure are reported without a rebuild or silent retry.
+- If the fastpath fails with the cache-preflight exit code `42`, fall back to the controlled rebuild:
 
-The intended order is:
+```bash
+bun run native:rebuild -- --target ios-preview-testflight --approve-rebuild </dev/null
+```
 
-1. `native:status` checks fingerprint and registered artifact.
-2. Existing compile caches are accepted only when `ccache` and Release `DerivedData` are present and the Pods checkout matches.
-3. A new integer build number, archive, signature, and IPA are created; the IPA must contain the expected app version and `CFBundleVersion`.
-4. Only that newly created IPA at `native-artifacts/ios-preview-testflight/fam.ipa` is submitted.
+- If the remote build number is non-integer or the Xcode effective build paths escape the selected DerivedData directory, stop and report a configuration error. Do not silently retry.
+- Never use a stale IPA. The workflow must create and upload the newly produced IPA from the current run.
 
-Confirm the newly created artifact and lock state before submitting:
+### 4) Validate the fresh artifact
+
+After the build step, confirm the artifact exists and then verify the repo state before uploading:
 
 ```bash
 bun run native:status
 ```
 
-The `</dev/null` keeps the build's optional interactive upload offer disabled so the upload happens exactly once in the next step. Do not use `--auto-submit` for this workflow. Upload is mandatory for TestFlight mode. Submit the exact artifact produced by this run:
+The upload must use the exact produced artifact:
 
 ```bash
 bunx eas-cli submit --platform ios --profile preview-testflight --path native-artifacts/ios-preview-testflight/fam.ipa
 ```
 
-Record the EAS submission ID or URL without recording credentials. Verify it once with:
+Then inspect the submission result:
 
 ```bash
 bunx eas-cli submit:view <SUBMISSION_ID> --json
 ```
 
-Interpret the result precisely:
+Interpret the submission status carefully:
 
-- `SUCCESS`: EAS accepted the upload; Apple processing may still be pending.
-- `IN_QUEUE` or `IN_PROGRESS`: the external submission is pending, not a completed upload. Report the submission URL/ID and stop bounded local waiting.
-- `ERRORED`, `CANCELED`, or a command failure: report the concrete blocker and do not claim TestFlight success.
+- `SUCCESS`: upload accepted; Apple processing may still be pending.
+- `IN_QUEUE` or `IN_PROGRESS`: submission is pending, not complete.
+- `ERRORED`, `CANCELED`, or command failure: report the blocker and do not claim TestFlight success.
 
-This workflow ends at the TestFlight upload. It does not submit for App Review or release the App Store version.
+## Guardrails
+
+- Do not run unrelated commands like `bun test` during the build workflow.
+- Do not trigger `prebuild --clean`, `pod install`, `native:run`, or `native:restore` as part of the normal fastpath.
+- Do not hide drift or failed validation.
+- Do not allow Xcode output paths to escape the selected DerivedData tree.
+- Do not rely on the old artifact when a new one is required.
+- Do not use `--auto-submit` for this workflow.
+- Do not claim success until the upload is verified by `submit:view`.
+
+## Completion checklist
+
+The work is complete only when all of the following are true:
+
+- The simulator result has been reported, or the simulator step was intentionally skipped.
+- The TestFlight path produced a fresh IPA for the current run.
+- The fresh artifact was uploaded and its submission status was checked.
+- The final report distinguishes success, pending upload, and blocker states accurately.
+
+Report each requested mode separately with: mode result, fresh artifact result,
+upload/submission state, and the concrete blocker or next user action.
+
+## Example prompts
+
+- `!ios-build simulator`
+- `!ios-build testflight`
+- `!ios-build both`

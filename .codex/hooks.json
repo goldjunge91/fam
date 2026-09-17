@@ -68,6 +68,16 @@
       {
         "hooks": [
           {
+            "command": "root=\"$PWD\"; while [ \"$root\" != \"/\" ]; do script=\"$root/.codex/hooks/ios-build-workflow.sh\"; if [ -f \"$script\" ]; then exec bash \"$script\"; fi; root=\"$(dirname \"$root\")\"; done; exit 0",
+            "statusMessage": "Running requested iOS build workflow",
+            "timeout": 5400,
+            "type": "command"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
             "command": "bd codex-hook UserPromptSubmit",
             "statusMessage": "Refreshing Beads context",
             "type": "command"
