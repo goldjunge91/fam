@@ -7,9 +7,11 @@ env:
 - tapOn: "Anmelden"
 - tapOn:
     id: "onboarding-account-email"
+- eraseText
 - inputText: "${TEST_EMAIL}"
 - tapOn:
     id: "keyboard.toolbar.next"
+- eraseText
 - inputText: "${TEST_PASSWORD}"
 - tapOn:
     id: "keyboard.toolbar.done"

@@ -1,6 +1,7 @@
 appId: com.goldjunge91.fam1
 ---
-# Atomare Aufgabe: die aktive Dashboard-Session über die UI abmelden.
+# Atomare Aufgabe: die aktive Dashboard-Session über die UI abmelden und den
+# öffentlichen Sign-in-Screen bestätigen.
 - tapOn:
     id: "navigation-menu-open"
 - waitForAnimationToEnd
@@ -18,5 +19,5 @@ appId: com.goldjunge91.fam1
     id: "settings-sign-out"
 - extendedWaitUntil:
     visible:
-      text: "Alles bereit!"
+      id: "sign-in-email"
     timeout: 30000

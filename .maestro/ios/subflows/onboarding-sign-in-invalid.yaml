@@ -21,4 +21,4 @@ env:
 - tapOn:
     text: "^(Später|Not Now)$"
     optional: true
-- assertVisible: "E-Mail oder Passwort stimmt nicht."
+- assertVisible: '^(E-Mail oder Passwort stimmt nicht\.|The email or password is incorrect\.)$'

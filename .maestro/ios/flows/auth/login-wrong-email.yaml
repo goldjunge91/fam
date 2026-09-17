@@ -1,0 +1,15 @@
+appId: com.goldjunge91.fam1
+env:
+  WRONG_EMAIL: ${WRONG_EMAIL || "maestro-e2e-not-registered@example.com"}
+  WRONG_PASSWORD: ${WRONG_PASSWORD || "FalschesPasswort123!"}
+---
+# Vollständige Journey: Onboarding -> nicht registrierte E-Mail -> falsches
+# Passwort -> sichere Authentifizierungsfehlermeldung.
+- runFlow: ../../subflows/launch-local-dev-client.yaml
+- runFlow: ../../subflows/onboarding-welcome.yaml
+- runFlow:
+    file: ../../subflows/onboarding-sign-in-invalid.yaml
+    env:
+      TEST_EMAIL: "${WRONG_EMAIL}"
+      TEST_PASSWORD: "${WRONG_PASSWORD}"
+- assertVisible: '^(E-Mail oder Passwort stimmt nicht\.|The email or password is incorrect\.)$'

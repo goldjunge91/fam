@@ -4,8 +4,7 @@ env:
   TEST_PASSWORD: ${TEST_PASSWORD || "Passwort123!"}
 ---
 # Vollständige Journey: frischer Start -> Onboarding -> erfolgreicher Login ->
-# Dashboard. Die wiederverwendeten Dateien sind atomare Subflows.
-
+# optionales Onboarding -> Dashboard.
 - runFlow: ../../subflows/launch-local-dev-client.yaml
 - runFlow: ../../subflows/onboarding-welcome.yaml
 - runFlow:
@@ -14,3 +13,4 @@ env:
       TEST_EMAIL: "${TEST_EMAIL}"
       TEST_PASSWORD: "${TEST_PASSWORD}"
 - runFlow: ../../subflows/onboarding-finish.yaml
+- assertVisible: "^(Übersicht|Overview)$"

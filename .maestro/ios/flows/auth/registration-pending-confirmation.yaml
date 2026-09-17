@@ -1,0 +1,27 @@
+appId: com.goldjunge91.fam1
+---
+# Registrierung mit einer neuen Adresse -> lokale E-Mail-Bestätigung ist
+# aktiv, daher erscheint zunächst der Pending-Zustand.
+- runFlow: ../../subflows/launch-local-dev-client.yaml
+- runFlow: ../../subflows/onboarding-welcome.yaml
+
+# "Registrieren" ist der Default-Tab in AccountStepForm.
+- tapOn:
+    id: "onboarding-account-email"
+- inputText: "maestro-e2e-signup-${new Date().getTime()}@example.com"
+- tapOn:
+    id: "keyboard.toolbar.next"
+- inputText: "Passwort123!"
+- tapOn:
+    id: "keyboard.toolbar.next"
+- inputText: "Passwort123!"
+- tapOn:
+    id: "keyboard.toolbar.done"
+- tapOn: "Konto erstellen & weiter"
+
+# iOS' eigener Keychain-Dialog kann nach dem Absenden erscheinen.
+- tapOn:
+    text: "^(Später|Not Now)$"
+    optional: true
+
+- assertVisible: "Bestätigung ausstehend"
