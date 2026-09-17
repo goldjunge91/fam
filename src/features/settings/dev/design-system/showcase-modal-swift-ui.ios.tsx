@@ -1,6 +1,7 @@
 import { Host } from '@expo/ui';
 import { BottomSheet, Group, RNHostView } from '@expo/ui/swift-ui';
 import {
+  frame,
   presentationBackground,
   presentationDetents,
   presentationDragIndicator,
@@ -11,7 +12,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/constants/ui';
-import { ModalComparisonContent, type ModalComparisonMode } from './showcase-modal-content';
+import { ModalComparisonHostedContent, type ModalComparisonMode } from './showcase-modal-content';
 
 export function SwiftUIBottomSheetDemo() {
   const { colors } = useTheme();
@@ -44,12 +45,13 @@ export function SwiftUIBottomSheetDemo() {
           onDismiss={dismiss}>
           <Group
             modifiers={[
+              frame({ maxWidth: Infinity, alignment: 'topLeading' }),
               presentationDetents([{ fraction: 0.5 }, { fraction: 0.9 }]),
               presentationDragIndicator('visible'),
               presentationBackground(colors.backgroundElement),
             ]}>
             <RNHostView>
-              <ModalComparisonContent
+              <ModalComparisonHostedContent
                 mode={mode ?? 'preview'}
                 onDismiss={dismiss}
                 onOpenPreview={() => setMode('preview')}

@@ -98,6 +98,12 @@ export function DevToolsScreen() {
       </SettingsGroup>
       <SettingsGroup title="Spracheingabe">
         <SettingsRow
+          icon="🛒"
+          label="Shopping-List-Preview öffnen"
+          hint="Produktives Zuordnungsmodal ohne Mikrofon testen"
+          onPress={() => router.push('/shopping-list?action=preview')}
+        />
+        <SettingsRow
           icon="🗣️"
           label="Expo Speech Example"
           hint="Direkten Referenzpfad des Pakets testen"

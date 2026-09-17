@@ -6,64 +6,88 @@ import { Button, CloseButton, Press, Surface, TextField, Txt } from '@/constants
 
 export type ModalComparisonMode = 'input' | 'preview';
 
+export type ModalComparisonContentProps = {
+  mode: ModalComparisonMode;
+  onDismiss: () => void;
+  onOpenPreview?: () => void;
+};
+
+export function ModalComparisonHostedContent(props: ModalComparisonContentProps) {
+  return (
+    <View style={styles.hostedContent}>
+      <ModalComparisonSheet {...props} />
+    </View>
+  );
+}
+
+export function ModalComparisonScrollContent(props: ModalComparisonContentProps) {
+  return <ModalComparisonSheet {...props} />;
+}
+
+function ModalComparisonSheet({ mode, onDismiss, onOpenPreview }: ModalComparisonContentProps) {
+  return (
+    <Surface tone="surface" style={styles.sheet}>
+      <View style={styles.header}>
+        <View style={styles.headerCopy}>
+          <Txt variant="caption" tone="secondary">
+            {mode === 'input' ? 'Einkaufsliste' : 'Neue Artikel'}
+          </Txt>
+          <Txt variant="title">{mode === 'input' ? 'Artikel sprechen' : 'Passt das so?'}</Txt>
+        </View>
+        <CloseButton onPress={onDismiss} hitSlop={6} accessibilityLabel="Schließen" />
+      </View>
+
+      <ScrollView
+        testID={`design-system-natural-language-${mode}-scroll`}
+        style={styles.scroll}
+        contentContainerStyle={styles.scrollContent}
+        keyboardDismissMode="interactive"
+        keyboardShouldPersistTaps="handled">
+        <View style={styles.content}>
+          <ModalComparisonContent
+            mode={mode}
+            onDismiss={onDismiss}
+            onOpenPreview={onOpenPreview}
+          />
+        </View>
+      </ScrollView>
+    </Surface>
+  );
+}
+
 export function ModalComparisonContent({
   mode,
   onDismiss,
   onOpenPreview,
-}: {
-  mode: ModalComparisonMode;
-  onDismiss: () => void;
-  onOpenPreview?: () => void;
-}) {
+}: ModalComparisonContentProps) {
   const [inputText, setInputText] = useState('');
   const [draftText, setDraftText] = useState('3 Äpfel, Skyr von JA und Brot');
   const [selectedSuggestion, setSelectedSuggestion] = useState<string | null>(null);
   const [deferred, setDeferred] = useState(false);
 
-  return (
-    <Surface tone="surface" style={styles.sheet}>
-      <ScrollView
-        testID={`design-system-natural-language-${mode}-scroll`}
-        style={styles.scroll}
-        contentContainerStyle={styles.content}
-        keyboardDismissMode="interactive"
-        keyboardShouldPersistTaps="handled">
-        <View style={styles.header}>
-          <View style={styles.headerCopy}>
-            <Txt variant="caption" tone="secondary">
-              {mode === 'input' ? 'Einkaufsliste' : 'Neue Artikel'}
-            </Txt>
-            <Txt variant="title">{mode === 'input' ? 'Artikel sprechen' : 'Passt das so?'}</Txt>
-          </View>
-          <CloseButton onPress={onDismiss} hitSlop={6} accessibilityLabel="Schließen" />
-        </View>
-
-        {mode === 'input' ? (
-          <InputContent
-            value={inputText}
-            onChangeText={setInputText}
-            onOpenPreview={onOpenPreview}
-            onDismiss={onDismiss}
-          />
-        ) : (
-          <PreviewContent
-            draftText={draftText}
-            onDraftTextChange={setDraftText}
-            selectedSuggestion={selectedSuggestion}
-            deferred={deferred}
-            onSelectSuggestion={(suggestion) => {
-              setSelectedSuggestion(suggestion);
-              setDeferred(false);
-            }}
-            onDefer={() => {
-              setSelectedSuggestion(null);
-              setDeferred(true);
-            }}
-            onDismiss={onDismiss}
-          />
-        )}
-      </ScrollView>
-    </Surface>
+  return mode === 'input' ? (
+    <InputContent
+      value={inputText}
+      onChangeText={setInputText}
+      onOpenPreview={onOpenPreview}
+      onDismiss={onDismiss}
+    />
+  ) : (
+    <PreviewContent
+      draftText={draftText}
+      onDraftTextChange={setDraftText}
+      selectedSuggestion={selectedSuggestion}
+      deferred={deferred}
+      onSelectSuggestion={(suggestion) => {
+        setSelectedSuggestion(suggestion);
+        setDeferred(false);
+      }}
+      onDefer={() => {
+        setSelectedSuggestion(null);
+        setDeferred(true);
+      }}
+      onDismiss={onDismiss}
+    />
   );
 }
 
@@ -265,18 +289,25 @@ function PreviewRow({
 }
 
 const styles = StyleSheet.create((theme) => ({
-  sheet: {
-    flex: 1,
-    minHeight: theme.space.xxxl * 6,
-    backgroundColor: theme.backgroundElement,
+  hostedContent: {
+    flexGrow: 1,
+    height: 0,
   },
   scroll: {
     flex: 1,
   },
-  content: {
+  scrollContent: {
     flexGrow: 1,
+  },
+  sheet: {
+    flex: 1,
+    width: '100%',
+    minHeight: theme.space.xxxl * 6,
+    backgroundColor: theme.backgroundElement,
+  },
+  content: {
     gap: theme.space.lg,
-    padding: theme.space.lg,
+    paddingHorizontal: theme.space.lg,
     paddingBottom: theme.space.xxxl,
   },
   header: {
@@ -284,6 +315,9 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     gap: theme.space.md,
+    paddingHorizontal: theme.space.lg,
+    paddingTop: theme.space.lg,
+    paddingBottom: theme.space.lg,
   },
   headerCopy: {
     flex: 1,

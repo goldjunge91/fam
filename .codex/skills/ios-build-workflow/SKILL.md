@@ -79,20 +79,6 @@ If a command is slow, the correct behavior is still to wait. Do not infer that
 it is stuck from elapsed time or warnings. The only exception is a direct,
 explicit user request to cancel the active operation.
 
-## Remote EAS build-number preflight
-
-Remote version normalization is a separate, explicit operation and is never
-performed by `!ios-build`. Before starting the workflow, the user may
-normalize a legacy value such as `0.0.22` to the integer `22` with the EAS
-version commands, then sync it. The workflow itself must not run those
-commands, change remote state, or infer permission to do so.
-
-If the fastpath reads a non-integer remote value, it exits before
-`xcodebuild`, `native:rebuild`, or `eas submit`. Do not convert `0.0.22` to
-`0.0.23`; correct the remote value in the separate preflight, then start a
-new explicit build request. The resulting app remains version `0.0.6` with
-`CFBundleVersion` `23`.
-
 ## Simulator stage
 
 Before a release build, run the read-only lock check:

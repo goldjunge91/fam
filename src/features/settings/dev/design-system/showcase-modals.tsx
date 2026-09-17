@@ -1,4 +1,4 @@
-import { BottomSheet, Host } from '@expo/ui';
+import { BottomSheet, Host, RNHostView } from '@expo/ui';
 import { useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
@@ -6,7 +6,11 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
-import { ModalComparisonContent, type ModalComparisonMode } from './showcase-modal-content';
+import {
+  ModalComparisonHostedContent,
+  type ModalComparisonMode,
+  ModalComparisonScrollContent,
+} from './showcase-modal-content';
 import { SwiftUIBottomSheetDemo } from './showcase-modal-swift-ui';
 import { ContractIntro, Subsection } from './showcase-shared';
 
@@ -73,11 +77,13 @@ function UniversalBottomSheetDemo() {
           scrimColor={colors.scrim}
           testID="design-system-universal-bottom-sheet">
           {mode ? (
-            <ModalComparisonContent
-              mode={mode}
-              onDismiss={dismiss}
-              onOpenPreview={() => setMode('preview')}
-            />
+            <RNHostView>
+              <ModalComparisonHostedContent
+                mode={mode}
+                onDismiss={dismiss}
+                onOpenPreview={() => setMode('preview')}
+              />
+            </RNHostView>
           ) : null}
         </BottomSheet>
       </Host>
@@ -124,7 +130,7 @@ function CustomBottomSheetDemo() {
             ]}>
             <View style={[styles.sheetHandle, { backgroundColor: colors.border }]} />
             {mode ? (
-              <ModalComparisonContent
+              <ModalComparisonScrollContent
                 mode={mode}
                 onDismiss={dismiss}
                 onOpenPreview={() => setMode('preview')}
@@ -161,7 +167,7 @@ const styles = StyleSheet.create((theme) => ({
   customBackdrop: {
     flex: 1,
     justifyContent: 'flex-end',
-    padding: theme.space.lg,
+    paddingBottom: theme.space.lg,
     backgroundColor: theme.scrim,
   },
   customSheet: {

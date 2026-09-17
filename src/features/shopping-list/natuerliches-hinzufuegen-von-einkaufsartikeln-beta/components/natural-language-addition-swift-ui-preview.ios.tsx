@@ -12,7 +12,54 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/constants/ui';
-import { ModalComparisonHostedContent, type ModalComparisonMode } from './showcase-modal-content';
+import {
+  ModalComparisonHostedContent,
+  type ModalComparisonMode,
+} from '@/features/settings/dev/design-system/showcase-modal-content';
+import {
+  NaturalLanguageAdditionSwiftUIPreviewContent,
+  type NaturalLanguageAdditionSwiftUIPreviewProps,
+} from './natural-language-addition-swift-ui-preview-content';
+
+export function NaturalLanguageAdditionSwiftUIPreview({
+  visible,
+  preview,
+  onDismiss,
+  onEditText,
+  onConfirm,
+}: NaturalLanguageAdditionSwiftUIPreviewProps) {
+  const { colors } = useTheme();
+
+  return (
+    <Host style={styles.nativeHost} seedColor={colors.accent} pointerEvents="box-none">
+      <BottomSheet
+        isPresented={visible}
+        onIsPresentedChange={(isPresented) => {
+          if (!isPresented) onDismiss();
+        }}
+        onDismiss={onDismiss}>
+        <Group
+          modifiers={[
+            frame({ maxWidth: Infinity, alignment: 'topLeading' }),
+            presentationDetents([{ fraction: 0.5 }, { fraction: 0.9 }]),
+            presentationDragIndicator('visible'),
+            presentationBackground(colors.backgroundElement),
+          ]}>
+          <RNHostView>
+            <View style={styles.hostedContent}>
+              <NaturalLanguageAdditionSwiftUIPreviewContent
+                preview={preview}
+                onDismiss={onDismiss}
+                onEditText={onEditText}
+                onConfirm={onConfirm}
+              />
+            </View>
+          </RNHostView>
+        </Group>
+      </BottomSheet>
+    </Host>
+  );
+}
 
 export function SwiftUIBottomSheetDemo() {
   const { colors } = useTheme();
@@ -65,6 +112,10 @@ export function SwiftUIBottomSheetDemo() {
 }
 
 const styles = StyleSheet.create((theme) => ({
+  hostedContent: {
+    flexGrow: 1,
+    height: 0,
+  },
   example: {
     alignItems: 'flex-start',
   },
