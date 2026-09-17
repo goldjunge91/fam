@@ -103,6 +103,8 @@ export const iconButtonStyles = StyleSheet.create((theme) => ({
   modalClose: {
     minWidth: theme.space.xxl + theme.space.md + theme.space.xs,
     minHeight: theme.space.xxl + theme.space.md + theme.space.xs,
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: theme.radius.sm,
     backgroundColor: theme.backgroundSoft,
   },
