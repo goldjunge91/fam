@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>T9 Mock Review | Natürliches Hinzufügen</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f8f4ef;
+        --surface: #fbf7f2;
+        --soft: #e9e1e7;
+        --text: #2d2830;
+        --muted: #786f79;
+        --line: #e4dde3;
+        --accent: #8b5e63;
+        --accent-soft: #f0e2df;
+        --success: #78906f;
+        --warning: #c69059;
+        --radius-sm: 12px;
+        --radius-md: 16px;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 15px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      }
+      main { max-width: 1200px; margin: 0 auto; padding: 32px 20px 64px; }
+      h1, h2, h3, p { margin: 0; }
+      h1 { font-size: 30px; line-height: 1.15; letter-spacing: -0.02em; }
+      h2 { font-size: 20px; line-height: 1.25; }
+      h3 { font-size: 16px; }
+      .intro { display: grid; gap: 8px; margin-bottom: 28px; }
+      .intro p { max-width: 720px; color: var(--muted); }
+      .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+      .variant { display: grid; gap: 14px; min-width: 0; }
+      .variant-label { display: grid; gap: 3px; }
+      .variant-label p { color: var(--muted); font-size: 13px; }
+      .phone {
+        min-height: 660px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        background: var(--surface);
+        box-shadow: 0 10px 24px rgba(89, 64, 89, 0.1);
+      }
+      .phone-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 18px 12px; }
+      .phone-header small { color: var(--muted); }
+      .close { border: 0; background: var(--soft); color: var(--text); border-radius: 10px; width: 34px; height: 34px; font-size: 18px; }
+      .content { display: grid; gap: 16px; padding: 8px 18px 22px; }
+      .eyebrow { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+      .speech { display: grid; gap: 4px; padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+      .speech strong { font-size: 16px; }
+      .rows { display: grid; gap: 8px; }
+      .row { display: grid; gap: 8px; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
+      .row-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+      .row-name { font-weight: 650; }
+      .row-meta { color: var(--muted); font-size: 13px; }
+      .confidence { color: var(--success); font-size: 12px; font-weight: 600; }
+      .confidence.warn { color: var(--warning); }
+      .choice-list { display: grid; gap: 6px; }
+      .choice { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 42px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--text); text-align: left; }
+      .choice.selected { border-color: var(--accent); background: var(--accent-soft); }
+      .choice small { color: var(--muted); }
+      .choice em { color: var(--warning); font-style: normal; font-size: 12px; }
+      .footer { display: grid; gap: 8px; margin-top: auto; padding: 14px 18px 18px; border-top: 1px solid var(--line); }
+      .primary, .secondary { min-height: 44px; border-radius: var(--radius-sm); font: inherit; font-weight: 650; }
+      .primary { border: 1px solid var(--accent); background: var(--accent); color: white; }
+      .secondary { border: 1px solid var(--line); background: transparent; color: var(--text); }
+      .sheet { margin-top: 72px; border-top: 1px solid var(--line); border-radius: 24px 24px 0 0; background: var(--surface); box-shadow: 0 -12px 28px rgba(89, 64, 89, 0.12); }
+      .handle { width: 36px; height: 4px; margin: 10px auto 0; border-radius: 4px; background: var(--line); }
+      .sheet .content { padding-top: 18px; }
+      .question { display: grid; gap: 8px; padding: 14px; border: 1px solid var(--warning); background: #fff8ef; }
+      .question p { color: var(--muted); }
+      .question .choice-list { grid-template-columns: 1fr 1fr; }
+      .check { display: inline-grid; place-items: center; width: 18px; height: 18px; border: 1px solid var(--accent); border-radius: 5px; color: var(--accent); font-size: 12px; }
+      .stack { display: grid; gap: 10px; }
+      .divider { height: 1px; background: var(--line); }
+      @media (max-width: 920px) { .grid { grid-template-columns: 1fr; max-width: 430px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="intro">
+        <div class="eyebrow">T9 · Beta-Vorschau</div>
+        <h1>Natürliches Hinzufügen von Einkaufsartikeln</h1>
+        <p>Mock-Review für die kompakte Rückfrage- und Bestätigungsansicht. Alle drei Varianten zeigen dieselben Beispieldaten: „3 Äpfel, Skyr von JA und Brot“.</p>
+      </section>
+
+      <section class="grid" aria-label="Drei UI-Varianten">
+        <article class="variant">
+          <div class="variant-label">
+            <h2>A · Inline kompakt</h2>
+            <p>Maximale Informationsdichte, Rückfragen direkt am betroffenen Artikel.</p>
+          </div>
+          <div class="phone">
+            <header class="phone-header"><div><h3>Einkauf hinzufügen</h3><small>3 Artikel erkannt</small></div><button class="close" aria-label="Schließen">×</button></header>
+            <div class="content">
+              <div class="speech"><span class="eyebrow">Erkannt</span><strong>3 Äpfel, Skyr von JA und Brot</strong></div>
+              <div class="rows">
+                <div class="row"><div class="row-head"><span class="row-name">3 Äpfel</span><span class="confidence">sicher</span></div><span class="row-meta">Einkaufsliste · Obst</span></div>
+                <div class="row"><div class="row-head"><span class="row-name">Skyr</span><span class="confidence warn">Rückfrage</span></div><div class="choice-list"><button class="choice selected"><span>JA Skyr</span><span class="check">✓</span></button><button class="choice"><span>Skyr natur</span><small>anderer Treffer</small></button><button class="choice"><span>Später zuordnen</span></button></div></div>
+                <div class="row"><div class="row-head"><span class="row-name">Brot</span><span class="confidence">sicher</span></div><span class="row-meta">Einkaufsliste · Backwaren</span></div>
+              </div>
+            </div>
+            <footer class="footer"><button class="primary">3 Artikel hinzufügen</button><button class="secondary">Abbrechen</button></footer>
+          </div>
+        </article>
+
+        <article class="variant">
+          <div class="variant-label">
+            <h2>B · Bottom Sheet</h2>
+            <p>Der erkannte Text bleibt im Hintergrund sichtbar, die Bestätigung sitzt in einem fokussierten Sheet.</p>
+          </div>
+          <div class="phone">
+            <header class="phone-header"><div><h3>Einkaufsliste</h3><small>Haushalt · Heute</small></div><button class="close" aria-label="Schließen">×</button></header>
+            <div class="content">
+              <div class="stack"><div class="row"><div class="row-head"><span class="row-name">Milch</span><span class="row-meta">1 l</span></div></div><div class="row"><div class="row-head"><span class="row-name">Bananen</span><span class="row-meta">6 Stück</span></div></div></div>
+            </div>
+            <section class="sheet" aria-label="Erkannte Artikel bestätigen">
+              <div class="handle"></div>
+              <div class="content">
+                <div><div class="eyebrow">Neue Artikel</div><h3>Passt das so?</h3></div>
+                <div class="speech"><strong>3 Äpfel, Skyr von JA und Brot</strong><span class="row-meta">2 Treffer sicher, 1 Artikel braucht deine Zuordnung.</span></div>
+                <div class="rows">
+                  <div class="row"><div class="row-head"><span class="row-name">3 Äpfel</span><span class="confidence">✓</span></div></div>
+                  <div class="row"><div class="row-head"><span class="row-name">Skyr von JA</span><span class="confidence warn">?</span></div></div>
+                  <div class="row"><div class="row-head"><span class="row-name">Brot</span><span class="confidence">✓</span></div></div>
+                </div>
+              </div>
+              <footer class="footer"><button class="primary">Rückfrage beantworten</button><button class="secondary">Später</button></footer>
+            </section>
+          </div>
+        </article>
+
+        <article class="variant">
+          <div class="variant-label">
+            <h2>C · Gebündelte Frage</h2>
+            <p>Nur bei mindestens drei unsicheren Artikeln: eine gemeinsame Frage mit begrenzten Vorschlägen.</p>
+          </div>
+          <div class="phone">
+            <header class="phone-header"><div><h3>Einkauf hinzufügen</h3><small>5 Artikel erkannt</small></div><button class="close" aria-label="Schließen">×</button></header>
+            <div class="content">
+              <div class="speech"><span class="eyebrow">Erkannt</span><strong>Milch, Joghurt, Käse, Saft und Brot</strong></div>
+              <div class="question"><div class="row-head"><strong>Ordne die offenen Artikel zu</strong><span class="confidence warn">3 offen</span></div><p>Wähle pro Artikel einen Treffer oder verschiebe ihn auf später.</p><div class="choice-list"><button class="choice selected"><span><strong>Milch</strong><br /><small>REWE Bio</small></span><span class="check">✓</span></button><button class="choice"><span><strong>Joghurt</strong><br /><small>Kaufland</small></span><em>?</em></button><button class="choice"><span><strong>Käse</strong><br /><small>Später zuordnen</small></span><em>?</em></button></div></div>
+              <div class="rows"><div class="row"><div class="row-head"><span class="row-name">Saft</span><span class="confidence">sicher</span></div></div><div class="row"><div class="row-head"><span class="row-name">Brot</span><span class="confidence">sicher</span></div></div></div>
+            </div>
+            <footer class="footer"><button class="primary">5 Artikel hinzufügen</button><button class="secondary">Abbrechen</button></footer>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

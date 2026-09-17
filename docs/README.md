@@ -41,6 +41,8 @@ Datenbankschemas, Quellcode und gezielte Tests die technische Referenz.
   Prüfung des Premium-Webhooks.
 - [Native-Fingerprint-Debugging](features/native-fingerpint-faster-build/native-fingerprint-drift-debugging.md)
   – Diagnose von absichtlichen und unbeabsichtigten Build-Abweichungen.
+- [Bekannte Fehler](bugs/ios-logout-relaunch-onboarding-routing.md) – offene
+  technische Befunde mit Reproduktion und Behebungskriterien.
 
 ## Datenschutz und Store-Release
 

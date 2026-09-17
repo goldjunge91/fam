@@ -195,16 +195,17 @@ liegen unter `.maestro/<platform>/subflows/` und haben genau eine
 Verantwortung, zum Beispiel Welcome, Login, Onboarding-Abschluss, Logout oder
 Kaltstart. Ein Gesamt-Journey-Subflow wird nicht verwendet.
 
-Die vier iOS-Kernjourneys sind:
+Die iOS-Auth-Flows sind bewusst getrennt und jeweils eigenständig startbar:
 
-1. `ios/flows/auth/onboarding-registration-successful.yaml` — Registrierung,
-   lokale E-Mail-Bestätigung und Dashboard
-2. `ios/flows/auth/onboarding-login-successful.yaml` — bestätigter Login und
-   Dashboard
-3. `ios/flows/auth/onboarding-invalid-credentials-forgot-password-login-successful.yaml`
-   — falsches Passwort, falsche E-Mail, Reset-Anforderung und erfolgreicher
-   Login
-4. `ios/flows/session/sign-out-and-relaunch.yaml` — Login, Dashboard, Logout,
+1. `ios/flows/auth/registration.yaml` — Registrierung, lokale
+   E-Mail-Bestätigung und Dashboard
+2. `ios/flows/auth/login.yaml` — bestätigter Login und Dashboard
+3. `ios/flows/auth/login-wrong-password.yaml` — falsches Passwort und sichere
+   Fehlermeldung
+4. `ios/flows/auth/login-wrong-email.yaml` — falsche E-Mail und sichere
+   Fehlermeldung
+5. `ios/flows/auth/password-reset.yaml` — Reset-Link-Anforderung
+6. `ios/flows/session/sign-out-and-relaunch.yaml` — Login, Dashboard, Logout,
    Kaltstart und eigenständiger Sign-in-Screen
 
 Der lokale iOS-Start ist ausschließlich der installierte fam-Development-Client:
@@ -253,7 +254,7 @@ bun .maestro/scripts/maestro.ts test \
   --device <ios-simulator-udid> \
   -e TEST_EMAIL=other@example.com \
   -e TEST_PASSWORD='Other123!' \
-  .maestro/ios/flows/auth/onboarding-sign-in.yaml
+  .maestro/ios/flows/auth/login.yaml
 
 # Bereits angemeldete Session prüfen
 bun .maestro/scripts/maestro.ts test \
