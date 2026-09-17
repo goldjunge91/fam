@@ -127,6 +127,27 @@
           "userTrackingUsageDescription": "Diese Kennung wird verwendet, um dir personalisierte Werbung bereitzustellen."
         }
       ],
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "$(PRODUCT_NAME) benötigt Zugriff auf das Mikrofon für die Spracheingabe.",
+          "speechRecognitionPermission": "$(PRODUCT_NAME) benötigt Zugriff auf die Spracherkennung.",
+          "androidSpeechServicePackages": [
+            "com.google.android.googlequicksearchbox"
+          ]
+        }
+      ],
+      [
+        "react-native-audio-api",
+        {
+          "iosBackgroundMode": false,
+          "iosMicrophonePermission": "$(PRODUCT_NAME) benötigt Zugriff auf das Mikrofon für die lokale Spracheingabe.",
+          "androidForegroundService": false,
+          "androidPermissions": [
+            "android.permission.RECORD_AUDIO"
+          ]
+        }
+      ],
       "expo-background-task",
       [
         "expo-splash-screen",

@@ -1,3 +1,4 @@
+import { Feather } from '@expo/vector-icons';
 import { router, usePathname } from 'expo-router';
 import { useEffect } from 'react';
 import { BackHandler, Pressable, View } from 'react-native';
@@ -11,6 +12,7 @@ import { getSpeedDialOptions } from '@/constants/feature-registry';
 import { Txt } from '@/constants/ui';
 import { DEFAULT_FAB_POSITION, useFabPosition } from '@/features/navigation/fab-position-settings';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 const styles = StyleSheet.create({
@@ -71,6 +73,7 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const { closeQuickAdd } = useNavigationChrome();
+  const pathname = usePathname();
   const { data: position = DEFAULT_FAB_POSITION } = useFabPosition();
   const { isFeatureEnabled } = useFeatureAccess();
   const isRight = position !== 'left';
@@ -80,8 +83,18 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
     router.push(href as Parameters<typeof router.push>[0]);
   }
 
+  function openShoppingListVoice() {
+    closeQuickAdd();
+    if (pathname === '/shopping-list') {
+      router.setParams({ action: 'voice' });
+      return;
+    }
+    router.push('/shopping-list?action=voice');
+  }
+
   const speedDialOptions = getSpeedDialOptions();
   const visibleOptions = speedDialOptions.filter((option) => isFeatureEnabled(option.feature));
+  const shoppingListEnabled = visibleOptions.some((option) => option.id === 'shoppingList');
 
   useEffect(() => {
     if (!isOpen) return;
@@ -118,6 +131,38 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
             bottom: insets.bottom + space.xxxl + space.xl,
           },
         ]}>
+        {shoppingListEnabled ? (
+          <Pressable
+            key="natural-language-addition-speech"
+            onPress={() => {
+              debugLogEvent('shopping-list.voice-action.pressed');
+              openShoppingListVoice();
+            }}
+            accessibilityRole="button"
+            accessibilityLabel="Spracheingabe"
+            style={[styles.row, isRight && styles.rowReverse]}>
+            <View
+              style={[
+                styles.chip,
+                {
+                  backgroundColor: colors.speedDialShopping,
+                  borderCurve: 'continuous',
+                  boxShadow: `0 4px 10px ${withAlpha(colors.shadowCard, 0.14)}`,
+                },
+              ]}>
+              <Feather name="mic" size={space.xl} color={colors.text} />
+            </View>
+            <View
+              style={[
+                styles.label,
+                { backgroundColor: colors.backgroundElement, borderColor: colors.border },
+              ]}>
+              <Txt variant="body" weight="700">
+                Spracheingabe
+              </Txt>
+            </View>
+          </Pressable>
+        ) : null}
         {visibleOptions.map((option) => (
           <Pressable
             key={option.title}

@@ -34,10 +34,14 @@ export function NaturalLanguageAdditionInputSheet({
 }: NaturalLanguageAdditionInputSheetProps) {
   const { colors } = useTheme();
 
+  // @expo/ui mounts a native Host even when BottomSheet isPresented is false.
+  // That Host is absolute and can consume touches from the shopping list.
+  if (!visible) return null;
+
   return (
-    <Host style={styles.host} pointerEvents="box-none">
+    <Host style={styles.host} pointerEvents="auto" testID="natural-language-addition-input-host">
       <BottomSheet
-        isPresented={visible}
+        isPresented
         onDismiss={onDismiss}
         showDragIndicator
         snapPoints={['half', 'full']}

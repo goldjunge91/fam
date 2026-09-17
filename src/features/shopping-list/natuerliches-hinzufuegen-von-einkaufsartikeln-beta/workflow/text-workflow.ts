@@ -1,0 +1,223 @@
+import { parseNaturalLanguageShoppingInput } from '../domain/parser';
+import type { ShoppingListCatalogEntry } from '../domain/routing';
+import {
+  getLearningProgress,
+  recordRoutingConfirmation,
+  routeShoppingItem,
+} from '../domain/routing';
+import type {
+  BetaPreviewItem,
+  BetaStorageState,
+  ConfirmedBetaOutput,
+  NaturalLanguageAdditionInput,
+  ParseResult,
+  ShoppingListSuggestion,
+  SpeechInputResult,
+} from '../types';
+
+export type TextBetaStorage = {
+  load: () => Promise<BetaStorageState>;
+  save: (state: BetaStorageState) => Promise<void>;
+};
+
+export type TextBetaOutputSaveResult = {
+  savedItemCount: number;
+  mutationCount: number;
+  itemIds: readonly string[];
+};
+
+export type TextBetaOutputSaver = (
+  output: ConfirmedBetaOutput,
+) => Promise<TextBetaOutputSaveResult>;
+
+export type TextBetaPreview = {
+  session: NonNullable<BetaStorageState['session']>;
+  input: NaturalLanguageAdditionInput;
+  parseResult: ParseResult;
+  items: readonly BetaPreviewItem[];
+  learningProgress: ReturnType<typeof getLearningProgress>;
+};
+
+export type CreateTextBetaPreviewInput = {
+  text: string;
+  betaSessionId: string;
+  startedAt: string;
+  lists: readonly ShoppingListCatalogEntry[];
+  storage: TextBetaStorage;
+};
+
+export type CreateSpeechBetaPreviewInput = Omit<CreateTextBetaPreviewInput, 'text'> & {
+  speechResult: SpeechInputResult;
+};
+
+export type SpeechBetaPreviewResult =
+  | { kind: 'preview'; preview: TextBetaPreview }
+  | { kind: 'fallback'; speechResult: SpeechInputResult };
+
+export type TextBetaSelection = {
+  itemId: string;
+  targetListId: string;
+};
+
+export type ConfirmTextBetaItemsInput = {
+  preview: TextBetaPreview;
+  selections: readonly TextBetaSelection[];
+  storage: TextBetaStorage;
+  saveConfirmedOutput: TextBetaOutputSaver;
+  confirmedAt?: string;
+};
+
+export type ConfirmTextBetaItemsResult = {
+  output: ConfirmedBetaOutput;
+  saveResult: TextBetaOutputSaveResult;
+  state: BetaStorageState;
+};
+
+export type CreateBetaPreviewInput = Omit<CreateTextBetaPreviewInput, 'text'> & {
+  input: NaturalLanguageAdditionInput;
+};
+
+function suggestionContains(
+  suggestions: readonly ShoppingListSuggestion[],
+  listId: string,
+): boolean {
+  return suggestions.some((suggestion) => suggestion.listId === listId);
+}
+
+export async function createTextBetaPreview(
+  input: CreateTextBetaPreviewInput,
+): Promise<TextBetaPreview> {
+  return createBetaPreview({
+    betaSessionId: input.betaSessionId,
+    startedAt: input.startedAt,
+    lists: input.lists,
+    storage: input.storage,
+    input: { source: 'text', text: input.text, locale: null },
+  });
+}
+
+export async function createSpeechBetaPreview(
+  input: CreateSpeechBetaPreviewInput,
+): Promise<SpeechBetaPreviewResult> {
+  if (input.speechResult.status !== 'transcript') {
+    return { kind: 'fallback', speechResult: input.speechResult };
+  }
+
+  const preview = await createBetaPreview({
+    betaSessionId: input.betaSessionId,
+    startedAt: input.startedAt,
+    lists: input.lists,
+    storage: input.storage,
+    input: {
+      source: 'speech',
+      text: input.speechResult.text,
+      locale: input.speechResult.locale,
+      onDevice: input.speechResult.onDevice,
+      ...(input.speechResult.segments ? { segments: input.speechResult.segments } : {}),
+    },
+  });
+  return { kind: 'preview', preview };
+}
+
+export async function createBetaPreview(input: CreateBetaPreviewInput): Promise<TextBetaPreview> {
+  const state = await input.storage.load();
+  const parseResult = parseNaturalLanguageShoppingInput(input.input.text);
+  const session = {
+    id: input.betaSessionId,
+    source: input.input.source,
+    startedAt: input.startedAt,
+  };
+  const nextState: BetaStorageState = { ...state, session };
+  await input.storage.save(nextState);
+
+  const items = parseResult.items.map((item, index) => ({
+    itemId: `${session.id}:item:${index}`,
+    item,
+    routing: routeShoppingItem({
+      item,
+      lists: input.lists,
+      learningRules: state.learningRules,
+      confirmations: state.confirmations,
+    }),
+    reviewState: 'pending' as const,
+  }));
+
+  return {
+    session,
+    input: input.input,
+    parseResult,
+    items,
+    learningProgress: getLearningProgress(state.confirmations),
+  };
+}
+
+export async function confirmTextBetaItems(
+  input: ConfirmTextBetaItemsInput,
+): Promise<ConfirmTextBetaItemsResult> {
+  const state = await input.storage.load();
+  if (state.session?.id !== input.preview.session.id) {
+    throw new Error('The Beta preview session is no longer active');
+  }
+
+  const selectedIds = new Set<string>();
+  const selectedItems = input.selections.map((selection) => {
+    if (selectedIds.has(selection.itemId)) {
+      throw new Error(`Beta item selected twice: ${selection.itemId}`);
+    }
+    selectedIds.add(selection.itemId);
+
+    const targetListId = selection.targetListId.trim();
+    const previewItem = input.preview.items.find((entry) => entry.itemId === selection.itemId);
+    if (!previewItem || !targetListId) {
+      throw new Error('Beta confirmations require a preview item and target list');
+    }
+    if (!suggestionContains(previewItem.routing.suggestions, targetListId)) {
+      throw new Error('Beta confirmation target must be one of the preview suggestions');
+    }
+
+    return {
+      previewItem,
+      targetListId,
+    };
+  });
+
+  const output: ConfirmedBetaOutput = {
+    betaSessionId: input.preview.session.id,
+    source: input.preview.session.source,
+    items: selectedItems.map(({ previewItem, targetListId }) => ({
+      confirmation: 'confirmed' as const,
+      item: previewItem.item,
+      targetListId,
+    })),
+  };
+
+  if (output.items.length === 0) {
+    return {
+      output,
+      saveResult: { savedItemCount: 0, mutationCount: 0, itemIds: [] },
+      state,
+    };
+  }
+
+  const saveResult = await input.saveConfirmedOutput(output);
+  const confirmedAt = input.confirmedAt ?? new Date().toISOString();
+  let nextState = state;
+  for (const { previewItem, targetListId } of selectedItems) {
+    const result =
+      previewItem.routing.kind === 'resolved' && previewItem.routing.listId === targetListId
+        ? 'confirmed'
+        : 'corrected';
+    nextState = recordRoutingConfirmation({
+      state: nextState,
+      eventId: `${input.preview.session.id}:confirmation:${previewItem.itemId}`,
+      sessionId: input.preview.session.id,
+      item: previewItem.item,
+      targetListId,
+      result,
+      createdAt: confirmedAt,
+    }).state;
+  }
+  await input.storage.save(nextState);
+
+  return { output, saveResult, state: nextState };
+}

@@ -26,6 +26,18 @@ jest.mock('../services/native-speech-recognition', () => ({
 }));
 
 describe('NaturalLanguageAdditionInputSheet', () => {
+  it('unmounts the native host while hidden so it cannot block the underlying screen', async () => {
+    await render(
+      <NaturalLanguageAdditionInputSheet
+        visible={false}
+        onDismiss={jest.fn()}
+        onSubmit={jest.fn()}
+      />,
+    );
+
+    expect(screen.queryByTestId('natural-language-addition-input-host')).toBeNull();
+  });
+
   it('uses expandable sheet detents and a keyboard-aware scroll container', async () => {
     await render(
       <NaturalLanguageAdditionInputSheet visible onDismiss={jest.fn()} onSubmit={jest.fn()} />,

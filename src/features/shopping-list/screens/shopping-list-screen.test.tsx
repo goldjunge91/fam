@@ -39,6 +39,13 @@ jest.mock('../hooks/use-shopping-list-mutations', () => ({
   useUpdateShoppingItem: () => ({ mutateAsync: jest.fn() }),
 }));
 
+jest.mock(
+  '../natuerliches-hinzufuegen-von-einkaufsartikeln-beta/services/native-speech-recognition',
+  () => ({
+    nativeSpeechRecognitionAdapter: { start: jest.fn() },
+  }),
+);
+
 jest.mock('../preferences/display-settings', () => ({
   useShowPriceInMarketView: () => ({ data: false }),
 }));
