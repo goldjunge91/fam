@@ -18,7 +18,7 @@ Diese Map gehört ausschließlich zur V2-Initiative `natuerliches-hinzufuegen-vo
 | Modul-ID | Verantwortung | Abhängigkeiten | Zuordnung zur Idea-Datei |
 | --- | --- | --- | --- |
 | `beta-isolation` | Separater Beta-Einstieg, Feature-Gate, Beta-Speicher-/Telemetry-Namespace und Schutz vor Aktivierung im normalen Einkaufsworkflow | Keine | Auslieferungsrahmen dieser V2, ergänzt zur Idea-Datei |
-| `speech-input` | In-App-Sprachaufnahme, native On-Device-Erkennung, Laufzeitfähigkeitsprüfung und Text-Fallback | Keine | „Empfohlene Richtung“, „MVP-Scope“, „Local first“ |
+| `speech-input` | In-App-Sprachaufnahme, native On-Device-Erkennung, Laufzeitfähigkeitsprüfung und klarer Fehler-/Nichtverfügbarkeitszustand ohne manuelle Texteingabe | Keine | „Empfohlene Richtung“, „MVP-Scope“, „Local first“ |
 | `item-parser` | Deterministische lokale Zerlegung eines Textes in Artikelname, Menge, Einheit und Marke | Keine | „Was wird erkannt?“, Beispiele `4x Skyr` und `Skyr von JA` |
 | `household-routing-learning` | Haushaltsweite Zuordnung, Konfidenz, Lernphase, Nutzerfreigabe sowie Mehrheits- und Konfliktmodus | `item-parser` | „Gelerntes Einkaufsverhalten“, „2-Stufen-Verfahren“, „3 Bestätigungen“ |
 | `shopping-list-integration` | Übergabe bestätigter Beta-Ergebnisse an bestehende Einkaufslisten, Zusammenführung, lokale Transaktion und Outbox-Sync | Bestehende Shopping-List-Domäne | Automatische Zuordnung zur richtigen Einkaufsliste, Local-First und Offline-Sync |

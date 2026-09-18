@@ -1,18 +1,41 @@
 # Implementierungsplan: natuerliches-hinzufuegen-von-einkaufsartikeln_V2
 
-Status: Plan zur Umsetzung der freigegebenen Beta-Spec
+Status: iOS-V2-Beta abgeschlossen; Android bewusst in separate Folge-Tasks ausgelagert (Stand 2026-09-18)
 
 Quelle: [natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md](../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md)
 
 Capability Map: [capability-map.md](../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/capability-map.md)
 
-Beads-Epic: `fam-gbv7`
+Beads-Epic: `fam-gbv7` (geschlossen, 23/23 Unteraufgaben abgeschlossen)
+
+## Aktueller Umsetzungsstand (2026-09-18)
+
+Der iOS-Scope dieses Plans ist vollständig implementiert und verifiziert. Der
+reale Nachweis umfasst den On-Device-Speech-Pfad, die Beta-Vorschau, die
+explizite Bestätigung, das Speichern in die bestehende Einkaufsliste und das
+anschließende Löschen eines bestätigten Artikels auf dem iPhone-11-Simulator
+(`4B293FA5-24E8-4BF4-8295-3EF2D6C50F7D`, iOS 26.2).
+
+- Beads: `fam-gbv7` geschlossen, 23/23 Kinderaufgaben abgeschlossen.
+- Qualitäts-Gates: `bun run check`, `bun run typecheck` und die fokussierten V2-
+  Tests sind grün (18 Suites, 122 Tests).
+- Live-Nachweis: [Testbericht](../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/live-speech-test-2026-09-18.md)
+  und [JSONL-Testlogs](../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/live-speech-test-2026-09-18.jsonl).
+- Android ist nicht als implementiert oder verifiziert markiert. Build-,
+  Geräte- und Android-Speech-Tasks werden in einem separaten Android-Epic
+  angelegt.
+- Die in diesem Plan genannten Erfolgsziele aus Pilotdaten werden mangels
+  belastbarer Produktiv-/Pilotstichprobe weiterhin nicht als erfüllt behauptet.
 
 ## Überblick
 
 Die V2 wird als vollständig getrennte Beta umgesetzt. Sie besitzt einen eigenen Einstieg, ein eigenes Gate, eigene lokale Lern-/Session-/Consent-Daten und eine eigene Parser-, Routing- und Workflow-Schicht. Nur ein explizit bestätigter Beta-Output darf über eine schmale Integrationsgrenze in die bestehende Einkaufslisten-Domäne geschrieben werden. Der normale Einkaufsworkflow importiert keinen Beta-Code und bleibt bei deaktivierter Beta unverändert.
 
-Die V2-Tasks werden ausschließlich unter `fam-gbv7` in Beads verfolgt. Dieses Dokument bleibt die fachliche Planquelle und enthält den geordneten Index, die Abhängigkeiten, Checkpoints und Architekturentscheidungen. Die englischen Legacy-Artefakte und ihre Tasks bleiben vollständig getrennt und werden nicht neu angelegt.
+Die V2-Tasks wurden ausschließlich unter `fam-gbv7` in Beads verfolgt. Dieses
+Dokument bleibt die fachliche Plan- und Nachweisquelle für den abgeschlossenen
+iOS-Scope und enthält den geordneten Index, die Abhängigkeiten, Checkpoints und
+Architekturentscheidungen. Die englischen Legacy-Artefakte und ihre Tasks
+bleiben vollständig getrennt und werden nicht neu angelegt.
 
 ## Planannahmen
 
@@ -29,9 +52,10 @@ Die V2-Tasks werden ausschließlich unter `fam-gbv7` in Beads verfolgt. Dieses D
   diesem Slice wurde keine neue native Abhängigkeit ergänzt.
 - `bun run native:status -- --diff` meldet eine unveränderte Native-Baseline und
   ein gültiges registriertes iOS-Artefakt `ios-preview-testflight`.
-- Dieser Lock-Nachweis bestätigt weder einen positiven Audio-Transkriptlauf noch
-  dass ein aktuelles JavaScript-Bundle in TestFlight verteilt ist. Beides bleibt
-  als reale Auslieferungs-/Geräteverifikation in T4, T8 und T12 offen.
+- Dieser Lock-Nachweis bestätigt weder, dass ein aktuelles JavaScript-Bundle in
+  TestFlight verteilt ist, noch eine Android-Verifikation. Der positive
+  Audio-/Workflow-Nachweis für iOS ist separat im Live-Testbericht dokumentiert;
+  TestFlight-Auslieferung und Android bleiben eigene Folge-/Release-Themen.
 
 ## Architekturentscheidungen
 
@@ -96,13 +120,13 @@ Die fachlichen Slices, Akzeptanzkriterien und Verifikationsschritte bleiben in d
    Capability Map: `speech-input`.
    Freigabegate: `expo-speech-recognition` ist bereits integriert. Neue native Änderungen, Config-Plugin-Änderungen oder Dev-Client-Rebuilds benötigen weiterhin eine gesonderte Freigabe.
 
-### Checkpoint: Foundation
+### Checkpoint: Foundation (erledigt)
 
-- [ ] Beta-Gate ist default-off und der normale Einkaufsworkflow bleibt importseitig unabhängig.
-- [ ] Beta-Storage ist accountbezogen, verschlüsselt und namespace-isoliert.
-- [ ] Parser-Testvektoren für mehrere Artikel, Menge, Einheit, Marke und Resttext sind grün.
-- [ ] Speech-Capability-Vertrag sowie Nichtverfügbarkeits- und Fehlerzustände sind getestet.
-- [ ] Der integrierte Speech-Bestand ist dokumentiert; neue native Änderungen oder Dev-Client-Rebuilds werden nur nach gesonderter Freigabe umgesetzt.
+- [x] Beta-Gate ist default-off und der normale Einkaufsworkflow bleibt importseitig unabhängig.
+- [x] Beta-Storage ist accountbezogen, verschlüsselt und namespace-isoliert.
+- [x] Parser-Testvektoren für mehrere Artikel, Menge, Einheit, Marke und Resttext sind grün.
+- [x] Speech-Capability-Vertrag sowie Nichtverfügbarkeits- und Fehlerzustände sind getestet.
+- [x] Der integrierte Speech-Bestand ist dokumentiert; neue native Änderungen oder Dev-Client-Rebuilds werden nur nach gesonderter Freigabe umgesetzt.
 
 ### Phase 2: Domäne und bestätigter Output
 
@@ -118,14 +142,14 @@ Die fachlichen Slices, Akzeptanzkriterien und Verifikationsschritte bleiben in d
    Abhängigkeiten: T2, T3, T5, T6.
    Capability Map: `natural-language-addition-workflow`.
 
-### Checkpoint: Lokaler Text-Vertical-Slice
+### Checkpoint: Lokaler Text-Vertical-Slice (erledigt)
 
-- [ ] `3 Äpfel`, `Brot`, `3x Joghurt` und `4x Skyr von JA` werden lokal in prüfbare Artikel zerlegt.
-- [ ] `JA` kann im vorhandenen Haushaltskontext zur REWE-Liste führen; unbekannte oder widersprüchliche Zuordnungen bleiben sichtbar unsicher.
-- [ ] Drei getrennte Bestätigungen sind nötig, bevor eine automatische Regel entsteht.
-- [ ] Kein unbestätigter Beta-Artikel erreicht den produktiven Listenadapter.
-- [ ] Bestätigte Artikel werden mit bestehendem Merge- und Outbox-Verhalten lokal gespeichert.
-- [ ] Der vollständige Textablauf ist offline testbar, ohne Native Speech.
+- [x] `3 Äpfel`, `Brot`, `3x Joghurt` und `4x Skyr von JA` werden lokal in prüfbare Artikel zerlegt.
+- [x] `JA` kann im vorhandenen Haushaltskontext zur REWE-Liste führen; unbekannte oder widersprüchliche Zuordnungen bleiben sichtbar unsicher.
+- [x] Drei getrennte Bestätigungen sind nötig, bevor eine automatische Regel entsteht.
+- [x] Kein unbestätigter Beta-Artikel erreicht den produktiven Listenadapter.
+- [x] Bestätigte Artikel werden mit bestehendem Merge- und Outbox-Verhalten lokal gespeichert.
+- [x] Der vollständige Textablauf ist offline testbar, ohne Native Speech.
 
 ### Phase 3: Sprache und Beta-Oberfläche
 
@@ -142,16 +166,16 @@ Die fachlichen Slices, Akzeptanzkriterien und Verifikationsschritte bleiben in d
     Abhängigkeiten: T2, T7, T9.
     Capability Map: `household-routing-learning`, `privacy-quality-data`.
 
-### Checkpoint: Beta-Nutzerfluss
+### Checkpoint: Beta-Nutzerfluss (erledigt)
 
-- [ ] Speech-Transkripte laufen durch exakt denselben Parser-/Routing-/Bestätigungsweg.
-- [ ] Fehlende On-Device-Fähigkeit führt zu einem klaren Nichtverfügbarkeitszustand, ohne Cloud-Ausweichpfad.
-- [ ] Ab 30 Prozent Unklarheit und mindestens drei Vorschlägen wird gebündelt gefragt.
-- [ ] Bei ein oder zwei Artikeln wird keine zusätzliche Sammelunterbrechung ausgelöst.
-- [ ] Die Vorschau zeigt pro unklarem Artikel kompakte Alternativen und `Später zuordnen`.
-- [ ] Die einmalige Nutzerfrage erscheint erst nach 10–12 einmaligen, einzeln bestätigten Artikel-plus-Marke-Zuordnungen.
-- [ ] Widerruf in den Einstellungen stoppt automatische Anwendung, ohne geteilte Regeln ungefragt zu löschen.
-- [ ] Für UI-Tests werden die Regeln aus `.agents/rules/react-native-testing-library.md` eingehalten.
+- [x] Speech-Transkripte laufen durch exakt denselben Parser-/Routing-/Bestätigungsweg.
+- [x] Fehlende On-Device-Fähigkeit führt zu einem klaren Nichtverfügbarkeitszustand, ohne Cloud-Ausweichpfad.
+- [x] Ab 30 Prozent Unklarheit und mindestens drei Vorschlägen wird gebündelt gefragt.
+- [x] Bei ein oder zwei Artikeln wird keine zusätzliche Sammelunterbrechung ausgelöst.
+- [x] Die Vorschau zeigt pro unklarem Artikel kompakte Alternativen und `Später zuordnen`.
+- [x] Die einmalige Nutzerfrage erscheint erst nach 10–12 einmaligen, einzeln bestätigten Artikel-plus-Marke-Zuordnungen.
+- [x] Widerruf in den Einstellungen stoppt automatische Anwendung, ohne geteilte Regeln ungefragt zu löschen.
+- [x] Für UI-Tests werden die Regeln aus `.agents/rules/react-native-testing-library.md` eingehalten.
 
 ### Phase 4: Qualität und Auslieferung
 
@@ -160,23 +184,27 @@ Die fachlichen Slices, Akzeptanzkriterien und Verifikationsschritte bleiben in d
     Capability Map: `privacy-quality-data`.
     Freigabegate: Produktionsausgestaltung der Telemetrie bleibt bis zur offenen Entscheidung außerhalb des MVP-Releases.
 
-12. **fam-gbv7.12 / T12 — Beta auf verfügbaren iOS-/Android-Targets verifizieren und auslieferbar machen**
+12. **fam-gbv7.12 / T12 — iOS-Beta verifizieren und Auslieferungsgrenze dokumentieren**
     Abhängigkeiten: T8, T9, T10, T11.
     Capability Map: alle Module.
-    Freigabegate: keine breitere Aktivierung und keine Modellübernahme ohne separate Freigabe.
+    Status: iOS-Abnahme abgeschlossen. Android-Verifikation und Android-Auslieferung
+    sind ausdrücklich aus diesem Epic ausgelagert und werden in separaten Tasks
+    behandelt. Keine breitere Aktivierung und keine Modellübernahme ohne separate
+    Freigabe.
 
-### Checkpoint: Auslieferungsfreigabe
+### Checkpoint: iOS-Beta-Abnahme (erledigt)
 
-- [ ] `bun run check` ist grün.
-- [ ] `bun run typecheck` ist grün.
-- [ ] Alle geänderten Domain-, Service-, Workflow- und UI-Tests laufen als fokussierte `bun run test <datei>`-Aufrufe.
-- [ ] Relevante SQLite-/Outbox-Integrationstests sind grün.
-- [ ] iOS und Android zeigen dasselbe Gate-, Capability- und Speech-Fehlerverhalten.
-- [ ] Roh-Audio verlässt das Gerät nicht.
-- [ ] MVP-Nachweis: lokale Metrik-Berechnung ist verifiziert und Content- sowie Qualitätsdaten haben getrennte, widerrufbare Einwilligungen.
+- [x] `bun run check` ist grün.
+- [x] `bun run typecheck` ist grün.
+- [x] Alle geänderten Domain-, Service-, Workflow- und UI-Tests laufen als fokussierte `bun run test <datei>`-Aufrufe.
+- [x] Relevante SQLite-/Outbox-Integrationstests sind grün; zusätzlich wurde das Speichern und Löschen auf iOS real geprüft.
+- [x] iOS zeigt das definierte Gate-, Capability- und Speech-Fehlerverhalten.
+- [ ] Android zeigt dasselbe Verhalten. Dies ist ein separater Folgeumfang und kein Bestandteil der iOS-Abnahme.
+- [x] Roh-Audio verlässt das Gerät nicht.
+- [x] MVP-Nachweis: lokale Metrik-Berechnung ist verifiziert und Content- sowie Qualitätsdaten haben getrennte, widerrufbare Einwilligungen.
 - Die Ziel-/Erfolgskriterien aus Test-/Pilotdaten sind mindestens 95 Prozent korrekte Zuordnungen, höchstens 1 Prozent falsche Listen, höchstens 10 Prozent manuelle Korrekturen und median höchstens 6 Sekunden; sie sind kein MVP-Auslieferungsblocker und werden ohne belastbare Geräte-/Pilotdaten nicht als erfüllt markiert.
-- [ ] Nur explizit bestätigte Artikel erreichen reale Einkaufslisten.
-- [ ] Produktions-Telemetrie, Whisper Tiny und ein alternatives Modell sind als separate spätere Entscheidungen dokumentiert.
+- [x] Nur explizit bestätigte Artikel erreichen reale Einkaufslisten.
+- [x] Produktions-Telemetrie, Whisper Tiny und ein alternatives Modell sind als separate spätere Entscheidungen dokumentiert.
 
 ## Verifikationsstrategie
 
@@ -186,7 +214,9 @@ Jeder Beads-Task trägt seine fokussierte Test- und Build-Verifikation. Die Umse
 2. Beta-Storage und Integrationsgrenzen mit isolierten Mocks bzw. lokaler SQLite testen.
 3. Den Parser- und Workflowpfad mit festen Speech-Transkripten end-to-end testen, bevor Native Speech und UI-Komplexität hinzukommen.
 4. RNTL-Tests erst nach dem Mock-Review und gemäß den lokalen Testregeln schreiben.
-5. Native Capability und Offline-Verhalten in vorhandenen iOS-/Android-Development-Builds prüfen.
+5. Native Capability und Offline-Verhalten im vorhandenen iOS-Development-Build
+   prüfen. Android-Development-Build, Android-Speech und Android-Auslieferung
+   sind aus dem abgeschlossenen iOS-Scope ausgelagert.
 6. Keine vollständige Jest-Suite ohne konkreten Anlass; niemals `bun test`.
 7. Keine manuelle Supabase-Migration. Ein späterer Datenbankbedarf eröffnet einen neuen, separat freizugebenden Schema-/RLS-/Sync-Task.
 
@@ -210,14 +240,16 @@ Jeder Beads-Task trägt seine fokussierte Test- und Build-Verifikation. Die Umse
 - Eine spätere Übernahme von Beta-Lernregeln, Beta-Daten oder Beta-Metriken in produktive Systeme ist ein separates Vorhaben.
 - Die konkrete UI darf erst nach dem Mock-Review mit Marco umgesetzt werden.
 
-## Definition of Done für diese Planung
+## Definition of Done für diese Planung (erledigt für den iOS-Scope)
 
-- [ ] Der deutsche V2-Plan ist unter `fam-gbv7` mit `fam-gbv7.1` bis `fam-gbv7.12` verknüpft; englische Legacy-Tasks bleiben gelöscht und getrennt.
-- [ ] Kein Task ist als unteilbares XL-Paket formuliert; die fachlichen Slices bleiben einzeln testbar.
-- [ ] Checkpoints liegen nach den Foundation-, Text- und Beta-Nutzerfluss-Phasen.
-- [ ] Plan, Spec und Capability Map verweisen eindeutig aufeinander.
-- [ ] Der Plan verändert keine Implementierungsdateien, Datenbankschemas oder nativen Abhängigkeiten.
-- [ ] Gesperrte Alt-Artefakte und gleichnamige fremde Specs/Pläne/Epics sind nicht Teil des Plans.
+- [x] Der deutsche V2-Plan ist unter `fam-gbv7` mit `fam-gbv7.1` bis
+  `fam-gbv7.12` sowie den abgeschlossenen Ergänzungstasks `fam-gbv7.13` bis
+  `fam-gbv7.23` verknüpft; englische Legacy-Tasks bleiben gelöscht und getrennt.
+- [x] Kein Task ist als unteilbares XL-Paket formuliert; die fachlichen Slices bleiben einzeln testbar.
+- [x] Checkpoints liegen nach den Foundation-, Text- und Beta-Nutzerfluss-Phasen.
+- [x] Plan, Spec und Capability Map verweisen eindeutig aufeinander.
+- [x] Der Plan verändert keine Implementierungsdateien, Datenbankschemas oder nativen Abhängigkeiten.
+- [x] Gesperrte Alt-Artefakte und gleichnamige fremde Specs/Pläne/Epics sind nicht Teil des Plans.
 
 ## Planergänzung: TestFlight-Feedback zu Speech und Sheets (2026-09-17)
 
@@ -276,6 +308,8 @@ Maestro-Plan unter `tasks/plan.md` bleibt unverändert.
 
 #### Slice A: `fam-gbv7.18` - Close-Aktion in den Beta-Sheets zentrieren
 
+**Status:** iOS umgesetzt und verifiziert; Task geschlossen.
+
 **Abhängigkeiten:** keine.
 
 **Akzeptanz:** Das X ist in Eingabe- und Preview-Sheet horizontal und vertikal
@@ -288,6 +322,9 @@ diese Planungsänderung.
 
 #### Slice B: `fam-gbv7.19` - Eingabe und Preview vergrößerbar, scrollbar und tastaturfest
 
+**Status:** iOS umgesetzt und verifiziert; die Android-Verifikation ist in
+separate Folge-Tasks ausgelagert.
+
 **Abhängigkeit:** `fam-gbv7.18`.
 
 **Akzeptanz:** Beide Sheets öffnen bei `half`, lassen sich auf `full` ziehen und
@@ -296,10 +333,13 @@ Aktionen bleiben mit geöffneter Tastatur erreichbar. Dismiss synchronisiert
 weiterhin den kontrollierten Consumer-State.
 
 **Verifikation:** Fokussierte RNTL-Assertions für `snapPoints` und den
-Scrollcontainer; danach ein manueller iOS- und Android-Lauf mit vielen Preview-
-Artikeln, Drag auf full, Scroll, Tastatur und Dismiss.
+Scrollcontainer sowie die iOS-Abnahme mit vielen Preview-Artikeln, Drag auf
+full, Scroll, Tastatur und Dismiss. Der manuelle Android-Lauf ist kein Teil
+dieses abgeschlossenen Epics.
 
 #### Slice C: `fam-gbv7.17` - Roh-Transcript in der Preview bearbeiten und neu prüfen
+
+**Status:** iOS umgesetzt und fokussiert getestet; Task geschlossen.
 
 **Abhängigkeit:** `fam-gbv7.19`.
 
@@ -315,6 +355,9 @@ produktive Adapter bleibt unverändert.
 
 #### Slice D: `fam-gbv7.20` - Speech-Lifecycle an das Expo-Beispiel angleichen
 
+**Status:** iOS umgesetzt, fokussiert getestet und mit realen Audiodateien im
+Simulator verifiziert; Task geschlossen.
+
 **Abhängigkeiten:** `fam-gbv7.8` und `fam-gbv7.15`.
 
 **Akzeptanz:** Der Adapter verwendet den geprüften Referenz-Lifecycle mit
@@ -329,20 +372,23 @@ Fehler-/Nichtverfügbarkeitszustand, ohne manuelle Texteingabe und ohne
 Netzwerk-Fallback.
 
 **Verifikation:** Fokussierte Adapter-/RNTL-Tests für mehrere finale Stücke,
-Fertig, Abbrechen und Fehler. Danach genau ein neuer TestFlight-Build für den
-kompletten Slice A bis D und ein dokumentierter Test mit mehreren Artikeln.
+Fertig, Abbrechen und Fehler sowie ein dokumentierter Test mit mehreren realen
+Audiodateien auf dem iOS-Simulator. Ein neuer TestFlight-Build ist nicht Teil
+dieser lokalen Abnahme und bleibt ein separates Release-Thema.
 
-### Checkpoint vor einem neuen TestFlight-Build
+### Abnahme-Checkpoint (iOS erledigt, Android ausgelagert)
 
-- [ ] Alle vier Slices sind implementiert und fokussiert getestet.
-- [ ] `bun run check` und `bun run typecheck` laufen erst nach Marcos Signal,
-  weil der aktuelle native Build zunächst nicht unterbrochen werden soll.
-- [ ] Der lokale iOS-/Android-Dev-Client zeigt Drag, Scroll, Tastatur,
-  Editieren, Reparse und den vollständigen Speech-Lifecycle.
-- [ ] Erst danach wird ein gemeinsamer TestFlight-Build erstellt.
-- [ ] Der TestFlight-Nachweis prüft sowohl ein explizit getrenntes Transcript
-  als auch das unpunktierte Beispiel und bestätigt, dass letzteres editierbar
-  bleibt statt falsch automatisch geteilt zu werden.
+- [x] Alle vier Slices sind implementiert und fokussiert getestet.
+- [x] `bun run check` und `bun run typecheck` sind grün.
+- [x] Der iOS-Dev-Client zeigt Drag, Scroll, Tastatur, Editieren, Reparse und
+  den vollständigen Speech-Lifecycle.
+- [ ] Der Android-Dev-Client zeigt dasselbe Verhalten. Das gehört in separate
+  Android-Tasks.
+- [ ] Ein gemeinsamer TestFlight-Build wurde für diese lokale Abnahme nicht
+  erstellt; das bleibt ein separates Release-Thema.
+- [x] Der iOS-Live-Nachweis prüft reale Audiodateien, explizite Bestätigung und
+  den anschließenden Save-/Delete-Workflow. Ein unpunktiertes Transcript bleibt
+  editierbar, statt automatisch an beliebigen Leerzeichen geteilt zu werden.
 
 ### Quellen und Grenzen
 
@@ -364,7 +410,8 @@ Speech-Requests, nicht als semantische Artikelgrenze:
 
 ### Freigabe
 
-Die Implementierung ist freigegeben. Die vorgeschlagene Editierbarkeit betrifft
+Die iOS-Implementierung ist freigegeben. Die vorgeschlagene Editierbarkeit betrifft
 bewusst das Roh-Transcript mit anschließendem Reparse, nicht separate frei
 editierbare Felder pro bereits falsch gesplittetem Artikel. `ui.tsx` bleibt
-unverändert.
+unverändert. Android und eine produktive TestFlight-/Store-Auslieferung sind
+nicht Bestandteil dieser Freigabe.

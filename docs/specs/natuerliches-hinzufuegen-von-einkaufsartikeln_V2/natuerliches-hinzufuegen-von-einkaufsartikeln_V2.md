@@ -48,12 +48,15 @@ Diese Funktion wird vollständig als Beta implementiert und ausgeliefert.
 
 ### Im MVP
 
-- Eingabe direkt in der App, per Text und per Spracheingabe unterwegs.
+- Spracheingabe unterwegs; das lokale Transcript ist die einzige Nutzereingabe.
+  Parser- und Reparse-Tests dürfen feste Textfixtures verwenden, aber es gibt
+  keine manuelle Texteingabe als Produkt-Fallback.
 - Mehrere Artikel aus einer Eingabe.
 - Lokale, deterministische Erkennung von Artikelname, Menge, Einheit und Marke.
 - Native On-Device-Spracherkennung über einen Adapter für `expo-speech-recognition@^57.0.0`.
 - `requiresOnDeviceRecognition: true` als harte Datenschutz- und Offline-Anforderung.
-- Laufzeitprüfung der Fähigkeiten. Wenn On-Device-Erkennung nicht verfügbar ist, bleibt die Spracheingabe deaktiviert und die Texteingabe verfügbar.
+- Laufzeitprüfung der Fähigkeiten. Wenn On-Device-Erkennung nicht verfügbar ist,
+  zeigt der Speech-Einstieg einen klaren Nichtverfügbarkeits- bzw. Fehlerzustand.
 - Lokale Einkaufslisten-Zuordnung mit Haushaltskontext, Best Match und Konfidenz.
 - Gemeinsame Vorschau vor dem Speichern, wenn Artikel unklar oder widersprüchlich sind.
 - Lokale SQLite-Verarbeitung mit bestehendem Outbox-Sync.
@@ -79,10 +82,11 @@ Diese Funktion wird vollständig als Beta implementiert und ausgeliefert.
 - Bestehende Shopping-List-Domäne für Artikel, Listen, Produkt-/Markenbezug und Merge-Verhalten.
 - Lokale SQLite-Spiegelung mit Drizzle unter `src/lib/db/` sowie Outbox-Sync über `src/lib/sync/`.
 - Supabase bleibt Synchronisationsziel für geteilte Haushaltsdaten. Private Daten dürfen nicht in Haushaltsdaten oder gemeinsame Lernregeln einfließen.
-- Geplanter Spracheingangsadapter: [`expo-speech-recognition`](https://github.com/jamsch/expo-speech-recognition). Das Paket ist aktuell eine geplante native Abhängigkeit, nicht Bestandteil dieser Dokumentänderung.
+- Spracheingangsadapter: [`expo-speech-recognition`](https://github.com/jamsch/expo-speech-recognition)
+  ist als native Abhängigkeit integriert und im Dev-Client registriert.
 - [`expo-audio`](https://docs.expo.dev/versions/v57.0.0/sdk/audio/) ist für Aufnahme und Wiedergabe relevant, ersetzt aber keine Spracherkennung.
 - [`expo-speech`](https://docs.expo.dev/versions/v57.0.0/sdk/speech/) ist Text-to-Speech und kein Spracheingang.
-- Späterer lokaler Fallback: [`react-native-executorch Getting Started`](https://docs.swmansion.com/react-native-executorch/docs/fundamentals/getting-started) und [`Speech to Text`](https://docs.swmansion.com/react-native-executorch/docs/extensions/speech-to-text).
+- Späteres alternatives lokales Speech-Modell: [`react-native-executorch Getting Started`](https://docs.swmansion.com/react-native-executorch/docs/fundamentals/getting-started) und [`Speech to Text`](https://docs.swmansion.com/react-native-executorch/docs/extensions/speech-to-text). Das ist nicht Teil des MVP-Speech-Pfads.
 
 Das Hinzufügen einer nativen Abhängigkeit, eines Config-Plugins oder eines lokalen ML-Modells erfordert eine gesonderte Freigabe und einen Dev-Client-Rebuild.
 
@@ -220,7 +224,7 @@ Der Beispielkörper ist nur der Vertragsschnitt, keine Implementierung. In der U
 
 - iOS und Android Development Build: Berechtigungen, Verfügbarkeit, On-Device-Gate und Abbruchverhalten.
 - Der Adapter setzt `requiresOnDeviceRecognition: true` und nutzt keinen Cloud-Fallback.
-- Auf nicht unterstützten Geräten bleibt Texteingabe verfügbar. Da aktuell keine solchen Testgeräte vorhanden sind, wird dieser Pfad über Capability-Mocks und später auf realer Hardware verifiziert.
+- Auf nicht unterstützten Geräten zeigt der Speech-Einstieg einen klaren Nichtverfügbarkeits- bzw. Fehlerzustand. Der Speech-Pfad öffnet keine manuelle Texteingabe und verwendet keinen Netzwerk-Fallback. Da aktuell nicht alle Capability-Varianten als reale Geräte vorhanden sind, wird dieser Zustand zusätzlich über Capability-Mocks verifiziert.
 - Telemetrie-Payloads enthalten niemals Audio und respektieren beide Einwilligungen, Allowlist-Filter, Widerruf und Idempotenz.
 
 ## 10. Grenzen und Freigaben
@@ -242,7 +246,7 @@ Der Beispielkörper ist nur der Vertragsschnitt, keine Implementierung. In der U
 - Gebündeltes Whisper-Tiny-Modell oder späteres alternatives lokales Modell.
 - Änderung an Supabase-Schema, RLS, SQLite-Spiegel oder Sync-Vertrag.
 - Änderung an Schwellenwerten, Einwilligungstexten, Aufbewahrung oder Produktions-Telemetrie.
-- Abweichung vom Text-Fallback oder von `requiresOnDeviceRecognition: true`.
+- Abweichung vom Speech-only-Vertrag oder von `requiresOnDeviceRecognition: true`.
 - Aktivierung für eine breitere Nutzergruppe oder Übernahme von Beta-Daten in Produktion.
 
 ### Niemals
@@ -271,8 +275,8 @@ Der Beispielkörper ist nur der Vertragsschnitt, keine Implementierung. In der U
 | `SC-06` | Nach 10 bis 12 einmaligen, einzeln bestätigten Zuordnungen wird pro Nutzer einmalig gefragt; die Freigabe ist widerrufbar. | Lern- und Preference-Tests |
 | `SC-07` | Ab 30 Prozent Unklarheit und bei mindestens drei Vorschlägen erscheint eine gebündelte Rückfrage; bei ein oder zwei Artikeln nicht automatisch. | Schwellenwerttests |
 | `SC-08` | Automatische Regeln benötigen drei getrennte Bestätigungen; Konflikte ohne klare Mehrheit bleiben unsicher. | Lern- und Konflikttests |
-| `SC-09` | Sprache wird nur mit positiver On-Device-Fähigkeit und gesetztem On-Device-Gate angeboten; sonst funktioniert die Texteingabe. | Capability-Mocks plus iOS-/Android-Development-Build |
-| `SC-10` | Kein Roh-Audio verlässt das Gerät. Beide Datentypen sind getrennt einwilligungsfähig und widerrufbar. | Payload- und Consent-Tests |
+| `SC-09` | Sprache wird nur mit positiver On-Device-Fähigkeit und gesetztem On-Device-Gate angeboten; sonst erscheint ein klarer Fehler-/Nichtverfügbarkeitszustand ohne manuelle Texteingabe. | Capability-Mocks plus iOS-/Android-Development-Build |
+| `SC-10` | Kein Roh-Audio verlässt das Gerät. Lokale Qualitätsmetriken bleiben separat einwilligungsfähig und widerrufbar; Produktions-Telemetrie ist im MVP deaktiviert. | Storage-, Payload- und Consent-Tests |
 | `SC-11` | Eine Produktionsentscheidung für datenschutzverstärkte Telemetrie ist vor dem Produktions-Release dokumentiert. | Offene Entscheidung und Release-Checkliste |
 | `SC-BETA-01` | Die Beta ist standardmäßig deaktiviert und kann den normalen Einkaufsworkflow nicht verändern. | Feature-Gate- und Regressionstests |
 | `SC-BETA-02` | Beta-Lernregeln, Consents, Feedback und Telemetrie bleiben in einem getrennten Namespace und werden nicht produktiv ausgewertet. | Storage-/Telemetry-Isolationstests |
