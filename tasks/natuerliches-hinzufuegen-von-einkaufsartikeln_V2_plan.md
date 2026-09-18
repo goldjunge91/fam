@@ -2,9 +2,9 @@
 
 Status: Plan zur Umsetzung der freigegebenen Beta-Spec
 
-Quelle: [natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md](./natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md)
+Quelle: [natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md](../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md)
 
-Capability Map: [capability-map.md](./capability-map.md)
+Capability Map: [capability-map.md](../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/capability-map.md)
 
 Beads-Epic: `fam-gbv7`
 
@@ -21,7 +21,17 @@ Die V2-Tasks werden ausschließlich unter `fam-gbv7` in Beads verfolgt. Dieses D
 - Der MVP startet mit nativer On-Device-Spracherkennung über einen Adapter. Ein gebündeltes Whisper-Tiny-Modell ist ausdrücklich nachgelagert.
 - Der vorhandene lokale SQLite-/Drizzle-/Outbox-Stack sowie die bestehende Shopping-List-Mutation werden wiederverwendet, nicht dupliziert.
 - Beta-Lernregeln und Consent sind accountbezogener lokaler Zustand. Sie werden nicht als produktive Präferenzen interpretiert.
-- Die vorhandenen Geräte reichen für die primäre Capability-Verifikation aus. Nicht verfügbare On-Device-Fähigkeiten werden über Capability-Mocks und den Text-Fallback geprüft.
+- Die vorhandenen Geräte reichen für die primäre Capability-Verifikation aus. Nicht verfügbare On-Device-Fähigkeiten werden über Capability-Mocks und klare Nichtverfügbarkeits- bzw. Fehlerzustände geprüft.
+
+### Native-Bestand und Nachweisgrenze (2026-09-18)
+
+- `expo-speech-recognition` ist bereits als native Abhängigkeit integriert; in
+  diesem Slice wurde keine neue native Abhängigkeit ergänzt.
+- `bun run native:status -- --diff` meldet eine unveränderte Native-Baseline und
+  ein gültiges registriertes iOS-Artefakt `ios-preview-testflight`.
+- Dieser Lock-Nachweis bestätigt weder einen positiven Audio-Transkriptlauf noch
+  dass ein aktuelles JavaScript-Bundle in TestFlight verteilt ist. Beides bleibt
+  als reale Auslieferungs-/Geräteverifikation in T4, T8 und T12 offen.
 
 ## Architekturentscheidungen
 
@@ -30,13 +40,20 @@ Die V2-Tasks werden ausschließlich unter `fam-gbv7` in Beads verfolgt. Dieses D
 3. **Eigener lokaler Namespace:** Beta-Session, Lernregeln, einzelne Bestätigungen, Konflikte, Rückfragen, Consent und Feedback werden unter einem eigenen Namespace im verschlüsselten Account-Speicher gehalten.
 4. **Reine Domainlogik:** Parser, Konfidenz, Routing und Lernregeln bleiben deterministische, testbare Funktionen ohne React, Netzwerk oder direkte Listenmutation.
 5. **Eine Integrationsgrenze:** Nur `shopping-list-integration` darf bestätigte Ergebnisse an die bestehenden Einkaufslisten-Mutationen und damit an lokale SQLite-/Outbox-Schreibvorgänge übergeben.
-6. **Text als erster Vertical Slice:** Der Textpfad beweist den vollständigen lokalen Ablauf mit geringem Plattformrisiko. Sprache liefert später nur ein lokales Transkript in denselben Ablauf.
+6. **Gemeinsamer lokaler Workflow:** Der Parser- und Workflowpfad wird mit festen Transkripten früh verifiziert. Sprache liefert ein lokales Transkript in diesen Ablauf; eine manuelle Texteingabe ist keine alternative Nutzerfunktion.
 7. **Datenschutz als harte Grenze:** `requiresOnDeviceRecognition: true`, kein Roh-Audio-Upload, getrennte Einwilligungen und lokale Bereinigung vor jeder optionalen Übertragung.
 8. **Keine neue Datenbankoberfläche im MVP:** Eine zusätzliche Supabase-Tabelle, RLS-Policy, SQLite-Spiegeltabelle oder Sync-Entität ist nicht eingeplant. Falls das für spätere Haushalts-Synchronisation nötig wird, ist das eine neue Entscheidung mit eigenem Schema-/RLS-/Outbox-Task.
 
-### Beta-Override für den aktuellen Sprachtestpfad
+### Verbindlicher Speech-Vertrag
 
-Der aktuelle Beta-Testpfad verwendet vorübergehend `requiresOnDeviceRecognition: false`, damit die native Spracherkennung auf den verfügbaren Geräten unabhängig von der On-Device-Capability getestet werden kann. Das bedeutet: Die Erkennung darf den nativen Netzwerkdienst verwenden; der Adapter lädt selbst kein Roh-Audio hoch und protokolliert weder Audio noch vollständige Transkripte. Dieser Override ist ausschließlich für die Beta und hebt die Produktionsgrenze aus Entscheidung 7 nicht auf. Vor einer produktiven Aktivierung müssen On-Device-Erkennung mit Capability-Fallback oder ein ausdrücklich dokumentierter Netzwerkdienst mit passender Einwilligung entschieden und verifiziert werden.
+Der V2-MVP verwendet ausschließlich native On-Device-Spracherkennung mit
+`requiresOnDeviceRecognition: true`. Der Adapter fordert nur die
+Mikrofonberechtigung an, übergibt das lokale Transcript an den gemeinsamen
+Parser-/Preview-/Bestätigungsworkflow und lädt weder Roh-Audio noch vollständige
+Transkripte selbst hoch. Fehlt die On-Device-Fähigkeit, wird die Berechtigung
+abgelehnt oder tritt ein nativer Fehler auf, zeigt die App einen klaren
+Nichtverfügbarkeits- bzw. Fehlerzustand. Der Speech-Pfad öffnet keine manuelle
+Textalternative und verwendet keinen stillen Netzwerk- oder Cloud-Fallback.
 
 ## Abhängigkeitsgraph
 
@@ -74,18 +91,18 @@ Die fachlichen Slices, Akzeptanzkriterien und Verifikationsschritte bleiben in d
    Abhängigkeit: T1.
    Capability Map: `item-parser`.
 
-4. **fam-gbv7.4 / T4 — Native On-Device-Spracherkennung mit Text-Fallback anbinden**
+4. **fam-gbv7.4 / T4 — Native On-Device-Spracherkennung anbinden**
    Abhängigkeit: T1.
    Capability Map: `speech-input`.
-   Freigabegate: Native Dependency, Config-Plugin und Dev-Client-Rebuild vor Umsetzung.
+   Freigabegate: `expo-speech-recognition` ist bereits integriert. Neue native Änderungen, Config-Plugin-Änderungen oder Dev-Client-Rebuilds benötigen weiterhin eine gesonderte Freigabe.
 
 ### Checkpoint: Foundation
 
 - [ ] Beta-Gate ist default-off und der normale Einkaufsworkflow bleibt importseitig unabhängig.
 - [ ] Beta-Storage ist accountbezogen, verschlüsselt und namespace-isoliert.
 - [ ] Parser-Testvektoren für mehrere Artikel, Menge, Einheit, Marke und Resttext sind grün.
-- [ ] Speech-Capability-Vertrag und Text-Fallback sind getestet.
-- [ ] Vor der nativen Umsetzung ist die gesonderte Native-Freigabe dokumentiert.
+- [ ] Speech-Capability-Vertrag sowie Nichtverfügbarkeits- und Fehlerzustände sind getestet.
+- [ ] Der integrierte Speech-Bestand ist dokumentiert; neue native Änderungen oder Dev-Client-Rebuilds werden nur nach gesonderter Freigabe umgesetzt.
 
 ### Phase 2: Domäne und bestätigter Output
 
@@ -127,8 +144,8 @@ Die fachlichen Slices, Akzeptanzkriterien und Verifikationsschritte bleiben in d
 
 ### Checkpoint: Beta-Nutzerfluss
 
-- [ ] Text und Sprache laufen durch exakt denselben Parser-/Routing-/Bestätigungsweg.
-- [ ] Fehlende On-Device-Fähigkeit lässt den Text-Fallback nutzbar, ohne Cloud-Verarbeitung zu aktivieren.
+- [ ] Speech-Transkripte laufen durch exakt denselben Parser-/Routing-/Bestätigungsweg.
+- [ ] Fehlende On-Device-Fähigkeit führt zu einem klaren Nichtverfügbarkeitszustand, ohne Cloud-Ausweichpfad.
 - [ ] Ab 30 Prozent Unklarheit und mindestens drei Vorschlägen wird gebündelt gefragt.
 - [ ] Bei ein oder zwei Artikeln wird keine zusätzliche Sammelunterbrechung ausgelöst.
 - [ ] Die Vorschau zeigt pro unklarem Artikel kompakte Alternativen und `Später zuordnen`.
@@ -154,10 +171,10 @@ Die fachlichen Slices, Akzeptanzkriterien und Verifikationsschritte bleiben in d
 - [ ] `bun run typecheck` ist grün.
 - [ ] Alle geänderten Domain-, Service-, Workflow- und UI-Tests laufen als fokussierte `bun run test <datei>`-Aufrufe.
 - [ ] Relevante SQLite-/Outbox-Integrationstests sind grün.
-- [ ] iOS und Android zeigen dasselbe Gate-, Capability- und Text-Fallback-Verhalten.
+- [ ] iOS und Android zeigen dasselbe Gate-, Capability- und Speech-Fehlerverhalten.
 - [ ] Roh-Audio verlässt das Gerät nicht.
-- [ ] Content- und Qualitätsdaten haben getrennte, widerrufbare Einwilligungen.
-- [ ] Die Zielmetriken sind aus Test-/Pilotdaten berechenbar: mindestens 95 Prozent korrekte Zuordnungen, höchstens 1 Prozent falsche Listen, höchstens 10 Prozent manuelle Korrekturen, median höchstens 6 Sekunden.
+- [ ] MVP-Nachweis: lokale Metrik-Berechnung ist verifiziert und Content- sowie Qualitätsdaten haben getrennte, widerrufbare Einwilligungen.
+- Die Ziel-/Erfolgskriterien aus Test-/Pilotdaten sind mindestens 95 Prozent korrekte Zuordnungen, höchstens 1 Prozent falsche Listen, höchstens 10 Prozent manuelle Korrekturen und median höchstens 6 Sekunden; sie sind kein MVP-Auslieferungsblocker und werden ohne belastbare Geräte-/Pilotdaten nicht als erfüllt markiert.
 - [ ] Nur explizit bestätigte Artikel erreichen reale Einkaufslisten.
 - [ ] Produktions-Telemetrie, Whisper Tiny und ein alternatives Modell sind als separate spätere Entscheidungen dokumentiert.
 
@@ -167,7 +184,7 @@ Jeder Beads-Task trägt seine fokussierte Test- und Build-Verifikation. Die Umse
 
 1. Reine Domainlogik zuerst mit festen Testvektoren und ohne React-/Native-Abhängigkeit.
 2. Beta-Storage und Integrationsgrenzen mit isolierten Mocks bzw. lokaler SQLite testen.
-3. Den Textpfad end-to-end testen, bevor Sprache und UI-Komplexität hinzukommen.
+3. Den Parser- und Workflowpfad mit festen Speech-Transkripten end-to-end testen, bevor Native Speech und UI-Komplexität hinzukommen.
 4. RNTL-Tests erst nach dem Mock-Review und gemäß den lokalen Testregeln schreiben.
 5. Native Capability und Offline-Verhalten in vorhandenen iOS-/Android-Development-Builds prüfen.
 6. Keine vollständige Jest-Suite ohne konkreten Anlass; niemals `bun test`.
@@ -177,18 +194,18 @@ Jeder Beads-Task trägt seine fokussierte Test- und Build-Verifikation. Die Umse
 
 | Risiko | Auswirkung | Gegenmaßnahme |
 | --- | --- | --- |
-| On-Device-STT ist auf einem Zielgerät nicht verfügbar | Spracheingabe fehlt oder verletzt die Offline-Anforderung | Capability zur Laufzeit prüfen, Sprache deaktivieren und Text-Fallback sichtbar anbieten; später Tiny nur nach Tests prüfen |
-| Native Dependency verändert Fingerprint/Dev-Client | Build- und Geräteverifikation blockiert | Native-Freigabe vor Installation, danach `bun run native:status` und kontrollierter Rebuild |
+| On-Device-STT ist auf einem Zielgerät nicht verfügbar | Spracheingabe fehlt oder verletzt die Offline-Anforderung | Capability zur Laufzeit prüfen, Sprache deaktivieren und einen klaren Nichtverfügbarkeits- bzw. Fehlerzustand anzeigen; später Tiny nur nach Tests prüfen |
+| Neue native Änderung verändert Fingerprint/Dev-Client | Build- und Geräteverifikation blockiert | Neue native Änderungen und Rebuilds nur nach gesonderter Freigabe, danach `bun run native:status` und kontrollierter Rebuild |
 | Parsing erkennt Marke oder Artikelgrenzen falsch | Falsche Listen oder manuelle Nacharbeit | deterministische Testvektoren, sichtbarer Resttext und Vorschau vor Commit |
 | Lernregeln werden zu früh oder durch Wiederholungen gebildet | Falsche automatische Zuordnung | einmalige Einzelzuordnungen zählen, drei Bestätigungen erzwingen, Konfliktmodus beibehalten |
 | Beta schreibt versehentlich in Produktion | Daten- und Architekturverletzung | eigener Gate-/Storage-Namespace, Import-Regressionstest und genau eine bestätigte Adaptergrenze |
 | Telemetrie enthält identifizierbare Einkaufsinhalte | Datenschutzrisiko und Release-Blocker | lokale Filterung, getrennte Consents, kein Audio, Drop bei unsicherer Payload; Produktionsentscheidung offen halten |
-| UI-Aufwand wächst vor stabiler Domainlogik | Rework und Scope-Ausweitung | Text-Vertical-Slice zuerst, Mock-Review vor UI-Implementierung, UI bleibt separat vom Listenadapter |
+| UI-Aufwand wächst vor stabiler Domainlogik | Rework und Scope-Ausweitung | Parser-/Speech-Workflow zuerst, Mock-Review vor UI-Implementierung, UI bleibt separat vom Listenadapter |
 
 ## Offene Entscheidungen und Freigabegates
 
 - Die konkrete Produktionsausgestaltung der datenschutzverstärkten Telemetrie ist die einzige offene Frage aus der Spec und muss vor einem Produktionsrelease entschieden werden.
-- Die native Abhängigkeit `expo-speech-recognition` sowie ein möglicher Config-Plugin-/Dev-Client-Rebuild benötigen vor der nativen Umsetzung eine gesonderte Freigabe.
+- `expo-speech-recognition` ist bereits integriert. Neue native Abhängigkeiten, Config-Plugin-Änderungen oder Dev-Client-Rebuilds benötigen weiterhin vor ihrer Umsetzung eine gesonderte Freigabe.
 - Whisper Tiny ist post-MVP. Ein alternatives lokales Modell wird erst anhand von Tests entschieden und gehört nicht in das MVP-Implementierungsgate.
 - Eine spätere Übernahme von Beta-Lernregeln, Beta-Daten oder Beta-Metriken in produktive Systeme ist ein separates Vorhaben.
 - Die konkrete UI darf erst nach dem Mock-Review mit Marco umgesetzt werden.
@@ -209,13 +226,14 @@ Maestro-Plan unter `tasks/plan.md` bleibt unverändert.
 
 ### Beobachtete Evidenz
 
-- Das isolierte Expo-Beispiel läuft auf iOS mit `de-DE`, `interimResults: true`,
-  `maxAlternatives: 3`, `continuous: true`,
-  `requiresOnDeviceRecognition: false` und `addsPunctuation: true`.
+- Das isolierte Expo-Beispiel lief im historischen Testpfad auf iOS mit
+  `de-DE`, `interimResults: true`, `maxAlternatives: 3`, `continuous: true`
+  und `addsPunctuation: true`. V2 übernimmt daraus nur den Lifecycle, nicht den
+  damaligen Netzwerkmodus.
 - Die Beispielausgabe zeigt trotzdem ein unpunktiertes Gesamt-Transcript wie
   `Apfelkuchen nehme ich Eier Wasser`. `addsPunctuation` ist damit kein
   verlässlicher Artikeltrenner.
-- Der aktuelle Produktiv-Adapter beendet die Session beim ersten finalen
+- Der damalige Produktiv-Adapter beendete die Session beim ersten finalen
   Ergebnis und startet mit `continuous: false`. Das weicht vom funktionierenden
   Referenz-Lifecycle ab.
 - `CloseButton` verwendet das zentrale `ui.tsx`-Primitiv, dessen globaler
@@ -240,10 +258,19 @@ Maestro-Plan unter `tasks/plan.md` bleibt unverändert.
    es keine zweite Parserlogik und keine veralteten lokalen Schattenartikel.
 4. Sprache sammelt bei `continuous: true` finale Ergebnisstücke bis zum
    expliziten Fertig-Signal. Erst der vollständige `end`-Übergang öffnet die
-   Preview.
+   Preview. Bei fehlender Berechtigung oder Capability endet der Speech-Flow
+   mit einem sichtbaren Fehler- bzw. Nichtverfügbarkeitszustand.
 5. Eine automatische Trennung an beliebigen Leerzeichen wird ausdrücklich nicht
    eingeführt. Ein unpunktiertes Ergebnis kann semantisch nicht zuverlässig in
-   Artikel zerlegt werden. Die editierbare Preview ist der sichere Fallback.
+   Artikel zerlegt werden. Erkannte, wiederholte Mengenanfänge dürfen jedoch als
+   deterministische Artikelgrenzen dienen, zum Beispiel `Salat Kopf vier Becher
+   Joghurt ein Kilo Reis`; eine reine unpunktierte Wortfolge bleibt editierbar.
+   Bekannte Sprachbefehlsrahmen werden deterministisch entfernt, wenn sie vor
+   dem ersten Mengenanfang oder nach dem letzten Artikel stehen, zum Beispiel
+   `... füge bitte ... zwei Liter Milch` und `Küchenrolle zur Einkaufsliste
+   hinzu`. Unterstützte gesprochene Verpackungswörter werden auf die
+   bestehenden Schema-Einheiten normalisiert. Die Preview ist der sichere
+   Prüf- und Bestätigungspunkt.
 
 ### Geordnete Ergänzungstasks
 
@@ -292,17 +319,14 @@ produktive Adapter bleibt unverändert.
 
 **Akzeptanz:** Der Adapter verwendet den geprüften Referenz-Lifecycle mit
 `de-DE`, Interim-Ergebnissen, `maxAlternatives: 3`, `continuous: true`,
-`requiresOnDeviceRecognition: false`, `addsPunctuation: true` und dem
+`requiresOnDeviceRecognition: true`, `addsPunctuation: true` und dem
 Dictation-Hinweis. Finale Ergebnisstücke werden bis `end` gesammelt. Ein
 sichtbarer Fertig-Button ruft `stop` auf, Abbrechen ruft `abort` auf. Die
-Preview öffnet erst nach dem vollständigen Ergebnis. Im Beta-Testpfad
-speichert oder lädt die App selbst kein Roh-Audio hoch; der native Dienst kann
-bei `requiresOnDeviceRecognition: false` jedoch Netzwerk-Erkennung verwenden.
-Der Start erfordert deshalb eine ausdrückliche, verschlüsselt gespeicherte
-Einwilligung für `contentData`; ohne diese Einwilligung werden weder
-Berechtigungen angefragt noch native Erkennung gestartet. Das ist kein
-Produktionspfad. Vor Produktion bleibt die On-Device-/Consent-Entscheidung aus
-Architekturentscheidung 7 offen.
+Preview öffnet erst nach dem vollständigen Ergebnis. Der Start fordert nur die
+Mikrofonberechtigung an. Bei fehlender On-Device-Fähigkeit, verweigerter
+Berechtigung oder einem nativen Fehler endet der Speech-Pfad mit einem klaren
+Fehler-/Nichtverfügbarkeitszustand, ohne manuelle Texteingabe und ohne
+Netzwerk-Fallback.
 
 **Verifikation:** Fokussierte Adapter-/RNTL-Tests für mehrere finale Stücke,
 Fertig, Abbrechen und Fehler. Danach genau ein neuer TestFlight-Build für den
