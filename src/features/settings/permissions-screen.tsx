@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { CameraPermissionCard } from '@/features/settings/camera-permission-card';
 import { LocationPermissionCard } from '@/features/settings/location-permission-card';
+import { MicrophonePermissionCard } from '@/features/settings/microphone-permission-card';
 import { NotificationPermissionCard } from '@/features/settings/notification-permission-card';
 
 const styles = StyleSheet.create((theme) => ({
@@ -22,6 +23,7 @@ export function PermissionsScreen() {
       backStyle="icon">
       <View style={styles.list}>
         <CameraPermissionCard />
+        <MicrophonePermissionCard />
         <NotificationPermissionCard />
         <LocationPermissionCard />
       </View>

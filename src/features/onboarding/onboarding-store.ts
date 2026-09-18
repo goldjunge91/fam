@@ -23,7 +23,12 @@ const initialState: OnboardingState = {
   profile: {},
   household: { choice: 'solo' },
   modules: { fridge: true, shoppingList: true, calories: true, recipes: true, mealPlanner: true },
-  permissions: { notificationsRequested: false, cameraRequested: false, locationRequested: false },
+  permissions: {
+    notificationsRequested: false,
+    cameraRequested: false,
+    microphoneRequested: false,
+    locationRequested: false,
+  },
 };
 
 interface OnboardingStore {

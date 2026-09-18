@@ -71,6 +71,11 @@
           "label": "Kamera-Zugriff",
           "grantedHint": "Für Barcode-Scan und QR-Code-Beitritt."
         },
+        "microphone": {
+          "title": "Mikrofon",
+          "label": "Mikrofon-Zugriff",
+          "grantedHint": "Für die Spracheingabe in der Einkaufsliste."
+        },
         "location": {
           "title": "Standort",
           "label": "Standort-Zugriff",
@@ -151,7 +156,7 @@
           },
           "permissions": {
             "title": "Berechtigungen",
-            "body": "Kamera: Barcode-Scan und QR-Code-Beitritt (optional, manuelle Eingabe geht immer). Benachrichtigungen: lokale Erinnerung vor Ablauf eines Kühlschrank-Artikels (optional). Standort und Fotomediathek werden nur für die jeweiligen Funktionen angefragt. Das Mikrofon wird nur im Kamera-Kontext technisch bereitgestellt und nicht für Werbung verwendet."
+            "body": "Kamera: Barcode-Scan und QR-Code-Beitritt (optional, manuelle Eingabe geht immer). Mikrofon: Spracheingabe in der Einkaufsliste (optional). Benachrichtigungen: lokale Erinnerung vor Ablauf eines Kühlschrank-Artikels (optional). Standort und Fotomediathek werden nur für die jeweiligen Funktionen angefragt. Roh-Audio wird nicht gespeichert und nicht für Werbung verwendet."
           },
           "adsAndTracking": {
             "title": "Werbung und Tracking",

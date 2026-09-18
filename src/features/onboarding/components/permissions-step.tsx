@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { AppState, Linking, Switch, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Press, Txt } from '@/constants/ui';
+import { useMicrophonePermission } from '@/lib/platform/microphone-permissions';
 import {
   getNotificationPermissionStatus,
   type NotificationPermissionStatus,
@@ -75,6 +76,7 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
   const { updatePermissionsData } = useOnboarding();
   const [cameraPermission, requestCameraPermission, getCameraPermission] =
     useCameraPermissionsHook();
+  const [microphonePermission, requestMicrophonePermission] = useMicrophonePermission();
   const [locationPermission, requestLocationPermission, getLocationPermission] =
     Location.useForegroundPermissions();
 
@@ -116,6 +118,7 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
   // Spiegelt den echten Systemstatus wider, sobald einmal abgefragt wurde.
   const notifications = notificationPermission.granted;
   const camera = cameraPermission?.granted ?? false;
+  const microphone = microphonePermission?.granted ?? false;
   const location = locationPermission?.granted ?? false;
 
   const handleToggleNotifications = async (value: boolean) => {
@@ -160,10 +163,23 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
     await requestLocationPermission();
   };
 
+  const handleToggleMicrophone = async (value: boolean) => {
+    if (!value) {
+      if (microphone) Linking.openSettings();
+      return;
+    }
+    if (microphonePermission != null && !microphonePermission.canAskAgain) {
+      Linking.openSettings();
+      return;
+    }
+    await requestMicrophonePermission();
+  };
+
   const handleNext = () => {
     updatePermissionsData({
       notificationsRequested: notifications,
       cameraRequested: camera,
+      microphoneRequested: microphone,
       locationRequested: location,
     });
     onNext();
@@ -218,6 +234,27 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
               </Txt>
             </View>
             <Switch value={camera} accessible={false} pointerEvents="none" />
+          </View>
+        </Press>
+
+        <Press
+          onPress={() => void handleToggleMicrophone(!microphone)}
+          accessibilityRole="switch"
+          accessibilityLabel="Mikrofon-Zugriff"
+          accessibilityState={{ checked: microphone }}
+          haptic="selection"
+          selected={microphone}
+          style={styles.card}>
+          <View style={styles.row}>
+            <View style={styles.text}>
+              <Txt variant="body" weight="700" tone="primary">
+                🎙️ Mikrofon-Zugriff
+              </Txt>
+              <Txt variant="label" tone="secondary">
+                Für die Spracheingabe in der Einkaufsliste.
+              </Txt>
+            </View>
+            <Switch value={microphone} accessible={false} pointerEvents="none" />
           </View>
         </Press>
 

@@ -34,6 +34,7 @@ export interface ModulePreferencesData {
 export interface PermissionsOnboardingData {
   notificationsRequested: boolean;
   cameraRequested: boolean;
+  microphoneRequested: boolean;
   locationRequested: boolean;
 }
 

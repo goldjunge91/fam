@@ -71,6 +71,11 @@
           "label": "Camera access",
           "grantedHint": "For barcode scanning and QR code join."
         },
+        "microphone": {
+          "title": "Microphone",
+          "label": "Microphone access",
+          "grantedHint": "For voice input in the shopping list."
+        },
         "location": {
           "title": "Location",
           "label": "Location access",
@@ -151,7 +156,7 @@
           },
           "permissions": {
             "title": "Permissions",
-            "body": "Camera: barcode scanning and QR code join (optional, manual entry always works). Notifications: local reminder before a fridge item expires (optional). Location and photo library are only requested for their respective features. The microphone is only technically provided in the camera context and is not used for advertising."
+            "body": "Camera: barcode scanning and QR code join (optional, manual entry always works). Microphone: voice input in the shopping list (optional). Notifications: local reminder before a fridge item expires (optional). Location and photo library are only requested for their respective features. Raw audio is not stored or used for advertising."
           },
           "adsAndTracking": {
             "title": "Ads and tracking",

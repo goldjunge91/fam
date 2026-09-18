@@ -10,6 +10,8 @@ let mockCameraPermission: MockPermission = null;
 let mockLocationPermission: MockPermission = null;
 const mockGetCameraPermission = jest.fn();
 const mockRequestCameraPermission = jest.fn();
+const mockGetMicrophonePermission = jest.fn();
+const mockRequestMicrophonePermission = jest.fn();
 const mockGetLocationPermission = jest.fn();
 const mockRequestLocationPermission = jest.fn();
 const mockGetNotificationPermissionStatus = jest.fn();
@@ -40,6 +42,7 @@ jest.mock('@/features/onboarding/onboarding-store', () => ({
       permissions: {
         notificationsRequested: true,
         cameraRequested: true,
+        microphoneRequested: true,
         locationRequested: true,
       },
     },
@@ -58,6 +61,14 @@ jest.mock('expo-camera', () => ({
 
 jest.mock('expo-location', () => ({
   useForegroundPermissions: () => mockUseForegroundPermissions(),
+}));
+
+jest.mock('expo-speech-recognition', () => ({
+  ExpoSpeechRecognitionModule: {
+    getMicrophonePermissionsAsync: (...args: unknown[]) => mockGetMicrophonePermission(...args),
+    requestMicrophonePermissionsAsync: (...args: unknown[]) =>
+      mockRequestMicrophonePermission(...args),
+  },
 }));
 
 jest.mock('@/lib/platform/notifications', () => ({
@@ -114,6 +125,8 @@ describe('Onboarding Components', () => {
       canAskAgain: true,
     });
     mockRequestNotificationPermissions.mockResolvedValue(false);
+    mockGetMicrophonePermission.mockResolvedValue({ granted: false, canAskAgain: true });
+    mockRequestMicrophonePermission.mockResolvedValue({ granted: false, canAskAgain: true });
   });
 
   describe('WelcomeCarousel', () => {
@@ -155,13 +168,25 @@ describe('Onboarding Components', () => {
 
       await render(<PermissionsStepForm onNext={jest.fn()} onSkip={jest.fn()} />);
 
-      expect(screen.getAllByRole('switch')).toHaveLength(3);
+      expect(screen.getAllByRole('switch')).toHaveLength(4);
       const notifications = screen.getByRole('switch', { name: 'Benachrichtigungen' });
       expect(notifications).not.toBeChecked();
 
       await user.press(notifications);
 
       expect(screen.getByRole('switch', { name: 'Benachrichtigungen' })).toBeChecked();
+    });
+
+    it('fragt den Mikrofonzugriff über den nativen Speech-Permission-Flow an', async () => {
+      const user = userEvent.setup();
+      mockRequestMicrophonePermission.mockResolvedValue({ granted: true, canAskAgain: false });
+
+      await render(<PermissionsStepForm onNext={jest.fn()} onSkip={jest.fn()} />);
+
+      await user.press(screen.getByRole('switch', { name: 'Mikrofon-Zugriff' }));
+
+      expect(mockRequestMicrophonePermission).toHaveBeenCalledTimes(1);
+      await screen.findByRole('switch', { name: 'Mikrofon-Zugriff', checked: true });
     });
 
     it('startet alle Toggles aus, solange der native Status noch unbekannt ist', async () => {
@@ -173,6 +198,9 @@ describe('Onboarding Components', () => {
         checked: false,
       });
       expect(screen.getByLabelText('Kamera-Zugriff').props.accessibilityState).toEqual({
+        checked: false,
+      });
+      expect(screen.getByLabelText('Mikrofon-Zugriff').props.accessibilityState).toEqual({
         checked: false,
       });
       expect(screen.getByLabelText('Standort-Zugriff').props.accessibilityState).toEqual({
@@ -192,6 +220,7 @@ describe('Onboarding Components', () => {
         granted: true,
         canAskAgain: false,
       });
+      mockGetMicrophonePermission.mockResolvedValue({ granted: true, canAskAgain: false });
 
       await render(<PermissionsStepForm onNext={jest.fn()} onSkip={jest.fn()} />);
 
@@ -201,6 +230,9 @@ describe('Onboarding Components', () => {
         });
       });
       expect(screen.getByLabelText('Kamera-Zugriff').props.accessibilityState).toEqual({
+        checked: true,
+      });
+      expect(screen.getByLabelText('Mikrofon-Zugriff').props.accessibilityState).toEqual({
         checked: true,
       });
       expect(screen.getByLabelText('Standort-Zugriff').props.accessibilityState).toEqual({
