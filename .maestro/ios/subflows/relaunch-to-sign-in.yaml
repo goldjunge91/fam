@@ -1,11 +1,51 @@
 appId: com.goldjunge91.fam1
+env:
+  # URL-encoded because the Dev Client receives it as the `url` query value.
+  METRO_MANIFEST_URL: ${METRO_MANIFEST_URL || "http%3A%2F%2F127.0.0.1%3A8081"}
 ---
 # Atomare Aufgabe: nach dem Logout ohne State-Clear kalt starten und den
 # eigenständigen Auth-Screen statt des Onboardings erreichen.
 - stopApp
-- launchApp:
-    clearState: false
+- openLink:
+    link: "fam://expo-development-client/?url=${METRO_MANIFEST_URL}"
+- runFlow:
+    when:
+      visible: '^(Open in "fam"|In .* öffnen\?)$'
+    commands:
+      # Native iOS presents the confirmation alert outside the app hierarchy.
+      # Its button bounds are stable across the localized alert variants.
+      - tapOn:
+          point: "67%,54%"
+- runFlow:
+    when:
+      visible: "^(Continue|Fortfahren)$"
+    commands:
+      - tapOn:
+          text: "^(Continue|Fortfahren)$"
+      - waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "^(Close|Schließen)$"
+    commands:
+      - tapOn:
+          text: "^(Close|Schließen)$"
+      - waitForAnimationToEnd
+- waitForAnimationToEnd
 - extendedWaitUntil:
     visible:
       id: "sign-in-email"
     timeout: 30000
+- runFlow:
+    when:
+      visible: "^(Continue|Fortfahren)$"
+    commands:
+      - tapOn:
+          text: "^(Continue|Fortfahren)$"
+      - waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "^(Close|Schließen)$"
+    commands:
+      - tapOn:
+          text: "^(Close|Schließen)$"
+      - waitForAnimationToEnd

@@ -277,6 +277,42 @@ Der Dev-Client-Endpunkt wird als URL-encodierter Parameter übergeben, wenn
 der Standard nicht passt, zum Beispiel
 `-e METRO_MANIFEST_URL=http%3A%2F%2F127.0.0.1%3A8081`.
 
+### Speech-to-text-Datensätze über BlackHole
+
+Der lokale Runner `.maestro/scripts/speech-dataset.ts` verbindet zwei Maestro-
+Flows mit dem macOS-Audioplayer. Pro Datei öffnet Maestro die Sprachansicht,
+`afplay` spielt das Audio über den aktuell gewählten macOS-Ausgang ab, danach
+beendet Maestro die Aufnahme und schließt die Preview mit `Später`. Es werden
+keine erkannten Artikel gespeichert.
+
+Voraussetzungen:
+
+- iOS-Dev-Client, laufendes Metro und eine bereits angemeldete Session mit
+  mindestens einem Markt in der Einkaufsliste
+- laufender iOS-Simulator für `com.goldjunge91.fam1`
+- Maestro und der macOS-Ausgang `BlackHole 2ch` als Systemausgabe
+
+Ein kurzer Smoke-Lauf:
+
+```bash
+bun .maestro/scripts/speech-dataset.ts --limit 1
+```
+
+Ohne Pfadangaben werden `datensätze/eigenmarken-20` und
+`datensätze/20-saetze-neu` verwendet. Standardmäßig werden die WAV-Dateien
+gespielt. Ein vollständiger Lauf gegen die gewünschte Simulator-UDID sieht so
+aus:
+
+```bash
+bun .maestro/scripts/speech-dataset.ts \
+  --device 4B293FA5-24E8-4BF4-8295-3EF2D6C50F7D
+```
+
+Mit `--formats mp3` oder `--formats both` kann die Audioauswahl geändert
+werden. `--dry-run` zeigt die deterministische Reihenfolge ohne App- oder
+Audiosteuerung. Der Runner ist für iOS-Simulatoren vorgesehen, da Maestro
+keine physischen iOS-Geräte lokal ausführt.
+
 ### Android, erst nach grüner iOS-Abnahme
 
 ```bash

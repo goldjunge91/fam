@@ -1,0 +1,31 @@
+appId: com.goldjunge91.fam1
+---
+# Starts the installed iOS development client through the active Metro server
+# and waits until the signed-in dashboard is visible.
+- stopApp
+- openLink:
+    link: "exp+fam://expo-development-client/?url=http%3A%2F%2F192.168.178.25%3A8081"
+- runFlow:
+    when:
+      visible: '^(Open in "fam"|In .* öffnen\?)$'
+    commands:
+      - tapOn:
+          point: "67%,54%"
+- runFlow:
+    when:
+      visible: "^(Continue|Fortfahren)$"
+    commands:
+      - tapOn:
+          text: "^(Continue|Fortfahren)$"
+      - waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "^(Close|Schließen)$"
+    commands:
+      - tapOn:
+          text: "^(Close|Schließen)$"
+      - waitForAnimationToEnd
+- waitForAnimationToEnd
+- extendedWaitUntil:
+    visible: "^(Übersicht|Overview)$"
+    timeout: 120000

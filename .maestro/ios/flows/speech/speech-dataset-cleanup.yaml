@@ -1,0 +1,16 @@
+appId: com.goldjunge91.fam1
+tags:
+  - local-session
+  - speech-dataset
+---
+# Best-effort-Aufräumen nach einem fehlgeschlagenen Datensatzlauf.
+- runFlow:
+    when:
+      visible: "Später"
+    commands:
+      - tapOn: "Später"
+- runFlow:
+    when:
+      visible: "Abbrechen"
+    commands:
+      - tapOn: "Abbrechen"

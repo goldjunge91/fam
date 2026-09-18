@@ -1,23 +1,16 @@
 appId: com.goldjunge91.fam1
 env:
-  # URL-encoded because the Dev Client receives it as the `url` query value.
   METRO_MANIFEST_URL: ${METRO_MANIFEST_URL || "http%3A%2F%2F127.0.0.1%3A8081"}
 ---
-# Lokaler iOS-Startvertrag: Metro läuft auf dem Simulator unter 127.0.0.1:8081.
-# Der installierte fam-Development-Client wird über seinen eigenen Launcher-
-# Scheme geöffnet. Expo Go und exp:// werden nicht verwendet.
+# Lokaler Dev-Client-Start ohne State-Clear. Die gespeicherte Session bleibt
+# erhalten, aber der Metro-Bundle-Link wird bei jedem Datensatz neu geöffnet.
 - stopApp
-- launchApp:
-    clearState: true
-    clearKeychain: true
 - openLink:
     link: "fam://expo-development-client/?url=${METRO_MANIFEST_URL}"
 - runFlow:
     when:
       visible: '^(Open in "fam"|In .* öffnen\?)$'
     commands:
-      # Native iOS presents the confirmation alert outside the app hierarchy.
-      # Its button bounds are stable across the localized alert variants.
       - tapOn:
           point: "67%,54%"
 - runFlow:
@@ -36,7 +29,7 @@ env:
       - waitForAnimationToEnd
 - waitForAnimationToEnd
 - extendedWaitUntil:
-    visible: "Weiter"
+    visible: "^(Übersicht|Einkaufsliste)$"
     timeout: 120000
 - runFlow:
     when:
@@ -52,5 +45,3 @@ env:
       - tapOn:
           text: "^(Close|Schließen)$"
       - waitForAnimationToEnd
-
-#„fam" möchte dir Mitteilungen senden

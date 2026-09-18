@@ -1,0 +1,20 @@
+appId: com.goldjunge91.fam1
+tags:
+  - local-session
+  - speech-dataset
+---
+# Der Host-Runner startet und beendet die Audiodatei zwischen diesem Flow und
+# speech-dataset-open.yaml. Hier wird nur die fertige Aufnahme verarbeitet und
+# die Preview wieder geschlossen, ohne Datensätze zu speichern.
+- extendedWaitUntil:
+    visible: "Ich höre zu"
+    timeout: 15000
+- tapOn: "Fertig"
+- extendedWaitUntil:
+    visible: "Später"
+    timeout: 90000
+- tapOn: "Später"
+- extendedWaitUntil:
+    notVisible: "Später"
+    timeout: 15000
+- assertVisible: "Einkaufsliste"
