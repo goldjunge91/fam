@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { SignInScreen } from '@/features/auth/screens/sign-in-screen';
@@ -7,6 +8,14 @@ import { i18n } from '@/i18n';
 const mockSignIn = jest.fn();
 const mockDebugLogEvent = jest.fn();
 
+jest.mock('expo-router', () => {
+  const actual = jest.requireActual<typeof import('expo-router')>('expo-router');
+
+  return {
+    ...actual,
+    router: { replace: jest.fn() },
+  };
+});
 jest.mock('@/features/auth/api', () => ({
   signIn: (...args: unknown[]) => mockSignIn(...args),
 }));
@@ -39,6 +48,7 @@ describe('SignInScreen', () => {
 
   beforeEach(async () => {
     jest.clearAllMocks();
+    (router.replace as jest.Mock).mockReset();
     await i18n.changeLanguage('de');
   });
 
@@ -110,6 +120,17 @@ describe('SignInScreen', () => {
     expect(mockDebugLogEvent).toHaveBeenCalledWith('auth.sign-in.submit.succeeded', {
       source: 'button',
     });
+  });
+
+  it('navigiert nach erfolgreicher Anmeldung zum App-Einstieg', async () => {
+    mockSignIn.mockResolvedValue({ data: { session: {} }, error: null });
+
+    await renderScreen();
+    await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'max@test.fam');
+    await fireEvent.changeText(screen.getByLabelText('Passwort'), 'password123');
+    await fireEvent.press(screen.getByRole('button', { name: 'Anmelden' }));
+
+    await waitFor(() => expect(router.replace).toHaveBeenCalledWith('/'));
   });
 
   it('submit mit der Tastatur löst keinen Button-Click aus', async () => {

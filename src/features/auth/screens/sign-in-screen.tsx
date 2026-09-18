@@ -1,4 +1,4 @@
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
@@ -28,7 +28,7 @@ export function SignInScreen() {
         {/* Haupt-Anmeldeformular */}
         <Card>
           <View style={styles.form}>
-            <SignInForm />
+            <SignInForm onSuccess={() => router.replace('/')} />
             <AuthProviderOptions mode="sign_in" />
           </View>
         </Card>
