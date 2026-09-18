@@ -22,12 +22,13 @@
     },
     {
       "id": 3,
-      "prompt": "!ios-build testflight. Der Hook und Runner haben offenbar kein Execute-Bit, und /Volumes/Programme/fam-build-workflow/native-build.lock existiert schon.",
-      "expected_output": "The agent invokes the script through bash, recognizes the existing lock as contention, does not delete it or blindly retry, and reports the exact blocker and safe next action.",
+      "prompt": "!ios-build testflight. Der Hook und Runner haben offenbar kein Execute-Bit, /Volumes/Programme/fam-build-workflow/native-build.lock existiert schon, und im letzten Lauf kam 'Too many open files in system'.",
+      "expected_output": "The agent invokes the script through bash, recognizes the existing lock as contention, interprets the open-files message as ENFILE, does not delete the lock or blindly retry, and reports the exact blocker and safe next action.",
       "assertions": [
         "The hook and runner are invoked through bash rather than requiring direct executable permissions.",
         "An existing lock causes one bounded blocker result instead of an automatic retry or duplicate build.",
-        "The agent does not claim that an IPA was built or uploaded when the lock prevented execution."
+        "The agent does not claim that an IPA was built or uploaded when the lock prevented execution.",
+        "The agent distinguishes ENFILE from a missing SDK header and points to bounded Xcode build concurrency for a user-authorized retry."
       ]
     }
   ]

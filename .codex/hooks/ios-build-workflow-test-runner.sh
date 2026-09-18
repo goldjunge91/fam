@@ -1,1 +1,0 @@
-../skills/ios-build-workflow/hooks/ios-build-workflow-test-runner.sh

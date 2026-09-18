@@ -56,7 +56,15 @@ type NativeBuildLock = {
 
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const LOCK_PATH = join(PROJECT_ROOT, 'native-build-lock.json');
-const ARTIFACT_ROOT = join(PROJECT_ROOT, 'native-artifacts');
+// Der ios-build-workflow-runner (.codex/hooks) exportiert diese Variable und
+// verbietet lokale lastFallbacks: alle Build-Artefakte MÜSSEN unter
+// /Volumes/Programme liegen. Ohne diesen Override landete das fertige IPA
+// projekt-lokal (PROJECT_ROOT/native-artifacts), während runner.sh und
+// native-testflight-fastpath.sh stur unter $STORAGE_ROOT/native-artifacts
+// nachsahen — das Artefakt war für sie *nie* auffindbar, jeder
+// '!ios-build testflight'-Lauf endete nach dem vollen Rebuild mit
+// 'New artifact is missing or empty'.
+const ARTIFACT_ROOT = process.env.IOS_BUILD_WORKFLOW_ARTIFACT_ROOT ?? join(PROJECT_ROOT, 'native-artifacts');
 // Nicht committet (siehe .gitignore) — lokaler Snapshot des vollen Fingerprints
 // (alle Sources inkl. Hashes) zum Zeitpunkt der letzten Baseline. Erlaubt
 // 'native:status --diff', die abweichende Quelle direkt zu benennen, statt

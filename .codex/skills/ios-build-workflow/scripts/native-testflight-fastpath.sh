@@ -42,6 +42,16 @@ configuration_error() {
   exit "$CONFIGURATION_ERROR_STATUS"
 }
 
+XCODEBUILD_JOBS="${IOS_BUILD_XCODEBUILD_JOBS:-2}"
+case "$XCODEBUILD_JOBS" in
+  ''|*[!0-9]*)
+    configuration_error "IOS_BUILD_XCODEBUILD_JOBS must be a positive integer: $XCODEBUILD_JOBS"
+    ;;
+esac
+if [ "$XCODEBUILD_JOBS" -lt 1 ]; then
+  configuration_error "IOS_BUILD_XCODEBUILD_JOBS must be a positive integer: $XCODEBUILD_JOBS"
+fi
+
 if [ ! -d "/Volumes/Programme" ]; then
   configuration_error 'externe Build-Platte /Volumes/Programme ist nicht eingehängt; lokaler Fallback ist verboten'
 fi
@@ -240,10 +250,12 @@ NODE
 
 printf '[ios-build] Fastpath: ccache=%s\n' "$CCACHE_DIR_VALUE" >&2
 printf '[ios-build] Fastpath: DerivedData=%s\n' "$DERIVED_DATA_PATH" >&2
+printf '[ios-build] Fastpath: xcodebuild jobs=%s\n' "$XCODEBUILD_JOBS" >&2
 printf '[ios-build] Fastpath: remote build %s -> new build %s\n' "$CURRENT_BUILD" "$NEW_BUILD" >&2
 printf '[ios-build] Fastpath: creating new IPA for build %s\n' "$NEW_BUILD" >&2
 
 xcodebuild archive \
+  -jobs "$XCODEBUILD_JOBS" \
   -workspace "$PROJECT_ROOT/ios/fam.xcworkspace" \
   -scheme fam \
   -configuration Release \

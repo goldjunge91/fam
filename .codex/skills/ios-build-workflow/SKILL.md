@@ -40,6 +40,24 @@ implementation into the compatibility paths.
 
 This workflow has a critical section. Once a native build or upload starts, wait passively for it to exit naturally. Never run `ps`, `pgrep`, `top`, `ccache -s`, or extra `native:status` while the build is active. Never call `kill`, `pkill`, or `killall`. The hook timeout is deliberately long; do not intervene or restart the run. The workflow lock covers the build and upload, and the build must always upload the freshly produced IPA.
 
+The runner removes only its own empty lock directory on normal exit or on
+signal-handled termination. It never removes an existing lock before acquiring
+it. A signal handler here only releases that runner-owned lock; it does not
+inspect or signal the child build.
+
+### Recurring `ENFILE` failures
+
+`Too many open files in system` is macOS `ENFILE`: the system-wide file table
+is exhausted. It is not evidence that an SDK header is missing. Stop at the
+failed command, preserve the log, and do not retry inside the active critical
+section. The direct TestFlight fastpath limits Xcode's concurrent build
+operations with `IOS_BUILD_XCODEBUILD_JOBS`, defaulting to `2`; use a smaller
+value for a user-authorized retry when the host is under resource pressure.
+Apple's errno reference documents this distinction:
+[Too many open files in system](https://developer.apple.com/documentation/system/errno/toomanyopenfilesinsystem).
+Do not claim a build or upload succeeded unless a fresh IPA and the submission
+status provide evidence.
+
 ## Known Xcode build-location finding
 
 The local macOS host has Xcode custom build locations configured globally. A
@@ -137,6 +155,10 @@ bash scripts/native-testflight-fastpath.sh
 ```bash
 bun run native:rebuild -- --target ios-preview-testflight --approve-rebuild </dev/null
 ```
+
+The fastpath archive uses `-jobs "$IOS_BUILD_XCODEBUILD_JOBS"` with a default
+of `2`. An `ENFILE` failure is a real build failure, not a cache miss, so it
+must not trigger an automatic retry or an unapproved rebuild.
 
 - If the remote build number is non-integer or the Xcode effective build paths escape the selected DerivedData directory, stop and report a configuration error. Do not silently retry.
 - Never use a stale IPA. The workflow must create and upload the newly produced IPA from the current run.
