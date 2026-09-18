@@ -1,7 +1,19 @@
-import type { BetaQualityMetrics, BetaStorageState } from '../types';
+import type {
+  BetaQualityMetrics,
+  BetaStorageState,
+  QualityFlag,
+  QualityFlagCounts,
+} from '../types';
 
 const MAX_COMPLETION_DURATION_SAMPLES = 64;
 const MAX_IDEMPOTENCY_KEYS = 512;
+const QUALITY_FLAGS: readonly QualityFlag[] = [
+  'unparsed_text_present',
+  'ambiguous_item_boundary',
+  'semantic_item_mismatch',
+  'incorrect_automatic_assignment',
+  'manual_correction',
+];
 
 export type BetaQualityObservation = {
   id: string;
@@ -10,6 +22,21 @@ export type BetaQualityObservation = {
   assignmentCorrect: boolean;
   manuallyCorrected: boolean;
   durationMs: number | null;
+  qualityFlags?: readonly QualityFlag[];
+};
+
+export type BetaMetricSnapshot = {
+  value: number | null;
+  numerator: number | null;
+  denominator: number | null;
+  sampleCount: number;
+};
+
+export type BetaQualityMetricSnapshots = {
+  automaticAccuracyPercent: BetaMetricSnapshot;
+  falseListPercent: BetaMetricSnapshot;
+  manualCorrectionPercent: BetaMetricSnapshot;
+  medianTimeToAddMs: BetaMetricSnapshot;
 };
 
 export type BetaQualityMetricSnapshot = {
@@ -36,10 +63,25 @@ export function createEmptyBetaQualityMetrics(): BetaQualityMetrics {
     correctAutomaticAssignmentCount: 0,
     falseListAssignmentCount: 0,
     manualCorrectionCount: 0,
+    qualityFlagCounts: createEmptyBetaQualityFlagCounts(),
     completionDurationsMs: [],
     recordedObservationIds: [],
     measuredSessionIds: [],
   };
+}
+
+export function createEmptyBetaQualityFlagCounts(): QualityFlagCounts {
+  return {
+    unparsed_text_present: 0,
+    ambiguous_item_boundary: 0,
+    semantic_item_mismatch: 0,
+    incorrect_automatic_assignment: 0,
+    manual_correction: 0,
+  };
+}
+
+function isQualityFlag(value: string): value is QualityFlag {
+  return QUALITY_FLAGS.includes(value as QualityFlag);
 }
 
 function isValidDuration(durationMs: number | null): durationMs is number {
@@ -60,6 +102,10 @@ export function recordBetaQualityObservations(
   let correctAutomaticAssignmentCount = state.qualityMetrics.correctAutomaticAssignmentCount;
   let falseListAssignmentCount = state.qualityMetrics.falseListAssignmentCount;
   let manualCorrectionCount = state.qualityMetrics.manualCorrectionCount;
+  const qualityFlagCounts = {
+    ...createEmptyBetaQualityFlagCounts(),
+    ...(state.qualityMetrics.qualityFlagCounts ?? {}),
+  };
   let recordedAny = false;
 
   for (const observation of observations) {
@@ -74,6 +120,10 @@ export function recordBetaQualityObservations(
       if (!observation.assignmentCorrect) falseListAssignmentCount += 1;
     }
     if (observation.manuallyCorrected) manualCorrectionCount += 1;
+
+    for (const qualityFlag of new Set(observation.qualityFlags ?? [])) {
+      if (isQualityFlag(qualityFlag)) qualityFlagCounts[qualityFlag] += 1;
+    }
 
     if (!measuredSessionIds.has(observation.sessionId) && isValidDuration(observation.durationMs)) {
       measuredSessionIds.add(observation.sessionId);
@@ -91,6 +141,7 @@ export function recordBetaQualityObservations(
       correctAutomaticAssignmentCount,
       falseListAssignmentCount,
       manualCorrectionCount,
+      qualityFlagCounts,
       completionDurationsMs: completionDurationsMs.slice(-MAX_COMPLETION_DURATION_SAMPLES),
       recordedObservationIds: [...recordedObservationIds].slice(-MAX_IDEMPOTENCY_KEYS),
       measuredSessionIds: [...measuredSessionIds].slice(-MAX_IDEMPOTENCY_KEYS),
@@ -112,20 +163,50 @@ function median(values: readonly number[]): number | null {
   return lower === undefined || upper === undefined ? null : (lower + upper) / 2;
 }
 
-export function getBetaQualityMetricSnapshot(
-  metrics: BetaQualityMetrics,
-): BetaQualityMetricSnapshot {
+function ratioSnapshot(numerator: number, denominator: number): BetaMetricSnapshot {
   return {
-    automaticAccuracyPercent: percentage(
+    value: percentage(numerator, denominator),
+    numerator,
+    denominator,
+    sampleCount: denominator,
+  };
+}
+
+export function getBetaQualityMetricSnapshots(
+  metrics: BetaQualityMetrics,
+): BetaQualityMetricSnapshots {
+  return {
+    automaticAccuracyPercent: ratioSnapshot(
       metrics.correctAutomaticAssignmentCount,
       metrics.automaticAssignmentCount,
     ),
-    falseListPercent: percentage(
+    falseListPercent: ratioSnapshot(
       metrics.falseListAssignmentCount,
       metrics.automaticAssignmentCount,
     ),
-    manualCorrectionPercent: percentage(metrics.manualCorrectionCount, metrics.confirmedItemCount),
-    medianTimeToAddMs: median(metrics.completionDurationsMs),
+    manualCorrectionPercent: ratioSnapshot(
+      metrics.manualCorrectionCount,
+      metrics.confirmedItemCount,
+    ),
+    medianTimeToAddMs: {
+      value: median(metrics.completionDurationsMs),
+      numerator: null,
+      denominator: null,
+      sampleCount: metrics.completionDurationsMs.length,
+    },
+  };
+}
+
+export function getBetaQualityMetricSnapshot(
+  metrics: BetaQualityMetrics,
+): BetaQualityMetricSnapshot {
+  const snapshots = getBetaQualityMetricSnapshots(metrics);
+
+  return {
+    automaticAccuracyPercent: snapshots.automaticAccuracyPercent.value,
+    falseListPercent: snapshots.falseListPercent.value,
+    manualCorrectionPercent: snapshots.manualCorrectionPercent.value,
+    medianTimeToAddMs: snapshots.medianTimeToAddMs.value,
   };
 }
 

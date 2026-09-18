@@ -32,6 +32,13 @@ const emptyBetaState: BetaStorageState = {
     correctAutomaticAssignmentCount: 0,
     falseListAssignmentCount: 0,
     manualCorrectionCount: 0,
+    qualityFlagCounts: {
+      unparsed_text_present: 0,
+      ambiguous_item_boundary: 0,
+      semantic_item_mismatch: 0,
+      incorrect_automatic_assignment: 0,
+      manual_correction: 0,
+    },
     completionDurationsMs: [],
     recordedObservationIds: [],
     measuredSessionIds: [],

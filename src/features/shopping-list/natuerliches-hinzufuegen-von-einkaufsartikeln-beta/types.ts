@@ -52,9 +52,21 @@ export type ParsedShoppingItem = {
   brand: string | null;
 };
 
+export type QualityFlag =
+  | 'unparsed_text_present'
+  | 'ambiguous_item_boundary'
+  | 'semantic_item_mismatch'
+  | 'incorrect_automatic_assignment'
+  | 'manual_correction';
+
+export type QualityFlagCounts = {
+  [flag in QualityFlag]: number;
+};
+
 export type ParseResult = {
   items: readonly ParsedShoppingItem[];
   unparsedText: string | null;
+  qualityFlags: readonly QualityFlag[];
 };
 
 export type ShoppingListSuggestion = {
@@ -173,6 +185,7 @@ export type BetaQualityMetrics = {
   correctAutomaticAssignmentCount: number;
   falseListAssignmentCount: number;
   manualCorrectionCount: number;
+  qualityFlagCounts: QualityFlagCounts;
   completionDurationsMs: readonly number[];
   recordedObservationIds: readonly string[];
   measuredSessionIds: readonly string[];

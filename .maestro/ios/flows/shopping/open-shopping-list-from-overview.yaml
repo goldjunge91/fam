@@ -1,0 +1,7 @@
+appId: com.goldjunge91.fam1
+tags:
+  - local-session
+---
+# Starts from the currently visible Übersicht screen.
+# No app launch, stop, state reset, or keychain clear is performed.
+- runFlow: ../../subflows/open-shopping-list-from-overview.yaml

@@ -16,6 +16,8 @@ export function NaturalLanguageAdditionSwiftUIPreview({
   onDismiss,
   onEditText,
   onConfirm,
+  storage,
+  variant,
 }: NaturalLanguageAdditionSwiftUIPreviewProps) {
   return (
     <BottomSheet
@@ -31,6 +33,8 @@ export function NaturalLanguageAdditionSwiftUIPreview({
           onRequestClose={onRequestClose}
           onEditText={onEditText}
           onConfirm={onConfirm}
+          storage={storage}
+          variant={variant}
         />
       </BottomSheetView>
     </BottomSheet>

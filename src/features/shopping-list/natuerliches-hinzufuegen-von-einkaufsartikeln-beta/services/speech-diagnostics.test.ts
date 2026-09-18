@@ -28,6 +28,7 @@ const parseResult: ParseResult = {
     { name: 'Joghurt', quantity: 4, unit: 'piece', brand: null },
   ],
   unparsedText: null,
+  qualityFlags: [],
 };
 
 describe('speech diagnostics', () => {

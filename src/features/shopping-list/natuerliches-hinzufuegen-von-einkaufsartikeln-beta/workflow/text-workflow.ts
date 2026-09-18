@@ -26,6 +26,7 @@ import type {
   ConfirmedBetaOutput,
   NaturalLanguageAdditionInput,
   ParseResult,
+  QualityFlag,
   ShoppingListSuggestion,
   SpeechInputResult,
 } from '../types';
@@ -73,6 +74,40 @@ export type TextBetaSelection = {
   itemId: string;
   targetListId: string;
 };
+
+export type TextBetaQualitySelection = {
+  previewItem: BetaPreviewItem;
+  targetListId: string;
+};
+
+export function createTextBetaQualityObservations(
+  preview: TextBetaPreview,
+  selectedItems: readonly TextBetaQualitySelection[],
+  confirmedAt: string,
+  observationIdPrefix = 'quality',
+): readonly BetaQualityObservation[] {
+  const durationMs = getBetaCompletionDurationMs(preview.session.startedAt, confirmedAt);
+
+  return selectedItems.map(({ previewItem, targetListId }) => {
+    const assignmentWasCorrect =
+      previewItem.routing.kind === 'resolved' && previewItem.routing.listId === targetListId;
+    const qualityFlags = new Set<QualityFlag>(preview.parseResult.qualityFlags);
+    if (previewItem.routing.kind === 'resolved' && !assignmentWasCorrect) {
+      qualityFlags.add('incorrect_automatic_assignment');
+    }
+    if (!assignmentWasCorrect) qualityFlags.add('manual_correction');
+
+    return {
+      id: `${preview.session.id}:${observationIdPrefix}:${previewItem.itemId}`,
+      sessionId: preview.session.id,
+      predictedAutomatically: previewItem.routing.kind === 'resolved',
+      assignmentCorrect: assignmentWasCorrect,
+      manuallyCorrected: !assignmentWasCorrect,
+      durationMs,
+      qualityFlags: [...qualityFlags],
+    };
+  });
+}
 
 export type ConfirmTextBetaItemsInput = {
   preview: TextBetaPreview;
@@ -255,9 +290,7 @@ export async function confirmTextBetaItems(
 
   const saveResult = await input.saveConfirmedOutput(output);
   const confirmedAt = input.confirmedAt ?? new Date().toISOString();
-  const durationMs = getBetaCompletionDurationMs(input.preview.session.startedAt, confirmedAt);
   let nextState = state;
-  const qualityObservations: BetaQualityObservation[] = [];
   const selectedItemIds = new Set(selectedItems.map(({ previewItem }) => previewItem.itemId));
   for (const { previewItem, targetListId } of selectedItems) {
     const assignmentWasCorrect =
@@ -278,14 +311,6 @@ export async function confirmTextBetaItems(
       kind: result === 'confirmed' ? 'accepted' : 'corrected',
       createdAt: confirmedAt,
     });
-    qualityObservations.push({
-      id: `${input.preview.session.id}:quality:${previewItem.itemId}`,
-      sessionId: input.preview.session.id,
-      predictedAutomatically: previewItem.routing.kind === 'resolved',
-      assignmentCorrect: assignmentWasCorrect,
-      manuallyCorrected: result === 'corrected',
-      durationMs,
-    });
   }
   for (const previewItem of input.preview.items) {
     if (selectedItemIds.has(previewItem.itemId)) continue;
@@ -296,7 +321,10 @@ export async function confirmTextBetaItems(
       createdAt: confirmedAt,
     });
   }
-  nextState = recordBetaQualityObservations(nextState, qualityObservations);
+  nextState = recordBetaQualityObservations(
+    nextState,
+    createTextBetaQualityObservations(input.preview, selectedItems, confirmedAt),
+  );
   // The shopping-list adapter is the durable user-visible commit. A failed
   // learning-state write must not make the user retry the same output and
   // merge the items a second time.

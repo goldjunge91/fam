@@ -5,6 +5,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
     expect(parseNaturalLanguageShoppingInput('   ')).toEqual({
       items: [],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -19,6 +20,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
         { name: input.includes('Joghurt') ? 'Joghurt' : 'Brot', quantity, unit: null, brand: null },
       ],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -30,6 +32,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
     expect(parseNaturalLanguageShoppingInput(input)).toEqual({
       items: [{ name, quantity, unit, brand: null }],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -37,6 +40,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
     expect(parseNaturalLanguageShoppingInput('3 Äpfel')).toEqual({
       items: [{ name: 'Äpfel', quantity: 3, unit: null, brand: null }],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -47,6 +51,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
     expect(parseNaturalLanguageShoppingInput(input)).toEqual({
       items: [item],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -57,6 +62,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
         { name: 'Brot', quantity: 1, unit: null, brand: null },
       ],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -67,6 +73,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
         { name: 'Joghurt', quantity: 4, unit: 'piece', brand: null },
       ],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -76,6 +83,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
     ).toEqual({
       items: [{ name: 'Küchenrolle', quantity: 1, unit: null, brand: null }],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -90,6 +98,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
         { name: 'Brot', quantity: 1, unit: null, brand: null },
       ],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -104,6 +113,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
     expect(parseNaturalLanguageShoppingInput(input)).toEqual({
       items: [item],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -117,6 +127,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
         { name: 'Reis', quantity: 1, unit: 'kg', brand: null },
       ],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -131,6 +142,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
         },
       ],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -145,6 +157,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
         { name: 'Reis', quantity: 1, unit: 'package', brand: null },
       ],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -156,6 +169,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
         { name: 'Brot', quantity: 1, unit: null, brand: null },
       ],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -163,6 +177,7 @@ describe('parseNaturalLanguageShoppingInput', () => {
     expect(parseNaturalLanguageShoppingInput('1 stk. Äpfel')).toEqual({
       items: [{ name: 'Äpfel', quantity: 1, unit: 'piece', brand: null }],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
@@ -170,13 +185,17 @@ describe('parseNaturalLanguageShoppingInput', () => {
     expect(parseNaturalLanguageShoppingInput(input)).toEqual({
       items: [{ name: input, quantity: 1, unit: null, brand: null }],
       unparsedText: null,
+      qualityFlags: [],
     });
   });
 
   it('keeps non-parseable parts visible as rest text', () => {
-    expect(parseNaturalLanguageShoppingInput('3 Äpfel, ???')).toEqual({
+    const result = parseNaturalLanguageShoppingInput('3 Äpfel, ???');
+
+    expect(result).toEqual({
       items: [{ name: 'Äpfel', quantity: 3, unit: null, brand: null }],
       unparsedText: '???',
+      qualityFlags: ['unparsed_text_present'],
     });
   });
 });

@@ -3,6 +3,7 @@ import type { BetaStorageState } from '../types';
 import {
   buildBetaQualityPayload,
   getBetaQualityMetricSnapshot,
+  getBetaQualityMetricSnapshots,
   recordBetaQualityObservations,
 } from './quality-metrics';
 
@@ -148,5 +149,125 @@ describe('natural-language addition beta quality metrics', () => {
     expect(state.qualityMetrics.completionDurationsMs).toHaveLength(64);
     expect(state.qualityMetrics.completionDurationsMs.at(0)).toBe(600);
     expect(state.qualityMetrics.completionDurationsMs.at(-1)).toBe(6_900);
+  });
+
+  it('counts every quality flag once per observation and remains idempotent', () => {
+    const observations = [
+      {
+        id: 'observation-flags-1',
+        sessionId: 'session-flags-1',
+        predictedAutomatically: true,
+        assignmentCorrect: true,
+        manuallyCorrected: false,
+        durationMs: null,
+        qualityFlags: [
+          'unparsed_text_present',
+          'unparsed_text_present',
+          'manual_correction',
+        ] as const,
+      },
+      {
+        id: 'observation-flags-2',
+        sessionId: 'session-flags-2',
+        predictedAutomatically: false,
+        assignmentCorrect: false,
+        manuallyCorrected: true,
+        durationMs: null,
+        qualityFlags: [
+          'ambiguous_item_boundary',
+          'semantic_item_mismatch',
+          'incorrect_automatic_assignment',
+        ] as const,
+      },
+    ];
+
+    const state = recordBetaQualityObservations(grantedState(), observations);
+
+    expect(state.qualityMetrics.qualityFlagCounts).toEqual({
+      unparsed_text_present: 1,
+      ambiguous_item_boundary: 1,
+      semantic_item_mismatch: 1,
+      incorrect_automatic_assignment: 1,
+      manual_correction: 1,
+    });
+    expect(recordBetaQualityObservations(state, observations)).toBe(state);
+  });
+
+  it('returns reproducible metric snapshots with null values for empty denominators', () => {
+    const emptyMetrics = grantedState().qualityMetrics;
+
+    expect(getBetaQualityMetricSnapshots(emptyMetrics)).toEqual({
+      automaticAccuracyPercent: {
+        value: null,
+        numerator: 0,
+        denominator: 0,
+        sampleCount: 0,
+      },
+      falseListPercent: {
+        value: null,
+        numerator: 0,
+        denominator: 0,
+        sampleCount: 0,
+      },
+      manualCorrectionPercent: {
+        value: null,
+        numerator: 0,
+        denominator: 0,
+        sampleCount: 0,
+      },
+      medianTimeToAddMs: {
+        value: null,
+        numerator: null,
+        denominator: null,
+        sampleCount: 0,
+      },
+    });
+
+    let state = grantedState();
+    state = recordBetaQualityObservations(state, [
+      {
+        id: 'observation-snapshot-1',
+        sessionId: 'session-snapshot-1',
+        predictedAutomatically: true,
+        assignmentCorrect: true,
+        manuallyCorrected: false,
+        durationMs: 5_000,
+      },
+      {
+        id: 'observation-snapshot-2',
+        sessionId: 'session-snapshot-2',
+        predictedAutomatically: true,
+        assignmentCorrect: false,
+        manuallyCorrected: true,
+        durationMs: 7_000,
+      },
+    ]);
+
+    expect(getBetaQualityMetricSnapshots(state.qualityMetrics)).toEqual({
+      automaticAccuracyPercent: {
+        value: 50,
+        numerator: 1,
+        denominator: 2,
+        sampleCount: 2,
+      },
+      falseListPercent: {
+        value: 50,
+        numerator: 1,
+        denominator: 2,
+        sampleCount: 2,
+      },
+      manualCorrectionPercent: {
+        value: 50,
+        numerator: 1,
+        denominator: 2,
+        sampleCount: 2,
+      },
+      medianTimeToAddMs: {
+        value: 6_000,
+        numerator: null,
+        denominator: null,
+        sampleCount: 2,
+      },
+    });
   });
 });

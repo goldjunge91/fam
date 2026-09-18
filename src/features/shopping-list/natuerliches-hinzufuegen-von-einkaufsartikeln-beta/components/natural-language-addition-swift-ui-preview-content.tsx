@@ -4,8 +4,14 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { Button, Press, Surface, TextField, Txt } from '@/constants/ui';
 import { getClarificationSummary } from '../domain/clarification';
+import type { ExperimentVariant } from '../domain/quality-snapshot';
+import { useNaturalLanguageAdditionTestCapture } from '../hooks/use-natural-language-addition-test-capture';
 import type { BetaPreviewItem, ParsedShoppingItem, ShoppingListSuggestion } from '../types';
-import type { TextBetaPreview, TextBetaSelection } from '../workflow/text-workflow';
+import type {
+  TextBetaPreview,
+  TextBetaSelection,
+  TextBetaStorage,
+} from '../workflow/text-workflow';
 import { NaturalLanguageAdditionSheetCloseButton } from './natural-language-addition-sheet-close-button';
 
 export type NaturalLanguageAdditionSwiftUIPreviewProps = {
@@ -15,6 +21,8 @@ export type NaturalLanguageAdditionSwiftUIPreviewProps = {
   onDismiss: () => void;
   onEditText: (text: string) => void;
   onConfirm: (selections: readonly TextBetaSelection[]) => void;
+  storage: TextBetaStorage;
+  variant: ExperimentVariant;
 };
 
 export type NaturalLanguageAdditionSwiftUIPreviewContentProps = Omit<
@@ -52,12 +60,15 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
   onRequestClose,
   onEditText,
   onConfirm,
+  storage,
+  variant,
 }: NaturalLanguageAdditionSwiftUIPreviewContentProps) {
   const selectionDefaults = useMemo(() => initialSelections(preview.items), [preview]);
   const [draftText, setDraftText] = useState(preview.input.text);
   const [selectedTargets, setSelectedTargets] =
     useState<Record<string, string | null>>(selectionDefaults);
   const [deferredItemIds, setDeferredItemIds] = useState<ReadonlySet<string>>(new Set());
+  const testCapture = useNaturalLanguageAdditionTestCapture({ preview, variant, storage });
 
   useEffect(() => {
     setDraftText(preview.input.text);
@@ -155,6 +166,43 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
             />
           ))}
         </View>
+
+        {testCapture.enabled ? (
+          <View testID="natural-language-addition-test-panel" style={styles.testDiagnostics}>
+            <View style={styles.testDiagnosticsHeader}>
+              <Txt variant="label">Testdiagnostik</Txt>
+              <Txt variant="caption" tone="secondary">
+                Variante: {variant}
+              </Txt>
+            </View>
+            <Button
+              title="Testergebnis speichern"
+              accessibilityLabel="Testergebnis speichern"
+              testID="natural-language-addition-test-save"
+              variant="secondary"
+              full
+              loading={testCapture.status === 'saving'}
+              disabled={testCapture.status === 'saving' || testCapture.status === 'saved'}
+              onPress={() => void testCapture.saveTestMeasurement(selections)}
+            />
+            {testCapture.status === 'saved' ? (
+              <Txt
+                testID="natural-language-addition-test-status"
+                accessibilityLiveRegion="polite"
+                tone="success">
+                Testergebnis gespeichert
+              </Txt>
+            ) : null}
+            {testCapture.status === 'error' ? (
+              <Txt
+                testID="natural-language-addition-test-status"
+                accessibilityRole="alert"
+                tone="danger">
+                Testergebnis konnte nicht gespeichert werden: {testCapture.error}
+              </Txt>
+            ) : null}
+          </View>
+        ) : null}
 
         <View style={styles.footer}>
           <Button
@@ -313,6 +361,16 @@ const styles = StyleSheet.create((theme) => ({
   },
   rows: {
     gap: theme.space.sm,
+  },
+  testDiagnostics: {
+    gap: theme.space.sm,
+    borderWidth: 1,
+    borderColor: theme.border,
+    backgroundColor: theme.backgroundSoft,
+    padding: theme.space.md,
+  },
+  testDiagnosticsHeader: {
+    gap: theme.space.xs,
   },
   itemRow: {
     gap: theme.space.sm,

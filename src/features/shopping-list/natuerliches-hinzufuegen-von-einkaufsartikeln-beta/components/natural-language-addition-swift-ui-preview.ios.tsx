@@ -28,6 +28,8 @@ export function NaturalLanguageAdditionSwiftUIPreview({
   onDismiss,
   onEditText,
   onConfirm,
+  storage,
+  variant,
 }: NaturalLanguageAdditionSwiftUIPreviewProps) {
   const { colors } = useTheme();
 
@@ -53,6 +55,8 @@ export function NaturalLanguageAdditionSwiftUIPreview({
                 onRequestClose={onRequestClose}
                 onEditText={onEditText}
                 onConfirm={onConfirm}
+                storage={storage}
+                variant={variant}
               />
             </View>
           </RNHostView>

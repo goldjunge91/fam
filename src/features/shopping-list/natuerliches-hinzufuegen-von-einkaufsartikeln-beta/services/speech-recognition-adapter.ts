@@ -5,10 +5,15 @@ import type {
   ExpoSpeechRecognitionResultEvent,
 } from 'expo-speech-recognition';
 import { debugLogEvent } from '@/lib/observability/debug-log';
+import type { ExperimentVariant } from '../domain/quality-snapshot';
 import type { SpeechInputResult, SpeechInputSegment } from '../types';
+import { CONTEXTUAL_STRINGS } from './speech-contextual-strings';
+
+export { CONTEXTUAL_STRINGS, CONTEXTUAL_STRINGS_VERSION } from './speech-contextual-strings';
 
 export const DEFAULT_SPEECH_LOCALE = 'de-DE' as const;
 export const RECOGNITION_STOP_TIMEOUT_MS = 3_000;
+export type SpeechRecognitionVariant = ExperimentVariant;
 
 type SpeechRecognitionEventName = 'result' | 'error' | 'end' | 'volumechange';
 type SpeechRecognitionListener =
@@ -49,6 +54,7 @@ export type SpeechRecognitionSession = {
 export type SpeechRecognitionStartOptions = {
   locale?: string;
   onVolumeChange?: (volume: number) => void;
+  variant?: SpeechRecognitionVariant;
 };
 
 export type SpeechRecognitionAdapter = {
@@ -117,7 +123,7 @@ export function createSpeechRecognitionAdapter(
   const requiresOnDeviceRecognition = true;
 
   return {
-    start({ locale = DEFAULT_SPEECH_LOCALE, onVolumeChange } = {}) {
+    start({ locale = DEFAULT_SPEECH_LOCALE, onVolumeChange, variant = 'baseline' } = {}) {
       let settled = false;
       let recognitionStarted = false;
       let stopRequested = false;
@@ -331,6 +337,9 @@ export function createSpeechRecognitionAdapter(
               requiresOnDeviceRecognition,
               addsPunctuation: true,
               iosTaskHint: 'dictation',
+              ...(variant === 'contextual-strings'
+                ? { contextualStrings: [...CONTEXTUAL_STRINGS] }
+                : {}),
               ...(onVolumeChange
                 ? { volumeChangeEventOptions: { enabled: true, intervalMillis: 100 } }
                 : {}),

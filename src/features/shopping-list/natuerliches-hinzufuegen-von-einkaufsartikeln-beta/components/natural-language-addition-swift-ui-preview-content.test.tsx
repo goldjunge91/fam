@@ -1,7 +1,8 @@
 import { render, screen, userEvent, within } from '@testing-library/react-native';
 
+import { createEmptyNaturalLanguageAdditionBetaState } from '../beta-storage';
 import type { BetaPreviewItem } from '../types';
-import type { TextBetaPreview } from '../workflow/text-workflow';
+import type { TextBetaPreview, TextBetaStorage } from '../workflow/text-workflow';
 import { NaturalLanguageAdditionSwiftUIPreviewContent } from './natural-language-addition-swift-ui-preview-content';
 
 const previewItem: BetaPreviewItem = {
@@ -38,12 +39,28 @@ const preview: TextBetaPreview = {
   parseResult: {
     items: [previewItem.item],
     unparsedText: null,
+    qualityFlags: [],
   },
   items: [previewItem],
   learningProgress: { uniqueAssignments: 0, thresholdReached: false },
 };
 
+const storage: TextBetaStorage = {
+  load: jest.fn().mockResolvedValue(createEmptyNaturalLanguageAdditionBetaState()),
+  save: jest.fn(),
+};
+
 describe('NaturalLanguageAdditionSwiftUIPreviewContent', () => {
+  const originalTestToolsFlag = process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS;
+
+  afterEach(() => {
+    if (originalTestToolsFlag === undefined) {
+      delete process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS;
+    } else {
+      process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS = originalTestToolsFlag;
+    }
+  });
+
   it('keeps the preview header outside the scrollable content', async () => {
     await render(
       <NaturalLanguageAdditionSwiftUIPreviewContent
@@ -51,6 +68,8 @@ describe('NaturalLanguageAdditionSwiftUIPreviewContent', () => {
         onRequestClose={jest.fn()}
         onEditText={jest.fn()}
         onConfirm={jest.fn()}
+        storage={storage}
+        variant="baseline"
       />,
     );
 
@@ -71,6 +90,8 @@ describe('NaturalLanguageAdditionSwiftUIPreviewContent', () => {
         onRequestClose={jest.fn()}
         onEditText={jest.fn()}
         onConfirm={onConfirm}
+        storage={storage}
+        variant="baseline"
       />,
     );
 
@@ -96,6 +117,8 @@ describe('NaturalLanguageAdditionSwiftUIPreviewContent', () => {
         onRequestClose={jest.fn()}
         onEditText={onEditText}
         onConfirm={jest.fn()}
+        storage={storage}
+        variant="baseline"
       />,
     );
 
@@ -105,5 +128,43 @@ describe('NaturalLanguageAdditionSwiftUIPreviewContent', () => {
     await user.press(screen.getByRole('button', { name: 'Neu prüfen' }));
 
     expect(onEditText).toHaveBeenCalledWith('Milch und Brot');
+  });
+
+  it('shows the test diagnostics section with stable Maestro selectors when enabled', async () => {
+    process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS = 'true';
+
+    await render(
+      <NaturalLanguageAdditionSwiftUIPreviewContent
+        preview={preview}
+        onRequestClose={jest.fn()}
+        onEditText={jest.fn()}
+        onConfirm={jest.fn()}
+        storage={storage}
+        variant="baseline"
+      />,
+    );
+
+    expect(screen.getByTestId('natural-language-addition-test-panel')).toBeOnTheScreen();
+    expect(screen.getByTestId('natural-language-addition-test-save')).toHaveAccessibleName(
+      'Testergebnis speichern',
+    );
+    expect(screen.getByText('Variante: baseline')).toBeOnTheScreen();
+  });
+
+  it('keeps the test diagnostics section hidden when the explicit flag is disabled', async () => {
+    process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS = 'false';
+
+    await render(
+      <NaturalLanguageAdditionSwiftUIPreviewContent
+        preview={preview}
+        onRequestClose={jest.fn()}
+        onEditText={jest.fn()}
+        onConfirm={jest.fn()}
+        storage={storage}
+        variant="baseline"
+      />,
+    );
+
+    expect(screen.queryByTestId('natural-language-addition-test-panel')).not.toBeOnTheScreen();
   });
 });

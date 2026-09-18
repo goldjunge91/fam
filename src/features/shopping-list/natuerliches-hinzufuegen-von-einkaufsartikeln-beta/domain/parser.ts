@@ -172,5 +172,11 @@ export function parseNaturalLanguageShoppingInput(input: string): ParseResult {
     else unparsed.push(segment);
   }
 
-  return { items, unparsedText: unparsed.length > 0 ? unparsed.join(', ') : null };
+  const unparsedText = unparsed.length > 0 ? unparsed.join(', ') : null;
+
+  return {
+    items,
+    unparsedText,
+    qualityFlags: unparsedText === null ? [] : ['unparsed_text_present'],
+  };
 }

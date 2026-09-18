@@ -67,6 +67,13 @@ const storedState: BetaStorageState = {
     correctAutomaticAssignmentCount: 0,
     falseListAssignmentCount: 0,
     manualCorrectionCount: 0,
+    qualityFlagCounts: {
+      unparsed_text_present: 0,
+      ambiguous_item_boundary: 0,
+      semantic_item_mismatch: 0,
+      incorrect_automatic_assignment: 0,
+      manual_correction: 0,
+    },
     completionDurationsMs: [],
     recordedObservationIds: [],
     measuredSessionIds: [],
@@ -119,6 +126,31 @@ describe('natural-language addition beta storage', () => {
         confirmedItemCount: 0,
       },
     });
+    expect(removeCalls).toEqual([]);
+  });
+
+  it('adds empty quality-flag counters to an older V1 metrics snapshot', async () => {
+    const storage = createStorage('user-legacy-metrics');
+    const { qualityFlagCounts: _legacyFlagCounts, ...legacyQualityMetrics } =
+      storedState.qualityMetrics;
+    storage.set(
+      BETA_STORAGE_KEY,
+      JSON.stringify({ ...storedState, qualityMetrics: legacyQualityMetrics }),
+    );
+
+    await expect(getNaturalLanguageAdditionBetaState('user-legacy-metrics')).resolves.toMatchObject(
+      {
+        qualityMetrics: {
+          qualityFlagCounts: {
+            unparsed_text_present: 0,
+            ambiguous_item_boundary: 0,
+            semantic_item_mismatch: 0,
+            incorrect_automatic_assignment: 0,
+            manual_correction: 0,
+          },
+        },
+      },
+    );
     expect(removeCalls).toEqual([]);
   });
 

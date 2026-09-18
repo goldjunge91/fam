@@ -1,5 +1,7 @@
 import type { SpeechInputResult, SpeechInputSegment } from '../types';
 import {
+  CONTEXTUAL_STRINGS,
+  CONTEXTUAL_STRINGS_VERSION,
   createSpeechRecognitionAdapter,
   type SpeechRecognitionClient,
 } from './speech-recognition-adapter';
@@ -137,6 +139,7 @@ describe('speech recognition adapter', () => {
       addsPunctuation: true,
       iosTaskHint: 'dictation',
     });
+    expect(client.start.mock.calls[0]?.[0]).not.toHaveProperty('contextualStrings');
     expect(client.start).not.toHaveBeenCalledWith(
       expect.objectContaining({ recordingOptions: expect.anything() }),
     );
@@ -151,6 +154,35 @@ describe('speech recognition adapter', () => {
       onDevice: true,
       error: null,
     });
+  });
+
+  it('adds only the versioned short context list for the contextual-strings variant', async () => {
+    const client = createFakeSpeechClient();
+    const adapter = createSpeechRecognitionAdapter(client);
+    const session = adapter.start({ variant: 'contextual-strings' });
+
+    await Promise.resolve();
+
+    expect(CONTEXTUAL_STRINGS_VERSION).toBe('20-saetze-neu-v1');
+    expect(CONTEXTUAL_STRINGS.length).toBeLessThanOrEqual(100);
+    expect(new Set(CONTEXTUAL_STRINGS).size).toBe(CONTEXTUAL_STRINGS.length);
+    expect(CONTEXTUAL_STRINGS.every((phrase) => phrase.trim().split(/\s+/u).length <= 2)).toBe(
+      true,
+    );
+    expect(client.start).toHaveBeenCalledWith(
+      expect.objectContaining({
+        lang: 'de-DE',
+        interimResults: true,
+        maxAlternatives: 3,
+        continuous: true,
+        requiresOnDeviceRecognition: true,
+        addsPunctuation: true,
+        iosTaskHint: 'dictation',
+        contextualStrings: CONTEXTUAL_STRINGS,
+      }),
+    );
+
+    session.cancel();
   });
 
   it('forwards live input volume when requested by the caller', async () => {

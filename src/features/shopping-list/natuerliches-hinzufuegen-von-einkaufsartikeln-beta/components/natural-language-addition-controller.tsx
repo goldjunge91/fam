@@ -13,6 +13,7 @@ import {
   saveNaturalLanguageAdditionBetaState,
 } from '../beta-storage';
 import { setBetaConsent } from '../domain/consent';
+import type { ExperimentVariant } from '../domain/quality-snapshot';
 import { saveConfirmedBetaOutput } from '../integration/confirmed-output-adapter';
 import type { NaturalLanguageAdditionInput, SpeechInputResult } from '../types';
 import {
@@ -29,6 +30,8 @@ type NaturalLanguageAdditionControllerProps = {
   householdId: string | undefined;
   stores: readonly Store[];
 };
+
+const TEST_CAPTURE_VARIANT: ExperimentVariant = 'baseline';
 
 export const NaturalLanguageAdditionController = memo(function NaturalLanguageAdditionController({
   householdId,
@@ -360,7 +363,7 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
         onFallback={handleVoiceFallback}
       />
 
-      {preview ? (
+      {preview && storage ? (
         <NaturalLanguageAdditionSwiftUIPreview
           visible={previewVisible}
           preview={preview}
@@ -368,6 +371,8 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
           onDismiss={finishPreviewDismiss}
           onEditText={handleEdit}
           onConfirm={handleConfirm}
+          storage={storage}
+          variant={TEST_CAPTURE_VARIANT}
         />
       ) : null}
     </>

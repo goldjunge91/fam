@@ -1,0 +1,16 @@
+appId: com.goldjunge91.fam1
+---
+# Preconditions: The app is already open on the Übersicht screen.
+# This subflow deliberately preserves the current app and device state.
+- extendedWaitUntil:
+    visible: "Übersicht"
+    timeout: 5000
+- tapOn:
+    id: "navigation-menu-open"
+- extendedWaitUntil:
+    visible: "Einkauf, ›"
+    timeout: 5000
+- tapOn: "Einkauf, ›"
+- extendedWaitUntil:
+    visible: "Einkaufsliste"
+    timeout: 10000

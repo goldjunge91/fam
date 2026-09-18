@@ -1,12 +1,9 @@
 appId: com.goldjunge91.fam1
-env:
-  METRO_MANIFEST_URL: ${METRO_MANIFEST_URL || "http%3A%2F%2F127.0.0.1%3A8081"}
 ---
-# Lokaler Dev-Client-Start ohne State-Clear. Die gespeicherte Session bleibt
-# erhalten, aber der Metro-Bundle-Link wird bei jedem Datensatz neu geöffnet.
-- stopApp
-- openLink:
-    link: "fam://expo-development-client/?url=${METRO_MANIFEST_URL}"
+# Der Speech-Runner arbeitet mit der bereits laufenden App und dem bereits
+# verbundenen Metro-Bundle. Kein stopApp, launchApp oder openLink: Ein erneuter
+# Dev-Client-Start bringt das Dev-Launcher-Fenster nach vorne und verwirft die
+# aktive Sprachtest-Ansicht.
 - runFlow:
     when:
       visible: '^(Open in "fam"|In .* öffnen\?)$'
@@ -28,20 +25,3 @@ env:
           text: "^(Close|Schließen)$"
       - waitForAnimationToEnd
 - waitForAnimationToEnd
-- extendedWaitUntil:
-    visible: "^(Übersicht|Einkaufsliste)$"
-    timeout: 120000
-- runFlow:
-    when:
-      visible: "^(Continue|Fortfahren)$"
-    commands:
-      - tapOn:
-          text: "^(Continue|Fortfahren)$"
-      - waitForAnimationToEnd
-- runFlow:
-    when:
-      visible: "^(Close|Schließen)$"
-    commands:
-      - tapOn:
-          text: "^(Close|Schließen)$"
-      - waitForAnimationToEnd

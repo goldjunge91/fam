@@ -3,17 +3,17 @@ tags:
   - local-session
   - speech-dataset
 ---
-# Öffnet genau eine Sprachsession und lässt sie für den Host-Runner offen.
+# Öffnet genau eine Sprachsession in der bereits laufenden App und lässt sie
+# für den Host-Runner offen.
 - runFlow: ../../subflows/launch-local-dev-client-preserve-state.yaml
 - extendedWaitUntil:
     visible: "Neu hinzufügen"
-    timeout: 15000
+    timeout: 2000
 - tapOn: "Neu hinzufügen"
 - extendedWaitUntil:
     visible: "Spracheingabe"
-    timeout: 10000
+    timeout: 2000
 - tapOn: "Spracheingabe"
-- tapOn: "Neu hinzufügen"
 - extendedWaitUntil:
     visible: "Ich höre zu"
-    timeout: 15000
+    timeout: 2000

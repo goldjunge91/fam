@@ -1,5 +1,8 @@
 import { getEncryptedAccountStorage } from '@/lib/storage/account-storage';
-import { createEmptyBetaQualityMetrics } from './domain/quality-metrics';
+import {
+  createEmptyBetaQualityFlagCounts,
+  createEmptyBetaQualityMetrics,
+} from './domain/quality-metrics';
 import type {
   BetaClarification,
   BetaConfirmationEvent,
@@ -9,6 +12,7 @@ import type {
   BetaQualityMetrics,
   BetaSessionState,
   BetaStorageState,
+  QualityFlagCounts,
 } from './types';
 
 export const BETA_STORAGE_KEY = 'natural-language-addition-beta.v1';
@@ -117,7 +121,24 @@ function isNonNegativeInteger(value: unknown): value is number {
   return typeof value === 'number' && Number.isInteger(value) && value >= 0;
 }
 
-function isBetaQualityMetrics(value: unknown): value is BetaQualityMetrics {
+function isQualityFlagCounts(value: unknown): value is QualityFlagCounts {
+  if (!isRecord(value)) return false;
+
+  const expectedFlags = Object.keys(createEmptyBetaQualityFlagCounts()) as Array<
+    keyof QualityFlagCounts
+  >;
+  return (
+    Object.keys(value).length === expectedFlags.length &&
+    expectedFlags.every((flag) => isNonNegativeInteger(value[flag])) &&
+    Object.keys(value).every((flag) => expectedFlags.includes(flag as keyof QualityFlagCounts))
+  );
+}
+
+type PersistedBetaQualityMetrics = Omit<BetaQualityMetrics, 'qualityFlagCounts'> & {
+  qualityFlagCounts?: QualityFlagCounts;
+};
+
+function isBetaQualityMetrics(value: unknown): value is PersistedBetaQualityMetrics {
   return (
     isRecord(value) &&
     isNonNegativeInteger(value.confirmedItemCount) &&
@@ -125,6 +146,7 @@ function isBetaQualityMetrics(value: unknown): value is BetaQualityMetrics {
     isNonNegativeInteger(value.correctAutomaticAssignmentCount) &&
     isNonNegativeInteger(value.falseListAssignmentCount) &&
     isNonNegativeInteger(value.manualCorrectionCount) &&
+    (value.qualityFlagCounts === undefined || isQualityFlagCounts(value.qualityFlagCounts)) &&
     Array.isArray(value.completionDurationsMs) &&
     value.completionDurationsMs.every(
       (duration) => typeof duration === 'number' && Number.isFinite(duration) && duration >= 0,
@@ -137,7 +159,7 @@ function isBetaQualityMetrics(value: unknown): value is BetaQualityMetrics {
 }
 
 type PersistedBetaStorageState = Omit<BetaStorageState, 'consent' | 'qualityMetrics'> & {
-  qualityMetrics?: BetaStorageState['qualityMetrics'];
+  qualityMetrics?: PersistedBetaQualityMetrics;
   consent: Omit<BetaStorageState['consent'], 'automaticApplication'> & {
     automaticApplication?: BetaStorageState['consent']['automaticApplication'];
   };
@@ -171,9 +193,17 @@ function isBetaStorageState(value: unknown): value is PersistedBetaStorageState 
 }
 
 function normalizeBetaStorageState(state: PersistedBetaStorageState): BetaStorageState {
+  const qualityMetrics = state.qualityMetrics
+    ? {
+        ...state.qualityMetrics,
+        qualityFlagCounts:
+          state.qualityMetrics.qualityFlagCounts ?? createEmptyBetaQualityFlagCounts(),
+      }
+    : createEmptyBetaQualityMetrics();
+
   return {
     ...state,
-    qualityMetrics: state.qualityMetrics ?? createEmptyBetaQualityMetrics(),
+    qualityMetrics,
     consent: {
       ...state.consent,
       automaticApplication: state.consent.automaticApplication ?? 'undecided',

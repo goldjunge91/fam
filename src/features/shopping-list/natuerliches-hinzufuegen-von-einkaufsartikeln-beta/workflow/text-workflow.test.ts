@@ -460,4 +460,47 @@ describe('text beta workflow', () => {
       completionDurationsMs: [4_000],
     });
   });
+
+  it('records parser and confirmed routing flags without guessing semantic mismatches', async () => {
+    const initialState: BetaStorageState = {
+      ...createEmptyNaturalLanguageAdditionBetaState(),
+      consent: {
+        qualityMetrics: 'granted',
+        contentData: 'revoked',
+        automaticApplication: 'undecided',
+      },
+    };
+    const storage = createFakeStorage(initialState);
+    const saveConfirmedOutput = jest.fn(async (output: ConfirmedBetaOutput) => ({
+      savedItemCount: output.items.length,
+      mutationCount: output.items.length,
+      itemIds: ['item-routing-flags'],
+    }));
+    const preview = await createTextBetaPreview({
+      text: 'Skyr von JA, ???',
+      betaSessionId: 'session-routing-flags',
+      startedAt: '2026-09-18T12:00:00.000Z',
+      lists,
+      storage,
+    });
+    const item = preview.items.at(0);
+    if (!item) throw new Error('Expected a preview item');
+
+    await confirmTextBetaItems({
+      preview,
+      selections: [{ itemId: item.itemId, targetListId: 'aldi-list' }],
+      availableTargetListIds: lists.map((list) => list.listId),
+      storage,
+      saveConfirmedOutput,
+      confirmedAt: '2026-09-18T12:00:04.000Z',
+    });
+
+    expect(storage.getState().qualityMetrics.qualityFlagCounts).toEqual({
+      unparsed_text_present: 1,
+      ambiguous_item_boundary: 0,
+      semantic_item_mismatch: 0,
+      incorrect_automatic_assignment: 1,
+      manual_correction: 1,
+    });
+  });
 });
