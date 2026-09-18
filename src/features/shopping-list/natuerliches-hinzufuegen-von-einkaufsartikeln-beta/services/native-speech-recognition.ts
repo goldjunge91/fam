@@ -5,11 +5,9 @@ import {
 } from './speech-recognition-adapter';
 
 /**
- * Beta-only native binding. The caller must provide explicit network-recognition consent when
- * starting a session. See the package's permission contract:
- * https://github.com/jamsch/expo-speech-recognition#requestspeechrecognizerpermissionsasync
+ * T4 native binding. Recognition must stay on-device; the adapter reports missing capability or
+ * microphone permission instead of enabling a network fallback. See the package's permission
+ * contract: https://github.com/jamsch/expo-speech-recognition#requestmicrophonepermissionsasync
  */
 export const nativeSpeechRecognitionAdapter: SpeechRecognitionAdapter =
-  createSpeechRecognitionAdapter(ExpoSpeechRecognitionModule, {
-    requiresOnDeviceRecognition: false,
-  });
+  createSpeechRecognitionAdapter(ExpoSpeechRecognitionModule);

@@ -1,9 +1,7 @@
 import type { SpeechInputResult, SpeechInputSegment } from '../types';
 import {
   createSpeechRecognitionAdapter,
-  type SpeechRecognitionAdapter,
   type SpeechRecognitionClient,
-  type SpeechRecognitionStartOptions,
 } from './speech-recognition-adapter';
 
 type ResultListener = (event: {
@@ -15,6 +13,7 @@ type ResultListener = (event: {
 }) => void;
 type ErrorListener = (event: { error: string; message: string }) => void;
 type EndListener = () => void;
+type VolumeChangeListener = (event: { value: number }) => void;
 
 type FakeSpeechClient = SpeechRecognitionClient & {
   abort: jest.Mock;
@@ -27,6 +26,7 @@ type FakeSpeechClient = SpeechRecognitionClient & {
     isFinal?: boolean,
     segments?: readonly SpeechInputSegment[],
   ) => void;
+  emitVolumeChange: (value: number) => void;
   emitError: (error: string, message?: string) => void;
   emitEnd: () => void;
 };
@@ -39,6 +39,7 @@ function createFakeSpeechClient(
   let resultListener: ResultListener | null = null;
   let errorListener: ErrorListener | null = null;
   let endListener: EndListener | null = null;
+  let volumeChangeListener: VolumeChangeListener | null = null;
 
   return {
     isRecognitionAvailable: overrides.isRecognitionAvailable ?? (() => true),
@@ -60,6 +61,7 @@ function createFakeSpeechClient(
       if (eventName === 'result') resultListener = listener as ResultListener;
       if (eventName === 'error') errorListener = listener as ErrorListener;
       if (eventName === 'end') endListener = listener as EndListener;
+      if (eventName === 'volumechange') volumeChangeListener = listener as VolumeChangeListener;
       return {
         remove: jest.fn(),
       };
@@ -70,25 +72,15 @@ function createFakeSpeechClient(
         results: [{ transcript, segments: segments ?? [] }],
       });
     },
+    emitVolumeChange: (value) => {
+      volumeChangeListener?.({ value });
+    },
     emitError: (error, message = error) => {
       errorListener?.({ error, message });
     },
     emitEnd: () => {
       endListener?.();
     },
-  };
-}
-
-function createNetworkSpeechRecognitionAdapter(
-  client: SpeechRecognitionClient,
-): SpeechRecognitionAdapter {
-  const adapter = createSpeechRecognitionAdapter(client, {
-    requiresOnDeviceRecognition: false,
-  });
-
-  return {
-    start: (options: SpeechRecognitionStartOptions = {}) =>
-      adapter.start({ ...options, networkRecognitionConsent: true }),
   };
 }
 
@@ -105,39 +97,43 @@ function expectFallback(
 }
 
 describe('speech recognition adapter', () => {
-  it('requires explicit consent before starting network recognition', async () => {
+  it('always starts the local recognition contract', async () => {
     const client = createFakeSpeechClient();
-    const adapter = createSpeechRecognitionAdapter(client, {
-      requiresOnDeviceRecognition: false,
-    });
-    const session = adapter.start();
-
-    await expect(session.result).resolves.toMatchObject({
-      status: 'consent-required',
-      text: null,
-      locale: 'de-DE',
-      onDevice: false,
-      errorCode: 'network-recognition-consent-required',
-    });
-    expect(client.requestPermissionsAsync).not.toHaveBeenCalled();
-    expect(client.start).not.toHaveBeenCalled();
-  });
-
-  it('matches the example for network recognition and reports a non-device transcript', async () => {
-    const client = createFakeSpeechClient();
-    const adapter = createNetworkSpeechRecognitionAdapter(client);
+    const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
     await Promise.resolve();
 
-    expect(client.requestPermissionsAsync).toHaveBeenCalledTimes(1);
-    expect(client.requestMicrophonePermissionsAsync).not.toHaveBeenCalled();
+    expect(client.requestMicrophonePermissionsAsync).toHaveBeenCalledTimes(1);
+    expect(client.requestPermissionsAsync).not.toHaveBeenCalled();
+    expect(client.start).toHaveBeenCalledWith(
+      expect.objectContaining({ requiresOnDeviceRecognition: true }),
+    );
+
+    client.emitResult('Äpfel');
+    client.emitEnd();
+
+    await expect(session.result).resolves.toMatchObject({
+      status: 'transcript',
+      onDevice: true,
+    });
+  });
+
+  it('matches the native on-device recognition contract', async () => {
+    const client = createFakeSpeechClient();
+    const adapter = createSpeechRecognitionAdapter(client);
+    const session = adapter.start();
+
+    await Promise.resolve();
+
+    expect(client.requestMicrophonePermissionsAsync).toHaveBeenCalledTimes(1);
+    expect(client.requestPermissionsAsync).not.toHaveBeenCalled();
     expect(client.start).toHaveBeenCalledWith({
       lang: 'de-DE',
       interimResults: true,
       maxAlternatives: 3,
       continuous: true,
-      requiresOnDeviceRecognition: false,
+      requiresOnDeviceRecognition: true,
       addsPunctuation: true,
       iosTaskHint: 'dictation',
     });
@@ -152,14 +148,34 @@ describe('speech recognition adapter', () => {
       status: 'transcript',
       text: '3 Äpfel und Brot',
       locale: 'de-DE',
-      onDevice: false,
+      onDevice: true,
       error: null,
     });
   });
 
+  it('forwards live input volume when requested by the caller', async () => {
+    const client = createFakeSpeechClient();
+    const onVolumeChange = jest.fn();
+    const adapter = createSpeechRecognitionAdapter(client);
+    const session = adapter.start({ onVolumeChange });
+
+    await Promise.resolve();
+
+    expect(client.start).toHaveBeenCalledWith(
+      expect.objectContaining({
+        volumeChangeEventOptions: { enabled: true, intervalMillis: 100 },
+      }),
+    );
+
+    client.emitVolumeChange(4.5);
+
+    expect(onVolumeChange).toHaveBeenCalledWith(4.5);
+    session.cancel();
+  });
+
   it('forwards native segment timing metadata with the transcript', async () => {
     const client = createFakeSpeechClient();
-    const adapter = createNetworkSpeechRecognitionAdapter(client);
+    const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
     await Promise.resolve();
@@ -185,37 +201,33 @@ describe('speech recognition adapter', () => {
       status: 'transcript',
       text: 'Milch Eier',
       locale: 'de-DE',
-      onDevice: false,
+      onDevice: true,
       error: null,
       segments,
     });
   });
 
-  it('does not require on-device capability when network recognition is enabled', async () => {
+  it('requires on-device capability before requesting microphone permission', async () => {
     const client = createFakeSpeechClient({
-      supportsOnDeviceRecognition: () => {
-        throw new Error('on-device capability must not be queried');
-      },
+      supportsOnDeviceRecognition: () => false,
     });
-    const adapter = createNetworkSpeechRecognitionAdapter(client);
+    const adapter = createSpeechRecognitionAdapter(client);
 
     const session = adapter.start();
 
     await Promise.resolve();
 
-    expect(client.start).toHaveBeenCalledTimes(1);
-    client.emitResult('Netzwerk-Erkennung');
-    client.emitEnd();
-
     await expect(session.result).resolves.toMatchObject({
-      status: 'transcript',
+      status: 'capability-unavailable',
       onDevice: false,
     });
+    expect(client.requestMicrophonePermissionsAsync).not.toHaveBeenCalled();
+    expect(client.start).not.toHaveBeenCalled();
   });
 
   it('collects final transcript pieces until the native end event', async () => {
     const client = createFakeSpeechClient();
-    const adapter = createNetworkSpeechRecognitionAdapter(client);
+    const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
     await Promise.resolve();
@@ -240,7 +252,7 @@ describe('speech recognition adapter', () => {
 
   it('separates final transcript pieces when the native chunks have no whitespace', async () => {
     const client = createFakeSpeechClient();
-    const adapter = createNetworkSpeechRecognitionAdapter(client);
+    const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
     await Promise.resolve();
@@ -257,7 +269,7 @@ describe('speech recognition adapter', () => {
 
   it('uses an explicit stop to finish the continuous recognition session', async () => {
     const client = createFakeSpeechClient();
-    const adapter = createNetworkSpeechRecognitionAdapter(client);
+    const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
     await Promise.resolve();
@@ -280,7 +292,7 @@ describe('speech recognition adapter', () => {
     jest.useFakeTimers();
     try {
       const client = createFakeSpeechClient();
-      const adapter = createNetworkSpeechRecognitionAdapter(client);
+      const adapter = createSpeechRecognitionAdapter(client);
       const session = adapter.start();
 
       await Promise.resolve();
@@ -309,7 +321,7 @@ describe('speech recognition adapter', () => {
       client.abort.mockImplementation(() => {
         client.emitError('aborted', 'Recognition aborted');
       });
-      const adapter = createNetworkSpeechRecognitionAdapter(client);
+      const adapter = createSpeechRecognitionAdapter(client);
       const session = adapter.start();
 
       await Promise.resolve();
@@ -335,7 +347,7 @@ describe('speech recognition adapter', () => {
     client.stop.mockImplementation(() => {
       throw new Error('native stop failed');
     });
-    const adapter = createNetworkSpeechRecognitionAdapter(client);
+    const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
     await Promise.resolve();
@@ -356,7 +368,7 @@ describe('speech recognition adapter', () => {
     jest.useFakeTimers();
     try {
       const client = createFakeSpeechClient();
-      const adapter = createNetworkSpeechRecognitionAdapter(client);
+      const adapter = createSpeechRecognitionAdapter(client);
       const session = adapter.start();
 
       await Promise.resolve();
@@ -379,8 +391,8 @@ describe('speech recognition adapter', () => {
       resolvePermission = resolve;
     });
     const client = createFakeSpeechClient();
-    client.requestPermissionsAsync = jest.fn(() => permission);
-    const adapter = createNetworkSpeechRecognitionAdapter(client);
+    client.requestMicrophonePermissionsAsync = jest.fn(() => permission);
+    const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
     session.stop();
@@ -399,7 +411,7 @@ describe('speech recognition adapter', () => {
     const client = createFakeSpeechClient({
       isRecognitionAvailable: () => false,
     });
-    const adapter = createNetworkSpeechRecognitionAdapter(client);
+    const adapter = createSpeechRecognitionAdapter(client);
 
     const session = adapter.start();
 
@@ -415,8 +427,8 @@ describe('speech recognition adapter', () => {
 
   it('returns a permission fallback without starting', async () => {
     const client = createFakeSpeechClient();
-    client.requestPermissionsAsync = jest.fn(async () => ({ granted: false }));
-    const adapter = createNetworkSpeechRecognitionAdapter(client);
+    client.requestMicrophonePermissionsAsync = jest.fn(async () => ({ granted: false }));
+    const adapter = createSpeechRecognitionAdapter(client);
 
     const session = adapter.start();
 
@@ -432,7 +444,7 @@ describe('speech recognition adapter', () => {
 
   it('preserves the native error code for a failed recognition session', async () => {
     const client = createFakeSpeechClient();
-    const adapter = createNetworkSpeechRecognitionAdapter(client);
+    const adapter = createSpeechRecognitionAdapter(client);
 
     const session = adapter.start();
     await Promise.resolve();
@@ -448,7 +460,7 @@ describe('speech recognition adapter', () => {
 
   it('maps native errors and end without a transcript to testable fallback states', async () => {
     const client = createFakeSpeechClient();
-    const adapter = createNetworkSpeechRecognitionAdapter(client);
+    const adapter = createSpeechRecognitionAdapter(client);
 
     const errorSession = adapter.start();
     await Promise.resolve();
@@ -476,7 +488,7 @@ describe('speech recognition adapter', () => {
 
   it('cancels recognition without exposing audio or accepting a later result', async () => {
     const client = createFakeSpeechClient();
-    const adapter = createNetworkSpeechRecognitionAdapter(client);
+    const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
     await Promise.resolve();

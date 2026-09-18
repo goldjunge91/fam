@@ -1,6 +1,11 @@
 import { createEmptyNaturalLanguageAdditionBetaState } from '../beta-storage';
 import type { ShoppingListCatalogEntry } from '../domain/routing';
-import type { BetaStorageState, ConfirmedBetaOutput, SpeechInputResult } from '../types';
+import type {
+  BetaConfirmationEvent,
+  BetaStorageState,
+  ConfirmedBetaOutput,
+  SpeechInputResult,
+} from '../types';
 import {
   confirmTextBetaItems,
   createSpeechBetaPreview,
@@ -13,8 +18,10 @@ const lists: readonly ShoppingListCatalogEntry[] = [
   { listId: 'aldi-list', listName: 'Aldi', knownBrands: [] },
 ];
 
-function createFakeStorage(): TextBetaStorage & { getState: () => BetaStorageState } {
-  let state = createEmptyNaturalLanguageAdditionBetaState();
+function createFakeStorage(
+  initialState = createEmptyNaturalLanguageAdditionBetaState(),
+): TextBetaStorage & { getState: () => BetaStorageState } {
+  let state = initialState;
   return {
     load: async () => state,
     save: async (nextState) => {
@@ -80,6 +87,10 @@ describe('text beta workflow', () => {
     });
     expect(result.output.items).toHaveLength(2);
     expect(storage.getState().confirmations).toHaveLength(2);
+    expect(storage.getState().feedback).toHaveLength(4);
+    expect(storage.getState().feedback.map((event) => event.kind)).toEqual(
+      expect.arrayContaining(['skipped', 'corrected', 'accepted']),
+    );
     expect(storage.getState().confirmations[0]).toMatchObject({
       itemName: 'Brot',
       targetListId: 'aldi-list',
@@ -87,13 +98,13 @@ describe('text beta workflow', () => {
     });
   });
 
-  it('feeds a network transcript into the same preview workflow', async () => {
+  it('feeds an on-device transcript into the same preview workflow', async () => {
     const storage = createFakeStorage();
     const speechResult: SpeechInputResult = {
       status: 'transcript',
       text: '4x Skyr von JA',
       locale: 'de-DE',
-      onDevice: false,
+      onDevice: true,
       error: null,
       segments: [
         {
@@ -119,7 +130,7 @@ describe('text beta workflow', () => {
       source: 'speech',
       text: '4x Skyr von JA',
       locale: 'de-DE',
-      onDevice: false,
+      onDevice: true,
       segments: [
         {
           startTimeMillis: 180,
@@ -131,6 +142,38 @@ describe('text beta workflow', () => {
     });
     expect(result.preview.session.source).toBe('speech');
     expect(result.preview.items[0]?.item).toMatchObject({ name: 'Skyr', quantity: 4, brand: 'JA' });
+  });
+
+  it('rejects a non-device transcript before creating a preview session', async () => {
+    const storage = createFakeStorage();
+    const speechResult = {
+      status: 'transcript',
+      text: 'Milch',
+      locale: 'de-DE',
+      onDevice: false,
+      error: null,
+    } as unknown as SpeechInputResult;
+
+    await expect(
+      createSpeechBetaPreview({
+        speechResult,
+        betaSessionId: 'non-device-session-1',
+        startedAt: '2026-09-18T12:00:00.000Z',
+        lists,
+        storage,
+      }),
+    ).resolves.toEqual({
+      kind: 'unavailable',
+      speechResult: {
+        status: 'capability-unavailable',
+        text: null,
+        locale: 'de-DE',
+        onDevice: false,
+        error: 'On-Device-Spracherkennung ist für diesen Workflow erforderlich.',
+        errorCode: 'on-device-required',
+      },
+    });
+    expect(storage.getState().session).toBeNull();
   });
 
   it('rebuilds the same session when the preview transcript is edited', async () => {
@@ -158,7 +201,7 @@ describe('text beta workflow', () => {
     ).toBe(true);
   });
 
-  it('keeps text fallback available when speech capability is missing', async () => {
+  it('returns speech unavailability without opening a manual input surface', async () => {
     const storage = createFakeStorage();
     const speechResult: SpeechInputResult = {
       status: 'capability-unavailable',
@@ -176,7 +219,7 @@ describe('text beta workflow', () => {
         lists,
         storage,
       }),
-    ).resolves.toEqual({ kind: 'fallback', speechResult });
+    ).resolves.toEqual({ kind: 'unavailable', speechResult });
     expect(storage.getState().session).toBeNull();
   });
 
@@ -201,5 +244,220 @@ describe('text beta workflow', () => {
     expect(result.output.items).toEqual([]);
     expect(saveConfirmedOutput).not.toHaveBeenCalled();
     expect(storage.getState().confirmations).toEqual([]);
+  });
+
+  it('allows a resolved item to be reassigned to another available shopping list', async () => {
+    const storage = createFakeStorage();
+    const saveConfirmedOutput = jest.fn(async (output: ConfirmedBetaOutput) => ({
+      savedItemCount: output.items.length,
+      mutationCount: output.items.length,
+      itemIds: ['item-1'],
+    }));
+    const preview = await createTextBetaPreview({
+      text: 'Skyr von JA',
+      betaSessionId: 'session-reassigned-1',
+      startedAt: '2026-09-18T12:00:00.000Z',
+      lists,
+      storage,
+    });
+    const item = preview.items.at(0);
+    if (!item) throw new Error('Expected a preview item');
+
+    await expect(
+      confirmTextBetaItems({
+        preview,
+        selections: [{ itemId: item.itemId, targetListId: 'aldi-list' }],
+        availableTargetListIds: lists.map((list) => list.listId),
+        storage,
+        saveConfirmedOutput,
+      }),
+    ).resolves.toMatchObject({ output: { items: [{ targetListId: 'aldi-list' }] } });
+  });
+
+  it('does not turn a learning-state write failure into a duplicate retry', async () => {
+    let state = createEmptyNaturalLanguageAdditionBetaState();
+    let saveCalls = 0;
+    const storage: TextBetaStorage = {
+      load: async () => state,
+      save: async (nextState) => {
+        saveCalls += 1;
+        if (saveCalls > 1) throw new Error('learning state unavailable');
+        state = nextState;
+      },
+    };
+    const saveConfirmedOutput = jest.fn(async (output: ConfirmedBetaOutput) => ({
+      savedItemCount: output.items.length,
+      mutationCount: output.items.length,
+      itemIds: ['item-1'],
+    }));
+    const preview = await createTextBetaPreview({
+      text: 'Brot',
+      betaSessionId: 'session-storage-failure-1',
+      startedAt: '2026-09-18T12:00:00.000Z',
+      lists,
+      storage,
+    });
+    const item = preview.items.at(0);
+    if (!item) throw new Error('Expected a preview item');
+
+    await expect(
+      confirmTextBetaItems({
+        preview,
+        selections: [{ itemId: item.itemId, targetListId: 'rewe-list' }],
+        availableTargetListIds: lists.map((list) => list.listId),
+        storage,
+        saveConfirmedOutput,
+      }),
+    ).resolves.toMatchObject({ saveResult: { savedItemCount: 1 } });
+    expect(saveConfirmedOutput).toHaveBeenCalledTimes(1);
+  });
+
+  it('signals the one-time automatic-application question exactly at the learning threshold', async () => {
+    const confirmations: BetaConfirmationEvent[] = Array.from({ length: 9 }, (_, index) => ({
+      id: `confirmation-${index}`,
+      sessionId: `session-${index}`,
+      itemName: `Artikel ${index}`,
+      brand: `Marke ${index}`,
+      targetListId: 'rewe-list',
+      result: 'confirmed',
+      createdAt: '2026-09-18T12:00:00.000Z',
+    }));
+    const initialState: BetaStorageState = {
+      ...createEmptyNaturalLanguageAdditionBetaState(),
+      confirmations,
+    };
+    const storage = createFakeStorage(initialState);
+    const saveConfirmedOutput = jest.fn(async (output: ConfirmedBetaOutput) => ({
+      savedItemCount: output.items.length,
+      mutationCount: output.items.length,
+      itemIds: ['item-threshold'],
+    }));
+    const preview = await createTextBetaPreview({
+      text: 'Haferdrink von Oatly',
+      betaSessionId: 'session-threshold',
+      startedAt: '2026-09-18T12:00:00.000Z',
+      lists,
+      storage,
+    });
+    const item = preview.items.at(0);
+    if (!item) throw new Error('Expected a preview item');
+
+    const result = await confirmTextBetaItems({
+      preview,
+      selections: [{ itemId: item.itemId, targetListId: 'rewe-list' }],
+      availableTargetListIds: lists.map((list) => list.listId),
+      storage,
+      saveConfirmedOutput,
+      confirmedAt: '2026-09-18T12:01:00.000Z',
+    });
+
+    expect(result.shouldAskForAutomaticApplication).toBe(true);
+    expect(result.state.consent.automaticApplication).toBe('undecided');
+    expect(result.state.feedback).toEqual([
+      expect.objectContaining({ kind: 'corrected', sessionId: 'session-threshold' }),
+    ]);
+  });
+
+  it('does not commit a stale automatic selection after the user revokes consent', async () => {
+    let state: BetaStorageState = {
+      ...createEmptyNaturalLanguageAdditionBetaState(),
+      consent: {
+        qualityMetrics: 'undecided',
+        contentData: 'undecided',
+        automaticApplication: 'granted',
+      },
+      learningRules: [
+        {
+          id: 'rule-oatly',
+          itemName: 'Haferdrink',
+          brand: 'Oatly',
+          targetListId: 'aldi-list',
+          confirmationCount: 3,
+          createdAt: '2026-09-18T12:00:00.000Z',
+          updatedAt: '2026-09-18T12:00:00.000Z',
+        },
+      ],
+    };
+    const storage: TextBetaStorage = {
+      load: async () => state,
+      save: async (nextState) => {
+        state = nextState;
+      },
+    };
+    const saveConfirmedOutput = jest.fn(async (output: ConfirmedBetaOutput) => ({
+      savedItemCount: output.items.length,
+      mutationCount: output.items.length,
+      itemIds: ['item-stale'],
+    }));
+    const preview = await createTextBetaPreview({
+      text: 'Haferdrink von Oatly',
+      betaSessionId: 'session-revoked',
+      startedAt: '2026-09-18T12:00:00.000Z',
+      lists,
+      storage,
+    });
+    const item = preview.items.at(0);
+    if (!item) throw new Error('Expected a preview item');
+    expect(item.routing).toMatchObject({ kind: 'resolved', listId: 'aldi-list', automatic: true });
+
+    state = {
+      ...state,
+      consent: { ...state.consent, automaticApplication: 'revoked' },
+    };
+
+    await expect(
+      confirmTextBetaItems({
+        preview,
+        selections: [{ itemId: item.itemId, targetListId: 'aldi-list' }],
+        availableTargetListIds: lists.map((list) => list.listId),
+        storage,
+        saveConfirmedOutput,
+      }),
+    ).rejects.toThrow('automatische Zuordnung wurde widerrufen');
+    expect(saveConfirmedOutput).not.toHaveBeenCalled();
+  });
+
+  it('records local quality metrics only when quality consent is granted', async () => {
+    const initialState: BetaStorageState = {
+      ...createEmptyNaturalLanguageAdditionBetaState(),
+      consent: {
+        qualityMetrics: 'granted',
+        contentData: 'revoked',
+        automaticApplication: 'undecided',
+      },
+    };
+    const storage = createFakeStorage(initialState);
+    const saveConfirmedOutput = jest.fn(async (output: ConfirmedBetaOutput) => ({
+      savedItemCount: output.items.length,
+      mutationCount: output.items.length,
+      itemIds: ['item-quality'],
+    }));
+    const preview = await createTextBetaPreview({
+      text: 'Skyr von JA',
+      betaSessionId: 'session-quality',
+      startedAt: '2026-09-18T12:00:00.000Z',
+      lists,
+      storage,
+    });
+    const item = preview.items.at(0);
+    if (!item) throw new Error('Expected a preview item');
+
+    const result = await confirmTextBetaItems({
+      preview,
+      selections: [{ itemId: item.itemId, targetListId: 'rewe-list' }],
+      availableTargetListIds: lists.map((list) => list.listId),
+      storage,
+      saveConfirmedOutput,
+      confirmedAt: '2026-09-18T12:00:04.000Z',
+    });
+
+    expect(result.state.qualityMetrics).toMatchObject({
+      confirmedItemCount: 1,
+      automaticAssignmentCount: 1,
+      correctAutomaticAssignmentCount: 1,
+      falseListAssignmentCount: 0,
+      manualCorrectionCount: 0,
+      completionDurationsMs: [4_000],
+    });
   });
 });

@@ -18,6 +18,8 @@ export type RouteShoppingItemInput = {
   lists: readonly ShoppingListCatalogEntry[];
   learningRules: readonly BetaLearningRule[];
   confirmations: readonly BetaConfirmationEvent[];
+  /** Learned mappings stay suggestions until the account owner opts in. */
+  allowAutomaticApplication?: boolean;
 };
 
 const KNOWN_BRAND_CONFIDENCE = 0.95;
@@ -135,6 +137,7 @@ function candidateDecision(
       bestMatch,
       suggestions,
       needsClarification: false,
+      automatic: true,
     };
   }
 
@@ -153,7 +156,9 @@ function routeFromConfirmationHistory(input: RouteShoppingItemInput): RoutingDec
   return candidateDecision(
     input,
     candidates,
-    progress.thresholdReached && candidates[0]?.count >= 3,
+    (input.allowAutomaticApplication ?? true) &&
+      progress.thresholdReached &&
+      candidates[0]?.count >= 3,
   );
 }
 
@@ -168,7 +173,7 @@ function routeFromLearningRules(input: RouteShoppingItemInput): RoutingDecision 
         (brand === null || (rule.brand !== null && normalize(rule.brand) === brand)),
     )
     .map((rule) => ({ targetListId: rule.targetListId, count: rule.confirmationCount }));
-  return candidateDecision(input, candidates, true);
+  return candidateDecision(input, candidates, input.allowAutomaticApplication ?? true);
 }
 
 export function getLearningProgress(
@@ -307,6 +312,7 @@ export function routeShoppingItem(input: RouteShoppingItemInput): RoutingDecisio
       bestMatch,
       suggestions: [bestMatch],
       needsClarification: false,
+      automatic: false,
     };
   }
 

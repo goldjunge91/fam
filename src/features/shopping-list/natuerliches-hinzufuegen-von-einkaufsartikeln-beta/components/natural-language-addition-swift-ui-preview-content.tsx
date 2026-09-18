@@ -11,6 +11,7 @@ import { NaturalLanguageAdditionSheetCloseButton } from './natural-language-addi
 export type NaturalLanguageAdditionSwiftUIPreviewProps = {
   visible: boolean;
   preview: TextBetaPreview;
+  onRequestClose: () => void;
   onDismiss: () => void;
   onEditText: (text: string) => void;
   onConfirm: (selections: readonly TextBetaSelection[]) => void;
@@ -18,7 +19,7 @@ export type NaturalLanguageAdditionSwiftUIPreviewProps = {
 
 export type NaturalLanguageAdditionSwiftUIPreviewContentProps = Omit<
   NaturalLanguageAdditionSwiftUIPreviewProps,
-  'visible'
+  'visible' | 'onDismiss'
 >;
 
 function itemLabel(item: ParsedShoppingItem): string {
@@ -48,7 +49,7 @@ function initialSelections(items: readonly BetaPreviewItem[]): Record<string, st
 
 export function NaturalLanguageAdditionSwiftUIPreviewContent({
   preview,
-  onDismiss,
+  onRequestClose,
   onEditText,
   onConfirm,
 }: NaturalLanguageAdditionSwiftUIPreviewContentProps) {
@@ -90,22 +91,22 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
 
   return (
     <Surface tone="surface" style={styles.sheet}>
+      <View style={styles.header}>
+        <View style={styles.headerCopy}>
+          <Txt variant="caption" tone="secondary">
+            Neue Artikel
+          </Txt>
+          <Txt variant="title">Passt das so?</Txt>
+        </View>
+        <NaturalLanguageAdditionSheetCloseButton onPress={onRequestClose} />
+      </View>
+
       <ScrollView
         testID="natural-language-addition-preview-scroll"
         style={styles.scroll}
         contentContainerStyle={styles.content}
         keyboardDismissMode="interactive"
         keyboardShouldPersistTaps="handled">
-        <View style={styles.header}>
-          <View style={styles.headerCopy}>
-            <Txt variant="caption" tone="secondary">
-              Neue Artikel
-            </Txt>
-            <Txt variant="title">Passt das so?</Txt>
-          </View>
-          <NaturalLanguageAdditionSheetCloseButton onPress={onDismiss} />
-        </View>
-
         <View style={styles.transcript}>
           <TextField
             label="Erkannter Text"
@@ -162,7 +163,7 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
             disabled={selections.length === 0}
             full
           />
-          <Button title="Später" variant="secondary" onPress={onDismiss} full />
+          <Button title="Später" variant="secondary" onPress={onRequestClose} full />
         </View>
       </ScrollView>
     </Surface>
@@ -270,7 +271,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   content: {
     gap: theme.space.lg,
-    padding: theme.space.lg,
+    paddingHorizontal: theme.space.lg,
     paddingBottom: theme.space.xxxl,
   },
   header: {
@@ -278,6 +279,9 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     gap: theme.space.md,
+    paddingHorizontal: theme.space.lg,
+    paddingTop: theme.space.lg,
+    paddingBottom: theme.space.lg,
   },
   headerCopy: {
     flex: 1,

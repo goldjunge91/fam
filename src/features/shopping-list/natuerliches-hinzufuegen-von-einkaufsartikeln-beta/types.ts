@@ -18,7 +18,7 @@ export type NaturalLanguageAdditionInput =
       source: 'speech';
       text: string;
       locale: string | null;
-      onDevice: boolean;
+      onDevice: true;
       segments?: readonly SpeechInputSegment[];
     };
 
@@ -27,7 +27,7 @@ export type SpeechInputResult =
       status: 'transcript';
       text: string;
       locale: string | null;
-      onDevice: boolean;
+      onDevice: true;
       error: null;
       segments?: readonly SpeechInputSegment[];
     }
@@ -72,6 +72,8 @@ export type RoutingDecision =
       bestMatch: ShoppingListSuggestion;
       suggestions: readonly ShoppingListSuggestion[];
       needsClarification: false;
+      /** True when the resolved target came from a learned mapping. */
+      automatic?: boolean;
     }
   | {
       kind: 'uncertain' | 'conflict';
@@ -81,6 +83,7 @@ export type RoutingDecision =
       bestMatch: ShoppingListSuggestion | null;
       suggestions: readonly ShoppingListSuggestion[];
       needsClarification: true;
+      automatic?: boolean;
     };
 
 export type BetaItemReviewState = 'pending' | 'confirmed' | 'deferred';
@@ -153,6 +156,8 @@ export type BetaClarification = {
 export type BetaConsentState = {
   qualityMetrics: 'undecided' | 'granted' | 'revoked';
   contentData: 'undecided' | 'granted' | 'revoked';
+  /** Per-user permission to apply learned household mappings automatically. */
+  automaticApplication: 'undecided' | 'granted' | 'revoked';
 };
 
 export type BetaFeedbackEvent = {
@@ -160,6 +165,17 @@ export type BetaFeedbackEvent = {
   sessionId: string;
   kind: 'accepted' | 'corrected' | 'skipped';
   createdAt: string;
+};
+
+export type BetaQualityMetrics = {
+  confirmedItemCount: number;
+  automaticAssignmentCount: number;
+  correctAutomaticAssignmentCount: number;
+  falseListAssignmentCount: number;
+  manualCorrectionCount: number;
+  completionDurationsMs: readonly number[];
+  recordedObservationIds: readonly string[];
+  measuredSessionIds: readonly string[];
 };
 
 export type BetaStorageState = {
@@ -171,4 +187,5 @@ export type BetaStorageState = {
   clarifications: readonly BetaClarification[];
   consent: BetaConsentState;
   feedback: readonly BetaFeedbackEvent[];
+  qualityMetrics: BetaQualityMetrics;
 };

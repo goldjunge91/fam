@@ -58,8 +58,19 @@ const storedState: BetaStorageState = {
   consent: {
     qualityMetrics: 'undecided',
     contentData: 'undecided',
+    automaticApplication: 'undecided',
   },
   feedback: [],
+  qualityMetrics: {
+    confirmedItemCount: 0,
+    automaticAssignmentCount: 0,
+    correctAutomaticAssignmentCount: 0,
+    falseListAssignmentCount: 0,
+    manualCorrectionCount: 0,
+    completionDurationsMs: [],
+    recordedObservationIds: [],
+    measuredSessionIds: [],
+  },
 };
 
 mockGetEncryptedAccountStorage.mockImplementation(async (userId) => {
@@ -83,6 +94,32 @@ describe('natural-language addition beta storage', () => {
     });
     expect(mockGetEncryptedAccountStorage).toHaveBeenCalledWith('user-a');
     expect(valuesByUser.get('user-a')?.has(BETA_STORAGE_KEY)).toBe(true);
+  });
+
+  it('normalizes a V1 snapshot created before automatic-application consent existed', async () => {
+    const storage = createStorage('user-legacy');
+    const legacyState = {
+      ...storedState,
+      qualityMetrics: undefined,
+      consent: {
+        qualityMetrics: 'undecided' as const,
+        contentData: 'granted' as const,
+      },
+    };
+    const { qualityMetrics: _legacyQualityMetrics, ...legacyV1State } = legacyState;
+    storage.set(BETA_STORAGE_KEY, JSON.stringify(legacyV1State));
+
+    await expect(getNaturalLanguageAdditionBetaState('user-legacy')).resolves.toMatchObject({
+      consent: {
+        qualityMetrics: 'undecided',
+        contentData: 'granted',
+        automaticApplication: 'undecided',
+      },
+      qualityMetrics: {
+        confirmedItemCount: 0,
+      },
+    });
+    expect(removeCalls).toEqual([]);
   });
 
   it('clears only the selected account state', async () => {

@@ -46,4 +46,44 @@ describe('routeShoppingItem', () => {
       }),
     );
   });
+
+  it('shows a learned mapping as a suggestion until the user grants automatic application', () => {
+    const item = { name: 'Haferdrink', quantity: 1, unit: null, brand: 'Oatly' };
+    const learningRules = [
+      {
+        id: 'rule-1',
+        itemName: 'Haferdrink',
+        brand: 'Oatly',
+        targetListId: 'aldi-list',
+        confirmationCount: 3,
+        createdAt: '2026-09-18T10:00:00.000Z',
+        updatedAt: '2026-09-18T10:00:00.000Z',
+      },
+    ];
+
+    expect(
+      routeShoppingItem({
+        item,
+        lists,
+        learningRules,
+        confirmations: [],
+        allowAutomaticApplication: false,
+      }),
+    ).toMatchObject({
+      kind: 'uncertain',
+      listId: null,
+      suggestions: [expect.objectContaining({ listId: 'aldi-list' })],
+      needsClarification: true,
+    });
+
+    expect(
+      routeShoppingItem({
+        item,
+        lists,
+        learningRules,
+        confirmations: [],
+        allowAutomaticApplication: true,
+      }),
+    ).toMatchObject({ kind: 'resolved', listId: 'aldi-list', needsClarification: false });
+  });
 });

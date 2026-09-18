@@ -1,6 +1,14 @@
 import { Feather } from '@expo/vector-icons';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Modal, Pressable, View } from 'react-native';
+import Animated, {
+  cancelAnimation,
+  useAnimatedStyle,
+  useReducedMotion,
+  useSharedValue,
+  withSpring,
+  withTiming,
+} from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -29,13 +37,17 @@ function largestSegmentGapMs(segments: readonly SpeechInputSegment[] | undefined
   return largestGap;
 }
 
+function normalizeSpeechVolume(volume: number): number {
+  if (!Number.isFinite(volume) || volume <= 0) return 0;
+  return Math.min(1, volume / 6);
+}
+
 export type NaturalLanguageAdditionVoiceOverlayProps = {
   visible: boolean;
   onCancel: () => void;
   onTranscript: (input: NaturalLanguageAdditionInput) => void | Promise<void>;
   onFallback: (result: Exclude<SpeechInputResult, { status: 'transcript' }>) => void;
   speechAdapter?: SpeechRecognitionAdapter;
-  networkRecognitionConsent?: boolean;
   locale?: string;
 };
 
@@ -45,18 +57,44 @@ export function NaturalLanguageAdditionVoiceOverlay({
   onTranscript,
   onFallback,
   speechAdapter = nativeSpeechRecognitionAdapter,
-  networkRecognitionConsent = false,
   locale = DEFAULT_SPEECH_LOCALE,
 }: NaturalLanguageAdditionVoiceOverlayProps) {
   const { colors } = useTheme();
   const [status, setStatus] = useState<VoiceOverlayStatus>('listening');
+  const reducedMotion = useReducedMotion();
+  const listeningIntensity = useSharedValue(0);
   const sessionRef = useRef<SpeechRecognitionSession | null>(null);
   const disposedRef = useRef(true);
+  const listeningActiveRef = useRef(false);
   const onTranscriptRef = useRef(onTranscript);
   const onFallbackRef = useRef(onFallback);
 
+  useEffect(() => {
+    listeningActiveRef.current = visible && status === 'listening';
+    if (!listeningActiveRef.current) {
+      cancelAnimation(listeningIntensity);
+      listeningIntensity.value = withTiming(0, { duration: 180 });
+    }
+
+    return () => {
+      listeningActiveRef.current = false;
+      cancelAnimation(listeningIntensity);
+    };
+  }, [listeningIntensity, status, visible]);
+
   onTranscriptRef.current = onTranscript;
   onFallbackRef.current = onFallback;
+
+  const handleVolumeChange = (volume: number) => {
+    if (!listeningActiveRef.current || reducedMotion) return;
+
+    listeningIntensity.value = withSpring(normalizeSpeechVolume(volume), {
+      damping: 20,
+      stiffness: 120,
+      mass: 0.8,
+      overshootClamping: true,
+    });
+  };
 
   const fail = (error: unknown) => {
     if (disposedRef.current) return;
@@ -77,7 +115,10 @@ export function NaturalLanguageAdditionVoiceOverlay({
 
     try {
       debugLogEvent('shopping-list.voice-session.starting', { locale });
-      const session = speechAdapter.start({ locale, networkRecognitionConsent });
+      const session = speechAdapter.start({
+        locale,
+        onVolumeChange: reducedMotion ? undefined : handleVolumeChange,
+      });
       sessionRef.current = session;
       void session.result
         .then(async (result) => {
@@ -130,6 +171,9 @@ export function NaturalLanguageAdditionVoiceOverlay({
     const session = sessionRef.current;
     if (!session || status !== 'listening') return;
 
+    listeningActiveRef.current = false;
+    cancelAnimation(listeningIntensity);
+    listeningIntensity.value = withTiming(0, { duration: 180 });
     setStatus('processing');
     try {
       session.stop();
@@ -138,6 +182,18 @@ export function NaturalLanguageAdditionVoiceOverlay({
       fail(error);
     }
   };
+
+  const micOrbStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: 1 + listeningIntensity.value * 0.08 }],
+  }));
+  const micIconStyle = useAnimatedStyle(() => ({
+    opacity: 0.84 + listeningIntensity.value * 0.16,
+    transform: [{ scale: 1 + listeningIntensity.value * 0.1 }],
+  }));
+  const micPulseRingStyle = useAnimatedStyle(() => ({
+    opacity: listeningIntensity.value * 0.48,
+    transform: [{ scale: 1 + listeningIntensity.value * 0.42 }],
+  }));
 
   useEffect(() => {
     if (!visible) return;
@@ -171,12 +227,24 @@ export function NaturalLanguageAdditionVoiceOverlay({
           accessibilityLabel="Spracheingabe schließen"
         />
         <Surface tone="surface" style={styles.panel}>
-          <View style={[styles.micOrb, { backgroundColor: colors.accent }]}>
-            {status === 'processing' ? (
-              <ActivityIndicator color={colors.backgroundElement} size="large" />
-            ) : (
-              <Feather name="mic" size={34} color={colors.backgroundElement} />
-            )}
+          <View style={styles.micStage}>
+            <Animated.View
+              pointerEvents="none"
+              style={[
+                styles.micPulseRing,
+                { borderColor: withAlpha(colors.accent, 0.5) },
+                micPulseRingStyle,
+              ]}
+            />
+            <Animated.View style={[styles.micOrb, { backgroundColor: colors.accent }, micOrbStyle]}>
+              {status === 'processing' ? (
+                <ActivityIndicator color={colors.backgroundElement} size="large" />
+              ) : (
+                <Animated.View style={micIconStyle}>
+                  <Feather name="mic" size={34} color={colors.backgroundElement} />
+                </Animated.View>
+              )}
+            </Animated.View>
           </View>
           <Txt variant="title" style={styles.centerText}>
             {status === 'processing' ? 'Ich verarbeite das …' : 'Ich höre zu'}
@@ -220,7 +288,20 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  micStage: {
+    width: 128,
+    height: 128,
+    alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: theme.space.sm,
+  },
+  micPulseRing: {
+    position: 'absolute',
+    width: 96,
+    height: 96,
+    borderRadius: radius.pill,
+    borderWidth: theme.borderWidth.base,
   },
   centerText: {
     textAlign: 'center',

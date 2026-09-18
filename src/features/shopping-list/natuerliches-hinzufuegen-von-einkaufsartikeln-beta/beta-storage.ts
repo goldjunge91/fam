@@ -1,10 +1,12 @@
 import { getEncryptedAccountStorage } from '@/lib/storage/account-storage';
+import { createEmptyBetaQualityMetrics } from './domain/quality-metrics';
 import type {
   BetaClarification,
   BetaConfirmationEvent,
   BetaConflict,
   BetaFeedbackEvent,
   BetaLearningRule,
+  BetaQualityMetrics,
   BetaSessionState,
   BetaStorageState,
 } from './types';
@@ -22,8 +24,10 @@ export function createEmptyNaturalLanguageAdditionBetaState(): BetaStorageState 
     consent: {
       qualityMetrics: 'undecided',
       contentData: 'undecided',
+      automaticApplication: 'undecided',
     },
     feedback: [],
+    qualityMetrics: createEmptyBetaQualityMetrics(),
   };
 }
 
@@ -109,7 +113,37 @@ function isBetaFeedbackEvent(value: unknown): value is BetaFeedbackEvent {
   );
 }
 
-function isBetaStorageState(value: unknown): value is BetaStorageState {
+function isNonNegativeInteger(value: unknown): value is number {
+  return typeof value === 'number' && Number.isInteger(value) && value >= 0;
+}
+
+function isBetaQualityMetrics(value: unknown): value is BetaQualityMetrics {
+  return (
+    isRecord(value) &&
+    isNonNegativeInteger(value.confirmedItemCount) &&
+    isNonNegativeInteger(value.automaticAssignmentCount) &&
+    isNonNegativeInteger(value.correctAutomaticAssignmentCount) &&
+    isNonNegativeInteger(value.falseListAssignmentCount) &&
+    isNonNegativeInteger(value.manualCorrectionCount) &&
+    Array.isArray(value.completionDurationsMs) &&
+    value.completionDurationsMs.every(
+      (duration) => typeof duration === 'number' && Number.isFinite(duration) && duration >= 0,
+    ) &&
+    Array.isArray(value.recordedObservationIds) &&
+    value.recordedObservationIds.every((id) => typeof id === 'string') &&
+    Array.isArray(value.measuredSessionIds) &&
+    value.measuredSessionIds.every((id) => typeof id === 'string')
+  );
+}
+
+type PersistedBetaStorageState = Omit<BetaStorageState, 'consent' | 'qualityMetrics'> & {
+  qualityMetrics?: BetaStorageState['qualityMetrics'];
+  consent: Omit<BetaStorageState['consent'], 'automaticApplication'> & {
+    automaticApplication?: BetaStorageState['consent']['automaticApplication'];
+  };
+};
+
+function isBetaStorageState(value: unknown): value is PersistedBetaStorageState {
   if (!isRecord(value) || value.version !== 1) return false;
   if (value.session !== null && !isBetaSessionState(value.session)) return false;
   if (!Array.isArray(value.learningRules) || !value.learningRules.every(isBetaLearningRule)) {
@@ -123,10 +157,28 @@ function isBetaStorageState(value: unknown): value is BetaStorageState {
     return false;
   }
   if (!Array.isArray(value.feedback) || !value.feedback.every(isBetaFeedbackEvent)) return false;
+  if (value.qualityMetrics !== undefined && !isBetaQualityMetrics(value.qualityMetrics)) {
+    return false;
+  }
   if (!isRecord(value.consent)) return false;
 
   const consent = value.consent;
-  return isConsentValue(consent.qualityMetrics) && isConsentValue(consent.contentData);
+  return (
+    isConsentValue(consent.qualityMetrics) &&
+    isConsentValue(consent.contentData) &&
+    (consent.automaticApplication === undefined || isConsentValue(consent.automaticApplication))
+  );
+}
+
+function normalizeBetaStorageState(state: PersistedBetaStorageState): BetaStorageState {
+  return {
+    ...state,
+    qualityMetrics: state.qualityMetrics ?? createEmptyBetaQualityMetrics(),
+    consent: {
+      ...state.consent,
+      automaticApplication: state.consent.automaticApplication ?? 'undecided',
+    },
+  };
 }
 
 export async function getNaturalLanguageAdditionBetaState(
@@ -138,7 +190,7 @@ export async function getNaturalLanguageAdditionBetaState(
 
   try {
     const parsedState: unknown = JSON.parse(serializedState);
-    if (isBetaStorageState(parsedState)) return parsedState;
+    if (isBetaStorageState(parsedState)) return normalizeBetaStorageState(parsedState);
   } catch {
     // Ein beschädigter lokaler Snapshot darf den Beta-Workflow nicht öffnen.
   }

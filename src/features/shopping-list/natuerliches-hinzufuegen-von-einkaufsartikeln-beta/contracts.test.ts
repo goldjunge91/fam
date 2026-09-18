@@ -22,19 +22,17 @@ describe('natural-language addition beta contracts', () => {
     expect(isNaturalLanguageAdditionBetaEnabled({ enabled: true })).toBe(true);
   });
 
-  it('keeps text and network or on-device speech inputs in one contract', () => {
+  it('keeps text and on-device speech inputs in one contract', () => {
     const inputs: readonly NaturalLanguageAdditionInput[] = [
       { source: 'text', text: 'Brot', locale: 'de-DE' },
       { source: 'speech', text: '3 Äpfel', locale: 'de-DE', onDevice: true },
-      { source: 'speech', text: 'Milch', locale: 'de-DE', onDevice: false },
     ];
 
-    expect(inputs).toHaveLength(3);
+    expect(inputs).toHaveLength(2);
     expect(inputs[1]).toMatchObject({ source: 'speech', onDevice: true });
-    expect(inputs[2]).toMatchObject({ source: 'speech', onDevice: false });
   });
 
-  it('models speech fallback states without exposing raw audio', () => {
+  it('models speech error states without exposing raw audio', () => {
     const result: SpeechInputResult = {
       status: 'capability-unavailable',
       text: null,

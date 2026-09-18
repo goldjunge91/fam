@@ -75,7 +75,7 @@ describe('NaturalLanguageAdditionVoiceOverlay', () => {
 
     expect(speechAdapter.start).toHaveBeenCalledWith({
       locale: DEFAULT_SPEECH_LOCALE,
-      networkRecognitionConsent: false,
+      onVolumeChange: expect.any(Function),
     });
 
     await user.press(screen.getByRole('button', { name: 'Fertig' }));
@@ -87,7 +87,7 @@ describe('NaturalLanguageAdditionVoiceOverlay', () => {
       status: 'transcript',
       text: '3 Äpfel und Brot',
       locale: DEFAULT_SPEECH_LOCALE,
-      onDevice: false,
+      onDevice: true,
       error: null,
     });
 
@@ -96,7 +96,7 @@ describe('NaturalLanguageAdditionVoiceOverlay', () => {
         source: 'speech',
         text: '3 Äpfel und Brot',
         locale: DEFAULT_SPEECH_LOCALE,
-        onDevice: false,
+        onDevice: true,
       });
     });
   });

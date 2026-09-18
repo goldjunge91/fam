@@ -24,6 +24,7 @@ import {
 export function NaturalLanguageAdditionSwiftUIPreview({
   visible,
   preview,
+  onRequestClose,
   onDismiss,
   onEditText,
   onConfirm,
@@ -35,7 +36,7 @@ export function NaturalLanguageAdditionSwiftUIPreview({
       <BottomSheet
         isPresented={visible}
         onIsPresentedChange={(isPresented) => {
-          if (!isPresented) onDismiss();
+          if (!isPresented) onRequestClose();
         }}
         onDismiss={onDismiss}>
         <Group
@@ -49,7 +50,7 @@ export function NaturalLanguageAdditionSwiftUIPreview({
             <View style={styles.hostedContent}>
               <NaturalLanguageAdditionSwiftUIPreviewContent
                 preview={preview}
-                onDismiss={onDismiss}
+                onRequestClose={onRequestClose}
                 onEditText={onEditText}
                 onConfirm={onConfirm}
               />
@@ -113,8 +114,7 @@ export function SwiftUIBottomSheetDemo() {
 
 const styles = StyleSheet.create((theme) => ({
   hostedContent: {
-    flexGrow: 1,
-    height: 0,
+    flex: 1,
   },
   example: {
     alignItems: 'flex-start',

@@ -1,5 +1,6 @@
 import type {
   ExpoSpeechRecognitionErrorEvent,
+  ExpoSpeechRecognitionNativeEventMap,
   ExpoSpeechRecognitionOptions,
   ExpoSpeechRecognitionResultEvent,
 } from 'expo-speech-recognition';
@@ -9,10 +10,11 @@ import type { SpeechInputResult, SpeechInputSegment } from '../types';
 export const DEFAULT_SPEECH_LOCALE = 'de-DE' as const;
 export const RECOGNITION_STOP_TIMEOUT_MS = 3_000;
 
-type SpeechRecognitionEventName = 'result' | 'error' | 'end';
+type SpeechRecognitionEventName = 'result' | 'error' | 'end' | 'volumechange';
 type SpeechRecognitionListener =
   | ((event: ExpoSpeechRecognitionResultEvent) => void)
   | ((event: ExpoSpeechRecognitionErrorEvent) => void)
+  | ((event: ExpoSpeechRecognitionNativeEventMap['volumechange']) => void)
   | (() => void);
 
 type EventSubscription = {
@@ -26,7 +28,6 @@ type SpeechPermissionResponse = {
 };
 
 export type SpeechRecognitionClient = {
-  requestPermissionsAsync: () => Promise<SpeechPermissionResponse>;
   requestMicrophonePermissionsAsync: () => Promise<SpeechPermissionResponse>;
   isRecognitionAvailable: () => boolean;
   supportsOnDeviceRecognition: () => boolean;
@@ -47,15 +48,11 @@ export type SpeechRecognitionSession = {
 
 export type SpeechRecognitionStartOptions = {
   locale?: string;
-  networkRecognitionConsent?: boolean;
+  onVolumeChange?: (volume: number) => void;
 };
 
 export type SpeechRecognitionAdapter = {
   start: (options?: SpeechRecognitionStartOptions) => SpeechRecognitionSession;
-};
-
-export type SpeechRecognitionAdapterConfig = {
-  requiresOnDeviceRecognition?: boolean;
 };
 
 function errorMessage(error: unknown): string {
@@ -115,27 +112,12 @@ function fallbackForNativeError(
 
 export function createSpeechRecognitionAdapter(
   client: SpeechRecognitionClient,
-  config: SpeechRecognitionAdapterConfig = {},
 ): SpeechRecognitionAdapter {
-  const requiresOnDeviceRecognition = config.requiresOnDeviceRecognition ?? false;
+  // The beta's only supported speech contract is local iOS on-device speech.
+  const requiresOnDeviceRecognition = true;
 
   return {
-    start({ locale = DEFAULT_SPEECH_LOCALE, networkRecognitionConsent = false } = {}) {
-      if (!requiresOnDeviceRecognition && !networkRecognitionConsent) {
-        return {
-          result: Promise.resolve(
-            fallback(
-              'consent-required',
-              locale,
-              'Für die netzwerkbasierte Spracherkennung ist deine Zustimmung erforderlich.',
-              'network-recognition-consent-required',
-            ),
-          ),
-          stop: () => undefined,
-          cancel: () => undefined,
-        } satisfies SpeechRecognitionSession;
-      }
-
+    start({ locale = DEFAULT_SPEECH_LOCALE, onVolumeChange } = {}) {
       let settled = false;
       let recognitionStarted = false;
       let stopRequested = false;
@@ -253,9 +235,7 @@ export function createSpeechRecognitionAdapter(
       }
 
       debugLogEvent('shopping-list.voice-permission.requested', { locale });
-      const permissionRequest = requiresOnDeviceRecognition
-        ? client.requestMicrophonePermissionsAsync()
-        : client.requestPermissionsAsync();
+      const permissionRequest = client.requestMicrophonePermissionsAsync();
       void permissionRequest
         .then((permission) => {
           if (settled) return;
@@ -317,6 +297,16 @@ export function createSpeechRecognitionAdapter(
                 });
                 finish(fallbackForNativeError(event, locale));
               }),
+              ...(onVolumeChange
+                ? [
+                    client.addListener(
+                      'volumechange',
+                      (event: ExpoSpeechRecognitionNativeEventMap['volumechange']) => {
+                        onVolumeChange(event.value);
+                      },
+                    ),
+                  ]
+                : []),
               client.addListener('end', () => {
                 if (finalTranscript.trim()) {
                   finish(transcriptResult());
@@ -341,6 +331,9 @@ export function createSpeechRecognitionAdapter(
               requiresOnDeviceRecognition,
               addsPunctuation: true,
               iosTaskHint: 'dictation',
+              ...(onVolumeChange
+                ? { volumeChangeEventOptions: { enabled: true, intervalMillis: 100 } }
+                : {}),
             });
           } catch (error) {
             finish(fallback('error', locale, errorMessage(error), 'recognition-start-failed'));

@@ -12,6 +12,7 @@ import {
 export function NaturalLanguageAdditionSwiftUIPreview({
   visible,
   preview,
+  onRequestClose,
   onDismiss,
   onEditText,
   onConfirm,
@@ -21,12 +22,13 @@ export function NaturalLanguageAdditionSwiftUIPreview({
       index={visible ? 0 : -1}
       snapPoints={['50%', '90%']}
       enablePanDownToClose
-      onClose={onDismiss}
+      onClose={onRequestClose}
+      onDismiss={onDismiss}
       backgroundStyle={styles.previewBackground}>
       <BottomSheetView style={styles.previewSheet}>
         <NaturalLanguageAdditionSwiftUIPreviewContent
           preview={preview}
-          onDismiss={onDismiss}
+          onRequestClose={onRequestClose}
           onEditText={onEditText}
           onConfirm={onConfirm}
         />

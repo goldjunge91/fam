@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { memo, useEffect, useMemo, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert } from 'react-native';
 
 import { useSession } from '@/features/auth/session-provider';
@@ -12,6 +12,7 @@ import {
   getNaturalLanguageAdditionBetaState,
   saveNaturalLanguageAdditionBetaState,
 } from '../beta-storage';
+import { setBetaConsent } from '../domain/consent';
 import { saveConfirmedBetaOutput } from '../integration/confirmed-output-adapter';
 import type { NaturalLanguageAdditionInput, SpeechInputResult } from '../types';
 import {
@@ -21,7 +22,6 @@ import {
   type TextBetaSelection,
   type TextBetaStorage,
 } from '../workflow/text-workflow';
-import { NaturalLanguageAdditionInputSheet } from './natural-language-addition-input-sheet';
 import { NaturalLanguageAdditionSwiftUIPreview } from './natural-language-addition-swift-ui-preview';
 import { NaturalLanguageAdditionVoiceOverlay } from './natural-language-addition-voice-overlay';
 
@@ -39,17 +39,22 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
   const params = useLocalSearchParams<{ action?: string }>();
   const router = useRouter();
   const queryClient = useQueryClient();
-  const [inputOpen, setInputOpen] = useState(false);
   const [voiceOpen, setVoiceOpen] = useState(false);
-  const [speechError, setSpeechError] = useState<string | null>(null);
-  const [networkConsent, setNetworkConsent] = useState(false);
   const [preview, setPreview] = useState<TextBetaPreview | null>(null);
+  const [previewVisible, setPreviewVisible] = useState(false);
   const voiceLaunchRef = useRef(false);
   const previewLaunchRef = useRef(false);
+  const previewRequestIdRef = useRef(0);
+  const previewStoreSignatureRef = useRef<string | null>(null);
+  const confirmInFlightRef = useRef(false);
 
   const lists = useMemo(
     () => stores.map((store) => ({ listId: store.id, listName: store.name, knownBrands: [] })),
     [stores],
+  );
+  const listsSignature = useMemo(
+    () => lists.map((list) => `${list.listId}:${list.listName}`).join('\u0001'),
+    [lists],
   );
   const storage = useMemo<TextBetaStorage | null>(() => {
     if (!userId) return null;
@@ -59,12 +64,35 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
     };
   }, [userId]);
 
+  const beginPreviewRequest = useCallback((): number => {
+    previewRequestIdRef.current += 1;
+    return previewRequestIdRef.current;
+  }, []);
+
+  function invalidatePreviewRequests() {
+    previewRequestIdRef.current += 1;
+  }
+
+  const isCurrentPreviewRequest = useCallback((requestId: number): boolean => {
+    return previewRequestIdRef.current === requestId;
+  }, []);
+
+  const presentPreview = useCallback(
+    (nextPreview: TextBetaPreview) => {
+      previewStoreSignatureRef.current = listsSignature;
+      setVoiceOpen(false);
+      voiceLaunchRef.current = false;
+      setPreview(nextPreview);
+      setPreviewVisible(true);
+    },
+    [listsSignature],
+  );
+
   useEffect(() => {
     if (params.action !== 'voice' || voiceLaunchRef.current) return;
 
     voiceLaunchRef.current = true;
     debugLogEvent('shopping-list.voice-action.received');
-    setSpeechError(null);
     setVoiceOpen(true);
     router.setParams({ action: undefined });
   }, [params.action, router.setParams]);
@@ -74,6 +102,7 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
     if (!storage || lists.length === 0) return;
 
     previewLaunchRef.current = true;
+    const requestId = beginPreviewRequest();
     debugLogEvent('shopping-list.preview-action.received');
     router.setParams({ action: undefined });
 
@@ -89,68 +118,69 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
       },
     })
       .then((nextPreview) => {
+        if (!isCurrentPreviewRequest(requestId)) return;
         debugLogEvent('shopping-list.preview-action.ready', {
           itemCount: nextPreview.items.length,
         });
-        setInputOpen(false);
-        setVoiceOpen(false);
-        voiceLaunchRef.current = false;
-        setPreview(nextPreview);
+        presentPreview(nextPreview);
       })
       .catch((error) => {
+        if (!isCurrentPreviewRequest(requestId)) return;
         previewLaunchRef.current = false;
         const message = error instanceof Error ? error.message : String(error);
         debugLogEvent('shopping-list.preview-action.failed', { hasError: true });
         Alert.alert('Preview konnte nicht geöffnet werden', message);
       });
-  }, [lists, params.action, router.setParams, storage]);
+  }, [
+    beginPreviewRequest,
+    isCurrentPreviewRequest,
+    lists,
+    params.action,
+    presentPreview,
+    router.setParams,
+    storage,
+  ]);
 
-  async function requestNetworkConsent(): Promise<boolean> {
-    if (!storage) return false;
+  async function requestAutomaticApplicationConsent(): Promise<void> {
+    if (!storage) return;
 
-    const currentState = await storage.load();
-    if (currentState.consent.contentData === 'granted') {
-      setNetworkConsent(true);
-      return true;
+    let currentState: Awaited<ReturnType<TextBetaStorage['load']>>;
+    try {
+      currentState = await storage.load();
+    } catch {
+      return;
     }
+    if (currentState.consent.automaticApplication !== 'undecided') return;
 
-    return new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
+      const saveConsent = (value: 'granted' | 'revoked') => {
+        void storage
+          .save(setBetaConsent(currentState, 'automaticApplication', value))
+          .catch(() => undefined)
+          .finally(resolve);
+      };
+
       Alert.alert(
-        'Netzwerk-Spracherkennung',
-        'Die native Spracherkennung kann deine Sprache an den Sprachdienst des Betriebssystems übertragen. Fam speichert kein Roh-Audio und keine vollständigen Transkripte. Möchtest du für die Beta fortfahren?',
+        'Automatische Zuordnung',
+        'Du hast mehrere Zuordnungen einzeln bestätigt. Sollen eindeutige bekannte Zuordnungen künftig automatisch angewendet werden? Du kannst diese Entscheidung in den Einstellungen ändern.',
         [
-          { text: 'Abbrechen', style: 'cancel', onPress: () => resolve(false) },
-          {
-            text: 'Zustimmen',
-            onPress: () => {
-              void storage
-                .save({
-                  ...currentState,
-                  consent: { ...currentState.consent, contentData: 'granted' },
-                })
-                .then(() => {
-                  setNetworkConsent(true);
-                  resolve(true);
-                })
-                .catch(() => resolve(false));
-            },
-          },
+          { text: 'Nicht jetzt', style: 'cancel', onPress: () => saveConsent('revoked') },
+          { text: 'Erlauben', onPress: () => saveConsent('granted') },
         ],
       );
     });
+  }
+
+  function finishSpeechError(message: string) {
+    voiceLaunchRef.current = false;
+    setVoiceOpen(false);
+    Alert.alert('Spracheingabe fehlgeschlagen', message);
   }
 
   function clearAction() {
     if (params.action === 'voice' || params.action === 'preview') {
       router.setParams({ action: undefined });
     }
-  }
-
-  function closeInput() {
-    voiceLaunchRef.current = false;
-    setInputOpen(false);
-    setSpeechError(null);
-    clearAction();
   }
 
   async function handleInput(input: NaturalLanguageAdditionInput) {
@@ -164,6 +194,7 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
       return;
     }
 
+    const requestId = beginPreviewRequest();
     try {
       const nextPreview = await createBetaPreview({
         betaSessionId: Crypto.randomUUID(),
@@ -172,15 +203,14 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
         storage,
         input,
       });
+      if (!isCurrentPreviewRequest(requestId)) return;
       debugLogEvent('shopping-list.voice-preview.ready', {
         itemCount: nextPreview.items.length,
         source: input.source,
       });
-      setVoiceOpen(false);
-      setInputOpen(false);
-      voiceLaunchRef.current = false;
-      setPreview(nextPreview);
+      presentPreview(nextPreview);
     } catch (error) {
+      if (!isCurrentPreviewRequest(requestId)) return;
       voiceLaunchRef.current = false;
       setVoiceOpen(false);
       const message = error instanceof Error ? error.message : String(error);
@@ -189,43 +219,31 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
   }
 
   function handleVoiceFallback(result: Exclude<SpeechInputResult, { status: 'transcript' }>) {
-    if (result.errorCode === 'network-recognition-consent-required') {
-      voiceLaunchRef.current = false;
-      setVoiceOpen(false);
-      void requestNetworkConsent().then((granted) => {
-        if (granted) {
-          voiceLaunchRef.current = true;
-          setSpeechError(null);
-          setVoiceOpen(true);
-          return;
-        }
-
-        setSpeechError(result.error);
-        setInputOpen(true);
-      });
-      return;
-    }
-
-    voiceLaunchRef.current = false;
-    setVoiceOpen(false);
-    setSpeechError(result.error);
-    setInputOpen(true);
-  }
-
-  function handleInputSpeechFallback(result: Exclude<SpeechInputResult, { status: 'transcript' }>) {
-    if (result.errorCode === 'network-recognition-consent-required') {
-      void requestNetworkConsent();
-    }
+    finishSpeechError(result.error);
   }
 
   function closeVoice() {
+    invalidatePreviewRequests();
     voiceLaunchRef.current = false;
     setVoiceOpen(false);
     clearAction();
   }
 
-  function closePreview() {
+  function dismissPreview() {
+    invalidatePreviewRequests();
+    setPreviewVisible(false);
+    clearAction();
+  }
+
+  function requestPreviewClose() {
+    if (confirmInFlightRef.current) return;
+    dismissPreview();
+  }
+
+  function finishPreviewDismiss() {
+    invalidatePreviewRequests();
     previewLaunchRef.current = false;
+    previewStoreSignatureRef.current = null;
     setPreview(null);
     clearAction();
   }
@@ -233,43 +251,75 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
   async function handleEdit(text: string) {
     if (!preview || !storage || lists.length === 0) return;
 
+    const requestId = beginPreviewRequest();
+    const currentPreview = preview;
+
     const input: NaturalLanguageAdditionInput =
-      preview.input.source === 'speech'
+      currentPreview.input.source === 'speech'
         ? {
             source: 'speech',
             text,
-            locale: preview.input.locale,
-            onDevice: preview.input.onDevice,
+            locale: currentPreview.input.locale,
+            onDevice: currentPreview.input.onDevice,
           }
         : { source: 'text', text, locale: null };
 
     try {
       const nextPreview = await createBetaPreview({
-        betaSessionId: preview.session.id,
-        startedAt: preview.session.startedAt,
+        betaSessionId: currentPreview.session.id,
+        startedAt: currentPreview.session.startedAt,
         lists,
         storage,
         input,
       });
+      if (!isCurrentPreviewRequest(requestId)) return;
       debugLogEvent('shopping-list.voice-preview.reparsed', {
         itemCount: nextPreview.items.length,
         source: input.source,
       });
-      setPreview(nextPreview);
+      presentPreview(nextPreview);
     } catch (error) {
+      if (!isCurrentPreviewRequest(requestId)) return;
       const message = error instanceof Error ? error.message : String(error);
       Alert.alert('Artikel konnten nicht neu geprüft werden', message);
     }
   }
 
   async function handleConfirm(selections: readonly TextBetaSelection[]) {
-    if (!preview || !storage || !householdId) return;
+    if (!preview || !storage || !householdId || confirmInFlightRef.current) return;
+
+    if (previewStoreSignatureRef.current !== listsSignature) {
+      const requestId = beginPreviewRequest();
+      try {
+        const refreshedPreview = await createBetaPreview({
+          betaSessionId: preview.session.id,
+          startedAt: preview.session.startedAt,
+          lists,
+          storage,
+          input: preview.input,
+        });
+        if (!isCurrentPreviewRequest(requestId)) return;
+        presentPreview(refreshedPreview);
+        Alert.alert(
+          'Einkaufslisten aktualisiert',
+          'Die verfügbaren Märkte haben sich geändert. Bitte prüfe die Zuordnung erneut.',
+        );
+      } catch (error) {
+        if (!isCurrentPreviewRequest(requestId)) return;
+        const message = error instanceof Error ? error.message : String(error);
+        Alert.alert('Artikel konnten nicht neu geprüft werden', message);
+      }
+      return;
+    }
+
+    confirmInFlightRef.current = true;
 
     try {
       const db = await getDatabase();
-      await confirmTextBetaItems({
+      const confirmationResult = await confirmTextBetaItems({
         preview,
         selections,
+        availableTargetListIds: lists.map((list) => list.listId),
         storage,
         saveConfirmedOutput: (output) =>
           saveConfirmedBetaOutput({
@@ -279,38 +329,43 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
             createItemId: () => Crypto.randomUUID(),
           }),
       });
-      closePreview();
-      await queryClient.invalidateQueries({ queryKey: ['shopping_list_items', householdId] });
+      dismissPreview();
+      if (confirmationResult.shouldAskForAutomaticApplication) {
+        void requestAutomaticApplicationConsent();
+      }
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ['shopping_list_items', householdId] }),
+        queryClient.invalidateQueries({ queryKey: ['meal-plan-shopping-needs'] }),
+        queryClient.invalidateQueries({ queryKey: ['recipe-shopping-needs'] }),
+        queryClient.invalidateQueries({ queryKey: ['sync-status'] }),
+      ]).catch(() => {
+        debugLogEvent('shopping-list.natural-language-addition.cache-invalidation-failed', {
+          hasError: true,
+        });
+      });
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       Alert.alert('Artikel konnten nicht hinzugefügt werden', message);
+    } finally {
+      confirmInFlightRef.current = false;
     }
   }
 
   return (
     <>
-      <NaturalLanguageAdditionInputSheet
-        visible={inputOpen}
-        onDismiss={closeInput}
-        onSubmit={handleInput}
-        errorMessage={speechError}
-        networkRecognitionConsent={networkConsent}
-        onSpeechFallback={handleInputSpeechFallback}
-      />
-
       <NaturalLanguageAdditionVoiceOverlay
         visible={voiceOpen}
         onCancel={closeVoice}
         onTranscript={handleInput}
         onFallback={handleVoiceFallback}
-        networkRecognitionConsent={networkConsent}
       />
 
       {preview ? (
         <NaturalLanguageAdditionSwiftUIPreview
-          visible
+          visible={previewVisible}
           preview={preview}
-          onDismiss={closePreview}
+          onRequestClose={requestPreviewClose}
+          onDismiss={finishPreviewDismiss}
           onEditText={handleEdit}
           onConfirm={handleConfirm}
         />
