@@ -44,11 +44,7 @@ function ModalComparisonSheet({ mode, onDismiss, onOpenPreview }: ModalCompariso
         keyboardDismissMode="interactive"
         keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
-          <ModalComparisonContent
-            mode={mode}
-            onDismiss={onDismiss}
-            onOpenPreview={onOpenPreview}
-          />
+          <ModalComparisonContent mode={mode} onDismiss={onDismiss} onOpenPreview={onOpenPreview} />
         </View>
       </ScrollView>
     </Surface>

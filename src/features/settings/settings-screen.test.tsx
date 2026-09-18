@@ -27,6 +27,12 @@ let mockAvatarUrl: string | null = null;
 let mockCaloriesTrackingEnabled = true;
 const mockSignOutAndClearLocalData = jest.fn();
 const mockPersistOnboardingCompleted = jest.fn();
+const mockGetAutomaticApplicationConsent = jest.fn();
+const mockSetAutomaticApplicationConsent = jest.fn();
+const mockGetQualityMetricsConsent = jest.fn();
+const mockSetQualityMetricsConsent = jest.fn();
+const mockGetContentDataConsent = jest.fn();
+const mockSetContentDataConsent = jest.fn();
 
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({
@@ -100,6 +106,19 @@ jest.mock('@/features/settings/use-feature-access', () => ({
   }),
 }));
 
+jest.mock('@/features/settings/natural-language-beta-consent', () => ({
+  naturalLanguageBetaConsentPort: {
+    getAutomaticApplicationConsent: (...args: unknown[]) =>
+      mockGetAutomaticApplicationConsent(...args),
+    setAutomaticApplicationConsent: (...args: unknown[]) =>
+      mockSetAutomaticApplicationConsent(...args),
+    getQualityMetricsConsent: (...args: unknown[]) => mockGetQualityMetricsConsent(...args),
+    setQualityMetricsConsent: (...args: unknown[]) => mockSetQualityMetricsConsent(...args),
+    getContentDataConsent: (...args: unknown[]) => mockGetContentDataConsent(...args),
+    setContentDataConsent: (...args: unknown[]) => mockSetContentDataConsent(...args),
+  },
+}));
+
 // `Screen` fragt den Router, ob es etwas zum Zurueckgehen gibt; ausserhalb
 // eines Navigators gibt es dafuer keinen Zustand.
 jest.mock('expo-router', () => ({
@@ -140,6 +159,18 @@ describe('SettingsScreen', () => {
     jest.mocked(router.replace).mockClear();
     mockSignOutAndClearLocalData.mockClear();
     mockPersistOnboardingCompleted.mockClear();
+    mockGetAutomaticApplicationConsent.mockReset();
+    mockSetAutomaticApplicationConsent.mockReset();
+    mockGetQualityMetricsConsent.mockReset();
+    mockSetQualityMetricsConsent.mockReset();
+    mockGetContentDataConsent.mockReset();
+    mockSetContentDataConsent.mockReset();
+    mockGetAutomaticApplicationConsent.mockResolvedValue('undecided');
+    mockSetAutomaticApplicationConsent.mockResolvedValue(undefined);
+    mockGetQualityMetricsConsent.mockResolvedValue('undecided');
+    mockSetQualityMetricsConsent.mockResolvedValue(undefined);
+    mockGetContentDataConsent.mockResolvedValue('undecided');
+    mockSetContentDataConsent.mockResolvedValue(undefined);
     mockSignOutAndClearLocalData.mockResolvedValue({ error: null });
     mockPersistOnboardingCompleted.mockResolvedValue(undefined);
     process.env.EXPO_PUBLIC_DEV_TOOLS = 'false';
@@ -305,6 +336,21 @@ describe('SettingsScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Gamification' }));
 
     expect(router.push).toHaveBeenCalledWith('/gamification');
+  });
+
+  it('widerruft die automatische Beta-Anwendung aus den Einstellungen', async () => {
+    mockGetAutomaticApplicationConsent.mockResolvedValue('granted');
+
+    await renderScreen();
+    const user = userEvent.setup();
+
+    await user.press(
+      await screen.findByRole('button', {
+        name: 'Automatische Beta-Zuordnung: Erlaubt',
+      }),
+    );
+
+    expect(mockSetAutomaticApplicationConsent).toHaveBeenCalledWith('user-1', 'revoked');
   });
 
   it('wechselt die App-Sprache über die Einstellungszeile', async () => {
