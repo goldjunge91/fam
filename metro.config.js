@@ -25,6 +25,26 @@ config.resolver.sourceExts = [
   ]),
 ];
 
+// expo-sqlite's web implementation loads wa-sqlite as a WebAssembly asset.
+config.resolver.assetExts = [...new Set([...config.resolver.assetExts, "wasm"])];
+
+// SharedArrayBuffer is required by wa-sqlite in the browser.
+const existingEnhanceMiddleware = config.server?.enhanceMiddleware;
+config.server = {
+  ...config.server,
+  enhanceMiddleware: (middleware, server) => {
+    const enhancedMiddleware = existingEnhanceMiddleware
+      ? existingEnhanceMiddleware(middleware, server)
+      : middleware;
+
+    return (req, res, next) => {
+      res.setHeader("Cross-Origin-Embedder-Policy", "credentialless");
+      res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+      return enhancedMiddleware(req, res, next);
+    };
+  },
+};
+
 config.transformer.getTransformOptions = async () => ({
   transform: {
     experimentalImportSupport: true,
