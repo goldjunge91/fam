@@ -1,0 +1,34 @@
+/**
+ * Web has no AdMob implementation. Keep the public constants available for
+ * shared callers without importing the native Google Mobile Ads package.
+ */
+export const BannerAdSize = {
+  BANNER: 'BANNER',
+  FULL_BANNER: 'FULL_BANNER',
+  LARGE_BANNER: 'LARGE_BANNER',
+  LEADERBOARD: 'LEADERBOARD',
+  MEDIUM_RECTANGLE: 'MEDIUM_RECTANGLE',
+  ANCHORED_ADAPTIVE_BANNER: 'ANCHORED_ADAPTIVE_BANNER',
+  LARGE_ANCHORED_ADAPTIVE_BANNER: 'LARGE_ANCHORED_ADAPTIVE_BANNER',
+  INLINE_ADAPTIVE_BANNER: 'INLINE_ADAPTIVE_BANNER',
+  WIDE_SKYSCRAPER: 'WIDE_SKYSCRAPER',
+} as const;
+
+export const TestIds = {
+  APP_OPEN: '',
+  ADAPTIVE_BANNER: '',
+  BANNER: '',
+  INTERSTITIAL: '',
+  INTERSTITIAL_VIDEO: '',
+  REWARDED: '',
+  REWARDED_INTERSTITIAL: '',
+  NATIVE: '',
+  NATIVE_VIDEO: '',
+  GAM_APP_OPEN: '',
+  GAM_BANNER: '',
+  GAM_INTERSTITIAL: '',
+  GAM_REWARDED: '',
+  GAM_REWARDED_INTERSTITIAL: '',
+  GAM_NATIVE: '',
+  GAM_NATIVE_VIDEO: '',
+} as const;
