@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import { debugError } from '../observability/debug-log';
+import { debugError, debugLog } from '../observability/debug-log';
 
 const NOTIF_SETTINGS_KEY = 'fam_notification_settings_v1';
 export const EXPIRY_NOTIFICATION_IDENTIFIER = 'fam.inventory.expiry.v1';
@@ -33,6 +33,9 @@ try {
 let NotificationsModule: any = null;
 try {
   NotificationsModule = require('expo-notifications');
+  debugLog('[APPTRACE:NOTIFICATIONS-MODULE-LOAD]', {
+    available: Boolean(NotificationsModule),
+  });
   if (NotificationsModule?.setNotificationHandler) {
     NotificationsModule.setNotificationHandler({
       handleNotification: async () => ({
@@ -46,6 +49,7 @@ try {
   }
 } catch {
   NotificationsModule = null;
+  debugLog('[APPTRACE:NOTIFICATIONS-MODULE-LOAD]', { available: false });
 }
 
 const memoryStorage = new Map<string, string>();
