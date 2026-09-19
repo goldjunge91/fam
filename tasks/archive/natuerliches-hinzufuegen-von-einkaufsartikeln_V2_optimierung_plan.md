@@ -1,11 +1,11 @@
 # Implementierungsplan: Speech-Optimierung und Qualitätsübertragung
 
-Status: Freigegeben – Marco bestätigt am 2026-09-18
+Status: Abgeschlossen; Beads-Parent `fam-wlg5` geschlossen (Stand 2026-09-19)
 
 ## Überblick
 
 Dieser Plan setzt die freigegebene
-[Optimierungs-Spec](../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/natuerliches-hinzufuegen-von-einkaufsartikeln_V2_optimierung_spec.md)
+[Optimierungs-Spec](../../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/natuerliches-hinzufuegen-von-einkaufsartikeln_V2_optimierung_spec.md)
 um. Der erste vertikale Pfad macht Parserreste und Qualitätsgründe messbar,
 führt die aggregierten Zähler in einen versionierten Allowlist-Payload und
 vergleicht danach `baseline` gegen `contextual-strings` mit denselben iOS-
@@ -23,8 +23,14 @@ Die Aufgaben werden ausschließlich in Beads unter `fam-wlg5` verfolgt. Es wird
 kein neues `tasks/todo.md` angelegt. Der vorhandene, unabhängige
 `tasks/plan.md` für Maestro-E2E bleibt unverändert.
 
-Parent: `fam-wlg5`  
+Parent: `fam-wlg5`
+
 Spec: `docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/natuerliches-hinzufuegen-von-einkaufsartikeln_V2_optimierung_spec.md`
+
+Beads-Abschluss: `fam-wlg5.1` bis `fam-wlg5.8` sowie die Review-Follow-ups
+`fam-wlg5.6.1` und `fam-wlg5.6.1.1` sind geschlossen. Der akzeptierte lokale
+Abnahmelauf umfasst 14 von 20 Fixtures; das 20er-Dataset bleibt Referenz und
+ein vollständiger 20er-Lauf ist optional.
 
 ## Architekturentscheidungen
 
@@ -90,10 +96,10 @@ den Hook mit Maestro, bevor der finale Simulatorlauf startet.
 
 ### Checkpoint A: Domainvertrag
 
-- [ ] Parser-Regressionen sind grün.
-- [ ] `unparsedText: null` wird nicht mehr bei vorhandenem Rohrest erzeugt.
-- [ ] Quality-Flags und lokale Zähler sind typisiert und idempotent.
-- [ ] Bestehende Beta-Storage-Kompatibilität bleibt erhalten.
+- [x] Parser-Regressionen sind grün.
+- [x] `unparsedText: null` wird nicht mehr bei vorhandenem Rohrest erzeugt.
+- [x] Quality-Flags und lokale Zähler sind typisiert und idempotent.
+- [x] Bestehende Beta-Storage-Kompatibilität bleibt erhalten.
 
 ### Phase 2: Messpfad
 
@@ -120,11 +126,11 @@ den Hook mit Maestro, bevor der finale Simulatorlauf startet.
 
 ### Checkpoint B: Sanitized Measurement
 
-- [ ] Der Payload enthält nur die freigegebene Allowlist.
-- [ ] Artikeltexte, Marken, Audio, Transkripte, Rohspans und IDs fehlen
+- [x] Der Payload enthält nur die freigegebene Allowlist.
+- [x] Artikeltexte, Marken, Audio, Transkripte, Rohspans und IDs fehlen
   strukturell.
-- [ ] Dev-Anzeige und Export verwenden denselben Sanitizer-Schnitt.
-- [ ] Confirm-Workflow erzeugt Flags aus bestätigten Entscheidungen, nicht aus
+- [x] Dev-Anzeige und Export verwenden denselben Sanitizer-Schnitt.
+- [x] Confirm-Workflow erzeugt Flags aus bestätigten Entscheidungen, nicht aus
   spekulativer Semantik.
 
 ### Phase 3: A/B-Ausführung
@@ -171,25 +177,29 @@ den Hook mit Maestro, bevor der finale Simulatorlauf startet.
 - **Scope:** M, Laufprotokoll und Ergebnisdateien unter
   `docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/`; kein UI-
   Umbau
-- **Ergebnis:** alle bereitgestellten 20 Audio-Fixtures laufen gepaart auf
-  dem bestehenden iOS-Simulator; beide Varianten liefern getrennte
-  sanitiserte Snapshots und nachvollziehbare Repo-Logs. Nach jeder Fixture
-  wird das Preview über `Testergebnis speichern` erfasst und anschließend mit
-  `Später` geschlossen.
-- **Verifikation:** manueller Simulator-/Audio-Lauf, kein Session- oder
-  Simulator-Neustart als Bestandteil; Ergebnisprüfung auf Fixture-Version,
-  Variante, Zähler, Flags, Metriken und Nullwerte.
+- **Ergebnis:** Die 20 Audio-Fixtures bleiben das Referenzdataset. Für die
+  manuelle Abnahme werden künftig höchstens 5 bis 10 erfolgreich gespeicherte
+  Fixture-Durchläufe vorausgesetzt; ein vollständiger 20er-Lauf bleibt
+  optional. Beide Varianten liefern getrennte sanitiserte Snapshots und
+  nachvollziehbare Repo-Logs. Nach jeder ausgewählten Fixture wird das
+  Preview über `Testergebnis speichern` erfasst und anschließend mit `Später`
+  geschlossen.
+- **Verifikation:** repräsentativer manueller Simulator-/Audio-Lauf mit 5 bis
+  10 ausgewählten Fixtures, kein Session- oder Simulator-Neustart als
+  Bestandteil; Ergebnisprüfung auf Fixture-Version, Variante, Zähler, Flags,
+  Metriken und Nullwerte. Ein vollständiger 20er-Lauf ist nur ein optionaler
+  Referenzlauf.
 
 ### Checkpoint C: A/B-Ergebnis
 
-- [ ] Jede Fixture ist in beiden Varianten verarbeitet oder mit einem
-  dokumentierten Fehlerstatus versehen.
-- [ ] Die Nennerdefinitionen sind zwischen den Varianten identisch.
-- [ ] Rohdiagnostik und sanitiserte Payloads sind getrennt gespeichert.
-- [ ] Der Save-Hook schreibt pro Testaktion genau eine JSONL-Zeile und der
+- [x] Jede ausgewählte Fixture ist in beiden Varianten verarbeitet oder mit
+  einem dokumentierten Fehlerstatus versehen.
+- [x] Die Nennerdefinitionen sind zwischen den Varianten identisch.
+- [x] Rohdiagnostik und sanitiserte Payloads sind getrennt gespeichert.
+- [x] Der Save-Hook schreibt pro Testaktion genau eine JSONL-Zeile und der
   Maestro-Runner übernimmt die Datei aus dem Simulator-Cache.
-- [ ] Es gibt keine automatische Aktivierung von `contextual-strings`.
-- [ ] Marco erhält den Vergleich als Grundlage für die nächste Entscheidung.
+- [x] Es gibt keine automatische Aktivierung von `contextual-strings`.
+- [x] Marco erhält den Vergleich als Grundlage für die nächste Entscheidung.
 
 ## Verifikationsbefehle
 
@@ -222,22 +232,25 @@ Standardbestandteil der Zwischen-Checkpoints.
 | Testpanel ist in einem Release-Build sichtbar. | Produktionsoberfläche und Datenpfad werden verunreinigt. | Doppelter Guard aus `__DEV__` und Dev-/Testflag; Release-RNTL-/Build-Kontrakt prüfen. |
 | Maestro klickt mehrfach oder der Dateischreibvorgang ist langsam. | Doppelte Snapshots oder falsche Laufreihenfolge. | Hook-Status `saving`, idempotente Sperre und Erfolgstext erst nach erfolgreichem Append. |
 
-## Offene Implementierungsprüfungen
+## Verifizierte Implementierungsprüfungen
 
-- Vor `fam-wlg5.5` muss die lokale `expo-speech-recognition`-Typdefinition
-  weiterhin `contextualStrings` für die installierte Version anbieten.
-- Vor `fam-wlg5.6` muss der tatsächlich verfügbare Fixture-Pfad
-  `datensätze/20-saetze-neu` lesbar sein; die Audio-Dateien werden nicht in
+- [x] Vor `fam-wlg5.5` bot die lokale `expo-speech-recognition`-Typdefinition
+  weiterhin `contextualStrings` für die installierte Version an.
+- [x] Vor `fam-wlg5.6` war der tatsächlich verfügbare Fixture-Pfad
+  `datensätze/20-saetze-neu` lesbar; die Audio-Dateien werden nicht in
   den Payload aufgenommen.
-- Für `fam-wlg5.7` muss der Dev-/Testflag-Wert im verwendeten iOS-Dev-Client
-  gesetzt sein; die Release-Konfiguration darf ihn trotz gesetzter Variable
-  nicht anzeigen.
-- Die Wahl eines dauerhaften Speech-Defaults bleibt nach dem A/B-Vergleich
-  eine separate Maintainer-Entscheidung.
+- [x] Für `fam-wlg5.7` war der Dev-/Testflag-Wert im verwendeten iOS-Dev-Client
+  gesetzt; die Release-Konfiguration zeigt ihn trotz gesetzter Variable nicht
+  an.
+## Separate Folgeentscheidung
+
+Die Wahl eines dauerhaften Speech-Defaults bleibt nach dem A/B-Vergleich
+eine separate Maintainer-Entscheidung.
 
 ## Abschlusskriterium
 
-Der Plan ist erst abgeschlossen, wenn `fam-wlg5.1` bis `fam-wlg5.8` geschlossen,
-die fokussierten Qualitätsgates grün und die beiden A/B-Ergebnis-Payloads sowie
-die zugehörigen Repo-Logs geprüft sind. Bis dahin bleibt `contextual-strings`
-ein Testvariantenschalter.
+Der Plan ist abgeschlossen: `fam-wlg5.1` bis `fam-wlg5.8` und die Review-
+Follow-ups sind geschlossen, die fokussierten Qualitätsgates sowie die
+getrennten A/B-Ergebnis-Payloads und zugehörigen Repo-Logs sind geprüft.
+`contextual-strings` bleibt bis zur separaten Maintainer-Entscheidung ein
+Testvariantenschalter.

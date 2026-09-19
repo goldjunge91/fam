@@ -313,6 +313,6 @@ Diese Frage wurde bewusst vertagt. Bis zur Entscheidung bleibt die Produktions-T
 
 ## 14. Freigabestatus
 
-Capability Map und Spec wurden gemeinsam geprüft und für die getrennte Beta sowie deren Implementierungsplanung freigegeben. Der Implementierungsplan liegt unter [natuerliches-hinzufuegen-von-einkaufsartikeln_V2_plan.md](../../../tasks/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/natuerliches-hinzufuegen-von-einkaufsartikeln_V2_plan.md). Die Umsetzung bleibt vom normalen Einkaufsworkflow getrennt.
+Capability Map und Spec wurden gemeinsam geprüft und für die getrennte Beta sowie deren Implementierungsplanung freigegeben. Der abgeschlossene Implementierungsplan liegt im Archiv unter [natuerliches-hinzufuegen-von-einkaufsartikeln_V2_plan.md](../../../tasks/archive/natuerliches-hinzufuegen-von-einkaufsartikeln_V2_plan.md). Die Umsetzung bleibt vom normalen Einkaufsworkflow getrennt.
 
 Die offene Frage zur Produktions-Telemetrie sowie Entscheidungen über Whisper Tiny, alternative lokale Modelle, eine breitere Aktivierung und eine spätere Übernahme in Produktion bleiben separate Freigabegates.

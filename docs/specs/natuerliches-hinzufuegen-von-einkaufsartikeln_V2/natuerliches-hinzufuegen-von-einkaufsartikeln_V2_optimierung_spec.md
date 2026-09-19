@@ -2,7 +2,7 @@
 
 Status: Freigegeben – Contract und Implementierungsumfang bestätigt
 
-Implementierungsplan: [Speech-Optimierung und Qualitätsübertragung](../../../tasks/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/natuerliches-hinzufuegen-von-einkaufsartikeln_V2_optimierung_plan.md)
+Abgeschlossener Implementierungsplan: [Speech-Optimierung und Qualitätsübertragung](../../../tasks/archive/natuerliches-hinzufuegen-von-einkaufsartikeln_V2_optimierung_plan.md)
 
 ## 1. Zweck und Problem
 

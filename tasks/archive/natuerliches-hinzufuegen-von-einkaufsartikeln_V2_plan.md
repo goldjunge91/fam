@@ -1,14 +1,14 @@
 # Implementierungsplan: natuerliches-hinzufuegen-von-einkaufsartikeln_V2
 
-Status: iOS-V2-Beta abgeschlossen; Android bewusst in separate Folge-Tasks ausgelagert (Stand 2026-09-18)
+Status: Beads-Epic geschlossen; iOS-V2-Beta abgeschlossen; Android und TestFlight bleiben separate Folge-/Release-Themen (Stand 2026-09-19)
 
-Quelle: [natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md](../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md)
+Quelle: [natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md](../../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md)
 
-Capability Map: [capability-map.md](../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/capability-map.md)
+Capability Map: [capability-map.md](../../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/capability-map.md)
 
 Beads-Epic: `fam-gbv7` (geschlossen, 23/23 Unteraufgaben abgeschlossen)
 
-## Aktueller Umsetzungsstand (2026-09-18)
+## Aktueller Umsetzungsstand (2026-09-19)
 
 Der iOS-Scope dieses Plans ist vollständig implementiert und verifiziert. Der
 reale Nachweis umfasst den On-Device-Speech-Pfad, die Beta-Vorschau, die
@@ -16,11 +16,11 @@ explizite Bestätigung, das Speichern in die bestehende Einkaufsliste und das
 anschließende Löschen eines bestätigten Artikels auf dem iPhone-11-Simulator
 (`4B293FA5-24E8-4BF4-8295-3EF2D6C50F7D`, iOS 26.2).
 
-- Beads: `fam-gbv7` geschlossen, 23/23 Kinderaufgaben abgeschlossen.
+- Beads: `fam-gbv7` geschlossen, 23/23 Kinderaufgaben abgeschlossen; keine offenen oder laufenden Kinderaufgaben.
 - Qualitäts-Gates: `bun run check`, `bun run typecheck` und die fokussierten V2-
   Tests sind grün (18 Suites, 122 Tests).
-- Live-Nachweis: [Testbericht](../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/live-speech-test-2026-09-18.md)
-  und [JSONL-Testlogs](../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/live-speech-test-2026-09-18.jsonl).
+- Live-Nachweis: [Testbericht](../../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/live-speech-test-2026-09-18.md)
+  und [JSONL-Testlogs](../../docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/live-speech-test-2026-09-18.jsonl).
 - Android ist nicht als implementiert oder verifiziert markiert. Build-,
   Geräte- und Android-Speech-Tasks werden in einem separaten Android-Epic
   angelegt.
@@ -199,7 +199,7 @@ Die fachlichen Slices, Akzeptanzkriterien und Verifikationsschritte bleiben in d
 - [x] Alle geänderten Domain-, Service-, Workflow- und UI-Tests laufen als fokussierte `bun run test <datei>`-Aufrufe.
 - [x] Relevante SQLite-/Outbox-Integrationstests sind grün; zusätzlich wurde das Speichern und Löschen auf iOS real geprüft.
 - [x] iOS zeigt das definierte Gate-, Capability- und Speech-Fehlerverhalten.
-- [ ] Android zeigt dasselbe Verhalten. Dies ist ein separater Folgeumfang und kein Bestandteil der iOS-Abnahme.
+- Scopegrenze: Android zeigt dieses Verhalten in diesem Epic nicht. Android-Verifikation und Android-Auslieferung sind separate Folge-Tasks.
 - [x] Roh-Audio verlässt das Gerät nicht.
 - [x] MVP-Nachweis: lokale Metrik-Berechnung ist verifiziert und Content- sowie Qualitätsdaten haben getrennte, widerrufbare Einwilligungen.
 - Die Ziel-/Erfolgskriterien aus Test-/Pilotdaten sind mindestens 95 Prozent korrekte Zuordnungen, höchstens 1 Prozent falsche Listen, höchstens 10 Prozent manuelle Korrekturen und median höchstens 6 Sekunden; sie sind kein MVP-Auslieferungsblocker und werden ohne belastbare Geräte-/Pilotdaten nicht als erfüllt markiert.
@@ -232,13 +232,13 @@ Jeder Beads-Task trägt seine fokussierte Test- und Build-Verifikation. Die Umse
 | Telemetrie enthält identifizierbare Einkaufsinhalte | Datenschutzrisiko und Release-Blocker | lokale Filterung, getrennte Consents, kein Audio, Drop bei unsicherer Payload; Produktionsentscheidung offen halten |
 | UI-Aufwand wächst vor stabiler Domainlogik | Rework und Scope-Ausweitung | Parser-/Speech-Workflow zuerst, Mock-Review vor UI-Implementierung, UI bleibt separat vom Listenadapter |
 
-## Offene Entscheidungen und Freigabegates
+## Separate Folgeentscheidungen und Freigabegates
 
 - Die konkrete Produktionsausgestaltung der datenschutzverstärkten Telemetrie ist die einzige offene Frage aus der Spec und muss vor einem Produktionsrelease entschieden werden.
 - `expo-speech-recognition` ist bereits integriert. Neue native Abhängigkeiten, Config-Plugin-Änderungen oder Dev-Client-Rebuilds benötigen weiterhin vor ihrer Umsetzung eine gesonderte Freigabe.
 - Whisper Tiny ist post-MVP. Ein alternatives lokales Modell wird erst anhand von Tests entschieden und gehört nicht in das MVP-Implementierungsgate.
 - Eine spätere Übernahme von Beta-Lernregeln, Beta-Daten oder Beta-Metriken in produktive Systeme ist ein separates Vorhaben.
-- Die konkrete UI darf erst nach dem Mock-Review mit Marco umgesetzt werden.
+- Weitere konkrete UI-Ausgestaltung folgt weiterhin nur nach einem Mock-Review mit Marco.
 
 ## Definition of Done für diese Planung (erledigt für den iOS-Scope)
 
@@ -382,10 +382,9 @@ dieser lokalen Abnahme und bleibt ein separates Release-Thema.
 - [x] `bun run check` und `bun run typecheck` sind grün.
 - [x] Der iOS-Dev-Client zeigt Drag, Scroll, Tastatur, Editieren, Reparse und
   den vollständigen Speech-Lifecycle.
-- [ ] Der Android-Dev-Client zeigt dasselbe Verhalten. Das gehört in separate
-  Android-Tasks.
-- [ ] Ein gemeinsamer TestFlight-Build wurde für diese lokale Abnahme nicht
-  erstellt; das bleibt ein separates Release-Thema.
+- Scopegrenze: Die Android-Verifikation gehört in separate Android-Tasks.
+- Scopegrenze: Ein gemeinsamer TestFlight-Build gehört nicht zur lokalen
+  iOS-Abnahme und bleibt ein separates Release-Thema.
 - [x] Der iOS-Live-Nachweis prüft reale Audiodateien, explizite Bestätigung und
   den anschließenden Save-/Delete-Workflow. Ein unpunktiertes Transcript bleibt
   editierbar, statt automatisch an beliebigen Leerzeichen geteilt zu werden.
