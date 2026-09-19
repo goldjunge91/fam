@@ -8,7 +8,7 @@ Diese Map gehört ausschließlich zur V2-Initiative `natuerliches-hinzufuegen-vo
 
 - Produktquelle: [natuerliches-hinzufuegen-von-einkaufsartikeln.md](../../ideas/natuerliches-hinzufuegen-von-einkaufsartikeln.md)
 - Ausführende Spec: [natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md](./natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md)
-- Implementierungsplan: [natuerliches-hinzufuegen-von-einkaufsartikeln_V2_plan.md](../../../tasks/natuerliches-hinzufuegen-von-einkaufsartikeln_V2_plan.md)
+- Implementierungsplan: [natuerliches-hinzufuegen-von-einkaufsartikeln_V2_plan.md](../../../tasks/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/natuerliches-hinzufuegen-von-einkaufsartikeln_V2_plan.md)
 - Die Idea-Datei definiert die Produktabsicht. Diese Map definiert die fachlichen Module und ihre Abhängigkeiten.
 - Auslieferungsrahmen: getrennte Beta-Oberfläche und getrennte Beta-Daten. Der bestätigte Listen-Output darf ausschließlich über einen bestehenden Adapter in reale Einkaufslisten geschrieben werden.
 - Andere gleichnamige Specs, Pläne oder Beads-Epics sind weder Quelle noch Scope dieser Initiative.

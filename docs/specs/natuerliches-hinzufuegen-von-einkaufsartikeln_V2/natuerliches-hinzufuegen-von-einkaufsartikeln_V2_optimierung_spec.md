@@ -2,7 +2,7 @@
 
 Status: Freigegeben – Contract und Implementierungsumfang bestätigt
 
-Implementierungsplan: [Speech-Optimierung und Qualitätsübertragung](../../../tasks/natuerliches-hinzufuegen-von-einkaufsartikeln_V2_optimierung_plan.md)
+Implementierungsplan: [Speech-Optimierung und Qualitätsübertragung](../../../tasks/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/natuerliches-hinzufuegen-von-einkaufsartikeln_V2_optimierung_plan.md)
 
 ## 1. Zweck und Problem
 
@@ -191,6 +191,10 @@ type SanitizedQualityPayload = {
 - `correctAutomaticAssignmentCount` und
   `falseListAssignmentCount` beziehen sich ausschließlich auf automatische
   Zuordnungen.
+- Die beiden Teilzähler bilden automatische Zuordnungen vollständig ab:
+  `correctAutomaticAssignmentCount + falseListAssignmentCount =
+  automaticAssignmentCount`. Bei `0` automatischen Zuordnungen sind beide
+  Teilzähler `0`.
 - `manualCorrectionCount` bezieht sich auf bestätigte Korrekturen und darf
   nicht stillschweigend aus fehlendem Parsing abgeleitet werden.
 - `durationSamplesMs` enthält höchstens 64 endliche, nicht negative Werte.
@@ -243,10 +247,8 @@ Dev- und Exportpfads mit dem Sanitizer-Ergebnis.
 
 Das bestehende Preview-Modal darf bei aktivierter Testfreigabe eine zusätzliche
 Sektion `Testdiagnostik` anzeigen. Die Freigabe ist ausschließlich aktiv, wenn
-`__DEV__` wahr ist und entweder die bestehenden Dev-Tools oder die explizite
-Umgebungsflag `EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS` aktiviert
-ist. In Release-Builds bleibt die Sektion unabhängig von der Umgebungsvariable
-unsichtbar.
+`__DEV__` wahr ist und `EXPO_PUBLIC_DEV_TOOLS` aktiviert ist. In Release-Builds
+bleibt die Sektion unabhängig von der Umgebungsvariable unsichtbar.
 
 Die Sektion enthält mindestens:
 
@@ -347,8 +349,15 @@ kurze Phrasen und wird als Teil der Fixture-/Experimentversion dokumentiert.
 
 ### Durchführung
 
-- Jede Audio-Fixture aus demselben `fixtureSetVersion` wird mit beiden Varianten
-  verarbeitet.
+- Das Referenzdataset umfasst weiterhin 20 Audio-Fixtures. Für einen manuellen
+  A/B- oder Abnahmelauf werden künftig höchstens 5 bis 10 erfolgreich
+  gespeicherte Fixture-Durchläufe vorausgesetzt; ein vollständiger 20er-Lauf
+  bleibt optional.
+- Der am 19.09.2026 nach 14 von 20 Fixtures beendete Lauf gilt damit als
+  ausreichend. Das zugehörige Maestro-Artefakt liegt unter
+  `/Users/marco/.maestro/tests/2026-09-19_043811`.
+- Jede für den jeweiligen Lauf ausgewählte Audio-Fixture aus demselben
+  `fixtureSetVersion` wird mit beiden Varianten verarbeitet.
 - Die Ergebnis-Payloads werden pro Variante getrennt erstellt und niemals vor
   dem Vergleich vermischt.
 - Beide Varianten werden mit identischen Parser-, Routing- und
@@ -423,9 +432,10 @@ bun run test <betroffene-testdatei>
 ```
 
 Die vollständige Testsuite wird nicht als Standardlauf verwendet. Der
-Simulatorlauf mit den 20 Audio-Fixtures folgt erst nach dem Contract- und
-Domain-Test und wird nicht durch diese Spec automatisch gestartet oder neu
-gestartet.
+Simulatorlauf mit einer repräsentativen Stichprobe von 5 bis 10 Audio-Fixtures
+folgt erst nach dem Contract- und Domain-Test. Der vollständige 20er-Lauf bleibt
+ein optionaler Referenzlauf und wird nicht durch diese Spec automatisch
+gestartet oder neu gestartet.
 
 ## 9. Erfolgskriterien
 

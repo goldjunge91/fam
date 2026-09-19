@@ -279,11 +279,23 @@ der Standard nicht passt, zum Beispiel
 
 ### Speech-to-text-Datensätze über BlackHole
 
+Die vollständige Erklärung der Speech-Implementierungen, der Varianten, des
+Preview-Testpanels und des Resume-Verhaltens steht im
+[Speech-Implementierungsleitfaden](../specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/speech-implementierungen-benutzung.md).
+
 Der lokale Runner `.maestro/scripts/speech-dataset.ts` verbindet zwei Maestro-
 Flows mit dem macOS-Audioplayer. Pro Datei öffnet Maestro die Sprachansicht,
 `afplay` spielt das Audio über den aktuell gewählten macOS-Ausgang ab, danach
-beendet Maestro die Aufnahme und schließt die Preview mit `Später`. Es werden
-keine erkannten Artikel gespeichert.
+beendet Maestro die Aufnahme, speichert über `Testergebnis speichern` genau eine
+sanitisierte Qualitätszeile und schließt die Preview mit `Später`. Der
+produktive Button `Artikel hinzufügen` wird im Flow nicht verwendet.
+
+Für die manuelle Speech-Abnahme werden höchstens 5 bis 10 erfolgreich
+gespeicherte Fixture-Durchläufe vorausgesetzt. Der 20er-Datensatz bleibt als
+Referenzdataset verfügbar, ist aber kein Pflichtumfang jeder Abnahme. Der Lauf
+vom 19.09.2026 wurde nach 14 von 20 Fixtures ausreichend beendet; das letzte
+Maestro-Artefakt liegt unter
+`/Users/marco/.maestro/tests/2026-09-19_043811`.
 
 Voraussetzungen:
 
@@ -298,20 +310,56 @@ Ein kurzer Smoke-Lauf:
 bun .maestro/scripts/speech-dataset.ts --limit 1
 ```
 
-Ohne Pfadangaben werden `datensätze/eigenmarken-20` und
-`datensätze/20-saetze-neu` verwendet. Standardmäßig werden die WAV-Dateien
-gespielt. Ein vollständiger Lauf gegen die gewünschte Simulator-UDID sieht so
-aus:
+Nach einem Lauf liegt ein versioniertes Ergebnis unter
+`docs/specs/natuerliches-hinzufuegen-von-einkaufsartikeln_V2/maestro-speech-results/<run-id>/`:
+
+- `fam-natural-language-addition-quality.jsonl` — die unveränderten
+  Sanitizer-Zeilen aus `Paths.cache`
+- `captures/` — genau eine JSONL-Zeile pro Audio-Fixture
+- `manifest.json` — Laufstatus, Checkpoint (`nextAudioIndex` und
+  `lastCompletedAudio`), geplante Reihenfolge und relative Audio-Dateien
+- `quality-before.jsonl` — der vor dem Lauf gesicherte lokale Ergebnisstand
+
+Der Runner leert die Qualitätsdatei im Simulator-Cache erst nach dieser
+Sicherung. Rohdiagnostik und Qualitäts-Payload bleiben getrennt.
+
+Ohne Pfadangaben wird `datensätze/20-saetze-neu` verwendet. Ein zusätzlicher
+Datensatz kann mehrfach mit `--dataset <dir>` ergänzt werden. Standardmäßig
+werden die WAV-Dateien gespielt. Ein optionaler vollständiger Referenzlauf
+gegen die gewünschte Simulator-UDID sieht so aus:
 
 ```bash
 bun .maestro/scripts/speech-dataset.ts \
   --device 4B293FA5-24E8-4BF4-8295-3EF2D6C50F7D
 ```
 
+Für die normale manuelle Abnahme genügt stattdessen:
+
+```bash
+bun .maestro/scripts/speech-dataset.ts \
+  --limit 10 \
+  --device 4B293FA5-24E8-4BF4-8295-3EF2D6C50F7D
+```
+
 Mit `--formats mp3` oder `--formats both` kann die Audioauswahl geändert
-werden. `--dry-run` zeigt die deterministische Reihenfolge ohne App- oder
-Audiosteuerung. Der Runner ist für iOS-Simulatoren vorgesehen, da Maestro
-keine physischen iOS-Geräte lokal ausführt.
+werden. Mit `--results-dir <dir>` lässt sich die Ergebniswurzel für einen
+lokalen Lauf überschreiben. Wenn ein Lauf nach mindestens einem erfolgreich
+gesicherten Snapshot abbricht, setzt der folgende Aufruf den letzten passenden
+unvollständigen Lauf fort:
+
+```bash
+bun .maestro/scripts/speech-dataset.ts \
+  --resume-latest \
+  --device 4B293FA5-24E8-4BF4-8295-3EF2D6C50F7D
+```
+
+Bereits gesicherte Captures werden aus dem Manifest und dem `captures/`-Ordner
+wiederhergestellt und übersprungen. Der erste nicht gesicherte Datensatz wird
+vollständig wiederholt. Dataset, Format und ein zuvor verwendetes `--limit`
+müssen zum abgebrochenen Lauf passen. `--dry-run` zeigt die deterministische
+Reihenfolge ohne App-, Simulator- oder Audiosteuerung. Der Runner ist für
+iOS-Simulatoren vorgesehen, da Maestro keine physischen iOS-Geräte lokal
+ausführt.
 
 ### Android, erst nach grüner iOS-Abnahme
 
