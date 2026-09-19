@@ -2,14 +2,22 @@
 
 import { execFileSync, spawn } from 'node:child_process';
 import { existsSync } from 'node:fs';
-import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, readFile, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { runMaestro } from './lib/run-maestro';
 import {
   DEFAULT_SPEECH_RESULTS_DIRECTORY,
   discoverSpeechAudioFiles,
+  findResumeStartIndex,
   parseSpeechDatasetArgs,
+  type SpeechDatasetCapture,
+  validateSpeechDatasetQualityLine,
 } from './speech-dataset-plan';
+import {
+  isSpeechExperimentVariant,
+  type ExperimentVariant,
+} from '../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/domain/speech-experiment';
+import { parseQualitySnapshotInput } from '../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/domain/quality-cohort-report';
 
 const repositoryRoot = path.resolve(import.meta.dir, '../..');
 const BUNDLE_ID = 'com.goldjunge91.fam1';
@@ -27,7 +35,23 @@ const cleanupFlow = path.join(
   repositoryRoot,
   '.maestro/ios/flows/speech/speech-dataset-cleanup.yaml',
 );
-type QualityCaptureStatus = 'completed' | 'failed';
+type QualityCaptureStatus = 'running' | 'completed' | 'failed';
+
+type QualityCaptureManifest = {
+  schemaVersion: number;
+  status: QualityCaptureStatus;
+  runId: string;
+  device: string;
+  qualityFile: string;
+  previousQualityFile: string;
+  experimentVariant: ExperimentVariant;
+  fixtureSetVersion?: string | null;
+  plannedAudioFiles?: string[];
+  nextAudioIndex: number;
+  lastCompletedAudio: string | null;
+  capturedCount: number;
+  captures: SpeechDatasetCapture[];
+};
 
 type QualityCaptureContext = {
   runId: string;
@@ -37,12 +61,12 @@ type QualityCaptureContext = {
   manifestFilePath: string;
   previousFilePath: string;
   device: string;
+  experimentVariant: ExperimentVariant;
+  fixtureSetVersion: string | null;
+  plannedAudioFiles: string[];
   capturedLineCount: number;
-  captures: Array<{
-    audio: string;
-    line: number;
-    capturedAt: string;
-  }>;
+  captures: SpeechDatasetCapture[];
+  qualityLines: string[];
 };
 
 const USAGE = `
@@ -63,6 +87,8 @@ Options:
   --audio-start-delay-ms <ms>  Wartezeit nach dem Öffnen der Sprachsession
   --audio-finish-delay-ms <ms> Wartezeit nach dem Audioende
   --results-dir <dir>         Ergebniswurzel (default: ${DEFAULT_SPEECH_RESULTS_DIRECTORY})
+  --variant <name>            baseline oder contextual-strings (default: baseline)
+  --resume-latest              Letzten unvollständigen Lauf fortsetzen
   --dry-run                    Nur die Ausführungsreihenfolge ausgeben
   -h, --help                  Hilfe anzeigen
 `;
@@ -104,6 +130,220 @@ function nonEmptyLines(content: string): string[] {
   return content.split(/\r?\n/u).filter((line) => line.trim().length > 0);
 }
 
+function captureFileName(index: number, audioPath: string): string {
+  return `${String(index).padStart(2, '0')}-${path.basename(audioPath, path.extname(audioPath))}.jsonl`;
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null;
+}
+
+function isQualityCaptureStatus(value: unknown): value is QualityCaptureStatus {
+  return value === 'running' || value === 'completed' || value === 'failed';
+}
+
+function parseManifestCaptures(value: unknown, manifestPath: string): SpeechDatasetCapture[] {
+  if (!Array.isArray(value)) {
+    throw new Error(`Resume-Manifest enthält keine Capture-Liste: ${manifestPath}`);
+  }
+
+  return value.map((capture, index) => {
+    if (!isRecord(capture)) {
+      throw new Error(`Resume-Manifest enthält eine ungültige Capture bei Index ${index}.`);
+    }
+    const { audio, line, capturedAt } = capture;
+    if (
+      typeof audio !== 'string' ||
+      !Number.isInteger(line) ||
+      line < 1 ||
+      typeof capturedAt !== 'string'
+    ) {
+      throw new Error(`Resume-Manifest enthält eine ungültige Capture bei Index ${index}.`);
+    }
+    return { audio, line, capturedAt };
+  });
+}
+
+async function readQualityCaptureManifest(
+  manifestPath: string,
+): Promise<QualityCaptureManifest | null> {
+  const content = await readTextOrEmpty(manifestPath);
+  if (!content.trim()) return null;
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(content) as unknown;
+  } catch {
+    throw new Error(`Resume-Manifest ist kein gültiges JSON: ${manifestPath}`);
+  }
+  if (!isRecord(parsed)) {
+    throw new Error(`Resume-Manifest hat ein ungültiges Format: ${manifestPath}`);
+  }
+
+  const {
+    schemaVersion,
+    status,
+    runId,
+    device,
+    qualityFile,
+    previousQualityFile,
+    experimentVariant,
+    fixtureSetVersion,
+    plannedAudioFiles,
+    nextAudioIndex,
+    lastCompletedAudio,
+    capturedCount,
+    captures,
+  } = parsed;
+  const parsedCaptures = parseManifestCaptures(captures, manifestPath);
+  const normalizedNextAudioIndex = nextAudioIndex ?? parsedCaptures.length;
+  const normalizedLastCompletedAudio =
+    lastCompletedAudio ?? parsedCaptures.at(-1)?.audio ?? null;
+  const normalizedCapturedCount = capturedCount ?? parsedCaptures.length;
+  const normalizedExperimentVariant = experimentVariant ?? 'baseline';
+  const normalizedFixtureSetVersion = fixtureSetVersion ?? null;
+  if (
+    !Number.isInteger(schemaVersion) ||
+    !isQualityCaptureStatus(status) ||
+    typeof runId !== 'string' ||
+    typeof device !== 'string' ||
+    typeof qualityFile !== 'string' ||
+    typeof previousQualityFile !== 'string' ||
+    !isSpeechExperimentVariant(normalizedExperimentVariant) ||
+    (fixtureSetVersion !== undefined &&
+      fixtureSetVersion !== null &&
+      typeof fixtureSetVersion !== 'string') ||
+    (nextAudioIndex !== undefined &&
+      (!Number.isInteger(nextAudioIndex) || nextAudioIndex < 0)) ||
+    (lastCompletedAudio !== undefined &&
+      lastCompletedAudio !== null &&
+      typeof lastCompletedAudio !== 'string') ||
+    (capturedCount !== undefined &&
+      (!Number.isInteger(capturedCount) || capturedCount < 0))
+  ) {
+    throw new Error(`Resume-Manifest hat ein ungültiges Format: ${manifestPath}`);
+  }
+  if (
+    plannedAudioFiles !== undefined &&
+    (!Array.isArray(plannedAudioFiles) ||
+      plannedAudioFiles.some((audioPath) => typeof audioPath !== 'string'))
+  ) {
+    throw new Error(`Resume-Manifest enthält ungültige geplante Audiodateien: ${manifestPath}`);
+  }
+
+  if (
+    normalizedCapturedCount !== parsedCaptures.length ||
+    normalizedNextAudioIndex !== parsedCaptures.length
+  ) {
+    throw new Error(`Resume-Manifest enthält widersprüchliche Zähler: ${manifestPath}`);
+  }
+
+  return {
+    schemaVersion,
+    status,
+    runId,
+    device,
+    qualityFile,
+    previousQualityFile,
+    experimentVariant: normalizedExperimentVariant,
+    fixtureSetVersion: normalizedFixtureSetVersion,
+    ...(plannedAudioFiles === undefined ? {} : { plannedAudioFiles }),
+    nextAudioIndex: normalizedNextAudioIndex,
+    lastCompletedAudio: normalizedLastCompletedAudio,
+    capturedCount: normalizedCapturedCount,
+    captures: parsedCaptures,
+  };
+}
+
+function sameAudioPlan(left: readonly string[], right: readonly string[]): boolean {
+  return left.length === right.length && left.every((audioPath, index) => audioPath === right[index]);
+}
+
+async function findLatestResumableRun(
+  resultsRoot: string,
+  device: string,
+  plannedAudioFiles: readonly string[],
+  experimentVariant: ExperimentVariant,
+): Promise<{ manifest: QualityCaptureManifest; runDirectory: string }> {
+  let entries: Awaited<ReturnType<typeof readdir>>;
+  try {
+    entries = await readdir(resultsRoot, { withFileTypes: true });
+  } catch (error) {
+    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
+      throw new Error(`Kein unvollständiger Datensatzlauf in ${resultsRoot} gefunden.`);
+    }
+    throw error;
+  }
+
+  const runDirectories = entries
+    .filter((entry) => entry.isDirectory() && entry.name.startsWith('run-'))
+    .sort((left, right) => right.name.localeCompare(left.name));
+  for (const entry of runDirectories) {
+    const runDirectory = path.join(resultsRoot, entry.name);
+    const manifestPath = path.join(runDirectory, 'manifest.json');
+    const manifest = await readQualityCaptureManifest(manifestPath);
+    if (
+      !manifest ||
+      manifest.status === 'completed' ||
+      manifest.device !== device ||
+      manifest.experimentVariant !== experimentVariant
+    )
+      continue;
+    if (
+      manifest.plannedAudioFiles &&
+      !sameAudioPlan(manifest.plannedAudioFiles, plannedAudioFiles)
+    ) {
+      continue;
+    }
+    return { manifest, runDirectory };
+  }
+
+  throw new Error(`Kein passender unvollständiger Datensatzlauf in ${resultsRoot} gefunden.`);
+}
+
+async function readCaptureLines(
+  runDirectory: string,
+  captures: readonly SpeechDatasetCapture[],
+  experimentVariant: ExperimentVariant,
+): Promise<string[]> {
+  return Promise.all(
+    captures.map(async (capture) => {
+      const capturePath = path.join(
+        runDirectory,
+        'captures',
+        captureFileName(capture.line, capture.audio),
+      );
+      return validateSpeechDatasetQualityLine(
+        await readFile(capturePath, 'utf8'),
+        capture.audio,
+        experimentVariant,
+      );
+    }),
+  );
+}
+
+function fixtureSetVersionFromQualityLines(qualityLines: readonly string[]): string | null {
+  let fixtureSetVersion: string | null | undefined;
+
+  for (const [index, line] of qualityLines.entries()) {
+    const snapshot = parseQualitySnapshotInput(line)[0];
+    if (!snapshot) {
+      throw new Error(`Capture ${index + 1} enthält keinen Qualitäts-Snapshot.`);
+    }
+    if (fixtureSetVersion === undefined) {
+      fixtureSetVersion = snapshot.fixtureSetVersion;
+      continue;
+    }
+    if (snapshot.fixtureSetVersion !== fixtureSetVersion) {
+      throw new Error(
+        `Resume-Captures mischen unterschiedliche Fixture-Set-Versionen (Capture ${index + 1}).`,
+      );
+    }
+  }
+
+  return fixtureSetVersion ?? null;
+}
+
 function simulatorDataContainer(device: string): string {
   // simctl wird synchron aufgerufen. Hier gibt es keinen eigenen Timeout; ein
   // Fehler des Simulator-Dienstes beendet die Vorbereitung des Laufs.
@@ -119,12 +359,50 @@ function simulatorDataContainer(device: string): string {
   }
 }
 
+function manifestForContext(
+  context: QualityCaptureContext,
+  status: QualityCaptureStatus,
+): QualityCaptureManifest {
+  const lastCapture = context.captures.at(-1);
+  return {
+    schemaVersion: 4,
+    status,
+    runId: context.runId,
+    device: context.device,
+    qualityFile: path.basename(context.aggregateFilePath),
+    previousQualityFile: path.basename(context.previousFilePath),
+    experimentVariant: context.experimentVariant,
+    fixtureSetVersion: context.fixtureSetVersion,
+    plannedAudioFiles: context.plannedAudioFiles,
+    nextAudioIndex: context.captures.length,
+    lastCompletedAudio: lastCapture?.audio ?? null,
+    capturedCount: context.captures.length,
+    captures: context.captures,
+  };
+}
+
+async function writeQualityCaptureManifest(
+  context: QualityCaptureContext,
+  status: QualityCaptureStatus,
+): Promise<void> {
+  const temporaryManifestPath = `${context.manifestFilePath}.tmp`;
+  await writeFile(
+    temporaryManifestPath,
+    `${JSON.stringify(manifestForContext(context, status), null, 2)}\n`,
+    'utf8',
+  );
+  await rename(temporaryManifestPath, context.manifestFilePath);
+}
+
 async function prepareQualityCapture(
   device: string,
   resultsDirectory: string,
+  audioFiles: readonly string[],
+  resumeLatest: boolean,
+  experimentVariant: ExperimentVariant,
 ): Promise<QualityCaptureContext> {
-  // Die Dateioperationen werden abgewartet, damit der alte Cache sicher
-  // gesichert und geleert ist, bevor der erste Testfall startet.
+  // Die Dateioperationen werden abgewartet, damit der Cache sicher vorbereitet
+  // ist, bevor der erste Testfall startet.
   const dataContainer = simulatorDataContainer(device);
   const cacheFilePath = path.join(
     dataContainer,
@@ -132,22 +410,80 @@ async function prepareQualityCapture(
     'Caches',
     QUALITY_TEST_RESULTS_FILE_NAME,
   );
-  const runId = createRunId();
   const resultsRoot = path.resolve(repositoryRoot, resultsDirectory);
+  const plannedAudioFiles = audioFiles.map((audioPath) => path.relative(repositoryRoot, audioPath));
+
+  await mkdir(resultsRoot, { recursive: true });
+  if (resumeLatest) {
+    const { manifest, runDirectory } = await findLatestResumableRun(
+      resultsRoot,
+      device,
+      plannedAudioFiles,
+      experimentVariant,
+    );
+    const capturesDirectory = path.join(runDirectory, 'captures');
+    await mkdir(capturesDirectory, { recursive: false }).catch((error) => {
+      if (!(error instanceof Error && 'code' in error && error.code === 'EEXIST')) throw error;
+    });
+    const qualityLines = await readCaptureLines(
+      runDirectory,
+      manifest.captures,
+      manifest.experimentVariant,
+    );
+    const startIndex = findResumeStartIndex(audioFiles, manifest.captures, repositoryRoot);
+    if (startIndex !== qualityLines.length) {
+      throw new Error('Resume-Manifest und gespeicherte Capture-Zeilen sind inkonsistent.');
+    }
+    const capturedFixtureSetVersion = fixtureSetVersionFromQualityLines(qualityLines);
+    if (
+      manifest.fixtureSetVersion !== undefined &&
+      manifest.fixtureSetVersion !== capturedFixtureSetVersion
+    ) {
+      throw new Error('Resume-Manifest und Capture-Zeilen haben unterschiedliche Fixture-Set-Versionen.');
+    }
+
+    const aggregateFilePath = path.join(
+      runDirectory,
+      path.basename(manifest.qualityFile || QUALITY_TEST_RESULTS_FILE_NAME),
+    );
+    const previousFilePath = path.join(
+      runDirectory,
+      path.basename(manifest.previousQualityFile || 'quality-before.jsonl'),
+    );
+    if (!existsSync(previousFilePath)) await writeFile(previousFilePath, '', 'utf8');
+    await writeFile(cacheFilePath, qualityLines.length > 0 ? `${qualityLines.join('\n')}\n` : '', 'utf8');
+
+    return {
+      runId: manifest.runId,
+      runDirectory,
+      cacheFilePath,
+      aggregateFilePath,
+      manifestFilePath: path.join(runDirectory, 'manifest.json'),
+      previousFilePath,
+      device,
+      experimentVariant: manifest.experimentVariant,
+      fixtureSetVersion: capturedFixtureSetVersion,
+      plannedAudioFiles,
+      capturedLineCount: startIndex,
+      captures: manifest.captures,
+      qualityLines,
+    };
+  }
+
+  const runId = createRunId();
   const runDirectory = path.join(resultsRoot, runId);
   const capturesDirectory = path.join(runDirectory, 'captures');
   const aggregateFilePath = path.join(runDirectory, QUALITY_TEST_RESULTS_FILE_NAME);
   const manifestFilePath = path.join(runDirectory, 'manifest.json');
   const previousFilePath = path.join(runDirectory, 'quality-before.jsonl');
 
-  await mkdir(resultsRoot, { recursive: true });
   await mkdir(runDirectory, { recursive: false });
   await mkdir(capturesDirectory, { recursive: false });
   const previousContent = await readTextOrEmpty(cacheFilePath);
   await writeFile(previousFilePath, previousContent, 'utf8');
   await writeFile(cacheFilePath, '', 'utf8');
 
-  return {
+  const context: QualityCaptureContext = {
     runId,
     runDirectory,
     cacheFilePath,
@@ -155,9 +491,15 @@ async function prepareQualityCapture(
     manifestFilePath,
     previousFilePath,
     device,
+    experimentVariant,
+    fixtureSetVersion: null,
+    plannedAudioFiles,
     capturedLineCount: 0,
     captures: [],
+    qualityLines: [],
   };
+  await writeQualityCaptureManifest(context, 'running');
+  return context;
 }
 
 async function captureQualityLine(
@@ -174,55 +516,47 @@ async function captureQualityLine(
     );
   }
 
-  const line = newLines[0];
-  if (!line) throw new Error(`Leere Qualitätszeile für ${path.basename(audioPath)}`);
-  let parsed: { captureKind?: unknown };
-  try {
-    parsed = JSON.parse(line) as { captureKind?: unknown };
-  } catch {
-    throw new Error(`Qualitätszeile für ${path.basename(audioPath)} ist kein JSON`);
+  const line = validateSpeechDatasetQualityLine(
+    newLines.join('\n'),
+    path.basename(audioPath),
+    context.experimentVariant,
+  );
+  const snapshot = parseQualitySnapshotInput(line)[0];
+  if (!snapshot) {
+    throw new Error(`Qualitätszeile für ${path.basename(audioPath)} enthält keinen Snapshot.`);
   }
-  if (parsed.captureKind !== 'maestro-preview-test') {
-    throw new Error(`Qualitätszeile für ${path.basename(audioPath)} hat den falschen captureKind`);
+  if (context.capturedLineCount === 0) {
+    context.fixtureSetVersion = snapshot.fixtureSetVersion;
+  } else if (context.fixtureSetVersion !== snapshot.fixtureSetVersion) {
+    throw new Error(
+      `Qualitätszeile für ${path.basename(audioPath)} mischt eine andere Fixture-Set-Version.`,
+    );
   }
 
-  const captureName = `${String(index).padStart(2, '0')}-${path.basename(audioPath, path.extname(audioPath))}.jsonl`;
+  if (index !== context.capturedLineCount + 1) {
+    throw new Error(
+      `Qualitätszeile für ${path.basename(audioPath)} hat den unerwarteten Datensatzindex ${index}.`,
+    );
+  }
+  const captureName = captureFileName(index, audioPath);
   await writeFile(path.join(context.runDirectory, 'captures', captureName), `${line}\n`, 'utf8');
   context.capturedLineCount += 1;
+  context.qualityLines.push(line);
   context.captures.push({
     audio: path.relative(repositoryRoot, audioPath),
-    line: context.capturedLineCount,
+    line: index,
     capturedAt: new Date().toISOString(),
   });
+  await writeQualityCaptureManifest(context, 'running');
 }
 
 async function finalizeQualityCapture(
   context: QualityCaptureContext,
   status: QualityCaptureStatus,
 ): Promise<void> {
-  const content = await readTextOrEmpty(context.cacheFilePath);
-  await copyFile(context.cacheFilePath, context.aggregateFilePath).catch(async (error) => {
-    if (!(error instanceof Error && 'code' in error && error.code === 'ENOENT')) throw error;
-    await writeFile(context.aggregateFilePath, content, 'utf8');
-  });
-  await writeFile(
-    context.manifestFilePath,
-    `${JSON.stringify(
-      {
-        schemaVersion: 1,
-        status,
-        runId: context.runId,
-        device: context.device,
-        qualityFile: QUALITY_TEST_RESULTS_FILE_NAME,
-        previousQualityFile: path.basename(context.previousFilePath),
-        capturedCount: context.captures.length,
-        captures: context.captures,
-      },
-      null,
-      2,
-    )}\n`,
-    'utf8',
-  );
+  const content = context.qualityLines.length > 0 ? `${context.qualityLines.join('\n')}\n` : '';
+  await writeFile(context.aggregateFilePath, content, 'utf8');
+  await writeQualityCaptureManifest(context, status);
 }
 
 function playAudio(audioPath: string, player: string): Promise<number> {
@@ -315,6 +649,8 @@ async function run(): Promise<void> {
   console.log(`Gefunden: ${audioFiles.length} Audiodatei(en)`);
   console.log(`Gerät: ${options.device}`);
   console.log(`Player: ${options.audioPlayer}`);
+  console.log(`Variante: ${options.experimentVariant}`);
+  console.log(`Modus: ${options.resumeLatest ? 'letzten unvollständigen Lauf fortsetzen' : 'neuer Lauf'}`);
 
   if (options.dryRun) {
     audioFiles.forEach((audioPath, index) => {
@@ -323,13 +659,26 @@ async function run(): Promise<void> {
     return;
   }
 
-  const qualityCapture = await prepareQualityCapture(options.device, options.resultsDirectory);
+  const qualityCapture = await prepareQualityCapture(
+    options.device,
+    options.resultsDirectory,
+    audioFiles,
+    options.resumeLatest,
+    options.experimentVariant,
+  );
   let status: QualityCaptureStatus = 'failed';
   try {
     // Bewusst sequenziell: Kein Audiofall darf beginnen, bevor der vorherige
     // Finish-Flow und dessen Qualitäts-Snapshot abgeschlossen sind.
-    for (const [index, audioPath] of audioFiles.entries()) {
-      await runAudioCase(audioPath, index + 1, audioFiles.length, options, qualityCapture);
+    const resumeStartIndex = qualityCapture.captures.length;
+    if (resumeStartIndex > 0) {
+      console.log(
+        `Resume: ${resumeStartIndex}/${audioFiles.length} Capture(s) bereits erfolgreich gesichert.`,
+      );
+    }
+    for (const [offset, audioPath] of audioFiles.slice(resumeStartIndex).entries()) {
+      const index = resumeStartIndex + offset + 1;
+      await runAudioCase(audioPath, index, audioFiles.length, options, qualityCapture);
     }
 
     if (qualityCapture.capturedLineCount !== audioFiles.length) {

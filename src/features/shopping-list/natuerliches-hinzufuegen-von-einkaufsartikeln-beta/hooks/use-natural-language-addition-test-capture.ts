@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { env } from '@/lib/config/env';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import {
   createEmptyBetaQualityMetrics,
   recordBetaQualityObservations,
 } from '../domain/quality-metrics';
 import { type ExperimentVariant, sanitizeQualitySnapshot } from '../domain/quality-snapshot';
 import { appendQualityTestSnapshot } from '../services/quality-test-results';
+import { CONTEXTUAL_STRINGS_VERSION } from '../services/speech-contextual-strings';
 import type {
   TextBetaPreview,
   TextBetaQualitySelection,
@@ -31,11 +33,7 @@ export type UseNaturalLanguageAdditionTestCaptureResult = {
 };
 
 function testToolsEnabled(): boolean {
-  return (
-    typeof __DEV__ !== 'undefined' &&
-    __DEV__ &&
-    (env.devTools || env.naturalLanguageAdditionTestTools)
-  );
+  return typeof __DEV__ !== 'undefined' && __DEV__ && env.devTools;
 }
 
 function findSelectedItems(
@@ -81,6 +79,10 @@ export function useNaturalLanguageAdditionTestCapture({
   const previousPreviewResetKeyRef = useRef(previewResetKey);
 
   useEffect(() => {
+    debugLogEvent('shopping-list.voice-preview.test-tools', { enabled });
+  }, [enabled]);
+
+  useEffect(() => {
     if (previousPreviewResetKeyRef.current === previewResetKey) return;
     previousPreviewResetKeyRef.current = previewResetKey;
     savingRef.current = false;
@@ -98,8 +100,24 @@ export function useNaturalLanguageAdditionTestCapture({
       setStatus('saving');
       setError(null);
 
+      const saveStartedAt = Date.now();
+      let stage = 'storage.load';
+      debugLogEvent('shopping-list.voice-preview.test-capture.save.requested', {
+        selectionCount: selections.length,
+      });
+
       try {
+        stage = 'snapshot.prepare';
+        if (selections.length === 0) {
+          throw new Error('Keine Preview-Artikel ausgewählt');
+        }
+
+        const storageStartedAt = Date.now();
         const state = await storage.load();
+        debugLogEvent('shopping-list.voice-preview.test-capture.storage.loaded', {
+          durationMs: Date.now() - storageStartedAt,
+          hasSession: state.session !== null,
+        });
         if (state.session && state.session.id !== preview.session.id) {
           throw new Error('The Beta preview session is no longer active');
         }
@@ -118,19 +136,33 @@ export function useNaturalLanguageAdditionTestCapture({
         const payload = sanitizeQualitySnapshot({
           metrics: annotatedState.qualityMetrics,
           captureKind: 'maestro-preview-test',
-          fixtureSetVersion: null,
+          fixtureSetVersion: CONTEXTUAL_STRINGS_VERSION,
           experimentVariant: variant,
           createdAt: capturedAt,
         });
         if (payload === null) throw new Error('Testmessung konnte nicht serialisiert werden');
 
+        stage = 'snapshot.append';
+        const appendStartedAt = Date.now();
+        debugLogEvent('shopping-list.voice-preview.test-capture.append.started');
         await appendQualityTestSnapshot(payload);
+        debugLogEvent('shopping-list.voice-preview.test-capture.append.completed', {
+          durationMs: Date.now() - appendStartedAt,
+        });
         statusRef.current = 'saved';
         setStatus('saved');
+        debugLogEvent('shopping-list.voice-preview.test-capture.save.succeeded', {
+          durationMs: Date.now() - saveStartedAt,
+        });
       } catch (captureError) {
         statusRef.current = 'error';
         setStatus('error');
         setError(errorMessage(captureError));
+        debugLogEvent('shopping-list.voice-preview.test-capture.save.failed', {
+          durationMs: Date.now() - saveStartedAt,
+          errorKind: captureError instanceof Error ? captureError.name : typeof captureError,
+          stage,
+        });
       } finally {
         savingRef.current = false;
       }

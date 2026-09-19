@@ -65,6 +65,13 @@ function errorMessage(error: unknown): string {
   return error instanceof Error ? error.message : String(error);
 }
 
+function speechTrace(event: string, details: Record<string, unknown> = {}): void {
+  debugLogEvent(`shopping-list.voice-session.trace.${event}`, {
+    timestamp: Date.now(),
+    ...details,
+  });
+}
+
 function appendTranscriptChunk(current: string, chunk: string): string {
   const normalizedChunk = chunk.trim();
   if (!normalizedChunk) return current;
@@ -148,9 +155,23 @@ export function createSpeechRecognitionAdapter(
       };
 
       const finish = (nextResult: SpeechInputResult) => {
-        if (settled) return;
+        if (settled) {
+          speechTrace('finish.ignored', { status: nextResult.status, reason: 'already-settled' });
+          return;
+        }
         settled = true;
         cleanup();
+        speechTrace('finished', {
+          status: nextResult.status,
+          ...(nextResult.status === 'transcript'
+            ? {
+                hasTranscript: Boolean(nextResult.text.trim()),
+                segmentCount: nextResult.segments?.length ?? 0,
+              }
+            : {
+                ...(nextResult.errorCode ? { errorCode: nextResult.errorCode } : {}),
+              }),
+        });
         resolveResult(nextResult);
       };
 
@@ -164,18 +185,31 @@ export function createSpeechRecognitionAdapter(
       });
 
       const stop = () => {
+        speechTrace('stop.requested', {
+          settled,
+          recognitionStarted,
+          stopRequested,
+          stopPending: stopTimeout !== null,
+        });
         if (settled) return;
         if (!recognitionStarted) {
           stopRequested = true;
+          speechTrace('stop.deferred-before-native-start');
           return;
         }
-        if (stopTimeout !== null) return;
+        if (stopTimeout !== null) {
+          speechTrace('stop.ignored', { reason: 'already-pending' });
+          return;
+        }
         try {
+          speechTrace('native.stop.called');
           client.stop();
+          speechTrace('native.stop.returned', { settled });
           if (!settled) {
             stopTimeout = setTimeout(() => {
               stopTimeout = null;
               if (settled) return;
+              speechTrace('stop.timeout', { timeoutMs: RECOGNITION_STOP_TIMEOUT_MS });
               const timeoutResult = fallback(
                 'error',
                 locale,
@@ -184,6 +218,7 @@ export function createSpeechRecognitionAdapter(
               );
               finish(timeoutResult);
               try {
+                speechTrace('native.abort.called', { reason: 'stop-timeout' });
                 client.abort();
               } catch {
                 // The timeout result remains deterministic for the caller.
@@ -193,6 +228,7 @@ export function createSpeechRecognitionAdapter(
         } catch (error) {
           finish(fallback('error', locale, errorMessage(error)));
           try {
+            speechTrace('native.abort.called', { reason: 'stop-threw' });
             client.abort();
           } catch {
             // The stop failure result is already deterministic for the caller.
@@ -201,11 +237,13 @@ export function createSpeechRecognitionAdapter(
       };
 
       const cancel = () => {
+        speechTrace('cancel.requested', { settled, recognitionStarted });
         if (settled) return;
         const shouldAbort = recognitionStarted;
         finish(fallback('cancelled', locale, 'Spracherkennung abgebrochen'));
         if (shouldAbort) {
           try {
+            speechTrace('native.abort.called', { reason: 'cancelled' });
             client.abort();
           } catch {
             // The cancellation result is already deterministic for the caller.
@@ -222,6 +260,7 @@ export function createSpeechRecognitionAdapter(
         if (requiresOnDeviceRecognition) {
           onDeviceAvailable = client.supportsOnDeviceRecognition();
         }
+        speechTrace('capability.checked', { recognitionAvailable, onDeviceAvailable });
       } catch (error) {
         finish(fallback('error', locale, errorMessage(error)));
         return session;
@@ -267,6 +306,7 @@ export function createSpeechRecognitionAdapter(
           }
 
           if (stopRequested) {
+            speechTrace('stop.observed-before-native-start');
             finish(fallback('cancelled', locale, 'Spracherkennung abgebrochen'));
             return;
           }
@@ -276,6 +316,11 @@ export function createSpeechRecognitionAdapter(
               client.addListener('result', (event: ExpoSpeechRecognitionResultEvent) => {
                 const recognitionResult = event.results[0];
                 if (!event.isFinal || !recognitionResult) return;
+
+                speechTrace('native.result.final', {
+                  segmentCount: recognitionResult.segments.length,
+                  hasTranscript: Boolean(recognitionResult.transcript.trim()),
+                });
 
                 finalTranscript = appendTranscriptChunk(
                   finalTranscript,
@@ -301,6 +346,10 @@ export function createSpeechRecognitionAdapter(
                   hasMessage: Boolean(event.message),
                   ...(event.message ? { nativeMessage: event.message.slice(0, 160) } : {}),
                 });
+                speechTrace('native.error.received', {
+                  ...(event.error ? { errorCode: event.error } : {}),
+                  ...(event.code !== undefined ? { nativeCode: event.code } : {}),
+                });
                 finish(fallbackForNativeError(event, locale));
               }),
               ...(onVolumeChange
@@ -314,6 +363,10 @@ export function createSpeechRecognitionAdapter(
                   ]
                 : []),
               client.addListener('end', () => {
+                speechTrace('native.end.received', {
+                  hasTranscript: Boolean(finalTranscript.trim()),
+                  segmentCount: finalSegments.length,
+                });
                 if (finalTranscript.trim()) {
                   finish(transcriptResult());
                   return;
@@ -329,6 +382,7 @@ export function createSpeechRecognitionAdapter(
               }),
             ];
             recognitionStarted = true;
+            speechTrace('native.start.called', { locale, variant });
             client.start({
               lang: locale,
               interimResults: true,
@@ -344,7 +398,9 @@ export function createSpeechRecognitionAdapter(
                 ? { volumeChangeEventOptions: { enabled: true, intervalMillis: 100 } }
                 : {}),
             });
+            speechTrace('native.start.returned');
           } catch (error) {
+            speechTrace('native.start.threw');
             finish(fallback('error', locale, errorMessage(error), 'recognition-start-failed'));
           }
         })

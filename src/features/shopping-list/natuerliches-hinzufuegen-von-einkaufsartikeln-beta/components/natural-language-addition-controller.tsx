@@ -13,7 +13,7 @@ import {
   saveNaturalLanguageAdditionBetaState,
 } from '../beta-storage';
 import { setBetaConsent } from '../domain/consent';
-import type { ExperimentVariant } from '../domain/quality-snapshot';
+import { type ExperimentVariant, getSpeechExperimentVariant } from '../domain/speech-experiment';
 import { saveConfirmedBetaOutput } from '../integration/confirmed-output-adapter';
 import type { NaturalLanguageAdditionInput, SpeechInputResult } from '../types';
 import {
@@ -31,7 +31,7 @@ type NaturalLanguageAdditionControllerProps = {
   stores: readonly Store[];
 };
 
-const TEST_CAPTURE_VARIANT: ExperimentVariant = 'baseline';
+const TEST_CAPTURE_VARIANT: ExperimentVariant = getSpeechExperimentVariant();
 
 export const NaturalLanguageAdditionController = memo(function NaturalLanguageAdditionController({
   householdId,
@@ -361,6 +361,7 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
         onCancel={closeVoice}
         onTranscript={handleInput}
         onFallback={handleVoiceFallback}
+        variant={TEST_CAPTURE_VARIANT}
       />
 
       {preview && storage ? (

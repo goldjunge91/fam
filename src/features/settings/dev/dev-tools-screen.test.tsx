@@ -63,4 +63,13 @@ describe('DevToolsScreen', () => {
 
     expect(router.push).toHaveBeenCalledWith('/shopping-list?action=preview');
   });
+
+  it('öffnet die lokale Qualitätsmetriken-Ansicht', async () => {
+    const user = userEvent.setup();
+    await render(<DevToolsScreen />);
+
+    await user.press(screen.getByRole('button', { name: 'Qualitätsmetriken' }));
+
+    expect(router.push).toHaveBeenCalledWith('/settings/dev-quality-metrics');
+  });
 });

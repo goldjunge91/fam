@@ -3,6 +3,7 @@ import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Button, Press, Surface, TextField, Txt } from '@/constants/ui';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import { getClarificationSummary } from '../domain/clarification';
 import type { ExperimentVariant } from '../domain/quality-snapshot';
 import { useNaturalLanguageAdditionTestCapture } from '../hooks/use-natural-language-addition-test-capture';
@@ -55,6 +56,11 @@ function initialSelections(items: readonly BetaPreviewItem[]): Record<string, st
   );
 }
 
+function testSelectionTarget(item: BetaPreviewItem): string | null {
+  if (item.routing.kind === 'resolved') return item.routing.listId;
+  return item.routing.bestMatch?.listId ?? item.routing.suggestions[0]?.listId ?? null;
+}
+
 export function NaturalLanguageAdditionSwiftUIPreviewContent({
   preview,
   onRequestClose,
@@ -68,12 +74,14 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
   const [selectedTargets, setSelectedTargets] =
     useState<Record<string, string | null>>(selectionDefaults);
   const [deferredItemIds, setDeferredItemIds] = useState<ReadonlySet<string>>(new Set());
+  const [testSelectionPrepared, setTestSelectionPrepared] = useState(false);
   const testCapture = useNaturalLanguageAdditionTestCapture({ preview, variant, storage });
 
   useEffect(() => {
     setDraftText(preview.input.text);
     setSelectedTargets(selectionDefaults);
     setDeferredItemIds(new Set());
+    setTestSelectionPrepared(false);
   }, [preview.input.text, selectionDefaults]);
 
   const summary = getClarificationSummary(preview.items);
@@ -100,6 +108,24 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
     setDeferredItemIds((current) => new Set(current).add(itemId));
   };
 
+  const prepareTestSelection = () => {
+    const nextTargets: Record<string, string | null> = {};
+    let selectionCount = 0;
+
+    for (const item of preview.items) {
+      const targetListId = testSelectionTarget(item);
+      nextTargets[item.itemId] = targetListId;
+      if (targetListId) selectionCount += 1;
+    }
+
+    setSelectedTargets(nextTargets);
+    setDeferredItemIds(new Set());
+    setTestSelectionPrepared(true);
+    debugLogEvent('shopping-list.voice-preview.test-capture.selection-prepared', {
+      selectionCount,
+    });
+  };
+
   return (
     <Surface tone="surface" style={styles.sheet}>
       <View style={styles.header}>
@@ -107,7 +133,9 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
           <Txt variant="caption" tone="secondary">
             Neue Artikel
           </Txt>
-          <Txt variant="title">Passt das so?</Txt>
+          <Txt variant="title" testID="Passt-das-so">
+            Passt das so?
+          </Txt>
         </View>
         <NaturalLanguageAdditionSheetCloseButton onPress={onRequestClose} />
       </View>
@@ -168,13 +196,39 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
         </View>
 
         {testCapture.enabled ? (
-          <View testID="natural-language-addition-test-panel" style={styles.testDiagnostics}>
+          <View
+            testID="natural-language-addition-test-panel"
+            style={styles.testDiagnostics}
+            onLayout={({ nativeEvent: { layout } }) => {
+              debugLogEvent('shopping-list.voice-preview.test-panel.layout', {
+                width: layout.width,
+                height: layout.height,
+                y: layout.y,
+              });
+            }}>
             <View style={styles.testDiagnosticsHeader}>
               <Txt variant="label">Testdiagnostik</Txt>
               <Txt variant="caption" tone="secondary">
                 Variante: {variant}
               </Txt>
             </View>
+            <Button
+              title="Testauswahl vorbereiten"
+              accessibilityLabel="Testauswahl vorbereiten"
+              testID="natural-language-addition-test-select-all"
+              variant="secondary"
+              full
+              disabled={testCapture.status === 'saving' || testCapture.status === 'saved'}
+              onPress={prepareTestSelection}
+            />
+            {testSelectionPrepared ? (
+              <Txt
+                testID="natural-language-addition-test-selection-status"
+                accessibilityLiveRegion="polite"
+                tone="success">
+                Testauswahl bereit
+              </Txt>
+            ) : null}
             <Button
               title="Testergebnis speichern"
               accessibilityLabel="Testergebnis speichern"
@@ -211,7 +265,13 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
             disabled={selections.length === 0}
             full
           />
-          <Button title="Später" variant="secondary" onPress={onRequestClose} full />
+          <Button
+            title="Später"
+            testID="Später"
+            variant="secondary"
+            onPress={onRequestClose}
+            full
+          />
         </View>
       </ScrollView>
     </Surface>
@@ -312,12 +372,15 @@ function SuggestionButton({ itemId, suggestion, selected, onPress }: SuggestionB
 const styles = StyleSheet.create((theme) => ({
   sheet: {
     flex: 1,
+    width: '100%',
+    minHeight: theme.space.xxxl * 6,
     backgroundColor: theme.backgroundElement,
   },
   scroll: {
     flex: 1,
   },
   content: {
+    flexGrow: 1,
     gap: theme.space.lg,
     paddingHorizontal: theme.space.lg,
     paddingBottom: theme.space.xxxl,

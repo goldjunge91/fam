@@ -51,13 +51,13 @@ const storage: TextBetaStorage = {
 };
 
 describe('NaturalLanguageAdditionSwiftUIPreviewContent', () => {
-  const originalTestToolsFlag = process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS;
+  const originalDevToolsFlag = process.env.EXPO_PUBLIC_DEV_TOOLS;
 
   afterEach(() => {
-    if (originalTestToolsFlag === undefined) {
-      delete process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS;
+    if (originalDevToolsFlag === undefined) {
+      delete process.env.EXPO_PUBLIC_DEV_TOOLS;
     } else {
-      process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS = originalTestToolsFlag;
+      process.env.EXPO_PUBLIC_DEV_TOOLS = originalDevToolsFlag;
     }
   });
 
@@ -131,7 +131,7 @@ describe('NaturalLanguageAdditionSwiftUIPreviewContent', () => {
   });
 
   it('shows the test diagnostics section with stable Maestro selectors when enabled', async () => {
-    process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS = 'true';
+    process.env.EXPO_PUBLIC_DEV_TOOLS = 'true';
 
     await render(
       <NaturalLanguageAdditionSwiftUIPreviewContent
@@ -151,8 +151,33 @@ describe('NaturalLanguageAdditionSwiftUIPreviewContent', () => {
     expect(screen.getByText('Variante: baseline')).toBeOnTheScreen();
   });
 
-  it('keeps the test diagnostics section hidden when the explicit flag is disabled', async () => {
-    process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS = 'false';
+  it('prepares a non-empty test selection from the best available suggestions', async () => {
+    process.env.EXPO_PUBLIC_DEV_TOOLS = 'true';
+    const user = userEvent.setup();
+
+    await render(
+      <NaturalLanguageAdditionSwiftUIPreviewContent
+        preview={preview}
+        onRequestClose={jest.fn()}
+        onEditText={jest.fn()}
+        onConfirm={jest.fn()}
+        storage={storage}
+        variant="baseline"
+      />,
+    );
+
+    await user.press(screen.getByTestId('natural-language-addition-test-select-all'));
+
+    expect(screen.getByTestId('natural-language-addition-test-selection-status')).toHaveTextContent(
+      'Testauswahl bereit',
+    );
+    expect(screen.getByRole('button', { name: 'REWE' })).toHaveProp('accessibilityState', {
+      selected: true,
+    });
+  });
+
+  it('keeps the test diagnostics section hidden when dev tools are disabled', async () => {
+    process.env.EXPO_PUBLIC_DEV_TOOLS = 'false';
 
     await render(
       <NaturalLanguageAdditionSwiftUIPreviewContent

@@ -39,6 +39,8 @@ describe('speech dataset finish flow', () => {
     expect(scrollToTestCapture).toBeGreaterThan(expandSheet);
     expect(saveRetry).toBeGreaterThan(scrollToTestCapture);
     expect(flow).toContain('maxRetries: 1');
+    expect(flow).not.toMatch(/^\s+timeout: 1000\s*$/mu);
+    expect(flow).toContain('timeout: 30000');
     expect(flow.match(/id: "natural-language-addition-test-save"/gu)).toHaveLength(2);
     expect(savedStatus).toBeGreaterThan(saveRetry);
     expect(laterAction).toBeGreaterThan(savedStatus);

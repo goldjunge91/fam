@@ -1,5 +1,6 @@
 import { act, renderHook, waitFor } from '@testing-library/react-native';
 
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import { createEmptyNaturalLanguageAdditionBetaState } from '../beta-storage';
 import { appendQualityTestSnapshot } from '../services/quality-test-results';
 import type { TextBetaPreview, TextBetaStorage } from '../workflow/text-workflow';
@@ -9,7 +10,12 @@ jest.mock('../services/quality-test-results', () => ({
   appendQualityTestSnapshot: jest.fn(),
 }));
 
+jest.mock('@/lib/observability/debug-log', () => ({
+  debugLogEvent: jest.fn(),
+}));
+
 const mockAppendQualityTestSnapshot = jest.mocked(appendQualityTestSnapshot);
+const mockDebugLogEvent = jest.mocked(debugLogEvent);
 
 const preview: TextBetaPreview = {
   session: { id: 'session-1', source: 'speech', startedAt: '2026-09-18T11:59:59.000Z' },
@@ -52,18 +58,19 @@ function createStorage(): TextBetaStorage {
 }
 
 describe('useNaturalLanguageAdditionTestCapture', () => {
-  const originalFlag = process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS;
+  const originalDevToolsFlag = process.env.EXPO_PUBLIC_DEV_TOOLS;
 
   beforeEach(() => {
-    process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS = 'true';
+    process.env.EXPO_PUBLIC_DEV_TOOLS = 'true';
     mockAppendQualityTestSnapshot.mockReset().mockImplementation(async () => undefined);
+    mockDebugLogEvent.mockReset();
   });
 
   afterEach(() => {
-    if (originalFlag === undefined) {
-      delete process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS;
+    if (originalDevToolsFlag === undefined) {
+      delete process.env.EXPO_PUBLIC_DEV_TOOLS;
     } else {
-      process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS = originalFlag;
+      process.env.EXPO_PUBLIC_DEV_TOOLS = originalDevToolsFlag;
     }
   });
 
@@ -93,12 +100,23 @@ describe('useNaturalLanguageAdditionTestCapture', () => {
     expect(mockAppendQualityTestSnapshot.mock.calls[0]?.[0]).toEqual(
       expect.objectContaining({
         captureKind: 'maestro-preview-test',
+        fixtureSetVersion: '20-saetze-neu-v1',
         experimentVariant: 'baseline',
         confirmedItemCount: 1,
         automaticAssignmentCount: 1,
         correctAutomaticAssignmentCount: 1,
         qualityFlags: expect.objectContaining({ unparsedTextPresent: 1 }),
       }),
+    );
+
+    const loggedEvents = mockDebugLogEvent.mock.calls.map(([event]) => event);
+    expect(loggedEvents).toEqual(
+      expect.arrayContaining([
+        'shopping-list.voice-preview.test-capture.save.requested',
+        'shopping-list.voice-preview.test-capture.append.started',
+        'shopping-list.voice-preview.test-capture.append.completed',
+        'shopping-list.voice-preview.test-capture.save.succeeded',
+      ]),
     );
   });
 
@@ -138,6 +156,25 @@ describe('useNaturalLanguageAdditionTestCapture', () => {
     expect(result.current.status).toBe('saved');
   });
 
+  it('rejects an empty preview selection without writing a zero measurement', async () => {
+    const storage = createStorage();
+    const { result } = await renderHook(() =>
+      useNaturalLanguageAdditionTestCapture({
+        preview,
+        variant: 'baseline',
+        storage,
+      }),
+    );
+
+    await act(async () => {
+      await result.current.saveTestMeasurement([]);
+    });
+
+    expect(result.current.status).toBe('error');
+    expect(result.current.error).toBe('Keine Preview-Artikel ausgewählt');
+    expect(mockAppendQualityTestSnapshot).not.toHaveBeenCalled();
+  });
+
   it('exposes a visible error and does not claim success when append fails', async () => {
     mockAppendQualityTestSnapshot.mockImplementation(() => {
       throw new Error('cache unavailable');
@@ -151,15 +188,17 @@ describe('useNaturalLanguageAdditionTestCapture', () => {
     );
 
     await act(async () => {
-      await result.current.saveTestMeasurement([]);
+      await result.current.saveTestMeasurement([
+        { itemId: 'session-1:item:0', targetListId: 'store-1' },
+      ]);
     });
 
     expect(result.current.status).toBe('error');
     expect(result.current.error).toBe('cache unavailable');
   });
 
-  it('does nothing when the explicit test flag is disabled', async () => {
-    process.env.EXPO_PUBLIC_NATURAL_LANGUAGE_ADDITION_TEST_TOOLS = 'false';
+  it('does nothing when dev tools are disabled', async () => {
+    process.env.EXPO_PUBLIC_DEV_TOOLS = 'false';
     const { result } = await renderHook(() =>
       useNaturalLanguageAdditionTestCapture({
         preview,

@@ -1,7 +1,7 @@
 import { useNavigationContainerRef } from 'expo-router';
 import { useEffect } from 'react';
 import { startQueryEnvironmentSync } from '@/lib/data/query-client';
-import { debugWarn } from '@/lib/observability/debug-log';
+import { debugLog, debugWarn } from '@/lib/observability/debug-log';
 import {
   markPerformance,
   measurePerformance,
@@ -23,6 +23,7 @@ export function useAppLifecycle(): void {
   useEffect(() => startQueryEnvironmentSync(), []);
 
   useEffect(() => {
+    debugLog('[APPTRACE:ROOT-MOUNT]');
     markPerformance('app.root.mounted', { phase: 'react' });
     markPerformance('app.startup.ready', { phase: 'startup', first_render: true });
     measurePerformance(
@@ -65,6 +66,7 @@ export function useAppLifecycle(): void {
       });
 
     return () => {
+      debugLog('[APPTRACE:ROOT-UNMOUNT]');
       cancelled = true;
       stop?.();
     };

@@ -1,12 +1,40 @@
+import path from 'node:path';
+
+import { createEmptyBetaQualityMetrics } from '../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/domain/quality-metrics';
+import { sanitizeQualitySnapshot } from '../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/domain/quality-snapshot';
 import {
   DEFAULT_AUDIO_FINISH_DELAY_MS,
   DEFAULT_AUDIO_START_DELAY_MS,
   DEFAULT_SPEECH_DATASETS,
   discoverSpeechAudioFiles,
+  findResumeStartIndex,
   DEFAULT_SPEECH_RESULTS_DIRECTORY,
   parseSpeechDatasetArgs,
+  validateSpeechDatasetQualityLine,
   sortSpeechAudioPaths,
 } from '../../.maestro/scripts/speech-dataset-plan';
+
+function qualityLine(
+  confirmedItemCount: number,
+  experimentVariant: 'baseline' | 'contextual-strings' = 'baseline',
+): string {
+  const baseMetrics = createEmptyBetaQualityMetrics();
+  const payload = sanitizeQualitySnapshot({
+    metrics: {
+      ...baseMetrics,
+      confirmedItemCount,
+      automaticAssignmentCount: confirmedItemCount,
+      correctAutomaticAssignmentCount: confirmedItemCount,
+      completionDurationsMs: confirmedItemCount > 0 ? [1_000] : [],
+    },
+    captureKind: 'maestro-preview-test',
+    fixtureSetVersion: '20-saetze-neu-v1',
+    experimentVariant,
+    createdAt: '2026-09-19T10:00:00.000Z',
+  });
+  if (!payload) throw new Error('Testfixture für Qualitätszeile ist ungültig.');
+  return JSON.stringify(payload);
+}
 
 describe('speech dataset runner plan', () => {
   it('uses both repository datasets and WAV audio by default', () => {
@@ -18,8 +46,22 @@ describe('speech dataset runner plan', () => {
       audioStartDelayMs: DEFAULT_AUDIO_START_DELAY_MS,
       audioFinishDelayMs: DEFAULT_AUDIO_FINISH_DELAY_MS,
       resultsDirectory: DEFAULT_SPEECH_RESULTS_DIRECTORY,
+      experimentVariant: 'baseline',
+      resumeLatest: false,
       dryRun: false,
       help: false,
+    });
+  });
+
+  it('accepts the latest incomplete run resume flag', () => {
+    expect(parseSpeechDatasetArgs(['--resume-latest'], {})).toMatchObject({
+      resumeLatest: true,
+    });
+  });
+
+  it('accepts an explicit contextual speech variant', () => {
+    expect(parseSpeechDatasetArgs(['--variant', 'contextual-strings'], {})).toMatchObject({
+      experimentVariant: 'contextual-strings',
     });
   });
 
@@ -66,6 +108,57 @@ describe('speech dataset runner plan', () => {
       '/tmp/satz-2.wav',
       '/tmp/satz-10.wav',
     ]);
+  });
+
+  it('starts at the first audio fixture without a captured snapshot', () => {
+    const repositoryRoot = process.cwd();
+    const audioFiles = [
+      path.join(repositoryRoot, 'datensätze/20-saetze-neu/satz-01.wav'),
+      path.join(repositoryRoot, 'datensätze/20-saetze-neu/satz-02.wav'),
+      path.join(repositoryRoot, 'datensätze/20-saetze-neu/satz-03.wav'),
+    ];
+
+    expect(
+      findResumeStartIndex(
+        audioFiles,
+        [
+          {
+            audio: 'datensätze/20-saetze-neu/satz-01.wav',
+            line: 1,
+            capturedAt: '2026-09-18T18:00:00.000Z',
+          },
+          {
+            audio: 'datensätze/20-saetze-neu/satz-02.wav',
+            line: 2,
+            capturedAt: '2026-09-18T18:01:00.000Z',
+          },
+        ],
+        repositoryRoot,
+      ),
+    ).toBe(2);
+  });
+
+  it('rejects a capture without confirmed preview items', () => {
+    expect(() =>
+      validateSpeechDatasetQualityLine(
+        qualityLine(0),
+        'satz-01.wav',
+      ),
+    ).toThrow('enthält keine bestätigten Preview-Artikel');
+  });
+
+  it('accepts a non-empty preview measurement', () => {
+    const line = qualityLine(1);
+
+    expect(validateSpeechDatasetQualityLine(line, 'satz-01.wav')).toBe(line);
+  });
+
+  it('rejects a capture whose variant does not match the requested run', () => {
+    const line = qualityLine(1);
+
+    expect(() =>
+      validateSpeechDatasetQualityLine(line, 'satz-01.wav', 'contextual-strings'),
+    ).toThrow('unerwartete Experiment-Variante');
   });
 
   it('discovers the 20 WAV files from the default dataset', async () => {

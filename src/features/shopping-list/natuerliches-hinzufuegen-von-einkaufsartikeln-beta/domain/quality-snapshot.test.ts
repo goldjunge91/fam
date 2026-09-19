@@ -19,7 +19,7 @@ function snapshotInput(): QualitySnapshotInput {
         incorrect_automatic_assignment: 1,
         manual_correction: 1,
       },
-      completionDurationsMs: [1_000, Number.NaN, Number.POSITIVE_INFINITY, 3_000, -1],
+      completionDurationsMs: [1_000, 3_000],
       recordedObservationIds: ['observation-sensitive'],
       measuredSessionIds: ['session-sensitive'],
     },
@@ -106,7 +106,7 @@ describe('sanitizeQualitySnapshot', () => {
     expect(JSON.stringify(payload)).not.toContain('audio');
   });
 
-  it('caps duration samples at the newest 64 valid values', () => {
+  it('caps duration samples at the newest 64 values', () => {
     const input = snapshotInput();
     const payload = sanitizeQualitySnapshot({
       ...input,
@@ -121,7 +121,66 @@ describe('sanitizeQualitySnapshot', () => {
     expect(payload?.durationSamplesMs.at(-1)).toBe(69);
   });
 
+  it('rejects invalid duration samples instead of silently dropping them', () => {
+    const input = snapshotInput();
+
+    expect(
+      sanitizeQualitySnapshot({
+        ...input,
+        metrics: {
+          ...input.metrics,
+          completionDurationsMs: [1_000, Number.NaN],
+        },
+      }),
+    ).toBeNull();
+
+    const malformedInput = snapshotInput();
+    Reflect.set(malformedInput.metrics, 'completionDurationsMs', null);
+    expect(sanitizeQualitySnapshot(malformedInput)).toBeNull();
+  });
+
   it('returns null for invalid capture metadata', () => {
     expect(sanitizeQualitySnapshot({ ...snapshotInput(), createdAt: 'not-a-date' })).toBeNull();
+  });
+
+  it('rejects counter combinations that cannot describe confirmed items', () => {
+    const input = snapshotInput();
+
+    expect(
+      sanitizeQualitySnapshot({
+        ...input,
+        metrics: {
+          ...input.metrics,
+          confirmedItemCount: 1,
+          automaticAssignmentCount: 2,
+          correctAutomaticAssignmentCount: 1,
+          falseListAssignmentCount: 1,
+        },
+      }),
+    ).toBeNull();
+
+    expect(
+      sanitizeQualitySnapshot({
+        ...input,
+        metrics: {
+          ...input.metrics,
+          automaticAssignmentCount: 2,
+          correctAutomaticAssignmentCount: 2,
+          falseListAssignmentCount: 1,
+        },
+      }),
+    ).toBeNull();
+
+    expect(
+      sanitizeQualitySnapshot({
+        ...input,
+        metrics: {
+          ...input.metrics,
+          automaticAssignmentCount: 2,
+          correctAutomaticAssignmentCount: 1,
+          falseListAssignmentCount: 0,
+        },
+      }),
+    ).toBeNull();
   });
 });

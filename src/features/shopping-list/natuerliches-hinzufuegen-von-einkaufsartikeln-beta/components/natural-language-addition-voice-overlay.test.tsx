@@ -75,6 +75,7 @@ describe('NaturalLanguageAdditionVoiceOverlay', () => {
 
     expect(speechAdapter.start).toHaveBeenCalledWith({
       locale: DEFAULT_SPEECH_LOCALE,
+      variant: 'baseline',
       onVolumeChange: expect.any(Function),
     });
 
@@ -98,6 +99,32 @@ describe('NaturalLanguageAdditionVoiceOverlay', () => {
         locale: DEFAULT_SPEECH_LOCALE,
         onDevice: true,
       });
+    });
+  });
+
+  it('passes the selected speech experiment variant to the native adapter', async () => {
+    const speech = createSpeechSession();
+    const speechAdapter: SpeechRecognitionAdapter = {
+      start: jest.fn(() => speech.session),
+    };
+
+    await render(
+      <NaturalLanguageAdditionVoiceOverlay
+        visible
+        variant="contextual-strings"
+        speechAdapter={speechAdapter}
+        onCancel={jest.fn()}
+        onTranscript={jest.fn()}
+        onFallback={jest.fn()}
+      />,
+    );
+
+    await fireEvent(screen.getByTestId('speech-modal'), 'show');
+
+    expect(speechAdapter.start).toHaveBeenCalledWith({
+      locale: DEFAULT_SPEECH_LOCALE,
+      variant: 'contextual-strings',
+      onVolumeChange: expect.any(Function),
     });
   });
 });

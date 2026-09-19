@@ -118,7 +118,9 @@ export function SwiftUIBottomSheetDemo() {
 
 const styles = StyleSheet.create((theme) => ({
   hostedContent: {
-    flex: 1,
+    flexGrow: 1,
+    height: 0,
+    width: '100%',
   },
   example: {
     alignItems: 'flex-start',

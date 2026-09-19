@@ -1,9 +1,10 @@
 import type { BetaQualityMetrics, QualityFlagCounts } from '../types';
 import { type BetaQualityMetricSnapshots, getBetaQualityMetricSnapshots } from './quality-metrics';
+import type { ExperimentVariant } from './speech-experiment';
+
+export type { ExperimentVariant } from './speech-experiment';
 
 const MAX_DURATION_SAMPLES = 64;
-
-export type ExperimentVariant = 'baseline' | 'contextual-strings';
 
 export type QualityCaptureKind = 'quality-snapshot' | 'maestro-preview-test';
 
@@ -105,12 +106,21 @@ export function sanitizeQualitySnapshot(
   ];
   if (!counters.every(isNonNegativeInteger)) return null;
 
+  if (metrics.automaticAssignmentCount > metrics.confirmedItemCount) return null;
+  if (
+    metrics.correctAutomaticAssignmentCount + metrics.falseListAssignmentCount !==
+    metrics.automaticAssignmentCount
+  ) {
+    return null;
+  }
+  if (metrics.manualCorrectionCount > metrics.confirmedItemCount) return null;
+  if (!Array.isArray(metrics.completionDurationsMs)) return null;
+  if (!metrics.completionDurationsMs.every(isValidDuration)) return null;
+
   const qualityFlags = sanitizeFlagCounts(metrics.qualityFlagCounts);
   if (qualityFlags === null) return null;
 
-  const durationSamplesMs = metrics.completionDurationsMs
-    .filter(isValidDuration)
-    .slice(-MAX_DURATION_SAMPLES);
+  const durationSamplesMs = metrics.completionDurationsMs.slice(-MAX_DURATION_SAMPLES);
   const metricSnapshots = getBetaQualityMetricSnapshots({
     ...metrics,
     completionDurationsMs: durationSamplesMs,

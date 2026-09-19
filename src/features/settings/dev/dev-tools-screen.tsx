@@ -32,6 +32,12 @@ const DEV_CATEGORIES = [
     route: '/settings/dev-telemetry',
   },
   {
+    icon: '📊',
+    label: 'Qualitätsmetriken',
+    hint: 'Vier Beta-Metriken und bereinigter Payload',
+    route: '/settings/dev-quality-metrics',
+  },
+  {
     icon: '🧪',
     label: 'Vorschauen & Labs',
     hint: 'Design-System, Auth, Drax und Paywalls',

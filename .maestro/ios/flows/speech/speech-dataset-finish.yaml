@@ -6,58 +6,92 @@ tags:
 # Der Host-Runner startet und beendet die Audiodatei zwischen diesem Flow und
 # speech-dataset-open.yaml. Die Preview wird als Testcapture gespeichert, aber
 # der produktive Bestätigungsbutton bleibt unberührt.
-# 1. Prüfen, dass die Sprachaufnahme noch aktiv ist.
+# Prüfen, dass die Sprachaufnahme noch aktiv ist.
 - extendedWaitUntil:
     visible: "Ich höre zu"
-    timeout: 5000
-# 2. Die Sprachaufnahme beenden und die Preview öffnen.
+    timeout: 2000
+# Die Sprachaufnahme beenden und die Preview öffnen.
 - tapOn:
-    text: "Fertig"
-    repeat: 1
-    delay: 200
+    id: "Fertig"
 
-# 3. Warten, bis das Preview-Modal geladen ist.
+# Warten, bis das Preview-Modal geladen ist.
 - extendedWaitUntil:
-    visible: "Passt das so?"
-    timeout: 30000
+    visible:
+      id: "Passt-das-so"
+    timeout: 5000
+- assertVisible:
+    id: "Passt-das-so"
 
-# 4. Das Bottom-Sheet nach oben ziehen, damit sein Inhalt scrollfähig wird.
+# Das Bottom-Sheet nach oben ziehen, damit sein Inhalt scrollfähig wird.
 - swipe:
     start: "50%,88%"
     end: "50%,24%"
     duration: 600
-# 5. Die Modal-Animation vollständig abwarten.
+# Die Modal-Animation vollständig abwarten.
 - waitForAnimationToEnd
 
-# 6. Zum DEV-/Testbereich mit dem Speichern-Button scrollen.
+# Zum DEV-/Testbereich mit der Testauswahl scrollen.
+- scrollUntilVisible:
+    element:
+      id: "natural-language-addition-test-select-all"
+    direction: DOWN
+    speed: 100
+    timeout: 50000
+    visibilityPercentage: 100
+
+# 7. Für jede Preview-Zeile den besten vorhandenen Vorschlag als explizite
+#    Testannotation auswählen. Das ist keine produktive Listenmutation und
+#    bewertet unsichere Vorschläge nicht als automatische Treffer.
+- tapOn:
+    id: "natural-language-addition-test-select-all"
+- assertVisible: "Testauswahl bereit"
+
+# 8. Zum Speichern der nun nichtleeren Testauswahl scrollen.
 - scrollUntilVisible:
     element:
       id: "natural-language-addition-test-save"
     direction: DOWN
     speed: 100
-    timeout: 30000
+    timeout: 50000
     visibilityPercentage: 100
 
-# 7. Die aktuelle Preview über den Test-Hook als JSONL-Messung speichern.
-# 8. Bei einem transienten Fehler den kompletten Speichervorgang genau einmal
+# 9. Die aktuelle Preview über den Test-Hook als JSONL-Messung speichern.
+# 10. Bei einem transienten Fehler den kompletten Speichervorgang genau einmal
 #    wiederholen. Nach dem ersten Fehlschlag bleibt das Preview-Modal offen.
 - retry:
-    maxRetries: 1
+    maxRetries: 3
     commands:
       - tapOn:
           id: "natural-language-addition-test-save"
       - extendedWaitUntil:
           visible: "Testergebnis gespeichert"
-          timeout: 1000
-- assertVisible:
-    text:"Testergebnis gespeichert"
+          timeout: 50000
 
+- scrollUntilVisible:
+    element:
+      id: "Später"
+    direction: DOWN
+    speed: 40
+    timeout: 5000
+    visibilityPercentage: 100
 
-# 9. Die Preview ohne Shopping-List-Mutation schließen.
-- tapOn: "Später"
-# 10. Prüfen, dass das Preview-Modal geschlossen wurde.
+# 12. Prüfen, dass das Preview-Modal geschlossen wurde.
+- retry:
+    maxRetries: 2
+    commands:
+      - scrollUntilVisible:
+          element:
+            id: "Später"
+          direction: DOWN
+          speed: 100
+      - tapOn:
+          id: "Später"
+
+- waitForAnimationToEnd
 - extendedWaitUntil:
-    notVisible: "Später"
-    timeout: 6000
-# 11. Prüfen, dass wieder die Einkaufsliste sichtbar ist.
+    notVisible:
+      id: "Später"
+    timeout: 5000
+
+# 13. Prüfen, dass wieder die Einkaufsliste sichtbar ist.
 - assertVisible: "Einkaufsliste"

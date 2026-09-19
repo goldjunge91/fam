@@ -14,6 +14,7 @@ import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Surface, Txt } from '@/constants/ui';
 import { debugLogEvent } from '@/lib/observability/debug-log';
+import type { ExperimentVariant } from '../domain/speech-experiment';
 import { nativeSpeechRecognitionAdapter } from '../services/native-speech-recognition';
 import {
   DEFAULT_SPEECH_LOCALE,
@@ -49,6 +50,7 @@ export type NaturalLanguageAdditionVoiceOverlayProps = {
   onFallback: (result: Exclude<SpeechInputResult, { status: 'transcript' }>) => void;
   speechAdapter?: SpeechRecognitionAdapter;
   locale?: string;
+  variant?: ExperimentVariant;
 };
 
 export function NaturalLanguageAdditionVoiceOverlay({
@@ -58,6 +60,7 @@ export function NaturalLanguageAdditionVoiceOverlay({
   onFallback,
   speechAdapter = nativeSpeechRecognitionAdapter,
   locale = DEFAULT_SPEECH_LOCALE,
+  variant = 'baseline',
 }: NaturalLanguageAdditionVoiceOverlayProps) {
   const { colors } = useTheme();
   const [status, setStatus] = useState<VoiceOverlayStatus>('listening');
@@ -117,6 +120,7 @@ export function NaturalLanguageAdditionVoiceOverlay({
       debugLogEvent('shopping-list.voice-session.starting', { locale });
       const session = speechAdapter.start({
         locale,
+        variant,
         onVolumeChange: reducedMotion ? undefined : handleVolumeChange,
       });
       sessionRef.current = session;
@@ -169,6 +173,10 @@ export function NaturalLanguageAdditionVoiceOverlay({
 
   const finishSession = () => {
     const session = sessionRef.current;
+    debugLogEvent('shopping-list.voice-session.finish.requested', {
+      status,
+      hasSession: Boolean(session),
+    });
     if (!session || status !== 'listening') return;
 
     listeningActiveRef.current = false;
@@ -177,6 +185,7 @@ export function NaturalLanguageAdditionVoiceOverlay({
     setStatus('processing');
     try {
       session.stop();
+      debugLogEvent('shopping-list.voice-session.finish.stop-called');
     } catch (error) {
       sessionRef.current = null;
       fail(error);
@@ -205,6 +214,7 @@ export function NaturalLanguageAdditionVoiceOverlay({
     return () => {
       disposedRef.current = true;
       if (sessionRef.current) {
+        debugLogEvent('shopping-list.voice-session.unmounted-with-session');
         sessionRef.current.cancel();
         sessionRef.current = null;
       }
@@ -254,9 +264,16 @@ export function NaturalLanguageAdditionVoiceOverlay({
               ? 'Die Artikelliste wird gerade vorbereitet.'
               : 'Nenne mehrere Einkaufsartikel. Wenn du fertig bist, tippe auf Fertig.'}
           </Txt>
-          <Button title="Fertig" onPress={finishSession} disabled={status === 'processing'} full />
+          <Button
+            title="Fertig"
+            testID="Fertig"
+            onPress={finishSession}
+            disabled={status === 'processing'}
+            full
+          />
           <Button
             title="Abbrechen"
+            testID="Abbrechen"
             variant="secondary"
             onPress={onCancel}
             disabled={status === 'processing'}

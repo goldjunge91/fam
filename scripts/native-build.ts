@@ -64,7 +64,8 @@ const LOCK_PATH = join(PROJECT_ROOT, 'native-build-lock.json');
 // nachsahen — das Artefakt war für sie *nie* auffindbar, jeder
 // '!ios-build testflight'-Lauf endete nach dem vollen Rebuild mit
 // 'New artifact is missing or empty'.
-const ARTIFACT_ROOT = process.env.IOS_BUILD_WORKFLOW_ARTIFACT_ROOT ?? join(PROJECT_ROOT, 'native-artifacts');
+const ARTIFACT_ROOT =
+  process.env.IOS_BUILD_WORKFLOW_ARTIFACT_ROOT ?? join(PROJECT_ROOT, 'native-artifacts');
 // Nicht committet (siehe .gitignore) — lokaler Snapshot des vollen Fingerprints
 // (alle Sources inkl. Hashes) zum Zeitpunkt der letzten Baseline. Erlaubt
 // 'native:status --diff', die abweichende Quelle direkt zu benennen, statt
