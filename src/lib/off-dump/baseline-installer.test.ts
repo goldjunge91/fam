@@ -6,6 +6,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { createNodeFileOps } from '../../../test/node-file-ops';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 import { installBaseline } from './baseline-installer';
+import { isOffDumpAttached, resetOffDumpAttachment } from './off-dump-state';
 
 const SCHEMA_COLUMNS = ['code', 'product_name'] as const;
 
@@ -40,6 +41,7 @@ describe('installBaseline', () => {
   let fileOps: ReturnType<typeof createNodeFileOps>;
 
   beforeEach(() => {
+    resetOffDumpAttachment();
     dir = mkdtempSync(join(tmpdir(), 'fam-baseline-installer-'));
     activePath = join(dir, 'off-dump-v2.db');
     nextPath = join(dir, 'off-dump-v2.next.db');
@@ -49,6 +51,7 @@ describe('installBaseline', () => {
   });
 
   afterEach(() => {
+    resetOffDumpAttachment();
     db.close();
     rmSync(dir, { recursive: true, force: true });
   });
@@ -81,6 +84,25 @@ describe('installBaseline', () => {
     expect(await readActiveProducts()).toEqual([
       { code: '1', product_name: 'Produkt (2026-08-01T00:00:00.000Z)' },
     ]);
+  });
+
+  it('markiert den prozessweiten Attach-Status nach erfolgreichem Baseline-Install', async () => {
+    const sourcePath = join(dir, 'source-baseline.db');
+    createDumpFile(sourcePath, '2026-08-01T00:00:00.000Z');
+    fileOps.registerDownloadSource('https://example/baseline.db', sourcePath);
+
+    const result = await installBaseline(db, fileOps, {
+      downloadUrl: 'https://example/baseline.db',
+      expectedChecksum: checksumOf(sourcePath),
+      expectedSchemaVersion: 2,
+      activePath,
+      nextPath,
+      recoveryPath,
+      attachmentMode: 'sqlite',
+    });
+
+    expect(result).toEqual({ ok: true, dataVersion: '2026-08-01T00:00:00.000Z' });
+    expect(isOffDumpAttached()).toBe(true);
   });
 
   it('ersetzt eine bestehende active-Datei sicher: alte wird zu recovery, neue wird active, recovery wird danach entfernt', async () => {

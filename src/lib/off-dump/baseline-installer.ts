@@ -1,5 +1,6 @@
 import type { SqlDatabase } from '@/lib/db/types';
 import type { FileOps } from './file-ops';
+import { setOffDumpAttached } from './off-dump-state';
 import { attachPlaintextDatabase, type PlaintextAttachmentMode } from './plaintext-attachment';
 
 export type InstallBaselineResult =
@@ -64,6 +65,7 @@ export async function installBaseline(
   // 5+6. Zugriffe serialisieren (Aufrufer hält die Verbindung exklusiv,
   // solange dieser Aufruf läuft), alten Dump detachen.
   await detachOffDumpIfAttached(db);
+  setOffDumpAttached(false);
 
   // 7. Aktive Datei (falls vorhanden) zu recovery umbenennen.
   if (await fileOps.exists(activePath)) {
@@ -75,6 +77,7 @@ export async function installBaseline(
 
   // 9. Neue Datei attachen.
   await attachPlaintextDatabase(db, activePath, 'off_dump', attachmentMode);
+  setOffDumpAttached(true);
 
   // 10. Recovery-Datei erst NACH erfolgreichem Attach entfernen.
   if (await fileOps.exists(recoveryPath)) {

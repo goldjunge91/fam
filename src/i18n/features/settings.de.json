@@ -110,6 +110,28 @@
         "left": "Links",
         "right": "Rechts"
       },
+      "naturalLanguageBeta": {
+        "automaticApplication": {
+          "label": "Automatische Beta-Zuordnung",
+          "hint": "Darf gelernte Zuordnungen automatisch anwenden. Qualitäts- und Inhaltsdaten werden separat verwaltet."
+        },
+        "qualityMetrics": {
+          "label": "Beta-Qualitätsmetriken",
+          "hint": "Erlaubt lokale aggregierte Qualitätsmetriken für die Beta."
+        },
+        "contentData": {
+          "label": "Beta-Inhaltsdaten",
+          "hint": "Erlaubt die ausdrücklich freigegebene Inhaltsverarbeitung für den Beta-Sprachpfad. Roh-Audio wird nicht gespeichert."
+        },
+        "status": {
+          "loading": "Wird geladen",
+          "undecided": "Nicht festgelegt",
+          "granted": "Erlaubt",
+          "revoked": "Widerrufen"
+        },
+        "errorTitle": "Einstellung nicht gespeichert",
+        "errorBody": "Die Freigabe für automatische Beta-Zuordnungen konnte nicht gespeichert werden."
+      },
       "feedback": {
         "label": "Feedback geben"
       }

@@ -110,6 +110,28 @@
         "left": "Left",
         "right": "Right"
       },
+      "naturalLanguageBeta": {
+        "automaticApplication": {
+          "label": "Automatic beta assignment",
+          "hint": "Allows learned assignments to be applied automatically. Quality and content data are managed separately."
+        },
+        "qualityMetrics": {
+          "label": "Beta quality metrics",
+          "hint": "Allows local aggregated quality metrics for the beta."
+        },
+        "contentData": {
+          "label": "Beta content data",
+          "hint": "Allows explicitly approved content processing for the beta speech path. Raw audio is never stored."
+        },
+        "status": {
+          "loading": "Loading",
+          "undecided": "Not set",
+          "granted": "Allowed",
+          "revoked": "Revoked"
+        },
+        "errorTitle": "Setting not saved",
+        "errorBody": "The consent for automatic beta assignments could not be saved."
+      },
       "feedback": {
         "label": "Give feedback"
       }
