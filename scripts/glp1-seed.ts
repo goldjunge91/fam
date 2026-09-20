@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
-import { getLogicalDateForTimestamp } from '../src/features/tracking/domain/day-boundary';
+import { getLogicalDateForTimestamp } from '../src/features/calorie-tracking/domain/day-boundary';
 import type { Database } from '../src/lib/database.types';
 import { assertSafeSeedTarget } from './glp1-seed-guard';
 
