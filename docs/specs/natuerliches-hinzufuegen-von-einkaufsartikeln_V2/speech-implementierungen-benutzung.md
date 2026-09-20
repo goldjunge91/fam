@@ -79,16 +79,16 @@ persistiert die Messung lokal und `Später` beendet den Testfall.
 
 | Datei | Aufgabe |
 | --- | --- |
-| [`speech-contextual-strings.ts`](../../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/services/speech-contextual-strings.ts) | Versionierte Liste kurzer Einkaufs- und Markenbegriffe. Aktuelle Version: `20-saetze-neu-v1`. |
-| [`speech-recognition-adapter.ts`](../../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/services/speech-recognition-adapter.ts) | Einheitlicher Native-Adapter, On-Device-Gate, Berechtigungen, Transcript, Stop/Cancel und Varianten. |
-| [`native-speech-recognition.ts`](../../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/services/native-speech-recognition.ts) | Bindet den Adapter an `ExpoSpeechRecognitionModule`. |
-| [`natural-language-addition-voice-overlay.tsx`](../../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/components/natural-language-addition-voice-overlay.tsx) | UI für `Ich höre zu`, `Fertig` und `Abbrechen` sowie Lebenszyklus der Speech-Session. |
-| [`speech-diagnostics.ts`](../../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/services/speech-diagnostics.ts) | Lokale Rohdiagnostik mit Transkript, Segmenten und Parsergebnis. Nicht mit dem Qualitäts-Payload verwechseln. |
-| [`use-natural-language-addition-test-capture.ts`](../../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/hooks/use-natural-language-addition-test-capture.ts) | Dev-only Save-Grenze für Testannotationen und sichtbaren Save-Status. |
-| [`quality-test-results.ts`](../../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/services/quality-test-results.ts) | Hält die neuesten 256 sanitisierten Test-Snapshots in `Paths.cache/fam-natural-language-addition-quality.jsonl`; ältere Einträge werden verworfen. |
-| [`quality-snapshot.ts`](../../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/domain/quality-snapshot.ts) | Einziger Sanitizer und versionierter Payload-Vertrag. |
-| [`quality-metrics.ts`](../../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/domain/quality-metrics.ts) | Zählt bestätigte Artikel, Zuordnungen, Korrekturen, Flags und Zeit-Samples. |
-| [`quality-snapshot-export.ts`](../../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/services/quality-snapshot-export.ts) | Bereitet einen lokalen, bereinigten Copy-Export vor. Es gibt keinen Netzwerk-Upload. |
+| [`speech-contextual-strings.ts`](../../../src/features/shopping-list/stt-beta/services/speech-contextual-strings.ts) | Versionierte Liste kurzer Einkaufs- und Markenbegriffe. Aktuelle Version: `20-saetze-neu-v1`. |
+| [`speech-recognition-adapter.ts`](../../../src/features/shopping-list/stt-beta/services/speech-recognition-adapter.ts) | Einheitlicher Native-Adapter, On-Device-Gate, Berechtigungen, Transcript, Stop/Cancel und Varianten. |
+| [`native-speech-recognition.ts`](../../../src/features/shopping-list/stt-beta/services/native-speech-recognition.ts) | Bindet den Adapter an `ExpoSpeechRecognitionModule`. |
+| [`natural-language-addition-voice-overlay.tsx`](../../../src/features/shopping-list/stt-beta/components/natural-language-addition-voice-overlay.tsx) | UI für `Ich höre zu`, `Fertig` und `Abbrechen` sowie Lebenszyklus der Speech-Session. |
+| [`speech-diagnostics.ts`](../../../src/features/shopping-list/stt-beta/services/speech-diagnostics.ts) | Lokale Rohdiagnostik mit Transkript, Segmenten und Parsergebnis. Nicht mit dem Qualitäts-Payload verwechseln. |
+| [`use-natural-language-addition-test-capture.ts`](../../../src/features/shopping-list/stt-beta/hooks/use-natural-language-addition-test-capture.ts) | Dev-only Save-Grenze für Testannotationen und sichtbaren Save-Status. |
+| [`quality-test-results.ts`](../../../src/features/shopping-list/stt-beta/services/quality-test-results.ts) | Hält die neuesten 256 sanitisierten Test-Snapshots in `Paths.cache/fam-natural-language-addition-quality.jsonl`; ältere Einträge werden verworfen. |
+| [`quality-snapshot.ts`](../../../src/features/shopping-list/stt-beta/domain/quality-snapshot.ts) | Einziger Sanitizer und versionierter Payload-Vertrag. |
+| [`quality-metrics.ts`](../../../src/features/shopping-list/stt-beta/domain/quality-metrics.ts) | Zählt bestätigte Artikel, Zuordnungen, Korrekturen, Flags und Zeit-Samples. |
+| [`quality-snapshot-export.ts`](../../../src/features/shopping-list/stt-beta/services/quality-snapshot-export.ts) | Bereitet einen lokalen, bereinigten Copy-Export vor. Es gibt keinen Netzwerk-Upload. |
 | [`dev-quality-metrics-screen.tsx`](../../../src/features/settings/dev/dev-quality-metrics-screen.tsx) | Entwickleransicht für lokale Qualitätsmetriken und den bereinigten Payload. |
 | [`speech-dataset-finish.yaml`](../../../.maestro/ios/flows/speech/speech-dataset-finish.yaml) | Beendet die Aufnahme, bereitet die Auswahl vor, speichert den Snapshot und schließt mit `Später`. |
 | [`speech-dataset.ts`](../../../.maestro/scripts/speech-dataset.ts) | Host-Runner für Audio, Maestro-Flows, Simulator-Cache, Manifest und Resume. |
@@ -213,12 +213,22 @@ Darin befinden sich:
 
 - `manifest.json`: Status, Device, Fixture-Set-Version, Reihenfolge, Checkpoint und Captures;
 - `captures/`: genau eine validierte JSONL-Zeile pro erfolgreich abgeschlossenem Audiofall;
+- `speech-captures/`: genau ein sanitisiertes Parsergebnis (`items` und `unparsedText`) pro Audio;
 - `fam-natural-language-addition-quality.jsonl`: aggregierte Qualitätszeilen des Laufs;
 - `quality-before.jsonl`: Cache-Inhalt vor dem Start.
+
+Beim versionierten 20-Sätze-WAV-Datensatz erkennt der Host-Runner zusätzlich
+`20-saetze-gold-labels.jsonl` und erzeugt nach einem erfolgreichen Lauf unter
+`speech-gold/` automatisch `comparisons.jsonl`, `summary.json` und ein Resume-
+Manifest. Der Goldreport verwendet nur das sanitizierte Parsergebnis; Rohtranskript,
+Speech-Segmente, Korrelations- und Session-IDs werden nicht in den Repo-Report
+übernommen. Andere Datensätze behalten den bisherigen Qualitätslauf ohne Goldreport.
 
 Der Runner leert den Simulator-Cache erst nach der Sicherung des vorherigen
 Stands. Nach einem erfolgreichen `Testergebnis speichern` wird genau eine neue
 Zeile erwartet. Ein leerer oder mehrzeiliger Capture wird als Fehler behandelt.
+Für den Goldpfad wird parallel genau eine neue Speech-Diagnostic-Zeile erwartet;
+fehlt sie oder enthält sie kein gültiges Parsergebnis, schlägt der Audiofall fehl.
 Der Test-Cache selbst bleibt auf die neuesten 256 Captures begrenzt. Beim
 Resume werden außerdem die Fixture-Set-Versionen der gespeicherten und neuen
 Captures verglichen, damit keine unterschiedlichen Versionen in einem Lauf

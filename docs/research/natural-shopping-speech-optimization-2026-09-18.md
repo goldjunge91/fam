@@ -33,7 +33,7 @@ Apple-Garantien.
 ## Ausgangslage im Repository
 
 Der aktuelle Adapter ist
-[speech-recognition-adapter.ts](../../src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/services/speech-recognition-adapter.ts).
+[speech-recognition-adapter.ts](../../src/features/shopping-list/stt-beta/services/speech-recognition-adapter.ts).
 Er startet derzeit mit:
 
 | Option | Aktueller Wert | Befund |
