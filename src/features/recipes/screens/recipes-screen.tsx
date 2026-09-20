@@ -240,11 +240,15 @@ const styles = StyleSheet.create((theme) => ({
   },
   tab: {
     width: '100%',
-    height: rs(46),
+    height: rs(48),
     borderRadius: theme.radius.sm,
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  tabLabel: {
+    flexShrink: 1,
+    textAlign: 'center',
   },
   headerActions: {
     flexDirection: 'row',
@@ -600,7 +604,12 @@ export function RecipesScreen() {
                 borderColor: view === 'discover' ? colors.accent : colors.border,
               },
             ]}>
-            <Txt variant="body" tone={view === 'discover' ? 'onAccent' : 'secondary'} weight="700">
+            <Txt
+              variant="label"
+              tone={view === 'discover' ? 'onAccent' : 'secondary'}
+              weight="700"
+              numberOfLines={2}
+              style={styles.tabLabel}>
               Entdecken
             </Txt>
           </Press>
@@ -617,7 +626,12 @@ export function RecipesScreen() {
                 borderColor: view === 'household' ? colors.accent : colors.border,
               },
             ]}>
-            <Txt variant="body" tone={view === 'household' ? 'onAccent' : 'secondary'} weight="700">
+            <Txt
+              variant="label"
+              tone={view === 'household' ? 'onAccent' : 'secondary'}
+              weight="700"
+              numberOfLines={2}
+              style={styles.tabLabel}>
               Eigene Rezepte
             </Txt>
           </Press>
@@ -634,7 +648,12 @@ export function RecipesScreen() {
                 borderColor: view === 'favorites' ? colors.accent : colors.border,
               },
             ]}>
-            <Txt variant="body" tone={view === 'favorites' ? 'onAccent' : 'secondary'} weight="700">
+            <Txt
+              variant="label"
+              tone={view === 'favorites' ? 'onAccent' : 'secondary'}
+              weight="700"
+              numberOfLines={2}
+              style={styles.tabLabel}>
               Meine Favoriten
             </Txt>
           </Press>
