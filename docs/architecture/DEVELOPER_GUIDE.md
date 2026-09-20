@@ -117,6 +117,58 @@ bun run test <gezielter-pfad>  # Jest, nicht: bun test oder ungezielt alles
 bun run test:db     # pgTAP, falls das Schema betroffen ist
 ```
 
+#### Coverage-Gate und Testqualitätsreport
+
+Die vollständige lokale Coverage-Prüfung startet mit:
+
+```bash
+bun run test:coverage:unit
+```
+
+Der Befehl führt den Unit-Test-Scope mit Coverage aus und prüft anschließend
+alle produktiven `.ts`, `.tsx`, `.js` und `.jsx` Dateien unter `src/`. Jest
+prüft zusätzlich die globale Baseline (`70/60/65/72` für Statements,
+Branches, Functions und Lines). Das Per-File-Gate verlangt mindestens `70%`
+für jede dieser vier Metriken. Bei einem Verstoß endet der Befehl mit Exit-Code
+1 und gibt Datei, Metrik, Istwert und Mindestwert aus.
+
+Die maschinenlesbare Zusammenfassung liegt danach unter
+`coverage/coverage-summary.json`. Nur den Per-File-Checker gegen eine bereits
+erzeugte Summary erneut ausführen:
+
+```bash
+bun scripts/check-per-file-coverage.ts
+```
+
+Der separate Testqualitätsreport wird lokal so ausgegeben:
+
+```bash
+bash .codex/skills/analyzing-test-quality/scripts/calculate-metrics.sh
+```
+
+Er zeigt Test- und Source-Scope, Test-/Source-Verhältnis, Testdeklarationen,
+bekannte Marker (`.only`, `.skip`, `fit` usw.) und heuristische Grenzen. Marker
+sind derzeit report-only; technische Fehler bei Discovery oder Report-Erzeugung
+schlagen fehl.
+
+##### GitHub Actions
+
+Ja, `.github/workflows/ci.yml` prüft beides:
+
+- Der Matrix-Job `checks / Unit-Coverage` führt
+  `bun run test:coverage:unit` aus. Dieser Check ist blockierend und schlägt
+  bei fehlenden Tests, unterschrittener globaler Coverage oder unterschrittener
+  Per-File-Coverage fehl.
+- Der unabhängige Job `test-quality-report` führt
+  `calculate-metrics.sh` aus und schreibt den vollständigen Report in die
+  `GITHUB_STEP_SUMMARY` des Jobs. Dieser Job ist zunächst kein required
+  Branch-Protection-Check; Markerbefunde blockieren ihn nicht, technische
+  Reportfehler schon.
+
+Beide Jobs laufen bei Pushes auf `main` und bei Pull Requests. Workflows werden
+bei Änderungen ausschließlich an Markdown- oder `docs/`-Dateien durch
+`paths-ignore` übersprungen.
+
 Vor Änderungen an React-Native-Komponententests zuerst
 `.agents/rules/react-native-testing-library.md` und die lokale Dokumentation
 von `@testing-library/react-native` lesen.

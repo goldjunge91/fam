@@ -296,8 +296,6 @@ export function SettingsScreen() {
               onPress={() => setFabPosition(fabPosition === 'left' ? 'right' : 'left')}
             />
             <NaturalLanguageBetaConsentSetting />
-            <NaturalLanguageBetaConsentSetting dimension="qualityMetrics" />
-            <NaturalLanguageBetaConsentSetting dimension="contentData" />
             <SettingsRow
               icon="💬"
               label={t('settings.groups.app.feedback.label')}

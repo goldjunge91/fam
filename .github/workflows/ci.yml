@@ -72,6 +72,37 @@ jobs:
         if: matrix.task.name == 'Unit-Tests'
         run: bun run test:functions
 
+  test-quality-report:
+    name: Testqualitätsmetriken
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.1
+
+      - name: Cache Bun Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Dependencies installieren
+        run: bun install --frozen-lockfile
+
+      - name: Testqualitätsreport
+        shell: bash
+        run: |
+          set -euo pipefail
+          report="$(bash .codex/skills/analyzing-test-quality/scripts/calculate-metrics.sh)"
+          printf '%s\n' "$report"
+          if [[ -n "${GITHUB_STEP_SUMMARY:-}" ]]; then
+            printf '%s\n' "$report" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
   native-build-baseline:
     name: Native-Build-Baseline
     runs-on: ubuntu-latest

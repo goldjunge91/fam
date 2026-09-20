@@ -1,13 +1,21 @@
+const path = require('node:path');
+
+const setupFiles = [
+  '<rootDir>/test/setup.js',
+  // Unistyles v3 stubs — muss vor der App-Konfiguration stehen,
+  // damit StyleSheet.configure in theme/index.ts auf den Mock trifft.
+  'react-native-unistyles/mocks',
+  '<rootDir>/src/components/theme/index.ts',
+];
+
+const sourceSetupFiles = setupFiles
+  .filter((file) => file.startsWith('<rootDir>/src/'))
+  .map((file) => path.join(__dirname, file.replace('<rootDir>/', '')));
+
 /** @type {import('jest').Config} */
 module.exports = {
   preset: 'jest-expo',
-  setupFiles: [
-    '<rootDir>/test/setup.js',
-    // Unistyles v3 stubs — muss vor der App-Konfiguration stehen,
-    // damit StyleSheet.configure in theme/index.ts auf den Mock trifft.
-    'react-native-unistyles/mocks',
-    '<rootDir>/src/components/theme/index.ts',
-  ],
+  setupFiles,
   setupFilesAfterEnv: ['<rootDir>/test/setup-after-env.js'],
   // React-Native/Babel-Worker sind speicherintensiv. Vier parallele Worker
   // erzeugen im Gesamtlauf GC-/CPU-Konkurrenz und dadurch falsche 15s-Timeouts.
@@ -85,7 +93,10 @@ module.exports = {
     '/tools/',
     '\\.integration\\.test\\.tsx?$',
     '\\.bun\\.test\\.ts$',
-    '/scripts',
+    // Die UI-freien Native-Speech-Runner sind Jest-Suiten und werden bewusst
+    // über denselben fokussierten `bun run test <datei>`-Pfad verifiziert.
+    // Andere eigenständige Host-/Bun-Tools bleiben aus der Expo-Suite heraus.
+    '/scripts/(?!speech-native-[^/]+\\.test\\.ts$)',
   ],
 
   // Eigenstaendige Tools und lokale Agent-Skills koennen eigene
@@ -96,11 +107,21 @@ module.exports = {
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
   // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.
   collectCoverage: false,
+  collectCoverageFrom: [
+    'src/**/*.{ts,tsx,js,jsx}',
+    '!src/**/*.{test,spec}.{ts,tsx,js,jsx}',
+    '!src/**/*.{test,spec}.*.{ts,tsx,js,jsx}',
+    '!src/**/*.d.ts',
+  ],
+  // Jest excludes setupFiles from instrumentation even when they match
+  // collectCoverageFrom. The theme setup is productive app code and must
+  // remain visible to the per-file gate.
+  forceCoverageMatch: sourceSetupFiles,
 
   // Der Coverage-Lauf wird separat im CI-Unit-Scope ausgefuehrt. Die Schwellen
   // starten bewusst unter der verifizierten Baseline und werden nach weiteren
   // Sync-Test-Slices schrittweise angehoben.
-  coverageReporters: ['text-summary'],
+  coverageReporters: ['text-summary', 'json-summary'],
   coverageThreshold: {
     global: {
       statements: 70,

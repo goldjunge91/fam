@@ -47,10 +47,10 @@ import { useStores } from '../hooks/use-stores';
 import { AddItemModal } from '../modals/add-item-modal';
 import { EditItemModal } from '../modals/edit-item-modal';
 import { MoveItemsModal } from '../modals/move-items-modal';
-import { NaturalLanguageAdditionController } from '../natuerliches-hinzufuegen-von-einkaufsartikeln-beta/components/natural-language-addition-controller';
 import { useShowPriceInMarketView } from '../preferences/display-settings';
 import { CategoryOrderSheet } from '../sheets/category-order-sheet';
 import { CompleteRunSheet, type TransferItem } from '../sheets/complete-run-sheet';
+import { NaturalLanguageAdditionController } from '../stt-beta/components/stt-controller';
 import { ShoppingModeScreen } from './shopping-mode-screen';
 
 const styles = StyleSheet.create((theme) => ({

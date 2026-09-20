@@ -5,62 +5,24 @@ import { Alert } from 'react-native';
 import { useSession } from '@/features/auth/session-provider';
 import { SettingsRow } from '@/features/settings/settings-menu';
 import {
-  type NaturalLanguageBetaConsentDimension,
-  type NaturalLanguageBetaConsentValue,
+  type NaturalLanguageBetaAutomaticApplicationConsent,
   naturalLanguageBetaConsentPort,
 } from './natural-language-beta-consent';
 
-function nextConsent(consent: NaturalLanguageBetaConsentValue): 'granted' | 'revoked' {
+function nextConsent(
+  consent: NaturalLanguageBetaAutomaticApplicationConsent,
+): 'granted' | 'revoked' {
   return consent === 'granted' ? 'revoked' : 'granted';
 }
 
-type NaturalLanguageBetaConsentSettingProps = {
-  dimension?: NaturalLanguageBetaConsentDimension;
-};
-
-const CONSENT_CONFIG: Record<NaturalLanguageBetaConsentDimension, { icon: string }> = {
-  automaticApplication: { icon: '✨' },
-  qualityMetrics: { icon: '📊' },
-  contentData: { icon: '🧹' },
-};
-
-function getConsent(
-  dimension: NaturalLanguageBetaConsentDimension,
-  userId: string,
-): Promise<NaturalLanguageBetaConsentValue> {
-  if (dimension === 'automaticApplication') {
-    return naturalLanguageBetaConsentPort.getAutomaticApplicationConsent(userId);
-  }
-  if (dimension === 'qualityMetrics') {
-    return naturalLanguageBetaConsentPort.getQualityMetricsConsent(userId);
-  }
-  return naturalLanguageBetaConsentPort.getContentDataConsent(userId);
-}
-
-function saveConsent(
-  dimension: NaturalLanguageBetaConsentDimension,
-  userId: string,
-  consent: Exclude<NaturalLanguageBetaConsentValue, 'undecided'>,
-): Promise<void> {
-  if (dimension === 'automaticApplication') {
-    return naturalLanguageBetaConsentPort.setAutomaticApplicationConsent(userId, consent);
-  }
-  if (dimension === 'qualityMetrics') {
-    return naturalLanguageBetaConsentPort.setQualityMetricsConsent(userId, consent);
-  }
-  return naturalLanguageBetaConsentPort.setContentDataConsent(userId, consent);
-}
-
-export function NaturalLanguageBetaConsentSetting({
-  dimension = 'automaticApplication',
-}: NaturalLanguageBetaConsentSettingProps) {
+export function NaturalLanguageBetaConsentSetting() {
   const { t } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
-  const [consent, setConsent] = useState<NaturalLanguageBetaConsentValue>('undecided');
+  const [consent, setConsent] =
+    useState<NaturalLanguageBetaAutomaticApplicationConsent>('undecided');
   const [loading, setLoading] = useState(Boolean(userId));
   const [saving, setSaving] = useState(false);
-  const translationKey = `settings.groups.app.naturalLanguageBeta.${dimension}`;
 
   useEffect(() => {
     let active = true;
@@ -74,12 +36,12 @@ export function NaturalLanguageBetaConsentSetting({
     }
 
     setLoading(true);
-    void getConsent(dimension, userId)
+    void naturalLanguageBetaConsentPort
+      .getAutomaticApplicationConsent(userId)
       .then((nextConsentValue) => {
         if (active) setConsent(nextConsentValue);
       })
       .catch(() => {
-        // Ein fehlender lokaler Snapshot ist kein Grund, Settings zu blockieren.
         if (active) setConsent('undecided');
       })
       .finally(() => {
@@ -89,7 +51,7 @@ export function NaturalLanguageBetaConsentSetting({
     return () => {
       active = false;
     };
-  }, [dimension, userId]);
+  }, [userId]);
 
   async function handlePress() {
     if (!userId || loading || saving) return;
@@ -100,7 +62,7 @@ export function NaturalLanguageBetaConsentSetting({
     setSaving(true);
 
     try {
-      await saveConsent(dimension, userId, nextConsentValue);
+      await naturalLanguageBetaConsentPort.setAutomaticApplicationConsent(userId, nextConsentValue);
     } catch {
       setConsent(previousConsent);
       Alert.alert(
@@ -115,13 +77,12 @@ export function NaturalLanguageBetaConsentSetting({
   const value = loading
     ? t('settings.groups.app.naturalLanguageBeta.status.loading')
     : t(`settings.groups.app.naturalLanguageBeta.status.${consent}`);
-  const config = CONSENT_CONFIG[dimension];
 
   return (
     <SettingsRow
-      icon={config.icon}
-      label={t(`${translationKey}.label`)}
-      hint={t(`${translationKey}.hint`)}
+      icon="✨"
+      label={t('settings.groups.app.naturalLanguageBeta.automaticApplication.label')}
+      hint={t('settings.groups.app.naturalLanguageBeta.automaticApplication.hint')}
       value={value}
       onPress={handlePress}
       disabled={!userId || loading || saving}

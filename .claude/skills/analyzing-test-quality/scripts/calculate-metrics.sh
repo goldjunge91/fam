@@ -68,8 +68,8 @@ json_value() {
 
 SOURCE_FILES=()
 SOURCE_FILE_OUTPUT=$(rg --files src \
-  -g '*.ts' -g '*.tsx' -g '*.js' -g '*.jsx' \
-  | rg -v '\.(test|spec)\.[jt]sx?$' || true)
+  -g '*.ts' -g '*.tsx' -g '*.js' -g '*.jsx' -g '!*.d.ts' \
+  | rg -v '\.(test|spec)(\.[^.]+)*\.[jt]sx?$' || true)
 while IFS= read -r file; do
   [ -n "$file" ] && SOURCE_FILES+=("$PROJECT_ROOT/$file")
 done <<< "$SOURCE_FILE_OUTPUT"

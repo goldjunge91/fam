@@ -15,6 +15,18 @@ jest.mock('expo-router', () => ({
   useRouter: () => ({ push: jest.fn(), back: jest.fn() }),
 }));
 
+jest.mock('expo-speech-recognition', () => ({
+  ExpoSpeechRecognitionModule: {
+    requestMicrophonePermissionsAsync: jest.fn(async () => ({ granted: true })),
+    isRecognitionAvailable: jest.fn(() => true),
+    supportsOnDeviceRecognition: jest.fn(() => true),
+    start: jest.fn(),
+    stop: jest.fn(),
+    abort: jest.fn(),
+    addListener: jest.fn(() => ({ remove: jest.fn() })),
+  },
+}));
+
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: { user: { id: 'user-1' } } }),
 }));
@@ -38,13 +50,6 @@ jest.mock('../hooks/use-shopping-list-mutations', () => ({
   // das braucht diesen Hook.
   useUpdateShoppingItem: () => ({ mutateAsync: jest.fn() }),
 }));
-
-jest.mock(
-  '../natuerliches-hinzufuegen-von-einkaufsartikeln-beta/services/native-speech-recognition',
-  () => ({
-    nativeSpeechRecognitionAdapter: { start: jest.fn() },
-  }),
-);
 
 jest.mock('../preferences/display-settings', () => ({
   useShowPriceInMarketView: () => ({ data: false }),
