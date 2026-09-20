@@ -23,6 +23,10 @@ export function NaturalLanguageAdditionSwiftUIPreview({
   onDismiss,
   onEditText,
   onConfirm,
+  nameCorrections,
+  correctionBusy,
+  onCorrectName,
+  onForgetCorrection,
 }: NaturalLanguageAdditionSwiftUIPreviewProps) {
   const { colors } = useTheme();
 
@@ -48,6 +52,10 @@ export function NaturalLanguageAdditionSwiftUIPreview({
                 onRequestClose={onRequestClose}
                 onEditText={onEditText}
                 onConfirm={onConfirm}
+                nameCorrections={nameCorrections}
+                correctionBusy={correctionBusy}
+                onCorrectName={onCorrectName}
+                onForgetCorrection={onForgetCorrection}
               />
             </View>
           </RNHostView>

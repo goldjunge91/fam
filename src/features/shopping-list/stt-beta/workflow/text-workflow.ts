@@ -1,4 +1,4 @@
-import { canAutomaticallyApplyLearning, shouldAskForAutomaticApplication } from '../domain/consent';
+import { canAutoAssign, shouldAskForAutoAssign } from '../domain/auto-assign';
 import { parseNaturalLanguageShoppingInput } from '../domain/parser';
 import type { ShoppingListCatalogEntry } from '../domain/routing';
 import {
@@ -73,7 +73,7 @@ export type ConfirmTextBetaItemsResult = {
   output: ConfirmedBetaOutput;
   saveResult: TextBetaOutputSaveResult;
   state: BetaStorageState;
-  shouldAskForAutomaticApplication: boolean;
+  shouldAskForAutoAssign: boolean;
 };
 
 export type CreateBetaPreviewInput = Omit<CreateTextBetaPreviewInput, 'text'> & {
@@ -105,20 +105,6 @@ export async function createSpeechBetaPreview(
   const speechResult = input.speechResult;
   if (speechResult.status !== 'transcript') {
     return { kind: 'unavailable', speechResult };
-  }
-  const hasOnDeviceRecognition = Boolean(speechResult.onDevice);
-  if (!hasOnDeviceRecognition) {
-    return {
-      kind: 'unavailable',
-      speechResult: {
-        status: 'capability-unavailable',
-        text: null,
-        locale: speechResult.locale,
-        onDevice: false,
-        error: 'On-Device-Spracherkennung ist für diesen Workflow erforderlich.',
-        errorCode: 'on-device-required',
-      },
-    };
   }
 
   const preview = await createBetaPreview({
@@ -155,7 +141,7 @@ export async function createBetaPreview(input: CreateBetaPreviewInput): Promise<
       lists: input.lists,
       learningRules: state.learningRules,
       confirmations: state.confirmations,
-      allowAutomaticApplication: canAutomaticallyApplyLearning(state.consent),
+      allowAutoAssign: canAutoAssign(state.autoAssign),
     }),
     reviewState: 'pending' as const,
   }));
@@ -169,6 +155,43 @@ export async function createBetaPreview(input: CreateBetaPreviewInput): Promise<
   };
 }
 
+/** Correct only the selected name; quantities and the original transcript stay intact. */
+export function correctBetaPreviewItem(input: {
+  preview: TextBetaPreview;
+  itemId: string;
+  name: string;
+  lists: readonly ShoppingListCatalogEntry[];
+  state: BetaStorageState;
+}): TextBetaPreview {
+  const name = input.name.trim();
+  if (!name || !/[\p{L}]/u.test(name)) throw new Error('Bitte einen Artikelnamen eingeben.');
+  if (input.state.session?.id !== input.preview.session.id) {
+    throw new Error('Die Vorschau ist nicht mehr aktuell.');
+  }
+  if (!input.preview.items.some((entry) => entry.itemId === input.itemId)) {
+    throw new Error('Artikel nicht gefunden.');
+  }
+  return {
+    ...input.preview,
+    items: input.preview.items.map((entry) => {
+      if (entry.itemId !== input.itemId) return entry;
+      const item = { ...entry.item, name };
+      return {
+        ...entry,
+        originalName: entry.originalName ?? entry.item.name,
+        item,
+        routing: routeShoppingItem({
+          item,
+          lists: input.lists,
+          learningRules: input.state.learningRules,
+          confirmations: input.state.confirmations,
+          allowAutoAssign: canAutoAssign(input.state.autoAssign),
+        }),
+      };
+    }),
+  };
+}
+
 export async function confirmTextBetaItems(
   input: ConfirmTextBetaItemsInput,
 ): Promise<ConfirmTextBetaItemsResult> {
@@ -177,7 +200,7 @@ export async function confirmTextBetaItems(
     throw new Error('The Beta preview session is no longer active');
   }
   if (
-    !canAutomaticallyApplyLearning(state.consent) &&
+    !canAutoAssign(state.autoAssign) &&
     input.preview.items.some((entry) => entry.routing.automatic === true)
   ) {
     throw new Error(
@@ -225,7 +248,7 @@ export async function confirmTextBetaItems(
       output,
       saveResult: { savedItemCount: 0, mutationCount: 0, itemIds: [] },
       state,
-      shouldAskForAutomaticApplication: false,
+      shouldAskForAutoAssign: false,
     };
   }
 
@@ -256,7 +279,7 @@ export async function confirmTextBetaItems(
       output,
       saveResult,
       state,
-      shouldAskForAutomaticApplication: false,
+      shouldAskForAutoAssign: false,
     };
   }
 
@@ -264,9 +287,9 @@ export async function confirmTextBetaItems(
     output,
     saveResult,
     state: nextState,
-    shouldAskForAutomaticApplication: shouldAskForAutomaticApplication({
+    shouldAskForAutoAssign: shouldAskForAutoAssign({
       progress: getLearningProgress(nextState.confirmations),
-      consent: nextState.consent,
+      autoAssign: nextState.autoAssign,
     }),
   };
 }

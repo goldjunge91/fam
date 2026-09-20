@@ -8,6 +8,7 @@ import type {
 } from '../types';
 import {
   confirmTextBetaItems,
+  correctBetaPreviewItem,
   createSpeechBetaPreview,
   createTextBetaPreview,
   type TextBetaStorage,
@@ -32,6 +33,67 @@ function createFakeStorage(
 }
 
 describe('text beta workflow', () => {
+  it('corrects only the selected name and commits it without changing quantity or transcript', async () => {
+    const storage = createFakeStorage();
+    const preview = await createTextBetaPreview({
+      text: '2 Becher Ski er von JA, Brot',
+      betaSessionId: 'correction-session',
+      startedAt: '2026-09-20T10:00:00.000Z',
+      lists,
+      storage,
+    });
+    const corrected = correctBetaPreviewItem({
+      preview,
+      itemId: preview.items[0].itemId,
+      name: 'Skyr',
+      lists,
+      state: storage.getState(),
+    });
+    expect(corrected.items[0].item).toEqual({
+      name: 'Skyr',
+      quantity: 2,
+      unit: 'piece',
+      brand: 'JA',
+    });
+    expect(corrected.items[0].routing.item.name).toBe('Skyr');
+    expect(corrected.items[1]).toBe(preview.items[1]);
+    expect(corrected.input.text).toBe(preview.input.text);
+    const revised = correctBetaPreviewItem({
+      preview: corrected,
+      itemId: corrected.items[0].itemId,
+      name: 'Skyr natur',
+      lists,
+      state: storage.getState(),
+    });
+    expect(revised.items[0].originalName).toBe('Ski er');
+    const saveConfirmedOutput = jest.fn(async () => ({
+      savedItemCount: 1,
+      mutationCount: 1,
+      itemIds: ['saved'],
+    }));
+    await confirmTextBetaItems({
+      preview: corrected,
+      selections: [{ itemId: corrected.items[0].itemId, targetListId: 'rewe-list' }],
+      storage,
+      saveConfirmedOutput,
+    });
+    expect(saveConfirmedOutput).toHaveBeenCalledWith(
+      expect.objectContaining({
+        items: [
+          { confirmation: 'confirmed', item: corrected.items[0].item, targetListId: 'rewe-list' },
+        ],
+      }),
+    );
+    expect(() =>
+      correctBetaPreviewItem({
+        preview,
+        itemId: preview.items[0].itemId,
+        name: 'Skyr',
+        lists,
+        state: createEmptyNaturalLanguageAdditionBetaState(),
+      }),
+    ).toThrow('nicht mehr aktuell');
+  });
   it('parses all articles, exposes routing, and saves only selected confirmations', async () => {
     const storage = createFakeStorage();
     const saveConfirmedOutput = jest.fn(async (output: ConfirmedBetaOutput) => ({
@@ -94,13 +156,13 @@ describe('text beta workflow', () => {
     });
   });
 
-  it('feeds an on-device transcript into the same preview workflow', async () => {
+  it('feeds a network-capable transcript into the same preview workflow', async () => {
     const storage = createFakeStorage();
     const speechResult: SpeechInputResult = {
       status: 'transcript',
       text: '4x Skyr von JA',
       locale: 'de-DE',
-      onDevice: true,
+      onDevice: false,
       error: null,
     };
 
@@ -118,13 +180,13 @@ describe('text beta workflow', () => {
       source: 'speech',
       text: '4x Skyr von JA',
       locale: 'de-DE',
-      onDevice: true,
+      onDevice: false,
     });
     expect(result.preview.session.source).toBe('speech');
     expect(result.preview.items[0]?.item).toMatchObject({ name: 'Skyr', quantity: 4, brand: 'JA' });
   });
 
-  it('rejects a non-device transcript before creating a preview session', async () => {
+  it('accepts a non-device transcript in the preview workflow', async () => {
     const storage = createFakeStorage();
     const speechResult = {
       status: 'transcript',
@@ -134,26 +196,19 @@ describe('text beta workflow', () => {
       error: null,
     } as unknown as SpeechInputResult;
 
-    await expect(
-      createSpeechBetaPreview({
-        speechResult,
-        betaSessionId: 'non-device-session-1',
-        startedAt: '2026-09-18T12:00:00.000Z',
-        lists,
-        storage,
-      }),
-    ).resolves.toEqual({
-      kind: 'unavailable',
-      speechResult: {
-        status: 'capability-unavailable',
-        text: null,
-        locale: 'de-DE',
-        onDevice: false,
-        error: 'On-Device-Spracherkennung ist für diesen Workflow erforderlich.',
-        errorCode: 'on-device-required',
-      },
+    const result = await createSpeechBetaPreview({
+      speechResult,
+      betaSessionId: 'non-device-session-1',
+      startedAt: '2026-09-18T12:00:00.000Z',
+      lists,
+      storage,
     });
-    expect(storage.getState().session).toBeNull();
+
+    expect(result).toMatchObject({ kind: 'preview' });
+    expect(storage.getState().session).toMatchObject({
+      id: 'non-device-session-1',
+      source: 'speech',
+    });
   });
 
   it('rebuilds the same session when the preview transcript is edited', async () => {
@@ -331,16 +386,14 @@ describe('text beta workflow', () => {
       confirmedAt: '2026-09-18T12:01:00.000Z',
     });
 
-    expect(result.shouldAskForAutomaticApplication).toBe(true);
-    expect(result.state.consent.automaticApplication).toBe('undecided');
+    expect(result.shouldAskForAutoAssign).toBe(true);
+    expect(result.state.autoAssign).toBe('unset');
   });
 
-  it('does not commit a stale automatic selection after the user revokes consent', async () => {
+  it('does not commit a stale automatic selection after auto assignment is switched off', async () => {
     let state: BetaStorageState = {
       ...createEmptyNaturalLanguageAdditionBetaState(),
-      consent: {
-        automaticApplication: 'granted',
-      },
+      autoAssign: 'on',
       learningRules: [
         {
           id: 'rule-oatly',
@@ -377,7 +430,7 @@ describe('text beta workflow', () => {
 
     state = {
       ...state,
-      consent: { ...state.consent, automaticApplication: 'revoked' },
+      autoAssign: 'off',
     };
 
     await expect(

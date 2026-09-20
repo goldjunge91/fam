@@ -1,15 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import { z } from 'zod';
 import {
+  getLogicalDateForTimestamp,
+  getTimeRangeForLogicalDate,
+} from '@/features/calorie-tracking/domain/day-boundary';
+import {
   buildCorrelationSeries,
   type CorrelationInjection,
   type CorrelationSeriesPoint,
 } from '@/features/glp1/domain/correlation-series';
 import { correlationSeriesQueryKey } from '@/features/glp1/domain/query-keys';
-import {
-  getLogicalDateForTimestamp,
-  getTimeRangeForLogicalDate,
-} from '@/features/tracking/domain/day-boundary';
 import { getSupabase } from '@/lib/backend/supabase/client';
 import { getDatabase } from '@/lib/db/client';
 

@@ -11,7 +11,7 @@ export type NaturalLanguageAdditionInput =
       source: 'speech';
       text: string;
       locale: string | null;
-      onDevice: true;
+      onDevice: boolean;
     };
 
 export type SpeechInputResult =
@@ -19,7 +19,7 @@ export type SpeechInputResult =
       status: 'transcript';
       text: string;
       locale: string | null;
-      onDevice: true;
+      onDevice: boolean;
       error: null;
     }
   | {
@@ -81,6 +81,7 @@ export type BetaItemReviewState = 'pending' | 'confirmed' | 'deferred';
 
 export type BetaPreviewItem = {
   itemId: string;
+  originalName?: string;
   item: ParsedShoppingItem;
   routing: RoutingDecision;
   reviewState: BetaItemReviewState;
@@ -125,15 +126,12 @@ export type BetaConfirmationEvent = {
   createdAt: string;
 };
 
-export type BetaConsentState = {
-  /** Per-user permission to apply learned household mappings automatically. */
-  automaticApplication: 'undecided' | 'granted' | 'revoked';
-};
+export type AutoAssignState = 'unset' | 'on' | 'off';
 
 export type BetaStorageState = {
   version: 1;
   session: BetaSessionState | null;
   learningRules: readonly BetaLearningRule[];
   confirmations: readonly BetaConfirmationEvent[];
-  consent: BetaConsentState;
+  autoAssign: AutoAssignState;
 };

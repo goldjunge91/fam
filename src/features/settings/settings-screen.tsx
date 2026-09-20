@@ -25,7 +25,6 @@ import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { persistOnboardingCompleted } from '@/features/onboarding/onboarding-completion';
 import { useProfile } from '@/features/profile/api';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
-import { NaturalLanguageBetaConsentSetting } from '@/features/settings/natural-language-beta-consent-setting';
 import { PlusAndAiPromoCard } from '@/features/settings/plus-and-ai-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
@@ -295,7 +294,12 @@ export function SettingsScreen() {
               hint={t('settings.groups.app.fabPosition.hint')}
               onPress={() => setFabPosition(fabPosition === 'left' ? 'right' : 'left')}
             />
-            <NaturalLanguageBetaConsentSetting />
+            <SettingsRow
+              icon="🗣️"
+              label={t('settings.groups.speechToText.title')}
+              hint={t('settings.groups.speechToText.hint')}
+              onPress={() => router.push('/settings/speech-to-text')}
+            />
             <SettingsRow
               icon="💬"
               label={t('settings.groups.app.feedback.label')}

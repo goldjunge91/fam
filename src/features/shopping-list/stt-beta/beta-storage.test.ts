@@ -5,6 +5,7 @@ import {
   getNaturalLanguageAdditionBetaState,
   saveNaturalLanguageAdditionBetaState,
 } from './beta-storage';
+import { getNameCorrections, NAME_CORRECTIONS_KEY, updateNameCorrection } from './name-corrections';
 import type { BetaStorageState } from './types';
 
 const valuesByUser = new Map<string, Map<string, string>>();
@@ -53,9 +54,7 @@ const storedState: BetaStorageState = {
     },
   ],
   confirmations: [],
-  consent: {
-    automaticApplication: 'undecided',
-  },
+  autoAssign: 'unset',
 };
 
 mockGetEncryptedAccountStorage.mockImplementation(async (userId) => {
@@ -81,10 +80,43 @@ describe('natural-language addition beta storage', () => {
     expect(valuesByUser.get('user-a')?.has(BETA_STORAGE_KEY)).toBe(true);
   });
 
-  it('normalizes a V1 snapshot created before automatic-application consent existed', async () => {
+  it('remembers, replaces and forgets corrections only in the selected account', async () => {
+    await saveNaturalLanguageAdditionBetaState('user-a', storedState);
+    await updateNameCorrection('user-a', 'Ski er', 'Skyr');
+    await updateNameCorrection('user-b', 'Ski er', 'Skyr');
+    await updateNameCorrection('user-a', '  SKI   ER ', 'Skyr natur');
+    await expect(getNameCorrections('user-a')).resolves.toEqual([
+      { original: 'SKI   ER', corrected: 'Skyr natur' },
+    ]);
+    await updateNameCorrection('user-a', 'ski er', null);
+    await expect(getNameCorrections('user-a')).resolves.toEqual([]);
+    await expect(getNameCorrections('user-b')).resolves.toEqual([
+      { original: 'Ski er', corrected: 'Skyr' },
+    ]);
+    await expect(getNaturalLanguageAdditionBetaState('user-a')).resolves.toEqual(storedState);
+  });
+
+  it('ignores damaged correction storage and rejects empty replacements', async () => {
+    createStorage('user-a').set(NAME_CORRECTIONS_KEY, '{broken');
+    await expect(getNameCorrections('user-a')).resolves.toEqual([]);
+    await expect(updateNameCorrection('user-a', 'Ski er', ' ')).rejects.toThrow();
+    createStorage('user-a').set(
+      NAME_CORRECTIONS_KEY,
+      JSON.stringify([
+        { original: 'Ski er', corrected: 'Skyr' },
+        { original: 'invalid', corrected: 3 },
+      ]),
+    );
+    await expect(getNameCorrections('user-a')).resolves.toEqual([
+      { original: 'Ski er', corrected: 'Skyr' },
+    ]);
+  });
+
+  it('normalizes a V1 snapshot created before automatic assignment existed', async () => {
     const storage = createStorage('user-legacy');
     const legacyState = {
       ...storedState,
+      autoAssign: undefined,
       consent: {
         automaticApplication: 'undecided' as const,
       },
@@ -92,9 +124,7 @@ describe('natural-language addition beta storage', () => {
     storage.set(BETA_STORAGE_KEY, JSON.stringify(legacyState));
 
     await expect(getNaturalLanguageAdditionBetaState('user-legacy')).resolves.toMatchObject({
-      consent: {
-        automaticApplication: 'undecided',
-      },
+      autoAssign: 'unset',
     });
     expect(removeCalls).toEqual([]);
   });

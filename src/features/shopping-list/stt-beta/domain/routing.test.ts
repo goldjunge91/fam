@@ -47,7 +47,7 @@ describe('routeShoppingItem', () => {
     );
   });
 
-  it('shows a learned mapping as a suggestion until the user grants automatic application', () => {
+  it('shows a known mapping as a suggestion until automatic assignment is enabled', () => {
     const item = { name: 'Haferdrink', quantity: 1, unit: null, brand: 'Oatly' };
     const learningRules = [
       {
@@ -67,7 +67,7 @@ describe('routeShoppingItem', () => {
         lists,
         learningRules,
         confirmations: [],
-        allowAutomaticApplication: false,
+        allowAutoAssign: false,
       }),
     ).toMatchObject({
       kind: 'uncertain',
@@ -82,7 +82,7 @@ describe('routeShoppingItem', () => {
         lists,
         learningRules,
         confirmations: [],
-        allowAutomaticApplication: true,
+        allowAutoAssign: true,
       }),
     ).toMatchObject({ kind: 'resolved', listId: 'aldi-list', needsClarification: false });
   });

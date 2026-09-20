@@ -1,15 +1,20 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Button, Press, Surface, TextField, Txt } from '@/constants/ui';
 import { getClarificationSummary } from '../domain/clarification';
+import { type NameCorrection, normalizeCorrectionName } from '../name-corrections';
 import type { BetaPreviewItem, ParsedShoppingItem, ShoppingListSuggestion } from '../types';
 import type { TextBetaPreview, TextBetaSelection } from '../workflow/text-workflow';
 import { NaturalLanguageAdditionSheetCloseButton } from './stt-close-button';
 
 export type NaturalLanguageAdditionSwiftUIPreviewProps = {
   visible: boolean;
+  nameCorrections?: readonly NameCorrection[];
+  correctionBusy?: boolean;
+  onCorrectName?: (itemId: string, name: string, remember: boolean) => void | Promise<void>;
+  onForgetCorrection?: (original: string) => void | Promise<void>;
   preview: TextBetaPreview;
   onRequestClose: () => void;
   onDismiss: () => void;
@@ -53,18 +58,42 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
   onRequestClose,
   onEditText,
   onConfirm,
+  nameCorrections = [],
+  correctionBusy = false,
+  onCorrectName,
+  onForgetCorrection,
 }: NaturalLanguageAdditionSwiftUIPreviewContentProps) {
   const selectionDefaults = useMemo(() => initialSelections(preview.items), [preview]);
+  const [showCorrections, setShowCorrections] = useState(false);
   const [draftText, setDraftText] = useState(preview.input.text);
   const [selectedTargets, setSelectedTargets] =
     useState<Record<string, string | null>>(selectionDefaults);
   const [deferredItemIds, setDeferredItemIds] = useState<ReadonlySet<string>>(new Set());
 
+  const previousItemsRef = useRef(preview.items);
   useEffect(() => {
     setDraftText(preview.input.text);
-    setSelectedTargets(selectionDefaults);
-    setDeferredItemIds(new Set());
-  }, [preview.input.text, selectionDefaults]);
+  }, [preview.input.text]);
+
+  useEffect(() => {
+    const unchangedIds = new Set(
+      preview.items
+        .filter((item) => previousItemsRef.current.includes(item))
+        .map((item) => item.itemId),
+    );
+    previousItemsRef.current = preview.items;
+    setSelectedTargets((current) =>
+      Object.fromEntries(
+        preview.items.map((item) => [
+          item.itemId,
+          unchangedIds.has(item.itemId)
+            ? (current[item.itemId] ?? null)
+            : selectionDefaults[item.itemId],
+        ]),
+      ),
+    );
+    setDeferredItemIds((current) => new Set([...current].filter((id) => unchangedIds.has(id))));
+  }, [preview.items, selectionDefaults]);
 
   const summary = getClarificationSummary(preview.items);
   const selections = useMemo(
@@ -115,6 +144,7 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
             label="Erkannter Text"
             value={draftText}
             onChangeText={setDraftText}
+            editable={!correctionBusy}
             multiline
             numberOfLines={3}
             textAlignVertical="top"
@@ -124,9 +154,14 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
             title="Neu prüfen"
             variant="secondary"
             onPress={() => onEditText(draftText.trim())}
-            disabled={!draftText.trim()}
+            disabled={!draftText.trim() || correctionBusy}
             full
           />
+          {preview.parseResult.unparsedText ? (
+            <Txt variant="body" tone="warning" accessibilityRole="alert">
+              Noch nicht erkannt: {preview.parseResult.unparsedText}
+            </Txt>
+          ) : null}
           <Txt variant="caption" tone="secondary">
             {summaryText(preview.items)}
           </Txt>
@@ -155,15 +190,51 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
               selectedTargetId={selectedTargets[item.itemId]}
               onSelectSuggestion={selectSuggestion}
               onDefer={deferItem}
+              correctionBusy={correctionBusy}
+              onCorrectName={onCorrectName}
+              suggestedName={
+                nameCorrections.find(
+                  (correction) =>
+                    normalizeCorrectionName(correction.original) ===
+                    normalizeCorrectionName(item.item.name),
+                )?.corrected
+              }
             />
           ))}
         </View>
+
+        {nameCorrections.length > 0 && onForgetCorrection ? (
+          <View style={styles.rows}>
+            <Button
+              title={`Gemerkte Korrekturen (${nameCorrections.length})`}
+              variant="secondary"
+              onPress={() => setShowCorrections((shown) => !shown)}
+            />
+            {showCorrections
+              ? nameCorrections.map((correction) => (
+                  <View key={correction.original} style={styles.rows}>
+                    <Txt variant="body">
+                      {correction.original} → {correction.corrected}
+                    </Txt>
+                    <Button
+                      title={`${correction.original}: Korrektur vergessen`}
+                      variant="secondary"
+                      disabled={correctionBusy}
+                      onPress={() => {
+                        void onForgetCorrection(correction.original);
+                      }}
+                    />
+                  </View>
+                ))
+              : null}
+          </View>
+        ) : null}
 
         <View style={styles.footer}>
           <Button
             title={`${selections.length} Artikel hinzufügen`}
             onPress={() => onConfirm(selections)}
-            disabled={selections.length === 0}
+            disabled={selections.length === 0 || correctionBusy}
             full
           />
           <Button
@@ -181,6 +252,9 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
 
 type PreviewRowProps = {
   item: BetaPreviewItem;
+  correctionBusy: boolean;
+  suggestedName?: string;
+  onCorrectName: NaturalLanguageAdditionSwiftUIPreviewProps['onCorrectName'];
   deferred: boolean;
   selectedTargetId: string | null | undefined;
   onSelectSuggestion: (itemId: string, listId: string) => void;
@@ -193,7 +267,17 @@ function PreviewRow({
   selectedTargetId,
   onSelectSuggestion,
   onDefer,
+  correctionBusy,
+  suggestedName,
+  onCorrectName,
 }: PreviewRowProps) {
+  const [editingName, setEditingName] = useState(false);
+  const [name, setName] = useState(item.item.name);
+  useEffect(() => {
+    setName(item.item.name);
+    setEditingName(false);
+  }, [item.item.name]);
+  const hasNewName = name.trim().length > 0 && name.trim() !== item.item.name;
   const isUnclear = item.routing.needsClarification;
   return (
     <View style={styles.itemRow}>
@@ -205,6 +289,63 @@ function PreviewRow({
           {isUnclear ? '?' : '✓'}
         </Txt>
       </View>
+
+      {onCorrectName ? (
+        <View style={styles.rows}>
+          {suggestedName &&
+          normalizeCorrectionName(suggestedName) !== normalizeCorrectionName(item.item.name) ? (
+            <Button
+              title={`Vorschlag übernehmen: ${suggestedName}`}
+              variant="secondary"
+              disabled={correctionBusy}
+              onPress={() => {
+                void onCorrectName(item.itemId, suggestedName, false);
+              }}
+            />
+          ) : null}
+          {editingName ? (
+            <>
+              <TextField
+                label="Artikelname"
+                value={name}
+                onChangeText={setName}
+                editable={!correctionBusy}
+              />
+              <Button
+                title="Nur übernehmen"
+                variant="secondary"
+                disabled={!hasNewName || correctionBusy}
+                onPress={() => {
+                  void onCorrectName(item.itemId, name.trim(), false);
+                }}
+              />
+              <Button
+                title="Übernehmen und merken"
+                disabled={!hasNewName || correctionBusy}
+                onPress={() => {
+                  void onCorrectName(item.itemId, name.trim(), true);
+                }}
+              />
+              <Button
+                title="Korrektur abbrechen"
+                variant="secondary"
+                disabled={correctionBusy}
+                onPress={() => {
+                  setName(item.item.name);
+                  setEditingName(false);
+                }}
+              />
+            </>
+          ) : (
+            <Button
+              title="Name korrigieren"
+              variant="secondary"
+              disabled={correctionBusy}
+              onPress={() => setEditingName(true)}
+            />
+          )}
+        </View>
+      ) : null}
 
       {isUnclear ? (
         <View style={styles.suggestionList}>

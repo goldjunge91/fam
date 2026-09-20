@@ -19,12 +19,12 @@ import {
 } from '@/features/calorie-tracking/api';
 import { FastingCard } from '@/features/calorie-tracking/components/fasting-card';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
+import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/domain/day-boundary';
 import { Glp1Card } from '@/features/glp1/components/glp1-card';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useChildProfiles } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfile } from '@/features/profile/api';
-import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
 
 const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
 export const MEAL_LABELS: Record<MealType, string> = {

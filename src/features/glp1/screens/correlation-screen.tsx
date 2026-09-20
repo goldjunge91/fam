@@ -2,10 +2,10 @@ import { useLocalSearchParams } from 'expo-router';
 import { Screen } from '@/components/layout/screen';
 import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
+import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/domain/day-boundary';
 import { CorrelationSection } from '@/features/glp1/components/correlation-section';
 import { useCorrelationSeries } from '@/features/glp1/hooks/correlation-api';
 import { useProfile } from '@/features/profile/api';
-import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
 
 type CorrelationRouteParams = {
   logicalDate?: string;

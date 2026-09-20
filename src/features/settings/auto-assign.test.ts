@@ -2,7 +2,7 @@ import {
   createEmptyNaturalLanguageAdditionBetaState,
   getNaturalLanguageAdditionBetaState,
 } from '@/features/shopping-list/stt-beta/beta-storage';
-import { naturalLanguageBetaConsentPort } from './natural-language-beta-consent';
+import { autoAssignPort } from './auto-assign';
 
 jest.mock('@/features/shopping-list/stt-beta/beta-storage', () => ({
   ...jest.requireActual('@/features/shopping-list/stt-beta/beta-storage'),
@@ -12,23 +12,18 @@ jest.mock('@/features/shopping-list/stt-beta/beta-storage', () => ({
 
 const mockGetNaturalLanguageAdditionBetaState = jest.mocked(getNaturalLanguageAdditionBetaState);
 
-describe('naturalLanguageBetaConsentPort', () => {
+describe('autoAssignPort', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  it('reads automatic application consent', async () => {
+  it('reads the automatic assignment setting', async () => {
     const state = createEmptyNaturalLanguageAdditionBetaState();
     mockGetNaturalLanguageAdditionBetaState.mockResolvedValue({
       ...state,
-      consent: {
-        ...state.consent,
-        automaticApplication: 'granted',
-      },
+      autoAssign: 'on',
     });
 
-    await expect(
-      naturalLanguageBetaConsentPort.getAutomaticApplicationConsent('user-1'),
-    ).resolves.toBe('granted');
+    await expect(autoAssignPort.get('user-1')).resolves.toBe('on');
   });
 });

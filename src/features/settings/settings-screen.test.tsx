@@ -27,8 +27,6 @@ let mockAvatarUrl: string | null = null;
 let mockCaloriesTrackingEnabled = true;
 const mockSignOutAndClearLocalData = jest.fn();
 const mockPersistOnboardingCompleted = jest.fn();
-const mockGetAutomaticApplicationConsent = jest.fn();
-const mockSetAutomaticApplicationConsent = jest.fn();
 
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({
@@ -102,15 +100,6 @@ jest.mock('@/features/settings/use-feature-access', () => ({
   }),
 }));
 
-jest.mock('@/features/settings/natural-language-beta-consent', () => ({
-  naturalLanguageBetaConsentPort: {
-    getAutomaticApplicationConsent: (...args: unknown[]) =>
-      mockGetAutomaticApplicationConsent(...args),
-    setAutomaticApplicationConsent: (...args: unknown[]) =>
-      mockSetAutomaticApplicationConsent(...args),
-  },
-}));
-
 // `Screen` fragt den Router, ob es etwas zum Zurueckgehen gibt; ausserhalb
 // eines Navigators gibt es dafuer keinen Zustand.
 jest.mock('expo-router', () => ({
@@ -151,10 +140,6 @@ describe('SettingsScreen', () => {
     jest.mocked(router.replace).mockClear();
     mockSignOutAndClearLocalData.mockClear();
     mockPersistOnboardingCompleted.mockClear();
-    mockGetAutomaticApplicationConsent.mockReset();
-    mockSetAutomaticApplicationConsent.mockReset();
-    mockGetAutomaticApplicationConsent.mockResolvedValue('undecided');
-    mockSetAutomaticApplicationConsent.mockResolvedValue(undefined);
     mockSignOutAndClearLocalData.mockResolvedValue({ error: null });
     mockPersistOnboardingCompleted.mockResolvedValue(undefined);
     process.env.EXPO_PUBLIC_DEV_TOOLS = 'false';
@@ -216,6 +201,15 @@ describe('SettingsScreen', () => {
     // jetzt auf die Unterseiten.
     expect(queryByText('Jetzt synchronisieren')).toBeNull();
     expect(queryByText('Sync-Diagnose & Outbox anzeigen')).toBeNull();
+  });
+
+  it('öffnet den eigenen Speech-to-Text-Screen', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Spracheingabe' }));
+
+    expect(router.push).toHaveBeenCalledWith('/settings/speech-to-text');
   });
 
   it('beantwortet die haeufigsten Fragen ohne Antippen', async () => {
@@ -320,21 +314,6 @@ describe('SettingsScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Gamification' }));
 
     expect(router.push).toHaveBeenCalledWith('/gamification');
-  });
-
-  it('widerruft die automatische Beta-Anwendung aus den Einstellungen', async () => {
-    mockGetAutomaticApplicationConsent.mockResolvedValue('granted');
-
-    await renderScreen();
-    const user = userEvent.setup();
-
-    await user.press(
-      await screen.findByRole('button', {
-        name: 'Automatische Beta-Zuordnung: Erlaubt',
-      }),
-    );
-
-    expect(mockSetAutomaticApplicationConsent).toHaveBeenCalledWith('user-1', 'revoked');
   });
 
   it('wechselt die App-Sprache über die Einstellungszeile', async () => {

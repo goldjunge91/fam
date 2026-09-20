@@ -1,7 +1,6 @@
 import { getEncryptedAccountStorage } from '@/lib/storage/account-storage';
 import type {
   BetaConfirmationEvent,
-  BetaConsentState,
   BetaLearningRule,
   BetaSessionState,
   BetaStorageState,
@@ -15,17 +14,15 @@ export function createEmptyNaturalLanguageAdditionBetaState(): BetaStorageState 
     session: null,
     learningRules: [],
     confirmations: [],
-    consent: {
-      automaticApplication: 'undecided',
-    },
+    autoAssign: 'unset',
   };
 }
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
-function isConsentValue(value: unknown): value is BetaConsentState['automaticApplication'] {
-  return value === 'undecided' || value === 'granted' || value === 'revoked';
+function isAutoAssignState(value: unknown): value is BetaStorageState['autoAssign'] {
+  return value === 'unset' || value === 'on' || value === 'off';
 }
 
 function isBetaSessionState(value: unknown): value is BetaSessionState {
@@ -69,8 +66,9 @@ type PersistedBetaStorageState = {
   session: BetaSessionState | null;
   learningRules: readonly BetaLearningRule[];
   confirmations: readonly BetaConfirmationEvent[];
-  consent: {
-    automaticApplication?: BetaConsentState['automaticApplication'];
+  autoAssign?: BetaStorageState['autoAssign'];
+  consent?: {
+    automaticApplication?: 'undecided' | 'granted' | 'revoked';
   };
 };
 
@@ -83,23 +81,30 @@ function isBetaStorageState(value: unknown): value is PersistedBetaStorageState 
   if (!Array.isArray(value.confirmations) || !value.confirmations.every(isBetaConfirmationEvent)) {
     return false;
   }
-  if (!isRecord(value.consent)) return false;
+  if (value.autoAssign !== undefined && !isAutoAssignState(value.autoAssign)) return false;
+  if (value.consent !== undefined && !isRecord(value.consent)) return false;
 
   return (
-    value.consent.automaticApplication === undefined ||
-    isConsentValue(value.consent.automaticApplication)
+    value.autoAssign !== undefined ||
+    value.consent?.automaticApplication === undefined ||
+    value.consent.automaticApplication === 'undecided' ||
+    value.consent.automaticApplication === 'granted' ||
+    value.consent.automaticApplication === 'revoked'
   );
 }
 
 function normalizeBetaStorageState(state: PersistedBetaStorageState): BetaStorageState {
+  const legacyAutoAssign = state.consent?.automaticApplication;
+  const autoAssign =
+    state.autoAssign ??
+    (legacyAutoAssign === 'granted' ? 'on' : legacyAutoAssign === 'revoked' ? 'off' : 'unset');
+
   return {
     version: 1,
     session: state.session,
     learningRules: state.learningRules,
     confirmations: state.confirmations,
-    consent: {
-      automaticApplication: state.consent.automaticApplication ?? 'undecided',
-    },
+    autoAssign,
   };
 }
 

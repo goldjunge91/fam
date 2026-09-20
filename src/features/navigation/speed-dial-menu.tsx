@@ -95,6 +95,7 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
   const speedDialOptions = getSpeedDialOptions();
   const visibleOptions = speedDialOptions.filter((option) => isFeatureEnabled(option.feature));
   const shoppingListEnabled = visibleOptions.some((option) => option.id === 'shoppingList');
+  const shoppingSttEnabled = isFeatureEnabled('shoppingStt');
 
   useEffect(() => {
     if (!isOpen) return;
@@ -131,7 +132,7 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
             bottom: insets.bottom + space.xxxl + space.xl,
           },
         ]}>
-        {shoppingListEnabled ? (
+        {shoppingListEnabled && shoppingSttEnabled ? (
           <Pressable
             key="natural-language-addition-speech"
             onPress={() => {

@@ -50,6 +50,11 @@ function createFakeSpeechClient(
       status: 'granted',
       canAskAgain: false,
     })),
+    requestSpeechRecognizerPermissionsAsync: jest.fn(async () => ({
+      granted: true,
+      status: 'granted',
+      canAskAgain: false,
+    })),
     start: jest.fn(),
     stop: jest.fn(),
     abort: jest.fn(),
@@ -92,18 +97,25 @@ function expectFallback(
   });
 }
 
+async function waitForRecognitionStart(): Promise<void> {
+  await Promise.resolve();
+  await Promise.resolve();
+  await Promise.resolve();
+}
+
 describe('speech recognition adapter', () => {
-  it('always starts the local recognition contract', async () => {
+  it('starts the network-capable recognition contract', async () => {
     const client = createFakeSpeechClient();
     const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
-    await Promise.resolve();
+    await waitForRecognitionStart();
 
     expect(client.requestMicrophonePermissionsAsync).toHaveBeenCalledTimes(1);
+    expect(client.requestSpeechRecognizerPermissionsAsync).toHaveBeenCalledTimes(1);
     expect(client.requestPermissionsAsync).not.toHaveBeenCalled();
     expect(client.start).toHaveBeenCalledWith(
-      expect.objectContaining({ requiresOnDeviceRecognition: true }),
+      expect.objectContaining({ requiresOnDeviceRecognition: false }),
     );
 
     client.emitResult('Äpfel');
@@ -111,18 +123,19 @@ describe('speech recognition adapter', () => {
 
     await expect(session.result).resolves.toMatchObject({
       status: 'transcript',
-      onDevice: true,
+      onDevice: false,
     });
   });
 
-  it('matches the native on-device recognition contract', async () => {
+  it('matches the native network-capable recognition contract', async () => {
     const client = createFakeSpeechClient();
     const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
-    await Promise.resolve();
+    await waitForRecognitionStart();
 
     expect(client.requestMicrophonePermissionsAsync).toHaveBeenCalledTimes(1);
+    expect(client.requestSpeechRecognizerPermissionsAsync).toHaveBeenCalledTimes(1);
     expect(client.requestPermissionsAsync).not.toHaveBeenCalled();
     expect(client.start).toHaveBeenCalledWith({
       lang: 'de-DE',
@@ -130,10 +143,11 @@ describe('speech recognition adapter', () => {
       interimResults: false,
       maxAlternatives: 1,
       continuous: true,
-      requiresOnDeviceRecognition: true,
+      requiresOnDeviceRecognition: false,
       addsPunctuation: true,
       iosTaskHint: 'dictation',
     });
+    expect(CONTEXTUAL_STRING_LIST).toContain('Erythrit');
     expect(client.start).not.toHaveBeenCalledWith(
       expect.objectContaining({ recordingOptions: expect.anything() }),
     );
@@ -145,7 +159,7 @@ describe('speech recognition adapter', () => {
       status: 'transcript',
       text: '3 Äpfel und Brot',
       locale: 'de-DE',
-      onDevice: true,
+      onDevice: false,
       error: null,
     });
   });
@@ -156,7 +170,7 @@ describe('speech recognition adapter', () => {
     const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start({ onVolumeChange });
 
-    await Promise.resolve();
+    await waitForRecognitionStart();
 
     expect(client.start).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -170,7 +184,7 @@ describe('speech recognition adapter', () => {
     session.cancel();
   });
 
-  it('requires on-device capability before requesting microphone permission', async () => {
+  it('does not require on-device capability for network recognition', async () => {
     const client = createFakeSpeechClient({
       supportsOnDeviceRecognition: () => false,
     });
@@ -178,14 +192,13 @@ describe('speech recognition adapter', () => {
 
     const session = adapter.start();
 
-    await Promise.resolve();
-
-    await expect(session.result).resolves.toMatchObject({
-      status: 'capability-unavailable',
-      onDevice: false,
-    });
-    expect(client.requestMicrophonePermissionsAsync).not.toHaveBeenCalled();
-    expect(client.start).not.toHaveBeenCalled();
+    await waitForRecognitionStart();
+    expect(client.requestMicrophonePermissionsAsync).toHaveBeenCalledTimes(1);
+    expect(client.requestSpeechRecognizerPermissionsAsync).toHaveBeenCalledTimes(1);
+    expect(client.start).toHaveBeenCalledWith(
+      expect.objectContaining({ requiresOnDeviceRecognition: false }),
+    );
+    session.cancel();
   });
 
   it('collects final transcript pieces until the native end event', async () => {
@@ -193,7 +206,7 @@ describe('speech recognition adapter', () => {
     const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
-    await Promise.resolve();
+    await waitForRecognitionStart();
 
     let settled = false;
     void session.result.then(() => {
@@ -201,7 +214,7 @@ describe('speech recognition adapter', () => {
     });
 
     client.emitResult('3 Äpfel', true);
-    await Promise.resolve();
+    await waitForRecognitionStart();
     expect(settled).toBe(false);
 
     client.emitResult(' und Brot', true);
@@ -218,7 +231,7 @@ describe('speech recognition adapter', () => {
     const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
-    await Promise.resolve();
+    await waitForRecognitionStart();
 
     client.emitResult('Äpfel', true);
     client.emitResult('Brot', true);
@@ -235,7 +248,7 @@ describe('speech recognition adapter', () => {
     const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
-    await Promise.resolve();
+    await waitForRecognitionStart();
 
     client.emitResult('Äpfel', true);
     session.stop();
@@ -258,7 +271,7 @@ describe('speech recognition adapter', () => {
       const adapter = createSpeechRecognitionAdapter(client);
       const session = adapter.start();
 
-      await Promise.resolve();
+      await waitForRecognitionStart();
 
       session.stop();
       jest.runAllTimers();
@@ -287,7 +300,7 @@ describe('speech recognition adapter', () => {
       const adapter = createSpeechRecognitionAdapter(client);
       const session = adapter.start();
 
-      await Promise.resolve();
+      await waitForRecognitionStart();
 
       session.stop();
       jest.runAllTimers();
@@ -313,7 +326,7 @@ describe('speech recognition adapter', () => {
     const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
-    await Promise.resolve();
+    await waitForRecognitionStart();
 
     session.stop();
 
@@ -334,7 +347,7 @@ describe('speech recognition adapter', () => {
       const adapter = createSpeechRecognitionAdapter(client);
       const session = adapter.start();
 
-      await Promise.resolve();
+      await waitForRecognitionStart();
 
       client.emitResult('Äpfel', true);
       session.stop();
@@ -405,12 +418,33 @@ describe('speech recognition adapter', () => {
     expect(client.start).not.toHaveBeenCalled();
   });
 
+  it('returns a fallback when iOS speech recognition permission is denied', async () => {
+    const client = createFakeSpeechClient();
+    client.requestSpeechRecognizerPermissionsAsync = jest.fn(async () => ({
+      granted: false,
+      status: 'denied',
+      canAskAgain: false,
+    }));
+    const adapter = createSpeechRecognitionAdapter(client);
+
+    const session = adapter.start();
+
+    await expect(session.result).resolves.toMatchObject({
+      status: 'permission-denied',
+      text: null,
+      locale: 'de-DE',
+      onDevice: false,
+      errorCode: 'speech-recognition-permission-denied',
+    });
+    expect(client.start).not.toHaveBeenCalled();
+  });
+
   it('preserves the native error code for a failed recognition session', async () => {
     const client = createFakeSpeechClient();
     const adapter = createSpeechRecognitionAdapter(client);
 
     const session = adapter.start();
-    await Promise.resolve();
+    await waitForRecognitionStart();
     client.emitError('audio-capture', 'Failed to initialize recognizer');
 
     await expect(session.result).resolves.toMatchObject({
@@ -426,17 +460,17 @@ describe('speech recognition adapter', () => {
     const adapter = createSpeechRecognitionAdapter(client);
 
     const errorSession = adapter.start();
-    await Promise.resolve();
+    await waitForRecognitionStart();
     client.emitError('network', 'Network recognition is not allowed');
     expectFallback(await errorSession.result, 'error');
 
     const unavailableSession = adapter.start();
-    await Promise.resolve();
+    await waitForRecognitionStart();
     client.emitError('service-not-allowed', 'No local recognition service');
     expectFallback(await unavailableSession.result, 'capability-unavailable');
 
     const emptySession = adapter.start();
-    await Promise.resolve();
+    await waitForRecognitionStart();
     client.emitEnd();
     await expect(emptySession.result).resolves.toMatchObject({
       ...{
@@ -454,7 +488,7 @@ describe('speech recognition adapter', () => {
     const adapter = createSpeechRecognitionAdapter(client);
     const session = adapter.start();
 
-    await Promise.resolve();
+    await waitForRecognitionStart();
     session.cancel();
     client.emitResult('Dieser Text darf nicht übernommen werden');
 

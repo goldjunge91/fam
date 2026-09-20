@@ -18,8 +18,8 @@ export type RouteShoppingItemInput = {
   lists: readonly ShoppingListCatalogEntry[];
   learningRules: readonly BetaLearningRule[];
   confirmations: readonly BetaConfirmationEvent[];
-  /** Learned mappings stay suggestions until the account owner opts in. */
-  allowAutomaticApplication?: boolean;
+  /** Known mappings stay suggestions until automatic assignment is enabled. */
+  allowAutoAssign?: boolean;
 };
 
 const KNOWN_BRAND_CONFIDENCE = 0.95;
@@ -156,9 +156,7 @@ function routeFromConfirmationHistory(input: RouteShoppingItemInput): RoutingDec
   return candidateDecision(
     input,
     candidates,
-    (input.allowAutomaticApplication ?? true) &&
-      progress.thresholdReached &&
-      candidates[0]?.count >= 3,
+    (input.allowAutoAssign ?? true) && progress.thresholdReached && candidates[0]?.count >= 3,
   );
 }
 
@@ -173,7 +171,7 @@ function routeFromLearningRules(input: RouteShoppingItemInput): RoutingDecision 
         (brand === null || (rule.brand !== null && normalize(rule.brand) === brand)),
     )
     .map((rule) => ({ targetListId: rule.targetListId, count: rule.confirmationCount }));
-  return candidateDecision(input, candidates, input.allowAutomaticApplication ?? true);
+  return candidateDecision(input, candidates, input.allowAutoAssign ?? true);
 }
 
 export function getLearningProgress(

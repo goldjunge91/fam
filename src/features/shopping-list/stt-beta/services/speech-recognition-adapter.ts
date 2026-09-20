@@ -4,12 +4,14 @@ import type {
   ExpoSpeechRecognitionOptions,
   ExpoSpeechRecognitionResultEvent,
 } from 'expo-speech-recognition';
+import { Platform } from 'react-native';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 import type { SpeechInputResult } from '../types';
 
+export const REQUIRES_ON_DEVICE_RECOGNITION = false;
 export const DEFAULT_SPEECH_LOCALE = 'de-DE' as const;
 export const RECOGNITION_STOP_TIMEOUT_MS = 3_000;
-export const CONTEXTUAL_STRING_LIST = ['Skyr', 'Passata', 'Kidneybohnen'];
+export const CONTEXTUAL_STRING_LIST = ['Skyr', 'Passata', 'Kidneybohnen', 'Erythrit'];
 type SpeechRecognitionEventName = 'result' | 'error' | 'end' | 'volumechange';
 type SpeechRecognitionListener =
   | ((event: ExpoSpeechRecognitionResultEvent) => void)
@@ -29,6 +31,7 @@ type SpeechPermissionResponse = {
 
 export type SpeechRecognitionClient = {
   requestMicrophonePermissionsAsync: () => Promise<SpeechPermissionResponse>;
+  requestSpeechRecognizerPermissionsAsync: () => Promise<SpeechPermissionResponse>;
   isRecognitionAvailable: () => boolean;
   supportsOnDeviceRecognition: () => boolean;
   start: (options: ExpoSpeechRecognitionOptions) => void;
@@ -120,8 +123,8 @@ function fallbackForNativeError(
 export function createSpeechRecognitionAdapter(
   client: SpeechRecognitionClient,
 ): SpeechRecognitionAdapter {
-  // The beta's only supported speech contract is local iOS on-device speech.
-  const requiresOnDeviceRecognition = true;
+  // Network-backed recognition is allowed when the user grants iOS speech permission.
+  const requiresOnDeviceRecognition = REQUIRES_ON_DEVICE_RECOGNITION;
 
   return {
     start({ locale = DEFAULT_SPEECH_LOCALE, onVolumeChange } = {}) {
@@ -273,7 +276,7 @@ export function createSpeechRecognitionAdapter(
       debugLogEvent('shopping-list.voice-permission.requested', { locale });
       const permissionRequest = client.requestMicrophonePermissionsAsync();
       void permissionRequest
-        .then((permission) => {
+        .then(async (permission) => {
           if (settled) return;
 
           debugLogEvent('shopping-list.voice-permission.result', {
@@ -294,6 +297,21 @@ export function createSpeechRecognitionAdapter(
               ),
             );
             return;
+          }
+
+          if (!requiresOnDeviceRecognition && Platform.OS === 'ios') {
+            const speechPermission = await client.requestSpeechRecognizerPermissionsAsync();
+            if (!speechPermission.granted) {
+              finish(
+                fallback(
+                  'permission-denied',
+                  locale,
+                  'Spracherkennung nicht freigegeben',
+                  'speech-recognition-permission-denied',
+                ),
+              );
+              return;
+            }
           }
 
           if (stopRequested) {

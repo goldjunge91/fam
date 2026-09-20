@@ -1,11 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { z } from 'zod';
-import type { GoalType } from '@/features/calorie-tracking/tdee';
-import { invalidateCorrelationSeries } from '@/features/glp1/hooks/invalidate-correlation';
 import {
   getLogicalDateForTimestamp,
   getTimeRangeForLogicalDate,
-} from '@/features/tracking/domain/day-boundary';
+} from '@/features/calorie-tracking/domain/day-boundary';
+import type { GoalType } from '@/features/calorie-tracking/tdee';
+import { invalidateCorrelationSeries } from '@/features/glp1/hooks/invalidate-correlation';
 import { getSupabase } from '@/lib/backend/supabase/client';
 import type { Database } from '@/lib/database.types';
 

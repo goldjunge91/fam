@@ -14,6 +14,10 @@ export function NaturalLanguageAdditionSwiftUIPreview({
   onDismiss,
   onEditText,
   onConfirm,
+  nameCorrections,
+  correctionBusy,
+  onCorrectName,
+  onForgetCorrection,
 }: NaturalLanguageAdditionSwiftUIPreviewProps) {
   return (
     <BottomSheet
@@ -29,6 +33,10 @@ export function NaturalLanguageAdditionSwiftUIPreview({
           onRequestClose={onRequestClose}
           onEditText={onEditText}
           onConfirm={onConfirm}
+          nameCorrections={nameCorrections}
+          correctionBusy={correctionBusy}
+          onCorrectName={onCorrectName}
+          onForgetCorrection={onForgetCorrection}
         />
       </BottomSheetView>
     </BottomSheet>

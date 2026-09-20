@@ -4,23 +4,17 @@ import { Alert } from 'react-native';
 
 import { useSession } from '@/features/auth/session-provider';
 import { SettingsRow } from '@/features/settings/settings-menu';
-import {
-  type NaturalLanguageBetaAutomaticApplicationConsent,
-  naturalLanguageBetaConsentPort,
-} from './natural-language-beta-consent';
+import { type AutoAssignValue, autoAssignPort } from './auto-assign';
 
-function nextConsent(
-  consent: NaturalLanguageBetaAutomaticApplicationConsent,
-): 'granted' | 'revoked' {
-  return consent === 'granted' ? 'revoked' : 'granted';
+function nextAutoAssign(value: AutoAssignValue): 'on' | 'off' {
+  return value === 'on' ? 'off' : 'on';
 }
 
-export function NaturalLanguageBetaConsentSetting() {
+export function AutoAssignSetting() {
   const { t } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
-  const [consent, setConsent] =
-    useState<NaturalLanguageBetaAutomaticApplicationConsent>('undecided');
+  const [autoAssign, setAutoAssign] = useState<AutoAssignValue>('unset');
   const [loading, setLoading] = useState(Boolean(userId));
   const [saving, setSaving] = useState(false);
 
@@ -28,7 +22,7 @@ export function NaturalLanguageBetaConsentSetting() {
     let active = true;
 
     if (!userId) {
-      setConsent('undecided');
+      setAutoAssign('unset');
       setLoading(false);
       return () => {
         active = false;
@@ -36,13 +30,13 @@ export function NaturalLanguageBetaConsentSetting() {
     }
 
     setLoading(true);
-    void naturalLanguageBetaConsentPort
-      .getAutomaticApplicationConsent(userId)
-      .then((nextConsentValue) => {
-        if (active) setConsent(nextConsentValue);
+    void autoAssignPort
+      .get(userId)
+      .then((nextValue) => {
+        if (active) setAutoAssign(nextValue);
       })
       .catch(() => {
-        if (active) setConsent('undecided');
+        if (active) setAutoAssign('unset');
       })
       .finally(() => {
         if (active) setLoading(false);
@@ -56,15 +50,15 @@ export function NaturalLanguageBetaConsentSetting() {
   async function handlePress() {
     if (!userId || loading || saving) return;
 
-    const previousConsent = consent;
-    const nextConsentValue = nextConsent(previousConsent);
-    setConsent(nextConsentValue);
+    const previousValue = autoAssign;
+    const nextValue = nextAutoAssign(previousValue);
+    setAutoAssign(nextValue);
     setSaving(true);
 
     try {
-      await naturalLanguageBetaConsentPort.setAutomaticApplicationConsent(userId, nextConsentValue);
+      await autoAssignPort.set(userId, nextValue);
     } catch {
-      setConsent(previousConsent);
+      setAutoAssign(previousValue);
       Alert.alert(
         t('settings.groups.app.naturalLanguageBeta.errorTitle'),
         t('settings.groups.app.naturalLanguageBeta.errorBody'),
@@ -76,13 +70,13 @@ export function NaturalLanguageBetaConsentSetting() {
 
   const value = loading
     ? t('settings.groups.app.naturalLanguageBeta.status.loading')
-    : t(`settings.groups.app.naturalLanguageBeta.status.${consent}`);
+    : t(`settings.groups.app.naturalLanguageBeta.status.${autoAssign}`);
 
   return (
     <SettingsRow
       icon="✨"
-      label={t('settings.groups.app.naturalLanguageBeta.automaticApplication.label')}
-      hint={t('settings.groups.app.naturalLanguageBeta.automaticApplication.hint')}
+      label={t('settings.groups.app.naturalLanguageBeta.autoAssign.label')}
+      hint={t('settings.groups.app.naturalLanguageBeta.autoAssign.hint')}
       value={value}
       onPress={handlePress}
       disabled={!userId || loading || saving}

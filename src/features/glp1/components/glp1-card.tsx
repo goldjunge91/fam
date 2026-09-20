@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Card } from '@/components/ui/card';
 import { useSnackbar } from '@/components/ui/snackbar';
 import { Button, Card as FoundationCard, Txt } from '@/constants/ui';
+import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/domain/day-boundary';
 import { CorrelationMenuItem } from '@/features/glp1/components/correlation-menu-item';
 import { Glp1LogHistory } from '@/features/glp1/components/glp1-log-history';
 import { formatDaysSince } from '@/features/glp1/domain/format-days-since';
@@ -27,7 +28,6 @@ import {
   useUpdateMedicationLogMutation,
   useUpdateSymptomLogMutation,
 } from '@/features/glp1/hooks/glp1-api';
-import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
 
 type Glp1CardProps = {
   userId: string | undefined;

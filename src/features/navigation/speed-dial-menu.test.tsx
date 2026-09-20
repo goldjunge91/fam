@@ -17,6 +17,7 @@ let mockModulePreferences: ModulePreferences = {
 let mockFeatureFlags: Record<FeatureFlagKey, boolean> = {
   'test-feature': false,
   'shopping-category-feedback-alpha': false,
+  'shopping-stt': true,
   'workout-log': false,
   'low-carb-tracking': false,
   'module-recipes': true,
@@ -95,6 +96,7 @@ describe('SpeedDialMenu', () => {
     mockFeatureFlags = {
       'test-feature': false,
       'shopping-category-feedback-alpha': false,
+      'shopping-stt': true,
       'workout-log': false,
       'low-carb-tracking': false,
       'module-recipes': true,
@@ -151,6 +153,15 @@ describe('SpeedDialMenu', () => {
 
     expect(screen.queryByText('Einkaufsartikel')).not.toBeOnTheScreen();
     expect(screen.getByText('Vorratsartikel')).toBeOnTheScreen();
+  });
+
+  it('blendet die Spracheingabe aus, wenn shopping-stt deaktiviert ist', async () => {
+    mockFeatureFlags['shopping-stt'] = false;
+
+    await renderSpeedDial();
+
+    expect(screen.queryByRole('button', { name: 'Spracheingabe' })).not.toBeOnTheScreen();
+    expect(screen.getByText('Einkaufsartikel')).toBeOnTheScreen();
   });
 
   it('blendet die Tagebuch-Aktion aus, wenn das Kalorien-Modul deaktiviert ist', async () => {

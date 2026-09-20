@@ -143,6 +143,12 @@ export const APP_FEATURES = [
     },
   },
   {
+    id: 'shoppingStt',
+    title: 'Spracheingabe',
+    parentModule: 'shoppingList',
+    featureFlag: 'shopping-stt',
+  },
+  {
     id: 'recipes',
     title: 'Rezepte',
     moduleKey: 'recipes',

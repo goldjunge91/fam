@@ -2,6 +2,10 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { z } from 'zod';
 import {
+  getLogicalDateForTimestamp,
+  getTimeRangeForLogicalDate,
+} from '@/features/calorie-tracking/domain/day-boundary';
+import {
   type CreateMedicationLogInput,
   type CreateSymptomLogInput,
   medicationLogMutationSchema,
@@ -16,10 +20,6 @@ import {
   symptomLogsScopeQueryKey,
 } from '@/features/glp1/domain/query-keys';
 import { invalidateCorrelationSeries } from '@/features/glp1/hooks/invalidate-correlation';
-import {
-  getLogicalDateForTimestamp,
-  getTimeRangeForLogicalDate,
-} from '@/features/tracking/domain/day-boundary';
 import type { Database } from '@/lib/database.types';
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
