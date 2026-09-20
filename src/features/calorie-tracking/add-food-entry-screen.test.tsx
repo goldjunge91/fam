@@ -67,10 +67,6 @@ jest.mock('@/features/calorie-tracking/active-profile-store', () => ({
   }),
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 function renderScreen() {
   const queryClient = new QueryClient({
     defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },

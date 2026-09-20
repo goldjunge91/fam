@@ -17,6 +17,7 @@ import {
 import { usePremium } from '@/features/premium/premium-provider';
 import { type AnalyticsToggle, analyticsToggles } from '@/features/settings/dev/analytics-controls';
 import { FeatureFlagControls } from '@/features/settings/dev/feature-flag-controls';
+import { LanguageOverrideControl } from '@/features/settings/dev/language-override-control';
 import { TrackingMethodControls } from '@/features/settings/dev/tracking-method-controls';
 import { disposeAptabase, initAptabase } from '@/lib/analytics/aptabase';
 import { env } from '@/lib/config/env';
@@ -100,6 +101,13 @@ export function DevOverridesScreen() {
       subtitle="Lokale Laufzeit- und Feature-Steuerung"
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon">
+      <Card title="App-Sprache">
+        <Txt variant="caption" tone="secondary">
+          Standardmäßig wird die erste unterstützte Gerätesprache verwendet.
+        </Txt>
+        <LanguageOverrideControl />
+      </Card>
+
       <Card title="Plus, KI & Werbung">
         <Button
           title="Plus & KI für Haushalt zurücksetzen"

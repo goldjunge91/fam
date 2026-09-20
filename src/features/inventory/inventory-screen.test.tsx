@@ -142,10 +142,6 @@ jest.mock('@/features/navigation/use-profile-initials', () => ({
   useProfileAvatar: () => ({ initials: 'MM', avatarUrl: null }),
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 jest.mock('@/hooks/use-sync-status', () => ({
   useSyncStatus: () => mockSyncStatus,
 }));

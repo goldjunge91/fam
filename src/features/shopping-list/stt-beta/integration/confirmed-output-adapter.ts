@@ -4,6 +4,7 @@ import {
   buildAddOrMergeShoppingItemMutation,
 } from '@/lib/db/shopping-list-merge';
 import type { SqlDatabase } from '@/lib/db/types';
+import { resolvePlacementForItem } from '../../preferences/api';
 import type { ConfirmedBetaOutput, ParsedShoppingItem } from '../types';
 
 export type SaveConfirmedBetaOutputInput = {
@@ -58,16 +59,31 @@ function isConfirmedBetaOutput(value: unknown): value is ConfirmedBetaOutput {
   );
 }
 
-function toShoppingItemInput(
+async function toShoppingItemInput(
+  db: SqlDatabase,
   householdId: string,
   outputItem: ConfirmedBetaOutput['items'][number],
-): AddShoppingItemInput {
+): Promise<AddShoppingItemInput> {
+  const name = outputItem.item.name.trim();
+  const storeId = outputItem.targetListId.trim();
+  const placement = await resolvePlacementForItem(
+    {
+      householdId,
+      name,
+      storeId,
+    },
+    { database: db },
+  );
+
   return {
     household_id: householdId,
-    name: outputItem.item.name.trim(),
+    name,
     quantity: outputItem.item.quantity,
     unit: outputItem.item.unit ?? 'piece',
-    store_id: outputItem.targetListId.trim(),
+    category_id: placement.placementZoneId,
+    category_source: placement.source,
+    category_classifier_version: placement.classifierVersion,
+    store_id: storeId,
   };
 }
 
@@ -98,7 +114,7 @@ export async function saveConfirmedBetaOutput(
       const mutation = await buildAddOrMergeShoppingItemMutation(
         txn,
         itemId,
-        toShoppingItemInput(input.householdId.trim(), outputItem),
+        await toShoppingItemInput(txn, input.householdId.trim(), outputItem),
       );
       await append(mutation);
       mutations.push(mutation);

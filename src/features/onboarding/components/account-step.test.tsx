@@ -41,10 +41,6 @@ jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: null }),
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 async function fillAndSubmit() {
   await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'family@example.com');
   await fireEvent.changeText(screen.getByLabelText('Passwort'), 'supersecret');

@@ -59,7 +59,7 @@ export default function AppShell() {
   return (
     <View style={styles.root}>
       <SyncBannerVisibilityProvider enabled={syncEnabled}>
-        <SyncStatusBanner enabled={syncEnabled} />
+        <SyncStatusBanner />
         <View style={styles.navigator}>
           <Stack screenOptions={{ headerShown: false }} />
         </View>

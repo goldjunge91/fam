@@ -48,10 +48,6 @@ jest.mock('@/features/inventory/barcode-scanner-modal', () => ({
   BarcodeScannerModal: () => null,
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 async function renderScreen() {
   await render(
     <SafeAreaProvider

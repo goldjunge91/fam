@@ -8,16 +8,19 @@ jest.mock('expo-localization', () => ({
 jest.mock('react-native-mmkv', () => ({
   createMMKV: () => ({
     getString: (key: string) => mockValues.get(key),
+    remove: (key: string) => mockValues.delete(key),
     set: (key: string, value: string) => mockValues.set(key, value),
   }),
 }));
 
 import {
+  getDeviceLanguage,
   getInitialLanguage,
-  getStoredLanguage,
+  getLanguageOverride,
   i18n,
+  LANGUAGE_OVERRIDE_STORAGE_KEY,
   resolveLanguage,
-  setAppLanguage,
+  setLanguageOverride,
 } from './index';
 
 describe('app language', () => {
@@ -52,15 +55,33 @@ describe('app language', () => {
     expect(i18n.t('shoppingList.screen.completeActionGeneric')).toBe('Complete shopping list');
   });
 
-  it('prefers and persists an explicit language selection', async () => {
+  it('uses the device language when no dev override exists', () => {
     mockValues.set('fam:language', 'de');
 
-    expect(getStoredLanguage()).toBe('de');
+    expect(getLanguageOverride()).toBeNull();
+    expect(getDeviceLanguage()).toBe('en');
+    expect(getInitialLanguage()).toBe('en');
+  });
+
+  it('prefers and persists an explicit dev language override', async () => {
+    mockValues.set(LANGUAGE_OVERRIDE_STORAGE_KEY, 'de');
+
+    expect(getLanguageOverride()).toBe('de');
     expect(getInitialLanguage()).toBe('de');
 
-    await setAppLanguage('en');
+    await setLanguageOverride('en');
 
-    expect(mockValues.get('fam:language')).toBe('en');
+    expect(mockValues.get(LANGUAGE_OVERRIDE_STORAGE_KEY)).toBe('en');
+    expect(i18n.language).toBe('en');
+  });
+
+  it('removes the override and returns to the device language', async () => {
+    mockValues.set(LANGUAGE_OVERRIDE_STORAGE_KEY, 'de');
+
+    await setLanguageOverride(null);
+
+    expect(mockValues.get(LANGUAGE_OVERRIDE_STORAGE_KEY)).toBeUndefined();
+    expect(getInitialLanguage()).toBe('en');
     expect(i18n.language).toBe('en');
   });
 });

@@ -35,10 +35,6 @@ jest.mock('@/lib/backend/supabase/client', () => ({
   }),
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 describe('EmailVerificationPanel', () => {
   beforeEach(async () => {
     await i18n.changeLanguage('de');

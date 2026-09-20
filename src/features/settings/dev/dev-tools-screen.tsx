@@ -3,8 +3,15 @@ import { ExpoSpeechRecognitionModule } from 'expo-speech-recognition';
 import { Alert, Linking } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
+import { type SpeechTestProvider, useDevSettingsStore } from '@/constants/dev-settings';
+import { SegmentedControl } from '@/constants/ui';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { debugLogEvent } from '@/lib/observability/debug-log';
+
+const SPEECH_PROVIDER_OPTIONS = [
+  { value: 'native', label: 'Apple Speech' },
+  { value: 'whisper', label: 'Whisper' },
+] as const;
 
 const DEV_CATEGORIES = [
   {
@@ -40,6 +47,9 @@ const DEV_CATEGORIES = [
 ] as const;
 
 export function DevToolsScreen() {
+  const speechTestProvider = useDevSettingsStore((state) => state.speechTestProvider);
+  const setSpeechTestProvider = useDevSettingsStore((state) => state.setSpeechTestProvider);
+
   async function requestMicrophonePermission() {
     try {
       const permission = await ExpoSpeechRecognitionModule.requestMicrophonePermissionsAsync();
@@ -97,17 +107,29 @@ export function DevToolsScreen() {
         />
       </SettingsGroup>
       <SettingsGroup title="Spracheingabe">
-        <SettingsRow
-          icon="🗣️"
-          label="Expo Speech Example"
-          hint="Direkten Referenzpfad des Pakets testen"
-          onPress={() => router.push('/settings/dev-speech-recognition-example')}
+        <SegmentedControl
+          label="Speech-Testanbieter"
+          options={SPEECH_PROVIDER_OPTIONS}
+          selected={speechTestProvider}
+          onSelect={(provider) => setSpeechTestProvider(provider as SpeechTestProvider)}
+          appearance="surface"
+          size="compact"
         />
         <SettingsRow
-          icon="⚡"
-          label="ExecuTorch Speech-to-Text"
-          hint="Whisper Tiny lokal auf einem echten Gerät testen"
-          onPress={() => router.push('/settings/dev-executorch-speech-to-text')}
+          icon={speechTestProvider === 'native' ? '🗣️' : '⚡'}
+          label={speechTestProvider === 'native' ? 'Apple Speech testen' : 'Whisper testen'}
+          hint={
+            speechTestProvider === 'native'
+              ? 'Direkten Referenzpfad des Pakets testen'
+              : 'Whisper Tiny lokal auf einem echten Gerät testen'
+          }
+          onPress={() =>
+            router.push(
+              speechTestProvider === 'native'
+                ? '/settings/dev-speech-recognition-example'
+                : '/settings/dev-executorch-speech-to-text',
+            )
+          }
           last
         />
       </SettingsGroup>

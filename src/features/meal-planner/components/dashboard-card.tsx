@@ -1,4 +1,3 @@
-import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +13,13 @@ import { useMealPlanEntriesInRange } from '@/features/meal-planner/use-meal-plan
 import { RecipeArtwork } from '@/features/recipes/components/recipe-preview-card';
 import { useRecipeCoverUrl } from '@/features/recipes/data/household-recipe-images';
 import { addDays } from '../week';
-import { getUpcomingMealEntries } from './dashboard-meals';
+import {
+  getDailyMealPlanEmptyArtworkVariant,
+  getDailyMealPlanEmptyMessageKey,
+  getMealPlanEmptyVariant,
+  getUpcomingMealEntries,
+  type MealPlanEmptyVariant,
+} from './dashboard-meals';
 
 function toIsoDate(date: Date): string {
   const y = date.getFullYear();
@@ -23,7 +28,7 @@ function toIsoDate(date: Date): string {
   return `${y}-${m}-${d}`;
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create((theme) => ({
   smallCard: {
     padding: 0,
   },
@@ -37,6 +42,81 @@ const styles = StyleSheet.create({
   },
   smallArtworkImage: {
     flex: 1,
+  },
+  emptyArtwork: {
+    flex: 1,
+    backgroundColor: theme.background,
+  },
+  weeklyStripArtwork: {
+    justifyContent: 'space-between',
+    padding: space.lg,
+  },
+  weeklyStrip: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: space.xs,
+  },
+  weeklyDay: {
+    width: 34,
+    height: 56,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: space.sm,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    borderRadius: theme.radius.xs,
+    backgroundColor: theme.backgroundElement,
+  },
+  weeklyDayActive: {
+    backgroundColor: theme.backgroundSoft,
+    borderColor: theme.textSecondary,
+  },
+  weeklyDot: {
+    width: 5,
+    height: 5,
+    borderRadius: 5,
+    backgroundColor: theme.border,
+  },
+  weeklyDotActive: {
+    backgroundColor: theme.text,
+  },
+  weeklyStripMessage: {
+    flexShrink: 1,
+  },
+  kitchenNoteArtwork: {
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    padding: space.lg,
+    backgroundColor: theme.speedDialRecipes,
+  },
+  kitchenNoteSheet: {
+    width: 78,
+    height: 92,
+    paddingVertical: space.lg,
+    paddingHorizontal: space.md,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    borderRadius: theme.radius.xs,
+    backgroundColor: theme.backgroundElement,
+    shadowColor: theme.accent,
+    shadowOffset: { width: 4, height: 5 },
+    shadowOpacity: 0.18,
+    shadowRadius: 0,
+    elevation: 2,
+    transform: [{ rotate: '5deg' }],
+  },
+  kitchenNoteLine: {
+    width: '100%',
+    height: 4,
+    marginBottom: space.sm,
+    borderRadius: 4,
+    backgroundColor: theme.border,
+  },
+  kitchenNoteLineShort: {
+    width: '58%',
+    backgroundColor: theme.accent,
   },
   smallTitle: {
     position: 'absolute',
@@ -54,10 +134,6 @@ const styles = StyleSheet.create({
     width: '50%',
     height: '100%',
   },
-  largeArtworkImage: {
-    width: '100%',
-    height: '100%',
-  },
   largeCopy: {
     minWidth: 0,
     flex: 1,
@@ -71,15 +147,73 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: space.sm,
   },
-});
+}));
 
-const mealArtwork = require('@/assets/images/figma/meal-artwork.svg');
+type MealPlanEmptyArtworkProps = {
+  message: string;
+  showMessage?: boolean;
+  variant: MealPlanEmptyVariant;
+};
+
+function MealPlanEmptyArtwork({
+  message,
+  showMessage = false,
+  variant,
+}: MealPlanEmptyArtworkProps) {
+  const { t } = useTranslation();
+
+  if (variant === 'weeklyStrip') {
+    return (
+      <View
+        testID="meal-plan-weekly-strip"
+        style={[styles.emptyArtwork, styles.weeklyStripArtwork]}>
+        <View style={styles.weeklyStrip}>
+          <View style={styles.weeklyDay}>
+            <Txt variant="caption" tone="secondary">
+              {t('dashboard.cards.mealPlan.emptyArtwork.weekdays.monday')}
+            </Txt>
+            <View style={styles.weeklyDot} />
+          </View>
+          <View style={[styles.weeklyDay, styles.weeklyDayActive]}>
+            <Txt variant="caption" tone="primary" weight="700">
+              {t('dashboard.cards.mealPlan.emptyArtwork.weekdays.tuesday')}
+            </Txt>
+            <View style={[styles.weeklyDot, styles.weeklyDotActive]} />
+          </View>
+          <View style={styles.weeklyDay}>
+            <Txt variant="caption" tone="secondary">
+              {t('dashboard.cards.mealPlan.emptyArtwork.weekdays.wednesday')}
+            </Txt>
+            <View style={styles.weeklyDot} />
+          </View>
+        </View>
+        {showMessage ? (
+          <Txt variant="body" tone="primary" numberOfLines={2} style={styles.weeklyStripMessage}>
+            {message}
+          </Txt>
+        ) : null}
+      </View>
+    );
+  }
+
+  return (
+    <View testID="meal-plan-kitchen-note" style={[styles.emptyArtwork, styles.kitchenNoteArtwork]}>
+      <View testID="meal-plan-kitchen-note-sheet" style={styles.kitchenNoteSheet}>
+        <View style={[styles.kitchenNoteLine, styles.kitchenNoteLineShort]} />
+        <View style={styles.kitchenNoteLine} />
+        <View style={styles.kitchenNoteLine} />
+        <View style={[styles.kitchenNoteLine, styles.kitchenNoteLineShort]} />
+      </View>
+    </View>
+  );
+}
 
 function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
   const { t } = useTranslation();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
-  const todayIso = toIsoDate(new Date());
+  const now = new Date();
+  const todayIso = toIsoDate(now);
 
   const { data: mealEntries = [] } = useMealPlanEntriesInRange(
     householdId,
@@ -87,7 +221,7 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
     addDays(todayIso, 1),
   );
 
-  const upcomingMeals = getUpcomingMealEntries(mealEntries, new Date());
+  const upcomingMeals = getUpcomingMealEntries(mealEntries, now);
   const upcomingMealKey = upcomingMeals
     .map((meal) => `${meal.id}:${meal.entry_date}:${meal.meal_slot}`)
     .join('|');
@@ -107,12 +241,13 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
   }, [upcomingMeals.length]);
 
   const nextMeal = upcomingMeals[rotationIndex % Math.max(upcomingMeals.length, 1)];
+  const emptyMessage = t(getDailyMealPlanEmptyMessageKey(now));
+  const emptyArtworkVariant =
+    size === 'large' ? getDailyMealPlanEmptyArtworkVariant(now) : getMealPlanEmptyVariant(size);
   const nextMealLabel = nextMeal
     ? t(`dashboard.cards.mealPlan.mealSlots.${nextMeal.meal_slot}`)
     : null;
   const { data: coverUrl } = useRecipeCoverUrl(nextMeal?.recipe_cover_image_path);
-  const artworkSource = coverUrl ? { uri: coverUrl } : mealArtwork;
-
   if (size === 'small') {
     return (
       <DashboardCardShell
@@ -124,8 +259,8 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
         accessibilityLabel={t('dashboard.cards.mealPlan.accessibility')}
         style={styles.smallCard}>
         <View style={styles.smallContent}>
-          <View style={styles.smallArtwork}>
-            {nextMeal ? (
+          {nextMeal ? (
+            <View style={styles.smallArtwork}>
               <View style={styles.smallArtworkImage}>
                 <RecipeArtwork
                   title={nextMeal.recipe_title}
@@ -134,15 +269,19 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
                   paletteIndex={nextMeal.recipe_id.length}
                 />
               </View>
-            ) : (
-              <Image source={mealArtwork} contentFit="fill" style={styles.smallArtworkImage} />
-            )}
-            <View style={styles.smallTitle}>
-              <Txt variant="body" tone="onAccent" numberOfLines={2}>
-                {nextMeal?.recipe_title ?? t('dashboard.cards.mealPlan.nothingPlanned')}
-              </Txt>
+              <View style={styles.smallTitle}>
+                <Txt variant="body" tone="onAccent" numberOfLines={2}>
+                  {nextMeal.recipe_title}
+                </Txt>
+              </View>
             </View>
-          </View>
+          ) : (
+            <MealPlanEmptyArtwork
+              message={emptyMessage}
+              showMessage
+              variant={emptyArtworkVariant}
+            />
+          )}
         </View>
       </DashboardCardShell>
     );
@@ -167,20 +306,17 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
             paletteIndex={nextMeal.recipe_id.length}
           />
         ) : (
-          <Image
-            testID="meal-plan-large-artwork"
-            source={artworkSource}
-            contentFit="fill"
-            style={styles.largeArtworkImage}
-          />
+          <MealPlanEmptyArtwork message={emptyMessage} variant={emptyArtworkVariant} />
         )}
       </View>
       <View style={styles.largeCopy}>
-        <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.1 }}>
-          {t('dashboard.cards.mealPlan.plannedToday')}
-        </Txt>
+        {nextMeal ? (
+          <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.1 }}>
+            {t('dashboard.cards.mealPlan.plannedToday')}
+          </Txt>
+        ) : null}
         <Txt variant="body" weight="700" numberOfLines={2}>
-          {nextMeal?.recipe_title ?? t('dashboard.cards.mealPlan.nothingPlannedYet')}
+          {nextMeal?.recipe_title ?? emptyMessage}
         </Txt>
         <View style={styles.largeFooter}>
           <Txt variant="caption" tone="secondary">

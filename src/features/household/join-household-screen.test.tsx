@@ -38,10 +38,6 @@ jest.mock('@/features/auth/pending-invite', () => ({
   peekPendingInviteToken: () => mockPeekPendingInviteToken(),
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 function renderScreen() {
   return render(
     <SafeAreaProvider

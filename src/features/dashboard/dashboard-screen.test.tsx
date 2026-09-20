@@ -6,6 +6,11 @@ import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { colorsLight, shadow, space, withAlpha } from '@/components/theme';
 import { DashboardScreen } from '@/features/dashboard/dashboard-screen';
+import {
+  getDailyMealPlanEmptyArtworkVariant,
+  getDailyMealPlanEmptyMessageKey,
+} from '@/features/meal-planner/components/dashboard-meals';
+import { todayIso } from '@/features/meal-planner/week';
 import { i18n } from '@/i18n';
 
 jest.mock('react-native/Libraries/Utilities/useWindowDimensions', () => ({
@@ -174,10 +179,6 @@ jest.mock('expo-haptics', () => ({
   ImpactFeedbackStyle: { Medium: 'medium' },
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 function renderScreen() {
   const queryClient = new QueryClient({
     defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
@@ -238,7 +239,7 @@ it('zeigt Karten und Karten-Galerie in der aktiven Sprache', async () => {
 
   expect(screen.getByText('EXPIRING SOON')).toBeOnTheScreen();
   expect(screen.getByText('Shopping')).toBeOnTheScreen();
-  expect(screen.getByText('PLANNED TODAY')).toBeOnTheScreen();
+  expect(screen.getByText(i18n.t(getDailyMealPlanEmptyMessageKey(new Date())))).toBeOnTheScreen();
   expect(screen.getByText('STREAK')).toBeOnTheScreen();
   expect(screen.getByText('Calories today')).toBeOnTheScreen();
 
@@ -298,6 +299,54 @@ describe('DashboardScreen — Vorrat-Widget "Läuft bald ab"', () => {
 });
 
 describe('DashboardScreen — Essensplan-Karte', () => {
+  it('zeigt bei leerem Essensplan den tagesabhaengigen Empty-State-Text', async () => {
+    await renderScreen();
+
+    expect(screen.getByText(i18n.t(getDailyMealPlanEmptyMessageKey(new Date())))).toBeOnTheScreen();
+  });
+
+  it('zeigt bei leerem Essensplan die Küchennotiz statt eines Artworks', async () => {
+    await renderScreen();
+
+    expect(screen.queryByTestId('meal-plan-large-artwork')).not.toBeOnTheScreen();
+    expect(screen.getByTestId('meal-plan-kitchen-note')).toBeOnTheScreen();
+    expect(screen.getByTestId('meal-plan-kitchen-note-sheet')).toHaveStyle({
+      width: 78,
+      height: 92,
+      transform: [{ rotate: '5deg' }],
+    });
+    expect(screen.queryByText(i18n.t('dashboard.cards.mealPlan.plannedToday'))).toBeNull();
+    expect(screen.queryByTestId('meal-plan-empty-artwork')).not.toBeOnTheScreen();
+  });
+
+  it('wechselt bei leerem Plan innerhalb eines Tages nicht die große Ansicht', async () => {
+    const today = new Date(2026, 8, 20, 12, 0);
+    jest.useFakeTimers();
+    jest.setSystemTime(today);
+
+    try {
+      await renderScreen();
+
+      const emptyMessage = i18n.t(getDailyMealPlanEmptyMessageKey(new Date()));
+      const artworkTestId =
+        getDailyMealPlanEmptyArtworkVariant(today) === 'kitchenNote'
+          ? 'meal-plan-kitchen-note'
+          : 'meal-plan-weekly-strip';
+
+      expect(screen.getByTestId(artworkTestId)).toBeOnTheScreen();
+      expect(screen.getByText(emptyMessage)).toBeOnTheScreen();
+
+      act(() => {
+        jest.advanceTimersByTime(6_000);
+      });
+
+      expect(screen.getByTestId(artworkTestId)).toBeOnTheScreen();
+      expect(screen.getByText(emptyMessage)).toBeOnTheScreen();
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
   it('zeigt das echte Coverbild des heutigen Gerichts', async () => {
     mockMealPlanEntries = [
       {
@@ -305,7 +354,7 @@ describe('DashboardScreen — Essensplan-Karte', () => {
         meal_plan_id: 'plan-1',
         household_id: 'hh-1',
         recipe_id: 'recipe-1',
-        entry_date: '2026-09-16',
+        entry_date: todayIso(),
         meal_slot: 'dinner',
         servings_mode: 'portions',
         portions: 4,
@@ -321,6 +370,7 @@ describe('DashboardScreen — Essensplan-Karte', () => {
     expect(screen.getByTestId('meal-plan-large-artwork').props.source).toEqual([
       { uri: 'https://example.com/recipe-1.jpg' },
     ]);
+    expect(screen.getByText(i18n.t('dashboard.cards.mealPlan.plannedToday'))).toBeOnTheScreen();
   });
 
   it('zeigt Essensplan-Karte mit Label zum Oeffnen', async () => {
@@ -331,9 +381,9 @@ describe('DashboardScreen — Essensplan-Karte', () => {
   it('zeigt das Large-Artwork über die volle Kartenhöhe und mindestens halbbreit', async () => {
     await renderScreen();
 
-    const artwork = screen.getByTestId('meal-plan-large-artwork');
+    const artwork = screen.getByTestId('meal-plan-kitchen-note');
 
-    expect(artwork).toHaveStyle({ width: '100%', height: '100%' });
+    expect(artwork).toHaveStyle({ flex: 1 });
     expect(artwork.parent).toHaveStyle({ width: '50%', height: '100%' });
   });
 });

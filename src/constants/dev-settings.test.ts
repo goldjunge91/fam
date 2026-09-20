@@ -15,6 +15,7 @@ describe('dev settings', () => {
     mockStorageData.clear();
     useDevSettingsStore.getState().resetTrackingMethodOverrides();
     useDevSettingsStore.getState().resetModuleFeatureFlagOverrides();
+    useDevSettingsStore.getState().setSpeechTestProvider('native');
   });
 
   it('persistiert Tracking-Methoden-Overrides wie die Analytics-Overrides', () => {
@@ -57,5 +58,19 @@ describe('dev settings', () => {
 
     expect(useDevSettingsStore.getState().moduleFeatureFlagOverrides).toEqual({});
     expect(mockStorageData.has('dev.module_feature_flag_overrides.v1')).toBe(false);
+  });
+
+  it('persistiert den Speech-Testanbieter auf dem Gerät', () => {
+    useDevSettingsStore.getState().setSpeechTestProvider('whisper');
+
+    expect(useDevSettingsStore.getState().speechTestProvider).toBe('whisper');
+    expect(mockStorageData.get('dev.speech_test_provider.v1')).toBe('whisper');
+  });
+
+  it('kann zwischen den Speech-Testanbietern wechseln', () => {
+    useDevSettingsStore.getState().setSpeechTestProvider('whisper');
+    useDevSettingsStore.getState().setSpeechTestProvider('native');
+
+    expect(useDevSettingsStore.getState().speechTestProvider).toBe('native');
   });
 });

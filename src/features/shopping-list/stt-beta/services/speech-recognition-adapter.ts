@@ -7,9 +7,10 @@ import type {
 import { Platform } from 'react-native';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 import type { SpeechInputResult } from '../types';
+import { getDeviceSpeechLocale } from './speech-locale';
 
 export const REQUIRES_ON_DEVICE_RECOGNITION = false;
-export const DEFAULT_SPEECH_LOCALE = 'de-DE' as const;
+export const DEFAULT_SPEECH_LOCALE = getDeviceSpeechLocale();
 export const RECOGNITION_STOP_TIMEOUT_MS = 3_000;
 export const CONTEXTUAL_STRING_LIST = ['Skyr', 'Passata', 'Kidneybohnen', 'Erythrit'];
 type SpeechRecognitionEventName = 'result' | 'error' | 'end' | 'volumechange';
@@ -127,7 +128,7 @@ export function createSpeechRecognitionAdapter(
   const requiresOnDeviceRecognition = REQUIRES_ON_DEVICE_RECOGNITION;
 
   return {
-    start({ locale = DEFAULT_SPEECH_LOCALE, onVolumeChange } = {}) {
+    start({ locale = getDeviceSpeechLocale(), onVolumeChange } = {}) {
       let settled = false;
       let recognitionStarted = false;
       let stopRequested = false;

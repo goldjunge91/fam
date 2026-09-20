@@ -21,10 +21,6 @@ jest.mock('@/features/settings/module-preferences', () => ({
   useUpdateModulePreferencesMutation: () => ({ mutate: mockMutate, isPending: false }),
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 let mockFeatureFlags: Record<string, boolean> = {
   'module-recipes': true,
   'module-meal-planner': true,

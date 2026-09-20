@@ -152,6 +152,7 @@ export function PostHogAppProvider({ children }: { children: ReactNode }): React
 export type FeatureFlagKey =
   | 'test-feature'
   | 'shopping-category-feedback-alpha'
+  | 'shopping-stt'
   | 'workout-log'
   | 'low-carb-tracking'
   | 'module-recipes'

@@ -27,6 +27,7 @@ export function useFeatureAccess() {
   const moduleFeatureFlagOverrides = useDevSettingsStore(
     (state) => state.moduleFeatureFlagOverrides,
   );
+  const featureFlagOverrides = useDevSettingsStore((state) => state.featureFlagOverrides);
 
   const getModuleFeatureFlagOverride = useCallback(
     (module: keyof ModulePreferences): boolean | undefined => {
@@ -39,6 +40,10 @@ export function useFeatureAccess() {
   const getFeatureFlagState = useCallback(
     (featureFlag?: FeatureFlagKey): boolean | undefined => {
       if (featureFlag === undefined) return undefined;
+      if (env.devTools) {
+        const featureOverride = featureFlagOverrides[featureFlag];
+        if (featureOverride !== undefined) return featureOverride;
+      }
       const flaggedFeature = getFeatureByFlag(featureFlag);
       if (flaggedFeature?.moduleKey) {
         const override = getModuleFeatureFlagOverride(flaggedFeature.moduleKey);
@@ -50,7 +55,7 @@ export function useFeatureAccess() {
       if (value === false) return false;
       return undefined;
     },
-    [getModuleFeatureFlagOverride, posthogFlags],
+    [featureFlagOverrides, getModuleFeatureFlagOverride, posthogFlags],
   );
 
   const isModuleLocked = useCallback(

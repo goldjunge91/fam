@@ -47,10 +47,6 @@ jest.mock('@/features/calorie-tracking/api', () => ({
   useSetGoalMutation: () => ({ mutateAsync: mockSetGoal, isPending: false }),
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 function renderScreen() {
   return render(
     <SafeAreaProvider

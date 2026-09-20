@@ -15,10 +15,6 @@ jest.mock('@/lib/db/product-usage', () => ({
   getFrequentProductUsage: (...args: unknown[]) => mockGetFrequentProductUsage(...args),
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 function row(overrides: Partial<ProductUsageRow>): ProductUsageRow {
   return {
     name: 'Milch',

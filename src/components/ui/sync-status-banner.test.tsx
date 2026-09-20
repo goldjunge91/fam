@@ -2,17 +2,22 @@ import { onlineManager, QueryClient, QueryClientProvider } from '@tanstack/react
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
 
 import { Colors } from '@/components/theme/index';
-import { SyncStatusBanner, type SyncStatusBannerProps } from '@/components/ui/sync-status-banner';
+import {
+  SyncBannerVisibilityProvider,
+  SyncStatusBanner,
+  type SyncStatusBannerProps,
+} from '@/components/ui/sync-status-banner';
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
+import * as outbox from '@/lib/db/outbox';
 import { enqueueMutation, loadDueOutboxEntries, recordOutboxOutcome } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
 /**
- * `getDb` ist ein regulaerer Prop von `SyncStatusBanner` (DI, kein Mock) —
+ * `getDb` wird am `SyncBannerVisibilityProvider` injiziert (DI, kein Mock) —
  * jeder Test rendert die echte Komponente gegen eine echte node:sqlite-DB.
  * `expo-sqlite` selbst wird hier nie geladen: `getDatabase` aus
  * `@/lib/db/client` (der einzige Ort, der es laedt) wird per `getDb`-Prop
@@ -28,6 +33,7 @@ let activeTestTrees: (() => Promise<void>)[] = [];
 
 async function renderBanner(
   props: SyncStatusBannerProps,
+  options: { getDb: () => Promise<SqlDatabase>; enabled?: boolean },
   cachedCounts?: { pending: number; failed: number },
 ) {
   const queryClient = new QueryClient({
@@ -38,7 +44,9 @@ async function renderBanner(
   }
   const result = await render(
     <QueryClientProvider client={queryClient}>
-      <SyncStatusBanner {...props} />
+      <SyncBannerVisibilityProvider {...options}>
+        <SyncStatusBanner {...props} />
+      </SyncBannerVisibilityProvider>
     </QueryClientProvider>,
   );
   activeTestTrees.push(async () => {
@@ -84,7 +92,7 @@ describe('SyncStatusBanner', () => {
   });
 
   it('rendert nichts, wenn online und nichts aussteht', async () => {
-    await renderBanner({ getDb: async () => db });
+    await renderBanner({}, { getDb: async () => db });
 
     expect(screen.queryByText(/Offline/)).toBeNull();
     expect(screen.queryByText(/ausstehend/)).toBeNull();
@@ -95,7 +103,7 @@ describe('SyncStatusBanner', () => {
       onlineManager.setOnline(false);
     });
 
-    await renderBanner({ getDb: async () => db });
+    await renderBanner({}, { getDb: async () => db });
 
     expect(await screen.findByText('Offline')).toBeTruthy();
   });
@@ -106,7 +114,7 @@ describe('SyncStatusBanner', () => {
     });
     const getDb = jest.fn(async () => db);
 
-    await renderBanner({ getDb, enabled: false }, { pending: 4, failed: 2 });
+    await renderBanner({}, { getDb, enabled: false }, { pending: 4, failed: 2 });
 
     expect(screen.queryByText(/Offline/)).toBeNull();
     expect(screen.queryByText(/konnten nicht synchronisiert/)).toBeNull();
@@ -118,7 +126,7 @@ describe('SyncStatusBanner', () => {
     // online passiert, ist fuer den Nutzer kein Grund zur Unterbrechung —
     // anders als vorher gibt es hier keine "Synchronisiere …"-Anzeige mehr
     // (siehe sync-status.ts).
-    await renderBanner({ getDb: async () => db });
+    await renderBanner({}, { getDb: async () => db });
 
     await act(async () => {
       await enqueueMutation(db, {
@@ -154,13 +162,22 @@ describe('SyncStatusBanner', () => {
     });
 
     const onRetry = jest.fn().mockResolvedValue(undefined);
-    await renderBanner({ getDb: async () => db, onRetry });
+    await renderBanner({ onRetry }, { getDb: async () => db });
 
     const button = await screen.findByRole('button');
     expect(screen.getByText(/1 Änderungen konnten nicht synchronisiert werden/)).toBeTruthy();
 
     fireEvent.press(button);
     expect(onRetry).toHaveBeenCalledTimes(1);
+  });
+
+  it('registriert Provider und Banner nur einmal am Outbox-Status', async () => {
+    const onOutboxChanged = jest.spyOn(outbox, 'onOutboxChanged');
+
+    await renderBanner({}, { getDb: async () => db });
+
+    expect(onOutboxChanged).toHaveBeenCalledTimes(1);
+    onOutboxChanged.mockRestore();
   });
 
   it('nutzt fuer offline und failed unterschiedliche Theme-Farben', () => {

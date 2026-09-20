@@ -4,6 +4,7 @@ import { getSettingsModules } from '@/constants/feature-registry';
 import type { TrackingMethod } from '@/features/calorie-tracking/api';
 import type { ModulePreferences } from '@/features/settings/module-preferences';
 import { debugWarn } from '@/lib/observability/debug-log';
+import type { FeatureFlagKey } from '@/lib/observability/providers/posthog';
 import { getDeviceStorage } from '@/lib/storage/device-storage';
 
 /**
@@ -25,7 +26,10 @@ const TRACKING_METHOD_IDS: readonly TrackingMethod[] = [
 
 const TRACKING_METHOD_OVERRIDES_STORAGE_KEY = 'dev.tracking_method_overrides.v1';
 const MODULE_FEATURE_FLAG_OVERRIDES_STORAGE_KEY = 'dev.module_feature_flag_overrides.v1';
+const FEATURE_FLAG_OVERRIDES_STORAGE_KEY = 'dev.feature_flag_overrides.v1';
+const SPEECH_TEST_PROVIDER_STORAGE_KEY = 'dev.speech_test_provider.v1';
 const MODULE_FEATURE_KEYS = getSettingsModules().map(({ key }) => key);
+const FEATURE_FLAG_OVERRIDE_KEYS: readonly FeatureFlagKey[] = ['shopping-stt'];
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -100,9 +104,64 @@ function persistModuleFeatureFlagOverrides(overrides: ModuleFeatureFlagOverrides
   }
 }
 
+export type FeatureFlagOverrides = Partial<Record<FeatureFlagKey, boolean>>;
+
+export type SpeechTestProvider = 'native' | 'whisper';
+
+function readSpeechTestProvider(): SpeechTestProvider {
+  try {
+    const value = getDeviceStorage().getString(SPEECH_TEST_PROVIDER_STORAGE_KEY);
+    return value === 'whisper' ? 'whisper' : 'native';
+  } catch {
+    return 'native';
+  }
+}
+
+function persistSpeechTestProvider(provider: SpeechTestProvider): void {
+  try {
+    getDeviceStorage().set(SPEECH_TEST_PROVIDER_STORAGE_KEY, provider);
+  } catch (error) {
+    debugWarn('[DevSettings] Speech-Testanbieter konnte nicht gespeichert werden:', error);
+  }
+}
+
+function readFeatureFlagOverrides(): FeatureFlagOverrides {
+  try {
+    const raw = getDeviceStorage().getString(FEATURE_FLAG_OVERRIDES_STORAGE_KEY);
+    if (!raw) return {};
+
+    const value: unknown = JSON.parse(raw);
+    if (!isRecord(value)) return {};
+
+    const overrides: FeatureFlagOverrides = {};
+    for (const key of FEATURE_FLAG_OVERRIDE_KEYS) {
+      const candidate = value[key];
+      if (typeof candidate === 'boolean') overrides[key] = candidate;
+    }
+    return overrides;
+  } catch {
+    return {};
+  }
+}
+
+function persistFeatureFlagOverrides(overrides: FeatureFlagOverrides): void {
+  try {
+    const storage = getDeviceStorage();
+    if (Object.keys(overrides).length === 0) {
+      storage.remove(FEATURE_FLAG_OVERRIDES_STORAGE_KEY);
+      return;
+    }
+    storage.set(FEATURE_FLAG_OVERRIDES_STORAGE_KEY, JSON.stringify(overrides));
+  } catch (error) {
+    debugWarn('[DevSettings] Feature-Flag-Overrides konnten nicht gespeichert werden:', error);
+  }
+}
+
 export type DevSettings = {
   trackingMethodOverrides: TrackingMethodOverrides;
   moduleFeatureFlagOverrides: ModuleFeatureFlagOverrides;
+  featureFlagOverrides: FeatureFlagOverrides;
+  speechTestProvider: SpeechTestProvider;
 };
 
 type DevSettingsStore = DevSettings & {
@@ -110,11 +169,16 @@ type DevSettingsStore = DevSettings & {
   resetTrackingMethodOverrides: () => void;
   setModuleFeatureFlagOverride: (module: keyof ModulePreferences, value: boolean | null) => void;
   resetModuleFeatureFlagOverrides: () => void;
+  setFeatureFlagOverride: (featureFlag: FeatureFlagKey, value: boolean | null) => void;
+  resetFeatureFlagOverrides: () => void;
+  setSpeechTestProvider: (provider: SpeechTestProvider) => void;
 };
 
 export const useDevSettingsStore = create<DevSettingsStore>((set) => ({
   trackingMethodOverrides: readStoredTrackingMethodOverrides(),
   moduleFeatureFlagOverrides: readStoredModuleFeatureFlagOverrides(),
+  featureFlagOverrides: readFeatureFlagOverrides(),
+  speechTestProvider: readSpeechTestProvider(),
   setTrackingMethodOverride: (method, value) =>
     set((state) => {
       const trackingMethodOverrides = { ...state.trackingMethodOverrides };
@@ -138,5 +202,21 @@ export const useDevSettingsStore = create<DevSettingsStore>((set) => ({
   resetModuleFeatureFlagOverrides: () => {
     persistModuleFeatureFlagOverrides({});
     set({ moduleFeatureFlagOverrides: {} });
+  },
+  setFeatureFlagOverride: (featureFlag, value) =>
+    set((state) => {
+      const featureFlagOverrides = { ...state.featureFlagOverrides };
+      if (value === null) delete featureFlagOverrides[featureFlag];
+      else featureFlagOverrides[featureFlag] = value;
+      persistFeatureFlagOverrides(featureFlagOverrides);
+      return { featureFlagOverrides };
+    }),
+  resetFeatureFlagOverrides: () => {
+    persistFeatureFlagOverrides({});
+    set({ featureFlagOverrides: {} });
+  },
+  setSpeechTestProvider: (provider) => {
+    persistSpeechTestProvider(provider);
+    set({ speechTestProvider: provider });
   },
 }));

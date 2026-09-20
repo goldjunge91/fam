@@ -5,6 +5,10 @@ import {
   type SpeechRecognitionClient,
 } from './speech-recognition-adapter';
 
+jest.mock('expo-localization', () => ({
+  getLocales: jest.fn(() => [{ languageTag: 'de-DE', languageCode: 'de' }]),
+}));
+
 type ResultListener = (event: {
   isFinal: boolean;
   results: readonly {

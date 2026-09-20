@@ -61,6 +61,19 @@
         "hint": "Bevorzugten Markt für Treffer wählen"
       }
     },
+    "speechToText": {
+      "title": "Spracheingabe",
+      "hint": "Zuordnung, Sprachkorrekturen und Transkription",
+      "permission": {
+        "label": "Sprachdaten zur Transkription",
+        "hint": "Apple darf deine Sprachdaten zur Transkription verarbeiten.",
+        "status": {
+          "loading": "Wird geprüft",
+          "on": "Erlaubt",
+          "off": "Nicht erlaubt"
+        }
+      }
+    },
     "app": {
       "title": "App",
       "permissions": {
@@ -111,18 +124,35 @@
         "right": "Rechts"
       },
       "naturalLanguageBeta": {
-        "automaticApplication": {
-          "label": "Automatische Beta-Zuordnung",
-          "hint": "Darf gelernte Zuordnungen automatisch anwenden."
+        "autoAssign": {
+          "label": "Intelligente Zuordnung",
+          "hint": "Bekannte Artikel automatisch der passenden Liste zuordnen."
         },
         "status": {
           "loading": "Wird geladen",
-          "undecided": "Nicht festgelegt",
-          "granted": "Erlaubt",
-          "revoked": "Widerrufen"
+          "unset": "Nicht festgelegt",
+          "on": "Ein",
+          "off": "Aus"
         },
         "errorTitle": "Einstellung nicht gespeichert",
-        "errorBody": "Die Freigabe für automatische Beta-Zuordnungen konnte nicht gespeichert werden."
+        "errorBody": "Die Einstellung für intelligente Zuordnungen konnte nicht gespeichert werden.",
+        "corrections": {
+          "label": "Sprachkorrekturen",
+          "hint": "Gemerkte Artikelnamen bearbeiten",
+          "title": "Sprachkorrekturen",
+          "description": "Hier kannst du lokale Korrekturen für die Spracheingabe bearbeiten. Diese Daten bleiben auf deinem Gerät und in deinem persönlichen Account-Speicher.",
+          "empty": "Noch keine Korrekturen gespeichert.",
+          "original": "Erkannt: {{value}}",
+          "corrected": "Korrektur",
+          "save": "Speichern",
+          "delete": "Löschen",
+          "loadErrorTitle": "Korrekturen konnten nicht geladen werden",
+          "loadErrorBody": "Die gespeicherten Sprachkorrekturen konnten nicht gelesen werden.",
+          "saveErrorTitle": "Korrektur nicht gespeichert",
+          "saveErrorBody": "Die Änderung konnte nicht gespeichert werden.",
+          "deleteErrorTitle": "Korrektur nicht gelöscht",
+          "deleteErrorBody": "Die Korrektur konnte nicht gelöscht werden."
+        }
       },
       "feedback": {
         "label": "Feedback geben"

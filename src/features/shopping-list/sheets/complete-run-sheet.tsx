@@ -1,12 +1,21 @@
 import { Host } from '@expo/ui';
-import { BottomSheet, Group, RNHostView } from '@expo/ui/swift-ui';
-import { presentationDetents, presentationDragIndicator } from '@expo/ui/swift-ui/modifiers';
+import {
+  BottomSheet,
+  Group,
+  RNHostView,
+  DatePicker as SwiftUIDatePicker,
+  Host as SwiftUIHost,
+} from '@expo/ui/swift-ui';
+import {
+  datePickerStyle,
+  presentationDetents,
+  presentationDragIndicator,
+} from '@expo/ui/swift-ui/modifiers';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, CloseButton, Press, TextField, Txt } from '@/constants/ui';
 import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
@@ -94,12 +103,13 @@ const styles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  expiryLabel: {
-    flex: 1,
-  },
   expiryField: {
-    width: 140,
-    marginLeft: 'auto',
+    flex: 1,
+    minWidth: 0,
+  },
+  datePickerHost: {
+    width: '100%',
+    minHeight: 48,
   },
   sheetHeader: {
     flexDirection: 'row',
@@ -132,6 +142,62 @@ const styles = StyleSheet.create((theme) => ({
 
 function defaultKind(item: LocalShoppingItem): StorageKind {
   return storageKindForCategory(item.category);
+}
+
+function dateFromIsoDate(value: string | null): Date {
+  if (!value) return new Date();
+
+  const [year, month, day] = value.split('-').map(Number);
+  if (
+    !Number.isInteger(year) ||
+    !Number.isInteger(month) ||
+    !Number.isInteger(day) ||
+    month < 1 ||
+    month > 12 ||
+    day < 1 ||
+    day > 31
+  ) {
+    return new Date();
+  }
+
+  return new Date(year, month - 1, day, 12);
+}
+
+function toIsoDate(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+interface ExpiryDatePickerProps {
+  label: string;
+  value: string | null;
+  onChange: (isoDate: string) => void;
+}
+
+function ExpiryDatePicker({ label, value, onChange }: ExpiryDatePickerProps) {
+  const { colors: theme } = useTheme();
+  const [selectedDate, setSelectedDate] = useState(() => dateFromIsoDate(value));
+
+  useEffect(() => {
+    setSelectedDate(dateFromIsoDate(value));
+  }, [value]);
+
+  return (
+    <SwiftUIHost style={styles.datePickerHost} seedColor={theme.accent}>
+      <SwiftUIDatePicker
+        title={label}
+        selection={selectedDate}
+        displayedComponents={['date']}
+        onDateChange={(date) => {
+          setSelectedDate(date);
+          onChange(toIsoDate(date));
+        }}
+        modifiers={[datePickerStyle('compact')]}
+      />
+    </SwiftUIHost>
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -250,11 +316,12 @@ function TransferRow({
 
         {/* MHD */}
         <View style={styles.expiryRow}>
-          <Txt variant="body" tone="secondary" numberOfLines={1} style={styles.expiryLabel}>
-            {t('shoppingList.completeRun.expiryLabel')}
-          </Txt>
           <View style={styles.expiryField}>
-            <DateWheelField value={transfer.expiryDate ?? ''} onChange={onUpdateExpiry} />
+            <ExpiryDatePicker
+              label={t('shoppingList.completeRun.expiryLabel')}
+              value={transfer.expiryDate}
+              onChange={onUpdateExpiry}
+            />
           </View>
         </View>
       </View>

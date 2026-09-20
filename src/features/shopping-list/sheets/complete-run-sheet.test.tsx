@@ -14,10 +14,23 @@ jest.mock('@expo/ui', () => {
 });
 
 jest.mock('@expo/ui/swift-ui', () => {
-  const { View } = require('react-native');
+  const { Pressable, Text, View } = require('react-native');
   const Wrapper = ({ children }: { children: React.ReactNode }) => <View>{children}</View>;
   const Host = ({ children, ...props }: { children: React.ReactNode }) => (
     <View {...props}>{children}</View>
+  );
+  const DatePicker = ({
+    title,
+    onDateChange,
+  }: {
+    title: string;
+    onDateChange: (date: Date) => void;
+  }) => (
+    <Pressable
+      testID="complete-run-date-picker"
+      onPress={() => onDateChange(new Date(2026, 8, 15, 12))}>
+      <Text>{title}</Text>
+    </Pressable>
   );
   const BottomSheet = ({ children }: { children: React.ReactNode }) => (
     <View testID="complete-run-bottom-sheet">{children}</View>
@@ -25,6 +38,7 @@ jest.mock('@expo/ui/swift-ui', () => {
   return {
     __esModule: true,
     BottomSheet,
+    DatePicker,
     Group: Wrapper,
     Host,
     RNHostView: Wrapper,
@@ -32,6 +46,7 @@ jest.mock('@expo/ui/swift-ui', () => {
 });
 
 jest.mock('@expo/ui/swift-ui/modifiers', () => ({
+  datePickerStyle: jest.fn(),
   presentationDetents: jest.fn(),
   presentationDragIndicator: jest.fn(),
 }));
@@ -95,6 +110,37 @@ describe('CompleteRunSheet', () => {
 
     expect(screen.getByText('In Vorrat übernehmen')).toBeTruthy();
     expect(screen.getByText('Hafermilch')).toBeTruthy();
+  });
+
+  it('verwendet den nativen Design-System-DatePicker für das MHD', async () => {
+    await render(
+      <CompleteRunSheet
+        isOpen={true}
+        checkedItems={mockCheckedItems}
+        onConfirm={mockOnConfirm}
+        onClose={mockOnClose}
+      />,
+    );
+
+    expect(screen.getByTestId('complete-run-date-picker')).toHaveTextContent('MHD');
+  });
+
+  it('überträgt die DatePicker-Auswahl als lokales ISO-Datum', async () => {
+    await render(
+      <CompleteRunSheet
+        isOpen={true}
+        checkedItems={mockCheckedItems}
+        onConfirm={mockOnConfirm}
+        onClose={mockOnClose}
+      />,
+    );
+
+    await fireEvent.press(screen.getByTestId('complete-run-date-picker'));
+    await fireEvent.press(screen.getByRole('button', { name: /in Vorrat übernehmen/i }));
+
+    expect(mockOnConfirm).toHaveBeenCalledWith(
+      expect.arrayContaining([expect.objectContaining({ expiryDate: '2026-09-15' })]),
+    );
   });
 
   it('erlaubt das Wechseln des Lagerorts und Bestätigen', async () => {

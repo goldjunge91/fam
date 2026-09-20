@@ -11,6 +11,7 @@ const TELEMETRY_CHANNEL_STYLES: Record<string, { label: string; color: string }>
   productEvents: { label: 'Produkt', color: '\u001b[38;5;42m' },
   errorReports: { label: 'Fehler', color: '\u001b[38;5;196m' },
   diagnostics: { label: 'Diagnose', color: '\u001b[38;5;220m' },
+  info: { label: 'Information', color: '\u001b[38;5;110m]' },
 };
 const SENSITIVE_KEY_PATTERN =
   /(?:token|secret|password|api.?key|authorization|cookie|email|phone|user.?id|error.?message|stack)/iu;

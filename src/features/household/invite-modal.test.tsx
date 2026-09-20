@@ -44,10 +44,6 @@ jest.mock('@/features/household/api', () => ({
   }),
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 describe('InviteModal & QR Code Component', () => {
   beforeEach(() => {
     jest.useFakeTimers();

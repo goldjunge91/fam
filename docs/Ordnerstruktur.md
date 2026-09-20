@@ -117,8 +117,9 @@ fam/
     │   └── rings.ts                  # Ring-Konstanten für Tracker
     │
     ├── hooks/                        # Geteilte, App-weite Custom Hooks
-    │   ├── use-theme.ts
-    │   ├── use-color-scheme.ts
+    │   ├── use-deferred-mount.ts
+    │   ├── use-hub-gradient.ts
+    │   ├── use-sheet-shadow-style.ts
     │   ├── use-sync-status.ts
     │   └── ...
     │
@@ -175,7 +176,7 @@ Alle Dateinamen folgen strikt einheitlichen Konventionen:
 Alle TypeScript/TSX-Dateien im Projekt werden in **kebab-case** benannt (Kleinbuchstaben mit Bindestrichen).
 
 * **Screens:** `*-screen.tsx` (z. B. `inventory-screen.tsx`, `edit-profile-screen.tsx`)
-* **Hooks:** `use-*.ts` (z. B. `use-theme.ts`, `use-brochures.ts`)
+* **Hooks:** `use-*.ts` (z. B. `use-sync-status.ts`, `use-brochures.ts`)
 * **Tests:** `*.test.ts` oder `*.test.tsx` (liegen direkt neben der Implementierungsdatei)
 * **Integration Tests:** `*.integration.test.ts`
 * **Components / Cards / Sheets:** `*-card.tsx`, `*-sheet.tsx`, `*-banner.tsx`, `*-button.tsx`
@@ -242,7 +243,7 @@ Um die Codebase modular und wartbar zu halten, gilt für jede Datei eine eindeut
 
 ### 6. `src/hooks/` — App-weite Custom Hooks
 
-* Domänenunabhängige Custom Hooks (`useTheme`, `useColorScheme`, `useSyncStatus`).
+* Domänenunabhängige Custom Hooks (`useDeferredMount`, `useHubGradient`, `useSheetShadowStyle`, `useSyncStatus`).
 
 ### 7. `supabase/` — Datenbank & RLS (Single Source of Truth)
 

@@ -44,10 +44,6 @@ jest.mock('@/features/product-search/preferred-market', () => ({
   usePreferredProductMarketName: () => null,
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 const loadMore = jest.fn();
 
 function searchState(overrides: Partial<UseProductSearchResult> = {}): UseProductSearchResult {

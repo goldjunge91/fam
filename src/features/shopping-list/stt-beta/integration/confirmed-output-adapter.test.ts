@@ -44,12 +44,35 @@ describe('saveConfirmedBetaOutput', () => {
 
     expect(result).toMatchObject({ savedItemCount: 2, mutationCount: 2 });
     expect(
-      await db.getAllAsync<{ name: string; quantity: number; store_id: string }>(
-        'select name, quantity, store_id from shopping_list_items order by sort_index',
+      await db.getAllAsync<{
+        name: string;
+        quantity: number;
+        store_id: string;
+        category_id: string;
+        category_source: string;
+        category_classifier_version: string;
+      }>(
+        `select name, quantity, store_id, category_id, category_source,
+                category_classifier_version
+         from shopping_list_items order by sort_index`,
       ),
     ).toEqual([
-      { name: 'Äpfel', quantity: 3, store_id: 'rewe-list' },
-      { name: 'Milch', quantity: 2, store_id: 'aldi-list' },
+      {
+        name: 'Äpfel',
+        quantity: 3,
+        store_id: 'rewe-list',
+        category_id: 'fresh_produce',
+        category_source: 'name_fallback',
+        category_classifier_version: 'placement-v2.0.0',
+      },
+      {
+        name: 'Milch',
+        quantity: 2,
+        store_id: 'aldi-list',
+        category_id: 'chilled_dairy_eggs',
+        category_source: 'name_fallback',
+        category_classifier_version: 'placement-v2.0.0',
+      },
     ]);
     expect(await db.getAllAsync('select entity, op from outbox order by id')).toHaveLength(2);
   });

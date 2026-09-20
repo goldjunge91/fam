@@ -13,12 +13,12 @@ import { StyleSheet } from 'react-native-unistyles';
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Surface, Txt } from '@/constants/ui';
-import { debugLogEvent } from '@/lib/observability/debug-log';
+import { debugLog, debugLogEvent } from '@/lib/observability/debug-log';
 import { nativeSpeechRecognitionAdapter } from '../services/native-speech-recognition';
-import {
-  DEFAULT_SPEECH_LOCALE,
-  type SpeechRecognitionAdapter,
-  type SpeechRecognitionSession,
+import { getDeviceSpeechLocale } from '../services/speech-locale';
+import type {
+  SpeechRecognitionAdapter,
+  SpeechRecognitionSession,
 } from '../services/speech-recognition-adapter';
 import type { NaturalLanguageAdditionInput, SpeechInputResult } from '../types';
 
@@ -45,7 +45,7 @@ export function NaturalLanguageAdditionVoiceOverlay({
   onTranscript,
   onFallback,
   speechAdapter = nativeSpeechRecognitionAdapter,
-  locale = DEFAULT_SPEECH_LOCALE,
+  locale = getDeviceSpeechLocale(),
 }: NaturalLanguageAdditionVoiceOverlayProps) {
   const { colors } = useTheme();
   const [status, setStatus] = useState<VoiceOverlayStatus>('listening');
@@ -112,12 +112,14 @@ export function NaturalLanguageAdditionVoiceOverlay({
         .then(async (result) => {
           if (disposedRef.current || sessionRef.current !== session) return;
           sessionRef.current = null;
-          debugLogEvent('shopping-list.voice-session.result', {
-            status: result.status,
-            ...(result.status !== 'transcript' && result.errorCode
-              ? { errorCode: result.errorCode }
-              : {}),
-          });
+          if (result.status === 'transcript') {
+            debugLog(`[SpeechRecognition] 🎙️ Transkript erkannt: ${result.text}`);
+          } else {
+            debugLogEvent('shopping-list.voice-session.result', {
+              status: result.status,
+              ...(result.errorCode ? { errorCode: result.errorCode } : {}),
+            });
+          }
 
           if (result.status !== 'transcript') {
             setStatus('listening');

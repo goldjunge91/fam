@@ -80,8 +80,16 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'flex-end',
     gap: theme.space.md,
   },
-  buttonSpacing: {
-    marginTop: theme.space.md,
+  shoppingActions: {
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    gap: theme.space.sm,
+    marginTop: theme.space.xxl,
+    paddingHorizontal: theme.space.md,
+  },
+  shoppingAction: {
+    flex: 1,
+    minWidth: 0,
   },
   headerAction: {
     width: theme.controlSizes.headerAction,
@@ -190,7 +198,8 @@ export function ShoppingListScreen() {
     if (isUnassignedFilter) return unassignedItems;
     return allItems.filter((i) => i.store_id === storeFilter);
   }, [isAllFilter, isUnassignedFilter, storeFilter, allItems, unassignedItems]);
-  const canStartShoppingMode = activeStore !== null && filteredItems.length > 0;
+  const hasOpenItems = filteredItems.some((item) => item.checked_at === null);
+  const canStartShoppingMode = activeStore !== null && hasOpenItems;
 
   const checkedItems = filteredItems.filter((i) => i.checked_at !== null);
   const hasCheckedItems = checkedItems.length > 0 && !isAllFilter;
@@ -406,39 +415,38 @@ export function ShoppingListScreen() {
     </View>
   );
 
-  const renderCompleteButton = () => {
-    if (!hasCheckedItems) return null;
+  const renderShoppingActions = () => {
+    if (!activeStore) return null;
+
     return (
-      <View style={styles.buttonSpacing}>
+      <View style={styles.shoppingActions}>
         <Button
+          full
           size="sm"
           variant="accent"
           accentKey="fiber"
-          title={`🛒 ${completeActionLabel} (${checkedItems.length})`}
+          flat={false}
+          title={t('shoppingList.screen.startShoppingMode')}
+          disabled={!canStartShoppingMode}
+          onPress={() => setShoppingModeOpen(true)}
+          style={styles.shoppingAction}
+          accessibilityLabel={t('shoppingList.screen.startShoppingModeAccessibility', {
+            store: activeStore.name,
+          })}
+        />
+        <Button
+          full
+          size="sm"
+          variant="accent"
+          accentKey="fiber"
+          flat={false}
+          title={t('shoppingList.screen.completeActionShort')}
+          disabled={!hasCheckedItems}
           onPress={() => setSheetOpen(true)}
+          style={styles.shoppingAction}
           accessibilityLabel={t('shoppingList.screen.completeAccessibility', {
             label: completeActionLabel,
             count: checkedItems.length,
-          })}
-        />
-      </View>
-    );
-  };
-
-  const renderShoppingModeButton = () => {
-    if (!canStartShoppingMode || !activeStore) return null;
-    return (
-      <View style={styles.buttonSpacing}>
-        <Button
-          size="sm"
-          variant="accent"
-          accentKey="fiber"
-          title={t('shoppingList.screen.startShoppingMode')}
-          onPress={() => {
-            if (canStartShoppingMode) setShoppingModeOpen(true);
-          }}
-          accessibilityLabel={t('shoppingList.screen.startShoppingModeAccessibility', {
-            store: activeStore.name,
           })}
         />
       </View>
@@ -517,7 +525,6 @@ export function ShoppingListScreen() {
               />
             )}
           </View>
-          {renderCompleteButton()}
         </ScrollView>
       ) : (
         /* Marktspezifische Checkliste, nach Kategorien sortiert */
@@ -542,12 +549,7 @@ export function ShoppingListScreen() {
               )}
             </>
           }
-          ListFooterComponent={
-            <>
-              {renderShoppingModeButton()}
-              {renderCompleteButton()}
-            </>
-          }
+          ListFooterComponent={renderShoppingActions()}
           ListEmptyComponent={
             <View style={styles.emptyState}>
               <Card>
@@ -677,7 +679,7 @@ export function ShoppingListScreen() {
       {/* Vollbild-Einkaufsmodus fuer diesen Markt (nur Abhaken, kein Bearbeiten) */}
       {activeStore && (
         <ShoppingModeScreen
-          visible={shoppingModeOpen && canStartShoppingMode}
+          visible={shoppingModeOpen}
           store={activeStore}
           items={filteredItems}
           onToggle={handleToggle}

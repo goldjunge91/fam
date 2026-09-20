@@ -19,13 +19,19 @@ let mockFeatureFlags: Record<string, boolean | string> | undefined = {
   'module-calories': true,
 };
 let mockModuleFeatureFlagOverrides: Partial<Record<keyof ModulePreferences, boolean>> = {};
+let mockFeatureFlagOverrides: Record<string, boolean> = {};
 
 jest.mock('@/constants/dev-settings', () => ({
   useDevSettingsStore: (
     selector: (state: {
       moduleFeatureFlagOverrides: Partial<Record<keyof ModulePreferences, boolean>>;
+      featureFlagOverrides: Record<string, boolean>;
     }) => unknown,
-  ) => selector({ moduleFeatureFlagOverrides: mockModuleFeatureFlagOverrides }),
+  ) =>
+    selector({
+      moduleFeatureFlagOverrides: mockModuleFeatureFlagOverrides,
+      featureFlagOverrides: mockFeatureFlagOverrides,
+    }),
 }));
 
 jest.mock('@/features/auth/session-provider', () => ({
@@ -76,6 +82,7 @@ describe('useFeatureAccess', () => {
       'module-calories': true,
     };
     mockModuleFeatureFlagOverrides = {};
+    mockFeatureFlagOverrides = {};
     process.env.EXPO_PUBLIC_DEV_TOOLS = 'false';
   });
 
@@ -157,6 +164,17 @@ describe('useFeatureAccess', () => {
     expect(result.current.getFeatureFlagState('module-calories')).toBe(true);
     expect(result.current.isFeatureEnabled('calories')).toBe(true);
     expect(result.current.isModuleLocked('module-calories')).toBe(false);
+  });
+
+  it('wendet den lokalen Override auch auf das shopping-stt Sub-Feature an', async () => {
+    mockFeatureFlags = { 'shopping-stt': false };
+    mockFeatureFlagOverrides = { 'shopping-stt': true };
+    process.env.EXPO_PUBLIC_DEV_TOOLS = 'true';
+
+    const { result } = await renderHook(() => useFeatureAccess());
+
+    expect(result.current.getFeatureFlagState('shopping-stt')).toBe(true);
+    expect(result.current.isFeatureEnabled('shoppingStt')).toBe(true);
   });
 
   it('ignoriert den lokalen Override außerhalb des Entwickler-Modus', async () => {

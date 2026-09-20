@@ -39,9 +39,10 @@ export async function findProductPreference(
   householdId: string,
   productId: string,
   storeId?: string | null,
+  database?: SqlDatabase,
 ): Promise<CategoryPreference | null> {
   debugLog(' [Placement]  ℹ️ api.ts findProductPreference', { productId, storeId });
-  const db = await getDatabase();
+  const db = database ?? (await getDatabase());
   const scope = storeId === undefined || storeId === null ? 'store_id is null' : 'store_id = ?';
   const params =
     storeId === undefined || storeId === null
@@ -60,12 +61,13 @@ export async function findNamePreference(
   householdId: string,
   name: string,
   storeId?: string | null,
+  database?: SqlDatabase,
 ): Promise<CategoryPreference | null> {
   debugLog(' [Placement]  ℹ️ api.ts findNamePreference', { name, storeId });
   const normalized = normalizePreferenceName(name);
   if (!normalized) return null;
 
-  const db = await getDatabase();
+  const db = database ?? (await getDatabase());
   const scope = storeId === undefined || storeId === null ? 'store_id is null' : 'store_id = ?';
   const params =
     storeId === undefined || storeId === null
@@ -90,6 +92,8 @@ export type ResolveCategoryForItemInput = PlacementClassificationInput & {
 export type ResolvePlacementForItemOptions = {
   /** Preview/save helper for "Automatisch": ignore only the preference being reset. */
   omitPreferenceScope?: 'household' | 'store' | null;
+  /** Uses an existing SQLite transaction for callers already inside a local save. */
+  database?: SqlDatabase;
 };
 
 type LocalProductSignals = {
@@ -102,7 +106,7 @@ export async function resolvePlacementForItem(
   options: ResolvePlacementForItemOptions = {},
 ): Promise<ResolvedPlacementClassification & { barcode: string | null }> {
   debugLog(' [Placement]  ℹ️ api.ts resolvePlacementForItem', { input, options });
-  const db = await getDatabase();
+  const db = options.database ?? (await getDatabase());
   const productSignals = input.productId
     ? await db.getFirstAsync<LocalProductSignals>(
         'select barcode, off_category_tags from products where id = ?',
@@ -116,21 +120,21 @@ export async function resolvePlacementForItem(
 
   const productPreference =
     options.omitPreferenceScope !== 'household' && input.productId
-      ? await findProductPreference(input.householdId, input.productId)
+      ? await findProductPreference(input.householdId, input.productId, undefined, db)
       : null;
   const namePreference =
     options.omitPreferenceScope === 'household' || productPreference
       ? null
-      : await findNamePreference(input.householdId, input.name);
+      : await findNamePreference(input.householdId, input.name, undefined, db);
 
   const hasStoreScope = input.storeId !== undefined && input.storeId !== null;
   const storeProductPreference =
     options.omitPreferenceScope !== 'store' && hasStoreScope && input.productId
-      ? await findProductPreference(input.householdId, input.productId, input.storeId)
+      ? await findProductPreference(input.householdId, input.productId, input.storeId, db)
       : null;
   const storeNamePreference =
     options.omitPreferenceScope !== 'store' && hasStoreScope && !storeProductPreference
-      ? await findNamePreference(input.householdId, input.name, input.storeId)
+      ? await findNamePreference(input.householdId, input.name, input.storeId, db)
       : null;
 
   const resolved = resolveCategory({

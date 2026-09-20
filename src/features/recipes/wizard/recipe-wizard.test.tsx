@@ -8,10 +8,6 @@ import { RecipeWizardStepSteps } from '@/features/recipes/wizard/recipe-wizard-s
 import type { IngredientComponentGroup, WizardStepItem } from '@/features/recipes/wizard/types';
 import { RECIPE_FORM_DEFAULTS, type RecipeFormValues } from '@/lib/db/zod/recipe-form-schema.zod';
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 describe('Recipe Wizard Steps', () => {
   const dummyComponents: IngredientComponentGroup[] = [
     {

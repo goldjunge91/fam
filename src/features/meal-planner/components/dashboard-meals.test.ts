@@ -1,4 +1,9 @@
-import { getUpcomingMealEntries } from './dashboard-meals';
+import {
+  getDailyMealPlanEmptyArtworkVariant,
+  getDailyMealPlanEmptyMessageKey,
+  getMealPlanEmptyVariant,
+  getUpcomingMealEntries,
+} from './dashboard-meals';
 
 const entries = [
   { id: 'breakfast-today', entry_date: '2026-09-16', meal_slot: 'breakfast' as const },
@@ -27,5 +32,46 @@ describe('getUpcomingMealEntries', () => {
       'breakfast-tomorrow',
       'lunch-tomorrow',
     ]);
+  });
+});
+
+describe('getDailyMealPlanEmptyMessageKey', () => {
+  it('waehlt fuer denselben Tag stabil und fuer den Folgetag einen anderen Text', () => {
+    const today = new Date(2026, 8, 16, 12, 0);
+
+    expect(getDailyMealPlanEmptyMessageKey(today)).toBe(
+      getDailyMealPlanEmptyMessageKey(new Date(2026, 8, 16, 18, 30)),
+    );
+    expect(getDailyMealPlanEmptyMessageKey(today)).not.toBe(
+      getDailyMealPlanEmptyMessageKey(new Date(2026, 8, 17, 12, 0)),
+    );
+  });
+
+  it('liefert innerhalb einer Woche sieben verschiedene Textschluessel', () => {
+    const messageKeys = Array.from({ length: 7 }, (_, offset) =>
+      getDailyMealPlanEmptyMessageKey(new Date(2026, 8, 16 + offset, 12, 0)),
+    );
+
+    expect(new Set(messageKeys).size).toBe(7);
+  });
+});
+
+describe('getMealPlanEmptyVariant', () => {
+  it('ordnet den kleinen und großen Karten ihre ausgewählte Empty-State-Variante zu', () => {
+    expect(getMealPlanEmptyVariant('small')).toBe('weeklyStrip');
+    expect(getMealPlanEmptyVariant('large')).toBe('kitchenNote');
+  });
+});
+
+describe('getDailyMealPlanEmptyArtworkVariant', () => {
+  it('bleibt am selben lokalen Tag gleich und wechselt am Folgetag', () => {
+    const today = new Date(2026, 8, 20, 12, 0);
+
+    expect(getDailyMealPlanEmptyArtworkVariant(today)).toBe(
+      getDailyMealPlanEmptyArtworkVariant(new Date(2026, 8, 20, 20, 0)),
+    );
+    expect(getDailyMealPlanEmptyArtworkVariant(today)).not.toBe(
+      getDailyMealPlanEmptyArtworkVariant(new Date(2026, 8, 21, 12, 0)),
+    );
   });
 });

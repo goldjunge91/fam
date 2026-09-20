@@ -61,6 +61,19 @@
         "hint": "Choose your preferred store for results"
       }
     },
+    "speechToText": {
+      "title": "Voice input",
+      "hint": "Assignment, speech corrections, and transcription",
+      "permission": {
+        "label": "Speech data for transcription",
+        "hint": "Apple may process your speech data for transcription.",
+        "status": {
+          "loading": "Checking",
+          "on": "Allowed",
+          "off": "Not allowed"
+        }
+      }
+    },
     "app": {
       "title": "App",
       "permissions": {
@@ -111,18 +124,35 @@
         "right": "Right"
       },
       "naturalLanguageBeta": {
-        "automaticApplication": {
-          "label": "Automatic beta assignment",
-          "hint": "Allows learned assignments to be applied automatically."
+        "autoAssign": {
+          "label": "Smart assignment",
+          "hint": "Automatically assign known items to the right list."
         },
         "status": {
           "loading": "Loading",
-          "undecided": "Not set",
-          "granted": "Allowed",
-          "revoked": "Revoked"
+          "unset": "Not set",
+          "on": "On",
+          "off": "Off"
         },
         "errorTitle": "Setting not saved",
-        "errorBody": "The consent for automatic beta assignments could not be saved."
+        "errorBody": "The smart assignment setting could not be saved.",
+        "corrections": {
+          "label": "Speech corrections",
+          "hint": "Edit remembered item names",
+          "title": "Speech corrections",
+          "description": "Edit local corrections for voice input here. These data stay on your device and in your personal account storage.",
+          "empty": "No corrections saved yet.",
+          "original": "Recognized: {{value}}",
+          "corrected": "Correction",
+          "save": "Save",
+          "delete": "Delete",
+          "loadErrorTitle": "Corrections could not be loaded",
+          "loadErrorBody": "The saved speech corrections could not be read.",
+          "saveErrorTitle": "Correction not saved",
+          "saveErrorBody": "The change could not be saved.",
+          "deleteErrorTitle": "Correction not deleted",
+          "deleteErrorBody": "The correction could not be deleted."
+        }
       },
       "feedback": {
         "label": "Give feedback"

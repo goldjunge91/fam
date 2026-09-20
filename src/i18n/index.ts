@@ -18,7 +18,7 @@ export const SUPPORTED_LANGUAGES = ['de', 'en'] as const;
 export type AppLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 
 export const DEFAULT_LANGUAGE: AppLanguage = 'de';
-export const LANGUAGE_STORAGE_KEY = 'fam:language';
+export const LANGUAGE_OVERRIDE_STORAGE_KEY = 'dev.language_override.v1';
 
 const resources = {
   de: {
@@ -53,25 +53,27 @@ export function resolveLanguage(value: string | null | undefined): AppLanguage |
   return isAppLanguage(languageCode) ? languageCode : null;
 }
 
-/** Liest die optionale manuelle Sprache aus dem unverschlüsselten Gerätespeicher. */
-export function getStoredLanguage(): AppLanguage | null {
+/** Liest die optionale Sprache für lokale Entwickler-Overrides. */
+export function getLanguageOverride(): AppLanguage | null {
   try {
-    return resolveLanguage(getDeviceStorage().getString(LANGUAGE_STORAGE_KEY));
+    return resolveLanguage(getDeviceStorage().getString(LANGUAGE_OVERRIDE_STORAGE_KEY));
   } catch {
     return null;
   }
 }
 
-/** Ermittelt die Sprache mit manueller Auswahl, Gerätesprache und Fallback. */
-export function getInitialLanguage(): AppLanguage {
-  const storedLanguage = getStoredLanguage();
-  if (storedLanguage) return storedLanguage;
-
+/** Ermittelt die unterstützte Sprache der ersten Gerätesprache oder den Fallback. */
+export function getDeviceLanguage(): AppLanguage {
   const [preferredLocale] = getLocales();
   return (
     resolveLanguage(preferredLocale?.languageCode ?? preferredLocale?.languageTag) ??
     DEFAULT_LANGUAGE
   );
+}
+
+/** Der App-Start verwendet nur einen expliziten Dev-Override oder die Gerätesprache. */
+export function getInitialLanguage(): AppLanguage {
+  return getLanguageOverride() ?? getDeviceLanguage();
 }
 
 export const i18n = i18next;
@@ -85,8 +87,11 @@ void i18n.use(initReactI18next).init({
   react: { useSuspense: false },
 });
 
-/** Speichert die manuelle Auswahl und aktualisiert alle react-i18next-Consumer. */
-export async function setAppLanguage(language: AppLanguage): Promise<void> {
-  getDeviceStorage().set(LANGUAGE_STORAGE_KEY, language);
-  await i18n.changeLanguage(language);
+/** Setzt oder entfernt den Dev-Override und aktualisiert alle react-i18next-Consumer. */
+export async function setLanguageOverride(language: AppLanguage | null): Promise<void> {
+  const storage = getDeviceStorage();
+  if (language) storage.set(LANGUAGE_OVERRIDE_STORAGE_KEY, language);
+  else storage.remove(LANGUAGE_OVERRIDE_STORAGE_KEY);
+
+  await i18n.changeLanguage(language ?? getDeviceLanguage());
 }

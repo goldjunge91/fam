@@ -672,13 +672,13 @@ Screen component allowing household members to view, create, edit, and delete ch
 15:   useDeleteChildProfileMutation,
 16:   useUpdateChildProfileMutation,
 17: } from '@/features/household/api';
-18: import { useTheme } from '@/hooks/use-theme';
+18: import { useTheme } from '@/components/theme/ThemeProvider';
 ```
 - **Lines 1–18:** Imports React state hook, React Native UI components (`Alert`, `FlatList`, `Pressable`, `StyleSheet`, `View`), reusable design components, theme constants, and domain custom hooks.
 
 ```tsx
 20: export function ChildProfilesScreen() {
-21:   const theme = useTheme();
+21:   const { colors: theme } = useTheme();
 22:   const { activeHousehold } = useActiveHousehold();
 23:   const currentHousehold = activeHousehold;
 24:   const householdId = currentHousehold?.id ?? '';
@@ -965,7 +965,7 @@ Modal dialog component enabling users to switch between multiple households or n
 6: import { ThemedText } from '@/components/themed-text';
 7: import { Spacing } from '@/constants/theme';
 8: import { useActiveHousehold } from '@/features/household/active-household-provider';
-9: import { useTheme } from '@/hooks/use-theme';
+9: import { useTheme } from '@/components/theme/ThemeProvider';
 ```
 - **Lines 1–9:** Imports React Native Modal components, Expo Router, theme hooks, design primitives, and `useActiveHousehold`.
 
@@ -986,7 +986,7 @@ Modal dialog component enabling users to switch between multiple households or n
 21:   onSelectHousehold,
 22:   onClose,
 23: }: HouseholdSwitcherModalProps) {
-24:   const theme = useTheme();
+24:   const { colors: theme } = useTheme();
 25:   const queryClient = useQueryClient();
 26:   const { activeHouseholdId, households, setActiveHouseholdId } = useActiveHousehold();
 27: 
@@ -1110,7 +1110,7 @@ Modal component allowing household administrators to generate, copy, share, and 
 13:   useHouseholdInvites,
 14:   useRevokeInviteMutation,
 15: } from '@/features/household/api';
-16: import { useTheme } from '@/hooks/use-theme';
+16: import { useTheme } from '@/components/theme/ThemeProvider';
 ```
 - **Lines 1–16:** Imports Expo Clipboard, React Native SVG QR Code (`react-native-qrcode-svg`), Share API, UI components, session provider hook, and household invite API hooks.
 
@@ -1126,7 +1126,7 @@ Modal component allowing household administrators to generate, copy, share, and 
 
 ```tsx
 25: export function InviteModal({ visible, householdId, householdName, onClose }: InviteModalProps) {
-26:   const theme = useTheme();
+26:   const { colors: theme } = useTheme();
 27:   const { session } = useSession();
 28:   const userId = session?.user.id ?? '';
 29: 
@@ -1413,7 +1413,7 @@ Screen showing members of the active household, providing role management, membe
 17: } from '@/features/household/api';
 18: import { HouseholdSwitcherModal } from '@/features/household/household-switcher-modal';
 19: import { InviteModal } from '@/features/household/invite-modal';
-20: import { useTheme } from '@/hooks/use-theme';
+20: import { useTheme } from '@/components/theme/ThemeProvider';
 ```
 - **Lines 1–20:** Imports navigation router, React state hooks, React Native UI components, custom UI widgets, authentication session hook, active household hook, query/mutation hooks, and modals (`InviteModal`, `HouseholdSwitcherModal`).
 
@@ -1421,7 +1421,7 @@ Screen showing members of the active household, providing role management, membe
 22: export function MembersScreen() {
 23:   const { session } = useSession();
 24:   const currentUserId = session?.user.id;
-25:   const theme = useTheme();
+25:   const { colors: theme } = useTheme();
 26: 
 27:   const { activeHousehold, activeHouseholdId, households } = useActiveHousehold();
 28:   const currentHousehold = activeHousehold;

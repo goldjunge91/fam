@@ -316,14 +316,11 @@ describe('SettingsScreen', () => {
     expect(router.push).toHaveBeenCalledWith('/gamification');
   });
 
-  it('wechselt die App-Sprache über die Einstellungszeile', async () => {
+  it('zeigt keine Sprachwahl auf der normalen Einstellungsseite', async () => {
     await renderScreen();
-    const user = userEvent.setup();
 
-    await user.press(screen.getByRole('radio', { name: 'Englisch' }));
-
-    expect(await screen.findByRole('radio', { name: 'English', selected: true })).toBeOnTheScreen();
-    expect(mockLanguageValues.get('fam:language')).toBe('en');
+    expect(screen.queryByRole('radiogroup', { name: 'Sprache' })).not.toBeOnTheScreen();
+    expect(screen.queryByRole('radio', { name: 'Englisch' })).not.toBeOnTheScreen();
   });
 
   it('öffnet nach erfolgreichem Logout direkt den Sign-in-Screen', async () => {

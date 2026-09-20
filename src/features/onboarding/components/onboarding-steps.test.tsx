@@ -25,10 +25,6 @@ const mockFeatureFlags: Record<string, boolean> = {
   'module-calories': true,
 };
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 jest.mock('@/features/onboarding/onboarding-store', () => ({
   useOnboarding: () => ({
     state: {

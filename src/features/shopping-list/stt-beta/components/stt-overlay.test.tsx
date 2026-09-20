@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
+import { debugLog } from '@/lib/observability/debug-log';
 
 import type {
   SpeechRecognitionAdapter,
@@ -32,6 +33,11 @@ jest.mock('react-native/Libraries/Modal/Modal', () => {
 
 jest.mock('../services/native-speech-recognition', () => ({
   nativeSpeechRecognitionAdapter: { start: jest.fn() },
+}));
+
+jest.mock('@/lib/observability/debug-log', () => ({
+  debugLog: jest.fn(),
+  debugLogEvent: jest.fn(),
 }));
 
 function deferred<T>() {
@@ -99,5 +105,9 @@ describe('NaturalLanguageAdditionVoiceOverlay', () => {
         onDevice: true,
       });
     });
+
+    expect(debugLog).toHaveBeenCalledWith(
+      '[SpeechRecognition] 🎙️ Transkript erkannt: 3 Äpfel und Brot',
+    );
   });
 });

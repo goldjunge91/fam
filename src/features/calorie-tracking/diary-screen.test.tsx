@@ -84,10 +84,6 @@ jest.mock('@/features/navigation/use-profile-initials', () => ({
   useProfileAvatar: () => ({ initials: 'MM', avatarUrl: null }),
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 function ScreenUnderTest() {
   return (
     <SafeAreaProvider

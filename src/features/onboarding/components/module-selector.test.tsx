@@ -48,10 +48,6 @@ jest.mock('@/lib/observability/providers/posthog', () => ({
     key ? (mockFeatureFlags[key] ?? defaultValue) : defaultValue,
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 const onNext = jest.fn();
 const onSkip = jest.fn();
 

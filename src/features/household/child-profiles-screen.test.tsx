@@ -25,10 +25,6 @@ jest.mock('@/features/household/api', () => ({
   useDeleteChildProfileMutation: () => ({ mutateAsync: jest.fn(), isPending: false }),
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 function renderScreen() {
   return render(
     <SafeAreaProvider

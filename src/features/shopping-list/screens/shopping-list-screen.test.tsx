@@ -206,10 +206,6 @@ jest.mock('@/hooks/use-hub-gradient', () => ({
   useHubGradient: () => undefined,
 }));
 
-jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/components/theme/index').Colors.light,
-}));
-
 describe('ShoppingListScreen', () => {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -255,11 +251,12 @@ describe('ShoppingListScreen', () => {
     expect(screen.getByText('Supermarkt')).toBeTruthy();
   });
 
-  it('bietet den Einkaufsmodus bei einer leeren Einkaufsliste nicht an', async () => {
+  it('bietet in der leeren Gesamtansicht keine Marktaktionen an', async () => {
     mockShoppingListEmpty = true;
     await renderScreen();
 
-    expect(screen.queryByRole('button', { name: /Einkaufsmodus .* starten/ })).toBeNull();
+    expect(screen.queryByText('Einkaufen')).toBeNull();
+    expect(screen.queryByText('Abschließen')).toBeNull();
     expect(screen.getAllByRole('button', { name: 'Artikel hinzufügen' })).toHaveLength(2);
   });
 
@@ -274,7 +271,7 @@ describe('ShoppingListScreen', () => {
     expect(screen.getAllByRole('button', { name: 'Artikel hinzufügen' })).toHaveLength(2);
   });
 
-  it('verwendet für Start und Abschluss dasselbe gefüllte CTA-Rezept', async () => {
+  it('zeigt beide Marktaktionen und deaktiviert Einkaufen ohne offene Artikel', async () => {
     mockShoppingListChecked = true;
     await renderScreen();
 
@@ -290,8 +287,33 @@ describe('ShoppingListScreen', () => {
       name: /Einkaufsliste bei Supermarkt abschließen/,
     });
 
+    expect(startButton).toBeDisabled();
+    expect(completeButton).toBeEnabled();
+    expect(startButton).toHaveTextContent('Einkaufen');
+    expect(completeButton).toHaveTextContent('Abschließen');
     expect(startButton).toHaveStyle({ backgroundColor: colorsLight.accent, minHeight: 44 });
     expect(completeButton).toHaveStyle({ backgroundColor: colorsLight.accent, minHeight: 44 });
+  });
+
+  it('aktiviert Einkaufen und deaktiviert Abschließen bei offenen Artikeln', async () => {
+    await renderScreen();
+
+    await fireEvent.press(screen.getByText('Supermarkt'));
+    await act(() => {
+      jest.advanceTimersByTime(60);
+    });
+
+    const startButton = await screen.findByRole('button', {
+      name: 'Einkaufsmodus für Supermarkt starten',
+    });
+    const completeButton = await screen.findByRole('button', {
+      name: /Einkaufsliste bei Supermarkt abschließen/,
+    });
+
+    expect(startButton).toBeEnabled();
+    expect(completeButton).toBeDisabled();
+    expect(startButton).toHaveTextContent('Einkaufen');
+    expect(completeButton).toHaveTextContent('Abschließen');
   });
 
   it('hakt Artikel in der Marktliste nicht mehr per Antippen ab — das passiert nur im Einkaufsmodus', async () => {

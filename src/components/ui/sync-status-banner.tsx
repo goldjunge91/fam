@@ -9,8 +9,9 @@ import { useSyncStatus } from '@/hooks/use-sync-status';
 import { getDatabase } from '@/lib/db/client';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { SqlDatabase } from '@/lib/db/types';
+import type { SyncStatusView } from '@/lib/sync/sync-status';
 
-const BannerVisibleContext = createContext(false);
+const SyncStatusContext = createContext<SyncStatusView>({ kind: 'hidden' });
 
 const styles = StyleSheet.create({
   banner: {
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
 });
 
 export function useSyncBannerVisible(): boolean {
-  return useContext(BannerVisibleContext);
+  return useContext(SyncStatusContext).kind !== 'hidden';
 }
 
 /** Umschliesst `SyncStatusBanner` und den Screen-Stack in `AppShell`. */
@@ -41,19 +42,11 @@ export function SyncBannerVisibilityProvider({
   children: ReactNode;
 }) {
   const status = useSyncStatus(getDb, enabled);
-  return (
-    <BannerVisibleContext.Provider value={status.kind !== 'hidden'}>
-      {children}
-    </BannerVisibleContext.Provider>
-  );
+  return <SyncStatusContext.Provider value={status}>{children}</SyncStatusContext.Provider>;
 }
 
 export type SyncStatusBannerProps = {
   onRetry?: () => Promise<void>;
-  /** Nur fuer Tests: injiziert eine andere `SqlDatabase`-Quelle als die echte `getDatabase()`. */
-  getDb?: () => Promise<SqlDatabase>;
-  /** Verhindert DB-Polling in Onboarding/Auth ohne autoritative Session. */
-  enabled?: boolean;
 };
 
 async function defaultRetry(): Promise<void> {
@@ -61,12 +54,8 @@ async function defaultRetry(): Promise<void> {
   await retryFailedOutboxEntries(db);
 }
 
-export function SyncStatusBanner({
-  onRetry = defaultRetry,
-  getDb = getDatabase,
-  enabled = true,
-}: SyncStatusBannerProps) {
-  const status = useSyncStatus(getDb, enabled);
+export function SyncStatusBanner({ onRetry = defaultRetry }: SyncStatusBannerProps) {
+  const status = useContext(SyncStatusContext);
   const { colors } = useTheme();
 
   if (status.kind === 'hidden') return null;

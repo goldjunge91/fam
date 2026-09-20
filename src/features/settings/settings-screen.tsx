@@ -11,7 +11,7 @@ import { HubScreen } from '@/components/layout/hub-screen';
 import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { MenuButton } from '@/components/ui/menu-button';
-import { Button, Card, Press, SegmentedControl, Txt } from '@/constants/ui';
+import { Button, Card, Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -28,7 +28,6 @@ import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { PlusAndAiPromoCard } from '@/features/settings/plus-and-ai-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
-import { type AppLanguage, setAppLanguage } from '@/i18n';
 import { env } from '@/lib/config/env';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 
@@ -69,9 +68,6 @@ const styles = StyleSheet.create({
   groups: {
     gap: space.lg + space.sm,
   },
-  languageRow: {
-    paddingVertical: space.lg,
-  },
   signOut: {
     marginTop: space.sm,
   },
@@ -82,7 +78,7 @@ const styles = StyleSheet.create({
 });
 
 export function SettingsScreen() {
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
   const { session } = useSession();
   const { colors } = useTheme();
   const { openDrawer } = useNavigationChrome();
@@ -96,7 +92,6 @@ export function SettingsScreen() {
 
   const { data: fabPosition = DEFAULT_FAB_POSITION } = useFabPosition();
   const setFabPosition = useSetFabPosition();
-  const selectedLanguage: AppLanguage = i18n.language.startsWith('en') ? 'en' : 'de';
 
   async function handleSignOut() {
     if (signingOut) return;
@@ -248,19 +243,6 @@ export function SettingsScreen() {
           </SettingsGroup>
 
           <SettingsGroup title={t('settings.appGroup')}>
-            <View style={styles.languageRow}>
-              <SegmentedControl
-                label={t('common.language')}
-                options={[
-                  { value: 'de', label: t('common.german') },
-                  { value: 'en', label: t('common.english') },
-                ]}
-                selected={selectedLanguage}
-                onSelect={(language: AppLanguage) => void setAppLanguage(language)}
-                appearance="surface"
-                size="compact"
-              />
-            </View>
             <SettingsRow
               icon="🔐"
               label={t('settings.groups.app.permissions.label')}
