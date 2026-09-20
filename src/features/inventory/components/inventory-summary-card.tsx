@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressRing } from '@/components/ui/progress-ring';
-import { Card, Txt } from '@/constants/ui';
+import { Card, prominentShadowStyles, Txt } from '@/constants/ui';
 
 const styles = StyleSheet.create((theme) => ({
   summaryRow: {
@@ -20,7 +20,6 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
     paddingHorizontal: theme.space.lg,
     paddingVertical: theme.space.lg + 2,
-    boxShadow: `0 16px 30px ${withAlpha(theme.shadowCard, 0.16)}`,
   },
 }));
 
@@ -37,7 +36,7 @@ export function InventorySummaryCard({
 }: InventorySummaryCardProps) {
   const { colors } = useTheme();
 
-  function renderCard(value: number, color: string, label: ReactNode) {
+  function renderCard(testID: string, value: number, color: string, label: ReactNode) {
     const content = (
       <>
         <ProgressRing
@@ -59,7 +58,11 @@ export function InventorySummaryCard({
     );
 
     return (
-      <Card elevation="none" padded={false} style={styles.ringCard}>
+      <Card
+        testID={testID}
+        elevation="none"
+        padded={false}
+        style={[styles.ringCard, prominentShadowStyles.outer]}>
         {content}
       </Card>
     );
@@ -71,6 +74,7 @@ export function InventorySummaryCard({
       aria-label={`${criticalCount} Artikel laufen bald ab, ${soonCount} bald fällig, ${totalCount} insgesamt im Vorrat`}
       style={styles.summaryRow}>
       {renderCard(
+        'inventory-summary-critical',
         criticalCount,
         colors.danger,
         <Txt variant="body" weight="700" center>
@@ -82,6 +86,7 @@ export function InventorySummaryCard({
       )}
 
       {renderCard(
+        'inventory-summary-soon',
         soonCount,
         colors.warning,
         <Txt variant="body" weight="700" center>

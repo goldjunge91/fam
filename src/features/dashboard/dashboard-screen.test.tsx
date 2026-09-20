@@ -4,6 +4,7 @@ import * as Haptics from 'expo-haptics';
 import { act, type ReactNode } from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { colorsLight, shadow, space, withAlpha } from '@/components/theme';
 import { DashboardScreen } from '@/features/dashboard/dashboard-screen';
 import { i18n } from '@/i18n';
 
@@ -344,6 +345,15 @@ describe('DashboardScreen — Streak-Karte', () => {
     expect(screen.getByText('STREAK')).toBeOnTheScreen();
     expect(screen.getByLabelText(/Streak:/)).toBeOnTheScreen();
   });
+
+  it('verwendet für Dashboard-Karten denselben markanten Schatten wie der Vorrat', async () => {
+    await renderScreen();
+
+    const streakCard = screen.getByLabelText(/Streak:/);
+    const expectedShadow = `0 ${shadow.prominent.shadowOffset.height}px ${shadow.prominent.shadowRadius}px ${withAlpha(colorsLight.shadowCard, shadow.prominent.shadowOpacity)}`;
+
+    expect(StyleSheet.flatten(streakCard.props.style).boxShadow).toBe(expectedShadow);
+  });
 });
 
 describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
@@ -452,13 +462,16 @@ describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
 });
 
 describe('DashboardScreen — Pull-to-Refresh', () => {
-  it('begrenzt den Dashboard-ScrollView unterhalb des Headers', async () => {
+  it('lässt den Dashboard-ScrollView-Schatten seitlich und oben auslaufen', async () => {
     await renderScreen();
 
     const scrollView = screen.getByTestId('dashboard-scroll-view');
 
     expect(StyleSheet.flatten(scrollView.props.style)).toEqual(
-      expect.objectContaining({ overflow: 'hidden' }),
+      expect.objectContaining({ overflow: 'visible' }),
+    );
+    expect(StyleSheet.flatten(scrollView.props.contentContainerStyle)).toEqual(
+      expect.objectContaining({ paddingTop: space.sm }),
     );
   });
 

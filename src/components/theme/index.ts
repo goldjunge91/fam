@@ -251,6 +251,13 @@ export const shadow = {
     shadowRadius: 24,
     elevation: 8,
   },
+  /** Geometry for a deliberately prominent native shadow. */
+  prominent: {
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.7,
+    shadowRadius: 18,
+    elevation: 10,
+  },
 } as const;
 
 /** Sichtbare Tiefe und vollständiger Druckweg gefüllter 3D-Buttons. */

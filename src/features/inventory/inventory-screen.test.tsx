@@ -3,7 +3,7 @@ import { act, fireEvent, render, screen, userEvent } from '@testing-library/reac
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { font } from '@/components/theme/index';
+import { colorsLight, font, shadow, withAlpha } from '@/components/theme/index';
 import { InventoryScreen } from '@/features/inventory/inventory-screen';
 import type { LocalInventoryItem } from '@/features/inventory/use-inventory-items';
 import type { LocalInventoryTransaction } from '@/features/inventory/use-inventory-transactions';
@@ -445,6 +445,18 @@ it('zeigt die Ablauf-Ringe über der kompakten Arbeitsliste', async () => {
   );
   expect(summaryRow).toBeOnTheScreen();
   expect(summaryRow).toHaveStyle({ flexDirection: 'row' });
+  const prominentShadow = `0 ${shadow.prominent.shadowOffset.height}px ${shadow.prominent.shadowRadius}px ${withAlpha(colorsLight.shadowCard, shadow.prominent.shadowOpacity)}`;
+  expect(screen.getByTestId('inventory-summary-critical')).toHaveStyle({
+    overflow: 'visible',
+    boxShadow: prominentShadow,
+  });
+  expect(screen.getByTestId('inventory-summary-soon')).toHaveStyle({
+    overflow: 'visible',
+    boxShadow: prominentShadow,
+  });
+  expect(prominentShadow).not.toContain(
+    withAlpha(colorsLight.danger, shadow.prominent.shadowOpacity),
+  );
   expect(screen.getByText('Läuft bald ab')).toBeTruthy();
   expect(screen.getByText('Bald fällig')).toBeTruthy();
   expect(screen.getByRole('button', { name: 'Milch, 2 L' })).toBeTruthy();

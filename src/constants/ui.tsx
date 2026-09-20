@@ -55,7 +55,7 @@ import {
 const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;
 const POP_SPRING = { damping: 9, stiffness: 380, mass: 0.5 } as const;
 
-type ShadowTier = (typeof shadow)[keyof typeof shadow];
+type ShadowTier = (typeof shadow)['sm' | 'md' | 'lg'];
 
 function makeThemeShadow(tier: ShadowTier, color: string) {
   return {
@@ -71,6 +71,16 @@ const shadowStyles = StyleSheet.create((theme) => ({
   sm: makeThemeShadow(shadow.sm, theme.shadowCard),
   md: makeThemeShadow(shadow.md, theme.shadowCard),
   lg: makeThemeShadow(shadow.lg, theme.shadowCard),
+}));
+
+/** Markanter neutraler Schatten für hervorgehobene Kartenflächen. */
+export const prominentShadowStyles = StyleSheet.create((theme) => ({
+  outer: {
+    overflow: 'visible',
+    borderColor: theme.border,
+    borderWidth: theme.borderWidth.base,
+    boxShadow: `0 ${shadow.prominent.shadowOffset.height}px ${shadow.prominent.shadowRadius}px ${withAlpha(theme.shadowCard, shadow.prominent.shadowOpacity)}`,
+  },
 }));
 
 type HapticKind = 'none' | 'light' | 'medium' | 'heavy' | 'selection' | 'success';

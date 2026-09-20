@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { shadow, withAlpha } from '@/components/theme';
+import { prominentShadowStyles } from '@/constants/ui';
 
 export type GlassCardShape = 'card' | 'control' | 'pill';
 
@@ -125,6 +126,7 @@ export function GlassCard({
           fallbackStyle,
           outerStyle,
           styles.outer,
+          tinted && prominentShadowStyles.outer,
           styles.fallback,
           tinted && styles.dashboardTint,
           styles.shape,
@@ -142,7 +144,7 @@ export function GlassCard({
       disabled={disabled}
       accessibilityRole={accessibilityRole}
       accessibilityLabel={accessibilityLabel}
-      style={[outerStyle, styles.outer, styles.shape]}>
+      style={[outerStyle, styles.outer, tinted && prominentShadowStyles.outer, styles.shape]}>
       <GlassView
         glassEffectStyle="regular"
         isInteractive={!disabled}
