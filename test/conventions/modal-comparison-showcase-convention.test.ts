@@ -17,9 +17,11 @@ describe('modal comparison showcase', () => {
 
     expect(source).toContain("from '@expo/ui'");
     expect(source).toContain("from 'react-native'");
+    expect(source).toContain("from './showcase-modal-content'");
     expect(source).toContain('<BottomSheet');
     expect(source).toContain('<Modal');
-    expect(source).toContain('<ModalComparisonContent');
+    expect(source).toContain('<ModalComparisonHostedContent');
+    expect(source).toContain('<ModalComparisonScrollContent');
     expect(source).toContain('title="Voice"');
     expect(source).toContain("setMode('input')");
     expect(source).toContain("setMode('preview')");
