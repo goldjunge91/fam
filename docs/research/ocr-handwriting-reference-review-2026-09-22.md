@@ -237,6 +237,98 @@ ist ein späterer separater Benchmark für einen lokalen Handschrift-/Listenmodu
 Damit bleibt `expo-ai-kit` für normale Belege der einfache Standard, während
 die externe Repo als Referenz für eine spezialisierte Einkaufszettel-Erkennung dient.
 
+## Kritische Prüfung der aktuellen OCR-Erfassung
+
+**Prüfdatum:** 22. September 2026
+**Prüfumfang:** lokaler Capture-/Resume-Pfad, Native-OCR-Adapter, Review-Snapshot,
+Logout-Cleanup und die Receipt-Processing-Spec.
+**Urteil:** noch nicht abnahmefähig. Diese Prüfung hat keinen Produktionscode
+geändert.
+
+### Befunde
+
+1. **Critical: Lokale Capture-Dateien sind nicht kontogetrennt.**
+
+   Der native Adapter speichert normalisierte Bilder unter
+   `documents/receipt-captures/<captureId>` ohne Account-Segment
+   (`src/features/ocr/capture/capture/native-adapters.ts:152-159`). Die
+   Persistenzprüfung akzeptiert außerdem jeden `file://`-Pfad, der nur ein
+   `receipt-captures`-Segment enthält
+   (`src/features/ocr/capture/persistence/receipt-capture-persistence.ts:81-87`).
+   Der Logout löscht Account-Storage und lokale Datenbank, aber keine solchen
+   Capture-Dateien (`src/features/auth/sign-out.ts:63-78`). Das widerspricht der
+   Account-Isolation und dem Cleanup-Vertrag in
+   `docs/specs/household-purchase-memory/SPEC-receipt-processing.md:100-102` und
+   `:249-256`.
+
+2. **Critical: OCR-Evidenz wird im Resume-Snapshot dauerhaft gespeichert.**
+
+   `createReceiptReviewSnapshot()` übernimmt `field.evidence` und
+   `item.evidence` (`src/features/ocr/processing/review/model.ts:164-200`). Der
+   Snapshot wird anschließend in den verschlüsselten Account-Storage geschrieben
+   (`src/features/ocr/capture/persistence/receipt-capture-persistence.ts:347-350`).
+   Damit bleiben erkannte OCR-Zeilen wie Händler-, Datums-, Summen- und
+   Artikeltext erhalten, obwohl die Spec kein OCR-Volltextmaterial in MMKV,
+   SQLite, Outbox oder Telemetrie erlaubt
+   (`docs/specs/household-purchase-memory/SPEC-receipt-processing.md:258-266`).
+   Der bestehende Persistenztest prüft nur das Fehlen von Bounding-Box-Daten,
+   nicht das Fehlen der OCR-Evidenz.
+
+3. **Required: Android-Modellbereitschaft ist im produktiven Flow nicht sichtbar.**
+
+   Die Spec verlangt sichtbare Zustände für `not_ready`, Vorbereitung, Fehler und
+   Retry (`docs/specs/household-purchase-memory/SPEC-receipt-processing.md:151-158`).
+   Der Receipt-Flow wechselt jedoch direkt in `processing` und ruft den
+   Verarbeitungsschritt auf
+   (`src/features/ocr/processing/review/receipt-capture-review-flow.tsx:183-223`).
+   `recognizeReceiptOcr()` kann dabei intern selbst `prepareVision()` auslösen;
+   die explizite Bereitschafts- und Fortschrittsdarstellung existiert nur im
+   Dev-Inspector. Auf einer frischen Android-Installation kann deshalb ein
+   Netzwerkdownload oder ein generischer Processing-Fehler erscheinen, ohne den
+   geforderten Modellzustand zu erklären.
+
+4. **Required: Der OCR-Context-Pack enthält veraltete Ist-Zustände.**
+
+   `CONTEXT-receipt-processing.md:46-60` behauptet unter anderem noch fehlende
+   `null`-Confidence, fehlende HEIC-Unterstützung, fehlende Draft-Persistenz,
+   fehlendes Review-Add/Remove, fehlende Store-Zuordnung und ignorierte
+   Bounding-Boxes. Der aktuelle Code enthält diese Pfade bereits, zum Beispiel
+   `src/features/ocr/processing/native.ts:137-139`,
+   `src/features/ocr/capture/capture/mime.ts:1-12`,
+   `src/features/ocr/processing/review/model.ts:301-337` und
+   `src/features/ocr/processing/domain/layout.ts:440-479`. Der Context-Pack kann
+   damit kommende Agenten zu bereits gelösten Problemen führen.
+
+### Verifikation
+
+Der fokussierte Lauf
+
+```text
+bun run test src/features/ocr/capture \
+  src/features/ocr/processing/native.test.ts \
+  src/features/ocr/processing/review/model.test.ts
+```
+
+war erfolgreich: 12 Test-Suites und 63 Tests bestanden. Diese Tests belegen die
+TypeScript-Adapter- und Domain-Verträge, aber keine echte native OCR auf iOS oder
+Android und keine vollständige Account-Cleanup-Abnahme.
+
+### Offene Umsetzung vor der Abnahme
+
+- Capture-Dateien strikt an Account-Root und Capture-ID binden und bei Logout,
+  Accountwechsel und Verwerfen sicher löschen.
+- OCR-Evidenz aus dem dauerhaft gespeicherten Resume-Modell entfernen oder einen
+  ausdrücklich freigegebenen, datenschutzkonformen Ersatz definieren.
+- Android-Modellvorbereitung als sichtbaren Produktzustand vor dem OCR-Lauf
+  modellieren, einschließlich Fortschritt, Fehler und Retry.
+- Den Context-Pack nach der Entscheidung aktualisieren und die alten Ist-Zustände
+  nicht weiter als Arbeitsgrundlage verwenden.
+
+Die im vorherigen Abschnitt vorgeschlagene Aufnahmequalitätsprüfung für
+Helligkeit, Kontrast, Schärfe und Spiegelungen bleibt eine separate Scope-
+Entscheidung. Sie ist in der aktuellen Receipt-Processing-Spec noch nicht als
+Abnahmebedingung enthalten.
+
 ## Ergebnis
 
 Der Clone bleibt als Referenz unter [`/Volumes/Programme/ocr-reference`](/Volumes/Programme/ocr-reference).

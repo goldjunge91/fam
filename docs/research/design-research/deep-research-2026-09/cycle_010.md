@@ -32,9 +32,9 @@ Cravly kombiniert Haushaltsfeed, Wochenplan, automatisch erzeugte Einkaufsliste,
 
 **Risiko:** Social-Feed-Metaphern sind für den Inventar-Kern wahrscheinlich zu aufmerksamkeitsintensiv. Für Fam ist das „claim“-Prinzip interessanter als der Feed selbst.
 
-## mitlist
+## Externe Referenz-App
 
-mitlist beschreibt einen gemeinsamen Haushalts-Hub mit Listen, Mahlzeiten, Ausgaben, Aufgaben und Pinwall. Die Seite betont Open Source, Self-Hosting, lokale Verarbeitung bestimmter Scans und eine Offline-Warteschlange für viele Änderungen. Quelle: [mitlist](https://mitlist.me/).
+Die externe Referenz-App beschreibt einen gemeinsamen Haushalts-Hub mit Listen, Mahlzeiten, Ausgaben, Aufgaben und Pinwall. Die Seite betont Open Source, Self-Hosting, lokale Verarbeitung bestimmter Scans und eine Offline-Warteschlange für viele Änderungen.
 
 **Stärkstes Muster:** Vertrauen entsteht auch durch Transparenz über Hosting, Datenbesitz und Offline-Verhalten.
 
@@ -75,6 +75,5 @@ Olio hilft, überschüssige Lebensmittel und Haushaltsgegenstände lokal weiterz
 | Brücke | Mealuna | Bestand, Liste und Offline-Verhalten als Regelkreis denken |
 | Brücke | Kitchen Pantri | Die Lücke zwischen Liste, Pantry und Dinner ist der Produktwert |
 | Haushalt | OurGroceries / AnyList / Bring! | Gemeinsame Aktionen, Fotos, Notizen und Synchronisation minimal halten |
-| Haushalt | hmly / mitlist / Cozi | Haushalt als Kontext, nicht als überfüllte Startseite |
+| Haushalt | hmly / externe Referenz-App / Cozi | Haushalt als Kontext, nicht als überfüllte Startseite |
 | Angrenzend | Cravly / Olio | Leftovers weiterplanen oder weitergeben, bevor sie zu Waste werden |
-

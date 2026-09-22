@@ -20,7 +20,7 @@ Die Aussagen stammen aus offiziellen Produktseiten, offiziellen Hilfedokumenten 
 | Bestand plus Einkauf | Zoku, Mealuna, Kitchen Pantri, hmly, GroceryShare | Übergang zwischen Einkauf, Bestand, Kochen und Haushalt |
 | Geteilte Einkaufslisten | OurGroceries, AnyList, Bring!, Cozi, Pepperjack | Synchronisation, Kategorien, Store-/Gang-Logik und gemeinsame Aktionen |
 | Rezepte als Haushaltsfluss | Helpings, SwiftLists, Cravly | Planen, Kochen, Liste und teilweise Bestand als zusammenhängender Ablauf |
-| Allgemeiner Haushalt | mitlist, hmly, Cozi | Mehrere Personen, Rollen, Aufgaben, Kalender, Kosten und Präsenz |
+| Allgemeiner Haushalt | externe Referenz-App, hmly, Cozi | Mehrere Personen, Rollen, Aufgaben, Kalender, Kosten und Präsenz |
 | Food-Waste-Weitergabe | Olio | Aus „nicht mehr verwenden“ wird eine soziale Rettungsaktion |
 | Historischer Referenzfall | HNGRY | Deutscher Ansatz für Einkaufsliste plus Vorrat, inzwischen eingestellt |
 
@@ -46,4 +46,3 @@ Viele Produkte decken nur ein Teilstück ab. Die relevantesten neuen Beobachtung
 - Wie wird aus „geringer Bestand“ eine belastbare Einkaufsaktion?
 - Welche Sync-Signale schaffen Vertrauen, ohne den Bestand in einen Chat zu verwandeln?
 - Welche Produktversprechen sind bei neuen oder noch wenig etablierten Apps nur als Konzept, nicht als validierte Nutzung, zu behandeln?
-

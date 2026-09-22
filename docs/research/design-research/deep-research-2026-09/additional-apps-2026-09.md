@@ -82,9 +82,9 @@ Diese Produkte zeigen, dass gemeinsame Listen vor allem durch eine direkte Aktio
 
 Für Fam ist die Entsprechung nicht „Artikel abhaken“, sondern „1 verwendet“. Der Button muss ebenso unmittelbar wirken, mit Undo und sichtbarer Mengenänderung.
 
-### hmly und mitlist: Haushalt als Kontext
+### hmly und externe Referenz-App: Haushalt als Kontext
 
-hmly und mitlist verbinden Listen, Aufgaben, Mahlzeiten, Kosten und mehrere Personen. Sie liefern interessante Muster für Haushaltsgrenzen, Präsenz, Offline-Warteschlangen, Open Source und Self-Hosting. Gleichzeitig zeigen sie die Gefahr einer zu breiten Haushaltszentrale.
+hmly und eine externe Referenz-App verbinden Listen, Aufgaben, Mahlzeiten, Kosten und mehrere Personen. Sie liefern interessante Muster für Haushaltsgrenzen, Präsenz, Offline-Warteschlangen, Open Source und Self-Hosting. Gleichzeitig zeigen sie die Gefahr einer zu breiten Haushaltszentrale.
 
 **Empfehlung:** Im Inventarscreen nur die für den Bestand relevante Attribution zeigen: Person, Zeitpunkt, Änderung und Undo. Aufgaben, Kalender, Kosten und Kommunikation bleiben eigene Flächen.
 
@@ -133,7 +133,7 @@ Olio liegt außerhalb des direkten Wettbewerbs, ist aber für Food-Waste-Vermeid
 | Bring! | nicht zentral | nein | sehr stark | stark | mittel | leichte gemeinsame Aktionen |
 | Cozi | nicht zentral | nein | stark | stark | mittel | Familienkontext und mehrere Listen |
 | hmly | stark | stark | stark | stark | stark | breite Haushaltsplattform |
-| mitlist | mittel | nicht zentral | stark | stark | stark | Open Source, Offline, Haushaltshub |
+| Externe Referenz-App | mittel | nicht zentral | stark | stark | stark | Open Source, Offline, Haushaltshub |
 | Cravly | mittel | mittel | stark | stark | stark | Live claims und Leftover-Planung |
 | Olio | nein | Food-Safety-Kontext | nein | Community | nein | Weitergabe statt Entsorgung |
 
@@ -183,7 +183,7 @@ Für eine spätere Detailanalyse mit Screenshots oder installierten Testversione
 5. Zoku: Einkauf nach dem Abhaken in den Bestand überführen;
 6. OurGroceries: gemeinsame Listenaktion und Sync-Verhalten;
 7. AnyList: Kategorien, Fotos, Plan und Listenorganisation;
-8. hmly oder mitlist: Haushaltsgrenzen, Präsenz und Offline-Verhalten.
+8. hmly oder externe Referenz-App: Haushaltsgrenzen, Präsenz und Offline-Verhalten.
 
 ## Quellen
 
@@ -194,7 +194,7 @@ Für eine spätere Detailanalyse mit Screenshots oder installierten Testversione
 5. Pantri, [Product page](https://pantri.devalab.app/)
 6. Zoku, [Shared shopping list](https://www.myzoku.fr/en/liste-de-courses-partagee)
 7. Mealuna, [Product page](https://mealuna.varres.ee/)
-8. Kitchen Pantri, [Product page](https://www.kitchenpantri.com/)
+8. Kitchen Pantri, [Product page](https://www.kitchenpantri.com/) klasse app
 9. OurGroceries, [User Guide](https://www.ourgroceries.com/user-guide)
 10. AnyList, [Lists](https://www.anylist.com/lists) und [Meal Planning](https://www.anylist.com/meal-planning)
 11. Bring!, [Collaborative](https://www.getbring.com/en/features/collaborative)
@@ -203,9 +203,6 @@ Für eine spätere Detailanalyse mit Screenshots oder installierten Testversione
 14. Helpings, [Product page](https://www.gethelpings.com/)
 15. SwiftLists, [Product page](https://swiftlists.app/)
 16. hmly, [German App Store listing](https://apps.apple.com/de/app/hmly-vorr%C3%A4te-rezepte-plan/id6758858235)
-17. mitlist, [Product page](https://mitlist.me/)
+17. Externe Referenz-App, Produktseite und Quellcode separat weiter prüfen, die App ist in aktiver Entwicklung
 18. Cravly, [Product page](https://www.cravly.app/)
-19. GroceryShare, [Product page](https://groceryshare.app/)
-20. HNGRY, [Terms of use](https://iamhngry.com/nutzungsbedingungen/)
-21. Olio, [Google Play listing](https://play.google.com/store/apps/details?id=com.olioex.android) und [How to use](https://olioapp.com/en/getting-started-on-olio/discover-the-olio-app/)
-
+19. GroceryShare, [Product page](https://groceryshare.app/) schreckliches design 
