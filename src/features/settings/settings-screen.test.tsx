@@ -203,6 +203,15 @@ describe('SettingsScreen', () => {
     expect(queryByText('Sync-Diagnose & Outbox anzeigen')).toBeNull();
   });
 
+  it('öffnet die Bon-Historie aus der Haushalt-Gruppe', async () => {
+    await renderScreen();
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Bon-Historie' }));
+
+    expect(router.push).toHaveBeenCalledWith('/household/receipt-history');
+  });
+
   it('öffnet den eigenen Speech-to-Text-Screen', async () => {
     const user = userEvent.setup();
     await renderScreen();

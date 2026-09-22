@@ -15,6 +15,12 @@ const SPEECH_PROVIDER_OPTIONS = [
 
 const DEV_CATEGORIES = [
   {
+    icon: '🔎',
+    label: 'OCR-Pipeline analysieren',
+    hint: 'Bild, Modellstatus, Bounding-Boxen und Rohtext',
+    route: '/settings/dev-ocr-inspector',
+  },
+  {
     icon: '🧭',
     label: 'Umgebung & Zugang',
     hint: 'Build, Dienste, Session und Haushalt',

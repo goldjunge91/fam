@@ -35,6 +35,8 @@ export type Migration = {
 export type Entity =
   | 'storage_locations'
   | 'stores'
+  | 'purchase_receipts'
+  | 'purchase_receipt_items'
   | 'fridge_items'
   | 'transactions'
   | 'shopping_list_items'

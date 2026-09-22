@@ -48,11 +48,13 @@ describe('app language', () => {
     expect(i18n.t('shoppingList.addItem')).toBe('Artikel hinzufügen');
     expect(i18n.t('settings.groups.data.privacy.label')).toBe('Datenschutz');
     expect(i18n.t('shoppingList.screen.completeActionGeneric')).toBe('Einkaufsliste abschließen');
+    expect(i18n.t('ocr.review.title')).toBe('Kassenbon prüfen');
 
     await i18n.changeLanguage('en');
     expect(i18n.t('shoppingList.addItem')).toBe('Add item');
     expect(i18n.t('settings.groups.data.privacy.label')).toBe('Privacy');
     expect(i18n.t('shoppingList.screen.completeActionGeneric')).toBe('Complete shopping list');
+    expect(i18n.t('ocr.review.title')).toBe('Review receipt');
   });
 
   it('uses the device language when no dev override exists', () => {

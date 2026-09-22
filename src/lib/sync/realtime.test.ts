@@ -205,6 +205,18 @@ describe('subscribeHouseholdRealtime — Lifecycle und Resync', () => {
           table: 'shopping_category_preferences',
           filter: 'household_id=eq.household-1',
         },
+        {
+          event: '*',
+          schema: 'public',
+          table: 'purchase_receipts',
+          filter: 'household_id=eq.household-1',
+        },
+        {
+          event: '*',
+          schema: 'public',
+          table: 'purchase_receipt_items',
+          filter: 'household_id=eq.household-1',
+        },
       ],
       [
         {
@@ -225,8 +237,24 @@ describe('subscribeHouseholdRealtime — Lifecycle und Resync', () => {
           table: 'shopping_category_preferences',
           filter: 'household_id=eq.household-2',
         },
+        {
+          event: '*',
+          schema: 'public',
+          table: 'purchase_receipts',
+          filter: 'household_id=eq.household-2',
+        },
+        {
+          event: '*',
+          schema: 'public',
+          table: 'purchase_receipt_items',
+          filter: 'household_id=eq.household-2',
+        },
       ],
     ]);
+
+    expect(
+      supabase.created.flatMap((entry) => entry.registrations.map(({ config }) => config.table)),
+    ).not.toContain('receipt_assets');
 
     await unsubscribe();
     expect(supabase.removeChannel).toHaveBeenLastCalledWith(supabase.created[1]?.channel);

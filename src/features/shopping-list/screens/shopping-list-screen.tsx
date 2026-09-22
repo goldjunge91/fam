@@ -18,10 +18,11 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
+import { ReceiptCaptureReviewFlow } from '@/features/ocr/processing/review/receipt-capture-review-flow';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { debugLog } from '@/lib/observability/debug-log';
+import { debugLog, debugLogEvent } from '@/lib/observability/debug-log';
 import { ShoppingItemRow } from '../components/ui/shopping-item-row';
 import { shoppingListStyles } from '../components/ui/shopping-list-styles';
 import { ALL_FILTER, StorePickerMenu, UNASSIGNED_FILTER } from '../components/ui/store-picker-menu';
@@ -115,6 +116,7 @@ export function ShoppingListScreen() {
   const [orderSheetOpen, setOrderSheetOpen] = useState(false);
   const [shoppingModeOpen, setShoppingModeOpen] = useState(false);
   const [scannerOpen, setScannerOpen] = useState(false);
+  const [receiptFlowOpen, setReceiptFlowOpen] = useState(false);
   const [scannedProduct, setScannedProduct] = useState<CatalogProduct | null>(null);
   const [editingItem, setEditingItem] = useState<LocalShoppingItem | null>(null);
   const [storeFilter, setStoreFilter] = useState<string>(ALL_FILTER);
@@ -130,7 +132,7 @@ export function ShoppingListScreen() {
   const scrollRef = useRef<ScrollView>(null);
   const sectionListRef =
     useRef<SectionList<LocalShoppingItem, { title: string; data: LocalShoppingItem[] }>>(null);
-  const { session } = useSession();
+  const { session, isLoading: sessionLoading, accountReady } = useSession();
   const userId = session?.user.id;
   const { data: showPriceInMarketView = false } = useShowPriceInMarketView(userId);
   const { openDrawer, openProfile } = useNavigationChrome();
@@ -161,6 +163,16 @@ export function ShoppingListScreen() {
 
   const { data: groups = [], isLoading } = useShoppingList(householdId);
   const { data: stores = [] } = useStores(householdId);
+
+  useEffect(() => {
+    debugLogEvent('shopping.receipt_capture.screen_state', {
+      session_loading: sessionLoading,
+      account_ready: Boolean(accountReady),
+      has_user: Boolean(userId),
+      has_household: Boolean(householdId),
+      flow_open: receiptFlowOpen,
+    });
+  }, [accountReady, householdId, receiptFlowOpen, sessionLoading, userId]);
 
   const toggleItem = useToggleShoppingItem();
   const deleteItem = useDeleteShoppingItem();
@@ -340,6 +352,28 @@ export function ShoppingListScreen() {
             }}
             style={styles.headerAction}>
             <FamIcon name="camera" size={20} color={theme.accent} />
+          </HeaderIconButton>
+          <HeaderIconButton
+            label={t('shoppingList.screen.captureReceipt')}
+            onPress={() => {
+              debugLogEvent('shopping.receipt_capture.button_pressed', {
+                session_loading: sessionLoading,
+                account_ready: Boolean(accountReady),
+                has_user: Boolean(userId),
+                has_household: Boolean(householdId),
+                flow_open: receiptFlowOpen,
+              });
+              if (userId) {
+                setReceiptFlowOpen(true);
+                debugLogEvent('shopping.receipt_capture.open_requested');
+              } else {
+                debugLogEvent('shopping.receipt_capture.open_blocked', {
+                  reason: sessionLoading ? 'session_loading' : 'missing_user',
+                });
+              }
+            }}
+            style={styles.headerAction}>
+            <FamIcon name="receipt" size={20} color={theme.accent} />
           </HeaderIconButton>
           <HeaderIconButton
             label={t('shoppingList.addItem')}
@@ -607,6 +641,15 @@ export function ShoppingListScreen() {
         looking={barcodeLookup.looking}
         errorMessage={barcodeLookup.errorMessage}
       />
+
+      {userId ? (
+        <ReceiptCaptureReviewFlow
+          visible={receiptFlowOpen}
+          householdId={householdId}
+          createdBy={userId}
+          onDismiss={() => setReceiptFlowOpen(false)}
+        />
+      ) : null}
 
       <AddItemModal
         visible={addModalOpen}

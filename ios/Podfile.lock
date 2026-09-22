@@ -208,6 +208,8 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
+  - ExpoAiKit (0.17.0):
+    - ExpoModulesCore
   - ExpoAppleAuthentication (57.0.1):
     - ExpoModulesCore
   - ExpoAppMetrics (57.0.16):
@@ -260,6 +262,8 @@ PODS:
   - ExpoHaptics (57.0.2):
     - ExpoModulesCore
   - ExpoImage (57.0.4):
+    - ExpoModulesCore
+  - ExpoImageManipulator (57.0.19):
     - ExpoModulesCore
   - ExpoImagePicker (57.0.15):
     - ExpoModulesCore
@@ -376,6 +380,28 @@ PODS:
   - Google-Mobile-Ads-SDK (13.1.0):
     - GoogleUserMessagingPlatform (>= 1.1)
   - GoogleUserMessagingPlatform (3.1.0)
+  - HarnessUI (1.4.1):
+    - hermes-engine
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
   - hermes-engine (250829098.0.17):
     - hermes-engine/Pre-built (= 250829098.0.17)
   - hermes-engine/Pre-built (250829098.0.17)
@@ -3122,6 +3148,7 @@ DEPENDENCIES:
   - expo-dev-launcher (from `../node_modules/expo-dev-launcher`)
   - expo-dev-menu (from `../node_modules/expo-dev-menu`)
   - expo-dev-menu-interface (from `../node_modules/expo-dev-menu-interface/ios`)
+  - ExpoAiKit (from `../node_modules/expo-ai-kit/ios`)
   - ExpoAppleAuthentication (from `../node_modules/expo-apple-authentication/ios`)
   - ExpoAppMetrics (from `../node_modules/expo-app-metrics/ios`)
   - ExpoAsset (from `../node_modules/expo-asset/ios`)
@@ -3137,6 +3164,7 @@ DEPENDENCIES:
   - ExpoGlassEffect (from `../node_modules/expo-glass-effect/ios`)
   - ExpoHaptics (from `../node_modules/expo-haptics/ios`)
   - ExpoImage (from `../node_modules/expo-image/ios/ExpoImage.podspec`)
+  - ExpoImageManipulator (from `../node_modules/expo-image-manipulator/ios/ExpoImageManipulator.podspec`)
   - ExpoImagePicker (from `../node_modules/expo-image-picker/ios`)
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
   - ExpoLinearGradient (from `../node_modules/expo-linear-gradient/ios`)
@@ -3166,6 +3194,7 @@ DEPENDENCIES:
   - ExpoWidgets (from `../node_modules/expo-widgets/ios`)
   - EXUpdatesInterface (from `../node_modules/expo-updates-interface/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
+  - "HarnessUI (from `../node_modules/@react-native-harness/ui`)"
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
   - "LiquidGlass (from `../node_modules/@callstack/liquid-glass`)"
   - NitroImage (from `../node_modules/react-native-nitro-image`)
@@ -3309,6 +3338,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-dev-menu"
   expo-dev-menu-interface:
     :path: "../node_modules/expo-dev-menu-interface/ios"
+  ExpoAiKit:
+    :path: "../node_modules/expo-ai-kit/ios"
   ExpoAppleAuthentication:
     :path: "../node_modules/expo-apple-authentication/ios"
   ExpoAppMetrics:
@@ -3339,6 +3370,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-haptics/ios"
   ExpoImage:
     :podspec: "../node_modules/expo-image/ios/ExpoImage.podspec"
+  ExpoImageManipulator:
+    :podspec: "../node_modules/expo-image-manipulator/ios/ExpoImageManipulator.podspec"
   ExpoImagePicker:
     :path: "../node_modules/expo-image-picker/ios"
   ExpoKeepAwake:
@@ -3397,6 +3430,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-updates-interface/ios"
   FBLazyVector:
     :path: "../node_modules/react-native/Libraries/FBLazyVector"
+  HarnessUI:
+    :path: "../node_modules/@react-native-harness/ui"
   hermes-engine:
     :podspec: "../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec"
     :tag: hermes-v250829098.0.17
@@ -3614,6 +3649,7 @@ SPEC CHECKSUMS:
   expo-dev-launcher: c8fe1fb0f46dc02948c63ab23340179f670dc000
   expo-dev-menu: 272e23ced973a0e401c2b9a679595ea6c7c05d78
   expo-dev-menu-interface: 7a59e803916fbfd1b96c75ff91ea8dddac7e722f
+  ExpoAiKit: 74ae5928d4a980eb3f2e30664c40bd7fc09ca5ea
   ExpoAppleAuthentication: 97d113f0f2680067e6e76d3c9249e7e1fc026b42
   ExpoAppMetrics: 28aa8df7299fc978be3613bba20a3f65f667b96e
   ExpoAsset: bea9115098b9f4ddfb0456961c8a7d2779ccc8f5
@@ -3629,6 +3665,7 @@ SPEC CHECKSUMS:
   ExpoGlassEffect: 4b62afb489e6b84357701737ce002137c9d5fdbc
   ExpoHaptics: bc5461002fc97e53c213a1af6c88c8f95965b734
   ExpoImage: 83e66008c6440975f7f279b78bb80f1f9c0c24ca
+  ExpoImageManipulator: 142034b75e21453097d6aaad73701403f67f50c6
   ExpoImagePicker: 732dc2030e718296c393d60cb9f3acbbe53f8aa9
   ExpoKeepAwake: c26f14275017370cc8a4b7b43a0e23361f2053a5
   ExpoLinearGradient: 903b3f5fe566c666ff78b2599add51d094483613
@@ -3660,6 +3697,7 @@ SPEC CHECKSUMS:
   FBLazyVector: 2138c6c2ab66c31bf5754dc18097fbc498a49c7f
   Google-Mobile-Ads-SDK: 8429bef6ee1a4e322b0a5571b64217ed8317a3d5
   GoogleUserMessagingPlatform: befe603da6501006420c206222acd449bba45a9c
+  HarnessUI: bb94ae23e70e83983e4e914a8d7573969e33b930
   hermes-engine: 63c5db7d529c36335fada6582fd293ae2a105d77
   JWTDecode: 2eed97c2fa46ccaf3049a787004eedf0be474a87
   LiquidGlass: 4418f983225b9cfd8ae81b2196088d91ef7b973d

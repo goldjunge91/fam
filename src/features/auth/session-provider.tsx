@@ -5,6 +5,7 @@ import { hasSeenOnboarding } from '@/features/onboarding/onboarding-completion';
 import { getSupabase, startSupabaseAutoRefresh } from '@/lib/backend/supabase/client';
 import { queryClient, startAccountQueryPersistence } from '@/lib/data/query-client';
 import { setActiveUserId } from '@/lib/db/client';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import {
   activateEncryptedAccountStorage,
   getRememberedLocalAccountUserId,
@@ -191,6 +192,13 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         seenOnboarding,
         error: error ?? null,
       });
+      debugLogEvent('auth.session.account_ready', {
+        source: 'session_restore',
+        auth_event: 'none',
+        has_session: Boolean(data.session),
+        account_ready: true,
+        is_loading: false,
+      });
       addDiagnosticStep('auth.session.restored', {
         operation: 'auth.session.restore',
         outcome: error ? 'failed' : 'completed',
@@ -263,6 +271,13 @@ export function SessionProvider({ children }: { children: ReactNode }) {
             isLoading: false,
             error: null,
           }));
+          debugLogEvent('auth.session.account_ready', {
+            source: 'auth_event',
+            auth_event: event,
+            has_session: Boolean(session),
+            account_ready: true,
+            is_loading: false,
+          });
           addDiagnosticStep(`auth.session.${event.toLowerCase()}`, {
             operation: 'auth.session.state_change',
             outcome: 'completed',

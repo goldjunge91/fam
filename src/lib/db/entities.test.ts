@@ -12,6 +12,8 @@ describe('entities', () => {
     expect(ALL_ENTITIES).toEqual([
       'storage_locations',
       'stores',
+      'purchase_receipts',
+      'purchase_receipt_items',
       // transactions vor fridge_items: Empfangsbeweis fuer die
       // Reconciliation offener Mengenoperationen (fam-onu).
       'transactions',
@@ -41,6 +43,8 @@ describe('entities', () => {
     const expected: Record<Entity, boolean> = {
       storage_locations: true,
       stores: true,
+      purchase_receipts: true,
+      purchase_receipt_items: true,
       fridge_items: true,
       transactions: false,
       shopping_list_items: true,
@@ -69,6 +73,8 @@ describe('entities', () => {
     const expected: Record<Entity, boolean> = {
       storage_locations: true,
       stores: true,
+      purchase_receipts: true,
+      purchase_receipt_items: true,
       fridge_items: true,
       transactions: true,
       shopping_list_items: true,
@@ -151,5 +157,54 @@ describe('entities', () => {
     expect(ALL_ENTITIES).not.toContain('shopping_category_feedback_events');
     expect(ENTITIES.shopping_category_feedback_events.pushOnly).toBe(true);
     expect(ENTITIES.shopping_category_feedback_events.columns[0]).toBe('event_id');
+  });
+
+  it('registriert Receipts und Positionen mit Household-Scope, Tombstones und Schema-Spalten', () => {
+    const expected = {
+      purchase_receipts: [
+        'id',
+        'household_id',
+        'store_id',
+        'purchase_date',
+        'currency',
+        'total_cents',
+        'processing_status',
+        'created_by',
+        'confirmed_by',
+        'confirmed_at',
+        'created_at',
+      ],
+      purchase_receipt_items: [
+        'id',
+        'receipt_id',
+        'household_id',
+        'position',
+        'name',
+        'product_id',
+        'category_id',
+        'quantity',
+        'unit',
+        'package_size',
+        'package_size_unit',
+        'line_total_cents',
+        'review_status',
+        'created_at',
+      ],
+    } as const;
+
+    for (const [entity, columns] of Object.entries(expected)) {
+      const meta = Object.values(ENTITIES).find((candidate) => candidate.entity === entity);
+
+      expect(meta).toBeDefined();
+      expect(meta?.hasServerTombstone).toBe(true);
+      expect(meta?.householdScoped).toBe(true);
+      expect(meta?.columns).toEqual(columns);
+      expect(ALL_ENTITIES).toContain(entity);
+    }
+  });
+
+  it('hält receipt_assets aus allen generischen Entity-Registries heraus', () => {
+    expect(Object.keys(ENTITIES)).not.toContain('receipt_assets');
+    expect(ALL_ENTITIES.map(String)).not.toContain('receipt_assets');
   });
 });

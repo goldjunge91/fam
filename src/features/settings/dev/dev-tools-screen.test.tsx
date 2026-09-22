@@ -71,4 +71,13 @@ describe('DevToolsScreen', () => {
 
     expect(router.push).toHaveBeenCalledWith('/settings/dev-executorch-speech-to-text');
   });
+
+  it('öffnet den OCR-Pipeline-Inspector', async () => {
+    await renderScreen();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'OCR-Pipeline analysieren' }));
+
+    expect(router.push).toHaveBeenCalledWith('/settings/dev-ocr-inspector');
+  });
 });

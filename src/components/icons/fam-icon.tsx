@@ -48,6 +48,7 @@ const ICONS = {
   chevron: require('@/assets/images/figma/chevron.svg'),
   arrow: require('@/assets/images/figma/arrow.svg'),
   camera: require('@/assets/images/figma/camera-1.svg'),
+  receipt: require('@/assets/images/figma/receipt.svg'),
 } as const;
 
 export type FamIconName = keyof typeof ICONS;

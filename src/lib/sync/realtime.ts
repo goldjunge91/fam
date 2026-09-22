@@ -14,6 +14,8 @@ const REALTIME_TABLES: readonly Entity[] = [
   'fridge_items',
   'shopping_list_items',
   'shopping_category_preferences',
+  'purchase_receipts',
+  'purchase_receipt_items',
 ];
 
 export type RealtimeRowEvent = {

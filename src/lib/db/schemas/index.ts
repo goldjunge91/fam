@@ -9,6 +9,7 @@ import { households } from './households';
 import { fridgeItems, storageLocations, transactions } from './inventory';
 import { mealPlanEntries, mealPlans } from './meal-planner';
 import { products, productUsage } from './products';
+import { receiptItems, receipts } from './receipts';
 import {
   localRecipePreferences,
   recipeComponentItems,
@@ -32,6 +33,7 @@ export * from './households';
 export * from './inventory';
 export * from './meal-planner';
 export * from './products';
+export * from './receipts';
 export * from './recipes';
 export * from './shopping';
 export * from './system';
@@ -59,6 +61,8 @@ export const localDrizzleSchema = {
   recipeStepIngredients,
   recipeSteps,
   recipes,
+  receiptItems,
+  receipts,
   shoppingCategoryFeedbackEvents,
   shoppingCategoryPreferences,
   shoppingHistory,

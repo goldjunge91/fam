@@ -1645,6 +1645,223 @@ export type Database = {
         }
         Relationships: []
       }
+      purchase_receipt_items: {
+        Row: {
+          category_id: string | null
+          created_at: string
+          deleted_at: string | null
+          household_id: string
+          id: string
+          line_total_cents: number | null
+          name: string
+          package_size: number | null
+          package_size_unit: string | null
+          position: number
+          product_id: string | null
+          quantity: number | null
+          receipt_id: string
+          review_status: string
+          unit: string | null
+          updated_at: string
+        }
+        Insert: {
+          category_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          household_id: string
+          id?: string
+          line_total_cents?: number | null
+          name: string
+          package_size?: number | null
+          package_size_unit?: string | null
+          position: number
+          product_id?: string | null
+          quantity?: number | null
+          receipt_id: string
+          review_status?: string
+          unit?: string | null
+          updated_at?: string
+        }
+        Update: {
+          category_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          household_id?: string
+          id?: string
+          line_total_cents?: number | null
+          name?: string
+          package_size?: number | null
+          package_size_unit?: string | null
+          position?: number
+          product_id?: string | null
+          quantity?: number | null
+          receipt_id?: string
+          review_status?: string
+          unit?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "purchase_receipt_items_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "purchase_receipt_items_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "receipt_items_receipt_household_fkey"
+            columns: ["receipt_id", "household_id"]
+            isOneToOne: false
+            referencedRelation: "purchase_receipts"
+            referencedColumns: ["id", "household_id"]
+          },
+        ]
+      }
+      purchase_receipts: {
+        Row: {
+          confirmed_at: string | null
+          confirmed_by: string | null
+          created_at: string
+          created_by: string
+          currency: string
+          deleted_at: string | null
+          household_id: string
+          id: string
+          processing_status: string
+          purchase_date: string | null
+          store_id: string | null
+          total_cents: number | null
+          updated_at: string
+        }
+        Insert: {
+          confirmed_at?: string | null
+          confirmed_by?: string | null
+          created_at?: string
+          created_by: string
+          currency?: string
+          deleted_at?: string | null
+          household_id: string
+          id?: string
+          processing_status?: string
+          purchase_date?: string | null
+          store_id?: string | null
+          total_cents?: number | null
+          updated_at?: string
+        }
+        Update: {
+          confirmed_at?: string | null
+          confirmed_by?: string | null
+          created_at?: string
+          created_by?: string
+          currency?: string
+          deleted_at?: string | null
+          household_id?: string
+          id?: string
+          processing_status?: string
+          purchase_date?: string | null
+          store_id?: string | null
+          total_cents?: number | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "purchase_receipts_confirmed_by_fkey"
+            columns: ["confirmed_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "purchase_receipts_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "purchase_receipts_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "purchase_receipts_store_id_fkey"
+            columns: ["store_id"]
+            isOneToOne: false
+            referencedRelation: "stores"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      receipt_assets: {
+        Row: {
+          byte_size: number
+          created_at: string
+          created_by: string
+          deleted_at: string | null
+          household_id: string
+          id: string
+          mime_type: string
+          receipt_id: string
+          sort_order: number
+          storage_path: string
+        }
+        Insert: {
+          byte_size: number
+          created_at?: string
+          created_by: string
+          deleted_at?: string | null
+          household_id: string
+          id?: string
+          mime_type: string
+          receipt_id: string
+          sort_order?: number
+          storage_path: string
+        }
+        Update: {
+          byte_size?: number
+          created_at?: string
+          created_by?: string
+          deleted_at?: string | null
+          household_id?: string
+          id?: string
+          mime_type?: string
+          receipt_id?: string
+          sort_order?: number
+          storage_path?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "receipt_assets_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "receipt_assets_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "receipt_assets_receipt_household_fkey"
+            columns: ["receipt_id", "household_id"]
+            isOneToOne: false
+            referencedRelation: "purchase_receipts"
+            referencedColumns: ["id", "household_id"]
+          },
+        ]
+      }
       recipe_component_items: {
         Row: {
           component_id: string
@@ -3443,3 +3660,4 @@ export const Constants = {
     Enums: {},
   },
 } as const
+

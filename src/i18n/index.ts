@@ -9,6 +9,8 @@ import commonDe from './features/common.de.json';
 import commonEn from './features/common.en.json';
 import dashboardDe from './features/dashboard.de.json';
 import dashboardEn from './features/dashboard.en.json';
+import ocrDe from './features/ocr.de.json';
+import ocrEn from './features/ocr.en.json';
 import settingsDe from './features/settings.de.json';
 import settingsEn from './features/settings.en.json';
 import shoppingListDe from './features/shopping-list.de.json';
@@ -26,6 +28,7 @@ const resources = {
       auth: authDe,
       common: commonDe,
       dashboard: dashboardDe,
+      ocr: ocrDe,
       settings: settingsDe,
       shoppingList: shoppingListDe,
     },
@@ -35,6 +38,7 @@ const resources = {
       auth: authEn,
       common: commonEn,
       dashboard: dashboardEn,
+      ocr: ocrEn,
       settings: settingsEn,
       shoppingList: shoppingListEn,
     },

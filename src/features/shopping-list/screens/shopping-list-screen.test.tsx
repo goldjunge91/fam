@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { act, fireEvent, render, screen } from '@testing-library/react-native';
+import { act, fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { colorsLight } from '@/components/theme';
 import { i18n } from '@/i18n';
@@ -9,6 +9,7 @@ import { ShoppingListScreen } from './shopping-list-screen';
 let mockParams: { action?: string } = {};
 let mockShoppingListEmpty = false;
 let mockShoppingListChecked = false;
+const mockSession = { user: { id: 'user-1' } };
 
 jest.mock('expo-router', () => ({
   useLocalSearchParams: () => mockParams,
@@ -28,7 +29,11 @@ jest.mock('expo-speech-recognition', () => ({
 }));
 
 jest.mock('@/features/auth/session-provider', () => ({
-  useSession: () => ({ session: { user: { id: 'user-1' } } }),
+  useSession: () => ({
+    session: mockSession,
+    accountReady: true,
+    isLoading: false,
+  }),
 }));
 
 jest.mock('@/features/household/active-household-provider', () => ({
@@ -183,6 +188,37 @@ jest.mock('@/features/inventory/barcode-scanner-modal', () => {
           onPress={() => onBarcodeDetected('4001234567890')}>
           <Text>Barcode scanner geöffnet</Text>
         </Pressable>
+      ) : null,
+  };
+});
+
+jest.mock('@/features/ocr/processing/review/receipt-capture-review-flow', () => {
+  const { Pressable, Text, View } = require('react-native');
+
+  return {
+    ReceiptCaptureReviewFlow: ({
+      visible,
+      householdId,
+      createdBy,
+      onDismiss,
+    }: {
+      visible: boolean;
+      householdId: string;
+      createdBy: string;
+      onDismiss: () => void;
+    }) =>
+      visible ? (
+        <View>
+          <Text>
+            Mock receipt flow {householdId}/{createdBy}
+          </Text>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Mock receipt saved"
+            onPress={onDismiss}>
+            <Text>Mock receipt saved</Text>
+          </Pressable>
+        </View>
       ) : null,
   };
 });
@@ -369,6 +405,21 @@ describe('ShoppingListScreen', () => {
     await fireEvent.press(addButton);
 
     expect((await screen.findAllByText('Artikel hinzufügen')).length).toBeGreaterThan(0);
+  });
+
+  it('öffnet den Kassenbon-Flow mit Haushalt- und Nutzerkontext und kann ihn schließen', async () => {
+    await renderScreen();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    await user.press(
+      screen.getByRole('button', { name: 'Kassenbon fotografieren oder hochladen' }),
+    );
+
+    expect(await screen.findByText('Mock receipt flow hh-1/user-1')).toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Mock receipt saved' }));
+
+    expect(screen.queryByText('Mock receipt flow hh-1/user-1')).not.toBeOnTheScreen();
   });
 
   it('verschiebt mehrere ausgewählte Artikel in eine andere Liste', async () => {

@@ -233,6 +233,13 @@ export function SettingsScreen() {
               disabled={!hasHousehold}
             />
             <SettingsRow
+              icon="🧾"
+              label={t('settings.groups.household.receiptHistory.label')}
+              hint={t('settings.groups.household.receiptHistory.hint')}
+              onPress={hasHousehold ? () => router.push('/household/receipt-history') : undefined}
+              disabled={!hasHousehold}
+            />
+            <SettingsRow
               icon="🔎"
               label={t('settings.groups.household.productSearch.label')}
               hint={t('settings.groups.household.productSearch.hint')}

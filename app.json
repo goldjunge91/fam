@@ -79,7 +79,13 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "Die App $(PRODUCT_NAME) benötigt Zugriff auf deine Fotos, um ein Titelbild für ein Rezept auszuwählen."
+          "photosPermission": "Die App $(PRODUCT_NAME) benötigt Zugriff auf deine Fotos, um Rezept- und Kassenbonbilder auszuwählen."
+        }
+      ],
+      [
+        "expo-ai-kit",
+        {
+          "vision": true
         }
       ],
       [

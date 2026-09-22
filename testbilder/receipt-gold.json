@@ -1,0 +1,215 @@
+{
+  "manifest_version": 1,
+  "amount_unit": "euro_cents",
+  "sources": [
+    {
+      "file": "IMG_4218.HEIC",
+      "merchant": "EDEKA",
+      "purchase_date": null,
+      "total_currency": "EUR",
+      "total_cents": 3914,
+      "article_anchors": [
+        {
+          "label": "G&G Kaisergemüse",
+          "line_total_cents": 239,
+          "tax_code": "A"
+        },
+        {
+          "label": "Laugenecke",
+          "quantity": 2,
+          "unit_price_cents": 99,
+          "line_total_cents": 198,
+          "tax_code": "A"
+        },
+        {
+          "label": "G&G Erdnuss.C",
+          "quantity": 2,
+          "unit_price_cents": 189,
+          "line_total_cents": 378,
+          "tax_code": "A"
+        },
+        {
+          "label": "Tawa Red",
+          "quantity": 2,
+          "unit_price_cents": 780,
+          "line_total_cents": 1560,
+          "tax_code": "B"
+        }
+      ],
+      "excluded_lines": [
+        {
+          "kind": "coupon",
+          "visible": false,
+          "action": "exclude_from_items"
+        },
+        {
+          "kind": "deposit",
+          "visible": false,
+          "action": "exclude_from_items"
+        },
+        {
+          "kind": "tax",
+          "visible": true,
+          "labels": ["MwSt"],
+          "action": "exclude_from_items"
+        },
+        {
+          "kind": "payment",
+          "visible": true,
+          "labels": ["EC-Cash"],
+          "action": "exclude_from_items"
+        },
+        {
+          "kind": "barcode",
+          "visible": false,
+          "action": "exclude_from_items"
+        }
+      ]
+    },
+    {
+      "file": "IMG_4219.HEIC",
+      "merchant": "EDEKA",
+      "purchase_date": null,
+      "total_currency": "EUR",
+      "total_cents": 4337,
+      "article_anchors": [
+        {
+          "label": "B.Heilbr.Huste.Tee",
+          "line_total_cents": 299,
+          "tax_code": "A"
+        },
+        {
+          "label": "Bio E.Landbr.",
+          "quantity": 2,
+          "unit_price_cents": 139,
+          "line_total_cents": 278,
+          "tax_code": "A"
+        },
+        {
+          "label": "Iglo Schlemm.Filet",
+          "line_total_cents": 279,
+          "tax_code": "AW"
+        },
+        {
+          "label": "G&G Erdnuss.C",
+          "quantity": 2,
+          "unit_price_cents": 189,
+          "line_total_cents": 378,
+          "tax_code": "A"
+        },
+        {
+          "label": "Effect Cocoon.0,331",
+          "line_total_cents": 79,
+          "tax_code": "BW"
+        },
+        {
+          "label": "G&G Pfannengemüse",
+          "line_total_cents": 209,
+          "tax_code": "A"
+        },
+        {
+          "label": "G&G Toil.papier",
+          "line_total_cents": 499,
+          "tax_code": "B"
+        }
+      ],
+      "excluded_lines": [
+        {
+          "kind": "coupon",
+          "visible": true,
+          "labels": ["Coupon Gratisartikel", "Coupon"],
+          "action": "exclude_from_items"
+        },
+        {
+          "kind": "deposit",
+          "visible": true,
+          "labels": ["Pfand"],
+          "action": "exclude_from_items"
+        },
+        {
+          "kind": "tax",
+          "visible": true,
+          "labels": ["MwSt"],
+          "action": "exclude_from_items"
+        },
+        {
+          "kind": "payment",
+          "visible": true,
+          "labels": ["EC-Cash"],
+          "action": "exclude_from_items"
+        },
+        {
+          "kind": "barcode",
+          "visible": false,
+          "action": "exclude_from_items"
+        }
+      ]
+    },
+    {
+      "file": "IMG_4220.HEIC",
+      "merchant": "ROSSMANN",
+      "purchase_date": "2026-09-10",
+      "total_currency": "EUR",
+      "total_cents": 1895,
+      "article_anchors": [
+        {
+          "label": "EINKAUFSTASCHE",
+          "line_total_cents": 199,
+          "tax_code": "A"
+        },
+        {
+          "label": "MORE CHUNKY FLAVOU",
+          "quantity": 2,
+          "line_total_cents": 1998,
+          "tax_code": "B"
+        },
+        {
+          "label": "ISANA MILDE SEIFE",
+          "line_total_cents": 65,
+          "tax_code": "A"
+        },
+        {
+          "label": "PROKUDENT PLAQUE I",
+          "line_total_cents": 179,
+          "tax_code": "A"
+        },
+        {
+          "label": "ISANA SEIFE PEACH",
+          "line_total_cents": 65,
+          "tax_code": "A"
+        }
+      ],
+      "excluded_lines": [
+        {
+          "kind": "coupon",
+          "visible": true,
+          "labels": ["Coupon", "COUPONAKTION"],
+          "action": "exclude_from_items"
+        },
+        {
+          "kind": "deposit",
+          "visible": false,
+          "action": "exclude_from_items"
+        },
+        {
+          "kind": "tax",
+          "visible": true,
+          "labels": ["MWST Gruppe"],
+          "action": "exclude_from_items"
+        },
+        {
+          "kind": "payment",
+          "visible": true,
+          "labels": ["Girocard"],
+          "action": "exclude_from_items"
+        },
+        {
+          "kind": "barcode",
+          "visible": true,
+          "labels": ["article barcode prefixes", "footer barcode"],
+          "action": "exclude_from_items"
+        }
+      ]
+    }
+  ]
+}

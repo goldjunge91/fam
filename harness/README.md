@@ -45,6 +45,22 @@ bun run harness:dev -- --harnessRunner ios --listTests --watchman=false
 
 Für die tatsächliche Ausführung muss `--listTests` entfallen.
 
+## Echter OCR-Mapping-Nachweis
+
+`receipt-ocr-mapping.harness.ts` verarbeitet die drei lokalen HEIC-Bons mit der
+echten nativen OCR-Engine, rekonstruiert die Zeilen und vergleicht den
+geparsten Review-Entwurf mit `testbilder/receipt-ocr-expected.json`. Für die
+Fehlersuche kann der Lauf zusätzlich ein redigiertes JSON mit nativen Zeilen,
+Bounding-Boxes, rekonstruierten Zeilen und Zuordnung ausgeben:
+
+```bash
+bun run harness:ios -- --watchman=false --testPathPatterns=receipt-ocr-mapping
+bun run harness:android -- --watchman=false --testPathPatterns=receipt-ocr-mapping
+```
+
+Die Ausgabe enthält keine Barcodes, Karten- oder Kundenreferenzen. Sie ist ein
+lokaler Testreport und kein Produktions- oder Telemetrielog.
+
 ## Einen Test hinzufügen
 
 Harness-Dateien liegen unter `harness/` und enden auf `.harness.ts` oder
@@ -100,4 +116,3 @@ Die Jest-Meldung `Jest did not exit one second after the test run has
 completed` kann nach einem erfolgreichen Lauf erscheinen, weil native
 Runtime-Handles noch auslaufen. Entscheidend sind der Exit-Code und die
 Testergebnisse.
-

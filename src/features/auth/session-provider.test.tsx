@@ -66,6 +66,10 @@ jest.mock('@/lib/telemetry', () => ({
   setTelemetryUserId: jest.fn(),
 }));
 
+jest.mock('@/lib/observability/debug-log', () => ({
+  debugLogEvent: jest.fn(),
+}));
+
 describe('SessionProvider', () => {
   function wrapper({ children }: { children: React.ReactNode }) {
     return <SessionProvider>{children}</SessionProvider>;
@@ -109,6 +113,32 @@ describe('SessionProvider', () => {
     );
     expect(mockActivateEncryptedAccountStorage).toHaveBeenCalledWith('user-1');
     expect(mockRememberLocalAccountUserId).toHaveBeenCalledWith('user-1');
+  });
+
+  it('hält Auth- und Account-Zustand getrennt, bis der Session-Bootstrap abgeschlossen ist', async () => {
+    let resolveSession: ((value: unknown) => void) | undefined;
+    mockGetSession.mockReturnValue(
+      new Promise((resolve) => {
+        resolveSession = resolve;
+      }),
+    );
+
+    const { result } = await renderHook(() => useSession(), { wrapper });
+
+    expect(result.current.session).toBeNull();
+    expect(result.current.isLoading).toBe(true);
+    expect(result.current.accountReady).toBe(false);
+
+    await act(async () => {
+      resolveSession?.({
+        data: { session: { user: { id: 'user-1' } } },
+        error: null,
+      });
+    });
+
+    await waitFor(() => expect(result.current.isLoading).toBe(false));
+    expect(result.current.session?.user.id).toBe('user-1');
+    expect(result.current.accountReady).toBe(true);
   });
 
   it('behält eine wiederhergestellte Session bei einem lokalen Bootstrap-Fehler', async () => {

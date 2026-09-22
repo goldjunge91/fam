@@ -27,7 +27,7 @@ const config = {
     }),
     applePlatform({
       name: 'ios',
-      device: appleSimulator('Iphone 17 Pro Max master', '26.5'),
+      device: appleSimulator('iPhone 11 Pro Max', '26.2'),
       bundleId: 'com.goldjunge91.fam1',
     }),
     webPlatform({
