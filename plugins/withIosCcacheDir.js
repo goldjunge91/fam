@@ -132,7 +132,7 @@ module.exports = function withIosCcacheDir(config) {
 
   // Pods-Project: react_native_post_install() setzt dort CC/CXX auf denselben
   // env-var-abhängigen Wrapper (ccache_enabled?() muss dafür true sein, siehe
-  // USE_CCACHE in scripts/native-build.ts). Direkt danach umbiegen.
+  // USE_CCACHE in scripts/native-build/native-build.ts). Direkt danach umbiegen.
   config = withPodfile(config, (config) => {
     if (config.modResults.contents.includes('withIosCcacheDir')) return config; // idempotent
     const callRegex = /(react_native_post_install\(\s*installer,[\s\S]*?\n\s*\))/u;

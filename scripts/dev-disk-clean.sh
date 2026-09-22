@@ -94,7 +94,7 @@ echo "-- ccache --"
 # 0 Hits"): der von react-native mitgelieferte Ccache-Wrapper ersetzt die
 # primaere Nutzer-Config (CCACHE_CONFIGPATH) und faellt ohne eigenen
 # 'cache_dir' auf den internen Default ~/.cache/ccache zurueck. Wenn das
-# hier auftaucht, ist entweder scripts/native-build.ts's CCACHE_DIR-Fix nicht
+# hier auftaucht, ist entweder scripts/native-build/native-build.ts's CCACHE_DIR-Fix nicht
 # gegriffen, oder ein anderes Tool/Projekt schreibt ccache ohne eigene
 # Config auf die Boot-Disk.
 if command -v ccache >/dev/null 2>&1; then

@@ -1,1 +1,0 @@
-../.codex/skills/ios-build-workflow/scripts/native-testflight-fastpath.sh

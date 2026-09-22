@@ -1,6 +1,6 @@
 # Native Build Lock GUI
 
-Die GUI ist ein Frontend für `scripts/native-build.ts`. Sie ruft keine direkten
+Die GUI ist ein Frontend für `scripts/native-build/native-build.ts`. Sie ruft keine direkten
 `eas build`, `expo prebuild`, CocoaPods- oder Xcode-Befehle für den normalen Start auf.
 
 ## Aktionen
@@ -48,7 +48,7 @@ Nur Logs, die während des aktuellen Laufs aktualisiert wurden, werden verknüpf
 Zusätzlich schreibt die GUI pro Lauf eine JSONL-Zeile nach
 `.build-metrics/gui-runs.jsonl` mit Target, Aktion, Fingerprint, Laufzeit,
 Exit-Code, Logpfad sowie den gefundenen Xcode-Rohlogs und Fehlerauszügen. Die
-vorhandene `scripts/build-timer.ts`-Metrik bleibt davon getrennt und misst
+vorhandene `scripts/native-build/build-timer.ts`-Metrik bleibt davon getrennt und misst
 weiterhin explizit gestartete Build-Kommandos.
 
 Start aus dem Projektroot:

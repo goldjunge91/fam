@@ -59,7 +59,7 @@ class Target:
     profile: str
     env_file: str | None = None
     submit: bool = False
-    # Deckt sich mit DEV_TARGETS in scripts/native-build.ts — dort läuft der
+    # Deckt sich mit DEV_TARGETS in scripts/native-build/native-build.ts — dort läuft der
     # Inner-Loop-Pfad (expo run:*, ccache, kein prebuild --clean bei jedem
     # Lauf), im Gegensatz zu RUN_ACTION, das nur ein bereits gelocktes
     # Artefakt installiert.
@@ -674,7 +674,7 @@ class BuildGui(tk.Tk):
         if not target.dev_loop:
             raise ValueError(
                 "Der Dev-Loop-Pfad ist nur für Development-Targets gedacht "
-                "(siehe DEV_TARGETS in scripts/native-build.ts)."
+                "(siehe DEV_TARGETS in scripts/native-build/native-build.ts)."
             )
         env = self._base_environment()
         command = ["bun", "run", "native:dev", "--", "--target", target.name]

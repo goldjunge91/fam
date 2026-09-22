@@ -16,6 +16,7 @@ import { basename, dirname, extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Fingerprint, FingerprintSource } from '@expo/fingerprint';
 import { createFingerprintAsync, diffFingerprints } from 'expo/fingerprint';
+import { type BuildClass, type BuildTimer, createBuildTimer } from './build-timer';
 import { createEasLocalBuildEnvironment } from './native-build-eas-env';
 import {
   isNativePlatformSupportedOnHost,
@@ -33,6 +34,40 @@ type Target = {
   kind: ArtifactKind;
   configuration?: 'Debug' | 'Release';
 };
+
+export type NativeBuildPreparationInput = {
+  platform: NativePlatform;
+  nativeProjectExists: boolean;
+  baselineFingerprint: string | undefined;
+  currentFingerprint: string | undefined;
+  podsAreSynchronized: boolean;
+};
+
+export type NativeBuildPreparation = {
+  needsPrebuild: boolean;
+  needsPodInstall: boolean;
+};
+
+export function determineNativeBuildPreparation({
+  platform,
+  nativeProjectExists,
+  baselineFingerprint,
+  currentFingerprint,
+  podsAreSynchronized,
+}: NativeBuildPreparationInput): NativeBuildPreparation {
+  const needsPrebuild =
+    !nativeProjectExists ||
+    !baselineFingerprint ||
+    !currentFingerprint ||
+    baselineFingerprint !== currentFingerprint;
+
+  return {
+    needsPrebuild,
+    // A native config update does not automatically mean that CocoaPods
+    // changed. The Podfile/lock pair is checked again after prebuild below.
+    needsPodInstall: platform === 'ios' && !podsAreSynchronized,
+  };
+}
 
 type NativeFingerprint = {
   hash: string;
@@ -54,7 +89,10 @@ type NativeBuildLock = {
   artifacts: Partial<Record<TargetName, ArtifactLock>>;
 };
 
-const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const SCRIPT_DIRECTORY = import.meta.url
+  ? dirname(fileURLToPath(import.meta.url))
+  : join(process.cwd(), 'scripts/native-build');
+const PROJECT_ROOT = resolve(SCRIPT_DIRECTORY, '../..');
 const LOCK_PATH = join(PROJECT_ROOT, 'native-build-lock.json');
 // Der ios-build-workflow-runner (.codex/hooks) exportiert diese Variable und
 // verbietet lokale lastFallbacks: alle Build-Artefakte MÜSSEN unter
@@ -62,7 +100,7 @@ const LOCK_PATH = join(PROJECT_ROOT, 'native-build-lock.json');
 // projekt-lokal (PROJECT_ROOT/native-artifacts), während runner.sh und
 // native-testflight-fastpath.sh stur unter $STORAGE_ROOT/native-artifacts
 // nachsahen — das Artefakt war für sie *nie* auffindbar, jeder
-// '!ios-build testflight'-Lauf endete nach dem vollen Rebuild mit
+// '!ios-build-testflight'-Lauf endete nach dem vollen Rebuild mit
 // 'New artifact is missing or empty'.
 const ARTIFACT_ROOT =
   process.env.IOS_BUILD_WORKFLOW_ARTIFACT_ROOT ?? join(PROJECT_ROOT, 'native-artifacts');
@@ -116,10 +154,12 @@ const TARGETS = {
 
 const command = process.argv[2];
 const args = process.argv.slice(3);
+let activeBuildTimer: BuildTimer | undefined;
+
+class NativeBuildError extends Error {}
 
 function fail(message: string): never {
-  console.error(`\nNative Build Lock: ${message}`);
-  process.exit(1);
+  throw new NativeBuildError(message);
 }
 
 function log(message: string): void {
@@ -133,6 +173,33 @@ function parseFlag(name: string): boolean {
 function parseValue(name: string): string | undefined {
   const index = args.indexOf(name);
   return index === -1 ? undefined : args[index + 1];
+}
+
+async function timedPhase<T>(name: string, work: () => T | Promise<T>): Promise<T> {
+  if (!activeBuildTimer) return work();
+  return activeBuildTimer.phase(name, work);
+}
+
+function buildTimerForCommand(): BuildTimer | undefined {
+  if (!['dev', 'rebuild', 'restore', 'run'].includes(command ?? '')) return undefined;
+
+  let buildClass: BuildClass;
+  switch (command) {
+    case 'dev':
+      buildClass = parseFlag('--no-build-cache') ? 'C' : "B'";
+      break;
+    case 'restore':
+    case 'run':
+      buildClass = 'B';
+      break;
+    default:
+      buildClass = parseFlag('--approve-rebuild') ? 'C' : "B'";
+  }
+
+  return createBuildTimer({
+    buildClass,
+    target: parseValue('--target') ?? command ?? 'unknown',
+  });
 }
 
 function getTarget(): [TargetName, Target] {
@@ -309,6 +376,58 @@ function assertNativeDirectories(platforms: readonly Platform[] = nativePlatform
 
 function availableNativePlatforms(): readonly Platform[] {
   return nativePlatformsForHost().filter((platform) => existsSync(join(PROJECT_ROOT, platform)));
+}
+
+function iosPodsAreSynchronized(): boolean {
+  const podsDirectory = join(PROJECT_ROOT, 'ios', 'Pods');
+  const podfileLock = join(PROJECT_ROOT, 'ios', 'Podfile.lock');
+  const manifestLock = join(podsDirectory, 'Manifest.lock');
+  if (!existsSync(podsDirectory) || !existsSync(podfileLock) || !existsSync(manifestLock)) {
+    return false;
+  }
+  return readFileSync(podfileLock, 'utf8') === readFileSync(manifestLock, 'utf8');
+}
+
+function iosPodInputs(): string {
+  const hash = createHash('sha256');
+  for (const path of ['ios/Podfile', 'ios/Podfile.properties.json', 'bun.lock']) {
+    hash.update(path);
+    const fullPath = join(PROJECT_ROOT, path);
+    if (existsSync(fullPath)) hash.update(readFileSync(fullPath));
+    else hash.update('missing');
+  }
+
+  const packageJson = JSON.parse(readFileSync(join(PROJECT_ROOT, 'package.json'), 'utf8')) as {
+    dependencies?: Record<string, string>;
+    devDependencies?: Record<string, string>;
+  };
+  hash.update(
+    JSON.stringify({
+      dependencies: packageJson.dependencies ?? {},
+      devDependencies: packageJson.devDependencies ?? {},
+    }),
+  );
+  return hash.digest('hex');
+}
+
+async function inspectNativeBuildPreparation(
+  target: Target,
+  lock: NativeBuildLock | undefined,
+): Promise<NativeBuildPreparation> {
+  const nativeProjectExists = existsSync(join(PROJECT_ROOT, target.platform));
+  const baselineFingerprint = lock?.nativeFingerprints[target.platform]?.hash;
+  const currentFingerprint =
+    nativeProjectExists && baselineFingerprint
+      ? (await fingerprint(target.platform)).hash
+      : undefined;
+
+  return determineNativeBuildPreparation({
+    platform: target.platform,
+    nativeProjectExists,
+    baselineFingerprint,
+    currentFingerprint,
+    podsAreSynchronized: target.platform === 'ios' ? iosPodsAreSynchronized() : true,
+  });
 }
 
 async function assertNativeBaseline(
@@ -568,32 +687,60 @@ function loadReleaseEnv(profile: string): Record<string, string> {
 }
 
 async function rebuild(): Promise<void> {
-  if (!parseFlag('--approve-rebuild')) {
-    fail(`Rebuild blockiert. Nur '--approve-rebuild' erlaubt Prebuild und Kompilierung.`);
-  }
   const [targetName, target] = getTarget();
+  const existingLock = existsSync(LOCK_PATH) ? readLock() : undefined;
+  const preparation = await inspectNativeBuildPreparation(target, existingLock);
+  const approvedNativeRebuild = parseFlag('--approve-rebuild');
+
+  if (preparation.needsPrebuild && !approvedNativeRebuild) {
+    fail(
+      `Native Eingaben haben sich geändert oder ${target.platform}/ fehlt. ` +
+        `Für das einmalige Prebuild '--approve-rebuild' angeben; unveränderte Builds brauchen diese Freigabe nicht.`,
+    );
+  }
 
   const releaseEnv = target.configuration === 'Release' ? loadReleaseEnv(target.profile) : {};
 
-  log(`Regeneriere ${target.platform}/ kontrolliert für ${targetName}...`);
+  log(`Baue ${targetName} mit vorhandener Native-Konfiguration...`);
   const buildEnvironment = {
     ...releaseEnv,
     ...(target.platform === 'ios' ? iosBuildEnv(target.configuration === 'Debug') : {}),
   };
-  // Kein EXPO_USE_PRECOMPILED_MODULES mehr setzen: der generierte Podfile
-  // setzt es bereits selbst (ENV['EXPO_USE_PRECOMPILED_MODULES'] ||= '1'),
-  // und seit SDK 56 ist Precompiled ohnehin default (B7, Plan Phase 3).
-  run(
-    'bunx',
-    ['expo', 'prebuild', '--clean', '--platform', target.platform, '--no-install'],
-    buildEnvironment,
-  );
+
+  const podInputsBefore = target.platform === 'ios' ? iosPodInputs() : undefined;
+  if (preparation.needsPrebuild || approvedNativeRebuild) {
+    log(
+      preparation.needsPrebuild
+        ? `Native-Konfiguration geändert — aktualisiere ${target.platform}/ einmalig...`
+        : `Explizites Native-Prebuild für ${target.platform}/...`,
+    );
+    // Kein --clean: Das versionierte native Projekt und DerivedData bleiben
+    // als Arbeitsgrundlage erhalten. Ein Clean-Prebuild würde bei jedem
+    // freigegebenen Drift unnötig den lokalen Inner Loop zerlegen.
+    await timedPhase('prebuild', () =>
+      run(
+        'bunx',
+        ['expo', 'prebuild', '--platform', target.platform, '--no-install'],
+        buildEnvironment,
+      ),
+    );
+  } else {
+    log(`Native-Konfiguration unverändert — prebuild übersprungen.`);
+  }
 
   if (target.platform === 'ios') {
-    // Keep the resolved CocoaPods graph versioned. EAS installs again in its
-    // isolated local build directory, but the project baseline must include
-    // the same Podfile.lock before its fingerprint is recorded.
-    run('pod', ['install'], buildEnvironment, join(PROJECT_ROOT, 'ios'));
+    const podInputsChanged = podInputsBefore !== iosPodInputs();
+    const needsPodInstall = !iosPodsAreSynchronized() || podInputsChanged;
+    if (needsPodInstall) {
+      // EAS installiert in seinem isolierten Arbeitsordner erneut. Der lokale
+      // Lock bleibt trotzdem synchron, damit der nächste Lauf denselben
+      // CocoaPods-Graph wiederverwenden kann.
+      await timedPhase('podInstall', () =>
+        run('pod', ['install'], buildEnvironment, join(PROJECT_ROOT, 'ios')),
+      );
+    } else {
+      log('Pods unverändert — pod install übersprungen.');
+    }
   }
 
   const localBuildEnvironment =
@@ -609,31 +756,35 @@ async function rebuild(): Promise<void> {
   );
   prepareArtifactOutput(buildOutput);
 
-  run(
-    'bunx',
-    [
-      'eas-cli',
-      'build',
-      '--local',
-      '--platform',
-      target.platform,
-      '--profile',
-      target.profile,
-      '--non-interactive',
-      '--output',
-      buildOutput,
-    ],
-    localBuildEnvironment,
+  await timedPhase('compile', () =>
+    run(
+      'bunx',
+      [
+        'eas-cli',
+        'build',
+        '--local',
+        '--platform',
+        target.platform,
+        '--profile',
+        target.profile,
+        '--non-interactive',
+        '--output',
+        buildOutput,
+      ],
+      localBuildEnvironment,
+    ),
   );
 
   const finalPath = artifactPath(targetName, target.kind);
-  if (target.kind === 'app') {
-    extractSimulatorArchive(buildOutput, finalPath);
-  } else {
-    rmSync(finalPath, { force: true, recursive: true });
-    run('cp', [buildOutput, finalPath]);
-    rmSync(buildOutput, { force: true });
-  }
+  await timedPhase('artifact', () => {
+    if (target.kind === 'app') {
+      extractSimulatorArchive(buildOutput, finalPath);
+    } else {
+      rmSync(finalPath, { force: true, recursive: true });
+      run('cp', [buildOutput, finalPath]);
+      rmSync(buildOutput, { force: true });
+    }
+  });
 
   const fingerprints = await Promise.all(
     nativePlatformsForHost().map(
@@ -686,16 +837,18 @@ async function offerSubmit(target: Target, artifactPath: string): Promise<void> 
   }
 
   log('Starte eas submit...');
-  run('bunx', [
-    'eas-cli',
-    'submit',
-    '--platform',
-    'ios',
-    '--profile',
-    target.profile,
-    '--path',
-    artifactPath,
-  ]);
+  await timedPhase('submit', () =>
+    run('bunx', [
+      'eas-cli',
+      'submit',
+      '--platform',
+      'ios',
+      '--profile',
+      target.profile,
+      '--path',
+      artifactPath,
+    ]),
+  );
 }
 
 async function restore(): Promise<void> {
@@ -721,7 +874,7 @@ async function restore(): Promise<void> {
   const archiveUrl = build.artifacts?.applicationArchiveUrl;
   if (!archiveUrl) fail(`EAS-Build ${easBuildId} enthält keine Application-URL.`);
 
-  const response = await fetch(archiveUrl);
+  const response = await timedPhase('download', () => fetch(archiveUrl));
   if (!response.ok) fail(`Artefakt-Download fehlgeschlagen: HTTP ${response.status}.`);
   const downloadPath = join(
     ARTIFACT_ROOT,
@@ -738,12 +891,14 @@ async function restore(): Promise<void> {
     target.kind === 'app' ? 'restore.tmp.app' : `restore.tmp.${target.kind}`,
   );
   prepareArtifactOutput(temporaryPath);
-  if (target.kind === 'app') {
-    extractSimulatorArchive(downloadPath, temporaryPath);
-  } else {
-    run('cp', [downloadPath, temporaryPath]);
-    rmSync(downloadPath, { force: true });
-  }
+  await timedPhase('artifact', () => {
+    if (target.kind === 'app') {
+      extractSimulatorArchive(downloadPath, temporaryPath);
+    } else {
+      run('cp', [downloadPath, temporaryPath]);
+      rmSync(downloadPath, { force: true });
+    }
+  });
 
   const expectedFingerprint = artifactLock?.fingerprint ?? currentFingerprint.hash;
   if (expectedFingerprint !== currentFingerprint.hash) {
@@ -755,9 +910,11 @@ async function restore(): Promise<void> {
     rmSync(temporaryPath, { force: true, recursive: true });
     fail(`SHA-256-Prüfung für das wiederhergestellte Artefakt ${targetName} fehlgeschlagen.`);
   }
-  rmSync(finalPath, { force: true, recursive: true });
-  run('cp', ['-R', temporaryPath, finalPath]);
-  rmSync(temporaryPath, { force: true, recursive: true });
+  await timedPhase('install', () => {
+    rmSync(finalPath, { force: true, recursive: true });
+    run('cp', ['-R', temporaryPath, finalPath]);
+    rmSync(temporaryPath, { force: true, recursive: true });
+  });
   lock.artifacts[targetName] = {
     fingerprint: expectedFingerprint,
     configuration: target.configuration,
@@ -832,7 +989,7 @@ async function runDev(): Promise<void> {
   }
 
   const environment = buildDevEnv(target.platform);
-  run('bunx', commandArgs, environment);
+  await timedPhase('compile', () => run('bunx', commandArgs, environment));
 }
 
 // Env-Overrides nur für den Inner Loop (native:dev), niemals für rebuild()/
@@ -842,8 +999,8 @@ function buildDevEnv(platform: Platform): Record<string, string> | undefined {
   if (platform === 'ios') return iosBuildEnv(true);
   // B6: lokal wird immer genau eine ABI gebraucht. ORG_GRADLE_PROJECT_* wird
   // von Gradle automatisch als Projekt-Property gelesen — kein Eingriff in
-  // android/gradle.properties nötig, das bei jedem 'prebuild --clean' ohnehin
-  // neu generiert wird (B8).
+  // android/gradle.properties nötig, das bei einem Native-Prebuild ohnehin
+  // generiert wird (B8).
   return { ORG_GRADLE_PROJECT_reactNativeArchitectures: 'arm64-v8a' };
 }
 
@@ -867,7 +1024,7 @@ async function runLocked(): Promise<void> {
       ? ['expo', 'run:ios', '--binary', binaryPath]
       : ['expo', 'run:android', '--binary', binaryPath];
   if (device) commandArgs.push('--device', device);
-  run('bunx', commandArgs);
+  await timedPhase('install', () => run('bunx', commandArgs));
 }
 
 function printHelp(): void {
@@ -881,7 +1038,8 @@ Native Build Lock
                                                                                        # --no-build-cache leert nur lokales DerivedData, umgeht NICHT den Remote-Cache
   bun run native:run -- --target <target> [--device <name>]       # gesperrtes Artefakt installieren
   bun run native:restore -- --target <target> [--eas-build-id <id>]
-  bun run native:rebuild -- --target <target> --approve-rebuild   # eas build --local, Release-Pfad
+  bun run native:rebuild -- --target <target>                  # nutzt Native-Konfiguration, Ccache und EAS-Workingdir
+  bun run native:rebuild -- --target <target> --approve-rebuild # erlaubt einmaliges Prebuild bei Native-Änderung
 
 Targets: ${Object.keys(TARGETS).join(', ')}
 Dev-Targets (native:dev): ${DEV_TARGETS.join(', ')}
@@ -910,8 +1068,24 @@ async function main(): Promise<void> {
       break;
     default:
       printHelp();
-      process.exit(command ? 1 : 0);
+      if (command) fail(`Unbekannter Befehl: ${command}`);
   }
 }
 
-await main();
+async function runCli(): Promise<void> {
+  activeBuildTimer = buildTimerForCommand();
+  let exitCode = 0;
+  try {
+    await main();
+  } catch (error) {
+    exitCode = 1;
+    const message = error instanceof Error ? error.message : String(error);
+    console.error(`\nNative Build Lock: ${message}`);
+  } finally {
+    activeBuildTimer?.finish(exitCode);
+    activeBuildTimer = undefined;
+  }
+  process.exitCode = exitCode;
+}
+
+if (import.meta.main) void runCli();

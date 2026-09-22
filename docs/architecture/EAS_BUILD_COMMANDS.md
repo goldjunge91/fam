@@ -15,11 +15,17 @@ bun run native:status
 # Development-Simulator lokal bauen und starten (nicht gelockt)
 bun run native:dev -- --target ios-development-simulator
 
-# Prebuild und Kompilierung für ein bewusstes Release ausdrücklich freigeben
+# Normaler Release-Build: Native-Konfiguration, Pods, Ccache und EAS-Workingdir
+# werden wiederverwendet; Prebuild/Pods laufen nur bei Bedarf.
+bun run native:rebuild -- --target ios-preview-testflight
+
+# Nur nach bewusstem Native-Drift einmalig freigeben:
 bun run native:rebuild -- --target ios-preview-testflight --approve-rebuild
 ```
 
-Der Rebuild-Schalter ist absichtlich Pflicht. Änderungen an `app.json`, Config Plugins, Dependencies oder nativen Dateien erfordern eine neue Baseline und ein neues Binary.
+`--approve-rebuild` ist nur für ein notwendiges Native-Prebuild erforderlich. Änderungen an
+reinen Laufzeit-/Metadatenfeldern in `app.json` bauen mit der vorhandenen Native-Konfiguration;
+native relevante Änderungen werden erkannt und einmalig freigegeben.
 
 Expo Precompiled Modules bleiben aktiviert. Das native Projekt setzt dafür `EXPO_USE_PRECOMPILED_MODULES=1`; es gibt keine globale `buildFromSource`-Regel. `expo-sqlite` bleibt mit `useSQLCipher: true` konfiguriert. Module ohne passendes vorgefertigtes Artefakt oder mit eigener nativer Konfiguration dürfen weiterhin auf Source-Build zurückfallen. Dieser Fallback ist Bestandteil des kontrollierten Rebuilds und kein Grund, alle Expo-Module global aus Source zu bauen.
 

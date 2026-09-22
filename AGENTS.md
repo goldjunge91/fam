@@ -158,9 +158,11 @@ Die wichtigsten Befehle und ihr Sperrverhalten:
   `expo run:*`. Ein Mismatch wird sichtbar gewarnt, blockiert den Development-
   Build aber nicht. Gültige Targets sind `ios-development-simulator`,
   `ios-development-device` und `android-development`.
-- `bun run native:rebuild -- --target <target> --approve-rebuild` ist der
-  ausdrücklich freizugebende lokale EAS-Pfad (`eas build --local`). Er führt
-  ein kontrolliertes Prebuild aus, baut das Ziel und registriert das Artefakt.
+- `bun run native:rebuild -- --target <target>` ist der lokale EAS-Pfad
+  (`eas build --local`). Er verwendet Native-Konfiguration, Pods, Ccache und
+  das feste EAS-Workingdir wieder und registriert das Artefakt. Nur wenn ein
+  Native-Fingerprint-Drift ein Prebuild verlangt, ist einmalig
+  `--approve-rebuild` nötig.
 - `bun run native:run -- --target <target>` verwendet ausschließlich ein
   registriertes und unverändertes Artefakt. Es kompiliert nicht automatisch.
   `native:restore` kann ein passendes EAS-Artefakt wiederherstellen.
@@ -177,16 +179,17 @@ Ein neuer Fingerprint ist zu erwarten, wenn sich native Compile-Eingaben
 Die zentrale Ausnahmekonfiguration liegt in `fingerprint.config.js`.
 
 Bei einem echten Mismatch zuerst `bun run native:status -- --diff` ausführen
-und danach die Ursache dokumentiert beheben. Eine neue Baseline oder ein neuer
-Rebuild ist nur mit `--approve-rebuild` zulässig. Arbeitsweise und bekannte
-Drift-Ursachen stehen in
+und danach die Ursache dokumentiert beheben. Nur ein Native-Prebuild braucht
+die explizite Freigabe `--approve-rebuild`; ein Build mit unveränderter
+Native-Konfiguration darf Ccache, Pods und Artefakte direkt wiederverwenden.
+Arbeitsweise und bekannte Drift-Ursachen stehen in
 `docs/features/native-fingerpint-faster-build/native-fingerprint-drift-debugging.md`.
 
 `native:dev` profitiert auf iOS vom lokalen ccache und von DerivedData. Das
 Flag `--no-build-cache` leert dabei nur lokales DerivedData und umgeht nicht den
 Remote-Cache-Lookup aus `app.json`. Der lokale EAS-Rebuild verwendet bei
 konfiguriertem ccache ein festes `EAS_LOCAL_BUILD_WORKINGDIR`; die Details liegen
-in `plugins/withIosCcacheDir.js` und `scripts/native-build.ts`.
+in `plugins/withIosCcacheDir.js` und `scripts/native-build/native-build.ts`.
 
 ## Coding preferences - general
 

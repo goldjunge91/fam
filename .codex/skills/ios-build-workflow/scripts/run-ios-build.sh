@@ -38,7 +38,7 @@ ROOT="$(find_project_root "$PWD" || find_project_root "$SCRIPT_DIR")" || {
 }
 cd "$ROOT"
 
-FASTPATH="$SCRIPT_DIR/native-testflight-fastpath.sh"
+FASTPATH="$ROOT/scripts/native-build/native-testflight-fastpath.sh"
 
 STORAGE_ROOT="${IOS_BUILD_WORKFLOW_STORAGE_ROOT:-/Volumes/Programme/fam-build-workflow}"
 if [ ! -d "/Volumes/Programme" ]; then
@@ -73,15 +73,17 @@ run_step() {
 cleanup_lock() {
   rmdir "$LOCK_DIR" 2>/dev/null || true
 }
-trap cleanup_lock EXIT
-trap 'exit 130' INT
-trap 'exit 143' TERM
 
 if ! mkdir "$LOCK_DIR" 2>/dev/null; then
   printf '[ios-build] Ein anderer iOS-Build laeuft bereits: %s\n' "$LOCK_DIR" >&2
-  printf '[ios-build] Falls das nicht stimmt (verwaister Lock nach einem Absturz), erst pruefen, dann bewusst manuell entfernen (rmdir).\n' >&2
   exit 75
 fi
+
+# Install cleanup only after this process acquired the lock. A blocked second
+# invocation must never remove the first invocation's lock on EXIT.
+trap cleanup_lock EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
 
 run_simulator() {
   run_step bun run native:dev -- --target ios-development-simulator
@@ -94,7 +96,7 @@ run_testflight() {
   run_step bash "$FASTPATH" || fastpath_status=$?
   if [ "$fastpath_status" -eq 42 ]; then
     printf '\n[ios-build] Fastpath nicht nutzbar (kein warmer Cache/Artefakt) -> kontrollierter Rebuild.\n' >&2
-    run_step bun run native:rebuild -- --target ios-preview-testflight --approve-rebuild </dev/null
+    run_step bun run native:rebuild -- --target ios-preview-testflight </dev/null
   elif [ "$fastpath_status" -ne 0 ]; then
     return "$fastpath_status"
   fi

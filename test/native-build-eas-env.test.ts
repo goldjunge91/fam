@@ -1,4 +1,4 @@
-import { createEasLocalBuildEnvironment } from '../scripts/native-build-eas-env';
+import { createEasLocalBuildEnvironment } from '../scripts/native-build/native-build-eas-env';
 
 describe('EAS local build diagnostics environment', () => {
   it('prefers an explicit working directory and preserves diagnostics', () => {

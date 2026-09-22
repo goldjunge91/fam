@@ -20,7 +20,7 @@ const config = {
   },
 
   // Wird automatisch von @expo/fingerprint gelesen — nicht nur von
-  // scripts/native-build.ts, sondern auch von 'expo run:ios'/'expo run:android'
+  // scripts/native-build/native-build.ts, sondern auch von 'expo run:ios'/'expo run:android'
   // (Build-Cache-Provider-Lookup) und 'eas build'. Ein Skip hier gilt also
   // konsistent für Lock, Cache-Key und Diff-Tool, statt zu divergieren.
   //

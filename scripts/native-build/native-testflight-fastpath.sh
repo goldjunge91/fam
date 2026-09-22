@@ -26,6 +26,17 @@ if ! PROJECT_ROOT="$(find_project_root "$PROJECT_ROOT")"; then
     exit 78
   }
 fi
+
+# Keep the fastpath's timing identical to scripts/native-build/native-build.ts. The environment
+# guard prevents the timer from wrapping itself after the re-exec.
+if [ "${NATIVE_BUILD_TIMER_ACTIVE:-0}" != "1" ]; then
+  export NATIVE_BUILD_TIMER_ACTIVE=1
+  exec bun "$PROJECT_ROOT/scripts/native-build/build-timer.ts" \
+    --class "B'" \
+    --target ios-preview-testflight \
+    -- "$0" "$@"
+fi
+
 STORAGE_ROOT="${IOS_BUILD_WORKFLOW_STORAGE_ROOT:-/Volumes/Programme/fam-build-workflow}"
 ARTIFACT_ROOT="${IOS_BUILD_WORKFLOW_ARTIFACT_ROOT:-$STORAGE_ROOT/native-artifacts}"
 ARTIFACT="$ARTIFACT_ROOT/ios-preview-testflight/fam.ipa"
@@ -268,10 +279,6 @@ xcodebuild archive \
   SHARED_PRECOMPS_DIR="$SHARED_PRECOMPS" \
   CURRENT_PROJECT_VERSION="$NEW_BUILD" \
   MARKETING_VERSION="$APP_VERSION"
-
-# Precompiled frameworks keep their matching symbols outside the archive.
-# Copy only dSYMs whose DWARF UUID matches the archived binary, before export.
-bash "$PROJECT_ROOT/scripts/collect-ios-dsyms.sh" "$ARCHIVE_PATH" "$PROJECT_ROOT"
 
 xcodebuild -exportArchive \
   -archivePath "$ARCHIVE_PATH" \

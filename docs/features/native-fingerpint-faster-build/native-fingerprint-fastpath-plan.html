@@ -521,7 +521,7 @@
   </div>
 
   <div class="measure">
-    <p>Gelesen: <code>scripts/native-build.ts</code>, <code>native-build-lock.json</code>, <code>app.json</code>, <code>eas.json</code>, <code>ios/Podfile</code>, <code>android/gradle.properties</code>, <code>package.json</code>. Alle folgenden Punkte sind am Code verifiziert, nicht vermutet.</p>
+    <p>Gelesen: <code>scripts/native-build/native-build.ts</code>, <code>native-build-lock.json</code>, <code>app.json</code>, <code>eas.json</code>, <code>ios/Podfile</code>, <code>android/gradle.properties</code>, <code>package.json</code>. Alle folgenden Punkte sind am Code verifiziert, nicht vermutet.</p>
   </div>
 
   <div class="findings">
@@ -593,7 +593,7 @@
       <div class="fid">B7</div>
       <div>
         <h4><code>EXPO_USE_PRECOMPILED_MODULES=1</code> ist auf SDK 57 wirkungslos</h4>
-        <p><code>native-build.ts</code> setzt die Variable an drei Stellen. Der Podfile setzt bereits selbst <code>ENV['EXPO_USE_PRECOMPILED_MODULES'] ||= '1'</code>, und seit SDK 56 ist Precompiled default. Kein Schaden, aber es verdeckt, dass der eigentliche Kostenblock woanders liegt: Third-Party-Pods, die lokal aus Source bauen.</p>
+        <p><code>scripts/native-build/native-build.ts</code> setzt die Variable an drei Stellen. Der Podfile setzt bereits selbst <code>ENV['EXPO_USE_PRECOMPILED_MODULES'] ||= '1'</code>, und seit SDK 56 ist Precompiled default. Kein Schaden, aber es verdeckt, dass der eigentliche Kostenblock woanders liegt: Third-Party-Pods, die lokal aus Source bauen.</p>
       </div>
       <div class="sev med">Mittel</div>
     </div>
@@ -713,7 +713,7 @@
 
     <h4>Schritte</h4>
     <ol>
-      <li><strong><code>scripts/build-timer.ts</code></strong> — ein Wrapper, der einen Buildbefehl ausführt und eine Zeile nach <code>.build-metrics/builds.jsonl</code> schreibt. Kein Ersatz für bestehende Skripte, nur eine Hülle darum.</li>
+      <li><strong><code>scripts/native-build/build-timer.ts</code></strong> — ein Wrapper, der einen Buildbefehl ausführt und eine Zeile nach <code>.build-metrics/builds.jsonl</code> schreibt. Kein Ersatz für bestehende Skripte, nur eine Hülle darum.</li>
       <li><strong>Phasen einzeln erfassen</strong>, sonst ist hinterher unklar wo die Zeit liegt: <code>prebuild</code>, <code>pod-install</code>, <code>compile</code>, <code>bundle</code>, <code>install</code>, <code>launch</code>.</li>
       <li><strong>Kontext mitschreiben</strong>: Fingerprint-Hash, <code>cacheHit</code>, Git-SHA, Xcode-/Gradle-Version, ccache-Statistik-Delta (<code>ccache -s</code> vor/nach), Maschine, Klasse A/B/C.</li>
       <li><strong>iOS-Compilezeit isolieren</strong> über <code>xcodebuild -showBuildTimingSummary</code>; Android über <code>./gradlew --profile</code>.</li>
@@ -815,7 +815,7 @@
       <li><strong>ccache aktivieren</strong> — der Podfile unterstützt es bereits. Entweder <code>USE_CCACHE=1</code> als Env-Var, oder sauberer über das <code>expo-build-properties</code>-Plugin mit <code>ios.ccacheEnabled: true</code>. Das Plugin ist aktuell nicht in <code>app.json</code> eingetragen; das Hinzufügen ändert den Fingerprint — deshalb bewusst <em>nach</em> Phase 1.</li>
       <li><strong>Precompiled Modules verifizieren statt annehmen.</strong> Auf SDK 57 default. Prüfen, ob ein Paket über <code>autolinking.ios.buildFromSource</code> herausfällt, und ob Third-Party-Pods (nicht Expo-Module) den Löwenanteil der Compilezeit stellen — dort liegt der ungehobene Rest.</li>
       <li><strong>Debug-Einstellungen</strong>: <code>ONLY_ACTIVE_ARCH=YES</code> und Debug Information Format auf <code>dwarf</code> statt <code>dwarf-with-dsym</code>. Beides nur im Debug-Pfad, nie im Release.</li>
-      <li><strong><code>EXPO_USE_PRECOMPILED_MODULES=1</code> aus <code>native-build.ts</code> entfernen</strong> — redundant (B7) und irreführend.</li>
+      <li><strong><code>EXPO_USE_PRECOMPILED_MODULES=1</code> aus <code>scripts/native-build/native-build.ts</code> entfernen</strong> — redundant (B7) und irreführend.</li>
     </ul>
 
     <h4>Android</h4>
@@ -928,7 +928,7 @@
   <div class="measure">
     <ol>
       <li><strong>Baseline sauber abschließen</strong> — warten, bis <code>prebuild</code> und <code>pod install</code> durch sind, dann neu messen, die veralteten Artefakteinträge mitziehen und erst danach <code>native-build-lock.json</code> committen. Der aktuell eingetragene Wert ist bereits überholt (B9).</li>
-      <li><strong><code>scripts/build-timer.ts</code> bauen und Baseline aufnehmen</strong> — 3× kalt, 3× warm, beide Plattformen. Konfliktfrei, sofort startbar, und die Voraussetzung für jede spätere Aussage über Effizienz.</li>
+      <li><strong><code>scripts/native-build/build-timer.ts</code> bauen und Baseline aufnehmen</strong> — 3× kalt, 3× warm, beide Plattformen. Konfliktfrei, sofort startbar, und die Voraussetzung für jede spätere Aussage über Effizienz.</li>
       <li><strong>Inner Loop auf <code>expo run:*</code> umstellen</strong> (Phase 2). Seit B1 gelöst ist, der Schritt mit der mit Abstand größten Wirkung — er schaltet den bereits bezahlten, bisher nie benutzten Build-Cache scharf.</li>
     </ol>
   </div>

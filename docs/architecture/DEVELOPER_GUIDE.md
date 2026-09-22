@@ -436,10 +436,9 @@ dann Android, ausgeführt.
   eigenständiger Runner.
 - `bun run user:create` / `bun run user:list` / `bun run user:clean` / `bun run user:delete` — Verwaltung lokaler Test-Accounts (`scripts/test-users.ts`)
 - `bash scripts/create-user-with-household.sh` — Erstellt Test-User mit Haushalt und befüllter Einkaufsliste
-- `bun run ios:testflight -- --app-version 0.0.2` (App-Versionsnummer anpassen)
-- `bun run ios:testflight -- --build-number 10` (feste Build-Nummer vergeben)
-- `bun run ios:testflight -- --no-bump` (ohne Hochzählen der Build-Nummer bauen)
-- `bun run ios:testflight -- --skip-pods` (Pod-Installation überspringen für schnellen Rebuild)
+- `bun run native:rebuild -- --target ios-preview-testflight` (lokaler TestFlight-Rebuild mit Cache-Wiederverwendung)
+- `bun run native:rebuild -- --target ios-production` (lokaler Produktions-Rebuild mit Cache-Wiederverwendung)
+- `--approve-rebuild` nur einmalig ergänzen, wenn ein absichtlicher Native-Drift ein Prebuild verlangt
 
 ### Test-Accounts & Skripte
 
@@ -486,7 +485,7 @@ gitignored und werden bewusst nicht mitgeliefert:
 | --- | --- |
 | `.env.local` | Lokale Supabase-Instanz und RevenueCat Test Store |
 | `.env.development` | Gehostete Development-Datenbank und RevenueCat Test Store |
-| `.env.preview` | TestFlight über `bun run ios:testflight` |
+| `.env.preview` | Native TestFlight-Rebuild über das Profil `preview-testflight` |
 | `.env.production` | Reserviert für den späteren Produktions-Build |
 
 Beispiel für lokale Entwicklung:

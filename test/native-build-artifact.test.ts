@@ -9,7 +9,7 @@ type CommandResult = {
 const projectRoot = resolve(__dirname, '..');
 
 function runNative(...arguments_: string[]): CommandResult {
-  const result = spawnSync('bun', ['scripts/native-build.ts', ...arguments_], {
+  const result = spawnSync('bun', ['scripts/native-build/native-build.ts', ...arguments_], {
     cwd: projectRoot,
     encoding: 'utf8',
     env: { ...process.env, EXPO_NO_DOTENV: '1', FAM_HARNESS_UI: '0' },

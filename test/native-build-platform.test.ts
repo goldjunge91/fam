@@ -1,7 +1,7 @@
 import {
   isNativePlatformSupportedOnHost,
   nativePlatformsForHost,
-} from '../scripts/native-build-platform';
+} from '../scripts/native-build/native-build-platform';
 
 describe('native build host platform', () => {
   it('checks only Android on Windows', () => {

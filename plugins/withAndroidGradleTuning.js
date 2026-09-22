@@ -11,7 +11,7 @@ const { withGradleProperties } = require('expo/config-plugins');
  * reactNativeArchitectures bleibt hier bewusst unverändert: Release-Builds
  * brauchen weiterhin alle vier ABIs. Die Reduktion auf eine ABI für den Inner
  * Loop passiert stattdessen pro Lauf über ORG_GRADLE_PROJECT_* in
- * scripts/native-build.ts (native:dev), nicht global.
+ * scripts/native-build/native-build.ts (native:dev), nicht global.
  *
  * org.gradle.configuration-cache ist bewusst nicht gesetzt — die RN-Plugin-
  * Kompatibilität ist laut Plan noch nicht verifiziert, nicht einfach annehmen.

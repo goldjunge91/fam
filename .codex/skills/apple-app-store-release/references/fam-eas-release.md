@@ -36,14 +36,17 @@ If it reports drift, inspect the source:
 bun run native:status -- --diff
 ```
 
-Do not paper over drift. Read `docs/features/native-fingerpint-faster-build/native-fingerprint-drift-debugging.md`, determine whether the change is intentional, and explain the rebuild consequence. A baseline update or rebuild requires the project's explicit `--approve-rebuild` switch and user authorization.
+Do not paper over drift. Read `docs/features/native-fingerpint-faster-build/native-fingerprint-drift-debugging.md`, determine whether the change is intentional, and explain the rebuild consequence. Only a rebuild that must regenerate native inputs requires the project's explicit `--approve-rebuild` switch and user authorization.
 
 Project-controlled local release builds are:
 
 ```bash
-bun run native:rebuild -- --target ios-preview-testflight --approve-rebuild
-bun run native:rebuild -- --target ios-production --approve-rebuild
+bun run native:rebuild -- --target ios-preview-testflight
+bun run native:rebuild -- --target ios-production
 ```
+
+Only when `native:status -- --diff` shows an intentional native change, add
+`--approve-rebuild` once to allow the prebuild.
 
 Direct cloud operations documented by the repository include:
 
