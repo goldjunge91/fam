@@ -15,19 +15,34 @@ import expectedReceipts from '../testbilder/receipt-ocr-expected.json';
 
 const REAL_RECEIPT_ASSETS = [
   {
-    file: 'IMG_4218.HEIC',
+    file: 'IMG_4218.png',
     assetFile: 'IMG_4218.png',
     moduleId: require('../testbilder/IMG_4218.png') as number,
   },
   {
-    file: 'IMG_4219.HEIC',
+    file: 'IMG_4218.jpeg',
+    assetFile: 'IMG_4218.jpeg',
+    moduleId: require('../testbilder/IMG_4218.jpeg') as number,
+  },
+  {
+    file: 'IMG_4219.png',
     assetFile: 'IMG_4219.png',
     moduleId: require('../testbilder/IMG_4219.png') as number,
   },
   {
-    file: 'IMG_4220.HEIC',
+    file: 'IMG_4219.jpeg',
+    assetFile: 'IMG_4219.jpeg',
+    moduleId: require('../testbilder/IMG_4219.jpeg') as number,
+  },
+  {
+    file: 'IMG_4220.png',
     assetFile: 'IMG_4220.png',
     moduleId: require('../testbilder/IMG_4220.png') as number,
+  },
+  {
+    file: 'IMG_4220.jpeg',
+    assetFile: 'IMG_4220.jpeg',
+    moduleId: require('../testbilder/IMG_4220.jpeg') as number,
   },
 ] as const;
 
@@ -157,6 +172,10 @@ function priceMismatchFor(
   };
 }
 
+function canonicalReceiptFile(file: string): string {
+  return file.replace(/\.jpe?g$/iu, '.png');
+}
+
 async function transferAsset(moduleId: number): Promise<string> {
   const asset = Asset.fromModule(moduleId);
   await asset.downloadAsync();
@@ -167,7 +186,8 @@ async function transferAsset(moduleId: number): Promise<string> {
 }
 
 async function runReceipt(file: string, assetFile: string, moduleId: number) {
-  const expected = expectedReceipts.sources.find((source) => source.file === file);
+  const expectedFile = canonicalReceiptFile(file);
+  const expected = expectedReceipts.sources.find((source) => source.file === expectedFile);
   if (!expected) throw new Error(`Missing real-receipt mapping for ${file}.`);
 
   const fileSystem = createExpoFileSystemAdapter();
@@ -209,10 +229,15 @@ async function runReceipt(file: string, assetFile: string, moduleId: number) {
         byteSize: normalized.byteSize,
       },
     );
-
-    console.log(`RECEIPT_OCR_JSON_BEGIN ${file}`);
-    console.log(JSON.stringify(report, null, 2));
-    console.log(`RECEIPT_OCR_JSON_END ${file}`);
+    const reportJson = JSON.stringify(report, null, 2);
+    const reportOutput = [
+      `RECEIPT_OCR_JSON_BEGIN ${file}`,
+      reportJson,
+      `RECEIPT_OCR_JSON_END ${file}`,
+    ].join('\n');
+    // Harness forwards warnings from the native runtime to its host reporter
+    // more reliably than normal logs, including for passing tests.
+    console.warn(reportOutput);
 
     try {
       expect(draft.market.value).toBe(expected.market);
@@ -224,9 +249,10 @@ async function runReceipt(file: string, assetFile: string, moduleId: number) {
         if (!actualItem) throw new Error(`Missing parsed item ${index + 1} for ${file}.`);
         expect(matchesExpectedName(actualItem.name, expectedItem.name)).toBe(true);
         expect(actualItem.quantity).toBe(expectedItem.quantity ?? null);
-      }
-      if (priceMismatches.length > 0) {
-        console.warn(`RECEIPT_OCR_PRICE_MISMATCH ${file} ${JSON.stringify(priceMismatches)}`);
+        expect(actualItem.lineTotalCents.value).toBe(expectedItem.line_total_cents);
+        if ('unit_price_cents' in expectedItem) {
+          expect(actualItem.unitPriceCents?.value ?? null).toBe(expectedItem.unit_price_cents ?? null);
+        }
       }
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
@@ -241,7 +267,7 @@ async function runReceipt(file: string, assetFile: string, moduleId: number) {
 
 describe('real native receipt OCR to expected item mapping', () => {
   for (const receipt of REAL_RECEIPT_ASSETS) {
-    it(`emits a redacted JSON report and preserves article/quantity mapping for ${receipt.file}`, async () => {
+    it(`emits a redacted JSON report and preserves article/quantity/price mapping for ${receipt.file}`, async () => {
       await runReceipt(receipt.file, receipt.assetFile, receipt.moduleId);
     });
   }

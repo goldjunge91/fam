@@ -28,9 +28,12 @@ type ReceiptGold = {
 const receiptGold = require('../testbilder/receipt-gold.json') as ReceiptGold;
 
 const REAL_RECEIPT_ASSETS = [
-  { file: 'IMG_4218.HEIC', module: require('../testbilder/IMG_4218.HEIC') },
-  { file: 'IMG_4219.HEIC', module: require('../testbilder/IMG_4219.HEIC') },
-  { file: 'IMG_4220.HEIC', module: require('../testbilder/IMG_4220.HEIC') },
+  { file: 'IMG_4218.png', module: require('../testbilder/IMG_4218.png') },
+  { file: 'IMG_4218.jpeg', module: require('../testbilder/IMG_4218.jpeg') },
+  { file: 'IMG_4219.png', module: require('../testbilder/IMG_4219.png') },
+  { file: 'IMG_4219.jpeg', module: require('../testbilder/IMG_4219.jpeg') },
+  { file: 'IMG_4220.png', module: require('../testbilder/IMG_4220.png') },
+  { file: 'IMG_4220.jpeg', module: require('../testbilder/IMG_4220.jpeg') },
 ] as const;
 
 async function transferOriginalReceiptToAndroid(moduleId: number): Promise<string> {
@@ -38,14 +41,15 @@ async function transferOriginalReceiptToAndroid(moduleId: number): Promise<strin
   await asset.downloadAsync();
 
   if (asset.localUri === null) {
-    throw new Error('The original HEIC receipt was not transferred to the Android sandbox.');
+    throw new Error('The local PNG receipt was not transferred to the Android sandbox.');
   }
 
   return asset.localUri;
 }
 
 function expectedSource(file: string): ReceiptGoldSource {
-  const source = receiptGold.sources.find((candidate) => candidate.file === file);
+  const goldFile = file.replace(/\.jpe?g$/iu, '.png');
+  const source = receiptGold.sources.find((candidate) => candidate.file === goldFile);
   if (!source) throw new Error(`Receipt gold values are missing for ${file}.`);
   return source;
 }
@@ -82,7 +86,7 @@ describe('receipt OCR native integration on Android', () => {
     await expect(getReceiptOcrAvailability()).resolves.toEqual({ status: 'available' });
   });
 
-  it('normalizes every original HEIC and recognizes the gold merchant and total', async () => {
+  it('normalizes every local PNG and JPEG and recognizes the gold merchant and total', async () => {
     await prepareAndroidVisionWithRetry();
     const fileSystem = createExpoFileSystemAdapter();
 
@@ -94,8 +98,8 @@ describe('receipt OCR native integration on Android', () => {
         sourceUri,
         captureId: `android-harness-${receipt.file}`,
         pageIndex: 0,
-        localAssetId: receipt.file.replace(/\.HEIC$/u, ''),
-        mimeType: 'image/heic',
+        localAssetId: receipt.file.replace(/\.(?:jpe?g|png)$/iu, ''),
+        mimeType: receipt.file.endsWith('.png') ? 'image/png' : 'image/jpeg',
         maxBytes: RECEIPT_MAX_ASSET_BYTES,
         maxLongEdge: RECEIPT_MAX_IMAGE_LONG_EDGE,
         jpegQuality: RECEIPT_IMAGE_NORMALIZATION_QUALITY,

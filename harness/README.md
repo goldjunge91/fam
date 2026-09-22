@@ -47,11 +47,13 @@ Für die tatsächliche Ausführung muss `--listTests` entfallen.
 
 ## Echter OCR-Mapping-Nachweis
 
-`receipt-ocr-mapping.harness.ts` verarbeitet die drei lokalen HEIC-Bons mit der
-echten nativen OCR-Engine, rekonstruiert die Zeilen und vergleicht den
-geparsten Review-Entwurf mit `testbilder/receipt-ocr-expected.json`. Für die
-Fehlersuche kann der Lauf zusätzlich ein redigiertes JSON mit nativen Zeilen,
-Bounding-Boxes, rekonstruierten Zeilen und Zuordnung ausgeben:
+`receipt-ocr-mapping.harness.ts` verarbeitet die sechs lokalen PNG- und JPEG-
+Varianten der drei Bons mit der echten nativen OCR-Engine, rekonstruiert die
+Zeilen und vergleicht den geparsten Review-Entwurf mit
+`testbilder/receipt-ocr-expected.json`. Jeder Asset-Lauf schreibt zusätzlich
+einen redigierten JSON-Report mit nativen Zeilen, Bounding-Boxes,
+rekonstruierten Zeilen und Zuordnung über den nativen Warnkanal. Bei einem
+Fehler wird derselbe Report außerdem in die Assertion-Fehlermeldung eingebettet:
 
 ```bash
 bun run harness:ios -- --watchman=false --testPathPatterns=receipt-ocr-mapping

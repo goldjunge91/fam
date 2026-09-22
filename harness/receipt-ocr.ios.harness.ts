@@ -14,9 +14,12 @@ import {
 import receiptGold from '../testbilder/receipt-gold.json';
 
 const REAL_RECEIPT_ASSETS = [
-  { file: 'IMG_4218.HEIC', moduleId: require('../testbilder/IMG_4218.HEIC') as number },
-  { file: 'IMG_4219.HEIC', moduleId: require('../testbilder/IMG_4219.HEIC') as number },
-  { file: 'IMG_4220.HEIC', moduleId: require('../testbilder/IMG_4220.HEIC') as number },
+  { file: 'IMG_4218.png', moduleId: require('../testbilder/IMG_4218.png') as number },
+  { file: 'IMG_4218.jpeg', moduleId: require('../testbilder/IMG_4218.jpeg') as number },
+  { file: 'IMG_4219.png', moduleId: require('../testbilder/IMG_4219.png') as number },
+  { file: 'IMG_4219.jpeg', moduleId: require('../testbilder/IMG_4219.jpeg') as number },
+  { file: 'IMG_4220.png', moduleId: require('../testbilder/IMG_4220.png') as number },
+  { file: 'IMG_4220.jpeg', moduleId: require('../testbilder/IMG_4220.jpeg') as number },
 ] as const;
 
 type LocalReceiptAsset = {
@@ -45,14 +48,16 @@ function expectedTotalDigits(totalCents: number): string {
 
 describe('receipt OCR native integration on iOS Simulator', () => {
   for (const receipt of REAL_RECEIPT_ASSETS) {
-    it(`normalizes and recognizes the original HEIC receipt ${receipt.file}`, async () => {
+    it(`normalizes and recognizes the local receipt ${receipt.file}`, async () => {
       expect(isReceiptOcrAvailable()).toBe(true);
 
-      const gold = receiptGold.sources.find(({ file }) => file === receipt.file);
+      const goldFile = receipt.file.replace(/\.jpe?g$/iu, '.png');
+      const gold = receiptGold.sources.find(({ file }) => file === goldFile);
       if (!gold) throw new Error(`Gold values for ${receipt.file} are missing.`);
 
       const sourceAsset = await transferAssetToSimulator(receipt.moduleId);
-      expect(sourceAsset.type.toLocaleLowerCase()).toBe('heic');
+      const expectedAssetType = receipt.file.endsWith('.png') ? 'png' : 'jpeg';
+      expect(sourceAsset.type.toLocaleLowerCase()).toBe(expectedAssetType);
       expect(sourceAsset.localUri).toMatch(/^file:\/\//);
 
       const fileSystem = createExpoFileSystemAdapter();
@@ -63,8 +68,8 @@ describe('receipt OCR native integration on iOS Simulator', () => {
           sourceUri: sourceAsset.localUri,
           captureId: `ios-receipt-ocr-harness-${receipt.file}`,
           pageIndex: 0,
-          localAssetId: receipt.file.replace(/\.HEIC$/u, ''),
-          mimeType: 'image/heic',
+          localAssetId: receipt.file.replace(/\.(?:jpe?g|png)$/iu, ''),
+          mimeType: receipt.file.endsWith('.png') ? 'image/png' : 'image/jpeg',
           maxBytes: RECEIPT_MAX_ASSET_BYTES,
           maxLongEdge: RECEIPT_MAX_IMAGE_LONG_EDGE,
           jpegQuality: RECEIPT_IMAGE_NORMALIZATION_QUALITY,
