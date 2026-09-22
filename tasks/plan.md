@@ -39,6 +39,20 @@ OCR-Payload verarbeiten können. Es bedeutet, dass echte Bilddateien die echte
 native OCR-Engine durchlaufen und die erwarteten Werte in der App sichtbar und
 speicherbar werden.
 
+### Receipt asset upload barrier (2026-09-22)
+
+Der bestätigte Receipt-Write ist local-first und atomar, aber der anschließende
+Bild-Upload benötigt eine zusätzliche serverseitige Sichtbarkeitsbarriere:
+`purchase_receipts` muss für denselben Haushalt remote vorhanden sein, bevor
+Storage und `receipt_assets` beschrieben werden. Dafür wird kein neuer
+allgemeiner Queue- oder Sync-Layer eingeführt. Der bestehende Owner
+`src/lib/sync/sync-runner.ts` teilt den laufenden scoped Sync mit konkurrierenden
+Aufrufern und garantiert einen abschließenden Folge-Lauf für Mutationen, die
+nach dem Push-Snapshot entstanden sind. Der bestehende `waitForParentSync`-
+Seam in `src/features/ocr/capture/capture/upload-queue.ts` wird im produktiven
+Review-Pfad verdrahtet. `receipt_assets` bleibt außerhalb von SQLite, Outbox,
+Realtime und generischem Entity-Sync.
+
 ## Verifizierter Ist-Zustand
 
 Stand 2026-09-21:
@@ -46,15 +60,15 @@ Stand 2026-09-21:
 - `receipt-authority` mit Server-, RLS-, Local-Mirror- und Outbox-Vertrag ist
   vorhanden und bleibt die kanonische Speichergrenze.
 - Die Receipt-Dateien liegen bereits unter
-  `src/features/ocr/{authority,capture,processing}`. `fam-rfyo` bleibt offen,
-  bis alle noch alten Imports, Tests und Dokumentverweise umgestellt und die
-  fokussierten Gates grün sind.
+  `src/features/ocr/{authority,capture,processing}`. `fam-rfyo` ist für die
+  Struktur- und Importmigration abgeschlossen; die verbleibenden Gates sind
+  fachlich/native und nicht mehr Pfadbereinigung.
 - Der Receipt-Button, Kamera-/Galerieaufruf, Parser, Review und
   Authority-Write existieren als Codepfad.
 - `expo-ai-kit` `0.17.0` ist als Provider installiert, in `app.json`
   konfiguriert und wird vom Adapter in
   `src/features/ocr/processing/native.ts` verwendet.
-- Eine echte Cross-Platform-Abnahme mit den drei Bildern fehlt weiterhin. Ein
+- Eine echte Cross-Platform-Abnahme mit den drei Belegen fehlt weiterhin. Ein
   erfolgreicher Build oder TestFlight-Upload beweist weder Texterkennung noch
   Ergebnisqualität.
 - Auf Android verwendet der installierte Provider ein über Google Play
@@ -62,37 +76,37 @@ Stand 2026-09-21:
   ersten Nutzung Netzwerk benötigen. Die App muss diesen Bereitschaftszustand
   explizit behandeln; nach erfolgreicher Vorbereitung läuft die Abnahme mit
   deaktiviertem Netzwerk.
-- Vorhandene Parser-, Review- und Capture-Tests prüfen TypeScript-Logik, aber
-  kein vorhandener Test liest ein echtes Bild mit der nativen Engine.
-- Der Adapter setzt fehlende native Confidence derzeit auf `0.75`. Dieser
-  erfundene Wert muss entfallen; unbekannte Confidence bleibt `null`.
-- Die drei vorhandenen Testbilder sind HEIC-Dateien. Der aktuelle Capture-Pfad
-  akzeptiert nur JPEG, PNG und WebP und besitzt keine gemeinsame
-  HEIC-/Orientierungsnormalisierung.
-- Der sogenannte Upload-Queue-Zustand lebt nur im Arbeitsspeicher. Lokale
-  Bilddateien werden kopiert, aber der zugehörige Draft wird nicht
-  kontobezogen persistiert und kann nach Relaunch nicht zuverlässig fortgesetzt
-  werden.
-- Der Review erlaubt das Editieren vorhandener Zeilen, aber weder Hinzufügen
-  noch Entfernen. Erkannter Markttext wird nicht auf eine bestehende
-  `store_id` abgebildet und geht beim Save verloren.
-- Der Parser nutzt Bounding-Boxes derzeit nicht. Getrennte Produkt- und
-  Preisspalten realer Bons werden deshalb nicht zuverlässig zu einer Position
-  zusammengesetzt.
+- Die fokussierten Parser-, Review- und Capture-Tests prüfen TypeScript-Logik;
+  der native Realbild-Lauf ist separat im iOS-Harness für alle sechs PNG-/JPEG-
+  Varianten nachgewiesen. Die vollständige App-Abnahme auf beiden Plattformen
+  bleibt offen.
+- Der Adapter bewahrt fehlende native Confidence als `null`; es wird kein
+  erfundener Ersatzwert gesetzt.
+- Die sechs vorhandenen Testbildvarianten liegen als PNG und JPEG vor. Der
+  aktuelle Capture-Pfad akzeptiert JPEG, PNG und WebP, normalisiert die
+  Eingänge gemeinsam und persistiert den Draft kontobezogen.
+- Review-Items können hinzugefügt, entfernt und bearbeitet werden. Der Save
+  übernimmt die ausgewählte bestehende `store_id`; der Hot-Reload-Discard ist
+  zwischen Persistence-Instanzen synchronisiert.
+- Der Parser nutzt Bounding-Boxes für die geometrische Rekonstruktion von
+  getrennten Produkt- und Preisspalten. Die nativen Plattform-Gates bleiben
+  offen.
 
-Diese Punkte sind offene Produktfehler, keine Dokumentationsdetails.
+Die verbleibenden offenen Punkte sind Plattform-, Relaunch- und
+Abnahme-Gates, keine erfundenen OCR- oder Review-Lücken.
 
 ## Reale Abnahmebilder
 
-Die drei Dateien unter `testbilder/` sind der verbindliche lokale
-Abnahmekorpus. Sie werden nicht in Supabase hochgeladen, nicht als
-Produktassets gebündelt und nicht als dauerhaftes OCR-Rohtextarchiv abgelegt.
+Die sechs Dateien unter `testbilder/` sind der verbindliche lokale
+Abnahmekorpus für drei Belege. Sie werden nicht in Supabase hochgeladen, nicht
+als Produktassets gebündelt und nicht als dauerhaftes OCR-Rohtextarchiv
+abgelegt.
 
 | Datei | Sichtbarer Händler | Sichtbare Summe | Wesentliche Fälle |
 | --- | --- | ---: | --- |
-| `IMG_4218.HEIC` | EDEKA | 39,14 EUR | Falten, schräges Foto, getrennte Preis-/Namensspalten, Mengen |
-| `IMG_4219.HEIC` | EDEKA | 43,37 EUR | viele Positionen, Pfand, Gratisartikel/Coupon, Mengen |
-| `IMG_4220.HEIC` | ROSSMANN | 18,95 EUR | Barcodes vor Artikeln, Coupons, Steuerblock, ISO-Datum/Zeit |
+| `IMG_4218.png` / `IMG_4218.jpeg` | EDEKA | 39,14 EUR | Falten, schräges Foto, getrennte Preis-/Namensspalten, Mengen |
+| `IMG_4219.png` / `IMG_4219.jpeg` | EDEKA | 43,37 EUR | viele Positionen, Pfand, Gratisartikel/Coupon, Mengen |
+| `IMG_4220.png` / `IMG_4220.jpeg` | ROSSMANN | 18,95 EUR | Barcodes vor Artikeln, Coupons, Steuerblock, ISO-Datum/Zeit |
 
 `fam-tyz6` erstellt daraus ein minimales Goldmanifest. Es enthält nur Werte,
 die für die Erkennung nötig sind. Kunden-, Karten-, Signatur- und sonstige
@@ -191,11 +205,11 @@ Abschnitt ist nur der geordnete Index und keine zweite Task-Wahrheit.
 ### Phase 0: gemeinsamer OCR-Owner
 
 0. `fam-rfyo` — die begonnene Verschiebung von `receipt-authority`,
-   `receipt-capture` und `receipt-processing` nach
-   `src/features/ocr/{authority,capture,processing}` finalisieren und alle
-   Imports, Tests und Dokumente ohne Verhaltensänderung aktualisieren.
+  `receipt-capture` und `receipt-processing` nach
+  `src/features/ocr/{authority,capture,processing}` finalisieren und alle
+  Imports, Tests und Dokumente ohne Verhaltensänderung aktualisieren. Erledigt.
 
-**Checkpoint 0:** Die drei alten Feature-Roots existieren nicht mehr. Eine
+**Checkpoint 0:** Erledigt. Die drei alten Feature-Roots existieren nicht mehr. Eine
 gezielte Suche findet keine produktiven oder dokumentierten Imports auf die
 alten Pfade; fokussierte Tests, Biome und Typecheck bleiben grün.
 
@@ -213,14 +227,14 @@ nachgewiesen; anschließend gelingt derselbe Lauf bei deaktiviertem Netzwerk.
 
 ### Phase 2: reale Bild- und Belegstruktur
 
-3. `fam-mc71` — HEIC, Orientierung, Größe und JPEG-Arbeitsformat für OCR und
-   Upload normalisieren.
+3. `fam-mc71` — Bildformate, Orientierung, Größe und JPEG-Arbeitsformat für OCR
+   und Upload normalisieren.
 4. `fam-l4gc` — geometrische Zeilenrekonstruktion und Parser an EDEKA und
    ROSSMANN härten.
 
-**Checkpoint B:** Alle drei HEIC-Dateien erreichen als lesbare, korrekt
-orientierte JPEGs den Provider. Händler und sichtbare Summen entsprechen dem
-Goldmanifest; Coupons, Pfand, Steuer, Zahlung, Signatur und Barcode werden
+**Checkpoint B:** Alle sechs PNG-/JPEG-Testbildvarianten erreichen als lesbare,
+korrekt orientierte JPEGs den Provider. Händler und sichtbare Summen entsprechen
+dem Goldmanifest; Coupons, Pfand, Steuer, Zahlung, Signatur und Barcode werden
 nicht zu Artikeln.
 
 ### Phase 3: belastbarer Nutzerfluss
@@ -337,8 +351,8 @@ Signaturdaten enthalten.
 erfüllt sind:
 
 1. Der native Provider ist in frischen iOS- und Android-Dev-Builds verlinkt.
-2. Alle drei HEIC-Testbilder werden lokal normalisiert und bei deaktiviertem
-   Netzwerk erkannt. Auf Android darf davor genau die dokumentierte
+2. Alle sechs PNG-/JPEG-Testbildvarianten werden lokal normalisiert und bei
+   deaktiviertem Netzwerk erkannt. Auf Android darf davor genau die dokumentierte
    Play-Services-Modellvorbereitung erfolgt sein; ihr Zustand und Retry sind
    Teil des Produktflusses.
 3. Die Reviews zeigen EDEKA/39,14 EUR, EDEKA/43,37 EUR und
