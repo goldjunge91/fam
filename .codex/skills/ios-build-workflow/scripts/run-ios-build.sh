@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Single entry point for the local iOS build workflow (Simulator / TestFlight / both).
 #
-# Usage: run-ios-build.sh <simulator|testflight|both>
+# Usage: run-ios-build.sh <simulator|testflight|both> [--approve-rebuild]
 #
 # This script is the ONLY thing that should be invoked to run a build. It owns
 # the whole thing end to end: the lock, the cache-aware fastpath, the rebuild
@@ -16,7 +16,15 @@
 
 set -euo pipefail
 
-mode="${1:?usage: run-ios-build.sh <simulator|testflight|both>}"
+mode="${1:?usage: run-ios-build.sh <simulator|testflight|both> [--approve-rebuild]}"
+rebuild_args=()
+if [ "$#" -gt 2 ] || { [ "$#" -eq 2 ] && [ "${2:-}" != "--approve-rebuild" ]; }; then
+  printf '[ios-build] Usage: run-ios-build.sh <simulator|testflight|both> [--approve-rebuild]\n' >&2
+  exit 64
+fi
+if [ "$#" -eq 2 ]; then
+  rebuild_args+=(--approve-rebuild)
+fi
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
@@ -90,15 +98,20 @@ run_simulator() {
 }
 
 run_testflight() {
-  run_step bun run native:status
+  if [ "${#rebuild_args[@]}" -gt 0 ]; then
+    printf '\n[ios-build] Freigegebener Native-Drift -> kontrollierter Rebuild.\n' >&2
+    run_step bun run native:rebuild -- --target ios-preview-testflight "${rebuild_args[@]}" </dev/null
+  else
+    run_step bun run native:status
 
-  fastpath_status=0
-  run_step bash "$FASTPATH" || fastpath_status=$?
-  if [ "$fastpath_status" -eq 42 ]; then
-    printf '\n[ios-build] Fastpath nicht nutzbar (kein warmer Cache/Artefakt) -> kontrollierter Rebuild.\n' >&2
-    run_step bun run native:rebuild -- --target ios-preview-testflight </dev/null
-  elif [ "$fastpath_status" -ne 0 ]; then
-    return "$fastpath_status"
+    fastpath_status=0
+    run_step bash "$FASTPATH" || fastpath_status=$?
+    if [ "$fastpath_status" -eq 42 ]; then
+      printf '\n[ios-build] Fastpath nicht nutzbar (kein warmer Cache/Artefakt) -> kontrollierter Rebuild.\n' >&2
+      run_step bun run native:rebuild -- --target ios-preview-testflight </dev/null
+    elif [ "$fastpath_status" -ne 0 ]; then
+      return "$fastpath_status"
+    fi
   fi
 
   # Both fastpath and the rebuild fallback write the newly created IPA for

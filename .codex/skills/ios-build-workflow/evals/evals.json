@@ -3,11 +3,11 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "!ios-build testflight",
-      "expected_output": "The agent executes exactly one TestFlight workflow, waits for the native build and upload to finish, verifies the fresh IPA and submission status, and reports success, pending processing, or a concrete failure without claiming more than the evidence supports.",
+      "prompt": "!ios-build-testflight",
+      "expected_output": "The agent invokes the single runner, waits for the native build and upload to finish, verifies the fresh IPA and submission status, and reports accepted upload, pending processing, or a concrete failure without claiming more than the evidence supports.",
       "assertions": [
-        "The workflow uses the registered hook or explicitly records that the hook already ran, without starting a duplicate runner.",
-        "The TestFlight sequence includes native status, a fresh build path, fresh artifact validation, upload of that artifact, and submission-status verification in that order.",
+        "The workflow invokes bash .codex/skills/ios-build-workflow/scripts/run-ios-build.sh testflight as its single build entrypoint.",
+        "The runner owns native status, the fresh build path, artifact validation, and upload; the agent verifies the returned submission status after the runner exits.",
         "The final report distinguishes accepted upload, pending submission, and errored or canceled submission."
       ]
     },
@@ -22,12 +22,20 @@
     },
     {
       "id": 3,
-      "prompt": "!ios-build testflight. Der Hook und Runner haben offenbar kein Execute-Bit, /Volumes/Programme/fam-build-workflow/native-build.lock existiert schon, und im letzten Lauf kam 'Too many open files in system'.",
-      "expected_output": "The agent invokes the script through bash, recognizes the existing lock as contention, interprets the open-files message as ENFILE, does not delete the lock or blindly retry, and reports the exact blocker and safe next action.",
+      "prompt": "!ios-build-testflight. /Volumes/Programme/fam-build-workflow/native-build.lock existiert bereits.",
+      "expected_output": "The agent invokes the runner through bash, recognizes the existing process lock, does not remove or retry it automatically, and reports the bounded blocker without claiming a build or upload.",
       "assertions": [
-        "The hook and runner are invoked through bash rather than requiring direct executable permissions.",
-        "An existing lock causes one bounded blocker result instead of an automatic retry or duplicate build.",
-        "The agent does not claim that an IPA was built or uploaded when the lock prevented execution.",
+        "The runner is invoked through bash rather than requiring direct executable permissions.",
+        "An existing native-build.lock produces exit status 75 and remains untouched.",
+        "The agent does not claim that an IPA was built or uploaded when the process lock prevented execution."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "!ios-build-testflight. Im letzten Lauf kam 'Too many open files in system'.",
+      "expected_output": "The agent invokes the runner through bash, interprets the open-files message as ENFILE, does not blindly retry, and reports the exact failure and safe next action.",
+      "assertions": [
+        "The runner is invoked through bash rather than requiring direct executable permissions.",
         "The agent distinguishes ENFILE from a missing SDK header and points to bounded Xcode build concurrency for a user-authorized retry."
       ]
     }
