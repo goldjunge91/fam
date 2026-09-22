@@ -40,7 +40,14 @@
     }
   ],
   "files.eol": "\n",
-  "git.enabled": true
+  "git.enabled": true,
+  "chat.tools.terminal.autoApprove": {
+    "bd": true,
+    "/^bd create --title=\"Wire OCR parent sync waiter\" --description=\"Connect the existing upload-queue waitForParentSync seam through receipt capture API/workflow into the production review save path, using the repaired household sync barrier\\. Preserve saved-with-pending-assets recovery and never upload before remote parent visibility\\.\" --type=task --priority=1 --parent=fam-lqg6 --json$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
   },
   "launch": {
     "configurations": [

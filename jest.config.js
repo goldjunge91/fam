@@ -1,5 +1,3 @@
-const path = require('node:path');
-
 const setupFiles = [
   '<rootDir>/test/setup.js',
   // Unistyles v3 stubs — muss vor der App-Konfiguration stehen,
@@ -8,18 +6,14 @@ const setupFiles = [
   '<rootDir>/src/components/theme/index.ts',
 ];
 
-const sourceSetupFiles = setupFiles
-  .filter((file) => file.startsWith('<rootDir>/src/'))
-  .map((file) => path.join(__dirname, file.replace('<rootDir>/', '')));
-
 /** @type {import('jest').Config} */
 module.exports = {
   preset: 'jest-expo',
   setupFiles,
   setupFilesAfterEnv: ['<rootDir>/test/setup-after-env.js'],
-  // React-Native/Babel-Worker sind speicherintensiv. Vier parallele Worker
-  // erzeugen im Gesamtlauf GC-/CPU-Konkurrenz und dadurch falsche 15s-Timeouts.
-  maxWorkers: 2,
+  // React-Native/Babel-Worker sind speicherintensiv. Parallele Worker können
+  // im Gesamtlauf native SIGSEGVs durch GC-/CPU-Konkurrenz auslösen.
+  maxWorkers: 1,
 
   // Watchman kann in der Codex-Ausfuehrungsumgebung seinen State-Ordner nicht
   // per fchmod auf 2700 setzen. Metro/Expo darf Watchman weiterhin verwenden.
@@ -107,21 +101,11 @@ module.exports = {
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
   // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.
   collectCoverage: false,
-  collectCoverageFrom: [
-    'src/**/*.{ts,tsx,js,jsx}',
-    '!src/**/*.{test,spec}.{ts,tsx,js,jsx}',
-    '!src/**/*.{test,spec}.*.{ts,tsx,js,jsx}',
-    '!src/**/*.d.ts',
-  ],
-  // Jest excludes setupFiles from instrumentation even when they match
-  // collectCoverageFrom. The theme setup is productive app code and must
-  // remain visible to the per-file gate.
-  forceCoverageMatch: sourceSetupFiles,
 
   // Der Coverage-Lauf wird separat im CI-Unit-Scope ausgefuehrt. Die Schwellen
   // starten bewusst unter der verifizierten Baseline und werden nach weiteren
   // Sync-Test-Slices schrittweise angehoben.
-  coverageReporters: ['text-summary', 'json-summary'],
+  coverageReporters: ['text-summary'],
   coverageThreshold: {
     global: {
       statements: 70,

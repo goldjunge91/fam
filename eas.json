@@ -7,7 +7,8 @@
   "build": {
     "development": {
       "env": {
-        "FAM_HARNESS_UI": "1"
+        "FAM_HARNESS_UI": "1",
+        "EXPO_PUBLIC_USE_RN_FETCH": "1"
       },
       "environment": "development",
       "bun": "1.3.14",
@@ -30,7 +31,8 @@
     "preview-testflight": {
       "env": {
         "SENTRY_DISABLE_AUTO_UPLOAD": "false",
-        "FAM_HARNESS_UI": "0"
+        "FAM_HARNESS_UI": "0",
+        "EXPO_PUBLIC_USE_RN_FETCH": "1"
       },
       "distribution": "store",
       "autoIncrement": true,
@@ -42,7 +44,8 @@
     },
     "production": {
       "env": {
-        "FAM_HARNESS_UI": "0"
+        "FAM_HARNESS_UI": "0",
+        "EXPO_PUBLIC_USE_RN_FETCH": "1"
       },
       "distribution": "store",
       "autoIncrement": true,

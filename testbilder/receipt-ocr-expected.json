@@ -2,7 +2,7 @@
   "version": 1,
   "sources": [
     {
-      "file": "IMG_4218.HEIC",
+      "file": "IMG_4218.png",
       "market": "EDEKA",
       "total_cents": 3914,
       "items": [
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "file": "IMG_4219.HEIC",
+      "file": "IMG_4219.png",
       "market": "EDEKA",
       "total_cents": 4337,
       "items": [
@@ -48,12 +48,17 @@
       ]
     },
     {
-      "file": "IMG_4220.HEIC",
+      "file": "IMG_4220.png",
       "market": "ROSSMANN",
       "total_cents": 1895,
       "items": [
         { "name": "EINKAUFSTASCHE", "line_total_cents": 199 },
-        { "name": "MORE CHUNKY FLAVOU", "quantity": 2, "line_total_cents": 1998 },
+        {
+          "name": "MORE CHUNKY FLAVOU",
+          "quantity": 2,
+          "unit_price_cents": 999,
+          "line_total_cents": 1998
+        },
         { "name": "ISANA MILDE SEIFE", "line_total_cents": 65 },
         { "name": "PROKUDENT PLAQUE I", "line_total_cents": 179 },
         { "name": "ISANA SEIFE PEACH", "line_total_cents": 65 }
