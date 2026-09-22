@@ -64,6 +64,9 @@ const [projectRoot, envPath, dryRun, easEnvironment] = process.argv.slice(2);
 const values = dotenv.parse(fs.readFileSync(envPath));
 
 const variables = [
+  // Expo SDK 57: Supabase muss auf iOS den stabilen React-Native-Fetch nutzen.
+  { name: 'EXPO_PUBLIC_USE_RN_FETCH', visibility: 'plaintext', defaultValue: '1' },
+
   // Der CLI-Key wird nur vom EAS-Build benötigt und bleibt serverseitig geheim.
   // Lokale Builds laden ihn weiterhin über dotenv aus der lokalen Env-Datei.
   { name: 'POSTHOG_CLI_API_KEY', visibility: 'secret' },
@@ -80,7 +83,7 @@ const optionalVariables = [
   { name: 'EXPO_PUBLIC_ADS_ENABLED', visibility: 'plaintext' },
 ];
 
-const missing = variables.filter(({ name }) => !values[name]?.trim());
+const missing = variables.filter(({ name, defaultValue }) => !defaultValue && !values[name]?.trim());
 if (missing.length > 0) {
   console.error(`Fehler: Diese Variablen fehlen in ${path.relative(projectRoot, envPath) || envPath}:`);
   for (const { name } of missing) console.error(`  - ${name}`);
@@ -92,11 +95,12 @@ const configuredVariables = [
   ...optionalVariables.filter(({ name }) => values[name]?.trim()),
 ];
 
-for (const { name, visibility } of configuredVariables) {
+for (const { name, visibility, defaultValue } of configuredVariables) {
+  const value = defaultValue ?? values[name];
   const args = [
     'env:set',
     '--name', name,
-    '--value', values[name],
+    '--value', value,
     '--environment', easEnvironment,
     '--scope', 'project',
     '--type', 'string',
