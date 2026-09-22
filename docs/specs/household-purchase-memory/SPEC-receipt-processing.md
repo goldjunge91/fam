@@ -66,16 +66,16 @@ src/features/ocr/
 ## 3. Aktuelle Fehler, die diese Spec behebt
 
 1. `expo-ai-kit` `0.17.0` ist installiert und konfiguriert, aber noch nicht mit
-   allen drei Realbildern auf frischen iOS- und Android-Builds abgenommen.
-2. Vorhandene Parser-, Review- und Capture-Tests prüfen TypeScript-Logik und
-   beweisen keine native Bildverarbeitung einer echten Datei.
-3. Die realen Testbilder sind HEIC, während der Capture-Pfad HEIC ablehnt.
-4. Bounding-Boxes werden nicht zur Rekonstruktion von Produkt-/Preisspalten
-   verwendet.
-5. Capture-Drafts überleben einen Relaunch nicht zuverlässig.
-6. Der Review kann Artikel weder hinzufügen noch entfernen.
-7. Erkannter Markttext wird nicht in eine vorhandene `store_id` überführt.
-8. Frühere Build-/Upload-Nachweise wurden fälschlich als OCR-Nachweis
+   allen drei Belegen auf frischen iOS- und Android-Builds abgenommen.
+2. Vorhandene Parser-, Review- und Capture-Tests prüfen TypeScript-Logik; der
+   echte native Bildlauf ist nur über den Realbild-Harness nachgewiesen.
+3. Die verbindlichen lokalen Testvarianten liegen als PNG und JPEG vor. HEIC
+   bleibt ein unterstütztes Eingangsformat und wird vor OCR nach JPEG
+   normalisiert.
+4. Die geometrische Rekonstruktion, kontobezogene Draft-Persistenz und der
+   vollständig korrigierbare Review sind implementiert; ihre vollständige
+   Plattformabnahme mit Save/Relaunch bleibt offen.
+5. Frühere Build-/Upload-Nachweise wurden fälschlich als OCR-Nachweis
    bezeichnet.
 
 ## 4. Input- und Bildvertrag
@@ -353,8 +353,9 @@ Die Capability ist erst funktionsfähig, wenn:
 
 1. Autolinking und Laufzeitverfügbarkeit auf Apple und Android nachgewiesen
    sind.
-2. Alle drei HEIC-Bilder nach bestätigter Provider-/Modellbereitschaft offline
-   erkannt werden.
+2. Alle sechs PNG-/JPEG-Varianten der drei Belege nach bestätigter
+   Provider-/Modellbereitschaft offline erkannt werden. HEIC-Eingänge werden
+   zuvor auf dieselbe JPEG-Arbeitsdatei normalisiert.
 3. Die Reviewwerte mindestens EDEKA/39,14 EUR, EDEKA/43,37 EUR und
    ROSSMANN/18,95 EUR korrekt enthalten.
 4. Sichtbare relevante Artikel/Preise editierbar sind und Nicht-Artikel

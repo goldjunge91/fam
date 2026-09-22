@@ -58,8 +58,8 @@ Inventory oder Shopping List.
 | Capability | Status | Bead/Plan |
 | --- | --- | --- |
 | `receipt-authority` | fachlich umgesetzt; kanonischer Server-, Local-Mirror-, Outbox- und RLS-Vertrag vorhanden, Struktur-Migration noch offen | `fam-qesi.2`, `fam-rfyo` |
-| `receipt-capture` | teilweise vorhanden; HEIC-Normalisierung, persistenter Draft und Relaunch-Resume offen | `fam-mc71`, `fam-qt4m` |
-| `receipt-processing` | in Arbeit; gemeinsame Struktur und Provider eingebaut, aber Importmigration, Realbild-, Layout-, Review- und Cross-Platform-Gates offen | `fam-rfyo`, `fam-n6on`, `fam-tyz6`, `fam-l4gc`, `fam-3bzj`, `fam-swdk` |
+| `receipt-capture` | Implementierung für JPEG/PNG/WebP und HEIC-Normalisierung, kontobezogenen Draft und Relaunch-Resume vorhanden; native Cross-Platform-Abnahme offen | `fam-mc71`, `fam-qt4m`, `fam-swdk` |
+| `receipt-processing` | Implementierung für gemeinsamen Provider, Layout, Parser, Review und Authority-Save vorhanden; Realbild-, Offline- und Cross-Platform-Gates offen | `fam-n6on`, `fam-l4gc`, `fam-3bzj`, `fam-swdk` |
 | `spending-insights` | erster Slice als Receipt-Historie geplant | `fam-qgxy` |
 | `receipt-learning` | nicht Teil der aktuellen Umsetzung | späterer eigener Bead |
 
@@ -122,8 +122,10 @@ liest ausschließlich bestätigte kanonische Daten.
 11. Das Android-Play-Services-Modell darf bei `prepareVision()` einmalig
     Netzwerk benötigen. Die App zeigt Bereitschaft, Vorbereitung, Fehler und
     Retry. Nach bestätigter Bereitschaft funktioniert OCR offline.
-12. Die drei HEIC-Dateien unter `testbilder/` bilden den verbindlichen lokalen
-    Realbildkorpus für iOS und Android.
+12. Die sechs Dateien `IMG_4218.png`/`.jpeg`, `IMG_4219.png`/`.jpeg` und
+    `IMG_4220.png`/`.jpeg` unter `testbilder/` bilden den verbindlichen lokalen
+    Realbildkorpus für iOS und Android. HEIC bleibt ein unterstütztes
+    Benutzereingangsformat und ist kein Testasset-Name.
 13. Die aktuelle Leseoberfläche ist bewusst fokussiert: nach Datum sortierte
     Einkäufe und eine dauerhaft aufrufbare Bon-Detailansicht mit allen
     gespeicherten fachlichen Receipt-Daten, vollständiger Artikelliste,

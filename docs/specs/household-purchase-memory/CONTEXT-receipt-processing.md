@@ -43,21 +43,22 @@ nicht die Verfügbarkeit oder Qualität der nativen OCR.
 - Das Android-OCR-Modell wird über Google Play Services durch
   `prepareVision()` bereitgestellt. Offline-Abnahme beginnt erst nach
   bestätigter Modellbereitschaft.
-- Vorhandene Parser-, Review- und Capture-Tests prüfen TypeScript-Logik, aber
-  nicht die echte native OCR mit Bilddateien.
-- `src/features/ocr/processing/native.ts` setzt fehlende Provider-
-  Confidence derzeit auf `0.75`; der Zielvertrag verlangt dafür `null`.
-- `testbilder/IMG_4218.HEIC`, `IMG_4219.HEIC` und `IMG_4220.HEIC` sind reale
-  4032×3024-Aufnahmen.
+- Vorhandene Parser-, Review- und Capture-Tests prüfen TypeScript-Logik; der
+  echte native OCR-Lauf wird separat über die Realbild-Harnesses abgenommen.
+- `src/features/ocr/processing/native.ts` bewahrt fehlende Provider-Confidence
+  als `null`; es wird kein Ersatzwert erfunden.
+- `testbilder/IMG_4218.png`/`.jpeg`, `IMG_4219.png`/`.jpeg` und
+  `IMG_4220.png`/`.jpeg` sind die realen lokalen Testbildvarianten.
 - Sichtbare Goldanker: EDEKA/39,14 EUR, EDEKA/43,37 EUR,
   ROSSMANN/18,95 EUR.
 - Der aktuelle MIME-Owner akzeptiert nur JPEG, PNG und WebP.
-- Capture-Draft-Metadaten sind nicht dauerhaft persistiert.
-- Review-Items können nicht hinzugefügt oder entfernt werden.
-- Der aktuelle Save übergibt keine erkannte/gewählte `store_id`.
-- Der Parser ignoriert Bounding-Boxes.
-- Eine datumssortierte Receipt-Historie mit Gesamtsumme und Artikelpreisen ist
-  noch nicht als vollständiger Nutzerfluss abgenommen.
+- Capture-Draft-Metadaten werden kontobezogen verschlüsselt persistiert; das
+  laufende Discard wird zwischen Persistence-Instanzen synchronisiert.
+- Review-Items können hinzugefügt, entfernt und bearbeitet werden; der Save
+  übernimmt die ausgewählte bestehende `store_id`.
+- Die geometrische Layout-Rekonstruktion nutzt Bounding-Boxes für Spalten und
+  Zeilen. Die datumssortierte Receipt-Historie ist implementiert, aber noch
+  nicht als vollständiger nativer Nutzerfluss abgenommen.
 - Receipt-Flows dürfen keine Inventory-, Fridge- oder Shopping-List-Mutation
   und keine entsprechende Outbox-Operation erzeugen.
 
@@ -86,9 +87,9 @@ Prüfen:
 
 Laden:
 
-- `testbilder/IMG_4218.HEIC`
-- `testbilder/IMG_4219.HEIC`
-- `testbilder/IMG_4220.HEIC`
+- `testbilder/IMG_4218.png` und `testbilder/IMG_4218.jpeg`
+- `testbilder/IMG_4219.png` und `testbilder/IMG_4219.jpeg`
+- `testbilder/IMG_4220.png` und `testbilder/IMG_4220.jpeg`
 - Processing-Spec: Teststrategie und Datenschutz
 
 Nur minimal nötige Werte transkribieren. Keine Kunden-, Karten-,

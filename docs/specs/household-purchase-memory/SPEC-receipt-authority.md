@@ -246,6 +246,58 @@ und einen Upload-Zustand führen, aber diese Queue ist kein serverweiter
 Receipt-Asset-Sync. Die Anzeige lädt Asset-Metadaten und Signed URLs bei
 Bedarf online. Offline bleibt die strukturierte Receipt-Anzeige nutzbar.
 
+### Parent visibility barrier for asset upload
+
+„Bon speichern“ bezeichnet den strukturierten Bon (`purchase_receipts`) und
+seine Artikelpositionen (`purchase_receipt_items`). Das Foto ist ein separater
+Storage-Upload; dessen Metadaten benötigen den übergeordneten Bon als Parent.
+
+Die Umsetzung und Abnahme werden in Beads unter `fam-p7e2` geführt:
+`fam-p7e2.1` dokumentiert den Vertrag, `fam-p7e2.2` prüft die Reihenfolge und
+Offline-Wiederholung, `fam-p7e2.3` prüft den einzigen nativen Transport.
+Abnahme: Ein verzögerter Sync verhindert bereits das Lesen und Hochladen der
+ersten Bilddatei. Ein Sync-Fehler erhält alle lokalen Seiten; ein späterer
+Versuch wartet erneut genau einmal und lädt die Seiten in Reihenfolge hoch.
+Die native Prüfung muss alle fünf Dateigrößen erfolgreich übertragen.
+Ein grüner Unit-Test ersetzt diesen nativen Nachweis nicht.
+
+Ein lokaler Authority-Commit ist noch kein serverseitig sichtbarer Parent.
+Der Asset-Upload darf deshalb erst nach einem erfolgreichen
+`purchase_receipts`-Push für denselben `household_id` und `receipt_id`
+ausgeführt werden. Die bestehende Upload-Queue bleibt Owner dieses Ablaufs
+und wartet einmal pro Upload-Versuch vor der ersten Seite auf den bestehenden
+Haushaltssync. Owner: `capture/capture/upload-queue.ts`; der Review-Flow
+verdrahtet `triggerHouseholdSyncAfterOutboxMutation`. Es gibt keinen ersten
+fehlgeschlagenen Upload als Auslöser für die Synchronisierung.
+
+Die Sync-Rückgabe bestätigt einen Haushaltslauf, keinen einzelnen Bon.
+Deshalb behält `capture/capture/supabase-upload.ts` seine bestehende Prüfung
+von `purchase_receipts` mit `household_id` und `receipt_id` vor dem Storage-POST.
+Erst eine verbindliche Bestätigung des konkreten Parent-Pushs würde diese
+Abfrage ersetzen. Ein fehlender Parent oder fehlgeschlagener Sync lässt die
+lokalen Bondaten und Bilddateien für einen späteren Versuch bestehen.
+
+Der einzige Bildtransport ist `Uint8Array` über `supabase.storage.upload()`
+und das zentrale `expo/fetch` in `src/lib/backend/supabase/client.ts`.
+Begrenzte Wiederholungen bei vorübergehenden Transportfehlern verwenden
+denselben Transport. Keine direkten Storage-REST- oder Body-Fallbacks.
+Die native Transportprüfung verlangt Erfolg für jede geprüfte Dateigröße.
+
+Der Sync-Owner erfüllt dafür drei Regeln:
+
+1. Ein paralleler Aufrufer desselben Haushalts wartet auf den laufenden
+   Sync-Lauf, statt mit einem verlorenen `null`-Ergebnis abgewiesen zu werden.
+2. Wird eine Outbox-Mutation nach Erstellung des Push-Snapshots geschrieben,
+   garantiert der Owner einen abschließenden Folge-Lauf, bevor ein wartender
+   Parent-Barrier-Aufruf erfolgreich zurückkehrt.
+3. Warte- und Folge-Läufe bleiben auf den angeforderten Account- und
+   Haushaltsscope begrenzt. Ein laufender Lauf eines anderen Scopes darf den
+   Parent-Barrier-Aufruf nicht erfüllen.
+
+Der Barrier-Vertrag ändert weder die Datenbankgrenze noch die FK-/RLS-Regeln:
+`receipt_assets` bleibt ein serverseitiger Index, und ein Storage-Upload ohne
+remote sichtbaren Parent bleibt ein explizit zurückgestellter Fehler.
+
 ## 8. Tech Stack and project structure
 
 - Backend: Supabase Postgres, Auth, Realtime und private Storage-Objekte.
@@ -341,6 +393,13 @@ Phase nicht erforderlich.
 - Insert, Update, Delete und Restore erzeugen die erwartete Outbox-Parität;
 - Pull, Push und Realtime übernehmen strukturierte Daten generisch;
 - Bildbytes landen nie in SQLite oder Outbox.
+- Ein Parent-Barrier-Aufruf wartet auf konkurrierende Sync-Läufe und auf einen
+  erforderlichen Folge-Lauf für Mutationen, die nach dem Push-Snapshot
+  geschrieben wurden.
+- Vor der ersten Seite wird die Barrier einmal abgewartet; währenddessen
+  startet kein Bild-Upload. Ein Sync-Fehler erhält den lokalen Entwurf.
+- Ohne remote Parent bleibt der Upload zurückgestellt; die Queue startet
+  keinen zweiten Sync-Lauf als Reaktion auf einen Uploadfehler.
 
 ## 11. Boundaries for the next modules
 
