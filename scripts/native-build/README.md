@@ -1,14 +1,51 @@
 # Native Build
 
-Alle Befehle in diesem Dokument werden aus dem Repository-Root ausgeführt:
+Die verbindliche Liste erlaubter Einstiege steht in
+[AGENTS.md](../../AGENTS.md#erlaubte-build-einstiege). Alle Befehle in diesem
+Dokument werden aus dem Repository-Root ausgeführt:
 
 ```bash
 cd /Users/marco/Github.tmp/family_app/fam
 ```
 
-Die Native-Build-Scripts verwenden vorhandene Native-Konfiguration, Pods, ccache,
-DerivedData und das feste EAS-Workingdir weiter. Ein Prebuild oder `pod install`
-läuft nur, wenn der Native-Fingerprint oder der CocoaPods-Zustand es verlangt.
+`ios/` und `android/` sind lokale, ignorierte CNG-Ausgaben. Quellen sind
+`app.json`, Dependencies, Assets und Config-Plugins. EAS lädt die nativen
+Verzeichnisse nicht hoch und erzeugt sie im Build selbst. Änderungen gehören
+in diese Quellen, niemals ausschließlich in generierte native Dateien.
+
+Nach Änderungen an nativen Dependencies oder Plugins:
+
+```bash
+# Aktualisiert ios/ mit --no-clean; Pods, Build-Dateien und ccache bleiben erhalten.
+FAM_HARNESS_UI=1 bun run native:prebuild -- --platform ios
+# Android entsprechend:
+FAM_HARNESS_UI=1 bun run native:prebuild -- --platform android
+```
+
+`native:dev` nutzt anschließend Expo `run:*`. Fehlt das native Projekt,
+erzeugt Expo es automatisch. Existiert es bereits, muss es nach nativen
+Änderungen explizit mit `native:prebuild` aktualisiert werden. Für reine
+JS-/TS-Änderungen genügt `bun run start -- --dev-client`.
+
+`withIosCcacheDir.js` erzeugt die Compiler-Wrapper und Podfile-Anpassungen bei
+jedem Prebuild neu und aktiviert `apple.ccacheEnabled` für CocoaPods, auch
+ohne `USE_CCACHE` im aufrufenden Terminal. `CCACHE_DIR` und der Compilerpfad gehören zum Build-Host;
+`CCACHE_BASEDIR` und `CCACHE_CONFIGPATH` werden relativ zum erzeugten Wrapper
+aufgelöst und funktionieren dadurch auch in einer verschobenen EAS-Kopie.
+Ohne lokal konfigurierten ccache bleibt das Plugin inaktiv.
+
+Alle eigenen Prebuild-Einstiege nutzen `--no-clean`, einschließlich Just,
+CI und des geerbten `prebuildCommand` in `eas.json`. Nach dem Entfernen eines
+Plugins können dessen native Änderungen bestehen bleiben und müssen gezielt
+entfernt werden. Ein Clean-Prebuild wird nicht automatisch ausgeführt.
+
+Für schnelle lokale Wiederholungsbuilds vorhandene Projekte über `native:dev`
+bauen. EAS-Local verlangt weiterhin ein leeres
+Arbeitsverzeichnis und erzeugt eine isolierte Projektkopie. Der externe ccache
+bleibt dabei erhalten; EAS-Local ersetzt keinen inkrementellen Xcode-Build.
+
+Quellen: [Expo CNG](https://docs.expo.dev/workflow/continuous-native-generation/),
+[lokale Entwicklung](https://docs.expo.dev/guides/local-app-development/).
 
 ## 1. Status prüfen
 
@@ -46,7 +83,7 @@ ios-development-device
 android-development
 ```
 
-Nur lokales iOS-DerivedData leeren:
+Nur mit ausdrücklicher Freigabe von Marco lokales iOS-DerivedData leeren:
 
 ```bash
 bun run native:dev -- --target ios-development-simulator --no-build-cache
@@ -58,9 +95,6 @@ löscht keine Pods oder native Projekte.
 ## 3. Normaler Rebuild mit Cache
 
 ```bash
-# Preview-TestFlight
-bun run native:rebuild -- --target ios-preview-testflight
-
 # iOS Produktion
 bun run native:rebuild -- --target ios-production
 
@@ -71,48 +105,54 @@ bun run native:rebuild -- --target android-preview
 bun run native:rebuild -- --target android-production
 ```
 
-Bei unveränderter Native-Konfiguration werden Prebuild und unveränderte Pods
-übersprungen. ccache, DerivedData und das feste EAS-Workingdir werden weiter
-verwendet.
+Bei unveränderter Native-Konfiguration werden die lokale Prebuild-Vorbereitung
+und unveränderte Pods übersprungen. EAS-Local benötigt eine frische Arbeitskopie
+unter dem festen Workingdir; externer ccache bleibt erhalten. Der lokale
+TestFlight-Aufruf ist im nächsten Abschnitt beschrieben.
 
 Wenn `native:status -- --diff` einen absichtlichen Native-Drift zeigt, das
 Prebuild einmalig freigeben:
 
 ```bash
 bun run native:rebuild -- \
-  --target ios-preview-testflight \
+  --target ios-production \
   --approve-rebuild
 ```
 
 `--approve-rebuild` ist nur für das notwendige Native-Prebuild erforderlich.
-Nicht bei jedem normalen Build hinzufügen. Das Prebuild verwendet kein
-`--clean`. Auf iOS wird `pod install` nur bei fehlenden oder nicht synchronen
-Pods bzw. geänderten Pod-Eingaben ausgeführt.
+Nicht bei jedem normalen Build hinzufügen. Das Prebuild verwendet
+`--no-clean`. Vorhandene native Projekte und Build-Dateien bleiben erhalten.
+`pod install` läuft nur bei fehlenden/nicht synchronen Pods oder geänderten
+Pod-Eingaben. Bei unveränderten Eingaben werden Prebuild und Pod-Installation
+übersprungen. EAS generiert zusätzlich seine eigene isolierte Kopie.
 
-## 4. TestFlight mit Fastpath und Fallback
+## 4. Lokaler TestFlight-Build
 
-Der einzige öffentliche TestFlight-Einstieg ist der Workflow-Runner:
-
-```bash
-bash .codex/skills/ios-build-workflow/scripts/run-ios-build.sh testflight
-```
-
-Der Ablauf ist:
-
-1. Native-Baseline und vorhandene Artefakte prüfen.
-2. Warmen iOS-Fastpath mit ccache, Pods und Release-DerivedData versuchen.
-3. Nur bei Fastpath-Exit-Code `42` den kontrollierten `native:rebuild` ausführen.
-4. Das frische IPA erneut prüfen und genau dieses IPA hochladen.
-
-Der Fastpath wird nicht direkt aufgerufen. Ein Konfigurationsfehler, zum
-Beispiel eine nicht eingehängte externe Build-Platte, wird nicht still durch
-einen anderen Build ersetzt.
-
-Für Simulator und TestFlight zusammen:
+Den Build über das Projekt-Skript starten:
 
 ```bash
-bash .codex/skills/ios-build-workflow/scripts/run-ios-build.sh both
+bun run native:rebuild -- --target ios-preview-testflight
 ```
+
+Das Target verwendet `eas build --local` und das Profil `preview-testflight`
+aus `eas.json`. Die erzeugte IPA wird mit Fingerprint und SHA-256 in
+`native-build-lock.json` registriert.
+
+Bei Native-Drift zuerst `bun run native:status -- --diff` prüfen. Mit Freigabe
+für das inkrementelle Prebuild:
+
+```bash
+bun run native:rebuild -- --target ios-preview-testflight --approve-rebuild
+```
+
+Das Prebuild verwendet `--no-clean`; vorhandene native Projekte und Caches
+werden nicht durch ein Clean-Prebuild gelöscht.
+
+**Der Build lädt nicht automatisch hoch.** Im interaktiven Terminal bietet das
+Projekt-Skript anschließend den Upload zu App Store Connect an (Standard:
+Nein). Ohne Terminal wird nur der passende Submit-Befehl ausgegeben. Upload
+nur auf entsprechenden Auftrag: entweder die Abfrage bestätigen oder den
+angezeigten Submit-Befehl mit dem Pfad der neu erzeugten IPA verwenden.
 
 ## 5. Registriertes Artefakt verwenden
 
@@ -143,14 +183,22 @@ EAS-Build-ID verwendet.
 ## 7. Baseline aktualisieren
 
 `native:baseline` kompiliert nicht. Es schreibt nur den aktuellen Fingerprint
-der vorhandenen Native-Projekte:
+der deklarativen CNG-Eingaben, auch ohne lokale Native-Projekte:
 
 ```bash
 bun run native:baseline -- --approve-rebuild
 ```
 
 Nur nach einer absichtlichen Native-Änderung verwenden. Nicht verwenden, um
-einen unerklärten Drift zu verstecken.
+einen unerklärten Drift zu verstecken. Für den Release-Graphen
+`FAM_HARNESS_UI=0` verwenden. Eine neue Baseline macht vorhandene Binärartefakte
+nicht gültig: diese behalten ihren ursprünglichen Fingerprint und müssen bei
+abweichenden nativen Eingaben neu gebaut werden.
+
+Die Umstellung von versionierten Native-Projekten auf CNG ändert den
+Fingerprint absichtlich. Nach Freigabe für den Drift den erlaubten Build-Einstieg
+mit `--approve-rebuild` verwenden. Der Projektbefehl für TestFlight steht in
+Abschnitt 4.
 
 ## 8. Laufzeit messen
 
@@ -160,7 +208,7 @@ Laufzeit bereits selbst. Am Ende steht die Dauer im Terminal.
 Für einen beliebigen einzelnen Build-Befehl:
 
 ```bash
-bun run build:timer -- \
+just build-timer \
   --class C \
   --target custom-build \
   -- \

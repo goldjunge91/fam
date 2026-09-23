@@ -13,7 +13,7 @@ describe('native build preparation', () => {
     ).toEqual({ needsPrebuild: false, needsPodInstall: false });
   });
 
-  it('regenerates native inputs when the fingerprint changed', () => {
+  it('updates native inputs without discarding synchronized Pods', () => {
     expect(
       determineNativeBuildPreparation({
         platform: 'ios',
@@ -47,5 +47,17 @@ describe('native build preparation', () => {
         podsAreSynchronized: false,
       }),
     ).toEqual({ needsPrebuild: true, needsPodInstall: false });
+  });
+
+  it('generates missing projects even when the input baseline matches', () => {
+    expect(
+      determineNativeBuildPreparation({
+        platform: 'ios',
+        nativeProjectExists: false,
+        baselineFingerprint: 'same',
+        currentFingerprint: 'same',
+        podsAreSynchronized: false,
+      }),
+    ).toEqual({ needsPrebuild: true, needsPodInstall: true });
   });
 });

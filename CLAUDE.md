@@ -8,13 +8,39 @@ Vor jeder Codeänderung `CONSTRAINTS.md` im Repository-Root lesen. Die dort fest
 
 The rest of this file supplements `AGENTS.md` with commands and architecture detail that file doesn't cover.
 
-## Commands
+## Native builds
+
+Die verbindlichen Regeln und erlaubten Befehle stehen in
+[AGENTS.md: Schnelle native Builds](AGENTS.md#schnelle-native-builds).
+Immer `--no-clean`; vorhandene Projekte, Pods, DerivedData und Compiler-Caches
+weiterverwenden. Keine automatischen Cache-Resets, auch nicht bei Fehlern.
+Unveränderte native Eingaben brauchen kein Prebuild; Pod-Installation nur bei
+geänderten Eingaben oder fehlenden/nicht synchronen Pods. Reine App-JS-/TS-
+Änderungen nutzen Metro. Config-Plugins bleiben idempotent; entfernte Plugin-
+Anpassungen werden gezielt bereinigt. Cache-Löschung nur mit Marcos Freigabe;
+`--approve-rebuild` ist keine Cache-Löschfreigabe. Geschwindigkeitsangaben
+brauchen Zeitmessungen und Cache-Treffer. EAS-Local bleibt ein isolierter Build.
+
+Erlaubte häufige Einstiege aus dem Repository-Root:
 
 ```bash
-bun install && bun start        # Metro starten ('i' iOS, 'a' Android, 'w' Web)
-bun run ios / android / web     # native Targets direkt starten
-bash scripts/ios-dev.sh         # voller Dev-Client-Build+Install+Metro-Flow (siehe --reuse-last, --no-metro, --device)
+bun run start -- --dev-client
+bun run ios:dev
+bun run native:dev -- --target android-development
+bun run native:rebuild -- --target ios-preview-testflight
 ```
+
+Der lokale TestFlight-Build verwendet das Projekt-Skript
+`scripts/native-build/native-build.ts` und das EAS-Profil `preview-testflight`.
+Bei freigegebenem Native-Drift `--approve-rebuild` ergänzen; weiterhin
+`--no-clean`. Der Build lädt nicht automatisch hoch: Im Terminal wird ein
+Upload angeboten (Standard: Nein), ohne Terminal nur der Submit-Befehl
+angezeigt. Upload nur auf entsprechenden Auftrag mit der neu erzeugten IPA.
+Die vollständige Befehlsliste, Geräte-/Release-Targets und Vorbereitung stehen
+in AGENTS.md. Bedienreferenz:
+[scripts/native-build/README.md](scripts/native-build/README.md).
+
+## Commands
 
 Quality gate vor jedem Commit (siehe auch AGENTS.md "Verification"):
 

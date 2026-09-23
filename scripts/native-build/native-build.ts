@@ -63,8 +63,7 @@ export function determineNativeBuildPreparation({
 
   return {
     needsPrebuild,
-    // A native config update does not automatically mean that CocoaPods
-    // changed. The Podfile/lock pair is checked again after prebuild below.
+    // Incremental Prebuild preserves Pods; changed Pod inputs are checked after it.
     needsPodInstall: platform === 'ios' && !podsAreSynchronized,
   };
 }
@@ -366,18 +365,6 @@ function runCapture(program: string, commandArgs: string[]): string {
   return result.stdout;
 }
 
-function assertNativeDirectories(platforms: readonly Platform[] = nativePlatformsForHost()): void {
-  for (const platform of platforms) {
-    if (!existsSync(join(PROJECT_ROOT, platform))) {
-      fail(`Native Projekt fehlt: ${platform}/. Es darf nicht automatisch erzeugt werden.`);
-    }
-  }
-}
-
-function availableNativePlatforms(): readonly Platform[] {
-  return nativePlatformsForHost().filter((platform) => existsSync(join(PROJECT_ROOT, platform)));
-}
-
 function iosPodsAreSynchronized(): boolean {
   const podsDirectory = join(PROJECT_ROOT, 'ios', 'Pods');
   const podfileLock = join(PROJECT_ROOT, 'ios', 'Podfile.lock');
@@ -434,7 +421,6 @@ async function assertNativeBaseline(
   lock: NativeBuildLock,
   platforms: readonly Platform[] = nativePlatformsForHost(),
 ): Promise<Partial<Record<Platform, NativeFingerprint>>> {
-  assertNativeDirectories(platforms);
   const current = Object.fromEntries(
     await Promise.all(
       platforms.map(async (platform) => [platform, await fingerprint(platform)] as const),
@@ -484,16 +470,7 @@ function assertArtifact(
 
 async function status(): Promise<void> {
   const lock = readLock();
-  const hostPlatforms = nativePlatformsForHost();
-  const platforms = availableNativePlatforms();
-  for (const platform of hostPlatforms) {
-    if (!platforms.includes(platform)) {
-      console.warn(`  Baselineprüfung übersprungen: ${platform}/ ist nicht ausgecheckt.`);
-    }
-  }
-  if (platforms.length === 0) {
-    fail('Kein natives Projekt ausgecheckt. Mindestens ios/ oder android/ wird benötigt.');
-  }
+  const platforms = nativePlatformsForHost();
   const current = await assertNativeBaseline(lock, platforms);
   log('Native Baseline ist unverändert.');
 
@@ -510,7 +487,10 @@ async function status(): Promise<void> {
     }
     const currentFingerprint = current[TARGETS[targetName].platform];
     if (!currentFingerprint) {
-      fail(`Kein aktueller Fingerprint für ${TARGETS[targetName].platform} verfügbar.`);
+      console.warn(
+        `  Artefaktprüfung übersprungen: ${targetName} gehört zu einer anderen Host-Plattform.`,
+      );
+      continue;
     }
     const artifactPath = join(PROJECT_ROOT, targetLock.relativePath);
     if (!existsSync(artifactPath)) {
@@ -538,7 +518,6 @@ async function baseline(): Promise<void> {
     fail(`Baseline-Schreibvorgang benötigt '--approve-rebuild'.`);
   }
   const platforms = nativePlatformsForHost();
-  assertNativeDirectories(platforms);
   const fingerprints = await Promise.all(
     platforms.map(async (platform) => [platform, await fingerprintFull(platform)] as const),
   );
@@ -714,13 +693,11 @@ async function rebuild(): Promise<void> {
         ? `Native-Konfiguration geändert — aktualisiere ${target.platform}/ einmalig...`
         : `Explizites Native-Prebuild für ${target.platform}/...`,
     );
-    // Kein --clean: Das versionierte native Projekt und DerivedData bleiben
-    // als Arbeitsgrundlage erhalten. Ein Clean-Prebuild würde bei jedem
-    // freigegebenen Drift unnötig den lokalen Inner Loop zerlegen.
+    // Keep generated projects and build caches; update only the native configuration.
     await timedPhase('prebuild', () =>
       run(
         'bunx',
-        ['expo', 'prebuild', '--platform', target.platform, '--no-install'],
+        ['expo', 'prebuild', '--no-clean', '--platform', target.platform, '--no-install'],
         buildEnvironment,
       ),
     );
@@ -938,7 +915,6 @@ const DEV_TARGETS: readonly TargetName[] = [
 ];
 
 async function warnOnBaselineMismatch(platform: Platform): Promise<void> {
-  assertNativeDirectories([platform]);
   if (!existsSync(LOCK_PATH)) {
     console.warn(
       'Native Build Lock: keine Baseline vorhanden — native:dev läuft trotzdem (Inner Loop blockiert nicht).',
@@ -951,7 +927,8 @@ async function warnOnBaselineMismatch(platform: Platform): Promise<void> {
     console.warn(
       `Native Build Lock: ${platform}-Fingerprint weicht von der Baseline ab (Inner Loop, keine Blockade). ` +
         `Erwartet: ${expected?.hash ?? '(nicht gesetzt)'}, aktuell: ${current.hash}. ` +
-        `Baseline danach mit 'bun run native:baseline -- --approve-rebuild' aktualisieren; Quelle finden mit 'bun run native:status -- --diff'.`,
+        `Bei nativen Änderungen zuerst 'bun run native:prebuild -- --platform ${platform}' ausführen. ` +
+        `Baseline erst danach aktualisieren; Quelle finden mit 'bun run native:status -- --diff'.`,
     );
   }
 }
@@ -967,11 +944,8 @@ async function runDev(): Promise<void> {
   await warnOnBaselineMismatch(target.platform);
 
   const device = parseValue('--device');
-  // Bewusst kein 'prebuild --clean' und kein bedingungsloses 'pod install'
-  // davor (das war B3: eas build --local erzwingt bei jedem Lauf Klasse C).
-  // expo run:* nutzt DerivedData/Gradle inkrementell weiter und ist der
-  // einzige lokale Pfad, der den bereits konfigurierten EAS-Build-Cache-
-  // Provider überhaupt bedient (siehe Plan, Befund B2/B3, Phase 2).
+  // Expo generates missing native projects. Existing projects are reused;
+  // after config/plugin/dependency changes run native:prebuild explicitly.
   const commandArgs =
     target.platform === 'ios' ? ['expo', 'run:ios', '--scheme', 'fam'] : ['expo', 'run:android'];
   if (device) commandArgs.push('--device', device);
@@ -1032,6 +1006,7 @@ function printHelp(): void {
 Native Build Lock
 
   bun run native:status
+  bun run native:prebuild -- --platform ios                  # CNG: aktualisiert ios/ mit --no-clean
   bun run native:status -- --diff        # bei Mismatch die abweichende Fingerprint-Quelle anzeigen
   bun run native:baseline -- --approve-rebuild
   bun run native:dev -- --target <dev-target> [--device <name>] [--no-build-cache]   # Inner Loop, expo run:*, Lock blockiert nicht

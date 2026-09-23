@@ -2,6 +2,8 @@ const { SourceSkips } = require('expo/fingerprint');
 
 /** @type {import('expo/fingerprint').Config} */
 const config = {
+  // CNG outputs are never inputs, including before removal from Git's index.
+  ignorePaths: ['ios/**/*', 'android/**/*'],
   fileHookTransform(source, chunk) {
     // Dev-only seed commands cannot change the native binary.
     if (
@@ -33,7 +35,6 @@ const config = {
   sourceSkips:
     SourceSkips.PackageJsonAndroidAndIosScriptsIfNotContainRun | // Default von @expo/fingerprint, explizit gehalten
     SourceSkips.ExpoConfigVersions | // version/buildNumber/versionCode ändern kein kompiliertes Verhalten
-    SourceSkips.ExpoConfigNames | // Anzeigename/Beschreibung, nur Plist/Manifest-Metadaten
     SourceSkips.ExpoConfigEASProject | // EAS-Projekt-ID/Owner, reine Cloud-Metadaten
     SourceSkips.ExpoConfigExtraSection, // "extra"-Feld ist nur zur Laufzeit über expo-constants sichtbar, nicht kompiliert
 };

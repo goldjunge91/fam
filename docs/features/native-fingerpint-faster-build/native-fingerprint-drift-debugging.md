@@ -1,5 +1,10 @@
 # Native-Fingerprint-Drift (ios) — Debugging & Root Cause
 
+> Historischer Verlauf vor CNG. Seit 2026-09-23 sind `ios/` und `android/`
+> generierte, ignorierte Ausgaben; Pods und Xcode-Dateien sind keine
+> Fingerprint-Eingaben mehr. Aktuelle Befehle und ccache-Pfadauflösung:
+> [Native Build](../../../scripts/native-build/README.md).
+
 ## Symptom
 
 `bun run native:status` (bzw. die Native-Build-Lock-GUI, `tools/build-gui/build_gui.py`) meldet einen ios-Fingerprint-Mismatch, obwohl `app.json`, `package.json`, `bun.lock` und alle git-getrackten Dateien unter `ios/`/`android/` byte-identisch zum Baseline-Commit sind:

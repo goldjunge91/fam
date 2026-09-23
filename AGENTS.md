@@ -144,10 +144,88 @@ The rest of this document is meant to help you navigate the codebase and make ch
 
 ```
 
+## Schnelle native Builds
+
+- Jeder Prebuild verwendet ausdrücklich `--no-clean`, auch in CI und EAS.
+- Vorhandene native Projekte, Pods, DerivedData sowie Gradle- und
+  ccache-Caches werden weiterverwendet. Kein automatisches Löschen bei Fehlern.
+- Bei unveränderten nativen Eingaben wird Prebuild übersprungen. `pod install`
+  läuft nur bei fehlenden oder nicht synchronen Pods beziehungsweise geänderten
+  Pod-Eingaben. Das entscheidet `scripts/native-build/native-build.ts`.
+- JS-/TS-Änderungen benötigen keinen nativen Neubuild, sofern sie keine nativen
+  Build-Eingaben wie Config-Plugins verändern. Dafür Metro/Fast Refresh nutzen.
+- Native Anpassungen gehören in App-Konfiguration oder idempotente
+  Config-Plugins. Wiederholtes Prebuild darf keine doppelten Einträge erzeugen.
+- Beim Entfernen eines Plugins werden dessen native Änderungen gezielt entfernt.
+- Für lokale Entwicklung wird `native:dev` verwendet. EAS-Local bleibt der
+  isolierte Distributionsbuild; seine frische Arbeitskopie ist kein
+  inkrementeller Xcode-/Gradle-Build. Externe Compiler-Caches bleiben erhalten.
+- Ein vollständiger Reset oder das Löschen von Caches erfordert Marcos
+  ausdrückliche Freigabe. Das gilt auch für `--no-build-cache` und Clean-Flags;
+  `--approve-rebuild` erteilt keine Freigabe zum Löschen von Caches.
+- Aussagen über schnellere Builds werden durch vergleichbare Zeitmessungen
+  und Cache-Treffer belegt.
+
+### Erlaubte Build-Einstiege
+
+Die folgenden Befehle werden aus dem Repository-Root verwendet. Die Liste
+legt den Einstieg fest; sie ist keine pauschale Freigabe, Builds oder Uploads
+ohne entsprechenden Auftrag zu starten.
+
+| Zweck | Erlaubter Befehl |
+| --- | --- |
+| JS-/TS-Entwicklung mit vorhandenem Dev Client | `bun run start -- --dev-client` |
+| Laufende iOS-Simulator-Entwicklung | `bun run ios:dev` (Env-Alias für `native:dev`) oder `bun run native:dev -- --target ios-development-simulator` |
+| iOS-Geräteentwicklung | `bun run native:dev -- --target ios-development-device --device "<Gerätename>"` |
+| Android-Entwicklung | `bun run native:dev -- --target android-development` |
+| Lokaler TestFlight-Build | `bun run native:rebuild -- --target ios-preview-testflight` |
+| Weitere Distributionsbuilds | `bun run native:rebuild -- --target <target>`; `ios-production`, `android-preview` oder `android-production` |
+| Native Konfiguration aktualisieren | `bun run native:prebuild -- --platform <platform>`; `ios` oder `android`, mit `FAM_HARNESS_UI=1` für Development bzw. `0` für Release |
+
+`native:status`, `native:status -- --diff`, `native:baseline`, `native:run`
+und `native:restore` bleiben die Diagnose-/Artefaktbefehle gemäß dem folgenden
+Abschnitt. Die Projekt-Buildbefehle sind in `package.json` definiert und werden
+von `scripts/native-build/native-build.ts` ausgeführt.
+
+### Lokalen TestFlight-Build starten
+
+Aus dem Repository-Root:
+
+```bash
+bun run native:rebuild -- --target ios-preview-testflight
+```
+
+Das Projekt-Skript baut mit `eas build --local` und dem Profil
+`preview-testflight` aus `eas.json`. Es registriert die erzeugte IPA samt
+Fingerprint und SHA-256 in `native-build-lock.json`.
+
+Bei Native-Drift zuerst `bun run native:status -- --diff` auswerten. Nach
+Freigabe für das notwendige inkrementelle Prebuild:
+
+```bash
+bun run native:rebuild -- --target ios-preview-testflight --approve-rebuild
+```
+
+Auch dieser Pfad verwendet `--no-clean`; das Flag erlaubt keine Cache-Löschung.
+Build und Upload sind getrennt: Im interaktiven Terminal fragt das Skript nach
+dem Build nach einem Upload zu App Store Connect (Standard: Nein). Ohne
+interaktives Terminal gibt es nur den passenden Submit-Befehl aus. Ein Upload
+wird nur auf entsprechenden Auftrag ausgeführt, mit der im aktuellen Build
+erzeugten IPA. Dafür kann die Upload-Abfrage bestätigt oder der ausgegebene
+`eas submit --platform ios --profile preview-testflight --path ...`-Befehl
+verwendet werden.
+
 ## Native Fingerprint & Build Lock
 
-`ios/` und `android/` sind versionierte native Projekte. `native-build-lock.json`
-enthält eine `@expo/fingerprint`-Baseline je Plattform und optional lokal
+`ios/` und `android/` sind ignorierte, generierte CNG-Ausgaben. Quellen sind
+App-Konfiguration, Dependencies, Assets und Config-Plugins. EAS generiert die
+nativen Projekte selbst; direkte native Änderungen sind nicht dauerhaft.
+`bun run native:prebuild -- --platform ios|android` aktualisiert sie immer mit
+`--no-clean`. Vorhandene native Projekte, Pods und Build-Dateien bleiben erhalten.
+Kein automatisches Löschen nativer Projekte; entfernte Plugin-Anpassungen werden
+gezielt bereinigt. Bei Dev-Builds
+`FAM_HARNESS_UI=1`, beim Release-Graphen `FAM_HARNESS_UI=0` verwenden. `native-build-lock.json`
+enthält eine `@expo/fingerprint`-Baseline der CNG-Eingaben je Plattform und optional lokal
 vorhandene native Artefakte mit SHA-256-Prüfung. Die Baseline wird pro Host
 gepflegt: macOS berechnet iOS, Windows und Linux Android. Ein Eintrag der
 anderen Plattform bleibt dabei erhalten.
@@ -162,28 +240,30 @@ Die wichtigsten Befehle und ihr Sperrverhalten:
   fehl; fehlende lokale Artefakte werden nur gemeldet.
 - `bun run native:baseline -- --approve-rebuild` schreibt die Baseline der
   verfügbaren Host-Plattform. Der Befehl kompiliert nicht. Erst nach
-  abgeschlossenem `expo prebuild` und, auf iOS, `pod install` ausführen. Eine
+  geprüftem inkrementellen Prebuild ausführen; native Ausgaben sind keine Hash-Eingaben. Eine
   neue Baseline aktualisiert registrierte Artefakte nicht automatisch.
 - `bun run native:status -- --diff` zeigt bei einem Mismatch die abweichenden
   Fingerprint-Sources, sofern ein lokaler Snapshot unter
   `.native-fingerprint-cache/` vorhanden ist.
 - `bun run native:dev -- --target <dev-target>` nutzt den Inner Loop über
-  `expo run:*`. Ein Mismatch wird sichtbar gewarnt, blockiert den Development-
+  `expo run:*`, das fehlende native Projekte erzeugt. Nach nativen Änderungen
+  an vorhandenen Projekten zuerst `native:prebuild` ausführen. Ein Mismatch
+  wird sichtbar gewarnt, blockiert den Development-
   Build aber nicht. Gültige Targets sind `ios-development-simulator`,
   `ios-development-device` und `android-development`.
 - `bun run native:rebuild -- --target <target>` ist der lokale EAS-Pfad
-  (`eas build --local`). Er verwendet Native-Konfiguration, Pods, Ccache und
-  das feste EAS-Workingdir wieder und registriert das Artefakt. Nur wenn ein
-  Native-Fingerprint-Drift ein Prebuild verlangt, ist einmalig
+  (`eas build --local`). Er bereitet vorhandene lokale Native-Projekte/Pods
+  inkrementell vor und registriert das Artefakt. EAS selbst benötigt eine
+  frische Arbeitskopie unter dem festen Workingdir; externer ccache bleibt erhalten. Nur wenn ein
+  Native-Fingerprint-Drift ein inkrementelles Prebuild verlangt, ist einmalig
   `--approve-rebuild` nötig.
 - `bun run native:run -- --target <target>` verwendet ausschließlich ein
   registriertes und unverändertes Artefakt. Es kompiliert nicht automatisch.
   `native:restore` kann ein passendes EAS-Artefakt wiederherstellen.
 
-Ein neuer Fingerprint ist zu erwarten, wenn sich native Compile-Eingaben
+Ein neuer Fingerprint ist zu erwarten, wenn sich deklarative native Eingaben
 ändern, insbesondere:
 
-- native Dateien unter `ios/` oder `android/`;
 - native Dependencies, Lockfile oder Config-Plugins;
 - native relevante Optionen in `app.json` oder `app.config.*`;
 - `package.json`-Scripts, die einen nativen Lauf beeinflussen, sowie der Inhalt

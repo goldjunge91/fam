@@ -1,80 +1,58 @@
-import { spawnSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { createNativeBuildFixture } from './native-build-fixture';
 
-type CommandResult = {
-  output: string;
-  status: number | null;
-};
+let fixture: ReturnType<typeof createNativeBuildFixture>;
+beforeAll(() => {
+  fixture = createNativeBuildFixture();
+});
+afterAll(() => {
+  rmSync(fixture.root, { recursive: true, force: true });
+});
 
-const projectRoot = resolve(__dirname, '..');
-
-function runNative(...arguments_: string[]): CommandResult {
-  const result = spawnSync('bun', ['scripts/native-build/native-build.ts', ...arguments_], {
-    cwd: projectRoot,
-    encoding: 'utf8',
-    env: { ...process.env, EXPO_NO_DOTENV: '1', FAM_HARNESS_UI: '0' },
-  });
-
-  return {
-    output: `${result.stdout ?? ''}${result.stderr ?? ''}`,
-    status: result.status,
-  };
-}
-
-describe('native build baseline', () => {
-  it('excludes only dev seed commands from the native fingerprint', () => {
+describe('native build baseline with CNG', () => {
+  it('excludes only dev seed commands from the script fingerprint', () => {
     const config = jest.requireActual('../fingerprint.config.js') as {
-      fileHookTransform: (
-        source: { type: 'contents'; id: string },
-        chunk: string,
-      ) => string;
+      fileHookTransform: (source: { type: 'contents'; id: string }, chunk: string) => string;
     };
-    const scripts = JSON.stringify({
-      start: 'expo start',
-      'seed:glp1': 'bun scripts/glp1-seed.ts',
-      'test:unit': 'jest',
-    });
-
     expect(
       JSON.parse(
-        config.fileHookTransform({ type: 'contents', id: 'packageJson:scripts' }, scripts),
+        config.fileHookTransform(
+          { type: 'contents', id: 'packageJson:scripts' },
+          JSON.stringify({
+            start: 'expo start',
+            'seed:glp1': 'bun scripts/glp1-seed.ts',
+            'test:unit': 'jest',
+          }),
+        ),
       ),
     ).toEqual({ start: 'expo start', 'test:unit': 'jest' });
   });
 
-  it('contains the generated iOS and Android baseline', () => {
-    const lock = JSON.parse(
-      readFileSync(resolve(projectRoot, 'native-build-lock.json'), 'utf8'),
-    ) as {
-      schemaVersion: number;
-      nativeFingerprints: Record<string, { hash: string; expoSdk: string }>;
-      artifacts: Record<string, unknown>;
-    };
+  it('creates and checks an input baseline in a fresh checkout without native directories', () => {
+    const baseline = fixture.native('baseline', '--approve-rebuild');
+    expect(baseline).toEqual(expect.objectContaining({ status: 0 }));
+    const status = fixture.native('status');
+    expect(status.output).toContain('Native Baseline ist unverändert.');
+    expect(status.status).toBe(0);
+  }, 60_000);
 
-    expect(lock.schemaVersion).toBe(1);
-    expect(lock.nativeFingerprints.ios.hash).toMatch(/^[a-f0-9]{40}$/);
-    expect(lock.nativeFingerprints.android.hash).toMatch(/^[a-f0-9]{40}$/);
-    const packageJson = JSON.parse(
-      readFileSync(resolve(projectRoot, 'package.json'), 'utf8'),
-    ) as { dependencies: { expo: string } };
-    const expectedExpoSdk = packageJson.dependencies.expo.replace(/^[~^<>= ]+/, '');
-    expect(lock.nativeFingerprints.ios.expoSdk).toBe(expectedExpoSdk);
-    expect(lock.nativeFingerprints.android.expoSdk).toBe(expectedExpoSdk);
-    expect(lock.artifacts).not.toHaveProperty('ios-development-simulator');
-  });
+  it('ignores generated outputs but detects a config-plugin change', () => {
+    for (const platform of ['ios', 'android']) {
+      mkdirSync(join(fixture.root, platform), { recursive: true });
+      writeFileSync(join(fixture.root, platform, 'generated.txt'), 'host-specific output');
+    }
+    expect(fixture.native('status').status).toBe(0);
+    const plugin = join(fixture.root, 'plugins/withAndroidGradleTuning.js');
+    writeFileSync(plugin, 'module.exports = config => config;\n');
+    const changed = fixture.native('status');
+    expect(changed.status).toBe(1);
+    expect(changed.output).toContain('Fingerprint stimmt nicht mit dem Lock überein');
+  }, 60_000);
 
-  it('accepts the unchanged native baseline', () => {
-    const result = runNative('status');
-
-    expect(result.status).toBe(0);
-    expect(result.output).toContain('Native Baseline ist unverändert.');
-  });
-
-  it('blocks rebuilds without explicit approval', () => {
-    const result = runNative('rebuild', '--target', 'ios-development-simulator');
-
+  it('blocks a rebuild needing regeneration without explicit approval', () => {
+    const result = fixture.native('rebuild', '--target', 'ios-development-simulator');
     expect(result.status).toBe(1);
     expect(result.output).toContain("'--approve-rebuild'");
-  });
+  }, 60_000);
 });
