@@ -37,16 +37,29 @@ export async function uploadAvatarImage(localUri: string): Promise<string> {
 
     const path = `${user.id}/avatar.jpg`;
 
-    const { error } = await supabase.storage.from('avatars').upload(path, bytes, {
-      contentType: 'image/jpeg',
-      upsert: true,
-    });
+    const storage = supabase.storage.from('avatars');
+    const upload = () => storage.upload(path, bytes, { contentType: 'image/jpeg', upsert: true });
+    let { error } = await upload();
+
+    // iOS can lose the HTTP response. Repeat the same upsert and require confirmation;
+    // an existing object alone could still be the previous avatar.
+    for (const delayMs of [250, 750]) {
+      if (
+        error?.name !== 'StorageUnknownError' ||
+        !/fetch failed|network request failed|parsen der antwort|cannot parse response/iu.test(
+          error.message,
+        )
+      ) {
+        break;
+      }
+      await new Promise((resolve) => setTimeout(resolve, delayMs));
+      ({ error } = await upload());
+    }
 
     if (error) throw error;
 
     // Stable locator only. AvatarImage resolves a short-lived signed URL for display.
     return `${env.supabaseUrl}/storage/v1/object/authenticated/avatars/${path}`;
-    // return `${env.supabaseUrl}/storage/v1/object/authenticated/${AVATAR_BUCKET}/${path}?t=${Date.now()}`;
   } catch (error: unknown) {
     debugError('[AvatarUpload] Upload fehlgeschlagen', error);
     throw new Error('Profilbild konnte nicht hochgeladen werden. Bitte versuche es erneut.', {

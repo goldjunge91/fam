@@ -33,6 +33,7 @@ describe.each([
 ])('uploadAvatarImage (%s)', (_platform, upload, suffix) => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockUpload.mockReset();
     mockBytes.mockResolvedValue(new Uint8Array([1, 2, 3]));
     mockGetUser.mockResolvedValue({ data: { user: { id: 'user-1' } }, error: null });
   });
@@ -79,4 +80,50 @@ describe.each([
       expect(mockUpload).not.toHaveBeenCalled();
     },
   );
+});
+
+describe('iOS avatar upload transport recovery', () => {
+  const transportError = Object.assign(
+    new Error('fetch failed: UnexpectedException: Parsen der Antwort nicht möglich'),
+    { name: 'StorageUnknownError' },
+  );
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+    mockUpload.mockReset();
+    mockBytes.mockResolvedValue(new Uint8Array([1, 2, 3]));
+    mockGetUser.mockResolvedValue({ data: { user: { id: 'user-1' } }, error: null });
+  });
+
+  it('retries the same image after a native response failure and requires upload confirmation', async () => {
+    mockUpload
+      .mockResolvedValueOnce({ error: transportError })
+      .mockResolvedValueOnce({ error: null });
+
+    await expect(uploadAvatarImage('file:///local/avatar.jpg')).resolves.toContain(
+      '/authenticated/avatars/user-1/avatar.jpg',
+    );
+    expect(mockUpload).toHaveBeenCalledTimes(2);
+    expect(mockUpload.mock.calls[1]).toEqual(mockUpload.mock.calls[0]);
+    expect(mockBytes).toHaveBeenCalledTimes(1);
+  });
+
+  it('stops after three failed attempts and preserves the transport error', async () => {
+    mockUpload.mockResolvedValue({ error: transportError });
+
+    await expect(uploadAvatarImage('file:///local/avatar.jpg')).rejects.toMatchObject({
+      cause: transportError,
+    });
+    expect(mockUpload).toHaveBeenCalledTimes(3);
+  });
+
+  it('does not retry a rejected storage request', async () => {
+    const error = Object.assign(new Error('Upload nicht erlaubt'), { name: 'StorageApiError' });
+    mockUpload.mockResolvedValue({ error });
+
+    await expect(uploadAvatarImage('file:///local/avatar.jpg')).rejects.toMatchObject({
+      cause: error,
+    });
+    expect(mockUpload).toHaveBeenCalledTimes(1);
+  });
 });
