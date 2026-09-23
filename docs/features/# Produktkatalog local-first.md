@@ -1,5 +1,11 @@
 # Produktkatalog local-first und UI sauber trennen
 
+> **Status:** Umgesetzt. Dieses Dokument hält den Entwurfsstand vor dem
+> Refactor fest. Maßgeblich für das aktuelle Verhalten sind `CONTEXT.md`,
+> `src/features/product-search/product-catalog.ts` und die fokussierten Tests.
+> Gegenwartsformulierungen unter „Zusammenfassung“ beschreiben den damaligen
+> Ausgangszustand.
+
 ## Zusammenfassung
 
 Die Beobachtung stimmt teilweise:

@@ -2,14 +2,17 @@
 
 Diese Seite ist die Landkarte für die Projekt-Dokumentation. Sie trennt
 verbindliche Quellen, aktuelle Produkt- und Architekturunterlagen sowie
-historisches Arbeitsmaterial. Bei Widersprüchen sind deklarative
-Datenbankschemas, Quellcode und gezielte Tests die technische Referenz.
+historisches Arbeitsmaterial. Verträge und ADRs beschreiben den beabsichtigten
+Zustand; deklarative Datenbankschemas, Quellcode und gezielte Tests belegen den
+aktuellen technischen Zustand.
 
 ## Einstieg
 
-- [Projektkontext](../CONTEXT.md) – Domänenbegriffe, Eigentümerschaft und
+- [AGENTS.md](../AGENTS.md) – Arbeitsweise, Tooling und Beitragsprozess.
+- [Qualitätsvertrag](../CONSTRAINTS.md) – verbindliche Qualitätsgrenzen und
+  Nachweise.
+- [Projektkontext](../CONTEXT.md) – Domänensprache, Datenbesitz und
   Architekturgrenzen.
-- [AGENTS.md](../AGENTS.md) – verbindliche Arbeitsregeln für Agents und Beiträge.
 - [ADRs](adr/README.md) – dauerhafte Architekturentscheidungen und ihre
   Begründungen.
 - [Developer Guide](architecture/DEVELOPER_GUIDE.md) – Setup, Arbeitsabläufe,

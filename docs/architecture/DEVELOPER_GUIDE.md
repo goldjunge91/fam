@@ -6,9 +6,10 @@ Development Builds. Expo Go wird wegen SQLite, Kamera, SecureStore und
 Notifications nicht verwendet.
 
 Die vollständige Dokumentationslandkarte steht in
-[docs/README.md](../README.md). Domänenbegriffe und Eigentümerschaft stehen in
-[`CONTEXT.md`](../../CONTEXT.md), verbindliche Agent-Regeln in
-[`AGENTS.md`](../../AGENTS.md).
+[docs/README.md](../README.md). Arbeitsweise und Tooling stehen in
+[`AGENTS.md`](../../AGENTS.md), verbindliche Qualitätsgrenzen in
+[`CONSTRAINTS.md`](../../CONSTRAINTS.md) und Domänensprache sowie Datenbesitz in
+[`CONTEXT.md`](../../CONTEXT.md).
 
 ## Schnellstart
 

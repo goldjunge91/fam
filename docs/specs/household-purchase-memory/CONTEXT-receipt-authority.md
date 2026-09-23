@@ -45,12 +45,13 @@ Verantwortungsbereiche.
 - docs/ideas/haushalts-einkaufsgedaechtnis.md: Produktinput vor der Spec,
   nicht die Implementierungsquelle.
 
-### Nicht als aktuellen Projektkontext verwenden
+### Zusammenspiel mit dem Root-Kontext
 
-Die Root-Datei CONTEXT.md trägt aktuell selbst den Status veraltet. Sie wird
-nicht in Task-Kontext eingespeist und nicht stillschweigend auf aktuell gesetzt.
-Ihre Domänenbegriffe dürfen nur verwendet werden, wenn sie durch AGENTS.md,
-die freigegebene Spec oder aktuellen Code bestätigt sind.
+Die Root-Datei `CONTEXT.md` besitzt die projektweite Domänensprache und
+Datenverantwortung. Dieser Task-Kontext präzisiert sie ausschließlich für die
+Receipt Authority. Bei einer echten fachlichen Abweichung wird zuerst der
+Root-Kontext oder ein ADR aktualisiert; die Task-Spezifikation überschreibt ihn
+nicht stillschweigend.
 
 ## Shared contract
 
