@@ -51,8 +51,12 @@ describe('private avatar display', () => {
     const view = await render(tree());
     expect(mockSign).toHaveBeenCalledWith('owner/avatar.jpg', 300);
     await waitFor(() =>
-      expect(screen.getByLabelText('Avatar')).toHaveProp('source',
-        expect.arrayContaining([expect.objectContaining({ uri: 'https://example.supabase.co/signed' })])),
+      expect(screen.getByLabelText('Avatar')).toHaveProp(
+        'source',
+        expect.arrayContaining([
+          expect.objectContaining({ uri: 'https://example.supabase.co/signed' }),
+        ]),
+      ),
     );
     mockUserId = undefined;
     await view.rerender(tree());

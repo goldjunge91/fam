@@ -156,7 +156,7 @@ export function EditProfileScreen() {
       if (!localUri) return;
 
       setUploadingImage(true);
-      const remoteUrl = await uploadAvatarImage(userId, localUri);
+      const remoteUrl = await uploadAvatarImage(localUri);
 
       // Direkt im Profil persistieren
       const { error } = await updateProfile(userId, { avatarUrl: remoteUrl });

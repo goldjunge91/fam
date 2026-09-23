@@ -22,14 +22,23 @@ export async function pickAvatarImage(): Promise<string | null> {
   return result.assets[0].uri;
 }
 
-export async function uploadAvatarImage(userId: string, localUri: string): Promise<string> {
+export async function uploadAvatarImage(localUri: string): Promise<string> {
   try {
+    const supabase = getSupabase();
+    const {
+      data: { user },
+      error: userError,
+    } = await supabase.auth.getUser();
+
+    if (userError || !user) {
+      throw userError ?? new Error('Not authenticated');
+    }
     const { File } = require('expo-file-system') as typeof import('expo-file-system');
     const bytes = await new File(localUri).bytes();
 
-    const path = `${userId}/avatar.jpg`;
-    const { error } = await getSupabase()
-      .storage.from(AVATAR_BUCKET)
+    const path = `${user.id}/avatar.jpg`;
+    const { error } = await supabase.storage
+      .from(AVATAR_BUCKET)
       .upload(path, bytes, { contentType: 'image/jpeg', upsert: true });
 
     if (error) throw error;
