@@ -13,34 +13,43 @@ Die vollständige Dokumentationslandkarte steht in
 
 ## Schnellstart
 
-### Bun-Version prüfen und lokal einrichten
+### App-Scripts und zusätzliche Befehle
 
-Die kanonische Bun-Version steht ausschließlich in `package.json` im
-Repository-Root unter `packageManager`. Der projektlokale Helper liest diesen
-Wert auch aus den beiden Tool-Verzeichnissen und vergleicht ihn mit der gerade
-ausgeführten Bun-Laufzeit:
+`package.json` enthält die zentralen App-, Build-, Datenbank- und CI-Scripts.
+Zusätzliche Diagnose-, Wartungs-, Web- und Experimentbefehle stehen im
+[`justfile`](../../justfile). Die Implementierungen bleiben erhalten.
 
-```bash
-bun run bun:check
-```
+Installiere bei Bedarf [just](https://github.com/casey/just#installation)
+(macOS: `brew install just`). `just` oder `just --list` zeigt die verfügbaren
+Rezepte an, ohne einen Build oder ein Experiment zu starten.
 
-`bun install`, `bun run check`, `bun run check:fix`, `bun run typecheck` und
-`bun run test` führen diese Prüfung automatisch vor ihrer eigentlichen Arbeit
-aus. Die beiden eigenständigen Tool-Projekte haben denselben Guard für ihre
-Installation sowie ihre Prüf- und Eval-Skripte.
-
-Wenn die Prüfung beispielsweise Bun `1.4.2` erkennt, stoppt sie mit der
-erwarteten Version und einem konkreten temporären `bunx`-Aufruf. Dieser nutzt
-Bun `1.3.14` ohne die globale Bun-Installation zu verändern:
+Bei verschobenen Befehlen werden Doppelpunkte durch Bindestriche ersetzt:
 
 ```bash
-BUN_INSTALL="$(mktemp -d)" BUN_TMPDIR="$(mktemp -d)" bunx bun@1.3.14 run bun:setup
+just debugger-category             # vorher: bun run debugger:category
+just user-create test@example.com  # vorher: bun run user:create
+just harness-ios
+just classify "2 Äpfel" --tags en:fruits
+just test-watch src/features/example.test.ts
 ```
 
-Aus einem Tool-Verzeichnis wechselst du zuerst in den Repository-Root, wenn du
-diesen Setup-Aufruf verwendest. Alternativ prüfst du dort mit `bun run bun:check`
-und führst danach das jeweilige `bun install` aus. Auch dort stoppt der
-`preinstall`-Guard vor dem Installationslauf bei einer falschen Version.
+Argumente folgen direkt auf den Rezeptnamen; ein zusätzliches `--` ist nicht
+nötig. Lokale CLI-Binaries aus `node_modules/.bin` werden gefunden. Die
+bisherigen Env-Dateien und Flags der verschobenen Befehle bleiben erhalten;
+just lädt keine zusätzliche `.env`. `bun run android` verwendet jetzt wie
+`bun run ios` und `bun start` die `.env.development.local`. Die alte
+Android-Konfiguration mit `.env.local` bleibt als `just android-local` erhalten.
+
+Die `tools/`-Experimente sind keine App-Einstiege. Ihre Rezepte starten nur bei
+explizitem Aufruf. Der bestehende Brochure-CI-Workflow ruft seine Datei direkt
+auf und benötigt deshalb keine just-Installation.
+
+### Lokal einrichten
+
+Installationen und lokale Prüfungen verwenden deine installierte Bun-Version.
+Es gibt keine verpflichtende Prüfung gegen die CI-Version. Die CI legt ihre
+Bun-Version separat in
+[setup-bun-env](../../.github/actions/setup-bun-env/action.yaml) fest.
 
 ```bash
 bun install
@@ -248,6 +257,18 @@ Android:
 
 Für deinen Fall (lokal im Simulator testen, ob expo-tracking-transparency jetzt
 funktioniert) ist `ios-development-simulator` der richtige Target-Name.
+
+Die nativen Projekte verwenden CNG: `ios/` und `android/` sind generierte,
+ignorierte Ausgaben. Nach Änderungen an nativen Dependencies, App-Konfiguration
+oder Plugins vorhandene Projekte neu erzeugen:
+
+```bash
+FAM_HARNESS_UI=1 bun run native:prebuild -- --platform ios
+```
+
+Für Android `--platform android` verwenden. Der Befehl verwendet immer `--no-clean` und erhält das vorhandene
+native Projekt einschließlich Pods und Build-Dateien. Details und ccache-Verhalten stehen im
+[Native-Build-Guide](../../scripts/native-build/README.md).
 
 `native:rebuild` ist bewusst der Release-Pfad (eas build --local,
 reproduzierbar/signiert, für TestFlight/Production) und entsprechend
@@ -466,9 +487,9 @@ dann Android, ausgeführt.
   eigenständiger Runner.
 - `bun run user:create` / `bun run user:list` / `bun run user:clean` / `bun run user:delete` — Verwaltung lokaler Test-Accounts (`scripts/test-users.ts`)
 - `bash scripts/create-user-with-household.sh` — Erstellt Test-User mit Haushalt und befüllter Einkaufsliste
-- `bun run native:rebuild -- --target ios-preview-testflight` (lokaler TestFlight-Rebuild mit Cache-Wiederverwendung)
+- `bun run native:rebuild -- --target ios-preview-testflight` (lokaler TestFlight-Build; anschließender Upload ist optional)
 - `bun run native:rebuild -- --target ios-production` (lokaler Produktions-Rebuild mit Cache-Wiederverwendung)
-- `--approve-rebuild` nur einmalig ergänzen, wenn ein absichtlicher Native-Drift ein Prebuild verlangt
+- `--approve-rebuild` nur nach Marcos Freigabe für den Native-Drift ergänzen am jeweiligen `native:rebuild`-Befehl. Es erlaubt keine Cache-Löschung.
 
 ### Test-Accounts & Skripte
 
@@ -513,6 +534,7 @@ gitignored und werden bewusst nicht mitgeliefert:
 
 | Datei | Verwendung |
 | --- | --- |
+| `.env.development.local` | Lokale Development-Konfiguration für `start`, `ios`, `android` und Development-Testbefehle |
 | `.env.local` | Lokale Supabase-Instanz und RevenueCat Test Store |
 | `.env.development` | Gehostete Development-Datenbank und RevenueCat Test Store |
 | `.env.preview` | Native TestFlight-Rebuild über das Profil `preview-testflight` |
@@ -531,8 +553,15 @@ EXPO_PUBLIC_POSTHOG_API_KEY=phc_... # optional: PostHog-Projekt-API-Key, siehe "
 EXPO_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com # optional, Default siehe unten
 ```
 
-Expo lädt keine weiteren `.env`-Dateien dazu: Die Skripte setzen
-`EXPO_NO_DOTENV=1` und `dotenv-cli` lädt genau die ausgewählte Datei.
+`start` und `ios` nutzen Expos automatisches Env-Laden. Im Development-Modus
+gilt die Priorität `.env.development.local`, `.env.local`, `.env.development`,
+`.env`. Bereits gesetzte Prozessvariablen haben Vorrang.
+
+`ios:dev`, `test:integration` und `harness:dev` laden ihre Development-Datei
+über Buns `--env-file`, da diese Befehle zuerst einen eigenen Runner starten.
+`ios:preview` lädt damit ausdrücklich `.env.preview`; Expo wählt diese Datei
+nicht automatisch. Expos Standarddateien können anschließend fehlende Werte
+ergänzen. Der Android-Runner verwaltet seine Env-Auswahl weiterhin selbst.
 
 `127.0.0.1` funktioniert nur im iOS-Simulator (localhost = der Mac selbst).
 Fuer ein physisches Geraet im selben WLAN die LAN-IP des Mac verwenden, z. B.

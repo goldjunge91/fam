@@ -40,16 +40,16 @@ function printUsage() {
 🛠️  Familie-App Test-Account Helper (Nur lokale Entwicklungsdatenbank)
 
 Befehle:
-  bun run user:create [email] [passwort] [name]  Erstellt einen Test-Account auf der lokalen DB
-  bun run user:list                              Listet alle vorhandenen Test-Accounts auf
-  bun run user:clean                             Löscht ALLE Test-Accounts (*@example.com)
-  bun run user:delete <email>                    Löscht einen spezifischen Test-Account
+  just user-create [email] [passwort] [name]  Erstellt einen Test-Account auf der lokalen DB
+  just user-list                              Listet alle vorhandenen Test-Accounts auf
+  just user-clean                             Löscht ALLE Test-Accounts (*@example.com)
+  just user-delete <email>                    Löscht einen spezifischen Test-Account
 
 Beispiele:
-  bun run user:create
-  bun run user:create alice@example.com Pass123! "Alice Test"
-  bun run user:list
-  bun run user:clean
+  just user-create
+  just user-create alice@example.com Pass123! "Alice Test"
+  just user-list
+  just user-clean
 `);
 }
 
@@ -127,7 +127,7 @@ async function handleList() {
 
 async function handleDelete(email?: string) {
   if (!email) {
-    console.error('❌ Bitte gib eine E-Mail-Adresse an: bun run user:delete <email>');
+    console.error('❌ Bitte gib eine E-Mail-Adresse an: just user-delete <email>');
     process.exit(1);
   }
 

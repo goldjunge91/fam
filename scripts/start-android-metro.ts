@@ -3,9 +3,9 @@
  * Separater Metro-Start für den Android-Dev-Client.
  *
  * Verwendung:
- *   bun run metro:android
- *   bun run metro:android:development
- *   bun run metro:android -- --clear
+ *   just metro-android
+ *   just metro-android-development
+ *   just metro-android --clear
  */
 
 import { spawn } from 'node:child_process';
@@ -28,9 +28,9 @@ for (let index = 0; index < args.length; index += 1) {
   } else if (arg === '--help' || arg === '-h') {
     console.log(`
 Verwendung:
-  bun run metro:android
-  bun run metro:android:development
-  bun run metro:android -- --clear
+  just metro-android
+  just metro-android-development
+  just metro-android --clear
 
 Optionen:
   --env, -e <datei>  Env-Datei (Standard: .env.local)

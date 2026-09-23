@@ -3,7 +3,7 @@
 # echten App-Runtime (iOS-Simulator oder Android-Emulator).
 #
 # Voraussetzungen:
-#   - Dev Build installiert (bun run ios:development / android:development)
+#   - Dev Build installiert (bun run ios / android)
 #   - Simulator/Emulator laeuft
 #   - Lokales Supabase laeuft (supabase start)
 #
@@ -29,11 +29,11 @@ echo "== 2/4 Test-Account anlegen ($EMAIL) =="
 # test-users.ts verlangt den lokalen Service-Role-Key als Umgebungsvariable.
 export SUPABASE_SERVICE_ROLE_KEY="$(supabase status --output json | python3 -c "import json,sys; print(json.load(sys.stdin)['SERVICE_ROLE_KEY'])")"
 # Idempotent: existiert der Account schon, ist das kein Fehler.
-bun run user:create "$EMAIL" "$PASSWORD" "Storage Diag" 2>&1 | grep -v "already been registered" || true
+bun scripts/test-users.ts create "$EMAIL" "$PASSWORD" "Storage Diag" 2>&1 | grep -v "already been registered" || true
 
 echo "== 3/4 Harness-Credentials in $ENV_FILE setzen =="
-# harness:dev laedt ausschliesslich .env.development.local (EXPO_NO_DOTENV=1
-# + dotenv -o). Die Diagnose-Zeilen werden idempotent ersetzt. Der Diagnose-
+# harness:dev laedt .env.development.local ueber Buns --env-file.
+# Die Diagnose-Zeilen werden idempotent ersetzt. Der Diagnose-
 # Client zeigt bewusst auf die lokale Instanz, unabhaengig vom App-Projekt.
 LOCAL_STATUS_JSON="$(supabase status --output json)"
 LOCAL_URL="$(echo "$LOCAL_STATUS_JSON" | python3 -c "import json,sys; print(json.load(sys.stdin)['API_URL'])")"
@@ -54,7 +54,7 @@ set_env_line "EXPO_PUBLIC_HARNESS_SUPABASE_KEY" "$LOCAL_ANON_KEY"
 echo "== 4/4 Harness-Matrix ausfuehren ($RUNNER) =="
 echo "   Alle Dateigroessen muessen via Uint8Array, storage.upload() und expo/fetch funktionieren."
 echo
-bun run "harness:$RUNNER" -- --watchman=false --testPathPatterns=storage-upload-matrix
+bun run harness:dev -- --harnessRunner "$RUNNER" --watchman=false --testPathPatterns=storage-upload-matrix
 
 echo
 echo "Diagnose abgeschlossen. Die Matrix steht im Harness-Output"

@@ -3,7 +3,7 @@
  * evaluate-categories.ts — Dump-Kalibrierung für die Kategorie-Klassifikation
  * (#223 Paket 1, Abschnitt 15 in `docs/issue#223_V2.md`).
  *
- *   bun run evaluate-categories
+ *   just evaluate-categories
  *
  * Läuft mit `classifyCategory()` (produktive Engine, keine Zweitimplementierung,
  * siehe `evaluate-categories-core.ts`) über den kompletten lokalen Dump

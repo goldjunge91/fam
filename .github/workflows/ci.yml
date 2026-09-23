@@ -46,20 +46,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: 1.3.1
-
-      - name: Cache Bun Dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.bun/install/cache
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-bun-
-
-      - name: Dependencies installieren
-        run: bun install --frozen-lockfile
+      - uses: ./.github/actions/setup-bun-env
 
       - uses: denoland/setup-deno@v2
         with:
@@ -78,20 +65,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: 1.3.1
-
-      - name: Cache Bun Dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.bun/install/cache
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-bun-
-
-      - name: Dependencies installieren
-        run: bun install --frozen-lockfile
+      - uses: ./.github/actions/setup-bun-env
 
       - name: Testqualitätsreport
         shell: bash
@@ -112,20 +86,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: 1.3.1
-
-      - name: Cache Bun Dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.bun/install/cache
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-bun-
-
-      - name: Dependencies installieren
-        run: bun install --frozen-lockfile
+      - uses: ./.github/actions/setup-bun-env
 
       - name: Native-Build-Baseline-Tests
         run: bun run test test/native-build-baseline.test.ts --runInBand
@@ -138,20 +99,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: 1.3.1
-
-      - name: Cache Bun Dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.bun/install/cache
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-bun-
-
-      - name: Dependencies installieren
-        run: bun install --frozen-lockfile
+      - uses: ./.github/actions/setup-bun-env
 
       - name: Native-Build-Artefakt-Tests
         run: bun run test test/native-build-artifact.test.ts --runInBand
@@ -192,20 +140,7 @@ jobs:
             docker save $images -o /tmp/supabase-docker-images.tar
           fi
 
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: 1.3.1
-
-      - name: Cache Bun Dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.bun/install/cache
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-bun-
-
-      - name: Dependencies installieren
-        run: bun install --frozen-lockfile
+      - uses: ./.github/actions/setup-bun-env
 
       - name: pgTAP-Suite (RLS gegen echtes Postgres, #43)
         run: bun run test:db

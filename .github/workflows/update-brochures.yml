@@ -125,7 +125,7 @@ jobs:
             EXTRA_ARGS="--sample=${{ inputs.sample_percent }}%"
           fi
 
-          bun run crawler:brochures \
+          bun tools/crawler/brochures/index.ts \
             --zone="${{ matrix.zone_group }}" \
             --concurrency=12 \
             $EXTRA_ARGS

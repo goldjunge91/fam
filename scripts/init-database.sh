@@ -6,7 +6,7 @@
 # laedt Standard-Storage-Assets hoch und deployt alle Edge Functions.
 #
 # Aufruf:
-#   bun run db:init
+#   just db-init
 #   oder: bash scripts/init-database.sh
 #
 

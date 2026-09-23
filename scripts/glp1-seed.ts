@@ -452,7 +452,7 @@ async function main(): Promise<void> {
 
   if (!user) {
     throw new Error(
-      `Kein Testaccount mit ${config.email} gefunden. Bitte zuerst "bun run user:create ${config.email}" ausführen.`,
+      `Kein Testaccount mit ${config.email} gefunden. Bitte zuerst "just user-create ${config.email}" ausführen.`,
     );
   }
 

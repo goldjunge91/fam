@@ -4,14 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "bun:check": "bun ../../scripts/check-bun-version.ts",
-    "preinstall": "bun run bun:check",
     "eval": "promptfoo eval -c promptfooconfig.yaml",
-    "preeval": "bun run bun:check",
     "view": "promptfoo view",
-    "preview": "bun run bun:check",
-    "redteam": "promptfoo redteam generate -c promptfooconfig.yaml",
-    "preredteam": "bun run bun:check"
+    "redteam": "promptfoo redteam generate -c promptfooconfig.yaml"
   },
   "devDependencies": {
     "@types/bun": "latest",
