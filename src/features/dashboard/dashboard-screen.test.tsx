@@ -306,17 +306,24 @@ describe('DashboardScreen — Essensplan-Karte', () => {
   });
 
   it('zeigt bei leerem Essensplan die Küchennotiz statt eines Artworks', async () => {
-    await renderScreen();
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date(2026, 8, 20, 12, 0));
 
-    expect(screen.queryByTestId('meal-plan-large-artwork')).not.toBeOnTheScreen();
-    expect(screen.getByTestId('meal-plan-kitchen-note')).toBeOnTheScreen();
-    expect(screen.getByTestId('meal-plan-kitchen-note-sheet')).toHaveStyle({
-      width: 78,
-      height: 92,
-      transform: [{ rotate: '5deg' }],
-    });
-    expect(screen.queryByText(i18n.t('dashboard.cards.mealPlan.plannedToday'))).toBeNull();
-    expect(screen.queryByTestId('meal-plan-empty-artwork')).not.toBeOnTheScreen();
+    try {
+      await renderScreen();
+
+      expect(screen.queryByTestId('meal-plan-large-artwork')).not.toBeOnTheScreen();
+      expect(screen.getByTestId('meal-plan-kitchen-note')).toBeOnTheScreen();
+      expect(screen.getByTestId('meal-plan-kitchen-note-sheet')).toHaveStyle({
+        width: 78,
+        height: 92,
+        transform: [{ rotate: '5deg' }],
+      });
+      expect(screen.queryByText(i18n.t('dashboard.cards.mealPlan.plannedToday'))).toBeNull();
+      expect(screen.queryByTestId('meal-plan-empty-artwork')).not.toBeOnTheScreen();
+    } finally {
+      jest.useRealTimers();
+    }
   });
 
   it('wechselt bei leerem Plan innerhalb eines Tages nicht die große Ansicht', async () => {
@@ -379,12 +386,19 @@ describe('DashboardScreen — Essensplan-Karte', () => {
   });
 
   it('zeigt das Large-Artwork über die volle Kartenhöhe und mindestens halbbreit', async () => {
-    await renderScreen();
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date(2026, 8, 20, 12, 0));
 
-    const artwork = screen.getByTestId('meal-plan-kitchen-note');
+    try {
+      await renderScreen();
 
-    expect(artwork).toHaveStyle({ flex: 1 });
-    expect(artwork.parent).toHaveStyle({ width: '50%', height: '100%' });
+      const artwork = screen.getByTestId('meal-plan-kitchen-note');
+
+      expect(artwork).toHaveStyle({ flex: 1 });
+      expect(artwork.parent).toHaveStyle({ width: '50%', height: '100%' });
+    } finally {
+      jest.useRealTimers();
+    }
   });
 });
 
