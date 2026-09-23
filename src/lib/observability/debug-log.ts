@@ -4,6 +4,8 @@ type DebugLogLevel = 'debug' | 'info' | 'warn' | 'error';
 type DebugValue = string | number | boolean | null | DebugValue[] | { [key: string]: DebugValue };
 
 const REDACTED_VALUE = '[redacted]';
+const UNREADABLE_VALUE = '[unreadable]';
+const MAX_SANITIZE_DEPTH = 5;
 const POSTHOG_COLOR = '\u001b[38;5;203m';
 const BLUE_COLOR = '\u001b[38;5;39m';
 const COLOR_RESET = '\u001b[0m';
@@ -20,6 +22,17 @@ const SENSITIVE_STRING_PATTERNS = [
   /\beyJ[A-Z0-9_-]*\.[A-Z0-9_-]+\.[A-Z0-9_-]+\b/giu,
   /\bBearer\s+[A-Z0-9._-]+/giu,
 ];
+const ERROR_DIAGNOSTIC_KEYS = [
+  'status',
+  'statusCode',
+  'code',
+  'domain',
+  'nativeErrorCode',
+  'type',
+  'reason',
+  'cause',
+  'originalError',
+] as const;
 
 function canWriteDebugLogs(): boolean {
   return typeof __DEV__ !== 'undefined' && __DEV__ && env.debugLogsEnabled;
@@ -30,6 +43,54 @@ function sanitizeString(value: string): string {
     (sanitized, pattern) => sanitized.replace(pattern, REDACTED_VALUE),
     value,
   );
+}
+
+function readProperty(value: object, key: string): { exists: boolean; value?: unknown } {
+  try {
+    if (!(key in value)) return { exists: false };
+    return { exists: true, value: Reflect.get(value, key) };
+  } catch {
+    return { exists: true, value: UNREADABLE_VALUE };
+  }
+}
+
+function isErrorValue(value: object): boolean {
+  try {
+    return value instanceof Error;
+  } catch {
+    return false;
+  }
+}
+
+function sanitizeError(value: object, seen: WeakSet<object>, depth: number): DebugValue {
+  if (depth >= MAX_SANITIZE_DEPTH) return '[truncated]';
+  if (seen.has(value)) return '[circular]';
+  seen.add(value);
+
+  const errorValue: { [key: string]: DebugValue } = {};
+  for (const key of ['name', 'message'] as const) {
+    const property = readProperty(value, key);
+    if (!property.exists || property.value === undefined) continue;
+    errorValue[key] = sanitizeValue(property.value, undefined, seen, depth + 1);
+  }
+
+  for (const key of ERROR_DIAGNOSTIC_KEYS) {
+    const property = readProperty(value, key);
+    if (!property.exists || property.value === undefined) continue;
+    errorValue[key] =
+      key === 'cause' || key === 'originalError'
+        ? sanitizeErrorValue(property.value, seen, depth + 1)
+        : sanitizeValue(property.value, key, seen, depth + 1);
+  }
+
+  return errorValue;
+}
+
+function sanitizeErrorValue(value: unknown, seen: WeakSet<object>, depth: number): DebugValue {
+  if (value !== null && typeof value === 'object') {
+    return sanitizeError(value, seen, depth);
+  }
+  return sanitizeValue(value, undefined, seen, depth);
 }
 
 function sanitizeValue(
@@ -45,27 +106,26 @@ function sanitizeValue(
   if (typeof value === 'bigint') return String(value);
   if (typeof value === 'undefined') return '[undefined]';
   if (typeof value === 'function' || typeof value === 'symbol') return `[${typeof value}]`;
-  if (depth >= 5) return '[truncated]';
+  if (depth >= MAX_SANITIZE_DEPTH) return '[truncated]';
 
-  if (value instanceof Error) {
-    return {
-      name: sanitizeString(value.name),
-      message: sanitizeString(value.message),
-    };
-  }
+  if (isErrorValue(value)) return sanitizeError(value, seen, depth);
 
   if (seen.has(value)) return '[circular]';
   seen.add(value);
 
-  if (Array.isArray(value)) {
-    return value.map((entry) => sanitizeValue(entry, undefined, seen, depth + 1));
-  }
+  try {
+    if (Array.isArray(value)) {
+      return value.map((entry) => sanitizeValue(entry, undefined, seen, depth + 1));
+    }
 
-  const objectValue: { [key: string]: DebugValue } = {};
-  for (const [entryKey, entryValue] of Object.entries(value)) {
-    objectValue[entryKey] = sanitizeValue(entryValue, entryKey, seen, depth + 1);
+    const objectValue: { [key: string]: DebugValue } = {};
+    for (const [entryKey, entryValue] of Object.entries(value)) {
+      objectValue[entryKey] = sanitizeValue(entryValue, entryKey, seen, depth + 1);
+    }
+    return objectValue;
+  } catch {
+    return UNREADABLE_VALUE;
   }
-  return objectValue;
 }
 
 function isDebugRecord(value: DebugValue): value is { [key: string]: DebugValue } {
