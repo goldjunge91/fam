@@ -8,7 +8,7 @@
  * NOTE: biome.json currently only covers `src/**` and `scripts/**`, NOT
  * `test/conventions/**`. This file is therefore NOT lint-checked by the
  * standard `bun run check` invocation. This limitation is documented per
- * CONSTRAINTS.md §"Qualitätsgrenzen und Nachweise" and should be addressed
+ * CONSTRAINTS.md §"Erforderliche Nachweise" and should be addressed
  * in a future increment that extends biome.json scope.
  */
 import fs from 'node:fs';
@@ -49,7 +49,8 @@ function extractImportSources(source: string): string[] {
  * Forbidden import patterns for inventory-lifecycle.ts.
  *
  * Each entry has a label (for error messages) and a test function.
- * `@/lib/inventory-quantity` is explicitly allowed per CONSTRAINTS.md.
+ * The allowed exception follows CONSTRAINTS.md §I3: inventory-quantity is a
+ * pure-logic utility and does not introduce side effects.
  */
 const FORBIDDEN_IMPORT_RULES: Array<{
   label: string;
