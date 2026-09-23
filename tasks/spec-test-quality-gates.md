@@ -65,7 +65,7 @@ Modul erzeugt Produktmetriken oder verändert Produktionscode.
 ## Tech Stack
 
 - Jest über das bestehende `bun scripts/run-test.ts`-Wrapper-Skript
-- Bun 1.3.1 in CI
+- Bun 1.3.14 in CI
 - TypeScript-AST-Auswertung über `typescript`
 - Bash-Hilfsskript für Discovery und Berichtserzeugung
 - GitHub Actions als CI-Orchestrierung

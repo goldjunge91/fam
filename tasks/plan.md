@@ -1,387 +1,509 @@
-# Implementierungsplan: funktionsfähige Kassenbon-Texterkennung
+# Implementierungsplan: Nächste technische Bereinigungs- und Absicherungsaufgaben
 
-**Status:** In Arbeit. `receipt-authority` ist vorhanden, aber
-`receipt-processing` ist nicht funktionsfähig abgenommen.
-**Initiative:** `fam-qesi`
-**Plan-Revision:** `fam-5ilb`
-**Struktur-Migration:** `fam-rfyo`
-**Offener Native-Fix:** `fam-n6on`
-**Processing-Spec:**
-[SPEC-receipt-processing.md](../docs/specs/household-purchase-memory/SPEC-receipt-processing.md)
-**Capability Map:**
-[CAPABILITY_MAP.md](../docs/specs/household-purchase-memory/CAPABILITY_MAP.md)
-**Context-Pack:**
-[CONTEXT-receipt-processing.md](../docs/specs/household-purchase-memory/CONTEXT-receipt-processing.md)
-**Constraints:**
-[CONSTRAINTS-receipt-processing.md](household-purchase-memory/CONSTRAINTS-receipt-processing.md)
-**Task-System:** Beads. Es wird kein `tasks/todo.md` angelegt.
+> Neuabgrenzung auf Marcos Auftrag vom 2026-09-23: Die folgenden Abschnitte
+> bleiben als Planungshistorie erhalten. Verbindlicher aktiver Scope,
+> Abschlusskriterien und Reihenfolge stehen in den aktualisierten Beads unter
+> `fam-ymz7`; widersprechende historische Status- und Gate-Aussagen unten
+> sind keine aktuelle Abnahme. Geschlossene Planungsaufgaben belegen keine
+> Implementierung. Es werden keine weiteren Aufgaben zur bloßen Synchronisation
+> dieses Dokuments angelegt.
+>
+> Künftige Restore-/Receipt-/CAS-Testpfade unten sind erst bei einer konkret
+> beschlossenen Umsetzung deren Abnahmen zuzuordnen. Sie sind keine bereits
+> vorhandenen oder bestandenen Tests. Die Qualitätsgrenzen aus CONSTRAINTS.md
+> und die bestehenden FlashList-Geräte-/Performance-Anforderungen gelten weiter.
+
+## Status und Arbeitsweise
+
+Dieser Plan ersetzt den vorherigen Audit-Ansatz für dieses Vorhaben. Der
+`codebase-audit`-Skill und sein erzeugter Report sind kein Nachweis und werden
+nicht als Quelle verwendet.
+
+Der bestehende Receipt-OCR-Plan bleibt unabhängig unter
+[`eceipt-OCR-plan.md`](Receipt-OCR-plan.md). Die Aufgaben dieses Plans werden
+über Beads verfolgt; es wird kein `tasks/todo.md` angelegt.
+
+**Beads-Initiative:** `fam-ymz7`
+
+**Task-System:** Beads. Die folgenden IDs bilden die geordnete Arbeitsliste;
+Akzeptanzkriterien, Verifikation und Abhängigkeiten stehen in den jeweiligen
+Beads.
+
+Beads sind die einzige Live-Statusquelle. Dieser Plan dupliziert keine
+aktuellen Bead-Statusangaben, sondern bewahrt IDs, Reihenfolge, Abhängigkeiten,
+Working-Tree-Scope und historische Nachweise.
+
+Die sechs Stages beschreiben den Arbeitsablauf, nicht automatisch den Abschluss
+der gesamten Initiative. Stage 1 bis 4 liefern Befunde und umsetzbare Planung.
+Stage 5 bleibt offen, bis alle in diesem Audit belegten Folgeprobleme behoben
+und jeweils verifiziert sind. Erst danach wird Stage 6 als abschließende
+Gesamtprüfung ausgeführt und geschlossen. Der aktuelle Arbeitsstand liegt
+deshalb in der Stage-5-Implementierungsaufgabe `fam-ymz7.18`, während Stage 5
+und die finale Stage 6 wieder offen sind.
+
+## Aktueller Stage-1-Nachweis
+
+Der folgende Scope-Nachweis wurde am 2026-09-23 mit
+`git status --short --branch` erfasst. Aktuelle Bead-Status werden
+ausschließlich über Beads gelesen:
+
+```text
+## main...origin/main [ahead 27]
+ M .github/workflows/ci.yml
+ M .github/workflows/update_dump.yml
+ M eas.json
+ M src/features/shopping-list/ARCHITECTURE.md
+ M tasks/plan.md
+ M tasks/spec-test-quality-gates.md
+ M tools/category-debugger/package.json
+ M tools/llm-test-platform/package.json
+?? .beads.gate.lock
+?? tasks/eceipt-OCR-plan.md
+```
+
+Der aktuelle tracked Scope umfasst acht Dateien. Die beiden untracked Pfade
+sind im Diff-Stat nicht enthalten:
+`.beads.gate.lock` ist ein 0-Byte-Beads-Laufzeitartefakt und
+`tasks/eceipt-OCR-plan.md` bleibt der separat erhaltene Receipt-OCR-Plan.
+
+`tools/category-debugger/package.json` und
+`tools/llm-test-platform/package.json` gehören zum bestehenden Scope des
+abgeschlossenen Folgebeads `fam-ymz7.9`; diese Plan-Korrektur ändert oder
+setzt sie nicht zurück.
+
+`tasks/spec-test-quality-gates.md` ist durch die abgeschlossene Stage 2 bereits
+geändert. Die eine Änderung korrigiert den CI-Pin von Bun `1.3.1` auf
+`1.3.14`; der Dokumentstatus bleibt „Freigegeben durch Marco, 2026-09-20“.
+Der separate Receipt-OCR-Plan trägt weiterhin den Status „In Arbeit“, die
+Initiative `fam-qesi`, die Plan-Revision `fam-5ilb`, die Struktur-Migration
+`fam-rfyo` und den offenen Native-Fix `fam-n6on`. Diese Datei und die
+Toolchain-Konfiguration werden durch `fam-ymz7.8` nicht verändert.
+
+Die geordnete Bead-Folge und ihre Abhängigkeiten sind:
+
+| Bead | Abhängigkeit bzw. Folge |
+| --- | --- |
+| `fam-ymz7` | Initiative |
+| `fam-ymz7.4` | keine; blockiert `.1` und `.6` |
+| `fam-ymz7.6` | hängt von `.4` ab; blockiert `.5`, `.8` und `.9` |
+| `fam-ymz7.8` | hängt von `.6` ab; Stage-1-Baseline-Nachweis |
+| `fam-ymz7.9` | zeitlicher Folgebead; hängt von `.6` ab; `.13` hängt von `.9` ab; historischer Review-Nachweis: `APPROVED` |
+| `fam-ymz7.13` | diese Plan-Korrektur; hängt von `.9` ab |
+| `fam-ymz7.1` | hängt von `.4` ab; blockiert `.2` und `.5` |
+| `fam-ymz7.10` | abgeschlossene, reviewte Stage-3-Planung für die checkedItems/transfers-Bijektion; hängt von `.1` ab; keine Restore-/Sync-/Reverse-Abhängigkeit |
+| `fam-ymz7.18` | Stage-5-Implementierung des Bijektionsguards; hängt von `.10` ab; blockiert den Abschluss von Stage 5 bis Code und fokussierte Tests reviewt sind |
+| `fam-ymz7.11` | Stage-3-Planungsfolge zur `SectionList`-/`FlashList`-Vertragsprüfung; hängt von `.1` ab; die freigegebene Umsetzung ist Stage-5-Ausgangsvoraussetzung; bleibt von `.10` getrennt |
+| `fam-ymz7.2` | hängt von `.1` ab; blockiert `.15`, `.16`, `.17` und `.5` |
+| `fam-ymz7.15` | Stage-4-Korrektur; hängt von `.2` ab; blockiert `.5` |
+| `fam-ymz7.16` | P1-Sync-Folgebead zu `mirror-write.ts`; hängt von `.2` ab; muss vor dem Abschluss von Stage 5 umgesetzt und verifiziert sein |
+| `fam-ymz7.17` | P1-Sync-Folgebead zu `pull.ts`; hängt von `.2` ab; muss vor dem Abschluss von Stage 5 umgesetzt und verifiziert sein |
+| `fam-ymz7.5` | Stage-5-Implementierungsgate; hängt von `.6`, `.1`, `.2`, `.15` sowie allen belegten Folgeumsetzungen ab; bleibt bis zu deren Verifikation offen; blockiert `.3` |
+| `fam-ymz7.3` | hängt von `.5` ab |
+
+Die Stage-4-Korrekturfolge lautet damit `fam-ymz7.2` → `fam-ymz7.15` →
+`fam-ymz7.5`, zusätzlich zu den bestehenden Stage-2- und Stage-3-
+Voraussetzungen von `.5`. Die Sync-Korrekturen `fam-ymz7.16` und
+`fam-ymz7.17` hängen jeweils von `.2` ab und sind Stage-5-
+Ausgangsvoraussetzungen, bleiben aber als eigene reviewbare Beads getrennt.
+`fam-ya7p` sowie `fam-ya7p.1` und `fam-ya7p.2` bilden weiterhin den
+getrennten Auth-/Secure-Storage-Strang.
+
+Der Stage-5-Abschluss setzt die Umsetzung und Verifikation aller im Audit
+übernommenen, belegten Risiken voraus: `fam-ymz7.18`, `fam-ymz7.11`,
+`fam-ymz7.16`, `fam-ymz7.17`, `fam-ie54`, `fam-gng6` und `fam-jlkw`.
+Die Planungsbeads sind dabei keine stillschweigende Implementierung; nach ihrer
+Freigabe wird für jede noch fehlende Umsetzung ein eigener Worker-/Review-
+Zyklus geführt. Der unabhängige Auth-Strang bleibt außerhalb dieses Gates,
+sofern sein Bead nicht als Befund dieses Audits geführt wird.
+
+Die frühere Toolchain-Korrekturfolge `fam-ymz7.6` → `fam-ymz7.8` sowie
+`fam-ymz7.6` → `fam-ymz7.9` → `fam-ymz7.13` bleibt davon unberührt. `.9` ist
+der zeitliche Folgebead zu `.8`; der historische Review-Nachweis `APPROVED`
+bleibt erhalten, aber `.9` hängt nicht von `.8` ab.
+
+Diese Korrektur dokumentiert nur den bestehenden Scope und die Bead-Struktur.
+Sie ändert keinen Produktionscode, keine Toolchain-Konfiguration und keine
+fremde Working-Tree-Datei.
 
 ## Ziel
 
-Ein Haushaltsmitglied kann einen oder mehrere Kassenbonbilder fotografieren
-oder aus der Galerie auswählen. Die App normalisiert die Bilder lokal, erkennt
-den Text ohne Netzwerk, rekonstruiert die sichtbaren Belegzeilen, erzeugt einen
-korrigierbaren Entwurf und speichert erst nach Bestätigung den kanonischen
-Receipt-/Item-Zustand. Danach zeigt sie bestätigte Einkäufe nach Kaufdatum
-sortiert. Jeder Bon lässt sich dauerhaft als Detailansicht öffnen. Diese zeigt
-Händler, Datum, Gesamtsumme und die vollständige bestätigte Artikelliste mit
-Menge und Preis sowie vorhandene private Bonbilder. Der Ablauf funktioniert
-auf iOS und Android.
+Die technische Bereinigung soll den aktuellen Zustand der Bun-Toolchain, des
+Shopping-List-Kernpfads und der Auth-/Sync-Grenzen gegen die verbindlichen
+Projektverträge prüfen. Kleine, eindeutig belegte Abweichungen werden danach
+gezielt korrigiert. Größere fachliche oder architektonische Risiken bleiben
+separate Folgeaufgaben.
 
-Receipts sind in dieser Phase reine Einkaufs- und Preisinformation. Capture,
-OCR, Review, Save, Verlauf und Löschen dürfen weder Bestände noch Einkaufslisten
-ändern und keine Inventory-, Fridge- oder Shopping-List-Outbox-Operation
-erzeugen. Ein späteres optionales Verknüpfen wiederkehrender Artikel bleibt
-eine eigene Capability und hat ebenfalls keine implizite Bestandswirkung.
+Der Nachweis entsteht aus drei getrennten Ebenen:
 
-„Funktioniert“ bedeutet hier nicht, dass TypeScript-Tests einen erfundenen
-OCR-Payload verarbeiten können. Es bedeutet, dass echte Bilddateien die echte
-native OCR-Engine durchlaufen und die erwarteten Werte in der App sichtbar und
-speicherbar werden.
+1. **Normativer Vertrag:** `AGENTS.md`, `CONSTRAINTS.md`, `CONTEXT.md` und
+   relevante ADRs.
+2. **Ist-Verhalten:** Produktionscode, deklarative Supabase-Schemas und lokale
+   SQLite-Schemas.
+3. **Beobachtbares Verhalten:** fokussierte Jest-/pgTAP-Tests und passende
+   Toolchain-Prüfungen.
 
-### Receipt asset upload barrier (2026-09-22)
+Eine Differenz zwischen diesen Ebenen wird beschrieben und nicht stillschweigend
+zum neuen Vertrag erklärt.
 
-Der bestätigte Receipt-Write ist local-first und atomar, aber der anschließende
-Bild-Upload benötigt eine zusätzliche serverseitige Sichtbarkeitsbarriere:
-`purchase_receipts` muss für denselben Haushalt remote vorhanden sein, bevor
-Storage und `receipt_assets` beschrieben werden. Dafür wird kein neuer
-allgemeiner Queue- oder Sync-Layer eingeführt. Der bestehende Owner
-`src/lib/sync/sync-runner.ts` teilt den laufenden scoped Sync mit konkurrierenden
-Aufrufern und garantiert einen abschließenden Folge-Lauf für Mutationen, die
-nach dem Push-Snapshot entstanden sind. Der bestehende `waitForParentSync`-
-Seam in `src/features/ocr/capture/capture/upload-queue.ts` wird im produktiven
-Review-Pfad verdrahtet. `receipt_assets` bleibt außerhalb von SQLite, Outbox,
-Realtime und generischem Entity-Sync.
+## Ausgangslage
 
-## Verifizierter Ist-Zustand
+Der Working Tree enthält vor Beginn dieser Korrektur bereits
+folgende Änderungen:
 
-Stand 2026-09-21:
+- `.github/workflows/ci.yml`
+- `.github/workflows/update_dump.yml`
+- `eas.json`
+- `src/features/shopping-list/ARCHITECTURE.md`
+- `tasks/plan.md`
+- `tasks/spec-test-quality-gates.md`
+- `tools/category-debugger/package.json`
+- `tools/llm-test-platform/package.json`
+- `.beads.gate.lock` als Beads-Laufzeitartefakt
+- `tasks/eceipt-OCR-plan.md` als untracked, separat erhaltener Receipt-OCR-Plan
 
-- `receipt-authority` mit Server-, RLS-, Local-Mirror- und Outbox-Vertrag ist
-  vorhanden und bleibt die kanonische Speichergrenze.
-- Die Receipt-Dateien liegen bereits unter
-  `src/features/ocr/{authority,capture,processing}`. `fam-rfyo` ist für die
-  Struktur- und Importmigration abgeschlossen; die verbleibenden Gates sind
-  fachlich/native und nicht mehr Pfadbereinigung.
-- Der Receipt-Button, Kamera-/Galerieaufruf, Parser, Review und
-  Authority-Write existieren als Codepfad.
-- `expo-ai-kit` `0.17.0` ist als Provider installiert, in `app.json`
-  konfiguriert und wird vom Adapter in
-  `src/features/ocr/processing/native.ts` verwendet.
-- Eine echte Cross-Platform-Abnahme mit den drei Belegen fehlt weiterhin. Ein
-  erfolgreicher Build oder TestFlight-Upload beweist weder Texterkennung noch
-  Ergebnisqualität.
-- Auf Android verwendet der installierte Provider ein über Google Play
-  Services bereitgestelltes OCR-Modell. `prepareVision()` kann deshalb vor der
-  ersten Nutzung Netzwerk benötigen. Die App muss diesen Bereitschaftszustand
-  explizit behandeln; nach erfolgreicher Vorbereitung läuft die Abnahme mit
-  deaktiviertem Netzwerk.
-- Die fokussierten Parser-, Review- und Capture-Tests prüfen TypeScript-Logik;
-  der native Realbild-Lauf ist separat im iOS-Harness für alle sechs PNG-/JPEG-
-  Varianten nachgewiesen. Die vollständige App-Abnahme auf beiden Plattformen
-  bleibt offen.
-- Der Adapter bewahrt fehlende native Confidence als `null`; es wird kein
-  erfundener Ersatzwert gesetzt.
-- Die sechs vorhandenen Testbildvarianten liegen als PNG und JPEG vor. Der
-  aktuelle Capture-Pfad akzeptiert JPEG, PNG und WebP, normalisiert die
-  Eingänge gemeinsam und persistiert den Draft kontobezogen.
-- Review-Items können hinzugefügt, entfernt und bearbeitet werden. Der Save
-  übernimmt die ausgewählte bestehende `store_id`; der Hot-Reload-Discard ist
-  zwischen Persistence-Instanzen synchronisiert.
-- Der Parser nutzt Bounding-Boxes für die geometrische Rekonstruktion von
-  getrennten Produkt- und Preisspalten. Die nativen Plattform-Gates bleiben
-  offen.
+Diese Dateien werden als bestehender Arbeitsstand behandelt. Sie werden weder
+zurückgesetzt noch automatisch als Ergebnis dieser Neuplanung verbucht. Stage 1
+prüft ihren Scope erneut; Stage 2, Stage 3 und die spätere Review entscheiden,
+ob ihre Inhalte den Verträgen und dem tatsächlichen Verhalten entsprechen.
 
-Die verbleibenden offenen Punkte sind Plattform-, Relaunch- und
-Abnahme-Gates, keine erfundenen OCR- oder Review-Lücken.
+Bereits bekannte, getrennte Beads werden nicht dupliziert:
 
-## Reale Abnahmebilder
+- `fam-2oau`: lokale Bun-CLI weicht von 1.3.14 ab.
+- `fam-ie54`: Atomarität des Shopping-Run-Abschlusses.
+- `fam-gng6`: SQLite-Lesefehler dürfen nicht als leerer Zustand erscheinen.
+- `fam-jlkw`: append-only-RLS für `shopping_history`.
+- `fam-ya7p`: separate Auth-Bootstrap-/Secure-Storage-Spezifikation.
+- `fam-7cwn`: historische, bereits geschlossene Ausführung des vorherigen
+  Ansatzes; nicht die Evidenzquelle dieses Plans.
 
-Die sechs Dateien unter `testbilder/` sind der verbindliche lokale
-Abnahmekorpus für drei Belege. Sie werden nicht in Supabase hochgeladen, nicht
-als Produktassets gebündelt und nicht als dauerhaftes OCR-Rohtextarchiv
-abgelegt.
+## Architektur- und Prozessentscheidungen
 
-| Datei | Sichtbarer Händler | Sichtbare Summe | Wesentliche Fälle |
-| --- | --- | ---: | --- |
-| `IMG_4218.png` / `IMG_4218.jpeg` | EDEKA | 39,14 EUR | Falten, schräges Foto, getrennte Preis-/Namensspalten, Mengen |
-| `IMG_4219.png` / `IMG_4219.jpeg` | EDEKA | 43,37 EUR | viele Positionen, Pfand, Gratisartikel/Coupon, Mengen |
-| `IMG_4220.png` / `IMG_4220.jpeg` | ROSSMANN | 18,95 EUR | Barcodes vor Artikeln, Coupons, Steuerblock, ISO-Datum/Zeit |
+- Die kanonische Bun-Version für Repository-Ausführungsumgebungen ist `1.3.14`.
+  Eine globale lokale Bun-Installation wird nicht still verändert.
+- `src/app/` bleibt Routing-Owner. Shopping-List-Fachlogik bleibt unter
+  `src/features/shopping-list/`; lokale Daten, Outbox und Sync bleiben in ihren
+  bestehenden Infrastruktur-Ownern.
+- Backend-Schemaänderungen beginnen ausschließlich in
+  `supabase/schemas/*.sql`. Es werden keine Migrationen von Hand geschrieben.
+- Eine synchronisierte Shopping-List-Entität wird über lokalen SQLite-Spiegel,
+  Outbox, Push, Pull, Realtime und Konfliktauflösung verfolgt, soweit ihr
+  Vertrag diese Oberfläche verwendet.
+- Accountwechsel werden als Lebenszyklusgrenze betrachtet: Session, Query-Cache,
+  verschlüsselte Account-Speicherung, SQLite-Owner und Sync-Stopper müssen
+  nachvollziehbar denselben Accountkontext besitzen.
+- Neue Risiken werden nur mit konkreter Datei-/Test-Evidenz und einer klaren
+  Korrekturgrenze als Beads angelegt.
+- Vor Abschluss erfolgt eine Review nach Correctness, Readability, Architecture,
+  Security und Performance mit `agent-skills:code-review-and-quality`.
 
-`fam-tyz6` erstellt daraus ein minimales Goldmanifest. Es enthält nur Werte,
-die für die Erkennung nötig sind. Kunden-, Karten-, Signatur- und sonstige
-personenbezogene Angaben werden nicht zusätzlich transkribiert.
+## Task-Liste und Abhängigkeiten
 
-## Architekturentscheidungen
+### Stage 1: Arbeitsstand sichern
 
-1. **Ein gemeinsamer Feature-Owner.** Der vollständige Receipt-OCR-Code liegt
-   unter `src/features/ocr/` mit den klaren Grenzen `authority/`, `capture/`
-   und `processing/`. `fam-rfyo` finalisiert die bereits begonnene Verschiebung
-   aus den bisherigen drei Receipt-Feature-Roots und korrigiert alle Imports
-   ohne Verhaltensänderung.
-2. **On-device und offline nach Bereitschaft.** `expo-ai-kit` `0.17.0`
-   verwendet auf iOS Apple Vision und auf Android Google-ML-Kit über Play
-   Services. OCR sendet weder Bilder noch Text an einen Cloud-Dienst. Android
-   darf das Modell einmalig über `prepareVision()` bereitstellen; die App zeigt
-   diesen Zustand und behauptet vorher keine Offline-Bereitschaft. Nach der
-   Vorbereitung muss OCR ohne Netzwerk funktionieren. Offline-OCR vor dieser
-   einmaligen Android-Bereitschaft ist kein Ziel dieses Plans.
-3. **Genau ein direkter Provider.** `expo-ai-kit@0.17.0` ist für diesen Plan
-   festgelegt. Es kapselt Apple Vision auf iOS und Google ML Kit auf Android.
-   `expo-mlkit-ocr` ist nicht installiert und nicht Teil der Umsetzung. Scheitert
-   das SDK-57-, Autolinking-, Build-, Readiness- oder Realbild-Gate, bleibt
-   `fam-n6on` offen und ein Dependency-Wechsel braucht eine neue ausdrückliche
-   Maintainer-Entscheidung; es gibt keinen stillen zweiten Provider oder
-   Fallback.
-4. **Schmale App-Grenze.** `src/features/ocr/processing/native.ts`
-   normalisiert den Provideroutput. Domain, Parser und UI importieren den
-   Drittanbieter nicht direkt.
-5. **Keine erfundene Confidence.** Wenn der Provider keine native Confidence
-   liefert, bleibt sie unbekannt. Sie wird nicht auf `1` gesetzt. Semantische
-   Parser-Sicherheit und native OCR-Sicherheit bleiben unterscheidbar.
-6. **Ein normalisiertes Bild.** Kamera- und Galerieeingang werden vor OCR und
-   Upload in ein orientiertes, begrenztes JPEG überführt. OCR und Upload lesen
-   dieselbe persistente Datei. HEIC ist ein unterstützter Eingang, aber kein
-   kanonisches Arbeitsformat.
-7. **Layout vor Semantik.** Native Blocks/Lines werden pro Seite anhand der
-   Geometrie in Lesereihenfolge gebracht und getrennte Namens-/Preisspalten zu
-   Belegzeilen zusammengesetzt. Erst danach arbeitet der deutsche Parser.
-8. **Review ist die Autoritätsgrenze.** Unsichere oder fehlende Werte bleiben
-   sichtbar. Nutzer können Positionen hinzufügen, entfernen und ändern. Ein
-   bestehender Haushaltsmarkt wird explizit gewählt; OCR legt keinen Markt an.
-9. **Lokaler Draft statt Bildbytes im KV-Store.** Bildbytes bleiben in
-   app-eigenen Dateien. Kontobezogene Draft-Metadaten und Zustände dürfen über
-   den verschlüsselten `account-storage`-Owner persistiert werden. SQLite,
-   Outbox und MMKV enthalten keine Bildbytes und keinen OCR-Volltext.
-10. **Build ist Voraussetzung, kein Beweis.** Autolinking, Compile und Upload
-   beweisen nur, dass ein Binary erstellt wurde. Abschluss erfordert den echten
-   OCR- und Save-Fluss mit allen drei Bildern auf beiden Plattformen.
-11. **Read-only gegenüber Inventory.** Receipt-Funktionen lesen und schreiben
-    ausschließlich Receipt-/Asset-Daten. Wiederkehrende Artikel dürfen später
-    explizit über `product_id` oder einen freigegebenen Linking-Vertrag
-    verbunden werden; Namensähnlichkeit löst weder Linking noch Bestandswrites
-    aus.
-12. **Strukturierte Daten und Bilder sind getrennt.** Nach Bestätigung bleiben
-    Kaufdatum, ausgewählter Markt, Gesamtsumme und bestätigte Artikelpreise in
-    `purchase_receipts`/`purchase_receipt_items` gespeichert und werden offline gespiegelt.
-    Bonbilder sind getrennte private Assets und unabhängig löschbar. OCR-
-    Volltext wird nicht dauerhaft gespeichert.
-13. **Getrennte Einstiege.** Der bestehende Bon-Button in der Einkaufsliste
-    bleibt ausschließlich der Einstieg zum Erfassen. Die Bon-Historie liegt
-    unter `Haushalt > Einstellungen > Bon-Historie`; es gibt dafür keinen
-    zweiten Capture-Button und keinen zusätzlichen Hauptnavigationseintrag.
-14. **Originalbon im Detail.** Die Bon-Detailansicht zeigt vorhandene private
-    Originalbilder direkt als Vorschau in Seitenreihenfolge. Antippen öffnet
-    eine vergrößerbare Vollbildansicht. Lokale Dateien werden bevorzugt;
-    synchronisierte Assets werden über private, kurzlebige Zugriffe geladen.
+#### `fam-ymz7.4` — Arbeitsstand und Beads-Abgrenzung prüfen
 
-## Abhängigkeitsfolge
+Read-only-Bestandsaufnahme des aktuellen Git- und Beads-Zustands. Der relevante
+Diff wird den bereits vorhandenen Änderungen zugeordnet, ohne fremde Dateien
+anzupassen. Die vorhandenen Folge-Beads und ihre Abhängigkeiten werden
+aufgenommen.
+
+**Abhängigkeiten:** keine.
+
+**Voraussichtliche Quellen:** Git-Status/-Diff, `bd show`, `bd list`,
+`AGENTS.md`, `CONSTRAINTS.md`, `CONTEXT.md`.
+
+### Stage 2: Bun-Toolchain vereinheitlichen
+
+#### `fam-ymz7.6` — Bun-Toolchain auf 1.3.14 prüfen und verbleibende Drifts beheben
+
+Alle aktiven Bun-Ausführungswege werden in `package.json`,
+`.github/actions/setup-bun-env/action.yaml`, `.github/workflows/*.yml`,
+`eas.json` und relevanter Entwicklerdokumentation abgeglichen. Veraltete oder
+redundante Pins werden nur entfernt, wenn der Owner und die erwartete
+Ausführung eindeutig sind. Die lokale CLI-Abweichung bleibt mit `fam-2oau`
+getrennt.
+
+**Abhängigkeit:** `fam-ymz7.4`.
+
+**Voraussichtliche Quellen:** `package.json`, `bun.lock`, `eas.json`,
+`.github/actions/setup-bun-env/action.yaml`, alle aktiven Bun-Workflows.
+
+### Checkpoint A: Toolchain und Arbeitsstand
+
+Nach Stage 1 und Stage 2 müssen Working-Tree-Scope, kanonische Bun-Quelle,
+redundante Pins und die lokale CLI-Abweichung getrennt dokumentiert sein. Es
+werden zu diesem Checkpoint keine fachlichen Shopping-List-Annahmen aus
+früheren Reports übernommen.
+
+### Stage 3: Einkaufslisten-Kernflow prüfen
+
+#### `fam-ymz7.1` — Shopping-List-Kernpfad und Vertragslücken belegen
+
+Der vertikale Laufzeitpfad wird aus aktuellen Ownern nachvollzogen:
 
 ```text
-fam-rfyo Struktur-Migration --> fam-n6on Native Provider --+
-fam-tyz6 Goldmanifest -----------------------+              |
-                                             v              v
-                                  fam-l4gc Layout/Parser  fam-mc71 Bildnormalisierung
-                                             |              |
-                                             |              v
-                                             |       fam-qt4m Resume/Queue
-                                             |              |
-                                             +-------+------+
-                                                     v
-                                            fam-3bzj Review/Save
-                                                     |
-                                                     v
-                                            fam-qgxy Verlauf
-                                                     |
-                                                     v
-                                            fam-swdk Realabnahme
+Route
+  -> ShoppingListScreen
+  -> Query-/Mutations-Hooks
+  -> lokaler SQLite-Spiegel
+  -> atomare Mirror-/Outbox-Transaktion
+  -> Push
+  -> Pull und Realtime
+  -> Supabase-Schema und RLS
 ```
 
-## Task-Index
+Der Abschluss eines Shopping Runs wird separat bewertet, weil er neben
+Shopping-List-Zeilen auch Inventory, Transactions und lokale Historie berührt.
+Atomarität, Reverse Actions, Offline-Parität, Fehlerbehandlung und
+Synchronisationsgrenzen werden jeweils mit Code- oder Testbeleg bewertet.
 
-Die vollständigen Acceptance Criteria und Dateiscopes liegen in Beads. Dieser
-Abschnitt ist nur der geordnete Index und keine zweite Task-Wahrheit.
+**Abhängigkeit:** `fam-ymz7.4`.
 
-### Phase 0: gemeinsamer OCR-Owner
+**Voraussichtliche Quellen:**
 
-0. `fam-rfyo` — die begonnene Verschiebung von `receipt-authority`,
-  `receipt-capture` und `receipt-processing` nach
-  `src/features/ocr/{authority,capture,processing}` finalisieren und alle
-  Imports, Tests und Dokumente ohne Verhaltensänderung aktualisieren. Erledigt.
+- `src/app/(app)/shopping-list.tsx`
+- `src/features/shopping-list/screens/shopping-list-screen.tsx`
+- `src/features/shopping-list/hooks/`
+- `src/features/shopping-list/preferences/save-shopping-item.ts`
+- `src/lib/db/schemas/shopping.ts`, `src/lib/db/outbox.ts`,
+  `src/lib/db/entities.ts`
+- `src/lib/sync/{mirror-write,push,pull,realtime,sync-runner}.ts`
+- `supabase/schemas/08_inventory.sql` und zugehörige pgTAP-Tests
+- fokussierte Shopping-List-, SQLite-, Outbox- und Sync-Tests
 
-**Checkpoint 0:** Erledigt. Die drei alten Feature-Roots existieren nicht mehr. Eine
-gezielte Suche findet keine produktiven oder dokumentierten Imports auf die
-alten Pfade; fokussierte Tests, Biome und Typecheck bleiben grün.
+#### `fam-ymz7.10` — checkedItems/transfers-Bijektion planen
 
-### Phase 1: Wahrheit und native Lauffähigkeit
+Der Stage-3-Nachweis belegt, dass `use-complete-shopping-run.ts` Transfers
+optional zuordnet und dadurch `checkedItems` ohne Transfer akzeptiert. Der
+kleine Planungsbead definiert ausschließlich den reinen Validatorvertrag und
+die Write-Grenze; Restore, Reverse, Receipt, Pull, Realtime, Outbox-Retention,
+CAS, RLS und Forward-Atomarität sind ausdrücklich ausgeschlossen.
 
-1. `fam-tyz6` — Goldwerte für die drei realen Bilder definieren.
-2. `fam-n6on` — die vorhandene `expo-ai-kit`-Integration auf iOS und Android
-   vollständig lauffähig machen und mit echten Bildern validieren.
+Die freigegebene Umsetzung liegt in `fam-ymz7.18`. `fam-ie54` konsumiert den
+Validator später für den Forward-Run, ist aber keine Dependency dieses kleinen
+Validators und wird nicht dupliziert.
 
-**Checkpoint A:** Apple- und Android-Autolinking enthalten `expo-ai-kit`. Ein
-frischer Dev-Build liefert für jedes Testbild echte, nicht leere, geordnete
-Zeilen. Auf Android wird die Modellvorbereitung samt Fehler-/Retry-Zustand
-nachgewiesen; anschließend gelingt derselbe Lauf bei deaktiviertem Netzwerk.
-`NATIVE_MODULE_UNAVAILABLE` ist nicht reproduzierbar.
+**Abhängigkeit:** `fam-ymz7.1`.
 
-### Phase 2: reale Bild- und Belegstruktur
+#### `fam-ymz7.11` — Shopping-List-SectionList gegen FlashList-Vertrag prüfen
 
-3. `fam-mc71` — Bildformate, Orientierung, Größe und JPEG-Arbeitsformat für OCR
-   und Upload normalisieren.
-4. `fam-l4gc` — geometrische Zeilenrekonstruktion und Parser an EDEKA und
-   ROSSMANN härten.
+Der Stage-3-Review belegt eine produktive `SectionList` in
+`src/features/shopping-list/screens/shopping-list-screen.tsx`, obwohl der
+Projektvertrag `FlashList` als alleinige virtualisierte Listenlösung nennt.
+Dieser Planungsbead gleicht die konkrete Section-/Scroll-Struktur mit dem
+Vertrag ab und legt danach als separaten Umsetzungsschritt entweder eine
+begründete Migration oder eine explizite Ausnahme mit Performance-Nachweis
+fest.
 
-**Checkpoint B:** Alle sechs PNG-/JPEG-Testbildvarianten erreichen als lesbare,
-korrekt orientierte JPEGs den Provider. Händler und sichtbare Summen entsprechen
-dem Goldmanifest; Coupons, Pfand, Steuer, Zahlung, Signatur und Barcode werden
-nicht zu Artikeln.
+Keine blinde UI-Migration und keine vorweggenommene Änderung an der
+bestehenden UI: `.11` bleibt die eigenständige Listen-/Performance-Planung;
+ihre spätere Umsetzung bleibt aber eine eigene Stage-5-Ausgangsvoraussetzung
+und wird nicht mit `fam-ymz7.10` oder `fam-ymz7.18` vermischt.
 
-### Phase 3: belastbarer Nutzerfluss
+**Abhängigkeit:** `fam-ymz7.1`.
 
-5. `fam-qt4m` — Capture-Draft, Seitenfolge und Retry kontobezogen
-   persistieren; Resume nach Relaunch und weitere Kameraseiten unterstützen.
-6. `fam-3bzj` — Review vollständig korrigierbar machen und bestätigte Werte
-   exakt in `receipt-authority` speichern.
+### Stage 4: Kritische Sync- und Auth-Grenzen prüfen
 
-**Checkpoint C:** Ein Offline-Draft überlebt Relaunch. Der Nutzer kann jede
-falsche Position entfernen, jede fehlende Position hinzufügen, Werte ändern
-und einen bestehenden Haushaltsmarkt auswählen. Der Save entspricht dem
-sichtbaren Review.
+#### `fam-ymz7.2` — Auth- und Sync-Ownership-Grenzen evidenzbasiert prüfen
 
-### Phase 4: datumssortierte Information
+Accountwechsel und Sync-Lebenszyklus werden als zusammenhängende Ownership-
+grenze geprüft. Die Reihenfolge von Session-Änderung, Query-Cache, verschlüsseltem
+Account-Storage, SQLite-Owner-Wechsel und Sync-Stopper wird gegen Tests und
+Produktionscode gehalten. Push, Pull, Realtime und Konfliktlogik werden auf
+eindeutige Owner und konkurrierende Seiteneffekte geprüft.
 
-7. `fam-qgxy` — bestätigte Receipts nach Kaufdatum absteigend mit
-   Gesamtsumme anzeigen. Jeder Eintrag öffnet eine dauerhafte Detailansicht mit
-   allen gespeicherten fachlichen Receipt-Daten, der vollständigen Artikelliste
-   und ihren Preisen. Der Einstieg liegt verbindlich unter
-   `Haushalt > Einstellungen > Bon-Historie`; der Capture-Button bleibt in der
-   Einkaufsliste. Die Detailansicht zeigt vorhandene Originalbon-Seiten direkt
-   als Vorschau und öffnet sie bei Antippen vergrößert.
+Nur Risiken mit beobachtbarem Verhalten werden als neue Beads angelegt. Die
+separate Auth-Spezifikation `fam-ya7p` wird nicht stillschweigend umgesetzt.
 
-**Checkpoint D:** Gespeicherte Einkäufe sind offline-fähig und deterministisch
-nach Datum sortiert lesbar. Jeder Bon bleibt nach Relaunch aufrufbar; seine
-Detailansicht zeigt die vollständigen bestätigten Positionen in Bonreihenfolge
-mit Menge und Preis. Vorhandene Bonbilder können aus der Detailansicht geöffnet
-werden und erscheinen davor bereits als Vorschau. Mehrseitige Bons behalten
-ihre Seitenreihenfolge. Nach ausdrücklicher Bildlöschung bleibt die
-strukturierte Bonansicht erhalten. Der komplette Flow erzeugt nachweislich
-keine Inventory-, Fridge- oder Shopping-List-Mutation.
+Die Stage-4-Reviewkorrektur dokumentiert zwei konkrete P1-Sync-Risiken:
 
-### Phase 5: reale Cross-Platform-Abnahme
+- `src/lib/sync/pull.ts`: Der Cursor-Fortschritt ist an eine Entity statt an
+  den Household-Scope gebunden. Beim Beitritt oder Wechsel eines Haushalts
+  können ältere gültige Remote-Zeilen mit einem zu weit fortgeschrittenen
+  Cursor übersprungen werden. Die separate Korrektur ist in `fam-ymz7.17`
+  verknüpft.
+- `src/lib/sync/mirror-write.ts`: Eine eingehende Realtime-Zeile wird bei
+  einer cleanen lokalen Mirror-Zeile ohne expliziten Aktualitätsvergleich
+  übernommen. Ein verspätetes Remote-Event kann dadurch einen neueren lokalen
+  Stand überschreiben. Die separate Korrektur ist in `fam-ymz7.16` verknüpft.
 
-8. `fam-swdk` — vollständigen Ablauf mit allen drei Bildern auf iOS und
-   Android abnehmen.
+Beide P1-Risiken bleiben eigenständige Sync-Folgearbeiten und werden nicht in
+die Stage-4-Dokumentationskorrektur eingeschoben. Sie gehören aber zum
+Stage-5-Abschlussgate. `fam-ya7p`, `fam-ya7p.1` und `fam-ya7p.2` bleiben der
+getrennte Auth-/Secure-Storage-Strang.
 
-**Checkpoint E:** Die Definition of Done weiter unten ist vollständig belegt.
-Erst dann dürfen Capability Map, Plan und Bead den Status „funktionsfähig“
-tragen.
+**Abhängigkeit:** `fam-ymz7.1`.
 
-## Verifikation je Schicht
+**Voraussichtliche Quellen:**
 
-### Statische und fokussierte Gates
+- `src/features/auth/session-provider.tsx`, `src/features/auth/sign-out.ts`
+- `src/lib/data/query-client.ts`
+- `src/lib/storage/account-storage.ts` und SecureStore-Schicht
+- `src/lib/db/{client,ownership,database-encryption}.ts`
+- `src/lib/sync/{account-sync-gate,household-bootstrap-sync,sync-runner,
+  push,pull,realtime}.ts`
+- Auth-, Account-Isolation-, Ownership-, Sync-State- und Realtime-Tests
 
-```bash
-bunx expo-modules-autolinking resolve --platform apple
-bunx expo-modules-autolinking resolve --platform android
-bun run test src/features/ocr/capture
-bun run test src/features/ocr/processing
-bun run test src/features/ocr/authority
-bun run check
-bun run typecheck
-bun run native:status -- --diff
-```
+#### `fam-ymz7.15` — Stage-4-Reviewbefunde dokumentieren und verknüpfen
 
-Kein `bun test` und keine ungefilterte Jest-Suite. Ein echter Native-Change
-erfordert den dokumentierten Rebuild-/Baseline-Prozess aus `AGENTS.md`.
+Dieser Korrekturbead aktualisiert ausschließlich diesen Plan und die Notes von
+`fam-ymz7.2` und `fam-ymz7.15`. Er hält die beiden konkreten P1-Risiken mit
+ihren Produktionspfaden fest und verknüpft `fam-ymz7.16` für verspätete
+Realtime-Zeilen in `src/lib/sync/mirror-write.ts` sowie `fam-ymz7.17` für den
+Household-Pull-Cursor in `src/lib/sync/pull.ts`.
 
-### Reale OCR-Matrix
+Stage 5 wartet auf diese Nachweiskorrektur und die bestehenden Stage-2- und
+Stage-3-Voraussetzungen. Die Folge-Fixes `.16` und `.17` bleiben eigenständige
+reviewbare Beads, sind aber zusätzlich zum Stage-5-Abschluss erforderlich;
+Beads bleiben die einzige Live-Statusquelle.
+Die Korrektur verändert weder Produktionscode, Sync-Logik, Schema/Migrationen
+noch fremde Working-Tree-Dateien.
 
-Für jede Kombination aus iOS/Android und den drei Bildern wird in der
-`fam-swdk`-Notiz festgehalten:
+### Checkpoint B: Vertrag und Evidenz
 
-- Plattform, OS, Gerät/Simulator und Build-/Fingerprint-ID;
-- Provider und exakte Version;
-- Netzwerk deaktiviert;
-- OCR liefert nicht leere, geordnete Zeilen;
-- erkannter Händler und erkannte Summe;
-- Parserergebnis und bewusst ausgeschlossene Zeilen;
-- Review-Korrekturen;
-- gespeicherte `purchase_receipts`-/`purchase_receipt_items`-Werte nach Relaunch;
-- Position im datumssortierten Verlauf und sichtbare Artikelpreise;
-- vollständige Bon-Detailansicht und Aufruf vorhandener privater Assets;
-- eingebettete Originalbon-Vorschau, Seitenreihenfolge und vergrößerbare
-  Bildansicht;
-- Nachweis, dass keine Inventory-/Shopping-List-Entity und keine entsprechende
-  Outbox-Operation verändert wurde;
-- Fehler- und Retry-Verhalten.
+Nach Stage 3 und Stage 4 müssen für jede behauptete Abweichung folgende Felder
+vorliegen: betroffener Owner, verbindliche Vertragsstelle, beobachtbares
+Ist-Verhalten, reproduzierbarer Test oder lokaler Nachweis, Risiko und kleinste
+Korrekturgrenze. Unbelegte Vermutungen werden aus der Aufgabenliste entfernt.
 
-Screenshots oder Logs dürfen keine vollständigen Kunden-, Karten- oder
-Signaturdaten enthalten.
+### Stage 5: Priorisierte Korrekturen umsetzen
 
-## Stop-Regeln
+#### `fam-ymz7.5` — Kleine belegte Toolchain- oder Vertragsabweichungen umsetzen
 
-- Wenn `expo-ai-kit@0.17.0` nicht auf beiden Plattformen autolinkt,
-  kompiliert oder die drei Bilder offline lesen kann, wird er nicht durch
-  Adaptertricks als „fertig“ erklärt. `fam-n6on` bleibt offen und dokumentiert
-  den reproduzierbaren Fehler. Eine andere Dependency oder ein zweiter
-  Provider wird erst nach einer neuen ausdrücklichen Maintainer-Entscheidung
-  geplant.
-- Ein Mock-, Fixture- oder Parser-Test kann den Native-Gate nicht ersetzen.
-- Ein Simulator-Einstieg, ein Release-Build, ein Archive-Upload oder ein
-  TestFlight-Status kann den Realbild-Gate nicht ersetzen.
-- OCR-Rohtext, Bilder oder Goldwerte werden nicht an Supabase, Telemetrie,
-  Sentry oder andere Remote-Ziele gesendet.
-- Ein nicht erklärter Native-Fingerprint-Drift wird nicht durch eine neue
-  Baseline verdeckt.
+Erst nach der Prüfung von Stage 2 bis 4 und nach menschlicher Bestätigung der
+Planrichtung werden die belegten Korrekturen umgesetzt. Kleine Toolchain-
+Korrekturen können direkt erfolgen; größere fachliche oder architektonische
+Änderungen erhalten eigene Beads und eine separate Planung. Jede
+Verhaltensänderung erhält einen fokussierten Test oder aktualisiert eine
+bestehende, beobachtbare Abnahme.
 
-## Nicht Teil dieses Plans
+**Abhängigkeiten:** `fam-ymz7.6`, `fam-ymz7.1`, `fam-ymz7.2`, `fam-ymz7.15`.
 
-- `receipt-learning` und haushaltsbezogene automatische Zuordnungen;
-- automatisches Verknüpfen wiederkehrender Artikel; eine spätere explizite
-  Verbindung über `product_id` bleibt möglich;
-- Produkt- und Kategorie-Matching jenseits manueller Reviewwerte;
-- Aggregationen, Preisverlaufsanalyse und Budgetlogik;
-- jede Inventory-, Fridge- oder Shopping-List-Änderung;
-- Cloud-OCR oder ein dauerhaftes OCR-Volltextarchiv.
+Stage 5 bleibt bis zur Umsetzung und Verifikation aller übernommenen
+Folgebeads offen. Dazu gehören mindestens `.18`, `.11`, `.16`, `.17`,
+`fam-ie54`, `fam-gng6` und `fam-jlkw`; die konkreten Abhängigkeiten stehen
+zusätzlich im Beads-Graphen. Separate Beads verhindern dabei nur einen
+vermischten Diff, nicht die Stage-5-Abschlussbedingung.
 
-## Definition of Done
+**Mögliche Dateiscope:** Nur aus den evidenzbasierten Befunden, insbesondere
+Toolchain-Konfiguration, Shopping-List-Owner, lokaler DB-/Outbox-Grenze,
+Auth-Lifecycle oder Sync-Owner. Keine pauschale Ausweitung auf die gesamte
+Codebase.
 
-`receipt-processing` ist erst funktionsfähig, wenn alle Punkte gleichzeitig
-erfüllt sind:
+### Stage 6: Verifikation und Review
 
-1. Der native Provider ist in frischen iOS- und Android-Dev-Builds verlinkt.
-2. Alle sechs PNG-/JPEG-Testbildvarianten werden lokal normalisiert und bei
-   deaktiviertem Netzwerk erkannt. Auf Android darf davor genau die dokumentierte
-   Play-Services-Modellvorbereitung erfolgt sein; ihr Zustand und Retry sind
-   Teil des Produktflusses.
-3. Die Reviews zeigen EDEKA/39,14 EUR, EDEKA/43,37 EUR und
-   ROSSMANN/18,95 EUR; das sichtbare Rossmann-Datum wird erkannt, sofern es im
-   Native-Output vorhanden ist.
-4. Relevante Artikel/Preise sind als editierbare Positionen vorhanden;
-   Coupon, Rabatt, Pfand, Steuer, Zahlung, Signatur und Barcode werden nicht
-   als normale Artikel gespeichert.
-5. Nutzer können Markt, Datum, Summe und Positionen vollständig korrigieren,
-   inklusive Hinzufügen und Entfernen.
-6. Ein bestätigter Receipt entspricht exakt dem Review und bleibt nach
-   Relaunch verfügbar; ein Uploadfehler bleibt retrybar. Der Receipt erscheint
-   nach Kaufdatum sortiert; jeder Bon lässt sich als vollständige strukturierte
-   Detailansicht mit bestätigten Artikelpreisen öffnen. Vorhandene Bonbilder
-   werden dort als Vorschau angezeigt und sind vergrößert aufrufbar.
-7. Capture-Drafts überleben Offlinezustand und Relaunch kontoisoliert; ein
-   verworfener Draft hinterlässt keine lokalen Bilddateien.
-8. Kein Receipt-Schritt verändert Inventory, Fridge oder Shopping List und
-   erzeugt keine entsprechende Outbox-Operation.
-9. Fokussierte Tests, Biome und Typecheck sind grün. Native-Fingerprint und
-   Rebuild sind nach dem Projektvertrag dokumentiert.
-10. `fam-swdk` enthält den realen Nachweis für beide Plattformen. Erst danach
-   werden die offenen Beads geschlossen und Statusangaben aktualisiert.
+Stage 6 ist die abschließende Gesamtprüfung. Sie darf erst geschlossen werden,
+wenn Stage 5 geschlossen ist und alle übernommenen Folgebeads ihre eigenen
+Reviews und Verifikationsgates bestanden haben. Die bisherige Stage-6-Prüfung
+bleibt als Baseline-Nachweis erhalten und ersetzt diese Abschlussprüfung nicht.
 
-## Quellen für die Umsetzung
+#### `fam-ymz7.3` — Multi-Achsen-Review und gezielte Verifikation abschließen
 
-- [Expo SDK 57 ImagePicker](https://docs.expo.dev/versions/v57.0.0/sdk/imagepicker/)
-- [Expo SDK 57 ImageManipulator](https://docs.expo.dev/versions/v57.0.0/sdk/imagemanipulator/)
-- [Expo Autolinking](https://docs.expo.dev/modules/autolinking/)
-- [Google ML Kit Text Recognition v2 für Android](https://developers.google.com/ml-kit/vision/text-recognition/v2/android)
-- [Expo AI Kit: Vision](https://expo-ai-kit.dev/guides/vision)
-- Installierte Provider-Dokumentation: `node_modules/expo-ai-kit/README.md`
+Die tatsächlich geänderten Dateien werden entlang der fünf Review-Achsen
+geprüft:
+
+- **Correctness:** Vertrag, Fehlerpfade, Atomarität, Retry und Race-Verhalten.
+- **Readability:** klare Owner, Benennungen und kein unnötiger Kontrollfluss.
+- **Architecture:** Abhängigkeitsrichtung, keine neuen Duplikate oder
+  fachliche Logik in Shared-/Infrastruktur-Ownern.
+- **Security:** Session-/Account-Isolation, Eingangsvalidierung, RLS und keine
+  Secrets oder unsicheren SQL-Pfade.
+- **Performance:** keine unbeschränkten Abfragen, N+1-Muster oder unnötige
+  Cache-/Sync-Arbeit.
+
+**Abhängigkeit:** `fam-ymz7.5`.
+
+**Gezielte Gates:**
+
+- `bun run check` für den betroffenen Scope beziehungsweise den nach
+  Projektkonvention erforderlichen Quellbestand.
+- `bun run typecheck`.
+- `bun run test -- src/features/shopping-list/domain/shopping-run-contract.test.ts src/features/shopping-list/domain/shopping-list-restore.test.ts src/lib/sync/pull.shopping-run.test.ts src/lib/sync/realtime.shopping-run.test.ts --runInBand --watchman=false`; niemals `bun test`.
+- Für Änderungen am lokalen SQLite-Contract zuerst exakt `bun run db:local:generate`.
+  Erwartet werden die von Drizzle Kit erzeugten Artefakte unter
+  `drizzle/local/<timestamp>_<name>/migration.sql`,
+  `drizzle/local/<timestamp>_<name>/snapshot.json` sowie die aktualisierte
+  `drizzle/local/migrations.js`; diese Dateien werden nicht von Hand editiert.
+- Der verpflichtende Integration-Preflight gehört der konkreten bestehenden
+  Funktion `resolveSupabaseEnv` in `test/setup-integration.js` (bei einer
+  späteren Extraktion bleibt `test/integration-preflight.js` ihr benannter
+  Owner). Sie muss fail-closed vor dem Jest-Start eine lokale URL verlangen,
+  deren Host exakt `127.0.0.1` oder `localhost` ist und deren Port erreichbar
+  ist. Fehlende lokale URL, fehlender oder nicht erreichbarer Port, linked-
+  oder Remote-URL sowie jeder Host außerhalb dieser beiden Werte beenden den
+  Lauf sofort mit einem klaren Fehler. `.env.development` und
+  Prozessvariablen dürfen niemals als Remote-/linked-Fallback dienen; eine aus
+  ihnen gelesene URL ist höchstens ein Kandidat und wird denselben lokalen
+  Prüfungen unterworfen. Der Reject-Test ist
+  `test/integration-preflight.test.js` und deckt missing-local, Remote-URL,
+  fremden Host, fehlenden Port und nicht erreichbaren lokalen Port ab; ein
+  erreichbarer `http://127.0.0.1:<port>`- oder `http://localhost:<port>`-Fall
+  ist der Positivtest.
+- Stage 6 führt zuerst exakt `node --test test/integration-preflight.test.js`
+  aus. Erst bei bestandenem Reject-/Positiv-Preflight läuft der exakte lokale
+  Integration-Gate-Aufruf
+  `bun run test:integration -- src/lib/db/outbox.integration.test.ts src/lib/db/shopping-list-restore.integration.test.ts src/lib/db/shopping-run-lost-response.integration.test.ts`.
+  Der Standard-Jest-Lauf ignoriert `*.integration.test.ts` und
+  `*.integration.test.tsx` ausdrücklich; diese Dateien werden nur über
+  `jest.integration.config.js` und den expliziten `test:integration`-Aufruf
+  ausgeführt. Falls die Pfade noch nicht existieren, sind sie als geplante
+  zukünftige Gates zu dokumentieren, nicht als aktuell grüne Tests.
+- Diese fokussierte Shopping-Run-Jest-Abnahme muss Strict-Unit-Vektoren für jeden
+  Alias, trim/lowercase, missing/empty/
+  unknown mit P0005, nur g<->kg und ml<->l mit Faktor 1000 sowie
+  `recipe_names` null/undefined -> `[]`, Unicode-Codepoint-Sortierung und
+  erhaltene Duplikate abdecken.
+- Das geprüfte `package.json`-Script `test:db` hängt immer
+  `supabase/tests/*.test.sql` an und kann deshalb keine einzelne Datei
+  fokussieren; `bun run test:db -- supabase/tests/10_shopping_runs.test.sql`
+  ist ausdrücklich kein gültiger Gate-Aufruf. Nach
+  `bash scripts/check-clean-db.sh --check-only` ist der fokussierte lokale
+  pgTAP-Gate daher exakt
+  `supabase test db --local supabase/tests/10_shopping_runs.test.sql`.
+  Alternativ darf vor der Umsetzung ein kleines fokussierbares
+  `test:db:focused`-Script ergänzt werden, aber niemals ein irreführender
+  Glob-Aufruf. Der DB-Preflight muss localhost/127.0.0.1 belegen und Remote-
+  oder linked-Ziele ausschließen.
+- Bei Supabase-Schemaänderungen: deklarativer DB-Workflow, relevante pgTAP-
+  Tests, Advisors, `bun run db:types` und leerer `db:diff`; außerdem
+  `bun run db:local:generate` für den lokalen Drizzle-Spiegel. Die
+  Projektion, RPC-/CAS-/Provenienztests, Restore-Receipt-/Lost-Ack-Tests,
+  RLS-/Privilege-Tests und die exakten Rollenprüfungen sind geplante/future
+  Nachweise, falls die benannten Dateien noch fehlen.
+- `git diff --check` und abschließende `git status --short --branch`.
+
+Ein bekannter projektweiter TypeScript-Baselinefehler wird von neu eingeführten
+Fehlern getrennt ausgewiesen. Ein grüner Einzeltest allein gilt nicht als
+Abnahme.
+
+### Checkpoint C: Abschluss
+
+Der Abschlussbericht enthält den tatsächlichen Diff-Scope, Reviewbefunde nach
+Schweregrad, ausgeführte Gates, Beads-Status, verbleibende Risiken und eine
+klare Übergabe. Beads werden erst geschlossen, wenn ihre Akzeptanzkriterien und
+Nachweise tatsächlich erfüllt sind.
+
+## Risiken und Gegenmaßnahmen
+
+| Risiko | Auswirkung | Gegenmaßnahme |
+| --- | --- | --- |
+| Ein bestehender Diff wird fälschlich als neue Änderung behandelt | fremde Arbeit könnte überschrieben oder falsch bewertet werden | Stage 1 als Baseline; keine Wiederherstellung oder pauschale Bereinigung |
+| Lokale Bun-Version weicht vom Repository-Pin ab | lokale Ergebnisse sind nicht reproduzierbar | Repository-Pin und lokale CLI getrennt prüfen; `fam-2oau` für die lokale Entscheidung |
+| Shopping-Run verteilt zusammengehörige Writes auf mehrere Transaktionen | Teilzustände bei Fehlern oder Retry | bestehende `fam-ie54`-Evidenz prüfen; Korrektur separat und atomar planen |
+| SQLite-Lesefehler werden als leerer Zustand dargestellt | Datenverlust wird dem Nutzer als gültiger Zustand gezeigt | `fam-gng6` nur nach aktuellem Reproduktionsbeleg weiterführen |
+| Serverhistorie erlaubt Update/Delete trotz Append-only-Vertrag | Historie kann fachlich verändert werden | `fam-jlkw` gegen aktuelles Schema und pgTAP prüfen |
+| Auth-/Sync-Prüfung vermischt Spezifikation mit Ist-Verhalten | unbelegte Architekturänderungen | `fam-ya7p` getrennt halten und nur belegte Risiken anlegen |
+| Verspätete Realtime-Zeile überschreibt in `src/lib/sync/mirror-write.ts` einen neueren lokalen Stand | lokaler Mirror-Zustand kann zurückspringen | `fam-ymz7.16` separat mit Aktualitäts-/Realtime-Tests korrigieren |
+| Entity-Cursor in `src/lib/sync/pull.ts` überspringt beim Household-Wechsel ältere Remote-Zeilen | gültiger Household-Bestand fehlt nach Pull oder Bootstrap | `fam-ymz7.17` separat mit Scope-/Cursor-Tests korrigieren |
+| Review beschränkt sich auf grüne Tests | Sicherheits- oder Architekturregressionen bleiben unentdeckt | verpflichtende Fünf-Achsen-Review vor Abschluss |
+
+## Offene Entscheidungen
+
+- Für die lokale Erzwingung oder Prüfung von Bun `1.3.14` muss vor der
+  Umsetzung von `fam-2oau` der im Projekt gewünschte Version-Manager bzw.
+  Setup-Weg festgelegt werden. Eine globale Installation wird nicht durch
+  diesen Plan verändert.
+- Ob eine im aktuellen Working Tree bereits vorhandene Konfigurations- oder
+  Dokumentationsänderung behalten wird, entscheidet Stage 2/3 anhand der
+  Vertrags- und Review-Evidenz; der Plan behandelt sie bis dahin als Bestand,
+  nicht als automatisch freigegebenes Ergebnis.
