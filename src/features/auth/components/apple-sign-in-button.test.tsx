@@ -35,7 +35,7 @@ jest.mock('@/features/auth/domain/auth-error-message', () => ({
   authErrorMessage: jest.fn(),
 }));
 
-jest.mock('@/features/auth/provider-auth', () => ({
+jest.mock('@/features/auth/oauth-provider-actions', () => ({
   signInWithApple: jest.fn(),
 }));
 

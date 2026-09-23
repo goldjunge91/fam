@@ -20,7 +20,7 @@ jest.mock('@/features/auth/api', () => ({
   signIn: (...args: unknown[]) => mockSignIn(...args),
 }));
 
-jest.mock('@/features/auth/provider-auth', () => ({
+jest.mock('@/features/auth/oauth-provider-actions', () => ({
   signInWithOAuthProvider: jest.fn(),
   signInWithApple: jest.fn(),
 }));

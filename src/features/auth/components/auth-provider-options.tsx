@@ -6,7 +6,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Button, Txt } from '@/constants/ui';
 import { AppleSignInButton } from '@/features/auth/components/apple-sign-in-button';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
-import { signInWithOAuthProvider } from '@/features/auth/provider-auth';
+import { signInWithOAuthProvider } from '@/features/auth/oauth-provider-actions';
 
 const styles = StyleSheet.create((theme) => ({
   container: {

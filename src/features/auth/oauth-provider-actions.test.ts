@@ -21,7 +21,7 @@ jest.mock('expo-web-browser', () => ({
 }));
 
 import { AUTH_ERROR_KEYS } from '@/features/auth/domain/auth-error-message';
-import { signInWithOAuthProvider } from '@/features/auth/provider-auth';
+import { signInWithOAuthProvider } from '@/features/auth/oauth-provider-actions';
 
 describe('provider auth', () => {
   it('öffnet die von Supabase gelieferte OAuth-URL in einer nativen Browser-Session', async () => {

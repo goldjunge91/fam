@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
-import { signInWithApple } from '@/features/auth/provider-auth';
+import { signInWithApple } from '@/features/auth/oauth-provider-actions';
 
 type AppleSignInButtonProps = {
   onError?: (errorMessage: string | null) => void;
