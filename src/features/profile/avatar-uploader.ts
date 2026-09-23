@@ -1,8 +1,7 @@
 import * as ImagePicker from 'expo-image-picker';
 import { getSupabase } from '@/lib/backend/supabase/client';
-
-const AVATAR_BUCKET = 'avatars';
-
+import { env } from '@/lib/config/env';
+import { debugError } from '@/lib/observability/debug-log';
 /**
  * Oeffnet die native Foto-Auswahl mit quadratischem Zuschnitt (1:1).
  */
@@ -21,22 +20,35 @@ export async function pickAvatarImage(): Promise<string | null> {
   return result.assets[0].uri;
 }
 
-export async function uploadAvatarImage(userId: string, localUri: string): Promise<string> {
+export async function uploadAvatarImage(localUri: string): Promise<string> {
   try {
+    const supabase = getSupabase();
+
+    const {
+      data: { user },
+      error: userError,
+    } = await supabase.auth.getUser();
+
+    if (userError || !user) {
+      throw userError ?? new Error('Not authenticated');
+    }
     const { File } = require('expo-file-system') as typeof import('expo-file-system');
     const bytes = await new File(localUri).bytes();
 
-    const path = `${userId}/avatar.jpg`;
-    const { error } = await getSupabase()
-      .storage.from(AVATAR_BUCKET)
-      .upload(path, bytes, { contentType: 'image/jpeg', upsert: true });
+    const path = `${user.id}/avatar.jpg`;
+
+    const { error } = await supabase.storage.from('avatars').upload(path, bytes, {
+      contentType: 'image/jpeg',
+      upsert: true,
+    });
 
     if (error) throw error;
 
-    const { data } = getSupabase().storage.from(AVATAR_BUCKET).getPublicUrl(path);
-    // Der Pfad bleibt beim Upsert gleich, deshalb verhindert der Zeitstempel ein altes Cache-Bild.
-    return `${data.publicUrl}?t=${Date.now()}`;
+    // Stable locator only. AvatarImage resolves a short-lived signed URL for display.
+    return `${env.supabaseUrl}/storage/v1/object/authenticated/avatars/${path}`;
+    // return `${env.supabaseUrl}/storage/v1/object/authenticated/${AVATAR_BUCKET}/${path}?t=${Date.now()}`;
   } catch (error: unknown) {
+    debugError('[AvatarUpload] Upload fehlgeschlagen', error);
     throw new Error('Profilbild konnte nicht hochgeladen werden. Bitte versuche es erneut.', {
       cause: error,
     });

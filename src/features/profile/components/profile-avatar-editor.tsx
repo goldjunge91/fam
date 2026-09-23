@@ -1,8 +1,7 @@
-import { Image } from 'expo-image';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-
 import { Button, Txt } from '@/constants/ui';
+import { AvatarImage } from '@/features/profile/avatar-image';
 
 type ProfileAvatarEditorProps = {
   avatarUrl: string | null;
@@ -23,8 +22,8 @@ export function ProfileAvatarEditor({
     <View style={styles.row}>
       <View testID="profile-avatar" style={styles.avatar}>
         {avatarUrl ? (
-          <Image
-            source={{ uri: avatarUrl }}
+          <AvatarImage
+            reference={avatarUrl}
             accessibilityLabel="Profilbild bearbeiten"
             style={styles.image}
             contentFit="cover"

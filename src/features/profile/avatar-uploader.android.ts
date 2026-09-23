@@ -1,5 +1,6 @@
 import * as ImagePicker from 'expo-image-picker';
 import { getSupabase } from '@/lib/backend/supabase/client';
+import { env } from '@/lib/config/env';
 
 const AVATAR_BUCKET = 'avatars';
 
@@ -33,9 +34,8 @@ export async function uploadAvatarImage(userId: string, localUri: string): Promi
 
     if (error) throw error;
 
-    const { data } = getSupabase().storage.from(AVATAR_BUCKET).getPublicUrl(path);
-    // Der Pfad bleibt beim Upsert gleich, deshalb verhindert der Zeitstempel ein altes Cache-Bild.
-    return `${data.publicUrl}?t=${Date.now()}`;
+    // Stable locator only. AvatarImage resolves a short-lived signed URL for display.
+    return `${env.supabaseUrl}/storage/v1/object/authenticated/${AVATAR_BUCKET}/${path}?t=${Date.now()}`;
   } catch (error: unknown) {
     throw new Error('Profilbild konnte nicht hochgeladen werden. Bitte versuche es erneut.', {
       cause: error,

@@ -1,9 +1,13 @@
--- Seed-Daten fuer `supabase db reset` (lokal). Laeuft NICHT gegen das
--- verlinkte Projekt — Bucket-Anlage auf Remote ist ein einmaliger manueller
--- Schritt (siehe Kommentar in supabase/schemas/12_recipe_storage.sql).
---
--- `insert into storage.buckets` ist DML, kein DDL, und wird deshalb hier
--- statt in einer Schemadatei gepflegt.
+-- Privater Avatar-Bucket.
+-- Zugriff wird über die RLS-Policies in 25_avatar_storage.sql geregelt.
+-- Bilder werden über kurzlebige signierte URLs ausgeliefert.
+
+insert into storage.buckets (id, name, public, file_size_limit)
+values ('avatars', 'avatars', false, 5242880)
+on conflict (id) do update
+set
+  public = false,
+  file_size_limit = excluded.file_size_limit;
 
 insert into storage.buckets (id, name, public, file_size_limit)
 values ('recipe-covers', 'recipe-covers', false, 5242880)

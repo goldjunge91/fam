@@ -1,5 +1,7 @@
 import { uploadAvatarImage } from '@/features/profile/avatar-uploader';
 
+jest.mock('@/lib/config/env', () => ({ env: { supabaseUrl: 'https://example.supabase.co' } }));
+
 const mockBytes = jest.fn();
 const mockUpload = jest.fn();
 const mockGetPublicUrl = jest.fn();
@@ -28,7 +30,7 @@ describe('uploadAvatarImage', () => {
     mockBytes.mockResolvedValue(new Uint8Array([1, 2, 3]));
   });
 
-  it('liefert nach erfolgreichem Upload eine cache-sichere öffentliche URL', async () => {
+  it('liefert nach erfolgreichem Upload eine stabilen privaten Bildverweis ohne Signatur', async () => {
     jest.spyOn(Date, 'now').mockReturnValue(1234);
     mockUpload.mockResolvedValue({ error: null });
     mockGetPublicUrl.mockReturnValue({
@@ -38,8 +40,9 @@ describe('uploadAvatarImage', () => {
     });
 
     await expect(uploadAvatarImage('user-1', 'file:///local/avatar.jpg')).resolves.toBe(
-      'https://example.supabase.co/storage/v1/object/public/avatars/user/avatar.jpg?t=1234',
+      'https://example.supabase.co/storage/v1/object/authenticated/avatars/user-1/avatar.jpg?t=1234',
     );
+    expect(mockGetPublicUrl).not.toHaveBeenCalled();
     expect(mockUpload).toHaveBeenCalledWith('user-1/avatar.jpg', new Uint8Array([1, 2, 3]), {
       contentType: 'image/jpeg',
       upsert: true,
