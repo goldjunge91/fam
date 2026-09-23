@@ -138,8 +138,8 @@ select is(
   'https://example.com/recipe',
   'Katalogbilder speichern die Attributionsseite'
 );
-select is_null(
-  (select storage_path from public.catalog_recipe_images where id = '99999999-9999-9999-9999-999999999904'),
+select ok(
+  (select storage_path from public.catalog_recipe_images where id = '99999999-9999-9999-9999-999999999904') is null,
   'Katalogbilder dürfen zunächst ohne Storage-Pfad importiert werden'
 );
 select is(

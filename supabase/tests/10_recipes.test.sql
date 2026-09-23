@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(20);
+select plan(21);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
