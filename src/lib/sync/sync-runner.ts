@@ -23,7 +23,13 @@ import { debugWarn } from '../observability/debug-log';
 
 export { serverClock };
 
-let isSyncing = false;
+type ActiveSync = {
+  scopeKey: string;
+  pending: boolean;
+  promise: Promise<SyncRunResult | null>;
+};
+
+let activeSync: ActiveSync | null = null;
 let lastSyncResultSummary: {
   timestamp: number;
   pushedCount: number;
@@ -106,19 +112,66 @@ function invalidateEntityQueries(queryClient: QueryClient, entity: Entity, house
   }
 }
 
+function getSyncScopeKey(householdIds: string[]) {
+  return [...new Set(householdIds)].sort().join('\u0000');
+}
+
 export async function triggerHouseholdSync(
   householdIds: string[],
   retryFailed = false,
   queryClient?: QueryClient,
 ): Promise<SyncRunResult | null> {
-  if (isSyncing || !householdIds || householdIds.length === 0) return null;
+  if (!householdIds || householdIds.length === 0) return null;
+
+  const scopeKey = getSyncScopeKey(householdIds);
+  if (activeSync) {
+    if (activeSync.scopeKey !== scopeKey) return null;
+    return activeSync.promise;
+  }
+
+  const nextActiveSync: ActiveSync = {
+    scopeKey,
+    pending: false,
+    promise: Promise.resolve(null),
+  };
+  const promise = (async () => {
+    let result: SyncRunResult | null = null;
+    do {
+      nextActiveSync.pending = false;
+      result = await performHouseholdSync(householdIds, retryFailed, queryClient);
+    } while (nextActiveSync.pending);
+    return result;
+  })();
+  nextActiveSync.promise = promise;
+  activeSync = nextActiveSync;
+
+  try {
+    return await promise;
+  } finally {
+    if (activeSync === nextActiveSync) activeSync = null;
+  }
+}
+
+export function triggerHouseholdSyncAfterOutboxMutation(
+  householdIds: string[],
+  queryClient?: QueryClient,
+) {
+  const scopeKey = getSyncScopeKey(householdIds);
+  if (activeSync?.scopeKey === scopeKey) activeSync.pending = true;
+  return triggerHouseholdSync(householdIds, false, queryClient);
+}
+
+async function performHouseholdSync(
+  householdIds: string[],
+  retryFailed = false,
+  queryClient?: QueryClient,
+): Promise<SyncRunResult | null> {
   const finishAccountSyncRun = beginAccountSyncRun();
   if (!finishAccountSyncRun) return null;
   const finishPerformance = startPerformanceSpan('sync.run', {
     household_count: householdIds.length,
     retry_failed: retryFailed,
   });
-  isSyncing = true;
   addDiagnosticStep('sync.run.started', { operation: 'sync.run' });
   try {
     const db = await getDatabase();
@@ -161,6 +214,22 @@ export async function triggerHouseholdSync(
 
     const hasErrors = Boolean(firstErr || firstPullErr);
     const lastError = firstErr && 'error' in firstErr ? firstErr.error : firstPullErr?.error;
+
+    if (firstErr && 'error' in firstErr) {
+      debugWarn('[SyncRunner] sync.run.failed details', {
+        source: 'push',
+        kind: firstErr.kind,
+        entity: firstErr.entity,
+        error: firstErr.error,
+      });
+    } else if (firstPullErr) {
+      debugWarn('[SyncRunner] sync.run.failed details', {
+        source: 'pull',
+        entity: firstPullErr.entity,
+        ...(firstPullErr.errorCode ? { error_code: firstPullErr.errorCode } : {}),
+        error: firstPullErr.error,
+      });
+    }
 
     lastSyncResultSummary = {
       timestamp: Date.now(),
@@ -212,7 +281,6 @@ export async function triggerHouseholdSync(
     debugWarn('[SyncRunner] Sync fehlgeschlagen:', err);
     return null;
   } finally {
-    isSyncing = false;
     finishAccountSyncRun();
   }
 }
@@ -286,23 +354,22 @@ export function useSyncEngine(householdId: string | undefined) {
         burstStartedAt = now;
         if (householdIdRef.current) {
           // Fire-and-forget: `triggerHouseholdSync` gibt `null` zurueck, wenn
-          // z.B. bereits ein anderer Sync laeuft (isSyncing-Guard, etwa ein
-          // gerade laufender AppState-Resume-Sync). Ohne Fallback wuerde
-          // dieser einzelne Schreibvorgang dann still bis zum naechsten
-          // 20s-Poll warten, statt das #70-AC1-Ziel "unter einer Sekunde" zu
-          // erreichen. Nur nachholen, wenn zwischenzeitlich kein zweiter
-          // Schreibvorgang bereits einen Debounce-Timer gesetzt hat.
-          triggerHouseholdSync([householdIdRef.current], false, queryClient).then((result) => {
-            if (
-              result === null &&
-              !outboxEffectCancelled &&
-              writesInBurst === 1 &&
-              !debounceTimer &&
-              householdIdRef.current
-            ) {
-              debounceTimer = setTimeout(flushDebouncedSync, OUTBOX_DEBOUNCE_MS);
-            }
-          });
+          // Wenn bereits ein Lauf aktiv ist, markiert triggerHouseholdSync
+          // denselben Scope als pending und der aktive Lauf führt danach
+          // garantiert einen abschließenden Folge-Lauf aus.
+          triggerHouseholdSyncAfterOutboxMutation([householdIdRef.current], queryClient).then(
+            (result) => {
+              if (
+                result === null &&
+                !outboxEffectCancelled &&
+                writesInBurst === 1 &&
+                !debounceTimer &&
+                householdIdRef.current
+              ) {
+                debounceTimer = setTimeout(flushDebouncedSync, OUTBOX_DEBOUNCE_MS);
+              }
+            },
+          );
         }
         return;
       }

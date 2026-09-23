@@ -2,6 +2,7 @@ const mockSyncHousehold = jest.fn();
 const mockGetDatabase = jest.fn();
 const mockGetSupabase = jest.fn();
 const mockRetryFailedOutboxEntries = jest.fn();
+const mockDebugWarn = jest.fn();
 
 jest.mock('@/lib/sync/engine', () => ({
   syncHousehold: (...args: unknown[]) => mockSyncHousehold(...args),
@@ -17,6 +18,10 @@ jest.mock('@/lib/backend/supabase/client', () => ({
 
 jest.mock('@/lib/db/outbox-retry', () => ({
   retryFailedOutboxEntries: (...args: unknown[]) => mockRetryFailedOutboxEntries(...args),
+}));
+
+jest.mock('@/lib/observability/debug-log', () => ({
+  debugWarn: (...args: unknown[]) => mockDebugWarn(...args),
 }));
 
 jest.mock('@/lib/telemetry', () => ({
@@ -46,7 +51,12 @@ jest.mock('@/lib/db/outbox', () => {
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, renderHook } from '@testing-library/react-native';
 import { createElement, type ReactNode } from 'react';
-import { getLastSyncInfo, triggerHouseholdSync, useSyncEngine } from '@/lib/sync/sync-runner';
+import {
+  getLastSyncInfo,
+  triggerHouseholdSync,
+  triggerHouseholdSyncAfterOutboxMutation,
+  useSyncEngine,
+} from '@/lib/sync/sync-runner';
 
 // `jest.requireMock` statt eines statischen `import`: Der reale
 // `lib/db/outbox`-Typ kennt `__triggerOutboxChanged` nicht (existiert nur im
@@ -158,6 +168,66 @@ describe('triggerHouseholdSync — Query-Invalidierung (#115-Befund)', () => {
     await expect(triggerHouseholdSync(['household-1'])).resolves.not.toBeNull();
   });
 
+  it('awaits an already running sync instead of returning before its parent push finishes', async () => {
+    let releaseSync!: (result: { push: { outcomes: []; stoppedEarly: false }; pull: [] }) => void;
+    const syncResult = new Promise<{
+      push: { outcomes: []; stoppedEarly: false };
+      pull: [];
+    }>((resolve) => {
+      releaseSync = resolve;
+    });
+    mockSyncHousehold.mockClear();
+    mockSyncHousehold.mockReturnValueOnce(syncResult);
+
+    const firstRun = triggerHouseholdSync(['household-1']);
+    await Promise.resolve();
+    const secondRun = triggerHouseholdSync(['household-1']);
+
+    expect(mockSyncHousehold).toHaveBeenCalledTimes(1);
+    releaseSync({ push: { outcomes: [], stoppedEarly: false }, pull: [] });
+
+    await expect(secondRun).resolves.toEqual({
+      push: { outcomes: [], stoppedEarly: false },
+      pull: [],
+    });
+    await firstRun;
+  });
+
+  it('runs a trailing sync when an outbox mutation arrives during the active push', async () => {
+    mockSyncHousehold.mockClear();
+    let releaseFirstRun!: () => void;
+    const firstRun = new Promise<void>((resolve) => {
+      releaseFirstRun = resolve;
+    });
+    mockSyncHousehold
+      .mockReturnValueOnce(
+        firstRun.then(() => ({ push: { outcomes: [], stoppedEarly: false }, pull: [] })),
+      )
+      .mockResolvedValueOnce({ push: { outcomes: [], stoppedEarly: false }, pull: [] });
+
+    const firstCall = triggerHouseholdSync(['household-1']);
+    for (let attempt = 0; attempt < 10 && mockSyncHousehold.mock.calls.length === 0; attempt += 1) {
+      await Promise.resolve();
+    }
+    const mutationCall = triggerHouseholdSyncAfterOutboxMutation(
+      ['household-1'],
+      new QueryClient(),
+    );
+
+    expect(mockSyncHousehold).toHaveBeenCalledTimes(1);
+    releaseFirstRun();
+
+    await expect(mutationCall).resolves.toEqual({
+      push: { outcomes: [], stoppedEarly: false },
+      pull: [],
+    });
+    await expect(firstCall).resolves.toEqual({
+      push: { outcomes: [], stoppedEarly: false },
+      pull: [],
+    });
+    expect(mockSyncHousehold).toHaveBeenCalledTimes(2);
+  });
+
   it('markiert einen Pull-Fehler im Gesamtergebnis statt den Lauf als erfolgreich zu melden', async () => {
     mockSyncHousehold.mockResolvedValue({
       push: { outcomes: [], stoppedEarly: false },
@@ -181,6 +251,32 @@ describe('triggerHouseholdSync — Query-Invalidierung (#115-Befund)', () => {
         lastError: 'JWT liegt in der Zukunft',
       }),
     );
+  });
+
+  it('schreibt die konkrete Pull-Ursache ins Dev-Terminal', async () => {
+    mockDebugWarn.mockClear();
+    mockSyncHousehold.mockResolvedValue({
+      push: { outcomes: [], stoppedEarly: false },
+      pull: [
+        {
+          entity: 'storage_locations',
+          pagesFetched: 0,
+          rowsWritten: 0,
+          rowsSkippedAsLocalWins: 0,
+          error: 'JWT liegt in der Zukunft',
+          errorCode: 'jwt_issued_in_future',
+        },
+      ],
+    });
+
+    await triggerHouseholdSync(['household-1']);
+
+    expect(mockDebugWarn).toHaveBeenCalledWith('[SyncRunner] sync.run.failed details', {
+      source: 'pull',
+      entity: 'storage_locations',
+      error_code: 'jwt_issued_in_future',
+      error: 'JWT liegt in der Zukunft',
+    });
   });
 });
 

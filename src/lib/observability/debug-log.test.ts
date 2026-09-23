@@ -39,7 +39,7 @@ describe('Dev-Terminal-Logging', () => {
     );
   });
 
-  it('redigiert sensible Werte und lässt sichere Diagnosedaten sichtbar', () => {
+  it('redigiert sensible Werte, lässt aber den Fehlertext diagnostisch sichtbar', () => {
     debugLogEvent('posthog.capture-exception', {
       properties: {
         user_id: 'user-123',
@@ -52,7 +52,7 @@ describe('Dev-Terminal-Logging', () => {
     });
 
     expect(consoleLog).toHaveBeenCalledWith(
-      '\u001b[38;5;203m[PostHog]\u001b[0m capture-exception {"properties":{"user_id":"[redacted]","email":"[redacted]","error_message":"[redacted]","access_token":"[redacted]","operation":"sync.pull","error_code":"sync_failed"}}',
+      '\u001b[38;5;203m[PostHog]\u001b[0m capture-exception {"properties":{"user_id":"[redacted]","email":"[redacted]","error_message":"Fehler für [redacted]","access_token":"[redacted]","operation":"sync.pull","error_code":"sync_failed"}}',
     );
     expect(consoleLog.mock.calls[0][0]).not.toContain('marco@example.com');
     expect(consoleLog.mock.calls[0][0]).not.toContain('secret-token');

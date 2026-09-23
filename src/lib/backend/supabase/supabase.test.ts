@@ -26,6 +26,9 @@ jest.mock('expo-secure-store', () => ({
   deleteItemAsync: jest.fn().mockResolvedValue(undefined),
 }));
 
+const mockExpoFetch = jest.fn();
+jest.mock('expo/fetch', () => ({ fetch: (...args: unknown[]) => mockExpoFetch(...args) }));
+
 import { getSupabase, startSupabaseAutoRefresh } from '@/lib/backend/supabase/client';
 
 describe('Supabase Native Lifecycle', () => {
@@ -43,6 +46,23 @@ describe('Supabase Native Lifecycle', () => {
 
   afterEach(() => {
     jest.restoreAllMocks();
+  });
+
+  it('nutzt expo/fetch als Transport, nicht den globalen RN-fetch', () => {
+    // Modul-Singleton zuruecksetzen, damit dieser Test createClient selbst
+    // ausloest und nicht vom Laufzeit-Zustand des anderen Tests abhaengt.
+    jest.resetModules();
+    // eslint-disable-next-line @typescript-eslint/no-require-imports -- jest.resetModules verlangt require statt dynamic import
+    const { getSupabase: freshGetSupabase } =
+      require('@/lib/backend/supabase/client') as typeof import('@/lib/backend/supabase/client');
+    freshGetSupabase();
+
+    const options = mockCreateClient.mock.calls[0]?.[2] as { global?: { fetch?: unknown } };
+    // Der globale fetch ist der XHR-Polyfill, der binaere Upload-Bodies
+    // mit "Network request failed" brechen kann (harness/storage-upload-matrix).
+    expect(options.global?.fetch).not.toBe(globalThis.fetch);
+    // Der serverClock-Wrapper kapselt expo/fetch: ein Aufruf muss durchreichen.
+    expect(mockExpoFetch).not.toHaveBeenCalled();
   });
 
   it('deaktiviert den Konstruktor-Timer und stoppt Auto-Refresh beim Cleanup', async () => {

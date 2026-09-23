@@ -14,7 +14,7 @@ const TELEMETRY_CHANNEL_STYLES: Record<string, { label: string; color: string }>
   info: { label: 'Information', color: '\u001b[38;5;110m]' },
 };
 const SENSITIVE_KEY_PATTERN =
-  /(?:token|secret|password|api.?key|authorization|cookie|email|phone|user.?id|error.?message|stack)/iu;
+  /(?:token|secret|password|api.?key|authorization|cookie|email|phone|user.?id|stack)/iu;
 const SENSITIVE_STRING_PATTERNS = [
   /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/giu,
   /\beyJ[A-Z0-9_-]*\.[A-Z0-9_-]+\.[A-Z0-9_-]+\b/giu,
