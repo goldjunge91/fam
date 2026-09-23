@@ -114,103 +114,102 @@ async function pullEntity(
   // Push-only-Entities haben keinen Pull-Cursor und keine Remote-Spiegelzeile.
   if (meta.pushOnly) return outcome;
 
-  const { cursor: storedCursor, lastError: previousError } = await readSyncState(db, entity);
+  for (const householdId of meta.householdScoped ? householdIds : [null]) {
+    const syncStateScope = householdId === null ? 'default' : `household:${householdId}`;
+    const scopeHouseholdIds = householdId === null ? householdIds : [householdId];
+    const state = await readSyncState(db, entity, syncStateScope);
+    const { cursor: storedCursor, lastError: previousError } = state;
 
-  // Haushalte immer vollständig laden: Beitritte ändern die RLS-Sichtbarkeit ohne Zeilen-Update.
-  const cursorColumn = meta.syncCursorColumn ?? 'updated_at';
-  let cursor =
-    entity === 'households'
-      ? initialCursor(cursorColumn)
-      : (storedCursor ?? initialCursor(cursorColumn));
-  let cursorWritten = false;
+    // Haushalte immer vollständig laden: Beitritte ändern die RLS-Sichtbarkeit ohne Zeilen-Update.
+    const cursorColumn = meta.syncCursorColumn ?? 'updated_at';
+    let cursor =
+      entity === 'households'
+        ? initialCursor(cursorColumn)
+        : (storedCursor ?? initialCursor(cursorColumn));
+    let cursorWritten = false;
 
-  for (;;) {
-    let query = (
-      supabase.from(meta.table as never) as unknown as GenericQuery<PullResponse>
-    ).select('*');
-    if (meta.householdScoped) {
-      query = query.in('household_id', householdIds);
-    }
-    query = query
-      .or(buildOrFilter(cursor, cursorColumn))
-      .order(cursorColumn, { ascending: true })
-      .order('id', { ascending: true })
-      .limit(PAGE_SIZE);
+    for (;;) {
+      let query = (
+        supabase.from(meta.table as never) as unknown as GenericQuery<PullResponse>
+      ).select('*');
+      if (meta.householdScoped) query = query.in('household_id', scopeHouseholdIds);
+      query = query
+        .or(buildOrFilter(cursor, cursorColumn))
+        .order(cursorColumn, { ascending: true })
+        .order('id', { ascending: true })
+        .limit(PAGE_SIZE);
 
-    const { data, error } = (await query) as {
-      data: RemoteRow[] | null;
-      error: { code?: string; message: string } | null;
-    };
+      const { data, error } = (await query) as {
+        data: RemoteRow[] | null;
+        error: { code?: string; message: string } | null;
+      };
 
-    if (error) {
-      await recordSyncError(db, entity, error.message);
-      outcome.error = error.message;
-      outcome.errorCode = error.code;
-      outcome.errorWasPreviouslyRecorded = error.message === previousError;
-      const jwtIssuedInFuture = isJwtIssuedInFuture(error);
-      // Wiederholte identische Fehler nicht erneut an Sentry senden.
-      if (
-        (error.message !== previousError || diagnostics.retryCount > 0) &&
-        !(jwtIssuedInFuture && diagnostics.suppressJwtWarning)
-      ) {
-        const serverNowMs = diagnostics.serverNowMs?.();
-        reportWarning(`Sync-Pull fehlgeschlagen: ${error.message}`, {
-          operation: 'sync.pull',
-          entity,
-          error_code: jwtIssuedInFuture
-            ? 'jwt_issued_in_future'
-            : (error.code ?? 'sync_pull_failed'),
-          retry_count: diagnostics.retryCount,
-          network_state: await getNetworkState(),
-          ...(serverNowMs === null || serverNowMs === undefined
-            ? {}
-            : { clock_skew_ms: Date.now() - serverNowMs }),
-        });
-      }
-      break;
-    }
-
-    const page = data ?? [];
-    outcome.pagesFetched += 1;
-
-    if (page.length === 0) break;
-
-    const last = page[page.length - 1];
-
-    await db.withExclusiveTransactionAsync(async (txn) => {
-      for (const row of page) {
-        const result = await applyRemoteRow(txn, entity, row, clockCeilingMs);
-        if (result === 'written') outcome.rowsWritten += 1;
-        else outcome.rowsSkippedAsLocalWins += 1;
+      if (error) {
+        await recordSyncError(db, entity, error.message, syncStateScope);
+        outcome.error = error.message;
+        outcome.errorCode = error.code;
+        outcome.errorWasPreviouslyRecorded = error.message === previousError;
+        const jwtIssuedInFuture = isJwtIssuedInFuture(error);
+        // Wiederholte identische Fehler nicht erneut an Sentry senden.
+        if (
+          (error.message !== previousError || diagnostics.retryCount > 0) &&
+          !(jwtIssuedInFuture && diagnostics.suppressJwtWarning)
+        ) {
+          const serverNowMs = diagnostics.serverNowMs?.();
+          reportWarning(`Sync-Pull fehlgeschlagen: ${error.message}`, {
+            operation: 'sync.pull',
+            entity,
+            error_code: jwtIssuedInFuture
+              ? 'jwt_issued_in_future'
+              : (error.code ?? 'sync_pull_failed'),
+            retry_count: diagnostics.retryCount,
+            network_state: await getNetworkState(),
+            ...(serverNowMs === null || serverNowMs === undefined
+              ? {}
+              : { clock_skew_ms: Date.now() - serverNowMs }),
+          });
+        }
+        break;
       }
 
-      // Cursor erst nach dem vollständigen Seiten-Commit vorrücken; Wiederholung bleibt idempotent.
-      await writeSyncCursor(
-        txn,
-        entity,
-        {
+      const page = data ?? [];
+      outcome.pagesFetched += 1;
+
+      if (page.length === 0) break;
+
+      const last = page[page.length - 1];
+
+      await db.withExclusiveTransactionAsync(async (txn) => {
+        for (const row of page) {
+          const result = await applyRemoteRow(txn, entity, row, clockCeilingMs);
+          if (result === 'written') outcome.rowsWritten += 1;
+          else outcome.rowsSkippedAsLocalWins += 1;
+        }
+
+        // Cursor erst nach dem vollständigen Seiten-Commit vorrücken; Wiederholung bleibt idempotent.
+        const nextCursor = {
           lastSyncedAt: cursorValue(last, cursorColumn),
           lastSyncedId: last.id,
-        },
-        Date.now(),
-      );
-      cursorWritten = true;
-    });
+        };
+        await writeSyncCursor(txn, entity, nextCursor, Date.now(), syncStateScope);
+        cursorWritten = true;
+      });
 
-    cursor = {
-      lastSyncedAt: cursorValue(last, cursorColumn),
-      lastSyncedId: last.id,
-    };
+      cursor = {
+        lastSyncedAt: cursorValue(last, cursorColumn),
+        lastSyncedId: last.id,
+      };
 
-    if (page.length < PAGE_SIZE) break;
-  }
+      if (page.length < PAGE_SIZE) break;
+    }
 
-  if (!outcome.error) {
+    if (outcome.error) break;
+
     // Ein leerer erster Pull etabliert den Start-Cursor; ein leerer erfolgreicher
     // Pull nach einem Fehler loescht den Fehlerzustand. Ein bereits erfolgreicher
     // unveraenderter Pull bleibt dagegen ein echtes No-Op ohne SQLite-Write.
     if (!cursorWritten && (storedCursor === null || previousError !== null)) {
-      await writeSyncCursor(db, entity, cursor, Date.now());
+      await writeSyncCursor(db, entity, cursor, Date.now(), syncStateScope);
     }
   }
 
@@ -226,10 +225,11 @@ async function reconcileHouseholdOrphans(db: SqlDatabase, supabase: TypedSupabas
   const localRows = await db.getAllAsync<{ id: string }>('select id from households');
   const orphanIds = localRows.map((r) => r.id).filter((id) => !remoteIds.has(id));
 
-  if (orphanIds.length > 0) {
-    const deleteIn = orphanIds.map(() => '?').join(',');
-    await db.runAsync(`delete from households where id in (${deleteIn})`, orphanIds);
-  }
+  if (orphanIds.length > 0)
+    await db.runAsync(
+      `delete from households where id in (${orphanIds.map(() => '?').join(',')})`,
+      orphanIds,
+    );
 }
 
 async function reconcileOrphans(
@@ -238,13 +238,11 @@ async function reconcileOrphans(
   entity: Entity,
   householdIds: readonly string[],
 ) {
-  if (entity === 'households') {
-    await reconcileHouseholdOrphans(db, supabase);
-    return;
-  }
+  if (entity === 'households') return reconcileHouseholdOrphans(db, supabase);
 
   const meta = metaOf(entity);
-  if (meta.pushOnly || meta.appendOnly || !meta.householdScoped) return;
+  if (meta.pushOnly || meta.appendOnly || !meta.householdScoped || householdIds.length === 0)
+    return;
 
   // 1. Remote-IDs von Supabase fuer den Haushalt laden
   const { data, error } = await (
@@ -265,9 +263,8 @@ async function reconcileOrphans(
   const pendingIds = new Set<string>(pendingOutbox.map((o) => o.entity_id));
 
   // 3. Lokale SQLite-IDs fuer die Haushalte laden
-  const inClause = householdIds.map(() => '?').join(',');
   const localRows = await db.getAllAsync<{ id: string }>(
-    `select id from ${meta.table} where household_id in (${inClause})`,
+    `select id from ${meta.table} where household_id in (${householdIds.map(() => '?').join(',')})`,
     [...householdIds],
   );
 
@@ -276,10 +273,11 @@ async function reconcileOrphans(
     .map((r) => r.id)
     .filter((id) => !remoteIds.has(id) && !pendingIds.has(id));
 
-  if (orphanIds.length > 0) {
-    const deleteIn = orphanIds.map(() => '?').join(',');
-    await db.runAsync(`delete from ${meta.table} where id in (${deleteIn})`, orphanIds);
-  }
+  if (orphanIds.length > 0)
+    await db.runAsync(
+      `delete from ${meta.table} where id in (${orphanIds.map(() => '?').join(',')})`,
+      orphanIds,
+    );
 }
 
 export async function pullHousehold(deps: {
@@ -290,6 +288,7 @@ export async function pullHousehold(deps: {
   serverNowMs?: () => number | null;
   entities?: readonly Entity[];
 }): Promise<PullOutcome[]> {
+  const householdIds = [...new Set(deps.householdIds)].sort();
   const entities = (deps.entities ?? ALL_ENTITIES).filter((entity) => !metaOf(entity).pushOnly);
 
   const run = async (
@@ -304,13 +303,13 @@ export async function pullHousehold(deps: {
         deps.db,
         deps.supabase,
         entity,
-        deps.householdIds,
+        householdIds,
         serverNowMs ?? deps.clockCeilingMs,
         { retryCount, suppressJwtWarning, serverNowMs: deps.serverNowMs },
       );
       outcomes.push(outcome);
       if (outcome.error) break;
-      await reconcileOrphans(deps.db, deps.supabase, entity, deps.householdIds);
+      await reconcileOrphans(deps.db, deps.supabase, entity, householdIds);
     }
     return outcomes;
   };

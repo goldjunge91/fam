@@ -13,6 +13,35 @@ Die vollständige Dokumentationslandkarte steht in
 
 ## Schnellstart
 
+### Bun-Version prüfen und lokal einrichten
+
+Die kanonische Bun-Version steht ausschließlich in `package.json` im
+Repository-Root unter `packageManager`. Der projektlokale Helper liest diesen
+Wert auch aus den beiden Tool-Verzeichnissen und vergleicht ihn mit der gerade
+ausgeführten Bun-Laufzeit:
+
+```bash
+bun run bun:check
+```
+
+`bun install`, `bun run check`, `bun run check:fix`, `bun run typecheck` und
+`bun run test` führen diese Prüfung automatisch vor ihrer eigentlichen Arbeit
+aus. Die beiden eigenständigen Tool-Projekte haben denselben Guard für ihre
+Installation sowie ihre Prüf- und Eval-Skripte.
+
+Wenn die Prüfung beispielsweise Bun `1.4.2` erkennt, stoppt sie mit der
+erwarteten Version und einem konkreten temporären `bunx`-Aufruf. Dieser nutzt
+Bun `1.3.14` ohne die globale Bun-Installation zu verändern:
+
+```bash
+BUN_INSTALL="$(mktemp -d)" BUN_TMPDIR="$(mktemp -d)" bunx bun@1.3.14 run bun:setup
+```
+
+Aus einem Tool-Verzeichnis wechselst du zuerst in den Repository-Root, wenn du
+diesen Setup-Aufruf verwendest. Alternativ prüfst du dort mit `bun run bun:check`
+und führst danach das jeweilige `bun install` aus. Auch dort stoppt der
+`preinstall`-Guard vor dem Installationslauf bei einer falschen Version.
+
 ```bash
 bun install
 bun start

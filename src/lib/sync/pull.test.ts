@@ -36,7 +36,10 @@ type QueryCall = {
   limit: number | null;
 };
 
-function responseQuery(response: PullResponse) {
+function responseQuery(
+  response: PullResponse,
+  resolveResponse: () => PullResponse = () => response,
+) {
   const call: QueryCall = {
     select: '*',
     inFilters: [],
@@ -81,7 +84,11 @@ function responseQuery(response: PullResponse) {
     },
     // biome-ignore lint/suspicious/noThenProperty: Supabase verwendet bewusst einen thenable Query-Builder.
     then(onfulfilled, onrejected) {
-      return Promise.resolve(response).then(onfulfilled, onrejected);
+      try {
+        return Promise.resolve(resolveResponse()).then(onfulfilled, onrejected);
+      } catch (error) {
+        return Promise.reject(error).then(onfulfilled, onrejected);
+      }
     },
   };
 
@@ -100,6 +107,94 @@ function fakeSupabase(fixtures: ReturnType<typeof responseQuery>[]) {
     client: { from, auth: { refreshSession } } as unknown as TypedSupabaseClient,
     from,
     refreshSession,
+  };
+}
+
+type EvaluatedRemoteRow = Record<string, unknown> & {
+  id: string;
+  household_id: string;
+  updated_at: string;
+};
+
+type EvaluatedQueryCall = {
+  table: string;
+  select: string;
+  householdIds: string[];
+  orFilter: string | null;
+  orders: { column: string; ascending: boolean }[];
+  limit: number | null;
+};
+
+function evaluatingRemoteSource(
+  rows: EvaluatedRemoteRow[],
+  errorForHousehold?: (householdId: string) => PullResponse['error'],
+) {
+  const pullCalls: EvaluatedQueryCall[] = [];
+  const from = jest.fn((table: string) => {
+    const fixture = responseQuery({ data: null, error: null }, () => {
+      const call = fixture.call;
+      const householdFilter = call.inFilters.find(({ column }) => column === 'household_id');
+      const householdIds = householdFilter ? [...householdFilter.values] : [];
+      const householdId = householdIds[0];
+      if (call.orFilter !== null) {
+        pullCalls.push({
+          table,
+          select: call.select,
+          householdIds,
+          orFilter: call.orFilter,
+          orders: [...call.orders],
+          limit: call.limit,
+        });
+      }
+      const error =
+        call.orFilter !== null && householdId !== undefined
+          ? errorForHousehold?.(householdId)
+          : null;
+      if (error) return { data: null, error };
+
+      let result = rows.filter(
+        (row) => householdIds.length === 0 || householdIds.includes(row.household_id),
+      );
+
+      if (call.orFilter !== null) {
+        const cursor = /^([a-z_]+)\.gt\.(.*),and\(\1\.eq\.(.*),id\.gt\.(.*)\)$/.exec(call.orFilter);
+        if (!cursor) throw new Error(`Unbekannter Cursorfilter: ${call.orFilter}`);
+        const [, column, , equalTo, greaterId] = cursor;
+        result = result.filter((row) => {
+          const value = String(row[column]);
+          return value > equalTo || (value === equalTo && row.id > greaterId);
+        });
+      }
+
+      result.sort((left, right) => {
+        for (const order of call.orders) {
+          const leftValue = String(left[order.column]);
+          const rightValue = String(right[order.column]);
+          if (leftValue === rightValue) continue;
+          const comparison = leftValue < rightValue ? -1 : 1;
+          return order.ascending ? comparison : -comparison;
+        }
+        return 0;
+      });
+
+      if (call.limit !== null) result = result.slice(0, call.limit);
+      const data =
+        call.select === 'id' ? result.map(({ id }) => ({ id })) : result.map((row) => ({ ...row }));
+      return { data, error: null };
+    });
+
+    return fixture.query;
+  });
+
+  return {
+    client: {
+      from,
+      auth: {
+        refreshSession: jest.fn().mockResolvedValue({ data: { session: null }, error: null }),
+      },
+    } as unknown as TypedSupabaseClient,
+    from,
+    pullCalls,
   };
 }
 
@@ -146,6 +241,25 @@ function fridgeRow(overrides: Partial<Record<string, unknown>> = {}) {
     vacuum_sealed: false,
     expiry_user_set: false,
     updated_at: '2026-01-01T00:00:00.000Z',
+    deleted_at: null,
+    ...overrides,
+  };
+}
+
+function storageLocationRow(
+  householdId: string,
+  id: string,
+  updatedAt: string,
+  overrides: Partial<Record<string, unknown>> = {},
+): EvaluatedRemoteRow {
+  return {
+    id,
+    household_id: householdId,
+    name: id,
+    kind: 'fridge',
+    sort_order: 0,
+    created_at: '2026-01-01T00:00:00.000Z',
+    updated_at: updatedAt,
     deleted_at: null,
     ...overrides,
   };
@@ -359,7 +473,10 @@ describe('pullHousehold – Cursor und JWT-Recovery', () => {
       }),
     ).rejects.toThrow('Remote-Zeile hat keinen gültigen sync_sequence-Cursorwert');
 
-    expect(await readSyncState(db, 'transactions')).toEqual({ cursor: null, lastError: null });
+    expect(await readSyncState(db, 'transactions', 'household:household-1')).toEqual({
+      cursor: null,
+      lastError: null,
+    });
     expect(
       await db.getFirstAsync('select id from transactions where id = ?', ['transaction-1']),
     ).toBeNull();
@@ -460,6 +577,392 @@ describe('pullHousehold – Cursor und JWT-Recovery', () => {
       expect.stringContaining(jwtError.message),
       expect.objectContaining({ error_code: 'jwt_issued_in_future', retry_count: 0 }),
     );
+  });
+});
+
+describe('pullHousehold – isolierte Haushalt-Cursor', () => {
+  let db: TestDatabase;
+
+  beforeEach(async () => {
+    jest.clearAllMocks();
+    getNetworkStateAsync.mockResolvedValue({});
+    db = await createSyncDatabase();
+  });
+
+  afterEach(() => {
+    db.close();
+  });
+
+  it('lädt A und B unabhängig vom alten default-Cursor, dedupliziert und sortiert die Scopes', async () => {
+    await db.runAsync(
+      `insert into sync_state
+       (entity, scope, last_synced_at, last_synced_id, last_run_at, last_error)
+       values (?, ?, ?, ?, ?, ?)`,
+      ['storage_locations', 'default', '2099-01-01T00:00:00.000Z', 'default-id', 1, null],
+    );
+
+    const remote = evaluatingRemoteSource([
+      storageLocationRow('household-a', 'location-a', '2026-01-03T00:00:00.000Z'),
+      storageLocationRow('household-b', 'location-b', '2026-01-02T00:00:00.000Z'),
+    ]);
+
+    const result = await pullHousehold({
+      db,
+      supabase: remote.client,
+      householdIds: ['household-b', 'household-a', 'household-a'],
+      clockCeilingMs: 10_000,
+      entities: ['storage_locations'],
+    });
+
+    expect(result).toEqual([
+      expect.objectContaining({
+        entity: 'storage_locations',
+        pagesFetched: 2,
+        rowsWritten: 2,
+        rowsSkippedAsLocalWins: 0,
+      }),
+    ]);
+    expect(remote.pullCalls.map((call) => call.householdIds)).toEqual([
+      ['household-a'],
+      ['household-b'],
+    ]);
+    expect(
+      await db.getAllAsync<{ id: string }>('select id from storage_locations order by id'),
+    ).toEqual([{ id: 'location-a' }, { id: 'location-b' }]);
+    expect(await readSyncState(db, 'storage_locations', 'household:household-a')).toMatchObject({
+      cursor: {
+        lastSyncedAt: '2026-01-03T00:00:00.000Z',
+        lastSyncedId: 'location-a',
+      },
+      lastError: null,
+    });
+    expect(await readSyncState(db, 'storage_locations', 'household:household-b')).toMatchObject({
+      cursor: {
+        lastSyncedAt: '2026-01-02T00:00:00.000Z',
+        lastSyncedId: 'location-b',
+      },
+      lastError: null,
+    });
+    expect(await readSyncState(db, 'storage_locations', 'default')).toMatchObject({
+      cursor: {
+        lastSyncedAt: '2099-01-01T00:00:00.000Z',
+        lastSyncedId: 'default-id',
+      },
+      lastError: null,
+    });
+  });
+
+  it('schreibt auch für einen leeren Haushaltsscope den eigenen initialen Erfolgscursor', async () => {
+    const remote = evaluatingRemoteSource([
+      storageLocationRow('household-a', 'location-a', '2026-01-03T00:00:00.000Z'),
+    ]);
+
+    const result = await pullHousehold({
+      db,
+      supabase: remote.client,
+      householdIds: ['household-b', 'household-a'],
+      clockCeilingMs: 10_000,
+      entities: ['storage_locations'],
+    });
+
+    expect(result).toEqual([expect.objectContaining({ pagesFetched: 2, rowsWritten: 1 })]);
+    expect(await readSyncState(db, 'storage_locations', 'household:household-b')).toEqual({
+      cursor: {
+        lastSyncedAt: '1970-01-01T00:00:00Z',
+        lastSyncedId: '00000000-0000-0000-0000-000000000000',
+      },
+      lastError: null,
+    });
+    expect(remote.pullCalls.map((call) => call.householdIds)).toEqual([
+      ['household-a'],
+      ['household-b'],
+    ]);
+  });
+
+  it('löscht nach B-Fehler und leerem B-Erfolg nur B-last_error', async () => {
+    const previousA = {
+      lastSyncedAt: '2026-01-03T00:00:00.000Z',
+      lastSyncedId: 'location-a',
+      lastError: 'A-Fehler bleibt',
+    };
+    await db.runAsync(
+      `insert into sync_state
+       (entity, scope, last_synced_at, last_synced_id, last_run_at, last_error)
+       values (?, ?, ?, ?, ?, ?)`,
+      [
+        'storage_locations',
+        'household:household-a',
+        previousA.lastSyncedAt,
+        previousA.lastSyncedId,
+        1,
+        previousA.lastError,
+      ],
+    );
+
+    const error = { code: 'PGRST000', message: 'B ist vorübergehend nicht erreichbar' };
+    let failHouseholdB = true;
+    const remote = evaluatingRemoteSource([], (householdId) =>
+      householdId === 'household-b' && failHouseholdB ? error : null,
+    );
+
+    await expect(
+      pullHousehold({
+        db,
+        supabase: remote.client,
+        householdIds: ['household-b'],
+        clockCeilingMs: 10_000,
+        entities: ['storage_locations'],
+      }),
+    ).resolves.toEqual([expect.objectContaining({ error: error.message })]);
+    expect(await readSyncState(db, 'storage_locations', 'household:household-a')).toEqual({
+      cursor: {
+        lastSyncedAt: previousA.lastSyncedAt,
+        lastSyncedId: previousA.lastSyncedId,
+      },
+      lastError: previousA.lastError,
+    });
+    expect(await readSyncState(db, 'storage_locations', 'household:household-b')).toEqual({
+      cursor: null,
+      lastError: error.message,
+    });
+
+    failHouseholdB = false;
+    await expect(
+      pullHousehold({
+        db,
+        supabase: remote.client,
+        householdIds: ['household-b'],
+        clockCeilingMs: 10_000,
+        entities: ['storage_locations'],
+      }),
+    ).resolves.toEqual([expect.objectContaining({ pagesFetched: 1, rowsWritten: 0 })]);
+    expect(await readSyncState(db, 'storage_locations', 'household:household-b')).toEqual({
+      cursor: {
+        lastSyncedAt: '1970-01-01T00:00:00Z',
+        lastSyncedId: '00000000-0000-0000-0000-000000000000',
+      },
+      lastError: null,
+    });
+    expect(await readSyncState(db, 'storage_locations', 'household:household-a')).toEqual({
+      cursor: {
+        lastSyncedAt: previousA.lastSyncedAt,
+        lastSyncedId: previousA.lastSyncedId,
+      },
+      lastError: previousA.lastError,
+    });
+    expect(remote.pullCalls.map((call) => call.householdIds)).toEqual([
+      ['household-b'],
+      ['household-b'],
+    ]);
+  });
+
+  it('behält beim Wechsel A → B → A jeweils den persistierten Scope und lädt B trotz älterer Daten', async () => {
+    const remoteRows = [
+      storageLocationRow('household-a', 'location-a-old', '2026-01-03T00:00:00.000Z'),
+      storageLocationRow('household-b', 'location-b', '2026-01-02T00:00:00.000Z'),
+    ];
+    const remote = evaluatingRemoteSource(remoteRows);
+
+    await expect(
+      pullHousehold({
+        db,
+        supabase: remote.client,
+        householdIds: ['household-a'],
+        clockCeilingMs: 10_000,
+        entities: ['storage_locations'],
+      }),
+    ).resolves.toEqual([expect.objectContaining({ rowsWritten: 1 })]);
+
+    await expect(
+      pullHousehold({
+        db,
+        supabase: remote.client,
+        householdIds: ['household-b'],
+        clockCeilingMs: 10_000,
+        entities: ['storage_locations'],
+      }),
+    ).resolves.toEqual([expect.objectContaining({ rowsWritten: 1 })]);
+
+    remoteRows.push(
+      storageLocationRow('household-a', 'location-a-new', '2026-01-04T00:00:00.000Z'),
+    );
+    await expect(
+      pullHousehold({
+        db,
+        supabase: remote.client,
+        householdIds: ['household-a'],
+        clockCeilingMs: 10_000,
+        entities: ['storage_locations'],
+      }),
+    ).resolves.toEqual([expect.objectContaining({ rowsWritten: 1 })]);
+
+    expect(
+      await db.getAllAsync<{ id: string; household_id: string }>(
+        'select id, household_id from storage_locations order by id',
+      ),
+    ).toEqual([
+      { id: 'location-a-new', household_id: 'household-a' },
+      { id: 'location-a-old', household_id: 'household-a' },
+      { id: 'location-b', household_id: 'household-b' },
+    ]);
+    expect(remote.pullCalls.map((call) => call.householdIds)).toEqual([
+      ['household-a'],
+      ['household-b'],
+      ['household-a'],
+    ]);
+  });
+
+  it('verarbeitet gleiche Cursorwerte mit ID-Tiebreaker über mehrere Seiten', async () => {
+    const remote = evaluatingRemoteSource(
+      Array.from({ length: 501 }, (_, index) =>
+        storageLocationRow(
+          'household-a',
+          `location-${String(index).padStart(3, '0')}`,
+          '2026-01-03T00:00:00.000Z',
+        ),
+      ),
+    );
+
+    const result = await pullHousehold({
+      db,
+      supabase: remote.client,
+      householdIds: ['household-a'],
+      clockCeilingMs: 10_000,
+      entities: ['storage_locations'],
+    });
+
+    expect(result).toEqual([expect.objectContaining({ pagesFetched: 2, rowsWritten: 501 })]);
+    expect(remote.pullCalls).toHaveLength(2);
+    expect(remote.pullCalls[1]?.orFilter).toBe(
+      buildOrFilter(
+        {
+          lastSyncedAt: '2026-01-03T00:00:00.000Z',
+          lastSyncedId: 'location-499',
+        },
+        'updated_at',
+      ),
+    );
+    expect(await readSyncState(db, 'storage_locations', 'household:household-a')).toMatchObject({
+      cursor: {
+        lastSyncedAt: '2026-01-03T00:00:00.000Z',
+        lastSyncedId: 'location-500',
+      },
+    });
+  });
+
+  it('committet A, isoliert einen Fehler in B und setzt B bei Retry mit seinem Cursor fort', async () => {
+    const error = { code: 'PGRST000', message: 'Haushalt B nicht erreichbar' };
+    let failHouseholdB = true;
+    const remote = evaluatingRemoteSource(
+      [
+        storageLocationRow('household-a', 'location-a', '2026-01-03T00:00:00.000Z'),
+        storageLocationRow('household-b', 'location-b', '2026-01-02T00:00:00.000Z'),
+      ],
+      (householdId) => (householdId === 'household-b' && failHouseholdB ? error : null),
+    );
+
+    const result = await pullHousehold({
+      db,
+      supabase: remote.client,
+      householdIds: ['household-b', 'household-a'],
+      clockCeilingMs: 10_000,
+      entities: ['storage_locations'],
+    });
+
+    expect(result).toEqual([
+      expect.objectContaining({
+        error: error.message,
+        errorCode: error.code,
+        rowsWritten: 1,
+      }),
+    ]);
+    expect(await readSyncState(db, 'storage_locations', 'household:household-a')).toMatchObject({
+      cursor: { lastSyncedId: 'location-a' },
+      lastError: null,
+    });
+    expect(await readSyncState(db, 'storage_locations', 'household:household-b')).toEqual({
+      cursor: null,
+      lastError: error.message,
+    });
+    expect(
+      await db.getFirstAsync<{ id: string }>('select id from storage_locations where id = ?', [
+        'location-a',
+      ]),
+    ).toEqual({ id: 'location-a' });
+    expect(
+      await db.getFirstAsync<{ id: string }>('select id from storage_locations where id = ?', [
+        'location-b',
+      ]),
+    ).toBeNull();
+
+    failHouseholdB = false;
+    await expect(
+      pullHousehold({
+        db,
+        supabase: remote.client,
+        householdIds: ['household-b', 'household-a'],
+        clockCeilingMs: 10_000,
+        entities: ['storage_locations'],
+      }),
+    ).resolves.toEqual([expect.objectContaining({ rowsWritten: 1 })]);
+    expect(await readSyncState(db, 'storage_locations', 'household:household-b')).toMatchObject({
+      cursor: { lastSyncedId: 'location-b' },
+      lastError: null,
+    });
+    expect(
+      await db.getFirstAsync<{ id: string }>('select id from storage_locations where id = ?', [
+        'location-b',
+      ]),
+    ).toEqual({ id: 'location-b' });
+  });
+
+  it('rollt einen fehlerhaften Scoped-Seitencommit mitsamt dem Haushaltcursor zurück', async () => {
+    const remote = evaluatingRemoteSource([
+      storageLocationRow('household-a', 'location-valid', '2026-01-03T00:00:00.000Z'),
+      storageLocationRow('household-a', 'location-invalid', 'kein-gueltiger-cursor'),
+    ]);
+
+    await expect(
+      pullHousehold({
+        db,
+        supabase: remote.client,
+        householdIds: ['household-a'],
+        clockCeilingMs: 10_000,
+        entities: ['storage_locations'],
+      }),
+    ).rejects.toThrow('Kein gueltiger Postgres-Zeitstempel');
+
+    expect(await readSyncState(db, 'storage_locations', 'household:household-a')).toEqual({
+      cursor: null,
+      lastError: null,
+    });
+    expect(await db.getAllAsync<{ id: string }>('select id from storage_locations')).toEqual([]);
+  });
+
+  it('führt für eine leere Haushaltliste keinen Pull, Fehlerwrite, Cursorwrite oder Orphan-Abgleich aus', async () => {
+    const remote = evaluatingRemoteSource([]);
+
+    await expect(
+      pullHousehold({
+        db,
+        supabase: remote.client,
+        householdIds: [],
+        clockCeilingMs: 10_000,
+        entities: ['storage_locations'],
+      }),
+    ).resolves.toEqual([
+      {
+        entity: 'storage_locations',
+        pagesFetched: 0,
+        rowsWritten: 0,
+        rowsSkippedAsLocalWins: 0,
+      },
+    ]);
+    expect(remote.from).not.toHaveBeenCalled();
+    expect(await readSyncState(db, 'storage_locations', 'household:household-a')).toEqual({
+      cursor: null,
+      lastError: null,
+    });
   });
 });
 

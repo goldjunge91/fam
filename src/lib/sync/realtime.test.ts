@@ -13,6 +13,8 @@ import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
 import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
+import { toEpochMs } from '@/lib/sync/cursor';
+import { upsertMirrorRow } from '@/lib/sync/mirror-write';
 import { type RealtimeSubscribeState, subscribeHouseholdRealtime } from '@/lib/sync/realtime';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
@@ -515,5 +517,99 @@ describe('subscribeHouseholdRealtime — Cleanup', () => {
     release[1]?.();
     await cleanup;
     expect(cleanupFinished).toBe(true);
+  });
+});
+
+describe('subscribeHouseholdRealtime — bestätigte Remote-Aktualität', () => {
+  let db: TestDatabase;
+
+  beforeEach(async () => {
+    db = await createSyncDatabase();
+  });
+
+  afterEach(() => {
+    db.close();
+  });
+
+  it('wendet ältere Updates über den echten registrierten Callback nicht an', async () => {
+    await upsertMirrorRow(
+      db,
+      'fridge_items',
+      fridgeRow({
+        name: 'Neuer Stand',
+        quantity: 2_000,
+        updated_at: '2026-01-01T12:00:00.000Z',
+      }),
+      { dirty: 0 },
+    );
+
+    const supabase = fakeSupabase();
+    const unsubscribe = subscribeHouseholdRealtime({
+      db,
+      supabase: supabase.client,
+      householdIds: ['household-1'],
+      serverClock: serverClock(),
+      onReconnectResyncNeeded: async () => {},
+    });
+
+    supabase.created[0]?.emitPayload(
+      realtimePayload(
+        'UPDATE',
+        fridgeRow({
+          name: 'Älterer Stand',
+          quantity: 3_000,
+          updated_at: '2026-01-01T11:00:00.000Z',
+        }),
+        fridgeRow({ updated_at: '2026-01-01T12:00:00.000Z' }),
+      ),
+      'fridge_items',
+    );
+    await flushRealtimeWork();
+
+    expect(
+      await db.getFirstAsync<{
+        name: string;
+        quantity: number;
+        updated_at: number;
+        deleted_at: number | null;
+        dirty: number;
+      }>(
+        'select name, quantity, updated_at, deleted_at, _dirty as dirty from fridge_items where id = ?',
+        ['item-1'],
+      ),
+    ).toEqual({
+      name: 'Neuer Stand',
+      quantity: 2_000,
+      updated_at: toEpochMs('2026-01-01T12:00:00.000Z'),
+      deleted_at: null,
+      dirty: 0,
+    });
+
+    supabase.created[0]?.emitPayload(
+      realtimePayload(
+        'UPDATE',
+        fridgeRow({
+          name: 'Neuester Stand',
+          quantity: 4_000,
+          updated_at: '2026-01-01T13:00:00.000Z',
+        }),
+        fridgeRow({ updated_at: '2026-01-01T12:00:00.000Z' }),
+      ),
+      'fridge_items',
+    );
+    await flushRealtimeWork();
+
+    expect(
+      await db.getFirstAsync<{ name: string; quantity: number; updated_at: number }>(
+        'select name, quantity, updated_at from fridge_items where id = ?',
+        ['item-1'],
+      ),
+    ).toEqual({
+      name: 'Neuester Stand',
+      quantity: 4_000,
+      updated_at: toEpochMs('2026-01-01T13:00:00.000Z'),
+    });
+
+    await unsubscribe();
   });
 });

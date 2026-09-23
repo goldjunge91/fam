@@ -12,9 +12,7 @@ export type UpsertMirrorRowOptions = {
 
 function mirrorMetaOf(entity: Entity) {
   const meta = metaOf(entity);
-  if (meta.pushOnly) {
-    throw new Error(`${entity} ist push-only und darf nicht gespiegelt werden.`);
-  }
+  if (meta.pushOnly) throw new Error(`${entity} ist push-only und darf nicht gespiegelt werden.`);
   return meta;
 }
 
@@ -63,12 +61,8 @@ export async function upsertMirrorRow(
     meta.hasServerTombstone && typeof deletedAtRaw === 'string' ? toEpochMs(deletedAtRaw) : null;
 
   const columns = [...meta.columns, 'updated_at', 'deleted_at', '_dirty'];
-  const values: SqlParam[] = [
-    ...meta.columns.map((column) => toSqlParam(remoteRow[column])),
-    updatedAt,
-    deletedAt,
-    options.dirty,
-  ];
+  const values = meta.columns.map((column) => toSqlParam(remoteRow[column]));
+  values.push(updatedAt, deletedAt, options.dirty);
 
   const placeholders = columns.map(() => '?').join(', ');
   const updateAssignments = columns.map((column) => `${column} = excluded.${column}`).join(', ');
@@ -275,6 +269,15 @@ export async function applyRemoteRow(
     [remoteRow.id],
   );
 
+  const localUpdatedAt = local?.updated_at ?? Number.POSITIVE_INFINITY;
+  if (
+    local?._dirty === 0 &&
+    !meta.appendOnly &&
+    toEpochMs(remoteUpdatedAt(meta, remoteRow)) < localUpdatedAt
+  ) {
+    return 'local-wins';
+  }
+
   if (local === null || local._dirty === 0) {
     await upsertMirrorRow(txn, entity, remoteRow, { dirty: 0 });
     return 'written';
@@ -325,9 +328,8 @@ export async function applyLocalMirrorWrite(
 ): Promise<void> {
   const meta = mirrorMetaOf(entity);
 
-  if (meta.appendOnly && op !== 'insert') {
+  if (meta.appendOnly && op !== 'insert')
     throw new Error(`${entity} ist append-only und akzeptiert ausschliesslich insert.`);
-  }
 
   if (op === 'delete' || op === 'restore') {
     await txn.runAsync(
@@ -339,11 +341,8 @@ export async function applyLocalMirrorWrite(
 
   if (op === 'insert') {
     const columns = [...meta.columns, 'updated_at', '_dirty'];
-    const values: SqlParam[] = [
-      ...meta.columns.map((column) => toSqlParam(payload[column])),
-      nowMs,
-      1,
-    ];
+    const values = meta.columns.map((column) => toSqlParam(payload[column]));
+    values.push(nowMs, 1);
     const placeholders = columns.map(() => '?').join(', ');
     await txn.runAsync(
       `insert into ${meta.table} (${columns.join(', ')}) values (${placeholders})`,

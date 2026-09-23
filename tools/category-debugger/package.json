@@ -5,6 +5,8 @@
   "type": "module",
   "description": "Eigenständiges Debug-Tool: durchsucht den echten lokalen OFF-Dump und zeigt, wie explainCategory() aus der App jeden Treffer einordnet.",
   "scripts": {
+    "bun:check": "bun ../../scripts/check-bun-version.ts",
+    "preinstall": "bun run bun:check",
     "download-dump": "bun scripts/download-dump.ts",
     "prepare-dump": "bun scripts/prepare-dump.ts",
     "images:source": "bun scripts/prepare-image-dump.ts source",
@@ -20,7 +22,9 @@
     "start": "bun src/server.ts",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
+    "pretypecheck": "bun run bun:check",
     "test": "vitest run",
+    "pretest": "bun run bun:check",
     "ml:setup": "bun scripts/setup-ml.ts setup",
     "ml:status": "bun scripts/setup-ml.ts status",
     "ml:smoke": "bun scripts/smoke-ml.ts",
