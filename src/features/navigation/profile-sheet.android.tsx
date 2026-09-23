@@ -1,8 +1,6 @@
-import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
 import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
 import { radius, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -10,6 +8,7 @@ import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useProfile } from '@/features/profile/api';
+import { AvatarImage } from '@/features/profile/avatar-image';
 import { getInitials } from '@/features/profile/domain/initials';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useNavigationChrome } from './navigation-chrome-provider';
@@ -70,8 +69,8 @@ function ProfileSheetContent() {
           <View style={[styles.profileCard, { borderBottomColor: colors.border }]}>
             <View style={[styles.avatar, { backgroundColor: colors.accent }]}>
               {avatarUrl ? (
-                <Image
-                  source={{ uri: avatarUrl }}
+                <AvatarImage
+                  reference={avatarUrl}
                   accessibilityLabel="Profilbild im Profilmenü"
                   style={styles.avatarImage}
                   contentFit="cover"

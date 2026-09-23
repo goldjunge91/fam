@@ -1,12 +1,10 @@
 import { useQueryClient } from '@tanstack/react-query';
 import Constants from 'expo-constants';
-import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, Platform, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-
 import { HubScreen } from '@/components/layout/hub-screen';
 import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -24,6 +22,7 @@ import { useNavigationChrome } from '@/features/navigation/navigation-chrome-pro
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { persistOnboardingCompleted } from '@/features/onboarding/onboarding-completion';
 import { useProfile } from '@/features/profile/api';
+import { AvatarImage } from '@/features/profile/avatar-image';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { PlusAndAiPromoCard } from '@/features/settings/plus-and-ai-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
@@ -163,8 +162,8 @@ export function SettingsScreen() {
               ]}>
               <View style={[styles.profileAvatar, { backgroundColor: colors.accent }]}>
                 {avatarUrl ? (
-                  <Image
-                    source={{ uri: avatarUrl }}
+                  <AvatarImage
+                    reference={avatarUrl}
                     accessibilityLabel={t('settings.profileImageAccessibility')}
                     style={{ width: '100%', height: '100%' }}
                     contentFit="cover"

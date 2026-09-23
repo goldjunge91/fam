@@ -1,5 +1,4 @@
 import { FlashList } from '@shopify/flash-list';
-import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
@@ -19,6 +18,7 @@ import {
 import { isHouseholdAdmin } from '@/features/household/household-helpers';
 import { HouseholdSwitcherModal } from '@/features/household/household-switcher-modal';
 import { InviteModal } from '@/features/household/invite-modal';
+import { AvatarImage } from '@/features/profile/avatar-image';
 
 const styles = StyleSheet.create((theme) => ({
   switcher: {
@@ -283,8 +283,8 @@ export function MembersScreen() {
             <View style={styles.memberRow}>
               <View style={[styles.avatar, isMe && styles.avatarSelected]}>
                 {item.avatar_url ? (
-                  <Image
-                    source={{ uri: item.avatar_url }}
+                  <AvatarImage
+                    reference={item.avatar_url}
                     accessibilityLabel={`Profilbild von ${displayName}`}
                     style={styles.avatarImage}
                     contentFit="cover"

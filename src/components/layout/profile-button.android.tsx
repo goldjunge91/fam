@@ -1,8 +1,7 @@
-import { Image } from 'expo-image';
 import { StyleSheet } from 'react-native-unistyles';
-
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
+import { AvatarImage } from '@/features/profile/avatar-image';
 
 type ProfileButtonProps = {
   initials: string;
@@ -23,8 +22,8 @@ export function ProfileButton({ initials, avatarUrl, onPress }: ProfileButtonPro
       accessibilityLabel="Profil öffnen"
       style={[styles.button, { backgroundColor: colors.accent }]}>
       {avatarUrl ? (
-        <Image
-          source={{ uri: avatarUrl }}
+        <AvatarImage
+          reference={avatarUrl}
           accessibilityLabel="Profilbild"
           accessible={false}
           style={{ width: '100%', height: '100%' }}
