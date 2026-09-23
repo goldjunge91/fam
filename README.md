@@ -101,6 +101,7 @@ Query · RevenueCat. Details und Begründungen: [Developer Guide](docs/architect
 ## Dokumentation
 
 Die vollständige, nach Zweck sortierte Dokumentation steht in
-[docs/README.md](docs/README.md). Für Entwicklungsregeln ist
-[AGENTS.md](AGENTS.md) verbindlich. Die Domänenbegriffe und
-Eigentümerschaftsregeln stehen in [CONTEXT.md](CONTEXT.md).
+[docs/README.md](docs/README.md). Arbeitsweise und Tooling stehen in
+[AGENTS.md](AGENTS.md), verbindliche Qualitätsgrenzen in
+[CONSTRAINTS.md](CONSTRAINTS.md) und Domänensprache sowie Datenbesitz in
+[CONTEXT.md](CONTEXT.md).

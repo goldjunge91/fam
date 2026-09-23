@@ -1,170 +1,301 @@
 # fam: Projektkontext
 
-Status: Veraltete Version, Nicht weiterverwenden oder weiterlesen so lange der status nicht auf freigegeben steht.
-Datum: 2026-09-15
-___
+**Status:** Freigegeben
+**Letzte fachliche Prüfung:** 2026-09-23
 
+`fam` ist eine datenschutzorientierte Haushaltsapp für Familien und andere
+gemeinsame Haushalte. Sie verbindet geteilte Bestände, Einkaufslisten, Rezepte
+und Wochenpläne mit privatem Ernährungs-, Gewichts- und Gesundheitstracking.
+Der Produktname ist noch vorläufig; `fam` ist der aktuelle technische Name.
 
-Kurzreferenz für Maintainer, Entwickler und Agents. fam ist eine
-Weniger Lebensmittel sichernde, Einkaufslisten Huashaltsapp die Familien helfen soll
-Haushalte: geteilte Bestands-,
-Einkaufs- und Rezeptdaten werden mit privatem Kalorien-, Nährwert- und
-Gesundheits-Tracking kombiniert. Der Name ist ein Arbeitstitel; im Code und in
-der technischen Dokumentation ist `fam` der aktuelle Projektname.
+Diese Datei besitzt die verbindliche Domänensprache, Datenverantwortung und
+fachlichen Grenzen. Sie ist keine zweite Implementierungsquelle und wiederholt
+keine vollständigen Arbeits- oder Qualitätsregeln.
 
-Diese Datei erklärt Domänengrenzen und Begriffe. Sie ist keine zweite
-Implementierungsquelle und ersetzt nicht die verbindlichen Arbeitsregeln in
-[`AGENTS.md`](AGENTS.md).
+## Quellen und Verantwortlichkeiten
 
-## Quellenhierarchie
+| Frage | Maßgebliche Quelle |
+| --- | --- |
+| Arbeitsweise, Tooling und Beitragsprozess | [`AGENTS.md`](AGENTS.md) |
+| Qualitätsgrenzen und Nachweise | [`CONSTRAINTS.md`](CONSTRAINTS.md) |
+| Domänensprache und Datenbesitz | `CONTEXT.md` |
+| Produktziel und Roadmap | [`docs/features/VISION.md`](docs/features/VISION.md), [`docs/features/ROADMAP.md`](docs/features/ROADMAP.md) |
+| Dauerhafte Architekturentscheidungen | [`docs/adr/`](docs/adr/README.md) |
+| Vorhabenspezifisches Zielverhalten | freigegebene Feature-Spezifikation |
+| Backend-Datenmodell und RLS | `supabase/schemas/*.sql` |
+| Lokaler SQLite-Spiegel | `src/lib/db/schemas/*.ts` und lokale Migrationen |
+| Aktuell implementiertes Laufzeitverhalten | Produktionscode und gezielte Tests |
+| UI-Designsystem | `src/components/theme/index.ts`, `src/components/theme/ThemeProvider.tsx`, `src/constants/ui.tsx` |
 
-Bei widersprüchlichen Aussagen gilt die engste technische Quelle:
-
-| Thema | Maßgebliche Quelle | Zweck dieser Datei |
-| --- | --- | --- |
-| Arbeitsregeln für Agents und Beiträge | [`AGENTS.md`](AGENTS.md) | nur zusammenfassen, nicht duplizieren |
-| Domänenbegriffe und Eigentümerschaft | `CONTEXT.md` | zentrale Sprache und Grenzen |
-| Produktziel und Roadmap | [`docs/features/VISION.md`](docs/features/VISION.md), [`docs/features/ROADMAP.md`](docs/features/ROADMAP.md) | Produktabsicht |
-| Dauerhafte Architekturentscheidungen | [`docs/adr/`](docs/adr/README.md) | Begründung und verworfene Alternativen |
-| Backend-Datenmodell | `supabase/schemas/*.sql` | deklarativer Endzustand und RLS |
-| Lokaler SQLite-Spiegel | `src/lib/db/schemas/*.ts` | Offline-Modell, nicht Supabase-Schema |
-| UI-Designsystem | `src/components/theme/index.ts`, `src/components/theme/ThemeProvider.tsx`, `src/constants/ui.tsx` | Tokens, Theme-Laufzeit und semantische Primitiven |
-| Tatsächliches Verhalten | Quellcode und gezielte Tests | überprüfbare Implementierung |
+Diese Quellen beantworten unterschiedliche Fragen. Ein akzeptierter Vertrag
+oder ADR beschreibt den beabsichtigten Zustand; Schema, Code und Tests belegen
+den aktuellen Zustand. Weichen beide voneinander ab, wird die Differenz als
+offene Implementierungs- oder Dokumentationsabweichung festgehalten. Der Code
+wird nicht allein deshalb stillschweigend zum neuen fachlichen Vertrag.
 
 Die vollständige Dokumentationslandkarte steht in
-[`docs/README.md`](docs/README.md). Spezifikationen unter `docs/specs/` sind
-aktuelle Arbeitsgrundlagen, sofern sie nicht ausdrücklich als historisch
-markiert sind. `docs/archive/` enthält abgeschlossene oder überholte
-Unterlagen.
+[`docs/README.md`](docs/README.md). Jede Spezifikation erklärt ihren eigenen
+Status. `docs/archive/` ist historisch und nicht normativ.
+
+## Datenklassen und Sichtbarkeit
+
+| Datenklasse | Eigentümer | Sichtbarkeit und Grenze |
+| --- | --- | --- |
+| Household, Members, Inventory, Shopping List, Recipes, Meal Plans | Haushalt | für berechtigte Household Members über RLS |
+| Product | globaler Produktkatalog | unabhängig von einem Haushalt; keine Identität mit Inventory oder Shopping List Items |
+| Product Usage | einzelner Account auf einem Gerät | lokal und accountbezogen; kein Server-Gegenstück |
+| Tracking eines erwachsenen Accounts | einzelner Account | privat über RLS; Household-Admins erhalten keinen Zugriff |
+| Child Profile | Haushalt | Profil für Household Members sichtbar; Änderungen durch Manager oder Admin |
+| Kind-Tracking | fachlich Child Profile, aktuell noch teilweise Account-gebunden | Zielmodell und aktueller Übergangszustand sind unten getrennt beschrieben |
+| Recipe Template | global kuratierter Katalog | global lesbar, kein Household- oder Nutzer-Content |
+
+Ein optionaler Product-Bezug reichert einen Bestands-, Einkaufs- oder
+Trackingeintrag an. Er überträgt weder dessen Identität noch dessen Eigentümer.
 
 ## Nicht verhandelbare Architekturgrenzen
 
-- **Datentrennung:** Haushaltsdaten sind für berechtigte Household Members
-  geteilt. Account-Tracking bleibt über Supabase RLS privat. Ein Haushalts-Admin
-  erhält dadurch keinen Zugriff auf private Erwachsenendaten.
-- **Deklaratives Schema:** Änderungen beginnen in `supabase/schemas/*.sql`.
-  Migrationen werden mit `bun run db:diff` erzeugt und nicht von Hand verfasst.
-- **Local-first:** Synchronisierte Haushaltsdaten haben ein lokales SQLite-
-  Gegenstück und werden über Outbox, Pull/Push, Realtime und Konfliktauflösung
-  synchronisiert. Append-only-Protokolle wie Product Usage und Shopping History
-  sind davon getrennt, sofern ihr Datenmodell keinen Sync vorsieht.
-- **UI-Verantwortung:** Projektweite Tokens, Theme-Auflösung und semantische
-  UI-Rezepte liegen ausschließlich in den drei Quellen der UI-Designsystem-
-  Tabelle oben. Unistyles
+- **Datentrennung:** Geteilte Haushaltsdaten und private Account-Daten bleiben
+  auf Datenbankebene getrennt. Eine Admin-Rolle im Haushalt gewährt keinen
+  Zugriff auf private Daten eines erwachsenen Accounts.
+- **Deklaratives Backend-Schema:** Änderungen beginnen in
+  `supabase/schemas/*.sql`. Migrationen werden mit `bun run db:diff` erzeugt
+  und niemals manuell verfasst oder editiert.
+- **Local-first für synchronisierte Entitäten:** Eine synchronisierte Entität
+  berücksichtigt lokalen SQLite-Spiegel, Outbox, Push, Pull, Realtime und
+  Konfliktauflösung, soweit ihr Vertrag diese Flächen verwendet. Rein lokale
+  oder bewusst nicht synchronisierte Protokolle werden ausdrücklich als solche
+  benannt.
 - **Feature-first:** `src/app/` enthält Routing. Fachlogik lebt in
-  `src/features/<domain>/`, geteilte UI in `src/components/`.
-- **Native Runtime:** Expo SDK 57 und native Module setzen einen Dev Client
-  voraus. Änderungen an nativen Abhängigkeiten, Config Plugins oder nativen
-  Dateien erfordern einen neuen Build.
+  `src/features/<domain>/`, geteilte domänenlose UI in `src/components/` und
+  Infrastruktur in `src/lib/`.
+- **UI-Verantwortung:** Projektweite Tokens, Theme-Auflösung und semantische
+  UI-Primitiven gehören ausschließlich den drei Quellen in der Tabelle oben.
+  Feature-Code besitzt Verhalten, Komposition und lokales Layout.
+- **Native Runtime:** Expo SDK 57 und die verwendeten nativen Module verlangen
+  einen Dev Client. Änderungen an nativen Abhängigkeiten, Config Plugins oder
+  nativen Projekten verändern den Native Fingerprint und können einen Rebuild
+  erfordern.
 
-## Eigentümerschaft und Sichtbarkeit
+## Domänensprache
 
-| Datenbereich | Eigentümer | Sichtbarkeit |
-| --- | --- | --- |
-| Household, Members, Inventory, Shopping List, Recipes, Meal Plan | Haushalt | für berechtigte Mitglieder des Haushalts |
-| Product | globaler Produktkatalog | unabhängig von einem Haushalt |
-| Product Usage | einzelner Account, lokal | nur auf dem Gerät dieses Accounts |
-| Nutrition Tracking und sonstiges Account-Tracking | einzelner Account | privat über RLS |
-| Child Profile | Haushalt, verwaltet durch berechtigte Erwachsene | haushaltsbezogen; Kind-Tracking folgt ADR 0005 |
+### Household
 
-## Arbeitsrelevante Stolpersteine
+Die geteilte Entität für Mitglieder, Bestand, Einkaufslisten, Rezepte,
+Wochenpläne und Einladungen. Daten eines Households sind nur für Mitglieder
+sichtbar, deren Rolle und RLS-Policy den Zugriff erlauben.
 
-- `bun test` ist nicht der Jest-Projektbefehl. Für JavaScript-/TypeScript-Tests
-  gilt `bun run test <gezielter-pfad>`; die vollständige Suite wird nicht
-  ungezielt gestartet.
-- Neue synchronisierte Felder brauchen Parität in SQLite-Schema, Serialisierung,
-  Outbox und Sync-Handler. Neue Tabellen brauchen RLS-Policies und pgTAP-Tests.
-- Für jede sichtbare Mutation muss der Gegenweg mitgedacht werden, zum Beispiel
-  Wiederherstellen nach Löschen oder Entfernen nach Hinzufügen.
-- Bei UI-Änderungen gelten die Verträge unter
-  [`docs/design-system/contracts/`](docs/design-system/contracts/README.md).
-  Nichttriviale Layout- oder Copy-Änderungen brauchen vor der Implementierung
-- A. Die Erlaubnis des Maintainers ohne Mockups oder B. Statische Mockups (die die app wiederspiegeln), die dem Maintainer eine auswahl geben und ihn überzeugen.
-- Die Dev Maschine hat nur 8 GB RAM und 256gb internen speicher so wie externen Speicher der verwendet werden kann, eine Lokale Supabase-Datenbanken / Docker, kann nicht gleichzeitig neben dem Simulatoren, Metro-Prozess laufen da dies zuviele Ressourcen verbraucht. Die Dev Maschine ist daher ist es wichtig immer einmal kurz auslastung und rücksprache mit dem Maintainer zu halten, bevor man die Dev Maschine mit zuvielen Prozessen belastet.
+### Household Member und Role
 
-## Testqualität und Mutation Testing
+Die Mitgliedschaft eines Accounts in einem Household. `Role` ist die
+Autorisierungsstufe `admin` oder `member`; sie ist kein Synonym für
+Postgres-Privileges.
 
-- Der fokussierte Mutation-Testing-Pilot ist in [`docs/spec/spec-mutation-testing-pilot.md`](docs/spec/spec-mutation-testing-pilot.md) und [`docs/spec/mutation-testing-pilot-report.md`](docs/spec/mutation-testing-pilot-report.md) dokumentiert.
-- Ausführung: `bunx --no-install stryker run stryker.config.mjs`. StrykerJS `10.0.0` und `@stryker-mutator/jest-runner@10.0.0` sind als gepinnte Dev-Dependencies installiert.
-- Der Pilot bleibt bewusst klein: `src/lib/sync/backoff.ts:7-8` und `src/features/auth/domain/auth-error-message.ts:20-25`, jeweils mit den zugehörigen Jest-Tests.
-- Baseline vom 2026-09-16: 8 Mutanten, 6 getötet, 0 überlebt, 2 Timeouts. Der von Stryker gemeldete Score von 100 % schließt die Timeouts aus und ist deshalb kein vollständiger Qualitätsnachweis.
-- Die beiden Backoff-Timeouts sind als Stryker-/Jest-Runner-Limit klassifiziert. Vor einer Ausweitung oder einem CI-Mutationsgate muss dieses Verhalten separat untersucht werden.
-- Mutation Testing läuft zunächst fokussiert und manuell außerhalb des normalen CI-Unit-Gates.
+Jeder nicht leere Household braucht mindestens einen Admin. Der letzte Admin
+darf gehen, wenn damit auch das letzte Mitglied geht. Danach löscht
+`private.delete_orphaned_household()` den leeren Household samt abhängigen
+Daten. Ein verwaister, dauerhaft unerreichbarer Household ist nicht mehr das
+beabsichtigte Verhalten.
 
-## Language
+### Product
 
-**Kind im Haushalt**:
-Unter Haushalt kann man "Kinder" anlegen bei diesen "Kindern" geht es rein um die Verwaltung und Kalkulation von Lebensmittel Mahlzeiten, es ist rein virtuell und hat nichts mit einem realen Kind zutun oder ist ein Account. Ein Kind kann nicht selbstständig auf die App zugreifen, es hat keine eigenen Login-Daten und kann nicht selbstständig Mahlzeiten oder Rezepte anlegen. Ein Kind ist ein virtuelles Profil, das von einem Erwachsenen verwaltet wird.
+Globaler, nicht haushaltsgebundener Katalogeintrag mit optionalen Barcode-,
+Marken- und Nährwertdaten. Ein Product existiert unabhängig von Inventory und
+Shopping List Items.
 
-**Kind-Tracking**:
-Tracking-Einträge, die zu einem Child Profile statt zu einem Account gehören, erfasst durch einen verwaltenden Erwachsenen. Zielmodell: der Eintrag gehört dem Child Profile, sichtbar für alle, die es verwalten dürfen; wer ihn erfasst hat, ist nur Herkunftsangabe. Keine Aufweichung der Tracking-Privatheit — die schützt Daten von Accounts, und ein Kind hat keinen. Gilt pro Domäne, nicht pauschal: ja bei Ernährung, Gewicht, Medikamenten, Symptomen, Glukose und Workouts, nicht bei Fasten, Ketonen und Aktivität. Umbau eingefroren, siehe ADR 0005.
+### Open Food Facts
 
-**Nutrition Tracking**:
-Der Ernährungs- und Gewichtsteil von Tracking: Mahlzeiten (`food_entries`), Gewicht (`weight_entries`), Ziele (`user_goals`). Eine von mehreren Tracking-Domänen, kein Oberbegriff.
-_Avoid_: Diary, Ernährungstagebuch, Food Diary
+Externe Datenquelle für Produktsuche, Barcodes, Nährwerte und Kategorien. Open
+Food Facts ist eine Quelle des Product Catalog, nicht dessen Identität und nicht
+die alleinige fachliche Wahrheit. Übernommene Daten werden lokal dargestellt
+oder in einen Product-Datensatz überführt.
 
-**Tracking-Methode**:
-Genau eine aktive, sich gegenseitig ausschließende Ernährungs-/Trainingsmethode pro Nutzer (`profiles.tracking_method`: `standard`, `glp1`, `fasting`, `keto`, `low_carb`, `workouts`, `cgm`, `volumetrics`). Kein Multi-Select — ein Wechsel ersetzt die vorherige Methode. Siehe ADR 0004.
-_Avoid_: Modul (als Synonym — Module, z. B. `module_calories`, sind unabhängig voneinander kombinierbare App-Bereich-Umschalter; Tracking-Methode ist eine einzelne Auswahl innerhalb des Nutrition-Tracking-Moduls)
+### Catalog Product
 
-**Product**:
-Globaler, nicht haushaltsgebundener Katalogeintrag (z. B. aus Open Food Facts) mit Barcode/Nährwertdaten. Existiert unabhängig von jedem Haushalt.
+Quellneutrale Such- und Barcode-Darstellung `CatalogProduct`. Sie kann aus dem
+eigenen Produktspiegel, dem lokalen Open-Food-Facts-Dump oder der API stammen.
+Für Konsumenten bleibt die Quelle verborgen. Ein Catalog Product ist noch kein
+Product-Datensatz; beim Übernehmen kann daraus ein Product-Bezug entstehen.
 
-**Catalog Product**:
-Quellneutrale Produktdarstellung für Suche und Barcode-Scan (`CatalogProduct`), wie sie der Product Catalog liefert. Kann aus dem eigenen Produktspiegel, dem lokalen OFF-Dump oder der OFF-API stammen — die Quelle ist für Konsumenten bewusst nicht erkennbar. Keine Identität mit Product: ein Catalog Product ist ein Suchtreffer, kein Katalogeintrag der Datenbank, und wird erst beim Übernehmen zu einem Product.
-_Avoid_: Product (als Synonym), OpenFoodFactsProduct (alter Name — die Darstellung ist nicht mehr OFF-spezifisch)
+Nicht als Synonym verwenden: `Product`, `OpenFoodFactsProduct`.
 
-**Product Catalog**:
-Der local-first Service, über den die App Produkte findet (`createProductCatalog`) — die einzige Art, wie Textsuche und Barcode-Lookup laufen. Befragt drei Quellen in fester Priorität: eigener Produktspiegel, OFF-Dump, OFF-API. Der erste Treffer eines Barcodes gewinnt vollständig; es wird nie ein Feld aus einer tieferen Quelle nachgereicht. Die Online-Ebene wird nur befragt, wenn lokal zu wenig gefunden wurde und ein Netz da ist.
-_Avoid_: Produktsuche (als Synonym für das Feature-Verzeichnis), Externe Produktdatenbank (OFF ist eine der Quellen des Katalogs, nicht der Katalog)
+### Product Catalog
 
-**Product Usage**:
-Append-only, rein lokales Protokoll (`product_usage`, keine Sync/Outbox, kein Server-Gegenstück) jeder Verwendung eines Produkts über Kühlschrank, Einkaufsliste und Tagebuch hinweg. Pro einzelnem Nutzer (`user_id`), nicht pro Haushalt. Grundlage für „Häufig"/„Zuletzt"-Vorschläge, keine Entscheidung — reine Verhaltensdaten.
-_Avoid_: Nutzungshistorie (als Synonym für Category Preference — unterschiedliche Konzepte, siehe dort)
+Der local-first Service `createProductCatalog` und die einzige reguläre
+Schnittstelle für Produktsuche und Barcode-Lookup. Seine Quellenpriorität ist:
 
-**Inventory Item**:
-Haushaltsgebundener Bestandseintrag (`fridge_items`) mit eigenem, eigenständigem Namen. Kann optional ein Product referenzieren, um Katalogdaten (Barcode, Nährwerte) zu übernehmen — die Referenz ist eine Anreicherung, keine Identität. Existiert auch ohne Product-Bezug (Freitext-Eintrag).
-_Avoid_: Product (als Synonym), Fridge Item (als eigenständiger Begriff — ist dasselbe wie Inventory Item)
+1. eigener lokaler Produktspiegel,
+2. lokaler Open-Food-Facts-Dump,
+3. Open-Food-Facts-API, wenn Onlinezugriff erlaubt und nötig ist.
 
-**Shopping List Item**:
-Haushaltsgebundener Einkaufszettel-Eintrag (`shopping_list_items`). Gleiche Beziehung zu Product wie Inventory Item: eigener Name, optionale Product-Referenz zur Anreicherung.
+Beim Barcode-Lookup gewinnt der erste Treffer vollständig. Bei der Textsuche
+werden Treffer tieferer Quellen ergänzt und anhand des Barcodes dedupliziert;
+Felder unterschiedlicher Quellen werden nicht miteinander verschmolzen.
 
-**Category Preference** (Haushaltspräferenz):
-Haushaltsweit geteilte, synchronisierte Entscheidung (`shopping_category_preferences`), welche Kategorie einem Product oder einem normalisierten Freitextnamen zugeordnet ist. Genau ein aktueller Wert pro `(household_id, key_type, normalized_key_value)`, überschreibbar und soft-deletebar — kein Log wie Product Usage, sondern ein Zustand, der die automatische Kategorisierung überstimmt.
-_Avoid_: Product Usage (als Synonym — Category Preference ist eine bewusste, haushaltsweite Entscheidung, kein per-Nutzer-Verhaltensprotokoll)
+### Product Usage
 
-**Shopping Run**:
-Der Vorgang, einen Einkauf abzuschließen: mehrere abgehakte Shopping List Items werden in einem Schritt zu neuen Inventory Items transferiert. Keine geteilte Identität zwischen Quelle und Ziel — je ein neuer Inventory-Item-Datensatz pro Transfer, das Shopping List Item wird nur soft-deleted.
+Append-only, rein lokales Protokoll `product_usage` für die Verwendung eines
+Produkts in Bestand, Einkaufsliste oder Ernährungstracking. Es gehört einem
+Account über `user_id`, besitzt keine Outbox und kein Server-Gegenstück und
+liefert lediglich Signale für häufige oder letzte Produkte.
 
-**Shopping History**:
-Append-only-Protokoll abgeschlossener Shopping Runs (`shopping_history`), kein Offline-Sync. Überlebt unabhängig davon, ob das zugehörige Shopping List Item oder Inventory Item später gelöscht wird.
+Nicht als Synonym verwenden: `Category Preference` oder allgemeine
+Nutzungshistorie eines Households.
 
-**Child Profile**:
-Auth-loses Profil für ein Kind, gehört zum Household (nicht zu `auth.users`), verwaltet von einem Household Member. Verlässt der verwaltende Elternteil den Haushalt, bleibt das Profil erhalten — ein Admin kann es parallel verwalten (RLS erlaubt `managed_by`-Match ODER Admin-Rolle). `managed_by` selbst wird beim Verlassen aktuell **nicht** zurückgesetzt (bekannte Lücke, #188), zeigt danach also auf ein Nicht-Mitglied. Kann Ziel von Kind-Tracking sein und geht bei der Volljährigkeits-Übergabe in einen Account über.
+### Inventory Item
 
-**Role**:
-Autorisierungsstufe eines Household Members: `admin` oder `member`. Bestimmt Rechte innerhalb eines Haushalts (z. B. Mitglieder entfernen). Jeder Haushalt **mit Mitgliedern** braucht mindestens einen Admin (`guard_last_admin`-Trigger). Ausnahme: der letzte Admin darf gehen, wenn dadurch keine Mitglieder mehr übrig bleiben — der Haushalt wird dann komplett mitgliederlos (verwaist), aber nicht gelöscht; Inventory/Shopping-List/Recipes bleiben als unerreichbare Daten bestehen (kein Cleanup, #189).
-_Avoid_: Privileges (das ist ein Postgres-GRANT-Infra-Detail, kein Domänenbegriff)
+Haushaltsgebundener Bestandseintrag `fridge_items` mit eigener Identität und
+eigenem Namen. Ein optionaler Product-Bezug reichert ihn an; auch Freitext ohne
+Product ist zulässig. `Fridge Item` bezeichnet denselben Begriff und keine
+zweite Entität.
 
-**Recipe**:
-Household-eigenes, editierbares Rezept mit Autor und Soft-Delete. Besteht aus Recipe Components und Recipe Steps.
+### Shopping List Item
 
-**Recipe Component**:
-Baustein eines Recipes (z. B. „Nudeln", „Soße") mit eigenem Namen und, bei einer obersten Component, einer Portionsmenge. Besteht aus Recipe Component Items.
+Haushaltsgebundener Einkaufszettel-Eintrag `shopping_list_items` mit eigener
+Identität und eigenem Namen. Ein optionaler Product-Bezug ist eine Anreicherung,
+keine Identität.
 
-**Recipe Component Item**:
-Position innerhalb einer Recipe Component: entweder eine Basis-Zutat (Product-Referenz + Gramm) oder eine Referenz auf eine andere Component desselben Recipes (rekursive Komposition, z. B. „Soße" enthält „50g Tomaten" + „300g Hackfleisch").
-_Avoid_: Zutat, Ingredient (nur informell für den Produkt-Fall zutreffend, deckt den Sub-Component-Fall nicht ab)
+### Category Preference
 
-**Recipe Step**:
-Ein Zubereitungsschritt eines Recipes, in Reihenfolge. Referenziert über Recipe Step Ingredients die darin verwendeten Recipe Component Items (nur für die Anzeige, keine eigene Fachlogik).
+Haushaltsweit geteilte, synchronisierte Entscheidung
+`shopping_category_preferences`, welche Kategorie einem Product, Barcode oder
+normalisierten Freitextnamen zugeordnet wird. Sie ist überschreibbar und
+soft-deletebar. Eine Category Preference ist ein aktueller Zustand, kein
+Verhaltensprotokoll wie Product Usage.
 
-**Recipe Template**:
-Admin-kuratiertes, global lesbares Rezept in eigener Tabellenfamilie — kein Nutzer-Content (kein Autor, kein Soft-Delete, RLS nur SELECT). Ein Haushalt kopiert ein Template client-seitig zu einem eigenen Recipe. Nicht Teil der lokalen SQLite-Spiegelung.
-_Avoid_: Recipe (Template ist absichtlich keine Variante von Recipe mit household_id = null, sondern eine getrennte Tabellenfamilie)
+### Shopping Run
 
-**Meal Plan**:
-Haushaltsweit geteilter Wochenplan (`week_start_date`). Genau ein aktiver Plan pro Haushalt und Kalenderwoche. Enthält Meal Plan Entries.
+Der fachliche Vorgang, abgehakte Shopping List Items in neue Inventory Items zu
+übertragen. Quelle und Ziel teilen keine Identität. Pro Transfer entsteht ein
+neuer Inventory-Item-Datensatz; das Shopping List Item wird soft-gelöscht.
 
-**Meal Plan Entry**:
-Ordnet ein Recipe einem Tag und einer Mahlzeit zu, mit einer Mengenangabe (Portionen/Personen). Bewusst keine Zuordnung zu einzelnen Household Members oder Child Profiles — nur Mengen.
+### Shopping History
+
+Protokoll abgeschlossener Shopping Runs in `shopping_history`. Der aktuelle
+App-Pfad schreibt diese Historie lokal ohne Outbox; das deklarative Backend-
+Schema besitzt ebenfalls eine Tabelle, wird durch diesen Pfad aber nicht
+synchronisiert. Deshalb darf Shopping History aktuell weder als
+geräteübergreifend vollständig noch als verlässliche Serverhistorie behandelt
+werden.
+
+Fachlich soll die Historie append-only sein und unabhängig vom späteren Löschen
+der Quell- oder Zieleinträge fortbestehen. Die aktuelle Backend-Policy
+`shopping_history_all_member FOR ALL` erzwingt Append-only jedoch nicht. Diese
+Abweichung muss vor einer servergestützten Nutzung behoben und mit pgTAP-Tests
+belegt werden.
+
+### Tracking
+
+Oberbegriff für private, RLS-isolierte Account-Daten: Nutrition Tracking,
+Medikamente und Symptome, Fasten, Vitalwerte und Workouts. Tracking eines
+erwachsenen Accounts bleibt privat und ist nicht automatisch Household-Daten.
+
+### Nutrition Tracking
+
+Ernährungs- und Gewichtsteil des Trackings: Mahlzeiten `food_entries`, Gewicht
+`weight_entries` und Ziele `user_goals`. Es ist eine Tracking-Domäne, nicht der
+Oberbegriff für alle Tracking-Funktionen.
+
+Nicht verwenden: `Diary`, `Ernährungstagebuch`, `Food Diary`.
+
+### Tracking-Methode
+
+Genau eine aktive Ernährungs- oder Trainingsmethode pro Account in
+`profiles.tracking_method`: `standard`, `glp1`, `fasting`, `keto`, `low_carb`,
+`workouts`, `cgm` oder `volumetrics`. Die Auswahl ist exklusiv; ein Wechsel
+ersetzt die vorherige Methode. Unabhängige `module_*`-Schalter bleiben davon
+getrennt. Maßgeblich ist [ADR 0004](docs/adr/0004-exclusive-tracking-method.md).
+
+### Child Profile
+
+Auth-loses Profil eines Kindes innerhalb eines Households. Es ist kein Account,
+besitzt keine Login-Daten und greift nicht selbstständig auf die App zu. Ein
+Erwachsener verwaltet damit Mahlzeiten und andere freigegebene Bereiche.
+
+Alle Household Members dürfen das Profil sehen. Ändern und löschen dürfen der
+über `managed_by` eingetragene Manager oder ein Household-Admin. Verlässt der
+Manager nur den Household, bleibt `managed_by` aktuell auf dessen Profil
+stehen, obwohl die Person kein Mitglied mehr ist. Admins können das Child
+Profile weiterhin verwalten; die veraltete Manager-Zuordnung ist eine bekannte
+Implementierungslücke.
+
+### Kind-Tracking: aktueller Zustand
+
+Mehrere Trackingtabellen besitzen bereits `child_profile_id`, und die App kann
+ein Child Profile als aktives Profil auswählen. Die RLS bindet bestehende
+Einträge derzeit weiterhin über `user_id` an den erfassenden Erwachsenen. Zwei
+verwaltende Erwachsene teilen daher nicht automatisch dieselbe vollständige
+Trackinghistorie des Kindes.
+
+### Kind-Tracking: akzeptiertes Zielmodell
+
+Fachlich gehört ein Kind-Tracking-Eintrag dem Child Profile. `user_id` ist dann
+nur Audit-Herkunft. Zugriff erhalten Manager und Household-Admins, nicht alle
+Household Members. Dieser Umbau ist gemäß
+[ADR 0005](docs/adr/0005-kind-tracking-gehoert-dem-kindprofil.md) eingefroren,
+bis konkrete Nachfrage nach Kind-Tracking oder der Volljährigkeitsübergabe ihn
+auslöst.
+
+Der Zielumfang gilt pro Domäne: Ernährung, Gewicht, Medikamente, Symptome,
+Glukose und Workouts gehören dazu. Fasten, Ketone und Aktivität gehören nicht
+dazu. Neue Tabellen erhalten während des Frosts kein vorsorgliches
+`child_profile_id`.
+
+### Recipe
+
+Household-eigenes, editierbares Rezept mit Autor und Soft-Delete. Es besteht
+aus Recipe Components und Recipe Steps.
+
+### Recipe Component
+
+Kompositionsbaustein eines Recipes, zum Beispiel „Nudeln“ oder „Soße“. Eine
+oberste Component kann eine Portionsmenge besitzen und besteht aus Recipe
+Component Items.
+
+### Recipe Component Item
+
+Position innerhalb einer Recipe Component. Sie verweist entweder auf ein
+Product mit Menge oder rekursiv auf eine andere Component desselben Recipes.
+`Ingredient` oder `Zutat` ist nur für den Product-Fall informell korrekt und
+kein vollständiges Synonym.
+
+### Recipe Step
+
+Geordneter Zubereitungsschritt. Recipe Step Ingredients referenzieren die in
+diesem Schritt verwendeten Recipe Component Items für die Anzeige; sie bilden
+keine zweite Zutatenlogik.
+
+### Recipe Template
+
+Admin-kuratiertes, global lesbares Rezept in einer eigenen Tabellenfamilie. Es
+ist kein Nutzer-Content, besitzt keinen Autor und kein Soft-Delete. Ein
+Household kopiert ein Template in ein eigenes Recipe. Recipe Templates gehören
+nicht zum lokalen SQLite-Spiegel. Maßgeblich ist
+[ADR 0002](docs/adr/0002-recipe-templates-separate-table-family.md).
+
+### Meal Plan
+
+Haushaltsweit geteilter Wochenplan mit `week_start_date`. Pro Household und
+Kalenderwoche existiert genau ein aktiver Plan. Er enthält Meal Plan Entries.
+
+### Meal Plan Entry
+
+Ordnet ein Recipe einem Tag und einer Mahlzeit samt Mengenangabe zu. Eine
+Zuordnung zu einzelnen Household Members oder Child Profiles ist nicht Teil
+dieses Modells.
+
+## Änderungsfolgen
+
+- Neue oder geänderte synchronisierte Felder müssen über alle tatsächlich
+  verwendeten Sync-Flächen konsistent bleiben.
+- Neue Backend-Tabellen brauchen explizite RLS-Policies und fokussierte
+  pgTAP-Tests.
+- Neue fachliche Begriffe werden hier definiert; dauerhafte, teure
+  Architekturentscheidungen erhalten ein ADR.
+- Offene Abweichungen zwischen Zielvertrag und Implementierung werden benannt
+  und getestet, nicht durch unklare Formulierungen verdeckt.
+
+Test-, Build-, UI- und Ressourcenregeln stehen in [`AGENTS.md`](AGENTS.md) und
+[`CONSTRAINTS.md`](CONSTRAINTS.md). Details zum Mutation-Testing-Pilot stehen in
+[`docs/spec/spec-mutation-testing-pilot.md`](docs/spec/spec-mutation-testing-pilot.md)
+und im
+[`Pilotbericht`](docs/spec/mutation-testing-pilot-report.md).
