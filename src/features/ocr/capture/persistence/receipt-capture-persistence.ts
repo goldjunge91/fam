@@ -19,6 +19,14 @@ import {
 
 export const RECEIPT_CAPTURE_DRAFT_STORAGE_KEY = 'fam.ocr.receipt-capture.draft.v1';
 
+/**
+ * Fast refresh can unmount one flow while the next instance is already
+ * mounting. Keep discard ordered per account so the next flow cannot resume
+ * the draft that the previous instance is still deleting.
+ */
+const pendingDiscardByAccount = new Map<string, Promise<void>>();
+const discardGenerationByAccount = new Map<string, number>();
+
 export type ReceiptCaptureMetadataStorage = {
   getString(key: string): string | undefined;
   set(key: string, value: string): void;
@@ -333,7 +341,7 @@ export function createReceiptCapturePersistence(
     return storagePromise;
   };
 
-  const load = async (): Promise<ReceiptCaptureDraft | null> => {
+  const readStoredDraft = async (): Promise<ReceiptCaptureDraft | null> => {
     const value = (await storage()).getString(RECEIPT_CAPTURE_DRAFT_STORAGE_KEY);
     if (!value) return null;
     const draft = decodeDraft(value);
@@ -344,46 +352,86 @@ export function createReceiptCapturePersistence(
     return draft;
   };
 
-  const save = async (draft: ReceiptCaptureDraft): Promise<void> => {
+  const waitForPendingDiscard = async (): Promise<void> => {
+    await pendingDiscardByAccount.get(accountId);
+  };
+
+  const currentDiscardGeneration = (): number => discardGenerationByAccount.get(accountId) ?? 0;
+
+  const load = async (): Promise<ReceiptCaptureDraft | null> => {
+    await waitForPendingDiscard();
+    return readStoredDraft();
+  };
+
+  const saveAtGeneration = async (
+    draft: ReceiptCaptureDraft,
+    generation: number,
+  ): Promise<void> => {
     assertPersistableDraft(draft);
-    (await storage()).set(RECEIPT_CAPTURE_DRAFT_STORAGE_KEY, encodeDraft(draft));
+    await waitForPendingDiscard();
+    const accountStorage = await storage();
+    if (currentDiscardGeneration() !== generation) return;
+    accountStorage.set(RECEIPT_CAPTURE_DRAFT_STORAGE_KEY, encodeDraft(draft));
+  };
+
+  const save = async (draft: ReceiptCaptureDraft): Promise<void> => {
+    await saveAtGeneration(draft, currentDiscardGeneration());
   };
 
   return {
     load,
     save,
     async appendPages(input) {
+      const generation = currentDiscardGeneration();
       const next = appendReceiptCapturePages(requireDraft(await load()), input);
-      await save(next);
+      await saveAtGeneration(next, generation);
       return next;
     },
     async transition(input) {
+      const generation = currentDiscardGeneration();
       const next = setReceiptCapturePhase(requireDraft(await load()), input);
-      await save(next);
+      await saveAtGeneration(next, generation);
       return next;
     },
     async fail(input) {
+      const generation = currentDiscardGeneration();
       const next = markReceiptCaptureFailed(requireDraft(await load()), {
         failure: { ...input.failure, phase: input.phase },
         updatedAt: input.updatedAt,
       });
-      await save(next);
+      await saveAtGeneration(next, generation);
       return next;
     },
     async retry(updatedAt) {
+      const generation = currentDiscardGeneration();
       const next = retryReceiptCapture(requireDraft(await load()), { updatedAt });
-      await save(next);
+      await saveAtGeneration(next, generation);
       return next;
     },
     async discard() {
-      const current = await load();
-      if (!current) {
+      const generation = currentDiscardGeneration() + 1;
+      discardGenerationByAccount.set(accountId, generation);
+      const previousDiscard = pendingDiscardByAccount.get(accountId);
+      let discardPromise!: Promise<void>;
+      discardPromise = (async () => {
+        await previousDiscard;
+        const current = await readStoredDraft();
+        if (!current) {
+          (await storage()).remove(RECEIPT_CAPTURE_DRAFT_STORAGE_KEY);
+          return;
+        }
+        const fileSystem = dependencies.fileSystem ?? defaultFileSystem();
+        for (const page of current.pages) await fileSystem.deleteLocalFile(page.localUri);
         (await storage()).remove(RECEIPT_CAPTURE_DRAFT_STORAGE_KEY);
-        return;
+      })();
+      pendingDiscardByAccount.set(accountId, discardPromise);
+      try {
+        await discardPromise;
+      } finally {
+        if (pendingDiscardByAccount.get(accountId) === discardPromise) {
+          pendingDiscardByAccount.delete(accountId);
+        }
       }
-      const fileSystem = dependencies.fileSystem ?? defaultFileSystem();
-      for (const page of current.pages) await fileSystem.deleteLocalFile(page.localUri);
-      (await storage()).remove(RECEIPT_CAPTURE_DRAFT_STORAGE_KEY);
     },
   };
 }

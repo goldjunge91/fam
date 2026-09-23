@@ -1,3 +1,4 @@
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import {
   markReceiptCaptureFailed,
   markReceiptCaptureUploaded,
@@ -28,9 +29,17 @@ export type UploadReceiptCaptureInput = {
   createdBy: string;
 };
 
+export type ReceiptParentSyncWaitInput = Pick<
+  UploadReceiptCaptureInput,
+  'householdId' | 'receiptId'
+>;
+
+export type ReceiptParentSyncWaiter = (input: ReceiptParentSyncWaitInput) => Promise<void>;
+
 export type ReceiptUploadDependencies = {
   fileSystem: ReceiptCaptureFileAdapter;
   assetUploader: ReceiptAssetUploadAdapter;
+  waitForParentSync?: ReceiptParentSyncWaiter;
   now?: ReceiptCaptureClock;
   maxBytes?: number;
 };
@@ -84,6 +93,10 @@ function failureFrom(error: unknown, fallbackCode: string): ReceiptCaptureFailur
   };
 }
 
+export function isReceiptAssetUploadFailureCode(code: string): boolean {
+  return code === 'upload_failed' || code.startsWith('receipt_asset_');
+}
+
 function isoNow(clock: ReceiptCaptureClock): string {
   return clock().toISOString();
 }
@@ -114,8 +127,32 @@ async function uploadPendingReceiptCapture(
   const maxBytes = dependencies.maxBytes ?? RECEIPT_MAX_ASSET_BYTES;
 
   try {
+    if (dependencies.waitForParentSync) {
+      debugLogEvent('receipt.capture.asset_upload.parent_sync_wait_started', {
+        page_count: draft.pages.length,
+      });
+      try {
+        await dependencies.waitForParentSync({
+          householdId: input.householdId,
+          receiptId: input.receiptId,
+        });
+      } catch (error: unknown) {
+        debugLogEvent('receipt.capture.asset_upload.parent_sync_wait_failed', {
+          page_count: draft.pages.length,
+          error_type: error instanceof Error ? error.name : typeof error,
+        });
+        throw error;
+      }
+      debugLogEvent('receipt.capture.asset_upload.parent_sync_wait_completed', {
+        page_count: draft.pages.length,
+      });
+    }
     const uploadedAssets: ReceiptCaptureUploadedAsset[] = [];
     for (const [sortOrder, page] of draft.pages.entries()) {
+      debugLogEvent('receipt.capture.asset_upload.page_started', {
+        page_index: sortOrder,
+        page_count: draft.pages.length,
+      });
       if (page.byteSize !== null) assertByteSize(page.byteSize, maxBytes);
 
       const bytes = await dependencies.fileSystem.readBytes(page.localUri);
@@ -163,8 +200,15 @@ async function uploadPendingReceiptCapture(
         throw error;
       }
       uploadedAssets.push({ localAssetId: page.id, assetId: uploaded.assetId });
+      debugLogEvent('receipt.capture.asset_upload.page_completed', {
+        page_index: sortOrder,
+        page_count: draft.pages.length,
+      });
     }
 
+    debugLogEvent('receipt.capture.asset_upload.queue_completed', {
+      page_count: draft.pages.length,
+    });
     return {
       draft: markReceiptCaptureUploaded(draft, {
         uploadedAssets,
@@ -172,9 +216,15 @@ async function uploadPendingReceiptCapture(
       }),
     };
   } catch (error: unknown) {
+    const failure = failureFrom(error, 'upload_failed');
+    debugLogEvent('receipt.capture.asset_upload.queue_failed', {
+      page_count: draft.pages.length,
+      error_code: failure.code,
+      error_message: failure.message,
+    });
     return {
       draft: markReceiptCaptureFailed(draft, {
-        failure: failureFrom(error, 'upload_failed'),
+        failure,
         updatedAt: isoNow(clock),
       }),
     };

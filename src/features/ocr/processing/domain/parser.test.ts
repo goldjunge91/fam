@@ -253,11 +253,32 @@ describe('parseGermanReceipt', () => {
         text: '*********7196 4068134200129 EINKAUFSTASCHE 81,99 A',
         confidence: 0.9,
       },
+      { text: 'Zwischensumme €25,06', confidence: 0.9 },
+      { text: 'Summe €18,95', confidence: 0.9 },
     ]);
 
     expect(draft.items[0]).toMatchObject({
       name: 'EINKAUFSTASCHE',
-      lineTotalCents: { value: 8199 },
+      lineTotalCents: { value: 199 },
+    });
+  });
+
+  it('repairs a split Rossmann total from the observed unit price and quantity', () => {
+    const draft = parseGermanReceipt([
+      { text: 'ROSSMANN', confidence: 0.9 },
+      {
+        text: '2X 4255719311534 MORE CHUNKY FLAVOI €9,99 €19 3,98 B',
+        confidence: 0.9,
+      },
+      { text: 'Zwischensumme €25,06', confidence: 0.9 },
+      { text: 'Summe €18,95', confidence: 0.9 },
+    ]);
+
+    expect(draft.items[0]).toMatchObject({
+      name: 'MORE CHUNKY FLAVOI',
+      quantity: 2,
+      unitPriceCents: { value: 999 },
+      lineTotalCents: { value: 1998 },
     });
   });
 
@@ -311,6 +332,42 @@ describe('parseGermanReceipt', () => {
       lineTotalCents: { value: null, needsReview: true },
     });
     expect(draft.totalCents.value).toBe(1895);
+  });
+
+  it('repairs a Rossmann euro glyph misread before a small article price', () => {
+    const draft = parseGermanReceipt([
+      { text: 'ROSSMANN', confidence: 0.99 },
+      { text: 'ISANA SEIFE PEACH 60,65 (', confidence: 0.86 },
+      { text: 'Zwischensumme €25,06', confidence: 0.86 },
+      { text: 'Summe €18,95', confidence: 0.86 },
+    ]);
+
+    expect(draft.items[0]).toMatchObject({
+      name: 'ISANA SEIFE PEACH',
+      lineTotalCents: { value: 65, needsReview: true },
+    });
+  });
+
+  it('repairs the JPEG Rossmann price fragments observed by native OCR', () => {
+    const draft = parseGermanReceipt([
+      { text: 'ROSSMANN', confidence: 0.99 },
+      { text: '4068134176240 ISANA MILDE SEIFE 60,65 ₽', confidence: 0.86 },
+      { text: '4068134148940 PROKUDENT PLAQUE T 61,79', confidence: 0.86 },
+      { text: '4068134194732 ISANA SEIFE PEACH C0. 1,65 A', confidence: 0.86 },
+      { text: 'Zwischensumme €25,06', confidence: 0.86 },
+      { text: 'Summe €18,95', confidence: 0.86 },
+    ]);
+
+    expect(
+      draft.items.map(({ name, lineTotalCents }) => ({
+        name,
+        lineTotalCents: lineTotalCents.value,
+      })),
+    ).toEqual([
+      { name: 'ISANA MILDE SEIFE', lineTotalCents: 65 },
+      { name: 'PROKUDENT PLAQUE T', lineTotalCents: 179 },
+      { name: 'ISANA SEIFE PEACH', lineTotalCents: 65 },
+    ]);
   });
 
   it('filters Rossmann tax and footer fragments from the article list', () => {
@@ -418,8 +475,8 @@ describe('parseGermanReceipt', () => {
   );
 
   it('does not turn manifest-declared non-item labels into items', () => {
-    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4219.HEIC');
-    if (!source) throw new Error('Gold source IMG_4219.HEIC is missing.');
+    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4219.png');
+    if (!source) throw new Error('Gold source IMG_4219.png is missing.');
 
     const excludedLabels = source.excluded_lines.flatMap(({ labels }) => labels ?? []);
     const draft = parseGermanReceipt(excludedLabels.map((text) => ({ text, confidence: 0.99 })));
@@ -455,8 +512,8 @@ describe('parseGermanReceipt', () => {
   });
 
   it('strips a barcode prefix while preserving the manifest article', () => {
-    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4220.HEIC');
-    if (!source) throw new Error('Gold source IMG_4220.HEIC is missing.');
+    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4220.png');
+    if (!source) throw new Error('Gold source IMG_4220.png is missing.');
     const anchor = source.article_anchors[0];
 
     const draft = parseGermanReceipt([
@@ -495,9 +552,9 @@ describe('parseGermanReceipt', () => {
   });
 
   it('normalizes the manifest date through the German short-date form', () => {
-    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4220.HEIC');
+    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4220.png');
     if (!source || source.purchase_date === null) {
-      throw new Error('Gold source IMG_4220.HEIC has no purchase date.');
+      throw new Error('Gold source IMG_4220.png has no purchase date.');
     }
 
     const [year, month, day] = source.purchase_date.split('-');

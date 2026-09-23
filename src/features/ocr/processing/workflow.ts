@@ -16,7 +16,13 @@ import type { ReceiptCaptureDraft } from '@/features/ocr/capture/domain/types';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 import { parseGermanReceipt } from './domain/parser';
 import type { ReceiptDraft, ReceiptOcrLine } from './domain/types';
-import { type ReceiptOcrErrorCode, type ReceiptOcrResult, recognizeReceiptOcr } from './native';
+import {
+  getReceiptOcrAvailability,
+  prepareReceiptOcr,
+  type ReceiptOcrErrorCode,
+  type ReceiptOcrResult,
+  recognizeReceiptOcr,
+} from './native';
 import { getReceiptReviewValidationErrors } from './review/model';
 
 export type ReceiptProcessingFailure = {
@@ -36,6 +42,10 @@ export type ReceiptProcessingResult =
       captureId: string;
       failure: ReceiptProcessingFailure;
     };
+
+export type ReceiptProcessingProgress =
+  | { phase: 'preparing'; progress: number }
+  | { phase: 'reading'; pageIndex: number; pageCount: number };
 
 function errorDetails(error: unknown): { code: string; message: string } {
   if (typeof error === 'object' && error !== null) {
@@ -72,11 +82,34 @@ function pageLines(result: ReceiptOcrResult, pageIndex: number): ReceiptOcrLine[
  */
 export async function processReceiptCapture(input: {
   capture: ReceiptCaptureDraft;
+  onProgress?: (progress: ReceiptProcessingProgress) => void;
 }): Promise<ReceiptProcessingResult> {
   const lines: ReceiptOcrLine[] = [];
 
+  try {
+    input.onProgress?.({ phase: 'preparing', progress: 0 });
+    const availability = await getReceiptOcrAvailability();
+    if (availability.status !== 'available') {
+      await prepareReceiptOcr({
+        onProgress: (progress) => input.onProgress?.({ phase: 'preparing', progress }),
+      });
+    }
+  } catch (error: unknown) {
+    const details = errorDetails(error);
+    return {
+      kind: 'failed',
+      captureId: input.capture.id,
+      failure: { ...details, pageIndex: 0 },
+    };
+  }
+
   for (const [pageIndex, page] of input.capture.pages.entries()) {
     try {
+      input.onProgress?.({
+        phase: 'reading',
+        pageIndex,
+        pageCount: input.capture.pages.length,
+      });
       const result = await recognizeReceiptOcr(page.localUri);
       lines.push(...pageLines(result, pageIndex));
     } catch (error: unknown) {
@@ -260,32 +293,49 @@ export async function finalizeReceiptReview(
   }));
   const itemIds = itemInputs.map(({ id }) => id);
 
-  if (authority.saveReceiptReview) {
-    await authority.saveReceiptReview(
-      { receipt: receiptInput, items: itemInputs, confirmedBy },
-      authorityDependencies,
-    );
-  } else {
-    await authority.createReceipt(receiptInput, authorityDependencies);
-    for (const item of itemInputs) {
-      await authority.createReceiptItem(item, authorityDependencies);
-    }
-    for (const itemId of itemIds) {
-      await authority.confirmReceiptItem(
-        { householdId: input.householdId, itemId },
+  debugLogEvent('receipt.capture.save.authority_started', {
+    item_count: itemInputs.length,
+    has_store: input.storeId !== null && input.storeId !== undefined,
+    has_total: input.draft.totalCents.value !== null,
+  });
+  try {
+    if (authority.saveReceiptReview) {
+      await authority.saveReceiptReview(
+        { receipt: receiptInput, items: itemInputs, confirmedBy },
+        authorityDependencies,
+      );
+    } else {
+      await authority.createReceipt(receiptInput, authorityDependencies);
+      for (const item of itemInputs) {
+        await authority.createReceiptItem(item, authorityDependencies);
+      }
+      for (const itemId of itemIds) {
+        await authority.confirmReceiptItem(
+          { householdId: input.householdId, itemId },
+          authorityDependencies,
+        );
+      }
+      await authority.confirmReceipt(
+        { householdId: input.householdId, receiptId, confirmedBy },
         authorityDependencies,
       );
     }
-    await authority.confirmReceipt(
-      { householdId: input.householdId, receiptId, confirmedBy },
-      authorityDependencies,
-    );
+  } catch (error: unknown) {
+    const details = errorDetails(error);
+    debugLogEvent('receipt.capture.save.authority_failed', {
+      ...details,
+      item_count: itemInputs.length,
+    });
+    throw error;
   }
+  debugLogEvent('receipt.capture.save.authority_completed', { item_count: itemInputs.length });
 
   if (!dependencies.uploadAssets) {
+    debugLogEvent('receipt.capture.save.assets_skipped');
     return { kind: 'saved', receiptId, itemIds, assets: { kind: 'skipped' } };
   }
 
+  debugLogEvent('receipt.capture.save.assets_started', { page_count: input.capture.pages.length });
   try {
     const uploaded = await dependencies.uploadAssets({
       capture: input.capture,
@@ -294,6 +344,9 @@ export async function finalizeReceiptReview(
       createdBy: input.createdBy,
     });
     if (uploaded.draft.status !== 'uploaded') {
+      debugLogEvent('receipt.capture.save.assets_pending', {
+        error_message: uploaded.draft.failure?.message ?? 'Asset upload failed.',
+      });
       return {
         kind: 'saved_with_pending_assets',
         receiptId,
@@ -305,6 +358,9 @@ export async function finalizeReceiptReview(
         },
       };
     }
+    debugLogEvent('receipt.capture.save.assets_completed', {
+      page_count: uploaded.draft.pages.length,
+    });
     return {
       kind: 'saved',
       receiptId,
@@ -312,8 +368,9 @@ export async function finalizeReceiptReview(
       assets: { kind: 'uploaded', draft: uploaded.draft },
     };
   } catch (error: unknown) {
-    const message =
-      error instanceof Error && error.message ? error.message : 'Asset upload failed.';
+    const details = errorDetails(error);
+    debugLogEvent('receipt.capture.save.assets_failed', details);
+    const message = details.message;
     const failedDraft =
       input.capture.status === 'pending'
         ? markReceiptCaptureFailed(input.capture, {

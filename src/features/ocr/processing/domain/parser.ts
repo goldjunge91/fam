@@ -27,6 +27,7 @@ type MoneyToken = {
   negative: boolean;
   start: number;
   end: number;
+  repaired?: boolean;
 };
 
 type ObservedLineTotal = {
@@ -212,6 +213,46 @@ function parseMoneyTokens(text: string): readonly MoneyToken[] {
         end: start + raw.length,
       },
     ];
+  });
+}
+
+function normalizeRossmannCurrencyGlyphArtifacts(
+  line: NormalizedLine,
+  tokens: readonly MoneyToken[],
+  subtotalCents: number | null,
+): readonly MoneyToken[] {
+  if (subtotalCents === null) {
+    return tokens;
+  }
+
+  const hasTaxCodeSuffix = /(?:^|\s)(?:A|B|AW|BW)\s*$/iu.test(line.text);
+
+  return tokens.map((token) => {
+    const raw = line.text.slice(token.start, token.end).replace(/\s+/g, '');
+    const isLeadingEightArtifact = hasTaxCodeSuffix && /^8\d+[,.]\d{2}$/u.test(raw);
+    const isLeadingSixArtifact = /^6\d+[,.]\d{2}$/u.test(raw) && token.cents > subtotalCents;
+    const prefix = line.text.slice(0, token.start);
+    const isMisreadZeroPrice = /(?:^|\s)C0\.\s*$/iu.test(prefix) && /^1[,.]\d{2}$/u.test(raw);
+    if (!isLeadingEightArtifact && !isLeadingSixArtifact && !isMisreadZeroPrice) {
+      return token;
+    }
+
+    const withoutMisreadCurrencyGlyph = parseMoneyTokens(
+      isMisreadZeroPrice ? raw.replace(/^1/u, '0') : raw.slice(1),
+    )[0];
+    if (
+      !withoutMisreadCurrencyGlyph ||
+      withoutMisreadCurrencyGlyph.cents >= token.cents ||
+      withoutMisreadCurrencyGlyph.cents > subtotalCents
+    ) {
+      return token;
+    }
+
+    return {
+      ...token,
+      cents: withoutMisreadCurrencyGlyph.cents,
+      repaired: true,
+    };
   });
 }
 
@@ -469,8 +510,13 @@ function deriveQuantityFromPrices(unitPriceCents: number, lineTotalCents: number
 function parseItem(
   line: NormalizedLine,
   observedLineTotal?: ObservedLineTotal,
+  subtotalCents: number | null = null,
 ): ReceiptDraftItem | null {
-  const tokens = parseMoneyTokens(line.text);
+  const tokens = normalizeRossmannCurrencyGlyphArtifacts(
+    line,
+    parseMoneyTokens(line.text),
+    subtotalCents,
+  );
   if (tokens.length === 0) {
     const { name, quantity, unit } = parseQuantityAndName(line.text);
     if (
@@ -516,7 +562,11 @@ function parseItem(
 
   const firstToken = tokens[0];
   const nameText = line.text.slice(0, firstToken.start).trim();
-  const parsedName = parseQuantityAndName(nameText);
+  const normalizedNameText =
+    subtotalCents !== null && isBarcodePrefixedItemLine(line.text)
+      ? nameText.replace(/\s+C0\.\s*$/iu, '').trim()
+      : nameText;
+  const parsedName = parseQuantityAndName(normalizedNameText);
   const trailingQuantityMatch = line.text
     .slice(firstToken.end, tokens.length > 1 ? finalToken.start : line.text.length)
     .match(/^\s*(?:€|EUR)?\s*[x×]\s*(\d+(?:[.,]\d+)?)/i);
@@ -545,20 +595,54 @@ function parseItem(
   const itemConfidence = scaleConfidence(line.confidence, 0.95);
   const hasTrailingQuantity = trailingQuantity !== null && quantity === trailingQuantity;
   const hasSeparateUnitAndLineTotal = quantity !== null && tokens.length > 1;
+  const textBetweenMoneyTokens = line.text.slice(firstToken.end, finalToken.start);
+  const hasUnparsedCurrencyFragment = /(?:€|EUR)\s*\d{1,3}\b/iu.test(textBetweenMoneyTokens);
+  const hasSplitQuantityTotal =
+    observedLineTotal === undefined &&
+    parsedName.quantity !== null &&
+    (tokens.length > 2 || hasUnparsedCurrencyFragment) &&
+    finalToken.cents < firstToken.cents &&
+    (tokens.length <= 2 || tokens.slice(1, -1).some((token) => token.cents >= firstToken.cents));
+  const derivedLineTotalValue = firstToken.cents * (parsedName.quantity ?? 0);
+  const derivedLineTotalCents =
+    hasSplitQuantityTotal && Number.isSafeInteger(derivedLineTotalValue)
+      ? assertEuroCents(derivedLineTotalValue)
+      : null;
   const lineTotalCents =
     hasTrailingQuantity && !hasSeparateUnitAndLineTotal
       ? missingField<EuroCents>(line)
-      : field(assertEuroCents(finalToken.cents), itemConfidence, line.index, line.text);
+      : observedLineTotal
+        ? field(
+            assertEuroCents(observedLineTotal.cents),
+            observedLineTotal.confidence,
+            line.index,
+            `${line.text} ${observedLineTotal.evidence}`,
+          )
+        : derivedLineTotalCents !== null
+          ? {
+              ...field(
+                derivedLineTotalCents,
+                scaleConfidence(itemConfidence, 0.85),
+                line.index,
+                line.text,
+              ),
+              needsReview: true,
+            }
+          : field(assertEuroCents(finalToken.cents), itemConfidence, line.index, line.text);
   const unitPriceCents =
     quantity !== null && (tokens.length > 1 || hasTrailingQuantity)
       ? field(assertEuroCents(firstToken.cents), itemConfidence, line.index, line.text)
       : null;
 
+  const repairedLineTotalCents = finalToken.repaired
+    ? { ...lineTotalCents, needsReview: true }
+    : lineTotalCents;
+
   return {
     name,
     quantity,
     unit,
-    lineTotalCents,
+    lineTotalCents: repairedLineTotalCents,
     unitPriceCents,
     confidence: itemConfidence,
     sourceLineIndex: line.index,
@@ -657,6 +741,7 @@ function parseItems(lines: readonly NormalizedLine[]): {
   const items: ReceiptDraftItem[] = [];
   const excludedLines: ReceiptDraftExcludedLine[] = [];
   const separatedPrices = separatedPriceAssignments(lines);
+  const subtotalCents = findSubtotalCents(lines);
   let itemSectionOpen = true;
 
   for (const line of lines) {
@@ -700,7 +785,7 @@ function parseItems(lines: readonly NormalizedLine[]): {
       continue;
     }
 
-    const item = parseItem(line, separatedPrices.get(line.index));
+    const item = parseItem(line, separatedPrices.get(line.index), subtotalCents);
     if (item !== null) {
       items.push(item);
     }

@@ -43,6 +43,52 @@ function draft(): ReceiptCaptureDraft {
 describe('receipt capture persistence', () => {
   beforeEach(() => mockGetEncryptedAccountStorage.mockReset());
 
+  it('does not load a stale draft while another persistence instance discards it', async () => {
+    const metadata = storage();
+    let releaseDelete!: () => void;
+    const deleteStarted = new Promise<void>((resolve) => {
+      releaseDelete = resolve;
+    });
+    const deletingFile = new Promise<void>((resolve) => {
+      void deleteStarted.then(() => resolve());
+    });
+    const first = createReceiptCapturePersistence('account-a', {
+      storage: metadata,
+      fileSystem: {
+        deleteLocalFile: async () => deletingFile,
+      },
+    });
+    const second = createReceiptCapturePersistence('account-a', { storage: metadata });
+
+    await first.save(draft());
+    const discardPromise = first.discard();
+    const loadPromise = second.load();
+
+    await Promise.resolve();
+    expect(metadata.values.size).toBe(1);
+
+    releaseDelete();
+    await discardPromise;
+
+    await expect(loadPromise).resolves.toBeNull();
+  });
+
+  it('does not resurrect a draft from a save that started before discard', async () => {
+    const metadata = storage();
+    const persistence = createReceiptCapturePersistence('account-a', { storage: metadata });
+
+    await persistence.save(draft());
+    const staleSave = persistence.save({
+      ...draft(),
+      updatedAt: '2026-09-21T10:02:00.000Z',
+    });
+    const discard = persistence.discard();
+
+    await Promise.all([staleSave, discard]);
+
+    await expect(persistence.load()).resolves.toBeNull();
+  });
+
   it('resolves the encrypted account store from the active account id', async () => {
     const metadata = storage();
     mockGetEncryptedAccountStorage.mockResolvedValue(metadata);

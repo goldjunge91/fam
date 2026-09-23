@@ -374,6 +374,33 @@ function warningsFor(draft: ReceiptDraft): ReceiptDraft['warnings'] {
   return warnings;
 }
 
+function normalizeReceiptDate(value: string): string | null {
+  const match = value.trim().match(/^(\d{1,4})([./-])(\d{1,2})\2(\d{1,4})$/);
+  if (!match) return null;
+
+  const [, first, , second, third] = match;
+  const isIso = first.length === 4;
+  if (!isIso && third.length !== 2 && third.length !== 4) return null;
+
+  const year = Number(isIso ? first : third);
+  const month = Number(second);
+  const day = Number(isIso ? third : first);
+  const normalizedYear = year < 100 ? 2000 + year : year;
+  const date = new Date(Date.UTC(normalizedYear, month - 1, day));
+
+  if (
+    date.getUTCFullYear() !== normalizedYear ||
+    date.getUTCMonth() !== month - 1 ||
+    date.getUTCDate() !== day
+  ) {
+    return null;
+  }
+
+  return `${String(normalizedYear).padStart(4, '0')}-${String(month).padStart(2, '0')}-${String(
+    day,
+  ).padStart(2, '0')}`;
+}
+
 export function applyReceiptReviewState(
   source: ReceiptDraft,
   state: ReceiptReviewState,
@@ -384,12 +411,14 @@ export function applyReceiptReviewState(
       : state.market.trim().length === 0
         ? emptyField<string>()
         : manualField(state.market.trim(), source.market);
+  const enteredPurchaseDate = state.purchaseDate.trim();
+  const normalizedPurchaseDate = normalizeReceiptDate(enteredPurchaseDate);
   const purchaseDate =
-    state.purchaseDate.trim() === source.purchaseDate.value
+    enteredPurchaseDate === source.purchaseDate.value
       ? source.purchaseDate
-      : state.purchaseDate.trim().length === 0
+      : enteredPurchaseDate.length === 0
         ? emptyField<string>()
-        : manualField(state.purchaseDate.trim(), source.purchaseDate);
+        : manualField(normalizedPurchaseDate ?? enteredPurchaseDate, source.purchaseDate);
   const totalCents = reviewedField(
     source.totalCents,
     state.totalCents,
@@ -421,10 +450,7 @@ export function applyReceiptReviewState(
 }
 
 function isValidDate(value: string): boolean {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
-  const date = new Date(`${value}T00:00:00.000Z`);
-  if (!Number.isFinite(date.getTime())) return false;
-  return date.toISOString().slice(0, 10) === value;
+  return normalizeReceiptDate(value) === value;
 }
 
 export function getReceiptReviewValidationErrors(

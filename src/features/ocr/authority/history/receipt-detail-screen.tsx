@@ -1,6 +1,6 @@
 import { useQueries } from '@tanstack/react-query';
 import { Image } from 'expo-image';
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, Modal, View } from 'react-native';
@@ -14,10 +14,12 @@ import {
   receiptAssetsQueryKey,
   useConfirmedReceiptItems,
   useDeleteReceiptAssetMutation,
+  useDeleteReceiptMutation,
   useReceipt,
   useReceiptAssets,
 } from '@/features/ocr/authority/api';
 import { categoryLabelForId } from '@/features/shopping-list/domain-logik/shopping-categories';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import { formatReceiptDate, formatReceiptMoney, formatReceiptNumber } from './formatting';
 
 const styles = StyleSheet.create((theme) => ({
@@ -85,6 +87,7 @@ export function ReceiptDetailScreen() {
   const receiptQuery = useReceipt(activeHouseholdId ?? undefined, receiptId);
   const itemsQuery = useConfirmedReceiptItems(activeHouseholdId ?? undefined, receiptId);
   const assetsQuery = useReceiptAssets(activeHouseholdId ?? undefined, receiptId);
+  const deleteReceiptMutation = useDeleteReceiptMutation();
   const deleteAssetMutation = useDeleteReceiptAssetMutation();
   const [viewer, setViewer] = useState<{ uri: string; number: number } | null>(null);
 
@@ -124,6 +127,42 @@ export function ReceiptDetailScreen() {
             assetId,
             storagePath,
           }),
+      },
+    ]);
+  }
+
+  async function deleteReceiptEntry() {
+    if (!activeHouseholdId || !receiptId) return;
+    debugLogEvent('receipt.history.delete.started', { receipt_id: receiptId });
+    try {
+      await deleteReceiptMutation.mutateAsync({
+        householdId: activeHouseholdId,
+        receiptId,
+      });
+      debugLogEvent('receipt.history.delete.completed', { receipt_id: receiptId });
+      router.back();
+    } catch (error) {
+      debugLogEvent('receipt.history.delete.failed', {
+        receipt_id: receiptId,
+        error_type: error instanceof Error ? error.name : typeof error,
+        error_message: error instanceof Error ? error.message : t('ocr.history.deleteError'),
+      });
+      Alert.alert(
+        t('ocr.history.deleteErrorTitle'),
+        error instanceof Error ? error.message : t('ocr.history.deleteError'),
+      );
+    }
+  }
+
+  function confirmDeleteReceipt() {
+    if (!activeHouseholdId || !receiptId) return;
+    debugLogEvent('receipt.history.delete.button_pressed', { receipt_id: receiptId });
+    Alert.alert(t('ocr.history.deleteReceiptTitle'), t('ocr.history.deleteReceiptBody'), [
+      { text: t('ocr.history.cancel'), style: 'cancel' },
+      {
+        text: t('ocr.history.delete'),
+        style: 'destructive',
+        onPress: () => void deleteReceiptEntry(),
       },
     ]);
   }
@@ -197,6 +236,14 @@ export function ReceiptDetailScreen() {
           </View>
         </View>
 
+        <Button
+          title={t('ocr.history.deleteReceipt')}
+          variant="danger"
+          full
+          onPress={confirmDeleteReceipt}
+          loading={deleteReceiptMutation.isPending}
+        />
+
         <View style={styles.fieldList}>
           <Txt variant="heading">{t('ocr.history.items')}</Txt>
           {itemsQuery.data?.length ? (
@@ -266,7 +313,13 @@ export function ReceiptDetailScreen() {
                   <View key={asset.id} style={styles.assetRow}>
                     {uri ? (
                       <Press
-                        onPress={() => setViewer({ uri, number: index + 1 })}
+                        onPress={() => {
+                          debugLogEvent('receipt.history.button_pressed', {
+                            button: 'open_asset',
+                            asset_position: index,
+                          });
+                          setViewer({ uri, number: index + 1 });
+                        }}
                         accessibilityRole="button"
                         accessibilityLabel={t('ocr.history.openAsset', { number: index + 1 })}
                         haptic="none"
@@ -283,7 +336,13 @@ export function ReceiptDetailScreen() {
                         title={t('ocr.history.deleteAsset', { number: index + 1 })}
                         variant="danger"
                         size="sm"
-                        onPress={() => void confirmDeleteAsset(asset.id, asset.storage_path)}
+                        onPress={() => {
+                          debugLogEvent('receipt.history.button_pressed', {
+                            button: 'delete_asset',
+                            asset_position: index,
+                          });
+                          void confirmDeleteAsset(asset.id, asset.storage_path);
+                        }}
                         loading={deleteAssetMutation.isPending}
                       />
                     </View>
@@ -298,7 +357,10 @@ export function ReceiptDetailScreen() {
       <Modal visible={viewer !== null} animationType="fade" onRequestClose={() => setViewer(null)}>
         <View style={styles.viewer}>
           <Press
-            onPress={() => setViewer(null)}
+            onPress={() => {
+              debugLogEvent('receipt.history.button_pressed', { button: 'close_asset_viewer' });
+              setViewer(null);
+            }}
             accessibilityRole="button"
             accessibilityLabel={t('ocr.history.closeViewer')}
             haptic="none">

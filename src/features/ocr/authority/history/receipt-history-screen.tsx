@@ -8,6 +8,7 @@ import { Screen } from '@/components/layout/screen';
 import { Press, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { type LocalReceiptRow, useConfirmedReceipts } from '@/features/ocr/authority/api';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import { formatReceiptDate, formatReceiptMoney } from './formatting';
 import { sortReceiptHistory } from './model';
 
@@ -44,7 +45,10 @@ function ReceiptHistoryRow({ receipt }: { receipt: LocalReceiptRow }) {
 
   return (
     <Press
-      onPress={() => router.push(`/household/receipt/${receipt.id}`)}
+      onPress={() => {
+        debugLogEvent('receipt.history.button_pressed', { button: 'open_receipt' });
+        router.push(`/household/receipt/${receipt.id}`);
+      }}
       accessibilityRole="button"
       accessibilityLabel={`${store}, ${date}, ${total}`}
       haptic="none"

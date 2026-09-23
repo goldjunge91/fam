@@ -67,6 +67,41 @@ describe('receipt review model', () => {
     ).toThrow('Item name');
   });
 
+  it.each(['2026-09-22', '22.09.2026', '22.09.26'])(
+    'normalizes supported manual purchase-date input %s to ISO',
+    (purchaseDate) => {
+      const source = draft();
+      const state = updateReceiptReviewState(createReceiptReviewState(source, 'store-1'), {
+        purchaseDate,
+      });
+
+      const reviewed = applyReceiptReviewState(source, state);
+
+      expect(reviewed.purchaseDate).toMatchObject({
+        value: '2026-09-22',
+        evidence: 'manual',
+        needsReview: false,
+      });
+      expect(
+        getReceiptReviewValidationErrors(reviewed, 'store-1', ['store-1']).map(({ code }) => code),
+      ).not.toContain('date_invalid');
+    },
+  );
+
+  it('keeps impossible manual purchase dates invalid', () => {
+    const source = draft();
+    const state = updateReceiptReviewState(createReceiptReviewState(source, 'store-1'), {
+      purchaseDate: '31.02.2026',
+    });
+
+    const reviewed = applyReceiptReviewState(source, state);
+
+    expect(reviewed.purchaseDate.value).toBe('31.02.2026');
+    expect(
+      getReceiptReviewValidationErrors(reviewed, 'store-1', ['store-1']).map(({ code }) => code),
+    ).toContain('date_invalid');
+  });
+
   it('adds and removes items without changing the identity of the remaining items', () => {
     const state = createReceiptReviewState(draft());
     const firstId = state.items[0]?.id;

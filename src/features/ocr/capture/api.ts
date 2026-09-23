@@ -17,6 +17,7 @@ import {
 import { createSupabaseReceiptAssetUploadAdapter } from './capture/supabase-upload';
 import {
   type ReceiptCaptureUploadResult,
+  type ReceiptParentSyncWaiter,
   type ReceiptUploadDependencies,
   retryReceiptCaptureUpload as retryPendingReceiptCaptureUpload,
   type UploadReceiptCaptureInput,
@@ -34,6 +35,7 @@ export type ReceiptCaptureApiDependencies = {
   imagePicker?: ReceiptImagePickerAdapter;
   fileSystem?: ReceiptCaptureFileAdapter;
   assetUploader?: ReceiptAssetUploadAdapter;
+  waitForParentSync?: ReceiptParentSyncWaiter;
   now?: ReceiptCaptureClock;
   maxBytes?: number;
   persistence?: ReceiptCapturePersistence;
@@ -59,6 +61,7 @@ function uploadDependencies(
   return {
     fileSystem: dependencies.fileSystem ?? createExpoFileSystemAdapter(),
     assetUploader: dependencies.assetUploader ?? createSupabaseReceiptAssetUploadAdapter(),
+    waitForParentSync: dependencies.waitForParentSync,
     now: dependencies.now,
     maxBytes: dependencies.maxBytes,
   };
@@ -138,7 +141,7 @@ export {
   createExpoImagePickerAdapter,
 } from './capture/native-adapters';
 export { createSupabaseReceiptAssetUploadAdapter } from './capture/supabase-upload';
-export { receiptAssetStoragePath } from './capture/upload-queue';
+export { isReceiptAssetUploadFailureCode, receiptAssetStoragePath } from './capture/upload-queue';
 export type {
   ReceiptAssetUploadAdapter,
   ReceiptCaptureClock,
@@ -148,6 +151,7 @@ export type {
   ReceiptCapturePersistenceDependencies,
   ReceiptCaptureResult,
   ReceiptImagePickerAdapter,
+  ReceiptParentSyncWaiter,
   ReceiptUploadDependencies,
   UploadReceiptCaptureInput,
 };

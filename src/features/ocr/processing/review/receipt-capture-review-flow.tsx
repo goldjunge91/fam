@@ -7,6 +7,7 @@ import { Button, Surface, Txt } from '@/constants/ui';
 import {
   captureReceipt,
   createReceiptCapturePersistence,
+  isReceiptAssetUploadFailureCode,
   type ReceiptCaptureApiDependencies,
   type ReceiptCapturePersistence,
   type ReceiptCaptureResult,
@@ -19,11 +20,13 @@ import type {
 } from '@/features/ocr/capture/domain/types';
 import { useStores } from '@/features/shopping-list/hooks/use-stores';
 import { debugLogEvent } from '@/lib/observability/debug-log';
+import { triggerHouseholdSyncAfterOutboxMutation } from '@/lib/sync/sync-runner';
 import type { ReceiptDraft } from '../domain/types';
 import {
   type FinalizeReceiptResult,
   finalizeReceiptReview,
   processReceiptCapture,
+  type ReceiptProcessingProgress,
   type ReceiptProcessingResult,
 } from '../workflow';
 import {
@@ -72,6 +75,7 @@ type ReceiptCaptureReviewFlowProps = {
 
 type FlowPhase = 'choose' | 'captured' | 'processing' | 'review' | 'saving' | 'error';
 type DevelopmentResetReason = 'hidden' | 'unmounted';
+type ProcessingStage = ReceiptProcessingProgress['phase'];
 
 function isDevelopmentRuntime(): boolean {
   return process.env.NODE_ENV !== 'test' && typeof __DEV__ !== 'undefined' && __DEV__;
@@ -120,11 +124,26 @@ export function ReceiptCaptureReviewFlow({
   const [reviewState, setReviewState] = useState<ReceiptReviewState | null>(null);
   const [saveRetryAvailable, setSaveRetryAvailable] = useState(false);
   const [captureRetry, setCaptureRetry] = useState<ReceiptCaptureSource | 'append' | null>(null);
+  const [processingStage, setProcessingStage] = useState<ProcessingStage>('reading');
   const reviewSaveQueue = useRef(Promise.resolve());
   const wasVisibleRef = useRef(false);
   const developmentResetRef = useRef(false);
+  const discardRequestedRef = useRef(false);
+  const lifecycleGenerationRef = useRef(0);
 
   const nowIso = useCallback(() => new Date().toISOString(), []);
+  const waitForParentSync = useCallback(
+    async ({ householdId }: { householdId: string; receiptId: string }) => {
+      const result = await triggerHouseholdSyncAfterOutboxMutation([householdId]);
+      if (!result) throw new Error('Receipt parent sync did not complete.');
+    },
+    [],
+  );
+  const isLifecycleCurrent = useCallback(
+    (generation: number) =>
+      generation === lifecycleGenerationRef.current && !discardRequestedRef.current,
+    [],
+  );
 
   const resetDevelopmentDraft = useCallback(
     (reason: DevelopmentResetReason) => {
@@ -132,6 +151,8 @@ export function ReceiptCaptureReviewFlow({
         return;
       }
       developmentResetRef.current = true;
+      discardRequestedRef.current = true;
+      lifecycleGenerationRef.current += 1;
       debugLogEvent('receipt.capture.flow.dev_reset_started', { reason });
       void persistence
         .discard()
@@ -169,6 +190,8 @@ export function ReceiptCaptureReviewFlow({
   }, [captureDraft, phase, reviewDraft, visible]);
 
   const dismissWithCleanup = useCallback(async () => {
+    discardRequestedRef.current = true;
+    lifecycleGenerationRef.current += 1;
     if (isDevelopmentRuntime()) developmentResetRef.current = true;
     await persistence.discard();
     setCaptureDraft(null);
@@ -182,66 +205,88 @@ export function ReceiptCaptureReviewFlow({
 
   const runProcessing = useCallback(
     async (nextCapture: ReceiptCaptureDraft) => {
+      const generation = lifecycleGenerationRef.current;
+      if (!isLifecycleCurrent(generation)) return;
       setCaptureDraft(nextCapture);
       setReviewState(null);
       setSaveRetryAvailable(false);
       setPhase('processing');
-      await persistence.save(nextCapture);
-      const processingCapture = await persistence.transition({
-        phase: 'processing',
-        updatedAt: nowIso(),
-      });
-      setCaptureDraft(processingCapture);
-      let processed: ReceiptProcessingResult;
+      setProcessingStage('reading');
       try {
-        processed = await processCapture({ capture: processingCapture });
-      } catch (processingError: unknown) {
-        const failure = {
-          code: 'RECEIPT_PROCESSING_FAILED',
-          message:
-            processingError instanceof Error ? processingError.message : t('ocr.review.error'),
+        await persistence.save(nextCapture);
+        if (!isLifecycleCurrent(generation)) return;
+        const processingCapture = await persistence.transition({
+          phase: 'processing',
+          updatedAt: nowIso(),
+        });
+        if (!isLifecycleCurrent(generation)) return;
+        setCaptureDraft(processingCapture);
+        let processed: ReceiptProcessingResult;
+        try {
+          processed = await processCapture({
+            capture: processingCapture,
+            onProgress: (progress) => {
+              if (isLifecycleCurrent(generation)) setProcessingStage(progress.phase);
+            },
+          });
+        } catch (processingError: unknown) {
+          if (!isLifecycleCurrent(generation)) return;
+          const failure = {
+            code: 'RECEIPT_PROCESSING_FAILED',
+            message:
+              processingError instanceof Error ? processingError.message : t('ocr.review.error'),
+          };
+          const failed = await persistence.fail({
+            phase: 'processing',
+            failure,
+            updatedAt: nowIso(),
+          });
+          if (!isLifecycleCurrent(generation)) return;
+          setCaptureDraft(failed);
+          setError(failure.message);
+          setPhase('error');
+          return;
+        }
+        if (!isLifecycleCurrent(generation)) return;
+        if (processed.kind === 'failed') {
+          const failed = await persistence.fail({
+            phase: 'processing',
+            failure: { code: processed.failure.code, message: processed.failure.message },
+            updatedAt: nowIso(),
+          });
+          if (!isLifecycleCurrent(generation)) return;
+          setCaptureDraft(failed);
+          setError(processed.failure.message);
+          setPhase('error');
+          return;
+        }
+        const nextReviewState = createReceiptReviewState(processed.draft);
+        const reviewedCapture = {
+          ...processingCapture,
+          review: createReceiptReviewSnapshot(processed.draft, nextReviewState),
         };
-        const failed = await persistence.fail({
-          phase: 'processing',
-          failure,
+        await persistence.save(reviewedCapture);
+        if (!isLifecycleCurrent(generation)) return;
+        const needsReviewCapture = await persistence.transition({
+          phase: 'needs_review',
           updatedAt: nowIso(),
         });
-        setCaptureDraft(failed);
-        setError(failure.message);
-        setPhase('error');
-        return;
+        if (!isLifecycleCurrent(generation)) return;
+        setCaptureDraft(needsReviewCapture);
+        setReviewDraft(processed.draft);
+        setReviewState(nextReviewState);
+        setPhase('review');
+      } catch (processingError: unknown) {
+        if (!isLifecycleCurrent(generation)) return;
+        throw processingError;
       }
-      if (processed.kind === 'failed') {
-        const failed = await persistence.fail({
-          phase: 'processing',
-          failure: { code: processed.failure.code, message: processed.failure.message },
-          updatedAt: nowIso(),
-        });
-        setCaptureDraft(failed);
-        setError(processed.failure.message);
-        setPhase('error');
-        return;
-      }
-      const nextReviewState = createReceiptReviewState(processed.draft);
-      const reviewedCapture = {
-        ...processingCapture,
-        review: createReceiptReviewSnapshot(processed.draft, nextReviewState),
-      };
-      await persistence.save(reviewedCapture);
-      const needsReviewCapture = await persistence.transition({
-        phase: 'needs_review',
-        updatedAt: nowIso(),
-      });
-      setCaptureDraft(needsReviewCapture);
-      setReviewDraft(processed.draft);
-      setReviewState(nextReviewState);
-      setPhase('review');
     },
-    [nowIso, persistence, processCapture, t],
+    [isLifecycleCurrent, nowIso, persistence, processCapture, t],
   );
 
   const persistReviewState = useCallback(
     (nextState: ReceiptReviewState) => {
+      const generation = lifecycleGenerationRef.current;
       setReviewState(nextState);
       if (!captureDraft || !reviewDraft) return;
       const nextCapture = {
@@ -251,7 +296,13 @@ export function ReceiptCaptureReviewFlow({
       setCaptureDraft(nextCapture);
       reviewSaveQueue.current = reviewSaveQueue.current
         .then(() => {
-          if (developmentResetRef.current) return;
+          if (
+            developmentResetRef.current ||
+            discardRequestedRef.current ||
+            generation !== lifecycleGenerationRef.current
+          ) {
+            return;
+          }
           return persistence.save(nextCapture);
         })
         .catch((persistenceError: unknown) => {
@@ -286,6 +337,7 @@ export function ReceiptCaptureReviewFlow({
   useEffect(() => {
     if (!visible) return;
     let active = true;
+    const resumeGeneration = lifecycleGenerationRef.current;
 
     async function resume() {
       debugLogEvent('receipt.capture.resume.started');
@@ -299,6 +351,8 @@ export function ReceiptCaptureReviewFlow({
       setCaptureRetry(null);
       setError(null);
       const persisted = await persistence.load();
+      if (!active || resumeGeneration !== lifecycleGenerationRef.current) return;
+      discardRequestedRef.current = false;
       debugLogEvent('receipt.capture.resume.loaded', {
         has_persisted_capture: Boolean(persisted),
         persisted_phase: persisted?.phase ?? 'none',
@@ -339,7 +393,7 @@ export function ReceiptCaptureReviewFlow({
         setCaptureDraft(retryable);
         setReviewDraft(resumedDraft);
         setReviewState(resumedState);
-        if (retryable.failure?.code === 'upload_failed') {
+        if (retryable.failure && isReceiptAssetUploadFailureCode(retryable.failure.code)) {
           setPendingReceiptId(retryable.id);
           setError(retryable.failure.message);
         } else {
@@ -384,7 +438,7 @@ export function ReceiptCaptureReviewFlow({
     }
 
     void resume().catch((resumeError: unknown) => {
-      if (!active) return;
+      if (!active || resumeGeneration !== lifecycleGenerationRef.current) return;
       debugLogEvent('receipt.capture.resume.failed', {
         error_type: resumeError instanceof Error ? resumeError.name : typeof resumeError,
       });
@@ -397,11 +451,14 @@ export function ReceiptCaptureReviewFlow({
   }, [nowIso, persistence, runProcessing, t, visible]);
 
   async function startCapture(source: ReceiptCaptureSource) {
+    const generation = lifecycleGenerationRef.current;
+    if (!isLifecycleCurrent(generation)) return;
     debugLogEvent('receipt.capture.picker_requested', { source });
     setError(null);
     setCaptureRetry(null);
     try {
       const result = await capture({ captureId: captureIdFactory(), source }, { persistence });
+      if (!isLifecycleCurrent(generation)) return;
       debugLogEvent('receipt.capture.picker_result', { source, result_kind: result.kind });
       if (result.kind === 'captured') {
         setCaptureDraft(result.draft);
@@ -430,7 +487,10 @@ export function ReceiptCaptureReviewFlow({
   }
 
   async function appendCameraPage() {
+    const generation = lifecycleGenerationRef.current;
+    if (!isLifecycleCurrent(generation)) return;
     if (!captureDraft) return;
+    debugLogEvent('receipt.capture.button_pressed', { button: 'append_page' });
     debugLogEvent('receipt.capture.append_picker_requested', { source: 'camera' });
     setError(null);
     setCaptureRetry(null);
@@ -439,8 +499,9 @@ export function ReceiptCaptureReviewFlow({
         captureDraft.status === 'failed' ? await persistence.retry(nowIso()) : captureDraft;
       const result = await capture(
         { captureId: draftForAppend.id, source: 'camera', appendToExisting: true },
-        { persistence },
+        { persistence, waitForParentSync },
       );
+      if (!isLifecycleCurrent(generation)) return;
       debugLogEvent('receipt.capture.append_picker_result', {
         source: 'camera',
         result_kind: result.kind,
@@ -489,6 +550,7 @@ export function ReceiptCaptureReviewFlow({
 
   async function processCapturedPages() {
     if (!captureDraft) return;
+    debugLogEvent('receipt.capture.button_pressed', { button: 'process' });
     await runProcessing(captureDraft);
   }
 
@@ -499,6 +561,8 @@ export function ReceiptCaptureReviewFlow({
     captureForSave: ReceiptCaptureDraft | null = captureDraft,
   ) {
     if (!captureForSave) return;
+    const generation = lifecycleGenerationRef.current;
+    if (!isLifecycleCurrent(generation)) return;
     setPhase('saving');
     try {
       const reviewedCapture = {
@@ -506,7 +570,9 @@ export function ReceiptCaptureReviewFlow({
         review: createReceiptReviewSnapshot(reviewDraft ?? nextDraft, nextReviewState),
       };
       await persistence.save(reviewedCapture);
+      if (!isLifecycleCurrent(generation)) return;
       const savingCapture = await persistence.transition({ phase: 'saving', updatedAt: nowIso() });
+      if (!isLifecycleCurrent(generation)) return;
       setCaptureDraft(savingCapture);
       const result = await finalize(
         {
@@ -526,12 +592,14 @@ export function ReceiptCaptureReviewFlow({
                 receiptId: input.receiptId,
                 createdBy: input.createdBy,
               },
-              { persistence },
+              { persistence, waitForParentSync },
             ),
         },
       );
+      if (!isLifecycleCurrent(generation)) return;
       if (result.kind === 'saved_with_pending_assets') {
         await persistence.save(result.assets.draft);
+        if (!isLifecycleCurrent(generation)) return;
         setCaptureDraft(result.assets.draft);
         setPendingSave(result);
         setPendingReceiptId(result.receiptId);
@@ -540,9 +608,11 @@ export function ReceiptCaptureReviewFlow({
         return;
       }
       await persistence.transition({ phase: 'saved', updatedAt: nowIso() });
+      if (!isLifecycleCurrent(generation)) return;
       onSaved?.(result);
       await dismissWithCleanup();
     } catch (nextError: unknown) {
+      if (!isLifecycleCurrent(generation)) return;
       const message = nextError instanceof Error ? nextError.message : t('ocr.review.error');
       let persistenceFailure: string | null = null;
       try {
@@ -627,27 +697,64 @@ export function ReceiptCaptureReviewFlow({
   }
 
   async function retryPendingAssets() {
+    const generation = lifecycleGenerationRef.current;
+    debugLogEvent('receipt.capture.asset_upload.retry_button_pressed', {
+      has_capture_draft: Boolean(captureDraft),
+      has_receipt_id: Boolean(pendingReceiptId),
+      capture_status: captureDraft?.status ?? 'none',
+      capture_phase: captureDraft?.phase ?? 'none',
+    });
+    if (!isLifecycleCurrent(generation)) return;
     if (!captureDraft || !pendingReceiptId) {
-      setPhase('choose');
+      debugLogEvent('receipt.capture.asset_upload.retry_blocked', {
+        reason: 'missing_retry_state',
+      });
+      setError(t('ocr.review.assetUploadFailed'));
+      setPhase('error');
       return;
     }
     setPhase('saving');
-    const result = await retryReceiptCaptureUpload(
-      {
-        draft: captureDraft,
-        householdId,
-        receiptId: pendingReceiptId,
-        createdBy,
-      },
-      { persistence },
-    );
+    let result: Awaited<ReturnType<typeof retryReceiptCaptureUpload>>;
+    try {
+      debugLogEvent('receipt.capture.asset_upload.retry_started', {
+        page_count: captureDraft.pages.length,
+      });
+      result = await retryReceiptCaptureUpload(
+        {
+          draft: captureDraft,
+          householdId,
+          receiptId: pendingReceiptId,
+          createdBy,
+        },
+        { persistence, waitForParentSync },
+      );
+    } catch (retryError: unknown) {
+      const message = retryError instanceof Error ? retryError.message : t('ocr.review.error');
+      debugLogEvent('receipt.capture.asset_upload.retry_failed', {
+        error_type: retryError instanceof Error ? retryError.name : typeof retryError,
+        error_message: message,
+      });
+      if (!isLifecycleCurrent(generation)) return;
+      setError(message);
+      setPhase('error');
+      return;
+    }
+    if (!isLifecycleCurrent(generation)) return;
     if (result.draft.status !== 'uploaded') {
+      debugLogEvent('receipt.capture.asset_upload.retry_pending', {
+        error_code: result.draft.failure?.code ?? 'upload_failed',
+        error_message: result.draft.failure?.message ?? t('ocr.review.assetUploadFailed'),
+      });
       setCaptureDraft(result.draft);
       setError(result.draft.failure?.message ?? t('ocr.review.assetUploadFailed'));
       setPhase('error');
       return;
     }
+    debugLogEvent('receipt.capture.asset_upload.retry_completed', {
+      page_count: result.draft.pages.length,
+    });
     await persistence.transition({ phase: 'saved', updatedAt: nowIso() });
+    if (!isLifecycleCurrent(generation)) return;
     if (pendingSave) {
       onSaved?.({
         kind: 'saved',
@@ -671,16 +778,28 @@ export function ReceiptCaptureReviewFlow({
               <Txt variant="body" tone="secondary">
                 {t('ocr.review.captureHint')}
               </Txt>
-              <Button title={t('ocr.review.camera')} onPress={() => void startCapture('camera')} />
+              <Button
+                title={t('ocr.review.camera')}
+                onPress={() => {
+                  debugLogEvent('receipt.capture.button_pressed', { button: 'camera' });
+                  void startCapture('camera');
+                }}
+              />
               <Button
                 title={t('ocr.review.gallery')}
                 variant="secondary"
-                onPress={() => void startCapture('gallery')}
+                onPress={() => {
+                  debugLogEvent('receipt.capture.button_pressed', { button: 'gallery' });
+                  void startCapture('gallery');
+                }}
               />
               <Button
                 title={t('ocr.review.cancel')}
                 variant="link"
-                onPress={() => void dismissWithCleanup()}
+                onPress={() => {
+                  debugLogEvent('receipt.capture.button_pressed', { button: 'cancel_choose' });
+                  void dismissWithCleanup();
+                }}
               />
             </>
           ) : null}
@@ -698,14 +817,29 @@ export function ReceiptCaptureReviewFlow({
               <Button
                 title={t('ocr.review.cancel')}
                 variant="link"
-                onPress={() => void dismissWithCleanup()}
+                onPress={() => {
+                  debugLogEvent('receipt.capture.button_pressed', { button: 'cancel_captured' });
+                  void dismissWithCleanup();
+                }}
               />
             </>
           ) : null}
           {phase === 'processing' ? (
-            <Txt variant="heading" weight="700">
-              {t('ocr.review.processing')}
-            </Txt>
+            <>
+              <Txt variant="heading" weight="700">
+                {processingStage === 'preparing'
+                  ? t('ocr.review.preparing')
+                  : t('ocr.review.processing')}
+              </Txt>
+              <Button
+                title={t('ocr.review.cancel')}
+                variant="link"
+                onPress={() => {
+                  debugLogEvent('receipt.capture.button_pressed', { button: 'cancel_processing' });
+                  void dismissWithCleanup();
+                }}
+              />
+            </>
           ) : null}
           {phase === 'saving' ? (
             <Txt variant="heading" weight="700">
@@ -715,7 +849,11 @@ export function ReceiptCaptureReviewFlow({
           {phase === 'error' ? (
             <>
               <Txt variant="heading" weight="700">
-                {t('ocr.review.error')}
+                {pendingReceiptId
+                  ? t('ocr.review.assetUploadFailed')
+                  : saveRetryAvailable
+                    ? t('ocr.review.saveInterrupted')
+                    : t('ocr.review.error')}
               </Txt>
               <Txt variant="body" tone="danger" accessibilityRole="alert">
                 {error}
@@ -728,22 +866,31 @@ export function ReceiptCaptureReviewFlow({
                       ? t('ocr.review.retrySave')
                       : t('ocr.review.retry')
                 }
-                onPress={() =>
-                  pendingReceiptId
-                    ? void retryPendingAssets()
+                onPress={() => {
+                  const button = pendingReceiptId
+                    ? 'retry_upload'
                     : saveRetryAvailable
-                      ? void retryAuthoritySave()
+                      ? 'retry_save'
                       : captureRetry
-                        ? void retryCaptureStep()
+                        ? 'retry_capture'
                         : captureDraft?.phase === 'processing'
-                          ? void retryProcessing()
-                          : void retryCaptureStep()
-                }
+                          ? 'retry_processing'
+                          : 'retry_capture';
+                  debugLogEvent('receipt.capture.button_pressed', { button });
+                  if (pendingReceiptId) void retryPendingAssets();
+                  else if (saveRetryAvailable) void retryAuthoritySave();
+                  else if (captureRetry) void retryCaptureStep();
+                  else if (captureDraft?.phase === 'processing') void retryProcessing();
+                  else void retryCaptureStep();
+                }}
               />
               <Button
                 title={t('ocr.review.cancel')}
                 variant="link"
-                onPress={() => void dismissWithCleanup()}
+                onPress={() => {
+                  debugLogEvent('receipt.capture.button_pressed', { button: 'cancel_error' });
+                  void dismissWithCleanup();
+                }}
               />
             </>
           ) : null}

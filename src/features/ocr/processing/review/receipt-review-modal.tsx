@@ -156,6 +156,10 @@ export function ReceiptReviewModal({
   }
 
   function confirm() {
+    debugLogEvent('receipt.capture.save.button_pressed', {
+      item_count: state.items.length,
+      has_store: Boolean(state.storeId),
+    });
     try {
       const reviewed = applyReceiptReviewState(draft, state);
       const errors = getReceiptReviewValidationErrors(
@@ -171,6 +175,10 @@ export function ReceiptReviewModal({
       onConfirm(reviewed, state.storeId, state);
       setError(null);
     } catch (nextError: unknown) {
+      debugLogEvent('receipt.capture.save.validation_failed', {
+        error_type: nextError instanceof Error ? nextError.name : typeof nextError,
+        error_message: nextError instanceof Error ? nextError.message : t('ocr.review.error'),
+      });
       setError(nextError instanceof Error ? nextError.message : t('ocr.review.error'));
     }
   }
@@ -182,7 +190,13 @@ export function ReceiptReviewModal({
           <Txt variant="heading" weight="700">
             {t('ocr.review.title')}
           </Txt>
-          <CloseButton accessibilityLabel={t('ocr.review.cancel')} onPress={onCancel} />
+          <CloseButton
+            accessibilityLabel={t('ocr.review.cancel')}
+            onPress={() => {
+              debugLogEvent('receipt.capture.button_pressed', { button: 'cancel_review' });
+              onCancel();
+            }}
+          />
         </View>
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
           <View style={styles.field}>
@@ -215,11 +229,14 @@ export function ReceiptReviewModal({
                   accessibilityLabel={store.name}
                   accessibilityState={{ selected: state.storeId === store.id }}
                   selected={state.storeId === store.id}
-                  onPress={() =>
+                  onPress={() => {
+                    debugLogEvent('receipt.capture.button_pressed', {
+                      button: 'store_select',
+                    });
                     changeState((current) =>
                       updateReceiptReviewState(current, { storeId: store.id }),
-                    )
-                  }
+                    );
+                  }}
                   style={styles.storeChoice}>
                   <Txt variant="body">{store.name}</Txt>
                 </Press>
@@ -326,7 +343,13 @@ export function ReceiptReviewModal({
                 variant="link"
                 size="sm"
                 style={styles.remove}
-                onPress={() => changeState((current) => removeReceiptReviewItem(current, item.id))}
+                onPress={() => {
+                  debugLogEvent('receipt.capture.button_pressed', {
+                    button: 'remove_item',
+                    item_position: index,
+                  });
+                  changeState((current) => removeReceiptReviewItem(current, item.id));
+                }}
               />
             </View>
           ))}
@@ -339,7 +362,10 @@ export function ReceiptReviewModal({
           <Button
             title={t('ocr.review.addItem')}
             variant="secondary"
-            onPress={() => changeState((current) => addReceiptReviewItem(current))}
+            onPress={() => {
+              debugLogEvent('receipt.capture.button_pressed', { button: 'add_item' });
+              changeState((current) => addReceiptReviewItem(current));
+            }}
           />
           <Button title={t('ocr.review.confirm')} onPress={confirm} />
         </ScrollView>

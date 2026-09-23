@@ -1,10 +1,20 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen } from '@testing-library/react-native';
+import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { router } from 'expo-router';
+import { Alert } from 'react-native';
 import { i18n } from '@/i18n';
 import { ReceiptDetailScreen } from './receipt-detail-screen';
 
 const mockDeleteAsset = jest.fn();
+const mockDeleteReceipt = jest.fn();
+
+jest.mock('@/lib/observability/debug-log', () => ({
+  debugLogEvent: jest.fn(),
+}));
+
+const { debugLogEvent: mockDebugLogEvent } = jest.requireMock('@/lib/observability/debug-log') as {
+  debugLogEvent: jest.Mock;
+};
 
 jest.mock('expo-router', () => ({
   router: { back: jest.fn() },
@@ -68,11 +78,22 @@ jest.mock('@/features/ocr/authority/api', () => ({
   }),
   useReceiptAssets: () => ({ data: [], isLoading: false, isError: false }),
   useDeleteReceiptAssetMutation: () => ({ mutateAsync: mockDeleteAsset }),
+  useDeleteReceiptMutation: () => ({ mutateAsync: mockDeleteReceipt, isPending: false }),
 }));
 
 describe('ReceiptDetailScreen', () => {
   beforeEach(async () => {
     await i18n.changeLanguage('de');
+    mockDeleteReceipt.mockResolvedValue(undefined);
+    mockDebugLogEvent.mockClear();
+    jest.spyOn(Alert, 'alert').mockImplementation((_title, _message, buttons) => {
+      buttons?.find((button) => button.style === 'destructive')?.onPress?.();
+    });
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+    jest.clearAllMocks();
   });
 
   it('zeigt vollständige Receipt- und Artikelpreise ohne Haushaltsfremde Daten', async () => {
@@ -104,5 +125,34 @@ describe('ReceiptDetailScreen', () => {
     expect(screen.getByText('Keine Bonbilder verfügbar.')).toBeOnTheScreen();
     expect(mockDeleteAsset).not.toHaveBeenCalled();
     expect(router.back).not.toHaveBeenCalled();
+  });
+
+  it('löscht den strukturierten Bon nach Bestätigung und kehrt zur Historie zurück', async () => {
+    const queryClient = new QueryClient();
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <ReceiptDetailScreen />
+      </QueryClientProvider>,
+    );
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Bon löschen' }));
+
+    await waitFor(() =>
+      expect(mockDeleteReceipt).toHaveBeenCalledWith({
+        householdId: 'household-1',
+        receiptId: 'receipt-1',
+      }),
+    );
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.history.delete.button_pressed', {
+      receipt_id: 'receipt-1',
+    });
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.history.delete.started', {
+      receipt_id: 'receipt-1',
+    });
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.history.delete.completed', {
+      receipt_id: 'receipt-1',
+    });
+    expect(router.back).toHaveBeenCalled();
   });
 });

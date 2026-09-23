@@ -1,10 +1,11 @@
-import { render, screen, userEvent } from '@testing-library/react-native';
+import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import type { ReceiptCapturePersistence, ReceiptCaptureResult } from '@/features/ocr/capture/api';
 import { createReceiptCaptureDraft } from '@/features/ocr/capture/domain/actions';
 import type { ReceiptCaptureDraft } from '@/features/ocr/capture/domain/types';
 import { i18n } from '@/i18n';
 import { REWE_RECEIPT_LINES } from '../domain/fixtures/german-receipts';
 import { parseGermanReceipt } from '../domain/parser';
+import type { ReceiptProcessingProgress, ReceiptProcessingResult } from '../workflow';
 import { createReceiptReviewSnapshot, createReceiptReviewState } from './model';
 import { ReceiptCaptureReviewFlow } from './receipt-capture-review-flow';
 
@@ -165,6 +166,71 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     expect(onDismiss).toHaveBeenCalledTimes(1);
   });
 
+  it('does not resurrect a draft when cancellation finishes during OCR', async () => {
+    const state = persistenceWith(captureDraft('gallery'));
+    let resolveProcessing!: (result: ReceiptProcessingResult) => void;
+    const processCapture = jest.fn(
+      () =>
+        new Promise<ReceiptProcessingResult>((resolve) => {
+          resolveProcessing = resolve;
+        }),
+    );
+    await render(
+      <ReceiptCaptureReviewFlow
+        visible
+        householdId="household-1"
+        createdBy="user-1"
+        onDismiss={jest.fn()}
+        persistence={state.persistence}
+        processCapture={processCapture}
+      />,
+    );
+
+    expect(await screen.findByText(i18n.t('ocr.review.processing'))).toBeOnTheScreen();
+
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Abbrechen' }));
+    expect(state.discarded).toHaveBeenCalledTimes(1);
+    resolveProcessing({
+      kind: 'success',
+      captureId: 'capture-1',
+      draft: parseGermanReceipt(REWE_RECEIPT_LINES),
+    });
+
+    await waitFor(() => expect(state.current()).toBeNull());
+  });
+
+  it('shows the native preparation stage reported by processing', async () => {
+    const state = persistenceWith(captureDraft('gallery'));
+    let resolveProcessing!: (result: ReceiptProcessingResult) => void;
+    const processCapture = jest.fn(
+      ({ onProgress }: { onProgress?: (progress: ReceiptProcessingProgress) => void }) => {
+        onProgress?.({ phase: 'preparing', progress: 0.5 });
+        return new Promise<ReceiptProcessingResult>((resolve) => {
+          resolveProcessing = resolve;
+        });
+      },
+    );
+
+    await render(
+      <ReceiptCaptureReviewFlow
+        visible
+        householdId="household-1"
+        createdBy="user-1"
+        onDismiss={jest.fn()}
+        persistence={state.persistence}
+        processCapture={processCapture}
+      />,
+    );
+
+    expect(await screen.findByText(i18n.t('ocr.review.preparing'))).toBeOnTheScreen();
+    resolveProcessing({
+      kind: 'success',
+      captureId: 'capture-1',
+      draft: parseGermanReceipt(REWE_RECEIPT_LINES),
+    });
+    expect(await screen.findByRole('radio', { name: 'REWE' })).toBeOnTheScreen();
+  });
+
   it('resumes a persisted review without running native OCR again', async () => {
     const source = parseGermanReceipt(REWE_RECEIPT_LINES);
     const persisted = {
@@ -302,6 +368,7 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     );
     expect(processCapture).toHaveBeenCalledWith({
       capture: expect.objectContaining({ pages: second.pages }),
+      onProgress: expect.any(Function),
     });
   });
 
@@ -370,5 +437,58 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
       .setup()
       .press(screen.getByRole('button', { name: 'Speichern erneut versuchen' }));
     expect(finalize).toHaveBeenCalledTimes(2);
+  });
+
+  it('shows a saved-with-pending-images state instead of an OCR error', async () => {
+    const source = parseGermanReceipt(REWE_RECEIPT_LINES);
+    const persisted = {
+      ...captureDraft(),
+      phase: 'needs_review' as const,
+      review: createReceiptReviewSnapshot(source, createReceiptReviewState(source, 'store-1')),
+    };
+    const state = persistenceWith(persisted);
+    const pendingDraft = {
+      ...captureDraft(),
+      status: 'failed' as const,
+      phase: 'saving' as const,
+      failure: {
+        code: 'receipt_asset_storage_upload_failed',
+        message: 'Der Kassenbon ist noch nicht synchronisiert.',
+        phase: 'saving' as const,
+      },
+    };
+    const finalize = jest.fn().mockResolvedValue({
+      kind: 'saved_with_pending_assets' as const,
+      receiptId: 'capture-1',
+      itemIds: ['item-1'],
+      assets: {
+        kind: 'failed' as const,
+        message: pendingDraft.failure.message,
+        draft: pendingDraft,
+      },
+    });
+
+    await render(
+      <ReceiptCaptureReviewFlow
+        visible
+        householdId="household-1"
+        createdBy="user-1"
+        onDismiss={jest.fn()}
+        persistence={state.persistence}
+        processCapture={jest.fn()}
+        finalize={finalize}
+      />,
+    );
+
+    await userEvent
+      .setup()
+      .press(await screen.findByRole('button', { name: 'Kassenbon speichern' }));
+
+    expect(
+      await screen.findByText('Bon gespeichert, aber Bilder konnten nicht hochgeladen werden.'),
+    ).toBeOnTheScreen();
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      'Der Kassenbon ist noch nicht synchronisiert.',
+    );
   });
 });
