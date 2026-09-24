@@ -19,7 +19,7 @@ const styles = StyleSheet.create((theme) => ({
   outer: {
     paddingBottom: ICON_BUTTON_DEPTH,
     borderRadius: theme.radius.lg,
-    backgroundColor: theme.buttonPrimaryDepth,
+    backgroundColor: theme.border,
     boxShadow: `0 ${theme.shadow.sm.shadowOffset.height}px ${theme.shadow.sm.shadowRadius}px ${withAlpha(theme.shadowCard, theme.shadow.sm.shadowOpacity)}`,
   },
   activeOuter: {

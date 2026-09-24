@@ -1,4 +1,5 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
+import { colorsLight } from '@/components/theme';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { InventoryTabBar } from './inventory-tab-bar';
 import { InventoryTabBar as InventoryTabBarIOS } from './inventory-tab-bar.ios';
@@ -90,5 +91,31 @@ describe('InventoryTabBar Component', () => {
     expect(screen.queryByText('🫙')).not.toBeOnTheScreen();
     expect(screen.queryByText('❄️')).not.toBeOnTheScreen();
     expect(screen.queryByText('🥫')).not.toBeOnTheScreen();
+  });
+
+  it('verwendet eine neutrale 3D-Tiefe für den iOS-Lagerort-Button', async () => {
+    await render(
+      <InventoryTabBarIOS activeTab="loc-1" onTabChange={jest.fn()} locations={mockLocations} />,
+    );
+
+    const button = screen.getByRole('button', { name: 'Lagerort auswählen, aktuell Kühlschrank' });
+    expect(button.parent?.parent?.parent).toHaveStyle({
+      backgroundColor: colorsLight.border,
+    });
+  });
+
+  it('verwendet für das geöffnete Dropdown die Akzentfläche des aktiven Eintrags', async () => {
+    const user = userEvent.setup();
+    await render(
+      <InventoryTabBar activeTab="loc-1" onTabChange={jest.fn()} locations={mockLocations} />,
+    );
+
+    await user.press(
+      screen.getByRole('button', { name: 'Lagerort auswählen, aktuell Kühlschrank' }),
+    );
+
+    expect(screen.getByRole('menuitem', { name: 'Kühlschrank', selected: true })).toHaveStyle({
+      backgroundColor: colorsLight.accent,
+    });
   });
 });

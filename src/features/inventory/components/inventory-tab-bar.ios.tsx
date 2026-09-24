@@ -30,7 +30,7 @@ const styles = StyleSheet.create((theme) => ({
   depth: {
     paddingBottom: BUTTON_DEPTH,
     borderRadius: theme.radius.lg,
-    backgroundColor: theme.backgroundSoft,
+    backgroundColor: theme.border,
   },
   trigger: {
     minHeight: 54,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: theme.space.lg,
   },
   triggerOpen: {
-    backgroundColor: theme.backgroundSoft,
+    backgroundColor: theme.backgroundElement,
     borderColor: theme.accent,
   },
   triggerPressed: {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   menu: {
-    backgroundColor: theme.backgroundElement,
+    backgroundColor: theme.background,
     borderColor: theme.border,
     borderWidth: 1,
     borderRadius: theme.radius.md,
@@ -79,7 +79,7 @@ const styles = StyleSheet.create((theme) => ({
     borderTopWidth: StyleSheet.hairlineWidth,
   },
   optionSelected: {
-    backgroundColor: theme.backgroundSoft,
+    backgroundColor: theme.accent,
   },
 }));
 
@@ -185,10 +185,13 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
                     accessibilityLabel={location.name}
                     accessibilityState={{ selected }}
                     onPress={() => selectLocation(location.id)}>
-                    <Txt variant="body" weight={selected ? '700' : '400'}>
+                    <Txt
+                      variant="body"
+                      weight={selected ? '700' : '400'}
+                      tone={selected ? 'onAccent' : 'primary'}>
                       {location.name}
                     </Txt>
-                    {selected ? <Txt tone="accent">✓</Txt> : null}
+                    {selected ? <Txt tone="onAccent">✓</Txt> : null}
                   </Press>
                 );
               })}

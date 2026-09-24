@@ -54,4 +54,17 @@ describe('InventoryIconButton', () => {
       borderColor: colorsLight.accent,
     });
   });
+
+  it('verwendet eine neutrale Tiefe für den geschlossenen Vorrats-Button', async () => {
+    await render(
+      <InventoryIconButton label="Artikel suchen" onPress={jest.fn()}>
+        <View />
+      </InventoryIconButton>,
+    );
+
+    const button = screen.getByRole('button', { name: 'Artikel suchen' });
+    expect(button.parent?.parent).toHaveStyle({
+      backgroundColor: colorsLight.border,
+    });
+  });
 });

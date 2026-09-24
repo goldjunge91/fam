@@ -66,7 +66,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   menu: {
-    backgroundColor: theme.backgroundElement,
+    backgroundColor: theme.background,
     borderColor: theme.border,
     borderWidth: StyleSheet.hairlineWidth,
     // Keep the retired control-lg geometry (14pt) in the central radius scale.
@@ -86,7 +86,7 @@ const styles = StyleSheet.create((theme) => ({
     borderTopWidth: StyleSheet.hairlineWidth,
   },
   optionSelected: {
-    backgroundColor: theme.backgroundSoft,
+    backgroundColor: theme.accent,
   },
 }));
 
@@ -182,10 +182,13 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
                       index > 0 && styles.optionBorder,
                       selected && styles.optionSelected,
                     ]}>
-                    <Txt variant="body" weight={selected ? '700' : '400'}>
+                    <Txt
+                      variant="body"
+                      weight={selected ? '700' : '400'}
+                      tone={selected ? 'onAccent' : 'primary'}>
                       {location.name}
                     </Txt>
-                    {selected ? <Txt tone="success">✓</Txt> : null}
+                    {selected ? <Txt tone="onAccent">✓</Txt> : null}
                   </Press>
                 );
               })}
