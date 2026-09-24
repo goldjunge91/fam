@@ -5,6 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { DiaryScreen } from '@/features/calorie-tracking/diary-screen';
 
 const mockUseFoodEntries = jest.fn();
+const mockUseFoodEntriesForDateRange = jest.fn();
 const mockGlp1Card = jest.fn((_props: unknown) => null);
 let mockProfile: {
   tracking_day_start_time: string;
@@ -55,24 +56,7 @@ jest.mock('@/features/calorie-tracking/api', () => ({
     data: { daily_kcal: 2000, protein_g: 150, carbs_g: 200, fat_g: 67 },
   }),
   useFoodEntries: (...args: unknown[]) => mockUseFoodEntries(...args),
-}));
-
-let mockChildProfiles: { id: string; display_name: string }[] = [];
-const mockSetProfile = jest.fn();
-
-jest.mock('@/features/household/active-household-provider', () => ({
-  useActiveHousehold: () => ({ activeHousehold: { id: 'hh-1', name: 'Zuhause' } }),
-}));
-
-jest.mock('@/features/household/api', () => ({
-  useChildProfiles: () => ({ data: mockChildProfiles, isLoading: false }),
-}));
-
-jest.mock('@/features/calorie-tracking/active-profile-store', () => ({
-  useActiveProfile: () => ({
-    profile: { type: 'adult', userId: 'user-1' },
-    setProfile: mockSetProfile,
-  }),
+  useFoodEntriesForDateRange: (...args: unknown[]) => mockUseFoodEntriesForDateRange(...args),
 }));
 
 jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
@@ -103,9 +87,8 @@ function renderScreen() {
 beforeEach(() => {
   mockProfile = { tracking_day_start_time: '00:00', tracking_method: 'standard' };
   mockGlp1Card.mockClear();
-  mockChildProfiles = [];
-  mockSetProfile.mockClear();
   mockUseFoodEntries.mockReset();
+  mockUseFoodEntriesForDateRange.mockReset();
   mockUseFoodEntries.mockReturnValue({
     data: [
       {
@@ -133,6 +116,7 @@ beforeEach(() => {
     ],
     isLoading: false,
   });
+  mockUseFoodEntriesForDateRange.mockReturnValue({ data: [], isLoading: false });
   (router.push as jest.Mock).mockClear();
 });
 
@@ -200,6 +184,13 @@ describe('DiaryScreen', () => {
     );
   });
 
+  it('öffnet den privaten Gewichtsverlauf über den Header-Icon-Button', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByRole('button', { name: 'Gewichtsverlauf öffnen' }));
+
+    expect(router.push).toHaveBeenCalledWith('/weight');
+  });
+
   it('oeffnet einen bestehenden Eintrag zum Bearbeiten', async () => {
     await renderScreen();
     await fireEvent.press(screen.getByText('Haferflocken'));
@@ -212,40 +203,37 @@ describe('DiaryScreen', () => {
     );
   });
 
-  it('zeigt "Gestern" nach einem Schritt zurueck (#88)', async () => {
-    await renderScreen();
-    expect(screen.getByText('Heute')).toBeTruthy();
-
-    await fireEvent.press(screen.getByLabelText('Vorheriger Tag'));
-    expect(screen.getByText('Gestern')).toBeTruthy();
-  });
-});
-
-describe('DiaryScreen — Profil-Auswahl (#85)', () => {
-  beforeEach(() => {
-    mockChildProfiles = [{ id: 'child-1', display_name: 'Mia' }];
-  });
-
-  it('zeigt keine Profil-Auswahl ohne Kinderprofile', async () => {
-    mockChildProfiles = [];
-    await renderScreen();
-    expect(screen.queryByText('Ich')).not.toBeOnTheScreen();
-  });
-
-  it('zeigt "Ich" und alle Kinderprofile, wenn Kinderprofile vorhanden sind', async () => {
-    await renderScreen();
-    expect(screen.getByText('Ich')).toBeTruthy();
-    expect(screen.getByText('Mia')).toBeTruthy();
-  });
-
-  it('filtert useFoodEntries nach dem gewaehlten Kind-Profil', async () => {
-    await renderScreen();
-    await fireEvent.press(screen.getByText('Mia'));
-
-    expect(mockSetProfile).toHaveBeenCalledWith({
-      type: 'child',
-      childProfileId: 'child-1',
-      householdId: 'hh-1',
+  it('zeigt einen 14-Tage-Kalenderstreifen mit Heute am rechten Rand', async () => {
+    jest.useFakeTimers().setSystemTime(new Date(2026, 7, 19, 12, 0));
+    mockUseFoodEntriesForDateRange.mockReturnValue({
+      data: [
+        {
+          id: 'range-entry-1',
+          logged_on: '2026-08-18',
+          kcal: 2200,
+          meal_type: 'lunch',
+          name: 'Bowl',
+          quantity: 1,
+          unit: 'Portion',
+          protein_g: 20,
+          carbs_g: 30,
+          fat_g: 10,
+        },
+      ],
+      isLoading: false,
     });
+
+    try {
+      await renderScreen();
+      expect(screen.getByText('Tippe auf einen Tag · wische für ältere Tage')).toBeTruthy();
+      expect(screen.getByRole('button', { name: /Heute, Mittwoch, 19. August/ })).toBeTruthy();
+      expect(screen.getByRole('button', { name: /Gestern, Dienstag, 18. August/ })).toBeTruthy();
+
+      await fireEvent.press(screen.getByRole('button', { name: /Gestern, Dienstag/ }));
+    } finally {
+      jest.useRealTimers();
+    }
+
+    expect(screen.getByText('Gestern')).toBeTruthy();
   });
 });

@@ -87,6 +87,7 @@ export function RootNavigator() {
         <Stack.Screen name="shopping-list-add-item" options={{ presentation: 'modal' }} />
         <Stack.Screen name="add-product" />
         <Stack.Screen name="add-food-entry" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="weight" />
       </Stack.Protected>
 
       <Stack.Protected guard={(!session && !isNewUser) || authPreviewEnabled}>

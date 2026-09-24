@@ -5,28 +5,30 @@ import { StyleSheet } from 'react-native-unistyles';
 import { PlusIcon } from '@/components/icons/fam-icon';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { MenuButton } from '@/components/ui/menu-button';
 import { ProgressBar } from '@/components/ui/progress-bar';
-import { Press, Txt } from '@/constants/ui';
+import { IconButton, Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
-import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
   type FoodEntryRow,
   type MealType,
   useCurrentGoal,
   useFoodEntries,
+  useFoodEntriesForDateRange,
 } from '@/features/calorie-tracking/api';
+import {
+  DiaryWeekStrip,
+  type DiaryWeekStripDay,
+} from '@/features/calorie-tracking/components/diary-week-strip';
 import { FastingCard } from '@/features/calorie-tracking/components/fasting-card';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
 import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/domain/day-boundary';
 import { Glp1Card } from '@/features/glp1/components/glp1-card';
-import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { useChildProfiles } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfile } from '@/features/profile/api';
 
 const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
+const WEEK_DAYS = 14;
 export const MEAL_LABELS: Record<MealType, string> = {
   breakfast: 'Frühstück',
   lunch: 'Mittagessen',
@@ -88,22 +90,6 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
     minWidth: 0,
   },
-  dateRow: {
-    height: 50,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  dateArrow: {
-    width: 48,
-    height: 46,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  dateCopy: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   hero: {
     paddingBottom: theme.space.lg,
     borderBottomWidth: StyleSheet.hairlineWidth,
@@ -132,6 +118,11 @@ const styles = StyleSheet.create((theme) => ({
   },
   loadingText: {
     paddingVertical: theme.space.xl + theme.space.xs,
+  },
+  emptyState: {
+    alignSelf: 'center',
+    paddingTop: theme.space.lg,
+    paddingBottom: theme.space.xs,
   },
 }));
 
@@ -169,6 +160,10 @@ function fullDateLabel(iso: string): string {
     day: 'numeric',
     month: 'long',
   });
+}
+
+function weekdayLabel(iso: string): string {
+  return parseIsoDate(iso).toLocaleDateString('de-DE', { weekday: 'short' }).replace('.', '');
 }
 
 function formatKcal(value: number): string {
@@ -283,20 +278,22 @@ export function DiaryScreen() {
   useEffect(() => {
     const previousToday = previousTodayLogicalDate.current;
     previousTodayLogicalDate.current = todayLogicalDate;
-    setSelectedLogicalDate((current) => (current === previousToday ? todayLogicalDate : current));
+    const weekStart = addDays(todayLogicalDate, 1 - WEEK_DAYS);
+    setSelectedLogicalDate((current) =>
+      current === previousToday || current < weekStart || current > todayLogicalDate
+        ? todayLogicalDate
+        : current,
+    );
   }, [todayLogicalDate]);
 
-  const { activeHousehold } = useActiveHousehold();
-  const { data: childProfiles = [] } = useChildProfiles(activeHousehold?.id ?? '');
-  const { profile, setProfile } = useActiveProfile(activeHousehold?.id);
-  const childProfileId = profile?.type === 'child' ? profile.childProfileId : null;
-
-  const { data: entries = [], isLoading } = useFoodEntries(
+  const { data: entries = [], isLoading } = useFoodEntries(userId, selectedLogicalDate);
+  const weekStart = addDays(todayLogicalDate, 1 - WEEK_DAYS);
+  const { data: weekEntries = [] } = useFoodEntriesForDateRange(
     userId,
-    selectedLogicalDate,
-    childProfileId,
+    weekStart,
+    todayLogicalDate,
   );
-  const { data: currentGoal } = useCurrentGoal(userId, childProfileId);
+  const { data: currentGoal } = useCurrentGoal(userId);
   const totals = calculateDailyTotals(
     entries.map((entry) => ({
       kcal: entry.kcal,
@@ -307,6 +304,23 @@ export function DiaryScreen() {
   );
   const calorieGoal = currentGoal?.daily_kcal ?? 0;
   const remaining = calorieGoal - totals.kcal;
+  const weekCalories = weekEntries.reduce<Map<string, number>>((byDate, entry) => {
+    byDate.set(entry.logged_on, (byDate.get(entry.logged_on) ?? 0) + (entry.kcal ?? 0));
+    return byDate;
+  }, new Map());
+  const weekDays: DiaryWeekStripDay[] = Array.from({ length: WEEK_DAYS }, (_, index) => {
+    const isoDate = addDays(weekStart, index);
+    const kcal = weekCalories.get(isoDate) ?? 0;
+    return {
+      isoDate,
+      weekday: weekdayLabel(isoDate),
+      relativeLabel: relativeDateLabel(isoDate, todayLogicalDate),
+      fullLabel: fullDateLabel(isoDate),
+      kcal,
+      kcalLabel: kcal > 0 ? formatKcal(kcal) : 'keine Einträge',
+      overGoal: calorieGoal > 0 && kcal > calorieGoal,
+    };
+  });
 
   const entriesByMeal = MEAL_ORDER.reduce<Record<MealType, FoodEntryRow[]>>(
     (grouped, meal) => {
@@ -315,19 +329,6 @@ export function DiaryScreen() {
     },
     { breakfast: [], lunch: [], dinner: [], snack: [] },
   );
-  const profileOptions = [
-    { value: 'adult', label: 'Ich' },
-    ...childProfiles.map((child) => ({ value: child.id, label: child.display_name })),
-  ];
-
-  function selectProfile(value: string) {
-    if (value === 'adult') {
-      if (userId) setProfile({ type: 'adult', userId });
-    } else if (activeHousehold) {
-      setProfile({ type: 'child', childProfileId: value, householdId: activeHousehold.id });
-    }
-  }
-
   function openEntry(mealType: MealType, entryId?: string) {
     if (entryId) {
       router.push({
@@ -348,62 +349,25 @@ export function DiaryScreen() {
         title: 'Tagebuch',
         align: 'center',
         leading: <MenuButton onPress={openDrawer} />,
+        trailing: (
+          <IconButton
+            icon="activity"
+            accessibilityLabel="Gewichtsverlauf öffnen"
+            onPress={() => router.push('/weight')}
+            size={39}
+            iconSize={19}
+          />
+        ),
       }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.content}
         contentInsetAdjustmentBehavior="never">
-        {/* Profil-Auswahl (Erwachsener vs. Kind-Profile) */}
-        {childProfiles.length > 0 ? (
-          <FilterChipBar
-            label="Tagebuchprofil"
-            options={profileOptions}
-            selected={childProfileId ?? 'adult'}
-            onSelect={selectProfile}
-          />
-        ) : null}
-
-        {/* Datumsnavigation (Gestern, Heute, Morgen, Datumswahl) */}
-        <View style={styles.dateRow}>
-          <Press
-            onPress={() => setSelectedLogicalDate((date) => addDays(date, -1))}
-            role="button"
-            aria-label="Vorheriger Tag"
-            hitSlop={4}
-            style={styles.dateArrow}>
-            <Txt variant="title" tone="secondary">
-              ‹
-            </Txt>
-          </Press>
-          <Press
-            onPress={() => setSelectedLogicalDate(todayLogicalDate)}
-            role="button"
-            aria-label="Heutigen Tag anzeigen"
-            containerStyle={styles.dateCopy}
-            style={styles.dateCopy}>
-            <Txt variant="label" tone="primary" weight="700">
-              {relativeDateLabel(selectedLogicalDate, todayLogicalDate)}
-            </Txt>
-            <Txt
-              variant="body"
-              tone="secondary"
-              weight="500"
-              style={styles.textOffset}
-              numberOfLines={1}>
-              {fullDateLabel(selectedLogicalDate)}
-            </Txt>
-          </Press>
-          <Press
-            onPress={() => setSelectedLogicalDate((date) => addDays(date, 1))}
-            role="button"
-            aria-label="Nächster Tag"
-            hitSlop={4}
-            style={styles.dateArrow}>
-            <Txt variant="title" tone="secondary">
-              ›
-            </Txt>
-          </Press>
-        </View>
+        <DiaryWeekStrip
+          days={weekDays}
+          selectedDate={selectedLogicalDate}
+          onSelect={(date) => setSelectedLogicalDate(date)}
+        />
 
         {/* Kalorien-Bilanz: grosse Zahl + duenner Balken statt Ring + vier
             Textzeilen (Redesign "Kompakter Fokus", Design-Audit 2026-08-29) */}
@@ -453,15 +417,18 @@ export function DiaryScreen() {
         {userProfile?.tracking_method === 'glp1' ? (
           <Glp1Card
             userId={userId}
-            childProfileId={childProfileId}
             logicalDate={selectedLogicalDate}
             dayStartTime={userProfile.tracking_day_start_time}
           />
         ) : null}
 
         {/* Intervallfasten-Karte (optional) */}
-        {userProfile?.tracking_method === 'fasting' ? (
-          <FastingCard userId={userId} childProfileId={childProfileId} />
+        {userProfile?.tracking_method === 'fasting' ? <FastingCard userId={userId} /> : null}
+
+        {!isLoading && entries.length === 0 ? (
+          <Txt variant="caption" tone="secondary" weight="600" style={styles.emptyState} center>
+            Keine Einträge an diesem Tag
+          </Txt>
         ) : null}
 
         {/* Mahlzeiten-Abschnitte (Frühstück, Mittagessen, Abendessen, Snacks) */}

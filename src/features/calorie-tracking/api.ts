@@ -6,7 +6,7 @@ import {
 } from '@/features/calorie-tracking/domain/day-boundary';
 import type { GoalType } from '@/features/calorie-tracking/tdee';
 import { invalidateCorrelationSeries } from '@/features/glp1/hooks/invalidate-correlation';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import type { Database } from '@/lib/database.types';
 
 export type FoodEntryRow = Database['public']['Tables']['food_entries']['Row'];
@@ -167,6 +167,46 @@ export function useWeightEntries(
   });
 }
 
+const WEIGHT_HISTORY_LIMIT = 90;
+
+export function weightHistoryQueryKey(userId: string | undefined, childProfileId?: string | null) {
+  return [...weightEntriesScopeQueryKey(userId, childProfileId), 'history'] as const;
+}
+
+type WeightHistoryQueryInput = {
+  userId: string;
+  childProfileId?: string | null;
+};
+
+export async function fetchWeightHistory({
+  userId,
+  childProfileId,
+}: WeightHistoryQueryInput): Promise<WeightEntryRow[]> {
+  let query = getSupabase()
+    .from('weight_entries')
+    .select('*')
+    .eq('user_id', userId)
+    .is('deleted_at', null);
+
+  query = childProfileId
+    ? query.eq('child_profile_id', childProfileId)
+    : query.is('child_profile_id', null);
+
+  const { data, error } = await query
+    .limit(WEIGHT_HISTORY_LIMIT)
+    .order('measured_on', { ascending: false });
+  if (error) throw new Error(error.message);
+  return data ?? [];
+}
+
+export function useWeightHistory(userId: string | undefined, childProfileId?: string | null) {
+  return useQuery({
+    queryKey: weightHistoryQueryKey(userId, childProfileId),
+    queryFn: () => fetchWeightHistory({ userId: userId as string, childProfileId }),
+    enabled: !!userId,
+  });
+}
+
 export function useLatestWeightEntry(userId: string | undefined) {
   return useQuery({
     queryKey: latestWeightEntryQueryKey(userId),
@@ -278,6 +318,68 @@ export function useFoodEntries(
   });
 }
 
+function foodEntriesRangeScopeQueryKey(userId: string | undefined, childProfileId?: string | null) {
+  return ['calorie-tracking', 'food-entries-range', userId, childProfileId ?? null] as const;
+}
+
+export function foodEntriesRangeQueryKey(
+  userId: string | undefined,
+  fromDate: string,
+  toDate: string,
+  childProfileId?: string | null,
+) {
+  return [...foodEntriesRangeScopeQueryKey(userId, childProfileId), fromDate, toDate] as const;
+}
+
+type FoodEntriesDateRangeInput = {
+  userId: string;
+  fromDate: string;
+  toDate: string;
+  childProfileId?: string | null;
+};
+
+export async function fetchFoodEntriesForDateRange({
+  userId,
+  fromDate,
+  toDate,
+  childProfileId,
+}: FoodEntriesDateRangeInput): Promise<FoodEntryRow[]> {
+  let query = getSupabase()
+    .from('food_entries')
+    .select('*')
+    .eq('user_id', userId)
+    .gte('logged_on', fromDate)
+    .lte('logged_on', toDate)
+    .is('deleted_at', null);
+
+  query = childProfileId
+    ? query.eq('child_profile_id', childProfileId)
+    : query.is('child_profile_id', null);
+
+  const { data, error } = await query.order('logged_on', { ascending: true });
+  if (error) throw new Error(error.message);
+  return data ?? [];
+}
+
+export function useFoodEntriesForDateRange(
+  userId: string | undefined,
+  fromDate: string,
+  toDate: string,
+  childProfileId?: string | null,
+) {
+  return useQuery({
+    queryKey: foodEntriesRangeQueryKey(userId, fromDate, toDate, childProfileId),
+    queryFn: () =>
+      fetchFoodEntriesForDateRange({
+        userId: userId as string,
+        fromDate,
+        toDate,
+        childProfileId,
+      }),
+    enabled: Boolean(userId && fromDate && toDate),
+  });
+}
+
 export type FoodEntryInput = {
   userId: string;
   loggedOn: string;
@@ -332,6 +434,9 @@ export function useAddFoodEntryMutation() {
           variables.childProfileId,
         ),
       });
+      queryClient.invalidateQueries({
+        queryKey: foodEntriesRangeScopeQueryKey(variables.userId, variables.childProfileId),
+      });
       invalidateCorrelationSeries(queryClient, variables.userId, variables.childProfileId);
     },
   });
@@ -374,9 +479,16 @@ export function useUpdateFoodEntryMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
+        queryKey: foodEntriesQueryKey(
+          variables.userId,
+          variables.loggedOn,
+          variables.childProfileId,
+        ),
       });
-      invalidateCorrelationSeries(queryClient, variables.userId);
+      queryClient.invalidateQueries({
+        queryKey: foodEntriesRangeScopeQueryKey(variables.userId, variables.childProfileId),
+      });
+      invalidateCorrelationSeries(queryClient, variables.userId, variables.childProfileId);
     },
   });
 }
@@ -389,10 +501,12 @@ export function useDeleteFoodEntryMutation() {
       id,
       userId: _userId,
       loggedOn: _loggedOn,
+      childProfileId: _childProfileId,
     }: {
       id: string;
       userId: string;
       loggedOn: string;
+      childProfileId?: string | null;
     }) => {
       // Soft-Delete: `deleted_at` statt Zeile loeschen, konsistent mit dem
       // Spaltendesign der Tabelle (Vergangenheit bleibt fuer Auswertungen erhalten).
@@ -406,9 +520,16 @@ export function useDeleteFoodEntryMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
+        queryKey: foodEntriesQueryKey(
+          variables.userId,
+          variables.loggedOn,
+          variables.childProfileId,
+        ),
       });
-      invalidateCorrelationSeries(queryClient, variables.userId);
+      queryClient.invalidateQueries({
+        queryKey: foodEntriesRangeScopeQueryKey(variables.userId, variables.childProfileId),
+      });
+      invalidateCorrelationSeries(queryClient, variables.userId, variables.childProfileId);
     },
   });
 }
@@ -422,10 +543,12 @@ export function useRestoreFoodEntryMutation() {
       id,
       userId: _userId,
       loggedOn: _loggedOn,
+      childProfileId: _childProfileId,
     }: {
       id: string;
       userId: string;
       loggedOn: string;
+      childProfileId?: string | null;
     }) => {
       const { data, error } = await getSupabase()
         .from('food_entries')
@@ -437,9 +560,16 @@ export function useRestoreFoodEntryMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
+        queryKey: foodEntriesQueryKey(
+          variables.userId,
+          variables.loggedOn,
+          variables.childProfileId,
+        ),
       });
-      invalidateCorrelationSeries(queryClient, variables.userId);
+      queryClient.invalidateQueries({
+        queryKey: foodEntriesRangeScopeQueryKey(variables.userId, variables.childProfileId),
+      });
+      invalidateCorrelationSeries(queryClient, variables.userId, variables.childProfileId);
     },
   });
 }

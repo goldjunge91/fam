@@ -1,12 +1,19 @@
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import {
   createWeightEntry,
+  fetchFoodEntriesForDateRange,
   fetchWeightEntriesForLogicalDay,
+  fetchWeightHistory,
+  foodEntriesRangeQueryKey,
   latestWeightEntryQueryKey,
   weightEntriesQueryKey,
+  weightHistoryQueryKey,
 } from './api';
 
 const mockEq = jest.fn();
+const mockGte = jest.fn();
+const mockLte = jest.fn();
+const mockLimit = jest.fn();
 const mockIs = jest.fn();
 const mockOr = jest.fn();
 const mockOrder = jest.fn();
@@ -15,14 +22,17 @@ const mockSingle = jest.fn();
 const mockInsert = jest.fn();
 const mockFrom = jest.fn();
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: jest.fn(),
 }));
 
 const queryBuilder = {
   eq: mockEq,
+  gte: mockGte,
   insert: mockInsert,
   is: mockIs,
+  lte: mockLte,
+  limit: mockLimit,
   or: mockOr,
   order: mockOrder,
   select: mockSelect,
@@ -32,7 +42,10 @@ const queryBuilder = {
 beforeEach(() => {
   jest.clearAllMocks();
   mockEq.mockReturnValue(queryBuilder);
+  mockGte.mockReturnValue(queryBuilder);
   mockIs.mockReturnValue(queryBuilder);
+  mockLte.mockReturnValue(queryBuilder);
+  mockLimit.mockReturnValue(queryBuilder);
   mockOr.mockReturnValue(queryBuilder);
   mockOrder.mockResolvedValue({ data: [], error: null });
   mockSelect.mockReturnValue(queryBuilder);
@@ -60,6 +73,53 @@ it('trennt Gewichtsabfragen nach Nutzer, Profil, logischem Datum und Tagesstart'
     'latest',
     'user-1',
   ]);
+});
+
+it('liest die persönliche Gewichtshistorie begrenzt und absteigend', async () => {
+  const entries = [{ id: 'weight-2', measured_on: '2026-08-19', weight_kg: 80.5 }];
+  mockOrder.mockResolvedValue({ data: entries, error: null });
+
+  expect(weightHistoryQueryKey('user-1')).toEqual([
+    'calorie-tracking',
+    'weight',
+    'user-1',
+    null,
+    'history',
+  ]);
+  await expect(fetchWeightHistory({ userId: 'user-1' })).resolves.toEqual(entries);
+
+  expect(mockLimit).toHaveBeenCalledWith(90);
+  expect(mockOrder).toHaveBeenCalledWith('measured_on', { ascending: false });
+  expect(mockIs).toHaveBeenCalledWith('child_profile_id', null);
+});
+
+it('liest Ernährungseinträge für den 14-Tage-Kalenderbereich', async () => {
+  const entries = [{ id: 'food-1', logged_on: '2026-08-18', kcal: 640 }];
+  mockOrder.mockResolvedValue({ data: entries, error: null });
+
+  expect(foodEntriesRangeQueryKey('user-1', '2026-08-06', '2026-08-19', null)).toEqual([
+    'calorie-tracking',
+    'food-entries-range',
+    'user-1',
+    null,
+    '2026-08-06',
+    '2026-08-19',
+  ]);
+
+  await expect(
+    fetchFoodEntriesForDateRange({
+      userId: 'user-1',
+      fromDate: '2026-08-06',
+      toDate: '2026-08-19',
+    }),
+  ).resolves.toEqual(entries);
+
+  expect(mockFrom).toHaveBeenCalledWith('food_entries');
+  expect(mockGte).toHaveBeenCalledWith('logged_on', '2026-08-06');
+  expect(mockLte).toHaveBeenCalledWith('logged_on', '2026-08-19');
+  expect(mockIs).toHaveBeenCalledWith('deleted_at', null);
+  expect(mockIs).toHaveBeenCalledWith('child_profile_id', null);
+  expect(mockOrder).toHaveBeenCalledWith('logged_on', { ascending: true });
 });
 
 it('liest neue Messungen halb-offen und behaelt measured_on als Legacy-Fallback', async () => {
