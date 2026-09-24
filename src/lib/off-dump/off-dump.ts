@@ -32,6 +32,7 @@ const LAST_ERROR_KEY = 'off_dump_last_error';
 
 const CHECK_TTL_MS = 6 * 60 * 60 * 1000;
 let offDumpSequence = 0;
+const initializationByDatabase = new WeakMap<SqlDatabase, Promise<void>>();
 
 type OffDumpTraceDetails = Record<string, boolean | number | string | undefined>;
 
@@ -296,7 +297,7 @@ export async function checkOffDumpIntegrity(db: SqlDatabase): Promise<boolean> {
   return inspected?.integrityOk ?? false;
 }
 
-export async function initOffDump(db: SqlDatabase): Promise<void> {
+async function initializeOffDump(db: SqlDatabase): Promise<void> {
   offDumpSequence += 1;
   const initId = offDumpSequence;
   offDumpTrace('INIT-START', { initId });
@@ -318,4 +319,23 @@ export async function initOffDump(db: SqlDatabase): Promise<void> {
     offDumpTrace('DUE-FAIL', { error: errorMessage(err), initId });
     debugWarn('[OffDump] Update-Check fehlgeschlagen:', err);
   });
+}
+
+/**
+ * Teilt parallele Startaufrufe pro SQLite-Verbindung. Das schützt auch vor
+ * React-Effect-Replays und Root-Remounts; ein Guard im Navigator würde andere
+ * Off-Dump-Einstiege nicht erfassen.
+ */
+export function initOffDump(db: SqlDatabase): Promise<void> {
+  const runningInitialization = initializationByDatabase.get(db);
+  if (runningInitialization) return runningInitialization;
+
+  const initialization = initializeOffDump(db).catch((error: unknown) => {
+    // Ein echter Fehlschlag darf einen späteren Retry auf derselben Verbindung
+    // nicht dauerhaft blockieren.
+    initializationByDatabase.delete(db);
+    throw error;
+  });
+  initializationByDatabase.set(db, initialization);
+  return initialization;
 }

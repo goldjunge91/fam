@@ -1,7 +1,12 @@
 import type { SqlDatabase, SqlParam } from '@/lib/db/types';
-import { attachOffDump, forceRefreshOffDump, resetOffDumpAttachment } from './off-dump';
+import {
+  attachOffDump,
+  forceRefreshOffDump,
+  initOffDump,
+  resetOffDumpAttachment,
+} from './off-dump';
 import { setOffDumpAttached } from './off-dump-state';
-import { checkForUpdate } from './repository';
+import { checkForUpdate, reconcileOnStart } from './repository';
 
 const executedSql: string[] = [];
 const executedRuns: Array<{ params: readonly SqlParam[] | undefined; source: string }> = [];
@@ -50,6 +55,7 @@ describe('attachOffDump', () => {
     executedRuns.length = 0;
     resetOffDumpAttachment();
     jest.mocked(checkForUpdate).mockReset();
+    jest.mocked(reconcileOnStart).mockReset();
   });
 
   it('attaches the active dump writable for in-place patches', async () => {
@@ -101,5 +107,23 @@ describe('attachOffDump', () => {
       'attempt to write a readonly database',
     );
     expect(executedRuns.map(({ params }) => params?.[0])).toEqual(['off_dump_last_error']);
+  });
+
+  it('teilt parallele Initialisierungen pro Datenbankverbindung', async () => {
+    jest.mocked(checkForUpdate).mockResolvedValue({ kind: 'up-to-date' });
+
+    const db = createDb();
+    const firstInitialization = initOffDump(db);
+    const secondInitialization = initOffDump(db);
+
+    expect(secondInitialization).toBe(firstInitialization);
+
+    await Promise.all([firstInitialization, secondInitialization]);
+
+    expect(reconcileOnStart).toHaveBeenCalledTimes(1);
+    expect(executedSql).toEqual([
+      'DETACH DATABASE off_dump',
+      "ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''",
+    ]);
   });
 });
