@@ -218,7 +218,12 @@ export function DevDataScreen() {
               void mitBusy('off-dump-integrity', async () => {
                 const db = await getDatabase();
                 const ok = await checkOffDumpIntegrity(db);
-                Alert.alert('Integrität', ok ? 'Dump ist unbeschädigt.' : 'Dump ist beschädigt.');
+                Alert.alert(
+                  'Integritätsprüfung',
+                  ok
+                    ? 'Der OpenFoodFacts-Dump ist intakt.'
+                    : 'Der OpenFoodFacts-Dump ist beschädigt.',
+                );
               })
             }
             loading={busy === 'off-dump-integrity'}
