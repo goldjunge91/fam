@@ -30,10 +30,6 @@ jest.mock('@/lib/storage/account-storage', () => ({
   forgetLocalAccountUserId: jest.fn().mockResolvedValue(undefined),
 }));
 
-jest.mock('@/lib/data/query-client', () => ({
-  removeLegacyPersistedQueryCache: jest.fn().mockResolvedValue(undefined),
-}));
-
 jest.mock('@/lib/sync/account-sync-gate', () => ({
   stopAccountSyncAndWait: jest.fn().mockResolvedValue(undefined),
 }));

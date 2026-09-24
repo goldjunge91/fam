@@ -1,10 +1,5 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { MMKV } from 'react-native-mmkv';
-import {
-  getBrochurePostalCode,
-  migrateLegacyBrochurePostalCode,
-  setBrochurePostalCode,
-} from './account-preferences';
+import { getBrochurePostalCode, setBrochurePostalCode } from './account-preferences';
 import { getEncryptedAccountStorage } from './account-storage';
 
 const mockValues = new Map<string, string>();
@@ -22,7 +17,6 @@ describe('account preferences', () => {
   beforeEach(async () => {
     jest.clearAllMocks();
     mockValues.clear();
-    await AsyncStorage.clear();
     jest.mocked(getEncryptedAccountStorage).mockResolvedValue(mockStorage);
   });
 
@@ -67,36 +61,5 @@ describe('account preferences', () => {
 
     await expect(getBrochurePostalCode('user-a')).resolves.toBe('10115');
     await expect(getBrochurePostalCode('user-b')).resolves.toBeNull();
-  });
-
-  it('ordnet den globalen Altwert nur einer wiederhergestellten Session zu', async () => {
-    await AsyncStorage.setItem('@fam/brochures/postal-code-v1', '22043');
-
-    await migrateLegacyBrochurePostalCode('user-a');
-
-    expect(mockStorage.set).toHaveBeenCalledWith('brochures.postal-code', '22043');
-    await expect(AsyncStorage.getItem('@fam/brochures/postal-code-v1')).resolves.toBeNull();
-    await expect(AsyncStorage.getItem('@fam/migrations/brochure-postal-code-v1')).resolves.toBe(
-      'done',
-    );
-  });
-
-  it('verwirft den mehrdeutigen Altwert, wenn keine Session wiederhergestellt wurde', async () => {
-    await AsyncStorage.setItem('@fam/brochures/postal-code-v1', '22043');
-
-    await migrateLegacyBrochurePostalCode(null);
-
-    await expect(AsyncStorage.getItem('@fam/brochures/postal-code-v1')).resolves.toBeNull();
-    expect(mockStorage.set).not.toHaveBeenCalled();
-  });
-
-  it('migriert jeden Legacy-Key wegen seines eigenen Markers nur einmal', async () => {
-    await AsyncStorage.setItem('@fam/brochures/postal-code-v1', '22043');
-    await AsyncStorage.setItem('@fam/migrations/brochure-postal-code-v1', 'done');
-
-    await migrateLegacyBrochurePostalCode('user-a');
-
-    expect(mockStorage.set).not.toHaveBeenCalled();
-    await expect(AsyncStorage.getItem('@fam/brochures/postal-code-v1')).resolves.toBeNull();
   });
 });

@@ -8,7 +8,6 @@ const mockSetStoredActiveHouseholdId = jest.fn();
 const mockDeleteEncryptedAccountStorage = jest.fn();
 const mockForgetLocalAccountUserId = jest.fn();
 const mockGetRememberedLocalAccountUserId = jest.fn();
-const mockRemoveLegacyPersistedQueryCache = jest.fn();
 const mockStopAccountSyncAndWait = jest.fn();
 const mockResetLocalAccountModuleCaches = jest.fn();
 const mockGetSession = jest.fn();
@@ -34,11 +33,6 @@ jest.mock('@/lib/storage/account-storage', () => ({
   forgetLocalAccountUserId: (...args: unknown[]) => mockForgetLocalAccountUserId(...args),
   getRememberedLocalAccountUserId: (...args: unknown[]) =>
     mockGetRememberedLocalAccountUserId(...args),
-}));
-
-jest.mock('@/lib/data/query-client', () => ({
-  removeLegacyPersistedQueryCache: (...args: unknown[]) =>
-    mockRemoveLegacyPersistedQueryCache(...args),
 }));
 
 jest.mock('@/lib/platform/notifications', () => ({
@@ -82,7 +76,6 @@ describe('lokaler Account-Cleanup', () => {
     mockDeleteEncryptedAccountStorage.mockResolvedValue(undefined);
     mockForgetLocalAccountUserId.mockResolvedValue(undefined);
     mockGetRememberedLocalAccountUserId.mockResolvedValue(null);
-    mockRemoveLegacyPersistedQueryCache.mockResolvedValue(undefined);
     mockStopAccountSyncAndWait.mockResolvedValue(undefined);
     mockSignOut.mockResolvedValue({ error: null });
     mockLocalSignOut.mockResolvedValue({ error: null });
@@ -100,7 +93,6 @@ describe('lokaler Account-Cleanup', () => {
     expect(client.cancelQueries).toHaveBeenCalledTimes(1);
     expect(mockStopAccountSyncAndWait).toHaveBeenCalledTimes(1);
     expect(client.clear).toHaveBeenCalledTimes(1);
-    expect(mockRemoveLegacyPersistedQueryCache).toHaveBeenCalledTimes(1);
     expect(mockDeleteLocalDatabase).toHaveBeenCalledTimes(1);
     expect(mockDeleteEncryptedAccountStorage).toHaveBeenCalledWith('user-1');
     expect(mockForgetLocalAccountUserId).toHaveBeenCalledWith('user-1');
@@ -111,7 +103,6 @@ describe('lokaler Account-Cleanup', () => {
       jest.mocked(client.cancelQueries).mock.invocationCallOrder[0],
       mockStopAccountSyncAndWait.mock.invocationCallOrder[0],
       jest.mocked(client.clear).mock.invocationCallOrder[0],
-      mockRemoveLegacyPersistedQueryCache.mock.invocationCallOrder[0],
       mockDeleteLocalDatabase.mock.invocationCallOrder[0],
       mockDeleteEncryptedAccountStorage.mock.invocationCallOrder[0],
       mockResetLocalAccountModuleCaches.mock.invocationCallOrder[0],
@@ -190,17 +181,6 @@ describe('lokaler Account-Cleanup', () => {
     expect(mockDeleteLocalDatabase).toHaveBeenCalledTimes(1);
     expect(mockForgetLocalAccountUserId).not.toHaveBeenCalled();
     expect(mockResetLocalAccountModuleCaches).toHaveBeenCalledWith('user-1');
-  });
-
-  it('behält lokale Accountdaten wenn der alte unverschlüsselte Cache nicht gelöscht wird', async () => {
-    const client = queryClient();
-    mockRemoveLegacyPersistedQueryCache.mockRejectedValue(new Error('legacy cache remains'));
-
-    await expect(clearLocalAccountData(client, 'user-1')).rejects.toThrow('legacy cache remains');
-
-    expect(mockDeleteLocalDatabase).not.toHaveBeenCalled();
-    expect(mockDeleteEncryptedAccountStorage).not.toHaveBeenCalled();
-    expect(mockForgetLocalAccountUserId).not.toHaveBeenCalled();
   });
 
   it('blockiert den Wipe wenn ein Sync-Stopper fehlschlägt', async () => {

@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   dehydrate,
   focusManager,
@@ -15,7 +14,6 @@ import { AppState, type AppStateStatus, Platform } from 'react-native';
 import { getEncryptedAccountStorage } from '@/lib/storage/account-storage';
 import { reportError } from '@/lib/telemetry';
 
-const LEGACY_PERSISTED_QUERY_CACHE_KEY = '@fam/react-query-cache';
 const ACCOUNT_QUERY_CACHE_KEY = 'react-query-cache.v1';
 const PERSISTED_QUERY_KEY_PREFIXES: readonly unknown[] = ['calorie-tracking', 'profile'];
 
@@ -74,15 +72,6 @@ export function startQueryEnvironmentSync(): () => void {
   return () => {
     appStateSubscription.remove();
   };
-}
-
-export async function removeLegacyPersistedQueryCache(): Promise<void> {
-  try {
-    await AsyncStorage.removeItem(LEGACY_PERSISTED_QUERY_CACHE_KEY);
-  } catch (error) {
-    reportError(error, { operation: 'query_cache.legacy_cleanup' });
-    throw error;
-  }
 }
 
 export function shouldPersistQuery(query: Query): boolean {

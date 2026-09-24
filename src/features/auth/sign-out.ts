@@ -3,7 +3,6 @@ import type { QueryClient } from '@tanstack/react-query';
 import { signOut as signOutSession } from '@/features/auth/api';
 import { setStoredActiveHouseholdId } from '@/features/household/active-household-store';
 import { getSupabase } from '@/lib/backend/supabase/client';
-import { removeLegacyPersistedQueryCache } from '@/lib/data/query-client';
 import { deleteLocalDatabase, setActiveUserId } from '@/lib/db/client';
 import { debugLogEvent, debugWarn } from '@/lib/observability/debug-log';
 import { cancelUserNotificationReminders } from '@/lib/platform/notifications';
@@ -52,12 +51,6 @@ export function clearLocalAccountData(queryClient: QueryClient, userId: string):
       queryClient.clear();
     } catch (cleanupError) {
       debugWarn('[auth] Query-Cache nicht geleert:', cleanupError);
-    }
-
-    try {
-      await removeLegacyPersistedQueryCache();
-    } catch (cleanupError) {
-      essentialError ??= cleanupError;
     }
 
     if (!essentialError) {

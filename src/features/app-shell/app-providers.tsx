@@ -17,7 +17,7 @@ import { NavigationChromeProvider } from '@/features/navigation/navigation-chrom
 import { ProfileSheet } from '@/features/navigation/profile-sheet';
 import { ScreenTracker } from '@/lib/analytics';
 import { isBugBubbleEnabledForUser, setBugBubbleActive } from '@/lib/analytics/bug-bubble';
-import { queryClient, removeLegacyPersistedQueryCache } from '@/lib/data/query-client';
+import { queryClient } from '@/lib/data/query-client';
 import { loadShotsFlag } from '@/lib/devtools/screenshots';
 import { PostHogAppProvider, useFeatureFlag } from '@/lib/observability/providers/posthog';
 import { Sentry } from '@/lib/observability/providers/sentry';
@@ -48,12 +48,6 @@ export function AppProviders({ children }: { children: ReactNode }) {
     return () => {
       mounted = false;
     };
-  }, []);
-
-  useEffect(() => {
-    // Beim App-Start best effort; beim Account-Cleanup ist derselbe Fehler
-    // dagegen essentiell und wird von clearLocalAccountData weitergereicht.
-    void removeLegacyPersistedQueryCache().catch(() => undefined);
   }, []);
 
   return (

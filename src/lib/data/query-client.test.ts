@@ -1,44 +1,13 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import type { MMKV } from 'react-native-mmkv';
 
-import {
-  removeLegacyPersistedQueryCache,
-  startAccountQueryPersistence,
-} from '@/lib/data/query-client';
-import { reportError } from '@/lib/telemetry';
+import { startAccountQueryPersistence } from '@/lib/data/query-client';
 
 const mockGetEncryptedAccountStorage = jest.fn<Promise<MMKV>, [string]>();
 
 jest.mock('@/lib/storage/account-storage', () => ({
   getEncryptedAccountStorage: (userId: string) => mockGetEncryptedAccountStorage(userId),
 }));
-
-jest.mock('@/lib/telemetry', () => ({
-  reportError: jest.fn(),
-}));
-
-describe('removeLegacyPersistedQueryCache', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
-  it('entfernt den unverschluesselten Query-Cache alter App-Versionen', async () => {
-    await removeLegacyPersistedQueryCache();
-
-    expect(AsyncStorage.removeItem).toHaveBeenCalledWith('@fam/react-query-cache');
-  });
-
-  it('meldet einen fehlgeschlagenen Cleanup und reicht den Fehler weiter', async () => {
-    const error = new Error('storage unavailable');
-    jest.mocked(AsyncStorage.removeItem).mockRejectedValueOnce(error);
-
-    await expect(removeLegacyPersistedQueryCache()).rejects.toThrow('storage unavailable');
-    expect(reportError).toHaveBeenCalledWith(error, {
-      operation: 'query_cache.legacy_cleanup',
-    });
-  });
-});
 
 describe('verschluesselte Query-Persistierung', () => {
   const values = new Map<string, string>();

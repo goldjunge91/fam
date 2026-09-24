@@ -1,6 +1,5 @@
 import type { Session } from '@supabase/supabase-js';
 import { createContext, type ReactNode, use, useCallback, useEffect, useState } from 'react';
-import { migrateLegacyAccountData } from '@/features/auth/migrations/legacy-account-data';
 import { hasSeenOnboarding } from '@/features/onboarding/onboarding-completion';
 import { getSupabase, startSupabaseAutoRefresh } from '@/lib/backend/supabase/client';
 import { queryClient, startAccountQueryPersistence } from '@/lib/data/query-client';
@@ -160,7 +159,6 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       }
       // Nutzer vor dem lokalen Datenbankzugriff im DB-Gate registrieren.
       setActiveUserId(authoritativeRestoredUserId);
-      await migrateLegacyAccountData(authoritativeRestoredUserId);
       if (!active) return;
 
       currentUserId = authoritativeRestoredUserId;

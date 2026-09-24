@@ -9,7 +9,6 @@ const mockClearLocalAccountData = jest.fn();
 const mockGetRememberedLocalAccountUserId = jest.fn();
 const mockRememberLocalAccountUserId = jest.fn();
 const mockActivateEncryptedAccountStorage = jest.fn();
-const mockMigrateLegacyAccountData = jest.fn();
 const mockResumeAccountSync = jest.fn();
 const mockSetActiveUserId = jest.fn();
 const mockStartAccountQueryPersistence = jest.fn();
@@ -37,10 +36,6 @@ jest.mock('@/lib/data/query-client', () => ({
 
 jest.mock('@/features/auth/sign-out', () => ({
   clearLocalAccountData: (...args: unknown[]) => mockClearLocalAccountData(...args),
-}));
-
-jest.mock('@/features/auth/migrations/legacy-account-data', () => ({
-  migrateLegacyAccountData: (...args: unknown[]) => mockMigrateLegacyAccountData(...args),
 }));
 
 jest.mock('@/lib/storage/account-storage', () => ({
@@ -80,7 +75,6 @@ describe('SessionProvider', () => {
     mockClearLocalAccountData.mockResolvedValue(undefined);
     mockGetRememberedLocalAccountUserId.mockResolvedValue(null);
     mockRememberLocalAccountUserId.mockResolvedValue(undefined);
-    mockMigrateLegacyAccountData.mockResolvedValue(undefined);
     mockStartAccountQueryPersistence.mockResolvedValue(jest.fn());
     mockOnAuthStateChange.mockImplementation((callback) => {
       authStateCallback = callback;
@@ -106,11 +100,7 @@ describe('SessionProvider', () => {
     expect(result.current.accountReady).toBe(true);
     expect(result.current.seenOnboarding).toBe(true);
     expect(result.current.error).toBeNull();
-    expect(mockMigrateLegacyAccountData).toHaveBeenCalledWith('user-1');
     expect(mockSetActiveUserId).toHaveBeenCalledWith('user-1');
-    expect(mockSetActiveUserId.mock.invocationCallOrder[0]).toBeLessThan(
-      mockMigrateLegacyAccountData.mock.invocationCallOrder[0],
-    );
     expect(mockActivateEncryptedAccountStorage).toHaveBeenCalledWith('user-1');
     expect(mockRememberLocalAccountUserId).toHaveBeenCalledWith('user-1');
   });
@@ -297,8 +287,6 @@ describe('SessionProvider', () => {
     });
     await waitFor(() => expect(result.current.session?.user.id).toBe('user-b'));
 
-    expect(mockMigrateLegacyAccountData).toHaveBeenCalledTimes(1);
-    expect(mockMigrateLegacyAccountData).not.toHaveBeenCalledWith('user-b');
     expect(mockRememberLocalAccountUserId).toHaveBeenLastCalledWith('user-b');
   });
 
@@ -326,7 +314,6 @@ describe('SessionProvider', () => {
     await waitFor(() => expect(result.current.isLoading).toBe(false));
     expect(result.current.session).toBeNull();
     expect(mockClearLocalAccountData).toHaveBeenCalledWith({}, 'stale-user');
-    expect(mockMigrateLegacyAccountData).toHaveBeenCalledWith(null);
     expect(mockActivateEncryptedAccountStorage).not.toHaveBeenCalledWith('stale-user');
     expect(mockRememberLocalAccountUserId).not.toHaveBeenCalledWith('stale-user');
   });
@@ -347,8 +334,6 @@ describe('SessionProvider', () => {
 
     await waitFor(() => expect(result.current.session?.user.id).toBe('user-b'));
     expect(mockClearLocalAccountData).toHaveBeenCalledWith({}, 'stale-user-a');
-    expect(mockMigrateLegacyAccountData).toHaveBeenCalledWith(null);
-    expect(mockMigrateLegacyAccountData).not.toHaveBeenCalledWith('stale-user-a');
     expect(mockRememberLocalAccountUserId).toHaveBeenLastCalledWith('user-b');
   });
 
@@ -411,7 +396,7 @@ describe('SessionProvider', () => {
     expect(mockRememberLocalAccountUserId).not.toHaveBeenCalledWith('user-b');
   });
 
-  it('verwirft Legacy-Daten und bereinigt einen verwaisten lokalen Account ohne Session', async () => {
+  it('bereinigt einen verwaisten lokalen Account ohne Session', async () => {
     mockGetSession.mockResolvedValue({ data: { session: null }, error: null });
     mockGetRememberedLocalAccountUserId.mockResolvedValue('orphan-user');
 
@@ -419,19 +404,6 @@ describe('SessionProvider', () => {
 
     await waitFor(() => expect(result.current.isLoading).toBe(false));
     expect(mockClearLocalAccountData).toHaveBeenCalledWith({}, 'orphan-user');
-    expect(mockMigrateLegacyAccountData).toHaveBeenCalledWith(null);
     expect(result.current.session).toBeNull();
-  });
-
-  it('bleibt ohne Session fail-closed, wenn globale Legacy-Daten nicht gelöscht werden können', async () => {
-    mockGetSession.mockResolvedValue({ data: { session: null }, error: null });
-    mockMigrateLegacyAccountData.mockRejectedValueOnce(new Error('legacy purge failed'));
-
-    const { result } = await renderHook(() => useSession(), { wrapper });
-
-    await waitFor(() => expect(result.current.error?.message).toBe('legacy purge failed'));
-    expect(result.current.session).toBeNull();
-    expect(mockSetActiveUserId).toHaveBeenLastCalledWith(null);
-    expect(mockResumeAccountSync).not.toHaveBeenCalled();
   });
 });
