@@ -2,6 +2,7 @@ import {
   deleteOutboxEntries,
   enqueueMutation,
   loadDueOutboxEntries,
+  loadOutboxHistory,
   parseOutboxEntry,
   recordOutboxOutcome,
 } from '@/lib/db/outbox';
@@ -72,6 +73,16 @@ describe('enqueueMutation', () => {
       name: 'Kühlschrank',
       kind: 'fridge',
     });
+    await expect(loadOutboxHistory(db)).resolves.toEqual([
+      expect.objectContaining({
+        outbox_id: outboxRows[0]?.id,
+        entity_id: 'loc-1',
+        status: 'queued',
+        attempts: 0,
+        created_at: 5000,
+        updated_at: 5000,
+      }),
+    ]);
   });
 
   it('die UI-Aenderung ist ohne Netzwerk sofort da — kein await auf irgendeinen Request', async () => {
@@ -182,6 +193,13 @@ describe('loadDueOutboxEntries / deleteOutboxEntries / recordOutboxOutcome', () 
     ]);
     expect(raw?.attempts).toBe(MAX_ATTEMPTS);
     expect(raw?.last_error).toBe('permanent failure');
+    expect((await loadOutboxHistory(db))[0]).toMatchObject({
+      outbox_id: entry.id,
+      status: 'failed',
+      attempts: MAX_ATTEMPTS,
+      last_error: 'permanent failure',
+      last_error_kind: 'permanent',
+    });
   });
 
   it('deleteOutboxEntries loescht nur die angegebenen ids', async () => {
@@ -193,6 +211,16 @@ describe('loadDueOutboxEntries / deleteOutboxEntries / recordOutboxOutcome', () 
 
     const remaining = await loadDueOutboxEntries(db, 5000);
     expect(remaining.map((e) => e.id)).toEqual([second.id]);
+    expect((await loadOutboxHistory(db))[1]).toMatchObject({
+      outbox_id: first.id,
+      status: 'discarded',
+    });
+
+    await deleteOutboxEntries(db, [second.id], 'pushed');
+    expect((await loadOutboxHistory(db))[0]).toMatchObject({
+      outbox_id: second.id,
+      status: 'pushed',
+    });
   });
 
   it('deleteOutboxEntries mit leerem Array ist ein No-Op', async () => {

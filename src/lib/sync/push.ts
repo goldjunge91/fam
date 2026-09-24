@@ -278,7 +278,7 @@ async function resolveDuplicateInsert(
     }
 
     await db.withExclusiveTransactionAsync(async (txn) => {
-      await deleteOutboxEntries(txn, entry.sourceIds);
+      await deleteOutboxEntries(txn, entry.sourceIds, 'pushed');
       await txn.runAsync(`update ${meta.table} set _dirty = 0 where id = ?`, [entry.entityId]);
     });
     return {
@@ -461,7 +461,7 @@ async function applyOnePush(
 
   if (meta.pushOnly) {
     await db.withExclusiveTransactionAsync(async (txn) => {
-      await deleteOutboxEntries(txn, entry.sourceIds);
+      await deleteOutboxEntries(txn, entry.sourceIds, 'pushed');
       await txn.runAsync(`update ${meta.table} set _dirty = 0, synced_at = ? where event_id = ?`, [
         nowMs,
         entry.entityId,
@@ -490,7 +490,7 @@ async function applyOnePush(
   }
 
   await db.withExclusiveTransactionAsync(async (txn) => {
-    await deleteOutboxEntries(txn, entry.sourceIds);
+    await deleteOutboxEntries(txn, entry.sourceIds, 'pushed');
     if (!(await hasPendingMutation(txn, entry.entity, entry.entityId))) {
       await upsertMirrorRow(txn, entry.entity, returnedRow, { dirty: 0 });
     }

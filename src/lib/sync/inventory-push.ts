@@ -497,7 +497,7 @@ async function completeInventoryPush(args: {
   }
 
   await args.db.withExclusiveTransactionAsync(async (txn) => {
-    await deleteOutboxEntries(txn, args.entry.sourceIds);
+    await deleteOutboxEntries(txn, args.entry.sourceIds, 'pushed');
     await args.confirm(txn, rows);
   });
 

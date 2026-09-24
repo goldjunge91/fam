@@ -30,6 +30,21 @@ describe('enqueueMutations', () => {
         last_error text,
         next_attempt_at integer not null default 0
       );
+      create table outbox_history (
+        id integer primary key autoincrement,
+        outbox_id integer not null,
+        entity text not null,
+        entity_id text not null,
+        op text not null,
+        payload text not null,
+        created_at integer not null,
+        status text not null default 'queued',
+        attempts integer not null default 0,
+        last_error text,
+        last_error_kind text,
+        updated_at integer not null,
+        completed_at integer
+      );
       create table storage_locations (
         id text primary key not null,
         household_id text not null,

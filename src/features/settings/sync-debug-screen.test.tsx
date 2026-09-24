@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react-native';
 import { SyncDebugScreen } from '@/features/settings/sync-debug-screen';
+import { loadOutboxHistory } from '@/lib/db/outbox';
 
 const mockGetAllAsync = jest.fn(async (query: string): Promise<unknown[]> => {
   if (query.includes('from fridge_items')) {
@@ -99,6 +100,7 @@ jest.mock('@/lib/db/client', () => ({
 
 jest.mock('@/lib/db/outbox', () => ({
   deleteOutboxEntries: jest.fn(),
+  loadOutboxHistory: jest.fn(async () => []),
 }));
 
 jest.mock('@/lib/platform/notifications', () => ({
@@ -133,5 +135,39 @@ describe('SyncDebugScreen', () => {
     );
 
     expect(await screen.findByText('Milch (1.5 ml)')).toBeOnTheScreen();
+  });
+
+  it('zeigt abgeschlossene Outbox-Mutationen in der lokalen Historie', async () => {
+    jest.mocked(loadOutboxHistory).mockResolvedValue([
+      {
+        id: 1,
+        outbox_id: 7,
+        entity: 'storage_locations',
+        entity_id: 'location-1',
+        op: 'insert',
+        payload: '{}',
+        created_at: 1_000,
+        status: 'pushed',
+        attempts: 0,
+        last_error: null,
+        last_error_kind: null,
+        updated_at: 2_000,
+        completed_at: 2_000,
+      },
+    ]);
+
+    const queryClient = new QueryClient({
+      defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+    });
+
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <SyncDebugScreen />
+      </QueryClientProvider>,
+    );
+
+    expect(await screen.findByText('synchronisiert')).toBeOnTheScreen();
+    expect(screen.getByText('#7 INSERT storage_locations')).toBeOnTheScreen();
+    expect(loadOutboxHistory).toHaveBeenCalledWith(expect.anything(), 20);
   });
 });

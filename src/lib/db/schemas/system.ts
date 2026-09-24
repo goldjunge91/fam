@@ -36,6 +36,37 @@ export const outbox = sqliteTable(
   ],
 );
 
+export const outboxHistory = sqliteTable(
+  'outbox_history',
+  {
+    id: integer('id').primaryKey({ autoIncrement: true }),
+    outboxId: integer('outbox_id').notNull(),
+    entity: text('entity').notNull(),
+    entityId: text('entity_id').notNull(),
+    op: text('op').notNull(),
+    payload: text('payload').notNull(),
+    createdAt: integer('created_at').notNull(),
+    status: text('status').notNull().default('queued'),
+    attempts: integer('attempts').notNull().default(0),
+    lastError: text('last_error'),
+    lastErrorKind: text('last_error_kind'),
+    updatedAt: integer('updated_at').notNull(),
+    completedAt: integer('completed_at'),
+  },
+  (table) => [
+    check(
+      'outbox_history_status_check',
+      sql`${table.status} in ('queued', 'failed', 'pushed', 'discarded')`,
+    ),
+    check(
+      'outbox_history_last_error_kind_check',
+      sql`${table.lastErrorKind} is null or ${table.lastErrorKind} in ('transient', 'permanent')`,
+    ),
+    index('outbox_history_created_idx').on(table.createdAt, table.id),
+    index('outbox_history_outbox_idx').on(table.outboxId),
+  ],
+);
+
 export const syncState = sqliteTable(
   'sync_state',
   {

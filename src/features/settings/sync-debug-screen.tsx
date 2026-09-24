@@ -14,7 +14,7 @@ import type { CatalogProduct } from '@/features/product-search/types';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
-import { deleteOutboxEntries } from '@/lib/db/outbox';
+import { deleteOutboxEntries, loadOutboxHistory, type OutboxHistoryEntry } from '@/lib/db/outbox';
 import { fromInventoryQuantityUnits } from '@/lib/inventory-quantity';
 import { debugError } from '@/lib/observability/debug-log';
 import { sendTestNotification } from '@/lib/platform/notifications';
@@ -101,6 +101,7 @@ export function SyncDebugScreen() {
   const [loading, setLoading] = useState(false);
   const [showScannerTest, setShowScannerTest] = useState(false);
   const [outboxRows, setOutboxRows] = useState<OutboxRow[]>([]);
+  const [outboxHistoryRows, setOutboxHistoryRows] = useState<OutboxHistoryEntry[]>([]);
   const [locationRows, setLocationRows] = useState<LocationRow[]>([]);
   const [itemRows, setItemRows] = useState<ItemRow[]>([]);
   // Polling aktualisiert den aus Modulzustand gelesenen Realtime-Status.
@@ -150,6 +151,7 @@ export function SyncDebugScreen() {
       const outbox = await db.getAllAsync<OutboxRow>(
         'select * from outbox order by id desc limit 20',
       );
+      const outboxHistory = await loadOutboxHistory(db, 20);
       const locs = await db.getAllAsync<LocationRow>(
         'select id, name, kind, household_id from storage_locations limit 20',
       );
@@ -158,6 +160,7 @@ export function SyncDebugScreen() {
       );
 
       setOutboxRows(outbox);
+      setOutboxHistoryRows(outboxHistory);
       setLocationRows(locs);
       setItemRows(
         items.map((item) => ({
@@ -202,7 +205,11 @@ export function SyncDebugScreen() {
           style: 'destructive',
           onPress: async () => {
             const db = await getDatabase();
-            await db.runAsync('delete from outbox');
+            const rows = await db.getAllAsync<{ id: number }>('select id from outbox');
+            await deleteOutboxEntries(
+              db,
+              rows.map((row) => row.id),
+            );
             queryClient.invalidateQueries();
             await loadDebugData();
           },
@@ -411,6 +418,58 @@ export function SyncDebugScreen() {
           <View style={styles.actionStack}>
             <Button title="Outbox leeren (Notfall)" variant="danger" onPress={handleClearOutbox} />
           </View>
+        )}
+      </Card>
+
+      <Card title={`Outbox-Historie (${outboxHistoryRows.length} Einträge)`}>
+        {outboxHistoryRows.length === 0 ? (
+          <Txt variant="caption" tone="secondary">
+            Noch keine lokale Outbox-Aktion aufgezeichnet.
+          </Txt>
+        ) : (
+          outboxHistoryRows.map((row) => {
+            const statusLabel = {
+              queued: 'offen',
+              failed: 'fehlgeschlagen',
+              pushed: 'synchronisiert',
+              discarded: 'verworfen',
+            }[row.status];
+            const statusTone: TxtTone =
+              row.status === 'pushed'
+                ? 'success'
+                : row.status === 'failed'
+                  ? 'danger'
+                  : row.status === 'discarded'
+                    ? 'warning'
+                    : 'secondary';
+
+            return (
+              <DebugItem key={row.id}>
+                <Row justify="space-between" gap={0}>
+                  <Txt variant="caption" weight="700">
+                    #{row.outbox_id} {row.op.toUpperCase()} {row.entity}
+                  </Txt>
+                  <Txt variant="caption" weight="700" tone={statusTone}>
+                    {statusLabel}
+                  </Txt>
+                </Row>
+                <Txt variant="caption" tone="secondary">
+                  {new Date(row.created_at).toLocaleString('de-DE')} · ID: {row.entity_id}
+                </Txt>
+                <Txt variant="caption" tone="secondary">
+                  Versuche: {row.attempts}
+                  {row.completed_at
+                    ? ` · Abschluss: ${new Date(row.completed_at).toLocaleString('de-DE')}`
+                    : ''}
+                </Txt>
+                {row.last_error ? (
+                  <Txt variant="caption" tone="danger">
+                    Fehler: {row.last_error}
+                  </Txt>
+                ) : null}
+              </DebugItem>
+            );
+          })
         )}
       </Card>
 

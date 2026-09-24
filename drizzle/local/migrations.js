@@ -27,6 +27,7 @@ import m0023 from './20260920224421_bored_venom/migration.sql';
 import m0024 from './20260921221123_supreme_doctor_doom/migration.sql';
 import m0025 from './20260924044003_redundant_sasquatch/migration.sql';
 import m0026 from './20260924044031_curved_joseph/migration.sql';
+import m0027 from './20260924140706_lazy_anthem/migration.sql';
 
   export default {
     migrations: {
@@ -56,6 +57,7 @@ import m0026 from './20260924044031_curved_joseph/migration.sql';
 "20260920224421_bored_venom": m0023,
 "20260921221123_supreme_doctor_doom": m0024,
 "20260924044003_redundant_sasquatch": m0025,
-"20260924044031_curved_joseph": m0026
+"20260924044031_curved_joseph": m0026,
+"20260924140706_lazy_anthem": m0027
 }
   }

@@ -32,6 +32,24 @@ export type EnqueueMutationInput = {
   now?: number;
 };
 
+export type OutboxHistoryStatus = 'queued' | 'failed' | 'pushed' | 'discarded';
+
+export type OutboxHistoryEntry = {
+  id: number;
+  outbox_id: number;
+  entity: Entity;
+  entity_id: string;
+  op: OutboxOp;
+  payload: string;
+  created_at: number;
+  status: OutboxHistoryStatus;
+  attempts: number;
+  last_error: string | null;
+  last_error_kind: 'transient' | 'permanent' | null;
+  updated_at: number;
+  completed_at: number | null;
+};
+
 type OutboxChangedListener = () => void;
 const outboxChangedListeners = new Set<OutboxChangedListener>();
 const exclusiveQueues = new WeakMap<SqlDatabase, Promise<void>>();
@@ -65,15 +83,24 @@ async function writeOutboxEntries(
   inputs: readonly EnqueueMutationInput[],
 ): Promise<void> {
   for (const input of inputs) {
+    const createdAt = input.now ?? Date.now();
     await input.applyLocally(txn);
-    await txn.runAsync(
+    const result = await txn.runAsync(
       'insert into outbox (entity, entity_id, op, payload, created_at, attempts, next_attempt_at) values (?, ?, ?, ?, ?, 0, 0)',
+      [input.entity, input.entityId, input.op, JSON.stringify(input.payload), createdAt],
+    );
+    await txn.runAsync(
+      `insert into outbox_history
+        (outbox_id, entity, entity_id, op, payload, created_at, status, attempts, updated_at)
+       values (?, ?, ?, ?, ?, ?, 'queued', 0, ?)`,
       [
+        result.lastInsertRowId,
         input.entity,
         input.entityId,
         input.op,
         JSON.stringify(input.payload),
-        input.now ?? Date.now(),
+        createdAt,
+        createdAt,
       ],
     );
   }
@@ -191,11 +218,32 @@ export async function loadPendingOutboxEntries(db: SqlDatabase): Promise<OutboxE
   ]);
 }
 
+export async function loadOutboxHistory(
+  db: SqlDatabase,
+  limit = 100,
+): Promise<OutboxHistoryEntry[]> {
+  return db.getAllAsync<OutboxHistoryEntry>(
+    'select * from outbox_history order by id desc limit ?',
+    [Math.max(1, Math.floor(limit))],
+  );
+}
+
 /** Loescht Outbox-Zeilen nach id — nie per pauschalem `delete from outbox`. */
-export async function deleteOutboxEntries(db: SqlDatabase, ids: readonly number[]): Promise<void> {
+export async function deleteOutboxEntries(
+  db: SqlDatabase,
+  ids: readonly number[],
+  status: Extract<OutboxHistoryStatus, 'pushed' | 'discarded'> = 'discarded',
+): Promise<void> {
   if (ids.length === 0) return;
 
   const placeholders = ids.map(() => '?').join(', ');
+  const completedAt = Date.now();
+  await db.runAsync(
+    `update outbox_history
+        set status = ?, updated_at = ?, completed_at = ?
+      where outbox_id in (${placeholders})`,
+    [status, completedAt, completedAt, ...ids],
+  );
   await db.runAsync(`delete from outbox where id in (${placeholders})`, [...ids]);
 }
 
@@ -225,5 +273,11 @@ export async function recordOutboxOutcome(
   await db.runAsync(
     `update outbox set attempts = ?, last_error = ?, last_error_kind = ?, next_attempt_at = ? where id in (${placeholders})`,
     [outcome.attempts, outcome.lastError, outcome.kind, outcome.nextAttemptAtMs, ...ids],
+  );
+  await db.runAsync(
+    `update outbox_history
+        set status = 'failed', attempts = ?, last_error = ?, last_error_kind = ?, updated_at = ?
+      where outbox_id in (${placeholders})`,
+    [outcome.attempts, outcome.lastError, outcome.kind, Date.now(), ...ids],
   );
 }
