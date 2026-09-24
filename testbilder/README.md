@@ -22,3 +22,19 @@ Filterprüfung relevant sind.
 Die drei PNG-Dateien bleiben lokale Testdaten. Dieses Manifest enthält keine
 Bildbytes, keinen OCR-Volltext und keine personenbezogenen oder
 zahlungsbezogenen Referenzdaten.
+
+## In den iOS-Simulator kopieren
+
+Das Script akzeptiert eine einzelne Bilddatei oder einen Ordner. Standardmäßig
+kopiert es die Bilder in `Documents/testbilder` der installierten fam-App; mit
+`--photos` werden sie in die Fotos-Mediathek importiert:
+
+```bash
+bun run simulator:testbilder -- \
+  --device 4B293FA5-24E8-4BF4-8295-3EF2D6C50F7D \
+  testbilder/
+
+bun run simulator:testbilder -- \
+  --device 4B293FA5-24E8-4BF4-8295-3EF2D6C50F7D \
+  --photos testbilder/
+```

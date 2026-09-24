@@ -163,6 +163,7 @@
     "ios": "FAM_HARNESS_UI=1 expo run:ios",
     "ios:dev": "FAM_HARNESS_UI=1 bun --env-file=.env.development.local run native:dev -- --target ios-development-simulator",
     "ios:preview": "FAM_HARNESS_UI=0 bun --env-file=.env.preview run expo run:ios --device --configuration Release",
+    "simulator:testbilder": "bash scripts/install-test-images.sh",
     "check": "biome check .",
     "check:fix": "biome check --write .",
     "typecheck": "tsc --noEmit",
