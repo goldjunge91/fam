@@ -1,11 +1,12 @@
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation, loadDueOutboxEntries, recordOutboxOutcome } from '@/lib/db/outbox';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 /**
  * `retryFailedOutboxEntries` (#51) gegen eine echte SQLite-Engine — kein Mock.
@@ -23,8 +24,7 @@ describe('retryFailedOutboxEntries', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
   });
 
   afterEach(() => {

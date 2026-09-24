@@ -1,9 +1,10 @@
 import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import type { SqlDatabase } from '@/lib/db/types';
-import { createTestDatabase, type TestDatabase } from '../../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../../test/node-sqlite-adapter';
 import {
   confirmReceipt,
   confirmReceiptItem,
@@ -79,8 +80,8 @@ async function createItemFixture(db: SqlDatabase) {
 
 async function createDatabase(): Promise<TestDatabase> {
   const db = createTestDatabase();
-  await runMigrations(db, MIGRATIONS);
-  await runDrizzleMigrations(db);
+  await applyLocalSchema(db);
+
   return db;
 }
 

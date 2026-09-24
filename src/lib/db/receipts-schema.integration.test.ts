@@ -1,8 +1,8 @@
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
-import localMigrations from '../../../drizzle/local/migrations';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 type ColumnInfo = { name: string; type: string; notnull: number };
 
@@ -10,18 +10,9 @@ async function columnsOf(db: TestDatabase, table: string): Promise<ColumnInfo[]>
   return db.getAllAsync<ColumnInfo>(`PRAGMA table_info(${table})`);
 }
 
-function migrationsBeforeReceiptRename(): Record<string, string> {
-  return Object.fromEntries(
-    Object.entries(localMigrations.migrations).filter(
-      ([name]) => name !== '20260921221123_supreme_doctor_doom',
-    ),
-  );
-}
-
 async function migrateFreshDatabase(): Promise<TestDatabase> {
   const db = createTestDatabase();
-  await runMigrations(db, MIGRATIONS);
-  await runDrizzleMigrations(db);
+  await applyLocalSchema(db);
   return db;
 }
 
@@ -189,67 +180,8 @@ describe('lokaler Receipt-Spiegel', () => {
     );
     expect(
       schemaSql.some(({ sql }) =>
-        /receipt_assets|storage_path|image_bytes|byte_size/i.test(sql ?? ''),
+        /receipt_assets|receipt_asset|image_bytes|byte_size/i.test(sql ?? ''),
       ),
     ).toBe(false);
-  });
-});
-
-describe('Receipt-Migrations-Upgrade', () => {
-  it('übernimmt eine bestehende Datenbank und lässt die Alt-Daten intakt', async () => {
-    const db = createTestDatabase();
-    try {
-      await runMigrations(db, MIGRATIONS);
-      await runDrizzleMigrations(db, { migrations: migrationsBeforeReceiptRename() });
-      await db.runAsync('insert into app_meta (key, value) values (?, ?)', [
-        'receipt-upgrade-sentinel',
-        'preserve-me',
-      ]);
-      await db.runAsync(
-        `insert into receipts
-          (id, household_id, currency, total_cents, processing_status, updated_at, _dirty)
-         values (?, ?, ?, ?, ?, ?, ?)`,
-        ['legacy-receipt', 'household-1', 'EUR', 1299, 'confirmed', 1, 0],
-      );
-      await db.runAsync(
-        `insert into receipt_items
-          (id, receipt_id, household_id, position, name, line_total_cents, review_status, updated_at)
-         values (?, ?, ?, ?, ?, ?, ?, ?)`,
-        ['legacy-item', 'legacy-receipt', 'household-1', 0, 'Milch', 1299, 'confirmed', 1],
-      );
-
-      const applied = await runDrizzleMigrations(db);
-
-      expect(applied).toBeGreaterThan(0);
-      await expect(
-        db.getFirstAsync<{ value: string }>('select value from app_meta where key = ?', [
-          'receipt-upgrade-sentinel',
-        ]),
-      ).resolves.toEqual({ value: 'preserve-me' });
-      await expect(
-        db.getFirstAsync<{ name: string }>(
-          "select name from sqlite_master where type = 'table' and name = 'purchase_receipts'",
-        ),
-      ).resolves.toEqual({ name: 'purchase_receipts' });
-      await expect(
-        db.getFirstAsync<{ total_cents: number }>(
-          'select total_cents from purchase_receipts where id = ?',
-          ['legacy-receipt'],
-        ),
-      ).resolves.toEqual({ total_cents: 1299 });
-      await expect(
-        db.getFirstAsync<{ name: string }>('select name from purchase_receipt_items where id = ?', [
-          'legacy-item',
-        ]),
-      ).resolves.toEqual({ name: 'Milch' });
-      await expect(
-        db.getFirstAsync<{ name: string }>(
-          "select name from sqlite_master where type = 'table' and name = 'receipts'",
-        ),
-      ).resolves.toBeNull();
-      await expect(runDrizzleMigrations(db)).resolves.toBe(0);
-    } finally {
-      db.close();
-    }
   });
 });

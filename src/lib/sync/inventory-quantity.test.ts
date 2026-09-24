@@ -1,6 +1,3 @@
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import {
   createInventoryMergeUndoMutation,
   createInventoryMoveMutation,
@@ -16,13 +13,13 @@ import {
   parseInventorySplitPayload,
 } from '@/lib/sync/inventory-quantity';
 
-import { createTestDatabase } from '../../../test/node-sqlite-adapter';
+import { applyLocalSchema, createTestDatabase } from '../../../test/node-sqlite-adapter';
 
 describe('createInventoryQuantityMutation', () => {
   it('schreibt bei vollständigem Verbrauch lokal Menge null in den Tombstone', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
+
     await db.runAsync(
       `insert into fridge_items
        (id, household_id, name, quantity, unit, created_at, updated_at)

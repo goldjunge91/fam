@@ -8,12 +8,13 @@ jest.mock('@/lib/telemetry', () => ({
 }));
 
 import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { readSyncState } from '@/lib/db/sync-state';
 import { buildOrFilter, pullHousehold } from '@/lib/sync/pull';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 const { getNetworkStateAsync } = jest.requireMock('expo-network') as {
   getNetworkStateAsync: jest.Mock;
@@ -267,8 +268,8 @@ function storageLocationRow(
 
 async function createSyncDatabase(): Promise<TestDatabase> {
   const db = createTestDatabase();
-  await runMigrations(db, MIGRATIONS);
-  await runDrizzleMigrations(db);
+  await applyLocalSchema(db);
+
   return db;
 }
 

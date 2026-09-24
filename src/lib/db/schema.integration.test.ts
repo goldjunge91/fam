@@ -1,14 +1,5 @@
-import { mkdtempSync, rmSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
-
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { readUserVersion, runMigrations } from '@/lib/db/migrator';
-import type { Migration } from '@/lib/db/types';
-import localMigrations from '../../../drizzle/local/migrations';
 import {
-  countingDatabase,
+  applyLocalSchema,
   createTestDatabase,
   type TestDatabase,
 } from '../../../test/node-sqlite-adapter';
@@ -42,8 +33,7 @@ describe('lokales Schema', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
   });
 
   afterEach(() => {
@@ -415,172 +405,5 @@ describe('lokales Schema', () => {
 
     expect(second.lastInsertRowId).toBeGreaterThan(first.lastInsertRowId);
     expect(third.lastInsertRowId).toBeGreaterThan(second.lastInsertRowId);
-  });
-
-  it('setzt user_version auf die hoechste angewandte Migration', async () => {
-    const highest = MIGRATIONS[MIGRATIONS.length - 1].version;
-    expect(await readUserVersion(db)).toBe(highest);
-  });
-});
-
-describe('Transaktionscursor-Migration', () => {
-  it('setzt einen alten Transaktionscursor beim Upgrade zurueck', async () => {
-    const db = createTestDatabase();
-    try {
-      await runMigrations(db, MIGRATIONS.slice(0, -1));
-      await db.runAsync(
-        `insert into sync_state (entity, scope, last_synced_at, last_synced_id)
-         values (?, ?, ?, ?)`,
-        ['transactions', 'default', '2026-09-07T10:00:00.000Z', 'tx-old'],
-      );
-
-      await runMigrations(db, MIGRATIONS);
-
-      expect(
-        await db.getFirstAsync('select * from sync_state where entity = ?', ['transactions']),
-      ).toBeNull();
-    } finally {
-      db.close();
-    }
-  });
-});
-
-describe('lokale Schema-Upgrades', () => {
-  it('erkennt eine vor dem Inventory-Move migrierte Datenbank ohne Migration erneut auszufuehren', async () => {
-    const upgradeDb = createTestDatabase();
-    try {
-      await runMigrations(upgradeDb, MIGRATIONS);
-
-      const stableMigrationName = '20260901043557_chunky_ken_ellis';
-      const legacyMigrations = Object.fromEntries(
-        Object.entries(localMigrations.migrations).filter(([name]) => name <= stableMigrationName),
-      );
-
-      await expect(runDrizzleMigrations(upgradeDb, { migrations: legacyMigrations })).resolves.toBe(
-        4,
-      );
-      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(
-        Object.keys(localMigrations.migrations).length - Object.keys(legacyMigrations).length,
-      );
-      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(0);
-      expect((await columnsOf(upgradeDb, 'households')).map((column) => column.name)).toContain(
-        'plus_active',
-      );
-    } finally {
-      upgradeDb.close();
-    }
-  });
-
-  it('markiert bestehende MHD-Werte beim Upgrade als manuell gesetzt', async () => {
-    const upgradeDb = createTestDatabase();
-    try {
-      await runMigrations(upgradeDb, MIGRATIONS);
-
-      const migrationsBeforeBackfill = Object.fromEntries(
-        Object.entries(localMigrations.migrations).filter(
-          ([name]) => name < '20260907120000_inventory_expiry_user_set_backfill',
-        ),
-      );
-      await runDrizzleMigrations(upgradeDb, { migrations: migrationsBeforeBackfill });
-
-      await upgradeDb.runAsync(
-        `insert into fridge_items
-          (id, household_id, name, quantity, unit, expiry_date, expiry_user_set, updated_at)
-         values (?, ?, ?, ?, ?, ?, ?, ?)`,
-        ['legacy-mhd', 'household-1', 'Legacy MHD', 1, 'piece', '2026-12-31', 0, 0],
-      );
-      expect(
-        await upgradeDb.getFirstAsync<{ expiry_user_set: number }>(
-          'select expiry_user_set from fridge_items where id = ?',
-          ['legacy-mhd'],
-        ),
-      ).toEqual({ expiry_user_set: 0 });
-
-      const pendingMigrationCount =
-        Object.keys(localMigrations.migrations).length -
-        Object.keys(migrationsBeforeBackfill).length;
-      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(pendingMigrationCount);
-      expect(
-        await upgradeDb.getFirstAsync<{ expiry_user_set: number }>(
-          'select expiry_user_set from fridge_items where id = ?',
-          ['legacy-mhd'],
-        ),
-      ).toEqual({ expiry_user_set: 1 });
-      await expect(runDrizzleMigrations(upgradeDb)).resolves.toBe(0);
-    } finally {
-      upgradeDb.close();
-    }
-  });
-});
-
-describe('Migrations-Runner', () => {
-  let directory: string;
-  let path: string;
-
-  beforeEach(() => {
-    directory = mkdtempSync(join(tmpdir(), 'fam-db-'));
-    path = join(directory, 'test.db');
-  });
-
-  afterEach(() => {
-    rmSync(directory, { recursive: true, force: true });
-  });
-
-  it('migriert beim zweiten Oeffnen derselben Datei kein zweites Mal', async () => {
-    const first = createTestDatabase(path);
-    await runMigrations(first, MIGRATIONS);
-    first.close();
-
-    // Dieselbe Datei erneut oeffnen — wie ein App-Neustart.
-    const second = createTestDatabase(path);
-    const counted = countingDatabase(second);
-    await runMigrations(counted, MIGRATIONS);
-
-    expect(counted.executed).toEqual([]);
-    expect(await readUserVersion(second)).toBe(MIGRATIONS[MIGRATIONS.length - 1].version);
-    second.close();
-  });
-
-  it('haelt die Daten aus dem ersten Start ueber den zweiten hinweg', async () => {
-    const first = createTestDatabase(path);
-    await runMigrations(first, MIGRATIONS);
-    await first.runAsync('insert into app_meta (key, value) values (?, ?)', ['user_id', 'alice']);
-    first.close();
-
-    const second = createTestDatabase(path);
-    await runMigrations(second, MIGRATIONS);
-    const row = await second.getFirstAsync<{ value: string }>(
-      'select value from app_meta where key = ?',
-      ['user_id'],
-    );
-
-    expect(row?.value).toBe('alice');
-    second.close();
-  });
-
-  it('hinterlaesst bei einer fehlerhaften Migration keinen halben Zustand', async () => {
-    // Echtes ungueltiges SQL, kein erzwungener Fehler: Die Transaktion muss
-    // die bereits angelegte Tabelle mit zurueckdrehen und user_version darf
-    // nicht steigen — sonst startet die App beim naechsten Mal mit einem
-    // halben Schema und ueberspringt die Migration fuer immer.
-    const broken: readonly Migration[] = [
-      {
-        version: 1,
-        name: 'kaputt',
-        statements: ['create table haelfte (id text primary key)', 'das ist kein sql'],
-      },
-    ];
-
-    const database = createTestDatabase();
-
-    await expect(runMigrations(database, broken)).rejects.toThrow();
-    expect(await readUserVersion(database)).toBe(0);
-
-    const tables = await database.getAllAsync<{ name: string }>(
-      "select name from sqlite_master where type = 'table' and name = 'haelfte'",
-    );
-    expect(tables).toEqual([]);
-
-    database.close();
   });
 });

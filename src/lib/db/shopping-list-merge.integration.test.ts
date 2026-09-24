@@ -1,7 +1,9 @@
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { addOrMergeShoppingItem } from '@/lib/db/shopping-list-merge';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 /**
  * `addOrMergeShoppingItem` gegen eine echte SQLite-Engine — kein Mock.
@@ -37,7 +39,7 @@ describe('addOrMergeShoppingItem', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
+    await applyLocalSchema(db);
     nextId = 1;
   });
 

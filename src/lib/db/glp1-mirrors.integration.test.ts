@@ -1,7 +1,8 @@
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 type ColumnInfo = {
   name: string;
@@ -18,11 +19,9 @@ async function columnsOf(db: TestDatabase, table: string): Promise<ColumnInfo[]>
 describe('GLP-1-Spiegelmigration', () => {
   it('legt Medikations- und Symptom-Logs mit allen Serverfeldern und JSON-Default an', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
+    await applyLocalSchema(db);
 
     try {
-      await runDrizzleMigrations(db);
-
       const medicationColumns = await columnsOf(db, 'medication_logs');
       const symptomColumns = await columnsOf(db, 'symptom_logs');
 

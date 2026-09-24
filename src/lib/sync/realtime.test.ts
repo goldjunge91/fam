@@ -10,13 +10,14 @@ jest.mock('@/lib/telemetry', () => ({
 }));
 
 import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { toEpochMs } from '@/lib/sync/cursor';
 import { upsertMirrorRow } from '@/lib/sync/mirror-write';
 import { type RealtimeSubscribeState, subscribeHouseholdRealtime } from '@/lib/sync/realtime';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 const { reportError, reportWarning } = jest.requireMock('@/lib/telemetry') as {
   reportError: jest.Mock;
@@ -116,8 +117,8 @@ function serverClock() {
 
 async function createSyncDatabase(): Promise<TestDatabase> {
   const db = createTestDatabase();
-  await runMigrations(db, MIGRATIONS);
-  await runDrizzleMigrations(db);
+  await applyLocalSchema(db);
+
   return db;
 }
 

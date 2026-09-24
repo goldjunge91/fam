@@ -1,6 +1,8 @@
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
-import { createTestDatabase, type TestDatabase } from '../../../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../../../test/node-sqlite-adapter';
 import { saveConfirmedBetaOutput } from './confirmed-output-adapter';
 
 describe('saveConfirmedBetaOutput', () => {
@@ -9,7 +11,7 @@ describe('saveConfirmedBetaOutput', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
+    await applyLocalSchema(db);
     nextId = 1;
   });
 

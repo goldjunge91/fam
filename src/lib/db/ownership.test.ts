@@ -1,7 +1,9 @@
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { ensureDatabaseBelongsTo } from '@/lib/db/ownership';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 /**
  * Die zweite Verteidigungslinie gegen fremde Haushaltsdaten auf demselben
@@ -14,7 +16,7 @@ import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite
  */
 async function freshDatabase(): Promise<TestDatabase> {
   const db = createTestDatabase();
-  await runMigrations(db, MIGRATIONS);
+  await applyLocalSchema(db);
   return db;
 }
 

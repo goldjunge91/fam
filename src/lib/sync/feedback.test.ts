@@ -4,14 +4,15 @@ import {
   pruneOldSyncedFeedbackEvents,
 } from '@/features/shopping-list/preferences/feedback';
 import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyRemoteRow, upsertMirrorRow } from '@/lib/sync/mirror-write';
 import { pullHousehold } from '@/lib/sync/pull';
 import { pushOutbox } from '@/lib/sync/push';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 const feedbackInput: CategoryFeedbackInput = {
   eventId: 'event-1',
@@ -57,8 +58,7 @@ describe('shopping category feedback sync contract', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
   });
 
   afterEach(() => db.close());

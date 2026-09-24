@@ -1,8 +1,9 @@
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { ALL_ENTITIES, ENTITIES, metaOf } from '@/lib/db/entities';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 /**
  * Prueft `entities.ts`s Spaltenlisten gegen das echte migrierte Schema.
@@ -24,8 +25,7 @@ describe('entities.ts gegen das echte migrierte Schema', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
   });
 
   afterEach(() => {

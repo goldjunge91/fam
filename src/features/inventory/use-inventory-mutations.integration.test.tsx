@@ -2,9 +2,6 @@ import { notifyManager, QueryClient, QueryClientProvider } from '@tanstack/react
 import { act, createElement } from 'react';
 import { createRoot } from 'test-renderer';
 
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import {
   ITEM_BASE,
   insertItem,
@@ -12,7 +9,11 @@ import {
   outboxRows,
   rowsForItem,
 } from '../../../test/inventory-test-fixtures';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 import type { LocalInventoryTransaction } from './use-inventory-transactions';
 
 jest.doMock('@/features/auth/session-provider', () => ({
@@ -106,8 +107,8 @@ describe('Inventory-Mutations gegen den echten lokalen SQLite-Spiegel', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
+
     mockedGetDatabase.mockResolvedValue(db);
     mockedUseSession.mockReturnValue({ session: { user: { id: 'actor-1' } } });
     mockUuidCounter = 0;

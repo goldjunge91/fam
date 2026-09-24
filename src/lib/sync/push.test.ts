@@ -1,7 +1,4 @@
 import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation, recordOutboxOutcome } from '@/lib/db/outbox';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import {
@@ -12,7 +9,11 @@ import {
 } from '@/lib/sync/inventory-quantity';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { pushOutbox } from '@/lib/sync/push';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 /**
  * Generischer Dispatch-Test fuer `EntityMeta.onForeignKeyViolation` (#192):
@@ -46,8 +47,8 @@ describe('pushOutbox — generischer onForeignKeyViolation-Dispatch', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
+
     await db.runAsync(
       `insert into fridge_items
        (id, household_id, location_id, name, quantity, unit, added_by, created_at,
@@ -150,8 +151,7 @@ describe('pushOutbox — generischer onForeignKeyViolation-Dispatch', () => {
 describe('pushOutbox — medizinische Einheiten', () => {
   it('sendet unit "units" unveraendert an Supabase', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
 
     const remoteRow = {
       id: 'med-1',
@@ -195,8 +195,7 @@ describe('pushOutbox — medizinische Einheiten', () => {
 describe('pushOutbox — append-only Ledger', () => {
   it('behandelt einen wiederholten Ledger-insert idempotent ohne UPDATE-Versuch', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
 
     const transactionId = 'txn-duplicate';
     await db.runAsync(
@@ -271,8 +270,7 @@ describe('pushOutbox — append-only Ledger', () => {
     // PostgREST liefert Zeitstempel in Postgres-Schreibweise (+00:00) zurueck,
     // waehrend der Client ISO mit Z sendet — derselbe Zeitpunkt, andere Zeichenkette.
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
 
     const transactionId = 'txn-duplicate-format';
     await db.runAsync(
@@ -339,8 +337,7 @@ describe('pushOutbox — append-only Ledger', () => {
 
   it('behaelt einen 23505-Konflikt, wenn die vorhandene Ledgerzeile nicht passt', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
 
     const transactionId = 'txn-conflict';
     await db.runAsync(
@@ -406,8 +403,7 @@ describe('pushOutbox — append-only Ledger', () => {
 describe('pushOutbox — Tombstone bewahrt den letzten Bestandssnapshot', () => {
   it('sendet die letzte lokale Menge zusammen mit dem Tombstone', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
 
     await enqueueMutation(db, {
       entity: 'fridge_items',
@@ -467,8 +463,7 @@ describe('pushOutbox — Tombstone bewahrt den letzten Bestandssnapshot', () => 
 describe('pushOutbox — Retry-Abhängigkeiten', () => {
   it('stoppt nach einem transienten Artikel-Insert-Fehler vor der abhängigen Ledgerbuchung', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
 
     await enqueueMutation(db, {
       entity: 'fridge_items',
@@ -535,8 +530,7 @@ describe('pushOutbox — Retry-Abhängigkeiten', () => {
 
   it('stellt eine fällige Ledgerbuchung zurück, wenn der Artikel-Insert noch im Backoff wartet', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
 
     await enqueueMutation(db, {
       entity: 'fridge_items',
@@ -616,8 +610,7 @@ describe('pushOutbox — Retry-Abhängigkeiten', () => {
 
   it('stellt eine Ledgerbuchung auch bei einem wartenden Split-Ursprung zurück', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
 
     await enqueueMutation(db, {
       entity: 'fridge_items',
@@ -700,8 +693,7 @@ describe('pushOutbox — Retry-Abhängigkeiten', () => {
 
   it('blockiert spaetere Mutationen derselben Zeile, laesst andere Zeilen aber weiterlaufen', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
 
     await enqueueMutation(db, {
       entity: 'storage_locations',
@@ -775,8 +767,8 @@ describe('pushOutbox — Retry-Abhängigkeiten', () => {
 describe('pushOutbox — Rebase neuer lokaler Mutationen', () => {
   it('ueberschreibt keine Mutation, die waehrend des Requests hinzukommt', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
+
     await db.runAsync(
       `insert into fridge_items
        (id, household_id, name, quantity, unit, created_at, updated_at)
@@ -867,8 +859,8 @@ describe('pushOutbox — Rebase neuer lokaler Mutationen', () => {
 describe('pushOutbox — atomare Mengenänderung', () => {
   it('ruft den Delta-RPC auf und übernimmt die kanonische Bestandszeile', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
+
     await db.runAsync(
       `insert into fridge_items
        (id, household_id, name, quantity, unit, created_at, updated_at)
@@ -971,8 +963,8 @@ describe('pushOutbox — atomare Mengenänderung', () => {
 
   it('rechnet eine bestaetigte Push-Antwort in eine noch offene Folgeoperation ein (fam-onu)', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
+
     await db.runAsync(
       `insert into fridge_items
        (id, household_id, name, quantity, unit, created_at, updated_at)
@@ -1100,8 +1092,8 @@ describe('pushOutbox — atomare Mengenänderung', () => {
 
   it('haelt Folgeoperationen desselben Artikels zurueck, wenn eine vorherige im selben Batch dauerhaft scheitert', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
+
     await db.runAsync(
       `insert into fridge_items
        (id, household_id, name, quantity, unit, created_at, updated_at)
@@ -1201,8 +1193,8 @@ describe('pushOutbox — atomare Mengenänderung', () => {
 
   it('ruft für eine manuelle Korrektur den Compare-and-set-RPC auf', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
+
     await db.runAsync(
       `insert into fridge_items
        (id, household_id, name, quantity, unit, created_at, updated_at)
@@ -1298,8 +1290,8 @@ describe('pushOutbox — atomare Mengenänderung', () => {
 describe('pushOutbox — atomarer Split', () => {
   it('ruft die Split-RPC auf und uebernimmt beide kanonischen Bestandszeilen', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
+
     await db.runAsync(
       `insert into fridge_items
        (id, household_id, name, quantity, unit, created_at, updated_at)
@@ -1454,8 +1446,8 @@ describe('pushOutbox — atomarer Split', () => {
 describe('pushOutbox — atomares Split-Undo (Merge)', () => {
   it('ruft die Merge-Undo-RPC auf und uebernimmt beide kanonischen Bestandszeilen', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
+
     await db.runAsync(
       `insert into fridge_items
        (id, household_id, name, quantity, unit, created_at, updated_at, opened_at)
@@ -1605,8 +1597,8 @@ describe('pushOutbox — atomares Split-Undo (Merge)', () => {
 
   it('haelt eine Folgeoperation auf dem geoeffneten Los zurueck, wenn der Merge-Undo im selben Batch dauerhaft scheitert (fam-lem.20)', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
+
     await db.runAsync(
       `insert into fridge_items
        (id, household_id, name, quantity, unit, created_at, updated_at, opened_at)
@@ -1729,8 +1721,7 @@ describe('pushOutbox — atomares Split-Undo (Merge)', () => {
 describe('pushOutbox — Inventory-Move-Reversal', () => {
   it('erkennt die Provenienz aus der Outbox und ruft die Reversal-RPC auf', async () => {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
 
     const payload = {
       operation_id: 'move-reversal-1',

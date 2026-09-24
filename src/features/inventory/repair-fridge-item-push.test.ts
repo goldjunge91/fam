@@ -1,7 +1,9 @@
 import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 import { repairFridgeItemForeignKeyViolation } from './repair-fridge-item-push';
 
 function fakeSupabase(insertResponse: { error: { message: string; code?: string } | null }) {
@@ -22,7 +24,7 @@ describe('repairFridgeItemForeignKeyViolation', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
+    await applyLocalSchema(db);
   });
 
   afterEach(() => db.close());

@@ -173,6 +173,7 @@
     "test:dump-pipeline": "bun test scripts/dump_data/dump-sqlite-io.bun.test.ts scripts/dump_data/dump-pipeline-cli.bun.test.ts",
     "test:functions": "deno test supabase/functions --allow-env",
     "db:diff": "supabase db diff --use-pg-delta",
+    "db:dec": "supabase db schema declarative sync",
     "db:local:generate": "drizzle-kit generate --config drizzle.config.ts",
     "db:reset": "supabase db reset",
     "db:advisors": "supabase db advisors --local --type security && supabase db advisors --local --type performance",

@@ -1,17 +1,17 @@
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutations } from '@/lib/db/outbox';
 import { createInventoryMoveMutation } from '@/lib/sync/inventory-quantity';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 describe('lokale Inventory-Move-Mutation', () => {
   let db: TestDatabase;
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
   });
 
   afterEach(() => db.close());

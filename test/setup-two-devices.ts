@@ -1,10 +1,7 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
 import type { Database } from '@/lib/database.types';
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
-import { createTestDatabase, type TestDatabase } from './node-sqlite-adapter';
+import { applyLocalSchema, createTestDatabase, type TestDatabase } from './node-sqlite-adapter';
 
 /**
  * Baut zwei "Geraete" derselben Nutzerin fuer Zwei-Geraete-Tests: eigene
@@ -150,10 +147,8 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
 
   const dbA = createTestDatabase();
   const dbB = createTestDatabase();
-  await runMigrations(dbA, MIGRATIONS);
-  await runMigrations(dbB, MIGRATIONS);
-  await runDrizzleMigrations(dbA);
-  await runDrizzleMigrations(dbB);
+  await applyLocalSchema(dbA);
+  await applyLocalSchema(dbB);
 
   const teardown = async () => {
     try {

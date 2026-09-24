@@ -1,6 +1,3 @@
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import {
   deleteOutboxEntries,
   enqueueMutation,
@@ -10,7 +7,11 @@ import {
 } from '@/lib/db/outbox';
 import type { OutboxEntry } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 /**
  * Outbox-Primitiven (#46) gegen eine echte SQLite-Engine — kein Mock.
@@ -32,8 +33,7 @@ describe('enqueueMutation', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
   });
 
   afterEach(() => {
@@ -122,8 +122,7 @@ describe('loadDueOutboxEntries / deleteOutboxEntries / recordOutboxOutcome', () 
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
   });
 
   afterEach(() => {

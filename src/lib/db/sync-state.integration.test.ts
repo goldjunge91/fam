@@ -1,14 +1,16 @@
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { readSyncState, recordSyncError, writeSyncCursor } from '@/lib/db/sync-state';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 describe('sync-state', () => {
   let db: TestDatabase;
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
+    await applyLocalSchema(db);
   });
 
   afterEach(() => {

@@ -1,3 +1,5 @@
+import { drizzle as createExpoDrizzleDatabase } from 'drizzle-orm/expo-sqlite';
+import { migrate as migrateExpoDatabase } from 'drizzle-orm/expo-sqlite/migrator';
 import {
   deleteDatabaseEncryptionKey,
   getOrCreateDatabaseEncryptionKey,
@@ -6,9 +8,6 @@ import {
 } from '@/lib/db/database-encryption';
 import { createExpoDatabaseFileOps, DATABASE_FILE_NAMES } from '@/lib/db/database-files';
 import { createDrizzleDatabase, type DrizzleDatabase } from '@/lib/db/drizzle-driver';
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { ensureDatabaseBelongsTo } from '@/lib/db/ownership';
 import {
   type SerializedSqlDatabase,
@@ -18,6 +17,7 @@ import {
 import type { SqlDatabase } from '@/lib/db/types';
 import { resetOffDumpAttachment } from '@/lib/off-dump/off-dump-state';
 import { measureOperation } from '@/lib/telemetry';
+import localMigrations from '../../../drizzle/local/migrations';
 import { debugLog, debugWarn } from '../observability/debug-log';
 
 const REBUILD_HINT =
@@ -69,6 +69,19 @@ async function ensureWalJournalMode(db: SerializedSqlDatabase): Promise<void> {
   // JS-Lauf existieren. Auf einer bereits als WAL geöffneten Datei ist dieser
   // lock-sensitive Schreibzugriff nicht nötig.
   await db.execAsync('PRAGMA journal_mode = WAL');
+}
+
+// Expo empfiehlt Foreign Keys direkt nach dem Öffnen der SQLite-Verbindung
+// zu aktivieren: https://docs.expo.dev/versions/latest/sdk/sqlite/index.md
+async function ensureForeignKeys(db: SerializedSqlDatabase): Promise<void> {
+  await db.execAsync('PRAGMA foreign_keys = ON');
+}
+
+async function runLocalDrizzleMigrations(db: import('expo-sqlite').SQLiteDatabase): Promise<void> {
+  // Der offizielle Expo-Migrator arbeitet synchron auf derselben nativen
+  // Verbindung. Das passiert vor der Veröffentlichung der Connection; danach
+  // laufen alle App-Zugriffe weiterhin durch unseren serialisierten Proxy.
+  await migrateExpoDatabase(createExpoDrizzleDatabase(db), localMigrations);
 }
 
 let rawDatabase: import('expo-sqlite').SQLiteDatabase | null = null;
@@ -187,13 +200,16 @@ async function open(openId: number): Promise<DatabaseConnection> {
     // pollt: kuerzer hiesse, mitten im normalen Takt aufzugeben.
     await runStartupStep(openId, 'busy_timeout', () => db.execAsync('PRAGMA busy_timeout = 5000'));
 
+    await runStartupStep(openId, 'foreign_keys', () => ensureForeignKeys(db));
+
     // WAL muss ausserhalb jeder Transaktion gesetzt werden — innerhalb lehnt
     // SQLite den Moduswechsel ab. Deshalb hier, vor den Migrationen. Bei einer
     // bereits als WAL geöffneten Datei bleibt der lock-sensitive Wechsel aus.
     await runStartupStep(openId, 'journal_mode_wal', () => ensureWalJournalMode(db));
 
-    await runStartupStep(openId, 'legacy_migrations', () => runMigrations(db, MIGRATIONS));
-    await runStartupStep(openId, 'drizzle_migrations', () => runDrizzleMigrations(db));
+    await runStartupStep(openId, 'drizzle_migrations', () =>
+      runLocalDrizzleMigrations(openedDatabase),
+    );
     dbTrace('INIT-OK', { openId });
   } catch (error) {
     // Nie automatisch löschen: In der Datei kann eine nicht synchronisierte

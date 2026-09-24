@@ -1,11 +1,13 @@
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import {
   getFrequentProductUsage,
   type ProductUsageEntry,
   recordProductUsage,
 } from '@/lib/db/product-usage';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 /**
  * Nutzungshistorie (#79) gegen eine echte SQLite-Engine — kein Mock.
@@ -26,7 +28,7 @@ describe('product_usage', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
+    await applyLocalSchema(db);
   });
 
   afterEach(() => {

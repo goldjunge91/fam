@@ -4,6 +4,7 @@ import {
   openEncryptedDatabaseWithCutover,
 } from '@/lib/db/database-encryption';
 import { debugLog } from '@/lib/observability/debug-log';
+import localMigrations from '../../../drizzle/local/migrations';
 
 const mockExistingFiles = new Set(['fam-v2.db', 'fam-v2.db-wal']);
 const mockDeleteFile = jest.fn(async (fileName: string) => {
@@ -18,6 +19,8 @@ const mockRawDatabase = {
   prepareAsync: jest.fn(),
   closeAsync: jest.fn().mockResolvedValue(undefined),
 };
+
+const mockExpoDrizzleDatabase = {};
 
 jest.mock('expo-sqlite', () => ({
   defaultDatabaseDirectory: '/mock/sqlite',
@@ -46,9 +49,11 @@ jest.mock('@/lib/db/database-files', () => ({
   })),
 }));
 
-jest.mock('@/lib/db/migrator', () => ({ runMigrations: jest.fn().mockResolvedValue(undefined) }));
-jest.mock('@/lib/db/drizzle-migrator', () => ({
-  runDrizzleMigrations: jest.fn().mockResolvedValue(undefined),
+jest.mock('drizzle-orm/expo-sqlite', () => ({
+  drizzle: jest.fn(() => mockExpoDrizzleDatabase),
+}));
+jest.mock('drizzle-orm/expo-sqlite/migrator', () => ({
+  migrate: jest.fn().mockResolvedValue(undefined),
 }));
 jest.mock('@/lib/db/drizzle-driver', () => ({ createDrizzleDatabase: jest.fn() }));
 jest.mock('@/lib/db/ownership', () => ({
@@ -71,6 +76,10 @@ describe('database client lifecycle', () => {
     setActiveUserId('user-a');
     mockRawDatabase.getFirstAsync.mockResolvedValueOnce({ journal_mode: 'wal' });
     const db = await getDatabase();
+    const { migrate } = jest.requireMock('drizzle-orm/expo-sqlite/migrator') as {
+      migrate: jest.Mock;
+    };
+    expect(migrate).toHaveBeenCalledWith(mockExpoDrizzleDatabase, localMigrations);
     jest.mocked(debugLog).mockClear();
     await getDatabase();
     expect(
@@ -78,8 +87,9 @@ describe('database client lifecycle', () => {
         .mocked(debugLog)
         .mock.calls.filter(([message]) => message === '[DBTRACE:REQUEST-CACHED]'),
     ).toHaveLength(0);
-    expect(mockRawDatabase.execAsync.mock.calls.slice(0, 1)).toEqual([
+    expect(mockRawDatabase.execAsync.mock.calls.slice(0, 2)).toEqual([
       ['PRAGMA busy_timeout = 5000'],
+      ['PRAGMA foreign_keys = ON'],
     ]);
     mockRawDatabase.closeAsync
       .mockRejectedValueOnce(new Error('native close failed'))

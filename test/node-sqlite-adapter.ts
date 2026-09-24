@@ -1,6 +1,7 @@
 import { DatabaseSync } from 'node:sqlite';
 
 import type { SqlDatabase, SqlParam, SqlRunResult } from '@/lib/db/types';
+import localMigrations from '../drizzle/local/migrations';
 
 /**
  * Erfuellt den `SqlDatabase`-Port mit `node:sqlite` — fuer Tests.
@@ -95,6 +96,21 @@ function wrap(db: DatabaseSync, insideTransaction: boolean): SqlDatabase {
 }
 
 export type TestDatabase = SqlDatabase & { close(): void };
+
+/** Baut eine Testdatenbank aus dem generierten aktuellen Drizzle-Schema auf. */
+export async function applyLocalSchema(db: SqlDatabase): Promise<void> {
+  const migrations = Object.entries(localMigrations.migrations).sort(([left], [right]) =>
+    left.localeCompare(right),
+  );
+
+  for (const [, source] of migrations) {
+    await db.withExclusiveTransactionAsync(async (transaction) => {
+      for (const statement of source.split('--> statement-breakpoint')) {
+        if (statement.trim().length > 0) await transaction.execAsync(statement);
+      }
+    });
+  }
+}
 
 /**
  * Legt eine echte SQLite-Datenbank an — im Speicher, wenn kein Pfad angegeben

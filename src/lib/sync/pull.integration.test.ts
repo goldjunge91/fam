@@ -2,12 +2,10 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
 import { preferenceId } from '@/features/shopping-list/preferences/preference-identity.node';
 import type { Database } from '@/lib/database.types';
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { toEpochMs } from '@/lib/sync/cursor';
 import { pullHousehold } from '@/lib/sync/pull';
 import {
+  applyLocalSchema,
   countingDatabase,
   createTestDatabase,
   type TestDatabase,
@@ -117,8 +115,8 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
+
     client = makeClient();
     householdId = await signUpAndCreateHousehold(client);
   }, 30_000);
@@ -517,7 +515,7 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
 
     // "Zweites Geraet": ein komplett frischer lokaler Spiegel fuer denselben Haushalt.
     const secondDeviceDb = createTestDatabase();
-    await runMigrations(secondDeviceDb, MIGRATIONS);
+    await applyLocalSchema(secondDeviceDb);
 
     const outcomes = await pullHousehold({
       db: secondDeviceDb,

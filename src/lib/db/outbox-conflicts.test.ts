@@ -1,6 +1,3 @@
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation, recordOutboxOutcome } from '@/lib/db/outbox';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import {
@@ -8,14 +5,14 @@ import {
   createInventoryQuantityMutation,
 } from '@/lib/sync/inventory-quantity';
 
-import { createTestDatabase } from '../../../test/node-sqlite-adapter';
+import { applyLocalSchema, createTestDatabase } from '../../../test/node-sqlite-adapter';
 import { getFridgeItemConflicts } from './outbox-conflicts';
 
 describe('getFridgeItemConflicts', () => {
   async function makeDb() {
     const db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
+
     await db.runAsync(
       `insert into fridge_items
        (id, household_id, name, quantity, unit, created_at, updated_at)

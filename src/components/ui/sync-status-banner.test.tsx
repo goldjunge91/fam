@@ -7,14 +7,15 @@ import {
   SyncStatusBanner,
   type SyncStatusBannerProps,
 } from '@/components/ui/sync-status-banner';
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import * as outbox from '@/lib/db/outbox';
 import { enqueueMutation, loadDueOutboxEntries, recordOutboxOutcome } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 /**
  * `getDb` wird am `SyncBannerVisibilityProvider` injiziert (DI, kein Mock) —
@@ -58,8 +59,8 @@ async function renderBanner(
 
 async function createDb(): Promise<TestDatabase> {
   const db = createTestDatabase();
-  await runMigrations(db, MIGRATIONS);
-  await runDrizzleMigrations(db);
+  await applyLocalSchema(db);
+
   return db;
 }
 

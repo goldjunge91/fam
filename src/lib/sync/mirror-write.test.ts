@@ -1,9 +1,10 @@
-import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
-import { MIGRATIONS } from '@/lib/db/migrations';
-import { runMigrations } from '@/lib/db/migrator';
 import { toEpochMs } from '@/lib/sync/cursor';
 import { applyRemoteRow, upsertMirrorRow } from '@/lib/sync/mirror-write';
-import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
+import {
+  applyLocalSchema,
+  createTestDatabase,
+  type TestDatabase,
+} from '../../../test/node-sqlite-adapter';
 
 function storageLocationRow(overrides: Partial<Record<string, unknown>> = {}) {
   return {
@@ -24,8 +25,7 @@ describe('applyRemoteRow — bestätigte Remote-Aktualität', () => {
 
   beforeEach(async () => {
     db = createTestDatabase();
-    await runMigrations(db, MIGRATIONS);
-    await runDrizzleMigrations(db);
+    await applyLocalSchema(db);
   });
 
   afterEach(() => {

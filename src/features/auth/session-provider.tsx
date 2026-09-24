@@ -158,7 +158,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       if (authoritativeRestoredUserId) {
         activateEncryptedAccountStorage(authoritativeRestoredUserId);
       }
-      // Nutzer vor der Drizzle-Legacy-Migration im DB-Gate registrieren.
+      // Nutzer vor dem lokalen Datenbankzugriff im DB-Gate registrieren.
       setActiveUserId(authoritativeRestoredUserId);
       await migrateLegacyAccountData(authoritativeRestoredUserId);
       if (!active) return;
