@@ -56,6 +56,12 @@ describe('AccountStepForm', () => {
     await i18n.changeLanguage('de');
   });
 
+  it('zeigt keine entfernte Unterzeile als Übersetzungs-ID an', async () => {
+    await render(<AccountStepForm onNext={jest.fn()} />);
+
+    expect(screen.queryByText('auth.signUp.subtitle')).not.toBeOnTheScreen();
+  });
+
   it('bietet Apple und Google sowie beim Anmelden den Passwort-Reset an', async () => {
     await render(<AccountStepForm onNext={jest.fn()} />);
 

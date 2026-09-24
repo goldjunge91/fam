@@ -79,9 +79,6 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
           <Txt variant="title">
             {t(authMode === 'sign_up' ? 'auth.signUp.title' : 'auth.signIn.title')}
           </Txt>
-          <Txt variant="body" tone="secondary">
-            {t(authMode === 'sign_up' ? 'auth.signUp.subtitle' : 'auth.signIn.subtitle')}
-          </Txt>
 
           {session ? (
             <View style={styles.activeContainer}>
