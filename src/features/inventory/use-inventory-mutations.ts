@@ -3,9 +3,9 @@ import * as Crypto from 'expo-crypto';
 
 import { useSession } from '@/features/auth/session-provider';
 import { trackAnalyticsEvent } from '@/lib/analytics';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import type { Database } from '@/lib/database.types';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import {
   type EnqueueMutationInput,
   enqueueMutations,

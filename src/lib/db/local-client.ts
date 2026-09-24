@@ -1,13 +1,13 @@
 import { drizzle as createExpoDrizzleDatabase } from 'drizzle-orm/expo-sqlite';
 import { migrate as migrateExpoDatabase } from 'drizzle-orm/expo-sqlite/migrator';
+import { createExpoDatabaseFileOps, DATABASE_FILE_NAMES } from '@/lib/db/database-files';
+import { createDrizzleDatabase, type DrizzleDatabase } from '@/lib/db/drizzle-driver';
 import {
   deleteDatabaseEncryptionKey,
   getOrCreateDatabaseEncryptionKey,
   keyAndVerifyDatabase,
   openEncryptedDatabaseWithCutover,
-} from '@/lib/db/database-encryption';
-import { createExpoDatabaseFileOps, DATABASE_FILE_NAMES } from '@/lib/db/database-files';
-import { createDrizzleDatabase, type DrizzleDatabase } from '@/lib/db/drizzle-driver';
+} from '@/lib/db/local-database-encryption';
 import { ensureDatabaseBelongsTo } from '@/lib/db/ownership';
 import {
   type SerializedSqlDatabase,

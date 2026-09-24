@@ -19,7 +19,7 @@ import { useAddProductMutation } from '@/features/inventory/use-product-mutation
 import type { CatalogProduct } from '@/features/product-search/types';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { trackAnalyticsEvent } from '@/lib/analytics';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import {
   RECIPE_FORM_DEFAULTS,
   type RecipeFormValues,

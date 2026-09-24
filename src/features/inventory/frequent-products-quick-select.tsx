@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { Press, Txt } from '@/constants/ui';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import {
   getFrequentProductUsage,
   type ProductUsageFeature,

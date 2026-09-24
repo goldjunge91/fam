@@ -3,7 +3,7 @@ import {
   type RealtimeChannel,
   type RealtimePostgresChangesPayload,
 } from '@supabase/supabase-js';
-import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
 import { toEpochMs } from '@/lib/sync/cursor';
 import { applyRemoteRow, deleteMirrorRow } from '@/lib/sync/mirror-write';

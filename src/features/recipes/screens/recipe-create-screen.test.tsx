@@ -68,7 +68,7 @@ jest.mock('@/features/inventory/product-search-dropdown', () => ({
   ProductSearchDropdown: () => null,
 }));
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn().mockResolvedValue({
     getFirstAsync: jest.fn().mockResolvedValue(null),
     getAllAsync: jest.fn().mockResolvedValue([]),

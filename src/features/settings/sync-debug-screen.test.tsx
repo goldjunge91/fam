@@ -91,7 +91,7 @@ jest.mock('@/hooks/use-sync-status', () => ({
 
 jest.mock('@/lib/analytics', () => ({ trackAnalyticsEvent: jest.fn() }));
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn(async () => ({
     getAllAsync: mockGetAllAsync,
     runAsync: jest.fn(),

@@ -1,6 +1,6 @@
 import { enqueueMutation } from '@/lib/db/outbox';
-import { syncHousehold } from '@/lib/sync/engine';
 import { applyLocalMirrorWrite, type LocalMirrorWriteOp } from '@/lib/sync/mirror-write';
+import { syncHousehold } from '@/lib/sync/remote-sync-engine';
 import { createServerClock } from '@/lib/sync/server-clock';
 import { assertLocalSupabase, type Device, setupTwoDevices } from '../../../test/setup-two-devices';
 

@@ -1,4 +1,4 @@
-import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import type { SqlDatabase } from '@/lib/db/types';
 import { type PullOutcome, pullHousehold } from '@/lib/sync/pull';
 import { type PushResult, pushOutbox } from '@/lib/sync/push';

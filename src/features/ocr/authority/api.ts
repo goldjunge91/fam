@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import type { Database } from '@/lib/database.types';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { enqueueMutation, enqueueMutationStepsInExclusiveTransaction } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
@@ -204,7 +204,7 @@ function supabaseFor(deps: ReceiptApiDependencies): TypedSupabaseClient {
   // API-Port bleibt deshalb fuer Node-/SQLite-Integrationstests bis zum
   // tatsächlichen Online-Zugriff frei von nativen Ladezeit-Abhängigkeiten.
   const { getSupabase } =
-    require('@/lib/backend/supabase/client') as typeof import('@/lib/backend/supabase/client');
+    require('@/lib/backend/supabase/remote-client') as typeof import('@/lib/backend/supabase/remote-client');
   return getSupabase();
 }
 

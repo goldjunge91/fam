@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Image, type ImageProps } from 'expo-image';
 import { useEffect, useState } from 'react';
 import { useSession } from '@/features/auth/session-provider';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { env } from '@/lib/config/env';
 import { debugError, debugLogEvent } from '@/lib/observability/debug-log';
 

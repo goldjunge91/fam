@@ -15,7 +15,7 @@ const mockStartAccountQueryPersistence = jest.fn();
 let authStateCallback: ((event: string, session: { user: { id: string } } | null) => void) | null =
   null;
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: () => ({
     auth: {
       getSession: (...args: unknown[]) => mockGetSession(...args),
@@ -25,7 +25,7 @@ jest.mock('@/lib/backend/supabase/client', () => ({
   startSupabaseAutoRefresh: jest.fn(() => () => {}),
 }));
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   setActiveUserId: (...args: unknown[]) => mockSetActiveUserId(...args),
 }));
 
@@ -38,7 +38,7 @@ jest.mock('@/features/auth/sign-out', () => ({
   clearLocalAccountData: (...args: unknown[]) => mockClearLocalAccountData(...args),
 }));
 
-jest.mock('@/lib/storage/account-storage', () => ({
+jest.mock('@/lib/storage/local-account-storage', () => ({
   activateEncryptedAccountStorage: (...args: unknown[]) =>
     mockActivateEncryptedAccountStorage(...args),
   getRememberedLocalAccountUserId: (...args: unknown[]) =>
@@ -46,7 +46,7 @@ jest.mock('@/lib/storage/account-storage', () => ({
   rememberLocalAccountUserId: (...args: unknown[]) => mockRememberLocalAccountUserId(...args),
 }));
 
-jest.mock('@/lib/sync/account-sync-gate', () => ({
+jest.mock('@/lib/sync/remote-sync-gate', () => ({
   resumeAccountSync: (...args: unknown[]) => mockResumeAccountSync(...args),
 }));
 

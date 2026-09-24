@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 
 import { trackAnalyticsEvent } from '@/lib/analytics';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { addDays, defaultWeekPlanName, previousWeekStart } from './week';

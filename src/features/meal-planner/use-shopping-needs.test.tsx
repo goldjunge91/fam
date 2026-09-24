@@ -7,7 +7,7 @@ import { useMealPlanShoppingNeeds } from '@/features/meal-planner/use-shopping-n
 const mockDbGetAllAsync = jest.fn();
 const mockDbGetFirstAsync = jest.fn().mockResolvedValue(null);
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn().mockResolvedValue({
     getAllAsync: (...args: unknown[]) => mockDbGetAllAsync(...args),
     getFirstAsync: (...args: unknown[]) => mockDbGetFirstAsync(...args),

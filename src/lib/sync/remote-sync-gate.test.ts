@@ -3,7 +3,7 @@ import {
   registerAccountSyncStopper,
   resumeAccountSync,
   stopAccountSyncAndWait,
-} from './account-sync-gate';
+} from './remote-sync-gate';
 
 describe('account sync gate', () => {
   beforeEach(() => {

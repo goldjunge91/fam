@@ -58,7 +58,7 @@ jest.mock('@/features/inventory/use-product-mutations', () => ({
   useAddProductMutation: () => ({ mutateAsync: mockAddProductMutateAsync, isPending: false }),
 }));
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: async () => ({ getFirstAsync: mockGetFirstAsync }),
 }));
 

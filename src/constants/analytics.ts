@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 import { debugWarn } from '@/lib/observability/debug-log';
-import { getDeviceStorage } from '@/lib/storage/device-storage';
+import { getDeviceStorage } from '@/lib/storage/local-device-storage';
 
 export const analyticsConfig = {
   enabled: true,

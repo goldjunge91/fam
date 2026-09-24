@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { isOrphanedProfileError } from '@/features/profile/orphaned-profile-error';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import type { Database } from '@/lib/database.types';
 import {
   type ProfileUpdateInput,

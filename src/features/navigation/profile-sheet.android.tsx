@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import { Modal, Pressable, View } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native-unistyles';
 import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
 import { radius, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';

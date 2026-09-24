@@ -1,4 +1,4 @@
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 
 export function triggerOffEnrichment(barcode: string): void {
   try {

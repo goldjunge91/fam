@@ -13,7 +13,7 @@ import {
   subscribeAuthDeepLinkError,
 } from '@/features/auth/auth-deep-link-state';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { confirmationCodeSchema, translateAuthValidationMessage } from '@/lib/db/zod/auth.zod';
 
 interface EmailVerificationOptions {

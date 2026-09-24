@@ -1,4 +1,4 @@
-import { getEncryptedAccountStorage } from '@/lib/storage/account-storage';
+import { getEncryptedAccountStorage } from '@/lib/storage/local-account-storage';
 import type { ReceiptCaptureFileAdapter } from '../capture/contracts';
 import {
   type AppendReceiptCapturePagesInput,

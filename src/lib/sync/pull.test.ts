@@ -7,7 +7,7 @@ jest.mock('@/lib/telemetry', () => ({
   reportWarning: jest.fn(),
 }));
 
-import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import { readSyncState } from '@/lib/db/sync-state';
 import { buildOrFilter, pullHousehold } from '@/lib/sync/pull';
 import {

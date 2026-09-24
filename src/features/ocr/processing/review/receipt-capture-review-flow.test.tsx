@@ -365,7 +365,10 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     expect(capture).toHaveBeenNthCalledWith(
       2,
       expect.objectContaining({ captureId: 'capture-1', appendToExisting: true }),
-      { persistence: state.persistence },
+      expect.objectContaining({
+        persistence: state.persistence,
+        waitForParentSync: expect.any(Function),
+      }),
     );
     expect(processCapture).toHaveBeenCalledWith({
       capture: expect.objectContaining({ pages: second.pages }),

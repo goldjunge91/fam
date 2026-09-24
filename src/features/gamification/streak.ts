@@ -6,7 +6,7 @@
  */
 import { useSyncExternalStore } from 'react';
 
-import { getDeviceStorage } from '../../lib/storage/device-storage';
+import { getDeviceStorage } from '../../lib/storage/local-device-storage';
 
 const KEY = 'srf:cook-streak';
 

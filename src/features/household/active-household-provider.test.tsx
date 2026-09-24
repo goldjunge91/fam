@@ -43,7 +43,7 @@ jest.mock('@/features/auth/session-provider', () => ({
   }),
 }));
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: async () => ({
     getAllAsync: async () =>
       mockCurrentUserId ? (mockHouseholdsByUser[mockCurrentUserId] ?? []) : [],

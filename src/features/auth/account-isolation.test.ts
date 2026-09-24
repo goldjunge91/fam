@@ -21,23 +21,23 @@ const mockSetActiveUserId = jest.fn();
 const mockGetEncryptedAccountStorage = jest.fn<Promise<MMKV>, [string]>();
 const mockDeleteEncryptedAccountStorage = jest.fn<Promise<void>, [string]>();
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDrizzleDatabase: () => mockGetDrizzleDatabase(),
   deleteLocalDatabase: () => mockDeleteLocalDatabase(),
   setActiveUserId: (...args: unknown[]) => mockSetActiveUserId(...args),
 }));
 
-jest.mock('@/lib/storage/account-storage', () => ({
+jest.mock('@/lib/storage/local-account-storage', () => ({
   getEncryptedAccountStorage: (userId: string) => mockGetEncryptedAccountStorage(userId),
   deleteEncryptedAccountStorage: (userId: string) => mockDeleteEncryptedAccountStorage(userId),
   forgetLocalAccountUserId: jest.fn().mockResolvedValue(undefined),
 }));
 
-jest.mock('@/lib/sync/account-sync-gate', () => ({
+jest.mock('@/lib/sync/remote-sync-gate', () => ({
   stopAccountSyncAndWait: jest.fn().mockResolvedValue(undefined),
 }));
 
-jest.mock('@/lib/storage/account-cache-registry', () => ({
+jest.mock('@/lib/storage/local-account-cache-registry', () => ({
   resetLocalAccountModuleCaches: jest.fn(),
 }));
 

@@ -1,7 +1,7 @@
 import { onlineManager, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useSyncExternalStore } from 'react';
 
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { onOutboxChanged } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';

@@ -1,5 +1,5 @@
 import { createMMKV } from 'react-native-mmkv';
-import { getDeviceStorage } from './device-storage';
+import { getDeviceStorage } from './local-device-storage';
 
 jest.mock('react-native-mmkv', () => ({
   createMMKV: jest.fn(),

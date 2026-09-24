@@ -4,7 +4,7 @@ import type {
   RecipeComponentItemRow,
   RecipeComponentRow,
 } from '@/features/recipes/domain/nutrition';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 

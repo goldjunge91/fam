@@ -1,4 +1,4 @@
-import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import { createSupabaseReceiptAssetUploadAdapter } from './supabase-upload';
 
 jest.mock('@/lib/observability/debug-log', () => ({

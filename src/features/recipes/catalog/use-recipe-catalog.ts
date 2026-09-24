@@ -8,7 +8,7 @@ import {
   type NutritionTotal,
   type ProductNutritionRow,
 } from '@/features/recipes/domain/nutrition';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { useAddComponentMutation, useAddItemMutation } from '../hooks/use-recipe-components';
 import {
   useAddStepIngredientMutation,

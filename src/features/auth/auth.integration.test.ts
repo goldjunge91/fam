@@ -1,6 +1,11 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import type { Database } from '@/lib/database.types';
-import { createChunkedStorage, type KeyValueStore } from '@/lib/storage/chunked-storage';
+
+type SessionStorage = {
+  getItem(key: string): Promise<string | null>;
+  setItem(key: string, value: string): Promise<void>;
+  removeItem(key: string): Promise<void>;
+};
 
 /**
  * Auth gegen die Remote/Lokale Supabase-Instanz — keine Testdoubles.
@@ -42,11 +47,11 @@ async function signUpConfirmed(client: SupabaseClient<Database>, email: string, 
 }
 
 function createMemoryStore(): {
-  store: KeyValueStore;
+  store: SessionStorage;
   data: Map<string, string>;
 } {
   const data = new Map<string, string>();
-  const store: KeyValueStore = {
+  const store: SessionStorage = {
     async getItem(key) {
       return data.get(key) ?? null;
     },
@@ -68,7 +73,7 @@ describe('Auth Integration Tests', () => {
   let sharedStore: ReturnType<typeof createMemoryStore>;
   let client: SupabaseClient<Database>;
 
-  function makeClient(storage: KeyValueStore) {
+  function makeClient(storage: SessionStorage) {
     return createClient<Database>(SUPABASE_URL, SUPABASE_KEY, {
       auth: {
         storage,
@@ -90,7 +95,7 @@ describe('Auth Integration Tests', () => {
 
   beforeEach(() => {
     sharedStore = createMemoryStore();
-    client = makeClient(createChunkedStorage(sharedStore.store));
+    client = makeClient(sharedStore.store);
   });
 
   it('legt beim Registrieren automatisch ein Profil an', async () => {
@@ -111,7 +116,7 @@ describe('Auth Integration Tests', () => {
     expect(profile?.id).toBe(userId);
   }, 30_000);
 
-  it('speichert die Session durch den chunkenden Adapter und ueberlebt einen Client-Neustart', async () => {
+  it('speichert die Session und ueberlebt einen Client-Neustart', async () => {
     const email = uniqueEmail();
     const password = 'langgenug1';
 
@@ -120,7 +125,7 @@ describe('Auth Integration Tests', () => {
     const keys = [...sharedStore.data.keys()];
     expect(keys.length).toBeGreaterThan(0);
 
-    const clientAfterRestart = makeClient(createChunkedStorage(sharedStore.store));
+    const clientAfterRestart = makeClient(sharedStore.store);
     const {
       data: { session: restoredSession },
     } = await clientAfterRestart.auth.getSession();

@@ -6,7 +6,7 @@ import { Alert } from 'react-native';
 
 import { useSession } from '@/features/auth/session-provider';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 import type { Store } from '../../hooks/use-stores';
 import {

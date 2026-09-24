@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSession } from '@/features/auth/session-provider';
-import { registerLocalAccountCache } from '@/lib/storage/account-cache-registry';
+import { registerLocalAccountCache } from '@/lib/storage/local-account-cache-registry';
 import {
   listFavoriteRecipeKeys,
   toggleStoredRecipeFavorite,

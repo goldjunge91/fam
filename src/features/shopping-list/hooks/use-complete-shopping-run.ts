@@ -4,7 +4,7 @@ import { celebrate } from '@/features/gamification/celebration';
 import { recordActivity } from '@/features/gamification/streak';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 import type { Database } from '@/lib/database.types';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { type EnqueueMutationInput, enqueueMutation, enqueueMutations } from '@/lib/db/outbox';
 import { isPositiveIntegerThousandths, toInventoryQuantityUnits } from '@/lib/inventory-quantity';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';

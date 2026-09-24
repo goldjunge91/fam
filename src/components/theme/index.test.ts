@@ -5,7 +5,7 @@ import type { MMKV } from 'react-native-mmkv';
 import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles';
 
 import { Colors } from '@/components/theme/index';
-import { getDeviceStorage } from '@/lib/storage/device-storage';
+import { getDeviceStorage } from '@/lib/storage/local-device-storage';
 
 import {
   BUTTON_DEPTH,
@@ -27,7 +27,7 @@ import {
   useTheme,
 } from './ThemeProvider';
 
-jest.mock('@/lib/storage/device-storage', () => ({
+jest.mock('@/lib/storage/local-device-storage', () => ({
   getDeviceStorage: jest.fn(),
 }));
 

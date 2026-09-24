@@ -29,7 +29,7 @@ jest.mock('@/lib/analytics', () => ({ trackAnalyticsEvent: jest.fn() }));
 
 jest.mock('expo-crypto', () => ({ randomUUID: jest.fn() }));
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn().mockResolvedValue({
     getFirstAsync: (...args: unknown[]) => mockGetFirstAsync(...args),
   }),

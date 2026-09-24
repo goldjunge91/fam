@@ -5,7 +5,7 @@ import { startAccountQueryPersistence } from '@/lib/data/query-client';
 
 const mockGetEncryptedAccountStorage = jest.fn<Promise<MMKV>, [string]>();
 
-jest.mock('@/lib/storage/account-storage', () => ({
+jest.mock('@/lib/storage/local-account-storage', () => ({
   getEncryptedAccountStorage: (userId: string) => mockGetEncryptedAccountStorage(userId),
 }));
 

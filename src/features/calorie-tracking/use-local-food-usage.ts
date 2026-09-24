@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import type { MealType } from '@/features/calorie-tracking/api';
 import type { FoodHistoryEntry } from '@/features/calorie-tracking/food-history';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { getFrequentProductUsage } from '@/lib/db/product-usage';
 
 export function useLocalFoodUsage(userId: string | undefined, mealType: MealType | undefined) {

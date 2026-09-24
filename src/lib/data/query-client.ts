@@ -11,7 +11,7 @@ import {
 import * as Network from 'expo-network';
 import { AppState, type AppStateStatus, Platform } from 'react-native';
 
-import { getEncryptedAccountStorage } from '@/lib/storage/account-storage';
+import { getEncryptedAccountStorage } from '@/lib/storage/local-account-storage';
 import { reportError } from '@/lib/telemetry';
 
 const ACCOUNT_QUERY_CACHE_KEY = 'react-query-cache.v1';

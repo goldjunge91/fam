@@ -326,4 +326,4 @@ Spec.
 - `src/features/inventory/barcode-scanner-modal.tsx`
 - `src/features/product-search/product-catalog.ts`
 - `src/features/product-search/hooks/use-product-barcode-lookup.ts`
-- `src/lib/db/client.ts`
+- `src/lib/db/local-client.ts`

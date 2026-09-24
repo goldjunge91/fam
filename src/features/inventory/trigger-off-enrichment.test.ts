@@ -3,7 +3,7 @@ const mockGetSupabase = jest.fn(() => ({
   functions: { invoke: (...args: unknown[]) => mockInvoke(...args) },
 }));
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: () => mockGetSupabase(),
 }));
 

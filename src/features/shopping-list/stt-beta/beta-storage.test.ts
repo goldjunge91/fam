@@ -15,7 +15,7 @@ const mockGetEncryptedAccountStorage = jest.fn<
   [string]
 >();
 
-jest.mock('@/lib/storage/account-storage', () => ({
+jest.mock('@/lib/storage/local-account-storage', () => ({
   getEncryptedAccountStorage: (userId: string) => mockGetEncryptedAccountStorage(userId),
 }));
 

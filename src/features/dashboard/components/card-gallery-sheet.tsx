@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { withAlpha } from '@/components/theme/index';
+import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { type CardSize, getCards } from '@/features/dashboard/registry';
@@ -83,7 +83,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
             styles.sheet,
             {
               backgroundColor: colors.background,
-              paddingBottom: Math.max(insets.bottom, 24),
+              paddingBottom: Math.max(insets.bottom, space.xl),
               boxShadow: `0 -10px 30px ${withAlpha(colors.text, 0.2)}`,
             },
           ]}>
@@ -226,11 +226,11 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 28,
     borderTopRightRadius: 28,
     maxHeight: '75%',
-    paddingTop: 12,
+    paddingTop: space.md,
   },
   handleWrap: {
     alignItems: 'center',
-    paddingVertical: 6,
+    paddingVertical: space.xs,
   },
   handle: {
     width: 36,
@@ -241,54 +241,54 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 12,
+    paddingHorizontal: space.xl,
+    paddingVertical: space.md,
   },
   headerTextWrap: {
     flex: 1,
-    gap: 2,
+    gap: space.xs / 2,
   },
   doneBtn: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingHorizontal: space.lg,
+    paddingVertical: space.sm,
     borderRadius: 14,
   },
   listContent: {
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    gap: 12,
+    paddingHorizontal: space.xl,
+    paddingVertical: space.md,
+    gap: space.md,
   },
   cardRow: {
     borderRadius: 18,
     borderWidth: 1,
-    padding: 16,
-    gap: 12,
+    padding: space.lg,
+    gap: space.md,
   },
   cardHeaderRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 12,
+    gap: space.md,
   },
   cardInfo: {
     flex: 1,
-    gap: 4,
+    gap: space.xs,
   },
   toggleBtn: {
-    paddingHorizontal: 12,
-    paddingVertical: 7,
+    paddingHorizontal: space.md,
+    paddingVertical: space.sm,
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
   },
   sizeSegmentWrap: {
     flexDirection: 'row',
-    gap: 8,
-    marginTop: 4,
+    gap: space.sm,
+    marginTop: space.xs,
   },
   sizeBtn: {
     flex: 1,
-    paddingVertical: 8,
+    paddingVertical: space.sm,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',

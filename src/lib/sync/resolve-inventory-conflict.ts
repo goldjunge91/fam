@@ -1,4 +1,4 @@
-import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import { deleteOutboxEntries, enqueueMutationsInExclusiveTransaction } from '@/lib/db/outbox';
 import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';
 import type { SqlDatabase } from '@/lib/db/types';

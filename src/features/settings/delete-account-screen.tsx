@@ -8,7 +8,7 @@ import { Screen } from '@/components/layout/screen';
 import { Card } from '@/components/ui/card';
 import { Button, Txt } from '@/constants/ui';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 
 const styles = StyleSheet.create((theme) => ({
   deleteButtonContainer: {

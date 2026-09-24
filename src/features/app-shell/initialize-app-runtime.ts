@@ -7,7 +7,7 @@ import { initAptabase } from '@/lib/analytics/aptabase';
 import { markPerformance, startPerformanceSpan } from '@/lib/observability/performance';
 import { initPostHog } from '@/lib/observability/providers/posthog';
 import { initSentry } from '@/lib/observability/providers/sentry';
-import { defineBackgroundSyncTask } from '@/lib/sync/background-sync';
+import { defineBackgroundSyncTask } from '@/lib/sync/remote-background-sync';
 import QuickAddShoppingWidget from '@/widgets/quick-add-shopping-widget';
 import ShoppingListWidget from '@/widgets/shopping-list-widget';
 

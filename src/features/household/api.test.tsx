@@ -39,13 +39,13 @@ jest.mock('@/lib/analytics', () => ({
   trackAnalyticsEvent: jest.fn(),
 }));
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: async () => ({
     getAllAsync: (...args: unknown[]) => mockDbGetAllAsync(...args),
   }),
 }));
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: () => ({
     from: (...args: unknown[]) => mockFrom(...args),
     rpc: (...args: unknown[]) => mockRpc(...args),

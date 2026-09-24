@@ -3,9 +3,9 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useSession } from '@/features/auth/session-provider';
 import { householdsQueryKey } from '@/features/household/query-keys';
 import { trackAnalyticsEvent } from '@/lib/analytics';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import type { Database } from '@/lib/database.types';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 
 export { HOUSEHOLDS_QUERY_KEY, householdsQueryKey } from '@/features/household/query-keys';

@@ -1,4 +1,4 @@
-import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import {
   applyLocalSchema,
   createTestDatabase,

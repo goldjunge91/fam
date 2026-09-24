@@ -4,15 +4,15 @@ const mockGetSupabase = jest.fn();
 const mockRetryFailedOutboxEntries = jest.fn();
 const mockDebugWarn = jest.fn();
 
-jest.mock('@/lib/sync/engine', () => ({
+jest.mock('@/lib/sync/remote-sync-engine', () => ({
   syncHousehold: (...args: unknown[]) => mockSyncHousehold(...args),
 }));
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: (...args: unknown[]) => mockGetDatabase(...args),
 }));
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: (...args: unknown[]) => mockGetSupabase(...args),
 }));
 

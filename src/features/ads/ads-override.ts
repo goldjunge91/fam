@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { env } from '@/lib/config/env';
 import { debugWarn } from '@/lib/observability/debug-log';
-import { getDeviceStorage } from '@/lib/storage/device-storage';
+import { getDeviceStorage } from '@/lib/storage/local-device-storage';
 
 const STORAGE_KEY = 'dev.ads_enabled_override';
 

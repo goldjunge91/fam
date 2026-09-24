@@ -7,11 +7,11 @@ jest.mock('@/lib/sync/pull', () => ({
   pullHousehold: (...args: unknown[]) => mockPullHousehold(...args),
 }));
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: (...args: unknown[]) => mockGetDatabase(...args),
 }));
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: (...args: unknown[]) => mockGetSupabase(...args),
   serverClock: {
     serverNowMs: () => mockServerNowMs(),

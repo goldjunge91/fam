@@ -1,5 +1,5 @@
 import * as Network from 'expo-network';
-import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import { ALL_ENTITIES, metaOf } from '@/lib/db/entities';
 import {
   readSyncState,

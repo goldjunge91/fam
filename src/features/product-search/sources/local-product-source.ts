@@ -1,6 +1,6 @@
 import { parseCategoryTagsJson, toSearchTokens } from '@/features/product-search/product-parsing';
 import type { CatalogProduct, CatalogSource } from '@/features/product-search/types';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 
 /** Spalten aus der lokalen `products`-Tabelle, die ein CatalogProduct fuellen. */
 type LocalProductRow = {

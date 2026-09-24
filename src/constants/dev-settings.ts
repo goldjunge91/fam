@@ -5,7 +5,7 @@ import type { TrackingMethod } from '@/features/calorie-tracking/api';
 import type { ModulePreferences } from '@/features/settings/module-preferences';
 import { debugWarn } from '@/lib/observability/debug-log';
 import type { FeatureFlagKey } from '@/lib/observability/providers/posthog';
-import { getDeviceStorage } from '@/lib/storage/device-storage';
+import { getDeviceStorage } from '@/lib/storage/local-device-storage';
 
 /**
  * Technischer Speicher fuer lokale Entwickler-Overrides.

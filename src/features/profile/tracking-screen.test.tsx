@@ -36,7 +36,7 @@ jest.mock('@/features/calorie-tracking/api', () => ({
   useUpdateTrackingDayStartTimeMutation: jest.fn(),
 }));
 
-jest.mock('@/lib/storage/device-storage', () => ({
+jest.mock('@/lib/storage/local-device-storage', () => ({
   getDeviceStorage: () => ({
     getString: (key: string) => mockStorageData.get(key),
     remove: (key: string) => mockStorageData.delete(key),

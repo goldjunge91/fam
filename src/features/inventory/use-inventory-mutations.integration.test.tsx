@@ -27,10 +27,10 @@ jest.doMock('expo-crypto', () => ({
   randomUUID: jest.fn(() => `generated-${++mockUuidCounter}`),
 }));
 
-jest.doMock('@/lib/db/client', () => ({ getDatabase: jest.fn() }));
+jest.doMock('@/lib/db/local-client', () => ({ getDatabase: jest.fn() }));
 jest.doMock('react-native', () => ({ Platform: { OS: 'node' } }));
 
-const { getDatabase } = jest.requireMock('@/lib/db/client') as {
+const { getDatabase } = jest.requireMock('@/lib/db/local-client') as {
   getDatabase: jest.MockedFunction<() => Promise<TestDatabase>>;
 };
 const { useSession } = jest.requireMock('@/features/auth/session-provider') as {

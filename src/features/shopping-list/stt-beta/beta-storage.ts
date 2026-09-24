@@ -1,4 +1,4 @@
-import { getEncryptedAccountStorage } from '@/lib/storage/account-storage';
+import { getEncryptedAccountStorage } from '@/lib/storage/local-account-storage';
 import type {
   BetaConfirmationEvent,
   BetaLearningRule,

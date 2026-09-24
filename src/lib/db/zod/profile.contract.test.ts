@@ -36,6 +36,7 @@ describe('profile validation contracts', () => {
       expect(sql).toContain(`'${value}'`);
     }
     expect(sql).toContain('height_cm > 0 and height_cm < 300');
+    expect(sql).toContain('weight_kg > 0 and weight_kg < 700');
   });
 
   test('keeps nullable database fields clearable and optional in partial updates', () => {
@@ -46,6 +47,7 @@ describe('profile validation contracts', () => {
         birthDate: null,
         sex: null,
         heightCm: null,
+        weightKg: null,
         activityLevel: null,
         avatarUrl: null,
       }),
@@ -54,6 +56,7 @@ describe('profile validation contracts', () => {
       birthDate: null,
       sex: null,
       heightCm: null,
+      weightKg: null,
       activityLevel: null,
       avatarUrl: null,
     });

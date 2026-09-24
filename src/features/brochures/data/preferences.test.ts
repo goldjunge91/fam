@@ -1,5 +1,5 @@
 import type { MMKV } from 'react-native-mmkv';
-import { getEncryptedAccountStorage } from '@/lib/storage/account-storage';
+import { getEncryptedAccountStorage } from '@/lib/storage/local-account-storage';
 import { getBrochurePostalCode, setBrochurePostalCode } from './preferences';
 
 const mockValues = new Map<string, string>();
@@ -9,7 +9,7 @@ const mockStorage = {
   set: jest.fn((key: string, value: string) => mockValues.set(key, value)),
 } as unknown as MMKV;
 
-jest.mock('@/lib/storage/account-storage', () => ({
+jest.mock('@/lib/storage/local-account-storage', () => ({
   getEncryptedAccountStorage: jest.fn(),
 }));
 

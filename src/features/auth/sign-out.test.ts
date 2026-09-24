@@ -23,12 +23,12 @@ jest.mock('@/features/household/active-household-store', () => ({
   setStoredActiveHouseholdId: (...args: unknown[]) => mockSetStoredActiveHouseholdId(...args),
 }));
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   deleteLocalDatabase: (...args: unknown[]) => mockDeleteLocalDatabase(...args),
   setActiveUserId: jest.fn(),
 }));
 
-jest.mock('@/lib/storage/account-storage', () => ({
+jest.mock('@/lib/storage/local-account-storage', () => ({
   deleteEncryptedAccountStorage: (...args: unknown[]) => mockDeleteEncryptedAccountStorage(...args),
   forgetLocalAccountUserId: (...args: unknown[]) => mockForgetLocalAccountUserId(...args),
   getRememberedLocalAccountUserId: (...args: unknown[]) =>
@@ -40,15 +40,15 @@ jest.mock('@/lib/platform/notifications', () => ({
     mockCancelUserNotificationReminders(...args),
 }));
 
-jest.mock('@/lib/sync/account-sync-gate', () => ({
+jest.mock('@/lib/sync/remote-sync-gate', () => ({
   stopAccountSyncAndWait: (...args: unknown[]) => mockStopAccountSyncAndWait(...args),
 }));
 
-jest.mock('@/lib/storage/account-cache-registry', () => ({
+jest.mock('@/lib/storage/local-account-cache-registry', () => ({
   resetLocalAccountModuleCaches: (...args: unknown[]) => mockResetLocalAccountModuleCaches(...args),
 }));
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: () => ({
     auth: {
       getSession: (...args: unknown[]) => mockGetSession(...args),

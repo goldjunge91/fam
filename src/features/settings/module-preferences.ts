@@ -5,7 +5,7 @@
  * Werte in `profiles.module_*`.
  */
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import type { Database } from '@/lib/database.types';
 
 export type ModulePreferences = {

@@ -10,7 +10,7 @@ jest.mock('@/lib/off-dump/off-dump', () => ({
   attachOffDump: jest.fn().mockResolvedValue(true),
 }));
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: async () => ({ getAllAsync: mockGetAllAsync, getFirstAsync: mockGetFirstAsync }),
 }));
 

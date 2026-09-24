@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { MAX_RECIPE_STEP_IMAGES } from '../wizard/types';

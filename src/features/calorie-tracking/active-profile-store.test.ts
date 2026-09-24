@@ -22,7 +22,7 @@ let mockExistingChildProfiles: Set<string>;
 let mockChildProfileExistsGate: Promise<void> | null;
 let mockChildProfileExistsSpy: jest.Mock | null;
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: () => ({
     from: (table: string) => {
       if (table !== 'child_profiles') throw new Error(`unerwartete Tabelle: ${table}`);

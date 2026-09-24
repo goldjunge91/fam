@@ -18,11 +18,11 @@ jest.mock('@/lib/telemetry', () => ({
   reportError: jest.fn(),
 }));
 
-type BackgroundSyncModule = typeof import('./background-sync');
+type BackgroundSyncModule = typeof import('./remote-background-sync');
 
 function loadBackgroundSync(): BackgroundSyncModule {
   jest.resetModules();
-  return require('./background-sync') as BackgroundSyncModule;
+  return require('./remote-background-sync') as BackgroundSyncModule;
 }
 
 function getBackgroundTaskMock(): {
@@ -139,7 +139,7 @@ describe('background sync task contract', () => {
         throw new Error('native module unavailable');
       });
 
-      const backgroundSync = require('./background-sync') as BackgroundSyncModule;
+      const backgroundSync = require('./remote-background-sync') as BackgroundSyncModule;
       const operation =
         moduleName === 'expo-task-manager'
           ? () => backgroundSync.defineBackgroundSyncTask()

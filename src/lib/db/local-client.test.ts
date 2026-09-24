@@ -1,8 +1,8 @@
-import { deleteLocalDatabase, getDatabase, setActiveUserId } from '@/lib/db/client';
+import { deleteLocalDatabase, getDatabase, setActiveUserId } from '@/lib/db/local-client';
 import {
   deleteDatabaseEncryptionKey,
   openEncryptedDatabaseWithCutover,
-} from '@/lib/db/database-encryption';
+} from '@/lib/db/local-database-encryption';
 import { debugLog } from '@/lib/observability/debug-log';
 import localMigrations from '../../../drizzle/local/migrations';
 
@@ -27,7 +27,7 @@ jest.mock('expo-sqlite', () => ({
   openDatabaseAsync: jest.fn(() => Promise.resolve(mockRawDatabase)),
 }));
 
-jest.mock('@/lib/db/database-encryption', () => ({
+jest.mock('@/lib/db/local-database-encryption', () => ({
   deleteDatabaseEncryptionKey: jest.fn().mockResolvedValue(undefined),
   getOrCreateDatabaseEncryptionKey: jest.fn().mockResolvedValue('key'),
   keyAndVerifyDatabase: jest.fn().mockResolvedValue(undefined),

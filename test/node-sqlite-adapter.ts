@@ -9,8 +9,8 @@ import localMigrations from '../drizzle/local/migrations';
  * **Das ist kein Mock.** `node:sqlite` ist eine echte, eingebettete
  * SQLite-Engine; die Statements laufen tatsaechlich, Constraints greifen
  * tatsaechlich, ein Rollback dreht tatsaechlich zurueck. Dasselbe Verhaeltnis
- * wie die echte In-Memory-Map, mit der `chunked-storage.test.ts` den
- * `KeyValueStore` erfuellt. Ein Testdouble waere per CLAUDE.md ausgeschlossen —
+ * wie ein echter In-Memory-KeyValueStore den `KeyValueStore`-Port erfuellt.
+ * Ein Testdouble waere per CLAUDE.md ausgeschlossen —
  * das hier ist der Ersatz des *Treibers*, nicht der Logik.
  *
  * Noetig, weil `expo-sqlite` ein natives Modul ist und weder unter `jest-expo`

@@ -10,8 +10,8 @@ import {
   type CorrelationSeriesPoint,
 } from '@/features/glp1/domain/correlation-series';
 import { correlationSeriesQueryKey } from '@/features/glp1/domain/query-keys';
-import { getSupabase } from '@/lib/backend/supabase/client';
-import { getDatabase } from '@/lib/db/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
+import { getDatabase } from '@/lib/db/local-client';
 
 const localMedicationSchema = z.object({
   administered_at: z.string(),

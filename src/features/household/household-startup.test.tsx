@@ -15,10 +15,10 @@ let mockReconnect: () => Promise<void>;
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: { user: { id: 'user-1' } }, accountReady: true }),
 }));
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: async () => ({ getAllAsync: mockReadHouseholds }),
 }));
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: () => ({}),
   serverClock: { serverNowMs: () => null },
 }));

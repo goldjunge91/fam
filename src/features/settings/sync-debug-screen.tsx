@@ -13,7 +13,7 @@ import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-pro
 import type { CatalogProduct } from '@/features/product-search/types';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { trackAnalyticsEvent } from '@/lib/analytics';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { deleteOutboxEntries, loadOutboxHistory, type OutboxHistoryEntry } from '@/lib/db/outbox';
 import { fromInventoryQuantityUnits } from '@/lib/inventory-quantity';
 import { debugError } from '@/lib/observability/debug-log';

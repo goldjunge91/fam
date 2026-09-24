@@ -191,8 +191,8 @@ betrachtet wird.
 - src/features/inventory/use-inventory-items.ts
 - src/features/shopping-list/hooks/use-stores.ts
 - src/features/recipes/data/household-recipe-images.ts
-- src/lib/backend/supabase/client.ts
-- src/lib/db/client.ts
+- src/lib/backend/supabase/remote-client.ts
+- src/lib/db/local-client.ts
 - src/lib/db/outbox.ts
 - src/lib/db/entities.ts
 

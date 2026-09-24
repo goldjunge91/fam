@@ -3,7 +3,7 @@ import { useEffect, useMemo } from 'react';
 import { create } from 'zustand';
 
 import { useSession } from '@/features/auth/session-provider';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 
 export type ActiveProfile =
   | { type: 'adult'; userId: string }

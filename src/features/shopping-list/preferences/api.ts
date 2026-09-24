@@ -1,5 +1,5 @@
 import { parseCategoryTagsJson } from '@/features/product-search/product-parsing';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { type EnqueueMutationInput, enqueueMutations } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
 import { debugLog } from '@/lib/observability/debug-log';

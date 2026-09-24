@@ -43,6 +43,7 @@ jest.mock('@/features/profile/api', () => ({
       displayName?: string;
       birthDate?: string;
       heightCm?: number;
+      weightKg?: number;
       sex?: string;
       activityLevel?: string;
     },
@@ -62,7 +63,7 @@ jest.mock('@/lib/observability/debug-log', () => ({
   debugWarn: jest.fn(),
 }));
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: () => ({
     from: jest.fn(() => ({
       select: jest.fn(() => ({ limit: mockHouseholdLimit })),
@@ -118,6 +119,7 @@ describe('completeOnboarding', () => {
       displayName: 'Max',
       birthDate: '1990-01-01',
       heightCm: 180,
+      weightKg: 80,
       sex: 'male',
       activityLevel: 'moderate',
     });

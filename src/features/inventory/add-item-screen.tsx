@@ -39,7 +39,7 @@ import {
 } from '@/features/inventory/use-storage-locations';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { recordProductUsage } from '@/lib/db/product-usage';
 import { debugError } from '@/lib/observability/debug-log';
 import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';

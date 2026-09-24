@@ -21,7 +21,7 @@ import {
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { recordProductUsage } from '@/lib/db/product-usage';
 import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
 import { debugError, debugLog } from '@/lib/observability/debug-log';

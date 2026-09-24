@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { Control, FieldValues, UseFormReset } from 'react-hook-form';
 import { queryClient } from '@/lib/data/query-client';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import type { SqlParam } from '@/lib/db/types';
 import {
   clearPerformanceEntries,
@@ -13,7 +13,7 @@ import {
   metricPerformance,
   setPerformanceInstrumentationEnabled,
 } from '@/lib/observability/performance';
-import { getDeviceStorage } from '@/lib/storage/device-storage';
+import { getDeviceStorage } from '@/lib/storage/local-device-storage';
 import { debugWarn } from '../observability/debug-log';
 
 type RozeniteModules = {

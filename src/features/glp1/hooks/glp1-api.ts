@@ -21,7 +21,7 @@ import {
 } from '@/features/glp1/domain/query-keys';
 import { invalidateCorrelationSeries } from '@/features/glp1/hooks/invalidate-correlation';
 import type { Database } from '@/lib/database.types';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';

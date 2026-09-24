@@ -23,7 +23,7 @@ type FakeRow = {
 
 let mockRows: FakeRow[] = [];
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn(async () => ({
     getFirstAsync: jest.fn(async (sql: string, params: unknown[] = []) => {
       if (sql.includes('shopping_category_preferences where id = ?')) {

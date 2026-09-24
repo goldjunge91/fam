@@ -11,7 +11,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { CalendarDayIcon } from '@/components/icons/calendar-day-icon';
 import { FamIcon } from '@/components/icons/fam-icon';
-import { radius, withAlpha } from '@/components/theme/index';
+import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { getDrawerGroups } from '@/constants/feature-registry';
 import { Txt } from '@/constants/ui';
@@ -30,15 +30,15 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     maxWidth: 340,
-    paddingHorizontal: 20,
+    paddingHorizontal: space.xl,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 11,
-    paddingTop: 11,
-    paddingBottom: 21,
+    paddingHorizontal: space.md,
+    paddingTop: space.md,
+    paddingBottom: space.xl,
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   closeButton: {
@@ -52,22 +52,22 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   group: {
-    paddingTop: 14,
+    paddingTop: space.md,
   },
   householdGroup: {
-    marginTop: 13,
+    marginTop: space.md,
     borderTopWidth: StyleSheet.hairlineWidth,
   },
   groupTitle: {
-    paddingHorizontal: 14,
-    paddingBottom: 5,
+    paddingHorizontal: space.md,
+    paddingBottom: space.xs,
   },
   navRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 11,
+    gap: space.md,
     height: 55,
-    paddingHorizontal: 14,
+    paddingHorizontal: space.md,
     borderRadius: radius.lg,
   },
   navIcon: {
@@ -80,9 +80,9 @@ const styles = StyleSheet.create({
   manageRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 11,
+    gap: space.md,
     height: 65,
-    padding: 15,
+    padding: space.lg,
     borderRadius: radius.lg,
   },
   settingsIcon: {
@@ -139,8 +139,8 @@ export function NavigationDrawer() {
           style={[
             styles.drawer,
             {
-              paddingTop: Math.max(insets.top - 20, 27),
-              paddingBottom: Math.max(insets.bottom, 26),
+              paddingTop: Math.max(insets.top - space.xl, space.xxl),
+              paddingBottom: Math.max(insets.bottom, space.xxl),
               width: `${DRAWER_WIDTH_RATIO * 100}%`,
               // Deckender Hintergrund verhindert Durchscheinen im Header.
               backgroundColor: colors.backgroundElement,

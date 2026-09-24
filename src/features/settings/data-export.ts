@@ -1,4 +1,4 @@
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import type { Database } from '@/lib/database.types';
 
 const PAGE_SIZE = 1000;

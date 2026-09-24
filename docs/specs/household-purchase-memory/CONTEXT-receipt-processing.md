@@ -162,7 +162,7 @@ Laden:
 - `src/features/ocr/capture/domain/**`
 - `src/features/ocr/capture/api.ts`
 - `src/features/ocr/capture/capture/upload-queue.ts`
-- `src/lib/storage/account-storage.ts`
+- `src/lib/storage/local-account-storage.ts`
 - Sign-out-/Accountwechsel-Cleanup-Muster
 
 Prüfen:

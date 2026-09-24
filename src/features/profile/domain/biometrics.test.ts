@@ -11,14 +11,14 @@ describe('profile biometrics', () => {
       parseProfileBiometricsDraft({
         birthDate: '15.05.1990',
         heightCm: '178,5',
-        weightKg: '81,2',
+        weightKg: '80,2',
         sex: 'male',
         activityLevel: 'moderate',
       }),
     ).toEqual({
       birthDate: '1990-05-15',
       heightCm: 178.5,
-      weightKg: 81.2,
+      weightKg: 80.2,
       sex: 'male',
       activityLevel: 'moderate',
     });
@@ -47,7 +47,7 @@ describe('profile biometrics', () => {
       parseProfileBiometricsDraft({
         birthDate: '15.05.1990',
         heightCm: '301',
-        weightKg: '10',
+        weightKg: '',
         sex: null,
         activityLevel: null,
       }),

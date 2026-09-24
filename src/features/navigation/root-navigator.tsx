@@ -6,7 +6,7 @@ import { CrashFallback } from '@/features/app-shell/crash-fallback';
 import { useSession } from '@/features/auth/session-provider';
 import { isOnboardingSessionCompleted } from '@/features/onboarding/onboarding-completion';
 import { env } from '@/lib/config/env';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { debugLog, debugWarn } from '@/lib/observability/debug-log';
 import { initOffDump } from '@/lib/off-dump/off-dump';
 

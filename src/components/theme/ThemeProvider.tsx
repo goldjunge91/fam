@@ -20,7 +20,7 @@ import { AppState, useColorScheme } from 'react-native';
 import type { MMKV } from 'react-native-mmkv';
 import { UnistylesRuntime } from 'react-native-unistyles';
 
-import { getDeviceStorage } from '@/lib/storage/device-storage';
+import { getDeviceStorage } from '@/lib/storage/local-device-storage';
 
 import { colorsDark, colorsLight, makeAccent, type Palette } from './index';
 

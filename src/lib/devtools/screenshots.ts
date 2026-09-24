@@ -1,6 +1,6 @@
 import { File, Paths } from 'expo-file-system';
 import type { Href } from 'expo-router';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import type { SqlDatabase } from '@/lib/db/types';
 import { debugError, debugInfo, debugLog, debugWarn } from '@/lib/observability/debug-log';
 

@@ -1,4 +1,4 @@
-import { getEncryptedAccountStorage } from '@/lib/storage/account-storage';
+import { getEncryptedAccountStorage } from '@/lib/storage/local-account-storage';
 
 export type NameCorrection = { original: string; corrected: string };
 export const NAME_CORRECTIONS_KEY = 'natural-language-addition-name-corrections.v1';

@@ -1,4 +1,4 @@
-import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import { enqueueMutation, recordOutboxOutcome } from '@/lib/db/outbox';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import {

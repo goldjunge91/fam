@@ -4,7 +4,7 @@ import {
   profileFoodRulesQueryKey,
   saveProfileFoodRules,
 } from '@/features/profile/food-rules-api';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 
 const mockMaybeSingle = jest.fn();
 const mockEq = jest.fn();
@@ -12,7 +12,7 @@ const mockSelect = jest.fn();
 const mockUpsert = jest.fn();
 const mockFrom = jest.fn();
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: jest.fn(),
 }));
 

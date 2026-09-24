@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
-import { getSupabase } from '@/lib/backend/supabase/client';
-import { getDatabase } from '@/lib/db/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
+import { getDatabase } from '@/lib/db/local-client';
 import { debugError, debugLog } from '@/lib/observability/debug-log';
 import { reportError } from '@/lib/telemetry';
 import { type BrochureDump, writeBrochureDump } from '../brochure-sync';

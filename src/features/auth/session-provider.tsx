@@ -1,16 +1,16 @@
 import type { Session } from '@supabase/supabase-js';
 import { createContext, type ReactNode, use, useCallback, useEffect, useState } from 'react';
 import { hasSeenOnboarding } from '@/features/onboarding/onboarding-completion';
-import { getSupabase, startSupabaseAutoRefresh } from '@/lib/backend/supabase/client';
+import { getSupabase, startSupabaseAutoRefresh } from '@/lib/backend/supabase/remote-client';
 import { queryClient, startAccountQueryPersistence } from '@/lib/data/query-client';
-import { setActiveUserId } from '@/lib/db/client';
+import { setActiveUserId } from '@/lib/db/local-client';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 import {
   activateEncryptedAccountStorage,
   getRememberedLocalAccountUserId,
   rememberLocalAccountUserId,
-} from '@/lib/storage/account-storage';
-import { resumeAccountSync } from '@/lib/sync/account-sync-gate';
+} from '@/lib/storage/local-account-storage';
+import { resumeAccountSync } from '@/lib/sync/remote-sync-gate';
 import {
   addDiagnosticStep,
   measureOperation,
@@ -96,7 +96,6 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    // Session und Onboarding-Flag parallel lesen — beides wird benoetigt, bevor die Splash-Screen ausgeblendet wird.
     const handleInitializationFailure = (error: Error): void => {
       if (!active) return;
       setActiveUserId(null);
@@ -117,6 +116,11 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       }));
     };
 
+    // `getSession()` stellt den lokal gespeicherten Snapshot wieder her und
+    // macht beim Offline-Start keine Serverbestätigung. Hier dient seine ID
+    // ausschließlich der lokalen Account-Zuordnung; Remote-Zugriffe werden
+    // weiterhin durch Supabase Auth und RLS autorisiert. Session und
+    // Onboarding-Flag werden parallel gelesen, bevor der Splash-Screen endet.
     const initialization = measureOperation('auth.session.restore', () =>
       Promise.all([supabase.auth.getSession(), hasSeenOnboarding()]),
     ).then(async ([{ data, error }, seenOnboarding]) => {
@@ -130,44 +134,44 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         });
         throw error;
       }
-      const restoredUserId = data.session?.user.id ?? null;
+      const restoredLocalUserId = data.session?.user.id ?? null;
       const rememberedUserId = await getRememberedLocalAccountUserId();
       if (!active) return;
-      const authoritativeRestoredUserId =
-        latestAuthEventUserId === undefined || latestAuthEventUserId === restoredUserId
-          ? restoredUserId
+      const restoredLocalAccountUserId =
+        latestAuthEventUserId === undefined || latestAuthEventUserId === restoredLocalUserId
+          ? restoredLocalUserId
           : null;
-      const staleRestoredUserId =
-        latestAuthEventUserId !== undefined && latestAuthEventUserId !== restoredUserId
-          ? restoredUserId
+      const staleSnapshotUserId =
+        latestAuthEventUserId !== undefined && latestAuthEventUserId !== restoredLocalUserId
+          ? restoredLocalUserId
           : null;
 
       const localUserIdToClear =
         rememberedUserId &&
-        rememberedUserId !== authoritativeRestoredUserId &&
+        rememberedUserId !== restoredLocalAccountUserId &&
         rememberedUserId !== latestAuthEventUserId
           ? rememberedUserId
-          : staleRestoredUserId;
+          : staleSnapshotUserId;
       if (localUserIdToClear) {
         setActiveUserId(null);
         await clearLocalAccountData(queryClient, localUserIdToClear);
         if (!active) return;
       }
 
-      if (authoritativeRestoredUserId) {
-        activateEncryptedAccountStorage(authoritativeRestoredUserId);
+      if (restoredLocalAccountUserId) {
+        activateEncryptedAccountStorage(restoredLocalAccountUserId);
       }
       // Nutzer vor dem lokalen Datenbankzugriff im DB-Gate registrieren.
-      setActiveUserId(authoritativeRestoredUserId);
+      setActiveUserId(restoredLocalAccountUserId);
       if (!active) return;
 
-      currentUserId = authoritativeRestoredUserId;
-      setTelemetryUserId(authoritativeRestoredUserId);
-      if (authoritativeRestoredUserId) {
-        await rememberLocalAccountUserId(authoritativeRestoredUserId);
+      currentUserId = restoredLocalAccountUserId;
+      setTelemetryUserId(restoredLocalAccountUserId);
+      if (restoredLocalAccountUserId) {
+        await rememberLocalAccountUserId(restoredLocalAccountUserId);
         const stopPersistence = await startAccountQueryPersistence(
           queryClient,
-          authoritativeRestoredUserId,
+          restoredLocalAccountUserId,
         );
         if (!active) {
           stopPersistence();

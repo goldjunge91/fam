@@ -7,7 +7,7 @@ import { persistOnboardingCompleted } from '@/features/onboarding/onboarding-com
 import { updateProfile } from '@/features/profile/api';
 import { saveModulePreferences } from '@/features/settings/module-preferences';
 import { trackAnalyticsEvent } from '@/lib/analytics';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { debugWarn } from '@/lib/observability/debug-log';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 import type {
@@ -83,6 +83,7 @@ export function useOnboarding() {
         displayName: state.profile.displayName,
         birthDate: state.profile.birthDate,
         heightCm: state.profile.heightCm,
+        weightKg: state.profile.weightKg,
         sex: state.profile.sex,
         activityLevel: state.profile.activityLevel,
       };

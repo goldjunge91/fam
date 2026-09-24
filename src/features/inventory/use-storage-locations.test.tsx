@@ -11,7 +11,7 @@ import { enqueueMutation } from '@/lib/db/outbox';
 const mockDbRunAsync = jest.fn().mockResolvedValue({ changes: 1, lastInsertRowId: 1 });
 const mockDbGetAllAsync = jest.fn().mockResolvedValue([]);
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn().mockResolvedValue({
     runAsync: (...args: unknown[]) => mockDbRunAsync(...args),
     getAllAsync: (...args: unknown[]) => mockDbGetAllAsync(...args),

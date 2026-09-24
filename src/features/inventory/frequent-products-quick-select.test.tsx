@@ -7,7 +7,7 @@ import type { ProductUsageRow } from '@/lib/db/product-usage';
 const mockGetFrequentProductUsage = jest.fn<Promise<ProductUsageRow[]>, unknown[]>();
 let activeTestTrees: (() => Promise<void>)[] = [];
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: async () => ({}),
 }));
 

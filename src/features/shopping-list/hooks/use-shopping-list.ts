@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-
-import { getDatabase } from '@/lib/db/client';
 import { parseJsonArray } from '@/lib/db/json-array';
+import { getDatabase } from '@/lib/db/local-client';
 import {
   categoryLabelForId,
   effectiveSortOrder,

@@ -7,7 +7,7 @@ import {
 import { act, renderHook, waitFor } from '@testing-library/react-native';
 import * as Crypto from 'expo-crypto';
 import React from 'react';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import {
@@ -44,7 +44,7 @@ jest.mock('expo-crypto', () => ({
   randomUUID: jest.fn(),
 }));
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn(),
 }));
 

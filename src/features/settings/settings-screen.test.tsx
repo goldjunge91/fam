@@ -8,7 +8,7 @@ import { i18n } from '@/i18n';
 
 const mockLanguageValues = new Map<string, string>();
 
-jest.mock('@/lib/storage/device-storage', () => ({
+jest.mock('@/lib/storage/local-device-storage', () => ({
   getDeviceStorage: () => ({
     getString: (key: string) => mockLanguageValues.get(key),
     set: (key: string, value: string) => mockLanguageValues.set(key, value),

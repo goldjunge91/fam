@@ -2,7 +2,7 @@ import { getLocales } from 'expo-localization';
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import { getDeviceStorage } from '@/lib/storage/device-storage';
+import { getDeviceStorage } from '@/lib/storage/local-device-storage';
 import authDe from './features/auth.de.json';
 import authEn from './features/auth.en.json';
 import commonDe from './features/common.de.json';

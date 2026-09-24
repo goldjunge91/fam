@@ -11,7 +11,7 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { describeSyncStatus } from '@/features/settings/sync-status-text';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { trackAnalyticsEvent } from '@/lib/analytics';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { syncRunHasErrors, triggerHouseholdSync } from '@/lib/sync/sync-runner';
 
 const styles = StyleSheet.create((theme) => ({

@@ -7,7 +7,7 @@ import {
   getEncryptedAccountStorage,
   getRememberedLocalAccountUserId,
   rememberLocalAccountUserId,
-} from './account-storage';
+} from './local-account-storage';
 
 const mockDigestString = jest.fn();
 const mockRandomBytes = jest.fn();

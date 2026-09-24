@@ -8,7 +8,7 @@ jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: mockUserId ? { user: { id: mockUserId } } : null }),
 }));
 jest.mock('@/lib/config/env', () => ({ env: { supabaseUrl: 'https://example.supabase.co' } }));
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: () => ({ storage: { from: () => ({ createSignedUrl: mockSign }) } }),
 }));
 const reference =

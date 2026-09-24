@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { debugWarn } from '@/lib/observability/debug-log';
-import { getDeviceStorage } from '@/lib/storage/device-storage';
+import { getDeviceStorage } from '@/lib/storage/local-device-storage';
 
 const STORAGE_KEY = 'dev.force_premium_override';
 const STORAGE_KEY_AI = 'dev.force_ai_override';

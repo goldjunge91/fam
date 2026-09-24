@@ -9,7 +9,7 @@ jest.mock('@/lib/telemetry', () => ({
   reportWarning: jest.fn(),
 }));
 
-import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import { toEpochMs } from '@/lib/sync/cursor';
 import { upsertMirrorRow } from '@/lib/sync/mirror-write';
 import { type RealtimeSubscribeState, subscribeHouseholdRealtime } from '@/lib/sync/realtime';

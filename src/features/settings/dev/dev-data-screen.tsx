@@ -8,7 +8,7 @@ import { Card } from '@/components/ui/card';
 import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { describeDatabaseOwnership } from '@/features/settings/dev/dev-info';
-import { deleteLocalDatabase, getDatabase } from '@/lib/db/client';
+import { deleteLocalDatabase, getDatabase } from '@/lib/db/local-client';
 import {
   checkOffDumpIntegrity,
   forceRefreshOffDump,

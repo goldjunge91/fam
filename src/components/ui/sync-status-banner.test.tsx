@@ -21,7 +21,7 @@ import {
  * `getDb` wird am `SyncBannerVisibilityProvider` injiziert (DI, kein Mock) —
  * jeder Test rendert die echte Komponente gegen eine echte node:sqlite-DB.
  * `expo-sqlite` selbst wird hier nie geladen: `getDatabase` aus
- * `@/lib/db/client` (der einzige Ort, der es laedt) wird per `getDb`-Prop
+ * `@/lib/db/local-client` (der einzige Ort, der es laedt) wird per `getDb`-Prop
  * ueberschrieben, bevor er je aufgerufen werden koennte.
  *
  * `useSyncStatus` braucht einen `QueryClientProvider` — jeder Test bekommt

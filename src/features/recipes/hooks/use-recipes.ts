@@ -11,8 +11,8 @@ import type {
 } from '@/features/recipes/hooks/use-recipe-components';
 import type { RecipeStep, RecipeStepImage } from '@/features/recipes/hooks/use-recipe-steps';
 import { trackAnalyticsEvent } from '@/lib/analytics';
-import { getDatabase } from '@/lib/db/client';
 import { parseJsonArray } from '@/lib/db/json-array';
+import { getDatabase } from '@/lib/db/local-client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import type { DietaryTag, Difficulty, DishType } from '../wizard/recipe-metadata-options';

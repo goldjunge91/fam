@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { borderWidth, font, space } from '@/components/theme/index';
 
 import { FoodSearchScreen } from '@/features/calorie-tracking/food-search-screen';
 
@@ -121,6 +122,16 @@ beforeEach(() => {
 });
 
 describe('FoodSearchScreen', () => {
+  it('zeigt den Barcode-Button in Suchfeldhöhe mit sichtbarem Rahmen', async () => {
+    await renderScreen();
+
+    expect(screen.getByRole('button', { name: 'Barcode scannen' })).toHaveStyle({
+      height: font.lineHeights.body + space.md * 2 + borderWidth.strong * 2,
+      minHeight: font.lineHeights.body + space.md * 2 + borderWidth.strong * 2,
+      borderWidth: 2,
+    });
+  });
+
   it('zeigt zuletzt geloggte Lebensmittel dedupliziert, wenn die Suche leer ist', async () => {
     await renderScreen();
     expect(screen.getAllByText('Apfel')).toHaveLength(1);

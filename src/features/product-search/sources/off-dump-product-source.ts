@@ -4,7 +4,7 @@ import {
   toSearchTokens,
 } from '@/features/product-search/product-parsing';
 import type { CatalogProduct, CatalogSource } from '@/features/product-search/types';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { debugError, debugLogEvent } from '@/lib/observability/debug-log';
 import { attachOffDump } from '@/lib/off-dump/off-dump';
 

@@ -1,6 +1,6 @@
 import { and, eq, not } from 'drizzle-orm';
 
-import { getDrizzleDatabase } from '@/lib/db/client';
+import { getDrizzleDatabase } from '@/lib/db/local-client';
 import { localRecipePreferences } from '@/lib/db/schemas';
 
 export type LocalRecipeRating = {

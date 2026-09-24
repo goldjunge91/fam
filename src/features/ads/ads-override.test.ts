@@ -2,7 +2,7 @@ import { getAdsEnabled, useAdsOverrideStore } from './ads-override';
 
 const mockStorageData = new Map<string, string>();
 
-jest.mock('@/lib/storage/device-storage', () => ({
+jest.mock('@/lib/storage/local-device-storage', () => ({
   getDeviceStorage: () => ({
     getString: (key: string) => mockStorageData.get(key),
     remove: (key: string) => mockStorageData.delete(key),

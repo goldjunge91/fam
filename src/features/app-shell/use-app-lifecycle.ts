@@ -8,7 +8,7 @@ import {
   metricPerformance,
 } from '@/lib/observability/performance';
 import { navigationIntegration } from '@/lib/observability/providers/sentry';
-import { registerBackgroundSync } from '@/lib/sync/background-sync';
+import { registerBackgroundSync } from '@/lib/sync/remote-background-sync';
 import { addDiagnosticStep, reportError, trackEvent } from '@/lib/telemetry';
 import { startSessionDiagnostics } from '@/lib/telemetry/session-diagnostics';
 

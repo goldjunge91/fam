@@ -14,7 +14,7 @@ import {
   requireActual,
 } from 'react-native-harness';
 
-import { deleteLocalDatabase, getDatabase, setActiveUserId } from '@/lib/db/client';
+import { deleteLocalDatabase, getDatabase, setActiveUserId } from '@/lib/db/local-client';
 import type { SqlDatabase } from '@/lib/db/types';
 import {
   ACTOR_ID,

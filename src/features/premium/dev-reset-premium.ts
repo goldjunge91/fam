@@ -5,8 +5,8 @@ import {
   useForceAiOverrideStore,
   useForcePremiumOverrideStore,
 } from '@/features/premium/force-premium-override';
-import { getSupabase } from '@/lib/backend/supabase/client';
-import { getDatabase } from '@/lib/db/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
+import { getDatabase } from '@/lib/db/local-client';
 import { debugWarn } from '@/lib/observability/debug-log';
 
 export interface DevResetHouseholdPremiumOptions {

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Linking, Pressable, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
@@ -288,8 +289,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
-    padding: 16,
-    paddingBottom: 40,
+    padding: space.lg,
+    paddingBottom: space.xxxl,
   },
   loadingContainer: {
     flex: 1,
@@ -300,8 +301,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 28,
-    gap: 12,
+    padding: space.xxl,
+    gap: space.md,
   },
   locationTitle: {
     marginBottom: 0,
@@ -314,30 +315,30 @@ const styles = StyleSheet.create({
     minHeight: 44,
     justifyContent: 'center',
     borderRadius: 10,
-    paddingHorizontal: 18,
+    paddingHorizontal: space.xl,
   },
   postalCode: {},
   postalCodeRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
-    marginBottom: 16,
+    gap: space.md,
+    marginBottom: space.lg,
   },
   postalCodeEditRow: {
-    marginBottom: 16,
+    marginBottom: space.lg,
   },
   section: {
-    marginBottom: 24,
+    marginBottom: space.xl,
   },
   sectionTitle: {
-    marginBottom: 12,
+    marginBottom: space.md,
   },
   favoritesScroll: {
     flexDirection: 'row',
   },
   favoriteStore: {
     alignItems: 'center',
-    marginRight: 16,
+    marginRight: space.lg,
     width: 72,
   },
   storeLogo: {
@@ -345,7 +346,7 @@ const styles = StyleSheet.create({
     height: 64,
     borderRadius: 32,
     borderWidth: 1,
-    marginBottom: 8,
+    marginBottom: space.sm,
   },
   storeLogoPlaceholder: {
     width: 64,
@@ -354,7 +355,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: space.sm,
   },
   storeInitials: {},
   storeName: {
@@ -369,7 +370,7 @@ const styles = StyleSheet.create({
     width: '48%',
     borderWidth: 1,
     borderRadius: 12,
-    marginBottom: 16,
+    marginBottom: space.lg,
     overflow: 'hidden',
   },
   brochureCover: {
@@ -377,24 +378,24 @@ const styles = StyleSheet.create({
     aspectRatio: 3 / 4,
   },
   brochureInfo: {
-    padding: 12,
+    padding: space.md,
   },
   brochureTitle: {
-    marginBottom: 4,
+    marginBottom: space.xs,
   },
   brochureDate: {},
   filterRow: {
-    gap: 8,
-    paddingBottom: 14,
+    gap: space.sm,
+    paddingBottom: space.md,
   },
   filterChip: {
     minHeight: 34,
     justifyContent: 'center',
-    paddingHorizontal: 12,
+    paddingHorizontal: space.md,
     borderWidth: 1,
     borderRadius: 10,
   },
   emptyText: {
-    paddingVertical: 24,
+    paddingVertical: space.xl,
   },
 });

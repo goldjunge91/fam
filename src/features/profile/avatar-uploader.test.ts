@@ -27,7 +27,7 @@ jest.mock('@/lib/observability/debug-log', () => ({
   debugLogEvent: jest.fn(),
 }));
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: () => ({
     auth: { getUser: mockGetUser },
     storage: { from: mockFrom },

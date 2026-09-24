@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { getEncryptedAccountStorage } from '@/lib/storage/account-storage';
+import { getEncryptedAccountStorage } from '@/lib/storage/local-account-storage';
 
 const SHOW_PRICE_IN_MARKET_VIEW_KEY = 'shopping-list.show-price-in-market-view';
 export const DEFAULT_SHOW_PRICE_IN_MARKET_VIEW = false;

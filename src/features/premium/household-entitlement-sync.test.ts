@@ -1,8 +1,8 @@
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 import { pollHouseholdUntilEntitlementActive } from './household-entitlement-sync';
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn(),
 }));
 

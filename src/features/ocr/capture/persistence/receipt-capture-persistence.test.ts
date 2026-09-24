@@ -6,7 +6,7 @@ import {
 } from './receipt-capture-persistence';
 
 const mockGetEncryptedAccountStorage = jest.fn();
-jest.mock('@/lib/storage/account-storage', () => ({
+jest.mock('@/lib/storage/local-account-storage', () => ({
   getEncryptedAccountStorage: (accountId: string) => mockGetEncryptedAccountStorage(accountId),
 }));
 

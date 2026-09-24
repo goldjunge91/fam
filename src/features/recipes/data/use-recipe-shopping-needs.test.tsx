@@ -11,7 +11,7 @@ import type { RecipeDetail } from '@/features/recipes/hooks/use-recipes';
 const mockDbGetAllAsync = jest.fn();
 const mockDbGetFirstAsync = jest.fn().mockResolvedValue(null);
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn().mockResolvedValue({
     getAllAsync: (...args: unknown[]) => mockDbGetAllAsync(...args),
     getFirstAsync: (...args: unknown[]) => mockDbGetFirstAsync(...args),

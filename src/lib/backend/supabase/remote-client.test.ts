@@ -29,7 +29,7 @@ jest.mock('expo-secure-store', () => ({
 const mockExpoFetch = jest.fn();
 jest.mock('expo/fetch', () => ({ fetch: (...args: unknown[]) => mockExpoFetch(...args) }));
 
-import { getSupabase, startSupabaseAutoRefresh } from '@/lib/backend/supabase/client';
+import { getSupabase, startSupabaseAutoRefresh } from '@/lib/backend/supabase/remote-client';
 
 describe('Supabase Native Lifecycle', () => {
   let appStateListener: ((state: AppStateStatus) => void) | undefined;
@@ -54,7 +54,7 @@ describe('Supabase Native Lifecycle', () => {
     jest.resetModules();
     // eslint-disable-next-line @typescript-eslint/no-require-imports -- jest.resetModules verlangt require statt dynamic import
     const { getSupabase: freshGetSupabase } =
-      require('@/lib/backend/supabase/client') as typeof import('@/lib/backend/supabase/client');
+      require('@/lib/backend/supabase/remote-client') as typeof import('@/lib/backend/supabase/remote-client');
     freshGetSupabase();
 
     const options = mockCreateClient.mock.calls[0]?.[2] as { global?: { fetch?: unknown } };

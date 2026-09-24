@@ -81,7 +81,7 @@ jest.mock('../preferences/api', () => ({
 // `getDatabase()`-Aufruf mit "NativeDatabase is not a constructor" und
 // leakt in ein spaeteres Test-Timing-Fenster (nicht Teil dieses Formulars,
 // nichts, was #223 Paket 8 hier aendert).
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn().mockResolvedValue({
     getAllAsync: jest.fn().mockResolvedValue([]),
     getFirstAsync: jest.fn().mockResolvedValue(null),

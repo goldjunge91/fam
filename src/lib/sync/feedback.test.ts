@@ -3,7 +3,7 @@ import {
   categoryFeedbackMutation,
   pruneOldSyncedFeedbackEvents,
 } from '@/features/shopping-list/preferences/feedback';
-import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyRemoteRow, upsertMirrorRow } from '@/lib/sync/mirror-write';
 import { pullHousehold } from '@/lib/sync/pull';

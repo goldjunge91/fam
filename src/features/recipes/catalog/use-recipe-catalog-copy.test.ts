@@ -36,7 +36,7 @@ jest.mock('@/features/recipes/hooks/use-recipes', () => ({
   useUpdateRecipeMutation: () => ({ mutateAsync: jest.fn() }),
 }));
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: () => ({
     storage: {
       from: () => ({ copy: mockStorageCopy }),

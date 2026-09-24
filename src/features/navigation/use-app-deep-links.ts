@@ -6,7 +6,7 @@ import {
   parseAuthTokensFromUrl,
 } from '@/features/auth/domain/auth-deep-link';
 import { savePendingInviteToken } from '@/features/auth/pending-invite';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { debugError, debugWarn } from '@/lib/observability/debug-log';
 import { reportError, reportWarning } from '@/lib/telemetry';
 

@@ -62,6 +62,24 @@ flowchart TB
   UI -->|Rezeptbilder| Storage
 ```
 
+### Native Auth-Session-Speicher
+
+Supabase Auth verwendet auf iOS und Android `LocalSupabaseSessionStorage` als eigenen
+Storage-Adapter. Die Session wird mit AES-256-GCM verschlüsselt und als
+Ciphertext in AsyncStorage abgelegt. Der kleine Verschlüsselungsschlüssel liegt
+separat im SecureStore unter `WHEN_UNLOCKED_THIS_DEVICE_ONLY`:
+
+- Die Session selbst liegt nie im Klartext in AsyncStorage.
+- Der Schlüssel ist erst nach Geräteentsperrung verfügbar und wird nicht auf
+  ein anderes Gerät migriert.
+- AES-GCM erkennt manipulierte oder beschädigte Sessiondaten.
+- `requireAuthentication` wird nicht verwendet, weil jeder Auth-Zugriff sonst
+  eine zusätzliche biometrische beziehungsweise Geräteauthentifizierung
+  auslösen könnte.
+
+Im Web verwendet Supabase mangels SecureStore weiterhin den Browser-Storage;
+der verschlüsselte `LocalSupabaseSessionStorage`-Pfad ist nativ.
+
 ---
 
 ## 2. Datentrennungs- & RLS-Sicherheitsmodell

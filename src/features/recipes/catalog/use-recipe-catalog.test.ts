@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, renderHook, waitFor } from '@testing-library/react-native';
 import { createElement, type ReactNode } from 'react';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import {
   CATALOG_RECIPE_PAGE_SIZE,
   getCatalogImageReference,
@@ -18,7 +18,7 @@ const mockRecipeIlike = jest.fn();
 const mockImageIn = jest.fn();
 const mockImageOrder = jest.fn();
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: jest.fn(),
 }));
 

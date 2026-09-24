@@ -60,6 +60,12 @@ export const profileUpdateSchema = z.object({
     .lt(300, 'Bitte gib die Größe in Zentimetern an.')
     .nullable()
     .optional(),
+  weightKg: z
+    .number()
+    .positive('Das Gewicht muss größer als 0 sein.')
+    .lt(700, 'Bitte gib ein Gewicht unter 700 kg an.')
+    .nullable()
+    .optional(),
   activityLevel: z.enum(ACTIVITY_LEVEL_VALUES).nullable().optional(),
   avatarUrl: z.url().nullable().optional(),
 });
@@ -87,6 +93,7 @@ export function toProfileDatabaseUpdate(input: ProfileUpdate): ProfileDatabaseUp
     ...(input.birthDate !== undefined && { birth_date: input.birthDate }),
     ...(input.sex !== undefined && { sex: input.sex }),
     ...(input.heightCm !== undefined && { height_cm: input.heightCm }),
+    ...(input.weightKg !== undefined && { weight_kg: input.weightKg }),
     ...(input.activityLevel !== undefined && { activity_level: input.activityLevel }),
     ...(input.avatarUrl !== undefined && { avatar_url: input.avatarUrl }),
   };

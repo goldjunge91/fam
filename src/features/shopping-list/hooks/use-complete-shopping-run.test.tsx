@@ -15,7 +15,7 @@ jest.mock('expo-crypto', () => ({
 const mockDbGetAllAsync = jest.fn().mockResolvedValue([]);
 const mockDbRunAsync = jest.fn().mockResolvedValue({ changes: 1, lastInsertRowId: 1 });
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn().mockResolvedValue({
     getAllAsync: (...args: unknown[]) => mockDbGetAllAsync(...args),
     runAsync: (...args: unknown[]) => mockDbRunAsync(...args),

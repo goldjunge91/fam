@@ -1,4 +1,4 @@
-import { getDrizzleDatabase } from '@/lib/db/client';
+import { getDrizzleDatabase } from '@/lib/db/local-client';
 import {
   listFavoriteRecipeKeys,
   readStoredRecipeRating,
@@ -7,7 +7,7 @@ import {
   writeStoredRecipeRating,
 } from './recipe-preferences-repository';
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDrizzleDatabase: jest.fn(),
 }));
 

@@ -3,7 +3,7 @@ import { createLocalProductSource } from '@/features/product-search/sources/loca
 const mockGetAllAsync = jest.fn();
 const mockGetFirstAsync = jest.fn();
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: async () => ({ getAllAsync: mockGetAllAsync, getFirstAsync: mockGetFirstAsync }),
 }));
 

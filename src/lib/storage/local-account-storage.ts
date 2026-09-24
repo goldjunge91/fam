@@ -1,10 +1,15 @@
 import { CryptoDigestAlgorithm, digestStringAsync, getRandomBytesAsync } from 'expo-crypto';
 import * as SecureStore from 'expo-secure-store';
+import { Platform } from 'react-native';
 import type { MMKV } from 'react-native-mmkv';
 
 const STORAGE_VERSION = 'v1';
 const LAST_ACCOUNT_USER_ID_KEY = `fam.local-account-user.${STORAGE_VERSION}`;
 const ENCRYPTION_KEY_ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
+const ACCOUNT_KEY_OPTIONS: SecureStore.SecureStoreOptions =
+  Platform.OS === 'ios'
+    ? { keychainAccessible: SecureStore.AFTER_FIRST_UNLOCK_THIS_DEVICE_ONLY }
+    : {};
 
 type PendingStorage = { generation: number; promise: Promise<MMKV> };
 
@@ -83,9 +88,7 @@ async function createAccountStorage(
   if (!encryptionKey) {
     encryptionKey = await createEncryptionKey();
     assertStorageOpenIsCurrent(userId, generation);
-    await SecureStore.setItemAsync(secureStoreKey, encryptionKey, {
-      keychainAccessible: SecureStore.AFTER_FIRST_UNLOCK_THIS_DEVICE_ONLY,
-    });
+    await SecureStore.setItemAsync(secureStoreKey, encryptionKey, ACCOUNT_KEY_OPTIONS);
     assertStorageOpenIsCurrent(userId, generation);
   }
 
@@ -197,9 +200,7 @@ export async function rememberLocalAccountUserId(userId: string): Promise<void> 
     throw new Error('Für den lokalen Account-Besitzer ist eine userId erforderlich.');
   }
 
-  await SecureStore.setItemAsync(LAST_ACCOUNT_USER_ID_KEY, normalizedUserId, {
-    keychainAccessible: SecureStore.AFTER_FIRST_UNLOCK_THIS_DEVICE_ONLY,
-  });
+  await SecureStore.setItemAsync(LAST_ACCOUNT_USER_ID_KEY, normalizedUserId, ACCOUNT_KEY_OPTIONS);
 }
 
 export async function getRememberedLocalAccountUserId(): Promise<string | null> {

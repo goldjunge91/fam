@@ -5,7 +5,7 @@ import {
   computeMissingIngredients,
   stockInGrams,
 } from '@/features/meal-planner/shopping-needs';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { fromInventoryQuantityUnits } from '@/lib/inventory-quantity';
 
 import type { RecipeDetail } from '../hooks/use-recipes';

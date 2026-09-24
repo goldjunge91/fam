@@ -1,5 +1,5 @@
 import type { CatalogProduct } from '@/features/product-search/types';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { triggerOffEnrichment } from './trigger-off-enrichment';
 import type { useAddProductMutation } from './use-product-mutations';
 

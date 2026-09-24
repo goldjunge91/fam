@@ -1,8 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { renderHook, waitFor } from '@testing-library/react-native';
 import React from 'react';
-import { getSupabase } from '@/lib/backend/supabase/client';
-import { getDatabase } from '@/lib/db/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
+import { getDatabase } from '@/lib/db/local-client';
 import { correlationSeriesQueryKey, useCorrelationSeries } from './correlation-api';
 
 const mockGetAllAsync = jest.fn();
@@ -10,11 +10,11 @@ const mockFrom = jest.fn();
 let foodQuery: ReturnType<typeof remoteQuery>;
 let weightQuery: ReturnType<typeof remoteQuery>;
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn(),
 }));
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: jest.fn(),
 }));
 

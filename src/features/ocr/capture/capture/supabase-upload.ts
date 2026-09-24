@@ -1,4 +1,4 @@
-import type { TypedSupabaseClient } from '@/lib/backend/supabase/client';
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 import { RECEIPT_ASSET_BUCKET } from './constants';
 import type { ReceiptAssetUploadAdapter, ReceiptAssetUploadInput } from './contracts';
@@ -10,7 +10,7 @@ import {
 
 function supabaseClient(): TypedSupabaseClient {
   const { getSupabase } =
-    require('@/lib/backend/supabase/client') as typeof import('@/lib/backend/supabase/client');
+    require('@/lib/backend/supabase/remote-client') as typeof import('@/lib/backend/supabase/remote-client');
   return getSupabase();
 }
 

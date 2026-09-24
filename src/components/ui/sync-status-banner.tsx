@@ -6,7 +6,7 @@ import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useSyncStatus } from '@/hooks/use-sync-status';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { SqlDatabase } from '@/lib/db/types';
 import type { SyncStatusView } from '@/lib/sync/sync-status';

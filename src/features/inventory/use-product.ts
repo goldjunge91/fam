@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 
 export type LocalProduct = {
   id: string;

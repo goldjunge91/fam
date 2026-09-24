@@ -1,6 +1,6 @@
 import type { QueryClient } from '@tanstack/react-query';
 import { queryClient as defaultQueryClient } from '@/lib/data/query-client';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { debugWarn } from '@/lib/observability/debug-log';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 import type { PaywallTier } from './types';

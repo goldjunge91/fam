@@ -38,7 +38,7 @@ jest.mock('@/features/auth/session-provider', () => ({ useSession: () => mockSes
 jest.mock('@/features/onboarding/onboarding-completion', () => ({
   isOnboardingSessionCompleted: () => mockOnboardingSessionCompleted,
 }));
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: (...args: unknown[]) => mockGetDatabase(...args),
 }));
 jest.mock('@/lib/off-dump/off-dump', () => ({

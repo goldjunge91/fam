@@ -278,7 +278,7 @@ Abfrage ersetzen. Ein fehlender Parent oder fehlgeschlagener Sync lässt die
 lokalen Bondaten und Bilddateien für einen späteren Versuch bestehen.
 
 Der einzige Bildtransport ist `Uint8Array` über `supabase.storage.upload()`
-und das zentrale `expo/fetch` in `src/lib/backend/supabase/client.ts`.
+und das zentrale `expo/fetch` in `src/lib/backend/supabase/remote-client.ts`.
 Begrenzte Wiederholungen bei vorübergehenden Transportfehlern verwenden
 denselben Transport. Keine direkten Storage-REST- oder Body-Fallbacks.
 Die native Transportprüfung verlangt Erfolg für jede geprüfte Dateigröße.

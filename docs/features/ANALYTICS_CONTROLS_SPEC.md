@@ -101,7 +101,7 @@ src/constants/analytics.ts                 # Standardkonfiguration
 src/lib/telemetry/                          # zentrale Policy und Gating-Logik
 src/lib/analytics/                          # Provider-Adapter
 src/features/settings/dev/                 # Anzeige und Overrides im Dev-Menü
-src/lib/storage/device-storage.ts          # lokale Persistenz der Overrides
+src/lib/storage/local-device-storage.ts          # lokale Persistenz der Overrides
 docs/features/ANALYTICS_CONTROLS_SPEC.md   # diese Spezifikation
 ```
 

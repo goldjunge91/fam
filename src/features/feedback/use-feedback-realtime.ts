@@ -3,7 +3,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
 
 import { myTicketsQueryKey, ticketMessagesQueryKey, ticketQueryKey } from '@/features/feedback/api';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 
 type FeedbackTicketRow = { id: string; status: string; user_id: string };
 type FeedbackMessageRow = { id: string; ticket_id: string; author_type: string };

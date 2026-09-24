@@ -1,14 +1,14 @@
+import type { DatabaseFileOps } from '@/lib/db/database-files';
 import {
   type CipherDatabase,
   createDatabaseKeyManager,
   type DatabaseEncryptionCutoverDependencies,
+  type KeyValueStore,
   keyAndVerifyDatabase,
   migratePlaintextDatabase,
   openEncryptedDatabaseWithCutover,
   toSqlCipherKeyPragma,
-} from '@/lib/db/database-encryption';
-import type { DatabaseFileOps } from '@/lib/db/database-files';
-import type { KeyValueStore } from '@/lib/storage/chunked-storage';
+} from '@/lib/db/local-database-encryption';
 
 jest.mock('@/lib/telemetry', () => ({ addDiagnosticStep: jest.fn() }));
 

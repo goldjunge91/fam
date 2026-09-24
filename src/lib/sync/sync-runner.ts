@@ -7,17 +7,17 @@ import {
   medicationLogsRootQueryKey,
   symptomLogsRootQueryKey,
 } from '@/features/glp1/domain/query-keys';
-import { getSupabase, serverClock } from '@/lib/backend/supabase/client';
-import { getDatabase } from '@/lib/db/client';
+import { getSupabase, serverClock } from '@/lib/backend/supabase/remote-client';
+import { getDatabase } from '@/lib/db/local-client';
 import { onOutboxChanged } from '@/lib/db/outbox';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { Entity } from '@/lib/db/types';
 import { startPerformanceSpan } from '@/lib/observability/performance';
-import { beginAccountSyncRun, registerAccountSyncStopper } from '@/lib/sync/account-sync-gate';
-import { setBackgroundSyncHandler } from '@/lib/sync/background-sync';
-import { type SyncRunResult, syncHousehold } from '@/lib/sync/engine';
 import { startNetworkReconnectTrigger } from '@/lib/sync/network-trigger';
 import { type RealtimeSubscribeState, subscribeHouseholdRealtime } from '@/lib/sync/realtime';
+import { setBackgroundSyncHandler } from '@/lib/sync/remote-background-sync';
+import { type SyncRunResult, syncHousehold } from '@/lib/sync/remote-sync-engine';
+import { beginAccountSyncRun, registerAccountSyncStopper } from '@/lib/sync/remote-sync-gate';
 import { addDiagnosticStep, reportError, trackEvent } from '@/lib/telemetry';
 import { debugWarn } from '../observability/debug-log';
 
@@ -410,7 +410,7 @@ export function useRealtimeSync(householdId: string | undefined) {
   // damit die Task, egal wann sie vom OS geweckt wird, immer den aktuell
   // aktiven Haushalt kennt. Kein Haushalt (z.B. waehrend Onboarding) →
   // Handler auf null: die Task bleibt registriert und tut beim naechsten
-  // Aufwachen einfach nichts (siehe background-sync.ts Kommentar).
+  // Aufwachen einfach nichts (siehe remote-background-sync.ts Kommentar).
   //
   // Bewusst ohne `queryClient`: Diese Task laeuft vom OS angestossen, ohne
   // dass der React-Baum (und damit der QueryClientProvider) sicher lebt. Die
