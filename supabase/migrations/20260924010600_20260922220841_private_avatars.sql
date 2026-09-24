@@ -1,3 +1,10 @@
+-- `storage.buckets.public` wird von pg-delta nicht als deklaratives
+-- Schemaobjekt erfasst. Die Seed-Datei setzt den lokalen Zustand, diese
+-- Ausnahme-Migration setzt denselben Zustand auf dem verlinkten Projekt.
+update storage.buckets
+set public = false
+where id = 'avatars';
+
 DROP POLICY "avatars_select" ON "storage"."objects";
 
 CREATE POLICY "avatars_select" ON "storage"."objects"
