@@ -1,7 +1,8 @@
-import { render, screen, userEvent } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import type React from 'react';
 import { useForm } from 'react-hook-form';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { colorsLight } from '@/components/theme';
 import { RecipeWizardStepBasics } from '@/features/recipes/wizard/recipe-wizard-step-basics';
 import { RecipeWizardStepPreview } from '@/features/recipes/wizard/recipe-wizard-step-preview';
 import { RecipeWizardStepSteps } from '@/features/recipes/wizard/recipe-wizard-step-steps';
@@ -13,6 +14,24 @@ jest.mock('@/features/recipes/data/household-recipe-images', () => ({
   useRecipeStepImageUrl: (path: string | null) => ({
     data: path ? `https://example.com/${path}` : null,
   }),
+}));
+
+jest.mock('@/features/product-search/hooks/use-product-search', () => ({
+  useProductSearch: () => ({
+    results: [],
+    searching: false,
+    loadingMore: false,
+    failed: false,
+    hasMore: false,
+    searched: false,
+    loadMore: jest.fn(),
+    searchOnline: jest.fn(),
+    retry: jest.fn(),
+  }),
+}));
+
+jest.mock('@/features/product-search/preferred-market', () => ({
+  usePreferredProductMarketName: () => null,
 }));
 
 describe('Recipe Wizard Steps', () => {
@@ -119,6 +138,53 @@ describe('Recipe Wizard Steps', () => {
       await user.press(nextBtn);
 
       expect(onNext).toHaveBeenCalled();
+    });
+
+    it('zeigt den Akzent-Rahmen für Gruppenname, Zutatensuche und Menge bei Fokus', async () => {
+      function IngredientsHarness() {
+        const { control } = useForm<RecipeFormValues>({ defaultValues: RECIPE_FORM_DEFAULTS });
+
+        return (
+          <RecipeWizardStepBasics
+            mode="ingredients"
+            control={control}
+            coverPreviewUri={null}
+            onPickCover={jest.fn()}
+            components={dummyComponents}
+            onAddIngredient={jest.fn()}
+            onRemoveIngredient={jest.fn()}
+            onSelectProduct={jest.fn()}
+            onUpdateIngredientQuery={jest.fn()}
+            onUpdateQuantity={jest.fn()}
+            onUpdateUnit={jest.fn()}
+            onAddComponentGroup={jest.fn()}
+            onUpdateComponentTitle={jest.fn()}
+            onRemoveComponentGroup={jest.fn()}
+            saving={false}
+            onNext={jest.fn()}
+            onCancel={jest.fn()}
+          />
+        );
+      }
+
+      await renderWithProviders(<IngredientsHarness />);
+
+      const groupTitle = screen.getByPlaceholderText('Gruppenname, z. B. Für den Teig');
+      const ingredientSearch = screen.getByPlaceholderText('Zutat suchen…');
+      const quantity = screen.getByPlaceholderText('Menge');
+
+      expect(groupTitle).toHaveStyle({ borderColor: colorsLight.border });
+      expect(ingredientSearch).toHaveStyle({ borderColor: colorsLight.border });
+      expect(quantity).toHaveStyle({ borderColor: colorsLight.border });
+
+      await fireEvent(groupTitle, 'focus');
+      expect(groupTitle).toHaveStyle({ borderColor: colorsLight.accent });
+
+      await fireEvent(ingredientSearch, 'focus');
+      expect(ingredientSearch).toHaveStyle({ borderColor: colorsLight.accent });
+
+      await fireEvent(quantity, 'focus');
+      expect(quantity).toHaveStyle({ borderColor: colorsLight.accent });
     });
   });
 

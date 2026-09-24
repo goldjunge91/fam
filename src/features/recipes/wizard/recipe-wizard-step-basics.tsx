@@ -1,4 +1,5 @@
 import { Image } from 'expo-image';
+import { useState } from 'react';
 import { type Control, Controller, useWatch } from 'react-hook-form';
 import { TextInput, TouchableOpacity, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
@@ -55,6 +56,13 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.sm,
     minHeight: rs(44),
     paddingHorizontal: rs(24),
+  },
+  focusableField: {
+    borderWidth: theme.borderWidth.strong,
+    borderColor: theme.border,
+  },
+  focusedField: {
+    borderColor: theme.accent,
   },
   descriptionField: {
     height: rs(76),
@@ -209,6 +217,7 @@ export function RecipeWizardStepBasics({
   onNext,
 }: RecipeWizardStepBasicsProps) {
   const { colors } = useTheme();
+  const [focusedField, setFocusedField] = useState<string | null>(null);
   const title = useWatch({ control, name: 'title' });
   const fieldStyle = {
     backgroundColor: colors.backgroundElement,
@@ -523,8 +532,17 @@ export function RecipeWizardStepBasics({
               style={[styles.componentGroup, { backgroundColor: colors.backgroundElement }]}>
               <View style={styles.componentHeader}>
                 <TextInput
-                  style={[styles.field, styles.componentTitle, fieldStyle, { fontWeight: '700' }]}
+                  style={[
+                    styles.field,
+                    styles.focusableField,
+                    focusedField === `component-title-${comp.id}` && styles.focusedField,
+                    styles.componentTitle,
+                    fieldStyle,
+                    { fontWeight: '700' },
+                  ]}
                   value={comp.title}
+                  onFocus={() => setFocusedField(`component-title-${comp.id}`)}
+                  onBlur={() => setFocusedField(null)}
                   onChangeText={(val) => onUpdateComponentTitle(comp.id, val)}
                   placeholder="Gruppenname, z. B. Für den Teig"
                   placeholderTextColor={colors.textSecondary}
@@ -553,8 +571,16 @@ export function RecipeWizardStepBasics({
                   />
                   <View style={styles.ingredientFields}>
                     <TextInput
-                      style={[styles.field, styles.ingredientInput, fieldStyle]}
+                      style={[
+                        styles.field,
+                        styles.focusableField,
+                        focusedField === `quantity-${comp.id}-${item.id}` && styles.focusedField,
+                        styles.ingredientInput,
+                        fieldStyle,
+                      ]}
                       value={item.quantity}
+                      onFocus={() => setFocusedField(`quantity-${comp.id}-${item.id}`)}
+                      onBlur={() => setFocusedField(null)}
                       onChangeText={(val) => onUpdateQuantity(comp.id, item.id, val)}
                       placeholder="Menge"
                       placeholderTextColor={colors.textSecondary}
