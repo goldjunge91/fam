@@ -201,6 +201,7 @@ export const font = {
   display: 'System',
   body: 'System',
   sizes: {
+    micro: rs(9),
     xs: rs(12),
     sm: rs(13),
     base: rs(16),

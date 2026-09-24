@@ -8,7 +8,7 @@ import ReorderableList, {
 } from 'react-native-reorderable-list';
 import Svg, { Path } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
-import { rs } from '@/components/theme/index';
+import { font, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 import { StepMentionText } from '@/features/recipes/components/step-mention-text';
@@ -99,7 +99,7 @@ const styles = StyleSheet.create((theme) => ({
     minHeight: rs(132),
     paddingHorizontal: rs(24),
     paddingVertical: rs(16),
-    fontSize: 15,
+    fontSize: font.sizes.sm,
     lineHeight: 21,
   },
   mentionPanel: {
@@ -147,7 +147,7 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.md,
     paddingHorizontal: rs(24),
     paddingVertical: theme.space.sm,
-    fontSize: 15,
+    fontSize: font.sizes.sm,
     lineHeight: 21,
   },
   screen: {

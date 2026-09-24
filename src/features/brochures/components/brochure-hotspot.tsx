@@ -10,7 +10,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
-import { withAlpha } from '@/components/theme/index';
+import { font, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import type { Hotspot } from '../types';
@@ -113,7 +113,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 8,
   },
-  linkoutArrow: { fontSize: 16, fontWeight: '800', lineHeight: 18, textAlign: 'center' },
+  linkoutArrow: {
+    fontSize: font.sizes.base,
+    fontWeight: '800',
+    lineHeight: 18,
+    textAlign: 'center',
+  },
   activeBorder: {
     ...StyleSheet.absoluteFill,
     borderWidth: 2,

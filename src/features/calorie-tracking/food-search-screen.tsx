@@ -1,6 +1,7 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
+import { font } from '@/components/theme/index';
 import { Press, Txt } from '@/constants/ui';
 import type { MealType } from '@/features/calorie-tracking/api';
 import type { FoodHistoryEntry } from '@/features/calorie-tracking/food-history';
@@ -70,7 +71,7 @@ export function FoodSearchScreen() {
         onPress={() => goToDetail({})}
         accessibilityRole="button"
         style={styles.quickEntryButton}>
-        <Txt variant="body" style={{ fontSize: 18 }}>
+        <Txt variant="body" style={{ fontSize: font.sizes.lg }}>
           🍽️
         </Txt>
         <Txt variant="body" weight="700">

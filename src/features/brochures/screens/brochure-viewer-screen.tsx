@@ -13,7 +13,7 @@ import {
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { withAlpha } from '@/components/theme/index';
+import { font, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -509,7 +509,7 @@ const styles = StyleSheet.create({
   },
   productCopy: { flex: 1, gap: 2 },
   sheetDiscount: { borderRadius: 8, paddingHorizontal: 8, paddingVertical: 5 },
-  sheetDiscountText: { fontSize: 12, fontWeight: '800' },
+  sheetDiscountText: { fontSize: font.sizes.xs, fontWeight: '800' },
   productPreviewImage: { width: 248, height: 300, alignSelf: 'center', borderRadius: 4 },
   productCrop: { alignSelf: 'center', overflow: 'hidden', borderRadius: 4 },
   sheetClose: {
@@ -523,7 +523,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     zIndex: 2,
   },
-  sheetCloseText: { fontSize: 38, fontWeight: '300', lineHeight: 42 },
+  sheetCloseText: { fontSize: font.sizes.xxl, fontWeight: '300', lineHeight: 42 },
   actionRow: { flexDirection: 'row', gap: 12 },
   stepper: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12 },
   stepperButton: { width: 42, minHeight: 48, justifyContent: 'center', alignItems: 'center' },

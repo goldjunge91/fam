@@ -5,7 +5,7 @@ import { TextInput, TouchableOpacity, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
-import { rs } from '@/components/theme/index';
+import { font, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
@@ -222,7 +222,7 @@ export function RecipeWizardStepBasics({
   const fieldStyle = {
     backgroundColor: colors.backgroundElement,
     color: colors.text,
-    fontSize: 14,
+    fontSize: font.sizes.sm,
     lineHeight: 20,
   } as const;
 

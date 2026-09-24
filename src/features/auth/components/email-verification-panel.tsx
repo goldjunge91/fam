@@ -42,7 +42,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   pendingTitle: {
     // Preserve the existing verification heading's intentionally tall line box.
-    fontSize: 18,
+    fontSize: theme.font.sizes.lg,
     lineHeight: 44,
   },
   iconGlyph: {

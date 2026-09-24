@@ -14,7 +14,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { FilterIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { rs, space } from '@/components/theme/index';
+import { font, rs, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { MenuButton } from '@/components/ui/menu-button';
@@ -582,7 +582,7 @@ export function RecipesScreen() {
             autoFocus
             style={[
               styles.searchInput,
-              { color: colors.text, fontSize: 14, lineHeight: 20, fontWeight: '500' },
+              { color: colors.text, fontSize: font.sizes.sm, lineHeight: 20, fontWeight: '500' },
             ]}
           />
         </View>

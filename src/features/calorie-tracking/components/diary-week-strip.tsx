@@ -49,7 +49,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingTop: theme.space.xs,
   },
   dayLabel: {
-    fontSize: 9,
+    fontSize: theme.font.sizes.micro,
     lineHeight: 12,
   },
   barTrack: {

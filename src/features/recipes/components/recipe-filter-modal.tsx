@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { PageHeader } from '@/components/layout/page-header';
-import { rs } from '@/components/theme/index';
+import { font, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Press, SectionHeading, Txt } from '@/constants/ui';
 import { CalorieCarousel } from '@/features/recipes/components/calorie-carousel';
@@ -68,7 +68,7 @@ const styles = StyleSheet.create((theme) => ({
     borderWidth: 1,
   },
   mealEmoji: {
-    fontSize: rs(22),
+    fontSize: font.sizes.lg,
     lineHeight: rs(26),
   },
   tagRow: {

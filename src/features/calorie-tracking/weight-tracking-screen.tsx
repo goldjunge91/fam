@@ -61,7 +61,7 @@ const styles = StyleSheet.create((theme) => ({
     backgroundColor: theme.accent,
   },
   chartDate: {
-    fontSize: 9,
+    fontSize: theme.font.sizes.micro,
     lineHeight: 12,
   },
   chartScale: {

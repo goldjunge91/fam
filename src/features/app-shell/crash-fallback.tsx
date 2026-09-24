@@ -1,5 +1,6 @@
 import { Pressable, Text, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { font } from '@/components/theme/index';
 
 /** Provider-unabhängiger Fallback für Fehler aus dem gesamten App-Baum. */
 export function CrashFallback({ resetError }: { resetError: () => void }) {
@@ -25,11 +26,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#F8F4EF',
     gap: 12,
   },
-  title: { fontSize: 17, fontWeight: '600', color: '#2D2830' },
-  body: { fontSize: 14, color: '#2D2830', textAlign: 'center' },
+  title: { fontSize: font.sizes.md, fontWeight: '600', color: '#2D2830' },
+  body: { fontSize: font.sizes.sm, color: '#2D2830', textAlign: 'center' },
   button: { marginTop: 12, paddingHorizontal: 20, paddingVertical: 10 },
   buttonText: {
-    fontSize: 15,
+    fontSize: font.sizes.sm,
     fontWeight: '600',
     color: '#2D2830',
     textDecorationLine: 'underline',

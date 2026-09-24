@@ -200,7 +200,7 @@ export function FoodSearchDropdown({
           accessibilityRole="button"
           accessibilityLabel="Barcode scannen"
           style={styles.scanButton}>
-          <Txt variant="body" style={{ fontSize: 20 }}>
+          <Txt variant="body" style={{ fontSize: font.sizes.lg }}>
             📷
           </Txt>
         </Pressable>
@@ -306,7 +306,7 @@ function ProductRow({ product, onPress }: { product: CatalogProduct; onPress: ()
         />
       ) : (
         <View style={styles.rowImagePlaceholder}>
-          <Txt variant="body" style={{ fontSize: 16 }}>
+          <Txt variant="body" style={{ fontSize: font.sizes.base }}>
             🥫
           </Txt>
         </View>
@@ -330,7 +330,7 @@ function HistoryRow({ entry, onPress }: { entry: FoodHistoryEntry; onPress: () =
   return (
     <Pressable onPress={onPress} style={styles.row}>
       <View style={styles.rowImagePlaceholder}>
-        <Txt variant="body" style={{ fontSize: 16 }}>
+        <Txt variant="body" style={{ fontSize: font.sizes.base }}>
           🥫
         </Txt>
       </View>
