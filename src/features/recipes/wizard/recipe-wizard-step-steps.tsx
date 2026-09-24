@@ -23,6 +23,11 @@ import {
   mentionedIngredientIds,
 } from '@/features/recipes/domain/ingredient-mentions';
 import {
+  createStepImageMarker,
+  removeStepImageMarker,
+  stripStepImageMarkers,
+} from '@/features/recipes/domain/step-image-markers';
+import {
   type IngredientComponentGroup,
   MAX_RECIPE_STEP_IMAGES,
   type WizardStepItem,
@@ -333,6 +338,7 @@ const StepCard = memo(function StepCard({
   const drag = useReorderableDrag();
   const { colors } = useTheme();
   const autocomplete = pendingAutocomplete(step.text, ingredients);
+  const [selection, setSelection] = useState({ start: step.text.length, end: step.text.length });
 
   function handleChangeText(text: string) {
     onUpdateStep(step.id, { text, ingredientIds: mentionedIngredientIds(text, ingredients) });
@@ -343,6 +349,33 @@ const StepCard = memo(function StepCard({
     if (!pending) return;
     const triggerPos = step.text.length - 1 - pending.query.length;
     handleChangeText(`${step.text.slice(0, triggerPos)}@${ingredient.name}`);
+  }
+
+  function insertImageMarker(imageIndex: number) {
+    const start = Math.min(selection.start, step.text.length);
+    const end = Math.min(Math.max(selection.end, start), step.text.length);
+    const marker = createStepImageMarker(imageIndex);
+    const text = `${step.text.slice(0, start)}${marker}${step.text.slice(end)}`;
+    handleChangeText(text);
+    setSelection({ start: start + marker.length, end: start + marker.length });
+  }
+
+  function removeImage(imageIndex: number) {
+    const text = removeStepImageMarker(step.text, imageIndex);
+    onUpdateStep(step.id, {
+      text,
+      ingredientIds: mentionedIngredientIds(text, ingredients),
+      existingImages:
+        imageIndex < step.existingImages.length
+          ? step.existingImages.filter((_, index) => index !== imageIndex)
+          : step.existingImages,
+      localImageUris:
+        imageIndex >= step.existingImages.length
+          ? step.localImageUris.filter(
+              (_, index) => index !== imageIndex - step.existingImages.length,
+            )
+          : step.localImageUris,
+    });
   }
 
   return (
@@ -381,6 +414,7 @@ const StepCard = memo(function StepCard({
           style={[styles.editor, { backgroundColor: colors.background, color: colors.text }]}
           value={step.text}
           onChangeText={handleChangeText}
+          onSelectionChange={({ nativeEvent }) => setSelection(nativeEvent.selection)}
           placeholder={`Was ist in Schritt ${index + 1} zu tun? Zutat mit @ einfügen, z. B. @Wurst50`}
           placeholderTextColor={colors.textSecondary}
           multiline
@@ -417,7 +451,7 @@ const StepCard = memo(function StepCard({
 
       {step.text.trim() ? (
         <StepMentionText
-          text={step.text}
+          text={stripStepImageMarkers(step.text)}
           ingredients={ingredients}
           variant="caption"
           tone="secondary"
@@ -431,28 +465,24 @@ const StepCard = memo(function StepCard({
             <StepImage
               key={image.id ?? image.storagePath}
               path={image.storagePath}
+              imageIndex={imageIndex}
+              onInsert={() => insertImageMarker(imageIndex)}
               testID={imageIndex === 0 ? `recipe-step-image-${step.id}` : undefined}
-              onRemove={() =>
-                onUpdateStep(step.id, {
-                  existingImages: step.existingImages.filter((_, index) => index !== imageIndex),
-                })
-              }
+              onRemove={() => removeImage(imageIndex)}
             />
           ))}
           {step.localImageUris.map((uri, imageIndex) => (
             <StepImage
               key={uri}
               uri={uri}
+              imageIndex={step.existingImages.length + imageIndex}
+              onInsert={() => insertImageMarker(step.existingImages.length + imageIndex)}
               testID={
                 step.existingImages.length === 0 && imageIndex === 0
                   ? `recipe-step-image-${step.id}`
                   : undefined
               }
-              onRemove={() =>
-                onUpdateStep(step.id, {
-                  localImageUris: step.localImageUris.filter((_, index) => index !== imageIndex),
-                })
-              }
+              onRemove={() => removeImage(step.existingImages.length + imageIndex)}
             />
           ))}
         </View>
@@ -476,11 +506,15 @@ const StepCard = memo(function StepCard({
 function StepImage({
   path,
   uri,
+  imageIndex,
+  onInsert,
   testID,
   onRemove,
 }: {
   path?: string;
   uri?: string;
+  imageIndex: number;
+  onInsert: () => void;
   testID?: string;
   onRemove: () => void;
 }) {
@@ -496,6 +530,11 @@ function StepImage({
         style={styles.stepImage}
         contentFit="cover"
       />
+      <TouchableOpacity style={styles.inlineLink} onPress={onInsert}>
+        <Txt variant="label" tone="primary" weight="600">
+          Bild {imageIndex + 1} im Text einfügen
+        </Txt>
+      </TouchableOpacity>
       <TouchableOpacity style={styles.inlineLink} onPress={onRemove}>
         <Txt variant="label" tone="primary" weight="600">
           Bild entfernen

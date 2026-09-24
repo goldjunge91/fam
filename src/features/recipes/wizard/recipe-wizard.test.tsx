@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import type React from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { colorsLight } from '@/components/theme';
@@ -226,6 +227,28 @@ describe('Recipe Wizard Steps', () => {
 
       expect(screen.getByTestId('recipe-step-image-step-existing-image')).toBeOnTheScreen();
     });
+
+    it('fügt ein Bild an der aktuellen Textposition ein', async () => {
+      const user = userEvent.setup();
+
+      function StepsHarness() {
+        const [steps, setSteps] = useState([existingImageStep]);
+        return (
+          <RecipeWizardStepSteps
+            steps={steps}
+            onStepsChange={setSteps}
+            components={dummyComponents}
+            onBack={jest.fn()}
+            onNext={jest.fn()}
+          />
+        );
+      }
+
+      await renderWithProviders(<StepsHarness />);
+      await user.press(screen.getByText('Bild 1 im Text einfügen'));
+
+      expect(screen.getByDisplayValue('Zwiebeln schneiden[[Bild 1]]')).toBeOnTheScreen();
+    });
   });
 
   describe('RecipeWizardStepPreview', () => {
@@ -285,6 +308,34 @@ describe('Recipe Wizard Steps', () => {
 
       await user.press(screen.getByRole('tab', { name: 'Anleitung' }));
       expect(screen.getByTestId('recipe-preview-step-image-step-existing-image')).toBeOnTheScreen();
+    });
+
+    it('rendert ein Bild an der im Schritttext gesetzten Position', async () => {
+      const user = userEvent.setup();
+
+      await renderWithProviders(
+        <RecipeWizardStepPreview
+          coverPreviewUri={null}
+          title="Linsensuppe"
+          description="Klassische Linsensuppe"
+          cookTimeMinutes="30"
+          defaultServings={4}
+          difficulty="easy"
+          dishTypes={['dinner']}
+          dietaryTags={['vegan']}
+          hashtagsInput="#suppe #vegan"
+          components={dummyComponents}
+          steps={[{ ...existingImageStep, text: 'Zwiebeln schneiden [[Bild 1]]' }]}
+          saving={false}
+          onSave={jest.fn()}
+          onBack={jest.fn()}
+        />,
+      );
+
+      await user.press(screen.getByRole('tab', { name: 'Anleitung' }));
+
+      expect(screen.getByTestId('recipe-preview-step-image-step-existing-image')).toBeOnTheScreen();
+      expect(screen.queryByText('[[Bild 1]]')).not.toBeOnTheScreen();
     });
   });
 });

@@ -7,7 +7,7 @@ import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 import { flattenRecipeItems } from '../../domain/ingredient-mentions';
 import type { RecipeDetail } from '../../hooks/use-recipes';
-import { StepMentionText } from '../step-mention-text';
+import { StepRichContent } from '../step-rich-content';
 import { CookingModeShell } from './cooking-mode-shell';
 
 const styles = StyleSheet.create((theme) => ({
@@ -101,11 +101,31 @@ export function FreeCookingMode({ data }: { data: RecipeDetail }) {
                 <Txt variant="caption" tone="primary" weight="700">
                   {step.position + 1}.
                 </Txt>
-                <StepMentionText
+                <StepRichContent
                   text={step.text}
                   ingredients={mentionIngredients}
+                  images={
+                    step.images && step.images.length > 0
+                      ? step.images.map((image, imageIndex) => ({
+                          key: image.id,
+                          path: image.storage_path,
+                          accessibilityLabel:
+                            imageIndex === 0
+                              ? `Bild für Schritt ${step.position + 1}`
+                              : `Bild ${imageIndex + 1} für Schritt ${step.position + 1}`,
+                        }))
+                      : step.image_path
+                        ? [
+                            {
+                              key: step.image_path,
+                              path: step.image_path,
+                              accessibilityLabel: `Bild für Schritt ${step.position + 1}`,
+                            },
+                          ]
+                        : []
+                  }
                   variant="caption"
-                  style={styles.stepText}
+                  textStyle={styles.stepText}
                   weight="500"
                 />
               </View>

@@ -8,8 +8,9 @@ import {
   type MentionableIngredient,
   renderMentionPlainText,
 } from '../../domain/ingredient-mentions';
+import { splitStepImageMarkers, stripStepImageMarkers } from '../../domain/step-image-markers';
 import type { RecipeStep } from '../../hooks/use-recipe-steps';
-import { StepMentionText } from '../step-mention-text';
+import { StepRichContent } from '../step-rich-content';
 import { CookingModeArtwork } from './cooking-mode-artwork';
 import { CookingModeTimer } from './cooking-mode-timer';
 
@@ -104,7 +105,32 @@ export function CookingModeStep({
   onNextStep,
 }: CookingModeStepProps) {
   const { colors } = useTheme();
-  const currentStepPlainText = renderMentionPlainText(currentStep.text, mentionIngredients);
+  const currentStepPlainText = renderMentionPlainText(
+    stripStepImageMarkers(currentStep.text),
+    mentionIngredients,
+  );
+  const stepImages =
+    currentStep.images && currentStep.images.length > 0
+      ? currentStep.images.map((image, imageIndex) => ({
+          key: image.id,
+          path: image.storage_path,
+          accessibilityLabel:
+            imageIndex === 0
+              ? `Bild für Schritt ${stepIndex + 1}`
+              : `Bild ${imageIndex + 1} für Schritt ${stepIndex + 1}`,
+        }))
+      : currentStep.image_path
+        ? [
+            {
+              key: currentStep.image_path,
+              path: currentStep.image_path,
+              accessibilityLabel: `Bild für Schritt ${stepIndex + 1}`,
+            },
+          ]
+        : [];
+  const hasInlineImages = splitStepImageMarkers(currentStep.text, stepImages.length).some(
+    (segment) => segment.kind === 'image',
+  );
 
   return (
     <View style={styles.root}>
@@ -129,15 +155,17 @@ export function CookingModeStep({
           : currentStepPlainText.replace(/[.!?]+$/, '')}
       </Txt>
 
-      <View style={styles.artwork}>
-        <CookingModeArtwork step={currentStep} imageUrl={currentStepImageUrl} />
-      </View>
-      <StepMentionText
+      {!hasInlineImages ? (
+        <View style={styles.artwork}>
+          <CookingModeArtwork step={currentStep} imageUrl={currentStepImageUrl} />
+        </View>
+      ) : null}
+      <StepRichContent
         text={currentStep.text}
         ingredients={mentionIngredients}
+        images={hasInlineImages ? stepImages : []}
         variant="caption"
-        tone="secondary"
-        style={styles.stepText}
+        textStyle={styles.stepText}
         weight="500"
       />
 

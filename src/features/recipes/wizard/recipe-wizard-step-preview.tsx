@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
-import { useRecipeStepImageUrl } from '@/features/recipes/data/household-recipe-images';
+import { StepRichContent } from '@/features/recipes/components/step-rich-content';
 import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/hooks/use-recipes';
 import { UNIT_OPTIONS } from '@/lib/units';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
@@ -57,27 +57,25 @@ function RecipeStepPreview({
       <Txt variant="label" tone="primary" weight="700">
         Schritt {index + 1}
       </Txt>
-      <View style={styles.stepImages}>
-        {step.existingImages.map((image, imageIndex) => (
-          <RecipeStepPreviewImage
-            key={image.id ?? image.storagePath}
-            path={image.storagePath}
-            testID={imageIndex === 0 ? `recipe-preview-step-image-${step.id}` : undefined}
-          />
-        ))}
-        {step.localImageUris.map((uri, imageIndex) => (
-          <RecipeStepPreviewImage
-            key={uri}
-            uri={uri}
-            testID={
+      <StepRichContent
+        text={step.text}
+        images={[
+          ...step.existingImages.map((image, imageIndex) => ({
+            key: image.id ?? image.storagePath,
+            path: image.storagePath,
+            testID: imageIndex === 0 ? `recipe-preview-step-image-${step.id}` : undefined,
+          })),
+          ...step.localImageUris.map((uri, imageIndex) => ({
+            key: uri,
+            uri,
+            testID:
               step.existingImages.length === 0 && imageIndex === 0
                 ? `recipe-preview-step-image-${step.id}`
-                : undefined
-            }
-          />
-        ))}
-      </View>
-      <Txt variant="body">{step.text}</Txt>
+                : undefined,
+          })),
+        ]}
+        variant="body"
+      />
       {step.timerMinutes !== null ? (
         <Txt variant="caption" tone="secondary">
           ⏱ {step.timerMinutes} Min. Timer
@@ -97,24 +95,6 @@ function RecipeStepPreview({
         </View>
       ) : null}
     </View>
-  );
-}
-
-function RecipeStepPreviewImage({
-  path,
-  uri,
-  testID,
-}: {
-  path?: string;
-  uri?: string;
-  testID?: string;
-}) {
-  const { data: signedUrl } = useRecipeStepImageUrl(uri ? null : path);
-  const imageUri = uri ?? signedUrl;
-  if (!imageUri) return null;
-
-  return (
-    <Image source={{ uri: imageUri }} style={styles.stepImage} contentFit="cover" testID={testID} />
   );
 }
 
@@ -191,9 +171,6 @@ const styles = StyleSheet.create((theme) => ({
     width: '100%',
     height: rs(140),
     borderRadius: theme.radius.sm,
-  },
-  stepImages: {
-    gap: rs(8),
   },
   stepIngredientWrap: {
     flexDirection: 'row',

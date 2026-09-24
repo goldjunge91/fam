@@ -13,7 +13,6 @@
  *   3. RecipeDetailScreen — Haupt-Screen mit Tabs, Verwaltungs-Modal,
  *      Shopping-Sheet und Rating-Sheet
  */
-import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
@@ -27,8 +26,8 @@ import { Press, Txt } from '@/constants/ui';
 import { HeartGlyph, HeroArtwork } from '../components/recipe-detail-primitives';
 import { RecipeRatingSheet } from '../components/recipe-rating-sheet';
 import { RecipeShoppingSheet } from '../components/recipe-shopping-sheet';
-import { StepMentionText } from '../components/step-mention-text';
-import { useRecipeCoverUrl, useRecipeStepImageUrl } from '../data/household-recipe-images';
+import { StepRichContent } from '../components/step-rich-content';
+import { useRecipeCoverUrl } from '../data/household-recipe-images';
 import { flattenRecipeItems, type MentionableIngredient } from '../domain/ingredient-mentions';
 import { calculateServingNutrition, scaleServing } from '../domain/nutrition';
 import { useRecipeFavorites } from '../domain/recipe-favorites';
@@ -59,14 +58,6 @@ const styles = StyleSheet.create((theme) => ({
   step: {
     gap: theme.space.lg,
     paddingVertical: theme.space.lg,
-  },
-  stepImage: {
-    width: '100%',
-    height: rs(180),
-    borderRadius: theme.radius.md,
-  },
-  stepImages: {
-    gap: theme.space.sm,
   },
   stepRow: {
     flexDirection: 'row',
@@ -358,30 +349,37 @@ function RecipeStepItem({
   return (
     <View
       style={[styles.step, !isLast && { borderBottomColor: colors.border, borderBottomWidth: 1 }]}>
-      <View style={styles.stepImages}>
-        {(step.images && step.images.length > 0
-          ? step.images.map((image) => image.storage_path)
-          : step.image_path
-            ? [step.image_path]
-            : []
-        ).map((path, imageIndex) => (
-          <RecipeStepImage
-            key={path}
-            path={path}
-            accessibilityLabel={
-              imageIndex === 0
-                ? `Bild für Schritt ${index + 1}`
-                : `Bild ${imageIndex + 1} für Schritt ${index + 1}`
-            }
-          />
-        ))}
-      </View>
       <View style={styles.stepRow}>
         <Txt variant="heading" tone="primary" style={styles.stepNumber}>
           {index + 1}
         </Txt>
         <View style={styles.stepCopy}>
-          <StepMentionText text={step.text} ingredients={ingredients} variant="body" weight="500" />
+          <StepRichContent
+            text={step.text}
+            ingredients={ingredients}
+            images={
+              step.images && step.images.length > 0
+                ? step.images.map((image, imageIndex) => ({
+                    key: image.id,
+                    path: image.storage_path,
+                    accessibilityLabel:
+                      imageIndex === 0
+                        ? `Bild für Schritt ${index + 1}`
+                        : `Bild ${imageIndex + 1} für Schritt ${index + 1}`,
+                  }))
+                : step.image_path
+                  ? [
+                      {
+                        key: step.image_path,
+                        path: step.image_path,
+                        accessibilityLabel: `Bild für Schritt ${index + 1}`,
+                      },
+                    ]
+                  : []
+            }
+            variant="body"
+            weight="500"
+          />
           {step.timer_minutes !== null ? (
             <Txt variant="caption" tone="secondary">
               ⏱ {step.timer_minutes} Min. Timer
@@ -390,26 +388,6 @@ function RecipeStepItem({
         </View>
       </View>
     </View>
-  );
-}
-
-function RecipeStepImage({
-  path,
-  accessibilityLabel,
-}: {
-  path: string;
-  accessibilityLabel: string;
-}) {
-  const { data: imageUrl } = useRecipeStepImageUrl(path);
-  if (!imageUrl) return null;
-
-  return (
-    <Image
-      source={{ uri: imageUrl }}
-      contentFit="cover"
-      accessibilityLabel={accessibilityLabel}
-      style={styles.stepImage}
-    />
   );
 }
 
