@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMemo } from 'react';
 
 import { useStores } from '@/features/shopping-list/hooks/use-stores';
 
@@ -67,9 +68,13 @@ export function useSetPreferredProductMarket() {
 }
 
 export function usePreferredProductMarketName(householdId: string | undefined) {
-  const { data: storeIds = [] } = usePreferredProductMarket(householdId);
-  const { data: stores = [] } = useStores(householdId);
-  return storeIds
-    .map((storeId) => stores.find((store) => store.id === storeId)?.name)
-    .filter((name): name is string => Boolean(name));
+  const { data: storeIds } = usePreferredProductMarket(householdId);
+  const { data: stores } = useStores(householdId);
+  return useMemo(
+    () =>
+      (storeIds ?? [])
+        .map((storeId) => (stores ?? []).find((store) => store.id === storeId)?.name)
+        .filter((name): name is string => Boolean(name)),
+    [storeIds, stores],
+  );
 }
