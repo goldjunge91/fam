@@ -151,7 +151,7 @@
   },
   "scripts": {
     "prepare": "git config core.hooksPath .githooks",
-    "start": "expo start",
+    "start": "EXPO_NO_METRO_LAZY=1 expo start",
     "native:status": "bun scripts/native-build/native-build.ts status",
     "native:prebuild": "expo prebuild --no-clean",
     "native:baseline": "bun scripts/native-build/native-build.ts baseline",

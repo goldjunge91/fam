@@ -48,6 +48,7 @@ config.server = {
 config.transformer.getTransformOptions = async () => ({
   transform: {
     experimentalImportSupport: true,
+    inlineRequires: false,
   },
 });
 
