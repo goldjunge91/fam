@@ -5,6 +5,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
+import { useRecipeStepImageUrl } from '@/features/recipes/data/household-recipe-images';
 import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/hooks/use-recipes';
 import { UNIT_OPTIONS } from '@/lib/units';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
@@ -39,6 +40,57 @@ interface RecipeWizardStepPreviewProps {
 }
 
 type PreviewTab = 'ingredients' | 'instructions';
+
+function RecipeStepPreview({
+  step,
+  index,
+  ingredientLabelById,
+}: {
+  step: WizardStepItem;
+  index: number;
+  ingredientLabelById: Map<string, string>;
+}) {
+  const { colors } = useTheme();
+  const { data: existingImageUrl } = useRecipeStepImageUrl(
+    step.localImageUri ? null : step.existingImagePath,
+  );
+  const imageUri = step.localImageUri ?? existingImageUrl;
+
+  return (
+    <View style={[styles.stepCard, { backgroundColor: colors.backgroundElement }]}>
+      <Txt variant="label" tone="primary" weight="700">
+        Schritt {index + 1}
+      </Txt>
+      {imageUri ? (
+        <Image
+          source={{ uri: imageUri }}
+          style={styles.stepImage}
+          contentFit="cover"
+          testID={`recipe-preview-step-image-${step.id}`}
+        />
+      ) : null}
+      <Txt variant="body">{step.text}</Txt>
+      {step.timerMinutes !== null ? (
+        <Txt variant="caption" tone="secondary">
+          ⏱ {step.timerMinutes} Min. Timer
+        </Txt>
+      ) : null}
+      {step.ingredientIds.length > 0 ? (
+        <View style={styles.stepIngredientWrap}>
+          {step.ingredientIds.map((id) => (
+            <View
+              key={id}
+              style={[styles.stepIngredient, { backgroundColor: colors.backgroundElement }]}>
+              <Txt variant="caption" tone="primary" weight="600">
+                {ingredientLabelById.get(id) ?? id}
+              </Txt>
+            </View>
+          ))}
+        </View>
+      ) : null}
+    </View>
+  );
+}
 
 const styles = StyleSheet.create((theme) => ({
   scroll: {
@@ -309,43 +361,12 @@ export function RecipeWizardStepPreview({
           {steps
             .filter((step) => step.text.trim())
             .map((step, index) => (
-              <View
+              <RecipeStepPreview
                 key={step.id}
-                style={[styles.stepCard, { backgroundColor: colors.backgroundElement }]}>
-                <Txt variant="label" tone="primary" weight="700">
-                  Schritt {index + 1}
-                </Txt>
-                {step.localImageUri ? (
-                  <Image
-                    source={{ uri: step.localImageUri }}
-                    // expo-image benötigt inline styles
-                    style={styles.stepImage}
-                    contentFit="cover"
-                  />
-                ) : null}
-                <Txt variant="body">{step.text}</Txt>
-                {step.timerMinutes !== null ? (
-                  <Txt variant="caption" tone="secondary">
-                    ⏱ {step.timerMinutes} Min. Timer
-                  </Txt>
-                ) : null}
-                {step.ingredientIds.length > 0 ? (
-                  <View style={styles.stepIngredientWrap}>
-                    {step.ingredientIds.map((id) => (
-                      <View
-                        key={id}
-                        style={[
-                          styles.stepIngredient,
-                          { backgroundColor: colors.backgroundElement },
-                        ]}>
-                        <Txt variant="caption" tone="primary" weight="600">
-                          {ingredientLabelById.get(id) ?? id}
-                        </Txt>
-                      </View>
-                    ))}
-                  </View>
-                ) : null}
-              </View>
+                step={step}
+                index={index}
+                ingredientLabelById={ingredientLabelById}
+              />
             ))}
         </View>
       )}

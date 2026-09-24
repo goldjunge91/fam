@@ -8,6 +8,13 @@ import { RecipeWizardStepSteps } from '@/features/recipes/wizard/recipe-wizard-s
 import type { IngredientComponentGroup, WizardStepItem } from '@/features/recipes/wizard/types';
 import { RECIPE_FORM_DEFAULTS, type RecipeFormValues } from '@/lib/db/zod/recipe-form-schema.zod';
 
+jest.mock('@/features/recipes/data/household-recipe-images', () => ({
+  pickRecipeImage: jest.fn(),
+  useRecipeStepImageUrl: (path: string | null) => ({
+    data: path ? `https://example.com/${path}` : null,
+  }),
+}));
+
 describe('Recipe Wizard Steps', () => {
   const dummyComponents: IngredientComponentGroup[] = [
     {
@@ -40,6 +47,13 @@ describe('Recipe Wizard Steps', () => {
       ingredientIds: ['ing-1'],
     },
   ];
+
+  const existingImageStep: WizardStepItem = {
+    ...dummySteps[0],
+    id: 'step-existing-image',
+    serverId: 'step-existing-image',
+    existingImagePath: 'hh-1/step-existing-image.jpg',
+  };
 
   async function renderWithProviders(component: React.ReactElement) {
     return render(
@@ -132,6 +146,20 @@ describe('Recipe Wizard Steps', () => {
 
       expect(onNext).toHaveBeenCalled();
     });
+
+    it('zeigt beim Bearbeiten ein bereits gespeichertes Schrittbild', async () => {
+      await renderWithProviders(
+        <RecipeWizardStepSteps
+          steps={[existingImageStep]}
+          onStepsChange={jest.fn()}
+          components={dummyComponents}
+          onBack={jest.fn()}
+          onNext={jest.fn()}
+        />,
+      );
+
+      expect(screen.getByTestId('recipe-step-image-step-existing-image')).toBeOnTheScreen();
+    });
   });
 
   describe('RecipeWizardStepPreview', () => {
@@ -166,6 +194,31 @@ describe('Recipe Wizard Steps', () => {
       await user.press(saveBtn);
 
       expect(onSave).toHaveBeenCalled();
+    });
+
+    it('zeigt gespeicherte Schrittbilder auch in der Vorschau', async () => {
+      const user = userEvent.setup();
+      await renderWithProviders(
+        <RecipeWizardStepPreview
+          coverPreviewUri={null}
+          title="Linsensuppe"
+          description="Klassische Linsensuppe"
+          cookTimeMinutes="30"
+          defaultServings={4}
+          difficulty="easy"
+          dishTypes={['dinner']}
+          dietaryTags={['vegan']}
+          hashtagsInput="#suppe #vegan"
+          components={dummyComponents}
+          steps={[existingImageStep]}
+          saving={false}
+          onSave={jest.fn()}
+          onBack={jest.fn()}
+        />,
+      );
+
+      await user.press(screen.getByRole('tab', { name: 'Anleitung' }));
+      expect(screen.getByTestId('recipe-preview-step-image-step-existing-image')).toBeOnTheScreen();
     });
   });
 });

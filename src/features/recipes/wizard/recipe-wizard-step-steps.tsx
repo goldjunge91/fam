@@ -12,7 +12,10 @@ import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 import { StepMentionText } from '@/features/recipes/components/step-mention-text';
-import { pickRecipeImage } from '@/features/recipes/data/household-recipe-images';
+import {
+  pickRecipeImage,
+  useRecipeStepImageUrl,
+} from '@/features/recipes/data/household-recipe-images';
 import {
   computeMentionUsage,
   type MentionableIngredient,
@@ -326,6 +329,10 @@ const StepCard = memo(function StepCard({
   const drag = useReorderableDrag();
   const { colors } = useTheme();
   const autocomplete = pendingAutocomplete(step.text, ingredients);
+  const { data: existingImageUrl } = useRecipeStepImageUrl(
+    step.localImageUri ? null : step.existingImagePath,
+  );
+  const imageUri = step.localImageUri ?? existingImageUrl;
 
   function handleChangeText(text: string) {
     onUpdateStep(step.id, { text, ingredientIds: mentionedIngredientIds(text, ingredients) });
@@ -418,10 +425,11 @@ const StepCard = memo(function StepCard({
         />
       ) : null}
 
-      {step.localImageUri ? (
+      {imageUri ? (
         <View style={styles.imageBlock}>
           <Image
-            source={{ uri: step.localImageUri }}
+            testID={`recipe-step-image-${step.id}`}
+            source={{ uri: imageUri }}
             // expo-image benötigt inline Dimensionen
             style={styles.stepImage}
             contentFit="cover"

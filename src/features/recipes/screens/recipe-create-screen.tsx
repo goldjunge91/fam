@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useQueryClient } from '@tanstack/react-query';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -113,6 +114,7 @@ export function RecipeCreateScreen() {
   const { session } = useSession();
   const userId = session?.user.id;
   const { activeHouseholdId } = useActiveHousehold();
+  const queryClient = useQueryClient();
 
   const { data } = useRecipeDetail(id);
   const addRecipe = useAddRecipeMutation();
@@ -445,6 +447,7 @@ export function RecipeCreateScreen() {
       let coverPath = existingCoverPath;
       if (localCoverUri) {
         coverPath = await uploadRecipeCoverImage(localCoverUri, householdId, newRecipeId);
+        await queryClient.invalidateQueries({ queryKey: ['RecipeCover', coverPath] });
       }
 
       if (isEditing || coverPath) {
@@ -599,6 +602,9 @@ export function RecipeCreateScreen() {
           const imagePath = step.localImageUri
             ? await uploadRecipeStepImage(step.localImageUri, householdId, stepId)
             : step.existingImagePath;
+          if (step.localImageUri && imagePath) {
+            await queryClient.invalidateQueries({ queryKey: ['RecipeStepImage', imagePath] });
+          }
           await updateStep.mutateAsync({
             id: stepId,
             recipe_id: newRecipeId,
@@ -632,6 +638,7 @@ export function RecipeCreateScreen() {
 
           if (step.localImageUri) {
             const imagePath = await uploadRecipeStepImage(step.localImageUri, householdId, stepId);
+            await queryClient.invalidateQueries({ queryKey: ['RecipeStepImage', imagePath] });
             await updateStep.mutateAsync({
               id: stepId,
               recipe_id: newRecipeId,
