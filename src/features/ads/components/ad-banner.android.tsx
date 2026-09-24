@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { type StyleProp, StyleSheet, View, type ViewStyle } from 'react-native';
+import { type StyleProp, View, type ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import {
   BannerAd,
   BannerAdSize,
