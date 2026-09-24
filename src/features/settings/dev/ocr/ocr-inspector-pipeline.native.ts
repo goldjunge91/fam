@@ -1,42 +1,18 @@
 import type { ReceiptCaptureFileAdapter } from '@/features/ocr/capture/capture/contracts';
-import { normalizeReceiptOcrResult, type ReceiptOcrResult } from '@/features/ocr/processing/native';
+import type {
+  InspectorContrast,
+  InspectorCrop,
+  InspectorImageSettings,
+  InspectorQuality,
+  InspectorResize,
+  PreparedInspectorImage,
+} from './ocr-inspector-pipeline.shared';
 
-export type InspectorRecognitionLevel = 'accurate' | 'fast';
-export type InspectorLanguage = 'auto' | 'de-DE' | 'en-US' | 'fr-FR';
-export type InspectorResize = 'source' | '1600' | '2400' | '3200';
-export type InspectorCrop = 'none' | 'edges-2' | 'edges-5';
-export type InspectorColorMode = 'color' | 'grayscale';
-export type InspectorContrast = 'none' | 'low' | 'high';
-export type InspectorSharpen = 'off' | 'medium';
-export type InspectorQuality = 'source' | 'low' | 'standard' | 'max';
-
-export type InspectorImageSettings = {
-  resize: InspectorResize;
-  crop: InspectorCrop;
-  colorMode: InspectorColorMode;
-  contrast: InspectorContrast;
-  sharpen: InspectorSharpen;
-  quality: InspectorQuality;
-};
-
-export type InspectorNativeOcrSettings = {
-  languages: readonly string[];
-  recognitionLevel: InspectorRecognitionLevel;
-  usesLanguageCorrection: boolean;
-  customWords: readonly string[];
-};
-
-export type PreparedInspectorImage = {
-  localUri: string;
-  width: number;
-  height: number;
-  byteSize: number;
-  ownsFile: boolean;
-};
+// Metro selects this file for iOS and Android. Keeping Nitro Image behind this
+// boundary prevents its native view configuration from entering the web graph.
+export * from './ocr-inspector-pipeline.shared';
 
 type NitroImageModule = Pick<typeof import('react-native-nitro-image'), 'Images' | 'loadImage'>;
-type ExpoAiKitModule = Pick<typeof import('expo-ai-kit'), 'recognizeText'>;
-type ExpoImageModule = Pick<typeof import('expo-image'), 'Image'>;
 
 type ChannelLayout = {
   stride: 3 | 4;
@@ -66,27 +42,10 @@ const JPEG_QUALITY: Record<InspectorQuality, number | null> = {
   max: 100,
 };
 
-export function parseInspectorCustomWords(value: string): string[] {
-  return [
-    ...new Set(
-      value
-        .split(/[\n,;]/u)
-        .map((word) => word.trim())
-        .filter(Boolean),
-    ),
-  ];
-}
-
 function loadNitroImage(): NitroImageModule {
+  // The native-only require stays lazy because the no-op preparation path does
+  // not need to decode an image at all.
   return require('react-native-nitro-image') as NitroImageModule;
-}
-
-function loadExpoAiKit(): ExpoAiKitModule {
-  return require('expo-ai-kit') as ExpoAiKitModule;
-}
-
-function loadExpoImage(): ExpoImageModule {
-  return require('expo-image') as ExpoImageModule;
 }
 
 function localFilePath(uri: string): string {
@@ -141,6 +100,8 @@ function processPixels(
   pixelFormat: string,
   settings: Pick<InspectorImageSettings, 'colorMode' | 'contrast' | 'sharpen'>,
 ): ArrayBuffer {
+  // Nitro Image returns an interleaved native buffer; preserve its channel order
+  // while applying grayscale, contrast, and sharpening in place on a copy.
   const layout = channelLayout(pixelFormat);
   const pixels = new Uint8Array(buffer.slice(0));
   const expectedLength = width * height * layout.stride;
@@ -275,37 +236,4 @@ export async function prepareInspectorImage(
     byteSize,
     ownsFile: true,
   };
-}
-
-/** Runs expo-ai-kit directly for inspector-only iOS option experiments. */
-export async function recognizeReceiptOcrForInspector(
-  uri: string,
-  settings: InspectorNativeOcrSettings,
-): Promise<ReceiptOcrResult> {
-  const aiKit = loadExpoAiKit();
-  const imageApi = loadExpoImage();
-  const image = await imageApi.Image.loadAsync({ uri });
-  const result = await aiKit.recognizeText(
-    { uri },
-    {
-      languages: [...settings.languages],
-      recognitionLevel: settings.recognitionLevel,
-      usesLanguageCorrection: settings.usesLanguageCorrection,
-      customWords: [...settings.customWords],
-    },
-  );
-
-  return normalizeReceiptOcrResult({
-    imageSize: {
-      width: image.width * (image.scale ?? 1),
-      height: image.height * (image.scale ?? 1),
-    },
-    lines: result.blocks.flatMap((block) =>
-      block.lines.map((line) => ({
-        text: line.text,
-        confidence: line.confidence ?? null,
-        boundingBox: line.bounds,
-      })),
-    ),
-  });
 }

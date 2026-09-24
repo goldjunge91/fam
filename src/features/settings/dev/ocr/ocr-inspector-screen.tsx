@@ -20,7 +20,7 @@ import {
   type ReceiptOcrResult,
   recognizeReceiptOcr,
 } from '@/features/ocr/processing/native';
-import { formatBytes, Zeile } from './dev-screen-shared';
+import { formatBytes, Zeile } from '../dev-screen-shared';
 import {
   type InspectorColorMode,
   type InspectorContrast,
