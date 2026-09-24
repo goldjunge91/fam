@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSession } from '@/features/auth/session-provider';
 import { getSupabase } from '@/lib/backend/supabase/client';
 import { env } from '@/lib/config/env';
+import { debugError, debugLogEvent } from '@/lib/observability/debug-log';
 
 const TTL_SECONDS = 300;
 
@@ -31,17 +32,32 @@ export function AvatarImage({
   const userId = session?.user.id;
   const path = avatarStoragePath(reference, env.supabaseUrl);
   const [now, setNow] = useState(Date.now);
+  useEffect(() => {
+    debugLogEvent('profile.avatar-image.resolve', {
+      hasSession: Boolean(userId),
+      acceptedReference: Boolean(path),
+    });
+  }, [path, userId]);
   const query = useQuery({
     queryKey: ['avatar-image', userId, reference],
     enabled: !!userId && !!path,
     queryFn: async () => {
       if (!path) return null;
-      const issuedAt = Date.now();
-      const { data, error } = await getSupabase()
-        .storage.from('avatars')
-        .createSignedUrl(path, TTL_SECONDS);
-      if (error) throw error;
-      return { url: data.signedUrl, expiresAt: issuedAt + TTL_SECONDS * 1000 };
+      debugLogEvent('profile.avatar-image.sign-start');
+      try {
+        const issuedAt = Date.now();
+        const { data, error } = await getSupabase()
+          .storage.from('avatars')
+          .createSignedUrl(path, TTL_SECONDS);
+        if (error) throw error;
+        debugLogEvent('profile.avatar-image.sign-complete', {
+          hasSignedUrl: Boolean(data.signedUrl),
+        });
+        return { url: data.signedUrl, expiresAt: issuedAt + TTL_SECONDS * 1000 };
+      } catch (error: unknown) {
+        debugError('[AvatarImage] Signierte URL konnte nicht erstellt werden', error);
+        throw error;
+      }
     },
     staleTime: 240_000,
     gcTime: 0,

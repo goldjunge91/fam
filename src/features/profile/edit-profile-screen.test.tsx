@@ -12,6 +12,7 @@ import { saveProfileFoodRules, useProfileFoodRules } from '@/features/profile/fo
 import { i18n } from '@/i18n';
 
 const mockAddWeight = jest.fn().mockResolvedValue(null);
+const mockRemoveAvatar = jest.fn().mockResolvedValue({ error: null });
 let mockCaloriesTrackingEnabled = true;
 
 jest.mock('expo-router', () => ({
@@ -36,6 +37,13 @@ jest.mock('@/features/calorie-tracking/api', () => ({
 jest.mock('@/features/profile/api', () => ({
   useProfile: jest.fn(),
   updateProfile: jest.fn().mockResolvedValue({ error: null }),
+}));
+
+jest.mock('@/lib/backend/supabase/client', () => ({
+  getSupabase: () => ({
+    auth: { updateUser: jest.fn().mockResolvedValue({ error: null }) },
+    storage: { from: () => ({ remove: mockRemoveAvatar }) },
+  }),
 }));
 
 jest.mock('@/features/profile/biometrics-api', () => ({
@@ -122,6 +130,7 @@ async function renderScreen(avatarUrl: string | null = null) {
 describe('EditProfileScreen', () => {
   beforeEach(async () => {
     jest.clearAllMocks();
+    mockRemoveAvatar.mockResolvedValue({ error: null });
     mockCaloriesTrackingEnabled = true;
     await i18n.changeLanguage('de');
   });
@@ -250,5 +259,6 @@ describe('EditProfileScreen', () => {
     await user.press(deleteBtn);
 
     expect(updateProfile).toHaveBeenCalledWith('user-1', { avatarUrl: null });
+    expect(mockRemoveAvatar).toHaveBeenCalledWith(['user-1/avatar.jpg']);
   });
 });

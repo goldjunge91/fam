@@ -46,6 +46,7 @@ import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { getSupabase } from '@/lib/backend/supabase/client';
 import { AUTH_VALIDATION_KEYS, translateAuthValidationMessage } from '@/lib/db/zod/auth.zod';
 import { type ProfileAccountForm, profileAccountFormSchema } from '@/lib/db/zod/profile.zod';
+import { debugError, debugLogEvent } from '@/lib/observability/debug-log';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
 /**
@@ -173,15 +174,35 @@ export function EditProfileScreen() {
   }
 
   async function handleDeleteImage() {
-    if (!userId || uploadingImage) return;
+    debugLogEvent('profile.avatar-delete.start', {
+      hasSession: Boolean(userId),
+      alreadyBusy: uploadingImage,
+      hasAvatar: Boolean(avatarUrl),
+    });
+    if (!userId || uploadingImage) {
+      debugLogEvent('profile.avatar-delete.skipped', {
+        hasSession: Boolean(userId),
+        alreadyBusy: uploadingImage,
+      });
+      return;
+    }
     setUploadingImage(true);
     try {
       const { error } = await updateProfile(userId, { avatarUrl: null });
       if (error) throw new Error(error.message, { cause: error });
+      debugLogEvent('profile.avatar-delete.profile-updated');
+
+      const { error: storageError } = await getSupabase()
+        .storage.from('avatars')
+        .remove([`${userId}/avatar.jpg`]);
+      if (storageError) throw new Error(storageError.message, { cause: storageError });
+      debugLogEvent('profile.avatar-delete.storage-removed', { objectName: 'avatar.jpg' });
 
       setAvatarUrl(null);
       await queryClient.invalidateQueries({ queryKey: ['profile', userId] });
+      debugLogEvent('profile.avatar-delete.complete');
     } catch (err: unknown) {
+      debugError('[AvatarDelete] Entfernen fehlgeschlagen', err);
       const msg = err instanceof Error ? err.message : 'Fehler beim Entfernen des Profilbilds.';
       Alert.alert('Fehler', msg);
     } finally {
