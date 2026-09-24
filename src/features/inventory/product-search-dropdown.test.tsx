@@ -4,7 +4,10 @@ import { useState } from 'react';
 import { Pressable } from 'react-native';
 
 import { space } from '@/components/theme/index';
-import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
+import {
+  calculateProductPanelLayout,
+  ProductSearchDropdown,
+} from '@/features/inventory/product-search-dropdown';
 import type { UseProductSearchResult } from '@/features/product-search/hooks/use-product-search';
 import type { CatalogProduct } from '@/features/product-search/types';
 
@@ -55,6 +58,7 @@ function searchState(overrides: Partial<UseProductSearchResult> = {}): UseProduc
     hasMore: false,
     searched: false,
     loadMore,
+    searchOnline: jest.fn(),
     retry: jest.fn(),
     ...overrides,
   };
@@ -79,6 +83,30 @@ afterEach(() => {
   const consoleErrors = [...consoleErrorSpy.mock.calls];
   consoleErrorSpy.mockRestore();
   expect(consoleErrors).toEqual([]);
+});
+
+describe('calculateProductPanelLayout', () => {
+  it('öffnet nach oben, wenn unter dem Suchfeld nur wenig Platz bleibt', () => {
+    expect(
+      calculateProductPanelLayout({
+        anchorY: 700,
+        anchorHeight: 60,
+        windowHeight: 844,
+        keyboardTopY: 650,
+      }),
+    ).toEqual({ placement: 'above', maxHeight: 676 });
+  });
+
+  it('öffnet nach unten, wenn dort ausreichend Platz vorhanden ist', () => {
+    expect(
+      calculateProductPanelLayout({
+        anchorY: 100,
+        anchorHeight: 60,
+        windowHeight: 844,
+        keyboardTopY: null,
+      }),
+    ).toEqual({ placement: 'below', maxHeight: 660 });
+  });
 });
 
 it('zeigt die Treffer der Suche', async () => {
@@ -116,6 +144,27 @@ it('meldet den gewaehlten Treffer vollstaendig an den Aufrufer', async () => {
   expect(onSelectProduct).toHaveBeenCalledWith(schnitzel);
 });
 
+it('schliesst die Trefferliste mit X und ueber die freie Flaeche', async () => {
+  mockUseProductSearch.mockReturnValue(
+    searchState({
+      searched: true,
+      results: [product({ name: 'Hafermilch', barcode: '123' })],
+    }),
+  );
+
+  await render(<ControlledDropdown onSelectProduct={() => {}} />);
+  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Hafermilch');
+
+  expect(screen.getByRole('button', { name: 'Suche schließen' })).toBeOnTheScreen();
+  await fireEvent.press(screen.getByRole('button', { name: 'Suche schließen' }));
+  expect(screen.queryByText('EAN 123')).not.toBeOnTheScreen();
+
+  // Erneut öffnen und den gleichen Dismiss-Mechanismus wie im Artikel-hinzufügen-Flow prüfen.
+  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Hafermilch');
+  await fireEvent.press(screen.getByTestId('product-search-dropdown-dismiss-area'));
+  expect(screen.queryByText('EAN 123')).not.toBeOnTheScreen();
+});
+
 it('bietet "manuell anlegen" an, wenn nichts gefunden wurde', async () => {
   mockUseProductSearch.mockReturnValue(searchState({ searched: true, results: [] }));
 
@@ -132,6 +181,18 @@ it('bietet "manuell anlegen" an, wenn nichts gefunden wurde', async () => {
     pathname: '/add-product',
     params: { prefillName: 'Fantasieprodukt' },
   });
+});
+
+it('startet die Online-Suche nur ueber eine explizite Aktion', async () => {
+  const searchOnline = jest.fn();
+  mockUseProductSearch.mockReturnValue(searchState({ searched: true, searchOnline }));
+
+  await render(<ControlledDropdown onSelectProduct={() => {}} />);
+  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Fantasieprodukt');
+
+  await fireEvent.press(await screen.findByRole('button', { name: 'Open Food Facts durchsuchen' }));
+
+  expect(searchOnline).toHaveBeenCalledTimes(1);
 });
 
 it('zeigt bei einem Suchfehler einen Retry an', async () => {

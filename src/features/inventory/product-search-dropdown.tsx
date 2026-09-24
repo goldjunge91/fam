@@ -43,6 +43,41 @@ const PANEL_FALLBACK_HEIGHT = 220;
 /** Seitengroesse fuer das Nachladen beim Scrollen. */
 const PAGE_SIZE = 100;
 
+type ProductPanelPlacement = 'above' | 'below';
+
+type ProductPanelLayout = {
+  placement: ProductPanelPlacement;
+  maxHeight: number;
+};
+
+export function calculateProductPanelLayout({
+  anchorY,
+  anchorHeight,
+  windowHeight,
+  keyboardTopY,
+}: {
+  anchorY: number;
+  anchorHeight: number;
+  windowHeight: number;
+  keyboardTopY: number | null;
+}): ProductPanelLayout {
+  const bottomLimit = keyboardTopY ?? windowHeight;
+  const availableBelow = bottomLimit - (anchorY + anchorHeight) - PANEL_BOTTOM_MARGIN;
+  const availableAbove = anchorY - PANEL_BOTTOM_MARGIN;
+
+  if (availableBelow < PANEL_MIN_HEIGHT && availableAbove > availableBelow) {
+    return {
+      placement: 'above',
+      maxHeight: Math.max(availableAbove, PANEL_MIN_HEIGHT),
+    };
+  }
+
+  return {
+    placement: 'below',
+    maxHeight: Math.max(availableBelow, PANEL_MIN_HEIGHT),
+  };
+}
+
 const styles = StyleSheet.create((theme) => ({
   root: {
     position: 'relative',
@@ -62,20 +97,12 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
     minWidth: 0,
   },
-  panelWrapper: {
-    position: 'relative',
-  },
-  panelClose: {
-    position: 'absolute',
-    top: theme.space.xs,
-    right: theme.space.xs,
-    zIndex: 30,
-    width: theme.space.lg + theme.space.sm,
-    height: theme.space.lg + theme.space.sm,
+  searchCloseButton: {
+    width: theme.space.xxl,
+    height: theme.space.xxl,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: theme.radius.pill,
-    backgroundColor: theme.backgroundSoft,
+    borderRadius: theme.radius.sm,
   },
   panel: {
     position: 'absolute',
@@ -89,6 +116,12 @@ const styles = StyleSheet.create((theme) => ({
     borderColor: theme.border,
     backgroundColor: theme.background,
     boxShadow: `0 10px 22px ${withAlpha(theme.shadowSheet, 0.22)}`,
+  },
+  panelAbove: {
+    top: 'auto',
+    bottom: '100%',
+    marginTop: 0,
+    marginBottom: theme.space.xs,
   },
   panelContent: {
     flexGrow: 1,
@@ -125,6 +158,10 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     gap: theme.space.sm,
     padding: theme.space.lg,
+  },
+  emptyState: {
+    gap: theme.space.xs,
+    paddingVertical: theme.space.xs,
   },
 }));
 
@@ -173,6 +210,7 @@ export const ProductSearchDropdown = forwardRef<
   // Bildschirmrand gehen, nicht bei 3 Treffern abschneiden"), siehe
   // `updatePanelMaxHeight` weiter unten.
   const [panelMaxHeight, setPanelMaxHeight] = useState<number | null>(null);
+  const [panelPlacement, setPanelPlacement] = useState<ProductPanelPlacement>('below');
   const wrapperRef = useRef<View>(null);
   const { height: windowHeight } = useWindowDimensions();
   // Y-Koordinate (im selben Fenster-Koordinatensystem wie `measureInWindow`),
@@ -197,6 +235,7 @@ export const ProductSearchDropdown = forwardRef<
 
   function dismiss() {
     setShowDropdown(false);
+    Keyboard.dismiss();
   }
 
   useImperativeHandle(ref, () => ({
@@ -223,9 +262,14 @@ export const ProductSearchDropdown = forwardRef<
   useEffect(() => {
     if (!showDropdown) return;
     wrapperRef.current?.measureInWindow((_x, y, _width, height) => {
-      const bottomLimit = keyboardTopY ?? windowHeight;
-      const available = bottomLimit - (y + height) - PANEL_BOTTOM_MARGIN;
-      setPanelMaxHeight(Math.max(available, PANEL_MIN_HEIGHT));
+      const layout = calculateProductPanelLayout({
+        anchorY: y,
+        anchorHeight: height,
+        windowHeight,
+        keyboardTopY,
+      });
+      setPanelPlacement(layout.placement);
+      setPanelMaxHeight(layout.maxHeight);
     });
   }, [showDropdown, windowHeight, keyboardTopY]);
 
@@ -243,6 +287,7 @@ export const ProductSearchDropdown = forwardRef<
     failed,
     searched,
     loadMore,
+    searchOnline,
     retry,
   } = useProductSearch(searchQuery, { preferredMarket, pageSize: PAGE_SIZE });
 
@@ -260,16 +305,33 @@ export const ProductSearchDropdown = forwardRef<
       style={isTrailingOutside ? { marginRight: space.md } : undefined}
     />
   );
-  const trailingContent = searching ? (
-    isTrailingOutside ? (
-      loadingIndicator
-    ) : (
+  const searchCloseButton = showDropdown ? (
+    <Press
+      onPress={dismiss}
+      hitSlop={8}
+      accessibilityRole="button"
+      accessibilityLabel="Suche schließen"
+      style={styles.searchCloseButton}>
+      <Txt variant="glyph" tone="secondary">
+        ×
+      </Txt>
+    </Press>
+  ) : null;
+
+  const inputTrailing = isTrailingOutside ? (
+    searching || searchCloseButton ? (
       <View style={styles.trailingInside}>
-        {loadingIndicator}
-        {trailing}
+        {searching ? loadingIndicator : null}
+        {searchCloseButton}
       </View>
-    )
-  ) : isTrailingOutside ? undefined : (
+    ) : undefined
+  ) : searching || searchCloseButton ? (
+    <View style={styles.trailingInside}>
+      {searching ? loadingIndicator : null}
+      {searchCloseButton}
+      {trailing}
+    </View>
+  ) : (
     trailing
   );
 
@@ -282,13 +344,16 @@ export const ProductSearchDropdown = forwardRef<
             placeholder={placeholder}
             value={value}
             style={inputStyle}
-            trailing={trailingContent}
+            trailing={inputTrailing}
             size={size}
             // Return-Taste schliesst nur die Tastatur, die Trefferliste bleibt
             // offen (#UI-Feedback: Liste soll erst bei tatsaechlicher Auswahl
             // zugehen, nicht schon beim blossen Wegnehmen der Tastatur).
             returnKeyType="search"
-            onSubmitEditing={() => Keyboard.dismiss()}
+            onSubmitEditing={() => {
+              void searchOnline();
+              Keyboard.dismiss();
+            }}
             onChangeText={(text) => {
               onChangeText(text);
               setShowDropdown(true);
@@ -299,59 +364,55 @@ export const ProductSearchDropdown = forwardRef<
       </View>
 
       {showDropdown && (suggestions.length > 0 || showEmptyState || showErrorState) && (
-        <View style={styles.panelWrapper}>
-          {}
-          <Press
-            onPress={dismiss}
-            hitSlop={10}
-            accessibilityRole="button"
-            accessibilityLabel="Trefferliste schließen"
-            style={styles.panelClose}>
-            <Txt variant="caption" tone="secondary" weight="700">
-              ✕
-            </Txt>
-          </Press>
-          <ScrollView
-            style={[
-              styles.panel,
-              { elevation: 4, maxHeight: panelMaxHeight ?? PANEL_FALLBACK_HEIGHT },
-            ]}
-            // elevation ist ein Android-only-Wert ohne Tailwind-Aequivalent
-            // (boxShadow deckt nur den iOS/Web-Schatten ab). maxHeight kommt aus
-            // der Live-Messung oben statt einer festen Klasse — die Liste soll
-            // bis zum unteren Rand reichen, nicht pauschal bei 220px kappen.
-            // Ohne das stoesst die letzte Zeile direkt an den unteren, abgerundeten
-            // Panel-Rand — sieht abgeschnitten aus (#UI-Feedback: "Liste ist zu tief").
-            // `flexGrow: 1` sorgt dafuer, dass bei wenigen Treffern echte
-            // Leerflaeche im Content-Container entsteht (statt shrink-wrap auf
-            // die paar Zeilen) — die faengt der Pressable am Ende des Contents
-            // unten ab, damit Tippen dort die Tastatur schliesst (#UI-Feedback:
-            // "Leerflaeche neben dem Suchfeld schliesst Tastatur nicht"; das
-            // randfuellende Panel bedeckt bei offener Suche fast den ganzen
-            // Bildschirm, ein Formular-weiter Blank-Tap-Handler erreicht es nicht).
-            contentContainerStyle={styles.panelContent}
-            keyboardShouldPersistTaps="handled"
-            showsVerticalScrollIndicator
-            onScroll={({ nativeEvent }) => {
-              const { contentOffset, contentSize, layoutMeasurement } = nativeEvent;
-              const distanceToBottom =
-                contentSize.height - contentOffset.y - layoutMeasurement.height;
-              if (distanceToBottom < LOAD_MORE_THRESHOLD_PX) loadMore();
-            }}
-            scrollEventThrottle={100}>
-            {showErrorState ? (
-              <View style={styles.errorState}>
-                <Txt variant="body" tone="danger" center accessibilityRole="alert">
-                  Open Food Facts ist gerade nicht erreichbar.
-                </Txt>
-                <Button
-                  title="Erneut versuchen"
-                  variant="secondary"
-                  size="sm"
-                  onPress={() => void retry()}
-                />
-              </View>
-            ) : showEmptyState ? (
+        <ScrollView
+          style={[
+            styles.panel,
+            panelPlacement === 'above' && styles.panelAbove,
+            { elevation: 4, maxHeight: panelMaxHeight ?? PANEL_FALLBACK_HEIGHT },
+          ]}
+          // elevation ist ein Android-only-Wert ohne Tailwind-Aequivalent
+          // (boxShadow deckt nur den iOS/Web-Schatten ab). maxHeight kommt aus
+          // der Live-Messung oben statt einer festen Klasse — die Liste soll
+          // bis zum unteren Rand reichen, nicht pauschal bei 220px kappen.
+          // Ohne das stoesst die letzte Zeile direkt an den unteren, abgerundeten
+          // Panel-Rand — sieht abgeschnitten aus (#UI-Feedback: "Liste ist zu tief").
+          // `flexGrow: 1` sorgt dafuer, dass bei wenigen Treffern echte
+          // Leerflaeche im Content-Container entsteht (statt shrink-wrap auf
+          // die paar Zeilen) — die faengt der Pressable am Ende des Contents
+          // unten ab, damit Tippen dort die Tastatur schliesst (#UI-Feedback:
+          // "Leerflaeche neben dem Suchfeld schliesst Tastatur nicht"; das
+          // randfuellende Panel bedeckt bei offener Suche fast den ganzen
+          // Bildschirm, ein Formular-weiter Blank-Tap-Handler erreicht es nicht).
+          contentContainerStyle={styles.panelContent}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator
+          onScroll={({ nativeEvent }) => {
+            const { contentOffset, contentSize, layoutMeasurement } = nativeEvent;
+            const distanceToBottom =
+              contentSize.height - contentOffset.y - layoutMeasurement.height;
+            if (distanceToBottom < LOAD_MORE_THRESHOLD_PX) loadMore();
+          }}
+          scrollEventThrottle={100}>
+          {showErrorState ? (
+            <View style={styles.errorState}>
+              <Txt variant="body" tone="danger" center accessibilityRole="alert">
+                Open Food Facts ist gerade nicht erreichbar.
+              </Txt>
+              <Button
+                title="Erneut versuchen"
+                variant="secondary"
+                size="sm"
+                onPress={() => void retry()}
+              />
+            </View>
+          ) : showEmptyState ? (
+            <View style={styles.emptyState}>
+              <Button
+                title="Open Food Facts durchsuchen"
+                variant="secondary"
+                size="sm"
+                onPress={() => void searchOnline()}
+              />
               <Press
                 haptic="selection"
                 onPress={() => {
@@ -370,61 +431,66 @@ export const ProductSearchDropdown = forwardRef<
                     + &quot;{value.trim()}&quot; manuell anlegen
                   </Txt>
                   <Txt variant="body" tone="secondary">
-                    Kein Treffer bei Open Food Facts gefunden
+                    Kein Treffer im lokalen Katalog gefunden
                   </Txt>
                 </View>
               </Press>
-            ) : null}
-            {suggestions.map((item) => (
-              <Press
-                key={item.productId || item.barcode || item.name}
-                haptic="selection"
-                accessibilityRole="button"
-                accessibilityLabel={item.name}
-                onPress={() => {
-                  setSelectedName(item.name);
-                  onSelectProduct(item);
-                  setShowDropdown(false);
-                  // Auswahl beendet die Sucheingabe — Tastatur soll mitgehen
-                  // (#UI-Feedback: "Artikel auswählen schließt die Tastatur
-                  // nicht"), sonst bleibt sie ohne erkennbaren Grund offen.
-                  Keyboard.dismiss();
-                }}
-                style={styles.row}>
-                {item.imageUrl ? (
-                  <Image source={{ uri: item.imageUrl }} style={styles.thumb} />
-                ) : (
-                  <View style={[styles.thumb, styles.thumbFallback]}>
-                    <Txt variant="body">🥫</Txt>
-                  </View>
-                )}
+            </View>
+          ) : null}
+          {suggestions.map((item) => (
+            <Press
+              key={item.productId || item.barcode || item.name}
+              haptic="selection"
+              accessibilityRole="button"
+              accessibilityLabel={item.name}
+              onPress={() => {
+                setSelectedName(item.name);
+                onSelectProduct(item);
+                setShowDropdown(false);
+                // Auswahl beendet die Sucheingabe — Tastatur soll mitgehen
+                // (#UI-Feedback: "Artikel auswählen schließt die Tastatur
+                // nicht"), sonst bleibt sie ohne erkennbaren Grund offen.
+                Keyboard.dismiss();
+              }}
+              style={styles.row}>
+              {item.imageUrl ? (
+                <Image source={{ uri: item.imageUrl }} style={styles.thumb} />
+              ) : (
+                <View style={[styles.thumb, styles.thumbFallback]}>
+                  <Txt variant="body">🥫</Txt>
+                </View>
+              )}
 
-                <View style={styles.flex}>
-                  <Txt variant="body" weight="700" numberOfLines={1}>
-                    {item.name}
+              <View style={styles.flex}>
+                <Txt variant="body" weight="700" numberOfLines={1}>
+                  {item.name}
+                </Txt>
+                <Txt variant="body" tone="secondary" numberOfLines={1}>
+                  {item.brand ? `${item.brand} · ` : ''}
+                  {item.quantity !== undefined ? `${item.quantity} ${item.unit ?? ''}` : ''}
+                  {item.caloriesPer100g ? ` · ${item.caloriesPer100g} kcal/100g` : ''}
+                </Txt>
+                {item.barcode ? (
+                  <Txt variant="caption" tone="secondary" numberOfLines={1}>
+                    EAN {item.barcode}
                   </Txt>
-                  <Txt variant="body" tone="secondary" numberOfLines={1}>
-                    {item.brand ? `${item.brand} · ` : ''}
-                    {item.quantity !== undefined ? `${item.quantity} ${item.unit ?? ''}` : ''}
-                    {item.caloriesPer100g ? ` · ${item.caloriesPer100g} kcal/100g` : ''}
-                  </Txt>
-                  {item.barcode ? (
-                    <Txt variant="caption" tone="secondary" numberOfLines={1}>
-                      EAN {item.barcode}
-                    </Txt>
-                  ) : null}
-                </View>
-              </Press>
-            ))}
-            {loadingMore && (
-              <View style={styles.loadingMore}>
-                <ActivityIndicator size="small" color={colors.accent} />
+                ) : null}
               </View>
-            )}
-            {}
-            <Pressable style={styles.flex} accessible={false} onPress={() => Keyboard.dismiss()} />
-          </ScrollView>
-        </View>
+            </Press>
+          ))}
+          {loadingMore && (
+            <View style={styles.loadingMore}>
+              <ActivityIndicator size="small" color={colors.accent} />
+            </View>
+          )}
+          {}
+          <Pressable
+            testID="product-search-dropdown-dismiss-area"
+            style={styles.flex}
+            accessible={false}
+            onPress={dismiss}
+          />
+        </ScrollView>
       )}
     </View>
   );
