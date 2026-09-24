@@ -21,7 +21,6 @@ import {
 } from '@/features/onboarding/onboarding-completion';
 import { useProfile } from '@/features/profile/api';
 import { useSignOutOnOrphanedProfile } from '@/features/profile/hooks/use-sign-out-on-orphaned-profile';
-import { env } from '@/lib/config/env';
 import { debugError } from '@/lib/observability/debug-log';
 import { useHouseholdsBootstrapSync } from '@/lib/sync/household-bootstrap-sync';
 import { useRealtimeSync, useSyncEngine } from '@/lib/sync/sync-runner';
@@ -65,7 +64,6 @@ function AppLayoutContent() {
       householdsLoading ||
       (!householdBootstrap.isInitialSyncComplete && !householdBootstrap.isInitialSyncError),
     shouldPromptOnboarding: shouldPrompt,
-    forceOnboarding: env.forceOnboarding,
     householdCount: households?.length ?? 0,
     householdsError:
       householdsError || Boolean(profileError) || householdBootstrap.isInitialSyncError,

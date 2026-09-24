@@ -8,6 +8,7 @@ let mockProfileResult: {
   isLoading: boolean;
   error: Error | null;
 };
+let mockOnboardingSessionCompleted = false;
 let mockHouseholdResult: { activeHouseholdId: string | null };
 let mockHouseholdsResult: {
   data: { id: string; name: string }[];
@@ -69,7 +70,7 @@ jest.mock('@/features/household/api', () => ({
   useRedeemInviteMutation: () => mockRedeemInvite,
 }));
 jest.mock('@/features/onboarding/onboarding-completion', () => ({
-  isOnboardingSessionCompleted: () => false,
+  isOnboardingSessionCompleted: () => mockOnboardingSessionCompleted,
   persistOnboardingCompleted: jest.fn(),
 }));
 jest.mock('@/features/profile/api', () => ({
@@ -78,7 +79,6 @@ jest.mock('@/features/profile/api', () => ({
 jest.mock('@/features/profile/hooks/use-sign-out-on-orphaned-profile', () => ({
   useSignOutOnOrphanedProfile: jest.fn(),
 }));
-jest.mock('@/lib/config/env', () => ({ env: { forceOnboarding: false } }));
 jest.mock('@/lib/observability/debug-log', () => ({ debugError: jest.fn() }));
 jest.mock('@/lib/sync/household-bootstrap-sync', () => ({
   useHouseholdsBootstrapSync: (...args: unknown[]) => mockUseHouseholdsBootstrapSync(...args),
@@ -105,6 +105,7 @@ async function renderLayout(queryClient = createQueryClient()) {
 
 describe('AppLayout startup gate', () => {
   beforeEach(() => {
+    mockOnboardingSessionCompleted = false;
     mockProfileResult = {
       data: { onboarding_completed_at: '2026-09-16T00:00:00.000Z' },
       isLoading: false,

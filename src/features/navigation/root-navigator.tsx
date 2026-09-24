@@ -1,9 +1,10 @@
 import { useObserve } from 'expo-observe';
 import { Redirect, Stack, usePathname } from 'expo-router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { CrashFallback } from '@/features/app-shell/crash-fallback';
 import { useSession } from '@/features/auth/session-provider';
+import { isOnboardingSessionCompleted } from '@/features/onboarding/onboarding-completion';
 import { env } from '@/lib/config/env';
 import { getDatabase } from '@/lib/db/client';
 import { debugLog, debugWarn } from '@/lib/observability/debug-log';
@@ -14,6 +15,15 @@ export function RootNavigator() {
   const { session, accountReady, isLoading, seenOnboarding, error, retry } = useSession();
   const { markInteractive } = useObserve();
   const pathname = usePathname();
+  const [forceOnboardingRouted, setForceOnboardingRouted] = useState(
+    () => !env.forceOnboarding || pathname === '/onboarding',
+  );
+
+  useEffect(() => {
+    if (env.forceOnboarding && pathname === '/onboarding') {
+      setForceOnboardingRouted(true);
+    }
+  }, [pathname]);
 
   useEffect(() => {
     if (!isLoading) {
@@ -43,11 +53,14 @@ export function RootNavigator() {
   if (isLoading) return null;
   if (error) return <CrashFallback resetError={retry} />;
 
-  const isNewUser = !seenOnboarding || env.forceOnboarding;
+  // Der Dev-Override gilt nur bis zum Abschluss in dieser App-Sitzung:
+  // Neustarts erzwingen den Flow erneut, der Dashboard-Übergang bleibt möglich.
+  const forceOnboarding = env.forceOnboarding && !isOnboardingSessionCompleted();
+  const isNewUser = !seenOnboarding || forceOnboarding;
   // Developer tools may exercise the real auth screens without changing the production guard.
   const authPreviewEnabled = __DEV__ && env.devTools;
 
-  if (env.forceOnboarding && pathname !== '/onboarding') {
+  if (env.forceOnboarding && !forceOnboardingRouted && pathname !== '/onboarding') {
     return <Redirect href="/onboarding" />;
   }
 

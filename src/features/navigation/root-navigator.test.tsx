@@ -13,6 +13,7 @@ let mockSessionState: {
 };
 let mockDevTools = false;
 let mockForceOnboarding = false;
+let mockOnboardingSessionCompleted = false;
 let mockPathname = '/';
 const mockGetDatabase = jest.fn().mockResolvedValue({});
 const mockInitOffDump = jest.fn();
@@ -34,6 +35,9 @@ jest.mock('expo-router', () => {
 });
 jest.mock('expo-observe', () => ({ useObserve: () => ({ markInteractive: jest.fn() }) }));
 jest.mock('@/features/auth/session-provider', () => ({ useSession: () => mockSessionState }));
+jest.mock('@/features/onboarding/onboarding-completion', () => ({
+  isOnboardingSessionCompleted: () => mockOnboardingSessionCompleted,
+}));
 jest.mock('@/lib/db/client', () => ({
   getDatabase: (...args: unknown[]) => mockGetDatabase(...args),
 }));
@@ -66,6 +70,7 @@ describe('RootNavigator', () => {
   beforeEach(() => {
     mockDevTools = false;
     mockForceOnboarding = false;
+    mockOnboardingSessionCompleted = false;
     mockPathname = '/';
   });
 
@@ -134,6 +139,26 @@ describe('RootNavigator', () => {
 
     expect(screen.getByText('redirect:/onboarding')).toBeOnTheScreen();
     expect(screen.queryByText('(auth)')).not.toBeOnTheScreen();
+  });
+
+  it('lässt nach abgeschlossenem Dev-Onboarding den Dashboard-Wechsel zu', async () => {
+    mockForceOnboarding = true;
+    mockSessionState = {
+      session: { user: { id: 'user-1' } },
+      accountReady: true,
+      isLoading: false,
+      seenOnboarding: true,
+    };
+
+    mockPathname = '/onboarding';
+    const view = await render(<RootNavigator />);
+
+    mockOnboardingSessionCompleted = true;
+    mockPathname = '/';
+    await view.rerender(<RootNavigator />);
+
+    expect(screen.queryByText('redirect:/onboarding')).not.toBeOnTheScreen();
+    expect(screen.getByText('(app)')).toBeOnTheScreen();
   });
 
   it('stellt Auth-Routen für die Dev-Tools auch mit Session bereit', async () => {

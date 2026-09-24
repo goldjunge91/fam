@@ -32,7 +32,7 @@ export const env = {
     return requireEnv('EXPO_PUBLIC_SUPABASE_KEY', process.env.EXPO_PUBLIC_SUPABASE_KEY);
   },
   get forceOnboarding(): boolean {
-    return isFlagEnabled(process.env.EXPO_PUBLIC_FORCE_ONBOARDING);
+    return __DEV__ && isFlagEnabled(process.env.EXPO_PUBLIC_FORCE_ONBOARDING);
   },
 
   get devTools(): boolean {
