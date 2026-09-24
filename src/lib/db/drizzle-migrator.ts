@@ -4,6 +4,7 @@ import {
   DRIZZLE_MIGRATIONS_TABLE,
   ensureDrizzleBaseline,
   hashSchemaShape,
+  isLegacyRecipeStepImagesDatabase,
 } from '@/lib/db/drizzle-baseline';
 import type { SqlDatabase } from '@/lib/db/types';
 import localMigrations from '../../../drizzle/local/migrations';
@@ -11,6 +12,11 @@ import localMigrations from '../../../drizzle/local/migrations';
 type MigrationBundle = {
   migrations: Record<string, string>;
 };
+
+const LEGACY_RECIPE_STEP_IMAGES_MIGRATIONS = new Set([
+  '20260924044003_redundant_sasquatch',
+  '20260924044031_curved_joseph',
+]);
 
 function timestampFromMigrationName(name: string): number {
   const match = /^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})_/.exec(name);
@@ -43,6 +49,34 @@ function migrationEntries(bundle: MigrationBundle): [string, string][] {
   return entries;
 }
 
+async function markLegacyRecipeStepImagesMigrations(
+  db: SqlDatabase,
+  entries: readonly [string, string][],
+): Promise<number> {
+  if (!(await isLegacyRecipeStepImagesDatabase(db))) return 0;
+
+  let appliedCount = 0;
+  await db.withExclusiveTransactionAsync(async (transaction) => {
+    for (const [name, source] of entries) {
+      if (!LEGACY_RECIPE_STEP_IMAGES_MIGRATIONS.has(name)) continue;
+
+      const applied = await transaction.getFirstAsync<{ name: string }>(
+        `select name from ${DRIZZLE_MIGRATIONS_TABLE} where name = ?`,
+        [name],
+      );
+      if (applied) continue;
+
+      await transaction.runAsync(
+        `insert into ${DRIZZLE_MIGRATIONS_TABLE} (hash, created_at, name, applied_at)
+         values (?, ?, ?, ?)`,
+        [hashSchemaShape(source), timestampFromMigrationName(name), name, new Date().toISOString()],
+      );
+      appliedCount += 1;
+    }
+  });
+  return appliedCount;
+}
+
 export async function runDrizzleMigrations(
   db: SqlDatabase,
   bundle: MigrationBundle = localMigrations,
@@ -51,7 +85,7 @@ export async function runDrizzleMigrations(
   bugBubbleConsole('debug', '[drizzle] Migrationslauf gestartet', `${entries.length} bekannt`);
   await ensureDrizzleBaseline(db);
 
-  let appliedCount = 0;
+  let appliedCount = await markLegacyRecipeStepImagesMigrations(db, entries);
   for (const [name, source] of entries) {
     const startedAt = Date.now();
     let wasApplied = false;

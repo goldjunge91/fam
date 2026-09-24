@@ -196,7 +196,7 @@ create table if not exists public.recipe_steps (
 );
 
 comment on table public.recipe_steps is
-  'Ein Zubereitungsschritt eines Rezepts, in Reihenfolge ueber position. image_path zeigt in den recipe-step-images-Bucket (13_recipe_step_storage.sql). timer_minutes ist ein optionaler, explizit gesetzter Kochmodus-Timer.';
+  'Ein Zubereitungsschritt eines Rezepts, in Reihenfolge ueber position. image_path bleibt als Legacy-Einzelbild fuer bestehende Rezepte erhalten; neue Mehrfachbilder liegen in recipe_step_images. timer_minutes ist ein optionaler, explizit gesetzter Kochmodus-Timer.';
 
 create index if not exists recipe_steps_recipe_id_idx
   on public.recipe_steps (recipe_id);
@@ -205,6 +205,33 @@ create index if not exists recipe_steps_household_updated_idx
 
 create or replace trigger recipe_steps_set_updated_at
   before update on public.recipe_steps
+  for each row
+  execute function private.set_updated_at();
+
+create table if not exists public.recipe_step_images (
+  id uuid primary key default gen_random_uuid(),
+  step_id uuid not null references public.recipe_steps (id) on delete cascade,
+  recipe_id uuid not null references public.recipes (id) on delete cascade,
+  household_id uuid not null references public.households (id) on delete cascade,
+  storage_path text not null unique,
+  position integer not null default 0 check (position >= 0),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  deleted_at timestamptz
+);
+
+comment on table public.recipe_step_images is
+  'Synchronisierte Bilder je Rezeptschritt. Die Reihenfolge wird ueber position bestimmt; recipe_steps.image_path ist nur der Legacy-Fallback.';
+
+create index if not exists recipe_step_images_step_position_idx
+  on public.recipe_step_images (step_id, position);
+create index if not exists recipe_step_images_recipe_position_idx
+  on public.recipe_step_images (recipe_id, position);
+create index if not exists recipe_step_images_household_updated_idx
+  on public.recipe_step_images (household_id, updated_at);
+
+create or replace trigger recipe_step_images_set_updated_at
+  before update on public.recipe_step_images
   for each row
   execute function private.set_updated_at();
 
@@ -300,6 +327,7 @@ alter table public.recipes enable row level security;
 alter table public.recipe_components enable row level security;
 alter table public.recipe_component_items enable row level security;
 alter table public.recipe_steps enable row level security;
+alter table public.recipe_step_images enable row level security;
 alter table public.recipe_step_ingredients enable row level security;
 
 create policy recipes_household on public.recipes
@@ -318,6 +346,11 @@ create policy recipe_component_items_household on public.recipe_component_items
   with check ((select private.is_household_member(household_id)));
 
 create policy recipe_steps_household on public.recipe_steps
+  for all to authenticated
+  using ((select private.is_household_member(household_id)))
+  with check ((select private.is_household_member(household_id)));
+
+create policy recipe_step_images_household on public.recipe_step_images
   for all to authenticated
   using ((select private.is_household_member(household_id)))
   with check ((select private.is_household_member(household_id)));

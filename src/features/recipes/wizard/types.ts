@@ -1,5 +1,13 @@
 import type { CatalogProduct } from '@/features/product-search/types';
 
+export const MAX_RECIPE_STEP_IMAGES = 3;
+
+export type ExistingRecipeStepImage = {
+  id: string | null;
+  storagePath: string;
+  position: number;
+};
+
 export interface IngredientItem {
   id: string;
   product: CatalogProduct | null;
@@ -28,8 +36,8 @@ export interface WizardStepItem {
   /** Gesetzt, nachdem der Schritt beim finalen Speichern (Seite 3) angelegt wurde. */
   serverId: string | null;
   text: string;
-  localImageUri: string | null;
-  existingImagePath: string | null;
+  localImageUris: string[];
+  existingImages: ExistingRecipeStepImage[];
   /** Optionaler, explizit gesetzter Kochmodus-Timer in Minuten. */
   timerMinutes: number | null;
 
@@ -54,8 +62,8 @@ export function newWizardStep(): WizardStepItem {
     id: `step-${Date.now()}-${Math.random()}`,
     serverId: null,
     text: '',
-    localImageUri: null,
-    existingImagePath: null,
+    localImageUris: [],
+    existingImages: [],
     timerMinutes: null,
     ingredientIds: [],
   };

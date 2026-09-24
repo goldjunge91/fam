@@ -18,7 +18,7 @@ export function SignInScreen() {
   const { t } = useTranslation();
 
   return (
-    <Screen title={t('auth.signIn.title')} subtitle={t('auth.signIn.subtitle')}>
+    <Screen title={t('auth.signIn.title')}>
       <AuthFormCard mode="sign_in" onSuccess={() => router.replace('/')} />
 
       <View style={styles.links}>

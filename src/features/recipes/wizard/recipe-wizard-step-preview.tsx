@@ -51,24 +51,32 @@ function RecipeStepPreview({
   ingredientLabelById: Map<string, string>;
 }) {
   const { colors } = useTheme();
-  const { data: existingImageUrl } = useRecipeStepImageUrl(
-    step.localImageUri ? null : step.existingImagePath,
-  );
-  const imageUri = step.localImageUri ?? existingImageUrl;
 
   return (
     <View style={[styles.stepCard, { backgroundColor: colors.backgroundElement }]}>
       <Txt variant="label" tone="primary" weight="700">
         Schritt {index + 1}
       </Txt>
-      {imageUri ? (
-        <Image
-          source={{ uri: imageUri }}
-          style={styles.stepImage}
-          contentFit="cover"
-          testID={`recipe-preview-step-image-${step.id}`}
-        />
-      ) : null}
+      <View style={styles.stepImages}>
+        {step.existingImages.map((image, imageIndex) => (
+          <RecipeStepPreviewImage
+            key={image.id ?? image.storagePath}
+            path={image.storagePath}
+            testID={imageIndex === 0 ? `recipe-preview-step-image-${step.id}` : undefined}
+          />
+        ))}
+        {step.localImageUris.map((uri, imageIndex) => (
+          <RecipeStepPreviewImage
+            key={uri}
+            uri={uri}
+            testID={
+              step.existingImages.length === 0 && imageIndex === 0
+                ? `recipe-preview-step-image-${step.id}`
+                : undefined
+            }
+          />
+        ))}
+      </View>
       <Txt variant="body">{step.text}</Txt>
       {step.timerMinutes !== null ? (
         <Txt variant="caption" tone="secondary">
@@ -89,6 +97,24 @@ function RecipeStepPreview({
         </View>
       ) : null}
     </View>
+  );
+}
+
+function RecipeStepPreviewImage({
+  path,
+  uri,
+  testID,
+}: {
+  path?: string;
+  uri?: string;
+  testID?: string;
+}) {
+  const { data: signedUrl } = useRecipeStepImageUrl(uri ? null : path);
+  const imageUri = uri ?? signedUrl;
+  if (!imageUri) return null;
+
+  return (
+    <Image source={{ uri: imageUri }} style={styles.stepImage} contentFit="cover" testID={testID} />
   );
 }
 
@@ -165,6 +191,9 @@ const styles = StyleSheet.create((theme) => ({
     width: '100%',
     height: rs(140),
     borderRadius: theme.radius.sm,
+  },
+  stepImages: {
+    gap: rs(8),
   },
   stepIngredientWrap: {
     flexDirection: 'row',

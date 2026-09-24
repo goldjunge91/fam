@@ -11,7 +11,8 @@ export function CookingModeArtwork({
   step: RecipeStep;
   imageUrl?: string | null;
 }) {
-  const { data: householdImageUrl } = useRecipeStepImageUrl(step.image_path);
+  const firstImagePath = step.images?.[0]?.storage_path ?? step.image_path;
+  const { data: householdImageUrl } = useRecipeStepImageUrl(firstImagePath);
   const imageUrl = providedImageUrl ?? householdImageUrl;
 
   if (imageUrl) {

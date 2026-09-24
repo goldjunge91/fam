@@ -7,6 +7,7 @@ import {
   real,
   sqliteTable,
   text,
+  uniqueIndex,
 } from 'drizzle-orm/sqlite-core';
 
 import { mirrorColumns } from './mirror-columns';
@@ -107,6 +108,26 @@ export const recipeSteps = sqliteTable(
     primaryKey({ columns: [table.id] }),
     index('recipe_steps_recipe_idx').on(table.recipeId, table.deletedAt),
     index('recipe_steps_dirty_idx').on(table.dirty).where(sql`${table.dirty} = 1`),
+  ],
+);
+
+export const recipeStepImages = sqliteTable(
+  'recipe_step_images',
+  {
+    id: text('id').notNull(),
+    stepId: text('step_id').notNull(),
+    recipeId: text('recipe_id').notNull(),
+    householdId: text('household_id').notNull(),
+    storagePath: text('storage_path').notNull(),
+    position: integer('position').notNull().default(0),
+    ...mirrorColumns(),
+  },
+  (table) => [
+    primaryKey({ columns: [table.id] }),
+    uniqueIndex('recipe_step_images_storage_path_idx').on(table.storagePath),
+    index('recipe_step_images_step_idx').on(table.stepId, table.position, table.deletedAt),
+    index('recipe_step_images_recipe_idx').on(table.recipeId, table.position, table.deletedAt),
+    index('recipe_step_images_dirty_idx').on(table.dirty).where(sql`${table.dirty} = 1`),
   ],
 );
 

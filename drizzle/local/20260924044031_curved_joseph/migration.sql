@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX `recipe_step_images_storage_path_idx` ON `recipe_step_images` (`storage_path`);

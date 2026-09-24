@@ -38,6 +38,7 @@ import {
   restoreReceiptReviewDraft,
   restoreReceiptReviewState,
 } from './model';
+import { ReceiptProcessingIndicator } from './receipt-processing-indicator';
 import { ReceiptReviewModal } from './receipt-review-modal';
 
 const styles = StyleSheet.create((theme) => ({
@@ -826,6 +827,13 @@ export function ReceiptCaptureReviewFlow({
           ) : null}
           {phase === 'processing' ? (
             <>
+              <ReceiptProcessingIndicator
+                label={
+                  processingStage === 'preparing'
+                    ? t('ocr.review.preparing')
+                    : t('ocr.review.processing')
+                }
+              />
               <Txt variant="heading" weight="700">
                 {processingStage === 'preparing'
                   ? t('ocr.review.preparing')

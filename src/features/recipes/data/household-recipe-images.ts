@@ -57,8 +57,13 @@ export function uploadRecipeStepImage(
   localUri: string,
   householdId: string,
   stepId: string,
+  imageId?: string,
 ): Promise<string> {
-  return uploadImageToBucket(STEP_BUCKET, `${householdId}/${stepId}.jpg`, localUri);
+  return uploadImageToBucket(
+    STEP_BUCKET,
+    imageId ? `${householdId}/${stepId}/${imageId}.jpg` : `${householdId}/${stepId}.jpg`,
+    localUri,
+  );
 }
 
 function useSignedImageUrl(

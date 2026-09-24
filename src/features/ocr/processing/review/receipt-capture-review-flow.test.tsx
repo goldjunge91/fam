@@ -223,6 +223,7 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     );
 
     expect(await screen.findByText(i18n.t('ocr.review.preparing'))).toBeOnTheScreen();
+    expect(screen.getByTestId('receipt-processing-animation')).toBeOnTheScreen();
     resolveProcessing({
       kind: 'success',
       captureId: 'capture-1',

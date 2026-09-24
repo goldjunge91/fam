@@ -56,7 +56,6 @@ describe('SignInScreen', () => {
   it('rendert Formular für die Anmeldung', async () => {
     await renderScreen();
 
-    expect(screen.getByText('Schön, dass du wieder da bist')).toBeTruthy();
     expect(screen.getByLabelText('E-Mail')).toBeTruthy();
     expect(screen.getByLabelText('Passwort')).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Anmelden' })).toBeTruthy();
@@ -66,7 +65,6 @@ describe('SignInScreen', () => {
     await i18n.changeLanguage('en');
     await renderScreen();
 
-    expect(screen.getByText('Welcome back')).toBeTruthy();
     expect(screen.getByLabelText('Email')).toBeTruthy();
     expect(screen.getByLabelText('Password')).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Sign in' })).toBeTruthy();

@@ -65,6 +65,9 @@ const styles = StyleSheet.create((theme) => ({
     height: rs(180),
     borderRadius: theme.radius.md,
   },
+  stepImages: {
+    gap: theme.space.sm,
+  },
   stepRow: {
     flexDirection: 'row',
     gap: rs(10),
@@ -351,20 +354,28 @@ function RecipeStepItem({
   ingredients: MentionableIngredient[];
 }) {
   const { colors } = useTheme();
-  const { data: imageUrl } = useRecipeStepImageUrl(step.image_path);
 
   return (
     <View
       style={[styles.step, !isLast && { borderBottomColor: colors.border, borderBottomWidth: 1 }]}>
-      {imageUrl ? (
-        <Image
-          source={{ uri: imageUrl }}
-          contentFit="cover"
-          accessibilityLabel={`Bild für Schritt ${index + 1}`}
-          // expo-image benötigt inline Dimensionen
-          style={styles.stepImage}
-        />
-      ) : null}
+      <View style={styles.stepImages}>
+        {(step.images && step.images.length > 0
+          ? step.images.map((image) => image.storage_path)
+          : step.image_path
+            ? [step.image_path]
+            : []
+        ).map((path, imageIndex) => (
+          <RecipeStepImage
+            key={path}
+            path={path}
+            accessibilityLabel={
+              imageIndex === 0
+                ? `Bild für Schritt ${index + 1}`
+                : `Bild ${imageIndex + 1} für Schritt ${index + 1}`
+            }
+          />
+        ))}
+      </View>
       <View style={styles.stepRow}>
         <Txt variant="heading" tone="primary" style={styles.stepNumber}>
           {index + 1}
@@ -379,6 +390,26 @@ function RecipeStepItem({
         </View>
       </View>
     </View>
+  );
+}
+
+function RecipeStepImage({
+  path,
+  accessibilityLabel,
+}: {
+  path: string;
+  accessibilityLabel: string;
+}) {
+  const { data: imageUrl } = useRecipeStepImageUrl(path);
+  if (!imageUrl) return null;
+
+  return (
+    <Image
+      source={{ uri: imageUrl }}
+      contentFit="cover"
+      accessibilityLabel={accessibilityLabel}
+      style={styles.stepImage}
+    />
   );
 }
 

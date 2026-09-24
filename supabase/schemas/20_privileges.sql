@@ -63,6 +63,7 @@ grant delete, insert, select, update on public.recipes to anon, authenticated, s
 grant delete, insert, select, update on public.recipe_components to anon, authenticated, service_role;
 grant delete, insert, select, update on public.recipe_component_items to anon, authenticated, service_role;
 grant delete, insert, select, update on public.recipe_steps to anon, authenticated, service_role;
+grant delete, insert, select, update on public.recipe_step_images to anon, authenticated, service_role;
 grant delete, insert, select, update on public.recipe_step_ingredients to anon, authenticated, service_role;
 grant delete, insert, select, update on public.meal_plans to anon, authenticated, service_role;
 grant delete, insert, select, update on public.meal_plan_entries to anon, authenticated, service_role;

@@ -9,7 +9,7 @@ import type {
   RecipeComponent,
   RecipeComponentItem,
 } from '@/features/recipes/hooks/use-recipe-components';
-import type { RecipeStep } from '@/features/recipes/hooks/use-recipe-steps';
+import type { RecipeStep, RecipeStepImage } from '@/features/recipes/hooks/use-recipe-steps';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
 import { parseJsonArray } from '@/lib/db/json-array';
@@ -262,6 +262,19 @@ export function useRecipeDetail(recipeId: string | undefined) {
          order by position`,
         [recipeId],
       );
+      const stepImageRows = await db.getAllAsync<RecipeStepImage>(
+        `select id, step_id, recipe_id, household_id, storage_path, position
+         from recipe_step_images
+         where recipe_id = ? and deleted_at is null
+         order by step_id, position`,
+        [recipeId],
+      );
+      const imagesByStep = new Map<string, RecipeStepImage[]>();
+      for (const image of stepImageRows) {
+        const images = imagesByStep.get(image.step_id) ?? [];
+        images.push(image);
+        imagesByStep.set(image.step_id, images);
+      }
       const stepIngredientRows = await db.getAllAsync<{ step_id: string; item_id: string }>(
         `select rsi.step_id, rsi.item_id
          from recipe_step_ingredients rsi
@@ -277,6 +290,7 @@ export function useRecipeDetail(recipeId: string | undefined) {
       }
       const steps: RecipeStep[] = stepRows.map((row) => ({
         ...row,
+        images: imagesByStep.get(row.id) ?? [],
         ingredientIds: ingredientIdsByStep.get(row.id) ?? [],
       }));
 

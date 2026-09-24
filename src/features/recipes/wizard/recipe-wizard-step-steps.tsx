@@ -22,7 +22,11 @@ import {
   matchPendingMention,
   mentionedIngredientIds,
 } from '@/features/recipes/domain/ingredient-mentions';
-import type { IngredientComponentGroup, WizardStepItem } from './types';
+import {
+  type IngredientComponentGroup,
+  MAX_RECIPE_STEP_IMAGES,
+  type WizardStepItem,
+} from './types';
 
 const styles = StyleSheet.create((theme) => ({
   ledger: {
@@ -329,10 +333,6 @@ const StepCard = memo(function StepCard({
   const drag = useReorderableDrag();
   const { colors } = useTheme();
   const autocomplete = pendingAutocomplete(step.text, ingredients);
-  const { data: existingImageUrl } = useRecipeStepImageUrl(
-    step.localImageUri ? null : step.existingImagePath,
-  );
-  const imageUri = step.localImageUri ?? existingImageUrl;
 
   function handleChangeText(text: string) {
     onUpdateStep(step.id, { text, ingredientIds: mentionedIngredientIds(text, ingredients) });
@@ -425,30 +425,45 @@ const StepCard = memo(function StepCard({
         />
       ) : null}
 
-      {imageUri ? (
+      {step.existingImages.length + step.localImageUris.length > 0 ? (
         <View style={styles.imageBlock}>
-          <Image
-            testID={`recipe-step-image-${step.id}`}
-            source={{ uri: imageUri }}
-            // expo-image benötigt inline Dimensionen
-            style={styles.stepImage}
-            contentFit="cover"
-          />
-          <TouchableOpacity
-            style={styles.inlineLink}
-            onPress={() => onUpdateStep(step.id, { localImageUri: null, existingImagePath: null })}>
-            <Txt variant="label" tone="primary" weight="600">
-              Bild entfernen
-            </Txt>
-          </TouchableOpacity>
+          {step.existingImages.map((image, imageIndex) => (
+            <StepImage
+              key={image.id ?? image.storagePath}
+              path={image.storagePath}
+              testID={imageIndex === 0 ? `recipe-step-image-${step.id}` : undefined}
+              onRemove={() =>
+                onUpdateStep(step.id, {
+                  existingImages: step.existingImages.filter((_, index) => index !== imageIndex),
+                })
+              }
+            />
+          ))}
+          {step.localImageUris.map((uri, imageIndex) => (
+            <StepImage
+              key={uri}
+              uri={uri}
+              testID={
+                step.existingImages.length === 0 && imageIndex === 0
+                  ? `recipe-step-image-${step.id}`
+                  : undefined
+              }
+              onRemove={() =>
+                onUpdateStep(step.id, {
+                  localImageUris: step.localImageUris.filter((_, index) => index !== imageIndex),
+                })
+              }
+            />
+          ))}
         </View>
-      ) : (
+      ) : null}
+      {step.existingImages.length + step.localImageUris.length < MAX_RECIPE_STEP_IMAGES ? (
         <TouchableOpacity style={styles.inlineLink} onPress={() => onPickImage(step.id)}>
           <Txt variant="label" tone="primary" weight="600">
             + Bild hinzufügen
           </Txt>
         </TouchableOpacity>
-      )}
+      ) : null}
 
       <StepTimerField
         minutes={step.timerMinutes}
@@ -457,6 +472,38 @@ const StepCard = memo(function StepCard({
     </View>
   );
 });
+
+function StepImage({
+  path,
+  uri,
+  testID,
+  onRemove,
+}: {
+  path?: string;
+  uri?: string;
+  testID?: string;
+  onRemove: () => void;
+}) {
+  const { data: signedUrl } = useRecipeStepImageUrl(uri ? null : path);
+  const imageUri = uri ?? signedUrl;
+  if (!imageUri) return null;
+
+  return (
+    <View style={styles.imageBlock}>
+      <Image
+        testID={testID}
+        source={{ uri: imageUri }}
+        style={styles.stepImage}
+        contentFit="cover"
+      />
+      <TouchableOpacity style={styles.inlineLink} onPress={onRemove}>
+        <Txt variant="label" tone="primary" weight="600">
+          Bild entfernen
+        </Txt>
+      </TouchableOpacity>
+    </View>
+  );
+}
 
 interface StepTimerFieldProps {
   minutes: number | null;
@@ -563,8 +610,8 @@ export function RecipeWizardStepSteps({
         id: `step-${Date.now()}-${Math.random()}`,
         serverId: null,
         text: '',
-        localImageUri: null,
-        existingImagePath: null,
+        localImageUris: [],
+        existingImages: [],
         timerMinutes: null,
         ingredientIds: [],
       },
@@ -572,8 +619,15 @@ export function RecipeWizardStepSteps({
   }
 
   async function pickImageFor(stepId: string) {
+    const step = steps.find((item) => item.id === stepId);
+    if (
+      !step ||
+      step.existingImages.length + step.localImageUris.length >= MAX_RECIPE_STEP_IMAGES
+    ) {
+      return;
+    }
     const uri = await pickRecipeImage();
-    if (uri) updateStep(stepId, { localImageUri: uri });
+    if (uri) updateStep(stepId, { localImageUris: [...step.localImageUris, uri] });
   }
 
   function handleReorder({ from, to }: ReorderableListReorderEvent) {

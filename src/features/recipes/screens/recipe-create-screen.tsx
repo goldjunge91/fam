@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
+import * as Crypto from 'expo-crypto';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -41,10 +42,13 @@ import {
   useUpdateItemMutation,
 } from '../hooks/use-recipe-components';
 import {
+  useAddStepImageMutation,
   useAddStepIngredientMutation,
   useAddStepMutation,
+  useDeleteStepImageMutation,
   useDeleteStepMutation,
   useRemoveStepIngredientMutation,
+  useUpdateStepImageMutation,
   useUpdateStepMutation,
 } from '../hooks/use-recipe-steps';
 import {
@@ -57,6 +61,7 @@ import { RecipeWizardStepPreview } from '../wizard/recipe-wizard-step-preview';
 import { RecipeWizardStepSteps } from '../wizard/recipe-wizard-step-steps';
 import {
   type IngredientComponentGroup,
+  MAX_RECIPE_STEP_IMAGES,
   newIngredient,
   newWizardStep,
   type WizardStepItem,
@@ -128,6 +133,9 @@ export function RecipeCreateScreen() {
   const addProduct = useAddProductMutation();
   const addStep = useAddStepMutation();
   const updateStep = useUpdateStepMutation();
+  const addStepImage = useAddStepImageMutation();
+  const updateStepImage = useUpdateStepImageMutation();
+  const deleteStepImage = useDeleteStepImageMutation();
   const deleteStep = useDeleteStepMutation();
   const addStepIngredient = useAddStepIngredientMutation();
   const removeStepIngredient = useRemoveStepIngredientMutation();
@@ -211,8 +219,17 @@ export function RecipeCreateScreen() {
         id: step.id,
         serverId: step.id,
         text: step.text,
-        localImageUri: null,
-        existingImagePath: step.image_path,
+        localImageUris: [],
+        existingImages:
+          step.images && step.images.length > 0
+            ? step.images.map((image) => ({
+                id: image.id,
+                storagePath: image.storage_path,
+                position: image.position,
+              }))
+            : step.image_path
+              ? [{ id: null, storagePath: step.image_path, position: 0 }]
+              : [],
         timerMinutes: step.timer_minutes,
         ingredientIds: step.ingredientIds,
       }));
@@ -599,19 +616,75 @@ export function RecipeCreateScreen() {
         if (step.serverId) {
           keptStepIds.add(step.serverId);
           stepId = step.serverId;
-          const imagePath = step.localImageUri
-            ? await uploadRecipeStepImage(step.localImageUri, householdId, stepId)
-            : step.existingImagePath;
-          if (step.localImageUri && imagePath) {
-            await queryClient.invalidateQueries({ queryKey: ['RecipeStepImage', imagePath] });
+          if (step.existingImages.length + step.localImageUris.length > MAX_RECIPE_STEP_IMAGES) {
+            throw new Error('Ein Rezeptschritt darf höchstens drei Bilder enthalten.');
           }
+
+          const originalImages = data?.steps.find((item) => item.id === stepId)?.images ?? [];
+          const retainedImageIds = new Set(
+            step.existingImages.flatMap((image) => (image.id ? [image.id] : [])),
+          );
+          for (const image of originalImages) {
+            if (!retainedImageIds.has(image.id)) {
+              await deleteStepImage.mutateAsync({
+                id: image.id,
+                recipe_id: newRecipeId,
+                household_id: householdId,
+              });
+            }
+          }
+
+          const uploadedImages = await Promise.all(
+            step.localImageUris.map(async (uri) => {
+              const imageId = Crypto.randomUUID();
+              const storagePath = await uploadRecipeStepImage(uri, householdId, stepId, imageId);
+              await queryClient.invalidateQueries({ queryKey: ['RecipeStepImage', storagePath] });
+              return { id: imageId, storagePath };
+            }),
+          );
+          const hasChildImages = originalImages.length > 0 || uploadedImages.length > 0;
+          const legacyImage = step.existingImages.find((image) => image.id === null);
+          const imagesToKeep = [
+            ...(legacyImage && hasChildImages
+              ? [{ id: Crypto.randomUUID(), storagePath: legacyImage.storagePath }]
+              : []),
+            ...step.existingImages
+              .filter((image) => image.id !== null)
+              .map((image) => ({ id: image.id as string, storagePath: image.storagePath })),
+            ...uploadedImages,
+          ];
+          for (const [imagePosition, image] of imagesToKeep.entries()) {
+            if (imagePosition >= MAX_RECIPE_STEP_IMAGES) {
+              throw new Error('Ein Rezeptschritt darf höchstens drei Bilder enthalten.');
+            }
+            const existing = originalImages.find((item) => item.id === image.id);
+            if (existing) {
+              await updateStepImage.mutateAsync({
+                id: existing.id,
+                step_id: stepId,
+                recipe_id: newRecipeId,
+                household_id: householdId,
+                position: imagePosition,
+              });
+            } else {
+              await addStepImage.mutateAsync({
+                id: image.id,
+                step_id: stepId,
+                recipe_id: newRecipeId,
+                household_id: householdId,
+                storage_path: image.storagePath,
+                position: imagePosition,
+              });
+            }
+          }
+          const legacyImagePath = legacyImage && !hasChildImages ? legacyImage.storagePath : null;
           await updateStep.mutateAsync({
             id: stepId,
             recipe_id: newRecipeId,
             household_id: householdId,
             position,
             text: step.text.trim(),
-            image_path: imagePath,
+            image_path: legacyImagePath,
             timer_minutes: step.timerMinutes,
           });
 
@@ -636,17 +709,20 @@ export function RecipeCreateScreen() {
           });
           stepId = created.id;
 
-          if (step.localImageUri) {
-            const imagePath = await uploadRecipeStepImage(step.localImageUri, householdId, stepId);
-            await queryClient.invalidateQueries({ queryKey: ['RecipeStepImage', imagePath] });
-            await updateStep.mutateAsync({
-              id: stepId,
+          if (step.localImageUris.length > MAX_RECIPE_STEP_IMAGES) {
+            throw new Error('Ein Rezeptschritt darf höchstens drei Bilder enthalten.');
+          }
+          for (const [imagePosition, uri] of step.localImageUris.entries()) {
+            const imageId = Crypto.randomUUID();
+            const storagePath = await uploadRecipeStepImage(uri, householdId, stepId, imageId);
+            await queryClient.invalidateQueries({ queryKey: ['RecipeStepImage', storagePath] });
+            await addStepImage.mutateAsync({
+              id: imageId,
+              step_id: stepId,
               recipe_id: newRecipeId,
               household_id: householdId,
-              position,
-              text: step.text.trim(),
-              image_path: imagePath,
-              timer_minutes: step.timerMinutes,
+              storage_path: storagePath,
+              position: imagePosition,
             });
           }
         }

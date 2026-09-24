@@ -1997,6 +1997,64 @@ export type Database = {
           },
         ]
       }
+      recipe_step_images: {
+        Row: {
+          created_at: string
+          deleted_at: string | null
+          household_id: string
+          id: string
+          position: number
+          recipe_id: string
+          step_id: string
+          storage_path: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          deleted_at?: string | null
+          household_id: string
+          id?: string
+          position?: number
+          recipe_id: string
+          step_id: string
+          storage_path: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          deleted_at?: string | null
+          household_id?: string
+          id?: string
+          position?: number
+          recipe_id?: string
+          step_id?: string
+          storage_path?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recipe_step_images_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_step_images_recipe_id_fkey"
+            columns: ["recipe_id"]
+            isOneToOne: false
+            referencedRelation: "recipes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_step_images_step_id_fkey"
+            columns: ["step_id"]
+            isOneToOne: false
+            referencedRelation: "recipe_steps"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       recipe_step_ingredients: {
         Row: {
           created_at: string

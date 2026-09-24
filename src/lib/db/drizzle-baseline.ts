@@ -4,6 +4,7 @@ export const DRIZZLE_BASELINE_NAME = '20260826200344_worthless_celestials';
 export const DRIZZLE_BASELINE_USER_VERSION = 22;
 export const DRIZZLE_BASELINE_META_KEY = 'drizzle_baseline';
 export const DRIZZLE_MIGRATIONS_TABLE = '__drizzle_migrations';
+const LEGACY_RECIPE_STEP_IMAGES_USER_VERSION = 23;
 
 // Wird von drizzle-baseline.test.ts gegen die reale V1–V22-Migrationskette
 // geprüft. Schemaänderungen müssen den Fingerprint bewusst aktualisieren.
@@ -27,6 +28,8 @@ type IndexRow = {
 type IndexColumnRow = { sequence: number; name: string | null };
 type IndexSqlRow = { sql: string | null };
 type TableSqlRow = { sql: string };
+
+type NameRow = { name: string };
 
 function normalizeDefault(value: string | null): string {
   if (value === null) return '';
@@ -174,6 +177,44 @@ export async function readLocalSchemaFingerprint(db: SqlDatabase): Promise<strin
   return hashSchemaShape(await readLocalSchemaShape(db));
 }
 
+/**
+ * Erkennt die einmalig ausgelieferte Legacy-V23-Tabelle, damit betroffene
+ * lokale Datenbanken nach dem Baseline-Fehler weiter migrieren können.
+ */
+export async function isLegacyRecipeStepImagesDatabase(db: SqlDatabase): Promise<boolean> {
+  const version = await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version');
+  if (version?.user_version !== LEGACY_RECIPE_STEP_IMAGES_USER_VERSION) return false;
+
+  const table = await db.getFirstAsync<NameRow>(
+    "select name from sqlite_schema where type = 'table' and name = 'recipe_step_images'",
+  );
+  if (!table) return false;
+
+  const columns = await db.getAllAsync<NameRow>('select name from pragma_table_info(?)', [
+    'recipe_step_images',
+  ]);
+  const requiredColumns = [
+    'id',
+    'step_id',
+    'recipe_id',
+    'household_id',
+    'storage_path',
+    'position',
+    'created_at',
+    'updated_at',
+    'deleted_at',
+    '_dirty',
+  ];
+  if (!requiredColumns.every((column) => columns.some((row) => row.name === column))) {
+    return false;
+  }
+
+  const uniqueIndex = await db.getFirstAsync<NameRow>(
+    "select name from sqlite_schema where type = 'index' and name = 'recipe_step_images_storage_path_idx'",
+  );
+  return Boolean(uniqueIndex);
+}
+
 export async function ensureDrizzleBaseline(db: SqlDatabase): Promise<void> {
   await db.withExclusiveTransactionAsync(async (transaction) => {
     const marker = await transaction.getFirstAsync<{ value: string | null }>(
@@ -197,19 +238,22 @@ export async function ensureDrizzleBaseline(db: SqlDatabase): Promise<void> {
     const version = await transaction.getFirstAsync<{ user_version: number }>(
       'PRAGMA user_version',
     );
-    if (version?.user_version !== DRIZZLE_BASELINE_USER_VERSION) {
+    const isLegacyRecipeStepImages = await isLegacyRecipeStepImagesDatabase(transaction);
+    if (version?.user_version !== DRIZZLE_BASELINE_USER_VERSION && !isLegacyRecipeStepImages) {
       throw new Error(
         `Drizzle-Baseline erwartet SQLite user_version ${DRIZZLE_BASELINE_USER_VERSION}, ` +
           `gefunden: ${version?.user_version ?? 0}.`,
       );
     }
 
-    const fingerprint = await readLocalSchemaFingerprint(transaction);
-    if (fingerprint !== DRIZZLE_BASELINE_FINGERPRINT) {
-      throw new Error(
-        `Lokales Schema passt nicht zur Drizzle-Baseline ` +
-          `(erwartet ${DRIZZLE_BASELINE_FINGERPRINT}, gefunden ${fingerprint}).`,
-      );
+    if (!isLegacyRecipeStepImages) {
+      const fingerprint = await readLocalSchemaFingerprint(transaction);
+      if (fingerprint !== DRIZZLE_BASELINE_FINGERPRINT) {
+        throw new Error(
+          `Lokales Schema passt nicht zur Drizzle-Baseline ` +
+            `(erwartet ${DRIZZLE_BASELINE_FINGERPRINT}, gefunden ${fingerprint}).`,
+        );
+      }
     }
 
     await transaction.execAsync(`

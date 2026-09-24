@@ -30,7 +30,6 @@ export function SignUpScreen() {
   return (
     <Screen
       title={t('auth.signUp.title')}
-      subtitle={t('auth.signUp.subtitle')}
       back={{ label: t('auth.signIn.title'), href: '/sign-in' }}>
       <AuthFormCard
         mode="sign_up"

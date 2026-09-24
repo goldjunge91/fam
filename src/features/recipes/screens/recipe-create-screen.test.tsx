@@ -49,8 +49,11 @@ jest.mock('@/features/recipes/hooks/use-recipe-components', () => ({
 }));
 
 jest.mock('@/features/recipes/hooks/use-recipe-steps', () => ({
+  useAddStepImageMutation: () => ({ mutateAsync: jest.fn() }),
   useAddStepMutation: () => ({ mutateAsync: jest.fn() }),
+  useDeleteStepImageMutation: () => ({ mutateAsync: jest.fn() }),
   useUpdateStepMutation: () => ({ mutateAsync: jest.fn() }),
+  useUpdateStepImageMutation: () => ({ mutateAsync: jest.fn() }),
   useDeleteStepMutation: () => ({ mutateAsync: jest.fn() }),
   useAddStepIngredientMutation: () => ({ mutateAsync: jest.fn() }),
   useRemoveStepIngredientMutation: () => ({ mutateAsync: jest.fn() }),

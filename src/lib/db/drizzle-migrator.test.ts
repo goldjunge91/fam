@@ -62,6 +62,59 @@ describe('Drizzle-Migrationsrunner', () => {
     db.close();
   });
 
+  it('legt neue lokale Spiegel nach der festen V22-Baseline über Drizzle an', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+
+    await runDrizzleMigrations(db);
+
+    await expect(
+      db.getFirstAsync<{ name: string }>(
+        "select name from sqlite_schema where type = 'table' and name = 'recipe_step_images'",
+      ),
+    ).resolves.toEqual({ name: 'recipe_step_images' });
+    await expect(
+      db.getFirstAsync<{ name: string }>(
+        "select name from sqlite_schema where type = 'index' and name = 'recipe_step_images_storage_path_idx'",
+      ),
+    ).resolves.toEqual({ name: 'recipe_step_images_storage_path_idx' });
+    db.close();
+  });
+
+  it('übernimmt eine bereits auf das fehlerhafte Legacy-V23 angehobene Datenbank', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await db.execAsync(`
+      create table recipe_step_images (
+        id text primary key not null,
+        step_id text not null,
+        recipe_id text not null,
+        household_id text not null,
+        storage_path text not null,
+        position integer not null default 0,
+        created_at text,
+        updated_at integer not null,
+        deleted_at integer,
+        _dirty integer not null default 0
+      );
+      create unique index recipe_step_images_storage_path_idx
+        on recipe_step_images (storage_path);
+      create index recipe_step_images_step_idx
+        on recipe_step_images (step_id, position, deleted_at);
+      create index recipe_step_images_recipe_idx
+        on recipe_step_images (recipe_id, position, deleted_at);
+      create index recipe_step_images_dirty_idx
+        on recipe_step_images (_dirty) where _dirty = 1;
+      pragma user_version = 23;
+    `);
+
+    await expect(runDrizzleMigrations(db)).resolves.toBe(
+      Object.keys(localMigrations.migrations).length - 1,
+    );
+    await expect(runDrizzleMigrations(db)).resolves.toBe(0);
+    db.close();
+  });
+
   it('lehnt ein Bundle ohne die festgelegte Baseline ab', async () => {
     const db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);

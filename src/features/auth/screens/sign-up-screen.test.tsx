@@ -61,7 +61,6 @@ describe('SignUpScreen', () => {
     await i18n.changeLanguage('en');
     await renderScreen();
 
-    expect(screen.getByText('For you and your household')).toBeTruthy();
     expect(screen.getByLabelText('Email')).toBeTruthy();
     expect(screen.getByLabelText('Repeat password')).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Create account' })).toBeTruthy();

@@ -41,8 +41,8 @@ describe('Recipe Wizard Steps', () => {
       id: 'step-1',
       serverId: null,
       text: 'Zwiebeln schneiden',
-      localImageUri: null,
-      existingImagePath: null,
+      localImageUris: [],
+      existingImages: [],
       timerMinutes: null,
       ingredientIds: ['ing-1'],
     },
@@ -52,7 +52,7 @@ describe('Recipe Wizard Steps', () => {
     ...dummySteps[0],
     id: 'step-existing-image',
     serverId: 'step-existing-image',
-    existingImagePath: 'hh-1/step-existing-image.jpg',
+    existingImages: [{ id: null, storagePath: 'hh-1/step-existing-image.jpg', position: 0 }],
   };
 
   async function renderWithProviders(component: React.ReactElement) {
