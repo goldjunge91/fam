@@ -61,7 +61,7 @@ const androidStyles = StyleSheet.create((theme) => ({
     width: 42,
     height: 4,
     alignSelf: 'center',
-    borderRadius: 2,
+    borderRadius: theme.radius.xs / 4,
     backgroundColor: theme.border,
   },
   header: {
@@ -114,7 +114,7 @@ const androidStyles = StyleSheet.create((theme) => ({
   lotStatus: {
     width: 5,
     height: 42,
-    borderRadius: 3,
+    borderRadius: theme.radius.xs / 2,
   },
   lotCopy: {
     flex: 1,
@@ -941,7 +941,7 @@ const groupStyles = StyleSheet.create((theme) => ({
     width: 4,
     marginVertical: space.md,
     marginRight: space.md,
-    borderRadius: 3,
+    borderRadius: theme.radius.xs / 2,
   },
   lotCopy: {
     flex: 1,

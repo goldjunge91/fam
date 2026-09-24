@@ -10,7 +10,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
-import { font, withAlpha } from '@/components/theme/index';
+import { font, radius, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import type { Hotspot } from '../types';
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     height: 18,
     marginLeft: -9,
     marginTop: -9,
-    borderRadius: 12,
+    borderRadius: radius.sm,
     borderWidth: 1.5,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
@@ -105,12 +105,12 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
-    borderRadius: 12,
+    borderRadius: radius.sm,
   },
   aura: {
     ...StyleSheet.absoluteFill,
     margin: -8,
-    borderRadius: 20,
+    borderRadius: radius.lg,
     borderWidth: 8,
   },
   linkoutArrow: {
@@ -122,6 +122,6 @@ const styles = StyleSheet.create({
   activeBorder: {
     ...StyleSheet.absoluteFill,
     borderWidth: 2,
-    borderRadius: 12,
+    borderRadius: radius.sm,
   },
 });

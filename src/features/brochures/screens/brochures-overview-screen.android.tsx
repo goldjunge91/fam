@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Linking, Pressable, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { space } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
@@ -314,7 +314,7 @@ const styles = StyleSheet.create({
   locationButton: {
     minHeight: 44,
     justifyContent: 'center',
-    borderRadius: 10,
+    borderRadius: radius.sm,
     paddingHorizontal: space.xl,
   },
   postalCode: {},
@@ -344,14 +344,14 @@ const styles = StyleSheet.create({
   storeLogo: {
     width: 64,
     height: 64,
-    borderRadius: 32,
+    borderRadius: radius.xxl,
     borderWidth: 1,
     marginBottom: space.sm,
   },
   storeLogoPlaceholder: {
     width: 64,
     height: 64,
-    borderRadius: 32,
+    borderRadius: radius.xxl,
     borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -369,7 +369,7 @@ const styles = StyleSheet.create({
   brochureCard: {
     width: '48%',
     borderWidth: 1,
-    borderRadius: 12,
+    borderRadius: radius.sm,
     marginBottom: space.lg,
     overflow: 'hidden',
   },
@@ -393,7 +393,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: space.md,
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: radius.sm,
   },
   emptyText: {
     paddingVertical: space.xl,

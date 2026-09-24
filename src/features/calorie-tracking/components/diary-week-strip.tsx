@@ -55,14 +55,14 @@ const styles = StyleSheet.create((theme) => ({
   barTrack: {
     width: 5,
     height: BAR_HEIGHT,
-    borderRadius: 3,
+    borderRadius: theme.radius.xs / 2,
     backgroundColor: theme.backgroundSoft,
     justifyContent: 'flex-end',
     overflow: 'hidden',
   },
   barFill: {
     width: '100%',
-    borderRadius: 3,
+    borderRadius: theme.radius.xs / 2,
     backgroundColor: theme.accent,
   },
   barFillWarning: {
@@ -71,7 +71,7 @@ const styles = StyleSheet.create((theme) => ({
   dayDot: {
     width: 4,
     height: 4,
-    borderRadius: 2,
+    borderRadius: theme.radius.xs / 4,
     backgroundColor: 'transparent',
   },
   dayDotActive: {

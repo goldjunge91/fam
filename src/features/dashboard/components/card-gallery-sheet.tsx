@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { space, withAlpha } from '@/components/theme/index';
+import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { type CardSize, getCards } from '@/features/dashboard/registry';
@@ -223,8 +223,8 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    borderTopLeftRadius: 28,
-    borderTopRightRadius: 28,
+    borderTopLeftRadius: radius.famLarge,
+    borderTopRightRadius: radius.famLarge,
     maxHeight: '75%',
     paddingTop: space.md,
   },
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
   handle: {
     width: 36,
     height: 4,
-    borderRadius: 2,
+    borderRadius: radius.xs / 4,
   },
   header: {
     flexDirection: 'row',
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
   doneBtn: {
     paddingHorizontal: space.lg,
     paddingVertical: space.sm,
-    borderRadius: 14,
+    borderRadius: radius.sm,
   },
   listContent: {
     paddingHorizontal: space.xl,
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
     gap: space.md,
   },
   cardRow: {
-    borderRadius: 18,
+    borderRadius: radius.md,
     borderWidth: 1,
     padding: space.lg,
     gap: space.md,
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
   toggleBtn: {
     paddingHorizontal: space.md,
     paddingVertical: space.sm,
-    borderRadius: 12,
+    borderRadius: radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
   sizeBtn: {
     flex: 1,
     paddingVertical: space.sm,
-    borderRadius: 10,
+    borderRadius: radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
   },
