@@ -12,7 +12,7 @@
 2. **Ausschließlich Declaratives Datenbankschema:** Die Schemadefinitionen in `supabase/schemas/*.sql` sind die einzige Wahrheit. Migrationsdateien werden niemals manuell verfasst, sondern ausschließlich über `bun run db:diff` mit `pg-delta` generiert.
 3. **Local-First & Offline-Belastbarkeit:** Lokale SQLite-Datenbank (`expo-sqlite`) mit Outbox-Sync für reibungslose Bedienung auch ohne stabile Netzverbindung.
 
-## Kanonische Vertragsquellen
+## Verbindliche Vertragsquellen
 
 - `AGENTS.md` besitzt Arbeitsweise, Tooling und Beitragsprozess.
 - `CONSTRAINTS.md` besitzt die verbindlichen Qualitätsgrenzen und wird vor
@@ -24,6 +24,13 @@
 Technisches Ist-Verhalten wird durch deklarative Schemas, Produktionscode und
 gezielte Tests belegt. Eine Abweichung von einem freigegebenen Vertrag wird
 geklärt und nicht stillschweigend als neuer Vertrag behandelt.
+
+## Sprachregel
+
+Der im Änderungsauftrag untersagte K-Begriff darf in Quelltext, Kommentaren,
+Dokumentation, UI-Texten, Beads-Tasks und Commit-Nachrichten nicht verwendet
+werden. Bestehende Formulierungen werden bei Berührung durch „verbindlich“,
+„maßgeblich“ oder eine fachlich präzisere Bezeichnung ersetzt.
 
 ---
 
@@ -98,7 +105,7 @@ The rest of this document is meant to help you navigate the codebase and make ch
 | **`Household (Haushalt)`**                             | Die geteilte Entität für gemeinsame Bestände, Einkaufslisten und Einladungen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | **`Inventory / Fridge`**                               | Geteilter Lebensmittelbestand mit Lagerorten (Kühlschrank, Vorrat, Tiefkühler). Eigenständiger Bestandseintrag, optional angereichert durch ein Product. Siehe `CONTEXT.md`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | **`Product`**                                          | Globaler, nicht haushaltsgebundener Katalogeintrag (Barcode/Nährwerte). Keine Identität mit Inventory/Shopping-List-Items, nur optionale Anreicherung. Siehe `CONTEXT.md`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **`Externe Produktdatenbank (OFF / Open Food Facts)`** | Externe, quelloffene, crowdsourced Lebensmitteldatenbank (`openfoodfacts.org`, kurz **OFF**) — nicht Teil von Haushaltsapp, sondern eine Datenquelle: Produktsuche per Name/Barcode, Nährwerte, Marke, und die kanonische Kategorie-Taxonomie (`categories_tags`, z. B. `en:porks`). OFF ist die Quelle, aber nicht die Wahrheit — Treffer werden als `CatalogProduct` (`src/features/product-search/types.ts`) quellneutral dargestellt und bei Übernahme optional in den lokalen Product-Spiegel überführt (`off_category_tags`/`off_last_modified_at`-Spalten auf `Product`), nie 1:1 als eigene Identität behandelt. Der Klassifikator (`src/features/shopping-list/classification/`) nutzt `categories_tags` als eines von mehreren Signalen zur automatischen Einkaufslisten-Kategorie. Maßgeblich sind Klassifikator-Code und fokussierte Tests. |
+| **`Externe Produktdatenbank (OFF / Open Food Facts)`** | Externe, quelloffene, crowdsourced Lebensmitteldatenbank (`openfoodfacts.org`, kurz **OFF**) — nicht Teil von Haushaltsapp, sondern eine Datenquelle: Produktsuche per Name/Barcode, Nährwerte, Marke, und die maßgebliche Kategorie-Taxonomie (`categories_tags`, z. B. `en:porks`). OFF ist die Quelle, aber nicht die Wahrheit — Treffer werden als `CatalogProduct` (`src/features/product-search/types.ts`) quellneutral dargestellt und bei Übernahme optional in den lokalen Product-Spiegel überführt (`off_category_tags`/`off_last_modified_at`-Spalten auf `Product`), nie 1:1 als eigene Identität behandelt. Der Klassifikator (`src/features/shopping-list/classification/`) nutzt `categories_tags` als eines von mehreren Signalen zur automatischen Einkaufslisten-Kategorie. Maßgeblich sind Klassifikator-Code und fokussierte Tests. |
 | **`Tracking`**                                         | Oberbegriff für alle privaten, per RLS isolierten Nutzerdaten (Nutrition Tracking, Medications & Symptoms, Fasting, Vital Logs, Workouts). Siehe `CONTEXT.md`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | **`Nutrition Tracking`**                               | Ernährungs- und Gewichtsteil von Tracking: Mahlzeiten, Gewicht, Ziele. Eine Tracking-Domäne unter mehreren, kein Oberbegriff.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | **`Declarative Schema`**                               | Der deklarative Schemazustand unter `supabase/schemas/*.sql`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -122,7 +129,7 @@ The rest of this document is meant to help you navigate the codebase and make ch
 
 - **RLS & Security Policies:** Jede neue Tabelle in `supabase/schemas/*.sql` muss explizite RLS-Policies und zugehörige pgTAP-Tests in `supabase/tests/` erhalten.
 - **Reverse States Rule:** Zu jeder UI-Aktion (z. B. `check_item`, `add_favorite`, `archive_recipe`) muss das logische Gegenstück (`uncheck_item`, `remove_favorite`, `unarchive_recipe`) implementiert werden.
-- **Typ-Synchronisation:** Nach jeder Datenbankänderung muss `bun run db:types` ausgeführt werden, um `src/lib/database.types.ts` synchron zu halten.
+- **Typ-Synchronisation:** `src/lib/database.types.ts` ist ein automatisch erzeugtes Artefakt. Die Datei wird ausschließlich mit `bun run db:types` aus dem lokalen Supabase-Schema erstellt und niemals von Hand editiert. Nach jeder Datenbankänderung muss dieser Generator ausgeführt werden; ist die lokale Datenbank nicht verfügbar, bleibt die Änderung bis zur erfolgreichen Generierung offen.
 - **Offline- & Outbox-Parität:** Schema-Erweiterungen an synchronisierten Entitäten müssen sowohl im lokalen SQLite-Schema als auch im Sync-Handler berücksichtigt werden.
 
 ---
@@ -140,7 +147,7 @@ The rest of this document is meant to help you navigate the codebase and make ch
   bun run test:db                       # pgTAP-Suite validieren
   bun run db:advisors                   # Security/Performance prüfen
   bun run db:diff                       # Muss danach LEER sein
-  bun run db:types                      # TypeScript-Typen aktualisieren
+  bun run db:types                      # database.types.ts automatisch erzeugen
 
 ```
 

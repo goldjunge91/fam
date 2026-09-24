@@ -72,7 +72,7 @@ bun run db:advisors        # Security/Performance-Advisors, lokal
 
 Studio unter `http://localhost:54323`.
 
-Datenbank-Workflow ist in AGENTS.md dokumentiert (`db:diff` → `db:reset` → `test:db` → `db:advisors` → `db:diff` muss leer sein → `db:types`). Migrationsdateien unter `supabase/migrations/` niemals von Hand bearbeiten — einzige Quelle der Wahrheit sind `supabase/schemas/*.sql` (Reihenfolge über `schema_paths` in `supabase/config.toml`, Elterntabellen vor Fremdschlüsseln).
+Datenbank-Workflow ist in AGENTS.md dokumentiert (`db:diff` → `db:reset` → `test:db` → `db:advisors` → `db:diff` muss leer sein → `db:types`). `src/lib/database.types.ts` ist ein automatisch erzeugtes Artefakt und darf ausschließlich mit `bun run db:types` aus dem lokalen Supabase-Schema erstellt werden; manuelle Bearbeitung ist verboten. Migrationsdateien unter `supabase/migrations/` niemals von Hand bearbeiten — einzige Quelle der Wahrheit sind `supabase/schemas/*.sql` (Reihenfolge über `schema_paths` in `supabase/config.toml`, Elterntabellen vor Fremdschlüsseln).
 
 Test-Accounts für lokale Entwicklung:
 
@@ -93,7 +93,12 @@ bun run user:create / user:list / user:clean / user:delete
 
 **Lokaler DB-Layer (`src/lib/db/`):** SQLite via `expo-sqlite`. `client.ts` ist bewusst **nicht** im Barrel `index.ts` re-exportiert — es ist die einzige Datei, die das native Modul lädt; würde sie mit-exportiert, zöge jeder Unit-Test, der irgendetwas aus `@/lib/db` importiert, das native Modul mit und schlüge fehl. App-Code importiert `@/lib/db/client` direkt, reine Logik nie. Migrationen laufen über `migrator.ts` + `migrations.ts` (App-interne SQLite-Schemaversion, unabhängig von den Supabase-Migrationen).
 
-**Datenbank-Trennung (RLS):** Die kanonische Ladefolge der nummerierten Dateien unter `supabase/schemas/` steht ausschließlich in `schema_paths` von `supabase/config.toml`; sie wird hier nicht dupliziert. Geteilte Haushaltsdaten und private Account-Trackingdaten sind strikt per RLS getrennt. Jede neue Tabelle braucht eigene Policies und pgTAP-Tests unter `supabase/tests/`.
+**Datenbank-Trennung (RLS):** Die verbindliche Ladefolge der nummerierten Dateien unter `supabase/schemas/` steht ausschließlich in `schema_paths` von `supabase/config.toml`; sie wird hier nicht dupliziert. Geteilte Haushaltsdaten und private Account-Trackingdaten sind strikt per RLS getrennt. Jede neue Tabelle braucht eigene Policies und pgTAP-Tests unter `supabase/tests/`.
+
+**Sprachregel:** Der im Änderungsauftrag untersagte K-Begriff darf in Quelltext,
+Kommentaren, Dokumentation, UI-Texten, Beads-Tasks und Commit-Nachrichten nicht
+verwendet werden. Bestehende Formulierungen werden bei Berührung durch
+„verbindlich“, „maßgeblich“ oder eine fachlich präzisere Bezeichnung ersetzt.
 
 **Umgebungsvariablen:** `.env` im Root, gitignored. Nur `EXPO_PUBLIC_*`-Variablen landen im Client-Bundle. Lokale Werte via `supabase status`; für Produktion ist ein eigener SMTP-Server zwingend (Supabase-Default-Mailversand ist auf 2 Mails/Stunde begrenzt und liefert seit 2026-06-03 bei neuen Free-Projekten keine anpassbaren Auth-Templates mehr). Details in `README.md`.
 
