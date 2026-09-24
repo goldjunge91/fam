@@ -179,6 +179,14 @@ export function receiptAssetsQueryKey(
   return ['receipt-authority', 'receipt-assets', householdId, receiptId] as const;
 }
 
+export function receiptAssetSignedUrlQueryKey(
+  householdId: string | undefined,
+  receiptId: string | undefined,
+  assetId: string,
+) {
+  return [...receiptAssetsQueryKey(householdId, receiptId), 'signed-url', assetId] as const;
+}
+
 function timestamps(deps: ReceiptApiDependencies): { iso: string; milliseconds: number } {
   const date = deps.now?.() ?? new Date();
   const milliseconds = date.getTime();
@@ -245,7 +253,7 @@ async function enqueueStructuredMutation(
 function structuredMutation(input: {
   entity: 'purchase_receipts' | 'purchase_receipt_items';
   entityId: string;
-  op: 'insert' | 'update';
+  op: 'insert' | 'update' | 'delete';
   payload: Record<string, unknown>;
   now: { iso: string; milliseconds: number };
 }) {
@@ -823,6 +831,44 @@ async function changeDeletedState(
   });
 }
 
+const RECEIPT_ASSET_DELETE_BATCH_SIZE = 1000;
+
+async function purgeReceiptAssets(
+  input: ReceiptReference,
+  deletedAt: string,
+  deps: ReceiptApiDependencies,
+): Promise<void> {
+  const supabase = supabaseFor(deps);
+  const { data: assets, error: assetsError } = await supabase
+    .from('receipt_assets')
+    .select('storage_path')
+    .eq('household_id', input.householdId)
+    .eq('receipt_id', input.receiptId);
+  if (assetsError) throw new Error(assetsError.message);
+
+  const storagePaths = (assets ?? []).map((asset) => {
+    assertReceiptAssetPath({ ...input, storagePath: asset.storage_path });
+    return asset.storage_path;
+  });
+
+  const storage = supabase.storage.from(RECEIPT_ASSET_BUCKET);
+  for (let start = 0; start < storagePaths.length; start += RECEIPT_ASSET_DELETE_BATCH_SIZE) {
+    const paths = storagePaths.slice(start, start + RECEIPT_ASSET_DELETE_BATCH_SIZE);
+    const { error: storageError } = await storage.remove(paths);
+    if (storageError) throw new Error(storageError.message);
+  }
+
+  if (storagePaths.length === 0) return;
+
+  const { error: metadataError } = await supabase
+    .from('receipt_assets')
+    .update({ deleted_at: deletedAt })
+    .eq('household_id', input.householdId)
+    .eq('receipt_id', input.receiptId)
+    .is('deleted_at', null);
+  if (metadataError) throw new Error(metadataError.message);
+}
+
 export function deleteReceipt(
   input: ReceiptReference,
   deps: ReceiptApiDependencies = {},
@@ -834,6 +880,48 @@ export function deleteReceipt(
     'delete',
     deps,
   );
+}
+
+/**
+ * Deletes a receipt's private images before queueing the receipt and all of
+ * its local items as sync tombstones. Storage cleanup is idempotent, so a
+ * retry is safe after a failure between the remote and local writes.
+ */
+export async function deleteReceiptPermanently(
+  input: ReceiptReference,
+  deps: ReceiptApiDependencies = {},
+): Promise<void> {
+  const householdId = requireText(input.householdId, 'Haushalt');
+  const receiptId = requireText(input.receiptId, 'Receipt');
+  const db = await databaseFor(deps);
+  const items = await getReceiptItems(db, householdId, receiptId);
+  const now = timestamps(deps);
+
+  await purgeReceiptAssets({ householdId, receiptId }, now.iso, deps);
+
+  await enqueueMutationStepsInExclusiveTransaction(db, async (_txn, append) => {
+    await append(
+      structuredMutation({
+        entity: 'purchase_receipts',
+        entityId: receiptId,
+        op: 'delete',
+        payload: { id: receiptId, household_id: householdId, deleted_at: now.iso },
+        now,
+      }),
+    );
+
+    for (const item of items) {
+      await append(
+        structuredMutation({
+          entity: 'purchase_receipt_items',
+          entityId: item.id,
+          op: 'delete',
+          payload: { id: item.id, household_id: householdId, deleted_at: now.iso },
+          now,
+        }),
+      );
+    }
+  });
 }
 
 export function restoreReceipt(
@@ -955,15 +1043,39 @@ function invalidateReceiptQueries(
   queryClient: ReturnType<typeof useQueryClient>,
   householdId: string,
   receiptId?: string,
+  options: { invalidateAssets?: boolean } = {},
 ): void {
   void queryClient.invalidateQueries({ queryKey: receiptsQueryKey(householdId) });
   void queryClient.invalidateQueries({ queryKey: confirmedReceiptsQueryKey(householdId) });
   if (receiptId) {
     void queryClient.invalidateQueries({ queryKey: receiptQueryKey(householdId, receiptId) });
     void queryClient.invalidateQueries({ queryKey: receiptItemsQueryKey(householdId, receiptId) });
-    void queryClient.invalidateQueries({ queryKey: receiptAssetsQueryKey(householdId, receiptId) });
+    if (options.invalidateAssets !== false) {
+      void queryClient.invalidateQueries({
+        queryKey: receiptAssetsQueryKey(householdId, receiptId),
+      });
+    }
   }
   void queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+}
+
+async function cancelReceiptAssetQueries(
+  queryClient: ReturnType<typeof useQueryClient>,
+  householdId: string,
+  receiptId: string,
+): Promise<void> {
+  const queryKey = receiptAssetsQueryKey(householdId, receiptId);
+  return queryClient.cancelQueries({ queryKey });
+}
+
+async function discardReceiptAssetQueries(
+  queryClient: ReturnType<typeof useQueryClient>,
+  householdId: string,
+  receiptId: string,
+): Promise<void> {
+  const queryKey = receiptAssetsQueryKey(householdId, receiptId);
+  await cancelReceiptAssetQueries(queryClient, householdId, receiptId);
+  queryClient.removeQueries({ queryKey });
 }
 
 function invalidateReceiptAssetQueries(
@@ -971,7 +1083,10 @@ function invalidateReceiptAssetQueries(
   householdId: string,
   receiptId: string,
 ): void {
-  void queryClient.invalidateQueries({ queryKey: receiptAssetsQueryKey(householdId, receiptId) });
+  void queryClient.invalidateQueries({
+    queryKey: receiptAssetsQueryKey(householdId, receiptId),
+    exact: true,
+  });
 }
 
 export function useReceipts(householdId: string | undefined) {
@@ -1033,8 +1148,25 @@ export function useDeleteReceiptAssetMutation() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (input: DeleteReceiptAssetInput) => deleteReceiptAsset(input),
-    onSuccess: (_, input) =>
-      invalidateReceiptAssetQueries(queryClient, input.householdId, input.receiptId),
+    onMutate: async (input) => {
+      await cancelReceiptAssetQueries(queryClient, input.householdId, input.receiptId);
+    },
+    onSuccess: (_, input) => {
+      const assetsQueryKey = receiptAssetsQueryKey(input.householdId, input.receiptId);
+      queryClient.setQueryData<ReceiptAssetRow[] | undefined>(assetsQueryKey, (assets) =>
+        assets?.filter((asset) => asset.id !== input.assetId),
+      );
+      queryClient.removeQueries({
+        queryKey: receiptAssetSignedUrlQueryKey(input.householdId, input.receiptId, input.assetId),
+        exact: true,
+      });
+      invalidateReceiptAssetQueries(queryClient, input.householdId, input.receiptId);
+    },
+    onError: (_, input) => {
+      void queryClient.invalidateQueries({
+        queryKey: receiptAssetsQueryKey(input.householdId, input.receiptId),
+      });
+    },
   });
 }
 
@@ -1073,9 +1205,14 @@ export function useReopenReceiptMutation() {
 export function useDeleteReceiptMutation() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (input: ReceiptReference) => deleteReceipt(input),
-    onSuccess: (_, input) =>
-      invalidateReceiptQueries(queryClient, input.householdId, input.receiptId),
+    mutationFn: (input: ReceiptReference) => deleteReceiptPermanently(input),
+    onMutate: (input) => cancelReceiptAssetQueries(queryClient, input.householdId, input.receiptId),
+    onSuccess: async (_, input) => {
+      await discardReceiptAssetQueries(queryClient, input.householdId, input.receiptId);
+      invalidateReceiptQueries(queryClient, input.householdId, input.receiptId, {
+        invalidateAssets: false,
+      });
+    },
   });
 }
 

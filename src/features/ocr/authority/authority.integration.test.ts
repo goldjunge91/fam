@@ -6,6 +6,7 @@ import {
   createReceiptAssetSignedUrl,
   createReceiptItem,
   deleteReceiptAsset,
+  deleteReceiptPermanently,
   getReceipt,
   getReceiptItems,
   listReceiptAssets,
@@ -239,6 +240,92 @@ describe('receipt-authority über Server, Local Mirror, Outbox und Storage', () 
       expect(outsiderAssetInsert.error).not.toBeNull();
     } finally {
       await outsider?.cleanup();
+      await teardown();
+    }
+  }, 120_000);
+
+  it('entfernt beim Receipt-Löschen alle Storage-Bilder und synchronisiert Tombstones', async () => {
+    const { deviceA, householdId, teardown } = await setupTwoDevices('receipt-delete');
+    const userId = await currentUserId(deviceA);
+    const receiptId = randomId();
+    const itemId = randomId();
+    const assetId = randomId();
+    const storagePath = `${householdId}/${receiptId}/${assetId}.jpg`;
+
+    try {
+      await createReceipt(
+        {
+          id: receiptId,
+          householdId: householdId,
+          createdBy: userId,
+          processingStatus: 'confirmed',
+          totalCents: 1299,
+        },
+        { db: deviceA.db },
+      );
+      await createReceiptItem(
+        {
+          id: itemId,
+          receiptId,
+          householdId,
+          position: 0,
+          name: 'Milch',
+          lineTotalCents: 199,
+          reviewStatus: 'confirmed',
+        },
+        { db: deviceA.db },
+      );
+      await pushOutbox({ db: deviceA.db, supabase: deviceA.client });
+
+      const { error: uploadError } = await deviceA.client.storage
+        .from('receipt-images')
+        .upload(storagePath, new Uint8Array([1, 2, 3]), {
+          contentType: 'image/jpeg',
+          upsert: false,
+        });
+      expect(uploadError).toBeNull();
+      const { error: assetInsertError } = await deviceA.client.from('receipt_assets').insert({
+        id: assetId,
+        receipt_id: receiptId,
+        household_id: householdId,
+        storage_path: storagePath,
+        mime_type: 'image/jpeg',
+        byte_size: 3,
+        created_by: userId,
+      });
+      expect(assetInsertError).toBeNull();
+
+      await deleteReceiptPermanently(
+        { householdId, receiptId },
+        { db: deviceA.db, supabase: deviceA.client },
+      );
+      await pushOutbox({ db: deviceA.db, supabase: deviceA.client });
+
+      expect(
+        await listReceiptAssets({ householdId, receiptId }, { supabase: deviceA.client }),
+      ).toEqual([]);
+      const storageListing = await deviceA.client.storage
+        .from('receipt-images')
+        .list(`${householdId}/${receiptId}`);
+      expect(storageListing.error).toBeNull();
+      expect(storageListing.data?.filter((entry) => entry.id !== null)).toEqual([]);
+
+      const remoteReceipt = await deviceA.client
+        .from('purchase_receipts')
+        .select('deleted_at')
+        .eq('id', receiptId)
+        .single();
+      expect(remoteReceipt.error).toBeNull();
+      expect(remoteReceipt.data?.deleted_at).not.toBeNull();
+
+      const remoteItem = await deviceA.client
+        .from('purchase_receipt_items')
+        .select('deleted_at')
+        .eq('id', itemId)
+        .single();
+      expect(remoteItem.error).toBeNull();
+      expect(remoteItem.data?.deleted_at).not.toBeNull();
+    } finally {
       await teardown();
     }
   }, 120_000);

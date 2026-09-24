@@ -1,5 +1,6 @@
 import type * as ExpoFileSystem from 'expo-file-system';
 import type * as ExpoImagePicker from 'expo-image-picker';
+import { Platform } from 'react-native';
 import type {
   ReceiptCaptureFileAdapter,
   ReceiptImagePickerAdapter,
@@ -75,6 +76,7 @@ export function createExpoImagePickerAdapter(): ReceiptImagePickerAdapter {
   const imagePicker = require('expo-image-picker') as typeof ExpoImagePicker;
   return {
     async getPendingResultAsync() {
+      if (Platform.OS !== 'android') return null;
       return mapPickerResponse(await imagePicker.getPendingResultAsync());
     },
     async requestCameraPermissionsAsync() {

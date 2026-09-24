@@ -13,6 +13,7 @@ import {
   deleteReceipt,
   deleteReceiptAsset,
   deleteReceiptItem,
+  deleteReceiptPermanently,
   getConfirmedReceiptItems,
   getConfirmedReceipts,
   getReceipt,
@@ -389,7 +390,7 @@ type AssetQuery = {
   error: { message: string } | null;
 };
 
-function fakeAssetClient() {
+function fakeAssetClient(storageError: { message: string } | null = null) {
   const calls: string[] = [];
   const rows = [
     {
@@ -450,7 +451,7 @@ function fakeAssetClient() {
           },
           remove: async (paths: string[]) => {
             calls.push(`remove:${paths.join(',')}`);
-            return { data: [], error: null };
+            return { data: [], error: storageError };
           },
         };
       },
@@ -461,6 +462,62 @@ function fakeAssetClient() {
 }
 
 describe('receipt-authority asset API', () => {
+  it('löscht einen Receipt samt Bildern und allen lokal synchronisierten Items', async () => {
+    const database = await createDatabase();
+    const { client, calls } = fakeAssetClient();
+
+    try {
+      await createItemFixture(database);
+
+      await deleteReceiptPermanently(
+        { householdId: HOUSEHOLD_ID, receiptId: RECEIPT_ID },
+        { db: database, supabase: client, now: () => NOW },
+      );
+
+      expect(await getReceipt(database, HOUSEHOLD_ID, RECEIPT_ID)).toBeNull();
+      expect(await getReceiptItems(database, HOUSEHOLD_ID, RECEIPT_ID)).toEqual([]);
+      expect(calls).toContain(`remove:${HOUSEHOLD_ID}/${RECEIPT_ID}/${ASSET_ID}.jpg`);
+
+      const tombstones = await database.getAllAsync<{
+        entity: string;
+        entity_id: string;
+        op: string;
+      }>('select entity, entity_id, op from outbox where op = ? order by id', ['delete']);
+      expect(tombstones).toEqual([
+        { entity: 'purchase_receipts', entity_id: RECEIPT_ID, op: 'delete' },
+        { entity: 'purchase_receipt_items', entity_id: ITEM_ID, op: 'delete' },
+      ]);
+    } finally {
+      database.close();
+    }
+  });
+
+  it('hält den Receipt lokal sichtbar, wenn Storage nicht gelöscht werden kann', async () => {
+    const database = await createDatabase();
+    const { client } = fakeAssetClient({ message: 'Storage nicht erreichbar.' });
+
+    try {
+      await createReceiptFixture(database);
+
+      await expect(
+        deleteReceiptPermanently(
+          { householdId: HOUSEHOLD_ID, receiptId: RECEIPT_ID },
+          { db: database, supabase: client, now: () => NOW },
+        ),
+      ).rejects.toThrow('Storage nicht erreichbar.');
+
+      expect(await getReceipt(database, HOUSEHOLD_ID, RECEIPT_ID)).not.toBeNull();
+      expect(
+        await database.getAllAsync<{ count: number }>(
+          'select count(*) as count from outbox where entity_id = ? and op = ?',
+          [RECEIPT_ID, 'delete'],
+        ),
+      ).toEqual([{ count: 0 }]);
+    } finally {
+      database.close();
+    }
+  });
+
   it('listet mehrere Asset-Metadaten, signiert nur den Receipt-Pfad und löscht nicht lokal', async () => {
     const { client, calls } = fakeAssetClient();
     const deps = { supabase: client, now: () => NOW };

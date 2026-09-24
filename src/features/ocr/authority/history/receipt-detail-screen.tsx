@@ -11,7 +11,7 @@ import { Button, Press, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
   createReceiptAssetSignedUrl,
-  receiptAssetsQueryKey,
+  receiptAssetSignedUrlQueryKey,
   useConfirmedReceiptItems,
   useDeleteReceiptAssetMutation,
   useDeleteReceiptMutation,
@@ -94,11 +94,7 @@ export function ReceiptDetailScreen() {
   const assets = assetsQuery.data ?? [];
   const previewQueries = useQueries({
     queries: assets.map((asset) => ({
-      queryKey: [
-        ...receiptAssetsQueryKey(activeHouseholdId ?? undefined, receiptId),
-        'signed-url',
-        asset.id,
-      ],
+      queryKey: receiptAssetSignedUrlQueryKey(activeHouseholdId ?? undefined, receiptId, asset.id),
       queryFn: () =>
         createReceiptAssetSignedUrl(
           {
@@ -120,15 +116,40 @@ export function ReceiptDetailScreen() {
       {
         text: t('ocr.history.delete'),
         style: 'destructive',
-        onPress: () =>
-          void deleteAssetMutation.mutateAsync({
-            householdId: activeHouseholdId,
-            receiptId,
-            assetId,
-            storagePath,
-          }),
+        onPress: () => void deleteReceiptAssetEntry(assetId, storagePath),
       },
     ]);
+  }
+
+  async function deleteReceiptAssetEntry(assetId: string, storagePath: string) {
+    if (!activeHouseholdId || !receiptId) return;
+    debugLogEvent('receipt.history.delete_asset.started', {
+      asset_id: assetId,
+      receipt_id: receiptId,
+    });
+    try {
+      await deleteAssetMutation.mutateAsync({
+        householdId: activeHouseholdId,
+        receiptId,
+        assetId,
+        storagePath,
+      });
+      debugLogEvent('receipt.history.delete_asset.completed', {
+        asset_id: assetId,
+        receipt_id: receiptId,
+      });
+    } catch (error: unknown) {
+      debugLogEvent('receipt.history.delete_asset.failed', {
+        asset_id: assetId,
+        receipt_id: receiptId,
+        error_type: error instanceof Error ? error.name : typeof error,
+        error_message: error instanceof Error ? error.message : t('ocr.history.deleteError'),
+      });
+      Alert.alert(
+        t('ocr.history.deleteErrorTitle'),
+        error instanceof Error ? error.message : t('ocr.history.deleteError'),
+      );
+    }
   }
 
   async function deleteReceiptEntry() {

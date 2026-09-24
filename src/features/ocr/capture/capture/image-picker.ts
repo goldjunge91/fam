@@ -1,3 +1,4 @@
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import { createReceiptCaptureDraft } from '../domain/actions';
 import type {
   ReceiptCaptureDraft,
@@ -199,22 +200,42 @@ export async function captureReceiptPages(
   let sourceUriForCleanup: string | null = null;
 
   try {
+    const pendingStartedAt = Date.now();
+    debugLogEvent('receipt.capture.picker.pending_result.started', { source: input.source });
     const pending = await dependencies.imagePicker.getPendingResultAsync();
+    debugLogEvent('receipt.capture.picker.pending_result.completed', {
+      source: input.source,
+      has_pending_result: pending !== null,
+      duration_ms: Date.now() - pendingStartedAt,
+    });
     let response = pending;
 
     if (response === null) {
+      const permissionStartedAt = Date.now();
+      debugLogEvent('receipt.capture.picker.permission.started', { source: input.source });
       const permission =
         input.source === 'camera'
           ? await dependencies.imagePicker.requestCameraPermissionsAsync()
           : await dependencies.imagePicker.requestMediaLibraryPermissionsAsync();
+      debugLogEvent('receipt.capture.picker.permission.completed', {
+        source: input.source,
+        granted: permission.granted,
+        duration_ms: Date.now() - permissionStartedAt,
+      });
       if (!permission.granted) {
         return { kind: 'permission_denied', source: input.source };
       }
 
+      const launchStartedAt = Date.now();
+      debugLogEvent('receipt.capture.picker.launch.started', { source: input.source });
       response =
         input.source === 'camera'
           ? await dependencies.imagePicker.launchCameraAsync(pickerOptions(input.source))
           : await dependencies.imagePicker.launchImageLibraryAsync(pickerOptions(input.source));
+      debugLogEvent('receipt.capture.picker.launch.completed', {
+        source: input.source,
+        duration_ms: Date.now() - launchStartedAt,
+      });
     }
 
     const terminalResult = failureFromPickerResponse(input.source, response);
