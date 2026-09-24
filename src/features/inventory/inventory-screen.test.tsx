@@ -502,6 +502,17 @@ it('öffnet den Produktverlauf als Vollansicht ohne Gesamtverlaufs-Link', async 
 
   expect(screen.getByText('Verlauf zu Milch')).toBeOnTheScreen();
   expect(screen.queryByRole('button', { name: 'Gesamten Verlauf öffnen' })).not.toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Milch' })).toBeOnTheScreen();
+
+  await user.press(screen.getByRole('button', { name: 'Milch' }));
+  expect(screen.getByRole('button', { name: 'Milch, 2 L' })).toBeOnTheScreen();
+  expect(screen.queryByText('Verlauf zu Milch')).not.toBeOnTheScreen();
+
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
+  await user.press(screen.getByRole('button', { name: 'Milch Verlauf öffnen' }));
+  await user.press(screen.getByRole('button', { name: 'Schließen' }));
+  expect(screen.queryByText('Verlauf zu Milch')).not.toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Milch, 2 L' })).toBeOnTheScreen();
 });
 
 it('zeigt für alle erlaubten Transaktionstypen genau eine Undo-Aktion', async () => {

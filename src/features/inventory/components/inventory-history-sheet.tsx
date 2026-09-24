@@ -4,6 +4,7 @@ import { Modal, Pressable, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
+import { BackButton } from '@/components/layout/back-button';
 import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, IconButton, Txt } from '@/constants/ui';
@@ -26,6 +27,7 @@ type InventoryHistorySheetProps = {
   subtitle: string;
   transactions: LocalInventoryTransaction[];
   onClose: () => void;
+  onBack?: () => void;
   productSummary?: {
     sealed: number;
     opened: number;
@@ -96,6 +98,20 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
     gap: theme.space.xs,
     paddingRight: theme.space.lg,
+  },
+  headerWithBack: {
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    gap: theme.space.sm,
+  },
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  headerTitleBelow: {
+    alignItems: 'flex-start',
+    gap: theme.space.xs,
   },
   fullScreenSummary: {
     paddingHorizontal: theme.space.lg,
@@ -227,6 +243,7 @@ export function InventoryHistorySheet({
   subtitle,
   transactions,
   onClose,
+  onBack,
   productSummary,
   historyHeading,
   footerNote,
@@ -276,22 +293,52 @@ export function InventoryHistorySheet({
         fullScreen ? styles.fullScreenSheet : [styles.bottomSheet, sheetStyle],
       ]}>
       {!fullScreen ? <View style={styles.handle} /> : null}
-      <View style={[styles.header, fullScreen && styles.fullScreenHeader]}>
-        <View style={styles.titleCopy}>
-          <Txt variant="title">{title}</Txt>
-          <Txt variant="caption" tone="secondary">
-            {subtitle}
-          </Txt>
-        </View>
-        <IconButton
-          icon="x"
-          onPress={onClose}
-          accessibilityLabel="Schließen"
-          bg={withAlpha(colors.danger, 1)}
-          size={40}
-          iconSize={22}
-          style={styles.closeButton}
-        />
+      <View
+        style={[
+          styles.header,
+          fullScreen && styles.fullScreenHeader,
+          onBack && styles.headerWithBack,
+        ]}>
+        {onBack ? (
+          <>
+            <View style={styles.headerActions}>
+              <BackButton label={title} variant="header" onPress={onBack} />
+              <IconButton
+                icon="x"
+                onPress={onClose}
+                accessibilityLabel="Schließen"
+                bg={withAlpha(colors.danger, 1)}
+                size={40}
+                iconSize={22}
+                style={styles.closeButton}
+              />
+            </View>
+            <View style={styles.headerTitleBelow}>
+              <Txt variant="title">{title}</Txt>
+              <Txt variant="caption" tone="secondary">
+                {subtitle}
+              </Txt>
+            </View>
+          </>
+        ) : (
+          <>
+            <View style={styles.titleCopy}>
+              <Txt variant="title">{title}</Txt>
+              <Txt variant="caption" tone="secondary">
+                {subtitle}
+              </Txt>
+            </View>
+            <IconButton
+              icon="x"
+              onPress={onClose}
+              accessibilityLabel="Schließen"
+              bg={withAlpha(colors.danger, 1)}
+              size={40}
+              iconSize={22}
+              style={styles.closeButton}
+            />
+          </>
+        )}
       </View>
 
       {productSummary ? (
@@ -403,7 +450,7 @@ export function InventoryHistorySheet({
       transparent={!fullScreen}
       animationType="slide"
       presentationStyle={fullScreen ? 'fullScreen' : undefined}
-      onRequestClose={onClose}>
+      onRequestClose={onBack ?? onClose}>
       <View style={StyleSheet.absoluteFill}>
         {!fullScreen ? (
           <Pressable

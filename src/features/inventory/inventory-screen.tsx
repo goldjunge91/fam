@@ -711,9 +711,14 @@ export function InventoryScreen() {
         offline={syncStatus.kind === 'offline'}
         onRetry={() => void refetchTransactions()}
         undoPending={undoMutation.isPending}
-        onClose={() => {
+        onBack={() => {
           setProductHistoryGroup(null);
           if (productHistoryReturnGroupId) setDetailGroupId(productHistoryReturnGroupId);
+          setProductHistoryReturnGroupId(null);
+        }}
+        onClose={() => {
+          setProductHistoryGroup(null);
+          setDetailGroupId(null);
           setProductHistoryReturnGroupId(null);
         }}
         onUndo={undoTransaction}
