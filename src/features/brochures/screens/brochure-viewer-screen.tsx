@@ -13,7 +13,7 @@ import {
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { font, radius, withAlpha } from '@/components/theme/index';
+import { font, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -325,7 +325,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
             style={[
               styles.bottomSheet,
               {
-                paddingBottom: Math.max(insets.bottom, 24),
+                paddingBottom: Math.max(insets.bottom, space.xl),
                 backgroundColor: colors.backgroundElement,
                 borderColor: colors.border,
               },
@@ -461,7 +461,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#000' },
-  loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', gap: 12 },
+  loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', gap: space.md },
   pagerView: { flex: 1 },
   page: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   pageImage: { position: 'absolute', inset: 0, zIndex: 0 },
@@ -470,7 +470,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 16,
     minHeight: 36,
-    paddingHorizontal: 14,
+    paddingHorizontal: space.md,
     borderRadius: radius.lg,
     justifyContent: 'center',
     zIndex: 10,
@@ -494,9 +494,9 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopLeftRadius: radius.famLarge,
     borderTopRightRadius: radius.famLarge,
-    padding: 24,
+    padding: space.xl,
     zIndex: 100,
-    gap: 16,
+    gap: space.lg,
   },
   sheetHandle: {
     width: 40,
@@ -508,12 +508,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: radius.md,
-    paddingHorizontal: 18,
-    paddingVertical: 11,
-    gap: 12,
+    paddingHorizontal: space.xl,
+    paddingVertical: space.md,
+    gap: space.md,
   },
-  productCopy: { flex: 1, gap: 2 },
-  sheetDiscount: { borderRadius: radius.xs, paddingHorizontal: 8, paddingVertical: 5 },
+  productCopy: { flex: 1, gap: space.xs / 2 },
+  sheetDiscount: {
+    borderRadius: radius.xs,
+    paddingHorizontal: space.sm,
+    paddingVertical: space.xs,
+  },
   sheetDiscountText: { fontSize: font.sizes.xs, fontWeight: '800' },
   productPreviewImage: {
     width: 248,
@@ -534,7 +538,7 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   sheetCloseText: { fontSize: font.sizes.xxl, fontWeight: '300', lineHeight: 42 },
-  actionRow: { flexDirection: 'row', gap: 12 },
+  actionRow: { flexDirection: 'row', gap: space.md },
   stepper: {
     flexDirection: 'row',
     alignItems: 'center',

@@ -39,8 +39,8 @@ export const MEAL_LABELS: Record<MealType, string> = {
 const styles = StyleSheet.create((theme) => ({
   content: {
     paddingHorizontal: theme.space.xl + theme.space.xs,
-    paddingTop: 2,
-    paddingBottom: 126,
+    paddingTop: theme.space.xs / 2,
+    paddingBottom: theme.space.xxxl * 3 + theme.space.xs + theme.space.xs / 2,
     gap: theme.space.sm,
   },
   macroChip: {
@@ -50,7 +50,7 @@ const styles = StyleSheet.create((theme) => ({
     borderColor: theme.border,
     borderRadius: theme.radius.sm,
     padding: theme.space.lg,
-    gap: 6,
+    gap: theme.space.xs + theme.space.xs / 2,
   },
   mealSection: {
     borderBottomWidth: StyleSheet.hairlineWidth,
@@ -62,7 +62,7 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: theme.space.lg,
-    paddingTop: 6,
+    paddingTop: theme.space.xs + theme.space.xs / 2,
   },
   mealHeading: {
     flex: 1,
@@ -79,12 +79,12 @@ const styles = StyleSheet.create((theme) => ({
   },
   entryRow: {
     minHeight: 36,
-    marginBottom: 6,
-    paddingVertical: 4,
+    marginBottom: theme.space.xs + theme.space.xs / 2,
+    paddingVertical: theme.space.xs,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 10,
+    gap: theme.space.sm + theme.space.xs / 2,
   },
   entryInfo: {
     flex: 1,
@@ -94,7 +94,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingBottom: theme.space.lg,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,
-    gap: 6,
+    gap: theme.space.xs + theme.space.xs / 2,
   },
   heroRow: {
     flexDirection: 'row',
@@ -102,7 +102,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
   },
   heroBar: {
-    marginTop: 2,
+    marginTop: theme.space.xs / 2,
   },
   macroGrid: {
     flexDirection: 'row',
@@ -114,7 +114,7 @@ const styles = StyleSheet.create((theme) => ({
     borderBottomColor: theme.border,
   },
   textOffset: {
-    marginTop: 1,
+    marginTop: theme.space.xs / 4,
   },
   loadingText: {
     paddingVertical: theme.space.xl + theme.space.xs,

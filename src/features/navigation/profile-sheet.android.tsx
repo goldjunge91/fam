@@ -3,7 +3,7 @@ import { Modal, Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
-import { radius, withAlpha } from '@/components/theme/index';
+import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
@@ -173,9 +173,9 @@ const styles = StyleSheet.create({
     left: 16,
     right: 16,
     borderRadius: radius.lg,
-    paddingHorizontal: 20,
-    paddingTop: 12,
-    paddingBottom: 20,
+    paddingHorizontal: space.xl,
+    paddingTop: space.md,
+    paddingBottom: space.xl,
     borderCurve: 'continuous',
   },
   handleArea: {
@@ -191,10 +191,10 @@ const styles = StyleSheet.create({
   profileCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 14,
+    gap: space.md,
     height: 82,
-    paddingTop: 8,
-    paddingBottom: 14,
+    paddingTop: space.sm,
+    paddingBottom: space.md,
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   avatar: {
@@ -210,14 +210,14 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   identity: {
-    gap: 6,
+    gap: space.xs + space.xs / 2,
   },
   profileRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 14,
+    gap: space.md,
     height: 61,
-    paddingVertical: 8,
+    paddingVertical: space.sm,
   },
   rowIcon: {
     width: 24,
@@ -225,6 +225,6 @@ const styles = StyleSheet.create({
   },
   rowCopy: {
     flex: 1,
-    gap: 4,
+    gap: space.xs,
   },
 });

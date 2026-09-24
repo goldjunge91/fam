@@ -20,7 +20,7 @@ export type DiaryWeekStripDay = {
 const styles = StyleSheet.create((theme) => ({
   hint: {
     alignSelf: 'center',
-    marginBottom: 2,
+    marginBottom: theme.space.xs / 2,
   },
   strip: {
     borderRadius: theme.radius.md,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create((theme) => ({
   day: {
     width: 34,
     alignItems: 'center',
-    gap: theme.space.xs + 2,
+    gap: theme.space.xs + theme.space.xs / 2,
     paddingTop: theme.space.xs,
   },
   dayLabel: {
@@ -80,9 +80,9 @@ const styles = StyleSheet.create((theme) => ({
   dateLine: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 2,
+    paddingTop: theme.space.xs / 2,
     paddingBottom: theme.space.sm + theme.space.xs,
-    gap: 1,
+    gap: theme.space.xs / 4,
   },
 }));
 
