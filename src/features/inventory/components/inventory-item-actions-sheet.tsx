@@ -67,7 +67,7 @@ const androidStyles = StyleSheet.create((theme) => ({
     width: 42,
     height: 4,
     alignSelf: 'center',
-    borderRadius: 2,
+    borderRadius: theme.radius.xs / 4,
     backgroundColor: theme.border,
   },
   itemHeader: {
@@ -82,7 +82,7 @@ const androidStyles = StyleSheet.create((theme) => ({
   expiryBar: {
     width: 6,
     height: 52,
-    borderRadius: 3,
+    borderRadius: theme.radius.xs / 2,
   },
   itemCopy: {
     flex: 1,
@@ -525,7 +525,7 @@ const actionStyles = StyleSheet.create((theme) => ({
     width: 5,
     height: 54,
     marginRight: space.md,
-    borderRadius: 3,
+    borderRadius: theme.radius.xs / 2,
   },
   heroCopy: { flex: 1, minWidth: 0 },
   heroHint: { marginTop: space.xs },
