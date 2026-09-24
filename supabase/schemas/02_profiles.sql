@@ -22,6 +22,9 @@ create table if not exists public.profiles (
   sex text check (sex in ('male', 'female')),
 
   height_cm numeric(5, 1) check (height_cm > 0 and height_cm < 300),
+  -- Einmaliger Profilwert fuer Berechnungen. Messungen im Verlauf liegen in
+  -- weight_entries und werden nicht in diesen Stammdatenwert uebernommen.
+  weight_kg numeric(5, 2) check (weight_kg > 0 and weight_kg < 700),
   activity_level text check (
     activity_level in ('sedentary', 'light', 'moderate', 'active', 'very_active')
   ),

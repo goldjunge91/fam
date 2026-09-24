@@ -43,11 +43,6 @@ export function BiometricsSheet({
   }
 
   function handleApply() {
-    if (!draft.weightKg.trim() && value.weightKg !== null) {
-      setErrors({ weightKg: 'Ein bestehendes Gewicht kann hier nur überschrieben werden.' });
-      return;
-    }
-
     const parsed = profileBiometricsDraftSchema.safeParse(draft);
     if (!parsed.success) {
       const nextErrors: DraftErrors = {};
@@ -88,9 +83,13 @@ export function BiometricsSheet({
           <ScrollView
             showsVerticalScrollIndicator={false}
             contentContainerStyle={biometricsSheetStyles.content}>
+            <Txt variant="label" weight="700">
+              Profilangaben
+            </Txt>
+
             <Surface tone="soft">
               <TextField
-                label="Aktuelles Gewicht (kg)"
+                label="Profilgewicht (kg)"
                 value={draft.weightKg}
                 onChangeText={(value) => updateDraft('weightKg', value)}
                 placeholder="75"
@@ -100,13 +99,9 @@ export function BiometricsSheet({
                 error={errors.weightKg}
               />
               <Txt variant="caption" tone="secondary">
-                Eine Änderung wird als neuer privater Verlaufseintrag gespeichert.
+                Dieser einmalige Wert gehört zum Profil. Neue Messungen trägst du im Tagebuch ein.
               </Txt>
             </Surface>
-
-            <Txt variant="label" weight="700">
-              Profilangaben
-            </Txt>
 
             <TextField
               label="Körpergröße (cm)"

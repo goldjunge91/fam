@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 
 export function profileLatestWeightQueryKey(userId: string | undefined) {
   return ['profile', 'latest-weight', userId] as const;
@@ -7,18 +7,13 @@ export function profileLatestWeightQueryKey(userId: string | undefined) {
 
 export async function fetchLatestProfileWeight(userId: string) {
   const { data, error } = await getSupabase()
-    .from('weight_entries')
-    .select('*')
-    .eq('user_id', userId)
-    .is('child_profile_id', null)
-    .is('deleted_at', null)
-    .order('measured_on', { ascending: false })
-    .order('measured_at', { ascending: false, nullsFirst: false })
-    .limit(1)
+    .from('profiles')
+    .select('weight_kg')
+    .eq('id', userId)
     .maybeSingle();
 
   if (error) throw new Error(error.message);
-  return data;
+  return data?.weight_kg ?? null;
 }
 
 export function useLatestProfileWeight(userId: string | undefined) {

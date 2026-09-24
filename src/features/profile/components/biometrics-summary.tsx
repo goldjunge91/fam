@@ -51,12 +51,12 @@ export function BiometricsSummary({
       <View style={profileEditStyles.biometricsWeight}>
         <View style={profileEditStyles.biometricsWeightCopy}>
           <Txt variant="body" tone="secondary">
-            Aktuelles Gewicht
+            Profilgewicht
           </Txt>
           <Txt variant="heading">{weight}</Txt>
         </View>
         <Txt variant="caption" tone="secondary">
-          Neuester Eintrag
+          Einmaliger Profilwert
         </Txt>
       </View>
 
@@ -102,7 +102,7 @@ export function BiometricsSummary({
         </View>
       </View>
       <Txt variant="caption" tone="secondary" style={profileEditStyles.privateNote}>
-        Privat · im Verlauf gespeichert
+        Privat · nur im Profil gespeichert
       </Txt>
     </Card>
   );

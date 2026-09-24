@@ -4,14 +4,11 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { updatePassword } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
-import { useAddWeightEntryMutation } from '@/features/calorie-tracking/api';
 import { updateProfile, useProfile } from '@/features/profile/api';
-import { useLatestProfileWeight } from '@/features/profile/biometrics-api';
 import { EditProfileScreen } from '@/features/profile/edit-profile-screen';
 import { saveProfileFoodRules, useProfileFoodRules } from '@/features/profile/food-rules-api';
 import { i18n } from '@/i18n';
 
-const mockAddWeight = jest.fn().mockResolvedValue(null);
 const mockRemoveAvatar = jest.fn().mockResolvedValue({ error: null });
 let mockCaloriesTrackingEnabled = true;
 
@@ -30,25 +27,16 @@ jest.mock('@/features/auth/api', () => ({
   updatePassword: jest.fn().mockResolvedValue({ error: null }),
 }));
 
-jest.mock('@/features/calorie-tracking/api', () => ({
-  useAddWeightEntryMutation: jest.fn(),
-}));
-
 jest.mock('@/features/profile/api', () => ({
   useProfile: jest.fn(),
   updateProfile: jest.fn().mockResolvedValue({ error: null }),
 }));
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: () => ({
     auth: { updateUser: jest.fn().mockResolvedValue({ error: null }) },
     storage: { from: () => ({ remove: mockRemoveAvatar }) },
   }),
-}));
-
-jest.mock('@/features/profile/biometrics-api', () => ({
-  profileLatestWeightQueryKey: (userId: string | undefined) => ['profile', 'latest-weight', userId],
-  useLatestProfileWeight: jest.fn(),
 }));
 
 jest.mock('@/features/profile/food-rules-api', () => ({
@@ -89,20 +77,11 @@ async function renderScreen(avatarUrl: string | null = null) {
       avatar_url: avatarUrl,
       birth_date: '1990-01-01',
       height_cm: 180,
+      weight_kg: 80,
       sex: 'male',
       activity_level: 'moderate',
     },
     isLoading: false,
-  });
-
-  (useLatestProfileWeight as jest.Mock).mockReturnValue({
-    data: { weight_kg: 80 },
-    isLoading: false,
-  });
-
-  (useAddWeightEntryMutation as jest.Mock).mockReturnValue({
-    mutateAsync: mockAddWeight,
-    isPending: false,
   });
 
   (useProfileFoodRules as jest.Mock).mockReturnValue({
@@ -158,7 +137,7 @@ describe('EditProfileScreen', () => {
     await renderScreen();
 
     expect(screen.getByRole('button', { name: /Körper & Aktivität bearbeiten/ })).toBeOnTheScreen();
-    expect(screen.getByText('Aktuelles Gewicht')).toBeOnTheScreen();
+    expect(screen.getByText('Profilgewicht')).toBeOnTheScreen();
     expect(screen.getByText('80 kg')).toBeOnTheScreen();
     expect(screen.getByText('180 cm')).toBeOnTheScreen();
     expect(screen.getByText('01.01.1990')).toBeOnTheScreen();
@@ -189,11 +168,11 @@ describe('EditProfileScreen', () => {
         avatarUrl: null,
         birthDate: '1990-01-01',
         heightCm: 180,
+        weightKg: 80,
         sex: 'male',
         activityLevel: 'moderate',
       }),
     );
-    expect(mockAddWeight).not.toHaveBeenCalled();
   });
 
   it('speichert die accountweiten Lebensmittelregeln über den vorhandenen Profil-Button', async () => {

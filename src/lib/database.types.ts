@@ -1604,6 +1604,7 @@ export type Database = {
           tracking_day_start_time: string
           tracking_method: string
           updated_at: string
+          weight_kg: number | null
         }
         Insert: {
           activity_level?: string | null
@@ -1623,6 +1624,7 @@ export type Database = {
           tracking_day_start_time?: string
           tracking_method?: string
           updated_at?: string
+          weight_kg?: number | null
         }
         Update: {
           activity_level?: string | null
@@ -1642,6 +1644,7 @@ export type Database = {
           tracking_day_start_time?: string
           tracking_method?: string
           updated_at?: string
+          weight_kg?: number | null
         }
         Relationships: []
       }

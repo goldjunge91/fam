@@ -2,35 +2,26 @@ import {
   fetchLatestProfileWeight,
   profileLatestWeightQueryKey,
 } from '@/features/profile/biometrics-api';
-import { getSupabase } from '@/lib/backend/supabase/client';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 
 const mockEq = jest.fn();
-const mockIs = jest.fn();
-const mockLimit = jest.fn();
 const mockMaybeSingle = jest.fn();
-const mockOrder = jest.fn();
 const mockSelect = jest.fn();
 const mockFrom = jest.fn();
 
-jest.mock('@/lib/backend/supabase/client', () => ({
+jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: jest.fn(),
 }));
 
 const queryBuilder = {
   eq: mockEq,
-  is: mockIs,
-  limit: mockLimit,
   maybeSingle: mockMaybeSingle,
-  order: mockOrder,
   select: mockSelect,
 };
 
 beforeEach(() => {
   jest.clearAllMocks();
   mockEq.mockReturnValue(queryBuilder);
-  mockIs.mockReturnValue(queryBuilder);
-  mockLimit.mockReturnValue(queryBuilder);
-  mockOrder.mockReturnValue(queryBuilder);
   mockSelect.mockReturnValue(queryBuilder);
   mockMaybeSingle.mockResolvedValue({ data: { id: 'weight-latest' }, error: null });
   mockFrom.mockReturnValue(queryBuilder);
@@ -39,18 +30,14 @@ beforeEach(() => {
     .mockReturnValue({ from: mockFrom } as unknown as ReturnType<typeof getSupabase>);
 });
 
-test('liest nur das neueste Gewicht des Account-Nutzers', async () => {
-  await expect(fetchLatestProfileWeight('user-1')).resolves.toEqual({ id: 'weight-latest' });
+test('liest das einmalige Profilgewicht des Account-Nutzers', async () => {
+  mockMaybeSingle.mockResolvedValue({ data: { weight_kg: 80.5 }, error: null });
 
-  expect(mockFrom).toHaveBeenCalledWith('weight_entries');
-  expect(mockEq).toHaveBeenCalledWith('user_id', 'user-1');
-  expect(mockIs).toHaveBeenNthCalledWith(1, 'child_profile_id', null);
-  expect(mockIs).toHaveBeenNthCalledWith(2, 'deleted_at', null);
-  expect(mockOrder).toHaveBeenNthCalledWith(1, 'measured_on', { ascending: false });
-  expect(mockOrder).toHaveBeenNthCalledWith(2, 'measured_at', {
-    ascending: false,
-    nullsFirst: false,
-  });
+  await expect(fetchLatestProfileWeight('user-1')).resolves.toBe(80.5);
+
+  expect(mockFrom).toHaveBeenCalledWith('profiles');
+  expect(mockSelect).toHaveBeenCalledWith('weight_kg');
+  expect(mockEq).toHaveBeenCalledWith('id', 'user-1');
 });
 
 test('verwendet einen profil-spezifischen Cache-Key', () => {

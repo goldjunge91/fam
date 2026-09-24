@@ -22,7 +22,7 @@ describe('BiometricsSheet', () => {
     );
 
     await user.type(screen.getByLabelText('Körpergröße (cm)'), '180');
-    await user.type(screen.getByLabelText('Aktuelles Gewicht (kg)'), '80');
+    await user.type(screen.getByLabelText('Profilgewicht (kg)'), '80');
     await user.press(screen.getByRole('radio', { name: 'Männlich' }));
     await user.press(screen.getByRole('radio', { name: 'Mäßig aktiv' }));
 
@@ -40,7 +40,7 @@ describe('BiometricsSheet', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  test('verhindert das Leeren eines bestehenden Gewichts', async () => {
+  test('bewahrt das bestehende einmalige Profilgewicht', async () => {
     const user = userEvent.setup();
     const onApply = jest.fn();
     const onClose = jest.fn();
@@ -54,14 +54,16 @@ describe('BiometricsSheet', () => {
       />,
     );
 
-    await user.clear(screen.getByLabelText('Aktuelles Gewicht (kg)'));
     await user.press(screen.getByRole('button', { name: 'Angaben übernehmen' }));
 
-    expect(onApply).not.toHaveBeenCalled();
-    expect(onClose).not.toHaveBeenCalled();
-    expect(
-      screen.getByText('Ein bestehendes Gewicht kann hier nur überschrieben werden.'),
-    ).toBeOnTheScreen();
+    expect(onApply).toHaveBeenCalledWith({
+      birthDate: null,
+      heightCm: null,
+      weightKg: 80,
+      sex: null,
+      activityLevel: null,
+    });
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   test('zeigt Feldfehler und blockiert ungültige Eingaben', async () => {
@@ -108,14 +110,13 @@ describe('BiometricsSheet', () => {
     );
 
     await user.type(screen.getByLabelText('Körpergröße (cm)'), '180');
-    await user.type(screen.getByLabelText('Aktuelles Gewicht (kg)'), '80');
     await user.press(screen.getByRole('radio', { name: 'Weiblich' }));
     await user.press(screen.getByRole('button', { name: 'Angaben übernehmen' }));
 
     expect(onApply).toHaveBeenCalledWith({
       birthDate: null,
       heightCm: 180,
-      weightKg: 80,
+      weightKg: null,
       sex: 'female',
       activityLevel: null,
     });
