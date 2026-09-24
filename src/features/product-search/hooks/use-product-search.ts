@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import {
-  LOCAL_RESULT_THRESHOLD,
-  type ProductCatalog,
-  type ProductCatalogSearchResult,
+import type {
+  ProductCatalog,
+  ProductCatalogSearchResult,
 } from '@/features/product-search/product-catalog';
 import { productCatalog } from '@/features/product-search/product-catalog-instance';
 import type { CatalogProduct } from '@/features/product-search/types';
@@ -14,21 +13,12 @@ const MIN_QUERY_LENGTH = 2;
 /** Rein lokale Antwort: darf schnell kommen, kostet kein OFF-Kontingent. */
 const LOCAL_DEBOUNCE_MS = 300;
 
-/**
- * Open Food Facts limitiert Suchen auf 10/min/IP und untersagt
- * Search-as-you-type ausdruecklich ("you would be blocked very quickly") — ein
- * kurzes Debounce waere hier ein Verstoss gegen die dokumentierten
- * Nutzungsregeln, kein Feinschliff.
- */
-const API_DEBOUNCE_MS = 800;
-
 export type UseProductSearchOptions = {
   /** Eigenmarken dieses Markts stehen im Ranking weiter oben. */
   preferredMarket?: string | readonly string[] | null;
   /** Test-Seam: ein anderer Katalog (z. B. ein Fake) statt der App-Instanz. */
   catalog?: ProductCatalog;
   localDebounceMs?: number;
-  apiDebounceMs?: number;
   pageSize?: number;
 };
 
@@ -42,6 +32,8 @@ export type UseProductSearchResult = {
   /** true, sobald eine Suche zu dieser Eingabe abgeschlossen ist. */
   searched: boolean;
   loadMore: () => Promise<void>;
+  /** Startet die kostenpflichtige Online-Suche erst nach einer Nutzeraktion. */
+  searchOnline: () => Promise<void>;
   retry: () => Promise<void>;
 };
 
@@ -52,9 +44,10 @@ const EMPTY: CatalogProduct[] = [];
  * Cursor-Pagination und Ladezustaende — ueber dem Product Catalog, ohne
  * eigenes Wissen ueber Quellen, SQL oder HTTP.
  *
- * Gesucht wird in zwei Stufen: erst lokal (schnell, unbegrenzt), dann mit
- * Online-Ebene (langsam, kontingentiert). Ist die lokale Antwort schon
- * ergiebig, entfaellt die zweite Stufe.
+ * Beim Tippen wird ausschliesslich lokal gesucht (eigener Spiegel und Dump).
+ * Die kontingentierte OFF-Suche wird nur ueber `searchOnline` beziehungsweise
+ * die daraus abgeleitete Retry-Aktion gestartet — nie automatisch durch einen
+ * Debounce oder beim Scrollen.
  */
 export function useProductSearch(
   query: string,
@@ -64,7 +57,6 @@ export function useProductSearch(
     preferredMarket,
     catalog = productCatalog,
     localDebounceMs = LOCAL_DEBOUNCE_MS,
-    apiDebounceMs = API_DEBOUNCE_MS,
     pageSize,
   } = options;
 
@@ -81,6 +73,7 @@ export function useProductSearch(
   const requestIdRef = useRef(0);
   const queryRef = useRef(query);
   queryRef.current = query;
+  const onlineSearchEnabledRef = useRef(false);
 
   const applyResult = useCallback((requestId: number, page: ProductCatalogSearchResult) => {
     if (requestId !== requestIdRef.current) return false;
@@ -97,6 +90,7 @@ export function useProductSearch(
       const page = await catalog.search(trimmedQuery, {
         limit: pageSize,
         preferredMarket,
+        allowApi: true,
         signal,
       });
       if (signal.aborted) return;
@@ -109,6 +103,7 @@ export function useProductSearch(
     const trimmedQuery = query.trim();
     const requestId = ++requestIdRef.current;
     cursorRef.current = undefined;
+    onlineSearchEnabledRef.current = false;
 
     if (trimmedQuery.length < MIN_QUERY_LENGTH) {
       setResults(EMPTY);
@@ -121,8 +116,6 @@ export function useProductSearch(
 
     setSearching(true);
     const controller = new AbortController();
-    const searchStartedAt = Date.now();
-    let apiTimer: ReturnType<typeof setTimeout> | undefined;
 
     const localTimer = setTimeout(async () => {
       if (requestId !== requestIdRef.current) return;
@@ -133,42 +126,15 @@ export function useProductSearch(
         signal: controller.signal,
       });
       if (controller.signal.aborted || requestId !== requestIdRef.current) return;
-      const skipApiPhase = page.products.length >= LOCAL_RESULT_THRESHOLD;
-      // Treffer sofort zeigen, aber `searching` erst am Ende loesen: sonst
-      // blitzt zwischen lokaler und Online-Stufe der Leerzustand ("manuell
-      // anlegen") auf, obwohl noch gesucht wird.
       if (!applyResult(requestId, page)) return;
-      if (skipApiPhase) {
-        setSearching(false);
-        return;
-      }
-
-      // Die vollstaendige Suche darf nie vor der lokalen Stufe abschliessen:
-      // sonst koennte deren spaete Antwort bereits sichtbare API-Treffer wieder
-      // ueberschreiben. Das Debounce bleibt relativ zum Beginn der Eingabe.
-      const remainingApiDelay = Math.max(0, apiDebounceMs - (Date.now() - searchStartedAt));
-      apiTimer = setTimeout(async () => {
-        if (controller.signal.aborted || requestId !== requestIdRef.current) return;
-        await runSearch(trimmedQuery, requestId, controller.signal);
-        if (!controller.signal.aborted && requestId === requestIdRef.current) setSearching(false);
-      }, remainingApiDelay);
+      setSearching(false);
     }, localDebounceMs);
 
     return () => {
       clearTimeout(localTimer);
-      if (apiTimer !== undefined) clearTimeout(apiTimer);
       controller.abort();
     };
-  }, [
-    query,
-    preferredMarket,
-    catalog,
-    pageSize,
-    localDebounceMs,
-    apiDebounceMs,
-    applyResult,
-    runSearch,
-  ]);
+  }, [query, preferredMarket, catalog, pageSize, localDebounceMs, applyResult]);
 
   const loadMore = useCallback(async () => {
     const cursor = cursorRef.current;
@@ -182,6 +148,7 @@ export function useProductSearch(
         cursor,
         limit: pageSize,
         preferredMarket,
+        allowApi: onlineSearchEnabledRef.current,
       });
 
       if (requestId !== requestIdRef.current) return;
@@ -203,18 +170,31 @@ export function useProductSearch(
     }
   }, [catalog, loadingMore, searching, pageSize, preferredMarket]);
 
-  const retry = useCallback(async () => {
+  const searchOnline = useCallback(async () => {
     const trimmedQuery = queryRef.current.trim();
     if (trimmedQuery.length < MIN_QUERY_LENGTH) return;
     const requestId = ++requestIdRef.current;
     cursorRef.current = undefined;
+    onlineSearchEnabledRef.current = true;
     setSearching(true);
+    setFailed(false);
+    const controller = new AbortController();
     try {
-      await runSearch(trimmedQuery, requestId, new AbortController().signal);
+      await runSearch(trimmedQuery, requestId, controller.signal);
     } finally {
-      setSearching(false);
+      if (requestId === requestIdRef.current) setSearching(false);
     }
   }, [runSearch]);
 
-  return { results, searching, loadingMore, failed, hasMore, searched, loadMore, retry };
+  return {
+    results,
+    searching,
+    loadingMore,
+    failed,
+    hasMore,
+    searched,
+    loadMore,
+    searchOnline,
+    retry: searchOnline,
+  };
 }

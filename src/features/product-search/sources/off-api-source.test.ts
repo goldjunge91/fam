@@ -1,4 +1,13 @@
-import { formatOFFProduct, SlidingWindowRateLimiter } from './off-api-source';
+import { createOffApiSource, formatOFFProduct, SlidingWindowRateLimiter } from './off-api-source';
+
+const originalFetch = global.fetch;
+const originalOfflineFlag = process.env.EXPO_PUBLIC_OFF_OFFLINE;
+
+afterEach(() => {
+  global.fetch = originalFetch;
+  if (originalOfflineFlag === undefined) delete process.env.EXPO_PUBLIC_OFF_OFFLINE;
+  else process.env.EXPO_PUBLIC_OFF_OFFLINE = originalOfflineFlag;
+});
 
 describe('SlidingWindowRateLimiter', () => {
   it('erlaubt Anfragen bis zum Limit und blockt danach', () => {
@@ -153,5 +162,71 @@ describe('formatOFFProduct', () => {
   it('sollte nutrientLevels weglassen, wenn Open Food Facts keine Ampel liefert', () => {
     const formatted = formatOFFProduct({ code: '1', product_name: 'Test' });
     expect(formatted?.nutrientLevels).toBeUndefined();
+  });
+
+  it('unterstuetzt die neue Search-a-licious-Antwort mit Marken als Array', () => {
+    const formatted = formatOFFProduct({
+      code: '1',
+      product_name: 'Kirschen',
+      brands: ['TIP', 'Hausmarke'],
+      nutriscore_grade: 'b',
+      nova_groups: '3',
+    });
+
+    expect(formatted).toMatchObject({
+      brand: 'TIP',
+      nutriScore: 'b',
+      novaGroup: '3',
+    });
+  });
+});
+
+describe('createOffApiSource.search', () => {
+  it('verwendet Search-a-licious statt der Legacy-Suche und mappt hits', async () => {
+    process.env.EXPO_PUBLIC_OFF_OFFLINE = 'false';
+    const fetchMock = jest.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        hits: [
+          {
+            code: '1',
+            product_name: 'Kirschen',
+            brands: ['TIP'],
+            quantity: '680 g',
+          },
+        ],
+        page: 1,
+        page_size: 20,
+        page_count: 2,
+      }),
+    });
+    global.fetch = fetchMock as unknown as typeof fetch;
+
+    const result = await createOffApiSource().search('Kirschen', {
+      offset: 0,
+      limit: 20,
+    });
+
+    const [url, init] = fetchMock.mock.calls[0] as [string, RequestInit];
+    const parsedUrl = new URL(url);
+    expect(parsedUrl.origin + parsedUrl.pathname).toBe('https://search.openfoodfacts.org/search');
+    expect(parsedUrl.searchParams.get('q')).toBe('Kirschen');
+    expect(parsedUrl.searchParams.get('page')).toBe('1');
+    expect(parsedUrl.searchParams.get('page_size')).toBe('20');
+    expect(parsedUrl.searchParams.get('langs')).toBe('de,en');
+    expect(parsedUrl.searchParams.get('fields')).toContain('product_name');
+    expect(init.headers).toEqual({
+      Accept: 'application/json',
+      'User-Agent': 'FamApp/1.0 (contact@fam.app)',
+    });
+    expect(result.products[0]).toMatchObject({
+      barcode: '1',
+      name: 'Kirschen',
+      brand: 'TIP',
+      quantity: 680,
+      unit: 'g',
+    });
+    expect(result.hasMore).toBe(true);
   });
 });

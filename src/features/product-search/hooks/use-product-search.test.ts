@@ -49,7 +49,7 @@ function deferred<T>() {
 
 // Die kleinen Werte halten die Tests schnell; die Zeit wird deterministisch
 // mit Fake-Timern vorgerueckt, statt den Testlauf real warten zu lassen.
-const fast = { localDebounceMs: 5, apiDebounceMs: 10 };
+const fast = { localDebounceMs: 5 };
 
 describe('useProductSearch', () => {
   describe('Debounce und Antwortreihenfolge', () => {
@@ -75,7 +75,7 @@ describe('useProductSearch', () => {
       expect(hook.current.searching).toBe(false);
     });
 
-    it('sucht ohne Online-Ebene zuerst und ergaenzt danach still online', async () => {
+    it('sucht beim Tippen nur lokal und nicht automatisch online', async () => {
       const { catalog, calls } = fakeCatalog(({ options }) =>
         options.allowApi === false
           ? result([product('Hafermilch lokal', '1')])
@@ -88,22 +88,17 @@ describe('useProductSearch', () => {
 
       await advanceTimers(5);
       expect(hook.current.results).toHaveLength(1);
-      await advanceTimers(5);
-      expect(hook.current.results).toHaveLength(2);
       expect(hook.current.searching).toBe(false);
-      expect(calls).toHaveLength(2);
+      expect(calls).toHaveLength(1);
       expect(calls[0].options.allowApi).toBe(false);
-      // Die zweite Stufe sperrt die Online-Ebene nicht mehr.
-      expect(calls[1].options.allowApi).not.toBe(false);
     });
 
-    it('wartet mit der Online-Stufe auf eine langsame lokale Antwort', async () => {
+    it('wartet auf eine langsame lokale Antwort ohne Online-Anfrage', async () => {
       const localPage = deferred<ProductCatalogSearchResult>();
-      const { catalog, calls } = fakeCatalog(({ options }) =>
-        options.allowApi === false
-          ? localPage.promise
-          : result([product('Hafermilch lokal', '1'), product('Hafermilch online', '2')]),
-      );
+      const { catalog, calls } = fakeCatalog(({ options }) => {
+        expect(options.allowApi).toBe(false);
+        return localPage.promise;
+      });
 
       const { result: hook } = await renderHook(() =>
         useProductSearch('Hafermilch', { catalog, ...fast }),
@@ -116,39 +111,47 @@ describe('useProductSearch', () => {
         localPage.resolve(result([product('Hafermilch lokal', '1')]));
       });
       await flushMicrotasks();
-      await advanceTimers(5);
 
-      expect(hook.current.results).toHaveLength(2);
-      expect(hook.current.results.map((item) => item.name)).toEqual([
-        'Hafermilch lokal',
-        'Hafermilch online',
-      ]);
+      expect(hook.current.results).toHaveLength(1);
+      expect(hook.current.results[0].name).toBe('Hafermilch lokal');
+      expect(calls).toHaveLength(1);
     });
 
-    it('bleibt zwischen lokaler und Online-Stufe im Suchzustand', async () => {
-      const onlinePage = deferred<ProductCatalogSearchResult>();
-      const { catalog } = fakeCatalog(({ options }) => {
-        if (options.allowApi === false) return result([]);
-        return onlinePage.promise;
-      });
+    it('beendet die Suche nach der lokalen Stufe ohne Online-Fallback', async () => {
+      const { catalog, calls } = fakeCatalog(() => result([]));
 
       const { result: hook } = await renderHook(() =>
         useProductSearch('Hafermilch', { catalog, ...fast }),
       );
 
-      // Ohne das blitzt zwischen den Stufen der Leerzustand auf.
+      // Der leere Zustand wird erst nach der lokalen Suche sichtbar.
       await advanceTimers(5);
       expect(hook.current.searched).toBe(true);
-      expect(hook.current.searching).toBe(true);
+      expect(hook.current.searching).toBe(false);
+      expect(calls).toHaveLength(1);
+      expect(calls[0].options.allowApi).toBe(false);
+    });
+
+    it('startet die OFF-Suche erst nach einer expliziten Aktion', async () => {
+      const { catalog, calls } = fakeCatalog(({ options }) =>
+        options.allowApi === false ? result([]) : result([product('Hafermilch online', '2')]),
+      );
+
+      const { result: hook } = await renderHook(() =>
+        useProductSearch('Hafermilch', { catalog, ...fast }),
+      );
 
       await advanceTimers(5);
-      act(() => {
-        onlinePage.resolve(result([product('Hafermilch online', '1')]));
-      });
-      await flushMicrotasks();
+      expect(calls).toHaveLength(1);
+      expect(calls[0].options.allowApi).toBe(false);
 
-      expect(hook.current.results).toHaveLength(1);
-      expect(hook.current.searching).toBe(false);
+      await act(async () => {
+        await hook.current.searchOnline();
+      });
+
+      expect(calls).toHaveLength(2);
+      expect(calls[1].options.allowApi).toBe(true);
+      expect(hook.current.results[0].name).toBe('Hafermilch online');
     });
 
     it('sucht bei zu kurzer Eingabe gar nicht', async () => {
@@ -207,6 +210,7 @@ describe('useProductSearch', () => {
     await waitFor(() => expect(hook.current.results).toHaveLength(3));
     expect(hook.current.results.map((p) => p.barcode)).toEqual(['1', '2', '3']);
     expect(calls.at(-1)?.options.cursor).toBe('seite-2');
+    expect(calls.at(-1)?.options.allowApi).toBe(false);
     expect(hook.current.hasMore).toBe(false);
   });
 

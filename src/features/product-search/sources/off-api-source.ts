@@ -50,7 +50,11 @@ export function formatOFFProduct(raw: any): CatalogProduct | null {
   return {
     barcode: raw.code || raw._id || '',
     name: name.trim(),
-    brand: raw.brands ? raw.brands.split(',')[0].trim() : undefined,
+    brand: Array.isArray(raw.brands)
+      ? raw.brands.find((brand: unknown): brand is string => typeof brand === 'string')?.trim()
+      : typeof raw.brands === 'string'
+        ? raw.brands.split(',')[0].trim()
+        : undefined,
     quantity,
     unit,
     imageUrl: raw.image_front_small_url || raw.image_front_url || undefined,
@@ -64,7 +68,7 @@ export function formatOFFProduct(raw: any): CatalogProduct | null {
     nutriScore: raw.nutriscore_grade || undefined,
     ingredients,
     allergens: allergens.length > 0 ? allergens : undefined,
-    novaGroup: raw.nova_group || undefined,
+    novaGroup: raw.nova_group ?? raw.nova_groups ?? undefined,
     nutrientLevels: hasNutrientLevels ? nutrientLevels : undefined,
     categoryTags,
     offLastModifiedAt,
@@ -190,8 +194,10 @@ const EMPTY: ProductSearchResult = { products: [], hasMore: false, failed: false
  * Payload-Mapping. Wird vom Katalog nur befragt, wenn lokal zu wenig gefunden
  * wurde und ein Netz da ist.
  *
- * Paginiert wird ueber `offset`, obwohl OFF selbst Seiten kennt — die
- * Umrechnung bleibt hier, damit alle Quellen dieselbe Schnittstelle haben.
+ * Die Textsuche nutzt Search-a-licious (`/search`) statt des veralteten
+ * Product-Opener-Endpunkts (https://openfoodfacts.github.io/search-a-licious/users/ref-openapi/).
+ * Paginiert wird ueber `offset`, obwohl OFF selbst Seiten kennt — die Umrechnung bleibt hier,
+ * damit alle Quellen dieselbe Schnittstelle haben.
  */
 export function createOffApiSource(): CatalogSource {
   return {
@@ -215,17 +221,23 @@ export function createOffApiSource(): CatalogSource {
       }
 
       try {
-        // Bekannte Treffer zuerst sortieren.
+        // Search-a-licious ist die empfohlene, volltextfähige Suchschnittstelle.
         const url =
-          `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(trimmed)}` +
-          `&search_simple=1&action=process&json=1&page_size=${limit}&page=${page}` +
-          `&sort_by=unique_scans_n&lc=de&cc=de&fields=${SEARCH_FIELDS}`;
+          `https://search.openfoodfacts.org/search?q=${encodeURIComponent(trimmed)}` +
+          `&page_size=${limit}&page=${page}&langs=de%2Cen&fields=${encodeURIComponent(SEARCH_FIELDS)}`;
 
         searchRateLimiter.record();
         const startedAt = Date.now();
-        debugLogEvent('open-food-facts.search.request', { page, pageSize: limit });
+        debugLogEvent('open-food-facts.search.request', {
+          api: 'search-a-licious',
+          page,
+          pageSize: limit,
+        });
         const res = await fetch(url, {
-          headers: { 'User-Agent': 'FamApp/1.0 (contact@fam.app)' },
+          headers: {
+            Accept: 'application/json',
+            'User-Agent': 'FamApp/1.0 (contact@fam.app)',
+          },
           signal,
         });
 
@@ -237,16 +249,16 @@ export function createOffApiSource(): CatalogSource {
           return { products: [], hasMore: false, failed: true };
         }
         const data = await res.json();
-        const rawProducts = data.products || [];
+        const rawProducts = Array.isArray(data.hits) ? data.hits : [];
 
         const products = rawProducts
           .map(formatOFFProduct)
           .filter((p: CatalogProduct | null): p is CatalogProduct => p !== null);
 
-        // Nur eine volle Seite kann weitere Treffer anzeigen.
+        const pageCount = Number(data.page_count);
         const result: ProductSearchResult = {
           products,
-          hasMore: rawProducts.length === limit,
+          hasMore: Number.isFinite(pageCount) ? page < pageCount : rawProducts.length === limit,
           failed: false,
         };
         cacheSearchResult(cacheKey, result);
