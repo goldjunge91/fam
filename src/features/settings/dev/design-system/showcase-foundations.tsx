@@ -14,6 +14,7 @@ import {
   SCREEN_W,
   shadow,
   space,
+  withAlpha,
 } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Txt, type TxtTone, type TxtVariant } from '@/constants/ui';
@@ -48,6 +49,10 @@ const TEXT_TONES = [
   'danger',
   'inverse',
 ] as const satisfies readonly TxtTone[];
+
+// Ausschließlich für den visuellen Vergleich der beiden Schattenformate.
+const SHADOW_COMPARISON_COLOR = '#8B1E2D';
+const LEGACY_COMPARISON_COLOR = '#008000';
 
 function entries<T extends object>(value: T) {
   return Object.entries(value) as [keyof T, T[keyof T]][];
@@ -329,6 +334,62 @@ function TokenShowcase() {
           />
         </TokenGrid>
       </Subsection>
+      <Subsection title="Schattenformat: alt und neu">
+        <View style={styles.shadowExamples}>
+          <View style={styles.shadowExample}>
+            <Txt variant="label">Alt · Legacy-Props · stark grün</Txt>
+            <View
+              style={[
+                styles.shadowExampleCard,
+                {
+                  backgroundColor: colors.backgroundElement,
+                  shadowColor: LEGACY_COMPARISON_COLOR,
+                  shadowOffset: { width: 0, height: 10 },
+                  shadowOpacity: 0.75,
+                  shadowRadius: 18,
+                  elevation: 12,
+                },
+              ]}>
+              <Txt variant="subheading">Bisheriger Schatten</Txt>
+              <Txt variant="caption" tone="secondary">
+                kräftiger grüner Schatten über Legacy-Props
+              </Txt>
+            </View>
+            <CodeSample>
+              {
+                "<View style={{ shadowColor: '#008000', shadowOffset: { width: 0, height: 10 }, shadowOpacity: 0.75, shadowRadius: 18, elevation: 12 }} />"
+              }
+            </CodeSample>
+          </View>
+          <View style={styles.shadowExample}>
+            <Txt variant="label">Neu · boxShadow · dunkelrot</Txt>
+            <View
+              style={[
+                styles.shadowExampleCard,
+                {
+                  backgroundColor: colors.backgroundElement,
+                  boxShadow: [
+                    `0 -8px 12px ${withAlpha(SHADOW_COMPARISON_COLOR, 0.42)}`,
+                    `-8px 0 12px ${withAlpha(SHADOW_COMPARISON_COLOR, 0.42)}`,
+                    `8px 0 12px ${withAlpha(SHADOW_COMPARISON_COLOR, 0.42)}`,
+                  ].join(', '),
+                },
+              ]}>
+              <Txt variant="subheading">Kanonischer Schatten</Txt>
+              <Txt variant="caption" tone="secondary">
+                Ein plattformübergreifendes Schattenformat mit aktivem Theme-Farbwert
+              </Txt>
+            </View>
+            <CodeSample>
+              {`boxShadow: [
+  \`0 -8px 12px \${withAlpha(SHADOW_COMPARISON_COLOR, 0.42)}\`,
+  \`-8px 0 12px \${withAlpha(SHADOW_COMPARISON_COLOR, 0.42)}\`,
+  \`8px 0 12px \${withAlpha(SHADOW_COMPARISON_COLOR, 0.42)}\`,
+].join(', ')`}
+            </CodeSample>
+          </View>
+        </View>
+      </Subsection>
       <Subsection title="Verlauf und Plattformfonts">
         <View style={[styles.gradientPreview, { borderColor: colors.border }]}>
           <GradientBackground {...gradient} />
@@ -449,6 +510,15 @@ const styles = StyleSheet.create({
   spacePreview: { height: 28, minWidth: 4, borderRadius: radius.sm },
   radiusPreview: { height: 48, width: '100%' },
   shadowPreview: { height: 48, width: '100%', borderRadius: radius.md },
+  shadowExamples: { gap: space.lg },
+  shadowExample: { gap: space.sm },
+  shadowExampleCard: {
+    minHeight: 112,
+    borderRadius: radius.md,
+    padding: space.lg,
+    justifyContent: 'center',
+    gap: space.xs,
+  },
   depthPreview: { height: 48, width: '100%', borderRadius: radius.md },
   gradientPreview: {
     minHeight: 120,
