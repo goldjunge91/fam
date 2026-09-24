@@ -1,5 +1,5 @@
 import { useObserve } from 'expo-observe';
-import { Stack } from 'expo-router';
+import { Redirect, Stack, usePathname } from 'expo-router';
 import { useEffect } from 'react';
 
 import { CrashFallback } from '@/features/app-shell/crash-fallback';
@@ -13,6 +13,7 @@ import { initOffDump } from '@/lib/off-dump/off-dump';
 export function RootNavigator() {
   const { session, accountReady, isLoading, seenOnboarding, error, retry } = useSession();
   const { markInteractive } = useObserve();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!isLoading) {
@@ -45,6 +46,10 @@ export function RootNavigator() {
   const isNewUser = !seenOnboarding || env.forceOnboarding;
   // Developer tools may exercise the real auth screens without changing the production guard.
   const authPreviewEnabled = __DEV__ && env.devTools;
+
+  if (env.forceOnboarding && pathname !== '/onboarding') {
+    return <Redirect href="/onboarding" />;
+  }
 
   return (
     <Stack screenOptions={{ headerShown: false }}>

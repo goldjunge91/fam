@@ -104,7 +104,7 @@ async function advanceToPendingConfirmation() {
   await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'family@example.com');
   await fireEvent.changeText(screen.getByLabelText('Passwort'), 'supersecret');
   await fireEvent.changeText(screen.getByLabelText('Passwort wiederholen'), 'supersecret');
-  await fireEvent.press(screen.getByRole('button', { name: 'Konto erstellen & weiter' }));
+  await fireEvent.press(screen.getByRole('button', { name: 'Konto erstellen' }));
 
   expect(await screen.findByText('Bestätigung ausstehend')).toBeTruthy();
 }

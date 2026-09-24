@@ -55,7 +55,7 @@ function AppLayoutContent() {
   const isUncompleted = profile
     ? (profile as { onboarding_completed_at?: string | null }).onboarding_completed_at == null
     : false;
-  const shouldPrompt = (env.forceOnboarding || isUncompleted) && !isOnboardingSessionCompleted();
+  const shouldPrompt = isUncompleted && !isOnboardingSessionCompleted();
 
   const decision = resolveAppEntry({
     hasSession: Boolean(userId),
@@ -65,6 +65,7 @@ function AppLayoutContent() {
       householdsLoading ||
       (!householdBootstrap.isInitialSyncComplete && !householdBootstrap.isInitialSyncError),
     shouldPromptOnboarding: shouldPrompt,
+    forceOnboarding: env.forceOnboarding,
     householdCount: households?.length ?? 0,
     householdsError:
       householdsError || Boolean(profileError) || householdBootstrap.isInitialSyncError,

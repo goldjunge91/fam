@@ -12,6 +12,8 @@ let mockSessionState: {
   retry?: () => void;
 };
 let mockDevTools = false;
+let mockForceOnboarding = false;
+let mockPathname = '/';
 const mockGetDatabase = jest.fn().mockResolvedValue({});
 const mockInitOffDump = jest.fn();
 
@@ -24,7 +26,11 @@ jest.mock('expo-router', () => {
       guard ? children : null,
   });
 
-  return { Stack };
+  return {
+    Redirect: ({ href }: { href: string }) => React.createElement(Text, null, `redirect:${href}`),
+    Stack,
+    usePathname: () => mockPathname,
+  };
 });
 jest.mock('expo-observe', () => ({ useObserve: () => ({ markInteractive: jest.fn() }) }));
 jest.mock('@/features/auth/session-provider', () => ({ useSession: () => mockSessionState }));
@@ -36,7 +42,9 @@ jest.mock('@/lib/off-dump/off-dump', () => ({
 }));
 jest.mock('@/lib/config/env', () => ({
   env: {
-    forceOnboarding: false,
+    get forceOnboarding() {
+      return mockForceOnboarding;
+    },
     get devTools() {
       return mockDevTools;
     },
@@ -55,6 +63,12 @@ const privateRootRoutes = [
 ];
 
 describe('RootNavigator', () => {
+  beforeEach(() => {
+    mockDevTools = false;
+    mockForceOnboarding = false;
+    mockPathname = '/';
+  });
+
   it('zeigt neuen Nutzern das Onboarding und noch keine Auth-Routen', async () => {
     mockDevTools = false;
     mockSessionState = {
@@ -104,6 +118,21 @@ describe('RootNavigator', () => {
     }
     expect(screen.getByText('onboarding')).toBeOnTheScreen();
     expect(screen.queryByText('meal-planner')).not.toBeOnTheScreen();
+    expect(screen.queryByText('(auth)')).not.toBeOnTheScreen();
+  });
+
+  it('priorisiert das erzwungene Onboarding vor dem gespeicherten Login-Zustand', async () => {
+    mockForceOnboarding = true;
+    mockSessionState = {
+      session: null,
+      accountReady: true,
+      isLoading: false,
+      seenOnboarding: true,
+    };
+
+    await render(<RootNavigator />);
+
+    expect(screen.getByText('redirect:/onboarding')).toBeOnTheScreen();
     expect(screen.queryByText('(auth)')).not.toBeOnTheScreen();
   });
 

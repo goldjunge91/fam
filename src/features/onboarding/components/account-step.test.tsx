@@ -45,7 +45,7 @@ async function fillAndSubmit() {
   await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'family@example.com');
   await fireEvent.changeText(screen.getByLabelText('Passwort'), 'supersecret');
   await fireEvent.changeText(screen.getByLabelText('Passwort wiederholen'), 'supersecret');
-  await fireEvent.press(screen.getByRole('button', { name: 'Konto erstellen & weiter' }));
+  await fireEvent.press(screen.getByRole('button', { name: 'Konto erstellen' }));
 }
 
 describe('AccountStepForm', () => {
@@ -62,7 +62,7 @@ describe('AccountStepForm', () => {
     expect(screen.getByRole('button', { name: 'Mit Apple anmelden' })).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: '🌐  Mit Google anmelden' })).toBeOnTheScreen();
 
-    await fireEvent.press(screen.getByText('Anmelden'));
+    await fireEvent.press(screen.getByRole('button', { name: 'Ich habe schon ein Konto' }));
     await fireEvent.press(screen.getByRole('button', { name: 'Passwort vergessen' }));
 
     expect(mockPush).toHaveBeenCalledWith({

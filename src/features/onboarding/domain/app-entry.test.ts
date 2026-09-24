@@ -67,6 +67,17 @@ describe('resolveAppEntry', () => {
     ).toEqual({ kind: 'umleiten', to: '/onboarding' });
   });
 
+  it('erzwingt das Onboarding auch fuer ein bekanntes Geraet ohne Session', () => {
+    expect(
+      resolveAppEntry({
+        ...angemeldetUndEingerichtet,
+        hasSession: false,
+        hasSeenOnboarding: true,
+        forceOnboarding: true,
+      }),
+    ).toEqual({ kind: 'umleiten', to: '/onboarding' });
+  });
+
   it('wartet ohne Session nicht auf Ladevorgaenge', () => {
     // Ein Ladezustand waere hier eine Sackgasse: Ohne Session laedt nichts,
     // worauf zu warten sich lohnte.

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -30,6 +30,7 @@ jest.mock('@/features/auth/domain/auth-error-message', () => ({
 }));
 
 jest.mock('@/lib/observability/debug-log', () => ({
+  debugLog: jest.fn(),
   debugLogEvent: (...args: unknown[]) => mockDebugLogEvent(...args),
 }));
 
@@ -90,6 +91,23 @@ describe('SignInScreen', () => {
 
     expect(await screen.findByText('Please enter your email address.')).toBeOnTheScreen();
     expect(await screen.findByText('The password needs at least 8 characters.')).toBeOnTheScreen();
+  });
+
+  it('kann das Passwort anzeigen und wieder verbergen', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    const passwordInput = screen.getByLabelText('Passwort');
+    await user.type(passwordInput, 'password123');
+
+    expect(passwordInput).toHaveProp('secureTextEntry', true);
+
+    await user.press(screen.getByRole('button', { name: 'Passwort anzeigen' }));
+    expect(passwordInput).toHaveProp('secureTextEntry', false);
+    expect(passwordInput).toHaveDisplayValue('password123');
+
+    await user.press(screen.getByRole('button', { name: 'Passwort verbergen' }));
+    expect(passwordInput).toHaveProp('secureTextEntry', true);
   });
 
   it('ruft signIn bei gültigen Zugangsdaten auf', async () => {

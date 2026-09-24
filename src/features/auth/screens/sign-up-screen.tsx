@@ -1,20 +1,10 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { KeyboardAvoidingView, Platform, View } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
-import { Button, Txt } from '@/constants/ui';
-import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
+import { AuthFormCard } from '@/features/auth/components/auth-form-card';
 import { EmailVerificationPanel } from '@/features/auth/components/email-verification-panel';
-import { type PendingSignUp, SignUpForm } from '@/features/auth/forms/sign-up-form';
-
-const styles = StyleSheet.create((theme) => ({
-  form: {
-    gap: theme.space.lg,
-  },
-}));
+import type { PendingSignUp } from '@/features/auth/forms/sign-up-form';
 
 export function SignUpScreen() {
   const { t } = useTranslation();
@@ -42,30 +32,12 @@ export function SignUpScreen() {
       title={t('auth.signUp.title')}
       subtitle={t('auth.signUp.subtitle')}
       back={{ label: t('auth.signIn.title'), href: '/sign-in' }}>
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-        {/* Haupt-Registrierungsformular */}
-        <Card>
-          <View style={styles.form}>
-            <SignUpForm
-              onSuccess={() => router.replace('/onboarding')}
-              onPendingVerification={setPendingSignUp}
-            />
-            <AuthProviderOptions mode="sign_up" />
-
-            {/* Datenschutz- & Haushalts-Hinweis */}
-            <Txt variant="body" tone="secondary">
-              {t('auth.signUp.privacyNote')}
-            </Txt>
-          </View>
-        </Card>
-
-        {/* Wechsel zur Anmeldung */}
-        <Button
-          title={t('auth.signUp.existingAccount')}
-          variant="secondary"
-          onPress={() => router.replace('/sign-in')}
-        />
-      </KeyboardAvoidingView>
+      <AuthFormCard
+        mode="sign_up"
+        onSuccess={() => router.replace('/onboarding')}
+        onPendingVerification={setPendingSignUp}
+        onSwitchToSignIn={() => router.replace('/sign-in')}
+      />
     </Screen>
   );
 }

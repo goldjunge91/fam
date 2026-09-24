@@ -1,13 +1,13 @@
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { StyleSheet } from 'react-native-unistyles';
-import { Button, SegmentedControl, Surface, Txt } from '@/constants/ui';
-import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
+import { Button, Press, Surface, Txt } from '@/constants/ui';
+import { AuthFormCard } from '@/features/auth/components/auth-form-card';
 import { EmailVerificationPanel } from '@/features/auth/components/email-verification-panel';
-import { SignInForm } from '@/features/auth/forms/sign-in-form';
-import { type PendingSignUp, SignUpForm } from '@/features/auth/forms/sign-up-form';
+import type { PendingSignUp } from '@/features/auth/forms/sign-up-form';
 import { useSession } from '@/features/auth/session-provider';
 
 interface AccountStepFormProps {
@@ -33,20 +33,21 @@ const styles = StyleSheet.create((theme, rt) => ({
     borderColor: theme.border,
     borderRadius: theme.radius.sm,
   },
-  form: {
+  authLinks: {
+    alignItems: 'center',
     gap: theme.space.lg,
     marginTop: theme.space.sm,
   },
+  authLink: {
+    minHeight: 44,
+    justifyContent: 'center',
+  },
 }));
-
-const AUTH_MODE_OPTIONS = [
-  { value: 'sign_up', label: 'Registrieren', accessibilityLabel: 'Registrieren' },
-  { value: 'sign_in', label: 'Anmelden', accessibilityLabel: 'Anmelden' },
-] as const;
 
 const ACCOUNT_KEYBOARD_BOTTOM_OFFSET = 180;
 
 export function AccountStepForm({ onNext }: AccountStepFormProps) {
+  const { t } = useTranslation();
   const { session } = useSession();
 
   const [authMode, setAuthMode] = useState<'sign_up' | 'sign_in'>('sign_up');
@@ -75,11 +76,11 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
         />
       ) : (
         <>
-          <Txt variant="subheading" weight="700">
-            Dein Account
+          <Txt variant="title">
+            {t(authMode === 'sign_up' ? 'auth.signUp.title' : 'auth.signIn.title')}
           </Txt>
           <Txt variant="body" tone="secondary">
-            Erstelle ein Konto oder melde dich an, um deine Daten zu synchronisieren.
+            {t(authMode === 'sign_up' ? 'auth.signUp.subtitle' : 'auth.signIn.subtitle')}
           </Txt>
 
           {session ? (
@@ -96,49 +97,49 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
               <Button title="Weiter" onPress={onNext} />
             </View>
           ) : (
-            <View style={styles.form}>
-              <SegmentedControl
-                label="Anmeldeart"
-                options={AUTH_MODE_OPTIONS}
-                selected={authMode}
-                onSelect={setAuthMode}
-                selectionRole="tab"
-              />
-
+            <>
               {authMode === 'sign_up' ? (
-                <>
-                  <SignUpForm
-                    onSuccess={onNext}
-                    onPendingVerification={setPendingSignUp}
-                    submitLabel="Konto erstellen & weiter"
-                    testIDPrefix="onboarding-account"
-                  />
-                  <AuthProviderOptions
-                    mode="sign_up"
-                    onAuthAttempt={() => setOAuthAttempted(true)}
-                  />
-                </>
+                <AuthFormCard
+                  mode="sign_up"
+                  onSuccess={onNext}
+                  onPendingVerification={setPendingSignUp}
+                  onAuthAttempt={() => setOAuthAttempted(true)}
+                  onSwitchToSignIn={() => setAuthMode('sign_in')}
+                />
               ) : (
-                <>
-                  <SignInForm
-                    onSuccess={onNext}
-                    submitLabel="Anmelden & weiter"
-                    testIDPrefix="onboarding-account"
-                  />
-                  <AuthProviderOptions
-                    mode="sign_in"
-                    onAuthAttempt={() => setOAuthAttempted(true)}
-                  />
-                  <Button
-                    title="Passwort vergessen"
-                    variant="link"
+                <AuthFormCard
+                  mode="sign_in"
+                  onSuccess={onNext}
+                  onAuthAttempt={() => setOAuthAttempted(true)}
+                />
+              )}
+
+              {authMode === 'sign_in' ? (
+                <View style={styles.authLinks}>
+                  <Press
+                    accessibilityRole="button"
+                    accessibilityLabel={t('auth.signIn.registerPrompt')}
+                    onPress={() => setAuthMode('sign_up')}
+                    style={styles.authLink}>
+                    <Txt variant="label" tone="accent">
+                      {t('auth.signIn.registerPrompt')}
+                    </Txt>
+                  </Press>
+
+                  <Press
+                    accessibilityRole="button"
+                    accessibilityLabel={t('auth.signIn.forgotPassword')}
                     onPress={() =>
                       router.push({ pathname: '/forgot-password', params: { from: 'onboarding' } })
                     }
-                  />
-                </>
-              )}
-            </View>
+                    style={styles.authLink}>
+                    <Txt variant="label" tone="secondary">
+                      {t('auth.signIn.forgotPassword')}
+                    </Txt>
+                  </Press>
+                </View>
+              ) : null}
+            </>
           )}
         </>
       )}

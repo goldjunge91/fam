@@ -69,6 +69,14 @@ describe('SignUpScreen', () => {
     expect(screen.getByText('🌐  Sign in with Google')).toBeTruthy();
   });
 
+  it('wechselt aus der Card zur Anmeldung', async () => {
+    await renderScreen();
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Ich habe schon ein Konto' }));
+
+    expect(router.replace).toHaveBeenCalledWith('/sign-in');
+  });
+
   it('zeigt den Warteraum, wenn signUp ohne Session zurueckkommt (E-Mail-Bestaetigung noetig)', async () => {
     mockSignUp.mockResolvedValue({ data: { session: null }, error: null });
 
