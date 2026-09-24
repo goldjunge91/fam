@@ -71,7 +71,8 @@ describe('SignInScreen', () => {
     expect(screen.getByLabelText('Password')).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Sign in' })).toBeTruthy();
     expect(screen.getByText('or sign in with')).toBeTruthy();
-    expect(screen.getByText('🌐  Sign in with Google')).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Sign in with Google' })).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Sign in with Apple' })).toBeTruthy();
   });
 
   it('validiert leere Eingaben', async () => {

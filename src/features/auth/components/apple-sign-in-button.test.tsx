@@ -1,68 +1,38 @@
-import { render, screen } from '@testing-library/react-native';
-import { AppleAuthenticationButtonStyle } from 'expo-apple-authentication';
-import type { ComponentProps } from 'react';
-import type { View } from 'react-native';
+import { fireEvent, render, screen } from '@testing-library/react-native';
 
 import { i18n } from '@/i18n';
 
 import { AppleSignInButton } from './apple-sign-in-button';
 
-type AppleButtonMockProps = ComponentProps<typeof View> & {
-  buttonStyle: AppleAuthenticationButtonStyle;
-};
+const mockSignInWithApple = jest.fn();
 
-let mockThemeMode: 'light' | 'dark' = 'light';
-
-jest.mock('expo-apple-authentication', () => ({
-  AppleAuthenticationButton: (props: AppleButtonMockProps) => {
-    const { View: MockView } = require('react-native');
-    return <MockView {...props} testID="apple-sign-in-button" />;
-  },
-  AppleAuthenticationButtonStyle: {
-    BLACK: 'black',
-    WHITE: 'white',
-  },
-  AppleAuthenticationButtonType: {
-    SIGN_IN: 'sign-in',
-  },
-}));
-
-jest.mock('@/components/theme/ThemeProvider', () => ({
-  useTheme: () => ({ mode: mockThemeMode }),
+jest.mock('@/features/auth/oauth-provider-actions', () => ({
+  signInWithApple: (...args: unknown[]) => mockSignInWithApple(...args),
 }));
 
 jest.mock('@/features/auth/domain/auth-error-message', () => ({
   authErrorMessage: jest.fn(),
 }));
 
-jest.mock('@/features/auth/oauth-provider-actions', () => ({
-  signInWithApple: jest.fn(),
-}));
-
 describe('AppleSignInButton', () => {
   beforeEach(async () => {
+    mockSignInWithApple.mockReset();
+    mockSignInWithApple.mockResolvedValue({ error: null });
     await i18n.changeLanguage('de');
   });
 
-  it('uses the light Apple button style for the light app theme', async () => {
-    mockThemeMode = 'light';
-
+  it('renders an accessible icon-only Apple button', async () => {
     await render(<AppleSignInButton />);
 
-    expect(screen.getByTestId('apple-sign-in-button')).toHaveProp(
-      'buttonStyle',
-      AppleAuthenticationButtonStyle.BLACK,
-    );
+    expect(screen.getByTestId('apple-sign-in-button')).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Mit Apple anmelden' })).toBeTruthy();
   });
 
-  it('uses the white Apple button style for the dark app theme', async () => {
-    mockThemeMode = 'dark';
-
+  it('starts the Apple sign-in flow when pressed', async () => {
     await render(<AppleSignInButton />);
 
-    expect(screen.getByTestId('apple-sign-in-button')).toHaveProp(
-      'buttonStyle',
-      AppleAuthenticationButtonStyle.WHITE,
-    );
+    await fireEvent.press(screen.getByRole('button', { name: 'Mit Apple anmelden' }));
+
+    expect(mockSignInWithApple).toHaveBeenCalledTimes(1);
   });
 });

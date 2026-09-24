@@ -66,7 +66,8 @@ describe('SignUpScreen', () => {
     expect(screen.getByLabelText('Repeat password')).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Create account' })).toBeTruthy();
     expect(screen.getByText('or continue with')).toBeTruthy();
-    expect(screen.getByText('🌐  Sign in with Google')).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Sign in with Google' })).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Sign in with Apple' })).toBeTruthy();
   });
 
   it('wechselt aus der Card zur Anmeldung', async () => {

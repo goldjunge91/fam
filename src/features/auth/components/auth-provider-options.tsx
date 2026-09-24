@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { Button, Txt } from '@/constants/ui';
+import { Txt } from '@/constants/ui';
 import { AppleSignInButton } from '@/features/auth/components/apple-sign-in-button';
+import { AuthProviderIconButton } from '@/features/auth/components/auth-provider-icon-button';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { signInWithOAuthProvider } from '@/features/auth/oauth-provider-actions';
 
@@ -15,6 +16,11 @@ const styles = StyleSheet.create((theme) => ({
   divider: {
     alignItems: 'center',
     marginVertical: theme.space.xs,
+  },
+  providers: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: theme.space.md,
   },
 }));
 
@@ -35,18 +41,21 @@ export function AuthProviderOptions({ mode, onAuthAttempt }: AuthProviderOptions
         </Txt>
       </View>
 
-      <AppleSignInButton onAuthStart={onAuthAttempt} onError={(error) => setOAuthError(error)} />
+      <View style={styles.providers}>
+        <AppleSignInButton onAuthStart={onAuthAttempt} onError={(error) => setOAuthError(error)} />
 
-      <Button
-        title={t('auth.providers.googleSignIn')}
-        variant="secondary"
-        onPress={async () => {
-          setOAuthError(null);
-          onAuthAttempt?.();
-          const { error } = await signInWithOAuthProvider('google');
-          if (error) setOAuthError(authErrorMessage(error, t));
-        }}
-      />
+        <AuthProviderIconButton
+          accessibilityLabel={t('auth.providers.googleSignIn')}
+          onPress={async () => {
+            setOAuthError(null);
+            onAuthAttempt?.();
+            const { error } = await signInWithOAuthProvider('google');
+            if (error) setOAuthError(authErrorMessage(error, t));
+          }}
+          provider="google"
+          testID="google-sign-in-button"
+        />
+      </View>
 
       {oauthError ? (
         <Txt variant="body" tone="danger">
