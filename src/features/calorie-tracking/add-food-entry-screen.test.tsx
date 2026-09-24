@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -36,7 +36,7 @@ jest.mock('@/features/calorie-tracking/food-search-dropdown', () => ({
   FoodSearchDropdown: () => null,
 }));
 
-jest.mock('@/lib/db/client', () => ({
+jest.mock('@/lib/db/local-client', () => ({
   getDatabase: async () => ({}),
 }));
 
@@ -48,24 +48,45 @@ jest.mock('@/components/ui/snackbar', () => ({
   useSnackbar: () => ({ showUndoSnackbar: mockShowUndoSnackbar }),
 }));
 
-let mockChildProfiles: { id: string; display_name: string }[] = [];
-
 jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({ activeHousehold: { id: 'hh-1', name: 'Zuhause' } }),
 }));
 
-jest.mock('@/features/household/api', () => ({
-  useChildProfiles: () => ({ data: mockChildProfiles, isLoading: false }),
-}));
+jest.mock('@expo/ui/community/picker', () => {
+  const React = require('react');
+  const { Pressable, Text, View } = require('react-native');
 
-const mockSetProfile = jest.fn();
+  type MockPickerItemProps = { label: string; value: string };
+  type MockPickerProps = {
+    children?: React.ReactNode;
+    onValueChange?: (value: string) => void;
+  };
 
-jest.mock('@/features/calorie-tracking/active-profile-store', () => ({
-  useActiveProfile: () => ({
-    profile: { type: 'adult', userId: 'user-1' },
-    setProfile: mockSetProfile,
-  }),
-}));
+  const Picker = Object.assign(
+    ({ children, onValueChange }: MockPickerProps) =>
+      React.createElement(
+        View,
+        null,
+        React.Children.toArray(children).map((child: React.ReactNode) => {
+          if (!React.isValidElement(child)) return null;
+          const item = child as { props: MockPickerItemProps };
+          return React.createElement(
+            Pressable,
+            {
+              key: item.props.value,
+              accessibilityRole: 'button',
+              accessibilityLabel: item.props.label,
+              onPress: () => onValueChange?.(item.props.value),
+            },
+            React.createElement(Text, null, item.props.label),
+          );
+        }),
+      ),
+    { Item: (_props: MockPickerItemProps) => null },
+  );
+
+  return { Picker };
+});
 
 function renderScreen() {
   const queryClient = new QueryClient({
@@ -87,62 +108,11 @@ function renderScreen() {
 beforeEach(() => {
   mockParams = {};
   mockFoodEntries = [];
-  mockChildProfiles = [];
   mockAddMutateAsync.mockClear();
   mockUpdateMutateAsync.mockClear();
   mockDeleteMutateAsync.mockClear();
   mockRestoreMutate.mockClear();
   mockShowUndoSnackbar.mockClear();
-  mockSetProfile.mockClear();
-});
-
-describe('AddFoodEntryScreen — Profil-Auswahl (#65)', () => {
-  beforeEach(() => {
-    mockParams = { date: '2026-08-10', mealType: 'lunch' };
-    mockChildProfiles = [{ id: 'child-1', display_name: 'Mia' }];
-  });
-
-  it('zeigt keine Profil-Auswahl ohne Kinderprofile', async () => {
-    mockChildProfiles = [];
-    await renderScreen();
-    expect(screen.queryByText('Für wen?')).not.toBeOnTheScreen();
-  });
-
-  it('zeigt "Ich" und alle Kinderprofile, wenn Kinderprofile vorhanden sind', async () => {
-    await renderScreen();
-    expect(screen.getByText('Für wen?')).toBeTruthy();
-    expect(screen.getByText('Ich')).toBeTruthy();
-    expect(screen.getByText('Mia')).toBeTruthy();
-  });
-
-  it('waehlt beim Antippen eines Kindes dessen Profil', async () => {
-    await renderScreen();
-    await fireEvent.press(screen.getByText('Mia'));
-    expect(mockSetProfile).toHaveBeenCalledWith({
-      type: 'child',
-      childProfileId: 'child-1',
-      householdId: 'hh-1',
-    });
-  });
-
-  it('blendet die Profil-Auswahl beim Bearbeiten eines Eintrags aus', async () => {
-    mockParams = { date: '2026-08-10', mealType: 'dinner', entryId: 'entry-1' };
-    mockFoodEntries = [
-      {
-        id: 'entry-1',
-        name: 'Reis',
-        quantity: 150,
-        unit: 'g',
-        kcal: 195,
-        protein_g: 4,
-        carbs_g: 43,
-        fat_g: 0.5,
-        meal_type: 'dinner',
-      },
-    ];
-    await renderScreen();
-    expect(screen.queryByText('Für wen?')).not.toBeOnTheScreen();
-  });
 });
 
 describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {
@@ -172,6 +142,16 @@ describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {
     expect(screen.getByDisplayValue('3')).toBeTruthy();
   });
 
+  it('schließt den Modal-Screen über den X-Button', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    expect(screen.queryByText('Abbrechen')).not.toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Schließen' }));
+
+    expect(router.back).toHaveBeenCalled();
+  });
+
   it('zeigt aus nutrient_levels abgeleitete Bewertungs-Badges', async () => {
     await renderScreen();
     expect(screen.getByText(/Fettarm/)).toBeTruthy();
@@ -188,12 +168,30 @@ describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {
   });
 
   it('zeigt einen Hinweis statt stiller Skalierung bei stueckbasierten Einheiten', async () => {
+    const user = userEvent.setup();
     await renderScreen();
-    await fireEvent.press(screen.getByText('Stück'));
+    await user.press(screen.getByRole('button', { name: 'Einheit auswählen' }));
+    await user.press(screen.getByRole('button', { name: 'Stück' }));
+    await user.press(screen.getByRole('button', { name: 'Übernehmen' }));
     expect(
       screen.getByText(/Automatische Umrechnung für diese Einheit nicht möglich/),
     ).toBeTruthy();
     expect(screen.getByDisplayValue('59')).toBeTruthy(); // Rohwert bleibt unveraendert stehen
+  });
+
+  it('ordnet die Einheit als Dropdown direkt neben der Menge an', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    const unitSelect = screen.getByRole('button', { name: 'Einheit auswählen' });
+    expect(unitSelect).toHaveTextContent(/g/);
+    expect(screen.getByText('Menge')).toBeOnTheScreen();
+
+    await user.press(unitSelect);
+
+    expect(screen.getByRole('button', { name: 'g' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'kg' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Stück' })).toBeOnTheScreen();
   });
 
   it('speichert einen neuen Eintrag mit den berechneten Werten', async () => {

@@ -16,6 +16,7 @@ interface WheelPickerFieldProps {
   options: readonly WheelPickerOption[];
   onChange: (value: string) => void;
   size?: 'default' | 'large';
+  accessibilityLabel?: string;
 }
 
 export function WheelPickerField({
@@ -24,6 +25,7 @@ export function WheelPickerField({
   options,
   onChange,
   size = 'default',
+  accessibilityLabel,
 }: WheelPickerFieldProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [pendingValue, setPendingValue] = useState(value);
@@ -56,7 +58,10 @@ export function WheelPickerField({
         haptic="none"
         scaleTo={0.98}
         accessibilityRole="button"
-        accessibilityLabel={label ? `${label} ${selectedLabel} ändern` : `${selectedLabel} ändern`}
+        accessibilityLabel={
+          accessibilityLabel ??
+          (label ? `${label} ${selectedLabel} ändern` : `${selectedLabel} ändern`)
+        }
         containerStyle={styles.pressContainer}
         style={styles.inputField}>
         <Txt variant="body" tone="primary" style={size === 'large' ? styles.largeValue : undefined}>
@@ -79,10 +84,10 @@ export function WheelPickerField({
             </Picker>
             <View style={styles.footerRow}>
               <View style={styles.flex}>
-                <Button title="Übernehmen" onPress={confirm} />
+                <Button title="Abbrechen" variant="secondary" haptic="light" onPress={cancel} />
               </View>
               <View style={styles.flex}>
-                <Button title="Abbrechen" variant="secondary" onPress={cancel} />
+                <Button title="Übernehmen" haptic="medium" onPress={confirm} />
               </View>
             </View>
           </View>

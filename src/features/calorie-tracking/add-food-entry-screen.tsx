@@ -4,15 +4,14 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Image, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { Screen } from '@/components/layout/screen';
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { useSnackbar } from '@/components/ui/snackbar';
-import { Button, TextField, Txt } from '@/constants/ui';
+import { Button, CloseButton, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
-import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
   type MealType,
   useAddFoodEntryMutation,
@@ -27,9 +26,8 @@ import { FoodSearchDropdown } from '@/features/calorie-tracking/food-search-drop
 import { useFoodEntryForm } from '@/features/calorie-tracking/hooks/use-food-entry-form';
 import { productToRouteParams } from '@/features/calorie-tracking/product-route-params';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { useChildProfiles } from '@/features/household/api';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { getDatabase } from '@/lib/db/client';
+import { getDatabase } from '@/lib/db/local-client';
 import { recordProductUsage } from '@/lib/db/product-usage';
 import { debugError } from '@/lib/observability/debug-log';
 
@@ -99,8 +97,21 @@ const styles = StyleSheet.create((theme) => ({
   field: {
     flex: 1,
   },
-  quantityLabel: {
-    marginTop: theme.space.xs,
+  quantityRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: theme.space.md,
+    zIndex: 10,
+  },
+  quantityControl: {
+    flex: 1,
+    minWidth: 0,
+    gap: theme.space.xs,
+  },
+  unitControl: {
+    width: 124,
+    gap: theme.space.xs,
+    zIndex: 2,
   },
   saveAction: {
     marginTop: theme.space.sm,
@@ -129,11 +140,8 @@ export function AddFoodEntryScreen() {
   const queryClient = useQueryClient();
 
   const { activeHousehold } = useActiveHousehold();
-  const { data: childProfiles = [] } = useChildProfiles(activeHousehold?.id ?? '');
-  const { profile, setProfile } = useActiveProfile(activeHousehold?.id);
-  const childProfileId = profile?.type === 'child' ? profile.childProfileId : null;
 
-  const { data: entries = [] } = useFoodEntries(userId, params.date, childProfileId);
+  const { data: entries = [] } = useFoodEntries(userId, params.date);
   const existingEntry = params.entryId ? entries.find((e) => e.id === params.entryId) : undefined;
 
   const addMutation = useAddFoodEntryMutation();
@@ -185,7 +193,6 @@ export function AddFoodEntryScreen() {
       loggedAt: new Date().toISOString(),
       mealType: params.mealType,
       ...getParsedValues(),
-      childProfileId,
     };
 
     try {
@@ -258,7 +265,9 @@ export function AddFoodEntryScreen() {
     : `${MEAL_LABELS[params.mealType] ?? 'Mahlzeit'} hinzufügen`;
 
   return (
-    <Screen title={title} back={{ label: 'Abbrechen' }}>
+    <Screen
+      title={title}
+      action={<CloseButton onPress={() => router.back()} accessibilityLabel="Schließen" />}>
       <View style={styles.form}>
         {!isEditing ? (
           <FoodSearchDropdown
@@ -268,36 +277,6 @@ export function AddFoodEntryScreen() {
             onProductSelect={selectProduct}
             onHistorySelect={selectHistoryEntry}
           />
-        ) : null}
-
-        {/* Profil-Auswahl (Erwachsener / Kind-Profil) */}
-        {!isEditing && childProfiles.length > 0 ? (
-          <View>
-            <Txt variant="body" weight="700">
-              Für wen?
-            </Txt>
-            <FilterChipBar
-              label="Für wen?"
-              options={[
-                { value: 'adult', label: 'Ich' },
-                ...childProfiles.map((child) => ({ value: child.id, label: child.display_name })),
-              ]}
-              selected={childProfileId ?? 'adult'}
-              onSelect={(value) => {
-                if (value === 'adult') {
-                  if (userId) setProfile({ type: 'adult', userId });
-                  return;
-                }
-                if (activeHousehold) {
-                  setProfile({
-                    type: 'child',
-                    childProfileId: value,
-                    householdId: activeHousehold.id,
-                  });
-                }
-              }}
-            />
-          </View>
         ) : null}
 
         {/* Lebensmittel-Header mit Bild, Name, Marke und Nutri-Score */}
@@ -394,21 +373,28 @@ export function AddFoodEntryScreen() {
         </View>
 
         {/* Mengen- und Einheitenauswahl */}
-        <Txt variant="body" weight="700" style={styles.quantityLabel}>
-          Menge
-        </Txt>
-        <QuantityStepper
-          value={Number.parseInt(values.quantity, 10) || 1}
-          onChange={(value) => setQuantity(String(value))}
-          max={9999}
-          label="Menge"
-        />
-        <FilterChipBar
-          label="Einheit"
-          options={UNITS.map((u) => ({ value: u, label: UNIT_LABELS[u] }))}
-          selected={values.unit}
-          onSelect={setUnit}
-        />
+        <View style={styles.quantityRow}>
+          <View style={styles.quantityControl}>
+            <Txt variant="label" tone="secondary">
+              Menge
+            </Txt>
+            <QuantityStepper
+              value={Number.parseInt(values.quantity, 10) || 1}
+              onChange={(value) => setQuantity(String(value))}
+              max={9999}
+              label="Menge"
+            />
+          </View>
+          <View style={styles.unitControl}>
+            <WheelPickerField
+              label="Einheit"
+              value={values.unit}
+              options={UNITS.map((unit) => ({ value: unit, label: UNIT_LABELS[unit] }))}
+              onChange={setUnit}
+              accessibilityLabel="Einheit auswählen"
+            />
+          </View>
+        </View>
         {unitNotScalable ? (
           <Txt variant="body" tone="warning">
             Automatische Umrechnung für diese Einheit nicht möglich — Nährwerte bitte manuell
@@ -416,7 +402,7 @@ export function AddFoodEntryScreen() {
           </Txt>
         ) : null}
 
-        {/* Aktions-Buttons (Speichern, Löschen, Abbrechen) */}
+        {/* Aktions-Buttons (Speichern, Löschen) */}
         <View style={styles.saveAction}>
           <Button
             title="Speichern"
@@ -433,7 +419,6 @@ export function AddFoodEntryScreen() {
             loading={deleteMutation.isPending}
           />
         ) : null}
-        <Button title="Abbrechen" variant="secondary" onPress={() => router.back()} />
       </View>
     </Screen>
   );

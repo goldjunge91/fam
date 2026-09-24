@@ -19,6 +19,7 @@ type QuantityStepperProps = {
 const styles = StyleSheet.create((theme) => ({
   container: {
     height: 44,
+    alignSelf: 'flex-start',
     flexDirection: 'row',
     alignItems: 'stretch',
     overflow: 'hidden',
@@ -86,6 +87,7 @@ export function QuantityStepper({
         style={[
           styles.btn,
           fullWidth && staticStyles.fullWidthSegment,
+          staticStyles.fullHeightSegment,
           decrementDisabled ? staticStyles.disabled : staticStyles.enabled,
         ]}>
         <Txt variant="subheading">−</Txt>
@@ -123,6 +125,7 @@ export function QuantityStepper({
           containerStyle={fullWidth ? staticStyles.fullWidthSegment : undefined}
           style={[
             fullWidth ? staticStyles.fullWidthSegment : staticStyles.fixedWidth,
+            staticStyles.fullHeightSegment,
             staticStyles.centerContent,
           ]}>
           <Txt
@@ -146,6 +149,7 @@ export function QuantityStepper({
         style={[
           styles.btn,
           fullWidth && staticStyles.fullWidthSegment,
+          staticStyles.fullHeightSegment,
           incrementDisabled ? staticStyles.disabled : staticStyles.enabled,
         ]}>
         <Txt variant="subheading">+</Txt>
@@ -158,6 +162,7 @@ export function QuantityStepper({
 const staticStyles = StyleSheet.create({
   fullWidthContainer: { width: '100%' },
   fullWidthSegment: { flex: 1 },
+  fullHeightSegment: { height: '100%' },
   fixedWidth: { width: 44 },
   centerContent: { alignItems: 'center', justifyContent: 'center' },
   enabled: { opacity: 1 },

@@ -14,12 +14,18 @@ describe('QuantityStepper', () => {
 
     expect(screen.getByRole('button', { name: 'Einkaufsmenge verringern' })).toHaveStyle({
       width: 44,
+      height: '100%',
     });
     expect(screen.getByRole('button', { name: 'Einkaufsmenge direkt eingeben' })).toHaveStyle({
       width: 44,
+      height: '100%',
     });
     expect(screen.getByRole('button', { name: 'Einkaufsmenge erhöhen' })).toHaveStyle({
       width: 44,
+      height: '100%',
+    });
+    expect(screen.getByLabelText('Einkaufsmenge')).toHaveStyle({
+      alignSelf: 'flex-start',
     });
   });
 

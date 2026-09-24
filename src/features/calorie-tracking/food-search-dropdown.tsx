@@ -2,6 +2,7 @@ import { Image } from 'expo-image';
 import { useState } from 'react';
 import { ActivityIndicator, Keyboard, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { borderWidth, font, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { TextField, Txt } from '@/constants/ui';
@@ -36,7 +37,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   searchRow: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     gap: theme.space.sm,
   },
   flex: {
@@ -44,8 +45,13 @@ const styles = StyleSheet.create((theme) => ({
   },
   scanButton: {
     width: 48,
-    height: 48,
-    borderRadius: theme.radius.sm,
+    // Keep the external scanner control exactly as high as TextField's
+    // default input: line-height + vertical padding + both borders.
+    height: font.lineHeights.body + space.md * 2 + borderWidth.strong * 2,
+    minHeight: font.lineHeights.body + space.md * 2 + borderWidth.strong * 2,
+    borderRadius: theme.radius.md,
+    borderWidth: theme.borderWidth.strong,
+    borderColor: theme.border,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.backgroundElement,
