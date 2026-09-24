@@ -1,4 +1,4 @@
-import { getEncryptedAccountStorage } from './account-storage';
+import { getEncryptedAccountStorage } from '@/lib/storage/account-storage';
 
 const BROCHURE_POSTAL_CODE_KEY = 'brochures.postal-code';
 const BROCHURE_POSTAL_CODE_SOURCE_KEY = 'brochures.postal-code-source';

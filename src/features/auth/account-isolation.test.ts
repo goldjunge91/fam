@@ -3,13 +3,16 @@ import type { MMKV } from 'react-native-mmkv';
 
 import { clearLocalAccountData } from '@/features/auth/sign-out';
 import {
+  getBrochurePostalCode,
+  setBrochurePostalCode,
+} from '@/features/brochures/data/preferences';
+import {
   listFavoriteRecipeKeys,
   readStoredRecipeRating,
   setStoredRecipeFavorite,
   writeStoredRecipeRating,
 } from '@/features/recipes/data/recipe-preferences-repository';
 import { createDrizzleDatabase, type DrizzleDatabase } from '@/lib/db/drizzle-driver';
-import { getBrochurePostalCode, setBrochurePostalCode } from '@/lib/storage/account-preferences';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
 const mockGetDrizzleDatabase = jest.fn<Promise<DrizzleDatabase>, []>();
