@@ -36,11 +36,11 @@ jest.mock('./repository', () => ({
   reconcileOnStart: jest.fn(),
 }));
 
-const createDb = (): SqlDatabase => ({
+const createDb = (attachedDatabases: readonly string[] = []): SqlDatabase => ({
   execAsync: async (source) => {
     executedSql.push(source);
   },
-  getAllAsync: async <_T>() => [],
+  getAllAsync: async <T>() => attachedDatabases.map((name) => ({ name }) as T),
   getFirstAsync: async <_T>() => null,
   runAsync: async (source, params) => {
     executedRuns.push({ params, source });
@@ -61,6 +61,12 @@ describe('attachOffDump', () => {
   it('attaches the active dump writable for in-place patches', async () => {
     await attachOffDump(createDb());
 
+    expect(executedSql).toEqual(["ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''"]);
+  });
+
+  it('detaches the dump before replacing an existing attachment', async () => {
+    await attachOffDump(createDb(['off_dump']));
+
     expect(executedSql).toEqual([
       'DETACH DATABASE off_dump',
       "ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''",
@@ -77,10 +83,7 @@ describe('attachOffDump', () => {
 
     await attachOffDump(db);
 
-    expect(executedSql).toEqual([
-      'DETACH DATABASE off_dump',
-      "ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''",
-    ]);
+    expect(executedSql).toEqual(["ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''"]);
   });
 
   it('überspringt den Attach nur bei einem tatsächlich erreichbaren Dump', async () => {
@@ -121,9 +124,6 @@ describe('attachOffDump', () => {
     await Promise.all([firstInitialization, secondInitialization]);
 
     expect(reconcileOnStart).toHaveBeenCalledTimes(1);
-    expect(executedSql).toEqual([
-      'DETACH DATABASE off_dump',
-      "ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''",
-    ]);
+    expect(executedSql).toEqual(["ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''"]);
   });
 });

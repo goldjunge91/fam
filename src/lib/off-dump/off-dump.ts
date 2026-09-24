@@ -113,12 +113,10 @@ async function inspectAttachedOffDump(db: SqlDatabase): Promise<DumpInspection |
 }
 
 async function detachOffDumpIfAttached(db: SqlDatabase): Promise<void> {
-  try {
-    await db.execAsync('DETACH DATABASE off_dump');
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    if (!message.includes('no such database')) throw error;
-  }
+  const attachedDatabases = await db.getAllAsync<{ name: string }>('PRAGMA database_list');
+  if (!attachedDatabases.some(({ name }) => name === 'off_dump')) return;
+
+  await db.execAsync('DETACH DATABASE off_dump');
 }
 
 export async function getOffDumpStatus(db: SqlDatabase): Promise<OffDumpStatus> {
