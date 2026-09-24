@@ -1,5 +1,6 @@
 import type { SqlDatabase, SqlParam } from '@/lib/db/types';
 import { attachOffDump, forceRefreshOffDump, resetOffDumpAttachment } from './off-dump';
+import { setOffDumpAttached } from './off-dump-state';
 import { checkForUpdate } from './repository';
 
 const executedSql: string[] = [];
@@ -54,7 +55,41 @@ describe('attachOffDump', () => {
   it('attaches the active dump writable for in-place patches', async () => {
     await attachOffDump(createDb());
 
-    expect(executedSql).toEqual(["ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''"]);
+    expect(executedSql).toEqual([
+      'DETACH DATABASE off_dump',
+      "ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''",
+    ]);
+  });
+
+  it('verifiziert ein vorhandenes Attach-Flag gegen die aktuelle Connection', async () => {
+    setOffDumpAttached(true);
+    const db = createDb();
+    db.getFirstAsync = async <T>(source: string) => {
+      if (source.includes('dump_meta')) return null;
+      return { quick_check: 'ok' } as T;
+    };
+
+    await attachOffDump(db);
+
+    expect(executedSql).toEqual([
+      'DETACH DATABASE off_dump',
+      "ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''",
+    ]);
+  });
+
+  it('überspringt den Attach nur bei einem tatsächlich erreichbaren Dump', async () => {
+    setOffDumpAttached(true);
+    const db = createDb();
+    db.getFirstAsync = async <T>(source: string) => {
+      if (source.includes('dump_meta')) {
+        return { schema_version: 3, data_version: '2026-09-01T00:00:00.000Z' } as T;
+      }
+      return { quick_check: 'ok' } as T;
+    };
+
+    await attachOffDump(db);
+
+    expect(executedSql).toEqual([]);
   });
 
   it('keeps local update errors visible and does not suppress the next retry', async () => {

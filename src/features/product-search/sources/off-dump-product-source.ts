@@ -5,7 +5,8 @@ import {
 } from '@/features/product-search/product-parsing';
 import type { CatalogProduct, CatalogSource } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/client';
-import { debugLogEvent } from '@/lib/observability/debug-log';
+import { debugError, debugLogEvent } from '@/lib/observability/debug-log';
+import { attachOffDump } from '@/lib/off-dump/off-dump';
 
 export type OffDumpProductRow = {
   code: string | null;
@@ -27,6 +28,34 @@ export type OffDumpProductRow = {
 
 const COLUMNS =
   'code, product_name, brand, quantity, nutriscore, energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt, categories_tags, off_last_modified_at, image_url';
+
+function errorDetails(error: unknown): { error: string; errorType: string } {
+  return {
+    error: error instanceof Error ? error.message : String(error),
+    errorType: error instanceof Error ? error.name : typeof error,
+  };
+}
+
+function isMissingDumpTable(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error);
+  return /no such table:\s*off_dump\.products/i.test(message);
+}
+
+async function withAttachedDump<T>(
+  db: Awaited<ReturnType<typeof getDatabase>>,
+  operation: () => Promise<T>,
+): Promise<T> {
+  try {
+    return await operation();
+  } catch (error) {
+    if (!isMissingDumpTable(error)) throw error;
+
+    debugLogEvent('product-catalog.dump.reattach', { reason: 'missing-products-table' });
+    const attached = await attachOffDump(db);
+    if (!attached) throw error;
+    return operation();
+  }
+}
 
 export function toCatalogProductFromDumpRow(row: OffDumpProductRow): CatalogProduct {
   const { quantity, unit } = parseQuantityAndUnit(row.quantity ?? undefined);
@@ -68,21 +97,28 @@ export function createOffDumpProductSource(): CatalogSource {
           'lower(brand) like ?',
         ]);
         const params = tokens.flatMap((token) => [`%${token}%`, `%${token}%`]);
-        const rows = await db.getAllAsync<OffDumpProductRow>(
-          `select ${COLUMNS}
-           from off_dump.products
-           where ${conditions.join(' or ')}
-           order by product_name
-           limit ? offset ?`,
-          [...params, limit, offset],
+        const rows = await withAttachedDump(db, () =>
+          db.getAllAsync<OffDumpProductRow>(
+            `select ${COLUMNS}
+             from off_dump.products
+             where ${conditions.join(' or ')}
+             order by product_name
+             limit ? offset ?`,
+            [...params, limit, offset],
+          ),
         );
         return {
           products: rows.map(toCatalogProductFromDumpRow),
           hasMore: rows.length === limit,
           failed: false,
         };
-      } catch {
-        debugLogEvent('product-catalog.dump.unavailable', { operation: 'search' });
+      } catch (error) {
+        const details = errorDetails(error);
+        debugLogEvent('product-catalog.dump.unavailable', {
+          operation: 'search',
+          ...details,
+        });
+        debugError('[product-catalog.dump.search] SQLite-Abfrage fehlgeschlagen:', error);
         return { products: [], hasMore: false, failed: false };
       }
     },
@@ -92,16 +128,23 @@ export function createOffDumpProductSource(): CatalogSource {
       if (!trimmed) return null;
       try {
         const db = await getDatabase();
-        const row = await db.getFirstAsync<OffDumpProductRow>(
-          `select ${COLUMNS}
-           from off_dump.products
-           where code = ?
-           limit 1`,
-          [trimmed],
+        const row = await withAttachedDump(db, () =>
+          db.getFirstAsync<OffDumpProductRow>(
+            `select ${COLUMNS}
+             from off_dump.products
+             where code = ?
+             limit 1`,
+            [trimmed],
+          ),
         );
         return row ? toCatalogProductFromDumpRow(row) : null;
-      } catch {
-        debugLogEvent('product-catalog.dump.unavailable', { operation: 'findByBarcode' });
+      } catch (error) {
+        const details = errorDetails(error);
+        debugLogEvent('product-catalog.dump.unavailable', {
+          operation: 'findByBarcode',
+          ...details,
+        });
+        debugError('[product-catalog.dump.findByBarcode] SQLite-Abfrage fehlgeschlagen:', error);
         return null;
       }
     },

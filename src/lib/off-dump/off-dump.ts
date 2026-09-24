@@ -94,8 +94,6 @@ export type OffDumpStatus = {
  * abbrechen lassen, obwohl der Dump selbst intakt ist.
  */
 async function inspectAttachedOffDump(db: SqlDatabase): Promise<DumpInspection | undefined> {
-  if (!isOffDumpAttached()) return undefined;
-
   try {
     const meta = await db.getFirstAsync<{ schema_version: number; data_version: string }>(
       'select schema_version, data_version from off_dump.dump_meta limit 1',
@@ -113,17 +111,26 @@ async function inspectAttachedOffDump(db: SqlDatabase): Promise<DumpInspection |
   }
 }
 
+async function detachOffDumpIfAttached(db: SqlDatabase): Promise<void> {
+  try {
+    await db.execAsync('DETACH DATABASE off_dump');
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    if (!message.includes('no such database')) throw error;
+  }
+}
+
 export async function getOffDumpStatus(db: SqlDatabase): Promise<OffDumpStatus> {
   const { File, Paths } = loadFileSystem();
   const target = new File(Paths.document, DUMP_FILE_NAME);
+  const attachedInspection = target.exists ? await inspectAttachedOffDump(db) : undefined;
   const inspected = target.exists
-    ? ((await inspectAttachedOffDump(db)) ??
-      (await createExpoFileOps(db).inspectDump(dumpPaths().activePath)))
+    ? (attachedInspection ?? (await createExpoFileOps(db).inspectDump(dumpPaths().activePath)))
     : null;
   const lastError = await getMetaValue(db, LAST_ERROR_KEY);
 
   return {
-    attached: isOffDumpAttached(),
+    attached: attachedInspection !== undefined,
     fileExists: target.exists,
     fileSizeBytes: target.exists ? target.size : 0,
     schemaVersion: inspected?.schemaVersion ?? null,
@@ -135,10 +142,26 @@ export async function getOffDumpStatus(db: SqlDatabase): Promise<OffDumpStatus> 
 }
 
 export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
-  if (isOffDumpAttached()) {
+  const attachedInspection = await inspectAttachedOffDump(db);
+  if (attachedInspection) {
+    setOffDumpAttached(true);
     offDumpTrace('ATTACH-SKIP', { reason: 'already_attached' });
     return true;
   }
+
+  if (isOffDumpAttached()) {
+    // Der Status ist pro JS-Prozess, die SQLite-Verbindung kann aber nach
+    // einem Lifecycle-/Accountwechsel bereits ersetzt worden sein. Nicht auf
+    // ein veraltetes Flag vertrauen: die aktuelle Connection bekommt den Dump
+    // erneut angehaengt.
+    resetOffDumpAttachment();
+    offDumpTrace('ATTACH-STALE-RESET');
+  }
+
+  // Wenn der Alias zwar existiert, aber keine gueltige Dump-Struktur enthaelt,
+  // muss er vor dem erneuten ATTACH geloest werden. Sonst meldet SQLite nur
+  // "database off_dump is already in use" und die Suche bleibt defekt.
+  await detachOffDumpIfAttached(db);
 
   const { File, Paths } = loadFileSystem();
   const target = new File(Paths.document, DUMP_FILE_NAME);

@@ -6,9 +6,15 @@ import {
 const mockGetAllAsync = jest.fn();
 const mockGetFirstAsync = jest.fn();
 
+jest.mock('@/lib/off-dump/off-dump', () => ({
+  attachOffDump: jest.fn().mockResolvedValue(true),
+}));
+
 jest.mock('@/lib/db/client', () => ({
   getDatabase: async () => ({ getAllAsync: mockGetAllAsync, getFirstAsync: mockGetFirstAsync }),
 }));
+
+import { attachOffDump } from '@/lib/off-dump/off-dump';
 
 const row = {
   code: '4001234567890',
@@ -31,6 +37,7 @@ const row = {
 beforeEach(() => {
   mockGetAllAsync.mockReset().mockResolvedValue([]);
   mockGetFirstAsync.mockReset().mockResolvedValue(null);
+  jest.mocked(attachOffDump).mockClear();
 });
 
 describe('createOffDumpProductSource.search', () => {
@@ -67,6 +74,20 @@ describe('createOffDumpProductSource.search', () => {
     await expect(
       createOffDumpProductSource().search('Vollmilch', { offset: 0, limit: 20 }),
     ).resolves.toEqual({ products: [], hasMore: false, failed: false });
+  });
+
+  it('haengt den Dump bei einer fehlenden Tabelle auf der aktuellen Connection erneut an', async () => {
+    mockGetAllAsync
+      .mockRejectedValueOnce(new Error('no such table: off_dump.products'))
+      .mockResolvedValueOnce([row]);
+
+    const result = await createOffDumpProductSource().search('Vollmilch', {
+      offset: 0,
+      limit: 20,
+    });
+
+    expect(attachOffDump).toHaveBeenCalledTimes(1);
+    expect(result.products[0].name).toBe('Vollmilch');
   });
 });
 
