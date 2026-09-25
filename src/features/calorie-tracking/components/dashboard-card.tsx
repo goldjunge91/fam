@@ -79,6 +79,7 @@ function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProp
     return (
       <DashboardCardShell
         size={size}
+        shadow="prominent"
         onLongPress={onLongPress}
         disabled={disabled}
         accessibilityLabel={t('dashboard.cards.calories.titleSmall')}
@@ -124,6 +125,7 @@ function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProp
   return (
     <DashboardCardShell
       size={size}
+      shadow="prominent"
       onLongPress={onLongPress}
       disabled={disabled}
       accessibilityLabel={t('dashboard.cards.calories.today')}

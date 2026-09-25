@@ -16,6 +16,7 @@ import {
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Card, IconButton, Press, Txt } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
 
@@ -318,11 +319,7 @@ function IosInventoryItemActionsView({
                 bg={colors.danger}
                 size={45}
                 iconSize={24}
-                style={{
-                  borderRadius: radius.lg,
-                  shadowOpacity: 0,
-                  elevation: 0,
-                }}
+                style={[{ borderRadius: radius.lg }, uiShadowStyles.none]}
               />
             </View>
           </View>

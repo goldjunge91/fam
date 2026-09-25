@@ -8,6 +8,7 @@ import { BackButton } from '@/components/layout/back-button';
 import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, IconButton, Txt } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount } from '@/lib/format/package-size';
 
@@ -87,8 +88,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   closeButton: {
     borderRadius: theme.radius.lg,
-    shadowOpacity: 0,
-    elevation: 0,
   },
   fullScreenHeader: {
     paddingHorizontal: theme.space.lg,
@@ -310,7 +309,7 @@ export function InventoryHistorySheet({
                 bg={withAlpha(colors.danger, 1)}
                 size={40}
                 iconSize={22}
-                style={styles.closeButton}
+                style={[styles.closeButton, uiShadowStyles.none]}
               />
             </View>
             <View style={styles.headerTitleBelow}>
@@ -335,7 +334,7 @@ export function InventoryHistorySheet({
               bg={withAlpha(colors.danger, 1)}
               size={40}
               iconSize={22}
-              style={styles.closeButton}
+              style={[styles.closeButton, uiShadowStyles.none]}
             />
           </>
         )}

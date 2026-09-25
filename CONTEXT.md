@@ -25,7 +25,7 @@ keine vollständigen Arbeits- oder Qualitätsregeln.
 | Backend-Datenmodell und RLS | `supabase/schemas/*.sql` |
 | Lokaler SQLite-Spiegel | `src/lib/db/schemas/*.ts` und lokale Migrationen |
 | Aktuell implementiertes Laufzeitverhalten | Produktionscode und gezielte Tests |
-| UI-Designsystem | `src/components/theme/index.ts`, `src/components/theme/ThemeProvider.tsx`, `src/constants/ui.tsx` |
+| UI-Designsystem | `src/components/theme/index.ts`, `src/components/theme/ThemeProvider.tsx`, `src/constants/ui.tsx` (mit `src/constants/ui-shadow.ts` als Schattenmodul desselben UI-Owners) |
 
 Diese Quellen beantworten unterschiedliche Fragen. Ein akzeptierter Vertrag
 oder ADR beschreibt den beabsichtigten Zustand; Schema, Code und Tests belegen
@@ -69,8 +69,9 @@ Trackingeintrag an. Er überträgt weder dessen Identität noch dessen Eigentüm
   `src/features/<domain>/`, geteilte domänenlose UI in `src/components/` und
   Infrastruktur in `src/lib/`.
 - **UI-Verantwortung:** Projektweite Tokens, Theme-Auflösung und semantische
-  UI-Primitiven gehören ausschließlich den drei Quellen in der Tabelle oben.
-  Feature-Code besitzt Verhalten, Komposition und lokales Layout.
+  UI-Primitiven gehören ausschließlich den drei Ownern in der Tabelle oben.
+  `src/constants/ui-shadow.ts` ergänzt den UI-Owner aus `ui.tsx`; es ist kein
+  vierter Owner. Feature-Code besitzt Verhalten, Komposition und lokales Layout.
 - **Native Runtime:** Expo SDK 57 und die verwendeten nativen Module verlangen
   einen Dev Client. Änderungen an nativen Abhängigkeiten, Config Plugins oder
   nativen Projekten verändern den Native Fingerprint und können einen Rebuild

@@ -107,6 +107,7 @@ export function StorePickerMenu({
     <>
       <View ref={anchorRef} collapsable={false}>
         <GlassCard
+          shadow="floatingControl"
           shape="pill"
           onPress={openMenu}
           accessibilityRole="button"

@@ -106,6 +106,7 @@ function StreakDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
   return (
     <DashboardCardShell
       size={size}
+      shadow="prominent"
       onLongPress={onLongPress}
       disabled={disabled}
       accessibilityLabel={accessibilityLabel}

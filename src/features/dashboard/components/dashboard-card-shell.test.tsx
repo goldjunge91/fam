@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import type { AccessibilityRole, StyleProp, ViewStyle } from 'react-native';
 import { Pressable } from 'react-native';
 
-import { colorsLight, dashboardCardSizes, withAlpha } from '@/components/theme';
+import { borderWidth, colorsLight, dashboardCardSizes, withAlpha } from '@/components/theme';
 
 import { DashboardCardShell } from './dashboard-card-shell';
 
@@ -12,6 +12,7 @@ type MockGlassCardProps = {
   glassStyle: StyleProp<ViewStyle>;
   outerStyle?: StyleProp<ViewStyle>;
   tinted?: boolean;
+  shadow?: 'card' | 'prominent' | 'floatingControl';
   onPress?: () => void;
   onLongPress?: () => void;
   disabled?: boolean;
@@ -29,6 +30,7 @@ jest.mock('@/components/ui/glass-card', () => {
       glassStyle,
       outerStyle,
       tinted,
+      shadow,
       onPress,
       onLongPress,
       disabled,
@@ -39,6 +41,7 @@ jest.mock('@/components/ui/glass-card', () => {
         NativePressable,
         {
           testID: 'dashboard-card-shell',
+          accessibilityHint: shadow,
           style: [
             outerStyle,
             glassStyle,
@@ -68,7 +71,11 @@ describe('DashboardCardShell', () => {
     ['large', dashboardCardSizes.large.height],
   ] as const)('setzt die feste %s-Widgetgröße aus dem zentralen Token', async (size, height) => {
     await render(
-      <DashboardCardShell size={size} accessibilityLabel={`${size} widget`} onLongPress={jest.fn()}>
+      <DashboardCardShell
+        size={size}
+        shadow="prominent"
+        accessibilityLabel={`${size} widget`}
+        onLongPress={jest.fn()}>
         <Pressable />
       </DashboardCardShell>,
     );
@@ -77,6 +84,25 @@ describe('DashboardCardShell', () => {
       height,
       padding: dashboardCardSizes[size].padding,
       overflow: 'hidden',
+      borderWidth: borderWidth.base,
+      borderColor: colorsLight.border,
+      backgroundColor: withAlpha(colorsLight.accent, 0.08),
+    });
+    expect(screen.getByTestId('dashboard-card-shell').props.accessibilityHint).toBe('prominent');
+  });
+
+  it('behält Dashboard-Rahmen und Tönung bei einer anderen Schattenauswahl', async () => {
+    await render(
+      <DashboardCardShell size="small" shadow="card" accessibilityLabel="Widget">
+        <Pressable />
+      </DashboardCardShell>,
+    );
+
+    const card = screen.getByTestId('dashboard-card-shell');
+    expect(card.props.accessibilityHint).toBe('card');
+    expect(card).toHaveStyle({
+      borderColor: colorsLight.border,
+      borderWidth: borderWidth.base,
       backgroundColor: withAlpha(colorsLight.accent, 0.08),
     });
   });
@@ -88,6 +114,7 @@ describe('DashboardCardShell', () => {
     await render(
       <DashboardCardShell
         size="small"
+        shadow="prominent"
         accessibilityLabel="Widget"
         onPress={onPress}
         onLongPress={onLongPress}>

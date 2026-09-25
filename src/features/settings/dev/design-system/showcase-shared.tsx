@@ -2,9 +2,10 @@ import type { ReactNode } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { radius, shadow, space } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Surface, Txt } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 
 export function ContractIntro({
   title,
@@ -70,7 +71,7 @@ export function ExamplePanel({
     <Surface
       tone="surface"
       accessibilityLabel={label}
-      style={[styles.panel, { borderColor, shadowColor: colors.shadowCard }]}>
+      style={[styles.panel, { borderColor }, uiShadowStyles.cardBottom]}>
       <View style={styles.panelHeader}>
         <View style={[styles.statusDot, { backgroundColor: borderColor }]} />
         <Txt
@@ -159,7 +160,6 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     padding: space.lg,
     gap: space.md,
-    ...shadow.sm,
   },
   panelHeader: {
     flexDirection: 'row',

@@ -21,9 +21,10 @@ import {
 } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { space, withAlpha } from '@/components/theme/index';
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Press, TextField, Txt } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
 import { useProductSearch } from '@/features/product-search/hooks/use-product-search';
 import { usePreferredProductMarketName } from '@/features/product-search/preferred-market';
@@ -115,7 +116,6 @@ const styles = StyleSheet.create((theme) => ({
     borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
     backgroundColor: theme.background,
-    boxShadow: `0 10px 22px ${withAlpha(theme.shadowSheet, 0.22)}`,
   },
   panelAbove: {
     top: 'auto',
@@ -368,11 +368,10 @@ export const ProductSearchDropdown = forwardRef<
           style={[
             styles.panel,
             panelPlacement === 'above' && styles.panelAbove,
-            { elevation: 4, maxHeight: panelMaxHeight ?? PANEL_FALLBACK_HEIGHT },
+            uiShadowStyles.floatingPanelBottom,
+            { maxHeight: panelMaxHeight ?? PANEL_FALLBACK_HEIGHT },
           ]}
-          // elevation ist ein Android-only-Wert ohne Tailwind-Aequivalent
-          // (boxShadow deckt nur den iOS/Web-Schatten ab). maxHeight kommt aus
-          // der Live-Messung oben statt einer festen Klasse — die Liste soll
+          // maxHeight kommt aus der Live-Messung oben statt einer festen Klasse — die Liste soll
           // bis zum unteren Rand reichen, nicht pauschal bei 220px kappen.
           // Ohne das stoesst die letzte Zeile direkt an den unteren, abgerundeten
           // Panel-Rand — sieht abgeschnitten aus (#UI-Feedback: "Liste ist zu tief").

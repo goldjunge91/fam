@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { radius, shadow, space } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 
 export type InlineSelectOption = {
   value: string;
@@ -99,12 +100,11 @@ export function InlineSelect({ value, options, onChange, accessibilityLabel }: I
         <View
           style={[
             styles.panel,
-            shadow.lg,
             {
               backgroundColor: colors.background,
               borderColor: colors.border,
-              shadowColor: colors.shadowSheet,
             },
+            uiShadowStyles.floatingPanelBottom,
           ]}>
           {options.map((option) => {
             const active = option.value === value;

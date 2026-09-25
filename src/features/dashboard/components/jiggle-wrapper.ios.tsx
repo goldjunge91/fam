@@ -11,9 +11,10 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
-import { dashboardCardSizes, withAlpha } from '@/components/theme/index';
+import { dashboardCardSizes } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import type { CardSize } from '@/features/dashboard/registry';
 
 type JiggleWrapperProps = {
@@ -91,8 +92,8 @@ export function JiggleWrapper({
             styles.deleteBadge,
             {
               backgroundColor: colors.danger,
-              boxShadow: `0 2px 8px ${withAlpha(colors.text, 0.25)}`,
             },
+            uiShadowStyles.floatingControlBottom,
           ]}>
           <Txt variant="subheading" tone="onAccent" weight="700">
             −
@@ -113,8 +114,8 @@ export function JiggleWrapper({
             styles.resizeBadge,
             {
               backgroundColor: colors.accent,
-              boxShadow: `0 2px 8px ${withAlpha(colors.text, 0.25)}`,
             },
+            uiShadowStyles.floatingControlBottom,
           ]}>
           <Txt variant="body" tone="onAccent" weight="700">
             ⤢

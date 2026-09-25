@@ -12,19 +12,22 @@ import { type FoundationCategory, FoundationsShowcase } from './showcase-foundat
 import { type ModalCategory, ModalsShowcase } from './showcase-modals';
 import { type PatternCategory, PatternsShowcase } from './showcase-patterns';
 import { type ReanimatedCategory, ReanimatedShowcase } from './showcase-reanimated';
+import { ShadowsShowcase } from './showcase-shadows';
 
 type ShowcaseCategory =
   | FoundationCategory
   | ComponentCategory
   | PatternCategory
   | ReanimatedCategory
-  | ModalCategory;
+  | ModalCategory
+  | 'shadows';
 
 const CATEGORIES = [
   { value: 'theme', label: 'Theme' },
   { value: 'colors', label: 'Farben' },
   { value: 'typography', label: 'Typografie' },
   { value: 'tokens', label: 'Tokens' },
+  { value: 'shadows', label: 'Schatten' },
   { value: 'surfaces', label: 'Flächen' },
   { value: 'controls', label: 'Bedienung' },
   { value: 'feedback', label: 'Feedback' },
@@ -91,7 +94,9 @@ export function DesignSystemScreen() {
           onSelect={setCategory}
         />
 
-        {category === 'modal-comparison' ? (
+        {category === 'shadows' ? (
+          <ShadowsShowcase />
+        ) : category === 'modal-comparison' ? (
           <ModalsShowcase />
         ) : category === 'reanimated' ? (
           <ReanimatedShowcase />

@@ -48,6 +48,7 @@ import {
   Txt,
   type TxtVariant,
 } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import {
@@ -95,10 +96,14 @@ const TYPE_SCALE: { variant: TxtVariant; sample: string }[] = [
   { variant: 'glyph', sample: '★' },
 ];
 
-// 'contrast' ist kein echtes Design-Token — nur zur Verdeutlichung, dass
-// shadowColor grundsätzlich wirkt, obwohl shadowCard/shadowSheet sich kaum
-// unterscheiden (beide dunkles Mauve bei niedriger shadowOpacity).
-type ShadowVariant = 'standard' | 'secondary' | 'contrast';
+// These examples render the shared app shadow styles without local geometry.
+const SHADOW_STYLES = {
+  card: { name: 'cardBottom', style: uiShadowStyles.cardBottom },
+  floatingPanel: { name: 'floatingPanelBottom', style: uiShadowStyles.floatingPanelBottom },
+  prominent: { name: 'prominentCard', style: uiShadowStyles.prominentCard },
+} as const;
+
+type ShadowVariant = keyof typeof SHADOW_STYLES;
 
 type ToneKind = 'success' | 'warning' | 'danger';
 
@@ -207,43 +212,43 @@ function SurfaceShowcase() {
           </Txt>
         </PrimitiveCard>
       </Subsection>
-      <Subsection title="Kartenschatten: Standard- vs. Sekundärfarbe">
+      <Subsection title="Schattenrollen aus der App">
         <View style={styles.comparisonGroup}>
           <View style={styles.comparisonExample}>
-            <Txt variant="label">Standardfarbe (colors.shadowCard)</Txt>
-            <ShadowProgressCard variant="standard" />
+            <Txt variant="label">cardBottom · normale Karten</Txt>
+            <ShadowProgressCard variant="card" />
           </View>
           <View style={styles.comparisonExample}>
-            <Txt variant="label">Sekundärfarbe (colors.shadowSheet)</Txt>
-            <ShadowProgressCard variant="secondary" />
+            <Txt variant="label">floatingPanelBottom · Auswahlpanels</Txt>
+            <ShadowProgressCard variant="floatingPanel" />
           </View>
           <View style={styles.comparisonExample}>
-            <Txt variant="label">Auffällige Farbe (colors.danger, nur zum Vergleich)</Txt>
-            <ShadowProgressCard variant="contrast" />
+            <Txt variant="label">prominentCard · Dashboard-Karten</Txt>
+            <ShadowProgressCard variant="prominent" />
           </View>
         </View>
         <CodeSample>
           {
-            'shadowCard (#594059) und shadowSheet (#2A1F2C) sind unterschiedliche Hex-Werte, aber beide dunkles Mauve — bei shadowOpacity 0.14 kaum zu unterscheiden. shadowColor wirkt trotzdem, wie die dritte Karte mit colors.danger zeigt.\nAuf Android hat shadowColor ohnehin keinen Effekt: elevation zeichnet immer einen neutralen Systemschatten, unabhängig vom Token.'
+            'Jede Fläche verwendet direkt ihren fertigen uiShadowStyles-Eintrag. Es gibt keine lokale Geometrie oder Schattenfarbe.'
           }
         </CodeSample>
       </Subsection>
       <Subsection title="Interaktive Karten">
         <View style={styles.comparisonGroup}>
           <View style={styles.comparisonExample}>
-            <Txt variant="label">Standardfarbe, antippbar</Txt>
+            <Txt variant="label">cardBottom, antippbar</Txt>
             <ShadowProgressCard
-              variant="standard"
+              variant="card"
               interactive
-              onPress={() => setTappedCard('Standardfarbe')}
+              onPress={() => setTappedCard('cardBottom')}
             />
           </View>
           <View style={styles.comparisonExample}>
-            <Txt variant="label">Sekundärfarbe, antippbar</Txt>
+            <Txt variant="label">prominentCard, antippbar</Txt>
             <ShadowProgressCard
-              variant="secondary"
+              variant="prominent"
               interactive
-              onPress={() => setTappedCard('Sekundärfarbe')}
+              onPress={() => setTappedCard('prominentCard')}
             />
           </View>
         </View>
@@ -347,22 +352,11 @@ function ShadowProgressCard({
   interactive?: boolean;
   onPress?: () => void;
 }) {
-  const { colors } = useTheme();
-  const shadowColor =
-    variant === 'standard'
-      ? colors.shadowCard
-      : variant === 'secondary'
-        ? colors.shadowSheet
-        : colors.danger;
-  const tokenName =
-    variant === 'standard'
-      ? 'colors.shadowCard'
-      : variant === 'secondary'
-        ? 'colors.shadowSheet'
-        : 'colors.danger';
+  const { name: shadowName, style: shadowStyle } = SHADOW_STYLES[variant];
+  const tokenName = `uiShadowStyles.${shadowName}`;
 
   const card = (
-    <PrimitiveCard elevation="lg" style={[styles.progressCard, { shadowColor }]}>
+    <PrimitiveCard elevation="none" style={[styles.progressCard, shadowStyle]}>
       <View style={styles.progressCardRow}>
         <View style={styles.progressCardCopy}>
           <Txt variant="label" tone="secondary" style={styles.progressCardLabel}>
@@ -381,7 +375,7 @@ function ShadowProgressCard({
         />
       </View>
       <Txt variant="caption" tone="secondary">
-        shadowColor="{tokenName}"
+        {tokenName}
       </Txt>
     </PrimitiveCard>
   );

@@ -6,10 +6,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { FamIcon } from '@/components/icons/fam-icon';
-import { radius, space, withAlpha } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { getSpeedDialOptions } from '@/constants/feature-registry';
 import { Txt } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import { DEFAULT_FAB_POSITION, useFabPosition } from '@/features/navigation/fab-position-settings';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { debugLogEvent } from '@/lib/observability/debug-log';
@@ -148,8 +149,8 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
                 {
                   backgroundColor: colors.speedDialShopping,
                   borderCurve: 'continuous',
-                  boxShadow: `0 4px 10px ${withAlpha(colors.shadowCard, 0.14)}`,
                 },
+                uiShadowStyles.floatingControlBottom,
               ]}>
               <Feather name="mic" size={space.xl} color={colors.text} />
             </View>
@@ -177,8 +178,8 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
                 {
                   backgroundColor: colors[option.backgroundToken],
                   borderCurve: 'continuous',
-                  boxShadow: `0 4px 10px ${withAlpha(colors.shadowCard, 0.14)}`,
                 },
+                uiShadowStyles.floatingControlBottom,
               ]}>
               <FamIcon name={option.icon} size={space.xl} />
             </View>

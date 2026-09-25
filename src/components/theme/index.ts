@@ -2,7 +2,7 @@
  * Our mobile Fam theme, native edition.
  *
  * feel like one brand, but expressed as React Native style primitives (raw hex,
- * numeric spacing/radius, shadow objects) instead of Tailwind classes.
+ * numeric spacing/radius and boxShadow styles) instead of Tailwind classes.
  */
 import { Dimensions, Platform } from 'react-native';
 
@@ -229,37 +229,37 @@ export const font = {
   },
 } as const;
 
-/** iOS-style soft shadow tiers. */
+/** Shared boxShadow geometry and opacity tiers. */
 export const shadow = {
   sm: {
-    shadowColor: '#594059',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.08,
-    shadowRadius: 6,
-    elevation: 2,
+    offsetX: 0,
+    offsetY: 2,
+    blurRadius: 6,
+    opacity: 0.08,
   },
   md: {
-    shadowColor: '#594059',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.1,
-    shadowRadius: 14,
-    elevation: 4,
+    offsetX: 0,
+    offsetY: 6,
+    blurRadius: 14,
+    opacity: 0.1,
   },
   lg: {
-    shadowColor: '#594059',
-    shadowOffset: { width: 0, height: 12 },
-    shadowOpacity: 0.14,
-    shadowRadius: 24,
-    elevation: 8,
+    offsetX: 0,
+    offsetY: 12,
+    blurRadius: 24,
+    opacity: 0.14,
   },
-  /** Geometry for a deliberately prominent native shadow. */
+  /** Geometry for a deliberately prominent shadow. */
   prominent: {
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.7,
-    shadowRadius: 18,
-    elevation: 10,
+    offsetX: 0,
+    offsetY: 0,
+    blurRadius: 18,
+    opacity: 0.7,
   },
 } as const;
+
+export type ShadowToken = (typeof shadow)[keyof typeof shadow];
+export type ShadowDirection = 'down' | 'up' | 'left' | 'right';
 
 /** Sichtbare Tiefe und vollständiger Druckweg gefüllter 3D-Buttons. */
 export const BUTTON_DEPTH = 4;
@@ -301,6 +301,22 @@ export function withAlpha(hex: string, alpha: number): string {
   const g = Number.parseInt(value.slice(2, 4), 16);
   const b = Number.parseInt(value.slice(4, 6), 16);
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+/** Converts a central shadow token to the cross-platform boxShadow format. */
+export function boxShadowValue(
+  tier: ShadowToken,
+  color: string,
+  direction: ShadowDirection = 'down',
+): string {
+  const [offsetX, offsetY] = {
+    down: [tier.offsetX, tier.offsetY],
+    up: [tier.offsetX, -tier.offsetY],
+    left: [-tier.offsetY, tier.offsetX],
+    right: [tier.offsetY, tier.offsetX],
+  }[direction];
+
+  return `${offsetX}px ${offsetY}px ${tier.blurRadius}px ${withAlpha(color, tier.opacity)}`;
 }
 
 // TODO: prüfen ob wir das noch brauchen

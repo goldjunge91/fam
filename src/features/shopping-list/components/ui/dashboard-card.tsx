@@ -65,6 +65,7 @@ function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
     return (
       <DashboardCardShell
         size={size}
+        shadow="prominent"
         onPress={() => router.push('/shopping-list')}
         onLongPress={onLongPress}
         disabled={disabled}
@@ -108,6 +109,7 @@ function ShoppingDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
   return (
     <DashboardCardShell
       size={size}
+      shadow="prominent"
       onPress={() => router.push('/shopping-list')}
       onLongPress={onLongPress}
       disabled={disabled}

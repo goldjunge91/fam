@@ -32,10 +32,12 @@ Planung und Arbeitsstatus werden separat geführt, Arbeitspakete in Beads.
 | --- | --- |
 | `src/components/theme/index.ts` | Wiederverwendbare Tokens: Paletten, Schriftmaße und Gewichte, Abstände, Radien, Schatten, Verläufe und gemeinsame Maße |
 | `src/components/theme/ThemeProvider.tsx` | Persistierte Theme-Präferenz, Auflösung von `system/light/dark`, aktive Palette, `useTheme()` und `useThemedStyles()` |
-| `src/constants/ui.tsx` | Semantische Primitive und gemeinsame Rezepte für Typografie, Farbpaare, Flächen, Konturen, Interaktionszustände, Motion und Haptikzuordnung |
+| `src/constants/ui.tsx` und `src/constants/ui-shadow.ts` | Ein gemeinsamer UI-Owner: Primitive und semantische Styles für Typografie, Farbpaare, Flächen, Konturen, Schatten, Interaktionszustände, Motion und Haptikzuordnung; `ui-shadow.ts` enthält ausschließlich die exportierten Schatten-Styles |
 
+Die drei Owner bleiben Theme, ThemeProvider und UI. `ui-shadow.ts` ist ein
+Schattenmodul innerhalb des dritten Owners, keine vierte globale Verantwortung.
 Höhere Komponenten besitzen Verhalten, Komposition, Accessibility-Metadaten und
-lokales Layout. Sie wenden die zentralen Rezepte an. `className` ist verboten;
+lokales Layout. Sie wenden die zentralen Styles an. `className` ist verboten;
 Styles entstehen über typisierte Unistyles-Theme-Callbacks.
 `global.css` und `tailwind.config.js` sind Retirement-Dateien ohne aktive
 Designentscheidungen.

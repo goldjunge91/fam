@@ -13,6 +13,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { font, radius, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import type { Hotspot } from '../types';
 
 interface BrochureHotspotProps {
@@ -56,6 +57,7 @@ export function BrochureHotspot({ hotspot, onPress, isActive, isVisible }: Broch
     <Animated.View
       style={[
         styles.hotspotContainer,
+        uiShadowStyles.hotspotBottom,
         {
           left: `${hotspot.x + hotspot.width / 2}%`,
           top: `${hotspot.y + hotspot.height / 2}%`,
@@ -95,11 +97,6 @@ const styles = StyleSheet.create({
     marginTop: -9,
     borderRadius: radius.sm,
     borderWidth: 1.5,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    elevation: 2,
   },
   pressableArea: {
     flex: 1,

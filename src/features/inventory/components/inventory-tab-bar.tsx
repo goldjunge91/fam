@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { withAlpha } from '@/components/theme/index';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Press, Txt } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 
 interface InventoryTabBarProps {
@@ -72,7 +72,6 @@ const styles = StyleSheet.create((theme) => ({
     // Keep the retired control-lg geometry (14pt) in the central radius scale.
     borderRadius: theme.radius.sm + 2,
     overflow: 'hidden',
-    boxShadow: `0 10px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
   },
   option: {
     minHeight: 44,
@@ -124,6 +123,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
   return (
     <View ref={triggerRef} style={styles.container}>
       <GlassCard
+        shadow="floatingControl"
         shape="control"
         outerStyle={styles.triggerOuter}
         glassStyle={styles.trigger}
@@ -158,13 +158,13 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
               accessibilityRole="menu"
               style={[
                 styles.menu,
+                uiShadowStyles.floatingPanelBottom,
                 {
                   position: 'absolute',
                   top: menuPosition.top,
                   left: menuPosition.left,
                   width: menuPosition.width,
                   borderCurve: 'continuous',
-                  elevation: 8,
                 },
               ]}>
               {options.map((location, index) => {

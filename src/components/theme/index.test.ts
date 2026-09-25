@@ -10,6 +10,7 @@ import { getDeviceStorage } from '@/lib/storage/local-device-storage';
 import {
   BUTTON_DEPTH,
   borderWidth,
+  boxShadowValue,
   colorsDark,
   colorsLight,
   dashboardCardSizes,
@@ -94,8 +95,17 @@ describe('fam theme tokens', () => {
     expect(borderWidth.strong).toBe(2);
     expect(space.md).toBeGreaterThan(0);
     expect(font.sizes.base).toBeGreaterThan(0);
-    expect(shadow.sm.elevation).toBe(2);
-    expect(shadow.prominent.elevation).toBe(10);
+    expect(shadow.sm).toEqual({ offsetX: 0, offsetY: 2, blurRadius: 6, opacity: 0.08 });
+    expect(shadow.prominent).toEqual({ offsetX: 0, offsetY: 0, blurRadius: 18, opacity: 0.7 });
+    expect(boxShadowValue(shadow.md, colorsLight.shadowCard)).toBe(
+      '0px 6px 14px rgba(89, 64, 89, 0.1)',
+    );
+    expect(boxShadowValue(shadow.lg, colorsLight.shadowSheet, 'up')).toBe(
+      '0px -12px 24px rgba(42, 31, 44, 0.14)',
+    );
+    expect(boxShadowValue(shadow.lg, colorsLight.shadowSheet, 'right')).toBe(
+      '12px 0px 24px rgba(42, 31, 44, 0.14)',
+    );
     expect(BUTTON_DEPTH).toBe(4);
     expect(dashboardCardSizes.small).toEqual({ height: 138, padding: space.lg });
     expect(dashboardCardSizes.large).toEqual({ height: 176, padding: space.lg });

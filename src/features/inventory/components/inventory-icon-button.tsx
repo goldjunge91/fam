@@ -9,8 +9,9 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { BUTTON_DEPTH, withAlpha } from '@/components/theme/index';
+import { BUTTON_DEPTH } from '@/components/theme/index';
 import { useGlassAvailable } from '@/components/ui/glass-card';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import { medium as hapticMedium } from '@/lib/platform/haptics';
 
 const ICON_BUTTON_DEPTH = BUTTON_DEPTH / 2;
@@ -20,12 +21,10 @@ const styles = StyleSheet.create((theme) => ({
     paddingBottom: ICON_BUTTON_DEPTH,
     borderRadius: theme.radius.lg,
     backgroundColor: theme.border,
-    boxShadow: `0 ${theme.shadow.sm.shadowOffset.height}px ${theme.shadow.sm.shadowRadius}px ${withAlpha(theme.shadowCard, theme.shadow.sm.shadowOpacity)}`,
   },
   activeOuter: {
     paddingBottom: 0,
     backgroundColor: 'transparent',
-    boxShadow: 'none',
   },
   face: {
     width: 54,
@@ -73,7 +72,12 @@ export function InventoryIconButton({
     transform: [{ translateY: depth.value }],
   }));
   return (
-    <View style={[styles.outer, active && styles.activeOuter]}>
+    <View
+      style={[
+        styles.outer,
+        active ? uiShadowStyles.none : uiShadowStyles.floatingControlBottom,
+        active && styles.activeOuter,
+      ]}>
       <Animated.View style={faceStyle}>
         <Pressable
           onPress={() => {

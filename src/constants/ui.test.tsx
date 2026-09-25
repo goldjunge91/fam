@@ -2,7 +2,6 @@ import { fireEvent, render, screen, userEvent } from '@testing-library/react-nat
 import { createRef } from 'react';
 import { Text } from 'react-native';
 import * as Reanimated from 'react-native-reanimated';
-
 import {
   colorsDark,
   font,
@@ -11,6 +10,7 @@ import {
   radius,
   space,
 } from '@/components/theme/index';
+import { uiShadowStyles } from './ui-shadow';
 
 const mockAccent = mockMakeAccent(mockColorsLight);
 
@@ -445,6 +445,38 @@ describe('core theme UI primitives', () => {
     expect(screen.getByPlaceholderText('Dein Name')).toHaveStyle({ borderColor: '#123456' });
   });
 
+  it.each([
+    ['sm', 'cardBottom'],
+    ['md', 'raisedCardBottom'],
+    ['lg', 'modalBottom'],
+  ] as const)('applies the shared %s Card shadow', async (elevation, shadowStyle) => {
+    await render(
+      <Card accessibilityLabel="Schattenkarte" accessible elevation={elevation}>
+        <Text>Inhalt</Text>
+      </Card>,
+    );
+
+    expect(screen.getByLabelText('Schattenkarte').props.style).toContain(
+      uiShadowStyles[shadowStyle],
+    );
+  });
+
+  it('keeps an explicitly styled shadow when Card elevation is none', async () => {
+    await render(
+      <Card
+        accessibilityLabel="Karte ohne Standardschatten"
+        accessible
+        elevation="none"
+        style={uiShadowStyles.prominentCard}>
+        <Text>Inhalt</Text>
+      </Card>,
+    );
+
+    expect(screen.getByLabelText('Karte ohne Standardschatten').props.style).toContain(
+      uiShadowStyles.prominentCard,
+    );
+  });
+
   it('keeps the product Card composition contract for titles and footers', async () => {
     await render(
       <ProductCard title="Produkt" footer={<Text>Footer</Text>}>
@@ -508,6 +540,24 @@ describe('core theme UI primitives', () => {
     const multiline = screen.getByLabelText('Notiz');
     expect(multiline.props.returnKeyType).toBeUndefined();
     expect(multiline.props.submitBehavior).toBeUndefined();
+  });
+
+  it('uses the shared card shadow for a selected surface SegmentedControl option', async () => {
+    await render(
+      <SegmentedControl
+        label="Darstellung"
+        options={[
+          { label: 'Liste', value: 'list' },
+          { label: 'Raster', value: 'grid' },
+        ]}
+        selected="list"
+        onSelect={jest.fn()}
+        appearance="surface"
+      />,
+    );
+
+    const selected = screen.getByRole('radio', { name: 'Liste', selected: true });
+    expect(selected.props.style).toContain(uiShadowStyles.cardBottom);
   });
 
   it('keeps status primitives selectable and renders optional section actions', async () => {
@@ -661,6 +711,7 @@ describe('core theme UI primitives', () => {
     expect(button).toHaveAccessibleName('Favorit');
     expect(button).toHaveStyle({ width: 44, height: 44 });
     expect(typeof button.props.style).not.toBe('function');
+    expect(button.props.style).toContain(uiShadowStyles.floatingControlBottom);
   });
 
   it('clamps explicit compact icon sizes and exposes disabled state', async () => {

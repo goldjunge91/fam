@@ -8,10 +8,11 @@ import {
   type ViewStyle,
 } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { shadow, withAlpha } from '@/components/theme';
-import { prominentShadowStyles } from '@/constants/ui';
+import { withAlpha } from '@/components/theme';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 
 export type GlassCardShape = 'card' | 'control' | 'pill';
+export type GlassCardShadow = 'card' | 'prominent' | 'floatingControl';
 
 const styles = StyleSheet.create((theme) => ({
   shape: {
@@ -30,9 +31,6 @@ const styles = StyleSheet.create((theme) => ({
         },
       },
     },
-  },
-  outer: {
-    boxShadow: `0 ${shadow.sm.shadowOffset.height}px ${shadow.sm.shadowRadius}px ${withAlpha(theme.shadowCard, shadow.sm.shadowOpacity)}`,
   },
   fallback: {
     backgroundColor: theme.backgroundElement,
@@ -85,7 +83,9 @@ type GlassCardProps = {
   fallbackStyle?: StyleProp<ViewStyle>;
   /** Aktiviert den dezenten, zentralen Dashboard-Farbakzent. */
   tinted?: boolean;
-  /** Zentrale Form des GlassCard-Rezepts. */
+  /** Wählt den Schatten unabhängig von der Flächenfärbung. */
+  shadow: GlassCardShadow;
+  /** Semantische Form der GlassCard. */
   shape?: GlassCardShape;
   onPress?: () => void;
   onLongPress?: () => void;
@@ -100,6 +100,7 @@ export function GlassCard({
   glassStyle,
   fallbackStyle,
   tinted = false,
+  shadow,
   shape = 'card',
   onPress,
   onLongPress,
@@ -111,6 +112,11 @@ export function GlassCard({
   const canUseGlass = useGlassAvailable();
   const [fallbackPressed, setFallbackPressed] = useState(false);
   styles.useVariants({ shape });
+  const shadowStyle = {
+    card: uiShadowStyles.cardBottom,
+    prominent: uiShadowStyles.prominentCard,
+    floatingControl: uiShadowStyles.floatingControlBottom,
+  }[shadow];
 
   if (!canUseGlass) {
     return (
@@ -125,8 +131,7 @@ export function GlassCard({
         style={[
           fallbackStyle,
           outerStyle,
-          styles.outer,
-          tinted && prominentShadowStyles.outer,
+          shadowStyle,
           styles.fallback,
           tinted && styles.dashboardTint,
           styles.shape,
@@ -144,7 +149,7 @@ export function GlassCard({
       disabled={disabled}
       accessibilityRole={accessibilityRole}
       accessibilityLabel={accessibilityLabel}
-      style={[outerStyle, styles.outer, tinted && prominentShadowStyles.outer, styles.shape]}>
+      style={[outerStyle, shadowStyle, styles.shape]}>
       <GlassView
         glassEffectStyle="regular"
         isInteractive={!disabled}

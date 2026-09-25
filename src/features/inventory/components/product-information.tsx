@@ -4,9 +4,9 @@ import { ActivityIndicator, Modal, Pressable, ScrollView, View } from 'react-nat
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import { useProduct } from '@/features/inventory/use-product';
 import { offApiSource } from '@/features/product-search/sources/off-api-source';
 import type { CatalogProduct } from '@/features/product-search/types';
@@ -66,7 +66,6 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.famLarge,
     overflow: 'hidden',
     backgroundColor: theme.backgroundElement,
-    boxShadow: `0 10px 22px ${withAlpha(theme.shadowSheet, 0.22)}`,
   },
   grabHandle: {
     width: 42,
@@ -246,7 +245,12 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
           accessibilityLabel="Produktinformationen schließen"
         />
 
-        <View style={[styles.sheet, { paddingBottom: insets.bottom + 24 }]}>
+        <View
+          style={[
+            styles.sheet,
+            uiShadowStyles.bottomSheetTop,
+            { paddingBottom: insets.bottom + 24 },
+          ]}>
           <View style={styles.grabHandle} />
           <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
             <View style={styles.header}>

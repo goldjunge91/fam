@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { GradientBackground } from '@/components/layout/gradient-background';
 import {
   BUTTON_DEPTH,
+  boxShadowValue,
   CONTENT_MAX_WIDTH,
   Colors,
   Fonts,
@@ -14,10 +15,10 @@ import {
   SCREEN_W,
   shadow,
   space,
-  withAlpha,
 } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Txt, type TxtTone, type TxtVariant } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import {
   CodeSample,
   ContractIntro,
@@ -50,9 +51,91 @@ const TEXT_TONES = [
   'inverse',
 ] as const satisfies readonly TxtTone[];
 
-// Ausschließlich für den visuellen Vergleich der beiden Schattenformate.
-const SHADOW_COMPARISON_COLOR = '#8B1E2D';
-const LEGACY_COMPARISON_COLOR = '#008000';
+const SHADOW_STYLE_ROWS = [
+  {
+    name: 'cardBottom',
+    geometry: `offset ${shadow.sm.offsetX}/${shadow.sm.offsetY} · blur ${shadow.sm.blurRadius} · opacity ${shadow.sm.opacity}`,
+    color: 'theme.shadowCard',
+    direction: 'down',
+    usage: 'Karten',
+  },
+  {
+    name: 'raisedCardBottom',
+    geometry: `offset ${shadow.md.offsetX}/${shadow.md.offsetY} · blur ${shadow.md.blurRadius} · opacity ${shadow.md.opacity}`,
+    color: 'theme.shadowCard',
+    direction: 'down',
+    usage: 'erhöhte Karten',
+  },
+  {
+    name: 'modalBottom',
+    geometry: `offset ${shadow.lg.offsetX}/${shadow.lg.offsetY} · blur ${shadow.lg.blurRadius} · opacity ${shadow.lg.opacity}`,
+    color: 'theme.shadowCard',
+    direction: 'down',
+    usage: 'Dialoge, Card.elevation="lg"',
+  },
+  {
+    name: 'prominentCard',
+    geometry: `offset ${shadow.prominent.offsetX}/${shadow.prominent.offsetY} · blur ${shadow.prominent.blurRadius} · opacity ${shadow.prominent.opacity}`,
+    color: 'theme.shadowCard',
+    direction: 'zentriert',
+    usage: 'Dashboard, Vorratsübersicht',
+  },
+  {
+    name: 'floatingControlBottom',
+    geometry: `offset ${shadow.md.offsetX}/${shadow.md.offsetY} · blur ${shadow.md.blurRadius} · opacity ${shadow.md.opacity}`,
+    color: 'theme.shadowCard',
+    direction: 'down',
+    usage: 'frei liegende Controls',
+  },
+  {
+    name: 'floatingPanelBottom',
+    geometry: `offset ${shadow.lg.offsetX}/${shadow.lg.offsetY} · blur ${shadow.lg.blurRadius} · opacity ${shadow.lg.opacity}`,
+    color: 'theme.shadowSheet',
+    direction: 'down',
+    usage: 'Dropdowns und Auswahlpanels',
+  },
+  {
+    name: 'bottomSheetTop',
+    geometry: `offset ${shadow.lg.offsetX}/${-shadow.lg.offsetY} · blur ${shadow.lg.blurRadius} · opacity ${shadow.lg.opacity}`,
+    color: 'theme.shadowSheet',
+    direction: 'up',
+    usage: 'von unten kommende Sheets',
+  },
+  {
+    name: 'leftDrawerRight',
+    geometry: `offset ${shadow.lg.offsetY}/0 · blur ${shadow.lg.blurRadius} · opacity ${shadow.lg.opacity}`,
+    color: 'theme.shadowSheet',
+    direction: 'right',
+    usage: 'linker Navigations-Drawer',
+  },
+  {
+    name: 'hotspotBottom',
+    geometry: 'offset 0/1 · blur 2 · opacity 0.20',
+    color: 'theme.shadowCard',
+    direction: 'down',
+    usage: '18×18-Broschüren-Hotspot',
+  },
+  {
+    name: 'accentNoteBottomRight',
+    geometry: 'offset 4/5 · blur 0 · opacity 0.18',
+    color: 'theme.accent',
+    direction: 'down/right',
+    usage: 'Küchenzettel-Illustration',
+  },
+  {
+    name: 'none',
+    geometry: 'boxShadow: none',
+    color: '—',
+    direction: 'kein Schatten',
+    usage: 'expliziter Reset',
+  },
+] as const satisfies readonly {
+  name: keyof typeof uiShadowStyles;
+  geometry: string;
+  color: string;
+  direction: string;
+  usage: string;
+}[];
 
 function entries<T extends object>(value: T) {
   return Object.entries(value) as [keyof T, T[keyof T]][];
@@ -304,13 +387,15 @@ function TokenShowcase() {
             <TokenItem
               key={String(name)}
               name={`shadow.${String(name)}`}
-              value={`elevation ${value.elevation}`}
+              value={`offset ${value.offsetX}/${value.offsetY} · blur ${value.blurRadius} · opacity ${value.opacity}`}
               preview={
                 <View
                   style={[
                     styles.shadowPreview,
-                    value,
-                    { backgroundColor: colors.backgroundElement, shadowColor: colors.shadowCard },
+                    {
+                      backgroundColor: colors.backgroundElement,
+                      boxShadow: boxShadowValue(value, colors.shadowCard),
+                    },
                   ]}
                 />
               }
@@ -334,61 +419,25 @@ function TokenShowcase() {
           />
         </TokenGrid>
       </Subsection>
-      <Subsection title="Schattenformat: alt und neu">
-        <View style={styles.shadowExamples}>
-          <View style={styles.shadowExample}>
-            <Txt variant="label">Alt · Legacy-Props · stark grün</Txt>
-            <View
-              style={[
-                styles.shadowExampleCard,
-                {
-                  backgroundColor: colors.backgroundElement,
-                  shadowColor: LEGACY_COMPARISON_COLOR,
-                  shadowOffset: { width: 0, height: 10 },
-                  shadowOpacity: 0.75,
-                  shadowRadius: 18,
-                  elevation: 12,
-                },
-              ]}>
-              <Txt variant="subheading">Bisheriger Schatten</Txt>
-              <Txt variant="caption" tone="secondary">
-                kräftiger grüner Schatten über Legacy-Props
-              </Txt>
-            </View>
-            <CodeSample>
-              {
-                "<View style={{ shadowColor: '#008000', shadowOffset: { width: 0, height: 10 }, shadowOpacity: 0.75, shadowRadius: 18, elevation: 12 }} />"
+      <Subsection title="Zentrale Schatten-Styles">
+        <TokenGrid>
+          {SHADOW_STYLE_ROWS.map(({ name, geometry, color, direction, usage }) => (
+            <TokenItem
+              key={name}
+              name={`uiShadowStyles.${name}`}
+              value={`${geometry} · ${color} · ${direction} · ${usage}`}
+              preview={
+                <View
+                  style={[
+                    styles.shadowPreview,
+                    { backgroundColor: colors.backgroundElement },
+                    uiShadowStyles[name],
+                  ]}
+                />
               }
-            </CodeSample>
-          </View>
-          <View style={styles.shadowExample}>
-            <Txt variant="label">Neu · boxShadow · dunkelrot</Txt>
-            <View
-              style={[
-                styles.shadowExampleCard,
-                {
-                  backgroundColor: colors.backgroundElement,
-                  boxShadow: [
-                    `0 -8px 12px ${withAlpha(SHADOW_COMPARISON_COLOR, 0.42)}`,
-                    `-8px 0 12px ${withAlpha(SHADOW_COMPARISON_COLOR, 0.42)}`,
-                    `8px 0 12px ${withAlpha(SHADOW_COMPARISON_COLOR, 0.42)}`,
-                  ].join(', '),
-                },
-              ]}>
-              <Txt variant="subheading">Kanonischer Schatten</Txt>
-              <Txt variant="caption" tone="secondary">
-                Ein plattformübergreifendes Schattenformat mit aktivem Theme-Farbwert
-              </Txt>
-            </View>
-            <CodeSample>
-              {`boxShadow: [
-  \`0 -8px 12px \${withAlpha(SHADOW_COMPARISON_COLOR, 0.42)}\`,
-  \`-8px 0 12px \${withAlpha(SHADOW_COMPARISON_COLOR, 0.42)}\`,
-  \`8px 0 12px \${withAlpha(SHADOW_COMPARISON_COLOR, 0.42)}\`,
-].join(', ')`}
-            </CodeSample>
-          </View>
-        </View>
+            />
+          ))}
+        </TokenGrid>
       </Subsection>
       <Subsection title="Verlauf und Plattformfonts">
         <View style={[styles.gradientPreview, { borderColor: colors.border }]}>
@@ -510,15 +559,6 @@ const styles = StyleSheet.create({
   spacePreview: { height: 28, minWidth: 4, borderRadius: radius.sm },
   radiusPreview: { height: 48, width: '100%' },
   shadowPreview: { height: 48, width: '100%', borderRadius: radius.md },
-  shadowExamples: { gap: space.lg },
-  shadowExample: { gap: space.sm },
-  shadowExampleCard: {
-    minHeight: 112,
-    borderRadius: radius.md,
-    padding: space.lg,
-    justifyContent: 'center',
-    gap: space.xs,
-  },
   depthPreview: { height: 48, width: '100%', borderRadius: radius.md },
   gradientPreview: {
     minHeight: 120,

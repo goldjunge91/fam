@@ -4,7 +4,8 @@ import * as Haptics from 'expo-haptics';
 import { act, type ReactNode } from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { colorsLight, shadow, space, withAlpha } from '@/components/theme';
+import { space } from '@/components/theme';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import { DashboardScreen } from '@/features/dashboard/dashboard-screen';
 import {
   getDailyMealPlanEmptyArtworkVariant,
@@ -414,7 +415,7 @@ describe('DashboardScreen — Streak-Karte', () => {
     await renderScreen();
 
     const streakCard = screen.getByLabelText(/Streak:/);
-    const expectedShadow = `0 ${shadow.prominent.shadowOffset.height}px ${shadow.prominent.shadowRadius}px ${withAlpha(colorsLight.shadowCard, shadow.prominent.shadowOpacity)}`;
+    const expectedShadow = uiShadowStyles.prominentCard.boxShadow;
 
     expect(StyleSheet.flatten(streakCard.props.style).boxShadow).toBe(expectedShadow);
   });

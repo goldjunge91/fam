@@ -38,11 +38,11 @@ import {
   font,
   type Palette,
   radius,
-  shadow,
   space,
   withAlpha,
 } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import {
   heavy as hapticHeavy,
   light as hapticLight,
@@ -55,33 +55,11 @@ import {
 const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;
 const POP_SPRING = { damping: 9, stiffness: 380, mass: 0.5 } as const;
 
-type ShadowTier = (typeof shadow)['sm' | 'md' | 'lg'];
-
-function makeThemeShadow(tier: ShadowTier, color: string) {
-  return {
-    shadowColor: color,
-    shadowOffset: tier.shadowOffset,
-    shadowOpacity: tier.shadowOpacity,
-    shadowRadius: tier.shadowRadius,
-    elevation: tier.elevation,
-  };
-}
-
-const shadowStyles = StyleSheet.create((theme) => ({
-  sm: makeThemeShadow(shadow.sm, theme.shadowCard),
-  md: makeThemeShadow(shadow.md, theme.shadowCard),
-  lg: makeThemeShadow(shadow.lg, theme.shadowCard),
-}));
-
-/** Markanter neutraler Schatten für hervorgehobene Kartenflächen. */
-export const prominentShadowStyles = StyleSheet.create((theme) => ({
-  outer: {
-    overflow: 'visible',
-    borderColor: theme.border,
-    borderWidth: theme.borderWidth.base,
-    boxShadow: `0 ${shadow.prominent.shadowOffset.height}px ${shadow.prominent.shadowRadius}px ${withAlpha(theme.shadowCard, shadow.prominent.shadowOpacity)}`,
-  },
-}));
+const cardShadowStyles = {
+  sm: uiShadowStyles.cardBottom,
+  md: uiShadowStyles.raisedCardBottom,
+  lg: uiShadowStyles.modalBottom,
+} as const;
 
 type HapticKind = 'none' | 'light' | 'medium' | 'heavy' | 'selection' | 'success';
 function fireHaptic(kind: HapticKind) {
@@ -550,7 +528,7 @@ export function Card({
         cardStyles.base,
         soft && cardStyles.soft,
         padded && cardStyles.padded,
-        elevation !== 'none' && shadowStyles[elevation],
+        elevation !== 'none' && cardShadowStyles[elevation],
         style,
       ]}>
       {children}
@@ -890,7 +868,7 @@ export function IconButton({
           justifyContent: 'center',
           opacity: disabled ? 0.5 : 1,
         },
-        shadowStyles.sm,
+        uiShadowStyles.floatingControlBottom,
         style,
       ]}>
       <Feather name={icon} size={iconSize} color={fg} />
@@ -1030,7 +1008,7 @@ export function SegmentedControl<T extends string>({
               styles.segmentItem,
               size === 'compact' ? styles.segmentItemCompact : styles.segmentItemDefault,
               active && activeStyle,
-              active && appearance === 'surface' && styles.shadowSm,
+              active && appearance === 'surface' && uiShadowStyles.cardBottom,
               option.disabled && styles.segmentItemDisabled,
             ]}>
             <Txt
@@ -1209,7 +1187,6 @@ export function SectionHeading({
 }
 
 const controlStyles = StyleSheet.create((theme) => ({
-  shadowSm: makeThemeShadow(shadow.sm, theme.shadowCard),
   segment: {
     flexDirection: 'row',
     alignItems: 'stretch',

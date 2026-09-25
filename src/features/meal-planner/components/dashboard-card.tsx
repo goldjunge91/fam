@@ -6,6 +6,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { space } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import { DashboardCardShell } from '@/features/dashboard/components/dashboard-card-shell';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -100,11 +101,6 @@ const styles = StyleSheet.create((theme) => ({
     borderColor: theme.border,
     borderRadius: theme.radius.xs,
     backgroundColor: theme.backgroundElement,
-    shadowColor: theme.accent,
-    shadowOffset: { width: 4, height: 5 },
-    shadowOpacity: 0.18,
-    shadowRadius: 0,
-    elevation: 2,
     transform: [{ rotate: '5deg' }],
   },
   kitchenNoteLine: {
@@ -198,7 +194,9 @@ function MealPlanEmptyArtwork({
 
   return (
     <View testID="meal-plan-kitchen-note" style={[styles.emptyArtwork, styles.kitchenNoteArtwork]}>
-      <View testID="meal-plan-kitchen-note-sheet" style={styles.kitchenNoteSheet}>
+      <View
+        testID="meal-plan-kitchen-note-sheet"
+        style={[styles.kitchenNoteSheet, uiShadowStyles.accentNoteBottomRight]}>
         <View style={[styles.kitchenNoteLine, styles.kitchenNoteLineShort]} />
         <View style={styles.kitchenNoteLine} />
         <View style={styles.kitchenNoteLine} />
@@ -252,6 +250,7 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
     return (
       <DashboardCardShell
         size={size}
+        shadow="prominent"
         onPress={() => router.push('/meal-planner')}
         onLongPress={onLongPress}
         disabled={disabled}
@@ -290,6 +289,7 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
   return (
     <DashboardCardShell
       size={size}
+      shadow="prominent"
       onPress={() => router.push('/meal-planner')}
       onLongPress={onLongPress}
       disabled={disabled}

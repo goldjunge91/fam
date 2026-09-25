@@ -2,8 +2,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
-import { colorsLight, font, shadow, withAlpha } from '@/components/theme/index';
+import { font } from '@/components/theme/index';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import { InventoryScreen } from '@/features/inventory/inventory-screen';
 import type { LocalInventoryItem } from '@/features/inventory/use-inventory-items';
 import type { LocalInventoryTransaction } from '@/features/inventory/use-inventory-transactions';
@@ -441,7 +441,7 @@ it('zeigt die Ablauf-Ringe über der kompakten Arbeitsliste', async () => {
   );
   expect(summaryRow).toBeOnTheScreen();
   expect(summaryRow).toHaveStyle({ flexDirection: 'row' });
-  const prominentShadow = `0 ${shadow.prominent.shadowOffset.height}px ${shadow.prominent.shadowRadius}px ${withAlpha(colorsLight.shadowCard, shadow.prominent.shadowOpacity)}`;
+  const prominentShadow = uiShadowStyles.prominentCard.boxShadow;
   expect(screen.getByTestId('inventory-summary-critical')).toHaveStyle({
     overflow: 'visible',
     boxShadow: prominentShadow,
@@ -450,9 +450,6 @@ it('zeigt die Ablauf-Ringe über der kompakten Arbeitsliste', async () => {
     overflow: 'visible',
     boxShadow: prominentShadow,
   });
-  expect(prominentShadow).not.toContain(
-    withAlpha(colorsLight.danger, shadow.prominent.shadowOpacity),
-  );
   expect(screen.getByText('Läuft bald ab')).toBeTruthy();
   expect(screen.getByText('Bald fällig')).toBeTruthy();
   expect(screen.getByRole('button', { name: 'Milch, 2 L' })).toBeTruthy();

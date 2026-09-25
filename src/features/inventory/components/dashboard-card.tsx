@@ -106,6 +106,7 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
     return (
       <DashboardCardShell
         size={size}
+        shadow="prominent"
         onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
         onLongPress={onLongPress}
         disabled={disabled}
@@ -165,6 +166,7 @@ function ExpiryDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
   return (
     <DashboardCardShell
       size={size}
+      shadow="prominent"
       onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
       onLongPress={onLongPress}
       disabled={disabled}

@@ -4,7 +4,8 @@ import { StyleSheet } from 'react-native-unistyles';
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressRing } from '@/components/ui/progress-ring';
-import { Card, prominentShadowStyles, Txt } from '@/constants/ui';
+import { Card, Txt } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 
 const styles = StyleSheet.create((theme) => ({
   summaryRow: {
@@ -15,6 +16,7 @@ const styles = StyleSheet.create((theme) => ({
   ringCard: {
     flex: 1,
     minHeight: 176,
+    overflow: 'visible',
     alignItems: 'center',
     justifyContent: 'center',
     gap: theme.space.sm,
@@ -62,7 +64,7 @@ export function InventorySummaryCard({
         testID={testID}
         elevation="none"
         padded={false}
-        style={[styles.ringCard, prominentShadowStyles.outer]}>
+        style={[styles.ringCard, uiShadowStyles.prominentCard]}>
         {content}
       </Card>
     );

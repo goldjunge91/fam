@@ -37,11 +37,13 @@ Präferenz aus, bevor er den gewählten Modus setzt.
 | --- | --- |
 | `index.ts` | Tokens, Paletten, Abstände, Radien, Schriftmaße, Unistyles-Theme-Konfiguration |
 | `ThemeProvider.tsx` | Aktive Palette, Laufzeitauflösung `system/light/dark`, `useTheme()` |
-| `ui.tsx` | Typografie, Farbpaare, Flächen, Konturen, Schatten, Interaktionszustände |
+| `ui.tsx` und `ui-shadow.ts` | Gemeinsamer UI-Owner: Typografie, Farbpaare, Flächen, Konturen und Interaktionszustände; `ui-shadow.ts` exportiert ausschließlich die fertigen Schatten-Styles |
 | Komponenten-/Feature-StyleSheet | Nichtsemantisches lokales Layout, berechnete Geometrie, native Integrationswerte |
 
-Keine vierte globale Theme- oder Style-Quelle. Keine `vars()`-Bridge.
-Semantische Entscheidungen gehören in genau eine der drei zentralen Dateien.
+Keine vierte globale Theme- oder Style-Verantwortung. `ui-shadow.ts` ist das
+Schattenmodul des dritten Owners, keine eigenständige vierte Quelle.
+Keine `vars()`-Bridge. Semantische Entscheidungen gehören in genau einen der
+drei zentralen Owner.
 
 ## Fachliche Domain-Paletten
 

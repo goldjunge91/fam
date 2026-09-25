@@ -52,8 +52,10 @@ Das fam-Design-System hat genau drei zentrale Owner:
    dark`, ihre Auflösung gegen das Betriebssystem sowie `useTheme()` und
    `useThemedStyles()`.
 3. `src/constants/ui.tsx` besitzt die gemeinsamen semantischen UI-Primitiven und
-   ihre Darstellung, einschließlich Typografie, Farben, Flächen, Konturen,
-   Schatten und Interaktionszuständen.
+   ihre Darstellung, einschließlich Typografie, Farben, Flächen, Konturen und
+   Interaktionszuständen. `src/constants/ui-shadow.ts` ist das ergänzende
+   Schattenmodul desselben UI-Owners und exportiert die fertigen, gemeinsamen
+   Schatten-Styles. Dadurch bleibt es bei genau drei zentralen Ownern.
 
 Verbindliche Regeln:
 
@@ -66,8 +68,9 @@ Verbindliche Regeln:
 - Unistyles-Styles werden mit Style-Arrays kombiniert, niemals mit dem
   Spread-Operator. `StyleSheet` wird nicht über Barrel-Dateien re-exportiert.
 - Gemeinsame semantische Entscheidungen liegen ausschließlich in den drei
-  Owner-Dateien. Feature-Komponenten enthalten nur Verhalten, Komposition und
-  lokales Layout sowie begründete native Integrationsgrenzen.
+  Ownern. Für Schatten bilden `ui.tsx` und `ui-shadow.ts` gemeinsam den dritten
+  Owner. Feature-Komponenten enthalten nur Verhalten, Komposition und lokales
+  Layout sowie begründete native Integrationsgrenzen.
 - Neue Feature-Komponenten erfinden keine Palette, Hexfarben, Typografierollen
   oder semantischen Tokens. Fehlende projektweite Entscheidungen werden in
   genau einem der drei Owner ergänzt.

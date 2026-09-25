@@ -10,6 +10,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { BUTTON_DEPTH, space } from '@/components/theme/index';
 import { Press, Txt } from '@/constants/ui';
+import { uiShadowStyles } from '@/constants/ui-shadow';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 
 interface InventoryTabBarProps {
@@ -61,11 +62,6 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.md,
     borderCurve: 'continuous',
     overflow: 'hidden',
-    shadowColor: theme.shadow.lg.shadowColor,
-    shadowOffset: theme.shadow.lg.shadowOffset,
-    shadowOpacity: theme.shadow.lg.shadowOpacity,
-    shadowRadius: theme.shadow.lg.shadowRadius,
-    elevation: theme.shadow.lg.elevation,
   },
   option: {
     minHeight: 44,
@@ -162,6 +158,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
               accessibilityRole="menu"
               style={[
                 styles.menu,
+                uiShadowStyles.floatingPanelBottom,
                 {
                   position: 'absolute',
                   top: menuPosition.top,
