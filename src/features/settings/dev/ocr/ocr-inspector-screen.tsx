@@ -5,7 +5,7 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { Screen } from '@/components/layout/screen';
-import type { Palette } from '@/components/theme/index';
+import { font, type Palette } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Card, Row, SegmentedControl, TextField, Txt } from '@/constants/ui';
 import { captureReceipt, createExpoFileSystemAdapter } from '@/features/ocr/capture/api';
@@ -197,7 +197,7 @@ const styles = StyleSheet.create((theme) => ({
     maxWidth: '100%',
     paddingHorizontal: 3,
     paddingVertical: 1,
-    fontSize: 10,
+    fontSize: font.sizes.micro,
     lineHeight: 12,
   },
   previewEmpty: {

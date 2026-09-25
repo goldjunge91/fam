@@ -52,7 +52,7 @@ const styles = StyleSheet.create((theme) => ({
     padding: theme.space.lg,
     borderRadius: theme.radius.md,
     // Eine helle Quiet-Zone ist für zuverlässiges QR-Scannen erforderlich.
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme.qrBackground,
   },
   actionRow: {
     flexDirection: 'row',

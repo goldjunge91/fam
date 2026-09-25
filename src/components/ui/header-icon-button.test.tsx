@@ -88,4 +88,14 @@ describe('HeaderIconButton', () => {
 
     expect(onPress).toHaveBeenCalledTimes(1);
   });
+
+  it('exposes the disabled state accessibly', async () => {
+    await render(
+      <HeaderIconButton label="Filter öffnen" onPress={jest.fn()} disabled>
+        <Text>Filter</Text>
+      </HeaderIconButton>,
+    );
+
+    expect(screen.getByRole('button', { name: 'Filter öffnen', disabled: true })).toBeTruthy();
+  });
 });

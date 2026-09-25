@@ -54,6 +54,7 @@ const famColorsLight = {
   border: '#E4DDE3',
   accent: '#8B5E63', // fam/color/bg-accent
   onAccent: '#FFFFFF',
+  qrBackground: '#FFFFFF',
   premiumGradientStart: '#715574',
   premiumGradientMid: '#A36E72',
   premiumGradientEnd: '#C59677',
@@ -85,6 +86,7 @@ const famColorsDark = {
   border: '#3E3640',
   accent: '#B79CBA',
   onAccent: '#211D23',
+  qrBackground: '#FFFFFF',
   premiumGradientStart: '#4F3D52',
   premiumGradientMid: '#765158',
   premiumGradientEnd: '#8B6755',
@@ -159,6 +161,7 @@ export const rs = (n: number) => Math.round(n * _scale);
 
 export const radius = {
   micro: 2,
+  s: 4,
   xs: 8,
   sm: 12,
   md: 16,

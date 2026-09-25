@@ -26,7 +26,25 @@ describe('FloatingActionButton', () => {
     expect(typeof button.props.style).not.toBe('function');
 
     expect(button.parent?.parent?.parent?.props.style).toEqual(
-      expect.objectContaining({ paddingBottom: BUTTON_DEPTH }),
+      expect.arrayContaining([expect.objectContaining({ paddingBottom: BUTTON_DEPTH })]),
+    );
+  });
+
+  it('reicht Disabled-Zustand und Layout-Override an den Contract weiter', async () => {
+    await render(
+      <FloatingActionButton
+        label="Neu hinzufügen"
+        onPress={jest.fn()}
+        disabled
+        style={{ marginTop: 12 }}>
+        <Text>+</Text>
+      </FloatingActionButton>,
+    );
+
+    const button = screen.getByRole('button');
+    expect(button.props.accessibilityState).toEqual({ disabled: true });
+    expect(button.parent?.parent?.parent?.props.style).toEqual(
+      expect.arrayContaining([expect.objectContaining({ marginTop: 12 })]),
     );
   });
 });

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { StyleProp, ViewStyle } from 'react-native';
 import { View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
@@ -15,9 +16,17 @@ type FloatingActionButtonProps = {
   label: string;
   onPress: () => void;
   children: ReactNode;
+  disabled?: boolean;
+  style?: StyleProp<ViewStyle>;
 };
 
-export function FloatingActionButton({ label, onPress, children }: FloatingActionButtonProps) {
+export function FloatingActionButton({
+  label,
+  onPress,
+  children,
+  disabled = false,
+  style,
+}: FloatingActionButtonProps) {
   const depth = useSharedValue(0);
   const reducedMotion = useReducedMotion();
   const faceStyle = useAnimatedStyle(() => ({
@@ -25,12 +34,14 @@ export function FloatingActionButton({ label, onPress, children }: FloatingActio
   }));
 
   return (
-    <View style={floatingActionButtonStyles.outer}>
+    <View style={[floatingActionButtonStyles.outer, style]}>
       <Animated.View style={faceStyle}>
         <Press
           onPress={onPress}
+          disabled={disabled}
           accessibilityRole="button"
           accessibilityLabel={label}
+          accessibilityState={{ disabled }}
           style={floatingActionButtonStyles.face}
           onPressIn={() => {
             if (!reducedMotion) {

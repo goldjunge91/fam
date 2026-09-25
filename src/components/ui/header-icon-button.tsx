@@ -15,6 +15,7 @@ type HeaderIconButtonProps = {
   bg?: string;
   style?: StyleProp<ViewStyle>;
   variant?: HeaderIconButtonVariant;
+  disabled?: boolean;
 };
 
 const styles = StyleSheet.create((_theme) => ({
@@ -37,6 +38,7 @@ export function HeaderIconButton({
   bg,
   style,
   variant = 'header',
+  disabled = false,
 }: HeaderIconButtonProps) {
   const sizeStyle =
     variant === 'modal-close'
@@ -47,9 +49,11 @@ export function HeaderIconButton({
   return (
     <Press
       onPress={onPress}
+      disabled={disabled}
       hitSlop={hitSlop ?? defaultHitSlop}
       accessibilityRole="button"
       accessibilityLabel={label}
+      accessibilityState={{ disabled }}
       style={[styles.button, sizeStyle, bg ? { backgroundColor: bg } : undefined, style]}>
       {children}
     </Press>
