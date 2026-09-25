@@ -166,7 +166,7 @@ export function Screen({
   // Der sichtbare Sync-Banner übernimmt die obere Safe Area selbst.
   const bannerVisible = useSyncBannerVisible();
   const edges = bannerVisible ? (['left', 'right'] as const) : (['top', 'left', 'right'] as const);
-  const horizontalPadding = padded ? (chrome ? 21 : space.lg) : 0;
+  const horizontalPadding = padded ? (chrome ? space.xl : space.lg) : 0;
   const bottomPadding = applyBottomPadding ? insets.bottom + SCREEN_BOTTOM_CLEARANCE : 0;
 
   return (

@@ -826,7 +826,7 @@ export function Button({
               onPress?.();
             }}
             style={buttonFaceStyle}>
-            <Row gap={8}>
+            <Row gap={space.sm}>
               {loading ? (
                 <ActivityIndicator
                   accessibilityRole="progressbar"
