@@ -363,6 +363,7 @@ export function InventoryItemGroupSheet({
               onPress={onClose}
               accessibilityLabel="Schließen"
               bg={colors.danger}
+              color={colors.onDanger}
               size={45}
               iconSize={24}
               style={{ borderRadius: radius.lg }}
@@ -582,6 +583,7 @@ function IosInventoryItemGroupView({
                 onPress={onClose}
                 accessibilityLabel="MHD-Details schließen"
                 bg={colors.danger}
+                color={colors.onDanger}
                 size={40}
                 iconSize={22}
                 style={{ borderRadius: radius.lg }}

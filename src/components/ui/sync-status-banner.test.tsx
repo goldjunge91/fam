@@ -107,6 +107,7 @@ describe('SyncStatusBanner', () => {
     await renderBanner({}, { getDb: async () => db });
 
     expect(await screen.findByText('Offline')).toBeTruthy();
+    expect(screen.getByText('Offline')).toHaveStyle({ color: Colors.light.onWarning });
   });
 
   it('bleibt ohne Session auch offline verborgen und greift nicht auf die DB zu', async () => {
@@ -167,6 +168,9 @@ describe('SyncStatusBanner', () => {
 
     const button = await screen.findByRole('button');
     expect(screen.getByText(/1 Änderungen konnten nicht synchronisiert werden/)).toBeTruthy();
+    expect(screen.getByText(/1 Änderungen konnten nicht synchronisiert werden/)).toHaveStyle({
+      color: Colors.light.onDanger,
+    });
 
     fireEvent.press(button);
     expect(onRetry).toHaveBeenCalledTimes(1);

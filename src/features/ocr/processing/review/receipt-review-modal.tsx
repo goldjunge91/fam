@@ -87,13 +87,13 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.sm,
   },
   uncertain: {
-    color: theme.warning,
+    color: theme.warningText,
   },
   remove: {
     alignSelf: 'flex-end',
   },
   error: {
-    color: theme.danger,
+    color: theme.dangerText,
   },
 }));
 

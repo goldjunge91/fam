@@ -114,7 +114,7 @@ export const InventoryItemRow = memo(function InventoryItemRow({
           swipeable.close();
           onRemove();
         }}>
-        <Txt variant="body" tone="onAccent" weight="700">
+        <Txt variant="body" tone="onDanger" weight="700">
           {removeLabel}
         </Txt>
       </Press>

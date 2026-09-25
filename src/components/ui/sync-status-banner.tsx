@@ -71,7 +71,7 @@ export function SyncStatusBanner({ onRetry = defaultRetry }: SyncStatusBannerPro
       : `${status.failedCount} Änderungen konnten nicht synchronisiert werden. Erneut versuchen.`;
 
   const content = (
-    <Txt variant="body" tone="onAccent" weight="700" center>
+    <Txt variant="body" tone={isFailed ? 'onDanger' : 'onWarning'} weight="700" center>
       {label}
     </Txt>
   );

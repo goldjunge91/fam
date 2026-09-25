@@ -255,9 +255,12 @@ const textToneStyles = StyleSheet.create((theme) => ({
   textSecondary: { color: theme.textSecondary },
   accent: { color: theme.accent },
   onAccent: { color: theme.onAccent },
-  success: { color: theme.success },
-  warning: { color: theme.warning },
-  danger: { color: theme.danger },
+  onSuccess: { color: theme.onSuccess },
+  onWarning: { color: theme.onWarning },
+  onDanger: { color: theme.onDanger },
+  successText: { color: theme.successText },
+  warningText: { color: theme.warningText },
+  dangerText: { color: theme.dangerText },
 }));
 
 const pressSelectionStyles = StyleSheet.create((theme) => ({
@@ -291,7 +294,7 @@ const pressSuccessStyles = StyleSheet.create((theme) => ({
     borderCurve: 'continuous',
   },
   foreground: {
-    color: theme.onAccent,
+    color: theme.onSuccess,
   },
 }));
 
@@ -321,6 +324,9 @@ export type TxtTone =
   | 'secondary'
   | 'accent'
   | 'onAccent'
+  | 'onSuccess'
+  | 'onWarning'
+  | 'onDanger'
   | 'success'
   | 'warning'
   | 'danger'
@@ -407,7 +413,16 @@ const TXT: Record<TxtVariant, TxtDefinition> = {
 
 type ThemeTextColor = keyof Pick<
   Palette,
-  'text' | 'textSecondary' | 'accent' | 'onAccent' | 'success' | 'warning' | 'danger'
+  | 'text'
+  | 'textSecondary'
+  | 'accent'
+  | 'onAccent'
+  | 'onSuccess'
+  | 'onWarning'
+  | 'onDanger'
+  | 'successText'
+  | 'warningText'
+  | 'dangerText'
 >;
 
 const TEXT_TONE: Record<TxtTone, ThemeTextColor> = {
@@ -415,9 +430,12 @@ const TEXT_TONE: Record<TxtTone, ThemeTextColor> = {
   secondary: 'textSecondary',
   accent: 'accent',
   onAccent: 'onAccent',
-  success: 'success',
-  warning: 'warning',
-  danger: 'danger',
+  onSuccess: 'onSuccess',
+  onWarning: 'onWarning',
+  onDanger: 'onDanger',
+  success: 'successText',
+  warning: 'warningText',
+  danger: 'dangerText',
   inverse: 'onAccent',
 };
 
@@ -728,13 +746,15 @@ export function Button({
   const fg =
     variant === 'link'
       ? colors.accent
-      : isFilled
-        ? variant === 'accent' && acc
-          ? acc.on
-          : colors.onAccent
-        : variant === 'ghost'
-          ? colors.accent
-          : colors.text;
+      : variant === 'danger'
+        ? colors.onDanger
+        : isFilled
+          ? variant === 'accent' && acc
+            ? acc.on
+            : colors.onAccent
+          : variant === 'ghost'
+            ? colors.accent
+            : colors.text;
 
   const pad =
     size === 'sm'

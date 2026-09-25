@@ -93,7 +93,7 @@ export function JiggleWrapper({
               backgroundColor: colors.danger,
             },
           ]}>
-          <Txt variant="subheading" tone="onAccent" weight="700">
+          <Txt variant="subheading" tone="onDanger" weight="700">
             −
           </Txt>
         </Pressable>

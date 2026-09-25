@@ -27,11 +27,19 @@ describe('Theme-Owner-Farben Gate', () => {
       },
     ] as const;
     const themeSource = readRepoFile('src/components/theme/index.ts');
+    const storeSource = readRepoFile('src/features/shopping-list/domain-logik/store-presets.ts');
+    const placementSource = readRepoFile(
+      'src/features/shopping-list/classification/placement-taxonomy.ts',
+    );
 
     for (const owner of ownerSources) {
       expect(readRepoFile(owner.path)).toMatch(owner.marker);
     }
-    expect(themeSource).not.toMatch(/STORE_(?:PRESETS|COLOR_PALETTE)|PLACEMENT_ZONE_DEFINITIONS/iu);
+    expect(themeSource).not.toMatch(
+      /shoppingListColors|nutritionColors|NUTRI_BADGE_COLORS|STORE_(?:PRESETS|COLOR_PALETTE)|PLACEMENT_ZONE_DEFINITIONS/iu,
+    );
+    expect(storeSource).not.toMatch(/shoppingListColors|@\/components\/theme/iu);
+    expect(placementSource).not.toMatch(/shoppingListColors|@\/components\/theme/iu);
   });
 
   it('documents the ownership boundary for SpeedDial and domain palettes', () => {

@@ -6,7 +6,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
-import { radius, space, withAlpha } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Button, IconButton, TextField, Txt } from '@/constants/ui';
@@ -285,8 +285,8 @@ export function EditInventoryItemSheet({
               icon="x"
               onPress={onClose}
               accessibilityLabel="Schließen"
-              // bg={colors.backgroundSoft}
-              bg={withAlpha(colors.danger, 1)}
+              bg={colors.danger}
+              color={colors.onDanger}
               size={40}
               iconSize={22}
               style={styles.closeButton}

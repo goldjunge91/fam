@@ -177,6 +177,7 @@ export function InventoryItemActionsSheet({
   }
 
   const expiry = getExpiryInfo(displayItem.expiry_date, new Date());
+  const expiryPair = expiryColors(expiry.themeColor, colors, !!displayItem.opened_at);
   const amount = formatAmount(displayItem.quantity, displayItem.unit);
   const packageHint = formatPackageHint(displayItem.package_size, displayItem.package_size_unit);
 
@@ -203,15 +204,13 @@ export function InventoryItemActionsSheet({
               style={[
                 androidStyles.expiryBar,
                 {
-                  backgroundColor: expiryColor(expiry.themeColor, colors, !!displayItem.opened_at),
+                  backgroundColor: expiryPair.fill,
                 },
               ]}
             />
             <View style={androidStyles.itemCopy}>
               <Txt variant="title">{displayItem.name}</Txt>
-              <Txt
-                variant="body"
-                color={expiryColor(expiry.themeColor, colors, !!displayItem.opened_at)}>
+              <Txt variant="body" color={expiryPair.text}>
                 {expiry.label}
               </Txt>
             </View>
@@ -274,6 +273,7 @@ function IosInventoryItemActionsView({
   const styles = actionStyles;
   const insets = useSafeAreaInsets();
   const expiry = getExpiryInfo(item?.expiry_date ?? null, new Date());
+  const expiryPair = expiryColors(expiry.themeColor, colors, !!item?.opened_at);
   const amount = item ? formatAmount(item.quantity, item.unit) : '';
   const packageHint = item ? formatPackageHint(item.package_size, item.package_size_unit) : null;
 
@@ -304,6 +304,7 @@ function IosInventoryItemActionsView({
                 onPress={onClose}
                 accessibilityLabel="Artikelaktionen schließen"
                 bg={colors.danger}
+                color={colors.onDanger}
                 size={45}
                 iconSize={24}
                 style={{ borderRadius: radius.lg }}
@@ -329,7 +330,7 @@ function IosInventoryItemActionsView({
                 style={[
                   styles.heroStatus,
                   {
-                    backgroundColor: expiryColor(expiry.themeColor, colors, !!item.opened_at),
+                    backgroundColor: expiryPair.fill,
                   },
                 ]}
               />
@@ -431,7 +432,7 @@ function IosActionTile({
   const isDanger = variant === 'danger';
   const isSuccess = variant === 'success';
   const isFilled = isPrimary || isDanger;
-  const foreground = isFilled ? colors.onAccent : colors.text;
+  const foreground = isDanger ? colors.onDanger : isPrimary ? colors.onAccent : colors.text;
   const depth = isDanger ? colors.buttonDangerDepth : colors.buttonPrimaryDepth;
   const tileVariantStyle = isPrimary
     ? styles.tilePrimary
@@ -440,7 +441,7 @@ function IosActionTile({
       : isDanger
         ? styles.tileDanger
         : undefined;
-  const hintColor = isFilled ? withAlpha(colors.onAccent, 0.76) : colors.textSecondary;
+  const hintColor = isFilled ? withAlpha(foreground, 0.76) : colors.textSecondary;
 
   return (
     <View
@@ -603,13 +604,14 @@ function SheetAction({
   );
 }
 
-function expiryColor(
+function expiryColors(
   themeColor: ExpiryThemeColor,
   colors: ReturnType<typeof useTheme>['colors'],
   opened: boolean,
-): string {
-  if (themeColor === 'danger') return colors.danger;
-  if (themeColor === 'warning') return colors.warning;
-  if (opened) return colors.warning;
-  return colors.textSecondary;
+): { fill: string; text: string } {
+  if (themeColor === 'danger') return { fill: colors.danger, text: colors.dangerText };
+  if (themeColor === 'warning' || opened) {
+    return { fill: colors.warning, text: colors.warningText };
+  }
+  return { fill: colors.textSecondary, text: colors.textSecondary };
 }

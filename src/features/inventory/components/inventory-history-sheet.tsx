@@ -305,7 +305,8 @@ export function InventoryHistorySheet({
                 icon="x"
                 onPress={onClose}
                 accessibilityLabel="Schließen"
-                bg={withAlpha(colors.danger, 1)}
+                bg={colors.danger}
+                color={colors.onDanger}
                 size={40}
                 iconSize={22}
                 style={styles.closeButton}
@@ -330,7 +331,8 @@ export function InventoryHistorySheet({
               icon="x"
               onPress={onClose}
               accessibilityLabel="Schließen"
-              bg={withAlpha(colors.danger, 1)}
+              bg={colors.danger}
+              color={colors.onDanger}
               size={40}
               iconSize={22}
               style={styles.closeButton}

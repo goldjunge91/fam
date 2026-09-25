@@ -6,35 +6,6 @@
  */
 import { Dimensions, Platform } from 'react-native';
 
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-// TODO: do we need this ?
-// import '@/global.css';
-
-// Canonical Fam values retained from the previous theme source:
-/**
- *   text: '#2D2830', // fam/color/text-primary
-    background: '#F8F4EF', // fam/color/bg-app
-    backgroundElement: '#FBF7F2', // fam/color/bg-surface (Karten, Listen)
-    backgroundSoft: '#E9E1E7', // fam/color/bg-soft
-    textSecondary: '#786F79', // fam/color/text-secondary
-    border: '#E4DDE3',
-    accent: '#705773', // fam/color/bg-accent
-    onAccent: '#FFFFFF',
-    premiumGradientStart: '#715574',
-    premiumGradientMid: '#A36E72',
-    premiumGradientEnd: '#C59677',
-    premiumOnSurface: '#FFFFFF',
-    premiumActionBackground: '#F8F1ED',
-    premiumActionText: '#604765',
-    success: '#78906F', // fam/color/status-success
-    warning: '#C69059', // fam/color/status-warning
-    danger: '#C65F50', // fam/color/status-danger (Figma: kritische MHD-Zeilen)
-    shadowCard: '#594059', // helleres Mauve, fuer Karten auf dem Screen-Hintergrund
-    shadowSheet: '#2A1F2C', // dunkles Mauve/Violett, fuer Sheets/Overlays/Dropdowns
- */
 export const SPEED_DIAL_COLOR_KEYS = [
   'speedDialPantry',
   'speedDialShopping',
@@ -57,14 +28,21 @@ const famColorsLight = {
   onAccent: '#FFFFFF',
   qrBackground: '#FFFFFF',
   premiumGradientStart: '#715574',
-  premiumGradientMid: '#A36E72',
+  premiumGradientMid: '#9B6367',
   premiumGradientEnd: '#C59677',
   premiumOnSurface: '#FFFFFF',
+  premiumWarmOn: '#2D2830',
   premiumActionBackground: '#F8F1ED',
   premiumActionText: '#604765',
-  success: '#78906F', // fam/color/status-success
-  warning: '#C69059', // fam/color/status-warning
-  danger: '#C65F50', // fam/color/status-danger
+  success: '#6E8365', // fam/color/status-success
+  successText: '#55664F',
+  onSuccess: '#100D11',
+  warning: '#A8713A', // fam/color/status-warning
+  warningText: '#83582D',
+  onWarning: '#100D11',
+  danger: '#C65E4F', // fam/color/status-danger
+  dangerText: '#A34335',
+  onDanger: '#100D11',
   buttonPrimaryDepth: '#5E4861',
   buttonDangerDepth: '#A94C40',
   buttonAccentDepth: '#A87343',
@@ -93,11 +71,18 @@ const famColorsDark = {
   premiumGradientMid: '#765158',
   premiumGradientEnd: '#8B6755',
   premiumOnSurface: '#FFF9F6',
+  premiumWarmOn: '#FFF9F6',
   premiumActionBackground: '#F0E6E1',
   premiumActionText: '#4B384F',
   success: '#8FAE86',
+  successText: '#8FAE86',
+  onSuccess: '#211D23',
   warning: '#D9A86C',
+  warningText: '#D9A86C',
+  onWarning: '#211D23',
   danger: '#D9776A',
+  dangerText: '#DE877C',
+  onDanger: '#211D23',
   buttonPrimaryDepth: '#5E4861',
   buttonDangerDepth: '#A94C40',
   buttonAccentDepth: '#A87343',
@@ -136,73 +121,6 @@ export const recipeArtworkColors = {
   cookingRing: 'rgba(255,255,255,0.55)',
 } as const;
 
-/** Stable colors for shopping stores and placement categories. */
-export const shoppingListColors = {
-  stores: {
-    rewe: '#B5623F',
-    aldi: '#5C7396',
-    lidl: '#C6A24A',
-    edeka: '#748C5B',
-    globus: '#4F8580',
-    marktkauf: '#A6483D',
-    netto: '#8B6B4A',
-    kaufland: '#A6483D',
-    dm: '#8B6F72',
-  },
-  storePalette: [
-    '#B5623F',
-    '#C08A4E',
-    '#C6A24A',
-    '#748C5B',
-    '#4F8580',
-    '#5C7396',
-    '#8B6F72',
-    '#A6483D',
-    '#8B6B4A',
-    '#7A7680',
-  ],
-  placement: {
-    freshProduce: '#748C5B',
-    bakery: '#C6A24A',
-    chilledDairyEggs: '#5C7396',
-    ambientMilkDrinks: '#7B86A5',
-    chilledPlantBased: '#6B8756',
-    meatPoultry: '#A6483D',
-    fishSeafood: '#457287',
-    deli: '#964B4B',
-    pastaTomato: '#B5623F',
-    riceWorldFoods: '#8B6B4A',
-    breakfast: '#C08A4E',
-    baking: '#B89462',
-    oilsSpices: '#B57B48',
-    condiments: '#A95745',
-    cannedJars: '#9B604A',
-    readyMeals: '#9B7864',
-    snacks: '#8B6F72',
-    sweets: '#A16A82',
-    coldDrinks: '#4F8580',
-    hotDrinks: '#6A564A',
-    alcohol: '#7B5D6E',
-    frozen: '#6C7F99',
-    baby: '#8C6C82',
-    pets: '#736B5E',
-    household: '#5A6F7C',
-    personalCare: '#705773',
-    other: '#786F79',
-  },
-} as const;
-
-/** Nutri-Score badge colors used by product information surfaces. */
-export const nutritionColors = {
-  nutriScore: {
-    a: '#038141',
-    b: '#85BB2F',
-    c: '#FECB02',
-    d: '#EE8100',
-    e: '#E63E11',
-  },
-} as const;
-
 /** Back-compat default export (light). Converted screens use useTheme(). */
 export const colors = colorsLight;
 
@@ -211,18 +129,28 @@ export function makeAccent(c: Palette) {
   const shared = { tint: c.backgroundSoft, shadow: c.shadowCard, on: c.onAccent };
 
   return {
-    'ai-chef': { ...shared, main: c.premiumGradientStart, shadow: c.shadowSheet },
+    'ai-chef': {
+      ...shared,
+      main: c.premiumGradientStart,
+      on: c.premiumOnSurface,
+      shadow: c.shadowSheet,
+    },
     pantry: { ...shared, main: c.accent },
-    nourish: { ...shared, main: c.warning, on: c.text },
-    grocery: { ...shared, main: c.success, on: c.text },
-    cheap: { ...shared, main: c.premiumGradientEnd, on: c.text },
+    nourish: { ...shared, main: c.warning, on: c.onWarning },
+    grocery: { ...shared, main: c.success, on: c.onSuccess },
+    cheap: { ...shared, main: c.premiumGradientEnd, on: c.premiumWarmOn },
     saved: { ...shared, main: c.premiumActionText, on: c.premiumOnSurface },
     explore: { ...shared, main: c.premiumGradientMid, on: c.premiumOnSurface },
-    protein: { ...shared, main: c.premiumGradientStart, shadow: c.shadowSheet },
+    protein: {
+      ...shared,
+      main: c.premiumGradientStart,
+      on: c.premiumOnSurface,
+      shadow: c.shadowSheet,
+    },
     carbs: { ...shared, main: c.accent },
-    fat: { ...shared, main: c.premiumGradientEnd, on: c.text },
+    fat: { ...shared, main: c.premiumGradientEnd, on: c.premiumWarmOn },
     fiber: { ...shared, main: c.accent },
-    water: { ...shared, main: c.success, on: c.text },
+    water: { ...shared, main: c.success, on: c.onSuccess },
   } as const;
 }
 
@@ -413,8 +341,6 @@ export const Fonts = Platform.select({
 export const theme = {
   colors,
   recipeArtworkColors,
-  shoppingListColors,
-  nutritionColors,
   accent,
   radius,
   borderWidth,

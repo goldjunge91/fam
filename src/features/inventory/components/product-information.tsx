@@ -4,7 +4,7 @@ import { ActivityIndicator, Modal, Pressable, ScrollView, View } from 'react-nat
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { nutritionColors, space } from '@/components/theme/index';
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useProduct } from '@/features/inventory/use-product';
@@ -23,6 +23,14 @@ type ProductInformationProps = {
   visible: boolean;
   item: ProductInformationItem | null;
   onClose: () => void;
+};
+
+const NUTRI_BADGE_COLORS = {
+  a: '#038141',
+  b: '#85BB2F',
+  c: '#FECB02',
+  d: '#EE8100',
+  e: '#E63E11',
 };
 
 const staticStyles = StyleSheet.create({
@@ -268,9 +276,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                 style={[
                   styles.scoreBadge,
                   {
-                    backgroundColor: score
-                      ? nutritionColors.nutriScore[score]
-                      : colors.backgroundSoft,
+                    backgroundColor: score ? NUTRI_BADGE_COLORS[score] : colors.backgroundSoft,
                   },
                 ]}>
                 <Txt variant="subheading" weight="700" tone={score ? 'onAccent' : 'primary'}>

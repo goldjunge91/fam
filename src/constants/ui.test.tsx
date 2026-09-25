@@ -218,11 +218,41 @@ describe('core theme UI primitives', () => {
     expect(contrastRatio(colorsDark.backgroundSoft, colorsDark.text)).toBeGreaterThanOrEqual(4.5);
   });
 
+  it('keeps status text, status fills, and filled actions readable in both palettes', () => {
+    const statusRoles = [
+      { fill: 'success', text: 'successText', foreground: 'onSuccess' },
+      { fill: 'warning', text: 'warningText', foreground: 'onWarning' },
+      { fill: 'danger', text: 'dangerText', foreground: 'onDanger' },
+    ] as const;
+    const surfaces = ['background', 'backgroundElement', 'backgroundSoft'] as const;
+
+    for (const colors of [mockColorsLight, colorsDark]) {
+      for (const status of statusRoles) {
+        for (const surface of surfaces) {
+          expect(contrastRatio(colors[surface], colors[status.text])).toBeGreaterThanOrEqual(4.5);
+          expect(contrastRatio(colors[surface], colors[status.fill])).toBeGreaterThanOrEqual(3);
+        }
+        expect(
+          contrastRatio(colors[status.fill], colors[status.foreground]),
+        ).toBeGreaterThanOrEqual(4.5);
+      }
+    }
+
+    for (const accent of [mockMakeAccent(mockColorsLight), mockMakeAccent(colorsDark)]) {
+      for (const { main, on } of Object.values(accent)) {
+        expect(contrastRatio(main, on)).toBeGreaterThanOrEqual(4.5);
+      }
+    }
+  });
+
   it('keeps success surfaces in the central Press and TextField recipes', async () => {
     await render(
       <>
+        <Txt tone="success">Erfolgsstatus</Txt>
+        <Txt tone="warning">Warnstatus</Txt>
+        <Txt tone="danger">Gefahrenstatus</Txt>
         <Press success accessibilityRole="button" accessibilityLabel="Erfolg">
-          <Txt tone="onAccent">Speichern</Txt>
+          <Txt tone="onSuccess">Speichern</Txt>
         </Press>
         <TextField success accessibilityLabel="Menge" value="2" onChangeText={jest.fn()} />
       </>,
@@ -234,9 +264,13 @@ describe('core theme UI primitives', () => {
       paddingHorizontal: space.lg,
       paddingVertical: space.xs,
     });
+    expect(screen.getByText('Erfolgsstatus')).toHaveStyle({ color: mockColorsLight.successText });
+    expect(screen.getByText('Warnstatus')).toHaveStyle({ color: mockColorsLight.warningText });
+    expect(screen.getByText('Gefahrenstatus')).toHaveStyle({ color: mockColorsLight.dangerText });
+    expect(screen.getByText('Speichern')).toHaveStyle({ color: mockColorsLight.onSuccess });
     expect(screen.getByDisplayValue('2')).toHaveStyle({
       backgroundColor: mockColorsLight.success,
-      color: mockColorsLight.onAccent,
+      color: mockColorsLight.onSuccess,
     });
   });
 
@@ -366,6 +400,7 @@ describe('core theme UI primitives', () => {
       borderRadius: radius.md,
       minHeight: 44,
     });
+    expect(screen.getByText('Gefährlich')).toHaveStyle({ color: mockColorsLight.onDanger });
 
     const dangerDepth = screen.getByRole('button', { name: 'Gefährlich' }).parent?.parent?.props
       .style;
@@ -708,6 +743,19 @@ describe('core theme UI primitives', () => {
     expect(button).toHaveAccessibleName('Favorit');
     expect(button).toHaveStyle({ width: 44, height: 44 });
     expect(typeof button.props.style).not.toBe('function');
+  });
+
+  it('uses the paired foreground when an icon action has a danger surface', async () => {
+    await render(
+      <IconButton
+        icon="x"
+        accessibilityLabel="Schließen"
+        bg={mockColorsLight.danger}
+        color={mockColorsLight.onDanger}
+      />,
+    );
+
+    expect(screen.getByText(/./u)).toHaveProp('color', mockColorsLight.onDanger);
   });
 
   it('clamps explicit compact icon sizes and exposes disabled state', async () => {
