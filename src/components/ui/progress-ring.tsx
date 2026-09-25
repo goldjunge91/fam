@@ -8,6 +8,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Svg, { Circle } from 'react-native-svg';
 
+import { motion } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { computeRingMetrics, type RingPreset, RingPresetSize } from '@/constants/rings';
 import { Txt } from '@/constants/ui';
@@ -75,7 +76,7 @@ export function ProgressRing({
       progress.value = clamped;
       return;
     }
-    progress.value = reducedMotion ? clamped : withTiming(clamped, { duration: 700 });
+    progress.value = reducedMotion ? clamped : withTiming(clamped, { duration: motion.progress });
   }, [clamped, reducedMotion, progress, animated]);
 
   const animatedProps = useAnimatedProps(() => ({

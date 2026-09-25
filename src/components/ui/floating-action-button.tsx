@@ -8,7 +8,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import { BUTTON_DEPTH } from '@/components/theme/index';
+import { BUTTON_DEPTH, motion } from '@/components/theme/index';
 import { floatingActionButtonStyles, Press } from '@/constants/ui';
 
 type FloatingActionButtonProps = {
@@ -34,7 +34,7 @@ export function FloatingActionButton({ label, onPress, children }: FloatingActio
           style={floatingActionButtonStyles.face}
           onPressIn={() => {
             if (!reducedMotion) {
-              depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
+              depth.value = withTiming(BUTTON_DEPTH, { duration: motion.pressIn });
             }
           }}
           onPressOut={() => {

@@ -1,6 +1,6 @@
 import { ScrollView } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { radius } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 
@@ -18,14 +18,15 @@ type FilterChipBarProps<T extends string> = {
 
 const styles = StyleSheet.create({
   content: {
-    gap: 6,
-    paddingRight: 15,
+    gap: space.sm,
+    paddingRight: space.md,
   },
   chip: {
     minHeight: 44,
     justifyContent: 'center',
-    paddingHorizontal: 13,
+    paddingHorizontal: space.md,
     borderRadius: radius.sm,
+    borderCurve: 'continuous',
   },
 });
 

@@ -5,6 +5,7 @@ import {
   colorsLight as mockColorsLight,
   type Palette,
   radius,
+  space,
 } from '@/components/theme';
 
 let mockThemeColors: Palette = mockColorsLight;
@@ -79,7 +80,7 @@ describe('FilterChipBar', () => {
     expect(selectedOption).toHaveStyle({
       minHeight: 44,
       justifyContent: 'center',
-      paddingHorizontal: 13,
+      paddingHorizontal: space.md,
       borderRadius: radius.sm,
       backgroundColor: colors.accent,
     });

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
+import { space } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 
 type PageHeaderProps = {
@@ -19,16 +20,16 @@ const styles = StyleSheet.create({
     flexShrink: 0,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 7,
-    paddingHorizontal: 14,
-    paddingVertical: 8,
+    gap: space.sm,
+    paddingHorizontal: space.md,
+    paddingVertical: space.sm,
   },
   side: {
     minWidth: 39,
     minHeight: 39,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: space.sm,
   },
   title: {
     flex: 1,
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   subtitle: {
-    marginBottom: 1,
+    marginBottom: 0,
   },
 });
 

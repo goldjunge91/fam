@@ -9,7 +9,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { BUTTON_DEPTH } from '@/components/theme/index';
+import { BUTTON_DEPTH, motion } from '@/components/theme/index';
 import { useGlassAvailable } from '@/components/ui/glass-card';
 import { medium as hapticMedium } from '@/lib/platform/haptics';
 
@@ -82,7 +82,7 @@ export function InventoryIconButton({
           accessibilityLabel={label}
           accessibilityState={{ expanded: active }}
           onPressIn={() => {
-            depth.value = withTiming(ICON_BUTTON_DEPTH, { duration: 60 });
+            depth.value = withTiming(ICON_BUTTON_DEPTH, { duration: motion.pressIn });
           }}
           onPressOut={() => {
             depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });

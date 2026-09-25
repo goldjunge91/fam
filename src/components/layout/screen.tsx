@@ -30,13 +30,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: space.sm,
     height: 94,
-    paddingTop: 13,
-    paddingBottom: 23,
+    paddingTop: space.sm,
+    paddingBottom: space.xl,
   },
   chromeTitle: {
     flex: 1,
     alignItems: 'center',
-    gap: 2,
+    gap: space.xs / 2,
   },
   chromeActions: {
     flexDirection: 'row',
@@ -78,7 +78,7 @@ export function ScreenHeader({
 
   return (
     <Row justify="space-between" align="flex-start" style={{ marginBottom: space.lg }}>
-      <Row gap={10} align="center" style={{ flex: 1 }}>
+      <Row gap={space.sm} align="center" style={{ flex: 1 }}>
         {back ? (
           <IconButton
             icon="chevron-left"
@@ -91,7 +91,7 @@ export function ScreenHeader({
         <View style={{ flex: 1 }}>
           <Txt variant="title">{title}</Txt>
           {subtitle ? (
-            <Txt variant="label" style={{ marginTop: 2 }}>
+            <Txt variant="label" style={{ marginTop: space.xs / 2 }}>
               {subtitle}
             </Txt>
           ) : null}

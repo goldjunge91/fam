@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { space } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { DashboardCardShell } from '@/features/dashboard/components/dashboard-card-shell';
@@ -69,7 +69,7 @@ function StreakDays({ count, activeToday }: { count: number; activeToday: boolea
             style={{
               width: 12,
               height: 12,
-              borderRadius: 6,
+              borderRadius: radius.xs,
               backgroundColor: active ? colors.warning : colors.backgroundSoft,
               borderWidth: isToday ? 2 : 0,
               borderColor: isToday ? colors.accent : 'transparent',

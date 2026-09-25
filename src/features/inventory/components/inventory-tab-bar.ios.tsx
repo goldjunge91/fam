@@ -8,7 +8,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { BUTTON_DEPTH, space } from '@/components/theme/index';
+import { BUTTON_DEPTH, motion, space } from '@/components/theme/index';
 import { Press, Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 
@@ -124,7 +124,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
             }}
             onPressIn={() => {
               setTriggerPressed(true);
-              depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
+              depth.value = withTiming(BUTTON_DEPTH, { duration: motion.pressIn });
             }}
             onPressOut={() => {
               setTriggerPressed(false);

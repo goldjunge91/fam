@@ -9,7 +9,7 @@ import Animated, {
 import Svg, { Path } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { BUTTON_DEPTH } from '@/components/theme/index';
+import { BUTTON_DEPTH, motion } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press } from '@/constants/ui';
 
@@ -88,7 +88,8 @@ export function AuthProviderIconButton({
           accessibilityLabel={accessibilityLabel}
           onPress={onPress}
           onPressIn={() => {
-            if (!reducedMotion) depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
+            if (!reducedMotion)
+              depth.value = withTiming(BUTTON_DEPTH, { duration: motion.pressIn });
           }}
           onPressOut={() => {
             depth.value = reducedMotion ? 0 : withSpring(0, PRESS_SPRING);

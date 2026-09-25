@@ -36,6 +36,7 @@ import {
   BUTTON_DEPTH,
   borderWidth,
   font,
+  motion,
   type Palette,
   radius,
   space,
@@ -593,7 +594,7 @@ export function Press({
         onPressIn={(event) => {
           setIsPressed(true);
           if (!reducedMotion) {
-            s.value = withTiming(scaleTo, { duration: 70 });
+            s.value = withTiming(scaleTo, { duration: motion.pressFeedback });
           }
           onPressIn?.(event);
         }}
@@ -776,7 +777,7 @@ export function Button({
             onPressIn={() => {
               setIsPressed(true);
               if (hasDepth && !isDisabled && !reducedMotion) {
-                depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
+                depth.value = withTiming(BUTTON_DEPTH, { duration: motion.pressIn });
               }
             }}
             onPressOut={() => {

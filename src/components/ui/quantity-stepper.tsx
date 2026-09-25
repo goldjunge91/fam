@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { TextInput, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { font } from '@/components/theme/index';
+import { font, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 
@@ -25,7 +25,7 @@ const styles = StyleSheet.create((theme) => ({
     overflow: 'hidden',
     borderWidth: 1,
     borderColor: theme.border,
-    borderRadius: 12,
+    borderRadius: radius.sm,
     backgroundColor: theme.backgroundElement,
   },
   btn: {
@@ -106,7 +106,7 @@ export function QuantityStepper({
           style={[
             fullWidth ? staticStyles.fullWidthSegment : staticStyles.fixedWidth,
             {
-              paddingHorizontal: 8,
+              paddingHorizontal: space.sm,
               paddingVertical: 0,
               textAlign: 'center',
               fontVariant: ['tabular-nums'],

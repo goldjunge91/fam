@@ -93,8 +93,8 @@ const styles = StyleSheet.create((theme) => ({
     minWidth: 0,
   },
   headerAction: {
-    width: theme.controlSizes.headerAction,
-    height: theme.controlSizes.headerAction,
+    width: theme.controlSizes.touchTarget,
+    height: theme.controlSizes.touchTarget,
   },
   summaryScrollContent: {
     gap: theme.space.lg,

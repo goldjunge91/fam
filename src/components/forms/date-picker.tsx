@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
-import { Button, TextField, Txt } from '@/constants/ui';
+import { Button, Press, TextField, Txt } from '@/constants/ui';
 
 interface DatePickerProps {
   label?: string;
@@ -68,13 +68,13 @@ export function DatePicker({
             error={error}
           />
         </View>
-        <Pressable
+        <Press
           onPress={() => setShowModal(true)}
           accessibilityRole="button"
           accessibilityLabel="Datum auswählen"
           style={styles.calendarButton}>
           <Txt variant="body">📅</Txt>
-        </Pressable>
+        </Press>
       </View>
 
       {formattedDisplay && (
@@ -102,23 +102,27 @@ export function DatePicker({
                   Jahr
                 </Txt>
                 <View style={styles.adjustments}>
-                  <Pressable
+                  <Press
                     onPress={() => setSelYear((y) => Math.max(1900, y - 1))}
+                    accessibilityRole="button"
+                    accessibilityLabel="Jahr verringern"
                     style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       -
                     </Txt>
-                  </Pressable>
+                  </Press>
                   <Txt variant="body" weight="700">
                     {selYear}
                   </Txt>
-                  <Pressable
+                  <Press
                     onPress={() => setSelYear((y) => Math.min(2100, y + 1))}
+                    accessibilityRole="button"
+                    accessibilityLabel="Jahr erhöhen"
                     style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       +
                     </Txt>
-                  </Pressable>
+                  </Press>
                 </View>
               </View>
 
@@ -128,23 +132,27 @@ export function DatePicker({
                   Monat
                 </Txt>
                 <View style={styles.adjustments}>
-                  <Pressable
+                  <Press
                     onPress={() => setSelMonth((m) => (m <= 1 ? 12 : m - 1))}
+                    accessibilityRole="button"
+                    accessibilityLabel="Monat verringern"
                     style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       -
                     </Txt>
-                  </Pressable>
+                  </Press>
                   <Txt variant="body" weight="700">
                     {String(selMonth).padStart(2, '0')}
                   </Txt>
-                  <Pressable
+                  <Press
                     onPress={() => setSelMonth((m) => (m >= 12 ? 1 : m + 1))}
+                    accessibilityRole="button"
+                    accessibilityLabel="Monat erhöhen"
                     style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       +
                     </Txt>
-                  </Pressable>
+                  </Press>
                 </View>
               </View>
 
@@ -154,23 +162,27 @@ export function DatePicker({
                   Tag
                 </Txt>
                 <View style={styles.adjustments}>
-                  <Pressable
+                  <Press
                     onPress={() => setSelDay((d) => (d <= 1 ? 31 : d - 1))}
+                    accessibilityRole="button"
+                    accessibilityLabel="Tag verringern"
                     style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       -
                     </Txt>
-                  </Pressable>
+                  </Press>
                   <Txt variant="body" weight="700">
                     {String(selDay).padStart(2, '0')}
                   </Txt>
-                  <Pressable
+                  <Press
                     onPress={() => setSelDay((d) => (d >= 31 ? 1 : d + 1))}
+                    accessibilityRole="button"
+                    accessibilityLabel="Tag erhöhen"
                     style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       +
                     </Txt>
-                  </Pressable>
+                  </Press>
                 </View>
               </View>
             </View>
@@ -239,7 +251,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   adjustments: {
     alignItems: 'center',
-    gap: 6,
+    gap: space.sm,
   },
   adjustButton: {
     width: 40,

@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { TextField, Txt } from '@/constants/ui';
+import { Press, TextField, Txt } from '@/constants/ui';
 
 const POSTAL_CODE_PATTERN = /^\d{5}$/;
 
@@ -47,8 +48,9 @@ export function PostalCodeEditor({ onSubmit, onCancel }: PostalCodeEditorProps) 
         error={error ?? undefined}
       />
       <View style={styles.actions}>
-        <Pressable
-          role="button"
+        <Press
+          accessibilityRole="button"
+          accessibilityLabel="Postleitzahl übernehmen"
           disabled={!isValid || isSubmitting}
           onPress={handleSubmit}
           style={[
@@ -58,13 +60,17 @@ export function PostalCodeEditor({ onSubmit, onCancel }: PostalCodeEditorProps) 
           <Txt variant="body" tone="onAccent" weight="700">
             {isSubmitting ? 'Speichert...' : 'Übernehmen'}
           </Txt>
-        </Pressable>
+        </Press>
         {onCancel ? (
-          <Pressable role="button" onPress={onCancel} style={styles.button}>
+          <Press
+            accessibilityRole="button"
+            accessibilityLabel="Postleitzahl-Eingabe abbrechen"
+            onPress={onCancel}
+            style={styles.button}>
             <Txt variant="body" tone="secondary" weight="600">
               Abbrechen
             </Txt>
-          </Pressable>
+          </Press>
         ) : null}
       </View>
     </View>
@@ -73,19 +79,19 @@ export function PostalCodeEditor({ onSubmit, onCancel }: PostalCodeEditorProps) 
 
 const styles = StyleSheet.create({
   container: {
-    gap: 8,
+    gap: space.sm,
     width: '100%',
     maxWidth: 280,
   },
   actions: {
     flexDirection: 'row',
-    gap: 8,
+    gap: space.sm,
   },
   button: {
     minHeight: 44,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
-    paddingHorizontal: 18,
+    borderRadius: radius.md,
+    paddingHorizontal: space.lg,
   },
 });

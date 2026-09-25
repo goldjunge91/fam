@@ -191,9 +191,14 @@ export const dashboardCardSizes = {
   large: { height: 176, padding: space.lg },
 } as const;
 
-/** Gemeinsame Maße für eigenständige Aktionsflächen. */
+/** Mindestgröße für berührbare Aktionsflächen. */
 export const controlSizes = {
-  headerAction: rs(48),
+  touchTarget: rs(48),
+} as const;
+
+/** Standardgrößen für eingebettete Bilder. */
+export const imageSizes = {
+  thumbnail: rs(36),
 } as const;
 
 export const font = {
@@ -264,6 +269,13 @@ export type ShadowDirection = 'down' | 'up' | 'left' | 'right';
 
 /** Sichtbare Tiefe und vollständiger Druckweg gefüllter 3D-Buttons. */
 export const BUTTON_DEPTH = 4;
+
+/** Shared timing values for interaction and progress feedback. */
+export const motion = {
+  pressIn: 60,
+  pressFeedback: 70,
+  progress: 700,
+} as const;
 
 // TODO: prüfen ob wir das noch brauchen
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
@@ -353,6 +365,7 @@ export const theme = {
   borderWidth,
   space,
   controlSizes,
+  imageSizes,
   font,
   shadow,
   BUTTON_DEPTH,
@@ -365,8 +378,8 @@ export default theme;
 import { StyleSheet } from 'react-native-unistyles';
 
 const unistylesThemes = {
-  light: { ...colorsLight, space, controlSizes, font, radius, borderWidth, shadow },
-  dark: { ...colorsDark, space, controlSizes, font, radius, borderWidth, shadow },
+  light: { ...colorsLight, space, controlSizes, imageSizes, font, radius, borderWidth, shadow },
+  dark: { ...colorsDark, space, controlSizes, imageSizes, font, radius, borderWidth, shadow },
 };
 
 type AppThemes = typeof unistylesThemes;

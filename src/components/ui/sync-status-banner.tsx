@@ -1,10 +1,10 @@
 import { createContext, type ReactNode, useContext } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { getDatabase } from '@/lib/db/local-client';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
@@ -79,13 +79,13 @@ export function SyncStatusBanner({ onRetry = defaultRetry }: SyncStatusBannerPro
   return (
     <SafeAreaView edges={['top']} style={[styles.banner, { backgroundColor }]}>
       {isFailed ? (
-        <Pressable
+        <Press
           onPress={onRetry}
           accessibilityRole="button"
           accessibilityLabel="Fehlgeschlagene Änderungen erneut versuchen"
           style={styles.action}>
           {content}
-        </Pressable>
+        </Press>
       ) : (
         <View style={styles.content}>{content}</View>
       )}

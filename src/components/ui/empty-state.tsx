@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
@@ -35,9 +36,9 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 8,
-    paddingVertical: 64,
-    paddingHorizontal: 24,
+    gap: space.sm,
+    paddingVertical: space.xxxl,
+    paddingHorizontal: space.lg,
   },
   title: {
     textAlign: 'center',
@@ -46,6 +47,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   action: {
-    marginTop: 12,
+    marginTop: space.md,
   },
 });

@@ -1,11 +1,11 @@
 import { Image } from 'expo-image';
 import { useState } from 'react';
-import { ActivityIndicator, Keyboard, Pressable, View } from 'react-native';
+import { ActivityIndicator, Keyboard, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { borderWidth, font, space } from '@/components/theme/index';
+import { borderWidth, font, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
-import { TextField, Txt } from '@/constants/ui';
+import { Press, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import type { MealType } from '@/features/calorie-tracking/api';
 import {
@@ -44,7 +44,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   scanButton: {
-    width: 48,
+    width: theme.controlSizes.touchTarget,
     // Keep the external scanner control exactly as high as TextField's
     // default input: line-height + vertical padding + both borders.
     height: font.lineHeights.body + space.md * 2 + borderWidth.strong * 2,
@@ -89,16 +89,21 @@ const styles = StyleSheet.create((theme) => ({
     borderBottomColor: theme.border,
   },
   rowImagePlaceholder: {
-    width: 36,
-    height: 36,
-    borderRadius: 8,
+    width: theme.imageSizes.thumbnail,
+    height: theme.imageSizes.thumbnail,
+    borderRadius: radius.xs,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.backgroundElement,
   },
   rowText: {
     flex: 1,
-    gap: 2,
+    gap: space.xs / 2,
+  },
+  productImage: {
+    width: theme.imageSizes.thumbnail,
+    height: theme.imageSizes.thumbnail,
+    borderRadius: radius.sm,
   },
 }));
 
@@ -195,7 +200,7 @@ export function FoodSearchDropdown({
             onChangeText={changeSearchText}
           />
         </View>
-        <Pressable
+        <Press
           onPress={() => setShowScanner(true)}
           accessibilityRole="button"
           accessibilityLabel="Barcode scannen"
@@ -203,7 +208,7 @@ export function FoodSearchDropdown({
           <Txt variant="body" style={{ fontSize: font.sizes.lg }}>
             📷
           </Txt>
-        </Pressable>
+        </Press>
       </View>
 
       {!isSearchMode ? (
@@ -229,11 +234,14 @@ export function FoodSearchDropdown({
                 <Txt variant="body" tone="warning" center>
                   Open Food Facts ist gerade nicht erreichbar. Versuch's gleich nochmal.
                 </Txt>
-                <Pressable onPress={retrySearch} accessibilityRole="button">
+                <Press
+                  onPress={retrySearch}
+                  accessibilityRole="button"
+                  accessibilityLabel="Suche erneut versuchen">
                   <Txt variant="body" tone="primary" weight="700">
                     Erneut versuchen
                   </Txt>
-                </Pressable>
+                </Press>
               </View>
             ) : results.length === 0 ? (
               <Txt variant="body" tone="secondary" center style={styles.centered}>
@@ -249,10 +257,11 @@ export function FoodSearchDropdown({
                   />
                 ))}
                 {hasMore ? (
-                  <Pressable
+                  <Press
                     onPress={loadMoreResults}
                     disabled={loadingMore}
                     accessibilityRole="button"
+                    accessibilityLabel="Mehr anzeigen"
                     style={styles.moreButton}>
                     {loadingMore ? (
                       <ActivityIndicator color={colors.accent} />
@@ -261,7 +270,7 @@ export function FoodSearchDropdown({
                         Mehr anzeigen
                       </Txt>
                     )}
-                  </Pressable>
+                  </Press>
                 ) : null}
               </>
             )
@@ -298,12 +307,13 @@ export function FoodSearchDropdown({
 
 function ProductRow({ product, onPress }: { product: CatalogProduct; onPress: () => void }) {
   return (
-    <Pressable onPress={onPress} style={styles.row}>
+    <Press
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={product.name}
+      style={styles.row}>
       {product.imageUrl ? (
-        <Image
-          source={{ uri: product.imageUrl }}
-          style={{ width: 36, height: 36, borderRadius: 12 }}
-        />
+        <Image source={{ uri: product.imageUrl }} style={styles.productImage} />
       ) : (
         <View style={styles.rowImagePlaceholder}>
           <Txt variant="body" style={{ fontSize: font.sizes.base }}>
@@ -322,13 +332,17 @@ function ProductRow({ product, onPress }: { product: CatalogProduct; onPress: ()
             : ''}
         </Txt>
       </View>
-    </Pressable>
+    </Press>
   );
 }
 
 function HistoryRow({ entry, onPress }: { entry: FoodHistoryEntry; onPress: () => void }) {
   return (
-    <Pressable onPress={onPress} style={styles.row}>
+    <Press
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={entry.name}
+      style={styles.row}>
       <View style={styles.rowImagePlaceholder}>
         <Txt variant="body" style={{ fontSize: font.sizes.base }}>
           🥫
@@ -343,6 +357,6 @@ function HistoryRow({ entry, onPress }: { entry: FoodHistoryEntry; onPress: () =
           {entry.kcal !== null ? ` · ${Math.round(entry.kcal)} kcal` : ''}
         </Txt>
       </View>
-    </Pressable>
+    </Press>
   );
 }
