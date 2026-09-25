@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { radius } from '@/components/theme/index';
 import { Button, Press, Txt } from '@/constants/ui';
 import { debugLog } from '@/lib/observability/debug-log';
 import {
@@ -33,7 +34,7 @@ const styles = StyleSheet.create((theme) => ({
     width: 10,
     height: 10,
     flexShrink: 0,
-    borderRadius: 5,
+    borderRadius: radius.xs,
   },
   flex: {
     flex: 1,

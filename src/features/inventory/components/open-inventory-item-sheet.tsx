@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { withAlpha } from '@/components/theme/index';
+import { radius, withAlpha } from '@/components/theme/index';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Button, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
@@ -37,7 +37,7 @@ const styles = StyleSheet.create((theme) => ({
     width: 42,
     height: 4,
     alignSelf: 'center',
-    borderRadius: 2,
+    borderRadius: radius.micro,
     backgroundColor: theme.border,
   },
   titleCopy: {

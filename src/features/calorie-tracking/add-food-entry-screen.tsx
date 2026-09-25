@@ -6,7 +6,7 @@ import { Alert, Image, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { Screen } from '@/components/layout/screen';
-import { font, withAlpha } from '@/components/theme/index';
+import { font, radius, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { useSnackbar } from '@/components/ui/snackbar';
@@ -60,7 +60,7 @@ const styles = StyleSheet.create((theme) => ({
   heroImagePlaceholder: {
     width: 56,
     height: 56,
-    borderRadius: 14,
+    borderRadius: radius.md,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.backgroundElement,

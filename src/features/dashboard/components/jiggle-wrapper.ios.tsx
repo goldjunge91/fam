@@ -11,7 +11,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
-import { dashboardCardSizes } from '@/components/theme/index';
+import { dashboardCardSizes, radius } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { uiShadowStyles } from '@/constants/ui-shadow';
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     top: -4,
     width: 28,
     height: 28,
-    borderRadius: 14,
+    borderRadius: radius.md,
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 100,

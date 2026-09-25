@@ -7,7 +7,7 @@ import {
   SafeAreaView,
 } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { space } from '@/components/theme';
+import { radius, space } from '@/components/theme';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { ProgressBar } from '@/components/ui/progress-bar';
@@ -35,7 +35,7 @@ const screenStyles = StyleSheet.create((theme) => ({
   storeDot: {
     width: 9,
     height: 9,
-    borderRadius: 5,
+    borderRadius: radius.xs,
   },
   progress: {
     paddingHorizontal: theme.space.md,

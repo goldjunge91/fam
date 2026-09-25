@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
+import { radius } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Card, Row, Surface, TextField, Txt } from '@/constants/ui';
 import { useEmailVerification } from '@/features/auth/hooks/use-email-verification';
@@ -51,7 +52,7 @@ const styles = StyleSheet.create((theme) => ({
   liveDot: {
     width: 8,
     height: 8,
-    borderRadius: 4,
+    borderRadius: radius.xs,
     backgroundColor: theme.warning,
   },
   emailCapsule: {

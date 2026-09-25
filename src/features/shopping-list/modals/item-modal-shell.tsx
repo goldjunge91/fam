@@ -12,6 +12,7 @@ import { KeyboardAwareScrollView, KeyboardToolbar } from 'react-native-keyboard-
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
+import { radius } from '@/components/theme/index';
 import { Surface } from '@/constants/ui';
 
 type ItemModalShellProps = {
@@ -50,7 +51,7 @@ const styles = StyleSheet.create((theme) => ({
     height: 4,
     alignSelf: 'center',
     marginTop: 10,
-    borderRadius: 2,
+    borderRadius: radius.micro,
     backgroundColor: theme.border,
   },
   flex: {

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { radius } from '@/components/theme/index';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Press, Txt } from '@/constants/ui';
 import { uiShadowStyles } from '@/constants/ui-shadow';
@@ -51,7 +52,7 @@ const styles = StyleSheet.create((theme) => ({
     top: 2,
     width: 6,
     height: 1.5,
-    borderRadius: 2,
+    borderRadius: radius.micro,
     backgroundColor: theme.textSecondary,
   },
   chevronLeft: {

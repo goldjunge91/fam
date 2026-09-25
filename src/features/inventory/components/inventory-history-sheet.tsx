@@ -5,7 +5,7 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { StyleSheet } from 'react-native-unistyles';
 
 import { BackButton } from '@/components/layout/back-button';
-import { space, withAlpha } from '@/components/theme/index';
+import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, IconButton, Txt } from '@/constants/ui';
 import { uiShadowStyles } from '@/constants/ui-shadow';
@@ -77,7 +77,7 @@ const styles = StyleSheet.create((theme) => ({
     width: 42,
     height: 4,
     alignSelf: 'center',
-    borderRadius: 2,
+    borderRadius: radius.micro,
     backgroundColor: theme.border,
   },
   header: {
@@ -224,7 +224,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: theme.space.xs,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: theme.border,
-    borderRadius: 4,
+    borderRadius: radius.xs,
   },
   amountColumn: {
     alignItems: 'flex-end',

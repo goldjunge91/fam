@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { FamIcon } from '@/components/icons/fam-icon';
-import { space } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 import { uiShadowStyles } from '@/constants/ui-shadow';
 import { DashboardCardShell } from '@/features/dashboard/components/dashboard-card-shell';
@@ -77,7 +77,7 @@ const styles = StyleSheet.create((theme) => ({
   weeklyDot: {
     width: 5,
     height: 5,
-    borderRadius: 5,
+    borderRadius: radius.xs,
     backgroundColor: theme.border,
   },
   weeklyDotActive: {
@@ -107,7 +107,7 @@ const styles = StyleSheet.create((theme) => ({
     width: '100%',
     height: 4,
     marginBottom: space.sm,
-    borderRadius: 4,
+    borderRadius: radius.xs,
     backgroundColor: theme.border,
   },
   kitchenNoteLineShort: {

@@ -6,7 +6,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
-import { space, withAlpha } from '@/components/theme/index';
+import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Button, IconButton, TextField, Txt } from '@/constants/ui';
@@ -48,7 +48,7 @@ const styles = StyleSheet.create((theme) => ({
     width: 42,
     height: 4,
     alignSelf: 'center',
-    borderRadius: 2,
+    borderRadius: radius.micro,
     backgroundColor: theme.border,
   },
   header: {

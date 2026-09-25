@@ -1,7 +1,7 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { font } from '@/components/theme/index';
+import { font, radius } from '@/components/theme/index';
 import { Press, Txt } from '@/constants/ui';
 import type { MealType } from '@/features/calorie-tracking/api';
 import type { FoodHistoryEntry } from '@/features/calorie-tracking/food-history';
@@ -23,7 +23,7 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
     gap: theme.space.sm,
     paddingVertical: theme.space.lg,
-    borderRadius: 14,
+    borderRadius: radius.md,
     marginTop: theme.space.lg,
     marginBottom: theme.space.xl + theme.space.xs,
     backgroundColor: theme.backgroundElement,

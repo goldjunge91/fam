@@ -10,7 +10,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
-import { space } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
@@ -93,7 +93,7 @@ const styles = StyleSheet.create((theme, rt) => ({
     height: 4,
     alignSelf: 'center',
     marginTop: 10,
-    borderRadius: 2,
+    borderRadius: radius.micro,
     backgroundColor: theme.border,
   },
   modalHeader: {

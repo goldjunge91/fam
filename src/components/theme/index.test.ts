@@ -90,6 +90,7 @@ describe('fam theme tokens', () => {
     expect(accents.pantry.main).toBe(colorsLight.accent);
     expect(accents.nourish.main).toBe(colorsLight.warning);
     expect(accents.grocery.main).toBe(colorsLight.success);
+    expect(radius.micro).toBe(2);
     expect(radius.md).toBe(16);
     expect(borderWidth.base).toBe(1.5);
     expect(borderWidth.strong).toBe(2);
