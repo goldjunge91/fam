@@ -53,13 +53,13 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.lg,
   },
   heroImage: {
-    width: 56,
-    height: 56,
+    width: theme.space.xxxxl,
+    height: theme.space.xxxxl,
     borderRadius: theme.radius.md,
   },
   heroImagePlaceholder: {
-    width: 56,
-    height: 56,
+    width: theme.space.xxxxl,
+    height: theme.space.xxxxl,
     borderRadius: radius.md,
     alignItems: 'center',
     justifyContent: 'center',
@@ -67,11 +67,12 @@ const styles = StyleSheet.create((theme) => ({
   },
   heroText: {
     flex: 1,
+    minWidth: 0,
     gap: theme.space.md,
   },
   nutriBadge: {
-    width: 34,
-    height: 34,
+    width: 48,
+    height: 48,
     borderRadius: theme.radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
