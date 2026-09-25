@@ -4,11 +4,13 @@
 
 `react-native-unistyles` v3 ist die einzige aktive Styling-Runtime.
 NativeWind ist entfernt. Die drei zentralen Quellen aus der [README](./README.md)
-besitzen das Design-System; Styles werden über typisierte Theme-Callbacks erstellt.
+besitzen das Design-System. Theme- und Runtime-abhängige Styles verwenden
+typisierte Unistyles-Callbacks; vollständig statische, lokale Styles dürfen
+statisch erstellt werden.
 
 ## Styling-Runtime
 
-Der kanonische Weg für alle neuen und migrierten Styles:
+Für Styles mit Theme-Abhängigkeiten ist der vorgesehene Weg:
 
 ```tsx
 import { StyleSheet } from 'react-native-unistyles';
@@ -22,9 +24,49 @@ const styles = StyleSheet.create((theme) => ({
 }));
 ```
 
+Wenn ein Style zusätzlich Unistyles-Laufzeitwerte wie Insets oder
+Bildschirmmaße benötigt, verwendet er den zweiten Callback-Parameter:
+
+```tsx
+const styles = StyleSheet.create((theme, rt) => ({
+  root: {
+    backgroundColor: theme.background,
+    paddingTop: rt.insets.top,
+  },
+}));
+```
+
+Ein vollständig statischer, nur lokal verwendeter Style braucht keinen
+Theme-Callback:
+
+```tsx
+const interactionStyles = StyleSheet.create({
+  pressed: { opacity: 0.78 },
+});
+```
+
+Statische Styles enthalten keine Werte, die sich mit Theme oder Unistyles-
+Laufzeit ändern. Gemeinsame semantische Entscheidungen und wiederverwendbare
+Designwerte bleiben unabhängig von der Erstellungsform in den zentralen
+Ownern.
+
 `className` und `contentContainerClassName` sind verboten.
 `global.css` und `tailwind.config.js` sind Retirement-Dateien und besitzen
 keine aktiven semantischen Klassen, Paletten oder Zustände.
+
+## Verbindliche Unistyles-v3-Regeln
+
+- `StyleSheet` wird ausschließlich aus `react-native-unistyles` importiert und
+  nicht über Barrel-Dateien re-exportiert.
+- Unistyles-Styles werden niemals mit dem Spread-Operator kombiniert. Verwende
+  Style-Arrays, zum Beispiel `style={[styles.root, localStyle]}`.
+- Das Unistyles-Babel-Plugin ist erforderlich. Es muss den App-Quellcode
+  verarbeiten; in diesem Projekt ist `root: 'src'` in `babel.config.js`
+  festgelegt.
+- `StyleSheet.configure()` wird einmal ausgeführt, bevor irgendein
+  `StyleSheet.create()` ausgeführt wird. In diesem Projekt importiert
+  `src/index.ts` zuerst `src/components/theme/index.ts` mit der Konfiguration
+  und danach `expo-router/entry`.
 
 `StyleSheet.configure` registriert die Light-/Dark-Themes mit
 `adaptiveThemes: true`. Der `ThemeProvider` lässt diese native OS-Auflösung für
@@ -53,7 +95,7 @@ fachliche Identität und bleiben deshalb außerhalb der globalen Theme-Paletten:
 | Pfad | Owner und Bedeutung | Zulässige UI-Nutzung |
 | --- | --- | --- |
 | `src/features/shopping-list/domain-logik/store-presets.ts` und gespeichertes `store.color` | Markt-Preset- und haushaltsbezogene Nutzerfarbe | Dynamische Marktstreifen, Punkte und Auswahlmarkierungen; keine globale App-Fläche und kein informativer Text ohne eigenes Kontrast-Rezept |
-| `src/features/shopping-list/classification/placement-taxonomy.ts` über `shopping-categories.ts` | Kanonische Placement-/Einkaufslisten-Klassifikation | Kategorie-Indikatoren und definierte Markierungen; die Taxonomie bleibt der fachliche Owner |
+| `src/features/shopping-list/classification/placement-taxonomy.ts` über `shopping-categories.ts` | Maßgebliche Placement-/Einkaufslisten-Klassifikation | Kategorie-Indikatoren und definierte Markierungen; die Taxonomie bleibt der fachliche Owner |
 
 Diese Domainfarben werden nicht nach `src/components/theme/index.ts` kopiert und
 nicht in `src/constants/ui.tsx` neu klassifiziert. Gemeinsame Alpha-, Fallback-

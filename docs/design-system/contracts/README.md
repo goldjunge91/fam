@@ -37,8 +37,11 @@ Planung und Arbeitsstatus werden separat geführt, Arbeitspakete in Beads.
 Die drei Owner bleiben Theme, ThemeProvider und UI. `ui-shadow.ts` ist ein
 Schattenmodul innerhalb des dritten Owners, keine vierte globale Verantwortung.
 Höhere Komponenten besitzen Verhalten, Komposition, Accessibility-Metadaten und
-lokales Layout. Sie wenden die zentralen Styles an. `className` ist verboten;
-Styles entstehen über typisierte Unistyles-Theme-Callbacks.
+lokales Layout. Sie wenden die zentralen Styles an. `className` ist verboten.
+Theme- oder Runtime-abhängige Styles entstehen über typisierte
+Unistyles-Callbacks; vollständig statische, lokale Styles dürfen die statische
+`StyleSheet.create`-Form verwenden. Die verbindlichen Regeln stehen in
+[Vertrag 05](./05-unistyles-and-stylesheet.md).
 `global.css` und `tailwind.config.js` sind Retirement-Dateien ohne aktive
 Designentscheidungen.
 
@@ -53,7 +56,7 @@ ausgenommen; das transitive Tailwind-Paket der Rozenite-Oberfläche ist keine
 App-Styling-Abhängigkeit. Gegenbeispiele prüfen die Erkennung in temporären
 Dateibäumen.
 
-Der kanonische allgemeine `Button`, `TextField`, `SegmentedControl`, `Txt` und
+Der gemeinsame allgemeine `Button`, `TextField`, `SegmentedControl`, `Txt` und
 `Surface` werden direkt aus `src/constants/ui.tsx` importiert.
 Spezifische Produktkompositionen wie Back-, Header- oder Floating-Action-Buttons
 dürfen unter `src/components/ui/buttons/` bleiben, besitzen aber keine zweite
@@ -81,7 +84,7 @@ denselben Komponentenvertrag sind kein zulässiger Endzustand.
 
 ## Referenzseite und Abnahme
 
-`/settings/design-system` zeigt die kanonischen Produktkomponenten und die
+`/settings/design-system` zeigt die vorgesehenen Produktkomponenten und die
 zugehörigen Grundlagen. Legacy-Adapter sind ausdrücklich als solche beschriftet.
 Gegenbeispiele sind eindeutig gekennzeichnet und dürfen nicht in Produktcode
 übernommen werden.
