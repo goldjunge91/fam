@@ -33,6 +33,11 @@ describe('performance instrumentation', () => {
 
   it('emits a mark, measure, and duration metric for a completed span', () => {
     const { startPerformanceSpan } = require('./performance');
+    mockPerformance.getEntriesByName.mockImplementation((name: string, type?: string) =>
+      type === 'mark' && ['startup.phase.start', 'startup.phase.end'].includes(name)
+        ? [{ entryType: 'mark', name, startTime: 100 }]
+        : [],
+    );
 
     const finish = startPerformanceSpan('startup.phase', { phase: 'startup' });
     finish('completed', { initialized: true });
@@ -55,6 +60,16 @@ describe('performance instrumentation', () => {
         value: expect.any(Number),
       }),
     );
+  });
+
+  it('skips a measure when one of its marks was cleared', () => {
+    const { measurePerformance } = require('./performance');
+
+    mockPerformance.getEntriesByName.mockReturnValue([]);
+
+    measurePerformance('app.startup.total', 'app.start', 'app.startup.ready');
+
+    expect(mockPerformance.measure).not.toHaveBeenCalled();
   });
 
   it('exposes entry counts and can clear the captured session', () => {

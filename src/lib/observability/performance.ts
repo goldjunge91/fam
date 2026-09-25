@@ -63,7 +63,14 @@ export function measurePerformance(
 ): void {
   if (!isPerformanceInstrumentationEnabled()) return;
   try {
-    getPerformanceApi()?.measure(
+    const api = getPerformanceApi();
+    if (!api) return;
+
+    const hasStartMark = api.getEntriesByName(startMark, 'mark').length > 0;
+    const hasEndMark = !endMark || api.getEntriesByName(endMark, 'mark').length > 0;
+    if (!hasStartMark || !hasEndMark) return;
+
+    api.measure(
       name,
       detail ? { start: startMark, end: endMark, detail } : { start: startMark, end: endMark },
     );
