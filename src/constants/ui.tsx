@@ -43,7 +43,7 @@ import {
   withAlpha,
 } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { uiShadowStyles } from '@/constants/ui-shadow';
+// import { uiShadowStyles } from '@/constants/ui-shadow';
 import {
   heavy as hapticHeavy,
   light as hapticLight,
@@ -56,11 +56,12 @@ import {
 const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;
 const POP_SPRING = { damping: 9, stiffness: 380, mass: 0.5 } as const;
 
-const cardShadowStyles = {
-  sm: uiShadowStyles.cardBottom,
-  md: uiShadowStyles.raisedCardBottom,
-  lg: uiShadowStyles.modalBottom,
-} as const;
+// TODO unklar ob wir es benötigen
+// const cardShadowStyles = {
+//   sm: uiShadowStyles.cardBottom,
+//   md: uiShadowStyles.raisedCardBottom,
+//   lg: uiShadowStyles.modalBottom,
+// } as const;
 
 type HapticKind = 'none' | 'light' | 'medium' | 'heavy' | 'selection' | 'success';
 function fireHaptic(kind: HapticKind) {
@@ -513,13 +514,15 @@ export function Card({
   style,
   padded = true,
   soft = false,
-  elevation = 'sm',
+  // TODO unklar warum das hier ist
+  // elevation = 'sm',
   children,
   ...rest
 }: Omit<ViewProps, 'style'> & {
   padded?: boolean;
   soft?: boolean;
-  elevation?: 'none' | 'sm' | 'md' | 'lg';
+  // TODO unklar wof+ür
+  // elevation?: 'none' | 'sm' | 'md' | 'lg';
   style?: StyleProp<ViewStyle>;
 }) {
   return (
@@ -529,7 +532,8 @@ export function Card({
         cardStyles.base,
         soft && cardStyles.soft,
         padded && cardStyles.padded,
-        elevation !== 'none' && cardShadowStyles[elevation],
+        // TODO unklar ob das wirklich für schatten ist.
+        // elevation !== 'none' && cardShadowStyles[elevation],
         style,
       ]}>
       {children}
@@ -869,7 +873,11 @@ export function IconButton({
           justifyContent: 'center',
           opacity: disabled ? 0.5 : 1,
         },
-        uiShadowStyles.floatingControlBottom,
+        // TODO floatingControlBottom ist nicht sichtbar bzw hier der falsche einsatz
+        // uiShadowStyles.floatingControlBottom,
+        //         {
+        //   boxShadow: '0px 6px 14px rgba(220, 0, 0, 0.8)',
+        // },
         style,
       ]}>
       <Feather name={icon} size={iconSize} color={fg} />
@@ -1009,7 +1017,17 @@ export function SegmentedControl<T extends string>({
               styles.segmentItem,
               size === 'compact' ? styles.segmentItemCompact : styles.segmentItemDefault,
               active && activeStyle,
-              active && appearance === 'surface' && uiShadowStyles.cardBottom,
+              // TODO uiShadowStyles.cardBottom ist hier das falsche
+              // active && appearance === 'surface' && uiShadowStyles.cardBottom,
+              active &&
+                appearance === 'surface' &&
+                [
+                  // TODO behalten mit wir wissen wie man farbe hinzufügt
+                  // uiShadowStyles.cardBottom,
+                  // {
+                  //   boxShadow: '0px 2px 6px rgba(220, 0, 0, 0.8)',
+                  // },
+                ],
               option.disabled && styles.segmentItemDisabled,
             ]}>
             <Txt
