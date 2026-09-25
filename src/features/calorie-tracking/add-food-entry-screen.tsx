@@ -71,8 +71,8 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.md,
   },
   nutriBadge: {
-    width: 48,
-    height: 48,
+    width: theme.space.xxxxl,
+    height: theme.space.xxxxl,
     borderRadius: theme.radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
