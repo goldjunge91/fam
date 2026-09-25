@@ -13,7 +13,7 @@ import {
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { font, radius, space, withAlpha } from '@/components/theme/index';
+import { colors, font, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -460,7 +460,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: theme.viewerBackground },
+  container: { flex: 1, backgroundColor: colors.viewerBackground },
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', gap: space.md },
   pagerView: { flex: 1 },
   page: { flex: 1, justifyContent: 'center', alignItems: 'center' },

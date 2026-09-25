@@ -4,12 +4,11 @@ import { ActivityIndicator, Modal, Pressable, ScrollView, View } from 'react-nat
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { nutritionColors } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useProduct } from '@/features/inventory/use-product';
 import { offApiSource } from '@/features/product-search/sources/off-api-source';
-import type { CatalogProduct } from '@/features/product-search/types';
 import { debugLog } from '@/lib/observability/debug-log';
 
 export type ProductInformationItem = {
@@ -19,8 +18,6 @@ export type ProductInformationItem = {
   unit: string;
   expiry_date?: string | null;
 };
-
-type NutriScoreGrade = NonNullable<CatalogProduct['nutriScore']>;
 
 type ProductInformationProps = {
   visible: boolean;

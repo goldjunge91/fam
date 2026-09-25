@@ -16,6 +16,7 @@ import {
   font,
   getWidgetTheme,
   makeAccent,
+  nutritionColors,
   radius,
   space,
   widgetTheme,
@@ -100,6 +101,8 @@ describe('fam theme tokens', () => {
     expect(BUTTON_DEPTH).toBe(4);
     expect(dashboardCardSizes.small).toEqual({ height: 138, padding: space.lg });
     expect(dashboardCardSizes.large).toEqual({ height: 176, padding: space.lg });
+    expect(colorsLight.viewerBackground).toBe('#000000');
+    expect(nutritionColors.nutriScore.a).toBe('#038141');
   });
 
   it('does not own shadow geometry or formatting', () => {

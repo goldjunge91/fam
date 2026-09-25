@@ -441,6 +441,7 @@ export const theme = {
   colors,
   recipeArtworkColors,
   shoppingListColors,
+  nutritionColors,
   accent,
   radius,
   borderWidth,
