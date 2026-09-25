@@ -240,7 +240,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   tab: {
     width: '100%',
-    height: rs(48),
+    height: theme.controlSizes.touchTarget,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
     alignItems: 'center',

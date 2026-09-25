@@ -137,7 +137,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   tab: {
     width: '100%',
-    minHeight: rs(48),
+    minHeight: theme.controlSizes.touchTarget,
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: 3,
@@ -190,7 +190,7 @@ const styles = StyleSheet.create((theme) => ({
     textAlign: 'center',
   },
   missingButton: {
-    minHeight: rs(48),
+    minHeight: theme.controlSizes.touchTarget,
     marginTop: theme.space.lg,
     borderRadius: theme.radius.sm,
     alignItems: 'center',
@@ -238,7 +238,7 @@ const styles = StyleSheet.create((theme) => ({
     textAlign: 'center',
   },
   ratingButton: {
-    minHeight: rs(48),
+    minHeight: theme.controlSizes.touchTarget,
     marginTop: theme.space.xxl,
     borderRadius: theme.radius.sm,
     alignItems: 'center',
@@ -252,7 +252,7 @@ const styles = StyleSheet.create((theme) => ({
     bottom: theme.space.sm,
   },
   floatingButton: {
-    minHeight: rs(48),
+    minHeight: theme.controlSizes.touchTarget,
     alignSelf: 'center',
     borderRadius: theme.radius.sm,
     alignItems: 'center',

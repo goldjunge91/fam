@@ -18,6 +18,7 @@ gemeinsame Komponentenmaße und Darstellungsrezepte werden zentral gehalten.
 | `space.xl` | 20 |
 | `space.xxl` | 28 |
 | `space.xxxl` | 40 |
+| `space.xxxxl` | 64 |
 
 Die Werte sind die gemeinsame Referenz bei Designfaktor 1,0. `rs()` bleibt die
 zentrale, begrenzte Skalierung für wiederkehrende Abstände und Maße; dargestellte

@@ -157,7 +157,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   action: {
-    minHeight: rs(48),
+    minHeight: theme.controlSizes.touchTarget,
     borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',

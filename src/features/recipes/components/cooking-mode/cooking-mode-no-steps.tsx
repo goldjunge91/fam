@@ -1,7 +1,6 @@
 import { ScrollView } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 import type { RecipeDetail } from '../../hooks/use-recipes';
@@ -24,7 +23,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingTop: theme.space.lg,
   },
   finish: {
-    minHeight: rs(48),
+    minHeight: theme.controlSizes.touchTarget,
     borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',

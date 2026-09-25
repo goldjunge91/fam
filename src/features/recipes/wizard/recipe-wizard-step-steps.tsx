@@ -168,7 +168,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   reorderableContent: {
-    paddingBottom: rs(64),
+    paddingBottom: theme.space.xxxxl,
   },
   addStep: {
     width: '100%',
@@ -177,7 +177,7 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: theme.space.xs,
-    marginBottom: rs(64),
+    marginBottom: theme.space.xxxxl,
   },
   actions: {
     flexDirection: 'row',
@@ -188,7 +188,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   action: {
-    minHeight: rs(48),
+    minHeight: theme.controlSizes.touchTarget,
     borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',

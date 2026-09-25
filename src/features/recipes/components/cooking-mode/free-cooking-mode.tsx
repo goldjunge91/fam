@@ -37,7 +37,7 @@ const styles = StyleSheet.create((theme) => ({
     marginTop: 'auto',
   },
   unlock: {
-    minHeight: rs(48),
+    minHeight: theme.controlSizes.touchTarget,
     borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',

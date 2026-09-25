@@ -70,8 +70,8 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
   },
   previous: {
-    width: rs(48),
-    height: rs(48),
+    width: theme.controlSizes.touchTarget,
+    height: theme.controlSizes.touchTarget,
     borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',
@@ -81,7 +81,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   next: {
     flex: 1,
-    minHeight: rs(48),
+    minHeight: theme.controlSizes.touchTarget,
     borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',

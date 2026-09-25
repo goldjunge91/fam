@@ -104,7 +104,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   scrollContent: {
     paddingHorizontal: theme.space.xxl,
-    paddingBottom: rs(64),
+    paddingBottom: theme.space.xxxxl,
   },
   eyebrow: {
     paddingTop: theme.space.md,
@@ -192,7 +192,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   action: {
-    minHeight: rs(48),
+    minHeight: theme.controlSizes.touchTarget,
     borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',

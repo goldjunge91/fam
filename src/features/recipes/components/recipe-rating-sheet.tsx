@@ -48,7 +48,7 @@ const styles = StyleSheet.create((theme) => ({
     marginTop: theme.space.lg,
   },
   submit: {
-    height: rs(48),
+    height: theme.controlSizes.touchTarget,
     borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',
