@@ -152,7 +152,6 @@ export function SettingsScreen() {
             <Card
               testID="settings-profile-card-row"
               padded={false}
-              elevation="sm"
               style={[
                 styles.profileRow,
                 {

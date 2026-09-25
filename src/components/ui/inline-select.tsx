@@ -5,7 +5,6 @@ import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 
 export type InlineSelectOption = {
   value: string;
@@ -104,7 +103,6 @@ export function InlineSelect({ value, options, onChange, accessibilityLabel }: I
               backgroundColor: colors.background,
               borderColor: colors.border,
             },
-            uiShadowStyles.floatingPanelBottom,
           ]}>
           {options.map((option) => {
             const active = option.value === value;

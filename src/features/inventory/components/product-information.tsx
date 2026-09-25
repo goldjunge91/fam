@@ -6,7 +6,6 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import { useProduct } from '@/features/inventory/use-product';
 import { offApiSource } from '@/features/product-search/sources/off-api-source';
 import type { CatalogProduct } from '@/features/product-search/types';
@@ -245,12 +244,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
           accessibilityLabel="Produktinformationen schließen"
         />
 
-        <View
-          style={[
-            styles.sheet,
-            uiShadowStyles.bottomSheetTop,
-            { paddingBottom: insets.bottom + 24 },
-          ]}>
+        <View style={[styles.sheet, { paddingBottom: insets.bottom + 24 }]}>
           <View style={styles.grabHandle} />
           <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
             <View style={styles.header}>

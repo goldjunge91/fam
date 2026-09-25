@@ -10,7 +10,6 @@ import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Button, IconButton, TextField, Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { debugLog } from '@/lib/observability/debug-log';
@@ -290,7 +289,7 @@ export function EditInventoryItemSheet({
               bg={withAlpha(colors.danger, 1)}
               size={40}
               iconSize={22}
-              style={[styles.closeButton, uiShadowStyles.none]}
+              style={styles.closeButton}
             />
           </View>
 

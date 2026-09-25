@@ -68,7 +68,7 @@ export function InventorySearchInput({ value, onChangeText }: InventorySearchInp
   const { colors } = useTheme();
 
   return (
-    <Card elevation="none" padded={false} style={styles.inputCard}>
+    <Card padded={false} style={styles.inputCard}>
       <SearchIcon size={20} color={colors.textSecondary} />
       <TextInput
         autoFocus

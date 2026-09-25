@@ -6,7 +6,6 @@ import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import { useSession } from '@/features/auth/session-provider';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useProfile } from '@/features/profile/api';
@@ -57,7 +56,6 @@ function ProfileSheetContent() {
               backgroundColor: colors.backgroundElement,
               bottom: Math.max(insets.bottom / 2, 16),
             },
-            uiShadowStyles.bottomSheetTop,
           ]}>
           <Pressable
             onPress={closeProfile}

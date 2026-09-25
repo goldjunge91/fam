@@ -3,8 +3,6 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
 import {
-  BUTTON_DEPTH,
-  boxShadowValue,
   CONTENT_MAX_WIDTH,
   Colors,
   Fonts,
@@ -13,12 +11,10 @@ import {
   IS_TABLET,
   radius,
   SCREEN_W,
-  shadow,
   space,
 } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Txt, type TxtTone, type TxtVariant } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import {
   CodeSample,
   ContractIntro,
@@ -50,92 +46,6 @@ const TEXT_TONES = [
   'danger',
   'inverse',
 ] as const satisfies readonly TxtTone[];
-
-const SHADOW_STYLE_ROWS = [
-  {
-    name: 'cardBottom',
-    geometry: `offset ${shadow.sm.offsetX}/${shadow.sm.offsetY} · blur ${shadow.sm.blurRadius} · opacity ${shadow.sm.opacity}`,
-    color: 'theme.shadowCard',
-    direction: 'down',
-    usage: 'Karten',
-  },
-  {
-    name: 'raisedCardBottom',
-    geometry: `offset ${shadow.md.offsetX}/${shadow.md.offsetY} · blur ${shadow.md.blurRadius} · opacity ${shadow.md.opacity}`,
-    color: 'theme.shadowCard',
-    direction: 'down',
-    usage: 'erhöhte Karten',
-  },
-  {
-    name: 'modalBottom',
-    geometry: `offset ${shadow.lg.offsetX}/${shadow.lg.offsetY} · blur ${shadow.lg.blurRadius} · opacity ${shadow.lg.opacity}`,
-    color: 'theme.shadowCard',
-    direction: 'down',
-    usage: 'Dialoge, Card.elevation="lg"',
-  },
-  {
-    name: 'prominentCard',
-    geometry: `offset ${shadow.prominent.offsetX}/${shadow.prominent.offsetY} · blur ${shadow.prominent.blurRadius} · opacity ${shadow.prominent.opacity}`,
-    color: 'theme.shadowCard',
-    direction: 'zentriert',
-    usage: 'Dashboard, Vorratsübersicht',
-  },
-  {
-    name: 'floatingControlBottom',
-    geometry: `offset ${shadow.md.offsetX}/${shadow.md.offsetY} · blur ${shadow.md.blurRadius} · opacity ${shadow.md.opacity}`,
-    color: 'theme.shadowCard',
-    direction: 'down',
-    usage: 'frei liegende Controls',
-  },
-  {
-    name: 'floatingPanelBottom',
-    geometry: `offset ${shadow.lg.offsetX}/${shadow.lg.offsetY} · blur ${shadow.lg.blurRadius} · opacity ${shadow.lg.opacity}`,
-    color: 'theme.shadowSheet',
-    direction: 'down',
-    usage: 'Dropdowns und Auswahlpanels',
-  },
-  {
-    name: 'bottomSheetTop',
-    geometry: `offset ${shadow.lg.offsetX}/${-shadow.lg.offsetY} · blur ${shadow.lg.blurRadius} · opacity ${shadow.lg.opacity}`,
-    color: 'theme.shadowSheet',
-    direction: 'up',
-    usage: 'von unten kommende Sheets',
-  },
-  {
-    name: 'leftDrawerRight',
-    geometry: `offset ${shadow.lg.offsetY}/0 · blur ${shadow.lg.blurRadius} · opacity ${shadow.lg.opacity}`,
-    color: 'theme.shadowSheet',
-    direction: 'right',
-    usage: 'linker Navigations-Drawer',
-  },
-  {
-    name: 'hotspotBottom',
-    geometry: 'offset 0/1 · blur 2 · opacity 0.20',
-    color: 'theme.shadowCard',
-    direction: 'down',
-    usage: '18×18-Broschüren-Hotspot',
-  },
-  {
-    name: 'accentNoteBottomRight',
-    geometry: 'offset 4/5 · blur 0 · opacity 0.18',
-    color: 'theme.accent',
-    direction: 'down/right',
-    usage: 'Küchenzettel-Illustration',
-  },
-  {
-    name: 'none',
-    geometry: 'boxShadow: none',
-    color: '—',
-    direction: 'kein Schatten',
-    usage: 'expliziter Reset',
-  },
-] as const satisfies readonly {
-  name: keyof typeof uiShadowStyles;
-  geometry: string;
-  color: string;
-  direction: string;
-  usage: string;
-}[];
 
 function entries<T extends object>(value: T) {
   return Object.entries(value) as [keyof T, T[keyof T]][];
@@ -341,7 +251,7 @@ function TokenShowcase() {
       <ContractIntro
         title="Abstände, Formen und Effekte"
         contract="Wiederkehrende Maße stammen aus Tokens. Layout nutzt native StyleSheets; dynamische Farben kommen aus dem Theme."
-        source="index.ts: space, radius, shadow, font, Gradients und responsive Werte"
+        source="index.ts: space, radius, font, Gradients und responsive Werte"
       />
       <Subsection title="Spacing">
         <TokenGrid>
@@ -374,64 +284,6 @@ function TokenShowcase() {
                   style={[
                     styles.radiusPreview,
                     { borderRadius: value, backgroundColor: colors.backgroundSoft },
-                  ]}
-                />
-              }
-            />
-          ))}
-        </TokenGrid>
-      </Subsection>
-      <Subsection title="Schatten und 3D-Tiefe">
-        <TokenGrid>
-          {entries(shadow).map(([name, value]) => (
-            <TokenItem
-              key={String(name)}
-              name={`shadow.${String(name)}`}
-              value={`offset ${value.offsetX}/${value.offsetY} · blur ${value.blurRadius} · opacity ${value.opacity}`}
-              preview={
-                <View
-                  style={[
-                    styles.shadowPreview,
-                    {
-                      backgroundColor: colors.backgroundElement,
-                      boxShadow: boxShadowValue(value, colors.shadowCard),
-                    },
-                  ]}
-                />
-              }
-            />
-          ))}
-          <TokenItem
-            name="BUTTON_DEPTH"
-            value={`${BUTTON_DEPTH}px`}
-            preview={
-              <View
-                style={[
-                  styles.depthPreview,
-                  {
-                    borderBottomWidth: BUTTON_DEPTH,
-                    borderColor: colors.shadowCard,
-                    backgroundColor: colors.accent,
-                  },
-                ]}
-              />
-            }
-          />
-        </TokenGrid>
-      </Subsection>
-      <Subsection title="Zentrale Schatten-Styles">
-        <TokenGrid>
-          {SHADOW_STYLE_ROWS.map(({ name, geometry, color, direction, usage }) => (
-            <TokenItem
-              key={name}
-              name={`uiShadowStyles.${name}`}
-              value={`${geometry} · ${color} · ${direction} · ${usage}`}
-              preview={
-                <View
-                  style={[
-                    styles.shadowPreview,
-                    { backgroundColor: colors.backgroundElement },
-                    uiShadowStyles[name],
                   ]}
                 />
               }

@@ -24,7 +24,6 @@ import { StyleSheet } from 'react-native-unistyles';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Press, TextField, Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
 import { useProductSearch } from '@/features/product-search/hooks/use-product-search';
 import { usePreferredProductMarketName } from '@/features/product-search/preferred-market';
@@ -368,7 +367,6 @@ export const ProductSearchDropdown = forwardRef<
           style={[
             styles.panel,
             panelPlacement === 'above' && styles.panelAbove,
-            uiShadowStyles.floatingPanelBottom,
             { maxHeight: panelMaxHeight ?? PANEL_FALLBACK_HEIGHT },
           ]}
           // maxHeight kommt aus der Live-Messung oben statt einer festen Klasse — die Liste soll

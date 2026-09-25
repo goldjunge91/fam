@@ -10,7 +10,6 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { BUTTON_DEPTH, space } from '@/components/theme/index';
 import { Press, Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 
 interface InventoryTabBarProps {
@@ -158,7 +157,6 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
               accessibilityRole="menu"
               style={[
                 styles.menu,
-                uiShadowStyles.floatingPanelBottom,
                 {
                   position: 'absolute',
                   top: menuPosition.top,

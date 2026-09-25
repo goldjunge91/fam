@@ -15,7 +15,6 @@ import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { getDrawerGroups } from '@/constants/feature-registry';
 import { Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { debugLogEvent } from '@/lib/observability/debug-log';
@@ -146,7 +145,6 @@ export function NavigationDrawer() {
               // Deckender Hintergrund verhindert Durchscheinen im Header.
               backgroundColor: colors.backgroundElement,
             },
-            uiShadowStyles.leftDrawerRight,
             animatedStyle,
           ]}>
           {isDrawerOpen && <DrawerContent />}

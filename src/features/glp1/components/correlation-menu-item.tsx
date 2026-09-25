@@ -50,7 +50,7 @@ export function CorrelationMenuItem({
       }
       containerStyle={styles.pressContainer}
       style={styles.pressSurface}>
-      <Card padded={false} elevation="none" style={styles.item}>
+      <Card padded={false} style={styles.item}>
         <View style={styles.content}>
           <Txt variant="label" weight="700">
             Korrelationsanalyse

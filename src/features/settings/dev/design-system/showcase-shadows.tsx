@@ -4,7 +4,6 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { GlassCard } from '@/components/ui/glass-card';
 import { Badge, Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import { DashboardCardShell } from '@/features/dashboard/components/dashboard-card-shell';
 
 const styles = StyleSheet.create((theme) => ({
@@ -80,17 +79,16 @@ function ShadowExample({
   );
 }
 
-function GlassCardExample({ shadow }: { shadow: 'card' | 'prominent' }) {
+function GlassCardExample({ label }: { label: string }) {
   return (
     <GlassCard
-      shadow={shadow}
       tinted
-      accessibilityLabel={`${shadow} GlassCard`}
+      accessibilityLabel={`${label} GlassCard`}
       glassStyle={styles.card}
       fallbackStyle={styles.card}>
-      <Txt variant="subheading">{shadow === 'card' ? 'Normale Karte' : 'Prominente Karte'}</Txt>
+      <Txt variant="subheading">{label}</Txt>
       <Txt variant="caption" tone="secondary">
-        Beide sind getönt; nur shadow wählt den Schatten.
+        Beide sind getönt.
       </Txt>
     </GlassCard>
   );
@@ -102,25 +100,21 @@ export function ShadowsShowcase() {
       <View style={styles.example}>
         <Txt variant="title">Schatten in der App</Txt>
         <Txt variant="body" tone="secondary">
-          Die Beispiele verwenden die Produktionskomponenten und die exportierten uiShadowStyles.
-          Schattenauswahl und Hintergrundtönung sind voneinander unabhängig.
+          Die Beispiele verwenden die Produktionskomponenten ohne Schatten.
         </Txt>
       </View>
 
       <ShadowExample
         label="DashboardCardShell"
-        badge="prominentCard"
+        badge="ohne Schatten"
         tone="saved"
-        description="Wie im Dashboard wird der Schatten direkt am Aufruf gewählt. tinted bleibt für die Hintergrundtönung zuständig."
-        code={'<DashboardCardShell size="small" shadow="prominent">…</DashboardCardShell>'}>
-        <DashboardCardShell
-          size="small"
-          shadow="prominent"
-          accessibilityLabel="Beispiel Dashboard-Karte">
+        description="Dashboard-Karten bleiben ohne Schatten. tinted steuert nur die Hintergrundtönung."
+        code={'<DashboardCardShell size="small">…</DashboardCardShell>'}>
+        <DashboardCardShell size="small" accessibilityLabel="Beispiel Dashboard-Karte">
           <View style={styles.dashboardContent}>
             <Txt variant="subheading">Dashboard-Karte</Txt>
             <Txt variant="caption" tone="secondary">
-              explizit shadow="prominent"
+              ohne Schatten
             </Txt>
           </View>
         </DashboardCardShell>
@@ -128,24 +122,24 @@ export function ShadowsShowcase() {
 
       <ShadowExample
         label="GlassCard mit expliziter Auswahl"
-        badge="cardBottom / prominentCard"
+        badge="ohne Schatten"
         tone="nourish"
-        description="Beide Flächen haben tinted. Die Prop shadow wählt unabhängig cardBottom oder prominentCard."
-        code={'<GlassCard shadow="card" tinted … />\n<GlassCard shadow="prominent" tinted … />'}>
-        <GlassCardExample shadow="card" />
-        <GlassCardExample shadow="prominent" />
+        description="Beide Flächen haben tinted und keinen Schatten."
+        code={'<GlassCard tinted … />'}>
+        <GlassCardExample label="Normale Karte" />
+        <GlassCardExample label="Prominente Karte" />
       </ShadowExample>
 
       <ShadowExample
         label="Von unten kommendes Sheet"
-        badge="bottomSheetTop"
+        badge="ohne Schatten"
         tone="nourish"
-        description="Das echte Sheet-Style liegt in uiShadowStyles; der Versatz zeigt nach oben und bleibt vierseitig weich."
-        code={'style={[styles.sheet, uiShadowStyles.bottomSheetTop]}'}>
-        <View style={[styles.sheet, uiShadowStyles.bottomSheetTop]}>
+        description="Die Sheet-Fläche bleibt ohne Schatten."
+        code={'style={styles.sheet}'}>
+        <View style={styles.sheet}>
           <Txt variant="subheading">Sheet-Fläche</Txt>
           <Txt variant="caption" tone="secondary">
-            Derselbe exportierte Stil wie bei den Produktions-Sheets.
+            Keine Schatten-Geometrie in der Oberfläche.
           </Txt>
         </View>
       </ShadowExample>

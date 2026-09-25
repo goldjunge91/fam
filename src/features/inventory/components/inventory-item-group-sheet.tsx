@@ -7,7 +7,6 @@ import { GradientBackground } from '@/components/layout/gradient-background';
 import { type GradientSpec, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Card, IconButton, Press, Row, Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';
 import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
@@ -370,7 +369,7 @@ export function InventoryItemGroupSheet({
               bg={colors.danger}
               size={45}
               iconSize={24}
-              style={[{ borderRadius: radius.lg }, uiShadowStyles.none]}
+              style={{ borderRadius: radius.lg }}
             />
           </View>
 
@@ -591,7 +590,7 @@ function IosInventoryItemGroupView({
                 bg={colors.danger}
                 size={40}
                 iconSize={22}
-                style={[{ borderRadius: radius.lg }, uiShadowStyles.none]}
+                style={{ borderRadius: radius.lg }}
               />
             </View>
           </View>
@@ -741,7 +740,6 @@ function IosStateCard({
   return (
     <Card
       padded={false}
-      elevation="sm"
       style={[
         styles.stateCard,
         tone === 'open' && {

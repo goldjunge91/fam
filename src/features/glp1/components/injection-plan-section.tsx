@@ -122,7 +122,7 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
 
   return (
     <View style={styles.root}>
-      <Card elevation="none" style={styles.planCard}>
+      <Card style={styles.planCard}>
         <View style={styles.header}>
           <Txt variant="caption" tone="secondary">
             Nächste Injektion

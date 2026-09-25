@@ -141,7 +141,7 @@ export function InjectionForm({
   const injectionSiteSelection = injectionSite ?? 'none';
 
   return (
-    <Card elevation="none" style={styles.form}>
+    <Card style={styles.form}>
       <Txt variant="label" weight="700">
         {mode === 'edit' ? 'Injektion bearbeiten' : 'Injektion erfassen'}
       </Txt>
@@ -293,7 +293,7 @@ export function InjectionForm({
         />
       </View>
 
-      <Card padded={false} elevation="none" style={styles.summary}>
+      <Card padded={false} style={styles.summary}>
         <Txt variant="body" tone="secondary">
           Ausgewählt:
         </Txt>

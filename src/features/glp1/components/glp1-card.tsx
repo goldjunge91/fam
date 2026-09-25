@@ -220,7 +220,7 @@ export function Glp1Card({
         </Txt>
       </View>
 
-      <FoundationCard padded={false} elevation="none" style={styles.summary}>
+      <FoundationCard padded={false} style={styles.summary}>
         <View style={styles.summaryColumn}>
           <Txt variant="caption" tone="secondary">
             Letzte Injektion

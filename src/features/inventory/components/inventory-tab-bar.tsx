@@ -4,7 +4,6 @@ import { StyleSheet } from 'react-native-unistyles';
 import { radius } from '@/components/theme/index';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Press, Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 
 interface InventoryTabBarProps {
@@ -124,7 +123,6 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
   return (
     <View ref={triggerRef} style={styles.container}>
       <GlassCard
-        shadow="floatingControl"
         shape="control"
         outerStyle={styles.triggerOuter}
         glassStyle={styles.trigger}
@@ -159,7 +157,6 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
               accessibilityRole="menu"
               style={[
                 styles.menu,
-                uiShadowStyles.floatingPanelBottom,
                 {
                   position: 'absolute',
                   top: menuPosition.top,

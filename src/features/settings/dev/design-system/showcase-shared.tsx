@@ -5,7 +5,6 @@ import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Surface, Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 
 export function ContractIntro({
   title,
@@ -68,10 +67,7 @@ export function ExamplePanel({
     kind === 'correct' ? colors.success : kind === 'incorrect' ? colors.danger : colors.border;
 
   return (
-    <Surface
-      tone="surface"
-      accessibilityLabel={label}
-      style={[styles.panel, { borderColor }, uiShadowStyles.cardBottom]}>
+    <Surface tone="surface" accessibilityLabel={label} style={[styles.panel, { borderColor }]}>
       <View style={styles.panelHeader}>
         <View style={[styles.statusDot, { backgroundColor: borderColor }]} />
         <Txt

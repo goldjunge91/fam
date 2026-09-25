@@ -11,7 +11,6 @@ import { StyleSheet } from 'react-native-unistyles';
 import { font, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import { StepMentionText } from '@/features/recipes/components/step-mention-text';
 import {
   pickRecipeImage,
@@ -424,7 +423,6 @@ const StepCard = memo(function StepCard({
           <View
             style={[
               styles.mentionPanel,
-              uiShadowStyles.floatingPanelBottom,
               { backgroundColor: colors.background, borderColor: colors.border },
             ]}>
             {autocomplete.matches.slice(0, 6).map((ing) => (

@@ -3,12 +3,11 @@ import type { AccessibilityRole, StyleProp, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { dashboardCardSizes } from '@/components/theme';
-import { GlassCard, type GlassCardShadow } from '@/components/ui/glass-card';
+import { GlassCard } from '@/components/ui/glass-card';
 import type { CardSize } from '@/features/dashboard/registry';
 
 type DashboardCardShellProps = {
   size: CardSize;
-  shadow: GlassCardShadow;
   onPress?: () => void;
   onLongPress?: () => void;
   disabled?: boolean;
@@ -21,7 +20,6 @@ type DashboardCardShellProps = {
 /** Gemeinsame sichtbare und interaktive Hülle für jedes Dashboard-Widget. */
 export function DashboardCardShell({
   size,
-  shadow,
   onPress,
   onLongPress,
   disabled = false,
@@ -42,7 +40,6 @@ export function DashboardCardShell({
       disabled={disabled}
       accessibilityRole={accessibilityRole}
       accessibilityLabel={accessibilityLabel}
-      shadow={shadow}
       tinted
       glassStyle={[styles.card, sizeStyle.content, style]}
       fallbackStyle={[styles.card, sizeStyle.outer, sizeStyle.content, style]}

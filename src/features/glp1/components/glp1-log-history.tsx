@@ -85,11 +85,7 @@ export function Glp1LogHistory({
             if (item.kind === 'injection') {
               const { log } = item;
               return (
-                <Card
-                  key={`medication-${log.id}`}
-                  padded={false}
-                  elevation="none"
-                  style={styles.entry}>
+                <Card key={`medication-${log.id}`} padded={false} style={styles.entry}>
                   <Txt variant="body" weight="700">
                     Injektion · {log.medication_name} {log.dose ?? '–'} {log.unit}
                   </Txt>
@@ -125,7 +121,7 @@ export function Glp1LogHistory({
 
             const { log } = item;
             return (
-              <Card key={`symptom-${log.id}`} padded={false} elevation="none" style={styles.entry}>
+              <Card key={`symptom-${log.id}`} padded={false} style={styles.entry}>
                 <Txt variant="body" weight="700">
                   Symptome · Appetit {log.appetite_level ?? '–'}/5 · Sättigung{' '}
                   {log.satiety_level ?? '–'}/5

@@ -131,7 +131,6 @@ export function RowStorePicker({
           {anchor && (
             <Card
               padded={false}
-              elevation="lg"
               style={[
                 styles.panel,
                 { position: 'absolute', top: anchor.y + anchor.height + 6, left: anchor.x },

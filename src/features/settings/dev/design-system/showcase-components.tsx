@@ -48,7 +48,6 @@ import {
   Txt,
   type TxtVariant,
 } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import {
@@ -98,9 +97,9 @@ const TYPE_SCALE: { variant: TxtVariant; sample: string }[] = [
 
 // These examples render the shared app shadow styles without local geometry.
 const SHADOW_STYLES = {
-  card: { name: 'cardBottom', style: uiShadowStyles.cardBottom },
-  floatingPanel: { name: 'floatingPanelBottom', style: uiShadowStyles.floatingPanelBottom },
-  prominent: { name: 'prominentCard', style: uiShadowStyles.prominentCard },
+  card: { name: 'cardBottom' },
+  floatingPanel: { name: 'floatingPanelBottom' },
+  prominent: { name: 'prominentCard' },
 } as const;
 
 type ShadowVariant = keyof typeof SHADOW_STYLES;
@@ -166,7 +165,7 @@ function SurfaceShowcase() {
         </Card>
       </Subsection>
       <Subsection title="Cards mit Schatten und Progress-Ringen">
-        <PrimitiveCard elevation="lg" style={styles.progressCard}>
+        <PrimitiveCard style={styles.progressCard}>
           <View style={styles.progressCardRow}>
             <View style={styles.progressCardCopy}>
               <Txt variant="label" tone="secondary" style={styles.progressCardLabel}>
@@ -185,10 +184,10 @@ function SurfaceShowcase() {
             />
           </View>
           <Txt variant="caption" tone="secondary">
-            elevation="lg" · preset="compact"
+            preset="compact" · ohne Schatten
           </Txt>
         </PrimitiveCard>
-        <PrimitiveCard elevation="lg" style={styles.progressCard}>
+        <PrimitiveCard style={styles.progressCard}>
           <View style={styles.progressCardRow}>
             <ProgressRing
               value={7}
@@ -208,7 +207,7 @@ function SurfaceShowcase() {
             </View>
           </View>
           <Txt variant="caption" tone="secondary">
-            elevation="lg" · preset="dashboard"
+            preset="dashboard" · ohne Schatten
           </Txt>
         </PrimitiveCard>
       </Subsection>
@@ -229,7 +228,7 @@ function SurfaceShowcase() {
         </View>
         <CodeSample>
           {
-            'Jede Fläche verwendet direkt ihren fertigen uiShadowStyles-Eintrag. Es gibt keine lokale Geometrie oder Schattenfarbe.'
+            'Jede Fläche bleibt ohne Schatten. Es gibt keine lokale Schatten-Geometrie oder Schattenfarbe.'
           }
         </CodeSample>
       </Subsection>
@@ -257,12 +256,12 @@ function SurfaceShowcase() {
         </Txt>
         <CodeSample>
           {
-            '<Press onPress={...} accessibilityRole="button">\n  <Card elevation="lg">…</Card>\n</Press>\nPress (constants/ui.tsx) liefert Scale- und Haptik-Feedback — die Karte selbst bleibt unverändert.'
+            '<Press onPress={...} accessibilityRole="button">\n  <Card>…</Card>\n</Press>\nPress (constants/ui.tsx) liefert Scale- und Haptik-Feedback — die Karte bleibt ohne Schatten.'
           }
         </CodeSample>
       </Subsection>
       <Subsection title="Karten mit unterschiedlicher Typografie">
-        <PrimitiveCard elevation="sm" style={styles.typographyCard}>
+        <PrimitiveCard style={styles.typographyCard}>
           {TYPE_SCALE.map(({ variant, sample }) => (
             <View key={variant} style={styles.typographyRow}>
               <Txt variant="caption" tone="secondary" style={styles.typographyVariantLabel}>
@@ -277,7 +276,7 @@ function SurfaceShowcase() {
         <View style={styles.comparisonGroup}>
           <View style={styles.comparisonExample}>
             <Txt variant="label">Große Hierarchie</Txt>
-            <PrimitiveCard elevation="sm" style={styles.typographyCompositionCard}>
+            <PrimitiveCard style={styles.typographyCompositionCard}>
               <Txt variant="eyebrow">WOCHENZIEL</Txt>
               <Txt variant="title">7 von 10 Aufgaben</Txt>
               <Txt variant="body" tone="secondary">
@@ -287,7 +286,7 @@ function SurfaceShowcase() {
           </View>
           <View style={styles.comparisonExample}>
             <Txt variant="label">Kompakte Hierarchie</Txt>
-            <PrimitiveCard elevation="sm" style={styles.typographyCompositionCard}>
+            <PrimitiveCard style={styles.typographyCompositionCard}>
               <Txt variant="label" tone="secondary">
                 STATUS
               </Txt>
@@ -307,7 +306,7 @@ function SurfaceShowcase() {
         </View>
       </Subsection>
       <Subsection title="Layout- und Basisprimitiven">
-        <PrimitiveCard elevation="sm">
+        <PrimitiveCard>
           <Row justify="space-between">
             <Txt weight="700">Row</Txt>
             <Txt tone="secondary">flex-row</Txt>
@@ -352,11 +351,11 @@ function ShadowProgressCard({
   interactive?: boolean;
   onPress?: () => void;
 }) {
-  const { name: shadowName, style: shadowStyle } = SHADOW_STYLES[variant];
-  const tokenName = `uiShadowStyles.${shadowName}`;
+  const { name: shadowName } = SHADOW_STYLES[variant];
+  const tokenName = `${shadowName} · ohne Schatten`;
 
   const card = (
-    <PrimitiveCard elevation="none" style={[styles.progressCard, shadowStyle]}>
+    <PrimitiveCard style={styles.progressCard}>
       <View style={styles.progressCardRow}>
         <View style={styles.progressCardCopy}>
           <Txt variant="label" tone="secondary" style={styles.progressCardLabel}>

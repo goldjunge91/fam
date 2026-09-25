@@ -11,7 +11,6 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { BUTTON_DEPTH } from '@/components/theme/index';
 import { useGlassAvailable } from '@/components/ui/glass-card';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import { medium as hapticMedium } from '@/lib/platform/haptics';
 
 const ICON_BUTTON_DEPTH = BUTTON_DEPTH / 2;
@@ -72,12 +71,7 @@ export function InventoryIconButton({
     transform: [{ translateY: depth.value }],
   }));
   return (
-    <View
-      style={[
-        styles.outer,
-        active ? uiShadowStyles.none : uiShadowStyles.floatingControlBottom,
-        active && styles.activeOuter,
-      ]}>
+    <View style={[styles.outer, active && styles.activeOuter]}>
       <Animated.View style={faceStyle}>
         <Pressable
           onPress={() => {

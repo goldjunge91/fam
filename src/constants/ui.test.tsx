@@ -445,36 +445,19 @@ describe('core theme UI primitives', () => {
     expect(screen.getByPlaceholderText('Dein Name')).toHaveStyle({ borderColor: '#123456' });
   });
 
-  it.each([
-    ['sm', 'cardBottom'],
-    ['md', 'raisedCardBottom'],
-    ['lg', 'modalBottom'],
-  ] as const)('applies the shared %s Card shadow', async (elevation, shadowStyle) => {
+  it('renders Card without a default shadow', async () => {
     await render(
-      <Card accessibilityLabel="Schattenkarte" accessible elevation={elevation}>
+      <Card accessibilityLabel="Schattenkarte" accessible>
         <Text>Inhalt</Text>
       </Card>,
     );
 
-    expect(screen.getByLabelText('Schattenkarte').props.style).toContain(
-      uiShadowStyles[shadowStyle],
-    );
-  });
-
-  it('keeps an explicitly styled shadow when Card elevation is none', async () => {
-    await render(
-      <Card
-        accessibilityLabel="Karte ohne Standardschatten"
-        accessible
-        elevation="none"
-        style={uiShadowStyles.prominentCard}>
-        <Text>Inhalt</Text>
-      </Card>,
-    );
-
-    expect(screen.getByLabelText('Karte ohne Standardschatten').props.style).toContain(
-      uiShadowStyles.prominentCard,
-    );
+    expect(
+      screen
+        .getByLabelText('Schattenkarte')
+        .props.style.flat()
+        .some((style: { boxShadow?: string }) => style?.boxShadow),
+    ).toBe(false);
   });
 
   it('keeps the product Card composition contract for titles and footers', async () => {
@@ -542,7 +525,7 @@ describe('core theme UI primitives', () => {
     expect(multiline.props.submitBehavior).toBeUndefined();
   });
 
-  it('uses the shared card shadow for a selected surface SegmentedControl option', async () => {
+  it('renders a selected surface SegmentedControl option', async () => {
     await render(
       <SegmentedControl
         label="Darstellung"
@@ -557,7 +540,7 @@ describe('core theme UI primitives', () => {
     );
 
     const selected = screen.getByRole('radio', { name: 'Liste', selected: true });
-    expect(selected.props.style).toContain(uiShadowStyles.cardBottom);
+    expect(selected).toHaveStyle({ backgroundColor: mockColorsLight.backgroundElement });
   });
 
   it('keeps status primitives selectable and renders optional section actions', async () => {
@@ -711,7 +694,6 @@ describe('core theme UI primitives', () => {
     expect(button).toHaveAccessibleName('Favorit');
     expect(button).toHaveStyle({ width: 44, height: 44 });
     expect(typeof button.props.style).not.toBe('function');
-    expect(button.props.style).toContain(uiShadowStyles.floatingControlBottom);
   });
 
   it('clamps explicit compact icon sizes and exposes disabled state', async () => {

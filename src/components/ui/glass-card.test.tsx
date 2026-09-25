@@ -3,8 +3,6 @@ import { isGlassEffectAPIAvailable } from 'expo-glass-effect';
 import type { ReactNode } from 'react';
 import { Text } from 'react-native';
 
-import { uiShadowStyles } from '@/constants/ui-shadow';
-
 import { GlassCard } from './glass-card';
 
 jest.mock('expo-glass-effect', () => {
@@ -28,28 +26,20 @@ describe.each([
     glassApiAvailableMock.mockReturnValue(glassAvailable);
   });
 
-  it.each([
-    ['card', uiShadowStyles.cardBottom],
-    ['prominent', uiShadowStyles.prominentCard],
-    ['floatingControl', uiShadowStyles.floatingControlBottom],
-  ] as const)('applies the explicitly selected %s shadow while tinted', async (shadow, style) => {
+  it('renders without a shadow while tinted', async () => {
     await render(
       <GlassCard
         accessibilityRole="button"
         accessibilityLabel="Schattenkarte"
         glassStyle={{}}
-        shadow={shadow}
         tinted>
         <Text>Inhalt</Text>
       </GlassCard>,
     );
 
     const card = screen.getByLabelText('Schattenkarte');
-    expect(card.props.style).toContain(style);
-    expect(card.props.style).not.toContain(
-      uiShadowStyles.prominentCard === style
-        ? uiShadowStyles.cardBottom
-        : uiShadowStyles.prominentCard,
+    expect(card.props.style.flat().some((style: { boxShadow?: string }) => style?.boxShadow)).toBe(
+      false,
     );
 
     if (glassAvailable) {

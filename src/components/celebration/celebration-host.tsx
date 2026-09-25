@@ -13,7 +13,6 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { font, type Palette, radius } from '@/components/theme';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import {
   type CelebrationBurst,
   subscribeToCelebrations,
@@ -130,13 +129,7 @@ function Badge({ message, colors }: { message: string; colors: Palette }) {
   }));
 
   return (
-    <Animated.View
-      style={[
-        styles.badge,
-        uiShadowStyles.modalBottom,
-        { backgroundColor: colors.shadowSheet },
-        animatedStyle,
-      ]}>
+    <Animated.View style={[styles.badge, { backgroundColor: colors.shadowSheet }, animatedStyle]}>
       <Text style={[styles.badgeText, { color: colors.onAccent }]}>{message}</Text>
     </Animated.View>
   );

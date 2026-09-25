@@ -5,7 +5,6 @@ import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressRing } from '@/components/ui/progress-ring';
 import { Card, Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 
 const styles = StyleSheet.create((theme) => ({
   summaryRow: {
@@ -60,11 +59,7 @@ export function InventorySummaryCard({
     );
 
     return (
-      <Card
-        testID={testID}
-        elevation="none"
-        padded={false}
-        style={[styles.ringCard, uiShadowStyles.prominentCard]}>
+      <Card testID={testID} padded={false} style={styles.ringCard}>
         {content}
       </Card>
     );

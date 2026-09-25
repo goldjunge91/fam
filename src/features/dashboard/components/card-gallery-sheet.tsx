@@ -6,7 +6,6 @@ import { StyleSheet } from 'react-native-unistyles';
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import { type CardSize, getCards } from '@/features/dashboard/registry';
 import { useCardSizes } from '@/features/dashboard/use-card-sizes';
 
@@ -86,7 +85,6 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
               backgroundColor: colors.background,
               paddingBottom: Math.max(insets.bottom, space.xl),
             },
-            uiShadowStyles.bottomSheetTop,
           ]}>
           <View style={styles.handleWrap}>
             <View style={[styles.handle, { backgroundColor: colors.border }]} />

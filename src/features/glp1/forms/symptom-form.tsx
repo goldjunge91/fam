@@ -112,7 +112,7 @@ export function SymptomForm({
   const nausea = watch('nauseaLevel');
 
   return (
-    <Card elevation="none" style={styles.form}>
+    <Card style={styles.form}>
       <Txt variant="label" weight="700">
         {mode === 'edit' ? 'Symptome bearbeiten' : 'Symptom- & Sättigungs-Verlauf'}
       </Txt>
@@ -199,7 +199,7 @@ export function SymptomForm({
         />
       </View>
 
-      <Card padded={false} elevation="none" style={styles.summary}>
+      <Card padded={false} style={styles.summary}>
         <Txt variant="body" tone="secondary">
           Ausgewählt:
         </Txt>

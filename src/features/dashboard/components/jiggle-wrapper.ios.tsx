@@ -14,7 +14,6 @@ import { StyleSheet } from 'react-native-unistyles';
 import { dashboardCardSizes, radius } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import type { CardSize } from '@/features/dashboard/registry';
 
 type JiggleWrapperProps = {
@@ -93,7 +92,6 @@ export function JiggleWrapper({
             {
               backgroundColor: colors.danger,
             },
-            uiShadowStyles.floatingControlBottom,
           ]}>
           <Txt variant="subheading" tone="onAccent" weight="700">
             −
@@ -115,7 +113,6 @@ export function JiggleWrapper({
             {
               backgroundColor: colors.accent,
             },
-            uiShadowStyles.floatingControlBottom,
           ]}>
           <Txt variant="body" tone="onAccent" weight="700">
             ⤢

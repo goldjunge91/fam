@@ -13,7 +13,6 @@ import { StyleSheet } from 'react-native-unistyles';
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Surface, Txt } from '@/constants/ui';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import { debugLog, debugLogEvent } from '@/lib/observability/debug-log';
 import { nativeSpeechRecognitionAdapter } from '../services/native-speech-recognition';
 import { getDeviceSpeechLocale } from '../services/speech-locale';
@@ -216,7 +215,7 @@ export function NaturalLanguageAdditionVoiceOverlay({
           accessibilityRole="button"
           accessibilityLabel="Spracheingabe schließen"
         />
-        <Surface tone="surface" style={[styles.panel, uiShadowStyles.modalBottom]}>
+        <Surface tone="surface" style={styles.panel}>
           <View style={styles.micStage}>
             <Animated.View
               pointerEvents="none"

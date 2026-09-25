@@ -88,7 +88,7 @@ export function InjectionPlanForm({
   const unit = watch('unit');
 
   return (
-    <Card elevation="none" style={styles.form}>
+    <Card style={styles.form}>
       <Txt variant="label" weight="700">
         {mode === 'edit' ? 'Injektionsplan bearbeiten' : 'Injektionsplan anlegen'}
       </Txt>

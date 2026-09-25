@@ -90,12 +90,11 @@ export function EmailVerificationPanel({
   const verification = useEmailVerification({ email, password, onConfirmed });
 
   return (
-    <Card padded={false} elevation="none" style={styles.pendingCard}>
+    <Card padded={false} style={styles.pendingCard}>
       <View style={styles.heroContainer}>
         <Surface tone="accent" style={styles.pulseRing} />
         <Card
           padded={false}
-          elevation="sm"
           style={[styles.iconCircle, { backgroundColor: colors.accent, borderWidth: 0 }]}>
           <Txt variant="glyph" style={styles.iconGlyph}>
             ✉️

@@ -37,7 +37,7 @@ export function PlusAndAiPromoCard() {
 
   return (
     <Press onPress={() => router.push('/settings/plus-and-ai')} accessibilityRole="button">
-      <Card padded={false} elevation="md" style={styles.card}>
+      <Card padded={false} style={styles.card}>
         <View
           testID="plus-and-ai-promo-surface"
           style={[styles.cardSurface, { backgroundColor: colors.premiumGradientMid }]}>
