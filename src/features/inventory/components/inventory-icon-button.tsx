@@ -11,6 +11,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { BUTTON_DEPTH, motion } from '@/components/theme/index';
 import { useGlassAvailable } from '@/components/ui/glass-card';
+import { PRESS_SPRING } from '@/constants/ui';
 import { medium as hapticMedium } from '@/lib/platform/haptics';
 
 const ICON_BUTTON_DEPTH = BUTTON_DEPTH / 2;
@@ -85,7 +86,7 @@ export function InventoryIconButton({
             depth.value = withTiming(ICON_BUTTON_DEPTH, { duration: motion.pressIn });
           }}
           onPressOut={() => {
-            depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
+            depth.value = withSpring(0, PRESS_SPRING);
           }}
           style={[styles.face, active && styles.activeFace]}>
           {canUseGlass && !active ? (

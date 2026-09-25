@@ -52,7 +52,7 @@ import {
 } from '@/lib/platform/haptics';
 
 // Springs tuned for a satisfying, Duolingo-ish "pop" on press/release.
-const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;
+export const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;
 const POP_SPRING = { damping: 9, stiffness: 380, mass: 0.5 } as const;
 
 /** Provider identity colors used by branded authentication icons. */

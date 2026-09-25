@@ -10,7 +10,7 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import { BUTTON_DEPTH, motion } from '@/components/theme/index';
-import { floatingActionButtonStyles, Press } from '@/constants/ui';
+import { floatingActionButtonStyles, PRESS_SPRING, Press } from '@/constants/ui';
 
 type FloatingActionButtonProps = {
   label: string;
@@ -49,9 +49,7 @@ export function FloatingActionButton({
             }
           }}
           onPressOut={() => {
-            depth.value = reducedMotion
-              ? 0
-              : withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
+            depth.value = reducedMotion ? 0 : withSpring(0, PRESS_SPRING);
           }}>
           {children}
         </Press>

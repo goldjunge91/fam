@@ -11,7 +11,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { BUTTON_DEPTH, motion } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Press, providerColors } from '@/constants/ui';
+import { PRESS_SPRING, Press, providerColors } from '@/constants/ui';
 
 const styles = StyleSheet.create((theme) => ({
   depth: {
@@ -34,8 +34,6 @@ const styles = StyleSheet.create((theme) => ({
     overflow: 'hidden',
   },
 }));
-
-const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;
 
 type AuthProvider = 'apple' | 'google';
 

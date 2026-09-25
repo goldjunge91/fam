@@ -9,7 +9,7 @@ import Animated, {
 import { StyleSheet } from 'react-native-unistyles';
 
 import { BUTTON_DEPTH, motion, space } from '@/components/theme/index';
-import { Press, Txt } from '@/constants/ui';
+import { PRESS_SPRING, Press, Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 
 interface InventoryTabBarProps {
@@ -128,7 +128,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
             }}
             onPressOut={() => {
               setTriggerPressed(false);
-              depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
+              depth.value = withSpring(0, PRESS_SPRING);
             }}
             accessibilityRole="button"
             accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}
