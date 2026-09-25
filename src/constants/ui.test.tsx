@@ -10,7 +10,6 @@ import {
   radius,
   space,
 } from '@/components/theme/index';
-import { uiShadowStyles } from './ui-shadow';
 
 const mockAccent = mockMakeAccent(mockColorsLight);
 
@@ -156,6 +155,7 @@ describe('core theme UI primitives', () => {
 
     const button = screen.getByRole('button', { name: 'Speichern' });
     expect(button).toBeEnabled();
+    expect(button).toHaveStyle({ borderCurve: 'continuous' });
     await user.press(button);
 
     expect(onPress).toHaveBeenCalledTimes(1);
@@ -581,6 +581,20 @@ describe('core theme UI primitives', () => {
     expect(onAction).toHaveBeenCalledTimes(2);
     expect(screen.getByText('Noch keine Einträge')).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Eintrag anlegen' })).toBeOnTheScreen();
+  });
+
+  it('exposes Pill selection and disabled state to assistive technology', async () => {
+    await render(
+      <>
+        <Pill label="Ausgewählt" selected onPress={jest.fn()} />
+        <Pill label="Deaktiviert" selected={false} disabled onPress={jest.fn()} />
+      </>,
+    );
+
+    expect(screen.getByRole('button', { name: 'Ausgewählt', selected: true })).toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', { name: 'Deaktiviert', selected: false, disabled: true }),
+    ).toBeOnTheScreen();
   });
 
   it('renders an eyebrow, a selected title variant and a long title', async () => {

@@ -31,9 +31,15 @@ Lokales Layout verwendet native `style`-Props und Unistyles-Theme-Callbacks.
   `@expo/ui` bleibt ausschließlich eine native Vergleichsvariante im Settings-
   Design-System und wird nicht aus Produkt-Features importiert. Props wie `gap`
   oder `labelStyle` gehören nicht zur kanonischen API.
-- `Pill`, Filter, `Badge`, `QuantityStepper` und domänenspezifische Selects folgen
-  denselben Zustands-, Farb- und Interaktionsregeln. Sie müssen deshalb nicht
-  dieselbe Komponente oder Accessibility-Rolle sein.
+- `Pill` aus `ui.tsx` ist ein Button mit zugänglichem Namen aus `label` und
+  meldet `disabled` sowie – wenn `selected` gesetzt ist – den ausgewählten
+  Zustand. Es stellt keine Auswahlgruppe dar. Für gruppierte Einzelauswahl ist
+  `SegmentedControl` vorgesehen; Mehrfachfilter müssen ihre ausgewählten
+  Zustände ebenfalls an Assistenztechnologien melden.
+- `Badge` bleibt informativ und ist kein Button. `QuantityStepper`, Filter und
+  domänenspezifische Selects folgen jeweils den zu ihrer Funktion passenden
+  Zustands-, Farb- und Interaktionsregeln; sie brauchen deshalb nicht dieselbe
+  Komponente oder Accessibility-Rolle.
 
 ## Gemeinsamer Eingabevertrag
 

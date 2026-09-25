@@ -34,13 +34,13 @@ Adapter bleibt kein zulässiger Endzustand.
 
 Größen bleiben im kanonischen Button `sm`, `md`, `lg`. `md` ist die aktuelle
 Baseline und der Default: `minHeight: 44`, `minWidth: 44`,
-`paddingVertical: 13`, `paddingHorizontal: 18`, `radius.md: 16`,
-`font.sizes.base` (`rs(16)`) und Gewicht `700`. Für den normalen, nicht als Link
-gerenderten Button hatte die alte `default`-Größe `minHeight: 44`, keine
-explizite `minWidth`, `paddingVertical: space.md` (`rs(12)`),
-`paddingHorizontal: space.lg` (`rs(16)`), denselben Basistext `rs(16)`,
-Radius `16` und Gewicht `700`. Bei der Referenzbreite 393 entsprechen die
-historischen Abstände daher 12/16 und die aktuelle `md`-Baseline 13/18.
+`paddingVertical: space.md` (`rs(12)`), `paddingHorizontal: space.xl` (`rs(20)`),
+`radius.md` (16), `font.sizes.base` (`rs(16)`) und Gewicht `700`. Für den
+normalen, nicht als Link gerenderten Button hatte die alte `default`-Größe
+`minHeight: 44`, keine explizite `minWidth`, `paddingVertical: space.md`
+(`rs(12)`), `paddingHorizontal: space.lg` (`rs(16)`), denselben Basistext
+`rs(16)`, Radius 16 und Gewicht `700`. Bei Referenzbreite 393 entsprechen die
+historischen Abstände daher 12/16 und die aktuelle `md`-Baseline 12/20.
 Gleiche Variante und Größe haben in Foundation und Showcase identische Rezepte.
 Nicht jede Aktion auf einem Screen verwendet `primary`. Ein `accentKey` ist
 keine freie Farbwahl.
@@ -58,21 +58,17 @@ Button umgesetzt und darf den Tiefeneffekt entfernen. Sie erzeugt keine zweite
 Buttonfamilie. Bei Reduced Motion entfallen
 Federüberschwingen und Skalierung. Ein sofortiger Zustand oder ruhiges Farb-/Konturfeedback
 bleibt erhalten; die Systempräferenz muss über die reale Implementierung wirken.
-Die vollständige Face-Basis, einschließlich der `secondary`-Fläche, liegt als
-statischer Style direkt am interaktiven `Pressable`. Sie darf nicht nur über eine
-dynamische `Pressable`-Style-Funktion bereitgestellt werden, weil sonst auf der
-betroffenen Renderstrecke der äußere Tiefen-Wrapper sichtbar bleibt, während
-sekundäre Buttons als unformatierter Text erscheinen.
+Die gemeinsame `Press`-Komponente aus `ui.tsx` umschließt `Pressable` mit einer
+Reanimated-Skalierung und bildet Reduced Motion über eine ruhige Opazität ab.
+Ihre `style`-Prop kann statisch oder eine Style-Funktion sein; bei `selected`-
+und `success`-Flächen kombiniert `Press` diese mit dem semantischen Style.
+Der kanonische `Button` steuert Druckweg und Reduced-Motion-Feedback separat
+über `onPressIn`/`onPressOut` und seine animierte Vorderseite.
 
-Das gilt für jeden interaktiven `Pressable`, nicht nur für den kanonischen Button:
-Größe, Hintergrund und Radius liegen immer im statischen Style. Eine
-`style={({ pressed }) => [...]}`-Funktion wird auf dem Gerät nicht angewendet,
-während Jest sie korrekt auflöst; Tests bleiben deshalb grün, obwohl die Fläche
-auf dem Gerät fehlt. Belegter Fall: Der Profilbutton im Dashboard-Header war
-nach der Umstellung auf eine Style-Funktion unsichtbar (nur weiße Initialen bzw.
-ein 0 × 0 Bild ohne Fläche). Pressed-Feedback kommt aus `Press` in `ui.tsx`
-(Skalierung und Haptik) mit statischem Style-Array. Nachweis für solche
-Änderungen ist ein Geräte-Screenshot, kein Unit-Test.
+Eine frühere pauschale Aussage, dynamische `Pressable`-Style-Funktionen würden
+auf Geräten nicht angewendet, ist keine Regel für das aktuelle Unistyles-Setup.
+Die jetzige Implementierung leitet solche Funktionen weiter; ihre Wirkung muss
+bei Änderungen an der jeweiligen nativen Renderstrecke gezielt geprüft werden.
 
 Für den gemeinsamen Touch-Slice gilt diese Grenze konkret für `QuantityStepper`,
 `FilterChipBar`, `InlineSelect`, `IconButton` und `HeaderIconButton`. Die ersten
@@ -97,10 +93,10 @@ mindestens 44 Punkten sicherstellt.
   an das tatsächliche interaktive Element weitergegeben.
 - Abbruch oder Disabled-Wechsel hinterlassen keine dauerhaft gedrückte Fläche.
   Adapter erzeugen keine doppelte Aktivierung, Animation oder Haptik.
-- Haptik läuft ausschließlich über `src/lib/haptics.ts`: Der kanonische Button
-  verwendet standardmäßig Medium, Auswahl Selection, generisches Press Light.
-  Vorhandene dokumentierte
-  Overrides und Haptikpräferenzen bleiben wirksam.
+- Haptik läuft ausschließlich über `src/lib/platform/haptics.ts`: Der
+  kanonische Button verwendet standardmäßig Medium, Auswahl Selection,
+  generisches Press Light. Vorhandene dokumentierte Overrides und
+  Haptikpräferenzen bleiben wirksam.
 
 `Press success` ist die zentrale Success-Flächenrezeptur für kompakte Aktionen,
 die einen bestätigten Status oder eine positive Abschlussaktion darstellen.

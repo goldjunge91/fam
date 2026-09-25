@@ -96,6 +96,7 @@ type FeatherName = React.ComponentProps<typeof Feather>['name'];
 export const iconButtonStyles = StyleSheet.create((theme) => ({
   header: {
     borderRadius: theme.radius.sm,
+    borderCurve: 'continuous',
     backgroundColor: theme.backgroundElement,
     borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
@@ -106,6 +107,7 @@ export const iconButtonStyles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: theme.radius.sm,
+    borderCurve: 'continuous',
     backgroundColor: theme.backgroundSoft,
   },
 }));
@@ -137,6 +139,7 @@ export const compactActionButtonStyles = StyleSheet.create((theme) => ({
     minHeight: 34,
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: theme.radius.sm,
+    borderCurve: 'continuous',
     paddingHorizontal: theme.space.lg,
     flexDirection: 'row',
     alignItems: 'center',
@@ -153,6 +156,7 @@ export const compactActionButtonStyles = StyleSheet.create((theme) => ({
     width: 7,
     height: 1.5,
     borderRadius: radius.micro,
+    borderCurve: 'continuous',
     backgroundColor: theme.textSecondary,
   },
 }));
@@ -162,6 +166,7 @@ export const backButtonStyles = StyleSheet.create((theme) => ({
     width: 45,
     height: 45,
     borderRadius: theme.radius.lg,
+    borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.backgroundSoft,
@@ -180,6 +185,7 @@ export const profileButtonStyles = StyleSheet.create((theme) => ({
     width: 58,
     height: 58,
     borderRadius: theme.radius.famLarge,
+    borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -224,6 +230,7 @@ export const onboardingStyles = StyleSheet.create((theme) => ({
     borderWidth: theme.borderWidth.base,
     borderColor: theme.success,
     borderRadius: theme.radius.sm,
+    borderCurve: 'continuous',
     backgroundColor: withAlpha(theme.success, 0.1),
   },
 }));
@@ -243,6 +250,7 @@ const cardStyles = StyleSheet.create((theme) => ({
   base: {
     backgroundColor: theme.backgroundElement,
     borderRadius: radius.lg,
+    borderCurve: 'continuous',
     borderWidth: 1,
     borderColor: theme.border,
   },
@@ -266,12 +274,14 @@ const pressSelectionStyles = StyleSheet.create((theme) => ({
     borderColor: theme.border,
     borderWidth: theme.borderWidth.base,
     borderRadius: theme.radius.md,
+    borderCurve: 'continuous',
   },
   selected: {
     backgroundColor: theme.backgroundSoft,
     borderColor: theme.accent,
     borderWidth: theme.borderWidth.base,
     borderRadius: theme.radius.md,
+    borderCurve: 'continuous',
   },
 }));
 
@@ -279,12 +289,14 @@ const pressSuccessStyles = StyleSheet.create((theme) => ({
   surface: {
     backgroundColor: theme.success,
     borderRadius: theme.radius.lg,
+    borderCurve: 'continuous',
     paddingHorizontal: theme.space.lg,
     paddingVertical: theme.space.xs,
   },
   field: {
     backgroundColor: theme.success,
     borderRadius: theme.radius.lg,
+    borderCurve: 'continuous',
   },
   foreground: {
     color: theme.onAccent,
@@ -764,6 +776,7 @@ export function Button({
   const hasDepth = isFilled && !flat;
   const buttonFaceStyle: ViewStyle = {
     borderRadius: variant === 'link' ? radius.sm : radius.md,
+    borderCurve: 'continuous',
     backgroundColor: main,
     alignItems: 'center',
     justifyContent: 'center',
@@ -781,6 +794,7 @@ export function Button({
       <View
         style={{
           borderRadius: radius.md,
+          borderCurve: 'continuous',
           backgroundColor: hasDepth ? shade : 'transparent',
           paddingBottom: hasDepth ? BUTTON_DEPTH : 0,
         }}>
@@ -954,6 +968,12 @@ export function Pill({
       haptic="selection"
       onPress={onPress}
       disabled={disabled}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      accessibilityState={{
+        disabled: Boolean(disabled),
+        ...(selected === undefined ? {} : { selected }),
+      }}
       style={{
         flexDirection: 'row',
         alignItems: 'center',
@@ -1224,6 +1244,7 @@ const controlStyles = StyleSheet.create((theme) => ({
     alignItems: 'stretch',
     backgroundColor: theme.backgroundSoft,
     borderRadius: radius.md,
+    borderCurve: 'continuous',
     padding: space.xs,
     gap: space.xs,
   },
@@ -1233,6 +1254,7 @@ const controlStyles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
     minHeight: 44,
     borderRadius: radius.sm,
+    borderCurve: 'continuous',
     paddingHorizontal: space.sm,
   },
   segmentItemDefault: {
@@ -1267,6 +1289,7 @@ const controlStyles = StyleSheet.create((theme) => ({
     borderWidth: borderWidth.strong,
     borderColor: theme.border,
     borderRadius: radius.md,
+    borderCurve: 'continuous',
     paddingHorizontal: space.lg,
     paddingVertical: space.md,
     fontSize: font.sizes.base,

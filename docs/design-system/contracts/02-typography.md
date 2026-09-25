@@ -3,29 +3,36 @@
 ## Zweck und Zuständigkeit
 
 Eine `Txt`-Variante bündelt Schriftgröße, Zeilenhöhe, Gewicht und Standardton.
-Schriftmaße, Gewichte und vorhandene Fontfamilien (`font`, `Fonts`) stammen aus
-`index.ts`. Die Anwendung auf Text- und Komponentenrollen gehört nach `ui.tsx`.
-Tokens werden zentral definiert, `Txt` mappt sie auf öffentliche Varianten und
-die aktive Palette kommt aus dem Theme-Kontext.
+Die Skalenwerte (`font`, `Fonts`) liegen in `src/components/theme/index.ts`;
+`ui.tsx` bildet sie in `Txt` auf öffentliche Rollen und die aktive Palette ab.
+Im aktuellen `TXT`-Register greifen sieben Varianten auf `font.sizes` und
+`font.lineHeights` zurück. `brand`, `navigation`, `eyebrow` und `glyph` legen
+ihre Maße direkt in `ui.tsx` fest; dort sind derzeit auch die Gewichte aller
+Varianten angegeben.
 
-## Verbindliche Basisskala
+## Öffentliche Varianten und aktuelle Maße
 
-Die folgenden Werte gelten in logischen Einheiten bei Systemschriftfaktor 1,0:
+Die folgenden Werte gelten bei Referenzbreite 393 und Systemschriftfaktor 1,0.
+`rs()`-basierte Theme-Werte passen sich begrenzt an die Fensterbreite an.
 
-| Variante | Größe / Zeilenhöhe | Gewicht | Zweck |
-| --- | ---: | ---: | --- |
-| `display` | 48 / 52 | 800 | einzelne große Kennzahl oder hervorgehobener Text |
-| `title` | 32 / 44 | 800 | Screen- und große Bereichstitel |
-| `heading` | 20 / 26 | 700 | Abschnittsüberschrift |
-| `subheading` | 17 / 24 | 700 | untergeordnete Überschrift |
-| `body` | 16 / 22 | 400 | normaler Inhalt |
-| `label` | 13 / 17 | 600 | Beschriftung und Link |
-| `caption` | 12 / 15 | 500 | Metadaten und kleine Hinweise |
+| Variante | Größe / Zeilenhöhe | Gewicht | Basiston | Quelle der Maße |
+| --- | ---: | ---: | --- | --- |
+| `display` | 48 / 52 | 800 | `text` | `font.sizes.xxxl`, `font.lineHeights.display` |
+| `title` | 32 / 44 | 800 | `text` | `font.sizes.xxl`, `font.lineHeights.title` |
+| `brand` | 27 / 34 | 600 | `text` | direkt in `ui.tsx` |
+| `heading` | 20 / 26 | 700 | `text` | `font.sizes.lg`, `font.lineHeights.heading` |
+| `subheading` | 17 / 24 | 700 | `text` | `font.sizes.md`, `font.lineHeights.subheading` |
+| `body` | 16 / 22 | 400 | `text` | `font.sizes.base`, `font.lineHeights.body` |
+| `navigation` | 17 / 21 | 400 | `text` | direkt in `ui.tsx` |
+| `label` | 13 / 17 | 600 | `text` | `font.sizes.sm`, `font.lineHeights.label` |
+| `caption` | 12 / 15 | 500 | `text` | `font.sizes.xs`, `font.lineHeights.caption` |
+| `eyebrow` | 12 / 15 | 400 | `textSecondary` | direkt in `ui.tsx`, letter spacing 0,76 |
+| `glyph` | 22 / 26 | 400 | `textSecondary` | direkt in `ui.tsx` |
 
-Die sieben öffentlichen Varianten bleiben unverändert. Komponenteninterne
-Beschriftungen, Eingaben und Kennzahlen können eigene zentrale Rezepte besitzen,
-ohne neue öffentliche `Txt`-Varianten einzuführen. Sie werden nicht lokal aus
-Schriftgröße, Gewicht und Farbe zusammengesetzt.
+`TxtVariant` exportiert elf öffentliche Varianten. Die Tabelle beschreibt den
+aktuellen Stand in `ui.tsx` und `index.ts`; sie erfindet keine zusätzlichen
+Varianten. Wiederkehrende Textrollen werden über diese Varianten oder zentrale
+Komponentenrezepte ausgedrückt, nicht lokal pro Screen zusammengesetzt.
 
 ## Begrenzte Skalierung, Systemschrift und verfügbare Breite
 
@@ -98,7 +105,9 @@ eines Screens. Die Zeilenhöhe kann Glyphen abschneiden und umgeht das Rezept.
 
 ## Nachweis
 
-Die Referenz zeigt alle sieben Varianten und unterstützten Töne in Light/Dark.
-Tokenprüfungen belegen die Basisskala. Native Prüfung mit normaler und großer
-Systemschrift belegt Umbruch, vollständige Glyphen und erreichbare Aktionen.
-Rotation und Resize dürfen die Basisschriftgröße nicht verändern.
+Die Referenz zeigt alle elf Varianten und unterstützten Töne in Light/Dark.
+Tokenprüfungen belegen die in `index.ts` gespeicherten Werte; direkt in `ui.tsx`
+definierte Variantenmaße sind in der Tabelle ausgewiesen. Native Prüfung mit
+normaler und großer Systemschrift belegt Umbruch, vollständige Glyphen und
+erreichbare Aktionen. Rotation und Resize dürfen die Basisschriftgröße nicht
+verändern.

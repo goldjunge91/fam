@@ -12,8 +12,14 @@ UI-Owner neben `ui.tsx` und exportiert ausschließlich fertige `uiShadowStyles`.
 
 ## Form und Tiefe
 
-- Radien wählen die zentralen Werte von `radius.sm` bis `radius.pill`.
-  Wiederkehrende neue Formen brauchen eine zentrale Entscheidung.
+- Die Radien aus `index.ts` sind `micro` (2), `s` (4), `xs` (8), `sm` (12),
+  `md` (16), `lg` (20), `xl` (26), `xxl` (32), `famLarge` (28) und `pill`
+  (999). Wiederkehrende neue Formen brauchen eine zentrale Entscheidung.
+- Nicht kapselartige Radien werden auf nativen Flächen mit
+  `borderCurve: 'continuous'` kombiniert. Die nicht-kapselartigen Radien in
+  `ui.tsx` setzen diese Kurve; pill- und kreisförmige Geometrien behalten ihre
+  jeweilige Rundung. `floatingActionButtonStyles.face` behält die explizite
+  Kurve ebenfalls bei.
 - Konturstärken wählen die zentralen Werte `borderWidth.base` (1,5 Punkte) für
   normale Konturen und `borderWidth.strong` (2 Punkte) für betonte Konturen.
   Features legen keine eigenen wiederkehrenden Konturstärken an.
