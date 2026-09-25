@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import Animated, { Easing, Keyframe } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { radius } from '@/components/theme/index';
+import { Colors, radius } from '@/components/theme/index';
 
 const DURATION = 300;
 
@@ -94,7 +94,10 @@ export function AnimatedIcon() {
       </Animated.View>
 
       <Animated.View entering={keyframe.duration(DURATION)} style={styles.expoLogoBackground}>
-        <LinearGradient colors={['#3c9ffe', '#0274df']} style={styles.expoLogoBackground} />
+        <LinearGradient
+          colors={[Colors.light.premiumGradientStart, Colors.light.premiumGradientEnd]}
+          style={styles.expoLogoBackground}
+        />
       </Animated.View>
 
       <Animated.View style={styles.logoContainer} entering={logoKeyframe.duration(DURATION)}>

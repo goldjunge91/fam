@@ -468,7 +468,7 @@ const styles = StyleSheet.create({
   hotspotsOverlay: { position: 'absolute', zIndex: 1 },
   hotspotToggle: {
     position: 'absolute',
-    left: 16,
+    left: space.lg,
     minHeight: 36,
     paddingHorizontal: space.md,
     borderRadius: radius.lg,
@@ -477,7 +477,7 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     position: 'absolute',
-    right: 16,
+    right: space.lg,
     width: 36,
     height: 36,
     borderRadius: radius.pill,
@@ -528,8 +528,8 @@ const styles = StyleSheet.create({
   productCrop: { alignSelf: 'center', overflow: 'hidden', borderRadius: radius.xs / 2 },
   sheetClose: {
     position: 'absolute',
-    top: 18,
-    right: 18,
+    top: space.lg + space.xs / 2,
+    right: space.lg + space.xs / 2,
     width: 52,
     height: 52,
     borderRadius: radius.famLarge,

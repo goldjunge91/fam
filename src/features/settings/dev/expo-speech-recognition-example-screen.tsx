@@ -11,6 +11,7 @@ import { useRef, useState } from 'react';
 import { Platform, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
+import { space } from '@/components/theme/index';
 import { Card } from '@/components/ui/card';
 import { Button, Txt } from '@/constants/ui';
 import { debugLog } from '@/lib/observability/debug-log';
@@ -153,11 +154,11 @@ export function ExpoSpeechRecognitionExampleScreen() {
       </Card>
 
       <Card title="Offizieller Startpfad">
-        <View style={{ gap: 12 }}>
+        <View style={{ gap: space.md }}>
           {status === 'idle' ? (
             <Button title="Erkennung starten" onPress={() => void startListening()} full />
           ) : (
-            <View style={{ gap: 12 }}>
+            <View style={{ gap: space.md }}>
               <Button
                 title="Stop"
                 disabled={status !== 'recognizing'}

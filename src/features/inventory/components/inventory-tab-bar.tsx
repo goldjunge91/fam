@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { radius } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Press, Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
@@ -31,16 +31,16 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'space-between',
     // GlassView has no CSS interop; keep the original 8/14/15pt geometry.
     gap: theme.space.sm,
-    paddingHorizontal: theme.space.md + 2,
-    paddingVertical: theme.space.lg - 1,
+    paddingHorizontal: theme.space.md + theme.space.xs / 2,
+    paddingVertical: theme.space.lg - theme.space.xs / 4,
   },
   triggerFallback: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: theme.space.sm,
-    paddingHorizontal: theme.space.md + 2,
-    paddingVertical: theme.space.lg - 1,
+    paddingHorizontal: theme.space.md + theme.space.xs / 2,
+    paddingVertical: theme.space.lg - theme.space.xs / 4,
   },
   chevron: {
     width: 10,
@@ -48,7 +48,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   chevronLine: {
     position: 'absolute',
-    top: 2,
+    top: space.xs / 2,
     width: 6,
     height: 1.5,
     borderRadius: radius.micro,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create((theme) => ({
     borderColor: theme.border,
     borderWidth: StyleSheet.hairlineWidth,
     // Keep the retired control-lg geometry (14pt) in the central radius scale.
-    borderRadius: theme.radius.sm + 2,
+    borderRadius: theme.radius.sm + theme.radius.micro,
     overflow: 'hidden',
   },
   option: {
@@ -110,7 +110,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
     // die laeuft asynchron nach und schlaegt in Tests (kein natives Layout)
     // ganz aus.
     triggerRef.current?.measureInWindow((x, y, _width, height) => {
-      setMenuPosition({ top: y + height + 4, left: x, width: 220 });
+      setMenuPosition({ top: y + height + space.xs, left: x, width: 220 });
     });
     setIsOpen(true);
   }

@@ -5,7 +5,6 @@ import { act, type ReactNode } from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { space } from '@/components/theme';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import { DashboardScreen } from '@/features/dashboard/dashboard-screen';
 import {
   getDailyMealPlanEmptyArtworkVariant,
@@ -411,13 +410,11 @@ describe('DashboardScreen — Streak-Karte', () => {
     expect(screen.getByLabelText(/Streak:/)).toBeOnTheScreen();
   });
 
-  it('verwendet für Dashboard-Karten denselben markanten Schatten wie der Vorrat', async () => {
+  it('zeigt Dashboard-Karten ohne Schatten', async () => {
     await renderScreen();
 
     const streakCard = screen.getByLabelText(/Streak:/);
-    const expectedShadow = uiShadowStyles.prominentCard.boxShadow;
-
-    expect(StyleSheet.flatten(streakCard.props.style).boxShadow).toBe(expectedShadow);
+    expect(StyleSheet.flatten(streakCard.props.style)).not.toHaveProperty('boxShadow');
   });
 });
 

@@ -344,8 +344,8 @@ describe('core theme UI primitives', () => {
         borderRadius: radius.md,
         minHeight: 44,
         minWidth: 44,
-        paddingHorizontal: 18,
-        paddingVertical: 13,
+        paddingHorizontal: space.xl,
+        paddingVertical: space.md,
       }),
     );
     expect(secondary).toHaveStyle({
@@ -353,8 +353,8 @@ describe('core theme UI primitives', () => {
       borderRadius: radius.md,
       minHeight: 44,
       minWidth: 44,
-      paddingHorizontal: 18,
-      paddingVertical: 13,
+      paddingHorizontal: space.xl,
+      paddingVertical: space.md,
     });
     expect(screen.getByText('Sekundär')).toHaveStyle({
       color: mockColorsLight.text,
@@ -384,8 +384,8 @@ describe('core theme UI primitives', () => {
     expect(button).toHaveStyle({
       minHeight: 44,
       minWidth: 44,
-      paddingHorizontal: 18,
-      paddingVertical: 13,
+      paddingHorizontal: space.xl,
+      paddingVertical: space.md,
       borderRadius: radius.md,
     });
     expect(screen.getByText('Mittlere Aktion')).toHaveStyle({

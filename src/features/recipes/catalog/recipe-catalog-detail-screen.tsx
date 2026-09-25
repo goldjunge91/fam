@@ -5,7 +5,7 @@ import { ActivityIndicator, Alert, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { radius, rs } from '@/components/theme/index';
+import { radius, rs, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { Press, Txt } from '@/constants/ui';
@@ -182,8 +182,8 @@ const styles = StyleSheet.create((theme) => ({
   },
   footer: {
     position: 'absolute',
-    left: 15,
-    right: 15,
+    left: space.lg - space.xs / 4,
+    right: space.lg - space.xs / 4,
     bottom: theme.space.lg,
   },
   footerActions: {

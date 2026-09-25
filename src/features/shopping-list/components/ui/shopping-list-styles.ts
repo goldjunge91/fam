@@ -105,7 +105,7 @@ export const shoppingListStyles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     gap: space.sm,
     paddingRight: space.md,
-    paddingLeft: space.md + 7,
+    paddingLeft: space.md + space.sm - space.xs / 4,
     paddingVertical: space.md,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,

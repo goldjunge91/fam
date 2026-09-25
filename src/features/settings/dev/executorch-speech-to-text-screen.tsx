@@ -9,6 +9,7 @@ import {
 } from 'react-native-executorch';
 
 import { Screen } from '@/components/layout/screen';
+import { space } from '@/components/theme/index';
 import { Card } from '@/components/ui/card';
 import { Button, Txt } from '@/constants/ui';
 import {
@@ -105,7 +106,7 @@ export function ExecuTorchSpeechToTextScreen() {
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon">
       <Card title="Modell">
-        <View style={{ gap: 12 }}>
+        <View style={{ gap: space.md }}>
           <Txt variant="body">{modelStatus}</Txt>
           {!modelRequested ? (
             <Button title="Whisper-Modell laden" onPress={() => setModelRequested(true)} full />
@@ -120,7 +121,7 @@ export function ExecuTorchSpeechToTextScreen() {
       </Card>
 
       <Card title="Mikrofon">
-        <View style={{ gap: 12 }}>
+        <View style={{ gap: space.md }}>
           {error ? <Txt variant="body">{error}</Txt> : null}
           <Txt variant="body">
             Whisper verwendet den Gerätesprachcode „{speechLocaleToLanguageCode(speechLocale)}“.

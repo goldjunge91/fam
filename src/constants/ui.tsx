@@ -43,7 +43,6 @@ import {
   withAlpha,
 } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-// import { uiShadowStyles } from '@/constants/ui-shadow';
 import {
   heavy as hapticHeavy,
   light as hapticLight,
@@ -65,13 +64,6 @@ export const providerColors = {
     red: '#EA4335',
   },
 } as const;
-
-// TODO unklar ob wir es benötigen
-// const cardShadowStyles = {
-//   sm: uiShadowStyles.cardBottom,
-//   md: uiShadowStyles.raisedCardBottom,
-//   lg: uiShadowStyles.modalBottom,
-// } as const;
 
 type HapticKind = 'none' | 'light' | 'medium' | 'heavy' | 'selection' | 'success';
 function fireHaptic(kind: HapticKind) {
@@ -539,28 +531,17 @@ export function Card({
   style,
   padded = true,
   soft = false,
-  // TODO unklar warum das hier ist
-  // elevation = 'sm',
   children,
   ...rest
 }: Omit<ViewProps, 'style'> & {
   padded?: boolean;
   soft?: boolean;
-  // TODO unklar wof+ür
-  // elevation?: 'none' | 'sm' | 'md' | 'lg';
   style?: StyleProp<ViewStyle>;
 }) {
   return (
     <View
       {...rest}
-      style={[
-        cardStyles.base,
-        soft && cardStyles.soft,
-        padded && cardStyles.padded,
-        // TODO unklar ob das wirklich für schatten ist.
-        // elevation !== 'none' && cardShadowStyles[elevation],
-        style,
-      ]}>
+      style={[cardStyles.base, soft && cardStyles.soft, padded && cardStyles.padded, style]}>
       {children}
     </View>
   );
@@ -900,11 +881,6 @@ export function IconButton({
           justifyContent: 'center',
           opacity: disabled ? 0.5 : 1,
         },
-        // TODO floatingControlBottom ist nicht sichtbar bzw hier der falsche einsatz
-        // uiShadowStyles.floatingControlBottom,
-        //         {
-        //   boxShadow: '0px 6px 14px rgba(220, 0, 0, 0.8)',
-        // },
         style,
       ]}>
       <Feather name={icon} size={iconSize} color={fg} />
@@ -1050,17 +1026,6 @@ export function SegmentedControl<T extends string>({
               styles.segmentItem,
               size === 'compact' ? styles.segmentItemCompact : styles.segmentItemDefault,
               active && activeStyle,
-              // TODO uiShadowStyles.cardBottom ist hier das falsche
-              // active && appearance === 'surface' && uiShadowStyles.cardBottom,
-              active &&
-                appearance === 'surface' &&
-                [
-                  // TODO behalten mit wir wissen wie man farbe hinzufügt
-                  // uiShadowStyles.cardBottom,
-                  // {
-                  //   boxShadow: '0px 2px 6px rgba(220, 0, 0, 0.8)',
-                  // },
-                ],
               option.disabled && styles.segmentItemDisabled,
             ]}>
             <Txt

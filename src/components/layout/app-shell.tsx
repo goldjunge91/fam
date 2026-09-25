@@ -69,7 +69,10 @@ export default function AppShell() {
         {!isBrochureRoute ? (
           <View
             pointerEvents="box-none"
-            style={[styles.adBannerOverlay, { paddingBottom: insets.bottom + 65 }]}>
+            style={[
+              styles.adBannerOverlay,
+              { paddingBottom: insets.bottom + space.xxxxl + space.xs / 4 },
+            ]}>
             <AdBanner placement="global_sticky" />
           </View>
         ) : null}

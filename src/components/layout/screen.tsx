@@ -266,7 +266,7 @@ export function Screen({
                   onRefresh={onRefresh}
                   tintColor={colors.accent}
                   colors={[colors.accent]}
-                  progressViewOffset={insets.top + 4}
+                  progressViewOffset={insets.top + space.xs}
                 />
               ) : undefined
             }>

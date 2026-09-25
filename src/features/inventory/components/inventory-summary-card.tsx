@@ -9,8 +9,7 @@ import { Card, Txt } from '@/constants/ui';
 const styles = StyleSheet.create((theme) => ({
   summaryRow: {
     flexDirection: 'row',
-    // Preserve the tuned 14pt gap between the two rings.
-    gap: theme.space.md + 2,
+    gap: theme.space.md + theme.space.xs / 2,
   },
   ringCard: {
     flex: 1,
@@ -20,7 +19,7 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
     gap: theme.space.sm,
     paddingHorizontal: theme.space.lg,
-    paddingVertical: theme.space.lg + 2,
+    paddingVertical: theme.space.lg + theme.space.xs / 2,
   },
 }));
 

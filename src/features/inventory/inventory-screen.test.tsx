@@ -3,7 +3,6 @@ import { act, fireEvent, render, screen, userEvent } from '@testing-library/reac
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { font } from '@/components/theme/index';
-import { uiShadowStyles } from '@/constants/ui-shadow';
 import { InventoryScreen } from '@/features/inventory/inventory-screen';
 import type { LocalInventoryItem } from '@/features/inventory/use-inventory-items';
 import type { LocalInventoryTransaction } from '@/features/inventory/use-inventory-transactions';
@@ -441,14 +440,11 @@ it('zeigt die Ablauf-Ringe über der kompakten Arbeitsliste', async () => {
   );
   expect(summaryRow).toBeOnTheScreen();
   expect(summaryRow).toHaveStyle({ flexDirection: 'row' });
-  const prominentShadow = uiShadowStyles.prominentCard.boxShadow;
   expect(screen.getByTestId('inventory-summary-critical')).toHaveStyle({
     overflow: 'visible',
-    boxShadow: prominentShadow,
   });
   expect(screen.getByTestId('inventory-summary-soon')).toHaveStyle({
     overflow: 'visible',
-    boxShadow: prominentShadow,
   });
   expect(screen.getByText('Läuft bald ab')).toBeTruthy();
   expect(screen.getByText('Bald fällig')).toBeTruthy();

@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
   },
   sheet: {
     position: 'absolute',
-    left: 16,
-    right: 16,
+    left: space.lg,
+    right: space.lg,
     borderRadius: radius.lg,
     paddingHorizontal: space.xl,
     paddingTop: space.md,

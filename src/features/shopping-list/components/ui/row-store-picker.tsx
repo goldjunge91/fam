@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card, Press, Txt } from '@/constants/ui';
 import { useStores } from '../../hooks/use-stores';
@@ -133,7 +134,11 @@ export function RowStorePicker({
               padded={false}
               style={[
                 styles.panel,
-                { position: 'absolute', top: anchor.y + anchor.height + 6, left: anchor.x },
+                {
+                  position: 'absolute',
+                  top: anchor.y + anchor.height + space.sm - space.xs / 2,
+                  left: anchor.x,
+                },
               ]}>
               <Press
                 onPress={() => select(null)}

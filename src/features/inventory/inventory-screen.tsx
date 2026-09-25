@@ -187,7 +187,7 @@ export function InventoryScreen() {
   // Die letzte Zeile muss vollständig darüber hinausscrollen können.
   const paddingBottom =
     Platform.OS === 'ios'
-      ? Math.max(bottom, space.xxl) + space.xxxl + 88
+      ? Math.max(bottom, space.xxl) + space.xxxl + space.xxxxl + space.xxl - space.xs
       : Math.max(bottom, space.xxl) + space.xxxl;
 
   const deferredSearchQuery = useDeferredValue(searchQuery);

@@ -60,9 +60,9 @@ const styles = StyleSheet.create((theme) => ({
   },
   bottomSheet: {
     position: 'absolute',
-    left: 10,
-    right: 10,
-    bottom: 10,
+    left: theme.space.sm + theme.space.xs / 2,
+    right: theme.space.sm + theme.space.xs / 2,
+    bottom: theme.space.sm + theme.space.xs / 2,
     flex: 1,
     maxHeight: '85%',
     overflow: 'hidden',

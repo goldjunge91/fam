@@ -15,16 +15,22 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { radius } from '@/components/theme/index';
+import { Colors, radius } from '@/components/theme/index';
 import { useSession } from '@/features/auth/session-provider';
 
 const INITIAL_SCALE_FACTOR = Dimensions.get('screen').height / 90;
 const DURATION = 600;
 const SPLASH_ICON_SIZE = 180;
 const SPLASH_MIN_DISPLAY_DURATION = 2400;
-const SPLASH_BACKGROUND = '#F8F4EF';
+const SPLASH_BACKGROUND = Colors.light.background;
 const SPLASH_ICON = require('@/assets/splash/fam-splash-icon.png');
-const SPLASH_COLOR_STOPS = ['#F8F4EF', '#FF3D81', '#7137FF', '#00D9FF', '#F8F4EF'];
+const SPLASH_COLOR_STOPS = [
+  Colors.light.background,
+  Colors.light.accent,
+  Colors.light.premiumGradientStart,
+  Colors.light.premiumGradientEnd,
+  Colors.light.background,
+];
 const SPLASH_COLOR_INPUTS = [0, 0.25, 0.5, 0.75, 1];
 
 const styles = StyleSheet.create({
@@ -64,7 +70,7 @@ const styles = StyleSheet.create({
     height: 128,
     position: 'absolute',
     borderRadius: radius.xxl,
-    backgroundColor: '#208AEF',
+    backgroundColor: Colors.light.accent,
   },
   logoContainer: {
     alignItems: 'center',

@@ -30,7 +30,7 @@ export const profileSheetStyles = StyleSheet.create((theme) => ({
     width: theme.space.xxl + theme.space.sm,
     height: theme.space.xs,
     alignSelf: 'center',
-    marginTop: theme.space.sm + 2,
+    marginTop: theme.space.sm + theme.space.xs / 2,
     borderRadius: theme.radius.sm,
     backgroundColor: theme.border,
   },

@@ -10,7 +10,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
-import { font, radius, withAlpha } from '@/components/theme/index';
+import { font, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import type { Hotspot } from '../types';
@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 18,
     height: 18,
-    marginLeft: -9,
-    marginTop: -9,
+    marginLeft: -(space.sm + space.xs / 4),
+    marginTop: -(space.sm + space.xs / 4),
     borderRadius: radius.sm,
     borderWidth: 1.5,
   },
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   },
   aura: {
     ...StyleSheet.absoluteFill,
-    margin: -8,
+    margin: -space.sm,
     borderRadius: radius.lg,
     borderWidth: 8,
   },

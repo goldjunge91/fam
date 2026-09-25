@@ -11,7 +11,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
-import { dashboardCardSizes, radius } from '@/components/theme/index';
+import { dashboardCardSizes, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import type { CardSize } from '@/features/dashboard/registry';
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   },
   badge: {
     position: 'absolute',
-    top: -4,
+    top: -space.xs,
     width: 28,
     height: 28,
     borderRadius: radius.md,
@@ -152,9 +152,9 @@ const styles = StyleSheet.create({
     zIndex: 100,
   },
   deleteBadge: {
-    left: -2,
+    left: -space.xs / 2,
   },
   resizeBadge: {
-    right: -2,
+    right: -space.xs / 2,
   },
 });
