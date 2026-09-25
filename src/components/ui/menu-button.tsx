@@ -29,5 +29,6 @@ export function MenuButton({ onPress }: MenuButtonProps) {
 const styles = StyleSheet.create((theme) => ({
   button: {
     borderRadius: theme.radius.lg,
+    borderCurve: 'continuous',
   },
 }));

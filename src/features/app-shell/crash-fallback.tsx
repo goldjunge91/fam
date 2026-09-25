@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { colorsLight, font, radius, space } from '@/components/theme/index';
+import { font, radius, space } from '@/components/theme/index';
 
 /** Provider-unabhängiger Fallback für Fehler aus dem gesamten App-Baum. */
 export function CrashFallback({ resetError }: { resetError: () => void }) {
@@ -26,17 +26,17 @@ export function CrashFallback({ resetError }: { resetError: () => void }) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create((theme) => ({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     padding: space.lg,
-    backgroundColor: colorsLight.background,
+    backgroundColor: theme.background,
     gap: space.md,
   },
-  title: { fontSize: font.sizes.md, fontWeight: '600', color: colorsLight.text },
-  body: { fontSize: font.sizes.sm, color: colorsLight.text, textAlign: 'center' },
+  title: { fontSize: font.sizes.md, fontWeight: '600', color: theme.text },
+  body: { fontSize: font.sizes.sm, color: theme.text, textAlign: 'center' },
   button: {
     minHeight: 44,
     minWidth: 44,
@@ -46,12 +46,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: radius.sm,
+    borderCurve: 'continuous',
   },
   buttonPressed: { opacity: 0.7 },
   buttonText: {
     fontSize: font.sizes.sm,
     fontWeight: '600',
-    color: colorsLight.accent,
+    color: theme.accent,
     textDecorationLine: 'underline',
   },
-});
+}));

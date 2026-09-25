@@ -318,7 +318,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
           <Pressable
             role="button"
             aria-label="Artikeldetails schließen"
-            style={styles.backdropPressArea}
+            style={[styles.backdropPressArea, { backgroundColor: colors.viewerScrim }]}
             onPress={closeProductSheet}
           />
           <View
@@ -485,7 +485,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     zIndex: 10,
   },
-  backdropPressArea: { flex: 1, zIndex: 90, backgroundColor: 'rgba(0,0,0,0.22)' },
+  backdropPressArea: { flex: 1, zIndex: 90 },
   bottomSheet: {
     position: 'absolute',
     bottom: 0,

@@ -73,7 +73,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
-          style={[styles.dim, { backgroundColor: 'rgba(0, 0, 0, 0.45)' }]}
+          style={[styles.dim, { backgroundColor: colors.scrim }]}
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel={t('dashboard.gallery.close')}

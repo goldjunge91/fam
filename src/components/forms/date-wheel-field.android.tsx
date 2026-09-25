@@ -95,6 +95,7 @@ function makeStyles(colors: Palette) {
       borderWidth: 1,
       borderColor: colors.border,
       borderRadius: radius.md,
+      borderCurve: 'continuous',
       paddingHorizontal: space.lg,
       paddingVertical: space.md,
       backgroundColor: colors.backgroundElement,

@@ -108,6 +108,7 @@ const styles = StyleSheet.create((theme) => ({
     borderWidth: 1,
     borderColor: theme.border,
     borderRadius: radius.md,
+    borderCurve: 'continuous',
     paddingHorizontal: space.lg,
     paddingVertical: space.md,
     backgroundColor: theme.backgroundElement,
@@ -125,6 +126,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: space.lg,
     padding: space.xxl,
     borderRadius: radius.lg,
+    borderCurve: 'continuous',
     backgroundColor: theme.background,
   },
   footerRow: {

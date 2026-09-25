@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   button: {
     height: 44,
     borderRadius: radius.sm,
+    borderCurve: 'continuous',
     borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
     right: 0,
     zIndex: 20,
     borderRadius: radius.sm,
+    borderCurve: 'continuous',
     borderWidth: 1,
     padding: space.xs,
     gap: space.md,
@@ -54,6 +56,7 @@ const styles = StyleSheet.create({
   option: {
     minHeight: 44,
     borderRadius: radius.sm,
+    borderCurve: 'continuous',
     paddingHorizontal: space.sm,
     paddingVertical: space.sm,
     flexDirection: 'row',

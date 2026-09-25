@@ -53,6 +53,7 @@ const famColorsLight = {
   textSecondary: '#786F79', // fam/color/text-secondary
   border: '#E4DDE3',
   viewerBackground: '#000000',
+  viewerScrim: 'rgba(0,0,0,0.22)',
   accent: '#8B5E63', // fam/color/bg-accent
   onAccent: '#FFFFFF',
   qrBackground: '#FFFFFF',
@@ -86,6 +87,7 @@ const famColorsDark = {
   textSecondary: '#B7ADB3',
   border: '#3E3640',
   viewerBackground: '#000000',
+  viewerScrim: 'rgba(0,0,0,0.22)',
   accent: '#B79CBA',
   onAccent: '#211D23',
   qrBackground: '#FFFFFF',

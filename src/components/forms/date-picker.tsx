@@ -218,6 +218,7 @@ const styles = StyleSheet.create((theme) => ({
     height: 48,
     paddingHorizontal: space.lg,
     borderRadius: radius.sm,
+    borderCurve: 'continuous',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: theme.border,
     alignItems: 'center',
@@ -238,6 +239,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: space.lg,
     padding: space.xxl,
     borderRadius: radius.lg,
+    borderCurve: 'continuous',
     backgroundColor: theme.background,
   },
   dateColumns: {
@@ -257,6 +259,7 @@ const styles = StyleSheet.create((theme) => ({
     width: 40,
     height: 40,
     borderRadius: radius.lg,
+    borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.backgroundElement,

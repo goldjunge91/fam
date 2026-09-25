@@ -26,6 +26,7 @@ const styles = StyleSheet.create((theme) => ({
     borderWidth: 1,
     borderColor: theme.border,
     borderRadius: radius.sm,
+    borderCurve: 'continuous',
     backgroundColor: theme.backgroundElement,
   },
   btn: {
