@@ -4,6 +4,7 @@ import { useCallback } from 'react';
 import { ActivityIndicator, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { HubScreen } from '@/components/layout/hub-screen';
+import { space } from '@/components/theme/index';
 import { SectionHeading, Txt } from '@/constants/ui';
 import { RecipePreviewCard } from '../components/recipe-preview-card';
 import { getCatalogCoverPath } from './recipe-catalog-image';
@@ -11,9 +12,9 @@ import { type CatalogRecipe, useCatalogRecipes } from './use-recipe-catalog';
 
 const styles = StyleSheet.create({
   list: { flex: 1 },
-  content: { paddingHorizontal: 15, paddingTop: 4, paddingBottom: 126 },
-  separator: { height: 10 },
-  footer: { paddingVertical: 18 },
+  content: { paddingHorizontal: space.lg, paddingTop: space.md, paddingBottom: 126 },
+  separator: { height: space.md },
+  footer: { paddingVertical: space.xl },
 });
 
 function CardSeparator() {

@@ -30,7 +30,7 @@ const styles = StyleSheet.create((theme) => ({
   sexButton: {
     flex: 1,
     minHeight: 44,
-    paddingVertical: 10,
+    paddingVertical: theme.space.md,
     borderWidth: theme.borderWidth.base,
     borderRadius: theme.radius.sm,
     alignItems: 'center',

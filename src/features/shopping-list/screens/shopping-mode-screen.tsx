@@ -40,7 +40,7 @@ const screenStyles = StyleSheet.create((theme) => ({
   progress: {
     paddingHorizontal: theme.space.md,
     paddingBottom: theme.space.lg,
-    gap: 6,
+    gap: space.md,
   },
   progressMeta: {
     flexDirection: 'row',

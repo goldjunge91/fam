@@ -11,7 +11,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { font, type Palette, radius } from '@/components/theme';
+import { font, type Palette, radius, space } from '@/components/theme';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import {
   type CelebrationBurst,
@@ -184,8 +184,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   badge: {
-    paddingVertical: 12,
-    paddingHorizontal: 22,
+    paddingVertical: space.md,
+    paddingHorizontal: space.xl,
     borderRadius: radius.pill,
   },
   badgeText: {

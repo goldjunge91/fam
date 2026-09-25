@@ -45,14 +45,14 @@ interface InventorySearchInputProps {
 
 const styles = StyleSheet.create((theme) => ({
   inputCard: {
-    marginTop: 10,
+    marginTop: theme.space.md,
     minHeight: 48,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.space.xs,
     paddingHorizontal: theme.space.lg,
-    paddingVertical: 11,
+    paddingVertical: theme.space.md,
   },
   input: {
     flex: 1,

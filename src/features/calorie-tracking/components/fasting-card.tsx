@@ -25,7 +25,7 @@ const PROTOCOLS: {
 
 const styles = StyleSheet.create((theme) => ({
   card: {
-    padding: 24,
+    padding: theme.space.xxl,
     gap: theme.space.lg,
   },
   header: {

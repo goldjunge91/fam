@@ -4,7 +4,7 @@ import { Alert, KeyboardAvoidingView, ScrollView, TextInput, View } from 'react-
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { font, rs } from '@/components/theme/index';
+import { font, radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { Button, Press, Txt } from '@/constants/ui';
@@ -29,7 +29,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
     minHeight: rs(150),
     alignItems: 'center',
-    paddingTop: rs(30),
+    paddingTop: theme.space.xxl,
     opacity: 0.55,
   },
   heroIcon: {
@@ -38,10 +38,10 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.famLarge,
   },
   heroTitle: {
-    paddingTop: rs(18),
+    paddingTop: theme.space.xl,
   },
   heroSubtitle: {
-    paddingTop: rs(5),
+    paddingTop: theme.space.md,
     textAlign: 'center',
   },
   sheet: {
@@ -50,19 +50,19 @@ const styles = StyleSheet.create((theme) => ({
     borderTopLeftRadius: theme.radius.famLarge,
     borderTopRightRadius: theme.radius.famLarge,
     paddingHorizontal: theme.space.lg,
-    paddingTop: rs(10),
-    paddingBottom: rs(19),
+    paddingTop: theme.space.md,
+    paddingBottom: theme.space.xl,
   },
   handle: {
     width: rs(36),
     height: rs(4),
     alignSelf: 'center',
-    borderRadius: rs(2),
-    marginTop: rs(10),
+    borderRadius: radius.micro,
+    marginTop: theme.space.md,
   },
   sheetHeader: {
     minHeight: rs(65),
-    paddingTop: rs(13),
+    paddingTop: theme.space.md,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -72,7 +72,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   sheetSubtitle: {
-    paddingTop: rs(7),
+    paddingTop: theme.space.md,
   },
   close: {
     width: rs(32),
@@ -82,7 +82,7 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
   },
   loading: {
-    paddingVertical: rs(30),
+    paddingVertical: theme.space.xxl,
     textAlign: 'center',
   },
   scrollContent: {
@@ -90,13 +90,13 @@ const styles = StyleSheet.create((theme) => ({
     paddingVertical: theme.space.xs,
   },
   componentList: {
-    gap: rs(10),
+    gap: theme.space.md,
   },
   componentRow: {
     minHeight: rs(40),
     flexDirection: 'row',
     alignItems: 'center',
-    gap: rs(9),
+    gap: theme.space.md,
   },
   componentName: {
     flex: 1,
@@ -108,7 +108,7 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.sm,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: rs(10),
+    paddingHorizontal: theme.space.md,
   },
   gramsInput: {
     flex: 1,
@@ -124,10 +124,10 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: rs(11),
+    paddingHorizontal: theme.space.md,
   },
   totalDetails: {
-    paddingTop: rs(3),
+    paddingTop: theme.space.md,
     textAlign: 'center',
   },
 }));

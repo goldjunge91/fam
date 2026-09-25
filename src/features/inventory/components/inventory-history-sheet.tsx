@@ -66,9 +66,9 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
     maxHeight: '85%',
     overflow: 'hidden',
-    gap: 14,
-    paddingHorizontal: 14,
-    paddingTop: 11,
+    gap: theme.space.lg,
+    paddingHorizontal: theme.space.lg,
+    paddingTop: theme.space.md,
     borderRadius: theme.radius.famLarge,
     backgroundColor: theme.backgroundElement,
   },
@@ -140,15 +140,15 @@ const styles = StyleSheet.create((theme) => ({
     borderTopColor: theme.border,
   },
   loadingEmpty: {
-    paddingVertical: 64,
+    paddingVertical: theme.space.xxxl,
   },
   errorEmpty: {
     alignItems: 'flex-start',
     gap: theme.space.sm,
-    paddingVertical: 64,
+    paddingVertical: theme.space.xxxl,
   },
   empty: {
-    paddingVertical: 64,
+    paddingVertical: theme.space.xxxl,
   },
   backdrop: {
     position: 'absolute',

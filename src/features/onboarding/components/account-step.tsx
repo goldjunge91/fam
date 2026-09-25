@@ -20,7 +20,7 @@ const styles = StyleSheet.create((theme, rt) => ({
   },
   content: {
     gap: theme.space.lg,
-    paddingBottom: 64 + rt.insets.ime,
+    paddingBottom: theme.space.xxxl + rt.insets.ime,
   },
   activeContainer: {
     gap: theme.space.xl + theme.space.xs,

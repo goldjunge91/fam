@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     height: 26,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 4,
+    gap: space.md,
   },
   menuLine: {
     width: 17,

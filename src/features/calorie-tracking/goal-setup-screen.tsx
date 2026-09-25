@@ -65,7 +65,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   segmentButton: {
     flex: 1,
-    paddingVertical: 10,
+    paddingVertical: theme.space.md,
     borderRadius: theme.radius.sm,
     alignItems: 'center',
     justifyContent: 'center',

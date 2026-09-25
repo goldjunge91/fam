@@ -38,7 +38,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   sheet: {
     maxHeight: '91%',
-    paddingTop: 10,
+    paddingTop: theme.space.md,
     borderTopLeftRadius: theme.radius.famLarge,
     borderTopRightRadius: theme.radius.famLarge,
     backgroundColor: theme.backgroundElement,

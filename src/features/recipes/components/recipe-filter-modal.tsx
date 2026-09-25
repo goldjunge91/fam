@@ -47,12 +47,12 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   scrollContent: {
-    paddingHorizontal: rs(15),
+    paddingHorizontal: theme.space.lg,
     paddingTop: theme.space.xs,
     paddingBottom: theme.space.lg,
   },
   filterSection: {
-    paddingBottom: rs(22),
+    paddingBottom: theme.space.xl,
   },
   mealScrollContent: {
     gap: theme.space.sm,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   footer: {
     borderTopWidth: 0.5,
-    paddingHorizontal: rs(15),
+    paddingHorizontal: theme.space.lg,
     paddingTop: theme.space.lg,
     paddingBottom: theme.space.sm,
   },

@@ -9,20 +9,20 @@ import type { RecipeStep } from '../../hooks/use-recipe-steps';
 const styles = StyleSheet.create((theme) => ({
   root: {
     minHeight: rs(58),
-    marginTop: rs(14),
+    marginTop: theme.space.lg,
     borderRadius: theme.radius.lg,
-    paddingHorizontal: rs(13),
+    paddingHorizontal: theme.space.md,
     paddingVertical: theme.space.lg,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: rs(5),
+    gap: theme.space.md,
   },
   copy: {
     flex: 1,
     minWidth: 0,
   },
   status: {
-    paddingTop: rs(2),
+    paddingTop: theme.space.md,
   },
   action: {
     width: rs(34),

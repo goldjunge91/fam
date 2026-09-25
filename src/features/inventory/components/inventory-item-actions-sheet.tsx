@@ -97,7 +97,7 @@ const androidStyles = StyleSheet.create((theme) => ({
   quantityCopy: {
     flex: 1,
     alignItems: 'stretch',
-    gap: 2,
+    gap: theme.space.md,
   },
   actionRow: {
     flexDirection: 'row',

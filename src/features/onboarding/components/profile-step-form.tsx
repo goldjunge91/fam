@@ -67,7 +67,7 @@ const styles = StyleSheet.create((theme) => ({
     minHeight: 44,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 10,
+    paddingVertical: theme.space.md,
     borderWidth: theme.borderWidth.base,
     borderRadius: theme.radius.sm,
     paddingHorizontal: theme.space.lg,
@@ -76,7 +76,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
   },
   choice: {
-    paddingVertical: 10,
+    paddingVertical: theme.space.md,
     paddingHorizontal: theme.space.lg,
     borderWidth: theme.borderWidth.base,
     borderRadius: theme.radius.sm,

@@ -109,7 +109,7 @@ const styles = StyleSheet.create((theme) => ({
     borderColor: theme.border,
     borderRadius: radius.md,
     paddingHorizontal: space.lg,
-    paddingVertical: 10,
+    paddingVertical: space.md,
     backgroundColor: theme.backgroundElement,
   },
   inputPressContainer: {
@@ -119,11 +119,11 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
     backgroundColor: theme.scrim,
     justifyContent: 'center',
-    padding: 24,
+    padding: space.xxl,
   },
   modalSheet: {
     gap: space.lg,
-    padding: 24,
+    padding: space.xxl,
     borderRadius: radius.lg,
     backgroundColor: theme.background,
   },

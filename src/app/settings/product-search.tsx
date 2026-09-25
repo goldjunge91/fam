@@ -38,7 +38,7 @@ const styles = StyleSheet.create((theme) => ({
     borderColor: theme.border,
     borderRadius: theme.radius.md,
     paddingHorizontal: theme.space.lg,
-    paddingVertical: 10,
+    paddingVertical: theme.space.md,
     backgroundColor: theme.backgroundElement,
   },
   orderControls: {

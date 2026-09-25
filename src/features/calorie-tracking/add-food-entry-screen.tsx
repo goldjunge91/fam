@@ -55,7 +55,7 @@ const styles = StyleSheet.create((theme) => ({
   heroImage: {
     width: 56,
     height: 56,
-    borderRadius: 16,
+    borderRadius: theme.radius.md,
   },
   heroImagePlaceholder: {
     width: 56,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   heroText: {
     flex: 1,
-    gap: 2,
+    gap: theme.space.md,
   },
   nutriBadge: {
     width: 34,
@@ -86,7 +86,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.xs,
   },
   badge: {
-    paddingHorizontal: 10,
+    paddingHorizontal: theme.space.md,
     paddingVertical: theme.space.xs,
     borderRadius: theme.radius.sm,
   },

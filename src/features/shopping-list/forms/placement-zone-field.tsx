@@ -53,7 +53,7 @@ const styles = StyleSheet.create((theme) => ({
     backgroundColor: theme.background,
   },
   options: {
-    gap: 2,
+    gap: theme.space.md,
   },
   option: {
     flexDirection: 'row',

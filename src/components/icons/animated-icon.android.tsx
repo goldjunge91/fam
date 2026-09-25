@@ -15,6 +15,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
+import { radius } from '@/components/theme/index';
 import { useSession } from '@/features/auth/session-provider';
 
 const INITIAL_SCALE_FACTOR = Dimensions.get('screen').height / 90;
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
     width: 128,
     height: 128,
     position: 'absolute',
-    borderRadius: 40,
+    borderRadius: radius.xxl,
     backgroundColor: '#208AEF',
   },
   logoContainer: {

@@ -7,7 +7,7 @@ export const shoppingListStyles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: space.md,
-    paddingVertical: 10,
+    paddingVertical: space.md,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,
     gap: space.sm,
@@ -89,12 +89,12 @@ export const shoppingListStyles = StyleSheet.create((theme) => ({
   categoryDot: {
     width: 6,
     height: 6,
-    borderRadius: 3,
+    borderRadius: radius.s,
   },
   modeCategoryDot: {
     width: 8,
     height: 8,
-    borderRadius: 4,
+    borderRadius: radius.s,
   },
   categoryName: {
     flex: 1,
@@ -106,7 +106,7 @@ export const shoppingListStyles = StyleSheet.create((theme) => ({
     gap: space.sm,
     paddingRight: space.md,
     paddingLeft: space.md + 7,
-    paddingVertical: 10,
+    paddingVertical: space.md,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,
   },
@@ -115,12 +115,12 @@ export const shoppingListStyles = StyleSheet.create((theme) => ({
     textAlign: 'center',
   },
   form: {
-    gap: 10,
+    gap: space.md,
   },
   formRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
-    gap: 9,
+    gap: space.md,
   },
   formColumn: {
     flex: 1,
@@ -137,7 +137,7 @@ export const shoppingListStyles = StyleSheet.create((theme) => ({
     gap: space.sm,
   },
   detailsContent: {
-    gap: 10,
+    gap: space.md,
     paddingBottom: space.xs,
   },
   productSummary: {
@@ -145,8 +145,8 @@ export const shoppingListStyles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
     gap: space.sm,
-    paddingHorizontal: 11,
-    paddingVertical: 9,
+    paddingHorizontal: space.md,
+    paddingVertical: space.md,
     borderRadius: radius.famLarge,
     backgroundColor: theme.backgroundSoft,
   },

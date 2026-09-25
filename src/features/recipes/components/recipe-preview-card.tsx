@@ -74,7 +74,7 @@ const styles = StyleSheet.create((theme) => ({
     letterSpacing: -0.25,
   },
   meta: {
-    marginTop: rs(3),
+    marginTop: theme.space.md,
     opacity: 0.85,
   },
   eyebrow: {
@@ -83,7 +83,7 @@ const styles = StyleSheet.create((theme) => ({
     opacity: 0.8,
   },
   heroTitle: {
-    marginTop: rs(2),
+    marginTop: theme.space.md,
   },
 }));
 

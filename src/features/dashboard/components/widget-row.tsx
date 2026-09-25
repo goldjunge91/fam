@@ -14,12 +14,12 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     gap: space.md,
-    marginBottom: 15,
+    marginBottom: space.lg,
   },
   stacked: {
     flexDirection: 'column',
-    gap: 15,
-    marginBottom: 15,
+    gap: space.lg,
+    marginBottom: space.lg,
   },
 });
 

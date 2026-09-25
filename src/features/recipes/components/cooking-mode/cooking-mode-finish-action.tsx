@@ -16,8 +16,8 @@ const styles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.space.sm + theme.space.xs / 2,
-    paddingHorizontal: 11,
-    paddingVertical: 9,
+    paddingHorizontal: theme.space.md,
+    paddingVertical: theme.space.md,
     borderRadius: theme.radius.lg,
   },
   icon: {

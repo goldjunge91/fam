@@ -49,19 +49,16 @@ import {
 type PendingRecipe = { date: string; slot: MealSlot; recipe: RecipeOption };
 type PendingCell = { date: string; slot: MealSlot };
 
-// Die festen 14/43/34/42/9/7-Werte erhalten die bestehende Kalendernavigation.
-// Semantische Farben, Radien und Abstände greifen auf die zentralen Theme-Tokens
-// zurück; Press-Wrapper erhalten ihre Layoutgröße über containerStyle.
-const styles = StyleSheet.create((_theme) => ({
+const styles = StyleSheet.create((theme) => ({
   content: {
     flex: 1,
-    paddingHorizontal: 14,
+    paddingHorizontal: theme.space.lg,
   },
   periodRow: {
     height: 43,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 9,
+    paddingTop: theme.space.md,
   },
   periodButtonContainer: {
     width: 36,
@@ -77,8 +74,8 @@ const styles = StyleSheet.create((_theme) => ({
   },
   actionsRow: {
     flexDirection: 'row',
-    gap: 7,
-    paddingTop: 9,
+    gap: theme.space.md,
+    paddingTop: theme.space.md,
   },
   actionContainer: {
     flex: 1,

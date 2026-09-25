@@ -191,7 +191,7 @@ export const moduleLockedOverlayStyles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     gap: theme.space.xs,
     paddingHorizontal: theme.space.md,
-    paddingVertical: 7,
+    paddingVertical: space.md,
     borderRadius: theme.radius.pill,
     backgroundColor: theme.text,
   },
@@ -732,10 +732,10 @@ export function Button({
 
   const pad =
     size === 'sm'
-      ? { paddingVertical: 9, paddingHorizontal: 14 }
+      ? { paddingVertical: space.md, paddingHorizontal: space.lg }
       : size === 'lg'
-        ? { paddingVertical: 16, paddingHorizontal: 22 }
-        : { paddingVertical: 13, paddingHorizontal: 18 };
+        ? { paddingVertical: space.lg, paddingHorizontal: space.xl }
+        : { paddingVertical: space.md, paddingHorizontal: space.xl };
   const fSize =
     variant === 'link'
       ? size === 'lg'
@@ -905,10 +905,10 @@ export function Badge({
       style={{
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 4,
+        gap: space.md,
         backgroundColor: solid ? a.main : a.tint,
-        paddingHorizontal: 10,
-        paddingVertical: 5,
+        paddingHorizontal: space.md,
+        paddingVertical: space.md,
         borderRadius: radius.pill,
       }}>
       {icon ? <Feather name={icon} size={12} color={solid ? a.on : a.shadow} /> : null}
@@ -944,9 +944,9 @@ export function Pill({
       style={{
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 6,
-        paddingHorizontal: 14,
-        paddingVertical: 10,
+        gap: space.md,
+        paddingHorizontal: space.lg,
+        paddingVertical: space.md,
         borderRadius: radius.pill,
         backgroundColor: selected ? a.main : colors.backgroundElement,
         borderWidth: borderWidth.base,
@@ -1254,8 +1254,8 @@ const controlStyles = StyleSheet.create((theme) => ({
     borderWidth: borderWidth.strong,
     borderColor: theme.border,
     borderRadius: radius.md,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
+    paddingHorizontal: space.lg,
+    paddingVertical: space.md,
     fontSize: font.sizes.base,
     lineHeight: font.lineHeights.body,
     color: theme.text,

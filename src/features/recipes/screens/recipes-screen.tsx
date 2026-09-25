@@ -189,41 +189,41 @@ function favoriteKey(entry: RecipeEntry): RecipeFavoriteKey {
 
 const styles = StyleSheet.create((theme) => ({
   listContent: {
-    paddingHorizontal: rs(15),
-    paddingTop: rs(4),
+    paddingHorizontal: theme.space.lg,
+    paddingTop: theme.space.md,
     paddingBottom: rs(126),
   },
   listGap: {
-    height: rs(10),
+    height: theme.space.md,
   },
   section: {
-    marginBottom: rs(32),
+    marginBottom: theme.space.xxl,
   },
   mealScrollContent: {
-    paddingHorizontal: rs(6),
+    paddingHorizontal: theme.space.md,
   },
   mealCardFrame: {
     flexShrink: 0,
   },
   mealCardSpacing: {
-    marginRight: rs(10),
+    marginRight: theme.space.md,
   },
   emptyPanel: {
     minHeight: rs(124),
     borderRadius: theme.radius.lg,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: rs(56),
-    paddingVertical: rs(22),
+    paddingHorizontal: theme.space.xxxl,
+    paddingVertical: theme.space.xl,
   },
   searchRow: {
     height: rs(42),
     flexDirection: 'row',
     alignItems: 'center',
-    gap: rs(9),
+    gap: theme.space.md,
     borderRadius: theme.radius.famLarge,
-    paddingHorizontal: rs(13),
-    marginBottom: rs(10),
+    paddingHorizontal: theme.space.md,
+    marginBottom: theme.space.md,
   },
   searchInput: {
     flex: 1,
@@ -233,7 +233,7 @@ const styles = StyleSheet.create((theme) => ({
   tabRow: {
     flexDirection: 'row',
     gap: theme.space.sm,
-    marginBottom: rs(18),
+    marginBottom: theme.space.xl,
   },
   tabContainer: {
     flex: 1,
@@ -252,13 +252,13 @@ const styles = StyleSheet.create((theme) => ({
   },
   headerActions: {
     flexDirection: 'row',
-    gap: rs(6),
+    gap: theme.space.md,
   },
   discoverScroll: {
     flex: 1,
   },
   discoverContent: {
-    paddingHorizontal: rs(15),
+    paddingHorizontal: theme.space.lg,
     paddingTop: theme.space.xs,
     paddingBottom: rs(126),
   },
@@ -266,7 +266,7 @@ const styles = StyleSheet.create((theme) => ({
     marginTop: space.xxxl,
   },
   mealLoading: {
-    paddingHorizontal: rs(18),
+    paddingHorizontal: theme.space.xl,
     alignSelf: 'center',
   },
 }));

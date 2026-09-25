@@ -92,7 +92,7 @@ const styles = StyleSheet.create((theme, rt) => ({
     width: 36,
     height: 4,
     alignSelf: 'center',
-    marginTop: 10,
+    marginTop: theme.space.md,
     borderRadius: radius.micro,
     backgroundColor: theme.border,
   },

@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.sm,
     borderWidth: 1,
     padding: space.xs,
-    gap: 2,
+    gap: space.md,
   },
   option: {
     minHeight: 44,

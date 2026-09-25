@@ -21,7 +21,7 @@ export const biometricsSheetStyles = StyleSheet.create((theme) => ({
     width: 36,
     height: 4,
     alignSelf: 'center',
-    marginTop: 10,
+    marginTop: theme.space.md,
     borderRadius: theme.radius.sm,
     backgroundColor: theme.border,
   },
@@ -52,6 +52,6 @@ export const biometricsSheetStyles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: theme.space.lg,
-    paddingVertical: 10,
+    paddingVertical: theme.space.md,
   },
 }));

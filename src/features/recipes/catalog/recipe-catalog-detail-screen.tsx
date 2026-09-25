@@ -5,7 +5,7 @@ import { ActivityIndicator, Alert, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { rs } from '@/components/theme/index';
+import { radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { Press, Txt } from '@/constants/ui';
@@ -38,16 +38,16 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: theme.space.xs,
   },
   detailFactLabel: {
-    paddingTop: 3,
+    paddingTop: theme.space.md,
     textAlign: 'center',
   },
   step: {
     gap: theme.space.lg,
-    paddingVertical: rs(24),
+    paddingVertical: theme.space.xxl,
   },
   stepContent: {
     flexDirection: 'row',
-    gap: rs(10),
+    gap: theme.space.md,
   },
   stepIndex: {
     width: 30,
@@ -57,17 +57,17 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.xs,
   },
   ingredients: {
-    gap: rs(18),
+    gap: theme.space.xl,
   },
   ingredientGroup: {
-    paddingTop: 14,
+    paddingTop: theme.space.lg,
   },
   ingredientHeader: {
     minHeight: 40,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: rs(10),
+    gap: theme.space.md,
   },
   ingredientTitle: {
     flex: 1,
@@ -83,13 +83,13 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   emptyText: {
-    paddingVertical: rs(24),
+    paddingVertical: theme.space.xxl,
   },
   scroll: {
     flex: 1,
   },
   scrollContent: {
-    paddingHorizontal: rs(24),
+    paddingHorizontal: theme.space.xxl,
     paddingBottom: 108,
   },
   hero: {
@@ -98,12 +98,12 @@ const styles = StyleSheet.create((theme) => ({
     overflow: 'hidden',
   },
   title: {
-    paddingTop: 18,
+    paddingTop: theme.space.xl,
     letterSpacing: -0.3,
   },
   tabs: {
     flexDirection: 'row',
-    marginTop: rs(32),
+    marginTop: theme.space.xxl,
     borderBottomWidth: 1,
   },
   tab: {
@@ -115,11 +115,11 @@ const styles = StyleSheet.create((theme) => ({
   },
   facts: {
     flexDirection: 'row',
-    paddingVertical: rs(24),
+    paddingVertical: theme.space.xxl,
     borderBottomWidth: 1,
   },
   instructions: {
-    paddingTop: rs(24),
+    paddingTop: theme.space.xxl,
   },
   tags: {
     flexDirection: 'row',
@@ -138,7 +138,7 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: theme.space.lg,
-    marginTop: rs(18),
+    marginTop: theme.space.xl,
     borderBottomWidth: 1,
   },
   servingLabel: {
@@ -170,15 +170,15 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: theme.space.lg,
-    marginTop: rs(18),
+    marginTop: theme.space.xl,
     borderBottomWidth: 1,
   },
   reviewsEmpty: {
     alignItems: 'center',
-    paddingVertical: 64,
+    paddingVertical: theme.space.xxxl,
   },
   reviewHint: {
-    paddingTop: 6,
+    paddingTop: theme.space.md,
   },
   footer: {
     position: 'absolute',
@@ -202,7 +202,7 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.sm,
   },
   loading: {
-    padding: 64,
+    padding: theme.space.xxxl,
     textAlign: 'center',
   },
 }));
@@ -259,7 +259,7 @@ function CatalogStepItem({
           source={{ uri: imageUrl }}
           contentFit="cover"
           accessibilityLabel={`Bild für Schritt ${index + 1}`}
-          style={{ width: '100%', height: 180, borderRadius: 16 }}
+          style={{ width: '100%', height: 180, borderRadius: radius.md }}
         />
       ) : null}
       <View style={styles.stepContent}>

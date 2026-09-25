@@ -64,7 +64,7 @@ const styles = StyleSheet.create((theme) => ({
     width: theme.space.sm,
     height: theme.space.sm,
     marginHorizontal: theme.space.xs,
-    borderRadius: theme.space.xs,
+    borderRadius: theme.radius.s,
   },
   paginationDotExpanded: {
     width: 24,

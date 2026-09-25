@@ -19,7 +19,7 @@ import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { rs } from '@/components/theme/index';
+import { radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { Press, Txt } from '@/constants/ui';
@@ -42,7 +42,7 @@ import {
 
 const styles = StyleSheet.create((theme) => ({
   loading: {
-    padding: rs(64),
+    padding: theme.space.xxxl,
     textAlign: 'center',
   },
   detailFact: {
@@ -52,7 +52,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: theme.space.xs,
   },
   factLabel: {
-    paddingTop: rs(3),
+    paddingTop: theme.space.md,
     textAlign: 'center',
   },
   step: {
@@ -61,7 +61,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   stepRow: {
     flexDirection: 'row',
-    gap: rs(10),
+    gap: theme.space.md,
   },
   stepNumber: {
     width: rs(30),
@@ -81,20 +81,20 @@ const styles = StyleSheet.create((theme) => ({
   manageRow: {
     minHeight: rs(45),
     justifyContent: 'center',
-    paddingHorizontal: rs(6),
+    paddingHorizontal: theme.space.md,
   },
   ingredients: {
-    gap: rs(18),
+    gap: theme.space.xl,
   },
   ingredientGroup: {
-    paddingTop: rs(14),
+    paddingTop: theme.space.lg,
   },
   ingredientHeader: {
     minHeight: rs(40),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: rs(10),
+    gap: theme.space.md,
   },
   ingredientItem: {
     minHeight: rs(44),
@@ -125,12 +125,12 @@ const styles = StyleSheet.create((theme) => ({
     overflow: 'hidden',
   },
   title: {
-    paddingTop: rs(18),
+    paddingTop: theme.space.xl,
     letterSpacing: -0.25,
   },
   tabs: {
     flexDirection: 'row',
-    marginTop: rs(32),
+    marginTop: theme.space.xxl,
   },
   tabContainer: {
     flex: 1,
@@ -166,7 +166,7 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: theme.space.sm,
-    marginTop: rs(18),
+    marginTop: theme.space.xl,
   },
   stepper: {
     width: rs(156),
@@ -207,13 +207,13 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: theme.space.sm,
-    marginTop: rs(18),
+    marginTop: theme.space.xl,
   },
   emptySteps: {
     paddingVertical: theme.space.lg,
   },
   ratings: {
-    paddingTop: rs(22),
+    paddingTop: theme.space.xl,
   },
   ratingRow: {
     minHeight: rs(58),
@@ -224,7 +224,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingBottom: theme.space.lg,
   },
   noteTitle: {
-    paddingTop: rs(32),
+    paddingTop: theme.space.xxl,
   },
   noteBody: {
     paddingTop: theme.space.xs,
@@ -234,12 +234,12 @@ const styles = StyleSheet.create((theme) => ({
     paddingVertical: theme.space.xxxl,
   },
   ratingHint: {
-    paddingTop: rs(6),
+    paddingTop: theme.space.md,
     textAlign: 'center',
   },
   ratingButton: {
     minHeight: rs(48),
-    marginTop: rs(32),
+    marginTop: theme.space.xxl,
     borderRadius: theme.radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
@@ -267,18 +267,18 @@ const styles = StyleSheet.create((theme) => ({
     borderTopLeftRadius: theme.radius.famLarge,
     borderTopRightRadius: theme.radius.famLarge,
     paddingHorizontal: theme.space.lg,
-    paddingTop: rs(10),
-    paddingBottom: rs(19),
+    paddingTop: theme.space.md,
+    paddingBottom: theme.space.xl,
   },
   manageHandle: {
     width: rs(38),
     height: rs(4),
     alignSelf: 'center',
-    borderRadius: rs(2),
+    borderRadius: radius.micro,
   },
   manageHeader: {
     minHeight: rs(58),
-    paddingTop: rs(13),
+    paddingTop: theme.space.md,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

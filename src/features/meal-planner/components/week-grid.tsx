@@ -31,8 +31,8 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   content: {
-    gap: 10,
-    paddingTop: 10,
+    gap: theme.space.md,
+    paddingTop: theme.space.md,
     paddingBottom: 126,
   },
   dayCard: {
@@ -74,7 +74,7 @@ const styles = StyleSheet.create((theme) => ({
     minHeight: 46,
     borderRadius: theme.radius.sm,
     paddingHorizontal: theme.space.lg,
-    paddingVertical: 9,
+    paddingVertical: theme.space.md,
     backgroundColor: theme.backgroundSoft,
     borderCurve: 'continuous',
   },

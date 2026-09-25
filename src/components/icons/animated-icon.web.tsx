@@ -4,6 +4,8 @@ import { View } from 'react-native';
 import Animated, { Easing, Keyframe } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
+import { radius } from '@/components/theme/index';
+
 const DURATION = 300;
 
 const styles = StyleSheet.create({
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
     width: 128,
     height: 128,
     position: 'absolute',
-    borderRadius: 40,
+    borderRadius: radius.xxl,
   },
   logoContainer: {
     alignItems: 'center',

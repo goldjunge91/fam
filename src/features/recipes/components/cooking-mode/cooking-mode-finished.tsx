@@ -20,9 +20,9 @@ const styles = StyleSheet.create((theme) => ({
   content: {
     flexGrow: 1,
     alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingTop: 38,
-    paddingBottom: 64,
+    paddingHorizontal: theme.space.xxl,
+    paddingTop: theme.space.xxxl,
+    paddingBottom: theme.space.xxxl,
   },
   artwork: {
     width: 82,
@@ -30,19 +30,19 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.famLarge,
   },
   title: {
-    paddingTop: 18,
+    paddingTop: theme.space.xl,
   },
   hint: {
-    paddingTop: 6,
+    paddingTop: theme.space.md,
   },
   actions: {
     width: '100%',
     gap: theme.space.sm,
-    paddingTop: 64,
+    paddingTop: theme.space.xxxl,
   },
   close: {
     marginTop: 'auto',
-    paddingHorizontal: 10,
+    paddingHorizontal: theme.space.md,
     paddingVertical: theme.space.lg,
   },
 }));

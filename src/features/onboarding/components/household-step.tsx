@@ -24,7 +24,7 @@ const styles = StyleSheet.create((theme, rt) => ({
   content: {
     gap: theme.space.lg,
     // Preserve the scroll tail from the onboarding layout below the actions.
-    paddingBottom: 64 + rt.insets.ime,
+    paddingBottom: theme.space.xxxl + rt.insets.ime,
   },
   activeCard: {
     gap: theme.space.xs,

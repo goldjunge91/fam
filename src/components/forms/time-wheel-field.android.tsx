@@ -73,7 +73,7 @@ function makeStyles(colors: Palette) {
       borderColor: colors.border,
       borderRadius: radius.md,
       paddingHorizontal: space.lg,
-      paddingVertical: 10,
+      paddingVertical: space.md,
       backgroundColor: colors.backgroundElement,
     },
   });

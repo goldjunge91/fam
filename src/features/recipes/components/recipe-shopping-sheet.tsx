@@ -32,12 +32,12 @@ const styles = StyleSheet.create((theme) => ({
     maxHeight: '82%',
   },
   bulkRow: {
-    marginTop: rs(10),
+    marginTop: theme.space.md,
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
   missingList: {
-    marginTop: rs(14),
+    marginTop: theme.space.lg,
     borderRadius: theme.radius.lg,
     overflow: 'hidden',
   },
@@ -46,7 +46,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: theme.space.lg,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: rs(10),
+    gap: theme.space.md,
   },
   itemMainContainer: {
     flex: 1,
@@ -55,7 +55,7 @@ const styles = StyleSheet.create((theme) => ({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: rs(10),
+    gap: theme.space.md,
   },
   checkbox: {
     width: rs(22),
@@ -73,7 +73,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   sheetButton: {
     alignSelf: 'stretch',
-    marginTop: rs(14),
+    marginTop: theme.space.lg,
   },
 }));
 

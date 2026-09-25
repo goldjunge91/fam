@@ -2,7 +2,6 @@ import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { rs } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 import { celebrate } from '@/features/gamification/celebration';
 import { recordActivity } from '@/features/gamification/streak';
@@ -22,9 +21,9 @@ import { flattenRecipeItems } from '../domain/ingredient-mentions';
 import { useCookingTimer } from '../hooks/use-cooking-timer';
 import { useRecipeDetail } from '../hooks/use-recipes';
 
-const styles = StyleSheet.create(() => ({
+const styles = StyleSheet.create((theme) => ({
   loading: {
-    padding: rs(64),
+    padding: theme.space.xxxl,
     textAlign: 'center',
   },
 }));

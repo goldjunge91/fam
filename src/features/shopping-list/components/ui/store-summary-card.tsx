@@ -34,7 +34,7 @@ const styles = StyleSheet.create((theme) => ({
   stripe: {
     width: 8,
     alignSelf: 'stretch',
-    marginVertical: 2,
+    marginVertical: theme.space.md,
     borderRadius: theme.radius.sm,
   },
   main: {
@@ -66,7 +66,7 @@ const styles = StyleSheet.create((theme) => ({
   trailing: {
     flexShrink: 0,
     alignItems: 'flex-end',
-    gap: 2,
+    gap: theme.space.md,
   },
 }));
 

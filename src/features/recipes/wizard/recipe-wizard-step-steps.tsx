@@ -50,7 +50,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
   },
   ledgerBody: {
-    gap: rs(6),
+    gap: theme.space.md,
     paddingTop: theme.space.xs,
   },
   ledgerRow: {
@@ -69,14 +69,14 @@ const styles = StyleSheet.create((theme) => ({
   },
   stepCard: {
     borderRadius: theme.radius.lg,
-    padding: rs(11),
+    padding: theme.space.md,
     marginBottom: theme.space.lg,
-    gap: rs(10),
+    gap: theme.space.md,
   },
   stepHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: rs(10),
+    gap: theme.space.md,
   },
   dragButton: {
     padding: theme.space.xs,
@@ -97,8 +97,8 @@ const styles = StyleSheet.create((theme) => ({
   editor: {
     borderRadius: theme.radius.md,
     minHeight: rs(132),
-    paddingHorizontal: rs(24),
-    paddingVertical: rs(16),
+    paddingHorizontal: theme.space.xxl,
+    paddingVertical: theme.space.lg,
     fontSize: font.sizes.sm,
     lineHeight: 21,
   },
@@ -114,19 +114,19 @@ const styles = StyleSheet.create((theme) => ({
     padding: theme.space.xs,
   },
   mentionRow: {
-    paddingHorizontal: rs(24),
+    paddingHorizontal: theme.space.xxl,
     paddingVertical: theme.space.sm,
     borderBottomWidth: 0.5,
   },
   mentionHint: {
-    paddingHorizontal: rs(24),
+    paddingHorizontal: theme.space.xxl,
     paddingVertical: theme.space.sm,
   },
   mentionPreview: {
     paddingHorizontal: theme.space.xs,
   },
   imageBlock: {
-    gap: rs(6),
+    gap: theme.space.md,
   },
   stepImage: {
     width: '100%',
@@ -144,18 +144,18 @@ const styles = StyleSheet.create((theme) => ({
   timerInput: {
     width: rs(70),
     borderRadius: theme.radius.md,
-    paddingHorizontal: rs(24),
+    paddingHorizontal: theme.space.xxl,
     paddingVertical: theme.space.sm,
     fontSize: font.sizes.sm,
     lineHeight: 21,
   },
   screen: {
     flex: 1,
-    paddingHorizontal: rs(24),
+    paddingHorizontal: theme.space.xxl,
   },
   screenEyebrow: {
     paddingTop: theme.space.sm,
-    paddingBottom: rs(6),
+    paddingBottom: theme.space.md,
     letterSpacing: 1.5,
   },
   screenTitle: {
@@ -181,7 +181,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   actions: {
     flexDirection: 'row',
-    gap: rs(14),
+    gap: theme.space.lg,
     marginBottom: theme.space.lg,
   },
   actionContainer: {

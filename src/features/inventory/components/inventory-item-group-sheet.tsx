@@ -908,7 +908,7 @@ const groupStyles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
   },
   disabledStateCard: { opacity: 0.58 },
-  stateValue: { marginTop: space.xs, marginBottom: 2 },
+  stateValue: { marginTop: space.xs, marginBottom: space.md },
   stateCardAction: {
     minHeight: 44,
     paddingHorizontal: space.md,

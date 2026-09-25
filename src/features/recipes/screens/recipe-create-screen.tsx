@@ -10,7 +10,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { PageHeader } from '@/components/layout/page-header';
-import { rs } from '@/components/theme/index';
+import { radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -90,15 +90,15 @@ const styles = StyleSheet.create((theme) => ({
   progress: {
     height: rs(16),
     flexDirection: 'row',
-    gap: rs(5),
-    paddingHorizontal: rs(16),
-    paddingTop: rs(2),
-    paddingBottom: rs(10),
+    gap: theme.space.md,
+    paddingHorizontal: theme.space.lg,
+    paddingTop: theme.space.md,
+    paddingBottom: theme.space.md,
   },
   progressSegment: {
     flex: 1,
     height: rs(4),
-    borderRadius: rs(2),
+    borderRadius: radius.micro,
   },
   keyboard: {
     flex: 1,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   scrollContent: {
-    paddingHorizontal: rs(16),
+    paddingHorizontal: theme.space.lg,
     paddingBottom: theme.space.lg,
   },
 }));

@@ -71,12 +71,12 @@ const styles = StyleSheet.create((theme) => ({
     height: 4,
     borderRadius: theme.radius.pill,
     alignSelf: 'center',
-    marginTop: 11,
+    marginTop: theme.space.md,
     backgroundColor: theme.border,
   },
   content: {
     padding: theme.space.xl,
-    gap: 14,
+    gap: theme.space.lg,
   },
   header: {
     flexDirection: 'row',
@@ -87,7 +87,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   metaStack: {
-    gap: 3,
+    gap: theme.space.md,
   },
   closeButton: {
     width: 34,
@@ -123,7 +123,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   detailRow: {
     minHeight: 50,
-    paddingHorizontal: 14,
+    paddingHorizontal: theme.space.lg,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -143,8 +143,8 @@ const styles = StyleSheet.create((theme) => ({
   },
   section: {
     borderRadius: theme.radius.lg,
-    padding: 14,
-    gap: 6,
+    padding: theme.space.lg,
+    gap: theme.space.md,
     backgroundColor: theme.background,
   },
   nutrients: {
@@ -156,8 +156,8 @@ const styles = StyleSheet.create((theme) => ({
     width: '31.6%',
     minHeight: 62,
     borderRadius: theme.radius.md,
-    padding: 10,
-    gap: 5,
+    padding: theme.space.md,
+    gap: theme.space.md,
     backgroundColor: theme.backgroundSoft,
   },
 }));

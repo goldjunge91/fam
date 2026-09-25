@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Alert, Platform, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { space, withAlpha } from '@/components/theme/index';
+import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { MenuButton } from '@/components/ui/menu-button';
 import { Button, Card, Press, Txt } from '@/constants/ui';
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     gap: space.lg + space.sm,
     paddingHorizontal: space.lg,
     paddingTop: space.md,
-    paddingBottom: 64,
+    paddingBottom: space.xxxl,
   },
   topCards: {
     gap: space.lg,
@@ -50,12 +50,12 @@ const styles = StyleSheet.create({
     gap: space.sm,
     padding: space.sm,
     borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: space.xl,
+    borderRadius: radius.lg,
   },
   profileAvatar: {
     width: 50,
     height: 50,
-    borderRadius: space.xl + space.sm,
+    borderRadius: radius.famLarge,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',

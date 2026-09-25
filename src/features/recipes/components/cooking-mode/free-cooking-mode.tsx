@@ -13,12 +13,12 @@ import { CookingModeShell } from './cooking-mode-shell';
 const styles = StyleSheet.create((theme) => ({
   content: {
     flexGrow: 1,
-    paddingHorizontal: rs(24),
-    paddingBottom: rs(24),
-    gap: rs(14),
+    paddingHorizontal: theme.space.xxl,
+    paddingBottom: theme.space.xxl,
+    gap: theme.space.lg,
   },
   title: {
-    paddingTop: rs(6),
+    paddingTop: theme.space.md,
   },
   instructions: {
     paddingTop: theme.space.lg,
@@ -45,15 +45,15 @@ const styles = StyleSheet.create((theme) => ({
   },
   groups: {
     borderRadius: theme.radius.lg,
-    padding: rs(13),
-    gap: rs(18),
+    padding: theme.space.md,
+    gap: theme.space.xl,
   },
   groupHeader: {
     minHeight: rs(40),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: rs(10),
+    gap: theme.space.md,
     borderBottomWidth: 0.5,
   },
   groupTitle: {

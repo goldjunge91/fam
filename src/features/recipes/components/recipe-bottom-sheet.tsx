@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { rs } from '@/components/theme/index';
+import { radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 
@@ -32,21 +32,21 @@ const styles = StyleSheet.create((theme) => ({
   sheet: {
     borderTopLeftRadius: theme.radius.famLarge,
     borderTopRightRadius: theme.radius.famLarge,
-    paddingHorizontal: rs(24),
-    paddingTop: rs(10),
-    paddingBottom: rs(19),
+    paddingHorizontal: theme.space.xxl,
+    paddingTop: theme.space.md,
+    paddingBottom: theme.space.xl,
     backgroundColor: theme.backgroundElement,
   },
   handle: {
     width: rs(36),
     height: rs(4),
     alignSelf: 'center',
-    borderRadius: rs(2),
-    marginTop: rs(10),
+    borderRadius: radius.micro,
+    marginTop: theme.space.md,
   },
   header: {
     minHeight: rs(58),
-    paddingTop: rs(13),
+    paddingTop: theme.space.md,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

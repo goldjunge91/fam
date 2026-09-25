@@ -92,7 +92,7 @@ const styles = StyleSheet.create((theme) => ({
     backgroundColor: withAlpha(theme.danger, 0.1),
   },
   footer: {
-    marginTop: 64,
+    marginTop: theme.space.xxxl,
   },
   footerButton: {
     marginBottom: theme.space.lg,

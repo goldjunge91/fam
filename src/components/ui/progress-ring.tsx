@@ -8,7 +8,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Svg, { Circle } from 'react-native-svg';
 
-import { motion } from '@/components/theme/index';
+import { motion, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { computeRingMetrics, type RingPreset, RingPresetSize } from '@/constants/rings';
 import { Txt } from '@/constants/ui';
@@ -150,7 +150,7 @@ export function ProgressRing({
           bottom: 0,
           alignItems: 'center',
           justifyContent: 'center',
-          gap: 2,
+          gap: space.md,
         }}>
         {children !== undefined ? (
           children
@@ -185,7 +185,7 @@ export function ProgressRing({
                 variant="body"
                 tone={exceeded ? 'warning' : 'secondary'}
                 weight="500"
-                style={{ marginTop: 2 }}>
+                style={{ marginTop: space.md }}>
                 {exceeded ? `${Math.abs(remaining)} darüber` : `${remaining} übrig`}
               </Txt>
             ) : null}

@@ -33,15 +33,15 @@ type CookingModeStepProps = {
 const styles = StyleSheet.create((theme) => ({
   root: {
     flex: 1,
-    paddingHorizontal: rs(24),
-    paddingBottom: rs(24),
+    paddingHorizontal: theme.space.xxl,
+    paddingBottom: theme.space.xxl,
   },
   progress: {
     height: rs(21),
     flexDirection: 'row',
-    gap: rs(5),
-    paddingTop: rs(2),
-    paddingBottom: rs(15),
+    gap: theme.space.md,
+    paddingTop: theme.space.md,
+    paddingBottom: theme.space.lg,
   },
   progressSegment: {
     flex: 1,
@@ -52,11 +52,11 @@ const styles = StyleSheet.create((theme) => ({
     letterSpacing: 1.1,
   },
   title: {
-    paddingTop: rs(6),
+    paddingTop: theme.space.md,
   },
   artwork: {
     height: rs(184),
-    marginTop: rs(13),
+    marginTop: theme.space.md,
     borderRadius: theme.radius.famLarge,
     overflow: 'hidden',
   },
@@ -65,7 +65,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   footer: {
     marginTop: 'auto',
-    paddingTop: rs(13),
+    paddingTop: theme.space.md,
     flexDirection: 'row',
     gap: theme.space.sm,
   },

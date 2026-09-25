@@ -17,19 +17,19 @@ import type { IngredientComponentGroup } from './types';
 
 const styles = StyleSheet.create((theme) => ({
   eyebrow: {
-    paddingTop: rs(8),
+    paddingTop: theme.space.md,
     letterSpacing: 1.5,
   },
   heading: {
-    paddingTop: rs(6),
-    paddingBottom: rs(16),
+    paddingTop: theme.space.md,
+    paddingBottom: theme.space.lg,
   },
   cover: {
     width: '100%',
     height: rs(200),
     borderRadius: theme.radius.lg,
     overflow: 'hidden',
-    marginBottom: rs(24),
+    marginBottom: theme.space.xxl,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -44,18 +44,18 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
   },
   coverActionText: {
-    marginTop: rs(14),
+    marginTop: theme.space.lg,
   },
   fieldGroup: {
-    marginBottom: rs(14),
+    marginBottom: theme.space.lg,
   },
   fieldLabel: {
-    marginBottom: rs(6),
+    marginBottom: theme.space.md,
   },
   field: {
     borderRadius: theme.radius.sm,
     minHeight: rs(44),
-    paddingHorizontal: rs(24),
+    paddingHorizontal: theme.space.xxl,
   },
   focusableField: {
     borderWidth: theme.borderWidth.strong,
@@ -66,18 +66,18 @@ const styles = StyleSheet.create((theme) => ({
   },
   descriptionField: {
     height: rs(76),
-    paddingVertical: rs(12),
+    paddingVertical: theme.space.md,
   },
   detailsRow: {
     flexDirection: 'row',
-    gap: rs(14),
+    gap: theme.space.lg,
   },
   detailsColumn: {
     flex: 1,
-    marginBottom: rs(14),
+    marginBottom: theme.space.lg,
   },
   servingsColumn: {
-    marginBottom: rs(14),
+    marginBottom: theme.space.lg,
   },
   servingsControl: {
     flexDirection: 'row',
@@ -85,23 +85,23 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'space-between',
     borderRadius: theme.radius.sm,
     height: rs(44),
-    paddingHorizontal: rs(24),
+    paddingHorizontal: theme.space.xxl,
     minWidth: rs(100),
   },
   tagWrap: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: rs(10),
+    gap: theme.space.md,
   },
   tag: {
-    paddingHorizontal: rs(24),
-    paddingVertical: rs(7),
+    paddingHorizontal: theme.space.xxl,
+    paddingVertical: theme.space.md,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
   },
   componentGroup: {
-    marginBottom: rs(16),
-    padding: rs(11),
+    marginBottom: theme.space.lg,
+    padding: theme.space.md,
     borderRadius: theme.radius.lg,
   },
   componentHeader: {
@@ -121,7 +121,7 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
   },
   ingredientRow: {
-    marginBottom: rs(14),
+    marginBottom: theme.space.lg,
     gap: theme.space.sm,
   },
   ingredientFields: {
@@ -136,7 +136,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   addIngredient: {
-    paddingVertical: rs(6),
+    paddingVertical: theme.space.md,
     alignSelf: 'flex-start',
   },
   addGroup: {
@@ -146,12 +146,12 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: theme.space.sm,
-    marginBottom: rs(24),
+    marginBottom: theme.space.xxl,
   },
   actions: {
     flexDirection: 'row',
-    gap: rs(14),
-    marginBottom: rs(16),
+    gap: theme.space.lg,
+    marginBottom: theme.space.lg,
   },
   actionContainer: {
     flex: 1,

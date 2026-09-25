@@ -14,11 +14,11 @@ type CookingModeNoStepsProps = {
 const styles = StyleSheet.create((theme) => ({
   content: {
     flexGrow: 1,
-    paddingHorizontal: rs(24),
-    paddingBottom: rs(24),
+    paddingHorizontal: theme.space.xxl,
+    paddingBottom: theme.space.xxl,
   },
   title: {
-    paddingTop: rs(6),
+    paddingTop: theme.space.md,
   },
   instructions: {
     paddingTop: theme.space.lg,

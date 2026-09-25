@@ -37,7 +37,7 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     gap: theme.space.xs,
     paddingHorizontal: theme.space.lg,
-    paddingVertical: 6,
+    paddingVertical: theme.space.md,
     borderRadius: theme.radius.lg,
     borderWidth: theme.borderWidth.base,
   },

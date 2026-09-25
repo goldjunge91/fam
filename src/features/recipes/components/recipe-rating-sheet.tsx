@@ -19,8 +19,8 @@ const styles = StyleSheet.create((theme) => ({
   scoreRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: rs(7),
-    paddingTop: rs(14),
+    gap: theme.space.md,
+    paddingTop: theme.space.lg,
   },
   scoreButton: {
     width: '18%',
@@ -33,19 +33,19 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.xs,
   },
   scoreHint: {
-    paddingTop: rs(10),
+    paddingTop: theme.space.md,
   },
   note: {
     minHeight: rs(92),
     marginTop: theme.space.lg,
     paddingHorizontal: theme.space.lg,
-    paddingVertical: rs(11),
+    paddingVertical: theme.space.md,
     borderWidth: 0.5,
     borderRadius: theme.radius.md,
   },
   submitContainer: {
     alignSelf: 'stretch',
-    marginTop: rs(14),
+    marginTop: theme.space.lg,
   },
   submit: {
     height: rs(48),
