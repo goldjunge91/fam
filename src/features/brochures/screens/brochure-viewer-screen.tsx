@@ -460,7 +460,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#000' },
+  container: { flex: 1, backgroundColor: theme.viewerBackground },
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', gap: space.md },
   pagerView: { flex: 1 },
   page: { flex: 1, justifyContent: 'center', alignItems: 'center' },

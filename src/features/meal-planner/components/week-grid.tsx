@@ -20,9 +20,8 @@ const SLOT_LABELS: Record<MealSlot, string> = {
   dinner: 'Abendessen',
 };
 
-// Diese festen Werte sind bestehende Kalender-Geometrie bzw. native
-// Integrationsgrenzen (Zellenhoehe und Artwork-Groesse), keine
-// semantischen Farb-, Typografie- oder Spacing-Tokens.
+// Die Kalendergeometrie bleibt lokal; große untere Insets verwenden den
+// gemeinsamen xxxxl-Spacing-Token.
 const styles = StyleSheet.create((theme) => ({
   root: {
     flex: 1,
@@ -33,7 +32,7 @@ const styles = StyleSheet.create((theme) => ({
   content: {
     gap: theme.space.md,
     paddingTop: theme.space.md,
-    paddingBottom: 126,
+    paddingBottom: theme.space.xxxxl * 2,
   },
   dayCard: {
     overflow: 'hidden',

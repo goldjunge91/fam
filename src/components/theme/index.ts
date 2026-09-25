@@ -52,6 +52,7 @@ const famColorsLight = {
   backgroundSoft: '#E9E1E7', // fam/color/bg-soft
   textSecondary: '#786F79', // fam/color/text-secondary
   border: '#E4DDE3',
+  viewerBackground: '#000000',
   accent: '#8B5E63', // fam/color/bg-accent
   onAccent: '#FFFFFF',
   qrBackground: '#FFFFFF',
@@ -84,6 +85,7 @@ const famColorsDark = {
   backgroundSoft: '#382F3B',
   textSecondary: '#B7ADB3',
   border: '#3E3640',
+  viewerBackground: '#000000',
   accent: '#B79CBA',
   onAccent: '#211D23',
   qrBackground: '#FFFFFF',
@@ -119,6 +121,87 @@ export type Palette = { -readonly [K in keyof typeof famColorsLight]: string };
 
 export const colorsLight: Palette = famColorsLight;
 export const colorsDark: Palette = famColorsDark;
+
+/** Fixed artwork colors owned by the shared visual language. */
+export const recipeArtworkColors = {
+  previewPalette: ['#7A927C', '#D2C89B'],
+  previewHighlight: 'rgba(255,255,255,0.14)',
+  previewHighlightSoft: 'rgba(255,255,255,0.10)',
+  previewHighlightBorder: 'rgba(255,255,255,0.58)',
+  previewOverlay: '#140e10',
+  heroGradient: ['#D3A06F', '#8A696C', '#574458'],
+  heroWarmGlow: 'rgba(255,226,187,0.30)',
+  heroGreenGlow: 'rgba(101,150,111,0.30)',
+  cookingGradient: ['#C98D6D', '#E7CAA4'],
+  cookingRing: 'rgba(255,255,255,0.55)',
+} as const;
+
+/** Stable colors for shopping stores and placement categories. */
+export const shoppingListColors = {
+  stores: {
+    rewe: '#B5623F',
+    aldi: '#5C7396',
+    lidl: '#C6A24A',
+    edeka: '#748C5B',
+    globus: '#4F8580',
+    marktkauf: '#A6483D',
+    netto: '#8B6B4A',
+    kaufland: '#A6483D',
+    dm: '#8B6F72',
+  },
+  storePalette: [
+    '#B5623F',
+    '#C08A4E',
+    '#C6A24A',
+    '#748C5B',
+    '#4F8580',
+    '#5C7396',
+    '#8B6F72',
+    '#A6483D',
+    '#8B6B4A',
+    '#7A7680',
+  ],
+  placement: {
+    freshProduce: '#748C5B',
+    bakery: '#C6A24A',
+    chilledDairyEggs: '#5C7396',
+    ambientMilkDrinks: '#7B86A5',
+    chilledPlantBased: '#6B8756',
+    meatPoultry: '#A6483D',
+    fishSeafood: '#457287',
+    deli: '#964B4B',
+    pastaTomato: '#B5623F',
+    riceWorldFoods: '#8B6B4A',
+    breakfast: '#C08A4E',
+    baking: '#B89462',
+    oilsSpices: '#B57B48',
+    condiments: '#A95745',
+    cannedJars: '#9B604A',
+    readyMeals: '#9B7864',
+    snacks: '#8B6F72',
+    sweets: '#A16A82',
+    coldDrinks: '#4F8580',
+    hotDrinks: '#6A564A',
+    alcohol: '#7B5D6E',
+    frozen: '#6C7F99',
+    baby: '#8C6C82',
+    pets: '#736B5E',
+    household: '#5A6F7C',
+    personalCare: '#705773',
+    other: '#786F79',
+  },
+} as const;
+
+/** Nutri-Score badge colors used by product information surfaces. */
+export const nutritionColors = {
+  nutriScore: {
+    a: '#038141',
+    b: '#85BB2F',
+    c: '#FECB02',
+    d: '#EE8100',
+    e: '#E63E11',
+  },
+} as const;
 
 /** Back-compat default export (light). Converted screens use useTheme(). */
 export const colors = colorsLight;
@@ -186,6 +269,7 @@ export const space = {
   xl: rs(20),
   xxl: rs(28),
   xxxl: rs(40),
+  xxxxl: rs(64),
 } as const;
 
 /** Standardmaße für Dashboard-Widgets in den beiden unterstützten Ansichten. */
@@ -238,37 +322,45 @@ export const font = {
   },
 } as const;
 
-/** Shared boxShadow geometry and opacity tiers. */
-export const shadow = {
-  sm: {
-    offsetX: 0,
-    offsetY: 2,
-    blurRadius: 6,
-    opacity: 0.08,
+/**
+ * Resolved values for the native Expo Widgets surface.
+ *
+ * `@expo/ui/swift-ui` modifiers are a native integration boundary: they need
+ * concrete values when the widget layout is evaluated rather than React
+ * Native styles. The semantic decisions still belong to this theme owner.
+ */
+export const widgetTheme = {
+  light: {
+    background: colorsLight.background,
+    title: colorsLight.text,
+    secondary: colorsLight.textSecondary,
+    accent: colorsLight.accent,
   },
-  md: {
-    offsetX: 0,
-    offsetY: 6,
-    blurRadius: 14,
-    opacity: 0.1,
+  dark: {
+    background: colorsDark.background,
+    title: colorsDark.text,
+    secondary: colorsDark.textSecondary,
+    accent: colorsDark.accent,
   },
-  lg: {
-    offsetX: 0,
-    offsetY: 12,
-    blurRadius: 24,
-    opacity: 0.14,
+  spacing: {
+    inset: space.lg,
   },
-  /** Geometry for a deliberately prominent shadow. */
-  prominent: {
-    offsetX: 0,
-    offsetY: 0,
-    blurRadius: 18,
-    opacity: 0.7,
+  typography: {
+    title: font.sizes.base,
+    count: font.sizes.xxl,
+    secondary: font.sizes.xs,
+    mediumTitle: font.sizes.lg,
+    mediumSecondary: font.sizes.sm,
   },
 } as const;
 
-export type ShadowToken = (typeof shadow)[keyof typeof shadow];
-export type ShadowDirection = 'down' | 'up' | 'left' | 'right';
+export function getWidgetTheme(scheme: 'light' | 'dark' | undefined) {
+  return {
+    colors: widgetTheme[scheme === 'dark' ? 'dark' : 'light'],
+    spacing: widgetTheme.spacing,
+    typography: widgetTheme.typography,
+  };
+}
 
 /** Sichtbare Tiefe und vollständiger Druckweg gefüllter 3D-Buttons. */
 export const BUTTON_DEPTH = 4;
@@ -319,22 +411,6 @@ export function withAlpha(hex: string, alpha: number): string {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
-/** Converts a central shadow token to the cross-platform boxShadow format. */
-export function boxShadowValue(
-  tier: ShadowToken,
-  color: string,
-  direction: ShadowDirection = 'down',
-): string {
-  const [offsetX, offsetY] = {
-    down: [tier.offsetX, tier.offsetY],
-    up: [tier.offsetX, -tier.offsetY],
-    left: [-tier.offsetY, tier.offsetX],
-    right: [tier.offsetY, tier.offsetX],
-  }[direction];
-
-  return `${offsetX}px ${offsetY}px ${tier.blurRadius}px ${withAlpha(color, tier.opacity)}`;
-}
-
 // TODO: prüfen ob wir das noch brauchen
 export const Fonts = Platform.select({
   ios: {
@@ -363,6 +439,8 @@ export const Fonts = Platform.select({
 
 export const theme = {
   colors,
+  recipeArtworkColors,
+  shoppingListColors,
   accent,
   radius,
   borderWidth,
@@ -370,7 +448,6 @@ export const theme = {
   controlSizes,
   imageSizes,
   font,
-  shadow,
   BUTTON_DEPTH,
 };
 export default theme;
@@ -381,8 +458,8 @@ export default theme;
 import { StyleSheet } from 'react-native-unistyles';
 
 const unistylesThemes = {
-  light: { ...colorsLight, space, controlSizes, imageSizes, font, radius, borderWidth, shadow },
-  dark: { ...colorsDark, space, controlSizes, imageSizes, font, radius, borderWidth, shadow },
+  light: { ...colorsLight, space, controlSizes, imageSizes, font, radius, borderWidth },
+  dark: { ...colorsDark, space, controlSizes, imageSizes, font, radius, borderWidth },
 };
 
 type AppThemes = typeof unistylesThemes;

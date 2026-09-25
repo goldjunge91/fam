@@ -27,14 +27,13 @@ Inhalt.
 - Surface-Töne bleiben `page`, `surface`, `soft` und `accent`.
 - `selected` ist kein zusätzlicher Surface-Ton. Interaktive Komponenten wenden
   das zentrale Auswahlrezept an und melden ihren Zustand zugänglich.
-- Produktcards verwenden die gemeinsame Foundation. Bestehende zentrale Optionen
-  für Padding, weiche Fläche oder Elevation können über Adapter angewendet werden,
-  soweit deren öffentliche API sie unterstützt. Neue Props werden nicht erfunden,
-  nur um ein Dokumentationsbeispiel ausführbar erscheinen zu lassen.
-- Die bestehende `Card.elevation`-Prop bleibt erhalten und wählt intern einen
-  fertigen `uiShadowStyles`-Eintrag. `GlassCard` und `DashboardCardShell` wählen
-  Schatten ausdrücklich; `GlassCard.tinted` verändert nur die Hintergrundtönung.
-  Dashboard-Rahmen und Overflow sind unabhängig von Schattenauswahl und Tönung.
+- Produktcards verwenden die gemeinsame Foundation und deren vorhandene Optionen
+  für Padding und Fläche. Cards führen keine Fam-eigene `shadow`- oder
+  `elevation`-Prop zur Auswahl eines Schattens ein. Falls eine Card einen
+  Schatten benötigt, wird ein fertiger Style aus `uiShadowStyles` über die
+  vorhandene `style`-API angewendet. Bei `GlassCard` wird der Style über
+  `outerStyle` auf den äußeren Wrapper gelegt, nicht auf den inneren
+  Glasinhalt. `tinted` verändert ausschließlich die Flächentönung.
 - Gleiche Varianten haben dieselbe Darstellung. Unterschiedliche Inhalte oder
   lokale Anordnung erfordern keine neue Card-Definition.
 - Der Card-Standard wird nicht pauschal auf jede Listenzeile übertragen. Keine

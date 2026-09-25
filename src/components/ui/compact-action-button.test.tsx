@@ -34,7 +34,7 @@ describe('CompactActionButton', () => {
     expect(button.props.className).toBeUndefined();
     expect(typeof button.props.style).not.toBe('function');
     expect(button.props.hitSlop).toBe(5);
-    expect(button.props.accessibilityState).toEqual({ expanded: true });
+    expect(button.props.accessibilityState).toEqual({ expanded: true, disabled: false });
     expect(button).toHaveStyle({
       width: '100%',
       height: 34,
@@ -57,5 +57,34 @@ describe('CompactActionButton', () => {
     await fireEvent.press(screen.getByRole('button', { name: 'Sortierung' }));
 
     expect(onPress).toHaveBeenCalledTimes(1);
+  });
+
+  it('exposes disabled state and prevents activation', async () => {
+    const onPress = jest.fn();
+    await render(<CompactActionButton label="Sortierung" disabled onPress={onPress} />);
+
+    const button = screen.getByRole('button', { name: 'Sortierung' });
+
+    expect(button.props.accessibilityState).toEqual({ expanded: false, disabled: true });
+    expect(button).toHaveStyle({ opacity: 0.5 });
+
+    await fireEvent.press(button);
+
+    expect(onPress).not.toHaveBeenCalled();
+  });
+
+  it('merges a layout style override after the shared button styles', async () => {
+    await render(
+      <CompactActionButton
+        label="Sortierung"
+        onPress={jest.fn()}
+        style={{ marginTop: 12, width: 240 }}
+      />,
+    );
+
+    expect(screen.getByRole('button', { name: 'Sortierung' })).toHaveStyle({
+      marginTop: 12,
+      width: 240,
+    });
   });
 });

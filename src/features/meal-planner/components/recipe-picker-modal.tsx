@@ -82,12 +82,7 @@ function RecipePickerRow({
       onPress={() => onSelect(recipe)}
       style={styles.recipeRow}>
       <View style={styles.recipeArtwork}>
-        <RecipeArtwork
-          title={recipe.title}
-          coverUrl={coverUrl}
-          coverPath={recipe.coverImagePath}
-          paletteIndex={recipe.id.length}
-        />
+        <RecipeArtwork title={recipe.title} coverUrl={coverUrl} coverPath={recipe.coverImagePath} />
       </View>
       <Txt variant="body" weight="700" numberOfLines={2} style={styles.recipeTitle}>
         {recipe.title}

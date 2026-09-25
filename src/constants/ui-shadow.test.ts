@@ -1,8 +1,12 @@
-import { boxShadowValue, colorsLight, shadow, withAlpha } from '@/components/theme';
+import { colorsLight, withAlpha } from '@/components/theme';
 
 import { uiShadowStyles } from './ui-shadow';
 
 describe('uiShadowStyles', () => {
+  it('exports only the finished styles and keeps geometry private', () => {
+    expect(Object.keys(require('./ui-shadow'))).toEqual(['uiShadowStyles']);
+  });
+
   it('exposes the eleven agreed app-wide shadow styles', () => {
     expect(uiShadowStyles).toEqual(
       expect.objectContaining({
@@ -22,30 +26,18 @@ describe('uiShadowStyles', () => {
   });
 
   it('uses the existing card and sheet tokens with their assigned directions', () => {
-    expect(uiShadowStyles.cardBottom.boxShadow).toBe(
-      boxShadowValue(shadow.sm, colorsLight.shadowCard),
-    );
-    expect(uiShadowStyles.raisedCardBottom.boxShadow).toBe(
-      boxShadowValue(shadow.md, colorsLight.shadowCard),
-    );
-    expect(uiShadowStyles.modalBottom.boxShadow).toBe(
-      boxShadowValue(shadow.lg, colorsLight.shadowCard),
-    );
-    expect(uiShadowStyles.prominentCard.boxShadow).toBe(
-      boxShadowValue(shadow.prominent, colorsLight.shadowCard),
-    );
+    expect(uiShadowStyles.cardBottom.boxShadow).toBe('0px 2px 6px rgba(89, 64, 89, 0.08)');
+    expect(uiShadowStyles.raisedCardBottom.boxShadow).toBe('0px 6px 14px rgba(89, 64, 89, 0.1)');
+    expect(uiShadowStyles.modalBottom.boxShadow).toBe('0px 12px 24px rgba(89, 64, 89, 0.14)');
+    expect(uiShadowStyles.prominentCard.boxShadow).toBe('0px 0px 18px rgba(89, 64, 89, 0.7)');
     expect(uiShadowStyles.floatingControlBottom.boxShadow).toBe(
-      boxShadowValue(shadow.md, colorsLight.shadowCard),
+      '0px 6px 14px rgba(89, 64, 89, 0.1)',
     );
     expect(uiShadowStyles.floatingPanelBottom.boxShadow).toBe(
-      boxShadowValue(shadow.lg, colorsLight.shadowSheet),
+      '0px 12px 24px rgba(42, 31, 44, 0.14)',
     );
-    expect(uiShadowStyles.bottomSheetTop.boxShadow).toBe(
-      boxShadowValue(shadow.lg, colorsLight.shadowSheet, 'up'),
-    );
-    expect(uiShadowStyles.leftDrawerRight.boxShadow).toBe(
-      boxShadowValue(shadow.lg, colorsLight.shadowSheet, 'right'),
-    );
+    expect(uiShadowStyles.bottomSheetTop.boxShadow).toBe('0px -12px 24px rgba(42, 31, 44, 0.14)');
+    expect(uiShadowStyles.leftDrawerRight.boxShadow).toBe('12px 0px 24px rgba(42, 31, 44, 0.14)');
   });
 
   it('keeps the documented hotspot and accent-note geometries and reset', () => {

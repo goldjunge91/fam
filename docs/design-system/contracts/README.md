@@ -20,7 +20,6 @@ ist kein Nachweis, dass App-Code und Referenzseite bereits vollständig entsprec
 Die abgeschlossene UI-Konsolidierung ist in den Beads-Aufgaben `fam-978` und
 `fam-7xer` nachverfolgbar. Die Contracts besitzen die laufenden Regeln; ein
 separater Konsolidierungsplan ist keine parallele Designquelle.
-`docs/archive/nativewind-styling/` bleibt historische Dokumentation.
 
 Die Dokumentationsüberarbeitung autorisiert keine App-Codeänderung. Bei späterer
 Umsetzung müssen Code, Contracts und Referenzseite denselben Zustand erreichen.
@@ -30,7 +29,7 @@ Planung und Arbeitsstatus werden separat geführt, Arbeitspakete in Beads.
 
 | Quelle | Verantwortung |
 | --- | --- |
-| `src/components/theme/index.ts` | Wiederverwendbare Tokens: Paletten, Schriftmaße und Gewichte, Abstände, Radien, Schatten, Verläufe und gemeinsame Maße |
+| `src/components/theme/index.ts` | Wiederverwendbare Tokens: Paletten, Schriftmaße und Gewichte, Abstände, Radien, Schattenfarben, Verläufe und gemeinsame Maße |
 | `src/components/theme/ThemeProvider.tsx` | Persistierte Theme-Präferenz, Auflösung von `system/light/dark`, aktive Palette, `useTheme()` und `useThemedStyles()` |
 | `src/constants/ui.tsx` und `src/constants/ui-shadow.ts` | Ein gemeinsamer UI-Owner: Primitive und semantische Styles für Typografie, Farbpaare, Flächen, Konturen, Schatten, Interaktionszustände, Motion und Haptikzuordnung; `ui-shadow.ts` enthält ausschließlich die exportierten Schatten-Styles |
 
@@ -42,19 +41,16 @@ Theme- oder Runtime-abhängige Styles entstehen über typisierte
 Unistyles-Callbacks; vollständig statische, lokale Styles dürfen die statische
 `StyleSheet.create`-Form verwenden. Die verbindlichen Regeln stehen in
 [Vertrag 05](./05-unistyles-and-stylesheet.md).
-`global.css` und `tailwind.config.js` sind Retirement-Dateien ohne aktive
-Designentscheidungen.
-
-Das Repo-weite Removal-Gate
+Das repo-weite Styling-Gate
 `test/conventions/nativewind-removal.test.ts` schützt diesen Endzustand. Es
 prüft JavaScript/TypeScript unter `src/` und im Root per Syntaxbaum auf verbotene
-Props (auch in Objekt-Spreads) und NativeWind-/Tailwind-/CSS-Interop-Referenzen.
-Root-Konfiguration, direkte Pakete in `package.json` und im Bun-Root-Workspace
-sowie entfernte Styling-Assets und aktive Tailwind-CSS-Direktiven sind ebenfalls
-abgesichert. Kommentare, historische Docs und eigenständige Tools bleiben
-ausgenommen; das transitive Tailwind-Paket der Rozenite-Oberfläche ist keine
-App-Styling-Abhängigkeit. Gegenbeispiele prüfen die Erkennung in temporären
-Dateibäumen.
+Props (auch in Objekt-Spreads) und Referenzen auf ausgemusterte Styling-Pakete
+oder Interop-APIs. Root-Konfiguration, direkte Pakete in `package.json` und im
+Bun-Root-Workspace, ausgemusterte Styling-Assets und aktive CSS-Direktiven sind
+ebenfalls abgesichert. Kommentare, historische Docs und eigenständige Tools
+bleiben ausgenommen; Abhängigkeiten separater Tool-Oberflächen außerhalb des
+App-Workspaces gelten nicht als App-Styling-Abhängigkeit. Gegenbeispiele prüfen
+die Erkennung in temporären Dateibäumen.
 
 Der gemeinsame allgemeine `Button`, `TextField`, `SegmentedControl`, `Txt` und
 `Surface` werden direkt aus `src/constants/ui.tsx` importiert.

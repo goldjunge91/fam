@@ -6,19 +6,19 @@ import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles';
 
 import { Colors } from '@/components/theme/index';
 import { getDeviceStorage } from '@/lib/storage/local-device-storage';
-
+import * as theme from './index';
 import {
   BUTTON_DEPTH,
   borderWidth,
-  boxShadowValue,
   colorsDark,
   colorsLight,
   dashboardCardSizes,
   font,
+  getWidgetTheme,
   makeAccent,
   radius,
-  shadow,
   space,
+  widgetTheme,
 } from './index';
 import {
   DEFAULT_THEME_PREF,
@@ -95,21 +95,25 @@ describe('fam theme tokens', () => {
     expect(borderWidth.base).toBe(1.5);
     expect(borderWidth.strong).toBe(2);
     expect(space.md).toBeGreaterThan(0);
+    expect(space.xxxxl).toBeGreaterThanOrEqual(64);
     expect(font.sizes.base).toBeGreaterThan(0);
-    expect(shadow.sm).toEqual({ offsetX: 0, offsetY: 2, blurRadius: 6, opacity: 0.08 });
-    expect(shadow.prominent).toEqual({ offsetX: 0, offsetY: 0, blurRadius: 18, opacity: 0.7 });
-    expect(boxShadowValue(shadow.md, colorsLight.shadowCard)).toBe(
-      '0px 6px 14px rgba(89, 64, 89, 0.1)',
-    );
-    expect(boxShadowValue(shadow.lg, colorsLight.shadowSheet, 'up')).toBe(
-      '0px -12px 24px rgba(42, 31, 44, 0.14)',
-    );
-    expect(boxShadowValue(shadow.lg, colorsLight.shadowSheet, 'right')).toBe(
-      '12px 0px 24px rgba(42, 31, 44, 0.14)',
-    );
     expect(BUTTON_DEPTH).toBe(4);
     expect(dashboardCardSizes.small).toEqual({ height: 138, padding: space.lg });
     expect(dashboardCardSizes.large).toEqual({ height: 176, padding: space.lg });
+  });
+
+  it('does not own shadow geometry or formatting', () => {
+    expect(theme).not.toHaveProperty('shadow');
+    expect(theme).not.toHaveProperty('boxShadowValue');
+  });
+
+  it('maps native widget values back to the shared theme tokens', () => {
+    expect(widgetTheme.light.background).toBe(colorsLight.background);
+    expect(widgetTheme.dark.background).toBe(colorsDark.background);
+    expect(widgetTheme.spacing.inset).toBe(space.lg);
+    expect(widgetTheme.typography.title).toBe(font.sizes.base);
+    expect(getWidgetTheme('dark').colors.accent).toBe(colorsDark.accent);
+    expect(getWidgetTheme(undefined).colors.accent).toBe(colorsLight.accent);
   });
 });
 

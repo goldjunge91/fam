@@ -1,3 +1,4 @@
+import type { StyleProp, ViewStyle } from 'react-native';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -8,6 +9,8 @@ type CompactActionButtonProps = {
   onPress: () => void;
   accessibilityLabel?: string;
   expanded?: boolean;
+  disabled?: boolean;
+  style?: StyleProp<ViewStyle>;
 };
 
 const styles = StyleSheet.create({
@@ -31,15 +34,22 @@ export function CompactActionButton({
   onPress,
   accessibilityLabel,
   expanded = false,
+  disabled = false,
+  style,
 }: CompactActionButtonProps) {
   return (
     <Press
       onPress={onPress}
+      disabled={disabled}
       hitSlop={5}
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel ?? label}
-      accessibilityState={{ expanded }}
-      style={compactActionButtonStyles.button}>
+      accessibilityState={{ expanded, disabled }}
+      style={[
+        compactActionButtonStyles.button,
+        disabled && compactActionButtonStyles.disabled,
+        style,
+      ]}>
       <Txt variant="body">{label}</Txt>
       <View style={[styles.chevron, { transform: [{ rotate: expanded ? '180deg' : '0deg' }] }]}>
         <View style={[compactActionButtonStyles.chevronLine, styles.chevronLeft]} />

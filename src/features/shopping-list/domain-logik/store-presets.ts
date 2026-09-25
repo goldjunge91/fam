@@ -1,3 +1,5 @@
+import { shoppingListColors } from '@/components/theme/index';
+
 export type StorePreset = {
   name: string;
   color: string;
@@ -10,32 +12,19 @@ export type StorePreset = {
  * Haushaltsdomäne. Sie werden als Streifen, Punkte und Auswahlmarkierungen
  * dargestellt, aber nicht als globale Theme-Flächen oder Textfarben verwendet.
  */
-// Gedaempfte, erdige Toene statt roher Marken-Buntfarben (#E2001A,
-// #00549F, #FFD100, ...) — die lagen weit ausserhalb der warmen Mauve-/
-// Creme-Palette und wirkten wie ein Fremdkoerper neben Accent/Success/
-// Warning/Danger aus theme.ts. Bleiben als Streifen erkennbar, ohne den
-// Screen bunter zu machen als der Rest der App.
+// Gedaempfte, erdige Toene statt roher Marken-Buntfarben — die liegen
+// ausserhalb der warmen Mauve-/Creme-Palette und bleiben als Streifen
+// erkennbar, ohne den Screen bunter zu machen als der Rest der App.
 export const STORE_PRESETS: readonly StorePreset[] = [
-  { name: 'REWE', color: '#B5623F' },
-  { name: 'Aldi', color: '#5C7396' },
-  { name: 'Lidl', color: '#C6A24A' },
-  { name: 'Edeka', color: '#748C5B' },
-  { name: 'Globus', color: '#4F8580' },
-  { name: 'Marktkauf', color: '#A6483D' },
-  { name: 'Netto', color: '#8B6B4A' },
-  { name: 'Kaufland', color: '#A6483D' },
-  { name: 'dm', color: '#8B6F72' },
+  { name: 'REWE', color: shoppingListColors.stores.rewe },
+  { name: 'Aldi', color: shoppingListColors.stores.aldi },
+  { name: 'Lidl', color: shoppingListColors.stores.lidl },
+  { name: 'Edeka', color: shoppingListColors.stores.edeka },
+  { name: 'Globus', color: shoppingListColors.stores.globus },
+  { name: 'Marktkauf', color: shoppingListColors.stores.marktkauf },
+  { name: 'Netto', color: shoppingListColors.stores.netto },
+  { name: 'Kaufland', color: shoppingListColors.stores.kaufland },
+  { name: 'dm', color: shoppingListColors.stores.dm },
 ];
 
-export const STORE_COLOR_PALETTE: readonly string[] = [
-  '#B5623F',
-  '#C08A4E',
-  '#C6A24A',
-  '#748C5B',
-  '#4F8580',
-  '#5C7396',
-  '#8B6F72',
-  '#A6483D',
-  '#8B6B4A',
-  '#7A7680',
-];
+export const STORE_COLOR_PALETTE = shoppingListColors.storePalette;

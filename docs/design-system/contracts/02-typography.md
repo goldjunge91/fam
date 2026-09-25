@@ -5,7 +5,6 @@
 Eine `Txt`-Variante bündelt Schriftgröße, Zeilenhöhe, Gewicht und Standardton.
 Schriftmaße, Gewichte und vorhandene Fontfamilien (`font`, `Fonts`) stammen aus
 `index.ts`. Die Anwendung auf Text- und Komponentenrollen gehört nach `ui.tsx`.
-CSS und NativeWind besitzen keine aktive Typografie-API.
 Tokens werden zentral definiert, `Txt` mappt sie auf öffentliche Varianten und
 die aktive Palette kommt aus dem Theme-Kontext.
 

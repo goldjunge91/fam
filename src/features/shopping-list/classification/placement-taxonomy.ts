@@ -1,3 +1,4 @@
+import { shoppingListColors } from '@/components/theme/index';
 import { debugLog } from '@/lib/observability/debug-log';
 
 /**
@@ -104,7 +105,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'fresh_produce',
     label: 'Obst & Gemüse',
-    color: '#748C5B',
+    color: shoppingListColors.placement.freshProduce,
     rank: 10,
     storageKind: 'fridge',
     keywords: [],
@@ -112,7 +113,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'bakery',
     label: 'Brot & Backwaren',
-    color: '#C6A24A',
+    color: shoppingListColors.placement.bakery,
     rank: 20,
     storageKind: 'pantry',
     keywords: [],
@@ -120,7 +121,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'chilled_dairy_eggs',
     label: 'Milchprodukte & Eier',
-    color: '#5C7396',
+    color: shoppingListColors.placement.chilledDairyEggs,
     rank: 30,
     storageKind: 'fridge',
     keywords: [],
@@ -128,7 +129,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'ambient_milk_drinks',
     label: 'Haltbare Milch, Pflanzendrinks & Kochsahne',
-    color: '#7B86A5',
+    color: shoppingListColors.placement.ambientMilkDrinks,
     rank: 40,
     storageKind: 'pantry',
     keywords: [],
@@ -136,7 +137,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'chilled_plant_based',
     label: 'Vegane Kühlprodukte',
-    color: '#6B8756',
+    color: shoppingListColors.placement.chilledPlantBased,
     rank: 50,
     storageKind: 'fridge',
     keywords: [],
@@ -144,7 +145,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'meat_poultry',
     label: 'Fleisch & Geflügel',
-    color: '#A6483D',
+    color: shoppingListColors.placement.meatPoultry,
     rank: 60,
     storageKind: 'fridge',
     keywords: [],
@@ -152,7 +153,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'fish_seafood',
     label: 'Fisch & Meeresfrüchte',
-    color: '#457287',
+    color: shoppingListColors.placement.fishSeafood,
     rank: 70,
     storageKind: 'fridge',
     keywords: [],
@@ -160,7 +161,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'deli',
     label: 'Käse, Aufschnitt & Feinkost',
-    color: '#964B4B',
+    color: shoppingListColors.placement.deli,
     rank: 80,
     storageKind: 'fridge',
     keywords: [],
@@ -168,7 +169,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'pasta_tomato',
     label: 'Nudeln & Tomatenprodukte',
-    color: '#B5623F',
+    color: shoppingListColors.placement.pastaTomato,
     rank: 90,
     storageKind: 'pantry',
     keywords: [],
@@ -176,7 +177,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'rice_world_foods',
     label: 'Reis, Getreide & Hülsenfrüchte',
-    color: '#8B6B4A',
+    color: shoppingListColors.placement.riceWorldFoods,
     rank: 100,
     storageKind: 'pantry',
     keywords: [],
@@ -184,7 +185,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'breakfast',
     label: 'Frühstück & Brotaufstriche',
-    color: '#C08A4E',
+    color: shoppingListColors.placement.breakfast,
     rank: 110,
     storageKind: 'pantry',
     keywords: [],
@@ -192,7 +193,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'baking',
     label: 'Backen & Grundzutaten',
-    color: '#B89462',
+    color: shoppingListColors.placement.baking,
     rank: 120,
     storageKind: 'pantry',
     keywords: [],
@@ -200,7 +201,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'oils_spices',
     label: 'Öle, Essig & Gewürze',
-    color: '#B57B48',
+    color: shoppingListColors.placement.oilsSpices,
     rank: 130,
     storageKind: 'pantry',
     keywords: [],
@@ -208,7 +209,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'condiments',
     label: 'Ketchup, Senf & Würzsaucen',
-    color: '#A95745',
+    color: shoppingListColors.placement.condiments,
     rank: 140,
     storageKind: 'pantry',
     keywords: [],
@@ -216,7 +217,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'canned_jars',
     label: 'Konserven & Gläser',
-    color: '#9B604A',
+    color: shoppingListColors.placement.cannedJars,
     rank: 150,
     storageKind: 'pantry',
     keywords: [],
@@ -224,7 +225,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'ready_meals',
     label: 'Fertiggerichte & Suppen',
-    color: '#9B7864',
+    color: shoppingListColors.placement.readyMeals,
     rank: 160,
     storageKind: 'pantry',
     keywords: [],
@@ -232,7 +233,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'snacks',
     label: 'Snacks & Nüsse',
-    color: '#8B6F72',
+    color: shoppingListColors.placement.snacks,
     rank: 170,
     storageKind: 'pantry',
     keywords: [],
@@ -240,7 +241,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'sweets',
     label: 'Süßwaren',
-    color: '#A16A82',
+    color: shoppingListColors.placement.sweets,
     rank: 180,
     storageKind: 'pantry',
     keywords: [],
@@ -248,7 +249,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'cold_drinks',
     label: 'Wasser, Saft & Softdrinks',
-    color: '#4F8580',
+    color: shoppingListColors.placement.coldDrinks,
     rank: 190,
     storageKind: 'fridge',
     keywords: [],
@@ -256,7 +257,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'hot_drinks',
     label: 'Kaffee, Tee & Kakao',
-    color: '#6A564A',
+    color: shoppingListColors.placement.hotDrinks,
     rank: 200,
     storageKind: 'pantry',
     keywords: [],
@@ -264,7 +265,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'alcohol',
     label: 'Alkohol',
-    color: '#7B5D6E',
+    color: shoppingListColors.placement.alcohol,
     rank: 210,
     storageKind: 'pantry',
     keywords: [],
@@ -272,16 +273,23 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'frozen',
     label: 'Tiefkühl',
-    color: '#6C7F99',
+    color: shoppingListColors.placement.frozen,
     rank: 220,
     storageKind: 'freezer',
     keywords: [],
   },
-  { id: 'baby', label: 'Baby', color: '#8C6C82', rank: 230, storageKind: 'pantry', keywords: [] },
+  {
+    id: 'baby',
+    label: 'Baby',
+    color: shoppingListColors.placement.baby,
+    rank: 230,
+    storageKind: 'pantry',
+    keywords: [],
+  },
   {
     id: 'pets',
     label: 'Tierbedarf',
-    color: '#736B5E',
+    color: shoppingListColors.placement.pets,
     rank: 240,
     storageKind: 'pantry',
     keywords: [],
@@ -289,7 +297,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'household',
     label: 'Haushalt & Reinigung',
-    color: '#5A6F7C',
+    color: shoppingListColors.placement.household,
     rank: 250,
     storageKind: 'pantry',
     keywords: [],
@@ -297,7 +305,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'personal_care',
     label: 'Drogerie & Körperpflege',
-    color: '#705773',
+    color: shoppingListColors.placement.personalCare,
     rank: 260,
     storageKind: 'pantry',
     keywords: [],
@@ -305,7 +313,7 @@ export const PLACEMENT_ZONE_DEFINITIONS = [
   {
     id: 'other',
     label: 'Sonstiges',
-    color: '#786F79',
+    color: shoppingListColors.placement.other,
     rank: 270,
     storageKind: 'pantry',
     keywords: [],

@@ -2,9 +2,9 @@
 
 ## Zweck
 
-`react-native-unistyles` v3 ist die einzige aktive Styling-Runtime.
-NativeWind ist entfernt. Die drei zentralen Quellen aus der [README](./README.md)
-besitzen das Design-System. Theme- und Runtime-abhängige Styles verwenden
+`react-native-unistyles` v3 ist die einzige aktive Styling-Runtime. Die drei
+zentralen Quellen aus der [README](./README.md) besitzen das Design-System.
+Theme- und Runtime-abhängige Styles verwenden
 typisierte Unistyles-Callbacks; vollständig statische, lokale Styles dürfen
 statisch erstellt werden.
 
@@ -51,8 +51,6 @@ Designwerte bleiben unabhängig von der Erstellungsform in den zentralen
 Ownern.
 
 `className` und `contentContainerClassName` sind verboten.
-`global.css` und `tailwind.config.js` sind Retirement-Dateien und besitzen
-keine aktiven semantischen Klassen, Paletten oder Zustände.
 
 ## Verbindliche Unistyles-v3-Regeln
 
@@ -171,10 +169,10 @@ Eine vollständige Migration hat keine unbegründeten aktiven `className`-Verbra
 Der verbindliche Nachweis ist
 `bun run test test/conventions/nativewind-removal.test.ts`. Das Gate scannt
 JavaScript/TypeScript unter `src/` und im Root per Syntaxbaum und meldet beide
-verbotenen Props auch in Objekt-Spreads sowie NativeWind-/Tailwind-/CSS-Interop-
-Referenzen. Es prüft außerdem Root-Konfiguration, direkte Pakete in
-`package.json` und im Bun-Root-Workspace, entfernte Styling-Assets sowie aktive
-Tailwind-CSS-Direktiven. Kommentare, historische Docs und eigenständige Tools
-bleiben ausgenommen. Rozenites transitive Tailwind-Abhängigkeit bleibt zulässig,
-weil sie keine App-Styling-Quelle ist. Positive und negative Gegenbeispiele
-verwenden temporäre Dateibäume und verändern keine App-Dateien.
+verbotenen Props auch in Objekt-Spreads sowie Referenzen auf ausgemusterte
+Styling-Pakete und Interop-APIs. Es prüft außerdem Root-Konfiguration, direkte
+Pakete in `package.json` und im Bun-Root-Workspace, ausgemusterte Styling-Assets
+sowie aktive CSS-Direktiven. Kommentare, historische Docs und eigenständige
+Tools bleiben ausgenommen. Abhängigkeiten separater Tool-Oberflächen außerhalb
+des App-Workspaces gelten nicht als App-Styling-Quelle. Positive und negative
+Gegenbeispiele verwenden temporäre Dateibäume und verändern keine App-Dateien.

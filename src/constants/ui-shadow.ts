@@ -1,5 +1,29 @@
 import { StyleSheet } from 'react-native-unistyles';
-import { boxShadowValue, shadow, withAlpha } from '@/components/theme';
+import { withAlpha } from '@/components/theme';
+
+type ShadowGeometry = {
+  offsetX: number;
+  offsetY: number;
+  blurRadius: number;
+  opacity: number;
+};
+
+const shadow = {
+  sm: { offsetX: 0, offsetY: 2, blurRadius: 6, opacity: 0.08 },
+  md: { offsetX: 0, offsetY: 6, blurRadius: 14, opacity: 0.1 },
+  lg: { offsetX: 0, offsetY: 12, blurRadius: 24, opacity: 0.14 },
+  prominent: { offsetX: 0, offsetY: 0, blurRadius: 18, opacity: 0.7 },
+} as const satisfies Record<string, ShadowGeometry>;
+
+/** Formats one or more signed boxShadow layers; positive Y is down, negative Y is up. */
+function boxShadowValue(color: string, ...geometries: ShadowGeometry[]): string {
+  return geometries
+    .map(
+      ({ offsetX, offsetY, blurRadius, opacity }) =>
+        `${offsetX}px ${offsetY}px ${blurRadius}px ${withAlpha(color, opacity)}`,
+    )
+    .join(', ');
+}
 
 const hotspotGeometry = {
   offsetX: 0,
@@ -17,36 +41,43 @@ const accentNoteGeometry = {
 
 export const uiShadowStyles = StyleSheet.create((theme) => ({
   cardBottom: {
-    boxShadow: boxShadowValue(shadow.sm, theme.shadowCard),
+    boxShadow: boxShadowValue(theme.shadowCard, shadow.sm),
   },
   raisedCardBottom: {
-    boxShadow: boxShadowValue(shadow.md, theme.shadowCard),
+    boxShadow: boxShadowValue(theme.shadowCard, shadow.md),
   },
   modalBottom: {
-    boxShadow: boxShadowValue(shadow.lg, theme.shadowCard),
+    boxShadow: boxShadowValue(theme.shadowCard, shadow.lg),
   },
   prominentCard: {
-    boxShadow: boxShadowValue(shadow.prominent, theme.shadowCard),
+    boxShadow: boxShadowValue(theme.shadowCard, shadow.prominent),
   },
   floatingControlBottom: {
-    boxShadow: boxShadowValue(shadow.md, theme.shadowCard),
+    boxShadow: boxShadowValue(theme.shadowCard, shadow.md),
   },
   floatingPanelBottom: {
-    boxShadow: boxShadowValue(shadow.lg, theme.shadowSheet),
+    boxShadow: boxShadowValue(theme.shadowSheet, shadow.lg),
   },
   bottomSheetTop: {
-    boxShadow: boxShadowValue(shadow.lg, theme.shadowSheet, 'up'),
+    boxShadow: boxShadowValue(theme.shadowSheet, {
+      ...shadow.lg,
+      offsetY: -shadow.lg.offsetY,
+    }),
   },
   leftDrawerRight: {
-    boxShadow: boxShadowValue(shadow.lg, theme.shadowSheet, 'right'),
+    boxShadow: boxShadowValue(theme.shadowSheet, {
+      ...shadow.lg,
+      offsetX: shadow.lg.offsetY,
+      offsetY: 0,
+    }),
   },
   /** Tight shadow for the 18×18 hotspot in brochure-hotspot.tsx. */
   hotspotBottom: {
-    boxShadow: `0px ${hotspotGeometry.offsetY}px ${hotspotGeometry.blurRadius}px ${withAlpha(theme.shadowCard, hotspotGeometry.opacity)}`,
+    boxShadow: boxShadowValue(theme.shadowCard, hotspotGeometry),
   },
   /** Hard illustrative shadow for kitchenNoteSheet in meal-planner/dashboard-card.tsx. */
   accentNoteBottomRight: {
-    boxShadow: `${accentNoteGeometry.offsetX}px ${accentNoteGeometry.offsetY}px ${accentNoteGeometry.blurRadius}px ${withAlpha(theme.accent, accentNoteGeometry.opacity)}`,
+    boxShadow: boxShadowValue(theme.accent, accentNoteGeometry),
   },
   none: {
     boxShadow: 'none',

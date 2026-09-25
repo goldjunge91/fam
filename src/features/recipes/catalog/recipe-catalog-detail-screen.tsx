@@ -90,7 +90,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   scrollContent: {
     paddingHorizontal: theme.space.xxl,
-    paddingBottom: 108,
+    paddingBottom: theme.space.xxxxl * 2,
   },
   hero: {
     height: 178,

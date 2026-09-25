@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { nutritionColors } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 import { useProduct } from '@/features/inventory/use-product';
 import { offApiSource } from '@/features/product-search/sources/off-api-source';
@@ -25,14 +26,6 @@ type ProductInformationProps = {
   visible: boolean;
   item: ProductInformationItem | null;
   onClose: () => void;
-};
-
-const NUTRI_BADGE_COLORS: Record<NutriScoreGrade, string> = {
-  a: '#038141',
-  b: '#85BB2F',
-  c: '#FECB02',
-  d: '#EE8100',
-  e: '#E63E11',
 };
 
 const staticStyles = StyleSheet.create({
@@ -277,7 +270,11 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
               <View
                 style={[
                   styles.scoreBadge,
-                  { backgroundColor: score ? NUTRI_BADGE_COLORS[score] : colors.backgroundSoft },
+                  {
+                    backgroundColor: score
+                      ? nutritionColors.nutriScore[score]
+                      : colors.backgroundSoft,
+                  },
                 ]}>
                 <Txt variant="subheading" weight="700" tone={score ? 'onAccent' : 'primary'}>
                   {score?.toUpperCase() ?? '–'}

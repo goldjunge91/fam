@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { rs } from '@/components/theme/index';
+import { recipeArtworkColors, rs } from '@/components/theme/index';
 import { Press, Txt } from '@/constants/ui';
 import { debugError, debugLog } from '@/lib/observability/debug-log';
 import { useCatalogImageUrl } from '../catalog/use-recipe-catalog';
@@ -21,16 +21,7 @@ type RecipePreview = {
 
 type RecipePreviewCardProps = RecipePreview & {
   onPress: () => void;
-  paletteIndex?: number;
 };
-
-const PALETTES = [
-  ['#7A927C', '#D2C89B'],
-  ['#B77857', '#EFD2A7'],
-  ['#977593', '#E3C5BD'],
-  ['#7E718F', '#C8B9D8'],
-  ['#89966E', '#D6C99A'],
-] as const;
 
 const RECIPE_IMAGE_LOG_DEBOUNCE_MS = 250;
 
@@ -130,18 +121,15 @@ export function RecipeArtwork({
   coverUrl,
   coverPath,
   title,
-  paletteIndex = 0,
   testID,
 }: {
   coverUrl?: string | null;
   coverPath?: string | null;
   title: string;
-  paletteIndex?: number;
   testID?: string;
 }) {
   const rawId = useId();
   const gradientId = `recipe-art-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
-  const palette = PALETTES[Math.abs(paletteIndex) % PALETTES.length];
   const source = coverUrl ? { uri: coverUrl } : null;
 
   if (source) {
@@ -174,18 +162,18 @@ export function RecipeArtwork({
     <Svg width="100%" height="100%" accessibilityLabel={`Illustration für ${title}`}>
       <Defs>
         <LinearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-          <Stop offset="0%" stopColor={palette[0]} />
-          <Stop offset="100%" stopColor={palette[1]} />
+          <Stop offset="0%" stopColor={recipeArtworkColors.previewPalette[0]} />
+          <Stop offset="100%" stopColor={recipeArtworkColors.previewPalette[1]} />
         </LinearGradient>
       </Defs>
       <Rect width="100%" height="100%" fill={`url(#${gradientId})`} />
-      <Circle cx="50%" cy="59%" r="34%" fill="rgba(255,255,255,0.14)" />
+      <Circle cx="50%" cy="59%" r="34%" fill={recipeArtworkColors.previewHighlight} />
       <Circle
         cx="50%"
         cy="59%"
         r="27%"
-        fill="rgba(255,255,255,0.10)"
-        stroke="rgba(255,255,255,0.58)"
+        fill={recipeArtworkColors.previewHighlightSoft}
+        stroke={recipeArtworkColors.previewHighlightBorder}
         strokeWidth="9"
       />
     </Svg>
@@ -204,8 +192,8 @@ function FadeShade({ height }: { height: `${number}%` }) {
       height={height}>
       <Defs>
         <LinearGradient id={gradientId} x1="0%" y1="0%" x2="0%" y2="100%">
-          <Stop offset="0%" stopColor="#140e10" stopOpacity={0} />
-          <Stop offset="100%" stopColor="#140e10" stopOpacity={0.78} />
+          <Stop offset="0%" stopColor={recipeArtworkColors.previewOverlay} stopOpacity={0} />
+          <Stop offset="100%" stopColor={recipeArtworkColors.previewOverlay} stopOpacity={0.78} />
         </LinearGradient>
       </Defs>
       <Rect width="100%" height="100%" fill={`url(#${gradientId})`} />
@@ -233,7 +221,6 @@ export function RecipePreviewCard({
   difficultyLabel,
   servings,
   onPress,
-  paletteIndex,
 }: RecipePreviewCardProps) {
   const householdCover = useRecipeCoverUrl(coverSource === 'household' ? coverImagePath : null);
   const catalogCover = useCatalogImageUrl(coverSource === 'catalog' ? coverImagePath : null);
@@ -247,12 +234,7 @@ export function RecipePreviewCard({
       aria-label={title}
       containerStyle={styles.previewContainer}
       style={styles.previewCard}>
-      <RecipeArtwork
-        title={title}
-        coverUrl={coverUrl}
-        coverPath={coverImagePath}
-        paletteIndex={paletteIndex ?? title.length}
-      />
+      <RecipeArtwork title={title} coverUrl={coverUrl} coverPath={coverImagePath} />
       <FadeShade height="62%" />
       <View style={styles.copy}>
         <Txt
@@ -284,7 +266,6 @@ export function RecipeHeroCard({
   difficultyLabel,
   servings,
   onPress,
-  paletteIndex,
   eyebrow = 'Community',
 }: RecipeHeroCardProps) {
   const householdCover = useRecipeCoverUrl(coverSource === 'household' ? coverImagePath : null);
@@ -299,12 +280,7 @@ export function RecipeHeroCard({
       aria-label={title}
       containerStyle={styles.heroContainer}
       style={styles.heroCard}>
-      <RecipeArtwork
-        title={title}
-        coverUrl={coverUrl}
-        coverPath={coverImagePath}
-        paletteIndex={paletteIndex ?? title.length}
-      />
+      <RecipeArtwork title={title} coverUrl={coverUrl} coverPath={coverImagePath} />
       <View style={styles.heroOverlay} />
       <View style={styles.copy}>
         <Txt variant="caption" tone="onAccent" weight="700" style={styles.eyebrow}>

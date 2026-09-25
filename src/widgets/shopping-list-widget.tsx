@@ -1,6 +1,8 @@
 import { HStack, Text, VStack } from '@expo/ui/swift-ui';
 import { background, font, foregroundStyle, padding } from '@expo/ui/swift-ui/modifiers';
-import { createWidget } from 'expo-widgets';
+import { createWidget, type WidgetEnvironment } from 'expo-widgets';
+
+import { getWidgetTheme } from '@/components/theme';
 
 export type ShoppingListWidgetProps = {
   openCount: number;
@@ -9,38 +11,62 @@ export type ShoppingListWidgetProps = {
 
 const ShoppingListWidgetLayout = (
   props: ShoppingListWidgetProps,
-  environment: { widgetFamily: string },
+  environment: Pick<WidgetEnvironment, 'colorScheme' | 'widgetFamily'>,
 ) => {
   'widget';
+
+  const { colors, spacing, typography } = getWidgetTheme(environment.colorScheme);
 
   const title = 'Einkaufsliste';
   const countLabel = props.openCount === 1 ? 'offener Artikel' : 'offene Artikel';
 
   if (environment.widgetFamily === 'systemSmall') {
     return (
-      <VStack modifiers={[padding({ all: 16 }), background('#F8F4EF')]}>
-        <Text modifiers={[font({ weight: 'bold', size: 16 }), foregroundStyle('#3D2A38')]}>
+      <VStack modifiers={[padding({ all: spacing.inset }), background(colors.background)]}>
+        <Text
+          modifiers={[
+            font({ weight: 'bold', size: typography.title }),
+            foregroundStyle(colors.title),
+          ]}>
           {title}
         </Text>
-        <Text modifiers={[font({ weight: 'bold', size: 34 }), foregroundStyle('#8B5E83')]}>
+        <Text
+          modifiers={[
+            font({ weight: 'bold', size: typography.count }),
+            foregroundStyle(colors.accent),
+          ]}>
           {props.openCount}
         </Text>
-        <Text modifiers={[font({ size: 12 }), foregroundStyle('#6D5A67')]}>{countLabel}</Text>
+        <Text modifiers={[font({ size: typography.secondary }), foregroundStyle(colors.secondary)]}>
+          {countLabel}
+        </Text>
       </VStack>
     );
   }
 
   return (
-    <HStack modifiers={[padding({ all: 16 }), background('#F8F4EF')]}>
+    <HStack modifiers={[padding({ all: spacing.inset }), background(colors.background)]}>
       <VStack>
-        <Text modifiers={[font({ weight: 'bold', size: 18 }), foregroundStyle('#3D2A38')]}>
+        <Text
+          modifiers={[
+            font({ weight: 'bold', size: typography.mediumTitle }),
+            foregroundStyle(colors.title),
+          ]}>
           {title}
         </Text>
-        <Text modifiers={[font({ size: 13 }), foregroundStyle('#6D5A67')]}>
+        <Text
+          modifiers={[
+            font({ size: typography.mediumSecondary }),
+            foregroundStyle(colors.secondary),
+          ]}>
           {props.nextItem ?? 'Keine offenen Artikel'}
         </Text>
       </VStack>
-      <Text modifiers={[font({ weight: 'bold', size: 32 }), foregroundStyle('#8B5E83')]}>
+      <Text
+        modifiers={[
+          font({ weight: 'bold', size: typography.count }),
+          foregroundStyle(colors.accent),
+        ]}>
         {props.openCount}
       </Text>
     </HStack>

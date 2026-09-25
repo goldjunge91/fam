@@ -261,7 +261,6 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
                   title={nextMeal.recipe_title}
                   coverUrl={coverUrl}
                   coverPath={nextMeal.recipe_cover_image_path}
-                  paletteIndex={nextMeal.recipe_id.length}
                 />
               </View>
               <View style={styles.smallTitle}>
@@ -298,7 +297,6 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
             title={nextMeal.recipe_title}
             coverUrl={coverUrl}
             coverPath={nextMeal.recipe_cover_image_path}
-            paletteIndex={nextMeal.recipe_id.length}
           />
         ) : (
           <MealPlanEmptyArtwork message={emptyMessage} variant={emptyArtworkVariant} />

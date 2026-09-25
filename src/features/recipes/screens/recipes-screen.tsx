@@ -377,7 +377,6 @@ function MealSection({
               cookTimeMinutes={entry.cookTimeMinutes}
               difficultyLabel={entry.difficultyLabel}
               servings={entry.servings}
-              paletteIndex={index + entry.title.length}
               onPress={() => openEntry(entry)}
             />
           </View>
@@ -491,7 +490,7 @@ export function RecipesScreen() {
 
   const listKeyExtractor = useCallback((entry: RecipeEntry) => entry.key, []);
   const renderListEntry = useCallback(
-    ({ item, index }: { item: RecipeEntry; index: number }) => (
+    ({ item }: { item: RecipeEntry }) => (
       <RecipePreviewCard
         title={item.title}
         coverImagePath={item.coverImagePath}
@@ -499,7 +498,6 @@ export function RecipesScreen() {
         cookTimeMinutes={item.cookTimeMinutes}
         difficultyLabel={item.difficultyLabel}
         servings={item.servings}
-        paletteIndex={index + item.title.length}
         onPress={() => openEntry(item)}
       />
     ),

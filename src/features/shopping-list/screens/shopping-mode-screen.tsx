@@ -51,7 +51,7 @@ const screenStyles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   listContent: {
-    paddingBottom: 64,
+    paddingBottom: theme.space.xxxxl,
   },
   finishFooter: {
     paddingHorizontal: theme.space.md,

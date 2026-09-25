@@ -56,6 +56,16 @@ import {
 const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;
 const POP_SPRING = { damping: 9, stiffness: 380, mass: 0.5 } as const;
 
+/** Provider identity colors used by branded authentication icons. */
+export const providerColors = {
+  google: {
+    blue: '#4285F4',
+    green: '#34A853',
+    yellow: '#FBBC05',
+    red: '#EA4335',
+  },
+} as const;
+
 // TODO unklar ob wir es benötigen
 // const cardShadowStyles = {
 //   sm: uiShadowStyles.cardBottom,
@@ -133,6 +143,9 @@ export const compactActionButtonStyles = StyleSheet.create((theme) => ({
     justifyContent: 'space-between',
     backgroundColor: theme.backgroundElement,
     borderColor: theme.border,
+  },
+  disabled: {
+    opacity: 0.5,
   },
   chevronLine: {
     position: 'absolute',

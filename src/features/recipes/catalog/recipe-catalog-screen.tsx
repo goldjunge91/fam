@@ -12,7 +12,7 @@ import { type CatalogRecipe, useCatalogRecipes } from './use-recipe-catalog';
 
 const styles = StyleSheet.create({
   list: { flex: 1 },
-  content: { paddingHorizontal: space.lg, paddingTop: space.md, paddingBottom: 126 },
+  content: { paddingHorizontal: space.lg, paddingTop: space.md, paddingBottom: space.xxxxl * 2 },
   separator: { height: space.md },
   footer: { paddingVertical: space.xl },
 });
@@ -38,7 +38,7 @@ export function RecipeCatalogScreen() {
   }
 
   const renderItem = useCallback(
-    ({ item, index }: { item: CatalogRecipe; index: number }) => (
+    ({ item }: { item: CatalogRecipe }) => (
       <RecipePreviewCard
         title={item.title}
         coverImagePath={getCatalogCoverPath(item)}
@@ -46,7 +46,6 @@ export function RecipeCatalogScreen() {
         cookTimeMinutes={item.cook_time_minutes}
         difficultyLabel={item.difficulty}
         servings={item.default_servings}
-        paletteIndex={index}
         onPress={() => router.push(`/recipe/catalog/${item.slug}` as Href)}
       />
     ),

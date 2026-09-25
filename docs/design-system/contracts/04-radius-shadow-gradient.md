@@ -2,11 +2,12 @@
 
 ## Zweck und Zuständigkeit
 
-Form und Tiefe bleiben über Screens konsistent. `radius`, `borderWidth`, `shadow`,
-`BUTTON_DEPTH`, `Gradients` und `GradientSpec` stammen aus `index.ts`. Gemeinsame
-fertige Schatten-Styles werden als `uiShadowStyles` in
-`src/constants/ui-shadow.ts` exportiert. Das Modul gehört zum UI-Owner neben
-`ui.tsx` und bildet keinen zusätzlichen Owner.
+Form und Tiefe bleiben über Screens konsistent. `radius`, `borderWidth`,
+`BUTTON_DEPTH`, `Gradients` und `GradientSpec` stammen aus `index.ts`. Die
+Theme-Paletten behalten `shadowCard` und `shadowSheet`; `withAlpha` bleibt eine
+allgemeine Theme-Hilfsfunktion. Schattengeometrien und ihre interne Umwandlung
+in `boxShadow` liegen in `src/constants/ui-shadow.ts`. Das Modul gehört zum
+UI-Owner neben `ui.tsx` und exportiert ausschließlich fertige `uiShadowStyles`.
 `Fonts` gehört zum [Typografievertrag](./02-typography.md).
 
 ## Form und Tiefe
@@ -16,18 +17,6 @@ fertige Schatten-Styles werden als `uiShadowStyles` in
 - Konturstärken wählen die zentralen Werte `borderWidth.base` (1,5 Punkte) für
   normale Konturen und `borderWidth.strong` (2 Punkte) für betonte Konturen.
   Features legen keine eigenen wiederkehrenden Konturstärken an.
-- Gemeinsame Schatten-Styles verwenden `boxShadow` und die aktive Palette aus dem
-  ThemeProvider. `shadow.sm` bis `shadow.prominent` liefern ausschließlich
-  zentrale Geometrie und Opazität; `boxShadowValue(...)` setzt den aktiven
-  Theme-Farbwert ein. Die Zuordnung von Rolle, Farbe und Richtung liegt in
-  `uiShadowStyles`, nicht in Feature-Dateien. Für gerichtete Flächen wie Sheets
-  oder Drawer dreht der Richtungswert dieselbe vorhandene Stufe; dafür werden
-  keine neuen Schatten-Tokens angelegt.
-- Die alten React-Native-Eigenschaften `shadowColor`, `shadowOffset`,
-  `shadowOpacity`, `shadowRadius` und das native React-Native-`elevation` gehören
-  nicht zu den visuellen Schatten-Styles. Die bestehende öffentliche
-  `Card.elevation`-Prop bleibt als semantische Auswahl bestehen und wird intern
-  auf `uiShadowStyles` abgebildet.
 - Schattenfarben sind ausschließlich für Schatten vorgesehen, nicht für
   Beschriftungen oder Statusicons.
 - Gefüllte Buttons behalten 4 Punkte sichtbare Tiefe und 4 Punkte Druckweg.
@@ -39,40 +28,45 @@ fertige Schatten-Styles werden als `uiShadowStyles` in
   Hierarchie müssen in Light/Dark erhalten bleiben. Schatten werden nicht
   pauschal abgeschafft oder jedem Element hinzugefügt.
 
-## Gemeinsame Schatten-Styles
+## Schatten: RN-`boxShadow`, keine Schatten-Props
 
-`src/constants/ui-shadow.ts` exportiert `uiShadowStyles`. Es gibt zehn sichtbare
-Styles und einen Reset; gleiche Geometrien dürfen mehrere Rollen abdecken.
-`down`, `up` und `right` bezeichnen die Richtung des Versatzes. Sie sparen keine
-Seite des Schattens aus. `prominentCard` ist gleichmäßig zentriert.
+`src/constants/ui-shadow.ts` enthält die internen Geometrien und Opazitäten
+sowie den internen Formatter `boxShadowValue()`. Das Modul exportiert
+ausschließlich fertige `uiShadowStyles`; einzelne Geometrien sind keine
+öffentliche Komponenten-API. Fam-Komponenten erhalten keine eigene Prop namens
+`shadow` oder `elevation` zur Schattenauswahl. Ein benötigter Schatten wird als
+fertiger `uiShadowStyles.*`-Style über die vorhandene allgemeine `style`-API
+angewendet. Dafür wird React Natives `boxShadow`-Style verwendet.
+
+Die Vorzeichen der Geometrie bestimmen die Richtung: positives X nach rechts,
+negatives X nach links, positives Y nach unten, negatives Y nach oben. Mehrere
+Schattenebenen stehen als kommaseparierte `boxShadow`-String-Layer. Sheet- und
+Drawer-Richtungen entstehen durch signierte X-/Y-Offsets derselben vorhandenen
+Geometrien; dafür kommen keine Richtungs-Props oder zusätzlichen Tokens hinzu.
+
+Bei `GlassCard` liegt ein Schatten auf dem äußeren Wrapper über dessen
+vorhandenem `outerStyle`, nicht auf dem inneren Glasinhalt. `tinted` steuert
+ausschließlich die Flächentönung. `DashboardCardShell` wendet seine zentrale
+Dashboard-Schattenstufe selbst an; Aufrufer wählen sie nicht über eine
+Schatten-Prop.
 
 | Style | Geometrie und Farbe | Einsatz |
 | --- | --- | --- |
-| `cardBottom` | `shadow.sm`, `shadowCard`, down | Normale Card und GlassCard; `Card.elevation="sm"` sowie Standardwert |
-| `raisedCardBottom` | `shadow.md`, `shadowCard`, down | Erhöhte Card; `Card.elevation="md"` |
-| `modalBottom` | `shadow.lg`, `shadowCard`, down | Dialog-/Overlay-Flächen und `Card.elevation="lg"` |
-| `prominentCard` | `shadow.prominent`, `shadowCard`, zentriert | Dashboard- und Inventory-Summary-Cards |
-| `floatingControlBottom` | `shadow.md`, `shadowCard`, down | Frei liegende Controls, Speed-Dial und Jiggle-Badges |
-| `floatingPanelBottom` | `shadow.lg`, `shadowSheet`, down | Dropdowns und schwebende Auswahlpanels |
-| `bottomSheetTop` | `shadow.lg`, `shadowSheet`, up | Von unten kommende Sheets |
-| `leftDrawerRight` | `shadow.lg`, `shadowSheet`, right | Linker Navigations-Drawer |
+| `cardBottom` | `shadow.sm`: X=0, Y=2, Blur=6, Opazität=0.08, `shadowCard` | Kartenflächen, wenn der Style über `style` angewendet wird |
+| `raisedCardBottom` | `shadow.md`: X=0, Y=6, Blur=14, Opazität=0.10, `shadowCard` | Erhöhte Kartenflächen |
+| `modalBottom` | `shadow.lg`: X=0, Y=12, Blur=24, Opazität=0.14, `shadowCard` | Dialog-/Overlay-Flächen |
+| `prominentCard` | `shadow.prominent`: X=0, Y=0, Blur=18, Opazität=0.70, `shadowCard` | Dashboard- und Inventory-Summary-Cards |
+| `floatingControlBottom` | `shadow.md`: X=0, Y=6, Blur=14, Opazität=0.10, `shadowCard` | Frei liegende Controls, Speed-Dial und Jiggle-Badges |
+| `floatingPanelBottom` | `shadow.lg`: X=0, Y=12, Blur=24, Opazität=0.14, `shadowSheet` | Dropdowns und schwebende Auswahlpanels |
+| `bottomSheetTop` | `shadow.lg`: X=0, Y=-12, Blur=24, Opazität=0.14, `shadowSheet` | Von unten kommende Sheets |
+| `leftDrawerRight` | `shadow.lg`: X=12, Y=0, Blur=24, Opazität=0.14, `shadowSheet` | Linker Navigations-Drawer |
 | `hotspotBottom` | X=0, Y=1, Blur=2, Opazität=0.20, `shadowCard` | 18×18-Broschüren-Hotspot; einzige dokumentierte enge Geometrie |
 | `accentNoteBottomRight` | X=4, Y=5, Blur=0, Opazität=0.18, `accent` | Harter Illustrationsschatten von `kitchenNoteSheet` |
-| `none` | `boxShadow: "none"` | Expliziter Reset eines geerbten Schattens |
+| `none` | `boxShadow: "none"` | Explizites Zurücksetzen eines Schattens |
 
-`Card.elevation` bleibt unverändert: `sm` und der Standard verwenden
-`cardBottom`, `md` verwendet `raisedCardBottom`, `lg` verwendet `modalBottom`.
-`none` fügt keinen Standardschatten hinzu und lässt einen ausdrücklich in
-`style` gesetzten Schatten bestehen. `GlassCard.shadow` ist erforderlich und
-wählt `card`, `prominent` oder `floatingControl`; `tinted` ändert ausschließlich
-die Flächentönung. `DashboardCardShell` verlangt ebenfalls die Auswahl und
-reicht sie unverändert weiter. Alle Dashboard-Aufrufe wählen `prominent`
-explizit; Rahmen und Overflow gehören zur Shell, nicht zur Schattenauswahl.
-
-Die beiden Sondergeometrien sind ausschließlich in `ui-shadow.ts` definiert.
-Die Kommentare dort benennen den jeweiligen Einsatzort und den Grund. Andere
-Feature-Dateien wenden exportierte Styles über Style-Arrays an und fügen keine
-lokalen Schattenwerte hinzu.
+Die Geometrien bleiben interne Werte in `ui-shadow.ts`; Feature-Code importiert
+keine einzelnen Stufen und fügt keine lokalen Schattenwerte hinzu. Die
+Sondergeometrien sind dort mit ihrem konkreten Einsatzort und Grund kommentiert.
 
 ## Verläufe und native Darstellung
 
@@ -98,11 +92,15 @@ import { Button, Txt } from '@/constants/ui';
 </Card>
 ```
 
-Die Card und der Button wenden ihre gemeinsamen Styles intern an. Das frühere
-positive Beispiel `<View style={{ borderRadius: radius.md, ...shadow.sm }} />`
-ist als Empfehlung für Feature-Code nicht zulässig. Ein solcher Rohwertvergleich
-darf nur als eindeutig beschriftete Tokenvisualisierung der Entwicklerreferenz
-oder an einer konkret begründeten nativen Grenze vorkommen.
+Produktcode importiert keine internen Schattengeometrien und fügt keine lokalen
+Schattenwerte hinzu. Fertige Styles werden über reguläre `style`-Arrays
+angewendet:
+
+```tsx
+import { uiShadowStyles } from '@/constants/ui-shadow';
+
+<View style={[styles.card, uiShadowStyles.cardBottom]} />
+```
 
 ## Nachweis
 
