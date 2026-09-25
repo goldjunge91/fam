@@ -91,7 +91,7 @@ fam/
     ├── components/                   # Geteilte, domänenfreie UI-Komponenten
     │   ├── forms/                    # Formular-Controls (date-picker, text-field, wheel-picker)
     │   ├── icons/                    # Icons (fam-icon, animated-icon, calendar-day-icon)
-    │   ├── layout/                   # Layout-Gerüste (screen, page-header, hub-screen, gradient-background, app-shell)
+    │   ├── layout/                   # Layout-Gerüste (screen, page-header, hub-screen, app-shell)
     │   ├── theme/                    # Theming-Wrapper (themed-text, themed-view)
     │   └── ui/                       # Wiederverwendbare Basis-Bausteine:
     │       ├── buttons/              # button, back-button, menu-button, profile-button, floating-action-button
@@ -118,7 +118,6 @@ fam/
     │
     ├── hooks/                        # Geteilte, App-weite Custom Hooks
     │   ├── use-deferred-mount.ts
-    │   ├── use-hub-gradient.ts
     │   ├── use-sheet-shadow-style.ts
     │   ├── use-sync-status.ts
     │   └── ...
@@ -243,7 +242,7 @@ Um die Codebase modular und wartbar zu halten, gilt für jede Datei eine eindeut
 
 ### 6. `src/hooks/` — App-weite Custom Hooks
 
-* Domänenunabhängige Custom Hooks (`useDeferredMount`, `useHubGradient`, `useSheetShadowStyle`, `useSyncStatus`).
+* Domänenunabhängige Custom Hooks (`useDeferredMount`, `useSheetShadowStyle`, `useSyncStatus`).
 
 ### 7. `supabase/` — Datenbank & RLS (Single Source of Truth)
 

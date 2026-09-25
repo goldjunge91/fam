@@ -19,7 +19,6 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { useExpiryNotifications } from '@/features/inventory/use-expiry-notifications';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { syncRunHasErrors, triggerHouseholdSync } from '@/lib/sync/sync-runner';
 
@@ -44,7 +43,6 @@ const styles = StyleSheet.create({
 export function DashboardScreen() {
   const { i18n, t } = useTranslation();
   const { colors } = useTheme();
-  const hubGradient = useHubGradient();
   const insets = useSafeAreaInsets();
   const queryClient = useQueryClient();
   const [refreshing, setRefreshing] = useState(false);
@@ -123,8 +121,7 @@ export function DashboardScreen() {
           initials,
           avatarUrl,
           trailing: editChromeTrailing,
-        }}
-        backgroundGradient={hubGradient}>
+        }}>
         {isEditing ? (
           <View style={styles.editBody}>{cardList}</View>
         ) : (

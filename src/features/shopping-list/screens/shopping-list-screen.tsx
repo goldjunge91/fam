@@ -21,7 +21,6 @@ import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { ReceiptCaptureReviewFlow } from '@/features/ocr/processing/review/receipt-capture-review-flow';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { debugLog, debugLogEvent } from '@/lib/observability/debug-log';
 import { ShoppingItemRow } from '../components/ui/shopping-item-row';
 import { shoppingListStyles } from '../components/ui/shopping-list-styles';
@@ -128,7 +127,6 @@ export function ShoppingListScreen() {
   const interstitialAd = useInterstitialAd();
   const { colors: theme } = useTheme();
   const shoppingStyles = shoppingListStyles;
-  const hubGradient = useHubGradient();
   const scrollRef = useRef<ScrollView>(null);
   const sectionListRef =
     useRef<SectionList<LocalShoppingItem, { title: string; data: LocalShoppingItem[] }>>(null);
@@ -488,11 +486,7 @@ export function ShoppingListScreen() {
   };
 
   return (
-    <Screen
-      title={t('shoppingList.screen.title')}
-      scroll={false}
-      chrome={chrome}
-      backgroundGradient={hubGradient}>
+    <Screen title={t('shoppingList.screen.title')} scroll={false} chrome={chrome}>
       {isLoading ? null : isAllFilter ? (
         /* Gesamtübersicht: Zusammenfassung aller Märkte & Gesamtschätzung */
         <ScrollView

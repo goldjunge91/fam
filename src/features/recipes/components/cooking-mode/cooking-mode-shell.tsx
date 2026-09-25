@@ -3,13 +3,12 @@ import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
-import { GradientBackground } from '@/components/layout/gradient-background';
 import { PageHeader } from '@/components/layout/page-header';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 
-const styles = StyleSheet.create(() => ({
+const styles = StyleSheet.create((theme) => ({
   root: {
     flex: 1,
+    backgroundColor: theme.background,
   },
   safeArea: {
     flex: 1,
@@ -27,11 +26,8 @@ type CookingModeShellProps = {
 };
 
 export function CookingModeShell({ title, backLabel, onBack, children }: CookingModeShellProps) {
-  const hubGradient = useHubGradient();
-
   return (
     <View style={styles.root}>
-      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title={title}

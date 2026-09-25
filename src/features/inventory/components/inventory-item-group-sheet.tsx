@@ -3,8 +3,7 @@ import { Modal, Platform, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
-import { GradientBackground } from '@/components/layout/gradient-background';
-import { type GradientSpec, radius, space, withAlpha } from '@/components/theme/index';
+import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Card, IconButton, Press, Row, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
@@ -27,7 +26,6 @@ type InventoryItemGroupSheetProps = {
   onQuickOpen?: (lot: LocalInventoryItem) => void;
   onQuickConsume?: (lot: LocalInventoryItem) => void;
   quickActionLoading?: boolean;
-  backgroundGradient?: GradientSpec;
   /** Dauerhaft gescheiterte Mengen-Konflikte, keyed by MHD-Los-id (`lot.id`). */
   conflictsByLotId?: Map<string, FridgeItemConflict>;
   onDiscardConflict?: (conflict: FridgeItemConflict) => void;
@@ -276,7 +274,6 @@ export function InventoryItemGroupSheet({
   onQuickOpen,
   onQuickConsume,
   quickActionLoading = false,
-  backgroundGradient,
   conflictsByLotId,
   onDiscardConflict,
   onReconfirmConflict,
@@ -327,7 +324,6 @@ export function InventoryItemGroupSheet({
         onQuickOpen={onQuickOpen}
         onQuickConsume={onQuickConsume}
         quickActionLoading={quickActionLoading}
-        backgroundGradient={backgroundGradient}
         conflictsByLotId={conflictsByLotId}
         onDiscardConflict={onDiscardConflict}
         onReconfirmConflict={onReconfirmConflict}
@@ -536,7 +532,6 @@ function IosInventoryItemGroupView({
   onQuickOpen,
   onQuickConsume,
   quickActionLoading = false,
-  backgroundGradient,
   conflictsByLotId,
   onDiscardConflict,
   onReconfirmConflict,
@@ -564,7 +559,6 @@ function IosInventoryItemGroupView({
       onRequestClose={onClose}
       onDismiss={onDismissFinished}>
       <View style={styles.root}>
-        {backgroundGradient ? <GradientBackground {...backgroundGradient} /> : null}
         <View
           style={[
             styles.safeArea,

@@ -238,10 +238,6 @@ jest.mock('@/features/product-search/product-catalog-instance', () => ({
   },
 }));
 
-jest.mock('@/hooks/use-hub-gradient', () => ({
-  useHubGradient: () => undefined,
-}));
-
 describe('ShoppingListScreen', () => {
   const queryClient = new QueryClient({
     defaultOptions: {

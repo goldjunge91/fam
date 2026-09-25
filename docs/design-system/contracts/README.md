@@ -29,7 +29,7 @@ Planung und Arbeitsstatus werden separat geführt, Arbeitspakete in Beads.
 
 | Quelle | Verantwortung |
 | --- | --- |
-| `src/components/theme/index.ts` | Wiederverwendbare Tokens: Paletten, Schriftmaße und Gewichte, Abstände, Radien, Schattenfarben, Verläufe und gemeinsame Maße |
+| `src/components/theme/index.ts` | Wiederverwendbare Tokens: Paletten, Schriftmaße und Gewichte, Abstände, Radien, Schattenfarben und gemeinsame Maße |
 | `src/components/theme/ThemeProvider.tsx` | Persistierte Theme-Präferenz, Auflösung von `system/light/dark`, aktive Palette, `useTheme()` und `useThemedStyles()` |
 | `src/constants/ui.tsx` und `src/constants/ui-shadow.ts` | Ein gemeinsamer UI-Owner: Primitive und semantische Styles für Typografie, Farbpaare, Flächen, Konturen, Schatten, Interaktionszustände, Motion und Haptikzuordnung; `ui-shadow.ts` enthält ausschließlich die exportierten Schatten-Styles |
 
@@ -68,7 +68,7 @@ denselben Komponentenvertrag sind kein zulässiger Endzustand.
 1. [Theme und Farben](./01-theme-and-colors.md)
 2. [Typografie](./02-typography.md)
 3. [Spacing und Layout](./03-spacing-and-layout.md)
-4. [Radien, Schatten und Verläufe](./04-radius-shadow-gradient.md)
+4. [Radien und Schatten](./04-radius-shadow.md)
 5. [Unistyles und StyleSheet](./05-unistyles-and-stylesheet.md)
 6. [Surfaces und Cards](./06-surfaces-and-cards.md)
 7. [Buttons und Interaktion](./07-buttons-and-interaction.md)

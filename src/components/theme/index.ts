@@ -376,33 +376,6 @@ export const motion = {
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
 
 // TODO: prüfen ob wir das noch brauchen
-/** Normalisiert native/web Zwischenwerte wie `unspecified` auf das helle Theme. */
-export function normalizeThemeMode(scheme: string | null | undefined): keyof typeof Colors {
-  return scheme === 'dark' ? 'dark' : 'light';
-}
-
-// TODO: prüfen ob wir das noch brauchen
-export type GradientSpec = {
-  readonly colors: readonly string[];
-  readonly locations?: readonly number[];
-};
-
-/** Semantische Verläufe des Design-Systems statt wiederholter Hex-Arrays. */
-// TODO: prüfen ob wir das noch brauchen
-export const Gradients = {
-  hub: {
-    light: {
-      colors: ['#FFCCB2', '#F9F2EB', '#E8DEF2'],
-      locations: [0, 0.40385, 0.96154],
-    },
-    dark: {
-      colors: ['#3B2B2B', '#211D23', '#2E2638'],
-      locations: [0, 0.40385, 0.96154],
-    },
-  },
-} as const satisfies Record<string, Record<'light' | 'dark', GradientSpec>>;
-
-// TODO: prüfen ob wir das noch brauchen
 export function withAlpha(hex: string, alpha: number): string {
   const value = hex.replace('#', '');
   const r = Number.parseInt(value.slice(0, 2), 16);

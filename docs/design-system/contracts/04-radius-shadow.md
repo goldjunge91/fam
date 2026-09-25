@@ -1,9 +1,9 @@
-# Vertrag: Radien, Schatten und Verläufe
+# Vertrag: Radien und Schatten
 
 ## Zweck und Zuständigkeit
 
-Form und Tiefe bleiben über Screens konsistent. `radius`, `borderWidth`,
-`BUTTON_DEPTH`, `Gradients` und `GradientSpec` stammen aus `index.ts`. Die
+Form und Tiefe bleiben über Screens konsistent. `radius`, `borderWidth` und
+`BUTTON_DEPTH` stammen aus `index.ts`. Die
 Theme-Paletten behalten `shadowCard` und `shadowSheet`; `withAlpha` bleibt eine
 allgemeine Theme-Hilfsfunktion. Schattengeometrien und ihre interne Umwandlung
 in `boxShadow` liegen in `src/constants/ui-shadow.ts`. Das Modul gehört zum
@@ -74,18 +74,6 @@ Die Geometrien bleiben interne Werte in `ui-shadow.ts`; Feature-Code importiert
 keine einzelnen Stufen und fügt keine lokalen Schattenwerte hinzu. Die
 Sondergeometrien sind dort mit ihrem konkreten Einsatzort und Grund kommentiert.
 
-## Verläufe und native Darstellung
-
-Verläufe werden als zentrale Specs ausgewählt. Feature-Code erfindet keine
-Hex-Arrays. Aufrufer dürfen native Integrationswerte über die erforderliche
-Style-/Prop-API weiterreichen; die semantische Farbwahl bleibt zentral.
-
-Text und notwendige Statusmerkmale müssen auch an der ungünstigsten relevanten
-Stelle eines Verlaufs lesbar sein. Transparente Flächen werden mit dem tatsächlichen
-Untergrund geprüft. Eine definierte Textfläche ist zulässig, wenn der Verlauf
-sonst keinen sicheren Kontrast bietet. Es gelten die Werte aus
-[Vertrag 01](./01-theme-and-colors.md).
-
 ## Beispiel der vorgesehenen Verwendung
 
 ```tsx
@@ -110,7 +98,7 @@ import { uiShadowStyles } from '@/constants/ui-shadow';
 
 ## Nachweis
 
-Die Referenz zeigt Radien, Schattenstufen und Verläufe anhand realer zentraler
+Die Referenz zeigt Radien und Schattenstufen anhand realer zentraler
 Werte. Produktkomponenten belegen die Anwendung der gemeinsamen Styles.
 iOS-/Android-Prüfung bestätigt Darstellung und Druckweg; Light/Dark-Prüfung
 bestätigt Lesbarkeit und Gruppierung. Tokenvisualisierung gilt nicht als Nachweis

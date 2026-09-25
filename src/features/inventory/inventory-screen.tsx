@@ -21,7 +21,6 @@ import { ProductInformation } from '@/features/inventory/components/product-info
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { subtractInventoryQuantities, sumInventoryQuantities } from '@/lib/inventory-quantity';
 import { debugLog } from '@/lib/observability/debug-log';
@@ -116,7 +115,6 @@ function InventoryBenchmark({
 export function InventoryScreen() {
   const flashListRef = useRef<FlashListRef<InventoryItemGroup>>(null);
   const { colors } = useTheme();
-  const hubGradient = useHubGradient();
   const { openDrawer, openProfile } = useNavigationChrome();
   const { initials, avatarUrl } = useProfileAvatar();
   const params = useLocalSearchParams<{ filter?: string }>();
@@ -451,12 +449,7 @@ export function InventoryScreen() {
       : (locations.find((location) => location.id === selectedLocationId)?.name ?? 'Vorrat');
 
   return (
-    <Screen
-      title="Vorrat"
-      chrome={chrome}
-      backgroundGradient={hubGradient}
-      scroll={false}
-      applyBottomPadding={false}>
+    <Screen title="Vorrat" chrome={chrome} scroll={false} applyBottomPadding={false}>
       {/* Der Steuerbereich bleibt stehen, während nur die Artikel darunter scrollen. */}
       <View style={styles.inventoryHeader}>
         {/* Vorrats-Statistik: Gesamtanzahl & kritische/bald ablaufende Artikel */}
@@ -557,7 +550,6 @@ export function InventoryScreen() {
         group={detailGroup}
         onClose={() => setDetailGroupId(null)}
         onDismissFinished={handleGroupSheetDismissed}
-        backgroundGradient={hubGradient}
         quickActionLoading={openMutation.isPending || updateQty.isPending}
         onQuickOpen={quickOpen}
         onQuickConsume={quickConsume}
@@ -611,7 +603,6 @@ export function InventoryScreen() {
         onConsume={() => currentActionItem && handleConsume(currentActionItem)}
         onOpen={() => currentActionItem && handleOpen(currentActionItem)}
         onWaste={() => currentActionItem && handleWaste(currentActionItem)}
-        backgroundGradient={hubGradient}
         onExpiryChange={(expiryDate) => {
           if (!currentActionItem) return;
           updateItem.mutate({

@@ -11,9 +11,6 @@ jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
 jest.mock('@/features/navigation/use-profile-initials', () => ({
   useProfileAvatar: () => ({ initials: 'MM', avatarUrl: null }),
 }));
-jest.mock('@/hooks/use-hub-gradient', () => ({
-  useHubGradient: () => ({ colors: ['#fff', '#fff'] }),
-}));
 jest.mock('@/components/ui/sync-status-banner', () => ({
   useSyncBannerVisible: () => false,
 }));

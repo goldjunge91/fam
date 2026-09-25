@@ -3,14 +3,12 @@ import { Modal, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
-import { GradientBackground } from '@/components/layout/gradient-background';
 import { PageHeader } from '@/components/layout/page-header';
 import { font, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Press, SectionHeading, Txt } from '@/constants/ui';
 import { CalorieCarousel } from '@/features/recipes/components/calorie-carousel';
 import { CategoryCarousel } from '@/features/recipes/components/category-carousel';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 
 export type RecipeFilters = {
   categoryKey: string | null;
@@ -36,6 +34,7 @@ export const MEAL_FILTERS = [
 const styles = StyleSheet.create((theme) => ({
   root: {
     flex: 1,
+    backgroundColor: theme.background,
   },
   safeArea: {
     flex: 1,
@@ -128,7 +127,6 @@ export function RecipeFilterModal({
   onClose,
 }: RecipeFilterModalProps) {
   const { colors } = useTheme();
-  const hubGradient = useHubGradient();
   const [draft, setDraft] = useState(filters);
 
   useEffect(() => {
@@ -146,7 +144,6 @@ export function RecipeFilterModal({
       presentationStyle="fullScreen"
       onRequestClose={onClose}>
       <View style={styles.root}>
-        <GradientBackground {...hubGradient} />
         <SafeAreaView
           accessibilityViewIsModal
           style={styles.safeArea}

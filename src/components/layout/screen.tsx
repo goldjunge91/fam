@@ -4,9 +4,7 @@ import { RefreshControl, ScrollView, type StyleProp, View, type ViewStyle } from
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { AutoBackButton, BackButton, type BackTarget } from '@/components/layout/back-button';
-import { GradientBackground } from '@/components/layout/gradient-background';
 import { ProfileButton } from '@/components/layout/profile-button';
-import type { GradientSpec } from '@/components/theme/index';
 import { CONTENT_MAX_WIDTH, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { MenuButton } from '@/components/ui/menu-button';
@@ -117,10 +115,6 @@ export type ScreenProps = {
     /** Optionale Hub-Aktion links neben dem Profil, z. B. ein Kalender. */
     trailing?: ReactNode;
   };
-  /**
-   * Verlauf statt der flachen Theme-Hintergrundfarbe fuer Hub-Screens.
-   */
-  backgroundGradient?: GradientSpec;
   scroll?: boolean;
   /** Deaktiviert die horizontale Inhaltsauffuellung fuer vollbreite Inhalte. */
   padded?: boolean;
@@ -152,7 +146,6 @@ export function Screen({
   back,
   backStyle = 'text',
   chrome,
-  backgroundGradient,
 }: ScreenProps) {
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
@@ -178,7 +171,6 @@ export function Screen({
 
   return (
     <Surface tone="page" style={styles.surface}>
-      {backgroundGradient ? <GradientBackground {...backgroundGradient} /> : null}
       <SafeAreaView
         edges={edges}
         style={{

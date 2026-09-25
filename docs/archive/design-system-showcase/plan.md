@@ -35,7 +35,7 @@ docs/design-system/
     01-theme-and-colors.md
     02-typography.md
     03-spacing-and-layout.md
-    04-radius-shadow-gradient.md
+    04-radius-shadow.md
     05-unistyles-and-stylesheet.md
     06-surfaces-and-cards.md
     07-buttons-and-interaction.md
@@ -59,7 +59,7 @@ src/features/settings/dev/design-system/
 ## Umsetzungsslices
 
 1. Referenzroute, Kategorienavigation und gemeinsame Showcase-Bausteine.
-2. Theme, Farben, Akzente, Typografie, Abstände, Radien, Schatten, Verläufe und
+2. Theme, Farben, Akzente, Typografie, Abstände, Radien und Schatten sowie
    Plattformfonts mit ihren realen Tokenwerten darstellen.
 3. Oberflächen, Karten, Buttons, Haptics, Felder, Auswahl, Status und Feedback
    mit echten Komponenten darstellen.

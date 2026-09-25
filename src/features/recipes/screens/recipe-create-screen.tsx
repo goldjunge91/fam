@@ -8,7 +8,6 @@ import { Alert, KeyboardAvoidingView, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
-import { GradientBackground } from '@/components/layout/gradient-background';
 import { PageHeader } from '@/components/layout/page-header';
 import { radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -17,7 +16,6 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/local-client';
 import {
@@ -80,6 +78,7 @@ type ResolvedIngredient = {
 const styles = StyleSheet.create((theme) => ({
   root: {
     flex: 1,
+    backgroundColor: theme.background,
   },
   safeArea: {
     flex: 1,
@@ -114,7 +113,6 @@ const styles = StyleSheet.create((theme) => ({
 
 export function RecipeCreateScreen() {
   const { colors } = useTheme();
-  const hubGradient = useHubGradient();
   const { id } = useLocalSearchParams<{ id?: string }>();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -765,7 +763,6 @@ export function RecipeCreateScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         {/* Header mit Titel (Erstellen/Bearbeiten) und Abbrechen-Button */}
         <PageHeader

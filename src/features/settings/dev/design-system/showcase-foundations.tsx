@@ -1,13 +1,11 @@
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { GradientBackground } from '@/components/layout/gradient-background';
 import {
   CONTENT_MAX_WIDTH,
   Colors,
   Fonts,
   font,
-  Gradients,
   IS_TABLET,
   radius,
   SCREEN_W,
@@ -243,15 +241,14 @@ function TypographyShowcase() {
 }
 
 function TokenShowcase() {
-  const { mode, colors } = useTheme();
-  const gradient = Gradients.hub[mode];
+  const { colors } = useTheme();
 
   return (
     <View style={styles.page}>
       <ContractIntro
         title="Abstände, Formen und Effekte"
         contract="Wiederkehrende Maße stammen aus Tokens. Layout nutzt native StyleSheets; dynamische Farben kommen aus dem Theme."
-        source="index.ts: space, radius, font, Gradients und responsive Werte"
+        source="index.ts: space, radius, font und responsive Werte"
       />
       <Subsection title="Spacing">
         <TokenGrid>
@@ -291,11 +288,7 @@ function TokenShowcase() {
           ))}
         </TokenGrid>
       </Subsection>
-      <Subsection title="Verlauf und Plattformfonts">
-        <View style={[styles.gradientPreview, { borderColor: colors.border }]}>
-          <GradientBackground {...gradient} />
-          <Txt variant="heading">Gradients.hub.{mode}</Txt>
-        </View>
+      <Subsection title="Plattformfonts">
         <TokenGrid>
           {entries(Fonts ?? {}).map(([name, value]) => (
             <TokenItem key={String(name)} name={`Fonts.${String(name)}`} value={String(value)} />
@@ -412,12 +405,4 @@ const styles = StyleSheet.create({
   radiusPreview: { height: 48, width: '100%' },
   shadowPreview: { height: 48, width: '100%', borderRadius: radius.md },
   depthPreview: { height: 48, width: '100%', borderRadius: radius.md },
-  gradientPreview: {
-    minHeight: 120,
-    overflow: 'hidden',
-    borderWidth: 1,
-    borderRadius: radius.lg,
-    padding: space.lg,
-    justifyContent: 'center',
-  },
 });

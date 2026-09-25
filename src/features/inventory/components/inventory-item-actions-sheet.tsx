@@ -5,14 +5,7 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { StyleSheet } from 'react-native-unistyles';
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { BackButton } from '@/components/layout/back-button';
-import { GradientBackground } from '@/components/layout/gradient-background';
-import {
-  BUTTON_DEPTH,
-  type GradientSpec,
-  radius,
-  space,
-  withAlpha,
-} from '@/components/theme/index';
+import { BUTTON_DEPTH, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Card, IconButton, Press, Txt } from '@/constants/ui';
@@ -40,7 +33,6 @@ type InventoryItemActionsSheetProps = {
   onOpen: () => void;
   onWaste: () => void;
   onExpiryChange: (expiryDate: string) => void;
-  backgroundGradient?: GradientSpec;
 };
 
 const androidStyles = StyleSheet.create((theme) => ({
@@ -142,7 +134,6 @@ export function InventoryItemActionsSheet({
   onOpen,
   onWaste,
   onExpiryChange,
-  backgroundGradient,
 }: InventoryItemActionsSheetProps) {
   const { colors } = useTheme();
   const sheetStyle = useSheetShadowStyle();
@@ -181,7 +172,6 @@ export function InventoryItemActionsSheet({
         onOpen={onOpen}
         onWaste={onWaste}
         onExpiryChange={onExpiryChange}
-        backgroundGradient={backgroundGradient}
       />
     );
   }
@@ -279,7 +269,6 @@ function IosInventoryItemActionsView({
   onOpen,
   onWaste,
   onExpiryChange,
-  backgroundGradient,
 }: Omit<InventoryItemActionsSheetProps, 'onRemove'>) {
   const { colors } = useTheme();
   const styles = actionStyles;
@@ -298,7 +287,6 @@ function IosInventoryItemActionsView({
       onRequestClose={onClose}
       onDismiss={onDismissFinished}>
       <View style={styles.root}>
-        {backgroundGradient ? <GradientBackground {...backgroundGradient} /> : null}
         <SafeAreaView
           accessibilityViewIsModal
           style={[styles.safeArea, { paddingTop: insets.top }]}
