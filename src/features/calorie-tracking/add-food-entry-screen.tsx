@@ -6,7 +6,7 @@ import { Alert, Image, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { Screen } from '@/components/layout/screen';
-import { font, radius, withAlpha } from '@/components/theme/index';
+import { radius, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { useSnackbar } from '@/components/ui/snackbar';
@@ -76,9 +76,6 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.accent,
-  },
-  nutriBadgeText: {
-    fontSize: font.sizes.sm,
   },
   badgeRow: {
     flexDirection: 'row',
@@ -285,7 +282,7 @@ export function AddFoodEntryScreen() {
             <Image source={{ uri: productMeta.imageUrl }} style={styles.heroImage} />
           ) : (
             <View style={styles.heroImagePlaceholder}>
-              <Txt variant="body" style={{ fontSize: font.sizes.xxl }}>
+              <Txt variant="glyph" tone="primary">
                 🍽️
               </Txt>
             </View>
@@ -304,7 +301,7 @@ export function AddFoodEntryScreen() {
           </View>
           {productMeta.nutriScore ? (
             <View style={styles.nutriBadge}>
-              <Txt variant="label" tone="onAccent" weight="800" style={styles.nutriBadgeText}>
+              <Txt variant="label" tone="onAccent" weight="800">
                 {productMeta.nutriScore.toUpperCase()}
               </Txt>
             </View>
