@@ -6,7 +6,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { font, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Press, TextField, Txt } from '@/constants/ui';
+import { MIN_TOUCH_SIZE, Press, TextField, Txt } from '@/constants/ui';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
 import type { CatalogProduct } from '@/features/product-search/types';
 import type { RecipeFormValues } from '@/lib/db/zod/recipe-form-schema.zod';
@@ -102,10 +102,18 @@ const styles = StyleSheet.create((theme) => ({
   componentTitle: {
     flex: 1,
   },
-  squareButton: {
+  // `rs(44)` faellt auf Geraeten unter 384pt auf 43. Die Interaktionsflaeche
+  // haengt deshalb an der festen Untergrenze, die sichtbare am skalierten Wert.
+  squareButtonFace: {
     width: rs(44),
     height: rs(44),
     borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  squareButton: {
+    width: MIN_TOUCH_SIZE,
+    height: MIN_TOUCH_SIZE,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -504,7 +512,7 @@ export function RecipeWizardStepBasics({
                 <View style={styles.componentTitle}>
                   <TextField
                     accessibilityLabel="Gruppenname"
-                    style={{ fontWeight: font.weight.bold }}
+                    weight={font.weight.bold}
                     value={comp.title}
                     onChangeText={(val) => onUpdateComponentTitle(comp.id, val)}
                     placeholder="Gruppenname, z. B. Für den Teig"
@@ -553,19 +561,25 @@ export function RecipeWizardStepBasics({
                       />
                     </View>
                     <TouchableOpacity
-                      style={[styles.squareButton, { backgroundColor: colors.backgroundSoft }]}
+                      style={styles.squareButton}
                       onPress={() => onRemoveIngredient(comp.id, item.id)}
                       accessibilityRole="button"
                       accessibilityLabel="Delete ingredient">
-                      <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
-                        <Path
-                          d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
-                          stroke={colors.text}
-                          strokeWidth={2}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </Svg>
+                      <View
+                        style={[
+                          styles.squareButtonFace,
+                          { backgroundColor: colors.backgroundSoft },
+                        ]}>
+                        <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
+                          <Path
+                            d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
+                            stroke={colors.text}
+                            strokeWidth={2}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </Svg>
+                      </View>
                     </TouchableOpacity>
                   </View>
                   {item.notConvertible ? (

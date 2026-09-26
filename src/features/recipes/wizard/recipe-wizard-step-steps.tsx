@@ -10,7 +10,7 @@ import Svg, { Path } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
 import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { inputTextStyles, Press, Txt } from '@/constants/ui';
+import { inputTextStyles, MIN_TOUCH_SIZE, Press, Txt } from '@/constants/ui';
 import { StepMentionText } from '@/features/recipes/components/step-mention-text';
 import {
   pickRecipeImage,
@@ -84,10 +84,18 @@ const styles = StyleSheet.create((theme) => ({
   stepTitle: {
     flex: 1,
   },
-  deleteStep: {
+  // Sichtbare Flaeche 36, Trefferbereich 44 — die Vergroesserung des
+  // Containers darf das Kachel-Design der Schrittliste nicht veraendern.
+  deleteStepFace: {
     width: rs(36),
     height: rs(36),
     borderRadius: theme.radius.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  deleteStep: {
+    width: MIN_TOUCH_SIZE,
+    height: MIN_TOUCH_SIZE,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -388,18 +396,20 @@ const StepCard = memo(function StepCard({
         </Txt>
         <TouchableOpacity
           onPress={() => onRemoveStep(step.id)}
-          style={[styles.deleteStep, { backgroundColor: colors.backgroundSoft }]}
+          style={styles.deleteStep}
           accessibilityRole="button"
           accessibilityLabel="Delete step">
-          <Svg width={16} height={16} viewBox="0 0 24 24" fill="none">
-            <Path
-              d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
-              stroke={colors.text}
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </Svg>
+          <View style={[styles.deleteStepFace, { backgroundColor: colors.backgroundSoft }]}>
+            <Svg width={16} height={16} viewBox="0 0 24 24" fill="none">
+              <Path
+                d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
+                stroke={colors.text}
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </Svg>
+          </View>
         </TouchableOpacity>
       </View>
 
