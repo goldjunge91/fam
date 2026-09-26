@@ -15,7 +15,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { borderWidth, colors, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { MIN_TOUCH_SIZE, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { findStoreByName, useStores } from '@/features/shopping-list/hooks/use-stores';
@@ -446,14 +446,13 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
       <Pressable
         role="button"
         aria-label="Prospekt schließen"
-        style={[
-          styles.closeButton,
-          { top: Math.max(insets.top, 16), backgroundColor: withAlpha(colors.text, 0.7) },
-        ]}
+        style={[styles.closeButton, { top: Math.max(insets.top, 16) }]}
         onPress={() => router.back()}>
-        <Txt variant="body" tone="onAccent" weight="700">
-          ✕
-        </Txt>
+        <View style={[styles.closeButtonFace, { backgroundColor: withAlpha(colors.text, 0.7) }]}>
+          <Txt variant="body" tone="onAccent" weight="700">
+            ✕
+          </Txt>
+        </View>
       </Pressable>
     </View>
   );
@@ -469,18 +468,27 @@ const styles = StyleSheet.create({
   hotspotToggle: {
     position: 'absolute',
     left: space.lg,
-    minHeight: 36,
+    minHeight: MIN_TOUCH_SIZE,
     paddingHorizontal: space.md,
     borderRadius: radius.lg,
     justifyContent: 'center',
     zIndex: 10,
   },
-  closeButton: {
-    position: 'absolute',
-    right: space.lg,
+  // Der sichtbare Knopf bleibt bewusst kleiner als der Trefferbereich: die
+  // 44-Punkt-Flaeche traegt nur die unsichtbare Interaktionsflaeche, das
+  // Kreis-Design bleibt erhalten.
+  closeButtonFace: {
     width: 36,
     height: 36,
     borderRadius: radius.pill,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  closeButton: {
+    position: 'absolute',
+    right: space.lg,
+    width: MIN_TOUCH_SIZE,
+    height: MIN_TOUCH_SIZE,
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 10,

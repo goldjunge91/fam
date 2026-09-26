@@ -6,7 +6,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { borderWidth, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { MIN_TOUCH_SIZE, Txt } from '@/constants/ui';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { PostalCodeEditor } from '../components/postal-code-editor';
@@ -389,7 +389,7 @@ const styles = StyleSheet.create({
     paddingBottom: space.md,
   },
   filterChip: {
-    minHeight: 34,
+    minHeight: MIN_TOUCH_SIZE,
     justifyContent: 'center',
     paddingHorizontal: space.md,
     borderWidth: borderWidth.base,
