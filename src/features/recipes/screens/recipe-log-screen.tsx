@@ -104,7 +104,7 @@ const styles = StyleSheet.create((theme) => ({
   gramsField: {
     width: rs(90),
     height: rs(40),
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderRadius: theme.radius.sm,
     flexDirection: 'row',
     alignItems: 'center',

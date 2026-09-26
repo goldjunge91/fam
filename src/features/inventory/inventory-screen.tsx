@@ -83,7 +83,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   inventorySortLabel: {
     textTransform: 'uppercase',
-    letterSpacing: 1,
   },
   inventoryHeader: {
     paddingBottom: theme.space.sm,

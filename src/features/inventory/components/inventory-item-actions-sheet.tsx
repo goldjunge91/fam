@@ -542,7 +542,7 @@ const actionStyles = StyleSheet.create((theme) => ({
     alignItems: 'flex-start',
     gap: space.xs,
     padding: space.md,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
     borderRadius: radius.lg,
     backgroundColor: theme.backgroundSoft,

@@ -27,7 +27,7 @@ const styles = StyleSheet.create((theme) => ({
   tile: {
     width: 108,
     height: 84,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',

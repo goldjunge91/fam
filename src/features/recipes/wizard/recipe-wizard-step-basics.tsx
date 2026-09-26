@@ -1,13 +1,12 @@
 import { Image } from 'expo-image';
-import { useState } from 'react';
 import { type Control, Controller, useWatch } from 'react-hook-form';
-import { TextInput, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { font, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Press, Txt } from '@/constants/ui';
+import { Press, TextField, Txt } from '@/constants/ui';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
 import type { CatalogProduct } from '@/features/product-search/types';
 import type { RecipeFormValues } from '@/lib/db/zod/recipe-form-schema.zod';
@@ -18,7 +17,6 @@ import type { IngredientComponentGroup } from './types';
 const styles = StyleSheet.create((theme) => ({
   eyebrow: {
     paddingTop: theme.space.md,
-    letterSpacing: 1.5,
   },
   heading: {
     paddingTop: theme.space.md,
@@ -52,21 +50,12 @@ const styles = StyleSheet.create((theme) => ({
   fieldLabel: {
     marginBottom: theme.space.md,
   },
-  field: {
-    borderRadius: theme.radius.sm,
+  inputLayout: {
     minHeight: rs(44),
     paddingHorizontal: theme.space.xxl,
   },
-  focusableField: {
-    borderWidth: theme.borderWidth.strong,
-    borderColor: theme.border,
-  },
-  focusedField: {
-    borderColor: theme.accent,
-  },
   descriptionField: {
     height: rs(76),
-    paddingVertical: theme.space.md,
   },
   detailsRow: {
     flexDirection: 'row',
@@ -97,7 +86,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: theme.space.xxl,
     paddingVertical: theme.space.md,
     borderRadius: theme.radius.sm,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
   },
   componentGroup: {
     marginBottom: theme.space.lg,
@@ -217,18 +206,11 @@ export function RecipeWizardStepBasics({
   onNext,
 }: RecipeWizardStepBasicsProps) {
   const { colors } = useTheme();
-  const [focusedField, setFocusedField] = useState<string | null>(null);
   const title = useWatch({ control, name: 'title' });
-  const fieldStyle = {
-    backgroundColor: colors.backgroundElement,
-    color: colors.text,
-    fontSize: font.sizes.sm,
-    lineHeight: 20,
-  } as const;
 
   return (
     <>
-      <Txt variant="caption" tone="secondary" style={styles.eyebrow} weight="500">
+      <Txt variant="eyebrow" tone="secondary" style={styles.eyebrow} weight="500">
         SCHRITT {mode === 'details' ? '1' : '2'} VON 4
       </Txt>
       <Txt variant="heading" style={styles.heading}>
@@ -271,18 +253,15 @@ export function RecipeWizardStepBasics({
               control={control}
               name="title"
               render={({ field: { onBlur, onChange, value }, fieldState: { error } }) => (
-                <>
-                  <TextInput
-                    accessibilityLabel="Titel"
-                    style={[styles.field, fieldStyle]}
-                    value={value}
-                    onBlur={onBlur}
-                    onChangeText={onChange}
-                    placeholder="Rezepttitel"
-                    placeholderTextColor={colors.textSecondary}
-                  />
-                  <FieldError message={error?.message} />
-                </>
+                <TextField
+                  accessibilityLabel="Titel"
+                  style={styles.inputLayout}
+                  value={value}
+                  onBlur={onBlur}
+                  onChangeText={onChange}
+                  placeholder="Rezepttitel"
+                  error={error?.message}
+                />
               )}
             />
           </View>
@@ -295,21 +274,18 @@ export function RecipeWizardStepBasics({
               control={control}
               name="description"
               render={({ field: { onBlur, onChange, value }, fieldState: { error } }) => (
-                <>
-                  <TextInput
-                    accessibilityLabel="Beschreibung"
-                    style={[styles.field, styles.descriptionField, fieldStyle]}
-                    value={value}
-                    onBlur={onBlur}
-                    onChangeText={onChange}
-                    placeholder="Kurze Beschreibung des Rezepts"
-                    placeholderTextColor={colors.textSecondary}
-                    multiline
-                    numberOfLines={3}
-                    textAlignVertical="top"
-                  />
-                  <FieldError message={error?.message} />
-                </>
+                <TextField
+                  accessibilityLabel="Beschreibung"
+                  style={[styles.inputLayout, styles.descriptionField]}
+                  value={value}
+                  onBlur={onBlur}
+                  onChangeText={onChange}
+                  placeholder="Kurze Beschreibung des Rezepts"
+                  multiline
+                  numberOfLines={3}
+                  textAlignVertical="top"
+                  error={error?.message}
+                />
               )}
             />
           </View>
@@ -323,19 +299,16 @@ export function RecipeWizardStepBasics({
                 control={control}
                 name="cookTimeMinutes"
                 render={({ field: { onBlur, onChange, value }, fieldState: { error } }) => (
-                  <>
-                    <TextInput
-                      accessibilityLabel="Kochzeit in Minuten"
-                      style={[styles.field, fieldStyle]}
-                      value={value}
-                      onBlur={onBlur}
-                      onChangeText={onChange}
-                      placeholder="30"
-                      placeholderTextColor={colors.textSecondary}
-                      keyboardType="numeric"
-                    />
-                    <FieldError message={error?.message} />
-                  </>
+                  <TextField
+                    accessibilityLabel="Kochzeit in Minuten"
+                    style={styles.inputLayout}
+                    value={value}
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    placeholder="30"
+                    keyboardType="numeric"
+                    error={error?.message}
+                  />
                 )}
               />
             </View>
@@ -507,18 +480,15 @@ export function RecipeWizardStepBasics({
               control={control}
               name="hashtagsInput"
               render={({ field: { onBlur, onChange, value }, fieldState: { error } }) => (
-                <>
-                  <TextInput
-                    accessibilityLabel="Hashtags"
-                    style={[styles.field, fieldStyle]}
-                    value={value}
-                    onBlur={onBlur}
-                    onChangeText={onChange}
-                    placeholder="#vegan #schnell"
-                    placeholderTextColor={colors.textSecondary}
-                  />
-                  <FieldError message={error?.message} />
-                </>
+                <TextField
+                  accessibilityLabel="Hashtags"
+                  style={styles.inputLayout}
+                  value={value}
+                  onBlur={onBlur}
+                  onChangeText={onChange}
+                  placeholder="#vegan #schnell"
+                  error={error?.message}
+                />
               )}
             />
           </View>
@@ -531,22 +501,15 @@ export function RecipeWizardStepBasics({
               key={comp.id}
               style={[styles.componentGroup, { backgroundColor: colors.backgroundElement }]}>
               <View style={styles.componentHeader}>
-                <TextInput
-                  style={[
-                    styles.field,
-                    styles.focusableField,
-                    focusedField === `component-title-${comp.id}` && styles.focusedField,
-                    styles.componentTitle,
-                    fieldStyle,
-                    { fontWeight: '700' },
-                  ]}
-                  value={comp.title}
-                  onFocus={() => setFocusedField(`component-title-${comp.id}`)}
-                  onBlur={() => setFocusedField(null)}
-                  onChangeText={(val) => onUpdateComponentTitle(comp.id, val)}
-                  placeholder="Gruppenname, z. B. Für den Teig"
-                  placeholderTextColor={colors.textSecondary}
-                />
+                <View style={styles.componentTitle}>
+                  <TextField
+                    accessibilityLabel="Gruppenname"
+                    style={{ fontWeight: font.weight.bold }}
+                    value={comp.title}
+                    onChangeText={(val) => onUpdateComponentTitle(comp.id, val)}
+                    placeholder="Gruppenname, z. B. Für den Teig"
+                  />
+                </View>
                 {components.length > 1 ? (
                   <TouchableOpacity
                     style={[styles.squareButton, { backgroundColor: colors.backgroundSoft }]}
@@ -570,22 +533,15 @@ export function RecipeWizardStepBasics({
                     onSelectProduct={(product) => onSelectProduct(comp.id, item.id, product)}
                   />
                   <View style={styles.ingredientFields}>
-                    <TextInput
-                      style={[
-                        styles.field,
-                        styles.focusableField,
-                        focusedField === `quantity-${comp.id}-${item.id}` && styles.focusedField,
-                        styles.ingredientInput,
-                        fieldStyle,
-                      ]}
-                      value={item.quantity}
-                      onFocus={() => setFocusedField(`quantity-${comp.id}-${item.id}`)}
-                      onBlur={() => setFocusedField(null)}
-                      onChangeText={(val) => onUpdateQuantity(comp.id, item.id, val)}
-                      placeholder="Menge"
-                      placeholderTextColor={colors.textSecondary}
-                      keyboardType="numeric"
-                    />
+                    <View style={styles.ingredientInput}>
+                      <TextField
+                        accessibilityLabel="Menge"
+                        value={item.quantity}
+                        onChangeText={(val) => onUpdateQuantity(comp.id, item.id, val)}
+                        placeholder="Menge"
+                        keyboardType="numeric"
+                      />
+                    </View>
                     <View style={styles.unitField}>
                       <WheelPickerField
                         value={item.unit}

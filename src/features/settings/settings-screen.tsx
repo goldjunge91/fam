@@ -30,13 +30,15 @@ import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { env } from '@/lib/config/env';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 
+const SETTINGS_GROUP_GAP = space.lg + space.sm;
+
 const styles = StyleSheet.create({
   scroll: {
     flex: 1,
   },
   scrollContent: {
     flexGrow: 1,
-    gap: space.lg + space.sm,
+    gap: SETTINGS_GROUP_GAP,
     paddingHorizontal: space.lg,
     paddingTop: space.md,
     paddingBottom: space.xxxl,
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
     gap: space.xs / 2,
   },
   groups: {
-    gap: space.lg + space.sm,
+    gap: SETTINGS_GROUP_GAP,
   },
   signOut: {
     marginTop: space.sm,

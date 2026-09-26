@@ -9,6 +9,23 @@ const MAX_SANITIZE_DEPTH = 5;
 const POSTHOG_COLOR = '\u001b[38;5;203m';
 const BLUE_COLOR = '\u001b[38;5;39m';
 const COLOR_RESET = '\u001b[0m';
+const AVATAR_EVENT_STYLES: Record<string, { label: string; message: string; color: string }> = {
+  'profile.avatar-image.resolve': {
+    label: 'Profilbild',
+    message: 'Referenz geprüft',
+    color: '\u001b[38;5;39m',
+  },
+  'profile.avatar-image.sign-start': {
+    label: 'Profilbild',
+    message: 'URL wird erstellt',
+    color: '\u001b[38;5;39m',
+  },
+  'profile.avatar-image.sign-complete': {
+    label: 'Profilbild',
+    message: 'URL bereit',
+    color: '\u001b[38;5;42m',
+  },
+};
 const TELEMETRY_CHANNEL_STYLES: Record<string, { label: string; color: string }> = {
   productEvents: { label: 'Produkt', color: '\u001b[38;5;42m' },
   errorReports: { label: 'Fehler', color: '\u001b[38;5;196m' },
@@ -194,6 +211,14 @@ function formatDebugRecord(record: DebugValue): string {
     if (typeof record.event === 'string') {
       const telemetryLine = formatTelemetryRecord(record.event, record.details);
       if (telemetryLine) return telemetryLine;
+
+      const avatarStyle = AVATAR_EVENT_STYLES[record.event];
+      if (avatarStyle) {
+        const label = `${avatarStyle.color}[${avatarStyle.label}]${COLOR_RESET} ${avatarStyle.message}`;
+        return record.details === undefined
+          ? label
+          : `${label}${formatDebugPayload(record.details)}`;
+      }
 
       const eventLabel = record.event.startsWith('posthog.')
         ? `${POSTHOG_COLOR}[PostHog]${COLOR_RESET} ${record.event.slice('posthog.'.length)}`

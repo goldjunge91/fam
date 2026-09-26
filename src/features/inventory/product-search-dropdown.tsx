@@ -231,15 +231,22 @@ export const ProductSearchDropdown = forwardRef<
   // erneut fuer jede bereits ausgewaehlte Zutat (#UI-Feedback: "oeffnet sich
   // fuer alle Zutaten das Modal der Suche").
   const [selectedName, setSelectedName] = useState<string | null>(value);
+  const currentValueRef = useRef(value);
+  currentValueRef.current = value;
+  const dismissedQueryRef = useRef<string | null>(null);
 
   function dismiss() {
+    dismissedQueryRef.current = currentValueRef.current;
     setShowDropdown(false);
     Keyboard.dismiss();
   }
 
   useImperativeHandle(ref, () => ({
     dismiss,
-    markSelected: setSelectedName,
+    markSelected: (name) => {
+      dismissedQueryRef.current = name;
+      setSelectedName(name);
+    },
   }));
 
   // Tastaturposition mitverfolgen, damit das Dropdown nicht dahinter
@@ -291,7 +298,9 @@ export const ProductSearchDropdown = forwardRef<
   } = useProductSearch(searchQuery, { preferredMarket, pageSize: PAGE_SIZE });
 
   useEffect(() => {
-    if (searched) setShowDropdown(true);
+    if (searched && dismissedQueryRef.current !== currentValueRef.current) {
+      setShowDropdown(true);
+    }
   }, [searched]);
 
   const showErrorState = searched && !searching && failed && suggestions.length === 0;
@@ -354,6 +363,7 @@ export const ProductSearchDropdown = forwardRef<
               Keyboard.dismiss();
             }}
             onChangeText={(text) => {
+              dismissedQueryRef.current = null;
               onChangeText(text);
               setShowDropdown(true);
             }}
@@ -413,6 +423,7 @@ export const ProductSearchDropdown = forwardRef<
               <Press
                 haptic="selection"
                 onPress={() => {
+                  dismissedQueryRef.current = currentValueRef.current;
                   setShowDropdown(false);
                   Keyboard.dismiss();
                   router.push({
@@ -441,6 +452,7 @@ export const ProductSearchDropdown = forwardRef<
               accessibilityRole="button"
               accessibilityLabel={item.name}
               onPress={() => {
+                dismissedQueryRef.current = item.name;
                 setSelectedName(item.name);
                 onSelectProduct(item);
                 setShowDropdown(false);

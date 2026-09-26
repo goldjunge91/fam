@@ -17,7 +17,7 @@ export function SettingsGroup({ title, children }: SettingsGroupProps) {
   return (
     <View style={styles.group}>
       {title ? (
-        <Txt variant="caption" tone="secondary" style={styles.groupTitle} weight="700">
+        <Txt variant="eyebrow" tone="secondary" style={styles.groupTitle} weight="700">
           {title.toUpperCase()}
         </Txt>
       ) : null}
@@ -121,7 +121,6 @@ const styles = StyleSheet.create({
   },
   groupTitle: {
     paddingHorizontal: space.sm,
-    letterSpacing: 0.5,
   },
   groupBody: {
     borderRadius: radius.famLarge,

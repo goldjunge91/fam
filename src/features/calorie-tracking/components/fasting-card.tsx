@@ -51,7 +51,7 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
   },
   protocolButtonSelected: {
     backgroundColor: theme.accent,
@@ -69,7 +69,7 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'space-between',
     backgroundColor: theme.backgroundElement,
     borderColor: theme.border,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
   },
   startButton: {
     paddingVertical: theme.space.lg,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
     backgroundColor: theme.backgroundElement,
     borderColor: theme.border,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
   },
   statusHeader: {
     flexDirection: 'row',
@@ -108,7 +108,7 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
     backgroundColor: theme.backgroundElement,
     borderColor: theme.border,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
   },
 }));
 

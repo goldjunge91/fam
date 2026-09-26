@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, TextInput, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Press, Txt } from '@/constants/ui';
+import { Press, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { getRecipeRating, saveRecipeRating } from '../domain/recipe-ratings';
 import { RecipeBottomSheet } from './recipe-bottom-sheet';
@@ -35,13 +35,13 @@ const styles = StyleSheet.create((theme) => ({
   scoreHint: {
     paddingTop: theme.space.md,
   },
-  note: {
-    minHeight: rs(92),
+  noteContainer: {
     marginTop: theme.space.lg,
+  },
+  noteInput: {
+    minHeight: rs(92),
     paddingHorizontal: theme.space.lg,
     paddingVertical: theme.space.md,
-    borderWidth: 0.5,
-    borderRadius: theme.radius.md,
   },
   submitContainer: {
     alignSelf: 'stretch',
@@ -128,23 +128,18 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
         {score > 0 ? `${score} / 10` : 'Noch keine Bewertung gewählt'}
       </Txt>
 
-      <TextInput
-        value={note}
-        onChangeText={setNote}
-        placeholder="Optional: Was war besonders gut?"
-        placeholderTextColor={colors.textSecondary}
-        multiline
-        maxLength={500}
-        textAlignVertical="top"
-        style={[
-          styles.note,
-          {
-            color: colors.text,
-            borderColor: colors.border,
-            backgroundColor: colors.backgroundSoft,
-          },
-        ]}
-      />
+      <View style={styles.noteContainer}>
+        <TextField
+          accessibilityLabel="Rezeptnotiz"
+          value={note}
+          onChangeText={setNote}
+          placeholder="Optional: Was war besonders gut?"
+          multiline
+          maxLength={500}
+          textAlignVertical="top"
+          style={styles.noteInput}
+        />
+      </View>
 
       <Press
         onPress={submit}

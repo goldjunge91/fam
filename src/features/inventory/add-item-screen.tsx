@@ -384,6 +384,7 @@ export function AddItemScreen() {
             suggestionFilter={suggestionMode}
             onSuggestionFilterChange={setSuggestionMode}
             suggestionAccessibilityLabel="Vorschlagsfilter"
+            testIDPrefix="inventory-add-item-filter"
           />
 
           {/* Schnellauswahl häufig oder zuletzt verwendeter Artikel */}

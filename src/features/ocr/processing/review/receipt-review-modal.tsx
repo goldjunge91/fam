@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Modal, ScrollView, TextInput, View } from 'react-native';
+import { Modal, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { Button, CloseButton, Press, Surface, Txt } from '@/constants/ui';
+import { Button, CloseButton, Press, Surface, TextField, Txt } from '@/constants/ui';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 import type { ReceiptDraft } from '../domain/types';
 import {
@@ -52,13 +52,8 @@ const styles = StyleSheet.create((theme) => ({
   field: {
     gap: theme.space.xs,
   },
-  input: {
+  inputLayout: {
     minHeight: 42,
-    borderWidth: theme.borderWidth.base,
-    borderColor: theme.border,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.backgroundElement,
-    color: theme.text,
     paddingHorizontal: theme.space.md,
     paddingVertical: theme.space.sm,
   },
@@ -203,13 +198,13 @@ export function ReceiptReviewModal({
             <Txt variant="body" weight="700">
               {t('ocr.review.market')}
             </Txt>
-            <TextInput
+            <TextField
               accessibilityLabel={t('ocr.review.market')}
               value={state.market}
               onChangeText={(market) =>
                 changeState((current) => updateReceiptReviewState(current, { market }))
               }
-              style={styles.input}
+              style={styles.inputLayout}
             />
             {state.marketNeedsReview ? (
               <Txt variant="caption" style={styles.uncertain}>
@@ -252,13 +247,13 @@ export function ReceiptReviewModal({
             <Txt variant="body" weight="700">
               {t('ocr.review.date')}
             </Txt>
-            <TextInput
+            <TextField
               accessibilityLabel={t('ocr.review.date')}
               value={state.purchaseDate}
               onChangeText={(purchaseDate) =>
                 changeState((current) => updateReceiptReviewState(current, { purchaseDate }))
               }
-              style={styles.input}
+              style={styles.inputLayout}
             />
             {state.dateNeedsReview ? (
               <Txt variant="caption" style={styles.uncertain}>
@@ -270,14 +265,14 @@ export function ReceiptReviewModal({
             <Txt variant="body" weight="700">
               {t('ocr.review.total')}
             </Txt>
-            <TextInput
+            <TextField
               accessibilityLabel={t('ocr.review.total')}
               keyboardType="decimal-pad"
               value={state.totalCents}
               onChangeText={(totalCents) =>
                 changeState((current) => updateReceiptReviewState(current, { totalCents }))
               }
-              style={styles.input}
+              style={styles.inputLayout}
             />
             {state.totalNeedsReview ? (
               <Txt variant="caption" style={styles.uncertain}>
@@ -291,20 +286,20 @@ export function ReceiptReviewModal({
               <Txt variant="body" weight="700">
                 {t('ocr.review.item', { number: index + 1 })}
               </Txt>
-              <TextInput
+              <TextField
                 accessibilityLabel={t('ocr.review.itemName')}
                 value={item.name}
                 onChangeText={(name) =>
                   changeState((current) => updateReceiptReviewItem(current, index, { name }))
                 }
-                style={styles.input}
+                style={styles.inputLayout}
               />
               <View style={styles.itemInputs}>
                 <View style={styles.itemInput}>
                   <Txt variant="caption" tone="secondary">
                     {t('ocr.review.quantity')}
                   </Txt>
-                  <TextInput
+                  <TextField
                     accessibilityLabel={t('ocr.review.quantity')}
                     keyboardType="decimal-pad"
                     value={item.quantity}
@@ -313,14 +308,14 @@ export function ReceiptReviewModal({
                         updateReceiptReviewItem(current, index, { quantity }),
                       )
                     }
-                    style={styles.input}
+                    style={styles.inputLayout}
                   />
                 </View>
                 <View style={styles.itemInput}>
                   <Txt variant="caption" tone="secondary">
                     {t('ocr.review.lineTotal')}
                   </Txt>
-                  <TextInput
+                  <TextField
                     accessibilityLabel={t('ocr.review.lineTotal')}
                     keyboardType="decimal-pad"
                     value={item.lineTotalCents}
@@ -329,7 +324,7 @@ export function ReceiptReviewModal({
                         updateReceiptReviewItem(current, index, { lineTotalCents }),
                       )
                     }
-                    style={styles.input}
+                    style={styles.inputLayout}
                   />
                 </View>
               </View>

@@ -5,6 +5,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Press, Txt } from '@/constants/ui';
 
 const BAR_HEIGHT = 34;
+const DAY_TARGET_WIDTH = 44;
 const MAX_BAR_KCAL = 2600;
 
 export type DiaryWeekStripDay = {
@@ -40,10 +41,11 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
   },
   dayContainer: {
-    width: 34,
+    width: DAY_TARGET_WIDTH,
   },
   day: {
-    width: 34,
+    width: DAY_TARGET_WIDTH,
+    minHeight: DAY_TARGET_WIDTH,
     alignItems: 'center',
     gap: theme.space.xs + theme.space.xs / 2,
     paddingTop: theme.space.xs,

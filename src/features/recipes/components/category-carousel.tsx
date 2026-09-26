@@ -89,7 +89,7 @@ const styles = StyleSheet.create((theme) => ({
   tile: {
     width: 92,
     minHeight: 78,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',

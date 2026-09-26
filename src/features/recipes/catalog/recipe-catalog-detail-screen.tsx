@@ -5,7 +5,7 @@ import { ActivityIndicator, Alert, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { radius, rs, space } from '@/components/theme/index';
+import { borderWidth, radius, rs, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { Press, Txt } from '@/constants/ui';
@@ -99,7 +99,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   title: {
     paddingTop: theme.space.xl,
-    letterSpacing: -0.3,
   },
   tabs: {
     flexDirection: 'row',
@@ -599,7 +598,7 @@ export function RecipeCatalogDetailScreen() {
               {
                 backgroundColor: colors.backgroundElement,
                 borderColor: colors.accent,
-                borderWidth: 1,
+                borderWidth: borderWidth.base,
               },
             ]}>
             <Txt variant="label" tone="primary" weight="700" center>

@@ -66,7 +66,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   slotLabel: {
     textTransform: 'uppercase',
-    letterSpacing: 0.55,
   },
   entryChip: {
     justifyContent: 'center',

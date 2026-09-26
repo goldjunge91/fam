@@ -46,7 +46,7 @@ const styles = StyleSheet.create((theme) => ({
   macroChip: {
     width: '48%',
     backgroundColor: theme.backgroundElement,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
     borderRadius: theme.radius.sm,
     padding: theme.space.lg,

@@ -9,7 +9,7 @@ import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
-import { Button, IconButton, TextField, Txt } from '@/constants/ui';
+import { Button, IconButton, Press, TextField, Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { debugLog } from '@/lib/observability/debug-log';
@@ -98,12 +98,16 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.xs,
   },
   detailsToggle: {
-    minHeight: 36,
+    minWidth: 44,
+    minHeight: 44,
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.space.sm,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,
+  },
+  detailsToggleLabel: {
+    flexShrink: 1,
   },
   details: {
     gap: theme.space.lg,
@@ -349,17 +353,18 @@ export function EditInventoryItemSheet({
               </View>
             </View>
 
-            <Pressable
+            <Press
               onPress={() => setDetailsOpen((current) => !current)}
+              haptic="none"
               accessibilityRole="button"
               accessibilityLabel={`${detailsOpen ? 'Weitere Angaben schließen' : 'Weitere Angaben öffnen'}`}
               accessibilityState={{ expanded: detailsOpen }}
               style={styles.detailsToggle}>
               <Txt tone="secondary">{detailsOpen ? '⌄' : '›'}</Txt>
-              <Txt variant="body" tone="primary">
+              <Txt variant="body" tone="primary" style={styles.detailsToggleLabel}>
                 Weitere Angaben
               </Txt>
-            </Pressable>
+            </Press>
 
             {detailsOpen ? (
               <View style={styles.details}>

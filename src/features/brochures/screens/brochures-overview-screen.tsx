@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Linking, Pressable, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { radius, space } from '@/components/theme/index';
+import { borderWidth, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
@@ -345,14 +345,14 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: radius.xxl,
-    borderWidth: 1,
+    borderWidth: borderWidth.base,
     marginBottom: space.sm,
   },
   storeLogoPlaceholder: {
     width: 64,
     height: 64,
     borderRadius: radius.xxl,
-    borderWidth: 1,
+    borderWidth: borderWidth.base,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: space.sm,
@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
   },
   brochureCard: {
     width: '48%',
-    borderWidth: 1,
+    borderWidth: borderWidth.base,
     borderRadius: radius.sm,
     marginBottom: space.lg,
     overflow: 'hidden',
@@ -392,7 +392,7 @@ const styles = StyleSheet.create({
     minHeight: 34,
     justifyContent: 'center',
     paddingHorizontal: space.md,
-    borderWidth: 1,
+    borderWidth: borderWidth.base,
     borderRadius: radius.sm,
   },
   emptyText: {

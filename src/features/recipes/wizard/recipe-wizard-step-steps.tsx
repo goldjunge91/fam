@@ -110,7 +110,7 @@ const styles = StyleSheet.create((theme) => ({
     zIndex: 20,
     marginTop: theme.space.xs,
     borderRadius: theme.radius.sm,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     padding: theme.space.xs,
   },
   mentionRow: {
@@ -156,7 +156,6 @@ const styles = StyleSheet.create((theme) => ({
   screenEyebrow: {
     paddingTop: theme.space.sm,
     paddingBottom: theme.space.md,
-    letterSpacing: 1.5,
   },
   screenTitle: {
     marginBottom: theme.space.xs,
@@ -249,7 +248,7 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
         onPress={() => setExpanded((prev) => !prev)}
         accessibilityRole="button"
         accessibilityLabel={expanded ? 'Zutatenliste einklappen' : 'Zutatenliste ausklappen'}>
-        <Txt variant="caption" tone="secondary" style={{ letterSpacing: 1.5 }} weight="700">
+        <Txt variant="eyebrow" tone="secondary" weight="700">
           ZUTATEN
         </Txt>
         <View style={styles.ledgerSummary}>
@@ -674,7 +673,7 @@ export function RecipeWizardStepSteps({
 
   return (
     <View style={styles.screen}>
-      <Txt variant="caption" tone="secondary" style={styles.screenEyebrow} weight="500">
+      <Txt variant="eyebrow" tone="secondary" style={styles.screenEyebrow} weight="500">
         SCHRITT 3 VON 4
       </Txt>
       <Txt variant="heading" style={styles.screenTitle}>

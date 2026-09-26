@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { radius, space } from '@/components/theme/index';
+import { borderWidth, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { DashboardCardShell } from '@/features/dashboard/components/dashboard-card-shell';
@@ -71,7 +71,7 @@ function StreakDays({ count, activeToday }: { count: number; activeToday: boolea
               height: 12,
               borderRadius: radius.xs,
               backgroundColor: active ? colors.warning : colors.backgroundSoft,
-              borderWidth: isToday ? 2 : 0,
+              borderWidth: isToday ? borderWidth.strong : 0,
               borderColor: isToday ? colors.accent : 'transparent',
             }}
           />
@@ -111,7 +111,7 @@ function StreakDashboardCard({ size, onLongPress, disabled }: DashboardCardProps
       accessibilityLabel={accessibilityLabel}
       style={isSmall ? styles.smallCard : undefined}>
       <View style={styles.header}>
-        <Txt variant="caption" tone="accent" weight="700" style={{ letterSpacing: 0.5 }}>
+        <Txt variant="eyebrow" tone="accent" weight="700">
           {t('dashboard.cards.streak.title')}
         </Txt>
         {!isSmall ? (

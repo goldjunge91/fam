@@ -34,7 +34,7 @@ const styles = StyleSheet.create((theme) => ({
     position: 'absolute',
     width: 92,
     height: 92,
-    borderWidth: 2,
+    borderWidth: theme.borderWidth.strong,
     borderRadius: theme.radius.pill,
     borderColor: theme.accent,
   },

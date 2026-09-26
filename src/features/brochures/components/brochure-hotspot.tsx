@@ -10,7 +10,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
-import { font, radius, space, withAlpha } from '@/components/theme/index';
+import { borderWidth, font, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import type { Hotspot } from '../types';
@@ -67,7 +67,7 @@ export function BrochureHotspot({ hotspot, onPress, isActive, isVisible }: Broch
       ]}>
       <Animated.View
         pointerEvents="none"
-        style={[styles.aura, { borderColor: colors.accent }, auraStyle]}
+        style={[StyleSheet.absoluteFill, styles.aura, { borderColor: colors.accent }, auraStyle]}
       />
       <Pressable
         role="button"
@@ -75,7 +75,11 @@ export function BrochureHotspot({ hotspot, onPress, isActive, isVisible }: Broch
         style={styles.pressableArea}
         onPress={() => onPress(hotspot)}
         android_ripple={{ color: withAlpha(colors.accent, 0.2) }}>
-        {isActive && <View style={[styles.activeBorder, { borderColor: colors.accent }]} />}
+        {isActive && (
+          <View
+            style={[StyleSheet.absoluteFill, styles.activeBorder, { borderColor: colors.accent }]}
+          />
+        )}
         {isLinkout ? (
           <Txt variant="body" tone="onAccent" style={styles.linkoutArrow}>
             ↗
@@ -94,7 +98,7 @@ const styles = StyleSheet.create({
     marginLeft: -(space.sm + space.xs / 4),
     marginTop: -(space.sm + space.xs / 4),
     borderRadius: radius.sm,
-    borderWidth: 1.5,
+    borderWidth: borderWidth.base,
   },
   pressableArea: {
     flex: 1,
@@ -103,7 +107,6 @@ const styles = StyleSheet.create({
     borderRadius: radius.sm,
   },
   aura: {
-    ...StyleSheet.absoluteFill,
     margin: -space.sm,
     borderRadius: radius.lg,
     borderWidth: 8,
@@ -115,8 +118,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   activeBorder: {
-    ...StyleSheet.absoluteFill,
-    borderWidth: 2,
+    borderWidth: borderWidth.strong,
     borderRadius: radius.sm,
   },
 });

@@ -304,7 +304,7 @@ function MealPlanDashboardCard({ size, onLongPress, disabled }: DashboardCardPro
       </View>
       <View style={styles.largeCopy}>
         {nextMeal ? (
-          <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.1 }}>
+          <Txt variant="caption" tone="danger" weight="700">
             {t('dashboard.cards.mealPlan.plannedToday')}
           </Txt>
         ) : null}

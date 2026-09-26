@@ -84,7 +84,7 @@ function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProp
         accessibilityLabel={t('dashboard.cards.calories.titleSmall')}
         style={styles.smallCard}>
         <View style={styles.row}>
-          <Txt variant="caption" tone="secondary" weight="700" style={{ letterSpacing: 0.5 }}>
+          <Txt variant="eyebrow" tone="secondary" weight="700">
             {t('dashboard.cards.calories.titleSmall')}
           </Txt>
           <Txt variant="label" tone={ziel === 0 ? 'secondary' : 'primary'}>

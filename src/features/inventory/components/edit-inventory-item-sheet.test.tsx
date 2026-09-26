@@ -1,6 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 
-import { colorsLight, withAlpha } from '@/components/theme';
+import { colorsLight } from '@/components/theme';
 
 import type { LocalInventoryItem } from '../use-inventory-items';
 import { EditInventoryItemSheet } from './edit-inventory-item-sheet';
@@ -104,8 +104,27 @@ it('renders the edit close button with the configured tomato background', async 
   await renderSheet();
 
   expect(screen.getByRole('button', { name: 'Schließen' })).toHaveStyle({
-    backgroundColor: withAlpha(colorsLight.danger, 1),
+    backgroundColor: colorsLight.danger,
   });
+});
+
+it('keeps the details toggle at least 44 points high and exposes its expanded state', async () => {
+  const user = userEvent.setup();
+
+  await renderSheet();
+  const openToggle = screen.getByRole('button', { name: 'Weitere Angaben öffnen' });
+
+  expect(openToggle).toHaveStyle({ minWidth: 44, minHeight: 44 });
+  expect(openToggle.props.accessibilityState).toEqual({ expanded: false });
+
+  await user.press(openToggle);
+
+  expect(
+    screen.getByRole('button', { name: 'Weitere Angaben schließen' }).props.accessibilityState,
+  ).toEqual({
+    expanded: true,
+  });
+  expect(screen.getByText('Weitere Angaben')).toHaveStyle({ flexShrink: 1 });
 });
 
 describe('EditInventoryItemSheet MHD-Schutzvertrag', () => {

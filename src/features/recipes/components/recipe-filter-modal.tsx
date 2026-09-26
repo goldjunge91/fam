@@ -64,7 +64,7 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'center',
     gap: theme.space.xs,
     padding: theme.space.sm,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
   },
   mealEmoji: {
     fontSize: font.sizes.lg,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create((theme) => ({
   tagPill: {
     minHeight: rs(36),
     borderRadius: theme.radius.sm,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: theme.space.lg,

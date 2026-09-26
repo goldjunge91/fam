@@ -65,7 +65,7 @@ function createOffProduct(nutriScore?: CatalogProduct['nutriScore']): CatalogPro
   };
 }
 
-async function renderSheet(onClose = jest.fn()) {
+async function renderSheet(onClose = jest.fn(), width = 390) {
   const queryClient = new QueryClient({
     defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
   });
@@ -75,7 +75,7 @@ async function renderSheet(onClose = jest.fn()) {
     <QueryClientProvider client={queryClient}>
       <SafeAreaProvider
         initialMetrics={{
-          frame: { x: 0, y: 0, width: 390, height: 844 },
+          frame: { x: 0, y: 0, width, height: 844 },
           insets: { top: 47, left: 0, right: 0, bottom: 34 },
         }}>
         <ProductInformation visible item={item} onClose={onClose} />
@@ -130,12 +130,16 @@ describe('ProductInformation', () => {
     });
   });
 
-  it('ruft den Close-Callback über die sichtbare Schließen-Aktion auf', async () => {
-    const onClose = await renderSheet();
-    const user = userEvent.setup();
+  it.each([320, 393])(
+    'behält bei %i Punkten ein mindestens 44 Punkte großes Schließen-Ziel',
+    async (width) => {
+      const onClose = await renderSheet(jest.fn(), width);
+      const closeButton = screen.getByRole('button', { name: 'Schließen' });
+      const user = userEvent.setup();
+      expect(closeButton).toHaveStyle({ minWidth: 44, minHeight: 44 });
+      await user.press(closeButton);
 
-    await user.press(screen.getByRole('button', { name: 'Schließen' }));
-
-    expect(onClose).toHaveBeenCalledTimes(1);
-  });
+      expect(onClose).toHaveBeenCalledTimes(1);
+    },
+  );
 });

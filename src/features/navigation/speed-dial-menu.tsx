@@ -6,7 +6,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { FamIcon } from '@/components/icons/fam-icon';
-import { radius, space } from '@/components/theme/index';
+import { borderWidth, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { getSpeedDialOptions } from '@/constants/feature-registry';
 import { Txt } from '@/constants/ui';
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: space.md,
     paddingVertical: space.sm,
     borderRadius: radius.sm,
-    borderWidth: 1,
+    borderWidth: borderWidth.base,
   },
   hidden: {
     opacity: 0,

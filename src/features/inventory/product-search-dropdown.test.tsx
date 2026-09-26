@@ -165,6 +165,26 @@ it('schliesst die Trefferliste mit X und ueber die freie Flaeche', async () => {
   expect(screen.queryByText('EAN 123')).not.toBeOnTheScreen();
 });
 
+it('oeffnet eine explizit geschlossene Suche nicht durch eine spaete Antwort erneut', async () => {
+  mockUseProductSearch.mockReturnValue(searchState({ searching: true }));
+
+  const { rerender } = await render(<ControlledDropdown onSelectProduct={() => {}} />);
+  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Fantasieprodukt');
+  await fireEvent.press(screen.getByRole('button', { name: 'Suche schließen' }));
+
+  expect(screen.queryByRole('button', { name: 'Suche schließen' })).not.toBeOnTheScreen();
+
+  mockUseProductSearch.mockReturnValue(searchState({ searched: true, failed: true }));
+  rerender(<ControlledDropdown onSelectProduct={() => {}} />);
+
+  await waitFor(() => {
+    expect(screen.queryByRole('button', { name: 'Suche schließen' })).not.toBeOnTheScreen();
+    expect(
+      screen.queryByText('Open Food Facts ist gerade nicht erreichbar.'),
+    ).not.toBeOnTheScreen();
+  });
+});
+
 it('bietet "manuell anlegen" an, wenn nichts gefunden wurde', async () => {
   mockUseProductSearch.mockReturnValue(searchState({ searched: true, results: [] }));
 

@@ -187,7 +187,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   overlayBox: {
     position: 'absolute',
-    borderWidth: 2,
+    borderWidth: theme.borderWidth.strong,
     borderRadius: radius.s,
   },
   overlayLabel: {

@@ -453,7 +453,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   bundlePrompt: {
     gap: theme.space.xs,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderColor: theme.warning,
     backgroundColor: theme.backgroundSoft,
     padding: theme.space.md,
@@ -469,7 +469,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   itemRow: {
     gap: theme.space.sm,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
     borderRadius: theme.radius.sm,
     backgroundColor: theme.backgroundElement,
@@ -493,7 +493,7 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: theme.space.md,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
     borderRadius: theme.radius.sm,
     paddingHorizontal: theme.space.md,

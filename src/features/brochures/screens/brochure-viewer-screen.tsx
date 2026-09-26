@@ -13,7 +13,7 @@ import {
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { colors, font, radius, space, withAlpha } from '@/components/theme/index';
+import { borderWidth, colors, font, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -542,7 +542,7 @@ const styles = StyleSheet.create({
   stepper: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
+    borderWidth: borderWidth.base,
     borderRadius: radius.sm,
   },
   stepperButton: { width: 42, minHeight: 48, justifyContent: 'center', alignItems: 'center' },

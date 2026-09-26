@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { ActivityIndicator, Modal, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { CloseButton, Txt } from '@/constants/ui';
 import { useProduct } from '@/features/inventory/use-product';
 import { offApiSource } from '@/features/product-search/sources/off-api-source';
 import { debugLog } from '@/lib/observability/debug-log';
@@ -32,12 +32,6 @@ const NUTRI_BADGE_COLORS = {
   d: '#EE8100',
   e: '#E63E11',
 };
-
-const staticStyles = StyleSheet.create({
-  closePressed: {
-    opacity: 0.75,
-  },
-});
 
 const styles = StyleSheet.create((theme) => ({
   overlay: {
@@ -88,11 +82,9 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.md,
   },
   closeButton: {
-    width: 34,
-    height: 34,
+    minWidth: 44,
+    minHeight: 44,
     borderRadius: theme.radius.lg,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   scoreCard: {
     minHeight: 88,
@@ -114,7 +106,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   details: {
-    borderWidth: 0.5,
+    borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
     borderRadius: theme.radius.lg,
     overflow: 'hidden',
@@ -177,7 +169,6 @@ function formatExpiry(value: string | null | undefined): string {
 
 export function ProductInformation({ visible, item, onClose }: ProductInformationProps) {
   const { colors } = useTheme();
-  const [closePressed, setClosePressed] = useState(false);
 
   const insets = useSafeAreaInsets();
   const itemId = item?.product_id ?? null;
@@ -254,21 +245,11 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                   {brand}
                 </Txt>
               </View>
-              <Pressable
+              <CloseButton
                 onPress={onClose}
-                accessibilityRole="button"
                 accessibilityLabel="Schließen"
-                onPressIn={() => setClosePressed(true)}
-                onPressOut={() => setClosePressed(false)}
-                style={[
-                  styles.closeButton,
-                  { backgroundColor: colors.backgroundSoft },
-                  closePressed && staticStyles.closePressed,
-                ]}>
-                <Txt variant="body" tone="secondary">
-                  ×
-                </Txt>
-              </Pressable>
+                style={styles.closeButton}
+              />
             </View>
 
             <View style={styles.scoreCard}>

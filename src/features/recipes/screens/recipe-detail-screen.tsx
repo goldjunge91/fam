@@ -19,7 +19,7 @@ import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { radius, rs } from '@/components/theme/index';
+import { borderWidth, radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { Press, Txt } from '@/constants/ui';
@@ -126,7 +126,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   title: {
     paddingTop: theme.space.xl,
-    letterSpacing: -0.25,
   },
   tabs: {
     flexDirection: 'row',
@@ -723,7 +722,10 @@ export function RecipeDetailScreen() {
               role="button"
               aria-label="Fehlende Zutaten zur Einkaufsliste hinzufügen"
               onPress={() => setShoppingOpen(true)}
-              style={[styles.missingButton, { borderColor: colors.border, borderWidth: 1 }]}>
+              style={[
+                styles.missingButton,
+                { borderColor: colors.border, borderWidth: borderWidth.base },
+              ]}>
               <Txt variant="heading" tone="primary" center>
                 Fehlende Zutaten zur Einkaufsliste
               </Txt>

@@ -242,7 +242,7 @@ const styles = StyleSheet.create((theme) => ({
     width: '100%',
     height: theme.controlSizes.touchTarget,
     borderRadius: theme.radius.sm,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     alignItems: 'center',
     justifyContent: 'center',
   },

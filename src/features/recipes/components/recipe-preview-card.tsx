@@ -61,16 +61,12 @@ const styles = StyleSheet.create((theme) => ({
     bottom: rs(14),
     left: rs(24),
   },
-  title: {
-    letterSpacing: -0.25,
-  },
   meta: {
     marginTop: theme.space.md,
     opacity: 0.85,
   },
   eyebrow: {
     textTransform: 'uppercase',
-    letterSpacing: 1.2,
     opacity: 0.8,
   },
   heroTitle: {
@@ -237,12 +233,7 @@ export function RecipePreviewCard({
       <RecipeArtwork title={title} coverUrl={coverUrl} coverPath={coverImagePath} />
       <FadeShade height="62%" />
       <View style={styles.copy}>
-        <Txt
-          variant="subheading"
-          tone="onAccent"
-          weight="700"
-          style={styles.title}
-          numberOfLines={1}>
+        <Txt variant="subheading" tone="onAccent" weight="700" numberOfLines={1}>
           {title}
         </Txt>
         <Txt variant="caption" tone="onAccent" weight="600" style={styles.meta} numberOfLines={1}>
@@ -283,7 +274,7 @@ export function RecipeHeroCard({
       <RecipeArtwork title={title} coverUrl={coverUrl} coverPath={coverImagePath} />
       <View style={styles.heroOverlay} />
       <View style={styles.copy}>
-        <Txt variant="caption" tone="onAccent" weight="700" style={styles.eyebrow}>
+        <Txt variant="eyebrow" tone="onAccent" weight="700" style={styles.eyebrow}>
           {eyebrow}
         </Txt>
         <Txt variant="body" tone="onAccent" weight="700" style={styles.heroTitle} numberOfLines={2}>

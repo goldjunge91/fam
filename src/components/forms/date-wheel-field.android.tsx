@@ -2,7 +2,7 @@ import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { type Palette, radius, space } from '@/components/theme/index';
+import { borderWidth, type Palette, radius, space } from '@/components/theme/index';
 import { useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
@@ -92,7 +92,7 @@ function makeStyles(colors: Palette) {
     },
     inputField: {
       width: '100%',
-      borderWidth: 1,
+      borderWidth: borderWidth.base,
       borderColor: colors.border,
       borderRadius: radius.md,
       borderCurve: 'continuous',

@@ -130,9 +130,6 @@ const styles = StyleSheet.create((theme) => ({
     marginBottom: theme.space.sm,
     textTransform: 'uppercase',
   },
-  transactionHeading: {
-    letterSpacing: 0.5,
-  },
   footerNote: {
     marginTop: theme.space.lg,
     paddingTop: theme.space.lg,
@@ -387,11 +384,7 @@ export function InventoryHistorySheet({
         }
         renderItem={({ item: row }) =>
           row.kind === 'header' ? (
-            <Txt
-              variant="caption"
-              tone="secondary"
-              weight="700"
-              style={[styles.historyHeading, styles.transactionHeading]}>
+            <Txt variant="eyebrow" tone="secondary" weight="700" style={styles.historyHeading}>
               {row.label}
             </Txt>
           ) : (

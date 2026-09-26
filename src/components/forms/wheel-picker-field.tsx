@@ -106,7 +106,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   inputField: {
     width: '100%',
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
     borderRadius: radius.md,
     borderCurve: 'continuous',

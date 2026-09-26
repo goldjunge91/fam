@@ -48,9 +48,6 @@ const styles = StyleSheet.create((theme) => ({
     height: 4,
     borderRadius: theme.radius.sm,
   },
-  stepLabel: {
-    letterSpacing: 1.1,
-  },
   title: {
     paddingTop: theme.space.md,
   },
@@ -146,7 +143,7 @@ export function CookingModeStep({
         ))}
       </View>
 
-      <Txt variant="caption" tone="secondary" style={styles.stepLabel}>
+      <Txt variant="eyebrow" tone="secondary" weight="500">
         SCHRITT {stepIndex + 1} VON {steps.length}
       </Txt>
       <Txt variant="heading" style={styles.title} numberOfLines={2}>

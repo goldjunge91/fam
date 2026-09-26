@@ -61,7 +61,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   avatarSelected: {
     borderColor: theme.accent,
-    borderWidth: 2,
+    borderWidth: theme.borderWidth.strong,
   },
   avatarImage: {
     width: '100%',

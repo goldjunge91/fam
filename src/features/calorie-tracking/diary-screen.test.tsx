@@ -226,7 +226,10 @@ describe('DiaryScreen', () => {
     try {
       await renderScreen();
       expect(screen.getByText('Tippe auf einen Tag · wische für ältere Tage')).toBeTruthy();
-      expect(screen.getByRole('button', { name: /Heute, Mittwoch, 19. August/ })).toBeTruthy();
+      expect(screen.getByRole('button', { name: /Heute, Mittwoch, 19. August/ })).toHaveStyle({
+        minHeight: 44,
+        width: 44,
+      });
       expect(screen.getByRole('button', { name: /Gestern, Dienstag, 18. August/ })).toBeTruthy();
 
       await fireEvent.press(screen.getByRole('button', { name: /Gestern, Dienstag/ }));

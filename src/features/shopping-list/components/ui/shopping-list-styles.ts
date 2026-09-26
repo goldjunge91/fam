@@ -59,7 +59,7 @@ export const shoppingListStyles = StyleSheet.create((theme) => ({
     width: 22,
     height: 22,
     borderRadius: radius.sm,
-    borderWidth: 2,
+    borderWidth: theme.borderWidth.strong,
     alignItems: 'center',
     justifyContent: 'center',
   },

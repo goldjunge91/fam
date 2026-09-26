@@ -108,7 +108,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   eyebrow: {
     paddingTop: theme.space.md,
-    letterSpacing: 1.5,
   },
   heading: {
     paddingTop: theme.space.md,
@@ -241,7 +240,7 @@ export function RecipeWizardStepPreview({
       style={styles.scroll}
       contentContainerStyle={styles.scrollContent}
       showsVerticalScrollIndicator={false}>
-      <Txt variant="caption" tone="secondary" style={styles.eyebrow} weight="500">
+      <Txt variant="eyebrow" tone="secondary" style={styles.eyebrow} weight="500">
         SCHRITT 4 VON 4
       </Txt>
       <Txt variant="heading" style={styles.heading}>

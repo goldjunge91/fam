@@ -36,7 +36,7 @@ const styles = StyleSheet.create((theme) => ({
     minHeight: 54,
     backgroundColor: theme.backgroundElement,
     borderColor: theme.border,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderRadius: theme.radius.lg,
     borderCurve: 'continuous',
     flexDirection: 'row',
@@ -57,7 +57,7 @@ const styles = StyleSheet.create((theme) => ({
   menu: {
     backgroundColor: theme.background,
     borderColor: theme.border,
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderRadius: theme.radius.md,
     borderCurve: 'continuous',
     overflow: 'hidden',

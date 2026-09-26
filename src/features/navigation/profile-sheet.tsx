@@ -44,7 +44,7 @@ function ProfileSheetContent() {
     <Modal visible={isProfileOpen} transparent animationType="slide" onRequestClose={closeProfile}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
-          style={[styles.dim, { backgroundColor: withAlpha(colors.text, 0.3) }]}
+          style={[StyleSheet.absoluteFill, { backgroundColor: withAlpha(colors.text, 0.3) }]}
           onPress={closeProfile}
           accessibilityRole="button"
           accessibilityLabel="Profil schließen"
@@ -163,10 +163,6 @@ function ProfileRow({
 }
 
 const styles = StyleSheet.create({
-  dim: {
-    ...StyleSheet.absoluteFill,
-    backgroundColor: 'rgba(31,26,33,0.3)',
-  },
   sheet: {
     position: 'absolute',
     left: space.lg,

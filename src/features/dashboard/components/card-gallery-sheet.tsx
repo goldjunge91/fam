@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { radius, space, withAlpha } from '@/components/theme/index';
+import { borderWidth, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { type CardSize, getCards } from '@/features/dashboard/registry';
@@ -73,7 +73,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
-          style={[styles.dim, { backgroundColor: colors.scrim }]}
+          style={[StyleSheet.absoluteFill, { backgroundColor: colors.scrim }]}
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel={t('dashboard.gallery.close')}
@@ -214,9 +214,6 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
 }
 
 const styles = StyleSheet.create({
-  dim: {
-    ...StyleSheet.absoluteFill,
-  },
   sheet: {
     position: 'absolute',
     left: 0,
@@ -259,7 +256,7 @@ const styles = StyleSheet.create({
   },
   cardRow: {
     borderRadius: radius.md,
-    borderWidth: 1,
+    borderWidth: borderWidth.base,
     padding: space.lg,
     gap: space.md,
   },

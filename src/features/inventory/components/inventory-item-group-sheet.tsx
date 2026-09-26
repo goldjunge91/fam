@@ -915,7 +915,6 @@ const groupStyles = StyleSheet.create((theme) => ({
   sectionLabel: {
     marginBottom: space.sm,
     textTransform: 'uppercase',
-    letterSpacing: 1,
   },
   lotRow: {
     minHeight: 82,

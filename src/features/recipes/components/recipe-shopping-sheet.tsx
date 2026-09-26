@@ -63,7 +63,7 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 1.5,
+    borderWidth: theme.borderWidth.base,
   },
   itemName: {
     flex: 1,

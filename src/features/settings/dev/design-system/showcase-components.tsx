@@ -50,6 +50,7 @@ import {
 } from '@/constants/ui';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
+import { PressableCallbackProbe } from './pressable-callback-probe';
 import {
   CodeSample,
   ContractIntro,
@@ -468,6 +469,12 @@ function ControlShowcase() {
           <Button title="Wird geladen" loading onPress={() => undefined} />
           <Button title="Deaktiviert" disabled onPress={() => undefined} />
         </View>
+      </Subsection>
+      <Subsection title="Native Pressed-Style-Funktion prüfen">
+        <PressableCallbackProbe />
+        <CodeSample>
+          {'style={({ pressed }) => [styles.button, pressed && styles.buttonPressed]}'}
+        </CodeSample>
       </Subsection>
       <Subsection title="Kompakte Aktionen">
         <View style={styles.stack}>
