@@ -2,8 +2,6 @@ import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { borderWidth, type Palette, radius, space } from '@/components/theme/index';
-import { useThemedStyles } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 
 function toTime(date: Date): string {
@@ -24,7 +22,6 @@ export interface TimeWheelFieldProps {
 }
 
 export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) {
-  const styles = useThemedStyles(makeStyles);
   const [isOpen, setIsOpen] = useState(false);
   const pickerDate = fromTime(value);
 
@@ -62,20 +59,18 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
   );
 }
 
-function makeStyles(colors: Palette) {
-  return StyleSheet.create({
-    root: {
-      gap: space.xs,
-    },
-    inputField: {
-      width: '100%',
-      borderWidth: borderWidth.base,
-      borderColor: colors.border,
-      borderRadius: radius.md,
-      borderCurve: 'continuous',
-      paddingHorizontal: space.lg,
-      paddingVertical: space.md,
-      backgroundColor: colors.backgroundElement,
-    },
-  });
-}
+const styles = StyleSheet.create((theme) => ({
+  root: {
+    gap: theme.space.xs,
+  },
+  inputField: {
+    width: '100%',
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    borderRadius: theme.radius.md,
+    borderCurve: 'continuous',
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.md,
+    backgroundColor: theme.backgroundElement,
+  },
+}));
