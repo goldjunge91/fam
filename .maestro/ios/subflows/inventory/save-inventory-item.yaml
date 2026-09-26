@@ -1,0 +1,9 @@
+appId: com.goldjunge91.fam1
+---
+- scrollUntilVisible:
+    element: "Zum Vorrat hinzufügen"
+    direction: DOWN
+- tapOn: "Zum Vorrat hinzufügen"
+- extendedWaitUntil:
+    visible: ".*${ITEM_NAME}.*"
+    timeout: 15000

@@ -1,0 +1,12 @@
+appId: com.goldjunge91.fam1
+---
+- scrollUntilVisible:
+    element: "Bearbeiten"
+    direction: DOWN
+- tapOn: "Bearbeiten"
+- extendedWaitUntil:
+    visible: "Artikel bearbeiten"
+    timeout: 10000
+- takeScreenshot: "shared-components-${DEVICE}-06-icon-button"
+- tapOn: "Schließen"
+- assertNotVisible: "Artikel bearbeiten"

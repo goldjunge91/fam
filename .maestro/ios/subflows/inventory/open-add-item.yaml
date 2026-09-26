@@ -1,0 +1,10 @@
+appId: com.goldjunge91.fam1
+---
+- extendedWaitUntil:
+    visible: "Neu hinzufügen"
+    timeout: 10000
+- tapOn: "Neu hinzufügen"
+- tapOn: "Vorratsartikel"
+- extendedWaitUntil:
+    visible: "Artikel hinzufügen"
+    timeout: 10000

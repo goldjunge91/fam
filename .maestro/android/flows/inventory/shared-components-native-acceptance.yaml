@@ -1,0 +1,68 @@
+appId: com.goldjunge91.fam
+tags:
+  - local-session
+  - native-acceptance
+  - production-inventory
+env:
+  DEVICE: ${DEVICE || 'android-native'}
+---
+# Produktionsabnahme des Shared-UI-Slices. Diese Journey verwendet bewusst
+# nur Vorrat und Artikel hinzufügen, niemals Showcase oder Design-System.
+- runFlow: ../../subflows/launch-signed-in-dashboard.yaml
+- evalScript: ${output.itemName = 'NativeSharedUI' + Date.now()}
+
+- runFlow:
+    file: ../../subflows/inventory/navigate-to-inventory.yaml
+    label: Vorratsbereich öffnen
+- runFlow:
+    file: ../../subflows/inventory/open-add-item.yaml
+    label: Vorratsartikel-Formular öffnen
+- startRecording: "shared-components-inventory-${DEVICE}"
+- takeScreenshot: "shared-components-${DEVICE}-01-add-item-header"
+- runFlow:
+    file: ../../subflows/inventory/close-add-item.yaml
+    label: Vorratsartikel-Formular schließen
+
+- runFlow:
+    file: ../../subflows/inventory/open-add-item.yaml
+    label: Vorratsartikel-Formular erneut öffnen
+- runFlow:
+    file: ../../subflows/inventory/prepare-add-item-search.yaml
+    label: Suchfeld vorbereiten und Suchmodal schließen
+    env:
+      ITEM_NAME: ${output.itemName}
+- runFlow:
+    file: ../../subflows/inventory/verify-inline-selects.yaml
+    label: InlineSelect im produktiven Formular prüfen
+- runFlow:
+    file: ../../subflows/inventory/verify-quantity-stepper.yaml
+    label: QuantityStepper im produktiven Formular prüfen
+    env:
+      DEVICE: ${DEVICE}
+- runFlow:
+    file: ../../subflows/inventory/verify-filter-chip-bar.yaml
+    label: FilterChipBar im produktiven Formular prüfen
+    env:
+      DEVICE: ${DEVICE}
+- runFlow:
+    file: ../../subflows/inventory/save-inventory-item.yaml
+    label: Produktionsartikel speichern
+    env:
+      ITEM_NAME: ${output.itemName}
+- runFlow:
+    file: ../../subflows/inventory/open-item-actions.yaml
+    label: Artikelaktionen und Mengensteuerung prüfen
+    env:
+      ITEM_NAME: ${output.itemName}
+      DEVICE: ${DEVICE}
+- runFlow:
+    file: ../../subflows/inventory/verify-edit-sheet.yaml
+    label: IconButton im Bearbeiten-Sheet prüfen
+    env:
+      DEVICE: ${DEVICE}
+- runFlow:
+    file: ../../subflows/inventory/remove-inventory-item.yaml
+    label: Temporären Produktionsartikel entfernen
+    env:
+      ITEM_NAME: ${output.itemName}
+- stopRecording

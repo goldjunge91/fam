@@ -1,0 +1,17 @@
+appId: com.goldjunge91.fam1
+---
+- tapOn:
+    text: ".*${ITEM_NAME}.*"
+- extendedWaitUntil:
+    visible: "MHD-Details schließen"
+    timeout: 10000
+- tapOn:
+    text: ".*${ITEM_NAME},.*"
+- extendedWaitUntil:
+    visible: "Artikelaktionen schließen"
+    timeout: 10000
+- scrollUntilVisible:
+    element: "Aktuelle Menge erhöhen"
+    direction: DOWN
+- tapOn: "Aktuelle Menge erhöhen"
+- takeScreenshot: "shared-components-${DEVICE}-05-actions-stepper"

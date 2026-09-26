@@ -1,0 +1,31 @@
+appId: com.goldjunge91.fam1
+---
+- tapOn:
+    id: "inventory-add-item-filter-source-trigger"
+- extendedWaitUntil:
+    visible:
+      text: ".*Gerichte.*"
+      enabled: false
+    timeout: 5000
+- assertVisible:
+    text: ".*Gerichte.*"
+    enabled: false
+- tapOn:
+    id: "inventory-add-item-filter-source-food-option"
+- assertNotVisible:
+    id: "inventory-add-item-filter-source-dish-option"
+- tapOn:
+    id: "inventory-add-item-filter-suggestion-trigger"
+- extendedWaitUntil:
+    visible:
+      text: ".*Favoriten.*"
+      enabled: false
+    timeout: 5000
+- assertVisible:
+    text: ".*Favoriten.*"
+    enabled: false
+- tapOn:
+    id: "inventory-add-item-filter-suggestion-recent-option"
+- assertNotVisible:
+    id: "inventory-add-item-filter-suggestion-favorites-option"
+- takeScreenshot: "shared-components-${DEVICE}-02-inline-select"

@@ -1,0 +1,10 @@
+appId: com.goldjunge91.fam1
+---
+- assertVisible: "Menge erhöhen"
+- assertVisible:
+    text: "Menge verringern"
+    enabled: false
+- tapOn: "Menge erhöhen"
+- tapOn: "Menge verringern"
+- longPressOn: "Menge erhöhen"
+- takeScreenshot: "shared-components-${DEVICE}-03-quantity-stepper"

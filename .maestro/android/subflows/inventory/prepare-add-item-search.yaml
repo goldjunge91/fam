@@ -1,0 +1,14 @@
+appId: com.goldjunge91.fam
+---
+- tapOn: "z. B. Milch oder Barcode-Name"
+- inputText: "${ITEM_NAME}"
+- runFlow:
+    when:
+      visible: "Suche schließen"
+    commands:
+      - tapOn: "Suche schließen"
+- extendedWaitUntil:
+    notVisible: "Suche schließen"
+    timeout: 5000
+- waitForAnimationToEnd:
+    timeout: 3000

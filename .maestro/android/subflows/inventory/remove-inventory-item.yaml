@@ -1,0 +1,22 @@
+appId: com.goldjunge91.fam
+---
+- tapOn: "Artikelaktionen schließen"
+- extendedWaitUntil:
+    visible: "MHD-Details schließen"
+    timeout: 10000
+- tapOn: "MHD-Details schließen"
+- swipe:
+    direction: LEFT
+    from:
+      text: ".*${ITEM_NAME}.*"
+- extendedWaitUntil:
+    visible: ".*Entfernen.*"
+    timeout: 10000
+- tapOn:
+    text: ".*Entfernen.*"
+- extendedWaitUntil:
+    visible: "^(LÖSCHEN|Löschen)$"
+    timeout: 10000
+- tapOn:
+    text: "^(LÖSCHEN|Löschen)$"
+- assertNotVisible: ".*${ITEM_NAME}.*"

@@ -1,0 +1,18 @@
+appId: com.goldjunge91.fam
+---
+# Der vorhandene Dev Client kann das eigentliche Expo-Developer-Menü nach dem
+# App-Start verzögert öffnen. Nach dem Dashboard-Signal warten wir deshalb noch
+# auf dessen stabiles Signal und schließen nur dann, wenn es wirklich sichtbar ist.
+- extendedWaitUntil:
+    visible: "Reload"
+    timeout: 30000
+    optional: true
+- runFlow:
+    when:
+      visible: "Reload"
+    commands:
+      - tapOn: "^(Close|Schließen)$"
+      - waitForAnimationToEnd
+      - extendedWaitUntil:
+          notVisible: "Reload"
+          timeout: 5000

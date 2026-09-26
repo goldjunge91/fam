@@ -1,0 +1,9 @@
+appId: com.goldjunge91.fam
+---
+- tapOn:
+    # Der Expo-Tools-Button des vorhandenen Dev Clients kann den rechten Rand
+    # überlagern; innerhalb des Schließers tippen wir bewusst links.
+    text: "Schließen"
+    point: "10%,50%"
+- waitForAnimationToEnd
+- assertNotVisible: "Artikel hinzufügen"

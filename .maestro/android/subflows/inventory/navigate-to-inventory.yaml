@@ -1,0 +1,8 @@
+appId: com.goldjunge91.fam
+---
+- tapOn:
+    id: "navigation-menu-open"
+- tapOn: "Vorrat, ›"
+- extendedWaitUntil:
+    visible: "Artikel suchen"
+    timeout: 10000

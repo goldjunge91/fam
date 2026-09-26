@@ -1,0 +1,19 @@
+appId: com.goldjunge91.fam1
+---
+- scrollUntilVisible:
+    element: "Weitere Angaben öffnen"
+    direction: DOWN
+- tapOn: "Weitere Angaben öffnen"
+- extendedWaitUntil:
+    visible: "Schnellauswahl MHD"
+    timeout: 10000
+- scrollUntilVisible:
+    element:
+      text: ".*\\+ 7 Tage.*"
+    direction: RIGHT
+- tapOn:
+    text: ".*\\+ 7 Tage.*"
+- assertVisible:
+    text: ".*\\+ 7 Tage.*"
+    selected: true
+- takeScreenshot: "shared-components-${DEVICE}-04-filter-chip-bar"

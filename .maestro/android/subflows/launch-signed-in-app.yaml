@@ -1,0 +1,15 @@
+appId: com.goldjunge91.fam
+---
+# Nur den bereits angemeldeten Dev Client starten. Der installierte Dev Client
+# kann den nativen Expo-Tools-Button anzeigen; betroffene Sheet-Schließer tippen
+# deshalb gezielt am erreichbaren Rand. Splash Screen und Metro-Start werden
+# über das echte App-Signal abgewartet.
+- stopApp
+- launchApp:
+    clearState: false
+- extendedWaitUntil:
+    visible: "^(Übersicht|Overview)$"
+    timeout: 120000
+- runFlow:
+    file: close-developer-menu-if-present.yaml
+    label: Expo-Developer-Menü nach dem App-Start schließen
