@@ -8,7 +8,7 @@ import { HubScreen } from '@/components/layout/hub-screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { MenuButton } from '@/components/ui/menu-button';
-import { Button, Press, SegmentedControl, Txt } from '@/constants/ui';
+import { Button, MIN_TOUCH_SIZE, Press, SegmentedControl, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
@@ -55,16 +55,16 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: theme.space.lg,
   },
   periodRow: {
-    height: 43,
+    minHeight: MIN_TOUCH_SIZE,
     flexDirection: 'row',
     alignItems: 'center',
     paddingTop: theme.space.md,
   },
-  periodButtonContainer: {
-    width: 36,
-    height: 34,
-  },
+  // Die Mindestflaeche muss auf dem `style` liegen: `containerStyle` von Press
+  // landet auf dem animated Wrapper, der selbst nicht antippbar ist.
   periodButton: {
+    width: MIN_TOUCH_SIZE,
+    height: MIN_TOUCH_SIZE,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -277,7 +277,6 @@ export function MealPlannerScreen() {
             accessibilityRole="button"
             accessibilityLabel="Vorheriger Zeitraum"
             onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, -1))}
-            containerStyle={styles.periodButtonContainer}
             style={styles.periodButton}>
             <Txt variant="title" tone="secondary">
               ‹
@@ -292,7 +291,6 @@ export function MealPlannerScreen() {
             accessibilityRole="button"
             accessibilityLabel="Nächster Zeitraum"
             onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, 1))}
-            containerStyle={styles.periodButtonContainer}
             style={styles.periodButton}>
             <Txt variant="title" tone="secondary">
               ›

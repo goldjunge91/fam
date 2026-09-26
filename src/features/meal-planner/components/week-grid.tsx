@@ -2,7 +2,7 @@ import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { withAlpha } from '@/components/theme/index';
-import { Press, Txt } from '@/constants/ui';
+import { MIN_TOUCH_SIZE, Press, Txt } from '@/constants/ui';
 import type { MealPlanEntry, MealSlot } from '../use-meal-plans';
 import { dateLabel, MEAL_SLOTS, weekdayLabel } from '../week';
 
@@ -77,7 +77,7 @@ const styles = StyleSheet.create((theme) => ({
     borderCurve: 'continuous',
   },
   addButton: {
-    minHeight: 40,
+    minHeight: MIN_TOUCH_SIZE,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: theme.radius.sm,
