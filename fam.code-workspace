@@ -46,9 +46,14 @@
     "/^bd create --title=\"Wire OCR parent sync waiter\" --description=\"Connect the existing upload-queue waitForParentSync seam through receipt capture API/workflow into the production review save path, using the repaired household sync barrier\\. Preserve saved-with-pending-assets recovery and never upload before remote parent visibility\\.\" --type=task --priority=1 --parent=fam-lqg6 --json$/": {
       "approve": true,
       "matchCommandLine": true
-    }
+    },
+    "bun": true,
+    "git add": true,
+    "git commit": true
   },
-  "chat.useClaudeHooks": true
+  "chat.useClaudeHooks": true,
+  "terminal.integrated.suggest.enabled": true,
+  "terminal.integrated.shellIntegration.enabled": true
   },
   "launch": {
     "configurations": [
