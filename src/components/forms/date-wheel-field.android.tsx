@@ -1,10 +1,10 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { borderWidth, type Palette, radius, space } from '@/components/theme/index';
 import { useThemedStyles } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 
 export interface DateWheelFieldProps {
   label?: string;
@@ -54,7 +54,7 @@ export function DateWheelField({
           {label}
         </Txt>
       )}
-      <Pressable
+      <Press
         onPress={open}
         accessibilityRole="button"
         accessibilityLabel={
@@ -62,11 +62,11 @@ export function DateWheelField({
             ? `${label ?? 'Datum'} ${formatIsoDate(value)} ändern`
             : `${label ?? 'Datum'} auswählen`
         }
-        style={({ pressed }) => [styles.inputField, pressed && styles.pressed]}>
+        style={styles.inputField}>
         <Txt variant="body" tone={value ? 'primary' : 'secondary'}>
           {value ? formatIsoDate(value) : placeholder}
         </Txt>
-      </Pressable>
+      </Press>
 
       {isOpen && (
         <DateTimePicker
@@ -99,9 +99,6 @@ function makeStyles(colors: Palette) {
       paddingHorizontal: space.lg,
       paddingVertical: space.md,
       backgroundColor: colors.backgroundElement,
-    },
-    pressed: {
-      opacity: 0.75,
     },
   });
 }

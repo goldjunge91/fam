@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Press, Txt } from '@/constants/ui';
 
 function toIsoDate(date: Date): string {
@@ -31,6 +32,7 @@ export function DateWheelField({
   onChange,
   placeholder = 'TT.MM.JJJJ',
 }: DateWheelFieldProps) {
+  const { mode } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [pendingDate, setPendingDate] = useState(() => (value ? new Date(value) : new Date()));
 
@@ -82,6 +84,7 @@ export function DateWheelField({
               value={pendingDate}
               mode="date"
               display="spinner"
+              themeVariant={mode}
               onValueChange={(_event, date) => setPendingDate(date)}
             />
             <View style={styles.footerRow}>

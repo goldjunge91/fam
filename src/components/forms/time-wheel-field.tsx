@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Press, Txt } from '@/constants/ui';
 
 function toTime(date: Date): string {
@@ -23,6 +24,7 @@ type TimeWheelFieldProps = {
 };
 
 export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) {
+  const { mode } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [pendingTime, setPendingTime] = useState(() => fromTime(value));
 
@@ -68,6 +70,7 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
               value={pendingTime}
               mode="time"
               display="spinner"
+              themeVariant={mode}
               onValueChange={(_event, date) => setPendingTime(date)}
             />
             <View style={styles.footerRow}>
