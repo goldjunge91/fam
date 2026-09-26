@@ -308,10 +308,6 @@ export function getWidgetTheme(scheme: 'light' | 'dark' | undefined) {
 /** Sichtbare Tiefe und vollständiger Druckweg gefüllter 3D-Buttons. */
 export const BUTTON_DEPTH = 4;
 
-// TODO: prüfen ob wir das noch brauchen
-export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
-
-// TODO: prüfen ob wir das noch brauchen
 export function withAlpha(hex: string, alpha: number): string {
   const value = hex.replace('#', '');
   const r = Number.parseInt(value.slice(0, 2), 16);

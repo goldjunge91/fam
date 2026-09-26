@@ -1,5 +1,6 @@
 import { act, render, screen } from '@testing-library/react-native';
 
+import { Colors } from '@/components/theme';
 import { celebrate } from '@/features/gamification/celebration';
 import { CelebrationHost } from './celebration-host';
 
@@ -29,5 +30,8 @@ describe('CelebrationHost', () => {
     });
 
     expect(await screen.findByText('🔥 7 Tage Streak!')).toBeOnTheScreen();
+    expect(screen.getByText('🔥 7 Tage Streak!')).toHaveStyle({
+      color: Colors.light.premiumOnSurface,
+    });
   });
 });

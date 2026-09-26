@@ -3,7 +3,12 @@ import { act } from 'react';
 import { Pressable, Text } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { Colors } from '@/components/theme';
 import { SnackbarProvider, useSnackbar } from '@/components/ui/snackbar';
+
+jest.mock('@/components/theme/ThemeProvider', () => ({
+  useTheme: () => ({ colors: require('@/components/theme').colorsLight }),
+}));
 
 function TriggerButton({ onUndo, durationMs }: { onUndo: () => void; durationMs?: number }) {
   const { showUndoSnackbar } = useSnackbar();
@@ -43,6 +48,8 @@ it('zeigt die Snackbar nach dem Ausloesen und ruft onUndo beim Tap auf "Rückgä
 
   await fireEvent.press(screen.getByText('Löschen'));
   expect(screen.getByText('Artikel gelöscht')).toBeTruthy();
+  expect(screen.getByText('Artikel gelöscht')).toHaveStyle({ color: Colors.light.onAccent });
+  expect(screen.getByText('Rückgängig')).toHaveStyle({ color: Colors.light.onAccent });
 
   await fireEvent.press(screen.getByText('Rückgängig'));
   expect(onUndo).toHaveBeenCalledTimes(1);
