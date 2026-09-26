@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { TextInput, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { font, radius, space } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Press, Txt } from '@/constants/ui';
+import { inputTextStyles, Press, Txt } from '@/constants/ui';
 
 type QuantityStepperProps = {
   value: number;
@@ -34,10 +34,6 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.backgroundSoft,
-  },
-  largeValue: {
-    fontSize: font.sizes.md,
-    lineHeight: font.lineHeights.subheading,
   },
 }));
 
@@ -106,15 +102,13 @@ export function QuantityStepper({
           accessibilityLabel={`${label} eingeben`}
           style={[
             fullWidth ? staticStyles.fullWidthSegment : staticStyles.fixedWidth,
+            inputTextStyles.quantity[size === 'large' ? 'large' : 'standard'],
             {
               paddingHorizontal: space.sm,
               paddingVertical: 0,
               textAlign: 'center',
               fontVariant: ['tabular-nums'],
               color: colors.text,
-              fontSize: size === 'large' ? font.sizes.md : font.sizes.base,
-              lineHeight: size === 'large' ? font.lineHeights.subheading : font.lineHeights.body,
-              fontWeight: '600',
             },
           ]}
         />
@@ -130,12 +124,9 @@ export function QuantityStepper({
             staticStyles.centerContent,
           ]}>
           <Txt
-            variant="body"
+            variant={size === 'large' ? 'subheading' : 'body'}
             weight="600"
-            style={[
-              { textAlign: 'center', fontVariant: ['tabular-nums'] },
-              size === 'large' ? styles.largeValue : undefined,
-            ]}>
+            style={{ textAlign: 'center', fontVariant: ['tabular-nums'] }}>
             {value}
           </Txt>
         </Press>

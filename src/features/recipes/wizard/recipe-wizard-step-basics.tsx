@@ -512,13 +512,16 @@ export function RecipeWizardStepBasics({
                 </View>
                 {components.length > 1 ? (
                   <TouchableOpacity
-                    style={[styles.squareButton, { backgroundColor: colors.backgroundSoft }]}
+                    style={styles.squareButton}
                     onPress={() => onRemoveComponentGroup(comp.id)}
                     accessibilityRole="button"
                     accessibilityLabel="Zutaten-Gruppe entfernen">
-                    <Txt variant="subheading" tone="secondary" weight="500">
-                      ×
-                    </Txt>
+                    <View
+                      style={[styles.squareButtonFace, { backgroundColor: colors.backgroundSoft }]}>
+                      <Txt variant="subheading" tone="secondary" weight="500">
+                        ×
+                      </Txt>
+                    </View>
                   </TouchableOpacity>
                 ) : null}
               </View>

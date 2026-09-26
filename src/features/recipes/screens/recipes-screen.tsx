@@ -14,11 +14,11 @@ import { StyleSheet } from 'react-native-unistyles';
 import { FilterIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { font, rs, space } from '@/components/theme/index';
+import { rs, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { MenuButton } from '@/components/ui/menu-button';
-import { Press, SectionHeading, Txt } from '@/constants/ui';
+import { inputTextStyles, Press, SectionHeading, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
@@ -578,10 +578,7 @@ export function RecipesScreen() {
             placeholder="Rezepte durchsuchen…"
             placeholderTextColor={colors.textSecondary}
             autoFocus
-            style={[
-              styles.searchInput,
-              { color: colors.text, fontSize: font.sizes.sm, lineHeight: 20, fontWeight: '500' },
-            ]}
+            style={[styles.searchInput, inputTextStyles.recipeSearch, { color: colors.text }]}
           />
         </View>
       ) : null}

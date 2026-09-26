@@ -17,7 +17,6 @@ import {
   Text,
   TextInput,
   type TextInputProps,
-  type TextProps,
   type TextStyle,
   View,
   type ViewProps,
@@ -36,7 +35,6 @@ import {
   BUTTON_DEPTH,
   borderWidth,
   font,
-  type Palette,
   radius,
   space,
   withAlpha,
@@ -44,12 +42,21 @@ import {
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { motion } from '@/constants/motion';
 import {
+  inputTextStyles,
+  Txt,
+  type TxtProps,
+  type TxtTone,
+  type TxtVariant,
+} from '@/constants/txt';
+import {
   heavy as hapticHeavy,
   light as hapticLight,
   medium as hapticMedium,
   selection as hapticSelection,
   success as hapticSuccess,
 } from '@/lib/platform/haptics';
+
+export { inputTextStyles, Txt, type TxtProps, type TxtTone, type TxtVariant };
 
 // Springs tuned for a satisfying, Duolingo-ish "pop" on press/release.
 export const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;
@@ -251,19 +258,6 @@ const cardStyles = StyleSheet.create((theme) => ({
   padded: { padding: space.lg },
 }));
 
-const textToneStyles = StyleSheet.create((theme) => ({
-  text: { color: theme.text },
-  textSecondary: { color: theme.textSecondary },
-  accent: { color: theme.accent },
-  onAccent: { color: theme.onAccent },
-  onSuccess: { color: theme.onSuccess },
-  onWarning: { color: theme.onWarning },
-  onDanger: { color: theme.onDanger },
-  successText: { color: theme.successText },
-  warningText: { color: theme.warningText },
-  dangerText: { color: theme.dangerText },
-}));
-
 const pressSelectionStyles = StyleSheet.create((theme) => ({
   idle: {
     backgroundColor: theme.backgroundElement,
@@ -304,185 +298,6 @@ const pressInteractionStyles = StyleSheet.create({
     opacity: PRESSED_OPACITY,
   },
 });
-
-// ─── Text ────────────────────────────────────────────────────────────────────
-
-export type TxtVariant =
-  | 'display'
-  | 'title'
-  | 'brand'
-  | 'heading'
-  | 'subheading'
-  | 'body'
-  | 'navigation'
-  | 'label'
-  | 'caption'
-  | 'eyebrow'
-  | 'glyph';
-
-export type TxtTone =
-  | 'primary'
-  | 'secondary'
-  | 'accent'
-  | 'onAccent'
-  | 'onSuccess'
-  | 'onWarning'
-  | 'onDanger'
-  | 'success'
-  | 'warning'
-  | 'danger'
-  | 'inverse';
-
-type TxtDefinition = {
-  fontSize: number;
-  lineHeight: number;
-  fontWeight: TextStyle['fontWeight'];
-  tone: 'text' | 'textSecondary' | 'accent';
-  letterSpacing?: number;
-  fontFamily?: TextStyle['fontFamily'];
-};
-
-const TXT: Record<TxtVariant, TxtDefinition> = {
-  display: {
-    fontSize: font.sizes.xxxl,
-    lineHeight: font.lineHeights.display,
-    fontWeight: '800',
-    tone: 'text',
-  },
-  title: {
-    fontSize: font.sizes.xxl,
-    lineHeight: font.lineHeights.title,
-    fontWeight: '800',
-    tone: 'text',
-  },
-  brand: {
-    fontSize: 27,
-    lineHeight: 34,
-    fontWeight: '600',
-    tone: 'text',
-  },
-  heading: {
-    fontSize: font.sizes.lg,
-    lineHeight: font.lineHeights.heading,
-    fontWeight: '700',
-    tone: 'text',
-  },
-  subheading: {
-    fontSize: font.sizes.md,
-    lineHeight: font.lineHeights.subheading,
-    fontWeight: '700',
-    tone: 'text',
-  },
-  body: {
-    fontSize: font.sizes.base,
-    lineHeight: font.lineHeights.body,
-    fontWeight: '400',
-    tone: 'text',
-  },
-  navigation: {
-    fontSize: 17,
-    lineHeight: 21,
-    fontWeight: '400',
-    tone: 'text',
-  },
-  label: {
-    fontSize: font.sizes.sm,
-    lineHeight: font.lineHeights.label,
-    fontWeight: '600',
-    tone: 'text',
-  },
-  caption: {
-    fontSize: font.sizes.xs,
-    lineHeight: font.lineHeights.caption,
-    fontWeight: '500',
-    tone: 'text',
-  },
-  eyebrow: {
-    fontSize: 12,
-    lineHeight: 15,
-    fontWeight: '400',
-    tone: 'textSecondary',
-    letterSpacing: 0.76,
-  },
-  glyph: {
-    fontSize: 22,
-    lineHeight: 26,
-    fontWeight: '400',
-    tone: 'textSecondary',
-  },
-};
-
-type ThemeTextColor = keyof Pick<
-  Palette,
-  | 'text'
-  | 'textSecondary'
-  | 'accent'
-  | 'onAccent'
-  | 'onSuccess'
-  | 'onWarning'
-  | 'onDanger'
-  | 'successText'
-  | 'warningText'
-  | 'dangerText'
->;
-
-const TEXT_TONE: Record<TxtTone, ThemeTextColor> = {
-  primary: 'text',
-  secondary: 'text',
-  accent: 'accent',
-  onAccent: 'onAccent',
-  onSuccess: 'onSuccess',
-  onWarning: 'onWarning',
-  onDanger: 'onDanger',
-  success: 'successText',
-  warning: 'warningText',
-  danger: 'dangerText',
-  inverse: 'onAccent',
-};
-
-export type TxtProps = TextProps & {
-  variant?: TxtVariant;
-  tone?: TxtTone;
-  color?: string;
-  weight?: TextStyle['fontWeight'];
-  center?: boolean;
-  muted?: boolean;
-};
-
-export function Txt({
-  variant = 'body',
-  tone,
-  color,
-  weight,
-  center,
-  muted,
-  style,
-  children,
-  ...rest
-}: TxtProps) {
-  const base = TXT[variant];
-  const textTone = tone ? TEXT_TONE[tone] : muted ? 'textSecondary' : base.tone;
-  return (
-    <Text
-      {...rest}
-      style={[
-        textToneStyles[textTone],
-        {
-          fontSize: base.fontSize,
-          lineHeight: base.lineHeight,
-          fontWeight: base.fontWeight,
-          letterSpacing: base.letterSpacing,
-          fontFamily: base.fontFamily,
-        },
-        color && { color },
-        weight && { fontWeight: weight },
-        center && { textAlign: 'center' },
-        style,
-      ]}>
-      {children}
-    </Text>
-  );
-}
 
 // ─── Layout helpers ──────────────────────────────────────────────────────────
 
@@ -1068,6 +883,7 @@ export function SegmentedControl<T extends string>({
 
 export type TextFieldProps = TextInputProps & {
   label?: string;
+  weight?: TextStyle['fontWeight'];
   size?: 'default' | 'large';
   error?: string;
   trailing?: ReactNode;
@@ -1081,6 +897,7 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(function TextFiel
     error,
     trailing,
     success,
+    weight,
     style,
     accessibilityLabel,
     accessibilityHint,
@@ -1142,6 +959,7 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(function TextFiel
             success ? pressSuccessStyles.foreground : null,
             editable === false ? styles.inputDisabled : null,
             trailing ? styles.inputWithTrailing : null,
+            weight ? { fontWeight: weight } : null,
             style,
           ]}
         />

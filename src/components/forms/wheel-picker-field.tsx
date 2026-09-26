@@ -2,7 +2,7 @@ import { Picker } from '@expo/ui/community/picker';
 import { useState } from 'react';
 import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { font, radius, space } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { Button, Press, Txt } from '@/constants/ui';
 
 export type WheelPickerOption = {
@@ -64,7 +64,7 @@ export function WheelPickerField({
         }
         containerStyle={styles.pressContainer}
         style={styles.inputField}>
-        <Txt variant="body" tone="primary" style={size === 'large' ? styles.largeValue : undefined}>
+        <Txt variant={size === 'large' ? 'subheading' : 'body'} tone="primary" weight="400">
           {selectedLabel}
         </Txt>
       </Press>
@@ -113,10 +113,6 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: space.lg,
     paddingVertical: space.md,
     backgroundColor: theme.backgroundElement,
-  },
-  largeValue: {
-    fontSize: font.sizes.md,
-    lineHeight: font.lineHeights.subheading,
   },
   modalBackdrop: {
     flex: 1,

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Text, useWindowDimensions, View } from 'react-native';
+import { useWindowDimensions, View } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -11,9 +11,10 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { font, type Palette, radius, space } from '@/components/theme';
+import { type Palette, radius, space } from '@/components/theme';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { motion } from '@/constants/motion';
+import { Txt } from '@/constants/ui';
 import {
   type CelebrationBurst,
   subscribeToCelebrations,
@@ -133,7 +134,9 @@ function Badge({ message, colors }: { message: string; colors: Palette }) {
 
   return (
     <Animated.View style={[styles.badge, { backgroundColor: colors.shadowSheet }, animatedStyle]}>
-      <Text style={[styles.badgeText, { color: colors.premiumOnSurface }]}>{message}</Text>
+      <Txt variant="heading" weight="800" color={colors.premiumOnSurface}>
+        {message}
+      </Txt>
     </Animated.View>
   );
 }
@@ -188,9 +191,5 @@ const styles = StyleSheet.create({
     paddingVertical: space.md,
     paddingHorizontal: space.xl,
     borderRadius: radius.pill,
-  },
-  badgeText: {
-    fontWeight: '800',
-    fontSize: font.sizes.lg,
   },
 });

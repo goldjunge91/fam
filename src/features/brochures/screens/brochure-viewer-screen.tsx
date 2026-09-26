@@ -13,7 +13,7 @@ import {
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { borderWidth, colors, font, radius, space, withAlpha } from '@/components/theme/index';
+import { borderWidth, colors, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -336,7 +336,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
               aria-label="Artikeldetails schließen"
               style={[styles.sheetClose, { backgroundColor: colors.background }]}
               onPress={closeProductSheet}>
-              <Txt variant="body" style={[styles.sheetCloseText, { color: colors.text }]}>
+              <Txt variant="glyphLarge" tone="primary">
                 ×
               </Txt>
             </Pressable>
@@ -518,7 +518,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: space.sm,
     paddingVertical: space.xs,
   },
-  sheetDiscountText: { fontSize: font.sizes.xs, fontWeight: '800' },
   productPreviewImage: {
     width: 248,
     height: 300,
@@ -537,7 +536,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     zIndex: 2,
   },
-  sheetCloseText: { fontSize: font.sizes.xxl, fontWeight: '300', lineHeight: 42 },
   actionRow: { flexDirection: 'row', gap: space.md },
   stepper: {
     flexDirection: 'row',

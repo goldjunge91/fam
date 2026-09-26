@@ -50,10 +50,6 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.xs + theme.space.xs / 2,
     paddingTop: theme.space.xs,
   },
-  dayLabel: {
-    fontSize: theme.font.sizes.micro,
-    lineHeight: 12,
-  },
   barTrack: {
     width: 5,
     height: BAR_HEIGHT,
@@ -138,10 +134,9 @@ export function DiaryWeekStrip({
                 containerStyle={styles.dayContainer}
                 style={styles.day}>
                 <Txt
-                  variant="caption"
+                  variant="micro"
                   tone={isSelected ? 'accent' : 'secondary'}
-                  weight={isSelected ? '700' : '600'}
-                  style={styles.dayLabel}>
+                  weight={isSelected ? '700' : '600'}>
                   {day.weekday}
                 </Txt>
                 <View style={styles.barTrack}>

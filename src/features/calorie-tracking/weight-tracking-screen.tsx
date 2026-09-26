@@ -60,10 +60,6 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.xs,
     backgroundColor: theme.accent,
   },
-  chartDate: {
-    fontSize: theme.font.sizes.micro,
-    lineHeight: 12,
-  },
   chartScale: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -154,7 +150,7 @@ function Chart({ entries }: { entries: WeightEntryRow[] }) {
           return (
             <View key={entry.id} style={styles.chartColumn}>
               <View style={[styles.chartBar, { height }]} />
-              <Txt variant="caption" tone="secondary" style={styles.chartDate}>
+              <Txt variant="micro" tone="secondary">
                 {entry.measured_on.slice(8, 10)}.
               </Txt>
             </View>

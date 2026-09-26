@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { radius } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Card, Row, Surface, TextField, Txt } from '@/constants/ui';
+import { Button, Card, inputTextStyles, Row, Surface, TextField, Txt } from '@/constants/ui';
 import { useEmailVerification } from '@/features/auth/hooks/use-email-verification';
 
 interface EmailVerificationPanelProps {
@@ -42,12 +42,8 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.famLarge,
   },
   pendingTitle: {
-    // Preserve the existing verification heading's intentionally tall line box.
-    fontSize: theme.font.sizes.lg,
-    lineHeight: 44,
-  },
-  iconGlyph: {
-    lineHeight: 24,
+    // typography-role-exception: preserve the existing tall verification-title line box.
+    lineHeight: theme.font.lineHeights.title,
   },
   liveDot: {
     width: 8,
@@ -69,8 +65,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   codeInput: {
     textAlign: 'center',
-    fontSize: theme.font.sizes.xl,
-    letterSpacing: 8,
   },
   actionList: {
     width: '100%',
@@ -96,9 +90,7 @@ export function EmailVerificationPanel({
         <Card
           padded={false}
           style={[styles.iconCircle, { backgroundColor: colors.accent, borderWidth: 0 }]}>
-          <Txt variant="glyph" style={styles.iconGlyph}>
-            ✉️
-          </Txt>
+          <Txt variant="glyphCompact">✉️</Txt>
         </Card>
       </View>
 
@@ -133,7 +125,7 @@ export function EmailVerificationPanel({
           textContentType="oneTimeCode"
           returnKeyType="go"
           onSubmitEditing={verification.confirmCode}
-          style={styles.codeInput}
+          style={[styles.codeInput, inputTextStyles.verificationCode]}
         />
 
         <Button

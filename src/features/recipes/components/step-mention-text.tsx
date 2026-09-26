@@ -47,12 +47,7 @@ export function StepMentionText({
       {segments.map((segment) => {
         if (segment.kind === 'resolved') {
           return (
-            <Txt
-              key={segment.key}
-              variant={variant}
-              tone="accent"
-              weight="700"
-              style={[style, { fontWeight: '700' }]}>
+            <Txt key={segment.key} variant={variant} tone="accent" weight="700" style={style}>
               {segment.text}
             </Txt>
           );

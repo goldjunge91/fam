@@ -8,9 +8,9 @@ import ReorderableList, {
 } from 'react-native-reorderable-list';
 import Svg, { Path } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
-import { font, rs } from '@/components/theme/index';
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Press, Txt } from '@/constants/ui';
+import { inputTextStyles, Press, Txt } from '@/constants/ui';
 import { StepMentionText } from '@/features/recipes/components/step-mention-text';
 import {
   pickRecipeImage,
@@ -99,8 +99,6 @@ const styles = StyleSheet.create((theme) => ({
     minHeight: rs(132),
     paddingHorizontal: theme.space.xxl,
     paddingVertical: theme.space.lg,
-    fontSize: font.sizes.sm,
-    lineHeight: 21,
   },
   mentionPanel: {
     position: 'absolute',
@@ -146,8 +144,6 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: theme.radius.md,
     paddingHorizontal: theme.space.xxl,
     paddingVertical: theme.space.sm,
-    fontSize: font.sizes.sm,
-    lineHeight: 21,
   },
   screen: {
     flex: 1,
@@ -409,7 +405,11 @@ const StepCard = memo(function StepCard({
 
       <View style={styles.editorWrap}>
         <TextInput
-          style={[styles.editor, { backgroundColor: colors.background, color: colors.text }]}
+          style={[
+            styles.editor,
+            inputTextStyles.recipeStep,
+            { backgroundColor: colors.background, color: colors.text },
+          ]}
           value={step.text}
           onChangeText={handleChangeText}
           onSelectionChange={({ nativeEvent }) => setSelection(nativeEvent.selection)}
@@ -571,7 +571,11 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
     return (
       <View style={styles.timerRow}>
         <TextInput
-          style={[styles.timerInput, { backgroundColor: colors.background, color: colors.text }]}
+          style={[
+            styles.timerInput,
+            inputTextStyles.recipeStep,
+            { backgroundColor: colors.background, color: colors.text },
+          ]}
           value={draft}
           onChangeText={setDraft}
           placeholder="Min."

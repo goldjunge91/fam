@@ -4,10 +4,10 @@ import { Alert, KeyboardAvoidingView, ScrollView, TextInput, View } from 'react-
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { font, radius, rs } from '@/components/theme/index';
+import { radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
-import { Button, Press, Txt } from '@/constants/ui';
+import { Button, inputTextStyles, Press, Txt } from '@/constants/ui';
 import type { MealType } from '@/features/calorie-tracking/api';
 import { calculateAdjustedServingNutrition } from '../domain/nutrition';
 import { useUpdateComponentMutation } from '../hooks/use-recipe-components';
@@ -303,15 +303,7 @@ export function RecipeLogScreen() {
                         onChangeText={(value) => updateGrams(component.id, value)}
                         keyboardType="decimal-pad"
                         accessibilityLabel={`Grammmenge für ${component.name}`}
-                        style={[
-                          styles.gramsInput,
-                          {
-                            color: colors.text,
-                            fontSize: font.sizes.xs,
-                            lineHeight: font.lineHeights.caption,
-                            fontWeight: '500',
-                          },
-                        ]}
+                        style={[styles.gramsInput, inputTextStyles.grams, { color: colors.text }]}
                         placeholderTextColor={colors.textSecondary}
                       />
                       <Txt variant="caption" tone="secondary" style={styles.gramsUnit}>

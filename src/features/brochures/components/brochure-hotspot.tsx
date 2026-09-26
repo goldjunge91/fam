@@ -10,7 +10,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
-import { borderWidth, font, radius, space, withAlpha } from '@/components/theme/index';
+import { borderWidth, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { motion } from '@/constants/motion';
 import { Txt } from '@/constants/ui';
@@ -88,7 +88,7 @@ export function BrochureHotspot({ hotspot, onPress, isActive, isVisible }: Broch
           />
         )}
         {isLinkout ? (
-          <Txt variant="body" tone="onAccent" style={styles.linkoutArrow}>
+          <Txt variant="glyphSmall" tone="onAccent" weight="800" center>
             ↗
           </Txt>
         ) : null}
@@ -117,12 +117,6 @@ const styles = StyleSheet.create({
     margin: -space.sm,
     borderRadius: radius.lg,
     borderWidth: 8,
-  },
-  linkoutArrow: {
-    fontSize: font.sizes.base,
-    fontWeight: '800',
-    lineHeight: 18,
-    textAlign: 'center',
   },
   activeBorder: {
     borderWidth: borderWidth.strong,

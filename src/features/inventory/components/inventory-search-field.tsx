@@ -2,9 +2,8 @@ import { TextInput } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { SearchIcon } from '@/components/icons/fam-icon';
-import { font } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Card } from '@/constants/ui';
+import { Card, inputTextStyles } from '@/constants/ui';
 
 import { InventoryIconButton } from './inventory-icon-button';
 
@@ -58,8 +57,6 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
     padding: 0,
     color: theme.text,
-    fontSize: font.sizes.sm,
-    lineHeight: font.lineHeights.label,
   },
 }));
 
@@ -77,7 +74,7 @@ export function InventorySearchInput({ value, onChangeText }: InventorySearchInp
         placeholder="Artikel suchen"
         placeholderTextColor={colors.textSecondary}
         selectionColor={colors.accent}
-        style={styles.input}
+        style={[styles.input, inputTextStyles.inventorySearch]}
         accessibilityLabel="Artikel suchen"
         returnKeyType="search"
         clearButtonMode="while-editing"

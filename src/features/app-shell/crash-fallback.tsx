@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { font, radius, space } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
+import { Txt } from '@/constants/ui';
 
 /** Provider-unabhängiger Fallback für Fehler aus dem gesamten App-Baum. */
 export function CrashFallback({ resetError }: { resetError: () => void }) {
@@ -9,10 +10,12 @@ export function CrashFallback({ resetError }: { resetError: () => void }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Etwas ist schiefgelaufen</Text>
-      <Text style={styles.body}>
+      <Txt variant="subheading" weight="600" style={styles.title}>
+        Etwas ist schiefgelaufen
+      </Txt>
+      <Txt variant="label" weight="400" center style={styles.body}>
         Die App ist auf einen unerwarteten Fehler gestossen. Der Fehler wurde erfasst.
-      </Text>
+      </Txt>
       <Pressable
         onPress={resetError}
         onPressIn={() => setPressed(true)}
@@ -20,7 +23,9 @@ export function CrashFallback({ resetError }: { resetError: () => void }) {
         accessibilityRole="button"
         accessibilityLabel="Erneut versuchen"
         style={[styles.button, pressed && styles.buttonPressed]}>
-        <Text style={styles.buttonText}>Erneut versuchen</Text>
+        <Txt variant="label" weight="600" tone="accent" style={styles.buttonText}>
+          Erneut versuchen
+        </Txt>
       </Pressable>
     </View>
   );
@@ -35,8 +40,8 @@ const styles = StyleSheet.create((theme) => ({
     backgroundColor: theme.background,
     gap: space.md,
   },
-  title: { fontSize: font.sizes.md, fontWeight: '600', color: theme.text },
-  body: { fontSize: font.sizes.sm, color: theme.text, textAlign: 'center' },
+  title: { color: theme.text },
+  body: { color: theme.text },
   button: {
     minHeight: 44,
     minWidth: 44,
@@ -50,8 +55,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   buttonPressed: { opacity: 0.7 },
   buttonText: {
-    fontSize: font.sizes.sm,
-    fontWeight: '600',
     color: theme.accent,
     textDecorationLine: 'underline',
   },

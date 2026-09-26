@@ -2,7 +2,7 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
-import { font, radius, space } from '@/components/theme';
+import { radius, space } from '@/components/theme';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Card, Txt } from '@/constants/ui';
 import { celebrate } from './celebration';
@@ -25,10 +25,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'baseline',
     gap: space.sm,
-  },
-  heroEmoji: {
-    fontSize: font.sizes.xxxl,
-    lineHeight: font.lineHeights.display,
   },
   statsRow: {
     flexDirection: 'row',
@@ -87,7 +83,7 @@ export function GamificationScreen() {
               </Txt>
             </View>
           </View>
-          <Txt variant="body" style={styles.heroEmoji} selectable>
+          <Txt variant="display" selectable>
             🔥
           </Txt>
         </View>

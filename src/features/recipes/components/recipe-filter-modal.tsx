@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { PageHeader } from '@/components/layout/page-header';
-import { font, rs } from '@/components/theme/index';
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Press, SectionHeading, Txt } from '@/constants/ui';
 import { CalorieCarousel } from '@/features/recipes/components/calorie-carousel';
@@ -65,10 +65,6 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.xs,
     padding: theme.space.sm,
     borderWidth: theme.borderWidth.base,
-  },
-  mealEmoji: {
-    fontSize: font.sizes.lg,
-    lineHeight: rs(26),
   },
   tagRow: {
     flexDirection: 'row',
@@ -210,7 +206,7 @@ export function RecipeFilterModal({
                           borderColor: selected ? colors.accent : colors.border,
                         },
                       ]}>
-                      <Txt variant="body" center style={styles.mealEmoji}>
+                      <Txt variant="heading" weight="400" center>
                         {meal.emoji}
                       </Txt>
                       <Txt

@@ -298,7 +298,7 @@ function round(value: number): number {
 
 function MoreGlyph() {
   return (
-    <Txt variant="caption" weight="800" style={{ letterSpacing: 1.5 }}>
+    <Txt variant="caption" weight="800" tracking="wide">
       •••
     </Txt>
   );
