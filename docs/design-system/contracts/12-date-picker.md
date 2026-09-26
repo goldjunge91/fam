@@ -2,69 +2,67 @@
 
 ## Zweck und Scope
 
-Dieser Vertrag definiert die native SwiftUI-DatePicker-Referenz im Design-
-System. Der DatePicker ist ein Eingabe-Control und kein Sheet, Modal oder
-allgemeiner Präsentationsmechanismus. Android, eine globale Migration bestehender
-Datumskomponenten und ein Produkt-Redesign sind nicht Teil dieses Vertrags.
+Der Vertrag hält die native SwiftUI-DatePicker-Referenz fest. Der DatePicker ist
+ein Eingabe-Control und kein Sheet, Modal oder allgemeiner
+Präsentationsmechanismus. Android, eine Migration bestehender Datumskomponenten
+und ein Produkt-Redesign sind nicht Teil dieses Vertrags. Die Präsentationsregeln
+für Sheets und Dialoge stehen in [Vertrag 11](./11-modal-and-sheets.md).
 
 ## Kanonische API
 
-Neue iOS-Referenzen verwenden `DatePicker` aus `@expo/ui/swift-ui` innerhalb
-eines `Host`. Die Auswahl bleibt kontrolliert:
+Neue iOS-Referenzen verwenden `DatePicker` aus `@expo/ui/swift-ui` in einem
+`Host`. Die Auswahl bleibt kontrolliert:
 
-- `selection` enthält das aktuell angezeigte `Date`.
-- `onDateChange` schreibt eine neue Auswahl zurück in den Consumer-State.
-- `displayedComponents` legt fest, ob Datum, Uhrzeit oder beides sichtbar ist.
-- `range` begrenzt die auswählbaren Daten, wenn die Fachdomäne dies verlangt.
-- `datePickerStyle` aus `@expo/ui/swift-ui/modifiers` ist optional. Erlaubte
-  Stile sind `automatic`, `compact`, `graphical` und `wheel`.
+- `selection` ist das angezeigte `Date`, `onDateChange` schreibt die neue
+  Auswahl in den Consumer-State.
+- `displayedComponents` wählt `date` und/oder `hourAndMinute`. `range` begrenzt
+  die auswählbaren Daten, wenn die Fachdomäne dies verlangt.
+- `datePickerStyle` aus `@expo/ui/swift-ui/modifiers` ist optional. Erlaubt sind
+  `automatic`, `compact`, `graphical` und `wheel`.
 
-Das Referenzbeispiel verwendet `datePickerStyle('compact')`, weil es als
-einzeiliges Eingabe-Control in einem informationsdichten Formular wenig Platz
-verbraucht. `graphical` und `wheel` sind bewusst Stilvarianten, keine neuen
-Produktverträge.
+Die Referenz nutzt `datePickerStyle('compact')`, weil der Picker als
+einzeiliges Eingabe-Control wenig Platz verbraucht. `graphical` und `wheel` sind
+bewusst Stilvarianten, keine eigenen Produktverträge.
 
 ## Grenze zum bestehenden Produktbestand
 
-`src/components/forms/date-picker.tsx` und
-`src/components/forms/date-wheel-field.tsx` bleiben unverändert. Sie besitzen
-jeweils eigene Produkt- und Plattformsemantik. Eine Migration erfolgt nur nach
-einem separaten UX-Nachweis, wenn native Datums-/Zeitformatierung, Wartung oder
-Accessibility messbar verbessert werden.
-
-Der Showcase ist daher eine API- und Semantik-Referenz, kein stiller
-Migrationsauftrag. Bestehende Eingaben werden nicht nur wegen eines ähnlichen
-visuellen Ergebnisses ersetzt.
+[date-picker.tsx](../../../src/components/forms/date-picker.tsx) und
+[date-wheel-field.tsx](../../../src/components/forms/date-wheel-field.tsx)
+bleiben unverändert. Sie besitzen jeweils eigene Produkt- und
+Plattformsemantik. Eine Migration erfolgt nur nach einem separaten UX-Nachweis,
+wenn native Formatierung, Wartung oder Accessibility messbar verbessert werden;
+ein ähnliches visuelles Ergebnis ist kein Grund. Der Showcase ist eine API- und
+Semantik-Referenz, kein stiller Migrationsauftrag.
 
 ## Theme und Layout
 
 - `Host` erhält bei Bedarf `seedColor` aus dem aktiven Theme.
-- Der native Picker bleibt native SwiftUI-Komposition; eigene Hexfarben,
-  Typografierollen oder eine RN-Nachbildung der Kalenderfläche sind verboten.
-- Umgebendes RN-Layout verwendet Unistyles und bestehende Tokens.
-- `matchContents` wird nicht für einen DatePicker verwendet, weil der Picker
-  die verfügbare Breite benötigt und sonst kollabieren kann.
+- Der Picker bleibt native SwiftUI-Komposition. Hexfarben, eigene
+  Typografierollen und eine RN-Nachbildung der Kalenderfläche sind nicht
+  vorgesehen (Vertrag 01, 02). Das umgebende RN-Layout folgt Vertrag 05.
+- `matchContents` wird hier nicht gesetzt. Der Picker füllt die gegebene Breite
+  und kollabiert sonst auf 0; der Host bekommt eine explizite Größe.
 
 ## Accessibility und Datenfluss
 
-- Ein sichtbarer Titel wie `Datum` erklärt das Control; ein Consumer entfernt
-  ihn nicht ohne gleichwertige zugängliche Beschriftung.
-- Die native Interaktionsfläche und Dynamic-Type-/VoiceOver-Semantik bleiben
-  beim SwiftUI-Control.
-- Der Consumer verarbeitet `Date` als typisierten Wert und formatiert ihn erst
-  für die eigene Anzeige. Keine String-Konkatenation ersetzt die native Auswahl.
-- Ungültige oder fachlich nicht erlaubte Bereiche werden über `range` begrenzt,
-  nicht nur nachträglich in der Anzeige kaschiert.
+- Ein sichtbarer Titel wie `Datum` erklärt das Control und entfällt nicht ohne
+  gleichwertige zugängliche Beschriftation.
+- Interaktionsfläche und Dynamic-Type- und VoiceOver-Semantik bleiben beim
+  SwiftUI-Control.
+- Der Consumer hält `Date` typisiert und formatiert erst für die eigene
+  Anzeige. Keine String-Konkatenation ersetzt die native Auswahl.
+- Fachlich unzulässige Bereiche werden über `range` begrenzt und nicht nur
+  nachträglich in der Anzeige kaschiert.
 
 ## Nachweis
 
-`src/features/settings/dev/design-system/showcase-components.tsx` zeigt ein
-kontrolliertes Beispiel mit `selection`, `onDateChange` und dem optionalen
-`datePickerStyle('compact')`. Der fokussierte Convention-Test schützt die
-API- und Bestandsgrenze. `bun run check` und `bun run typecheck` sind separate
-Gates. Eine iOS-Geräteprüfung ist für diesen Showcase-Slice erforderlich, weil
-die native Größe und Interaktion nicht durch einen Web- oder Android-Lauf
-belegt werden.
+Der Showcase in
+[showcase-components.tsx](../../../src/features/settings/dev/design-system/showcase-components.tsx)
+zeigt das kontrollierte Beispiel mit `selection`, `onDateChange` und dem
+optionalen `datePickerStyle('compact')`. Geschützt durch
+[native-date-picker-showcase-convention.test.ts](../../../test/conventions/native-date-picker-showcase-convention.test.ts).
+Die Prüfmaßstände aus Vertrag 10 gelten; die native Größe und Interaktion
+brauchen einen iOS-Lauf.
 
 ## Offizielle Quelle
 
