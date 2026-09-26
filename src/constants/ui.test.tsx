@@ -59,7 +59,7 @@ jest.mock('@/components/theme/ThemeProvider', () => ({
   ) => factory(mockColorsLight, mockAccent),
 }));
 
-import { Card as ProductCard } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { EmptyState } from '@/components/ui/empty-state';
 import {
   Badge,
@@ -126,6 +126,16 @@ describe('core theme UI primitives', () => {
     const text = screen.getByText('Akzent');
     expect(text).toHaveStyle({ color: mockColorsLight.accent, fontWeight: '700' });
     expect(text.props.style.at(-1)).toEqual({ fontSize: 99 });
+  });
+
+  it('maps informative secondary text to the readable primary token', async () => {
+    await render(
+      <Txt variant="body" tone="secondary">
+        Sekundärtext
+      </Txt>,
+    );
+
+    expect(screen.getByText('Sekundärtext')).toHaveStyle({ color: mockColorsLight.text });
   });
 
   it('uses semantic background colors for Surface tones', async () => {
@@ -238,10 +248,23 @@ describe('core theme UI primitives', () => {
       }
     }
 
-    for (const accent of [mockMakeAccent(mockColorsLight), mockMakeAccent(colorsDark)]) {
-      for (const { main, on } of Object.values(accent)) {
+    for (const { accent, colors } of [
+      { accent: mockMakeAccent(mockColorsLight), colors: mockColorsLight },
+      { accent: mockMakeAccent(colorsDark), colors: colorsDark },
+    ]) {
+      for (const { main, on, tint } of Object.values(accent)) {
         expect(contrastRatio(main, on)).toBeGreaterThanOrEqual(4.5);
+        expect(contrastRatio(tint, colors.text)).toBeGreaterThanOrEqual(4.5);
       }
+    }
+
+    for (const colors of [mockColorsLight, colorsDark]) {
+      expect(contrastRatio(colors.background, colors.text)).toBeGreaterThanOrEqual(4.5);
+      expect(contrastRatio(colors.backgroundSoft, colors.text)).toBeGreaterThanOrEqual(4.5);
+      expect(contrastRatio(colors.text, colors.onAccent)).toBeGreaterThanOrEqual(4.5);
+      expect(contrastRatio(colors.shadowSheet, colors.premiumOnSurface)).toBeGreaterThanOrEqual(
+        4.5,
+      );
     }
   });
 
@@ -532,9 +555,9 @@ describe('core theme UI primitives', () => {
 
   it('keeps the product Card composition contract for titles and footers', async () => {
     await render(
-      <ProductCard title="Produkt" footer={<Text>Footer</Text>}>
+      <ContentCard title="Produkt" footer={<Text>Footer</Text>}>
         <Text>Inhalt</Text>
-      </ProductCard>,
+      </ContentCard>,
     );
 
     expect(screen.getByText('Produkt')).toBeOnTheScreen();
@@ -679,7 +702,7 @@ describe('core theme UI primitives', () => {
     expect(screen.getByText('Wochenplan')).toHaveStyle({
       textTransform: 'uppercase',
       letterSpacing: 0.76,
-      color: mockColorsLight.textSecondary,
+      color: mockColorsLight.text,
       fontWeight: '600',
     });
     expect(

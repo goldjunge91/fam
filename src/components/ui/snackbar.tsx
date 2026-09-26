@@ -96,7 +96,7 @@ export function SnackbarProvider({ children }: { children: React.ReactNode }) {
               accessibilityLabel="Rückgängig"
               hitSlop={10}
               style={styles.undo}>
-              <Txt variant="body" tone="accent" weight="700">
+              <Txt variant="body" tone="onAccent" weight="700">
                 Rückgängig
               </Txt>
             </Press>

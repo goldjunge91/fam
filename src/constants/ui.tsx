@@ -428,7 +428,7 @@ type ThemeTextColor = keyof Pick<
 
 const TEXT_TONE: Record<TxtTone, ThemeTextColor> = {
   primary: 'text',
-  secondary: 'textSecondary',
+  secondary: 'text',
   accent: 'accent',
   onAccent: 'onAccent',
   onSuccess: 'onSuccess',
@@ -923,7 +923,7 @@ export function Badge({
   icon?: FeatherName;
   solid?: boolean;
 }) {
-  const { accent } = useTheme();
+  const { accent, colors } = useTheme();
   const a = accent[tone];
   return (
     <View
@@ -936,8 +936,8 @@ export function Badge({
         paddingVertical: space.md,
         borderRadius: radius.pill,
       }}>
-      {icon ? <Feather name={icon} size={12} color={solid ? a.on : a.shadow} /> : null}
-      <Txt variant="caption" color={solid ? a.on : a.shadow} weight="700">
+      {icon ? <Feather name={icon} size={12} color={solid ? a.on : colors.text} /> : null}
+      <Txt variant="caption" color={solid ? a.on : colors.text} weight="700">
         {label}
       </Txt>
     </View>

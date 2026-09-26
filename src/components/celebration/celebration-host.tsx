@@ -130,7 +130,7 @@ function Badge({ message, colors }: { message: string; colors: Palette }) {
 
   return (
     <Animated.View style={[styles.badge, { backgroundColor: colors.shadowSheet }, animatedStyle]}>
-      <Text style={[styles.badgeText, { color: colors.onAccent }]}>{message}</Text>
+      <Text style={[styles.badgeText, { color: colors.premiumOnSurface }]}>{message}</Text>
     </Animated.View>
   );
 }
