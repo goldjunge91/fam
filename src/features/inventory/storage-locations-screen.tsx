@@ -3,7 +3,7 @@ import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
@@ -120,7 +120,7 @@ export function StorageLocationsScreen() {
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
       {/* Formular zum Anlegen eines neuen Lagerorts */}
-      <Card title="Neuen Lagerort hinzufügen">
+      <ContentCard title="Neuen Lagerort hinzufügen">
         <View style={styles.addForm}>
           <TextField
             placeholder="z.B. Abstellkammer, Keller, Vorratsschrank..."
@@ -134,10 +134,10 @@ export function StorageLocationsScreen() {
             disabled={!newLocationName.trim()}
           />
         </View>
-      </Card>
+      </ContentCard>
 
       {/* Liste aller vorhandenen Lagerorte mit Umbenennen- & Löschen-Optionen */}
-      <Card title="Vorhandene Lagerorte">
+      <ContentCard title="Vorhandene Lagerorte">
         {isLoading ? (
           <Txt variant="body">Lädt...</Txt>
         ) : !hasLoadedLocations && isError ? (
@@ -246,7 +246,7 @@ export function StorageLocationsScreen() {
             </View>
           </>
         )}
-      </Card>
+      </ContentCard>
     </Screen>
   );
 }

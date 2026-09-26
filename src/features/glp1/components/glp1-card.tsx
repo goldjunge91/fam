@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { useSnackbar } from '@/components/ui/snackbar';
 import { Button, Card as FoundationCard, Txt } from '@/constants/ui';
 import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/domain/day-boundary';
@@ -208,7 +208,7 @@ export function Glp1Card({
   }
 
   return (
-    <Card style={styles.card}>
+    <ContentCard style={styles.card}>
       <View style={styles.header}>
         <View style={styles.headerTitle}>
           <Txt variant="body" weight="700">
@@ -345,6 +345,6 @@ export function Glp1Card({
         onEditSymptom={(log) => setActiveForm({ kind: 'symptom', log })}
         onDeleteSymptom={deleteSymptom}
       />
-    </Card>
+    </ContentCard>
   );
 }

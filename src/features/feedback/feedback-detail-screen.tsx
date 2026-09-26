@@ -6,7 +6,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, Surface, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
@@ -124,7 +124,7 @@ export function FeedbackDetailScreen() {
         </Surface>
       ) : null}
       {ticket ? (
-        <Card>
+        <ContentCard>
           <View style={styles.ticketSummary}>
             <Txt variant="body" weight="700">
               {ticket.subject}
@@ -141,7 +141,7 @@ export function FeedbackDetailScreen() {
               </Txt>
             </View>
           </View>
-        </Card>
+        </ContentCard>
       ) : null}
 
       <View style={styles.messages}>
@@ -155,7 +155,7 @@ export function FeedbackDetailScreen() {
           Dieses Ticket ist geschlossen. Neue Antworten sind nicht mehr möglich.
         </Txt>
       ) : (
-        <Card>
+        <ContentCard>
           <View style={styles.replyForm}>
             <TextField
               label="Antworten"
@@ -172,7 +172,7 @@ export function FeedbackDetailScreen() {
             ) : null}
             <Button title="Senden" onPress={handleSend} loading={mutation.isPending} />
           </View>
-        </Card>
+        </ContentCard>
       )}
     </Screen>
   );

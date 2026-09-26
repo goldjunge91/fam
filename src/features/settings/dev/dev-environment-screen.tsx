@@ -2,7 +2,7 @@ import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { useAdsEnabled } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -37,7 +37,7 @@ export function DevEnvironmentScreen() {
       subtitle="Build, Dienste, Session und Haushalt"
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon">
-      <Card title="Umgebung">
+      <ContentCard title="Umgebung">
         <Zeile label="Supabase" wert={supabaseTarget.label} tone={supabaseTarget.tone} />
         <Zeile label="URL" wert={env.supabaseUrl} />
         <Zeile label="Schlüssel" wert={maskSecret(env.supabaseKey)} />
@@ -84,9 +84,9 @@ export function DevEnvironmentScreen() {
           }
           tone={isAptabaseConfigured() ? undefined : aptabaseError ? 'danger' : 'warning'}
         />
-      </Card>
+      </ContentCard>
 
-      <Card title="Session">
+      <ContentCard title="Session">
         <Zeile label="Nutzer-ID" wert={session?.user.id ?? '—'} />
         <Zeile label="E-Mail" wert={session?.user.email ?? '—'} />
         <Zeile
@@ -96,7 +96,7 @@ export function DevEnvironmentScreen() {
         />
         <Zeile label="Aktiver Haushalt" wert={activeHousehold?.name ?? '—'} />
         <Zeile label="Haushalts-ID" wert={activeHousehold?.id ?? '—'} />
-      </Card>
+      </ContentCard>
     </Screen>
   );
 }

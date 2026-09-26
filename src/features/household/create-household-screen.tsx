@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { useCreateHouseholdMutation } from '@/features/household/api';
 
@@ -51,7 +51,7 @@ export function CreateHouseholdScreen() {
       subtitle="Lade später deine Familie oder WG ein"
       back={{ label: 'Haushalte' }}>
       {/* Formular zur Erstellung eines neuen Haushalts */}
-      <Card>
+      <ContentCard>
         <View style={styles.form}>
           {/* Eingabefeld für Haushaltsname */}
           <TextField
@@ -72,7 +72,7 @@ export function CreateHouseholdScreen() {
           {/* Erstellen-Button */}
           <Button title="Erstellen" onPress={handleSubmit} loading={mutation.isPending} />
         </View>
-      </Card>
+      </ContentCard>
 
       {/* Alternative Aktion: Haushalts-Beitritt via Code */}
       <Button

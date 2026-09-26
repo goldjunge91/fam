@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { describeSyncStatus } from '@/features/settings/sync-status-text';
@@ -69,7 +69,7 @@ export function SyncSettingsScreen() {
       title={t('settings.sync.title')}
       back={{ label: t('settings.backToSettings'), href: '/settings' }}
       backStyle="icon">
-      <Card title={t('settings.sync.statusTitle')}>
+      <ContentCard title={t('settings.sync.statusTitle')}>
         <Txt variant="body" tone="secondary">
           {t('settings.sync.backgroundHint')}
         </Txt>
@@ -100,7 +100,7 @@ export function SyncSettingsScreen() {
             onPress={() => router.push('/settings/sync-debug')}
           />
         </View>
-      </Card>
+      </ContentCard>
     </Screen>
   );
 }

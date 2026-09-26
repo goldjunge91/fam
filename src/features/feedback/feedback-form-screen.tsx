@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, SegmentedControl, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { type FeedbackType, useCreateTicketMutation } from '@/features/feedback/api';
@@ -60,7 +60,7 @@ export function FeedbackFormScreen() {
   if (createdTicketNumber !== null) {
     return (
       <Screen title="Feedback geben" back={{ label: 'Feedback' }}>
-        <Card>
+        <ContentCard>
           <View style={styles.form}>
             <Txt variant="body" weight="700">
               Danke für dein Feedback!
@@ -71,14 +71,14 @@ export function FeedbackFormScreen() {
               onPress={() => router.replace('/settings/feedback')}
             />
           </View>
-        </Card>
+        </ContentCard>
       </Screen>
     );
   }
 
   return (
     <Screen title="Feedback geben" back={{ label: 'Zurück' }}>
-      <Card>
+      <ContentCard>
         <View style={styles.form}>
           <SegmentedControl
             label="Art des Feedbacks"
@@ -113,7 +113,7 @@ export function FeedbackFormScreen() {
 
           <Button title="Absenden" onPress={handleSubmit} loading={mutation.isPending} />
         </View>
-      </Card>
+      </ContentCard>
     </Screen>
   );
 }

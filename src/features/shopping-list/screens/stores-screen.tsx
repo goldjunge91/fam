@@ -4,7 +4,7 @@ import { Alert, Switch, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { Button, Divider, Press, Row, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
@@ -44,7 +44,7 @@ const styles = StyleSheet.create((theme) => ({
   presetDot: {
     width: 8,
     height: 8,
-    borderRadius: theme.radius.xs / 2,
+    borderRadius: theme.radius.s,
   },
   swatchButton: {
     minWidth: 44,
@@ -190,7 +190,7 @@ export function StoresScreen() {
       subtitle={currentHousehold?.name}
       back={{ label: t('settings.backToSettings'), href: '/settings' }}
       backStyle="icon">
-      <Card>
+      <ContentCard>
         <Row justify="space-between">
           <View style={styles.flex}>
             <Txt variant="body" weight="600">
@@ -208,10 +208,10 @@ export function StoresScreen() {
             thumbColor={theme.backgroundElement}
           />
         </Row>
-      </Card>
+      </ContentCard>
 
       {/* Formular zum Anlegen eines neuen Supermarkts/Geschäfts */}
-      <Card title={t('shoppingList.stores.addStore.title')}>
+      <ContentCard title={t('shoppingList.stores.addStore.title')}>
         <View style={styles.form}>
           {/* Eingabefeld für den Marktnamen */}
           <TextField
@@ -275,10 +275,10 @@ export function StoresScreen() {
             disabled={!newStoreName.trim()}
           />
         </View>
-      </Card>
+      </ContentCard>
 
       {/* Liste aller angelegten Märkte mit Bearbeiten- und Löschen-Aktionen */}
-      <Card title={t('shoppingList.stores.existingStores.title')}>
+      <ContentCard title={t('shoppingList.stores.existingStores.title')}>
         {isLoading ? (
           <Txt>{t('shoppingList.stores.existingStores.loading')}</Txt>
         ) : isError && !stores ? (
@@ -394,7 +394,7 @@ export function StoresScreen() {
             })}
           </View>
         )}
-      </Card>
+      </ContentCard>
     </Screen>
   );
 }

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { type StyleProp, View, type ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { TimeWheelField } from '@/components/forms/time-wheel-field';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { SegmentedControl, Txt } from '@/constants/ui';
 import {
   DEFAULT_NOTIFICATION_SETTINGS,
@@ -60,7 +60,7 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
 
   return (
     <View style={style}>
-      <Card title={t('settings.groups.app.notifications.label')}>
+      <ContentCard title={t('settings.groups.app.notifications.label')}>
         <View style={styles.content}>
           <View style={styles.group}>
             <Txt variant="label" weight="700">
@@ -87,7 +87,7 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
             />
           </View>
         </View>
-      </Card>
+      </ContentCard>
     </View>
   );
 }

@@ -36,14 +36,14 @@ jest.mock('@/components/layout/screen', () => {
   };
 });
 
-jest.mock('@/components/ui/card', () => {
+jest.mock('@/components/ui/content-card', () => {
   const { Text: MockText, View: MockView } = jest.requireActual(
     'react-native',
   ) as typeof import('react-native');
   type MockProps = { children: import('react').ReactNode; title?: string };
 
   return {
-    Card: ({ children, title }: MockProps) => (
+    ContentCard: ({ children, title }: MockProps) => (
       <MockView>
         {title ? <MockText>{title}</MockText> : null}
         {children}

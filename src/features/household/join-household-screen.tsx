@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { clearPendingInviteToken, peekPendingInviteToken } from '@/features/auth/pending-invite';
 import { useRedeemInviteMutation } from '@/features/household/api';
@@ -60,7 +60,7 @@ export function JoinHouseholdScreen() {
       back={{ label: 'Haushalte' }}
       backStyle="icon">
       {/* Eingabe-Formular für den Einladungs-Code / Token */}
-      <Card title="Einlösung">
+      <ContentCard title="Einlösung">
         <View style={styles.form}>
           {/* Eingabefeld für Einladungs-Token */}
           <TextField
@@ -87,7 +87,7 @@ export function JoinHouseholdScreen() {
             disabled={!tokenInput.trim()}
           />
         </View>
-      </Card>
+      </ContentCard>
 
       {/* Abbrechen-Button (sofern Historie vorhanden) */}
       {router.canGoBack() && (

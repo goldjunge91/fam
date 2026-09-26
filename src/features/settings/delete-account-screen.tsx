@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, Txt } from '@/constants/ui';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
@@ -83,11 +83,11 @@ export function DeleteAccountScreen() {
       back={{ label: t('settings.backToSettings'), href: '/settings' }}
       backStyle="icon">
       {/* Warnhinweis-Karte zu den Auswirkungen der Account-Löschung */}
-      <Card>
+      <ContentCard>
         <Txt variant="body" tone="secondary" weight="500">
           {t('settings.groups.data.deleteAccount.hint')}
         </Txt>
-      </Card>
+      </ContentCard>
       {/* Gefahren-Aktionsbutton zum Einleiten der Kontolöschung */}
       <View style={styles.deleteButtonContainer}>
         <Button

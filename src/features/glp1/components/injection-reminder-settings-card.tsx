@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { TimeWheelField } from '@/components/forms/time-wheel-field';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Txt } from '@/constants/ui';
 import { formatDateTimeInput, parseDateTimeInput } from '@/features/glp1/domain/date-time-input';
 import { toMedicationUnit } from '@/features/glp1/domain/medication-options';
@@ -76,7 +76,7 @@ export function InjectionReminderSettingsCard({ userId }: InjectionReminderSetti
   }
 
   return (
-    <Card title="Injektions-Erinnerung">
+    <ContentCard title="Injektions-Erinnerung">
       {isLoading ? (
         <Txt variant="caption" tone="secondary">
           Injektions-Erinnerung wird geladen...
@@ -116,6 +116,6 @@ export function InjectionReminderSettingsCard({ userId }: InjectionReminderSetti
           </View>
         </View>
       )}
-    </Card>
+    </ContentCard>
   );
 }

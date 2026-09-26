@@ -10,7 +10,7 @@ import {
 
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, Txt } from '@/constants/ui';
 import {
   getDeviceSpeechLocale,
@@ -105,22 +105,22 @@ export function ExecuTorchSpeechToTextScreen() {
       subtitle={`Whisper Tiny · lokal auf dem Gerät · ${speechLocale}`}
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon">
-      <Card title="Modell">
+      <ContentCard title="Modell">
         <View style={{ gap: space.md }}>
           <Txt variant="body">{modelStatus}</Txt>
           {!modelRequested ? (
             <Button title="Whisper-Modell laden" onPress={() => setModelRequested(true)} full />
           ) : null}
         </View>
-      </Card>
+      </ContentCard>
 
-      <Card title="Transkript">
+      <ContentCard title="Transkript">
         <Txt variant="body">
           {combineSpeechTranscript(committedText, nonCommittedText) || 'Noch keine Sprache erkannt'}
         </Txt>
-      </Card>
+      </ContentCard>
 
-      <Card title="Mikrofon">
+      <ContentCard title="Mikrofon">
         <View style={{ gap: space.md }}>
           {error ? <Txt variant="body">{error}</Txt> : null}
           <Txt variant="body">
@@ -133,7 +133,7 @@ export function ExecuTorchSpeechToTextScreen() {
             full
           />
         </View>
-      </Card>
+      </ContentCard>
     </Screen>
   );
 }

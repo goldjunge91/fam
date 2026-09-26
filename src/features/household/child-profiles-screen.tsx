@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { DatePicker } from '@/components/forms/date-picker';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, Press, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -177,7 +177,7 @@ export function ChildProfilesScreen() {
       back={{ label: 'Mitglieder', href: '/household/members' }}>
       {/* Formular zum Anlegen eines neuen Kinder-Profils (ausklappbar) */}
       {showAddForm ? (
-        <Card title="Kinder-Profil hinzufügen">
+        <ContentCard title="Kinder-Profil hinzufügen">
           <View style={styles.form}>
             <TextField
               label="Name des Kindes"
@@ -256,7 +256,7 @@ export function ChildProfilesScreen() {
               </View>
             </View>
           </View>
-        </Card>
+        </ContentCard>
       ) : (
         /* Button zum Öffnen des Anlege-Formulars */
         <View style={styles.addButtonContainer}>
@@ -265,7 +265,7 @@ export function ChildProfilesScreen() {
       )}
 
       {/* Liste aller erfassten Kinder-Profile mit Bearbeiten & Löschen */}
-      <Card title="Erfasste Kinder-Profile">
+      <ContentCard title="Erfasste Kinder-Profile">
         {isLoading ? (
           <Txt variant="body">Lädt Kinder-Profile...</Txt>
         ) : children.length === 0 ? (
@@ -389,7 +389,7 @@ export function ChildProfilesScreen() {
             );
           })
         )}
-      </Card>
+      </ContentCard>
     </Screen>
   );
 }

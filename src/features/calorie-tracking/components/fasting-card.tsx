@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { Txt } from '@/constants/ui';
 import {
@@ -172,7 +172,7 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
   const isTargetReached = elapsedMinutes >= targetMinutes;
 
   return (
-    <Card style={styles.card}>
+    <ContentCard style={styles.card}>
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerTitle}>
@@ -277,6 +277,6 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
           </Pressable>
         </View>
       )}
-    </Card>
+    </ContentCard>
   );
 }

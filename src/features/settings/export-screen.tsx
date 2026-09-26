@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { buildUserDataExport } from '@/features/settings/data-export';
@@ -60,11 +60,11 @@ export function ExportScreen() {
       back={{ label: t('settings.backToSettings'), href: '/settings' }}
       backStyle="icon">
       {/* Hinweiskarte zum DSGVO-Datenexportumfang */}
-      <Card>
+      <ContentCard>
         <Txt variant="body" tone="secondary">
           {t('settings.groups.data.export.hint')}
         </Txt>
-      </Card>
+      </ContentCard>
       {/* Export-Aktionsbutton */}
       <View style={styles.exportButtonContainer}>
         <Button

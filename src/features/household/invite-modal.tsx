@@ -5,7 +5,7 @@ import QRCode from 'react-native-qrcode-svg';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { withAlpha } from '@/components/theme/index';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, CloseButton, IconButton, Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
@@ -203,7 +203,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
             </Txt>
 
             {selectedToken ? (
-              <Card title="Einladungs-Code & QR-Code">
+              <ContentCard title="Einladungs-Code & QR-Code">
                 <View style={styles.tokenContent}>
                   <Txt variant="body" tone="accent" center style={styles.inviteToken}>
                     {selectedToken}
@@ -247,7 +247,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                     loading={createMutation.isPending}
                   />
                 </View>
-              </Card>
+              </ContentCard>
             ) : (
               <Button
                 title="+ Einladungs-Link erstellen"

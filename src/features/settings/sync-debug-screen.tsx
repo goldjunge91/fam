@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, Divider, Press, Row, Txt, type TxtTone } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
@@ -63,7 +63,7 @@ const styles = StyleSheet.create((theme) => ({
   actionStack: { marginTop: theme.space.lg, gap: theme.space.sm },
   copyActions: { marginTop: theme.space.xs },
   flex: { flex: 1 },
-  payload: { marginTop: theme.space.xs / 2, fontFamily: 'monospace' },
+  payload: { marginTop: theme.space.xs, fontFamily: 'monospace' },
 }));
 
 type DebugRowProps = {
@@ -258,7 +258,7 @@ export function SyncDebugScreen() {
       title="Sync-Diagnose"
       back={{ label: 'Synchronisation', href: '/settings/sync' }}
       backStyle="icon">
-      <Card title="Letzter Synchronisations-Lauf">
+      <ContentCard title="Letzter Synchronisations-Lauf">
         <DebugRow label="Uhrzeit:">{formattedLastSync}</DebugRow>
         {lastSyncInfo && (
           <>
@@ -293,10 +293,10 @@ export function SyncDebugScreen() {
             loading={loading}
           />
         </View>
-      </Card>
+      </ContentCard>
 
       {/* Realtime-Latenzmessungen & Samples */}
-      <Card title={`Realtime-Latenz (letzte ${latencySamples.length} Zeilen)`}>
+      <ContentCard title={`Realtime-Latenz (letzte ${latencySamples.length} Zeilen)`}>
         {latencySamples.length === 0 ? (
           <Txt variant="caption" tone="secondary">
             Noch keine ueber Realtime empfangene Zeile in dieser Sitzung. Auf einem zweiten Geraet
@@ -330,10 +330,10 @@ export function SyncDebugScreen() {
               ))}
           </>
         )}
-      </Card>
+      </ContentCard>
 
       {/* Live-Tests für Push-Mitteilungen und Barcode-Scanner */}
-      <Card title="Live-Test (Hardware & Push)">
+      <ContentCard title="Live-Test (Hardware & Push)">
         <Txt variant="caption" tone="secondary">
           Test-Aktionen für lokale Mitteilungen und die Kamera-Barcode-Erkennung.
         </Txt>
@@ -346,20 +346,20 @@ export function SyncDebugScreen() {
             onPress={() => setShowScannerTest(true)}
           />
         </View>
-      </Card>
+      </ContentCard>
 
       {/* Aktiver Haushalt in der lokalen SQLite-DB */}
-      <Card title="Aktueller Haushalt in DB">
+      <ContentCard title="Aktueller Haushalt in DB">
         <DebugRow label="Haushalts-Name:">
           {currentHousehold?.name ?? 'Kein Haushalt geladen'}
         </DebugRow>
         <DebugRow label="Haushalts-ID:" tone="secondary">
           {currentHousehold?.id ?? '—'}
         </DebugRow>
-      </Card>
+      </ContentCard>
 
       {/* Lokale Outbox-Warteschlange mit Mutations-Payloads und Fehlern */}
-      <Card title={`Lokale Outbox (${outboxRows.length} Einträge)`}>
+      <ContentCard title={`Lokale Outbox (${outboxRows.length} Einträge)`}>
         {outboxRows.length === 0 ? (
           <Txt variant="caption" tone="secondary">
             Outbox ist leer. Alle lokalen Änderungen sind synchronisiert!
@@ -419,9 +419,9 @@ export function SyncDebugScreen() {
             <Button title="Outbox leeren (Notfall)" variant="danger" onPress={handleClearOutbox} />
           </View>
         )}
-      </Card>
+      </ContentCard>
 
-      <Card title={`Outbox-Historie (${outboxHistoryRows.length} Einträge)`}>
+      <ContentCard title={`Outbox-Historie (${outboxHistoryRows.length} Einträge)`}>
         {outboxHistoryRows.length === 0 ? (
           <Txt variant="caption" tone="secondary">
             Noch keine lokale Outbox-Aktion aufgezeichnet.
@@ -471,10 +471,10 @@ export function SyncDebugScreen() {
             );
           })
         )}
-      </Card>
+      </ContentCard>
 
       {/* Lokale Lagerorte aus SQLite */}
-      <Card title={`Lokale Lagerorte (${locationRows.length} Orte)`}>
+      <ContentCard title={`Lokale Lagerorte (${locationRows.length} Orte)`}>
         {locationRows.length === 0 ? (
           <Txt variant="caption" tone="secondary">
             Keine Lagerorte lokal in SQLite gefunden.
@@ -491,10 +491,10 @@ export function SyncDebugScreen() {
             </DebugItem>
           ))
         )}
-      </Card>
+      </ContentCard>
 
       {/* Lokale Lebensmittel aus SQLite */}
-      <Card title={`Lokale Lebensmittel (${itemRows.length} Artikel)`}>
+      <ContentCard title={`Lokale Lebensmittel (${itemRows.length} Artikel)`}>
         {itemRows.length === 0 ? (
           <Txt variant="caption" tone="secondary">
             Keine Artikel lokal in SQLite gefunden.
@@ -511,7 +511,7 @@ export function SyncDebugScreen() {
             </DebugItem>
           ))
         )}
-      </Card>
+      </ContentCard>
 
       {/* Barcode-Scanner Testmodal */}
       <BarcodeScannerModal

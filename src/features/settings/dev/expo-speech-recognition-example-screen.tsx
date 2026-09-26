@@ -12,7 +12,7 @@ import { Platform, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, Txt } from '@/constants/ui';
 import { debugLog } from '@/lib/observability/debug-log';
 
@@ -144,16 +144,16 @@ export function ExpoSpeechRecognitionExampleScreen() {
       subtitle="Direkter Paket-Referenzpfad"
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon">
-      <Card title="Fehler">
+      <ContentCard title="Fehler">
         <Txt variant="body">{error ? JSON.stringify(error) : 'Keine Fehler'}</Txt>
-      </Card>
+      </ContentCard>
 
-      <Card title="Status">
+      <ContentCard title="Status">
         <Txt variant="body">{status}</Txt>
         <Txt variant="body">{transcription || 'Noch kein Transkript'}</Txt>
-      </Card>
+      </ContentCard>
 
-      <Card title="Offizieller Startpfad">
+      <ContentCard title="Offizieller Startpfad">
         <View style={{ gap: space.md }}>
           {status === 'idle' ? (
             <Button title="Erkennung starten" onPress={() => void startListening()} full />
@@ -175,7 +175,7 @@ export function ExpoSpeechRecognitionExampleScreen() {
             </View>
           )}
         </View>
-      </Card>
+      </ContentCard>
     </Screen>
   );
 }

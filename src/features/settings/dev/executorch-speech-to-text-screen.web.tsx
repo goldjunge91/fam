@@ -1,5 +1,5 @@
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Txt } from '@/constants/ui';
 
 export function ExecuTorchSpeechToTextScreen() {
@@ -9,11 +9,11 @@ export function ExecuTorchSpeechToTextScreen() {
       subtitle="Lokale Sprachverarbeitung auf dem Gerät"
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon">
-      <Card title="Auf dieser Plattform nicht verfügbar">
+      <ContentCard title="Auf dieser Plattform nicht verfügbar">
         <Txt variant="body" tone="secondary">
           ExecuTorch und die lokale Mikrofonaufnahme benötigen die nativen iOS- oder Android-Module.
         </Txt>
-      </Card>
+      </ContentCard>
     </Screen>
   );
 }

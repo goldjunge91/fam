@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Alert, Platform, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button } from '@/constants/ui';
 import { getAptabaseInitializationError, isAptabaseConfigured } from '@/lib/analytics/aptabase';
 import { trackAnalyticsEvent } from '@/lib/analytics/events';
@@ -46,7 +46,7 @@ export function DevTelemetryScreen() {
       subtitle="Testsignale, Benachrichtigungen und Logs"
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon">
-      <Card title="Testsignale">
+      <ContentCard title="Testsignale">
         <Zeile
           label="PostHog-Verbindung"
           wert={posthogCheck?.label ?? 'noch nicht geprüft'}
@@ -168,7 +168,7 @@ export function DevTelemetryScreen() {
             }}
           />
         </View>
-      </Card>
+      </ContentCard>
     </Screen>
   );
 }

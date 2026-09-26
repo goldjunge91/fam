@@ -5,7 +5,7 @@ import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { EmptyState } from '@/components/ui/empty-state';
 import { Button, Surface, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
@@ -50,7 +50,7 @@ const styles = StyleSheet.create((theme) => ({
 function TicketRow({ ticket }: { ticket: FeedbackTicket }) {
   return (
     <Pressable onPress={() => router.push(`/settings/feedback/${ticket.id}`)}>
-      <Card>
+      <ContentCard>
         <View style={styles.ticketContent}>
           <View style={styles.ticketCopy}>
             <Txt variant="body" weight="700">{`#${ticket.ticket_number} · ${ticket.subject}`}</Txt>
@@ -65,7 +65,7 @@ function TicketRow({ ticket }: { ticket: FeedbackTicket }) {
             {FEEDBACK_STATUS_LABELS[ticket.status]}
           </Txt>
         </View>
-      </Card>
+      </ContentCard>
     </Pressable>
   );
 }
@@ -101,13 +101,13 @@ export function FeedbackListScreen() {
   if (!tickets || tickets.length === 0) {
     return (
       <Screen title="Feedback" action={action} back={{ label: 'Einstellungen', href: '/settings' }}>
-        <Card>
+        <ContentCard>
           <EmptyState
             symbol="bubble.left.and.bubble.right"
             title="Noch kein Feedback"
             hint="Melde einen Fehler oder teile eine Anregung — wir informieren dich hier über den Fortschritt."
           />
-        </Card>
+        </ContentCard>
       </Screen>
     );
   }

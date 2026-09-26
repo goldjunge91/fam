@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button } from '@/constants/ui';
 
 export function DevPreviewsScreen() {
@@ -11,7 +11,7 @@ export function DevPreviewsScreen() {
       subtitle="Design-System, Auth, Drax und Paywalls"
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon">
-      <Card title="Vorschauen">
+      <ContentCard title="Vorschauen">
         <Button
           title="Design-System-Referenz öffnen"
           variant="secondary"
@@ -39,7 +39,7 @@ export function DevPreviewsScreen() {
           variant="secondary"
           onPress={() => router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'ai' } })}
         />
-      </Card>
+      </ContentCard>
     </Screen>
   );
 }

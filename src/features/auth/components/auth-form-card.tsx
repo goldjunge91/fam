@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button } from '@/constants/ui';
 import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
 import { SignInForm } from '@/features/auth/forms/sign-in-form';
@@ -38,7 +38,7 @@ export function AuthFormCard(props: AuthFormCardProps) {
 
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-      <Card>
+      <ContentCard>
         <View style={styles.form}>
           {props.mode === 'sign_in' ? (
             <SignInForm
@@ -65,7 +65,7 @@ export function AuthFormCard(props: AuthFormCardProps) {
             />
           ) : null}
         </View>
-      </Card>
+      </ContentCard>
     </KeyboardAvoidingView>
   );
 }

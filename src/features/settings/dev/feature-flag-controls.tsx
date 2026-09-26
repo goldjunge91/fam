@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { useDevSettingsStore } from '@/constants/dev-settings';
 import { getFeature, getSettingsModules } from '@/constants/feature-registry';
 import { Button, Txt } from '@/constants/ui';
@@ -35,7 +35,7 @@ export function FeatureFlagControls() {
     (shoppingSttFlag ? getFeatureFlagState(shoppingSttFlag) === true : false);
 
   return (
-    <Card title="Feature-Flags">
+    <ContentCard title="Feature-Flags">
       <Txt variant="caption" tone="secondary">
         Lokale Overrides gelten nur mit aktivierten Entwickler-Werkzeugen und unabhängig von der
         Umschaltung unter „Module“.
@@ -85,6 +85,6 @@ export function FeatureFlagControls() {
           }}
         />
       ) : null}
-    </Card>
+    </ContentCard>
   );
 }

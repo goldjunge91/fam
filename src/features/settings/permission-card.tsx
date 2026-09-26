@@ -1,7 +1,7 @@
 import { Linking, type StyleProp, Switch, View, type ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Txt } from '@/constants/ui';
 // `trackColor` benötigt echte Farbwerte statt CSS-Variablen.
 
@@ -76,7 +76,7 @@ export function PermissionCard({
 
   return (
     <View style={style}>
-      <Card title={title}>
+      <ContentCard title={title}>
         <View style={styles.row}>
           <View style={styles.rowText}>
             <Txt variant="body" weight="700">
@@ -92,7 +92,7 @@ export function PermissionCard({
             trackColor={{ false: colors.border, true: colors.accent }}
           />
         </View>
-      </Card>
+      </ContentCard>
     </View>
   );
 }

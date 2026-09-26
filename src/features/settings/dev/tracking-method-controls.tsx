@@ -1,4 +1,4 @@
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { useDevSettingsStore } from '@/constants/dev-settings';
 import { Button, Txt } from '@/constants/ui';
 import { getTrackingMethodSettings, TRACKING_METHODS } from '@/features/profile/tracking-methods';
@@ -13,7 +13,7 @@ export function TrackingMethodControls() {
   const settings = getTrackingMethodSettings(featureFlags, overrides);
 
   return (
-    <Card title="Tracking-Methoden-Steuerung">
+    <ContentCard title="Tracking-Methoden-Steuerung">
       <Txt variant="caption" tone="secondary">
         Standardmäßig sind Klassisch (CICO) und GLP-1 aktiv. Lokale Overrides gelten sofort und
         überleben einen Neustart.
@@ -37,6 +37,6 @@ export function TrackingMethodControls() {
           onPress={resetOverrides}
         />
       ) : null}
-    </Card>
+    </ContentCard>
   );
 }

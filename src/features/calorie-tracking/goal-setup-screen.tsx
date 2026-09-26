@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
@@ -245,18 +245,18 @@ export function GoalSetupScreen() {
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
       {!hasProfileFields ? (
-        <Card title="Profil vervollständigen">
+        <ContentCard title="Profil vervollständigen">
           <Txt variant="body" tone="secondary">
             Für die Berechnung fehlen noch Angaben zu Geschlecht, Geburtsdatum oder Körpergröße im
             Profil.
           </Txt>
           <Button title="Zum Profil & Account" onPress={() => router.push('/profile/edit')} />
-        </Card>
+        </ContentCard>
       ) : (
         <>
           {/* Karte mit aktuellem Kalorien- und Makroziel */}
           {currentGoal ? (
-            <Card title="Aktuelles Ziel">
+            <ContentCard title="Aktuelles Ziel">
               <Txt variant="title">{currentGoal.daily_kcal ?? '–'} kcal / Tag</Txt>
               <Txt variant="body" tone="secondary">
                 {GOAL_LABELS[currentGoal.goal_type as GoalType] ?? currentGoal.goal_type} · seit{' '}
@@ -269,12 +269,12 @@ export function GoalSetupScreen() {
                   onPress={() => setShowForm(true)}
                 />
               ) : null}
-            </Card>
+            </ContentCard>
           ) : null}
 
           {/* Formular zur Zieldefinition (Art, Tempo, Makros, Kalorien-Override) */}
           {formVisible ? (
-            <Card title="Neues Ziel">
+            <ContentCard title="Neues Ziel">
               <View style={styles.formStack}>
                 {/* Zielart: Abnehmen / Halten / Zunehmen */}
                 <Txt variant="body" weight="700">
@@ -434,7 +434,7 @@ export function GoalSetupScreen() {
                   ) : null}
                 </View>
               </View>
-            </Card>
+            </ContentCard>
           ) : null}
         </>
       )}

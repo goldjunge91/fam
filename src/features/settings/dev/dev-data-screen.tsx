@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Alert, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { describeDatabaseOwnership } from '@/features/settings/dev/dev-info';
@@ -110,7 +110,7 @@ export function DevDataScreen() {
       subtitle="Lokale Datenbank, Katalog-Dump und Outbox"
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon">
-      <Card title="Lokale Datenbank">
+      <ContentCard title="Lokale Datenbank">
         {dbError ? (
           <Txt variant="caption" tone="danger">
             Nicht lesbar: {dbError}
@@ -149,9 +149,9 @@ export function DevDataScreen() {
             loading={busy === 'wipe'}
           />
         </View>
-      </Card>
+      </ContentCard>
 
-      <Card title="OpenFoodFacts-Dump">
+      <ContentCard title="OpenFoodFacts-Dump">
         <Zeile
           label="Heruntergeladen"
           wert={offDump?.fileExists ? `ja · ${formatBytes(offDump.fileSizeBytes)}` : 'nein'}
@@ -229,7 +229,7 @@ export function DevDataScreen() {
             loading={busy === 'off-dump-integrity'}
           />
         </View>
-      </Card>
+      </ContentCard>
     </Screen>
   );
 }

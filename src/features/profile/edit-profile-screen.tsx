@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { updatePassword } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
@@ -287,7 +287,7 @@ export function EditProfileScreen() {
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
       {/* Profilbild-Karte mit Upload- & Löschen-Optionen */}
-      <Card title="Profilbild">
+      <ContentCard title="Profilbild">
         <ProfileAvatarEditor
           avatarUrl={avatarUrl}
           initials={initials}
@@ -295,10 +295,10 @@ export function EditProfileScreen() {
           onPick={() => void handlePickImage()}
           onDelete={() => void handleDeleteImage()}
         />
-      </Card>
+      </ContentCard>
 
       {/* Persönliche Angaben (Name & E-Mail-Adresse) */}
-      <Card title="Persönliche Angaben">
+      <ContentCard title="Persönliche Angaben">
         <View style={profileEditStyles.fields}>
           <TextField
             label="Name"
@@ -326,7 +326,7 @@ export function EditProfileScreen() {
           style={profileEditStyles.passwordButton}
           onPress={() => setPasswordSheetVisible(true)}
         />
-      </Card>
+      </ContentCard>
 
       <View style={profileEditStyles.summaries}>
         {caloriesTrackingEnabled ? (

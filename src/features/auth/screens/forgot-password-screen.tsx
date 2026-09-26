@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { requestPasswordReset } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
@@ -68,13 +68,13 @@ export function ForgotPasswordScreen() {
     return (
       <Screen title={t('auth.passwordReset.sentTitle')} back={backTarget}>
         {/* Bestätigungskarte nach E-Mail-Versand */}
-        <Card>
+        <ContentCard>
           {/* Bewusst neutral formuliert: Eine Bestaetigung, dass genau diese
               Adresse ein Konto hat, waere eine Auskunft ueber fremde Nutzer. */}
           <Txt variant="body">
             {t('auth.passwordReset.sentBody', { email: email.trim().toLowerCase() })}
           </Txt>
-        </Card>
+        </ContentCard>
         {/* Zurück-Aktion */}
         <Button
           title={
@@ -95,7 +95,7 @@ export function ForgotPasswordScreen() {
       subtitle={t('auth.passwordReset.subtitle')}
       back={backTarget}>
       {/* Formular zur Passworteingabe / Reset-Anfrage */}
-      <Card>
+      <ContentCard>
         <View style={styles.form}>
           {/* E-Mail-Eingabefeld */}
           <TextField
@@ -127,7 +127,7 @@ export function ForgotPasswordScreen() {
             loading={isSubmitting}
           />
         </View>
-      </Card>
+      </ContentCard>
 
       {/* Navigation zurück */}
       <Button

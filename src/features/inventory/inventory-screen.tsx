@@ -13,7 +13,7 @@ import { HistoryIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { EmptyState } from '@/components/ui/empty-state';
 import { Button, Divider, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -431,13 +431,13 @@ export function InventoryScreen() {
     return (
       <Screen title="Vorrat" chrome={chrome}>
         {/* Leerer Zustand wenn noch kein Haushalt aktiv/ausgewählt ist */}
-        <Card>
+        <ContentCard>
           <EmptyState
             symbol="archivebox"
             title="Noch kein Haushalt"
             hint="Lege im Profil einen Haushalt an oder tritt einem bei. Danach teilt ihr Vorrat und Einkaufsliste in Echtzeit."
           />
-        </Card>
+        </ContentCard>
       </Screen>
     );
   }

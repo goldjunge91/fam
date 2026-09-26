@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, Txt } from '@/constants/ui';
 import { showAdsPrivacyOptions } from '@/features/ads';
 
@@ -58,7 +58,7 @@ export function PrivacyScreen() {
       backStyle="icon">
       <View style={styles.sectionList}>
         {SECTION_KEYS.map((key) => (
-          <Card key={key}>
+          <ContentCard key={key}>
             {/* Die Card-Komponente setzt den Abstand zwischen Titel und Text. */}
             <Txt variant="body" weight="700">
               {t(`settings.groups.data.privacy.sections.${key}.title`)}
@@ -66,9 +66,9 @@ export function PrivacyScreen() {
             <Txt variant="body" tone="secondary">
               {t(`settings.groups.data.privacy.sections.${key}.body`)}
             </Txt>
-          </Card>
+          </ContentCard>
         ))}
-        <Card>
+        <ContentCard>
           <Txt variant="body" weight="700">
             {t('settings.groups.data.privacy.adsSettings.title')}
           </Txt>
@@ -82,7 +82,7 @@ export function PrivacyScreen() {
             loading={privacyOptionsLoading}
             onPress={handleAdsPrivacyOptions}
           />
-        </Card>
+        </ContentCard>
       </View>
     </Screen>
   );

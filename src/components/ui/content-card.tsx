@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { Card as FoundationCard, Txt } from '@/constants/ui';
 
-type CardProps = {
+type ContentCardProps = {
   children: ReactNode;
   title?: string;
   footer?: ReactNode;
@@ -12,7 +12,7 @@ type CardProps = {
 };
 
 /** Flaeche fuer zusammengehoerende Inhalte. Interaktion gehoert in den Inhalt. */
-export function Card({ children, title, footer, style }: CardProps) {
+export function ContentCard({ children, title, footer, style }: ContentCardProps) {
   return (
     <FoundationCard style={[styles.content, style]}>
       {title ? (

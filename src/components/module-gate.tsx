@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import type { ReactNode } from 'react';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { EmptyState } from '@/components/ui/empty-state';
 import { type FeatureId, getFeature } from '@/constants/feature-registry';
 import { Button } from '@/constants/ui';
@@ -38,7 +38,7 @@ export function ModuleGate({ feature, title: customTitle, children }: ModuleGate
   if (modules && targetModule && modules[targetModule] === false) {
     return (
       <Screen title={title}>
-        <Card>
+        <ContentCard>
           <EmptyState
             symbol="eye.slash"
             title="Modul nicht aktiviert"
@@ -48,7 +48,7 @@ export function ModuleGate({ feature, title: customTitle, children }: ModuleGate
             title="In den Einstellungen aktivieren"
             onPress={() => router.push('/settings/modules')}
           />
-        </Card>
+        </ContentCard>
       </Screen>
     );
   }
@@ -56,13 +56,13 @@ export function ModuleGate({ feature, title: customTitle, children }: ModuleGate
   if (featureFlagState === false || moduleFeatureFlagOverride === false) {
     return (
       <Screen title={title}>
-        <Card>
+        <ContentCard>
           <EmptyState
             symbol="hourglass"
             title="Noch nicht verfügbar"
             hint="Dieser Bereich wird gerade schrittweise ausgerollt und ist für dich noch nicht freigeschaltet."
           />
-        </Card>
+        </ContentCard>
       </Screen>
     );
   }

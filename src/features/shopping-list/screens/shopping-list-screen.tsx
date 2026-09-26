@@ -8,7 +8,7 @@ import { FamIcon, PlusIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { EmptyState } from '@/components/ui/empty-state';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { Button, Txt } from '@/constants/ui';
@@ -314,13 +314,13 @@ export function ShoppingListScreen() {
         title={t('shoppingList.screen.title')}
         subtitle={t('shoppingList.screen.subtitle')}
         chrome={chrome}>
-        <Card>
+        <ContentCard>
           <EmptyState
             symbol="cart"
             title={t('shoppingList.screen.noHousehold.title')}
             hint={t('shoppingList.screen.noHousehold.hint')}
           />
-        </Card>
+        </ContentCard>
       </Screen>
     );
   }
@@ -531,7 +531,7 @@ export function ShoppingListScreen() {
             />
 
             {allItems.length === 0 ? (
-              <Card>
+              <ContentCard>
                 <EmptyState
                   symbol="cart"
                   title={t('shoppingList.screen.empty.title')}
@@ -543,7 +543,7 @@ export function ShoppingListScreen() {
                     />
                   }
                 />
-              </Card>
+              </ContentCard>
             ) : (
               /* Gesamtkosten-Schätzung über alle Märkte */
               <TotalEstimateCard
@@ -580,7 +580,7 @@ export function ShoppingListScreen() {
           ListFooterComponent={renderShoppingActions()}
           ListEmptyComponent={
             <View style={styles.emptyState}>
-              <Card>
+              <ContentCard>
                 <EmptyState
                   symbol="cart"
                   title={
@@ -596,7 +596,7 @@ export function ShoppingListScreen() {
                     />
                   }
                 />
-              </Card>
+              </ContentCard>
             </View>
           }
           renderSectionHeader={({ section }) => {

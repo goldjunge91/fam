@@ -22,8 +22,8 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Card } from '@/components/ui/card';
 import { CompactActionButton } from '@/components/ui/compact-action-button';
+import { ContentCard } from '@/components/ui/content-card';
 import { EmptyState } from '@/components/ui/empty-state';
 import { FloatingActionButton } from '@/components/ui/floating-action-button';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
@@ -160,10 +160,10 @@ function SurfaceShowcase() {
         </View>
       </Subsection>
       <Subsection title="Feature-Card">
-        <Card title="Vorrat">
+        <ContentCard title="Vorrat">
           <Txt tone="secondary">12 Produkte, 2 laufen bald ab</Txt>
           <ProgressBar value={0.68} />
-        </Card>
+        </ContentCard>
       </Subsection>
       <Subsection title="Cards mit Schatten und Progress-Ringen">
         <PrimitiveCard style={styles.progressCard}>
@@ -257,7 +257,7 @@ function SurfaceShowcase() {
         </Txt>
         <CodeSample>
           {
-            '<Press onPress={...} accessibilityRole="button">\n  <Card>…</Card>\n</Press>\nPress (constants/ui.tsx) liefert Scale- und Haptik-Feedback — die Karte bleibt ohne Schatten.'
+            '<Press onPress={...} accessibilityRole="button">\n  <ContentCard>…</ContentCard>\n</Press>\nPress (constants/ui.tsx) liefert Scale- und Haptik-Feedback — die Karte bleibt ohne Schatten.'
           }
         </CodeSample>
       </Subsection>

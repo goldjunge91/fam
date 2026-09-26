@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { updatePassword } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
@@ -57,7 +57,7 @@ export function ResetPasswordScreen() {
       title={t('auth.passwordReset.newPasswordTitle')}
       subtitle={t('auth.passwordReset.newPasswordSubtitle')}>
       {/* Formular für neues Passwort */}
-      <Card>
+      <ContentCard>
         <View style={styles.form}>
           {/* Eingabe neues Passwort */}
           <TextField
@@ -100,7 +100,7 @@ export function ResetPasswordScreen() {
             loading={isSubmitting}
           />
         </View>
-      </Card>
+      </ContentCard>
     </Screen>
   );
 }

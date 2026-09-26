@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Alert, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
+import { ContentCard } from '@/components/ui/content-card';
 import { getAnalyticsSettings, useAnalyticsSettingsStore } from '@/constants/analytics';
 import { Button, Txt } from '@/constants/ui';
 import { initMobileAds, useAdsEnabled, useAdsOverrideStore } from '@/features/ads';
@@ -101,14 +101,14 @@ export function DevOverridesScreen() {
       subtitle="Lokale Laufzeit- und Feature-Steuerung"
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon">
-      <Card title="App-Sprache">
+      <ContentCard title="App-Sprache">
         <Txt variant="caption" tone="secondary">
           Standardmäßig wird die erste unterstützte Gerätesprache verwendet.
         </Txt>
         <LanguageOverrideControl />
-      </Card>
+      </ContentCard>
 
-      <Card title="Plus, KI & Werbung">
+      <ContentCard title="Plus, KI & Werbung">
         <Button
           title="Plus & KI für Haushalt zurücksetzen"
           variant="secondary"
@@ -178,19 +178,19 @@ export function DevOverridesScreen() {
             onPress={() => setAdsOverride(null)}
           />
         ) : null}
-      </Card>
+      </ContentCard>
 
-      <Card title="Feature-Status">
+      <ContentCard title="Feature-Status">
         <Zeile
           label="Flag „test-feature“"
           wert={testFeatureFlag ? 'an' : 'aus'}
           tone={testFeatureFlag ? undefined : 'warning'}
         />
-      </Card>
+      </ContentCard>
 
       <FeatureFlagControls />
 
-      <Card title="Analytics-Steuerung">
+      <ContentCard title="Analytics-Steuerung">
         <Zeile label="Standardwerte" wert="alle an" tone="accent" />
         <Txt variant="caption" tone="secondary">
           Lokale Overrides gelten sofort und überleben einen Neustart.
@@ -217,7 +217,7 @@ export function DevOverridesScreen() {
             }}
           />
         ) : null}
-      </Card>
+      </ContentCard>
 
       <TrackingMethodControls />
     </Screen>
