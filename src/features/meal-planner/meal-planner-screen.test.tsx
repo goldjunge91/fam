@@ -1,6 +1,7 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { MIN_TOUCH_SIZE } from '@/constants/ui';
 import { MealPlannerScreen } from './meal-planner-screen';
 
 function renderScreen() {
@@ -167,6 +168,20 @@ describe('MealPlannerScreen', () => {
 
     expect(screen.getByRole('tab', { name: 'Tag-Ansicht' })).toBeOnTheScreen();
     expect(screen.getByRole('tab', { name: 'Woche-Ansicht', selected: true })).toBeOnTheScreen();
+  });
+
+  // fam-7ndw: beide Perioden-Pfeile sind eigenständige Aktionen und tragen
+  // ihre Mindestflaeche auf dem `containerStyle` von `Press`.
+  it('haelt die Perioden-Navigation auf mindestens 44 Punkten Touchflaeche', async () => {
+    await renderScreen();
+
+    for (const label of ['Vorheriger Zeitraum', 'Nächster Zeitraum']) {
+      expect(screen.getByRole('button', { name: label })).toHaveStyle({
+        width: MIN_TOUCH_SIZE,
+        height: MIN_TOUCH_SIZE,
+      });
+    }
+    expect(MIN_TOUCH_SIZE).toBeGreaterThanOrEqual(44);
   });
 
   it('blendet die wochenweiten Aktionen in der Tagesansicht aus', async () => {

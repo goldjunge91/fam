@@ -1,5 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
+import { MIN_TOUCH_SIZE } from '@/constants/ui';
 import type { RecipeDetail } from '../hooks/use-recipes';
 import { RecipeLogScreen } from './recipe-log-screen';
 
@@ -127,6 +128,18 @@ describe('RecipeLogScreen', () => {
     expect(screen.getByDisplayValue('300')).toBeOnTheScreen();
     expect(screen.getByDisplayValue('200')).toBeOnTheScreen();
     expect(screen.getByText('780 kcal')).toBeOnTheScreen();
+  });
+
+  // fam-7ndw: der sichtbare 32-Punkt-Kreis sitzt in einem 44-Punkt-Container.
+  // Der Screen ist nur im Sheet-State gerendert, deshalb wird der Button hier
+  // ueber seine Rolle geprueft, sobald das Sheet offen ist.
+  it('haelt den Schliessen-Knopf auf mindestens 44 Punkten Touchflaeche', async () => {
+    await render(<RecipeLogScreen />);
+
+    const closeButton = screen.getByRole('button', { name: 'Schließen' });
+
+    expect(closeButton).toHaveStyle({ width: MIN_TOUCH_SIZE, height: MIN_TOUCH_SIZE });
+    expect(MIN_TOUCH_SIZE).toBeGreaterThanOrEqual(44);
   });
 
   it('passt die Naehrwerte an, wenn eine Komponenten-Menge geaendert wird, ohne das Rezept zu veraendern', async () => {

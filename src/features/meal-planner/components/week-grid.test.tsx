@@ -1,5 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 
+import { MIN_TOUCH_SIZE } from '@/constants/ui';
 import type { MealPlanEntry } from '../use-meal-plans';
 import { weekDates } from '../week';
 import { WeekGrid } from './week-grid';
@@ -54,6 +55,24 @@ describe('WeekGrid', () => {
     );
 
     expect(screen.getAllByText('+ Gericht').length).toBe(9); // 3 Tage x 3 Slots
+  });
+
+  // fam-7ndw: der Platzhalter ist ein produktives Touch-Ziel und muss die
+  // Mindestflaeche aus `MIN_TOUCH_SIZE` einhalten.
+  it('haelt den Platzhalter auf mindestens 44 Punkten Touchflaeche', async () => {
+    await render(
+      <WeekGrid
+        dates={['2026-08-17']}
+        entries={[]}
+        onTapEntry={jest.fn()}
+        onTapEmptyCell={jest.fn()}
+      />,
+    );
+
+    const addButton = screen.getAllByRole('button', { name: /Gericht hinzufügen/u })[0];
+
+    expect(addButton).toHaveStyle({ minHeight: MIN_TOUCH_SIZE });
+    expect(MIN_TOUCH_SIZE).toBeGreaterThanOrEqual(44);
   });
 
   it('zeigt einen zugeordneten Wochenplan-Eintrag mit Rezepttitel und Portionen', async () => {
