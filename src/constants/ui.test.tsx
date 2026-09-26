@@ -310,6 +310,11 @@ describe('core theme UI primitives', () => {
     expect(loading).toBeDisabled();
     expect(loading).toBeBusy();
 
+    await fireEvent(disabled, 'pressIn');
+    await fireEvent(loading, 'pressIn');
+    expect(disabled).toHaveStyle({ opacity: 0.6 });
+    expect(loading).toHaveStyle({ opacity: 0.6 });
+
     await user.press(disabled);
     await user.press(loading);
 
@@ -362,6 +367,36 @@ describe('core theme UI primitives', () => {
       }),
     );
   });
+
+  it.each(
+    buttonVariants.flatMap((variant) =>
+      [false, true].flatMap((flat) =>
+        [false, true].map((reducedMotion) => ({ variant, flat, reducedMotion })),
+      ),
+    ),
+  )(
+    'shows and clears pressed feedback for $variant (flat: $flat, reduced motion: $reducedMotion)',
+    async ({ variant, flat, reducedMotion }) => {
+      reducedMotionMock.mockReturnValue(reducedMotion);
+      const onPress = jest.fn();
+      await render(<Button title="Aktion" variant={variant} flat={flat} onPress={onPress} />);
+
+      const button = screen.getByRole('button', { name: 'Aktion' });
+      await fireEvent(button, 'pressIn');
+      expect(button).toHaveStyle({ opacity: 0.78 });
+
+      const hasDepth = !flat && ['primary', 'danger', 'accent'].includes(variant);
+      const animatesDepth = hasDepth && !reducedMotion;
+      expect(withTimingSpy).toHaveBeenCalledTimes(animatesDepth ? 1 : 0);
+      await fireEvent(button, 'pressOut');
+      expect(button).toHaveStyle({ opacity: 1 });
+      expect(withSpringSpy).toHaveBeenCalledTimes(animatesDepth ? 1 : 0);
+
+      await fireEvent.press(button);
+      expect(onPress).toHaveBeenCalledTimes(1);
+      expect(mockHaptics.medium).toHaveBeenCalledTimes(1);
+    },
+  );
 
   it('keeps secondary and danger buttons on the themed render path', async () => {
     await render(
@@ -643,6 +678,7 @@ describe('core theme UI primitives', () => {
 
     expect(screen.getByText('Wochenplan')).toHaveStyle({
       textTransform: 'uppercase',
+      letterSpacing: 0.76,
       color: mockColorsLight.textSecondary,
       fontWeight: '600',
     });

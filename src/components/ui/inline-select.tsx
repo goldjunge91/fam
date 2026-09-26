@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { radius, space } from '@/components/theme/index';
+import { borderWidth, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 
@@ -10,6 +10,7 @@ export type InlineSelectOption = {
   value: string;
   label: string;
   icon?: string;
+  testID?: string;
   /** Zeigt die Option an, aber deaktiviert sie (z. B. noch nicht gebaute Filter). */
   disabled?: boolean;
   /** Kurzer Hinweistext neben einer deaktivierten Option, z. B. "bald". */
@@ -21,6 +22,9 @@ type InlineSelectProps = {
   options: readonly InlineSelectOption[];
   onChange: (value: string) => void;
   accessibilityLabel: string;
+  triggerTestID?: string;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 };
 
 const styles = StyleSheet.create({
@@ -32,7 +36,7 @@ const styles = StyleSheet.create({
     height: 44,
     borderRadius: radius.sm,
     borderCurve: 'continuous',
-    borderWidth: 1,
+    borderWidth: borderWidth.base,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -49,7 +53,7 @@ const styles = StyleSheet.create({
     zIndex: 20,
     borderRadius: radius.sm,
     borderCurve: 'continuous',
-    borderWidth: 1,
+    borderWidth: borderWidth.base,
     padding: space.xs,
     gap: space.md,
   },
@@ -69,16 +73,31 @@ const styles = StyleSheet.create({
   },
 });
 
-export function InlineSelect({ value, options, onChange, accessibilityLabel }: InlineSelectProps) {
-  const [open, setOpen] = useState(false);
+export function InlineSelect({
+  value,
+  options,
+  onChange,
+  accessibilityLabel,
+  triggerTestID,
+  open: controlledOpen,
+  onOpenChange,
+}: InlineSelectProps) {
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
+  const open = controlledOpen ?? uncontrolledOpen;
   const { colors } = useTheme();
   const selected = options.find((option) => option.value === value);
+
+  function setOpen(nextOpen: boolean) {
+    if (controlledOpen === undefined) setUncontrolledOpen(nextOpen);
+    onOpenChange?.(nextOpen);
+  }
 
   return (
     <View style={styles.root}>
       <Press
+        testID={triggerTestID}
         haptic="selection"
-        onPress={() => setOpen((current) => !current)}
+        onPress={() => setOpen(!open)}
         accessibilityRole="button"
         accessibilityLabel={accessibilityLabel}
         accessibilityState={{ expanded: open }}
@@ -111,6 +130,7 @@ export function InlineSelect({ value, options, onChange, accessibilityLabel }: I
             const active = option.value === value;
             return (
               <Press
+                testID={option.testID}
                 haptic="selection"
                 key={option.value}
                 disabled={option.disabled}

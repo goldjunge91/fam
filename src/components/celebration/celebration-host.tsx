@@ -153,7 +153,7 @@ export function CelebrationHost() {
   if (!burst) return null;
 
   return (
-    <View pointerEvents="none" style={styles.overlay}>
+    <View pointerEvents="none" style={[StyleSheet.absoluteFill, styles.overlay]}>
       {PIECE_IDS.map((pieceId, index) => (
         <ConfettiPiece
           key={`${burst.id}-${pieceId}`}
@@ -165,7 +165,7 @@ export function CelebrationHost() {
         />
       ))}
       {burst.message ? (
-        <View style={styles.badgeWrap} pointerEvents="none">
+        <View style={[StyleSheet.absoluteFill, styles.badgeWrap]} pointerEvents="none">
           <Badge key={burst.id} message={burst.message} colors={colors} />
         </View>
       ) : null}
@@ -175,11 +175,9 @@ export function CelebrationHost() {
 
 const styles = StyleSheet.create({
   overlay: {
-    ...StyleSheet.absoluteFill,
     zIndex: 1000,
   },
   badgeWrap: {
-    ...StyleSheet.absoluteFill,
     alignItems: 'center',
     justifyContent: 'center',
   },

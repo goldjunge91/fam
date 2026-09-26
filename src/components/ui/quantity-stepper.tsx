@@ -23,7 +23,7 @@ const styles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
     alignItems: 'stretch',
     overflow: 'hidden',
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
     borderRadius: radius.sm,
     borderCurve: 'continuous',

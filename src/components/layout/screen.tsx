@@ -14,6 +14,7 @@ import { IconButton, Row, Surface, Txt } from '@/constants/ui';
 export type { BackTarget } from '@/components/layout/back-button';
 
 const SCREEN_BOTTOM_CLEARANCE = 96;
+const SCREEN_TITLE_GAP = space.xs / 2;
 
 const styles = StyleSheet.create({
   body: {
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
   chromeTitle: {
     flex: 1,
     alignItems: 'center',
-    gap: space.xs / 2,
+    gap: SCREEN_TITLE_GAP,
   },
   chromeActions: {
     flexDirection: 'row',
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
   },
   titleBlock: {
     flexShrink: 1,
-    gap: space.xs / 2,
+    gap: SCREEN_TITLE_GAP,
   },
   fill: {
     flex: 1,
@@ -89,7 +90,7 @@ export function ScreenHeader({
         <View style={{ flex: 1 }}>
           <Txt variant="title">{title}</Txt>
           {subtitle ? (
-            <Txt variant="label" style={{ marginTop: space.xs / 2 }}>
+            <Txt variant="label" style={{ marginTop: SCREEN_TITLE_GAP }}>
               {subtitle}
             </Txt>
           ) : null}

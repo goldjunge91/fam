@@ -54,6 +54,7 @@ import {
 // Springs tuned for a satisfying, Duolingo-ish "pop" on press/release.
 export const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;
 const POP_SPRING = { damping: 9, stiffness: 380, mass: 0.5 } as const;
+const PRESSED_OPACITY = 0.78;
 
 /** Provider identity colors used by branded authentication icons. */
 export const providerColors = {
@@ -243,7 +244,7 @@ const cardStyles = StyleSheet.create((theme) => ({
     backgroundColor: theme.backgroundElement,
     borderRadius: radius.lg,
     borderCurve: 'continuous',
-    borderWidth: 1,
+    borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
   },
   soft: { backgroundColor: theme.backgroundSoft },
@@ -300,7 +301,7 @@ const pressSuccessStyles = StyleSheet.create((theme) => ({
 
 const pressInteractionStyles = StyleSheet.create({
   reducedMotionPressed: {
-    opacity: 0.78,
+    opacity: PRESSED_OPACITY,
   },
 });
 
@@ -786,7 +787,7 @@ export function Button({
     minWidth: 44,
     paddingHorizontal: variant === 'link' ? space.md : pad.paddingHorizontal,
     paddingVertical: variant === 'link' ? space.sm : pad.paddingVertical,
-    opacity: isDisabled ? 0.6 : reducedMotion && isPressed ? 0.78 : 1,
+    opacity: isDisabled ? 0.6 : isPressed ? PRESSED_OPACITY : 1,
     overflow: 'hidden',
   };
 
@@ -807,8 +808,9 @@ export function Button({
             accessibilityLabel={accessibilityLabel ?? title}
             accessibilityState={{ disabled: isDisabled, busy: loading }}
             onPressIn={() => {
+              if (isDisabled) return;
               setIsPressed(true);
-              if (hasDepth && !isDisabled && !reducedMotion) {
+              if (hasDepth && !reducedMotion) {
                 depth.value = withTiming(BUTTON_DEPTH, { duration: motion.pressIn });
               }
             }}
@@ -1168,7 +1170,6 @@ const sectionHeadingStyles = StyleSheet.create((theme) => ({
     flexShrink: 1,
   },
   eyebrow: {
-    letterSpacing: 0.7,
     textTransform: 'uppercase',
   },
   action: {
@@ -1198,7 +1199,7 @@ export function SectionHeading({
     <Row justify="space-between" style={[sectionHeadingStyles.root, style]}>
       <View style={sectionHeadingStyles.content}>
         {eyebrow ? (
-          <Txt variant="caption" tone="secondary" weight="600" style={sectionHeadingStyles.eyebrow}>
+          <Txt variant="eyebrow" tone="secondary" weight="600" style={sectionHeadingStyles.eyebrow}>
             {eyebrow}
           </Txt>
         ) : null}

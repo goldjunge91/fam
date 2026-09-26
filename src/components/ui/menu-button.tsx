@@ -17,7 +17,7 @@ export function MenuButton({ onPress }: MenuButtonProps) {
       onPress={onPress}
       testID="navigation-menu-open"
       accessibilityLabel="Menü öffnen"
-      color={colors.premiumActionText}
+      color={colors.accent}
       bg={colors.backgroundSoft}
       size={54}
       iconSize={20}

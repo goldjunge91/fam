@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -23,6 +24,7 @@ type ItemSourceFilterRowProps = {
   suggestionFilter: SuggestionFilter;
   onSuggestionFilterChange: (filter: 'frequent' | 'recent') => void;
   suggestionAccessibilityLabel: string;
+  testIDPrefix?: string;
 };
 
 export function ItemSourceFilterRow({
@@ -32,18 +34,32 @@ export function ItemSourceFilterRow({
   suggestionFilter,
   onSuggestionFilterChange,
   suggestionAccessibilityLabel,
+  testIDPrefix,
 }: ItemSourceFilterRowProps) {
+  const [openSelect, setOpenSelect] = useState<'source' | 'suggestion' | null>(null);
+
+  const testID = (suffix: string) => (testIDPrefix ? `${testIDPrefix}-${suffix}` : undefined);
+
   return (
     <View style={styles.root}>
       <InlineSelect
         value={source}
         accessibilityLabel={sourceAccessibilityLabel}
+        triggerTestID={testID('source-trigger')}
+        open={openSelect === 'source'}
+        onOpenChange={(open) => setOpenSelect(open ? 'source' : null)}
         options={[
-          { value: 'food', label: 'Lebensmittel', icon: '🥕' },
+          {
+            value: 'food',
+            label: 'Lebensmittel',
+            icon: '🥕',
+            testID: testID('source-food-option'),
+          },
           {
             value: 'dish',
             label: 'Gerichte',
             icon: '🍽️',
+            testID: testID('source-dish-option'),
             disabled: true,
             disabledHint: 'bald',
           },
@@ -55,13 +71,27 @@ export function ItemSourceFilterRow({
       <InlineSelect
         value={suggestionFilter}
         accessibilityLabel={suggestionAccessibilityLabel}
+        triggerTestID={testID('suggestion-trigger')}
+        open={openSelect === 'suggestion'}
+        onOpenChange={(open) => setOpenSelect(open ? 'suggestion' : null)}
         options={[
-          { value: 'frequent', label: 'Häufig', icon: '🕘' },
-          { value: 'recent', label: 'Zuletzt', icon: '🔁' },
+          {
+            value: 'frequent',
+            label: 'Häufig',
+            icon: '🕘',
+            testID: testID('suggestion-frequent-option'),
+          },
+          {
+            value: 'recent',
+            label: 'Zuletzt',
+            icon: '🔁',
+            testID: testID('suggestion-recent-option'),
+          },
           {
             value: 'favorites',
             label: 'Favoriten',
             icon: '⭐',
+            testID: testID('suggestion-favorites-option'),
             disabled: true,
             disabledHint: 'bald',
           },
