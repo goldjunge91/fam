@@ -1,108 +1,68 @@
 # Vertrag: Screens und Navigation
 
-## Zweck und Zuständigkeit
+## Zuständigkeit
 
-`Screen` ist das gemeinsame Gerüst für Safe Area, Hintergrund, Inhaltsbreite,
-Scrollen, Tastatur, unteren Freiraum und Header. Es verwendet Tokens aus
-`index.ts`, das aktive Theme aus dem Provider und gemeinsame Darstellung aus
-`ui.tsx`. `HubScreen` und weitere vorhandene Kompositionen wenden dieselben Regeln
-an, ohne eine zweite Header-/Flächenpalette zu besitzen.
-
-Domänen wählen Datenzustände und Aktionen. Gemeinsame Layout- und Zustandsdarstellung
-wird nicht für jeden Screen neu gebaut. Native Spezialflächen wie Kamera oder
-Medienviewer dürfen einen begründeten eigenen Container verwenden.
+Screen bündelt Safe Area, Hintergrund, Inhaltsbreite, Scrollen, Tastatur,
+unteren Freiraum und Header. Es verwendet Tokens aus
+[index.ts](../../../src/components/theme/index.ts), die aktive Palette aus dem
+ThemeProvider und gemeinsame Darstellung aus
+[ui.tsx](../../../src/constants/ui.tsx). HubScreen und andere Kompositionen
+verwenden dieselben Regeln. Fachscreens wählen Datenzustände und Aktionen;
+Kamera und Medienviewer dürfen einen begründeten nativen Container verwenden.
 
 ## Header und Navigation
 
-| Modus | Zweck |
-| --- | --- |
-| `chrome` | Hauptbereich mit Menü, Titel, Aktionen und Profil |
-| `back` | Unterseite mit Historie und gegebenenfalls Fallback-Ziel |
-| normaler Titel | einfacher Screen ohne Hauptbereichschrome |
-| `ScreenHeader` | bewusst manuell komponierter Header auf denselben Regeln |
+chrome ist der Hauptbereich mit Menü, Titel, Aktionen und Profil; back ist eine
+Unterseite mit Historie und optionalem Fallback. Ein normaler Titel ist für
+einfache Screens. ScreenHeader kann denselben Vertrag gezielt manuell
+komponieren. chrome und back werden nicht gleichzeitig verwendet. Navigationswege
+und Aktionen bleiben erhalten; diese Regeln schreiben keine neue
+Informationsarchitektur vor.
 
-`chrome` und `back` werden nicht gleichzeitig verwendet. Bestehende Navigationswege,
-Hauptaktionen und Rückwege bleiben erhalten. Diese Contracts autorisieren keinen
-Umbau der Informationsarchitektur.
+SectionHeading kommt ausschließlich aus ui.tsx. Es bietet title, optional
+eyebrow, titleVariant, action/onAction und lokales style. Der Default ist
+heading; body ist eine bewusste Wahl für bestehende Hierarchie. Eine Aktion ist
+nur mit sichtbarem Namen und Callback interaktiv, hat Button-Semantik und einen
+wirksamen Touchbereich. Pressed- und Reduced-Motion-Feedback verwenden Press.
+Consumers erfinden keine semantische Farbe, Typografie oder Pressable-Darstellung.
 
-Lange Titel und große Schrift dürfen Header wachsen oder kontrolliert umbrechen
-lassen. Aktionen dürfen nicht verschwinden, sich überlagern oder den Titel unlesbar
-zusammendrücken. Titel verwenden die zentrale Typografie. Zusätzliche dekorative
-Untertitelzeilen werden nicht eingeführt. Änderungen an bestehender Header-Copy
-oder konkreter Anordnung benötigen die vorgesehene Mockauswahl.
+Lange Titel und große Schrift dürfen umbrechen. Aktionen bleiben erreichbar und
+drücken Titel nicht unlesbar zusammen. Neue dekorative Untertitel werden nicht
+eingeführt. Änderungen an konkreter Header-Copy oder Anordnung benötigen die
+Mockauswahl nach AGENTS.md.
 
-### `SectionHeading`
+## Scrollen, Insets und Tastatur
 
-`SectionHeading` wird ausschließlich aus `src/constants/ui.tsx` importiert. Es
-gibt keine parallele Layout-Implementierung unter `src/components/layout/`.
-Die Primitive verwendet `title`, optional `eyebrow`, `titleVariant`, optional
-`action`/`onAction` sowie ein lokales `style`-Override. Der Default ist die
-zentrale Variante `heading`; ein Consumer darf `body` ausdrücklich wählen, wenn
-der bestehende Screen diese Hierarchie benötigt.
+- Pro Inhaltsbereich verantwortet genau ein Container das Scrollen. FlashList
+  wird nicht in ScrollView verschachtelt.
+- Safe-Area-Insets werden einmal berücksichtigt. Gemeinsame Aktionsmaße kommen
+  aus Tokens, native Insets bleiben Laufzeitwerte.
+- Letzte Zeile und Aktionen bleiben über globalen Aktionsflächen erreichbar;
+  lokales Padding reserviert denselben Freiraum nicht doppelt.
+- Tastatur und Sheets verdecken keine Eingabe oder Bestätigungsaktion. Für die
+  Toolbar-Verantwortung gilt [Vertrag 08](./08-fields-and-selection.md).
+- Rotation und Web-Resize aktualisieren das Layout ohne Neustart. Die zentrale
+  maximale Inhaltsbreite bleibt in den Theme-/Layoutwerten definiert.
 
-Eine Abschnittsaktion ist nur mit sichtbarer Beschriftung und Callback interaktiv.
-Sie besitzt einen zugänglichen Namen, eine native Button-Rolle und einen
-wirksamen Touchbereich. Pressed- und Reduced-Motion-Feedback laufen über die
-zentrale `Press`-Basis. Consumer liefern keine eigene semantische Farbe,
-Typografie oder zweite Pressable-Darstellung.
+## Inhalte und erreichbare Aktionen
 
-## Scrollen, Safe Area und Tastatur
+Bei schmaler Breite und großer Systemschrift bleiben notwendige Informationen und
+Aktionen erreichbar. Schrift wird nicht pauschal verkleinert; Screens laufen
+nicht horizontal über. Fachliche Grids und Filter dürfen horizontal scrollen,
+wenn sie bedienbar bleiben.
 
-- Pro Inhaltsbereich gibt es einen verantwortlichen Scrollcontainer. Nutzt ein
-  Screen eine FlashList oder einen eigenen ScrollView, übernimmt das äußere
-  Gerüst nicht zusätzlich das Scrollen desselben Inhalts.
-- FlashList wird nicht in einen ScrollView verschachtelt. Nicht scrollende kleine
-  Inhaltsgruppen werden direkt gerendert.
-- Safe-Area-Werte werden genau einmal berücksichtigt, auch bei sichtbarem
-  Sync-Banner. Feste gemeinsame Aktionsmaße stammen aus zentralen Tokens;
-  tatsächliche native Insets bleiben Laufzeitwerte.
-- Die letzte Zeile samt Aktionen muss vollständig über globale Aktionsflächen
-  scrollen können. Zusätzliche lokale Bottom-Paddings dürfen nicht versehentlich
-  denselben Freiraum mehrfach reservieren.
-- Tastatur und Sheets verdecken keine notwendige Eingabe oder Bestätigungsaktion.
-  Keyboard-/Toolbar-Verantwortung folgt [Vertrag 08](./08-fields-and-selection.md).
-- Rotation und Web-Resize aktualisieren die Anordnung ohne Neustart. Die bestehende
-  maximale Inhaltsbreite 600 bleibt Ausgangspunkt.
+Einkaufszeilen behalten erkennbare Namen und nicht überlagerte Mengen/Preise.
+Vollständige Information bleibt erreichbar, auch wenn die Anzeige gezielt kürzt.
+Mengenformatierung und Preislogik ändern sich nicht im Rahmen dieser Layoutregeln.
 
-## Dichte, Inhalte und erreichbare Aktionen
-
-Bei 320 logischen Einheiten Breite und Schriftfaktor 2,0 bleiben notwendige
-Informationen und primäre Aktionen zugänglich. Kein pauschales Verkleinern der
-Schrift und kein horizontaler Screen-Overflow. Explizit horizontale Filter oder
-fachliche Grids sind zulässig, wenn sie zugänglich bedienbar bleiben.
-
-Einkaufszeilen erhalten identifizierbare Namen, nicht überlagernde Mengen/Preise
-und vergleichbar ausgerichtete Zahlen. Gezielte Kürzung ist nur mit erreichbar
-vollständiger Information zulässig. Die konkrete ein-/zweizeilige Gestaltung ist
-eine Mockentscheidung; Mengenformatierung und Preislogik bleiben unverändert.
-
-Long-Press-/Swipe-Funktionen bleiben erhalten. Wenn die Geste allein nicht
-zugänglich bedienbar ist, gibt es eine erreichbare alternative Aktion.
-Status-/Lade-/Fehlerdarstellung richtet sich nach
-[Vertrag 10](./10-accessibility-and-states.md). Ein fehlender Haushalt ist kein
-leerer Datenbestand; Offline mit lokal vorhandenen Daten bleibt nutzbar.
-
-## Beispiel der vorgesehenen Verwendung
-
-```tsx
-import { Screen } from '@/components/layout/screen';
-
-<Screen
-  title="Produktsuche"
-  back={{ label: 'Einstellungen', href: '/settings' }}
-  backStyle="icon">
-  {content}
-</Screen>
-```
-
-Ein gewöhnlicher Feature-Screen mit eigener Safe-Area-/Header-/Typografiedefinition
-umgeht das Gerüst. Ein native bedingter eigener Container benötigt eine konkrete
-Integrationsbegründung statt einer pauschalen Ausnahme für das gesamte Feature.
+Long-Press und Swipe behalten eine erreichbare alternative Aktion, wenn die
+Geste allein nicht zugänglich bedienbar ist. Lade-, Fehler- und Datenzustände
+folgen [Vertrag 10](./10-accessibility-and-states.md). Ein fehlender Haushalt
+ist kein leerer Datenbestand; lokal vorhandene Daten bleiben offline nutzbar.
 
 ## Nachweis
 
-Gezielte Screen-Tests prüfen Header-/Scroll-/Inset-Verhalten. Native Prüfung mit
-Tastatur, Sheet, Sync-Banner, langer Liste, langem Titel und großer Schrift belegt
-die tatsächliche Erreichbarkeit. Web-Resize und native Rotation werden gesondert
-geprüft. Bestehende Funktionen und Gegenaktionen bleiben Teil der betroffenen
-Flow-Prüfung. Die Navigation wird dafür nicht neu spezifiziert.
+Gezielte Prüfungen bewerten Header, Scrollen, Insets und betroffene Aktionen.
+Native Prüfung umfasst Tastatur, Sheet, Sync-Banner, lange Listen, Titel und
+große Schrift. Web-Resize und native Rotation sind getrennte Fälle. Ein
+Web-Screenshot belegt kein natives Verhalten.

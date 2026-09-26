@@ -1,102 +1,51 @@
 # Vertrag: Theme und Farben
 
-## Zweck und Zuständigkeit
+## Zuständigkeit
 
-Light, Dark und System verwenden dieselben semantischen Rollen. fam bleibt in
-seiner warmen Mauve-/Creme-Palette. Screens wählen Bedeutungen statt Hexwerte.
-Tokens und Palettentypen gehören nach `src/components/theme/index.ts`, die aktive
-Palette zum `ThemeProvider`, ihre Zuordnung zur Darstellung nach `ui.tsx`.
+Paletten und Farbwerte liegen in [index.ts](../../../src/components/theme/index.ts).
+Semantische Farbpaare und Komponentenrezepte liegen in [ui.tsx](../../../src/constants/ui.tsx).
+Der ThemeProvider wählt die aktive Palette.
 
-Wichtige bestehende APIs sind `Colors`, `colorsLight`, `colorsDark`, `Palette`,
-`makeAccent()`, `ThemeProvider`, `useTheme()`, `useThemedStyles()` und `setPref()`.
-`makeCategoryTone()` gehört nicht zum Zielzustand. Die Existenz einer API macht
-nicht jede Kombination ihrer Werte zulässig.
+## Theme-Regeln
 
-## Eine aktive Themeentscheidung
-
-- Alle fam-eigenen Texte, Hintergründe, Konturen, Placeholder, Cursor, Icons und
-  Zustände folgen der aufgelösten Provider-Präferenz.
-- `system` reagiert auf laufende Systemänderungen. Explizit `light` oder `dark`
-  bleibt unabhängig davon, auch wenn das Betriebssystem das Gegentheme verwendet.
-- Themewechsel benötigt keinen Remount und erhält Formulareingaben und Fokus.
-- Der bestehende Präferenzschlüssel bleibt kompatibel. Ohne verfügbare Persistenz
-  funktioniert die Auswahl während der Sitzung weiter.
-- Keine `vars()`-Bridge und keine zweite parallele Themeauflösung.
-  Die noch vorhandenen CSS-Farben sind Migrationsbestand, keine normative Palette.
+- Texte, Flächen, Konturen, Cursor, Icons und Zustände folgen der aktiven
+  Theme-Präferenz. system folgt laufenden Betriebssystemänderungen; explizites
+  light oder dark bleibt unabhängig davon.
+- Ein Themewechsel braucht keinen Remount und erhält Formulareingaben und Fokus.
+  Der bestehende Präferenzschlüssel bleibt kompatibel. Ohne verfügbare
+  Persistenz funktioniert die Auswahl in der Sitzung weiter.
+- Produktcode verwendet keine statische Light-Palette für themeabhängige
+  Darstellung und erfindet keine zweite Theme-Auflösung.
+- Screens wählen semantische Rollen statt eigener Hexwerte.
 
 ## Farbpaare und Semantik
 
-Jede gefüllte Aktion, jeder Status und jedes Badge-Rezept besitzt ausdrücklich
-zugeordnete Vordergrund-/Hintergrundwerte. `onAccent` ist nur für die dafür
-geprüfte Akzentfläche vorgesehen. Statusfüllung und Statustext werden getrennt,
-wenn derselbe Wert den notwendigen Kontrast nicht erfüllt.
+Gefüllte Aktionen, Status und Badges brauchen ein geprüftes Vordergrund-/
+Hintergrundpaar. Status und Auswahl bleiben zusätzlich über Text, Symbol oder
+Form erkennbar. Schattenfarben sind nur für Schatten bestimmt.
 
-Schattenfarben dienen Schatten, niemals Text oder informativen Icons. Historische
-Aliasnamen wie `basil`, `carrot`, `sky` und `tomato` sind keine Basis neuer
-Produktrezepte. Neue Verwendungen wählen kanonische Bedeutungen wie `accent`,
-`warning`, `danger`, `backgroundElement` und `textSecondary`.
+Domain- und Medienfarben bleiben bei ihrem Fach- oder Integrations-Owner, wenn
+sie externe Kennzeichnung oder nutzergewählte Werte darstellen. Sie werden nicht
+in die globale Palette kopiert.
 
-Statische Light-Exports wie `colors`, `accent` und `theme.colors` dürfen keine
-themeabhängige Produktdarstellung versorgen. `colorsLight` und `colorsDark`
-stellen ausschließlich kanonische Rollen bereit. Die Waivy-Palette und ihre
-Aliase werden entfernt. Domain-Accent-Keys bleiben zulässig, wenn sie eine
-belegte Bedeutung und geprüfte Farbpaare besitzen; `makeAccent()` löst sie aus
-kanonischen Fam-Tokens auf.
+### SpeedDial
 
-### SpeedDial-Funktionsflächen
+SpeedDial-Aktionsflächen sind gemeinsame UI-Semantik und liegen als Tokens in
+index.ts. Die Feature-Registry trägt nur den semantischen Theme-Key, keine
+Hexwerte oder zweite Farbzuordnung. Consumers lösen den Key über die aktive
+Palette auf.
 
-Die festen Flächen der vier SpeedDial-Aktionen sind UI-Semantik und gehören als
-typisierte Light-/Dark-Tokens nach `src/components/theme/index.ts`. Die
-Feature-Registry transportiert ausschließlich den semantischen Theme-Key; sie
-definiert keine Hexwerte und keine zweite Farbzuordnung. Der Consumer löst den
-Key über die aktive Palette auf.
+## Kontrast
 
-## Kontrastvertrag
+Informativer Text, einschließlich Placeholder und Metadaten, erreicht mindestens
+4,5:1. Notwendige nichttextliche Zustandsmerkmale und Fokusindikatoren erreichen
+mindestens 3:1 gegenüber angrenzenden Farben. Das Textziel gilt auch für große
+Schrift. Deaktivierte Controls sind vom 4,5:1-Textziel ausgenommen, bleiben
+aber erkennbar. Informative Status-Badges fallen nicht unter diese Ausnahme.
 
-| Verwendung | Mindestkontrast |
-| --- | ---: |
-| Informativer Text einschließlich Placeholder und Metadaten auf unterstützten Flächen | 4,5:1 |
-| Erforderliche nichttextliche Erkennungs-/Zustandsmerkmale und Fokusindikatoren gegenüber angrenzenden Farben | 3:1 |
-
-Das einheitliche Textziel gilt auch für große Schrift. Es ist bewusst strenger
-als die WCAG-Ausnahme für große Texte. Deaktivierte Controls sind davon ausgenommen,
-müssen aber erkennbar bleiben; informative Status-Badges sind nicht deaktiviert.
-Rein dekorative Card-Konturen benötigen keinen künstlich erhöhten Kontrast.
-
-Transparenzen werden gegen den tatsächlichen Untergrund berechnet. Bei Verläufen
-zählt der ungünstigste relevante Hintergrund hinter dem Inhalt. Erforderlichenfalls
-verwendet das Rezept eine definierte Textfläche. Status und Auswahl bleiben
-zusätzlich über Text, Symbol oder Form erkennbar und besitzen passende
-Accessibility-Metadaten. Kontrastwerte allein ersetzen diese Semantik nicht.
-
-Neue korrigierte Farbwerte werden zentral geprüft und vor ihrer sichtbaren
-Umsetzung als Palette zur Review gestellt. Dieser Vertrag legt keine ungeprüften
-Ersatz-Hexwerte fest.
-
-## Beispiel der vorgesehenen Verwendung
-
-```tsx
-import { Surface, Txt } from '@/constants/ui';
-
-<Surface tone="surface">
-  <Txt>Vorrat</Txt>
-  <Txt tone="secondary">12 Produkte</Txt>
-</Surface>
-```
-
-Ein eigenes `backgroundColor: '#FFFFFF'` am Feature oder eine Schattenfarbe als
-Badge-Schrift umgeht den Vertrag, auch wenn der Wert zufällig zur Light-Palette passt.
-Offizielle Kennzeichnungen und Medienfarben folgen den Integrationsregeln aus
-[Vertrag 05](./05-unistyles-and-stylesheet.md).
-
-## Nachweis und Migrationsgrenze
-
-Provider-Tests prüfen Systemwechsel, explizite Gegenpräferenz, Persistenz und
-Speicherausfall. Kontrastprüfungen berechnen alle unterstützten Paare in beiden
-Paletten, nicht beliebige Kombinationen aller Tokens. Die Referenz und native
-Formulare belegen den gemeinsamen Wechsel von Schrift, Fläche und Kontur.
-Vorhandene CSS- und Alias-Verbraucher gelten bis zur Migration als Abweichungen;
-ihre heutige Existenz schwächt den Zielvertrag nicht ab.
+Transparenzen werden gegen den tatsächlichen Untergrund bewertet. Bei Verläufen
+zählt der ungünstigste Hintergrund hinter dem Inhalt. Rein dekorative Konturen
+brauchen keinen künstlich erhöhten Kontrast.
 
 Quellen: [W3C Textkontrast](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)
 und [W3C nichttextlicher Kontrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html).

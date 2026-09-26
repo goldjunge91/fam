@@ -1,141 +1,70 @@
 # Vertrag: Felder und Auswahl
 
-## Zweck und Zuständigkeit
+## Zuständigkeit
 
-Eingaben und Auswahl verwenden gemeinsame Darstellung und zeigen Zustand nicht
-nur über Farbe. Rezepte für Form, Typografie, Farbpaare, Konturen und Zustände
-liegen in `ui.tsx`; Werte stammen aus `index.ts` und dem aktiven ThemeProvider.
-Lokales Layout verwendet native `style`-Props und Unistyles-Theme-Callbacks.
+Form- und Auswahlrezepte liegen in
+[src/constants/ui.tsx](../../../src/constants/ui.tsx); Tokenwerte in
+[index.ts](../../../src/components/theme/index.ts). Lokales Layout verwendet
+native style-Props und Unistyles-Theme-Callbacks.
 
-## Öffentliche Komponenten und gemeinsame Basis
+## Komponenten
 
-- `TextField` aus `src/constants/ui.tsx` ist der einzige Produkteinstieg für
-  strukturierte Eingaben. Das bestehende `Field` wurde in `ui.tsx` zu
-  `TextField` umbenannt und um die produktiven Funktionen der früheren
-  `src/components/forms/text-field.tsx` ergänzt. Fokus- und Fehlerfähigkeit
-  liegen damit in einer Implementierung; die frühere Datei ist entfernt.
-- Produkt-Einzelauswahl verwendet den `SegmentedControl` aus
-  `src/constants/ui.tsx` mit der minimalen API `label`, `options`, `selected` und
-  `onSelect`. `label` benennt die Gruppe, `options` sind unveränderliche
-  `{ value, label, accessibilityLabel?, disabled? }`-Einträge und `selected`
-  bezeichnet genau einen dieser Werte.
-- `selectionRole="radio"` ist der Default für fachliche Einzelauswahl.
-  `selectionRole="tab"` wird nur für einen Ansichtswechsel verwendet. Der
-  Gruppenname und der ausgewählte/gesperrte Zustand werden an die passende
-  native Accessibility-Semantik weitergegeben.
-- `appearance="accent" | "surface"` und `size="default" | "compact"` sind
-  belegte visuelle Varianten. Auch `compact` behält mindestens 44 × 44 logische
-  Einheiten pro Trefferziel; lange Labels dürfen umbrechen und erhöhen den
-  Control bei Bedarf.
-- `src/components/ui/segmented-control.tsx` ist nach der Migration entfernt.
-  `@expo/ui` bleibt ausschließlich eine native Vergleichsvariante im Settings-
-  Design-System und wird nicht aus Produkt-Features importiert. Props wie `gap`
-  oder `labelStyle` gehören nicht zur kanonischen API.
-- `Pill` aus `ui.tsx` ist ein Button mit zugänglichem Namen aus `label` und
-  meldet `disabled` sowie – wenn `selected` gesetzt ist – den ausgewählten
-  Zustand. Es stellt keine Auswahlgruppe dar. Für gruppierte Einzelauswahl ist
-  `SegmentedControl` vorgesehen; Mehrfachfilter müssen ihre ausgewählten
-  Zustände ebenfalls an Assistenztechnologien melden.
-- `Badge` bleibt informativ und ist kein Button. `QuantityStepper`, Filter und
-  domänenspezifische Selects folgen jeweils den zu ihrer Funktion passenden
-  Zustands-, Farb- und Interaktionsregeln; sie brauchen deshalb nicht dieselbe
-  Komponente oder Accessibility-Rolle.
+- TextField ist der gemeinsame Einstieg für strukturierte Eingaben. Es bündelt
+  Label, Placeholder, Wert, Fehler, Fokus, nicht editierbaren Zustand und
+  optionale trailing action. Native Input-Props, Autofill, Tastaturtyp,
+  Secure-Text und React-Hook-Form-/Fokus-Refs bleiben nutzbar.
+- SegmentedControl bildet eine Einzelauswahl aus label, options, selected und
+  onSelect ab. Jede Option hat value und label sowie optional
+  accessibilityLabel und disabled. selectionRole ist radio für fachliche
+  Einzelauswahl und tab für einen Ansichtswechsel.
+- appearance accent/surface und size default/compact sind belegte Varianten.
+  Auch kompakte Trefferziele erfüllen den Interaktionsvertrag aus Vertrag 07.
+- Pill ist eine benannte Aktion und keine Auswahlgruppe. Badge ist informativ,
+  kein Button. Filter, QuantityStepper und domänenspezifische Selects verwenden
+  die zu ihrer Funktion passende Rolle und Zustandsmeldung.
+- Produktfeatures importieren keine alternative SegmentedControl-Implementierung.
+  @expo/ui im Settings-Design-System ist eine Vergleichsvariante, keine
+  Produkt-API. Nicht unterstützte gap- oder labelStyle-Props werden nicht ergänzt.
 
-## Gemeinsamer Eingabevertrag
+## Feldzustände
 
-Die Eingabebasis unterstützt Label, Placeholder, Wert, Fehlertext, Fokus,
-nicht editierbaren Zustand und optionale trailing action. Native Input-Props,
-Autofill, Tastaturtyp, Secure-Text und React-Hook-Form-/Fokus-Refs bleiben nutzbar.
+| Zustand | Anforderung |
+| --- | --- |
+| Normal | Zentrales Surface-, Text-, Placeholder-, Kontur- und Labelrezept |
+| Fokus | Fokus bleibt beim Themewechsel erhalten und ist zusätzlich erkennbar |
+| Fehler | Lesbare, dem Feld zugänglich zugeordnete Meldung |
+| Fehler und Fokus | Beide Zustände bleiben gleichzeitig sichtbar |
+| Nicht editierbar | Zentraler Disabled-Zustand; Status bleibt erkennbar |
+| Success-Workflow | Zentrale Success-Fläche plus verständlicher Kontext |
 
-| Zustand | Darstellung | Semantik |
-| --- | --- | --- |
-| Normal | zentrale Surface, Text-/Placeholderfarben, Basiskontur und primäres Label | Label bezeichnet die Eingabe |
-| Fokussiert | Akzentkontur, Akzentlabel, Akzentcursor und Auswahlfarbe | Fokus bleibt bei Themewechsel erhalten |
-| Fehler | lesbarer Fehlertext und Fehlerkennzeichnung | Meldung ist dem Feld zugänglich zugeordnet |
-| Fehler + Fokus | Fehler bleibt sichtbar; zusätzlicher Fokusindikator | keiner der beiden Zustände wird verdrängt |
-| Nicht editierbar | zentrales Disabled-Rezept | Eingabe gesperrt und Zustand erkennbar |
-| Success-Workflow | zentrale Success-Fläche für eine kompakte bestätigte Eingabe | positive Bedeutung wird zusätzlich über Beschriftung oder Kontext vermittelt |
+Konturstärken stammen aus dem Theme-Owner. Der Fokus darf Layout und Nachbarfelder
+nicht springen lassen. Farbzuordnungen werden nicht pro Formular neu erfunden.
 
-Der bisherige Fokusvertrag mit `borderWidth.base` (1,5 Punkte) als Basiskontur
-und `borderWidth.strong` (2 Punkte) als betonter Kontur bleibt als Maßvorgabe
-erhalten. Das zentrale Rezept muss den Unterschied geometrisch ausgleichen,
-sodass weder Feld noch Nachbarlayout springen. Die Farbzuordnung berücksichtigt
-Fehler + Fokus; sie wird nicht pro Formular neu erfunden.
+Explizite accessibilityLabel- und Hint-Props haben Vorrang vor Defaults. Fehler
+bleiben dem Feld zugeordnet. Fokus-/Blur-Callbacks laufen nach der internen
+Zustandsaktualisierung einmal. Eine trailing action hat eigenen Namen und
+wirksamen Touchbereich, verdeckt weder Eingabe noch Fehler und wird bei einem
+nicht editierbaren Feld ausdrücklich behandelt.
 
-Alle Feldbestandteile folgen der App-Präferenz, auch bei abweichendem Systemtheme.
-Explizite `accessibilityLabel`-/Hint-Props haben Vorrang vor abgeleiteten Defaults.
-Sie dürfen nicht durch spätere JSX-Props versehentlich überschrieben werden.
-Die Fehlermeldung bleibt unabhängig von diesen Overrides zugänglich dem Feld zugeordnet.
-Fokus-/Blur-Callbacks laufen nach der internen Zustandsaktualisierung genau einmal.
+## Tastatur, Auswahl und Lesbarkeit
 
-Eine trailing action hat eigenen Namen und ausreichenden Touchbereich; sie verdeckt
-weder Eingabetext noch Fehlermeldung. Ein nicht editierbares Feld ist keine
-pauschale Erlaubnis, seine trailing action aktiv zu lassen: deren zulässige
-Funktion und Disabled-Zustand werden ausdrücklich bestimmt.
+Einzeilige Felder verwenden standardmäßig done und schließen beim Absenden den
+Fokus. Native Next-/Submit-Formulare und mehrzeilige Eingaben dürfen den Default
+über native Props anpassen; Mehrzeilenfelder behalten ihre Umbrüche.
 
-## Tastatur und Submit
+Pro aktivem nativen Formular- oder Screen-Kontext gibt es eine verantwortliche
+KeyboardToolbar. Ein Sheet mit Eingaben besitzt diesen Kontext, ohne eine zweite
+gleichzeitig bedienbare Toolbar. Web braucht keine nachgebaute native
+Tastaturleiste.
 
-Einzeilige Felder verwenden standardmäßig `done` und schließen beim Absenden den
-Fokus. Formulare mit Next-/Submit-Steuerung sowie mehrzeilige Eingaben dürfen dies
-über native Props passend überschreiben. Ein Mehrzeilenfeld verliert keine
-Zeilenumbrüche durch einen erzwungenen Done-Default.
-
-Pro aktivem Formular-/Screen-Kontext mit Eingaben gibt es auf nativen Plattformen
-eine verantwortliche `KeyboardToolbar`, damit Tastaturen ohne Return-Taste eine
-Fertig-Aktion besitzen. Kein Adapter erzeugt eine zusätzliche Toolbar je Feld.
-Bei einem darüberliegenden Sheet ist dessen Eingabekontext verantwortlich, ohne
-eine zweite gleichzeitig bedienbare Toolbar. Web benötigt keine nachgebaute
-native Tastaturleiste und behält seine normale Tastaturbedienung.
-
-## Einzelauswahl, Filter und Badges
-
-- Eine Einzelauswahl besitzt genau einen ausgewählten Wert aus ihren Optionen,
-  einen Gruppennamen und erkennbare ausgewählte/gesperrte Zustände.
-- Ansichtswechsel können als Tabs auftreten. Fachliche Formulareinzelauswahl
-  muss als solche verständlich sein. Nicht jede Auswahl wird pauschal zum Tab.
-- Mehrfachfilter lassen sich erneut betätigen und abwählen. Rolle sowie selected-/
-  checked-State passen zur Bedeutung. Farbe allein ist keine Auswahlkennzeichnung.
-- Disabled-Optionen sind erkennbar und nicht aktivierbar. Ein normaler `Badge`
-  ist informativ, besitzt ein geprüftes Farbpaar und ist kein Button.
-- Kompakte Segmente erfüllen denselben realen Mindesttouchbereich wie andere
-  Aktionen. Große Schrift und lange Labels dürfen zu mehr Höhe, Umbruch oder
-  einer ausdrücklich horizontalen Auswahlleiste führen.
-- Öffentliche Props der kanonischen API müssen wirken. Nicht belegte Alt-Props
-  wie `gap` und `labelStyle` werden nicht weitergeführt.
-
-## Beispiel der vorgesehenen Verwendung
-
-```tsx
-import { SegmentedControl, TextField } from '@/constants/ui';
-
-<TextField
-  label="Produktname"
-  value={name}
-  onChangeText={setName}
-  error={nameError}
-/>
-<SegmentedControl
-  label="Ansicht"
-  options={viewOptions}
-  selected={view}
-  onSelect={setView}
-  selectionRole="tab"
-/>
-```
-
-Das Beispiel verwendet die kanonische `ui.tsx`-API. Die gemeinsame Rezeptbasis
-und vollständigen Feld-States sind mit `fam-6zf.6` umgesetzt; die
-SegmentedControl-Migration und ihre Zustände gehören zu `fam-6zf.7`.
-Ein lokales `TextInput` mit eigener Farb-/Konturdefinition oder eine Auswahl nur
-mit wechselnder Farbe verletzt den Vertrag.
+Eine Einzelauswahl hat genau einen Wert, einen Gruppennamen und verständliche
+ausgewählte/gesperrte Zustände. Mehrfachfilter lassen sich wieder abwählen und
+melden selected oder checked passend zur Semantik. Farbe allein zeigt keine
+Auswahl. Lange Labels und große Schrift dürfen Umbruch oder mehr Höhe benötigen.
 
 ## Nachweis
 
-Gezielte Tests prüfen Fokus/Fehler, explizite Props, native Events, Ref-Fokussierung,
-Disabled sowie Auswählen/Abwählen. VoiceOver/TalkBack prüfen Feldname, Fehler und
-Auswahlsemantik. Native Tastaturprüfung bestätigt Submit, Toolbar-Verantwortung und
-Erreichbarkeit in Sheets. Beide Themes, große Schrift und schmale Breite sind
-Teil der visuellen Prüfung. Die `Field`/`TextField`-Konsolidierung ist mit
-`fam-6zf.6` umgesetzt; es bleibt nur `TextField` aus `ui.tsx`. `fam-6zf.7` weist
-die produktive SegmentedControl-Quelle ebenfalls `ui.tsx` zu. Die Legacy- und
-Expo-UI-Varianten werden nur noch im synchronisierten Settings-Vergleich geprüft.
+Gezielte Prüfungen belegen Feldzustände, Props, Events, Ref-Fokus, Disabled,
+Auswählen und Abwählen. VoiceOver und TalkBack prüfen Name, Fehler und
+Auswahlsemantik. Native Tastatur- und Sheet-Prüfungen bestätigen Toolbar und
+Erreichbarkeit. Beide Themes, große Schrift und schmale Breite werden geprüft.

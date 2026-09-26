@@ -1,100 +1,34 @@
-# Vertrag: Spacing und Layout
+# Vertrag: Abstände und Layout
 
-## Zweck und Zuständigkeit
+Wiederverwendbare Abstände und Maße stehen in
+[src/components/theme/index.ts](../../../src/components/theme/index.ts). Die
+konkrete Skala wird hier nicht dupliziert.
 
-Wiederkehrende Abstände und Maße stammen aus `src/components/theme/index.ts`.
-Lokales nicht-semantisches Layout wird über native `style`-Props und
-Unistyles-Theme-Callbacks ausgedrückt. Features besitzen ihr lokales Layout;
-gemeinsame Komponentenmaße und Darstellungsrezepte werden zentral gehalten.
+## Regeln
 
-## Verbindliche Abstandsskala
+- Wiederkehrende Abstände und Maße verwenden bestehende Tokens. Eine neue
+  gemeinsame Größe gehört in den Theme-Owner.
+- Einmalige Geometrie darf lokal bleiben. Gleiche Zahlen allein begründen kein
+  gemeinsames Token; die Layoutrolle muss übereinstimmen.
+- Wiederholte Rechnungen werden nur dann zentral benannt, wenn dieselbe
+  Layoutentscheidung mehrfach vorkommt.
+- Flexible Anordnung und Umbruch haben Vorrang vor starren Höhen oder
+  proportionalem Wachstum der gesamten Oberfläche.
+- Laufzeitabhängige Geometrie bleibt lokal bei der betroffenen Komponente.
+  Importierte Themewerte werden nicht als reaktive Fenstermaße behandelt.
+- Safe-Area-Werte werden genau einmal berücksichtigt. Eigenständige
+  Interaktionen behalten mindestens 44 × 44 logische Einheiten wirksame
+  Touchfläche; siehe [Vertrag 07](./07-buttons-and-interaction.md).
+- Listenzeilen werden über die vorgesehene Zeilentrennung angeordnet, nicht
+  durch zusätzliches Container-Padding.
 
-| Token | Logische Einheiten |
-| --- | ---: |
-| `space.xs` | 4 |
-| `space.sm` | 8 |
-| `space.md` | 12 |
-| `space.lg` | 16 |
-| `space.xl` | 20 |
-| `space.xxl` | 28 |
-| `space.xxxl` | 40 |
-| `space.xxxxl` | 64 |
+## Inhaltsbreite und Scrollen
 
-Die Werte sind die gemeinsame Referenz bei Designfaktor 1,0. `rs()` bleibt die
-zentrale, begrenzte Skalierung für wiederkehrende Abstände und Maße; dargestellte
-Werte dürfen deshalb geräteabhängig von der Referenz abweichen. Eine zusätzliche
-lokale Skalierung oder eine zweite Tokenquelle ist nicht zulässig.
+Die lesbare Inhaltsspalte bleibt auf kleinen Geräten flexibel und wird auf
+größeren Flächen begrenzt und zentriert. Ein allgemeines Tablet-Redesign folgt
+daraus nicht. Jede Fläche hat einen verantwortlichen Scrollcontainer;
+FlashList wird nicht in einen ScrollView eingeschachtelt.
 
-Die für `rs()` relevante Fensterbreite wird wie in Waivy einmalig mit
-`Dimensions.get('window').width` beim Modulimport gelesen. Der Faktor bleibt
-auf `0,9` bis `1,06` begrenzt. Dieser Vertrag verlangt keine zusätzliche
-`useWindowDimensions()`-Schicht für die globalen `space`-Tokens und behauptet
-keine Reaktivität der importierten Skala bei Rotation oder Web-Resize.
-
-Bei einer begrenzten Inhaltsspalte wird deren verfügbare Breite als Grundlage
-verwendet. Zusätzliche Fensterbreite darf die Abstände nicht unnötig vergrößern.
-Umbruch, flexible Anordnung und ein begrenztes Wachstum sind gegenüber einer
-proportionalen Vergrößerung der gesamten UI zu bevorzugen.
-
-Für wiederkehrende Abstände ist der numerische Tokenwert maßgeblich, nicht ein
-angenommener Namensgleichklang. Derselbe wiederkehrende Abstand muss denselben
-Wert besitzen. Neue gemeinsame Abstände werden in `index.ts` definiert.
-
-Ein einmaliger begründeter Layoutwert ist erlaubt. Wiederholt sich die Entscheidung,
-wird sie als gemeinsames Maß zentralisiert. Es ist kein Ziel, jeden einzelnen
-Pixelwert eines Screens in ein neues Token umzuwandeln.
-
-Wiederholte Rechenausdrücke werden nach Layoutrolle und Owner beurteilt. Ein
-gleicher Zahlenwert ist allein noch keine gemeinsame Entscheidung: `space.xl +
-space.xs` ergibt bei Referenzbreite 24 und kann zugleich Inhaltseinzug, Abstand
-oder feste Geometrie ausdrücken. Wiederholt derselbe Ausdruck dieselbe Rolle im
-gemeinsamen Layout, erhält er dort einen benannten lokalen Wert. Ein Theme-Token
-ist erst passend, wenn mehrere unabhängige Flächen tatsächlich dieselbe
-semantische Entscheidung teilen.
-
-## Responsive Anordnung und gemeinsame Maße
-
-- `SCREEN_W` und `IS_TABLET` sind bestehende, statisch berechnete Werte. Sie
-  werden derzeit nur in der Entwicklerreferenz verwendet und sind keine
-  reaktive globale Layout- oder Token-Schicht. Ein produktiver Einsatz benötigt
-  einen konkret belegten lokalen Layoutbefund.
-- `CONTENT_MAX_WIDTH = 600` begrenzt die lesbare Spalte. Sie bleibt auf kleinen Geräten 100 Prozent breit, wird auf größeren Geräten zentriert und nicht durch
-  ein allgemeines Tablet-Redesign ersetzt.
-- Laufzeitabhängige Geometrie darf eine konkrete Komponente mit ihrem eigenen
-  Hook ermitteln. Daraus entsteht keine zweite globale Skala.
-- Normale eigenständige Aktionen besitzen unabhängig von `rs()` mindestens
-  44 × 44 tatsächliche Touchfläche. Keine Skalierungsstufe darf ein Touchziel
-  darunter verkleinern. Details zu sichtbarer Fläche und Treffern stehen in
-  [Vertrag 07](./07-buttons-and-interaction.md).
-- Gemeinsame Header-, Button- und Aktionsmaße gehören in die zentralen Quellen.
-  Native Safe-Area-Werte bleiben Laufzeitwerte und werden genau einmal berücksichtigt.
-- Gap zwischen FlashList-Zeilen wird durch `ItemSeparatorComponent` erzeugt;
-  dessen `contentContainerStyle` ist kein Ersatz für Zeilentrennung.
-
-## Beispiel der vorgesehenen Verwendung
-
-```tsx
-import { View } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
-import { space } from '@/components/theme/index';
-
-const styles = StyleSheet.create((theme) => ({
-  row: { flexDirection: 'row', alignItems: 'center', gap: theme.space.md },
-}));
-
-<View style={styles.row}>
-  {children}
-</View>
-```
-
-Ein wiederkehrendes `gap: 11` mit jeweils anderen lokalen Randabständen erzeugt
-Drift. Eine starre Höhe, die bei großer Schrift benötigte Inhalte abschneidet,
-ist ebenfalls ein Vertragsbruch.
-
-## Nachweis
-
-Tokenprüfungen belegen die Basisskala und die Grenzen von `rs()`. Die Referenz
-zeigt die tatsächlichen Werte sowie die zentrierte `CONTENT_MAX_WIDTH`-Spalte.
-Schmale Breite, größere Schrift, Safe Area, Keyboard-Freiraum und
-Scrollverantwortung werden am Screen geprüft. Rotation und Web-Resize gelten
-nicht als Reaktivitätsnachweis für importierte Theme-Tokens.
+Feature-Styles folgen den [Unistyles-Regeln](./05-unistyles-and-stylesheet.md).
+Schmale Breite, große Schrift, Safe Area, Tastatur und Scrollverantwortung
+werden am betroffenen Screen geprüft.
