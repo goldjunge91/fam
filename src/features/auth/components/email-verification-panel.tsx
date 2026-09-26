@@ -18,7 +18,7 @@ const styles = StyleSheet.create((theme) => ({
   pendingCard: {
     alignItems: 'center',
     gap: theme.space.lg,
-    padding: theme.space.xl + theme.space.xs,
+    padding: theme.space.xxl,
   },
   heroContainer: {
     width: 64,

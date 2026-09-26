@@ -30,7 +30,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
   },
   loading: {
-    marginTop: theme.space.xxl + theme.space.xs,
+    marginTop: theme.space.xxl,
   },
   errorState: {
     alignItems: 'center',
@@ -52,8 +52,8 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
   },
   checkbox: {
-    width: theme.space.xl + theme.space.xs,
-    height: theme.space.xl + theme.space.xs,
+    width: theme.space.xxl,
+    height: theme.space.xxl,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: theme.borderWidth.strong,
@@ -68,7 +68,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   rowText: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
 }));
 

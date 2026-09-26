@@ -52,7 +52,7 @@ const styles = StyleSheet.create((theme) => ({
     position: 'absolute',
     left: theme.space.md,
     right: theme.space.md,
-    bottom: theme.space.sm + theme.space.xs / 2,
+    bottom: theme.space.md,
     maxHeight: '82%',
     borderRadius: theme.radius.famLarge,
     overflow: 'hidden',

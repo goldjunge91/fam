@@ -14,7 +14,7 @@ import { IconButton, Row, Surface, Txt } from '@/constants/ui';
 export type { BackTarget } from '@/components/layout/back-button';
 
 const SCREEN_BOTTOM_CLEARANCE = 96;
-const SCREEN_TITLE_GAP = space.xs / 2;
+const SCREEN_TITLE_GAP = space.xs;
 
 const styles = StyleSheet.create({
   body: {
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: space.lg,
     paddingTop: space.lg,
-    paddingBottom: space.lg + space.sm,
+    paddingBottom: space.xxl,
   },
   titleBlock: {
     flexShrink: 1,

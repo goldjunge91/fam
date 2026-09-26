@@ -86,14 +86,14 @@ const styles = StyleSheet.create((theme, rt) => ({
   },
   modalSafeArea: {
     flex: 1,
-    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingHorizontal: theme.space.xxl,
   },
   modalHandle: {
     width: 36,
     height: 4,
     alignSelf: 'center',
     marginTop: theme.space.md,
-    borderRadius: radius.micro,
+    borderRadius: radius.s,
     backgroundColor: theme.border,
   },
   modalHeader: {
@@ -106,7 +106,7 @@ const styles = StyleSheet.create((theme, rt) => ({
   },
   scrollContent: {
     gap: theme.space.lg,
-    paddingBottom: theme.space.xl + theme.space.xs + rt.insets.ime,
+    paddingBottom: theme.space.xxl + rt.insets.ime,
   },
   scannerButton: {
     width: 48,
@@ -125,11 +125,11 @@ const styles = StyleSheet.create((theme, rt) => ({
   },
   productCopy: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   productQuantity: {
     alignItems: 'flex-end',
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   controlsRow: {
     flexDirection: 'row',

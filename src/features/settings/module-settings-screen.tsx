@@ -30,7 +30,7 @@ const styles = StyleSheet.create((theme) => ({
   rowText: {
     flex: 1,
     minWidth: 0,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   lockedContent: {
     opacity: 0.3,

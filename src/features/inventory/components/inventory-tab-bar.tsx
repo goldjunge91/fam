@@ -31,16 +31,16 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'space-between',
     // GlassView has no CSS interop; keep the original 8/14/15pt geometry.
     gap: theme.space.sm,
-    paddingHorizontal: theme.space.md + theme.space.xs / 2,
-    paddingVertical: theme.space.lg - theme.space.xs / 4,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.lg,
   },
   triggerFallback: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: theme.space.sm,
-    paddingHorizontal: theme.space.md + theme.space.xs / 2,
-    paddingVertical: theme.space.lg - theme.space.xs / 4,
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.lg,
   },
   chevron: {
     width: 10,
@@ -48,10 +48,10 @@ const styles = StyleSheet.create((theme) => ({
   },
   chevronLine: {
     position: 'absolute',
-    top: space.xs / 2,
+    top: space.xs,
     width: 6,
     height: 1.5,
-    borderRadius: radius.micro,
+    borderRadius: radius.s,
     backgroundColor: theme.textSecondary,
   },
   chevronLeft: {
@@ -69,8 +69,7 @@ const styles = StyleSheet.create((theme) => ({
     backgroundColor: theme.background,
     borderColor: theme.border,
     borderWidth: StyleSheet.hairlineWidth,
-    // Keep the retired control-lg geometry (14pt) in the central radius scale.
-    borderRadius: theme.radius.sm + theme.radius.micro,
+    borderRadius: theme.radius.md,
     overflow: 'hidden',
   },
   option: {

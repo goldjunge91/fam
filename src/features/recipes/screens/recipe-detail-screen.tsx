@@ -273,7 +273,7 @@ const styles = StyleSheet.create((theme) => ({
     width: rs(38),
     height: rs(4),
     alignSelf: 'center',
-    borderRadius: radius.micro,
+    borderRadius: radius.s,
   },
   manageHeader: {
     minHeight: rs(58),

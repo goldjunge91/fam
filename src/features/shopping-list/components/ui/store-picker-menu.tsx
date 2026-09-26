@@ -18,7 +18,7 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     gap: theme.space.sm,
     paddingHorizontal: theme.space.lg,
-    paddingVertical: theme.space.xs + theme.space.xs,
+    paddingVertical: theme.space.sm,
   },
   activeDot: {
     width: theme.space.sm,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   panel: {
     width: 200,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
     padding: theme.space.xs,
     overflow: 'hidden',
   },
@@ -132,7 +132,7 @@ export function StorePickerMenu({
                 styles.panel,
                 {
                   position: 'absolute',
-                  top: anchor.y + anchor.height + space.sm - space.xs / 2,
+                  top: anchor.y + anchor.height + space.sm,
                   left: anchor.x,
                 },
               ]}>

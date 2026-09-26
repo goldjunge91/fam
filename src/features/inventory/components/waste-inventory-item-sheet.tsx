@@ -21,9 +21,9 @@ const styles = StyleSheet.create((theme) => ({
   },
   sheet: {
     position: 'absolute',
-    left: theme.space.sm + theme.space.xs / 2,
-    right: theme.space.sm + theme.space.xs / 2,
-    bottom: theme.space.sm + theme.space.xs / 2,
+    left: theme.space.md,
+    right: theme.space.md,
+    bottom: theme.space.md,
     gap: theme.space.md,
     paddingHorizontal: theme.space.md,
     paddingTop: theme.space.md,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create((theme) => ({
     width: 42,
     height: 4,
     alignSelf: 'center',
-    borderRadius: radius.micro,
+    borderRadius: radius.s,
     backgroundColor: theme.border,
   },
   titleCopy: {

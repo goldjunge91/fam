@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   },
   labelBlock: {
     flex: 1,
-    gap: space.xs / 2,
+    gap: space.xs,
   },
   value: {
     flexShrink: 1,

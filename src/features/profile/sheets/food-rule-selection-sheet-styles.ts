@@ -8,16 +8,16 @@ export const foodRuleSelectionSheetStyles = StyleSheet.create((theme) => ({
   },
   sheet: {
     maxHeight: '88%',
-    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingHorizontal: theme.space.xxl,
     paddingTop: theme.space.sm,
-    paddingBottom: theme.space.xl + theme.space.xs,
+    paddingBottom: theme.space.xxl,
     gap: theme.space.lg,
     borderTopLeftRadius: theme.radius.famLarge,
     borderTopRightRadius: theme.radius.famLarge,
     backgroundColor: theme.backgroundElement,
   },
   handle: {
-    width: theme.space.xxl + theme.space.sm,
+    width: theme.space.xxxl,
     height: theme.space.xs,
     alignSelf: 'center',
     marginTop: theme.space.sm,
@@ -34,8 +34,8 @@ export const foodRuleSelectionSheetStyles = StyleSheet.create((theme) => ({
     gap: theme.space.xs,
   },
   closeButton: {
-    minWidth: theme.space.xxl + theme.space.md + theme.space.xs,
-    minHeight: theme.space.xxl + theme.space.md + theme.space.xs,
+    minWidth: theme.space.xxxl,
+    minHeight: theme.space.xxxl,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: theme.radius.sm,
@@ -48,7 +48,7 @@ export const foodRuleSelectionSheetStyles = StyleSheet.create((theme) => ({
     paddingBottom: theme.space.sm,
   },
   option: {
-    minHeight: theme.space.xxl + theme.space.xl,
+    minHeight: theme.space.xxxl,
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.space.lg,
@@ -70,8 +70,8 @@ export const foodRuleSelectionSheetStyles = StyleSheet.create((theme) => ({
     minWidth: 0,
   },
   checkbox: {
-    width: theme.space.xl + theme.space.xs,
-    height: theme.space.xl + theme.space.xs,
+    width: theme.space.xxl,
+    height: theme.space.xxl,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: theme.borderWidth.base,
@@ -83,7 +83,7 @@ export const foodRuleSelectionSheetStyles = StyleSheet.create((theme) => ({
     backgroundColor: theme.accent,
   },
   customRow: {
-    minHeight: theme.space.xxl + theme.space.xl,
+    minHeight: theme.space.xxxl,
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.space.lg,
@@ -96,7 +96,7 @@ export const foodRuleSelectionSheetStyles = StyleSheet.create((theme) => ({
     minWidth: 0,
   },
   removeButton: {
-    minHeight: theme.space.xxl + theme.space.md + theme.space.xs,
+    minHeight: theme.space.xxxl,
     justifyContent: 'center',
     paddingHorizontal: theme.space.sm,
     borderWidth: theme.borderWidth.base,

@@ -12,7 +12,7 @@ import { type CatalogRecipe, useCatalogRecipes } from './use-recipe-catalog';
 
 const styles = StyleSheet.create({
   list: { flex: 1 },
-  content: { paddingHorizontal: space.lg, paddingTop: space.md, paddingBottom: space.xxxxl * 2 },
+  content: { paddingHorizontal: space.lg, paddingTop: space.md, paddingBottom: space.xxxxl },
   separator: { height: space.md },
   footer: { paddingVertical: space.xl },
 });

@@ -30,7 +30,7 @@ import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { env } from '@/lib/config/env';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 
-const SETTINGS_GROUP_GAP = space.lg + space.sm;
+const SETTINGS_GROUP_GAP = space.xxl;
 
 const styles = StyleSheet.create({
   scroll: {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   profileText: {
     flex: 1,
-    gap: space.xs / 2,
+    gap: space.xs,
   },
   groups: {
     gap: SETTINGS_GROUP_GAP,

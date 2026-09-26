@@ -23,7 +23,7 @@ const styles = StyleSheet.create((theme, rt) => ({
     paddingBottom: theme.space.xxxl + rt.insets.ime,
   },
   activeContainer: {
-    gap: theme.space.xl + theme.space.xs,
+    gap: theme.space.xxl,
     marginTop: theme.space.sm,
   },
   activeBanner: {

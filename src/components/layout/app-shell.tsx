@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     justifyContent: 'flex-start',
-    paddingHorizontal: space.xxl + space.xs,
+    paddingHorizontal: space.xxl,
     height: 90,
     overflow: 'visible',
     zIndex: 20,
@@ -69,10 +69,7 @@ export default function AppShell() {
         {!isBrochureRoute ? (
           <View
             pointerEvents="box-none"
-            style={[
-              styles.adBannerOverlay,
-              { paddingBottom: insets.bottom + space.xxxxl + space.xs / 4 },
-            ]}>
+            style={[styles.adBannerOverlay, { paddingBottom: insets.bottom + space.xxxxl }]}>
             <AdBanner placement="global_sticky" />
           </View>
         ) : null}

@@ -47,7 +47,7 @@ const styles = StyleSheet.create((theme) => ({
     padding: theme.space.md,
     borderRadius: theme.radius.famLarge,
     backgroundColor: theme.backgroundSoft,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
 }));
 

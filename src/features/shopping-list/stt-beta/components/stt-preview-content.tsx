@@ -415,7 +415,7 @@ const styles = StyleSheet.create((theme) => ({
   sheet: {
     flex: 1,
     width: '100%',
-    minHeight: theme.space.xxxl * 6,
+    minHeight: theme.space.xxxxl,
     backgroundColor: theme.backgroundElement,
   },
   scroll: {

@@ -41,7 +41,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   safeArea: {
     flex: 1,
-    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingHorizontal: theme.space.xxl,
   },
   headerPressable: {
     flexShrink: 0,
@@ -51,14 +51,14 @@ const styles = StyleSheet.create((theme) => ({
     height: 4,
     alignSelf: 'center',
     marginTop: theme.space.md,
-    borderRadius: radius.micro,
+    borderRadius: radius.s,
     backgroundColor: theme.border,
   },
   flex: {
     flex: 1,
   },
   scrollContent: {
-    paddingBottom: theme.space.xl + theme.space.xs,
+    paddingBottom: theme.space.xxl,
   },
 }));
 

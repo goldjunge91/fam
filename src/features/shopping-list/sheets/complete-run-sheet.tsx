@@ -62,7 +62,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   transferRow: {
-    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingHorizontal: theme.space.xxl,
     paddingVertical: theme.space.lg,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,
@@ -79,7 +79,7 @@ const styles = StyleSheet.create((theme) => ({
     minWidth: 0,
   },
   quantityInput: {
-    minWidth: theme.space.xxl + theme.space.xs,
+    minWidth: theme.space.xxl,
   },
   locationGroup: {
     gap: theme.space.sm,
@@ -116,7 +116,7 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     gap: theme.space.sm,
-    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingHorizontal: theme.space.xxl,
     paddingTop: theme.space.sm,
     paddingBottom: theme.space.lg,
   },
@@ -126,9 +126,9 @@ const styles = StyleSheet.create((theme) => ({
   footer: {
     alignItems: 'center',
     gap: theme.space.sm,
-    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingHorizontal: theme.space.xxl,
     paddingTop: theme.space.lg,
-    paddingBottom: theme.space.xl + theme.space.xs,
+    paddingBottom: theme.space.xxl,
   },
   confirmButton: {
     width: '100%',

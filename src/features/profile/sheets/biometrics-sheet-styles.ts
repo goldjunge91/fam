@@ -10,9 +10,9 @@ export const biometricsSheetStyles = StyleSheet.create((theme) => ({
   },
   sheet: {
     maxHeight: '88%',
-    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingHorizontal: theme.space.xxl,
     paddingTop: theme.space.sm,
-    paddingBottom: theme.space.xl + theme.space.xs,
+    paddingBottom: theme.space.xxl,
     gap: theme.space.lg,
     borderTopLeftRadius: theme.radius.famLarge,
     borderTopRightRadius: theme.radius.famLarge,
@@ -32,7 +32,7 @@ export const biometricsSheetStyles = StyleSheet.create((theme) => ({
   },
   headerCopy: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   content: {
     gap: theme.space.lg,

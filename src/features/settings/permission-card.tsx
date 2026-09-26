@@ -37,7 +37,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   rowText: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
 }));
 

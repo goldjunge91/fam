@@ -97,7 +97,7 @@ const styles = StyleSheet.create((theme) => ({
   progressSegment: {
     flex: 1,
     height: rs(4),
-    borderRadius: radius.micro,
+    borderRadius: radius.s,
   },
   keyboard: {
     flex: 1,

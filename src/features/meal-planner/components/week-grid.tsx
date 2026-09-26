@@ -32,7 +32,7 @@ const styles = StyleSheet.create((theme) => ({
   content: {
     gap: theme.space.md,
     paddingTop: theme.space.md,
-    paddingBottom: theme.space.xxxxl * 2,
+    paddingBottom: theme.space.xxxxl,
   },
   dayCard: {
     overflow: 'hidden',

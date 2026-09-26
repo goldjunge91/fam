@@ -90,7 +90,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   scrollContent: {
     paddingHorizontal: theme.space.xxl,
-    paddingBottom: theme.space.xxxxl * 2,
+    paddingBottom: theme.space.xxxxl,
   },
   hero: {
     height: 178,
@@ -181,8 +181,8 @@ const styles = StyleSheet.create((theme) => ({
   },
   footer: {
     position: 'absolute',
-    left: space.lg - space.xs / 4,
-    right: space.lg - space.xs / 4,
+    left: space.lg,
+    right: space.lg,
     bottom: theme.space.lg,
   },
   footerActions: {

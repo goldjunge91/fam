@@ -54,7 +54,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   safeArea: {
     flex: 1,
-    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingHorizontal: theme.space.xxl,
   },
   header: {
     flexDirection: 'row',
@@ -64,7 +64,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   headerText: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
     marginRight: theme.space.sm,
   },
   content: {

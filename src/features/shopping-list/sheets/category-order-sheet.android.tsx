@@ -30,7 +30,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   listContent: {
     flexGrow: 1,
-    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingHorizontal: theme.space.xxl,
   },
   row: {
     height: 52,
@@ -52,14 +52,14 @@ const styles = StyleSheet.create((theme) => ({
   header: {
     paddingTop: theme.space.sm,
     paddingBottom: theme.space.lg,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   footer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: theme.space.sm,
-    paddingVertical: theme.space.xl + theme.space.xs,
+    paddingVertical: theme.space.xxl,
   },
   resetButton: {
     minWidth: 44,
@@ -68,7 +68,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   saveButton: {
     minHeight: 44,
-    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingHorizontal: theme.space.xxl,
     paddingVertical: theme.space.lg,
     borderRadius: theme.radius.md,
   },

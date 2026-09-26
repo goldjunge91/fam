@@ -24,14 +24,14 @@ const styles = StyleSheet.create((theme) => ({
   },
   modalBox: {
     maxHeight: '85%',
-    padding: theme.space.xl + theme.space.xs,
+    padding: theme.space.xxl,
     borderTopLeftRadius: theme.radius.famLarge,
     borderTopRightRadius: theme.radius.famLarge,
     backgroundColor: theme.background,
   },
   content: {
     gap: theme.space.lg,
-    paddingBottom: theme.space.xl + theme.space.xs,
+    paddingBottom: theme.space.xxl,
   },
   header: {
     flexDirection: 'row',

@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   panel: {
     position: 'absolute',
-    top: space.xxl + space.lg,
+    top: space.xxxl,
     left: 0,
     right: 0,
     zIndex: 20,

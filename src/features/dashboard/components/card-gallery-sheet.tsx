@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
   handle: {
     width: 36,
     height: 4,
-    borderRadius: radius.xs / 4,
+    borderRadius: radius.s,
   },
   header: {
     flexDirection: 'row',
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
   },
   headerTextWrap: {
     flex: 1,
-    gap: space.xs / 2,
+    gap: space.xs,
   },
   doneBtn: {
     paddingHorizontal: space.lg,

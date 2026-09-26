@@ -11,14 +11,14 @@ export const profileEditStyles = StyleSheet.create((theme) => ({
     marginTop: theme.space.sm,
   },
   summaries: {
-    gap: theme.space.lg + theme.space.sm,
+    gap: theme.space.xxl,
     marginTop: theme.space.sm,
   },
   formError: {
     paddingHorizontal: theme.space.xs,
   },
   summaryHeading: {
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
     marginBottom: theme.space.sm,
   },
   biometricsCard: {
@@ -70,7 +70,7 @@ export const profileEditStyles = StyleSheet.create((theme) => ({
     paddingVertical: theme.space.lg,
   },
   biometricsWeightCopy: {
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   biometricsFactsRow: {
     flexDirection: 'row',
@@ -85,7 +85,7 @@ export const profileEditStyles = StyleSheet.create((theme) => ({
   biometricsFact: {
     flex: 1,
     minWidth: 0,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   biometricsFactBordered: {
     paddingRight: theme.space.lg,

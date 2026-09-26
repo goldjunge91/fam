@@ -22,7 +22,7 @@ export const shoppingListStyles = StyleSheet.create((theme) => ({
   details: {
     flex: 1,
     minWidth: 0,
-    gap: space.xs / 2,
+    gap: space.xs,
   },
   columns: {
     flexDirection: 'row',
@@ -105,7 +105,7 @@ export const shoppingListStyles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     gap: space.sm,
     paddingRight: space.md,
-    paddingLeft: space.md + space.sm - space.xs / 4,
+    paddingLeft: space.xl,
     paddingVertical: space.md,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,
@@ -153,7 +153,7 @@ export const shoppingListStyles = StyleSheet.create((theme) => ({
   productCopy: {
     flex: 1,
     minWidth: 0,
-    gap: space.xs / 2,
+    gap: space.xs,
   },
   productMeta: {
     alignItems: 'flex-end',

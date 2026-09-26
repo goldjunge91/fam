@@ -155,7 +155,7 @@ export const compactActionButtonStyles = StyleSheet.create((theme) => ({
     top: 2,
     width: 7,
     height: 1.5,
-    borderRadius: radius.micro,
+    borderRadius: radius.s,
     borderCurve: 'continuous',
     backgroundColor: theme.textSecondary,
   },

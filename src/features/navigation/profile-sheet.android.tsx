@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   identity: {
-    gap: space.xs + space.xs / 2,
+    gap: space.sm,
   },
   profileRow: {
     flexDirection: 'row',

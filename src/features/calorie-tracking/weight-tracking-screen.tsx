@@ -23,7 +23,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.xs,
   },
   summaryValue: {
-    marginTop: theme.space.xs / 2,
+    marginTop: theme.space.xs,
   },
   form: {
     gap: theme.space.sm,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.md,
   },
   chartHeader: {
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   chartArea: {
     flexDirection: 'row',
@@ -71,7 +71,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
   },
   historyHeader: {
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   historyRow: {
     minHeight: 48,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   historyCopy: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   empty: {
     paddingVertical: theme.space.lg,

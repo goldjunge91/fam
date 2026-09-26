@@ -30,7 +30,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   panel: {
     width: 200,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
     padding: theme.space.xs,
     overflow: 'hidden',
   },
@@ -136,7 +136,7 @@ export function RowStorePicker({
                 styles.panel,
                 {
                   position: 'absolute',
-                  top: anchor.y + anchor.height + space.sm - space.xs / 2,
+                  top: anchor.y + anchor.height + space.sm,
                   left: anchor.x,
                 },
               ]}>

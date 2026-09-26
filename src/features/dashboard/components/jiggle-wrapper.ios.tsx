@@ -154,9 +154,9 @@ const styles = StyleSheet.create({
     zIndex: 100,
   },
   deleteBadge: {
-    left: -space.xs / 2,
+    left: -space.xs,
   },
   resizeBadge: {
-    right: -space.xs / 2,
+    right: -space.xs,
   },
 });

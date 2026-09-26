@@ -42,7 +42,7 @@ type ActiveForm =
 
 const styles = StyleSheet.create((theme) => ({
   card: {
-    padding: theme.space.xl + theme.space.xs,
+    padding: theme.space.xxl,
     gap: theme.space.lg,
   },
   header: {

@@ -41,7 +41,7 @@ const styles = StyleSheet.create((theme) => ({
     width: rs(36),
     height: rs(4),
     alignSelf: 'center',
-    borderRadius: radius.micro,
+    borderRadius: radius.s,
     marginTop: theme.space.md,
   },
   header: {

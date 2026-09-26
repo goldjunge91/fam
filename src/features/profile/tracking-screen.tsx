@@ -41,7 +41,7 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: theme.space.md,
-    padding: theme.space.xl + theme.space.xs,
+    padding: theme.space.xxl,
     borderRadius: theme.radius.md,
     borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
@@ -91,8 +91,8 @@ const styles = StyleSheet.create((theme) => ({
     backgroundColor: theme.scrim,
   },
   modal: {
-    padding: theme.space.xl + theme.space.xs,
-    gap: theme.space.xl + theme.space.xs,
+    padding: theme.space.xxl,
+    gap: theme.space.xxl,
     borderTopLeftRadius: theme.radius.xl,
     borderTopRightRadius: theme.radius.xl,
     maxHeight: '85%',
@@ -149,7 +149,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   metricHero: {
     alignItems: 'center',
-    padding: theme.space.xl + theme.space.xs,
+    padding: theme.space.xxl,
     borderRadius: theme.radius.md,
     borderWidth: theme.borderWidth.base,
     borderColor: theme.border,

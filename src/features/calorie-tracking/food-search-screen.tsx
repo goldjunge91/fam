@@ -25,7 +25,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingVertical: theme.space.lg,
     borderRadius: radius.md,
     marginTop: theme.space.lg,
-    marginBottom: theme.space.xl + theme.space.xs,
+    marginBottom: theme.space.xxl,
     backgroundColor: theme.backgroundElement,
   },
 }));

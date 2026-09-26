@@ -12,7 +12,7 @@ import { getSupabase } from '@/lib/backend/supabase/remote-client';
 
 const styles = StyleSheet.create((theme) => ({
   deleteButtonContainer: {
-    marginTop: theme.space.xl + theme.space.xs,
+    marginTop: theme.space.xxl,
   },
 }));
 

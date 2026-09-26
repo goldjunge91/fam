@@ -25,9 +25,9 @@ const styles = StyleSheet.create((theme) => ({
     borderTopRightRadius: theme.radius.lg,
     borderTopWidth: theme.borderWidth.base,
     borderTopColor: theme.border,
-    paddingHorizontal: theme.space.xl + theme.space.xs,
-    paddingTop: theme.space.xl + theme.space.xs,
-    paddingBottom: theme.space.xxl + theme.space.xs,
+    paddingHorizontal: theme.space.xxl,
+    paddingTop: theme.space.xxl,
+    paddingBottom: theme.space.xxl,
   },
   header: {
     flexDirection: 'row',
@@ -38,7 +38,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   headingGroup: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   targetList: {
     gap: theme.space.xs,

@@ -14,7 +14,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   modalBox: {
     height: '80%',
-    padding: theme.space.xl + theme.space.xs,
+    padding: theme.space.xxl,
     gap: theme.space.lg,
     borderTopLeftRadius: theme.radius.famLarge,
     borderTopRightRadius: theme.radius.famLarge,

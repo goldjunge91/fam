@@ -15,7 +15,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   nutritionRow: {
     flexDirection: 'row',
-    gap: theme.space.xl + theme.space.xs,
+    gap: theme.space.xxl,
   },
   flex: {
     flex: 1,

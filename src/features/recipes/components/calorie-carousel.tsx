@@ -34,7 +34,7 @@ const styles = StyleSheet.create((theme) => ({
     marginRight: theme.space.sm,
   },
   label: {
-    marginTop: theme.space.xs / 2,
+    marginTop: theme.space.xs,
   },
 }));
 

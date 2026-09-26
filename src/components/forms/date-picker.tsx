@@ -227,7 +227,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   formattedDate: {
     marginLeft: space.xs,
-    marginTop: -space.xs / 2,
+    marginTop: -space.xs,
   },
   modalBackdrop: {
     flex: 1,

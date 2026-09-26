@@ -38,9 +38,9 @@ export const MEAL_LABELS: Record<MealType, string> = {
 
 const styles = StyleSheet.create((theme) => ({
   content: {
-    paddingHorizontal: theme.space.xl + theme.space.xs,
-    paddingTop: theme.space.xs / 2,
-    paddingBottom: theme.space.xxxl * 3 + theme.space.xs + theme.space.xs / 2,
+    paddingHorizontal: theme.space.xxl,
+    paddingTop: theme.space.xs,
+    paddingBottom: theme.space.xxxxl,
     gap: theme.space.sm,
   },
   macroChip: {
@@ -50,7 +50,7 @@ const styles = StyleSheet.create((theme) => ({
     borderColor: theme.border,
     borderRadius: theme.radius.sm,
     padding: theme.space.lg,
-    gap: theme.space.xs + theme.space.xs / 2,
+    gap: theme.space.sm,
   },
   mealSection: {
     borderBottomWidth: StyleSheet.hairlineWidth,
@@ -62,7 +62,7 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: theme.space.lg,
-    paddingTop: theme.space.xs + theme.space.xs / 2,
+    paddingTop: theme.space.sm,
   },
   mealHeading: {
     flex: 1,
@@ -79,12 +79,12 @@ const styles = StyleSheet.create((theme) => ({
   },
   entryRow: {
     minHeight: 36,
-    marginBottom: theme.space.xs + theme.space.xs / 2,
+    marginBottom: theme.space.sm,
     paddingVertical: theme.space.xs,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: theme.space.sm + theme.space.xs / 2,
+    gap: theme.space.md,
   },
   entryInfo: {
     flex: 1,
@@ -94,7 +94,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingBottom: theme.space.lg,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,
-    gap: theme.space.xs + theme.space.xs / 2,
+    gap: theme.space.sm,
   },
   heroRow: {
     flexDirection: 'row',
@@ -102,7 +102,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
   },
   heroBar: {
-    marginTop: theme.space.xs / 2,
+    marginTop: theme.space.xs,
   },
   macroGrid: {
     flexDirection: 'row',
@@ -114,10 +114,10 @@ const styles = StyleSheet.create((theme) => ({
     borderBottomColor: theme.border,
   },
   textOffset: {
-    marginTop: theme.space.xs / 4,
+    marginTop: theme.space.xs,
   },
   loadingText: {
-    paddingVertical: theme.space.xl + theme.space.xs,
+    paddingVertical: theme.space.xxl,
   },
   emptyState: {
     alignSelf: 'center',

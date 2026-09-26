@@ -61,7 +61,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   progress: {
     height: rs(2),
-    borderRadius: theme.radius.xs / 4,
+    borderRadius: theme.radius.s,
     overflow: 'hidden',
   },
   progressFill: {

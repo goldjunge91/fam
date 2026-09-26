@@ -13,8 +13,8 @@ interface TotalEstimateCardProps {
 const styles = StyleSheet.create((theme) => ({
   card: {
     alignItems: 'center',
-    gap: theme.space.xs / 2,
-    padding: theme.space.xl + theme.space.xs,
+    gap: theme.space.xs,
+    padding: theme.space.xxl,
     borderRadius: theme.radius.famLarge,
     borderWidth: 0,
   },

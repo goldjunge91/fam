@@ -501,7 +501,7 @@ const styles = StyleSheet.create({
   sheetHandle: {
     width: 40,
     height: 4,
-    borderRadius: radius.xs / 4,
+    borderRadius: radius.s,
     alignSelf: 'center',
   },
   productCard: {
@@ -512,7 +512,7 @@ const styles = StyleSheet.create({
     paddingVertical: space.md,
     gap: space.md,
   },
-  productCopy: { flex: 1, gap: space.xs / 2 },
+  productCopy: { flex: 1, gap: space.xs },
   sheetDiscount: {
     borderRadius: radius.xs,
     paddingHorizontal: space.sm,
@@ -522,13 +522,13 @@ const styles = StyleSheet.create({
     width: 248,
     height: 300,
     alignSelf: 'center',
-    borderRadius: radius.xs / 2,
+    borderRadius: radius.s,
   },
-  productCrop: { alignSelf: 'center', overflow: 'hidden', borderRadius: radius.xs / 2 },
+  productCrop: { alignSelf: 'center', overflow: 'hidden', borderRadius: radius.s },
   sheetClose: {
     position: 'absolute',
-    top: space.lg + space.xs / 2,
-    right: space.lg + space.xs / 2,
+    top: space.xl,
+    right: space.xl,
     width: 52,
     height: 52,
     borderRadius: radius.famLarge,

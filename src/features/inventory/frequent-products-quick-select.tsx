@@ -37,7 +37,7 @@ const styles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
   },
   chip: {
-    minHeight: theme.space.xxl + theme.space.md + theme.space.xs,
+    minHeight: theme.space.xxxl,
     maxWidth: 160,
     marginRight: theme.space.xs,
     paddingHorizontal: theme.space.sm,

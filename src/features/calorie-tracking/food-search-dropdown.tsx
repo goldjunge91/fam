@@ -47,8 +47,8 @@ const styles = StyleSheet.create((theme) => ({
     width: theme.controlSizes.touchTarget,
     // Keep the external scanner control exactly as high as TextField's
     // default input: line-height + vertical padding + both borders.
-    height: font.lineHeights.body + space.md * 2 + borderWidth.strong * 2,
-    minHeight: font.lineHeights.body + space.md * 2 + borderWidth.strong * 2,
+    height: font.lineHeights.body + space.xxl + borderWidth.strong * 2,
+    minHeight: font.lineHeights.body + space.xxl + borderWidth.strong * 2,
     borderRadius: theme.radius.md,
     borderWidth: theme.borderWidth.strong,
     borderColor: theme.border,
@@ -63,15 +63,15 @@ const styles = StyleSheet.create((theme) => ({
     overflow: 'hidden',
   },
   centered: {
-    marginTop: theme.space.xl + theme.space.xs,
+    marginTop: theme.space.xxl,
   },
   centerLoader: {
-    marginTop: theme.space.xl + theme.space.xs,
+    marginTop: theme.space.xxl,
   },
   failedBox: {
     alignItems: 'center',
     gap: theme.space.sm,
-    marginTop: theme.space.xl + theme.space.xs,
+    marginTop: theme.space.xxl,
   },
   moreButton: {
     alignItems: 'center',
@@ -98,7 +98,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   rowText: {
     flex: 1,
-    gap: space.xs / 2,
+    gap: space.xs,
   },
   productImage: {
     width: theme.imageSizes.thumbnail,

@@ -62,7 +62,7 @@ const isRunningInTest = typeof process !== 'undefined' && Boolean(process.env.JE
 
 const styles = StyleSheet.create((theme) => ({
   inventoryToolbar: {
-    marginTop: theme.space.xl + theme.space.xs,
+    marginTop: theme.space.xxl,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -73,7 +73,7 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
   },
   inventorySortContainer: {
-    marginTop: theme.space.xxl + theme.space.xs,
+    marginTop: theme.space.xxl,
     paddingHorizontal: theme.space.xs,
   },
   inventorySortRow: {
@@ -90,7 +90,7 @@ const styles = StyleSheet.create((theme) => ({
   emptyState: {
     alignItems: 'center',
     gap: theme.space.sm,
-    paddingVertical: theme.space.lg + theme.space.sm,
+    paddingVertical: theme.space.xxl,
   },
 }));
 

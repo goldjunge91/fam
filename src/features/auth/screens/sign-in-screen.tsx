@@ -10,7 +10,7 @@ const styles = StyleSheet.create((theme) => ({
   links: {
     alignItems: 'center',
     gap: theme.space.sm,
-    marginTop: theme.space.xl + theme.space.xs,
+    marginTop: theme.space.xxl,
   },
 }));
 

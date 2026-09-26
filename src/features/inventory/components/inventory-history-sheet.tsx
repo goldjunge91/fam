@@ -60,9 +60,9 @@ const styles = StyleSheet.create((theme) => ({
   },
   bottomSheet: {
     position: 'absolute',
-    left: theme.space.sm + theme.space.xs / 2,
-    right: theme.space.sm + theme.space.xs / 2,
-    bottom: theme.space.sm + theme.space.xs / 2,
+    left: theme.space.md,
+    right: theme.space.md,
+    bottom: theme.space.md,
     flex: 1,
     maxHeight: '85%',
     overflow: 'hidden',
@@ -76,7 +76,7 @@ const styles = StyleSheet.create((theme) => ({
     width: 42,
     height: 4,
     alignSelf: 'center',
-    borderRadius: radius.micro,
+    borderRadius: radius.s,
     backgroundColor: theme.border,
   },
   header: {
@@ -165,7 +165,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   stateCard: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
     padding: theme.space.lg,
     borderRadius: theme.radius.md,
     backgroundColor: theme.backgroundSoft,
@@ -208,7 +208,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   transactionContent: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   transactionTitleRow: {
     flexDirection: 'row',

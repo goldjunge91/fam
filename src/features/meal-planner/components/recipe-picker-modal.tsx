@@ -27,7 +27,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   safeArea: {
     flex: 1,
-    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingHorizontal: theme.space.xxl,
   },
   header: {
     flexDirection: 'row',
@@ -36,7 +36,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingVertical: theme.space.lg,
   },
   empty: {
-    marginTop: theme.space.xxl + theme.space.xs,
+    marginTop: theme.space.xxl,
     textAlign: 'center',
   },
   list: {

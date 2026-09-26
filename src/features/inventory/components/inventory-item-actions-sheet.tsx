@@ -46,9 +46,9 @@ const androidStyles = StyleSheet.create((theme) => ({
   },
   sheet: {
     position: 'absolute',
-    left: theme.space.sm + theme.space.xs / 2,
-    right: theme.space.sm + theme.space.xs / 2,
-    bottom: theme.space.sm + theme.space.xs / 2,
+    left: theme.space.md,
+    right: theme.space.md,
+    bottom: theme.space.md,
     gap: theme.space.md,
     paddingHorizontal: theme.space.md,
     paddingTop: theme.space.md,
@@ -59,7 +59,7 @@ const androidStyles = StyleSheet.create((theme) => ({
     width: 42,
     height: 4,
     alignSelf: 'center',
-    borderRadius: theme.radius.xs / 4,
+    borderRadius: theme.radius.s,
     backgroundColor: theme.border,
   },
   itemHeader: {
@@ -74,11 +74,11 @@ const androidStyles = StyleSheet.create((theme) => ({
   expiryBar: {
     width: 6,
     height: 52,
-    borderRadius: theme.radius.xs / 2,
+    borderRadius: theme.radius.s,
   },
   itemCopy: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   quantityRow: {
     minHeight: 56,
@@ -510,7 +510,7 @@ const actionStyles = StyleSheet.create((theme) => ({
     width: 5,
     height: 54,
     marginRight: space.md,
-    borderRadius: theme.radius.xs / 2,
+    borderRadius: theme.radius.s,
   },
   heroCopy: { flex: 1, minWidth: 0 },
   heroHint: { marginTop: space.xs },

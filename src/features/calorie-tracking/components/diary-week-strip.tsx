@@ -21,13 +21,13 @@ export type DiaryWeekStripDay = {
 const styles = StyleSheet.create((theme) => ({
   hint: {
     alignSelf: 'center',
-    marginBottom: theme.space.xs / 2,
+    marginBottom: theme.space.xs,
   },
   strip: {
     borderRadius: theme.radius.md,
     borderWidth: theme.borderWidth.base,
     borderColor: theme.border,
-    paddingTop: theme.space.sm + theme.space.xs,
+    paddingTop: theme.space.md,
     paddingHorizontal: theme.space.lg,
     paddingBottom: theme.space.sm,
     overflow: 'hidden',
@@ -47,20 +47,20 @@ const styles = StyleSheet.create((theme) => ({
     width: DAY_TARGET_WIDTH,
     minHeight: DAY_TARGET_WIDTH,
     alignItems: 'center',
-    gap: theme.space.xs + theme.space.xs / 2,
+    gap: theme.space.sm,
     paddingTop: theme.space.xs,
   },
   barTrack: {
     width: 5,
     height: BAR_HEIGHT,
-    borderRadius: theme.radius.xs / 2,
+    borderRadius: theme.radius.s,
     backgroundColor: theme.backgroundSoft,
     justifyContent: 'flex-end',
     overflow: 'hidden',
   },
   barFill: {
     width: '100%',
-    borderRadius: theme.radius.xs / 2,
+    borderRadius: theme.radius.s,
     backgroundColor: theme.accent,
   },
   barFillWarning: {
@@ -69,7 +69,7 @@ const styles = StyleSheet.create((theme) => ({
   dayDot: {
     width: 4,
     height: 4,
-    borderRadius: theme.radius.xs / 4,
+    borderRadius: theme.radius.s,
     backgroundColor: 'transparent',
   },
   dayDotActive: {
@@ -78,9 +78,9 @@ const styles = StyleSheet.create((theme) => ({
   dateLine: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: theme.space.xs / 2,
-    paddingBottom: theme.space.sm + theme.space.xs,
-    gap: theme.space.xs / 4,
+    paddingTop: theme.space.xs,
+    paddingBottom: theme.space.md,
+    gap: theme.space.xs,
   },
 }));
 

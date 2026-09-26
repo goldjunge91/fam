@@ -35,7 +35,7 @@ const STEP_NAMES: Record<number, string> = {
 
 const styles = StyleSheet.create((theme, rt) => ({
   progressContainer: {
-    paddingHorizontal: theme.space.xl + theme.space.xs,
+    paddingHorizontal: theme.space.xxl,
     marginBottom: theme.space.sm,
   },
   signoutLink: {

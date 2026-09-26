@@ -10,12 +10,12 @@ const styles = StyleSheet.create((theme) => ({
   backdrop: {
     flex: 1,
     justifyContent: 'center',
-    padding: theme.space.xl + theme.space.xs,
+    padding: theme.space.xxl,
     backgroundColor: theme.scrim,
   },
   sheet: {
     gap: theme.space.lg,
-    padding: theme.space.xl + theme.space.xs,
+    padding: theme.space.xxl,
     borderRadius: theme.radius.lg,
     backgroundColor: theme.background,
   },

@@ -36,7 +36,7 @@ const styles = StyleSheet.create((theme) => ({
     top: -theme.space.sm,
     right: theme.space.lg,
     paddingHorizontal: theme.space.sm,
-    paddingVertical: theme.space.xs / 2,
+    paddingVertical: theme.space.xs,
     borderRadius: theme.radius.pill,
     zIndex: 1,
   },
@@ -69,7 +69,7 @@ const styles = StyleSheet.create((theme) => ({
   planInfo: {
     flex: 1,
     minWidth: 0,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   priceBlock: {
     alignItems: 'flex-end',

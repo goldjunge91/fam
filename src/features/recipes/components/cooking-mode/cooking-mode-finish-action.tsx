@@ -15,7 +15,7 @@ const styles = StyleSheet.create((theme) => ({
     minHeight: 62,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: theme.space.sm + theme.space.xs / 2,
+    gap: theme.space.md,
     paddingHorizontal: theme.space.md,
     paddingVertical: theme.space.md,
     borderRadius: theme.radius.lg,
@@ -30,7 +30,7 @@ const styles = StyleSheet.create((theme) => ({
     minWidth: 0,
   },
   subtitle: {
-    paddingTop: theme.space.xs / 2,
+    paddingTop: theme.space.xs,
   },
 }));
 

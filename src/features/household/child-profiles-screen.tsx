@@ -53,7 +53,7 @@ const styles = StyleSheet.create((theme) => ({
     flex: 1,
   },
   addButtonContainer: {
-    marginBottom: theme.space.xl + theme.space.xs,
+    marginBottom: theme.space.xxl,
   },
   childEditCard: {
     gap: theme.space.lg,

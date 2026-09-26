@@ -10,7 +10,7 @@ import { buildUserDataExport } from '@/features/settings/data-export';
 
 const styles = StyleSheet.create((theme) => ({
   exportButtonContainer: {
-    marginTop: theme.space.xl + theme.space.xs,
+    marginTop: theme.space.xxl,
   },
 }));
 

@@ -47,7 +47,7 @@ const styles = StyleSheet.create((theme) => ({
     width: 42,
     height: 4,
     alignSelf: 'center',
-    borderRadius: radius.micro,
+    borderRadius: radius.s,
     backgroundColor: theme.border,
   },
   header: {
@@ -82,11 +82,11 @@ const styles = StyleSheet.create((theme) => ({
   },
   productCopy: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   productQuantity: {
     alignItems: 'flex-end',
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   controlsRow: {
     flexDirection: 'row',

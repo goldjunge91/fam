@@ -129,15 +129,15 @@ const styles = StyleSheet.create((theme) => ({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    minHeight: theme.space.xxl + theme.space.md + theme.space.xs,
+    minHeight: theme.space.xxxl,
     gap: theme.space.sm,
     padding: theme.space.sm,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,
   },
   thumb: {
-    width: theme.space.lg * 2,
-    height: theme.space.lg * 2,
+    width: theme.space.xxl,
+    height: theme.space.xxl,
     borderRadius: theme.radius.sm,
   },
   thumbFallback: {

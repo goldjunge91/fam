@@ -127,7 +127,7 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
           isRight ? styles.columnRight : styles.columnLeft,
           {
             // Gleiche Außenkante wie der globale FAB im App-Shell-Container.
-            [isRight ? 'right' : 'left']: space.xxl + space.xs,
+            [isRight ? 'right' : 'left']: space.xxl,
             // Die kompakte Liste endet mit konstantem Abstand oberhalb des FAB.
             bottom: insets.bottom + space.xxxl + space.xl,
           },

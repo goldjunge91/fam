@@ -45,9 +45,9 @@ const androidStyles = StyleSheet.create((theme) => ({
   },
   sheet: {
     position: 'absolute',
-    left: theme.space.sm + theme.space.xs / 2,
-    right: theme.space.sm + theme.space.xs / 2,
-    bottom: theme.space.sm + theme.space.xs / 2,
+    left: theme.space.md,
+    right: theme.space.md,
+    bottom: theme.space.md,
     maxHeight: '86%',
     gap: theme.space.md,
     paddingHorizontal: theme.space.md,
@@ -59,7 +59,7 @@ const androidStyles = StyleSheet.create((theme) => ({
     width: 42,
     height: 4,
     alignSelf: 'center',
-    borderRadius: theme.radius.xs / 4,
+    borderRadius: theme.radius.s,
     backgroundColor: theme.border,
   },
   header: {
@@ -74,7 +74,7 @@ const androidStyles = StyleSheet.create((theme) => ({
   },
   headerCopy: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   stateSummary: {
     flexDirection: 'row',
@@ -82,7 +82,7 @@ const androidStyles = StyleSheet.create((theme) => ({
   },
   stateCard: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
     padding: theme.space.lg,
     borderRadius: theme.radius.md,
     backgroundColor: theme.backgroundSoft,
@@ -112,11 +112,11 @@ const androidStyles = StyleSheet.create((theme) => ({
   lotStatus: {
     width: 5,
     height: 42,
-    borderRadius: theme.radius.xs / 2,
+    borderRadius: theme.radius.s,
   },
   lotCopy: {
     flex: 1,
-    gap: theme.space.xs / 2,
+    gap: theme.space.xs,
   },
   lotAmount: {
     fontVariant: ['tabular-nums'],
@@ -927,7 +927,7 @@ const groupStyles = StyleSheet.create((theme) => ({
     width: 4,
     marginVertical: space.md,
     marginRight: space.md,
-    borderRadius: theme.radius.xs / 2,
+    borderRadius: theme.radius.s,
   },
   lotCopy: {
     flex: 1,

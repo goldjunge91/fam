@@ -25,7 +25,7 @@ import { formatReceiptDate, formatReceiptMoney, formatReceiptNumber } from './fo
 const styles = StyleSheet.create((theme) => ({
   content: { gap: theme.space.lg },
   fieldList: { gap: theme.space.sm },
-  field: { gap: theme.space.xs / 2 },
+  field: { gap: theme.space.xs },
   itemList: { gap: theme.space.sm },
   item: {
     gap: theme.space.xs,

@@ -36,7 +36,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingRight: theme.space.sm,
   },
   moduleDescription: {
-    marginTop: theme.space.xs / 2,
+    marginTop: theme.space.xs,
   },
   lockedContent: {
     opacity: 0.3,

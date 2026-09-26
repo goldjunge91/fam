@@ -31,8 +31,8 @@ const BUG_BUBBLE_CONFIG = {
   // Links neben der rechten Header-Aktion bleibt das Debug-Overlay erreichbar,
   // ohne den Profilbutton zu verdecken.
   floatingButtonPosition: {
-    top: space.xxxxl + space.xxl + space.sm,
-    right: space.xxxxl + space.xl,
+    top: space.xxxxl,
+    right: space.xxxxl,
   },
   trackingOptions: {
     enabled: true,
