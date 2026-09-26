@@ -9,7 +9,8 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import { BUTTON_DEPTH, motion } from '@/components/theme/index';
+import { BUTTON_DEPTH } from '@/components/theme/index';
+import { motion } from '@/constants/motion';
 import { floatingActionButtonStyles, PRESS_SPRING, Press } from '@/constants/ui';
 
 type FloatingActionButtonProps = {

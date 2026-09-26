@@ -13,6 +13,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { font, type Palette, radius, space } from '@/components/theme';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { motion } from '@/constants/motion';
 import {
   type CelebrationBurst,
   subscribeToCelebrations,
@@ -20,6 +21,8 @@ import {
 
 const PIECES = 28;
 const PIECE_IDS = Array.from({ length: PIECES }, (_, index) => `piece-${index}`);
+// The confetti's upward beat leads into each particle's randomized fall.
+const CONFETTI_RISE_DURATION = 320;
 
 function ConfettiPiece({
   index,
@@ -67,18 +70,18 @@ function ConfettiPiece({
 
   useEffect(() => {
     translateY.value = withSequence(
-      withTiming(rise, { duration: 320, easing: Easing.out(Easing.quad) }),
+      withTiming(rise, { duration: CONFETTI_RISE_DURATION, easing: Easing.out(Easing.quad) }),
       withTiming(fall, { duration, easing: Easing.in(Easing.quad) }),
     );
     translateX.value = withTiming(driftX, {
-      duration: duration + 320,
-      easing: Easing.out(Easing.cubic),
+      duration: duration + CONFETTI_RISE_DURATION,
+      easing: motion.easing.emphasized,
     });
     rotation.value = withTiming(rotationAmount, {
-      duration: duration + 320,
-      easing: Easing.linear,
+      duration: duration + CONFETTI_RISE_DURATION,
+      easing: motion.easing.linear,
     });
-    opacity.value = withDelay(duration, withTiming(0, { duration: 320 }));
+    opacity.value = withDelay(duration, withTiming(0, { duration: motion.feedbackExit }));
   }, [driftX, duration, fall, rise, rotation, rotationAmount, opacity, translateX, translateY]);
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -114,12 +117,12 @@ function Badge({ message, colors }: { message: string; colors: Palette }) {
 
   useEffect(() => {
     scale.value = withSequence(
-      withSpring(1.08, { damping: 8, stiffness: 320 }),
-      withSpring(1, { damping: 12, stiffness: 260 }),
+      withSpring(1.08, motion.spring.celebrationPop),
+      withSpring(1, motion.spring.celebrationSettle),
     );
     opacity.value = withSequence(
-      withTiming(1, { duration: 160 }),
-      withDelay(1100, withTiming(0, { duration: 320 })),
+      withTiming(1, { duration: motion.feedbackFast }),
+      withDelay(1100, withTiming(0, { duration: motion.feedbackExit })),
     );
   }, [opacity, scale]);
 

@@ -8,7 +8,8 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { BUTTON_DEPTH, motion, space } from '@/components/theme/index';
+import { BUTTON_DEPTH, space } from '@/components/theme/index';
+import { motion } from '@/constants/motion';
 import { PRESS_SPRING, Press, Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 

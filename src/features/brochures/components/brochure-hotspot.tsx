@@ -12,6 +12,7 @@ import Animated, {
 import { StyleSheet } from 'react-native-unistyles';
 import { borderWidth, font, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { motion } from '@/constants/motion';
 import { Txt } from '@/constants/ui';
 import type { Hotspot } from '../types';
 
@@ -29,16 +30,22 @@ export function BrochureHotspot({ hotspot, onPress, isActive, isVisible }: Broch
   const glow = useSharedValue(isLinkout ? 0.35 : 0.72);
 
   React.useEffect(() => {
-    scale.value = withSpring(isActive ? 1.05 : 1, { damping: 15, stiffness: 200 });
+    scale.value = withSpring(isActive ? 1.05 : 1, motion.spring.interactive);
     glow.value = isLinkout
       ? withRepeat(
-          withSequence(withTiming(0.62, { duration: 900 }), withTiming(0.28, { duration: 900 })),
+          withSequence(
+            withTiming(0.62, { duration: motion.attentionPulse }),
+            withTiming(0.28, { duration: motion.attentionPulse }),
+          ),
           -1,
           true,
         )
       : withDelay(
-          700,
-          withSequence(withTiming(1, { duration: 220 }), withTiming(0.72, { duration: 700 })),
+          motion.progress,
+          withSequence(
+            withTiming(1, { duration: motion.navigation }),
+            withTiming(0.72, { duration: motion.progress }),
+          ),
         );
   }, [glow, isActive, isLinkout, scale]);
 

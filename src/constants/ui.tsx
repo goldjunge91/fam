@@ -36,13 +36,13 @@ import {
   BUTTON_DEPTH,
   borderWidth,
   font,
-  motion,
   type Palette,
   radius,
   space,
   withAlpha,
 } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { motion } from '@/constants/motion';
 import {
   heavy as hapticHeavy,
   light as hapticLight,

@@ -8,8 +8,9 @@ import Animated, {
 } from 'react-native-reanimated';
 import Svg, { Circle } from 'react-native-svg';
 
-import { motion, space } from '@/components/theme/index';
+import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { motion } from '@/constants/motion';
 import { computeRingMetrics, type RingPreset, RingPresetSize } from '@/constants/rings';
 import { Txt } from '@/constants/ui';
 

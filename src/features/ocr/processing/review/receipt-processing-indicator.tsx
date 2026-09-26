@@ -12,6 +12,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { motion } from '@/constants/motion';
 
 const styles = StyleSheet.create((theme) => ({
   container: {
@@ -77,7 +78,7 @@ export function ReceiptProcessingIndicator({ label }: ReceiptProcessingIndicator
     }
 
     progress.value = withRepeat(
-      withTiming(1, { duration: 1600, easing: Easing.inOut(Easing.ease) }),
+      withTiming(1, { duration: motion.progressIndeterminate, easing: Easing.inOut(Easing.ease) }),
       -1,
       true,
     );

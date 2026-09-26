@@ -46,13 +46,14 @@ werden. Bestehende Formulierungen werden bei Berührung durch „verbindlich“,
 NativeWind/Tailwind, kein `className`. Genau drei Owner für Design-
 Entscheidungen:
 
-1. `src/components/theme/index.ts` — Themes, Paletten, Design-Tokens
+1. `src/components/theme/index.ts` — Themes, Paletten und Design-Tokens
    (Abstände, Radien, Schriftmaße/-gewichte, Schatten).
 2. `src/components/theme/ThemeProvider.tsx` — Präferenz `system | light |
    dark`, `useTheme()`, `useThemedStyles()`.
-3. `src/constants/ui.tsx` + `src/constants/ui-shadow.ts` — gemeinsame
-   semantische UI-Primitiven (Typografie, Farben, Flächen, Konturen,
-   Interaktionszustände, fertige Schatten-Styles).
+3. `src/constants/ui.tsx`, `src/constants/ui-shadow.ts` und
+   `src/constants/motion.ts` — gemeinsame semantische UI-Primitiven und
+   Motion-Rollen (Typografie, Farben, Flächen, Konturen, Interaktionszustände,
+   fertige Schatten-Styles, Durations, Springs und Easings).
 
 Feature-Komponenten erfinden keine eigene Palette/Hexfarben/Tokens — fehlende
 projektweite Entscheidungen gehören in genau einen der drei Owner. Nur

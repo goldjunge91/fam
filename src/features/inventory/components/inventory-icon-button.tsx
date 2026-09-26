@@ -9,8 +9,9 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { BUTTON_DEPTH, motion } from '@/components/theme/index';
+import { BUTTON_DEPTH } from '@/components/theme/index';
 import { useGlassAvailable } from '@/components/ui/glass-card';
+import { motion } from '@/constants/motion';
 import { PRESS_SPRING } from '@/constants/ui';
 import { medium as hapticMedium } from '@/lib/platform/haptics';
 

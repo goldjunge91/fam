@@ -293,13 +293,6 @@ export function getWidgetTheme(scheme: 'light' | 'dark' | undefined) {
 /** Sichtbare Tiefe und vollständiger Druckweg gefüllter 3D-Buttons. */
 export const BUTTON_DEPTH = 4;
 
-/** Shared timing values for interaction and progress feedback. */
-export const motion = {
-  pressIn: 60,
-  pressFeedback: 70,
-  progress: 700,
-} as const;
-
 // TODO: prüfen ob wir das noch brauchen
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
 

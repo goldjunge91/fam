@@ -46,6 +46,7 @@ export function JiggleWrapper({
       phase.value = -direction;
       phase.value = withRepeat(
         withTiming(direction, {
+          // Index variation keeps nearby cards from rocking in sync.
           duration: 140 + (index % 3) * 10,
           easing: Easing.inOut(Easing.sin),
         }),

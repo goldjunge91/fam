@@ -76,6 +76,7 @@ export function NaturalLanguageAdditionVoiceOverlay({
   const handleVolumeChange = (volume: number) => {
     if (!listeningActiveRef.current || reducedMotion) return;
 
+    // This spring follows microphone amplitude, so its response stays local to voice feedback.
     listeningIntensity.value = withSpring(normalizeSpeechVolume(volume), {
       damping: 20,
       stiffness: 120,

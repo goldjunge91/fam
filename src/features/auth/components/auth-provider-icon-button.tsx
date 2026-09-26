@@ -9,8 +9,9 @@ import Animated, {
 import Svg, { Path } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { BUTTON_DEPTH, motion } from '@/components/theme/index';
+import { BUTTON_DEPTH } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { motion } from '@/constants/motion';
 import { PRESS_SPRING, Press, providerColors } from '@/constants/ui';
 
 const styles = StyleSheet.create((theme) => ({

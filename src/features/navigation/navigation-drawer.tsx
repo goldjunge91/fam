@@ -14,6 +14,7 @@ import { FamIcon } from '@/components/icons/fam-icon';
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { getDrawerGroups } from '@/constants/feature-registry';
+import { motion } from '@/constants/motion';
 import { Txt } from '@/constants/ui';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
@@ -111,7 +112,7 @@ export function NavigationDrawer() {
   const translateX = useSharedValue(-1);
 
   useEffect(() => {
-    translateX.value = withTiming(isDrawerOpen ? 0 : -1, { duration: 220 });
+    translateX.value = withTiming(isDrawerOpen ? 0 : -1, { duration: motion.navigation });
   }, [isDrawerOpen, translateX]);
 
   const animatedStyle = useAnimatedStyle(() => ({

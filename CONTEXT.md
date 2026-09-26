@@ -25,7 +25,7 @@ keine vollständigen Arbeits- oder Qualitätsregeln.
 | Backend-Datenmodell und RLS | `supabase/schemas/*.sql` |
 | Lokaler SQLite-Spiegel | `src/lib/db/schemas/*.ts` und lokale Migrationen |
 | Aktuell implementiertes Laufzeitverhalten | Produktionscode und gezielte Tests |
-| UI-Designsystem | `src/components/theme/index.ts`, `src/components/theme/ThemeProvider.tsx`, `src/constants/ui.tsx` (mit `src/constants/ui-shadow.ts` als Schattenmodul desselben UI-Owners) |
+| UI-Designsystem | `src/components/theme/index.ts`, `src/components/theme/ThemeProvider.tsx`, `src/constants/ui.tsx` (mit `src/constants/ui-shadow.ts` und `src/constants/motion.ts` als Module desselben UI-Owners) |
 
 Diese Quellen beantworten unterschiedliche Fragen. Ein akzeptierter Vertrag
 oder ADR beschreibt den beabsichtigten Zustand; Schema, Code und Tests belegen
