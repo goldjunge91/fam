@@ -74,11 +74,25 @@ Migrationsfehler.
 
 - `className` ist verboten. `style` darf lokales Layout wie Breite, Ausrichtung
   oder Abstand beitragen, ist aber keine Erlaubnis für neue Schriftgrößen oder Textfarben.
-- Vorhandene `weight`, `color` und allgemeine Style-Props bleiben für kompatible
-  Aufrufer und begründete Integrationsgrenzen verfügbar. Wiederkehrende semantische
-  Abweichungen werden in einem zentralen Rezept ausgedrückt.
-- Ein bewusst hervorgehobenes Label kann ein zentral definiertes Gewicht wählen.
-  Eine andere Schriftgröße pro Screen ist keine zulässige Nutzung dieses Overrides.
+- `Txt.variant` besitzt Schriftgröße, Zeilenhöhe, Grundgewicht und Grundton. Die
+  Option `weight` darf das Gewicht eines einzelnen Textes lokal hervorheben,
+  ohne die übrige Variante zu verändern. `color` bleibt für kompatible Aufrufer
+  und begründete Integrationsgrenzen verfügbar.
+- Eine lokale Hervorhebung beschreibt genau diese Textstelle, etwa einen
+  ausgewählten Wert oder eine Zahl innerhalb einer bestehenden Textrolle. Sie
+  ist kein Ersatz für eine wiederkehrende semantische Rolle und darf keine neue
+  Schriftgröße, Schriftfamilie oder Textfarbe pro Screen festlegen.
+- Wiederholt sich dieselbe sichtbare Rolle über mehrere Flächen, gehört ihre
+  Darstellung in eine vorhandene `Txt`-Variante oder ein zentrales Rezept in
+  `ui.tsx`. Eine gleiche Kombination aus `variant`, `tone` und `weight` genügt
+  allein nicht als Beleg für dieselbe Rolle: `body` mit `weight="700"` wird
+  unter anderem für Auswahlwerte, Stepper-Zahlen und Kennzahlen genutzt. Diese
+  Aufrufer behalten ihre lokale Betonung, solange sie nicht dieselbe
+  Nutzeraufgabe und Darstellung teilen.
+- Ein `weight`-Override, der dem Grundgewicht der Variante entspricht, ändert
+  die Darstellung nicht. Bestehende explizite Wiederholungen werden nicht
+  pauschal entfernt; neue Aufrufer sollen sie nur setzen, wenn der lokale
+  Hervorhebungsgrund sichtbar ist.
 - Fontfamilien werden aus den zentralen plattformgerechten Werten gewählt.
   Eine zusätzliche lokale Fontpalette wird nicht eingeführt.
 

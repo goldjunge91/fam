@@ -44,6 +44,14 @@ Ein einmaliger begründeter Layoutwert ist erlaubt. Wiederholt sich die Entschei
 wird sie als gemeinsames Maß zentralisiert. Es ist kein Ziel, jeden einzelnen
 Pixelwert eines Screens in ein neues Token umzuwandeln.
 
+Wiederholte Rechenausdrücke werden nach Layoutrolle und Owner beurteilt. Ein
+gleicher Zahlenwert ist allein noch keine gemeinsame Entscheidung: `space.xl +
+space.xs` ergibt bei Referenzbreite 24 und kann zugleich Inhaltseinzug, Abstand
+oder feste Geometrie ausdrücken. Wiederholt derselbe Ausdruck dieselbe Rolle im
+gemeinsamen Layout, erhält er dort einen benannten lokalen Wert. Ein Theme-Token
+ist erst passend, wenn mehrere unabhängige Flächen tatsächlich dieselbe
+semantische Entscheidung teilen.
+
 ## Responsive Anordnung und gemeinsame Maße
 
 - `SCREEN_W` und `IS_TABLET` sind bestehende, statisch berechnete Werte. Sie

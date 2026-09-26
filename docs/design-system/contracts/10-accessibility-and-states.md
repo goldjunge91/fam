@@ -43,8 +43,10 @@ optionale Abschnittsaktionen als echte Buttons. Eine Aktion besitzt eine sichtba
 Beschriftung, `accessibilityRole="button"`, einen verständlichen zugänglichen
 Namen und mindestens 44 × 44 logische Einheiten wirksamen Touchbereich. Ohne
 Callback wird keine interaktive Aktion dargestellt. Pressed- und Reduced-Motion-
-Feedback verwenden die zentrale `Press`-Basis und keine dynamische Pressable-
-Style-Funktion als einzige sichtbare Fläche.
+Feedback verwenden hier die zentrale `Press`-Basis. Das ist die Vorgabe für
+`SectionHeading`, kein allgemeines Verbot dynamischer `Pressable`-Style-
+Funktionen; deren native Anwendung ist in der Design-System-Probe bestätigt
+(siehe [Buttons und Interaktion](./07-buttons-and-interaction.md)).
 
 Der [Farbvertrag](./01-theme-and-colors.md) setzt 4,5:1 für informative Texte auf
 unterstützten Flächen und 3:1 für notwendige nichttextliche Zustandsmerkmale/Fokus.

@@ -6,181 +6,74 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Vor jeder Codeänderung `CONSTRAINTS.md` im Repository-Root lesen. Die dort festgelegten Grenzen dürfen nicht abgeschwächt werden, um eine Änderung erfolgreich erscheinen zu lassen.
 
-The rest of this file supplements `AGENTS.md` with commands and architecture detail that file doesn't cover.
-
-## Native builds
-
-Die verbindlichen Regeln und erlaubten Befehle stehen in
-[AGENTS.md: Schnelle native Builds](AGENTS.md#schnelle-native-builds).
-Immer `--no-clean`; vorhandene Projekte, Pods, DerivedData und Compiler-Caches
-weiterverwenden. Keine automatischen Cache-Resets, auch nicht bei Fehlern.
-Unveränderte native Eingaben brauchen kein Prebuild; Pod-Installation nur bei
-geänderten Eingaben oder fehlenden/nicht synchronen Pods. Reine App-JS-/TS-
-Änderungen nutzen Metro. Config-Plugins bleiben idempotent; entfernte Plugin-
-Anpassungen werden gezielt bereinigt. Cache-Löschung nur mit Marcos Freigabe;
-`--approve-rebuild` ist keine Cache-Löschfreigabe. Geschwindigkeitsangaben
-brauchen Zeitmessungen und Cache-Treffer. EAS-Local bleibt ein isolierter Build.
+Alles zu nativen Builds, Fingerprint/Lock, Tooling-Grundregeln, Coding-
+Konventionen, Beads-Workflow und den "Ways to Hurt Yourself"-Guardrails steht
+ausschließlich in `AGENTS.md` — hier keine Duplikate pflegen. Dieser Abschnitt
+ergänzt nur Dinge, die AGENTS.md nicht abdeckt.
 
 Erlaubte häufige Einstiege aus dem Repository-Root:
 
-```bash
-bun run start -- --dev-client
-bun run ios:dev
-bun run native:dev -- --target android-development
-bun run native:rebuild -- --target ios-preview-testflight
-```
-
-Der lokale TestFlight-Build verwendet das Projekt-Skript
-`scripts/native-build/native-build.ts` und das EAS-Profil `preview-testflight`.
-Bei freigegebenem Native-Drift `--approve-rebuild` ergänzen; weiterhin
-`--no-clean`. Der Build lädt nicht automatisch hoch: Im Terminal wird ein
-Upload angeboten (Standard: Nein), ohne Terminal nur der Submit-Befehl
-angezeigt. Upload nur auf entsprechenden Auftrag mit der neu erzeugten IPA.
-Die vollständige Befehlsliste, Geräte-/Release-Targets und Vorbereitung stehen
-in AGENTS.md. Bedienreferenz:
-[scripts/native-build/README.md](scripts/native-build/README.md).
-
-## Commands
-
-Quality gate vor jedem Commit (siehe auch AGENTS.md "Verification"):
+## Commands (Kurzreferenz)
 
 ```bash
-bun run check        # Biome lint+format, bun run check:fix zum Beheben
-bun run typecheck    # tsc --noEmit
-bun run test         # Jest unit tests — NIEMALS `bun test` (nutzt Buns Runner, ignoriert jest.config.js)
-bun run test:db      # pgTAP gegen lokales Postgres (nur bei Supabase-Schema-Änderungen)
+bun run check         # Biome lint+format
+bun run typecheck     # tsc --noEmit
+bun run test          # Jest — NIEMALS `bun test`
+bun run test:db       # pgTAP, nur bei Supabase-Schema-Änderungen
+bun run test:integration
+bun run test:functions
 ```
 
-Einzelnen Test ausführen: `bun run test -- <pfad-oder-namensmuster>` (Jest-Pattern-Matching, z. B. `bun run test -- units.test.ts`).
-
-Weitere Testarten:
-
-```bash
-bun run test:integration   # jest.integration.config.js, *.integration.test.ts, --forceExit
-bun run test:functions     # Deno-Tests für supabase/functions
-bun run e2e                # Maestro-Flows gegen laufenden Simulator/Emulator (Dev Build + supabase start + Testaccount nötig)
-bun run e2e:household-create / e2e:household-join / e2e:all
-```
-
-Lokales Backend:
-
-```bash
-supabase start / status / stop
-supabase db reset          # Migrationen neu anwenden
-bun run db:advisors        # Security/Performance-Advisors, lokal
-```
-
-Studio unter `http://localhost:54323`.
-
-Datenbank-Workflow ist in AGENTS.md dokumentiert (`db:diff` → `db:reset` → `test:db` → `db:advisors` → `db:diff` muss leer sein → `db:types`). `src/lib/database.types.ts` ist ein automatisch erzeugtes Artefakt und darf ausschließlich mit `bun run db:types` aus dem lokalen Supabase-Schema erstellt werden; manuelle Bearbeitung ist verboten. Migrationsdateien unter `supabase/migrations/` niemals von Hand bearbeiten — einzige Quelle der Wahrheit sind `supabase/schemas/*.sql` (Reihenfolge über `schema_paths` in `supabase/config.toml`, Elterntabellen vor Fremdschlüsseln).
-
-Test-Accounts für lokale Entwicklung:
-
-```bash
-bash scripts/create-user-with-household.sh [anzahl|email passwort name haushalt]
-bun run user:create / user:list / user:clean / user:delete
-```
 
 ## Architecture
 
 **Feature-first, drei Schichten:**
 
-- `src/app/` — ausschließlich Expo-Router-Routing (file-based), keine Fachlogik. `(auth)/` = nicht eingeloggt, `(app)/` = Haupt-Tabs, `household/`, `settings/`, `recipe/` = verschachtelte Stacks.
-- `src/features/<domain>/` — Fachlogik pro Domäne (`inventory`, `shopping-list`, `meal-planner`, `recipes`, `calorie-tracking`, `household`, `auth`, `onboarding`, `premium`, `settings`, `dashboard`, `navigation`). Kleine Features bleiben flach (`components/`, `hooks/`, `api.ts`, `types.ts`); ab spürbarer Größe wird nach Verantwortungsschicht getrennt statt alles in `components/` zu sammeln — `screens/` (Screens/Routen-Ziele), `sheets/` (Modals/Bottom-Sheets), `forms/` (Formulare & Eingabe-Bausteine), `components/` (reine Anzeige-Komponenten), `hooks/` (React-Query-/Datenzugriffs-Hooks), `domain/` (Domänen-Logik & Konfiguration ohne React). Referenz: `src/features/shopping-list/` (siehe dessen `ARCHITECTURE.md`).
-- **Android-Feature-Kopien:** Bei der Erstellung oder Erweiterung eines Features wird für jede betroffene plattformübergreifende Datei zusätzlich eine harte Kopie für Android angelegt. Die Kopie erhält `.android` vor der Dateiendung, zum Beispiel `component.tsx` → `component.android.tsx`. Die Android-Datei ist eine eigenständige Kopie und darf nicht als Symlink, Stub oder bloße Referenz umgesetzt werden.
-- `src/components/` — geteilte, domänenlose UI-Bausteine (`screen.tsx`, `card.tsx`, `text-field.tsx`, etc.).
-- `src/lib/` — Supabase-Client, Env-Handling (`env.ts`, wirft klaren Fehler bei fehlenden `EXPO_PUBLIC_*`-Variablen), lokaler DB-/Sync-Layer.
+- `src/app/` — nur Expo-Router-Routing, keine Fachlogik. `(auth)/`,
+  `(app)/`, `household/`, `settings/`, `recipe/`.
+- `src/features/<domain>/` — Fachlogik pro Domäne. Schichtung ab Größe:
+  `screens/`, `sheets/`, `forms/`, `components/`, `hooks/`, `domain/`.
+  Referenz: `src/features/shopping-list/` (siehe dessen `ARCHITECTURE.md`).
+- **Android-Feature-Kopien:** plattformübergreifende Dateien bekommen eine
+  echte `.android`-Kopie (kein Symlink/Stub), z. B. `component.tsx` →
+  `component.android.tsx`.
+- `src/components/` — geteilte, domänenlose UI-Bausteine.
+- `src/lib/` — Supabase-Client, Env-Handling (`env.ts`), lokaler DB-/Sync-Layer.
 
-**Lokaler DB-Layer (`src/lib/db/`):** SQLite via `expo-sqlite`. `client.ts` ist bewusst **nicht** im Barrel `index.ts` re-exportiert — es ist die einzige Datei, die das native Modul lädt; würde sie mit-exportiert, zöge jeder Unit-Test, der irgendetwas aus `@/lib/db` importiert, das native Modul mit und schlüge fehl. App-Code importiert `@/lib/db/client` direkt, reine Logik nie. Migrationen laufen über `migrator.ts` + `migrations.ts` (App-interne SQLite-Schemaversion, unabhängig von den Supabase-Migrationen).
+**Lokaler DB-Layer (`src/lib/db/`):** SQLite via `expo-sqlite`. `client.ts`
+bewusst **nicht** im Barrel `index.ts` re-exportiert (sonst zieht jeder Test,
+der aus `@/lib/db` importiert, das native Modul mit). App-Code importiert
+`@/lib/db/client` direkt. Migrationen: `migrator.ts` + `migrations.ts`
+(App-interne SQLite-Version, unabhängig von Supabase-Migrationen).
 
-**Datenbank-Trennung (RLS):** Die verbindliche Ladefolge der nummerierten Dateien unter `supabase/schemas/` steht ausschließlich in `schema_paths` von `supabase/config.toml`; sie wird hier nicht dupliziert. Geteilte Haushaltsdaten und private Account-Trackingdaten sind strikt per RLS getrennt. Jede neue Tabelle braucht eigene Policies und pgTAP-Tests unter `supabase/tests/`.
+**RLS-Trennung:** Ladefolge der Schema-Dateien steht ausschließlich in
+`schema_paths` (`supabase/config.toml`) — hier nicht duplizieren. Jede neue
+Tabelle braucht eigene Policies + pgTAP-Tests unter `supabase/tests/`.
+
+**Sprachregel:** siehe AGENTS.md — der untersagte K-Begriff darf nirgends
+verwendet werden (Code, Kommentare, Docs, UI-Texte, Beads-Tasks, Commits).
+
+**Umgebungsvariablen:** `.env` im Root, gitignored. Nur `EXPO_PUBLIC_*`
+landet im Client-Bundle. Details: `README.md`.
+
+**Native Module:** Barcode-Scanner, SQLite, SecureStore, Notifications
+laufen nicht in Expo Go — Dev Client zwingend (`bash scripts/ios-dev.sh`).
+
+## Weiterführende Docs
+
+- `.agents/rules/react-native-testing-library.md` — vor Komponententests lesen
+- `CONTEXT.md` — Domänenvokabular & Datenbesitz
+- `docs/adr/` — Architekturentscheidungen
+
 
 **Sprachregel:** Der im Änderungsauftrag untersagte K-Begriff darf in Quelltext,
 Kommentaren, Dokumentation, UI-Texten, Beads-Tasks und Commit-Nachrichten nicht
 verwendet werden. Bestehende Formulierungen werden bei Berührung durch
 „verbindlich“, „maßgeblich“ oder eine fachlich präzisere Bezeichnung ersetzt.
 
-**Umgebungsvariablen:** `.env` im Root, gitignored. Nur `EXPO_PUBLIC_*`-Variablen landen im Client-Bundle. Lokale Werte via `supabase status`; für Produktion ist ein eigener SMTP-Server zwingend (Supabase-Default-Mailversand ist auf 2 Mails/Stunde begrenzt und liefert seit 2026-06-03 bei neuen Free-Projekten keine anpassbaren Auth-Templates mehr). Details in `README.md`.
+## Agent skills / Task tracking
 
-**Native Module:** Barcode-Scanner, SQLite, SecureStore, Notifications laufen nicht in Expo Go — Dev Client zwingend (`bash scripts/ios-dev.sh`). Nach jeder neuen nativen Dependency neu bauen, sonst `Cannot find native module`-Fehler beim Metro-Reload.
-
-## Weiterführende Docs
-
-- `docs/features/VISION.md`, `docs/features/ROADMAP.md`
-- `.agents/rules/react-native-testing-library.md` — RNTL-Konventionen für diesen Codebase (vor Komponententests lesen)
-
-## Agent skills
-
-### Project context and task tracking
-
-Beads (`bd`) is the project tracker. Domain vocabulary and ownership live in
-`CONTEXT.md`; durable architecture decisions live in `docs/adr/`.
-
-<!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:970c3bf2 -->
-## Beads Issue Tracker
-
-This project uses **bd (beads)** for issue tracking. Run `bd prime` to see full workflow context and commands.
-
-### Quick Reference
-
-```bash
-bd ready              # Find available work
-bd show <id>          # View issue details
-bd update <id> --claim  # Claim work
-bd close <id>         # Complete work
-```
-
-### Rules
-
-- Use `bd` for ALL task tracking — do NOT use TodoWrite, TaskCreate, or markdown TODO lists
-- Run `bd prime` for detailed command reference and session close protocol
-- Use `bd remember` for persistent knowledge — do NOT use MEMORY.md files
-
-**Architecture in one line:** issues live in a local Dolt DB; sync uses `refs/dolt/data` on your git remote; `.beads/issues.jsonl` is a passive export. See <https://github.com/gastownhall/beads/blob/main/docs/SYNC_CONCEPTS.md> for details and anti-patterns.
-
-## Agent Context Profiles
-
-The managed Beads block is task-tracking guidance, not permission to override repository, user, or orchestrator instructions.
-
-- **Conservative (default)**: Use `bd` for task tracking. Do not run git commits, git pushes, or Dolt remote sync unless explicitly asked. At handoff, report changed files, validation, and suggested next commands.
-- **Minimal**: Keep tool instruction files as pointers to `bd prime`; use the same conservative git policy unless active instructions say otherwise.
-- **Team-maintainer**: Only when the repository explicitly opts in, agents may close beads, run quality gates, commit, and push as part of session close. A current "do not commit" or "do not push" instruction still wins.
-
-## Session Completion
-
-This protocol applies when ending a Beads implementation workflow. It is subordinate to explicit user, repository, and orchestrator instructions.
-
-1. **File issues for remaining work** - Create beads for anything that needs follow-up
-2. **Run quality gates** (if code changed) - Tests, linters, builds
-3. **Update issue status** - Close finished work, update in-progress items
-4. **Handle git/sync by active profile**:
-
-   ```bash
-   # Conservative/minimal/default: report status and proposed commands; wait for approval.
-   git status
-
-   # Team-maintainer opt-in only, unless current instructions forbid it:
-   git pull --rebase
-   bd dolt push
-   git push
-   git status
-   ```
-
-5. **Hand off** - Summarize changes, validation, issue status, and any blocked sync/commit/push step
-
-**Critical rules:**
-
-- Explicit user or orchestrator instructions override this Beads block.
-- Do not commit or push without clear authority from the active profile or the current user request.
-- If a required sync or push is blocked, stop and report the exact command and error.
-<!-- END BEADS INTEGRATION -->
-
-### Local Windows Beads runtime
-
-Before running any `bd` command in this workspace, set the Dolt root for the embedded database:
-
-```powershell
-$env:DOLT_ROOT_PATH = 'C:\Users\tozzi'
-```
-
-New agent shells do not inherit the environment of an earlier agent. Without this setting, `bd` cannot open the local `fam` database.
+Beads (`bd`) ist der Projekt-Tracker; vollständiges Setup, Regeln und
+Session-Completion-Protokoll stehen **ausschließlich in `AGENTS.md`** (dort
+einmal konsolidiert, siehe Vorschlag oben). Hier nur der Verweis: `bd prime`
+für Kontext, `.agents/skills/beads/SKILL.md` für Details.

@@ -19,7 +19,6 @@
   jeder Codeänderung gelesen. Es wird nicht abgeschwächt, um eine Änderung
   erfolgreich erscheinen zu lassen.
 - `CONTEXT.md` besitzt Domänensprache und Datenbesitz.
-- `docs/adr/` besitzt dauerhafte Architekturentscheidungen.
 
 Technisches Ist-Verhalten wird durch deklarative Schemas, Produktionscode und
 gezielte Tests belegt. Eine Abweichung von einem freigegebenen Vertrag wird
@@ -43,44 +42,32 @@ werden. Bestehende Formulierungen werden bei Berührung durch „verbindlich“,
 
 ## Verbindliche UI-Styling-Architektur
 
-`react-native-unistyles` v3 ist die einzige aktive Styling-Runtime.
-Das fam-Design-System hat genau drei zentrale Owner:
+`react-native-unistyles` v3 ist die einzige aktive Styling-Runtime — kein
+NativeWind/Tailwind, kein `className`. Genau drei Owner für Design-
+Entscheidungen:
 
-1. `src/components/theme/index.ts` besitzt Themes, Paletten und wiederverwendbare
-   Design-Tokens wie Abstände, Radien, Schriftmaße, Schriftgewichte und Schatten.
-2. `src/components/theme/ThemeProvider.tsx` besitzt die Präferenz `system | light |
-   dark`, ihre Auflösung gegen das Betriebssystem sowie `useTheme()` und
-   `useThemedStyles()`.
-3. `src/constants/ui.tsx` besitzt die gemeinsamen semantischen UI-Primitiven und
-   ihre Darstellung, einschließlich Typografie, Farben, Flächen, Konturen und
-   Interaktionszuständen. `src/constants/ui-shadow.ts` ist das ergänzende
-   Schattenmodul desselben UI-Owners und exportiert die fertigen, gemeinsamen
-   Schatten-Styles. Dadurch bleibt es bei genau drei zentralen Ownern.
+1. `src/components/theme/index.ts` — Themes, Paletten, Design-Tokens
+   (Abstände, Radien, Schriftmaße/-gewichte, Schatten).
+2. `src/components/theme/ThemeProvider.tsx` — Präferenz `system | light |
+   dark`, `useTheme()`, `useThemedStyles()`.
+3. `src/constants/ui.tsx` + `src/constants/ui-shadow.ts` — gemeinsame
+   semantische UI-Primitiven (Typografie, Farben, Flächen, Konturen,
+   Interaktionszustände, fertige Schatten-Styles).
 
-Verbindliche Regeln:
+Feature-Komponenten erfinden keine eigene Palette/Hexfarben/Tokens — fehlende
+projektweite Entscheidungen gehören in genau einen der drei Owner. Nur
+Verhalten, Komposition, lokales Layout und begründete native
+Integrationsgrenzen bleiben in der Feature-Komponente.
 
-- Stylesheets importieren `StyleSheet` ausschließlich aus
-  `react-native-unistyles`. `StyleSheet.configure()` wird vor dem Import von
-  Komponenten mit Unistyles-Styles ausgeführt.
-- Theme- oder Runtime-abhängige Styles verwenden
-  `StyleSheet.create((theme, rt) => ({ ... }))`; rein statisches lokales Layout
-  darf `StyleSheet.create({ ... })` verwenden.
-- Unistyles-Styles werden mit Style-Arrays kombiniert, niemals mit dem
-  Spread-Operator. `StyleSheet` wird nicht über Barrel-Dateien re-exportiert.
-- Gemeinsame semantische Entscheidungen liegen ausschließlich in den drei
-  Ownern. Für Schatten bilden `ui.tsx` und `ui-shadow.ts` gemeinsam den dritten
-  Owner. Feature-Komponenten enthalten nur Verhalten, Komposition und lokales
-  Layout sowie begründete native Integrationsgrenzen.
-- Neue Feature-Komponenten erfinden keine Palette, Hexfarben, Typografierollen
-  oder semantischen Tokens. Fehlende projektweite Entscheidungen werden in
-  genau einem der drei Owner ergänzt.
-- `className`, `contentContainerClassName` und aktive NativeWind-/Tailwind-APIs
-  werden nicht verwendet.
+Die Grundregeln (`StyleSheet` nur aus `react-native-unistyles`, Style-Arrays
+statt Spread, `StyleSheet.create((theme, rt) => ...)` für theme-abhängige
+Styles) werden durch `test/conventions/unistyles-entry-convention.test.ts`,
+`theme-owner-colors.test.ts` und die feature-eigenen
+`*-nativewind-convention.test.ts` erzwungen — ein Verstoß fällt spätestens
+dort auf.
 
-Arbeitsreferenzen:
-
-- Unistyles-v3-Tutorial: `docs/react-native-unistyles/v3/react-native-unistyles_v3_tutorial/`
-- Projekt-Skill: `.agents/skills/react-native-unistyles-v3/SKILL.md`
+Referenzen: Unistyles-v3-Tutorial (`docs/react-native-unistyles/v3/...`),
+Projekt-Skill `.agents/skills/react-native-unistyles-v3/SKILL.md`.
 
 ---
 
@@ -90,30 +77,12 @@ Im Marco. Your my agent. we will be working together a lot, so i thought it woul
 i love to build. i focus on building complex things as simple as possible. i love to find ways to reduce complexity when solving problems.
 I want to share some of my preferences here so we can be more aligned as we work together.
 "I like ambitious ideas, simple systems, and software that feels obvious. Do not preserve complexity just because it already exists. Do not introduce machinery because it looks architecturally impressive. Understand the real constraint, then fight for the smallest model that makes the correct behavior unsurprising. Channel both 'measure twice, cut once' and 'yagni'. Fight scope creep. Try to honor the dev's intent in both a minimal and realistic fashion._
+Always ask before making changes to the codebase. If you are unsure, ask me. If you are sure, ask me anyway. I will always answer and clarify. I want to be a good partner for you, and I want to make sure we are aligned on the work we are doing together."
 
 The rest of this document is meant to help you navigate the codebase and make changes effectively. Think of these instructions less as 'hard rules', more as 'good defaults'. The developer's preferences should be able to override anything here.
-> _Of note: Most developer contributions are often controlled remotely. This means you should be careful about accessing data, killing dev servers, and other things that may damage the project instance that the developer is using."_
+_Of note: Most developer contributions are often controlled remotely. This means you should be careful about accessing data, killing dev servers, and other things that may damage the project instance that the developer is using."_
 
 - **Override Clause:** Anweisungen in dieser Datei sind _starke Standardwerte, keine starre Dogmatik_. Explizite Anweisungen im Prompt des Maintainers überschreiben die `AGENTS.md` jederzeit.
-
----
-
-## Glossary
-
-| Term                                                   | Meaning & Dialect                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| :----------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`You`**                                              | Der KI-Agent, der den Code liest, plant und bearbeitet.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **`We / Maintainers`**                                 | Marco und die Maintainer des Projekts (deine Gesprächspartner).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **`User`**                                             | Der Endnutzer der Haushaltsapp-App bzw. die Person, die App später verwenden wird.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **`Household (Haushalt)`**                             | Die geteilte Entität für gemeinsame Bestände, Einkaufslisten und Einladungen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **`Inventory / Fridge`**                               | Geteilter Lebensmittelbestand mit Lagerorten (Kühlschrank, Vorrat, Tiefkühler). Eigenständiger Bestandseintrag, optional angereichert durch ein Product. Siehe `CONTEXT.md`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **`Product`**                                          | Globaler, nicht haushaltsgebundener Katalogeintrag (Barcode/Nährwerte). Keine Identität mit Inventory/Shopping-List-Items, nur optionale Anreicherung. Siehe `CONTEXT.md`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **`Externe Produktdatenbank (OFF / Open Food Facts)`** | Externe, quelloffene, crowdsourced Lebensmitteldatenbank (`openfoodfacts.org`, kurz **OFF**) — nicht Teil von Haushaltsapp, sondern eine Datenquelle: Produktsuche per Name/Barcode, Nährwerte, Marke, und die maßgebliche Kategorie-Taxonomie (`categories_tags`, z. B. `en:porks`). OFF ist die Quelle, aber nicht die Wahrheit — Treffer werden als `CatalogProduct` (`src/features/product-search/types.ts`) quellneutral dargestellt und bei Übernahme optional in den lokalen Product-Spiegel überführt (`off_category_tags`/`off_last_modified_at`-Spalten auf `Product`), nie 1:1 als eigene Identität behandelt. Der Klassifikator (`src/features/shopping-list/classification/`) nutzt `categories_tags` als eines von mehreren Signalen zur automatischen Einkaufslisten-Kategorie. Maßgeblich sind Klassifikator-Code und fokussierte Tests. |
-| **`Tracking`**                                         | Oberbegriff für alle privaten, per RLS isolierten Nutzerdaten (Nutrition Tracking, Medications & Symptoms, Fasting, Vital Logs, Workouts). Siehe `CONTEXT.md`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **`Nutrition Tracking`**                               | Ernährungs- und Gewichtsteil von Tracking: Mahlzeiten, Gewicht, Ziele. Eine Tracking-Domäne unter mehreren, kein Oberbegriff.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **`Declarative Schema`**                               | Der deklarative Schemazustand unter `supabase/schemas/*.sql`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **`Outbox`**                                           | Lokale SQLite-Warteschlange für Offline-Mutationen vor dem Push an Supabase.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **`Dev Build`**                                        | Natives Binary (`scripts/ios-dev.sh`), das für native Expo-Module zwingend nötig ist.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 ---
 
@@ -128,7 +97,7 @@ The rest of this document is meant to help you navigate the codebase and make ch
 
 ---
 
-## 7. "Hit Every Surface" & Feature Completeness Checklist
+## "Hit Every Surface" & Feature Completeness Checklist
 
 - **RLS & Security Policies:** Jede neue Tabelle in `supabase/schemas/*.sql` muss explizite RLS-Policies und zugehörige pgTAP-Tests in `supabase/tests/` erhalten.
 - **Reverse States Rule:** Zu jeder UI-Aktion (z. B. `check_item`, `add_favorite`, `archive_recipe`) muss das logische Gegenstück (`uncheck_item`, `remove_favorite`, `unarchive_recipe`) implementiert werden.
@@ -143,156 +112,6 @@ The rest of this document is meant to help you navigate the codebase and make ch
 - **Linter & Formatter:** Biome (`bun run check` zum Prüfen, `bun run check:fix` zum Beheben). Kein ESLint / Prettier. `bun run check` prüft den TypeScript-/TSX-Quellbestand mit Biome.
 - **Typecheck:** `bun run typecheck` (`tsc --noEmit`).
 - **Tests:** `bun run test` (Jest Unit-Tests) und `bun run test:db` (pgTAP DB-Tests).
-- **Datenbank-Workflow:**
-
-```bash
-  bun run db:diff -- -f <feature_name>  # Migration erzeugen
-  bun run test:db                       # pgTAP-Suite validieren
-  bun run db:advisors                   # Security/Performance prüfen
-  bun run db:diff                       # Muss danach LEER sein
-  bun run db:types                      # database.types.ts automatisch erzeugen
-
-```
-
-## Schnelle native Builds
-
-- Jeder Prebuild verwendet ausdrücklich `--no-clean`, auch in CI und EAS.
-- Vorhandene native Projekte, Pods, DerivedData sowie Gradle- und
-  ccache-Caches werden weiterverwendet. Kein automatisches Löschen bei Fehlern.
-- Bei unveränderten nativen Eingaben wird Prebuild übersprungen. `pod install`
-  läuft nur bei fehlenden oder nicht synchronen Pods beziehungsweise geänderten
-  Pod-Eingaben. Das entscheidet `scripts/native-build/native-build.ts`.
-- JS-/TS-Änderungen benötigen keinen nativen Neubuild, sofern sie keine nativen
-  Build-Eingaben wie Config-Plugins verändern. Dafür Metro/Fast Refresh nutzen.
-- Native Anpassungen gehören in App-Konfiguration oder idempotente
-  Config-Plugins. Wiederholtes Prebuild darf keine doppelten Einträge erzeugen.
-- Beim Entfernen eines Plugins werden dessen native Änderungen gezielt entfernt.
-- Für lokale Entwicklung wird `native:dev` verwendet. EAS-Local bleibt der
-  isolierte Distributionsbuild; seine frische Arbeitskopie ist kein
-  inkrementeller Xcode-/Gradle-Build. Externe Compiler-Caches bleiben erhalten.
-- Ein vollständiger Reset oder das Löschen von Caches erfordert Marcos
-  ausdrückliche Freigabe. Das gilt auch für `--no-build-cache` und Clean-Flags;
-  `--approve-rebuild` erteilt keine Freigabe zum Löschen von Caches.
-- Aussagen über schnellere Builds werden durch vergleichbare Zeitmessungen
-  und Cache-Treffer belegt.
-
-### Erlaubte Build-Einstiege
-
-Die folgenden Befehle werden aus dem Repository-Root verwendet. Die Liste
-legt den Einstieg fest; sie ist keine pauschale Freigabe, Builds oder Uploads
-ohne entsprechenden Auftrag zu starten.
-
-| Zweck | Erlaubter Befehl |
-| --- | --- |
-| JS-/TS-Entwicklung mit vorhandenem Dev Client | `bun run start -- --dev-client` |
-| Laufende iOS-Simulator-Entwicklung | `bun run ios:dev` (Env-Alias für `native:dev`) oder `bun run native:dev -- --target ios-development-simulator` |
-| iOS-Geräteentwicklung | `bun run native:dev -- --target ios-development-device --device "<Gerätename>"` |
-| Android-Entwicklung | `bun run native:dev -- --target android-development` |
-| Lokaler TestFlight-Build | `bun run native:rebuild -- --target ios-preview-testflight` |
-| Weitere Distributionsbuilds | `bun run native:rebuild -- --target <target>`; `ios-production`, `android-preview` oder `android-production` |
-| Native Konfiguration aktualisieren | `bun run native:prebuild -- --platform <platform>`; `ios` oder `android`, mit `FAM_HARNESS_UI=1` für Development bzw. `0` für Release |
-
-`native:status`, `native:status -- --diff`, `native:baseline`, `native:run`
-und `native:restore` bleiben die Diagnose-/Artefaktbefehle gemäß dem folgenden
-Abschnitt. Die Projekt-Buildbefehle sind in `package.json` definiert und werden
-von `scripts/native-build/native-build.ts` ausgeführt.
-
-### Lokalen TestFlight-Build starten
-
-Aus dem Repository-Root:
-
-```bash
-bun run native:rebuild -- --target ios-preview-testflight
-```
-
-Das Projekt-Skript baut mit `eas build --local` und dem Profil
-`preview-testflight` aus `eas.json`. Es registriert die erzeugte IPA samt
-Fingerprint und SHA-256 in `native-build-lock.json`.
-
-Bei Native-Drift zuerst `bun run native:status -- --diff` auswerten. Nach
-Freigabe für das notwendige inkrementelle Prebuild:
-
-```bash
-bun run native:rebuild -- --target ios-preview-testflight --approve-rebuild
-```
-
-Auch dieser Pfad verwendet `--no-clean`; das Flag erlaubt keine Cache-Löschung.
-Build und Upload sind getrennt: Im interaktiven Terminal fragt das Skript nach
-dem Build nach einem Upload zu App Store Connect (Standard: Nein). Ohne
-interaktives Terminal gibt es nur den passenden Submit-Befehl aus. Ein Upload
-wird nur auf entsprechenden Auftrag ausgeführt, mit der im aktuellen Build
-erzeugten IPA. Dafür kann die Upload-Abfrage bestätigt oder der ausgegebene
-`eas submit --platform ios --profile preview-testflight --path ...`-Befehl
-verwendet werden.
-
-## Native Fingerprint & Build Lock
-
-`ios/` und `android/` sind ignorierte, generierte CNG-Ausgaben. Quellen sind
-App-Konfiguration, Dependencies, Assets und Config-Plugins. EAS generiert die
-nativen Projekte selbst; direkte native Änderungen sind nicht dauerhaft.
-`bun run native:prebuild -- --platform ios|android` aktualisiert sie immer mit
-`--no-clean`. Vorhandene native Projekte, Pods und Build-Dateien bleiben erhalten.
-Kein automatisches Löschen nativer Projekte; entfernte Plugin-Anpassungen werden
-gezielt bereinigt. Bei Dev-Builds
-`FAM_HARNESS_UI=1`, beim Release-Graphen `FAM_HARNESS_UI=0` verwenden. `native-build-lock.json`
-enthält eine `@expo/fingerprint`-Baseline der CNG-Eingaben je Plattform und optional lokal
-vorhandene native Artefakte mit SHA-256-Prüfung. Die Baseline wird pro Host
-gepflegt: macOS berechnet iOS, Windows und Linux Android. Ein Eintrag der
-anderen Plattform bleibt dabei erhalten.
-
-Der Lock ist ein Release- und Artefakt-Gate, kein Blocker für den normalen
-Development-Inner-Loop:
-
-Die wichtigsten Befehle und ihr Sperrverhalten:
-
-- `bun run native:status` prüft die aktuelle Baseline und alle registrierten,
-  lokal vorhandenen Artefakte. Ein Fingerprint- oder Artefakt-Mismatch schlägt
-  fehl; fehlende lokale Artefakte werden nur gemeldet.
-- `bun run native:baseline -- --approve-rebuild` schreibt die Baseline der
-  verfügbaren Host-Plattform. Der Befehl kompiliert nicht. Erst nach
-  geprüftem inkrementellen Prebuild ausführen; native Ausgaben sind keine Hash-Eingaben. Eine
-  neue Baseline aktualisiert registrierte Artefakte nicht automatisch.
-- `bun run native:status -- --diff` zeigt bei einem Mismatch die abweichenden
-  Fingerprint-Sources, sofern ein lokaler Snapshot unter
-  `.native-fingerprint-cache/` vorhanden ist.
-- `bun run native:dev -- --target <dev-target>` nutzt den Inner Loop über
-  `expo run:*`, das fehlende native Projekte erzeugt. Nach nativen Änderungen
-  an vorhandenen Projekten zuerst `native:prebuild` ausführen. Ein Mismatch
-  wird sichtbar gewarnt, blockiert den Development-
-  Build aber nicht. Gültige Targets sind `ios-development-simulator`,
-  `ios-development-device` und `android-development`.
-- `bun run native:rebuild -- --target <target>` ist der lokale EAS-Pfad
-  (`eas build --local`). Er bereitet vorhandene lokale Native-Projekte/Pods
-  inkrementell vor und registriert das Artefakt. EAS selbst benötigt eine
-  frische Arbeitskopie unter dem festen Workingdir; externer ccache bleibt erhalten. Nur wenn ein
-  Native-Fingerprint-Drift ein inkrementelles Prebuild verlangt, ist einmalig
-  `--approve-rebuild` nötig.
-- `bun run native:run -- --target <target>` verwendet ausschließlich ein
-  registriertes und unverändertes Artefakt. Es kompiliert nicht automatisch.
-  `native:restore` kann ein passendes EAS-Artefakt wiederherstellen.
-
-Ein neuer Fingerprint ist zu erwarten, wenn sich deklarative native Eingaben
-ändern, insbesondere:
-
-- native Dependencies, Lockfile oder Config-Plugins;
-- native relevante Optionen in `app.json` oder `app.config.*`;
-- `package.json`-Scripts, die einen nativen Lauf beeinflussen, sowie der Inhalt
-  von `.gitignore`.
-
-Die zentrale Ausnahmekonfiguration liegt in `fingerprint.config.js`.
-
-Bei einem echten Mismatch zuerst `bun run native:status -- --diff` ausführen
-und danach die Ursache dokumentiert beheben. Nur ein Native-Prebuild braucht
-die explizite Freigabe `--approve-rebuild`; ein Build mit unveränderter
-Native-Konfiguration darf Ccache, Pods und Artefakte direkt wiederverwenden.
-Arbeitsweise und bekannte Drift-Ursachen stehen in
-`docs/features/native-fingerpint-faster-build/native-fingerprint-drift-debugging.md`.
-
-`native:dev` profitiert auf iOS vom lokalen ccache und von DerivedData. Das
-Flag `--no-build-cache` leert dabei nur lokales DerivedData und umgeht nicht den
-Remote-Cache-Lookup aus `app.json`. Der lokale EAS-Rebuild verwendet bei
-konfiguriertem ccache ein festes `EAS_LOCAL_BUILD_WORKINGDIR`; die Details liegen
-in `plugins/withIosCcacheDir.js` und `scripts/native-build/native-build.ts`.
 
 ## Coding preferences - general
 
@@ -315,8 +134,7 @@ in `plugins/withIosCcacheDir.js` und `scripts/native-build/native-build.ts`.
 ## Stack conventions in this project
 
 - **State management:** Zustand for client-side/UI state (`create()` stores, e.g. `src/features/onboarding/onboarding-store.ts`, sync-debug state, form-local state like `src/features/shopping-list/forms/category-form-state.ts`). React Query owns server/cache state (Supabase reads, mutations, `mutateAsync`). Don't duplicate server state into a Zustand store — pull it via React Query and keep Zustand for state that has no server-side source of truth.
-- **Lists:** `@shopify/flash-list` (v2) ist die alleinige Konvention für virtualisierte Listen — RNs `FlatList` wird nicht mehr verwendet (#139, Stand 2026-08 alle Vorkommen migriert; `test/conventions/flashlist-convention.test.ts` hält das fest). `@legendapp/list` ist zwar installiert, aber unbenutzt: nicht dafür greifen. FlashList v2 braucht **kein** `estimatedItemSize` mehr und auch kein `initialNumToRender`/`windowSize`/`maxToRenderPerBatch`-Tuning, das Recycling regelt die Liste selbst. Zwei Fallstricke: FlashList hat kein cssInterop, `className`/`contentContainerClassName` wirken nicht — RN-Styles nutzen; und `gap` im `contentContainerStyle` greift nicht, Zeilenabstände kommen über `ItemSeparatorComponent`. Eine nicht scrollende Liste innerhalb eines scrollenden `Screen` (früher `FlatList` mit `scrollEnabled={false}`) wird **nicht** zu FlashList, sondern direkt per `.map()` abgebildet — eine virtualisierte Liste im ScrollView unterstützt FlashList nicht.
-- **Drag-Reorder-Listen:** `react-native-reorderable-list` bleibt bewusst die Lösung (`category-order-sheet.tsx`, `recipe-wizard-step-steps.tsx`) — kein Ersatz durch FlashList oder eine gesture-handler-Eigenlösung.
+- **Lists:** `@shopify/flash-list` (latest) ist die alleinige Konvention für virtualisierte Listen — RNs `FlatList` wird nicht mehr verwendet (#139, Stand 2026-08 alle Vorkommen migriert; `test/conventions/flashlist-convention.test.ts` hält das fest). `@legendapp/list` ist zwar installiert, aber unbenutzt: nicht dafür greifen. FlashList v2 braucht 
 - **Gesten & UI-Thread-Animation:** `react-native-gesture-handler` für Swipe-Interaktionen (Vorbild: `inventory-item-row.tsx` mit `ReanimatedSwipeable`), `react-native-worklets`/Reanimated für Animationen auf dem UI-Thread (Vorbild: `animated-icon.tsx`, `week-grid.tsx`, `jiggle-wrapper.tsx`). Bestehendes Muster fortführen, aber nicht proaktiv auf bisher statische Stellen ausweiten.
 - **Testhinweis zu FlashList:** die Liste recycelt Zeilen-Views, deshalb spiegelt die Reihenfolge im RNTL-Baum nach einem Re-Sort nicht mehr die Datenreihenfolge (visuell wird über Layout positioniert). Reihenfolge-Logik gehört in eine reine Funktion und wird dort geprüft (Vorbild: `src/features/inventory/visible-items.ts`).
 - **Forms:** React Hook Form + Zod (via `@hookform/resolvers`) is the default for structured, validated forms — auth (`sign-in-form.tsx`, `sign-up-form.tsx`), profile edit, onboarding profile step, recipe creation/wizard. Simpler inline forms (e.g. `add-item-form.tsx`) still use plain `useState` and aren't required to migrate just for consistency's sake; use RHF+Zod for new forms with real validation needs, plain state for small inline inputs.
@@ -343,7 +161,7 @@ Read the exact versioned docs at <https://docs.expo.dev/versions/v57.0.0/> befor
 - **Typesicherheit ohne `any`:** Inferenz nutzen. Typsysteme sollen sich an Änderungen anpassen. Code soll modernen TypeScript-Standards entsprechen.
 - **Feature-First Struktur:** `src/app/` dient ausschließlich dem Routing (Expo Router). Fachlogik gehört nach `src/features/<domain>/`, geteilte UI nach `src/components/`. Kleine Features bleiben flach (`components/`, `hooks/`, `api.ts`, `types.ts`); sobald ein Feature spürbar wächst, wird nach Verantwortungsschicht getrennt statt alles in `components/` zu sammeln — `screens/` (Screens/Routen-Ziele), `sheets/` (Modals/Bottom-Sheets), `forms/` (Formulare & Eingabe-Bausteine), `components/` (reine Anzeige-Komponenten), `hooks/` (React-Query-/Datenzugriffs-Hooks), `domain/` (Domänen-Logik & Konfiguration ohne React). Referenz: `src/features/shopping-list/`.
 - **UI & Layout:** Warme Mauve-/Creme-Palette (`src/components/theme/index.ts`, Light & Dark, siehe `docs/design-system/contracts/README.md`), semantisches Styling ausschließlich über Theme-Tokens und die drei verbindlichen UI-Quellen, kein Em-Dash in Copy, Informationsdichte vor Deko.
-- **Expo SDK 57:** Vor dem Schreiben nativer Expo-Features stets die versionierte Dokumentation (<https://docs.expo.dev/versions/v57.0.0/>) konsultieren.
+- **Expo SDK 57:** Vor dem Schreiben nativer Expo-Features stets die versionierte Dokumentation (<https://docs.expo.dev/versions/v57.0.0/>) konsultieren. 
 - **Testing Library:** Vor Änderungen an Komponententests die Regeln in `.agents/rules/react-native-testing-library.md` beachten.
 
 ## Pull Requests
@@ -363,15 +181,6 @@ Before writing or changing RNTL tests, read the relevant guide in
 `node_modules/@testing-library/react-native/docs/`, starting with
 `node_modules/@testing-library/react-native/docs/guides/llm-guidelines.md`.
 Prefer those package docs over stale assumptions, and follow deprecation notices.
-also make sure to read `.agents/rules/react-native-testing-library.md` for react native testing library rules and guidelines.
-
-## Verification & Pull Request Instructions
-
-- **Lokale Verifikation vor Fertigstellung:**
-  1. `bun run check` (Biome Lint/Format)
-  2. `bun run typecheck` (TypeScript)
-  3. `bun run test` (Jest Unit Tests)
-  4. `bun run test:db` (sofern DB-Schemas betroffen sind)
 
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:970c3bf2 -->
 ## Beads Issue Tracker
@@ -430,38 +239,47 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 - Explicit user or orchestrator instructions override this Beads block.
 - Do not commit or push without clear authority from the active profile or the current user request.
 - If a required sync or push is blocked, stop and report the exact command and error.
+- Use `bd` for ALL task tracking — do NOT use TodoWrite, TaskCreate, or
+  markdown TODO lists.
+- Keep persistent project memory in Beads via `bd remember` — do NOT create
+  MEMORY.md files.
+- Codex 0.129.0+ can load Beads context automatically via native hooks; use
+  `/hooks` to inspect/toggle. Otherwise run `bd prime` manually.
 <!-- END BEADS INTEGRATION -->
 
-<!-- BEGIN BEADS CODEX SETUP: generated by bd setup codex -->
-## Beads Issue Tracker
+## Native Builds
 
-Use Beads (`bd`) for durable task tracking in repositories that include it. Use the `beads` skill at `.agents/skills/beads/SKILL.md` (project install) or `~/.agents/skills/beads/SKILL.md` (global install) for Beads workflow guidance, then use the `bd` CLI for issue operations.
+Vollständige Befehlsreferenz, Schritt-für-Schritt-Anleitung und Fingerprint-
+Mechanik: [`scripts/native-build/README.md`](scripts/native-build/README.md).
+Hier nur die verbindlichen Grundregeln:
 
-### Quick Reference
+- Jeder Prebuild läuft mit `--no-clean` — auch in CI/EAS. Vorhandene native
+  Projekte, Pods, DerivedData, Gradle-/ccache-Caches bleiben erhalten; kein
+  automatisches Löschen, auch nicht bei Fehlern.
+- Unveränderte native Eingaben → kein Prebuild, kein `pod install`. Reine
+  JS-/TS-Änderungen laufen über Metro/Fast Refresh, nie über einen nativen
+  Rebuild.
+- Ein vollständiger Reset oder das Löschen von Caches braucht Marcos
+  ausdrückliche Freigabe. `--approve-rebuild` gibt **nur** ein einmaliges
+  inkrementelles Prebuild frei — keine Cache-Löschung.
+- Config-Plugins bleiben idempotent; entferntes Plugin → dessen native
+  Änderungen gezielt zurückbauen, kein pauschaler Clean-Prebuild.
+- Geschwindigkeitsaussagen ("das ist jetzt schneller") nur mit Zeitmessung
+  und Cache-Treffer-Beleg (`.build-metrics/builds.jsonl`).
 
-```bash
-bd ready                # Find available work
-bd show <id>            # View issue details
-bd update <id> --claim  # Claim work
-bd close <id>           # Complete work
-bd prime                # Refresh Beads context
-```
+### Erlaubte Build-Einstiege
 
-### Rules
+| Zweck | Befehl |
+| --- | --- |
+| JS-/TS-Dev mit vorhandenem Dev Client | `bun run start -- --dev-client` |
+| iOS-Simulator-Entwicklung | `bun run native:dev -- --target ios-development-simulator` |
+| iOS-Geräteentwicklung | `bun run native:dev -- --target ios-development-device --device "<Name>"` |
+| Android-Entwicklung | `bun run native:dev -- --target android-development` |
+| Lokaler TestFlight-Build | `bun run native:rebuild -- --target ios-preview-testflight` |
+| Weitere Distributionsbuilds | `bun run native:rebuild -- --target ios-production\|android-preview\|android-production` |
+| Native Config aktualisieren | `bun run native:prebuild -- --platform ios\|android` (`FAM_HARNESS_UI=1` Dev / `0` Release) |
 
-- Use `bd` for all task tracking; do not create markdown TODO lists.
-- Run `bd prime` when Beads context is missing or stale. Codex 0.129.0+ can load Beads context automatically through native hooks; use `/hooks` to inspect or toggle them.
-- Keep persistent project memory in Beads via `bd remember`; do not create ad hoc memory files.
-
-**Architecture in one line:** issues live in a local Dolt DB; sync uses `refs/dolt/data` on your git remote; `.beads/issues.jsonl` is a passive export. See <https://github.com/gastownhall/beads/blob/main/docs/SYNC_CONCEPTS.md> for details and anti-patterns.
-<!-- END BEADS CODEX SETUP -->
-
-### Local Windows Beads runtime
-
-Before running any `bd` command in this workspace, set the Dolt root for the embedded database:
-
-```powershell
-$env:DOLT_ROOT_PATH = 'C:\Users\tozzi'
-```
-
-New agent shells do not inherit the environment of an earlier agent. Without this setting, `bd` cannot open the local `fam` database.
+Diagnose/Artefakt-Befehle (`native:status`, `native:status -- --diff`,
+`native:baseline`, `native:run`, `native:restore`) sowie Drift-Ursachen und
+Freigabeprozess: siehe README oben. Ein Native-Drift wird immer zuerst mit
+`native:status -- --diff` untersucht, bevor `--approve-rebuild` verwendet wird.

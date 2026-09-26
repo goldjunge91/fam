@@ -61,6 +61,21 @@
     "plugins": [
       "expo-apple-authentication",
       [
+        "expo-dev-client",
+        {
+          "ios": {
+            "toolsButton": false,
+            "showMenuAtLaunch": false,
+            "skipOnboarding": true
+          },
+          "android": {
+            "toolsButton": false,
+            "showMenuAtLaunch": false,
+            "skipOnboarding": true
+          }
+        }
+      ],
+      [
         "expo-router",
         {
           "headers": {

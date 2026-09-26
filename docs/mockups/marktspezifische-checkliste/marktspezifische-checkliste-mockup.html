@@ -172,11 +172,11 @@
     font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--app-text-secondary);
   }
 
-  /* Kategorien als Karten statt loser Abschnitte auf dem Screen-Hintergrund. */
+  /* Kategorien als Karten statt loser Abschnitte auf dem Verlauf. */
   /* Leichte Kategoriefarbe in der Karte statt vollem Farbband (das gab es
      schon einmal im echten Screen und wurde als zu bunt wieder zurückgebaut,
      s. Kommentar in shopping-list-screen.tsx) — hier nur eine sehr blasse
-     Tönung, kein Farbband, und insgesamt weniger Kontrast zum Screen-Hintergrund
+     Tönung, kein Farbband, und insgesamt weniger Kontrast zum Verlauf
      dahinter (Karte halbtransparent statt voll deckend). */
   .category-card {
     background: color-mix(in srgb, color-mix(in srgb, var(--cat) 9%, var(--app-surface)) 78%, transparent);
@@ -189,7 +189,7 @@
 
   /* ---- Zeile ohne Checkbox + Swipe-Reveal ---- */
   .row-clip { overflow: hidden; position: relative; }
-  /* Kein Zeilenhintergrund — Zeilen liegen direkt auf dem Screen-Hintergrund,
+  /* Kein Zeilenhintergrund — Zeilen liegen direkt auf dem Screen-Gradient,
      genau wie bei inventory-item-row.tsx ("keine durchgehende Kartenflaeche
      mit harten Ecken"). Nur beim Wischen deckt die Zeile die Aktionsflaeche
      dahinter ab, dafuer bekommt sie dann kurzzeitig eine feste Farbe. */
@@ -304,7 +304,7 @@
     <div class="phone-slot">
       <div class="phone-slot-label">Ruhezustand</div>
       <div class="phone">
-        <div class="screen">
+        <div class="screen hub">
           <div class="statusbar"></div>
           <div class="app-header">
             <div class="icon-btn">☰</div>
@@ -341,7 +341,7 @@
     <div class="phone-slot">
       <div class="phone-slot-label">Kurz gewischt · Bearbeiten</div>
       <div class="phone">
-        <div class="screen">
+        <div class="screen hub">
           <div class="statusbar"></div>
           <div class="app-header">
             <div class="icon-btn">☰</div>
@@ -381,7 +381,7 @@
     <div class="phone-slot">
       <div class="phone-slot-label">Weiter gewischt · Löschen</div>
       <div class="phone">
-        <div class="screen">
+        <div class="screen hub">
           <div class="statusbar"></div>
           <div class="app-header">
             <div class="icon-btn">☰</div>
@@ -427,7 +427,7 @@
     <div class="phone-slot">
       <div class="phone-slot-label">Hauptscreen</div>
       <div class="phone">
-        <div class="screen">
+        <div class="screen hub">
           <div class="statusbar"></div>
           <div class="app-header">
             <div class="icon-btn">☰</div>
@@ -464,7 +464,7 @@
     <div class="phone-slot">
       <div class="phone-slot-label">Bearbeitungsmenü</div>
       <div class="phone">
-        <div class="screen">
+        <div class="screen hub">
           <div class="statusbar"></div>
           <div class="app-header">
             <div class="icon-btn">☰</div>

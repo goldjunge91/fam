@@ -56,8 +56,19 @@ Ownern.
 
 - `StyleSheet` wird ausschließlich aus `react-native-unistyles` importiert und
   nicht über Barrel-Dateien re-exportiert.
-- Unistyles-Styles werden niemals mit dem Spread-Operator kombiniert. Verwende
-  Style-Arrays, zum Beispiel `style={[styles.root, localStyle]}`.
+- Reaktive Styles aus `StyleSheet.create()` werden niemals mit dem
+  Spread-Operator kombiniert: Das kann die Proxy-Bindung von Unistyles
+  aufbrechen. Verwende Style-Arrays, zum Beispiel
+  `style={[styles.root, localStyle]}`.
+- `StyleSheet.absoluteFill` ist im nativen Unistyles-v3-Adapter ein direkter
+  Alias von React Natives statischer `StyleSheet.absoluteFill`-Konstante; es ist
+  kein reaktives Ergebnis von `StyleSheet.create()`. Es darf als Eintrag eines
+  Style-Arrays verwendet werden. Für gefüllte Overlays wird es am Verbrauchsort
+  kombiniert, zum Beispiel
+  `style={[StyleSheet.absoluteFill, styles.overlay]}`; spätere Array-Einträge
+  überschreiben dabei wie bei einer Objektkombination frühere Werte. So bleibt
+  die native Positionierung erhalten, ohne die Konstante in lokale
+  StyleSheet-Objekte zu kopieren.
 - Das Unistyles-Babel-Plugin ist erforderlich. Es muss den App-Quellcode
   verarbeiten; in diesem Projekt ist `root: 'src'` in `babel.config.js`
   festgelegt.
