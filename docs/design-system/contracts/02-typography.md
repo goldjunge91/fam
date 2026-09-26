@@ -1,8 +1,9 @@
 # Vertrag: Typografie
 
-Txt-Varianten und ihre Darstellung stehen in [ui.tsx](../../../src/constants/ui.tsx).
-Schriftmaße und Schriftfamilien stehen in [index.ts](../../../src/components/theme/index.ts).
-Diese Dateien besitzen die konkreten Werte.
+Txt-Varianten und ihre Darstellung stehen in [txt.tsx](../../../src/constants/txt.tsx).
+Schriftmaße, Zeilenhöhen, Schriftschnitte und Schriftfamilien stehen in
+[index.ts](../../../src/components/theme/index.ts). Beide Dateien besitzen die
+konkreten Werte.
 
 ## Varianten und Overrides
 

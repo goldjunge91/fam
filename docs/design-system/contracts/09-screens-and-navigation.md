@@ -6,9 +6,10 @@ Screen bündelt Safe Area, Hintergrund, Inhaltsbreite, Scrollen, Tastatur,
 unteren Freiraum und Header. Es verwendet Tokens aus
 [index.ts](../../../src/components/theme/index.ts), die aktive Palette aus dem
 ThemeProvider und gemeinsame Darstellung aus
-[ui.tsx](../../../src/constants/ui.tsx). HubScreen und andere Kompositionen
-verwenden dieselben Regeln. Fachscreens wählen Datenzustände und Aktionen;
-Kamera und Medienviewer dürfen einen begründeten nativen Container verwenden.
+[ui.tsx](../../../src/constants/ui.tsx) und [txt.tsx](../../../src/constants/txt.tsx).
+HubScreen und andere Kompositionen verwenden dieselben Regeln. Fachscreens wählen
+Datenzustände und Aktionen; Kamera und Medienviewer dürfen einen begründeten
+nativen Container verwenden.
 
 ## Header und Navigation
 
