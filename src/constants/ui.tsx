@@ -63,6 +63,19 @@ export const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;
 const POP_SPRING = { damping: 9, stiffness: 380, mass: 0.5 } as const;
 const PRESSED_OPACITY = 0.78;
 
+/**
+ * Verbindliche Untergrenze fuer eigenstaendige Aktionen in logischen
+ * Einheiten. Bewusst NICHT `controlSizes.touchTarget`: dessen `rs()`-Skalierung
+ * faellt auf Geraeten unterhalb von 384pt unter 44, waehrend der Vertrag in
+ * `docs/design-system/contracts/07-buttons-and-interaction.md` feste 44 x 44
+ * logische Einheiten fordert.
+ *
+ * Kleine sichtbare Flaechen (Icon-Chips, dashed Platzhalter) duerfen kleiner
+ * bleiben, solange ihr Treffer-Container auf dieses Mass wächst. Siehe
+ * `docs/design-system/contracts/10-accessibility-and-states.md`.
+ */
+export const MIN_TOUCH_SIZE = 44;
+
 /** Provider identity colors used by branded authentication icons. */
 export const providerColors = {
   google: {
@@ -102,8 +115,8 @@ export const iconButtonStyles = StyleSheet.create((theme) => ({
     borderColor: theme.border,
   },
   modalClose: {
-    minWidth: theme.space.xxl + theme.space.md + theme.space.xs,
-    minHeight: theme.space.xxl + theme.space.md + theme.space.xs,
+    minWidth: MIN_TOUCH_SIZE,
+    minHeight: MIN_TOUCH_SIZE,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: theme.radius.sm,
@@ -173,7 +186,7 @@ export const backButtonStyles = StyleSheet.create((theme) => ({
   },
   text: {
     alignSelf: 'flex-start',
-    minHeight: 44,
+    minHeight: MIN_TOUCH_SIZE,
     paddingTop: theme.space.sm,
     paddingBottom: theme.space.xs,
     paddingRight: theme.space.lg,
@@ -598,8 +611,8 @@ export function Button({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: variant === 'link' ? 'flex-end' : undefined,
-    minHeight: 44,
-    minWidth: 44,
+    minHeight: MIN_TOUCH_SIZE,
+    minWidth: MIN_TOUCH_SIZE,
     paddingHorizontal: variant === 'link' ? space.md : pad.paddingHorizontal,
     paddingVertical: variant === 'link' ? space.sm : pad.paddingVertical,
     opacity: isDisabled ? 0.6 : isPressed ? PRESSED_OPACITY : 1,
@@ -697,7 +710,7 @@ export function IconButton({
   const { colors } = useTheme();
   const fg = color ?? colors.text;
   const background = bg ?? colors.backgroundElement;
-  const effectiveSize = Math.max(size, 44);
+  const effectiveSize = Math.max(size, MIN_TOUCH_SIZE);
   return (
     <Press
       testID={testID}
@@ -1056,7 +1069,7 @@ const controlStyles = StyleSheet.create((theme) => ({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 44,
+    minHeight: MIN_TOUCH_SIZE,
     borderRadius: radius.sm,
     borderCurve: 'continuous',
     paddingHorizontal: space.sm,
@@ -1066,7 +1079,7 @@ const controlStyles = StyleSheet.create((theme) => ({
     paddingVertical: space.sm,
   },
   segmentItemCompact: {
-    minHeight: 44,
+    minHeight: MIN_TOUCH_SIZE,
     paddingVertical: space.xs,
   },
   segmentItemActiveAccent: {
