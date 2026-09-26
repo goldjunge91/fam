@@ -7,7 +7,7 @@ import { HubScreen } from '@/components/layout/hub-screen';
 import { radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
-import { Button, inputTextStyles, Press, Txt } from '@/constants/ui';
+import { Button, inputTextStyles, MIN_TOUCH_SIZE, Press, Txt } from '@/constants/ui';
 import type { MealType } from '@/features/calorie-tracking/api';
 import { calculateAdjustedServingNutrition } from '../domain/nutrition';
 import { useUpdateComponentMutation } from '../hooks/use-recipe-components';
@@ -74,10 +74,17 @@ const styles = StyleSheet.create((theme) => ({
   sheetSubtitle: {
     paddingTop: theme.space.md,
   },
-  close: {
+  // Wie im Rezept-Bottom-Sheet: sichtbare Flaeche klein, Trefferbereich 44.
+  closeFace: {
     width: rs(32),
     height: rs(32),
     borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  close: {
+    width: MIN_TOUCH_SIZE,
+    height: MIN_TOUCH_SIZE,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -263,10 +270,12 @@ export function RecipeLogScreen() {
               onPress={() => router.back()}
               role="button"
               aria-label="Schließen"
-              style={[styles.close, { backgroundColor: colors.backgroundSoft }]}>
-              <Txt variant="body" tone="secondary" weight="500">
-                ×
-              </Txt>
+              style={styles.close}>
+              <View style={[styles.closeFace, { backgroundColor: colors.backgroundSoft }]}>
+                <Txt variant="body" tone="secondary" weight="500">
+                  ×
+                </Txt>
+              </View>
             </Press>
           </View>
 

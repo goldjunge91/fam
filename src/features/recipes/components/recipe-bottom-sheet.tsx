@@ -11,7 +11,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Press, Txt } from '@/constants/ui';
+import { MIN_TOUCH_SIZE, Press, Txt } from '@/constants/ui';
 
 type RecipeBottomSheetProps = {
   visible: boolean;
@@ -55,10 +55,19 @@ const styles = StyleSheet.create((theme) => ({
   title: {
     flex: 1,
   },
-  close: {
+  // Der 32-Punkt-Kreis ist die sichtbare Flaeche, der 44-Punkt-Container der
+  // Trefferbereich. Beide sind noetig, damit Close tastbar gross bleibt ohne
+  // das Sheet-Design zu vergroessern.
+  closeFace: {
     width: rs(32),
     height: rs(32),
     borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  close: {
+    width: MIN_TOUCH_SIZE,
+    height: MIN_TOUCH_SIZE,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -88,14 +97,12 @@ export function RecipeBottomSheet({
           <Txt variant="heading" style={styles.title}>
             {title}
           </Txt>
-          <Press
-            onPress={onClose}
-            role="button"
-            aria-label="Schließen"
-            style={[styles.close, { backgroundColor: colors.backgroundSoft }]}>
-            <Txt variant="subheading" tone="secondary" weight="500">
-              ×
-            </Txt>
+          <Press onPress={onClose} role="button" aria-label="Schließen" style={styles.close}>
+            <View style={[styles.closeFace, { backgroundColor: colors.backgroundSoft }]}>
+              <Txt variant="subheading" tone="secondary" weight="500">
+                ×
+              </Txt>
+            </View>
           </Press>
         </View>
         {children}
