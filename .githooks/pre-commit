@@ -7,4 +7,28 @@
 set -euo pipefail
 
 cd "$(git rev-parse --show-toplevel)"
-./tests.sh
+
+log_file="$(mktemp "${TMPDIR:-/tmp}/fam-pre-commit.XXXXXX")"
+trap 'rm -f "$log_file"' EXIT
+
+echo "Pre-Commit-Prüfungen laufen..."
+
+set +e
+./tests.sh 2>&1 | tee "$log_file" | awk '
+  /^(=== |--> |Biome:|Test Suites:|Tests:|Snapshots:|Time:|Coverage summary|Statements |Branches |Functions |Lines |Testlauf beendet|Keine gestaged Quelldateien)/ {
+    print
+    fflush()
+  }
+'
+status=${PIPESTATUS[0]}
+set -e
+
+if [ "$status" -ne 0 ]; then
+  echo ""
+  echo "Pre-Commit-Prüfungen fehlgeschlagen. Vollständige Ausgabe: $log_file" >&2
+  cat "$log_file" >&2
+  trap - EXIT
+  exit "$status"
+fi
+
+echo "Pre-Commit-Prüfungen bestanden."
