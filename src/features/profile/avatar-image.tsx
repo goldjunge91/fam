@@ -1,12 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
-import { Image, type ImageProps } from 'expo-image';
-import { useEffect, useState } from 'react';
+import { Image, type ImageLoadEventData, type ImageProps } from 'expo-image';
+import { useCallback, useEffect, useState } from 'react';
 import { useSession } from '@/features/auth/session-provider';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { env } from '@/lib/config/env';
-import { debugError, debugLogEvent } from '@/lib/observability/debug-log';
+import { debugError, debugLogEvent, debugWarn } from '@/lib/observability/debug-log';
 
 const TTL_SECONDS = 300;
+
+function isStorageNetworkError(error: unknown): boolean {
+  return error instanceof Error && error.name === 'StorageUnknownError';
+}
 
 /** Existing public URLs are locators only, never an unauthenticated fallback. */
 export function avatarStoragePath(reference: string, baseUrl: string): string | null {
@@ -31,13 +35,30 @@ export function AvatarImage({
   const { session } = useSession();
   const userId = session?.user.id;
   const path = avatarStoragePath(reference, env.supabaseUrl);
+  const cacheKey = userId && path ? `avatar:${userId}:${reference}` : null;
   const [now, setNow] = useState(Date.now);
+  const [cachedImage, setCachedImage] = useState<{ cacheKey: string; uri: string }>();
   useEffect(() => {
     debugLogEvent('profile.avatar-image.resolve', {
       hasSession: Boolean(userId),
       acceptedReference: Boolean(path),
     });
   }, [path, userId]);
+  useEffect(() => {
+    if (!cacheKey) return;
+
+    let active = true;
+    void Image.getCachePathAsync(cacheKey)
+      .then((uri) => {
+        if (active && uri) setCachedImage({ cacheKey, uri });
+      })
+      .catch((error: unknown) => {
+        debugWarn('[AvatarImage] Lokaler Bildcache konnte nicht gelesen werden', error);
+      });
+    return () => {
+      active = false;
+    };
+  }, [cacheKey]);
   const query = useQuery({
     queryKey: ['avatar-image', userId, reference],
     enabled: !!userId && !!path,
@@ -81,11 +102,29 @@ export function AvatarImage({
     query.data.expiresAt > Math.max(now, Date.now())
       ? query.data.url
       : undefined;
+  const canShowCachedImage = !query.isError || isStorageNetworkError(query.error);
+  const cachedUri =
+    canShowCachedImage && cachedImage?.cacheKey === cacheKey ? cachedImage.uri : undefined;
+  const imageUri = uri ?? cachedUri;
+  const handleImageLoad = useCallback(
+    (_event: ImageLoadEventData) => {
+      if (!cacheKey) return;
+      void Image.getCachePathAsync(cacheKey)
+        .then((cachedUri) => {
+          if (cachedUri) setCachedImage({ cacheKey, uri: cachedUri });
+        })
+        .catch((error: unknown) => {
+          debugWarn('[AvatarImage] Lokaler Bildcache konnte nicht gelesen werden', error);
+        });
+    },
+    [cacheKey],
+  );
   return (
     <Image
       {...props}
-      source={uri ? { uri } : null}
-      cachePolicy="none"
+      source={imageUri ? { uri: imageUri, cacheKey: cacheKey ?? undefined } : null}
+      onLoad={handleImageLoad}
+      cachePolicy="disk"
       recyclingKey={`${userId}:${reference}`}
     />
   );
