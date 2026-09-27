@@ -9,13 +9,23 @@ const DEV_MENU_PATH = path.join(DEV_FEATURE_DIR, 'dev-tools-screen.tsx');
 
 const CATEGORY_SPECS = [
   {
+    label: 'OCR-Pipeline analysieren',
+    screenTitle: 'OCR-Pipeline',
+    route: '/settings/dev-ocr-inspector',
+    screenFile: 'ocr/ocr-inspector-screen.tsx',
+    routeFile: 'dev-ocr-inspector.tsx',
+    componentName: 'OcrInspectorScreen',
+    sourceFiles: ['ocr/ocr-inspector-screen.tsx'],
+    markers: ['title="Bild für OCR auswählen"', 'title="Modellstatus aktualisieren"'],
+  },
+  {
     label: 'Umgebung & Zugang',
     route: '/settings/dev-environment',
     screenFile: 'dev-environment-screen.tsx',
     routeFile: 'dev-environment.tsx',
     componentName: 'DevEnvironmentScreen',
     sourceFiles: ['dev-environment-screen.tsx'],
-    markers: ['<Card title="Umgebung">', '<Card title="Session">'],
+    markers: ['<ContentCard title="Umgebung">', '<ContentCard title="Session">'],
   },
   {
     label: 'Overrides & Feature-Konfiguration',
@@ -29,14 +39,14 @@ const CATEGORY_SPECS = [
       'tracking-method-controls.tsx',
     ],
     markers: [
-      '<Card title="Plus, KI & Werbung">',
-      '<Card title="Feature-Status">',
+      '<ContentCard title="Plus, KI & Werbung">',
+      '<ContentCard title="Feature-Status">',
       '<FeatureFlagControls />',
-      '<Card title="Analytics-Steuerung">',
+      '<ContentCard title="Analytics-Steuerung">',
       '<TrackingMethodControls />',
-      '<Card title="Feature-Flags">',
+      '<ContentCard title="Feature-Flags">',
       'title="Feature-Flag-Overrides zurücksetzen"',
-      '<Card title="Tracking-Methoden-Steuerung">',
+      '<ContentCard title="Tracking-Methoden-Steuerung">',
       'title="Tracking-Methoden-Overrides zurücksetzen"',
     ],
   },
@@ -48,8 +58,8 @@ const CATEGORY_SPECS = [
     componentName: 'DevDataScreen',
     sourceFiles: ['dev-data-screen.tsx'],
     markers: [
-      '<Card title="Lokale Datenbank">',
-      '<Card title="OpenFoodFacts-Dump">',
+      '<ContentCard title="Lokale Datenbank">',
+      '<ContentCard title="OpenFoodFacts-Dump">',
       'title="Neu einlesen"',
       'title="Lokale Datenbank löschen"',
       'title="Jetzt aktualisieren"',
@@ -67,7 +77,7 @@ const CATEGORY_SPECS = [
     componentName: 'DevTelemetryScreen',
     sourceFiles: ['dev-telemetry-screen.tsx'],
     markers: [
-      '<Card title="Testsignale">',
+      '<ContentCard title="Testsignale">',
       'title="Sentry-Testfehler senden"',
       'title="Test-Benachrichtigung senden"',
       'title="EAS-Observe-Testevent senden"',
@@ -83,7 +93,7 @@ const CATEGORY_SPECS = [
     componentName: 'DevPreviewsScreen',
     sourceFiles: ['dev-previews-screen.tsx'],
     markers: [
-      '<Card title="Vorschauen">',
+      '<ContentCard title="Vorschauen">',
       'title="Design-System-Referenz öffnen"',
       'title="Drax-Drag-Demo öffnen"',
       'title="Auth-Seiten testen"',
@@ -151,7 +161,7 @@ function parseCategoryEntries(source: string): Array<{ label: string; route: str
 const categoryEntries = parseCategoryEntries(menuSource);
 
 describe('Dev-Menü-Kategorien', () => {
-  it('definiert genau fünf Kategorien mit gültigen Route-Wrappern', () => {
+  it('definiert sechs Kategorien mit gültigen Route-Wrappern', () => {
     expect(categoryEntries).toEqual(CATEGORY_SPECS.map(({ label, route }) => ({ label, route })));
 
     for (const category of CATEGORY_SPECS) {
@@ -186,9 +196,11 @@ describe('Dev-Menü-Kategorien', () => {
     for (const category of CATEGORY_SPECS) {
       const sources = categorySources.get(category) ?? [];
       const source = sources.join('\n');
-      expect(source).toContain(`title="${category.label}"`);
+      expect(source).toContain(
+        `title="${'screenTitle' in category ? category.screenTitle : category.label}"`,
+      );
       expect(source).toContain("back={{ label: 'Entwickler', href: '/settings/dev' }}");
-      expect(source).not.toContain('<Card title="Aktionen">');
+      expect(source).not.toContain('<ContentCard title="Aktionen">');
 
       for (const marker of category.markers) {
         const owners = CATEGORY_SPECS.filter((candidate) =>

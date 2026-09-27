@@ -66,7 +66,7 @@ describe('AccountStepForm', () => {
     await render(<AccountStepForm onNext={jest.fn()} />);
 
     expect(screen.getByRole('button', { name: 'Mit Apple anmelden' })).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: '🌐  Mit Google anmelden' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Mit Google anmelden' })).toBeOnTheScreen();
 
     await fireEvent.press(screen.getByRole('button', { name: 'Ich habe schon ein Konto' }));
     await fireEvent.press(screen.getByRole('button', { name: 'Passwort vergessen' }));

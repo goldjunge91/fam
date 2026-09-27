@@ -59,8 +59,8 @@ import {
 export { inputTextStyles, Txt, type TxtProps, type TxtTone, type TxtVariant };
 
 // Springs tuned for a satisfying, Duolingo-ish "pop" on press/release.
-export const PRESS_SPRING = { damping: 14, stiffness: 320, mass: 0.5 } as const;
-const POP_SPRING = { damping: 9, stiffness: 380, mass: 0.5 } as const;
+export const PRESS_SPRING = motion.spring.press;
+const POP_SPRING = motion.spring.buttonPop;
 const PRESSED_OPACITY = 0.78;
 
 /**

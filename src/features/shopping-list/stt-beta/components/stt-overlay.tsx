@@ -12,6 +12,7 @@ import Animated, {
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { motion } from '@/constants/motion';
 import { Button, Surface, Txt } from '@/constants/ui';
 import { debugLog, debugLogEvent } from '@/lib/observability/debug-log';
 import { nativeSpeechRecognitionAdapter } from '../services/native-speech-recognition';
@@ -61,7 +62,7 @@ export function NaturalLanguageAdditionVoiceOverlay({
     listeningActiveRef.current = visible && status === 'listening';
     if (!listeningActiveRef.current) {
       cancelAnimation(listeningIntensity);
-      listeningIntensity.value = withTiming(0, { duration: 180 });
+      listeningIntensity.value = withTiming(0, { duration: motion.speechIntensityRelease });
     }
 
     return () => {
@@ -161,7 +162,7 @@ export function NaturalLanguageAdditionVoiceOverlay({
 
     listeningActiveRef.current = false;
     cancelAnimation(listeningIntensity);
-    listeningIntensity.value = withTiming(0, { duration: 180 });
+    listeningIntensity.value = withTiming(0, { duration: motion.speechIntensityRelease });
     setStatus('processing');
     try {
       session.stop();

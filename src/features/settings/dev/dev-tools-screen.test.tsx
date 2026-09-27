@@ -26,6 +26,7 @@ jest.mock('expo-speech-recognition', () => ({
 }));
 
 jest.mock('@/lib/observability/debug-log', () => ({
+  debugLog: jest.fn(),
   debugLogEvent: jest.fn(),
 }));
 

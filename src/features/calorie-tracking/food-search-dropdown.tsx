@@ -2,7 +2,7 @@ import { Image } from 'expo-image';
 import { useState } from 'react';
 import { ActivityIndicator, Keyboard, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { borderWidth, font, radius, space } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { Press, TextField, Txt } from '@/constants/ui';
@@ -37,7 +37,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   searchRow: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
+    alignItems: 'stretch',
     gap: theme.space.sm,
   },
   flex: {
@@ -45,10 +45,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   scanButton: {
     width: theme.controlSizes.touchTarget,
-    // Keep the external scanner control exactly as high as TextField's
-    // default input: line-height + vertical padding + both borders.
-    height: font.lineHeights.body + space.xxl + borderWidth.strong * 2,
-    minHeight: font.lineHeights.body + space.xxl + borderWidth.strong * 2,
     borderRadius: theme.radius.md,
     borderWidth: theme.borderWidth.strong,
     borderColor: theme.border,
@@ -190,7 +186,7 @@ export function FoodSearchDropdown({
 
   return (
     <View style={styles.root}>
-      <View style={styles.searchRow}>
+      <View testID="food-search-row" style={styles.searchRow}>
         <View style={styles.flex}>
           <TextField
             label="Lebensmittel suchen"

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent, within } from '@testing-library/react-native';
 import { createRef } from 'react';
 import { Text } from 'react-native';
 import * as Reanimated from 'react-native-reanimated';
@@ -18,8 +18,10 @@ jest.mock(
   () => {
     const { Text: NativeText } = require('react-native');
     return {
-      Feather: ({ name, ...props }: { name: string; size: number; color: string }) => (
-        <NativeText {...props}>{name}</NativeText>
+      Feather: ({ name, size, color, ...props }: { name: string; size: number; color: string }) => (
+        <NativeText {...props} style={{ color, fontSize: size }}>
+          {name}
+        </NativeText>
       ),
     };
   },
@@ -305,8 +307,8 @@ describe('core theme UI primitives', () => {
     const button = screen.getByRole('button', { name: 'Dialog schließen' });
     expect(button.props.hitSlop).toBe(6);
     expect(button).toHaveStyle({
-      minWidth: space.xxl + space.md + space.xs,
-      minHeight: space.xxl + space.md + space.xs,
+      minWidth: 44,
+      minHeight: 44,
       borderRadius: radius.sm,
       backgroundColor: mockColorsLight.backgroundSoft,
     });
@@ -814,7 +816,8 @@ describe('core theme UI primitives', () => {
       />,
     );
 
-    expect(screen.getByText(/./u)).toHaveProp('color', mockColorsLight.onDanger);
+    const button = screen.getByRole('button', { name: 'Schließen' });
+    expect(within(button).getByText(/\S+/)).toHaveStyle({ color: mockColorsLight.onDanger });
   });
 
   it('clamps explicit compact icon sizes and exposes disabled state', async () => {

@@ -1,10 +1,11 @@
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { View } from 'react-native';
-import Animated, { Easing, Keyframe } from 'react-native-reanimated';
+import Animated, { Keyframe } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Colors, radius } from '@/components/theme/index';
+import { motion } from '@/constants/motion';
 
 const DURATION = 300;
 
@@ -47,11 +48,11 @@ const keyframe = new Keyframe({
   },
   60: {
     transform: [{ scale: 1.2 }],
-    easing: Easing.elastic(1.2),
+    easing: motion.easing.logoElastic,
   },
   100: {
     transform: [{ scale: 1 }],
-    easing: Easing.elastic(1.2),
+    easing: motion.easing.logoElastic,
   },
 });
 
@@ -62,12 +63,12 @@ const logoKeyframe = new Keyframe({
   60: {
     transform: [{ scale: 1.2 }],
     opacity: 0,
-    easing: Easing.elastic(1.2),
+    easing: motion.easing.logoElastic,
   },
   100: {
     transform: [{ scale: 1 }],
     opacity: 1,
-    easing: Easing.elastic(1.2),
+    easing: motion.easing.logoElastic,
   },
 });
 
@@ -79,7 +80,7 @@ const glowKeyframe = new Keyframe({
   [DURATION / 1000]: {
     transform: [{ rotateZ: '0deg' }, { scale: 1 }],
     opacity: 1,
-    easing: Easing.elastic(0.7),
+    easing: motion.easing.iconElastic,
   },
   100: {
     transform: [{ rotateZ: '7200deg' }],
@@ -89,7 +90,7 @@ const glowKeyframe = new Keyframe({
 export function AnimatedIcon() {
   return (
     <View style={styles.iconRoot}>
-      <Animated.View entering={glowKeyframe.duration(60 * 1000 * 4)} style={styles.glow}>
+      <Animated.View entering={glowKeyframe.duration(motion.iconGlow)} style={styles.glow}>
         <Image style={styles.glow} source={require('@/assets/images/logo-glow.png')} />
       </Animated.View>
 

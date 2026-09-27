@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
 import Animated, {
   cancelAnimation,
-  Easing,
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
@@ -13,6 +12,7 @@ import Animated, {
 import { StyleSheet } from 'react-native-unistyles';
 import { dashboardCardSizes, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { motion } from '@/constants/motion';
 import { Txt } from '@/constants/ui';
 import type { CardSize } from '@/features/dashboard/registry';
 
@@ -47,14 +47,14 @@ export function JiggleWrapper({
       phase.value = withRepeat(
         withTiming(direction, {
           // Index variation keeps nearby cards from rocking in sync.
-          duration: 140 + (index % 3) * 10,
-          easing: Easing.inOut(Easing.sin),
+          duration: motion.jiggleBase + (index % 3) * motion.jiggleStagger,
+          easing: motion.easing.jiggle,
         }),
         -1,
         true,
       );
     } else {
-      phase.value = withTiming(0, { duration: 100 });
+      phase.value = withTiming(0, { duration: motion.jiggleReset });
     }
     return () => cancelAnimation(phase);
   }, [index, isEditing, paused, phase]);

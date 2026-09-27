@@ -1,3 +1,4 @@
+import { Feather } from '@expo/vector-icons';
 import { render, screen } from '@testing-library/react-native';
 
 import {
@@ -8,17 +9,6 @@ import {
 } from '@/components/theme';
 
 let mockThemeColors: Palette = mockColorsLight;
-
-jest.mock(
-  '@expo/vector-icons',
-  () => {
-    const { Text: NativeText } = require('react-native');
-    return {
-      Feather: ({ name, ...props }: { name: string }) => <NativeText {...props}>{name}</NativeText>,
-    };
-  },
-  { virtual: true },
-);
 
 jest.mock('@/lib/platform/haptics', () => ({
   heavy: jest.fn(),
@@ -79,7 +69,10 @@ describe('MenuButton', () => {
     expect(button).toHaveStyle({
       backgroundColor: colors.backgroundSoft,
     });
-    expect(screen.getByText('menu').props.color).toBe(colors.accent);
+    const menuGlyph = Feather.glyphMap.menu;
+    const iconName = typeof menuGlyph === 'number' ? String.fromCodePoint(menuGlyph) : menuGlyph;
+    const icon = screen.getByText(iconName);
+    expect(icon).toHaveStyle({ color: colors.accent });
     expect(contrastRatio(colors.backgroundSoft, colors.accent)).toBeGreaterThanOrEqual(3);
   });
 });

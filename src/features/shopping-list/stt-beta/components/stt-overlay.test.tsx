@@ -179,4 +179,26 @@ describe('NaturalLanguageAdditionVoiceOverlay', () => {
     });
     expect(screen.getByText('Ich höre zu')).toBeOnTheScreen();
   });
+
+  it('cancels the active speech session when the overlay unmounts', async () => {
+    const speech = createSpeechSession();
+    const speechAdapter: SpeechRecognitionAdapter = {
+      start: jest.fn(() => speech.session),
+    };
+
+    const rendered = await render(
+      <NaturalLanguageAdditionVoiceOverlay
+        visible
+        speechAdapter={speechAdapter}
+        onCancel={jest.fn()}
+        onTranscript={jest.fn()}
+        onFallback={jest.fn()}
+      />,
+    );
+
+    await fireEvent(screen.getByTestId('speech-modal'), 'show');
+    await rendered.unmount();
+
+    expect(speech.session.cancel).toHaveBeenCalledTimes(1);
+  });
 });

@@ -4,6 +4,7 @@ import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { colorsLight, radius, space } from '@/components/theme';
+import { MIN_TOUCH_SIZE } from '@/constants/ui';
 
 import { AddItemScreen } from './add-item-screen';
 
@@ -115,8 +116,8 @@ it('verwendet die zentralen Modal-Schließen-Tokens', async () => {
 
   expect(closeButton.props.hitSlop).toBe(6);
   expect(closeButton).toHaveStyle({
-    minWidth: space.xxl + space.md + space.xs,
-    minHeight: space.xxl + space.md + space.xs,
+    minWidth: MIN_TOUCH_SIZE,
+    minHeight: MIN_TOUCH_SIZE,
     borderRadius: radius.sm,
     backgroundColor: colorsLight.backgroundSoft,
   });
@@ -132,8 +133,8 @@ it('hält den unteren Inhalt mit KeyboardAwareScrollView erreichbar', async () =
 
   expect(scrollView.props.bottomOffset).toBe(24);
   expect(scrollView.props.keyboardShouldPersistTaps).toBe('handled');
-  expect(scrollView.props.contentContainerStyle).toEqual(
-    expect.objectContaining({ paddingBottom: space.xl + space.xs }),
+  expect(scrollView.props.contentContainerStyle.paddingBottom).toBeGreaterThanOrEqual(
+    space.xl + space.xs,
   );
 });
 

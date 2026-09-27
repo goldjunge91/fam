@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import { Dimensions, View } from 'react-native';
 import Animated, {
   cancelAnimation,
-  Easing,
   interpolateColor,
   Keyframe,
   useAnimatedStyle,
@@ -16,6 +15,7 @@ import Animated, {
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Colors, radius } from '@/components/theme/index';
+import { motion } from '@/constants/motion';
 import { useSession } from '@/features/auth/session-provider';
 
 const INITIAL_SCALE_FACTOR = Dimensions.get('screen').height / 90;
@@ -97,33 +97,33 @@ export function AnimatedSplashOverlay() {
     // takes over immediately and stays visible while the session initializes.
     SplashScreen.hide();
     colorProgress.value = withRepeat(
-      withTiming(1, { duration: 1800, easing: Easing.inOut(Easing.cubic) }),
+      withTiming(1, { duration: motion.splashColorCycle, easing: motion.easing.standard }),
       -1,
       true,
     );
     scale.value = withRepeat(
       withSequence(
-        withTiming(1.45, { duration: 450, easing: Easing.inOut(Easing.cubic) }),
-        withTiming(0.72, { duration: 700, easing: Easing.inOut(Easing.cubic) }),
-        withTiming(1, { duration: 450, easing: Easing.out(Easing.cubic) }),
+        withTiming(1.45, { duration: motion.iconBounceIn, easing: motion.easing.standard }),
+        withTiming(0.72, { duration: motion.iconBounceOut, easing: motion.easing.standard }),
+        withTiming(1, { duration: motion.iconBounceIn, easing: motion.easing.emphasized }),
       ),
       -1,
       false,
     );
     translateY.value = withRepeat(
       withSequence(
-        withTiming(-90, { duration: 450, easing: Easing.out(Easing.cubic) }),
-        withTiming(90, { duration: 700, easing: Easing.inOut(Easing.cubic) }),
-        withTiming(0, { duration: 450, easing: Easing.out(Easing.cubic) }),
+        withTiming(-90, { duration: motion.iconBounceIn, easing: motion.easing.emphasized }),
+        withTiming(90, { duration: motion.iconBounceOut, easing: motion.easing.standard }),
+        withTiming(0, { duration: motion.iconBounceIn, easing: motion.easing.emphasized }),
       ),
       -1,
       false,
     );
     rotation.value = withRepeat(
       withSequence(
-        withTiming(-14, { duration: 450, easing: Easing.out(Easing.cubic) }),
-        withTiming(14, { duration: 700, easing: Easing.inOut(Easing.cubic) }),
-        withTiming(0, { duration: 450, easing: Easing.out(Easing.cubic) }),
+        withTiming(-14, { duration: motion.iconBounceIn, easing: motion.easing.emphasized }),
+        withTiming(14, { duration: motion.iconBounceOut, easing: motion.easing.standard }),
+        withTiming(0, { duration: motion.iconBounceIn, easing: motion.easing.emphasized }),
       ),
       -1,
       false,
@@ -190,7 +190,7 @@ const keyframe = new Keyframe({
   },
   100: {
     transform: [{ scale: 1 }],
-    easing: Easing.elastic(0.7),
+    easing: motion.easing.iconElastic,
   },
 });
 
@@ -202,12 +202,12 @@ const logoKeyframe = new Keyframe({
   40: {
     transform: [{ scale: 1.3 }],
     opacity: 0,
-    easing: Easing.elastic(0.7),
+    easing: motion.easing.iconElastic,
   },
   100: {
     opacity: 1,
     transform: [{ scale: 1 }],
-    easing: Easing.elastic(0.7),
+    easing: motion.easing.iconElastic,
   },
 });
 
@@ -223,7 +223,7 @@ const glowKeyframe = new Keyframe({
 export function AnimatedIcon() {
   return (
     <View style={styles.iconRoot}>
-      <Animated.View entering={glowKeyframe.duration(60 * 1000 * 4)} style={styles.glow}>
+      <Animated.View entering={glowKeyframe.duration(motion.iconGlow)} style={styles.glow}>
         <Image style={styles.glow} source={require('@/assets/images/logo-glow.png')} />
       </Animated.View>
 
