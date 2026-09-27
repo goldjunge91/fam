@@ -59,7 +59,14 @@ function mapPickerResponse(
   return { code: response.code, message: response.message };
 }
 
-function nativeOptions(options: ReceiptImagePickerOptions): ExpoImagePicker.ImagePickerOptions {
+function nativeOptions(
+  options: ReceiptImagePickerOptions,
+  imagePicker: typeof ExpoImagePicker,
+): ExpoImagePicker.ImagePickerOptions {
+  const nativeRepresentationModeByReceiptMode = {
+    compatible: imagePicker.UIImagePickerPreferredAssetRepresentationMode.Compatible,
+  } as const;
+
   return {
     mediaTypes: [...options.mediaTypes],
     allowsEditing: options.allowsEditing,
@@ -68,6 +75,8 @@ function nativeOptions(options: ReceiptImagePickerOptions): ExpoImagePicker.Imag
     base64: options.base64,
     exif: options.exif,
     orderedSelection: options.orderedSelection,
+    preferredAssetRepresentationMode:
+      nativeRepresentationModeByReceiptMode[options.preferredAssetRepresentationMode],
   };
 }
 
@@ -86,10 +95,14 @@ export function createExpoImagePickerAdapter(): ReceiptImagePickerAdapter {
       return imagePicker.requestMediaLibraryPermissionsAsync(false);
     },
     async launchCameraAsync(options) {
-      return mapPickerResponse(await imagePicker.launchCameraAsync(nativeOptions(options)));
+      return mapPickerResponse(
+        await imagePicker.launchCameraAsync(nativeOptions(options, imagePicker)),
+      );
     },
     async launchImageLibraryAsync(options) {
-      return mapPickerResponse(await imagePicker.launchImageLibraryAsync(nativeOptions(options)));
+      return mapPickerResponse(
+        await imagePicker.launchImageLibraryAsync(nativeOptions(options, imagePicker)),
+      );
     },
   };
 }

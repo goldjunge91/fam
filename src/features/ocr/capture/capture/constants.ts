@@ -4,6 +4,10 @@ export const RECEIPT_MAX_ASSET_BYTES = 5 * 1024 * 1024;
 /** Keep the picker lossless; the shared normalizer owns JPEG compression. */
 export const RECEIPT_IMAGE_PICKER_QUALITY = 1;
 
+/** Request iOS's most compatible local asset representation before normalization. */
+export const RECEIPT_IMAGE_PICKER_REPRESENTATION_MODE = 'compatible' as const;
+export type ReceiptImagePickerRepresentationMode = typeof RECEIPT_IMAGE_PICKER_REPRESENTATION_MODE;
+
 /** Long-edge cap chosen for readable receipt text while bounding upload size. */
 export const RECEIPT_MAX_IMAGE_LONG_EDGE = 2_400;
 

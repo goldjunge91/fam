@@ -82,6 +82,7 @@ describe('receipt image capture', () => {
         base64: false,
         exif: true,
         orderedSelection: true,
+        preferredAssetRepresentationMode: 'compatible',
         quality: 1,
       });
       return {

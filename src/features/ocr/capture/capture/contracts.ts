@@ -3,6 +3,7 @@ import type {
   ReceiptCaptureLocalAsset,
   ReceiptCaptureSource,
 } from '../domain/types';
+import type { ReceiptImagePickerRepresentationMode } from './constants';
 import type { ReceiptImageMimeType } from './mime';
 
 export type ReceiptPickerAsset = {
@@ -42,6 +43,7 @@ export type ReceiptImagePickerOptions = {
   base64: false;
   exif: boolean;
   orderedSelection: true;
+  preferredAssetRepresentationMode: ReceiptImagePickerRepresentationMode;
 };
 
 export type ReceiptPermissionResponse = {

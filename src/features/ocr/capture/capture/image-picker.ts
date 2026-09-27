@@ -8,6 +8,7 @@ import type {
 import {
   RECEIPT_IMAGE_NORMALIZATION_QUALITY,
   RECEIPT_IMAGE_PICKER_QUALITY,
+  RECEIPT_IMAGE_PICKER_REPRESENTATION_MODE,
   RECEIPT_MAX_ASSET_BYTES,
   RECEIPT_MAX_IMAGE_LONG_EDGE,
 } from './constants';
@@ -51,6 +52,7 @@ const pickerOptions = (source: ReceiptCaptureSource): ReceiptImagePickerOptions 
   base64: false,
   exif: true,
   orderedSelection: true,
+  preferredAssetRepresentationMode: RECEIPT_IMAGE_PICKER_REPRESENTATION_MODE,
 });
 
 function captureFailure(
