@@ -1,34 +1,50 @@
 #!/bin/bash
-# Laeuft vor jedem Commit und spiegelt exakt die CI-Pipeline (tests.sh, das
-# wiederum .github/workflows/ci.yml spiegelt) — ein Commit, der hier
-# durchkommt, faellt nicht ueberraschend erst in CI durch.
+# Der Commit-Hook prueft den gestagten Scope. Die vollstaendige Test- und
+# Coverage-Pipeline bleibt ein CI-Gate und laeuft ueber tests.sh.
 #
 # Einrichtung (einmalig pro Checkout): bun run prepare
 set -euo pipefail
 
 cd "$(git rev-parse --show-toplevel)"
 
-log_file="$(mktemp "${TMPDIR:-/tmp}/fam-pre-commit.XXXXXX")"
-trap 'rm -f "$log_file"' EXIT
-
-echo "Pre-Commit-Prüfungen laufen..."
-
-set +e
-./tests.sh 2>&1 | tee "$log_file" | awk '
-  /^(=== |--> |Biome:|Test Suites:|Tests:|Snapshots:|Time:|Coverage summary|Statements |Branches |Functions |Lines |Testlauf beendet|Keine gestaged Quelldateien)/ {
-    print
-    fflush()
-  }
-'
-status=${PIPESTATUS[0]}
-set -e
-
-if [ "$status" -ne 0 ]; then
-  echo ""
-  echo "Pre-Commit-Prüfungen fehlgeschlagen. Vollständige Ausgabe: $log_file" >&2
-  cat "$log_file" >&2
-  trap - EXIT
-  exit "$status"
+staged_files="$(git diff --cached --name-only --diff-filter=ACMR)"
+if [ -z "$staged_files" ]; then
+  echo "Keine gestagten Dateien -- Pre-Commit-Pruefungen uebersprungen."
+  exit 0
 fi
 
-echo "Pre-Commit-Prüfungen bestanden."
+test_files=()
+full_test_suite=false
+
+while IFS= read -r file; do
+  [ -z "$file" ] && continue
+
+  case "$file" in
+    package.json|bun.lock|tsconfig.json|jest.config.*|babel.config.*|metro.config.*|test/setup*|scripts/run-test.ts)
+      full_test_suite=true
+      ;;
+    src/*.ts|src/*.tsx|src/*.js|src/*.jsx|test/*.ts|test/*.tsx|test/*.js|test/*.jsx)
+      test_files+=("$file")
+      ;;
+  esac
+done <<< "$staged_files"
+
+echo "Pre-Commit-Pruefungen fuer gestagte Aenderungen laufen..."
+
+echo "--> Biome"
+bun run check
+
+echo "--> Typecheck"
+bun run typecheck
+
+if [ "$full_test_suite" = true ]; then
+  echo "--> Vollstaendige Unit-Tests wegen Test-/Build-Konfigurationsaenderung"
+  bun run test:unit
+elif [ "${#test_files[@]}" -gt 0 ]; then
+  echo "--> Betroffene Jest-Tests (${#test_files[@]} Dateien)"
+  bun run test -- --runInBand --findRelatedTests "${test_files[@]}"
+else
+  echo "--> Keine gestagten Jest-Quellen -- Tests uebersprungen."
+fi
+
+echo "Pre-Commit-Pruefungen bestanden."
