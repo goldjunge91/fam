@@ -1,5 +1,6 @@
 import {
   computeMentionUsage,
+  flattenRecipeItems,
   matchPendingMention,
   mentionedIngredientIds,
   splitStepMentions,
@@ -11,6 +12,30 @@ const INGREDIENTS = [
   { itemId: 'bruehe', name: 'Brühe', unit: 'ml', quantity: 500 },
   { itemId: 'hafer', name: 'Haferflocken kernig', unit: 'g', quantity: 200 },
 ];
+
+describe('flattenRecipeItems', () => {
+  it('prefers product names, trims stored names, and omits items without a name', () => {
+    const items = flattenRecipeItems(
+      [
+        { id: 'product', product_id: 'p1', ingredient_name: 'ignored', unit: 'g', quantity: 25 },
+        {
+          id: 'stored',
+          product_id: null,
+          ingredient_name: '  Möhren  ',
+          unit: 'Stück',
+          quantity: null,
+        },
+        { id: 'blank', product_id: null, ingredient_name: '  ', unit: 'g', quantity: 10 },
+      ],
+      new Map([['p1', { name: 'Karotte' }]]),
+    );
+
+    expect(items).toEqual([
+      { itemId: 'product', name: 'Karotte', unit: 'g', quantity: 25 },
+      { itemId: 'stored', name: 'Möhren', unit: 'Stück', quantity: 0 },
+    ]);
+  });
+});
 
 describe('splitStepMentions', () => {
   it('löst eine Erwähnung mit Menge zu Klartext mit Zutaten-Einheit auf', () => {

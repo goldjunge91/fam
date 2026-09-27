@@ -40,4 +40,19 @@ describe('findLastStoreForProduct', () => {
 
     expect(db.getFirstAsync).toHaveBeenCalledTimes(2);
   });
+
+  it('ueberspringt Lookups, wenn Produktdaten leer sind', async () => {
+    const db = createDatabase([]);
+
+    await expect(
+      findLastStoreForProduct(db, {
+        householdId: 'household-1',
+        productId: '  ',
+        barcode: '  ',
+        name: '  ',
+      }),
+    ).resolves.toBeNull();
+
+    expect(db.getFirstAsync).not.toHaveBeenCalled();
+  });
 });

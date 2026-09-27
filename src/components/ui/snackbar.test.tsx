@@ -20,6 +20,26 @@ function TriggerButton({ onUndo, durationMs }: { onUndo: () => void; durationMs?
   );
 }
 
+function ReplacementTriggers() {
+  const { showUndoSnackbar } = useSnackbar();
+  return (
+    <>
+      <Pressable
+        onPress={() =>
+          showUndoSnackbar({ message: 'Erste Meldung', onUndo: jest.fn(), durationMs: 1000 })
+        }>
+        <Text>Erste Aktion</Text>
+      </Pressable>
+      <Pressable
+        onPress={() =>
+          showUndoSnackbar({ message: 'Zweite Meldung', onUndo: jest.fn(), durationMs: 3000 })
+        }>
+        <Text>Zweite Aktion</Text>
+      </Pressable>
+    </>
+  );
+}
+
 function renderWithProvider(props: { onUndo: () => void; durationMs?: number }) {
   return render(
     <SafeAreaProvider
@@ -69,4 +89,34 @@ it('blendet die Snackbar nach der Auto-Dismiss-Dauer selbststaendig aus', async 
 
   expect(screen.queryByText('Artikel gelöscht')).not.toBeOnTheScreen();
   expect(onUndo).not.toHaveBeenCalled();
+});
+
+it('laesst eine ersetzende Meldung bis zu ihrer eigenen Auto-Dismiss-Dauer sichtbar', async () => {
+  await render(
+    <SafeAreaProvider
+      initialMetrics={{
+        frame: { x: 0, y: 0, width: 390, height: 844 },
+        insets: { top: 47, left: 0, right: 0, bottom: 34 },
+      }}>
+      <SnackbarProvider>
+        <ReplacementTriggers />
+      </SnackbarProvider>
+    </SafeAreaProvider>,
+  );
+
+  await fireEvent.press(screen.getByText('Erste Aktion'));
+  act(() => {
+    jest.advanceTimersByTime(500);
+  });
+  await fireEvent.press(screen.getByText('Zweite Aktion'));
+
+  act(() => {
+    jest.advanceTimersByTime(1000);
+  });
+  expect(screen.getByText('Zweite Meldung')).toBeOnTheScreen();
+
+  act(() => {
+    jest.advanceTimersByTime(2000);
+  });
+  expect(screen.queryByText('Zweite Meldung')).not.toBeOnTheScreen();
 });

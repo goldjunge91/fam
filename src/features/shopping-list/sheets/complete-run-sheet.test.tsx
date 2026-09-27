@@ -32,8 +32,17 @@ jest.mock('@expo/ui/swift-ui', () => {
       <Text>{title}</Text>
     </Pressable>
   );
-  const BottomSheet = ({ children }: { children: React.ReactNode }) => (
-    <View testID="complete-run-bottom-sheet">{children}</View>
+  const BottomSheet = ({
+    children,
+    onIsPresentedChange,
+  }: {
+    children: React.ReactNode;
+    onIsPresentedChange: (presented: boolean) => void;
+  }) => (
+    <View testID="complete-run-bottom-sheet">
+      <Pressable testID="complete-run-dismiss-sheet" onPress={() => onIsPresentedChange(false)} />
+      {children}
+    </View>
   );
   return {
     __esModule: true,
@@ -98,6 +107,21 @@ describe('CompleteRunSheet', () => {
     expect(screen.getByTestId('complete-run-host')).toHaveProp('pointerEvents', 'none');
   });
 
+  it('schließt das Sheet, wenn die native Präsentation endet', async () => {
+    await render(
+      <CompleteRunSheet
+        isOpen={true}
+        checkedItems={mockCheckedItems}
+        onConfirm={mockOnConfirm}
+        onClose={mockOnClose}
+      />,
+    );
+
+    await fireEvent.press(screen.getByTestId('complete-run-dismiss-sheet'));
+
+    expect(mockOnClose).toHaveBeenCalledTimes(1);
+  });
+
   it('rendert abgehakte Artikel im Transfer-Dialog', async () => {
     await render(
       <CompleteRunSheet
@@ -110,6 +134,20 @@ describe('CompleteRunSheet', () => {
 
     expect(screen.getByText('In Vorrat übernehmen')).toBeTruthy();
     expect(screen.getByText('Hafermilch')).toBeTruthy();
+  });
+
+  it('deaktiviert die Vorratsübernahme, wenn keine Artikel abgehakt sind', async () => {
+    await render(
+      <CompleteRunSheet
+        isOpen={true}
+        checkedItems={[]}
+        onConfirm={mockOnConfirm}
+        onClose={mockOnClose}
+      />,
+    );
+
+    expect(screen.getByRole('button', { name: /in Vorrat übernehmen/i })).toBeDisabled();
+    expect(mockOnConfirm).not.toHaveBeenCalled();
   });
 
   it('verwendet den nativen Design-System-DatePicker für das MHD', async () => {

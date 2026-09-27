@@ -121,6 +121,16 @@ describe('FeedbackDetailScreen', () => {
     });
   });
 
+  it('sendet keine Antwort, wenn die Eingabe nur Leerzeichen enthält', async () => {
+    await renderScreen();
+
+    const user = userEvent.setup();
+    await user.type(screen.getByLabelText('Antworten'), '   ');
+    await user.press(screen.getByRole('button', { name: 'Senden' }));
+
+    expect(mockSendReplyMutateAsync).not.toHaveBeenCalled();
+  });
+
   it('deaktiviert die Antwort-Eingabe bei geschlossenem Ticket', async () => {
     mockTicket = {
       data: {

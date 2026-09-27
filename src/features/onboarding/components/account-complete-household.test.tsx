@@ -159,6 +159,20 @@ describe('HouseholdStepForm', () => {
     expect(await screen.findByText('Haushalt konnte nicht erstellt werden.')).toBeOnTheScreen();
   });
 
+  it('zeigt einen allgemeinen Fehler bei einer nicht-Error-Ablehnung an', async () => {
+    mockCreateHousehold.mockRejectedValue('unknown failure');
+
+    await render(<HouseholdStepForm onNext={jest.fn()} onSkip={jest.fn()} />);
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('radio', { name: 'Neuen Haushalt erstellen' }));
+    await user.press(screen.getByRole('button', { name: 'Weiter' }));
+
+    expect(
+      await screen.findByText('Fehler beim Erstellen oder Beitreten des Haushalts.'),
+    ).toBeOnTheScreen();
+  });
+
   it('deaktiviert Überspringen und meldet Weiter als busy während einer Mutation', async () => {
     mockCreatePending = true;
 

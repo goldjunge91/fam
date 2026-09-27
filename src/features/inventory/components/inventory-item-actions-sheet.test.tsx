@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react-native';
+import { fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import type { LocalInventoryItem } from '../use-inventory-items';
@@ -58,4 +58,67 @@ it('meldet das Ende der nativen Schließanimation des Los-Aktions-Sheets', async
   modal?.props.onDismiss();
 
   expect(onDismissFinished).toHaveBeenCalledTimes(1);
+});
+
+it('zeigt die Aktion „Öffnen“ für bereits geöffnete Artikel nicht an', async () => {
+  await render(
+    <SafeAreaProvider
+      initialMetrics={{
+        frame: { x: 0, y: 0, width: 390, height: 844 },
+        insets: { top: 47, left: 0, right: 0, bottom: 34 },
+      }}>
+      <InventoryItemActionsSheet
+        visible
+        item={{ ...ITEM, opened_at: '2026-09-27T10:00:00.000Z' }}
+        {...CALLBACKS}
+      />
+    </SafeAreaProvider>,
+  );
+
+  expect(screen.queryByRole('button', { name: 'Öffnen' })).not.toBeOnTheScreen();
+});
+
+it('zeigt bei versiegeltem Artikel die Aktionen und meldet Auswahl weiter', async () => {
+  await render(
+    <SafeAreaProvider
+      initialMetrics={{
+        frame: { x: 0, y: 0, width: 390, height: 844 },
+        insets: { top: 47, left: 0, right: 0, bottom: 34 },
+      }}>
+      <InventoryItemActionsSheet
+        visible
+        item={{ ...ITEM, package_size: 1, package_size_unit: 'l', location_name: 'Kühlschrank' }}
+        {...CALLBACKS}
+      />
+    </SafeAreaProvider>,
+  );
+
+  expect(screen.getByRole('button', { name: 'Öffnen' })).toBeOnTheScreen();
+  expect(screen.getAllByText(/Kühlschrank/)).toHaveLength(2);
+  expect(screen.getByText(/1 L/)).toBeOnTheScreen();
+
+  await fireEvent.press(screen.getByRole('button', { name: 'Bearbeiten' }));
+  await fireEvent.press(screen.getByRole('button', { name: 'Verbrauchen' }));
+  await fireEvent.press(screen.getByRole('button', { name: 'Wegwerfen' }));
+
+  expect(CALLBACKS.onEdit).toHaveBeenCalled();
+  expect(CALLBACKS.onConsume).toHaveBeenCalled();
+  expect(CALLBACKS.onWaste).toHaveBeenCalled();
+});
+
+it('rendert ohne aktuellen oder zuvor gewählten Artikel kein Sheet', async () => {
+  const wrapper = ({ children }: { children: React.ReactNode }) => (
+    <SafeAreaProvider
+      initialMetrics={{
+        frame: { x: 0, y: 0, width: 390, height: 844 },
+        insets: { top: 47, left: 0, right: 0, bottom: 34 },
+      }}>
+      {children}
+    </SafeAreaProvider>
+  );
+  await render(<InventoryItemActionsSheet visible={false} item={null} {...CALLBACKS} />, {
+    wrapper,
+  });
+
+  expect(screen.queryByText('Milch')).not.toBeOnTheScreen();
 });

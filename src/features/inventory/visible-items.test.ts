@@ -43,6 +43,19 @@ describe('selectVisibleInventoryItems', () => {
     expect(result.map((entry) => entry.name)).toEqual(['Apfel', 'Zwiebel']);
   });
 
+  it('filtert nach Lagerort und getrimmter Suche ohne Beachtung der Grossschreibung', () => {
+    const result = selectVisibleInventoryItems(
+      [
+        item({ id: 'i-apfel', name: 'Apfel', location_id: 'fridge-1' }),
+        item({ id: 'i-zwiebel', name: 'Zwiebel', location_id: 'fridge-1' }),
+        item({ id: 'i-apfel-2', name: 'Apfel', location_id: 'pantry-1' }),
+      ],
+      { ...BASE, locationId: 'fridge-1', searchQuery: '  APFEL  ' },
+    );
+
+    expect(result.map((entry) => entry.name)).toEqual(['Apfel']);
+  });
+
   it('addiert gleiche Artikel, hält aber unterschiedliche MHD-Lose getrennt', () => {
     const result = selectVisibleInventoryItems(
       [
