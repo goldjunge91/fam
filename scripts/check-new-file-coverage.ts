@@ -111,9 +111,17 @@ const violations: string[] = [];
 for (const file of candidates) {
   const entry = summary[file];
   if (!entry) {
+    const extension = file.endsWith('.tsx') ? '.tsx' : '.ts';
+    const platformAlternativeIsMeasured = ['android', 'ios', 'web'].some(
+      (platform) => summary[`${file.slice(0, -extension.length)}.${platform}${extension}`],
+    );
+
     // Datei kam in die Pipeline, wurde aber nie geladen: nicht von Jest
-    // ausgefuehrt. Faellt nur auf, wenn sie wirklich im Coverage-Lauf lag.
-    if (useStaged) violations.push(`${file}: nicht im Coverage-Lauf enthalten`);
+    // ausgefuehrt. Plattform-Alternativen werden nur fuer die aktive Jest-
+    // Plattform gemessen.
+    if (useStaged && !platformAlternativeIsMeasured) {
+      violations.push(`${file}: nicht im Coverage-Lauf enthalten`);
+    }
     continue;
   }
 
