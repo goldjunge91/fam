@@ -110,4 +110,73 @@ describe('NaturalLanguageAdditionVoiceOverlay', () => {
       '[SpeechRecognition] 🎙️ Transkript erkannt: 3 Äpfel und Brot',
     );
   });
+
+  it('forwards a non-transcript result to the fallback flow', async () => {
+    const speech = createSpeechSession();
+    const speechAdapter: SpeechRecognitionAdapter = {
+      start: jest.fn(() => speech.session),
+    };
+    const onFallback = jest.fn();
+
+    await render(
+      <NaturalLanguageAdditionVoiceOverlay
+        visible
+        speechAdapter={speechAdapter}
+        onCancel={jest.fn()}
+        onTranscript={jest.fn()}
+        onFallback={onFallback}
+      />,
+    );
+
+    await fireEvent(screen.getByTestId('speech-modal'), 'show');
+    speech.result.resolve({
+      status: 'permission-denied',
+      text: null,
+      locale: DEFAULT_SPEECH_LOCALE,
+      onDevice: false,
+      error: 'Permission denied',
+    });
+
+    await waitFor(() => {
+      expect(onFallback).toHaveBeenCalledWith({
+        status: 'permission-denied',
+        text: null,
+        locale: DEFAULT_SPEECH_LOCALE,
+        onDevice: false,
+        error: 'Permission denied',
+      });
+    });
+    expect(screen.getByText('Ich höre zu')).toBeOnTheScreen();
+  });
+
+  it('offers the fallback flow when starting speech throws', async () => {
+    const speechAdapter: SpeechRecognitionAdapter = {
+      start: jest.fn(() => {
+        throw new Error('Microphone unavailable');
+      }),
+    };
+    const onFallback = jest.fn();
+
+    await render(
+      <NaturalLanguageAdditionVoiceOverlay
+        visible
+        speechAdapter={speechAdapter}
+        onCancel={jest.fn()}
+        onTranscript={jest.fn()}
+        onFallback={onFallback}
+      />,
+    );
+
+    await fireEvent(screen.getByTestId('speech-modal'), 'show');
+
+    expect(onFallback).toHaveBeenCalledWith({
+      status: 'error',
+      text: null,
+      locale: DEFAULT_SPEECH_LOCALE,
+      onDevice: false,
+      error: 'Microphone unavailable',
+      errorCode: 'voice-session-failed',
+    });
+    expect(screen.getByText('Ich höre zu')).toBeOnTheScreen();
+  });
 });

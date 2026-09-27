@@ -34,6 +34,7 @@ const MIN_PERCENT = {
 
 const COVERAGE_SUMMARY = 'coverage/coverage-summary.json';
 const REPORT_PREFIX = 'src/';
+const PLATFORM_SOURCE = /\.(?:android|ios|web)\.tsx$/u;
 
 type CoverageEntry = {
   lines: { pct: number };
@@ -93,6 +94,8 @@ function stagedSourceFiles(): string[] {
     .filter(
       (line) =>
         line.startsWith(REPORT_PREFIX) &&
+        /\.tsx?$/u.test(line) &&
+        !PLATFORM_SOURCE.test(line) &&
         !line.endsWith('.test.ts') &&
         !line.endsWith('.test.tsx') &&
         !line.endsWith('.d.ts'),
