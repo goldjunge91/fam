@@ -284,3 +284,6 @@ Diagnose/Artefakt-Befehle (`native:status`, `native:status -- --diff`,
 `native:baseline`, `native:run`, `native:restore`) sowie Drift-Ursachen und
 Freigabeprozess: siehe README oben. Ein Native-Drift wird immer zuerst mit
 `native:status -- --diff` untersucht, bevor `--approve-rebuild` verwendet wird.
+
+## Verbote commands
+- 'git reset' darf unter keinen umständen verwendet werden
