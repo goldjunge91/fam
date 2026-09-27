@@ -104,6 +104,7 @@ export function useShoppingList(householdId: string | undefined) {
       return groupByCategory(items);
     },
     enabled: !!householdId,
+    networkMode: 'always',
   });
 }
 
@@ -129,5 +130,6 @@ export function useCheckedShoppingItems(householdId: string | undefined) {
       return rows.map(toShoppingItem);
     },
     enabled: !!householdId,
+    networkMode: 'always',
   });
 }

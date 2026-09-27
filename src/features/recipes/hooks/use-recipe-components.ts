@@ -29,6 +29,7 @@ export function useAddComponentMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: {
       recipe_id: string;
       household_id: string;
@@ -84,6 +85,7 @@ export function useUpdateComponentMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: {
       id: string;
       recipe_id: string;
@@ -129,6 +131,7 @@ export function useDeleteComponentMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: { id: string; recipe_id: string; household_id: string }) => {
       const db = await getDatabase();
 
@@ -195,6 +198,7 @@ export function useAddItemMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: {
       component_id: string;
       recipe_id: string;
@@ -274,6 +278,7 @@ export function useUpdateItemMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: {
       id: string;
       recipe_id: string;
@@ -329,6 +334,7 @@ export function useDeleteItemMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: { id: string; recipe_id: string; household_id: string }) => {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();

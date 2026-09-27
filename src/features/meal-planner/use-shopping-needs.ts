@@ -170,5 +170,6 @@ export function useMealPlanShoppingNeeds(
       return result;
     },
     enabled: !!mealPlanId && !!householdId && enabled,
+    networkMode: 'always',
   });
 }

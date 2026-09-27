@@ -1,5 +1,5 @@
 import { type QueryClient, useQueryClient } from '@tanstack/react-query';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { AppState } from 'react-native';
 
 import {
@@ -295,30 +295,40 @@ const OUTBOX_DEBOUNCE_MS = 800;
 
 const OUTBOX_MAX_WAIT_MS = 4_000;
 
-export function useSyncEngine(householdId: string | undefined) {
+export function useSyncEngine(
+  householdId: string | undefined,
+  onSyncCompleted?: () => Promise<void>,
+) {
   const householdIdRef = useRef(householdId);
   householdIdRef.current = householdId;
   const queryClient = useQueryClient();
+  const syncAndNotify = useCallback(
+    async (id: string) => {
+      const result = await triggerHouseholdSync([id], false, queryClient);
+      if (result && !syncRunHasErrors(result)) await onSyncCompleted?.();
+    },
+    [onSyncCompleted, queryClient],
+  );
 
   useEffect(() => {
     if (!householdId) return;
 
     // 1. Initialer Sync beim App-Start / Haushalt-Laden
-    triggerHouseholdSync([householdId], false, queryClient);
+    void syncAndNotify(householdId).catch(() => undefined);
 
     // 2. Periodischer Timer (alle 20 Sekunden) — Fallback, falls Punkt 4
     //    aus irgendeinem Grund nicht feuert (z.B. verpasste Events).
     activeSyncEngineIntervals += 1;
     const interval = setInterval(() => {
       if (householdIdRef.current && AppState.currentState === 'active') {
-        triggerHouseholdSync([householdIdRef.current], false, queryClient);
+        void syncAndNotify(householdIdRef.current).catch(() => undefined);
       }
     }, 20000);
 
     // 3. Sync bei AppState -> 'active'
     const subscription = AppState.addEventListener('change', (nextState) => {
       if (nextState === 'active' && householdIdRef.current) {
-        triggerHouseholdSync([householdIdRef.current], false, queryClient);
+        void syncAndNotify(householdIdRef.current).catch(() => undefined);
       }
     });
 
@@ -342,7 +352,7 @@ export function useSyncEngine(householdId: string | undefined) {
       burstStartedAt = null;
       writesInBurst = 0;
       if (householdIdRef.current) {
-        triggerHouseholdSync([householdIdRef.current], false, queryClient);
+        void syncAndNotify(householdIdRef.current).catch(() => undefined);
       }
     };
 
@@ -359,6 +369,8 @@ export function useSyncEngine(householdId: string | undefined) {
           // garantiert einen abschließenden Folge-Lauf aus.
           triggerHouseholdSyncAfterOutboxMutation([householdIdRef.current], queryClient).then(
             (result) => {
+              if (result && !syncRunHasErrors(result))
+                void onSyncCompleted?.().catch(() => undefined);
               if (
                 result === null &&
                 !outboxEffectCancelled &&
@@ -400,10 +412,13 @@ export function useSyncEngine(householdId: string | undefined) {
       unregisterAccountStopper();
       stop();
     };
-  }, [householdId, queryClient]);
+  }, [householdId, queryClient, syncAndNotify, onSyncCompleted]);
 }
 
-export function useRealtimeSync(householdId: string | undefined) {
+export function useRealtimeSync(
+  householdId: string | undefined,
+  onSyncCompleted?: () => Promise<void>,
+) {
   const queryClient = useQueryClient();
 
   // Hintergrund-Sync-Handler unabhaengig vom Realtime/Netzwerk-Teil pflegen,
@@ -420,12 +435,13 @@ export function useRealtimeSync(householdId: string | undefined) {
     setBackgroundSyncHandler(
       householdId
         ? async () => {
-            await triggerHouseholdSync([householdId]);
+            const result = await triggerHouseholdSync([householdId]);
+            if (result && !syncRunHasErrors(result)) await onSyncCompleted?.();
           }
         : null,
     );
     return () => setBackgroundSyncHandler(null);
-  }, [householdId]);
+  }, [householdId, onSyncCompleted]);
 
   useEffect(() => {
     if (!householdId) return;

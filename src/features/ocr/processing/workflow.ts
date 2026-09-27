@@ -202,6 +202,7 @@ export type FinalizeReceiptDependencies = {
   authority?: ReceiptAuthorityWriter;
   uploadAssets?: ReceiptAssetUploader;
   authorityDependencies?: ReceiptApiDependencies;
+  deferAssetUpload?: boolean;
 };
 
 export type FinalizeReceiptResult =
@@ -329,6 +330,31 @@ export async function finalizeReceiptReview(
     throw error;
   }
   debugLogEvent('receipt.capture.save.authority_completed', { item_count: itemInputs.length });
+
+  if (dependencies.deferAssetUpload && dependencies.uploadAssets) {
+    const draft = markReceiptCaptureFailed(input.capture, {
+      failure: {
+        code: 'receipt_asset_pending_sync',
+        message: 'Receipt images are queued until the receipt sync completes.',
+        phase: 'saving',
+      },
+      updatedAt: new Date().toISOString(),
+    });
+    debugLogEvent('receipt.capture.save.assets_deferred', {
+      page_count: input.capture.pages.length,
+      reason: 'parent_sync_pending',
+    });
+    return {
+      kind: 'saved_with_pending_assets',
+      receiptId,
+      itemIds,
+      assets: {
+        kind: 'failed',
+        message: draft.failure?.message ?? 'Receipt images are waiting for sync.',
+        draft,
+      },
+    };
+  }
 
   if (!dependencies.uploadAssets) {
     debugLogEvent('receipt.capture.save.assets_skipped');

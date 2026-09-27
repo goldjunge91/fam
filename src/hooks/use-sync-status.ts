@@ -59,6 +59,7 @@ export function useSyncStatus(
     queryKey: outboxCountsQueryKey,
     queryFn: async () => fetchOutboxCounts(await getDb()),
     enabled,
+    networkMode: 'always',
     refetchInterval: 10_000,
     // Die Outbox ist gerätelokal und nicht an den aktiven Haushalt gebunden.
     initialData: { pending: 0, failed: 0 },

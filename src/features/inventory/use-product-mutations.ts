@@ -25,6 +25,7 @@ export function useAddProductMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (product: NewProduct) => {
       const db = await getDatabase();
       const id = Crypto.randomUUID();

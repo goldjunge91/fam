@@ -64,6 +64,7 @@ export function useAddShoppingItem() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: AddShoppingItemMutationInput) => {
       const db = await getDatabase();
       const { preference, feedback, ...itemInput } = input;
@@ -98,6 +99,7 @@ export function useUpdateShoppingItem() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: UpdateItemInput) => {
       const db = await getDatabase();
       const now = new Date().toISOString();
@@ -170,6 +172,7 @@ export function useMoveShoppingItems() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: MoveShoppingItemsInput) => {
       if (input.item_ids.length === 0) return;
 
@@ -221,6 +224,7 @@ export function useToggleShoppingItem() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: ToggleItemInput) => {
       const db = await getDatabase();
       const now = new Date().toISOString();
@@ -262,6 +266,7 @@ export function useDeleteShoppingItem() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: DeleteItemInput) => {
       const db = await getDatabase();
       const now = new Date().toISOString();

@@ -156,7 +156,20 @@ export function ReceiptCaptureReviewFlow({
       lifecycleGenerationRef.current += 1;
       debugLogEvent('receipt.capture.flow.dev_reset_started', { reason });
       void persistence
-        .discard()
+        .load()
+        .then(async (draft) => {
+          if (
+            draft?.status === 'failed' &&
+            draft.failure &&
+            isReceiptAssetUploadFailureCode(draft.failure.code)
+          ) {
+            debugLogEvent('receipt.capture.flow.dev_reset_preserved_pending_upload', {
+              reason,
+            });
+            return;
+          }
+          await persistence.discard();
+        })
         .then(() => {
           debugLogEvent('receipt.capture.flow.dev_reset_completed', { reason });
         })
@@ -203,6 +216,20 @@ export function ReceiptCaptureReviewFlow({
     setCaptureRetry(null);
     onDismiss();
   }, [onDismiss, persistence]);
+
+  const dismissKeepingPendingUpload = useCallback(() => {
+    discardRequestedRef.current = true;
+    lifecycleGenerationRef.current += 1;
+    if (isDevelopmentRuntime()) developmentResetRef.current = true;
+    setCaptureDraft(null);
+    setReviewDraft(null);
+    setPendingSave(null);
+    setPendingReceiptId(null);
+    setReviewState(null);
+    setSaveRetryAvailable(false);
+    setCaptureRetry(null);
+    onDismiss();
+  }, [onDismiss]);
 
   const runProcessing = useCallback(
     async (nextCapture: ReceiptCaptureDraft) => {
@@ -572,7 +599,11 @@ export function ReceiptCaptureReviewFlow({
       };
       await persistence.save(reviewedCapture);
       if (!isLifecycleCurrent(generation)) return;
-      const savingCapture = await persistence.transition({ phase: 'saving', updatedAt: nowIso() });
+      const savingCapture = {
+        ...(await persistence.transition({ phase: 'saving', updatedAt: nowIso() })),
+        householdId,
+      };
+      await persistence.save(savingCapture);
       if (!isLifecycleCurrent(generation)) return;
       setCaptureDraft(savingCapture);
       const result = await finalize(
@@ -595,6 +626,7 @@ export function ReceiptCaptureReviewFlow({
               },
               { persistence, waitForParentSync },
             ),
+          deferAssetUpload: true,
         },
       );
       if (!isLifecycleCurrent(generation)) return;
@@ -605,7 +637,7 @@ export function ReceiptCaptureReviewFlow({
         setPendingSave(result);
         setPendingReceiptId(result.receiptId);
         setError(result.assets.message);
-        setPhase('error');
+        dismissKeepingPendingUpload();
         return;
       }
       await persistence.transition({ phase: 'saved', updatedAt: nowIso() });
@@ -723,7 +755,7 @@ export function ReceiptCaptureReviewFlow({
       result = await retryReceiptCaptureUpload(
         {
           draft: captureDraft,
-          householdId,
+          householdId: captureDraft.householdId ?? householdId,
           receiptId: pendingReceiptId,
           createdBy,
         },

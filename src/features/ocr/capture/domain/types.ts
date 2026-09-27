@@ -97,6 +97,8 @@ export type ReceiptCaptureUploadedAsset = {
 /** A local-first capture draft. It carries image data only, never OCR meaning. */
 export type ReceiptCaptureDraft = {
   id: string;
+  /** Household owning the receipt, retained for deferred asset uploads. */
+  householdId?: string;
   source: ReceiptCaptureSource;
   pages: readonly ReceiptCapturePage[];
   status: ReceiptCaptureStatus;

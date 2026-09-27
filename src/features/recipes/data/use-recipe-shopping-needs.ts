@@ -107,5 +107,6 @@ export function useRecipeShoppingNeeds(
       );
     },
     enabled: enabled && !!detail && servings > 0,
+    networkMode: 'always',
   });
 }

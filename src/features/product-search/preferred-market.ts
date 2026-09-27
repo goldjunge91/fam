@@ -54,6 +54,7 @@ export function usePreferredProductMarket(householdId: string | undefined) {
     queryKey: preferredProductMarketQueryKey(householdId),
     queryFn: () => (householdId ? getPreferredProductMarkets(householdId) : []),
     enabled: Boolean(householdId),
+    networkMode: 'always',
   });
 }
 

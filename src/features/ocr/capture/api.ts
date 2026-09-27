@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import type {
   ReceiptAssetUploadAdapter,
   ReceiptCaptureClock,
@@ -16,6 +17,7 @@ import {
 } from './capture/native-adapters';
 import { createSupabaseReceiptAssetUploadAdapter } from './capture/supabase-upload';
 import {
+  isReceiptAssetUploadFailureCode,
   type ReceiptCaptureUploadResult,
   type ReceiptParentSyncWaiter,
   type ReceiptUploadDependencies,
@@ -118,12 +120,99 @@ export function retryReceiptCaptureUpload(
   input: UploadReceiptCaptureInput,
   dependencies: ReceiptCaptureApiDependencies = {},
 ): Promise<ReceiptCaptureUploadResult> {
-  return retryPendingReceiptCaptureUpload(input, uploadDependencies(dependencies)).then(
-    async (result) => {
-      if (dependencies.persistence) await dependencies.persistence.save(result.draft);
-      return result;
+  const retry = () =>
+    retryPendingReceiptCaptureUpload(input, uploadDependencies(dependencies)).then(
+      async (result) => {
+        if (dependencies.persistence) await dependencies.persistence.save(result.draft);
+        return result;
+      },
+    );
+  const accountId = dependencies.persistence?.accountId;
+  if (!accountId) return retry();
+  const existing = pendingAssetRetryByAccount.get(accountId);
+  if (existing) return existing;
+  const operation = retry();
+  pendingAssetRetryByAccount.set(accountId, operation);
+  return operation.finally(() => {
+    if (pendingAssetRetryByAccount.get(accountId) === operation) {
+      pendingAssetRetryByAccount.delete(accountId);
+    }
+  });
+}
+
+export type PendingReceiptAssetUpload = {
+  receiptId: string;
+  pageCount: number;
+  updatedAt: string;
+  errorMessage: string | null;
+};
+
+export async function getPendingReceiptAssetUpload(
+  accountId: string | undefined,
+): Promise<PendingReceiptAssetUpload | null> {
+  if (!accountId) return null;
+  const draft = await createReceiptCapturePersistence(accountId).load();
+  if (
+    draft?.status !== 'failed' ||
+    !draft.failure ||
+    !isReceiptAssetUploadFailureCode(draft.failure.code)
+  )
+    return null;
+  return {
+    receiptId: draft.id,
+    pageCount: draft.pages.length,
+    updatedAt: draft.updatedAt,
+    errorMessage: draft.failure.message,
+  };
+}
+
+export function usePendingReceiptAssetUpload(accountId: string | undefined) {
+  return useQuery({
+    queryKey: ['receipt-asset-upload', accountId],
+    queryFn: () => getPendingReceiptAssetUpload(accountId),
+    enabled: Boolean(accountId),
+    networkMode: 'always',
+    refetchInterval: (query) => (query.state.data ? 15_000 : false),
+  });
+}
+
+const pendingAssetRetryByAccount = new Map<string, Promise<ReceiptCaptureUploadResult>>();
+
+export function retryPendingReceiptAssetUpload(input: {
+  accountId: string;
+  householdId: string;
+  createdBy: string;
+}): Promise<ReceiptCaptureUploadResult | null> {
+  return retryPendingReceiptAssetUploadOnce(input);
+}
+
+async function retryPendingReceiptAssetUploadOnce(input: {
+  accountId: string;
+  householdId: string;
+  createdBy: string;
+}): Promise<ReceiptCaptureUploadResult | null> {
+  const persistence = createReceiptCapturePersistence(input.accountId);
+  const draft = await persistence.load();
+  if (
+    draft?.status !== 'failed' ||
+    !draft.failure ||
+    !isReceiptAssetUploadFailureCode(draft.failure.code)
+  )
+    return null;
+  const result = await retryReceiptCaptureUpload(
+    {
+      draft,
+      householdId: draft.householdId ?? input.householdId,
+      receiptId: draft.id,
+      createdBy: input.createdBy,
     },
+    { persistence },
   );
+  if (result.draft.status === 'uploaded') {
+    await persistence.transition({ phase: 'saved', updatedAt: new Date().toISOString() });
+    await persistence.discard();
+  }
+  return result;
 }
 
 export function createReceiptCapturePersistence(

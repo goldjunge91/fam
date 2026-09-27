@@ -51,6 +51,7 @@ export function useHouseholds() {
       }));
     },
     enabled: accountReady && !!userId,
+    networkMode: 'always',
   });
 }
 

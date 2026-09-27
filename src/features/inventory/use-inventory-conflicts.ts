@@ -28,6 +28,7 @@ export function useInventoryConflicts() {
   const { data = [] } = useQuery({
     queryKey: inventoryConflictsQueryKey,
     queryFn: async () => getFridgeItemConflicts(await getDatabase()),
+    networkMode: 'always',
     refetchInterval: 20_000,
   });
 

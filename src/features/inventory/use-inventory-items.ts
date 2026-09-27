@@ -118,5 +118,6 @@ export function useInventoryItems(householdId: string | undefined) {
       return rows.map(mapFridgeItemRow);
     },
     enabled: !!householdId,
+    networkMode: 'always',
   });
 }

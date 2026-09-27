@@ -55,6 +55,7 @@ export function useMealPlan(householdId: string | undefined, weekStartDate: stri
       return row ?? null;
     },
     enabled: !!householdId,
+    networkMode: 'always',
   });
 }
 
@@ -82,6 +83,7 @@ export function useMealPlanEntriesInRange(
       );
     },
     enabled: !!householdId,
+    networkMode: 'always',
   });
 }
 
@@ -104,6 +106,7 @@ export function useMealPlanEntries(mealPlanId: string | undefined) {
       );
     },
     enabled: !!mealPlanId,
+    networkMode: 'always',
   });
 }
 
@@ -113,6 +116,7 @@ export function useEnsureMealPlanMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: {
       household_id: string;
       week_start_date: string;
@@ -190,6 +194,7 @@ export function useAddEntryMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: EntryInput) => {
       const db = await getDatabase();
       const id = Crypto.randomUUID();
@@ -227,6 +232,7 @@ export function useUpdateEntryMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: {
       id: string;
       meal_plan_id: string;
@@ -280,6 +286,7 @@ export function useDeleteEntryMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: { id: string; meal_plan_id: string; household_id: string }) => {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
@@ -313,6 +320,7 @@ export function useReuseLastWeekMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: {
       household_id: string;
       week_start_date: string;

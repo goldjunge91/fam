@@ -160,4 +160,42 @@ describe('finalizeReceiptReview', () => {
     });
     expect(testAuthority.calls).toContain('confirmReceipt');
   });
+
+  it('returns a durable pending upload without waiting for the asset uploader', async () => {
+    const testAuthority = authority();
+    const uploadAssets = jest.fn(async () => {
+      throw new Error('The upload should be deferred until household sync completes.');
+    });
+
+    const result = await finalizeReceiptReview(
+      {
+        capture: capture(),
+        draft: parseGermanReceipt(REWE_RECEIPT_LINES),
+        householdId: 'household-1',
+        createdBy: 'user-1',
+        storeId: 'store-1',
+        existingStoreIds: ['store-1'],
+      },
+      {
+        authority: testAuthority.writer,
+        uploadAssets,
+        deferAssetUpload: true,
+      },
+    );
+
+    expect(result).toMatchObject({
+      kind: 'saved_with_pending_assets',
+      receiptId: 'capture-1',
+      assets: {
+        kind: 'failed',
+        draft: {
+          status: 'failed',
+          phase: 'saving',
+          failure: { code: 'receipt_asset_pending_sync' },
+        },
+      },
+    });
+    expect(uploadAssets).not.toHaveBeenCalled();
+    expect(testAuthority.calls).toContain('confirmReceipt');
+  });
 });

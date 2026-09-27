@@ -23,6 +23,7 @@ export function useSetCategoryPreferenceMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: (input: SetCategoryPreferenceInput) => setCategoryPreference(input),
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
@@ -44,6 +45,7 @@ export function useResetCategoryPreferenceMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (
       input: ResetCategoryPreferenceMutationInput,
     ): Promise<ResolvedPlacementClassification & { barcode: string | null }> => {
@@ -73,6 +75,7 @@ export function useSaveShoppingItemMutation() {
   const queryClient = useQueryClient();
 
   return useMutation<AtomicShoppingItemSaveResult, Error, SaveShoppingItemMutationInput>({
+    networkMode: 'always',
     mutationFn: async ({ householdId: _householdId, ...input }) => {
       const db = await getDatabase();
       return saveShoppingItemAtomically({ db, ...input });

@@ -1,10 +1,11 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { onlineManager, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, renderHook, waitFor } from '@testing-library/react-native';
 import type React from 'react';
 
 import {
   useAddStorageLocationMutation,
   useDeleteStorageLocationMutation,
+  useStorageLocations,
 } from '@/features/inventory/use-storage-locations';
 import { enqueueMutation } from '@/lib/db/outbox';
 
@@ -31,12 +32,30 @@ describe('use-storage-locations mutations', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    onlineManager.setOnline(true);
     queryClient = new QueryClient({
       defaultOptions: {
         queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
         mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
       },
     });
+  });
+
+  afterEach(() => {
+    onlineManager.setOnline(true);
+    queryClient.clear();
+  });
+
+  it('liest vorhandene Lagerorte auch offline aus SQLite', async () => {
+    mockDbGetAllAsync.mockResolvedValue([
+      { id: 'loc-1', household_id: 'hh-1', name: 'Vorratsschrank', kind: 'pantry', sort_order: 0 },
+    ]);
+    onlineManager.setOnline(false);
+
+    const { result } = await renderHook(() => useStorageLocations('hh-1'), { wrapper });
+
+    await waitFor(() => expect(result.current.data?.[0]?.name).toBe('Vorratsschrank'));
+    expect(mockDbGetAllAsync).toHaveBeenCalledTimes(1);
   });
 
   it('führt useAddStorageLocationMutation über Outbox aus', async () => {

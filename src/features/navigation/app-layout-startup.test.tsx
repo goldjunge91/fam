@@ -146,22 +146,20 @@ describe('AppLayout startup gate', () => {
     expect(screen.queryByText('app-shell')).not.toBeOnTheScreen();
   });
 
-  it('zeigt bei einem Routingfehler einen Retry-Zustand statt Haushalt-anlegen', async () => {
+  it('startet mit lokalem Haushalt trotz fehlgeschlagenem Remote-Pull', async () => {
     mockHouseholdsResult.isError = true;
     await renderLayout();
 
-    expect(screen.getByText('Erneut versuchen')).toBeOnTheScreen();
+    expect(screen.getByText('app-shell')).toBeOnTheScreen();
     expect(screen.queryByText('redirect:/household/create')).not.toBeOnTheScreen();
-    expect(screen.queryByText('app-shell')).not.toBeOnTheScreen();
   });
 
-  it('zeigt auch bei einem Profilfehler einen Retry-Zustand statt Haushalt-anlegen', async () => {
+  it('startet mit lokalem Haushalt trotz Profil-Requestfehler', async () => {
     mockProfileResult.error = new Error('Profil nicht erreichbar');
     await renderLayout();
 
-    expect(screen.getByText('Erneut versuchen')).toBeOnTheScreen();
+    expect(screen.getByText('app-shell')).toBeOnTheScreen();
     expect(screen.queryByText('redirect:/household/create')).not.toBeOnTheScreen();
-    expect(screen.queryByText('app-shell')).not.toBeOnTheScreen();
   });
 
   it('leitet ein unvollständiges Profil nach dem Gate ins vollständige Onboarding', async () => {
@@ -176,12 +174,14 @@ describe('AppLayout startup gate', () => {
     await renderLayout();
 
     expect(screen.getByText('app-shell')).toBeOnTheScreen();
-    expect(mockUseSyncEngine).toHaveBeenCalledWith('hh-1');
-    expect(mockUseRealtimeSync).toHaveBeenCalledWith('hh-1');
+    expect(mockUseSyncEngine).toHaveBeenCalledWith('hh-1', expect.any(Function));
+    expect(mockUseRealtimeSync).toHaveBeenCalledWith('hh-1', expect.any(Function));
   });
 
   it('startet den Routing-Bootstrap beim Retry erneut', async () => {
     mockHouseholdsResult.isError = true;
+    mockHouseholdsResult.data = [];
+    mockHouseholdResult = { activeHouseholdId: null };
     const { queryClient } = await renderLayout();
     const user = userEvent.setup();
 

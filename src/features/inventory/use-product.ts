@@ -28,5 +28,6 @@ export function useProduct(productId: string | null | undefined) {
       ]);
     },
     enabled: !!productId,
+    networkMode: 'always',
   });
 }

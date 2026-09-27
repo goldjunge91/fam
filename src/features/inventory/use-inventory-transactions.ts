@@ -139,6 +139,7 @@ export function useInventoryTransactions(householdId: string | undefined) {
       }));
     },
     enabled: !!householdId,
+    networkMode: 'always',
   });
 }
 

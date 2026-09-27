@@ -69,6 +69,7 @@ export function FrequentProductsQuickSelect({
       return getFrequentProductUsage(db, { userId: userId as string, feature, mode });
     },
     enabled: !!userId,
+    networkMode: 'always',
     // Die Datenbank ist die lokale Quelle der Wahrheit. Nach einem Save kann
     // diese Komponente mit einem zuvor leeren Query-Ergebnis erneut erscheinen.
     refetchOnMount: 'always',

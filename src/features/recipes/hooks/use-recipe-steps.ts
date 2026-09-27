@@ -37,6 +37,7 @@ export function useAddStepMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: {
       recipe_id: string;
       household_id: string;
@@ -98,6 +99,7 @@ export function useUpdateStepMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: {
       id: string;
       recipe_id: string;
@@ -154,6 +156,7 @@ export function useAddStepImageMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: {
       id?: string;
       step_id: string;
@@ -221,6 +224,7 @@ export function useUpdateStepImageMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: {
       id: string;
       step_id: string;
@@ -266,6 +270,7 @@ export function useDeleteStepImageMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: { id: string; recipe_id: string; household_id: string }) => {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
@@ -295,6 +300,7 @@ export function useDeleteStepMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: { id: string; recipe_id: string; household_id: string }) => {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
@@ -374,6 +380,7 @@ export function useAddStepIngredientMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: {
       step_id: string;
       item_id: string;
@@ -425,6 +432,7 @@ export function useRemoveStepIngredientMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: { id: string; recipe_id: string; household_id: string }) => {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();

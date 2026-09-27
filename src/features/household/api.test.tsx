@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { onlineManager, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, renderHook, waitFor } from '@testing-library/react-native';
 import type React from 'react';
 
@@ -105,6 +105,7 @@ describe('household api', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    onlineManager.setOnline(true);
     mockUserId = 'user-1';
     mockAccountReady = true;
     mockDbGetAllAsync.mockResolvedValue([]);
@@ -119,7 +120,47 @@ describe('household api', () => {
   });
 
   afterEach(() => {
+    onlineManager.setOnline(true);
     queryClient.clear();
+  });
+
+  it('liest den lokalen Haushalt auch offline ohne Remote-Aufruf', async () => {
+    mockDbGetAllAsync.mockResolvedValue([
+      {
+        id: 'hh-offline',
+        name: 'Zuhause',
+        created_by: 'user-1',
+        created_at: '2026-09-27T00:00:00Z',
+        plus_active: 0,
+        plus_expires_at: null,
+        plus_updated_at: null,
+        ai_active: 0,
+        ai_expires_at: null,
+        ai_updated_at: null,
+        ai_subscriber_id: null,
+      },
+    ]);
+    onlineManager.setOnline(false);
+
+    const { result } = await renderHook(() => useHouseholds(), {
+      wrapper: HouseholdApiProviders,
+    });
+
+    await waitFor(() => expect(result.current.data?.[0]?.id).toBe('hh-offline'));
+    expect(mockDbGetAllAsync).toHaveBeenCalledTimes(1);
+    expect(mockFrom).not.toHaveBeenCalled();
+    expect(mockRpc).not.toHaveBeenCalled();
+  });
+
+  it('pausiert einen Remote-Haushaltsrequest offline ohne RPC-Aufruf', async () => {
+    onlineManager.setOnline(false);
+
+    const { result } = await renderHook(() => useHouseholdMembers('hh-1'), {
+      wrapper: HouseholdApiProviders,
+    });
+
+    expect(result.current.fetchStatus).toBe('paused');
+    expect(mockRpc).not.toHaveBeenCalled();
   });
 
   it('liest getrennte Plus- und AI-Zustaende und konvertiert SQLite 0/1 in Booleans', async () => {

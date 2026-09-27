@@ -6,8 +6,10 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
 import { Press, Txt } from '@/constants/ui';
+import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { type LocalReceiptRow, useConfirmedReceipts } from '@/features/ocr/authority/api';
+import { usePendingReceiptAssetUpload } from '@/features/ocr/capture/api';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 import { formatReceiptDate, formatReceiptMoney } from './formatting';
 import { sortReceiptHistory } from './model';
@@ -32,7 +34,13 @@ const styles = StyleSheet.create((theme) => ({
   empty: { paddingVertical: theme.space.xxxl },
 }));
 
-function ReceiptHistoryRow({ receipt }: { receipt: LocalReceiptRow }) {
+function ReceiptHistoryRow({
+  receipt,
+  pendingReceiptId,
+}: {
+  receipt: LocalReceiptRow;
+  pendingReceiptId?: string;
+}) {
   const { t, i18n } = useTranslation();
   const date = receipt.purchase_date
     ? formatReceiptDate(receipt.purchase_date, i18n.language)
@@ -59,6 +67,11 @@ function ReceiptHistoryRow({ receipt }: { receipt: LocalReceiptRow }) {
           <Txt variant="body" tone="secondary" style={styles.date}>
             {date}
           </Txt>
+          {pendingReceiptId === receipt.id ? (
+            <Txt variant="body" tone="danger">
+              {t('ocr.history.imagesPending')}
+            </Txt>
+          ) : null}
         </View>
         <Txt variant="subheading" weight="700" style={styles.total}>
           {total}
@@ -74,6 +87,9 @@ function ReceiptHistoryRow({ receipt }: { receipt: LocalReceiptRow }) {
 export function ReceiptHistoryScreen() {
   const { t } = useTranslation();
   const { activeHouseholdId } = useActiveHousehold();
+  const { session } = useSession();
+  const pendingUploadQuery = usePendingReceiptAssetUpload(session?.user.id);
+  const pendingReceiptId = pendingUploadQuery.data?.receiptId;
   const receiptsQuery = useConfirmedReceipts(activeHouseholdId ?? undefined);
   const receipts = sortReceiptHistory(receiptsQuery.data ?? []);
 
@@ -103,7 +119,9 @@ export function ReceiptHistoryScreen() {
               {t('ocr.history.empty')}
             </Txt>
           }
-          renderItem={({ item }) => <ReceiptHistoryRow receipt={item} />}
+          renderItem={({ item }) => (
+            <ReceiptHistoryRow receipt={item} pendingReceiptId={pendingReceiptId} />
+          )}
         />
       )}
     </Screen>

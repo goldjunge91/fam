@@ -14,6 +14,7 @@ import {
   useHouseholds,
   useRedeemInviteMutation,
 } from '@/features/household/api';
+import { retryPendingReceiptAssetUpload } from '@/features/ocr/capture/api';
 import { resolveAppEntry } from '@/features/onboarding/domain/app-entry';
 import {
   isOnboardingSessionCompleted,
@@ -107,15 +108,29 @@ function AppLayoutContent() {
     return <CrashFallback resetError={retryRouting} />;
   }
 
-  return <ReadyAppContent activeHouseholdId={activeHouseholdId} />;
+  return <ReadyAppContent activeHouseholdId={activeHouseholdId} accountId={userId ?? null} />;
 }
 
-function ReadyAppContent({ activeHouseholdId }: { activeHouseholdId: string | null }) {
+function ReadyAppContent({
+  activeHouseholdId,
+  accountId,
+}: {
+  activeHouseholdId: string | null;
+  accountId: string | null;
+}) {
   const redeemInvite = useRedeemInviteMutation();
+  const retryReceiptAssets = useCallback(async () => {
+    if (!activeHouseholdId || !accountId) return;
+    await retryPendingReceiptAssetUpload({
+      accountId,
+      householdId: activeHouseholdId,
+      createdBy: accountId,
+    });
+  }, [accountId, activeHouseholdId]);
 
   // Automatische App-Synchronisation startet erst nach der Routingentscheidung.
-  useSyncEngine(activeHouseholdId ?? undefined);
-  useRealtimeSync(activeHouseholdId ?? undefined);
+  useSyncEngine(activeHouseholdId ?? undefined, retryReceiptAssets);
+  useRealtimeSync(activeHouseholdId ?? undefined, retryReceiptAssets);
 
   useEffect(() => {
     peekPendingInviteToken().then(async (pendingToken) => {

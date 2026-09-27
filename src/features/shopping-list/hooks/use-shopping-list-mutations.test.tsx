@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { onlineManager, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, renderHook, waitFor } from '@testing-library/react-native';
 import type React from 'react';
 
@@ -43,12 +43,38 @@ describe('use-shopping-list-mutations', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    onlineManager.setOnline(true);
     queryClient = new QueryClient({
       defaultOptions: {
         queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
         mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
       },
     });
+  });
+
+  afterEach(() => {
+    onlineManager.setOnline(true);
+    queryClient.clear();
+  });
+
+  it('schreibt einen Einkaufslistenwechsel auch offline in die lokale Outbox', async () => {
+    onlineManager.setOnline(false);
+    const { result } = await renderHook(() => useToggleShoppingItem(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        id: 'item-offline',
+        household_id: 'hh-1',
+        checked_at: '2026-09-27T10:00:00Z',
+        checked_by: 'user-1',
+      });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(enqueueMutation).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({ entity: 'shopping_list_items', entityId: 'item-offline' }),
+    );
   });
 
   it('toggelt den checked-Status eines Eintrags', async () => {

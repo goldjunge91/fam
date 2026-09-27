@@ -82,6 +82,7 @@ export function useShoppingProductSuggestions({
       );
     },
     enabled: !!userId,
+    networkMode: 'always',
     // Die Vorschlagsliste liest direkt aus SQLite und darf keinen alten,
     // leeren Cache nach dem ersten Öffnen wiederverwenden.
     refetchOnMount: 'always',

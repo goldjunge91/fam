@@ -27,7 +27,11 @@ export async function setFabPosition(value: FabPosition): Promise<void> {
 export const fabPositionQueryKey = ['settings', 'fab-position'] as const;
 
 export function useFabPosition() {
-  return useQuery({ queryKey: fabPositionQueryKey, queryFn: getFabPosition });
+  return useQuery({
+    queryKey: fabPositionQueryKey,
+    queryFn: getFabPosition,
+    networkMode: 'always',
+  });
 }
 
 export function useSetFabPosition() {

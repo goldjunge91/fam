@@ -99,7 +99,7 @@ describe('receipt capture persistence', () => {
     expect(metadata.values.size).toBe(1);
   });
 
-  it('survives a new persistence instance with only resumable metadata', async () => {
+  it('persists only resumable page metadata and omits OCR evidence and image bytes', async () => {
     const metadata = storage();
     const first = createReceiptCapturePersistence('account-a', {
       storage: metadata,
@@ -108,17 +108,27 @@ describe('receipt capture persistence', () => {
       ...draft(),
       ocrText: 'must-not-be-persisted',
       lineEvidence: [{ text: 'must-not-be-persisted' }],
-    } as ReceiptCaptureDraft & { ocrText: string; lineEvidence: unknown[] };
+      imageBytes: 'synthetic-image-bytes-must-not-be-persisted',
+      base64: 'synthetic-base64-must-not-be-persisted',
+    } as ReceiptCaptureDraft & {
+      ocrText: string;
+      lineEvidence: unknown[];
+      imageBytes: string;
+      base64: string;
+    };
 
     await first.save(candidate);
 
     const resumed = await createReceiptCapturePersistence('account-a', {
       storage: metadata,
     }).load();
+    const serialized = [...metadata.values.values()][0];
+    if (!serialized) throw new Error('Expected resumable receipt metadata to be stored.');
 
     expect(resumed).toMatchObject({ id: 'capture-1', phase: 'normalized' });
-    expect(resumed?.pages.map(({ id }) => id)).toEqual(['page-1']);
-    expect(JSON.stringify([...metadata.values.values()])).not.toContain('must-not-be-persisted');
+    expect(resumed?.pages).toEqual([page('page-1')]);
+    expect(serialized).toContain(`"pages":${JSON.stringify([page('page-1')])}`);
+    expect(serialized).not.toContain('must-not-be-persisted');
   });
 
   it('persists the structured review state without persisting OCR evidence', async () => {
@@ -220,18 +230,36 @@ describe('receipt capture persistence', () => {
     ).rejects.toThrow('receipt-captures');
   });
 
-  it('keeps account drafts isolated when each account resolves its own encrypted store', async () => {
+  it('keeps account drafts isolated through each account encrypted store', async () => {
     const accounts = new Map<string, FakeStorage>();
-    const persistenceFor = (accountId: string) => {
+    const storageFor = (accountId: string): FakeStorage => {
       const accountStorage = accounts.get(accountId) ?? storage();
       accounts.set(accountId, accountStorage);
-      return createReceiptCapturePersistence(accountId, { storage: accountStorage });
+      return accountStorage;
     };
+    mockGetEncryptedAccountStorage.mockImplementation(async (accountId: string) =>
+      storageFor(accountId),
+    );
 
-    await persistenceFor('account-a').save(draft());
+    await createReceiptCapturePersistence('account-a').save(draft());
 
-    await expect(persistenceFor('account-b').load()).resolves.toBeNull();
-    await expect(persistenceFor('account-a').load()).resolves.toMatchObject({ id: 'capture-1' });
+    await expect(createReceiptCapturePersistence('account-b').load()).resolves.toBeNull();
+    await expect(createReceiptCapturePersistence('account-a').load()).resolves.toMatchObject({
+      id: 'capture-1',
+    });
+    expect(mockGetEncryptedAccountStorage).toHaveBeenCalledWith('account-a');
+    expect(mockGetEncryptedAccountStorage).toHaveBeenCalledWith('account-b');
+  });
+
+  it('retains the receipt household for a deferred image retry', async () => {
+    const persistence = createReceiptCapturePersistence('account-a', { storage: storage() });
+    await persistence.save({ ...draft(), householdId: 'household-original' });
+
+    await expect(persistence.load()).resolves.toMatchObject({
+      id: 'capture-1',
+      householdId: 'household-original',
+    });
+    expect(persistence.accountId).toBe('account-a');
   });
 
   it('appends pages in stable order and rejects a page already in the draft', async () => {
@@ -271,12 +299,19 @@ describe('receipt capture persistence', () => {
     expect(resumed).toMatchObject({ status: 'failed', phase: 'processing' });
 
     const retried = await persistence.retry('2026-09-21T10:02:00.000Z');
-    expect(retried).toMatchObject({ status: 'pending', phase: 'processing', failure: null });
-    expect(retried.pages.map(({ id }) => id)).toEqual(['page-1']);
+    expect(retried).toMatchObject({
+      status: 'pending',
+      phase: 'processing',
+      failure: null,
+      createdAt: '2026-09-21T10:00:00.000Z',
+      updatedAt: '2026-09-21T10:02:00.000Z',
+      pages: [page('page-1')],
+    });
   });
 
-  it('discards metadata and only the persisted owned page files', async () => {
+  it('discards its draft and page files while preserving unrelated account metadata', async () => {
     const metadata = storage();
+    metadata.set('unrelated.account.preference', 'keep-me');
     const deleted: string[] = [];
     const persistence = createReceiptCapturePersistence('account-a', {
       storage: metadata,
@@ -286,12 +321,15 @@ describe('receipt capture persistence', () => {
         },
       },
     });
-    await persistence.save(draft());
+    await persistence.save({ ...draft(), pages: [page('page-1'), page('page-2')] });
 
     await persistence.discard();
 
-    expect(deleted).toEqual(['file:///documents/receipt-captures/capture-1/page-1.jpg']);
+    expect(deleted).toEqual([
+      'file:///documents/receipt-captures/capture-1/page-1.jpg',
+      'file:///documents/receipt-captures/capture-1/page-2.jpg',
+    ]);
     expect(await persistence.load()).toBeNull();
-    expect(metadata.values.size).toBe(0);
+    expect(metadata.values).toEqual(new Map([['unrelated.account.preference', 'keep-me']]));
   });
 });

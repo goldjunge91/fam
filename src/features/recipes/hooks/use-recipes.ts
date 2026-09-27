@@ -220,6 +220,7 @@ export function useRecipes(householdId: string | undefined) {
       });
     },
     enabled: !!householdId,
+    networkMode: 'always',
   });
 }
 
@@ -311,6 +312,7 @@ export function useRecipeDetail(recipeId: string | undefined) {
       return { recipe, components, items, steps, productsById };
     },
     enabled: !!recipeId,
+    networkMode: 'always',
   });
 }
 
@@ -320,6 +322,7 @@ export function useAddRecipeMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (
       input: {
         household_id: string;
@@ -392,6 +395,7 @@ export function useUpdateRecipeMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (
       input: {
         id: string;
@@ -488,6 +492,7 @@ export function useDeleteRecipeMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: { id: string; household_id: string }) => {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();

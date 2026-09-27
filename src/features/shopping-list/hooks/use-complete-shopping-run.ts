@@ -59,6 +59,7 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
   const { data: storageLocations } = useStorageLocations(householdId);
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (input: CompleteShoppingRunInput) => {
       if (input.transfers.some(({ quantity }) => !Number.isFinite(quantity) || quantity <= 0)) {
         throw new Error('Ledger-Buchungen benötigen eine positive Menge.');

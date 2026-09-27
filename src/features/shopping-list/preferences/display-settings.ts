@@ -31,6 +31,7 @@ export function useShowPriceInMarketView(userId?: string) {
     queryKey: showPriceInMarketViewQueryKey(userId),
     queryFn: () => (userId ? getShowPriceInMarketView(userId) : DEFAULT_SHOW_PRICE_IN_MARKET_VIEW),
     enabled: Boolean(userId),
+    networkMode: 'always',
     placeholderData: DEFAULT_SHOW_PRICE_IN_MARKET_VIEW,
   });
 }
@@ -39,6 +40,7 @@ export function useSetShowPriceInMarketView(userId?: string) {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (value: boolean) => {
       if (userId) await setShowPriceInMarketView(userId, value);
       return value;

@@ -232,6 +232,7 @@ export function useAddFridgeItemMutation() {
   const actor = useInventoryActor();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (item: Omit<FridgeItem, 'id'>) => {
       const db = await getDatabase();
       const id = Crypto.randomUUID();
@@ -307,6 +308,7 @@ export function useUpdateInventoryItemQuantityMutation() {
   const actor = useInventoryActor();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async ({
       id,
       household_id,
@@ -442,6 +444,7 @@ export function useUpdateFridgeItemMutation() {
   const actor = useInventoryActor();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async (item: UpdateFridgeItemInput) => {
       if (item.quantityCorrection) {
         assertValidInventoryQuantity(item.quantityCorrection.expectedQuantity);
@@ -640,6 +643,7 @@ export function useOpenInventoryItemMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async ({ item, quantity }: { item: LocalInventoryItem; quantity: number }) => {
       const db = await getDatabase();
       const now = new Date();
@@ -746,6 +750,7 @@ export function useWasteInventoryItemMutation() {
   const actor = useInventoryActor();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async ({ item, reason }: { item: LocalInventoryItem; reason: WasteReason }) => {
       const db = await getDatabase();
       const now = new Date().toISOString();
@@ -802,6 +807,7 @@ export function useMoveInventoryItemMutation() {
   const actor = useInventoryActor();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async ({
       item,
       locationId,
@@ -1032,6 +1038,7 @@ export function useUndoInventoryTransactionMutation() {
   const actor = useInventoryActor();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async ({ transaction }: { transaction: LocalInventoryTransaction }) => {
       if (transaction.reversal_of !== undefined && transaction.reversal_of !== null) {
         throw new Error('Eine Gegenbuchung kann nicht erneut rückgängig gemacht werden.');

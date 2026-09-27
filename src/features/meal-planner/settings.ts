@@ -34,6 +34,7 @@ export function usePortionsPerPerson() {
   return useQuery({
     queryKey: portionsPerPersonQueryKey,
     queryFn: getPortionsPerPerson,
+    networkMode: 'always',
   });
 }
 

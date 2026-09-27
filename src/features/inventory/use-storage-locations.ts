@@ -25,6 +25,7 @@ export function useStorageLocations(householdId: string | undefined) {
       );
     },
     enabled: !!householdId,
+    networkMode: 'always',
   });
 }
 
@@ -32,6 +33,7 @@ export function useAddStorageLocationMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async ({
       household_id,
       name,
@@ -88,6 +90,7 @@ export function useUpdateStorageLocationMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async ({
       id,
       household_id,
@@ -128,6 +131,7 @@ export function useDeleteStorageLocationMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
+    networkMode: 'always',
     mutationFn: async ({ id, household_id }: { id: string; household_id: string }) => {
       const db = await getDatabase();
       const now = new Date().toISOString();

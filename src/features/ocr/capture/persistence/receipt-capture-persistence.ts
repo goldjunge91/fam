@@ -39,6 +39,7 @@ export type ReceiptCapturePersistenceDependencies = {
 };
 
 export type ReceiptCapturePersistence = {
+  readonly accountId?: string;
   load(): Promise<ReceiptCaptureDraft | null>;
   save(draft: ReceiptCaptureDraft): Promise<void>;
   appendPages(input: AppendReceiptCapturePagesInput): Promise<ReceiptCaptureDraft>;
@@ -258,6 +259,7 @@ function decodeDraft(raw: string): ReceiptCaptureDraft | null {
 
     return {
       id: value.id,
+      ...(isString(value.householdId) ? { householdId: value.householdId } : {}),
       source: value.source,
       pages: value.pages.map((page) => ({
         id: (page as UnknownRecord).id as string,
@@ -286,6 +288,7 @@ function encodeDraft(draft: ReceiptCaptureDraft): string {
     version: 1,
     draft: {
       id: draft.id,
+      ...(draft.householdId ? { householdId: draft.householdId } : {}),
       source: draft.source,
       pages: draft.pages.map(({ id, localUri, mimeType, byteSize }) => ({
         id,
@@ -379,6 +382,7 @@ export function createReceiptCapturePersistence(
   };
 
   return {
+    accountId,
     load,
     save,
     async appendPages(input) {

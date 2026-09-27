@@ -443,7 +443,7 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     expect(finalize).toHaveBeenCalledTimes(2);
   });
 
-  it('shows a saved-with-pending-images state instead of an OCR error', async () => {
+  it('dismisses after local save while retaining image upload work', async () => {
     const source = parseGermanReceipt(REWE_RECEIPT_LINES);
     const persisted = {
       ...captureDraft(),
@@ -472,12 +472,13 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
       },
     });
 
+    const onDismiss = jest.fn();
     await render(
       <ReceiptCaptureReviewFlow
         visible
         householdId="household-1"
         createdBy="user-1"
-        onDismiss={jest.fn()}
+        onDismiss={onDismiss}
         persistence={state.persistence}
         processCapture={jest.fn()}
         finalize={finalize}
@@ -488,11 +489,70 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
       .setup()
       .press(await screen.findByRole('button', { name: 'Kassenbon speichern' }));
 
-    expect(
-      await screen.findByText('Bon gespeichert, aber Bilder konnten nicht hochgeladen werden.'),
-    ).toBeOnTheScreen();
-    expect(screen.getByRole('alert')).toHaveTextContent(
-      'Der Kassenbon ist noch nicht synchronisiert.',
+    await waitFor(() => expect(onDismiss).toHaveBeenCalledTimes(1));
+    expect(await state.persistence.load()).toMatchObject({
+      status: 'failed',
+      failure: { code: 'receipt_asset_storage_upload_failed' },
+    });
+  });
+
+  it('closes after the local receipt save and keeps pending images for background retry', async () => {
+    const source = parseGermanReceipt(REWE_RECEIPT_LINES);
+    const persisted = {
+      ...captureDraft(),
+      phase: 'needs_review' as const,
+      review: createReceiptReviewSnapshot(source, createReceiptReviewState(source, 'store-1')),
+    };
+    const state = persistenceWith(persisted);
+    const onDismiss = jest.fn();
+    const pendingDraft = {
+      ...captureDraft(),
+      status: 'failed' as const,
+      phase: 'saving' as const,
+      failure: {
+        code: 'receipt_asset_pending_sync',
+        message: 'Receipt images are queued until the receipt sync completes.',
+        phase: 'saving' as const,
+      },
+    };
+    const finalize = jest.fn(async (_input, dependencies) => {
+      if (dependencies?.deferAssetUpload !== true) {
+        throw new Error('Asset upload must be deferred until sync completes.');
+      }
+      return {
+        kind: 'saved_with_pending_assets' as const,
+        receiptId: 'capture-1',
+        itemIds: ['item-1'],
+        assets: {
+          kind: 'failed' as const,
+          message: pendingDraft.failure.message,
+          draft: pendingDraft,
+        },
+      };
+    });
+
+    await render(
+      <ReceiptCaptureReviewFlow
+        visible
+        householdId="household-1"
+        createdBy="user-1"
+        onDismiss={onDismiss}
+        persistence={state.persistence}
+        processCapture={jest.fn()}
+        finalize={finalize}
+      />,
     );
+
+    await userEvent
+      .setup()
+      .press(await screen.findByRole('button', { name: 'Kassenbon speichern' }));
+
+    await waitFor(() => expect(onDismiss).toHaveBeenCalledTimes(1));
+    expect(state.current()).toMatchObject({
+      status: 'failed',
+      phase: 'saving',
+      failure: { code: 'receipt_asset_pending_sync' },
+    });
+    expect(screen.queryByText('Kassenbon wird gespeichert')).not.toBeOnTheScreen();
   });
 });
