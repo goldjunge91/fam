@@ -1,7 +1,102 @@
-# #!/usr/bin/env bash
-# # Aktualisiert die Screenshot-Galerie nur, wenn die lokale iOS-Capture-
-# # Umgebung tatsächlich verfügbar ist. Der Hook staged oder amendiert nichts.
-# set -euo pipefail
+#!/usr/bin/env bash
+# Laeuft vor `git push` und ist bewusst LEICHT: der volle Gate-Zyklus
+# (Biome + komplette Unit-Suite) haengt bereits am pre-commit. Hier steht nur,
+# was zwischen Commit und Push verfaelscht werden kann oder dort guenstiger
+# abgefangen wird:
+#
+#   1. Typecheck ueber den Gesamtzustand des Arbeitsbaums. In CI laeuft er
+#      ebenfalls, aber gegen den gepushten Stand -- hier siehst du es vor dem
+#      Push, nicht danach.
+#   2. Whitespace-Konflikte und Konfliktmarker (`git diff --check`). Die
+#      entstehen durch Zusammenfuehren und bleiben im Commit unsichtbar, bis
+#      jemand anderes pulled.
+#   3. db:types-Drift, wenn Supabase-Schema-Dateien Teil des Pushes sind. Das
+#      ist der teuerste Fehler im Repo: `database.types.ts` ist ein generiertes
+#      Artefakt (AGENTS.md) und faellt sonst erst in CI auf.
+#
+# Mit --no-verify ueberspringbar -- wie jeder Hook. Das nicht umgehbare Gate
+# ist Branch Protection auf `main`; dieser Hook ist Fruehwarn- und
+# Bequemlichkeitskanal, nicht die Absicherung.
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+remote_name="${1:-origin}"
+
+echo "--> Pre-Push: Typecheck..."
+bun run typecheck
+echo ""
+
+echo "--> Pre-Push: Whitespace und Konfliktmarker..."
+
+# Git ruft diesen Hook mit $1 = Remote-Name und $2 = Remote-URL auf. Der
+# Ziel-Branch steht NICHT in den Argumenten, sondern die Ref-Updates kommen
+# zeilenweise auf stdin: "<lokaler Ref> <lokale SHA> <entfernter Ref>
+# <entfernte SHA>". Ein Vergleich gegen $2 wuerde daher immer ins Leere
+# laufen und still auf HEAD zurueckfallen, also den Arbeitsbaum statt der
+# gepushten Commits pruefen.
+#
+# stdin zuerst lesen, danach die Pruefungen: sonst blockiert der read unten
+# auf einer Pipe, die nie zu Ende kommt.
+pushed_ranges=()
+while read -r _local_ref local_sha _remote_ref remote_sha; do
+  [ -n "${local_sha:-}" ] || continue
+  # Neuer Branch: remote_sha ist alles Nullen, es gibt also nichts zu
+  # vergleichen. In dem Fall der erste Push-Umfang als Bereich merken.
+  if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
+    pushed_ranges+=("$local_sha")
+  else
+    pushed_ranges+=("$remote_sha..$local_sha")
+  fi
+done
+
+# Ohne stdin-Inhalt (etwa bei manueller Ausfuehrung) faellt der Check auf
+# den Arbeitsbaum zurueck, statt still nichts zu tun.
+if [ ${#pushed_ranges[@]} -eq 0 ]; then
+  echo "Hinweis: keine Ref-Updates auf stdin, pruefe den Arbeitsbaum."
+  pushed_ranges=("HEAD")
+fi
+
+whitespace_failed=0
+for range in "${pushed_ranges[@]}"; do
+  echo "  Bereich: $range"
+  if ! git diff --check "$range"; then
+    whitespace_failed=1
+  fi
+done
+
+if [ "$whitespace_failed" -ne 0 ]; then
+  echo ""
+  echo "Whitespace-Fehler im Push-Umfang (siehe oben)."
+  echo "Trailing whitespace oder Konfliktmarker gefunden. Bitte vor dem Push beheben."
+  exit 1
+fi
+echo "Keine Whitespace- oder Konfliktfehler."
+
+# Das generierte Artefakt nur pruefen, wenn sein Erzeuger im Push liegt. Ein
+# reiner UI-Commit soll nicht an einer bereits vorhandenen, aber noch nicht
+# nachgezogenen Datei scheitern.
+if git diff --name-only "$range" | grep -qE '^supabase/schemas/'; then
+  echo ""
+  echo "--> Pre-Push: Supabase-Schema im Push -- generierte Typen werden verifiziert..."
+  if ! command -v supabase >/dev/null 2>&1; then
+    echo "Hinweis: supabase CLI nicht im PATH, db:types wird nicht geprueft."
+    echo "         Die CI-Stufe 'Generierte DB-Typen duerfen nicht abweichen' deckt das ab."
+  else
+    bun run db:types
+    if ! git diff --quiet -- src/lib/database.types.ts; then
+      echo ""
+      echo "src/lib/database.types.ts ist veraltet."
+      echo "Aenderung stagen und mit dem Push nachziehen:"
+      echo "  git add src/lib/database.types.ts"
+      exit 1
+    fi
+    echo "Generierte DB-Typen stimmen."
+  fi
+fi
+
+echo ""
+echo "Pre-Push-Gate bestanden."
 
 # cd "$(git rev-parse --show-toplevel)"
 
