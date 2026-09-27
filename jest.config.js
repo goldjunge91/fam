@@ -87,6 +87,7 @@ module.exports = {
     '/tools/',
     '\\.integration\\.test\\.tsx?$',
     '\\.bun\\.test\\.ts$',
+      '/temp/',          // ← Stryker-Sandboxes sind keine Testquellen
     // Die UI-freien Native-Speech-Runner sind Jest-Suiten und werden bewusst
     // über denselben fokussierten `bun run test <datei>`-Pfad verifiziert.
     // Andere eigenständige Host-/Bun-Tools bleiben aus der Expo-Suite heraus.
@@ -102,10 +103,11 @@ module.exports = {
   // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.
   collectCoverage: false,
 
-  // Der Coverage-Lauf wird separat im CI-Unit-Scope ausgefuehrt. Die Schwellen
-  // starten bewusst unter der verifizierten Baseline und werden nach weiteren
-  // Sync-Test-Slices schrittweise angehoben.
-  coverageReporters: ['text-summary'],
+  // Dies ist die einzige Stelle, an der Coverage-Reporter festgelegt werden.
+  // `test:coverage:unit` in package.json darf KEIN --coverageReporters
+  // mehr mitgeben: ein CLI-Flag ueberschreibt diese Liste, und
+  // scripts/check-new-file-coverage.ts braucht die json-summary-Datei.
+  coverageReporters: ['text-summary', 'json-summary'],
   coverageThreshold: {
     global: {
       statements: 70,

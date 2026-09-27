@@ -29,12 +29,10 @@ describe('Coverage-Gate-Konfiguration', () => {
 
   it('verwendet für Unit- und Coverage-Lauf denselben CI-Scope', () => {
     expect(packageJson.scripts['test:unit']).toBe(CI_UNIT_SCOPE);
-    expect(packageJson.scripts['test:coverage:unit']).toBe(
-      'bun run test:unit -- --coverage --coverageReporters=text-summary',
-    );
+    expect(packageJson.scripts['test:coverage:unit']).toBe('bun run test:unit -- --coverage');
   });
 
   it('hält den Coverage-Report kompakt', () => {
-    expect(jestConfig.coverageReporters).toEqual(['text-summary']);
+    expect(jestConfig.coverageReporters).toEqual(['text-summary', 'json-summary']);
   });
 });
