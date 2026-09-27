@@ -15,6 +15,38 @@ export type FeatureFlagValues = Record<string, boolean | string> | undefined;
 const FEATURE_FLAG_RELOAD_TIMEOUT_MS = 15_000;
 
 const FeatureFlagContext = createContext<FeatureFlagValues>(undefined);
+let posthogOfflineErrorFilterInstalled = false;
+
+function isPostHogOfflineFlushError(args: readonly unknown[]): boolean {
+  const [message, error] = args;
+  return (
+    message === 'Error while flushing PostHog' &&
+    error instanceof Error &&
+    error.name === 'PostHogFetchNetworkError' &&
+    error.message === 'Network error while fetching PostHog'
+  );
+}
+
+function installPostHogOfflineErrorFilter(): void {
+  if (!__DEV__ || posthogOfflineErrorFilterInstalled) return;
+
+  const nativeConsole = console as typeof console & {
+    _errorOriginal?: (...args: unknown[]) => void;
+  };
+  const writeToOriginalConsole = nativeConsole._errorOriginal;
+  if (!writeToOriginalConsole) return;
+
+  const reportConsoleError = console.error;
+  console.error = (...args) => {
+    if (isPostHogOfflineFlushError(args)) {
+      writeToOriginalConsole(...args);
+      return;
+    }
+
+    reportConsoleError(...args);
+  };
+  posthogOfflineErrorFilterInstalled = true;
+}
 
 function FeatureFlagProvider({
   posthog,
@@ -54,8 +86,10 @@ export function initPostHog(): void {
     return;
   }
 
+  installPostHogOfflineErrorFilter();
+
   try {
-    client = new PostHog(apiKey, {
+    const initializedClient = new PostHog(apiKey, {
       host: env.posthogHost,
       // Erfasst App-Lifecycle (Open, Background, Install/Update) mit IP & Gerätedaten
       captureAppLifecycleEvents: true,
@@ -68,6 +102,7 @@ export function initPostHog(): void {
         },
       },
     });
+    client = initializedClient;
     debugLogEvent('posthog.initialized', { host: env.posthogHost });
   } catch (err) {
     initializationError = err instanceof Error ? err.message : String(err);

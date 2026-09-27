@@ -1,4 +1,5 @@
 import { DatabaseSync } from 'node:sqlite';
+import { sql } from 'drizzle-orm';
 
 import { createDrizzleDatabase } from '@/lib/db/drizzle-driver';
 import { localRecipePreferences } from '@/lib/db/schemas';
@@ -95,6 +96,18 @@ describe('Drizzle-Adapter', () => {
     const { getAllRawAsync: _, ...withoutRawRows } = db;
 
     expect(() => createDrizzleDatabase(withoutRawRows)).toThrow(/positionsstabilen/);
+    close();
+  });
+
+  it('lehnt nicht unterstützte SQL-Parameter ab', async () => {
+    const { db, close } = createDatabase();
+    const drizzleDb = createDrizzleDatabase(db);
+
+    await expect(drizzleDb.run(sql`select ${true}`)).rejects.toMatchObject({
+      cause: expect.objectContaining({
+        message: 'Nicht unterstützter SQLite-Parameter: boolean',
+      }),
+    });
     close();
   });
 });

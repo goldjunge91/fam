@@ -113,6 +113,25 @@ describe('resolveAppEntry', () => {
     ).toEqual({ kind: 'fehler' });
   });
 
+  it('startet mit lokalem Haushalt trotz fehlgeschlagenem Remote-Pull', () => {
+    expect(
+      resolveAppEntry({
+        ...angemeldetUndEingerichtet,
+        householdsError: true,
+      }),
+    ).toEqual({ kind: 'weiter' });
+  });
+
+  it('zeigt bei einem Profilfehler auch mit lokalem Haushalt den Retry-Zustand', () => {
+    expect(
+      resolveAppEntry({
+        ...angemeldetUndEingerichtet,
+        householdsError: true,
+        profileError: true,
+      }),
+    ).toEqual({ kind: 'fehler' });
+  });
+
   it('folgt dem Onboarding-Guard fuer unvollstaendige Konten', () => {
     expect(resolveAppEntry({ ...angemeldetUndEingerichtet, shouldPromptOnboarding: true })).toEqual(
       { kind: 'umleiten', to: '/onboarding' },

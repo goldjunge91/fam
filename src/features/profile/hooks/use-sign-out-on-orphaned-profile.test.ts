@@ -1,3 +1,4 @@
+import { QueryClient } from '@tanstack/react-query';
 import { act, renderHook, waitFor } from '@testing-library/react-native';
 
 import { isOrphanedProfileError } from '@/features/profile/orphaned-profile-error';
@@ -49,8 +50,7 @@ describe('useSignOutOnOrphanedProfile', () => {
   });
 
   it('meldet bei PGRST116 genau einmal ab', async () => {
-    // biome-ignore lint/suspicious/noExplicitAny: Test-Double, keine echte QueryClient-Instanz noetig
-    const queryClient = {} as any;
+    const queryClient = new QueryClient();
     const { rerender } = await renderHook(
       ({ error }: { error: unknown }) => useSignOutOnOrphanedProfile(error, queryClient),
       { initialProps: { error: { code: 'PGRST116' } as unknown } },
@@ -69,25 +69,28 @@ describe('useSignOutOnOrphanedProfile', () => {
     expect(mockSignOutAndClearLocalData).toHaveBeenCalledTimes(1);
   });
 
-  it('meldet bei anderen Fehlern nicht ab', async () => {
-    // biome-ignore lint/suspicious/noExplicitAny: Test-Double, keine echte QueryClient-Instanz noetig
-    const queryClient = {} as any;
-    await renderHook(() => useSignOutOnOrphanedProfile(new Error('Netzwerkfehler'), queryClient));
+  it.each([
+    ['Netzwerkfehler', new Error('Netzwerkfehler')],
+    ['JWT mit Uhrzeitfehler', { code: 'PGRST301' }],
+    ['RLS-Antwort', { code: '42501' }],
+    ['HTTP 401', { status: 401 }],
+    ['HTTP 403', { statusCode: 403 }],
+  ])('meldet bei %s nicht ab', async (_label, error) => {
+    const queryClient = new QueryClient();
+    await renderHook(() => useSignOutOnOrphanedProfile(error, queryClient));
 
     expect(mockSignOutAndClearLocalData).not.toHaveBeenCalled();
   });
 
   it('meldet ohne Fehler nicht ab', async () => {
-    // biome-ignore lint/suspicious/noExplicitAny: Test-Double, keine echte QueryClient-Instanz noetig
-    const queryClient = {} as any;
+    const queryClient = new QueryClient();
     await renderHook(() => useSignOutOnOrphanedProfile(null, queryClient));
 
     expect(mockSignOutAndClearLocalData).not.toHaveBeenCalled();
   });
 
   it('macht den Orphan-Logout nach einem zurückgegebenen Cleanup-Fehler retrybar', async () => {
-    // biome-ignore lint/suspicious/noExplicitAny: Test-Double, keine echte QueryClient-Instanz noetig
-    const queryClient = {} as any;
+    const queryClient = new QueryClient();
     const cleanup = deferred<{ error: Error | null }>();
     mockSignOutAndClearLocalData.mockImplementationOnce(() => cleanup.promise);
 
@@ -112,8 +115,7 @@ describe('useSignOutOnOrphanedProfile', () => {
   });
 
   it('behandelt ein abgelehntes Orphan-Logout-Promise ohne unhandled rejection', async () => {
-    // biome-ignore lint/suspicious/noExplicitAny: Test-Double, keine echte QueryClient-Instanz noetig
-    const queryClient = {} as any;
+    const queryClient = new QueryClient();
     const cleanup = deferred<{ error: Error | null }>();
     const unhandledRejection = jest.fn();
     process.on('unhandledRejection', unhandledRejection);

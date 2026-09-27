@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { beginAccountSyncRun } from '@/lib/sync/remote-sync-gate';
 import type {
   ReceiptAssetUploadAdapter,
   ReceiptCaptureClock,
@@ -172,18 +173,28 @@ export function usePendingReceiptAssetUpload(accountId: string | undefined) {
     queryFn: () => getPendingReceiptAssetUpload(accountId),
     enabled: Boolean(accountId),
     networkMode: 'always',
-    refetchInterval: (query) => (query.state.data ? 15_000 : false),
+    refetchInterval: getPendingReceiptAssetUploadRefetchInterval(accountId),
   });
+}
+
+export function getPendingReceiptAssetUploadRefetchInterval(accountId: string | undefined) {
+  return accountId ? 15_000 : false;
 }
 
 const pendingAssetRetryByAccount = new Map<string, Promise<ReceiptCaptureUploadResult>>();
 
-export function retryPendingReceiptAssetUpload(input: {
+export async function retryPendingReceiptAssetUpload(input: {
   accountId: string;
   householdId: string;
   createdBy: string;
 }): Promise<ReceiptCaptureUploadResult | null> {
-  return retryPendingReceiptAssetUploadOnce(input);
+  const finishAccountSyncRun = beginAccountSyncRun();
+  if (!finishAccountSyncRun) return null;
+  try {
+    return await retryPendingReceiptAssetUploadOnce(input);
+  } finally {
+    finishAccountSyncRun();
+  }
 }
 
 async function retryPendingReceiptAssetUploadOnce(input: {

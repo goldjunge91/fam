@@ -97,6 +97,50 @@ describe('initPostHog / isPostHogConfigured', () => {
     );
   });
 
+  it('umgeht nur fuer PostHogs Offline-Flush den RN-Exception-Handler', () => {
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+    const nativeConsole = console as typeof console & {
+      _errorOriginal?: (...args: unknown[]) => void;
+    };
+    const previousError = console.error;
+    const previousOriginalError = nativeConsole._errorOriginal;
+    const reportConsoleError = jest.fn();
+    const writeToOriginalConsole = jest.fn();
+    console.error = reportConsoleError;
+    nativeConsole._errorOriginal = writeToOriginalConsole;
+
+    try {
+      const { initPostHog } = require('@/lib/observability/providers/posthog');
+      initPostHog();
+
+      const offlineError = Object.assign(new Error('Network error while fetching PostHog'), {
+        name: 'PostHogFetchNetworkError',
+      });
+      console.error('Error while flushing PostHog', offlineError);
+
+      expect(writeToOriginalConsole).toHaveBeenCalledWith(
+        'Error while flushing PostHog',
+        offlineError,
+      );
+      expect(reportConsoleError).not.toHaveBeenCalled();
+
+      const httpError = Object.assign(new Error('HTTP error while fetching PostHog'), {
+        name: 'PostHogFetchHttpError',
+      });
+      console.error('Error while flushing PostHog', httpError);
+
+      expect(reportConsoleError).toHaveBeenCalledWith('Error while flushing PostHog', httpError);
+      expect(writeToOriginalConsole).toHaveBeenCalledTimes(1);
+    } finally {
+      console.error = previousError;
+      if (previousOriginalError === undefined) {
+        delete nativeConsole._errorOriginal;
+      } else {
+        nativeConsole._errorOriginal = previousOriginalError;
+      }
+    }
+  });
+
   it('konstruiert keinen Client, wenn PostHog lokal deaktiviert ist', () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
     const { useAnalyticsSettingsStore } = require('@/constants/analytics');

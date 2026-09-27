@@ -307,6 +307,9 @@ describe('parseGermanReceipt', () => {
   });
 
   it('selects the paid Rossmann total instead of the last tax-table amount', () => {
+    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4220.png');
+    if (!source) throw new Error('Gold source IMG_4220.png is missing.');
+
     const draft = parseGermanReceipt([
       { text: 'ROSSMANN', confidence: 0.99 },
       { text: 'Zwischensumme: €25,06', confidence: 0.86 },
@@ -317,7 +320,184 @@ describe('parseGermanReceipt', () => {
       },
     ]);
 
-    expect(draft.totalCents.value).toBe(1895);
+    expect(draft.totalCents).toMatchObject({
+      value: source.total_cents,
+      evidence: expect.stringContaining(`Summe €${formatEuroCents(source.total_cents)}`),
+    });
+    expect(draft.totalCents.value).not.toBe(457);
+    expect(draft.totalCents.value).not.toBe(2506);
+  });
+
+  it('keeps gold EDEKA rows ordered when article prices are in detached columns', () => {
+    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4219.png');
+    if (!source) throw new Error('Gold source IMG_4219.png is missing.');
+
+    const articleEntries = source.article_anchors.flatMap((rawAnchor, index) => {
+      const anchor = rawAnchor as GoldArticleAnchor;
+      const y = 100 + index * 40;
+      const unitPriceEntry =
+        anchor.quantity === undefined || anchor.unit_price_cents === undefined
+          ? []
+          : [
+              {
+                text: `${formatEuroCents(anchor.unit_price_cents)} € x ${anchor.quantity}`,
+                confidence: 0.96,
+                pageIndex: 0,
+                boundingBox: { x: 480, y, width: 130, height: 16 },
+              },
+            ];
+
+      return [
+        {
+          text:
+            anchor.quantity !== undefined && anchor.unit_price_cents === undefined
+              ? `${anchor.quantity}X ${anchor.label}`
+              : anchor.label,
+          confidence: 0.96,
+          pageIndex: 0,
+          boundingBox: { x: 100, y, width: 300, height: 16 },
+        },
+        ...unitPriceEntry,
+        {
+          text: `${formatEuroCents(anchor.line_total_cents)} ${anchor.tax_code}`,
+          confidence: 0.96,
+          pageIndex: 0,
+          boundingBox: { x: 700, y, width: 100, height: 16 },
+        },
+      ];
+    });
+    const excludedEntries = source.excluded_lines
+      .flatMap(({ labels }) => labels ?? [])
+      .map((text, index) => ({
+        text,
+        confidence: 0.96,
+        pageIndex: 0,
+        boundingBox: { x: 100, y: 520 + index * 24, width: 200, height: 16 },
+      }));
+
+    const draft = parseGermanReceipt([
+      {
+        pageIndex: 0,
+        width: 1000,
+        height: 1000,
+        lines: [
+          {
+            text: source.merchant,
+            confidence: 0.98,
+            boundingBox: { x: 100, y: 20, width: 160, height: 20 },
+          },
+          ...articleEntries.reverse(),
+          {
+            text: `Zu zahlen ${formatEuroCents(source.total_cents)} EUR`,
+            confidence: 0.98,
+            pageIndex: 0,
+            boundingBox: { x: 100, y: 440, width: 280, height: 18 },
+          },
+          ...excludedEntries,
+        ],
+      },
+    ]);
+
+    expect(draft.totalCents.value).toBe(source.total_cents);
+    expect(
+      draft.items.map(({ name, quantity, lineTotalCents }) => ({
+        name,
+        quantity,
+        lineTotalCents: lineTotalCents.value,
+      })),
+    ).toEqual(
+      source.article_anchors.map((rawAnchor) => {
+        const anchor = rawAnchor as GoldArticleAnchor;
+        return {
+          name: anchor.label,
+          quantity: anchor.quantity ?? null,
+          lineTotalCents: anchor.line_total_cents,
+        };
+      }),
+    );
+    expect(draft.excludedLines).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ reason: 'coupon', evidence: 'Coupon Gratisartikel' }),
+        expect.objectContaining({ reason: 'deposit', evidence: 'Pfand' }),
+        expect.objectContaining({ reason: 'tax', evidence: 'MwSt' }),
+        expect.objectContaining({ reason: 'payment', evidence: 'EC-Cash' }),
+      ]),
+    );
+  });
+
+  it('does not borrow the next EDEKA row price when an amount was not observed', () => {
+    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4218.png');
+    if (!source) throw new Error('Gold source IMG_4218.png is missing.');
+    const missingPriceAnchor = source.article_anchors[0] as GoldArticleAnchor;
+    const observedPriceAnchor = source.article_anchors[1] as GoldArticleAnchor;
+    if (
+      observedPriceAnchor.quantity === undefined ||
+      observedPriceAnchor.unit_price_cents === undefined
+    ) {
+      throw new Error('Gold quantity and unit-price anchor are missing.');
+    }
+
+    const draft = parseGermanReceipt([
+      {
+        pageIndex: 0,
+        width: 1000,
+        height: 500,
+        lines: [
+          {
+            text: source.merchant,
+            confidence: 0.98,
+            boundingBox: { x: 100, y: 20, width: 160, height: 20 },
+          },
+          {
+            text: missingPriceAnchor.label,
+            confidence: 0.96,
+            boundingBox: { x: 100, y: 100, width: 300, height: 16 },
+          },
+          {
+            text: observedPriceAnchor.label,
+            confidence: 0.96,
+            boundingBox: { x: 100, y: 150, width: 300, height: 16 },
+          },
+          {
+            text: `${formatEuroCents(observedPriceAnchor.unit_price_cents)} € x ${observedPriceAnchor.quantity}`,
+            confidence: 0.96,
+            boundingBox: { x: 480, y: 150, width: 130, height: 16 },
+          },
+          {
+            text: `${formatEuroCents(observedPriceAnchor.line_total_cents)} ${observedPriceAnchor.tax_code}`,
+            confidence: 0.96,
+            boundingBox: { x: 700, y: 150, width: 100, height: 16 },
+          },
+          {
+            text: `Zu zahlen ${formatEuroCents(source.total_cents)} EUR`,
+            confidence: 0.98,
+            boundingBox: { x: 100, y: 220, width: 280, height: 18 },
+          },
+        ],
+      },
+    ]);
+
+    expect(
+      draft.items.map(({ name, quantity, lineTotalCents, needsReview }) => ({
+        name,
+        quantity,
+        lineTotalCents: lineTotalCents.value,
+        needsReview,
+      })),
+    ).toEqual([
+      {
+        name: missingPriceAnchor.label,
+        quantity: null,
+        lineTotalCents: null,
+        needsReview: true,
+      },
+      {
+        name: observedPriceAnchor.label,
+        quantity: observedPriceAnchor.quantity,
+        lineTotalCents: observedPriceAnchor.line_total_cents,
+        needsReview: false,
+      },
+    ]);
   });
 
   it('does not keep an article amount above the observed Rossmann subtotal', () => {

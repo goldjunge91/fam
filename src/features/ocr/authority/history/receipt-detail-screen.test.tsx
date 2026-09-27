@@ -7,6 +7,19 @@ import { ReceiptDetailScreen } from './receipt-detail-screen';
 
 const mockDeleteAsset = jest.fn();
 const mockDeleteReceipt = jest.fn();
+const mockReceiptAsset = {
+  id: 'asset-1',
+  receipt_id: 'receipt-1',
+  household_id: 'household-1',
+  sort_order: 0,
+  storage_path: 'household-1/receipt-1/page-1.jpg',
+  mime_type: 'image/jpeg',
+  byte_size: 1234,
+  created_by: 'user-1',
+  created_at: '2026-09-21T09:00:00.000Z',
+  deleted_at: null,
+};
+const mockReceiptAssets = { current: [] as (typeof mockReceiptAsset)[] };
 
 jest.mock('@/lib/observability/debug-log', () => ({
   debugLogEvent: jest.fn(),
@@ -76,15 +89,19 @@ jest.mock('@/features/ocr/authority/api', () => ({
     ],
     isLoading: false,
   }),
-  useReceiptAssets: () => ({ data: [], isLoading: false, isError: false }),
+  useReceiptAssets: () => ({ data: mockReceiptAssets.current, isLoading: false, isError: false }),
   useDeleteReceiptAssetMutation: () => ({ mutateAsync: mockDeleteAsset }),
   useDeleteReceiptMutation: () => ({ mutateAsync: mockDeleteReceipt, isPending: false }),
+  receiptAssetSignedUrlQueryKey: jest.fn(() => ['receipt-asset-signed-url']),
+  createReceiptAssetSignedUrl: jest.fn().mockResolvedValue('https://signed.example/receipt.jpg'),
 }));
 
 describe('ReceiptDetailScreen', () => {
   beforeEach(async () => {
     await i18n.changeLanguage('de');
     mockDeleteReceipt.mockResolvedValue(undefined);
+    mockDeleteAsset.mockResolvedValue(undefined);
+    mockReceiptAssets.current = [];
     mockDebugLogEvent.mockClear();
     jest.spyOn(Alert, 'alert').mockImplementation((_title, _message, buttons) => {
       buttons?.find((button) => button.style === 'destructive')?.onPress?.();
@@ -154,5 +171,92 @@ describe('ReceiptDetailScreen', () => {
       receipt_id: 'receipt-1',
     });
     expect(router.back).toHaveBeenCalled();
+  });
+
+  it('lässt den strukturierten Historieneintrag bei einer abgebrochenen Löschung bestehen', async () => {
+    const queryClient = new QueryClient();
+    jest.spyOn(Alert, 'alert').mockImplementationOnce((_title, _message, buttons) => {
+      buttons?.find((button) => button.style === 'cancel')?.onPress?.();
+    });
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <ReceiptDetailScreen />
+      </QueryClientProvider>,
+    );
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Bon löschen' }));
+
+    expect(mockDeleteReceipt).not.toHaveBeenCalled();
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.history.delete.button_pressed', {
+      receipt_id: 'receipt-1',
+    });
+    expect(mockDebugLogEvent).not.toHaveBeenCalledWith('receipt.history.delete.started', {
+      receipt_id: 'receipt-1',
+    });
+    expect(screen.getByText('Milch')).toBeOnTheScreen();
+    expect(router.back).not.toHaveBeenCalled();
+  });
+
+  it('zeigt einen Löschfehler und bleibt in der strukturierten Detailansicht', async () => {
+    const queryClient = new QueryClient();
+    mockDeleteReceipt.mockRejectedValueOnce(new Error('offline'));
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <ReceiptDetailScreen />
+      </QueryClientProvider>,
+    );
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Bon löschen' }));
+
+    await waitFor(() =>
+      expect(mockDebugLogEvent).toHaveBeenCalledWith(
+        'receipt.history.delete.failed',
+        expect.objectContaining({ receipt_id: 'receipt-1', error_type: 'Error' }),
+      ),
+    );
+    expect(Alert.alert).toHaveBeenLastCalledWith('Bon konnte nicht gelöscht werden', 'offline');
+    expect(screen.getByText('Milch')).toBeOnTheScreen();
+    expect(router.back).not.toHaveBeenCalled();
+  });
+
+  it('löscht ein Bonbild über den getrennten Asset-Pfad und behält die Belegdaten sichtbar', async () => {
+    const queryClient = new QueryClient({
+      defaultOptions: { queries: { gcTime: Infinity } },
+    });
+    mockReceiptAssets.current = [mockReceiptAsset];
+    const rendered = await render(
+      <QueryClientProvider client={queryClient}>
+        <ReceiptDetailScreen />
+      </QueryClientProvider>,
+    );
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Bonseite 1 löschen' }));
+
+    await waitFor(() =>
+      expect(mockDeleteAsset).toHaveBeenCalledWith({
+        householdId: 'household-1',
+        receiptId: 'receipt-1',
+        assetId: 'asset-1',
+        storagePath: 'household-1/receipt-1/page-1.jpg',
+      }),
+    );
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.history.delete_asset.started', {
+      asset_id: 'asset-1',
+      receipt_id: 'receipt-1',
+    });
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.history.delete_asset.completed', {
+      asset_id: 'asset-1',
+      receipt_id: 'receipt-1',
+    });
+    expect(mockDeleteReceipt).not.toHaveBeenCalled();
+    expect(screen.getByText('39,14 €')).toBeOnTheScreen();
+    expect(screen.getByText('Milch')).toBeOnTheScreen();
+    expect(router.back).not.toHaveBeenCalled();
+
+    await rendered.unmount();
+    queryClient.clear();
   });
 });

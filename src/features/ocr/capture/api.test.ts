@@ -1,4 +1,9 @@
-import { captureReceipt, type ReceiptCaptureApiDependencies, uploadReceiptCapture } from './api';
+import {
+  captureReceipt,
+  getPendingReceiptAssetUploadRefetchInterval,
+  type ReceiptCaptureApiDependencies,
+  uploadReceiptCapture,
+} from './api';
 import type { ReceiptCaptureFileAdapter, ReceiptImagePickerAdapter } from './capture/contracts';
 import { createReceiptCapturePersistence } from './persistence/receipt-capture-persistence';
 
@@ -44,6 +49,11 @@ function dependencies(): ReceiptCaptureApiDependencies {
 }
 
 describe('receipt-capture API', () => {
+  it('pollt die Bon-Historie auch ohne bisherigen Draft solange ein Account aktiv ist', () => {
+    expect(getPendingReceiptAssetUploadRefetchInterval('user-1')).toBe(15_000);
+    expect(getPendingReceiptAssetUploadRefetchInterval(undefined)).toBe(false);
+  });
+
   it('captures through injected adapters without loading native modules', async () => {
     const result = await captureReceipt(
       { captureId: 'capture-api', source: 'camera', createdAt: CREATED_AT },

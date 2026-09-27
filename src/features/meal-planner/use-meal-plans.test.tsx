@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { onlineManager, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, renderHook, waitFor } from '@testing-library/react-native';
 import type React from 'react';
 
@@ -35,12 +35,18 @@ describe('use-meal-plans mutations', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    onlineManager.setOnline(true);
     queryClient = new QueryClient({
       defaultOptions: {
         queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
         mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
       },
     });
+  });
+
+  afterEach(() => {
+    onlineManager.setOnline(true);
+    queryClient.clear();
   });
 
   it('stellt sicher, dass ein MealPlan existiert', async () => {
@@ -101,6 +107,34 @@ describe('use-meal-plans mutations', () => {
           recipe_id: 'rec-1',
           portions: 3,
         }),
+      }),
+    );
+  });
+
+  it('reiht einen neuen Essensplan-Eintrag auch offline in die Outbox ein', async () => {
+    onlineManager.setOnline(false);
+    const { result } = await renderHook(() => useAddEntryMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        meal_plan_id: 'plan-offline',
+        household_id: 'hh-1',
+        recipe_id: 'rec-1',
+        entry_date: '2026-08-24',
+        meal_slot: 'dinner',
+        servings_mode: 'portions',
+        portions: 2,
+        people_count: null,
+        created_by: 'user-1',
+      });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(enqueueMutation).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        entity: 'meal_plan_entries',
+        op: 'insert',
       }),
     );
   });

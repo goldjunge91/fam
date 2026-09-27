@@ -13,12 +13,13 @@ export function resolveAppEntry(input: {
   householdCount: number;
 
   householdsError?: boolean;
+  profileError?: boolean;
 }): AppEntryDecision {
   // Der explizite Entwicklungs-Override respektiert weiterhin das
   // Startup-Gate, überschreibt danach aber Session- und Geraetezustand.
   if (input.forceOnboarding) {
     if (input.isLoading) return { kind: 'warten' };
-    if (input.householdsError) return { kind: 'fehler' };
+    if (input.householdsError && input.householdCount === 0) return { kind: 'fehler' };
     return { kind: 'umleiten', to: '/onboarding' };
   }
 
@@ -30,9 +31,13 @@ export function resolveAppEntry(input: {
   // Während des Ladens keine Haushaltsentscheidung treffen.
   if (input.isLoading) return { kind: 'warten' };
 
-  // Fehler nicht als leeren Haushalt interpretieren oder stillschweigend
-  // weiterladen. Die UI zeigt einen expliziten Retry-Zustand.
-  if (input.householdsError) return { kind: 'fehler' };
+  // Profilfehler gehören nicht zum Offline-Fallback des Haushalts-Pulls.
+  if (input.profileError) return { kind: 'fehler' };
+
+  // Ohne lokalen Haushalt kann ein Fehler nicht sicher von einem leeren
+  // Haushalt unterschieden werden. Mit lokalem Bestand bleibt Offline-Start
+  // möglich; der Bootstrap-Pull synchronisiert später erneut.
+  if (input.householdsError && input.householdCount === 0) return { kind: 'fehler' };
 
   // Profil-Onboarding hat erst nach einem belastbaren Startzustand Vorrang
   // vor der Haushaltsauswahl.

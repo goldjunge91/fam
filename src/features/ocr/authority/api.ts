@@ -1094,6 +1094,7 @@ export function useReceipts(householdId: string | undefined) {
     queryKey: receiptsQueryKey(householdId),
     queryFn: async () => getReceipts(await getDatabase(), householdId as string),
     enabled: !!householdId,
+    networkMode: 'always',
   });
 }
 
@@ -1102,6 +1103,7 @@ export function useConfirmedReceipts(householdId: string | undefined) {
     queryKey: confirmedReceiptsQueryKey(householdId),
     queryFn: async () => getConfirmedReceipts(await getDatabase(), householdId as string),
     enabled: !!householdId,
+    networkMode: 'always',
   });
 }
 
@@ -1111,6 +1113,7 @@ export function useReceipt(householdId: string | undefined, receiptId: string | 
     queryFn: async () =>
       getReceipt(await getDatabase(), householdId as string, receiptId as string),
     enabled: !!householdId && !!receiptId,
+    networkMode: 'always',
   });
 }
 
@@ -1120,6 +1123,7 @@ export function useReceiptItems(householdId: string | undefined, receiptId: stri
     queryFn: async () =>
       getReceiptItems(await getDatabase(), householdId as string, receiptId as string),
     enabled: !!householdId && !!receiptId,
+    networkMode: 'always',
   });
 }
 
@@ -1132,6 +1136,7 @@ export function useConfirmedReceiptItems(
     queryFn: async () =>
       getConfirmedReceiptItems(await getDatabase(), householdId as string, receiptId as string),
     enabled: !!householdId && !!receiptId,
+    networkMode: 'always',
   });
 }
 
@@ -1173,6 +1178,7 @@ export function useDeleteReceiptAssetMutation() {
 export function useCreateReceiptMutation() {
   const queryClient = useQueryClient();
   return useMutation({
+    networkMode: 'always',
     mutationFn: (input: CreateReceiptInput) => createReceipt(input),
     onSuccess: (receipt) => invalidateReceiptQueries(queryClient, receipt.household_id, receipt.id),
   });
@@ -1181,6 +1187,7 @@ export function useCreateReceiptMutation() {
 export function useUpdateReceiptMutation() {
   const queryClient = useQueryClient();
   return useMutation({
+    networkMode: 'always',
     mutationFn: (input: UpdateReceiptInput) => updateReceipt(input),
     onSuccess: (receipt) => invalidateReceiptQueries(queryClient, receipt.household_id, receipt.id),
   });
@@ -1189,6 +1196,7 @@ export function useUpdateReceiptMutation() {
 export function useConfirmReceiptMutation() {
   const queryClient = useQueryClient();
   return useMutation({
+    networkMode: 'always',
     mutationFn: (input: ConfirmReceiptInput) => confirmReceipt(input),
     onSuccess: (receipt) => invalidateReceiptQueries(queryClient, receipt.household_id, receipt.id),
   });
@@ -1197,6 +1205,7 @@ export function useConfirmReceiptMutation() {
 export function useReopenReceiptMutation() {
   const queryClient = useQueryClient();
   return useMutation({
+    networkMode: 'always',
     mutationFn: (input: ReceiptReference) => reopenReceipt(input),
     onSuccess: (receipt) => invalidateReceiptQueries(queryClient, receipt.household_id, receipt.id),
   });
@@ -1219,6 +1228,7 @@ export function useDeleteReceiptMutation() {
 export function useRestoreReceiptMutation() {
   const queryClient = useQueryClient();
   return useMutation({
+    networkMode: 'always',
     mutationFn: (input: ReceiptReference) => restoreReceipt(input),
     onSuccess: (_, input) =>
       invalidateReceiptQueries(queryClient, input.householdId, input.receiptId),
@@ -1228,6 +1238,7 @@ export function useRestoreReceiptMutation() {
 export function useUpdateReceiptItemMutation() {
   const queryClient = useQueryClient();
   return useMutation({
+    networkMode: 'always',
     mutationFn: (input: UpdateReceiptItemInput) => updateReceiptItem(input),
     onSuccess: (item) => invalidateReceiptQueries(queryClient, item.household_id, item.receipt_id),
   });
@@ -1236,6 +1247,7 @@ export function useUpdateReceiptItemMutation() {
 export function useConfirmReceiptItemMutation() {
   const queryClient = useQueryClient();
   return useMutation({
+    networkMode: 'always',
     mutationFn: (input: ReceiptItemReference) => confirmReceiptItem(input),
     onSuccess: (item) => invalidateReceiptQueries(queryClient, item.household_id, item.receipt_id),
   });
@@ -1244,6 +1256,7 @@ export function useConfirmReceiptItemMutation() {
 export function useDeleteReceiptItemMutation() {
   const queryClient = useQueryClient();
   return useMutation({
+    networkMode: 'always',
     mutationFn: (input: ReceiptItemReference) => deleteReceiptItem(input),
     onSuccess: (_, input) => invalidateReceiptQueries(queryClient, input.householdId),
   });
@@ -1252,6 +1265,7 @@ export function useDeleteReceiptItemMutation() {
 export function useRestoreReceiptItemMutation() {
   const queryClient = useQueryClient();
   return useMutation({
+    networkMode: 'always',
     mutationFn: (input: ReceiptItemReference) => restoreReceiptItem(input),
     onSuccess: (_, input) => invalidateReceiptQueries(queryClient, input.householdId),
   });
