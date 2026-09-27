@@ -1,8 +1,10 @@
 #!/bin/sh
-# PreToolUse hook adapter for VS Code.
+# PreToolUse hook adapter for VS Code Local.
 #
+# The Local payload uses tool_name/tool_input. The legacy camelCase fields are
+# accepted as well so older runners fail safely during the transition.
 # The reset policy lives in .codex/hooks/block-git-reset.py. This adapter only
-# translates the VS Code hook payload into the Codex payload that policy reads.
+# translates the hook payload into the Codex payload that policy reads.
 
 set -eu
 
@@ -28,22 +30,40 @@ payload=$(cat) || deny
 
 if ! printf '%s' "$payload" | jq -e '
   type == "object"
-  and (.toolName | type == "string")
-  and (.toolName | length > 0)
+  and (
+    ((.tool_name? | type == "string") and (.tool_name | length > 0))
+    or ((.toolName? | type == "string") and (.toolName | length > 0))
+  )
+  and (
+    ((.tool_input? | type == "object"))
+    or ((.toolArgs? | type == "object"))
+  )
 ' >/dev/null 2>&1; then
   deny
 fi
 
-tool=$(printf '%s' "$payload" | jq -r '.toolName')
+if ! tool=$(printf '%s' "$payload" | jq -er '(.tool_name // .toolName) | select(type == "string" and length > 0)'); then
+  deny
+fi
+
+shell_tool=false
 case "$tool" in
-  shell|bash|terminal|run_in_terminal) ;;
-  *) allow ;;
+  shell|bash|terminal|run_in_terminal|runInTerminal|execute_command|executeCommand)
+    shell_tool=true
 esac
 
-if ! command=$(printf '%s' "$payload" | jq -er '
-  .toolArgs.command
-  | select(type == "string" and length > 0)
-'); then
+command=$(printf '%s' "$payload" | jq -er '
+  [
+    .tool_input.command,
+    .tool_input.cmd,
+    .toolArgs.command
+  ]
+  | map(select(type == "string" and length > 0))
+  | first // empty
+' 2>/dev/null) || command=
+
+if [ -z "$command" ]; then
+  [ "$shell_tool" = false ] && allow
   deny
 fi
 
