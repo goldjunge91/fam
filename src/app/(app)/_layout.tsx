@@ -66,8 +66,8 @@ function AppLayoutContent() {
       (!householdBootstrap.isInitialSyncComplete && !householdBootstrap.isInitialSyncError),
     shouldPromptOnboarding: shouldPrompt,
     householdCount: households?.length ?? 0,
-    householdsError:
-      householdsError || Boolean(profileError) || householdBootstrap.isInitialSyncError,
+    householdsError: householdsError || householdBootstrap.isInitialSyncError,
+    profileError: Boolean(profileError),
   });
 
   const retryRouting = useCallback(() => {

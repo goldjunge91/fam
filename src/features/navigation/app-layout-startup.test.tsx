@@ -154,12 +154,14 @@ describe('AppLayout startup gate', () => {
     expect(screen.queryByText('redirect:/household/create')).not.toBeOnTheScreen();
   });
 
-  it('startet mit lokalem Haushalt trotz Profil-Requestfehler', async () => {
+  it('zeigt bei Profil-Requestfehlern auch mit lokalem Haushalt den Retry-Zustand', async () => {
     mockProfileResult.error = new Error('Profil nicht erreichbar');
     await renderLayout();
 
-    expect(screen.getByText('app-shell')).toBeOnTheScreen();
-    expect(screen.queryByText('redirect:/household/create')).not.toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Erneut versuchen' })).toBeOnTheScreen();
+    expect(screen.queryByText('app-shell')).not.toBeOnTheScreen();
+    expect(mockUseSyncEngine).not.toHaveBeenCalled();
+    expect(mockUseRealtimeSync).not.toHaveBeenCalled();
   });
 
   it('leitet ein unvollständiges Profil nach dem Gate ins vollständige Onboarding', async () => {
