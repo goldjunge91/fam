@@ -58,9 +58,47 @@ if [ ${#pushed_ranges[@]} -eq 0 ]; then
 fi
 
 whitespace_failed=0
+
+check_markdown_whitespace() {
+  local range="$1"
+  local markdown_diagnostics
+
+  # Keep conflict-marker validation for Markdown while allowing only the
+  # intentional two-space hard-break syntax.
+  markdown_diagnostics="$(git diff --check "$range" -- '*.md' 2>&1 || true)"
+  if ! printf '%s\n' "$markdown_diagnostics" | awk '
+    /^[^:]+:[0-9]+: / {
+      if ($0 !~ /: trailing whitespace\.$/) {
+        print
+        failed = 1
+      }
+    }
+    END { exit failed }
+  '; then
+    return 1
+  fi
+
+  if ! git diff --unified=0 "$range" -- '*.md' | awk '
+    /^\+\+\+/ { next }
+    /^\+/ {
+      line = substr($0, 2)
+      if (line ~ /[[:space:]]+$/ && line !~ /[^ \t]  $/) {
+        print
+        failed = 1
+      }
+    }
+    END { exit failed }
+  '; then
+    return 1
+  fi
+}
+
 for range in "${pushed_ranges[@]}"; do
   echo "  Bereich: $range"
-  if ! git diff --check "$range"; then
+  if ! git diff --check "$range" -- . ':(exclude,glob)**/*.md'; then
+    whitespace_failed=1
+  fi
+  if ! check_markdown_whitespace "$range"; then
     whitespace_failed=1
   fi
 done
