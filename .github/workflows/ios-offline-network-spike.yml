@@ -5,31 +5,53 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
-  group: ios-offline-network-spike
+  group: ios-offline-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
 
-jobs:
-  network-spike:
-    name: Prepare iOS app before network cutover
-    runs-on: macos-26
-    timeout-minutes: 25
-    env:
-      EXPO_PUBLIC_SUPABASE_URL: ${{ vars.EXPO_PUBLIC_SUPABASE_URL }}
-      EXPO_PUBLIC_SUPABASE_KEY: ${{ vars.EXPO_PUBLIC_SUPABASE_KEY }}
-      EXPO_PUBLIC_DEV_TOOLS: ${{ vars.EXPO_PUBLIC_DEV_TOOLS || 'true' }}
-      EXPO_PUBLIC_DEBUG_LOGS: ${{ vars.EXPO_PUBLIC_DEBUG_LOGS || 'true' }}
-      EXPO_PUBLIC_OFF_OFFLINE: ${{ vars.EXPO_PUBLIC_OFF_OFFLINE || 'false' }}
-      EXPO_PUBLIC_FORCE_ONBOARDING: ${{ vars.EXPO_PUBLIC_FORCE_ONBOARDING || 'false' }}
-      EXPO_PUBLIC_FORCE_PREMIUM: ${{ vars.EXPO_PUBLIC_FORCE_PREMIUM || 'false' }}
-      EXPO_PUBLIC_REVENUECAT_TEST_STORE_API_KEY: ${{ vars.EXPO_PUBLIC_REVENUECAT_TEST_STORE_API_KEY }}
-      EXPO_PUBLIC_APTABASE_APP_KEY: ${{ vars.EXPO_PUBLIC_APTABASE_APP_KEY }}
-      EXPO_PUBLIC_POSTHOG_API_KEY: ${{ vars.EXPO_PUBLIC_POSTHOG_API_KEY }}
-      EXPO_PUBLIC_POSTHOG_HOST: ${{ vars.EXPO_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com' }}
-      EXPO_PUBLIC_SENTRY_DSN: ${{ vars.EXPO_PUBLIC_SENTRY_DSN }}
-      FAM_HARNESS_UI: "1"
+env:
+  EXPO_PUBLIC_SUPABASE_URL: ${{ vars.EXPO_PUBLIC_SUPABASE_URL }}
+  EXPO_PUBLIC_SUPABASE_KEY: ${{ vars.EXPO_PUBLIC_SUPABASE_KEY }}
+  EXPO_PUBLIC_DEV_TOOLS: ${{ vars.EXPO_PUBLIC_DEV_TOOLS || 'true' }}
+  EXPO_PUBLIC_DEBUG_LOGS: ${{ vars.EXPO_PUBLIC_DEBUG_LOGS || 'true' }}
+  EXPO_PUBLIC_OFF_OFFLINE: ${{ vars.EXPO_PUBLIC_OFF_OFFLINE || 'false' }}
+  EXPO_PUBLIC_FORCE_ONBOARDING: ${{ vars.EXPO_PUBLIC_FORCE_ONBOARDING || 'false' }}
+  EXPO_PUBLIC_FORCE_PREMIUM: ${{ vars.EXPO_PUBLIC_FORCE_PREMIUM || 'false' }}
+  EXPO_PUBLIC_REVENUECAT_TEST_STORE_API_KEY: ${{ vars.EXPO_PUBLIC_REVENUECAT_TEST_STORE_API_KEY }}
+  EXPO_PUBLIC_APTABASE_APP_KEY: ${{ vars.EXPO_PUBLIC_APTABASE_APP_KEY }}
+  EXPO_PUBLIC_POSTHOG_API_KEY: ${{ vars.EXPO_PUBLIC_POSTHOG_API_KEY }}
+  EXPO_PUBLIC_POSTHOG_HOST: ${{ vars.EXPO_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com' }}
+  EXPO_PUBLIC_SENTRY_DSN: ${{ vars.EXPO_PUBLIC_SENTRY_DSN }}
+  FAM_HARNESS_UI: "1"
 
+jobs:
+  build:
+    name: Build iOS Simulator app
+    runs-on: macos-26
+    timeout-minutes: 60
+    outputs:
+      artifact_name: ${{ steps.build.outputs.artifact_name }}
+      artifact_id: ${{ steps.build.outputs.artifact_id }}
+      artifact_url: ${{ steps.build.outputs.artifact_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build and upload simulator artifact
+        id: build
+        uses: ./.github/actions/ios-simulator-build
+        with:
+          artifact-name: fam-ios-offline-simulator-${{ github.sha }}
+          artifact-retention-days: "7"
+
+  offline:
+    name: Launch installed app offline
+    needs: build
+    if: ${{ needs.build.result == 'success' }}
+    runs-on: macos-26
+    timeout-minutes: 30
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -42,337 +64,23 @@ jobs:
       - name: Setup Bun environment
         uses: ./.github/actions/setup-bun-env
 
-      - name: Generate iOS native project
-        run: bun run native:prebuild -- --platform ios --no-install
-
-      - name: Cache CocoaPods
-        uses: actions/cache@v4
+      - name: Download simulator app artifact
+        uses: actions/download-artifact@v4
         with:
-          path: ios/Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pods-
+          name: ${{ needs.build.outputs.artifact_name }}
+          path: ${{ runner.temp }}/fam-ios-offline-artifact
 
-      - name: Install CocoaPods
-        run: |
-          cd ios
-          pod install || pod install --repo-update
-        env:
-          LANG: en_US.UTF-8
-          LC_ALL: en_US.UTF-8
-
-      - name: Cache Xcode DerivedData
-        uses: actions/cache@v4
+      - name: Run offline runtime
+        id: offline_runtime
+        uses: ./.github/actions/ios-offline-runtime
         with:
-          path: build/DerivedData
-          key: ${{ runner.os }}-xcode-derived-data-${{ hashFiles('ios/Podfile.lock', 'ios/fam.xcodeproj/project.pbxproj', 'app.json', 'package.json', 'bun.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-xcode-derived-data-
-
-      - name: Build iOS Simulator app
-        id: build
-        shell: bash
-        run: |
-          set -Eeuo pipefail
-
-          xcodebuild \
-            -workspace ios/fam.xcworkspace \
-            -scheme fam \
-            -configuration Debug \
-            -sdk iphonesimulator \
-            -destination "generic/platform=iOS Simulator" \
-            -derivedDataPath build/DerivedData \
-            CODE_SIGNING_ALLOWED=NO \
-            build
-
-          app_path="$(find build/DerivedData/Build/Products -type d -name 'fam.app' -print -quit)"
-          if [[ -z "$app_path" ]]; then
-            echo "fam.app was not produced by the simulator build." >&2
-            exit 1
-          fi
-
-          echo "app_path=$app_path" >> "$GITHUB_OUTPUT"
-
-      - name: Package simulator app artifact
-        id: package_app
-        shell: bash
-        env:
-          APP_PATH: ${{ steps.build.outputs.app_path }}
-        run: |
-          set -Eeuo pipefail
-          : "${APP_PATH:?APP_PATH is required}"
-
-          mkdir -p dist
-          artifact_path="dist/fam-simulator.app.tar.gz"
-          tar -C "$(dirname "$APP_PATH")" -czf "$artifact_path" "$(basename "$APP_PATH")"
-          echo "artifact_path=$artifact_path" >> "$GITHUB_OUTPUT"
-
-      - name: Upload simulator app artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ios-offline-network-spike-simulator-app
-          path: ${{ steps.package_app.outputs.artifact_path }}
-          retention-days: 3
-          if-no-files-found: error
-
-      - name: Boot an iOS Simulator
-        id: simulator
-        shell: bash
-        run: |
-          set -Eeuo pipefail
-
-          simulator_udid="$(
-            xcrun simctl list devices available |
-              sed -nE 's/.*iPhone[^()]* \(([0-9A-F-]{36})\) \((Booted|Shutdown)\).*/\1/p' |
-              head -n 1
-          )"
-
-          if [[ -z "$simulator_udid" ]]; then
-            echo "No available iPhone Simulator found." >&2
-            xcrun simctl list devices available >&2
-            exit 1
-          fi
-
-          xcrun simctl boot "$simulator_udid" 2>/dev/null || true
-          xcrun simctl bootstatus "$simulator_udid" -b
-          echo "udid=$simulator_udid" >> "$GITHUB_OUTPUT"
-
-      - name: Start Metro on localhost before offline cutover
-        shell: bash
-        run: |
-          set -Eeuo pipefail
-
-          metro_log="$RUNNER_TEMP/fam-ios-metro.log"
-          nohup bun run start -- --dev-client --localhost >"$metro_log" 2>&1 &
-          metro_pid=$!
-
-          echo "METRO_PID=$metro_pid" >> "$GITHUB_ENV"
-
-          metro_ready=false
-          for _ in {1..60}; do
-            if curl --fail --silent --show-error --noproxy '*' \
-              http://127.0.0.1:8081/status >/dev/null; then
-              metro_ready=true
-              break
-            fi
-
-            if ! kill -0 "$metro_pid" 2>/dev/null; then
-              cat "$metro_log" >&2
-              echo "Metro exited before becoming ready." >&2
-              exit 1
-            fi
-
-            sleep 2
-          done
-
-          if [[ "$metro_ready" != true ]]; then
-            cat "$metro_log" >&2
-            echo "Metro did not become ready within 120 seconds." >&2
-            exit 1
-          fi
-
-          echo "Metro is ready on localhost before app installation."
-
-      - name: Install app in Simulator
-        id: app
-        shell: bash
-        env:
-          APP_PATH: ${{ steps.build.outputs.app_path }}
-          SIMULATOR_UDID: ${{ steps.simulator.outputs.udid }}
-        run: |
-          set -Eeuo pipefail
-          : "${APP_PATH:?APP_PATH is required}"
-          : "${SIMULATOR_UDID:?SIMULATOR_UDID is required}"
-
-          bundle_id="$(plutil -extract CFBundleIdentifier raw -o - "$APP_PATH/Info.plist")"
-          xcrun simctl install "$SIMULATOR_UDID" "$APP_PATH"
-
-          echo "bundle_id=$bundle_id" >> "$GITHUB_OUTPUT"
-
-      - name: "Checkpoint: app installed before offline cutover"
-        shell: bash
-        env:
-          BUNDLE_ID: ${{ steps.app.outputs.bundle_id }}
-          SIMULATOR_UDID: ${{ steps.simulator.outputs.udid }}
-        run: |
-          set -Eeuo pipefail
-          : "${BUNDLE_ID:?BUNDLE_ID is required}"
-          : "${SIMULATOR_UDID:?SIMULATOR_UDID is required}"
-
-          xcrun simctl get_app_container "$SIMULATOR_UDID" "$BUNDLE_ID" app >/dev/null
-          echo "The app is installed; network isolation is the next checkpoint."
-
-      - name: Capture network service state
-        id: network
-        shell: bash
-        run: |
-          set -Eeuo pipefail
-
-          state_file="$RUNNER_TEMP/fam-ios-network-services.tsv"
-          : > "$state_file"
-
-          curl --fail --silent --show-error \
-            --noproxy '*' \
-            --connect-timeout 5 --max-time 10 \
-            https://example.com/ >/dev/null
-
-          while IFS= read -r raw_service; do
-            service="${raw_service#\*}"
-            service="${service#"${service%%[![:space:]]*}"}"
-
-            [[ -z "$service" ]] && continue
-
-            status="$(networksetup -getnetworkserviceenabled "$service" 2>/dev/null || true)"
-            if [[ "$status" != "Enabled" && "$status" != "Disabled" ]]; then
-              echo "Could not determine the state of network service: $service" >&2
-              exit 1
-            fi
-
-            printf '%s\t%s\n' "$status" "$service" >> "$state_file"
-          done < <(networksetup -listallnetworkservices | tail -n +2)
-
-          if [[ ! -s "$state_file" ]]; then
-            echo "No macOS network services were found." >&2
-            exit 1
-          fi
-
-          echo "Captured network services:"
-          sed 's/^/  /' "$state_file"
-          echo "state_file=$state_file" >> "$GITHUB_OUTPUT"
-
-      - name: Disable runner network and verify prepared state
-        shell: bash
-        env:
-          BUNDLE_ID: ${{ steps.app.outputs.bundle_id }}
-          STATE_FILE: ${{ steps.network.outputs.state_file }}
-          SIMULATOR_UDID: ${{ steps.simulator.outputs.udid }}
-        run: |
-          set -Eeuo pipefail
-          : "${BUNDLE_ID:?BUNDLE_ID is required}"
-          : "${STATE_FILE:?STATE_FILE is required}"
-          : "${SIMULATOR_UDID:?SIMULATOR_UDID is required}"
-
-          restore_status() {
-            local exit_status=$?
-            local restore_failed=0
-
-            set +e
-            while IFS=$'\t' read -r expected_status service; do
-              [[ -z "$service" ]] && continue
-
-              if [[ "$expected_status" == "Enabled" ]]; then
-                if ! sudo -n networksetup -setnetworkserviceenabled "$service" on; then
-                  echo "Failed to restore enabled network service: $service" >&2
-                  restore_failed=1
-                fi
-              else
-                if ! sudo -n networksetup -setnetworkserviceenabled "$service" off; then
-                  echo "Failed to restore disabled network service: $service" >&2
-                  restore_failed=1
-                fi
-              fi
-            done < "$STATE_FILE"
-
-            if (( restore_failed != 0 )); then
-              exit_status=1
-            fi
-
-            exit "$exit_status"
-          }
-
-          trap restore_status EXIT
-
-          if ! sudo -n true 2>/dev/null; then
-            echo "The macOS runner does not allow passwordless sudo for networksetup." >&2
-            exit 1
-          fi
-
-          while IFS=$'\t' read -r expected_status service; do
-            [[ -z "$service" ]] && continue
-            [[ "$expected_status" == "Enabled" ]] || continue
-            sudo -n networksetup -setnetworkserviceenabled "$service" off
-          done < "$STATE_FILE"
-
-          if curl --fail --silent --show-error \
-            --noproxy '*' \
-            --connect-timeout 5 --max-time 10 \
-            https://example.com/ >/dev/null; then
-            echo "The runner still has external network access after cutover." >&2
-            exit 1
-          fi
-
-          xcrun simctl launch "$SIMULATOR_UDID" "$BUNDLE_ID"
-          sleep 10
-          curl --fail --silent --show-error --noproxy '*' \
-            http://127.0.0.1:8081/status >/dev/null
-          xcrun simctl spawn "$SIMULATOR_UDID" launchctl print system >/dev/null
-          echo "The installed app launched while external network access was disabled; local Metro remains available."
-
-      - name: Restore network service state
-        if: ${{ always() }}
-        shell: bash
-        env:
-          STATE_FILE: ${{ steps.network.outputs.state_file }}
-        run: |
-          set -Eeuo pipefail
-          : "${STATE_FILE:?STATE_FILE is required}"
-
-          if [[ ! -f "$STATE_FILE" ]]; then
-            echo "Network state file is unavailable; nothing can be restored safely." >&2
-            exit 1
-          fi
-
-          restore_failed=0
-          while IFS=$'\t' read -r expected_status service; do
-            [[ -z "$service" ]] && continue
-
-            if [[ "$expected_status" == "Enabled" ]]; then
-              if ! sudo -n networksetup -setnetworkserviceenabled "$service" on; then
-                echo "Failed to restore enabled network service: $service" >&2
-                restore_failed=1
-              fi
-            else
-              if ! sudo -n networksetup -setnetworkserviceenabled "$service" off; then
-                echo "Failed to restore disabled network service: $service" >&2
-                restore_failed=1
-              fi
-            fi
-          done < "$STATE_FILE"
-
-          if (( restore_failed != 0 )); then
-            exit 1
-          fi
-
-          curl --fail --silent --show-error \
-            --noproxy '*' \
-            --connect-timeout 5 --max-time 10 \
-            https://example.com/ >/dev/null
-          echo "Network service state was restored and external access is available again."
-
-      - name: Stop Metro
-        if: ${{ always() }}
-        shell: bash
-        run: |
-          set -Eeuo pipefail
-
-          if [[ -n "${METRO_PID:-}" ]] && kill -0 "$METRO_PID" 2>/dev/null; then
-            kill "$METRO_PID" || true
-            wait "$METRO_PID" 2>/dev/null || true
-          fi
-
-      - name: Shut down iOS Simulator
-        if: ${{ always() }}
-        shell: bash
-        env:
-          SIMULATOR_UDID: ${{ steps.simulator.outputs.udid }}
-        run: |
-          set -Eeuo pipefail
-          [[ -z "${SIMULATOR_UDID:-}" ]] || xcrun simctl shutdown "$SIMULATOR_UDID" || true
+          app-path: ${{ runner.temp }}/fam-ios-offline-artifact/fam.app.tar.gz
 
       - name: Upload Metro log
         if: ${{ failure() }}
         uses: actions/upload-artifact@v4
         with:
-          name: ios-offline-network-spike-metro-log
+          name: ios-offline-network-spike-metro-log-${{ github.run_id }}
           path: ${{ runner.temp }}/fam-ios-metro.log
+          retention-days: 7
           if-no-files-found: ignore

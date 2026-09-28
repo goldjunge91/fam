@@ -1,0 +1,139 @@
+name: Build iOS Simulator App
+description: Build and publish the Debug iOS Simulator app used by the offline workflow
+
+inputs:
+  xcode-version:
+    description: Xcode version used for the native build
+    required: false
+    default: "26.4.1"
+  workspace:
+    description: Xcode workspace path
+    required: false
+    default: ios/fam.xcworkspace
+  scheme:
+    description: Xcode scheme
+    required: false
+    default: fam
+  configuration:
+    description: Xcode build configuration
+    required: false
+    default: Debug
+  derived-data-path:
+    description: DerivedData path
+    required: false
+    default: build/DerivedData
+  artifact-name:
+    description: GitHub Actions artifact name
+    required: true
+  artifact-retention-days:
+    description: Number of days to retain the simulator artifact
+    required: false
+    default: "7"
+
+outputs:
+  artifact_name:
+    description: Uploaded artifact name
+    value: ${{ inputs.artifact-name }}
+  artifact_id:
+    description: Uploaded artifact id
+    value: ${{ steps.upload.outputs.artifact-id }}
+  artifact_url:
+    description: Uploaded artifact URL
+    value: ${{ steps.upload.outputs.artifact-url }}
+
+runs:
+  using: composite
+  steps:
+    - name: Select Xcode ${{ inputs.xcode-version }}
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ inputs.xcode-version }}
+
+    - name: Setup Bun environment
+      uses: ./.github/actions/setup-bun-env
+
+    - name: Generate iOS native project
+      shell: bash
+      run: bun run native:prebuild -- --platform ios --no-install
+
+    - name: Cache CocoaPods
+      uses: actions/cache@v4
+      with:
+        path: ios/Pods
+        key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-
+
+    - name: Install CocoaPods
+      shell: bash
+      run: |
+        set -Eeuo pipefail
+        cd ios
+        pod install || pod install --repo-update
+      env:
+        LANG: en_US.UTF-8
+        LC_ALL: en_US.UTF-8
+
+    - name: Cache Xcode DerivedData
+      uses: actions/cache@v4
+      with:
+        path: ${{ inputs.derived-data-path }}
+        key: ${{ runner.os }}-xcode-derived-data-${{ hashFiles('ios/Podfile.lock', 'ios/fam.xcodeproj/project.pbxproj', 'app.json', 'package.json', 'bun.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-xcode-derived-data-
+
+    - name: Build iOS Simulator app
+      shell: bash
+      env:
+        WORKSPACE: ${{ inputs.workspace }}
+        SCHEME: ${{ inputs.scheme }}
+        CONFIGURATION: ${{ inputs.configuration }}
+        DERIVED_DATA_PATH: ${{ inputs.derived-data-path }}
+      run: |
+        set -Eeuo pipefail
+        : "${WORKSPACE:?WORKSPACE is required}"
+        : "${SCHEME:?SCHEME is required}"
+        : "${CONFIGURATION:?CONFIGURATION is required}"
+        : "${DERIVED_DATA_PATH:?DERIVED_DATA_PATH is required}"
+
+        xcodebuild \
+          -workspace "$WORKSPACE" \
+          -scheme "$SCHEME" \
+          -configuration "$CONFIGURATION" \
+          -sdk iphonesimulator \
+          -destination "generic/platform=iOS Simulator" \
+          -derivedDataPath "$DERIVED_DATA_PATH" \
+          CODE_SIGNING_ALLOWED=NO \
+          build
+
+    - name: Package simulator app
+      id: package
+      shell: bash
+      env:
+        SCHEME: ${{ inputs.scheme }}
+        DERIVED_DATA_PATH: ${{ inputs.derived-data-path }}
+      run: |
+        set -Eeuo pipefail
+        : "${SCHEME:?SCHEME is required}"
+        : "${DERIVED_DATA_PATH:?DERIVED_DATA_PATH is required}"
+
+        products_dir="$DERIVED_DATA_PATH/Build/Products"
+        app_path="$(find "$products_dir" -type d -name "${SCHEME}.app" -print -quit)"
+        if [[ -z "$app_path" ]]; then
+          echo "No ${SCHEME}.app was produced by the simulator build." >&2
+          exit 1
+        fi
+
+        mkdir -p dist
+        artifact_path="dist/${SCHEME}.app.tar.gz"
+        tar -C "$(dirname "$app_path")" -czf "$artifact_path" "$(basename "$app_path")"
+        echo "artifact_path=$artifact_path" >> "$GITHUB_OUTPUT"
+
+    - name: Upload simulator app artifact
+      id: upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: ${{ steps.package.outputs.artifact_path }}
+        retention-days: ${{ inputs.artifact-retention-days }}
+        if-no-files-found: error
