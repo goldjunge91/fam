@@ -55,6 +55,8 @@ runs:
     - name: Start Metro on localhost
       id: metro
       shell: bash
+      env:
+        REACT_NATIVE_PACKAGER_HOSTNAME: localhost
       run: |
         set -Eeuo pipefail
 
@@ -66,7 +68,7 @@ runs:
         metro_ready=false
         for _ in {1..60}; do
           if curl --fail --silent --show-error --noproxy '*' \
-            http://127.0.0.1:8081/status >/dev/null; then
+            http://localhost:8081/status >/dev/null; then
             metro_ready=true
             break
           fi
@@ -177,7 +179,7 @@ runs:
         xcrun simctl launch "$SIMULATOR_UDID" "$BUNDLE_ID"
         sleep 10
         curl --fail --silent --show-error --noproxy '*' \
-          http://127.0.0.1:8081/status >/dev/null
+          http://localhost:8081/status >/dev/null
         xcrun simctl spawn "$SIMULATOR_UDID" launchctl print system >/dev/null
         echo "The installed app launched while external network access was disabled; local Metro remains available."
 
