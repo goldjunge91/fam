@@ -22,6 +22,11 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: config.name ?? 'fam',
   slug: config.slug ?? 'fam',
+  extra: {
+    ...config.extra,
+    showUpdateExperience: process.env.FAM_SHOW_UPDATE_EXPERIENCE === '1',
+    dummyUpdateExperience: process.env.FAM_DUMMY_UPDATE_EXPERIENCE === '1',
+  },
   updates: {
     ...config.updates,
     requestHeaders: {

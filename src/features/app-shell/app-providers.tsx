@@ -25,6 +25,7 @@ import { Sentry } from '@/lib/observability/providers/sentry';
 import { reportCapturedError } from '@/lib/telemetry';
 
 import { CrashFallback } from './crash-fallback';
+import { UpdateExperience } from './update-experience';
 
 const BUG_BUBBLE_CONFIG = {
   // Der Default liegt auf dem Profilbutton im globalen Header.
@@ -122,6 +123,7 @@ function ThemeRuntime({
           </NavigationChromeProvider>
           <CelebrationHost />
           {showBugBubble ? <BugBubble config={BUG_BUBBLE_CONFIG} /> : null}
+          <UpdateExperience />
         </Surface>
       </SnackbarProvider>
     </RouterThemeProvider>
