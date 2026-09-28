@@ -1,4 +1,5 @@
 import { Platform } from 'react-native';
+import { FAM_KEYCHAIN_ACCESS_GROUP } from '@/lib/apple/shared-app-group';
 import type { DatabaseFileOps } from '@/lib/db/database-files';
 import { addDiagnosticStep } from '@/lib/telemetry';
 
@@ -63,16 +64,43 @@ function loadNativeDependencies(): DatabaseKeyDependencies {
     const SecureStore = require('expo-secure-store') as typeof import('expo-secure-store');
     const Crypto = require('expo-crypto') as typeof import('expo-crypto');
 
+    const sharedKeychainOptions: import('expo-secure-store').SecureStoreOptions =
+      Platform.OS === 'ios'
+        ? {
+            // Siri runs after the first device unlock and needs the same key
+            // as the main app. The App Group is also a keychain access group
+            // for this iOS-only native boundary.
+            keychainAccessible: SecureStore.AFTER_FIRST_UNLOCK,
+            accessGroup: FAM_KEYCHAIN_ACCESS_GROUP,
+          }
+        : {};
+    const legacyKeychainOptions: import('expo-secure-store').SecureStoreOptions =
+      Platform.OS === 'ios'
+        ? { keychainAccessible: SecureStore.AFTER_FIRST_UNLOCK_THIS_DEVICE_ONLY }
+        : {};
+
     return {
       storage: {
-        getItem: (key) => SecureStore.getItemAsync(key),
-        setItem: (key, value) =>
-          SecureStore.setItemAsync(key, value, {
-            ...(Platform.OS === 'ios'
-              ? { keychainAccessible: SecureStore.AFTER_FIRST_UNLOCK_THIS_DEVICE_ONLY }
-              : {}),
-          }),
-        removeItem: (key) => SecureStore.deleteItemAsync(key),
+        async getItem(key) {
+          const sharedValue = await SecureStore.getItemAsync(key, sharedKeychainOptions);
+          if (sharedValue !== null || Platform.OS !== 'ios') return sharedValue;
+
+          // One-time migration for installs that still keep the key in the
+          // app-only keychain item. The database itself is copied before its
+          // first open in the shared container.
+          const legacyValue = await SecureStore.getItemAsync(key, legacyKeychainOptions);
+          if (legacyValue !== null && KEY_HEX_PATTERN.test(legacyValue)) {
+            await SecureStore.setItemAsync(key, legacyValue, sharedKeychainOptions);
+          }
+          return legacyValue;
+        },
+        setItem: (key, value) => SecureStore.setItemAsync(key, value, sharedKeychainOptions),
+        async removeItem(key) {
+          await SecureStore.deleteItemAsync(key, sharedKeychainOptions);
+          if (Platform.OS === 'ios') {
+            await SecureStore.deleteItemAsync(key, legacyKeychainOptions);
+          }
+        },
       },
       randomBytes: (byteCount) => Crypto.getRandomBytesAsync(byteCount),
     };

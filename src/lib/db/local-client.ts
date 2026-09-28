@@ -1,6 +1,11 @@
 import { drizzle as createExpoDrizzleDatabase } from 'drizzle-orm/expo-sqlite';
 import { migrate as migrateExpoDatabase } from 'drizzle-orm/expo-sqlite/migrator';
-import { createExpoDatabaseFileOps, DATABASE_FILE_NAMES } from '@/lib/db/database-files';
+import { FAM_APP_GROUP } from '@/lib/apple/shared-app-group';
+import {
+  createExpoDatabaseFileOps,
+  DATABASE_FILE_NAMES,
+  migrateExpoDatabaseFiles,
+} from '@/lib/db/database-files';
 import { createDrizzleDatabase, type DrizzleDatabase } from '@/lib/db/drizzle-driver';
 import {
   deleteDatabaseEncryptionKey,
@@ -31,6 +36,39 @@ function loadSQLite(): typeof import('expo-sqlite') {
   } catch {
     throw new Error(REBUILD_HINT);
   }
+}
+
+type DatabaseDirectories = {
+  legacy: string;
+  primary: string;
+};
+
+function getDatabaseDirectories(SQLite: typeof import('expo-sqlite')): DatabaseDirectories {
+  const legacy = SQLite.defaultDatabaseDirectory;
+  if (typeof legacy !== 'string') {
+    throw new Error('Das native SQLite-Datenbankverzeichnis ist nicht verfügbar.');
+  }
+
+  try {
+    const { Paths } = require('expo-file-system') as typeof import('expo-file-system');
+    const sharedContainer = Paths.appleSharedContainers?.[FAM_APP_GROUP];
+    const sharedDirectory = sharedContainer?.uri;
+    if (typeof sharedDirectory === 'string' && sharedDirectory.length > 0) {
+      return { legacy, primary: sharedDirectory };
+    }
+  } catch (error) {
+    debugWarn('[db] App-Group-Container nicht verfügbar; verwende Legacy-Pfad.', error);
+  }
+
+  return { legacy, primary: legacy };
+}
+
+async function prepareDatabaseDirectory(SQLite: typeof import('expo-sqlite')): Promise<string> {
+  const directories = getDatabaseDirectories(SQLite);
+  if (directories.primary !== directories.legacy) {
+    await migrateExpoDatabaseFiles(directories.legacy, directories.primary);
+  }
+  return directories.primary;
 }
 
 function toDriver(db: import('expo-sqlite').SQLiteDatabase): SqlStatementDriver {
@@ -140,19 +178,20 @@ function assertLifecycle(generation: number, userId: string): void {
 async function open(openId: number): Promise<DatabaseConnection> {
   dbTrace('OPEN-START', { openId });
   const SQLite = loadSQLite();
-  const databaseDirectory = SQLite.defaultDatabaseDirectory;
-  if (typeof databaseDirectory !== 'string') {
-    throw new Error('Das native SQLite-Datenbankverzeichnis ist nicht verfügbar.');
-  }
+  const databaseDirectory = await prepareDatabaseDirectory(SQLite);
 
   const key = await getOrCreateDatabaseEncryptionKey();
   const files = createExpoDatabaseFileOps(databaseDirectory);
   const openPlaintext = (fileName: string) =>
-    SQLite.openDatabaseAsync(fileName, { useNewConnection: true });
+    SQLite.openDatabaseAsync(fileName, { useNewConnection: true }, databaseDirectory);
   const openEncrypted = async (fileName: string, encryptionKey: string) => {
-    const opened = await SQLite.openDatabaseAsync(fileName, {
-      useNewConnection: true,
-    });
+    const opened = await SQLite.openDatabaseAsync(
+      fileName,
+      {
+        useNewConnection: true,
+      },
+      databaseDirectory,
+    );
     try {
       // Muss das allererste Statement nach openDatabaseAsync bleiben.
       dbTrace('KEY-START', { openId });
@@ -374,27 +413,30 @@ async function closeAndDeleteFile(connection?: DatabaseConnection): Promise<void
     `${DATABASE_FILE_NAMES.plaintextRecovery}-journal`,
   ];
 
-  const databaseDirectory = SQLite.defaultDatabaseDirectory;
-  if (typeof databaseDirectory !== 'string') {
-    errors.push(new Error('Das native SQLite-Datenbankverzeichnis ist nicht verfügbar.'));
-  } else {
-    const files = createExpoDatabaseFileOps(databaseDirectory);
-    for (const fileName of filesToDelete) {
-      try {
-        await files.delete(fileName);
-      } catch (error) {
-        errors.push(error);
+  try {
+    const directories = getDatabaseDirectories(SQLite);
+    const directoriesToDelete = [...new Set([directories.primary, directories.legacy])];
+    for (const directory of directoriesToDelete) {
+      const files = createExpoDatabaseFileOps(directory);
+      for (const fileName of filesToDelete) {
+        try {
+          await files.delete(fileName);
+        } catch (error) {
+          errors.push(error);
+        }
+      }
+
+      const remainingFiles = filesToDelete.filter((fileName) => files.exists(fileName));
+      if (remainingFiles.length > 0) {
+        errors.push(
+          new Error(
+            `Sensitive Datenbankdateien konnten nicht gelöscht werden: ${remainingFiles.join(', ')}`,
+          ),
+        );
       }
     }
-
-    const remainingFiles = filesToDelete.filter((fileName) => files.exists(fileName));
-    if (remainingFiles.length > 0) {
-      errors.push(
-        new Error(
-          `Sensitive Datenbankdateien konnten nicht gelöscht werden: ${remainingFiles.join(', ')}`,
-        ),
-      );
-    }
+  } catch (error) {
+    errors.push(error);
   }
 
   if (errors.length > 0) {

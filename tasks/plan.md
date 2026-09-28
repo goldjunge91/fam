@@ -138,3 +138,9 @@ Nicht durch Dokumentation ersetzt werden die projektspezifischen Nachweise:
   Account-Isolation, der Supabase-Fehlerpfad, die genaue CardList-Ausgabe und
   der Reconnect-Test müssen im vorhandenen Code und in fokussierten Jest-Tests
   belegt werden.
+
+## WatchOS-Folgeslice
+
+Der native watchOS-Snapshot bleibt als separater, noch nicht abgenommener
+Folgeslice in Bead `fam-6i69` dokumentiert. Die Watch-Implementierung darf den
+Dashboard-Plan nicht als dessen Eigentümer überschreiben.

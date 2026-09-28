@@ -50,6 +50,8 @@ import { useShowPriceInMarketView } from '../preferences/display-settings';
 import { CategoryOrderSheet } from '../sheets/category-order-sheet';
 import { CompleteRunSheet, type TransferItem } from '../sheets/complete-run-sheet';
 import { NaturalLanguageAdditionController } from '../stt-beta/components/stt-controller';
+import { createWatchShoppingSnapshot } from '../watch/watch-snapshot-contract';
+import { publishWatchShoppingSnapshot } from '../watch/watch-snapshot-publisher';
 import { ShoppingModeScreen } from './shopping-mode-screen';
 
 const styles = StyleSheet.create((theme) => ({
@@ -206,6 +208,16 @@ export function ShoppingListScreen() {
     if (isUnassignedFilter) return unassignedItems;
     return allItems.filter((i) => i.store_id === storeFilter);
   }, [isAllFilter, isUnassignedFilter, storeFilter, allItems, unassignedItems]);
+
+  const watchSnapshot = useMemo(
+    () => createWatchShoppingSnapshot(filteredItems, activeStore?.name ?? null),
+    [activeStore?.name, filteredItems],
+  );
+
+  useEffect(() => {
+    publishWatchShoppingSnapshot(watchSnapshot);
+  }, [watchSnapshot]);
+
   const hasOpenItems = filteredItems.some((item) => item.checked_at === null);
   const canStartShoppingMode = activeStore !== null && hasOpenItems;
 

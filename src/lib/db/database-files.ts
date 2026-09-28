@@ -42,3 +42,30 @@ export function createExpoDatabaseFileOps(databaseDirectory: string): DatabaseFi
     },
   };
 }
+
+const DATABASE_FILES_TO_MIGRATE = [
+  ...Object.values(DATABASE_FILE_NAMES),
+  ...Object.values(DATABASE_FILE_NAMES).flatMap((fileName) => [
+    `${fileName}-wal`,
+    `${fileName}-shm`,
+    `${fileName}-journal`,
+  ]),
+] as const;
+
+/** Kopiert eine bestehende lokale Datenbank einmalig in den App-Group-Container. */
+export async function migrateExpoDatabaseFiles(
+  sourceDirectory: string,
+  targetDirectory: string,
+): Promise<void> {
+  const { Directory, File } = loadFileSystem();
+  const source = new Directory(sourceDirectory);
+  const target = new Directory(targetDirectory);
+  target.create({ idempotent: true, intermediates: true });
+
+  for (const fileName of DATABASE_FILES_TO_MIGRATE) {
+    const sourceFile = new File(source, fileName);
+    const targetFile = new File(target, fileName);
+    if (targetFile.exists || !sourceFile.exists) continue;
+    await sourceFile.copy(targetFile);
+  }
+}
