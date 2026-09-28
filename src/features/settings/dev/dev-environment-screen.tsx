@@ -1,3 +1,4 @@
+import * as Application from 'expo-application';
 import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
@@ -44,7 +45,7 @@ export function DevEnvironmentScreen() {
         <Zeile label="Build" wert={__DEV__ ? 'Development' : 'Production'} />
         <Zeile
           label="App-Version"
-          wert={`${Constants.nativeAppVersion ?? Constants.expoConfig?.version ?? '—'} (Build ${Constants.nativeBuildVersion ?? (Platform.OS === 'ios' ? Constants.expoConfig?.ios?.buildNumber : Constants.expoConfig?.android?.versionCode) ?? '—'}, ${Platform.OS} ${Platform.Version})`}
+          wert={`${Application.nativeApplicationVersion ?? Constants.expoConfig?.version ?? '—'} (Build ${Application.nativeBuildVersion ?? '—'}, ${Platform.OS} ${Platform.Version})`}
         />
         <Zeile label="Onboarding erzwungen" wert={env.forceOnboarding ? 'ja' : 'nein'} />
         <Zeile

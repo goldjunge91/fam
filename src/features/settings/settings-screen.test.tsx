@@ -299,7 +299,7 @@ describe('SettingsScreen', () => {
 
   it('zeigt die App-Version im Fussbereich an (#94)', async () => {
     const { getByText } = await renderScreen();
-    expect(getByText('fam v1.0.0')).toBeTruthy();
+    expect(getByText('fam vmock (mock)')).toBeTruthy();
   });
 
   it('bietet ohne Plus/KI einen Einstieg zum Plus-&-KI-Screen an', async () => {

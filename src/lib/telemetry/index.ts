@@ -1,3 +1,4 @@
+import * as Application from 'expo-application';
 import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
@@ -95,8 +96,8 @@ function commonProperties(
     platform: Platform.OS,
   };
 
-  const appVersion = Constants.nativeAppVersion ?? Constants.expoConfig?.version;
-  const buildNumber = Constants.nativeBuildVersion;
+  const appVersion = Application.nativeApplicationVersion ?? Constants.expoConfig?.version;
+  const buildNumber = Application.nativeBuildVersion;
 
   if (appVersion) base.app_version = appVersion;
   if (buildNumber) base.build_number = buildNumber;

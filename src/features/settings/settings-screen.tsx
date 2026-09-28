@@ -1,9 +1,10 @@
 import { useQueryClient } from '@tanstack/react-query';
+import * as Application from 'expo-application';
 import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Alert, Platform, ScrollView, View } from 'react-native';
+import { Alert, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { radius, space, withAlpha } from '@/components/theme/index';
@@ -122,14 +123,8 @@ export function SettingsScreen() {
     ? classifySupabaseTarget(env.supabaseUrl)
     : { label: '', tone: 'accent' as const };
 
-  const version = Constants.nativeAppVersion ?? Constants.expoConfig?.version ?? '1.0.0';
-  const buildNumber =
-    Constants.nativeBuildVersion ??
-    (Platform.OS === 'ios'
-      ? Constants.expoConfig?.ios?.buildNumber
-      : Constants.expoConfig?.android?.versionCode
-        ? String(Constants.expoConfig.android.versionCode)
-        : undefined);
+  const version = Application.nativeApplicationVersion ?? Constants.expoConfig?.version ?? '1.0.0';
+  const buildNumber = Application.nativeBuildVersion;
   const versionLabel = buildNumber ? `fam v${version} (${buildNumber})` : `fam v${version}`;
 
   return (
