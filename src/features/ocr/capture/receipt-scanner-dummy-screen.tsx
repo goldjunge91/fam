@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { IconButton, Press, Row, Txt } from '@/constants/ui';
+import { IconButton, Press, Txt } from '@/constants/ui';
 
 const styles = StyleSheet.create((theme) => ({
   content: {
@@ -22,16 +22,13 @@ const styles = StyleSheet.create((theme) => ({
     paddingBottom: theme.space.sm,
   },
   title: {
-    fontSize: theme.font.sizes.xxxl,
-    lineHeight: theme.font.lineHeights.display,
-  },
-  subtitle: {
-    fontSize: theme.font.sizes.md,
-    lineHeight: theme.font.lineHeights.body,
+    fontSize: theme.font.sizes.xxl,
+    lineHeight: theme.font.lineHeights.title,
   },
   scanner: {
     flex: 1,
     minHeight: 420,
+    marginHorizontal: theme.space.lg,
     overflow: 'hidden',
     borderRadius: theme.radius.xl,
     backgroundColor: theme.backgroundSoft,
@@ -108,19 +105,11 @@ const styles = StyleSheet.create((theme) => ({
   footer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     gap: theme.space.md,
-    paddingTop: theme.space.sm,
-  },
-  status: {
-    flex: 1,
-    gap: theme.space.sm,
-  },
-  statusDot: {
-    width: 10,
-    height: 10,
-    borderRadius: theme.radius.pill,
-    backgroundColor: theme.success,
+    paddingTop: theme.space.md,
+    paddingRight: theme.space.xl,
+    paddingBottom: theme.space.xxl,
   },
   cameraButton: {
     width: 72,
@@ -180,9 +169,6 @@ export function ReceiptScannerDummyScreen({
           <Txt variant="display" style={styles.title}>
             Beleg scannen
           </Txt>
-          <Txt variant="body" tone="secondary" style={styles.subtitle}>
-            Lege den ganzen Beleg in den Rahmen.
-          </Txt>
         </View>
 
         <View style={styles.scanner} accessibilityLabel="Vorschau des späteren Live-Kamera-Feeds">
@@ -215,12 +201,6 @@ export function ReceiptScannerDummyScreen({
         </View>
 
         <View style={styles.footer}>
-          <Row style={styles.status}>
-            <View style={styles.statusDot} />
-            <Txt variant="body" tone="secondary">
-              Automatische Erkennung aktiv
-            </Txt>
-          </Row>
           <Press
             onPress={onCapture}
             accessibilityRole="button"

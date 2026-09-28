@@ -28,6 +28,11 @@ export function DevPreviewsScreen() {
           onPress={() => router.push('/settings/auth-preview')}
         />
         <Button
+          title="Beleg-Scanner-Dummy öffnen"
+          variant="secondary"
+          onPress={() => router.push('/settings/dev/dummy-receipt-screen')}
+        />
+        <Button
           title="Plus-Paywall öffnen (Test Store)"
           variant="secondary"
           onPress={() =>

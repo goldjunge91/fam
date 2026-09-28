@@ -19,6 +19,8 @@ describe('ReceiptScannerDummyScreen', () => {
     expect(screen.getByLabelText('Vorschau des späteren Live-Kamera-Feeds')).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Beleg aufnehmen' })).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Beleg aus Galerie auswählen' })).toBeTruthy();
+    expect(screen.queryByText('Automatische Erkennung aktiv')).toBeNull();
+    expect(screen.queryByText('Lege den ganzen Beleg in den Rahmen.')).toBeNull();
     expect(screen.queryByText(/Schritt/)).toBeNull();
   });
 });
