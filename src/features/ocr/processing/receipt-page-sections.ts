@@ -18,6 +18,28 @@ const COMPLETE_AMOUNT = /\d{1,4}[,.]\d{2}(?!\d)/u;
 const MULTIPLIED_UNIT_PRICE = /\d{1,4}[,.]\d{2}\s*€\s*[x×]\b/iu;
 const PRICE_FRAGMENT = /^[\d.,€\s*+\-x×ABWEUR]+$/iu;
 
+function completeAmountCents(text: string): number | null {
+  const amount = text.match(COMPLETE_AMOUNT)?.[0];
+  if (!amount) return null;
+
+  const cents = Math.round(Number(amount.replace(',', '.')) * 100);
+  return Number.isSafeInteger(cents) ? cents : null;
+}
+
+function lineTotalCents(text: string): number | null {
+  const trailingAmount = text.match(
+    /(\d{1,4}[,.]\d{2})(?:\s*(?:€|EUR))?(?:\s*\*?(?:A|B|AW|BW))?\s*$/iu,
+  )?.[1];
+  return trailingAmount ? completeAmountCents(trailingAmount) : null;
+}
+
+function markForReview(line: ReceiptOcrLine): ReceiptOcrLine {
+  return {
+    ...line,
+    confidence: line.confidence === null ? null : Math.min(line.confidence, 0.79),
+  };
+}
+
 /** Three OCR views of one photo, with overlap so text at a cut stays readable. */
 export function receiptSections(imageHeight: number): readonly ReceiptSection[] {
   const overlap = Math.max(12, Math.round(imageHeight * 0.025));
@@ -86,6 +108,18 @@ export function mergeReceiptOcrLines(
     if (!amount) continue;
     const matches = merged.filter((line) => overlapping(line, candidate));
     if (matches.some((line) => line.text.includes(amount))) continue;
+    const candidateAmountCents = completeAmountCents(candidate.text);
+    const conflictingWholePrice =
+      candidateAmountCents === null
+        ? undefined
+        : matches.find((line) => {
+            const wholeAmountCents = lineTotalCents(line.text);
+            return wholeAmountCents !== null && wholeAmountCents !== candidateAmountCents;
+          });
+    if (conflictingWholePrice) {
+      merged = merged.map((line) => (line === conflictingWholePrice ? markForReview(line) : line));
+      continue;
+    }
     merged = merged.filter(
       (line) =>
         !overlapping(line, candidate) ||

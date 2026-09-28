@@ -115,6 +115,21 @@ describe('parseGermanReceipt', () => {
     });
   });
 
+  it('keeps the quantity when OCR loses the unit-price decimal separator', () => {
+    const draft = parseGermanReceipt([
+      { text: 'EDEKA', confidence: 0.9 },
+      { text: 'G&G Skyr pur 1 139 € x 3 4,17', confidence: 0.9 },
+    ]);
+
+    expect(draft.items[0]).toMatchObject({
+      name: 'G&G Skyr pur',
+      quantity: 3,
+      unitPriceCents: null,
+      lineTotalCents: { value: 417 },
+      needsReview: true,
+    });
+  });
+
   it('keeps a lowered line total with its quantity row instead of the next article', () => {
     const line = (text: string, x: number, y: number, width: number, height: number) => ({
       text,

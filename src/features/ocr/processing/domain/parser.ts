@@ -204,7 +204,7 @@ function parseMoneyTokens(text: string): readonly MoneyToken[] {
   });
 }
 
-function normalizeRossmannCurrencyGlyphArtifacts(
+function normalizeRossmannArtifacts(
   line: NormalizedLine,
   tokens: readonly MoneyToken[],
   subtotalCents: number | null,
@@ -485,12 +485,8 @@ function parseQuantityAndName(nameText: string): {
   const withoutCode = textAfterQuantity
     .replace(/^(?:\*+\d{2,}\s+)?\d{8,14}(?=\s|$)\s*|^\*+\d{2,}(?=\s|$)\s*/u, '')
     .trim();
-  if (!quantityMatch) {
-    return { name: withoutCode, quantity: null, unit: null };
-  }
-
-  const quantity = Number(quantityMatch[1].replace(',', '.'));
-  if (!Number.isFinite(quantity) || quantity <= 0) {
+  const quantity = quantityMatch ? Number(quantityMatch[1].replace(',', '.')) : null;
+  if (quantity === null || !Number.isFinite(quantity) || quantity <= 0) {
     return { name: withoutCode, quantity: null, unit: null };
   }
 
@@ -501,15 +497,18 @@ function parseQuantityAndName(nameText: string): {
   };
 }
 
-function parseNameWithTruncatedUnitPrice(text: string): ReturnType<typeof parseQuantityAndName> {
+function parseNameWithTruncatedUnitPrice(
+  text: string,
+): ReturnType<typeof parseQuantityAndName> & { priceReview?: boolean } {
   const partial = text.match(
-    /^(.*?)\s+\d*[,.]\d{1,2}\s*(?:€|EUR)\s*[x×]\s*(\d+(?:[.,]\d+)?)(?:\s+\d+[,.]\s*\d?)?\s*$/iu,
+    /^(.*?)\s+(?:\d[\d\s.,]*|[.,]\d{1,2})\s*(?:€|EUR)\s*[x×]\s*(\d+(?:[.,]\d+)?)(?:\s+\d+[,.]\s*\d?)?\s*$/iu,
   );
   const parsed = parseQuantityAndName(partial?.[1] ?? text);
   if (!partial) return parsed;
   const observedQuantity = Number(partial[2].replace(',', '.'));
   if (!Number.isFinite(observedQuantity) || observedQuantity <= 0) return parsed;
-  return { ...parsed, quantity: parsed.quantity ?? observedQuantity, unit: 'Stück' };
+  const quantity = parsed.quantity ?? observedQuantity;
+  return Object.assign({}, parsed, { quantity, unit: 'Stück', priceReview: true });
 }
 
 function deriveQuantityFromPrices(unitPriceCents: number, lineTotalCents: number): number | null {
@@ -529,8 +528,7 @@ function parseItem(
   observedLineTotal?: ObservedLineTotal,
   subtotalCents: number | null = null,
 ): ReceiptDraftItem | null {
-  const rawTokens = parseMoneyTokens(line.text);
-  const tokens = normalizeRossmannCurrencyGlyphArtifacts(line, rawTokens, subtotalCents);
+  const tokens = normalizeRossmannArtifacts(line, parseMoneyTokens(line.text), subtotalCents);
   if (tokens.length === 0) {
     const { name, quantity, unit } = parseNameWithTruncatedUnitPrice(line.text);
     if (
@@ -664,7 +662,8 @@ function parseItem(
     needsReview:
       itemConfidence === null ||
       itemConfidence < RECEIPT_DRAFT_REVIEW_CONFIDENCE ||
-      lineTotalCents.value === null,
+      lineTotalCents.value === null ||
+      parsedName.priceReview === true,
   };
 }
 

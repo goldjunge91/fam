@@ -88,6 +88,66 @@ describe('three OCR sections per receipt photo', () => {
     expect(merged[1]?.confidence).toBeLessThan(0.8);
   });
 
+  it.each([
+    {
+      wholeLines: [
+        { text: 'Milch', x: 0.15, width: 0.3 },
+        { text: '1,29', x: 0.82, width: 0.09 },
+      ],
+      expectedLines: ['Milch', '1,29'],
+    },
+    {
+      wholeLines: [{ text: 'Milch 1,29*B', x: 0.1, width: 0.8 }],
+      expectedLines: ['Milch 1,29*B'],
+    },
+  ])(
+    'keeps a complete whole-photo price when a supplementary price conflicts',
+    ({ wholeLines, expectedLines }) => {
+      const whole = wholeLines.map(({ text, x, width }) => {
+        const line = recognizedLine(0.51, 0.015);
+        line.text = text;
+        line.boundingBox.x = x;
+        line.boundingBox.width = width;
+        return line;
+      });
+      const supplement = recognizedLine(0.51, 0.015);
+      supplement.text = '7,29';
+      supplement.boundingBox.x = 0.82;
+      supplement.boundingBox.width = 0.09;
+
+      const merged = mergeReceiptOcrLines(whole, [supplement]);
+      const draft = parseGermanReceipt(merged);
+
+      expect(merged.map((line) => line.text)).toEqual(expectedLines);
+      expect(merged.find((line) => line.text.includes('1,29'))?.confidence).toBeLessThan(0.8);
+      expect(draft.items[0]).toMatchObject({
+        name: 'Milch',
+        lineTotalCents: { value: 129 },
+        needsReview: true,
+      });
+    },
+  );
+
+  it('adds a supplement when an earlier amount is a product volume', () => {
+    const whole = recognizedLine(0.3, 0.02);
+    whole.text = 'Mineralwasser 0,75 L';
+    whole.boundingBox.x = 0.1;
+    whole.boundingBox.width = 0.8;
+    const supplement = recognizedLine(0.3, 0.02);
+    supplement.text = '0,99';
+    supplement.boundingBox.x = 0.8;
+    supplement.boundingBox.width = 0.1;
+
+    const merged = mergeReceiptOcrLines([whole], [supplement]);
+    const draft = parseGermanReceipt(merged);
+
+    expect(merged.map((line) => line.text)).toEqual(['Mineralwasser 0,75 L', '0,99']);
+    expect(draft.items[0]).toMatchObject({
+      lineTotalCents: { value: 99 },
+      needsReview: true,
+    });
+  });
+
   it('replaces the truncated Skyr unit-price fragment from the higher-resolution section', () => {
     const line = (text: string, x: number, y: number, width: number): ReceiptOcrLine => ({
       text,
