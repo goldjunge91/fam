@@ -237,7 +237,7 @@ eingeführt.
 - Konfigurations-, Fixture- und Workflow-Tests schützen beide Verträge.
 - `bun run check`, `bun run typecheck`, der fokussierte Testlauf und der
   Coverage-Lauf sind grün.
-- Keine Änderung an Produktionsverhalten, Datenbankschema, Native-Build-Lock
+- Keine Änderung an Produktionsverhalten, Datenbankschema, Native-Build-Ablauf
   oder Remote-Transport ist erforderlich.
 
 ## Open Questions

@@ -155,7 +155,7 @@ GitHub-Schrittzusammenfassung und bleibt zunächst nicht-required.
 - [ ] Die fokussierten Kontrakttests, `bun run check` und `bun run typecheck`
   sind grün.
 - [ ] Keine Änderung an Produktionsverhalten, Datenbankschema,
-  Native-Build-Lock oder Remote-Transport.
+  Native-Build-Ablauf oder Remote-Transport.
 
 ## Risks and Mitigations
 

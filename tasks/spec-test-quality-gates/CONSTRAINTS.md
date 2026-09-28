@@ -24,7 +24,7 @@ Ein Verstoß blockiert die Abnahme des jeweiligen Beads-Tasks.
 - Keine unimplementierten Stubs, stillen leeren `catch`-Blöcke oder als Erfolg
   getarnten technischen Fehler.
 - Keine Secrets in Quelltext, Tests, Logs oder GitHub-Step-Summaries.
-- Keine Änderung an Produktionsverhalten, Datenbankschema, Native-Build-Lock
+- Keine Änderung an Produktionsverhalten, Datenbankschema, Native-Build-Ablauf
   oder Testabhängigkeiten für diese Spec.
 - Kein abweichender oder doppelt gepflegter Jest-Testdatei-Scope.
 - Keine automatische Entfernung oder Umwandlung von Markerbefunden.
