@@ -86,19 +86,21 @@ Mocks, manuell eingespeiste Zeilen, Parser-Fixtures, Simulator-Einstieg,
 Compile, Archive, TestFlight-Upload oder „kein Crash“ ersetzen dieses Gate
 nicht.
 
-### Native-Build-Lock
+### Nativer Build und Gerätenachweis
 
-Vor einer Native-Änderung:
+Bei einer Native-Änderung werden Expo-Konfiguration, Config-Plugin und
+Autolinking-Ausgabe für die betroffene Plattform geprüft. Build-Abläufe stehen
+in der [Build-Anleitung](../../docs/architecture/LOCAL_NATIVE_BUILDS.md); lokale
+Builds aktualisieren CNG mit `expo prebuild --no-clean`. Eine Änderung an einem
+nativen Modul erfordert eine neu kompilierte App. Der Expo Remote-Cache kann
+bei lokalen Simulator-Builds Artefakte wiederverwenden, belegt aber weder einen
+frischen Compile noch Geräteverhalten. Ein projektinterner Fingerprint-, Baseline- oder
+Artefakt-Lock-Workflow ist nicht vorhanden.
 
-```bash
-bun run native:status -- --diff
-```
-
-Die bestehende Drift wird erklärt und dem verantwortlichen Scope zugeordnet.
-Prebuild, Pod-Install, neue Baseline oder lokaler Rebuild folgen ausschließlich
-dem dokumentierten `native:*`-Workflow. `--approve-rebuild` ist Pflicht, wenn
-der Projektbefehl es verlangt. Eine neue Baseline darf keinen ungeklärten Drift
-verdecken.
+Für eine iOS-Geräteabnahme den Development-Client lokal über `expo prebuild
+--no-clean --platform ios` und `expo run:ios --device "<Gerätename oder UDID>"`
+kompilieren und installieren. Die vollständigen Env-Variablen und Befehle
+stehen in der [Build-Anleitung](../../docs/architecture/LOCAL_NATIVE_BUILDS.md).
 
 ### Datenschutz
 
@@ -166,8 +168,8 @@ kanonischen Speichervertrag. Keine dieser Grenzen darf Inventory- oder
 Shopping-List-Schreibpfade importieren.
 
 Die Produktionsscopes stehen in den Beads. Gemeinsame Native-Konfiguration
-(`package.json`, `bun.lock`, `app.json`, generierte iOS-/Android-Artefakte und
-Native-Build-Lock) gehört ausschließlich `fam-n6on`. Andere Tasks fordern dort
+(`package.json`, `bun.lock`, `app.json`, lokale Module und Config-Plugins)
+gehört ausschließlich `fam-n6on`. Andere Tasks fordern dort
 benötigte Dependencies an, editieren diese Dateien aber nicht parallel.
 
 Der finale Bead `fam-swdk` besitzt keine Produktionsdateien. Findet er einen

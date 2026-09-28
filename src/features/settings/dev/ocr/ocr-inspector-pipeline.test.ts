@@ -5,12 +5,17 @@ import {
 } from './ocr-inspector-pipeline';
 
 const mockRecognizeText = jest.fn();
+const mockRecognizeWithGoogleMlKit = jest.fn();
 const mockLoadImage = jest.fn();
 const mockLoadNativeImage = jest.fn();
 const mockLoadFromRawPixelData = jest.fn();
 
 jest.mock('expo-ai-kit', () => ({
   recognizeText: (...args: unknown[]) => mockRecognizeText(...args),
+}));
+
+jest.mock('@/features/ocr/processing/mlkit', () => ({
+  recognizeWithGoogleMlKit: (...args: unknown[]) => mockRecognizeWithGoogleMlKit(...args),
 }));
 
 jest.mock('expo-image', () => ({
@@ -58,6 +63,7 @@ describe('ocr-inspector-pipeline', () => {
 
     await expect(
       recognizeReceiptOcrForInspector('file:///tmp/receipt.jpg', {
+        iosProvider: 'apple-vision',
         languages: ['de-DE'],
         recognitionLevel: 'fast',
         usesLanguageCorrection: false,
@@ -83,6 +89,42 @@ describe('ocr-inspector-pipeline', () => {
         customWords: ['EDEKA'],
       },
     );
+  });
+
+  it('uses the iOS ML Kit module without inventing confidence', async () => {
+    mockLoadImage.mockResolvedValue({ width: 1_000, height: 2_000, scale: 1 });
+    mockRecognizeWithGoogleMlKit.mockResolvedValue({
+      blocks: [
+        {
+          lines: [
+            {
+              text: 'EDEKA',
+              boundingBox: { x: 100, y: 400, width: 300, height: 80 },
+            },
+          ],
+        },
+      ],
+    });
+
+    await expect(
+      recognizeReceiptOcrForInspector('file:///tmp/receipt.jpg', {
+        iosProvider: 'google-mlkit',
+        languages: ['de-DE'],
+        recognitionLevel: 'accurate',
+        usesLanguageCorrection: true,
+        customWords: [],
+      }),
+    ).resolves.toMatchObject({
+      lines: [
+        {
+          text: 'EDEKA',
+          confidence: null,
+          boundingBox: { x: 0.1, y: 0.2, width: 0.3, height: 0.04 },
+        },
+      ],
+    });
+    expect(mockRecognizeWithGoogleMlKit).toHaveBeenCalledWith('file:///tmp/receipt.jpg');
+    expect(mockRecognizeText).not.toHaveBeenCalled();
   });
 
   it('returns the source URI unchanged when no image preparation is selected', async () => {

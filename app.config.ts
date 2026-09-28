@@ -18,20 +18,39 @@ function getUpdateChannel(): UpdateChannel {
   }
 }
 
-export default ({ config }: ConfigContext): ExpoConfig => ({
-  ...config,
-  name: config.name ?? 'fam',
-  slug: config.slug ?? 'fam',
-  extra: {
-    ...config.extra,
-    showUpdateExperience: process.env.FAM_SHOW_UPDATE_EXPERIENCE === '1',
-    dummyUpdateExperience: process.env.FAM_DUMMY_UPDATE_EXPERIENCE === '1',
-  },
-  updates: {
-    ...config.updates,
-    requestHeaders: {
-      ...config.updates?.requestHeaders,
-      'expo-channel-name': getUpdateChannel(),
+export default ({ config }: ConfigContext): ExpoConfig => {
+  const iosMlKitOcrEnabled = process.env.FAM_IOS_MLKIT_OCR === '1';
+  // expo-ai-kit provides Apple Vision; expo-mlkit-ocr provides the optional
+  // Google ML Kit path. iosEngine only configures the latter package.
+  const mlKitOcrPlugins: NonNullable<ExpoConfig['plugins']> =
+    iosMlKitOcrEnabled
+      ? [
+          ['expo-ai-kit', { vision: true }],
+          ['expo-mlkit-ocr', { iosEngine: 'mlkit' }],
+          ['expo-build-properties', { ios: { useFrameworks: 'static', deploymentTarget: '17.0' } }],
+        ]
+      : [
+          ['expo-ai-kit', { vision: true }],
+          ['expo-mlkit-ocr', { iosEngine: 'vision' }],
+        ];
+
+  return {
+    ...config,
+    plugins: [...(config.plugins ?? []), ...mlKitOcrPlugins],
+    name: config.name ?? 'fam',
+    slug: config.slug ?? 'fam',
+    extra: {
+      ...config.extra,
+      iosMlKitOcrEnabled,
+      showUpdateExperience: process.env.FAM_SHOW_UPDATE_EXPERIENCE === '1',
+      dummyUpdateExperience: process.env.FAM_DUMMY_UPDATE_EXPERIENCE === '1',
     },
-  },
-});
+    updates: {
+      ...config.updates,
+      requestHeaders: {
+        ...config.updates?.requestHeaders,
+        'expo-channel-name': getUpdateChannel(),
+      },
+    },
+  };
+};

@@ -2,6 +2,8 @@ import { createReceiptCaptureDraft } from '@/features/ocr/capture/domain/actions
 import type { ReceiptCaptureDraft } from '@/features/ocr/capture/domain/types';
 import { REWE_RECEIPT_LINES } from './domain/fixtures/german-receipts';
 import { parseGermanReceipt } from './domain/parser';
+import * as receiptNative from './native';
+import * as receiptSections from './receipt-page-sections';
 import {
   addReceiptReviewItem,
   applyReceiptReviewState,
@@ -9,7 +11,11 @@ import {
   removeReceiptReviewItem,
   updateReceiptReviewItem,
 } from './review/model';
-import { finalizeReceiptReview, type ReceiptAuthorityWriter } from './workflow';
+import {
+  finalizeReceiptReview,
+  processReceiptCapture,
+  type ReceiptAuthorityWriter,
+} from './workflow';
 
 function capture(): ReceiptCaptureDraft {
   return createReceiptCaptureDraft({
@@ -197,5 +203,36 @@ describe('finalizeReceiptReview', () => {
     });
     expect(uploadAssets).not.toHaveBeenCalled();
     expect(testAuthority.calls).toContain('confirmReceipt');
+  });
+});
+
+describe('processReceiptCapture', () => {
+  it('skips Vision readiness and passes the selected ML Kit provider to page OCR', async () => {
+    const getAvailability = jest.spyOn(receiptNative, 'getReceiptOcrAvailability');
+    const recognizePage = jest
+      .spyOn(receiptSections, 'recognizeReceiptPageSections')
+      .mockResolvedValue({
+        imageSize: { width: 100, height: 200 },
+        lines: [
+          {
+            text: 'REWE',
+            confidence: null,
+            boundingBox: { x: 0.1, y: 0.1, width: 0.5, height: 0.04 },
+          },
+        ],
+      });
+
+    await expect(
+      processReceiptCapture({ capture: capture(), provider: 'google-mlkit' }),
+    ).resolves.toMatchObject({
+      kind: 'success',
+    });
+
+    expect(getAvailability).not.toHaveBeenCalled();
+    expect(recognizePage).toHaveBeenCalledWith(capture().pages[0]?.localUri, {
+      provider: 'google-mlkit',
+    });
+    getAvailability.mockRestore();
+    recognizePage.mockRestore();
   });
 });

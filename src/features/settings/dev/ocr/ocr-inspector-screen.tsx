@@ -32,6 +32,7 @@ import {
   type InspectorRecognitionLevel,
   type InspectorResize,
   type InspectorSharpen,
+  isGoogleMlKitAvailable,
   parseInspectorCustomWords,
   prepareInspectorImage,
   recognizeReceiptOcrForInspector,
@@ -56,6 +57,7 @@ type InspectorPhase =
   | 'error';
 
 type InspectorSettings = InspectorImageSettings & {
+  iosProvider: 'apple-vision' | 'google-mlkit';
   language: InspectorLanguage;
   recognitionLevel: InspectorRecognitionLevel;
   usesLanguageCorrection: boolean;
@@ -63,6 +65,7 @@ type InspectorSettings = InspectorImageSettings & {
 };
 
 const INITIAL_SETTINGS: InspectorSettings = {
+  iosProvider: 'apple-vision',
   language: 'auto',
   recognitionLevel: 'accurate',
   usesLanguageCorrection: true,
@@ -328,6 +331,7 @@ function languageTags(settings: InspectorSettings): string[] {
 
 function requiresInspectorNativePath(settings: InspectorSettings): boolean {
   return (
+    settings.iosProvider !== 'apple-vision' ||
     settings.recognitionLevel !== 'accurate' ||
     !settings.usesLanguageCorrection ||
     parseInspectorCustomWords(settings.customWords).length > 0
@@ -360,8 +364,12 @@ function lineKey(line: ReceiptOcrLine): string {
   ].join('|');
 }
 
-function providerLabel(): string {
-  if (process.env.EXPO_OS === 'ios') return 'expo-ai-kit · Apple Vision';
+function providerLabel(settings: InspectorSettings): string {
+  if (process.env.EXPO_OS === 'ios') {
+    return settings.iosProvider === 'google-mlkit'
+      ? 'expo-ai-kit · Google ML Kit'
+      : 'expo-ai-kit · Apple Vision';
+  }
   if (process.env.EXPO_OS === 'android') return 'expo-ai-kit · Google ML Kit';
   return 'expo-ai-kit · native Vision Provider';
 }
@@ -501,6 +509,7 @@ export function OcrInspectorScreen() {
       setPhase('recognizing');
 
       const nativeSettings: InspectorNativeOcrSettings = {
+        iosProvider: runSettings.iosProvider,
         languages,
         recognitionLevel: runSettings.recognitionLevel,
         usesLanguageCorrection: runSettings.usesLanguageCorrection,
@@ -748,6 +757,27 @@ export function OcrInspectorScreen() {
 
           <View style={styles.settingsGroup}>
             <Txt variant="subheading">Native OCR</Txt>
+            {isIos ? (
+              <SegmentedControl
+                label="OCR-Engine"
+                selected={settings.iosProvider}
+                options={[
+                  { value: 'apple-vision', label: 'Apple Vision' },
+                  {
+                    value: 'google-mlkit',
+                    label: 'Google ML Kit',
+                    disabled: !isGoogleMlKitAvailable(),
+                  },
+                ]}
+                onSelect={(iosProvider) =>
+                  setSettings((current) => ({
+                    ...current,
+                    iosProvider: iosProvider as InspectorSettings['iosProvider'],
+                  }))
+                }
+                size="compact"
+              />
+            ) : null}
             <WheelPickerField
               label="OCR-Sprache"
               value={settings.language}
@@ -799,8 +829,9 @@ export function OcrInspectorScreen() {
               style={styles.customWords}
             />
             <Txt variant="caption" tone="secondary" style={styles.settingsHint} selectable>
-              Fast, Sprachkorrektur und eigene Wörter werden derzeit nur von Apple Vision
-              ausgewertet. Auf Android bleiben diese Felder sichtbar, aber deaktiviert.
+              Fast, Sprachkorrektur und eigene Wörter werden nur von Apple Vision ausgewertet.
+              Google ML Kit nutzt seine Standarderkennung; iOS-Confidence wird als nicht verfügbar
+              angezeigt.
             </Txt>
           </View>
         </View>
@@ -876,7 +907,7 @@ export function OcrInspectorScreen() {
           wert={phaseLabel(phase)}
           tone={phase === 'error' ? 'danger' : phase === 'ready' ? 'accent' : undefined}
         />
-        <Zeile label="Provider" wert={providerLabel()} />
+        <Zeile label="Provider" wert={providerLabel(settings)} />
         <Zeile
           label="OCR-Modell"
           wert={availabilityLabel(availability)}

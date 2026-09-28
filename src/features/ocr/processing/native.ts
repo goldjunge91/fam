@@ -3,9 +3,13 @@ import type {
   VisionFeatureAvailability,
   VisionUnavailableReason,
 } from 'expo-ai-kit';
+import { isGoogleMlKitAvailable, recognizeWithGoogleMlKit } from './mlkit';
+
+export type ReceiptOcrProvider = 'apple-vision' | 'google-mlkit';
 
 export type ReceiptOcrOptions = {
   languages?: readonly string[];
+  provider?: ReceiptOcrProvider;
 };
 
 export type ReceiptOcrPrepareOptions = ReceiptOcrOptions & {
@@ -490,15 +494,12 @@ function normalizeOptions(options: ReceiptOcrOptions | undefined): ReceiptOcrOpt
     return {};
   }
 
-  if (options.languages === undefined) {
-    return {};
-  }
-
   if (
-    !Array.isArray(options.languages) ||
-    options.languages.some(
-      (language) => typeof language !== 'string' || language.trim().length === 0,
-    )
+    options.languages !== undefined &&
+    (!Array.isArray(options.languages) ||
+      options.languages.some(
+        (language) => typeof language !== 'string' || language.trim().length === 0,
+      ))
   ) {
     throw new ReceiptOcrError(
       'UNSUPPORTED_LANGUAGE',
@@ -506,8 +507,15 @@ function normalizeOptions(options: ReceiptOcrOptions | undefined): ReceiptOcrOpt
     );
   }
 
-  return { languages: options.languages.map((language) => language.trim()) };
+  return {
+    ...(options.languages === undefined
+      ? {}
+      : { languages: options.languages.map((language) => language.trim()) }),
+    provider: options.provider === 'google-mlkit' ? 'google-mlkit' : 'apple-vision',
+  };
 }
+
+export { isGoogleMlKitAvailable };
 
 export function isReceiptOcrAvailable(): boolean {
   return loadExpoAiKit() !== null;
@@ -519,6 +527,31 @@ export async function recognizeReceiptOcr(
 ): Promise<ReceiptOcrResult> {
   const localUri = validateReceiptOcrUri(uri);
   const normalizedOptions = normalizeOptions(options);
+  if (normalizedOptions.provider === 'google-mlkit') {
+    if (!isGoogleMlKitAvailable()) {
+      throw new ReceiptOcrError(
+        'DEVICE_NOT_SUPPORTED',
+        'Google ML Kit is not available in this iOS build or on this device.',
+      );
+    }
+    try {
+      const imageSize = await readReceiptImageSize(localUri);
+      const result = await recognizeWithGoogleMlKit(localUri);
+      return normalizeReceiptOcrResult({
+        imageSize,
+        lines: result.blocks.flatMap((block) =>
+          block.lines.map((line) => ({
+            text: line.text,
+            confidence: null,
+            boundingBox: line.boundingBox,
+          })),
+        ),
+      });
+    } catch (error) {
+      throw mapReceiptOcrError(error);
+    }
+  }
+
   const api = loadExpoAiKit();
 
   if (api === null) {

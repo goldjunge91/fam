@@ -46,6 +46,7 @@ describe('DevToolsScreen', () => {
   beforeEach(() => {
     mockStorageData.clear();
     useDevSettingsStore.getState().setSpeechTestProvider('native');
+    useDevSettingsStore.getState().setReceiptOcrTestEnabled(false);
     jest.mocked(router.push).mockClear();
   });
 
@@ -80,5 +81,15 @@ describe('DevToolsScreen', () => {
     await user.press(screen.getByRole('button', { name: 'OCR-Pipeline analysieren' }));
 
     expect(router.push).toHaveBeenCalledWith('/settings/dev-ocr-inspector');
+  });
+
+  it('aktiviert die OCR-Anbieterauswahl für den Kassenbon-Upload', async () => {
+    await renderScreen();
+    const user = userEvent.setup();
+
+    expect(screen.getByRole('radio', { name: 'Aus', selected: true })).toBeOnTheScreen();
+    await user.press(screen.getByRole('radio', { name: 'An' }));
+
+    expect(useDevSettingsStore.getState().receiptOcrTestEnabled).toBe(true);
   });
 });

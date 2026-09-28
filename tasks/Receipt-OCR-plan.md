@@ -290,18 +290,16 @@ bun run test src/features/ocr/processing
 bun run test src/features/ocr/authority
 bun run check
 bun run typecheck
-bun run native:status -- --diff
 ```
 
-Kein `bun test` und keine ungefilterte Jest-Suite. Ein echter Native-Change
-erfordert den dokumentierten Rebuild-/Baseline-Prozess aus `AGENTS.md`.
+Kein `bun test` und keine ungefilterte Jest-Suite.
 
 ### Reale OCR-Matrix
 
 Für jede Kombination aus iOS/Android und den drei Bildern wird in der
 `fam-swdk`-Notiz festgehalten:
 
-- Plattform, OS, Gerät/Simulator und Build-/Fingerprint-ID;
+- Plattform, OS, Gerät/Simulator, lokaler Build-Befehl und Build-ID;
 - Provider und exakte Version;
 - Netzwerk deaktiviert;
 - OCR liefert nicht leere, geordnete Zeilen;
@@ -333,8 +331,9 @@ Signaturdaten enthalten.
   TestFlight-Status kann den Realbild-Gate nicht ersetzen.
 - OCR-Rohtext, Bilder oder Goldwerte werden nicht an Supabase, Telemetrie,
   Sentry oder andere Remote-Ziele gesendet.
-- Ein nicht erklärter Native-Fingerprint-Drift wird nicht durch eine neue
-  Baseline verdeckt.
+- Ein Treffer im Simulator-Build-Cache gilt nicht als Compile- oder
+  Geräteabnahme. Native Änderungen brauchen den passenden frisch gebauten
+  Development-Client und den Realbild-Nachweis auf dem Zielgerät.
 
 ## Nicht Teil dieses Plans
 
@@ -373,8 +372,8 @@ erfüllt sind:
    verworfener Draft hinterlässt keine lokalen Bilddateien.
 8. Kein Receipt-Schritt verändert Inventory, Fridge oder Shopping List und
    erzeugt keine entsprechende Outbox-Operation.
-9. Fokussierte Tests, Biome und Typecheck sind grün. Native-Fingerprint und
-   Rebuild sind nach dem Projektvertrag dokumentiert.
+9. Fokussierte Tests, Biome und Typecheck sind grün. Lokaler Native-Build,
+   Build-ID und Geräteprüfung sind dokumentiert.
 10. `fam-swdk` enthält den realen Nachweis für beide Plattformen. Erst danach
    werden die offenen Beads geschlossen und Statusangaben aktualisiert.
 

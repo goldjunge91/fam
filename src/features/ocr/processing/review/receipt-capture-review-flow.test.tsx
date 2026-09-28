@@ -372,6 +372,7 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     );
     expect(processCapture).toHaveBeenCalledWith({
       capture: expect.objectContaining({ pages: second.pages }),
+      provider: 'apple-vision',
       onProgress: expect.any(Function),
     });
   });

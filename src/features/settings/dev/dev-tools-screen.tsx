@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { ExpoSpeechRecognitionModule } from 'expo-speech-recognition';
-import { Alert, Linking } from 'react-native';
+import { Alert, Linking, Platform } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
 import { type SpeechTestProvider, useDevSettingsStore } from '@/constants/dev-settings';
@@ -55,6 +55,8 @@ const DEV_CATEGORIES = [
 export function DevToolsScreen() {
   const speechTestProvider = useDevSettingsStore((state) => state.speechTestProvider);
   const setSpeechTestProvider = useDevSettingsStore((state) => state.setSpeechTestProvider);
+  const receiptOcrTestEnabled = useDevSettingsStore((state) => state.receiptOcrTestEnabled);
+  const setReceiptOcrTestEnabled = useDevSettingsStore((state) => state.setReceiptOcrTestEnabled);
 
   async function requestMicrophonePermission() {
     try {
@@ -139,6 +141,21 @@ export function DevToolsScreen() {
           last
         />
       </SettingsGroup>
+      {Platform.OS === 'ios' ? (
+        <SettingsGroup title="Kassenbon-OCR">
+          <SegmentedControl
+            label="OCR-Anbieterauswahl im Kassenbon-Upload"
+            options={[
+              { value: 'disabled', label: 'Aus' },
+              { value: 'enabled', label: 'An' },
+            ]}
+            selected={receiptOcrTestEnabled ? 'enabled' : 'disabled'}
+            onSelect={(value) => setReceiptOcrTestEnabled(value === 'enabled')}
+            appearance="surface"
+            size="compact"
+          />
+        </SettingsGroup>
+      ) : null}
       <SettingsGroup>
         {DEV_CATEGORIES.map((category, index) => (
           <SettingsRow

@@ -104,8 +104,9 @@ Laden:
 - vorhandene fokussierte Tests unter `src/features/ocr/processing/`
 - `node_modules/expo-ai-kit/README.md`
 - `node_modules/expo-ai-kit/android/build.gradle`
-- Apple-/Android-Autolinking-Ausgaben und native Lockfiles
-- `native-build-lock.json`
+- Apple-/Android-Autolinking-Ausgaben und die aufgelöste Expo-Konfiguration
+- lokaler Build-Befehl, Build-ID, Zielgerät und Betriebssystem des tatsächlich
+  geprüften nativen Builds
 - Expo Autolinking und Provider-Dokumentation
 
 Prüfen:
@@ -118,7 +119,9 @@ Prüfen:
 - Provideroutput enthält Zeilen/Geometrie oder lässt sich verlustarm daraus
   ableiten.
 - Fehlende Confidence bleibt unbekannt.
-- Native-Fingerprint-Drift wird vor Baseline/Rebuild erklärt.
+- Native Änderungen werden über Konfiguration, Config-Plugin und Autolinking
+  nachvollzogen; ein Compile und Geräteverhalten werden auf der Zielplattform
+  geprüft. Der lokale Remote-Cache ist kein Compile- oder Geräteabnahmenachweis.
 
 ### `fam-mc71` — Bildnormalisierung
 
@@ -205,7 +208,8 @@ Laden:
 
 Pro Plattform und Bild dokumentieren:
 
-- Build/Fingerprint, OS/Gerät, `expo-ai-kit`-Version und native Engine;
+- lokaler Build-Befehl/Build-ID, OS/Gerät, `expo-ai-kit`-Version und native
+  Engine;
 - auf Android vorbereiteter und bestätigter Modellzustand;
 - Offlinezustand während OCR, Review, Save und Relaunch;
 - OCR nicht leer;

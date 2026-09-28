@@ -17,6 +17,7 @@
       "extends": "base",
       "env": {
         "FAM_HARNESS_UI": "1",
+        "FAM_IOS_MLKIT_OCR": "0",
         "FAM_UPDATE_CHANNEL": "development",
         "EXPO_PUBLIC_USE_RN_FETCH": "1"
       },
@@ -31,6 +32,15 @@
         "buildType": "apk"
       },
       "channel": "development"
+    },
+    "development-device": {
+      "extends": "development",
+      "env": {
+        "FAM_IOS_MLKIT_OCR": "1"
+      },
+      "ios": {
+        "simulator": false
+      }
     },
     "preview": {
       "extends": "base",
@@ -50,6 +60,8 @@
       "env": {
         "SENTRY_DISABLE_AUTO_UPLOAD": "false",
         "FAM_HARNESS_UI": "0",
+        "EXPO_PUBLIC_DEV_TOOLS": "1",
+        "FAM_IOS_MLKIT_OCR": "1",
         "FAM_UPDATE_CHANNEL": "preview-testflight",
         "EXPO_PUBLIC_USE_RN_FETCH": "1"
       },

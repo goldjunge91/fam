@@ -82,10 +82,14 @@ def commands_for(
             run.extend(["--device", device.strip()])
         return [
             [
-                "env", "FAM_HARNESS_UI=1", "FAM_UPDATE_CHANNEL=development",
+                "env", "FAM_HARNESS_UI=1", "FAM_IOS_MLKIT_OCR=0",
+                "FAM_UPDATE_CHANNEL=development",
                 "USE_CCACHE=1", *_prebuild(target),
             ],
-            ["env", "FAM_HARNESS_UI=1", "FAM_UPDATE_CHANNEL=development", *run],
+            [
+                "env", "FAM_HARNESS_UI=1", "FAM_IOS_MLKIT_OCR=0",
+                "FAM_UPDATE_CHANNEL=development", *run,
+            ],
         ]
 
     if action == "Lokal bauen: TestFlight-Archiv" and target_name == "iOS TestFlight":

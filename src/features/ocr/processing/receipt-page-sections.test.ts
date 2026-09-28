@@ -1,9 +1,11 @@
 import { parseGermanReceipt } from './domain/parser';
 import type { ReceiptOcrLine } from './native';
+import * as receiptNative from './native';
 import {
   mergeReceiptOcrLines,
   projectSectionLines,
   receiptSections,
+  recognizeReceiptPageSections,
 } from './receipt-page-sections';
 
 function recognizedLine(y: number, height: number): ReceiptOcrLine {
@@ -15,6 +17,21 @@ function recognizedLine(y: number, height: number): ReceiptOcrLine {
 }
 
 describe('three OCR sections per receipt photo', () => {
+  it('forwards the selected provider to receipt OCR', async () => {
+    const recognize = jest.spyOn(receiptNative, 'recognizeReceiptOcr').mockResolvedValue({
+      imageSize: { width: 100, height: 200 },
+      lines: [recognizedLine(0.2, 0.04)],
+    });
+
+    await recognizeReceiptPageSections('file:///tmp/receipt.jpg', { provider: 'google-mlkit' });
+
+    expect(recognize).toHaveBeenCalledWith('file:///tmp/receipt.jpg', {
+      provider: 'google-mlkit',
+      languages: ['de-DE'],
+    });
+    recognize.mockRestore();
+  });
+
   it('covers the whole photo with overlap around both section boundaries', () => {
     expect(receiptSections(2400)).toEqual([
       { start: 0, end: 860, coreStart: 0, coreEnd: 800 },

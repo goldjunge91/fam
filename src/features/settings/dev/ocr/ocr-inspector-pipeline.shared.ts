@@ -1,4 +1,7 @@
+import { recognizeWithGoogleMlKit } from '@/features/ocr/processing/mlkit';
 import { normalizeReceiptOcrResult, type ReceiptOcrResult } from '@/features/ocr/processing/native';
+
+export { isGoogleMlKitAvailable } from '@/features/ocr/processing/mlkit';
 
 // This module is shared by native and web builds. Native-only image preprocessing
 // lives in the platform files so Metro never has to resolve Nitro Image for web.
@@ -21,6 +24,7 @@ export type InspectorImageSettings = {
 };
 
 export type InspectorNativeOcrSettings = {
+  iosProvider: 'apple-vision' | 'google-mlkit';
   languages: readonly string[];
   recognitionLevel: InspectorRecognitionLevel;
   usesLanguageCorrection: boolean;
@@ -66,27 +70,38 @@ export async function recognizeReceiptOcrForInspector(
   const aiKit = loadExpoAiKit();
   const imageApi = loadExpoImage();
   const image = await imageApi.Image.loadAsync({ uri });
-  const result = await aiKit.recognizeText(
-    { uri },
-    {
-      languages: [...settings.languages],
-      recognitionLevel: settings.recognitionLevel,
-      usesLanguageCorrection: settings.usesLanguageCorrection,
-      customWords: [...settings.customWords],
-    },
-  );
+  const lines =
+    settings.iosProvider === 'google-mlkit'
+      ? (await recognizeWithGoogleMlKit(uri)).blocks.flatMap((block) =>
+          block.lines.map((line) => ({
+            text: line.text,
+            confidence: null,
+            boundingBox: line.boundingBox,
+          })),
+        )
+      : (
+          await aiKit.recognizeText(
+            { uri },
+            {
+              languages: [...settings.languages],
+              recognitionLevel: settings.recognitionLevel,
+              usesLanguageCorrection: settings.usesLanguageCorrection,
+              customWords: [...settings.customWords],
+            },
+          )
+        ).blocks.flatMap((block) =>
+          block.lines.map((line) => ({
+            text: line.text,
+            confidence: line.confidence ?? null,
+            boundingBox: line.bounds,
+          })),
+        );
 
   return normalizeReceiptOcrResult({
     imageSize: {
       width: image.width * (image.scale ?? 1),
       height: image.height * (image.scale ?? 1),
     },
-    lines: result.blocks.flatMap((block) =>
-      block.lines.map((line) => ({
-        text: line.text,
-        confidence: line.confidence ?? null,
-        boundingBox: line.bounds,
-      })),
-    ),
+    lines,
   });
 }

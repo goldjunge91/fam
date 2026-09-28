@@ -16,6 +16,8 @@ describe('dev settings', () => {
     useDevSettingsStore.getState().resetTrackingMethodOverrides();
     useDevSettingsStore.getState().resetModuleFeatureFlagOverrides();
     useDevSettingsStore.getState().setSpeechTestProvider('native');
+    useDevSettingsStore.getState().setReceiptOcrTestEnabled(false);
+    useDevSettingsStore.getState().setReceiptOcrProvider('apple-vision');
   });
 
   it('persistiert Tracking-Methoden-Overrides wie die Analytics-Overrides', () => {
@@ -72,5 +74,15 @@ describe('dev settings', () => {
     useDevSettingsStore.getState().setSpeechTestProvider('native');
 
     expect(useDevSettingsStore.getState().speechTestProvider).toBe('native');
+  });
+
+  it('persistiert den Receipt-OCR-Testmodus und den ausgewählten Anbieter', () => {
+    useDevSettingsStore.getState().setReceiptOcrTestEnabled(true);
+    useDevSettingsStore.getState().setReceiptOcrProvider('google-mlkit');
+
+    expect(useDevSettingsStore.getState().receiptOcrTestEnabled).toBe(true);
+    expect(useDevSettingsStore.getState().receiptOcrProvider).toBe('google-mlkit');
+    expect(mockStorageData.get('dev.receipt_ocr_test_enabled.v1')).toBe('true');
+    expect(mockStorageData.get('dev.receipt_ocr_provider.v1')).toBe('google-mlkit');
   });
 });

@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Modal, View } from 'react-native';
+import { Modal, Platform, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { Button, Surface, Txt } from '@/constants/ui';
+import { useDevSettingsStore } from '@/constants/dev-settings';
+import { Button, SegmentedControl, Surface, Txt } from '@/constants/ui';
 import {
   captureReceipt,
   createReceiptCapturePersistence,
@@ -19,9 +20,11 @@ import type {
   ReceiptCaptureSource,
 } from '@/features/ocr/capture/domain/types';
 import { useStores } from '@/features/shopping-list/hooks/use-stores';
+import { env } from '@/lib/config/env';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 import { triggerHouseholdSyncAfterOutboxMutation } from '@/lib/sync/sync-runner';
 import type { ReceiptDraft } from '../domain/types';
+import { isGoogleMlKitAvailable } from '../native';
 import {
   type FinalizeReceiptResult,
   finalizeReceiptReview,
@@ -40,6 +43,11 @@ import {
 } from './model';
 import { ReceiptProcessingIndicator } from './receipt-processing-indicator';
 import { ReceiptReviewModal } from './receipt-review-modal';
+
+const RECEIPT_OCR_PROVIDER_OPTIONS = [
+  { value: 'apple-vision', label: 'Apple Vision' },
+  { value: 'google-mlkit', label: 'Google ML Kit' },
+] as const;
 
 const styles = StyleSheet.create((theme) => ({
   root: {
@@ -104,6 +112,11 @@ export function ReceiptCaptureReviewFlow({
   persistence: persistenceOverride,
 }: ReceiptCaptureReviewFlowProps) {
   const { t } = useTranslation();
+  const receiptOcrTestEnabled = useDevSettingsStore((state) => state.receiptOcrTestEnabled);
+  const receiptOcrProvider = useDevSettingsStore((state) => state.receiptOcrProvider);
+  const setReceiptOcrProvider = useDevSettingsStore((state) => state.setReceiptOcrProvider);
+  const mlKitAvailable = Platform.OS === 'ios' && isGoogleMlKitAvailable();
+  const showOcrProviderPicker = env.devTools && receiptOcrTestEnabled && Platform.OS === 'ios';
   const { data: householdStores = [] } = useStores(householdId);
   const stores = useMemo<readonly ReceiptReviewStoreOption[]>(
     () => householdStores.map(({ id, name }) => ({ id, name })),
@@ -253,6 +266,7 @@ export function ReceiptCaptureReviewFlow({
         try {
           processed = await processCapture({
             capture: processingCapture,
+            provider: showOcrProviderPicker && mlKitAvailable ? receiptOcrProvider : 'apple-vision',
             onProgress: (progress) => {
               if (isLifecycleCurrent(generation)) setProcessingStage(progress.phase);
             },
@@ -309,7 +323,16 @@ export function ReceiptCaptureReviewFlow({
         throw processingError;
       }
     },
-    [isLifecycleCurrent, nowIso, persistence, processCapture, t],
+    [
+      isLifecycleCurrent,
+      mlKitAvailable,
+      nowIso,
+      persistence,
+      processCapture,
+      receiptOcrProvider,
+      showOcrProviderPicker,
+      t,
+    ],
   );
 
   const persistReviewState = useCallback(
@@ -811,6 +834,19 @@ export function ReceiptCaptureReviewFlow({
               <Txt variant="body" tone="secondary">
                 {t('ocr.review.captureHint')}
               </Txt>
+              {showOcrProviderPicker ? (
+                <SegmentedControl
+                  label="Kassenbon-OCR-Anbieter"
+                  options={RECEIPT_OCR_PROVIDER_OPTIONS.map((option) => ({
+                    ...option,
+                    disabled: option.value === 'google-mlkit' && !mlKitAvailable,
+                  }))}
+                  selected={mlKitAvailable ? receiptOcrProvider : 'apple-vision'}
+                  onSelect={setReceiptOcrProvider}
+                  appearance="surface"
+                  size="compact"
+                />
+              ) : null}
               <Button
                 title={t('ocr.review.camera')}
                 onPress={() => {

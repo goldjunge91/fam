@@ -362,7 +362,8 @@ Die Capability ist erst funktionsfähig, wenn:
    herausgefiltert werden.
 5. Review vollständig korrigierbar ist und der Authority-Save exakt entspricht.
 6. Draft, Retry, Accountisolation und Relaunch funktionieren.
-7. Fokussierte Tests, Biome, Typecheck und Native-Fingerprint-Gates grün sind.
+7. Fokussierte Tests, Biome und Typecheck grün sind; native Änderung ist lokal
+   kompiliert und auf den betroffenen Zielplattformen geprüft.
 8. Bestätigte Receipts nach Kaufdatum sortiert sind und jeder Bon dauerhaft
    als strukturierte Detailansicht mit vollständiger Artikelliste und Preisen
    geöffnet werden kann; vorhandene Bonbilder sind dort als Vorschau sichtbar

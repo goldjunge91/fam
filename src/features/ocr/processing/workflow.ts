@@ -20,6 +20,7 @@ import {
   getReceiptOcrAvailability,
   prepareReceiptOcr,
   type ReceiptOcrErrorCode,
+  type ReceiptOcrProvider,
   type ReceiptOcrResult,
 } from './native';
 import { recognizeReceiptPageSections } from './receipt-page-sections';
@@ -82,17 +83,20 @@ function pageLines(result: ReceiptOcrResult, pageIndex: number): ReceiptOcrLine[
  */
 export async function processReceiptCapture(input: {
   capture: ReceiptCaptureDraft;
+  provider?: ReceiptOcrProvider;
   onProgress?: (progress: ReceiptProcessingProgress) => void;
 }): Promise<ReceiptProcessingResult> {
   const lines: ReceiptOcrLine[] = [];
 
   try {
     input.onProgress?.({ phase: 'preparing', progress: 0 });
-    const availability = await getReceiptOcrAvailability();
-    if (availability.status !== 'available') {
-      await prepareReceiptOcr({
-        onProgress: (progress) => input.onProgress?.({ phase: 'preparing', progress }),
-      });
+    if (input.provider !== 'google-mlkit') {
+      const availability = await getReceiptOcrAvailability();
+      if (availability.status !== 'available') {
+        await prepareReceiptOcr({
+          onProgress: (progress) => input.onProgress?.({ phase: 'preparing', progress }),
+        });
+      }
     }
   } catch (error: unknown) {
     const details = errorDetails(error);
@@ -110,7 +114,9 @@ export async function processReceiptCapture(input: {
         pageIndex,
         pageCount: input.capture.pages.length,
       });
-      const result = await recognizeReceiptPageSections(page.localUri);
+      const result = await recognizeReceiptPageSections(page.localUri, {
+        provider: input.provider,
+      });
       lines.push(...pageLines(result, pageIndex));
     } catch (error: unknown) {
       const details = errorDetails(error);

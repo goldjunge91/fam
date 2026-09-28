@@ -29,11 +29,14 @@ class BuildGuiCommandTest(unittest.TestCase):
         )
 
         self.assertEqual(len(commands), 2)
-        self.assertEqual(commands[0][:3], ["env", "FAM_HARNESS_UI=1", "bun"])
+        self.assertEqual(commands[0][:2], ["env", "FAM_HARNESS_UI=1"])
+        self.assertIn("FAM_IOS_MLKIT_OCR=0", commands[0])
+        self.assertIn("bun", commands[0])
         self.assertIn("--no-clean", commands[0])
         self.assertNotIn("--clean", commands[0])
         self.assertIn("run:ios", commands[1])
-        self.assertEqual(commands[1][-3:], ["--device", "iPhone 17"])
+        self.assertIn("FAM_IOS_MLKIT_OCR=0", commands[1])
+        self.assertEqual(commands[1][-2:], ["--device", "iPhone 17"])
 
     def test_local_testflight_build_reuses_derived_data_and_keeps_unique_artifacts(self) -> None:
         build_dir = LOCAL_IOS / "unique-build"

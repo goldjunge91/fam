@@ -1,6 +1,6 @@
 import type * as ExpoFileSystem from 'expo-file-system';
 import { Platform } from 'react-native';
-import type { ReceiptOcrLine, ReceiptOcrResult } from './native';
+import type { ReceiptOcrLine, ReceiptOcrOptions, ReceiptOcrResult } from './native';
 import { ReceiptOcrError, recognizeReceiptOcr, validateReceiptOcrUri } from './native';
 import { enhanceReceiptSection } from './receipt-contrast';
 
@@ -135,11 +135,18 @@ export function mergeReceiptOcrLines(
 }
 
 /** Keeps whole-photo OCR and reads three short views for missing prices. */
-export async function recognizeReceiptPageSections(uri: string): Promise<ReceiptOcrResult> {
+export async function recognizeReceiptPageSections(
+  uri: string,
+  options: ReceiptOcrOptions = {},
+): Promise<ReceiptOcrResult> {
   const localUri = validateReceiptOcrUri(uri);
+  const ocrOptions = {
+    ...options,
+    languages: options.languages ?? GERMAN_RECEIPT_OCR_OPTIONS.languages,
+  };
   let whole: ReceiptOcrResult | null = null;
   try {
-    whole = await recognizeReceiptOcr(localUri, GERMAN_RECEIPT_OCR_OPTIONS);
+    whole = await recognizeReceiptOcr(localUri, ocrOptions);
   } catch (error) {
     if (!(error instanceof ReceiptOcrError && error.code === 'NO_TEXT')) throw error;
   }
@@ -153,11 +160,11 @@ export async function recognizeReceiptPageSections(uri: string): Promise<Receipt
     image = await loadImage({ filePath: localUri.slice('file://'.length) });
   } catch {
     if (whole) return whole;
-    return recognizeReceiptOcr(localUri, GERMAN_RECEIPT_OCR_OPTIONS);
+    return recognizeReceiptOcr(localUri, ocrOptions);
   }
   if (image.height < 3) {
     if (whole) return whole;
-    return recognizeReceiptOcr(localUri, GERMAN_RECEIPT_OCR_OPTIONS);
+    return recognizeReceiptOcr(localUri, ocrOptions);
   }
 
   const lines: ReceiptOcrLine[] = [];
@@ -178,11 +185,11 @@ export async function recognizeReceiptPageSections(uri: string): Promise<Receipt
       cropUri = path.startsWith('file://') ? path : `file://${path}`;
     } catch {
       if (whole) return whole;
-      return recognizeReceiptOcr(localUri, GERMAN_RECEIPT_OCR_OPTIONS);
+      return recognizeReceiptOcr(localUri, ocrOptions);
     }
 
     try {
-      const result = await recognizeReceiptOcr(cropUri, GERMAN_RECEIPT_OCR_OPTIONS);
+      const result = await recognizeReceiptOcr(cropUri, ocrOptions);
       lines.push(...projectSectionLines(result.lines, section, image.height));
     } catch (error) {
       if (!(error instanceof ReceiptOcrError && error.code === 'NO_TEXT')) throw error;
@@ -198,5 +205,5 @@ export async function recognizeReceiptPageSections(uri: string): Promise<Receipt
   if (lines.length > 0) {
     return { imageSize: { width: image.width, height: image.height }, lines };
   }
-  return recognizeReceiptOcr(localUri, GERMAN_RECEIPT_OCR_OPTIONS);
+  return recognizeReceiptOcr(localUri, ocrOptions);
 }

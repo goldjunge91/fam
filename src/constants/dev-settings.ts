@@ -2,6 +2,7 @@ import { create } from 'zustand';
 
 import { getSettingsModules } from '@/constants/feature-registry';
 import type { TrackingMethod } from '@/features/calorie-tracking/api';
+import type { ReceiptOcrProvider } from '@/features/ocr/processing/native';
 import type { ModulePreferences } from '@/features/settings/module-preferences';
 import { debugWarn } from '@/lib/observability/debug-log';
 import type { FeatureFlagKey } from '@/lib/observability/providers/posthog';
@@ -28,6 +29,8 @@ const TRACKING_METHOD_OVERRIDES_STORAGE_KEY = 'dev.tracking_method_overrides.v1'
 const MODULE_FEATURE_FLAG_OVERRIDES_STORAGE_KEY = 'dev.module_feature_flag_overrides.v1';
 const FEATURE_FLAG_OVERRIDES_STORAGE_KEY = 'dev.feature_flag_overrides.v1';
 const SPEECH_TEST_PROVIDER_STORAGE_KEY = 'dev.speech_test_provider.v1';
+const RECEIPT_OCR_TEST_ENABLED_STORAGE_KEY = 'dev.receipt_ocr_test_enabled.v1';
+const RECEIPT_OCR_PROVIDER_STORAGE_KEY = 'dev.receipt_ocr_provider.v1';
 const MODULE_FEATURE_KEYS = getSettingsModules().map(({ key }) => key);
 const FEATURE_FLAG_OVERRIDE_KEYS: readonly FeatureFlagKey[] = ['shopping-stt'];
 
@@ -125,6 +128,40 @@ function persistSpeechTestProvider(provider: SpeechTestProvider): void {
   }
 }
 
+function readReceiptOcrTestEnabled(): boolean {
+  try {
+    return getDeviceStorage().getString(RECEIPT_OCR_TEST_ENABLED_STORAGE_KEY) === 'true';
+  } catch {
+    return false;
+  }
+}
+
+function readReceiptOcrProvider(): ReceiptOcrProvider {
+  try {
+    return getDeviceStorage().getString(RECEIPT_OCR_PROVIDER_STORAGE_KEY) === 'google-mlkit'
+      ? 'google-mlkit'
+      : 'apple-vision';
+  } catch {
+    return 'apple-vision';
+  }
+}
+
+function persistReceiptOcrTestEnabled(enabled: boolean): void {
+  try {
+    getDeviceStorage().set(RECEIPT_OCR_TEST_ENABLED_STORAGE_KEY, String(enabled));
+  } catch (error) {
+    debugWarn('[DevSettings] Receipt-OCR-Testmodus konnte nicht gespeichert werden:', error);
+  }
+}
+
+function persistReceiptOcrProvider(provider: ReceiptOcrProvider): void {
+  try {
+    getDeviceStorage().set(RECEIPT_OCR_PROVIDER_STORAGE_KEY, provider);
+  } catch (error) {
+    debugWarn('[DevSettings] Receipt-OCR-Anbieter konnte nicht gespeichert werden:', error);
+  }
+}
+
 function readFeatureFlagOverrides(): FeatureFlagOverrides {
   try {
     const raw = getDeviceStorage().getString(FEATURE_FLAG_OVERRIDES_STORAGE_KEY);
@@ -162,6 +199,8 @@ export type DevSettings = {
   moduleFeatureFlagOverrides: ModuleFeatureFlagOverrides;
   featureFlagOverrides: FeatureFlagOverrides;
   speechTestProvider: SpeechTestProvider;
+  receiptOcrTestEnabled: boolean;
+  receiptOcrProvider: ReceiptOcrProvider;
 };
 
 type DevSettingsStore = DevSettings & {
@@ -172,6 +211,8 @@ type DevSettingsStore = DevSettings & {
   setFeatureFlagOverride: (featureFlag: FeatureFlagKey, value: boolean | null) => void;
   resetFeatureFlagOverrides: () => void;
   setSpeechTestProvider: (provider: SpeechTestProvider) => void;
+  setReceiptOcrTestEnabled: (enabled: boolean) => void;
+  setReceiptOcrProvider: (provider: ReceiptOcrProvider) => void;
 };
 
 export const useDevSettingsStore = create<DevSettingsStore>((set) => ({
@@ -179,6 +220,8 @@ export const useDevSettingsStore = create<DevSettingsStore>((set) => ({
   moduleFeatureFlagOverrides: readStoredModuleFeatureFlagOverrides(),
   featureFlagOverrides: readFeatureFlagOverrides(),
   speechTestProvider: readSpeechTestProvider(),
+  receiptOcrTestEnabled: readReceiptOcrTestEnabled(),
+  receiptOcrProvider: readReceiptOcrProvider(),
   setTrackingMethodOverride: (method, value) =>
     set((state) => {
       const trackingMethodOverrides = { ...state.trackingMethodOverrides };
@@ -218,5 +261,13 @@ export const useDevSettingsStore = create<DevSettingsStore>((set) => ({
   setSpeechTestProvider: (provider) => {
     persistSpeechTestProvider(provider);
     set({ speechTestProvider: provider });
+  },
+  setReceiptOcrTestEnabled: (enabled) => {
+    persistReceiptOcrTestEnabled(enabled);
+    set({ receiptOcrTestEnabled: enabled });
+  },
+  setReceiptOcrProvider: (provider) => {
+    persistReceiptOcrProvider(provider);
+    set({ receiptOcrProvider: provider });
   },
 }));

@@ -2,6 +2,8 @@ const mockGetVisionAvailability = jest.fn();
 const mockPrepareVision = jest.fn();
 const mockRecognizeText = jest.fn();
 const mockLoadImage = jest.fn();
+const mockIsGoogleMlKitAvailable = jest.fn();
+const mockRecognizeWithGoogleMlKit = jest.fn();
 
 jest.mock('expo-ai-kit', () => ({
   getVisionAvailability: (...args: unknown[]) => mockGetVisionAvailability(...args),
@@ -15,6 +17,11 @@ jest.mock('expo-image', () => ({
   },
 }));
 
+jest.mock('./mlkit', () => ({
+  isGoogleMlKitAvailable: (...args: unknown[]) => mockIsGoogleMlKitAvailable(...args),
+  recognizeWithGoogleMlKit: (...args: unknown[]) => mockRecognizeWithGoogleMlKit(...args),
+}));
+
 import {
   getReceiptOcrAvailability,
   normalizeReceiptOcrResult,
@@ -25,6 +32,7 @@ import {
 describe('receipt OCR native adapter', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockIsGoogleMlKitAvailable.mockReturnValue(false);
   });
 
   it('keeps missing provider confidence unknown', () => {
@@ -170,5 +178,35 @@ describe('receipt OCR native adapter', () => {
         usesLanguageCorrection: true,
       }),
     );
+  });
+
+  it('routes the receipt OCR contract through ML Kit when selected', async () => {
+    mockIsGoogleMlKitAvailable.mockReturnValue(true);
+    mockLoadImage.mockResolvedValue({ width: 1_000, height: 2_000, scale: 1 });
+    mockRecognizeWithGoogleMlKit.mockResolvedValue({
+      blocks: [
+        { lines: [{ text: 'EDEKA', boundingBox: { x: 100, y: 200, width: 300, height: 80 } }] },
+      ],
+    });
+
+    await expect(
+      recognizeReceiptOcr('file:///tmp/receipt.jpg', {
+        languages: ['de-DE'],
+        provider: 'google-mlkit',
+      }),
+    ).resolves.toMatchObject({
+      imageSize: { width: 1_000, height: 2_000 },
+      lines: [
+        {
+          text: 'EDEKA',
+          confidence: null,
+          boundingBox: { x: 0.1, y: 0.1, width: 0.3, height: 0.04 },
+        },
+      ],
+    });
+
+    expect(mockRecognizeWithGoogleMlKit).toHaveBeenCalledWith('file:///tmp/receipt.jpg');
+    expect(mockPrepareVision).not.toHaveBeenCalled();
+    expect(mockRecognizeText).not.toHaveBeenCalled();
   });
 });

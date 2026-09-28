@@ -50,14 +50,34 @@ const REAL_RECEIPT_ASSETS = [
     moduleId: require('../testbilder/IMG_4231.png') as number,
   },
   {
+    file: 'IMG_4231_V2_1.jpg',
+    assetFile: 'IMG_4231_V2_1.jpg',
+    moduleId: require('../testbilder/IMG_4231_V2_1.jpg') as number,
+  },
+  {
+    file: 'IMG_4231_V2_2.jpg',
+    assetFile: 'IMG_4231_V2_2.jpg',
+    moduleId: require('../testbilder/IMG_4231_V2_2.jpg') as number,
+  },
+  {
     file: 'IMG_4232_zoomX1_rabatt_2.20.png',
     assetFile: 'IMG_4232_zoomX1_rabatt_2.20.png',
     moduleId: require('../testbilder/IMG_4232_zoomX1_rabatt_2.20.png') as number,
   },
   {
+    file: 'IMG_4232_zoomX1_rabatt_2.20.jpg',
+    assetFile: 'IMG_4232_zoomX1_rabatt_2.20.jpg',
+    moduleId: require('../testbilder/IMG_4232_zoomX1_rabatt_2.20.jpg') as number,
+  },
+  {
     file: 'IMG_4232_zoomX2_rabatt_2.20.png',
     assetFile: 'IMG_4232_zoomX2_rabatt_2.20.png',
     moduleId: require('../testbilder/IMG_4232_zoomX2_rabatt_2.20.png') as number,
+  },
+  {
+    file: 'IMG_4232_zoomX2_rabatt_2.20.jpg',
+    assetFile: 'IMG_4232_zoomX2_rabatt_2.20.jpg',
+    moduleId: require('../testbilder/IMG_4232_zoomX2_rabatt_2.20.jpg') as number,
   },
 ] as const;
 
@@ -203,6 +223,7 @@ function priceMismatchFor(
 }
 
 function canonicalReceiptFile(file: string): string {
+  if (/^IMG_4231_V2(?:_\d+)?\.jpe?g$/iu.test(file)) return 'IMG_4231.png';
   return file.replace(/\.jpe?g$/iu, '.png');
 }
 
