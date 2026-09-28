@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="de" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fam · Beleg scannen</title>
+    <style>
+      /* Farbwerte 1:1 aus src/components/theme/index.ts -> Colors.light / Colors.dark.
+         Keine eigene Palette: jede zusaetzliche Farbrolle waere ein zweiter Owner. */
+      [data-theme="light"] {
+        --text: #2D2830;
+        --background: #F8F4EF;
+        --backgroundElement: #FBF7F2;
+        --backgroundSoft: #E9E1E7;
+        --textSecondary: #786F79;
+        --border: #E4DDE3;
+        --accent: #8B5E63;
+        --onAccent: #FFFFFF;
+        --viewerBackground: #000000;
+        --success: #6E8365;
+        --warning: #A8713A;
+        --danger: #C65E4F;
+        --onDanger: #100D11;
+        --scrim: rgba(42, 31, 44, 0.45);
+        --onViewer: #F2ECE7;
+        --onViewerMuted: #B7ADB3;
+        --viewerSoft: #2B262E;
+      }
+      [data-theme="dark"] {
+        --text: #F2ECE7;
+        --background: #211D23;
+        --backgroundElement: #2B262E;
+        --backgroundSoft: #382F3B;
+        --textSecondary: #B7ADB3;
+        --border: #3E3640;
+        --accent: #B79CBA;
+        --onAccent: #211D23;
+        --viewerBackground: #000000;
+        --success: #8FAE86;
+        --warning: #D9A86C;
+        --danger: #D9776A;
+        --onDanger: #211D23;
+        --scrim: rgba(0, 0, 0, 0.55);
+        --onViewer: #F2ECE7;
+        --onViewerMuted: #B7ADB3;
+        --viewerSoft: #2B262E;
+      }
+
+      * { box-sizing: border-box; }
+      html { background: #F8F4EF; }
+      html[data-theme="light"] { background: #F8F4EF; }
+      html[data-theme="dark"] { background: #211D23; }
+      body { margin: 0; background: var(--background); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; }
+
+      .page { max-width: 1180px; margin: 0 auto; padding: 44px 24px 64px; }
+      .eyebrow { color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+      h1 { margin: 8px 0 10px; font-size: 32px; line-height: 1.08; letter-spacing: -.04em; }
+      .lede { max-width: 640px; margin: 0; color: var(--textSecondary); font-size: 15px; line-height: 1.55; }
+      .stage { display: grid; grid-template-columns: 382px 382px 1fr; gap: 40px; align-items: start; margin-top: 34px; }
+
+      .variant { width: 382px; }
+      .variant h2 { margin: 0 0 4px; font-size: 17px; letter-spacing: -.02em; }
+      .variant > p { margin: 0 0 14px; color: var(--textSecondary); font-size: 13px; line-height: 1.45; }
+
+      .phone {
+        display: flex; flex-direction: column;
+        width: 382px; height: 790px;
+        border: 9px solid #30272f; border-radius: 40px; overflow: hidden;
+        background: var(--background); box-shadow: 0 18px 42px rgba(73, 43, 67, .18);
+      }
+      .status { flex: 0 0 30px; display: flex; justify-content: space-between; align-items: center; padding: 0 22px; background: var(--background); color: var(--text); font-size: 11px; font-weight: 700; }
+
+      /* Screen traegt die Viewer-Flaeche, wie in Variante A. */
+      .screen { flex: 1; min-height: 0; display: flex; flex-direction: column; background: var(--viewerBackground); }
+
+      .cam-top { flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 14px 6px; }
+      .icon-btn {
+        width: 38px; height: 38px; display: grid; place-items: center;
+        border: 0; border-radius: 50%;
+        background: var(--viewerSoft); color: var(--onViewer);
+        font-size: 17px; font-weight: 700; cursor: pointer;
+      }
+
+      .title-block { flex: 0 0 auto; padding: 12px 18px 0; }
+      .title-block h3 { margin: 0; font-size: 30px; line-height: 1.06; letter-spacing: -.04em; color: var(--onViewer); }
+      .title-block p { margin: 8px 0 0; color: var(--onViewerMuted); font-size: 14px; line-height: 1.4; }
+
+      .frame-wrap { flex: 1; min-height: 0; position: relative; display: grid; place-items: center; padding: 18px; }
+      .preview-label { position: absolute; top: 0; right: 22px; padding: 5px 9px; border-radius: 6px; background: var(--backgroundElement); color: var(--accent); font-size: 12px; font-weight: 750; }
+      .frame { position: relative; width: 100%; max-height: 100%; aspect-ratio: 3 / 4; border-radius: 18px; background: var(--viewerSoft); }
+      .corner { position: absolute; width: 30px; height: 30px; border: 3px solid var(--warning); }
+      .corner.tl { top: 15px; left: 15px; border-right: 0; border-bottom: 0; border-top-left-radius: 8px; }
+      .corner.tr { top: 15px; right: 15px; border-left: 0; border-bottom: 0; border-top-right-radius: 8px; }
+      .corner.bl { bottom: 15px; left: 15px; border-right: 0; border-top: 0; border-bottom-left-radius: 8px; }
+      .corner.br { bottom: 15px; right: 15px; border-left: 0; border-top: 0; border-bottom-right-radius: 8px; }
+      .scanline { position: absolute; left: 12px; right: 12px; top: 50%; height: 2px; background: var(--danger); box-shadow: 0 0 10px var(--scrim); }
+      .bon {
+        position: absolute; left: 50%; top: 50%; width: 48%;
+        transform: translate(-50%, -50%) rotate(-6deg);
+        padding: 16px 14px; border-radius: 4px;
+        background: #FBF7F2; color: #2D2830;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, .45);
+      }
+      .bon .shop { font-size: 12px; font-weight: 800; letter-spacing: .06em; }
+      .bon .sum { margin: 8px 0 6px; font-size: 20px; font-weight: 800; }
+      .bon .rule { border-top: 1px dashed #B7ADB3; margin-bottom: 8px; }
+      .bon .thanks { font-size: 12px; }
+
+      .statusline { flex: 0 0 auto; display: flex; align-items: center; gap: 9px; padding: 0 18px 12px; }
+      .statusline .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); }
+      .statusline span { color: var(--onViewerMuted); font-size: 13px; }
+
+      .shutter-row { flex: 0 0 auto; display: flex; align-items: center; justify-content: flex-end; gap: 14px; padding: 0 18px 24px; }
+      .shutter {
+        width: 68px; height: 68px; display: grid; place-items: center;
+        border: 0; border-radius: 50%;
+        background: var(--danger); color: var(--onDanger);
+        font-size: 24px; cursor: pointer;
+      }
+      .gallery {
+        width: 46px; height: 46px; display: grid; place-items: center;
+        border: 0; border-radius: 12px;
+        background: var(--viewerSoft); color: var(--onViewer);
+        font-size: 18px; cursor: pointer;
+      }
+
+      .facts { width: 320px; padding-top: 6px; }
+      .facts dt { color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-top: 18px; }
+      .facts dd { margin: 5px 0 0; color: var(--textSecondary); font-size: 13px; line-height: 1.5; }
+      .facts code { background: var(--backgroundSoft); color: var(--text); padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+      .swatches { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+      .swatch { width: 92px; }
+      .swatch i { display: block; height: 44px; border-radius: 8px; border: 1px solid var(--border); }
+      .swatch span { display: block; margin-top: 5px; color: var(--textSecondary); font-size: 10px; line-height: 1.3; word-break: break-word; }
+
+      @media (max-width: 1100px) {
+        .stage { grid-template-columns: 382px 382px; }
+        .facts { grid-column: 1 / -1; }
+      }
+      @media (max-width: 860px) {
+        .stage { grid-template-columns: 382px; }
+        .facts { width: 100%; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="eyebrow">OCR · Kassenbon erfassen</div>
+      <h1>Beleg scannen</h1>
+      <p class="lede">
+        Variante A ohne Schrittzähler. Aufbau, Headline, Rahmen, Scanlinie,
+        Vorschau-Plakette, Hinweiszeile und Shutter-Reihe bleiben wie in A. Der
+        Screen liegt durchgehend auf der Viewer-Fläche, die fam-Tokens tragen
+        Kopf, Rahmen, Erkennungs-Punkt und Auslöser.
+      </p>
+
+      <div class="stage">
+        <section class="variant" data-theme="light">
+          <h2>Light</h2>
+          <p>Viewer bleibt schwarz, Tokens aus Colors.light.</p>
+          <div class="phone">
+            <div class="status"><span>9:41</span><span>••• 100%</span></div>
+            <div class="screen">
+              <div class="cam-top">
+                <div class="icon-btn">‹</div>
+                <div class="icon-btn">?</div>
+              </div>
+              <div class="title-block">
+                <h3>Beleg scannen</h3>
+                <p>Lege den ganzen Bon in den Rahmen.</p>
+              </div>
+              <div class="frame-wrap">
+                <div class="preview-label">Vorschau</div>
+                <div class="frame">
+                  <span class="corner tl"></span><span class="corner tr"></span>
+                  <span class="corner bl"></span><span class="corner br"></span>
+                  <div class="scanline"></div>
+                  <div class="bon">
+                    <div class="shop">MARKT</div>
+                    <div class="sum">42,80 €</div>
+                    <div class="rule"></div>
+                    <div class="thanks">Danke!</div>
+                  </div>
+                </div>
+              </div>
+              <div class="statusline"><span class="dot"></span><span>Automatische Erkennung aktiv</span></div>
+              <div class="shutter-row">
+                <div class="shutter">◎</div>
+                <div class="gallery">▤</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="variant" data-theme="dark">
+          <h2>Dark</h2>
+          <p>Gleiche Rollen, Colors.dark.</p>
+          <div class="phone">
+            <div class="status"><span>9:41</span><span>••• 100%</span></div>
+            <div class="screen">
+              <div class="cam-top">
+                <div class="icon-btn">‹</div>
+                <div class="icon-btn">?</div>
+              </div>
+              <div class="title-block">
+                <h3>Beleg scannen</h3>
+                <p>Lege den ganzen Bon in den Rahmen.</p>
+              </div>
+              <div class="frame-wrap">
+                <div class="preview-label">Vorschau</div>
+                <div class="frame">
+                  <span class="corner tl"></span><span class="corner tr"></span>
+                  <span class="corner bl"></span><span class="corner br"></span>
+                  <div class="scanline"></div>
+                  <div class="bon">
+                    <div class="shop">MARKT</div>
+                    <div class="sum">42,80 €</div>
+                    <div class="rule"></div>
+                    <div class="thanks">Danke!</div>
+                  </div>
+                </div>
+              </div>
+              <div class="statusline"><span class="dot"></span><span>Automatische Erkennung aktiv</span></div>
+              <div class="shutter-row">
+                <div class="shutter">◎</div>
+                <div class="gallery">▤</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="facts" data-theme="light">
+          <dl>
+            <dt>Entfernt</dt>
+            <dd>Der Schrittzähler <code>1 von 2</code> samt Kopfzeile. Der Hinweis <code>Lege den ganzen Bon in den Rahmen.</code> beschreibt die Aufgabe; die Zahl traf keine Entscheidung.</dd>
+
+            <dt>Unverändert zu A</dt>
+            <dd>Dunkler Screen, Titel direkt unter dem Kopf, Rahmen mit Ecken und Scanlinie, Vorschau-Plakette oben rechts, Hinweiszeile mit Punkt, Shutter rechts mit Galerie daneben.</dd>
+
+            <dt>Wo die fam-Farben wirken</dt>
+            <dd><code>accent</code> auf der Vorschau-Plakette, Ecken auf <code>warning</code>, Scanlinie und Auslöser auf <code>danger</code> mit <code>onDanger</code>, Punkt auf <code>success</code>. Titel und Hinweis auf <code>onViewer</code> und <code>onViewerMuted</code> gegen den schwarzen Viewer.</dd>
+
+            <dt>Token-Referenz</dt>
+          </dl>
+          <div class="swatches">
+            <div class="swatch"><i style="background:#000000"></i><span>viewerBackground</span></div>
+            <div class="swatch"><i style="background:#2B262E"></i><span>viewerSoft</span></div>
+            <div class="swatch"><i style="background:#8B5E63"></i><span>accent</span></div>
+            <div class="swatch"><i style="background:#C65E4F"></i><span>danger</span></div>
+            <div class="swatch"><i style="background:#A8713A"></i><span>warning</span></div>
+            <div class="swatch"><i style="background:#6E8365"></i><span>success</span></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
