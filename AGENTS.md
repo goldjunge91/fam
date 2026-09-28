@@ -35,10 +35,10 @@ werden. Bestehende Formulierungen werden bei Berührung durch „verbindlich“,
 
 ## Multi-Surface Layer
 
-- **Mobile (iOS & Android):** Hauptzielplattform mit Expo SDK 57, React Native 0.86 und React 19.2. Erfordert für native Module (Kamera, Barcode-Scanner, SQLite, SecureStore, Notifications) einen Dev Client (`scripts/ios-dev.sh`); läuft nicht in Standard Expo Go.
+- **Mobile (iOS & Android):** Hauptzielplattform mit Expo SDK 57, React Native 0.86 und React 19.2. Erfordert für native Module (Kamera, Barcode-Scanner, SQLite, SecureStore, Notifications) einen Dev Client; läuft nicht in Standard Expo Go. Lokale Build-Befehle stehen in `docs/architecture/LOCAL_NATIVE_BUILDS.md`.
 - **Web / Edge Functions / Services:** Supabase Edge Functions (z. B. `auth-confirmed`), es gibt keine Web-Vorschau.
 - **Backend & Auth:** Supabase (Postgres, GoTrue Auth, Realtime, Storage) via Docker (`supabase start`); RevenueCat für In-App-Käufe und Abonnements.
-- Wir haben jetzt einen Apple-Developer-Account. iOS-Distribution über EAS (TestFlight, App Store) ist damit möglich — `eas submit` und Store-Builds (`preview-testflight`, `production`) können genutzt werden.
+- Wir haben einen Apple-Developer-Account. iOS-TestFlight-Archive werden lokal mit Xcode erstellt und können über Xcode Organizer hochgeladen werden. EAS Cloud Build ist nicht der Build-Ablauf dieses Projekts.
 
 ## Verbindliche UI-Styling-Architektur
 
@@ -112,7 +112,6 @@ _Of note: Most developer contributions are often controlled remotely. This means
 - **Paketmanager:** `bun` für alle Paketoperationen und Skripte (`bun run <cmd>`).
 - **Linter & Formatter:** Biome (`bun run check` zum Prüfen, `bun run check:fix` zum Beheben). Kein ESLint / Prettier. `bun run check` prüft den TypeScript-/TSX-Quellbestand mit Biome.
 - **Typecheck:** `bun run typecheck` (`tsc --noEmit`).
-- **Tests:** `bun run test` (Jest Unit-Tests) und `bun run test:db` (pgTAP DB-Tests).
 
 ## Coding preferences - general
 
@@ -247,24 +246,6 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 - Codex 0.129.0+ can load Beads context automatically via native hooks; use
   `/hooks` to inspect/toggle. Otherwise run `bd prime` manually.
 <!-- END BEADS INTEGRATION -->
-
-## Native Builds
-
-Die Build-GUI ist der Einstieg für lokale Builds und EAS-Aktionen:
-`python3 tools/build-gui/build_gui.py`.
-
-- Lokale Simulator- und TestFlight-Builds aktualisieren CNG mit
-  `expo prebuild --no-clean`. Native Ordner und CocoaPods bleiben erhalten.
-- Lokale TestFlight-Builds verwenden den vorhandenen Xcode `DerivedData`-Cache
-  und ccache. Die Build-GUI löscht keine Caches und keine älteren Archive.
-- TestFlight kann lokal als Xcode-Archiv gebaut und entweder mit `eas submit`
-  (IPA) oder über Xcode Organizer (Archiv) hochgeladen werden.
-- EAS Cloud Builds und EAS OTA Updates starten über die Build-GUI mit dem
-  Profil, Channel und der EAS-Umgebung aus `eas.json`.
-- Config-Plugins bleiben idempotent; Änderungen an nativen Eingaben werden
-  durch Prebuild und anschließenden nativen Build übernommen.
-- Geschwindigkeitsaussagen ("das ist jetzt schneller") nur mit Zeitmessung
-  und Cache-Treffer-Beleg.
 
 ## Verbote commands
 - 'git reset' darf unter keinen umständen verwendet werden

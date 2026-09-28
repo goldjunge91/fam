@@ -15,7 +15,7 @@ Zusammenfassung der Session vom 2026-08-19: EAS Observe eingerichtet, danach bei
 
 ## Teil 2: Apple-Developer-Account jetzt vorhanden
 
-`AGENTS.md` wurde aktualisiert — das Projekt hat seit heute einen Apple-Developer-Account (Individual, Team `SW8RP7PA3W`, Marco Tozzi). iOS-Distribution (TestFlight, App Store) ist damit grundsätzlich möglich. Vollständige Befehlsreferenz: [`docs/EAS_BUILD_COMMANDS.md`](./EAS_BUILD_COMMANDS.md).
+`AGENTS.md` wurde aktualisiert — das Projekt hat seit heute einen Apple-Developer-Account (Individual, Team `SW8RP7PA3W`, Marco Tozzi). iOS-Distribution (TestFlight, App Store) ist damit grundsätzlich möglich. Die aktuelle lokale Befehlsreferenz steht in [`LOCAL_NATIVE_BUILDS.md`](../architecture/LOCAL_NATIVE_BUILDS.md).
 
 ## Teil 3: Die Build-Saga — 7 Versuche, ungelöst
 

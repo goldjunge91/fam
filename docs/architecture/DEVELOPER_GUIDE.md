@@ -54,8 +54,11 @@ Bun-Version separat in
 ```bash
 bun install
 bun start
-bun run native:dev -- --target ios-development-simulator
 ```
+
+Lokale Native-Builds werden mit Expo und Xcode beziehungsweise Gradle
+ausgeführt. Die Befehle stehen in der
+[Anleitung für lokale Native-Builds](LOCAL_NATIVE_BUILDS.md).
 
 Die App verwendet das in der gewählten Env-Datei konfigurierte Supabase-Ziel.
 Agents starten oder stoppen keine lokale Supabase-Instanz eigenmächtig. Für
@@ -240,45 +243,15 @@ Bestehende Style-Assertions gelten als Migrationsbestand. Neue Tests dürfen
 ihn nicht vergrößern; einzelne Fälle werden bei Berührung auf Verhalten oder
 Maestro verschoben.
 
-### Development-Build-Targets
+### Lokale Native-Builds
 
-**iOS:**
+Lokale iOS-Development-Builds können einen Simulator oder ein verbundenes
+iPhone als Ziel verwenden. Die konkreten Terminal-Befehle stehen in der
+[Anleitung für lokale Native-Builds](LOCAL_NATIVE_BUILDS.md).
 
-- ios-development-simulator (Debug, Simulator, .app)
-- ios-development-device (Debug, echtes Gerät, .ipa)
-- ios-preview-testflight (Release, TestFlight, .ipa)
-- ios-production (Release, Store, .ipa)
-
-Android:
-
-- android-development (.apk)
-- android-preview (.apk)
-- android-production (.aab)
-
-Für deinen Fall (lokal im Simulator testen, ob expo-tracking-transparency jetzt
-funktioniert) ist `ios-development-simulator` der richtige Target-Name.
-
-Die nativen Projekte verwenden CNG: `ios/` und `android/` sind generierte,
-ignorierte Ausgaben. Nach Änderungen an nativen Dependencies, App-Konfiguration
-oder Plugins vorhandene Projekte neu erzeugen:
-
-```bash
-FAM_HARNESS_UI=1 bun run native:prebuild -- --platform ios
-```
-
-Für Android `--platform android` verwenden. Der Befehl verwendet immer `--no-clean` und erhält das vorhandene
-native Projekt einschließlich Pods und Build-Dateien. Details und ccache-Verhalten stehen im
-[Native-Build-Guide](../../scripts/native-build/README.md).
-
-`native:rebuild` ist bewusst der Release-Pfad (eas build --local,
-reproduzierbar/signiert, für TestFlight/Production) und entsprechend
-langsamer/schwerer. Für den reinen Inner-Loop (Simulator während der
-Entwicklung, mit ccache/DerivedData-Wiederverwendung) ist `native:dev`
-vorgesehen:
-
-```bash
-bun run native:dev -- --target ios-development-simulator
-```
+Der lokale iOS-Ablauf aktualisiert CNG mit `expo prebuild --no-clean` und baut
+mit `expo run:ios` beziehungsweise Xcode. Für TestFlight erzeugt Xcode lokal
+ein Archiv. EAS Cloud Build ist dafür nicht der Build-Schritt.
 
 ---
 
@@ -487,9 +460,9 @@ dann Android, ausgeführt.
   eigenständiger Runner.
 - `bun run user:create` / `bun run user:list` / `bun run user:clean` / `bun run user:delete` — Verwaltung lokaler Test-Accounts (`scripts/test-users.ts`)
 - `bash scripts/create-user-with-household.sh` — Erstellt Test-User mit Haushalt und befüllter Einkaufsliste
-- `bun run native:rebuild -- --target ios-preview-testflight` (lokaler TestFlight-Build; anschließender Upload ist optional)
-- `bun run native:rebuild -- --target ios-production` (lokaler Produktions-Rebuild mit Cache-Wiederverwendung)
-- `--approve-rebuild` nur nach Marcos Freigabe für den Native-Drift ergänzen am jeweiligen `native:rebuild`-Befehl. Es erlaubt keine Cache-Löschung.
+- [Lokale Native-Builds](LOCAL_NATIVE_BUILDS.md) (vollständige lokale Expo-, Xcode- und Gradle-Befehle)
+- `bun run android` (lokaler Android-Development-Build auf Emulator oder Gerät)
+- `bun run android:apk --approve-rebuild` (lokaler Android-Release-APK-Build; erhöht standardmäßig `versionCode`)
 
 ### Test-Accounts & Skripte
 
@@ -537,7 +510,7 @@ gitignored und werden bewusst nicht mitgeliefert:
 | `.env.development.local` | Lokale Development-Konfiguration für `start`, `ios`, `android` und Development-Testbefehle |
 | `.env.local` | Lokale Supabase-Instanz und RevenueCat Test Store |
 | `.env.development` | Gehostete Development-Datenbank und RevenueCat Test Store |
-| `.env.preview` | Native TestFlight-Rebuild über das Profil `preview-testflight` |
+| `.env.preview` | Umgebung für das lokal erstellte iOS-TestFlight-Archiv |
 | `.env.production` | Reserviert für den späteren Produktions-Build |
 
 Beispiel für lokale Entwicklung:
@@ -664,8 +637,9 @@ Einmalige Einrichtung:
 4. Für Source-Maps und native Symbole `POSTHOG_CLI_API_KEY`,
    `POSTHOG_CLI_PROJECT_ID` und bei EU Cloud `POSTHOG_CLI_HOST` als Build-Secrets
    hinterlegen.
-5. Neuer Dev-Client-Build nötig (`bun run native:dev` bzw. Android-Äquivalent),
-   weil `@posthog/react-native-plugin` nativen Code enthält.
+5. Neuer Dev-Client-Build nötig, weil `@posthog/react-native-plugin` nativen
+   Code enthält. Den Development-Build lokal mit den Befehlen in der
+   [Anleitung für lokale Native-Builds](LOCAL_NATIVE_BUILDS.md) erstellen.
 
 **Integration testen:** Im Dashboard ein Boolean-Flag `test-feature` anlegen
 und an/aus schalten — der Live-Wert steht im Entwickler-Bereich der
@@ -706,27 +680,31 @@ SQLite-Spiegelung unter `src/lib/db/schemas/*.ts` ist davon getrennt.
 Barcode-Scanner, lokale Datenbank, Benachrichtigungen und der sichere
 Session-Speicher laufen ausschließlich im nativen Development Build:
 
-Alles in einem Schritt — bauen, laden, installieren, Simulator und Metro starten:
+Android lokal starten, nachdem der native Ordner wie in der Build-Anleitung
+beschrieben aktualisiert wurde:
 
 ```bash
-bun run native:dev -- --target ios-development-simulator
-bun run native:dev -- --target ios-development-simulator --device "iPhone 17"
+FAM_UPDATE_CHANNEL=development bun run android
 ```
 
-Einzelschritte, falls nötig:
+Für iOS zuerst CNG aktualisieren und danach lokal bauen. Für ein verbundenes
+iPhone den Gerätenamen oder die UDID an `--device` übergeben:
 
 ```bash
-bun run native:dev -- --target ios-development-simulator
-bun run native:dev -- --target android-development
-bun run native:dev -- --target ios-development-device
+env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=0 FAM_UPDATE_CHANNEL=development USE_CCACHE=1 \
+  bun --env-file=.env.development.local run expo prebuild --no-clean --platform ios
+env FAM_HARNESS_UI=1 FAM_UPDATE_CHANNEL=development \
+  bun --env-file=.env.development.local run expo run:ios --scheme fam \
+  --device "<Gerätename oder UDID>"
 ```
 
-Development-Targets sind nicht Teil des Native-Build-Locks. Der Lock gilt für
-reproduzierbare Release-Artefakte wie TestFlight und Production. Für reine
-JS-/TS-Änderungen reicht Metro; Änderungen an nativen Modulen, Config-Plugins
-oder nativen Dateien erfordern einen neuen Development-Build.
+Es gibt keinen projektinternen Fingerprint-Lock. Expo kann für lokale
+Simulator-Builds einen konfigurierten Remote-Cache abfragen; bei einem Miss
+kompiliert Xcode lokal. Cache-Treffer ersetzen keinen Geräte- oder
+Funktionsnachweis. Für reine JS-/TS-Änderungen reicht Metro; Änderungen an
+nativen Modulen oder Config-Plugins erfordern eine neu kompilierte
+Development-App.
 
-Profile stehen in `eas.json`.
 
 **Nach jedem neuen nativen Modul neu bauen.** Native Module landen beim Build im
 Binary; Metro liefert nur JavaScript nach. Installierst du etwa

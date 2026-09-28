@@ -74,8 +74,6 @@ Trackingeintrag an. Er überträgt weder dessen Identität noch dessen Eigentüm
   vierter Owner. Feature-Code besitzt Verhalten, Komposition und lokales Layout.
 - **Native Runtime:** Expo SDK 57 und die verwendeten nativen Module verlangen
   einen Dev Client. Änderungen an nativen Abhängigkeiten, Config Plugins oder
-  nativen Projekten verändern den Native Fingerprint und können einen Rebuild
-  erfordern.
 
 ## Domänensprache
 

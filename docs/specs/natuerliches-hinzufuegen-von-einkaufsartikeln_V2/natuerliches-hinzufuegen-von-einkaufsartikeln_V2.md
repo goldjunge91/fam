@@ -99,11 +99,15 @@ bun run check
 bun run typecheck
 bun run test <gezielte-testdatei>
 bun run test:integration -- <gezielte-integration-testdatei>
-bun run native:status
-bun run native:dev -- --target ios-development-simulator
 ```
 
-Für Android wird das vorhandene Development-Target des Repositories verwendet. Es werden gezielte Tests ausgeführt, keine vollständige Testsuite ohne Anlass. `bun test` ist nicht zulässig.
+Für einen erforderlichen nativen Plattformtest CNG mit
+`expo prebuild --no-clean` aktualisieren und das Target lokal mit Expo/Xcode
+oder Gradle bauen. Für iOS-Geräte `expo run:ios --device` verwenden. Die
+vollständigen lokalen Befehle stehen in
+[`LOCAL_NATIVE_BUILDS.md`](../../architecture/LOCAL_NATIVE_BUILDS.md). Es
+werden gezielte Tests ausgeführt, keine vollständige Testsuite ohne Anlass.
+`bun test` ist nicht zulässig.
 
 ## 6. Projektstruktur
 

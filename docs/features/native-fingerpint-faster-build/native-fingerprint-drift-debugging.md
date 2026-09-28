@@ -1,13 +1,18 @@
-# Native-Fingerprint-Drift (ios) — Debugging & Root Cause
+# Historisches Protokoll: Native-Fingerprint-Drift (iOS)
 
-> Historischer Verlauf vor CNG. Seit 2026-09-23 sind `ios/` und `android/`
-> generierte, ignorierte Ausgaben; Pods und Xcode-Dateien sind keine
-> Fingerprint-Eingaben mehr. Aktuelle Befehle und ccache-Pfadauflösung:
-> [Native Build](../../../scripts/native-build/README.md).
+> Dieses Protokoll beschreibt den früheren projektinternen Baseline- und
+> Artefakt-Lock-Workflow. `scripts/native-build`, `native-build-lock.json` und
+> die zugehörigen `native:*`-Befehle wurden entfernt. Die folgenden Befunde
+> dokumentieren damalige Messungen und sind keine aktuellen Build-Schritte.
+> Aktueller Einstieg: [Lokale Native-Builds](../../architecture/LOCAL_NATIVE_BUILDS.md).
+
+Der Expo EAS Build Cache bleibt davon getrennt: Er wird für lokale
+Simulator-Builds über `buildCacheProvider: "eas"` verwendet und ist kein
+projektinterner Baseline- oder Freigabe-Lock.
 
 ## Symptom
 
-`bun run native:status` (bzw. die Native-Build-Lock-GUI, `tools/build-gui/build_gui.py`) meldet einen ios-Fingerprint-Mismatch, obwohl `app.json`, `package.json`, `bun.lock` und alle git-getrackten Dateien unter `ios/`/`android/` byte-identisch zum Baseline-Commit sind:
+`bun run native:status` meldet einen ios-Fingerprint-Mismatch, obwohl `app.json`, `package.json`, `bun.lock` und alle git-getrackten Dateien unter `ios/`/`android/` byte-identisch zum Baseline-Commit sind:
 
 ```
 Native Build Lock: ios-Fingerprint stimmt nicht mit dem Lock überein. Native Änderung,

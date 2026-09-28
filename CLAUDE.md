@@ -11,19 +11,6 @@ Konventionen, Beads-Workflow und den "Ways to Hurt Yourself"-Guardrails steht
 ausschließlich in `AGENTS.md` — hier keine Duplikate pflegen. Dieser Abschnitt
 ergänzt nur Dinge, die AGENTS.md nicht abdeckt.
 
-Erlaubte häufige Einstiege aus dem Repository-Root:
-
-## Commands (Kurzreferenz)
-
-```bash
-bun run check         # Biome lint+format
-bun run typecheck     # tsc --noEmit
-bun run test          # Jest — NIEMALS `bun test`
-bun run test:db       # pgTAP, nur bei Supabase-Schema-Änderungen
-bun run test:integration
-bun run test:functions
-```
-
 
 ## Architecture
 

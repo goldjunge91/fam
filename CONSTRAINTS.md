@@ -179,9 +179,13 @@ Die Abnahme richtet sich nach der betroffenen Oberfläche:
   Jest-Tests über `bun run test -- <pfad-oder-muster>`.
 - Supabase-Schemaänderungen: deklarativer DB-Workflow aus `AGENTS.md`, gezielte
   pgTAP-Tests, Advisors und aktualisierte Datenbanktypen.
-- Native Änderungen: Fingerprint-Status und der in `AGENTS.md` beschriebene
-  Build-Lock-Workflow. Ein Rebuild erfolgt nur mit der dort verlangten
-  Freigabe.
+- Native Änderungen: Expo-Konfiguration und Config-Plugins prüfen, die
+  betroffene Plattform über den lokalen Build-Ablauf aus `AGENTS.md` mit
+  Prebuild `--no-clean` kompilieren und das native Verhalten auf der
+  Zielplattform nachweisen. Der optionale Remote-Cache kontaktiert EAS-Server,
+  greift bei iOS nur für Simulatoren und bei Android auch für Geräte; er ersetzt
+  keinen Geräte- oder Compile-Nachweis. Einen projektinternen Fingerprint-
+  Status, eine Baseline oder einen Artefakt-Lock gibt es nicht.
 - Reine Dokumentationsänderungen: Links, Pfade, Status, Quellenhierarchie und
   Widerspruchsfreiheit gezielt prüfen; App-Builds und Verhaltenstests sind ohne
   betroffene Laufzeitfläche nicht erforderlich.

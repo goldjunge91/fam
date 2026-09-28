@@ -123,12 +123,13 @@ bun run test --runInBand --no-watchman src/constants/ui.test.tsx src/components/
 bun run test --runInBand --no-watchman src/constants/ui.test.tsx src/components/ui src/components/layout test/conventions/shared-button-contract.test.ts test/conventions/shared-touch-contract.test.ts test/conventions/dashboard-nativewind-convention.test.ts
 bun run check
 bun run typecheck
-bun run native:status
 ```
 
 Die Unit-Tests laufen ausschließlich über `bun run test`, niemals über `bun
 test`. Die vollständige Testsuite ist für diese Strukturänderung nicht als
-Standard-Gate vorgesehen.
+Standard-Gate vorgesehen. Native Laufzeitprüfungen laufen bei Bedarf mit den
+lokalen Befehlen aus der [Build-Anleitung](../../architecture/LOCAL_NATIVE_BUILDS.md);
+ein Fingerprint-Status oder Projekt-Lock ist kein Bestandteil des Build-Ablaufs.
 
 ### Native Laufzeitprüfung
 

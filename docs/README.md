@@ -34,8 +34,8 @@ aktuellen technischen Zustand.
 
 - [Developer Guide](architecture/DEVELOPER_GUIDE.md) – lokaler Entwicklungs-
   und Build-Workflow, Umgebungsvariablen und Tests.
-- [EAS-Befehle](architecture/EAS_BUILD_COMMANDS.md) – Development-, TestFlight-
-  und Production-Builds.
+- [Lokale Native-Builds](architecture/LOCAL_NATIVE_BUILDS.md) – Expo/Xcode-
+  Befehle für iOS Simulator, iPhone und TestFlight sowie lokale Android-Builds.
 - [Design-System-Verträge](design-system/contracts/README.md) – normative
   Tokens, Komponentenregeln und Zustände.
 - [React Native Harness](../harness/README.md) – Tests in echter iOS-, Android-
@@ -43,7 +43,9 @@ aktuellen technischen Zustand.
 - [RevenueCat-Webhook](revenuecat/revenuecat-webhook.md) – Deployment und
   Prüfung des Premium-Webhooks.
 - [Native-Fingerprint-Debugging](features/native-fingerpint-faster-build/native-fingerprint-drift-debugging.md)
-  – Diagnose von absichtlichen und unbeabsichtigten Build-Abweichungen.
+  – historisches Protokoll des entfernten projektinternen Locks; kein aktueller
+  Build-Ablauf. Aktuelle Schritte stehen in der
+  [Anleitung für lokale Native-Builds](architecture/LOCAL_NATIVE_BUILDS.md).
 - [Bekannte Fehler](bugs/ios-logout-relaunch-onboarding-routing.md) – offene
   technische Befunde mit Reproduktion und Behebungskriterien.
 
