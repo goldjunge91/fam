@@ -17,4 +17,25 @@ describe('onboarding flow state', () => {
     expect(useOnboardingStore.getState().state.currentStep).toBe(1);
     expect(useOnboardingStore.getState().state.profile).toEqual({});
   });
+
+  test('starts and resets with the initial module selection', () => {
+    expect(useOnboardingStore.getState().state.modules).toEqual({
+      fridge: true,
+      shoppingList: true,
+      calories: false,
+      recipes: false,
+      mealPlanner: true,
+    });
+
+    useOnboardingStore.getState().updateModulesData({ calories: true });
+    useOnboardingStore.getState().reset();
+
+    expect(useOnboardingStore.getState().state.modules).toEqual({
+      fridge: true,
+      shoppingList: true,
+      calories: false,
+      recipes: false,
+      mealPlanner: true,
+    });
+  });
 });

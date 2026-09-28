@@ -88,6 +88,21 @@ jest.mock('@/lib/analytics', () => ({ trackAnalyticsEvent: jest.fn() }));
 let mockFridgeItems: unknown[] = [];
 let mockMealPlanEntries: unknown[] = [];
 let mockMealCoverUrl: string | null = null;
+let mockModules:
+  | {
+      fridge: boolean;
+      shoppingList: boolean;
+      calories: boolean;
+      recipes: boolean;
+      mealPlanner: boolean;
+    }
+  | undefined = {
+  fridge: true,
+  shoppingList: true,
+  calories: true,
+  recipes: true,
+  mealPlanner: true,
+};
 
 jest.mock('expo-router', () => ({
   router: {
@@ -146,13 +161,7 @@ jest.mock('@/features/navigation/use-profile-initials', () => ({
 
 jest.mock('@/features/settings/module-preferences', () => ({
   useModulePreferences: () => ({
-    data: {
-      fridge: true,
-      shoppingList: true,
-      calories: true,
-      recipes: true,
-      mealPlanner: true,
-    },
+    data: mockModules,
   }),
   modulePreferencesQueryKey: (userId: string | undefined) =>
     ['settings', 'module-preferences', userId] as const,
@@ -201,6 +210,13 @@ beforeEach(async () => {
   mockFridgeItems = [];
   mockMealPlanEntries = [];
   mockMealCoverUrl = null;
+  mockModules = {
+    fridge: true,
+    shoppingList: true,
+    calories: true,
+    recipes: true,
+    mealPlanner: true,
+  };
   mockTriggerHouseholdSync.mockClear();
   mockDraxProviderMounts = 0;
   mockDraxSpans = [];
@@ -248,6 +264,48 @@ it('zeigt Karten und Karten-Galerie in der aktiven Sprache', async () => {
 
   expect(screen.getByText('Add cards or adjust their size')).toBeOnTheScreen();
   expect(screen.getByLabelText('Close gallery')).toBeOnTheScreen();
+});
+
+it('zeigt mit der initialen Auswahl Haushaltskarten und blendet optionale Module aus', async () => {
+  mockModules = {
+    fridge: true,
+    shoppingList: true,
+    calories: false,
+    recipes: false,
+    mealPlanner: true,
+  };
+
+  await renderScreen();
+
+  expect(screen.getByText('Läuft bald ab')).toBeOnTheScreen();
+  expect(screen.getByText('Einkauf')).toBeOnTheScreen();
+  expect(screen.getByLabelText('Essensplan öffnen')).toBeOnTheScreen();
+  expect(screen.queryByText('Kalorien heute')).not.toBeOnTheScreen();
+});
+
+it('filtert Karten anhand eines späteren lokalen Präferenz-Snapshots', async () => {
+  mockModules = {
+    fridge: false,
+    shoppingList: false,
+    calories: true,
+    recipes: false,
+    mealPlanner: false,
+  };
+
+  await renderScreen();
+
+  expect(screen.getByText('Kalorien heute')).toBeOnTheScreen();
+  expect(screen.queryByText('Läuft bald ab')).not.toBeOnTheScreen();
+  expect(screen.queryByText('Einkauf')).not.toBeOnTheScreen();
+  expect(screen.queryByLabelText('Essensplan öffnen')).not.toBeOnTheScreen();
+});
+
+it('rendert weiter, wenn die pausierte Präferenzabfrage noch keinen Wert liefert', async () => {
+  mockModules = undefined;
+
+  await renderScreen();
+
+  expect(screen.getByText('STREAK')).toBeOnTheScreen();
 });
 
 describe('DashboardScreen — Vorrat-Widget "Läuft bald ab"', () => {

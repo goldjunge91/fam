@@ -122,8 +122,6 @@ export function CardList({
     [getOrderedCards, rawVisibleCards],
   );
 
-  if (!modules) return null;
-
   if (visibleCards.length === 0) {
     return (
       <Surface tone="surface" style={styles.emptyCard}>

@@ -79,13 +79,6 @@ jest.mock('@/features/auth/session-provider', () => ({
 }));
 
 jest.mock('@/features/settings/module-preferences', () => ({
-  DEFAULT_MODULE_PREFERENCES: {
-    fridge: true,
-    shoppingList: true,
-    recipes: true,
-    mealPlanner: true,
-    calories: true,
-  },
   useModulePreferences: () => ({
     data: {
       fridge: true,

@@ -8,7 +8,6 @@ import {
 } from '@/constants/feature-registry';
 import { useSession } from '@/features/auth/session-provider';
 import {
-  DEFAULT_MODULE_PREFERENCES,
   type ModulePreferences,
   useModulePreferences,
 } from '@/features/settings/module-preferences';
@@ -21,8 +20,7 @@ import { type FeatureFlagKey, useFeatureFlags } from '@/lib/observability/provid
  */
 export function useFeatureAccess() {
   const { session } = useSession();
-  const { data: rawModules, isLoading } = useModulePreferences(session?.user.id);
-  const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
+  const { data: modules, isLoading } = useModulePreferences(session?.user.id);
   const posthogFlags = useFeatureFlags();
   const moduleFeatureFlagOverrides = useDevSettingsStore(
     (state) => state.moduleFeatureFlagOverrides,

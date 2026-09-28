@@ -5,7 +5,10 @@ import { createWeightEntry, latestWeightEntryQueryKey } from '@/features/calorie
 import { markOnboardingCompleted } from '@/features/onboarding/api';
 import { persistOnboardingCompleted } from '@/features/onboarding/onboarding-completion';
 import { updateProfile } from '@/features/profile/api';
-import { saveModulePreferences } from '@/features/settings/module-preferences';
+import {
+  INITIAL_MODULE_PREFERENCES,
+  saveModulePreferences,
+} from '@/features/settings/module-preferences';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { debugWarn } from '@/lib/observability/debug-log';
@@ -22,7 +25,7 @@ const initialState: OnboardingState = {
   currentStep: 1,
   profile: {},
   household: { choice: 'solo' },
-  modules: { fridge: true, shoppingList: true, calories: true, recipes: true, mealPlanner: true },
+  modules: INITIAL_MODULE_PREFERENCES,
   permissions: {
     notificationsRequested: false,
     cameraRequested: false,

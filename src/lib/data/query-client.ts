@@ -17,6 +17,15 @@ import { reportError } from '@/lib/telemetry';
 const ACCOUNT_QUERY_CACHE_KEY = 'react-query-cache.v1';
 const PERSISTED_QUERY_KEY_PREFIXES: readonly unknown[] = ['calorie-tracking', 'profile'];
 
+function isPersistedQueryKey(queryKey: readonly unknown[]): boolean {
+  if (PERSISTED_QUERY_KEY_PREFIXES.includes(queryKey[0])) return true;
+  return (
+    queryKey[0] === 'settings' &&
+    queryKey[1] === 'module-preferences' &&
+    typeof queryKey[2] === 'string'
+  );
+}
+
 function reportQueryError(error: unknown, queryKey: readonly unknown[]): void {
   if (!onlineManager.isOnline()) return;
   reportError(error, {
@@ -76,7 +85,9 @@ export function startQueryEnvironmentSync(): () => void {
 
 export function shouldPersistQuery(query: Query): boolean {
   return (
-    PERSISTED_QUERY_KEY_PREFIXES.includes(query.queryKey[0]) && query.state.status === 'success'
+    isPersistedQueryKey(query.queryKey) &&
+    query.state.status === 'success' &&
+    query.state.dataUpdatedAt > 0
   );
 }
 
@@ -98,7 +109,7 @@ export async function startAccountQueryPersistence(
   }
 
   return client.getQueryCache().subscribe(({ query }) => {
-    if (!PERSISTED_QUERY_KEY_PREFIXES.includes(query.queryKey[0])) return;
+    if (!shouldPersistQuery(query)) return;
     try {
       storage.set(
         ACCOUNT_QUERY_CACHE_KEY,

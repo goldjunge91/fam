@@ -55,13 +55,6 @@ jest.mock('@/features/household/api', () => ({
 }));
 
 jest.mock('@/features/settings/module-preferences', () => ({
-  DEFAULT_MODULE_PREFERENCES: {
-    fridge: true,
-    shoppingList: true,
-    calories: true,
-    recipes: true,
-    mealPlanner: true,
-  },
   useModulePreferences: () => ({
     data: {
       fridge: true,
@@ -331,6 +324,16 @@ describe('MealPlannerScreen', () => {
     await renderScreen();
 
     expect(screen.getAllByText('Spaghetti Bolognese')[0]).toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
+    ).toBeDisabled();
+  });
+
+  it('übernimmt die einmalige Startauswahl mit deaktiviertem Rezepte-Modul', async () => {
+    mockRecipesPreference = false;
+
+    await renderScreen();
+
     expect(
       screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
     ).toBeDisabled();

@@ -14,10 +14,7 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { useHouseholdMembers } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useRecipes } from '@/features/recipes/hooks/use-recipes';
-import {
-  DEFAULT_MODULE_PREFERENCES,
-  useModulePreferences,
-} from '@/features/settings/module-preferences';
+import { useModulePreferences } from '@/features/settings/module-preferences';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
 import { type RecipeOption, RecipePickerModal } from './components/recipe-picker-modal';
@@ -96,8 +93,7 @@ export function MealPlannerScreen() {
   const { data: rawModules } = useModulePreferences(userId);
   const { getFeatureFlagState } = useFeatureAccess();
   const recipesFeatureEnabled = getFeatureFlagState('module-recipes') !== false;
-  const recipesEnabled =
-    (rawModules ?? DEFAULT_MODULE_PREFERENCES).recipes && recipesFeatureEnabled;
+  const recipesEnabled = rawModules.recipes && recipesFeatureEnabled;
 
   const [viewMode, setViewMode] = useState<ViewMode>('week');
   const [anchorDate, setAnchorDate] = useState(() => todayIso());

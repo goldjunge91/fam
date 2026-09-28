@@ -2,7 +2,7 @@ import { renderHook } from '@testing-library/react-native';
 import type { ModulePreferences } from '@/features/settings/module-preferences';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 
-let mockModulePreferences: ModulePreferences = {
+let mockModulePreferences: ModulePreferences | undefined = {
   fridge: true,
   shoppingList: true,
   calories: true,
@@ -20,6 +20,11 @@ let mockFeatureFlags: Record<string, boolean | string> | undefined = {
 };
 let mockModuleFeatureFlagOverrides: Partial<Record<keyof ModulePreferences, boolean>> = {};
 let mockFeatureFlagOverrides: Record<string, boolean> = {};
+
+function requireMockModulePreferences(): ModulePreferences {
+  if (!mockModulePreferences) throw new Error('Test module preferences are not configured');
+  return mockModulePreferences;
+}
 
 jest.mock('@/constants/dev-settings', () => ({
   useDevSettingsStore: (
@@ -39,15 +44,21 @@ jest.mock('@/features/auth/session-provider', () => ({
 }));
 
 jest.mock('@/features/settings/module-preferences', () => ({
-  DEFAULT_MODULE_PREFERENCES: {
+  INITIAL_MODULE_PREFERENCES: {
     fridge: true,
     shoppingList: true,
-    calories: true,
-    recipes: true,
+    calories: false,
+    recipes: false,
     mealPlanner: true,
   },
   useModulePreferences: () => ({
-    data: mockModulePreferences,
+    data: mockModulePreferences ?? {
+      fridge: true,
+      shoppingList: true,
+      calories: false,
+      recipes: false,
+      mealPlanner: true,
+    },
     isLoading: false,
   }),
 }));
@@ -98,8 +109,23 @@ describe('useFeatureAccess', () => {
     expect(result.current.isModuleLocked(undefined)).toBe(false);
   });
 
+  it('verwendet die initiale Modul-Auswahl, wenn noch keine Remote-Praeferenzen vorliegen', async () => {
+    mockModulePreferences = undefined;
+    const { result } = await renderHook(() => useFeatureAccess());
+
+    expect(result.current.modules).toEqual({
+      fridge: true,
+      shoppingList: true,
+      calories: false,
+      recipes: false,
+      mealPlanner: true,
+    });
+    expect(result.current.isFeatureEnabled('fridge')).toBe(true);
+    expect(result.current.isFeatureEnabled('recipes')).toBe(false);
+  });
+
   it('deaktiviert ein Modul per FeatureId, wenn die Nutzer-Präferenz false ist', async () => {
-    mockModulePreferences.fridge = false;
+    requireMockModulePreferences().fridge = false;
     const { result } = await renderHook(() => useFeatureAccess());
 
     expect(result.current.isFeatureEnabled('fridge')).toBe(false);
@@ -114,7 +140,7 @@ describe('useFeatureAccess', () => {
   });
 
   it('deaktiviert ein Sub-Feature per FeatureId, wenn das Parent-Modul deaktiviert ist', async () => {
-    mockModulePreferences.calories = false;
+    requireMockModulePreferences().calories = false;
     const { result } = await renderHook(() => useFeatureAccess());
 
     expect(result.current.isFeatureEnabled('workouts')).toBe(false);
@@ -129,7 +155,7 @@ describe('useFeatureAccess', () => {
   });
 
   it('aktiviert ein Sub-Feature per FeatureId, wenn Parent-Modul und eigenes Flag true sind', async () => {
-    mockModulePreferences.calories = true;
+    requireMockModulePreferences().calories = true;
     if (mockFeatureFlags) mockFeatureFlags['workout-log'] = true;
     const { result } = await renderHook(() => useFeatureAccess());
 

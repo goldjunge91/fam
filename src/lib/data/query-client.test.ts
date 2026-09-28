@@ -53,4 +53,57 @@ describe('verschluesselte Query-Persistierung', () => {
     unsubscribe();
     client.clear();
   });
+
+  it('persistiert erfolgreiche Modul-Praeferenzen accountgebunden und stellt sie wieder her', async () => {
+    const client = new QueryClient();
+    const unsubscribe = await startAccountQueryPersistence(client, 'user-1');
+
+    client.setQueryData(['settings', 'module-preferences', 'user-1'], {
+      fridge: true,
+      shoppingList: false,
+      calories: true,
+      recipes: true,
+      mealPlanner: false,
+    });
+
+    const persisted = JSON.parse(jest.mocked(storage.set).mock.calls.at(-1)?.[1] as string);
+    expect(persisted.queries).toHaveLength(1);
+    expect(persisted.queries[0].queryKey).toEqual(['settings', 'module-preferences', 'user-1']);
+
+    unsubscribe();
+    client.clear();
+
+    const restoredClient = new QueryClient();
+    const restoredUnsubscribe = await startAccountQueryPersistence(restoredClient, 'user-1');
+    expect(restoredClient.getQueryData(['settings', 'module-preferences', 'user-1'])).toEqual({
+      fridge: true,
+      shoppingList: false,
+      calories: true,
+      recipes: true,
+      mealPlanner: false,
+    });
+
+    restoredUnsubscribe();
+    restoredClient.clear();
+  });
+
+  it('behält den gespeicherten Snapshot bei einem späteren Refetch-Fehler', async () => {
+    const client = new QueryClient();
+    const unsubscribe = await startAccountQueryPersistence(client, 'user-1');
+    const queryKey = ['settings', 'module-preferences', 'user-1'] as const;
+    client.setQueryData(queryKey, { fridge: true });
+    const persistedBeforeError = jest.mocked(storage.set).mock.calls.at(-1)?.[1];
+
+    const query = client.getQueryCache().find({ queryKey });
+    query?.setState({
+      status: 'error',
+      error: new Error('offline'),
+      fetchStatus: 'idle',
+    });
+
+    expect(storage.set).toHaveBeenCalledTimes(1);
+    expect(jest.mocked(storage.set).mock.calls.at(-1)?.[1]).toBe(persistedBeforeError);
+    unsubscribe();
+    client.clear();
+  });
 });

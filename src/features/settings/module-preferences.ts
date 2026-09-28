@@ -16,11 +16,12 @@ export type ModulePreferences = {
   mealPlanner: boolean;
 };
 
-export const DEFAULT_MODULE_PREFERENCES: ModulePreferences = {
+/** Einmalige Modul-Auswahl fuer neue Accounts und den ersten lokalen Render. */
+export const INITIAL_MODULE_PREFERENCES: ModulePreferences = {
   fridge: true,
   shoppingList: true,
-  calories: true,
-  recipes: true,
+  calories: false,
+  recipes: false,
   mealPlanner: true,
 };
 
@@ -29,14 +30,15 @@ export function modulePreferencesQueryKey(userId: string | undefined) {
   return ['settings', 'module-preferences', userId] as const;
 }
 
-/** Liest die Modul-Praeferenzen aus dem Profil und verwendet sichere Defaults. */
+/** Liest die Modul-Praeferenzen aus dem Profil und startet local-first. */
 export function useModulePreferences(userId: string | undefined) {
-  return useQuery({
+  const query = useQuery({
     queryKey: modulePreferencesQueryKey(userId),
+    enabled: Boolean(userId),
+    networkMode: 'online',
+    placeholderData: INITIAL_MODULE_PREFERENCES,
     queryFn: async (): Promise<ModulePreferences> => {
-      if (!userId) {
-        return DEFAULT_MODULE_PREFERENCES;
-      }
+      if (!userId) return INITIAL_MODULE_PREFERENCES;
 
       const { data, error } = await getSupabase()
         .from('profiles')
@@ -46,9 +48,8 @@ export function useModulePreferences(userId: string | undefined) {
         .eq('id', userId)
         .maybeSingle();
 
-      if (error || !data) {
-        return DEFAULT_MODULE_PREFERENCES;
-      }
+      if (error) throw new Error(error.message);
+      if (!data) return INITIAL_MODULE_PREFERENCES;
 
       return {
         fridge: data.module_fridge ?? true,
@@ -59,6 +60,8 @@ export function useModulePreferences(userId: string | undefined) {
       };
     },
   });
+
+  return { ...query, data: query.data ?? INITIAL_MODULE_PREFERENCES };
 }
 
 /** Speichert einzelne Modul-Praeferenzen mit optimistischem Cache-Update. */
@@ -89,7 +92,7 @@ export function useUpdateModulePreferencesMutation() {
       const previous = queryClient.getQueryData<ModulePreferences>(queryKey);
 
       queryClient.setQueryData<ModulePreferences>(queryKey, (old) => ({
-        ...(old ?? DEFAULT_MODULE_PREFERENCES),
+        ...(old ?? INITIAL_MODULE_PREFERENCES),
         ...modules,
       }));
 
