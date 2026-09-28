@@ -67,7 +67,7 @@
       ]
     },
     {
-      "file": "IMG_4219.png",
+      "file": "IMG_4219_rabatt_1.29.png",
       "merchant": "EDEKA",
       "purchase_date": null,
       "total_currency": "EUR",
@@ -209,6 +209,39 @@
           "labels": ["article barcode prefixes", "footer barcode"],
           "action": "exclude_from_items"
         }
+      ]
+    },
+    {
+      "file": "IMG_4231.png",
+      "merchant": "EDEKA",
+      "purchase_date": null,
+      "total_currency": "EUR",
+      "total_cents": 5068,
+      "article_anchors": [
+        { "label": "Tawa Red", "quantity": 2, "unit_price_cents": 780, "line_total_cents": 1560, "tax_code": "B" },
+        { "label": "G&G Sirup 0,5 l", "line_total_cents": 319, "tax_code": "A" },
+        { "label": "G&G Haferfloc", "quantity": 2, "unit_price_cents": 69, "line_total_cents": 138, "tax_code": "AW" },
+        { "label": "G&G Erdnuss.C", "quantity": 2, "unit_price_cents": 189, "line_total_cents": 378, "tax_code": "A" },
+        { "label": "Lätta Vitamine", "line_total_cents": 229, "tax_code": "A" },
+        { "label": "G&G Kokosraspeln", "line_total_cents": 159, "tax_code": "A" },
+        { "label": "B.Heilbr.Magen Tee", "line_total_cents": 149, "tax_code": "A" },
+        { "label": "G&G Salami leicht", "line_total_cents": 209, "tax_code": "A" },
+        { "label": "G&G Puddingpu", "quantity": 2, "unit_price_cents": 39, "line_total_cents": 78, "tax_code": "A" },
+        { "label": "G&G SK-Sch.Holl.", "line_total_cents": 159, "tax_code": "A" },
+        { "label": "Bio E.Landbr .Kern.", "line_total_cents": 129, "tax_code": "A" },
+        { "label": "Bio E.Landor. Weiz.", "line_total_cents": 139, "tax_code": "A" },
+        { "label": "G&G Skyr pur", "quantity": 3, "unit_price_cents": 139, "line_total_cents": 417, "tax_code": "A" },
+        { "label": "Bio Al. Maiswatteln", "line_total_cents": 99, "tax_code": "A" },
+        { "label": "Paprika rot", "line_total_cents": 248, "tax_code": "A" },
+        { "label": "Herz.Mi .Rispentom.", "line_total_cents": 299, "tax_code": "A" },
+        { "label": "Seidel Eier", "line_total_cents": 359, "tax_code": "A" }
+      ],
+      "excluded_lines": [
+        { "kind": "coupon", "visible": true, "labels": ["Coupon"], "action": "exclude_from_items" },
+        { "kind": "deposit", "visible": false, "action": "exclude_from_items" },
+        { "kind": "tax", "visible": true, "labels": ["MwSt"], "action": "exclude_from_items" },
+        { "kind": "payment", "visible": true, "labels": ["Visa"], "action": "exclude_from_items" },
+        { "kind": "barcode", "visible": false, "action": "exclude_from_items" }
       ]
     }
   ]

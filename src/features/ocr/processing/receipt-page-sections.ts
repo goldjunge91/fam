@@ -1,0 +1,168 @@
+import type * as ExpoFileSystem from 'expo-file-system';
+import { Platform } from 'react-native';
+import type { ReceiptOcrLine, ReceiptOcrResult } from './native';
+import { ReceiptOcrError, recognizeReceiptOcr, validateReceiptOcrUri } from './native';
+import { enhanceReceiptSection } from './receipt-contrast';
+
+type NitroImageModule = Pick<typeof import('react-native-nitro-image'), 'Images' | 'loadImage'>;
+
+type ReceiptSection = {
+  start: number;
+  end: number;
+  coreStart: number;
+  coreEnd: number;
+};
+
+const GERMAN_RECEIPT_OCR_OPTIONS = { languages: ['de-DE'] } as const;
+const COMPLETE_AMOUNT = /\d{1,4}[,.]\d{2}(?!\d)/u;
+const MULTIPLIED_UNIT_PRICE = /\d{1,4}[,.]\d{2}\s*€\s*[x×]\b/iu;
+const PRICE_FRAGMENT = /^[\d.,€\s*+\-x×ABWEUR]+$/iu;
+
+/** Three OCR views of one photo, with overlap so text at a cut stays readable. */
+export function receiptSections(imageHeight: number): readonly ReceiptSection[] {
+  const overlap = Math.max(12, Math.round(imageHeight * 0.025));
+  return Array.from({ length: 3 }, (_, index) => {
+    const coreStart = Math.round((index * imageHeight) / 3);
+    const coreEnd = Math.round(((index + 1) * imageHeight) / 3);
+    return {
+      start: Math.max(0, coreStart - overlap),
+      end: Math.min(imageHeight, coreEnd + overlap),
+      coreStart,
+      coreEnd,
+    };
+  });
+}
+
+/** Restores each OCR box to the photo and retains one owner for overlap lines. */
+export function projectSectionLines(
+  lines: readonly ReceiptOcrLine[],
+  section: ReceiptSection,
+  imageHeight: number,
+): ReceiptOcrLine[] {
+  const sectionHeight = section.end - section.start;
+  return lines.flatMap((line) => {
+    const center =
+      section.start + (line.boundingBox.y + line.boundingBox.height / 2) * sectionHeight;
+    if (center < section.coreStart || center >= section.coreEnd) return [];
+    return [
+      {
+        ...line,
+        boundingBox: {
+          ...line.boundingBox,
+          y: (section.start + line.boundingBox.y * sectionHeight) / imageHeight,
+          height: (line.boundingBox.height * sectionHeight) / imageHeight,
+        },
+      },
+    ];
+  });
+}
+
+function overlapping(left: ReceiptOcrLine, right: ReceiptOcrLine): boolean {
+  const leftBox = left.boundingBox;
+  const rightBox = right.boundingBox;
+  const horizontal =
+    Math.min(leftBox.x + leftBox.width, rightBox.x + rightBox.width) -
+    Math.max(leftBox.x, rightBox.x);
+  const vertical =
+    Math.min(leftBox.y + leftBox.height, rightBox.y + rightBox.height) -
+    Math.max(leftBox.y, rightBox.y);
+  return (
+    horizontal > Math.min(leftBox.width, rightBox.width) * 0.3 &&
+    vertical > Math.min(leftBox.height, rightBox.height) * 0.3
+  );
+}
+
+/** Keeps whole-photo text and accepts only clearer, missing amounts from short views. */
+export function mergeReceiptOcrLines(
+  whole: readonly ReceiptOcrLine[],
+  sections: readonly ReceiptOcrLine[],
+): ReceiptOcrLine[] {
+  let merged = [...whole];
+  for (const candidate of sections) {
+    if (candidate.boundingBox.x < 0.5 && !MULTIPLIED_UNIT_PRICE.test(candidate.text)) {
+      continue;
+    }
+    const amount = candidate.text.match(COMPLETE_AMOUNT)?.[0];
+    if (!amount) continue;
+    const matches = merged.filter((line) => overlapping(line, candidate));
+    if (matches.some((line) => line.text.includes(amount))) continue;
+    merged = merged.filter(
+      (line) =>
+        !overlapping(line, candidate) ||
+        !(/[\d€]/u.test(line.text) && PRICE_FRAGMENT.test(line.text)),
+    );
+    // A price seen only in the supplementary pass is useful, but still needs review.
+    merged.push({ ...candidate, confidence: Math.min(candidate.confidence ?? 0, 0.79) });
+  }
+  return merged.sort(
+    (left, right) =>
+      left.boundingBox.y - right.boundingBox.y || left.boundingBox.x - right.boundingBox.x,
+  );
+}
+
+/** Keeps whole-photo OCR and reads three short views for missing prices. */
+export async function recognizeReceiptPageSections(uri: string): Promise<ReceiptOcrResult> {
+  const localUri = validateReceiptOcrUri(uri);
+  let whole: ReceiptOcrResult | null = null;
+  try {
+    whole = await recognizeReceiptOcr(localUri, GERMAN_RECEIPT_OCR_OPTIONS);
+  } catch (error) {
+    if (!(error instanceof ReceiptOcrError && error.code === 'NO_TEXT')) throw error;
+  }
+  let loadImage: NitroImageModule['loadImage'];
+  let Images: NitroImageModule['Images'];
+  let fileSystem: typeof ExpoFileSystem;
+  let image: Awaited<ReturnType<typeof loadImage>>;
+  try {
+    ({ Images, loadImage } = require('react-native-nitro-image') as NitroImageModule);
+    fileSystem = require('expo-file-system') as typeof ExpoFileSystem;
+    image = await loadImage({ filePath: localUri.slice('file://'.length) });
+  } catch {
+    if (whole) return whole;
+    return recognizeReceiptOcr(localUri, GERMAN_RECEIPT_OCR_OPTIONS);
+  }
+  if (image.height < 3) {
+    if (whole) return whole;
+    return recognizeReceiptOcr(localUri, GERMAN_RECEIPT_OCR_OPTIONS);
+  }
+
+  const lines: ReceiptOcrLine[] = [];
+  for (const section of receiptSections(image.height)) {
+    let cropUri: string;
+    try {
+      const crop = await image.cropAsync(0, section.start, image.width, section.end);
+      let ocrImage = crop;
+      if (Platform.OS === 'ios') {
+        try {
+          const enhanced = enhanceReceiptSection(await crop.toRawPixelDataAsync());
+          if (enhanced) ocrImage = await Images.loadFromRawPixelDataAsync(enhanced);
+        } catch {
+          ocrImage = crop;
+        }
+      }
+      const path = await ocrImage.saveToTemporaryFileAsync('png');
+      cropUri = path.startsWith('file://') ? path : `file://${path}`;
+    } catch {
+      if (whole) return whole;
+      return recognizeReceiptOcr(localUri, GERMAN_RECEIPT_OCR_OPTIONS);
+    }
+
+    try {
+      const result = await recognizeReceiptOcr(cropUri, GERMAN_RECEIPT_OCR_OPTIONS);
+      lines.push(...projectSectionLines(result.lines, section, image.height));
+    } catch (error) {
+      if (!(error instanceof ReceiptOcrError && error.code === 'NO_TEXT')) throw error;
+    } finally {
+      const file = new fileSystem.File(cropUri);
+      if (file.info().exists) file.delete();
+    }
+  }
+
+  if (whole) {
+    return { ...whole, lines: mergeReceiptOcrLines(whole.lines, lines) };
+  }
+  if (lines.length > 0) {
+    return { imageSize: { width: image.width, height: image.height }, lines };
+  }
+  return recognizeReceiptOcr(localUri, GERMAN_RECEIPT_OCR_OPTIONS);
+}

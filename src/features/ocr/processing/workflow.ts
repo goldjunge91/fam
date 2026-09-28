@@ -21,8 +21,8 @@ import {
   prepareReceiptOcr,
   type ReceiptOcrErrorCode,
   type ReceiptOcrResult,
-  recognizeReceiptOcr,
 } from './native';
+import { recognizeReceiptPageSections } from './receipt-page-sections';
 import { getReceiptReviewValidationErrors } from './review/model';
 
 export type ReceiptProcessingFailure = {
@@ -110,7 +110,7 @@ export async function processReceiptCapture(input: {
         pageIndex,
         pageCount: input.capture.pages.length,
       });
-      const result = await recognizeReceiptOcr(page.localUri);
+      const result = await recognizeReceiptPageSections(page.localUri);
       lines.push(...pageLines(result, pageIndex));
     } catch (error: unknown) {
       const details = errorDetails(error);

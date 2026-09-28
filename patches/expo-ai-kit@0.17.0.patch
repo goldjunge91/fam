@@ -1,0 +1,122 @@
+diff --git a/android/build.gradle b/android/build.gradle
+index 71e7c6bdf0dfca06d006185248b0a025d463274a..49e664af263274921093bb4c55281b3500196b95 100644
+--- a/android/build.gradle
++++ b/android/build.gradle
+@@ -102,11 +102,11 @@ dependencies {
+     // Same bundled face detector as expo-face-check 0.2.2: works offline immediately.
+     implementation "com.google.mlkit:face-detection:16.1.7"
+     implementation "androidx.exifinterface:exifinterface:1.3.7"
+-    // Subject segmentation and OCR are unbundled (Play services modules);
+-    // image labeling ships its model with the app so it works offline at once.
++    // Subject segmentation and non-Latin OCR use Play services modules.
++    // Latin OCR and image labeling are bundled for offline first use.
+     implementation "com.google.android.gms:play-services-mlkit-subject-segmentation:16.0.0-beta1"
+     implementation "com.google.mlkit:image-labeling:17.0.9"
+-    implementation "com.google.android.gms:play-services-mlkit-text-recognition:19.0.1"
++    implementation "com.google.mlkit:text-recognition:16.0.1"
+     implementation "com.google.android.gms:play-services-mlkit-text-recognition-chinese:16.0.1"
+     implementation "com.google.android.gms:play-services-mlkit-text-recognition-japanese:16.0.1"
+     implementation "com.google.android.gms:play-services-mlkit-text-recognition-korean:16.0.1"
+diff --git a/android/src/main/java/expo/modules/aikit/VisionBackend.kt b/android/src/main/java/expo/modules/aikit/VisionBackend.kt
+index bb0d56c076ae3f313dc426cb029b1b5255d1226e..51b00e929f4a0fb6ba1d6a1fcd4ffade2a65fcff 100644
+--- a/android/src/main/java/expo/modules/aikit/VisionBackend.kt
++++ b/android/src/main/java/expo/modules/aikit/VisionBackend.kt
+@@ -17,8 +17,8 @@ interface VisionBackend {
+    * Per-feature availability map:
+    * { backgroundRemoval | imageLabeling | textRecognition:
+    *     { status: 'available'|'downloadable'|'downloading'|'unavailable', reason?: String } }.
+-   * Segmentation and OCR are Google Play services modules ('downloadable'
+-   * until prepare() installs them); the label model is bundled with the app.
++   * Segmentation and non-Latin OCR use Google Play services modules; Latin OCR
++   * and image labeling are bundled with the app.
+    */
+   suspend fun availability(): Map<String, Any?>
+ 
+@@ -26,8 +26,8 @@ interface VisionBackend {
+   suspend fun detectFaces(uri: String): Map<String, Any?>
+ 
+   /**
+-   * Install the Play services modules for [features] ('background-removal',
+-   * 'text-recognition'; 'image-labeling' needs nothing). [languages] are
++   * Install the Play services modules for [features] ('background-removal' and
++   * non-Latin 'text-recognition'; Latin OCR and 'image-labeling' need nothing). [languages] are
+    * normalized BCP-47 tags selecting the OCR script models (empty = Latin).
+    * Progress is 0..1.
+    */
+diff --git a/android/src/vision/java/expo/modules/aikit/vision/MlKitVisionBackend.kt b/android/src/vision/java/expo/modules/aikit/vision/MlKitVisionBackend.kt
+index 2339148e6bf395e08e64d3f7c620e0ebcdaee3b5..36e03deff2fbfe3bc3047a64612014863dc56965 100644
+--- a/android/src/vision/java/expo/modules/aikit/vision/MlKitVisionBackend.kt
++++ b/android/src/vision/java/expo/modules/aikit/vision/MlKitVisionBackend.kt
+@@ -58,13 +58,12 @@ import kotlinx.coroutines.withTimeoutOrNull
+ 
+ /**
+  * ML Kit vision backend: Subject Segmentation (Google Play services module,
+- * beta), Image Labeling (model bundled with the app), and Text Recognition v2
+- * (one Play services module per script: Latin, Chinese, Japanese, Korean,
+- * Devanagari).
++ * beta), Image Labeling and Latin Text Recognition v2 (models bundled with the
++ * app), and Play services OCR modules for Chinese, Japanese, Korean and Devanagari.
+  *
+- * Models are never downloaded implicitly, [prepare] installs the Play
+- * services modules and the analysis calls throw MODEL_NOT_DOWNLOADED until it
+- * has. Bitmaps handed to ML Kit are immutable ARGB_8888 software copies with
++ * Non-Latin models are never downloaded implicitly; [prepare] installs their
++ * Play services modules and analysis calls throw MODEL_NOT_DOWNLOADED until then.
++ * Bitmaps handed to ML Kit are immutable ARGB_8888 software copies with
+  * the longest edge capped (mutable/hardware bitmaps can crash across the
+  * Play services binder boundary; the segmentation model works at ~512 px).
+  */
+@@ -331,7 +330,7 @@ class MlKitVisionBackend(private val context: Context) : VisionBackend {
+       return@withContext mapOf(
+         "backgroundRemoval" to unavailable,
+         "imageLabeling" to labeling,
+-        "textRecognition" to unavailable,
++        "textRecognition" to labeling,
+         "faceDetection" to labeling
+       )
+     }
+@@ -340,15 +339,10 @@ class MlKitVisionBackend(private val context: Context) : VisionBackend {
+     } catch (_: Throwable) {
+       "downloadable"
+     }
+-    val text = try {
+-      if (modulesInstalled(listOf(textClient(Script.LATIN)))) "available" else "downloadable"
+-    } catch (_: Throwable) {
+-      "downloadable"
+-    }
+     mapOf(
+       "backgroundRemoval" to mapOf("status" to segmentation),
+       "imageLabeling" to labeling,
+-      "textRecognition" to mapOf("status" to text),
++      "textRecognition" to labeling,
+       "faceDetection" to labeling
+     )
+   }
+@@ -364,8 +358,9 @@ class MlKitVisionBackend(private val context: Context) : VisionBackend {
+       apis.add(segmenterClient())
+     }
+     if ("text-recognition" in features) {
+-      requirePlayServices("Text recognition")
+-      scriptsFor(languages).forEach { apis.add(textClient(it)) }
++      val downloadableScripts = scriptsFor(languages).filter { it != Script.LATIN }
++      if (downloadableScripts.isNotEmpty()) requirePlayServices("Text recognition")
++      downloadableScripts.forEach { apis.add(textClient(it)) }
+     }
+     // 'image-labeling' ships with the app: nothing to prepare.
+     wrapping("DOWNLOAD_FAILED") { installModules(apis, onProgress) }
+@@ -757,10 +752,13 @@ class MlKitVisionBackend(private val context: Context) : VisionBackend {
+     languages: List<String>,
+     minTextHeight: Double
+   ): Map<String, Any?> = withContext(Dispatchers.Default) {
+-    requirePlayServices("Text recognition")
+     val scripts = scriptsFor(languages)
++    val downloadableScripts = scripts.filter { it != Script.LATIN }
++    if (downloadableScripts.isNotEmpty()) requirePlayServices("Text recognition")
+     val clients = scripts.map { textClient(it) }
+-    requireModules("text recognition", clients)
++    if (downloadableScripts.isNotEmpty()) {
++      requireModules("text recognition", downloadableScripts.map { textClient(it) })
++    }
+ 
+     val source = loadBitmap(uri, TEXT_MAX_PIXELS)
+     try {

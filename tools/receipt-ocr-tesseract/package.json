@@ -1,0 +1,14 @@
+{
+  "name": "fam-receipt-ocr-tesseract",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "ocr": "bun cli.ts",
+    "web": "bun server.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "sharp": "^0.35.2"
+  }
+}

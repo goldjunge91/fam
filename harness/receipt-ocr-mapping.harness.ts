@@ -10,7 +10,7 @@ import {
 import { reconstructReceiptLines } from '@/features/ocr/processing/domain/layout';
 import { parseGermanReceipt } from '@/features/ocr/processing/domain/parser';
 import type { ReceiptOcrLine } from '@/features/ocr/processing/domain/types';
-import { recognizeReceiptOcr } from '@/features/ocr/processing/native';
+import { recognizeReceiptPageSections } from '@/features/ocr/processing/receipt-page-sections';
 import expectedReceipts from '../testbilder/receipt-ocr-expected.json';
 
 const REAL_RECEIPT_ASSETS = [
@@ -25,14 +25,14 @@ const REAL_RECEIPT_ASSETS = [
     moduleId: require('../testbilder/IMG_4218.jpeg') as number,
   },
   {
-    file: 'IMG_4219.png',
-    assetFile: 'IMG_4219.png',
-    moduleId: require('../testbilder/IMG_4219.png') as number,
+    file: 'IMG_4219_rabatt_1.29.png',
+    assetFile: 'IMG_4219_rabatt_1.29.png',
+    moduleId: require('../testbilder/IMG_4219_rabatt_1.29.png') as number,
   },
   {
-    file: 'IMG_4219.jpeg',
-    assetFile: 'IMG_4219.jpeg',
-    moduleId: require('../testbilder/IMG_4219.jpeg') as number,
+    file: 'IMG_4219_rabatt_1.29.jpeg',
+    assetFile: 'IMG_4219_rabatt_1.29.jpeg',
+    moduleId: require('../testbilder/IMG_4219_rabatt_1.29.jpeg') as number,
   },
   {
     file: 'IMG_4220.png',
@@ -43,6 +43,21 @@ const REAL_RECEIPT_ASSETS = [
     file: 'IMG_4220.jpeg',
     assetFile: 'IMG_4220.jpeg',
     moduleId: require('../testbilder/IMG_4220.jpeg') as number,
+  },
+  {
+    file: 'IMG_4231.png',
+    assetFile: 'IMG_4231.png',
+    moduleId: require('../testbilder/IMG_4231.png') as number,
+  },
+  {
+    file: 'IMG_4232_zoomX1_rabatt_2.20.png',
+    assetFile: 'IMG_4232_zoomX1_rabatt_2.20.png',
+    moduleId: require('../testbilder/IMG_4232_zoomX1_rabatt_2.20.png') as number,
+  },
+  {
+    file: 'IMG_4232_zoomX2_rabatt_2.20.png',
+    assetFile: 'IMG_4232_zoomX2_rabatt_2.20.png',
+    moduleId: require('../testbilder/IMG_4232_zoomX2_rabatt_2.20.png') as number,
   },
 ] as const;
 
@@ -56,6 +71,13 @@ type PriceMismatch = {
   expectedLineTotalCents: number;
   actualLineTotalCents: number | null;
 };
+
+function formatEuro(cents: number | null): string | null {
+  if (cents === null) return null;
+  const sign = cents < 0 ? '-' : '';
+  const absolute = Math.abs(cents);
+  return `${sign}${Math.floor(absolute / 100)},${String(absolute % 100).padStart(2, '0')} €`;
+}
 
 function comparableName(value: string): string {
   return value
@@ -127,7 +149,7 @@ function reportFor(
   normalized: { width: number; height: number; byteSize: number },
 ) {
   return {
-    version: 1,
+    version: 2,
     file,
     asset_file: assetFile,
     normalized_image: normalized,
@@ -135,16 +157,24 @@ function reportFor(
     reconstructed_lines: reconstructedLines.map(redactedLine),
     parsed: {
       market: draft.market.value,
-      total_cents: draft.totalCents.value,
+      total_eur: formatEuro(draft.totalCents.value),
       items: draft.items.map((item) => ({
         name: item.name,
         quantity: item.quantity,
-        unit_price_cents: item.unitPriceCents?.value ?? null,
-        line_total_cents: item.lineTotalCents.value,
+        unit_price_eur: formatEuro(item.unitPriceCents?.value ?? null),
+        line_total_eur: formatEuro(item.lineTotalCents.value),
+        needs_review: item.needsReview,
       })),
       excluded_line_count: draft.excludedLines.length,
       warning_count: draft.warnings.length,
-      price_mismatches: priceMismatches,
+      price_mismatches: priceMismatches.map((mismatch) => ({
+        index: mismatch.index,
+        name: mismatch.name,
+        expected_unit_price_eur: formatEuro(mismatch.expectedUnitPriceCents),
+        actual_unit_price_eur: formatEuro(mismatch.actualUnitPriceCents),
+        expected_line_total_eur: formatEuro(mismatch.expectedLineTotalCents),
+        actual_line_total_eur: formatEuro(mismatch.actualLineTotalCents),
+      })),
     },
   };
 }
@@ -204,7 +234,7 @@ async function runReceipt(file: string, assetFile: string, moduleId: number) {
   });
 
   try {
-    const nativeResult = await recognizeReceiptOcr(normalized.localUri, { languages: ['de-DE'] });
+    const nativeResult = await recognizeReceiptPageSections(normalized.localUri);
     const nativeLines = nativeResult.lines.map((line) => ({ ...line, pageIndex: 0 }));
     const reconstructedLines = reconstructReceiptLines(nativeLines);
     const draft = parseGermanReceipt(nativeLines);
@@ -249,9 +279,20 @@ async function runReceipt(file: string, assetFile: string, moduleId: number) {
         if (!actualItem) throw new Error(`Missing parsed item ${index + 1} for ${file}.`);
         expect(matchesExpectedName(actualItem.name, expectedItem.name)).toBe(true);
         expect(actualItem.quantity).toBe(expectedItem.quantity ?? null);
-        expect(actualItem.lineTotalCents.value).toBe(expectedItem.line_total_cents);
+        if (actualItem.lineTotalCents.value === null) {
+          expect(actualItem.lineTotalCents.needsReview).toBe(true);
+          expect(actualItem.needsReview).toBe(true);
+        } else {
+          expect(actualItem.lineTotalCents.value).toBe(expectedItem.line_total_cents);
+        }
         if ('unit_price_cents' in expectedItem) {
-          expect(actualItem.unitPriceCents?.value ?? null).toBe(expectedItem.unit_price_cents ?? null);
+          const observedUnitPrice = actualItem.unitPriceCents;
+          if (observedUnitPrice?.value == null) {
+            if (observedUnitPrice) expect(observedUnitPrice.needsReview).toBe(true);
+            expect(actualItem.needsReview).toBe(true);
+          } else {
+            expect(observedUnitPrice.value).toBe(expectedItem.unit_price_cents ?? null);
+          }
         }
       }
     } catch (error) {

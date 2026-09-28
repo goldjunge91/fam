@@ -6,62 +6,366 @@
       "market": "EDEKA",
       "total_cents": 3914,
       "items": [
-        { "name": "G&G Kaisergemüse", "line_total_cents": 239 },
-        { "name": "Laugenecke", "quantity": 2, "unit_price_cents": 99, "line_total_cents": 198 },
-        { "name": "G&G Speisequark", "line_total_cents": 125 },
-        { "name": "Bio E.veg.M.Drink", "line_total_cents": 149 },
-        { "name": "G&G Erdnuss.C", "quantity": 2, "unit_price_cents": 189, "line_total_cents": 378 },
-        { "name": "Marzipan Croiss.", "line_total_cents": 129 },
-        { "name": "G&G Kochsahne", "line_total_cents": 65 },
-        { "name": "G&G Joghurt grie.", "line_total_cents": 229 },
-        { "name": "Herz.Kaiserkirsch.", "line_total_cents": 429 },
-        { "name": "G&G Haferflocken", "line_total_cents": 75 },
-        { "name": "G&G Puddingpulver", "line_total_cents": 39 },
-        { "name": "Herz.Mi.Rispentom.", "line_total_cents": 299 },
-        { "name": "Tawa Red", "quantity": 2, "unit_price_cents": 780, "line_total_cents": 1560 }
+        {
+          "name": "G&G Kaisergemüse",
+          "line_total_cents": 239
+        },
+        {
+          "name": "Laugenecke",
+          "quantity": 2,
+          "unit_price_cents": 99,
+          "line_total_cents": 198
+        },
+        {
+          "name": "G&G Speisequark",
+          "line_total_cents": 125
+        },
+        {
+          "name": "Bio E.veg.M.Drink",
+          "line_total_cents": 149
+        },
+        {
+          "name": "G&G Erdnuss.C",
+          "quantity": 2,
+          "unit_price_cents": 189,
+          "line_total_cents": 378
+        },
+        {
+          "name": "Marzipan Croiss.",
+          "line_total_cents": 129
+        },
+        {
+          "name": "G&G Kochsahne",
+          "line_total_cents": 65
+        },
+        {
+          "name": "G&G Joghurt grie.",
+          "line_total_cents": 229
+        },
+        {
+          "name": "Herz.Kaiserkirsch.",
+          "line_total_cents": 429
+        },
+        {
+          "name": "G&G Haferflocken",
+          "line_total_cents": 75
+        },
+        {
+          "name": "G&G Puddingpulver",
+          "line_total_cents": 39
+        },
+        {
+          "name": "Herz.Mi.Rispentom.",
+          "line_total_cents": 299
+        },
+        {
+          "name": "Tawa Red",
+          "quantity": 2,
+          "unit_price_cents": 780,
+          "line_total_cents": 1560
+        }
       ]
     },
     {
-      "file": "IMG_4219.png",
+      "file": "IMG_4219_rabatt_1.29.png",
       "market": "EDEKA",
       "total_cents": 4337,
+      "excluded_amounts": [
+        {
+          "label": "Pfand",
+          "line_total_cents": 25
+        },
+        {
+          "label": "Coupon Gratisartikel",
+          "line_total_cents": -129
+        }
+      ],
       "items": [
-        { "name": "B.Heilbr.Huste.Tee", "line_total_cents": 299 },
-        { "name": "Bio E.Landbr.", "quantity": 2, "unit_price_cents": 139, "line_total_cents": 278 },
-        { "name": "G&G Haferfloc", "quantity": 2, "unit_price_cents": 75, "line_total_cents": 150 },
-        { "name": "Exqu.Frischk.f̈itl.", "line_total_cents": 199 },
-        { "name": "G&G Frischkäse", "line_total_cents": 169 },
-        { "name": "Toffifee White", "line_total_cents": 149 },
-        { "name": "Iglo Schlemm.Filet", "line_total_cents": 279 },
-        { "name": "Milka Lotus Bisco.", "line_total_cents": 99 },
-        { "name": "Marzipan Croiss.", "line_total_cents": 129 },
-        { "name": "Laugenecke", "quantity": 2, "unit_price_cents": 99, "line_total_cents": 198 },
-        { "name": "Lakritz Toffee", "line_total_cents": 70 },
-        { "name": "Tawa Red", "line_total_cents": 780 },
-        { "name": "G&G Erdnuss.C", "quantity": 2, "unit_price_cents": 189, "line_total_cents": 378 },
-        { "name": "Effect Cocoon.0,331", "line_total_cents": 79 },
-        { "name": "Herz.Apfelsaft 1l", "line_total_cents": 129 },
-        { "name": "G&G Pfannengemüse", "line_total_cents": 209 },
-        { "name": "G&G SK-Sch.Holl.", "line_total_cents": 159 },
-        { "name": "G&G Salami", "line_total_cents": 189 },
-        { "name": "G&G Toil.papier", "line_total_cents": 499 }
+        {
+          "name": "B.Heilbr.Huste.Tee",
+          "line_total_cents": 299
+        },
+        {
+          "name": "Bio E.Landbr.",
+          "quantity": 2,
+          "unit_price_cents": 139,
+          "line_total_cents": 278
+        },
+        {
+          "name": "G&G Haferfloc",
+          "quantity": 2,
+          "unit_price_cents": 75,
+          "line_total_cents": 150
+        },
+        {
+          "name": "Exqu.Frischk.fitl.",
+          "line_total_cents": 199
+        },
+        {
+          "name": "G&G Frischkäse",
+          "line_total_cents": 169
+        },
+        {
+          "name": "Toffifee White",
+          "line_total_cents": 149
+        },
+        {
+          "name": "Iglo Schlemm.Filet",
+          "line_total_cents": 279
+        },
+        {
+          "name": "Milka Lotus Bisco.",
+          "line_total_cents": 99
+        },
+        {
+          "name": "Marzipan Croiss.",
+          "line_total_cents": 129
+        },
+        {
+          "name": "Laugenecke",
+          "quantity": 2,
+          "unit_price_cents": 99,
+          "line_total_cents": 198
+        },
+        {
+          "name": "Lakritz Toffee",
+          "line_total_cents": 70
+        },
+        {
+          "name": "Tawa Red",
+          "line_total_cents": 780
+        },
+        {
+          "name": "G&G Erdnuss.C",
+          "quantity": 2,
+          "unit_price_cents": 189,
+          "line_total_cents": 378
+        },
+        {
+          "name": "Effect Cocoon.0,331",
+          "line_total_cents": 79
+        },
+        {
+          "name": "Herz.Apfelsaft 1l",
+          "line_total_cents": 129
+        },
+        {
+          "name": "G&G Pfannengemüse",
+          "line_total_cents": 209
+        },
+        {
+          "name": "G&G SK-Sch.Holl.",
+          "line_total_cents": 159
+        },
+        {
+          "name": "G&G Salami",
+          "line_total_cents": 189
+        },
+        {
+          "name": "G&G Toil.papier",
+          "line_total_cents": 499
+        }
       ]
     },
     {
       "file": "IMG_4220.png",
       "market": "ROSSMANN",
       "total_cents": 1895,
+      "excluded_amounts": [
+        {
+          "label": "COUPONAKTION",
+          "line_total_cents": -611
+        }
+      ],
       "items": [
-        { "name": "EINKAUFSTASCHE", "line_total_cents": 199 },
+        {
+          "name": "EINKAUFSTASCHE",
+          "line_total_cents": 199
+        },
         {
           "name": "MORE CHUNKY FLAVOU",
           "quantity": 2,
           "unit_price_cents": 999,
           "line_total_cents": 1998
         },
-        { "name": "ISANA MILDE SEIFE", "line_total_cents": 65 },
-        { "name": "PROKUDENT PLAQUE I", "line_total_cents": 179 },
-        { "name": "ISANA SEIFE PEACH", "line_total_cents": 65 }
+        {
+          "name": "ISANA MILDE SEIFE",
+          "line_total_cents": 65
+        },
+        {
+          "name": "PROKUDENT PLAQUE I",
+          "line_total_cents": 179
+        },
+        {
+          "name": "ISANA SEIFE PEACH",
+          "line_total_cents": 65
+        }
+      ]
+    },
+    {
+      "file": "IMG_4231.png",
+      "market": "EDEKA",
+      "total_cents": 5068,
+      "printed_position_count": 23,
+      "items": [
+        {
+          "name": "Tawa Red",
+          "quantity": 2,
+          "unit_price_cents": 780,
+          "line_total_cents": 1560
+        },
+        {
+          "name": "G&G Sirup 0,5 l",
+          "line_total_cents": 319
+        },
+        {
+          "name": "G&G Haferfloc",
+          "quantity": 2,
+          "unit_price_cents": 69,
+          "line_total_cents": 138
+        },
+        {
+          "name": "G&G Erdnuss.C",
+          "quantity": 2,
+          "unit_price_cents": 189,
+          "line_total_cents": 378
+        },
+        {
+          "name": "Lätta Vitamine",
+          "line_total_cents": 229
+        },
+        {
+          "name": "G&G Kokosraspeln",
+          "line_total_cents": 159
+        },
+        {
+          "name": "B.Heilbr.Magen Tee",
+          "line_total_cents": 149
+        },
+        {
+          "name": "G&G Salami leicht",
+          "line_total_cents": 209
+        },
+        {
+          "name": "G&G Puddingpu",
+          "quantity": 2,
+          "unit_price_cents": 39,
+          "line_total_cents": 78
+        },
+        {
+          "name": "G&G SK-Sch.Holl.",
+          "line_total_cents": 159
+        },
+        {
+          "name": "Bio E.Landbr .Kern.",
+          "line_total_cents": 129
+        },
+        {
+          "name": "Bio E.Landor. Weiz.",
+          "line_total_cents": 139
+        },
+        {
+          "name": "G&G Skyr pur",
+          "quantity": 3,
+          "unit_price_cents": 139,
+          "line_total_cents": 417
+        },
+        {
+          "name": "Bio Al. Maiswatteln",
+          "line_total_cents": 99
+        },
+        {
+          "name": "Paprika rot",
+          "line_total_cents": 248
+        },
+        {
+          "name": "Herz.Mi .Rispentom.",
+          "line_total_cents": 299
+        },
+        {
+          "name": "Seidel Eier",
+          "line_total_cents": 359
+        }
+      ]
+    },
+    {
+      "file": "IMG_4232_zoomX1_rabatt_2.20.png",
+      "market": "EDEKA",
+      "total_cents": 1314,
+      "printed_position_count": 6,
+      "excluded_amounts": [
+        {
+          "label": "APP Coupon Drogerie",
+          "line_total_cents": -80
+        },
+        {
+          "label": "APP Coupon Drogerie",
+          "line_total_cents": -140
+        }
+      ],
+      "items": [
+        {
+          "name": "Knorr Suppenliebe",
+          "line_total_cents": 109
+        },
+        {
+          "name": "Angin. Kirsch. Tabl.",
+          "line_total_cents": 399
+        },
+        {
+          "name": "Anginetten Spray",
+          "line_total_cents": 699
+        },
+        {
+          "name": "Knorr Suppenliebe",
+          "line_total_cents": 109
+        },
+        {
+          "name": "Maggi Fix Rei",
+          "quantity": 2,
+          "unit_price_cents": 109,
+          "line_total_cents": 218
+        }
+      ]
+    },
+    {
+      "file": "IMG_4232_zoomX2_rabatt_2.20.png",
+      "market": "EDEKA",
+      "total_cents": 1314,
+      "printed_position_count": 6,
+      "excluded_amounts": [
+        {
+          "label": "APP Coupon Drogerie",
+          "line_total_cents": -80
+        },
+        {
+          "label": "APP Coupon Drogerie",
+          "line_total_cents": -140
+        }
+      ],
+      "items": [
+        {
+          "name": "Knorr Suppenliebe",
+          "line_total_cents": 109
+        },
+        {
+          "name": "Angin. Kirsch. Tabl.",
+          "line_total_cents": 399
+        },
+        {
+          "name": "Anginetten Spray",
+          "line_total_cents": 699
+        },
+        {
+          "name": "Knorr Suppenliebe",
+          "line_total_cents": 109
+        },
+        {
+          "name": "Maggi Fix Rei",
+          "quantity": 2,
+          "unit_price_cents": 109,
+          "line_total_cents": 218
+        }
       ]
     }
   ]

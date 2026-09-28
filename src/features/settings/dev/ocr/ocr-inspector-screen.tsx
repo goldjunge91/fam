@@ -1,4 +1,3 @@
-import * as Clipboard from 'expo-clipboard';
 import { Image } from 'expo-image';
 import { useEffect, useRef, useState } from 'react';
 import { View } from 'react-native';
@@ -21,6 +20,7 @@ import {
   recognizeReceiptOcr,
 } from '@/features/ocr/processing/native';
 import { formatBytes, Zeile } from '../dev-screen-shared';
+import { OcrInspectorOutputActions } from './ocr-inspector-output-actions';
 import {
   type InspectorColorMode,
   type InspectorContrast,
@@ -377,7 +377,6 @@ export function OcrInspectorScreen() {
   const [modelProgress, setModelProgress] = useState<number | null>(null);
   const [error, setError] = useState<{ code: string; message: string } | null>(null);
   const [elapsedMs, setElapsedMs] = useState<number | null>(null);
-  const [copyStatus, setCopyStatus] = useState<string | null>(null);
   const [lastRunSignature, setLastRunSignature] = useState<string | null>(null);
   const mountedRef = useRef(true);
   const operationRef = useRef(0);
@@ -547,7 +546,6 @@ export function OcrInspectorScreen() {
     operationRef.current = operation;
     setPhase('picking');
     setError(null);
-    setCopyStatus(null);
 
     try {
       const currentFileSystem = getFileSystem();
@@ -627,16 +625,9 @@ export function OcrInspectorScreen() {
     setRecognizedText('');
     setError(null);
     setElapsedMs(null);
-    setCopyStatus(null);
     setLastRunSignature(null);
     setPhase('idle');
     await cleanupOwnedImages();
-  }
-
-  async function copyRecognizedText() {
-    if (!recognizedText) return;
-    await Clipboard.setStringAsync(recognizedText);
-    setCopyStatus('Text kopiert');
   }
 
   const average = result ? averageConfidence(result.lines) : null;
@@ -935,16 +926,11 @@ export function OcrInspectorScreen() {
       </Card>
 
       <Card style={styles.outputCard}>
-        <Row justify="space-between" align="center">
-          <Txt variant="heading">Gesamter erkannter Text</Txt>
-          <Button
-            title={copyStatus ?? 'Kopieren'}
-            variant="link"
-            size="sm"
-            disabled={!recognizedText}
-            onPress={() => void copyRecognizedText()}
-          />
-        </Row>
+        <Txt variant="heading">Gesamter erkannter Text</Txt>
+        <OcrInspectorOutputActions result={result} text={recognizedText} />
+        <Txt variant="caption" tone="secondary">
+          Das JSON enthält den vollständigen Bontext und die erkannten Positionen.
+        </Txt>
         <TextField
           accessibilityLabel="Gesamter erkannter Text"
           value={recognizedText}

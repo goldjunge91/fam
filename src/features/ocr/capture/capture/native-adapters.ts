@@ -1,6 +1,7 @@
 import type * as ExpoFileSystem from 'expo-file-system';
 import type * as ExpoImagePicker from 'expo-image-picker';
 import { Platform } from 'react-native';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 import type {
   ReceiptCaptureFileAdapter,
   ReceiptImagePickerAdapter,
@@ -14,6 +15,7 @@ import {
   resizeActionForLongEdge,
   validateNormalizedReceiptImage,
 } from './normalization';
+import { rectifyReceiptImage } from './receipt-image-rectifier';
 
 type ExpoImageManipulatorResult = {
   uri: string;
@@ -184,8 +186,26 @@ export function createExpoFileSystemAdapter(): ReceiptCaptureFileAdapter {
         'normalization_failed',
         'Receipt image normalization did not produce a usable JPEG.',
       );
+      let orientedUri: string | null = null;
+      let rectifiedUri: string | null = null;
 
       try {
+        try {
+          // Re-encode once without resizing so EXIF rotation and non-file picker
+          // URIs become an upright local JPEG before reading its pixel buffer.
+          const oriented = await imageManipulator.manipulateAsync(sourceUri, [], {
+            base64: false,
+            compress: 1,
+            format: 'jpeg',
+          });
+          orientedUri = oriented.uri;
+          rectifiedUri = await rectifyReceiptImage(oriented.uri);
+        } catch (error: unknown) {
+          debugLogEvent('receipt.capture.rectification_skipped', {
+            error_type: error instanceof Error ? error.name : typeof error,
+          });
+        }
+        const workingSourceUri = rectifiedUri ?? sourceUri;
         for (const [attempt, quality] of qualitySteps.entries()) {
           const targetLongEdge =
             attempt === 0
@@ -201,11 +221,15 @@ export function createExpoFileSystemAdapter(): ReceiptCaptureFileAdapter {
                   targetLongEdge,
                 )
               : null;
-          const result = await imageManipulator.manipulateAsync(sourceUri, action ? [action] : [], {
-            base64: false,
-            compress: quality,
-            format: 'jpeg',
-          });
+          const result = await imageManipulator.manipulateAsync(
+            workingSourceUri,
+            action ? [action] : [],
+            {
+              base64: false,
+              compress: quality,
+              format: 'jpeg',
+            },
+          );
           sourceDimensions ??= { width: result.width, height: result.height };
 
           if (!isLocalReceiptImageUri(result.uri)) {
@@ -266,6 +290,9 @@ export function createExpoFileSystemAdapter(): ReceiptCaptureFileAdapter {
       } catch (error: unknown) {
         await deleteFileIfPresent(destination.uri);
         throw error;
+      } finally {
+        if (rectifiedUri) await deleteFileIfPresent(rectifiedUri);
+        if (orientedUri && orientedUri !== sourceUri) await deleteFileIfPresent(orientedUri);
       }
     },
     readBytes(localUri) {

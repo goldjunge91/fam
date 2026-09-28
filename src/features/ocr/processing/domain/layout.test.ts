@@ -270,6 +270,35 @@ describe('reconstructReceiptLines', () => {
     ]);
   });
 
+  it('aligns the continuous price column of IMG_4218 with the article sequence', () => {
+    const rows = [
+      { name: 'G&G Kaisergemüse', nameY: 0.410813, price: '2,39', priceY: 0.428649 },
+      { name: 'Laugenecke', nameY: 0.435609, price: '1,98', priceY: 0.454942 },
+      { name: 'G&G Speisequark', nameY: 0.460702, price: '1,25 A', priceY: 0.476744 },
+      { name: 'Bio E.veg.M.Drink', nameY: 0.483584, price: '1,49 B', priceY: 0.5 },
+    ];
+    const lines = reconstructReceiptLines(
+      rows.flatMap(({ name, nameY, price, priceY }) => [
+        {
+          text: name,
+          confidence: 0.9,
+          pageIndex: 0,
+          boundingBox: { x: 0.06, y: nameY, width: 0.35, height: 0.025 },
+        },
+        {
+          text: price,
+          confidence: 0.9,
+          pageIndex: 0,
+          boundingBox: { x: 0.735, y: priceY, width: 0.12, height: 0.023 },
+        },
+      ]),
+    );
+
+    expect(lines.map(({ text }) => text)).toEqual(
+      rows.map(({ name, price }) => `${name} ${price}`),
+    );
+  });
+
   it('keeps native EDEKA price fragments on their own article row', () => {
     const lines = reconstructReceiptLines([
       {

@@ -1,4 +1,4 @@
-import { reconstructReceiptLines } from './layout';
+import { normalizedText, reconstructReceiptLines } from './layout';
 import {
   assertEuroCents,
   type EuroCents,
@@ -84,24 +84,12 @@ const TAX_RATE_ROW_PATTERN = /^\s*(?:A|B|AW|BW)\s+\d{1,2}\s*%\b/i;
 const TAX_CODE_ONLY_PATTERN = /^(?:A|B|AW|BW)(?:\s+\d{1,2}\s*%)?$/i;
 
 function normalizeConfidence(value: ReceiptConfidence): ReceiptConfidence {
-  if (value === null) {
-    return null;
-  }
-  if (!Number.isFinite(value)) {
-    return null;
-  }
+  if (value === null || !Number.isFinite(value)) return null;
   return Math.max(0, Math.min(1, value));
 }
 
 function scaleConfidence(value: ReceiptConfidence, factor: number): ReceiptConfidence {
   return value === null ? null : normalizeConfidence(value * factor);
-}
-
-function normalizeText(value: string): string {
-  return value
-    .replace(/\u00a0/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
 }
 
 function splitBarcodePrefixedLine(
@@ -135,13 +123,13 @@ function normalizeInput(input: ParserInput): readonly NormalizedLine[] {
   const sourceLines =
     typeof input === 'string'
       ? input.split(/\r?\n/).map((text) => ({
-          text: normalizeText(text),
+          text: normalizedText(text),
           // Plain text has no native provider confidence. Keep it unknown instead
           // of presenting a non-OCR input as a certain recognition result.
           confidence: null,
         }))
       : reconstructReceiptLines(input).map((line) => ({
-          text: normalizeText(line.text),
+          text: normalizedText(line.text),
           confidence: normalizeConfidence(line.confidence),
         }));
 
@@ -350,30 +338,49 @@ function clearInconsistentObservedAmount<T>(source: ReceiptDraftField<T>): Recei
   };
 }
 
-function filterAmountsAboveSubtotal(
-  items: readonly ReceiptDraftItem[],
+/**
+ * Upper amount bound for a single article line.
+ *
+ * The printed item total can never exceed the subtotal. Without a readable
+ * subtotal the paid total takes over, but only while no discount or coupon
+ * line exists: those lower the paid total below the article sum, so the total
+ * would reject correct article amounts. With such a line present we have no
+ * reliable bound and keep every observed amount.
+ */
+function amountCeilingCents(
+  lines: readonly NormalizedLine[],
   subtotalCents: number | null,
+  totalCents: number | null,
+): number | null {
+  if (subtotalCents !== null) return subtotalCents;
+  if (totalCents === null) return null;
+  return lines.some(({ text }) => SAVINGS_LINE_PATTERN.test(text)) ? null : totalCents;
+}
+
+function filterAmountsAboveCeiling(
+  items: readonly ReceiptDraftItem[],
+  ceilingCents: number | null,
 ): readonly ReceiptDraftItem[] {
-  if (subtotalCents === null) return items;
+  if (ceilingCents === null) return items;
 
   return items.map((item) => ({
     ...item,
     lineTotalCents:
-      item.lineTotalCents.value !== null && item.lineTotalCents.value > subtotalCents
+      item.lineTotalCents.value !== null && item.lineTotalCents.value > ceilingCents
         ? clearInconsistentObservedAmount(item.lineTotalCents)
         : item.lineTotalCents,
     unitPriceCents:
       item.unitPriceCents !== null &&
       item.unitPriceCents.value !== null &&
-      item.unitPriceCents.value > subtotalCents
+      item.unitPriceCents.value > ceilingCents
         ? clearInconsistentObservedAmount(item.unitPriceCents)
         : item.unitPriceCents,
     needsReview:
       item.needsReview ||
-      (item.lineTotalCents.value !== null && item.lineTotalCents.value > subtotalCents) ||
+      (item.lineTotalCents.value !== null && item.lineTotalCents.value > ceilingCents) ||
       (item.unitPriceCents !== null &&
         item.unitPriceCents.value !== null &&
-        item.unitPriceCents.value > subtotalCents),
+        item.unitPriceCents.value > ceilingCents),
   }));
 }
 
@@ -476,8 +483,7 @@ function parseQuantityAndName(nameText: string): {
     ? nameText.slice(quantityMatch[0].length).trim()
     : nameText;
   const withoutCode = textAfterQuantity
-    .replace(/^(?:(?:\*+\d{2,})|(?:\d{8,14}))(?=\s|$)\s*/u, '')
-    .replace(/^\d{8,14}(?=\s|$)\s*/u, '')
+    .replace(/^(?:\*+\d{2,}\s+)?\d{8,14}(?=\s|$)\s*|^\*+\d{2,}(?=\s|$)\s*/u, '')
     .trim();
   if (!quantityMatch) {
     return { name: withoutCode, quantity: null, unit: null };
@@ -493,6 +499,17 @@ function parseQuantityAndName(nameText: string): {
     quantity,
     unit: 'Stück',
   };
+}
+
+function parseNameWithTruncatedUnitPrice(text: string): ReturnType<typeof parseQuantityAndName> {
+  const partial = text.match(
+    /^(.*?)\s+\d*[,.]\d{1,2}\s*(?:€|EUR)\s*[x×]\s*(\d+(?:[.,]\d+)?)(?:\s+\d+[,.]\s*\d?)?\s*$/iu,
+  );
+  const parsed = parseQuantityAndName(partial?.[1] ?? text);
+  if (!partial) return parsed;
+  const observedQuantity = Number(partial[2].replace(',', '.'));
+  if (!Number.isFinite(observedQuantity) || observedQuantity <= 0) return parsed;
+  return { ...parsed, quantity: parsed.quantity ?? observedQuantity, unit: 'Stück' };
 }
 
 function deriveQuantityFromPrices(unitPriceCents: number, lineTotalCents: number): number | null {
@@ -512,13 +529,10 @@ function parseItem(
   observedLineTotal?: ObservedLineTotal,
   subtotalCents: number | null = null,
 ): ReceiptDraftItem | null {
-  const tokens = normalizeRossmannCurrencyGlyphArtifacts(
-    line,
-    parseMoneyTokens(line.text),
-    subtotalCents,
-  );
+  const rawTokens = parseMoneyTokens(line.text);
+  const tokens = normalizeRossmannCurrencyGlyphArtifacts(line, rawTokens, subtotalCents);
   if (tokens.length === 0) {
-    const { name, quantity, unit } = parseQuantityAndName(line.text);
+    const { name, quantity, unit } = parseNameWithTruncatedUnitPrice(line.text);
     if (
       name.length === 0 ||
       !/\p{L}/u.test(name) ||
@@ -566,7 +580,7 @@ function parseItem(
     subtotalCents !== null && isBarcodePrefixedItemLine(line.text)
       ? nameText.replace(/\s+C0\.\s*$/iu, '').trim()
       : nameText;
-  const parsedName = parseQuantityAndName(normalizedNameText);
+  const parsedName = parseNameWithTruncatedUnitPrice(normalizedNameText);
   const trailingQuantityMatch = line.text
     .slice(firstToken.end, tokens.length > 1 ? finalToken.start : line.text.length)
     .match(/^\s*(?:€|EUR)?\s*[x×]\s*(\d+(?:[.,]\d+)?)/i);
@@ -801,7 +815,8 @@ export function parseGermanReceipt(input: ParserInput): ReceiptDraft {
   const totalCents = findTotal(lines);
   const subtotalCents = findSubtotalCents(lines);
   const parsedItems = parseItems(lines);
-  const items = filterAmountsAboveSubtotal(parsedItems.items, subtotalCents);
+  const ceilingCents = amountCeilingCents(lines, subtotalCents, totalCents.value);
+  const items = filterAmountsAboveCeiling(parsedItems.items, ceilingCents);
   const { excludedLines } = parsedItems;
   const warnings: ReceiptDraftWarning[] = [];
 

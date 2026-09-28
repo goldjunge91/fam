@@ -60,7 +60,7 @@ function normalizeBoundingBox(
   };
 }
 
-function normalizedText(text: string): string {
+export function normalizedText(text: string): string {
   return text
     .replace(/\u00a0/g, ' ')
     .replace(/\s+/g, ' ')
@@ -264,12 +264,6 @@ function horizontalDistance(group: LineGroup, entry: PageEntry): number {
   return Math.abs(box.x - group.primaryRight);
 }
 
-function sharesPriceColumn(left: ReceiptOcrBoundingBox, right: ReceiptOcrBoundingBox): boolean {
-  const leftCenter = left.x + left.width / 2;
-  const rightCenter = right.x + right.width / 2;
-  return Math.abs(leftCenter - rightCenter) <= Math.max(left.width, right.width) * 1.5;
-}
-
 function verticalOverlapRatio(left: ReceiptOcrBoundingBox, right: ReceiptOcrBoundingBox): number {
   const leftBottom = left.y + left.height;
   const rightBottom = right.y + right.height;
@@ -322,7 +316,7 @@ function closestSecondaryRow(
     previousPriceBox &&
     currentPriceBox &&
     previousPriceGroup &&
-    sharesPriceColumn(previousPriceBox, currentPriceBox) &&
+    sharesHorizontalColumn(previousPriceBox, currentPriceBox) &&
     verticalOverlapRatio(previousPriceBox, currentPriceBox) < 0.5
   ) {
     const nextRow = nextRowAfter(candidates, previousPriceGroup, entry);
@@ -340,6 +334,76 @@ function closestSecondaryRow(
     return quantityRow;
   }
   return nearest;
+}
+
+/** Matches a complete, consistently lowered price column by row order. */
+function alignedPriceColumn(
+  groups: readonly LineGroup[],
+  secondaryEntries: readonly PageEntry[],
+  maxRight: number,
+): Map<PageEntry, LineGroup> {
+  const result = new Map<PageEntry, LineGroup>();
+  const prices = secondaryEntries
+    .filter(
+      (entry) =>
+        entry.boundingBox !== null &&
+        entry.boundingBox.x >= maxRight * 0.7 &&
+        LAYOUT_MONEY_PATTERN.test(normalizedText(entry.line.text)),
+    )
+    .sort((left, right) => (left.boundingBox?.y ?? 0) - (right.boundingBox?.y ?? 0));
+  const priceHeight = median(prices.map(({ boundingBox }) => boundingBox?.height ?? 0));
+  if (priceHeight <= 0) return result;
+
+  const runs: PageEntry[][] = [];
+  for (const price of prices) {
+    const run = runs.at(-1);
+    const previous = run?.at(-1)?.boundingBox;
+    const box = price.boundingBox;
+    if (!box) continue;
+    if (!run || !previous || box.y - previous.y > priceHeight * 1.8) {
+      runs.push([price]);
+    } else {
+      run.push(price);
+    }
+  }
+
+  for (const run of runs) {
+    if (run.length < 4) continue;
+    const first = run[0]?.boundingBox;
+    const last = run.at(-1)?.boundingBox;
+    if (!first || !last) continue;
+    const firstCenter = first.y + first.height / 2;
+    const lastCenter = last.y + last.height / 2;
+    const rows = groups
+      .filter(
+        (group) =>
+          group.anchorCenter !== null &&
+          group.primaryRight !== null &&
+          group.primaryRight < first.x &&
+          group.anchorCenter >= firstCenter - priceHeight * 1.5 &&
+          group.anchorCenter <= lastCenter + priceHeight * 0.25,
+      )
+      .sort((left, right) => (left.anchorCenter ?? 0) - (right.anchorCenter ?? 0));
+    if (rows.length !== run.length) continue;
+    const offsets = run.map((price, index) => {
+      const box = price.boundingBox;
+      const center = box ? box.y + box.height / 2 : 0;
+      return center - (rows[index]?.anchorCenter ?? 0);
+    });
+    const offset = median(offsets);
+    if (
+      offset <= 0 ||
+      offset > priceHeight * 0.9 ||
+      offsets.some((value) => Math.abs(value - offset) > priceHeight * 0.55)
+    ) {
+      continue;
+    }
+    run.forEach((price, index) => {
+      const row = rows[index];
+      if (row) result.set(price, row);
+    });
+  }
+  return result;
 }
 
 function reconstructPage(entries: readonly PageEntry[]): ReceiptOcrLine[] {
@@ -371,6 +435,8 @@ function reconstructPage(entries: readonly PageEntry[]): ReceiptOcrLine[] {
 
     groups.push(createGroup(entry, true));
   }
+
+  const priceColumnRows = alignedPriceColumn(groups, secondaryEntries, maxRight);
 
   let previousSecondaryEntry: PageEntry | undefined;
   let previousSecondaryGroup: LineGroup | undefined;
@@ -405,16 +471,18 @@ function reconstructPage(entries: readonly PageEntry[]): ReceiptOcrLine[] {
     const lookaheadCandidates = nextEntryHasMoney
       ? groups.filter((candidate) => belongsToPrimaryRow(candidate, nextEntry))
       : [];
-    const group = continuation
-      ? previousSecondaryGroup
-      : isStandaloneTaxCode(entry.line.text) && nextEntryHasMoney
-        ? closestSecondaryRow(
-            nextEntry,
-            lookaheadCandidates,
-            previousPriceEntry,
-            previousPriceGroup,
-          )
-        : closestSecondaryRow(entry, candidates, previousPriceEntry, previousPriceGroup);
+    const group =
+      priceColumnRows.get(entry) ??
+      (continuation
+        ? previousSecondaryGroup
+        : isStandaloneTaxCode(entry.line.text) && nextEntryHasMoney
+          ? closestSecondaryRow(
+              nextEntry,
+              lookaheadCandidates,
+              previousPriceEntry,
+              previousPriceGroup,
+            )
+          : closestSecondaryRow(entry, candidates, previousPriceEntry, previousPriceGroup));
 
     if (group) {
       addToGroup(group, entry);

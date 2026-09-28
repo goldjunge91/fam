@@ -30,8 +30,8 @@ const receiptGold = require('../testbilder/receipt-gold.json') as ReceiptGold;
 const REAL_RECEIPT_ASSETS = [
   { file: 'IMG_4218.png', module: require('../testbilder/IMG_4218.png') },
   { file: 'IMG_4218.jpeg', module: require('../testbilder/IMG_4218.jpeg') },
-  { file: 'IMG_4219.png', module: require('../testbilder/IMG_4219.png') },
-  { file: 'IMG_4219.jpeg', module: require('../testbilder/IMG_4219.jpeg') },
+  { file: 'IMG_4219_rabatt_1.29.png', module: require('../testbilder/IMG_4219_rabatt_1.29.png') },
+  { file: 'IMG_4219_rabatt_1.29.jpeg', module: require('../testbilder/IMG_4219_rabatt_1.29.jpeg') },
   { file: 'IMG_4220.png', module: require('../testbilder/IMG_4220.png') },
   { file: 'IMG_4220.jpeg', module: require('../testbilder/IMG_4220.jpeg') },
 ] as const;
@@ -110,7 +110,9 @@ describe('receipt OCR native integration on Android', () => {
         expect(normalized.mimeType).toBe('image/jpeg');
         expect(normalized.byteSize).toBeGreaterThan(0);
         expect(normalized.byteSize).toBeLessThanOrEqual(RECEIPT_MAX_ASSET_BYTES);
-        expect(Math.max(normalized.width, normalized.height)).toBe(RECEIPT_MAX_IMAGE_LONG_EDGE);
+        expect(Math.max(normalized.width, normalized.height)).toBeLessThanOrEqual(
+          RECEIPT_MAX_IMAGE_LONG_EDGE,
+        );
 
         const result = await recognizeReceiptOcr(normalized.localUri, {
           languages: ['de-DE'],

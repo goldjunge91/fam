@@ -9,7 +9,7 @@ export const RECEIPT_IMAGE_PICKER_REPRESENTATION_MODE = 'compatible' as const;
 export type ReceiptImagePickerRepresentationMode = typeof RECEIPT_IMAGE_PICKER_REPRESENTATION_MODE;
 
 /** Long-edge cap chosen for readable receipt text while bounding upload size. */
-export const RECEIPT_MAX_IMAGE_LONG_EDGE = 2_400;
+export const RECEIPT_MAX_IMAGE_LONG_EDGE = 4_032;
 
 /** Initial JPEG quality for the shared OCR/upload working file. */
 export const RECEIPT_IMAGE_NORMALIZATION_QUALITY = 0.82;

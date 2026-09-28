@@ -1,10 +1,11 @@
 # Receipt-Goldmanifest
 
-`receipt-gold.json` ist ein minimales, manuell gegen die drei lokalen PNG-
-und JPEG-Quelldateien geprüftes Goldmanifest für `receipt-processing`. Es ist kein
-vollständiges OCR-Transkript. Die `article_anchors` markieren nur sichtbare
-Artikel-/Preisfälle, die für Händler-, Summen-, Mengen-, Spalten- und
-Filterprüfung relevant sind.
+`receipt-gold.json` enthält Referenzdaten für vier lokale Belegbilder. Es ist
+kein OCR-Transkript. Bei `IMG_4231.png` stammen alle 17 Artikel und Preise aus
+einer vollständigen manuellen Abschrift; bei den älteren Bildern markieren die
+`article_anchors` ausgewählte sichtbare Artikel-/Preisfälle. Die
+`receipt-ocr-expected.json` enthält die ausführlichere Artikelliste für sechs
+Bilddateien.
 
 - `file` benennt die kanonische lokale PNG-Quelldatei. Die gleichnamige JPEG-
   Variante wird im Native-Harness zusätzlich separat verarbeitet.
@@ -19,7 +20,7 @@ Filterprüfung relevant sind.
   und Bonnummerninhalte werden nicht als OCR-Rohtext oder Testevidenz
   transkribiert. Die lokalen Bilddateien bleiben die einzige Detailquelle.
 
-Die drei PNG-Dateien bleiben lokale Testdaten. Dieses Manifest enthält keine
+Die Bilddateien bleiben lokale Testdaten. Dieses Manifest enthält keine
 Bildbytes, keinen OCR-Volltext und keine personenbezogenen oder
 zahlungsbezogenen Referenzdaten.
 

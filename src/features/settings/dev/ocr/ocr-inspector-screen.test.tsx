@@ -1,4 +1,5 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
+import * as Clipboard from 'expo-clipboard';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { captureReceipt, createExpoFileSystemAdapter } from '@/features/ocr/capture/api';
@@ -10,7 +11,7 @@ import {
 import { OcrInspectorScreen } from './ocr-inspector-screen';
 
 jest.mock('expo-clipboard', () => ({
-  setStringAsync: jest.fn(),
+  setStringAsync: jest.fn(async () => undefined),
 }));
 
 jest.mock('expo-image', () => {
@@ -135,6 +136,52 @@ describe('OcrInspectorScreen', () => {
       'file:///documents/dev-ocr-1.jpg',
       undefined,
     );
+  });
+
+  it('copies OCR text or JSON with geometry only after the respective action', async () => {
+    await renderScreen();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'Bild für OCR auswählen' }));
+    await screen.findByDisplayValue('EDEKA\nMilch 1,99');
+    expect(Clipboard.setStringAsync).not.toHaveBeenCalled();
+
+    await user.press(screen.getByRole('button', { name: 'JSON kopieren' }));
+    const json = jest.mocked(Clipboard.setStringAsync).mock.calls[0]?.[0];
+    expect(JSON.parse(json ?? '')).toEqual({
+      imageSize: { width: 1_000, height: 2_000 },
+      lines: [
+        {
+          text: 'EDEKA',
+          confidence: 0.96,
+          boundingBox: { x: 0.1, y: 0.08, width: 0.8, height: 0.04 },
+        },
+        {
+          text: 'Milch 1,99',
+          confidence: null,
+          boundingBox: { x: 0.1, y: 0.2, width: 0.8, height: 0.04 },
+        },
+      ],
+    });
+    await user.press(screen.getByRole('button', { name: 'Kopieren' }));
+    expect(Clipboard.setStringAsync).toHaveBeenCalledWith('EDEKA\nMilch 1,99');
+  });
+
+  it('shows and hides the same JSON that the copy button provides', async () => {
+    await renderScreen();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Bild für OCR auswählen' }));
+    await screen.findByDisplayValue('EDEKA\nMilch 1,99');
+
+    expect(screen.queryByLabelText('OCR-Ergebnis als JSON')).toBeNull();
+    await user.press(screen.getByRole('button', { name: 'JSON anzeigen' }));
+    const json = screen.getByLabelText('OCR-Ergebnis als JSON').props.value;
+    expect(JSON.parse(json)).toMatchObject({
+      imageSize: { width: 1_000, height: 2_000 },
+      lines: [{ text: 'EDEKA' }, { text: 'Milch 1,99' }],
+    });
+    await user.press(screen.getByRole('button', { name: 'JSON ausblenden' }));
+    expect(screen.queryByLabelText('OCR-Ergebnis als JSON')).toBeNull();
   });
 
   it('cleans up the normalized working image when the screen unmounts', async () => {

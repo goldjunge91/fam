@@ -27,7 +27,11 @@ const config = {
     }),
     applePlatform({
       name: 'ios',
-      device: appleSimulator('iPhone 11 Pro Max', '26.2'),
+      // The harness resolves the simulator by name and system version, not by
+      // UDID. iPhone 12 mini is the OCR reference device: its screen keeps
+      // receipt line heights high enough for Vision to keep prices attached to
+      // their own row.
+      device: appleSimulator('iPhone 12 mini', '26.2'),
       bundleId: 'com.goldjunge91.fam1',
     }),
     webPlatform({

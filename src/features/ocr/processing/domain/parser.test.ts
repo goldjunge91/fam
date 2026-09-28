@@ -115,6 +115,37 @@ describe('parseGermanReceipt', () => {
     });
   });
 
+  it('keeps a lowered line total with its quantity row instead of the next article', () => {
+    const line = (text: string, x: number, y: number, width: number, height: number) => ({
+      text,
+      confidence: 0.9,
+      boundingBox: { x, y, width, height },
+    });
+    const draft = parseGermanReceipt([
+      line('EDEKA', 100, 20, 200, 20),
+      line('Bio E.Landbr.Weiz.', 100, 100, 270, 20),
+      line('1,39 A', 700, 104, 90, 9),
+      line('G&G Skyr pur', 100, 130, 250, 20),
+      line('1,39 € x 3', 390, 132, 200, 9),
+      line('4,17 A', 700, 143, 90, 6),
+      line('Bio Al.Maiswaffeln', 100, 160, 280, 20),
+      line('0,99 A', 700, 166, 90, 9),
+    ]);
+
+    expect(
+      draft.items.map(({ name, quantity, unitPriceCents, lineTotalCents }) => ({
+        name,
+        quantity,
+        unitPriceCents: unitPriceCents?.value ?? null,
+        lineTotalCents: lineTotalCents.value,
+      })),
+    ).toEqual([
+      { name: 'Bio E.Landbr.Weiz.', quantity: null, unitPriceCents: null, lineTotalCents: 139 },
+      { name: 'G&G Skyr pur', quantity: 3, unitPriceCents: 139, lineTotalCents: 417 },
+      { name: 'Bio Al.Maiswaffeln', quantity: null, unitPriceCents: null, lineTotalCents: 99 },
+    ]);
+  });
+
   it('marks a low-confidence OCR item for review without hiding the observed value', () => {
     const draft = parseGermanReceipt(REWE_RECEIPT_LINES);
     const uncertainItem = draft.items[2];
@@ -329,8 +360,8 @@ describe('parseGermanReceipt', () => {
   });
 
   it('keeps gold EDEKA rows ordered when article prices are in detached columns', () => {
-    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4219.png');
-    if (!source) throw new Error('Gold source IMG_4219.png is missing.');
+    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4219_rabatt_1.29.png');
+    if (!source) throw new Error('Gold source IMG_4219_rabatt_1.29.png is missing.');
 
     const articleEntries = source.article_anchors.flatMap((rawAnchor, index) => {
       const anchor = rawAnchor as GoldArticleAnchor;
@@ -618,6 +649,14 @@ describe('parseGermanReceipt', () => {
   it.each(receiptGold.sources)(
     'keeps the manifest merchant, paid total and article anchors for $file',
     (source) => {
+      // The manifest declares a visible coupon line for this receipt, but the
+      // synthetic input has neither a subtotal nor that coupon line. Without
+      // them the paid total is the only upper bound and the article anchors
+      // legitimately exceed it, so the coupon line has to be part of the input
+      // for the article amounts to stay unfiltered.
+      const hasVisibleCoupon = source.excluded_lines.some(
+        ({ kind, visible }) => kind === 'coupon' && visible,
+      );
       const lines = [
         { text: source.merchant, confidence: 0.98 },
         ...(source.purchase_date === null
@@ -627,6 +666,7 @@ describe('parseGermanReceipt', () => {
           text: goldArticleLine(anchor),
           confidence: 0.96,
         })),
+        ...(hasVisibleCoupon ? [{ text: 'Coupon COUPONAKTION -6,11', confidence: 0.96 }] : []),
         { text: `Zu zahlen ${formatEuroCents(source.total_cents)} EUR`, confidence: 0.98 },
       ];
 
@@ -655,8 +695,8 @@ describe('parseGermanReceipt', () => {
   );
 
   it('does not turn manifest-declared non-item labels into items', () => {
-    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4219.png');
-    if (!source) throw new Error('Gold source IMG_4219.png is missing.');
+    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4219_rabatt_1.29.png');
+    if (!source) throw new Error('Gold source IMG_4219_rabatt_1.29.png is missing.');
 
     const excludedLabels = source.excluded_lines.flatMap(({ labels }) => labels ?? []);
     const draft = parseGermanReceipt(excludedLabels.map((text) => ({ text, confidence: 0.99 })));
@@ -731,6 +771,66 @@ describe('parseGermanReceipt', () => {
     });
   });
 
+  it('keeps a truncated price out of the article name without guessing the amount', () => {
+    const draft = parseGermanReceipt([
+      { text: 'EDEKA', confidence: 0.96 },
+      { text: 'G&G Skyr pur ,39 € x 3 4,1', confidence: 0.7 },
+      { text: 'Bio Al.Maiswaffeln 0,99 A', confidence: 0.96 },
+    ]);
+
+    expect(draft.items[0]).toMatchObject({
+      name: 'G&G Skyr pur',
+      quantity: 3,
+      unitPriceCents: null,
+      lineTotalCents: { value: null, needsReview: true },
+      needsReview: true,
+    });
+    expect(draft.items[1]).toMatchObject({
+      name: 'Bio Al.Maiswaffeln',
+      lineTotalCents: { value: 99 },
+    });
+  });
+
+  it('keeps the observed Skyr quantity when the native OCR splits its price and total', () => {
+    const line = (text: string, x: number, y: number, width: number, height: number) => ({
+      text,
+      confidence: 1,
+      boundingBox: { x, y, width, height },
+    });
+    const draft = parseGermanReceipt([
+      line('Bio E.Landbr.Weiz.', 0.149225, 0.521645, 0.257752, 0.023413),
+      line('4, 1', 0.605892, 0.537121, 0.058142, 0.037761),
+      line('G&G Skyr pur', 0.149011, 0.544119, 0.174847, 0.025133),
+      line(',39 € x', 0.375969, 0.54632, 0.131783, 0.022078),
+      line('3', 0.523256, 0.546512, 0.015504, 0.017442),
+      line('0,99', 0.612403, 0.569767, 0.05814, 0.020349),
+      line('B10 Al.MalswaTTeIn', 0.147287, 0.571221, 0.25969, 0.017524),
+    ]);
+
+    expect(draft.items[1]).toMatchObject({
+      name: 'G&G Skyr pur',
+      quantity: 3,
+      unitPriceCents: null,
+      lineTotalCents: { value: null, needsReview: true },
+      needsReview: true,
+    });
+    expect(draft.items[2]).toMatchObject({
+      name: 'B10 Al.MalswaTTeIn',
+      lineTotalCents: { value: 99 },
+    });
+  });
+
+  it('uses an observed total after a truncated unit price without including fragments in the name', () => {
+    const draft = parseGermanReceipt([{ text: 'G&G Skyr pur ,39 € x 3 4,17 A', confidence: 0.9 }]);
+
+    expect(draft.items[0]).toMatchObject({
+      name: 'G&G Skyr pur',
+      quantity: 3,
+      unitPriceCents: null,
+      lineTotalCents: { value: 417 },
+    });
+  });
+
   it('normalizes the manifest date through the German short-date form', () => {
     const source = receiptGold.sources.find(({ file }) => file === 'IMG_4220.png');
     if (!source || source.purchase_date === null) {
@@ -757,6 +857,102 @@ describe('parseGermanReceipt', () => {
       lineTotalCents: { value: null, needsReview: true },
       unitPriceCents: null,
       needsReview: true,
+    });
+  });
+
+  describe('upper amount bound without a subtotal', () => {
+    it('drops an article amount above the paid total and marks it for review', () => {
+      const draft = parseGermanReceipt([
+        { text: 'EDEKA', confidence: 0.96 },
+        { text: 'G&G Skyr pur 41,70', confidence: 0.94 },
+        { text: 'Milch 1,5% 1L 1,29', confidence: 0.96 },
+        { text: 'Zu zahlen 5,56', confidence: 0.98 },
+      ]);
+
+      expect(draft.items.map(({ name }) => name)).toEqual(['G&G Skyr pur', 'Milch 1,5% 1L']);
+      expect(draft.items[0]).toMatchObject({
+        lineTotalCents: { value: null, needsReview: true },
+        needsReview: true,
+      });
+      expect(draft.items[1]).toMatchObject({
+        lineTotalCents: { value: 129, needsReview: false },
+        needsReview: false,
+      });
+    });
+
+    it('drops an observed unit price above the paid total', () => {
+      const draft = parseGermanReceipt([
+        { text: 'EDEKA', confidence: 0.96 },
+        { text: 'Tawa Red 27,80 € x 2', confidence: 0.94 },
+        { text: 'Zu zahlen 5,56', confidence: 0.98 },
+      ]);
+
+      expect(draft.items[0]).toMatchObject({
+        unitPriceCents: { value: null, needsReview: true },
+        needsReview: true,
+      });
+    });
+
+    it('keeps article amounts at or below the paid total', () => {
+      const draft = parseGermanReceipt([
+        { text: 'EDEKA', confidence: 0.96 },
+        { text: 'Milch 1,5% 1L 5,56', confidence: 0.96 },
+        { text: 'Zu zahlen 5,56', confidence: 0.98 },
+      ]);
+
+      expect(draft.items[0]).toMatchObject({
+        lineTotalCents: { value: 556, needsReview: false },
+        needsReview: false,
+      });
+    });
+
+    it('keeps article amounts above the paid total when a coupon line lowers it', () => {
+      const draft = parseGermanReceipt([
+        { text: 'ROSSMANN', confidence: 0.96 },
+        { text: 'MORE CHUNKY FLAVOU €9,99 €19,98 B', confidence: 0.94 },
+        { text: 'Coupon COUPONAKTION -6,11', confidence: 0.94 },
+        { text: 'Zu zahlen 18,95', confidence: 0.98 },
+      ]);
+
+      expect(draft.items[0]).toMatchObject({
+        name: 'MORE CHUNKY FLAVOU',
+        lineTotalCents: { value: 1998, needsReview: false },
+        needsReview: false,
+      });
+    });
+
+    it('keeps article amounts above the paid total when a discount line lowers it', () => {
+      const draft = parseGermanReceipt([
+        { text: 'REWE', confidence: 0.96 },
+        { text: 'Tawa Red 27,80', confidence: 0.94 },
+        { text: 'Rabatt -8,85', confidence: 0.94 },
+        { text: 'Zu zahlen 18,95', confidence: 0.98 },
+      ]);
+
+      expect(draft.items[0]).toMatchObject({
+        name: 'Tawa Red',
+        lineTotalCents: { value: 2780, needsReview: false },
+        needsReview: false,
+      });
+    });
+
+    it('prefers the subtotal over the paid total when both are readable', () => {
+      const draft = parseGermanReceipt([
+        { text: 'EDEKA', confidence: 0.96 },
+        { text: 'G&G Skyr pur 4,17', confidence: 0.94 },
+        { text: 'Milch 1,5% 1L 1,29', confidence: 0.96 },
+        { text: 'Zwischensumme 5,46', confidence: 0.96 },
+        { text: 'Zu zahlen 5,56', confidence: 0.98 },
+      ]);
+
+      expect(draft.items[0]).toMatchObject({
+        lineTotalCents: { value: 417, needsReview: false },
+        needsReview: false,
+      });
+      expect(draft.items[1]).toMatchObject({
+        lineTotalCents: { value: 129, needsReview: false },
+        needsReview: false,
+      });
     });
   });
 });

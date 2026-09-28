@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Lokaler Receipt-OCR-Vergleich mit Tesseract" />
+    <title>Receipt OCR Lab</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header">
+        <div>
+          <p class="eyebrow">Lokaler Vergleich</p>
+          <h1>Receipt OCR Lab</h1>
+          <p class="intro">
+            Bilder bleiben auf diesem Rechner. Tesseract läuft als lokale Referenz neben der nativen OCR.
+          </p>
+        </div>
+        <div class="status-chip" id="server-status" role="status">Bun-Webserver aktiv</div>
+      </header>
+
+      <main>
+        <form class="control-panel" id="ocr-form">
+          <section class="upload-section" aria-labelledby="upload-title">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Schritt 1</p>
+                <h2 id="upload-title">Bilder auswählen</h2>
+              </div>
+              <span class="file-count" id="file-count">0 Bilder</span>
+            </div>
+            <label class="drop-zone" id="drop-zone" for="images">
+              <input id="images" name="images" type="file" accept="image/*" multiple />
+              <span class="drop-icon" aria-hidden="true">＋</span>
+              <strong>Bilder hier ablegen</strong>
+              <span>oder lokale Dateien auswählen</span>
+              <small>Mehrere Bilder möglich · maximal 12 Dateien à 20 MB</small>
+            </label>
+            <ul class="file-list" id="file-list" aria-live="polite"></ul>
+          </section>
+
+          <section class="options-section" aria-labelledby="options-title">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Schritt 2</p>
+                <h2 id="options-title">Messpunkt festlegen</h2>
+              </div>
+            </div>
+            <div class="option-grid">
+              <label class="field">
+                <span>Sprache</span>
+                <select id="language" name="language">
+                  <option value="deu" selected>Deutsch (deu)</option>
+                  <option value="deu+eng">Deutsch + Englisch</option>
+                  <option value="eng">Englisch (eng)</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>PSM</span>
+                <select id="psm" name="psm">
+                  <option value="4">4 · Spalten</option>
+                  <option value="6" selected>6 · Einheitlicher Block</option>
+                  <option value="11">11 · Zerstreuter Text</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Bildaufbereitung</span>
+                <select id="preprocess" name="preprocess">
+                  <option value="receipt" selected>Graustufen + Kontrast + Threshold</option>
+                  <option value="none">Keine Aufbereitung</option>
+                </select>
+              </label>
+            </div>
+            <p class="field-note">Die Bildaufbereitung ist reproduzierbar und wird im Report mit ausgegeben.</p>
+          </section>
+
+          <section class="comparison-section" aria-labelledby="comparison-title">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Schritt 3 · optional</p>
+                <h2 id="comparison-title">Vergleichsdaten laden</h2>
+              </div>
+            </div>
+            <div class="file-input-grid">
+              <label class="file-input">
+                <span>Native Referenzreport</span>
+                <input id="reference" type="file" accept="application/json,.json" />
+                <small id="reference-name">Keine Datei ausgewählt</small>
+              </label>
+              <label class="file-input">
+                <span>Goldvergleich</span>
+                <input id="gold" type="file" accept="application/json,.json" />
+                <small id="gold-name">Keine Datei ausgewählt</small>
+              </label>
+            </div>
+            <p class="field-note">Native Reports brauchen <code>native_lines</code> oder <code>lines</code>. Golddateien können mehrere Quellen unter <code>sources</code> enthalten.</p>
+          </section>
+
+          <div class="form-actions">
+            <button class="primary-button" type="submit" id="run-button" disabled>OCR starten</button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite">Noch keine Bilder ausgewählt.</p>
+          </div>
+        </form>
+
+        <section class="results-section" id="results-section" aria-labelledby="results-title" hidden>
+          <div class="results-heading">
+            <div>
+              <p class="eyebrow">Auswertung</p>
+              <h2 id="results-title">Ergebnisse</h2>
+            </div>
+            <button class="secondary-button" type="button" id="download-json">JSON herunterladen</button>
+          </div>
+          <div class="summary-grid" id="summary"></div>
+          <div class="report-list" id="report-list"></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

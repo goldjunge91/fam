@@ -1,4 +1,4 @@
-import { useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, ScrollView, SectionList, View } from 'react-native';
@@ -18,7 +18,6 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
-import { ReceiptCaptureReviewFlow } from '@/features/ocr/processing/review/receipt-capture-review-flow';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { debugLog, debugLogEvent } from '@/lib/observability/debug-log';
@@ -110,12 +109,12 @@ const styles = StyleSheet.create((theme) => ({
 export function ShoppingListScreen() {
   const { t } = useTranslation();
   const params = useLocalSearchParams<{ action?: string }>();
+  const router = useRouter();
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [orderSheetOpen, setOrderSheetOpen] = useState(false);
   const [shoppingModeOpen, setShoppingModeOpen] = useState(false);
   const [scannerOpen, setScannerOpen] = useState(false);
-  const [receiptFlowOpen, setReceiptFlowOpen] = useState(false);
   const [scannedProduct, setScannedProduct] = useState<CatalogProduct | null>(null);
   const [editingItem, setEditingItem] = useState<LocalShoppingItem | null>(null);
   const [storeFilter, setStoreFilter] = useState<string>(ALL_FILTER);
@@ -168,9 +167,8 @@ export function ShoppingListScreen() {
       account_ready: Boolean(accountReady),
       has_user: Boolean(userId),
       has_household: Boolean(householdId),
-      flow_open: receiptFlowOpen,
     });
-  }, [accountReady, householdId, receiptFlowOpen, sessionLoading, userId]);
+  }, [accountReady, householdId, sessionLoading, userId]);
 
   const toggleItem = useToggleShoppingItem();
   const deleteItem = useDeleteShoppingItem();
@@ -359,10 +357,9 @@ export function ShoppingListScreen() {
                 account_ready: Boolean(accountReady),
                 has_user: Boolean(userId),
                 has_household: Boolean(householdId),
-                flow_open: receiptFlowOpen,
               });
               if (userId) {
-                setReceiptFlowOpen(true);
+                router.push('/household/receipt-scan');
                 debugLogEvent('shopping.receipt_capture.open_requested');
               } else {
                 debugLogEvent('shopping.receipt_capture.open_blocked', {
@@ -635,15 +632,6 @@ export function ShoppingListScreen() {
         looking={barcodeLookup.looking}
         errorMessage={barcodeLookup.errorMessage}
       />
-
-      {userId ? (
-        <ReceiptCaptureReviewFlow
-          visible={receiptFlowOpen}
-          householdId={householdId}
-          createdBy={userId}
-          onDismiss={() => setReceiptFlowOpen(false)}
-        />
-      ) : null}
 
       <AddItemModal
         visible={addModalOpen}

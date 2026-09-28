@@ -9,17 +9,18 @@ import {
 } from '@/features/ocr/capture/capture/constants';
 import {
   isReceiptOcrAvailable,
-  recognizeReceiptOcr,
 } from '@/features/ocr/processing/native';
+import { recognizeReceiptPageSections } from '@/features/ocr/processing/receipt-page-sections';
 import receiptGold from '../testbilder/receipt-gold.json';
 
 const REAL_RECEIPT_ASSETS = [
   { file: 'IMG_4218.png', moduleId: require('../testbilder/IMG_4218.png') as number },
   { file: 'IMG_4218.jpeg', moduleId: require('../testbilder/IMG_4218.jpeg') as number },
-  { file: 'IMG_4219.png', moduleId: require('../testbilder/IMG_4219.png') as number },
-  { file: 'IMG_4219.jpeg', moduleId: require('../testbilder/IMG_4219.jpeg') as number },
+  { file: 'IMG_4219_rabatt_1.29.png', moduleId: require('../testbilder/IMG_4219_rabatt_1.29.png') as number },
+  { file: 'IMG_4219_rabatt_1.29.jpeg', moduleId: require('../testbilder/IMG_4219_rabatt_1.29.jpeg') as number },
   { file: 'IMG_4220.png', moduleId: require('../testbilder/IMG_4220.png') as number },
   { file: 'IMG_4220.jpeg', moduleId: require('../testbilder/IMG_4220.jpeg') as number },
+  { file: 'IMG_4231.png', moduleId: require('../testbilder/IMG_4231.png') as number },
 ] as const;
 
 type LocalReceiptAsset = {
@@ -80,11 +81,11 @@ describe('receipt OCR native integration on iOS Simulator', () => {
         expect(normalized.localUri).toMatch(/^file:\/\/.*\.jpg$/i);
         expect(normalized.byteSize).toBeGreaterThan(0);
         expect(normalized.byteSize).toBeLessThanOrEqual(RECEIPT_MAX_ASSET_BYTES);
-        expect(Math.max(normalized.width, normalized.height)).toBe(RECEIPT_MAX_IMAGE_LONG_EDGE);
+        expect(Math.max(normalized.width, normalized.height)).toBeLessThanOrEqual(
+          RECEIPT_MAX_IMAGE_LONG_EDGE,
+        );
 
-        const result = await recognizeReceiptOcr(normalized.localUri, {
-          languages: ['de-DE'],
-        });
+        const result = await recognizeReceiptPageSections(normalized.localUri);
 
         expect(result.imageSize).toEqual({
           width: normalized.width,
