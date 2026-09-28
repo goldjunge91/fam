@@ -12,6 +12,7 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { useMealPlanEntriesInRange } from '@/features/meal-planner/use-meal-plans';
 import { RecipeArtwork } from '@/features/recipes/components/recipe-preview-card';
 import { useRecipeCoverUrl } from '@/features/recipes/data/household-recipe-images';
+import { toIsoDate } from '@/lib/format/format-date';
 import { addDays } from '../week';
 import {
   getDailyMealPlanEmptyArtworkVariant,
@@ -20,13 +21,6 @@ import {
   getUpcomingMealEntries,
   type MealPlanEmptyVariant,
 } from './dashboard-meals';
-
-function toIsoDate(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, '0');
-  const d = String(date.getDate()).padStart(2, '0');
-  return `${y}-${m}-${d}`;
-}
 
 const styles = StyleSheet.create((theme) => ({
   smallCard: {

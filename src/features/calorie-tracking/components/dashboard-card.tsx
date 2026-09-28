@@ -10,6 +10,7 @@ import { useCurrentGoal, useFoodEntries } from '@/features/calorie-tracking/api'
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
 import { DashboardCardShell } from '@/features/dashboard/components/dashboard-card-shell';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
+import { toIsoDate } from '@/lib/format/format-date';
 
 const styles = StyleSheet.create({
   smallCard: {
@@ -44,13 +45,6 @@ const styles = StyleSheet.create({
     gap: space.xs,
   },
 });
-
-function toIsoDate(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, '0');
-  const d = String(date.getDate()).padStart(2, '0');
-  return `${y}-${m}-${d}`;
-}
 
 function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProps) {
   const { i18n, t } = useTranslation();

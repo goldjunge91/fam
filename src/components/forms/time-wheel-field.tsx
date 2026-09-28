@@ -5,17 +5,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Press, Txt } from '@/constants/ui';
-
-function toTime(date: Date): string {
-  return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
-}
-
-function fromTime(value: string): Date {
-  const [hours, minutes] = value.split(':').map(Number);
-  const date = new Date();
-  date.setHours(Number.isFinite(hours) ? hours : 0, Number.isFinite(minutes) ? minutes : 0, 0, 0);
-  return date;
-}
+import { fromTime, toTime } from '@/lib/format/format-date';
 
 type TimeWheelFieldProps = {
   label?: string;

@@ -46,7 +46,7 @@ count_matching_files() {
   local count=0
   local file
   for file in "$@"; do
-    if rg -q --pcre2 "$pattern" "$file"; then
+    if grep -Eq "$pattern" "$file"; then
       count=$((count + 1))
     fi
   done
@@ -67,9 +67,12 @@ json_value() {
 }
 
 SOURCE_FILES=()
-SOURCE_FILE_OUTPUT=$(rg --files src \
-  -g '*.ts' -g '*.tsx' -g '*.js' -g '*.jsx' -g '!*.d.ts' \
-  | rg -v '\.(test|spec)(\.[^.]+)*\.[jt]sx?$' || true)
+# find/grep statt rg: der CI-Runner hat ripgrep nicht installiert. Die Muster
+# sind bewusst ERE-kompatibel gehalten, damit grep -E sie identisch trifft.
+SOURCE_FILE_OUTPUT=$(find src -type f \
+  \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) \
+  ! -name '*.d.ts' \
+  | grep -Ev '\.(test|spec)(\.[^.]+)*\.[jt]sx?$' || true)
 while IFS= read -r file; do
   [ -n "$file" ] && SOURCE_FILES+=("$PROJECT_ROOT/$file")
 done <<< "$SOURCE_FILE_OUTPUT"

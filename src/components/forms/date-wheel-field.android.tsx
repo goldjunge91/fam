@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Press, Txt } from '@/constants/ui';
+import { formatIsoDate, toIsoDate } from '@/lib/format/format-date';
 
 export interface DateWheelFieldProps {
   label?: string;
@@ -10,18 +11,6 @@ export interface DateWheelFieldProps {
   value: string;
   onChange: (isoDate: string) => void;
   placeholder?: string;
-}
-
-function toIsoDate(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, '0');
-  const d = String(date.getDate()).padStart(2, '0');
-  return `${y}-${m}-${d}`;
-}
-
-function formatIsoDate(isoDate: string): string {
-  const [y, m, d] = isoDate.split('-');
-  return `${d}.${m}.${y}`;
 }
 
 /**

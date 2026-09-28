@@ -5,18 +5,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Press, Txt } from '@/constants/ui';
-
-function toIsoDate(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, '0');
-  const d = String(date.getDate()).padStart(2, '0');
-  return `${y}-${m}-${d}`;
-}
-
-function formatIsoDate(isoDate: string): string {
-  const [y, m, d] = isoDate.split('-');
-  return `${d}.${m}.${y}`;
-}
+import { formatIsoDate, toIsoDate } from '@/lib/format/format-date';
 
 interface DateWheelFieldProps {
   label?: string;

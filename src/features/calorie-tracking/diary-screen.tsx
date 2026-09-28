@@ -26,6 +26,7 @@ import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/domain/d
 import { Glp1Card } from '@/features/glp1/components/glp1-card';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfile } from '@/features/profile/api';
+import { parseIsoDate, toIsoDate } from '@/lib/format/format-date';
 
 const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
 const WEEK_DAYS = 14;
@@ -125,18 +126,6 @@ const styles = StyleSheet.create((theme) => ({
     paddingBottom: theme.space.xs,
   },
 }));
-
-function parseIsoDate(iso: string): Date {
-  const [year, month, day] = iso.split('-').map(Number);
-  return new Date(year, month - 1, day);
-}
-
-function toIsoDate(date: Date): string {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-}
 
 function addDays(iso: string, delta: number): string {
   const date = parseIsoDate(iso);
