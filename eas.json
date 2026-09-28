@@ -16,7 +16,8 @@
       "extends": "base",
       "env": {
         "FAM_HARNESS_UI": "1",
-        "EXPO_PUBLIC_USE_RN_FETCH": "1"
+        "EXPO_PUBLIC_USE_RN_FETCH": "1",
+        "FAM_UPDATE_CHANNEL": "development"
       },
       "environment": "development",
       "developmentClient": true,
@@ -27,7 +28,8 @@
       },
       "android": {
         "buildType": "apk"
-      }
+      },
+      "channel": "development"
     },
     "development-device": {
       "extends": "development",
@@ -40,18 +42,21 @@
       "environment": "preview",
       "distribution": "internal",
       "env": {
-        "FAM_HARNESS_UI": "0"
+        "FAM_HARNESS_UI": "0",
+        "FAM_UPDATE_CHANNEL": "preview"
       },
       "android": {
         "buildType": "apk"
-      }
+      },
+      "channel": "preview"
     },
     "preview-testflight": {
       "extends": "base",
       "env": {
         "SENTRY_DISABLE_AUTO_UPLOAD": "false",
         "FAM_HARNESS_UI": "0",
-        "EXPO_PUBLIC_USE_RN_FETCH": "1"
+        "EXPO_PUBLIC_USE_RN_FETCH": "1",
+        "FAM_UPDATE_CHANNEL": "preview-testflight"
       },
       "distribution": "store",
       "autoIncrement": true,
@@ -59,13 +64,15 @@
       "environment": "preview",
       "ios": {
         "simulator": false
-      }
+      },
+      "channel": "preview-testflight"
     },
     "production": {
       "extends": "base",
       "env": {
         "FAM_HARNESS_UI": "0",
-        "EXPO_PUBLIC_USE_RN_FETCH": "1"
+        "EXPO_PUBLIC_USE_RN_FETCH": "1",
+        "FAM_UPDATE_CHANNEL": "production"
       },
       "distribution": "store",
       "autoIncrement": true,
@@ -76,7 +83,8 @@
       },
       "android": {
         "buildType": "app-bundle"
-      }
+      },
+      "channel": "production"
     }
   },
   "submit": {

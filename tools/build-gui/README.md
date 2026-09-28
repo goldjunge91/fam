@@ -1,57 +1,37 @@
-# Native Build Lock GUI
+# fam Builds
 
-Die GUI ist ein Frontend für `scripts/native-build/native-build.ts`. Sie ruft keine direkten
-`eas build`, `expo prebuild`, CocoaPods- oder Xcode-Befehle für den normalen Start auf.
+Die Tk-GUI startet lokale Expo/Xcode-Aktionen und EAS-Befehle. Sie verwaltet
+keine Fingerprints, Baselines oder Artefakt-Locks.
 
-## Aktionen
+## Abläufe
 
-- `Lock prüfen` validiert Native-Fingerprint, Artefakt und SHA-256.
-- `Mismatch zurückführen (prüfen)` startet automatisch den Fingerprint-Diff. Bei
-  einem echten Mismatch wählt die GUI danach den Rebuild vor, lässt ihn aber
-  erst nach der ausdrücklichen Checkbox-Freigabe starten.
-- `Lock-Diff anzeigen` zeigt denselben Diff ohne den Rebuild-Schritt.
-- `Dev-Loop starten` verwendet für Development-Targets `native:dev`, setzt beim
-  iOS-Simulator den lokalen Packager-Host und übergibt das ausgewählte Gerät.
-  Der Lock-Mismatch wird sichtbar geloggt, blockiert den Inner Loop aber nicht.
-- Bei Development-Targets ist ausschließlich `Dev-Loop starten` verfügbar.
-  Rebuild, Restore und gelocktes Starten bleiben auf Release-/Store-Targets
-  beschränkt.
-- `Simulator/Emulator starten` verwendet ausschließlich ein bereits gelocktes Artefakt. Der iOS-Development-Simulator läuft über `Dev-Loop starten` und ist nicht gelockt.
-- Das Ziel-Dropdown listet iOS- und Android-Targets getrennt (`iOS Development`, `iOS TestFlight`, `iOS Production`, `Android Development`, `Android Preview`, `Android Production`); `TestFlight hochladen` bleibt iOS-spezifisch, da für Android aktuell kein `eas submit`-Profil hinterlegt ist.
-- Für `iOS TestFlight` kann `Letzten EAS-Build prüfen` die aktuelle EAS-Build-ID,
-  den Status und die Metadaten anzeigen. `Letzten TestFlight-Build
-  wiederherstellen` fragt die ID bei Bedarf automatisch ab und verwendet danach
-  den bestehenden `native:restore`-Pfad.
-- TestFlight-IPAs werden niemals als Simulator-Artefakte angeboten. Der
-  `ios-development-simulator` wird direkt über den Development-Loop gebaut.
-- `Artefakt wiederherstellen` lädt ein Artefakt über die gespeicherte oder eingegebene EAS Build-ID.
-- `Rebuild (explizit freigeben)` ist die einzige GUI-Aktion, die Prebuild, CocoaPods und Kompilierung ausführt. Sie benötigt zusätzlich die Checkbox-Freigabe.
-- `TestFlight hochladen` übermittelt ein vorhandenes IPA, ohne einen neuen Build zu starten.
+- **iOS Development Simulator → Lokal bauen: Simulator** führt
+  `expo prebuild --no-clean` und `expo run:ios` aus. Die generierten
+  `ios/Pods` bleiben im Projekt liegen. Expo/Xcode verwenden ihre vorhandenen
+  lokalen Build-Daten wieder.
+- **iOS TestFlight → Lokal bauen: TestFlight-Archiv** aktualisiert CNG mit
+  `--no-clean`, synchronisiert danach die entfernte EAS Build-Nummer und
+  erstellt ein Xcode-Archiv samt IPA. Xcode
+  verwendet dauerhaft `build/cache/ios/DerivedData`; das Archiv und die IPA
+  liegen pro Lauf separat unter `build/local/ios/<Zeitstempel>/`. Frühere
+  Archive und Caches werden nicht gelöscht. Das Plugin `withIosCcacheDir`
+  verwendet weiter den in der ccache-Konfiguration gesetzten externen Cache.
+- **TestFlight hochladen: EAS** sendet die IPA des letzten lokalen Archivs mit
+  `eas submit --path ...`.
+- **TestFlight hochladen: Xcode** öffnet dasselbe `.xcarchive` mit Xcode. Im
+  Organizer kann es geprüft und zu App Store Connect hochgeladen werden.
+- **EAS Build starten** startet einen Cloud-Build mit dem ausgewählten EAS-Profil.
+- **OTA-Update veröffentlichen** nutzt den Channel und die EAS-Umgebung des
+  gewählten Ziels und setzt `FAM_UPDATE_CHANNEL` passend für `app.config.ts`.
+  Eine Beschreibung ist erforderlich.
+- **Letzten Simulator-Build installieren** installiert den letzten passenden
+  EAS-Build.
 
-Ein fehlendes oder nicht zum Fingerprint passendes Artefakt führt beim
-gesperrten Start zu einem Fehler. Der Development-Loop ist davon getrennt und
-kompiliert über `native:dev` inkrementell, wenn das ausgewählte Development-
-Target noch gebaut werden muss.
+Die lokale TestFlight-Signierung nutzt Xcodes automatische Signierung und den
+Apple-Developer-Account, der in Xcode eingerichtet ist. EAS Submit braucht eine
+EAS-Anmeldung. Für EAS Cloud-Builds und OTA ebenfalls.
 
-## Logs und Metriken
-
-Jeder GUI-Lauf wird vollständig nach `tools/build-gui/logs/` geschrieben. Die
-Anzeige kann zwischen allen Zeilen, Fehlern/Warnungen, Build-Phasen und Aktionen
-umschalten. Abgeschlossene Läufe werden zusätzlich in `.build-metrics/gui-runs.jsonl`
-gespeichert und beim nächsten GUI-Start wieder in der Laufhistorie angeboten.
-Mit `Log öffnen` lässt sich der vollständige Lauf direkt im macOS-Standardeditor
-öffnen. Nach einem fehlgeschlagenen iOS-Lauf liest die GUI zusätzlich die von
-Expo erzeugten `.expo/xcodebuild-error.log` und `.expo/xcodebuild.log`, zeigt die
-relevanten Compilerfehler dedupliziert an und nennt den ersten Root-Cause-Fehler.
-Nur Logs, die während des aktuellen Laufs aktualisiert wurden, werden verknüpft.
-
-Zusätzlich schreibt die GUI pro Lauf eine JSONL-Zeile nach
-`.build-metrics/gui-runs.jsonl` mit Target, Aktion, Fingerprint, Laufzeit,
-Exit-Code, Logpfad sowie den gefundenen Xcode-Rohlogs und Fehlerauszügen. Die
-vorhandene `scripts/native-build/build-timer.ts`-Metrik bleibt davon getrennt und misst
-weiterhin explizit gestartete Build-Kommandos.
-
-Start aus dem Projektroot:
+## Start
 
 ```bash
 python3 tools/build-gui/build_gui.py

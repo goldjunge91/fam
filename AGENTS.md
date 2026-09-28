@@ -250,40 +250,21 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 
 ## Native Builds
 
-Vollständige Befehlsreferenz, Schritt-für-Schritt-Anleitung und Fingerprint-
-Mechanik: [`scripts/native-build/README.md`](scripts/native-build/README.md).
-Hier nur die verbindlichen Grundregeln:
+Die Build-GUI ist der Einstieg für lokale Builds und EAS-Aktionen:
+`python3 tools/build-gui/build_gui.py`.
 
-- Jeder Prebuild läuft mit `--no-clean` — auch in CI/EAS. Vorhandene native
-  Projekte, Pods, DerivedData, Gradle-/ccache-Caches bleiben erhalten; kein
-  automatisches Löschen, auch nicht bei Fehlern.
-- Unveränderte native Eingaben → kein Prebuild, kein `pod install`. Reine
-  JS-/TS-Änderungen laufen über Metro/Fast Refresh, nie über einen nativen
-  Rebuild.
-- Ein vollständiger Reset oder das Löschen von Caches braucht Marcos
-  ausdrückliche Freigabe. `--approve-rebuild` gibt **nur** ein einmaliges
-  inkrementelles Prebuild frei — keine Cache-Löschung.
-- Config-Plugins bleiben idempotent; entferntes Plugin → dessen native
-  Änderungen gezielt zurückbauen, kein pauschaler Clean-Prebuild.
+- Lokale Simulator- und TestFlight-Builds aktualisieren CNG mit
+  `expo prebuild --no-clean`. Native Ordner und CocoaPods bleiben erhalten.
+- Lokale TestFlight-Builds verwenden den vorhandenen Xcode `DerivedData`-Cache
+  und ccache. Die Build-GUI löscht keine Caches und keine älteren Archive.
+- TestFlight kann lokal als Xcode-Archiv gebaut und entweder mit `eas submit`
+  (IPA) oder über Xcode Organizer (Archiv) hochgeladen werden.
+- EAS Cloud Builds und EAS OTA Updates starten über die Build-GUI mit dem
+  Profil, Channel und der EAS-Umgebung aus `eas.json`.
+- Config-Plugins bleiben idempotent; Änderungen an nativen Eingaben werden
+  durch Prebuild und anschließenden nativen Build übernommen.
 - Geschwindigkeitsaussagen ("das ist jetzt schneller") nur mit Zeitmessung
-  und Cache-Treffer-Beleg (`.build-metrics/builds.jsonl`).
-
-### Erlaubte Build-Einstiege
-
-| Zweck | Befehl |
-| --- | --- |
-| JS-/TS-Dev mit vorhandenem Dev Client | `bun run start -- --dev-client` |
-| iOS-Simulator-Entwicklung | `bun run native:dev -- --target ios-development-simulator` |
-| iOS-Geräteentwicklung | `bun run native:dev -- --target ios-development-device --device "<Name>"` |
-| Android-Entwicklung | `bun run native:dev -- --target android-development` |
-| Lokaler TestFlight-Build | `bun run native:rebuild -- --target ios-preview-testflight` |
-| Weitere Distributionsbuilds | `bun run native:rebuild -- --target ios-production\|android-preview\|android-production` |
-| Native Config aktualisieren | `bun run native:prebuild -- --platform ios\|android` (`FAM_HARNESS_UI=1` Dev / `0` Release) |
-
-Diagnose/Artefakt-Befehle (`native:status`, `native:status -- --diff`,
-`native:baseline`, `native:run`, `native:restore`) sowie Drift-Ursachen und
-Freigabeprozess: siehe README oben. Ein Native-Drift wird immer zuerst mit
-`native:status -- --diff` untersucht, bevor `--approve-rebuild` verwendet wird.
+  und Cache-Treffer-Beleg.
 
 ## Verbote commands
 - 'git reset' darf unter keinen umständen verwendet werden
