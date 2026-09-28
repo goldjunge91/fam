@@ -18,10 +18,6 @@ start-local *args:
 start-development *args:
     EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local -- expo start "$@"
 
-# Bisher: bun run build:timer
-build-timer *args:
-    bun scripts/native-build/build-timer.ts "$@"
-
 # Bisher: bun run metro:android
 metro-android *args:
     bun scripts/start-android-metro.ts --env .env.local "$@"
@@ -36,7 +32,7 @@ metro-android-clear *args:
 
 # Bisher: bun run clean
 clean *args:
-    FAM_HARNESS_UI=1 bun run native:prebuild -- --platform ios "$@"
+    FAM_HARNESS_UI=1 bunx expo prebuild --no-clean --platform ios "$@"
 
 # Bisher: bun run android:local
 android-local *args:

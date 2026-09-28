@@ -38,7 +38,7 @@ jobs:
         uses: ./.github/actions/setup-bun-env
 
       - name: Expo Prebuild iOS (Debug)
-        run: bun run native:prebuild -- --platform ios --no-install
+        run: bunx expo prebuild --no-clean --platform ios --no-install
 
       - name: Cache CocoaPods
         uses: actions/cache@v4
