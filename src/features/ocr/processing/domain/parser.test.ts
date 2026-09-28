@@ -574,6 +574,22 @@ describe('parseGermanReceipt', () => {
     });
   });
 
+  it('applies Rossmann price-artifact repairs only to Rossmann receipts', () => {
+    const lines = [
+      { text: 'Artikel 81,99 A', confidence: 0.96 },
+      { text: 'Zwischensumme 90,00', confidence: 0.96 },
+      { text: 'Zu zahlen 90,00', confidence: 0.96 },
+    ];
+
+    const rossmann = parseGermanReceipt([{ text: 'ROSSMANN', confidence: 0.96 }, ...lines]);
+
+    expect(rossmann.items[0]?.lineTotalCents.value).toBe(199);
+    for (const market of ['EDEKA', 'REWE']) {
+      const draft = parseGermanReceipt([{ text: market, confidence: 0.96 }, ...lines]);
+      expect(draft.items[0]?.lineTotalCents.value).toBe(8199);
+    }
+  });
+
   it('repairs the JPEG Rossmann price fragments observed by native OCR', () => {
     const draft = parseGermanReceipt([
       { text: 'ROSSMANN', confidence: 0.99 },
