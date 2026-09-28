@@ -119,7 +119,6 @@
         }
       ],
       "./plugins/withPushCapability",
-      "./plugins/withoutPushEntitlement",
       "./plugins/withAndroidGradleTuning",
       "./plugins/withIosCcacheDir",
       "expo-image",
@@ -239,6 +238,12 @@
         "projectId": "0ebc3520-e055-4324-8eb5-d3c99146c3d1"
       }
     },
-    "owner": "goldjunge91"
+    "owner": "goldjunge91",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/0ebc3520-e055-4324-8eb5-d3c99146c3d1"
+    }
   }
 }
