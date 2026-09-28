@@ -72,6 +72,10 @@ jest.mock('@/features/inventory/barcode-scanner-modal', () => ({
   BarcodeScannerModal: () => null,
 }));
 
+jest.mock('@/features/inventory/frequent-products-quick-select', () => ({
+  FrequentProductsQuickSelect: () => null,
+}));
+
 jest.mock('@/features/inventory/product-search-dropdown', () => {
   const { TextInput } = require('react-native');
   type MockProps = {
