@@ -4,7 +4,7 @@ import { Modal, Platform, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { CloseButton, Press, Surface, TextField, Txt } from '@/constants/ui';
+import { Button, CloseButton, Press, Surface, TextField, Txt } from '@/constants/ui';
 import { RecipeArtwork } from '@/features/recipes/components/recipe-preview-card';
 import { useRecipeCoverUrl } from '@/features/recipes/data/household-recipe-images';
 
@@ -19,6 +19,7 @@ type RecipePickerModalProps = {
   recipes: readonly RecipeOption[];
   onDismiss: () => void;
   onSelect: (recipe: RecipeOption) => void;
+  onCreateCustom: () => void;
 };
 
 const styles = StyleSheet.create((theme) => ({
@@ -38,6 +39,9 @@ const styles = StyleSheet.create((theme) => ({
   empty: {
     marginTop: theme.space.xxl,
     textAlign: 'center',
+  },
+  customEntryButton: {
+    marginTop: theme.space.md,
   },
   list: {
     flex: 1,
@@ -96,6 +100,7 @@ export function RecipePickerModal({
   recipes,
   onDismiss,
   onSelect,
+  onCreateCustom,
 }: RecipePickerModalProps) {
   const [query, setQuery] = useState('');
 
@@ -123,6 +128,14 @@ export function RecipePickerModal({
             value={query}
             onChangeText={setQuery}
             placeholder="Rezept suchen…"
+          />
+
+          <Button
+            title="Freies Gericht eintragen"
+            variant="secondary"
+            full
+            style={styles.customEntryButton}
+            onPress={onCreateCustom}
           />
 
           {filtered.length === 0 ? (

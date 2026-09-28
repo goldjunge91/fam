@@ -13,7 +13,6 @@ import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
-import { usePremium } from '@/features/premium/premium-provider';
 import { useRecipes } from '@/features/recipes/hooks/use-recipes';
 import { useModulePreferences } from '@/features/settings/module-preferences';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
@@ -97,13 +96,13 @@ export function MealPlannerScreen() {
   const householdId = activeHouseholdId ?? undefined;
   const { data: rawModules } = useModulePreferences(userId);
   const { getFeatureFlagState } = useFeatureAccess();
-  const { hasPlus } = usePremium();
   const recipesFeatureEnabled = getFeatureFlagState('module-recipes') !== false;
-  const recipesEnabled = rawModules.recipes && recipesFeatureEnabled && hasPlus;
+  const recipesEnabled = rawModules.recipes && recipesFeatureEnabled;
 
   const [viewMode, setViewMode] = useState<ViewMode>('week');
   const [anchorDate, setAnchorDate] = useState(() => todayIso());
   const [pendingCell, setPendingCell] = useState<PendingCell | null>(null);
+  const [isEnteringCustomEntry, setIsEnteringCustomEntry] = useState(false);
   const [pendingRecipe, setPendingRecipe] = useState<PendingRecipe | null>(null);
   const [editingEntry, setEditingEntry] = useState<MealPlanEntry | null>(null);
 
@@ -139,6 +138,7 @@ export function MealPlannerScreen() {
     : [];
 
   function handleTapEmptyCell(date: string, slot: MealSlot) {
+    setIsEnteringCustomEntry(false);
     setPendingCell({ date, slot });
   }
 
@@ -146,6 +146,12 @@ export function MealPlannerScreen() {
     if (!pendingCell || !recipesEnabled) return;
     setPendingRecipe({ date: pendingCell.date, slot: pendingCell.slot, recipe });
     setPendingCell(null);
+    setIsEnteringCustomEntry(false);
+  }
+
+  function handleCreateCustomEntry() {
+    if (!pendingCell) return;
+    setIsEnteringCustomEntry(true);
   }
 
   function handleTapEntry(entry: MealPlanEntry) {
@@ -196,11 +202,16 @@ export function MealPlannerScreen() {
         entry_date: pendingCell.date,
         meal_slot: pendingCell.slot,
         servings_mode: 'portions',
-        portions: 1,
+        portions: value.portions,
         people_count: null,
         created_by: userId,
       },
-      { onSuccess: () => setPendingCell(null) },
+      {
+        onSuccess: () => {
+          setPendingCell(null);
+          setIsEnteringCustomEntry(false);
+        },
+      },
     );
   }
 
@@ -228,6 +239,9 @@ export function MealPlannerScreen() {
         household_id: householdId,
         custom_title: value.title,
         custom_ingredients: value.ingredients,
+        servings_mode: 'portions',
+        portions: value.portions,
+        people_count: null,
       },
       { onSuccess: () => setEditingEntry(null) },
     );
@@ -372,19 +386,23 @@ export function MealPlannerScreen() {
 
       {/* Rezept-Auswahlmodal beim Tippen auf einen leeren Slot */}
       <RecipePickerModal
-        visible={pendingCell !== null && recipesEnabled}
+        visible={pendingCell !== null && recipesEnabled && !isEnteringCustomEntry}
         recipes={recipeOptions}
         onDismiss={() => setPendingCell(null)}
         onSelect={handlePickRecipe}
+        onCreateCustom={handleCreateCustomEntry}
       />
 
-      {pendingCell && !recipesEnabled ? (
+      {pendingCell && (!recipesEnabled || isEnteringCustomEntry) ? (
         <EntryFormModal
           mode="custom"
           visible
           entryDate={pendingCell.date}
           mealSlot={pendingCell.slot}
-          onDismiss={() => setPendingCell(null)}
+          onDismiss={() => {
+            setPendingCell(null);
+            setIsEnteringCustomEntry(false);
+          }}
           onSave={handleSaveNewCustomEntry}
         />
       ) : null}
@@ -427,6 +445,7 @@ export function MealPlannerScreen() {
           initial={{
             title: editingEntry.custom_title ?? '',
             ingredients: editingEntry.custom_ingredients ?? [],
+            portions: editingEntry.portions,
           }}
           onDismiss={() => setEditingEntry(null)}
           onSave={handleUpdateCustomEntry}

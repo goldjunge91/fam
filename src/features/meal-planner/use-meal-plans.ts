@@ -216,6 +216,9 @@ export type EntryInput = EntryInputBase &
   );
 
 function entryContent(input: EntryInput) {
+  if (!Number.isFinite(input.portions) || input.portions <= 0) {
+    throw new Error('Portionen müssen positiv sein.');
+  }
   if (input.recipe_id !== null) {
     return { recipe_id: input.recipe_id, custom_title: null, custom_ingredients: [] };
   }
@@ -286,12 +289,20 @@ export function useUpdateEntryMutation() {
         | {
             custom_title: string;
             custom_ingredients: CustomIngredient[];
-            servings_mode?: never;
-            portions?: never;
-            people_count?: never;
+            servings_mode?: ServingsMode;
+            portions?: number;
+            people_count?: number | null;
           }
       ),
     ) => {
+      if (
+        'custom_title' in input &&
+        input.portions !== undefined &&
+        (!Number.isFinite(input.portions) || input.portions <= 0)
+      ) {
+        throw new Error('Portionen müssen positiv sein.');
+      }
+
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
       const changes =
@@ -299,6 +310,13 @@ export function useUpdateEntryMutation() {
           ? {
               custom_title: customTitleSchema.parse(input.custom_title),
               custom_ingredients: customIngredientsSchema.parse(input.custom_ingredients),
+              ...(input.portions === undefined
+                ? {}
+                : {
+                    servings_mode: input.servings_mode ?? 'portions',
+                    portions: input.portions,
+                    people_count: input.people_count ?? null,
+                  }),
             }
           : {
               servings_mode: input.servings_mode,

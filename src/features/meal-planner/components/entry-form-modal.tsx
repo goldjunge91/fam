@@ -2,12 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import { Modal, Platform, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { space } from '@/components/theme/index';
+import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import {
   Button,
+  Card,
   CloseButton,
+  MIN_TOUCH_SIZE,
   Press,
-  Row,
   SegmentedControl,
   Surface,
   TextField,
@@ -48,6 +49,7 @@ type RecipeEntryFormModalProps = {
 export type CustomEntryFormValue = {
   title: string;
   ingredients: CustomIngredient[];
+  portions: number;
 };
 
 type CustomEntryFormModalProps = {
@@ -109,16 +111,42 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.md,
   },
   ingredientRow: {
-    gap: theme.space.xs,
+    gap: theme.space.md,
   },
-  ingredientName: {
+  ingredientHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+  },
+  ingredientFields: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    gap: theme.space.md,
+  },
+  ingredientField: {
     flex: 1,
   },
-  ingredientQuantity: {
-    width: 76,
+  removeIngredientButton: {
+    minHeight: MIN_TOUCH_SIZE,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.sm,
+    borderRadius: theme.radius.sm,
+    borderCurve: 'continuous',
   },
-  ingredientUnit: {
-    width: 88,
+  addIngredientButton: {
+    minHeight: MIN_TOUCH_SIZE,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.lg,
+    paddingVertical: theme.space.sm,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    borderRadius: theme.radius.md,
+    borderCurve: 'continuous',
+    backgroundColor: theme.backgroundElement,
   },
 }));
 
@@ -301,6 +329,7 @@ function CustomEntryFormModal({
 }: CustomEntryFormModalProps) {
   const nextId = useRef(0);
   const [title, setTitle] = useState(initial?.title ?? '');
+  const [portionsText, setPortionsText] = useState(String(initial?.portions ?? 1));
   const [ingredients, setIngredients] = useState<IngredientDraft[]>(() =>
     (initial?.ingredients ?? []).map((item) => toDraft(item, `initial-${nextId.current++}`)),
   );
@@ -309,10 +338,11 @@ function CustomEntryFormModal({
     if (!visible) return;
     nextId.current = 0;
     setTitle(initial?.title ?? '');
+    setPortionsText(String(initial?.portions ?? 1));
     setIngredients(
       (initial?.ingredients ?? []).map((item) => toDraft(item, `initial-${nextId.current++}`)),
     );
-  }, [visible, initial?.title, initial?.ingredients]);
+  }, [visible, initial?.title, initial?.portions, initial?.ingredients]);
 
   function addIngredient() {
     setIngredients((current) => [
@@ -330,14 +360,26 @@ function CustomEntryFormModal({
   function handleSave() {
     const parsedTitle = customTitleSchema.safeParse(title);
     const parsedIngredients = parseIngredientDrafts(ingredients);
+    const portions = Number(portionsText.trim().replace(',', '.'));
 
-    if (!parsedTitle.success || !parsedIngredients.success) return;
+    if (
+      !parsedTitle.success ||
+      !parsedIngredients.success ||
+      !Number.isFinite(portions) ||
+      portions <= 0
+    ) {
+      return;
+    }
 
-    onSave({ title: parsedTitle.data, ingredients: parsedIngredients.data });
+    onSave({ title: parsedTitle.data, ingredients: parsedIngredients.data, portions });
   }
 
+  const portions = Number(portionsText.trim().replace(',', '.'));
   const saveDisabled =
-    !customTitleSchema.safeParse(title).success || !parseIngredientDrafts(ingredients).success;
+    !customTitleSchema.safeParse(title).success ||
+    !parseIngredientDrafts(ingredients).success ||
+    !Number.isFinite(portions) ||
+    portions <= 0;
 
   return (
     <Modal
@@ -366,21 +408,44 @@ function CustomEntryFormModal({
               maxLength={120}
             />
 
+            <TextField
+              label="Portionen"
+              value={portionsText}
+              onChangeText={setPortionsText}
+              keyboardType="decimal-pad"
+              placeholder="z. B. 4"
+            />
+
             <View style={styles.ingredientList}>
               <Txt variant="heading">Zutaten</Txt>
               {ingredients.map((ingredient, index) => (
-                <Surface key={ingredient.id} tone="soft" style={styles.ingredientRow}>
-                  <Row gap={space.sm} align="flex-end">
-                    <View style={styles.ingredientName}>
-                      <TextField
-                        label={`Zutat ${index + 1}`}
-                        value={ingredient.name}
-                        onChangeText={(name) => updateIngredient(ingredient.id, { name })}
-                        placeholder="Zutat"
-                        maxLength={200}
-                      />
-                    </View>
-                    <View style={styles.ingredientQuantity}>
+                <Card key={ingredient.id} soft style={styles.ingredientRow}>
+                  <View style={styles.ingredientHeader}>
+                    <Txt variant="label">Zutat {index + 1}</Txt>
+                    <Press
+                      accessibilityRole="button"
+                      accessibilityLabel={`Zutat ${index + 1} entfernen`}
+                      haptic="none"
+                      onPress={() => {
+                        setIngredients((current) =>
+                          current.filter((item) => item.id !== ingredient.id),
+                        );
+                      }}
+                      style={styles.removeIngredientButton}>
+                      <Txt variant="caption" tone="danger">
+                        Entfernen
+                      </Txt>
+                    </Press>
+                  </View>
+                  <TextField
+                    accessibilityLabel={`Zutat ${index + 1}`}
+                    value={ingredient.name}
+                    onChangeText={(name) => updateIngredient(ingredient.id, { name })}
+                    placeholder="Name der Zutat"
+                    maxLength={200}
+                  />
+                  <View style={styles.ingredientFields}>
+                    <View style={styles.ingredientField}>
                       <TextField
                         label="Menge"
                         value={ingredient.quantity}
@@ -389,39 +454,27 @@ function CustomEntryFormModal({
                         placeholder="1"
                       />
                     </View>
-                    <View style={styles.ingredientUnit}>
-                      <TextField
+                    <View style={styles.ingredientField}>
+                      <WheelPickerField
                         label="Einheit"
                         value={ingredient.unit}
-                        onChangeText={(unit) => updateIngredient(ingredient.id, { unit })}
-                        placeholder="piece"
-                        maxLength={16}
-                        autoCapitalize="none"
+                        options={UNIT_OPTIONS}
+                        onChange={(unit) => updateIngredient(ingredient.id, { unit })}
                       />
                     </View>
-                  </Row>
-                  <Button
-                    title="Zutat entfernen"
-                    variant="link"
-                    size="sm"
-                    onPress={() => {
-                      setIngredients((current) =>
-                        current.filter((item) => item.id !== ingredient.id),
-                      );
-                    }}
-                  />
-                </Surface>
+                  </View>
+                </Card>
               ))}
-              <Button
-                title="Zutat hinzufügen"
-                variant="secondary"
+              <Press
+                accessibilityRole="button"
+                haptic="none"
                 onPress={addIngredient}
                 disabled={ingredients.length >= 100}
-              />
-              <Txt variant="caption" tone="secondary">
-                Einheiten:{' '}
-                {UNIT_OPTIONS.map((option) => `${option.label} (${option.value})`).join(', ')}
-              </Txt>
+                style={styles.addIngredientButton}>
+                <Txt variant="body" tone="primary" weight="600">
+                  + Zutat hinzufügen
+                </Txt>
+              </Press>
             </View>
 
             <View style={styles.actions}>

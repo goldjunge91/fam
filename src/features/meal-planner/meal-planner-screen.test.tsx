@@ -87,7 +87,34 @@ jest.mock('@/features/recipes/hooks/use-recipes', () => ({
     data: mockRecipes,
   }),
 }));
+jest.mock('@/components/forms/wheel-picker-field', () => {
+  const { Pressable, Text, View } =
+    jest.requireActual<typeof import('react-native')>('react-native');
 
+  return {
+    WheelPickerField: ({
+      label,
+      options,
+      onChange,
+    }: {
+      label?: string;
+      options: readonly { value: string; label: string }[];
+      onChange: (value: string) => void;
+    }) => (
+      <View>
+        {options.map((option) => (
+          <Pressable
+            key={option.value}
+            accessibilityRole="button"
+            accessibilityLabel={`${label ?? 'Auswahl'}: ${option.label}`}
+            onPress={() => onChange(option.value)}>
+            <Text>{option.label}</Text>
+          </Pressable>
+        ))}
+      </View>
+    ),
+  };
+});
 // Der Rezept-Picker zeigt das Rezeptbild ueber `useRecipeCoverUrl` (echtes
 // `useQuery`) — ohne QueryClientProvider in diesem Test-Setup wuerde das
 // werfen, siehe react-query-Fehlermeldung "No QueryClient set".
@@ -223,6 +250,21 @@ describe('MealPlannerScreen', () => {
     expect(screen.getByRole('button', { name: 'Speichern' })).toBeOnTheScreen();
   });
 
+  it('bietet Freitext zusätzlich zur Rezeptwahl an, wenn Rezepte verfügbar sind', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(
+      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
+    );
+
+    expect(screen.getByText('Rezept auswählen')).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Freies Gericht eintragen' }));
+
+    expect(screen.queryByText('Rezept auswählen')).not.toBeOnTheScreen();
+    expect(screen.getByText('Freies Gericht')).toBeOnTheScreen();
+  });
+
   it('lässt den Rezept-Picker offen, solange module-recipes noch nicht bestätigt ist', async () => {
     mockRecipesFeatureFlag = undefined;
     const user = userEvent.setup();
@@ -333,20 +375,22 @@ describe('MealPlannerScreen', () => {
     await user.press(
       screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
     );
-    await user.press(screen.getByText('Zutat hinzufügen'));
+    await user.press(screen.getByText('+ Zutat hinzufügen'));
     await user.type(screen.getByLabelText('Gericht'), 'Paprika-Reis');
+    await user.clear(screen.getByLabelText('Portionen'));
+    await user.type(screen.getByLabelText('Portionen'), '3');
     await user.type(screen.getByLabelText('Zutat 1'), 'Paprika');
     await user.clear(screen.getByLabelText('Menge'));
     await user.type(screen.getByLabelText('Menge'), '2');
-    await user.clear(screen.getByLabelText('Einheit'));
-    await user.type(screen.getByLabelText('Einheit'), 'Stück');
+    await user.press(screen.getByRole('button', { name: 'Einheit: Gramm (g)' }));
     await user.press(screen.getByRole('button', { name: 'Speichern' }));
 
     expect(mockAddMutate).toHaveBeenCalledWith(
       expect.objectContaining({
         recipe_id: null,
         custom_title: 'Paprika-Reis',
-        custom_ingredients: [{ name: 'Paprika', quantity: 2, unit: 'piece' }],
+        custom_ingredients: [{ name: 'Paprika', quantity: 2, unit: 'g' }],
+        portions: 3,
       }),
       expect.anything(),
     );
@@ -368,7 +412,7 @@ describe('MealPlannerScreen', () => {
     expect(screen.getByText('Freies Gericht')).toBeOnTheScreen();
   });
 
-  it('bietet Freitext an, wenn die Rezeptsammlung hinter der Plus-Paywall liegt', async () => {
+  it('bietet Rezeptwahl und Freitext unabhängig vom Plus-Zugriff an', async () => {
     mockHasPlus = false;
     const user = userEvent.setup();
 
@@ -380,6 +424,8 @@ describe('MealPlannerScreen', () => {
     expect(addButton).toBeEnabled();
 
     await user.press(addButton);
-    expect(screen.getByText('Freies Gericht')).toBeOnTheScreen();
+    expect(screen.getByText('Rezept auswählen')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Spaghetti Bolognese eintragen' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Freies Gericht eintragen' })).toBeOnTheScreen();
   });
 });

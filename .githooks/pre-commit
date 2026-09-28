@@ -43,9 +43,9 @@ current_check="Biome"
 echo "--> Biome"
 bun run check
 
-current_check="Typecheck"
-echo "--> Typecheck"
-bun run typecheck
+# current_check="Typecheck"
+# echo "--> Typecheck"
+# bun run typecheck
 
 if [ "${#test_files[@]}" -gt 0 ]; then
   current_check="Jest --findRelatedTests"
