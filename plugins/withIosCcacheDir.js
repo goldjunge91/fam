@@ -52,6 +52,9 @@ function resolveCcacheBinary() {
 
 const WRAPPER_CLANG = '.ccache-wrapper-clang.sh';
 const WRAPPER_CLANGPP = '.ccache-wrapper-clang++.sh';
+// Xcode 27 also prepares the Pods project for a macOS index build. The
+// default macOS 10.15 deployment target is no longer accepted by that SDK.
+const MACOS_INDEX_DEPLOYMENT_TARGET = '26.0';
 
 function shellQuote(value) {
   return '"' + value.replace(/["\\$`]/g, '\\$&') + '"';
@@ -124,7 +127,7 @@ module.exports = function withIosCcacheDir(config) {
     }
     config.modResults.contents = config.modResults.contents.replace(
       callRegex,
-      `$1\n\n    # withIosCcacheDir: RNs eigener ccache-Wrapper liest CCACHE_BINARY/DIR aus\n    # der Prozessumgebung, die Xcode nicht an Compile-Sources-Subprozesse\n    # durchreicht (siehe docs/native-fingerprint-drift-debugging.md).\n    installer.pods_project.build_configurations.each do |c|\n      if c.build_settings['CC'].to_s.include?('ccache-clang.sh')\n        c.build_settings['CC'] = File.join(__dir__, '${WRAPPER_CLANG}')\n        c.build_settings['CXX'] = File.join(__dir__, '${WRAPPER_CLANGPP}')\n        c.build_settings['LD'] = File.join(__dir__, '${WRAPPER_CLANG}')\n        c.build_settings['LDPLUSPLUS'] = File.join(__dir__, '${WRAPPER_CLANGPP}')\n      end\n    end\n    installer.pods_project.save`,
+      `$1\n\n    # withIosCcacheDir: RNs eigener ccache-Wrapper liest CCACHE_BINARY/DIR aus\n    # der Prozessumgebung, die Xcode nicht an Compile-Sources-Subprozesse\n    # durchreicht (siehe docs/native-fingerprint-drift-debugging.md).\n    installer.pods_project.build_configurations.each do |c|\n      if c.build_settings['CC'].to_s.include?('ccache-clang.sh')\n        c.build_settings['CC'] = File.join(__dir__, '${WRAPPER_CLANG}')\n        c.build_settings['CXX'] = File.join(__dir__, '${WRAPPER_CLANGPP}')\n        c.build_settings['LD'] = File.join(__dir__, '${WRAPPER_CLANG}')\n        c.build_settings['LDPLUSPLUS'] = File.join(__dir__, '${WRAPPER_CLANGPP}')\n      end\n    end\n    installer.pods_project.save\n\n    # CocoaPods also rewrites the project-level settings in the aggregate\n    # user project. Apply the same self-contained launchers there, otherwise\n    # Xcode expands an empty REACT_NATIVE_PATH during an Index Build.\n    installer.aggregate_targets.each do |aggregate_target|\n      project = aggregate_target.user_project\n      project.build_configurations.each do |c|\n        c.build_settings['CC'] = File.join(__dir__, '${WRAPPER_CLANG}')\n        c.build_settings['CXX'] = File.join(__dir__, '${WRAPPER_CLANGPP}')\n        c.build_settings['LD'] = File.join(__dir__, '${WRAPPER_CLANG}')\n        c.build_settings['LDPLUSPLUS'] = File.join(__dir__, '${WRAPPER_CLANGPP}')\n        c.build_settings['MACOSX_DEPLOYMENT_TARGET'] = '${MACOS_INDEX_DEPLOYMENT_TARGET}'\n      end\n      project.save\n    end`,
     );
     return config;
   });
@@ -139,6 +142,41 @@ module.exports = function withIosCcacheDir(config) {
     config.modResults.contents = config.modResults.contents.replace(
       callRegex,
       `$1\n\n    # ${marker}: Xcode 26 cannot use Explicit Modules with a custom compiler launcher.\n    # Without this, Swift loses ExpoSQLite's sqlite3 module and exsqlite3_* is missing.\n    installer.pods_project.targets.each do |target|\n      target.build_configurations.each do |c|\n        c.build_settings['CLANG_ENABLE_EXPLICIT_MODULES'] = 'NO'\n      end\n    end`,
+    );
+    return config;
+  });
+
+  // React Native can write its project-level compiler settings after the
+  // first withXcodeProject pass. Keep the final generated project free of
+  // the env-var-dependent launcher, otherwise Xcode expands an empty
+  // REACT_NATIVE_PATH to /../../node_modules/....
+  config = withXcodeProject(config, (config) => {
+    const buildConfigs = config.modResults.pbxXCBuildConfigurationSection();
+    for (const entry of Object.values(buildConfigs)) {
+      if (entry && typeof entry === 'object' && entry.buildSettings) {
+        entry.buildSettings.CC = `"$(SRCROOT)/${WRAPPER_CLANG}"`;
+        entry.buildSettings.CXX = `"$(SRCROOT)/${WRAPPER_CLANGPP}"`;
+        entry.buildSettings.LD = `"$(SRCROOT)/${WRAPPER_CLANG}"`;
+        entry.buildSettings.LDPLUSPLUS = `"$(SRCROOT)/${WRAPPER_CLANGPP}"`;
+        delete entry.buildSettings.CCACHE_DIR;
+      }
+    }
+    return config;
+  });
+
+  // Xcode 27's Index Build evaluates every Pods target for macOS. Apply a
+  // supported macOS target at the Podfile source so this survives prebuild
+  // and pod install instead of requiring per-target Xcode edits.
+  config = withPodfile(config, (config) => {
+    const marker = 'withIosCcacheDir: macOS index deployment target';
+    if (config.modResults.contents.includes(marker)) return config;
+    const callRegex = /(react_native_post_install\(\s*installer,[\s\S]*?\n\s*\))/u;
+    if (!callRegex.test(config.modResults.contents)) {
+      throw new Error('withIosCcacheDir: react_native_post_install not found in Podfile');
+    }
+    config.modResults.contents = config.modResults.contents.replace(
+      callRegex,
+      `$1\n\n    # ${marker}: Xcode 27 no longer accepts the default macOS 10.15 target.\n    installer.pods_project.build_configurations.each do |c|\n      c.build_settings['MACOSX_DEPLOYMENT_TARGET'] = '${MACOS_INDEX_DEPLOYMENT_TARGET}'\n    end\n    installer.pods_project.targets.each do |target|\n      target.build_configurations.each do |c|\n        c.build_settings['MACOSX_DEPLOYMENT_TARGET'] = '${MACOS_INDEX_DEPLOYMENT_TARGET}'\n      end\n    end`,
     );
     return config;
   });

@@ -40,6 +40,25 @@ FAM_UPDATE_CHANNEL=development bun run ios:dev
 TestFlight-Archiv. Für die Geräteeinrichtung eines iPhones den direkten
 `expo run:ios --device ...`-Befehl oben verwenden.
 
+### Google ML Kit im OCR-Inspector auf einem iPhone testen
+
+Die normalen Development-Befehle bauen die Apple-Vision-Variante. Für Google
+ML Kit muss der iPhone-Dev-Client mit `FAM_IOS_MLKIT_OCR=1` neu gebaut werden:
+
+```bash
+env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=1 FAM_UPDATE_CHANNEL=development USE_CCACHE=1 \
+  bun --env-file=.env.development.local run expo prebuild --no-clean --platform ios
+
+env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=1 FAM_UPDATE_CHANNEL=development \
+  bun --env-file=.env.development.local run expo run:ios --scheme fam \
+  --device "<iPhone-Name oder UDID>"
+```
+
+Danach im OCR-Inspector „Google ML Kit“ wählen und die Erkennung erneut
+ausführen. „Ausgeführt mit“ und das kopierte JSON nennen den Anbieter des
+abgeschlossenen Laufs. Die Google-ML-Kit-Konfiguration ist für ein physisches
+iPhone vorgesehen; der normale Simulator-Build verwendet Apple Vision.
+
 ## iOS TestFlight-Archiv lokal erstellen
 
 Der folgende Ablauf aktualisiert CNG, erhöht die lokale Xcode-Buildnummer und
