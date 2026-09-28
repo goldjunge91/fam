@@ -30,7 +30,8 @@ export function normalizeRossmannArtifacts(
     const isLeadingEightArtifact = hasTaxCodeSuffix && /^8\d+[,.]\d{2}$/u.test(raw);
     const isLeadingSixArtifact = /^6\d+[,.]\d{2}$/u.test(raw) && token.cents > subtotalCents;
     const prefix = line.text.slice(0, token.start);
-    const isMisreadZeroPrice = /(?:^|\s)C0\.\s*$/iu.test(prefix) && /^1[,.]\d{2}$/u.test(raw);
+    const isMisreadZeroPrice =
+      /(?:^|\s)(?:C0\.|€0)\s*$/iu.test(prefix) && /^1[,.]\d{2}$/u.test(raw);
     if (!isLeadingEightArtifact && !isLeadingSixArtifact && !isMisreadZeroPrice) {
       return token;
     }

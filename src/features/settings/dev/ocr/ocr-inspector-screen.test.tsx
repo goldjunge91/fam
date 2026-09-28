@@ -149,6 +149,15 @@ describe('OcrInspectorScreen', () => {
     await user.press(screen.getByRole('button', { name: 'JSON kopieren' }));
     const json = jest.mocked(Clipboard.setStringAsync).mock.calls[0]?.[0];
     expect(JSON.parse(json ?? '')).toEqual({
+      provider: 'apple-vision',
+      imageSettings: {
+        resize: 'source',
+        crop: 'none',
+        colorMode: 'color',
+        contrast: 'none',
+        sharpen: 'off',
+        quality: 'source',
+      },
       imageSize: { width: 1_000, height: 2_000 },
       lines: [
         {
@@ -165,6 +174,24 @@ describe('OcrInspectorScreen', () => {
     });
     await user.press(screen.getByRole('button', { name: 'Kopieren' }));
     expect(Clipboard.setStringAsync).toHaveBeenCalledWith('EDEKA\nMilch 1,99');
+  });
+
+  it('exports the settings of the completed run after a new filter is selected', async () => {
+    await renderScreen();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'Bild für OCR auswählen' }));
+    await screen.findByDisplayValue('EDEKA\nMilch 1,99');
+    await user.press(screen.getByRole('radio', { name: '+45 %' }));
+    await user.press(screen.getByRole('button', { name: 'JSON kopieren' }));
+
+    const json = jest.mocked(Clipboard.setStringAsync).mock.calls[0]?.[0];
+    expect(JSON.parse(json ?? '')).toMatchObject({
+      provider: 'apple-vision',
+      imageSettings: { contrast: 'none' },
+      lines: [{ text: 'EDEKA' }, { text: 'Milch 1,99' }],
+    });
+    expect(screen.getByRole('button', { name: 'Mit Einstellungen ausführen' })).toBeOnTheScreen();
   });
 
   it('shows and hides the same JSON that the copy button provides', async () => {

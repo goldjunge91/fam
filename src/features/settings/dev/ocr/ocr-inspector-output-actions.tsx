@@ -3,11 +3,15 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Row, TextField } from '@/constants/ui';
-import type { ReceiptOcrResult } from '@/features/ocr/processing/native';
+import type { ReceiptOcrProvider, ReceiptOcrResult } from '@/features/ocr/processing/native';
+import type { InspectorImageSettings } from './ocr-inspector-pipeline';
+
+type InspectorRunSettings = InspectorImageSettings & { iosProvider: ReceiptOcrProvider };
 
 type OcrInspectorOutputActionsProps = {
   result: ReceiptOcrResult | null;
   text: string;
+  runSettings: InspectorRunSettings | null;
 };
 
 const styles = StyleSheet.create({
@@ -18,11 +22,32 @@ const styles = StyleSheet.create({
   },
 });
 
-export function OcrInspectorOutputActions({ result, text }: OcrInspectorOutputActionsProps) {
+export function OcrInspectorOutputActions({
+  result,
+  text,
+  runSettings,
+}: OcrInspectorOutputActionsProps) {
   const [showJson, setShowJson] = useState(false);
-  const json = result
-    ? JSON.stringify({ imageSize: result.imageSize, lines: result.lines }, null, 2)
-    : '';
+  const json =
+    result && runSettings
+      ? JSON.stringify(
+          {
+            provider: runSettings.iosProvider,
+            imageSettings: {
+              resize: runSettings.resize,
+              crop: runSettings.crop,
+              colorMode: runSettings.colorMode,
+              contrast: runSettings.contrast,
+              sharpen: runSettings.sharpen,
+              quality: runSettings.quality,
+            },
+            imageSize: result.imageSize,
+            lines: result.lines,
+          },
+          null,
+          2,
+        )
+      : '';
 
   return (
     <View>
@@ -38,18 +63,18 @@ export function OcrInspectorOutputActions({ result, text }: OcrInspectorOutputAc
           title="JSON kopieren"
           variant="link"
           size="sm"
-          disabled={!result}
+          disabled={!json}
           onPress={() => void Clipboard.setStringAsync(json)}
         />
         <Button
           title={showJson ? 'JSON ausblenden' : 'JSON anzeigen'}
           variant="link"
           size="sm"
-          disabled={!result}
+          disabled={!json}
           onPress={() => setShowJson((current) => !current)}
         />
       </Row>
-      {showJson && result ? (
+      {showJson && json ? (
         <TextField
           accessibilityLabel="OCR-Ergebnis als JSON"
           value={json}

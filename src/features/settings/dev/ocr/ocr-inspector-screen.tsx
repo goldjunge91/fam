@@ -321,10 +321,6 @@ function phaseLabel(phase: InspectorPhase): string {
   }
 }
 
-function settingsSignature(settings: InspectorSettings): string {
-  return JSON.stringify(settings);
-}
-
 function languageTags(settings: InspectorSettings): string[] {
   return settings.language === 'auto' ? [] : [settings.language];
 }
@@ -367,7 +363,7 @@ function lineKey(line: ReceiptOcrLine): string {
 function providerLabel(settings: InspectorSettings): string {
   if (process.env.EXPO_OS === 'ios') {
     return settings.iosProvider === 'google-mlkit'
-      ? 'expo-ai-kit · Google ML Kit'
+      ? 'expo-mlkit-ocr · Google ML Kit'
       : 'expo-ai-kit · Apple Vision';
   }
   if (process.env.EXPO_OS === 'android') return 'expo-ai-kit · Google ML Kit';
@@ -385,7 +381,7 @@ export function OcrInspectorScreen() {
   const [modelProgress, setModelProgress] = useState<number | null>(null);
   const [error, setError] = useState<{ code: string; message: string } | null>(null);
   const [elapsedMs, setElapsedMs] = useState<number | null>(null);
-  const [lastRunSignature, setLastRunSignature] = useState<string | null>(null);
+  const [lastRunSettings, setLastRunSettings] = useState<InspectorSettings | null>(null);
   const mountedRef = useRef(true);
   const operationRef = useRef(0);
   const ownedImageUrisRef = useRef<Set<string>>(new Set());
@@ -464,20 +460,30 @@ export function OcrInspectorScreen() {
     setError(null);
     setElapsedMs(null);
     setModelProgress(null);
+    setLastRunSettings(null);
     setPhase('preparing');
 
     try {
       const languages = languageTags(runSettings);
-      const prepared = await prepareReceiptOcr({
-        languages,
-        onProgress: (progress) => {
-          if (mountedRef.current && operationRef.current === operation) {
-            setModelProgress(boundedProgress(progress));
-          }
-        },
-      });
+      if (runSettings.iosProvider === 'google-mlkit') {
+        if (!isGoogleMlKitAvailable()) {
+          throw new Error(
+            'MLKIT_NOT_ENABLED: Google ML Kit ist in diesem iOS-Build nicht enthalten.',
+          );
+        }
+      } else {
+        const prepared = await prepareReceiptOcr({
+          languages,
+          onProgress: (progress) => {
+            if (mountedRef.current && operationRef.current === operation) {
+              setModelProgress(boundedProgress(progress));
+            }
+          },
+        });
+        if (!mountedRef.current || operationRef.current !== operation) return;
+        setAvailability(prepared);
+      }
       if (!mountedRef.current || operationRef.current !== operation) return;
-      setAvailability(prepared);
       setPhase('preparing-image');
 
       const preparedImage = await prepareInspectorImage(
@@ -533,7 +539,7 @@ export function OcrInspectorScreen() {
             }
           : currentImage,
       );
-      setLastRunSignature(settingsSignature(runSettings));
+      setLastRunSettings(runSettings);
       setElapsedMs(Date.now() - startedAt);
       setPhase('ready');
     } catch (nextError: unknown) {
@@ -634,7 +640,7 @@ export function OcrInspectorScreen() {
     setRecognizedText('');
     setError(null);
     setElapsedMs(null);
-    setLastRunSignature(null);
+    setLastRunSettings(null);
     setPhase('idle');
     await cleanupOwnedImages();
   }
@@ -645,7 +651,14 @@ export function OcrInspectorScreen() {
     phase === 'preparing' ||
     phase === 'preparing-image' ||
     phase === 'recognizing';
-  const settingsDirty = Boolean(image) && lastRunSignature !== settingsSignature(settings);
+  const settingsDirty =
+    Boolean(image) && JSON.stringify(lastRunSettings) !== JSON.stringify(settings);
+  const selectedAvailability: AvailabilityState =
+    isIos && settings.iosProvider === 'google-mlkit'
+      ? isGoogleMlKitAvailable()
+        ? { status: 'available' }
+        : { status: 'unavailable', reason: 'not-enabled' }
+      : availability;
   const runtimeImage = image && result ? { ...image, ...result.imageSize } : image;
   const previewRatio =
     runtimeImage && runtimeImage.height > 0 ? runtimeImage.width / runtimeImage.height : 1;
@@ -778,6 +791,11 @@ export function OcrInspectorScreen() {
                 size="compact"
               />
             ) : null}
+            {isIos && !isGoogleMlKitAvailable() ? (
+              <Txt variant="caption" tone="secondary" selectable>
+                Google ML Kit ist nur im iPhone-Build mit FAM_IOS_MLKIT_OCR=1 verfügbar.
+              </Txt>
+            ) : null}
             <WheelPickerField
               label="OCR-Sprache"
               value={settings.language}
@@ -907,14 +925,17 @@ export function OcrInspectorScreen() {
           wert={phaseLabel(phase)}
           tone={phase === 'error' ? 'danger' : phase === 'ready' ? 'accent' : undefined}
         />
-        <Zeile label="Provider" wert={providerLabel(settings)} />
+        <Zeile
+          label="Ausgeführt mit"
+          wert={result && lastRunSettings ? providerLabel(lastRunSettings) : 'Noch kein Ergebnis'}
+        />
         <Zeile
           label="OCR-Modell"
-          wert={availabilityLabel(availability)}
+          wert={availabilityLabel(selectedAvailability)}
           tone={
-            availability.status === 'error' || availability.status === 'unavailable'
+            selectedAvailability.status === 'error' || selectedAvailability.status === 'unavailable'
               ? 'danger'
-              : availability.status === 'available'
+              : selectedAvailability.status === 'available'
                 ? 'accent'
                 : 'warning'
           }
@@ -946,19 +967,25 @@ export function OcrInspectorScreen() {
             {error.code}: {error.message}
           </Txt>
         ) : null}
-        <Button
-          title="Modellstatus aktualisieren"
-          variant="secondary"
-          icon="refresh-cw"
-          loading={availability.status === 'checking'}
-          disabled={isBusy}
-          onPress={() => void refreshAvailability()}
-        />
+        {settings.iosProvider !== 'google-mlkit' ? (
+          <Button
+            title="Modellstatus aktualisieren"
+            variant="secondary"
+            icon="refresh-cw"
+            loading={availability.status === 'checking'}
+            disabled={isBusy}
+            onPress={() => void refreshAvailability()}
+          />
+        ) : null}
       </Card>
 
       <Card style={styles.outputCard}>
         <Txt variant="heading">Gesamter erkannter Text</Txt>
-        <OcrInspectorOutputActions result={result} text={recognizedText} />
+        <OcrInspectorOutputActions
+          result={result}
+          text={recognizedText}
+          runSettings={lastRunSettings}
+        />
         <Txt variant="caption" tone="secondary">
           Das JSON enthält den vollständigen Bontext und die erkannten Positionen.
         </Txt>

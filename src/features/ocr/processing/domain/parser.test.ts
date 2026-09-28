@@ -612,6 +612,22 @@ describe('parseGermanReceipt', () => {
     ]);
   });
 
+  it('repairs a split Rossmann euro-zero price only for Rossmann', () => {
+    const lines = [
+      { text: '4068134194732 ISANA SEIFE PEACH €0 1,65 A', confidence: 0.86 },
+      { text: 'Zwischensumme €25,06', confidence: 0.86 },
+      { text: 'Summe €18,95', confidence: 0.86 },
+    ];
+
+    const rossmann = parseGermanReceipt([{ text: 'ROSSMANN', confidence: 0.99 }, ...lines]);
+
+    expect(rossmann.items[0]?.lineTotalCents.value).toBe(65);
+    for (const market of ['EDEKA', 'REWE']) {
+      const draft = parseGermanReceipt([{ text: market, confidence: 0.99 }, ...lines]);
+      expect(draft.items[0]?.lineTotalCents.value).toBe(165);
+    }
+  });
+
   it('filters Rossmann tax and footer fragments from the article list', () => {
     const draft = parseGermanReceipt([
       { text: 'ROSSMANN', confidence: 0.99 },
