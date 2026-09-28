@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import os
 import queue
+import signal
 import subprocess
 import threading
 import tkinter as tk
@@ -190,6 +191,10 @@ class BuildGui(tk.Tk):
         self.status = tk.StringVar(value="Bereit")
         self.output: queue.Queue[tuple[str, str]] = queue.Queue()
         self.running = False
+        self.metro_active = False
+        self.current_process: subprocess.Popen[str] | None = None
+        self.process_lock = threading.Lock()
+        self.stop_requested = threading.Event()
 
         root = ttk.Frame(self, padding=16)
         root.pack(fill="both", expand=True)
@@ -222,7 +227,11 @@ class BuildGui(tk.Tk):
         footer.columnconfigure(0, weight=1)
         ttk.Label(footer, textvariable=self.status).grid(row=0, column=0, sticky="w")
         self.run_button = ttk.Button(footer, text="Ausführen", command=self.start)
-        self.run_button.grid(row=0, column=1, padx=(8, 0))
+        self.run_button.grid(row=0, column=2, padx=(8, 0))
+        self.metro_stop_button = ttk.Button(
+            footer, text="Metro stoppen", command=self.stop_metro, state="disabled",
+        )
+        self.metro_stop_button.grid(row=0, column=1, padx=(8, 0))
         self._target_changed()
         self.after(100, self._drain_output)
         self.protocol("WM_DELETE_WINDOW", self._close)
@@ -257,30 +266,72 @@ class BuildGui(tk.Tk):
             self.status.set(str(error))
             return
         self.running = True
+        self.metro_active = False
+        self.stop_requested.clear()
         self.run_button.configure(state="disabled")
+        self.metro_stop_button.configure(state="disabled")
         self.target_menu.configure(state="disabled")
         self.action_menu.configure(state="disabled")
         self.status.set("Läuft …")
+        metro_command_index = 1 if self.action.get() == "Lokal bauen: Simulator" else None
         threading.Thread(
-            target=self._run_commands, args=(commands, build_dir), daemon=True,
+            target=self._run_commands,
+            args=(commands, build_dir, metro_command_index),
+            daemon=True,
         ).start()
 
-    def _run_commands(self, commands: list[list[str]], build_dir: Path | None) -> None:
+    def stop_metro(self) -> None:
+        with self.process_lock:
+            process = self.current_process
+        if process is None:
+            self.metro_stop_button.configure(state="disabled")
+            self.status.set("Metro wird bereits beendet …")
+            return
+
+        self.stop_requested.set()
+        self.metro_stop_button.configure(state="disabled")
+        self.status.set("Metro wird beendet …")
+        try:
+            os.killpg(process.pid, signal.SIGINT)
+        except ProcessLookupError:
+            pass
+        except OSError as error:
+            self.stop_requested.clear()
+            self.status.set(f"Metro konnte nicht beendet werden: {error}")
+            self.metro_stop_button.configure(state="normal")
+
+    def _run_commands(
+        self,
+        commands: list[list[str]],
+        build_dir: Path | None,
+        metro_command_index: int | None,
+    ) -> None:
         environment = os.environ.copy()
-        for command in commands:
+        for index, command in enumerate(commands):
             self.output.put(("line", f"$ {' '.join(command)}\n"))
             try:
                 process = subprocess.Popen(
                     command, cwd=PROJECT_ROOT, env=environment,
                     stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+                    start_new_session=index == metro_command_index,
                 )
             except OSError as error:
                 self.output.put(("done", f"Start fehlgeschlagen: {error}"))
                 return
+            with self.process_lock:
+                self.current_process = process
             if process.stdout is not None:
                 for line in process.stdout:
                     self.output.put(("line", line))
-            if process.wait():
+                    if index == metro_command_index and "Waiting on " in line:
+                        self.output.put(("metro_started", ""))
+            return_code = process.wait()
+            with self.process_lock:
+                self.current_process = None
+            if self.stop_requested.is_set():
+                self.output.put(("done", "Metro beendet"))
+                return
+            if return_code:
                 self.output.put(("done", f"Fehlgeschlagen · Exit-Code {process.returncode}"))
                 return
         if build_dir is not None:
@@ -309,17 +360,28 @@ class BuildGui(tk.Tk):
                 self.log.insert("end", value)
                 self.log.see("end")
                 self.log.configure(state="disabled")
+            elif kind == "metro_started":
+                self.metro_active = True
+                self.status.set("Metro läuft. Zum Beenden „Metro stoppen“ drücken.")
+                self.metro_stop_button.configure(state="normal")
             else:
                 self.status.set(value)
                 self.running = False
+                self.metro_active = False
+                self.stop_requested.clear()
                 self.run_button.configure(state="normal")
+                self.metro_stop_button.configure(state="disabled")
                 self.target_menu.configure(state="readonly")
                 self.action_menu.configure(state="readonly")
         self.after(100, self._drain_output)
 
     def _close(self) -> None:
         if self.running:
-            self.status.set("Build läuft noch; Fenster bleibt geöffnet")
+            message = (
+                "Metro läuft noch. Zum Beenden „Metro stoppen“ drücken."
+                if self.metro_active else "Build läuft noch; Fenster bleibt geöffnet"
+            )
+            self.status.set(message)
             return
         self.destroy()
 

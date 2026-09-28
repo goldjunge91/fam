@@ -1,10 +1,16 @@
+import io
 import json
+import queue
+import signal
 import tempfile
+import threading
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from types import SimpleNamespace
+from unittest.mock import Mock, patch
 
 from build_gui import (
+    BuildGui,
     IOS_CACHE,
     LATEST_BUILD,
     LOCAL_IOS,
@@ -135,6 +141,79 @@ class BuildGuiCommandTest(unittest.TestCase):
         with patch("build_gui.LATEST_BUILD", Path("/missing/local-build.json")):
             with self.assertRaisesRegex(ValueError, "Noch kein lokaler"):
                 latest_local_build_path("ipa")
+
+
+class BuildGuiMetroStopTest(unittest.TestCase):
+    def setUp(self) -> None:
+        self.gui = BuildGui.__new__(BuildGui)
+        self.gui.current_process = SimpleNamespace(pid=12345)
+        self.gui.process_lock = threading.Lock()
+        self.gui.stop_requested = threading.Event()
+        self.gui.metro_stop_button = Mock()
+        self.gui.status = Mock()
+
+    def test_stop_metro_interrupts_its_process_group(self) -> None:
+        with patch("build_gui.os.killpg") as killpg:
+            self.gui.stop_metro()
+
+        killpg.assert_called_once_with(12345, signal.SIGINT)
+        self.assertTrue(self.gui.stop_requested.is_set())
+        self.gui.metro_stop_button.configure.assert_called_once_with(state="disabled")
+        self.gui.status.set.assert_called_once_with("Metro wird beendet …")
+
+    def test_run_commands_treats_requested_metro_stop_as_success(self) -> None:
+        self.gui.output = queue.Queue()
+        self.gui.current_process = None
+        self.gui.stop_requested.set()
+        process = Mock()
+        process.stdout = io.StringIO("Waiting on http://localhost:8081\n")
+        process.returncode = 130
+        process.wait.return_value = 130
+
+        with patch("build_gui.subprocess.Popen", return_value=process) as popen:
+            self.gui._run_commands([["bun", "run", "expo", "run:ios"]], None, 0)
+
+        self.assertTrue(popen.call_args.kwargs["start_new_session"])
+        output = [self.gui.output.get_nowait() for _ in range(self.gui.output.qsize())]
+        self.assertIn(("metro_started", ""), output)
+        self.assertIn(("done", "Metro beendet"), output)
+
+    def test_run_commands_waits_for_metro_ready_output_before_enabling_stop(self) -> None:
+        self.gui.output = queue.Queue()
+        self.gui.current_process = None
+        self.gui.stop_requested.clear()
+        process = Mock()
+        process.stdout = io.StringIO("Compiling iOS app...\n")
+        process.returncode = 0
+        process.wait.return_value = 0
+
+        with patch("build_gui.subprocess.Popen", return_value=process) as popen:
+            self.gui._run_commands([["bun", "run", "expo", "run:ios"]], None, 0)
+
+        self.assertTrue(popen.call_args.kwargs["start_new_session"])
+        output = [self.gui.output.get_nowait() for _ in range(self.gui.output.qsize())]
+        self.assertNotIn(("metro_started", ""), output)
+        self.assertIn(("done", "Erfolgreich abgeschlossen"), output)
+
+    def test_drain_output_enables_and_disables_metro_stop_button(self) -> None:
+        self.gui.output = queue.Queue()
+        self.gui.metro_active = False
+        self.gui.running = True
+        self.gui.log = Mock()
+        self.gui.run_button = Mock()
+        self.gui.target_menu = Mock()
+        self.gui.action_menu = Mock()
+        self.gui.after = Mock()
+
+        self.gui.output.put(("metro_started", ""))
+        self.gui._drain_output()
+        self.assertTrue(self.gui.metro_active)
+        self.gui.metro_stop_button.configure.assert_called_with(state="normal")
+
+        self.gui.output.put(("done", "Metro beendet"))
+        self.gui._drain_output()
+        self.assertFalse(self.gui.metro_active)
+        self.gui.metro_stop_button.configure.assert_called_with(state="disabled")
 
 
 if __name__ == "__main__":
