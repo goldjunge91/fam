@@ -13,10 +13,15 @@ import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
+import { usePremium } from '@/features/premium/premium-provider';
 import { useRecipes } from '@/features/recipes/hooks/use-recipes';
 import { useModulePreferences } from '@/features/settings/module-preferences';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
-import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
+import {
+  type CustomEntryFormValue,
+  type EntryFormInitial,
+  EntryFormModal,
+} from './components/entry-form-modal';
 import { type RecipeOption, RecipePickerModal } from './components/recipe-picker-modal';
 import { WeekGrid } from './components/week-grid';
 import type { ResolvedServings } from './servings';
@@ -92,8 +97,9 @@ export function MealPlannerScreen() {
   const householdId = activeHouseholdId ?? undefined;
   const { data: rawModules } = useModulePreferences(userId);
   const { getFeatureFlagState } = useFeatureAccess();
+  const { hasPlus } = usePremium();
   const recipesFeatureEnabled = getFeatureFlagState('module-recipes') !== false;
-  const recipesEnabled = rawModules.recipes && recipesFeatureEnabled;
+  const recipesEnabled = rawModules.recipes && recipesFeatureEnabled && hasPlus;
 
   const [viewMode, setViewMode] = useState<ViewMode>('week');
   const [anchorDate, setAnchorDate] = useState(() => todayIso());
@@ -133,12 +139,11 @@ export function MealPlannerScreen() {
     : [];
 
   function handleTapEmptyCell(date: string, slot: MealSlot) {
-    if (!recipesEnabled) return;
     setPendingCell({ date, slot });
   }
 
   function handlePickRecipe(recipe: RecipeOption) {
-    if (!pendingCell) return;
+    if (!pendingCell || !recipesEnabled) return;
     setPendingRecipe({ date: pendingCell.date, slot: pendingCell.slot, recipe });
     setPendingCell(null);
   }
@@ -160,7 +165,7 @@ export function MealPlannerScreen() {
   }
 
   async function handleSaveNewEntry(resolved: ResolvedServings) {
-    if (!pendingRecipe || !householdId || !userId) return;
+    if (!recipesEnabled || !pendingRecipe || !householdId || !userId) return;
     const targetPlan = await ensurePlanForDate(pendingRecipe.date);
     addEntry.mutate(
       {
@@ -178,6 +183,27 @@ export function MealPlannerScreen() {
     );
   }
 
+  async function handleSaveNewCustomEntry(value: CustomEntryFormValue) {
+    if (!pendingCell || !householdId || !userId) return;
+    const targetPlan = await ensurePlanForDate(pendingCell.date);
+    addEntry.mutate(
+      {
+        meal_plan_id: targetPlan.id,
+        household_id: householdId,
+        recipe_id: null,
+        custom_title: value.title,
+        custom_ingredients: value.ingredients,
+        entry_date: pendingCell.date,
+        meal_slot: pendingCell.slot,
+        servings_mode: 'portions',
+        portions: 1,
+        people_count: null,
+        created_by: userId,
+      },
+      { onSuccess: () => setPendingCell(null) },
+    );
+  }
+
   function handleUpdateEntry(resolved: ResolvedServings) {
     if (!editingEntry || !householdId) return;
     updateEntry.mutate(
@@ -188,6 +214,20 @@ export function MealPlannerScreen() {
         servings_mode: resolved.servings_mode,
         portions: resolved.portions,
         people_count: resolved.people_count,
+      },
+      { onSuccess: () => setEditingEntry(null) },
+    );
+  }
+
+  function handleUpdateCustomEntry(value: CustomEntryFormValue) {
+    if (!editingEntry || !householdId) return;
+    updateEntry.mutate(
+      {
+        id: editingEntry.id,
+        meal_plan_id: editingEntry.meal_plan_id,
+        household_id: householdId,
+        custom_title: value.title,
+        custom_ingredients: value.ingredients,
       },
       { onSuccess: () => setEditingEntry(null) },
     );
@@ -325,7 +365,6 @@ export function MealPlannerScreen() {
         <WeekGrid
           dates={dates}
           entries={entries}
-          canAddRecipes={recipesEnabled}
           onTapEntry={handleTapEntry}
           onTapEmptyCell={handleTapEmptyCell}
         />
@@ -333,11 +372,22 @@ export function MealPlannerScreen() {
 
       {/* Rezept-Auswahlmodal beim Tippen auf einen leeren Slot */}
       <RecipePickerModal
-        visible={pendingCell !== null}
+        visible={pendingCell !== null && recipesEnabled}
         recipes={recipeOptions}
         onDismiss={() => setPendingCell(null)}
         onSelect={handlePickRecipe}
       />
+
+      {pendingCell && !recipesEnabled ? (
+        <EntryFormModal
+          mode="custom"
+          visible
+          entryDate={pendingCell.date}
+          mealSlot={pendingCell.slot}
+          onDismiss={() => setPendingCell(null)}
+          onSave={handleSaveNewCustomEntry}
+        />
+      ) : null}
 
       {/* Portions- & Slot-Formular für neu hinzugefügte Mahlzeiten */}
       {pendingRecipe ? (
@@ -353,7 +403,7 @@ export function MealPlannerScreen() {
         />
       ) : null}
 
-      {editingEntry ? (
+      {editingEntry && editingEntry.recipe_id !== null ? (
         <EntryFormModal
           visible
           recipeTitle={editingEntry.recipe_title}
@@ -364,6 +414,22 @@ export function MealPlannerScreen() {
           initial={editingInitial}
           onDismiss={() => setEditingEntry(null)}
           onSave={handleUpdateEntry}
+          onDelete={handleDeleteEntry}
+        />
+      ) : null}
+
+      {editingEntry && editingEntry.recipe_id === null ? (
+        <EntryFormModal
+          mode="custom"
+          visible
+          entryDate={editingEntry.entry_date}
+          mealSlot={editingEntry.meal_slot}
+          initial={{
+            title: editingEntry.custom_title ?? '',
+            ingredients: editingEntry.custom_ingredients ?? [],
+          }}
+          onDismiss={() => setEditingEntry(null)}
+          onSave={handleUpdateCustomEntry}
           onDelete={handleDeleteEntry}
         />
       ) : null}

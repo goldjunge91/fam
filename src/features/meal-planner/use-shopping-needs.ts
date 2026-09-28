@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { getDatabase } from '@/lib/db/local-client';
 import { fromInventoryQuantityUnits } from '@/lib/inventory-quantity';
+import { parseCustomIngredients } from './domain/custom-ingredients';
 import type { RecipeComponentItemRow, RecipeComponentRow } from './shopping-needs';
 import {
   computeIngredientNeeds,
@@ -10,7 +11,8 @@ import {
   stockInGrams,
 } from './shopping-needs';
 
-export type MissingIngredientView = {
+type ProductMissingIngredientView = {
+  kind?: 'product';
   productId: string;
   name: string;
   /** Gesamtbedarf aller Rezepte des Wochenplans, in Gramm. */
@@ -35,6 +37,19 @@ export type MissingIngredientView = {
   recipeNames: string[];
 };
 
+type CustomMissingIngredientView = {
+  kind: 'custom';
+  productId: string;
+  name: string;
+  quantity: number;
+  unit: string;
+  preferredStoreId: null;
+  preferredStoreName: null;
+  recipeNames: string[];
+};
+
+export type MissingIngredientView = ProductMissingIngredientView | CustomMissingIngredientView;
+
 export function useMealPlanShoppingNeeds(
   mealPlanId: string | undefined,
   householdId: string | undefined,
@@ -47,20 +62,47 @@ export function useMealPlanShoppingNeeds(
       if (!mealPlanId || !householdId) return [];
       const db = await getDatabase();
 
-      const entries = await db.getAllAsync<{ recipe_id: string; portions: number }>(
-        `select recipe_id, portions from meal_plan_entries
+      const entries = await db.getAllAsync<{
+        id: string;
+        recipe_id: string | null;
+        portions: number;
+        custom_title: string | null;
+        custom_ingredients: string | null;
+      }>(
+        `select id, recipe_id, portions, custom_title, custom_ingredients from meal_plan_entries
          where meal_plan_id = ? and deleted_at is null`,
         [mealPlanId],
       );
       if (entries.length === 0) return [];
 
+      const customNeeds: CustomMissingIngredientView[] = [];
+      for (const entry of entries) {
+        const customTitle = entry.custom_title;
+        if (entry.recipe_id !== null || !customTitle) continue;
+        const ingredients = parseCustomIngredients(entry.custom_ingredients ?? '[]');
+        ingredients.forEach((ingredient, index) => {
+          customNeeds.push({
+            kind: 'custom',
+            productId: `custom:${entry.id}:${index}`,
+            name: ingredient.name,
+            quantity: ingredient.quantity,
+            unit: ingredient.unit,
+            preferredStoreId: null,
+            preferredStoreName: null,
+            recipeNames: [customTitle],
+          });
+        });
+      }
+
       const portionsByRecipe = new Map<string, number>();
       for (const entry of entries) {
+        if (entry.recipe_id === null) continue;
         portionsByRecipe.set(
           entry.recipe_id,
           (portionsByRecipe.get(entry.recipe_id) ?? 0) + entry.portions,
         );
       }
+      if (portionsByRecipe.size === 0) return customNeeds;
       const recipeIds = [...portionsByRecipe.keys()];
       const placeholders = recipeIds.map(() => '?').join(', ');
 
@@ -82,7 +124,7 @@ export function useMealPlanShoppingNeeds(
         items: items.filter((i) => i.recipe_id === recipeId),
       }));
       const { needs, recipeIdsByProduct } = computeIngredientNeeds(recipeNeeds);
-      if (needs.size === 0) return [];
+      if (needs.size === 0) return customNeeds;
 
       const recipeTitleRows = await db.getAllAsync<{ id: string; title: string }>(
         `select id, title from recipes where id in (${placeholders})`,
@@ -134,7 +176,7 @@ export function useMealPlanShoppingNeeds(
       const shoppingListStock = stockInGrams(rawShoppingListRows, productsById);
       const missing = computeMissingIngredients(needs, stock, shoppingListStock);
 
-      const result: MissingIngredientView[] = [];
+      const result: MissingIngredientView[] = [...customNeeds];
       for (const item of missing) {
         const product = productsById.get(item.productId);
         const historyRow = await db.getFirstAsync<{

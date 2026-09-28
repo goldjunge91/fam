@@ -385,6 +385,8 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
       'meal_plan_id',
       'household_id',
       'recipe_id',
+      'custom_title',
+      'custom_ingredients',
       'entry_date',
       'meal_slot',
       'servings_mode',

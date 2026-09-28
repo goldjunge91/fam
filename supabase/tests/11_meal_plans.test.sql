@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(10);
+select plan(15);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -32,6 +32,28 @@ values
   (:'plan_id', :'hid', :'recipe_id', '2026-08-17', 'dinner', 'portions', 4)
 returning id as entry_id \gset
 
+insert into public.meal_plan_entries
+  (meal_plan_id, household_id, recipe_id, custom_title, custom_ingredients,
+   entry_date, meal_slot, servings_mode, portions)
+values
+  (:'plan_id', :'hid', null, 'Gemüsepfanne',
+   '[{"name":"Paprika","quantity":2,"unit":"piece"}]'::jsonb,
+   '2026-08-18', 'lunch', 'portions', 2)
+returning id as custom_entry_id \gset
+
+select is(
+  (select custom_title from public.meal_plan_entries where id = :'custom_entry_id'),
+  'Gemüsepfanne',
+  'ein Freitextgericht speichert seinen Namen'
+);
+
+select is(
+  (select custom_ingredients -> 0 ->> 'name'
+   from public.meal_plan_entries where id = :'custom_entry_id'),
+  'Paprika',
+  'ein Freitextgericht speichert seine Zutaten'
+);
+
 -- ------------------------------------------------------- geteilt im Haushalt
 select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
 
@@ -43,8 +65,8 @@ select is(
 
 select is(
   (select count(*)::int from public.meal_plan_entries where meal_plan_id = :'plan_id'),
-  1,
-  'ein anderes Haushaltsmitglied sieht den Wochenplan-Eintrag'
+  2,
+  'ein anderes Haushaltsmitglied sieht Rezept- und Freitext-Eintraege'
 );
 
 insert into public.meal_plan_entries
@@ -54,7 +76,7 @@ values
 
 select is(
   (select count(*)::int from public.meal_plan_entries where meal_plan_id = :'plan_id'),
-  2,
+  3,
   'jedes Mitglied darf Eintraege zu einem geteilten Wochenplan hinzufuegen'
 );
 
@@ -121,6 +143,46 @@ select throws_ok(
   '23514',
   null,
   'im Personen-Modus muss people_count gesetzt sein'
+);
+
+select throws_ok(
+  format(
+    $$ insert into public.meal_plan_entries
+         (meal_plan_id, household_id, recipe_id, custom_title, entry_date, meal_slot,
+          servings_mode, portions)
+       values (%L, %L, %L, 'Doppelter Eintrag', '2026-08-19', 'dinner', 'portions', 2) $$,
+    :'plan_id', :'hid', :'recipe_id'
+  ),
+  '23514',
+  null,
+  'ein Eintrag darf nicht gleichzeitig Rezept und Freitextgericht sein'
+);
+
+select throws_ok(
+  format(
+    $$ insert into public.meal_plan_entries
+         (meal_plan_id, household_id, custom_title, custom_ingredients, entry_date,
+          meal_slot, servings_mode, portions)
+       values (%L, %L, '', '[]'::jsonb, '2026-08-19', 'dinner', 'portions', 2) $$,
+    :'plan_id', :'hid'
+  ),
+  '23514',
+  null,
+  'ein Freitextgericht braucht einen nicht-leeren Namen'
+);
+
+select throws_ok(
+  format(
+    $$ insert into public.meal_plan_entries
+         (meal_plan_id, household_id, custom_title, custom_ingredients, entry_date,
+          meal_slot, servings_mode, portions)
+       values (%L, %L, 'Ungültige Zutaten', '{"name":"Paprika"}'::jsonb,
+               '2026-08-19', 'dinner', 'portions', 2) $$,
+    :'plan_id', :'hid'
+  ),
+  '23514',
+  null,
+  'Freitext-Zutaten muessen als JSON-Array gespeichert sein'
 );
 
 -- Zweiter Plan fuer dieselbe Woche desselben Haushalts ist nicht erlaubt.

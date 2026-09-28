@@ -168,4 +168,38 @@ describe('useMealPlanShoppingNeeds', () => {
       }),
     );
   });
+
+  it('liefert Freitext-Zutaten ohne Produkt- oder Vorratsabgleich zur Einkaufsvorbereitung', async () => {
+    mockDbGetAllAsync.mockResolvedValueOnce([
+      {
+        id: 'entry-custom',
+        recipe_id: null,
+        portions: 2,
+        custom_title: 'Gemüsepfanne',
+        custom_ingredients: JSON.stringify([{ name: 'Paprika', quantity: 2, unit: 'piece' }]),
+      },
+    ]);
+
+    const { result } = await renderHook(() => useMealPlanShoppingNeeds('plan-1', 'hh-1', true), {
+      wrapper,
+    });
+
+    await waitFor(() => {
+      expect(result.current.isSuccess).toBe(true);
+    });
+
+    expect(result.current.data).toEqual([
+      {
+        kind: 'custom',
+        productId: 'custom:entry-custom:0',
+        name: 'Paprika',
+        quantity: 2,
+        unit: 'piece',
+        preferredStoreId: null,
+        preferredStoreName: null,
+        recipeNames: ['Gemüsepfanne'],
+      },
+    ]);
+    expect(mockDbGetAllAsync).toHaveBeenCalledTimes(1);
+  });
 });

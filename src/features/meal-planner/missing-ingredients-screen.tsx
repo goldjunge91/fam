@@ -11,6 +11,7 @@ import { usePremium } from '@/features/premium/premium-provider';
 import { RowStorePicker } from '@/features/shopping-list/components/ui/row-store-picker';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { resolveCategoryForItem } from '@/features/shopping-list/preferences/api';
+import { customIngredientUnitLabel } from './domain/custom-ingredients';
 import { type MissingIngredientView, useMealPlanShoppingNeeds } from './use-shopping-needs';
 
 // Stabile Referenz statt Inline-`= []`: `EMPTY_MISSING` bleibt beim naechsten
@@ -122,7 +123,11 @@ export function MissingIngredientsScreen() {
     // Nur Artikel mit echtem Fehlbetrag vorauswaehlen — bereits gedeckte
     // Artikel (Nachschub-Fall) bleiben sichtbar, aber abgewaehlt.
     setSelected(
-      new Set(displayedMissing.filter((m) => m.missingGrams > 0).map((m) => m.productId)),
+      new Set(
+        displayedMissing
+          .filter((item) => item.kind === 'custom' || item.missingGrams > 0)
+          .map((item) => item.productId),
+      ),
     );
   }, [displayedMissing]);
 
@@ -136,6 +141,7 @@ export function MissingIngredientsScreen() {
   }
 
   function storeIdFor(item: MissingIngredientView): string | null {
+    if (item.kind === 'custom') return null;
     return item.productId in storeOverrides
       ? storeOverrides[item.productId]
       : item.preferredStoreId;
@@ -152,22 +158,24 @@ export function MissingIngredientsScreen() {
         // bekannt sind, nicht als vollstaendiges OFF-Produkt.
         const classification = await resolveCategoryForItem({
           householdId,
-          productId: item.productId,
+          productId: item.kind === 'custom' ? null : item.productId,
           name: item.name,
         });
         await addShoppingItem.mutateAsync({
           household_id: householdId,
           name: item.name,
-          // Bei bereits gedecktem Bedarf (missingGrams <= 0) gibt es kein
-          // sinnvolles Delta zu uebertragen — dann zaehlt die volle
-          // benoetigte Menge (Nachschub-Fall).
-          quantity: item.missingGrams > 0 ? item.missingGrams : item.neededGrams,
-          unit: 'g',
-          product_id: item.productId,
+          quantity:
+            item.kind === 'custom'
+              ? item.quantity
+              : item.missingGrams > 0
+                ? item.missingGrams
+                : item.neededGrams,
+          unit: item.kind === 'custom' ? item.unit : 'g',
+          product_id: item.kind === 'custom' ? null : item.productId,
           category_id: classification.categoryId,
           category_source: classification.source,
           category_classifier_version: classification.classifierVersion,
-          store_id: storeIdFor(item),
+          store_id: item.kind === 'custom' ? null : storeIdFor(item),
           recipe_names: item.recipeNames,
         });
       }
@@ -227,7 +235,11 @@ export function MissingIngredientsScreen() {
                 label="Allen einen Markt zuweisen"
                 onChange={(storeId) =>
                   setStoreOverrides(
-                    Object.fromEntries(displayedMissing.map((item) => [item.productId, storeId])),
+                    Object.fromEntries(
+                      displayedMissing
+                        .filter((item) => item.kind !== 'custom')
+                        .map((item) => [item.productId, storeId]),
+                    ),
                   )
                 }
                 testID="bulk-store-picker"
@@ -294,7 +306,11 @@ function IngredientRow({
           <Txt variant="body" weight="700">
             {item.name}
           </Txt>
-          {item.missingGrams > 0 ? (
+          {item.kind === 'custom' ? (
+            <Txt variant="body" tone="secondary">
+              {item.quantity} {customIngredientUnitLabel(item.unit)}
+            </Txt>
+          ) : item.missingGrams > 0 ? (
             <Txt variant="body" tone="secondary">
               {item.missingGrams} g fehlen
               {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
@@ -312,7 +328,7 @@ function IngredientRow({
           ) : null}
         </View>
       </Press>
-      {householdId ? (
+      {householdId && item.kind !== 'custom' ? (
         <RowStorePicker
           householdId={householdId}
           storeId={storeId}

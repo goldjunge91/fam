@@ -5,6 +5,8 @@ import type React from 'react';
 import {
   useAddEntryMutation,
   useEnsureMealPlanMutation,
+  useReuseLastWeekMutation,
+  useUpdateEntryMutation,
 } from '@/features/meal-planner/use-meal-plans';
 import { enqueueMutation } from '@/lib/db/outbox';
 
@@ -106,6 +108,113 @@ describe('use-meal-plans mutations', () => {
         payload: expect.objectContaining({
           recipe_id: 'rec-1',
           portions: 3,
+        }),
+      }),
+    );
+  });
+
+  it('fügt ein Freitextgericht mit Zutaten lokal und in der Outbox hinzu', async () => {
+    const { result } = await renderHook(() => useAddEntryMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        meal_plan_id: 'plan-1',
+        household_id: 'hh-1',
+        recipe_id: null,
+        custom_title: 'Gemüsepfanne',
+        custom_ingredients: [{ name: 'Paprika', quantity: 2, unit: 'piece' }],
+        entry_date: '2026-08-24',
+        meal_slot: 'lunch',
+        servings_mode: 'portions',
+        portions: 2,
+        people_count: null,
+        created_by: 'user-1',
+      });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    expect(enqueueMutation).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        entity: 'meal_plan_entries',
+        op: 'insert',
+        payload: expect.objectContaining({
+          recipe_id: null,
+          custom_title: 'Gemüsepfanne',
+          custom_ingredients: [{ name: 'Paprika', quantity: 2, unit: 'piece' }],
+        }),
+      }),
+    );
+  });
+
+  it('aktualisiert Name und Zutaten eines Freitextgerichts gemeinsam', async () => {
+    const { result } = await renderHook(() => useUpdateEntryMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        id: 'entry-1',
+        meal_plan_id: 'plan-1',
+        household_id: 'hh-1',
+        custom_title: 'Paprika-Reis',
+        custom_ingredients: [{ name: 'Paprika', quantity: 1, unit: 'piece' }],
+      });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    expect(enqueueMutation).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        entity: 'meal_plan_entries',
+        op: 'update',
+        payload: expect.objectContaining({
+          id: 'entry-1',
+          custom_title: 'Paprika-Reis',
+          custom_ingredients: [{ name: 'Paprika', quantity: 1, unit: 'piece' }],
+        }),
+      }),
+    );
+  });
+
+  it('übernimmt Freitextname und Zutaten beim Kopieren der Vorwoche', async () => {
+    mockDbGetFirstAsync.mockResolvedValueOnce({ id: 'last-plan' });
+    mockDbGetAllAsync.mockResolvedValueOnce([
+      {
+        recipe_id: null,
+        custom_title: 'Gemüsepfanne',
+        custom_ingredients: '[{"name":"Paprika","quantity":2,"unit":"piece"}]',
+        entry_date: '2026-08-27',
+        meal_slot: 'dinner',
+        servings_mode: 'portions',
+        portions: 2,
+        people_count: null,
+      },
+    ]);
+    const { result } = await renderHook(() => useReuseLastWeekMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        household_id: 'hh-1',
+        week_start_date: '2026-08-31',
+        target_meal_plan_id: 'plan-current',
+        created_by: 'user-1',
+      });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    expect(enqueueMutation).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        entity: 'meal_plan_entries',
+        op: 'insert',
+        payload: expect.objectContaining({
+          meal_plan_id: 'plan-current',
+          recipe_id: null,
+          custom_title: 'Gemüsepfanne',
+          custom_ingredients: [{ name: 'Paprika', quantity: 2, unit: 'piece' }],
+          entry_date: '2026-09-03',
         }),
       }),
     );

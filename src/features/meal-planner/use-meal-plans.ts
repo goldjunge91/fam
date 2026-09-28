@@ -5,6 +5,12 @@ import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/local-client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
+import {
+  type CustomIngredient,
+  customIngredientsSchema,
+  customTitleSchema,
+  parseCustomIngredients,
+} from './domain/custom-ingredients';
 import { addDays, defaultWeekPlanName, previousWeekStart } from './week';
 
 export type MealSlot = 'breakfast' | 'lunch' | 'dinner';
@@ -21,7 +27,9 @@ export type MealPlanEntry = {
   id: string;
   meal_plan_id: string;
   household_id: string;
-  recipe_id: string;
+  recipe_id: string | null;
+  custom_title?: string | null;
+  custom_ingredients?: CustomIngredient[];
   entry_date: string;
   meal_slot: MealSlot;
   servings_mode: ServingsMode;
@@ -32,6 +40,14 @@ export type MealPlanEntry = {
   /** Aus recipes gejoint, damit Karten das private Rezept-Cover laden können. */
   recipe_cover_image_path: string | null;
 };
+
+type MealPlanEntryRow = Omit<MealPlanEntry, 'custom_ingredients'> & {
+  custom_ingredients: string | null;
+};
+
+function mapMealPlanEntry(row: MealPlanEntryRow): MealPlanEntry {
+  return { ...row, custom_ingredients: parseCustomIngredients(row.custom_ingredients ?? '[]') };
+}
 
 function nowStamp() {
   return { iso: new Date().toISOString(), ms: Date.now() };
@@ -69,10 +85,11 @@ export function useMealPlanEntriesInRange(
     queryFn: async (): Promise<MealPlanEntry[]> => {
       if (!householdId) return [];
       const db = await getDatabase();
-      return db.getAllAsync<MealPlanEntry>(
+      const rows = await db.getAllAsync<MealPlanEntryRow>(
         `select e.id, e.meal_plan_id, e.household_id, e.recipe_id, e.entry_date, e.meal_slot,
+                e.custom_title, e.custom_ingredients,
                 e.servings_mode, e.portions, e.people_count,
-                coalesce(r.title, '?') as recipe_title,
+                coalesce(e.custom_title, r.title, '?') as recipe_title,
                 r.cover_image_path as recipe_cover_image_path
          from meal_plan_entries e
          left join recipes r on r.id = e.recipe_id
@@ -81,6 +98,7 @@ export function useMealPlanEntriesInRange(
          order by e.entry_date, e.meal_slot`,
         [householdId, startDate, endDate],
       );
+      return rows.map(mapMealPlanEntry);
     },
     enabled: !!householdId,
     networkMode: 'always',
@@ -93,10 +111,11 @@ export function useMealPlanEntries(mealPlanId: string | undefined) {
     queryFn: async (): Promise<MealPlanEntry[]> => {
       if (!mealPlanId) return [];
       const db = await getDatabase();
-      return db.getAllAsync<MealPlanEntry>(
+      const rows = await db.getAllAsync<MealPlanEntryRow>(
         `select e.id, e.meal_plan_id, e.household_id, e.recipe_id, e.entry_date, e.meal_slot,
+                e.custom_title, e.custom_ingredients,
                 e.servings_mode, e.portions, e.people_count,
-                coalesce(r.title, '?') as recipe_title,
+                coalesce(e.custom_title, r.title, '?') as recipe_title,
                 r.cover_image_path as recipe_cover_image_path
          from meal_plan_entries e
          left join recipes r on r.id = e.recipe_id
@@ -104,6 +123,7 @@ export function useMealPlanEntries(mealPlanId: string | undefined) {
          order by e.entry_date, e.meal_slot`,
         [mealPlanId],
       );
+      return rows.map(mapMealPlanEntry);
     },
     enabled: !!mealPlanId,
     networkMode: 'always',
@@ -178,10 +198,9 @@ export function useEnsureMealPlanMutation() {
   });
 }
 
-export type EntryInput = {
+type EntryInputBase = {
   meal_plan_id: string;
   household_id: string;
-  recipe_id: string;
   entry_date: string;
   meal_slot: MealSlot;
   servings_mode: ServingsMode;
@@ -189,6 +208,23 @@ export type EntryInput = {
   people_count: number | null;
   created_by: string;
 };
+
+export type EntryInput = EntryInputBase &
+  (
+    | { recipe_id: string; custom_title?: never; custom_ingredients?: never }
+    | { recipe_id: null; custom_title: string; custom_ingredients: CustomIngredient[] }
+  );
+
+function entryContent(input: EntryInput) {
+  if (input.recipe_id !== null) {
+    return { recipe_id: input.recipe_id, custom_title: null, custom_ingredients: [] };
+  }
+  return {
+    recipe_id: null,
+    custom_title: customTitleSchema.parse(input.custom_title),
+    custom_ingredients: customIngredientsSchema.parse(input.custom_ingredients),
+  };
+}
 
 export function useAddEntryMutation() {
   const queryClient = useQueryClient();
@@ -199,23 +235,24 @@ export function useAddEntryMutation() {
       const db = await getDatabase();
       const id = Crypto.randomUUID();
       const { iso, ms } = nowStamp();
+      const content = entryContent(input);
 
       await enqueueMutation(db, {
         entity: 'meal_plan_entries',
         entityId: id,
         op: 'insert',
-        payload: { ...input, id, created_at: iso, updated_at: iso },
+        payload: { ...input, ...content, id, created_at: iso, updated_at: iso },
         applyLocally: (txn) =>
           applyLocalMirrorWrite(
             txn,
             'meal_plan_entries',
             'insert',
-            { ...input, id, created_at: iso },
+            { ...input, ...content, id, created_at: iso },
             ms,
           ),
       });
 
-      return { id, ...input };
+      return { id, ...input, ...content };
     },
     onSuccess: (_, variables) => {
       trackAnalyticsEvent('meal_plan_entry.create.completed', {
@@ -233,16 +270,41 @@ export function useUpdateEntryMutation() {
 
   return useMutation({
     networkMode: 'always',
-    mutationFn: async (input: {
-      id: string;
-      meal_plan_id: string;
-      household_id: string;
-      servings_mode: ServingsMode;
-      portions: number;
-      people_count: number | null;
-    }) => {
+    mutationFn: async (
+      input: {
+        id: string;
+        meal_plan_id: string;
+        household_id: string;
+      } & (
+        | {
+            servings_mode: ServingsMode;
+            portions: number;
+            people_count: number | null;
+            custom_title?: never;
+            custom_ingredients?: never;
+          }
+        | {
+            custom_title: string;
+            custom_ingredients: CustomIngredient[];
+            servings_mode?: never;
+            portions?: never;
+            people_count?: never;
+          }
+      ),
+    ) => {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
+      const changes =
+        'custom_title' in input
+          ? {
+              custom_title: customTitleSchema.parse(input.custom_title),
+              custom_ingredients: customIngredientsSchema.parse(input.custom_ingredients),
+            }
+          : {
+              servings_mode: input.servings_mode,
+              portions: input.portions,
+              people_count: input.people_count,
+            };
 
       await enqueueMutation(db, {
         entity: 'meal_plan_entries',
@@ -251,9 +313,7 @@ export function useUpdateEntryMutation() {
         payload: {
           id: input.id,
           household_id: input.household_id,
-          servings_mode: input.servings_mode,
-          portions: input.portions,
-          people_count: input.people_count,
+          ...changes,
           updated_at: iso,
         },
         applyLocally: (txn) =>
@@ -263,9 +323,7 @@ export function useUpdateEntryMutation() {
             'update',
             {
               id: input.id,
-              servings_mode: input.servings_mode,
-              portions: input.portions,
-              people_count: input.people_count,
+              ...changes,
             },
             ms,
           ),
@@ -339,14 +397,17 @@ export function useReuseLastWeekMutation() {
       if (!lastPlan) return { copied: 0 };
 
       const lastEntries = await db.getAllAsync<{
-        recipe_id: string;
+        recipe_id: string | null;
+        custom_title: string | null;
+        custom_ingredients: string | null;
         entry_date: string;
         meal_slot: MealSlot;
         servings_mode: ServingsMode;
         portions: number;
         people_count: number | null;
       }>(
-        `select recipe_id, entry_date, meal_slot, servings_mode, portions, people_count
+        `select recipe_id, custom_title, custom_ingredients, entry_date, meal_slot,
+                servings_mode, portions, people_count
          from meal_plan_entries
          where meal_plan_id = ? and deleted_at is null`,
         [lastPlan.id],
@@ -366,6 +427,8 @@ export function useReuseLastWeekMutation() {
             meal_plan_id: input.target_meal_plan_id,
             household_id: input.household_id,
             recipe_id: entry.recipe_id,
+            custom_title: entry.custom_title,
+            custom_ingredients: parseCustomIngredients(entry.custom_ingredients ?? '[]'),
             entry_date: newDate,
             meal_slot: entry.meal_slot,
             servings_mode: entry.servings_mode,
@@ -385,6 +448,8 @@ export function useReuseLastWeekMutation() {
                 meal_plan_id: input.target_meal_plan_id,
                 household_id: input.household_id,
                 recipe_id: entry.recipe_id,
+                custom_title: entry.custom_title,
+                custom_ingredients: parseCustomIngredients(entry.custom_ingredients ?? '[]'),
                 entry_date: newDate,
                 meal_slot: entry.meal_slot,
                 servings_mode: entry.servings_mode,

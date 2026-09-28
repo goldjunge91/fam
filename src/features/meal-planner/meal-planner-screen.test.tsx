@@ -24,6 +24,7 @@ const mockReuseMutate = jest.fn();
 let mockRecipesPreference = true;
 let mockRecipesFeatureFlag: boolean | undefined = true;
 let mockRecipesFeatureFlagOverride: boolean | undefined;
+let mockHasPlus = true;
 let mockRecipes = [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }];
 let mockRecipeCoverUrl: string | null = null;
 
@@ -75,6 +76,10 @@ jest.mock('@/features/settings/use-feature-access', () => ({
   useFeatureAccess: () => ({
     getFeatureFlagState: () => mockRecipesFeatureFlagOverride ?? mockRecipesFeatureFlag,
   }),
+}));
+
+jest.mock('@/features/premium/premium-provider', () => ({
+  usePremium: () => ({ hasPlus: mockHasPlus }),
 }));
 
 jest.mock('@/features/recipes/hooks/use-recipes', () => ({
@@ -144,6 +149,7 @@ beforeEach(() => {
   mockRecipesPreference = true;
   mockRecipesFeatureFlag = true;
   mockRecipesFeatureFlagOverride = undefined;
+  mockHasPlus = true;
   mockRecipes = [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }];
   mockRecipeCoverUrl = null;
 });
@@ -302,7 +308,7 @@ describe('MealPlannerScreen', () => {
     expect(screen.getByLabelText('Bild von Spaghetti Bolognese')).toBeOnTheScreen();
   });
 
-  it('sperrt die Rezeptauswahl, wenn module-recipes deaktiviert ist', async () => {
+  it('bietet Freitext an, wenn module-recipes deaktiviert ist', async () => {
     mockRecipesFeatureFlag = false;
     const user = userEvent.setup();
 
@@ -312,30 +318,68 @@ describe('MealPlannerScreen', () => {
     const addButton = screen.getByRole('button', {
       name: 'Frühstück am Montag, Gericht hinzufügen',
     });
-    expect(addButton).toBeDisabled();
+    expect(addButton).toBeEnabled();
 
     await user.press(addButton);
     expect(screen.queryByText('Rezept auswählen')).not.toBeOnTheScreen();
+    expect(screen.getByText('Freies Gericht')).toBeOnTheScreen();
   });
 
-  it('sperrt neue Rezepte, wenn das Rezepte-Modul in den Einstellungen deaktiviert ist', async () => {
+  it('speichert ein Freitextgericht mit Zutat aus dem bestehenden Mealplanner-Modal', async () => {
+    mockRecipesFeatureFlag = false;
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(
+      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
+    );
+    await user.press(screen.getByText('Zutat hinzufügen'));
+    await user.type(screen.getByLabelText('Gericht'), 'Paprika-Reis');
+    await user.type(screen.getByLabelText('Zutat 1'), 'Paprika');
+    await user.clear(screen.getByLabelText('Menge'));
+    await user.type(screen.getByLabelText('Menge'), '2');
+    await user.clear(screen.getByLabelText('Einheit'));
+    await user.type(screen.getByLabelText('Einheit'), 'Stück');
+    await user.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    expect(mockAddMutate).toHaveBeenCalledWith(
+      expect.objectContaining({
+        recipe_id: null,
+        custom_title: 'Paprika-Reis',
+        custom_ingredients: [{ name: 'Paprika', quantity: 2, unit: 'piece' }],
+      }),
+      expect.anything(),
+    );
+  });
+
+  it('bietet Freitext an, wenn das Rezepte-Modul in den Einstellungen deaktiviert ist', async () => {
     mockRecipesPreference = false;
+    const user = userEvent.setup();
 
     await renderScreen();
 
     expect(screen.getAllByText('Spaghetti Bolognese')[0]).toBeOnTheScreen();
-    expect(
-      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
-    ).toBeDisabled();
+    const addButton = screen.getByRole('button', {
+      name: 'Frühstück am Montag, Gericht hinzufügen',
+    });
+    expect(addButton).toBeEnabled();
+
+    await user.press(addButton);
+    expect(screen.getByText('Freies Gericht')).toBeOnTheScreen();
   });
 
-  it('übernimmt die einmalige Startauswahl mit deaktiviertem Rezepte-Modul', async () => {
-    mockRecipesPreference = false;
+  it('bietet Freitext an, wenn die Rezeptsammlung hinter der Plus-Paywall liegt', async () => {
+    mockHasPlus = false;
+    const user = userEvent.setup();
 
     await renderScreen();
 
-    expect(
-      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
-    ).toBeDisabled();
+    const addButton = screen.getByRole('button', {
+      name: 'Frühstück am Montag, Gericht hinzufügen',
+    });
+    expect(addButton).toBeEnabled();
+
+    await user.press(addButton);
+    expect(screen.getByText('Freies Gericht')).toBeOnTheScreen();
   });
 });

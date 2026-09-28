@@ -3,6 +3,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { MissingIngredientsScreen } from './missing-ingredients-screen';
 import { MissingIngredientsScreen as MissingIngredientsScreenAndroid } from './missing-ingredients-screen.android';
+import type { MissingIngredientView } from './use-shopping-needs';
 
 const mockRouterBack = jest.fn();
 
@@ -117,7 +118,18 @@ const mockMissingIngredients = [
   },
 ];
 
-let mockMissingData: typeof mockMissingIngredients | undefined = mockMissingIngredients;
+const mockCustomIngredient: MissingIngredientView = {
+  kind: 'custom',
+  productId: 'custom:entry-1:0',
+  name: 'Paprika',
+  quantity: 2,
+  unit: 'piece',
+  preferredStoreId: null,
+  preferredStoreName: null,
+  recipeNames: ['Gemüsepfanne'],
+};
+
+let mockMissingData: MissingIngredientView[] | undefined = mockMissingIngredients;
 let mockIsLoading = false;
 let mockIsError = false;
 const mockRefetch = jest.fn().mockResolvedValue({});
@@ -366,6 +378,55 @@ describe('MissingIngredientsScreen', () => {
 
     expect(mockAddMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({ name: 'Salz', quantity: 50, unit: 'g' }),
+    );
+  });
+
+  it('überträgt Freitext-Zutaten in der iOS-Variante ohne Produkt- oder Marktzuordnung', async () => {
+    const user = userEvent.setup();
+    mockMissingData = [mockCustomIngredient];
+
+    await renderScreen();
+
+    expect(screen.getByText('1 Artikel zur Einkaufsliste hinzufügen')).toBeOnTheScreen();
+    expect(screen.getByText('2 Stück')).toBeOnTheScreen();
+    expect(screen.queryByTestId('row-store-picker-custom:entry-1:0')).toBeNull();
+
+    await user.press(screen.getByText('1 Artikel zur Einkaufsliste hinzufügen'));
+
+    expect(mockResolveCategoryForItem).toHaveBeenCalledWith({
+      householdId: 'hh-1',
+      productId: null,
+      name: 'Paprika',
+    });
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({
+        name: 'Paprika',
+        quantity: 2,
+        unit: 'piece',
+        product_id: null,
+        store_id: null,
+        recipe_names: ['Gemüsepfanne'],
+      }),
+    );
+  });
+
+  it('überträgt Freitext-Zutaten auch in der Android-Variante ohne Produktzuordnung', async () => {
+    const user = userEvent.setup();
+    mockMissingData = [mockCustomIngredient];
+
+    await renderScreen(MissingIngredientsScreenAndroid);
+
+    expect(screen.getByText('1 Artikel zur Einkaufsliste hinzufügen')).toBeOnTheScreen();
+    await user.press(screen.getByText('1 Artikel zur Einkaufsliste hinzufügen'));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({
+        name: 'Paprika',
+        quantity: 2,
+        unit: 'piece',
+        product_id: null,
+        store_id: null,
+      }),
     );
   });
 

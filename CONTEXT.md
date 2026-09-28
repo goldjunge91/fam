@@ -280,9 +280,11 @@ Kalenderwoche existiert genau ein aktiver Plan. Er enthält Meal Plan Entries.
 
 ### Meal Plan Entry
 
-Ordnet ein Recipe einem Tag und einer Mahlzeit samt Mengenangabe zu. Eine
-Zuordnung zu einzelnen Household Members oder Child Profiles ist nicht Teil
-dieses Modells.
+Ordnet ein Recipe oder ein Freitextgericht einem Tag und einer Mahlzeit samt
+Mengenangabe zu. Freitextgerichte gehören zum Meal Plan und erzeugen kein
+Recipe. Ihre Zutaten bestehen aus Name, Menge und Einheit ohne Product-Bezug.
+Eine Zuordnung zu einzelnen Household Members oder Child Profiles ist nicht
+Teil dieses Modells.
 
 ## Änderungsfolgen
 

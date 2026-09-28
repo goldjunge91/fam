@@ -9,7 +9,6 @@ import { dateLabel, MEAL_SLOTS, weekdayLabel } from '../week';
 type WeekGridProps = {
   dates: readonly string[];
   entries: readonly MealPlanEntry[];
-  canAddRecipes?: boolean;
   onTapEntry: (entry: MealPlanEntry) => void;
   onTapEmptyCell: (date: string, slot: MealSlot) => void;
 };
@@ -93,13 +92,7 @@ function portionLabel(portions: number) {
   return `${portions} ${portions === 1 ? 'Portion' : 'Portionen'}`;
 }
 
-export function WeekGrid({
-  dates,
-  entries,
-  canAddRecipes = true,
-  onTapEntry,
-  onTapEmptyCell,
-}: WeekGridProps) {
+export function WeekGrid({ dates, entries, onTapEntry, onTapEmptyCell }: WeekGridProps) {
   const entriesByCell = new Map<string, MealPlanEntry[]>();
   for (const entry of entries) {
     const key = `${entry.entry_date}|${entry.meal_slot}`;
@@ -152,7 +145,6 @@ export function WeekGrid({
                     <Press
                       role="button"
                       aria-label={`${SLOT_LABELS[slot]} am ${weekdayLabel(date)}, Gericht hinzufügen`}
-                      disabled={!canAddRecipes}
                       onPress={() => onTapEmptyCell(date, slot)}
                       style={styles.addButton}>
                       <Txt variant="label" tone="primary" weight="700">

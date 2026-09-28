@@ -5,8 +5,9 @@
 -- (Wochenplanung)").
 --
 -- Ein Wochenplan (`meal_plans`) buendelt die Eintraege einer Kalenderwoche.
--- Ein Eintrag (`meal_plan_entries`) ordnet ein Rezept einem Tag und einer
--- Mahlzeit zu, mit einer Mengenangabe (Portionen oder Personen). Bewusst
+-- Ein Eintrag (`meal_plan_entries`) ordnet ein Rezept oder ein Freitextgericht
+-- einem Tag und einer Mahlzeit zu, mit einer Mengenangabe (Portionen oder
+-- Personen). Bewusst
 -- KEINE Zuordnung zu einzelnen Haushaltsmitgliedern/Profilen — nur Mengen,
 -- siehe die Entscheidung vom 2026-08-12 im Brainstorm-Dokument. Damit
 -- entfaellt auch jede Notwendigkeit, Gaeste oder abwesende Mitglieder
@@ -63,7 +64,12 @@ create table if not exists public.meal_plan_entries (
   -- Denormalisiert wie household_id auf recipe_components: spart den Join
   -- ueber meal_plans in der RLS-Policy und im Sync-Index.
   household_id uuid not null references public.households (id) on delete cascade,
-  recipe_id uuid not null references public.recipes (id) on delete cascade,
+  recipe_id uuid references public.recipes (id) on delete cascade,
+  custom_title text check (
+    custom_title is null or length(trim(custom_title)) between 1 and 120
+  ),
+  custom_ingredients jsonb not null default '[]'::jsonb
+    check (jsonb_typeof(custom_ingredients) = 'array'),
 
   -- Konkretes Kalenderdatum statt eines day_of_week-Enums: "letzte Woche
   -- erneut verwenden" (#129) kopiert Eintraege per simpler +7-Tage-Addition
@@ -99,11 +105,16 @@ create table if not exists public.meal_plan_entries (
     check (
       (servings_mode = 'people' and people_count is not null)
       or (servings_mode = 'portions' and people_count is null)
+    ),
+  constraint meal_plan_entries_recipe_or_custom
+    check (
+      (recipe_id is not null and custom_title is null and custom_ingredients = '[]'::jsonb)
+      or (recipe_id is null and custom_title is not null)
     )
 );
 
 comment on table public.meal_plan_entries is
-  'Ein Rezept an einem Tag/einer Mahlzeit eines Wochenplans (#128). Nur Mengen (portions/people_count), keine Zuordnung zu einzelnen Haushaltsmitgliedern.';
+  'Ein Rezept oder Freitextgericht an einem Tag/einer Mahlzeit eines Wochenplans (#128). Nur Mengen (portions/people_count), keine Zuordnung zu einzelnen Haushaltsmitgliedern.';
 
 create index if not exists meal_plan_entries_meal_plan_id_idx
   on public.meal_plan_entries (meal_plan_id);

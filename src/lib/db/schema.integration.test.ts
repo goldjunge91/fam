@@ -58,6 +58,42 @@ describe('lokales Schema', () => {
     expect(tables).toHaveLength(1);
   });
 
+  it('spiegelt Freitextgerichte mit Zutaten im lokalen Meal-Plan', async () => {
+    const entryColumns = await columnsOf(db, 'meal_plan_entries');
+    const columnNames = entryColumns.map((column) => column.name);
+
+    expect(columnNames).toEqual(expect.arrayContaining(['custom_title', 'custom_ingredients']));
+    expect(entryColumns.find((column) => column.name === 'recipe_id')?.notnull).toBe(0);
+
+    await db.runAsync(
+      `insert into meal_plan_entries
+         (id, meal_plan_id, household_id, recipe_id, custom_title, custom_ingredients,
+          entry_date, meal_slot, portions, updated_at)
+       values (?, ?, ?, null, ?, ?, ?, ?, ?, ?)`,
+      [
+        'entry-custom',
+        'plan-1',
+        'household-1',
+        'Gemüsepfanne',
+        '[{"name":"Paprika","quantity":2,"unit":"piece"}]',
+        '2026-08-24',
+        'dinner',
+        2,
+        1,
+      ],
+    );
+
+    const row = await db.getFirstAsync<{
+      custom_title: string;
+      custom_ingredients: string;
+    }>(`select custom_title, custom_ingredients from meal_plan_entries where id = 'entry-custom'`);
+
+    expect(row).toEqual({
+      custom_title: 'Gemüsepfanne',
+      custom_ingredients: '[{"name":"Paprika","quantity":2,"unit":"piece"}]',
+    });
+  });
+
   it('legt die Inventory-Lifecycle-Spalten und das Transaktionsschema an', async () => {
     const itemColumns = (await columnsOf(db, 'fridge_items')).map((column) => column.name);
     expect(itemColumns).toEqual(

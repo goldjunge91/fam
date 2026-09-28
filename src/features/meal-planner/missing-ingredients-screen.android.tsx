@@ -11,6 +11,7 @@ import { usePremium } from '@/features/premium/premium-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { resolveCategoryForItem } from '@/features/shopping-list/preferences/api';
 import { debugLogEvent } from '@/lib/observability/debug-log';
+import { customIngredientUnitLabel } from './domain/custom-ingredients';
 import { type MissingIngredientView, useMealPlanShoppingNeeds } from './use-shopping-needs';
 
 debugLogEvent('meal-planner.missing-ingredients-screen.module-loaded', { variant: 'android' });
@@ -109,7 +110,11 @@ export function MissingIngredientsScreen() {
 
   useEffect(() => {
     setSelected(
-      new Set(displayedMissing.filter((m) => m.missingGrams > 0).map((m) => m.productId)),
+      new Set(
+        displayedMissing
+          .filter((item) => item.kind === 'custom' || item.missingGrams > 0)
+          .map((item) => item.productId),
+      ),
     );
   }, [displayedMissing]);
 
@@ -139,7 +144,12 @@ export function MissingIngredientsScreen() {
     });
 
     for (const item of toAdd) {
-      const quantity = item.missingGrams > 0 ? item.missingGrams : item.neededGrams;
+      const quantity =
+        item.kind === 'custom'
+          ? item.quantity
+          : item.missingGrams > 0
+            ? item.missingGrams
+            : item.neededGrams;
       debugLogEvent('meal-planner.shopping-needs.transfer.item.started', {
         variant: 'android',
         productId: item.productId,
@@ -155,9 +165,9 @@ export function MissingIngredientsScreen() {
         try {
           classification = await resolveCategoryForItem({
             householdId,
-            productId: item.productId,
+            productId: item.kind === 'custom' ? null : item.productId,
             name: item.name,
-            storeId: item.preferredStoreId,
+            storeId: item.kind === 'custom' ? null : item.preferredStoreId,
           });
           debugLogEvent('meal-planner.shopping-needs.transfer.item.classified', {
             variant: 'android',
@@ -179,12 +189,12 @@ export function MissingIngredientsScreen() {
           household_id: householdId,
           name: item.name,
           quantity,
-          unit: 'g',
-          product_id: item.productId,
+          unit: item.kind === 'custom' ? item.unit : 'g',
+          product_id: item.kind === 'custom' ? null : item.productId,
           category_id: classification?.categoryId ?? null,
           category_source: classification?.source ?? null,
           category_classifier_version: classification?.classifierVersion ?? null,
-          store_id: item.preferredStoreId,
+          store_id: item.kind === 'custom' ? null : item.preferredStoreId,
           recipe_names: item.recipeNames,
         });
         debugLogEvent('meal-planner.shopping-needs.transfer.item.completed', {
@@ -301,7 +311,11 @@ function IngredientRow({
           <Txt variant="body" weight="700">
             {item.name}
           </Txt>
-          {item.missingGrams > 0 ? (
+          {item.kind === 'custom' ? (
+            <Txt variant="body" tone="secondary">
+              {item.quantity} {customIngredientUnitLabel(item.unit)}
+            </Txt>
+          ) : item.missingGrams > 0 ? (
             <Txt variant="body" tone="secondary">
               {item.missingGrams} g fehlen
               {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}

@@ -58,6 +58,51 @@ describe('upsertMirrorRow', () => {
     expect(row?._dirty).toBe(0);
   });
 
+  it('spiegelt ein Freitextgericht mit Zutaten als lokalen JSON-Text', async () => {
+    const ingredients = [{ name: 'Paprika', quantity: 2, unit: 'piece' }];
+
+    await upsertMirrorRow(
+      db,
+      'meal_plan_entries',
+      {
+        id: 'entry-custom',
+        meal_plan_id: 'plan-1',
+        household_id: 'hh-1',
+        recipe_id: null,
+        custom_title: 'Gemüsepfanne',
+        custom_ingredients: ingredients,
+        entry_date: '2026-08-24',
+        meal_slot: 'dinner',
+        servings_mode: 'portions',
+        portions: 2,
+        people_count: null,
+        created_by: 'user-1',
+        created_at: '2026-08-24T12:00:00Z',
+        updated_at: '2026-08-24T12:00:00Z',
+        deleted_at: null,
+      },
+      { dirty: 0 },
+    );
+
+    const row = await db.getFirstAsync<{
+      recipe_id: string | null;
+      custom_title: string | null;
+      custom_ingredients: string;
+      _dirty: number;
+    }>(
+      `select recipe_id, custom_title, custom_ingredients, _dirty
+       from meal_plan_entries where id = ?`,
+      ['entry-custom'],
+    );
+
+    expect(row).toEqual({
+      recipe_id: null,
+      custom_title: 'Gemüsepfanne',
+      custom_ingredients: JSON.stringify(ingredients),
+      _dirty: 0,
+    });
+  });
+
   it('schreibt einen Tombstone als epoch ms', async () => {
     await upsertMirrorRow(
       db,
