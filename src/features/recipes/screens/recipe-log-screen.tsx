@@ -9,6 +9,7 @@ import { useTheme } from '@/components/theme/ThemeProvider';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { Button, inputTextStyles, MIN_TOUCH_SIZE, Press, Txt } from '@/constants/ui';
 import type { MealType } from '@/features/calorie-tracking/api';
+import { toIsoDate } from '@/lib/format/format-date';
 import { calculateAdjustedServingNutrition } from '../domain/nutrition';
 import { useUpdateComponentMutation } from '../hooks/use-recipe-components';
 import { useRecipeDetail } from '../hooks/use-recipes';
