@@ -20,6 +20,7 @@ jest.mock('../../../../modules/fam-watch-connectivity', () => ({
 describe('publishWatchShoppingSnapshot', () => {
   it('stores and sends the same snapshot to the paired Watch', () => {
     const snapshot: WatchShoppingSnapshot = {
+      householdId: 'household-1',
       storeName: 'REWE',
       updatedAt: '2026-09-29T08:00:00.000Z',
       items: [

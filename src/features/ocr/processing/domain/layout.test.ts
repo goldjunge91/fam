@@ -102,6 +102,82 @@ describe('reconstructReceiptLines', () => {
     ]);
   });
 
+  it('reconstructs the same rows when uniquely positioned fragments arrive in reverse order', () => {
+    const fragments = [
+      {
+        text: 'Artikel 1',
+        confidence: 0.9,
+        pageIndex: 0,
+        boundingBox: { x: 100, y: 100, width: 180, height: 20 },
+      },
+      {
+        text: 'Artikel 2',
+        confidence: 0.9,
+        pageIndex: 0,
+        boundingBox: { x: 100, y: 125, width: 180, height: 20 },
+      },
+      {
+        text: 'Artikel 3',
+        confidence: 0.9,
+        pageIndex: 0,
+        boundingBox: { x: 100, y: 150, width: 180, height: 20 },
+      },
+      {
+        text: '1,99',
+        confidence: 0.9,
+        pageIndex: 0,
+        boundingBox: { x: 720, y: 80, width: 60, height: 10 },
+      },
+      {
+        text: '2,99',
+        confidence: 0.9,
+        pageIndex: 0,
+        boundingBox: { x: 720, y: 105, width: 60, height: 10 },
+      },
+      {
+        text: '3,99',
+        confidence: 0.9,
+        pageIndex: 0,
+        boundingBox: { x: 720, y: 130, width: 60, height: 10 },
+      },
+    ];
+
+    const forward = reconstructReceiptLines(fragments).map(({ text }) => text);
+    const reverse = reconstructReceiptLines([...fragments].reverse()).map(({ text }) => text);
+
+    expect(forward).toEqual(['Artikel 1 1,99', 'Artikel 2 2,99', 'Artikel 3 3,99']);
+    expect(reverse).toEqual(forward);
+  });
+
+  it('keeps same-position text fragments separate when geometry cannot order them', () => {
+    const samePosition = { x: 100, y: 100, width: 180, height: 20 };
+    const lines = reconstructReceiptLines([
+      {
+        text: 'Artikel links',
+        confidence: 0.9,
+        pageIndex: 0,
+        boundingBox: samePosition,
+      },
+      {
+        text: 'Artikel rechts',
+        confidence: 0.9,
+        pageIndex: 0,
+        boundingBox: samePosition,
+      },
+    ]);
+
+    expect(lines.map(({ text }) => text)).toEqual(['Artikel links', 'Artikel rechts']);
+  });
+
+  it('does not attach a price fragment when both fragments have missing geometry', () => {
+    const lines = reconstructReceiptLines([
+      { text: 'Artikel ohne Box', confidence: 0.9 },
+      { text: '1,99', confidence: 0.9 },
+    ]);
+
+    expect(lines.map(({ text }) => text)).toEqual(['Artikel ohne Box', '1,99']);
+  });
+
   it('keeps null confidence when any fragment has no native confidence', () => {
     const lines = reconstructReceiptLines([
       {

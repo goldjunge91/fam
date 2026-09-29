@@ -430,8 +430,16 @@ function alignedPriceColumn(
   return result;
 }
 
-// 069. Groups one page's primary text and secondary fragments into reading-order lines.
-function reconstructPage(entries: readonly PageEntry[]): ReceiptOcrLine[] {
+// 069. Groups fragments by row, sorting geometry and preserving source order for ties.
+function reconstructPage(entries: PageEntry[]): ReceiptOcrLine[] {
+  entries.sort(
+    (left, right) =>
+      (left.boundingBox?.y ?? Number.POSITIVE_INFINITY) -
+        (right.boundingBox?.y ?? Number.POSITIVE_INFINITY) ||
+      (left.boundingBox?.x ?? Number.POSITIVE_INFINITY) -
+        (right.boundingBox?.x ?? Number.POSITIVE_INFINITY) ||
+      left.inputIndex - right.inputIndex,
+  );
   const groups: LineGroup[] = [];
   const maxRight = entries.reduce(
     (currentMax, { boundingBox }) =>
