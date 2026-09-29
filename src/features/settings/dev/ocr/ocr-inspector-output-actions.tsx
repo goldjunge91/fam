@@ -4,6 +4,8 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Row, TextField } from '@/constants/ui';
 import type { ReceiptOcrProvider, ReceiptOcrResult } from '@/features/ocr/processing/native';
+import type { InspectorReceiptGeometry } from './ocr-inspector-geometry';
+import { type ManualLabelSelection, manualLabelText } from './ocr-inspector-manual-labels';
 import type { InspectorImageSettings } from './ocr-inspector-pipeline';
 
 type InspectorRunSettings = InspectorImageSettings & { iosProvider: ReceiptOcrProvider };
@@ -12,6 +14,8 @@ type OcrInspectorOutputActionsProps = {
   result: ReceiptOcrResult | null;
   text: string;
   runSettings: InspectorRunSettings | null;
+  manualLabels: ManualLabelSelection;
+  geometry: InspectorReceiptGeometry | null;
 };
 
 const styles = StyleSheet.create({
@@ -26,6 +30,8 @@ export function OcrInspectorOutputActions({
   result,
   text,
   runSettings,
+  manualLabels,
+  geometry,
 }: OcrInspectorOutputActionsProps) {
   const [showJson, setShowJson] = useState(false);
   const json =
@@ -40,9 +46,30 @@ export function OcrInspectorOutputActions({
               contrast: runSettings.contrast,
               sharpen: runSettings.sharpen,
               quality: runSettings.quality,
+              brightness: runSettings.brightness,
+              threshold: runSettings.threshold,
             },
             imageSize: result.imageSize,
+            receiptGeometry: geometry,
             lines: result.lines,
+            manualLabels: {
+              article: {
+                lineIndexes: manualLabels.article,
+                text: manualLabelText(result.lines, manualLabels.article),
+              },
+              quantity: {
+                lineIndexes: manualLabels.quantity,
+                text: manualLabelText(result.lines, manualLabels.quantity),
+              },
+              unitPrice: {
+                lineIndexes: manualLabels.unitPrice,
+                text: manualLabelText(result.lines, manualLabels.unitPrice),
+              },
+              price: {
+                lineIndexes: manualLabels.price,
+                text: manualLabelText(result.lines, manualLabels.price),
+              },
+            },
           },
           null,
           2,

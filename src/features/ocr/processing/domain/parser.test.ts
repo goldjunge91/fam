@@ -983,6 +983,25 @@ describe('parseGermanReceipt', () => {
       });
     });
 
+    it('keeps article amounts above the paid total when a negative deposit lowers it', () => {
+      const draft = parseGermanReceipt([
+        { text: 'EDEKA', confidence: 0.96 },
+        { text: 'Kaffee 8,99', confidence: 0.94 },
+        { text: 'Leergut -3,00', confidence: 0.94 },
+        { text: 'SUMME 5,99', confidence: 0.98 },
+      ]);
+
+      expect(draft.items).toHaveLength(1);
+      expect(draft.items[0]).toMatchObject({
+        name: 'Kaffee',
+        lineTotalCents: { value: 899, needsReview: false },
+        needsReview: false,
+      });
+      expect(draft.excludedLines).toContainEqual(
+        expect.objectContaining({ reason: 'deposit', evidence: 'Leergut -3,00' }),
+      );
+    });
+
     it('prefers the subtotal over the paid total when both are readable', () => {
       const draft = parseGermanReceipt([
         { text: 'EDEKA', confidence: 0.96 },

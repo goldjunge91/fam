@@ -18,6 +18,7 @@ const COMPLETE_AMOUNT = /\d{1,4}[,.]\d{2}(?!\d)/u;
 const MULTIPLIED_UNIT_PRICE = /\d{1,4}[,.]\d{2}\s*€\s*[x×]\b/iu;
 const PRICE_FRAGMENT = /^[\d.,€\s*+\-x×ABWEUR]+$/iu;
 
+// 059. Parses a complete printed decimal amount into integer euro cents.
 function completeAmountCents(text: string): number | null {
   const amount = text.match(COMPLETE_AMOUNT)?.[0];
   if (!amount) return null;
@@ -26,6 +27,7 @@ function completeAmountCents(text: string): number | null {
   return Number.isSafeInteger(cents) ? cents : null;
 }
 
+// 060. Reads the final complete amount from an OCR line, including optional tax marks.
 function lineTotalCents(text: string): number | null {
   const trailingAmount = text.match(
     /(\d{1,4}[,.]\d{2})(?:\s*(?:€|EUR))?(?:\s*\*?(?:A|B|AW|BW))?\s*$/iu,
@@ -33,6 +35,7 @@ function lineTotalCents(text: string): number | null {
   return trailingAmount ? completeAmountCents(trailingAmount) : null;
 }
 
+// 061. Caps line confidence so a corrected whole-image amount remains reviewable.
 function markForReview(line: ReceiptOcrLine): ReceiptOcrLine {
   return {
     ...line,
@@ -40,7 +43,7 @@ function markForReview(line: ReceiptOcrLine): ReceiptOcrLine {
   };
 }
 
-/** Three OCR views of one photo, with overlap so text at a cut stays readable. */
+// 055. Defines three overlapping vertical OCR sections and their non-overlap cores.
 export function receiptSections(imageHeight: number): readonly ReceiptSection[] {
   const overlap = Math.max(12, Math.round(imageHeight * 0.025));
   return Array.from({ length: 3 }, (_, index) => {
@@ -55,7 +58,7 @@ export function receiptSections(imageHeight: number): readonly ReceiptSection[] 
   });
 }
 
-/** Restores each OCR box to the photo and retains one owner for overlap lines. */
+// 058. Projects section boxes onto the full image and keeps lines owned by that section core.
 export function projectSectionLines(
   lines: readonly ReceiptOcrLine[],
   section: ReceiptSection,
@@ -79,6 +82,7 @@ export function projectSectionLines(
   });
 }
 
+// 062. Checks whether two OCR boxes overlap enough on both axes to refer to one printed line.
 function overlapping(left: ReceiptOcrLine, right: ReceiptOcrLine): boolean {
   const leftBox = left.boundingBox;
   const rightBox = right.boundingBox;
@@ -94,7 +98,7 @@ function overlapping(left: ReceiptOcrLine, right: ReceiptOcrLine): boolean {
   );
 }
 
-/** Keeps whole-photo text and accepts only clearer, missing amounts from short views. */
+// 063. Merges supplementary price fragments while preserving whole-image text and conflicts.
 export function mergeReceiptOcrLines(
   whole: readonly ReceiptOcrLine[],
   sections: readonly ReceiptOcrLine[],
@@ -134,7 +138,7 @@ export function mergeReceiptOcrLines(
   );
 }
 
-/** Keeps whole-photo OCR and reads three short views for missing prices. */
+// 049. Runs full-image OCR plus three local sections, then merges their observed lines.
 export async function recognizeReceiptPageSections(
   uri: string,
   options: ReceiptOcrOptions = {},

@@ -13,6 +13,8 @@ export type InspectorColorMode = 'color' | 'grayscale';
 export type InspectorContrast = 'none' | 'low' | 'high';
 export type InspectorSharpen = 'off' | 'medium';
 export type InspectorQuality = 'source' | 'low' | 'standard' | 'max';
+export type InspectorBrightness = 'low' | 'none' | 'high';
+export type InspectorThreshold = 'off' | 'auto';
 
 export type InspectorImageSettings = {
   resize: InspectorResize;
@@ -21,6 +23,8 @@ export type InspectorImageSettings = {
   contrast: InspectorContrast;
   sharpen: InspectorSharpen;
   quality: InspectorQuality;
+  brightness: InspectorBrightness;
+  threshold: InspectorThreshold;
 };
 
 export type InspectorNativeOcrSettings = {

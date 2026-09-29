@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
 import { useEffect, useRef, useState } from 'react';
 import { View } from 'react-native';
+import Svg, { Circle, Polygon } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { Screen } from '@/components/layout/screen';
@@ -20,8 +21,15 @@ import {
   recognizeReceiptOcr,
 } from '@/features/ocr/processing/native';
 import { formatBytes, Zeile } from '../dev-screen-shared';
+import {
+  detectInspectorReceiptGeometry,
+  type InspectorReceiptGeometry,
+} from './ocr-inspector-geometry';
+import type { ManualLabelSelection } from './ocr-inspector-manual-labels';
+import { ManualLabelAssignment } from './ocr-inspector-manual-labels';
 import { OcrInspectorOutputActions } from './ocr-inspector-output-actions';
 import {
+  type InspectorBrightness,
   type InspectorColorMode,
   type InspectorContrast,
   type InspectorCrop,
@@ -32,6 +40,7 @@ import {
   type InspectorRecognitionLevel,
   type InspectorResize,
   type InspectorSharpen,
+  type InspectorThreshold,
   isGoogleMlKitAvailable,
   parseInspectorCustomWords,
   prepareInspectorImage,
@@ -76,6 +85,8 @@ const INITIAL_SETTINGS: InspectorSettings = {
   contrast: 'none',
   sharpen: 'off',
   quality: 'source',
+  brightness: 'none',
+  threshold: 'off',
 };
 
 const LANGUAGE_OPTIONS = [
@@ -120,6 +131,17 @@ const SHARPEN_OPTIONS = [
   { value: 'off', label: 'Aus' },
   { value: 'medium', label: 'Mittel' },
 ] as const satisfies ReadonlyArray<{ value: InspectorSharpen; label: string }>;
+
+const BRIGHTNESS_OPTIONS = [
+  { value: 'low', label: '−15 %' },
+  { value: 'none', label: 'Normal' },
+  { value: 'high', label: '+15 %' },
+] as const satisfies ReadonlyArray<{ value: InspectorBrightness; label: string }>;
+
+const THRESHOLD_OPTIONS = [
+  { value: 'off', label: 'Aus' },
+  { value: 'auto', label: 'Auto' },
+] as const satisfies ReadonlyArray<{ value: InspectorThreshold; label: string }>;
 
 type AvailabilityState =
   | { status: 'checking' }
@@ -202,6 +224,16 @@ const styles = StyleSheet.create((theme) => ({
     paddingVertical: space.xs,
     fontSize: font.sizes.micro,
     lineHeight: 12,
+  },
+  geometryOverlay: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+  },
+  manualLabels: {
+    gap: theme.space.sm,
   },
   previewEmpty: {
     minHeight: 220,
@@ -375,6 +407,13 @@ export function OcrInspectorScreen() {
   const [image, setImage] = useState<InspectorImage | null>(null);
   const [settings, setSettings] = useState<InspectorSettings>(INITIAL_SETTINGS);
   const [result, setResult] = useState<ReceiptOcrResult | null>(null);
+  const [geometry, setGeometry] = useState<InspectorReceiptGeometry | null>(null);
+  const [manualLabels, setManualLabels] = useState<ManualLabelSelection>({
+    article: [],
+    quantity: [],
+    unitPrice: [],
+    price: [],
+  });
   const [recognizedText, setRecognizedText] = useState('');
   const [phase, setPhase] = useState<InspectorPhase>('idle');
   const [availability, setAvailability] = useState<AvailabilityState>(INITIAL_AVAILABILITY);
@@ -456,6 +495,8 @@ export function OcrInspectorScreen() {
   ) {
     const startedAt = Date.now();
     setResult(null);
+    setGeometry(null);
+    setManualLabels({ article: [], quantity: [], unitPrice: [], price: [] });
     setRecognizedText('');
     setError(null);
     setElapsedMs(null);
@@ -512,6 +553,7 @@ export function OcrInspectorScreen() {
         void cleanupImage(previousWorkingUri);
       }
       setImage(nextImage);
+      setGeometry(await detectInspectorReceiptGeometry(nextImage.localUri));
       setPhase('recognizing');
 
       const nativeSettings: InspectorNativeOcrSettings = {
@@ -637,6 +679,8 @@ export function OcrInspectorScreen() {
     operationRef.current += 1;
     setImage(null);
     setResult(null);
+    setGeometry(null);
+    setManualLabels({ article: [], quantity: [], unitPrice: [], price: [] });
     setRecognizedText('');
     setError(null);
     setElapsedMs(null);
@@ -766,6 +810,20 @@ export function OcrInspectorScreen() {
               onSelect={(sharpen) => setSettings((current) => ({ ...current, sharpen }))}
               size="compact"
             />
+            <SegmentedControl
+              label="Helligkeit"
+              selected={settings.brightness}
+              options={BRIGHTNESS_OPTIONS}
+              onSelect={(brightness) => setSettings((current) => ({ ...current, brightness }))}
+              size="compact"
+            />
+            <SegmentedControl
+              label="Schwarzweiß"
+              selected={settings.threshold}
+              options={THRESHOLD_OPTIONS}
+              onSelect={(threshold) => setSettings((current) => ({ ...current, threshold }))}
+              size="compact"
+            />
           </View>
 
           <View style={styles.settingsGroup}>
@@ -864,6 +922,25 @@ export function OcrInspectorScreen() {
                 style={styles.image}
                 contentFit="contain"
               />
+              {geometry ? (
+                <Svg
+                  accessibilityLabel="Erkannter Bonrahmen"
+                  accessible
+                  pointerEvents="none"
+                  style={styles.geometryOverlay}
+                  viewBox="0 0 1 1">
+                  <Polygon
+                    fill="none"
+                    points={geometry.quad.map(({ x, y }) => `${x},${y}`).join(' ')}
+                    stroke={colors.warning}
+                    strokeDasharray={[0.012, 0.008]}
+                    strokeWidth={0.005}
+                  />
+                  {geometry.quad.map(({ x, y }) => (
+                    <Circle key={`${x}-${y}`} cx={x} cy={y} fill={colors.warning} r={0.009} />
+                  ))}
+                </Svg>
+              ) : null}
               {result ? (
                 <View pointerEvents="none" style={styles.overlay}>
                   {result.lines.map((line, index) => {
@@ -904,16 +981,26 @@ export function OcrInspectorScreen() {
             </Txt>
           </View>
         )}
-        {result ? (
+        {result || geometry ? (
           <View style={styles.legend}>
-            {CONFIDENCE_LEGEND.map(({ label, colorKey }) => (
-              <View key={label} style={styles.legendItem}>
-                <View style={[styles.legendDot, { backgroundColor: colors[colorKey] }]} />
+            {result
+              ? CONFIDENCE_LEGEND.map(({ label, colorKey }) => (
+                  <View key={label} style={styles.legendItem}>
+                    <View style={[styles.legendDot, { backgroundColor: colors[colorKey] }]} />
+                    <Txt variant="caption" tone="secondary">
+                      {label}
+                    </Txt>
+                  </View>
+                ))
+              : null}
+            {geometry ? (
+              <View style={styles.legendItem}>
+                <View style={[styles.legendDot, { backgroundColor: colors.warning }]} />
                 <Txt variant="caption" tone="secondary">
-                  {label}
+                  Bonrahmen · Seitenfallback
                 </Txt>
               </View>
-            ))}
+            ) : null}
           </View>
         ) : null}
       </Card>
@@ -955,6 +1042,17 @@ export function OcrInspectorScreen() {
             />
           </>
         ) : null}
+        <Zeile
+          label="Bonrahmen"
+          wert={
+            geometry
+              ? geometry.topEdge === 'observed'
+                ? 'linke/rechte Seite + Oberkante'
+                : 'Seiten erkannt, Oberkante geschätzt'
+              : 'nicht erkannt'
+          }
+          tone={geometry ? 'accent' : 'warning'}
+        />
         {result ? (
           <>
             <Zeile label="Erkannte Segmente" wert={`${result.lines.length}`} tone="accent" />
@@ -985,6 +1083,8 @@ export function OcrInspectorScreen() {
           result={result}
           text={recognizedText}
           runSettings={lastRunSettings}
+          manualLabels={manualLabels}
+          geometry={geometry}
         />
         <Txt variant="caption" tone="secondary">
           Das JSON enthält den vollständigen Bontext und die erkannten Positionen.
@@ -1028,6 +1128,17 @@ export function OcrInspectorScreen() {
               );
             })}
           </View>
+        </Card>
+      ) : null}
+
+      {result ? (
+        <Card style={styles.manualLabels}>
+          <Txt variant="heading">Labels manuell kombinieren</Txt>
+          <ManualLabelAssignment
+            lines={result.lines}
+            selection={manualLabels}
+            onChange={setManualLabels}
+          />
         </Card>
       ) : null}
     </Screen>

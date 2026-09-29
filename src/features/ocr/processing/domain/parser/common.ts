@@ -37,10 +37,14 @@ const ADDRESS_OR_RECEIPT_METADATA_PATTERN =
 const BARCODE_TOKEN_SEARCH_PATTERN = /\b\d{8,14}\b/;
 const TAX_RATE_ROW_PATTERN = /^\s*(?:A|B|AW|BW)\s+\d{1,2}\s*%\b/i;
 const TAX_CODE_ONLY_PATTERN = /^(?:A|B|AW|BW)(?:\s+\d{1,2}\s*%)?$/i;
+// 105. Extracts signed EUR amounts as cents and retains their spans in the source line.
 export function parseMoneyTokens(text: string): readonly MoneyToken[] {
   return [...text.matchAll(MONEY_PATTERN)].flatMap((match) => {
     const raw = match[0];
-    const unsigned = raw.replace(/^(?:€|EUR)\s*/i, '').replace(/\s*(?:€|EUR)$/i, '');
+    const unsigned = raw
+      .replace(/^(?:€|EUR)\s*/i, '')
+      .replace(/\s*(?:€|EUR)$/i, '')
+      .trim();
     const negative = /^[-−]/.test(unsigned);
     const compactUnsigned = unsigned.replace(/\s+/g, '');
     const numberText = compactUnsigned.replace(/^[-−+]/, '').includes(',')
@@ -67,6 +71,7 @@ export function parseMoneyTokens(text: string): readonly MoneyToken[] {
     ];
   });
 }
+// 106. Validates a printed date and returns it in YYYY-MM-DD form.
 export function parseDate(text: string): string | null {
   const match = text.match(DATE_PATTERN);
   if (!match) {
@@ -94,6 +99,7 @@ export function parseDate(text: string): string | null {
   ).padStart(2, '0')}`;
 }
 
+// 107. Finds the first valid date line and preserves its confidence and evidence.
 export function findDate(lines: readonly NormalizedLine[]): ReceiptDraftField<string> {
   for (const line of lines) {
     const value = parseDate(line.text);
@@ -104,6 +110,7 @@ export function findDate(lines: readonly NormalizedLine[]): ReceiptDraftField<st
   return emptyField();
 }
 
+// 108. Reads a single non-negative amount from a labeled subtotal line.
 export function findSubtotalCents(lines: readonly NormalizedLine[]): number | null {
   for (const line of lines) {
     if (!SUBTOTAL_LABEL_PATTERN.test(line.text) || BARCODE_TOKEN_SEARCH_PATTERN.test(line.text)) {
@@ -115,6 +122,7 @@ export function findSubtotalCents(lines: readonly NormalizedLine[]): number | nu
   return null;
 }
 
+// 109. Selects the strongest labeled paid-total candidate not exceeding a known subtotal.
 export function findTotal(lines: readonly NormalizedLine[]): ReceiptDraftField<EuroCents> {
   const candidates: TotalCandidate[] = [];
   const subtotalCents = findSubtotalCents(lines);
@@ -152,6 +160,7 @@ export function findTotal(lines: readonly NormalizedLine[]): ReceiptDraftField<E
   );
 }
 
+// 110. Clears a contradicted observed amount and marks its field for review.
 function clearInconsistentObservedAmount<T>(source: ReceiptDraftField<T>): ReceiptDraftField<T> {
   return {
     ...source,
@@ -161,15 +170,8 @@ function clearInconsistentObservedAmount<T>(source: ReceiptDraftField<T>): Recei
   };
 }
 
-/**
- * Upper amount bound for a single article line.
- *
- * The printed item total can never exceed the subtotal. Without a readable
- * subtotal the paid total takes over, but only while no discount or coupon
- * line exists: those lower the paid total below the article sum, so the total
- * would reject correct article amounts. With such a line present we have no
- * reliable bound and keep every observed amount.
- */
+// 111. Subtotal bounds item amounts; without it, paid total is safe only when no savings or
+// negative amounts can make it lower than the gross item sum.
 export function amountCeilingCents(
   lines: readonly NormalizedLine[],
   subtotalCents: number | null,
@@ -177,9 +179,15 @@ export function amountCeilingCents(
 ): number | null {
   if (subtotalCents !== null) return subtotalCents;
   if (totalCents === null) return null;
-  return lines.some(({ text }) => SAVINGS_LINE_PATTERN.test(text)) ? null : totalCents;
+  return lines.some(
+    ({ text }) =>
+      SAVINGS_LINE_PATTERN.test(text) || parseMoneyTokens(text).some(({ negative }) => negative),
+  )
+    ? null
+    : totalCents;
 }
 
+// 112. Clears item amounts above the reliable ceiling and requires manual review.
 export function filterAmountsAboveCeiling(
   items: readonly ReceiptDraftItem[],
   ceilingCents: number | null,
@@ -206,6 +214,7 @@ export function filterAmountsAboveCeiling(
         item.unitPriceCents.value > ceilingCents),
   }));
 }
+// 113. Classifies receipt lines that represent barcodes, discounts, taxes, or payment details.
 export function classifyExcludedLine(text: string): ReceiptDraftExcludedLineReason | null {
   const lowerText = text.toLowerCase();
   const barcodeText = lowerText.replace(/[\s-]/g, '');
@@ -223,7 +232,7 @@ export function classifyExcludedLine(text: string): ReceiptDraftExcludedLineReas
   ) {
     return 'discount';
   }
-  if (/\b(?:pfand|deposit)\b/.test(lowerText)) {
+  if (/\b(?:pfand|leergut|deposit)\b/.test(lowerText)) {
     return 'deposit';
   }
   if (/\b(?:mwst|ust|mehrwertsteuer|umsatzsteuer|vat|steuer)\b/.test(lowerText)) {
@@ -245,14 +254,17 @@ export function classifyExcludedLine(text: string): ReceiptDraftExcludedLineReas
   return null;
 }
 
+// 114. Identifies date, address, and other non-item receipt metadata.
 export function isMetadataLine(text: string): boolean {
   return parseDate(text) !== null || ADDRESS_OR_RECEIPT_METADATA_PATTERN.test(text);
 }
 
+// 115. Detects the labeled boundary after receipt item rows.
 export function isItemSectionEndLine(text: string): boolean {
   return ITEM_SECTION_END_PATTERN.test(text) && !BARCODE_TOKEN_SEARCH_PATTERN.test(text);
 }
 
+// 116. Checks whether a parsed item name contains only a tax code.
 export function isTaxCodeOnlyName(name: string): boolean {
   return TAX_CODE_ONLY_PATTERN.test(name.trim());
 }

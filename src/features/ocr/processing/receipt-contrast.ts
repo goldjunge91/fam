@@ -8,6 +8,7 @@ type EnhancedReceiptPixels = Omit<ReceiptPixels, 'pixelFormat'> & { pixelFormat:
 
 type ChannelLayout = { stride: number; red: number; green: number; blue: number };
 
+// 056. Describes RGB byte offsets and stride for each supported pixel format.
 function channelLayout(format: string): ChannelLayout | null {
   switch (format) {
     case 'RGBA':
@@ -29,7 +30,7 @@ function channelLayout(format: string): ChannelLayout | null {
   }
 }
 
-/** Local mean threshold preserves faint receipt ink without assuming a paper color. */
+// 057. Applies a local-mean threshold and returns grayscale ink as RGBA pixels.
 export function enhanceReceiptSection(pixels: ReceiptPixels): EnhancedReceiptPixels | null {
   const { width, height } = pixels;
   const channels = channelLayout(pixels.pixelFormat);

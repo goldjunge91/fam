@@ -155,6 +155,7 @@ export function createExpoFileSystemAdapter(): ReceiptCaptureFileAdapter {
   };
 
   return {
+    // 001. Normalizes, rectifies, resizes, and validates the local JPEG passed to OCR.
     async normalizeToPersistentStorage({
       sourceUri,
       captureId,

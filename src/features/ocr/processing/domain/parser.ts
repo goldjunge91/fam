@@ -10,6 +10,7 @@ import { isLikelyReceiptItemLine, parseItems } from './parser/items';
 import { findMarket } from './parser/retailers';
 import type { ReceiptDraft, ReceiptDraftWarning } from './types';
 
+// 065. Builds a receipt draft from normalized lines, detected market, date, total, and items.
 export function parseGermanReceipt(input: ParserInput): ReceiptDraft {
   const lines = normalizeInput(input);
   const firstItemLineIndex = lines.findIndex(isLikelyReceiptItemLine);

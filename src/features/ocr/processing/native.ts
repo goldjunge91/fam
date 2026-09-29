@@ -105,6 +105,7 @@ type ExpoLocalizationApi = Pick<typeof import('expo-localization'), 'getLocales'
 
 let expoAiKitApi: ExpoAiKitApi | null | undefined;
 
+// 022. Lazily loads and caches the optional expo-ai-kit API, including absence.
 function loadExpoAiKit(): ExpoAiKitApi | null {
   if (expoAiKitApi !== undefined) {
     return expoAiKitApi;
@@ -119,6 +120,7 @@ function loadExpoAiKit(): ExpoAiKitApi | null {
   return expoAiKitApi;
 }
 
+// 023. Uses explicit languages first, then the device locale, and otherwise no override.
 function receiptOcrOptions(options: ReceiptOcrOptions | undefined): string[] {
   if (options?.languages !== undefined && options.languages.length > 0) {
     return [...options.languages];
@@ -138,10 +140,12 @@ function receiptOcrOptions(options: ReceiptOcrOptions | undefined): string[] {
   return deviceLanguage === undefined || deviceLanguage.trim().length === 0 ? [] : [deviceLanguage];
 }
 
+// 024. Keeps only finite confidence values returned by the provider.
 function normalizeProviderConfidence(value: number | null | undefined): number | null {
   return typeof value === 'number' && Number.isFinite(value) ? value : null;
 }
 
+// 025. Loads expo-image or reports that local image dimensions are unavailable.
 function loadExpoImage(): ExpoImageApi {
   try {
     return require('expo-image') as ExpoImageApi;
@@ -154,6 +158,7 @@ function loadExpoImage(): ExpoImageApi {
   }
 }
 
+// 026. Converts a logical image dimension and scale into validated pixel units.
 function imagePixelDimension(value: unknown, scale: unknown, field: string): number {
   const logicalDimension = finiteNumber(value, field);
   const imageScale = finiteNumber(scale, 'image scale');
@@ -164,6 +169,7 @@ function imagePixelDimension(value: unknown, scale: unknown, field: string): num
   return pixelDimension;
 }
 
+// 027. Reads pixel dimensions from the local normalized receipt image.
 async function readReceiptImageSize(uri: string): Promise<{ width: number; height: number }> {
   try {
     const { Image } = loadExpoImage();
@@ -184,8 +190,10 @@ async function readReceiptImageSize(uri: string): Promise<{ width: number; heigh
   }
 }
 
+// 028. Adapts expo-ai-kit recognition and bounds to the shared native OCR interface.
 function createExpoAiKitAdapter(api: ExpoAiKitApi): ReceiptOcrNativeModule {
   return {
+    // 029. Runs accurate recognition and maps each provider line with page geometry.
     recognize: async (uri, options) => {
       const languages = receiptOcrOptions(options);
       const imageSize = await readReceiptImageSize(uri);
@@ -220,6 +228,7 @@ export class ReceiptOcrError extends Error {
   readonly cause: unknown;
   readonly retryable: boolean;
 
+  // 030. Stores the stable error code, original cause, and retry policy.
   constructor(code: ReceiptOcrErrorCode, message: string, cause?: unknown) {
     super(message);
     this.name = 'ReceiptOcrError';
@@ -230,14 +239,17 @@ export class ReceiptOcrError extends Error {
   }
 }
 
+// 031. Narrows unknown provider values to non-null objects.
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
 }
 
+// 032. Checks an unknown code against the supported OCR error set.
 function isReceiptOcrErrorCode(value: unknown): value is ReceiptOcrErrorCode {
   return typeof value === 'string' && RECEIPT_OCR_ERROR_CODES.has(value as ReceiptOcrErrorCode);
 }
 
+// 033. Extracts a useful message from native or JavaScript errors.
 function errorMessage(error: unknown): string {
   if (error instanceof Error && error.message.length > 0) {
     return error.message;
@@ -250,6 +262,7 @@ function errorMessage(error: unknown): string {
   return 'Receipt OCR failed';
 }
 
+// 034. Preserves typed OCR errors and maps unknown failures to a stable code.
 export function mapReceiptOcrError(error: unknown): ReceiptOcrError {
   if (error instanceof ReceiptOcrError) {
     return error;
@@ -260,6 +273,7 @@ export function mapReceiptOcrError(error: unknown): ReceiptOcrError {
   return new ReceiptOcrError(code, errorMessage(error), error);
 }
 
+// 035. Validates and narrows the native OCR model-readiness response.
 function normalizeReceiptOcrAvailability(value: unknown): ReceiptOcrModelAvailability {
   if (!isRecord(value)) {
     throw new ReceiptOcrError('NATIVE_OCR_FAILED', 'Native OCR returned no model readiness status');
@@ -289,6 +303,7 @@ function normalizeReceiptOcrAvailability(value: unknown): ReceiptOcrModelAvailab
   );
 }
 
+// 036. Converts an unavailable model reason into its corresponding OCR error.
 function availabilityError(
   availability: Extract<ReceiptOcrModelAvailability, { status: 'unavailable' }>,
 ): ReceiptOcrError {
@@ -297,6 +312,7 @@ function availabilityError(
   return new ReceiptOcrError(code, `Receipt OCR is unavailable: ${availability.reason}`);
 }
 
+// 037. Returns the loaded provider API or throws a typed unavailable-module error.
 function requireExpoAiKit(): ExpoAiKitApi {
   const api = loadExpoAiKit();
   if (api === null) {
@@ -308,6 +324,7 @@ function requireExpoAiKit(): ExpoAiKitApi {
   return api;
 }
 
+// 038. Queries and normalizes current native text-recognition readiness.
 export async function getReceiptOcrAvailability(): Promise<ReceiptOcrModelAvailability> {
   const api = requireExpoAiKit();
 
@@ -319,6 +336,7 @@ export async function getReceiptOcrAvailability(): Promise<ReceiptOcrModelAvaila
   }
 }
 
+// 039. Prepares the native text-recognition model and confirms it is usable.
 export async function prepareReceiptOcr(
   options: ReceiptOcrPrepareOptions = {},
 ): Promise<ReceiptOcrModelAvailability> {
@@ -350,6 +368,7 @@ export async function prepareReceiptOcr(
   }
 }
 
+// 040. Accepts only non-empty local file URIs for on-device OCR.
 export function validateReceiptOcrUri(uri: string): string {
   if (typeof uri !== 'string') {
     throw new ReceiptOcrError('INVALID_URI', 'Receipt OCR requires a local file URI');
@@ -377,6 +396,7 @@ export function validateReceiptOcrUri(uri: string): string {
   return normalizedUri;
 }
 
+// 041. Validates a provider value as a finite number.
 function finiteNumber(value: unknown, field: string): number {
   if (typeof value !== 'number' || !Number.isFinite(value)) {
     throw new ReceiptOcrError('NATIVE_OCR_FAILED', `Native OCR returned an invalid ${field}`);
@@ -384,14 +404,17 @@ function finiteNumber(value: unknown, field: string): number {
   return value;
 }
 
+// 042. Clamps a numeric value to the supplied inclusive range.
 function bounded(value: number, minimum: number, maximum: number): number {
   return Math.min(maximum, Math.max(minimum, value));
 }
 
+// 043. Clamps a coordinate and rounds it to six decimal places.
 function normalized(value: number, minimum: number, maximum: number): number {
   return Number(bounded(value, minimum, maximum).toFixed(6));
 }
 
+// 044. Converts pixel or normalized provider bounds into a clamped normalized box.
 function normalizeBoundingBox(
   value: unknown,
   imageSize: ReceiptOcrResult['imageSize'],
@@ -409,9 +432,8 @@ function normalizeBoundingBox(
     throw new ReceiptOcrError('NATIVE_OCR_FAILED', 'Native OCR returned a negative bounding box');
   }
 
-  // expo-ai-kit returns normalized boxes. Older compiled native clients may
-  // still return pixel-space boxes, which must be converted before clamping;
-  // otherwise every line collapses to the lower-right corner of the image.
+  // Older compiled clients can still return pixel-space boxes; convert them before clamping.
+  // Clamping first would collapse those coordinates at the image's lower-right edge.
   const isPixelSpace = [rawX, rawY, rawWidth, rawHeight].some((part) => part > 1);
   const xValue = isPixelSpace ? rawX / imageSize.width : rawX;
   const yValue = isPixelSpace ? rawY / imageSize.height : rawY;
@@ -428,6 +450,7 @@ function normalizeBoundingBox(
   };
 }
 
+// 045. Validates one provider line, trims text, and normalizes confidence and bounds.
 function normalizeLine(
   value: unknown,
   imageSize: ReceiptOcrResult['imageSize'],
@@ -452,6 +475,7 @@ function normalizeLine(
   };
 }
 
+// 046. Validates provider output, removes empty lines, and orders lines by their boxes.
 export function normalizeReceiptOcrResult(value: unknown): ReceiptOcrResult {
   if (!isRecord(value) || !isRecord(value.imageSize) || !Array.isArray(value.lines)) {
     throw new ReceiptOcrError('NATIVE_OCR_FAILED', 'Native OCR returned an invalid result');
@@ -489,6 +513,7 @@ export function normalizeReceiptOcrResult(value: unknown): ReceiptOcrResult {
   };
 }
 
+// 047. Validates OCR language options and selects a supported provider.
 function normalizeOptions(options: ReceiptOcrOptions | undefined): ReceiptOcrOptions {
   if (options === undefined) {
     return {};
@@ -517,10 +542,12 @@ function normalizeOptions(options: ReceiptOcrOptions | undefined): ReceiptOcrOpt
 
 export { isGoogleMlKitAvailable };
 
+// 048. Reports whether the expo-ai-kit module can be loaded in this build.
 export function isReceiptOcrAvailable(): boolean {
   return loadExpoAiKit() !== null;
 }
 
+// 050. Validates the image, selects a provider, and normalizes its OCR result.
 export async function recognizeReceiptOcr(
   uri: string,
   options?: ReceiptOcrOptions,

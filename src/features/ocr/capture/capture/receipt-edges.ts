@@ -8,7 +8,12 @@ export type ReceiptPixels = {
   pixelFormat: string;
 };
 
-/** Avoids resampling a receipt whose photographed sides are already almost straight. */
+export type ReceiptSectionDetection = {
+  quad: ReceiptQuad;
+  topEdge: 'observed' | 'estimated';
+};
+
+// 002. Checks whether the detected receipt quadrilateral exceeds correction thresholds.
 export function needsReceiptPerspectiveCorrection(
   quad: ReceiptQuad,
   imageWidth: number,
@@ -25,6 +30,7 @@ export function needsReceiptPerspectiveCorrection(
   );
 }
 
+// 003. Maps a supported pixel format to its red, green, and blue byte positions.
 function colorChannels(format: string): readonly [number, number, number] | null {
   switch (format) {
     case 'RGBA':
@@ -44,6 +50,7 @@ function colorChannels(format: string): readonly [number, number, number] | null
   }
 }
 
+// 004. Converts supported four-channel pixels to grayscale or rejects malformed data.
 function grayscale(pixels: ReceiptPixels): Uint8Array | null {
   const channels = colorChannels(pixels.pixelFormat);
   if (!channels || pixels.width * pixels.height * 4 !== pixels.buffer.byteLength) return null;
@@ -60,6 +67,7 @@ function grayscale(pixels: ReceiptPixels): Uint8Array | null {
   return gray;
 }
 
+// 005. Smooths grayscale pixels with a separable nine-pixel box filter.
 function blur(gray: Uint8Array, width: number, height: number): Uint8Array {
   const horizontal = new Uint8Array(gray.length);
   const result = new Uint8Array(gray.length);
@@ -87,11 +95,13 @@ function blur(gray: Uint8Array, width: number, height: number): Uint8Array {
   return result;
 }
 
+// 006. Returns the middle value after sorting the supplied brightness samples.
 function median(values: number[]): number {
   values.sort((left, right) => left - right);
   return values[Math.floor(values.length / 2)] ?? 0;
 }
 
+// 007. Fits a receipt side as x = slope * y + intercept when samples are sufficient.
 function fitSide(samples: readonly ReceiptPoint[]): { slope: number; intercept: number } | null {
   if (samples.length < 8) return null;
   const meanY = samples.reduce((sum, point) => sum + point.y, 0) / samples.length;
@@ -103,6 +113,7 @@ function fitSide(samples: readonly ReceiptPoint[]): { slope: number; intercept: 
   return { slope, intercept: meanX - slope * meanY };
 }
 
+// 008. Finds the first bright paper pixel along a vertical probe near the image top.
 function firstPaperRow(
   gray: Uint8Array,
   width: number,
@@ -117,8 +128,8 @@ function firstPaperRow(
   return null;
 }
 
-/** Detects the top edge and the two long sides of a receipt cut off at the image bottom. */
-export function detectReceiptSectionQuad(pixels: ReceiptPixels): ReceiptQuad | null {
+// 009. Detects long receipt sides and reports whether the top edge was observed or estimated.
+export function detectReceiptSection(pixels: ReceiptPixels): ReceiptSectionDetection | null {
   const { width, height } = pixels;
   if (
     !Number.isSafeInteger(width) ||
@@ -175,7 +186,9 @@ export function detectReceiptSectionQuad(pixels: ReceiptPixels): ReceiptQuad | n
     ),
   );
   if (!left || !right) return null;
+  // 010. Projects a vertical coordinate onto the fitted left receipt edge.
   const leftAt = (y: number) => left.slope * y + left.intercept;
+  // 011. Projects a vertical coordinate onto the fitted right receipt edge.
   const rightAt = (y: number) => right.slope * y + right.intercept;
   const topWidth = rightAt(0) - leftAt(0);
   const bottomWidth = rightAt(height - 1) - leftAt(height - 1);
@@ -193,15 +206,27 @@ export function detectReceiptSectionQuad(pixels: ReceiptPixels): ReceiptQuad | n
   const innerRight = rightAt(0) - topWidth * 0.08;
   const observedLeftTop = firstPaperRow(gray, width, height, innerLeft, threshold);
   const observedRightTop = firstPaperRow(gray, width, height, innerRight, threshold);
-  if (observedLeftTop === null || observedRightTop === null) return null;
-  const topSlope = (observedRightTop - observedLeftTop) / (innerRight - innerLeft);
-  const topLeftY = Math.max(0, observedLeftTop + topSlope * (leftAt(0) - innerLeft));
-  const topRightY = Math.max(0, observedLeftTop + topSlope * (rightAt(0) - innerLeft));
-  if (Math.max(topLeftY, topRightY) > height * 0.22) return null;
-  return [
-    { x: leftAt(topLeftY), y: topLeftY },
-    { x: rightAt(topRightY), y: topRightY },
-    { x: rightAt(height - 1), y: height - 1 },
-    { x: leftAt(height - 1), y: height - 1 },
-  ];
+  const observedTop = observedLeftTop ?? observedRightTop ?? 0;
+  const topSlope =
+    observedLeftTop !== null && observedRightTop !== null
+      ? (observedRightTop - observedLeftTop) / (innerRight - innerLeft)
+      : 0;
+  const estimatedTopLeft = Math.max(0, observedTop + topSlope * (leftAt(0) - innerLeft));
+  const estimatedTopRight = Math.max(0, observedTop + topSlope * (rightAt(0) - innerLeft));
+  const topLeftY = Math.min(height * 0.22, estimatedTopLeft);
+  const topRightY = Math.min(height * 0.22, estimatedTopRight);
+  return {
+    topEdge: observedLeftTop !== null && observedRightTop !== null ? 'observed' : 'estimated',
+    quad: [
+      { x: leftAt(topLeftY), y: topLeftY },
+      { x: rightAt(topRightY), y: topRightY },
+      { x: rightAt(height - 1), y: height - 1 },
+      { x: leftAt(height - 1), y: height - 1 },
+    ],
+  };
+}
+
+// 012. Exposes only the detected quadrilateral for callers that do not need edge confidence.
+export function detectReceiptSectionQuad(pixels: ReceiptPixels): ReceiptQuad | null {
+  return detectReceiptSection(pixels)?.quad ?? null;
 }

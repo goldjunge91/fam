@@ -24,6 +24,7 @@ import {
 } from './input';
 import { isKnownMarketLine, normalizeRossmannArtifacts } from './retailers';
 
+// 102. Checks whether a normalized line can produce an item instead of metadata or an exclusion.
 export function isLikelyReceiptItemLine(line: NormalizedLine): boolean {
   if (
     line.text.length === 0 ||
@@ -38,6 +39,7 @@ export function isLikelyReceiptItemLine(line: NormalizedLine): boolean {
   return parseItem(line) !== null;
 }
 
+// 118. Extracts a leading quantity and removes barcode prefixes from the item name.
 function parseQuantityAndName(nameText: string): {
   name: string;
   quantity: number | null;
@@ -62,6 +64,7 @@ function parseQuantityAndName(nameText: string): {
   };
 }
 
+// 119. Recovers item name and quantity when OCR has truncated a printed unit price.
 function parseNameWithTruncatedUnitPrice(
   text: string,
 ): ReturnType<typeof parseQuantityAndName> & { priceReview?: boolean } {
@@ -76,6 +79,7 @@ function parseNameWithTruncatedUnitPrice(
   return Object.assign({}, parsed, { quantity, unit: 'Stück', priceReview: true });
 }
 
+// 120. Derives a quantity only when the unit and line prices divide consistently.
 function deriveQuantityFromPrices(unitPriceCents: number, lineTotalCents: number): number | null {
   if (unitPriceCents <= 0 || lineTotalCents <= 0) return null;
 
@@ -88,6 +92,7 @@ function deriveQuantityFromPrices(unitPriceCents: number, lineTotalCents: number
     : null;
 }
 
+// 121. Builds one item from observed line text and optional separate price evidence.
 function parseItem(
   line: NormalizedLine,
   observedLineTotal?: ObservedLineTotal,
@@ -236,10 +241,12 @@ function parseItem(
   };
 }
 
+// 122. Identifies item lines that begin with an optional quantity and barcode.
 function isBarcodePrefixedItemLine(text: string): boolean {
   return /^(?:\d+(?:[.,]\d+)?\s*[x×]\s*)?\d{8,14}\b/iu.test(text.trim());
 }
 
+// 123. Accepts a separated price row only when no unsupported text remains.
 function parsePriceColumn(line: NormalizedLine): readonly MoneyToken[] | null {
   const tokens = parseMoneyTokens(line.text);
   if (tokens.length === 0 || tokens.some(({ negative }) => negative)) return null;
@@ -255,6 +262,7 @@ function parsePriceColumn(line: NormalizedLine): readonly MoneyToken[] | null {
   return unsupportedText.length === 0 ? tokens : null;
 }
 
+// 124. Matches a standalone price row to an adjacent run of barcode item lines.
 function separatedPriceAssignments(
   lines: readonly NormalizedLine[],
 ): ReadonlyMap<number, ObservedLineTotal> {
@@ -316,6 +324,7 @@ function separatedPriceAssignments(
   return assignments;
 }
 
+// 125. Parses the item section and records recognized non-item lines with their evidence.
 export function parseItems(
   lines: readonly NormalizedLine[],
   market: string | null,

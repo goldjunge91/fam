@@ -157,8 +157,11 @@ describe('OcrInspectorScreen', () => {
         contrast: 'none',
         sharpen: 'off',
         quality: 'source',
+        brightness: 'none',
+        threshold: 'off',
       },
       imageSize: { width: 1_000, height: 2_000 },
+      receiptGeometry: null,
       lines: [
         {
           text: 'EDEKA',
@@ -171,6 +174,12 @@ describe('OcrInspectorScreen', () => {
           boundingBox: { x: 0.1, y: 0.2, width: 0.8, height: 0.04 },
         },
       ],
+      manualLabels: {
+        article: { lineIndexes: [], text: '' },
+        quantity: { lineIndexes: [], text: '' },
+        unitPrice: { lineIndexes: [], text: '' },
+        price: { lineIndexes: [], text: '' },
+      },
     });
     await user.press(screen.getByRole('button', { name: 'Kopieren' }));
     expect(Clipboard.setStringAsync).toHaveBeenCalledWith('EDEKA\nMilch 1,99');
@@ -192,6 +201,26 @@ describe('OcrInspectorScreen', () => {
       lines: [{ text: 'EDEKA' }, { text: 'Milch 1,99' }],
     });
     expect(screen.getByRole('button', { name: 'Mit Einstellungen ausführen' })).toBeOnTheScreen();
+  });
+
+  it('combines manually assigned OCR labels into the JSON export', async () => {
+    await renderScreen();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'Bild für OCR auswählen' }));
+    await screen.findByDisplayValue('EDEKA\nMilch 1,99');
+    await user.press(screen.getByRole('button', { name: 'Auswählen für Artikel: EDEKA' }));
+    await user.press(screen.getByRole('radio', { name: 'Menge' }));
+    await user.press(screen.getByRole('button', { name: 'Auswählen für Menge: Milch 1,99' }));
+    await user.press(screen.getByRole('button', { name: 'JSON kopieren' }));
+
+    const json = jest.mocked(Clipboard.setStringAsync).mock.calls[0]?.[0];
+    expect(JSON.parse(json ?? '')).toMatchObject({
+      manualLabels: {
+        article: { lineIndexes: [0], text: 'EDEKA' },
+        quantity: { lineIndexes: [1], text: 'Milch 1,99' },
+      },
+    });
   });
 
   it('shows and hides the same JSON that the copy button provides', async () => {

@@ -137,6 +137,8 @@ describe('ocr-inspector-pipeline', () => {
         contrast: 'none',
         sharpen: 'off',
         quality: 'source',
+        brightness: 'none',
+        threshold: 'off',
       },
       { readBytes: jest.fn() },
     );
@@ -187,6 +189,8 @@ describe('ocr-inspector-pipeline', () => {
         contrast: 'low',
         sharpen: 'medium',
         quality: 'low',
+        brightness: 'none',
+        threshold: 'off',
       },
       { readBytes },
     );

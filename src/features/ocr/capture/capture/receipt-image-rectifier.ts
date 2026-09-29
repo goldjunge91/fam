@@ -1,5 +1,5 @@
 import {
-  detectReceiptSectionQuad,
+  detectReceiptSection,
   needsReceiptPerspectiveCorrection,
   type ReceiptPoint,
 } from './receipt-edges';
@@ -10,15 +10,17 @@ type NativeCvModule = Pick<typeof import('react-native-executorch'), 'cv' | 'ten
 const DETECTION_LONG_EDGE = 500;
 const WORKING_LONG_EDGE = 4_032;
 
+// 013. Scales a point between preview, source, and working-image coordinates.
 function scalePoint(point: ReceiptPoint, xScale: number, yScale: number): ReceiptPoint {
   return { x: point.x * xScale, y: point.y * yScale };
 }
 
+// 014. Measures the straight-line distance between two detected receipt corners.
 function distance(left: ReceiptPoint, right: ReceiptPoint): number {
   return Math.hypot(right.x - left.x, right.y - left.y);
 }
 
-/** Returns a temporary local PNG, or null when the visible receipt edges are uncertain. */
+// 015. Rectifies a locally stored receipt image when its visible edges are reliable.
 export async function rectifyReceiptImage(sourceUri: string): Promise<string | null> {
   if (!sourceUri.startsWith('file://')) return null;
   const { Images, loadImage } = require('react-native-nitro-image') as NitroImageModule;
@@ -35,9 +37,11 @@ export async function rectifyReceiptImage(sourceUri: string): Promise<string | n
           Math.max(1, Math.round(sourceImage.height * detectionScale)),
         );
   const previewPixels = await preview.toRawPixelDataAsync();
-  const detected = detectReceiptSectionQuad(previewPixels);
-  if (!detected) return null;
-  if (!needsReceiptPerspectiveCorrection(detected, preview.width, preview.height)) return null;
+  const detection = detectReceiptSection(previewPixels);
+  if (detection?.topEdge !== 'observed') return null;
+  if (!needsReceiptPerspectiveCorrection(detection.quad, preview.width, preview.height))
+    return null;
+  const detected = detection.quad;
 
   const scaled = detected.map((point) =>
     scalePoint(point, sourceImage.width / preview.width, sourceImage.height / preview.height),
@@ -58,6 +62,7 @@ export async function rectifyReceiptImage(sourceUri: string): Promise<string | n
         );
   const pixels = await working.toRawPixelDataAsync();
   if (pixels.buffer.byteLength !== pixels.width * pixels.height * 4) return null;
+  // 016. Maps source-image points into the cropped, resized image sent to CV.
   const withinWorkingImage = (point: ReceiptPoint) =>
     scalePoint(
       { x: point.x - left, y: point.y - top },

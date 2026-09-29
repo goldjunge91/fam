@@ -48,6 +48,7 @@ export type ReceiptProcessingProgress =
   | { phase: 'preparing'; progress: number }
   | { phase: 'reading'; pageIndex: number; pageCount: number };
 
+// 021. Extracts a stable failure code and message from processing errors.
 function errorDetails(error: unknown): { code: string; message: string } {
   if (typeof error === 'object' && error !== null) {
     const candidate = error as { code?: unknown; message?: unknown };
@@ -68,6 +69,7 @@ function errorDetails(error: unknown): { code: string; message: string } {
   };
 }
 
+// 064. Adds the capture-page index to each normalized OCR line.
 function pageLines(result: ReceiptOcrResult, pageIndex: number): ReceiptOcrLine[] {
   return result.lines.map((line) => ({
     text: line.text,
@@ -77,10 +79,8 @@ function pageLines(result: ReceiptOcrResult, pageIndex: number): ReceiptOcrLine[
   }));
 }
 
-/**
- * Runs on-device OCR for every captured page in order and parses one transient
- * semantic draft. OCR lines are deliberately not part of the returned value.
- */
+// 020. Recognizes captured pages in order and parses one transient receipt draft.
+//     Failures retain the page index; raw OCR lines stay internal to this step.
 export async function processReceiptCapture(input: {
   capture: ReceiptCaptureDraft;
   provider?: ReceiptOcrProvider;
@@ -233,6 +233,7 @@ const DEFAULT_AUTHORITY: ReceiptAuthorityWriter = {
   saveReceiptReview,
 };
 
+// 126. Maps supported receipt units to the units accepted by receipt storage.
 function authorityUnit(unit: string | null): string | null {
   if (unit === null) return null;
   if (unit === 'Stück' || unit === 'Stk') return 'piece';
@@ -242,21 +243,20 @@ function authorityUnit(unit: string | null): string | null {
   return null;
 }
 
+// 127. Selects the review identifier, falling back to source line or item position.
 function reviewedItemId(item: ReceiptDraft['items'][number], index: number): string {
   const reviewId = (item as ReceiptDraft['items'][number] & { reviewId?: unknown }).reviewId;
   if (typeof reviewId === 'string' && reviewId.trim().length > 0) return reviewId;
   return item.sourceLineIndex >= 0 ? `line-${item.sourceLineIndex}` : `item-${index}`;
 }
 
+// 128. Trims required text and rejects an empty value with its field name.
 function requireText(value: string, field: string): string {
   if (value.trim().length === 0) throw new Error(`${field} is required.`);
   return value.trim();
 }
 
-/**
- * Persists only the reviewed, structured draft. Asset upload is intentionally
- * best-effort and remains retryable when the device is offline.
- */
+// 129. Validates and persists the reviewed receipt, then reports any pending image upload.
 export async function finalizeReceiptReview(
   input: FinalizeReceiptReviewInput,
   dependencies: FinalizeReceiptDependencies = {},

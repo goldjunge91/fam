@@ -29,14 +29,17 @@ type LineGroup = {
 const LAYOUT_MONEY_PATTERN =
   /(?:€|EUR)?\s*[-−+]?(?:(?:\d{1,3}(?:\.\d{3})+,\d{2})|(?:\d+[,.]\d{2}))/iu;
 
+// 070. Distinguishes page containers from individual OCR lines.
 function isReceiptOcrPage(value: ReceiptOcrLine | ReceiptOcrPage): value is ReceiptOcrPage {
   return 'lines' in value;
 }
 
+// 071. Replaces non-finite geometry values with the supplied fallback.
 function finiteOr(value: number, fallback: number): number {
   return Number.isFinite(value) ? value : fallback;
 }
 
+// 072. Clamps an OCR box to known page bounds without moving it outside the page.
 function normalizeBoundingBox(
   box: ReceiptOcrBoundingBox,
   page: Pick<ReceiptOcrPage, 'width' | 'height'>,
@@ -60,6 +63,7 @@ function normalizeBoundingBox(
   };
 }
 
+// 073. Normalizes OCR whitespace while preserving the observed words and symbols.
 export function normalizedText(text: string): string {
   return text
     .replace(/\u00a0/g, ' ')
@@ -67,16 +71,19 @@ export function normalizedText(text: string): string {
     .trim();
 }
 
+// 074. Identifies the standalone EUR heading used above receipt price columns.
 function isColumnHeaderText(text: string): boolean {
   return /^EUR$/iu.test(normalizedText(text));
 }
 
+// 075. Recognizes standalone customer or receipt metadata fragments.
 function isStandaloneReceiptMetadata(text: string): boolean {
   return /^(?:\s*(?:kd\s*nr|kunden(?:nummer|nr))\s*:?\s*|\s*\*+\d{2,}\s*)$/iu.test(
     normalizedText(text),
   );
 }
 
+// 076. Selects left-side text fragments that can anchor an article row.
 function isPrimaryRowEntry(entry: PageEntry, maxRight: number): boolean {
   const text = normalizedText(entry.line.text);
   if (text.length === 0 || isColumnHeaderText(text) || isStandaloneReceiptMetadata(text)) {
@@ -91,6 +98,7 @@ function isPrimaryRowEntry(entry: PageEntry, maxRight: number): boolean {
   return box === null || maxRight <= 0 || box.x / maxRight <= 0.5;
 }
 
+// 077. Returns the weakest known fragment confidence, or null when any is unknown.
 function confidenceFor(entries: readonly PageEntry[]): ReceiptConfidence {
   if (entries.some(({ line }) => line.confidence === null)) {
     return null;
@@ -105,6 +113,7 @@ function confidenceFor(entries: readonly PageEntry[]): ReceiptConfidence {
   return confidences.length === entries.length ? Math.min(...confidences) : null;
 }
 
+// 078. Derives the enclosing geometry and vertical anchor for a grouped row.
 function groupGeometry(group: LineGroup): {
   top: number;
   bottom: number;
@@ -127,6 +136,7 @@ function groupGeometry(group: LineGroup): {
   };
 }
 
+// 079. Returns the median value used for robust row anchors.
 function median(values: readonly number[]): number {
   const sorted = [...values].sort((left, right) => left - right);
   const middle = Math.floor(sorted.length / 2);
@@ -137,6 +147,7 @@ function median(values: readonly number[]): number {
     : (upper ?? lower ?? 0);
 }
 
+// 080. Measures vertical center distance when both row and fragment boxes are valid.
 function rowDistance(group: LineGroup, entry: PageEntry): number | null {
   const box = entry.boundingBox;
   if (group.anchorCenter === null || group.anchorHeight === null || !box) {
@@ -150,6 +161,7 @@ function rowDistance(group: LineGroup, entry: PageEntry): number | null {
   return Math.abs(group.anchorCenter - boxCenter);
 }
 
+// 081. Checks whether two boxes overlap across at least half of the narrower width.
 function sharesHorizontalColumn(
   left: ReceiptOcrBoundingBox,
   right: ReceiptOcrBoundingBox,
@@ -161,6 +173,7 @@ function sharesHorizontalColumn(
   return smallerWidth > 0 && overlap >= smallerWidth * 0.5;
 }
 
+// 082. Detects whether a fragment overlaps an existing column in the group.
 function hasHorizontalColumnConflict(group: LineGroup, entry: PageEntry): boolean {
   const entryBox = entry.boundingBox;
   if (!entryBox || entryBox.width <= 0) return false;
@@ -170,6 +183,7 @@ function hasHorizontalColumnConflict(group: LineGroup, entry: PageEntry): boolea
   });
 }
 
+// 083. Tests row membership using vertical distance and horizontal-column conflicts.
 function belongsToSameRow(group: LineGroup, entry: PageEntry): boolean {
   const distance = rowDistance(group, entry);
   const box = entry.boundingBox;
@@ -180,13 +194,13 @@ function belongsToSameRow(group: LineGroup, entry: PageEntry): boolean {
     return false;
   }
 
-  // OCR providers can report a shorter price box whose baseline is lower than
-  // the product-name box. Use the larger observed row height for the tolerance
-  // while keeping it below the distance to the next normal receipt row.
+  // Short price boxes can sit lower than product names; use the larger box for tolerance.
+  // Keep the tolerance below the distance to the next receipt row.
   const centerTolerance = Math.max(group.anchorHeight, box.height) * 1.25;
   return distance <= centerTolerance;
 }
 
+// 084. Adds an observed fragment and updates the row's anchor and enclosing geometry.
 function addToGroup(group: LineGroup, entry: PageEntry, isPrimaryEntry = false): void {
   group.entries.push(entry);
   const box = entry.boundingBox;
@@ -211,6 +225,7 @@ function addToGroup(group: LineGroup, entry: PageEntry, isPrimaryEntry = false):
   group.right = group.right === null ? right : Math.max(group.right, right);
 }
 
+// 085. Creates a row group initialized from one observed fragment.
 function createGroup(entry: PageEntry, isPrimaryEntry = false): LineGroup {
   const group: LineGroup = {
     entries: [],
@@ -227,6 +242,7 @@ function createGroup(entry: PageEntry, isPrimaryEntry = false): LineGroup {
   return group;
 }
 
+// 086. Checks whether a secondary fragment falls within the primary row's vertical band.
 function belongsToPrimaryRow(group: LineGroup, entry: PageEntry): boolean {
   const distance = rowDistance(group, entry);
   const box = entry.boundingBox;
@@ -236,6 +252,7 @@ function belongsToPrimaryRow(group: LineGroup, entry: PageEntry): boolean {
   return distance <= centerTolerance;
 }
 
+// 087. Detects quantity notation among the row's existing fragments.
 function hasQuantityMarker(group: LineGroup): boolean {
   return group.entries.some(({ line }) => {
     const text = normalizedText(line.text);
@@ -246,24 +263,29 @@ function hasQuantityMarker(group: LineGroup): boolean {
   });
 }
 
+// 088. Recognizes a price fragment that begins with a currency marker.
 function isLeadingCurrencyFragment(entry: PageEntry): boolean {
   return /^\s*(?:€|EUR)\s*\d/iu.test(normalizedText(entry.line.text));
 }
 
+// 089. Checks whether a fragment ends with a supported receipt tax code.
 function hasTrailingTaxCode(entry: PageEntry): boolean {
   return /(?:^|\s)(?:A|B|AW|BW)\s*$/iu.test(normalizedText(entry.line.text));
 }
 
+// 090. Recognizes a tax-code fragment with no accompanying text.
 function isStandaloneTaxCode(text: string): boolean {
   return /^(?:A|B|AW|BW)$/iu.test(normalizedText(text));
 }
 
+// 091. Measures a price fragment's horizontal distance from the row's primary text.
 function horizontalDistance(group: LineGroup, entry: PageEntry): number {
   const box = entry.boundingBox;
   if (group.primaryRight === null || !box) return Number.POSITIVE_INFINITY;
   return Math.abs(box.x - group.primaryRight);
 }
 
+// 092. Measures vertical overlap as a fraction of the shorter OCR box.
 function verticalOverlapRatio(left: ReceiptOcrBoundingBox, right: ReceiptOcrBoundingBox): number {
   const leftBottom = left.y + left.height;
   const rightBottom = right.y + right.height;
@@ -272,6 +294,7 @@ function verticalOverlapRatio(left: ReceiptOcrBoundingBox, right: ReceiptOcrBoun
   return smallerHeight > 0 ? overlap / smallerHeight : 0;
 }
 
+// 093. Finds the nearest candidate row below the previously assigned row.
 function nextRowAfter(
   candidates: readonly LineGroup[],
   previousGroup: LineGroup,
@@ -294,6 +317,7 @@ function nextRowAfter(
     )[0];
 }
 
+// 094. Chooses a candidate row for a price fragment using vertical and column cues.
 function closestSecondaryRow(
   entry: PageEntry,
   candidates: readonly LineGroup[],
@@ -336,7 +360,7 @@ function closestSecondaryRow(
   return nearest;
 }
 
-/** Matches a complete, consistently lowered price column by row order. */
+// 095. Aligns a complete lowered price column with rows by their vertical order.
 function alignedPriceColumn(
   groups: readonly LineGroup[],
   secondaryEntries: readonly PageEntry[],
@@ -406,6 +430,7 @@ function alignedPriceColumn(
   return result;
 }
 
+// 069. Groups one page's primary text and secondary fragments into reading-order lines.
 function reconstructPage(entries: readonly PageEntry[]): ReceiptOcrLine[] {
   const groups: LineGroup[] = [];
   const maxRight = entries.reduce(
@@ -547,6 +572,7 @@ function reconstructPage(entries: readonly PageEntry[]): ReceiptOcrLine[] {
     .filter(({ text }) => text.length > 0);
 }
 
+// 068. Normalizes flat lines or page containers into per-page geometry entries.
 function pageEntries(
   input: LayoutInput,
 ): Array<{ page: ReceiptOcrPage; entries: PageEntry[]; order: number }> {
@@ -588,10 +614,7 @@ function pageEntries(
   return [...byPage.values()];
 }
 
-/**
- * Rebuilds OCR fragments into deterministic, page-ordered receipt lines.
- * Only observed text is joined; no words or amounts are inferred.
- */
+// 067. Orders pages and rebuilds their OCR fragments without adding unobserved text.
 export function reconstructReceiptLines(input: LayoutInput): readonly ReceiptOcrLine[] {
   return pageEntries(input)
     .sort((left, right) => {

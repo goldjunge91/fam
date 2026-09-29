@@ -238,6 +238,38 @@ korrekt orientierte JPEGs den Provider. Händler und sichtbare Summen entspreche
 dem Goldmanifest; Coupons, Pfand, Steuer, Zahlung, Signatur und Barcode werden
 nicht zu Artikeln.
 
+### Follow-up: deterministische Beleggeometrie
+
+Die Geometrie hat zwei getrennte Owner:
+
+- `fam-iird.4` führt Bildkanten, Perspektivkorrektur und die drei überlappenden
+  OCR-Abschnitte langer Belege. Unsichere Bildgeometrie verwendet das
+  Originalbild.
+- `fam-iird.8` stabilisiert die nachgelagerte Rekonstruktion von OCR-Zeilen aus
+  normalisierten Text-/Bounding-Box-Eingaben. Die Aufgabe hängt von `fam-iird.4`
+  ab und ändert keine Händlersonderregeln.
+
+**Determinismus-Vertrag:** Bei identischer normalisierter OCR-Eingabe entstehen
+dieselben Gruppen, Texte und Reihenfolgen. Wenn Geometrie die Reihenfolge
+eindeutig macht, darf eine andere Reihenfolge der Provider-Fragmente das
+Ergebnis nicht ändern. Bei fehlender oder mehrdeutiger Geometrie bleibt die
+Zuordnung konservativ und reproduzierbar. Es werden keine Wörter oder Beträge
+ergänzt. Vision und MLKit dürfen unterschiedliche OCR-Texte und Boxen liefern;
+identische Ergebnisse zwischen verschiedenen OCR-Engines sind kein Ziel dieses
+Layout-Vertrags.
+
+**Checkpoint:** Layout-Tests belegen Eingabepermutationen, stabile Tie-Breaks,
+Seitenreihenfolge, getrennte Fragmente bei mehrdeutiger Geometrie und die
+bestehenden EDEKA-/ROSSMANN-Spaltenfälle. Die echte Cross-Platform-Abnahme
+bleibt Teil von `fam-swdk`.
+
+**Erhalt der OCR-Funktionskommentare:** Die nummerierten Funktionskommentare
+bilden den Bildverarbeitungsweg ab und bleiben bei Verschiebungen, Aufteilungen
+und Refactorings erhalten. Ändert sich die Verarbeitung, werden Text und Nummern
+mit dem neuen Owner angepasst. Wird eine Funktion ersetzt oder zusammengeführt,
+wird ihr erklärender Inhalt an die verbleibende Funktion übertragen; die
+Kommentare werden nicht ersatzlos gelöscht.
+
 ### Phase 3: belastbarer Nutzerfluss
 
 5. `fam-qt4m` — Capture-Draft, Seitenfolge und Retry kontobezogen

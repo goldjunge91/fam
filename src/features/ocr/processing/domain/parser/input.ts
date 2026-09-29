@@ -30,15 +30,18 @@ export type ObservedLineTotal = {
 };
 
 const BARCODE_TOKEN_PATTERN = /\b\d{8,14}\b/g;
+// 096. Clamps finite OCR confidence to the supported range and preserves unknown values.
 export function normalizeConfidence(value: ReceiptConfidence): ReceiptConfidence {
   if (value === null || !Number.isFinite(value)) return null;
   return Math.max(0, Math.min(1, value));
 }
 
+// 097. Scales known confidence and normalizes the result to the supported range.
 export function scaleConfidence(value: ReceiptConfidence, factor: number): ReceiptConfidence {
   return value === null ? null : normalizeConfidence(value * factor);
 }
 
+// 098. Splits repeated barcode segments while retaining any leading quantity marker.
 function splitBarcodePrefixedLine(
   line: Omit<NormalizedLine, 'index'>,
 ): readonly Omit<NormalizedLine, 'index'>[] {
@@ -66,6 +69,7 @@ function splitBarcodePrefixedLine(
   return segments.length > 0 ? segments : [line];
 }
 
+// 066. Converts text, line, or page input into indexed normalized parser lines.
 export function normalizeInput(input: ParserInput): readonly NormalizedLine[] {
   const sourceLines =
     typeof input === 'string'
@@ -83,6 +87,7 @@ export function normalizeInput(input: ParserInput): readonly NormalizedLine[] {
   return sourceLines.flatMap(splitBarcodePrefixedLine).map((line, index) => ({ ...line, index }));
 }
 
+// 099. Creates a missing draft field with review required and no source evidence.
 export function emptyField<T>(): ReceiptDraftField<T> {
   return {
     value: null,
@@ -93,6 +98,7 @@ export function emptyField<T>(): ReceiptDraftField<T> {
   };
 }
 
+// 100. Builds a draft field with normalized confidence and its originating evidence.
 export function field<T>(
   value: T,
   confidence: ReceiptConfidence,
@@ -110,6 +116,7 @@ export function field<T>(
   };
 }
 
+// 101. Records a missing value against the line that was considered as evidence.
 export function missingField<T>(line: NormalizedLine): ReceiptDraftField<T> {
   return {
     value: null,

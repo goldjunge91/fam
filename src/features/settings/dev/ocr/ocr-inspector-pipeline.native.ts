@@ -1,5 +1,6 @@
 import type { ReceiptCaptureFileAdapter } from '@/features/ocr/capture/capture/contracts';
 import type {
+  InspectorBrightness,
   InspectorContrast,
   InspectorCrop,
   InspectorImageSettings,
@@ -93,12 +94,51 @@ function contrastFactor(contrast: InspectorContrast): number {
   return 1;
 }
 
+function brightnessOffset(brightness: InspectorBrightness): number {
+  if (brightness === 'low') return -24;
+  if (brightness === 'high') return 24;
+  return 0;
+}
+
+function otsuThreshold(histogram: Uint32Array, pixelCount: number): number {
+  let total = 0;
+  let weightedTotal = 0;
+  for (let value = 0; value < histogram.length; value += 1) {
+    total += histogram[value] ?? 0;
+    weightedTotal += value * (histogram[value] ?? 0);
+  }
+  if (total === 0 || total !== pixelCount) return 128;
+
+  let backgroundWeight = 0;
+  let backgroundTotal = 0;
+  let bestThreshold = 128;
+  let bestVariance = -1;
+  for (let value = 0; value < histogram.length; value += 1) {
+    backgroundWeight += histogram[value] ?? 0;
+    if (backgroundWeight === 0) continue;
+    const foregroundWeight = total - backgroundWeight;
+    if (foregroundWeight === 0) break;
+    backgroundTotal += value * (histogram[value] ?? 0);
+    const backgroundMean = backgroundTotal / backgroundWeight;
+    const foregroundMean = (weightedTotal - backgroundTotal) / foregroundWeight;
+    const variance = backgroundWeight * foregroundWeight * (backgroundMean - foregroundMean) ** 2;
+    if (variance > bestVariance) {
+      bestVariance = variance;
+      bestThreshold = value;
+    }
+  }
+  return bestThreshold;
+}
+
 function processPixels(
   buffer: ArrayBuffer,
   width: number,
   height: number,
   pixelFormat: string,
-  settings: Pick<InspectorImageSettings, 'colorMode' | 'contrast' | 'sharpen'>,
+  settings: Pick<
+    InspectorImageSettings,
+    'brightness' | 'colorMode' | 'contrast' | 'sharpen' | 'threshold'
+  >,
 ): ArrayBuffer {
   // Nitro Image returns an interleaved native buffer; preserve its channel order
   // while applying grayscale, contrast, and sharpening in place on a copy.
@@ -110,17 +150,44 @@ function processPixels(
   }
 
   const factor = contrastFactor(settings.contrast);
-  for (let offset = 0; offset < expectedLength; offset += layout.stride) {
-    const red = pixels[offset + layout.red] ?? 0;
-    const green = pixels[offset + layout.green] ?? 0;
-    const blue = pixels[offset + layout.blue] ?? 0;
+  const brightness = brightnessOffset(settings.brightness);
+  const luminanceValues = new Uint8Array(width * height);
+  const histogram = new Uint32Array(256);
+  for (let pixelOffset = 0; pixelOffset < expectedLength; pixelOffset += layout.stride) {
+    const red = clampChannel((pixels[pixelOffset + layout.red] ?? 0) + brightness);
+    const green = clampChannel((pixels[pixelOffset + layout.green] ?? 0) + brightness);
+    const blue = clampChannel((pixels[pixelOffset + layout.blue] ?? 0) + brightness);
     const luminance = red * 0.2126 + green * 0.7152 + blue * 0.0722;
-    const nextRed = settings.colorMode === 'grayscale' ? luminance : red;
-    const nextGreen = settings.colorMode === 'grayscale' ? luminance : green;
-    const nextBlue = settings.colorMode === 'grayscale' ? luminance : blue;
-    pixels[offset + layout.red] = clampChannel((nextRed - 128) * factor + 128);
-    pixels[offset + layout.green] = clampChannel((nextGreen - 128) * factor + 128);
-    pixels[offset + layout.blue] = clampChannel((nextBlue - 128) * factor + 128);
+    const adjustedLuminance = clampChannel((luminance - 128) * factor + 128);
+    const index = pixelOffset / layout.stride;
+    luminanceValues[index] = adjustedLuminance;
+    histogram[adjustedLuminance] = (histogram[adjustedLuminance] ?? 0) + 1;
+    const nextRed =
+      settings.colorMode === 'grayscale'
+        ? adjustedLuminance
+        : clampChannel((red - 128) * factor + 128);
+    const nextGreen =
+      settings.colorMode === 'grayscale'
+        ? adjustedLuminance
+        : clampChannel((green - 128) * factor + 128);
+    const nextBlue =
+      settings.colorMode === 'grayscale'
+        ? adjustedLuminance
+        : clampChannel((blue - 128) * factor + 128);
+    pixels[pixelOffset + layout.red] = nextRed;
+    pixels[pixelOffset + layout.green] = nextGreen;
+    pixels[pixelOffset + layout.blue] = nextBlue;
+  }
+
+  if (settings.threshold === 'auto') {
+    const threshold = otsuThreshold(histogram, width * height);
+    for (let index = 0; index < luminanceValues.length; index += 1) {
+      const value = luminanceValues[index] >= threshold ? 255 : 0;
+      const pixelOffset = index * layout.stride;
+      pixels[pixelOffset + layout.red] = value;
+      pixels[pixelOffset + layout.green] = value;
+      pixels[pixelOffset + layout.blue] = value;
+    }
   }
 
   if (settings.sharpen !== 'off' && width > 2 && height > 2) {
@@ -174,6 +241,8 @@ function hasImageChanges(settings: InspectorImageSettings): boolean {
     settings.colorMode !== 'color' ||
     settings.contrast !== 'none' ||
     settings.sharpen !== 'off' ||
+    settings.brightness !== 'none' ||
+    settings.threshold !== 'off' ||
     settings.quality !== 'source'
   );
 }
@@ -203,7 +272,11 @@ export async function prepareInspectorImage(
   }
 
   const hasPixelChanges =
-    settings.colorMode !== 'color' || settings.contrast !== 'none' || settings.sharpen !== 'off';
+    settings.colorMode !== 'color' ||
+    settings.contrast !== 'none' ||
+    settings.sharpen !== 'off' ||
+    settings.brightness !== 'none' ||
+    settings.threshold !== 'off';
   if (hasPixelChanges) {
     const raw = await image.toRawPixelDataAsync();
     const processedBuffer = processPixels(

@@ -6,6 +6,7 @@ export type ReceiptImageResizeAction = {
   resize: { width: number } | { height: number };
 };
 
+// 018. Chooses a resize dimension only when the image exceeds its long-edge limit.
 export function resizeActionForLongEdge(
   width: number,
   height: number,
@@ -26,6 +27,7 @@ export function resizeActionForLongEdge(
   return width >= height ? { resize: { width: maxLongEdge } } : { resize: { height: maxLongEdge } };
 }
 
+// 019. Checks that a normalized OCR image is local, JPEG, bounded, and well-formed.
 export function validateNormalizedReceiptImage(
   image: ReceiptStoredFile,
   limits: { maxBytes: number; maxLongEdge: number },

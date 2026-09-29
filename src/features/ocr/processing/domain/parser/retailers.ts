@@ -14,6 +14,7 @@ const MARKET_ALIASES = [
   { pattern: /\brossmann\b/i, value: 'ROSSMANN' },
   { pattern: /\bdm\b/i, value: 'dm' },
 ] as const;
+// 117. Repairs supported ROSSMANN price glyph artifacts only when a subtotal bounds them.
 export function normalizeRossmannArtifacts(
   line: NormalizedLine,
   tokens: readonly MoneyToken[],
@@ -54,9 +55,11 @@ export function normalizeRossmannArtifacts(
     };
   });
 }
+// 103. Checks whether a line contains one of the configured market aliases.
 export function isKnownMarketLine(text: string): boolean {
   return MARKET_ALIASES.some(({ pattern }) => pattern.test(text));
 }
+// 104. Finds the first recognized market line and preserves its source evidence.
 export function findMarket(lines: readonly NormalizedLine[]): ReceiptDraftField<string> {
   for (const line of lines) {
     const alias = MARKET_ALIASES.find(({ pattern }) => pattern.test(line.text));
