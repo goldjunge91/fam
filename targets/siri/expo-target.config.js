@@ -6,6 +6,6 @@ module.exports = config => ({
     "com.apple.security.application-groups":
       config.ios?.entitlements?.["com.apple.security.application-groups"] ??
       ["group.com.goldjunge91.fam1"],
-    "keychain-access-groups": ["group.com.goldjunge91.fam1"],
+    // "keychain-access-groups": ["group.com.goldjunge91.fam1"],
   },
 });

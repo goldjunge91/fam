@@ -49,10 +49,16 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       entitlements: {
         ...config.ios?.entitlements,
         'com.apple.security.application-groups': [...new Set(appGroups)],
-        'keychain-access-groups': [famAppGroup],
       },
     },
-    plugins: [...(config.plugins ?? []), '@bacons/apple-targets', ...mlKitOcrPlugins],
+    plugins: [
+      ...(config.plugins ?? []),
+      './plugins/withMainAppSiriIntent',
+      './plugins/withSiriBuildNumber',
+      '@bacons/apple-targets',
+      './plugins/withIosSimulatorArm64',
+      ...mlKitOcrPlugins,
+    ],
     name: config.name ?? 'fam',
     slug: config.slug ?? 'fam',
     extra: {
