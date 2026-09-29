@@ -2,6 +2,31 @@ import Foundation
 import SwiftUI
 import WatchConnectivity
 
+private func decodeWatchSnapshotDate(from decoder: Decoder) throws -> Date {
+    let container = try decoder.singleValueContainer()
+
+    if let referenceInterval = try? container.decode(Double.self) {
+        return Date(timeIntervalSinceReferenceDate: referenceInterval)
+    }
+
+    let value = try container.decode(String.self)
+    let formatter = ISO8601DateFormatter()
+    formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+    if let date = formatter.date(from: value) {
+        return date
+    }
+
+    formatter.formatOptions = [.withInternetDateTime]
+    if let date = formatter.date(from: value) {
+        return date
+    }
+
+    throw DecodingError.dataCorruptedError(
+        in: container,
+        debugDescription: "Expected an ISO-8601 date or a numeric reference interval.",
+    )
+}
+
 struct ShoppingItem: Codable, Equatable, Identifiable {
     let id: String
     let name: String
@@ -102,7 +127,11 @@ final class ShoppingWatchStore: NSObject, ObservableObject, WCSessionDelegate {
     private let defaults: UserDefaults
     private let snapshotKey = "fam.shopping.snapshot"
     private let encoder = JSONEncoder()
-    private let decoder = JSONDecoder()
+    private let decoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .custom(decodeWatchSnapshotDate)
+        return decoder
+    }()
     private var session: WCSession?
 
     init(

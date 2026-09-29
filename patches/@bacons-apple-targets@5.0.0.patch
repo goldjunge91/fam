@@ -1,0 +1,87 @@
+diff --git a/build/with-xcode-changes.js b/build/with-xcode-changes.js
+index 5c9d7df..0000000 100644
+--- a/build/with-xcode-changes.js
++++ b/build/with-xcode-changes.js
+@@ -65,7 +65,10 @@
+     let targetToUpdate = (_a = targets.find((target) => target.props.productName === productName)) !== null && _a !== void 0 ? _a : targets[0];
+     if (targetToUpdate) {
+         (0, util_1.warnOnce)(`Target "${targetToUpdate.props.productName}" already exists, updating instead of creating a new one`);
++        for (const duplicateTarget of targets.filter((target) => target.props.productName === productName && target.uuid !== targetToUpdate.uuid)) {
++            duplicateTarget.removeFromProject();
++        }
+     }
+     const magicCwd = path_1.default.join(config._internal.projectRoot, "ios", props.cwd);
+     function applyDevelopmentTeamIdToTargets() {
+         var _a, _b;
+@@ -219,7 +219,9 @@
+     }
+     if (targetToUpdate) {
+         // Remove existing build phases
+-        targetToUpdate.props.buildConfigurationList.props.buildConfigurations.forEach((config) => {
++        const existingConfigurationList = targetToUpdate.props.buildConfigurationList;
++        const newConfigurationList = (0, configuration_list_1.createConfigurationListForType)(project, props);
++        [...existingConfigurationList.props.buildConfigurations].forEach((config) => {
+             config.getReferrers().forEach((ref) => {
+                 ref.removeReference(config.uuid);
+             });
+@@ -231,10 +233,12 @@
+             .forEach((ref) => {
+             ref.removeReference(targetToUpdate.props.buildConfigurationList.uuid);
+         });
+-        targetToUpdate.props.buildConfigurationList.removeFromProject();
++        existingConfigurationList.getReferrers().forEach((ref) => {
++            ref.removeReference(existingConfigurationList.uuid);
++        });
++        existingConfigurationList.removeFromProject();
+         // Create new build phases
+-        targetToUpdate.props.buildConfigurationList =
+-            (0, configuration_list_1.createConfigurationListForType)(project, props);
++        targetToUpdate.props.buildConfigurationList = newConfigurationList;
+     }
+     else {
+         const productType = (0, target_1.productTypeForType)(props.type);
+diff --git a/build/target.js b/build/target.js
+index 5c9d7df..0000000 100644
+--- a/build/target.js
++++ b/build/target.js
+@@ -710,6 +710,11 @@
+             "com.apple.product-type.application.on-demand-install-capable") {
+         return true;
+     }
++    if (type === "app-intent" &&
++        target.props.productType ===
++            "com.apple.product-type.extensionkit-extension") {
++        return true;
++    }
+     const hasWatchOS = "WATCHOS_DEPLOYMENT_TARGET" in
+         target.getDefaultConfiguration().props.buildSettings;
+     if (type === "watch-widget" &&
++
+diff --git a/build/icon/with-image-asset.js b/build/icon/with-image-asset.js
+--- a/build/icon/with-image-asset.js
++++ b/build/icon/with-image-asset.js
+@@ -220,14 +220,16 @@
+ async function generateWatchIconsInternalAsync(icon, projectRoot, iosNamedProjectRoot, cacheComponent) {
+     // Store the image JSON data for assigning via the Contents.json
+     const imagesJson = [];
+-    const size = 1024;
+-    const filename = getAppleIconName(size, 1);
++    const size = 40;
++    const scale = 2;
++    const filename = getAppleIconName(size, scale);
+@@
+-        width: size,
+-        height: size,
++        width: size * scale,
++        height: size * scale,
+@@
+     imagesJson.push({
+-        filename: getAppleIconName(size, 1),
+-        idiom: "universal",
++        filename,
++        idiom: "watch",
++        role: "appLauncher",
+         size: `${size}x${size}`,
+-        platform: "watchos",
++        scale: `${scale}x`,
+     });
