@@ -32,6 +32,7 @@ enum SiriShoppingDatabaseError: LocalizedError {
 final class SiriSQLiteStatement {
     private let database: OpaquePointer
     private var statement: OpaquePointer?
+    private var textBindings: [UnsafeMutablePointer<CChar>] = []
 
     init(database: OpaquePointer, sql: String) throws {
         self.database = database
@@ -52,15 +53,25 @@ final class SiriSQLiteStatement {
         if let statement {
             exsqlite3_finalize(statement)
         }
+        textBindings.forEach { $0.deallocate() }
     }
 
     func bind(_ index: Int32, text: String) throws {
         guard let statement else { throw SiriShoppingDatabaseError.databaseUnavailable }
-        let result = text.withCString { value in
-            // SQLite uses this pointer until step/finalize below, both inside
-            // this synchronous operation.
-            exsqlite3_bind_text(statement, index, value, -1, nil)
+        let bytes = Array(text.utf8)
+        guard let byteCount = Int32(exactly: bytes.count) else {
+            throw SiriShoppingDatabaseError.databaseUnavailable
         }
+        let value = UnsafeMutablePointer<CChar>.allocate(capacity: bytes.count + 1)
+        for (offset, byte) in bytes.enumerated() {
+            value[offset] = CChar(bitPattern: byte)
+        }
+        value[bytes.count] = 0
+
+        // A nil destructor tells SQLite the buffer is SQLITE_STATIC. Keep the
+        // allocation alive until after finalize in deinit.
+        textBindings.append(value)
+        let result = exsqlite3_bind_text(statement, index, value, byteCount, nil)
         try check(result, operation: "bind text")
     }
 

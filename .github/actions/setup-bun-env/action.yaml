@@ -10,6 +10,27 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Configure workspace-local caches
+      shell: bash
+      run: |
+        set -Eeuo pipefail
+        source scripts/local-build-env.sh
+        {
+          printf 'TMPDIR=%s\n' "$TMPDIR"
+          printf 'BUN_INSTALL_CACHE_DIR=%s\n' "$BUN_INSTALL_CACHE_DIR"
+          printf 'BUN_RUNTIME_TRANSPILER_CACHE_PATH=%s\n' "$BUN_RUNTIME_TRANSPILER_CACHE_PATH"
+          printf 'CP_HOME_DIR=%s\n' "$CP_HOME_DIR"
+          printf 'NPM_CONFIG_CACHE=%s\n' "$NPM_CONFIG_CACHE"
+          printf 'npm_config_cache=%s\n' "$npm_config_cache"
+          printf 'NODE_COMPILE_CACHE=%s\n' "$NODE_COMPILE_CACHE"
+          printf 'XDG_CACHE_HOME=%s\n' "$XDG_CACHE_HOME"
+          printf '__UNSAFE_EXPO_HOME_DIRECTORY=%s\n' "$__UNSAFE_EXPO_HOME_DIRECTORY"
+          if [[ -n "${CCACHE_BINARY:-}" ]]; then
+            printf 'CCACHE_BINARY=%s\n' "$CCACHE_BINARY"
+            printf 'CCACHE_DIR=%s\n' "$CCACHE_DIR"
+          fi
+        } >> "$GITHUB_ENV"
+
     - name: Set up Bun
       uses: oven-sh/setup-bun@v2
       with:
@@ -18,8 +39,8 @@ runs:
     - name: Cache Bun Dependencies
       uses: actions/cache@v6
       with:
-        path: ~/.bun/install/cache
-        key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+        path: build/cache/bun/install
+        key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock', 'bunfig.toml') }}
         restore-keys: |
           ${{ runner.os }}-bun-
 

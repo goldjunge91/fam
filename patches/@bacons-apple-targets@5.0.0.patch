@@ -1,8 +1,7 @@
 diff --git a/build/with-xcode-changes.js b/build/with-xcode-changes.js
-index 5c9d7df..0000000 100644
 --- a/build/with-xcode-changes.js
 +++ b/build/with-xcode-changes.js
-@@ -65,7 +65,10 @@
+@@ -65,6 +65,9 @@
      let targetToUpdate = (_a = targets.find((target) => target.props.productName === productName)) !== null && _a !== void 0 ? _a : targets[0];
      if (targetToUpdate) {
          (0, util_1.warnOnce)(`Target "${targetToUpdate.props.productName}" already exists, updating instead of creating a new one`);
@@ -12,8 +11,7 @@ index 5c9d7df..0000000 100644
      }
      const magicCwd = path_1.default.join(config._internal.projectRoot, "ios", props.cwd);
      function applyDevelopmentTeamIdToTargets() {
-         var _a, _b;
-@@ -219,7 +219,9 @@
+@@ -219,22 +222,21 @@
      }
      if (targetToUpdate) {
          // Remove existing build phases
@@ -24,10 +22,14 @@ index 5c9d7df..0000000 100644
              config.getReferrers().forEach((ref) => {
                  ref.removeReference(config.uuid);
              });
-@@ -231,10 +233,12 @@
-             .forEach((ref) => {
-             ref.removeReference(targetToUpdate.props.buildConfigurationList.uuid);
+             config.removeFromProject();
          });
+         // Remove existing build configuration list
+-        targetToUpdate.props.buildConfigurationList
+-            .getReferrers()
+-            .forEach((ref) => {
+-            ref.removeReference(targetToUpdate.props.buildConfigurationList.uuid);
+-        });
 -        targetToUpdate.props.buildConfigurationList.removeFromProject();
 +        existingConfigurationList.getReferrers().forEach((ref) => {
 +            ref.removeReference(existingConfigurationList.uuid);
@@ -41,7 +43,6 @@ index 5c9d7df..0000000 100644
      else {
          const productType = (0, target_1.productTypeForType)(props.type);
 diff --git a/build/target.js b/build/target.js
-index 5c9d7df..0000000 100644
 --- a/build/target.js
 +++ b/build/target.js
 @@ -710,6 +710,11 @@
@@ -56,11 +57,10 @@ index 5c9d7df..0000000 100644
      const hasWatchOS = "WATCHOS_DEPLOYMENT_TARGET" in
          target.getDefaultConfiguration().props.buildSettings;
      if (type === "watch-widget" &&
-+
 diff --git a/build/icon/with-image-asset.js b/build/icon/with-image-asset.js
 --- a/build/icon/with-image-asset.js
 +++ b/build/icon/with-image-asset.js
-@@ -220,14 +220,16 @@
+@@ -225,15 +225,16 @@
  async function generateWatchIconsInternalAsync(icon, projectRoot, iosNamedProjectRoot, cacheComponent) {
      // Store the image JSON data for assigning via the Contents.json
      const imagesJson = [];
@@ -69,12 +69,21 @@ diff --git a/build/icon/with-image-asset.js b/build/icon/with-image-asset.js
 +    const size = 40;
 +    const scale = 2;
 +    const filename = getAppleIconName(size, scale);
-@@
+     // Using this method will cache the images in `.expo` based on the properties used to generate them.
+     // this method also supports remote URLs and using the global sharp instance.
+     const { source } = await (0, image_utils_1.generateImageAsync)({ projectRoot, cacheType: IMAGE_CACHE_NAME + cacheComponent }, {
+         src: icon,
+         name: filename,
 -        width: size,
 -        height: size,
 +        width: size * scale,
 +        height: size * scale,
-@@
+         removeTransparency: true,
+         // The icon should be square, but if it's not then it will be cropped.
+         resizeMode: "cover",
+@@ -245,10 +246,11 @@
+     const assetPath = (0, path_1.join)(iosNamedProjectRoot, IMAGESET_PATH, filename);
+     await fs.promises.writeFile(assetPath, source);
      imagesJson.push({
 -        filename: getAppleIconName(size, 1),
 -        idiom: "universal",
@@ -85,3 +94,5 @@ diff --git a/build/icon/with-image-asset.js b/build/icon/with-image-asset.js
 -        platform: "watchos",
 +        scale: `${scale}x`,
      });
+     return imagesJson;
+ }

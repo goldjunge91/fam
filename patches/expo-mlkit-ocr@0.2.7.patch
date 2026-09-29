@@ -2,6 +2,29 @@ diff --git a/plugins/withMlkitSimulatorArm64Fix.js b/plugins/withMlkitSimulatorA
 index 0000000..0000000 100644
 --- a/plugins/withMlkitSimulatorArm64Fix.js
 +++ b/plugins/withMlkitSimulatorArm64Fix.js
+@@ -20,18 +20,22 @@
+   "  installer.pods_project.targets.each do |target|",
+   "    target.build_configurations.each do |config|",
+   "      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = ''",
+   "      config.build_settings['EXCLUDED_ARCHS'] = ''",
++  "      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = '$(inherited) x86_64'",
+   "    end",
+   "  end",
+   "",
+   "  installer.aggregate_targets.each do |aggregate_target|",
+   "    aggregate_target.user_project.native_targets.each do |native_target|",
+   "      native_target.build_configurations.each do |config|",
+   "        config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = ''",
+   "        config.build_settings['EXCLUDED_ARCHS'] = ''",
++  "        if ['fam', 'siri', 'ExpoWidgetsTarget'].include?(native_target.name)",
++  "          config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = '$(inherited) x86_64'",
++  "        end",
+   "      end",
+   "    end",
+   "    aggregate_target.user_project.save",
+   "  end",
+   "end",
+ ];
 @@ -50,4 +50,44 @@
    return podfile.replace(blockRegex, "\n");
  }

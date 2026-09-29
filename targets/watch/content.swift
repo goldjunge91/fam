@@ -123,6 +123,16 @@ private struct ShoppingListView: View {
                             onToggle(item.id)
                         }
                     }
+                } header: {
+                    HStack(spacing: 6) {
+                        Capsule()
+                            .fill(group.accentColor)
+                            .frame(width: 4, height: 14)
+                            .accessibilityHidden(true)
+                        Text(group.title)
+                            .font(.headline)
+                            .foregroundStyle(group.accentColor)
+                    }
                 }
             }
         }
@@ -183,6 +193,11 @@ private struct ShoppingItemRow: View {
     var body: some View {
         Button(action: onToggle) {
             HStack(spacing: 8) {
+                Capsule()
+                    .fill(item.categoryColor.map(Color.fromHex) ?? .secondary)
+                    .frame(width: 3)
+                    .accessibilityHidden(true)
+
                 Image(systemName: item.isChecked ? "checkmark.circle.fill" : "circle")
                     .foregroundStyle(item.isChecked ? .green : .secondary)
 

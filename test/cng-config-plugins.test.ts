@@ -37,6 +37,16 @@ describe('CNG config plugins', () => {
       );
       const podfile = readFileSync(join(fixture.root, 'ios/Podfile'), 'utf8');
       expect(podfile).toContain('withIosCcacheDir: disable explicit modules');
+      expect(podfile.match(/withIosSimulatorArm64: order app targets after their CocoaPods targets/g)).toHaveLength(1);
+      expect(podfile).toContain('user_target.add_dependency(pod_target)');
+      expect(podfile).toContain('project.main_group.new_file(pods_project.path, :group)');
+      expect(podfile).not.toContain('new_subproject');
+      expect(podfile).toContain('withIosSimulatorArm64: enable code signing for the app and embedded targets');
+      expect(podfile).toContain("config.build_settings['CODE_SIGNING_ALLOWED'] = 'YES'");
+      const podfileSyntax = spawnSync('ruby', ['-c', join(fixture.root, 'ios/Podfile')], {
+        encoding: 'utf8',
+      });
+      expect(podfileSyntax.status).toBe(0);
       expect(podfile).toContain(
         "c.build_settings['CC'] = File.join(__dir__, '.ccache-wrapper-clang.sh')",
       );
@@ -79,6 +89,14 @@ describe('CNG config plugins', () => {
       expect(regeneratedPodfile.match(/withIosCcacheDir: disable explicit modules/g)).toHaveLength(
         1,
       );
+      expect(
+        regeneratedPodfile.match(
+          /withIosSimulatorArm64: order app targets after their CocoaPods targets/g,
+        ),
+      ).toHaveLength(1);
+      expect(regeneratedPodfile).toContain('project.main_group.new_file(pods_project.path, :group)');
+      expect(regeneratedPodfile).not.toContain('new_subproject');
+      expect(regeneratedPodfile).toContain('withIosSimulatorArm64: enable code signing for the app and embedded targets');
 
       // EAS moves native output; the external compiler/cache stay at their host paths.
       renameSync(join(fixture.root, 'ios'), join(fixture.root, 'generated-ios'));

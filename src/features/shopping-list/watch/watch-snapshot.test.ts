@@ -49,6 +49,7 @@ describe('createWatchShoppingSnapshot', () => {
         name: 'Milch',
         quantityLabel: '2 l',
         category: 'Getränke',
+        categoryColor: null,
         isChecked: false,
       },
       {
@@ -56,6 +57,7 @@ describe('createWatchShoppingSnapshot', () => {
         name: 'Brot',
         quantityLabel: '2 l',
         category: 'Sonstiges',
+        categoryColor: '#786F79',
         isChecked: true,
       },
     ]);

@@ -46,30 +46,26 @@ jobs:
       - name: Setup Bun Environment
         uses: ./.github/actions/setup-bun-env
 
-      - name: Setup Expo & EAS
-        uses: ./.github/actions/setup-expo
-        with:
-          expo-token: ${{ secrets.EXPO_TOKEN }}
-
       - name: Build iOS IPA via EAS
         run: |
-          if [ "${{ inputs.approve_rebuild }}" != "true" ]; then
+          if [[ "$APPROVE_REBUILD" != "true" ]]; then
             echo "Native iOS-Rebuild nicht freigegeben"
             exit 1
           fi
-          mkdir -p dist
+          case "$EAS_PROFILE" in
+            preview-testflight|production) ;;
+            *) echo "Nicht unterstütztes iOS-Profil: $EAS_PROFILE" >&2; exit 2 ;;
+          esac
 
-          eas build \
-            --local \
-            --platform ios \
-            --profile "${{ inputs.profile }}" \
-            --non-interactive \
-            --output dist/fam.ipa
+          bun run eas:ios:local -- "$EAS_PROFILE" --output "build/local/eas/$EAS_PROFILE/fam.ipa"
+        env:
+          APPROVE_REBUILD: ${{ inputs.approve_rebuild }}
+          EAS_PROFILE: ${{ inputs.profile }}
 
       - name: Upload IPA to TestFlight
         uses: apple-actions/upload-testflight-build@v1
         with:
-          app-path: dist/fam.ipa
+          app-path: build/local/eas/${{ inputs.profile }}/fam.ipa
           issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
           api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}

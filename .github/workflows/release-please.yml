@@ -37,7 +37,12 @@ jobs:
         with:
           expo-token: ${{ secrets.EXPO_TOKEN }}
       - name: Build aab
-        run: eas build --local -p android --profile production --non-interactive --output app-release.aab
+        run: |
+          mkdir -p build/cache/eas build/local/eas/android-production
+          eas_workingdir="$(mktemp -d "$GITHUB_WORKSPACE/build/cache/eas/android-production.XXXXXXXX")"
+          export EAS_LOCAL_BUILD_WORKINGDIR="$eas_workingdir"
+          export EAS_LOCAL_BUILD_ARTIFACTS_DIR="$GITHUB_WORKSPACE/build/local/eas/android-production"
+          bun x eas-cli build --local -p android --profile production --non-interactive --output build/local/eas/android-production/app-release.aab
       - name: Upload to Play Store Internal Testing
         uses: r0adkll/upload-google-play@v1
         with:
@@ -56,31 +61,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-bun-env
-      - uses: ./.github/actions/setup-expo
-        with:
-          expo-token: ${{ secrets.EXPO_TOKEN }}
-      - name: Cache CocoaPods
-        uses: actions/cache@v4
-        with:
-          path: ios/Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pods-
-      - name: Install CocoaPods
-        run: |
-          cd ios
-          pod install || pod install --repo-update
-        env:
-          LANG: en_US.UTF-8
-          LC_ALL: en_US.UTF-8
       - name: Build iOS app
-        run: eas build --local -p ios --profile production --non-interactive --output app.ipa
+        run: bun run eas:ios:local -- production --output build/local/eas/production/fam.ipa
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
       - name: 'Upload app to TestFlight'
         uses: apple-actions/upload-testflight-build@v1
         with:
-          app-path: './app.ipa'
+          app-path: build/local/eas/production/fam.ipa
           issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
           api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}

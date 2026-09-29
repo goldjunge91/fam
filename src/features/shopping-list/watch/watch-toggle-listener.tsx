@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
-
-import { useToggleShoppingItem } from '../hooks/use-shopping-list-mutations';
 import { debugError } from '@/lib/observability/debug-log';
 import watchConnectivity from '../../../../modules/fam-watch-connectivity';
+import { useToggleShoppingItem } from '../hooks/use-shopping-list-mutations';
 import { toWatchShoppingToggleMutationInput } from './watch-toggle-handler';
 
 export function WatchShoppingToggleListener({

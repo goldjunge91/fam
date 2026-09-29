@@ -29,6 +29,7 @@ describe('publishWatchShoppingSnapshot', () => {
           name: 'Milch',
           quantityLabel: '2 l',
           category: 'Getränke',
+          categoryColor: null,
           isChecked: false,
         },
       ],

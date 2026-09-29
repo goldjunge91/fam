@@ -9,10 +9,12 @@ export function createCngFixture() {
   for (const path of [
     'package.json',
     'app.json',
+    'app.config.ts',
     'eas.json',
     'bun.lock',
     'react-native.config.js',
     'plugins',
+    'targets',
     'assets',
     'patches',
   ]) {

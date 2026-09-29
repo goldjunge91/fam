@@ -18,7 +18,7 @@ runs:
         set -Eeuo pipefail
         : "${APP_ARCHIVE:?APP_ARCHIVE is required}"
 
-        app_dir="$RUNNER_TEMP/fam-ios-offline-app"
+        app_dir="$GITHUB_WORKSPACE/build/cache/ios/offline-runtime/app"
         mkdir -p "$app_dir"
         tar -xzf "$APP_ARCHIVE" -C "$app_dir"
 
@@ -60,7 +60,9 @@ runs:
       run: |
         set -Eeuo pipefail
 
-        metro_log="$RUNNER_TEMP/fam-ios-metro.log"
+        runtime_dir="$GITHUB_WORKSPACE/build/cache/ios/offline-runtime"
+        mkdir -p "$runtime_dir"
+        metro_log="$runtime_dir/fam-ios-metro.log"
         nohup bun run start -- --dev-client --localhost >"$metro_log" 2>&1 &
         metro_pid=$!
         echo "METRO_PID=$metro_pid" >> "$GITHUB_ENV"
@@ -114,7 +116,8 @@ runs:
       run: |
         set -Eeuo pipefail
 
-        state_file="$RUNNER_TEMP/fam-ios-network-services.tsv"
+        state_file="$GITHUB_WORKSPACE/build/cache/ios/offline-runtime/network-services.tsv"
+        mkdir -p "$(dirname "$state_file")"
         : > "$state_file"
         echo "state_file=$state_file" >> "$GITHUB_OUTPUT"
 

@@ -33,6 +33,10 @@
       },
       "channel": "development"
     },
+    "development-local": {
+      "extends": "development",
+      "autoIncrement": false
+    },
     "development-device": {
       "extends": "development",
       "env": {
@@ -58,7 +62,7 @@
     "preview-testflight": {
       "extends": "base",
       "env": {
-        "SENTRY_DISABLE_AUTO_UPLOAD": "false",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true",
         "FAM_HARNESS_UI": "0",
         "EXPO_PUBLIC_DEV_TOOLS": "1",
         "FAM_IOS_MLKIT_OCR": "1",
@@ -73,6 +77,10 @@
         "simulator": false
       },
       "channel": "preview-testflight"
+    },
+    "preview-testflight-local": {
+      "extends": "preview-testflight",
+      "autoIncrement": false
     },
     "production": {
       "extends": "base",
@@ -92,6 +100,10 @@
         "buildType": "app-bundle"
       },
       "channel": "production"
+    },
+    "production-local": {
+      "extends": "production",
+      "autoIncrement": false
     }
   },
   "submit": {

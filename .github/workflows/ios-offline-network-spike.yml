@@ -68,19 +68,19 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ needs.build.outputs.artifact_name }}
-          path: ${{ runner.temp }}/fam-ios-offline-artifact
+          path: build/cache/ios/offline-network-spike/artifact
 
       - name: Run offline runtime
         id: offline_runtime
         uses: ./.github/actions/ios-offline-runtime
         with:
-          app-path: ${{ runner.temp }}/fam-ios-offline-artifact/fam.app.tar.gz
+          app-path: build/cache/ios/offline-network-spike/artifact/fam-watch-simulator.app.tar.gz
 
       - name: Upload Metro log
         if: ${{ failure() }}
         uses: actions/upload-artifact@v4
         with:
           name: ios-offline-network-spike-metro-log-${{ github.run_id }}
-          path: ${{ runner.temp }}/fam-ios-metro.log
+          path: build/cache/ios/offline-runtime/fam-ios-metro.log
           retention-days: 7
           if-no-files-found: ignore

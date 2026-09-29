@@ -121,12 +121,12 @@ jobs:
         id: cache-supabase-docker
         uses: actions/cache@v4
         with:
-          path: /tmp/supabase-docker-images.tar
+          path: build/cache/docker/supabase-docker-images.tar
           key: supabase-docker-${{ env.SUPABASE_CLI_VERSION }}
 
       - name: Geladene Docker-Images wiederherstellen
         if: steps.cache-supabase-docker.outputs.cache-hit == 'true'
-        run: docker load -i /tmp/supabase-docker-images.tar
+        run: docker load -i build/cache/docker/supabase-docker-images.tar
 
       - name: Lokalen Supabase-Stack starten
         run: supabase start
@@ -134,10 +134,11 @@ jobs:
       - name: Supabase Docker-Images fuer Cache speichern
         if: steps.cache-supabase-docker.outputs.cache-hit != 'true'
         run: |
-          images=$(docker images --format '{{.Repository}}:{{.Tag}}' | grep supabase || true)
-          if [ -n "$images" ]; then
-            echo "Speichere Supabase Docker Images in /tmp/supabase-docker-images.tar..."
-            docker save $images -o /tmp/supabase-docker-images.tar
+          mapfile -t images < <(docker images --format '{{.Repository}}:{{.Tag}}' | grep supabase || true)
+          if ((${#images[@]} > 0)); then
+            mkdir -p build/cache/docker
+            echo "Speichere Supabase Docker Images in build/cache/docker/supabase-docker-images.tar..."
+            docker save "${images[@]}" -o build/cache/docker/supabase-docker-images.tar
           fi
 
       - uses: ./.github/actions/setup-bun-env

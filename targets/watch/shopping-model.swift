@@ -32,6 +32,7 @@ struct ShoppingItem: Codable, Equatable, Identifiable {
     let name: String
     let quantityLabel: String
     let category: String
+    let categoryColor: String? = nil
     var isChecked: Bool
 
     var accessibilityLabel: String {
@@ -56,6 +57,25 @@ struct ShoppingCategoryGroup: Identifiable {
     let items: [ShoppingItem]
 
     var id: String { title }
+
+    var accentColor: Color {
+        items.compactMap(\.categoryColor).first.map(Color.fromHex) ?? .secondary
+    }
+}
+
+extension Color {
+    static func fromHex(_ hex: String) -> Color {
+        let normalized = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        guard normalized.count == 6, let value = UInt64(normalized, radix: 16) else {
+            return .secondary
+        }
+
+        return Color(
+            red: Double((value >> 16) & 0xff) / 255,
+            green: Double((value >> 8) & 0xff) / 255,
+            blue: Double(value & 0xff) / 255,
+        )
+    }
 }
 
 struct ShoppingSnapshot: Codable, Equatable {

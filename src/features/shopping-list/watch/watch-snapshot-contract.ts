@@ -1,3 +1,4 @@
+import { colorForCategory } from '../domain-logik/shopping-categories';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 
 export const WATCH_SNAPSHOT_KEY = 'fam.shopping.snapshot';
@@ -7,6 +8,7 @@ export type WatchShoppingItem = {
   name: string;
   quantityLabel: string;
   category: string;
+  categoryColor: string | null;
   isChecked: boolean;
 };
 
@@ -63,6 +65,7 @@ function toWatchShoppingItems(items: readonly LocalShoppingItem[]): WatchShoppin
     name: item.name,
     quantityLabel: `${item.quantity} ${item.unit}`.trim(),
     category: item.category ?? 'Sonstiges',
+    categoryColor: colorForCategory(item.category ?? 'Sonstiges'),
     isChecked: item.checked_at !== null,
   }));
 }

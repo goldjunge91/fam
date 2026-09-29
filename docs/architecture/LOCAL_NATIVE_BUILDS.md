@@ -2,56 +2,67 @@
 
 Native Apps werden in diesem Projekt lokal mit Expo, Xcode und Android Gradle
 gebaut. Die Befehle in dieser Anleitung werden vom Repository-Root ausgeführt.
+Nach einem frischen Clone zuerst `bun install --frozen-lockfile` ausführen.
+Bun-, Expo-, CocoaPods-, Node-, EAS- und temporäre lokale Build-Caches liegen
+danach unter `build/cache/`; lokale EAS-Artefakte liegen unter `build/local/`.
+Auf Macs muss der Clone unter `/Volumes/Programme` liegen. CI legt dieselben
+Caches relativ zum Runner-Workspace an.
 
-## iOS Development-App lokal bauen
+## Watch-Target lokal bauen
 
-Im Repository-Root, zuerst CNG aktualisieren, dann lokal kompilieren und
-installieren:
-
-```bash
-env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=0 FAM_UPDATE_CHANNEL=development USE_CCACHE=1 \
-  bun --env-file=.env.development.local run expo prebuild --no-clean --platform ios
-
-env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=0 FAM_UPDATE_CHANNEL=development \
-  bun --env-file=.env.development.local run expo run:ios --scheme fam
-```
-
-Für einen bestimmten Simulator oder ein verbundenes iPhone dessen Namen oder
-UDID an `--device` übergeben:
+Das Watch-Target wird zusammen mit dem iOS-Host über das `fam`-Workspace-Scheme
+gebaut. Der Befehl aktualisiert CNG, installiert CocoaPods für alle Targets und
+startet danach Xcode:
 
 ```bash
-env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=0 FAM_UPDATE_CHANNEL=development \
-  bun --env-file=.env.development.local run expo run:ios --scheme fam \
-  --device "<Gerätename oder UDID>"
+bun run ios:watch
 ```
 
-Der zweite Befehl führt den Compile mit Xcode auf diesem Mac aus. `ios/` wird
-von Expo als CNG-Ausgabe generiert und ist nicht eingecheckt. `--no-clean`
-erhält den vorhandenen nativen Ordner samt Pods und Build-Daten.
+Der Befehl läuft aus dem Repository-Root. Er baut `fam` einschließlich der
+expliziten Watch-Abhängigkeit und prüft, dass sowohl `fam.app` als auch
+`watch.app` erzeugt wurden. DerivedData, Modul-Caches, temporäre Dateien,
+CocoaPods-Cache und Build-Ergebnis liegen unter `build/cache/`.
 
-Nach dem Prebuild kann der Dev-Shortcut mit explizitem Update-Kanal verwendet
-werden:
+## iOS lokal bauen
+
+Die kurzen Befehle erledigen CNG-Prebuild und CocoaPods-Installation selbst.
+`ios/` bleibt generierter CNG-Code und wird bei jedem Lauf mit `--no-clean`
+aktualisiert:
 
 ```bash
-FAM_UPDATE_CHANNEL=development bun run ios:dev
+bun run start
+bun run ios
+bun run ios:dev
+bun run ios:preview
+bun run ios:watch
 ```
 
-`bun run ios:preview` erzeugt nur eine lokale Release-Konfiguration, kein
-TestFlight-Archiv. Für die Geräteeinrichtung eines iPhones den direkten
-`expo run:ios --device ...`-Befehl oben verwenden.
+Für einen vollständigen Neuaufbau des iOS-Hosts samt Siri, Watch und Widgets:
+
+```bash
+bun run ios --clean --no-build-cache --device generic
+```
+
+Der Wrapper führt `expo prebuild --clean`, CocoaPods-Installation und danach
+`expo run:ios --scheme fam` aus. Das `fam`-Scheme baut seine Siri-, Watch- und
+Widget-Abhängigkeiten mit. `--device generic` kompiliert für den Simulator,
+ohne ein Gerät zu starten oder die App zu installieren. Das Config-Plugin setzt
+`CODE_SIGNING_ALLOWED=YES` für die generierten Host- und Extension-Targets, weil
+Expo rohe Xcode-Buildsettings nicht als `run:ios`-Argumente weiterreicht.
+
+`ios` und `ios:dev` bauen und installieren den Development-Client mit Expo.
+`ios:preview` verwendet `.env.preview` und eine lokale Release-Konfiguration;
+es erstellt kein signiertes Store-Archiv. `ios:watch` baut das `fam`-Scheme,
+prüft das Host-App-Produkt sowie `watch.app` und schreibt alle Xcode-Ausgaben
+unter `build/cache/ios/watch-build/`.
 
 ### Google ML Kit im OCR-Inspector auf einem iPhone testen
 
 Die normalen Development-Befehle bauen die Apple-Vision-Variante. Für Google
-ML Kit muss der iPhone-Dev-Client mit `FAM_IOS_MLKIT_OCR=1` neu gebaut werden:
+ML Kit den iPhone-Dev-Client so neu bauen und starten:
 
 ```bash
-env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=1 FAM_UPDATE_CHANNEL=development USE_CCACHE=1 \
-  bun --env-file=.env.development.local run expo prebuild --no-clean --platform ios
-
-env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=1 FAM_UPDATE_CHANNEL=development \
-  bun --env-file=.env.development.local run expo run:ios --scheme fam \
-  --device "<iPhone-Name oder UDID>"
+bun run ios:mlkit -- --device "<iPhone-Name oder UDID>"
 ```
 
 Danach im OCR-Inspector „Google ML Kit“ wählen und die Erkennung erneut
@@ -59,43 +70,38 @@ ausführen. „Ausgeführt mit“ und das kopierte JSON nennen den Anbieter des
 abgeschlossenen Laufs. Die Google-ML-Kit-Konfiguration ist für ein physisches
 iPhone vorgesehen; der normale Simulator-Build verwendet Apple Vision.
 
-## iOS TestFlight-Archiv lokal erstellen
+## iOS Release- und TestFlight-Builds
 
-Der folgende Ablauf aktualisiert CNG, erhöht die lokale Xcode-Buildnummer und
-erstellt ein signiertes Xcode-Archiv auf diesem Mac. Er verwendet weder EAS
-Build noch EAS zur Versionssynchronisierung. DerivedData wird unter
-`build/cache/ios/DerivedData` wiederverwendet. Das Archiv bleibt unter
-`build/local/ios/` erhalten.
+Die lokalen EAS-Profile verwenden dieselben Konfigurationen wie Cloud-EAS,
+überschreiben aber `autoIncrement` auf `false`, damit lokale Builds die remote
+verwaltete Buildnummer nicht ändern. EAS-Arbeitsordner und Artefakte bleiben im
+Repo:
 
 ```bash
-mkdir -p build/local/ios build/cache/ios/DerivedData
-BUILD_DIR="$(mktemp -d build/local/ios/manual.XXXXXX)"
-
-env FAM_HARNESS_UI=0 FAM_IOS_MLKIT_OCR=1 EXPO_PUBLIC_DEV_TOOLS=1 \
-  EXPO_PUBLIC_USE_RN_FETCH=1 SENTRY_DISABLE_AUTO_UPLOAD=false \
-  FAM_UPDATE_CHANNEL=preview-testflight USE_CCACHE=1 \
-  bun run expo prebuild --no-clean --platform ios
-
-(cd ios && agvtool next-version -all)
-
-env FAM_UPDATE_CHANNEL=preview-testflight EXPO_PUBLIC_DEV_TOOLS=1 \
-  EXPO_PUBLIC_USE_RN_FETCH=1 SENTRY_DISABLE_AUTO_UPLOAD=false FAM_IOS_MLKIT_OCR=1 \
-  node_modules/.bin/dotenv -o -e .env.preview -- xcodebuild archive \
-  -workspace ios/fam.xcworkspace -scheme fam -configuration Release \
-  -destination 'generic/platform=iOS' \
-  -archivePath "$BUILD_DIR/fam.xcarchive" \
-  -derivedDataPath build/cache/ios/DerivedData -allowProvisioningUpdates \
-  CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=SW8RP7PA3W
-
-open -a Xcode "$BUILD_DIR/fam.xcarchive"
+bun run eas:ios:simulator:local
+bun run eas:ios:testflight:local
+bun run eas:ios:production:local
 ```
 
-`agvtool next-version -all` erhöht die lokale `CURRENT_PROJECT_VERSION` in
-Xcode. `eas.json` verwaltet die Versionsnummer für EAS unabhängig davon und
-wird von diesem lokalen Ablauf nicht abgefragt. Vor dem Upload die erhöhte
-Buildnummer in App Store Connect auf Eindeutigkeit prüfen. Xcode Organizer kann
-das geöffnete Archiv exportieren und separat zu App Store Connect hochladen;
-dafür ist ein lokal eingerichtetes Apple-Entwicklungskonto erforderlich.
+Der lokale TestFlight-/Release-Build benötigt Expo-Zugang und die in EAS
+hinterlegten iOS-Zugangsdaten. Die IPA wird in
+`build/local/eas/preview-testflight-local/` abgelegt.
+
+Cloud-Builds laufen auf der EAS-Infrastruktur und nutzen die regulären
+versionserhöhenden Profile:
+
+```bash
+bun run eas:ios:simulator
+bun run eas:ios:testflight
+bun run eas:ios:production
+```
+
+`eas.json` verwendet für alle Profile denselben CNG-Prebuild-Befehl. Der
+`withIosSimulatorArm64`-Config-Plugin ergänzt beim Pod-Install den direkten
+Xcode-Target-Dependency-Pfad vom Siri-Target zu seinem CocoaPods-Aggregat.
+Lokale EAS-, Cloud-EAS- und CI-Builds verwenden denselben Config-Plugin-Pfad;
+der CI-Simulator-Build ruft `bun run ios:watch` als kanonischen Prebuild-,
+Pods- und Xcode-Ablauf auf.
 
 ## Android lokal bauen
 
