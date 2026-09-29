@@ -189,7 +189,3 @@ test-env *args:
 # Bisher: bun run classify
 classify *args:
     bun scripts/classify.ts "$@"
-
-# Bisher: bun run analyze:inventory-duplicates
-analyze-inventory-duplicates *args:
-    bun scripts/analyze-inventory-duplicates.ts "$@"

@@ -4,14 +4,14 @@ on:
   push:
     branches: [main]
     paths-ignore:
-      - '**.md'
-      - 'docs/**'
-      - '.gitignore'
+      - "**.md"
+      - "docs/**"
+      - ".gitignore"
   pull_request:
     paths-ignore:
-      - '**.md'
-      - 'docs/**'
-      - '.gitignore'
+      - "**.md"
+      - "docs/**"
+      - ".gitignore"
 
 # Ein neuer Push auf denselben PR/Branch bricht den vorherigen Lauf ab, statt
 # ihn zu Ende laufen zu lassen — spart Minuten bei schnell aufeinanderfolgenden
@@ -76,33 +76,6 @@ jobs:
           if [[ -n "${GITHUB_STEP_SUMMARY:-}" ]]; then
             printf '%s\n' "$report" >> "$GITHUB_STEP_SUMMARY"
           fi
-
-  native-build-baseline:
-    name: Native-Build-Baseline
-    runs-on: ubuntu-latest
-    env:
-      # Der Lock beschreibt den Release-Native-Graphen ohne HarnessUI.
-      FAM_HARNESS_UI: "0"
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: ./.github/actions/setup-bun-env
-
-      - name: Native-Build-Baseline-Tests
-        run: bun run test test/native-build-baseline.test.ts --runInBand
-
-  native-build-artifact:
-    name: Native-Build-Artefakt-Lock
-    runs-on: ubuntu-latest
-    env:
-      FAM_HARNESS_UI: "0"
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: ./.github/actions/setup-bun-env
-
-      - name: Native-Build-Artefakt-Tests
-        run: bun run test test/native-build-artifact.test.ts --runInBand
 
   # Braucht eine echte lokale Supabase-Instanz (Docker) — RLS-Policies lassen
   # sich nicht sinnvoll mocken (CLAUDE.md, #43: "Ein Fehler hier ist ein

@@ -12,8 +12,10 @@ const jestConfig = require('../../jest.config.js') as {
   };
 };
 
-const CI_UNIT_SCOPE =
-  "bun run test -- --testPathPattern='^(?!.*test/native-build-(baseline|artifact)[.]test[.]ts$).*'";
+// Kanonischer Unit-Scope laut package.json. Der native-build-Ausschluss ist mit
+// der Entfernung des Fingerprint-Workflows entfallen; beide Skripte teilen sich
+// damit denselben unveränderten Jest-Defaultscope.
+const CI_UNIT_SCOPE = 'bun run test';
 
 describe('Coverage-Gate-Konfiguration', () => {
   it('definiert die dokumentierte Startbaseline für globale Coverage', () => {

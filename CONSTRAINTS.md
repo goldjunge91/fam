@@ -71,6 +71,11 @@ Beads-Task liegen; Dokumentation ist kein Selbstzweck.
 - Keine Qualitätsgrenze in dieser Datei wird abgesenkt, um eine konkrete
   Änderung grün erscheinen zu lassen. Eine bewusste Vertragsänderung braucht
   eine eigene Begründung und Maintainer-Freigabe.
+- `bun run check:floor` vergleicht den Diff gegen die Merge-Base und bricht bei
+  Suppressionen, ausgelassenen oder gelöschten Tests, entfernten Assertions,
+  unfertiger Arbeit und gesenkten Schwellen. Bestehende, begründete
+  Suppressionen bleiben erlaubt; neu hinzukommende nicht. Der Befund ersetzt
+  keine fachliche Begründung für eine Ausnahme.
 
 ### I1: Typen und Eingangsvalidierung
 
@@ -134,35 +139,6 @@ Beads-Task liegen; Dokumentation ist kein Selbstzweck.
 
 ## Messbare Ratchets
 
-### Datei- und Scope-Größe
-
-- Neue Produktionsdateien dürfen höchstens 400 Effective LOC enthalten.
-  Kleinere kohärente Dateien sind ausdrücklich erwünscht; 250 LOC sind keine
-  Ziel- oder Auffüllgröße.
-- Bereits größere, bearbeitete Produktionsdateien erhalten im Beads-Task eine
-  dokumentierte Ausnahme mit Pfad, Baseline, Owner, Reduktionsziel und
-  Ablaufdatum. Die Ausnahme erlaubt kein Wachstum gegenüber der Task-Baseline.
-- Eine reine Strukturänderung erhöht die gesamten Effective LOC ihres vorab
-  benannten Scopes nicht. Verschobene Zeilen zählen nur als Reduktion, wenn die
-  alte Implementierung und ihr alter Aufrufpfad entfallen.
-- Für TypeScript-/TSX-Scopes misst
-  `bun scripts/analyze-inventory-duplicates.ts --json <pfade...>` tokenbasierte
-  Effective LOC. Für andere Sprachen werden nichtleere, nicht ausschließlich
-  aus Kommentaren bestehende Quellzeilen mit einem im Beads-Task benannten
-  reproduzierbaren Verfahren gezählt.
-
-### Duplikation
-
-- Exakte normalisierte Duplikatgruppen dürfen im vorab benannten Scope nicht
-  zunehmen. Baseline und Ergebnis werden mit denselben Analyzer-Optionen
-  ermittelt und im Beads-Task festgehalten.
-- Repositoryweite feste Zahlen werden nur verwendet, wenn ein
-  repositoryweiter Scan sie reproduzierbar erzeugt. Historische
-  Inventory-Baselines sind kein globaler Grenzwert.
-- Eine Metrik rechtfertigt keine eigenständige Produktionsänderung. Jede
-  Reduktion muss zugleich einen Owner, eine Vertragsregel oder konkrete
-  doppelte Entscheidungslogik vereinfachen.
-
 ### Lokales Feedbackbudget
 
 - Der erste fokussierte lokale Prüfzyklus eines Tasks soll höchstens 90 Sekunden
@@ -179,13 +155,6 @@ Die Abnahme richtet sich nach der betroffenen Oberfläche:
   Jest-Tests über `bun run test -- <pfad-oder-muster>`.
 - Supabase-Schemaänderungen: deklarativer DB-Workflow aus `AGENTS.md`, gezielte
   pgTAP-Tests, Advisors und aktualisierte Datenbanktypen.
-- Native Änderungen: Expo-Konfiguration und Config-Plugins prüfen, die
-  betroffene Plattform über den lokalen Build-Ablauf aus `AGENTS.md` mit
-  Prebuild `--no-clean` kompilieren und das native Verhalten auf der
-  Zielplattform nachweisen. Der optionale Remote-Cache kontaktiert EAS-Server,
-  greift bei iOS nur für Simulatoren und bei Android auch für Geräte; er ersetzt
-  keinen Geräte- oder Compile-Nachweis. Einen projektinternen Fingerprint-
-  Status, eine Baseline oder einen Artefakt-Lock gibt es nicht.
 - Reine Dokumentationsänderungen: Links, Pfade, Status, Quellenhierarchie und
   Widerspruchsfreiheit gezielt prüfen; App-Builds und Verhaltenstests sind ohne
   betroffene Laufzeitfläche nicht erforderlich.

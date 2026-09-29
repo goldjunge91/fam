@@ -7,7 +7,10 @@ set -euo pipefail
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 PROJECT_ROOT=$(cd "$SCRIPT_DIR/../../../../" && pwd)
 JEST_BIN="$PROJECT_ROOT/node_modules/.bin/jest"
-CI_TEST_PATTERN='^(?!.*test/native-build-(baseline|artifact)[.]test[.]ts$).*'
+# Der native-build-Ausschluss ist mit der Entfernung des Fingerprint-Workflows
+# entfallen. '.*' entspricht dem unveränderten Jest-Defaultscope, den auch
+# package.json in test:unit verwendet.
+CI_TEST_PATTERN='.*'
 
 if [ ! -x "$JEST_BIN" ]; then
   echo "Jest wurde nicht gefunden: $JEST_BIN" >&2
@@ -24,7 +27,7 @@ JEST_SCOPE_OUTPUT=$("$JEST_BIN" \
   --testPathPattern="$CI_TEST_PATTERN")
 while IFS= read -r file; do
   [ -n "$file" ] && TEST_FILES+=("$file")
-done <<< "$JEST_SCOPE_OUTPUT"
+done <<<"$JEST_SCOPE_OUTPUT"
 
 if [ "${#TEST_FILES[@]}" -eq 0 ]; then
   echo "Jest hat keine Unit-Testdateien im CI-Scope gefunden." >&2
@@ -35,7 +38,7 @@ count_lines() {
   local total=0
   local file
   for file in "$@"; do
-    total=$((total + $(wc -l < "$file")))
+    total=$((total + $(wc -l <"$file")))
   done
   printf '%s' "$total"
 }
@@ -63,7 +66,7 @@ json_value() {
       const report = JSON.parse(input);
       console.log(key === undefined ? report[root] : report[root][key]);
     });
-  ' "$path" <<< "$ANALYSIS_JSON"
+  ' "$path" <<<"$ANALYSIS_JSON"
 }
 
 SOURCE_FILES=()
@@ -71,11 +74,11 @@ SOURCE_FILES=()
 # sind bewusst ERE-kompatibel gehalten, damit grep -E sie identisch trifft.
 SOURCE_FILE_OUTPUT=$(find src -type f \
   \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) \
-  ! -name '*.d.ts' \
-  | grep -Ev '\.(test|spec)(\.[^.]+)*\.[jt]sx?$' || true)
+  ! -name '*.d.ts' |
+  grep -Ev '\.(test|spec)(\.[^.]+)*\.[jt]sx?$' || true)
 while IFS= read -r file; do
   [ -n "$file" ] && SOURCE_FILES+=("$PROJECT_ROOT/$file")
-done <<< "$SOURCE_FILE_OUTPUT"
+done <<<"$SOURCE_FILE_OUTPUT"
 
 TEST_LINES=$(count_lines "${TEST_FILES[@]}")
 SOURCE_LINES=$(count_lines "${SOURCE_FILES[@]}")
@@ -163,7 +166,7 @@ if [ "$MARKER_TOTAL" -gt 0 ]; then
         }
       }
     });
-  ' <<< "$ANALYSIS_JSON"
+  ' <<<"$ANALYSIS_JSON"
 fi
 
 echo
