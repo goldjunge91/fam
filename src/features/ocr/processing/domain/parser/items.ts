@@ -22,7 +22,8 @@ import {
   type ObservedLineTotal,
   scaleConfidence,
 } from './input';
-import { isKnownMarketLine, normalizeRossmannArtifacts } from './retailers';
+import { normalizeRossmannArtifacts } from './retailer-rules/rossmann';
+import { isKnownMarketLine } from './retailers';
 
 // 102. Checks whether a normalized line can produce an item instead of metadata or an exclusion.
 export function isLikelyReceiptItemLine(line: NormalizedLine): boolean {
@@ -99,10 +100,17 @@ function parseItem(
   subtotalCents: number | null = null,
   market: string | null = null,
 ): ReceiptDraftItem | null {
-  const tokens =
+  const parsedTokens = parseMoneyTokens(line.text);
+  const rossmannArtifacts =
     market === 'ROSSMANN'
-      ? normalizeRossmannArtifacts(line, parseMoneyTokens(line.text), subtotalCents)
-      : parseMoneyTokens(line.text);
+      ? normalizeRossmannArtifacts(
+          line,
+          parsedTokens,
+          subtotalCents,
+          isBarcodePrefixedItemLine(line.text),
+        )
+      : null;
+  const tokens = rossmannArtifacts?.tokens ?? parsedTokens;
   if (tokens.length === 0) {
     const { name, quantity, unit } = parseNameWithTruncatedUnitPrice(line.text);
     if (
@@ -148,11 +156,7 @@ function parseItem(
 
   const firstToken = tokens[0];
   const nameText = line.text.slice(0, firstToken.start).trim();
-  const normalizedNameText =
-    market === 'ROSSMANN' && subtotalCents !== null && isBarcodePrefixedItemLine(line.text)
-      ? nameText.replace(/\s+C0\.\s*$/iu, '').trim()
-      : nameText;
-  const parsedName = parseNameWithTruncatedUnitPrice(normalizedNameText);
+  const parsedName = parseNameWithTruncatedUnitPrice(rossmannArtifacts?.itemNamePrefix ?? nameText);
   const trailingQuantityMatch = line.text
     .slice(firstToken.end, tokens.length > 1 ? finalToken.start : line.text.length)
     .match(/^\s*(?:€|EUR)?\s*[x×]\s*(\d+(?:[.,]\d+)?)/i);

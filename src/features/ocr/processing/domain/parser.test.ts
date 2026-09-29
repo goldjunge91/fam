@@ -612,6 +612,17 @@ describe('parseGermanReceipt', () => {
     ]);
   });
 
+  it('keeps the Rossmann C0 name fragment unchanged for other merchants', () => {
+    const draft = parseGermanReceipt([
+      { text: 'EDEKA', confidence: 0.99 },
+      { text: '4068134194732 ISANA SEIFE PEACH C0. 1,65 A', confidence: 0.86 },
+      { text: 'Zwischensumme €2,00', confidence: 0.86 },
+      { text: 'Summe €2,00', confidence: 0.86 },
+    ]);
+
+    expect(draft.items[0]?.name).toBe('ISANA SEIFE PEACH C0.');
+  });
+
   it('repairs a split Rossmann euro-zero price only for Rossmann', () => {
     const lines = [
       { text: '4068134194732 ISANA SEIFE PEACH €0 1,65 A', confidence: 0.86 },
