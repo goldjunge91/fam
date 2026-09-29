@@ -49,20 +49,20 @@ Append-only-Vertrags noch `FOR ALL`; ihre RLS-Korrektur ist `fam-jlkw`.
 ## Stage-3-Befunde: Owner, Vertrag und Testbeleg
 
 Dieser Abschnitt dokumentiert den am 2026-09-23 belegten Ist-Zustand. Die
-Datei bleibt eine Navigations- und Abgrenzungshilfe. Normative Domäne und
-Qualitätsgrenzen kommen weiterhin aus `CONTEXT.md` und `CONSTRAINTS.md`;
-Produktionscode und fokussierte Tests belegen das aktuelle Verhalten.
+Datei bleibt eine Navigations- und Abgrenzungshilfe. Normative Domäne kommt
+aus `CONTEXT.md`; Produktionscode und fokussierte Tests belegen das aktuelle
+Verhalten.
 
 ### Vertikaler Kernpfad
 
-| Grenze | Aktueller Owner und Beleg |
-|---|---|
-| Route und Screen | `src/app/(app)/shopping-list.tsx:1-9` setzt `ModuleGate` um `ShoppingListScreen`. `screens/shopping-list-screen.tsx:161-165` löst den aktiven Haushalt auf und komponiert `useShoppingList`, `useStores` und die Mutations-Hooks. |
-| Lokaler Read-Pfad | `hooks/use-shopping-list.ts:82-108` liest `shopping_list_items` ausschließlich über `getDatabase().getAllAsync`, filtert `deleted_at is null` und gruppiert erst danach für die UI. |
-| Lokale Mutation | `hooks/use-shopping-list-mutations.ts` und `.android.ts` delegieren Add, Update, Move, Check/Uncheck und Delete an `lib/db/outbox.ts`. `lib/db/shopping-list-merge.ts:264-271` nutzt für Add/Merge denselben Outbox-Owner. |
-| Mirror und Outbox | `lib/db/outbox.ts:84-115,165-176` führt Mirror-Write und Outbox-Insert über `withExclusiveTransactionAsync` aus. `src/lib/db/outbox.integration.test.ts:43-117` belegt Commit, Offline-Sichtbarkeit und Rollback mit echter SQLite. |
+| Grenze               | Aktueller Owner und Beleg                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Route und Screen     | `src/app/(app)/shopping-list.tsx:1-9` setzt `ModuleGate` um `ShoppingListScreen`. `screens/shopping-list-screen.tsx:161-165` löst den aktiven Haushalt auf und komponiert `useShoppingList`, `useStores` und die Mutations-Hooks.                                                                                                                                                                                                                                           |
+| Lokaler Read-Pfad    | `hooks/use-shopping-list.ts:82-108` liest `shopping_list_items` ausschließlich über `getDatabase().getAllAsync`, filtert `deleted_at is null` und gruppiert erst danach für die UI.                                                                                                                                                                                                                                                                                         |
+| Lokale Mutation      | `hooks/use-shopping-list-mutations.ts` und `.android.ts` delegieren Add, Update, Move, Check/Uncheck und Delete an `lib/db/outbox.ts`. `lib/db/shopping-list-merge.ts:264-271` nutzt für Add/Merge denselben Outbox-Owner.                                                                                                                                                                                                                                                  |
+| Mirror und Outbox    | `lib/db/outbox.ts:84-115,165-176` führt Mirror-Write und Outbox-Insert über `withExclusiveTransactionAsync` aus. `src/lib/db/outbox.integration.test.ts:43-117` belegt Commit, Offline-Sichtbarkeit und Rollback mit echter SQLite.                                                                                                                                                                                                                                         |
 | Push, Pull, Realtime | `lib/sync/remote-sync-engine.ts:12-31` führt Push vor Pull aus. `lib/sync/push.ts:341-507` projiziert über `lib/db/entities.ts:143-170` und behandelt RLS-, permanente und transiente Fehler. `lib/sync/pull.ts:114-217` schreibt Seite und Cursor gemeinsam. `lib/sync/realtime.ts:13-19,136-177` verarbeitet `shopping_list_items` und Kategoriepräferenzen, jeweils in einer SQLite-Transaktion; `sync-runner.ts:406-504` bindet Reconnect, Invalidierung und Lifecycle. |
-| Supabase und RLS | `supabase/schemas/08_inventory.sql:248-339,1312-1345` definiert `shopping_list_items`, Tombstone und Household-Member-RLS. `supabase/tests/07_inventory.test.sql:124-152` belegt Insert und gemeinsames Abhaken durch Haushaltsmitglieder; ein spezifischer Fremdhaushalt-pgTAP-Nachweis für `shopping_list_items` ist dort nicht enthalten. |
+| Supabase und RLS     | `supabase/schemas/08_inventory.sql:248-339,1312-1345` definiert `shopping_list_items`, Tombstone und Household-Member-RLS. `supabase/tests/07_inventory.test.sql:124-152` belegt Insert und gemeinsames Abhaken durch Haushaltsmitglieder; ein spezifischer Fremdhaushalt-pgTAP-Nachweis für `shopping_list_items` ist dort nicht enthalten.                                                                                                                                |
 
 ### Vertragsbewertung
 
@@ -125,55 +125,55 @@ Umsetzung nicht vorweg.
 
 ## `screens/` (eigene Route/Vollbild)
 
-| Datei | Zweck |
-|---|---|
+| Datei                      | Zweck                                                                                                                                                 |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `shopping-list-screen.tsx` | Hauptscreen. "Alle Listen"-Übersicht (Markt-Karten) + marktgefilterte Checkliste, steuert alle Modals/Sheets und die Mehrfachauswahl dieses Features. |
-| `shopping-mode-screen.tsx` | Vollbild-Einkaufsmodus für den Laden — nur Abhaken, aufklappbare farbcodierte Kategorien, kein Bearbeiten. |
-| `stores-screen.tsx` | Märkte verwalten (anlegen, umbenennen, Farbe, löschen) — eigene Route außerhalb der Einkaufsliste selbst. |
+| `shopping-mode-screen.tsx` | Vollbild-Einkaufsmodus für den Laden — nur Abhaken, aufklappbare farbcodierte Kategorien, kein Bearbeiten.                                            |
+| `stores-screen.tsx`        | Märkte verwalten (anlegen, umbenennen, Farbe, löschen) — eigene Route außerhalb der Einkaufsliste selbst.                                             |
 
 ## `sheets/` & `modals/` (Overlays, von `shopping-list-screen.tsx` aus geöffnet)
 
-| Datei | Zweck |
-|---|---|
-| `sheets/complete-run-sheet.tsx` | "In Vorrat übernehmen" — Lagerort, MHD, Menge pro Artikel beim Einkaufsabschluss. |
-| `sheets/category-order-sheet.tsx` | Drag&Drop-Sortierung der Kategorie-Laufstrecke pro Markt. |
-| `modals/add-item-modal.tsx` | Wrapper um `add-item-form.tsx` in der gemeinsamen Modal-Hülle. |
-| `modals/edit-item-modal.tsx` | Wrapper um `forms/edit-item-form.tsx` in der gemeinsamen Modal-Hülle. |
-| `modals/move-items-modal.tsx` | Zielauswahl für das Verschieben mehrerer Einkaufsartikel in eine andere Markt-Liste. |
-| `modals/item-modal-shell.tsx` | Geteiltes Modal-Gerüst (Header, Scroll, Tastatur-Handling) für Add/Edit. |
+| Datei                             | Zweck                                                                                |
+| --------------------------------- | ------------------------------------------------------------------------------------ |
+| `sheets/complete-run-sheet.tsx`   | "In Vorrat übernehmen" — Lagerort, MHD, Menge pro Artikel beim Einkaufsabschluss.    |
+| `sheets/category-order-sheet.tsx` | Drag&Drop-Sortierung der Kategorie-Laufstrecke pro Markt.                            |
+| `modals/add-item-modal.tsx`       | Wrapper um `add-item-form.tsx` in der gemeinsamen Modal-Hülle.                       |
+| `modals/edit-item-modal.tsx`      | Wrapper um `forms/edit-item-form.tsx` in der gemeinsamen Modal-Hülle.                |
+| `modals/move-items-modal.tsx`     | Zielauswahl für das Verschieben mehrerer Einkaufsartikel in eine andere Markt-Liste. |
+| `modals/item-modal-shell.tsx`     | Geteiltes Modal-Gerüst (Header, Scroll, Tastatur-Handling) für Add/Edit.             |
 
 ## `forms/` (Formulare & Eingabe-Bausteine)
 
-| Datei | Zweck |
-|---|---|
-| `add-item-form.tsx` | Artikel hinzufügen — Name, Menge, Markt, Barcode-Scan, Produktsuche. |
-| `edit-item-form.tsx` | Bestehenden Artikel bearbeiten (gleiche Feldbasis wie Add). |
-| `store-picker-field.tsx` | Markt-Auswahl-Chips + Inline-"+ Neuer Markt", geteilt zwischen Add/Edit. |
-| `shopping-product-suggestions.tsx` | Aufklappbare Vorschlagsliste (zuletzt/häufig gekauft) beim Hinzufügen. |
+| Datei                              | Zweck                                                                    |
+| ---------------------------------- | ------------------------------------------------------------------------ |
+| `add-item-form.tsx`                | Artikel hinzufügen — Name, Menge, Markt, Barcode-Scan, Produktsuche.     |
+| `edit-item-form.tsx`               | Bestehenden Artikel bearbeiten (gleiche Feldbasis wie Add).              |
+| `store-picker-field.tsx`           | Markt-Auswahl-Chips + Inline-"+ Neuer Markt", geteilt zwischen Add/Edit. |
+| `shopping-product-suggestions.tsx` | Aufklappbare Vorschlagsliste (zuletzt/häufig gekauft) beim Hinzufügen.   |
 
 ## `components/ui/` (reines Rendering)
 
-| Datei | Zweck |
-|---|---|
-| `shopping-item-row.tsx` | Eine Artikelzeile in der Marktliste — Checkbox, Produkt/Menge/Preis als drei Spalten, Bearbeiten-Icon. |
-| `store-summary-card.tsx` | Markt-Karte in der "Alle Listen"-Übersicht (Fortschritt, Preis). |
-| `total-estimate-card.tsx` | Gesamtsumme-Kachel unter den Markt-Karten. |
-| `store-picker-menu.tsx` | Glas-Pillenbutton im Header, filtert zwischen Märkten. |
-| `dashboard-card.tsx` | Widget für den App-Dashboard-Hub, registriert sich über `@/features/dashboard/registry`. |
+| Datei                     | Zweck                                                                                                  |
+| ------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `shopping-item-row.tsx`   | Eine Artikelzeile in der Marktliste — Checkbox, Produkt/Menge/Preis als drei Spalten, Bearbeiten-Icon. |
+| `store-summary-card.tsx`  | Markt-Karte in der "Alle Listen"-Übersicht (Fortschritt, Preis).                                       |
+| `total-estimate-card.tsx` | Gesamtsumme-Kachel unter den Markt-Karten.                                                             |
+| `store-picker-menu.tsx`   | Glas-Pillenbutton im Header, filtert zwischen Märkten.                                                 |
+| `dashboard-card.tsx`      | Widget für den App-Dashboard-Hub, registriert sich über `@/features/dashboard/registry`.               |
 
 ## `hooks/` (React Query + SQLite)
 
-| Datei | Zweck |
-|---|---|
-| `use-shopping-list.ts` | Liest Artikel aus SQLite, gruppiert nach Kategorie/Laufstrecke. |
-| `use-shopping-list-mutations.ts` | Hinzufügen/Abhaken/Löschen/Verschieben von Artikeln (Outbox-Sync). |
-| `use-complete-shopping-run.ts` | Orchestriert getrennte Schreibpfade: `fridge_items` + `transactions` pro Transfer, `shopping_history` direkt und `shopping_list_items` als separates Soft-Delete; keine gemeinsame Transaktion für den gesamten Abschluss. |
-| `use-stores.ts` | Märkte lesen/anlegen/ändern/löschen, inkl. `category_order`-Persistenz. |
-| `use-shopping-product-suggestions.ts` | Zuletzt/häufig gekaufte Produkte für die Vorschlagsliste. |
+| Datei                                 | Zweck                                                                                                                                                                                                                      |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `use-shopping-list.ts`                | Liest Artikel aus SQLite, gruppiert nach Kategorie/Laufstrecke.                                                                                                                                                            |
+| `use-shopping-list-mutations.ts`      | Hinzufügen/Abhaken/Löschen/Verschieben von Artikeln (Outbox-Sync).                                                                                                                                                         |
+| `use-complete-shopping-run.ts`        | Orchestriert getrennte Schreibpfade: `fridge_items` + `transactions` pro Transfer, `shopping_history` direkt und `shopping_list_items` als separates Soft-Delete; keine gemeinsame Transaktion für den gesamten Abschluss. |
+| `use-stores.ts`                       | Märkte lesen/anlegen/ändern/löschen, inkl. `category_order`-Persistenz.                                                                                                                                                    |
+| `use-shopping-product-suggestions.ts` | Zuletzt/häufig gekaufte Produkte für die Vorschlagsliste.                                                                                                                                                                  |
 
 ## `domain-logik/` (Domänen-Logik & Konfiguration, keine React-Komponenten)
 
-| Datei | Zweck |
-|---|---|
+| Datei                    | Zweck                                                                                                                                                                                |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `shopping-categories.ts` | Die 12 Kategorien: Sortierrang (Laufstrecke), Farbe, Lagerort-Default. Automatische Kategorisierung läuft über `classification/` (`classifyCategory`/`explainCategory`), nicht hier. |
-| `store-presets.ts` | Namens-Presets (REWE, Aldi, …) + Farbpalette für neue Märkte. |
+| `store-presets.ts`       | Namens-Presets (REWE, Aldi, …) + Farbpalette für neue Märkte.                                                                                                                        |

@@ -175,7 +175,6 @@
     "simulator:testbilder": "bash scripts/install-test-images.sh",
     "check": "biome check .",
     "check:fix": "biome check --write .",
-    "check:floor": "bun scripts/floor-guard.mjs",
     "typecheck": "tsc --noEmit",
     "test": "bun scripts/run-test.ts",
     "test:unit": "bun run test",

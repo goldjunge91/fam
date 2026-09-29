@@ -1,15 +1,15 @@
 /**
  * Architectural Ownership Gate — inventory-lifecycle.ts
  *
- * Enforces CONSTRAINTS.md §"Harte Grundsätze" and §I3 (pure planning, no side
- * effects): the lifecycle module must remain a pure-logic owner with zero
- * coupling to React, native modules, databases, network, sync or outbox layers.
+ * Enforces the ownership contract for the lifecycle module: it must remain a
+ * pure-logic owner with zero coupling to React, native modules, databases,
+ * network, sync or outbox layers. Planning decisions belong here; executing
+ * them belongs to the orchestrating layers.
  *
  * NOTE: biome.json currently only covers `src/**` and `scripts/**`, NOT
  * `test/conventions/**`. This file is therefore NOT lint-checked by the
- * standard `bun run check` invocation. This limitation is documented per
- * CONSTRAINTS.md §"Erforderliche Nachweise" and should be addressed
- * in a future increment that extends biome.json scope.
+ * standard `bun run check` invocation. Extending biome.json scope to cover
+ * this directory is tracked as a follow-up.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -49,8 +49,8 @@ function extractImportSources(source: string): string[] {
  * Forbidden import patterns for inventory-lifecycle.ts.
  *
  * Each entry has a label (for error messages) and a test function.
- * The allowed exception follows CONSTRAINTS.md §I3: inventory-quantity is a
- * pure-logic utility and does not introduce side effects.
+ * The allowed exception: inventory-quantity is a pure-logic utility and
+ * introduces no side effects.
  */
 const FORBIDDEN_IMPORT_RULES: Array<{
   label: string;
