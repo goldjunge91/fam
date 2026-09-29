@@ -210,8 +210,8 @@ export function ShoppingListScreen() {
   }, [isAllFilter, isUnassignedFilter, storeFilter, allItems, unassignedItems]);
 
   const watchSnapshot = useMemo(
-    () => createWatchShoppingSnapshot(filteredItems, activeStore?.name ?? null),
-    [activeStore?.name, filteredItems],
+    () => createWatchShoppingSnapshot(allItems, activeStore?.name ?? null, stores, activeHouseholdId),
+    [activeHouseholdId, activeStore?.name, allItems, stores],
   );
 
   useEffect(() => {

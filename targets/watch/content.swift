@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var store: ShoppingWatchStore
+    @State private var selectedStoreID: String?
 
     init(store: ShoppingWatchStore = ShoppingWatchStore()) {
         _store = StateObject(wrappedValue: store)
@@ -9,34 +10,141 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            if store.snapshot.items.isEmpty {
+            if !store.hasLoadedSnapshot {
+                LoadingShoppingListView()
+            } else if store.snapshot.selectableStores.isEmpty {
                 EmptyShoppingListView()
+            } else if let selectedStore {
+                ShoppingListView(
+                    shoppingStore: selectedStore,
+                    isReachable: store.isReachable,
+                    onToggle: { itemID in
+                        store.toggle(itemID: itemID, in: selectedStore.id)
+                    },
+                    onChooseAnotherStore: { selectedStoreID = nil },
+                )
             } else {
-                shoppingList
+                StoreSelectionView(
+                    stores: store.snapshot.selectableStores,
+                    onSelect: { selectedStoreID = $0 },
+                )
             }
         }
     }
 
-    private var shoppingList: some View {
+    private var selectedStore: ShoppingStore? {
+        guard let selectedStoreID else { return nil }
+        return store.snapshot.selectableStores.first { $0.id == selectedStoreID }
+    }
+}
+
+private struct LoadingShoppingListView: View {
+    var body: some View {
+        VStack(spacing: 8) {
+            ProgressView()
+            Text("Einkaufsliste wird geladen")
+                .font(.headline)
+            Text("Bitte öffne die App auf dem iPhone.")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+        }
+        .padding()
+        .navigationTitle("Einkaufsliste")
+    }
+}
+
+private struct StoreSelectionView: View {
+    let stores: [ShoppingStore]
+    let onSelect: (String) -> Void
+
+    var body: some View {
         List {
             Section {
+                ForEach(stores) { shoppingStore in
+                    Button {
+                        onSelect(shoppingStore.id)
+                    } label: {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(shoppingStore.name)
+                                    .font(.headline)
+                                Text(summary(for: shoppingStore))
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
+
+                            Spacer(minLength: 0)
+                            Image(systemName: "chevron.right")
+                                .font(.caption.weight(.semibold))
+                                .foregroundStyle(.secondary)
+                        }
+                        .padding(.vertical, 4)
+                    }
+                    .buttonStyle(.plain)
+                    .watchGlass()
+                    .accessibilityLabel("\(shoppingStore.name), \(summary(for: shoppingStore))")
+                }
+            } header: {
+                Text("Markt auswählen")
+            }
+        }
+        .navigationTitle("Einkaufen")
+    }
+
+    private func summary(for shoppingStore: ShoppingStore) -> String {
+        let openCount = shoppingStore.openCount
+        return openCount == 1 ? "1 Artikel offen" : "\(openCount) Artikel offen"
+    }
+}
+
+private struct ShoppingListView: View {
+    let shoppingStore: ShoppingStore
+    let isReachable: Bool
+    let onToggle: (String) -> Void
+    let onChooseAnotherStore: () -> Void
+
+    var body: some View {
+        List {
+            Section {
+                Button("Märkte", action: onChooseAnotherStore)
+                    .accessibilityLabel("Anderen Markt auswählen")
+
                 ShoppingProgressView(
-                    snapshot: store.snapshot,
-                    isReachable: store.isReachable,
+                    snapshot: snapshot,
+                    isReachable: isReachable,
                 )
             }
 
-            ForEach(store.snapshot.categoryGroups) { group in
+            ForEach(snapshot.categoryGroups) { group in
                 Section(group.title) {
                     ForEach(group.items) { item in
                         ShoppingItemRow(item: item) {
-                            store.toggle(itemID: item.id)
+                            onToggle(item.id)
                         }
                     }
                 }
             }
         }
-        .navigationTitle(store.snapshot.storeName ?? "Einkaufsliste")
+        .navigationTitle(shoppingStore.name)
+    }
+
+    private var snapshot: ShoppingSnapshot {
+        ShoppingSnapshot(
+            storeName: shoppingStore.name,
+            updatedAt: .now,
+            items: shoppingStore.items,
+        )
+    }
+}
+
+private extension View {
+    func watchGlass() -> some View {
+        if #available(watchOS 26.0, *) {
+            return AnyView(glassEffect(.regular, in: .capsule))
+        } else {
+            return AnyView(background(.ultraThinMaterial, in: Capsule()))
+        }
     }
 }
 

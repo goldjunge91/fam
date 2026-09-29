@@ -39,6 +39,18 @@ struct ShoppingItem: Codable, Equatable, Identifiable {
     }
 }
 
+struct ShoppingStore: Codable, Equatable, Identifiable {
+    let id: String
+    let name: String
+    var items: [ShoppingItem]
+
+    var openCount: Int {
+        items.reduce(into: 0) { count, item in
+            if !item.isChecked { count += 1 }
+        }
+    }
+}
+
 struct ShoppingCategoryGroup: Identifiable {
     let title: String
     let items: [ShoppingItem]
@@ -47,9 +59,42 @@ struct ShoppingCategoryGroup: Identifiable {
 }
 
 struct ShoppingSnapshot: Codable, Equatable {
+    var householdID: String?
     var storeName: String?
     var updatedAt: Date
     var items: [ShoppingItem]
+    var stores: [ShoppingStore]
+
+    private enum CodingKeys: String, CodingKey {
+        case householdID = "householdId"
+        case storeName
+        case updatedAt
+        case items
+        case stores
+    }
+
+    init(
+        householdID: String? = nil,
+        storeName: String?,
+        updatedAt: Date,
+        items: [ShoppingItem],
+        stores: [ShoppingStore] = [],
+    ) {
+        self.householdID = householdID
+        self.storeName = storeName
+        self.updatedAt = updatedAt
+        self.items = items
+        self.stores = stores
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        householdID = try container.decodeIfPresent(String.self, forKey: .householdID)
+        storeName = try container.decodeIfPresent(String.self, forKey: .storeName)
+        updatedAt = try container.decode(Date.self, forKey: .updatedAt)
+        items = try container.decode([ShoppingItem].self, forKey: .items)
+        stores = try container.decodeIfPresent([ShoppingStore].self, forKey: .stores) ?? []
+    }
 
     var openCount: Int {
         items.reduce(into: 0) { count, item in
@@ -81,6 +126,15 @@ struct ShoppingSnapshot: Codable, Equatable {
             guard let items = grouped[title] else { return nil }
             return ShoppingCategoryGroup(title: title, items: items)
         }
+    }
+
+    var selectableStores: [ShoppingStore] {
+        if !stores.isEmpty { return stores }
+        if let storeName, !storeName.isEmpty {
+            return [ShoppingStore(id: "legacy", name: storeName, items: items)]
+        }
+        guard !items.isEmpty else { return [] }
+        return [ShoppingStore(id: "legacy", name: "Einkaufsliste", items: items)]
     }
 
     static let empty = ShoppingSnapshot(
@@ -115,6 +169,28 @@ struct ShoppingSnapshot: Codable, Equatable {
                 isChecked: true,
             ),
         ],
+        stores: [
+            ShoppingStore(
+                id: "weekly-market",
+                name: "Wochenmarkt",
+                items: [
+                    ShoppingItem(
+                        id: "milk",
+                        name: "Milch",
+                        quantityLabel: "2 × 1 l",
+                        category: "Kühlung",
+                        isChecked: false,
+                    ),
+                    ShoppingItem(
+                        id: "apples",
+                        name: "Äpfel",
+                        quantityLabel: "1 kg",
+                        category: "Obst & Gemüse",
+                        isChecked: false,
+                    ),
+                ],
+            ),
+        ],
     )
 }
 
@@ -123,6 +199,7 @@ final class ShoppingWatchStore: NSObject, ObservableObject, WCSessionDelegate {
 
     @Published private(set) var snapshot: ShoppingSnapshot
     @Published private(set) var isReachable = false
+    @Published private(set) var hasLoadedSnapshot: Bool
 
     private let defaults: UserDefaults
     private let snapshotKey = "fam.shopping.snapshot"
@@ -139,8 +216,10 @@ final class ShoppingWatchStore: NSObject, ObservableObject, WCSessionDelegate {
         activatesSession: Bool = true,
     ) {
         let sharedDefaults = UserDefaults(suiteName: Self.appGroup) ?? .standard
+        let initialSnapshot = snapshot ?? Self.loadSnapshot(from: sharedDefaults)
         defaults = sharedDefaults
-        self.snapshot = snapshot ?? Self.loadSnapshot(from: sharedDefaults) ?? .empty
+        self.snapshot = initialSnapshot ?? .empty
+        hasLoadedSnapshot = initialSnapshot != nil
         super.init()
 
         if activatesSession {
@@ -152,9 +231,34 @@ final class ShoppingWatchStore: NSObject, ObservableObject, WCSessionDelegate {
         guard let index = snapshot.items.firstIndex(where: { $0.id == itemID }) else { return }
 
         snapshot.items[index].isChecked.toggle()
+        let isChecked = snapshot.items[index].isChecked
+        for storeIndex in snapshot.stores.indices {
+            guard let storeItemIndex = snapshot.stores[storeIndex].items.firstIndex(where: { $0.id == itemID }) else {
+                continue
+            }
+            snapshot.stores[storeIndex].items[storeItemIndex].isChecked = isChecked
+        }
         snapshot.updatedAt = .now
         persistSnapshot()
         sendToggle(item: snapshot.items[index])
+    }
+
+    func toggle(itemID: String, in storeID: String) {
+        guard let storeIndex = snapshot.stores.firstIndex(where: { $0.id == storeID }),
+              let itemIndex = snapshot.stores[storeIndex].items.firstIndex(where: { $0.id == itemID })
+        else {
+            toggle(itemID: itemID)
+            return
+        }
+
+        snapshot.stores[storeIndex].items[itemIndex].isChecked.toggle()
+        let isChecked = snapshot.stores[storeIndex].items[itemIndex].isChecked
+        if let snapshotItemIndex = snapshot.items.firstIndex(where: { $0.id == itemID }) {
+            snapshot.items[snapshotItemIndex].isChecked = isChecked
+        }
+        snapshot.updatedAt = .now
+        persistSnapshot()
+        sendToggle(item: snapshot.stores[storeIndex].items[itemIndex])
     }
 
     private func configureConnectivity() {
@@ -167,10 +271,16 @@ final class ShoppingWatchStore: NSObject, ObservableObject, WCSessionDelegate {
     }
 
     private func sendToggle(item: ShoppingItem) {
-        guard let session else { return }
+        guard let session,
+              let householdID = snapshot.householdID,
+              !householdID.isEmpty
+        else {
+            return
+        }
 
         let payload: [String: Any] = [
             "type": "shopping_item.toggle",
+            "household_id": householdID,
             "item_id": item.id,
             "checked": item.isChecked,
         ]
@@ -202,6 +312,7 @@ final class ShoppingWatchStore: NSObject, ObservableObject, WCSessionDelegate {
             let snapshot = try decoder.decode(ShoppingSnapshot.self, from: data)
             DispatchQueue.main.async {
                 self.snapshot = snapshot
+                self.hasLoadedSnapshot = true
                 self.persistSnapshot()
             }
         } catch {
@@ -220,7 +331,9 @@ final class ShoppingWatchStore: NSObject, ObservableObject, WCSessionDelegate {
         guard let json = defaults.string(forKey: "fam.shopping.snapshot"),
               let data = json.data(using: .utf8)
         else { return nil }
-        return try? JSONDecoder().decode(ShoppingSnapshot.self, from: data)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .custom(decodeWatchSnapshotDate)
+        return try? decoder.decode(ShoppingSnapshot.self, from: data)
     }
 
     func session(

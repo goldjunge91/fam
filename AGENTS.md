@@ -89,6 +89,7 @@ _Of note: Most developer contributions are often controlled remotely. This means
 
 ## Ways to Hurt Yourself (Safety Guardrails)
 
+- **Dateisystemgrenze:** Lege niemals Dateien oder Arbeitsartefakte außerhalb von /Volumes/Programme an. Das gilt auch für temporäre Skripte, Logs, Dumps, Modulcaches, Compiler-Caches und Testartefakte sowie für von Tools automatisch erzeugte Ausgaben. Setze temporäre und Cache-Pfade explizit auf einen geeigneten Ort innerhalb von /Volumes/Programme; verwende insbesondere nicht /tmp, /private/tmp, /var/folders, Home-Verzeichnisse oder globale Standard-Caches.
 - **Niemals Migrationen von Hand schreiben oder editieren:** Ändere stets `supabase/schemas/*.sql`, erzeuge die Migration mit `bun run db:diff` und wende sie mit `bun run db:reset` an.
 - **Niemals `bun test` ausführen:** Führe immer `bun run test` aus. `bun test` nutzt die native Bun-Engine, ignoriert `jest.config.js` und schlägt fehl.
 - **Niemals vollständige bun run Testsuite ausführen:** Führe nur die Tests aus, die du gerade ändern willst und das Abhänigkeiten zu dein änderung hat. `bun run test` ist teuer und dauert lange. Nutze `bun run test <file>` oder `bun run test:db <file>` für gezielte Tests.

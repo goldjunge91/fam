@@ -22,6 +22,7 @@ import {
 } from '@/features/onboarding/onboarding-completion';
 import { useProfile } from '@/features/profile/api';
 import { useSignOutOnOrphanedProfile } from '@/features/profile/hooks/use-sign-out-on-orphaned-profile';
+import { WatchShoppingToggleListener } from '@/features/shopping-list/watch/watch-toggle-listener';
 import { debugError } from '@/lib/observability/debug-log';
 import { useHouseholdsBootstrapSync } from '@/lib/sync/household-bootstrap-sync';
 import { useRealtimeSync, useSyncEngine } from '@/lib/sync/sync-runner';
@@ -148,6 +149,7 @@ function ReadyAppContent({
 
   return (
     <View style={styles.root}>
+      <WatchShoppingToggleListener activeHouseholdId={activeHouseholdId} accountId={accountId} />
       <AppShell />
     </View>
   );

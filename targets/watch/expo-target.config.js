@@ -3,7 +3,7 @@ module.exports = config => ({
   type: "watch",
   icon: '../../assets/splash/fam-splash-icon.png',
   colors: { $accent: "darkcyan", },
-  deploymentTarget: "9.4",
+  deploymentTarget: "10.6",
   entitlements: {
     "com.apple.security.application-groups":
       config.ios?.entitlements?.["com.apple.security.application-groups"] ??

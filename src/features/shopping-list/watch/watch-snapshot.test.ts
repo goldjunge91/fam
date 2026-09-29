@@ -59,7 +59,53 @@ describe('createWatchShoppingSnapshot', () => {
         isChecked: true,
       },
     ]);
+    expect(snapshot.stores).toEqual([]);
     expect(snapshot.updatedAt).toEqual(expect.any(String));
+  });
+
+  it('publishes all store lists for watch-side market selection', () => {
+    const snapshot = createWatchShoppingSnapshot(
+      [
+        makeItem({ id: 'rewe-milk', store_id: 'rewe', name: 'Milch' }),
+        makeItem({ id: 'aldi-bread', store_id: 'aldi', name: 'Brot' }),
+      ],
+      'REWE',
+      [
+        { id: 'rewe', name: 'REWE' },
+        { id: 'aldi', name: 'ALDI' },
+      ],
+    );
+
+    expect(snapshot.stores).toEqual([
+      {
+        id: 'rewe',
+        name: 'REWE',
+        items: [expect.objectContaining({ id: 'rewe-milk', name: 'Milch' })],
+      },
+      {
+        id: 'aldi',
+        name: 'ALDI',
+        items: [expect.objectContaining({ id: 'aldi-bread', name: 'Brot' })],
+      },
+    ]);
+  });
+
+  it('includes unassigned items in a visible store group and scopes the snapshot to a household', () => {
+    const snapshot = createWatchShoppingSnapshot(
+      [makeItem({ id: 'unassigned-milk', store_id: null })],
+      null,
+      [],
+      'household-1',
+    );
+
+    expect(snapshot.householdId).toBe('household-1');
+    expect(snapshot.stores).toEqual([
+      {
+        id: 'unassigned',
+        name: 'Ohne Markt',
+        items: [expect.objectContaining({ id: 'unassigned-milk', name: 'Hafermilch' })],
+      },
+    ]);
   });
 
   it('preserves an empty store selection and an empty list', () => {

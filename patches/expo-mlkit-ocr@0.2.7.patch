@@ -1,0 +1,59 @@
+diff --git a/plugins/withMlkitSimulatorArm64Fix.js b/plugins/withMlkitSimulatorArm64Fix.js
+index 0000000..0000000 100644
+--- a/plugins/withMlkitSimulatorArm64Fix.js
++++ b/plugins/withMlkitSimulatorArm64Fix.js
+@@ -50,4 +50,44 @@
+   return podfile.replace(blockRegex, "\n");
+ }
+ 
++function stripPreviouslyInjectedBlockSafely(podfile) {
++  const lines = podfile.split(/\r?\n/);
++  const markerIndex = lines.findIndex((line) => line.includes(MARKER));
++  if (markerIndex === -1) return podfile;
++
++  let started = false;
++  let depth = 0;
++  let blockEnd = -1;
++  for (let index = markerIndex; index < lines.length; index += 1) {
++    const line = lines[index].trim();
++    if (!started) {
++      if (line.startsWith("if ENV['EXPO_MLKIT_OCR_DISABLE_MLKIT']")) {
++        started = true;
++        depth = 1;
++      }
++      continue;
++    }
++
++    if (/^(if|unless|case|begin)\b/.test(line) || /\bdo(?:\s*\|.*\|)?$/.test(line)) {
++      depth += 1;
++    } else if (line === "end") {
++      depth -= 1;
++      if (depth === 0) {
++        blockEnd = index;
++        break;
++      }
++    }
++  }
++
++  if (blockEnd === -1) return podfile;
++  lines.splice(markerIndex, blockEnd - markerIndex + 1);
++  return lines.join("\n");
++}
++
++function stripOrphanedTail(podfile) {
++  const orphanTailRegex =
++    /\n\s*end\n\s*installer\.aggregate_targets\.each do \|aggregate_target\|[\s\S]*?aggregate_target\.user_project\.save\n\s*end\n\s*end\n(?=\s*#\s*expo-mlkit-ocr: iOS Simulator MLKit handling)/g;
++  return podfile.replace(orphanTailRegex, "\n");
++}
++
+ function ensurePatchInsidePostInstall(podfile) {
+@@ -116,7 +156,8 @@
+       }
+ 
+       let podfile = fs.readFileSync(podfilePath, "utf8");
+-      podfile = stripPreviouslyInjectedBlock(podfile);
++      podfile = stripOrphanedTail(podfile);
++      podfile = stripPreviouslyInjectedBlockSafely(podfile);
+       podfile = ensurePatchInsidePostInstall(podfile);
+ 
+       const iosEngine = resolveIosEngine(props);
