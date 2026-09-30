@@ -28,6 +28,19 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       : []),
     famAppGroup,
   ];
+  // Die App Group ist ein eigenes Entitlement und macht ihre ID nicht
+  // automatisch zur Keychain-Access-Group. Das Provisioning-Profil deckt
+  // `SW8RP7PA3W.*` ab, nicht `group.*` — daher der vollstaendige Name mit
+  // Team-ID. Ohne diesen Eintrag bleibt die generierte `.xcent` leer und die
+  // Siri-Extension kann den SQLCipher-Schluessel nicht teilen.
+  const keychainGroup = 'SW8RP7PA3W.com.goldjunge91.fam1';
+  const existingKeychainGroups = config.ios?.entitlements?.['keychain-access-groups'];
+  const keychainGroups = [
+    ...(Array.isArray(existingKeychainGroups)
+      ? existingKeychainGroups.filter((group): group is string => typeof group === 'string')
+      : []),
+    keychainGroup,
+  ];
   // expo-ai-kit provides Apple Vision; expo-mlkit-ocr provides the optional
   // Google ML Kit path. iosEngine only configures the latter package.
   const mlKitOcrPlugins: NonNullable<ExpoConfig['plugins']> =
@@ -49,6 +62,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       entitlements: {
         ...config.ios?.entitlements,
         'com.apple.security.application-groups': [...new Set(appGroups)],
+        'keychain-access-groups': [...new Set(keychainGroups)],
       },
     },
     plugins: [

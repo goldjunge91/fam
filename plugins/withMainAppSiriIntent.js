@@ -36,6 +36,44 @@ module.exports = function withMainAppSiriIntent(config) {
       throw new Error('withMainAppSiriIntent: iOS application target not found');
     }
 
+    // Ohne explizite Signatur-Identitaet signiert der Simulator ad-hoc und
+    // verwirft dabei die Entitlements: das erzeugte `.xcent` ist leer, das
+    // signierte Binary traegt weder `keychain-access-groups` noch die App
+    // Group. Die Extension kann dann den SQLCipher-Schluessel nicht teilen.
+    // `-` ist die Simulator-Identitaet ("Sign to Run Locally").
+    const signForSimulator = (target) => {
+      const configurationList = project.pbxXCConfigurationList()[
+        target.buildConfigurationList
+      ];
+      for (const configuration of configurationList?.buildConfigurations ?? []) {
+        const buildConfiguration = project.pbxXCBuildConfigurationSection()[
+          configuration.value
+        ];
+        if (!buildConfiguration?.buildSettings) continue;
+
+        const buildSettings = buildConfiguration.buildSettings;
+        buildSettings['CODE_SIGN_IDENTITY[sdk=iphonesimulator*]'] = '-';
+        if (buildSettings.CODE_SIGNING_ALLOWED === undefined) {
+          buildSettings.CODE_SIGNING_ALLOWED = 'YES';
+        }
+        if (buildSettings.CODE_SIGNING_REQUIRED === undefined) {
+          buildSettings.CODE_SIGNING_REQUIRED = 'YES';
+        }
+        // Ohne Team darf Xcode die Entitlements nicht anwenden.
+        if (!buildSettings.DEVELOPMENT_TEAM) {
+          buildSettings.DEVELOPMENT_TEAM = config.ios?.appleTeamId ?? 'SW8RP7PA3W';
+        }
+      }
+    };
+
+    signForSimulator(applicationTarget);
+
+    const siriTarget = project.getTarget('com.apple.product-type.extensionkit-extension');
+    if (!siriTarget) {
+      throw new Error('withMainAppSiriIntent: Siri App Intents target not found');
+    }
+    signForSimulator(siriTarget);
+
     const appTargetName = applicationTarget.target.name;
     const filePath = path.join(appTargetName, SOURCE_FILE);
     if (!project.hasFile(filePath)) {

@@ -27,6 +27,54 @@ function createStore(initial: string | null = null) {
 }
 
 describe('SQLCipher-Schlüsselverwaltung', () => {
+  it('spiegelt den Keychain-Schlüssel in den gemeinsamen Container', async () => {
+    // Die Extension liest den Key aus der Datei, weil das Keychain-Entitlement
+    // fehlt. Ohne Spiegel kann sie die verschluesselte Datei nicht oeffnen.
+    const storage = createStore('ab'.repeat(32));
+    const mirror = createStore();
+
+    const getKey = createDatabaseKeyManager({ storage, mirror, randomBytes: jest.fn() });
+    const key = await getKey();
+
+    expect(key).toBe('ab'.repeat(32));
+    expect(mirror.setItem).toHaveBeenCalledWith('fam.database.sqlcipher-key.v1', key);
+  });
+
+  it('uebernimmt einen vorhandenen Datei-Key statt einen neuen zu erzeugen', async () => {
+    // Ein neuer Key wuerde die bestehende verschluesselte Datei unlesbar machen.
+    const storage = createStore(null);
+    const mirror = createStore('cd'.repeat(32));
+    const randomBytes = jest.fn();
+
+    const getKey = createDatabaseKeyManager({ storage, mirror, randomBytes });
+    const key = await getKey();
+
+    expect(key).toBe('cd'.repeat(32));
+    expect(randomBytes).not.toHaveBeenCalled();
+    expect(storage.setItem).toHaveBeenCalledWith('fam.database.sqlcipher-key.v1', key);
+  });
+
+  it('schreibt einen neu erzeugten Key in beide Quellen', async () => {
+    const storage = createStore(null);
+    const mirror = createStore(null);
+    const randomBytes = jest.fn(async () => Uint8Array.from({ length: 32 }, (_, i) => i));
+
+    const getKey = createDatabaseKeyManager({ storage, mirror, randomBytes });
+    const key = await getKey();
+
+    expect(storage.setItem).toHaveBeenCalledWith('fam.database.sqlcipher-key.v1', key);
+    expect(mirror.setItem).toHaveBeenCalledWith('fam.database.sqlcipher-key.v1', key);
+  });
+
+  it('haelt die Keychain auch ohne Container als Quelle', async () => {
+    // Ohne App Group bleibt der bisherige Weg unveraendert.
+    const storage = createStore('ef'.repeat(32));
+
+    const getKey = createDatabaseKeyManager({ storage, randomBytes: jest.fn() });
+
+    await expect(getKey()).resolves.toBe('ef'.repeat(32));
+  });
+
   it('verwendet einen vorhandenen gültigen Schlüssel unverändert', async () => {
     const existing = 'ab'.repeat(32);
     const storage = createStore(existing);

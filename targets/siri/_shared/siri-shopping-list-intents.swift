@@ -1,30 +1,46 @@
 import AppIntents
 internal import ExpoSQLite
 import Foundation
+import os
 import Security
 
-enum SiriShoppingDatabaseError: LocalizedError {
+enum SiriShoppingDatabaseError: Error, CustomLocalizedStringResourceConvertible {
     case appGroupUnavailable
     case databaseUnavailable
     case databaseKeyUnavailable
+    case keychain(status: OSStatus)
     case missingActiveHousehold
     case invalidItem
     case sqlite(operation: String, message: String)
 
-    var errorDescription: String? {
+    var diagnosticCode: String {
+        switch self {
+        case .appGroupUnavailable: "app-group-unavailable"
+        case .databaseUnavailable: "database-unavailable"
+        case .databaseKeyUnavailable: "database-key-unavailable"
+        case let .keychain(status): "keychain-status-\(status)"
+        case .missingActiveHousehold: "active-household-missing"
+        case .invalidItem: "invalid-item"
+        case let .sqlite(operation, _): "sqlite-\(operation)"
+        }
+    }
+
+    var localizedStringResource: LocalizedStringResource {
         switch self {
         case .appGroupUnavailable:
-            return "fam ist für Siri noch nicht eingerichtet. Öffne fam einmal und versuche es erneut."
+            "fam kann den gemeinsamen Speicher nicht öffnen. Installiere die aktuelle fam-App und öffne sie einmal."
         case .databaseUnavailable:
-            return "Die lokale Einkaufsliste ist noch nicht bereit. Öffne fam einmal und versuche es erneut."
+            "Die lokale Einkaufsliste ist noch nicht bereit. Öffne fam einmal und versuche es erneut."
         case .databaseKeyUnavailable:
-            return "Die lokale Einkaufsliste kann nicht entsperrt werden. Öffne fam einmal und versuche es erneut."
+            "Der Schlüssel für die lokale Einkaufsliste ist nicht verfügbar. Öffne fam einmal und versuche es erneut."
+        case .keychain:
+            "Der sichere Zugriff auf die Einkaufsliste ist fehlgeschlagen. Öffne fam einmal und versuche es erneut."
         case .missingActiveHousehold:
-            return "Melde dich in fam an und wähle einen aktiven Haushalt aus."
+            "Melde dich in fam an und wähle einen aktiven Haushalt aus."
         case .invalidItem:
-            return "Bitte nenne einen gültigen Artikel."
-        case let .sqlite(operation, message):
-            return "Die Einkaufsliste konnte nicht gespeichert werden (\(operation): \(message))."
+            "Bitte nenne einen gültigen Artikel."
+        case let .sqlite(operation, _):
+            "Die Einkaufsliste konnte nicht gespeichert werden (SQLite \(operation)). Öffne fam einmal und versuche es erneut."
         }
     }
 }
@@ -128,13 +144,34 @@ final class SiriSQLiteStatement {
 }
 
 final class SiriShoppingDatabase {
+    private static let logger = Logger(
+        subsystem: "com.goldjunge91.fam1",
+        category: "SiriShoppingDatabase",
+    )
     private static let appGroup = "group.com.goldjunge91.fam1"
+    /// Keychain-Gruppe des SQLCipher-Schluessels. Bewusst NICHT die App Group:
+    /// das Provisioning-Profil deckt `SW8RP7PA3W.*` ab, nicht `group.*`, und
+    /// Apple entfernt beim Signieren jedes nicht gedeckte Entitlement. Ohne
+    /// Team-ID-Prefix blieb die `.xcent` leer und der Schluessel unlesbar.
+    private static let keychainAccessGroup = "SW8RP7PA3W.com.goldjunge91.fam1"
     private static let databaseName = "fam-v2.db"
     private static let contextFileName = "fam-siri-context-v1.json"
     private static let keychainService = "app:no-auth"
     private static let keychainKey = "fam.database.sqlcipher-key.v1"
+    private static let databaseKeyFile = "fam.database.sqlcipher-key.v1"
 
     func add(item rawItem: String) throws {
+        do {
+            try addToDatabase(item: rawItem)
+            Self.logger.info("Siri shopping-list write completed")
+        } catch {
+            let code = (error as? SiriShoppingDatabaseError)?.diagnosticCode ?? "unexpected"
+            Self.logger.error("Siri shopping-list write failed: \(code, privacy: .public)")
+            throw error
+        }
+    }
+
+    private func addToDatabase(item rawItem: String) throws {
         let item = rawItem.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !item.isEmpty, item.count <= 500 else {
             throw SiriShoppingDatabaseError.invalidItem
@@ -151,7 +188,7 @@ final class SiriShoppingDatabase {
         }
 
         let householdID = try activeHouseholdID(in: container)
-        let key = try sharedDatabaseKey()
+        let key = try sharedDatabaseKey(in: container)
 
         var database: OpaquePointer?
         let openResult = databaseURL.path.withCString { path in
@@ -162,13 +199,27 @@ final class SiriShoppingDatabase {
                 ?? "Datenbank fehlt"
             throw SiriShoppingDatabaseError.sqlite(operation: "open", message: message)
         }
-        defer { exsqlite3_close(database) }
-
-        let keyData = try Self.hexData(key)
-        let keyResult = keyData.withUnsafeBytes { bytes in
-            exsqlite3_key(database, bytes.baseAddress, Int32(keyData.count))
+        // `sqlite3_close` rollt eine offene Transaktion nur implizit zurueck
+        // und meldet selbst dann nichts zurueck. Den Rueckgabewert zu pruefen
+        // macht einen gescheiterten Close sichtbar, statt ihn zu verschlucken.
+        defer {
+            let closeResult = exsqlite3_close(database)
+            if closeResult != 0 {
+                Self.logger.error("Siri database close failed: \(closeResult, privacy: .public)")
+            }
         }
-        guard keyResult == 0 else {
+
+        // Die Haupt-App setzt den Schlüssel als `PRAGMA key = "x'<hex>'"`.
+        // Das `x'...'` erzwingt Raw-Key-Semantik: die 32 Bytes sind der
+        // Schlüssel selbst. `exsqlite3_key` erwartet dagegen Klartext und
+        // leitet daraus per PBKDF2 ab — dieselben Bytes ergaeben einen
+        // anderen Schluessel und die Datei bliebe unlesbar (SQLITE_NOTADB
+        // bei der ersten prepare_v2, also "SQLite prepare"). Deshalb wird der
+        // Schluessel als PRAGMA gesetzt, genau wie im JS-Owner.
+        do {
+            try execute(Self.keyPragma(for: key), on: database)
+        } catch {
+            Self.logger.error("Siri database key pragma failed")
             throw SiriShoppingDatabaseError.databaseKeyUnavailable
         }
 
@@ -196,7 +247,7 @@ final class SiriShoppingDatabase {
                     householdID: householdID,
                     quantity: mergedQuantity,
                     recipeNames: recipeNames,
-                    timestamp: timestamp,
+                    updatedAtMs: timestampMs,
                 )
                 let payload: [String: Any] = [
                     "id": merge.id,
@@ -226,7 +277,8 @@ final class SiriShoppingDatabase {
                     householdID: householdID,
                     name: item,
                     sortIndex: sortIndex,
-                    timestamp: timestamp,
+                    createdAt: timestamp,
+                    updatedAtMs: timestampMs,
                 )
                 let payload: [String: Any] = [
                     "id": itemID,
@@ -257,7 +309,16 @@ final class SiriShoppingDatabase {
             }
             try execute("COMMIT", on: database)
         } catch {
-            try? execute("ROLLBACK", on: database)
+            // Ein fehlgeschlagenes ROLLBACK darf nicht unbeobachtet bleiben:
+            // Dann bleibt die Transaktion offen, und nur das implizite
+            // Rollback von `exsqlite3_close` rettet die Atomaritaet — ohne
+            // Beleg. Der Originalfehler wird weiterhin propagiert, der
+            // Rollback-Fehler zusaetzlich protokolliert.
+            do {
+                try execute("ROLLBACK", on: database)
+            } catch {
+                Self.logger.error("Siri rollback failed: \(String(describing: error), privacy: .public)")
+            }
             throw error
         }
     }
@@ -302,13 +363,18 @@ final class SiriShoppingDatabase {
         )
     }
 
+    /// `updated_at` ist im Drizzle-Schema `integer not null` in Epoch-
+    /// Millisekunden (`mirrorColumns().updatedAt`) und wird so auch vom
+    /// JS-Owner geschrieben. Der Outbox-Payload traegt dagegen die
+    /// ISO-Zeichenkette, weil Supabase `timestamptz` erwartet — die beiden
+    /// Formate gehoeren bewusst an verschiedene Ziele.
     private func update(
         database: OpaquePointer,
         itemID: String,
         householdID: String,
         quantity: Double,
         recipeNames: [String],
-        timestamp: String,
+        updatedAtMs: Int64,
     ) throws {
         let statement = try SiriSQLiteStatement(
             database: database,
@@ -321,19 +387,24 @@ final class SiriShoppingDatabase {
         )
         try statement.bind(1, double: quantity)
         try statement.bind(2, text: Self.encodeJSON(recipeNames))
-        try statement.bind(3, text: timestamp)
+        try statement.bind(3, integer: updatedAtMs)
         try statement.bind(4, text: itemID)
         try statement.bind(5, text: householdID)
-        guard try statement.step() == 101 else { throw SiriShoppingDatabaseError.databaseUnavailable }
+        try requireExactlyOneRow(statement, on: database, operation: "update")
     }
 
+    /// `created_at` ist laut Schema `text` und traegt daher die
+    /// ISO-Zeichenkette; `updated_at` ist `integer` und traegt Epoch-
+    /// Millisekunden. Der Outbox-Payload bleibt bei ISO, weil Supabase
+    /// `timestamptz` erwartet.
     private func insert(
         database: OpaquePointer,
         itemID: String,
         householdID: String,
         name: String,
         sortIndex: Int64,
-        timestamp: String,
+        createdAt: String,
+        updatedAtMs: Int64,
     ) throws {
         let statement = try SiriSQLiteStatement(
             database: database,
@@ -351,9 +422,29 @@ final class SiriShoppingDatabase {
         try statement.bind(2, text: householdID)
         try statement.bind(3, text: name)
         try statement.bind(4, integer: sortIndex)
-        try statement.bind(5, text: timestamp)
-        try statement.bind(6, text: timestamp)
-        guard try statement.step() == 101 else { throw SiriShoppingDatabaseError.databaseUnavailable }
+        try statement.bind(5, text: createdAt)
+        try statement.bind(6, integer: updatedAtMs)
+        try requireExactlyOneRow(statement, on: database, operation: "insert")
+    }
+
+    /// `step()` meldet auch dann DONE, wenn ein UPDATE keine Zeile getroffen
+    /// hat — `where id = ? and household_id = ?` kann still ins Leere laufen,
+    /// etwa wenn der Artikel zwischenzeitlich geloescht wurde. Erst
+    /// `exsqlite3_changes` trennt einen echten Treffer von einem Null-Treffer.
+    private func requireExactlyOneRow(
+        _ statement: SiriSQLiteStatement,
+        on database: OpaquePointer,
+        operation: String,
+    ) throws {
+        guard try statement.step() == 101 else {
+            throw SiriShoppingDatabaseError.sqlite(operation: operation, message: "statement failed")
+        }
+        guard exsqlite3_changes(database) == 1 else {
+            throw SiriShoppingDatabaseError.sqlite(
+                operation: operation,
+                message: "no row affected",
+            )
+        }
     }
 
     private func nextSortIndex(householdID: String, in database: OpaquePointer) throws -> Int64 {
@@ -382,7 +473,12 @@ final class SiriShoppingDatabase {
         try outboxStatement.bind(2, text: operation)
         try outboxStatement.bind(3, text: payloadJSON)
         try outboxStatement.bind(4, integer: timestampMs)
-        guard try outboxStatement.step() == 101 else { throw SiriShoppingDatabaseError.databaseUnavailable }
+        // `step()` wirft selbst, sobald SQLite einen Fehlercode liefert — eine
+        // NOT-NULL- oder CHECK-Verletzung erreicht also nie diese Stelle. Ein
+        // zusaetzlicher `guard step() == 101` koennte hier nur nie feuern und
+        // waere toter Code. `requireExactlyOneRow` sichert dagegen das, was
+        // `step()` nicht unterscheidet: ob wirklich eine Zeile entstanden ist.
+        try requireExactlyOneRow(outboxStatement, on: database, operation: "outbox")
 
         let outboxID = exsqlite3_last_insert_rowid(database)
         let historyStatement = try SiriSQLiteStatement(
@@ -395,9 +491,7 @@ final class SiriShoppingDatabase {
         try historyStatement.bind(4, text: payloadJSON)
         try historyStatement.bind(5, integer: timestampMs)
         try historyStatement.bind(6, integer: timestampMs)
-        guard try historyStatement.step() == 101 else {
-            throw SiriShoppingDatabaseError.databaseUnavailable
-        }
+        try requireExactlyOneRow(historyStatement, on: database, operation: "outbox_history")
     }
 
     private func activeHouseholdID(in container: URL) throws -> String {
@@ -412,20 +506,44 @@ final class SiriShoppingDatabase {
         return householdID
     }
 
-    private func sharedDatabaseKey() throws -> String {
+    /// Der Schluessel kommt zuerst aus dem gemeinsamen App-Group-Container.
+    ///
+    /// Die Keychain ist nicht nutzbar: Apple entfernt beim Signieren jedes
+    /// `keychain-access-groups`-Entitlement, das das Provisioning-Profil
+    /// nicht abdeckt, und das Projekt-Profil erlaubt nur `SW8RP7PA3W.*`. Die
+    /// App Group selbst ist freigeschaltet — deshalb der Weg ueber die Datei.
+    /// Die Keychain bleibt als Rueckfall fuer aeltere Installationen.
+    private func sharedDatabaseKey(in container: URL) throws -> String {
+        let keyFileURL = container.appendingPathComponent(Self.databaseKeyFile)
+        if let data = try? Data(contentsOf: keyFileURL),
+           let value = String(data: data, encoding: .utf8)?
+           .trimmingCharacters(in: .whitespacesAndNewlines),
+           Self.isValidHexKey(value) {
+            return value
+        }
+        return try keychainDatabaseKey()
+    }
+
+    private func keychainDatabaseKey() throws -> String {
         let key = Self.keychainKey.data(using: .utf8)!
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: Self.keychainService,
             kSecAttrGeneric as String: key,
             kSecAttrAccount as String: key,
-            kSecAttrAccessGroup as String: Self.appGroup,
+            kSecAttrAccessGroup as String: Self.keychainAccessGroup,
             kSecMatchLimit as String: kSecMatchLimitOne,
             kSecReturnData as String: true,
         ]
         var result: CFTypeRef?
-        guard SecItemCopyMatching(query as CFDictionary, &result) == errSecSuccess,
-              let data = result as? Data,
+        let status = SecItemCopyMatching(query as CFDictionary, &result)
+        guard status == errSecSuccess else {
+            if status == errSecItemNotFound {
+                throw SiriShoppingDatabaseError.databaseKeyUnavailable
+            }
+            throw SiriShoppingDatabaseError.keychain(status: status)
+        }
+        guard let data = result as? Data,
               let value = String(data: data, encoding: .utf8),
               Self.isValidHexKey(value) else {
             throw SiriShoppingDatabaseError.databaseKeyUnavailable
@@ -444,8 +562,27 @@ final class SiriShoppingDatabase {
 
     private func execute(_ sql: String, on database: OpaquePointer) throws {
         let statement = try SiriSQLiteStatement(database: database, sql: sql)
-        guard try statement.step() == 101 else {
-            throw SiriShoppingDatabaseError.sqlite(operation: "execute", message: "statement failed")
+        // Manche PRAGMAs liefern eine Zeile zurueck (`PRAGMA busy_timeout` gibt
+        // den gesetzten Wert). Ein einzelner `step()` reicht dort nicht, sonst
+        // wirft `execute` bei einem gueltigen Statement. Bis SQLITE_DONE
+        // durchsteppen — Transaktionssteuerung liefert weiterhin DONE, bleibt
+        // also unveraendert. Echte Fehler wirft weiterhin `step()`.
+        //
+        // Die Fehlerbezeichnung bleibt `execute`, obwohl `step()` wirft: sie
+        // benennt die fehlgeschlagene Anweisung, waehrend `step()` an vier
+        // anderen Stellen (insert, update, nextSortIndex, enqueue) dieselbe
+        // Fehlermeldung erzeugen wuerde. Ohne sie ist ein SQLITE_BUSY auf
+        // `BEGIN IMMEDIATE` — der wahrscheinlichste Produktionsfehler, gegen
+        // den das busy_timeout existiert — nicht mehr von einem Fehler im
+        // eigentlichen Schreibvorgang zu unterscheiden.
+        do {
+            while try statement.step() == 100 {}
+        } catch {
+            throw SiriShoppingDatabaseError.sqlite(
+                operation: "execute",
+                message: (error as? SiriShoppingDatabaseError)
+                    .flatMap { ($0.diagnosticCode) } ?? "statement failed",
+            )
         }
     }
 
@@ -465,23 +602,13 @@ final class SiriShoppingDatabase {
         return value
     }
 
-    private static func hexData(_ value: String) throws -> Data {
-        guard isValidHexKey(value) else { throw SiriShoppingDatabaseError.databaseKeyUnavailable }
-        var data = Data(capacity: value.count / 2)
-        var index = value.startIndex
-        while index < value.endIndex {
-            let next = value.index(index, offsetBy: 2)
-            guard let byte = UInt8(value[index..<next], radix: 16) else {
-                throw SiriShoppingDatabaseError.databaseKeyUnavailable
-            }
-            data.append(byte)
-            index = next
-        }
-        return data
-    }
-
     private static func isValidHexKey(_ value: String) -> Bool {
         value.count == 64 && value.allSatisfy { $0.isHexDigit }
+    }
+
+    /// Spiegelt `toSqlCipherKeyPragma` aus `local-database-encryption.ts`.
+    private static func keyPragma(for key: String) -> String {
+        "PRAGMA key = \"x'\(key)'\""
     }
 }
 

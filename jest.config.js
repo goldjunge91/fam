@@ -49,7 +49,7 @@ module.exports = {
   // CPU konkurrieren statt einzeln zu laufen — beobachtet beim vollen
   // `bun run test` unter Last, nicht bei isolierten Laeufen.
   testTimeout: 15000,
-  
+
   // Spiegelt die Pfad-Aliase aus tsconfig.json. Die spezifischere
   // `@/assets/`-Regel muss vor `@/` stehen, sonst greift sie nie.
   moduleNameMapper: {
@@ -97,7 +97,10 @@ module.exports = {
   // Eigenstaendige Tools und lokale Agent-Skills koennen eigene
   // package.json-Dateien mit demselben Namen enthalten. Sie gehoeren nicht
   // zum App-Modulgraphen und duerfen deshalb auch nicht in Jest Haste landen.
-  modulePathIgnorePatterns: ['<rootDir>/(?:tools|\\.agents|\\.claude)/'],
+  // `build/` ist der lokale Bun-/Prebuild-Cache: er enthaelt entpackte
+  // Paketquellen mit package.json, die sonst mehrfach als Haste-Kandidaten
+  // auftauchen und die Modulaufloesung mit "several different files" brechen.
+  modulePathIgnorePatterns: ['<rootDir>/(?:tools|\\.agents|\\.claude|build)/'],
 
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
   // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.

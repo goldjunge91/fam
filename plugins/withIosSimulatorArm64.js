@@ -7,6 +7,8 @@ const POST_INTEGRATE_MARKER =
   '# withIosSimulatorArm64: mark the CocoaPods-added ads phase as always out of date';
 const SIRI_PODS_CONFIG_MARKER =
   '# withIosSimulatorArm64: attach CocoaPods configurations to siri';
+const SIRI_POST_INTEGRATE_CONFIG_MARKER =
+  '# withIosSimulatorArm64: restore siri CocoaPods configurations after integration';
 const POD_TARGET_DEPENDENCY_MARKER =
   '# withIosSimulatorArm64: order app targets after their CocoaPods targets';
 const IOS_SIMULATOR_TARGETS = ['fam', 'siri', 'ExpoWidgetsTarget'];
@@ -93,6 +95,21 @@ post_integrate do |installer|
     if [${rubyTargets}].include?(target_name)
       user_target = project.native_targets.find { |candidate| candidate.name == target_name }
       raise "withIosSimulatorArm64: missing Xcode or CocoaPods target for #{aggregate_target.label}" unless user_target && pod_target
+
+      if target_name == 'siri'
+        # CocoaPods can replace custom extension build configurations during integration.
+        # Reattach the Pods config after integration so Xcode resolves the Podfile paths
+        # and ExpoSQLite module map when building Siri independently or through fam.
+        # ${SIRI_POST_INTEGRATE_CONFIG_MARKER}
+        user_target.build_configurations.each do |config|
+          config_file = project.files.find do |file|
+            file.path.to_s.end_with?("Pods-siri.#{config.name.to_s.downcase}.xcconfig")
+          end
+          raise "withIosSimulatorArm64: missing CocoaPods configuration for siri #{config.name}" unless config_file
+
+          config.base_configuration_reference = config_file
+        end
+      end
 
       unless project.reference_for_path(pods_project.path)
         project.main_group.new_file(pods_project.path, :group)
