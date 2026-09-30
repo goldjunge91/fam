@@ -38,10 +38,22 @@
   // und eigenen node_modules (z.B. Vite-spezifische `?url`-Imports, die die
   // Root-`types`-Liste nicht kennt) — werden ueber ihr eigenes `tsc`/`vite
   // build` geprueft, nicht ueber den App-weiten `bun run typecheck`.
+  //
+  // build/ ist der lokale Prebuild-Cache. Das `**/*.ts`-Include greift sonst
+  // auf die entpackten Paketquellen darin zu — ~32.500 Dateien gegenueber
+  // ~1.200 in src/. Zwei Folgen, beide observed: der Language-Server laeuft in
+  // den Speicher-Notfall und meldet dann "No inputs were found" mit allen
+  // Folgefehlern als Kaskade (Cannot find name Promise, Cannot find module
+  // react-native), und `tsc --noEmit` bricht mit TS6053 ab, weil der Glob
+  // `.d.ts`-Eintraege trifft, die zwischen zwei Laeufen wieder verschwinden.
+  // Der Language-Server respektiert .gitignore nicht, deshalb muss der
+  // Ausschluss hier stehen und nicht nur in .gitignore. Fuer Jest ist das
+  // bereits ueber modulePathIgnorePatterns in jest.config.js erledigt.
   "exclude": [
     "supabase/functions",
     "scripts",
     "tools",
-    "temp"
+    "temp",
+    "build"
   ]
 }
