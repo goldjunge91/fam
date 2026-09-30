@@ -107,6 +107,12 @@ export function MissingIngredientsScreen() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const addShoppingItem = useAddShoppingItem();
   const [addedCount, setAddedCount] = useState<number | null>(null);
+  const [transferError, setTransferError] = useState<string | null>(null);
+  // Eigener Sperrzustand statt addShoppingItem.isPending: die Mutation wird
+  // im Loop pro Artikel einzeln aufgerufen, isPending flackert dazwischen
+  // wieder auf false — der Button muss aber ueber die gesamte Uebertragsdauer
+  // gesperrt bleiben.
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     setSelected(
@@ -143,79 +149,102 @@ export function MissingIngredientsScreen() {
       selectedCount: toAdd.length,
     });
 
-    for (const item of toAdd) {
-      const quantity =
-        item.kind === 'custom'
-          ? item.quantity
-          : item.missingGrams > 0
-            ? item.missingGrams
-            : item.neededGrams;
-      debugLogEvent('meal-planner.shopping-needs.transfer.item.started', {
-        variant: 'android',
-        productId: item.productId,
-        name: item.name,
-        quantity,
-      });
+    setTransferError(null);
+    setIsSubmitting(true);
+    // Ein Artikel-Fehler darf den restlichen Transfer nicht abbrechen: der
+    // Nutzer hat die Auswahl bestaetigt, also werden die uebrigen Artikel
+    // weiter geschrieben. Am Ende zaehlt `failed` auf, was wirklich fehlt.
+    let added = 0;
+    let failed = 0;
 
-      try {
-        // Alle Erzeugungswege nutzen den Resolver (#223 Abschnitt 10) — hier
-        // ohne `categoryTags`, da diese Zutaten nur als Produkt-Id/Name
-        // bekannt sind, nicht als vollstaendiges OFF-Produkt.
-        let classification: Awaited<ReturnType<typeof resolveCategoryForItem>> | null = null;
+    try {
+      for (const item of toAdd) {
+        const quantity =
+          item.kind === 'custom'
+            ? item.quantity
+            : item.missingGrams > 0
+              ? item.missingGrams
+              : item.neededGrams;
+        debugLogEvent('meal-planner.shopping-needs.transfer.item.started', {
+          variant: 'android',
+          productId: item.productId,
+          name: item.name,
+          quantity,
+        });
+
         try {
-          classification = await resolveCategoryForItem({
-            householdId,
-            productId: item.kind === 'custom' ? null : item.productId,
+          // Alle Erzeugungswege nutzen den Resolver (#223 Abschnitt 10) — hier
+          // ohne `categoryTags`, da diese Zutaten nur als Produkt-Id/Name
+          // bekannt sind, nicht als vollstaendiges OFF-Produkt.
+          let classification: Awaited<ReturnType<typeof resolveCategoryForItem>> | null = null;
+          try {
+            classification = await resolveCategoryForItem({
+              householdId,
+              productId: item.kind === 'custom' ? null : item.productId,
+              name: item.name,
+              storeId: item.kind === 'custom' ? null : item.preferredStoreId,
+            });
+            debugLogEvent('meal-planner.shopping-needs.transfer.item.classified', {
+              variant: 'android',
+              productId: item.productId,
+              categoryId: classification.categoryId,
+              categorySource: classification.source,
+            });
+          } catch (error) {
+            // Die Kategorisierung ist eine Anreicherung. Ein Fehler hier darf
+            // den eigentlichen local-first-Transfer nicht verhindern.
+            debugLogEvent('meal-planner.shopping-needs.transfer.item.classification-fallback', {
+              variant: 'android',
+              productId: item.productId,
+              error: error instanceof Error ? error.message : String(error),
+            });
+          }
+
+          const entityId = await addShoppingItem.mutateAsync({
+            household_id: householdId,
             name: item.name,
-            storeId: item.kind === 'custom' ? null : item.preferredStoreId,
+            quantity,
+            unit: item.kind === 'custom' ? item.unit : 'g',
+            product_id: item.kind === 'custom' ? null : item.productId,
+            category_id: classification?.categoryId ?? null,
+            category_source: classification?.source ?? null,
+            category_classifier_version: classification?.classifierVersion ?? null,
+            store_id: item.kind === 'custom' ? null : item.preferredStoreId,
+            recipe_names: item.recipeNames,
           });
-          debugLogEvent('meal-planner.shopping-needs.transfer.item.classified', {
+          added += 1;
+          debugLogEvent('meal-planner.shopping-needs.transfer.item.completed', {
             variant: 'android',
             productId: item.productId,
-            categoryId: classification.categoryId,
-            categorySource: classification.source,
+            entityId,
           });
         } catch (error) {
-          // Die Kategorisierung ist eine Anreicherung. Ein Fehler hier darf
-          // den eigentlichen local-first-Transfer nicht verhindern.
-          debugLogEvent('meal-planner.shopping-needs.transfer.item.classification-fallback', {
+          failed += 1;
+          debugLogEvent('meal-planner.shopping-needs.transfer.item.failed', {
             variant: 'android',
             productId: item.productId,
             error: error instanceof Error ? error.message : String(error),
           });
         }
-
-        const entityId = await addShoppingItem.mutateAsync({
-          household_id: householdId,
-          name: item.name,
-          quantity,
-          unit: item.kind === 'custom' ? item.unit : 'g',
-          product_id: item.kind === 'custom' ? null : item.productId,
-          category_id: classification?.categoryId ?? null,
-          category_source: classification?.source ?? null,
-          category_classifier_version: classification?.classifierVersion ?? null,
-          store_id: item.kind === 'custom' ? null : item.preferredStoreId,
-          recipe_names: item.recipeNames,
-        });
-        debugLogEvent('meal-planner.shopping-needs.transfer.item.completed', {
-          variant: 'android',
-          productId: item.productId,
-          entityId,
-        });
-      } catch (error) {
-        debugLogEvent('meal-planner.shopping-needs.transfer.item.failed', {
-          variant: 'android',
-          productId: item.productId,
-          error: error instanceof Error ? error.message : String(error),
-        });
-        throw error;
       }
+    } finally {
+      setIsSubmitting(false);
     }
 
-    setAddedCount(toAdd.length);
+    // `added` zaehlt die tatsaechlich geschriebenen Artikel, nicht `toAdd`:
+    // bei Teilerfolg waere die Erfolgsmeldung sonst falsch.
+    setAddedCount(added);
+    if (failed > 0) {
+      setTransferError(
+        added === 0
+          ? 'Es konnte kein Artikel gespeichert werden. Bitte erneut versuchen.'
+          : `${added} von ${added + failed} Artikeln wurden gespeichert.`,
+      );
+    }
     debugLogEvent('meal-planner.shopping-needs.transfer.completed', {
       variant: 'android',
-      addedCount: toAdd.length,
+      addedCount: added,
+      failedCount: failed,
     });
   }
 
@@ -269,12 +298,23 @@ export function MissingIngredientsScreen() {
           <Button
             title={`${selected.size} Artikel zur Einkaufsliste hinzufügen`}
             onPress={handleAddSelected}
-            disabled={selected.size === 0 || addShoppingItem.isPending || !session}
-            loading={addShoppingItem.isPending}
+            disabled={selected.size === 0 || isSubmitting || !session}
+            loading={isSubmitting}
           />
 
-          {/* Erfolgs-Bestätigung nach Übertrag */}
-          {addedCount !== null ? (
+          {/*
+            Transfer-Fehler sichtbar machen. Vorher rethrowte die Schleife
+            ungehandelt, der Promise-Aufruf von onPress blieb unbeaufsichtigt
+            und der Nutzer bekam gar keine Rueckmeldung.
+          */}
+          {transferError ? (
+            <Txt variant="body" tone="danger" accessibilityRole="alert">
+              {transferError}
+            </Txt>
+          ) : null}
+
+          {/* Erfolgs-Bestaetigung nach Übertrag */}
+          {addedCount !== null && addedCount > 0 ? (
             <Txt variant="body" tone="success">
               {addedCount} Artikel zur Einkaufsliste hinzugefügt.
             </Txt>

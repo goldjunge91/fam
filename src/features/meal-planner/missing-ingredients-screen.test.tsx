@@ -156,7 +156,10 @@ function renderScreen(Component: typeof MissingIngredientsScreen = MissingIngred
 }
 
 beforeEach(() => {
-  mockAddMutateAsync.mockClear();
+  // `mockReset` in den Fehlerfall-Tests loescht auch die Standard-
+  // Aufloesung, deshalb wird sie hier explizit wiederhergestellt.
+  mockAddMutateAsync.mockReset();
+  mockAddMutateAsync.mockResolvedValue(undefined);
   mockResolveCategoryForItem.mockClear();
   mockRouterPush.mockClear();
   mockRouterBack.mockClear();
@@ -316,6 +319,46 @@ describe('MissingIngredientsScreen', () => {
 
     expect(mockAddMutateAsync).toHaveBeenCalledTimes(1);
     expect(mockAddMutateAsync).toHaveBeenCalledWith(expect.objectContaining({ name: 'Tomaten' }));
+  });
+
+  it('Android-Variante: ein fehlgeschlagener Artikel bricht den Transfer nicht ab', async () => {
+    // Regression: die Schleife rethrowte ungehandelt, wodurch der Aufruf
+    // aus onPress unbeaufsichtigt blieb und der Nutzer keine Rueckmeldung
+    // bekam. Der zweite Artikel muss trotzdem geschrieben werden.
+    const user = userEvent.setup();
+    mockAddMutateAsync.mockReset();
+    mockAddMutateAsync
+      .mockRejectedValueOnce(new Error('SQLITE_BUSY'))
+      .mockResolvedValueOnce('item-2');
+    await renderScreen(MissingIngredientsScreenAndroid);
+
+    await user.press(screen.getByText('2 Artikel zur Einkaufsliste hinzufügen'));
+
+    await waitFor(() => {
+      expect(screen.getByText('1 von 2 Artikeln wurden gespeichert.')).toBeOnTheScreen();
+    });
+    expect(mockAddMutateAsync).toHaveBeenCalledTimes(2);
+    // Der erfolgreiche Artikel wird als hinzugefuegt bestaetigt.
+    expect(screen.getByText('1 Artikel zur Einkaufsliste hinzugefügt.')).toBeOnTheScreen();
+  });
+
+  it('Android-Variante: kompletter Fehlschlag zeigt eine Fehlermeldung statt einer Erfolgsmeldung', async () => {
+    const user = userEvent.setup();
+    mockAddMutateAsync.mockReset();
+    mockAddMutateAsync.mockRejectedValue(
+      new Error('Ohne angemeldeten Nutzer ist die lokale Datenbank gesperrt.'),
+    );
+    await renderScreen(MissingIngredientsScreenAndroid);
+
+    await user.press(screen.getByText('2 Artikel zur Einkaufsliste hinzufügen'));
+
+    await waitFor(() => {
+      expect(
+        screen.getByText('Es konnte kein Artikel gespeichert werden. Bitte erneut versuchen.'),
+      ).toBeOnTheScreen();
+    });
+    // Keine irrefuehrende Erfolgsmeldung bei null geschriebenen Artikeln.
+    expect(screen.queryByText(/zur Einkaufsliste hinzugefügt\./)).not.toBeOnTheScreen();
   });
 
   it('zeigt bei einem initialen Fehler eine sichtbare Fehlermeldung mit Retry', async () => {
