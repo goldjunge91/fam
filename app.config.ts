@@ -43,12 +43,35 @@ export default ({ config }: ConfigContext): ExpoConfig => {
   ];
   // expo-ai-kit provides Apple Vision; expo-mlkit-ocr provides the optional
   // Google ML Kit path. iosEngine only configures the latter package.
+  //
+  // Nur der ML-Kit-Pfad braucht statische Frameworks: expo-mlkit-ocr liefert
+  // ein XCFramework. Dabei erzeugt CocoaPods pro React-Pod zwei Targets, eine
+  // `-framework-` und eine `-library-` Variante. Beide schreiben in dasselbe
+  // `*_privacy.bundle`-Verzeichnis, sobald die Privacy-Manifest-Aggregation
+  // aktiv ist, und der Archive-Schritt bricht dann ab:
+  //
+  //   error: Multiple commands produce '.../React-timing_privacy.bundle'
+  //     note: Target 'React-timing-framework-React-timing_privacy'
+  //     note: Target 'React-timing-library-React-timing_privacy'
+  //
+  // Deshalb wird die Aggregation genau hier abgeschaltet. Ohne die
+  // Framework-Doppelung tritt der Konflikt nicht auf, siehe
+  // docs/architecture/LOCAL_NATIVE_BUILDS.md.
   const mlKitOcrPlugins: NonNullable<ExpoConfig['plugins']> =
     iosMlKitOcrEnabled
       ? [
           ['expo-ai-kit', { vision: true }],
           ['expo-mlkit-ocr', { iosEngine: 'mlkit' }],
-          ['expo-build-properties', { ios: { useFrameworks: 'static', deploymentTarget: '17.0' } }],
+          [
+            'expo-build-properties',
+            {
+              ios: {
+                useFrameworks: 'static',
+                deploymentTarget: '17.0',
+                privacyManifestAggregationEnabled: false,
+              },
+            },
+          ],
         ]
       : [
           ['expo-ai-kit', { vision: true }],
