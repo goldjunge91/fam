@@ -27,6 +27,11 @@ module.exports = function withIosSimulatorArm64(config) {
       throw new Error('withIosSimulatorArm64: post_install end not found in Podfile');
     }
 
+    // CURRENT_PROJECT_VERSION fuer das siri-Target. `appVersionSource` steht auf
+    // `remote`, App Store Connect erhaelt also den Build von EAS; fuer lokale
+    // Builde greift der Wert aus app.json.
+    const buildNumber = String(config.ios?.buildNumber ?? '1');
+
     const rubyTargets = IOS_SIMULATOR_TARGETS.map((name) => `'${name}'`).join(', ');
     const rubyCodeSigningTargets = CODE_SIGNING_TARGETS.map((name) => `'${name}'`).join(', ');
     const rubyAlwaysRunPhases = ALWAYS_RUN_PHASES.map((name) => `'${name}'`).join(', ');
@@ -117,12 +122,35 @@ post_integrate do |installer|
       user_target.add_dependency(pod_target)
     end
 
-    # withIosSimulatorArm64: enable code signing for the app and embedded targets
+    # withIosSimulatorArm64: enable code signing for the app and embedded targets,
+    # and align the extension build numbers with the app's.
+    app_target = project.native_targets.find { |native_target| native_target.name == 'fam' }
+    app_build_version = nil
+    if app_target && app_target.build_configurations.first
+      app_build_version = app_target.build_configurations.first.build_settings['CURRENT_PROJECT_VERSION']
+    end
+    app_build_version = '${buildNumber}' if app_build_version.to_s.strip.empty?
+
     project.native_targets.each do |native_target|
       next unless [${rubyCodeSigningTargets}].include?(native_target.name)
 
       native_target.build_configurations.each do |config|
         config.build_settings['CODE_SIGNING_ALLOWED'] = 'YES'
+        # Das siri-Target traegt kein eigenes CURRENT_PROJECT_VERSION und erbte
+        # dadurch eine eigene, von der App abweichende Nummer. TestFlight
+        # ordnet die Extension sonst nicht dem Haupt-Target zu. Frueher stand das
+        # in einem eigenen Xcode-Projekt-Mod (plugins/withSiriBuildNumber.js),
+        # dessen Reihenfolge gegen @bacons/apple-targets nicht aufloesbar war:
+        # vor dem Plugin fehlte der siri-Target, danach kollidierte der
+        # Mod-Provider ("Provider must be the last mod added").
+        #
+        # Der Wert wird hier aus dem fam-Target gelesen und nicht aus app.json
+        # uebernommen: appVersionSource steht auf "remote", deshalb setzt EAS
+        # die Build-Nummer im generierten Projekt und der lokale Wert aus
+        # app.json waere beim TestFlight-Build veraltet.
+        if native_target.name == 'siri'
+          config.build_settings['CURRENT_PROJECT_VERSION'] = app_build_version
+        end
       end
     end
 

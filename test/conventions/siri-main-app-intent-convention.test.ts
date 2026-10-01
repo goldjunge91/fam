@@ -9,10 +9,16 @@ const SHARED_INTENT_PATH = path.join(
   '_shared',
   'siri-shopping-list-intents.swift',
 );
+// Die Datei liegt im `_shared`-Ordner des siri-Targets: `@bacons/apple-targets`
+// bindet dieses Verzeichnis in genau zwei Targets ein, die Haupt-App und die
+// Siri-Extension. Ein globalses `targets/_shared` landet dagegen in ALLEN
+// Extension-Targets, auch in `watch` — die Intent-Datei waere dort ohne Zweck
+// und erzeugt mehrdeutige Build-Eintraege.
 const MAIN_APP_INTENT_PATH = path.join(
   REPO_ROOT,
   'targets',
-  'siri-main-app',
+  'siri',
+  '_shared',
   'main-app-shopping-list-intent.swift',
 );
 const EXTENSION_ENTRYPOINT_PATH = path.join(REPO_ROOT, 'targets', 'siri', 'siri-extension.swift');

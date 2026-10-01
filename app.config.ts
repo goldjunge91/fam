@@ -67,8 +67,6 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     },
     plugins: [
       ...(config.plugins ?? []),
-      './plugins/withMainAppSiriIntent',
-      './plugins/withSiriBuildNumber',
       '@bacons/apple-targets',
       './plugins/withIosSimulatorArm64',
       ...mlKitOcrPlugins,

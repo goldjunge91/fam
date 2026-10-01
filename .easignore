@@ -1,0 +1,18 @@
+# Verzeichnisse, die beim EAS-Build weder gebraucht noch gewollt sind.
+# EAS fuehrt `expo prebuild --no-clean` selbst aus und installiert die Pods im
+# Build-Container. Ein mitgeliefertes `ios/Pods` stammt aus einer lokalen
+# Installation, kann zu einer anderen CocoaPods-Version passen und erzeugt dann
+# doppelte Build-Produkte ("Multiple commands produce .../React-*_privacy.bundle").
+
+ios/Pods
+ios/build
+ios/DerivedData
+
+# Lokale Build-Caches des Projekts (siehe docs/architecture/LOCAL_NATIVE_BUILDS.md).
+build/cache
+build/local
+
+# Unversionierte Arbeitsdateien, die nichts mit dem Build zu tun haben.
+.DS_Store
+*.orig.*
+siri.md
