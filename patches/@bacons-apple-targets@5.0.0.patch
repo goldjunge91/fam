@@ -1,0 +1,38 @@
+diff --git a/build/with-xcode-changes.js b/build/with-xcode-changes.js
+@@ -218,20 +218,31 @@
+         }
+     }
+     if (targetToUpdate) {
+-        // Remove existing build phases
+-        targetToUpdate.props.buildConfigurationList.props.buildConfigurations.forEach((config) => {
++        // Remove existing build phases.
++        //
++        // The teardown used to re-resolve `targetToUpdate.props.buildConfigurationList`
++        // after `removeReference` had already severed that edge, which sets the
++        // property to undefined in @bacons/xcode, so the final
++        // removeFromProject() threw "Cannot read properties of undefined". Binding
++        // the list to a local keeps the teardown on live objects. The configuration
++        // loop also walks a copy, because removeReference splices the very array it
++        // iterates and would otherwise stop after the first entry, leaving the rest
++        // orphaned in the pbxproj.
++        const existingBuildConfigurationList = targetToUpdate.props.buildConfigurationList;
++        const existingBuildConfigurations = existingBuildConfigurationList.props.buildConfigurations.slice();
++        existingBuildConfigurations.forEach((config) => {
+             config.getReferrers().forEach((ref) => {
+                 ref.removeReference(config.uuid);
+             });
+             config.removeFromProject();
+         });
+         // Remove existing build configuration list
+-        targetToUpdate.props.buildConfigurationList
++        existingBuildConfigurationList
+             .getReferrers()
+             .forEach((ref) => {
+-            ref.removeReference(targetToUpdate.props.buildConfigurationList.uuid);
++            ref.removeReference(existingBuildConfigurationList.uuid);
+         });
+-        targetToUpdate.props.buildConfigurationList.removeFromProject();
++        existingBuildConfigurationList.removeFromProject();
+         // Create new build phases
+         targetToUpdate.props.buildConfigurationList =
+             (0, configuration_list_1.createConfigurationListForType)(project, props);
