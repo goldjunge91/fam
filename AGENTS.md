@@ -1,3 +1,13 @@
+This is an Expo/React Native mobile application. Prioritize mobile-first patterns, performance, and cross-platform compatibility.
+
+## Expo has changed — do not trust your training data
+
+Expo ships breaking changes every SDK release. APIs you remember are likely renamed, moved, or removed. Before writing any code that touches an Expo, EAS, or React Native API:
+
+1. Read the major version of the `expo` package in `package.json`.
+2. Fetch the matching versioned docs: `https://docs.expo.dev/versions/v<major>.0.0/`
+3. For anything else, fetch https://docs.expo.dev/llms.txt — an index of all Expo docs with corrections to common LLM misconceptions. Follow its links to the specific page you need; never answer from memory.
+
 # Haushaltsapp (nicht der finale name)
 
 - **Haushaltsapp** ist eine Expo- und React-Native-App für Haushalte und Familien, die geteilte Bestands- und Einkaufslisten mit einem Wöchentlichen Essensplanner und der möglichkeit privatem Kalorien-, Nährwert- und Gewichts-Tracking zu kombinieren.
@@ -13,12 +23,6 @@
 3. **Local-First & Offline-Belastbarkeit:** Lokale SQLite-Datenbank (`expo-sqlite`) mit Outbox-Sync für reibungslose Bedienung auch ohne stabile Netzverbindung.
 
 ## Verbindliche Vertragsquellen
-
-- `AGENTS.md` besitzt Arbeitsweise, Tooling und Beitragsprozess.
-- `CONSTRAINTS.md` besitzt die verbindlichen Qualitätsgrenzen und wird vor
-  jeder Codeänderung gelesen. Es wird nicht abgeschwächt, um eine Änderung
-  erfolgreich erscheinen zu lassen.
-- `CONTEXT.md` besitzt Domänensprache und Datenbesitz.
 
 Technisches Ist-Verhalten wird durch deklarative Schemas, Produktionscode und
 gezielte Tests belegt. Eine Abweichung von einem freigegebenen Vertrag wird
@@ -38,7 +42,21 @@ werden. Bestehende Formulierungen werden bei Berührung durch „verbindlich“,
 - **Mobile (iOS & Android):** Hauptzielplattform mit Expo SDK 57, React Native 0.86 und React 19.2. Erfordert für native Module (Kamera, Barcode-Scanner, SQLite, SecureStore, Notifications) einen Dev Client; läuft nicht in Standard Expo Go. Lokale Build-Befehle stehen in `docs/architecture/LOCAL_NATIVE_BUILDS.md`.
 - **Web / Edge Functions / Services:** Supabase Edge Functions (z. B. `auth-confirmed`), es gibt keine Web-Vorschau.
 - **Backend & Auth:** Supabase (Postgres, GoTrue Auth, Realtime, Storage) via Docker (`supabase start`); RevenueCat für In-App-Käufe und Abonnements.
-- Wir haben einen Apple-Developer-Account. iOS-TestFlight-Archive werden lokal mit Xcode erstellt und können über Xcode Organizer hochgeladen werden. EAS Cloud Build ist nicht der Build-Ablauf dieses Projekts.
+
+## ML Kit auf iOS ist Pflicht, kein Feature-Flag
+
+`FAM_IOS_MLKIT_OCR` ist **keine optionale Möglichkeit**. Der Wert `0` ist im
+iOS-Build des Projekts keine zulässige Konfiguration und darf nicht als
+Lösung für einen Build- oder Linkfehler vorgeschlagen werden. Google ML Kit
+(`expo-mlkit-ocr`) ist der verbindliche OCR-Provider auf iOS; Apple Vision ist
+der Fallback-Zweig in `app.config.ts`, kein Ersatz für eine laufende App.
+
+Wird ein Build-Problem durch Abschalten von ML Kit "gelöst", ist es nicht
+gelöst. Der ML-Kit-Zweig setzt in `app.config.ts` `useFrameworks: 'static'`
+und `deploymentTarget: '17.0'`; die daraus entstehende Framework-Doppelung
+(CocoaPods erzeugt pro React-Pod ein `-framework-`- und ein `-library-`-Target,
+deren Copy-XCFrameworks-Phasen in dasselbe Verzeichnis schreiben) ist an der
+Ursache zu beheben, nicht durch Abschalten des Providers.
 
 ## Verbindliche UI-Styling-Architektur
 
@@ -49,7 +67,7 @@ Entscheidungen:
 1. `src/components/theme/index.ts` — Themes, Paletten und Design-Tokens
    (Abstände, Radien, Schriftmaße/-gewichte, Schatten).
 2. `src/components/theme/ThemeProvider.tsx` — Präferenz `system | light |
-   dark`, `useTheme()`, `useThemedStyles()`.
+dark`, `useTheme()`, `useThemedStyles()`.
 3. `src/constants/ui.tsx`, `src/constants/ui-shadow.ts` und
    `src/constants/motion.ts` — gemeinsame semantische UI-Primitiven und
    Motion-Rollen (Typografie, Farben, Flächen, Konturen, Interaktionszustände,
@@ -134,7 +152,7 @@ _Of note: Most developer contributions are often controlled remotely. This means
 ## Stack conventions in this project
 
 - **State management:** Zustand for client-side/UI state (`create()` stores, e.g. `src/features/onboarding/onboarding-store.ts`, sync-debug state, form-local state like `src/features/shopping-list/forms/category-form-state.ts`). React Query owns server/cache state (Supabase reads, mutations, `mutateAsync`). Don't duplicate server state into a Zustand store — pull it via React Query and keep Zustand for state that has no server-side source of truth.
-- **Lists:** `@shopify/flash-list` (latest) ist die alleinige Konvention für virtualisierte Listen — RNs `FlatList` wird nicht mehr verwendet (#139, Stand 2026-08 alle Vorkommen migriert; `test/conventions/flashlist-convention.test.ts` hält das fest). `@legendapp/list` ist zwar installiert, aber unbenutzt: nicht dafür greifen. FlashList v2 braucht 
+- **Lists:** `@shopify/flash-list` (latest) ist die alleinige Konvention für virtualisierte Listen — RNs `FlatList` wird nicht mehr verwendet (#139, Stand 2026-08 alle Vorkommen migriert; `test/conventions/flashlist-convention.test.ts` hält das fest). `@legendapp/list` ist zwar installiert, aber unbenutzt: nicht dafür greifen. FlashList v2 braucht
 - **Gesten & UI-Thread-Animation:** `react-native-gesture-handler` für Swipe-Interaktionen (Vorbild: `inventory-item-row.tsx` mit `ReanimatedSwipeable`), `react-native-worklets`/Reanimated für Animationen auf dem UI-Thread (Vorbild: `animated-icon.tsx`, `week-grid.tsx`, `jiggle-wrapper.tsx`). Bestehendes Muster fortführen, aber nicht proaktiv auf bisher statische Stellen ausweiten.
 - **Testhinweis zu FlashList:** die Liste recycelt Zeilen-Views, deshalb spiegelt die Reihenfolge im RNTL-Baum nach einem Re-Sort nicht mehr die Datenreihenfolge (visuell wird über Layout positioniert). Reihenfolge-Logik gehört in eine reine Funktion und wird dort geprüft (Vorbild: `src/features/inventory/visible-items.ts`).
 - **Forms:** React Hook Form + Zod (via `@hookform/resolvers`) is the default for structured, validated forms — auth (`sign-in-form.tsx`, `sign-up-form.tsx`), profile edit, onboarding profile step, recipe creation/wizard. Simpler inline forms (e.g. `add-item-form.tsx`) still use plain `useState` and aren't required to migrate just for consistency's sake; use RHF+Zod for new forms with real validation needs, plain state for small inline inputs.
@@ -161,7 +179,7 @@ Read the exact versioned docs at <https://docs.expo.dev/versions/v57.0.0/> befor
 - **Typesicherheit ohne `any`:** Inferenz nutzen. Typsysteme sollen sich an Änderungen anpassen. Code soll modernen TypeScript-Standards entsprechen.
 - **Feature-First Struktur:** `src/app/` dient ausschließlich dem Routing (Expo Router). Fachlogik gehört nach `src/features/<domain>/`, geteilte UI nach `src/components/`. Kleine Features bleiben flach (`components/`, `hooks/`, `api.ts`, `types.ts`); sobald ein Feature spürbar wächst, wird nach Verantwortungsschicht getrennt statt alles in `components/` zu sammeln — `screens/` (Screens/Routen-Ziele), `sheets/` (Modals/Bottom-Sheets), `forms/` (Formulare & Eingabe-Bausteine), `components/` (reine Anzeige-Komponenten), `hooks/` (React-Query-/Datenzugriffs-Hooks), `domain/` (Domänen-Logik & Konfiguration ohne React). Referenz: `src/features/shopping-list/`.
 - **UI & Layout:** Warme Mauve-/Creme-Palette (`src/components/theme/index.ts`, Light & Dark, siehe `docs/design-system/contracts/README.md`), semantisches Styling ausschließlich über Theme-Tokens und die drei verbindlichen UI-Quellen, kein Em-Dash in Copy, Informationsdichte vor Deko.
-- **Expo SDK 57:** Vor dem Schreiben nativer Expo-Features stets die versionierte Dokumentation (<https://docs.expo.dev/versions/v57.0.0/>) konsultieren. 
+- **Expo SDK 57:** Vor dem Schreiben nativer Expo-Features stets die versionierte Dokumentation (<https://docs.expo.dev/versions/v57.0.0/>) konsultieren.
 - **Testing Library:** Vor Änderungen an Komponententests die Regeln in `.agents/rules/react-native-testing-library.md` beachten.
 
 ## Pull Requests
@@ -183,6 +201,7 @@ Before writing or changing RNTL tests, read the relevant guide in
 Prefer those package docs over stale assumptions, and follow deprecation notices.
 
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:970c3bf2 -->
+
 ## Beads Issue Tracker
 
 This project uses **bd (beads)** for issue tracking. Run `bd prime` to see full workflow context and commands.
@@ -245,7 +264,9 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
   MEMORY.md files.
 - Codex 0.129.0+ can load Beads context automatically via native hooks; use
   `/hooks` to inspect/toggle. Otherwise run `bd prime` manually.
+
 <!-- END BEADS INTEGRATION -->
 
 ## Verbote commands
+
 - 'git reset' darf unter keinen umständen verwendet werden

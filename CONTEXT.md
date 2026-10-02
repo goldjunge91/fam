@@ -17,7 +17,6 @@ keine vollständigen Arbeits- oder Qualitätsregeln.
 | Frage | Maßgebliche Quelle |
 | --- | --- |
 | Arbeitsweise, Tooling und Beitragsprozess | [`AGENTS.md`](AGENTS.md) |
-| Qualitätsgrenzen und Nachweise | [`CONSTRAINTS.md`](CONSTRAINTS.md) |
 | Domänensprache und Datenbesitz | `CONTEXT.md` |
 | Produktziel und Roadmap | [`docs/features/VISION.md`](docs/features/VISION.md), [`docs/features/ROADMAP.md`](docs/features/ROADMAP.md) |
 | Dauerhafte Architekturentscheidungen | [`docs/adr/`](docs/adr/README.md) |
@@ -295,8 +294,4 @@ Teil dieses Modells.
 - Offene Abweichungen zwischen Zielvertrag und Implementierung werden benannt
   und getestet, nicht durch unklare Formulierungen verdeckt.
 
-Test-, Build-, UI- und Ressourcenregeln stehen in [`AGENTS.md`](AGENTS.md) und
-[`CONSTRAINTS.md`](CONSTRAINTS.md). Details zum Mutation-Testing-Pilot stehen in
-[`docs/spec/spec-mutation-testing-pilot.md`](docs/spec/spec-mutation-testing-pilot.md)
-und im
-[`Pilotbericht`](docs/spec/mutation-testing-pilot-report.md).
+Test-, Build-, UI- und Ressourcenregeln stehen in [`AGENTS.md`](AGENTS.md) 

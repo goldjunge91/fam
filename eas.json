@@ -17,7 +17,7 @@
       "extends": "base",
       "env": {
         "FAM_HARNESS_UI": "1",
-        "FAM_IOS_MLKIT_OCR": "0",
+        "FAM_IOS_MLKIT_OCR": "1",
         "FAM_UPDATE_CHANNEL": "development",
         "EXPO_PUBLIC_USE_RN_FETCH": "1"
       },
@@ -78,6 +78,7 @@
       "extends": "base",
       "env": {
         "FAM_HARNESS_UI": "0",
+        "FAM_IOS_MLKIT_OCR": "1",
         "FAM_UPDATE_CHANNEL": "production",
         "EXPO_PUBLIC_USE_RN_FETCH": "1"
       },

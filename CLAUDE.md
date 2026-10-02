@@ -4,13 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 @AGENTS.md
 
-Vor jeder Codeänderung `CONSTRAINTS.md` im Repository-Root lesen. Die dort festgelegten Grenzen dürfen nicht abgeschwächt werden, um eine Änderung erfolgreich erscheinen zu lassen.
-
 Alles zu nativen Builds, Fingerprint/Lock, Tooling-Grundregeln, Coding-
 Konventionen, Beads-Workflow und den "Ways to Hurt Yourself"-Guardrails steht
 ausschließlich in `AGENTS.md` — hier keine Duplikate pflegen. Dieser Abschnitt
 ergänzt nur Dinge, die AGENTS.md nicht abdeckt.
-
 
 ## Architecture
 

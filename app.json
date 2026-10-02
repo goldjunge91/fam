@@ -1,243 +1,242 @@
 {
-  "expo": {
-    "name": "fam",
-    "slug": "fam",
-    "version": "0.0.6",
-    "orientation": "portrait",
-    "icon": "./assets/images/icon-fam-v4-pantry.png",
-    "scheme": "fam",
-    "userInterfaceStyle": "automatic",
-    "buildCacheProvider": "eas",
-    "ios": {
-      "appleTeamId": "SW8RP7PA3W",
-      "icon": "./assets/images/icon-fam-v4-pantry.png",
-      "bundleIdentifier": "com.goldjunge91.fam1",
-      "buildNumber": "2",
-      "deploymentTarget": "17.0",
-      "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
-      },
-      "usesAppleSignIn": true,
-      "privacyManifests": {
-        "NSPrivacyCollectedDataTypes": [
-          {
-            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeProductInteraction",
-            "NSPrivacyCollectedDataTypeLinked": false,
-            "NSPrivacyCollectedDataTypeTracking": false,
-            "NSPrivacyCollectedDataTypePurposes": [
-              "NSPrivacyCollectedDataTypePurposeAnalytics"
-            ]
-          },
-          {
-            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeCoarseLocation",
-            "NSPrivacyCollectedDataTypeLinked": true,
-            "NSPrivacyCollectedDataTypeTracking": false,
-            "NSPrivacyCollectedDataTypePurposes": [
-              "NSPrivacyCollectedDataTypePurposeAppFunctionality"
-            ]
-          }
-        ]
-      }
-    },
-    "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
-      },
-      "predictiveBackGestureEnabled": false,
-      "versionCode": 5,
-      "permissions": [
-        "android.permission.INTERNET"
-      ],
-      "package": "com.goldjunge91.fam"
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
-    },
-    "plugins": [
-      "expo-apple-authentication",
-      [
-        "expo-dev-client",
-        {
-          "ios": {
-            "toolsButton": false,
-            "showMenuAtLaunch": false,
-            "skipOnboarding": true
-          },
-          "android": {
-            "toolsButton": false,
-            "showMenuAtLaunch": false,
-            "skipOnboarding": true
-          }
-        }
-      ],
-      [
-        "expo-router",
-        {
-          "headers": {
-            "Cross-Origin-Embedder-Policy": "credentialless",
-            "Cross-Origin-Opener-Policy": "same-origin"
-          }
-        }
-      ],
-      [
-        "expo-sqlite",
-        {
-          "useSQLCipher": true
-        }
-      ],
-      "expo-secure-store",
-      [
-        "expo-camera",
-        {
-          "cameraPermission": "$(PRODUCT_NAME) needs access to your Camera to capture photos and videos.",
-          "microphonePermission": "$(PRODUCT_NAME) needs access to your Microphone to record audio for video recordings."
-        }
-      ],
-      "expo-sharing",
-      [
-        "expo-image-picker",
-        {
-          "photosPermission": "Die App $(PRODUCT_NAME) benötigt Zugriff auf deine Fotos, um Rezept- und Kassenbonbilder auszuwählen."
-        }
-      ],
-      [
-        "expo-notifications",
-        {
-          "mode": "production",
-          "enableBackgroundRemoteNotifications": true
-        }
-      ],
-      "./plugins/withPushCapability",
-      "./plugins/withAndroidGradleTuning",
-      "./plugins/withIosCcacheDir",
-      "expo-image",
-      "./plugins/withPosthogDsymTimeout",
-      [
-        "posthog-react-native/expo",
-        {
-          "uploadNativeSymbols": true,
-          "skipOnConflict": true
-        }
-      ],
-      [
-        "@sentry/react-native/expo",
-        {
-          "url": "https://sentry.io/",
-          "project": "mobil-app",
-          "organization": "tozzi"
-        }
-      ],
-      "@sentry/react-native",
-      "expo-localization",
-      [
-        "expo-location",
-        {
-          "locationWhenInUsePermission": "fam verwendet deinen Standort, um Prospekte in deiner Nähe zu zeigen."
-        }
-      ],
-      [
-        "react-native-google-mobile-ads/app.plugin.js",
-        {
-          "androidAppId": "ca-app-pub-3823642106417448~9031192062",
-          "iosAppId": "ca-app-pub-3823642106417448~8036856356",
-          "delayAppMeasurementInit": true,
-          "userTrackingUsageDescription": "Diese Kennung wird verwendet, um dir personalisierte Werbung bereitzustellen."
-        }
-      ],
-      [
-        "expo-speech-recognition",
-        {
-          "microphonePermission": "$(PRODUCT_NAME) benötigt Zugriff auf das Mikrofon für die Spracheingabe.",
-          "speechRecognitionPermission": "$(PRODUCT_NAME) benötigt Zugriff auf die Spracherkennung.",
-          "androidSpeechServicePackages": [
-            "com.google.android.googlequicksearchbox"
-          ]
-        }
-      ],
-      [
-        "react-native-audio-api",
-        {
-          "iosBackgroundMode": false,
-          "iosMicrophonePermission": "$(PRODUCT_NAME) benötigt Zugriff auf das Mikrofon für die lokale Spracheingabe.",
-          "androidForegroundService": false,
-          "androidPermissions": [
-            "android.permission.RECORD_AUDIO"
-          ]
-        }
-      ],
-      "expo-background-task",
-      [
-        "expo-splash-screen",
-        {
-          "backgroundColor": "#F8F4EF",
-          "image": "./assets/splash/fam-splash-icon.png",
-          "imageWidth": 180,
-          "resizeMode": "contain"
-        }
-      ],
-      [
-        "expo-tracking-transparency",
-        {
-          "userTrackingPermission": "Diese Kennung wird verwendet, um dir personalisierte Werbung bereitzustellen."
-        }
-      ],
-      [
-        "expo-custom-assets",
-        {
-          "assetsPaths": [
-            "./assets/splash"
-          ]
-        }
-      ],
-      "@react-native-community/datetimepicker",
-      "expo-font",
-      "expo-asset",
-      [
-        "expo-widgets",
-        {
-          "widgets": [
-            {
-              "name": "ShoppingListWidget",
-              "displayName": "Einkaufsliste",
-              "description": "Zeigt die offenen Artikel deiner Einkaufsliste.",
-              "supportedFamilies": [
-                "systemSmall",
-                "systemMedium"
-              ]
+    "expo": {
+        "name": "fam",
+        "slug": "fam",
+        "version": "0.0.6",
+        "orientation": "portrait",
+        "icon": "./assets/images/icon-fam-v4-pantry.png",
+        "scheme": "fam",
+        "userInterfaceStyle": "automatic",
+        "buildCacheProvider": "eas",
+        "ios": {
+            "appleTeamId": "SW8RP7PA3W",
+            "icon": "./assets/images/icon-fam-v4-pantry.png",
+            "bundleIdentifier": "com.goldjunge91.fam1",
+            "buildNumber": "2",
+            "deploymentTarget": "17.0",
+            "infoPlist": {
+                "ITSAppUsesNonExemptEncryption": false
             },
-            {
-              "name": "QuickAddShoppingWidget",
-              "displayName": "Schnell hinzufügen",
-              "description": "Fügt Milch direkt zur Einkaufsliste hinzu.",
-              "supportedFamilies": [
-                "systemSmall"
-              ]
+            "usesAppleSignIn": true,
+            "privacyManifests": {
+                "NSPrivacyCollectedDataTypes": [
+                    {
+                        "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeProductInteraction",
+                        "NSPrivacyCollectedDataTypeLinked": false,
+                        "NSPrivacyCollectedDataTypeTracking": false,
+                        "NSPrivacyCollectedDataTypePurposes": [
+                            "NSPrivacyCollectedDataTypePurposeAnalytics"
+                        ]
+                    },
+                    {
+                        "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeCoarseLocation",
+                        "NSPrivacyCollectedDataTypeLinked": true,
+                        "NSPrivacyCollectedDataTypeTracking": false,
+                        "NSPrivacyCollectedDataTypePurposes": [
+                            "NSPrivacyCollectedDataTypePurposeAppFunctionality"
+                        ]
+                    }
+                ]
             }
-          ]
+        },
+        "android": {
+            "adaptiveIcon": {
+                "backgroundColor": "#E6F4FE",
+                "foregroundImage": "./assets/images/android-icon-foreground.png",
+                "backgroundImage": "./assets/images/android-icon-background.png",
+                "monochromeImage": "./assets/images/android-icon-monochrome.png"
+            },
+            "predictiveBackGestureEnabled": false,
+            "versionCode": 5,
+            "permissions": [
+                "android.permission.INTERNET"
+            ],
+            "package": "com.goldjunge91.fam"
+        },
+        "web": {
+            "bundler": "metro",
+            "output": "static",
+            "favicon": "./assets/images/favicon.png"
+        },
+        "plugins": [
+            "expo-apple-authentication",
+            [
+                "expo-dev-client",
+                {
+                    "ios": {
+                        "toolsButton": false,
+                        "showMenuAtLaunch": false,
+                        "skipOnboarding": true
+                    },
+                    "android": {
+                        "toolsButton": false,
+                        "showMenuAtLaunch": false,
+                        "skipOnboarding": true
+                    }
+                }
+            ],
+            [
+                "expo-router",
+                {
+                    "headers": {
+                        "Cross-Origin-Embedder-Policy": "credentialless",
+                        "Cross-Origin-Opener-Policy": "same-origin"
+                    }
+                }
+            ],
+            [
+                "expo-sqlite",
+                {
+                    "useSQLCipher": true
+                }
+            ],
+            "expo-secure-store",
+            [
+                "expo-camera",
+                {
+                    "cameraPermission": "$(PRODUCT_NAME) needs access to your Camera to capture photos and videos.",
+                    "microphonePermission": "$(PRODUCT_NAME) needs access to your Microphone to record audio for video recordings."
+                }
+            ],
+            "expo-sharing",
+            [
+                "expo-image-picker",
+                {
+                    "photosPermission": "Die App $(PRODUCT_NAME) benötigt Zugriff auf deine Fotos, um Rezept- und Kassenbonbilder auszuwählen."
+                }
+            ],
+            [
+                "expo-notifications",
+                {
+                    "mode": "production",
+                    "enableBackgroundRemoteNotifications": true
+                }
+            ],
+            "./plugins/withPushCapability",
+            "./plugins/withAndroidGradleTuning",
+            "./plugins/withIosCcacheDir",
+            "expo-image",
+            [
+                "posthog-react-native/expo",
+                {
+                    "uploadNativeSymbols": true,
+                    "skipOnConflict": true
+                }
+            ],
+            [
+                "@sentry/react-native/expo",
+                {
+                    "url": "https://sentry.io/",
+                    "project": "mobil-app",
+                    "organization": "tozzi"
+                }
+            ],
+            "@sentry/react-native",
+            "expo-localization",
+            [
+                "expo-location",
+                {
+                    "locationWhenInUsePermission": "fam verwendet deinen Standort, um Prospekte in deiner Nähe zu zeigen."
+                }
+            ],
+            [
+                "react-native-google-mobile-ads/app.plugin.js",
+                {
+                    "androidAppId": "ca-app-pub-3823642106417448~9031192062",
+                    "iosAppId": "ca-app-pub-3823642106417448~8036856356",
+                    "delayAppMeasurementInit": true,
+                    "userTrackingUsageDescription": "Diese Kennung wird verwendet, um dir personalisierte Werbung bereitzustellen."
+                }
+            ],
+            [
+                "expo-speech-recognition",
+                {
+                    "microphonePermission": "$(PRODUCT_NAME) benötigt Zugriff auf das Mikrofon für die Spracheingabe.",
+                    "speechRecognitionPermission": "$(PRODUCT_NAME) benötigt Zugriff auf die Spracherkennung.",
+                    "androidSpeechServicePackages": [
+                        "com.google.android.googlequicksearchbox"
+                    ]
+                }
+            ],
+            [
+                "react-native-audio-api",
+                {
+                    "iosBackgroundMode": false,
+                    "iosMicrophonePermission": "$(PRODUCT_NAME) benötigt Zugriff auf das Mikrofon für die lokale Spracheingabe.",
+                    "androidForegroundService": false,
+                    "androidPermissions": [
+                        "android.permission.RECORD_AUDIO"
+                    ]
+                }
+            ],
+            "expo-background-task",
+            [
+                "expo-splash-screen",
+                {
+                    "backgroundColor": "#F8F4EF",
+                    "image": "./assets/splash/fam-splash-icon.png",
+                    "imageWidth": 180,
+                    "resizeMode": "contain"
+                }
+            ],
+            [
+                "expo-tracking-transparency",
+                {
+                    "userTrackingPermission": "Diese Kennung wird verwendet, um dir personalisierte Werbung bereitzustellen."
+                }
+            ],
+            [
+                "expo-custom-assets",
+                {
+                    "assetsPaths": [
+                        "./assets/splash"
+                    ]
+                }
+            ],
+            "@react-native-community/datetimepicker",
+            "expo-font",
+            "expo-asset",
+            [
+                "expo-widgets",
+                {
+                    "widgets": [
+                        {
+                            "name": "ShoppingListWidget",
+                            "displayName": "Einkaufsliste",
+                            "description": "Zeigt die offenen Artikel deiner Einkaufsliste.",
+                            "supportedFamilies": [
+                                "systemSmall",
+                                "systemMedium"
+                            ]
+                        },
+                        {
+                            "name": "QuickAddShoppingWidget",
+                            "displayName": "Schnell hinzufügen",
+                            "description": "Fügt Milch direkt zur Einkaufsliste hinzu.",
+                            "supportedFamilies": [
+                                "systemSmall"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        ],
+        "experiments": {
+            "typedRoutes": true,
+            "reactCompiler": true
+        },
+        "extra": {
+            "router": {},
+            "eas": {
+                "projectId": "0ebc3520-e055-4324-8eb5-d3c99146c3d1"
+            }
+        },
+        "owner": "goldjunge91",
+        "runtimeVersion": {
+            "policy": "appVersion"
+        },
+        "updates": {
+            "url": "https://u.expo.dev/0ebc3520-e055-4324-8eb5-d3c99146c3d1"
         }
-      ]
-    ],
-    "experiments": {
-      "typedRoutes": true,
-      "reactCompiler": true
-    },
-    "extra": {
-      "router": {},
-      "eas": {
-        "projectId": "0ebc3520-e055-4324-8eb5-d3c99146c3d1"
-      }
-    },
-    "owner": "goldjunge91",
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/0ebc3520-e055-4324-8eb5-d3c99146c3d1"
     }
-  }
 }
