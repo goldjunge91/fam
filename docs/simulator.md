@@ -5,10 +5,10 @@ Befehle für Simulator, echtes iPhone und TestFlight stehen in der
 [Build-Anleitung](architecture/LOCAL_NATIVE_BUILDS.md). Für den Simulator:
 
 ```bash
-env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=0 FAM_UPDATE_CHANNEL=development USE_CCACHE=1 \
+env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=1 FAM_UPDATE_CHANNEL=development USE_CCACHE=1 \
   bun --env-file=.env.development.local run expo prebuild --no-clean --platform ios
 
-env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=0 FAM_UPDATE_CHANNEL=development \
+env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=1 FAM_UPDATE_CHANNEL=development \
   bun --env-file=.env.development.local run expo run:ios --scheme fam
 ```
 
@@ -16,7 +16,7 @@ Für einen bestimmten Simulator `--device "iPhone 17"` an den zweiten Befehl
 anhängen. Für ein verbundenes iPhone dessen Gerätenamen oder UDID übergeben:
 
 ```bash
-env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=0 FAM_UPDATE_CHANNEL=development \
+env FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=1 FAM_UPDATE_CHANNEL=development \
   bun --env-file=.env.development.local run expo run:ios --scheme fam \
   --device "<Gerätename oder UDID>"
 ```
