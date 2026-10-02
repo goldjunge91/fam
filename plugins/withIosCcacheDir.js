@@ -52,6 +52,7 @@ function resolveCcacheBinary() {
 
 const WRAPPER_CLANG = '.ccache-wrapper-clang.sh';
 const WRAPPER_CLANGPP = '.ccache-wrapper-clang++.sh';
+const WATCH_COMPILER_MARKER = 'withIosCcacheDir: use Xcode compiler for watch';
 
 function shellQuote(value) {
   return '"' + value.replace(/["\\$`]/g, '\\$&') + '"';
@@ -69,7 +70,27 @@ exec ${shellQuote(ccacheBinary)} ${compiler} "$@"
 `;
 }
 
+function withWatchCompilerFallback(config) {
+  return withPodfile(config, (config) => {
+    if (config.modResults.contents.includes(WATCH_COMPILER_MARKER)) return config;
+
+    const callRegex = /(react_native_post_install\(\s*installer,[\s\S]*?\n\s*\))/u;
+    if (!callRegex.test(config.modResults.contents)) {
+      throw new Error('withIosCcacheDir: react_native_post_install not found in Podfile');
+    }
+
+    config.modResults.contents = config.modResults.contents.replace(
+      callRegex,
+      `$1\n\n    # ${WATCH_COMPILER_MARKER}\n    # The standalone watch target has no CocoaPods dependencies. Do not inherit\n    # React Native's ccache launcher, whose path depends on PODS_ROOT.\n    installer.aggregate_targets.map(&:user_project).compact.uniq(&:path).each do |project|\n      watch_target = project.native_targets.find { |target| target.name == 'watch' }\n      next unless watch_target\n\n      watch_target.build_configurations.each do |configuration|\n        configuration.build_settings['CC'] = 'clang'\n        configuration.build_settings['CXX'] = 'clang++'\n        configuration.build_settings['LD'] = 'clang'\n        configuration.build_settings['LDPLUSPLUS'] = 'clang++'\n      end\n      project.save\n    end`,
+    );
+
+    return config;
+  });
+}
+
 module.exports = function withIosCcacheDir(config) {
+  config = withWatchCompilerFallback(config);
+
   const ccacheDir = resolveCcacheDir();
   const ccacheBinary = resolveCcacheBinary();
   if (!ccacheDir || !ccacheBinary) return config;
@@ -98,17 +119,23 @@ module.exports = function withIosCcacheDir(config) {
   // Haupt-Target (fam.xcodeproj): CC/CXX/LD/LDPLUSPLUS zeigen im
   // Standardtemplate bereits auf RNs env-var-abhängigen Wrapper — hier
   // umbiegen auf unsere selbstgenügsamen Skripte.
+  // React Native can write its project-level compiler settings after the first
+  // withXcodeProject pass. Keep the final generated project free of the
+  // env-var-dependent launcher, otherwise Xcode expands an empty
+  // REACT_NATIVE_PATH to /../../node_modules/....
   config = withXcodeProject(config, (config) => {
     const buildConfigs = config.modResults.pbxXCBuildConfigurationSection();
+
     for (const entry of Object.values(buildConfigs)) {
       if (entry && typeof entry === 'object' && entry.buildSettings) {
         entry.buildSettings.CC = `"$(SRCROOT)/${WRAPPER_CLANG}"`;
         entry.buildSettings.CXX = `"$(SRCROOT)/${WRAPPER_CLANGPP}"`;
         entry.buildSettings.LD = `"$(SRCROOT)/${WRAPPER_CLANG}"`;
         entry.buildSettings.LDPLUSPLUS = `"$(SRCROOT)/${WRAPPER_CLANGPP}"`;
-        delete entry.buildSettings.CCACHE_DIR; // wirkungslos, siehe oben — aufräumen
+        delete entry.buildSettings.CCACHE_DIR;
       }
     }
+
     return config;
   });
 
