@@ -1,6 +1,7 @@
 import { Platform } from 'react-native';
 import { FAM_KEYCHAIN_ACCESS_GROUP } from '@/lib/apple/shared-app-group';
 import type { DatabaseFileOps } from '@/lib/db/database-files';
+import { createSharedKeyFileStore } from '@/lib/db/database-key-file-store';
 import { addDiagnosticStep } from '@/lib/telemetry';
 
 export type KeyValueStore = {
@@ -20,6 +21,7 @@ const REBUILD_HINT =
 type DatabaseKeyDependencies = {
   storage: KeyValueStore;
   randomBytes(byteCount: number): Promise<Uint8Array>;
+  mirror?: KeyValueStore;
 };
 
 function bytesToHex(bytes: Uint8Array): string {
@@ -38,7 +40,17 @@ export function createDatabaseKeyManager(dependencies: DatabaseKeyDependencies) 
           // verschlüsselte Datei unwiederbringlich unlesbar machen.
           throw new Error('Der gespeicherte SQLCipher-Schlüssel ist ungültig.');
         }
+        await dependencies.mirror?.setItem(DATABASE_KEY_STORAGE_KEY, stored);
         return stored;
+      }
+
+      const mirrored = await dependencies.mirror?.getItem(DATABASE_KEY_STORAGE_KEY);
+      if (mirrored !== null && mirrored !== undefined) {
+        if (!KEY_HEX_PATTERN.test(mirrored)) {
+          throw new Error('Der gespiegelte SQLCipher-Schlüssel ist ungültig.');
+        }
+        await dependencies.storage.setItem(DATABASE_KEY_STORAGE_KEY, mirrored);
+        return mirrored;
       }
 
       const bytes = await dependencies.randomBytes(KEY_BYTES);
@@ -48,6 +60,7 @@ export function createDatabaseKeyManager(dependencies: DatabaseKeyDependencies) 
 
       const key = bytesToHex(bytes);
       await dependencies.storage.setItem(DATABASE_KEY_STORAGE_KEY, key);
+      await dependencies.mirror?.setItem(DATABASE_KEY_STORAGE_KEY, key);
       return key;
     })();
 
@@ -68,8 +81,8 @@ function loadNativeDependencies(): DatabaseKeyDependencies {
       Platform.OS === 'ios'
         ? {
             // Siri runs after the first device unlock and needs the same key
-            // as the main app. The App Group is also a keychain access group
-            // for this iOS-only native boundary.
+            // as the main app. Keychain sharing uses a Team-ID-prefixed group;
+            // the App Group remains a separate shared-container entitlement.
             keychainAccessible: SecureStore.AFTER_FIRST_UNLOCK,
             accessGroup: FAM_KEYCHAIN_ACCESS_GROUP,
           }
@@ -103,6 +116,7 @@ function loadNativeDependencies(): DatabaseKeyDependencies {
         },
       },
       randomBytes: (byteCount) => Crypto.getRandomBytesAsync(byteCount),
+      mirror: createSharedKeyFileStore(),
     };
   } catch {
     throw new Error(REBUILD_HINT);
@@ -119,7 +133,9 @@ export function getOrCreateDatabaseEncryptionKey(): Promise<string> {
 
 /** Erst nach bestätigter Löschung aller verschlüsselten DB-Dateien aufrufen. */
 export async function deleteDatabaseEncryptionKey(): Promise<void> {
-  await loadNativeDependencies().storage.removeItem(DATABASE_KEY_STORAGE_KEY);
+  const dependencies = loadNativeDependencies();
+  await dependencies.storage.removeItem(DATABASE_KEY_STORAGE_KEY);
+  await dependencies.mirror?.removeItem(DATABASE_KEY_STORAGE_KEY);
   nativeManager = null;
 }
 
