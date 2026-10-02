@@ -12,8 +12,9 @@ const jestConfig = require('../../jest.config.js') as {
   };
 };
 
-const CI_UNIT_SCOPE =
-  "bun run test -- --testPathPattern='^(?!.*test/native-build-(baseline|artifact)[.]test[.]ts$).*'";
+// The unit scope no longer excludes native-build suites, so the filter is gone;
+// what the gate protects is that unit and coverage runs share one scope.
+const CI_UNIT_SCOPE = 'bun run test';
 
 describe('Coverage-Gate-Konfiguration', () => {
   it('definiert die dokumentierte Startbaseline für globale Coverage', () => {

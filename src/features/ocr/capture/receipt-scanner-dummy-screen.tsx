@@ -21,10 +21,6 @@ const styles = StyleSheet.create((theme) => ({
     paddingTop: theme.space.lg,
     paddingBottom: theme.space.sm,
   },
-  title: {
-    fontSize: theme.font.sizes.xxl,
-    lineHeight: theme.font.lineHeights.title,
-  },
   scanner: {
     flex: 1,
     minHeight: 420,
@@ -59,10 +55,6 @@ const styles = StyleSheet.create((theme) => ({
     height: 1,
     width: '100%',
     backgroundColor: theme.border,
-  },
-  receiptTotal: {
-    fontSize: theme.font.sizes.xl,
-    lineHeight: theme.font.lineHeights.heading,
   },
   scanLine: {
     position: 'absolute',
@@ -166,9 +158,7 @@ export function ReceiptScannerDummyScreen({
         </View>
 
         <View style={styles.titleBlock}>
-          <Txt variant="display" style={styles.title}>
-            Beleg scannen
-          </Txt>
+          <Txt variant="display">Beleg scannen</Txt>
         </View>
 
         <View style={styles.scanner} accessibilityLabel="Vorschau des späteren Live-Kamera-Feeds">
@@ -189,9 +179,7 @@ export function ReceiptScannerDummyScreen({
               Joghurt 2,39
             </Txt>
             <View style={styles.receiptRule} />
-            <Txt variant="subheading" style={styles.receiptTotal}>
-              16,53 €
-            </Txt>
+            <Txt variant="subheading">16,53 €</Txt>
           </View>
           <View style={[styles.corner, styles.cornerTopLeft]} />
           <View style={[styles.corner, styles.cornerTopRight]} />
