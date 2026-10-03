@@ -6,7 +6,9 @@ import path from 'node:path';
 import { applyUnitTestEnv } from '../test/unit-test-env';
 
 const repositoryRoot = path.resolve(__dirname, '..');
-const logDirectory = path.join(repositoryRoot, 'test_logs');
+const logDirectory = process.env.FAM_TEST_LOG_DIR
+  ? path.resolve(process.env.FAM_TEST_LOG_DIR)
+  : path.join(repositoryRoot, 'test_logs');
 fs.mkdirSync(logDirectory, { recursive: true });
 process.chdir(repositoryRoot);
 
