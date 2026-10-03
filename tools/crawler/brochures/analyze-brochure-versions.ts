@@ -1,11 +1,11 @@
 // Dieses script das niemals von einem KI Agent ausgeführt werden.
 // Stop bevor du dieses script verwendest hast du eine freigabe?
-import { createHash } from 'node:crypto';
-import { access, mkdir, readFile, writeFile } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
-import sharp from 'sharp';
-import { imageKeyFor } from '../tools/crawler/brochures/r2-storage';
-import type { CrawlerBrochure, CrawlerStore, LocationDump } from '../tools/crawler/brochures/types';
+import { createHash } from "node:crypto";
+import { access, mkdir, readFile, writeFile } from "node:fs/promises";
+import { join, resolve } from "node:path";
+import sharp from "sharp";
+import { imageKeyFor } from "./r2-storage";
+import type { CrawlerBrochure, CrawlerStore, LocationDump } from "./types";
 
 type Options = {
   inputDir: string;
@@ -76,13 +76,15 @@ type AnalysisReport = {
   };
 };
 
-const DEFAULT_BACKUP = 'tools/crawler/data/last_crawl_backup.json';
-const DEFAULT_OUTPUT = 'tools/crawler/data/brochure-version-analysis.json';
-const DEFAULT_CACHE = 'tools/crawler/data/.brochure-version-hashes.json';
+const DEFAULT_BACKUP = "tools/crawler/data/last_crawl_backup.json";
+const DEFAULT_OUTPUT = "tools/crawler/data/brochure-version-analysis.json";
+const DEFAULT_CACHE = "tools/crawler/data/.brochure-version-hashes.json";
 
 function argument(name: string): string | undefined {
   const prefix = `--${name}=`;
-  return process.argv.find((value) => value.startsWith(prefix))?.slice(prefix.length);
+  return process.argv
+    .find((value) => value.startsWith(prefix))
+    ?.slice(prefix.length);
 }
 
 function hasFlag(name: string): boolean {
@@ -90,25 +92,25 @@ function hasFlag(name: string): boolean {
 }
 
 function parseOptions(): Options {
-  const inputDir = argument('input-dir');
+  const inputDir = argument("input-dir");
   if (!inputDir) {
     throw new Error(
       'Bitte --input-dir setzen, zum Beispiel --input-dir="/Volumes/Programme/FamCrawler/brochures"',
     );
   }
 
-  const limitValue = argument('limit');
+  const limitValue = argument("limit");
   const limit = limitValue ? Number.parseInt(limitValue, 10) : undefined;
-  if (limitValue && (!Number.isInteger(limit) || limit <= 0)) {
-    throw new Error('--limit muss eine positive ganze Zahl sein.');
+  if (limit !== undefined && (!Number.isInteger(limit) || limit <= 0)) {
+    throw new Error("--limit muss eine positive ganze Zahl sein.");
   }
 
   return {
     inputDir: resolve(inputDir),
-    backupPath: resolve(argument('backup') ?? DEFAULT_BACKUP),
-    outputPath: resolve(argument('output') ?? DEFAULT_OUTPUT),
-    cachePath: resolve(argument('cache') ?? DEFAULT_CACHE),
-    ai: hasFlag('ai'),
+    backupPath: resolve(argument("backup") ?? DEFAULT_BACKUP),
+    outputPath: resolve(argument("output") ?? DEFAULT_OUTPUT),
+    cachePath: resolve(argument("cache") ?? DEFAULT_CACHE),
+    ai: hasFlag("ai"),
     limit,
   };
 }
@@ -118,17 +120,17 @@ function filePathForUrl(inputDir: string, url: string): string {
 }
 
 async function* jqLines(path: string): AsyncGenerator<string> {
-  const child = Bun.spawn(['jq', '-c', '.[]', path], {
-    stdout: 'pipe',
-    stderr: 'pipe',
+  const child = Bun.spawn(["jq", "-c", ".[]", path], {
+    stdout: "pipe",
+    stderr: "pipe",
   });
   const decoder = new TextDecoder();
-  let pending = '';
+  let pending = "";
 
   for await (const chunk of child.stdout) {
     pending += decoder.decode(chunk, { stream: true });
-    const lines = pending.split('\n');
-    pending = lines.pop() ?? '';
+    const lines = pending.split("\n");
+    pending = lines.pop() ?? "";
     for (const line of lines) {
       if (line.trim()) yield line;
     }
@@ -140,11 +142,15 @@ async function* jqLines(path: string): AsyncGenerator<string> {
   const exitCode = await child.exited;
   if (exitCode !== 0) {
     const error = await new Response(child.stderr).text();
-    throw new Error(`jq konnte das Backup nicht lesen (${exitCode}): ${error.trim()}`);
+    throw new Error(
+      `jq konnte das Backup nicht lesen (${exitCode}): ${error.trim()}`,
+    );
   }
 }
 
-async function collectCandidates(options: Options): Promise<Map<string, BrochureCandidate>> {
+async function collectCandidates(
+  options: Options,
+): Promise<Map<string, BrochureCandidate>> {
   const candidates = new Map<string, BrochureCandidate>();
 
   for await (const line of jqLines(options.backupPath)) {
@@ -161,7 +167,9 @@ async function collectCandidates(options: Options): Promise<Map<string, Brochure
       candidates.set(brochure.id, {
         brochure,
         store,
-        pagePaths: brochure.pages.map((page) => filePathForUrl(options.inputDir, page.imageUrl)),
+        pagePaths: brochure.pages.map((page) =>
+          filePathForUrl(options.inputDir, page.imageUrl),
+        ),
         pageHashes: [],
         missingPages: 0,
       });
@@ -173,20 +181,27 @@ async function collectCandidates(options: Options): Promise<Map<string, Brochure
   return candidates;
 }
 
-async function fileHash(path: string): Promise<{ hash: string; size: number; mtimeMs: number }> {
+async function fileHash(
+  path: string,
+): Promise<{ hash: string; size: number; mtimeMs: number }> {
   const file = Bun.file(path);
   const bytes = Buffer.from(await file.arrayBuffer());
   const stat = await Bun.file(path).stat();
   return {
-    hash: createHash('sha256').update(bytes).digest('hex'),
+    hash: createHash("sha256").update(bytes).digest("hex"),
     size: bytes.byteLength,
     mtimeMs: stat.mtimeMs,
   };
 }
 
-async function loadHashCache(path: string): Promise<Record<string, HashCacheEntry>> {
+async function loadHashCache(
+  path: string,
+): Promise<Record<string, HashCacheEntry>> {
   try {
-    return JSON.parse(await readFile(path, 'utf8')) as Record<string, HashCacheEntry>;
+    return JSON.parse(await readFile(path, "utf8")) as Record<
+      string,
+      HashCacheEntry
+    >;
   } catch {
     return {};
   }
@@ -202,7 +217,9 @@ async function hashImages(
 }> {
   const cache = await loadHashCache(cachePath);
   const filePaths = [
-    ...new Set([...candidates.values()].flatMap((candidate) => candidate.pagePaths)),
+    ...new Set(
+      [...candidates.values()].flatMap((candidate) => candidate.pagePaths),
+    ),
   ];
   const fileHashes = new Map<string, HashCacheEntry>();
   let totalBytes = 0;
@@ -216,14 +233,16 @@ async function hashImages(
           const stat = await Bun.file(path).stat();
           const cached = cache[path];
           const entry =
-            cached && cached.size === stat.size && cached.mtimeMs === stat.mtimeMs
+            cached &&
+            cached.size === stat.size &&
+            cached.mtimeMs === stat.mtimeMs
               ? cached
               : await fileHash(path);
           fileHashes.set(path, entry);
           cache[path] = entry;
           totalBytes += entry.size;
         } catch {
-          fileHashes.set(path, { hash: '', size: 0, mtimeMs: 0 });
+          fileHashes.set(path, { hash: "", size: 0, mtimeMs: 0 });
         }
         processed += 1;
       }),
@@ -236,22 +255,28 @@ async function hashImages(
 
   const uniqueBytes = [
     ...new Map(
-      [...fileHashes.values()].filter((entry) => entry.hash).map((entry) => [entry.hash, entry]),
+      [...fileHashes.values()]
+        .filter((entry) => entry.hash)
+        .map((entry) => [entry.hash, entry]),
     ).values(),
   ].reduce((sum, entry) => sum + entry.size, 0);
-  await mkdir(join(cachePath, '..'), { recursive: true });
+  await mkdir(join(cachePath, ".."), { recursive: true });
   await writeFile(cachePath, JSON.stringify(cache));
 
   for (const candidate of candidates.values()) {
-    candidate.pageHashes = candidate.pagePaths.map((path) => fileHashes.get(path)?.hash ?? '');
-    candidate.missingPages = candidate.pageHashes.filter((hash) => !hash).length;
+    candidate.pageHashes = candidate.pagePaths.map(
+      (path) => fileHashes.get(path)?.hash ?? "",
+    );
+    candidate.missingPages = candidate.pageHashes.filter(
+      (hash) => !hash,
+    ).length;
   }
 
   return { fileHashes, totalBytes, uniqueBytes };
 }
 
 function versionSignature(candidate: BrochureCandidate): string {
-  return candidate.pageHashes.join('|');
+  return candidate.pageHashes.join("|");
 }
 
 function buildReport(
@@ -269,17 +294,23 @@ function buildReport(
     groups.set(signature, group);
   }
 
-  const versionGroups = [...groups.entries()].map(([signature, group], index) => ({
-    versionId: `version-${String(index + 1).padStart(4, '0')}`,
-    storeIds: [...new Set(group.map((candidate) => candidate.store.id))],
-    storeNames: [...new Set(group.map((candidate) => candidate.store.name))],
-    brochureIds: group.map((candidate) => candidate.brochure.id),
-    titles: [...new Set(group.map((candidate) => candidate.brochure.title))],
-    validFrom: [...new Set(group.map((candidate) => candidate.brochure.validFrom))],
-    validUntil: [...new Set(group.map((candidate) => candidate.brochure.validUntil))],
-    pageCount: group[0]?.pageHashes.length ?? 0,
-    pageHashes: signature ? signature.split('|') : [],
-  }));
+  const versionGroups = [...groups.entries()].map(
+    ([signature, group], index) => ({
+      versionId: `version-${String(index + 1).padStart(4, "0")}`,
+      storeIds: [...new Set(group.map((candidate) => candidate.store.id))],
+      storeNames: [...new Set(group.map((candidate) => candidate.store.name))],
+      brochureIds: group.map((candidate) => candidate.brochure.id),
+      titles: [...new Set(group.map((candidate) => candidate.brochure.title))],
+      validFrom: [
+        ...new Set(group.map((candidate) => candidate.brochure.validFrom)),
+      ],
+      validUntil: [
+        ...new Set(group.map((candidate) => candidate.brochure.validUntil)),
+      ],
+      pageCount: group[0]?.pageHashes.length ?? 0,
+      pageHashes: signature ? signature.split("|") : [],
+    }),
+  );
 
   const stores = new Map<string, BrochureCandidate[]>();
   for (const candidate of candidates.values()) {
@@ -300,11 +331,14 @@ function buildReport(
     ),
     duplicateImageBytes: {
       files: fileHashes.size,
-      uniqueContent: new Set([...fileHashes.values()].map((entry) => entry.hash).filter(Boolean))
-        .size,
+      uniqueContent: new Set(
+        [...fileHashes.values()].map((entry) => entry.hash).filter(Boolean),
+      ).size,
       duplicateFiles:
         fileHashes.size -
-        new Set([...fileHashes.values()].map((entry) => entry.hash).filter(Boolean)).size,
+        new Set(
+          [...fileHashes.values()].map((entry) => entry.hash).filter(Boolean),
+        ).size,
       totalBytes,
       uniqueBytes,
     },
@@ -328,13 +362,15 @@ function buildReport(
   };
 }
 
-async function createContactSheet(candidate: BrochureCandidate): Promise<string | null> {
+async function createContactSheet(
+  candidate: BrochureCandidate,
+): Promise<string | null> {
   const paths = candidate.pagePaths.slice(0, 4);
   const images = await Promise.all(
     paths.map(async (path) => {
       try {
         return await sharp(path)
-          .resize({ width: 480, height: 640, fit: 'inside' })
+          .resize({ width: 480, height: 640, fit: "inside" })
           .jpeg({ quality: 78 })
           .toBuffer();
       } catch {
@@ -342,7 +378,7 @@ async function createContactSheet(candidate: BrochureCandidate): Promise<string 
       }
     }),
   );
-  const validImages = images.filter((image): image is Buffer => image !== null);
+  const validImages = images.filter((image): image is Buffer<ArrayBuffer> => image !== null);
   if (validImages.length === 0) return null;
 
   const canvasWidth = 960;
@@ -357,68 +393,67 @@ async function createContactSheet(candidate: BrochureCandidate): Promise<string 
       width: canvasWidth,
       height: canvasHeight,
       channels: 3,
-      background: '#ffffff',
+      background: "#ffffff",
     },
   })
     .composite(composites)
     .jpeg({ quality: 78 })
     .toBuffer();
 
-  return `data:image/jpeg;base64,${sheet.toString('base64')}`;
+  return `data:image/jpeg;base64,${sheet.toString("base64")}`;
 }
 
 function chatResponseText(value: unknown): string {
-  if (!value || typeof value !== 'object') return '';
+  if (!value || typeof value !== "object") return "";
   const response = value as {
     choices?: Array<{ message?: { content?: unknown } }>;
   };
   const content = response.choices?.[0]?.message?.content;
-  return typeof content === 'string' ? content : '';
+  return typeof content === "string" ? content : "";
 }
 
 async function annotateWithAi(
   report: AnalysisReport,
   candidates: Map<string, BrochureCandidate>,
-): Promise<NonNullable<AnalysisReport['ai']>> {
+): Promise<NonNullable<AnalysisReport["ai"]>> {
   const apiKey = process.env.OPENROUTER_API_KEY;
-  if (!apiKey) throw new Error('Für --ai fehlt OPENROUTER_API_KEY.');
-  const model = process.env.OPENROUTER_MODEL ?? 'z-ai/glm-5.3-flash';
-  const baseUrl = (process.env.OPENROUTER_BASE_URL ?? 'https://openrouter.ai/api/v1').replace(
-    /\/$/,
-    '',
-  );
-  const reasoningEffort = process.env.OPENROUTER_REASONING_EFFORT ?? 'low';
-  const annotations: NonNullable<AnalysisReport['ai']>['annotations'] = [];
+  if (!apiKey) throw new Error("Für --ai fehlt OPENROUTER_API_KEY.");
+  const model = process.env.OPENROUTER_MODEL ?? "z-ai/glm-5.3-flash";
+  const baseUrl = (
+    process.env.OPENROUTER_BASE_URL ?? "https://openrouter.ai/api/v1"
+  ).replace(/\/$/, "");
+  const reasoningEffort = process.env.OPENROUTER_REASONING_EFFORT ?? "low";
+  const annotations: NonNullable<AnalysisReport["ai"]>["annotations"] = [];
 
   for (const group of report.versionGroups) {
-    const candidate = candidates.get(group.brochureIds[0] ?? '');
+    const candidate = candidates.get(group.brochureIds[0] ?? "");
     if (!candidate) continue;
     const image = await createContactSheet(candidate);
     if (!image) continue;
 
     const response = await fetch(`${baseUrl}/chat/completions`, {
-      method: 'POST',
+      method: "POST",
       headers: {
         authorization: `Bearer ${apiKey}`,
-        'content-type': 'application/json',
+        "content-type": "application/json",
         ...(process.env.OPENROUTER_SITE_URL
-          ? { 'http-referer': process.env.OPENROUTER_SITE_URL }
+          ? { "http-referer": process.env.OPENROUTER_SITE_URL }
           : {}),
         ...(process.env.OPENROUTER_SITE_NAME
-          ? { 'x-openrouter-title': process.env.OPENROUTER_SITE_NAME }
+          ? { "x-openrouter-title": process.env.OPENROUTER_SITE_NAME }
           : {}),
       },
       body: JSON.stringify({
         model,
         messages: [
           {
-            role: 'user',
+            role: "user",
             content: [
               {
-                type: 'text',
-                text: 'Analysiere diesen Prospekt-Kontaktbogen. Liefere ausschließlich JSON mit den Feldern storeBrand, title, validFrom, validUntil, confidence und notes. Erkenne den Händler, den Prospekttitel und die sichtbaren Gültigkeitsdaten. Wenn ein Wert nicht sicher lesbar ist, setze null beziehungsweise eine niedrige confidence. Antworte auf Deutsch.',
+                type: "text",
+                text: "Analysiere diesen Prospekt-Kontaktbogen. Liefere ausschließlich JSON mit den Feldern storeBrand, title, validFrom, validUntil, confidence und notes. Erkenne den Händler, den Prospekttitel und die sichtbaren Gültigkeitsdaten. Wenn ein Wert nicht sicher lesbar ist, setze null beziehungsweise eine niedrige confidence. Antworte auf Deutsch.",
               },
-              { type: 'image_url', image_url: { url: image, detail: 'low' } },
+              { type: "image_url", image_url: { url: image, detail: "low" } },
             ],
           },
         ],
@@ -428,7 +463,7 @@ async function annotateWithAi(
           exclude: true,
         },
         response_format: {
-          type: 'json_object',
+          type: "json_object",
         },
       }),
     });
@@ -447,7 +482,9 @@ async function annotateWithAi(
       notes: string;
     };
     annotations.push({ versionId: group.versionId, ...parsed });
-    console.log(`🤖 KI: ${group.versionId} (${annotations.length}/${report.versionGroups.length})`);
+    console.log(
+      `🤖 KI: ${group.versionId} (${annotations.length}/${report.versionGroups.length})`,
+    );
   }
 
   return { model, annotations };
@@ -460,15 +497,24 @@ async function main(): Promise<void> {
 
   console.log(`📁 Eingabe: ${options.inputDir}`);
   console.log(`📄 Backup: ${options.backupPath}`);
-  console.log('📚 Prospekt-IDs werden aus dem Backup gestreamt ...');
+  console.log("📚 Prospekt-IDs werden aus dem Backup gestreamt ...");
   const candidates = await collectCandidates(options);
   console.log(`📚 ${candidates.size} eindeutige Prospekt-IDs gefunden.`);
 
-  const { fileHashes, totalBytes, uniqueBytes } = await hashImages(candidates, options.cachePath);
-  const report = buildReport(options, candidates, fileHashes, totalBytes, uniqueBytes);
+  const { fileHashes, totalBytes, uniqueBytes } = await hashImages(
+    candidates,
+    options.cachePath,
+  );
+  const report = buildReport(
+    options,
+    candidates,
+    fileHashes,
+    totalBytes,
+    uniqueBytes,
+  );
   if (options.ai) report.ai = await annotateWithAi(report, candidates);
 
-  await mkdir(resolve(options.outputPath, '..'), { recursive: true });
+  await mkdir(resolve(options.outputPath, ".."), { recursive: true });
   await writeFile(options.outputPath, JSON.stringify(report, null, 2));
   console.log(`✅ Analyse gespeichert: ${options.outputPath}`);
   console.log(
@@ -477,7 +523,9 @@ async function main(): Promise<void> {
   console.log(
     `💾 ${formatBytes(uniqueBytes)} einzigartige Bilddaten von ${formatBytes(totalBytes)} referenzierten Bilddaten`,
   );
-  console.log(`🖼️ ${report.duplicateImageBytes.duplicateFiles} Bilddateien sind Inhaltsduplikate.`);
+  console.log(
+    `🖼️ ${report.duplicateImageBytes.duplicateFiles} Bilddateien sind Inhaltsduplikate.`,
+  );
 }
 
 function formatBytes(bytes: number): string {

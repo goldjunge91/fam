@@ -259,7 +259,9 @@ describe('Crawler Engine & Schema Sanitizer', () => {
         concurrency: 1,
         sources: [emptySource],
         backupPath: null,
-        onChunkDone: (chunk) => publishedChunks.push(chunk),
+        onChunkDone: (chunk) => {
+          publishedChunks.push(chunk);
+        },
       },
     );
 

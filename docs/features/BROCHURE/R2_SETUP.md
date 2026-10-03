@@ -32,7 +32,7 @@ Damit bekommst du das volle Cloudflare-CDN, Cache-Control-Header und eine sauber
 
 ## 3. API-Token für die Pipeline erstellen
 
-Die Pipeline (`scripts/seed-brochures.ts`) braucht S3-kompatible Zugangsdaten:
+Die Pipeline (`tools/crawler/brochures/seed-brochures.ts`) braucht S3-kompatible Zugangsdaten:
 
 1. Cloudflare Dashboard → **R2** → **Manage R2 API Tokens**.
 2. **Create API Token**.

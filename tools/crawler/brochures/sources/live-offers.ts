@@ -1,13 +1,13 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type {
-  BrochureLocation,
-  BrochureSource,
-  CrawlerBrochure,
-  CrawlerHotspot,
-  CrawlerPage,
-  CrawlerStore,
-  ScraperResult,
+    BrochureLocation,
+    BrochureSource,
+    CrawlerBrochure,
+    CrawlerHotspot,
+    CrawlerPage,
+    CrawlerStore,
+    ScraperResult,
 } from '../types';
 
 type LiveTokenConfig = {
@@ -440,8 +440,8 @@ export class LiveOfferBrochureSource implements BrochureSource {
 
     for (const offerValue of offers) {
       const offer = asRecord(offerValue);
-      const brochureId = typeof offer?.brn === 'string' ? offer.brn : null;
-      if (!brochureId) continue;
+      if (!offer || typeof offer.brn !== 'string') continue;
+      const brochureId = offer.brn;
 
       const listCompany = asRecord(offer.company) ?? asRecord(offer.retailer);
       const listStoreName = firstString(listCompany?.title, listCompany?.name);

@@ -42,10 +42,10 @@ wird `source_note` in die Spalte `note` geschrieben. Der Importer akzeptiert
 ältere `schemaVersion: 1`-Dateien weiterhin.
 
 ```bash
-bun scripts/extract-waivy-recipe-images.ts --waivy-root /private/tmp/waivy-source
-bun scripts/convert-waivy-recipes.ts --local-images assets/rezepte/waivy-recipe-photos
+bun tools/recipe-extraction/extract-waivy-recipe-images.ts --waivy-root /private/tmp/waivy-source
+bun tools/recipe-extraction/convert-waivy-recipes.ts --local-images assets/rezepte/waivy-recipe-photos
 # alternativ: Bildquellen direkt aus dem Checkout auflösen
-bun scripts/convert-waivy-recipes.ts --waivy-root /private/tmp/waivy-source --local-images assets/rezepte/waivy-recipe-photos
+bun tools/recipe-extraction/convert-waivy-recipes.ts --waivy-root /private/tmp/waivy-source --local-images assets/rezepte/waivy-recipe-photos
 ```
 
 Standardeingaben und Ausgabe:
@@ -82,7 +82,7 @@ lassen sich über `--input`, `--ingredients` und `--output` angeben.
 ## Übersetzungsworkflow für Agents
 
 Agents müssen keine eigenen Hilfsscripte schreiben. Der zentrale Runner
-`scripts/recipe-translation-workflow.ts` erzeugt pro Agent einen disjunkten
+`tools/recipe-extraction/recipe-translation-workflow.ts` erzeugt pro Agent einen disjunkten
 Slice mit `candidate.json`, `source.json`, einer initialen `translated.json`
 und `task.json`. Der Agent übersetzt nur `translated.json`; danach prüft der Runner Struktur, Rezeptanzahl,
 IDs, Sortierung, Mengen, Zahlen, Einheiten, URLs und sichtbare englische
@@ -90,7 +90,7 @@ Textreste.
 
 ```bash
 # 1. Einen Slice vorbereiten
-bun scripts/recipe-translation-workflow.ts prepare \
+bun tools/recipe-extraction/recipe-translation-workflow.ts prepare \
   --candidate docs/recipe-extraction/waivy-fam-catalog-import.json \
   --source docs/recipe-extraction/waivy-fam-catalog-import.json \
   --from 0 --to 99 --job de-0000-0099 \
@@ -100,18 +100,18 @@ bun scripts/recipe-translation-workflow.ts prepare \
 #    /tmp/fam-recipe-translation/de-0000-0099/translated.json
 
 # 3. Slice prüfen
-bun scripts/recipe-translation-workflow.ts validate \
+bun tools/recipe-extraction/recipe-translation-workflow.ts validate \
   --input /tmp/fam-recipe-translation/de-0000-0099/candidate.json \
   --output /tmp/fam-recipe-translation/de-0000-0099/translated.json \
   --source /tmp/fam-recipe-translation/de-0000-0099/source.json \
   --report /tmp/fam-recipe-translation/de-0000-0099/validation-report.json
 
 # 4. Fortschritt aller vorbereiteten/geprüften Jobs anzeigen
-bun scripts/recipe-translation-workflow.ts status \
+bun tools/recipe-extraction/recipe-translation-workflow.ts status \
   --dir /tmp/fam-recipe-translation
 
 # 5. Nur bestandene Slices zusammenführen
-bun scripts/recipe-translation-workflow.ts merge \
+bun tools/recipe-extraction/recipe-translation-workflow.ts merge \
   --base docs/recipe-extraction/waivy-fam-catalog-import.json \
   --slices /tmp/fam-recipe-translation/de-0000-0099/translated.json \
   --reports /tmp/fam-recipe-translation/de-0000-0099/validation-report.json \

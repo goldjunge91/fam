@@ -18,18 +18,6 @@ start-local *args:
 start-development *args:
     EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local -- expo start "$@"
 
-# Bisher: bun run metro:android
-metro-android *args:
-    bun scripts/start-android-metro.ts --env .env.local "$@"
-
-# Bisher: bun run metro:android:development
-metro-android-development *args:
-    bun scripts/start-android-metro.ts --env .env.development.local "$@"
-
-# Bisher: bun run metro:android:clear
-metro-android-clear *args:
-    bun scripts/start-android-metro.ts --env .env.local -- --clear "$@"
-
 # Bisher: bun run clean
 clean *args:
     FAM_HARNESS_UI=1 bunx expo prebuild --no-clean --platform ios "$@"
@@ -64,11 +52,11 @@ tools-brochures *args:
 
 # Bisher: bun run brochures:update
 brochures-update *args:
-    bun run scripts/seed-brochures.ts "$@"
+    bun run tools/crawler/brochures/seed-brochures.ts "$@"
 
 # Bisher: bun run brochures:test-r2
 brochures-test-r2 *args:
-    bun run scripts/test-brochures-r2.ts "$@"
+    bun run tools/crawler/brochures/test-brochures-r2.ts "$@"
 
 # Bisher: bun run tools:recipe-catalog
 tools-recipe-catalog *args:
@@ -100,7 +88,7 @@ crawler-review *args:
 
 # Bisher: bun run analyze:brochure-versions
 analyze-brochure-versions *args:
-    bun run scripts/analyze-brochure-versions.ts "$@"
+    bun run tools/crawler/brochures/analyze-brochure-versions.ts "$@"
 
 # Bisher: bun run web
 web *args:
@@ -138,10 +126,6 @@ evaluate-categories *args:
 debugger-category *args:
     cd tools/category-debugger && bun run dev "$@"
 
-# Bisher: bun run verify:inventory-move
-verify-inventory-move *args:
-    EXPO_NO_DOTENV=1 bun scripts/verify-inventory-move.ts "$@"
-
 # Bisher: bun run storage:upload-recipe-template-covers
 storage-upload-recipe-template-covers *args:
     bun --env-file=.env scripts/upload-recipe-template-covers.ts "$@"
@@ -152,15 +136,15 @@ db-init *args:
 
 # Bisher: bun run harness:android
 harness-android *args:
-    bun run harness:dev -- --harnessRunner android "$@"
+    FAM_HARNESS_UI=1 bun --env-file=.env.development.local run react-native-harness --config jest.harness.config.mjs --harnessRunner android "$@"
 
 # Bisher: bun run harness:ios
 harness-ios *args:
-    bun run harness:dev -- --harnessRunner ios "$@"
+    FAM_HARNESS_UI=1 bun --env-file=.env.development.local run react-native-harness --config jest.harness.config.mjs --harnessRunner ios "$@"
 
 # Bisher: bun run harness:web
 harness-web *args:
-    bun run harness:dev -- --harnessRunner web "$@"
+    FAM_HARNESS_UI=1 bun --env-file=.env.development.local run react-native-harness --config jest.harness.config.mjs --harnessRunner web "$@"
 
 # Bisher: bun run user:create
 user-create *args:
@@ -188,4 +172,4 @@ test-env *args:
 
 # Bisher: bun run classify
 classify *args:
-    bun scripts/classify.ts "$@"
+    bun tools/classify.ts "$@"

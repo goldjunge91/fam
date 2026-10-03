@@ -61,7 +61,7 @@ Kamera, Barcode-Scanner, lokale SQLite-Datenbank, SecureStore und
 Notifications laufen nicht in Expo Go und brauchen einen Dev Client:
 
 ```bash
-bash scripts/ios-dev.sh
+bun run ios
 ```
 
 Alle weiteren Befehle, Umgebungsvariablen, Test-Accounts, Telemetrie-Setup und

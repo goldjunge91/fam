@@ -1,8 +1,8 @@
-import { createHash } from 'node:crypto';
-import type { Dirent } from 'node:fs';
-import { readdir, readFile, writeFile } from 'node:fs/promises';
-import { extname, relative, resolve, sep } from 'node:path';
-import { extractWaivyRecipeImages } from './extract-waivy-recipe-images';
+import { createHash } from "node:crypto";
+import type { Dirent } from "node:fs";
+import { readdir, readFile, writeFile } from "node:fs/promises";
+import { extname, relative, resolve, sep } from "node:path";
+import { extractWaivyRecipeImages } from "./extract-waivy-recipe-images";
 
 export type WaivyIngredient = {
   id: string;
@@ -69,8 +69,9 @@ export type WaivyRecipeImage = {
   verifiedMatch?: boolean;
 };
 
-export type CatalogStatus = 'draft' | 'published' | 'archived';
-export type CatalogUnit = 'g' | 'kg' | 'ml' | 'l' | 'piece' | 'package' | 'portion';
+export type CatalogStatus = "draft" | "published" | "archived";
+export type CatalogUnit =
+  "g" | "kg" | "ml" | "l" | "piece" | "package" | "portion";
 
 export type CatalogRecipeRow = {
   id: string;
@@ -95,7 +96,7 @@ export type CatalogRecipeRow = {
   healthier_tips: string[];
   batch_prep_tips: string[];
   optional_add_ins: string[];
-  difficulty: 'easy' | 'medium' | 'hard' | null;
+  difficulty: "easy" | "medium" | "hard" | null;
   dish_types: string[];
   dietary_tags: string[];
   hashtags: string[];
@@ -155,7 +156,10 @@ export type CatalogImageRow = {
 };
 
 export type ConversionWarning = {
-  code: 'approximate_unit_conversion' | 'unknown_source_unit' | 'zero_quantity_ingredient';
+  code:
+    | "approximate_unit_conversion"
+    | "unknown_source_unit"
+    | "zero_quantity_ingredient";
   source_unit: string;
   count: number;
   examples: string[];
@@ -224,7 +228,7 @@ export type CatalogBatchRecipe = {
   healthierTips: string[];
   batchPrepTips: string[];
   optionalAddIns: string[];
-  difficulty: CatalogRecipeRow['difficulty'];
+  difficulty: CatalogRecipeRow["difficulty"];
   dishTypes: string[];
   dietaryTags: string[];
   hashtags: string[];
@@ -238,60 +242,62 @@ export type CatalogBatchRecipe = {
 };
 
 export type CatalogImportBundle = {
-  format: 'fam.catalog_recipe_batch_import.v2';
+  format: "fam.catalog_recipe_batch_import.v2";
   schemaVersion: 2;
   source: {
-    repository: 'https://github.com/justinsuo/waivy';
-    dataset: 'CATALOG_RECIPES';
+    repository: "https://github.com/justinsuo/waivy";
+    dataset: "CATALOG_RECIPES";
   };
   recipes: CatalogBatchRecipe[];
   warnings: ConversionWarning[];
 };
 
-const UUID_NAMESPACE = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
+const UUID_NAMESPACE = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
 const ALLOWED_DISH_TYPES = new Set([
-  'breakfast',
-  'lunch',
-  'dinner',
-  'snack',
-  'dessert',
-  'appetizer',
-  'brunch',
+  "breakfast",
+  "lunch",
+  "dinner",
+  "snack",
+  "dessert",
+  "appetizer",
+  "brunch",
 ]);
 const ALLOWED_DIETARY_TAGS = new Set([
-  'vegetarian',
-  'vegan',
-  'high_fat',
-  'low_fat',
-  'lactose_free',
-  'sugar_free',
-  'gluten_free',
+  "vegetarian",
+  "vegan",
+  "high_fat",
+  "low_fat",
+  "lactose_free",
+  "sugar_free",
+  "gluten_free",
 ]);
 const DIETARY_TAG_MAP: Record<string, string> = {
-  'gluten-free': 'gluten_free',
-  'dairy-free': 'lactose_free',
+  "gluten-free": "gluten_free",
+  "dairy-free": "lactose_free",
 };
 const MEAL_TYPE_MAP: Record<string, string> = {
-  'meal-prep': 'dinner',
-  drink: 'snack',
+  "meal-prep": "dinner",
+  drink: "snack",
 };
 
 /** Generates a repeatable UUID v5-shaped identifier without adding a dependency. */
 export function stableUuid(value: string): string {
-  const digest = createHash('sha1').update(`${UUID_NAMESPACE}:${value}`).digest();
+  const digest = createHash("sha1")
+    .update(`${UUID_NAMESPACE}:${value}`)
+    .digest();
   digest[6] = (digest[6] & 0x0f) | 0x50;
   digest[8] = (digest[8] & 0x3f) | 0x80;
-  const hex = digest.subarray(0, 16).toString('hex');
+  const hex = digest.subarray(0, 16).toString("hex");
   return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
 }
 
 function slugify(value: string): string {
   return value
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 function unique(values: readonly string[]): string[] {
@@ -299,11 +305,15 @@ function unique(values: readonly string[]): string[] {
 }
 
 function positiveInteger(value: number | undefined, fallback: number): number {
-  return value && Number.isFinite(value) && value > 0 ? Math.round(value) : fallback;
+  return value && Number.isFinite(value) && value > 0
+    ? Math.round(value)
+    : fallback;
 }
 
 function positiveIntegerOrNull(value: number | undefined): number | null {
-  return value && Number.isFinite(value) && value > 0 ? Math.round(value) : null;
+  return value && Number.isFinite(value) && value > 0
+    ? Math.round(value)
+    : null;
 }
 
 function nullableText(value: string | undefined): string | null {
@@ -311,8 +321,12 @@ function nullableText(value: string | undefined): string | null {
   return trimmed ? trimmed : null;
 }
 
-function mapDifficulty(value: string | undefined): CatalogRecipeRow['difficulty'] {
-  return value === 'easy' || value === 'medium' || value === 'hard' ? value : null;
+function mapDifficulty(
+  value: string | undefined,
+): CatalogRecipeRow["difficulty"] {
+  return value === "easy" || value === "medium" || value === "hard"
+    ? value
+    : null;
 }
 
 function mapDishTypes(mealType: string | undefined): string[] {
@@ -336,7 +350,8 @@ function mapHashtags(recipe: WaivyRecipe): string[] {
   }
   for (const tag of recipe.dietTags ?? []) {
     const mapped = DIETARY_TAG_MAP[tag] ?? tag;
-    if (!ALLOWED_DIETARY_TAGS.has(mapped) || mapped !== tag) hashtags.push(slugify(tag));
+    if (!ALLOWED_DIETARY_TAGS.has(mapped) || mapped !== tag)
+      hashtags.push(slugify(tag));
   }
   if (recipe.cuisine) hashtags.push(slugify(recipe.cuisine));
   for (const tag of recipe.tags ?? []) hashtags.push(slugify(tag));
@@ -392,21 +407,21 @@ const COUNT_GRAMS: Record<string, number> = {
 };
 
 const PACKAGE_UNITS = new Set([
-  '6 oz container',
-  '8 oz',
-  '12 oz block',
-  '4 oz log',
-  'bag',
-  'bar',
-  'bottle',
-  'can',
-  'jar',
-  'link',
-  'pack',
-  'packet',
-  'roll',
-  'scoop',
-  'spray',
+  "6 oz container",
+  "8 oz",
+  "12 oz block",
+  "4 oz log",
+  "bag",
+  "bar",
+  "bottle",
+  "can",
+  "jar",
+  "link",
+  "pack",
+  "packet",
+  "roll",
+  "scoop",
+  "spray",
 ]);
 
 function packageGrams(unit: string): number | null {
@@ -431,41 +446,51 @@ function packageGrams(unit: string): number | null {
 
 function convertMeasure(sourceUnit: string, sourceQuantity: number): Measure {
   const unit = sourceUnit.trim().toLowerCase();
-  if (unit === 'g')
-    return { quantity: sourceQuantity, unit: 'g', grams: sourceQuantity, approximate: false };
-  if (unit === 'kg') {
+  if (unit === "g")
+    return {
+      quantity: sourceQuantity,
+      unit: "g",
+      grams: sourceQuantity,
+      approximate: false,
+    };
+  if (unit === "kg") {
     const grams = sourceQuantity * 1_000;
-    return { quantity: grams, unit: 'g', grams, approximate: false };
+    return { quantity: grams, unit: "g", grams, approximate: false };
   }
-  if (unit === 'ml') {
-    return { quantity: sourceQuantity, unit: 'ml', grams: sourceQuantity, approximate: true };
+  if (unit === "ml") {
+    return {
+      quantity: sourceQuantity,
+      unit: "ml",
+      grams: sourceQuantity,
+      approximate: true,
+    };
   }
-  if (unit === 'l') {
+  if (unit === "l") {
     const quantity = sourceQuantity * 1_000;
-    return { quantity, unit: 'ml', grams: quantity, approximate: true };
+    return { quantity, unit: "ml", grams: quantity, approximate: true };
   }
-  if (unit === 'oz') {
+  if (unit === "oz") {
     const grams = sourceQuantity * 28.35;
-    return { quantity: grams, unit: 'g', grams, approximate: false };
+    return { quantity: grams, unit: "g", grams, approximate: false };
   }
 
   const volumeGrams: Record<string, number> = {
     tbsp: 15,
     tsp: 5,
     cup: 240,
-    '1/4 cup': 60,
-    '1/2 cup': 120,
-    'cup-dry': 180,
+    "1/4 cup": 60,
+    "1/2 cup": 120,
+    "cup-dry": 180,
   };
   const volume = volumeGrams[unit];
   if (volume) {
     const grams = sourceQuantity * volume;
-    return { quantity: grams, unit: 'g', grams, approximate: true };
+    return { quantity: grams, unit: "g", grams, approximate: true };
   }
-  if (unit === 'serving') {
+  if (unit === "serving") {
     return {
       quantity: sourceQuantity,
-      unit: 'portion',
+      unit: "portion",
       grams: sourceQuantity * 100,
       approximate: true,
     };
@@ -474,7 +499,7 @@ function convertMeasure(sourceUnit: string, sourceQuantity: number): Measure {
     const gramsPerPackage = packageGrams(unit) ?? 100;
     return {
       quantity: sourceQuantity,
-      unit: 'package',
+      unit: "package",
       grams: sourceQuantity * gramsPerPackage,
       approximate: true,
     };
@@ -482,38 +507,42 @@ function convertMeasure(sourceUnit: string, sourceQuantity: number): Measure {
   if (COUNT_GRAMS[unit]) {
     return {
       quantity: sourceQuantity,
-      unit: 'piece',
+      unit: "piece",
       grams: sourceQuantity * COUNT_GRAMS[unit],
       approximate: true,
     };
   }
   return {
     quantity: sourceQuantity,
-    unit: 'piece',
+    unit: "piece",
     grams: sourceQuantity * 100,
     approximate: true,
   };
 }
 
-function warningForMeasure(sourceUnit: string, measure: Measure): ConversionWarning['code'] | null {
+function warningForMeasure(
+  sourceUnit: string,
+  measure: Measure,
+): ConversionWarning["code"] | null {
   if (!measure.approximate) return null;
   const normalized = sourceUnit.trim().toLowerCase();
   const knownUnits = new Set([
-    'ml',
-    'l',
-    'tbsp',
-    'tsp',
-    'cup',
-    '1/4 cup',
-    '1/2 cup',
-    'cup-dry',
-    'serving',
+    "ml",
+    "l",
+    "tbsp",
+    "tsp",
+    "cup",
+    "1/4 cup",
+    "1/2 cup",
+    "cup-dry",
+    "serving",
     ...PACKAGE_UNITS,
     ...Object.keys(COUNT_GRAMS),
   ]);
-  return knownUnits.has(normalized) || /^\d+(?:\.\d+)?\s*oz(?:\s|$)/.test(normalized)
-    ? 'approximate_unit_conversion'
-    : 'unknown_source_unit';
+  return knownUnits.has(normalized) ||
+    /^\d+(?:\.\d+)?\s*oz(?:\s|$)/.test(normalized)
+    ? "approximate_unit_conversion"
+    : "unknown_source_unit";
 }
 
 export type ConvertedRecipe = {
@@ -523,7 +552,7 @@ export type ConvertedRecipe = {
   steps: CatalogStepRow[];
   images: CatalogImageRow[];
   localImagePath: string | null;
-  warnings: Array<{ code: ConversionWarning['code']; source_unit: string }>;
+  warnings: Array<{ code: ConversionWarning["code"]; source_unit: string }>;
 };
 
 function convertWaivyImage(
@@ -551,7 +580,7 @@ export function convertWaivyRecipe(
   recipe: WaivyRecipe,
   ingredientCatalog: readonly WaivyIngredient[],
   sortOrder: number,
-  status: CatalogStatus = 'published',
+  status: CatalogStatus = "published",
   image?: WaivyRecipeImage,
   localImagePath?: string,
 ): ConvertedRecipe {
@@ -562,22 +591,30 @@ export function convertWaivyRecipe(
   const recipeId = stableUuid(`recipe:${externalId}`);
   const componentId = stableUuid(`component:${externalId}:ingredients`);
   const convertedItems: CatalogItemRow[] = [];
-  const warnings: ConvertedRecipe['warnings'] = [];
+  const warnings: ConvertedRecipe["warnings"] = [];
 
   for (const [position, sourceItem] of recipe.ingredients.entries()) {
     const ingredient = ingredientsById.get(sourceItem.ingredientId);
     if (!ingredient) {
-      throw new Error(`Waivy-Zutat ${sourceItem.ingredientId} fehlt im Zutatenkatalog.`);
+      throw new Error(
+        `Waivy-Zutat ${sourceItem.ingredientId} fehlt im Zutatenkatalog.`,
+      );
     }
     if (sourceItem.quantity === 0) {
-      warnings.push({ code: 'zero_quantity_ingredient', source_unit: ingredient.unit });
+      warnings.push({
+        code: "zero_quantity_ingredient",
+        source_unit: ingredient.unit,
+      });
       continue;
     }
     const measure = convertMeasure(ingredient.unit, sourceItem.quantity);
     const warningCode = warningForMeasure(ingredient.unit, measure);
-    if (warningCode) warnings.push({ code: warningCode, source_unit: ingredient.unit });
+    if (warningCode)
+      warnings.push({ code: warningCode, source_unit: ingredient.unit });
     convertedItems.push({
-      id: stableUuid(`item:${externalId}:${position}:${sourceItem.ingredientId}`),
+      id: stableUuid(
+        `item:${externalId}:${position}:${sourceItem.ingredientId}`,
+      ),
       component_id: componentId,
       recipe_id: recipeId,
       product_id: null,
@@ -595,9 +632,13 @@ export function convertWaivyRecipe(
     });
   }
 
-  const servingGrams = convertedItems.reduce((sum, item) => sum + item.grams, 0);
+  const servingGrams = convertedItems.reduce(
+    (sum, item) => sum + item.grams,
+    0,
+  );
   const defaultServings = positiveInteger(recipe.servings, 1);
-  const slug = slugify(recipe.id) || slugify(recipe.name) || `recipe-${sortOrder + 1}`;
+  const slug =
+    slugify(recipe.id) || slugify(recipe.name) || `recipe-${sortOrder + 1}`;
   const recipeRow: CatalogRecipeRow = {
     id: recipeId,
     external_id: externalId,
@@ -605,7 +646,9 @@ export function convertWaivyRecipe(
     title: recipe.name.trim(),
     instructions: nullableText(recipe.description),
     prep_time_minutes: positiveIntegerOrNull(recipe.prepTimeMinutes),
-    cook_time_minutes: positiveIntegerOrNull(recipe.cookTimeMinutes ?? recipe.totalTimeMinutes),
+    cook_time_minutes: positiveIntegerOrNull(
+      recipe.cookTimeMinutes ?? recipe.totalTimeMinutes,
+    ),
     storage_instructions: nullableText(recipe.storageInstructions),
     reheating_instructions: nullableText(recipe.reheatingInstructions),
     cheap_tips: unique(recipe.cheapTips ?? []),
@@ -634,15 +677,13 @@ export function convertWaivyRecipe(
   const steps = recipe.steps
     .map((text) => text.trim())
     .filter((text) => text.length > 0)
-    .map(
-      (text, position): CatalogStepRow => ({
-        id: stableUuid(`step:${externalId}:${position}`),
-        recipe_id: recipeId,
-        position,
-        text,
-        timer_minutes: null,
-      }),
-    );
+    .map((text, position): CatalogStepRow => ({
+      id: stableUuid(`step:${externalId}:${position}`),
+      recipe_id: recipeId,
+      position,
+      text,
+      timer_minutes: null,
+    }));
 
   return {
     recipe: recipeRow,
@@ -650,21 +691,30 @@ export function convertWaivyRecipe(
       {
         id: componentId,
         recipe_id: recipeId,
-        name: 'Zutaten',
-        serving_grams: Math.max(0.01, Math.round((servingGrams / defaultServings) * 100) / 100),
+        name: "Zutaten",
+        serving_grams: Math.max(
+          0.01,
+          Math.round((servingGrams / defaultServings) * 100) / 100,
+        ),
         position: 0,
       },
     ],
     items: convertedItems,
     steps,
-    images: image || localImagePath ? [convertWaivyImage(image, recipeId, externalId)] : [],
+    images:
+      image || localImagePath
+        ? [convertWaivyImage(image, recipeId, externalId)]
+        : [],
     localImagePath: localImagePath?.trim() || null,
     warnings,
   };
 }
 
-function localImageStoragePath(recipe: CatalogRecipeRow, localImagePath: string): string {
-  return `waivy/${recipe.slug}${extname(localImagePath).toLowerCase() || '.jpg'}`;
+function localImageStoragePath(
+  recipe: CatalogRecipeRow,
+  localImagePath: string,
+): string {
+  return `waivy/${recipe.slug}${extname(localImagePath).toLowerCase() || ".jpg"}`;
 }
 
 function toCatalogBatchRecipe(converted: ConvertedRecipe): CatalogBatchRecipe {
@@ -746,14 +796,16 @@ function toCatalogBatchRecipe(converted: ConvertedRecipe): CatalogBatchRecipe {
 export function convertWaivyRecipes(
   recipes: readonly WaivyRecipe[],
   ingredientCatalog: readonly WaivyIngredient[],
-  status: CatalogStatus = 'published',
+  status: CatalogStatus = "published",
   images: readonly WaivyRecipeImage[] = [],
   localImagePaths: ReadonlyMap<string, string> = new Map(),
 ): CatalogImportBundle {
   const imagesByRecipeId = new Map<string, WaivyRecipeImage>();
   for (const image of images) {
     if (imagesByRecipeId.has(image.recipeId)) {
-      throw new Error(`Mehr als ein Waivy-Bild für ${image.recipeId} ist nicht unterstützt.`);
+      throw new Error(
+        `Mehr als ein Waivy-Bild für ${image.recipeId} ist nicht unterstützt.`,
+      );
     }
     imagesByRecipeId.set(image.recipeId, image);
   }
@@ -778,36 +830,44 @@ export function convertWaivyRecipes(
         examples: [],
       };
       current.count += 1;
-      if (current.examples.length < 5 && !current.examples.includes(recipes[index].id)) {
+      if (
+        current.examples.length < 5 &&
+        !current.examples.includes(recipes[index].id)
+      ) {
         current.examples.push(recipes[index].id);
       }
       warningMap.set(key, current);
     }
   }
   return {
-    format: 'fam.catalog_recipe_batch_import.v2',
+    format: "fam.catalog_recipe_batch_import.v2",
     schemaVersion: 2,
-    source: { repository: 'https://github.com/justinsuo/waivy', dataset: 'CATALOG_RECIPES' },
+    source: {
+      repository: "https://github.com/justinsuo/waivy",
+      dataset: "CATALOG_RECIPES",
+    },
     recipes: converted.map(toCatalogBatchRecipe),
-    warnings: [...warningMap.values()].sort((left, right) => left.code.localeCompare(right.code)),
+    warnings: [...warningMap.values()].sort((left, right) =>
+      left.code.localeCompare(right.code),
+    ),
   };
 }
 
 function asRecord(value: unknown): Record<string, unknown> | null {
-  return typeof value === 'object' && value !== null && !Array.isArray(value)
+  return typeof value === "object" && value !== null && !Array.isArray(value)
     ? (value as Record<string, unknown>)
     : null;
 }
 
 function requiredString(value: unknown, label: string): string {
-  if (typeof value !== 'string' || value.trim().length === 0) {
+  if (typeof value !== "string" || value.trim().length === 0) {
     throw new Error(`${label} muss ein nicht-leerer String sein.`);
   }
   return value.trim();
 }
 
 function requiredQuantity(value: unknown, label: string): number {
-  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) {
+  if (typeof value !== "number" || !Number.isFinite(value) || value < 0) {
     throw new Error(`${label} muss eine nicht-negative Zahl sein.`);
   }
   return value;
@@ -816,7 +876,7 @@ function requiredQuantity(value: unknown, label: string): number {
 function stringArray(value: unknown): string[] {
   return Array.isArray(value)
     ? value
-        .filter((entry): entry is string => typeof entry === 'string')
+        .filter((entry): entry is string => typeof entry === "string")
         .map((entry) => entry.trim())
         .filter(Boolean)
     : [];
@@ -834,7 +894,8 @@ function substitutionArray(value: unknown, label: string): WaivySubstitution[] {
         `${label}[${index}].forIngredientId`,
       ),
       swap: requiredString(substitution.swap, `${label}[${index}].swap`),
-      ...(typeof substitution.savings === 'string' && substitution.savings.trim()
+      ...(typeof substitution.savings === "string" &&
+      substitution.savings.trim()
         ? { savings: substitution.savings.trim() }
         : {}),
     };
@@ -845,58 +906,90 @@ function parseRecipe(value: unknown, index: number): WaivyRecipe {
   const record = asRecord(value);
   if (!record) throw new Error(`Rezept an Position ${index} ist kein Objekt.`);
   const rawIngredients = record.ingredients;
-  if (!Array.isArray(rawIngredients)) throw new Error(`Rezept ${index} hat keine Zutatenliste.`);
+  if (!Array.isArray(rawIngredients))
+    throw new Error(`Rezept ${index} hat keine Zutatenliste.`);
   const ingredients = rawIngredients.map((entry, ingredientIndex) => {
     const ingredient = asRecord(entry);
-    if (!ingredient) throw new Error(`Zutat ${index}/${ingredientIndex} ist kein Objekt.`);
+    if (!ingredient)
+      throw new Error(`Zutat ${index}/${ingredientIndex} ist kein Objekt.`);
     const parsed: WaivyRecipeIngredient = {
       ingredientId: requiredString(
         ingredient.ingredientId,
         `ingredientId ${index}/${ingredientIndex}`,
       ),
-      quantity: requiredQuantity(ingredient.quantity, `quantity ${index}/${ingredientIndex}`),
+      quantity: requiredQuantity(
+        ingredient.quantity,
+        `quantity ${index}/${ingredientIndex}`,
+      ),
     };
     if (ingredient.optional === true) parsed.optional = true;
-    if (typeof ingredient.note === 'string' && ingredient.note.trim())
+    if (typeof ingredient.note === "string" && ingredient.note.trim())
       parsed.note = ingredient.note.trim();
     return parsed;
   });
   return {
     id: requiredString(record.id, `id ${index}`),
     name: requiredString(record.name, `name ${index}`),
-    description: typeof record.description === 'string' ? record.description : undefined,
-    mealType: typeof record.mealType === 'string' ? record.mealType : undefined,
-    servings: typeof record.servings === 'number' ? record.servings : undefined,
+    description:
+      typeof record.description === "string" ? record.description : undefined,
+    mealType: typeof record.mealType === "string" ? record.mealType : undefined,
+    servings: typeof record.servings === "number" ? record.servings : undefined,
     ingredients,
     steps: stringArray(record.steps),
     prepTimeMinutes:
-      typeof record.prepTimeMinutes === 'number' ? record.prepTimeMinutes : undefined,
+      typeof record.prepTimeMinutes === "number"
+        ? record.prepTimeMinutes
+        : undefined,
     cookTimeMinutes:
-      typeof record.cookTimeMinutes === 'number' ? record.cookTimeMinutes : undefined,
+      typeof record.cookTimeMinutes === "number"
+        ? record.cookTimeMinutes
+        : undefined,
     totalTimeMinutes:
-      typeof record.totalTimeMinutes === 'number' ? record.totalTimeMinutes : undefined,
-    difficulty: typeof record.difficulty === 'string' ? record.difficulty : undefined,
+      typeof record.totalTimeMinutes === "number"
+        ? record.totalTimeMinutes
+        : undefined,
+    difficulty:
+      typeof record.difficulty === "string" ? record.difficulty : undefined,
     equipment: stringArray(record.equipment),
     dietTags: stringArray(record.dietTags),
-    cuisine: typeof record.cuisine === 'string' ? record.cuisine : undefined,
+    cuisine: typeof record.cuisine === "string" ? record.cuisine : undefined,
     tags: stringArray(record.tags),
     storageInstructions:
-      typeof record.storageInstructions === 'string' ? record.storageInstructions : undefined,
+      typeof record.storageInstructions === "string"
+        ? record.storageInstructions
+        : undefined,
     reheatingInstructions:
-      typeof record.reheatingInstructions === 'string' ? record.reheatingInstructions : undefined,
+      typeof record.reheatingInstructions === "string"
+        ? record.reheatingInstructions
+        : undefined,
     cheapTips: stringArray(record.cheapTips),
-    substitutions: substitutionArray(record.substitutions, `substitutions ${index}`),
+    substitutions: substitutionArray(
+      record.substitutions,
+      `substitutions ${index}`,
+    ),
     crispinessLevel:
-      typeof record.crispinessLevel === 'string' ? record.crispinessLevel : undefined,
+      typeof record.crispinessLevel === "string"
+        ? record.crispinessLevel
+        : undefined,
     airFryerTimeMinutes:
-      typeof record.airFryerTimeMinutes === 'number' ? record.airFryerTimeMinutes : undefined,
+      typeof record.airFryerTimeMinutes === "number"
+        ? record.airFryerTimeMinutes
+        : undefined,
     airFryerTemperatureF:
-      typeof record.airFryerTemperatureF === 'number' ? record.airFryerTemperatureF : undefined,
-    variantGroup: typeof record.variantGroup === 'string' ? record.variantGroup : undefined,
-    variantType: typeof record.variantType === 'string' ? record.variantType : undefined,
-    dormFriendly: typeof record.dormFriendly === 'boolean' ? record.dormFriendly : null,
-    mealPrepFriendly: typeof record.mealPrepFriendly === 'boolean' ? record.mealPrepFriendly : null,
-    whyCheap: typeof record.whyCheap === 'string' ? record.whyCheap : undefined,
+      typeof record.airFryerTemperatureF === "number"
+        ? record.airFryerTemperatureF
+        : undefined,
+    variantGroup:
+      typeof record.variantGroup === "string" ? record.variantGroup : undefined,
+    variantType:
+      typeof record.variantType === "string" ? record.variantType : undefined,
+    dormFriendly:
+      typeof record.dormFriendly === "boolean" ? record.dormFriendly : null,
+    mealPrepFriendly:
+      typeof record.mealPrepFriendly === "boolean"
+        ? record.mealPrepFriendly
+        : null,
+    whyCheap: typeof record.whyCheap === "string" ? record.whyCheap : undefined,
     healthierTips: stringArray(record.healthierTips),
     batchPrepTips: stringArray(record.batchPrepTips),
     optionalAddIns: stringArray(record.optionalAddIns),
@@ -906,7 +999,9 @@ function parseRecipe(value: unknown, index: number): WaivyRecipe {
 function parseRecipeDocument(value: unknown): WaivyRecipe[] {
   const record = asRecord(value);
   if (!record || !Array.isArray(record.recipes)) {
-    throw new Error('Die Eingabedatei muss ein Objekt mit einem recipes-Array sein.');
+    throw new Error(
+      "Die Eingabedatei muss ein Objekt mit einem recipes-Array sein.",
+    );
   }
   return record.recipes.map((recipe, index) => parseRecipe(recipe, index));
 }
@@ -914,15 +1009,21 @@ function parseRecipeDocument(value: unknown): WaivyRecipe[] {
 function parseIngredientDocument(value: unknown): WaivyIngredient[] {
   const record = asRecord(value);
   if (!record || !Array.isArray(record.ingredients)) {
-    throw new Error('Die Zutaten-Datei muss ein Objekt mit einem ingredients-Array sein.');
+    throw new Error(
+      "Die Zutaten-Datei muss ein Objekt mit einem ingredients-Array sein.",
+    );
   }
   return record.ingredients.map((entry, index) => {
     const ingredient = asRecord(entry);
-    if (!ingredient) throw new Error(`Zutat an Position ${index} ist kein Objekt.`);
+    if (!ingredient)
+      throw new Error(`Zutat an Position ${index} ist kein Objekt.`);
     return {
       id: requiredString(ingredient.id, `ingredient id ${index}`),
       name: requiredString(ingredient.name, `ingredient name ${index}`),
-      category: requiredString(ingredient.category, `ingredient category ${index}`),
+      category: requiredString(
+        ingredient.category,
+        `ingredient category ${index}`,
+      ),
       unit: requiredString(ingredient.unit, `ingredient unit ${index}`),
     };
   });
@@ -931,7 +1032,9 @@ function parseIngredientDocument(value: unknown): WaivyIngredient[] {
 function parseImageDocument(value: unknown): WaivyRecipeImage[] {
   const record = asRecord(value);
   if (!record || !Array.isArray(record.images)) {
-    throw new Error('Die Bild-Datei muss ein Objekt mit einem images-Array sein.');
+    throw new Error(
+      "Die Bild-Datei muss ein Objekt mit einem images-Array sein.",
+    );
   }
   return record.images.map((entry, index) => {
     const image = asRecord(entry);
@@ -939,30 +1042,50 @@ function parseImageDocument(value: unknown): WaivyRecipeImage[] {
     return {
       recipeId: requiredString(image.recipeId, `image recipeId ${index}`),
       src: requiredString(image.src, `image src ${index}`),
-      alt: typeof image.alt === 'string' ? image.alt : undefined,
-      sourceName: typeof image.sourceName === 'string' ? image.sourceName : undefined,
-      sourceUrl: typeof image.sourceUrl === 'string' ? image.sourceUrl : undefined,
-      license: typeof image.license === 'string' ? image.license : undefined,
+      alt: typeof image.alt === "string" ? image.alt : undefined,
+      sourceName:
+        typeof image.sourceName === "string" ? image.sourceName : undefined,
+      sourceUrl:
+        typeof image.sourceUrl === "string" ? image.sourceUrl : undefined,
+      license: typeof image.license === "string" ? image.license : undefined,
       attributionRequired:
-        typeof image.attributionRequired === 'boolean' ? image.attributionRequired : undefined,
+        typeof image.attributionRequired === "boolean"
+          ? image.attributionRequired
+          : undefined,
       attributionText:
-        typeof image.attributionText === 'string' ? image.attributionText : undefined,
-      verifiedMatch: typeof image.verifiedMatch === 'boolean' ? image.verifiedMatch : undefined,
+        typeof image.attributionText === "string"
+          ? image.attributionText
+          : undefined,
+      verifiedMatch:
+        typeof image.verifiedMatch === "boolean"
+          ? image.verifiedMatch
+          : undefined,
     };
   });
 }
 
-function argumentValue(args: readonly string[], name: string, fallback: string): string {
+function argumentValue(
+  args: readonly string[],
+  name: string,
+  fallback: string,
+): string {
   const index = args.indexOf(name);
   return index >= 0 && args[index + 1] ? args[index + 1] : fallback;
 }
 
-async function readLocalImagePaths(directory: string): Promise<Map<string, string>> {
+async function readLocalImagePaths(
+  directory: string,
+): Promise<Map<string, string>> {
   let entries: Dirent[];
   try {
     entries = await readdir(directory, { withFileTypes: true });
   } catch (error) {
-    if (typeof error === 'object' && error !== null && 'code' in error && error.code === 'ENOENT') {
+    if (
+      typeof error === "object" &&
+      error !== null &&
+      "code" in error &&
+      error.code === "ENOENT"
+    ) {
       return new Map();
     }
     throw error;
@@ -972,13 +1095,16 @@ async function readLocalImagePaths(directory: string): Promise<Map<string, strin
   for (const entry of entries) {
     if (!entry.isFile()) continue;
     const extension = extname(entry.name).toLowerCase();
-    if (!['.jpg', '.jpeg', '.png', '.webp'].includes(extension)) continue;
+    if (![".jpg", ".jpeg", ".png", ".webp"].includes(extension)) continue;
     const recipeId = entry.name.slice(0, -extension.length);
     if (localImages.has(recipeId)) {
       throw new Error(`Mehrere lokale Bilder für Waivy-Rezept ${recipeId}.`);
     }
     const absolutePath = resolve(directory, entry.name);
-    localImages.set(recipeId, relative(process.cwd(), absolutePath).split(sep).join('/'));
+    localImages.set(
+      recipeId,
+      relative(process.cwd(), absolutePath).split(sep).join("/"),
+    );
   }
   return localImages;
 }
@@ -986,42 +1112,62 @@ async function readLocalImagePaths(directory: string): Promise<Map<string, strin
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
   const inputPath = resolve(
-    argumentValue(args, '--input', 'docs/recipe-extraction/waivy-catalog-recipes.json'),
+    argumentValue(
+      args,
+      "--input",
+      "docs/recipe-extraction/waivy-catalog-recipes.json",
+    ),
   );
   const ingredientPath = resolve(
-    argumentValue(args, '--ingredients', 'docs/recipe-extraction/waivy-ingredients.json'),
+    argumentValue(
+      args,
+      "--ingredients",
+      "docs/recipe-extraction/waivy-ingredients.json",
+    ),
   );
   const imagePath = resolve(
-    argumentValue(args, '--images', 'docs/recipe-extraction/waivy-recipe-images.json'),
+    argumentValue(
+      args,
+      "--images",
+      "docs/recipe-extraction/waivy-recipe-images.json",
+    ),
   );
   const localImagesPath = resolve(
-    argumentValue(args, '--local-images', 'assets/rezepte/waivy-recipe-photos'),
+    argumentValue(args, "--local-images", "assets/rezepte/waivy-recipe-photos"),
   );
-  const waivyRootArgument = args.includes('--waivy-root')
-    ? resolve(argumentValue(args, '--waivy-root', ''))
+  const waivyRootArgument = args.includes("--waivy-root")
+    ? resolve(argumentValue(args, "--waivy-root", ""))
     : null;
   const outputPath = resolve(
-    argumentValue(args, '--output', 'docs/recipe-extraction/waivy-fam-catalog-import.json'),
+    argumentValue(
+      args,
+      "--output",
+      "docs/recipe-extraction/waivy-fam-catalog-import.json",
+    ),
   );
-  const requestedStatus = argumentValue(args, '--status', 'published');
+  const requestedStatus = argumentValue(args, "--status", "published");
   if (
-    requestedStatus !== 'draft' &&
-    requestedStatus !== 'published' &&
-    requestedStatus !== 'archived'
+    requestedStatus !== "draft" &&
+    requestedStatus !== "published" &&
+    requestedStatus !== "archived"
   ) {
-    throw new Error('--status muss draft, published oder archived sein.');
+    throw new Error("--status muss draft, published oder archived sein.");
   }
 
   const [recipeText, ingredientText] = await Promise.all([
-    readFile(inputPath, 'utf8'),
-    readFile(ingredientPath, 'utf8'),
+    readFile(inputPath, "utf8"),
+    readFile(ingredientPath, "utf8"),
   ]);
   const recipes = parseRecipeDocument(JSON.parse(recipeText) as unknown);
   const localImagePaths = await readLocalImagePaths(localImagesPath);
   const images = waivyRootArgument
-    ? extractWaivyRecipeImages(waivyRootArgument, new Set(recipes.map((recipe) => recipe.id)))
-        .images
-    : parseImageDocument(JSON.parse(await readFile(imagePath, 'utf8')) as unknown);
+    ? extractWaivyRecipeImages(
+        waivyRootArgument,
+        new Set(recipes.map((recipe) => recipe.id)),
+      ).images
+    : parseImageDocument(
+        JSON.parse(await readFile(imagePath, "utf8")) as unknown,
+      );
   const bundle = convertWaivyRecipes(
     recipes,
     parseIngredientDocument(JSON.parse(ingredientText) as unknown),
@@ -1029,13 +1175,14 @@ async function main(): Promise<void> {
     images,
     localImagePaths,
   );
-  await writeFile(outputPath, `${JSON.stringify(bundle, null, 2)}\n`, 'utf8');
+  await writeFile(outputPath, `${JSON.stringify(bundle, null, 2)}\n`, "utf8");
   const counts = bundle.recipes.reduce(
     (totals, recipe) => ({
       items:
         totals.items +
         recipe.components.reduce(
-          (componentTotal, component) => componentTotal + component.items.length,
+          (componentTotal, component) =>
+            componentTotal + component.items.length,
           0,
         ),
       steps: totals.steps + recipe.steps.length,
@@ -1050,13 +1197,17 @@ async function main(): Promise<void> {
   const unmatchedLocalImages = [...localImagePaths.keys()].filter(
     (recipeId) => !importedRecipeIds.has(recipeId),
   );
-  console.log(`Lokale Bilder zugeordnet: ${localImagePaths.size - unmatchedLocalImages.length}.`);
+  console.log(
+    `Lokale Bilder zugeordnet: ${localImagePaths.size - unmatchedLocalImages.length}.`,
+  );
   if (unmatchedLocalImages.length) {
     console.warn(
-      `Lokale Bilder ohne Rezept im gewählten Datensatz: ${unmatchedLocalImages.join(', ')}`,
+      `Lokale Bilder ohne Rezept im gewählten Datensatz: ${unmatchedLocalImages.join(", ")}`,
     );
   }
-  console.log(`Warnungsgruppen: ${bundle.warnings.length}. Ausgabe: ${outputPath}`);
+  console.log(
+    `Warnungsgruppen: ${bundle.warnings.length}. Ausgabe: ${outputPath}`,
+  );
 }
 
 if (import.meta.main) {

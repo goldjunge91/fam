@@ -1,16 +1,16 @@
 const setupFiles = [
-  '<rootDir>/test/setup.js',
+  "<rootDir>/test/setup.js",
   // Unistyles v3 stubs — muss vor der App-Konfiguration stehen,
   // damit StyleSheet.configure in theme/index.ts auf den Mock trifft.
-  'react-native-unistyles/mocks',
-  '<rootDir>/src/components/theme/index.ts',
+  "react-native-unistyles/mocks",
+  "<rootDir>/src/components/theme/index.ts",
 ];
 
 /** @type {import('jest').Config} */
 module.exports = {
-  preset: 'jest-expo',
+  preset: "jest-expo",
   setupFiles,
-  setupFilesAfterEnv: ['<rootDir>/test/setup-after-env.js'],
+  setupFilesAfterEnv: ["<rootDir>/test/setup-after-env.js"],
   // React-Native/Babel-Worker sind speicherintensiv. Parallele Worker können
   // im Gesamtlauf native SIGSEGVs durch GC-/CPU-Konkurrenz auslösen.
   maxWorkers: 1,
@@ -25,7 +25,7 @@ module.exports = {
   // erster Reanimated/Gesture-Handler-Import im Testcode). Der von
   // react-native-worklets mitgelieferte Resolver filtert `.native`-Varianten
   // ausschliesslich fuer dieses Paket heraus.
-  resolver: '<rootDir>/node_modules/react-native-worklets/jest/resolver.js',
+  resolver: "<rootDir>/node_modules/react-native-worklets/jest/resolver.js",
 
   // Preset default nur (jest-)?react-native|@react-native(-community)? —
   // deckt Expo-Pakete und react-native-svg nicht ab, die unkompiliertes
@@ -41,7 +41,7 @@ module.exports = {
   // Muster bricht jeden Test, der (auch nur transitiv, z. B. ueber
   // `lib/sentry.ts`) `@sentry/react-native` importiert.
   transformIgnorePatterns: [
-    'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/.*|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*|standard-navigation|@aptabase/.*|react-native-google-mobile-ads|react-native-unistyles|react-native-nitro-modules))',
+    "node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/.*|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*|standard-navigation|@aptabase/.*|react-native-google-mobile-ads|react-native-unistyles|react-native-nitro-modules))",
   ],
 
   // Default (5000ms) ist zu knapp fuer Tests mit echten Timern/Intervallen
@@ -54,19 +54,19 @@ module.exports = {
   // `@/assets/`-Regel muss vor `@/` stehen, sonst greift sie nie.
   moduleNameMapper: {
     // CSS ist fuer den Test-Runner kein JavaScript — siehe test/css-module.js.
-    '\\.css$': '<rootDir>/test/css-module.js',
-    '^@/assets/(.*)$': '<rootDir>/assets/$1',
-    '^@/(.*)$': '<rootDir>/src/$1',
+    "\\.css$": "<rootDir>/test/css-module.js",
+    "^@/assets/(.*)$": "<rootDir>/assets/$1",
+    "^@/(.*)$": "<rootDir>/src/$1",
     // Offizielles Jest-Mock des Pakets — ohne das schlaegt jeder Test fehl,
     // der (auch nur transitiv) react-native-keyboard-controller importiert,
     // mit "doesn't seem to be linked" (das native Modul existiert unter Jest
     // nicht).
-    '^react-native-keyboard-controller$':
-      '<rootDir>/node_modules/react-native-keyboard-controller/jest',
-    '^react-native-google-mobile-ads$': '<rootDir>/test/admob-mock.js',
+    "^react-native-keyboard-controller$":
+      "<rootDir>/node_modules/react-native-keyboard-controller/jest",
+    "^react-native-google-mobile-ads$": "<rootDir>/test/admob-mock.js",
   },
 
-  testMatch: ['**/*.test.ts', '**/*.test.tsx'],
+  testMatch: ["**/*.test.ts", "**/*.test.tsx"],
 
   // Integrationstests sind bewusst ausgeschlossen: Sie brauchen eine laufende
   // lokale Supabase-Instanz. Ein Standard-Testlauf, der ohne externe Dienste
@@ -83,15 +83,15 @@ module.exports = {
   // eigenem Test-Runner. Jest Expo darf ihre Suiten nicht als
   // React-Native-Tests einsammeln.
   testPathIgnorePatterns: [
-    '/node_modules/',
-    '/tools/',
-    '\\.integration\\.test\\.tsx?$',
-    '\\.bun\\.test\\.ts$',
-      '/temp/',          // ← Stryker-Sandboxes sind keine Testquellen
-    // Die UI-freien Native-Speech-Runner sind Jest-Suiten und werden bewusst
-    // über denselben fokussierten `bun run test <datei>`-Pfad verifiziert.
-    // Andere eigenständige Host-/Bun-Tools bleiben aus der Expo-Suite heraus.
-    '/scripts/(?!speech-native-[^/]+\\.test\\.ts$)',
+    "/node_modules/",
+    "/tools/",
+    "\\.integration\\.test\\.tsx?$",
+    "\\.bun\\.test\\.ts$",
+    "/temp/", // ← Stryker-Sandboxes sind keine Testquellen
+    // scripts/ gehört nicht in die Expo-Suite: dump_data läuft über Buns
+    // eigenen Runner (`bun run test:dump-pipeline`), Tools haben eigene
+    // Test-Runner (siehe tools/README.md).
+    "/scripts/",
   ],
 
   // Eigenstaendige Tools und lokale Agent-Skills koennen eigene
@@ -100,7 +100,7 @@ module.exports = {
   // `build/` ist der lokale Bun-/Prebuild-Cache: er enthaelt entpackte
   // Paketquellen mit package.json, die sonst mehrfach als Haste-Kandidaten
   // auftauchen und die Modulaufloesung mit "several different files" brechen.
-  modulePathIgnorePatterns: ['<rootDir>/(?:tools|\\.agents|\\.claude|build)/'],
+  modulePathIgnorePatterns: ["<rootDir>/(?:tools|\\.agents|\\.claude|build)/"],
 
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
   // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.
@@ -110,7 +110,7 @@ module.exports = {
   // `test:coverage:unit` in package.json darf KEIN --coverageReporters
   // mehr mitgeben: ein CLI-Flag ueberschreibt diese Liste, und
   // scripts/check-new-file-coverage.ts braucht die json-summary-Datei.
-  coverageReporters: ['text-summary', 'json-summary'],
+  coverageReporters: ["text-summary", "json-summary"],
   coverageThreshold: {
     global: {
       statements: 70,
