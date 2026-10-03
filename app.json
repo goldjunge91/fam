@@ -15,7 +15,22 @@
       "buildNumber": "2",
       "deploymentTarget": "17.0",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "CFBundleSpokenName": "Famm",
+        "INAlternativeAppNames": [
+          {
+            "INAlternativeAppName": "Fam App",
+            "INAlternativeAppNamePronunciationHint": "Famm App"
+          },
+          {
+            "INAlternativeAppName": "Fam Einkauf",
+            "INAlternativeAppNamePronunciationHint": "Famm Einkauf"
+          },
+          {
+            "INAlternativeAppName": "Fam Liste",
+            "INAlternativeAppNamePronunciationHint": "Famm Liste"
+          }
+        ]
       },
       "usesAppleSignIn": true,
       "privacyManifests": {

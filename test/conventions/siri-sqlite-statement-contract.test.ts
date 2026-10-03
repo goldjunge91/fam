@@ -5,7 +5,7 @@ import { DatabaseSync } from 'node:sqlite';
 /**
  * Warum die Siri-Extension ihre PRAGMAs so und nicht anders ausfuehrt.
  *
- * Der native Schreibpfad in `targets/siri/_shared/siri-shopping-list-intents.swift`
+ * Der native Schreibpfad in `targets/siri/siri-shopping-list-database-writer.swift`
  * umschliesst exsqlite3 direkt: `prepare`, einzelnes `step`, Ergebnis gegen
  * SQLITE_DONE (101) pruefen. Das war plausibel und fuehrte dazu, dass
  * `PRAGMA busy_timeout = 5000` — die ERSTE Anweisung des Schreibpfads — einen
@@ -21,13 +21,19 @@ import { DatabaseSync } from 'node:sqlite';
  * exakt die Schritt-Semantik ab, die der Swift-Wrapper nachbildet.
  */
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
-const SHARED_INTENT_PATH = path.join(
+const DATABASE_PATH = path.join(REPO_ROOT, 'targets', 'siri', 'siri-shopping-list-database.swift');
+const DATABASE_WRITER_PATH = path.join(
   REPO_ROOT,
   'targets',
   'siri',
-  '_shared',
-  'siri-shopping-list-intents.swift',
+  'siri-shopping-list-database-writer.swift',
 );
+
+function readDatabaseSources(): string {
+  return [DATABASE_PATH, DATABASE_WRITER_PATH]
+    .map((file) => fs.readFileSync(file, 'utf8'))
+    .join('\n');
+}
 
 const SQLITE_ROW = 100;
 const SQLITE_DONE = 101;
@@ -88,15 +94,15 @@ describe('Siri native Schreibpfad: PRAGMA-Semantik', () => {
 
   describe('Konvention: execute() muss zeilenliefernde PRAGMAs vertragen', () => {
     it('verlangt nicht mehr, dass die ERSTE Anweisung mit DONE endet', () => {
-      const source = fs.readFileSync(SHARED_INTENT_PATH, 'utf8');
+      const source = readDatabaseSources();
 
       // Der urspruengliche `guard step() == 101` warf bei `PRAGMA busy_timeout`
       // (liefert eine Zeile) und hat damit den gesamten Schreibpfad blockiert.
       // Geprueft wird der Rumpf von `execute`, nicht die ganze Datei: sonst
       // koennte derselbe Ausdruck in einem anderen Kontext das Ergebnis tragen.
       const body = source.slice(
-        source.indexOf('private func execute(_ sql: String'),
-        source.indexOf('private static func decodeRecipeNames'),
+        source.indexOf('func execute(_ sql: String'),
+        source.indexOf('static func decodeRecipeNames'),
       );
 
       expect(body).not.toMatch(/step\(\) == 101/u);
@@ -104,7 +110,7 @@ describe('Siri native Schreibpfad: PRAGMA-Semantik', () => {
     });
 
     it('haelt busy_timeout und foreign_keys oberhalb der Transaktionsoeffnung', () => {
-      const source = fs.readFileSync(SHARED_INTENT_PATH, 'utf8');
+      const source = readDatabaseSources();
       // Nur die Aufrufstellen zaehlen, nicht Kommentare: `indexOf` faende sonst
       // die Erklaerung im Docstring und pruefte die falsche Zeile.
       const callSites = [...source.matchAll(/execute\("PRAGMA (\w+)/gu)].map((m) => m[1]);
@@ -119,7 +125,7 @@ describe('Siri native Schreibpfad: PRAGMA-Semantik', () => {
 
   describe('Konvention: updated_at folgt dem Spaltentyp', () => {
     it('schreibt Epoch-Millisekunden in die lokale integer-Spalte', () => {
-      const source = fs.readFileSync(SHARED_INTENT_PATH, 'utf8');
+      const source = readDatabaseSources();
 
       // Drizzle: `updatedAt: integer('updated_at').notNull()`. Ein ISO-String
       // landet sonst unauffaellig als TEXT darin und vergiftet ORDER BY.
@@ -129,13 +135,13 @@ describe('Siri native Schreibpfad: PRAGMA-Semantik', () => {
     });
 
     it('haelt created_at als ISO-Text, weil die Spalte text ist', () => {
-      const source = fs.readFileSync(SHARED_INTENT_PATH, 'utf8');
+      const source = readDatabaseSources();
 
       expect(source).toMatch(/try statement\.bind\(\d+, text: createdAt\)/u);
     });
 
     it('traegt im Outbox-Payload weiterhin ISO fuer Supabase timestamptz', () => {
-      const source = fs.readFileSync(SHARED_INTENT_PATH, 'utf8');
+      const source = readDatabaseSources();
 
       // Der Payload geht unveraendert an den Server und erwartet ISO — nur die
       // lokale Spalte ist Integer. Diese Trennung ist Absicht, kein Zufall.
@@ -159,7 +165,7 @@ describe('Siri native Schreibpfad: PRAGMA-Semantik', () => {
     });
 
     it('prueft die Aeffektivitaet ueber exsqlite3_changes statt nur step', () => {
-      const source = fs.readFileSync(SHARED_INTENT_PATH, 'utf8');
+      const source = readDatabaseSources();
 
       // Ohne `changes` kann ein stiller Null-Treffer nicht vom Erfolg
       // unterschieden werden — `guard step() == 101` feuert nie. Geprueft wird
@@ -189,7 +195,7 @@ describe('Siri native Schreibpfad: PRAGMA-Semantik', () => {
 
   describe('Konvention: ROLLBACK-Fehler bleiben sichtbar', () => {
     it('schluckt keinen Rollback-Fehler und prueft das Schliessen', () => {
-      const source = fs.readFileSync(SHARED_INTENT_PATH, 'utf8');
+      const source = readDatabaseSources();
 
       // `try?` auf ROLLBACK verbarg genau den Fall, in dem die Transaktion
       // offen bleibt und nur `sqlite3_close` noch zurueckrollt.
@@ -200,7 +206,7 @@ describe('Siri native Schreibpfad: PRAGMA-Semantik', () => {
     });
 
     it('sichert jeden Schreibvorgang mit requireExactlyOneRow ab', () => {
-      const source = fs.readFileSync(SHARED_INTENT_PATH, 'utf8');
+      const source = readDatabaseSources();
 
       // Ein `guard step() == 101` bei INSERT kann nie feuern: SQLite liefert
       // bei einer Constraint-Verletzung einen Fehlercode, den `step()` selbst
