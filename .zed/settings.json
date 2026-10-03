@@ -1,17 +1,81 @@
 {
-  "context_servers": {
-    "argent": {
-      "source": "custom",
-      "command": "node",
-      "args": [
-        "node_modules/@swmansion/argent/dist/cli.js",
-        "mcp"
-      ]
+    "context_servers": {
+    },
+    "languages": {
+        "JavaScript": {
+            "tab_size": 2,
+            "formatter": {
+                "external": {
+                    "command": "node_modules/.bin/biome",
+                    "arguments": [
+                        "format",
+                        "--stdin-file-path",
+                        "{file_path}"
+                    ]
+                }
+            },
+            "format_on_save": "on",
+            "code_actions_on_format": {}
+        },
+        "TypeScript": {
+            "tab_size": 2,
+            "formatter": {
+                "external": {
+                    "command": "node_modules/.bin/biome",
+                    "arguments": [
+                        "format",
+                        "--stdin-file-path",
+                        "{file_path}"
+                    ]
+                }
+            },
+            "format_on_save": "on",
+            "code_actions_on_format": {}
+        },
+        "TSX": {
+            "tab_size": 2,
+            "formatter": {
+                "external": {
+                    "command": "node_modules/.bin/biome",
+                    "arguments": [
+                        "format",
+                        "--stdin-file-path",
+                        "{file_path}"
+                    ]
+                }
+            },
+            "format_on_save": "on",
+            "code_actions_on_format": {}
+        },
+        "JSON": {
+            "tab_size": 2,
+            "formatter": {
+                "external": {
+                    "command": "node_modules/.bin/biome",
+                    "arguments": [
+                        "format",
+                        "--stdin-file-path",
+                        "{file_path}"
+                    ]
+                }
+            },
+            "format_on_save": "on",
+            "code_actions_on_format": {}
+        },
+        "JSONC": {
+            "tab_size": 2,
+            "formatter": {
+                "external": {
+                    "command": "node_modules/.bin/biome",
+                    "arguments": [
+                        "format",
+                        "--stdin-file-path",
+                        "{file_path}"
+                    ]
+                }
+            },
+            "format_on_save": "on",
+            "code_actions_on_format": {}
+        }
     }
-  },
-  "agent": {
-    "tool_permissions": {
-      "default": "allow"
-    }
-  }
 }

@@ -4,13 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 @AGENTS.md
 
-Vor jeder Codeänderung `CONSTRAINTS.md` im Repository-Root lesen. Die dort festgelegten Grenzen dürfen nicht abgeschwächt werden, um eine Änderung erfolgreich erscheinen zu lassen.
+Vor jeder Codeänderung `CONSTRAINTS.md` im Repository-Root lesen, sobald sie existiert. Die dort festgelegten Grenzen dürfen nicht abgeschwächt werden, um eine Änderung erfolgreich erscheinen zu lassen.
 
 Alles zu nativen Builds, Fingerprint/Lock, Tooling-Grundregeln, Coding-
 Konventionen, Beads-Workflow und den "Ways to Hurt Yourself"-Guardrails steht
 ausschließlich in `AGENTS.md` — hier keine Duplikate pflegen. Dieser Abschnitt
 ergänzt nur Dinge, die AGENTS.md nicht abdeckt.
-
 
 ## Architecture
 
@@ -44,7 +43,7 @@ verwendet werden (Code, Kommentare, Docs, UI-Texte, Beads-Tasks, Commits).
 landet im Client-Bundle. Details: `README.md`.
 
 **Native Module:** Barcode-Scanner, SQLite, SecureStore, Notifications
-laufen nicht in Expo Go — Dev Client zwingend (`bash scripts/ios-dev.sh`).
+laufen nicht in Expo Go — Dev Client zwingend.
 
 ## Weiterführende Docs
 
@@ -52,15 +51,10 @@ laufen nicht in Expo Go — Dev Client zwingend (`bash scripts/ios-dev.sh`).
 - `CONTEXT.md` — Domänenvokabular & Datenbesitz
 - `docs/adr/` — Architekturentscheidungen
 
-
-**Sprachregel:** Der im Änderungsauftrag untersagte K-Begriff darf in Quelltext,
-Kommentaren, Dokumentation, UI-Texten, Beads-Tasks und Commit-Nachrichten nicht
-verwendet werden. Bestehende Formulierungen werden bei Berührung durch
-„verbindlich“, „maßgeblich“ oder eine fachlich präzisere Bezeichnung ersetzt.
-
-## Agent skills / Task tracking
+## Task tracking
 
 Beads (`bd`) ist der Projekt-Tracker; vollständiges Setup, Regeln und
-Session-Completion-Protokoll stehen **ausschließlich in `AGENTS.md`** (dort
-einmal konsolidiert, siehe Vorschlag oben). Hier nur der Verweis: `bd prime`
-für Kontext, `.agents/skills/beads/SKILL.md` für Details.
+Session-Completion-Protokoll stehen **ausschließlich in `AGENTS.md`**. Hier nur
+der Verweis: `bd prime` für Kontext, `.agents/skills/beads/SKILL.md` für Details.
+
+## Weiterführende Docs

@@ -1,16 +1,23 @@
+This is an Expo/React Native mobile application. Prioritize mobile-first patterns, performance, and cross-platform compatibility.
+
+## Expo has changed — do not trust your training data
+
+Expo ships breaking changes every SDK release. APIs you remember are likely renamed, moved, or removed. Before writing any code that touches an Expo, EAS, or React Native API:
+
+1. Read the major version of the `expo` package in `package.json`.
+2. Fetch the matching versioned docs: `https://docs.expo.dev/versions/v<major>.0.0/`
+3. For anything else, fetch https://docs.expo.dev/llms.txt — an index of all Expo docs with corrections to common LLM misconceptions. Follow its links to the specific page you need; never answer from memory.
+
 # Haushaltsapp (nicht der finale name)
 
 - **Haushaltsapp** ist eine Expo- und React-Native-App für Haushalte und Familien, die geteilte Bestands- und Einkaufslisten mit einem Wöchentlichen Essensplanner und der möglichkeit privatem Kalorien-, Nährwert- und Gewichts-Tracking zu kombinieren.
-- **Mental Anchor / Comparison:** Denke an Haushaltsapp als eine datenschutzorientierte, kollaborative Kombination aus _Bring!_ und _MyFitnessPal_ mit strikter Trennung zwischen Haushalts- und Privatdaten.
 - **Goal:** Schnelle, zuverlässige mobile Workflows für iOS und Android mit robuster Offline-Fähigkeit und synchronisiertem Haushaltszustand.
 
 ---
 
-## What Makes Haushaltsapp Special (1–4 Non-Negotiable Pillars)
+## What
 
-1. **Strikte Datentrennung & RLS-Autorität:** Geteilte Haushaltsdaten (Kühlschrank, Vorrat, Einkaufszettel) und private Nutzerdaten (Tracking: Kalorien, Gewicht, Medikamente, Fasten, Vitalwerte, Workouts) sind auf Datenbankebene per Supabase RLS strikt isoliert.
-2. **Ausschließlich Declaratives Datenbankschema:** Die Schemadefinitionen in `supabase/schemas/*.sql` sind die einzige Wahrheit. Migrationsdateien werden niemals manuell verfasst, sondern ausschließlich über `bun run db:diff` mit `pg-delta` generiert.
-3. **Local-First & Offline-Belastbarkeit:** Lokale SQLite-Datenbank (`expo-sqlite`) mit Outbox-Sync für reibungslose Bedienung auch ohne stabile Netzverbindung.
+1. **Local-First & Offline-Belastbarkeit:**
 
 ## Verbindliche Vertragsquellen
 
@@ -32,10 +39,9 @@ werden. Bestehende Formulierungen werden bei Berührung durch „verbindlich“,
 
 ## Multi-Surface Layer
 
-- **Mobile (iOS & Android):** Hauptzielplattform mit Expo SDK 57, React Native 0.86 und React 19.2. Erfordert für native Module (Kamera, Barcode-Scanner, SQLite, SecureStore, Notifications) einen Dev Client; läuft nicht in Standard Expo Go. Lokale Build-Befehle stehen in `docs/architecture/LOCAL_NATIVE_BUILDS.md`.
+- **Mobile (iOS):** Hauptzielplattform mit Expo SDK 57, React Native 0.86 und React 19.2. Erfordert für native Module (Kamera, Barcode-Scanner, SQLite, SecureStore, Notifications) einen Dev Client; läuft nicht in Standard Expo Go.
 - **Web / Edge Functions / Services:** Supabase Edge Functions (z. B. `auth-confirmed`), es gibt keine Web-Vorschau.
 - **Backend & Auth:** Supabase (Postgres, GoTrue Auth, Realtime, Storage) via Docker (`supabase start`); RevenueCat für In-App-Käufe und Abonnements.
-- Wir haben einen Apple-Developer-Account. iOS-TestFlight-Archive werden lokal mit Xcode erstellt und können über Xcode Organizer hochgeladen werden. EAS Cloud Build ist nicht der Build-Ablauf dieses Projekts.
 
 ## Verbindliche UI-Styling-Architektur
 
@@ -86,12 +92,11 @@ _Of note: Most developer contributions are often controlled remotely. This means
 
 ## Ways to Hurt Yourself (Safety Guardrails)
 
-- **Dateisystemgrenze:** Lege niemals Dateien oder Arbeitsartefakte außerhalb von /Volumes/Programme an. Das gilt auch für temporäre Skripte, Logs, Dumps, Modulcaches, Compiler-Caches und Testartefakte sowie für von Tools automatisch erzeugte Ausgaben. Setze temporäre und Cache-Pfade explizit auf einen geeigneten Ort innerhalb von /Volumes/Programme; verwende insbesondere nicht /tmp, /private/tmp, /var/folders, Home-Verzeichnisse oder globale Standard-Caches.
+- **Dateisystemgrenze:** Lege niemals Dateien oder Arbeitsartefakte außerhalb von /Volumes/Programme/temp_bin an. Das gilt auch für temporäre Skripte, Logs, Dumps, Modulcaches, Compiler-Caches und Testartefakte sowie für von Tools automatisch erzeugte Ausgaben. Setze temporäre und Cache-Pfade explizit auf einen geeigneten Ort innerhalb von /Volumes/Programme; verwende insbesondere nicht /tmp, /private/tmp, /var/folders, Home-Verzeichnisse oder globale Standard-Caches.
 - **Niemals Migrationen von Hand schreiben oder editieren:** Ändere stets `supabase/schemas/*.sql`, erzeuge die Migration mit `bun run db:diff` und wende sie mit `bun run db:reset` an.
 - **Niemals `bun test` ausführen:** Führe immer `bun run test` aus. `bun test` nutzt die native Bun-Engine, ignoriert `jest.config.js` und schlägt fehl.
 - **Niemals vollständige bun run Testsuite ausführen:** Führe nur die Tests aus, die du gerade ändern willst und das Abhänigkeiten zu dein änderung hat. `bun run test` ist teuer und dauert lange. Nutze `bun run test <file>` oder `bun run test:db <file>` für gezielte Tests.
 - **Kein `apply_migration` oder Einweg-SQL:** Nutze für Tests die pgTAP-Suite in `supabase/tests/` via `bun run test:db`.
-- **Fragen sind Read-Only:** Wenn ein Prompt mit "wie schwer wäre es", "warum passiert X", "sollten wir", "können wir" beginnt, beantworte die Frage, mache Vorschläge, aber ändere keine Dateien ohne Freigabe.
 - **Keine stillen Native-Module-Installationen:** Das Hinzufügen nativer Abhängigkeiten erfordert einen Rebuild des Dev-Clients. Weise den Nutzer immer darauf hin.
 
 ---
@@ -148,10 +153,6 @@ _Of note: Most developer contributions are often controlled remotely. This means
 
 - Do not edit real components first. For any non-trivial Ul, layout, or copy change,ask marco if he want u to build several distinct static mocks, publish them with the html-communication skill, report the URL, and stop. Wait for a pick before implementing.
 - Standing constraints: the warm fam mauve/cream palette (`src/components/theme/index.ts`, light and dark). Information-dense, no decorative card/pill chrome, no light-gray subtitle lines above sections. Minimal copy. No em dashes.
-
-# Expo HAS CHANGED
-
-Read the exact versioned docs at <https://docs.expo.dev/versions/v57.0.0/> before writing any code.
 
 ## Taste & Architectural Rules of Thumb
 
