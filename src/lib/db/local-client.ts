@@ -28,7 +28,7 @@ import { debugLog, debugWarn } from '../observability/debug-log';
 const REBUILD_HINT =
   'expo-sqlite ist im installierten Build nicht enthalten. Native Module kommen ' +
   'nicht ueber einen Metro-Reload dazu — der Development Build muss neu erstellt ' +
-  'werden (scripts/ios-dev.sh oder `bunx expo run:ios`).';
+  'werden (`bunx expo run:ios`).';
 
 function loadSQLite(): typeof import('expo-sqlite') {
   try {
@@ -276,7 +276,10 @@ async function openAndVerify(
   generation: number,
   userId: string,
 ): Promise<SqlDatabase> {
-  dbTrace('VERIFY-START', { hasCachedConnection: Boolean(database && rawDatabase), openId });
+  dbTrace('VERIFY-START', {
+    hasCachedConnection: Boolean(database && rawDatabase),
+    openId,
+  });
   let connection =
     database && rawDatabase ? { db: database, raw: rawDatabase } : await open(openId);
 
@@ -384,7 +387,9 @@ async function closeAndDeleteFile(connection?: DatabaseConnection): Promise<void
       rawDatabase = connectionToClose.raw;
       database = connectionToClose.db;
       drizzleDatabase = null;
-      throw new Error('Die lokale Datenbank konnte nicht geschlossen werden.', { cause: error });
+      throw new Error('Die lokale Datenbank konnte nicht geschlossen werden.', {
+        cause: error,
+      });
     }
   }
 
@@ -440,7 +445,9 @@ async function closeAndDeleteFile(connection?: DatabaseConnection): Promise<void
   }
 
   if (errors.length > 0) {
-    throw new Error('Der lokale Datenbank-Wipe ist fehlgeschlagen.', { cause: errors[0] });
+    throw new Error('Der lokale Datenbank-Wipe ist fehlgeschlagen.', {
+      cause: errors[0],
+    });
   }
 
   // Den Key nie vor den Dateien löschen. Sonst würde ein fehlgeschlagener Wipe

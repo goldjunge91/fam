@@ -2,11 +2,24 @@ import { reportError } from '@/lib/telemetry';
 
 export const BACKGROUND_SYNC_TASK_NAME = 'fam-background-sync';
 
+/**
+ * Hintergrund-Sync via expo-background-task/expo-task-manager.
+ *
+ * Warum defineTask frueh und im globalen Modul-Scope aufgerufen werden
+ * muss: Das OS kann die App kalt im Hintergrund starten, um die Task
+ * auszufuehren. Dann beginnt der JS-Kontext neu und React rendert noch
+ * nicht — die Task-Definition muss deshalb schon beim Modul-Import
+ * existieren (initialize-app-runtime ruft sie auf), sonst findet das
+ * Native-Side keine Task und der Sync laeuft ins Leere.
+ *
+ * Kein gesetzter Handler ist kein Fehler: Die Task tut dann nichts und
+ * gilt als Erfolg (siehe setBackgroundSyncHandler).
+ */
+
 const REBUILD_HINT =
   'expo-background-task/expo-task-manager sind im installierten Build nicht ' +
   'enthalten. Native Module kommen nicht ueber einen Metro-Reload dazu — der ' +
-  'Development Build muss neu erstellt werden (scripts/ios-dev.sh oder ' +
-  '`bunx expo run:ios`).';
+  'Development Build muss neu erstellt werden (`bunx expo run:ios`).';
 
 function loadBackgroundTask(): typeof import('expo-background-task') {
   try {
