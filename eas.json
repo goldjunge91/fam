@@ -62,7 +62,7 @@
     "preview-testflight": {
       "extends": "base",
       "env": {
-        "SENTRY_DISABLE_AUTO_UPLOAD": "true",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "false",
         "FAM_HARNESS_UI": "0",
         "EXPO_PUBLIC_DEV_TOOLS": "1",
         "FAM_IOS_MLKIT_OCR": "1",
@@ -103,7 +103,7 @@
     },
     "production-local": {
       "extends": "production",
-      "autoIncrement": false
+      "autoIncrement": true
     }
   },
   "submit": {

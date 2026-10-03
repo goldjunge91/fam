@@ -24,29 +24,29 @@ command -v eas >/dev/null 2>&1 || {
 }
 
 case "$TARGET" in
-  development)
-    TARGETS=(development)
-    ;;
-  preview)
-    TARGETS=(preview)
-    ;;
-  production)
-    TARGETS=(production)
-    ;;
-  all)
-    TARGETS=(development preview production)
-    ;;
-  *)
-    printf 'Verwendung: %s [development|preview|production|all] [--dry-run]\n' "$0" >&2
-    exit 1
-    ;;
+development)
+  TARGETS=(development)
+  ;;
+preview)
+  TARGETS=(preview)
+  ;;
+production)
+  TARGETS=(production)
+  ;;
+all)
+  TARGETS=(development preview production)
+  ;;
+*)
+  printf 'Verwendung: %s [development|preview|production|all] [--dry-run]\n' "$0" >&2
+  exit 1
+  ;;
 esac
 
 for EAS_ENV in "${TARGETS[@]}"; do
   case "$EAS_ENV" in
-    development) ENV_FILE="$PROJECT_ROOT/.env.development.local" ;;
-    preview) ENV_FILE="$PROJECT_ROOT/.env.preview" ;;
-    production) ENV_FILE="$PROJECT_ROOT/.env.production" ;;
+  development) ENV_FILE="$PROJECT_ROOT/.env.development.local" ;;
+  preview) ENV_FILE="$PROJECT_ROOT/.env.preview" ;;
+  production) ENV_FILE="$PROJECT_ROOT/.env.production" ;;
   esac
 
   [ -f "$ENV_FILE" ] || {
