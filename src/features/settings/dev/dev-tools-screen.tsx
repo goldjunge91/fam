@@ -39,6 +39,12 @@ const DEV_CATEGORIES = [
     route: '/settings/dev-data',
   },
   {
+    icon: '🫀',
+    label: 'Lifecycle & Background',
+    hint: 'Letzte Vordergrund-/Hintergrund-Wechsel und unsaubere Sessions',
+    route: '/settings/dev-lifecycle',
+  },
+  {
     icon: '📡',
     label: 'Telemetrie & Plattformtests',
     hint: 'Testsignale, Benachrichtigungen und Logs',

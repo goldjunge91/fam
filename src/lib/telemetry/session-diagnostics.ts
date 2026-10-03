@@ -82,6 +82,7 @@ export async function startSessionDiagnostics(callbacks: {
   onPreviousSessionUnclean: (properties: TelemetryProperties) => void;
   onEventLoopStalled: (properties: TelemetryProperties) => void;
   onBackgrounded?: () => void;
+  onForegrounded?: () => void;
 }): Promise<() => void> {
   const now = Date.now();
   let previous: SessionMarker | null = null;
@@ -131,7 +132,9 @@ export async function startSessionDiagnostics(callbacks: {
     }
 
     if (nextState === 'active') {
+      const wasInactive = !active;
       active = true;
+      if (wasInactive) callbacks.onForegrounded?.();
       expectedWatchdogAt = Date.now() + WATCHDOG_INTERVAL_MS;
       if (currentMarker) {
         currentMarker.state = 'open';

@@ -31,6 +31,16 @@ export const devStyles = StyleSheet.create((theme) => ({
     marginTop: theme.space.lg,
     gap: theme.space.sm,
   },
+  logScroll: {
+    maxHeight: 420,
+  },
+  logRow: {
+    flexDirection: 'column',
+    gap: theme.space.xs,
+    paddingVertical: theme.space.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
 }));
 
 export function formatBytes(bytes: number): string {

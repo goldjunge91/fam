@@ -10,7 +10,22 @@ import {
 import { navigationIntegration } from '@/lib/observability/providers/sentry';
 import { registerBackgroundSync } from '@/lib/sync/remote-background-sync';
 import { addDiagnosticStep, reportError, trackEvent } from '@/lib/telemetry';
+import { recordLifecycleEvent } from '@/lib/telemetry/lifecycle-log';
 import { startSessionDiagnostics } from '@/lib/telemetry/session-diagnostics';
+
+type LifecycleProperties = NonNullable<Parameters<typeof trackEvent>[1]>;
+
+/** Kurze, nicht sensible Beschreibung fuer den Lifecycle-Log-Eintrag. */
+function describeLifecycleProperties(properties: LifecycleProperties): string {
+  const parts: string[] = [];
+  if (typeof properties.last_operation === 'string') parts.push(`op=${properties.last_operation}`);
+  if (typeof properties.last_route === 'string') parts.push(`route=${properties.last_route}`);
+  if (typeof properties.duration_ms === 'number') parts.push(`${properties.duration_ms}ms`);
+  if (typeof properties.seconds_since_last_event === 'number') {
+    parts.push(`${properties.seconds_since_last_event}s`);
+  }
+  return parts.join(' ');
+}
 
 /** Verbindet einmalige App-Lifecycle-Dienste mit dem gemounteten Root-Layout. */
 export function useAppLifecycle(): void {
@@ -41,18 +56,37 @@ export function useAppLifecycle(): void {
       first_render: true,
     });
     addDiagnosticStep('app.started', { operation: 'app.start', outcome: 'started' });
+    recordLifecycleEvent({ name: 'app.started', level: 'info' });
     let cancelled = false;
     let stop: (() => void) | undefined;
 
     void startSessionDiagnostics({
-      onPreviousSessionUnclean: (properties) =>
-        trackEvent('app.previous_session.unclean', properties),
-      onEventLoopStalled: (properties) => trackEvent('app.event_loop.stalled', properties),
-      onBackgrounded: () =>
+      onPreviousSessionUnclean: (properties) => {
+        trackEvent('app.previous_session.unclean', properties);
+        recordLifecycleEvent({
+          name: 'app.previous_session.unclean',
+          level: 'warn',
+          detail: describeLifecycleProperties(properties),
+        });
+      },
+      onEventLoopStalled: (properties) => {
+        trackEvent('app.event_loop.stalled', properties);
+        recordLifecycleEvent({
+          name: 'app.event_loop.stalled',
+          level: 'warn',
+          detail: describeLifecycleProperties(properties),
+        });
+      },
+      onBackgrounded: () => {
         addDiagnosticStep('app.backgrounded', {
           operation: 'app.lifecycle',
           outcome: 'backgrounded',
-        }),
+        });
+        recordLifecycleEvent({ name: 'app.backgrounded', level: 'info' });
+      },
+      onForegrounded: () => {
+        recordLifecycleEvent({ name: 'app.foregrounded', level: 'info' });
+      },
     })
       .then((dispose) => {
         if (cancelled) dispose();
