@@ -53,6 +53,18 @@ describe('CNG config plugins', () => {
       const project = readFileSync(join(fixture.root, 'ios/fam.xcodeproj/project.pbxproj'), 'utf8');
       expect(project).toContain('$(SRCROOT)/.ccache-wrapper-clang.sh');
       expect(project).toContain('POSTHOG_DSYM_TIMEOUT=300');
+      const famBuildPhases = project
+        .slice(project.indexOf('/* fam */ = {', project.indexOf('PBXNativeTarget section')))
+        .match(/buildPhases = \(\n([\s\S]*?)\t\t\t\);/)?.[1]
+        ?.split('\n')
+        .map((line) => line.trim())
+        .filter(Boolean);
+      // The upload must be the fam target's last phase so embedded watch/extension phases and
+      // the dSYM input dependency cannot create a cycle. See PostHog/posthog-js#4647.
+      expect(famBuildPhases?.at(-1)).toContain('Upload PostHog Debug Symbols');
+      expect(project).toContain(
+        '$(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)/Contents/Resources/DWARF/$(EXECUTABLE_NAME)',
+      );
 
       const cachedFiles = [
         'ios/Pods/cached-pod.a',
