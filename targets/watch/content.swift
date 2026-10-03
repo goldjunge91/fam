@@ -106,37 +106,28 @@ private struct ShoppingListView: View {
 
     var body: some View {
         List {
-            Section {
-                Button("Märkte", action: onChooseAnotherStore)
-                    .accessibilityLabel("Anderen Markt auswählen")
-
-                ShoppingProgressView(
-                    snapshot: snapshot,
-                    isReachable: isReachable,
-                )
-            }
-
-            ForEach(snapshot.categoryGroups) { group in
-                Section(group.title) {
-                    ForEach(group.items) { item in
-                        ShoppingItemRow(item: item) {
-                            onToggle(item.id)
-                        }
-                    }
-                } header: {
-                    HStack(spacing: 6) {
-                        Capsule()
-                            .fill(group.accentColor)
-                            .frame(width: 4, height: 14)
-                            .accessibilityHidden(true)
-                        Text(group.title)
-                            .font(.headline)
-                            .foregroundStyle(group.accentColor)
-                    }
-                }
-            }
+            progressSection
+            categorySections
         }
         .navigationTitle(shoppingStore.name)
+    }
+
+    private var progressSection: some View {
+        Section {
+            Button("Märkte", action: onChooseAnotherStore)
+                .accessibilityLabel("Anderen Markt auswählen")
+
+            ShoppingProgressView(
+                snapshot: snapshot,
+                isReachable: isReachable,
+            )
+        }
+    }
+
+    private var categorySections: some View {
+        ForEach(snapshot.categoryGroups) { group in
+            ShoppingCategorySection(group: group, onToggle: onToggle)
+        }
     }
 
     private var snapshot: ShoppingSnapshot {
@@ -145,6 +136,31 @@ private struct ShoppingListView: View {
             updatedAt: .now,
             items: shoppingStore.items,
         )
+    }
+}
+
+private struct ShoppingCategorySection: View {
+    let group: ShoppingCategoryGroup
+    let onToggle: (String) -> Void
+
+    var body: some View {
+        Section {
+            ForEach(group.items) { item in
+                ShoppingItemRow(item: item) {
+                    onToggle(item.id)
+                }
+            }
+        } header: {
+            HStack(spacing: 6) {
+                Capsule()
+                    .fill(group.accentColor)
+                    .frame(width: 4, height: 14)
+                    .accessibilityHidden(true)
+                Text(group.title)
+                    .font(.headline)
+                    .foregroundStyle(group.accentColor)
+            }
+        }
     }
 }
 

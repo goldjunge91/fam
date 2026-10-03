@@ -31,25 +31,28 @@ const ENCRYPTION_PATH = path.join(REPO_ROOT, 'src', 'lib', 'db', 'local-database
 const FAM_KEYCHAIN_GROUP = 'SW8RP7PA3W.com.goldjunge91.fam1';
 
 describe('Siri main-app intent convention', () => {
-  it('keeps the native write owner shared while isolating the app-only adapter', () => {
+  it('keeps the native write owner shared while isolating the app-only shortcuts provider', () => {
     const source = fs.readFileSync(SHARED_INTENT_PATH, 'utf8');
     const mainAppSource = fs.readFileSync(MAIN_APP_INTENT_PATH, 'utf8');
 
     expect(source).toContain('final class SiriShoppingDatabase');
     expect(source).toContain('struct AddShoppingListItemIntent: AppIntent');
+    expect(source).toContain('static let openAppWhenRun = false');
     expect(source).not.toContain('MainAppAddShoppingListItemIntent');
     expect(source).not.toContain('OpenURLIntent');
     expect(source).not.toContain('@main');
-    expect(mainAppSource).toContain('struct MainAppAddShoppingListItemIntent: AppIntent');
+    // Der Vor-Split-Klon `MainAppAddShoppingListItemIntent` ist entfernt; der
+    // Provider referenziert nur noch den geteilten Intent.
+    expect(mainAppSource).not.toContain('MainAppAddShoppingListItemIntent');
     expect(mainAppSource).toContain('struct FamMainAppShortcuts: AppShortcutsProvider');
-    expect(mainAppSource).toContain('static let openAppWhenRun = false');
+    expect(mainAppSource).toContain('intent: AddShoppingListItemIntent()');
   });
 
   it('declares each app shortcut as a separate AppShortcutsBuilder expression', () => {
     const mainAppSource = fs.readFileSync(MAIN_APP_INTENT_PATH, 'utf8');
 
     expect(mainAppSource).toMatch(/static var appShortcuts: \[AppShortcut\] \{\s*AppShortcut\(/);
-    expect(mainAppSource.match(/^\s*AppShortcut\(/gmu)).toHaveLength(2);
+    expect(mainAppSource.match(/^\s*AppShortcut\(/gmu)).toHaveLength(1);
     expect(mainAppSource).not.toMatch(/static var appShortcuts: \[AppShortcut\] \{\s*\[/);
   });
 
