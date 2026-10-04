@@ -139,7 +139,7 @@ describe('Siri extension intent convention', () => {
       'requestDisambiguationDialog: "Welche dieser Einkaufslisten meinst du?"',
     );
     expect(batch).toContain('static var parameterSummary: some ParameterSummary');
-    expect(batch).toContain('Summary("Füge \\(.$items) zur Einkaufsliste \\(.$store) hinzu")');
+    expect(batch).toContain('Summary("Füge \\(\\.$items) zur Einkaufsliste \\(\\.$store) hinzu")');
     expect(batch).toContain('requestValueDialog: "Was möchtest du hinzufügen?');
     expect(batch).toContain('requestValueDialog: "Welche Einkaufsliste?"');
     expect(batch).toContain('einen oder mehrere Artikel');

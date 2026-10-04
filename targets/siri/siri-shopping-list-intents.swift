@@ -59,7 +59,7 @@ struct AddShoppingListItemsIntent: AppIntent {
     var store: SiriShoppingStore
 
     static var parameterSummary: some ParameterSummary {
-        Summary("Füge \(.$items) zur Einkaufsliste \(.$store) hinzu")
+        Summary("Füge \(\.$items) zur Einkaufsliste \(\.$store) hinzu")
     }
 
     /// Writes only after Siri has collected both required parameters.
