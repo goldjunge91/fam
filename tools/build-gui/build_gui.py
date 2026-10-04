@@ -96,7 +96,8 @@ def commands_for(
         build_dir = local_build_dir or LOCAL_IOS / "manual-run"
         return [
             [
-                "env", "FAM_HARNESS_UI=0", "FAM_UPDATE_CHANNEL=preview-testflight",
+                "env", "FAM_HARNESS_UI=0", "FAM_IOS_MLKIT_OCR=1",
+                "FAM_UPDATE_CHANNEL=preview-testflight",
                 "USE_CCACHE=1", *_prebuild(target),
             ],
             [

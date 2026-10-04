@@ -117,6 +117,7 @@ describe('storeSteps: Xcode', () => {
     expect(steps).toHaveLength(5);
     expect(steps[0].command).toBe('env');
     expect(steps[0].args).toContain('prebuild');
+    expect(steps[0].args).toContain('FAM_IOS_MLKIT_OCR=1');
     expect(steps[1].command).toBe('pod');
     expect(steps[2].args).toContain('build:version:sync');
     expect(steps[3].args).toContain('archive');
@@ -148,6 +149,7 @@ describe('simulatorSteps', () => {
     });
 
     expect(plan.build).toHaveLength(3);
+    expect(plan.build[0].args).toContain('FAM_IOS_MLKIT_OCR=0');
     expect(plan.build[0].args).toContain('--no-clean');
     expect(plan.showSettings.args).toContain('-showBuildSettings');
     expect(plan.derivedDataPath).toBe('build/cache/ios/simulator/DerivedData');

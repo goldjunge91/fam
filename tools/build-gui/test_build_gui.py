@@ -44,6 +44,7 @@ class BuildGuiCommandTest(unittest.TestCase):
 
         self.assertEqual(len(commands), 4)
         self.assertIn("--no-clean", commands[0])
+        self.assertIn("FAM_IOS_MLKIT_OCR=1", commands[0])
         self.assertIn("USE_CCACHE=1", commands[0])
         self.assertIn("build:version:sync", commands[1])
         self.assertIn("-derivedDataPath", commands[2])
@@ -81,7 +82,8 @@ class BuildGuiCommandTest(unittest.TestCase):
 
         self.assertIn("submit", command)
         self.assertIn("--path", command)
-        self.assertIn(str(ipa), command)
+        submitted_ipa = Path(command[command.index("--path") + 1])
+        self.assertEqual(submitted_ipa.resolve(), ipa.resolve())
         self.assertIn("preview-testflight", command)
 
     def test_xcode_upload_opens_the_latest_archive_in_organizer(self) -> None:
@@ -95,7 +97,7 @@ class BuildGuiCommandTest(unittest.TestCase):
                 command = commands_for("iOS TestFlight", "TestFlight hochladen: Xcode")[0]
 
         self.assertEqual(command[:3], ["open", "-a", "Xcode"])
-        self.assertEqual(command[3], str(archive))
+        self.assertEqual(Path(command[3]).resolve(), archive.resolve())
 
     def test_ota_uses_the_target_channel_environment_and_description(self) -> None:
         command = commands_for(
@@ -123,10 +125,9 @@ class BuildGuiCommandTest(unittest.TestCase):
             old_archive_file.write_text("keep")
             with patch("build_gui.LOCAL_IOS", local_ios), patch("build_gui.IOS_CACHE", cache):
                 build_dir = prepare_action("Lokal bauen: TestFlight-Archiv")
-
-        self.assertIsNotNone(build_dir)
-        self.assertTrue(old_archive_file.exists())
-        self.assertTrue((cache / "DerivedData").is_dir())
+                self.assertIsNotNone(build_dir)
+                self.assertTrue(old_archive_file.exists())
+                self.assertTrue((cache / "DerivedData").is_dir())
 
     def test_ota_metadata_matches_every_eas_profile_channel(self) -> None:
         profiles = json.loads((PROJECT_ROOT / "eas.json").read_text())["build"]

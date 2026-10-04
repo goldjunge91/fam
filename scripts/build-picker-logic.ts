@@ -81,11 +81,11 @@ export function parseAvailableIosSimulators(json: string): SimulatorDevice[] {
 // vollstaendiger Neuaufbau wirft die inkrementellen Build-Caches weg; Swift,
 // Link und dSYM sind nicht ccache-gedeckt und kosten dann jedes Mal Minuten.
 // Quelle: docs.expo.dev Expo CLI `prebuild`.
-export function prebuildStep(envFile: string): CommandStep {
+export function prebuildStep(envFile: string, destination: 'simulator' | 'device'): CommandStep {
   return {
     command: 'env',
     args: [
-      'FAM_IOS_MLKIT_OCR=0',
+      `FAM_IOS_MLKIT_OCR=${destination === 'device' ? '1' : '0'}`,
       'bun',
       `--env-file=${envFile}`,
       'x',
@@ -353,7 +353,7 @@ export function storeSteps(options: StoreStepsOptions): CommandStep[] {
     // Kein Archiv in der Cloud, daher nur lokal moeglich.
     if (options.location !== 'local') return [];
     return [
-      prebuildStep(options.envFile),
+      prebuildStep(options.envFile, 'device'),
       podInstallStep(),
       {
         command: 'bun',
@@ -511,7 +511,7 @@ export function simulatorSteps(options: SimulatorStepsOptions): SimulatorSteps {
   const derivedDataPath = simulatorDerivedDataPath(options.cacheName);
   return {
     build: [
-      prebuildStep(options.envFile),
+      prebuildStep(options.envFile, 'simulator'),
       podInstallStep(),
       simulatorXcodebuildStep({ udid: options.udid, derivedDataPath }),
     ],
