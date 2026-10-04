@@ -8,6 +8,7 @@ fail() {
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 source "$script_dir/local-build-env.sh"
+export EXPO_PUBLIC_USE_RN_FETCH="${EXPO_PUBLIC_USE_RN_FETCH:-1}"
 
 [[ $# -ge 1 ]] || fail 'Erwartet wird start oder ios.'
 mode=$1

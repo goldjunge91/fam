@@ -1,28 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import * as ImagePicker from 'expo-image-picker';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { debugError } from '@/lib/observability/debug-log';
+
+export { pickRecipeImage } from './recipe-image-picker';
 
 /** Cache-Dauer: eine Sitzung, ohne gelöschte Bilder dauerhaft zu behalten. */
 const SIGNED_URL_TTL_SECONDS = 60 * 60;
 
 const COVER_BUCKET = 'recipe-covers';
 const STEP_BUCKET = 'recipe-step-images';
-
-export async function pickRecipeImage(): Promise<string | null> {
-  const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
-  if (!permission.granted) return null;
-
-  const result = await ImagePicker.launchImageLibraryAsync({
-    mediaTypes: ['images'],
-    allowsEditing: true,
-    aspect: [4, 3],
-    quality: 0.8,
-  });
-
-  if (result.canceled || result.assets.length === 0) return null;
-  return result.assets[0].uri;
-}
 
 async function uploadImageToBucket(
   bucket: string,

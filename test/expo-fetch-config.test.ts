@@ -31,6 +31,13 @@ describe('Expo fetch transport configuration', () => {
     }
   });
 
+  it('defaults local Expo entrypoints to React Native fetch while preserving an explicit value', () => {
+    const launcher = readFileSync(resolve(projectRoot, 'scripts/local-expo.sh'), 'utf8');
+    expect(launcher).toMatch(
+      /^export EXPO_PUBLIC_USE_RN_FETCH="\$\{EXPO_PUBLIC_USE_RN_FETCH:-1\}"$/m,
+    );
+  });
+
   it('syncs the transport flag to EAS environments', () => {
     const syncScript = readFileSync(resolve(projectRoot, 'scripts/sync-eas-env.sh'), 'utf8');
     expect(syncScript).toContain("name: 'EXPO_PUBLIC_USE_RN_FETCH'");

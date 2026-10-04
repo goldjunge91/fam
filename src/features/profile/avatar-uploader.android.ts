@@ -4,17 +4,14 @@ import { env } from '@/lib/config/env';
 
 const AVATAR_BUCKET = 'avatars';
 
-/**
- * Oeffnet die native Foto-Auswahl mit quadratischem Zuschnitt (1:1).
- */
+/** Öffnet die Android-Fotoauswahl ohne nativen Crop-Schritt. */
 export async function pickAvatarImage(): Promise<string | null> {
   const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
   if (!permission.granted) return null;
 
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ['images'],
-    allowsEditing: true,
-    aspect: [1, 1],
+    allowsEditing: false,
     quality: 0.8,
   });
 
