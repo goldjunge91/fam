@@ -178,7 +178,8 @@
     "db:push": "supabase db push && bash scripts/check-privileges.sh --linked",
     "test:db": "bash scripts/check-clean-db.sh && supabase test db --local supabase/tests/*.test.sql",
     "test:integration": "bun --env-file=.env.development.local run jest --config jest.integration.config.js",
-    "harness:run": "FAM_HARNESS_UI=1 react-native-harness --config jest.harness.config.mjs"
+    "harness:run": "FAM_HARNESS_UI=1 react-native-harness --config jest.harness.config.mjs",
+    "build:picker": "bun scripts/build-picker.ts"
   },
   "resolutions": {
     "lightningcss": "1.30.1",

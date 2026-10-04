@@ -67,10 +67,19 @@ function patchPosthogPhase(config) {
 function movePosthogPhaseToEnd(projectRoot) {
   const pbxPath = IOSConfig.Paths.getPBXProjectPath(projectRoot);
   const contents = readFileSync(pbxPath, 'utf8');
-  const targetStart = contents.indexOf(`/* ${APP_TARGET_NAME} */ = {`);
-  if (targetStart === -1) {
+  const nativeTargetsStart = contents.indexOf('/* Begin PBXNativeTarget section */');
+  const nativeTargetsEnd = contents.indexOf('/* End PBXNativeTarget section */', nativeTargetsStart);
+  if (nativeTargetsStart === -1 || nativeTargetsEnd === -1) {
+    throw new Error('withPosthogDsymTimeout: PBXNativeTarget section not found');
+  }
+  const appTargetOffset = contents.indexOf(
+    `/* ${APP_TARGET_NAME} */ = {`,
+    nativeTargetsStart,
+  );
+  if (appTargetOffset === -1 || appTargetOffset >= nativeTargetsEnd) {
     throw new Error(`withPosthogDsymTimeout: '${APP_TARGET_NAME}' target block not found`);
   }
+  const targetStart = appTargetOffset;
   const targetEnd = contents.indexOf('\t\t\tbuildRules = (', targetStart);
   if (targetEnd === -1) {
     throw new Error(`withPosthogDsymTimeout: '${APP_TARGET_NAME}' buildRules block not found`);

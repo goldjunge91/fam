@@ -52,7 +52,7 @@ if [[ -n "$output_path" ]]; then
 fi
 
 cd "$local_build_env_project_root"
-args=(build --platform ios --profile "$profile" --non-interactive)
+args=(build --platform ios --profile "$profile")
 if [[ "$mode" == local ]]; then
   mkdir -p "$local_build_env_project_root/build/local/eas/$profile"
   # eas-cli legt den shallow-clone der Projektkopie im TMPDIR an
@@ -73,7 +73,7 @@ if [[ "$mode" == local ]]; then
   eas_working_directory="$eas_temp_root/work"
   export EAS_LOCAL_BUILD_WORKINGDIR="$eas_working_directory"
   if [[ -d "$eas_working_directory" ]]; then
-    find "$eas_working_directory" -mindepth 1 -maxdepth 1 ! -name build -exec rm -rf {} + 2>/dev/null || true
+    find "$eas_working_directory" -mindepth 1 -maxdepth 1 -exec rm -rf {} + 2>/dev/null || true
   fi
   eas_tmp_dir="$(mktemp -d "$eas_temp_root/tmp.XXXXXXXX")"
   export TMPDIR="$eas_tmp_dir/"

@@ -198,7 +198,8 @@ export type FeatureFlagKey =
   | 'tracking-method-cgm'
   | 'tracking-method-volumetrics'
   | 'bug-bubble'
-  | 'bugbubble';
+  | 'bugbubble'
+  | 'dev-tools';
 
 export function useFeatureFlagState(key: FeatureFlagKey | undefined): boolean | undefined {
   const flags = useContext(FeatureFlagContext);
