@@ -1,4 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
+import { Redirect } from 'expo-router';
 import { useState } from 'react';
 import { Alert, View } from 'react-native';
 
@@ -19,6 +20,7 @@ import { type AnalyticsToggle, analyticsToggles } from '@/features/settings/dev/
 import { FeatureFlagControls } from '@/features/settings/dev/feature-flag-controls';
 import { LanguageOverrideControl } from '@/features/settings/dev/language-override-control';
 import { TrackingMethodControls } from '@/features/settings/dev/tracking-method-controls';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { disposeAptabase, initAptabase } from '@/lib/analytics/aptabase';
 import { env } from '@/lib/config/env';
 import {
@@ -29,6 +31,7 @@ import {
 import { devStyles, Zeile } from './dev-screen-shared';
 
 export function DevOverridesScreen() {
+  const hasAccess = useDevToolsAccess();
   const queryClient = useQueryClient();
   const { session } = useSession();
   const { activeHousehold } = useActiveHousehold();
@@ -93,6 +96,10 @@ export function DevOverridesScreen() {
   function toggleAnalyticsSetting(toggle: AnalyticsToggle) {
     setAnalyticsOverride(toggle.path, !toggle.getValue(analyticsSettings));
     refreshAnalyticsProviders();
+  }
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
   }
 
   return (

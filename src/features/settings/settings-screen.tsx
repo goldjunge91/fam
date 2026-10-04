@@ -28,6 +28,7 @@ import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { PlusAndAiPromoCard } from '@/features/settings/plus-and-ai-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { env } from '@/lib/config/env';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 
@@ -118,8 +119,10 @@ export function SettingsScreen() {
   const displayName = profile?.display_name || t('settings.noName');
   const avatarUrl = profile?.avatar_url;
 
+  const hasDevToolsAccess = useDevToolsAccess();
+
   // Entwicklungsziel direkt in der Übersicht anzeigen.
-  const supabaseTarget = env.devTools
+  const supabaseTarget = hasDevToolsAccess
     ? classifySupabaseTarget(env.supabaseUrl)
     : { label: '', tone: 'accent' as const };
 
@@ -312,8 +315,7 @@ export function SettingsScreen() {
             />
           </SettingsGroup>
 
-          {}
-          {env.devTools ? (
+          {hasDevToolsAccess ? (
             <SettingsGroup title="Entwickler">
               <SettingsRow
                 icon="🛠"

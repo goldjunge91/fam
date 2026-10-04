@@ -1,10 +1,12 @@
 import { Observe } from 'expo-observe';
+import { Redirect } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Platform, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
 import { ContentCard } from '@/components/ui/content-card';
 import { Button } from '@/constants/ui';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { getAptabaseInitializationError, isAptabaseConfigured } from '@/lib/analytics/aptabase';
 import { trackAnalyticsEvent } from '@/lib/analytics/events';
 import { env } from '@/lib/config/env';
@@ -20,6 +22,7 @@ import { reportError } from '@/lib/telemetry';
 import { devStyles, Zeile } from './dev-screen-shared';
 
 export function DevTelemetryScreen() {
+  const hasAccess = useDevToolsAccess();
   const posthogFlags = useFeatureFlags();
   const posthogConfigured = isPostHogConfigured();
   const posthogInitializationError = getPostHogInitializationError();
@@ -38,6 +41,10 @@ export function DevTelemetryScreen() {
     } finally {
       setBusy(null);
     }
+  }
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
   }
 
   return (

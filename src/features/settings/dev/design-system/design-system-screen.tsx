@@ -1,3 +1,4 @@
+import { Redirect } from 'expo-router';
 import { useState } from 'react';
 import { View } from 'react-native';
 import { KeyboardToolbar } from 'react-native-keyboard-controller';
@@ -7,6 +8,7 @@ import { Screen } from '@/components/layout/screen';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { FilterChipBar, type FilterChipOption } from '@/components/ui/filter-chip-bar';
 import { Badge, Txt } from '@/constants/ui';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { type ComponentCategory, ComponentsShowcase } from './showcase-components';
 import { type FoundationCategory, FoundationsShowcase } from './showcase-foundations';
 import { type ModalCategory, ModalsShowcase } from './showcase-modals';
@@ -68,9 +70,14 @@ function isComponent(category: ShowcaseCategory): category is ComponentCategory 
 }
 
 export function DesignSystemScreen() {
+  const hasAccess = useDevToolsAccess();
   const [category, setCategory] = useState<ShowcaseCategory>('theme');
   const { mode } = useTheme();
   const categoryIndex = CATEGORIES.findIndex((item) => item.value === category) + 1;
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
+  }
 
   return (
     <>

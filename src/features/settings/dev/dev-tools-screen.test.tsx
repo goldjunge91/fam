@@ -15,8 +15,19 @@ jest.mock('@/lib/storage/local-device-storage', () => ({
   }),
 }));
 
+const mockRedirect = jest.fn();
+let mockHasDevToolsAccess = true;
+
 jest.mock('expo-router', () => ({
   router: { push: jest.fn() },
+  Redirect: (props: { href: string }) => {
+    mockRedirect(props);
+    return null;
+  },
+}));
+
+jest.mock('@/hooks/use-dev-tools-access', () => ({
+  useDevToolsAccess: () => mockHasDevToolsAccess,
 }));
 
 jest.mock('expo-speech-recognition', () => ({
@@ -45,6 +56,8 @@ describe('DevToolsScreen', () => {
 
   beforeEach(() => {
     mockStorageData.clear();
+    mockHasDevToolsAccess = true;
+    mockRedirect.mockClear();
     useDevSettingsStore.getState().setSpeechTestProvider('native');
     useDevSettingsStore.getState().setReceiptOcrTestEnabled(false);
     jest.mocked(router.push).mockClear();
@@ -91,5 +104,13 @@ describe('DevToolsScreen', () => {
     await user.press(screen.getByRole('radio', { name: 'An' }));
 
     expect(useDevSettingsStore.getState().receiptOcrTestEnabled).toBe(true);
+  });
+
+  it('leitet zu den Einstellungen um, wenn kein Entwickler-Zugriff besteht', async () => {
+    mockHasDevToolsAccess = false;
+    await renderScreen();
+
+    expect(mockRedirect).toHaveBeenCalledWith({ href: '/settings' });
+    expect(screen.queryByText('Entwickler')).toBeNull();
   });
 });

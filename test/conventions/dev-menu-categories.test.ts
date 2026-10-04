@@ -70,6 +70,19 @@ const CATEGORY_SPECS = [
     ],
   },
   {
+    label: 'Lifecycle & Background',
+    route: '/settings/dev-lifecycle',
+    screenFile: 'dev-lifecycle-screen.tsx',
+    routeFile: 'dev-lifecycle.tsx',
+    componentName: 'DevLifecycleScreen',
+    sourceFiles: ['dev-lifecycle-screen.tsx'],
+    markers: [
+      'title="Lifecycle & Background"',
+      '<ContentCard title="Letzte Session">',
+      'Noch keine Lifecycle-Ereignisse aufgezeichnet.',
+    ],
+  },
+  {
     label: 'Telemetrie & Plattformtests',
     route: '/settings/dev-telemetry',
     screenFile: 'dev-telemetry-screen.tsx',

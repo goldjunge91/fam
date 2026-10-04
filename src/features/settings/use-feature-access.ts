@@ -11,7 +11,7 @@ import {
   type ModulePreferences,
   useModulePreferences,
 } from '@/features/settings/module-preferences';
-import { env } from '@/lib/config/env';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { type FeatureFlagKey, useFeatureFlags } from '@/lib/observability/providers/posthog';
 
 /**
@@ -22,6 +22,7 @@ export function useFeatureAccess() {
   const { session } = useSession();
   const { data: modules, isLoading } = useModulePreferences(session?.user.id);
   const posthogFlags = useFeatureFlags();
+  const hasDevToolsAccess = useDevToolsAccess();
   const moduleFeatureFlagOverrides = useDevSettingsStore(
     (state) => state.moduleFeatureFlagOverrides,
   );
@@ -29,16 +30,16 @@ export function useFeatureAccess() {
 
   const getModuleFeatureFlagOverride = useCallback(
     (module: keyof ModulePreferences): boolean | undefined => {
-      if (!env.devTools) return undefined;
+      if (!hasDevToolsAccess) return undefined;
       return moduleFeatureFlagOverrides[module];
     },
-    [moduleFeatureFlagOverrides],
+    [hasDevToolsAccess, moduleFeatureFlagOverrides],
   );
 
   const getFeatureFlagState = useCallback(
     (featureFlag?: FeatureFlagKey): boolean | undefined => {
       if (featureFlag === undefined) return undefined;
-      if (env.devTools) {
+      if (hasDevToolsAccess) {
         const featureOverride = featureFlagOverrides[featureFlag];
         if (featureOverride !== undefined) return featureOverride;
       }
@@ -53,7 +54,7 @@ export function useFeatureAccess() {
       if (value === false) return false;
       return undefined;
     },
-    [featureFlagOverrides, getModuleFeatureFlagOverride, posthogFlags],
+    [featureFlagOverrides, getModuleFeatureFlagOverride, posthogFlags, hasDevToolsAccess],
   );
 
   const isModuleLocked = useCallback(

@@ -6,6 +6,11 @@ import { AuthPreviewScreen } from './auth-preview-screen';
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn() },
+  Redirect: () => null,
+}));
+
+jest.mock('@/hooks/use-dev-tools-access', () => ({
+  useDevToolsAccess: () => true,
 }));
 
 jest.mock('@/components/layout/screen', () => {

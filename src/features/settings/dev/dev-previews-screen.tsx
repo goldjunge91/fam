@@ -1,10 +1,17 @@
-import { router } from 'expo-router';
+import { Redirect, router } from 'expo-router';
 
 import { Screen } from '@/components/layout/screen';
 import { ContentCard } from '@/components/ui/content-card';
 import { Button } from '@/constants/ui';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 
 export function DevPreviewsScreen() {
+  const hasAccess = useDevToolsAccess();
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
+  }
+
   return (
     <Screen
       title="Vorschauen & Labs"

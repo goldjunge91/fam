@@ -1,9 +1,11 @@
+import { Redirect } from 'expo-router';
 import { Platform, ScrollView, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
 import { ContentCard } from '@/components/ui/content-card';
 import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { getDeviceStorage } from '@/lib/storage/local-device-storage';
 import {
   getLifecycleLog,
@@ -45,10 +47,15 @@ const LEVEL_TONE: Record<LifecycleLogLevel, 'primary' | 'warning' | 'danger'> = 
 };
 
 export function DevLifecycleScreen() {
+  const hasAccess = useDevToolsAccess();
   const { session } = useSession();
   const events = getLifecycleLog();
   const marker = readSessionMarker();
   const newestFirst = [...events].reverse();
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
+  }
 
   return (
     <Screen

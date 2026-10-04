@@ -1,3 +1,4 @@
+import { Redirect } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { View } from 'react-native';
 import {
@@ -17,6 +18,7 @@ import {
   speechLocaleToLanguageCode,
 } from '@/features/shopping-list/stt-beta/services/speech-locale';
 import { combineSpeechTranscript } from '@/features/shopping-list/stt-beta/services/speech-transcript';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { debugLog, debugLogEvent } from '@/lib/observability/debug-log';
 
 import { useExecuTorchAudioRecorder } from './use-executorch-audio-recorder';
@@ -24,6 +26,7 @@ import { useExecuTorchAudioRecorder } from './use-executorch-audio-recorder';
 const MODEL = models.speechToText.WHISPER.TINY.DEFAULT;
 
 export function ExecuTorchSpeechToTextScreen() {
+  const hasAccess = useDevToolsAccess();
   const speechLocale = getDeviceSpeechLocale();
   const [modelRequested, setModelRequested] = useState(false);
   const [committedText, setCommittedText] = useState('');
@@ -98,6 +101,10 @@ export function ExecuTorchSpeechToTextScreen() {
       : stt.isReady
         ? 'Bereit'
         : `Lade Modell: ${stt.downloadProgress.toFixed(0)} %`;
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
+  }
 
   return (
     <Screen

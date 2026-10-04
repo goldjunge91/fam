@@ -85,6 +85,10 @@ jest.mock('@/features/product-search/hooks/use-product-barcode-lookup', () => ({
   }),
 }));
 
+jest.mock('@/hooks/use-dev-tools-access', () => ({
+  useDevToolsAccess: () => true,
+}));
+
 jest.mock('@/hooks/use-sync-status', () => ({
   useSyncStatus: () => ({ kind: 'hidden' }),
 }));

@@ -1,4 +1,5 @@
 import { Image } from 'expo-image';
+import { Redirect } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { View } from 'react-native';
 import Svg, { Circle, Polygon } from 'react-native-svg';
@@ -20,6 +21,7 @@ import {
   type ReceiptOcrResult,
   recognizeReceiptOcr,
 } from '@/features/ocr/processing/native';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { formatBytes, Zeile } from '../dev-screen-shared';
 import {
   detectInspectorReceiptGeometry,
@@ -403,6 +405,7 @@ function providerLabel(settings: InspectorSettings): string {
 }
 
 export function OcrInspectorScreen() {
+  const hasAccess = useDevToolsAccess();
   const { colors } = useTheme();
   const [image, setImage] = useState<InspectorImage | null>(null);
   const [settings, setSettings] = useState<InspectorSettings>(INITIAL_SETTINGS);
@@ -706,6 +709,10 @@ export function OcrInspectorScreen() {
   const runtimeImage = image && result ? { ...image, ...result.imageSize } : image;
   const previewRatio =
     runtimeImage && runtimeImage.height > 0 ? runtimeImage.width / runtimeImage.height : 1;
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
+  }
 
   return (
     <Screen

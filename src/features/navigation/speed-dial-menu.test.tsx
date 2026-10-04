@@ -29,6 +29,7 @@ let mockFeatureFlags: Record<FeatureFlagKey, boolean> = {
   'tracking-method-volumetrics': false,
   'bug-bubble': false,
   bugbubble: false,
+  'dev-tools': false,
 };
 
 jest.mock('expo-router', () => ({
@@ -101,6 +102,7 @@ describe('SpeedDialMenu', () => {
       'tracking-method-volumetrics': false,
       'bug-bubble': false,
       bugbubble: false,
+      'dev-tools': false,
     };
   });
 

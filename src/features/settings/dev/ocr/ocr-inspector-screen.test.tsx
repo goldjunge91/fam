@@ -23,6 +23,10 @@ jest.mock('expo-image', () => {
   };
 });
 
+jest.mock('@/hooks/use-dev-tools-access', () => ({
+  useDevToolsAccess: () => true,
+}));
+
 jest.mock('@/features/ocr/capture/api', () => ({
   captureReceipt: jest.fn(),
   createExpoFileSystemAdapter: jest.fn(),

@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { router } from 'expo-router';
+import { Redirect, router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { Alert, View } from 'react-native';
 
@@ -8,6 +8,7 @@ import { ContentCard } from '@/components/ui/content-card';
 import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { describeDatabaseOwnership } from '@/features/settings/dev/dev-info';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { deleteLocalDatabase, getDatabase } from '@/lib/db/local-client';
 import {
   checkOffDumpIntegrity,
@@ -26,6 +27,7 @@ import {
 } from './dev-screen-shared';
 
 export function DevDataScreen() {
+  const hasAccess = useDevToolsAccess();
   const { session } = useSession();
   const queryClient = useQueryClient();
   const [snapshot, setSnapshot] = useState<DbSnapshot | null>(null);
@@ -102,6 +104,10 @@ export function DevDataScreen() {
         },
       ],
     );
+  }
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
   }
 
   return (

@@ -1,9 +1,10 @@
-import { router } from 'expo-router';
+import { Redirect, router } from 'expo-router';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
 import { Button, Card, Txt } from '@/constants/ui';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 
 const AUTH_ROUTES = [
   {
@@ -39,6 +40,12 @@ const styles = StyleSheet.create((theme) => ({
 
 /** Developer entry point for exercising the real authentication routes. */
 export function AuthPreviewScreen() {
+  const hasAccess = useDevToolsAccess();
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
+  }
+
   return (
     <Screen
       title="Auth testen"

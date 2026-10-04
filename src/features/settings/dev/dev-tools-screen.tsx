@@ -1,4 +1,4 @@
-import { router } from 'expo-router';
+import { Redirect, router } from 'expo-router';
 import { ExpoSpeechRecognitionModule } from 'expo-speech-recognition';
 import { Alert, Linking, Platform } from 'react-native';
 
@@ -6,6 +6,7 @@ import { Screen } from '@/components/layout/screen';
 import { type SpeechTestProvider, useDevSettingsStore } from '@/constants/dev-settings';
 import { SegmentedControl } from '@/constants/ui';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 
 const SPEECH_PROVIDER_OPTIONS = [
@@ -59,10 +60,15 @@ const DEV_CATEGORIES = [
 ] as const;
 
 export function DevToolsScreen() {
+  const hasAccess = useDevToolsAccess();
   const speechTestProvider = useDevSettingsStore((state) => state.speechTestProvider);
   const setSpeechTestProvider = useDevSettingsStore((state) => state.setSpeechTestProvider);
   const receiptOcrTestEnabled = useDevSettingsStore((state) => state.receiptOcrTestEnabled);
   const setReceiptOcrTestEnabled = useDevSettingsStore((state) => state.setReceiptOcrTestEnabled);
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
+  }
 
   async function requestMicrophonePermission() {
     try {

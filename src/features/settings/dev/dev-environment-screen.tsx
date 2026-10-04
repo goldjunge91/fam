@@ -1,5 +1,6 @@
 import * as Application from 'expo-application';
 import Constants from 'expo-constants';
+import { Redirect } from 'expo-router';
 import { Platform } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
@@ -13,6 +14,7 @@ import {
   formatTokenExpiry,
   maskSecret,
 } from '@/features/settings/dev/dev-info';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { getAptabaseInitializationError, isAptabaseConfigured } from '@/lib/analytics/aptabase';
 import { env } from '@/lib/config/env';
 import {
@@ -22,6 +24,7 @@ import {
 import { Zeile } from './dev-screen-shared';
 
 export function DevEnvironmentScreen() {
+  const hasAccess = useDevToolsAccess();
   const { session } = useSession();
   const { activeHousehold } = useActiveHousehold();
   const { hasPlus, hasAI, isForced, isAiForced } = usePremium();
@@ -31,6 +34,10 @@ export function DevEnvironmentScreen() {
   const tokenExpiry = formatTokenExpiry(session?.expires_at, Date.now());
   const posthogError = getPostHogInitializationError();
   const aptabaseError = getAptabaseInitializationError();
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
+  }
 
   return (
     <Screen

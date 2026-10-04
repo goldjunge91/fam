@@ -1,4 +1,4 @@
-import { router } from 'expo-router';
+import { Redirect, router } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, useWindowDimensions, View } from 'react-native';
 import {
@@ -15,6 +15,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
 import { Button, Surface, Txt } from '@/constants/ui';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { debugLog } from '@/lib/observability/debug-log';
 
 // Source: nuclearpasta/react-native-drax, docs-site/docs/examples/mixed-grid.mdx.
@@ -47,6 +48,7 @@ function getItemSpan(item: DemoItem): GridItemSpan {
 }
 
 export function DraxDemoScreen() {
+  const hasAccess = useDevToolsAccess();
   const [withScreen, setWithScreen] = useState(false);
   const [generation, setGeneration] = useState(0);
   const insets = useSafeAreaInsets();
@@ -68,6 +70,10 @@ export function DraxDemoScreen() {
     </View>
   );
   const grid = <DemoGrid key={`${withScreen}:${generation}`} />;
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
+  }
 
   if (withScreen) {
     return (

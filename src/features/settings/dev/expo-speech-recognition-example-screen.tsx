@@ -1,3 +1,4 @@
+import { Redirect } from 'expo-router';
 import type {
   ExpoSpeechRecognitionErrorEvent,
   ExpoSpeechRecognitionOptions,
@@ -14,6 +15,7 @@ import { Screen } from '@/components/layout/screen';
 import { space } from '@/components/theme/index';
 import { ContentCard } from '@/components/ui/content-card';
 import { Button, Txt } from '@/constants/ui';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { debugLog } from '@/lib/observability/debug-log';
 
 const INITIAL_SETTINGS: ExpoSpeechRecognitionOptions = {
@@ -33,6 +35,7 @@ const INITIAL_SETTINGS: ExpoSpeechRecognitionOptions = {
 type RecognitionStatus = 'idle' | 'starting' | 'recognizing';
 
 export function ExpoSpeechRecognitionExampleScreen() {
+  const hasAccess = useDevToolsAccess();
   const [error, setError] = useState<ExpoSpeechRecognitionErrorEvent | null>(null);
   const transcriptTallyRef = useRef('');
   const [transcription, setTranscription] = useState('');
@@ -137,6 +140,10 @@ export function ExpoSpeechRecognitionExampleScreen() {
     debugLog(settings);
     ExpoSpeechRecognitionModule.start(settings);
   };
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
+  }
 
   return (
     <Screen

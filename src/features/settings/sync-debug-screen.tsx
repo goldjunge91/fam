@@ -1,5 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import * as Clipboard from 'expo-clipboard';
+import { Redirect } from 'expo-router';
 import type { ReactNode } from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Alert, View } from 'react-native';
@@ -11,6 +12,7 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import type { CatalogProduct } from '@/features/product-search/types';
+import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/local-client';
@@ -93,6 +95,7 @@ function DebugItem({ children }: { children: ReactNode }) {
 }
 
 export function SyncDebugScreen() {
+  const hasAccess = useDevToolsAccess();
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
@@ -252,6 +255,10 @@ export function SyncDebugScreen() {
   const formattedLastSync = lastSyncInfo?.timestamp
     ? new Date(lastSyncInfo.timestamp).toLocaleTimeString('de-DE')
     : 'Noch nicht synchronisiert';
+
+  if (!hasAccess) {
+    return <Redirect href="/settings" />;
+  }
 
   return (
     <Screen

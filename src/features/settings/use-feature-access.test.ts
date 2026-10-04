@@ -223,4 +223,15 @@ describe('useFeatureAccess', () => {
     expect(result.current.getModuleFeatureFlagOverride('fridge')).toBe(false);
     expect(result.current.isFeatureEnabled('fridge')).toBe(false);
   });
+
+  it('wendet den lokalen Override an, wenn dev-tools über PostHog aktiviert ist', async () => {
+    mockFeatureFlags = { 'dev-tools': true, 'module-calories': false };
+    mockModuleFeatureFlagOverrides = { calories: true };
+    process.env.EXPO_PUBLIC_DEV_TOOLS = 'false';
+
+    const { result } = await renderHook(() => useFeatureAccess());
+
+    expect(result.current.getFeatureFlagState('module-calories')).toBe(true);
+    expect(result.current.isFeatureEnabled('calories')).toBe(true);
+  });
 });
