@@ -100,7 +100,8 @@ def commands_for(
                 "USE_CCACHE=1", *_prebuild(target),
             ],
             [
-                "bunx", "eas-cli", "build:version:sync", "--platform", "ios",
+                "bun", "tools/build-gui/eas_ios_version_sync.ts", "build:version:sync",
+                "--platform", "ios",
                 "--profile", "preview-testflight",
             ],
             [
