@@ -1,8 +1,9 @@
 web_search = "live"
 model_reasoning_summary = "detailed"
 model_verbosity = "medium"
+default_permissions = "project-edit"
+
 [permissions.project-edit]
-extends = ":workspace"
 
 approval_policy = "on-request"
 approvals_reviewer = "user"

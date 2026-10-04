@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bun run *)",
+      "Bash(npx jest *)",
+      "Bash(bunx jest *)",
+      "Bash(git stash *)",
+      "Bash(echo \"started pid $!\")",
+      "WebFetch(domain:docs.expo.dev)",
+      "Bash(bd *)",
+      "Bash(eas submit *)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bd prime --hook-json",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "skillOverrides": {
+    "dogfood": "off",
+    "code-review-and-quality": "off",
+    "tdd": "off"
+  },
+  "worktree": {
+    "bgIsolation": "none"
+  },
+  "enabledPlugins": {},
+  "outputStyle": "default"
+}
