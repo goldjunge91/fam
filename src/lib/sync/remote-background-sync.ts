@@ -1,3 +1,4 @@
+import { closeDatabaseForLifecycle } from '@/lib/db/local-client';
 import { reportError } from '@/lib/telemetry';
 
 export const BACKGROUND_SYNC_TASK_NAME = 'fam-background-sync';
@@ -69,6 +70,8 @@ export function defineBackgroundSyncTask(): void {
         error_code: 'background_sync_failed',
       });
       return BackgroundTaskResult.Failed;
+    } finally {
+      await closeDatabaseForLifecycle();
     }
   });
 }

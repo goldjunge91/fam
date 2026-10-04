@@ -23,7 +23,7 @@ export type LifecycleLogLevel = 'debug' | 'info' | 'warn' | 'error';
 export type LifecycleLogEvent = {
   /** Epoch-Millisekunden, damit die Liste stabil sortierbar bleibt. */
   at: number;
-  /** Ereignisname, z. B. app.backgrounded oder app.previous_session.unclean. */
+  /** Ereignisname, z. B. app.backgrounded oder app.previous_session.ended. */
   name: string;
   level: LifecycleLogLevel;
   /** Kurze, nicht sensible Zusatzwerte (Dauer, Route, Session-ID ...). */

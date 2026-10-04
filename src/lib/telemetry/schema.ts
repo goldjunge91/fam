@@ -69,7 +69,8 @@ export const TELEMETRY_EVENTS = {
   operationHanging: 'operation.hanging',
   appStarted: 'app.started',
   appBackgrounded: 'app.backgrounded',
-  previousSessionUnclean: 'app.previous_session.unclean',
+  previousSessionEnded: 'app.previous_session.ended',
+  previousSessionInterrupted: 'app.previous_session.interrupted',
   routeChanged: 'route.changed',
 } as const;
 

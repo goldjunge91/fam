@@ -1,7 +1,7 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppState, type AppStateStatus } from 'react-native';
 
 import { debugWarn } from '../observability/debug-log';
+import { getDeviceStorage } from '../storage/local-device-storage';
 import type { TelemetryProperties } from './schema';
 
 const SESSION_MARKER_KEY = '@fam/telemetry-session.v1';
@@ -14,6 +14,7 @@ type SessionMarker = {
   state: 'closed' | 'open';
   startedAt: number;
   lastEventAt: number;
+  lastAppState?: AppStateStatus | null;
   lastOperation?: string;
   lastRoute?: string;
 };
@@ -47,10 +48,10 @@ function parseMarker(value: string | null): SessionMarker | null {
   return null;
 }
 
-async function persistMarker(): Promise<void> {
+function persistMarker(): void {
   if (!currentMarker) return;
   try {
-    await AsyncStorage.setItem(SESSION_MARKER_KEY, JSON.stringify(currentMarker));
+    getDeviceStorage().set(SESSION_MARKER_KEY, JSON.stringify(currentMarker));
   } catch (error) {
     debugWarn('[telemetry] Session-Marker konnte nicht gespeichert werden:', error);
   }
@@ -79,7 +80,7 @@ export function recordSessionRoute(route: string): void {
 }
 
 export async function startSessionDiagnostics(callbacks: {
-  onPreviousSessionUnclean: (properties: TelemetryProperties) => void;
+  onPreviousSessionDetected: (properties: TelemetryProperties) => void;
   onEventLoopStalled: (properties: TelemetryProperties) => void;
   onBackgrounded?: () => void;
   onForegrounded?: () => void;
@@ -87,7 +88,7 @@ export async function startSessionDiagnostics(callbacks: {
   const now = Date.now();
   let previous: SessionMarker | null = null;
   try {
-    previous = parseMarker(await AsyncStorage.getItem(SESSION_MARKER_KEY));
+    previous = parseMarker(getDeviceStorage().getString(SESSION_MARKER_KEY) ?? null);
   } catch (error) {
     debugWarn('[telemetry] Session-Marker konnte nicht gelesen werden:', error);
   }
@@ -97,14 +98,16 @@ export async function startSessionDiagnostics(callbacks: {
     state: 'open',
     startedAt: now,
     lastEventAt: now,
+    lastAppState: AppState.currentState,
   };
-  await persistMarker();
+  persistMarker();
 
   if (previous?.state === 'open') {
-    callbacks.onPreviousSessionUnclean({
+    callbacks.onPreviousSessionDetected({
       previous_session_id: previous.sessionId,
       last_event_at: previous.lastEventAt,
       seconds_since_last_event: Math.max(0, Math.round((now - previous.lastEventAt) / 1_000)),
+      ...(previous.lastAppState ? { previous_app_state: previous.lastAppState } : {}),
       ...(previous.lastOperation ? { last_operation: previous.lastOperation } : {}),
       ...(previous.lastRoute ? { last_route: previous.lastRoute } : {}),
     });
@@ -119,7 +122,11 @@ export async function startSessionDiagnostics(callbacks: {
       active = false;
       callbacks.onBackgrounded?.();
       if (currentMarker) {
-        currentMarker.state = 'closed';
+        // iOS may suspend or terminate the process without a JS cleanup callback.
+        // Keep this session open so the next launch can report its last state.
+        currentMarker.state = 'open';
+        currentMarker.lastAppState = nextState;
+        currentMarker.lastOperation = 'app.backgrounded';
         currentMarker.lastEventAt = Date.now();
         void persistMarker();
       }
@@ -138,6 +145,8 @@ export async function startSessionDiagnostics(callbacks: {
       expectedWatchdogAt = Date.now() + WATCHDOG_INTERVAL_MS;
       if (currentMarker) {
         currentMarker.state = 'open';
+        currentMarker.lastAppState = nextState;
+        currentMarker.lastOperation = 'app.foregrounded';
         currentMarker.lastEventAt = Date.now();
         void persistMarker();
       }

@@ -1,22 +1,25 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppState, type AppStateStatus, type NativeEventSubscription } from 'react-native';
+import { getDeviceStorage } from '../storage/local-device-storage';
 
 import { startSessionDiagnostics } from './session-diagnostics';
 
-jest.mock('@react-native-async-storage/async-storage', () => ({
-  __esModule: true,
-  default: {
-    getItem: jest.fn(),
-    setItem: jest.fn().mockResolvedValue(undefined),
-  },
+jest.mock('../storage/local-device-storage', () => ({
+  getDeviceStorage: jest.fn(),
 }));
 
 describe('session diagnostics', () => {
   let appStateListener: ((state: AppStateStatus) => void) | undefined;
+  const deviceStorage = {
+    getString: jest.fn<string | undefined, [string]>(),
+    set: jest.fn<void, [string, string]>(),
+  };
 
   beforeEach(() => {
     jest.clearAllMocks();
     jest.useFakeTimers();
+    jest
+      .mocked(getDeviceStorage)
+      .mockReturnValue(deviceStorage as unknown as ReturnType<typeof getDeviceStorage>);
     jest.spyOn(AppState, 'addEventListener').mockImplementation((_event, listener) => {
       appStateListener = listener;
       return { remove: jest.fn() } as NativeEventSubscription;
@@ -28,27 +31,29 @@ describe('session diagnostics', () => {
     jest.useRealTimers();
   });
 
-  it('meldet einen beim letzten Start offen gebliebenen Marker und schliesst im Hintergrund', async () => {
-    jest.mocked(AsyncStorage.getItem).mockResolvedValueOnce(
+  it('meldet die vorherige Session samt App-Zustand und hält den Marker im Hintergrund offen', async () => {
+    deviceStorage.getString.mockReturnValueOnce(
       JSON.stringify({
         sessionId: 'previous-1',
         state: 'open',
         startedAt: 1_000,
         lastEventAt: Date.now() - 5_000,
+        lastAppState: 'background',
         lastOperation: 'db.open',
         lastRoute: '/fridge',
       }),
     );
-    const onPreviousSessionUnclean = jest.fn();
+    const onPreviousSessionDetected = jest.fn();
 
     const stop = await startSessionDiagnostics({
-      onPreviousSessionUnclean,
+      onPreviousSessionDetected,
       onEventLoopStalled: jest.fn(),
     });
 
-    expect(onPreviousSessionUnclean).toHaveBeenCalledWith(
+    expect(onPreviousSessionDetected).toHaveBeenCalledWith(
       expect.objectContaining({
         previous_session_id: 'previous-1',
+        previous_app_state: 'background',
         last_operation: 'db.open',
         last_route: '/fridge',
         seconds_since_last_event: 5,
@@ -56,10 +61,11 @@ describe('session diagnostics', () => {
     );
 
     appStateListener?.('background');
-    await Promise.resolve();
 
-    const persisted = JSON.parse(jest.mocked(AsyncStorage.setItem).mock.calls.at(-1)?.[1] ?? '{}');
-    expect(persisted.state).toBe('closed');
+    const persisted = JSON.parse(deviceStorage.set.mock.calls.at(-1)?.[1] ?? '{}');
+    expect(persisted.state).toBe('open');
+    expect(persisted.lastAppState).toBe('background');
+    expect(persisted.lastOperation).toBe('app.backgrounded');
     stop();
   });
 });

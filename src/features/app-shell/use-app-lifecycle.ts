@@ -24,6 +24,9 @@ function describeLifecycleProperties(properties: LifecycleProperties): string {
   if (typeof properties.seconds_since_last_event === 'number') {
     parts.push(`${properties.seconds_since_last_event}s`);
   }
+  if (typeof properties.previous_app_state === 'string') {
+    parts.push(`state=${properties.previous_app_state}`);
+  }
   return parts.join(' ');
 }
 
@@ -61,12 +64,24 @@ export function useAppLifecycle(): void {
     let stop: (() => void) | undefined;
 
     void startSessionDiagnostics({
-      onPreviousSessionUnclean: (properties) => {
-        trackEvent('app.previous_session.unclean', properties);
+      onPreviousSessionDetected: (properties) => {
+        const endedInBackground = properties.previous_app_state === 'background';
+        const name = endedInBackground
+          ? 'app.previous_session.ended'
+          : 'app.previous_session.interrupted';
+        trackEvent(name, {
+          ...properties,
+          outcome: endedInBackground ? 'ended_after_background' : 'interrupted',
+        });
         recordLifecycleEvent({
-          name: 'app.previous_session.unclean',
-          level: 'warn',
-          detail: describeLifecycleProperties(properties),
+          name,
+          level: endedInBackground ? 'info' : 'warn',
+          detail: [
+            `classification=${endedInBackground ? 'background_termination' : 'unexpected_interruption'}`,
+            describeLifecycleProperties(properties),
+          ]
+            .filter(Boolean)
+            .join(' '),
         });
       },
       onEventLoopStalled: (properties) => {

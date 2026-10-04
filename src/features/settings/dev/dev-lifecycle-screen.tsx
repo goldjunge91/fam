@@ -21,6 +21,7 @@ type SessionMarker = {
   state?: 'open' | 'closed';
   startedAt?: number;
   lastEventAt?: number;
+  lastAppState?: string | null;
   lastOperation?: string;
   lastRoute?: string;
 };
@@ -63,18 +64,15 @@ export function DevLifecycleScreen() {
       subtitle="Was die App vor dem letzten Wechsel tat"
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon">
-      <ContentCard title="Letzte Session">
-        <Zeile
-          label="Zustand"
-          wert={marker?.state === 'open' ? 'offen (nicht sauber beendet)' : (marker?.state ?? '—')}
-          tone={marker?.state === 'open' ? 'danger' : undefined}
-        />
+      <ContentCard title="Aktuelle Session">
+        <Zeile label="Zustand" wert={marker?.state ?? '—'} />
         <Zeile label="Session-ID" wert={marker?.sessionId ?? '—'} />
         <Zeile label="Gestartet" wert={marker?.startedAt ? formatZeit(marker.startedAt) : '—'} />
         <Zeile
           label="Letztes Ereignis"
           wert={marker?.lastEventAt ? formatZeit(marker.lastEventAt) : '—'}
         />
+        <Zeile label="Letzter App-Zustand" wert={marker?.lastAppState ?? '—'} />
         <Zeile label="Letzte Operation" wert={marker?.lastOperation ?? '—'} />
         <Zeile label="Letzte Route" wert={marker?.lastRoute ?? '—'} />
         <Zeile label="Gerät" wert={`${Platform.OS} ${Platform.Version}`} />

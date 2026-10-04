@@ -1,10 +1,11 @@
 import { drizzle as createExpoDrizzleDatabase } from 'drizzle-orm/expo-sqlite';
 import { migrate as migrateExpoDatabase } from 'drizzle-orm/expo-sqlite/migrator';
+import { AppState } from 'react-native';
 import { FAM_APP_GROUP } from '@/lib/apple/shared-app-group';
 import {
   createExpoDatabaseFileOps,
   DATABASE_FILE_NAMES,
-  migrateExpoDatabaseFiles,
+  migrateAppGroupDatabaseToPrivate,
 } from '@/lib/db/database-files';
 import { createDrizzleDatabase, type DrizzleDatabase } from '@/lib/db/drizzle-driver';
 import {
@@ -41,6 +42,7 @@ function loadSQLite(): typeof import('expo-sqlite') {
 type DatabaseDirectories = {
   legacy: string;
   primary: string;
+  appGroup?: string;
 };
 
 function getDatabaseDirectories(SQLite: typeof import('expo-sqlite')): DatabaseDirectories {
@@ -54,7 +56,7 @@ function getDatabaseDirectories(SQLite: typeof import('expo-sqlite')): DatabaseD
     const sharedContainer = Paths.appleSharedContainers?.[FAM_APP_GROUP];
     const sharedDirectory = sharedContainer?.uri;
     if (typeof sharedDirectory === 'string' && sharedDirectory.length > 0) {
-      return { legacy, primary: sharedDirectory };
+      return { legacy, primary: legacy, appGroup: sharedDirectory };
     }
   } catch (error) {
     debugWarn('[db] App-Group-Container nicht verfügbar; verwende Legacy-Pfad.', error);
@@ -65,9 +67,8 @@ function getDatabaseDirectories(SQLite: typeof import('expo-sqlite')): DatabaseD
 
 async function prepareDatabaseDirectory(SQLite: typeof import('expo-sqlite')): Promise<string> {
   const directories = getDatabaseDirectories(SQLite);
-  if (directories.primary !== directories.legacy) {
-    await migrateExpoDatabaseFiles(directories.legacy, directories.primary);
-  }
+  if (directories.appGroup && directories.appGroup !== directories.primary)
+    await migrateAppGroupDatabaseToPrivate(directories.appGroup, directories.primary);
   return directories.primary;
 }
 
@@ -126,6 +127,7 @@ let rawDatabase: import('expo-sqlite').SQLiteDatabase | null = null;
 let database: SerializedSqlDatabase | null = null;
 let drizzleDatabase: DrizzleDatabase | null = null;
 let opening: Promise<SqlDatabase> | null = null;
+let lifecycleClosing: Promise<void> | null = null;
 let wipeInProgress: Promise<void> | null = null;
 let lifecycleGeneration = 0;
 let openSequence = 0;
@@ -336,6 +338,7 @@ export function getDatabase(): Promise<SqlDatabase> {
   if (wipeInProgress) {
     return Promise.reject(new Error('Die lokale Datenbank wird gerade gelöscht.'));
   }
+  if (lifecycleClosing) return lifecycleClosing.then(() => getDatabase());
   if (database && isVerifiedForActiveUser()) {
     return Promise.resolve(database);
   }
@@ -370,6 +373,46 @@ export async function getDrizzleDatabase(): Promise<DrizzleDatabase> {
   drizzleDatabase ??= createDrizzleDatabase(db);
   return drizzleDatabase;
 }
+
+/** Schließt die SQLite-Verbindung nach dem Leeren der serialisierten Query-Warteschlange. */
+export function closeDatabaseForLifecycle(): Promise<void> {
+  if (lifecycleClosing) return lifecycleClosing;
+  const closing = (async () => {
+    if (opening) {
+      try {
+        await opening;
+      } catch {
+        return;
+      }
+    }
+
+    const connection = database && rawDatabase ? { db: database, raw: rawDatabase } : null;
+    if (!connection) return;
+
+    try {
+      await connection.db.closeForLifecycle(() => connection.raw.closeAsync());
+      if (rawDatabase === connection.raw) {
+        rawDatabase = null;
+        database = null;
+        drizzleDatabase = null;
+        resetOffDumpAttachment();
+      }
+      dbTrace('LIFECYCLE-CLOSED');
+    } catch (error) {
+      debugWarn('[db] Verbindung beim App-Wechsel konnte nicht geschlossen werden:', error);
+    }
+  })().finally(() => {
+    if (lifecycleClosing === closing) lifecycleClosing = null;
+  });
+  lifecycleClosing = closing;
+  return closing;
+}
+
+AppState.addEventListener('change', (state) => {
+  if (state === 'inactive' || state === 'background') {
+    void closeDatabaseForLifecycle();
+  }
+});
 
 async function closeAndDeleteFile(connection?: DatabaseConnection): Promise<void> {
   const SQLite = loadSQLite();
@@ -420,7 +463,9 @@ async function closeAndDeleteFile(connection?: DatabaseConnection): Promise<void
 
   try {
     const directories = getDatabaseDirectories(SQLite);
-    const directoriesToDelete = [...new Set([directories.primary, directories.legacy])];
+    const directoriesToDelete = [
+      ...new Set([directories.primary, directories.legacy, directories.appGroup]),
+    ].filter((directory): directory is string => directory !== undefined);
     for (const directory of directoriesToDelete) {
       const files = createExpoDatabaseFileOps(directory);
       for (const fileName of filesToDelete) {
