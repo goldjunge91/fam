@@ -1,5 +1,5 @@
 import { Feather } from '@expo/vector-icons';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
@@ -34,8 +34,10 @@ try {
 }
 
 const SCAN_FRAME_ASPECT_RATIO = 3 / 4;
-const CORNER_SIZE = 30;
-const CORNER_BORDER = 3;
+const CORNER_SIZE = 20;
+const CORNER_BORDER = 2;
+/** Nach dieser Standzeit faellt der Einmal-Fokus auf Dauerfokus zurueck. */
+const FOCUS_HOLD_MS = 900;
 
 const styles = StyleSheet.create((theme) => ({
   root: {
@@ -49,20 +51,26 @@ const styles = StyleSheet.create((theme) => ({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    gap: theme.space.md,
     paddingTop: theme.space.sm,
-  },
-  headerSpacer: {
-    flex: 1,
-  },
-  titleBlock: {
-    gap: theme.space.xs,
-    paddingTop: theme.space.md,
     paddingBottom: theme.space.md,
+  },
+  title: {
+    flex: 1,
   },
   stage: {
     flex: 1,
     justifyContent: 'center',
+  },
+  cameraControls: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.space.md,
+    paddingTop: theme.space.md,
+  },
+  controlActive: {
+    backgroundColor: theme.backgroundSoft,
   },
   frame: {
     width: '100%',
@@ -78,29 +86,29 @@ const styles = StyleSheet.create((theme) => ({
     borderColor: theme.warning,
   },
   cornerTopLeft: {
-    top: theme.space.md,
-    left: theme.space.md,
+    top: theme.space.sm,
+    left: theme.space.sm,
     borderTopWidth: CORNER_BORDER,
     borderLeftWidth: CORNER_BORDER,
     borderTopLeftRadius: theme.radius.sm,
   },
   cornerTopRight: {
-    top: theme.space.md,
-    right: theme.space.md,
+    top: theme.space.sm,
+    right: theme.space.sm,
     borderTopWidth: CORNER_BORDER,
     borderRightWidth: CORNER_BORDER,
     borderTopRightRadius: theme.radius.sm,
   },
   cornerBottomLeft: {
-    bottom: theme.space.md,
-    left: theme.space.md,
+    bottom: theme.space.sm,
+    left: theme.space.sm,
     borderBottomWidth: CORNER_BORDER,
     borderLeftWidth: CORNER_BORDER,
     borderBottomLeftRadius: theme.radius.sm,
   },
   cornerBottomRight: {
-    bottom: theme.space.md,
-    right: theme.space.md,
+    bottom: theme.space.sm,
+    right: theme.space.sm,
     borderBottomWidth: CORNER_BORDER,
     borderRightWidth: CORNER_BORDER,
     borderBottomRightRadius: theme.radius.sm,
@@ -179,6 +187,9 @@ export function ReceiptScannerScreen() {
   // Direkteinstieg nicht bei jedem Render erneut startet.
   const [initialCapture, setInitialCapture] = useState<InitialCapture | null>(null);
   const [captureError, setCaptureError] = useState<string | null>(null);
+  const [facing, setFacing] = useState<'back' | 'front'>('back');
+  const [flash, setFlash] = useState<'off' | 'auto' | 'on'>('off');
+  const [focusRequested, setFocusRequested] = useState(false);
   const cameraRef = useRef<{ takePictureAsync?: () => Promise<LiveShot & { uri: string }> }>(null);
   const { session } = useSession();
   const { activeHouseholdId } = useActiveHousehold();
@@ -187,6 +198,16 @@ export function ReceiptScannerScreen() {
   const [permission, requestPermission] = useCameraPermissionsHook();
 
   const livePreviewAvailable = isCameraSupported && Boolean(permission?.granted);
+
+  // Einmal-Fokus: 'on' loest genau einen Fokuslauf aus, danach faellt die
+  // Kamera wieder in den Dauerfokus zurueck (expo-camera kennt kein
+  // Tap-to-Focus; 'on' ist der einzige Fokushebel).
+  useEffect(() => {
+    if (!focusRequested) return;
+    const timer = setTimeout(() => setFocusRequested(false), FOCUS_HOLD_MS);
+    return () => clearTimeout(timer);
+  }, [focusRequested]);
+
   function closeFlow() {
     setFlowOpen(false);
     setShots([]);
@@ -230,7 +251,9 @@ export function ReceiptScannerScreen() {
       <View style={styles.root}>
         <View style={styles.body}>
           <View style={styles.header}>
-            <View style={styles.headerSpacer} />
+            <Txt variant="title" style={styles.title}>
+              {t('ocr.scanner.title')}
+            </Txt>
             <IconButton
               icon="x"
               onPress={() => goBackTo('/shopping-list')}
@@ -240,14 +263,16 @@ export function ReceiptScannerScreen() {
             />
           </View>
 
-          <View style={styles.titleBlock}>
-            <Txt variant="title">{t('ocr.scanner.title')}</Txt>
-          </View>
-
           <View style={styles.stage}>
             <View style={styles.frame}>
               {livePreviewAvailable ? (
-                <CameraViewComp ref={cameraRef} style={StyleSheet.absoluteFill} facing="back" />
+                <CameraViewComp
+                  ref={cameraRef}
+                  style={StyleSheet.absoluteFill}
+                  facing={facing}
+                  autofocus={focusRequested ? 'on' : 'off'}
+                  flash={flash}
+                />
               ) : (
                 <View style={styles.fallback}>
                   <Txt variant="body" tone="secondary" center>
@@ -269,6 +294,37 @@ export function ReceiptScannerScreen() {
               <View style={[styles.corner, styles.cornerBottomRight]} />
             </View>
           </View>
+
+          {livePreviewAvailable ? (
+            <View style={styles.cameraControls}>
+              <IconButton
+                icon="refresh-cw"
+                onPress={() => setFacing((current) => (current === 'back' ? 'front' : 'back'))}
+                accessibilityLabel={t('ocr.scanner.switchCamera')}
+                color={colors.text}
+                bg={colors.backgroundElement}
+              />
+              <IconButton
+                icon="crosshair"
+                onPress={() => setFocusRequested(true)}
+                accessibilityLabel={t('ocr.scanner.focus')}
+                color={colors.text}
+                bg={colors.backgroundElement}
+              />
+              <IconButton
+                icon={flash === 'off' ? 'zap-off' : 'zap'}
+                onPress={() =>
+                  setFlash((current) =>
+                    current === 'off' ? 'auto' : current === 'auto' ? 'on' : 'off',
+                  )
+                }
+                accessibilityLabel={t(`ocr.scanner.flash.${flash}`)}
+                color={flash === 'off' ? colors.text : colors.warning}
+                bg={colors.backgroundElement}
+                style={flash === 'off' ? undefined : styles.controlActive}
+              />
+            </View>
+          ) : null}
 
           {captureError ? (
             <View style={styles.error}>

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { act, fireEvent, render, screen, within } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { i18n } from '@/i18n';
@@ -57,12 +57,14 @@ jest.mock('@/features/ocr/capture/api', () => ({
 
 const mockTakePictureAsync = jest.fn();
 let mockCameraGranted = true;
+const mockCameraViewProps: { value: Record<string, unknown> } = { value: {} };
 
 jest.mock('expo-camera', () => {
   const React = require('react');
   const { View } = require('react-native');
   return {
-    CameraView: React.forwardRef((_props: Record<string, unknown>, ref: unknown) => {
+    CameraView: React.forwardRef((props: Record<string, unknown>, ref: unknown) => {
+      mockCameraViewProps.value = props;
       React.useImperativeHandle(ref, () => ({
         takePictureAsync: (...args: unknown[]) => mockTakePictureAsync(...args),
       }));
@@ -186,6 +188,7 @@ describe('ReceiptScannerScreen — Live-Kamera', () => {
     await i18n.changeLanguage('de');
     mockCameraGranted = true;
     mockTakePictureAsync.mockReset();
+    mockCameraViewProps.value = {};
     mockCaptureReceipt.mockReset();
     mockPersistenceSave.mockReset();
     mockSetFlowVisible.mockClear();
@@ -273,5 +276,98 @@ describe('ReceiptScannerScreen — Live-Kamera', () => {
       'Cannot find native module ExpoCamera',
     );
     expect(mockSetFlowVisible).not.toHaveBeenCalledWith(true);
+  });
+
+  it('stellt den Schliessen-Button auf die Hoehe des Titels', async () => {
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <ReceiptScannerScreen />
+      </SafeAreaProvider>,
+    );
+
+    const title = screen.getByText('Bon fotografieren');
+    const headerRow = title.parent;
+    expect(headerRow).not.toBeNull();
+    if (!headerRow || typeof headerRow === 'string') throw new Error('Header-Zeile fehlt');
+
+    expect(within(headerRow).getByLabelText('Schließen')).toBeOnTheScreen();
+    expect(headerRow.props.style).toEqual(
+      expect.objectContaining({ flexDirection: 'row', alignItems: 'center' }),
+    );
+  });
+
+  it('wechselt mit dem Kamera-Button zwischen Rueck- und Frontkamera', async () => {
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <ReceiptScannerScreen />
+      </SafeAreaProvider>,
+    );
+
+    expect(mockCameraViewProps.value.facing).toBe('back');
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Kamera wechseln' }));
+
+    expect(mockCameraViewProps.value.facing).toBe('front');
+  });
+
+  it('schaltet den Blitz in der Reihenfolge aus, automatisch, an durch', async () => {
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <ReceiptScannerScreen />
+      </SafeAreaProvider>,
+    );
+
+    expect(mockCameraViewProps.value.flash).toBe('off');
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Blitz: aus' }));
+    expect(mockCameraViewProps.value.flash).toBe('auto');
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Blitz: automatisch' }));
+    expect(mockCameraViewProps.value.flash).toBe('on');
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Blitz: an' }));
+    expect(mockCameraViewProps.value.flash).toBe('off');
+  });
+
+  it('loest mit dem Fokus-Button einen einmaligen Fokus aus und laesst ihn danach zurueckfallen', async () => {
+    jest.useFakeTimers();
+    try {
+      await render(
+        <SafeAreaProvider
+          initialMetrics={{
+            frame: { x: 0, y: 0, width: 390, height: 844 },
+            insets: { top: 47, left: 0, right: 0, bottom: 34 },
+          }}>
+          <ReceiptScannerScreen />
+        </SafeAreaProvider>,
+      );
+
+      expect(mockCameraViewProps.value.autofocus).toBe('off');
+
+      await fireEvent.press(screen.getByRole('button', { name: 'Fokussieren' }));
+
+      expect(mockCameraViewProps.value.autofocus).toBe('on');
+
+      await act(async () => {
+        jest.advanceTimersByTime(1_000);
+        await Promise.resolve();
+      });
+
+      expect(mockCameraViewProps.value.autofocus).toBe('off');
+    } finally {
+      jest.useRealTimers();
+    }
   });
 });
