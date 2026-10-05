@@ -693,6 +693,8 @@ export function OcrInspectorScreen() {
   }
 
   const average = result ? averageConfidence(result.lines) : null;
+  const resultUsesMlKit =
+    isIos && result !== null && lastRunSettings?.iosProvider === 'google-mlkit';
   const isBusy =
     phase === 'picking' ||
     phase === 'preparing' ||
@@ -861,6 +863,12 @@ export function OcrInspectorScreen() {
                 Google ML Kit ist nur im iPhone-Build mit FAM_IOS_MLKIT_OCR=1 verfügbar.
               </Txt>
             ) : null}
+            {isIos && settings.iosProvider === 'google-mlkit' ? (
+              <Txt variant="caption" tone="secondary" selectable>
+                ML Kit liefert keine Werte zur Erkennungsqualität. Texte und Positionen bleiben
+                einsehbar.
+              </Txt>
+            ) : null}
             <WheelPickerField
               label="OCR-Sprache"
               value={settings.language}
@@ -968,7 +976,9 @@ export function OcrInspectorScreen() {
                           tone="onAccent"
                           numberOfLines={1}
                           style={[styles.overlayLabel, { backgroundColor: color }]}>
-                          {index + 1} · {formatConfidence(line.confidence)}
+                          {resultUsesMlKit
+                            ? index + 1
+                            : `${index + 1} · ${formatConfidence(line.confidence)}`}
                         </Txt>
                       </View>
                     );
@@ -990,7 +1000,7 @@ export function OcrInspectorScreen() {
         )}
         {result || geometry ? (
           <View style={styles.legend}>
-            {result
+            {result && !resultUsesMlKit
               ? CONFIDENCE_LEGEND.map(({ label, colorKey }) => (
                   <View key={label} style={styles.legendItem}>
                     <View style={[styles.legendDot, { backgroundColor: colors[colorKey] }]} />
@@ -1000,6 +1010,12 @@ export function OcrInspectorScreen() {
                   </View>
                 ))
               : null}
+            {resultUsesMlKit ? (
+              <Txt variant="caption" tone="secondary" selectable>
+                ML Kit stellt keine Qualitätswerte bereit. Die markierten Bereiche zeigen die
+                erkannten Positionen.
+              </Txt>
+            ) : null}
             {geometry ? (
               <View style={styles.legendItem}>
                 <View style={[styles.legendDot, { backgroundColor: colors.warning }]} />
@@ -1063,7 +1079,12 @@ export function OcrInspectorScreen() {
         {result ? (
           <>
             <Zeile label="Erkannte Segmente" wert={`${result.lines.length}`} tone="accent" />
-            <Zeile label="Ø Konfidenz" wert={formatConfidence(average)} />
+            <Zeile
+              label="Ø Qualitätswert"
+              wert={
+                resultUsesMlKit && average === null ? 'nicht verfügbar' : formatConfidence(average)
+              }
+            />
             <Zeile label="OCR-Laufzeit" wert={elapsedMs === null ? '—' : `${elapsedMs} ms`} />
           </>
         ) : null}
@@ -1123,7 +1144,10 @@ export function OcrInspectorScreen() {
                     </Txt>
                     <View style={styles.segmentMeta}>
                       <Txt variant="caption" color={color}>
-                        Konfidenz: {formatConfidence(line.confidence)}
+                        Qualitätswert:{' '}
+                        {resultUsesMlKit && line.confidence === null
+                          ? 'nicht verfügbar'
+                          : formatConfidence(line.confidence)}
                       </Txt>
                       <Txt variant="caption" tone="secondary">
                         Box: {Math.round(line.boundingBox.x * 100)} %,{' '}
