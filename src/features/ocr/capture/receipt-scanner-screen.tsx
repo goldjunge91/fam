@@ -2,11 +2,13 @@ import { Feather } from '@expo/vector-icons';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { goBackTo } from '@/components/layout/back-button';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, IconButton, Press, Txt } from '@/constants/ui';
+import { HeaderIconButton } from '@/components/ui/header-icon-button';
+import { Button, Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useResumableReceiptDraft } from '@/features/ocr/capture/api';
@@ -34,7 +36,7 @@ try {
 }
 
 const SCAN_FRAME_ASPECT_RATIO = 3 / 4;
-const CORNER_SIZE = 20;
+const CORNER_SIZE = 18;
 const CORNER_BORDER = 2;
 /** Nach dieser Standzeit faellt der Einmal-Fokus auf Dauerfokus zurueck. */
 const FOCUS_HOLD_MS = 900;
@@ -43,6 +45,9 @@ const styles = StyleSheet.create((theme) => ({
   root: {
     flex: 1,
     backgroundColor: theme.background,
+  },
+  safeArea: {
+    flex: 1,
   },
   body: {
     flex: 1,
@@ -69,9 +74,6 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.md,
     paddingTop: theme.space.md,
   },
-  controlActive: {
-    backgroundColor: theme.backgroundSoft,
-  },
   frame: {
     width: '100%',
     aspectRatio: SCAN_FRAME_ASPECT_RATIO,
@@ -86,32 +88,32 @@ const styles = StyleSheet.create((theme) => ({
     borderColor: theme.warning,
   },
   cornerTopLeft: {
-    top: theme.space.sm,
-    left: theme.space.sm,
+    top: theme.space.xxxl,
+    left: theme.space.xxxl,
     borderTopWidth: CORNER_BORDER,
     borderLeftWidth: CORNER_BORDER,
-    borderTopLeftRadius: theme.radius.sm,
+    borderTopLeftRadius: theme.radius.xs,
   },
   cornerTopRight: {
-    top: theme.space.sm,
-    right: theme.space.sm,
+    top: theme.space.xxxl,
+    right: theme.space.xxxl,
     borderTopWidth: CORNER_BORDER,
     borderRightWidth: CORNER_BORDER,
-    borderTopRightRadius: theme.radius.sm,
+    borderTopRightRadius: theme.radius.xs,
   },
   cornerBottomLeft: {
-    bottom: theme.space.sm,
-    left: theme.space.sm,
+    bottom: theme.space.xxxl,
+    left: theme.space.xxxl,
     borderBottomWidth: CORNER_BORDER,
     borderLeftWidth: CORNER_BORDER,
-    borderBottomLeftRadius: theme.radius.sm,
+    borderBottomLeftRadius: theme.radius.xs,
   },
   cornerBottomRight: {
-    bottom: theme.space.sm,
-    right: theme.space.sm,
+    bottom: theme.space.xxxl,
+    right: theme.space.xxxl,
     borderBottomWidth: CORNER_BORDER,
     borderRightWidth: CORNER_BORDER,
-    borderBottomRightRadius: theme.radius.sm,
+    borderBottomRightRadius: theme.radius.xs,
   },
   fallback: {
     flex: 1,
@@ -249,138 +251,144 @@ export function ReceiptScannerScreen() {
   return (
     <>
       <View style={styles.root}>
-        <View style={styles.body}>
-          <View style={styles.header}>
-            <Txt variant="title" style={styles.title}>
-              {t('ocr.scanner.title')}
-            </Txt>
-            <IconButton
-              icon="x"
-              onPress={() => goBackTo('/shopping-list')}
-              accessibilityLabel={t('ocr.scanner.close')}
-              color={colors.text}
-              bg={colors.backgroundElement}
-            />
-          </View>
+        <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
+          <View style={styles.body}>
+            <View style={styles.header}>
+              <Txt variant="title" style={styles.title}>
+                {t('ocr.scanner.title')}
+              </Txt>
+              <HeaderIconButton
+                label={t('ocr.scanner.close')}
+                onPress={() => goBackTo('/shopping-list')}>
+                <Feather name="x" size={20} color={colors.text} />
+              </HeaderIconButton>
+            </View>
 
-          <View style={styles.stage}>
-            <View style={styles.frame}>
-              {livePreviewAvailable ? (
-                <CameraViewComp
-                  ref={cameraRef}
-                  style={StyleSheet.absoluteFill}
-                  facing={facing}
-                  autofocus={focusRequested ? 'on' : 'off'}
-                  flash={flash}
+            <View style={styles.stage}>
+              <View style={styles.frame} testID="scan-frame">
+                {livePreviewAvailable ? (
+                  <CameraViewComp
+                    ref={cameraRef}
+                    style={StyleSheet.absoluteFill}
+                    facing={facing}
+                    autofocus={focusRequested ? 'on' : 'off'}
+                    flash={flash}
+                  />
+                ) : (
+                  <View style={styles.fallback}>
+                    <Txt variant="body" tone="secondary" center>
+                      {permission && !permission.granted
+                        ? t('ocr.scanner.cameraPermissionTitle')
+                        : t('ocr.scanner.cameraUnavailable')}
+                    </Txt>
+                    {permission && !permission.granted ? (
+                      <Button
+                        title={t('ocr.scanner.cameraPermissionAction')}
+                        onPress={() => void requestPermission()}
+                      />
+                    ) : null}
+                  </View>
+                )}
+                <View testID="scan-corner-top-left" style={[styles.corner, styles.cornerTopLeft]} />
+                <View
+                  testID="scan-corner-top-right"
+                  style={[styles.corner, styles.cornerTopRight]}
                 />
-              ) : (
-                <View style={styles.fallback}>
-                  <Txt variant="body" tone="secondary" center>
-                    {permission && !permission.granted
-                      ? t('ocr.scanner.cameraPermissionTitle')
-                      : t('ocr.scanner.cameraUnavailable')}
-                  </Txt>
-                  {permission && !permission.granted ? (
-                    <Button
-                      title={t('ocr.scanner.cameraPermissionAction')}
-                      onPress={() => void requestPermission()}
-                    />
-                  ) : null}
-                </View>
-              )}
-              <View style={[styles.corner, styles.cornerTopLeft]} />
-              <View style={[styles.corner, styles.cornerTopRight]} />
-              <View style={[styles.corner, styles.cornerBottomLeft]} />
-              <View style={[styles.corner, styles.cornerBottomRight]} />
+                <View
+                  testID="scan-corner-bottom-left"
+                  style={[styles.corner, styles.cornerBottomLeft]}
+                />
+                <View
+                  testID="scan-corner-bottom-right"
+                  style={[styles.corner, styles.cornerBottomRight]}
+                />
+              </View>
             </View>
-          </View>
 
-          {livePreviewAvailable ? (
-            <View style={styles.cameraControls}>
-              <IconButton
-                icon="refresh-cw"
-                onPress={() => setFacing((current) => (current === 'back' ? 'front' : 'back'))}
-                accessibilityLabel={t('ocr.scanner.switchCamera')}
-                color={colors.text}
-                bg={colors.backgroundElement}
-              />
-              <IconButton
-                icon="crosshair"
-                onPress={() => setFocusRequested(true)}
-                accessibilityLabel={t('ocr.scanner.focus')}
-                color={colors.text}
-                bg={colors.backgroundElement}
-              />
-              <IconButton
-                icon={flash === 'off' ? 'zap-off' : 'zap'}
-                onPress={() =>
-                  setFlash((current) =>
-                    current === 'off' ? 'auto' : current === 'auto' ? 'on' : 'off',
-                  )
-                }
-                accessibilityLabel={t(`ocr.scanner.flash.${flash}`)}
-                color={flash === 'off' ? colors.text : colors.warning}
-                bg={colors.backgroundElement}
-                style={flash === 'off' ? undefined : styles.controlActive}
-              />
-            </View>
-          ) : null}
+            {livePreviewAvailable ? (
+              <View style={styles.cameraControls}>
+                <HeaderIconButton
+                  label={t('ocr.scanner.switchCamera')}
+                  onPress={() => setFacing((current) => (current === 'back' ? 'front' : 'back'))}>
+                  <Feather name="refresh-cw" size={20} color={colors.text} />
+                </HeaderIconButton>
+                <HeaderIconButton
+                  label={t('ocr.scanner.focus')}
+                  onPress={() => setFocusRequested(true)}>
+                  <Feather name="crosshair" size={20} color={colors.text} />
+                </HeaderIconButton>
+                <HeaderIconButton
+                  label={t(`ocr.scanner.flash.${flash}`)}
+                  onPress={() =>
+                    setFlash((current) =>
+                      current === 'off' ? 'auto' : current === 'auto' ? 'on' : 'off',
+                    )
+                  }>
+                  <Feather
+                    name={flash === 'off' ? 'zap-off' : 'zap'}
+                    size={20}
+                    color={flash === 'off' ? colors.text : colors.warning}
+                  />
+                </HeaderIconButton>
+              </View>
+            ) : null}
 
-          {captureError ? (
-            <View style={styles.error}>
-              <Txt variant="body" tone="danger" accessibilityRole="alert">
-                {captureError}
-              </Txt>
-            </View>
-          ) : null}
+            {captureError ? (
+              <View style={styles.error}>
+                <Txt variant="body" tone="danger" accessibilityRole="alert">
+                  {captureError}
+                </Txt>
+              </View>
+            ) : null}
 
-          {resumableDraft.data ? (
-            <Press
-              onPress={() => {
-                setCaptureError(null);
-                setShots([]);
-                setInitialCapture(null);
-                setFlowOpen(true);
-              }}
-              accessibilityRole="button"
-              accessibilityLabel={t('ocr.scanner.resumeDraft')}
-              style={styles.resume}>
-              <Txt variant="label">{t('ocr.scanner.resumeDraft')}</Txt>
-              <Txt variant="caption" tone="secondary">
-                {t('ocr.scanner.resumeHint')}
-              </Txt>
-            </Press>
-          ) : null}
-
-          <View style={styles.footer}>
-            <Press
-              onPress={() => void handleShutter()}
-              accessibilityRole="button"
-              accessibilityLabel={t('ocr.scanner.shutter')}
-              style={styles.shutter}>
-              <Feather name="camera" size={28} color={colors.onDanger} />
-            </Press>
-            {shots.length === 0 ? (
+            {resumableDraft.data ? (
               <Press
-                onPress={() => openFlow('gallery')}
+                onPress={() => {
+                  setCaptureError(null);
+                  setShots([]);
+                  setInitialCapture(null);
+                  setFlowOpen(true);
+                }}
                 accessibilityRole="button"
-                accessibilityLabel={t('ocr.scanner.gallery')}
-                style={styles.galleryButton}>
-                <Feather name="image" size={22} color={colors.text} />
-              </Press>
-            ) : (
-              <Press
-                onPress={() => openFlow('camera', shots)}
-                accessibilityRole="button"
-                accessibilityLabel={t('ocr.scanner.doneCount', { count: shots.length })}
-                style={styles.done}>
-                <Txt variant="label" weight="700" tone="inverse">
-                  {t('ocr.scanner.doneCount', { count: shots.length })}
+                accessibilityLabel={t('ocr.scanner.resumeDraft')}
+                style={styles.resume}>
+                <Txt variant="label">{t('ocr.scanner.resumeDraft')}</Txt>
+                <Txt variant="caption" tone="secondary">
+                  {t('ocr.scanner.resumeHint')}
                 </Txt>
               </Press>
-            )}
+            ) : null}
+
+            <View style={styles.footer}>
+              <Press
+                onPress={() => void handleShutter()}
+                accessibilityRole="button"
+                accessibilityLabel={t('ocr.scanner.shutter')}
+                style={styles.shutter}>
+                <Feather name="camera" size={28} color={colors.onDanger} />
+              </Press>
+              {shots.length === 0 ? (
+                <Press
+                  onPress={() => openFlow('gallery')}
+                  accessibilityRole="button"
+                  accessibilityLabel={t('ocr.scanner.gallery')}
+                  style={styles.galleryButton}>
+                  <Feather name="image" size={22} color={colors.text} />
+                </Press>
+              ) : (
+                <Press
+                  onPress={() => openFlow('camera', shots)}
+                  accessibilityRole="button"
+                  accessibilityLabel={t('ocr.scanner.doneCount', { count: shots.length })}
+                  style={styles.done}>
+                  <Txt variant="label" weight="700" tone="inverse">
+                    {t('ocr.scanner.doneCount', { count: shots.length })}
+                  </Txt>
+                </Press>
+              )}
+            </View>
           </View>
-        </View>
+        </SafeAreaView>
       </View>
 
       {userId && activeHouseholdId ? (

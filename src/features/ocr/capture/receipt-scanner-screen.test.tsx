@@ -1,6 +1,7 @@
 import { act, fireEvent, render, screen, within } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { borderWidth, radius, space } from '@/components/theme/index';
 import { i18n } from '@/i18n';
 import { ReceiptScannerScreen } from './receipt-scanner-screen';
 
@@ -68,7 +69,7 @@ jest.mock('expo-camera', () => {
       React.useImperativeHandle(ref, () => ({
         takePictureAsync: (...args: unknown[]) => mockTakePictureAsync(...args),
       }));
-      return React.createElement(View, { testID: 'live-camera-view' });
+      return React.createElement(View, { ...props, testID: 'live-camera-view' });
     }),
     useCameraPermissions: () => [
       { granted: mockCameraGranted },
@@ -368,6 +369,93 @@ describe('ReceiptScannerScreen — Live-Kamera', () => {
       expect(mockCameraViewProps.value.autofocus).toBe('off');
     } finally {
       jest.useRealTimers();
+    }
+  });
+
+  it('haelt den Kopf unter der oberen Safe Area und damit erreichbar', async () => {
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <ReceiptScannerScreen />
+      </SafeAreaProvider>,
+    );
+
+    const title = screen.getByText('Bon fotografieren');
+    // Die gesamte Kopfzeile inklusive X muss unterhalb der Statusleiste liegen.
+    // Ohne Safe-Area-Padding startet sie bei y=0 und ist auf dem Geraet nicht
+    // erreichbar.
+    let node = title.parent;
+    let guarded = false;
+    while (node && typeof node !== 'string') {
+      if (node.props?.edges) {
+        guarded = node.props.edges.top === 'additive';
+        break;
+      }
+      node = node.parent;
+    }
+    expect(guarded).toBe(true);
+  });
+
+  it('verwendet fuer die Kamera-Steuerung die Standard-Buttons mit Glasflaeche', async () => {
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <ReceiptScannerScreen />
+      </SafeAreaProvider>,
+    );
+
+    for (const name of ['Kamera wechseln', 'Fokussieren', 'Blitz: aus']) {
+      const control = screen.getByRole('button', { name });
+      expect(control).toHaveStyle({
+        backgroundColor: '#FBF7F2',
+        borderColor: '#E4DDE3',
+        borderWidth: borderWidth.base,
+        borderRadius: radius.sm,
+      });
+    }
+  });
+
+  it('setzt den gelben Scanrahmen deutlich innerhalb der Kameraflaeche ab', async () => {
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <ReceiptScannerScreen />
+      </SafeAreaProvider>,
+    );
+
+    const camera = screen.getByTestId('live-camera-view');
+    const frame = camera.parent;
+    expect(frame).not.toBeNull();
+    if (!frame || typeof frame === 'string') throw new Error('Rahmen fehlt');
+
+    const corners = within(frame)
+      .getAllByTestId(/^scan-corner-/)
+      .flatMap((corner) => {
+        const style = Array.isArray(corner.props.style)
+          ? Object.assign({}, ...corner.props.style.filter(Boolean))
+          : (corner.props.style ?? {});
+        return [{ id: corner.props.testID as string, style }];
+      });
+
+    expect(corners).toHaveLength(4);
+    for (const { style } of corners) {
+      // Die Ecken liegen nicht am Rand der Kameraflaeche, sondern mit Abstand
+      // darin. Der Abstand muss groesser sein als die Eckgroesse selbst, sonst
+      // wirkt der Rahmen wie ein Vollrahmen um die Ansicht.
+      const inset = (style.top ?? style.bottom) as number;
+      expect(typeof inset).toBe('number');
+      expect(inset).toBeGreaterThanOrEqual(space.xxl);
+      expect(style.width).toBeLessThan(inset);
+      expect(style.borderColor).toBe('#A8713A');
     }
   });
 });
