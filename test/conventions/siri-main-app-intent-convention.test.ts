@@ -42,6 +42,7 @@ const SWIFT_DATABASE_TEST_PATH = path.join(
 );
 const SHARED_APP_GROUP_PATH = path.join(REPO_ROOT, 'src', 'lib', 'apple', 'shared-app-group.ts');
 const ENCRYPTION_PATH = path.join(REPO_ROOT, 'src', 'lib', 'db', 'local-database-encryption.ts');
+const DATABASE_FILES_PATH = path.join(REPO_ROOT, 'src', 'lib', 'db', 'database-files.ts');
 
 /** Keychain-Gruppe: Team-ID + Bundle-ID, gedeckt durch `SW8RP7PA3W.*`. */
 const FAM_KEYCHAIN_GROUP = 'SW8RP7PA3W.com.goldjunge91.fam1';
@@ -115,7 +116,7 @@ describe('Siri extension intent convention', () => {
       'Setze mit \\(.applicationName) einen Artikel auf die Einkaufsliste',
       'Ergänze die Einkaufsliste mit \\(.applicationName)',
       'Füge mit \\(.applicationName) mehrere Artikel zur Einkaufsliste hinzu',
-      'Füge mehrere Artikel zur Einkaufsliste in \\(.applicationName) hinzu',
+      'Füge Artikel zur Einkaufsliste bei \\(\\.$store) mit \\(.applicationName) hinzu',
       'Füge mehrere Artikel mit \\(.applicationName) hinzu',
       'Setze mehrere Artikel mit \\(.applicationName) auf die Einkaufsliste',
       'Packe mehrere Artikel mit \\(.applicationName) auf die Einkaufsliste',
@@ -131,7 +132,7 @@ describe('Siri extension intent convention', () => {
       expect(provider).toContain(phrase);
     }
     expect(provider.match(/\\\(\.applicationName\)/gu)).toHaveLength(17);
-    expect(batch).toContain('var items: String');
+    expect(batch).toContain('var items: [String]');
     expect(batch).toContain('var store: SiriShoppingStore');
     expect(batch).not.toContain('var storeName: String');
     expect(batch).toContain('query: SiriShoppingStoreQuery()');
@@ -240,6 +241,17 @@ describe('Siri extension intent convention', () => {
     // Schreibende Seite (Haupt-App) braucht dieselbe Gruppe.
     expect(appConfig).toContain("'keychain-access-groups'");
     expect(appConfig).toContain('keychainGroup');
+  });
+
+  it('verwendet dieselbe App-Group-Datei wie die Haupt-App', () => {
+    const sharedAppGroup = fs.readFileSync(SHARED_APP_GROUP_PATH, 'utf8');
+    const database = fs.readFileSync(DATABASE_PATH, 'utf8');
+    const appDatabaseFiles = fs.readFileSync(DATABASE_FILES_PATH, 'utf8');
+
+    expect(sharedAppGroup).toContain("FAM_APP_GROUP = 'group.com.goldjunge91.fam1'");
+    expect(database).toContain('private static let appGroup = "group.com.goldjunge91.fam1"');
+    expect(database).toContain('private static let databaseName = "fam-v2.db"');
+    expect(appDatabaseFiles).toContain("main: 'fam-v2.db'");
   });
 
   it('nutzt fuer den Schluessel die Team-ID-Gruppe, nicht die App Group', () => {

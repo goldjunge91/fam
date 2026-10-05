@@ -27,6 +27,14 @@ jest.mock('expo-sqlite', () => ({
   openDatabaseAsync: jest.fn(() => Promise.resolve(mockRawDatabase)),
 }));
 
+jest.mock('expo-file-system', () => ({
+  Paths: {
+    appleSharedContainers: {
+      'group.com.goldjunge91.fam1': { uri: '/mock/app-group' },
+    },
+  },
+}));
+
 jest.mock('@/lib/db/local-database-encryption', () => ({
   deleteDatabaseEncryptionKey: jest.fn().mockResolvedValue(undefined),
   getOrCreateDatabaseEncryptionKey: jest.fn().mockResolvedValue('key'),
@@ -69,6 +77,30 @@ jest.mock('@/lib/observability/debug-log', () => ({
 }));
 
 describe('database client lifecycle', () => {
+  it('öffnet dieselbe App-Group-Datei, die Siri beschreibt', async () => {
+    setActiveUserId('user-a');
+    mockRawDatabase.getFirstAsync.mockResolvedValueOnce({ journal_mode: 'wal' });
+    jest
+      .mocked(openEncryptedDatabaseWithCutover)
+      .mockImplementationOnce((dependencies, key) =>
+        dependencies.openEncrypted(dependencies.mainFileName, key),
+      );
+
+    await getDatabase();
+
+    const SQLite = jest.requireMock('expo-sqlite') as typeof import('expo-sqlite');
+    expect(SQLite.openDatabaseAsync).toHaveBeenCalledWith(
+      'fam-v2.db',
+      { useNewConnection: true },
+      '/mock/app-group',
+    );
+
+    const { createExpoDatabaseFileOps } = jest.requireMock('@/lib/db/database-files') as {
+      createExpoDatabaseFileOps: jest.Mock;
+    };
+    expect(createExpoDatabaseFileOps).toHaveBeenCalledWith('/mock/app-group');
+  });
+
   it('blockiert ohne Session und drained eine laufende Query vor einem fail-closed Wipe', async () => {
     setActiveUserId(null);
     await expect(getDatabase()).rejects.toThrow(/Ohne angemeldeten Nutzer/);

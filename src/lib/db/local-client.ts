@@ -2,11 +2,7 @@ import { drizzle as createExpoDrizzleDatabase } from 'drizzle-orm/expo-sqlite';
 import { migrate as migrateExpoDatabase } from 'drizzle-orm/expo-sqlite/migrator';
 import { AppState } from 'react-native';
 import { FAM_APP_GROUP } from '@/lib/apple/shared-app-group';
-import {
-  createExpoDatabaseFileOps,
-  DATABASE_FILE_NAMES,
-  migrateAppGroupDatabaseToPrivate,
-} from '@/lib/db/database-files';
+import { createExpoDatabaseFileOps, DATABASE_FILE_NAMES } from '@/lib/db/database-files';
 import { createDrizzleDatabase, type DrizzleDatabase } from '@/lib/db/drizzle-driver';
 import {
   deleteDatabaseEncryptionKey,
@@ -40,14 +36,14 @@ function loadSQLite(): typeof import('expo-sqlite') {
 }
 
 type DatabaseDirectories = {
-  legacy: string;
+  defaultDirectory: string;
   primary: string;
   appGroup?: string;
 };
 
 function getDatabaseDirectories(SQLite: typeof import('expo-sqlite')): DatabaseDirectories {
-  const legacy = SQLite.defaultDatabaseDirectory;
-  if (typeof legacy !== 'string') {
+  const defaultDirectory = SQLite.defaultDatabaseDirectory;
+  if (typeof defaultDirectory !== 'string') {
     throw new Error('Das native SQLite-Datenbankverzeichnis ist nicht verfügbar.');
   }
 
@@ -56,20 +52,14 @@ function getDatabaseDirectories(SQLite: typeof import('expo-sqlite')): DatabaseD
     const sharedContainer = Paths.appleSharedContainers?.[FAM_APP_GROUP];
     const sharedDirectory = sharedContainer?.uri;
     if (typeof sharedDirectory === 'string' && sharedDirectory.length > 0) {
-      return { legacy, primary: legacy, appGroup: sharedDirectory };
+      // The app and Siri must open the same SQLite file in this container.
+      return { defaultDirectory, primary: sharedDirectory, appGroup: sharedDirectory };
     }
   } catch (error) {
-    debugWarn('[db] App-Group-Container nicht verfügbar; verwende Legacy-Pfad.', error);
+    debugWarn('[db] App-Group-Container nicht verfügbar; verwende Standardverzeichnis.', error);
   }
 
-  return { legacy, primary: legacy };
-}
-
-async function prepareDatabaseDirectory(SQLite: typeof import('expo-sqlite')): Promise<string> {
-  const directories = getDatabaseDirectories(SQLite);
-  if (directories.appGroup && directories.appGroup !== directories.primary)
-    await migrateAppGroupDatabaseToPrivate(directories.appGroup, directories.primary);
-  return directories.primary;
+  return { defaultDirectory, primary: defaultDirectory };
 }
 
 function toDriver(db: import('expo-sqlite').SQLiteDatabase): SqlStatementDriver {
@@ -180,7 +170,8 @@ function assertLifecycle(generation: number, userId: string): void {
 async function open(openId: number): Promise<DatabaseConnection> {
   dbTrace('OPEN-START', { openId });
   const SQLite = loadSQLite();
-  const databaseDirectory = await prepareDatabaseDirectory(SQLite);
+  const directories = getDatabaseDirectories(SQLite);
+  const databaseDirectory = directories.primary;
 
   const key = await getOrCreateDatabaseEncryptionKey();
   const files = createExpoDatabaseFileOps(databaseDirectory);
@@ -464,7 +455,7 @@ async function closeAndDeleteFile(connection?: DatabaseConnection): Promise<void
   try {
     const directories = getDatabaseDirectories(SQLite);
     const directoriesToDelete = [
-      ...new Set([directories.primary, directories.legacy, directories.appGroup]),
+      ...new Set([directories.primary, directories.defaultDirectory, directories.appGroup]),
     ].filter((directory): directory is string => directory !== undefined);
     for (const directory of directoriesToDelete) {
       const files = createExpoDatabaseFileOps(directory);
