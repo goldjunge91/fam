@@ -1,13 +1,21 @@
 import {
   captureReceipt,
   getPendingReceiptAssetUploadRefetchInterval,
+  getResumableReceiptDraft,
   type ReceiptCaptureApiDependencies,
   uploadReceiptCapture,
 } from './api';
 import type { ReceiptCaptureFileAdapter, ReceiptImagePickerAdapter } from './capture/contracts';
+import { createReceiptCaptureDraft } from './domain/actions';
+import type { ReceiptCaptureMetadataStorage } from './persistence/receipt-capture-persistence';
 import { createReceiptCapturePersistence } from './persistence/receipt-capture-persistence';
 
 const CREATED_AT = '2026-09-21T10:00:00.000Z';
+
+const mockGetEncryptedAccountStorage = jest.fn();
+jest.mock('@/lib/storage/local-account-storage', () => ({
+  getEncryptedAccountStorage: (accountId: string) => mockGetEncryptedAccountStorage(accountId),
+}));
 
 function imagePicker(): ReceiptImagePickerAdapter {
   return {
@@ -179,5 +187,73 @@ describe('receipt-capture API', () => {
       phase: 'normalized',
       failure: { code: 'upload_failed' },
     });
+  });
+});
+
+describe('getResumableReceiptDraft', () => {
+  beforeEach(() => mockGetEncryptedAccountStorage.mockReset());
+
+  function inMemoryStorage(): ReceiptCaptureMetadataStorage {
+    const values = new Map<string, string>();
+    return {
+      getString: (key) => values.get(key),
+      set: (key, value) => {
+        values.set(key, value);
+      },
+      remove: (key) => {
+        values.delete(key);
+      },
+    };
+  }
+
+  it('liefert null ohne Account', async () => {
+    expect(await getResumableReceiptDraft(undefined)).toBeNull();
+  });
+
+  it('meldet einen offenen Review-Entwurf als fortsetzbar', async () => {
+    const storage = inMemoryStorage();
+    mockGetEncryptedAccountStorage.mockResolvedValue(storage);
+    const persistence = createReceiptCapturePersistence('user-1', { storage });
+    const draft = createReceiptCaptureDraft({
+      id: 'capture-resume',
+      source: 'camera',
+      pages: [
+        {
+          id: 'page-1',
+          localUri: 'file:///documents/receipt-captures/capture-resume/page-1.jpg',
+          mimeType: 'image/jpeg',
+        },
+      ],
+      createdAt: CREATED_AT,
+    });
+    await persistence.save({ ...draft, phase: 'needs_review' });
+
+    expect(await getResumableReceiptDraft('user-1')).toEqual({
+      draftId: 'capture-resume',
+      phase: 'needs_review',
+      pageCount: 1,
+      updatedAt: CREATED_AT,
+    });
+  });
+
+  it('meldet einen bereits hochgeladenen Entwurf nicht mehr als fortsetzbar', async () => {
+    const storage = inMemoryStorage();
+    mockGetEncryptedAccountStorage.mockResolvedValue(storage);
+    const persistence = createReceiptCapturePersistence('user-1', { storage });
+    const draft = createReceiptCaptureDraft({
+      id: 'capture-uploaded',
+      source: 'gallery',
+      pages: [
+        {
+          id: 'page-1',
+          localUri: 'file:///documents/receipt-captures/capture-uploaded/page-1.jpg',
+          mimeType: 'image/jpeg',
+        },
+      ],
+      createdAt: CREATED_AT,
+    });
+    await persistence.save({ ...draft, status: 'uploaded', phase: 'saved' });
+
+    expect(await getResumableReceiptDraft('user-1')).toBeNull();
   });
 });

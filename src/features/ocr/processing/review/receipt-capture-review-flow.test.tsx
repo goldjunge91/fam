@@ -320,6 +320,49 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     expect(await screen.findByRole('radio', { name: 'REWE' })).toBeOnTheScreen();
   });
 
+  it('startet den Direkteinstieg aus dem Live-Scanner ohne Chooser und ohne Picker', async () => {
+    const state = persistenceWith(null);
+    const liveAsset = {
+      uri: 'file:///cache/expo-camera/shot.jpg',
+      mimeType: 'image/jpeg' as const,
+      width: 2_400,
+      height: 1_800,
+    };
+    const capture = jest.fn().mockResolvedValue({ kind: 'captured', draft: captureDraft() });
+    const processCapture = jest.fn(async () => ({
+      kind: 'success' as const,
+      captureId: 'capture-1',
+      draft: parseGermanReceipt(REWE_RECEIPT_LINES),
+    }));
+
+    await render(
+      <ReceiptCaptureReviewFlow
+        visible
+        householdId="household-1"
+        createdBy="user-1"
+        onDismiss={jest.fn()}
+        persistence={state.persistence}
+        capture={capture}
+        processCapture={processCapture}
+        captureIdFactory={() => 'capture-1'}
+        initialCapture={{ source: 'camera', sourceAsset: liveAsset }}
+      />,
+    );
+
+    await waitFor(() =>
+      expect(capture).toHaveBeenCalledWith(
+        expect.objectContaining({ source: 'camera', sourceAsset: liveAsset }),
+        expect.objectContaining({ persistence: state.persistence }),
+      ),
+    );
+    expect(screen.queryByRole('button', { name: 'Fotografieren' })).not.toBeOnTheScreen();
+    // Live-Schuss landet in derselben "Bon bereit"-Phase wie ein Kamera-Picker:
+    // mehrseitige Bons koennen so vor der Verarbeitung ergaenzt werden.
+    await userEvent.setup().press(await screen.findByRole('button', { name: 'Bon verarbeiten' }));
+    await waitFor(() => expect(processCapture).toHaveBeenCalledTimes(1));
+    expect(await screen.findByRole('radio', { name: 'REWE' })).toBeOnTheScreen();
+  });
+
   it('lets camera users append another page before processing', async () => {
     const state = persistenceWith(null);
     const first = captureDraft();

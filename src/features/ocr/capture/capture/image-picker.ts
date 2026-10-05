@@ -32,6 +32,12 @@ export type CaptureReceiptPagesInput = {
   maxBytes?: number;
   maxLongEdge?: number;
   jpegQuality?: number;
+  /**
+   * Bereits aufgenommene Seite aus einer Live-Kamera-Vorschau. Ist sie gesetzt,
+   * wird kein Picker geoeffnet; die Datei laeuft durch dieselbe Normalisierung
+   * und Persistenz wie eine Picker-Auswahl.
+   */
+  sourceAsset?: ReceiptPickerAsset;
 };
 
 export type ReceiptCaptureResult =
@@ -202,6 +208,46 @@ export async function captureReceiptPages(
   let sourceUriForCleanup: string | null = null;
 
   try {
+    const liveAsset = input.sourceAsset;
+    if (liveAsset) {
+      debugLogEvent('receipt.capture.picker.live_asset.started', { source: input.source });
+      const persisted = await persistAsset(
+        input,
+        liveAsset,
+        0,
+        dependencies,
+        maxBytes,
+        maxLongEdge,
+        jpegQuality,
+      );
+      if ('code' in persisted) {
+        let cleanupFailure: ReceiptCaptureFailure | null = null;
+        try {
+          await dependencies.fileSystem.cleanupSourceUri(liveAsset.uri);
+        } catch (cleanupError: unknown) {
+          cleanupFailure = asFailure(cleanupError, 'capture_cleanup_failed');
+        }
+        return captureFailure(
+          input.source,
+          cleanupFailure?.code ?? persisted.code,
+          cleanupFailure?.message ?? persisted.message,
+        );
+      }
+      await dependencies.fileSystem.cleanupSourceUri(liveAsset.uri);
+      const createdAt = input.createdAt ?? now().toISOString();
+      debugLogEvent('receipt.capture.picker.live_asset.completed', { source: input.source });
+      return {
+        kind: 'captured',
+        draft: createReceiptCaptureDraft({
+          id: input.captureId,
+          source: input.source,
+          pages: [persisted],
+          createdAt,
+          updatedAt: input.updatedAt ?? createdAt,
+        }),
+      };
+    }
+
     const pendingStartedAt = Date.now();
     debugLogEvent('receipt.capture.picker.pending_result.started', { source: input.source });
     const pending = await dependencies.imagePicker.getPendingResultAsync();

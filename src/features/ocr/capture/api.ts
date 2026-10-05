@@ -27,6 +27,7 @@ import {
   uploadReceiptCapture as uploadPendingReceiptCapture,
 } from './capture/upload-queue';
 import { appendReceiptCapturePages } from './domain/actions';
+import type { ReceiptCaptureDraft } from './domain/types';
 import type { ReceiptCapturePersistence } from './persistence/receipt-capture-persistence';
 import {
   createReceiptCapturePersistence as createReceiptCapturePersistenceOwner,
@@ -224,6 +225,43 @@ async function retryPendingReceiptAssetUploadOnce(input: {
     await persistence.discard();
   }
   return result;
+}
+
+export type ResumableReceiptDraft = {
+  draftId: string;
+  phase: ReceiptCaptureDraft['phase'];
+  pageCount: number;
+  updatedAt: string;
+};
+
+/**
+ * Sichtbarer Wiedereinstieg fuer einen persistierten, noch nicht
+ * abgeschlossenen Capture-Entwurf. `getPendingReceiptAssetUpload` deckt nur
+ * den Upload-Fehlerfall ab; ein nach Neustart offener Review- oder
+ * Processing-Entwurf braucht einen eigenen, allgemeinen Resume-Punkt.
+ */
+export async function getResumableReceiptDraft(
+  accountId: string | undefined,
+): Promise<ResumableReceiptDraft | null> {
+  if (!accountId) return null;
+  const draft = await createReceiptCapturePersistence(accountId).load();
+  if (!draft) return null;
+  if (draft.status === 'uploaded') return null;
+  return {
+    draftId: draft.id,
+    phase: draft.phase,
+    pageCount: draft.pages.length,
+    updatedAt: draft.updatedAt,
+  };
+}
+
+export function useResumableReceiptDraft(accountId: string | undefined) {
+  return useQuery({
+    queryKey: ['receipt-resumable-draft', accountId],
+    queryFn: () => getResumableReceiptDraft(accountId),
+    enabled: Boolean(accountId),
+    networkMode: 'always',
+  });
 }
 
 export function createReceiptCapturePersistence(

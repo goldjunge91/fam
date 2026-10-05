@@ -266,3 +266,43 @@ describe('receipt image capture', () => {
     expect(result.draft).not.toHaveProperty('parsedReceipt');
   });
 });
+
+describe('receipt image capture — Live-Kamera-Schuss', () => {
+  it('verarbeitet den Schuss aus der Live-Vorschau, ohne den Picker zu oeffnen', async () => {
+    const getPendingResultAsync = jest.fn(async () => {
+      throw new Error('getPendingResultAsync darf fuer einen Live-Schuss nicht laufen.');
+    });
+    const launchCameraAsync = jest.fn(async () => {
+      throw new Error('launchCameraAsync darf fuer einen Live-Schuss nicht laufen.');
+    });
+    const adapter: ReceiptImagePickerAdapter = {
+      getPendingResultAsync,
+      requestCameraPermissionsAsync: async () => ({ granted: true }),
+      requestMediaLibraryPermissionsAsync: async () => ({ granted: true }),
+      launchCameraAsync,
+      launchImageLibraryAsync: async () => ({ canceled: true, assets: null }),
+    };
+
+    const result = await captureReceiptPages(
+      {
+        captureId: 'capture-live',
+        source: 'camera',
+        createdAt: CREATED_AT,
+        sourceAsset: {
+          uri: 'file:///cache/expo-camera/shot.jpg',
+          mimeType: 'image/jpeg',
+          width: 2_400,
+          height: 1_800,
+        },
+      },
+      { imagePicker: adapter, fileSystem: fileAdapter([120_000]) },
+    );
+
+    expect(result.kind).toBe('captured');
+    if (result.kind !== 'captured') throw new Error('Expected capture to succeed.');
+    expect(result.draft.source).toBe('camera');
+    expect(result.draft.pages).toHaveLength(1);
+    expect(getPendingResultAsync).not.toHaveBeenCalled();
+    expect(launchCameraAsync).not.toHaveBeenCalled();
+  });
+});

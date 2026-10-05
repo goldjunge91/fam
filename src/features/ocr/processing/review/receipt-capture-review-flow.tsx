@@ -15,6 +15,7 @@ import {
   retryReceiptCaptureUpload,
   uploadReceiptCapture,
 } from '@/features/ocr/capture/api';
+import type { ReceiptPickerAsset } from '@/features/ocr/capture/capture/contracts';
 import type {
   ReceiptCaptureDraft,
   ReceiptCaptureSource,
@@ -69,9 +70,18 @@ type ReceiptCaptureReviewFlowProps = {
   householdId: string;
   createdBy: string;
   onDismiss: () => void;
+  /**
+   * Direkteinstieg aus dem Live-Scanner: ueberspringt den Chooser und startet
+   * die angegebene Quelle sofort. Ein `sourceAsset` ist der bereits
+   * aufgenommene Live-Schuss und laeuft ohne Picker durch die Pipeline.
+   */
+  initialCapture?: {
+    source: ReceiptCaptureSource;
+    sourceAsset?: ReceiptPickerAsset;
+  };
   onSaved?: (result: FinalizeReceiptResult) => void;
   capture?: (
-    input: { captureId: string; source: ReceiptCaptureSource; appendToExisting?: boolean },
+    input: Parameters<typeof captureReceipt>[0],
     dependencies?: ReceiptCaptureApiDependencies,
   ) => Promise<ReceiptCaptureResult>;
   processCapture?: (
@@ -83,12 +93,7 @@ type ReceiptCaptureReviewFlowProps = {
 };
 
 type FlowPhase = 'choose' | 'captured' | 'processing' | 'review' | 'saving' | 'error';
-type DevelopmentResetReason = 'hidden' | 'unmounted';
 type ProcessingStage = ReceiptProcessingProgress['phase'];
-
-function isDevelopmentRuntime(): boolean {
-  return process.env.NODE_ENV !== 'test' && typeof __DEV__ !== 'undefined' && __DEV__;
-}
 
 function newCaptureId(): string {
   try {
@@ -110,6 +115,7 @@ export function ReceiptCaptureReviewFlow({
   finalize = finalizeReceiptReview,
   captureIdFactory = newCaptureId,
   persistence: persistenceOverride,
+  initialCapture,
 }: ReceiptCaptureReviewFlowProps) {
   const { t } = useTranslation();
   const receiptOcrTestEnabled = useDevSettingsStore((state) => state.receiptOcrTestEnabled);
@@ -140,8 +146,6 @@ export function ReceiptCaptureReviewFlow({
   const [captureRetry, setCaptureRetry] = useState<ReceiptCaptureSource | 'append' | null>(null);
   const [processingStage, setProcessingStage] = useState<ProcessingStage>('reading');
   const reviewSaveQueue = useRef(Promise.resolve());
-  const wasVisibleRef = useRef(false);
-  const developmentResetRef = useRef(false);
   const discardRequestedRef = useRef(false);
   const lifecycleGenerationRef = useRef(0);
 
@@ -159,53 +163,15 @@ export function ReceiptCaptureReviewFlow({
     [],
   );
 
-  const resetDevelopmentDraft = useCallback(
-    (reason: DevelopmentResetReason) => {
-      if (!isDevelopmentRuntime() || !wasVisibleRef.current || developmentResetRef.current) {
-        return;
-      }
-      developmentResetRef.current = true;
-      discardRequestedRef.current = true;
-      lifecycleGenerationRef.current += 1;
-      debugLogEvent('receipt.capture.flow.dev_reset_started', { reason });
-      void persistence
-        .load()
-        .then(async (draft) => {
-          if (
-            draft?.status === 'failed' &&
-            draft.failure &&
-            isReceiptAssetUploadFailureCode(draft.failure.code)
-          ) {
-            debugLogEvent('receipt.capture.flow.dev_reset_preserved_pending_upload', {
-              reason,
-            });
-            return;
-          }
-          await persistence.discard();
-        })
-        .then(() => {
-          debugLogEvent('receipt.capture.flow.dev_reset_completed', { reason });
-        })
-        .catch((resetError: unknown) => {
-          debugLogEvent('receipt.capture.flow.dev_reset_failed', {
-            reason,
-            error_type: resetError instanceof Error ? resetError.name : typeof resetError,
-          });
-        });
-    },
-    [persistence],
-  );
-
   useEffect(() => {
     debugLogEvent('receipt.capture.flow.mounted', {
       has_household: Boolean(householdId),
       has_created_by: Boolean(createdBy),
     });
     return () => {
-      resetDevelopmentDraft('unmounted');
       debugLogEvent('receipt.capture.flow.unmounted');
     };
-  }, [createdBy, householdId, resetDevelopmentDraft]);
+  }, [createdBy, householdId]);
 
   useEffect(() => {
     debugLogEvent('receipt.capture.flow.phase_changed', {
@@ -219,7 +185,6 @@ export function ReceiptCaptureReviewFlow({
   const dismissWithCleanup = useCallback(async () => {
     discardRequestedRef.current = true;
     lifecycleGenerationRef.current += 1;
-    if (isDevelopmentRuntime()) developmentResetRef.current = true;
     await persistence.discard();
     setCaptureDraft(null);
     setPendingSave(null);
@@ -233,7 +198,6 @@ export function ReceiptCaptureReviewFlow({
   const dismissKeepingPendingUpload = useCallback(() => {
     discardRequestedRef.current = true;
     lifecycleGenerationRef.current += 1;
-    if (isDevelopmentRuntime()) developmentResetRef.current = true;
     setCaptureDraft(null);
     setReviewDraft(null);
     setPendingSave(null);
@@ -347,11 +311,7 @@ export function ReceiptCaptureReviewFlow({
       setCaptureDraft(nextCapture);
       reviewSaveQueue.current = reviewSaveQueue.current
         .then(() => {
-          if (
-            developmentResetRef.current ||
-            discardRequestedRef.current ||
-            generation !== lifecycleGenerationRef.current
-          ) {
+          if (discardRequestedRef.current || generation !== lifecycleGenerationRef.current) {
             return;
           }
           return persistence.save(nextCapture);
@@ -375,15 +335,6 @@ export function ReceiptCaptureReviewFlow({
       has_created_by: Boolean(createdBy),
     });
   }, [createdBy, householdId, visible]);
-
-  useEffect(() => {
-    if (visible) {
-      wasVisibleRef.current = true;
-      developmentResetRef.current = false;
-      return;
-    }
-    resetDevelopmentDraft('hidden');
-  }, [resetDevelopmentDraft, visible]);
 
   useEffect(() => {
     if (!visible) return;
@@ -501,14 +452,17 @@ export function ReceiptCaptureReviewFlow({
     };
   }, [nowIso, persistence, runProcessing, t, visible]);
 
-  async function startCapture(source: ReceiptCaptureSource) {
+  async function startCapture(source: ReceiptCaptureSource, sourceAsset?: ReceiptPickerAsset) {
     const generation = lifecycleGenerationRef.current;
     if (!isLifecycleCurrent(generation)) return;
-    debugLogEvent('receipt.capture.picker_requested', { source });
+    debugLogEvent('receipt.capture.picker_requested', { source, live_asset: Boolean(sourceAsset) });
     setError(null);
     setCaptureRetry(null);
     try {
-      const result = await capture({ captureId: captureIdFactory(), source }, { persistence });
+      const result = await capture(
+        { captureId: captureIdFactory(), source, sourceAsset },
+        { persistence },
+      );
       if (!isLifecycleCurrent(generation)) return;
       debugLogEvent('receipt.capture.picker_result', { source, result_kind: result.kind });
       if (result.kind === 'captured') {
@@ -536,6 +490,24 @@ export function ReceiptCaptureReviewFlow({
       setPhase('error');
     }
   }
+
+  // Direkteinstieg aus dem Live-Scanner: laeuft genau einmal pro sichtbarem
+  // Fenster, nachdem der Resume-Effekt den Zustand zurueckgesetzt hat.
+  const initialCaptureConsumedRef = useRef(false);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: startCapture darf nur einmal pro sichtbarem Fenster starten, nicht bei jedem Render.
+  useEffect(() => {
+    if (!visible) {
+      initialCaptureConsumedRef.current = false;
+      return;
+    }
+    if (!initialCapture || initialCaptureConsumedRef.current) return;
+    initialCaptureConsumedRef.current = true;
+    debugLogEvent('receipt.capture.initial_capture.started', {
+      source: initialCapture.source,
+      has_live_asset: Boolean(initialCapture.sourceAsset),
+    });
+    void startCapture(initialCapture.source, initialCapture.sourceAsset);
+  }, [initialCapture, visible]);
 
   async function appendCameraPage() {
     const generation = lifecycleGenerationRef.current;
