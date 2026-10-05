@@ -106,7 +106,9 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
   const createMutation = useCreateInviteMutation();
   const revokeMutation = useRevokeInviteMutation();
 
-  const [selectedToken, setSelectedToken] = useState<string | null>(null);
+  const [selectedInvite, setSelectedInvite] = useState<{ token: string; code: string } | null>(
+    null,
+  );
   const [showQrCode, setShowQrCode] = useState(true);
   const [copyFeedback, setCopyFeedback] = useState<'code' | 'link' | null>(null);
 
@@ -119,7 +121,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
         expiresDays: 7,
         maxUses: 5,
       });
-      setSelectedToken(invite.token);
+      setSelectedInvite({ token: invite.token, code: invite.code });
       setShowQrCode(true);
     } catch (err) {
       Alert.alert(
@@ -129,9 +131,9 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
     }
   }
 
-  async function handleCopyCode(token: string) {
+  async function handleCopyCode(code: string) {
     try {
-      await Clipboard.setStringAsync(token);
+      await Clipboard.setStringAsync(code);
       setCopyFeedback('code');
       setTimeout(() => setCopyFeedback(null), 2000);
     } catch (err) {
@@ -150,11 +152,11 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
     }
   }
 
-  async function handleShare(token: string) {
+  async function handleShare(code: string, token: string) {
     const inviteUrl = formatInviteUrl(token);
     try {
       await Share.share({
-        message: `Tritt unserem Haushalt "${householdName}" in Fam bei!\n\nEinladungs-Code: ${token}\nLink: ${inviteUrl}`,
+        message: `Tritt unserem Haushalt "${householdName}" in Fam bei!\n\nEinladungs-Code: ${code}\nLink: ${inviteUrl}`,
       });
     } catch (err) {
       debugError(err);
@@ -170,8 +172,11 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
         onPress: async () => {
           try {
             await revokeMutation.mutateAsync({ inviteId, householdId });
-            if (selectedToken && invites.find((i) => i.id === inviteId)?.token === selectedToken) {
-              setSelectedToken(null);
+            if (
+              selectedInvite &&
+              invites.find((i) => i.id === inviteId)?.token === selectedInvite.token
+            ) {
+              setSelectedInvite(null);
             }
           } catch (err) {
             Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Zurückziehen');
@@ -202,16 +207,16 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
               &quot;{householdName}&quot; einzuladen.
             </Txt>
 
-            {selectedToken ? (
+            {selectedInvite ? (
               <ContentCard title="Einladungs-Code & QR-Code">
                 <View style={styles.tokenContent}>
                   <Txt variant="body" tone="accent" center style={styles.inviteToken}>
-                    {selectedToken}
+                    {selectedInvite.code}
                   </Txt>
 
                   {showQrCode && (
                     <View style={styles.qrContainer}>
-                      <QRCode value={formatInviteUrl(selectedToken)} size={180} />
+                      <QRCode value={formatInviteUrl(selectedInvite.token)} size={180} />
                     </View>
                   )}
 
@@ -219,13 +224,13 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                     <View style={styles.flex}>
                       <Button
                         title={copyFeedback === 'code' ? '✓ Code kopiert!' : 'Code kopieren'}
-                        onPress={() => handleCopyCode(selectedToken)}
+                        onPress={() => handleCopyCode(selectedInvite.code)}
                       />
                     </View>
                     <View style={styles.flex}>
                       <Button
                         title={copyFeedback === 'link' ? '✓ Link kopiert!' : 'Link kopieren'}
-                        onPress={() => handleCopyLink(selectedToken)}
+                        onPress={() => handleCopyLink(selectedInvite.token)}
                       />
                     </View>
                   </View>
@@ -238,7 +243,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                   <Button
                     title="Code / Link teilen"
                     variant="secondary"
-                    onPress={() => handleShare(selectedToken)}
+                    onPress={() => handleShare(selectedInvite.code, selectedInvite.token)}
                   />
                   <Button
                     title="+ Neuer Einladungs-Code"
@@ -265,7 +270,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
               </Txt>
             ) : (
               invites.map((inv) => {
-                const isSelected = inv.token === selectedToken;
+                const isSelected = inv.token === selectedInvite?.token;
                 return (
                   <View
                     key={inv.id}
@@ -275,14 +280,14 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                       style={styles.inviteRowSelection}
                       haptic="selection"
                       onPress={() => {
-                        setSelectedToken(inv.token);
+                        setSelectedInvite({ token: inv.token, code: inv.code });
                         setShowQrCode(true);
                       }}
                       accessibilityRole="button"
-                      accessibilityLabel={`Einladung ${inv.token} auswählen`}
+                      accessibilityLabel={`Einladung ${inv.code} auswählen`}
                       accessibilityState={{ selected: isSelected }}>
                       <Txt variant="body" weight="700" numberOfLines={1}>
-                        {inv.token}
+                        {inv.code}
                       </Txt>
                       <Txt variant="body" tone="secondary" weight="500">
                         Gültig bis {new Date(inv.expires_at).toLocaleDateString('de-DE')} ·{' '}
@@ -295,7 +300,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                         iconSize={20}
                         size={44}
                         onPress={() => {
-                          setSelectedToken(inv.token);
+                          setSelectedInvite({ token: inv.token, code: inv.code });
                           setShowQrCode(true);
                         }}
                         accessibilityLabel="QR-Code anzeigen"
@@ -304,7 +309,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                         icon="share-2"
                         iconSize={20}
                         size={44}
-                        onPress={() => handleShare(inv.token)}
+                        onPress={() => handleShare(inv.code, inv.token)}
                         accessibilityLabel="Teilen"
                       />
                       <IconButton

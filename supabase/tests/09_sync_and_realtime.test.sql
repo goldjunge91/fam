@@ -7,7 +7,7 @@
 begin;
 \ir helpers.sql
 
-select plan(23);
+select plan(25);
 
 -- ------------------------------------------------- Sync-Spalten auf allen Tabellen
 -- `updated_at` treibt den inkrementellen Pull, `deleted_at` die Tombstones.
@@ -161,6 +161,15 @@ select ok(
   'shopping_category_preferences liegt in der Realtime-Publication'
 );
 
+select ok(
+  exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public' and tablename = 'household_members'
+  ),
+  'household_members liegt fuer Mitgliedschafts-Push in der Realtime-Publication'
+);
+
 -- Die privaten Tabellen duerfen NICHT drin sein. Realtime waere ein zweiter
 -- Kanal an RLS vorbei, wenn die Konfiguration jemals nachlaesst.
 select is_empty(
@@ -196,6 +205,12 @@ select is(
    where oid = 'public.shopping_category_preferences'::regclass),
   'f'::"char",
   'shopping_category_preferences hat REPLICA IDENTITY FULL'
+);
+
+select is(
+  (select relreplident from pg_class where oid = 'public.household_members'::regclass),
+  'f'::"char",
+  'household_members hat REPLICA IDENTITY FULL fuer die Realtime-RLS-Auswertung'
 );
 
 select * from finish();

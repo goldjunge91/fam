@@ -22,6 +22,7 @@ alter table public.shopping_list_items replica identity full;
 alter table public.shopping_category_preferences replica identity full;
 alter table public.feedback_tickets replica identity full;
 alter table public.feedback_messages replica identity full;
+alter table public.household_members replica identity full;
 
 do $$
 begin
@@ -72,11 +73,20 @@ begin
 
   if not exists (
     select 1 from pg_publication_tables
-    where pubname = 'supabase_realtime'
+      where pubname = 'supabase_realtime'
       and schemaname = 'public'
       and tablename = 'feedback_messages'
   ) then
     alter publication supabase_realtime add table public.feedback_messages;
+  end if;
+
+  if not exists (
+    select 1 from pg_publication_tables
+      where pubname = 'supabase_realtime'
+      and schemaname = 'public'
+      and tablename = 'household_members'
+  ) then
+    alter publication supabase_realtime add table public.household_members;
   end if;
 end;
 $$;

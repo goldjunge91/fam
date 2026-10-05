@@ -285,11 +285,16 @@ export function useRedeemInviteMutation() {
 
   return useMutation({
     mutationFn: async (inviteToken: string) => {
+      const trimmedInvite = inviteToken.trim();
+      const inviteCode = /^[0-9a-f-]{36}$/i.test(trimmedInvite)
+        ? trimmedInvite
+        : trimmedInvite.toUpperCase().replace(/[\s-]/g, '');
       const { data, error } = await getSupabase().rpc('redeem_invite', {
-        invite_token: inviteToken,
+        invite_code: inviteCode,
       });
 
       if (error) throw new Error(error.message);
+      if (!data) throw new Error('Einladungs-Code ungültig oder zu viele Versuche.');
       return data;
     },
     onSuccess: async () => {

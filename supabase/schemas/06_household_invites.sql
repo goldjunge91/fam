@@ -7,6 +7,50 @@
 -- households und household_members zeigen ihm nichts und lassen ihn nichts
 -- schreiben — es gaebe schlicht keinen Weg hinein.
 
+create table if not exists private.household_invite_attempts (
+  user_id uuid primary key references public.profiles (id) on delete cascade,
+  window_started_at timestamptz not null default now(),
+  attempts integer not null default 0
+);
+
+alter table private.household_invite_attempts enable row level security;
+drop policy if exists household_invite_attempts_deny_direct_access
+  on private.household_invite_attempts;
+create policy household_invite_attempts_deny_direct_access
+  on private.household_invite_attempts
+  for all
+  using (false)
+  with check (false);
+
+revoke all on private.household_invite_attempts from public, anon, authenticated;
+
+create or replace function private.generate_household_invite_code()
+returns text
+language plpgsql
+set search_path = ''
+as $$
+declare
+  alphabet constant text := '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
+  bytes bytea := pg_catalog.uuid_send(pg_catalog.gen_random_uuid());
+  random_bits bigint;
+  invite_code text := '';
+  digit integer;
+begin
+  random_bits :=
+    (pg_catalog.get_byte(bytes, 0)::bigint << 24)
+    | (pg_catalog.get_byte(bytes, 1)::bigint << 16)
+    | (pg_catalog.get_byte(bytes, 2)::bigint << 8)
+    | pg_catalog.get_byte(bytes, 3)::bigint;
+
+  for position in 0..5 loop
+    digit := ((random_bits >> (27 - position * 5)) & 31)::integer;
+    invite_code := invite_code || pg_catalog.substr(alphabet, digit + 1, 1);
+  end loop;
+
+  return invite_code;
+end;
+$$;
+
 create table if not exists public.household_invites (
   id uuid primary key default gen_random_uuid(),
   household_id uuid not null references public.households (id) on delete cascade,
@@ -14,6 +58,7 @@ create table if not exists public.household_invites (
   -- Der Token IST das Geheimnis. gen_random_uuid() liefert 122 Bit Zufall aus
   -- einer kryptografisch sicheren Quelle — nicht erratbar.
   token uuid not null unique default gen_random_uuid(),
+  code text not null unique default private.generate_household_invite_code(),
 
   created_by uuid not null references public.profiles (id) on delete cascade,
 
@@ -30,6 +75,16 @@ create table if not exists public.household_invites (
   constraint household_invites_uses_within_max check (uses <= max_uses)
 );
 
+alter table public.household_invites add column if not exists code text;
+update public.household_invites
+set code = private.generate_household_invite_code()
+where code is null;
+alter table public.household_invites
+  alter column code set default private.generate_household_invite_code(),
+  alter column code set not null;
+create unique index if not exists household_invites_code_key
+  on public.household_invites (code);
+
 comment on table public.household_invites is
   'Einladungstoken. Einloesung ausschliesslich ueber public.redeem_invite().';
 
@@ -42,7 +97,7 @@ create or replace trigger household_invites_set_updated_at
   execute function private.set_updated_at();
 
 -- --------------------------------------------------------------- Einloesung
-create or replace function public.redeem_invite(invite_token uuid)
+create or replace function public.redeem_invite(invite_code text)
 returns uuid
 language plpgsql
 security definer
@@ -51,9 +106,32 @@ as $$
 declare
   inv record;
   uid uuid := (select auth.uid());
+  attempt_count integer;
 begin
   if uid is null then
     raise exception 'Nicht angemeldet';
+  end if;
+
+  delete from private.household_invite_attempts
+  where window_started_at < now() - interval '1 day';
+
+  insert into private.household_invite_attempts (user_id, window_started_at, attempts)
+  values (uid, now(), 1)
+  on conflict (user_id) do update
+  set window_started_at = case
+        when private.household_invite_attempts.window_started_at <= now() - interval '5 minutes'
+          then now()
+        else private.household_invite_attempts.window_started_at
+      end,
+      attempts = case
+        when private.household_invite_attempts.window_started_at <= now() - interval '5 minutes'
+          then 1
+        else private.household_invite_attempts.attempts + 1
+      end
+  returning attempts into attempt_count;
+
+  if attempt_count > 10 then
+    return null;
   end if;
 
   -- `for update` sperrt die Zeile bis zum Commit. Ohne das koennten zwei
@@ -61,14 +139,17 @@ begin
   -- belegen — max_uses waere dann nur eine Empfehlung.
   select * into inv
   from public.household_invites
-  where token = invite_token
+  where code = pg_catalog.regexp_replace(upper(btrim(invite_code)), '[[:space:]-]', '', 'g')
+     or token::text = lower(btrim(invite_code))
   for update;
 
   -- Alle Fehlerfaelle melden bewusst nur, was der Aufrufer ohnehin weiss oder
   -- braucht. Insbesondere wird nie der Haushaltsname genannt, bevor der
   -- Beitritt erfolgt ist.
   if not found then
-    raise exception 'Einladung ungueltig';
+    -- Ein Null-Ergebnis committet den Fehlversuchszähler. Eine Exception hier
+    -- wuerde die Zaehler-Aenderung zusammen mit dem RPC zurueckrollen.
+    return null;
   end if;
 
   if inv.revoked_at is not null then
@@ -104,8 +185,29 @@ begin
 end;
 $$;
 
+comment on function public.redeem_invite(text) is
+  'Loest einen sechsstelligen Einladungscode oder einen alten UUID-Token ein. Begrenzt Fehlversuche pro Benutzer.';
+
+-- Bereits installierte Clients koennen weiterhin UUID-Links als uuid-RPC senden.
+create or replace function public.redeem_invite(invite_token uuid)
+returns uuid
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  household_id uuid;
+begin
+  household_id := public.redeem_invite(invite_token::text);
+  if household_id is null then
+    raise exception 'Einladung ungueltig';
+  end if;
+  return household_id;
+end;
+$$;
+
 comment on function public.redeem_invite(uuid) is
-  'Loest ein Einladungstoken ein und macht den Aufrufer zum Mitglied. Gibt die household_id zurueck.';
+  'Kompatibilitaets-Wrapper fuer bestehende UUID-Einladungslinks.';
 
 -- ------------------------------------------------------------------------- RLS
 alter table public.household_invites enable row level security;

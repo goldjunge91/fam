@@ -207,9 +207,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
           label="Einladungs-Code"
           value={inviteCode}
           onChangeText={setInviteCode}
-          // Tokens sind volle UUIDs (siehe household_invites.token,
-          // invite-modal.tsx zeigt sie so an) — kein 6-stelliges Kurzformat.
-          placeholder="z. B. 123e4567-e89b-12d3-a456-426614174000"
+          placeholder="z. B. AB12CD"
           autoCapitalize="none"
           autoCorrect={false}
         />

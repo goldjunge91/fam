@@ -65,7 +65,7 @@ describe('JoinHouseholdScreen', () => {
     await renderScreen();
 
     expect(screen.getAllByText('Haushalt beitreten')).toHaveLength(2); // Title and Submit button
-    expect(screen.getByText('Mit Einladungs-Code oder Link')).toBeTruthy();
+    expect(screen.getByText('Mit Code oder Einladungs-Link')).toBeTruthy();
     expect(screen.queryByText(/^‹/)).toBeNull();
     expect(screen.queryByText('Abbrechen')).toBeNull();
   });
@@ -88,7 +88,7 @@ describe('JoinHouseholdScreen', () => {
   it('loest Einladung ein und leitet zur Startseite weiter', async () => {
     await renderScreen();
 
-    const input = screen.getByPlaceholderText('z. B. 123e4567-e89b-12d3-a456-426614174000');
+    const input = screen.getByPlaceholderText('z. B. AB12CD');
     await fireEvent.changeText(input, '123e4567-e89b-12d3-a456-426614174000');
 
     await fireEvent.press(screen.getByRole('button', { name: 'Haushalt beitreten' }));

@@ -211,6 +211,8 @@ grant execute on function public.merge_undo_fridge_item_open(
 -- user_id.
 revoke execute on function public.redeem_invite(uuid) from public, anon;
 grant execute on function public.redeem_invite(uuid) to authenticated;
+revoke execute on function public.redeem_invite(text) from public, anon;
+grant execute on function public.redeem_invite(text) to authenticated;
 
 -- prepare_account_deletion() liest ausschliesslich auth.uid() selbst — fuer
 -- `anon` gaebe es niemanden, aber der Entzug bleibt trotzdem ausdruecklich

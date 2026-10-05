@@ -1027,6 +1027,7 @@ export type Database = {
       };
       household_invites: {
         Row: {
+          code: string;
           created_at: string;
           created_by: string;
           expires_at: string;
@@ -1039,6 +1040,7 @@ export type Database = {
           uses: number;
         };
         Insert: {
+          code?: string;
           created_at?: string;
           created_by: string;
           expires_at?: string;
@@ -1051,6 +1053,7 @@ export type Database = {
           uses?: number;
         };
         Update: {
+          code?: string;
           created_at?: string;
           created_by?: string;
           expires_at?: string;
@@ -3534,7 +3537,9 @@ export type Database = {
         Returns: string;
       };
       prepare_account_deletion: { Args: Record<PropertyKey, never>; Returns: undefined };
-      redeem_invite: { Args: { invite_token: string }; Returns: string };
+      redeem_invite:
+        | { Args: { invite_code: string }; Returns: string }
+        | { Args: { invite_token: string }; Returns: string };
       reverse_inventory_quantity_transaction: {
         Args: {
           p_created_at: string;

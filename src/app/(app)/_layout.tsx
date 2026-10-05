@@ -23,8 +23,13 @@ import {
 import { useProfile } from '@/features/profile/api';
 import { useSignOutOnOrphanedProfile } from '@/features/profile/hooks/use-sign-out-on-orphaned-profile';
 import { WatchShoppingToggleListener } from '@/features/shopping-list/watch/watch-toggle-listener';
+import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { debugError } from '@/lib/observability/debug-log';
-import { useHouseholdsBootstrapSync } from '@/lib/sync/household-bootstrap-sync';
+import {
+  triggerHouseholdsPull,
+  useHouseholdsBootstrapSync,
+} from '@/lib/sync/household-bootstrap-sync';
+import { subscribeHouseholdMembershipRealtime } from '@/lib/sync/household-membership-realtime';
 import { useRealtimeSync, useSyncEngine } from '@/lib/sync/sync-runner';
 
 const styles = StyleSheet.create({
@@ -52,6 +57,13 @@ function AppLayoutContent() {
     isError: householdsError,
   } = useHouseholds();
   const householdBootstrap = useHouseholdsBootstrapSync(userId, queryClient, retryToken);
+
+  useEffect(() => {
+    if (!userId) return;
+    return subscribeHouseholdMembershipRealtime(getSupabase(), userId, () => {
+      void triggerHouseholdsPull(userId, queryClient);
+    });
+  }, [queryClient, userId]);
 
   const isUncompleted = profile
     ? (profile as { onboarding_completed_at?: string | null }).onboarding_completed_at == null

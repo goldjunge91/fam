@@ -27,6 +27,7 @@ jest.mock('@/features/household/api', () => ({
       {
         id: 'inv-1',
         token: 'token-abc-123',
+        code: 'AB12CD',
         household_id: 'hh-1',
         created_by: 'user-123',
         expires_at: '2026-12-31T23:59:59Z',
@@ -36,7 +37,7 @@ jest.mock('@/features/household/api', () => ({
     ],
   }),
   useCreateInviteMutation: () => ({
-    mutateAsync: jest.fn().mockResolvedValue({ token: 'new-token-456' }),
+    mutateAsync: jest.fn().mockResolvedValue({ token: 'new-token-456', code: 'NEWA12' }),
     isPending: false,
   }),
   useRevokeInviteMutation: () => ({
@@ -71,7 +72,7 @@ describe('InviteModal & QR Code Component', () => {
     );
 
     expect(screen.getByText('Mitglied einladen')).toBeOnTheScreen();
-    expect(screen.getByText('token-abc-123')).toBeOnTheScreen();
+    expect(screen.getByText('AB12CD')).toBeOnTheScreen();
   });
 
   it('sollte nach Erstellung eines neuen Tokens den QR-Code anzeigen und Umschalt-Button rendern', async () => {
@@ -87,7 +88,7 @@ describe('InviteModal & QR Code Component', () => {
     const createBtn = screen.getByText('+ Einladungs-Link erstellen');
     await fireEvent.press(createBtn);
 
-    expect(screen.getAllByText('new-token-456').length).toBeGreaterThan(0);
+    expect(screen.getByText('NEWA12')).toBeOnTheScreen();
     expect(screen.getByText('QR-Code ausblenden')).toBeTruthy();
 
     await fireEvent.press(screen.getByText('QR-Code ausblenden'));
@@ -123,7 +124,7 @@ describe('InviteModal & QR Code Component', () => {
       />,
     );
 
-    await user.press(screen.getByRole('button', { name: 'Einladung token-abc-123 auswählen' }));
+    await user.press(screen.getByRole('button', { name: 'Einladung AB12CD auswählen' }));
 
     expect(hapticSelection).toHaveBeenCalledTimes(1);
   });
@@ -144,7 +145,7 @@ describe('InviteModal & QR Code Component', () => {
     // Code kopieren
     const copyCodeBtn = screen.getByText('Code kopieren');
     await fireEvent.press(copyCodeBtn);
-    expect(Clipboard.setStringAsync).toHaveBeenCalledWith('token-abc-123');
+    expect(Clipboard.setStringAsync).toHaveBeenCalledWith('AB12CD');
 
     // Link kopieren
     const copyLinkBtn = screen.getByText('Link kopieren');

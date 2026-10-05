@@ -354,15 +354,29 @@ describe('household api', () => {
       wrapper: HouseholdApiProviders,
     });
     await act(async () => {
-      await redeemMutation.result.current.mutateAsync('invite-token');
+      await redeemMutation.result.current.mutateAsync('ABC123');
     });
     await waitFor(() => expect(redeemMutation.result.current.isSuccess).toBe(true));
 
-    expect(mockRpc).toHaveBeenCalledWith('redeem_invite', { invite_token: 'invite-token' });
+    expect(mockRpc).toHaveBeenCalledWith('redeem_invite', { invite_code: 'ABC123' });
     expect(triggerHouseholdsPull).toHaveBeenCalledTimes(3);
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('household.leave.completed');
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('household.delete.completed');
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('household.join.completed');
+  });
+
+  it('weist einen fehlgeschlagenen Codeversuch mit leerem RPC-Ergebnis als ungültig zurück', async () => {
+    mockRpc.mockResolvedValueOnce({ data: null, error: null });
+    const redeemMutation = await renderHook(() => useRedeemInviteMutation(), {
+      wrapper: HouseholdApiProviders,
+    });
+
+    await act(async () => {
+      await expect(redeemMutation.result.current.mutateAsync('wrong1')).rejects.toThrow(
+        'Einladungs-Code ungültig oder zu viele Versuche.',
+      );
+    });
+    expect(triggerHouseholdsPull).not.toHaveBeenCalled();
   });
 
   it('lädt nur aktive Einladungen in absteigender Reihenfolge', async () => {

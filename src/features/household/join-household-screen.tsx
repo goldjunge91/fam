@@ -56,7 +56,7 @@ export function JoinHouseholdScreen() {
   return (
     <Screen
       title="Haushalt beitreten"
-      subtitle="Mit Einladungs-Code oder Link"
+      subtitle="Mit Code oder Einladungs-Link"
       back={{ label: 'Haushalte' }}
       backStyle="icon">
       {/* Eingabe-Formular für den Einladungs-Code / Token */}
@@ -64,8 +64,8 @@ export function JoinHouseholdScreen() {
         <View style={styles.form}>
           {/* Eingabefeld für Einladungs-Token */}
           <TextField
-            label="Einladungs-Code / Token"
-            placeholder="z. B. 123e4567-e89b-12d3-a456-426614174000"
+            label="Einladungs-Code"
+            placeholder="z. B. AB12CD"
             value={tokenInput}
             onChangeText={setTokenInput}
             autoCapitalize="none"

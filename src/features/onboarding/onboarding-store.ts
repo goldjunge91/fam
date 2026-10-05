@@ -112,15 +112,18 @@ export function useOnboarding() {
       if (!households?.length) {
         const request =
           state.household.choice === 'join' && state.household.inviteCode
-            ? supabase.rpc('redeem_invite', { invite_token: state.household.inviteCode })
+            ? supabase.rpc('redeem_invite', { invite_code: state.household.inviteCode.trim() })
             : supabase.rpc('create_household', {
                 household_name:
                   state.household.choice === 'create'
                     ? state.household.name?.trim() || 'Mein Haushalt'
                     : 'Mein Haushalt',
               });
-        const { error } = await request;
+        const { data, error } = await request;
         if (error) throw error;
+        if (state.household.choice === 'join' && !data) {
+          throw new Error('Einladungs-Code ungültig oder zu viele Versuche.');
+        }
       }
       await triggerHouseholdsPull(session.user.id, queryClient);
       const { error } = await markOnboardingCompleted(session.user.id);
