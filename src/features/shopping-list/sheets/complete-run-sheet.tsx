@@ -52,8 +52,15 @@ const styles = StyleSheet.create((theme) => ({
   sheetIndicator: {
     backgroundColor: theme.border,
   },
+  // flexGrow + height: 0 statt flex: 1: RNHostView meldet die Hoehe der
+  // Praesentation erst asynchron. Ohne definite Parent-Hoehe faellt die
+  // Basisgroesse eines flex-Kindes auf den Inhaltsumfang zurueck; die
+  // ScrollView haette dann Viewport == Content und liesse sich nicht bis
+  // zum Ende scrollen, der Footer wuerde am Blattrand abgeschnitten
+  // (expo/expo#46928, Fix d35fe66).
   bottomSheet: {
-    flex: 1,
+    flexGrow: 1,
+    height: 0,
     backgroundColor: theme.background,
   },
   nativeHost: {
