@@ -2,6 +2,7 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
 import { preferenceId } from '@/features/shopping-list/preferences/preference-identity.node';
 import type { Database } from '@/lib/database.types';
+import { recordOutboxOutcome } from '@/lib/db/outbox';
 import type { Entity, OutboxOp } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { pushOutbox } from '@/lib/sync/push';
@@ -827,4 +828,126 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
       expect(raw).toBeNull();
     }, 30_000);
   });
+});
+
+describe('pushOutbox — Beleg-Parent gegen die lokale Supabase-Instanz', () => {
+  /**
+   * Regressionsgrenze fuer fam-lqg6.7: Ohne Parent-Gate trifft der
+   * Positionen-Insert auf `receipt_items_receipt_household_fkey` (23503) und
+   * wird als permanent vergiftet. Hier laeuft der Parent-Insert in einen
+   * transiente Netzwerkfehler und geht in Backoff; die Position muss in der
+   * Outbox warten, und der naechste Lauf muss Parent samt Positionen
+   * erfolgreich pushen.
+   */
+  let db: TestDatabase;
+  let client: SupabaseClient<Database>;
+  let householdId: string;
+
+  beforeAll(() => {
+    if (!/^https?:\/\/(127\.0\.0\.1|localhost)(:|\/|$)/.test(SUPABASE_URL)) {
+      throw new Error(`Nur gegen localhost erlaubt. Erhalten: ${SUPABASE_URL || '(leer)'}`);
+    }
+    if (!SUPABASE_KEY) {
+      throw new Error('Kein ANON_KEY. Laeuft `supabase start`?');
+    }
+  });
+
+  beforeEach(async () => {
+    db = createTestDatabase();
+    await applyLocalSchema(db);
+    client = makeClient();
+    householdId = await signUpAndCreateHousehold(client);
+  }, 30_000);
+
+  afterEach(() => {
+    db.close();
+  });
+
+  it('gibt die Position erst frei, wenn der Parent-Insert im selben Lauf angekommen ist', async () => {
+    // RLS verlangt created_by = auth.uid(), siehe receipts_created_by_guard.
+    const { data: authUser } = await client.auth.getUser();
+    const createdBy = authUser.user?.id;
+    if (!createdBy) throw new Error('Keine angemeldete Session fuer den Receipt-Push.');
+    const receiptId = crypto.randomUUID();
+    const itemId = crypto.randomUUID();
+    const createdAt = new Date().toISOString();
+
+    await insertOutboxRow(db, {
+      entity: 'purchase_receipts',
+      entityId: receiptId,
+      op: 'insert',
+      payload: {
+        id: receiptId,
+        household_id: householdId,
+        currency: 'EUR',
+        processing_status: 'needs_review',
+        created_by: createdBy,
+        created_at: createdAt,
+      },
+    });
+    await insertOutboxRow(db, {
+      entity: 'purchase_receipt_items',
+      entityId: itemId,
+      op: 'insert',
+      payload: {
+        id: itemId,
+        receipt_id: receiptId,
+        household_id: householdId,
+        position: 0,
+        name: 'Milch',
+        review_status: 'needs_review',
+        created_at: createdAt,
+      },
+    });
+
+    const [receiptOutbox] = await db.getAllAsync<{ id: number }>(
+      "select id from outbox where entity = 'purchase_receipts'",
+    );
+    await recordOutboxOutcome(db, [receiptOutbox.id], {
+      attempts: 1,
+      lastError: 'timeout',
+      kind: 'transient',
+      nextAttemptAtMs: 1_000_000,
+    });
+
+    // Lauf 1: Parent wartet im Backoff — ohne Gate wuerde die Position jetzt
+    // am FK scheitern.
+    const waitingRun = await pushOutbox({ db, supabase: client, now: () => 500 });
+    expect(waitingRun.outcomes).toEqual([]);
+    const itemAfterWait = await db.getFirstAsync<{ attempts: number; last_error: string | null }>(
+      "select attempts, last_error from outbox where entity = 'purchase_receipt_items'",
+    );
+    expect(itemAfterWait).toEqual({ attempts: 0, last_error: null });
+
+    // Lauf 2: Parent faellig. Ein Lauf muss Parent und Position nacheinander
+    // pushen, ohne dass die Position erneut am FK scheitert.
+    const pushedRun = await pushOutbox({ db, supabase: client, now: () => 2_000_000 });
+    expect(pushedRun.stoppedEarly).toBe(false);
+    expect(pushedRun.outcomes).toEqual([
+      expect.objectContaining({ kind: 'pushed', entity: 'purchase_receipts', entityId: receiptId }),
+      expect.objectContaining({
+        kind: 'pushed',
+        entity: 'purchase_receipt_items',
+        entityId: itemId,
+      }),
+    ]);
+
+    const remoteReceipt = await client
+      .from('purchase_receipts')
+      .select('id, processing_status')
+      .eq('id', receiptId)
+      .single();
+    expect(remoteReceipt.error).toBeNull();
+    expect(remoteReceipt.data?.processing_status).toBe('needs_review');
+
+    const remoteItem = await client
+      .from('purchase_receipt_items')
+      .select('id, name, receipt_id')
+      .eq('id', itemId)
+      .single();
+    expect(remoteItem.error).toBeNull();
+    expect(remoteItem.data).toMatchObject({ name: 'Milch', receipt_id: receiptId });
+
+    expect(await db.getAllAsync('select id from outbox')).toEqual([]);
+  }, 30_000);
 });

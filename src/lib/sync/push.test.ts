@@ -1,5 +1,6 @@
 import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import { enqueueMutation, recordOutboxOutcome } from '@/lib/db/outbox';
+import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import {
   createInventoryMergeUndoMutation,
@@ -1712,6 +1713,375 @@ describe('pushOutbox — atomares Split-Undo (Merge)', () => {
         { entity_id: 'item-sealed', attempts: MAX_ATTEMPTS },
         { entity_id: 'item-opened', attempts: 0 },
       ]);
+    } finally {
+      db.close();
+    }
+  });
+});
+
+describe('pushOutbox — Beleg-Parent-Abhaengigkeit', () => {
+  it('haelt Belegpositionen zurueck, solange der Parent-Insert noch aussteht', async () => {
+    const db = createTestDatabase();
+    await applyLocalSchema(db);
+
+    await enqueueMutation(db, {
+      entity: 'purchase_receipts',
+      entityId: 'receipt-1',
+      op: 'insert',
+      payload: {
+        id: 'receipt-1',
+        household_id: 'hh-1',
+        currency: 'EUR',
+        processing_status: 'needs_review',
+        created_at: '2026-09-24T10:00:00.000Z',
+      },
+      now: 1,
+      applyLocally: async () => {},
+    });
+    await enqueueMutation(db, {
+      entity: 'purchase_receipt_items',
+      entityId: 'item-1',
+      op: 'insert',
+      payload: {
+        id: 'item-1',
+        receipt_id: 'receipt-1',
+        household_id: 'hh-1',
+        position: 0,
+        name: 'Milch',
+        review_status: 'needs_review',
+        created_at: '2026-09-24T10:00:00.000Z',
+      },
+      now: 2,
+      applyLocally: async () => {},
+    });
+
+    const [receiptInsert] = await db.getAllAsync<{ id: number }>(
+      "select id from outbox where entity = 'purchase_receipts'",
+    );
+    await recordOutboxOutcome(db, [receiptInsert.id], {
+      attempts: 1,
+      lastError: 'timeout',
+      kind: 'transient',
+      nextAttemptAtMs: 1_000,
+    });
+
+    const itemInsert = jest.fn().mockReturnValue({
+      select: jest.fn().mockResolvedValue({ data: [], error: null, status: 201 }),
+    });
+    const receiptUpdate = jest.fn().mockReturnValue({
+      eq: jest.fn().mockReturnValue({
+        select: jest.fn().mockResolvedValue({ data: [], error: null, status: 200 }),
+      }),
+    });
+    const client = {
+      from: jest.fn((table: string) =>
+        table === 'purchase_receipt_items' ? { insert: itemInsert } : { update: receiptUpdate },
+      ),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 500 });
+
+      expect(itemInsert).not.toHaveBeenCalled();
+      expect(result.outcomes).toEqual([]);
+      expect(
+        await db.getAllAsync<{ entity: string; attempts: number }>(
+          'select entity, attempts from outbox order by id',
+        ),
+      ).toEqual([
+        { entity: 'purchase_receipts', attempts: 1 },
+        { entity: 'purchase_receipt_items', attempts: 0 },
+      ]);
+    } finally {
+      db.close();
+    }
+  });
+
+  it('erholt sich nach dem Banner-Retry aus dem vergifteten FK-Zustand einer Bestandsinstallation', async () => {
+    const db = createTestDatabase();
+    await applyLocalSchema(db);
+
+    await enqueueMutation(db, {
+      entity: 'purchase_receipts',
+      entityId: 'receipt-1',
+      op: 'insert',
+      payload: {
+        id: 'receipt-1',
+        household_id: 'hh-1',
+        currency: 'EUR',
+        processing_status: 'needs_review',
+        created_at: '2026-09-24T10:00:00.000Z',
+      },
+      now: 1,
+      applyLocally: async () => {},
+    });
+    await enqueueMutation(db, {
+      entity: 'purchase_receipt_items',
+      entityId: 'item-1',
+      op: 'insert',
+      payload: {
+        id: 'item-1',
+        receipt_id: 'receipt-1',
+        household_id: 'hh-1',
+        position: 0,
+        name: 'Milch',
+        review_status: 'needs_review',
+        created_at: '2026-09-24T10:00:00.000Z',
+      },
+      now: 2,
+      applyLocally: async () => {},
+    });
+
+    // Bestandsinstallation: beide Eintraege sind nach dem alten Fehlerbild
+    // bereits terminal (Parent wegen Netzwerkfehler, Position am FK 23503).
+    await db.runAsync(
+      "update outbox set attempts = ?, last_error = ?, last_error_kind = 'permanent', next_attempt_at = ?",
+      [
+        MAX_ATTEMPTS,
+        'violates foreign key constraint receipt_items_receipt_household_fkey',
+        Number.MAX_SAFE_INTEGER,
+      ],
+    );
+
+    const receiptInsert = jest.fn().mockReturnValue({
+      select: jest.fn().mockResolvedValue({
+        data: [
+          {
+            id: 'receipt-1',
+            household_id: 'hh-1',
+            store_id: null,
+            purchase_date: null,
+            currency: 'EUR',
+            total_cents: null,
+            processing_status: 'needs_review',
+            created_by: 'user-1',
+            confirmed_by: null,
+            confirmed_at: null,
+            created_at: '2026-09-24T10:00:00.000Z',
+            updated_at: '2026-09-24T10:00:01.000Z',
+            deleted_at: null,
+          },
+        ],
+        error: null,
+        status: 201,
+      }),
+    });
+    const itemInsert = jest.fn().mockReturnValue({
+      select: jest.fn().mockResolvedValue({
+        data: [
+          {
+            id: 'item-1',
+            receipt_id: 'receipt-1',
+            household_id: 'hh-1',
+            position: 0,
+            name: 'Milch',
+            product_id: null,
+            category_id: null,
+            quantity: null,
+            unit: null,
+            package_size: null,
+            package_size_unit: null,
+            line_total_cents: null,
+            review_status: 'needs_review',
+            created_at: '2026-09-24T10:00:00.000Z',
+            updated_at: '2026-09-24T10:00:01.000Z',
+            deleted_at: null,
+          },
+        ],
+        error: null,
+        status: 201,
+      }),
+    });
+    const client = {
+      from: jest.fn((table: string) =>
+        table === 'purchase_receipt_items' ? { insert: itemInsert } : { insert: receiptInsert },
+      ),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      await retryFailedOutboxEntries(db, 500);
+      const result = await pushOutbox({ db, supabase: client, now: () => 600 });
+
+      expect(result.outcomes).toEqual([
+        expect.objectContaining({ kind: 'pushed', entity: 'purchase_receipts' }),
+        expect.objectContaining({ kind: 'pushed', entity: 'purchase_receipt_items' }),
+      ]);
+      expect(await db.getAllAsync('select id from outbox order by id')).toEqual([]);
+    } finally {
+      db.close();
+    }
+  });
+
+  it('haelt auch ein Item-Update ohne receipt_id im Payload zurueck (Fallback ueber den lokalen Spiegel)', async () => {
+    const db = createTestDatabase();
+    await applyLocalSchema(db);
+
+    await db.runAsync(
+      `insert into purchase_receipt_items
+       (id, receipt_id, household_id, position, name, review_status, created_at, updated_at, _dirty)
+       values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      ['item-1', 'receipt-1', 'hh-1', 0, 'Milch', 'needs_review', '2026-09-24T10:00:00.000Z', 1, 1],
+    );
+    await enqueueMutation(db, {
+      entity: 'purchase_receipts',
+      entityId: 'receipt-1',
+      op: 'insert',
+      payload: {
+        id: 'receipt-1',
+        household_id: 'hh-1',
+        currency: 'EUR',
+        processing_status: 'needs_review',
+        created_at: '2026-09-24T10:00:00.000Z',
+      },
+      now: 1,
+      applyLocally: async () => {},
+    });
+    await enqueueMutation(db, {
+      entity: 'purchase_receipt_items',
+      entityId: 'item-1',
+      op: 'update',
+      payload: {
+        id: 'item-1',
+        household_id: 'hh-1',
+        review_status: 'confirmed',
+      },
+      now: 2,
+      applyLocally: async () => {},
+    });
+
+    const [receiptInsert] = await db.getAllAsync<{ id: number }>(
+      "select id from outbox where entity = 'purchase_receipts'",
+    );
+    await recordOutboxOutcome(db, [receiptInsert.id], {
+      attempts: 1,
+      lastError: 'timeout',
+      kind: 'transient',
+      nextAttemptAtMs: 1_000,
+    });
+
+    const itemUpdate = jest.fn().mockReturnValue({
+      eq: jest.fn().mockReturnValue({
+        select: jest.fn().mockResolvedValue({ data: [], error: null, status: 200 }),
+      }),
+    });
+    const client = {
+      from: jest.fn().mockReturnValue({ update: itemUpdate }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 500 });
+
+      expect(itemUpdate).not.toHaveBeenCalled();
+      expect(result.outcomes).toEqual([]);
+      expect(
+        await db.getFirstAsync<{ attempts: number; last_error: string | null }>(
+          "select attempts, last_error from outbox where entity = 'purchase_receipt_items'",
+        ),
+      ).toEqual({ attempts: 0, last_error: null });
+    } finally {
+      db.close();
+    }
+  });
+
+  it('pusht den Parent-Insert und die Positionen in einem Lauf nacheinander', async () => {
+    const db = createTestDatabase();
+    await applyLocalSchema(db);
+
+    await enqueueMutation(db, {
+      entity: 'purchase_receipts',
+      entityId: 'receipt-1',
+      op: 'insert',
+      payload: {
+        id: 'receipt-1',
+        household_id: 'hh-1',
+        currency: 'EUR',
+        processing_status: 'needs_review',
+        created_at: '2026-09-24T10:00:00.000Z',
+      },
+      now: 1,
+      applyLocally: async () => {},
+    });
+    await enqueueMutation(db, {
+      entity: 'purchase_receipt_items',
+      entityId: 'item-1',
+      op: 'insert',
+      payload: {
+        id: 'item-1',
+        receipt_id: 'receipt-1',
+        household_id: 'hh-1',
+        position: 0,
+        name: 'Milch',
+        review_status: 'needs_review',
+        created_at: '2026-09-24T10:00:00.000Z',
+      },
+      now: 2,
+      applyLocally: async () => {},
+    });
+
+    const receiptInsert = jest.fn().mockReturnValue({
+      select: jest.fn().mockResolvedValue({
+        data: [
+          {
+            id: 'receipt-1',
+            household_id: 'hh-1',
+            store_id: null,
+            purchase_date: null,
+            currency: 'EUR',
+            total_cents: null,
+            processing_status: 'needs_review',
+            created_by: 'user-1',
+            confirmed_by: null,
+            confirmed_at: null,
+            created_at: '2026-09-24T10:00:00.000Z',
+            updated_at: '2026-09-24T10:00:01.000Z',
+            deleted_at: null,
+          },
+        ],
+        error: null,
+        status: 201,
+      }),
+    });
+    const itemInsert = jest.fn().mockReturnValue({
+      select: jest.fn().mockResolvedValue({
+        data: [
+          {
+            id: 'item-1',
+            receipt_id: 'receipt-1',
+            household_id: 'hh-1',
+            position: 0,
+            name: 'Milch',
+            product_id: null,
+            category_id: null,
+            quantity: null,
+            unit: null,
+            package_size: null,
+            package_size_unit: null,
+            line_total_cents: null,
+            review_status: 'needs_review',
+            created_at: '2026-09-24T10:00:00.000Z',
+            updated_at: '2026-09-24T10:00:01.000Z',
+            deleted_at: null,
+          },
+        ],
+        error: null,
+        status: 201,
+      }),
+    });
+    const client = {
+      from: jest.fn((table: string) =>
+        table === 'purchase_receipt_items' ? { insert: itemInsert } : { insert: receiptInsert },
+      ),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      const result = await pushOutbox({ db, supabase: client, now: () => 3 });
+
+      expect(itemInsert).toHaveBeenCalled();
+      expect(result.outcomes).toEqual([
+        expect.objectContaining({ kind: 'pushed', entity: 'purchase_receipts' }),
+        expect.objectContaining({ kind: 'pushed', entity: 'purchase_receipt_items' }),
+      ]);
+      expect(await db.getAllAsync('select id from outbox order by id')).toEqual([]);
     } finally {
       db.close();
     }

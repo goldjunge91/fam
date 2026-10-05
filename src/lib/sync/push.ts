@@ -89,6 +89,39 @@ async function loadPendingFridgeItemInsertIds(db: SqlDatabase): Promise<Set<stri
   return new Set(rows.map((row) => row.entity_id));
 }
 
+/**
+ * Belege, deren `insert` noch in der Outbox liegt — die Serverzeile ist damit
+ * noch nicht sichtbar. Positionen wuerden am zusammengesetzten Fremdschluessel
+ * `receipt_items_receipt_household_fkey` scheitern, obwohl nur der Parent
+ * (z. B. wegen eines Netzwerkfehlers) im Backoff wartet.
+ */
+async function loadPendingReceiptInsertIds(db: SqlDatabase): Promise<Set<string>> {
+  const rows = await db.getAllAsync<{ entity_id: string }>(
+    `select distinct entity_id
+       from outbox
+      where entity = 'purchase_receipts'
+        and op = 'insert'`,
+  );
+  return new Set(rows.map((row) => row.entity_id));
+}
+
+/**
+ * Beleg-ID einer Receipt-Position aus dem Push-Payload oder dem lokalen
+ * Spiegel: Updates (z. B. review_status) tragen nur die geaenderten Spalten.
+ */
+async function receiptIdReferencedBy(
+  db: SqlDatabase,
+  push: CoalescedEntry,
+): Promise<string | undefined> {
+  const payloadReceiptId = push.payload.receipt_id;
+  if (typeof payloadReceiptId === 'string') return payloadReceiptId;
+  const row = await db.getFirstAsync<{ receipt_id: string }>(
+    'select receipt_id from purchase_receipt_items where id = ?',
+    [push.entityId],
+  );
+  return row?.receipt_id;
+}
+
 type GenericQuery<T> = {
   then<TResult1 = T, TResult2 = never>(
     onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | null,
@@ -567,6 +600,11 @@ export async function pushOutbox(deps: {
   // unbeeinflusst weiter.
   const blockedItemIds = new Set<string>();
 
+  // Positionen halten, solange der Parent-Insert nicht auf dem Server
+  // angekommen ist (siehe loadPendingReceiptInsertIds). Nach einem
+  // erfolgreichen Parent-Push im selben Lauf gibt der Push unten die id frei.
+  const blockedReceiptIds = await loadPendingReceiptInsertIds(deps.db);
+
   let stoppedEarly = false;
   for (const push of pushes) {
     const itemIds = fridgeItemIdsReferencedBy(push);
@@ -579,6 +617,11 @@ export async function pushOutbox(deps: {
       continue;
     }
 
+    if (push.entity === 'purchase_receipt_items' && blockedReceiptIds.size > 0) {
+      const receiptId = await receiptIdReferencedBy(deps.db, push);
+      if (receiptId !== undefined && blockedReceiptIds.has(receiptId)) continue;
+    }
+
     const currentAttempts = Math.max(0, ...push.sourceIds.map((id) => attemptsById.get(id) ?? 0));
     const { outcome, stop } = await applyOnePush(
       deps.db,
@@ -588,6 +631,10 @@ export async function pushOutbox(deps: {
       currentAttempts,
     );
     outcomes.push(outcome);
+
+    if (outcome.kind === 'pushed' && push.entity === 'purchase_receipts') {
+      blockedReceiptIds.delete(push.entityId);
+    }
 
     if (outcome.kind === 'failed-permanent' || outcome.kind === 'failed-transient') {
       for (const itemId of itemIds) blockedItemIds.add(itemId);
