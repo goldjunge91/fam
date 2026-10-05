@@ -1,5 +1,5 @@
 import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
-import type { ReceiptCapturePersistence, ReceiptCaptureResult } from '@/features/ocr/capture/api';
+import type { ReceiptCapturePersistence } from '@/features/ocr/capture/api';
 import { createReceiptCaptureDraft } from '@/features/ocr/capture/domain/actions';
 import type { ReceiptCaptureDraft } from '@/features/ocr/capture/domain/types';
 import { i18n } from '@/i18n';
@@ -84,18 +84,9 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     await i18n.changeLanguage('de');
   });
 
-  it.each([
-    ['camera', 'Fotografieren'],
-    ['gallery', 'Aus Galerie wählen'],
-  ] as const)('keeps the chooser visible while the %s picker is opening', async (source, label) => {
+  it('startet den Direkteinstieg aus der Kamera ohne Zwischenbildschirm', async () => {
     const state = persistenceWith(null);
-    let resolveCapture!: (result: ReceiptCaptureResult) => void;
-    const capture = jest.fn(
-      () =>
-        new Promise<ReceiptCaptureResult>((resolve) => {
-          resolveCapture = resolve;
-        }),
-    );
+    const capture = jest.fn().mockResolvedValue({ kind: 'captured', draft: captureDraft() });
 
     await render(
       <ReceiptCaptureReviewFlow
@@ -105,15 +96,45 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
         onDismiss={jest.fn()}
         persistence={state.persistence}
         capture={capture}
+        processCapture={jest.fn()}
+        captureIdFactory={() => 'capture-1'}
+        initialCapture={{ source: 'camera' }}
       />,
     );
 
-    await userEvent.setup().press(await screen.findByRole('button', { name: label }));
+    // Kein Chooser: der Capture laeuft sofort, danach wartet der Flow auf die
+    // Bestaetigung "Bon verarbeiten".
+    await waitFor(() => expect(capture).toHaveBeenCalledTimes(1));
+    expect(await screen.findByRole('button', { name: 'Bon verarbeiten' })).toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Fotografieren' })).not.toBeOnTheScreen();
+  });
 
-    expect(screen.queryByText(i18n.t('ocr.review.processing'))).not.toBeOnTheScreen();
+  it('startet den Direkteinstieg aus der Galerie und verarbeitet sofort', async () => {
+    const state = persistenceWith(null);
+    const capture = jest.fn().mockResolvedValue({ kind: 'captured', draft: captureDraft() });
+    const processCapture = jest.fn(async () => ({
+      kind: 'success' as const,
+      captureId: 'capture-1',
+      draft: parseGermanReceipt(REWE_RECEIPT_LINES),
+    }));
 
-    resolveCapture({ kind: 'cancelled', source });
-    expect(await screen.findByRole('button', { name: label })).toBeOnTheScreen();
+    await render(
+      <ReceiptCaptureReviewFlow
+        visible
+        householdId="household-1"
+        createdBy="user-1"
+        onDismiss={jest.fn()}
+        persistence={state.persistence}
+        capture={capture}
+        processCapture={processCapture}
+        captureIdFactory={() => 'capture-1'}
+        initialCapture={{ source: 'gallery' }}
+      />,
+    );
+
+    await waitFor(() => expect(capture).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(processCapture).toHaveBeenCalledTimes(1));
+    expect(await screen.findByRole('radio', { name: 'REWE' })).toBeOnTheScreen();
   });
 
   it('resumes a pending draft and records processing/review phases', async () => {
@@ -138,6 +159,36 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     expect(await screen.findByRole('radio', { name: 'REWE' })).toBeOnTheScreen();
     expect(state.phases).toEqual(['processing', 'needs_review']);
     expect(processCapture).toHaveBeenCalledTimes(1);
+  });
+
+  it('startet nach Schliessen und erneutem Oeffnen wieder einen Capture', async () => {
+    const state = persistenceWith(null);
+    const capture = jest.fn().mockResolvedValue({ kind: 'captured', draft: captureDraft() });
+
+    function flowElement(visible: boolean) {
+      return (
+        <ReceiptCaptureReviewFlow
+          visible={visible}
+          householdId="household-1"
+          createdBy="user-1"
+          onDismiss={jest.fn()}
+          persistence={state.persistence}
+          capture={capture}
+          processCapture={jest.fn()}
+          captureIdFactory={() => 'capture-1'}
+          initialCapture={{ source: 'camera' }}
+        />
+      );
+    }
+
+    const { rerender } = await render(flowElement(true));
+    await waitFor(() => expect(capture).toHaveBeenCalledTimes(1));
+
+    await rerender(flowElement(false));
+    await waitFor(() => expect(screen.queryByRole('button')).toBeNull());
+
+    await rerender(flowElement(true));
+    await waitFor(() => expect(capture).toHaveBeenCalledTimes(2));
   });
 
   it('discards the local draft when review is explicitly cancelled', async () => {
@@ -355,10 +406,8 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
         expect.objectContaining({ persistence: state.persistence }),
       ),
     );
-    expect(screen.queryByRole('button', { name: 'Fotografieren' })).not.toBeOnTheScreen();
-    // Live-Schuss landet in derselben "Bon bereit"-Phase wie ein Kamera-Picker:
-    // mehrseitige Bons koennen so vor der Verarbeitung ergaenzt werden.
-    await userEvent.setup().press(await screen.findByRole('button', { name: 'Bon verarbeiten' }));
+    // Die Seiten sind in der Live-Ansicht bereits gesammelt und bestaetigt:
+    // der Flow verarbeitet sie direkt, ohne weitere Zwischenbestaetigung.
     await waitFor(() => expect(processCapture).toHaveBeenCalledTimes(1));
     expect(await screen.findByRole('radio', { name: 'REWE' })).toBeOnTheScreen();
   });
@@ -399,9 +448,9 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
         capture={capture}
         processCapture={processCapture}
         captureIdFactory={() => 'capture-1'}
+        initialCapture={{ source: 'camera' }}
       />,
     );
-    await user.press(await screen.findByRole('button', { name: 'Fotografieren' }));
     await user.press(await screen.findByRole('button', { name: 'Weitere Seite fotografieren' }));
     await user.press(await screen.findByRole('button', { name: 'Bon verarbeiten' }));
 
@@ -437,9 +486,9 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
         persistence={state.persistence}
         capture={capture}
         processCapture={jest.fn()}
+        initialCapture={{ source: 'camera' }}
       />,
     );
-    await user.press(await screen.findByRole('button', { name: 'Fotografieren' }));
 
     expect(await screen.findByRole('alert')).toHaveTextContent(
       'Cannot find native module ExpoImageManipulator',

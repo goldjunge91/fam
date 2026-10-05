@@ -64,6 +64,8 @@ export function DevToolsScreen() {
   const speechTestProvider = useDevSettingsStore((state) => state.speechTestProvider);
   const setSpeechTestProvider = useDevSettingsStore((state) => state.setSpeechTestProvider);
   const receiptOcrTestEnabled = useDevSettingsStore((state) => state.receiptOcrTestEnabled);
+  const receiptOcrProvider = useDevSettingsStore((state) => state.receiptOcrProvider);
+  const setReceiptOcrProvider = useDevSettingsStore((state) => state.setReceiptOcrProvider);
   const setReceiptOcrTestEnabled = useDevSettingsStore((state) => state.setReceiptOcrTestEnabled);
 
   if (!hasAccess) {
@@ -155,6 +157,17 @@ export function DevToolsScreen() {
       </SettingsGroup>
       {Platform.OS === 'ios' ? (
         <SettingsGroup title="Kassenbon-OCR">
+          <SegmentedControl
+            label="OCR-Anbieter im Kassenbon-Upload"
+            options={[
+              { value: 'google-mlkit', label: 'ML Kit' },
+              { value: 'apple-vision', label: 'Apple Vision' },
+            ]}
+            selected={receiptOcrProvider}
+            onSelect={setReceiptOcrProvider}
+            appearance="surface"
+            size="compact"
+          />
           <SegmentedControl
             label="OCR-Anbieterauswahl im Kassenbon-Upload"
             options={[

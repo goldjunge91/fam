@@ -4,7 +4,7 @@ import { Modal, Platform, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { useDevSettingsStore } from '@/constants/dev-settings';
-import { Button, SegmentedControl, Surface, Txt } from '@/constants/ui';
+import { Button, Surface, Txt } from '@/constants/ui';
 import {
   captureReceipt,
   createReceiptCapturePersistence,
@@ -21,11 +21,10 @@ import type {
   ReceiptCaptureSource,
 } from '@/features/ocr/capture/domain/types';
 import { useStores } from '@/features/shopping-list/hooks/use-stores';
-import { env } from '@/lib/config/env';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 import { triggerHouseholdSyncAfterOutboxMutation } from '@/lib/sync/sync-runner';
 import type { ReceiptDraft } from '../domain/types';
-import { isGoogleMlKitAvailable } from '../native';
+import { isGoogleMlKitAvailable, type ReceiptOcrProvider } from '../native';
 import {
   type FinalizeReceiptResult,
   finalizeReceiptReview,
@@ -44,11 +43,6 @@ import {
 } from './model';
 import { ReceiptProcessingIndicator } from './receipt-processing-indicator';
 import { ReceiptReviewModal } from './receipt-review-modal';
-
-const RECEIPT_OCR_PROVIDER_OPTIONS = [
-  { value: 'apple-vision', label: 'Apple Vision' },
-  { value: 'google-mlkit', label: 'Google ML Kit' },
-] as const;
 
 const styles = StyleSheet.create((theme) => ({
   root: {
@@ -78,6 +72,7 @@ type ReceiptCaptureReviewFlowProps = {
   initialCapture?: {
     source: ReceiptCaptureSource;
     sourceAsset?: ReceiptPickerAsset;
+    sourceAssets?: readonly ReceiptPickerAsset[];
   };
   onSaved?: (result: FinalizeReceiptResult) => void;
   capture?: (
@@ -93,6 +88,20 @@ type ReceiptCaptureReviewFlowProps = {
 };
 
 type FlowPhase = 'choose' | 'captured' | 'processing' | 'review' | 'saving' | 'error';
+
+/**
+ * Kassenbon-OCR laeuft auf iOS ueber ML Kit (Default, siehe `dev-settings`).
+ * Apple Vision bleibt der Fallback, sobald das native Modul fehlt; die
+ * Dev-Einstellung waehlt zwischen beiden Anbietern.
+ */
+export function resolveReceiptOcrProvider(
+  platform: string,
+  mlKitAvailable: boolean,
+  configured: ReceiptOcrProvider,
+): ReceiptOcrProvider {
+  if (platform !== 'ios' || !mlKitAvailable) return 'apple-vision';
+  return configured;
+}
 type ProcessingStage = ReceiptProcessingProgress['phase'];
 
 function newCaptureId(): string {
@@ -118,11 +127,8 @@ export function ReceiptCaptureReviewFlow({
   initialCapture,
 }: ReceiptCaptureReviewFlowProps) {
   const { t } = useTranslation();
-  const receiptOcrTestEnabled = useDevSettingsStore((state) => state.receiptOcrTestEnabled);
   const receiptOcrProvider = useDevSettingsStore((state) => state.receiptOcrProvider);
-  const setReceiptOcrProvider = useDevSettingsStore((state) => state.setReceiptOcrProvider);
   const mlKitAvailable = Platform.OS === 'ios' && isGoogleMlKitAvailable();
-  const showOcrProviderPicker = env.devTools && receiptOcrTestEnabled && Platform.OS === 'ios';
   const { data: householdStores = [] } = useStores(householdId);
   const stores = useMemo<readonly ReceiptReviewStoreOption[]>(
     () => householdStores.map(({ id, name }) => ({ id, name })),
@@ -230,7 +236,7 @@ export function ReceiptCaptureReviewFlow({
         try {
           processed = await processCapture({
             capture: processingCapture,
-            provider: showOcrProviderPicker && mlKitAvailable ? receiptOcrProvider : 'apple-vision',
+            provider: resolveReceiptOcrProvider(Platform.OS, mlKitAvailable, receiptOcrProvider),
             onProgress: (progress) => {
               if (isLifecycleCurrent(generation)) setProcessingStage(progress.phase);
             },
@@ -294,7 +300,6 @@ export function ReceiptCaptureReviewFlow({
       persistence,
       processCapture,
       receiptOcrProvider,
-      showOcrProviderPicker,
       t,
     ],
   );
@@ -338,6 +343,10 @@ export function ReceiptCaptureReviewFlow({
 
   useEffect(() => {
     if (!visible) return;
+    // Synchron beim Oeffnen zuruecksetzen: `onDismiss` setzt das Flag, und ein
+    // asynchrones Zuruecksetzen nach `persistence.load()` liess jeden zweiten
+    // Aufruf an `isLifecycleCurrent` scheitern (Modal oeffnete nicht mehr).
+    discardRequestedRef.current = false;
     let active = true;
     const resumeGeneration = lifecycleGenerationRef.current;
 
@@ -354,7 +363,6 @@ export function ReceiptCaptureReviewFlow({
       setError(null);
       const persisted = await persistence.load();
       if (!active || resumeGeneration !== lifecycleGenerationRef.current) return;
-      discardRequestedRef.current = false;
       debugLogEvent('receipt.capture.resume.loaded', {
         has_persisted_capture: Boolean(persisted),
         persisted_phase: persisted?.phase ?? 'none',
@@ -452,23 +460,31 @@ export function ReceiptCaptureReviewFlow({
     };
   }, [nowIso, persistence, runProcessing, t, visible]);
 
-  async function startCapture(source: ReceiptCaptureSource, sourceAsset?: ReceiptPickerAsset) {
+  async function startCapture(
+    source: ReceiptCaptureSource,
+    sourceAsset?: ReceiptPickerAsset,
+    sourceAssets?: readonly ReceiptPickerAsset[],
+  ) {
     const generation = lifecycleGenerationRef.current;
     if (!isLifecycleCurrent(generation)) return;
-    debugLogEvent('receipt.capture.picker_requested', { source, live_asset: Boolean(sourceAsset) });
+    const hasLivePages = Boolean(sourceAssets?.length || sourceAsset);
+    debugLogEvent('receipt.capture.picker_requested', { source, live_asset: hasLivePages });
     setError(null);
     setCaptureRetry(null);
     try {
       const result = await capture(
-        { captureId: captureIdFactory(), source, sourceAsset },
+        { captureId: captureIdFactory(), source, sourceAsset, sourceAssets },
         { persistence },
       );
       if (!isLifecycleCurrent(generation)) return;
       debugLogEvent('receipt.capture.picker_result', { source, result_kind: result.kind });
       if (result.kind === 'captured') {
         setCaptureDraft(result.draft);
-        if (source === 'camera') setPhase('captured');
-        else await runProcessing(result.draft);
+        // Live-Aufnahmen sind in der Vorschau bereits gesammelt und bestaetigt;
+        // die Galerieauswahl bringt ihre Seiten ebenfalls fertig mit. Nur der
+        // Einzel-Systemkamera-Schuss wartet noch auf die Bestaetigung.
+        if (hasLivePages || source === 'gallery') await runProcessing(result.draft);
+        else setPhase('captured');
         return;
       }
       if (result.kind === 'cancelled') {
@@ -493,20 +509,25 @@ export function ReceiptCaptureReviewFlow({
 
   // Direkteinstieg aus dem Live-Scanner: laeuft genau einmal pro sichtbarem
   // Fenster, nachdem der Resume-Effekt den Zustand zurueckgesetzt hat.
-  const initialCaptureConsumedRef = useRef(false);
-  // biome-ignore lint/correctness/useExhaustiveDependencies: startCapture darf nur einmal pro sichtbarem Fenster starten, nicht bei jedem Render.
+  // Merkt sich das zuletzt gestartete Direkteinstiegs-Objekt. Der Aufrufer
+  // haelt es in seinem State, damit seine Identitaet stabil bleibt; so startet
+  // jeder Oeffnungsvorgang genau einmal, auch wenn React das Schliessen und
+  // Wiederoeffnen in einem Commit buendelt.
+  const startedInitialCaptureRef = useRef<unknown>(null);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: startCapture darf nur einmal pro Direkteinstieg starten, nicht bei jedem Render.
   useEffect(() => {
-    if (!visible) {
-      initialCaptureConsumedRef.current = false;
-      return;
-    }
-    if (!initialCapture || initialCaptureConsumedRef.current) return;
-    initialCaptureConsumedRef.current = true;
+    if (!visible || !initialCapture) return;
+    if (startedInitialCaptureRef.current === initialCapture) return;
+    startedInitialCaptureRef.current = initialCapture;
     debugLogEvent('receipt.capture.initial_capture.started', {
       source: initialCapture.source,
-      has_live_asset: Boolean(initialCapture.sourceAsset),
+      has_live_asset: Boolean(initialCapture.sourceAsset || initialCapture.sourceAssets?.length),
     });
-    void startCapture(initialCapture.source, initialCapture.sourceAsset);
+    void startCapture(
+      initialCapture.source,
+      initialCapture.sourceAsset,
+      initialCapture.sourceAssets,
+    );
   }, [initialCapture, visible]);
 
   async function appendCameraPage() {
@@ -798,52 +819,6 @@ export function ReceiptCaptureReviewFlow({
     <Surface style={styles.root}>
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         <View style={styles.content}>
-          {phase === 'choose' ? (
-            <>
-              <Txt variant="heading" weight="700">
-                {t('ocr.review.captureTitle')}
-              </Txt>
-              <Txt variant="body" tone="secondary">
-                {t('ocr.review.captureHint')}
-              </Txt>
-              {showOcrProviderPicker ? (
-                <SegmentedControl
-                  label="Kassenbon-OCR-Anbieter"
-                  options={RECEIPT_OCR_PROVIDER_OPTIONS.map((option) => ({
-                    ...option,
-                    disabled: option.value === 'google-mlkit' && !mlKitAvailable,
-                  }))}
-                  selected={mlKitAvailable ? receiptOcrProvider : 'apple-vision'}
-                  onSelect={setReceiptOcrProvider}
-                  appearance="surface"
-                  size="compact"
-                />
-              ) : null}
-              <Button
-                title={t('ocr.review.camera')}
-                onPress={() => {
-                  debugLogEvent('receipt.capture.button_pressed', { button: 'camera' });
-                  void startCapture('camera');
-                }}
-              />
-              <Button
-                title={t('ocr.review.gallery')}
-                variant="secondary"
-                onPress={() => {
-                  debugLogEvent('receipt.capture.button_pressed', { button: 'gallery' });
-                  void startCapture('gallery');
-                }}
-              />
-              <Button
-                title={t('ocr.review.cancel')}
-                variant="link"
-                onPress={() => {
-                  debugLogEvent('receipt.capture.button_pressed', { button: 'cancel_choose' });
-                  void dismissWithCleanup();
-                }}
-              />
-            </>
-          ) : null}
           {phase === 'captured' ? (
             <>
               <Txt variant="heading" weight="700">

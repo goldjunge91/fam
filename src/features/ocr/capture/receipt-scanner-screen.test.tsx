@@ -91,9 +91,7 @@ describe('ReceiptScannerScreen', () => {
       </SafeAreaProvider>,
     );
 
-    await fireEvent.press(
-      screen.getByRole('button', { name: 'Beleg aus Galerie auswählen', hidden: true }),
-    );
+    await fireEvent.press(screen.getByRole('button', { name: 'Aus Galerie wählen' }));
 
     expect(mockSetFlowVisible).toHaveBeenLastCalledWith(true);
     expect(mockFlowProps.value?.initialCapture).toEqual({ source: 'gallery' });
@@ -141,7 +139,7 @@ describe('ReceiptScannerScreen — Wiederaufnahme', () => {
   });
 });
 
-describe('ReceiptScannerScreen — Zurueck', () => {
+describe('ReceiptScannerScreen — Schliessen', () => {
   beforeEach(() => {
     mockRouterBack.mockClear();
     mockRouterReplace.mockClear();
@@ -159,7 +157,7 @@ describe('ReceiptScannerScreen — Zurueck', () => {
       </SafeAreaProvider>,
     );
 
-    await fireEvent.press(screen.getByLabelText('Zurück'));
+    await fireEvent.press(screen.getByLabelText('Schließen'));
 
     expect(mockRouterBack).toHaveBeenCalledTimes(1);
   });
@@ -176,7 +174,7 @@ describe('ReceiptScannerScreen — Zurueck', () => {
       </SafeAreaProvider>,
     );
 
-    await fireEvent.press(screen.getByLabelText('Zurück'));
+    await fireEvent.press(screen.getByLabelText('Schließen'));
 
     expect(mockRouterBack).not.toHaveBeenCalled();
     expect(mockRouterReplace).toHaveBeenCalledWith('/shopping-list');
@@ -197,12 +195,18 @@ describe('ReceiptScannerScreen — Live-Kamera', () => {
     });
   });
 
-  it('loest den Schuss in der Live-Vorschau aus und speist ihn in den Capture-Flow ein', async () => {
-    mockTakePictureAsync.mockResolvedValue({
-      uri: 'file:///cache/expo-camera/shot.jpg',
-      width: 2_400,
-      height: 1_800,
-    });
+  it('sammelt mehrere Live-Aufnahmen und startet sie gemeinsam im Capture-Flow', async () => {
+    mockTakePictureAsync
+      .mockResolvedValueOnce({
+        uri: 'file:///cache/expo-camera/page-1.jpg',
+        width: 2_400,
+        height: 1_800,
+      })
+      .mockResolvedValueOnce({
+        uri: 'file:///cache/expo-camera/page-2.jpg',
+        width: 2_400,
+        height: 1_800,
+      });
 
     await render(
       <SafeAreaProvider
@@ -214,17 +218,21 @@ describe('ReceiptScannerScreen — Live-Kamera', () => {
       </SafeAreaProvider>,
     );
 
-    await fireEvent.press(screen.getByRole('button', { name: 'Beleg aufnehmen' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Foto aufnehmen' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Foto aufnehmen' }));
 
-    expect(mockTakePictureAsync).toHaveBeenCalledTimes(1);
+    // Noch kein Flow: die Seiten werden erst gesammelt.
+    expect(mockSetFlowVisible).not.toHaveBeenCalledWith(true);
+    expect(mockTakePictureAsync).toHaveBeenCalledTimes(2);
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Fertig (2)' }));
+
     expect(mockFlowProps.value?.initialCapture).toEqual({
       source: 'camera',
-      sourceAsset: {
-        uri: 'file:///cache/expo-camera/shot.jpg',
-        mimeType: 'image/jpeg',
-        width: 2_400,
-        height: 1_800,
-      },
+      sourceAssets: [
+        expect.objectContaining({ uri: 'file:///cache/expo-camera/page-1.jpg' }),
+        expect.objectContaining({ uri: 'file:///cache/expo-camera/page-2.jpg' }),
+      ],
     });
     expect(mockSetFlowVisible).toHaveBeenLastCalledWith(true);
   });
@@ -259,7 +267,7 @@ describe('ReceiptScannerScreen — Live-Kamera', () => {
       </SafeAreaProvider>,
     );
 
-    await fireEvent.press(screen.getByRole('button', { name: 'Beleg aufnehmen' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Foto aufnehmen' }));
 
     expect(await screen.findByRole('alert')).toHaveTextContent(
       'Cannot find native module ExpoCamera',

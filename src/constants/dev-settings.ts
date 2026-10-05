@@ -136,13 +136,18 @@ function readReceiptOcrTestEnabled(): boolean {
   }
 }
 
+/**
+ * Kassenbon-OCR laeuft auf iOS ueber ML Kit. Apple Vision ist der explizite
+ * Fallback, den die Dev-Einstellung waehlen kann; der gespeicherte Wert
+ * entscheidet, und ohne Speicherwert bleibt ML Kit der Default.
+ */
 function readReceiptOcrProvider(): ReceiptOcrProvider {
   try {
-    return getDeviceStorage().getString(RECEIPT_OCR_PROVIDER_STORAGE_KEY) === 'google-mlkit'
-      ? 'google-mlkit'
-      : 'apple-vision';
+    return getDeviceStorage().getString(RECEIPT_OCR_PROVIDER_STORAGE_KEY) === 'apple-vision'
+      ? 'apple-vision'
+      : 'google-mlkit';
   } catch {
-    return 'apple-vision';
+    return 'google-mlkit';
   }
 }
 

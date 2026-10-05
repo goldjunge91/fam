@@ -38,6 +38,11 @@ export type CaptureReceiptPagesInput = {
    * und Persistenz wie eine Picker-Auswahl.
    */
   sourceAsset?: ReceiptPickerAsset;
+  /**
+   * Mehrere Live-Aufnahmen desselben Belegs in Aufnahmereihenfolge. Sie
+   * ersetzen `sourceAsset` und werden als geordnete Seiten persistiert.
+   */
+  sourceAssets?: readonly ReceiptPickerAsset[];
 };
 
 export type ReceiptCaptureResult =
@@ -208,40 +213,62 @@ export async function captureReceiptPages(
   let sourceUriForCleanup: string | null = null;
 
   try {
-    const liveAsset = input.sourceAsset;
-    if (liveAsset) {
-      debugLogEvent('receipt.capture.picker.live_asset.started', { source: input.source });
-      const persisted = await persistAsset(
-        input,
-        liveAsset,
-        0,
-        dependencies,
-        maxBytes,
-        maxLongEdge,
-        jpegQuality,
-      );
-      if ('code' in persisted) {
-        let cleanupFailure: ReceiptCaptureFailure | null = null;
-        try {
-          await dependencies.fileSystem.cleanupSourceUri(liveAsset.uri);
-        } catch (cleanupError: unknown) {
-          cleanupFailure = asFailure(cleanupError, 'capture_cleanup_failed');
-        }
-        return captureFailure(
-          input.source,
-          cleanupFailure?.code ?? persisted.code,
-          cleanupFailure?.message ?? persisted.message,
+    const liveAssets = input.sourceAssets?.length
+      ? input.sourceAssets
+      : input.sourceAsset
+        ? [input.sourceAsset]
+        : null;
+    if (liveAssets) {
+      debugLogEvent('receipt.capture.picker.live_asset.started', {
+        source: input.source,
+        page_count: liveAssets.length,
+      });
+      const livePages: (Pick<ReceiptStoredFile, 'localUri' | 'mimeType' | 'byteSize'> & {
+        id: string;
+      })[] = [];
+      for (const [pageIndex, liveAsset] of liveAssets.entries()) {
+        sourceUriForCleanup = liveAsset.uri;
+        const persisted = await persistAsset(
+          input,
+          liveAsset,
+          pageIndex,
+          dependencies,
+          maxBytes,
+          maxLongEdge,
+          jpegQuality,
         );
+        if ('code' in persisted) {
+          let cleanupFailure: ReceiptCaptureFailure | null = null;
+          try {
+            await dependencies.fileSystem.cleanupSourceUri(liveAsset.uri);
+          } catch (cleanupError: unknown) {
+            cleanupFailure = asFailure(cleanupError, 'capture_cleanup_failed');
+          }
+          cleanupFailure ??= await cleanupPersistentAssets(
+            dependencies,
+            livePages.map((page) => page.localUri),
+          );
+          return captureFailure(
+            input.source,
+            cleanupFailure?.code ?? persisted.code,
+            cleanupFailure?.message ?? persisted.message,
+          );
+        }
+        livePages.push(persisted);
+        await dependencies.fileSystem.cleanupSourceUri(liveAsset.uri);
+        sourceUriForCleanup = null;
       }
-      await dependencies.fileSystem.cleanupSourceUri(liveAsset.uri);
       const createdAt = input.createdAt ?? now().toISOString();
-      debugLogEvent('receipt.capture.picker.live_asset.completed', { source: input.source });
+      debugLogEvent('receipt.capture.picker.live_asset.completed', {
+        source: input.source,
+        page_count: livePages.length,
+      });
       return {
         kind: 'captured',
         draft: createReceiptCaptureDraft({
           id: input.captureId,
           source: input.source,
-          pages: [persisted],
+          pages: livePages,
           createdAt,
           updatedAt: input.updatedAt ?? createdAt,
         }),

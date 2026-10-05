@@ -49,8 +49,11 @@ const styles = StyleSheet.create((theme) => ({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     paddingTop: theme.space.sm,
+  },
+  headerSpacer: {
+    flex: 1,
   },
   titleBlock: {
     gap: theme.space.xs,
@@ -67,15 +70,6 @@ const styles = StyleSheet.create((theme) => ({
     overflow: 'hidden',
     borderRadius: theme.radius.lg,
     backgroundColor: theme.viewerBackground,
-  },
-  previewLabel: {
-    position: 'absolute',
-    top: theme.space.sm,
-    right: theme.space.lg,
-    paddingHorizontal: theme.space.sm,
-    paddingVertical: theme.space.xs,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.backgroundElement,
   },
   corner: {
     position: 'absolute',
@@ -126,6 +120,14 @@ const styles = StyleSheet.create((theme) => ({
     paddingTop: theme.space.lg,
     paddingBottom: theme.space.xxl,
   },
+  done: {
+    minHeight: 52,
+    paddingHorizontal: theme.space.lg,
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.accent,
+  },
   shutter: {
     width: 72,
     height: 72,
@@ -164,6 +166,7 @@ type LiveShot = Pick<ReceiptPickerAsset, 'uri' | 'mimeType' | 'width' | 'height'
 type InitialCapture = {
   source: 'camera' | 'gallery';
   sourceAsset?: LiveShot;
+  sourceAssets?: readonly LiveShot[];
 };
 
 /** Connects the scanner presentation to the existing capture, OCR, and review flow. */
@@ -171,8 +174,10 @@ export function ReceiptScannerScreen() {
   const { t } = useTranslation();
   const { colors } = useTheme();
   const [flowOpen, setFlowOpen] = useState(false);
-  const [pendingShot, setPendingShot] = useState<LiveShot | null>(null);
-  const [initialSource, setInitialSource] = useState<'camera' | 'gallery' | null>(null);
+  const [shots, setShots] = useState<readonly LiveShot[]>([]);
+  // Stabiler Zeiger fuer den Flow: neu gesetzt bei jedem Oeffnen, damit der
+  // Direkteinstieg nicht bei jedem Render erneut startet.
+  const [initialCapture, setInitialCapture] = useState<InitialCapture | null>(null);
   const [captureError, setCaptureError] = useState<string | null>(null);
   const cameraRef = useRef<{ takePictureAsync?: () => Promise<LiveShot & { uri: string }> }>(null);
   const { session } = useSession();
@@ -182,19 +187,19 @@ export function ReceiptScannerScreen() {
   const [permission, requestPermission] = useCameraPermissionsHook();
 
   const livePreviewAvailable = isCameraSupported && Boolean(permission?.granted);
-  const initialCapture: InitialCapture | undefined = initialSource
-    ? { source: initialSource, sourceAsset: pendingShot ?? undefined }
-    : undefined;
-
   function closeFlow() {
     setFlowOpen(false);
-    setPendingShot(null);
-    setInitialSource(null);
+    setShots([]);
+    setInitialCapture(null);
   }
 
-  function openFlow(source: 'camera' | 'gallery') {
+  function openFlow(source: 'camera' | 'gallery', capturedShots: readonly LiveShot[] = []) {
     setCaptureError(null);
-    setInitialSource(source);
+    setInitialCapture(
+      source === 'camera' && capturedShots.length > 0
+        ? { source: 'camera', sourceAssets: capturedShots }
+        : { source },
+    );
     setFlowOpen(true);
   }
 
@@ -209,14 +214,12 @@ export function ReceiptScannerScreen() {
       const photo = await cameraRef.current?.takePictureAsync?.();
       const uri = typeof photo?.uri === 'string' ? photo.uri : '';
       if (uri.length === 0) throw new Error(t('ocr.scanner.captureFailed'));
-      setPendingShot({
-        uri,
-        mimeType: 'image/jpeg',
-        width: photo?.width,
-        height: photo?.height,
-      });
-      setInitialSource('camera');
-      setFlowOpen(true);
+      // Mehrere Seiten desselben Belegs sammeln; erst "Fertig" startet die
+      // Erkennung mit allen Aufnahmen in Reihenfolge.
+      setShots((current) => [
+        ...current,
+        { uri, mimeType: 'image/jpeg', width: photo?.width, height: photo?.height },
+      ]);
     } catch (error) {
       setCaptureError(error instanceof Error ? error.message : t('ocr.scanner.captureFailed'));
     }
@@ -227,20 +230,18 @@ export function ReceiptScannerScreen() {
       <View style={styles.root}>
         <View style={styles.body}>
           <View style={styles.header}>
+            <View style={styles.headerSpacer} />
             <IconButton
-              icon="arrow-left"
+              icon="x"
               onPress={() => goBackTo('/shopping-list')}
-              accessibilityLabel={t('ocr.scanner.back')}
-              color={colors.onAccent}
-              bg={colors.backgroundSoft}
+              accessibilityLabel={t('ocr.scanner.close')}
+              color={colors.text}
+              bg={colors.backgroundElement}
             />
           </View>
 
           <View style={styles.titleBlock}>
             <Txt variant="title">{t('ocr.scanner.title')}</Txt>
-            <Txt variant="body" tone="secondary">
-              {t('ocr.scanner.hint')}
-            </Txt>
           </View>
 
           <View style={styles.stage}>
@@ -262,13 +263,6 @@ export function ReceiptScannerScreen() {
                   ) : null}
                 </View>
               )}
-              {livePreviewAvailable ? (
-                <View style={styles.previewLabel}>
-                  <Txt variant="caption" tone="accent" weight="700">
-                    {t('ocr.scanner.previewLabel')}
-                  </Txt>
-                </View>
-              ) : null}
               <View style={[styles.corner, styles.cornerTopLeft]} />
               <View style={[styles.corner, styles.cornerTopRight]} />
               <View style={[styles.corner, styles.cornerBottomLeft]} />
@@ -288,8 +282,8 @@ export function ReceiptScannerScreen() {
             <Press
               onPress={() => {
                 setCaptureError(null);
-                setInitialSource(null);
-                setPendingShot(null);
+                setShots([]);
+                setInitialCapture(null);
                 setFlowOpen(true);
               }}
               accessibilityRole="button"
@@ -310,13 +304,25 @@ export function ReceiptScannerScreen() {
               style={styles.shutter}>
               <Feather name="camera" size={28} color={colors.onDanger} />
             </Press>
-            <Press
-              onPress={() => openFlow('gallery')}
-              accessibilityRole="button"
-              accessibilityLabel={t('ocr.scanner.gallery')}
-              style={styles.galleryButton}>
-              <Feather name="image" size={22} color={colors.text} />
-            </Press>
+            {shots.length === 0 ? (
+              <Press
+                onPress={() => openFlow('gallery')}
+                accessibilityRole="button"
+                accessibilityLabel={t('ocr.scanner.gallery')}
+                style={styles.galleryButton}>
+                <Feather name="image" size={22} color={colors.text} />
+              </Press>
+            ) : (
+              <Press
+                onPress={() => openFlow('camera', shots)}
+                accessibilityRole="button"
+                accessibilityLabel={t('ocr.scanner.doneCount', { count: shots.length })}
+                style={styles.done}>
+                <Txt variant="label" weight="700" tone="inverse">
+                  {t('ocr.scanner.doneCount', { count: shots.length })}
+                </Txt>
+              </Press>
+            )}
           </View>
         </View>
       </View>
@@ -327,7 +333,7 @@ export function ReceiptScannerScreen() {
           householdId={activeHouseholdId}
           createdBy={userId}
           onDismiss={closeFlow}
-          initialCapture={initialCapture}
+          initialCapture={initialCapture ?? undefined}
         />
       ) : null}
     </>
