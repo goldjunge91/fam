@@ -119,13 +119,14 @@ Ueberlegungen zu diesem Thema.
 
 ### Was entfaellt
 
-- **`development-device`** entfaellt. Echtes Geraet laeuft immer ueber
-  TestFlight. Nur zwei Stellen verweisen darauf: `eas.json:40` und
-  `scripts/build-picker-logic.ts:46`.
-- **`preview`** ist zu pruefen: kein Submit-Profil, nie gebaut, nur als
-  Android-Emulator-Ziel in `tools/build-gui/build_gui.py:51` referenziert.
-  Nicht mit dem EAS-Environment `preview` verwechseln (das braucht
-  `preview-testflight`) und nicht mit `.env.preview`.
+- **`development-device`** entfaellt. Echte iPhones werden ueber TestFlight
+  getestet; ein eigenes Development-Profil fuer physische iPhones wird nicht
+  benoetigt.
+- **`preview`** bleibt als Android-APK-Profil fuer Tests mit Preview-Konfiguration
+  erhalten. Dasselbe interne APK kann auf Emulatoren und echten Android-Geraeten
+  installiert werden. Das Build-GUI-Ziel heisst weiterhin
+  `Android Preview Emulator`; `.env.preview` und das EAS-Environment `preview`
+  bleiben ausserdem fuer `preview-testflight` erforderlich.
 
 ### Zwei Korrekturen am Ist-Stand
 
@@ -312,8 +313,9 @@ Der Picker wird nach Ziel aufgebaut (fam-cp90), nicht nach Profil.
 - [ ] **fam-bmq5** `development` auf `autoIncrement: false`
 - [ ] **fam-bmq5** `preview-testflight-local` auf `autoIncrement: true`
 - [ ] **fam-bmq5** tote Versionsfelder aus `app.json` entfernen
-- [ ] **fam-tuaj** `development-device` entfernen
-- [ ] **fam-ik1o** `preview` pruefen und entfernen
+- [x] **fam-tuaj** `development-device` entfernen
+- [x] **fam-ik1o** `preview` als Android-APK fuer Emulatoren und echte Geraete
+      behalten; `.env.preview` und EAS-Environment `preview` bleiben benoetigt
 - [ ] **fam-gije** `production` auf ML Kit
 - [ ] **fam-rdm1** Allowlist aus `eas.json` ableiten (entfaellt, wenn die
       Wrapper-Scripte durch rohe Befehle ersetzt sind)

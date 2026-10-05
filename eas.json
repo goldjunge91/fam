@@ -37,15 +37,6 @@
       "extends": "development",
       "autoIncrement": false
     },
-    "development-device": {
-      "extends": "development",
-      "env": {
-        "FAM_IOS_MLKIT_OCR": "1"
-      },
-      "ios": {
-        "simulator": false
-      }
-    },
     "preview": {
       "extends": "base",
       "environment": "preview",
