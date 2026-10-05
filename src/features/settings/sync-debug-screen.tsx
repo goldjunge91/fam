@@ -15,8 +15,10 @@ import type { CatalogProduct } from '@/features/product-search/types';
 import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { trackAnalyticsEvent } from '@/lib/analytics';
+import { metaOf } from '@/lib/db/entities';
 import { getDatabase } from '@/lib/db/local-client';
 import { deleteOutboxEntries, loadOutboxHistory, type OutboxHistoryEntry } from '@/lib/db/outbox';
+import type { Entity, SqlDatabase } from '@/lib/db/types';
 import { fromInventoryQuantityUnits } from '@/lib/inventory-quantity';
 import { debugError } from '@/lib/observability/debug-log';
 import { sendTestNotification } from '@/lib/platform/notifications';
@@ -94,6 +96,82 @@ function DebugItem({ children }: { children: ReactNode }) {
   );
 }
 
+/**
+ * Spalte mit dem Anzeigenamen je Entity. Entitaeten ohne Namensspalte
+ * bleiben absichtlich draussen — dort zeigt die Historie weiter die ID.
+ */
+const ENTITY_NAME_COLUMNS: Partial<Record<Entity, string>> = {
+  storage_locations: 'name',
+  stores: 'name',
+  purchase_receipt_items: 'name',
+  fridge_items: 'name',
+  shopping_list_items: 'name',
+  products: 'name',
+  households: 'name',
+  recipes: 'title',
+  recipe_components: 'name',
+  recipe_steps: 'text',
+  meal_plans: 'name',
+  meal_plan_entries: 'custom_title',
+  medication_logs: 'medication_name',
+};
+
+const MAX_NAME_LENGTH = 60;
+
+function truncateName(name: string): string {
+  return name.length > MAX_NAME_LENGTH ? `${name.slice(0, MAX_NAME_LENGTH - 1)}…` : name;
+}
+
+/** Name aus dem Mutations-Payload, falls die Spiegeltabelle nichts liefert. */
+function payloadName(payload: string): string | null {
+  try {
+    const parsed: unknown = JSON.parse(payload);
+    if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) return null;
+    const record = parsed as Record<string, unknown>;
+    const candidate = record.name ?? record.title ?? record.custom_title ?? record.medication_name;
+    return typeof candidate === 'string' && candidate.trim().length > 0 ? candidate.trim() : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Loest die Anzeigenamen der Outbox-Historie aus den lokalen Spiegeltabellen auf. */
+async function loadEntityNames(
+  db: SqlDatabase,
+  entries: readonly OutboxHistoryEntry[],
+): Promise<Map<string, string>> {
+  const idsByEntity = new Map<Entity, Set<string>>();
+  for (const entry of entries) {
+    if (!ENTITY_NAME_COLUMNS[entry.entity]) continue;
+    const ids = idsByEntity.get(entry.entity) ?? new Set<string>();
+    ids.add(entry.entity_id);
+    idsByEntity.set(entry.entity, ids);
+  }
+
+  const names = new Map<string, string>();
+  for (const [entity, ids] of idsByEntity) {
+    const column = ENTITY_NAME_COLUMNS[entity];
+    const idList = [...ids];
+    const placeholders = idList.map(() => '?').join(', ');
+    const rows = await db.getAllAsync<{ id: string; name: string | null }>(
+      `select id, ${column} as name from ${metaOf(entity).table} where id in (${placeholders})`,
+      idList,
+    );
+    for (const row of rows) {
+      if (row.name && row.name.trim().length > 0) {
+        names.set(`${entity}:${row.id}`, row.name.trim());
+      }
+    }
+  }
+  return names;
+}
+
+/** Anzeigename des Historien-Eintrags; UUID bleibt nur der Fallback. */
+function historyName(row: OutboxHistoryEntry, entityNames: Map<string, string>): string {
+  const resolved = entityNames.get(`${row.entity}:${row.entity_id}`) ?? payloadName(row.payload);
+  return resolved ? truncateName(resolved) : `ID: ${row.entity_id}`;
+}
+
 export function SyncDebugScreen() {
   const hasAccess = useDevToolsAccess();
   const queryClient = useQueryClient();
@@ -105,6 +183,7 @@ export function SyncDebugScreen() {
   const [showScannerTest, setShowScannerTest] = useState(false);
   const [outboxRows, setOutboxRows] = useState<OutboxRow[]>([]);
   const [outboxHistoryRows, setOutboxHistoryRows] = useState<OutboxHistoryEntry[]>([]);
+  const [entityNames, setEntityNames] = useState<Map<string, string>>(new Map());
   const [locationRows, setLocationRows] = useState<LocationRow[]>([]);
   const [itemRows, setItemRows] = useState<ItemRow[]>([]);
   // Polling aktualisiert den aus Modulzustand gelesenen Realtime-Status.
@@ -155,6 +234,7 @@ export function SyncDebugScreen() {
         'select * from outbox order by id desc limit 20',
       );
       const outboxHistory = await loadOutboxHistory(db, 20);
+      const names = await loadEntityNames(db, outboxHistory);
       const locs = await db.getAllAsync<LocationRow>(
         'select id, name, kind, household_id from storage_locations limit 20',
       );
@@ -164,6 +244,7 @@ export function SyncDebugScreen() {
 
       setOutboxRows(outbox);
       setOutboxHistoryRows(outboxHistory);
+      setEntityNames(names);
       setLocationRows(locs);
       setItemRows(
         items.map((item) => ({
@@ -461,7 +542,8 @@ export function SyncDebugScreen() {
                   </Txt>
                 </Row>
                 <Txt variant="caption" tone="secondary">
-                  {new Date(row.created_at).toLocaleString('de-DE')} · ID: {row.entity_id}
+                  {new Date(row.created_at).toLocaleString('de-DE')} ·{' '}
+                  {historyName(row, entityNames)}
                 </Txt>
                 <Txt variant="caption" tone="secondary">
                   Versuche: {row.attempts}

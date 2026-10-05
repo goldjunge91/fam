@@ -174,4 +174,69 @@ describe('SyncDebugScreen', () => {
     expect(screen.getByText('#7 INSERT storage_locations')).toBeOnTheScreen();
     expect(loadOutboxHistory).toHaveBeenCalledWith(expect.anything(), 20);
   });
+
+  it('zeigt in der Outbox-Historie den Artikelnamen statt der UUID', async () => {
+    jest.mocked(loadOutboxHistory).mockResolvedValue([
+      {
+        id: 2,
+        outbox_id: 9,
+        entity: 'fridge_items',
+        entity_id: 'item-1',
+        op: 'update',
+        payload: '{}',
+        created_at: 1_000,
+        status: 'queued',
+        attempts: 1,
+        last_error: null,
+        last_error_kind: null,
+        updated_at: 2_000,
+        completed_at: null,
+      },
+    ]);
+
+    const queryClient = new QueryClient({
+      defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+    });
+
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <SyncDebugScreen />
+      </QueryClientProvider>,
+    );
+
+    expect(await screen.findByText(/· Milch$/)).toBeOnTheScreen();
+    expect(screen.queryByText(/· ID: item-1$/)).not.toBeOnTheScreen();
+  });
+
+  it('faellt auf die UUID zurueck, wenn lokal kein Name auffindbar ist', async () => {
+    jest.mocked(loadOutboxHistory).mockResolvedValue([
+      {
+        id: 3,
+        outbox_id: 11,
+        entity: 'fridge_items',
+        entity_id: 'unbekannt-1',
+        op: 'delete',
+        payload: '{}',
+        created_at: 1_000,
+        status: 'pushed',
+        attempts: 0,
+        last_error: null,
+        last_error_kind: null,
+        updated_at: 2_000,
+        completed_at: 2_000,
+      },
+    ]);
+
+    const queryClient = new QueryClient({
+      defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+    });
+
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <SyncDebugScreen />
+      </QueryClientProvider>,
+    );
+
+    expect(await screen.findByText(/· ID: unbekannt-1$/)).toBeOnTheScreen();
+  });
 });
