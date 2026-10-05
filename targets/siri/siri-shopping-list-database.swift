@@ -277,7 +277,7 @@ final class SiriShoppingDatabase {
     private static let databaseKeyFile = "fam.database.sqlcipher-key.v1"
 
     /// Parses Siri's response, writes the batch, and returns the number of spoken items.
-    func add(items rawItems: String, toStoreID storeID: String) throws -> Int {
+    func add(items rawItems: [String], toStoreID storeID: String) throws -> Int {
         let items = try Self.parseItems(rawItems)
         do {
             try addToDatabase(items: items, storeID: storeID)
@@ -307,17 +307,43 @@ final class SiriShoppingDatabase {
         )
         try statement.bind(1, text: householdID)
         let query = searchText?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let normalizedQuery = query.map(Self.normalizedStoreSearchText) ?? ""
         var stores: [SiriShoppingStore] = []
         while try statement.step() == 100 {
             guard let id = statement.text(at: 0), let name = statement.text(at: 1) else { continue }
-            if let query, !query.isEmpty, !name.localizedStandardContains(query) { continue }
+            if let query, !query.isEmpty {
+                let matchesRawQuery = name.localizedStandardContains(query)
+                let matchesNormalizedQuery = !normalizedQuery.isEmpty
+                    && name.localizedStandardContains(normalizedQuery)
+                if !matchesRawQuery && !matchesNormalizedQuery { continue }
+            }
             stores.append(SiriShoppingStore(id: id, name: name))
         }
         return stores
     }
 
+    private static func normalizedStoreSearchText(_ searchText: String) -> String {
+        let fillerWords: Set<String> = [
+            "bei", "beim", "im", "in", "zu", "zum", "zur", "supermarkt",
+            "einkaufsliste", "liste", "bitte", "füge", "fuege", "hinzu",
+        ]
+        return searchText
+            .components(separatedBy: CharacterSet.letters.inverted)
+            .map(\.localizedLowercase)
+            .filter { !$0.isEmpty && !fillerWords.contains($0) }
+            .joined(separator: " ")
+    }
+
     /// Maps parser failures to the localized error exposed by the App Intent.
     static func parseItems(_ rawItems: String) throws -> [String] {
+        do {
+            return try SiriShoppingItemParser.parse(rawItems)
+        } catch SiriShoppingItemParserError.invalidItemList {
+            throw SiriShoppingDatabaseError.invalidItemList
+        }
+    }
+
+    static func parseItems(_ rawItems: [String]) throws -> [String] {
         do {
             return try SiriShoppingItemParser.parse(rawItems)
         } catch SiriShoppingItemParserError.invalidItemList {

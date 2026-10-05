@@ -1,4 +1,5 @@
 import AppIntents
+import os
 
 // AppIntents declarations stay here; database reads and writes live separately.
 @available(iOS 17.0, *)
@@ -46,9 +47,9 @@ struct AddShoppingListItemsIntent: AppIntent {
     // https://developer.apple.com/documentation/appintents/adding-parameters-to-an-app-intent
     @Parameter(
         title: "Artikel",
-        requestValueDialog: "Was möchtest du hinzufügen? Nenne einen Artikel oder mehrere mit Komma oder und dazwischen."
+        requestValueDialog: "Was möchtest du hinzufügen? Nenne einen oder mehrere Artikel."
     )
-    var items: String
+    var items: [String]
 
     @Parameter(
         title: "Einkaufsliste",
@@ -64,6 +65,9 @@ struct AddShoppingListItemsIntent: AppIntent {
 
     /// Writes only after Siri has collected both required parameters.
     func perform() async throws -> some IntentResult & ProvidesDialog & ReturnsValue<Int> {
+        let log = OSLog(subsystem: "FamSiri", category: "SiriIntent")
+        // Artikel- und Ladenname bleiben aus dem Systemlog heraus.
+        os_log("Siri shopping-list intent started", log: log, type: .info)
         let count = try SiriShoppingDatabase().add(items: items, toStoreID: store.id)
         return .result(value: count, dialog: "\(count) Artikel wurden zur Einkaufsliste \(store.name) hinzugefügt.")
     }

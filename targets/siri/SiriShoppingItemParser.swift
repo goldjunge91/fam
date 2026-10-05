@@ -23,4 +23,18 @@ enum SiriShoppingItemParser {
 
         return items
     }
+
+    static func parse(_ rawItems: [String]) throws -> [String] {
+        guard (1...50).contains(rawItems.count),
+              rawItems.reduce(0, { $0 + $1.count }) <= 4000 else {
+            throw SiriShoppingItemParserError.invalidItemList
+        }
+
+        let items = try rawItems.flatMap { try parse($0) }
+        guard items.count <= 50 else {
+            throw SiriShoppingItemParserError.invalidItemList
+        }
+
+        return items
+    }
 }

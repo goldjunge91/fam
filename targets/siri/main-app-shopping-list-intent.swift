@@ -1,9 +1,9 @@
 import AppIntents
 
-// Dieser Provider stellt die Aktionen der Siri-Extension in Kurzbefehle und
-// Siri bereit. Jeder AppShortcut verbindet einen AppIntent mit Sprachphrasen.
-// `shortTitle` ist der sichtbare Titel in Kurzbefehle, keine Siri-Phrase.
-// https://developer.apple.com/videos/play/wwdc2023/10103/
+/// Dieser Provider stellt die Aktionen der Siri-Extension in Kurzbefehle und
+/// Siri bereit. Jeder AppShortcut verbindet einen AppIntent mit Sprachphrasen.
+/// `shortTitle` ist der sichtbare Titel in Kurzbefehle, keine Siri-Phrase.
+/// https://developer.apple.com/videos/play/wwdc2023/10103/
 @available(iOS 17.0, *)
 struct FamMainAppShortcuts: AppShortcutsProvider {
   static var appShortcuts: [AppShortcut] {
@@ -20,7 +20,7 @@ struct FamMainAppShortcuts: AppShortcutsProvider {
         "Setze mehrere Artikel mit \(.applicationName) auf die Einkaufsliste",
         "Packe mehrere Artikel mit \(.applicationName) auf die Einkaufsliste",
         "Füge mit \(.applicationName) mehrere Artikel zur Einkaufsliste hinzu",
-        "Füge mehrere Artikel zur Einkaufsliste in \(.applicationName) hinzu",
+        "Füge Artikel zur Einkaufsliste bei \(\.$store) mit \(.applicationName) hinzu",
         "Schreibe mit \(.applicationName) etwas auf meine Einkaufsliste",
         "Trage mit \(.applicationName) etwas auf die Einkaufsliste ein",
         "Ergänze meine Einkaufsliste mit \(.applicationName)",
