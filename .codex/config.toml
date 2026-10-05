@@ -1,23 +1,12 @@
 web_search = "live"
 model_reasoning_summary = "detailed"
 model_verbosity = "medium"
-default_permissions = "project-edit"
 
-[permissions.project-edit]
-description = "Project edits inside the workspace, network for installs"
-
-# Schreibzugriff auf den Workspace-Root, Lesen sonst minimal
-[permissions.project-edit.filesystem]
-":workspace_roots"."." = "write"
 
 [sandbox_workspace_write]
 network_access = true
 exclude_tmpdir_env_var = false
 exclude_slash_tmp = false
-
-[shell_environment_policy]
-inherit = "core"
-ignore_default_excludes = false
 
 [features]
 apps = true
