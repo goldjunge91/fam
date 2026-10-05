@@ -451,60 +451,101 @@ export function useRealtimeSync(
       await triggerHouseholdSync([householdId], false, queryClient);
     };
 
-    let cancelled = false;
+    let disposed = false;
+    let isBackgrounded = AppState.currentState === 'background';
     let unsubscribeRealtime: (() => Promise<void>) | null = null;
-    const finishAccountSyncSetup = beginAccountSyncRun();
+    let transition = Promise.resolve();
 
-    void (async () => {
-      try {
-        if (!finishAccountSyncSetup) return;
-        const db = await getDatabase();
-        const supabase = getSupabase();
-        if (cancelled) return; // Haushalt hat sich gewechselt, waehrend getDatabase() lief
-        unsubscribeRealtime = subscribeHouseholdRealtime({
-          db,
-          supabase,
-          householdIds: [householdId],
-          serverClock,
-          onReconnectResyncNeeded: onReconnect,
-          onRowApplied: (event) => {
-            recordRealtimeLatency(event.entity, event.op, event.latencyMs);
-            invalidateEntityQueries(queryClient, event.entity, householdId);
-          },
-          onStatusChange: (_householdId, status) => {
-            lastRealtimeStatus = status;
-            realtimeStatusChangeCount += 1;
-            if (status === 'SUBSCRIBED' || status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') {
-              addDiagnosticStep(`realtime.${status.toLowerCase()}`, {
-                operation: 'realtime.subscription',
-                outcome: status === 'SUBSCRIBED' ? 'completed' : 'failed',
+    const reconcileRealtime = (catchUp = false) => {
+      transition = transition
+        .then(async () => {
+          if (disposed) return;
+
+          if (isBackgrounded) {
+            const unsubscribe = unsubscribeRealtime;
+            unsubscribeRealtime = null;
+            lastRealtimeStatus = null;
+            await unsubscribe?.();
+            return;
+          }
+
+          if (!unsubscribeRealtime) {
+            const finishAccountSyncSetup = beginAccountSyncRun();
+            if (!finishAccountSyncSetup) return;
+
+            try {
+              const db = await getDatabase();
+              if (disposed || isBackgrounded) return;
+
+              const supabase = getSupabase();
+              const unsubscribe = subscribeHouseholdRealtime({
+                db,
+                supabase,
+                householdIds: [householdId],
+                serverClock,
+                onReconnectResyncNeeded: onReconnect,
+                onRowApplied: (event) => {
+                  recordRealtimeLatency(event.entity, event.op, event.latencyMs);
+                  invalidateEntityQueries(queryClient, event.entity, householdId);
+                },
+                onStatusChange: (_householdId, status) => {
+                  lastRealtimeStatus = status;
+                  realtimeStatusChangeCount += 1;
+                  if (
+                    status === 'SUBSCRIBED' ||
+                    status === 'CHANNEL_ERROR' ||
+                    status === 'TIMED_OUT'
+                  ) {
+                    addDiagnosticStep(`realtime.${status.toLowerCase()}`, {
+                      operation: 'realtime.subscription',
+                      outcome: status === 'SUBSCRIBED' ? 'completed' : 'failed',
+                    });
+                  }
+                },
               });
+
+              if (disposed || isBackgrounded) await unsubscribe();
+              else unsubscribeRealtime = unsubscribe;
+            } finally {
+              finishAccountSyncSetup();
             }
-          },
+          }
+
+          // useSyncEngine also catches up on `active`; doing it here keeps this
+          // Realtime lifecycle safe if its owner changes independently later.
+          if (catchUp && !disposed && !isBackgrounded) await onReconnect();
+        })
+        .catch((error) => {
+          if (!disposed) {
+            reportError(error, {
+              operation: 'realtime.setup',
+              error_code: 'realtime_setup_failed',
+            });
+          }
         });
-      } finally {
-        finishAccountSyncSetup?.();
-      }
-    })().catch((error) => {
-      // Beim Accountwechsel darf das DB-Lifecycle-Gate einen bereits
-      // gestarteten Setup-Lauf abbrechen. Echte Setup-Fehler bleiben sichtbar.
-      if (!cancelled) {
-        reportError(error, {
-          operation: 'realtime.setup',
-          error_code: 'realtime_setup_failed',
-        });
-      }
+    };
+
+    reconcileRealtime();
+    const appStateSubscription = AppState.addEventListener('change', (nextState) => {
+      const wasBackgrounded = isBackgrounded;
+      isBackgrounded = nextState === 'background';
+      reconcileRealtime(wasBackgrounded && nextState === 'active');
     });
 
     const stopNetworkTrigger = startNetworkReconnectTrigger({ onReconnect });
-    let stopped = false;
     const stop = async () => {
-      if (stopped) return;
-      stopped = true;
-      cancelled = true;
+      if (disposed) return;
+      disposed = true;
+      isBackgrounded = true;
+      appStateSubscription.remove();
       lastRealtimeStatus = null;
       stopNetworkTrigger();
-      await unsubscribeRealtime?.();
+      transition = transition.then(async () => {
+        const unsubscribe = unsubscribeRealtime;
+        unsubscribeRealtime = null;
+        await unsubscribe?.();
+      });
+      await transition;
     };
     const unregisterAccountStopper = registerAccountSyncStopper(stop);
 

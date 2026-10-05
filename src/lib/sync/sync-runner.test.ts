@@ -3,6 +3,15 @@ const mockGetDatabase = jest.fn();
 const mockGetSupabase = jest.fn();
 const mockRetryFailedOutboxEntries = jest.fn();
 const mockDebugWarn = jest.fn();
+const mockSubscribeHouseholdRealtime = jest.fn();
+
+jest.mock('@/lib/sync/realtime', () => ({
+  subscribeHouseholdRealtime: (...args: unknown[]) => mockSubscribeHouseholdRealtime(...args),
+}));
+
+jest.mock('@/lib/sync/network-trigger', () => ({
+  startNetworkReconnectTrigger: () => jest.fn(),
+}));
 
 jest.mock('@/lib/sync/remote-sync-engine', () => ({
   syncHousehold: (...args: unknown[]) => mockSyncHousehold(...args),
@@ -51,10 +60,12 @@ jest.mock('@/lib/db/outbox', () => {
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, renderHook } from '@testing-library/react-native';
 import { createElement, type ReactNode } from 'react';
+import { AppState } from 'react-native';
 import {
   getLastSyncInfo,
   triggerHouseholdSync,
   triggerHouseholdSyncAfterOutboxMutation,
+  useRealtimeSync,
   useSyncEngine,
 } from '@/lib/sync/sync-runner';
 
@@ -370,6 +381,83 @@ describe('useSyncEngine — Sync-Ausloeser bei lokalem Schreibvorgang', () => {
     }
 
     expect(mockSyncHousehold.mock.calls.length).toBeGreaterThanOrEqual(2);
+
+    await unmount();
+  });
+});
+
+describe('useRealtimeSync — App-Lifecycle', () => {
+  let appStateHandler: ((state: string) => void) | undefined;
+  let unsubscribeRealtime: jest.Mock;
+  let currentStateDescriptor: PropertyDescriptor | undefined;
+
+  function wrapper({ children }: { children: ReactNode }) {
+    const queryClient = new QueryClient({
+      defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+    });
+    return createElement(QueryClientProvider, { client: queryClient }, children);
+  }
+
+  beforeEach(() => {
+    mockGetDatabase.mockResolvedValue({});
+    mockGetSupabase.mockReturnValue({});
+    mockSyncHousehold.mockReset();
+    mockSyncHousehold.mockResolvedValue({ push: { outcomes: [], stoppedEarly: false }, pull: [] });
+    appStateHandler = undefined;
+    unsubscribeRealtime = jest.fn().mockResolvedValue(undefined);
+    mockSubscribeHouseholdRealtime.mockReset().mockReturnValue(unsubscribeRealtime);
+    currentStateDescriptor = Object.getOwnPropertyDescriptor(AppState, 'currentState');
+    Object.defineProperty(AppState, 'currentState', {
+      configurable: true,
+      value: 'active',
+    });
+    jest.spyOn(AppState, 'addEventListener').mockImplementation((_event, handler) => {
+      appStateHandler = handler as (state: string) => void;
+      return { remove: jest.fn() } as ReturnType<typeof AppState.addEventListener>;
+    });
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+    if (currentStateDescriptor) {
+      Object.defineProperty(AppState, 'currentState', currentStateDescriptor);
+    } else {
+      Reflect.deleteProperty(AppState, 'currentState');
+    }
+  });
+
+  it('trennt Realtime im Hintergrund und synchronisiert nach dem Wiederverbinden', async () => {
+    const { unmount } = await renderHook(() => useRealtimeSync('household-1'), { wrapper });
+
+    await act(async () => {
+      await Promise.resolve();
+    });
+    expect(mockSubscribeHouseholdRealtime).toHaveBeenCalledTimes(1);
+
+    await act(async () => {
+      appStateHandler?.('inactive');
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    expect(unsubscribeRealtime).not.toHaveBeenCalled();
+
+    await act(async () => {
+      appStateHandler?.('background');
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    expect(unsubscribeRealtime).toHaveBeenCalledTimes(1);
+
+    mockSyncHousehold.mockClear();
+    await act(async () => {
+      appStateHandler?.('active');
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(mockSubscribeHouseholdRealtime).toHaveBeenCalledTimes(2);
+    expect(mockSyncHousehold).toHaveBeenCalledTimes(1);
 
     await unmount();
   });
