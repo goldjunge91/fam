@@ -191,8 +191,18 @@ export function ReceiptCaptureReviewFlow({
   const dismissWithCleanup = useCallback(async () => {
     discardRequestedRef.current = true;
     lifecycleGenerationRef.current += 1;
-    await persistence.discard();
+    // Das Modal schliesst sofort. Das Aufraeumen laeuft im Hintergrund weiter:
+    // ein Fehler oder Haenger beim Loeschen der lokalen Temp-Dateien darf einen
+    // bereits gespeicherten Bon nicht als haengenden Speichervorgang
+    // erscheinen lassen.
+    void persistence.discard().catch((discardError: unknown) => {
+      debugLogEvent('receipt.capture.flow.discard_failed', {
+        error_type: discardError instanceof Error ? discardError.name : typeof discardError,
+        error_message: discardError instanceof Error ? discardError.message : String(discardError),
+      });
+    });
     setCaptureDraft(null);
+    setReviewDraft(null);
     setPendingSave(null);
     setPendingReceiptId(null);
     setReviewState(null);
@@ -647,7 +657,16 @@ export function ReceiptCaptureReviewFlow({
       );
       if (!isLifecycleCurrent(generation)) return;
       if (result.kind === 'saved_with_pending_assets') {
-        await persistence.save(result.assets.draft);
+        // Der Bon liegt zu diesem Zeitpunkt bereits in Authority und Outbox.
+        // Das Nachfuehren des lokalen Entwurfs ist Buchhaltung fuer den
+        // Hintergrund-Upload und darf das Schliessen nicht verhindern.
+        try {
+          await persistence.save(result.assets.draft);
+        } catch (persistError: unknown) {
+          debugLogEvent('receipt.capture.flow.pending_save_failed', {
+            error_type: persistError instanceof Error ? persistError.name : typeof persistError,
+          });
+        }
         if (!isLifecycleCurrent(generation)) return;
         setCaptureDraft(result.assets.draft);
         setPendingSave(result);
@@ -656,7 +675,14 @@ export function ReceiptCaptureReviewFlow({
         dismissKeepingPendingUpload();
         return;
       }
-      await persistence.transition({ phase: 'saved', updatedAt: nowIso() });
+      try {
+        await persistence.transition({ phase: 'saved', updatedAt: nowIso() });
+      } catch (transitionError: unknown) {
+        debugLogEvent('receipt.capture.flow.saved_transition_failed', {
+          error_type:
+            transitionError instanceof Error ? transitionError.name : typeof transitionError,
+        });
+      }
       if (!isLifecycleCurrent(generation)) return;
       onSaved?.(result);
       await dismissWithCleanup();

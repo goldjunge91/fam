@@ -648,4 +648,129 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     });
     expect(screen.queryByText('Kassenbon wird gespeichert')).not.toBeOnTheScreen();
   });
+
+  it('schliesst das Modal nach einem erfolgreich gespeicherten Bon', async () => {
+    const source = parseGermanReceipt(REWE_RECEIPT_LINES);
+    const persisted = {
+      ...captureDraft(),
+      phase: 'needs_review' as const,
+      review: createReceiptReviewSnapshot(source, createReceiptReviewState(source, 'store-1')),
+    };
+    const state = persistenceWith(persisted);
+    const onDismiss = jest.fn();
+    const onSaved = jest.fn();
+    const uploadedDraft = {
+      ...captureDraft(),
+      status: 'uploaded' as const,
+      phase: 'saved' as const,
+    };
+    const finalize = jest.fn().mockResolvedValue({
+      kind: 'saved' as const,
+      receiptId: 'capture-1',
+      itemIds: ['item-1'],
+      assets: { kind: 'uploaded' as const, draft: uploadedDraft },
+    });
+
+    await render(
+      <ReceiptCaptureReviewFlow
+        visible
+        householdId="household-1"
+        createdBy="user-1"
+        onDismiss={onDismiss}
+        onSaved={onSaved}
+        persistence={state.persistence}
+        processCapture={jest.fn()}
+        finalize={finalize}
+      />,
+    );
+
+    await userEvent
+      .setup()
+      .press(await screen.findByRole('button', { name: 'Kassenbon speichern' }));
+
+    await waitFor(() => expect(onSaved).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(onDismiss).toHaveBeenCalledTimes(1));
+    expect(state.discarded).toHaveBeenCalledTimes(1);
+    expect(screen.queryByRole('button', { name: 'Kassenbon speichern' })).not.toBeOnTheScreen();
+  });
+
+  it('schliesst das Modal auch dann, wenn das lokale Aufraeumen fehlschlaegt', async () => {
+    // Der Bon ist zu diesem Zeitpunkt bereits in Authority + Outbox gespeichert.
+    // Ein Fehler beim Loeschen der lokalen Temp-Dateien darf das Modal deshalb
+    // nicht offen halten; sonst wirkt der Speichervorgang wie haengend.
+    const source = parseGermanReceipt(REWE_RECEIPT_LINES);
+    const persisted = {
+      ...captureDraft(),
+      phase: 'needs_review' as const,
+      review: createReceiptReviewSnapshot(source, createReceiptReviewState(source, 'store-1')),
+    };
+    const state = persistenceWith(persisted);
+    state.discarded.mockRejectedValue(new Error('Datei konnte nicht geloescht werden.'));
+    const onDismiss = jest.fn();
+    const finalize = jest.fn().mockResolvedValue({
+      kind: 'saved' as const,
+      receiptId: 'capture-1',
+      itemIds: ['item-1'],
+      assets: { kind: 'skipped' as const },
+    });
+
+    await render(
+      <ReceiptCaptureReviewFlow
+        visible
+        householdId="household-1"
+        createdBy="user-1"
+        onDismiss={onDismiss}
+        persistence={state.persistence}
+        processCapture={jest.fn()}
+        finalize={finalize}
+      />,
+    );
+
+    await userEvent
+      .setup()
+      .press(await screen.findByRole('button', { name: 'Kassenbon speichern' }));
+
+    await waitFor(() => expect(onDismiss).toHaveBeenCalledTimes(1));
+    expect(screen.queryByRole('button', { name: 'Kassenbon speichern' })).not.toBeOnTheScreen();
+  });
+
+  it('schliesst das Modal, wenn das Aufraeumen nach dem Speichern dauerhaft haengt', async () => {
+    // Der Discard laeuft auf dem Geraet ueber den Dateisystem-Adapter. Ein
+    // haengender Aufraeumschritt darf das Schliessen nicht blockieren; der Bon
+    // liegt zu diesem Zeitpunkt bereits in Authority und Outbox.
+    const source = parseGermanReceipt(REWE_RECEIPT_LINES);
+    const persisted = {
+      ...captureDraft(),
+      phase: 'needs_review' as const,
+      review: createReceiptReviewSnapshot(source, createReceiptReviewState(source, 'store-1')),
+    };
+    const state = persistenceWith(persisted);
+    state.discarded.mockImplementation(() => new Promise<void>(() => {}));
+    const onDismiss = jest.fn();
+    const finalize = jest.fn().mockResolvedValue({
+      kind: 'saved' as const,
+      receiptId: 'capture-1',
+      itemIds: ['item-1'],
+      assets: { kind: 'skipped' as const },
+    });
+
+    await render(
+      <ReceiptCaptureReviewFlow
+        visible
+        householdId="household-1"
+        createdBy="user-1"
+        onDismiss={onDismiss}
+        persistence={state.persistence}
+        processCapture={jest.fn()}
+        finalize={finalize}
+      />,
+    );
+
+    await userEvent
+      .setup()
+      .press(await screen.findByRole('button', { name: 'Kassenbon speichern' }));
+
+    await waitFor(() => expect(onDismiss).toHaveBeenCalledTimes(1));
+    expect(screen.queryByRole('button', { name: 'Kassenbon speichern' })).not.toBeOnTheScreen();
+  });
 });
