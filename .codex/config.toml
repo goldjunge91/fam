@@ -4,13 +4,11 @@ model_verbosity = "medium"
 default_permissions = "project-edit"
 
 [permissions.project-edit]
+description = "Project edits inside the workspace, network for installs"
 
-approval_policy = "on-request"
-approvals_reviewer = "user"
-sandbox_mode = "workspace-write"
-allow_login_shell = true
-web_search = "cached"
-project_root_markers = [".git"]
+# Schreibzugriff auf den Workspace-Root, Lesen sonst minimal
+[permissions.project-edit.filesystem]
+":workspace_roots"."." = "write"
 
 [sandbox_workspace_write]
 network_access = true
