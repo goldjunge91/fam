@@ -156,10 +156,12 @@
     "wrangler": "^4.127.0"
   },
   "scripts": {
+    "preinstall": "bun run check:bun-version",
     "prepare": "git config core.hooksPath .githooks",
     "start": "EXPO_NO_METRO_LAZY=1 bash scripts/local-expo.sh start",
     "ios": "FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=0 FAM_UPDATE_CHANNEL=development bash scripts/local-expo.sh ios",
     "simulator:testbilder": "bash scripts/install-test-images.sh",
+    "check:bun-version": "bun -e 'const pkg = require(\"./package.json\"); const expected = pkg.packageManager?.startsWith(\"bun@\") ? pkg.packageManager.slice(4) : null; if (!expected) { console.error(\"packageManager must be pinned as bun@<version>\"); process.exit(1); } if (Bun.version !== expected) { console.error(\"Required Bun \" + expected + \"; found \" + Bun.version); process.exit(1); }'",
     "check": "biome check .",
     "check:fix": "biome check --write .",
     "typecheck": "tsc --noEmit",
