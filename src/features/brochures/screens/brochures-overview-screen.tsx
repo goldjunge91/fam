@@ -69,7 +69,7 @@ export default function BrochuresOverviewScreen() {
           ) : (
             <>
               <Pressable
-                role="button"
+                accessibilityRole="button"
                 style={[styles.locationButton, { backgroundColor: colors.accent }]}
                 onPress={() => {
                   if (permanentlyDenied) void Linking.openSettings();
@@ -79,7 +79,7 @@ export default function BrochuresOverviewScreen() {
                   {permanentlyDenied ? 'Einstellungen öffnen' : 'Erneut versuchen'}
                 </Txt>
               </Pressable>
-              <Pressable role="button" onPress={() => setIsEditingPostalCode(true)}>
+              <Pressable accessibilityRole="button" onPress={() => setIsEditingPostalCode(true)}>
                 <Txt variant="body" tone="secondary" style={{ textDecorationLine: 'underline' }}>
                   PLZ stattdessen manuell eingeben
                 </Txt>
@@ -144,13 +144,13 @@ export default function BrochuresOverviewScreen() {
             <Txt variant="caption" tone="secondary">
               PLZ {postalCode}
             </Txt>
-            <Pressable role="button" onPress={() => setIsEditingPostalCode(true)}>
+            <Pressable accessibilityRole="button" onPress={() => setIsEditingPostalCode(true)}>
               <Txt variant="body" tone="primary" weight="600">
                 Ändern
               </Txt>
             </Pressable>
             {location.isManual ? (
-              <Pressable role="button" onPress={location.useDeviceLocation}>
+              <Pressable accessibilityRole="button" onPress={location.useDeviceLocation}>
                 <Txt variant="body" tone="secondary" style={{ textDecorationLine: 'underline' }}>
                   Standort verwenden
                 </Txt>
@@ -211,8 +211,8 @@ export default function BrochuresOverviewScreen() {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.filterRow}>
             <Pressable
-              role="button"
-              aria-pressed={selectedStoreId === null}
+              accessibilityRole="button"
+              accessibilityState={{ selected: selectedStoreId === null }}
               style={[
                 styles.filterChip,
                 {
@@ -231,8 +231,8 @@ export default function BrochuresOverviewScreen() {
               return (
                 <Pressable
                   key={store.id}
-                  role="button"
-                  aria-pressed={isSelected}
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: isSelected }}
                   style={[
                     styles.filterChip,
                     {

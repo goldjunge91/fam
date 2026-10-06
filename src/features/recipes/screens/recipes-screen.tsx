@@ -355,8 +355,8 @@ function MealSection({
       <SectionHeading title={title} titleVariant="body" />
       <ScrollView
         horizontal
-        role="list"
-        aria-label={`${title} Rezepte`}
+        accessibilityRole="list"
+        accessibilityLabel={`${title} Rezepte`}
         testID={`meal-section-${title}`}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.mealScrollContent}
@@ -573,8 +573,8 @@ export function RecipesScreen() {
           <TextInput
             value={searchQuery}
             onChangeText={setSearchQuery}
-            role="searchbox"
-            aria-label="Rezepte durchsuchen"
+            accessibilityRole="search"
+            accessibilityLabel="Rezepte durchsuchen"
             placeholder="Rezepte durchsuchen…"
             placeholderTextColor={colors.textSecondary}
             autoFocus
@@ -588,9 +588,9 @@ export function RecipesScreen() {
         <View style={styles.tabRow}>
           <Press
             onPress={() => setView('discover')}
-            role="button"
-            aria-label="Entdecken"
-            aria-selected={view === 'discover'}
+            accessibilityRole="button"
+            accessibilityLabel="Entdecken"
+            accessibilityState={{ selected: view === 'discover' }}
             containerStyle={styles.tabContainer}
             style={[
               styles.tab,
@@ -610,9 +610,9 @@ export function RecipesScreen() {
           </Press>
           <Press
             onPress={() => setView('household')}
-            role="button"
-            aria-label="Eigene Rezepte"
-            aria-selected={view === 'household'}
+            accessibilityRole="button"
+            accessibilityLabel="Eigene Rezepte"
+            accessibilityState={{ selected: view === 'household' }}
             containerStyle={styles.tabContainer}
             style={[
               styles.tab,
@@ -632,9 +632,9 @@ export function RecipesScreen() {
           </Press>
           <Press
             onPress={() => setView('favorites')}
-            role="button"
-            aria-label="Meine Favoriten"
-            aria-selected={view === 'favorites'}
+            accessibilityRole="button"
+            accessibilityLabel="Meine Favoriten"
+            accessibilityState={{ selected: view === 'favorites' }}
             containerStyle={styles.tabContainer}
             style={[
               styles.tab,

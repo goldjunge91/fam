@@ -45,8 +45,8 @@ function SummaryRow({
   return (
     <Pressable
       onPress={onPress}
-      role="button"
-      aria-label={`${label} bearbeiten. ${summary}`}
+      accessibilityRole="button"
+      accessibilityLabel={`${label} bearbeiten. ${summary}`}
       style={[profileEditStyles.summaryRow, bordered && profileEditStyles.summaryRowBordered]}>
       <Txt variant="body" weight="700" style={profileEditStyles.summaryLabel}>
         {label}
@@ -55,7 +55,11 @@ function SummaryRow({
         {summary}
       </Txt>
       <View style={profileEditStyles.summaryChevron}>
-        <Txt variant="title" tone="secondary" aria-hidden>
+        <Txt
+          variant="title"
+          tone="secondary"
+          accessibilityElementsHidden={true}
+          importantForAccessibility="no">
           ›
         </Txt>
       </View>

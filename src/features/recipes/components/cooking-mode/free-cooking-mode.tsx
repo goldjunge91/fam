@@ -137,7 +137,7 @@ export function FreeCookingMode({ data }: { data: RecipeDetail }) {
           onPress={() =>
             router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'plus' } })
           }
-          role="button"
+          accessibilityRole="button"
           containerStyle={styles.unlockContainer}
           style={[styles.unlock, { backgroundColor: colors.accent }]}>
           <Txt variant="caption" tone="onAccent" weight="700" center>

@@ -80,8 +80,8 @@ export function CookingModeTimer({
       <Press
         onPress={() => (running ? onPause() : onStart())}
         disabled={remainingSeconds === 0}
-        role="button"
-        aria-label={running ? 'Timer pausieren' : 'Timer fortsetzen'}
+        accessibilityRole="button"
+        accessibilityLabel={running ? 'Timer pausieren' : 'Timer fortsetzen'}
         style={[styles.action, { backgroundColor: colors.backgroundSoft }]}>
         <Txt variant="caption" tone="primary" weight="700">
           {running ? 'Ⅱ' : '▶'}
@@ -89,8 +89,8 @@ export function CookingModeTimer({
       </Press>
       <Press
         onPress={onReset}
-        role="button"
-        aria-label="Timer zurücksetzen"
+        accessibilityRole="button"
+        accessibilityLabel="Timer zurücksetzen"
         style={[styles.action, { backgroundColor: colors.backgroundSoft }]}>
         <Txt variant="caption" tone="primary" weight="700">
           ↺

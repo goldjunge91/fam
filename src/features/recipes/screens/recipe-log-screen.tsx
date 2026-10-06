@@ -262,8 +262,8 @@ export function RecipeLogScreen() {
             </View>
             <Press
               onPress={() => router.back()}
-              role="button"
-              aria-label="Schließen"
+              accessibilityRole="button"
+              accessibilityLabel="Schließen"
               style={styles.close}>
               <View style={[styles.closeFace, { backgroundColor: colors.backgroundSoft }]}>
                 <Txt variant="body" tone="secondary" weight="500">

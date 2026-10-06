@@ -44,7 +44,8 @@ export function CookingModeFinishAction({
   return (
     <Press
       onPress={onPress}
-      role="button"
+      accessibilityRole="button"
+      accessibilityLabel={`${title}. ${subtitle}`}
       style={[styles.action, { backgroundColor: colors.backgroundElement }]}>
       <View style={[styles.icon, { backgroundColor: colors.backgroundSoft }]} />
       <View style={styles.copy}>

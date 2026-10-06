@@ -118,10 +118,14 @@ export function FoodRuleSelectionSheet<Code extends string>({
             </View>
             <Pressable
               onPress={onClose}
-              role="button"
-              aria-label={`${title} schließen`}
+              accessibilityRole="button"
+              accessibilityLabel={`${title} schließen`}
               style={foodRuleSelectionSheetStyles.closeButton}>
-              <Txt variant="body" tone="secondary" aria-hidden>
+              <Txt
+                variant="body"
+                tone="secondary"
+                accessibilityElementsHidden={true}
+                importantForAccessibility="no">
                 ✕
               </Txt>
             </Pressable>
@@ -151,9 +155,9 @@ export function FoodRuleSelectionSheet<Code extends string>({
                 <Pressable
                   key={preset.code}
                   onPress={() => togglePreset(preset.code)}
-                  role="checkbox"
-                  aria-label={preset.label}
-                  aria-checked={selected}
+                  accessibilityRole="checkbox"
+                  accessibilityLabel={preset.label}
+                  accessibilityState={{ checked: selected }}
                   style={[
                     foodRuleSelectionSheetStyles.option,
                     selected && foodRuleSelectionSheetStyles.optionSelected,
@@ -197,8 +201,8 @@ export function FoodRuleSelectionSheet<Code extends string>({
                         ),
                       )
                     }
-                    role="button"
-                    aria-label={`${selection.label} entfernen`}
+                    accessibilityRole="button"
+                    accessibilityLabel={`${selection.label} entfernen`}
                     style={foodRuleSelectionSheetStyles.removeButton}>
                     <Txt variant="label" tone="primary" weight="700">
                       Entfernen

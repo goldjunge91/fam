@@ -210,9 +210,11 @@ describe('EditProfileScreen', () => {
     const passwordInput = screen.getByLabelText('Neues Passwort');
 
     expect(passwordInput).toHaveProp('secureTextEntry', true);
-    await user.press(screen.getByRole('button', { name: 'Neues Passwort anzeigen' }));
+    await user.press(screen.getByRole('togglebutton', { name: 'Neues Passwort anzeigen' }));
     expect(passwordInput).toHaveProp('secureTextEntry', false);
-    expect(screen.getByRole('button', { name: 'Neues Passwort verbergen' })).toBeOnTheScreen();
+    expect(
+      screen.getByRole('togglebutton', { name: 'Neues Passwort verbergen' }),
+    ).toBeOnTheScreen();
   });
 
   it('zeigt Bild entfernen an wenn ein avatar_url vorhanden ist', async () => {

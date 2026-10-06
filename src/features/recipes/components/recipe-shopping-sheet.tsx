@@ -225,7 +225,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
                   ]}>
                   <Press
                     onPress={() => toggle(item.productId)}
-                    role="checkbox"
+                    accessibilityRole="checkbox"
                     accessibilityState={{ checked }}
                     accessibilityLabel={item.name}
                     containerStyle={styles.itemMainContainer}

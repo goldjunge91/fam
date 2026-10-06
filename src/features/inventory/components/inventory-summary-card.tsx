@@ -67,7 +67,7 @@ export function InventorySummaryCard({
   return (
     <View
       accessible
-      aria-label={`${criticalCount} Artikel laufen bald ab, ${soonCount} bald fällig, ${totalCount} insgesamt im Vorrat`}
+      accessibilityLabel={`${criticalCount} Artikel laufen bald ab, ${soonCount} bald fällig, ${totalCount} insgesamt im Vorrat`}
       style={styles.summaryRow}>
       {renderCard(
         'inventory-summary-critical',

@@ -48,9 +48,9 @@ export function PasswordChangeSheet({
       <Press
         onPress={onPress}
         haptic="none"
-        role="button"
-        aria-label={`${label} ${visibleValue ? 'verbergen' : 'anzeigen'}`}
-        aria-pressed={visibleValue}
+        accessibilityRole="togglebutton"
+        accessibilityLabel={`${label} ${visibleValue ? 'verbergen' : 'anzeigen'}`}
+        accessibilityState={{ checked: visibleValue }}
         hitSlop={4}
         style={profileSheetStyles.visibilityButton}>
         <SymbolView
@@ -120,7 +120,7 @@ export function PasswordChangeSheet({
           </View>
 
           {submissionError ? (
-            <Txt role="alert" variant="caption" tone="danger">
+            <Txt accessibilityRole="alert" variant="caption" tone="danger">
               {submissionError}
             </Txt>
           ) : null}

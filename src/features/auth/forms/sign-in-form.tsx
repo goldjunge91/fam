@@ -108,11 +108,11 @@ export function SignInForm({ onSuccess, submitLabel, testIDPrefix = 'sign-in' }:
       <Press
         onPress={() => setPasswordVisible((current) => !current)}
         haptic="selection"
-        accessibilityRole="button"
+        accessibilityRole="togglebutton"
         accessibilityLabel={
           passwordVisible ? t('auth.actions.hidePassword') : t('auth.actions.showPassword')
         }
-        aria-pressed={passwordVisible}
+        accessibilityState={{ checked: passwordVisible }}
         hitSlop={4}
         containerStyle={styles.visibilityButtonContainer}
         style={styles.visibilityButton}>

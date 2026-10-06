@@ -85,8 +85,8 @@ export function FrequentProductsQuickSelect({
           key={row.name.toLowerCase()}
           haptic="selection"
           onPress={() => onSelectProduct(toOpenFoodFactsProduct(row))}
-          role="button"
-          aria-label={row.name}
+          accessibilityRole="button"
+          accessibilityLabel={row.name}
           style={styles.chip}>
           <Txt variant="body" numberOfLines={1}>
             {row.name}

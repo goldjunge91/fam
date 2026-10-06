@@ -101,11 +101,15 @@ describe('SignInScreen', () => {
 
     expect(passwordInput).toHaveProp('secureTextEntry', true);
 
-    await user.press(screen.getByRole('button', { name: 'Passwort anzeigen' }));
+    const showPassword = screen.getByRole('togglebutton', { name: 'Passwort anzeigen' });
+    expect(showPassword).toHaveProp('accessibilityState', { checked: false });
+    await user.press(showPassword);
     expect(passwordInput).toHaveProp('secureTextEntry', false);
     expect(passwordInput).toHaveDisplayValue('password123');
 
-    await user.press(screen.getByRole('button', { name: 'Passwort verbergen' }));
+    const hidePassword = screen.getByRole('togglebutton', { name: 'Passwort verbergen' });
+    expect(hidePassword).toHaveProp('accessibilityState', { checked: true });
+    await user.press(hidePassword);
     expect(passwordInput).toHaveProp('secureTextEntry', true);
   });
 

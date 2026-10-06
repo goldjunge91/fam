@@ -99,15 +99,27 @@ describe('SignUpScreen', () => {
     expect(passwordInput).toHaveProp('secureTextEntry', true);
     expect(confirmationInput).toHaveProp('secureTextEntry', true);
 
-    await user.press(screen.getByRole('button', { name: 'Passwort anzeigen' }));
+    const showPassword = screen.getByRole('togglebutton', { name: 'Passwort anzeigen' });
+    expect(showPassword).toHaveProp('accessibilityState', { checked: false });
+    await user.press(showPassword);
     expect(passwordInput).toHaveProp('secureTextEntry', false);
     expect(passwordInput).toHaveDisplayValue('supersecret');
-    expect(screen.getByRole('button', { name: 'Passwort verbergen' })).toBeOnTheScreen();
+    const hidePassword = screen.getByRole('togglebutton', { name: 'Passwort verbergen' });
+    expect(hidePassword).toHaveProp('accessibilityState', { checked: true });
+    expect(hidePassword).toBeOnTheScreen();
 
-    await user.press(screen.getByRole('button', { name: 'Passwortbestätigung anzeigen' }));
+    const showConfirmation = screen.getByRole('togglebutton', {
+      name: 'Passwortbestätigung anzeigen',
+    });
+    expect(showConfirmation).toHaveProp('accessibilityState', { checked: false });
+    await user.press(showConfirmation);
     expect(confirmationInput).toHaveProp('secureTextEntry', false);
     expect(confirmationInput).toHaveDisplayValue('supersecret');
-    expect(screen.getByRole('button', { name: 'Passwortbestätigung verbergen' })).toBeOnTheScreen();
+    const hideConfirmation = screen.getByRole('togglebutton', {
+      name: 'Passwortbestätigung verbergen',
+    });
+    expect(hideConfirmation).toHaveProp('accessibilityState', { checked: true });
+    expect(hideConfirmation).toBeOnTheScreen();
   });
 
   it('navigiert direkt weiter, wenn signUp mit aktiver Session zurueckkommt', async () => {

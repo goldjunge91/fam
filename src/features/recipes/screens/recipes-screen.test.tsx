@@ -248,7 +248,7 @@ describe('RecipesScreen — Entdecken', () => {
     await render(<RecipesScreen />);
 
     await user.press(screen.getByRole('button', { name: 'Rezepte durchsuchen' }));
-    await user.type(screen.getByRole('searchbox', { name: 'Rezepte durchsuchen' }), 'Pizza');
+    await user.type(screen.getByRole('search', { name: 'Rezepte durchsuchen' }), 'Pizza');
 
     expect(screen.getAllByRole('button', { name: 'Pizza Home' }).length).toBeGreaterThan(0);
     expect(screen.queryByRole('button', { name: 'Salat Overview' })).not.toBeOnTheScreen();

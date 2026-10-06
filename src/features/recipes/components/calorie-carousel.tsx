@@ -61,9 +61,9 @@ export function CalorieCarousel({ selectedIndex, onSelect }: CalorieCarouselProp
               <Press
                 key={bucket.label}
                 onPress={() => onSelect(selected ? null : index)}
-                role="button"
-                aria-label={`${bucket.label} Kilokalorien`}
-                aria-selected={selected}
+                accessibilityRole="button"
+                accessibilityLabel={`${bucket.label} Kilokalorien`}
+                accessibilityState={{ selected: selected }}
                 style={[
                   styles.tile,
                   {

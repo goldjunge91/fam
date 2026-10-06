@@ -97,9 +97,9 @@ export function SignUpForm({
       <Press
         onPress={onPress}
         haptic="selection"
-        accessibilityRole="button"
+        accessibilityRole="togglebutton"
         accessibilityLabel={visibleValue ? hideLabel : showLabel}
-        aria-pressed={visibleValue}
+        accessibilityState={{ checked: visibleValue }}
         hitSlop={4}
         containerStyle={styles.visibilityButtonContainer}
         style={styles.visibilityButton}>

@@ -77,8 +77,8 @@ export function BrochureHotspot({ hotspot, onPress, isActive, isVisible }: Broch
         style={[StyleSheet.absoluteFill, styles.aura, { borderColor: colors.accent }, auraStyle]}
       />
       <Pressable
-        role="button"
-        aria-label={`${hotspot.title}${hotspot.discount ? `, ${hotspot.discount}` : ''}`}
+        accessibilityRole="button"
+        accessibilityLabel={`${hotspot.title}${hotspot.discount ? `, ${hotspot.discount}` : ''}`}
         style={styles.pressableArea}
         onPress={() => onPress(hotspot)}
         android_ripple={{ color: withAlpha(colors.accent, 0.2) }}>

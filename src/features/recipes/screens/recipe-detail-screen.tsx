@@ -418,7 +418,7 @@ function ManageRow({
   return (
     <Press
       onPress={onPress}
-      role="button"
+      accessibilityRole="button"
       style={[
         styles.manageRow,
         !isLast && { borderBottomColor: colors.border, borderBottomWidth: 1 },
@@ -613,9 +613,9 @@ export function RecipeDetailScreen() {
               <Press
                 key={tab}
                 onPress={() => setActiveTab(tab)}
-                role="tab"
-                aria-label={label}
-                aria-selected={selected}
+                accessibilityRole="tab"
+                accessibilityLabel={label}
+                accessibilityState={{ selected: selected }}
                 containerStyle={styles.tabContainer}
                 style={[
                   styles.tab,
@@ -668,9 +668,11 @@ export function RecipeDetailScreen() {
                 {tags.length > 3 ? (
                   <Press
                     onPress={() => setShowAllTags((visible) => !visible)}
-                    role="button"
-                    aria-label={showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'}
-                    aria-expanded={showAllTags}
+                    accessibilityRole="button"
+                    accessibilityLabel={
+                      showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'
+                    }
+                    accessibilityState={{ expanded: showAllTags }}
                     hitSlop={8}>
                     <Txt variant="caption" tone="secondary" style={styles.tagMore} weight="500">
                       {showAllTags ? 'Weniger' : `+${tags.length - 3} mehr`}
@@ -690,8 +692,8 @@ export function RecipeDetailScreen() {
               <View style={[styles.stepper, { backgroundColor: colors.backgroundElement }]}>
                 <Press
                   onPress={() => setServings((value) => Math.max(1, value - 1))}
-                  role="button"
-                  aria-label="Weniger Portionen"
+                  accessibilityRole="button"
+                  accessibilityLabel="Weniger Portionen"
                   containerStyle={styles.stepperButtonContainer}
                   style={styles.stepperButton}>
                   <Txt variant="subheading" tone="secondary" weight="500">
@@ -703,8 +705,8 @@ export function RecipeDetailScreen() {
                 </Txt>
                 <Press
                   onPress={() => setServings((value) => value + 1)}
-                  role="button"
-                  aria-label="Mehr Portionen"
+                  accessibilityRole="button"
+                  accessibilityLabel="Mehr Portionen"
                   containerStyle={styles.stepperButtonContainer}
                   style={styles.stepperButton}>
                   <Txt variant="subheading" tone="secondary" weight="500">
@@ -719,8 +721,8 @@ export function RecipeDetailScreen() {
 
             {/* Button zur Übernahme fehlender Zutaten in die Einkaufsliste */}
             <Press
-              role="button"
-              aria-label="Fehlende Zutaten zur Einkaufsliste hinzufügen"
+              accessibilityRole="button"
+              accessibilityLabel="Fehlende Zutaten zur Einkaufsliste hinzufügen"
               onPress={() => setShoppingOpen(true)}
               style={[
                 styles.missingButton,
@@ -824,8 +826,8 @@ export function RecipeDetailScreen() {
             {/* Button zum Erstellen/Bearbeiten der Bewertung */}
             <Press
               onPress={() => setRatingOpen(true)}
-              role="button"
-              aria-label={rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
+              accessibilityRole="button"
+              accessibilityLabel={rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
               style={[styles.ratingButton, { backgroundColor: colors.accent }]}>
               <Txt variant="heading" tone="onAccent">
                 {rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
@@ -839,8 +841,8 @@ export function RecipeDetailScreen() {
       <View style={styles.floatingContainer}>
         <Press
           onPress={() => router.push({ pathname: '/recipe/cook', params: { id: recipe.id } })}
-          role="button"
-          aria-label="Kochmodus starten"
+          accessibilityRole="button"
+          accessibilityLabel="Kochmodus starten"
           style={[styles.floatingButton, { backgroundColor: colors.accent }]}>
           <Txt variant="heading" tone="onAccent">
             Kochmodus starten
@@ -868,8 +870,8 @@ export function RecipeDetailScreen() {
               </Txt>
               <Press
                 onPress={() => setManageOpen(false)}
-                role="button"
-                aria-label="Schließen"
+                accessibilityRole="button"
+                accessibilityLabel="Schließen"
                 style={[styles.manageClose, { backgroundColor: colors.backgroundSoft }]}>
                 <Txt variant="heading" tone="secondary">
                   ×

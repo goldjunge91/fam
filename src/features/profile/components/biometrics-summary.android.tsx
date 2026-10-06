@@ -39,8 +39,8 @@ export function BiometricsSummary({
         </Txt>
         <Pressable
           onPress={onPress}
-          role="button"
-          aria-label={`Körper & Aktivität bearbeiten. ${accessibleSummary}`}
+          accessibilityRole="button"
+          accessibilityLabel={`Körper & Aktivität bearbeiten. ${accessibleSummary}`}
           style={profileEditStyles.biometricsEdit}>
           <Txt variant="body" tone="primary" weight="700">
             Bearbeiten

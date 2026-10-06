@@ -113,9 +113,9 @@ export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProp
           <Press
             key={tile.key}
             onPress={() => onSelect(selected ? null : tile.key)}
-            role="button"
-            aria-label={tile.label}
-            aria-selected={selected}
+            accessibilityRole="button"
+            accessibilityLabel={tile.label}
+            accessibilityState={{ selected: selected }}
             style={[
               styles.tile,
               {

@@ -179,8 +179,8 @@ export function CookingModeStep({
         <Press
           onPress={onPreviousStep}
           disabled={stepIndex === 0}
-          role="button"
-          aria-label="Vorheriger Schritt"
+          accessibilityRole="button"
+          accessibilityLabel="Vorheriger Schritt"
           style={[
             styles.previous,
             { backgroundColor: colors.backgroundSoft },
@@ -192,7 +192,7 @@ export function CookingModeStep({
         </Press>
         <Press
           onPress={onNextStep}
-          role="button"
+          accessibilityRole="button"
           containerStyle={styles.nextContainer}
           style={[styles.next, { backgroundColor: colors.accent }]}>
           <Txt variant="caption" tone="onAccent" weight="700" center>

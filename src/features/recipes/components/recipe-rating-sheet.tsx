@@ -107,8 +107,8 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
             <Press
               key={value}
               onPress={() => setScore(value)}
-              role="button"
-              aria-label={`${value} von 10 Sternen`}
+              accessibilityRole="button"
+              accessibilityLabel={`${value} von 10 Sternen`}
               accessibilityState={{ selected: isSelected }}
               style={[
                 styles.scoreButton,
@@ -144,7 +144,7 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
       <Press
         onPress={submit}
         disabled={score === 0 || saving}
-        role="button"
+        accessibilityRole="button"
         containerStyle={styles.submitContainer}
         style={[
           styles.submit,

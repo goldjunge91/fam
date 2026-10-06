@@ -159,7 +159,7 @@ export function RecipeFilterModal({
           />
 
           <ScrollView
-            aria-label="Filterauswahl"
+            accessibilityLabel="Filterauswahl"
             style={styles.scroll}
             contentContainerStyle={styles.scrollContent}
             showsVerticalScrollIndicator={false}>
@@ -190,9 +190,9 @@ export function RecipeFilterModal({
                   return (
                     <Press
                       key={meal.key}
-                      role="button"
-                      aria-label={meal.label}
-                      aria-selected={selected}
+                      accessibilityRole="button"
+                      accessibilityLabel={meal.label}
+                      accessibilityState={{ selected: selected }}
                       onPress={() =>
                         setDraft((current) => ({
                           ...current,
@@ -232,9 +232,9 @@ export function RecipeFilterModal({
                     return (
                       <Press
                         key={tag}
-                        role="button"
-                        aria-label={`Tag ${tag}`}
-                        aria-selected={selected}
+                        accessibilityRole="button"
+                        accessibilityLabel={`Tag ${tag}`}
+                        accessibilityState={{ selected: selected }}
                         onPress={() =>
                           setDraft((current) => ({
                             ...current,

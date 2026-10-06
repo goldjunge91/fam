@@ -212,8 +212,8 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
         </View>
         <Press
           onPress={onAdd}
-          role="button"
-          aria-label={`Zu ${MEAL_LABELS[meal]} hinzufügen`}
+          accessibilityRole="button"
+          accessibilityLabel={`Zu ${MEAL_LABELS[meal]} hinzufügen`}
           hitSlop={8}
           style={styles.addButton}>
           <PlusIcon size={18} color={colors.onAccent} />
@@ -223,8 +223,8 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
         <Press
           key={entry.id}
           onPress={() => onEntry(entry.id)}
-          role="button"
-          aria-label={`${entry.name} bearbeiten`}
+          accessibilityRole="button"
+          accessibilityLabel={`${entry.name} bearbeiten`}
           hitSlop={4}
           style={styles.entryRow}>
           <View style={styles.entryInfo}>

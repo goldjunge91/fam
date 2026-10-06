@@ -97,7 +97,11 @@ export function RecipeBottomSheet({
           <Txt variant="heading" style={styles.title}>
             {title}
           </Txt>
-          <Press onPress={onClose} role="button" aria-label="Schließen" style={styles.close}>
+          <Press
+            onPress={onClose}
+            accessibilityRole="button"
+            accessibilityLabel="Schließen"
+            style={styles.close}>
             <View style={[styles.closeFace, { backgroundColor: colors.backgroundSoft }]}>
               <Txt variant="subheading" tone="secondary" weight="500">
                 ×

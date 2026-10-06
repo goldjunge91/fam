@@ -45,7 +45,7 @@ export function CookingModeNoSteps({ recipe, onFinish }: CookingModeNoStepsProps
       </Txt>
       <Press
         onPress={onFinish}
-        role="button"
+        accessibilityRole="button"
         style={[styles.finish, { backgroundColor: colors.accent }]}>
         <Txt variant="caption" tone="onAccent" weight="700" center>
           Zubereitung abschließen

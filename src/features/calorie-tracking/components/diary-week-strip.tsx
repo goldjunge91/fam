@@ -129,8 +129,8 @@ export function DiaryWeekStrip({
               <Press
                 key={day.isoDate}
                 onPress={() => onSelect(day.isoDate)}
-                role="button"
-                aria-label={`${day.relativeLabel}, ${day.fullLabel}, ${day.kcalLabel}`}
+                accessibilityRole="button"
+                accessibilityLabel={`${day.relativeLabel}, ${day.fullLabel}, ${day.kcalLabel}`}
                 containerStyle={styles.dayContainer}
                 style={styles.day}>
                 <Txt

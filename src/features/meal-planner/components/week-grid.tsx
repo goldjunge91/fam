@@ -129,8 +129,8 @@ export function WeekGrid({ dates, entries, onTapEntry, onTapEmptyCell }: WeekGri
                     {cellEntries.map((entry) => (
                       <Press
                         key={entry.id}
-                        role="button"
-                        aria-label={`${entry.recipe_title}, ${portionLabel(entry.portions)}`}
+                        accessibilityRole="button"
+                        accessibilityLabel={`${entry.recipe_title}, ${portionLabel(entry.portions)}`}
                         onPress={() => onTapEntry(entry)}
                         style={styles.entryChip}>
                         <Txt variant="label" weight="700" numberOfLines={1}>
@@ -143,8 +143,8 @@ export function WeekGrid({ dates, entries, onTapEntry, onTapEmptyCell }: WeekGri
                     ))}
 
                     <Press
-                      role="button"
-                      aria-label={`${SLOT_LABELS[slot]} am ${weekdayLabel(date)}, Gericht hinzufügen`}
+                      accessibilityRole="button"
+                      accessibilityLabel={`${SLOT_LABELS[slot]} am ${weekdayLabel(date)}, Gericht hinzufügen`}
                       onPress={() => onTapEmptyCell(date, slot)}
                       style={styles.addButton}>
                       <Txt variant="label" tone="primary" weight="700">

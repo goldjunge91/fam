@@ -448,9 +448,9 @@ export function RecipeCatalogDetailScreen() {
               <Press
                 key={tab}
                 onPress={() => setActiveTab(tab)}
-                role="tab"
-                aria-label={label}
-                aria-selected={selected}
+                accessibilityRole="tab"
+                accessibilityLabel={label}
+                accessibilityState={{ selected: selected }}
                 containerStyle={styles.footerPress}
                 style={[
                   styles.tab,
@@ -499,9 +499,11 @@ export function RecipeCatalogDetailScreen() {
                 {tags.length > 3 ? (
                   <Press
                     onPress={() => setShowAllTags((visible) => !visible)}
-                    role="button"
-                    aria-label={showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'}
-                    aria-expanded={showAllTags}
+                    accessibilityRole="button"
+                    accessibilityLabel={
+                      showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'
+                    }
+                    accessibilityState={{ expanded: showAllTags }}
                     hitSlop={8}>
                     <Txt variant="caption" tone="secondary" style={styles.tagMore} weight="500">
                       {showAllTags ? 'Weniger' : `+${tags.length - 3} mehr`}
@@ -524,8 +526,8 @@ export function RecipeCatalogDetailScreen() {
                     onPress={() =>
                       setServings((value) => Math.max(1, (value ?? currentServings) - 1))
                     }
-                    role="button"
-                    aria-label="Weniger Portionen"
+                    accessibilityRole="button"
+                    accessibilityLabel="Weniger Portionen"
                     style={styles.stepperButton}>
                     <Txt variant="subheading" tone="secondary" weight="500">
                       −
@@ -536,8 +538,8 @@ export function RecipeCatalogDetailScreen() {
                   </Txt>
                   <Press
                     onPress={() => setServings((value) => (value ?? currentServings) + 1)}
-                    role="button"
-                    aria-label="Mehr Portionen"
+                    accessibilityRole="button"
+                    accessibilityLabel="Mehr Portionen"
                     style={styles.stepperButton}>
                     <Txt variant="subheading" tone="secondary" weight="500">
                       +
@@ -590,8 +592,8 @@ export function RecipeCatalogDetailScreen() {
         <View style={styles.footerActions}>
           <Press
             onPress={() => router.push({ pathname: '/recipe/cook', params: { slug: recipe.slug } })}
-            role="button"
-            aria-label="Kochmodus starten"
+            accessibilityRole="button"
+            accessibilityLabel="Kochmodus starten"
             containerStyle={styles.footerPress}
             style={[
               styles.footerButton,
@@ -608,8 +610,8 @@ export function RecipeCatalogDetailScreen() {
           <Press
             onPress={() => void copyToHousehold()}
             disabled={buttonDisabled}
-            role="button"
-            aria-label="Rezept in meine Rezepte übernehmen"
+            accessibilityRole="button"
+            accessibilityLabel="Rezept in meine Rezepte übernehmen"
             containerStyle={styles.footerPress}
             style={[
               styles.footerButton,

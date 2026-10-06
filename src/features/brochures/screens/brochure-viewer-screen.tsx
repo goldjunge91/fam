@@ -316,8 +316,8 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
           style={StyleSheet.absoluteFill}
           pointerEvents="box-none">
           <Pressable
-            role="button"
-            aria-label="Artikeldetails schließen"
+            accessibilityRole="button"
+            accessibilityLabel="Artikeldetails schließen"
             style={[styles.backdropPressArea, { backgroundColor: colors.scrim }]}
             onPress={closeProductSheet}
           />
@@ -332,8 +332,8 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
             ]}>
             <View style={[styles.sheetHandle, { backgroundColor: colors.border }]} />
             <Pressable
-              role="button"
-              aria-label="Artikeldetails schließen"
+              accessibilityRole="button"
+              accessibilityLabel="Artikeldetails schließen"
               style={[styles.sheetClose, { backgroundColor: colors.background }]}
               onPress={closeProductSheet}>
               <Txt variant="glyphLarge" tone="primary">
@@ -380,8 +380,8 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                   { borderColor: colors.border, backgroundColor: colors.background },
                 ]}>
                 <Pressable
-                  role="button"
-                  aria-label="Menge verringern"
+                  accessibilityRole="button"
+                  accessibilityLabel="Menge verringern"
                   disabled={quantity === 1}
                   style={styles.stepperButton}
                   onPress={() => setQuantity((current) => Math.max(1, current - 1))}>
@@ -393,8 +393,8 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                   {quantity}×
                 </Txt>
                 <Pressable
-                  role="button"
-                  aria-label="Menge erhöhen"
+                  accessibilityRole="button"
+                  accessibilityLabel="Menge erhöhen"
                   style={styles.stepperButton}
                   onPress={() => setQuantity((current) => current + 1)}>
                   <Txt variant="subheading" tone="primary">
@@ -403,8 +403,8 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                 </Pressable>
               </View>
               <Pressable
-                role="button"
-                aria-label="Auf die Einkaufsliste"
+                accessibilityRole="button"
+                accessibilityLabel="Auf die Einkaufsliste"
                 disabled={addShoppingItem.isPending}
                 style={[
                   styles.addButton,
@@ -428,9 +428,9 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
       ) : null}
 
       <Pressable
-        role="switch"
-        aria-checked={hotspotsVisible}
-        aria-label="Artikel-Hotspots"
+        accessibilityRole="switch"
+        accessibilityState={{ checked: hotspotsVisible }}
+        accessibilityLabel="Artikel-Hotspots"
         style={[
           styles.hotspotToggle,
           {
@@ -444,8 +444,8 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
         </Txt>
       </Pressable>
       <Pressable
-        role="button"
-        aria-label="Prospekt schließen"
+        accessibilityRole="button"
+        accessibilityLabel="Prospekt schließen"
         style={[styles.closeButton, { top: Math.max(insets.top, 16) }]}
         onPress={() => router.back()}>
         <View style={[styles.closeButtonFace, { backgroundColor: withAlpha(colors.text, 0.7) }]}>

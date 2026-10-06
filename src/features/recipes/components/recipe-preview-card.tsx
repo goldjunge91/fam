@@ -226,8 +226,8 @@ export function RecipePreviewCard({
   return (
     <Press
       onPress={onPress}
-      role="button"
-      aria-label={title}
+      accessibilityRole="button"
+      accessibilityLabel={title}
       containerStyle={styles.previewContainer}
       style={styles.previewCard}>
       <RecipeArtwork title={title} coverUrl={coverUrl} coverPath={coverImagePath} />
@@ -267,8 +267,8 @@ export function RecipeHeroCard({
   return (
     <Press
       onPress={onPress}
-      role="button"
-      aria-label={title}
+      accessibilityRole="button"
+      accessibilityLabel={title}
       containerStyle={styles.heroContainer}
       style={styles.heroCard}>
       <RecipeArtwork title={title} coverUrl={coverUrl} coverPath={coverImagePath} />

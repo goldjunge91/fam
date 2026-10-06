@@ -375,7 +375,11 @@ export function EditProfileScreen() {
       />
 
       {formError ? (
-        <Txt role="alert" variant="body" tone="danger" style={profileEditStyles.formError}>
+        <Txt
+          accessibilityRole="alert"
+          variant="body"
+          tone="danger"
+          style={profileEditStyles.formError}>
           {formError}
         </Txt>
       ) : null}

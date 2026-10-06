@@ -91,7 +91,7 @@ export function CookingModeFinished({
           </View>
         ) : null}
 
-        <Press onPress={() => router.back()} role="button" style={styles.close}>
+        <Press onPress={() => router.back()} accessibilityRole="button" style={styles.close}>
           <Txt variant="caption" tone="secondary">
             Ohne Angaben schließen
           </Txt>
