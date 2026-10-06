@@ -77,10 +77,9 @@ export function parseAvailableIosSimulators(json: string): SimulatorDevice[] {
 }
 
 // -- CNG-Schritte -----------------------------------------------------------
-// `--no-clean` aktualisiert ios/ schrittweise statt es neu zu erzeugen. Ein
-// vollstaendiger Neuaufbau wirft die inkrementellen Build-Caches weg; Swift,
-// Link und dSYM sind nicht ccache-gedeckt und kosten dann jedes Mal Minuten.
-// Quelle: docs.expo.dev Expo CLI `prebuild`.
+// Simulatoren regenerieren ios/ sauber; Store-Archive erhalten das vorhandene
+// native Projekt. DerivedData liegt getrennt unter build/cache/ios/<ziel>.
+// `--no-install` laesst die sichtbare pod-install-Stufe anschliessend explizit.
 export function prebuildStep(envFile: string, destination: 'simulator' | 'device'): CommandStep {
   return {
     command: 'env',
@@ -91,7 +90,7 @@ export function prebuildStep(envFile: string, destination: 'simulator' | 'device
       'x',
       'expo',
       'prebuild',
-      '--no-clean',
+      ...(destination === 'simulator' ? ['--clean'] : ['--no-clean']),
       '--platform',
       'ios',
       '--no-install',
@@ -230,39 +229,21 @@ export interface BuildChoice {
   label: string;
   hint: string;
   type: BuildType;
-  /** Nur bei Store-Typen gesetzt. Simulator baut immer lokal. */
-  location?: BuildLocation;
   simulatorMode?: SimulatorMode;
 }
 
 export const BUILD_CHOICES: BuildChoice[] = [
   {
-    id: 'testflight-cloud',
-    label: 'TestFlight Cloud',
-    hint: 'Build auf EAS-Servern, Upload zu TestFlight.',
+    id: 'testflight',
+    label: 'TestFlight',
+    hint: 'Build erstellen und zu TestFlight hochladen.',
     type: 'testflight',
-    location: 'cloud',
   },
   {
-    id: 'testflight-local',
-    label: 'TestFlight Local',
-    hint: 'Build auf dieser Maschine, Upload zu TestFlight (EAS oder Xcode).',
-    type: 'testflight',
-    location: 'local',
-  },
-  {
-    id: 'production-cloud',
-    label: 'Production Cloud',
-    hint: 'Build auf EAS-Servern, Upload zu App Store Connect.',
+    id: 'app-store',
+    label: 'App Store',
+    hint: 'Build erstellen und zu App Store Connect hochladen.',
     type: 'production',
-    location: 'cloud',
-  },
-  {
-    id: 'production-local',
-    label: 'Production Local',
-    hint: 'Build auf dieser Maschine, Upload zu App Store Connect (EAS oder Xcode).',
-    type: 'production',
-    location: 'local',
   },
   {
     id: 'simulator-build-only',
@@ -290,6 +271,25 @@ export function buildChoiceOptions(): Array<{ value: string; label: string; hint
 
 export function findBuildChoice(id: string): BuildChoice | undefined {
   return BUILD_CHOICES.find((choice) => choice.id === id);
+}
+
+export function buildLocationOptions(): Array<{
+  value: BuildLocation;
+  label: string;
+  hint: string;
+}> {
+  return [
+    {
+      value: 'cloud',
+      label: 'EAS Cloud',
+      hint: 'Build auf EAS-Servern erstellen und hochladen.',
+    },
+    {
+      value: 'local',
+      label: 'Lokal',
+      hint: 'Build auf diesem Rechner erstellen und hochladen.',
+    },
+  ];
 }
 
 // -- Submit-Methode ---------------------------------------------------------

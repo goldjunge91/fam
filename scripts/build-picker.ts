@@ -25,6 +25,7 @@ import {
   type BuildChoice,
   type BuildLocation,
   buildChoiceOptions,
+  buildLocationOptions,
   buildLogPath,
   type CommandStep,
   easLocalBuildEnv,
@@ -241,7 +242,7 @@ async function runSimulator(choice: BuildChoice): Promise<number> {
     mode: choice.simulatorMode ?? 'build-only',
     envFile: SIMULATOR_ENV_FILE,
     udid: device?.udid,
-    cacheName: 'simulator',
+    cacheName: choice.id,
   });
 
   for (const step of plan.build) {
@@ -293,7 +294,12 @@ async function runSimulator(choice: BuildChoice): Promise<number> {
 
 async function runStore(choice: BuildChoice): Promise<number> {
   const type = choice.type as StoreType;
-  const location = choice.location as BuildLocation;
+  const locationAnswer = await p.select<BuildLocation>({
+    message: `Wie soll ${choice.label} gebaut werden?`,
+    options: buildLocationOptions(),
+  });
+  if (p.isCancel(locationAnswer)) cancelAndExit();
+  const location = locationAnswer as BuildLocation;
 
   let submit: SubmitMethod = 'eas';
   const methods = submitMethodOptions(location);

@@ -5,6 +5,7 @@ import { pathToFileURL } from 'node:url';
 import {
   BUILD_CHOICES,
   buildChoiceOptions,
+  buildLocationOptions,
   buildLogPath,
   easCleanCloneStep,
   easLocalBuildEnv,
@@ -14,26 +15,26 @@ import {
   parseAvailableIosSimulators,
   parseShowBuildSettings,
   profileFor,
+  simulatorBootStep,
+  simulatorInstallStep,
+  simulatorLaunchStep,
   simulatorSteps,
   storeSteps,
   submitMethodOptions,
 } from '../scripts/build-picker-logic';
 
-describe('Menue: Typ und Ort in einer Ebene', () => {
-  it('bietet TestFlight Cloud, TestFlight Local, Production Cloud, Production Local und zwei Simulator-Modi', () => {
+describe('Menue: nach Build-Ziel', () => {
+  it('bietet die vier Ziele statt einer Profil-Auswahl', () => {
     expect(BUILD_CHOICES.map((choice) => choice.id)).toEqual([
-      'testflight-cloud',
-      'testflight-local',
-      'production-cloud',
-      'production-local',
+      'testflight',
+      'app-store',
       'simulator-build-only',
       'simulator-install',
     ]);
   });
 
-  it('beschriftet TestFlight Cloud ohne das Wort "lokal"', () => {
-    expect(findBuildChoice('testflight-cloud')?.label).toBe('TestFlight Cloud');
-    expect(findBuildChoice('testflight-local')?.label).toBe('TestFlight Local');
+  it('laesst den Build-Ort erst nach der Zielauswahl waehlen', () => {
+    expect(buildLocationOptions().map((option) => option.value)).toEqual(['cloud', 'local']);
   });
 
   it('liefert fuer jede Menue-Option einen aufloesbaren Eintrag', () => {
@@ -148,19 +149,61 @@ describe('storeSteps: Xcode', () => {
 });
 
 describe('simulatorSteps', () => {
-  it('baut mit --no-clean und liefert den Settings-Schritt zum Pfadablesen', () => {
+  it('baut mit --clean und liefert den Settings-Schritt zum Pfadablesen', () => {
     const plan = simulatorSteps({
       mode: 'build-only',
       envFile: '.env.development.local',
-      udid: 'BDE4',
-      cacheName: 'simulator',
+      cacheName: 'simulator-build-only',
     });
 
     expect(plan.build).toHaveLength(3);
+    expect(plan.build.map((step) => step.command)).toEqual(['env', 'pod', 'xcodebuild']);
+    expect(plan.build[0].args).toEqual([
+      'FAM_IOS_MLKIT_OCR=0',
+      'bun',
+      '--env-file=.env.development.local',
+      'x',
+      'expo',
+      'prebuild',
+      '--clean',
+      '--platform',
+      'ios',
+      '--no-install',
+    ]);
+    expect(plan.build[1].args).toEqual(['install', '--project-directory=ios']);
     expect(plan.build[0].args).toContain('FAM_IOS_MLKIT_OCR=0');
-    expect(plan.build[0].args).toContain('--no-clean');
+    expect(plan.build[0].args).toContain('--clean');
+    expect(plan.build[0].args).not.toContain('--no-clean');
     expect(plan.showSettings.args).toContain('-showBuildSettings');
-    expect(plan.derivedDataPath).toBe('build/cache/ios/simulator/DerivedData');
+    expect(plan.derivedDataPath).toBe('build/cache/ios/simulator-build-only/DerivedData');
+    expect(plan.build[2].args).toContain('generic/platform=iOS Simulator');
+  });
+
+  it('baut fuer das Installationsziel auf der ausgewaehlten UDID', () => {
+    const plan = simulatorSteps({
+      mode: 'install',
+      envFile: '.env.development.local',
+      udid: 'BDE4',
+      cacheName: 'simulator-install',
+    });
+
+    expect(plan.build[2].args).toContain('platform=iOS Simulator,id=BDE4');
+    expect(plan.derivedDataPath).toBe('build/cache/ios/simulator-install/DerivedData');
+  });
+
+  it('bietet separate rohe Simulator-Boot-, Install- und Startbefehle', () => {
+    expect(simulatorBootStep('BDE4')).toEqual({
+      command: 'xcrun',
+      args: ['simctl', 'boot', 'BDE4'],
+    });
+    expect(simulatorInstallStep('BDE4', '/build/fam.app')).toEqual({
+      command: 'xcrun',
+      args: ['simctl', 'install', 'BDE4', '/build/fam.app'],
+    });
+    expect(simulatorLaunchStep('BDE4')).toEqual({
+      command: 'xcrun',
+      args: ['simctl', 'launch', 'BDE4', 'com.goldjunge91.fam1'],
+    });
   });
 });
 
