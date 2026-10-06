@@ -122,7 +122,6 @@ if git diff --name-only "$range" | grep -qE '^supabase/schemas/'; then
     echo "         Die CI-Stufe 'Generierte DB-Typen duerfen nicht abweichen' deckt das ab."
   else
     bun run db:types
-    bunx oxfmt src/lib/database.types.ts
     if ! git diff --quiet -- src/lib/database.types.ts; then
       echo ""
       echo "src/lib/database.types.ts ist veraltet."
