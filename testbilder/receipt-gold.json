@@ -118,12 +118,14 @@
           "kind": "coupon",
           "visible": true,
           "labels": ["Coupon Gratisartikel", "Coupon"],
+          "line_total_cents": -129,
           "action": "exclude_from_items"
         },
         {
           "kind": "deposit",
           "visible": true,
           "labels": ["Pfand"],
+          "line_total_cents": 25,
           "action": "exclude_from_items"
         },
         {

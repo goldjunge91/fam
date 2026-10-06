@@ -471,6 +471,18 @@ describe('parseGermanReceipt', () => {
     );
   });
 
+  it('records IMG_4219 deposit and coupon amounts in the gold manifest', () => {
+    const source = receiptGold.sources.find(({ file }) => file === 'IMG_4219_rabatt_1.29.png');
+    if (!source) throw new Error('Gold source IMG_4219_rabatt_1.29.png is missing.');
+
+    expect(source.excluded_lines).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ kind: 'deposit', line_total_cents: 25 }),
+        expect.objectContaining({ kind: 'coupon', line_total_cents: -129 }),
+      ]),
+    );
+  });
+
   it('does not borrow the next EDEKA row price when an amount was not observed', () => {
     const source = receiptGold.sources.find(({ file }) => file === 'IMG_4218.png');
     if (!source) throw new Error('Gold source IMG_4218.png is missing.');
