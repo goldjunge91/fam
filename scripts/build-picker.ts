@@ -92,6 +92,17 @@ export async function runStep(step: CommandStep): Promise<StepResult> {
   p.log.step(commandLine);
   log(`\n${commandLine}`);
 
+  const submitPathIndex = step.args.indexOf('--path');
+  if (step.args.includes('submit') && submitPathIndex !== -1) {
+    const submitPath = step.args[submitPathIndex + 1];
+    if (!submitPath || !fs.existsSync(path.resolve(projectRoot, submitPath))) {
+      const reason = `Submit-Datei fehlt: ${submitPath ?? '(kein Pfad angegeben)'}`;
+      p.log.error(reason);
+      log(reason);
+      return { ok: false, durationMs: 0 };
+    }
+  }
+
   const startedAt = Date.now();
   const child = spawn(step.command, step.args, {
     cwd: projectRoot,
@@ -99,8 +110,10 @@ export async function runStep(step: CommandStep): Promise<StepResult> {
     stdio: ['inherit', 'pipe', 'pipe'],
   });
 
+  let recentOutput = '';
   const forward = (output: NodeJS.WriteStream, chunk: Buffer): void => {
     output.write(chunk);
+    recentOutput = `${recentOutput}${chunk.toString('utf8')}`.slice(-4000);
     if (logFilePath) fs.appendFileSync(logFilePath, chunk);
   };
   child.stdout?.on('data', (chunk: Buffer) => forward(process.stdout, chunk));
@@ -127,7 +140,15 @@ export async function runStep(step: CommandStep): Promise<StepResult> {
       : result.signal
         ? `Signal ${result.signal}`
         : `Exit-Code ${result.code ?? 'unbekannt'}`;
-    const message = `Fehlgeschlagen nach ${duration} (${reason}).`;
+    const outputDetail = recentOutput
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .slice(-3)
+      .join(' | ')
+      .slice(-600);
+    const detail = outputDetail ? ` — Ursache: ${outputDetail}` : '';
+    const message = `Fehlgeschlagen nach ${duration} (${reason})${detail}.`;
     p.log.error(message);
     log(message);
     return { ok: false, durationMs };

@@ -102,6 +102,14 @@ describe('storeSteps: EAS', () => {
     expect(steps[1].args).toContain('production');
     expect(steps[1].args).toContain('--path');
   });
+
+  it('Production Cloud laedt den neuesten bei EAS registrierten Build hoch', () => {
+    const steps = storeSteps({ ...base, type: 'production', location: 'cloud', submit: 'eas' });
+
+    expect(steps[0].args).toContain('production');
+    expect(steps[1].args).toContain('production');
+    expect(steps[1].args).toContain('--latest');
+  });
 });
 
 describe('storeSteps: Xcode', () => {
@@ -308,6 +316,66 @@ describe('Logging und Zeitmessung', () => {
       if (!closed) await closedResult;
       fs.rmSync(tempDirectory, { recursive: true, force: true });
     }
+  });
+
+  it('zeigt die konkrete letzte Kindprozessausgabe bei einem fehlgeschlagenen Schritt', async () => {
+    const pickerUrl = pathToFileURL(path.resolve('scripts/build-picker.ts')).href;
+    const childScript = [
+      "process.stderr.write('No builds found for the selected iOS profile\\n');",
+      'process.exit(1);',
+    ].join('\n');
+    const harness = [
+      `import { runStep } from ${JSON.stringify(pickerUrl)};`,
+      `await runStep({ command: process.execPath, args: ['-e', ${JSON.stringify(childScript)}] });`,
+    ].join('\n');
+    const child = spawn('bun', ['-e', harness], {
+      cwd: process.cwd(),
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    let output = '';
+    child.stdout.on('data', (chunk: Buffer) => {
+      output += chunk.toString();
+    });
+    child.stderr.on('data', (chunk: Buffer) => {
+      output += chunk.toString();
+    });
+    const result = await new Promise<{ code: number | null; signal: NodeJS.Signals | null }>(
+      (resolve) => {
+        child.once('close', (code, signal) => resolve({ code, signal }));
+      },
+    );
+
+    expect(result).toEqual({ code: 0, signal: null });
+    expect(output).toContain('Ursache: No builds found for the selected iOS profile');
+  });
+
+  it('meldet eine fehlende lokale Submit-IPA, ohne EAS zu starten', async () => {
+    const pickerUrl = pathToFileURL(path.resolve('scripts/build-picker.ts')).href;
+    const childScript = "process.stdout.write('EAS wurde gestartet\\n');";
+    const harness = [
+      `import { runStep } from ${JSON.stringify(pickerUrl)};`,
+      `await runStep({ command: process.execPath, args: ['-e', ${JSON.stringify(childScript)}, 'submit', '--path', 'build/tmp/missing-build-picker-test.ipa'] });`,
+    ].join('\n');
+    const child = spawn('bun', ['-e', harness], {
+      cwd: process.cwd(),
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    let output = '';
+    child.stdout.on('data', (chunk: Buffer) => {
+      output += chunk.toString();
+    });
+    child.stderr.on('data', (chunk: Buffer) => {
+      output += chunk.toString();
+    });
+    const result = await new Promise<{ code: number | null; signal: NodeJS.Signals | null }>(
+      (resolve) => {
+        child.once('close', (code, signal) => resolve({ code, signal }));
+      },
+    );
+
+    expect(result).toEqual({ code: 0, signal: null });
+    expect(output).toContain('Submit-Datei fehlt: build/tmp/missing-build-picker-test.ipa');
+    expect(output).not.toContain('\nEAS wurde gestartet\n');
   });
 
   it('legt das Log unter logs/ mit Zeitstempel und Auswahl im Namen ab', () => {
