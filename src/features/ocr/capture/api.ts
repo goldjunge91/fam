@@ -246,7 +246,7 @@ export async function getResumableReceiptDraft(
   if (!accountId) return null;
   const draft = await createReceiptCapturePersistence(accountId).load();
   if (!draft) return null;
-  if (draft.status === 'uploaded') return null;
+  if (draft.status === 'uploaded' || draft.phase === 'saved') return null;
   return {
     draftId: draft.id,
     phase: draft.phase,

@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen, within } from '@testing-library/react-native';
+import { act, fireEvent, render, screen, userEvent, within } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { borderWidth, radius, space } from '@/components/theme/index';
@@ -6,7 +6,14 @@ import { i18n } from '@/i18n';
 import { ReceiptScannerScreen } from './receipt-scanner-screen';
 
 const mockSetFlowVisible = jest.fn();
-const mockFlowProps: { value: null | { initialCapture?: unknown } } = { value: null };
+const mockFlowProps: {
+  value: null | {
+    initialCapture?: unknown;
+    visible: boolean;
+    onDismiss?: () => void;
+    onSaved?: (result: never) => void;
+  };
+} = { value: null };
 const mockRouterBack = jest.fn();
 const mockRouterCanGoBack = jest.fn(() => true);
 
@@ -32,13 +39,30 @@ jest.mock('@/features/ocr/processing/review/receipt-capture-review-flow', () => 
   ReceiptCaptureReviewFlow: ({
     visible,
     initialCapture,
+    onDismiss,
+    onSaved,
   }: {
     visible: boolean;
     initialCapture?: unknown;
+    onDismiss?: () => void;
+    onSaved?: (result: never) => void;
   }) => {
     mockSetFlowVisible(visible);
-    mockFlowProps.value = { initialCapture };
-    return null;
+    mockFlowProps.value = { initialCapture, visible, onDismiss, onSaved };
+    if (!visible) return null;
+
+    const { Pressable, Text } = jest.requireActual<typeof import('react-native')>('react-native');
+    return (
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel="Test-Bon abschließen"
+        onPress={() => {
+          onSaved?.(undefined as never);
+          onDismiss?.();
+        }}>
+        <Text>Bon abschließen</Text>
+      </Pressable>
+    );
   },
 }));
 
@@ -55,6 +79,22 @@ jest.mock('@/features/ocr/capture/api', () => ({
     save: (...args: unknown[]) => mockPersistenceSave(...args),
   }),
 }));
+
+jest.mock('@tanstack/react-query', () => {
+  const actual =
+    jest.requireActual<typeof import('@tanstack/react-query')>('@tanstack/react-query');
+  return {
+    ...actual,
+    useQueryClient: () => ({
+      setQueryData: (queryKey: readonly unknown[], data: unknown) => {
+        if (queryKey[0] === 'receipt-resumable-draft') {
+          mockResumableDraft.value = data as typeof mockResumableDraft.value;
+        }
+        return data;
+      },
+    }),
+  };
+});
 
 const mockTakePictureAsync = jest.fn();
 let mockCameraGranted = true;
@@ -125,6 +165,27 @@ describe('ReceiptScannerScreen — Wiederaufnahme', () => {
     } finally {
       mockResumableDraft.value = null;
     }
+  });
+
+  it('schließt den Flow und entfernt den Resume-Einstieg nach erfolgreichem Speichern', async () => {
+    mockResumableDraft.value = { draftId: 'capture-1', phase: 'needs_review', pageCount: 1 };
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <ReceiptScannerScreen />
+      </SafeAreaProvider>,
+    );
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Entwurf fortsetzen' }));
+    await user.press(screen.getByRole('button', { name: 'Test-Bon abschließen' }));
+
+    expect(mockSetFlowVisible).toHaveBeenLastCalledWith(false);
+    expect(screen.queryByRole('button', { name: 'Test-Bon abschließen' })).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Entwurf fortsetzen' })).not.toBeOnTheScreen();
   });
 
   it('zeigt ohne Entwurf keinen Wiedereinstieg an', async () => {

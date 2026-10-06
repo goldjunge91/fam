@@ -256,4 +256,25 @@ describe('getResumableReceiptDraft', () => {
 
     expect(await getResumableReceiptDraft('user-1')).toBeNull();
   });
+
+  it('meldet einen gespeicherten, noch nicht bereinigten Entwurf nicht mehr als fortsetzbar', async () => {
+    const storage = inMemoryStorage();
+    mockGetEncryptedAccountStorage.mockResolvedValue(storage);
+    const persistence = createReceiptCapturePersistence('user-1', { storage });
+    const draft = createReceiptCaptureDraft({
+      id: 'capture-saved',
+      source: 'camera',
+      pages: [
+        {
+          id: 'page-1',
+          localUri: 'file:///documents/receipt-captures/capture-saved/page-1.jpg',
+          mimeType: 'image/jpeg',
+        },
+      ],
+      createdAt: CREATED_AT,
+    });
+    await persistence.save({ ...draft, phase: 'saved' });
+
+    expect(await getResumableReceiptDraft('user-1')).toBeNull();
+  });
 });

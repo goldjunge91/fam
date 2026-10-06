@@ -1,4 +1,5 @@
 import { Feather } from '@expo/vector-icons';
+import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
@@ -197,6 +198,7 @@ export function ReceiptScannerScreen() {
   const { activeHouseholdId } = useActiveHousehold();
   const userId = session?.user.id;
   const resumableDraft = useResumableReceiptDraft(userId);
+  const queryClient = useQueryClient();
   const [permission, requestPermission] = useCameraPermissionsHook();
 
   const livePreviewAvailable = isCameraSupported && Boolean(permission?.granted);
@@ -397,6 +399,7 @@ export function ReceiptScannerScreen() {
           householdId={activeHouseholdId}
           createdBy={userId}
           onDismiss={closeFlow}
+          onSaved={() => queryClient.setQueryData(['receipt-resumable-draft', userId], null)}
           initialCapture={initialCapture ?? undefined}
         />
       ) : null}
