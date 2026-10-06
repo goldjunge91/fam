@@ -4,6 +4,18 @@ import path from 'node:path';
 
 const projectRoot = path.resolve(__dirname, '..');
 
+describe('eas-ios-build.sh local diagnostics', () => {
+  it('preserves EAS diagnostics and records the working directory before the build', () => {
+    const script = fs.readFileSync(path.join(projectRoot, 'scripts', 'eas-ios-build.sh'), 'utf8');
+
+    expect(script).toContain('export EAS_LOCAL_BUILD_SKIP_CLEANUP=1');
+    expect(script.indexOf('EAS working directory:')).toBeLessThan(
+      script.indexOf('bun x eas-cli "${args[@]}"'),
+    );
+    expect(script).toContain('tee -a "$log_file"');
+  });
+});
+
 describe('eas-ios-build.sh EAS profile validation', () => {
   it('accepts every build profile from eas.json except base', () => {
     const easConfig = JSON.parse(fs.readFileSync(path.join(projectRoot, 'eas.json'), 'utf8')) as {

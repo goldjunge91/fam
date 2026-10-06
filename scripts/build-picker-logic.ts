@@ -464,11 +464,12 @@ export function easLocalBuildEnv(profile: string, runId: string): EasLocalBuildE
   };
 }
 
-// eas-cli braucht fuer den lokalen Build drei Variablen. Ohne sie legt es
-// Clone und Artefakte unter TMPDIR bzw. neben dem Projekt ab.
+// eas-cli braucht fuer den lokalen Build diese Pfade, und Cleanup muss aus
+// bleiben, damit die EAS-Logs nach fruehen Fehlern verfuegbar sind.
 export function easLocalBuildEnvVars(env: EasLocalBuildEnv): Record<string, string> {
   return {
     EAS_LOCAL_BUILD_WORKINGDIR: env.workingDir,
+    EAS_LOCAL_BUILD_SKIP_CLEANUP: '1',
     TMPDIR: `${env.tmpDir}/`,
     EAS_LOCAL_BUILD_ARTIFACTS_DIR: env.artifactsDir,
   };

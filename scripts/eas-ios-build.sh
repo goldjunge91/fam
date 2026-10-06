@@ -81,6 +81,7 @@ if [[ "$mode" == local ]]; then
   # und profitieren am meisten. Das alte Projekt-Extrakt wird entfernt.
   eas_working_directory="$eas_temp_root/work"
   export EAS_LOCAL_BUILD_WORKINGDIR="$eas_working_directory"
+  export EAS_LOCAL_BUILD_SKIP_CLEANUP=1
   if [[ -d "$eas_working_directory" ]]; then
     find "$eas_working_directory" -mindepth 1 -maxdepth 1 -exec rm -rf {} + 2>/dev/null || true
   fi
@@ -97,5 +98,8 @@ fi
 log_dir="$local_build_env_project_root/build/local/eas/$profile"
 mkdir -p "$log_dir"
 log_file="$log_dir/build-$(date +%Y%m%d-%H%M%S).log"
-bun x eas-cli "${args[@]}" 2>&1 | tee "$log_file"
+if [[ "$mode" == local ]]; then
+  printf 'EAS working directory: %s\nEAS log: %s\n' "$EAS_LOCAL_BUILD_WORKINGDIR" "$log_file" | tee -a "$log_file"
+fi
+bun x eas-cli "${args[@]}" 2>&1 | tee -a "$log_file"
 printf 'EAS-Log: %s\n' "$log_file"

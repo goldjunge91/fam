@@ -428,6 +428,7 @@ describe('Arbeitsverzeichnis fuer lokale EAS-Builds', () => {
     expect(vars.TMPDIR.endsWith('/')).toBe(true);
     expect(vars.EAS_LOCAL_BUILD_ARTIFACTS_DIR).toBe('build/local/eas/preview-testflight-local');
     expect(vars.EAS_LOCAL_BUILD_WORKINGDIR).toContain('/work');
+    expect(vars.EAS_LOCAL_BUILD_SKIP_CLEANUP).toBe('1');
   });
 
   it('haelt beim Aufraeumen den build-Ordner fuer inkrementelle DerivedData', () => {
