@@ -35,8 +35,17 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-case "$profile" in
-development-local | preview-testflight-local | production-local | development | preview-testflight | production) ;;
+profile_names="$(bun -e '
+const fs = require("node:fs");
+const config = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
+if (!config.build || typeof config.build !== "object" || Array.isArray(config.build)) {
+  process.exit(2);
+}
+console.log(Object.keys(config.build).filter((name) => name !== "base").join(" "));
+' "$local_build_env_project_root/eas.json")" || fail 'EAS-Profile konnten nicht aus eas.json gelesen werden.'
+
+case " $profile_names " in
+*" $profile "*) ;;
 *) fail "Unbekanntes iOS-EAS-Profil: $profile" ;;
 esac
 
