@@ -1,9 +1,11 @@
 # Recherche: Parsing natürlicher Einkaufsartikel verbessern
 
-Stand: 18. September 2026  
+Bericht erstellt: 18. September 2026
+Repository-Abgleich: 6. Oktober 2026
 Scope: V2-Beta `natuerliches-hinzufuegen-von-einkaufsartikeln`, lokaler
-deutscher Parser, Spracheingabe über den vorhandenen Adapter und iPhone-11-
-Simulator `4B293FA5-24E8-4BF4-8295-3EF2D6C50F7D` mit iOS 26.2.
+deutscher Parser und Spracheingabe über den vorhandenen Adapter. Der im
+ursprünglichen Testlauf verwendete iPhone-11-Simulator ist historischer Kontext;
+sein aktueller Zustand wurde bei diesem Abgleich nicht erneut geprüft.
 
 ## Kurzentscheidung
 
@@ -13,8 +15,8 @@ Bibliothek sein. Die beste erste Ausbaustufe ist ein hybrider, lokaler Parser:
 1. Transcript normalisieren, ohne semantische Information zu löschen.
 2. Artikelgrenzen aus mehreren schwachen Signalen als Kandidaten erzeugen.
 3. Kandidatensegmente mit einer kleinen deutschen Einkaufsgrammatik in Slots
-   zerlegen: `name`, `quantity`, `unit`, `brand` und später optional
-   `store`.
+   zerlegen: `name`, `quantity`, `unit` und `brand`; die Listenwahl bleibt ein
+   nachgelagerter Routing-Schritt.
 4. Lokale Produkt-/Markenlexika für Erkennung, Aliasauflösung und ASR-Kontext
    verwenden.
 5. Unsicherheit, Alternativen und unparsed text sichtbar halten.
@@ -26,36 +28,81 @@ offline-fähig und sicher vor falschen Listen-Schreibvorgängen.
 
 ## Aktueller Baseline-Befund im Repository
 
-Der bestehende Parser unter
-`src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/domain/parser.ts`
-ist ein sinnvoller Baseline-Parser, aber noch ein sehr enger Regex-Cascade:
+Der aktuelle Parser liegt in
+[`src/features/shopping-list/stt-beta/domain/parser.ts`](../../../src/features/shopping-list/stt-beta/domain/parser.ts).
+Er ist ein deterministischer Regex-Parser mit diesen belegten Regeln:
 
-- Segmentierung erfolgt über Komma, Semikolon, Zeilenumbruch, `und` und
-  Satzzeichen.
-- Mengen sind führende arabische Zahlen mit optionalem `x` sowie die deutschen
-  Zahlwörter eins bis zehn.
-- Einheiten werden nur als erstes Token nach der Menge erkannt.
-- Marken werden über `von ...` oder ein führendes Großbuchstabenmuster erkannt.
-- Die Ausgabe enthält Artikel, Menge, Einheit, Marke und einen Resttext, aber
-  noch keine Parserdiagnostik oder Feldkonfidenz.
+- Er normalisiert den Eingang auf NFC, entfernt einen begrenzten Satz an
+  Spracheinleitungen und schützt Dezimalzeichen sowie `z. B.`/`stk.` vor dem
+  Segmentieren.
+- Artikelgrenzen entstehen an Komma, Semikolon, Zeilenumbruch, `und`, Satzende
+  und zusätzlichen erkannten Mengenstarts. Gewöhnliche Leerzeichen allein
+  trennen nicht. Ein Test hält das absichtlich zusammengeführte Beispiel
+  `Apfelkuchen nehme ich Eier Wasser` fest.
+- Mengen umfassen führende Dezimalzahlen, `x`/`×`, `ein`/`eine`/`einen`, die
+  Zahlwörter `zwei` bis `zwölf`, `zweihundert`, `fünfhundert` sowie
+  `halbe`/`halbes` mit optionalem `ein` in der konkreten Regexform. `mal`,
+  zusammengesetzte Zahlwörter wie `fünfzehn` und die Form `eine halbe` sind
+  nicht abgedeckt.
+- Eine Einheit wird nur als erstes Token nach der Menge erkannt. Aliase wie
+  `Liter`, `kg`, `Stück`, `Stk`, `Packung`, `Becher`, `Dose` und ihre im Parser
+  definierten Varianten werden über `normalizeUnit` abgebildet.
+- Eine Marke wird durch ein Suffix `von ...` oder ein führendes Token in
+  Großbuchstaben erkannt. Die Schreibweise nach `von` wird nicht kanonisiert;
+  z. B. bleibt `ja` kleingeschrieben, wenn es so erkannt wird.
+- `ParseResult` enthält nur `items` mit `name`, `quantity`, `unit`, `brand`
+  und `unparsedText`. Es gibt weder Feldkonfidenz noch eine Liste von
+  Parseralternativen. Nicht erkannte Segmente werden gesammelt und mit Komma
+  verbunden; das ist nicht dasselbe wie eine exakte Span-Abbildung auf die
+  ursprüngliche Eingabe. Die Optimierungs-Spec verlangt einen exakt erhaltenen
+  Rohspan; dieser Anspruch ist durch den Istcode nicht für beliebige
+  Segmentierungen erfüllt. Bei mehreren unbekannten Segmenten werden etwa
+  unterschiedliche Original-Trennzeichen auf Kommas vereinheitlicht.
+- Ein semantisch falsches, aber syntaktisch gültiges Wort kann als Artikelname
+  durchlaufen. Deshalb beweist `unparsedText: null` nicht die semantische
+  Richtigkeit.
 
-Der Sprachadapter unter
-`src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/services/speech-recognition-adapter.ts`
+Die vorhandenen Tests in
+[`parser.test.ts`](../../../src/features/shopping-list/stt-beta/domain/parser.test.ts)
+belegen die Beispiele `3 Äpfel`, `3x Joghurt`, `1,5 Liter Milch`, `ein halbes
+Kilo Mehl`, `zwei Packungen Nudeln`, `4x Skyr von JA`, Satzzeichen und
+unpunktierte Mengenstarts. Sie sind die bestehende deterministische Baseline,
+nicht der Nachweis für vollständiges Sprachverständnis.
 
-- fordert `maxAlternatives: 3` an,
-- übernimmt anschließend aber nur `event.results[0]`,
-- setzt noch keine `contextualStrings`,
-- transportiert finale Speech-Segmente zwar in den Workflow,
-- übergibt dem Parser aktuell ausschließlich den finalen Text.
+Die Strukturbeispiele in der V2- und Optimierungs-Spec zeigen weiterhin den
+früheren Feature-Pfad
+`src/features/shopping-list/natuerliches-hinzufuegen-von-einkaufsartikeln-beta/`.
+Für den Iststand ist `src/features/shopping-list/stt-beta/` der vorhandene
+Quellpfad; die Specs werden in diesem Report nicht geändert.
 
-Das sind konkrete, kleine Hebel. Sie rechtfertigen noch kein neues lokales
-Modell.
+Der Adapter liegt in
+[`speech-recognition-adapter.ts`](../../../src/features/shopping-list/stt-beta/services/speech-recognition-adapter.ts);
+`bun.lock` pinnt `expo-speech-recognition` auf `57.1.0`. Der aktuelle Code:
+
+- setzt `maxAlternatives: 1`, nicht `3`,
+- setzt die statische `CONTEXTUAL_STRING_LIST` mit `Skyr`, `Passata`,
+  `Kidneybohnen` und `Erythrit`, nicht ein aus dem Haushaltskatalog
+  abgeleitetes Lexikon,
+- übernimmt nur das erste finale `event.results[0]` und hängt finale
+  Transcript-Chunks zusammen,
+- liest dabei weder `confidence` noch `segments` aus und übergibt dem Parser
+  ausschließlich den finalen Text,
+- setzt derzeit `requiresOnDeviceRecognition: false`.
+
+Der letzte Punkt widerspricht der freigegebenen V2-Spec, die
+`requiresOnDeviceRecognition: true` und einen Nichtverfügbarkeitszustand statt
+Netzwerk-Fallback verlangt. Die Optimierungs-Spec beschreibt außerdem einen
+Baseline-/Kontextstring-A/B-Lauf, während der inspizierte Adapter die statische
+Kontextliste immer aktiviert und keine Variantenoption hat. Das sind
+Vertragsabweichungen, keine Empfehlung dieses Berichts, den Vertrag zu ändern.
+Vor einer nativen ASR-Auswertung müssen sie mit dem zuständigen Owner geklärt
+werden.
 
 ## Befund 1: Speech-Ergebnis als Evidenz, nicht als fertige Artikelliste
 
 Apple beschreibt `SFSpeechRecognitionResult` als Container für eine oder
-mehrere Transkriptionen, die nach Konfidenz sortiert werden können. Ein Ergebnis
-enthält außerdem den finalen/nicht-finalen Status.
+mehrere Transkriptionen derselben Äußerung, absteigend nach Konfidenz sortiert.
+`isFinal` unterscheidet partielle von finalen Ergebnissen.
 
 Quelle: [Apple `SFSpeechRecognitionResult`](https://developer.apple.com/documentation/speech/sfspeechrecognitionresult)
 
@@ -64,53 +111,63 @@ Alternativinterpretationen, Konfidenz sowie Startzeit und Dauer.
 
 Quelle: [Apple `SFTranscriptionSegment`](https://developer.apple.com/documentation/speech/sftranscriptionsegment)
 
-Das aktuelle `expo-speech-recognition`-Paket bietet dafür
-`maxAlternatives`, `contextualStrings` und finale Ergebnis-Segmente an.
+Die im Projekt gelockte Version `expo-speech-recognition@57.1.0` bietet
+`maxAlternatives`, `contextualStrings`, Result-Konfidenz und Segmentdaten an.
+Diese Felder sind im aktuellen Adapter verfügbar, werden aber nicht in den
+Parser-Workflow übernommen. Die Segmentfelder sind plattformabhängig: Laut
+Pakettypdefinition sind Android-Segmente erst ab API 34 beschrieben, nur für
+den Google-Sprachdienst verifiziert und haben derzeit keine Segmentkonfidenz.
 
-Quelle: [expo-speech-recognition README](https://github.com/jamsch/expo-speech-recognition#readme)
+Quelle: [expo-speech-recognition 57.1.0 README](https://github.com/jamsch/expo-speech-recognition/blob/v57.1.0/README.md) und [Result-Typen](https://github.com/jamsch/expo-speech-recognition/blob/v57.1.0/src/ExpoSpeechRecognitionModule.types.ts)
 
 ### Übertragbarkeit
 
-- Die beste Transkription darf nicht die einzige intern verwertete Evidenz sein.
-- Für die erste Version reicht es, Alternativen und Segmentdaten intern zu
-  behalten und nur bei niedriger Parserqualität als Kandidaten zu vergleichen.
-- Segmentgrenzen sind starke Hinweise für Pausen oder erkannte Einheiten, aber
-  nicht automatisch Artikelgrenzen.
-- Start- und Endzeiten können eine Pause zwischen `Milch` und `Eier` als
-  zusätzliches, weiches Signal liefern.
+- Die Dokumentation zeigt, dass N-best-Transkriptionen möglich sind; sie
+  beweist nicht, dass sie für Einkaufsartikel genauer sind. Mit dem aktuellen
+  `maxAlternatives: 1` fordert die App diese Evidenz nicht an.
+- Segmentzeiten, Text und Konfidenz könnten intern als Zusatzmerkmale
+  ausgewertet werden. Erst ein gepaarter Test kann zeigen, ob das die
+  Artikelgrenzen verbessert.
+- Segmentgrenzen markieren erkannte Spracheinheiten, nicht Einkaufsartikel.
+  Eine Sprechpause muss aus dem Abstand zwischen Endzeit und nächster Startzeit
+  abgeleitet werden und bleibt ein weiches Signal.
 
-Apple beschreibt `addsPunctuation` nur als automatische Einfügung von Punkt,
-Fragezeichen und Komma. Daraus folgt: Satzzeichen können ein Grenzsignal sein,
-aber keine verlässliche semantische Artikeltrennung.
+Apple beschreibt `addsPunctuation` als automatische Einfügung von Punkt oder
+Fragezeichen am Satzende sowie Komma innerhalb eines Satzes. Daraus folgt:
+Satzzeichen können ein Grenzsignal sein, aber keine verlässliche semantische
+Artikeltrennung.
 
 Quelle: [Apple `addsPunctuation`](https://developer.apple.com/documentation/speech/sfspeechrecognitionrequest/addspunctuation)
 
-## Befund 2: Kontextvokabular ist der schnellste ASR-Hebel
+## Befund 2: Kontextvokabular ist ein prüfbarer ASR-Hebel
 
 Apple unterstützt mit `contextualStrings` kurze, app-spezifische Phrasen,
-etwa Produkt- oder Markennamen. Apple empfiehlt kurze Einträge von möglichst
+etwa Produkt- oder Markennamen, und beschreibt eine höhere Erkennungs-
+wahrscheinlichkeit als Zweck. Apple empfiehlt kurze Einträge von möglichst
 ein bis zwei Wörtern und begrenzt die Liste auf höchstens 100 Phrasen pro
-Request.
+Request. Das belegt eine verfügbare Stellschraube, nicht deren Rang als
+schnellster oder wirksamster Hebel für diesen Parser.
 
 Quelle: [Apple `contextualStrings`](https://developer.apple.com/documentation/speech/sfspeechrecognitionrequest/contextualstrings)
 
 Das vorhandene Paket reicht diese Option an iOS weiter und unterstützt eine
 entsprechende Biasing-Liste auch auf unterstützten Android-Versionen.
 
-Quelle: [expo-speech-recognition options](https://github.com/jamsch/expo-speech-recognition#readme)
+Quelle: [expo-speech-recognition 57.1.0 README](https://github.com/jamsch/expo-speech-recognition/blob/v57.1.0/README.md)
 
 ### Empfehlung
 
-Vor dem Start einer Speech-Session aus dem lokalen Haushaltskontext höchstens
-die relevantesten Artikel- und Markennamen auswählen:
+Als späteres Experiment höchstens relevante Artikel- und Markennamen auswählen:
 
 - häufige Artikel aus den vorhandenen Einkaufslisten,
 - bekannte Marken aus bestätigten Zuordnungen,
 - lokale Aliasformen und typische ASR-Schreibvarianten.
 
-Nicht den gesamten Katalog blind in den Request geben. Die Vorschlagsliste
-beeinflusst nur die Transkription. Sie darf niemals allein eine automatische
-Listenwahl oder einen produktiven Schreibvorgang auslösen.
+Nicht den gesamten Katalog blind in den Request geben. Die Phrase-Liste darf
+nicht als Beleg für eine richtige Produkt- oder Listenentscheidung gelten.
+Außerdem legt die freigegebene Optimierungs-Spec einen gepaarten Vergleich mit
+einer festen Version der Kontextliste fest. Haushaltsdynamische Listen wären
+eine andere Versuchsvariable und müssten separat freigegeben werden.
 
 ## Befund 3: Das Problem ist strukturell Slot Filling
 
@@ -125,8 +182,9 @@ Quellen:
 - [Zhang et al., ACL 2019: Joint Slot Filling and Intent Detection via Capsule Neural Networks](https://aclanthology.org/P19-1519/)
 - [Liu und Lane, 2016: Joint Online Spoken Language Understanding and Language Modeling](https://aclanthology.org/W16-3603/)
 
-Für die V2 brauchen wir daraus zunächst kein trainiertes JointBERT- oder
-Capsule-Modell. Die geeignete Übertragung ist das Datenmodell:
+Für die V2 brauchen wir daraus zunächst kein trainiertes NLU-Modell. Die
+begrenzte Übertragung ist das Datenmodell und eine getrennte Bewertung der
+Slots:
 
 ```text
 Eingabe
@@ -136,17 +194,20 @@ Eingabe
   -> Routing und Bestätigung
 ```
 
-Die Parsergrammatik sollte nicht versuchen, beliebige deutsche Sätze zu
-verstehen. Sie sollte typische Einkaufsformen vollständig und erklärbar
-behandeln und alles andere als sichtbaren Rest oder unsicheren Kandidaten
-zurückgeben.
+Die Arbeiten belegen allgemeine NLU-Modelle, nicht die Güte einer
+Einkaufsparser-Implementierung. Für diese lokale V2 sind sie Motivation für
+separat messbare Felder und Fehlerklassen, kein Grund für ein trainiertes
+Modell. Die Grammatik sollte typische Einkaufsformen erklären und unbekannten
+Rest sichtbar lassen; sie kann semantische Fehler ohne Referenzlabel nicht
+erkennen.
 
 ## Befund 4: Gewichtet segmentieren statt an beliebigen Leerzeichen zu teilen
 
-Gewichtete endliche Automaten zeigen ein passendes allgemeines Verfahren:
-alternative Pfade werden durch Komposition verbunden, Gewichte können
-Wahrscheinlichkeiten oder Kosten ausdrücken, und ein Shortest-Path-Schritt
-wählt den besten Pfad.
+OpenFst dokumentiert gewichtete Pfade und die zugehörigen Operationen. Das ist
+ein Verfahrensbeispiel, kein Nachweis, dass gewichtete Segmentierung die
+Einkaufseingaben verbessert. Für diese App bedeutet es keine neue
+OpenFst-Abhängigkeit; Kandidatenschnitte könnten als kleine dynamische
+Programmierung in TypeScript geprüft werden:
 
 Quelle: [OpenFst Quick Tour](https://github.com/google-research/openfst/blob/main/docs/quick_tour.md)
 
@@ -163,17 +224,19 @@ kann als kleine dynamische Programmierung in TypeScript umgesetzt werden:
 5. Nahe Alternativen in die Preview geben, statt eine unsichere Grenze zu
    verstecken.
 
-Die aktuelle harte Regel `split(/und/)` kann damit ein starkes Signal bleiben,
-aber durch eine bessere Mengen-/Produktstruktur überstimmt werden.
+Im Iststand wird `und` hart getrennt. Eine spätere Kandidatenbewertung müsste
+mit Goldbeispielen zeigen, wann Mengen- oder Produktstruktur diesen Schnitt
+überstimmen darf; ohne solche Evidenz bleibt das ein Architekturvorschlag.
 
 ## Befund 5: Zahlen und Einheiten brauchen eine eigene Normalisierungsstufe
 
-Die Forschung zur Number Normalization beschreibt finite-state-basierte
-Lösungen als datenarm und besonders geeignet, wenn falsche Zahlenwerte
-schädlich sind. Die Verfahren sind invertierbar und können gesprochene
-Zahlformen in schriftliche Zahlen überführen.
+Gorman und Sproat untersuchen Zahlwort-Normalisierung und beschreiben einen
+Finite-State-Ansatz als datenarm für die untersuchten Sprachen Englisch,
+Georgisch, Khmer und Russisch. Eine solche Transduktion lässt sich invertieren,
+um Zahlwörter in Ziffern zu überführen. Die Arbeit untersucht keine deutschen
+Einkaufsartikel und belegt keine Fehlerraten für diesen Parser.
 
-Quelle: [Sproat und Jaitly, 2016: Minimally Supervised Number Normalization](https://aclanthology.org/Q16-1036.pdf)
+Quelle: [Gorman und Sproat, TACL 2016: Minimally Supervised Number Normalization](https://aclanthology.org/Q16-1036/)
 
 Die Zahlenlogik sollte vor der Artikelgrammatik als eigener reiner Baustein
 stehen und mindestens diese Klassen testen:
@@ -193,9 +256,11 @@ Menge eines realen Listenartikels ändern.
 
 ## Befund 6: Lokales Lexikon statt allgemeiner Entity-NER
 
-Rule-based Entity Recognition ist passend, wenn eine endliche oder kontrollierte
-Terminologieliste existiert. Ein Gazetteer kann exakte und mehrwortige Phrasen
-case-insensitive finden; längere überlappende Treffer werden bevorzugt.
+spaCy dokumentiert regelbasiertes Matching für exakte Phrasen und Tokenmuster.
+Case-insensitive Phrase-Matches erfordern eine Konfiguration wie
+`phrase_matcher_attr: LOWER`; das ist nicht der Standard. Bei überlappenden
+EntityRuler-Treffern gewinnt die längste Phrase, bei Gleichstand die zuerst
+auftretende.
 
 Quellen: [spaCy Rule-based Matching](https://spacy.io/usage/rule-based-matching) und [EntityRuler API](https://spacy.io/api/entityruler)
 
@@ -204,19 +269,25 @@ ist ein kleiner TypeScript-Gazetteer mit kanonischem Namen, Aliasen, Typ
 `product` oder `brand`, optionaler lokaler Produkt-ID, Priorität und
 Mehrdeutigkeit.
 
-Open Food Facts kann später als Quelle zur Offline-Anreicherung von Aliasen und
-Produktmetadaten dienen. Es ist kein guter Laufzeit-Fallback für jedes
-Transcript: Die offizielle API nennt Rate Limits, und die v2-Suche bietet keine
-allgemeine Full-Text-Suche.
+Die Open Food Facts API-Dokumentation erlaubt Bulk-Downloads für größere
+Datensätze. Sie nennt Suchlimits und stellt klar, dass die v2-Server-API keine
+allgemeine Full-Text-Suche bietet. Das stützt nur den Ausschluss einer
+Live-Suche pro Transcript; eine lokale Anreicherung wäre ein eigener
+Daten-, Aktualitäts- und Lizenzentscheid.
 
 Quelle: [Open Food Facts API-Dokumentation](https://openfoodfacts.github.io/openfoodfacts-server/api/)
 
 ## Befund 7: Robustheit muss aus echten Speech-Varianten kommen
 
-Eine Studie zu umgangssprachlichen deutschen Varianten zeigt, dass
-Slot-Erkennung deutlich stärker leiden kann als reine Intent-Erkennung. Eine
-weitere Arbeit schlägt Back-Transcription und feingranulare Fehlerklassen vor,
-um NLU-Robustheit gegenüber ASR-Fehlern zu bewerten.
+Artemova et al. untersuchen synthetische umgangssprachliche deutsche Varianten
+in vier Task-orientierten Dialogdatensätzen und berichten einen mittleren
+Rückgang von 21 Prozentpunkten beim Slot-F1 gegenüber 4,62 Prozentpunkten bei
+der Intent-Genauigkeit. Das ist ein Grund, deutsche Varianten gezielt zu
+prüfen, aber keine Prognose für diesen kleinen Einkaufsparser.
+Kubis et al. beschreiben Back-Transcription mit synthetisierter Sprache und
+Fehlerklassen als Verfahren, ASR-Auswirkungen auf NLU zu untersuchen. Das
+liefert eine Evaluierungsidee, aber keine direkte Qualitätsaussage über den
+nativen Speech-Dienst oder diesen Parser.
 
 Quellen:
 
@@ -234,57 +305,71 @@ Jede Testzeile sollte eine goldene Struktur und die Eingangsart tragen:
 - ein, zwei, viele Artikel,
 - konfliktträchtige Namen und Marken.
 
-Wichtige Metriken sind:
+Parser-Metriken:
 
 - Artikelgrenzen: Precision, Recall und F1,
 - Feldgenauigkeit für Name, Menge, Einheit und Marke,
-- vollständige Frame-Genauigkeit pro Artikel,
+- vollständige Artikel-Exaktheit,
 - Anteil sichtbarer Resttexte,
-- falsche automatische Listen-Schreibvorgänge, Zielwert null im Reviewpfad,
-- mediane Parse-Zeit und Zeit bis zur Preview.
+- mediane Parse-Zeit.
 
-## Empfohlene Reihenfolge für den nächsten Plan
+Workflow-Metriken bleiben getrennt:
 
-### Phase 0: Baseline mit dem funktionierenden Simulator
+- falsche automatische Listen-Zuordnungen, Zielwert null im Reviewpfad,
+- Zeit bis zur Preview.
 
-- iPhone 11 / iOS 26.2 als reproduzierbares Speech-Referenzziel festhalten.
-- Eine feste kleine Testsammlung sprechen: einfache Artikel, Mengen, Einheiten,
-  Marken, Pausen, `und`, unpunktierte lange Eingaben und Korrekturen.
-- Pro Eingabe Transcript, finale Segmente, Zeitspannen und Konfidenzen als
-  lokale Entwicklungsfixture erfassen.
-- Für jede Audioaufnahme zusätzlich den getippten Goldtext und die erwartete
-  strukturierte Ausgabe pflegen.
+## Konkrete deterministische Versuche
 
-### Phase 1: Parser-Benchmark vor Verhaltenserweiterung
+### Versuch A: Parser isoliert vom Speech-Dienst messen
 
-- Aktuellen Parser unverändert gegen die Sammlung ausführen.
-- Fehler nach Ursache klassifizieren: Grenze, Zahl, Einheit, Marke, ASR oder
-  unklarer Rest.
-- Eine kleine Regressionstabelle erstellen, die jeden Fix gegen Baseline und
-  Sicherheitsregeln prüft.
+- Eingabe: versionierte UTF-8-Liste mit unverändertem Text, Eingangsart und
+  erwarteten `name`, `quantity`, `unit`, `brand` sowie bewusstem Resttext.
+- Gleiche Eingabeliste in fester Reihenfolge mit dem aktuellen reinen Parser
+  ausführen. Die aktuelle Basis dafür sind
+  [`parser.test.ts`](../../../src/features/shopping-list/stt-beta/domain/parser.test.ts)
+  und `bun run test src/features/shopping-list/stt-beta/domain/parser.test.ts`.
+- Minimalfälle enthalten die bereits getesteten Formen sowie gezielte
+  Kontrastpaare: `2x Joghurt`/`2 mal Joghurt`, `fünfzehn Eier`/`zwölf Eier`,
+  `eine halbe Packung`/`ein halbes Kilo`, `Skyr von JA`/`Skyr von ja`,
+  `zwei Liter Milch und Brot`/`Milch zwei Liter`, und einen gültigen Artikel
+  neben `???`.
+- Für jeden Fall exakten Feldvergleich und Artikelgrenzen erfassen. Keine
+  Zufallsdaten, Uhrzeiten, Speech-Engine oder Haushaltsliste in diesen Lauf
+  einmischen.
+- Als Sicherheitsmetrik separat zählen, ob Resttext verschwindet oder ein
+  semantisch falscher Artikel entsteht. `unparsedText: null` ist keine
+  Semantikmetrik.
 
-### Phase 2: Deterministischer Parser v2
+### Versuch B: Eine Parseränderung pro Vergleich
 
-- Normalisierung und Zahlen-/Einheitengrammatik extrahieren.
-- Gazetteer für lokale Produkte, Marken und Aliasformen ergänzen.
-- Kandidaten-Segmentierung mit weichen Grenzsignalen und konservativem Scoring
-  einführen.
-- Output zunächst kompatibel halten; Diagnostik optional separat ergänzen.
+- Baseline-Ergebnisse und Korpusversion unverändert aufbewahren.
+- Eine Änderung an Mengen, Einheiten, Marken oder Segmentierung jeweils einzeln
+  gegen exakt dieselben Zeilen messen.
+- Jede Abweichung einer festen Klasse zuweisen: Grenze, Menge, Einheit, Marke,
+  ASR-Variante oder unerklärter Rest. Ohne Goldlabel eine vermutete Semantik
+  nicht als Parserfehler oder -erfolg werten.
+- Nur Änderungen übernehmen, die die gewünschte Fehlerklasse verbessern und
+  keine zuvor bestandenen Goldfälle regressieren.
 
-### Phase 3: Speech-Evidenz anschließen
+### Versuch C: Speech-Evidenz getrennt und nach Vertragsabgleich
 
-- `contextualStrings` aus dem relevanten lokalen Lexikon befüllen.
-- N-best-Transcripts nicht mehr sofort auf `results[0]` reduzieren.
-- Segmentzeiten und Konfidenzen in die Kandidatenbewertung geben.
-- Alternativen nur bei echter Ambiguität in der Preview zeigen.
+- Erst nach Klärung der On-Device-Abweichung und des Variantenvertrags aus der
+  [freigegebenen V2-Spec](./natuerliches-hinzufuegen-von-einkaufsartikeln_V2.md)
+  dieselben gespeicherten Audiodateien pro Speech-Variante ausführen.
+- Gleiche Geräte-/OS-Version, Sprache, Speech-Optionen und Audiofolge verwenden;
+  nur die freigegebene Kontextlisten-Variante darf abweichen. Varianten nicht
+  mit einer dynamischen Haushaltsliste vermengen.
+- Rohtranskript, gewählte Parserstruktur, Zeit-/Konfidenzmetadaten und
+  bestätigte Goldstruktur lokal paaren. Segmentdaten separat auswerten, bevor
+  sie zur Grenzentscheidung beitragen.
+- Native Läufe sind kein Ersatz für Versuch A: Der Speech-Dienst kann dieselbe
+  Aufnahme unterschiedlich transkribieren, während ein Parservergleich mit
+  festem Transcript deterministisch bleibt.
 
-### Phase 4: Simulator- und Fixture-Gate
-
-- Jeden Parserfix zuerst mit `bun run test <gezielte-datei>` prüfen.
-- Den iPhone-11-Simulator nur für neue Speech-Fixtures und wenige End-to-End-
-  Smoke-Flows verwenden.
-- Vor der nächsten nativen Auslieferung Parser-Metriken und
-  Preview-/Bestätigungsfluss gemeinsam prüfen.
+Der Parserbericht ersetzt weder die aktuelle V2-Spec noch ihre
+Optimierungs-Spec. Besonders die Aussagen zu `unparsedText`-Span-Erhalt,
+Qualitätsflags und A/B-Varianten sind dort eigene Verträge, die gegen den
+tatsächlichen Code separat geprüft werden müssen.
 
 ## Nicht als nächsten Schritt empfehlen
 
@@ -298,10 +383,11 @@ Wichtige Metriken sind:
 
 ## Quellen und Grenzen
 
-Die Aussagen zu Apple Speech, `contextualStrings`, Alternativen, Segmentdaten
-und Satzzeichen stammen aus Apples Dokumentation beziehungsweise der
-Paketdokumentation. Die Aussagen zu Slot Filling, Number Normalization,
-umgangssprachlicher Robustheit und ASR-Evaluierung stammen aus den jeweils
-verlinkten Originalarbeiten. Die Empfehlung, daraus einen kleinen
-TypeScript-Kandidatenparser statt einer OpenFst- oder spaCy-Laufzeitabhängigkeit
-zu bauen, ist eine Architektur-Inferenz für dieses Repository.
+Apple- und Expo-Behauptungen wurden gegen Apples Speech-Dokumentation, die
+versionierte [expo-speech-recognition 57.1.0-Dokumentation](https://github.com/jamsch/expo-speech-recognition/tree/v57.1.0)
+und die installierte Pakettypdefinition geprüft. Paper-Aussagen sind auf die
+jeweils verlinkten Arbeiten und ihre untersuchten Aufgaben begrenzt; sie messen
+nicht diese App. spaCy und Open Food Facts sind Primärdokumentation ihrer
+jeweiligen Produkte. Die empfohlene TypeScript-Kandidatenbewertung statt einer
+OpenFst- oder spaCy-Laufzeitabhängigkeit bleibt eine Architektur-Inferenz für
+dieses Repository.
