@@ -10,8 +10,28 @@ const swiftUIPath = path.join(
   REPO_ROOT,
   'src/features/settings/dev/design-system/showcase-modal-swift-ui.ios.tsx',
 );
+const contentPath = path.join(
+  REPO_ROOT,
+  'src/features/settings/dev/design-system/showcase-modal-content.tsx',
+);
 
 describe('modal comparison showcase', () => {
+  it('keeps input and preview actions inside a scrollable hosted viewport', () => {
+    const source = fs.readFileSync(contentPath, 'utf8');
+    const scrollView = source.match(/<ScrollView([\s\S]*?)<\/ScrollView>/u)?.[1];
+
+    expect(scrollView).toBeDefined();
+    expect(scrollView).toContain('style={styles.scroll}');
+    expect(scrollView).toContain('contentContainerStyle={styles.scrollContent}');
+    expect(scrollView).toContain('<ModalComparisonContent');
+    expect(source).toContain('hostedContent: {\n    flexGrow: 1,\n    height: 0,');
+    expect(source).toContain('scroll: {\n    flex: 1,');
+    expect(source).toContain('scrollContent: {\n    flexGrow: 1,');
+    expect(source).toContain('testID={`design-system-natural-language-');
+    expect(source).toContain('}-scroll`}');
+    expect(source).toContain('<View style={styles.footer}>');
+  });
+
   it('keeps the three implementations on one shared RN content surface', () => {
     const source = fs.readFileSync(showcasePath, 'utf8');
 
