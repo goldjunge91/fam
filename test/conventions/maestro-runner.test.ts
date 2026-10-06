@@ -21,7 +21,7 @@ describe('direct Maestro runners', () => {
       [
         '#!/bin/sh',
         'printf \'%s\\n\' "$@" > "$MAESTRO_CAPTURE_ARGS"',
-        'printf \'%s\\n\' "$TEST_EMAIL" "$TEST_PASSWORD" "$METRO_MANIFEST_URL" > "$MAESTRO_CAPTURE_ENV"',
+        'printf \'%s\\n\' "$TEST_EMAIL" "$TEST_PASSWORD" "$WRONG_EMAIL" "$WRONG_PASSWORD" "$METRO_MANIFEST_URL" > "$MAESTRO_CAPTURE_ENV"',
       ].join('\n'),
     );
     chmodSync(fakeMaestro, 0o755);
@@ -40,6 +40,8 @@ describe('direct Maestro runners', () => {
         MAESTRO_CAPTURE_ENV: capturedEnvironment,
         TEST_EMAIL: 'maestro@example.com',
         TEST_PASSWORD: 'safe-test-password',
+        WRONG_EMAIL: 'wrong@example.com',
+        WRONG_PASSWORD: 'wrong-test-password',
         METRO_MANIFEST_URL: 'http%3A%2F%2F127.0.0.1%3A8081',
       },
     });
@@ -47,7 +49,7 @@ describe('direct Maestro runners', () => {
     expect(result.status).toBe(0);
     expect(readFileSync(capturedArgs, 'utf8')).toBe('--include-tags\nsmoke\n');
     expect(readFileSync(capturedEnvironment, 'utf8')).toBe(
-      'maestro@example.com\nsafe-test-password\nhttp%3A%2F%2F127.0.0.1%3A8081\n',
+      'maestro@example.com\nsafe-test-password\nwrong@example.com\nwrong-test-password\nhttp%3A%2F%2F127.0.0.1%3A8081\n',
     );
   });
 
@@ -72,6 +74,8 @@ describe('direct Maestro runners', () => {
           MAESTRO_CAPTURE_ENV: capturedEnvironment,
           TEST_EMAIL: 'maestro@example.com',
           TEST_PASSWORD: 'safe-test-password',
+          WRONG_EMAIL: 'wrong@example.com',
+          WRONG_PASSWORD: 'wrong-test-password',
           METRO_MANIFEST_URL: 'http%3A%2F%2F127.0.0.1%3A8081',
         },
       },
@@ -82,7 +86,7 @@ describe('direct Maestro runners', () => {
       'test\n--reinstall-driver\n.maestro/android/flows/session/signed-in-dashboard.yaml\n--include-tags\nsmoke\n--device\nPixel_8_API_35\n',
     );
     expect(readFileSync(capturedEnvironment, 'utf8')).toBe(
-      'maestro@example.com\nsafe-test-password\nhttp%3A%2F%2F127.0.0.1%3A8081\n',
+      'maestro@example.com\nsafe-test-password\nwrong@example.com\nwrong-test-password\nhttp%3A%2F%2F127.0.0.1%3A8081\n',
     );
   });
 
