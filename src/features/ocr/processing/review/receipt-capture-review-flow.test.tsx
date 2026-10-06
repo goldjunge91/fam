@@ -191,6 +191,38 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     await waitFor(() => expect(capture).toHaveBeenCalledTimes(2));
   });
 
+  it('bietet nach Relaunch einen Kamera-Entwurf mit Verarbeiten-Aktion an', async () => {
+    const state = persistenceWith(captureDraft('camera'));
+    const processCapture = jest.fn(async () => ({
+      kind: 'success' as const,
+      captureId: 'capture-1',
+      draft: parseGermanReceipt(REWE_RECEIPT_LINES),
+    }));
+
+    await render(
+      <ReceiptCaptureReviewFlow
+        visible
+        householdId="household-1"
+        createdBy="user-1"
+        onDismiss={jest.fn()}
+        persistence={state.persistence}
+        processCapture={processCapture}
+      />,
+    );
+
+    expect(
+      await screen.findByRole('button', { name: i18n.t('ocr.review.process') }),
+    ).toBeOnTheScreen();
+    expect(processCapture).not.toHaveBeenCalled();
+
+    await userEvent
+      .setup()
+      .press(screen.getByRole('button', { name: i18n.t('ocr.review.process') }));
+
+    expect(await screen.findByRole('radio', { name: 'REWE' })).toBeOnTheScreen();
+    expect(state.phases).toEqual(['processing', 'needs_review']);
+  });
+
   it('discards the local draft when review is explicitly cancelled', async () => {
     const state = persistenceWith(captureDraft('gallery'));
     const onDismiss = jest.fn();
