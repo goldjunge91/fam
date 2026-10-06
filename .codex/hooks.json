@@ -48,6 +48,12 @@
             "statusMessage": "Blocking git reset",
             "timeout": 10,
             "type": "command"
+          },
+          {
+            "command": "root=\"$(git rev-parse --show-toplevel)\"; exec python3 \"$root/.codex/hooks/block-bd-update-notes.py\"",
+            "statusMessage": "Checking bd update notes",
+            "timeout": 10,
+            "type": "command"
           }
         ]
       },
