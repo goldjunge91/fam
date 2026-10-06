@@ -29,7 +29,11 @@ jest.mock('expo-secure-store', () => ({
 const mockExpoFetch = jest.fn();
 jest.mock('expo/fetch', () => ({ fetch: (...args: unknown[]) => mockExpoFetch(...args) }));
 
-import { getSupabase, startSupabaseAutoRefresh } from '@/lib/backend/supabase/remote-client';
+import {
+  getSupabase,
+  serverClock,
+  startSupabaseAutoRefresh,
+} from '@/lib/backend/supabase/remote-client';
 
 describe('Supabase Native Lifecycle', () => {
   let appStateListener: ((state: AppStateStatus) => void) | undefined;
@@ -63,6 +67,28 @@ describe('Supabase Native Lifecycle', () => {
     expect(options.global?.fetch).not.toBe(globalThis.fetch);
     // Der serverClock-Wrapper kapselt expo/fetch: ein Aufruf muss durchreichen.
     expect(mockExpoFetch).not.toHaveBeenCalled();
+  });
+
+  it('leitet Uint8Array-Upload-Bodies unverändert an expo/fetch weiter', async () => {
+    const bytes = new Uint8Array([0, 17, 128, 255]);
+    const init = { method: 'POST', body: bytes } as RequestInit;
+    mockExpoFetch.mockResolvedValueOnce({ headers: { get: () => null } });
+
+    await serverClock.fetch('https://example.supabase.co/storage/v1/object/test', init);
+
+    expect(mockExpoFetch).toHaveBeenCalledWith(
+      'https://example.supabase.co/storage/v1/object/test',
+      init,
+    );
+  });
+
+  it('propagiert Netzwerkfehler von expo/fetch an den Supabase-Client', async () => {
+    const failure = new TypeError('connection dropped while reading response');
+    mockExpoFetch.mockRejectedValueOnce(failure);
+
+    await expect(serverClock.fetch('https://example.supabase.co/rest/v1/households')).rejects.toBe(
+      failure,
+    );
   });
 
   it('deaktiviert den Konstruktor-Timer und stoppt Auto-Refresh beim Cleanup', async () => {

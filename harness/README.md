@@ -45,6 +45,24 @@ bun run harness:dev -- --harnessRunner ios --listTests --watchman=false
 
 Für die tatsächliche Ausführung muss `--listTests` entfallen.
 
+## Supabase-Transport unter SDK 57
+
+Die Storage-Diagnose vergleicht den benannten `expo/fetch`-Transport mit dem
+globalen Fetch aus der Runtime. Sie prüft abgebrochene Response-Bodies sowie
+Uploads und bytegenaue Downloads mit `Uint8Array` in mehreren Größen. Das
+Skript startet dafür lokal ein kurzlebiges Fehler-Fixture auf Port 8787 und
+räumt nur diesen eigenen Prozess wieder auf:
+
+```bash
+bash scripts/diagnose-storage-upload.sh ios
+bash scripts/diagnose-storage-upload.sh android
+```
+
+Die Diagnose benötigt einen installierten Dev-Build, einen laufenden
+Simulator/Emulator und eine bereits laufende lokale Supabase-Instanz. Sie
+startet oder stoppt Supabase nicht. Der Harness vergleicht beide Transporte;
+er ändert den produktiven Supabase-Client nicht.
+
 ## Echter OCR-Mapping-Nachweis
 
 `receipt-ocr-mapping.harness.ts` verarbeitet die sechs lokalen PNG- und JPEG-

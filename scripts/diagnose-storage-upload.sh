@@ -15,6 +15,32 @@ set -euo pipefail
 RUNNER="${1:-ios}"
 cd "$(dirname "$0")/.."
 
+case "$RUNNER" in
+  ios) FAILURE_HOST="127.0.0.1" ;;
+  android) FAILURE_HOST="10.0.2.2" ;;
+  *) echo "Runner muss ios oder android sein: $RUNNER" >&2; exit 1 ;;
+esac
+
+FAM_FETCH_FIXTURE_PORT=8787 bun scripts/fetch-failure-fixture.ts >/dev/null 2>&1 &
+FIXTURE_PID=$!
+cleanup_fixture() {
+  kill "$FIXTURE_PID" 2>/dev/null || true
+  wait "$FIXTURE_PID" 2>/dev/null || true
+}
+trap cleanup_fixture EXIT
+
+for attempt in {1..30}; do
+  if [[ "$(curl -fsS http://127.0.0.1:8787/health 2>/dev/null || true)" == "fetch-fixture-ready" ]]; then
+    break
+  fi
+  if ! kill -0 "$FIXTURE_PID" 2>/dev/null; then
+    echo "Fetch-Fehler-Fixture konnte Port 8787 nicht starten." >&2
+    exit 1
+  fi
+  sleep 0.1
+done
+export EXPO_PUBLIC_HARNESS_FAILURE_URL="http://${FAILURE_HOST}:8787"
+
 ENV_FILE=".env.development.local"
 EMAIL="storage-diag@example.com"
 PASSWORD="StorageDiag123!"
@@ -52,9 +78,13 @@ set_env_line "EXPO_PUBLIC_HARNESS_SUPABASE_URL" "$LOCAL_URL"
 set_env_line "EXPO_PUBLIC_HARNESS_SUPABASE_KEY" "$LOCAL_ANON_KEY"
 
 echo "== 4/4 Harness-Matrix ausfuehren ($RUNNER) =="
-echo "   Alle Dateigroessen muessen via Uint8Array, storage.upload() und expo/fetch funktionieren."
+echo "   Vergleicht Expo und globalen RN-fetch fuer abgebrochene Responses und Uint8Array-Uploads."
 echo
-bun run harness:dev -- --harnessRunner "$RUNNER" --watchman=false --testPathPatterns=storage-upload-matrix
+FAM_HARNESS_UI=1 bun --env-file="$ENV_FILE" run react-native-harness \
+  --config jest.harness.config.mjs \
+  --harnessRunner "$RUNNER" \
+  --watchman=false \
+  --testPathPatterns=storage-upload-matrix
 
 echo
 echo "Diagnose abgeschlossen. Die Matrix steht im Harness-Output"
