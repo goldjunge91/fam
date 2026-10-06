@@ -1,7 +1,7 @@
 # fam: Projektkontext
 
 **Status:** Freigegeben
-**Letzte fachliche Prüfung:** 2026-09-23
+**Letzte fachliche Prüfung:** 2026-10-06
 
 `fam` ist eine datenschutzorientierte Haushaltsapp für Familien und andere
 gemeinsame Haushalte. Sie verbindet geteilte Bestände, Einkaufslisten, Rezepte
@@ -16,8 +16,7 @@ keine vollständigen Arbeits- oder Qualitätsregeln.
 
 | Frage | Maßgebliche Quelle |
 | --- | --- |
-| Arbeitsweise, Tooling und Beitragsprozess | [`AGENTS.md`](AGENTS.md) |
-| Qualitätsgrenzen und Nachweise | [`CONSTRAINTS.md`](CONSTRAINTS.md) |
+| Arbeitsweise, Tooling, Qualitätsregeln und Nachweise | [`AGENTS.md`](AGENTS.md) |
 | Domänensprache und Datenbesitz | `CONTEXT.md` |
 | Produktziel und Roadmap | [`docs/features/VISION.md`](docs/features/VISION.md), [`docs/features/ROADMAP.md`](docs/features/ROADMAP.md) |
 | Dauerhafte Architekturentscheidungen | [`docs/adr/`](docs/adr/README.md) |
@@ -52,28 +51,20 @@ Status. `docs/archive/` ist historisch und nicht normativ.
 Ein optionaler Product-Bezug reichert einen Bestands-, Einkaufs- oder
 Trackingeintrag an. Er überträgt weder dessen Identität noch dessen Eigentümer.
 
-## Nicht verhandelbare Architekturgrenzen
+## Daten- und Synchronisationsgrenzen
 
 - **Datentrennung:** Geteilte Haushaltsdaten und private Account-Daten bleiben
   auf Datenbankebene getrennt. Eine Admin-Rolle im Haushalt gewährt keinen
   Zugriff auf private Daten eines erwachsenen Accounts.
-- **Deklaratives Backend-Schema:** Änderungen beginnen in
-  `supabase/schemas/*.sql`. Migrationen werden mit `bun run db:diff` erzeugt
-  und niemals manuell verfasst oder editiert.
 - **Local-first für synchronisierte Entitäten:** Eine synchronisierte Entität
   berücksichtigt lokalen SQLite-Spiegel, Outbox, Push, Pull, Realtime und
   Konfliktauflösung, soweit ihr Vertrag diese Flächen verwendet. Rein lokale
   oder bewusst nicht synchronisierte Protokolle werden ausdrücklich als solche
   benannt.
-- **Feature-first:** `src/app/` enthält Routing. Fachlogik lebt in
-  `src/features/<domain>/`, geteilte domänenlose UI in `src/components/` und
-  Infrastruktur in `src/lib/`.
-- **UI-Verantwortung:** Projektweite Tokens, Theme-Auflösung und semantische
-  UI-Primitiven gehören ausschließlich den drei Ownern in der Tabelle oben.
-  `src/constants/ui-shadow.ts` ergänzt den UI-Owner aus `ui.tsx`; es ist kein
-  vierter Owner. Feature-Code besitzt Verhalten, Komposition und lokales Layout.
-- **Native Runtime:** Expo SDK 57 und die verwendeten nativen Module verlangen
-  einen Dev Client. Änderungen an nativen Abhängigkeiten, Config Plugins oder
+- **Domänenbegriffe und Datenbesitz:** Neue fachliche Begriffe und ihre
+  Eigentümer werden hier beschrieben. Dauerhafte Architekturentscheidungen
+  gehören in ein ADR; Arbeitsweise, Tooling und Qualitätsnachweise stehen in
+  [`AGENTS.md`](AGENTS.md).
 
 ## Domänensprache
 
@@ -284,19 +275,11 @@ Recipe. Ihre Zutaten bestehen aus Name, Menge und Einheit ohne Product-Bezug.
 Eine Zuordnung zu einzelnen Household Members oder Child Profiles ist nicht
 Teil dieses Modells.
 
-## Änderungsfolgen
+Abweichungen zwischen freigegebenem Zielvertrag und aktuellem Verhalten werden
+als offene Implementierungs- oder Dokumentationsabweichung benannt. Die
+Prüfpflichten und der Beitragsprozess stehen in [`AGENTS.md`](AGENTS.md).
 
-- Neue oder geänderte synchronisierte Felder müssen über alle tatsächlich
-  verwendeten Sync-Flächen konsistent bleiben.
-- Neue Backend-Tabellen brauchen explizite RLS-Policies und fokussierte
-  pgTAP-Tests.
-- Neue fachliche Begriffe werden hier definiert; dauerhafte, teure
-  Architekturentscheidungen erhalten ein ADR.
-- Offene Abweichungen zwischen Zielvertrag und Implementierung werden benannt
-  und getestet, nicht durch unklare Formulierungen verdeckt.
-
-Test-, Build-, UI- und Ressourcenregeln stehen in [`AGENTS.md`](AGENTS.md) und
-[`CONSTRAINTS.md`](CONSTRAINTS.md). Details zum Mutation-Testing-Pilot stehen in
+Details zum Mutation-Testing-Pilot stehen in
 [`docs/spec/spec-mutation-testing-pilot.md`](docs/spec/spec-mutation-testing-pilot.md)
 und im
 [`Pilotbericht`](docs/spec/mutation-testing-pilot-report.md).

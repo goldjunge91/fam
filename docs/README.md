@@ -8,15 +8,14 @@ aktuellen technischen Zustand.
 
 ## Einstieg
 
-- [AGENTS.md](../AGENTS.md) – Arbeitsweise, Tooling und Beitragsprozess.
-- [Qualitätsvertrag](../CONSTRAINTS.md) – verbindliche Qualitätsgrenzen und
-  Nachweise.
+- [AGENTS.md](../AGENTS.md) – Arbeitsweise, Tooling, Qualitätsregeln,
+  Beitragsprozess und Nachweise.
 - [Projektkontext](../CONTEXT.md) – Domänensprache, Datenbesitz und
   Architekturgrenzen.
 - [ADRs](adr/README.md) – dauerhafte Architekturentscheidungen und ihre
   Begründungen.
-- [Developer Guide](architecture/DEVELOPER_GUIDE.md) – Setup, Arbeitsabläufe,
-  Tests und technische Architektur.
+- [Lokale Native-Builds](architecture/LOCAL_NATIVE_BUILDS.md) – Setup und
+  Build-Abläufe für iOS und Android.
 
 ## Produkt und aktueller Stand
 
@@ -32,8 +31,6 @@ aktuellen technischen Zustand.
 
 ## Architektur und Betrieb
 
-- [Developer Guide](architecture/DEVELOPER_GUIDE.md) – lokaler Entwicklungs-
-  und Build-Workflow, Umgebungsvariablen und Tests.
 - [Lokale Native-Builds](architecture/LOCAL_NATIVE_BUILDS.md) – Expo/Xcode-
   Befehle für iOS Simulator, iPhone und TestFlight sowie lokale Android-Builds.
 - [Design-System-Verträge](design-system/contracts/README.md) – normative

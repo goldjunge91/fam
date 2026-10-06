@@ -247,8 +247,8 @@ abgeschlossen, auch wenn der Testbaum grün ist.
 
 ### Always
 
-- Vor jeder Produktionsänderung dieses Spec, `CONSTRAINTS.md` und die Owner-
-  Regeln prüfen.
+- Vor jeder Produktionsänderung dieses Spec, `AGENTS.md` und die Owner-Regeln
+  prüfen.
 - Erst alle Verbraucher und Konventionstestpfade migrieren, dann den alten
   Ordner entfernen.
 - Bestehende Verhaltenstests als Vertrag erhalten und fokussiert ausführen.

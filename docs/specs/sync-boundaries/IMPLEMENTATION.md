@@ -17,8 +17,7 @@ Zwei beobachtbare Eigenschaften sollen gelten:
    Bereits vorhandene ältere Daten eines anderen Haushalts werden beim Wechsel
    vollständig nachgeladen.
 
-[AGENTS.md](../../../AGENTS.md) besitzt den Arbeitsprozess,
-[CONSTRAINTS.md](../../../CONSTRAINTS.md) die Qualitätsgrenzen und
+[AGENTS.md](../../../AGENTS.md) besitzt Arbeitsprozess und Qualitätsregeln;
 [CONTEXT.md](../../../CONTEXT.md) Datenbesitz und Domänensprache. Dieses
 Dokument präzisiert Verhalten, Implementierungsgrenzen und Abnahme der zwei
 Korrekturen. Es schwächt keinen dieser Verträge ab.
@@ -341,9 +340,6 @@ offenen Befund werden grüne Prüfungen nicht wiederholt. Werden während der
 Umsetzung weitere Produktionsdateien tatsächlich notwendig, müssen deren
 Verantwortung, Scope und gezielte Tests im betroffenen Bead begründet werden.
 
-Effective LOC und normalisierte Duplikation werden vor und nach der Änderung
-mit identischen Optionen verglichen. Für bereits übergroße Dateien gilt das
-Ausnahmeverfahren aus CONSTRAINTS.md; dieser Plan erteilt keine Ausnahme.
 Die am 2026-09-23 gemessene Planungsbaseline beträgt 365 Effective LOC für
 `mirror-write.ts`, 352 für `pull.ts`, zusammen 717; keine exakte normalisierte
 Duplikatgruppe. Vor der Umsetzung erneut messen, falls sich die Dateien

@@ -7,10 +7,10 @@
 [`spec-test-quality-gates-plan.md`](../spec-test-quality-gates-plan.md) und die
 Beads-Aufgaben `fam-5yon`, `fam-5yon.1` und `fam-5yon.2`.
 
-Diese Datei ergänzt den globalen Qualitätsvertrag
-[`../../CONSTRAINTS.md`](../../CONSTRAINTS.md), schwächt ihn aber nicht ab.
-Bei einem Konflikt gilt der globale Vertrag. Die Freigabe dieser lokalen Datei
-gibt nicht den globalen Vertrag frei und ändert dessen Status nicht.
+Diese Datei ist ein freigegebener, auf die oben genannten Beads und
+Spezifikationen begrenzter Qualitätsvertrag. Projektweite Arbeitsweise und
+Tooling stehen in [`../../AGENTS.md`](../../AGENTS.md). Dieser lokale Vertrag
+erweitert den Projektprozess nur für seinen ausdrücklich genannten Scope.
 
 ## Verbindlicher Floor
 

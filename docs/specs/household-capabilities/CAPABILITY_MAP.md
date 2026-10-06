@@ -3,7 +3,9 @@
 **Status:** Aktiv / Freigegeben  
 **Version:** 1.0  
 **Stand:** 2026-09-10  
-**Bezug:** Ticket `fam-0dr`, `CONSTRAINTS.md` (Repository-Root), `contract.md`
+**Bezug:** Ticket `fam-0dr`,
+[`08_inventory.sql`](../../../supabase/schemas/08_inventory.sql) und
+[`inventory-lifecycle.ts`](../../../src/features/inventory/inventory-lifecycle.ts)
 
 ---
 
@@ -32,13 +34,14 @@ Das Haushalts-Inventar (`src/features/inventory/`) bildet das geteilte Lebensmit
 
 ## 3. Architektur- & Datenregeln (Non-Negotiables)
 
-1. **Integer-Tausendstel Persistenz (`contract.md` Abschnitt 3):**
+1. **Integer-Tausendstel Persistenz:**
    - In SQLite (`fridge_items.quantity`, `package_size`), Supabase Postgres und Outbox-Wire-Payloads werden alle Mengen als Integer-Tausendstel gespeichert (z. B. `1,5 kg` $\rightarrow$ `1500`).
    - Konvertierung erfolgt exakt einmal an der Schnittstelle via `toInventoryQuantityUnits` / `fromInventoryQuantityUnits`.
-2. **Kanonische Ledger-Buchungen (`CONSTRAINTS.md`):**
-   - Transaktionstypen im Ledger sind strikt beschränkt auf `'in' | 'out' | 'waste'`.
-   - Reines Öffnen ohne Mengenverbrauch (`open_inventory`) erzeugt **keine** Ledgerzeile.
-   - Undo erfolgt append-only über Gegenbuchungen (`reversal_of`).
+2. **Ledger-Buchungen (`08_inventory.sql`):**
+   - Zulässige Typen sind `'in' | 'out' | 'waste' | 'open'`.
+   - Das reine Öffnen eines vollständigen Loses in-place erzeugt keine
+     Ledgerzeile; ein tatsächlicher Mengenverbrauch wird als Buchung erfasst.
+   - Rücknahmen verweisen über `reversal_of` auf die ursprüngliche Buchung.
 3. **Keine stillen Reparaturen:**
    - Scheitert ein Foreign Key (z. B. gelöschter Lagerort), darf der Payload nicht still zu `location_id = null` mutiert werden. Fehler bleiben unterscheidbar.
 4. **Strikte Datentrennung & RLS:**

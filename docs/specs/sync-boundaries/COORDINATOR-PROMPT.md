@@ -8,8 +8,7 @@ beauftragt er ausdrücklich auch die bislang separat geplanten Sync-Fixes
 ## Kopierbarer Prompt
 
 ```text
-Arbeite als koordinierender Hauptagent im Repository
-/Users/marco/Github.tmp/family_app/fam.
+Arbeite als koordinierender Hauptagent im aktuellen Repository-Worktree.
 
 Ziel: Schließe den verbliebenen Auftrag fam-ymz7 ab. Implementiere außerdem
 die beiden bereits geplanten allgemeinen Sync-Folgeaufgaben fam-ymz7.16 und
@@ -19,7 +18,7 @@ tatsächlich erfüllt sind. Ein weiterer Plan allein erfüllt diesen Auftrag nic
 
 1. Verbindliche Grundlagen und Scope
 
-Lies AGENTS.md, CONSTRAINTS.md, CONTEXT.md, den Beads-Skill und
+Lies AGENTS.md, CONTEXT.md, den Beads-Skill und
 docs/specs/sync-boundaries/IMPLEMENTATION.md. Lade weitere Skills nur für die
 konkrete Arbeit. Beachte vor Codeänderungen die im Projekt verlangten offiziellen
 versionierten Quellen. Nutze bestehende Planung; beginne kein neues Gesamtaudit.
@@ -75,7 +74,8 @@ Die Reihenfolge dient der Integration und erzeugt keinen erfundenen Beads-Blocke
 
 C, Review: starte einen unabhängigen Reviewer, sobald ein fertiger Teilschritt
 vorliegt. Er liest Vertrag, Änderung und Nachweise, verändert keine Dateien
-und schließt keine Beads. Er prüft alle fünf Achsen aus CONSTRAINTS.md.
+und schließt keine Beads. Er prüft Korrektheit, Lesbarkeit, Architektur,
+Sicherheit und Laufzeitkosten.
 Währenddessen dürfen andere Worker nur unabhängige, zugewiesene Dateien ändern.
 Ein Scope, der gerade geprüft wird, bleibt bis zur Rückmeldung unverändert.
 
@@ -132,7 +132,7 @@ Review-/Planungsschleife und keine neue Aufgabe für bloße Statusprosa.
 
 4. Grenzen und Fortschritt
 
-Halte AGENTS.md und CONSTRAINTS.md unverändert ein. Keine Suppressions,
+Beachte AGENTS.md. Keine Suppressions,
 schwächeren Assertions, gelöschten Pflichtprüfungen oder erfundenen Ausnahmen.
 Keine allgemeinen Refactors, neuen Dependencies oder Vertragsabschwächungen.
 Keine Commits, Pushes, Deployments, Remote-DB-Änderungen oder nativen Rebuilds

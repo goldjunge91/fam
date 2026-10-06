@@ -64,8 +64,9 @@ Notifications laufen nicht in Expo Go und brauchen einen Dev Client:
 bun run ios
 ```
 
-Alle weiteren Befehle, Umgebungsvariablen, Test-Accounts, Telemetrie-Setup und
-die volle Architektur stehen im [Developer Guide](docs/architecture/DEVELOPER_GUIDE.md).
+Lokale Build-Befehle stehen in der Anleitung für
+[Native-Builds](docs/architecture/LOCAL_NATIVE_BUILDS.md). Test- und
+Harness-Abläufe stehen in [harness/README.md](harness/README.md).
 
 ## Maestro E2E
 
@@ -75,7 +76,7 @@ unter den jeweiligen `subflows/`-Ordnern. Der lokale iOS-Dev-Client wird über
 `fam://expo-development-client/?url=...` mit einem laufenden Metro-Server
 gestartet. Expo Go und `exp://` gehören nicht zum Testsetup.
 
-Die iOS-Kernjourneys werden zuerst abgenommen:
+Die iOS-Kernjourneys umfassen:
 
 - Registrierung mit lokaler Inbucket-Bestätigung bis zum Dashboard
 - erfolgreicher Login bis zum Dashboard
@@ -84,8 +85,8 @@ Die iOS-Kernjourneys werden zuerst abgenommen:
 
 Maestro wird direkt über `.maestro/scripts/maestro.ts` beziehungsweise
 `.maestro/scripts/android.ts` ausgeführt. Es gibt absichtlich keine Maestro-
-oder E2E-Scripts in `package.json`. Voraussetzungen, Parameter, Tags und die
-vollständige Reihenfolge stehen im [Developer Guide](docs/architecture/DEVELOPER_GUIDE.md#maestro-architektur).
+oder E2E-Scripts in `package.json`. Die Journey-Dateien und ihre
+[Maestro-Konfiguration](.maestro/config.yaml) definieren die ausführbaren Pfade.
 
 ## React Native Harness
 
@@ -96,12 +97,11 @@ Performance-Monitor steht in [harness/README.md](harness/README.md).
 
 Expo SDK 57 · React Native 0.86 · React 19.2 · Expo Router · Supabase
 (Postgres, Auth, Realtime, RLS) · `expo-sqlite` mit Outbox-Sync · TanStack
-Query · RevenueCat. Details und Begründungen: [Developer Guide](docs/architecture/DEVELOPER_GUIDE.md#stack).
+Query · RevenueCat. Build-Details: [lokale Native-Builds](docs/architecture/LOCAL_NATIVE_BUILDS.md).
 
 ## Dokumentation
 
 Die vollständige, nach Zweck sortierte Dokumentation steht in
 [docs/README.md](docs/README.md). Arbeitsweise und Tooling stehen in
-[AGENTS.md](AGENTS.md), verbindliche Qualitätsgrenzen in
-[CONSTRAINTS.md](CONSTRAINTS.md) und Domänensprache sowie Datenbesitz in
+[AGENTS.md](AGENTS.md) und Domänensprache sowie Datenbesitz in
 [CONTEXT.md](CONTEXT.md).
