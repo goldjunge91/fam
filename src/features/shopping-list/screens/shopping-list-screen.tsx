@@ -21,6 +21,7 @@ import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { debugLog, debugLogEvent } from '@/lib/observability/debug-log';
+import { categorySurfaceColors } from '../components/category-surface-colors';
 import { ShoppingItemRow } from '../components/ui/shopping-item-row';
 import { shoppingListStyles } from '../components/ui/shopping-list-styles';
 import { ALL_FILTER, StorePickerMenu, UNASSIGNED_FILTER } from '../components/ui/store-picker-menu';
@@ -611,10 +612,15 @@ export function ShoppingListScreen() {
           }
           renderSectionHeader={({ section }) => {
             const color = colorForCategory(section.title) ?? theme.textSecondary;
+            const categoryColors = categorySurfaceColors(color, theme);
             return (
-              <View style={shoppingStyles.categoryHeader}>
-                <View style={[shoppingStyles.categoryDot, { backgroundColor: color }]} />
-                <Txt variant="label" tone="primary" weight="700">
+              <View
+                testID={`shopping-list-category-${section.title}`}
+                style={[
+                  shoppingStyles.categoryHeader,
+                  { backgroundColor: categoryColors.background },
+                ]}>
+                <Txt variant="label" color={categoryColors.text} weight="700">
                   {section.title}
                 </Txt>
               </View>

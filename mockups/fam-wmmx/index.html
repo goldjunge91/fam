@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fam-wmmx · Einkaufsaktionen</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --page: #f8f4ef;
+        --surface: #fbf7f2;
+        --soft: #e9e1e7;
+        --text: #2d2830;
+        --secondary: #786f79;
+        --border: #e4dde3;
+        --accent: #8b5e63;
+        --on-accent: #fff;
+        --market: #c6a24a;
+        --check: #6e8365;
+      }
+      [data-theme="dark"] {
+        color-scheme: dark;
+        --page: #211d23;
+        --surface: #2b262e;
+        --soft: #382f3b;
+        --text: #f2ece7;
+        --secondary: #b7adb3;
+        --border: #3e3640;
+        --accent: #b79cba;
+        --on-accent: #211d23;
+        --check: #8fae86;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--page);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        transition: background .18s ease, color .18s ease;
+      }
+      main { max-width: 1180px; margin: 0 auto; padding: 36px 24px 56px; }
+      header { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+      h1 { margin: 0 0 8px; font-size: 26px; letter-spacing: -.035em; }
+      .intro { margin: 0; max-width: 650px; color: var(--secondary); line-height: 1.45; }
+      .theme-toggle { border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 12px; min-height: 44px; padding: 0 15px; font: inherit; font-weight: 650; cursor: pointer; }
+      .options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+      article { min-width: 0; }
+      .option-head { min-height: 76px; margin-bottom: 10px; }
+      .option-head h2 { margin: 0 0 5px; font-size: 17px; }
+      .option-head p { margin: 0; color: var(--secondary); font-size: 13px; line-height: 1.4; }
+      .phone { min-height: 694px; overflow: hidden; border: 1px solid var(--border); border-radius: 28px; background: var(--surface); box-shadow: 0 14px 34px #33273512; }
+      .screen-head { height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; border-bottom: 1px solid var(--border); font-weight: 700; }
+      .brand { display: flex; align-items: center; gap: 9px; }
+      .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--market); }
+      .close { color: var(--secondary); font-size: 20px; line-height: 1; }
+      .shopping { padding: 17px 20px 0; }
+      .progress-line { height: 6px; border-radius: 6px; background: var(--soft); overflow: hidden; }
+      .progress-line i { display: block; height: 100%; width: 37.5%; background: var(--accent); border-radius: inherit; }
+      .meta { display: flex; justify-content: space-between; color: var(--secondary); margin-top: 8px; font-size: 12px; }
+      .list { padding: 13px 20px 0; }
+      .section { display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 10px; margin: 8px 0 6px; border-radius: 8px; background: var(--category-color); color: var(--category-ink, #000); font-size: 13px; font-weight: 720; }
+      .section .dot { display: none; }
+      .count { margin-left: auto; color: inherit; font-weight: 600; }
+      .item { min-height: 42px; display: flex; align-items: center; gap: 11px; border-bottom: 1px solid var(--border); font-size: 14px; }
+      .box { width: 19px; height: 19px; border: 1.5px solid var(--border); border-radius: 6px; }
+      .item.done { color: var(--secondary); text-decoration: line-through; }
+      .item.done .box { display: grid; place-items: center; border-color: var(--check); background: var(--check); color: var(--page); font-size: 12px; }
+      .item .qty { margin-left: auto; font-weight: 650; }
+      .mode-footer { padding: 19px 20px 20px; margin-top: auto; }
+      .cta { width: 100%; min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; font-size: 14px; font-weight: 720; }
+      .cta.primary { color: var(--on-accent); background: var(--accent); border: 1px solid var(--accent); }
+      .cta.outline { color: var(--accent); background: transparent; border: 1.5px solid var(--accent); }
+      .cta.tonal { color: var(--text); background: var(--soft); border: 1px solid var(--border); }
+      .sheet { margin: 20px 12px 0; padding: 22px 18px 18px; border: 1px solid var(--border); border-radius: 24px; background: var(--page); }
+      .grab { width: 38px; height: 4px; border-radius: 5px; background: var(--border); margin: -11px auto 19px; }
+      .sheet h3 { margin: 0 0 6px; font-size: 19px; }
+      .market-name { display: flex; align-items: center; gap: 8px; color: var(--secondary); font-size: 13px; }
+      .market-name .dot { width: 9px; height: 9px; }
+      .categories { margin-top: 15px; }
+      .category { height: 42px; display: flex; justify-content: space-between; align-items: center; margin: 5px 0; padding: 0 10px; border-radius: 8px; background: var(--category-color); color: var(--category-ink, #000); font-size: 13px; font-weight: 600; }
+      .handle { color: var(--secondary); font-size: 19px; letter-spacing: 1px; }
+      .sheet-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 16px; }
+      .reset { min-height: 44px; display: flex; align-items: center; color: var(--secondary); font-size: 12px; }
+      .save { min-width: 115px; min-height: 44px; padding: 0 17px; border-radius: 11px; display: grid; place-items: center; font-size: 13px; font-weight: 720; }
+      .save.primary { color: var(--on-accent); background: var(--accent); }
+      .save.outline { color: var(--accent); border: 1.5px solid var(--accent); background: transparent; }
+      .save.tonal { color: var(--text); border: 1px solid var(--border); background: var(--soft); }
+      .caption { padding: 14px 8px 0; color: var(--secondary); font-size: 11px; line-height: 1.45; }
+      @media (max-width: 920px) { main { padding: 26px 16px; } .options { grid-template-columns: 1fr; } .option-head { min-height: 0; } .phone { max-width: 420px; margin: 0 auto; } header { align-items: start; } }
+    </style>
+  </head>
+  <body data-theme="light">
+    <main>
+      <header>
+        <div>
+          <h1>Einkaufsaktionen · Kontrastvarianten</h1>
+          <p class="intro">Die Marktfarbe bleibt als Punkt sichtbar. Nur die Aktionsfläche wechselt auf ein geprüftes Theme-Paar. Der Schalter oben zeigt dieselben Varianten im dunklen Theme.</p>
+        </div>
+        <button class="theme-toggle" id="themeToggle" type="button">Dunkles Theme</button>
+      </header>
+      <section class="options" aria-label="Drei Aktionsvarianten">
+        <article>
+          <div class="option-head"><h2>A · Gefüllt mit Theme-Akzent</h2><p>Bestehendes zentrales Primary-Paar. Klare Hauptaktion, Marktfarbe bleibt als Punkt.</p></div>
+          <div class="phone">
+            <div class="screen-head"><span class="brand"><i class="dot"></i> Lidl</span><span class="close">×</span></div>
+            <div class="shopping"><div class="progress-line"><i></i></div><div class="meta"><span>3 von 8 erledigt</span><span>24,80 €</span></div></div>
+            <div class="list"><div class="section colored-category" style="--category-color:#748C5B"><i class="dot"></i> Obst &amp; Gemüse <span class="count">1/3</span></div>
+              <div class="item done"><span class="box">✓</span>Äpfel <span class="qty">1 kg</span></div>
+              <div class="item"><span class="box"></span>Bananen <span class="qty">6 Stk.</span></div>
+              <div class="item"><span class="box"></span>Tomaten <span class="qty">500 g</span></div>
+              <div class="section colored-category" style="--category-color:#C6A24A;margin-top:18px"><i class="dot" style="background:var(--market)"></i> Milchprodukte <span class="count">2/4</span></div>
+              <div class="item done"><span class="box">✓</span>Milch <span class="qty">1 l</span></div>
+              <div class="item done"><span class="box">✓</span>Joghurt <span class="qty">2 Stk.</span></div>
+              <div class="item"><span class="box"></span>Butter <span class="qty">250 g</span></div>
+            </div>
+            <div class="mode-footer"><div class="cta primary">🛒 Einkauf abschließen · 3</div></div>
+            <div class="sheet">
+              <div class="grab"></div><h3>Kategorien sortieren</h3><div class="market-name"><i class="dot"></i>Lidl</div>
+              <div class="categories"><div class="category colored-category" style="--category-color:#748C5B">Obst &amp; Gemüse <span class="handle">⠿</span></div><div class="category colored-category" style="--category-color:#C6A24A">Milchprodukte <span class="handle">⠿</span></div><div class="category colored-category" style="--category-color:#5C7396">Getränke <span class="handle">⠿</span></div></div>
+              <div class="sheet-footer"><span class="reset">Zurücksetzen</span><span class="save primary">Speichern</span></div>
+            </div>
+          </div>
+          <p class="caption">Light: #8B5E63 / #FFFFFF · 5,41:1<br>Dark: #B79CBA / #211D23 · 6,70:1</p>
+        </article>
+        <article>
+          <div class="option-head"><h2>B · Akzentkontur</h2><p>Leichtere Fläche, Akzenttext und Kontur. Weniger visuelles Gewicht für die Aktion.</p></div>
+          <div class="phone">
+            <div class="screen-head"><span class="brand"><i class="dot"></i> Lidl</span><span class="close">×</span></div>
+            <div class="shopping"><div class="progress-line"><i></i></div><div class="meta"><span>3 von 8 erledigt</span><span>24,80 €</span></div></div>
+            <div class="list"><div class="section colored-category" style="--category-color:#748C5B"><i class="dot"></i> Obst &amp; Gemüse <span class="count">1/3</span></div>
+              <div class="item done"><span class="box">✓</span>Äpfel <span class="qty">1 kg</span></div><div class="item"><span class="box"></span>Bananen <span class="qty">6 Stk.</span></div><div class="item"><span class="box"></span>Tomaten <span class="qty">500 g</span></div>
+              <div class="section colored-category" style="--category-color:#C6A24A;margin-top:18px"><i class="dot" style="background:var(--market)"></i> Milchprodukte <span class="count">2/4</span></div>
+              <div class="item done"><span class="box">✓</span>Milch <span class="qty">1 l</span></div><div class="item done"><span class="box">✓</span>Joghurt <span class="qty">2 Stk.</span></div><div class="item"><span class="box"></span>Butter <span class="qty">250 g</span></div>
+            </div>
+            <div class="mode-footer"><div class="cta outline">🛒 Einkauf abschließen · 3</div></div>
+            <div class="sheet">
+              <div class="grab"></div><h3>Kategorien sortieren</h3><div class="market-name"><i class="dot"></i>Lidl</div>
+              <div class="categories"><div class="category colored-category" style="--category-color:#748C5B">Obst &amp; Gemüse <span class="handle">⠿</span></div><div class="category colored-category" style="--category-color:#C6A24A">Milchprodukte <span class="handle">⠿</span></div><div class="category colored-category" style="--category-color:#5C7396">Getränke <span class="handle">⠿</span></div></div>
+              <div class="sheet-footer"><span class="reset">Zurücksetzen</span><span class="save outline">Speichern</span></div>
+            </div>
+          </div>
+          <p class="caption">Text und Kontur nutzen dieselbe Theme-Akzentrolle; die Fläche bleibt ruhig.</p>
+        </article>
+        <article>
+          <div class="option-head"><h2>C · Tonale Fläche</h2><p>HintergrundSoft mit primärem Text. Zurückhaltend, die Marktmarkierung bleibt separat.</p></div>
+          <div class="phone">
+            <div class="screen-head"><span class="brand"><i class="dot"></i> Lidl</span><span class="close">×</span></div>
+            <div class="shopping"><div class="progress-line"><i></i></div><div class="meta"><span>3 von 8 erledigt</span><span>24,80 €</span></div></div>
+            <div class="list"><div class="section colored-category" style="--category-color:#748C5B"><i class="dot"></i> Obst &amp; Gemüse <span class="count">1/3</span></div>
+              <div class="item done"><span class="box">✓</span>Äpfel <span class="qty">1 kg</span></div><div class="item"><span class="box"></span>Bananen <span class="qty">6 Stk.</span></div><div class="item"><span class="box"></span>Tomaten <span class="qty">500 g</span></div>
+              <div class="section colored-category" style="--category-color:#C6A24A;margin-top:18px"><i class="dot" style="background:var(--market)"></i> Milchprodukte <span class="count">2/4</span></div>
+              <div class="item done"><span class="box">✓</span>Milch <span class="qty">1 l</span></div><div class="item done"><span class="box">✓</span>Joghurt <span class="qty">2 Stk.</span></div><div class="item"><span class="box"></span>Butter <span class="qty">250 g</span></div>
+            </div>
+            <div class="mode-footer"><div class="cta tonal">🛒 Einkauf abschließen · 3</div></div>
+            <div class="sheet">
+              <div class="grab"></div><h3>Kategorien sortieren</h3><div class="market-name"><i class="dot"></i>Lidl</div>
+              <div class="categories"><div class="category colored-category" style="--category-color:#748C5B">Obst &amp; Gemüse <span class="handle">⠿</span></div><div class="category colored-category" style="--category-color:#C6A24A">Milchprodukte <span class="handle">⠿</span></div><div class="category colored-category" style="--category-color:#5C7396">Getränke <span class="handle">⠿</span></div></div>
+              <div class="sheet-footer"><span class="reset">Zurücksetzen</span><span class="save tonal">Speichern</span></div>
+            </div>
+          </div>
+          <p class="caption">Theme-Fläche und Text folgen dem vorhandenen neutralen Rollenpaar.</p>
+        </article>
+      </section>
+    </main>
+    <script>
+      const button = document.querySelector('#themeToggle');
+      function luminance(hex) {
+        const channels = hex.match(/[0-9a-f]{2}/giu).map((part) => parseInt(part, 16) / 255);
+        const linear = channels.map((channel) => channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4);
+        return linear[0] * 0.2126 + linear[1] * 0.7152 + linear[2] * 0.0722;
+      }
+      document.querySelectorAll('.colored-category').forEach((element) => {
+        const background = getComputedStyle(element).backgroundColor.match(/\d+/gu).map(Number);
+        const hex = `#${background.map((channel) => channel.toString(16).padStart(2, '0')).join('')}`;
+        const lightInkContrast = 1.05 / (luminance(hex) + 0.05);
+        const darkInkContrast = (luminance(hex) + 0.05) / 0.05;
+        element.style.setProperty('--category-ink', darkInkContrast >= lightInkContrast ? '#000' : '#fff');
+      });
+      button.addEventListener('click', () => {
+        const dark = document.body.dataset.theme !== 'dark';
+        document.body.dataset.theme = dark ? 'dark' : 'light';
+        button.textContent = dark ? 'Helles Theme' : 'Dunkles Theme';
+      });
+    </script>
+  </body>
+</html>

@@ -74,10 +74,12 @@ export const shoppingListStyles = StyleSheet.create((theme) => ({
   categoryHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: space.sm,
+    minHeight: 38,
     paddingHorizontal: space.md,
-    paddingTop: space.md,
-    paddingBottom: space.xs,
+    paddingVertical: space.sm,
+    marginHorizontal: space.md,
+    marginTop: space.xs,
+    borderRadius: radius.md,
   },
   modeCategoryHeader: {
     flexDirection: 'row',
@@ -85,15 +87,13 @@ export const shoppingListStyles = StyleSheet.create((theme) => ({
     gap: space.sm,
     paddingHorizontal: space.md,
     paddingVertical: space.sm,
+    marginHorizontal: space.md,
+    marginTop: space.xs,
+    borderRadius: radius.md,
   },
   categoryDot: {
     width: 6,
     height: 6,
-    borderRadius: radius.s,
-  },
-  modeCategoryDot: {
-    width: 8,
-    height: 8,
     borderRadius: radius.s,
   },
   categoryName: {

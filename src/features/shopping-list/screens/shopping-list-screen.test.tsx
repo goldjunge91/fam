@@ -3,6 +3,7 @@ import { act, fireEvent, render, screen, userEvent } from '@testing-library/reac
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { colorsLight } from '@/components/theme';
 import { i18n } from '@/i18n';
+import { categorySurfaceColors } from '../components/category-surface-colors';
 
 import { ShoppingListScreen } from './shopping-list-screen';
 
@@ -348,7 +349,11 @@ describe('ShoppingListScreen', () => {
     });
 
     const categoryTexts = await screen.findAllByText('Obst & Gemüse');
-    expect(categoryTexts[0]).toHaveStyle({ color: colorsLight.text });
+    const categoryColors = categorySurfaceColors('#748C5B', colorsLight);
+    expect(categoryTexts[0]).toHaveStyle({ color: categoryColors.text });
+    expect(screen.getByTestId('shopping-list-category-Obst & Gemüse')).toHaveStyle({
+      backgroundColor: categoryColors.background,
+    });
   });
 
   it('öffnet den Barcode-Scanner direkt über den Icon-Button', async () => {

@@ -1,5 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import type React from 'react';
+import { colorsLight } from '@/components/theme';
+import { categorySurfaceColors } from '@/features/shopping-list/components/category-surface-colors';
 import type { Store } from '@/features/shopping-list/hooks/use-stores';
 import { CategoryOrderSheet } from '@/features/shopping-list/sheets/category-order-sheet';
 import { i18n } from '@/i18n';
@@ -63,6 +65,12 @@ describe('CategoryOrderSheet', () => {
 
     expect(screen.getByText('Reihenfolge bearbeiten')).toBeTruthy();
     expect(screen.getByText('Obst & Gemüse')).toBeTruthy();
+    expect(screen.getByTestId('category-order-store-color')).toHaveStyle({
+      backgroundColor: mockStore.color,
+    });
+    expect(screen.getByTestId('shopping-category-color-fresh_produce')).toHaveStyle({
+      backgroundColor: categorySurfaceColors('#748C5B', colorsLight).background,
+    });
   });
 
   it('rendert den nativen Host bei geschlossenem Sheet nicht', async () => {
@@ -76,6 +84,8 @@ describe('CategoryOrderSheet', () => {
 
     const saveBtn = screen.getByRole('button', { name: 'Speichern' });
     await fireEvent.press(saveBtn);
+
+    expect(saveBtn).toHaveStyle({ backgroundColor: colorsLight.accent });
 
     expect(mockMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({

@@ -11,9 +11,10 @@ import { radius, space } from '@/components/theme';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { ProgressBar } from '@/components/ui/progress-bar';
-import { Press, Row, Surface, Txt } from '@/constants/ui';
+import { Button, Press, Row, Surface, Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format/format-currency';
 import { formatAmount } from '@/lib/format/package-size';
+import { categorySurfaceColors } from '../components/category-surface-colors';
 import { shoppingListStyles } from '../components/ui/shopping-list-styles';
 import { colorForCategory, parseCategoryOrder } from '../domain-logik/shopping-categories';
 import { groupByCategory, type LocalShoppingItem } from '../hooks/use-shopping-list';
@@ -169,7 +170,10 @@ export function ShoppingModeScreen({
           <SafeAreaView style={screenStyles.safeArea} edges={['top', 'bottom']}>
             <Row justify="space-between" style={screenStyles.header}>
               <Row gap={space.sm} style={screenStyles.storeName}>
-                <View style={[screenStyles.storeDot, { backgroundColor: store.color }]} />
+                <View
+                  testID="shopping-mode-store-color"
+                  style={[screenStyles.storeDot, { backgroundColor: store.color }]}
+                />
                 <Txt variant="body" weight="700">
                   {store.name}
                 </Txt>
@@ -207,6 +211,7 @@ export function ShoppingModeScreen({
                 const isComplete = catItems.length > 0 && catChecked === catItems.length;
                 const collapsed = collapsedOverrides[group.category] ?? isComplete;
                 const color = colorForCategory(group.category) ?? colors.textSecondary;
+                const categoryColors = categorySurfaceColors(color, colors);
 
                 return (
                   <View key={group.category}>
@@ -223,20 +228,24 @@ export function ShoppingModeScreen({
                           ? t('shoppingList.shoppingMode.categoryCollapsed')
                           : t('shoppingList.shoppingMode.categoryExpanded'),
                       })}
-                      style={styles.modeCategoryHeader}>
-                      {/* Kategorie-Farbe an Punkt, Name und Zähler — nur der
-                        getönte Hintergrund/Rand ist raus (passte nicht). */}
-                      <View style={[styles.modeCategoryDot, { backgroundColor: color }]} />
-                      <Txt variant="label" weight="700" tone="primary" style={styles.categoryName}>
+                      style={[
+                        styles.modeCategoryHeader,
+                        { backgroundColor: categoryColors.background },
+                      ]}>
+                      <Txt
+                        variant="label"
+                        weight="700"
+                        color={categoryColors.text}
+                        style={styles.categoryName}>
                         {group.category}
                       </Txt>
-                      <Txt variant="label" tone="primary" weight="600">
+                      <Txt variant="label" color={categoryColors.text} weight="600">
                         {catChecked}/{catItems.length}
                         {isComplete ? ' ✓' : ''}
                       </Txt>
                       <Txt
                         variant="subheading"
-                        tone="primary"
+                        color={categoryColors.text}
                         style={[
                           styles.categoryChevron,
                           { transform: [{ rotate: collapsed ? '-90deg' : '0deg' }] },
@@ -258,19 +267,19 @@ export function ShoppingModeScreen({
               findet man selten wirklich alles, das darf kein Blocker sein. */}
             {checkedCount > 0 ? (
               <View style={screenStyles.finishFooter}>
-                <Press
+                <Button
+                  title={t('shoppingList.shoppingMode.finish', { count: checkedCount })}
                   onPress={onFinish}
+                  variant="primary"
+                  flat
+                  full
                   haptic="success"
-                  accessibilityRole="button"
                   accessibilityLabel={t('shoppingList.shoppingMode.finishAccessibility', {
                     checked: checkedCount,
                     total: totalCount,
                   })}
-                  style={[screenStyles.finishButton, { backgroundColor: store.color }]}>
-                  <Txt variant="body" weight="700" tone="onAccent">
-                    {t('shoppingList.shoppingMode.finish', { count: checkedCount })}
-                  </Txt>
-                </Press>
+                  style={screenStyles.finishButton}
+                />
               </View>
             ) : null}
           </SafeAreaView>

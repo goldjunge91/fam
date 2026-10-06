@@ -2,6 +2,7 @@ import { render, screen, userEvent } from '@testing-library/react-native';
 import type React from 'react';
 import { colorsLight } from '@/components/theme';
 import { i18n } from '@/i18n';
+import { categorySurfaceColors } from '../components/category-surface-colors';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import type { Store } from '../hooks/use-stores';
 import { ShoppingModeScreen } from './shopping-mode-screen';
@@ -103,7 +104,12 @@ describe('ShoppingModeScreen', () => {
       />,
     );
 
-    expect(screen.getByText('Obst & Gemüse')).toHaveStyle({ color: colorsLight.text });
+    expect(screen.getByText('Obst & Gemüse')).toHaveStyle({
+      color: categorySurfaceColors('#748C5B', colorsLight).text,
+    });
+    expect(screen.getByRole('button', { name: /Obst & Gemüse/i })).toHaveStyle({
+      backgroundColor: categorySurfaceColors('#748C5B', colorsLight).background,
+    });
     expect(screen.getByText('6 Stück')).toHaveStyle({
       flexShrink: 0,
       textAlign: 'right',
@@ -185,6 +191,12 @@ describe('ShoppingModeScreen', () => {
     );
 
     expect(screen.getByText('🛒 Einkauf abschließen (1)')).toBeOnTheScreen();
+    expect(screen.getByTestId('shopping-mode-store-color')).toHaveStyle({
+      backgroundColor: store.color,
+    });
+    expect(
+      screen.getByRole('button', { name: 'Einkauf abschließen, 1 von 2 abgehakt' }),
+    ).toHaveStyle({ backgroundColor: colorsLight.accent });
   });
 
   it('ruft onFinish beim Antippen des Abschluss-Buttons auf', async () => {

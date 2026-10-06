@@ -10,7 +10,8 @@ import ReorderableList, {
 } from 'react-native-reorderable-list';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Press, Surface, Txt } from '@/constants/ui';
+import { Button, Press, Surface, Txt } from '@/constants/ui';
+import { categorySurfaceColors } from '../components/category-surface-colors';
 import {
   parseCategoryOrder,
   SHOPPING_CATEGORIES,
@@ -39,6 +40,9 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: 'space-between',
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.border,
+    borderRadius: theme.radius.md,
+    marginVertical: theme.space.xs,
+    paddingHorizontal: theme.space.md,
   },
   handle: {
     minWidth: 44,
@@ -46,13 +50,20 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: theme.space.lg,
     paddingVertical: theme.space.sm,
   },
-  handleLabel: {
-    opacity: 0.5,
-  },
   header: {
     paddingTop: theme.space.sm,
     paddingBottom: theme.space.lg,
     gap: theme.space.xs,
+  },
+  marketLabel: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+  },
+  marketDot: {
+    width: 8,
+    height: 8,
+    borderRadius: theme.radius.pill,
   },
   footer: {
     flexDirection: 'row',
@@ -92,12 +103,19 @@ interface RowProps {
 
 function Row({ category }: RowProps) {
   const { t } = useTranslation();
+  const { colors } = useTheme();
   const drag = useReorderableDrag();
   const isActive = useIsActive();
+  const categoryColors = categorySurfaceColors(category.color, colors);
 
   return (
-    <Surface tone={isActive ? 'surface' : 'page'} style={styles.row}>
-      <Txt variant="body">{category.label}</Txt>
+    <Surface
+      testID={`shopping-category-color-${category.id}`}
+      tone={isActive ? 'surface' : 'page'}
+      style={[styles.row, { backgroundColor: categoryColors.background }]}>
+      <Txt variant="body" color={categoryColors.text} weight="600">
+        {category.label}
+      </Txt>
       <Press
         haptic="none"
         onPressIn={drag}
@@ -106,7 +124,7 @@ function Row({ category }: RowProps) {
         accessibilityLabel={t('shoppingList.categoryOrder.moveAccessibility', {
           category: category.label,
         })}>
-        <Txt variant="heading" weight="700" style={styles.handleLabel}>
+        <Txt variant="heading" weight="700" color={categoryColors.text}>
           ⠿
         </Txt>
       </Press>
@@ -122,7 +140,6 @@ interface Props {
 
 export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
   const { t } = useTranslation();
-  const { colors: theme } = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
 
   const [order, setOrder] = useState<ShoppingCategory[]>(() => resolveOrder(store));
@@ -182,9 +199,17 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
               <Txt variant="heading" weight="700">
                 {t('shoppingList.categoryOrder.title')}
               </Txt>
-              <Txt variant="body" tone="secondary">
-                {t('shoppingList.categoryOrder.subtitle', { store: store?.name ?? '' })}
-              </Txt>
+              <View style={styles.marketLabel}>
+                {store ? (
+                  <View
+                    testID="category-order-store-color"
+                    style={[styles.marketDot, { backgroundColor: store.color }]}
+                  />
+                ) : null}
+                <Txt variant="body" tone="secondary">
+                  {t('shoppingList.categoryOrder.subtitle', { store: store?.name ?? '' })}
+                </Txt>
+              </View>
             </View>
           }
           ListFooterComponent={
@@ -198,17 +223,15 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
                   {t('shoppingList.categoryOrder.reset')}
                 </Txt>
               </Press>
-              <Press
+              <Button
+                title={t('shoppingList.categoryOrder.save')}
                 haptic="success"
                 onPress={handleSave}
+                variant="primary"
+                flat
                 disabled={saveMutation.isPending}
-                accessibilityRole="button"
-                // Dynamische Markt-Farbe aus der Datenbank
-                style={[styles.saveButton, { backgroundColor: store?.color ?? theme.accent }]}>
-                <Txt variant="body" tone="onAccent" weight="700">
-                  {t('shoppingList.categoryOrder.save')}
-                </Txt>
-              </Press>
+                style={styles.saveButton}
+              />
             </View>
           }
         />
