@@ -311,3 +311,36 @@ describe('RecipesScreen — Entdecken', () => {
     expect(screen.queryByRole('button', { name: 'Deftiger Auflauf' })).not.toBeOnTheScreen();
   });
 });
+
+describe('RecipesScreen — SectionHeading-Hierarchie', () => {
+  beforeEach(() => {
+    mockRecipes = [makeRecipe({ id: 'r1', title: 'Salat Overview', dish_types: ['lunch'] })];
+    mockCatalogRecipes = [
+      makeCatalogRecipe({
+        id: 'c1',
+        slug: 'salat-overview',
+        title: 'Salat Overview',
+        dish_types: ['lunch'],
+      }),
+    ];
+  });
+
+  it('rendert die Abschnittstitel als kanonische SectionHeading-Zeile', async () => {
+    await render(<RecipesScreen />);
+
+    for (const title of ['Kategorien', 'Rezepte nach Kalorien', 'Nach Mahlzeiten']) {
+      const heading = screen.getByText(title);
+      expect(heading).toBeOnTheScreen();
+      // Die Titel erben den body-Varianten-Ton aus dem kanonischen SectionHeading.
+      expect(heading).toHaveStyle({ color: expect.any(String) });
+    }
+  });
+
+  it('zeigt keine Aktion an einer Abschnittszeile ohne Callback', async () => {
+    await render(<RecipesScreen />);
+
+    // Ohne onAction rendert SectionHeading bewusst keinen Button.
+    expect(screen.queryByRole('button', { name: 'Alle zeigen' })).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Alle anzeigen' })).not.toBeOnTheScreen();
+  });
+});
