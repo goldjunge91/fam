@@ -3,7 +3,7 @@ import { Modal, Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
-import { radius, space, withAlpha } from '@/components/theme/index';
+import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
@@ -44,7 +44,7 @@ function ProfileSheetContent() {
     <Modal visible={isProfileOpen} transparent animationType="slide" onRequestClose={closeProfile}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
-          style={[StyleSheet.absoluteFill, { backgroundColor: withAlpha(colors.text, 0.3) }]}
+          style={[StyleSheet.absoluteFill, { backgroundColor: colors.scrim }]}
           onPress={closeProfile}
           accessibilityRole="button"
           accessibilityLabel="Profil schließen"

@@ -1,10 +1,19 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { colorsLight } from '@/components/theme';
 
 import { ProfileSheet } from '@/features/navigation/profile-sheet';
+import { ProfileSheet as AndroidProfileSheet } from '@/features/navigation/profile-sheet.android';
 
 const mockPush = jest.fn();
 const mockCloseProfile = jest.fn();
+const profileSheetVariants: Array<{
+  platform: string;
+  Component: typeof ProfileSheet;
+}> = [
+  { platform: 'iOS', Component: ProfileSheet },
+  { platform: 'Android', Component: AndroidProfileSheet },
+];
 
 jest.mock('expo-router', () => ({
   router: { push: (...args: unknown[]) => mockPush(...args) },
@@ -64,6 +73,61 @@ describe('ProfileSheet', () => {
     expect(screen.getByText('Mein Profil')).toBeTruthy();
     expect(screen.getByText('Familie')).toBeTruthy();
     expect(screen.getByText('Plus & KI')).toBeTruthy();
+  });
+
+  it.each(profileSheetVariants)(
+    '$platform verwendet die gemeinsame Scrim-Rolle',
+    async ({ Component }) => {
+      await render(
+        <SafeAreaProvider
+          initialMetrics={{
+            frame: { x: 0, y: 0, width: 390, height: 844 },
+            insets: { top: 47, left: 0, right: 0, bottom: 34 },
+          }}>
+          <Component />
+        </SafeAreaProvider>,
+      );
+
+      const backdrop = screen.getAllByLabelText('Profil schließen')[0];
+
+      expect(backdrop.props.style).toContainEqual(
+        expect.objectContaining({ backgroundColor: colorsLight.scrim }),
+      );
+    },
+  );
+
+  it.each(profileSheetVariants)('$platform schliesst beim Aussentap', async ({ Component }) => {
+    const user = userEvent.setup();
+
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <Component />
+      </SafeAreaProvider>,
+    );
+
+    await user.press(screen.getAllByRole('button', { name: 'Profil schließen' })[0]);
+
+    expect(mockCloseProfile).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(profileSheetVariants)('$platform schliesst bei System-Zurueck', async ({ Component }) => {
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <Component />
+      </SafeAreaProvider>,
+    );
+
+    await fireEvent(screen.getAllByRole('button', { name: 'Profil schließen' })[0], 'requestClose');
+
+    expect(mockCloseProfile).toHaveBeenCalledTimes(1);
   });
 
   it('navigiert zu Haushalts-Einstellungen beim Klick auf Familie', async () => {
