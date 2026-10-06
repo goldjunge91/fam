@@ -87,7 +87,13 @@ describe('eas-ios-build.sh EAS profile validation', () => {
           {
             cwd: tempRoot,
             encoding: 'utf8',
-            env: { ...process.env, CI: '1', PATH: `${binDirectory}:${process.env.PATH ?? ''}` },
+            env: {
+              ...process.env,
+              CI: '1',
+              GITHUB_ACTIONS: 'false',
+              GITHUB_RUN_NUMBER: '',
+              PATH: `${binDirectory}:${process.env.PATH ?? ''}`,
+            },
           },
         );
 

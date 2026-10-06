@@ -7,7 +7,7 @@
 begin;
 \ir helpers.sql
 
-select plan(25);
+select plan(27);
 
 -- ------------------------------------------------- Sync-Spalten auf allen Tabellen
 -- `updated_at` treibt den inkrementellen Pull, `deleted_at` die Tombstones.
@@ -155,10 +155,28 @@ select ok(
 select ok(
   exists (
     select 1 from pg_publication_tables
-    where pubname = 'supabase_realtime'
+      where pubname = 'supabase_realtime'
       and schemaname = 'public' and tablename = 'shopping_category_preferences'
   ),
   'shopping_category_preferences liegt in der Realtime-Publication'
+);
+
+select ok(
+  exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public' and tablename = 'purchase_receipts'
+  ),
+  'purchase_receipts liegt in der Realtime-Publication'
+);
+
+select ok(
+  exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public' and tablename = 'purchase_receipt_items'
+  ),
+  'purchase_receipt_items liegt in der Realtime-Publication'
 );
 
 select ok(

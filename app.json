@@ -89,6 +89,9 @@
         }
       ],
       [
+        "./plugins/withIosCcacheDir"
+      ],
+      [
         "expo-build-properties",
         {
           "ios": {
@@ -136,7 +139,6 @@
       ],
       "./plugins/withPushCapability",
       "./plugins/withAndroidGradleTuning",
-      "./plugins/withIosCcacheDir",
       "expo-image",
       "./plugins/withPosthogNonfatalHermesUpload",
       [

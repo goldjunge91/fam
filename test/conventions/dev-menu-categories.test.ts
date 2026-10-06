@@ -78,7 +78,7 @@ const CATEGORY_SPECS = [
     sourceFiles: ['dev-lifecycle-screen.tsx'],
     markers: [
       'title="Lifecycle & Background"',
-      '<ContentCard title="Letzte Session">',
+      '<ContentCard title="Aktuelle Session">',
       'Noch keine Lifecycle-Ereignisse aufgezeichnet.',
     ],
   },
@@ -110,6 +110,7 @@ const CATEGORY_SPECS = [
       'title="Design-System-Referenz öffnen"',
       'title="Drax-Drag-Demo öffnen"',
       'title="Auth-Seiten testen"',
+      'title="Beleg-Scanner-Dummy öffnen"',
       'title="Plus-Paywall öffnen (Test Store)"',
       'title="KI-Paywall öffnen (Test Store)"',
       "router.push('/settings/design-system')",

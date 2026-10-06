@@ -341,3 +341,30 @@ grant select, insert, update, delete on public.receipt_assets
   to authenticated;
 grant select, insert, update, delete on public.purchase_receipts, public.purchase_receipt_items, public.receipt_assets
   to service_role;
+
+-- Receipt records sync between household members and share the same live
+-- update path as inventory and shopping-list records.
+alter table public.purchase_receipts replica identity full;
+alter table public.purchase_receipt_items replica identity full;
+
+do $$
+begin
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public'
+      and tablename = 'purchase_receipts'
+  ) then
+    alter publication supabase_realtime add table public.purchase_receipts;
+  end if;
+
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public'
+      and tablename = 'purchase_receipt_items'
+  ) then
+    alter publication supabase_realtime add table public.purchase_receipt_items;
+  end if;
+end;
+$$;

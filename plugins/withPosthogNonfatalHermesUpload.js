@@ -17,7 +17,12 @@ function decodePbxShellScript(value) {
 }
 
 function encodePbxShellScript(value) {
-  return `"${value.replace(/"/g, '\\"')}"`;
+  const encoded = value
+    .replace(/\\/g, '\\\\')
+    .replace(/\n/g, '\\n')
+    .replace(/\t/g, '\\t')
+    .replace(/"/g, '\\"');
+  return `"${encoded}"`;
 }
 
 function wrapHermesUpload(projectRoot) {

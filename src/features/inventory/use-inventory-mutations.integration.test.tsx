@@ -28,6 +28,11 @@ jest.doMock('expo-crypto', () => ({
 }));
 
 jest.doMock('@/lib/db/local-client', () => ({ getDatabase: jest.fn() }));
+jest.doMock('@/lib/backend/supabase/remote-client', () => ({
+  getSupabase: jest.fn(() => {
+    throw new Error('Remote Supabase is outside this local SQLite mutation test.');
+  }),
+}));
 jest.doMock('react-native', () => ({ Platform: { OS: 'node' } }));
 
 const { getDatabase } = jest.requireMock('@/lib/db/local-client') as {

@@ -15,8 +15,8 @@ describe('Unistyles Expo entry convention', () => {
 
   it('loads the Unistyles Jest mock before the app configuration', () => {
     const source = fs.readFileSync(path.join(REPO_ROOT, 'jest.config.js'), 'utf8');
-    const mocksEntry = source.indexOf("'react-native-unistyles/mocks'");
-    const configEntry = source.indexOf("'<rootDir>/src/components/theme/index.ts'");
+    const mocksEntry = source.indexOf('react-native-unistyles/mocks');
+    const configEntry = source.indexOf('<rootDir>/src/components/theme/index.ts');
 
     expect(mocksEntry).toBeGreaterThanOrEqual(0);
     expect(configEntry).toBeGreaterThan(mocksEntry);
