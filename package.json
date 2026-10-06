@@ -159,7 +159,6 @@
     "eas:ios:local": "bash scripts/eas-ios-build.sh local",
     "eas:ios:cloud": "bash scripts/eas-ios-build.sh cloud",
     "posthog:upload-ios-dsyms": "scripts/posthog-upload-ios-dsyms.sh",
-    "preinstall": "bun run check:bun-version",
     "prepare": "git config core.hooksPath .githooks",
     "start": "EXPO_NO_METRO_LAZY=1 bash scripts/local-expo.sh start",
     "ios": "FAM_HARNESS_UI=1 FAM_IOS_MLKIT_OCR=0 FAM_UPDATE_CHANNEL=development bash scripts/local-expo.sh ios",
