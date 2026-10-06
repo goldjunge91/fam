@@ -47,21 +47,22 @@ Für die tatsächliche Ausführung muss `--listTests` entfallen.
 
 ## Supabase-Transport unter SDK 57
 
-Die Storage-Diagnose vergleicht den benannten `expo/fetch`-Transport mit dem
-globalen Fetch aus der Runtime. Sie prüft abgebrochene Response-Bodies sowie
-Uploads und bytegenaue Downloads mit `Uint8Array` in mehreren Größen. Das
-Skript startet dafür lokal ein kurzlebiges Fehler-Fixture auf Port 8787 und
-räumt nur diesen eigenen Prozess wieder auf:
+Die Storage-Diagnose vergleicht `expo/fetch`, den globalen Fetch aus der
+Runtime und `expo/fetch` mit Response-Timeout. Sie prüft abgebrochene
+Response-Bodies sowie Uploads und bytegenaue Readbacks mit `Uint8Array` in
+mehreren Größen. Das Skript startet dafür lokal ein kurzlebiges Fehler-Fixture
+auf Port 8787 und räumt den Fixture-Prozess wieder auf:
 
 ```bash
-bash scripts/diagnose-storage-upload.sh ios
-bash scripts/diagnose-storage-upload.sh android
+bash harness/diagnose-storage-upload.sh ios
+bash harness/diagnose-storage-upload.sh android
 ```
 
 Die Diagnose benötigt einen installierten Dev-Build, einen laufenden
 Simulator/Emulator und eine bereits laufende lokale Supabase-Instanz. Sie
-startet oder stoppt Supabase nicht. Der Harness vergleicht beide Transporte;
-er ändert den produktiven Supabase-Client nicht.
+startet oder stoppt Supabase nicht. Der Diagnose-Account und der Haushalt
+bleiben lokal bestehen; hochgeladene Diagnoseobjekte werden nach dem Lauf
+entfernt. Der produktive Supabase-Client verwendet denselben Response-Timeout.
 
 ## Echter OCR-Mapping-Nachweis
 

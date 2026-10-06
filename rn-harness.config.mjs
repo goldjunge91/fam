@@ -13,6 +13,9 @@ const config = {
   // its runtime while keeping Expo's normal native bootstrap intact.
   entryPoint: 'expo-router/entry',
   appRegistryComponentName: 'main',
+  // The development client otherwise relaunches its last project URL instead
+  // of requesting the Harness bundle.
+  metroPort: 8081,
 
   runners: [
     androidPlatform({
@@ -33,6 +36,9 @@ const config = {
       // their own row.
       device: appleSimulator('iPhone 12 mini', '26.2'),
       bundleId: 'com.goldjunge91.fam1',
+      appLaunchOptions: {
+        arguments: ['--initialUrl', 'http://localhost:8081'],
+      },
     }),
     webPlatform({
       name: 'web',

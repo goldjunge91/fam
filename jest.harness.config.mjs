@@ -1,8 +1,7 @@
 export default {
   preset: 'react-native-harness',
   testMatch: ['<rootDir>/**/*.harness.[jt]s?(x)'],
-  // `temp/` enthaelt Wegwerf-Sandboxes (z. B. aus dem Stryker-Mutationspilot
-  // mit Kopien des Harness und verwaisten require-Pfaden). testMatch greift
-  // rekursiv, also wuerden diese Kopien mitgetestet und scheitern.
-  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/temp/'],
+  // Harness tests live here; narrowing Jest's crawl also avoids stale package
+  // snapshots under generated build/cache dependencies.
+  roots: ['<rootDir>/harness'],
 };

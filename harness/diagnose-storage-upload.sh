@@ -8,8 +8,8 @@
 #   - Lokales Supabase laeuft (supabase start)
 #
 # Nutzung:
-#   bash scripts/diagnose-storage-upload.sh ios
-#   bash scripts/diagnose-storage-upload.sh android
+#   bash harness/diagnose-storage-upload.sh ios
+#   bash harness/diagnose-storage-upload.sh android
 set -euo pipefail
 
 RUNNER="${1:-ios}"
@@ -21,7 +21,7 @@ case "$RUNNER" in
   *) echo "Runner muss ios oder android sein: $RUNNER" >&2; exit 1 ;;
 esac
 
-FAM_FETCH_FIXTURE_PORT=8787 bun scripts/fetch-failure-fixture.ts >/dev/null 2>&1 &
+FAM_FETCH_FIXTURE_PORT=8787 bun harness/fetch-failure-fixture.ts >/dev/null 2>&1 &
 FIXTURE_PID=$!
 cleanup_fixture() {
   kill "$FIXTURE_PID" 2>/dev/null || true
@@ -66,11 +66,22 @@ LOCAL_URL="$(echo "$LOCAL_STATUS_JSON" | python3 -c "import json,sys; print(json
 LOCAL_ANON_KEY="$(echo "$LOCAL_STATUS_JSON" | python3 -c "import json,sys; print(json.load(sys.stdin)['ANON_KEY'])")"
 set_env_line() {
   local key="$1" value="$2"
-  if [[ -f "$ENV_FILE" ]] && grep -q "^${key}=" "$ENV_FILE"; then
-    sed -i '' "s|^${key}=.*|${key}=${value}|" "$ENV_FILE"
-  else
-    printf '%s=%s\n' "$key" "$value" >> "$ENV_FILE"
-  fi
+  python3 - "$ENV_FILE" "$key" "$value" <<'PY'
+from pathlib import Path
+import sys
+
+env_path = Path(sys.argv[1])
+key, value = sys.argv[2:]
+lines = env_path.read_text().splitlines() if env_path.exists() else []
+updated = False
+for index, line in enumerate(lines):
+    if line.startswith(f"{key}="):
+        lines[index] = f"{key}={value}"
+        updated = True
+if not updated:
+    lines.append(f"{key}={value}")
+env_path.write_text("\n".join(lines) + "\n")
+PY
 }
 set_env_line "EXPO_PUBLIC_HARNESS_TEST_EMAIL" "$EMAIL"
 set_env_line "EXPO_PUBLIC_HARNESS_TEST_PASSWORD" "$PASSWORD"
@@ -78,7 +89,7 @@ set_env_line "EXPO_PUBLIC_HARNESS_SUPABASE_URL" "$LOCAL_URL"
 set_env_line "EXPO_PUBLIC_HARNESS_SUPABASE_KEY" "$LOCAL_ANON_KEY"
 
 echo "== 4/4 Harness-Matrix ausfuehren ($RUNNER) =="
-echo "   Vergleicht Expo und globalen RN-fetch fuer abgebrochene Responses und Uint8Array-Uploads."
+echo "   Vergleicht Expo-, RN-fetch- und Expo-mit-Timeout-Transporte fuer abgebrochene Responses und Uint8Array-Uploads."
 echo
 FAM_HARNESS_UI=1 bun --env-file="$ENV_FILE" run react-native-harness \
   --config jest.harness.config.mjs \

@@ -4,6 +4,7 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { fetch as expoFetch } from 'expo/fetch';
 import { AppState, type AppStateStatus, Platform } from 'react-native';
 
+import { createFetchWithResponseTimeout } from '@/lib/backend/supabase/fetch-response-timeout';
 import { env } from '@/lib/config/env';
 import type { Database } from '@/lib/database.types';
 import { debugWarn } from '@/lib/observability/debug-log';
@@ -15,7 +16,9 @@ export type TypedSupabaseClient = SupabaseClient<Database>;
 let client: TypedSupabaseClient | null = null;
 // Ein Transport für Supabase, einschließlich binärer Receipt-Uploads.
 // Native Uploads werden mit Uint8Array über storage.upload() geprüft.
-export const serverClock = createServerClock(expoFetch as typeof fetch);
+export const serverClock = createServerClock(
+  createFetchWithResponseTimeout(expoFetch as typeof fetch, 60_000),
+);
 
 export function getSupabase(): TypedSupabaseClient {
   if (client) return client;

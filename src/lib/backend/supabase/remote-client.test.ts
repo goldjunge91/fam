@@ -72,14 +72,18 @@ describe('Supabase Native Lifecycle', () => {
   it('leitet Uint8Array-Upload-Bodies unverändert an expo/fetch weiter', async () => {
     const bytes = new Uint8Array([0, 17, 128, 255]);
     const init = { method: 'POST', body: bytes } as RequestInit;
-    mockExpoFetch.mockResolvedValueOnce({ headers: { get: () => null } });
+    mockExpoFetch.mockResolvedValueOnce({
+      body: null,
+      headers: { get: () => null },
+      status: 204,
+    });
 
     await serverClock.fetch('https://example.supabase.co/storage/v1/object/test', init);
 
-    expect(mockExpoFetch).toHaveBeenCalledWith(
-      'https://example.supabase.co/storage/v1/object/test',
-      init,
-    );
+    const call = mockExpoFetch.mock.calls[0];
+    expect(call?.[0]).toBe('https://example.supabase.co/storage/v1/object/test');
+    expect(call?.[1]).toMatchObject({ method: 'POST', body: bytes });
+    expect((call?.[1] as RequestInit | undefined)?.signal).toBeInstanceOf(AbortSignal);
   });
 
   it('propagiert Netzwerkfehler von expo/fetch an den Supabase-Client', async () => {

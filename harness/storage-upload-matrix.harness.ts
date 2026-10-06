@@ -5,21 +5,21 @@ import { createClient } from '@supabase/supabase-js';
 import { describe, expect, it } from 'react-native-harness';
 
 import { RECEIPT_ASSET_BUCKET } from '@/features/ocr/capture/capture/constants';
+import { createFetchWithResponseTimeout } from '@/lib/backend/supabase/fetch-response-timeout';
 import type { Database } from '@/lib/database.types';
 
 /**
  * Storage-Upload-Diagnose in der echten Runtime.
  *
- * Prüft ausschließlich den gewählten Bildtransport: Uint8Array über
- * Supabase Storage mit expo/fetch. Jede Dateigröße muss erfolgreich sein.
- * Der Capture-Adapter wird umgangen; Parent-Sync und Metadaten werden
- * separat getestet. Dies ist kein vollständiger Bon-End-to-End-Test.
+ * Vergleicht Expo-fetch und den globalen RN-fetch mit einer begrenzten
+ * Expo-fetch-Variante. Alle Größen laufen über den begrenzten Kandidaten;
+ * die Rohtransporte prüfen den 884-KB-Fehlerfall. Der Capture-Adapter wird
+ * umgangen; Parent-Sync und Metadaten werden separat getestet.
  *
- * Der Diagnose-Client baut bewusst einen eigenen supabase-js-Client mit
- * expo/fetch als Transport — identisch zum App-Client in
- * src/lib/backend/supabase/client.ts, aber gegen die lokale Instanz
- * (EXPO_PUBLIC_HARNESS_SUPABASE_URL), unabhaengig davon, auf welches Projekt
- * das App-Bundle zeigt.
+ * Der Diagnose-Client baut bewusst eigene supabase-js-Clients gegen die
+ * lokale Instanz (EXPO_PUBLIC_HARNESS_SUPABASE_URL), unabhängig davon,
+ * auf welches Projekt das App-Bundle zeigt. Der Timeout-Kandidat verwendet
+ * denselben Expo-fetch-Wrapper wie der App-Client.
  *
  * `react-native-url-polyfill/auto` muss vor supabase-js geladen werden
  * (gleiche Reihenfolge wie der App-Client): supabase-js weist
@@ -27,7 +27,7 @@ import type { Database } from '@/lib/database.types';
  * Polyfill unterstuetzt.
  *
  * Credentials kommen als EXPO_PUBLIC_HARNESS_* (Metro inlined EXPO_PUBLIC_*
- * beim Bundlen). scripts/diagnose-storage-upload.sh legt den Test-Account an
+ * beim Bundlen). harness/diagnose-storage-upload.sh legt den Test-Account an
  * und setzt alle drei Variablen.
  */
 
@@ -40,7 +40,7 @@ const FAILURE_URL = process.env.EXPO_PUBLIC_HARNESS_FAILURE_URL;
 function diagnoseClient(fetchImplementation: typeof fetch, url = SUPABASE_URL) {
   if (!url || !SUPABASE_KEY) {
     throw new Error(
-      'EXPO_PUBLIC_HARNESS_SUPABASE_URL/KEY fehlen. scripts/diagnose-storage-upload.sh setzt beide.',
+      'EXPO_PUBLIC_HARNESS_SUPABASE_URL/KEY fehlen. harness/diagnose-storage-upload.sh setzt beide.',
     );
   }
   return createClient<Database>(url, SUPABASE_KEY, {
@@ -55,16 +55,26 @@ type UploadOutcome = {
   detail: string;
 };
 
+type DiagnosticTransport = {
+  label: string;
+  fetch: typeof fetch;
+  client: ReturnType<typeof diagnoseClient>;
+  storageEvents: string[];
+};
+
 const outcomes: UploadOutcome[] = [];
 
-function record(label: string, error: unknown): void {
+function record(label: string, error: unknown, storageEvents: string[]): void {
   const message =
     error instanceof Error
-      ? `${error.name}: ${error.message}`
+      ? error.stack ?? `${error.name}: ${error.message}`
       : typeof error === 'object' && error !== null && 'message' in error
         ? String((error as { message: unknown }).message)
         : String(error);
-  outcomes.push({ label, ok: false, detail: message });
+  const detail = storageEvents.length
+    ? `${message}\nStorage requests:\n${storageEvents.join('\n')}`
+    : `${message}\nStorage requests: none reached fetch`;
+  outcomes.push({ label, ok: false, detail });
   console.warn(`[storage-matrix] FAIL ${label} -> ${message}`);
 }
 
@@ -83,12 +93,21 @@ function testBytes(sizeBytes: number): Uint8Array<ArrayBuffer> {
   return bytes;
 }
 
+function equalBytes(left: Uint8Array, right: Uint8Array): boolean {
+  if (left.byteLength !== right.byteLength) return false;
+
+  for (let index = 0; index < left.byteLength; index += 1) {
+    if (left[index] !== right[index]) return false;
+  }
+  return true;
+}
+
 function diagnosePath(householdId: string, assetId: string): string {
   return `${householdId}/diagnose/${assetId}.jpg`;
 }
 
 async function uploadViaStorageClient(
-  transport: (typeof transports)[number],
+  transport: DiagnosticTransport,
   householdId: string,
   assetId: string,
   body: Uint8Array<ArrayBuffer>,
@@ -100,22 +119,65 @@ async function uploadViaStorageClient(
     .upload(path, body, { contentType, upsert: true });
   if (error) throw error;
 
-  const { data, error: downloadError } = await transport.client
-    .storage.from(RECEIPT_ASSET_BUCKET)
-    .download(path);
-  if (downloadError) throw downloadError;
-  expect(new Uint8Array(await data.arrayBuffer())).toEqual(body);
+  const { data: sessionData, error: sessionError } = await transport.client.auth.getSession();
+  if (sessionError) throw sessionError;
+  const session = sessionData.session;
+  if (!session || !SUPABASE_URL || !SUPABASE_KEY) {
+    throw new Error('Storage readback requires the signed-in session and Supabase credentials.');
+  }
+
+  const encodedPath = path.split('/').map(encodeURIComponent).join('/');
+  const response = await transport.fetch(
+    `${SUPABASE_URL}/storage/v1/object/${RECEIPT_ASSET_BUCKET}/${encodedPath}`,
+    {
+      headers: {
+        apikey: SUPABASE_KEY,
+        Authorization: `Bearer ${session.access_token}`,
+      },
+    },
+  );
+  if (!response.ok) {
+    throw new Error(`Storage readback failed with HTTP ${response.status}.`);
+  }
+  expect(equalBytes(new Uint8Array(await response.arrayBuffer()), body)).toBe(true);
+}
+
+function diagnoseTransport(label: string, fetchImplementation: typeof fetch): DiagnosticTransport {
+  const storageEvents: string[] = [];
+  const trackedFetch: typeof fetch = async (input, init) => {
+    const url = String(input);
+    if (!url.includes('/storage/v1/object/')) return fetchImplementation(input, init);
+
+    const request = `${init?.method ?? 'GET'} ${url}`;
+    storageEvents.push(`started ${request}`);
+    try {
+      const response = await fetchImplementation(input, init);
+      storageEvents.push(`resolved ${request} -> HTTP ${response.status}`);
+      return response;
+    } catch (error) {
+      const detail = error instanceof Error ? `${error.name}: ${error.message}` : String(error);
+      storageEvents.push(`rejected ${request} -> ${detail}`);
+      throw error;
+    }
+  };
+
+  return {
+    label,
+    fetch: fetchImplementation,
+    client: diagnoseClient(trackedFetch),
+    storageEvents,
+  };
 }
 
 let householdId: string | null = null;
 const uploadedAssetIds: string[] = [];
-const transports = [
-  { label: 'expo/fetch', fetch: expoFetch as typeof fetch, client: diagnoseClient(expoFetch as typeof fetch) },
-  {
-    label: 'global fetch (EXPO_PUBLIC_USE_RN_FETCH)',
-    fetch: globalThis.fetch,
-    client: diagnoseClient(globalThis.fetch),
-  },
+const transports: DiagnosticTransport[] = [
+  diagnoseTransport('expo/fetch', expoFetch as typeof fetch),
+  diagnoseTransport('global fetch (EXPO_PUBLIC_USE_RN_FETCH)', globalThis.fetch),
+  diagnoseTransport(
+    'expo/fetch with response timeout',
+    createFetchWithResponseTimeout(expoFetch as typeof fetch, 60_000),
+  ),
 ] as const;
 
 describe('Storage-Upload-Diagnose (echte Runtime)', () => {
@@ -161,24 +223,42 @@ describe('Storage-Upload-Diagnose (echte Runtime)', () => {
     { label: '884 KB (Fehlerfall aus dem Log)', bytes: 883918 },
     { label: '2 MB', bytes: 2 * 1024 * 1024 },
   ] as const;
+  const REFERENCE_SIZE = SIZES.filter((size) => size.bytes === 883918);
 
-  it('meldet einen abgebrochenen Response-Body als Netzwerkfehler', async () => {
+  const failureTransports = [
+    { label: 'expo/fetch', fetch: expoFetch as typeof fetch },
+    { label: 'global fetch (EXPO_PUBLIC_USE_RN_FETCH)', fetch: globalThis.fetch },
+    {
+      label: 'expo/fetch with response timeout',
+      fetch: createFetchWithResponseTimeout(expoFetch as typeof fetch, 2500),
+    },
+  ];
+
+  it('begrenzt einen abgebrochenen Response-Body mit dem Fetch-Timeout', async () => {
     if (!FAILURE_URL) {
-      throw new Error('EXPO_PUBLIC_HARNESS_FAILURE_URL fehlt; diagnose-storage-upload.sh setzt sie.');
+      throw new Error('EXPO_PUBLIC_HARNESS_FAILURE_URL fehlt; harness/diagnose-storage-upload.sh setzt sie.');
     }
 
     const results = await Promise.all(
-      transports.map(async (transport) => {
+      failureTransports.map(async (transport) => {
         const client = createClient<Database>(FAILURE_URL, SUPABASE_KEY ?? '', {
           global: { fetch: transport.fetch },
           auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
         });
+        const controller = new AbortController();
         let timeout: ReturnType<typeof setTimeout> | undefined;
         try {
           await Promise.race([
-            client.from('households').select('id').throwOnError(),
+            client
+              .from('households')
+              .select('id')
+              .abortSignal(controller.signal)
+              .throwOnError(),
             new Promise<never>((_, reject) => {
-              timeout = setTimeout(() => reject(new Error('body read timed out')), 8000);
+              timeout = setTimeout(() => {
+                controller.abort();
+                reject(new Error('body read timed out'));
+              }, 4000);
             }),
           ]);
           return { label: transport.label, result: 'resolved with a partial response' };
@@ -194,18 +274,24 @@ describe('Storage-Upload-Diagnose (echte Runtime)', () => {
     for (const result of results) {
       console.warn(`[storage-matrix] mid-body ${result.label}: ${result.result}`);
     }
-    const rnFetch = results.find((result) => result.label.startsWith('global fetch'))?.result;
-    expect(rnFetch).toBeDefined();
-    expect(rnFetch).not.toContain('body read timed out');
-    expect(rnFetch).not.toContain('SyntaxError');
-    expect(rnFetch).not.toBe('resolved with a partial response');
+    const boundedFetch = results.find((result) => result.label.includes('response timeout'))?.result;
+    if (!boundedFetch?.includes('Fetch response timed out after 2500 ms.')) {
+      throw new Error(`Abgebrochene Response-Ergebnisse:\n${JSON.stringify(results, null, 2)}`);
+    }
   });
 
-  it('Uint8Array (View) via beide Supabase-Transporte ueber alle Groessen', async () => {
-    for (const transport of transports) {
-      for (const size of SIZES) {
-        const id = `${transport.label.startsWith('expo') ? 'expo' : 'rn'}-${size.bytes}`;
+  for (const transport of transports) {
+    const sizes = transport.label.includes('response timeout') ? SIZES : REFERENCE_SIZE;
+    for (const size of sizes) {
+      it(`round-trips Uint8Array ${size.label} via ${transport.label}`, async () => {
+        const prefix = transport.label.startsWith('global')
+          ? 'rn'
+          : transport.label.includes('response timeout')
+            ? 'expo-timeout'
+            : 'expo';
+        const id = `${prefix}-${size.bytes}`;
         uploadedAssetIds.push(id);
+        transport.storageEvents.length = 0;
         try {
           await uploadViaStorageClient(
             transport,
@@ -216,11 +302,11 @@ describe('Storage-Upload-Diagnose (echte Runtime)', () => {
           );
           recordOk(`Uint8Array ${size.label} via ${transport.label}`);
         } catch (error) {
-          record(`${transport.label} Uint8Array ${size.label}`, error);
+          record(`${transport.label} Uint8Array ${size.label}`, error, transport.storageEvents);
         }
-      }
+      });
     }
-  });
+  }
 
   it('druckt die Ergebnismatrix', async () => {
     console.warn('\n[storage-matrix] ===== ERGEBNISMATRIX =====');
@@ -235,8 +321,10 @@ describe('Storage-Upload-Diagnose (echte Runtime)', () => {
     console.warn(
       `[storage-matrix] ===== ${outcomes.length - failed.length}/${outcomes.length} OK =====\n`,
     );
-    expect(outcomes).toHaveLength(SIZES.length * transports.length);
-    expect(failed).toEqual([]);
+    expect(outcomes).toHaveLength(SIZES.length + transports.length - 1);
+    if (failed.length > 0) {
+      throw new Error(`Upload failures:\n${JSON.stringify(failed, null, 2)}`);
+    }
   });
 
   it('raeumt die Diagnose-Objekte auf', async () => {
