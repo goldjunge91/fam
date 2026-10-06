@@ -31,6 +31,10 @@ while IFS= read -r file; do
   [ -z "$file" ] && continue
 
   case "$file" in
+    src/lib/database.types.ts)
+      # Generated declarations have no related Jest tests.
+      continue
+      ;;
     src/*.ts|src/*.tsx|src/*.js|src/*.jsx|test/*.ts|test/*.tsx|test/*.js|test/*.jsx)
       test_files+=("$file")
       ;;
