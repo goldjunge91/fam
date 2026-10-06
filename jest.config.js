@@ -105,6 +105,15 @@ module.exports = {
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
   // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.
   collectCoverage: false,
+  // Include every productive app module, even when no test imports it. Keep
+  // platform and generated runtime sources in scope; exclude only tests and
+  // declaration files per the repository coverage contract.
+  collectCoverageFrom: [
+    "<rootDir>/src/**/*.{ts,tsx,js,jsx}",
+    "!<rootDir>/src/**/*.test.{ts,tsx,js,jsx}",
+    "!<rootDir>/src/**/*.spec.{ts,tsx,js,jsx}",
+    "!<rootDir>/src/**/*.d.ts",
+  ],
 
   // Dies ist die einzige Stelle, an der Coverage-Reporter festgelegt werden.
   // `test:coverage:unit` in package.json darf KEIN --coverageReporters
