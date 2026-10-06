@@ -33,7 +33,13 @@
   },
   "overrides": [
     {
-      "includes": ["src/**/*.test.{ts,tsx}", "src/**/*.integration.test.{ts,tsx}"],
+      "includes": [
+        "src/**/*.test.{ts,tsx}",
+        "src/**/*.integration.test.{ts,tsx}",
+        "test/conventions/**/*.{ts,tsx}",
+        "test/**/*.{ts,tsx}",
+        "tools/**/*.{ts,tsx}"
+      ],
       "linter": {
         "domains": {
           "test": "all"
