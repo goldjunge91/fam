@@ -65,10 +65,10 @@ jobs:
         run: bun run eas:ios:local -- production --output build/local/eas/production/fam.ipa
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-      - name: 'Upload app to TestFlight'
-        uses: apple-actions/upload-testflight-build@v1
-        with:
-          app-path: build/local/eas/production/fam.ipa
-          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
-          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+          EAS_LOCAL_BUILD_ROOT: ${{ runner.temp }}/eas-local
+      - name: Submit IPA to TestFlight via EAS
+        run: >-
+          bun x eas-cli submit --platform ios --profile production
+          --path build/local/eas/production/fam.ipa --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}

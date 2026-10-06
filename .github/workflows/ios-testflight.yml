@@ -63,13 +63,12 @@ jobs:
           EAS_PROFILE: ${{ inputs.profile }}
           EAS_LOCAL_BUILD_ROOT: ${{ runner.temp }}/eas-local
 
-      - name: Upload IPA to TestFlight
-        uses: apple-actions/upload-testflight-build@v1
-        with:
-          app-path: build/local/eas/${{ inputs.profile }}/fam.ipa
-          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
-          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+      - name: Submit IPA to TestFlight via EAS
+        run: >-
+          bun x eas-cli submit --platform ios --profile "$EAS_PROFILE"
+          --path "build/local/eas/$EAS_PROFILE/fam.ipa" --non-interactive
+        env:
+          EAS_PROFILE: ${{ inputs.profile }}
 
       - name: Archive iOS build lifecycle records
         if: always()
