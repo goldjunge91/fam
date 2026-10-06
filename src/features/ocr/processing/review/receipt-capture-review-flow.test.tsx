@@ -6,6 +6,7 @@ import { i18n } from '@/i18n';
 import { REWE_RECEIPT_LINES } from '../domain/fixtures/german-receipts';
 import { parseGermanReceipt } from '../domain/parser';
 import type { ReceiptProcessingProgress, ReceiptProcessingResult } from '../workflow';
+import { createReceiptItemIdsForReview } from '../workflow';
 import { createReceiptReviewSnapshot, createReceiptReviewState } from './model';
 import { ReceiptCaptureReviewFlow } from './receipt-capture-review-flow';
 
@@ -22,6 +23,12 @@ jest.mock('@/features/shopping-list/hooks/use-stores', () => ({
       },
     ],
   }),
+}));
+
+const mockRetryReceiptCaptureUpload = jest.fn();
+jest.mock('@/features/ocr/capture/api', () => ({
+  ...jest.requireActual<typeof import('@/features/ocr/capture/api')>('@/features/ocr/capture/api'),
+  retryReceiptCaptureUpload: (...args: unknown[]) => mockRetryReceiptCaptureUpload(...args),
 }));
 
 function captureDraft(source: 'camera' | 'gallery' = 'camera'): ReceiptCaptureDraft {
@@ -598,12 +605,14 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     });
 
     const onDismiss = jest.fn();
+    const onSaved = jest.fn();
     await render(
       <ReceiptCaptureReviewFlow
         visible
         householdId="household-1"
         createdBy="user-1"
         onDismiss={onDismiss}
+        onSaved={onSaved}
         persistence={state.persistence}
         processCapture={jest.fn()}
         finalize={finalize}
@@ -615,6 +624,7 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
       .press(await screen.findByRole('button', { name: 'Kassenbon speichern' }));
 
     await waitFor(() => expect(onDismiss).toHaveBeenCalledTimes(1));
+    expect(onSaved).toHaveBeenCalledTimes(1);
     expect(await state.persistence.load()).toMatchObject({
       status: 'failed',
       failure: { code: 'receipt_asset_storage_upload_failed' },
@@ -630,6 +640,7 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     };
     const state = persistenceWith(persisted);
     const onDismiss = jest.fn();
+    const onSaved = jest.fn();
     const pendingDraft = {
       ...captureDraft(),
       status: 'failed' as const,
@@ -662,6 +673,7 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
         householdId="household-1"
         createdBy="user-1"
         onDismiss={onDismiss}
+        onSaved={onSaved}
         persistence={state.persistence}
         processCapture={jest.fn()}
         finalize={finalize}
@@ -673,6 +685,7 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
       .press(await screen.findByRole('button', { name: 'Kassenbon speichern' }));
 
     await waitFor(() => expect(onDismiss).toHaveBeenCalledTimes(1));
+    expect(onSaved).toHaveBeenCalledTimes(1);
     expect(state.current()).toMatchObject({
       status: 'failed',
       phase: 'saving',
@@ -724,6 +737,58 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     await waitFor(() => expect(onDismiss).toHaveBeenCalledTimes(1));
     expect(state.discarded).toHaveBeenCalledTimes(1);
     expect(screen.queryByRole('button', { name: 'Kassenbon speichern' })).not.toBeOnTheScreen();
+  });
+
+  it('ruft nach Resume-Retry auch ohne Arbeitsspeicher-Ergebnis onSaved auf', async () => {
+    const source = parseGermanReceipt(REWE_RECEIPT_LINES);
+    const pendingDraft = {
+      ...captureDraft(),
+      householdId: 'household-1',
+      status: 'failed' as const,
+      phase: 'saving' as const,
+      failure: {
+        code: 'receipt_asset_pending_sync',
+        message: 'Receipt images are queued until the receipt sync completes.',
+        phase: 'saving' as const,
+      },
+      review: createReceiptReviewSnapshot(source, createReceiptReviewState(source, 'store-1')),
+    };
+    const state = persistenceWith(pendingDraft);
+    const uploadedDraft = {
+      ...pendingDraft,
+      status: 'uploaded' as const,
+      failure: null,
+    };
+    mockRetryReceiptCaptureUpload.mockResolvedValue({ draft: uploadedDraft });
+    const onDismiss = jest.fn();
+    const onSaved = jest.fn();
+
+    await render(
+      <ReceiptCaptureReviewFlow
+        visible
+        householdId="household-1"
+        createdBy="user-1"
+        onDismiss={onDismiss}
+        onSaved={onSaved}
+        persistence={state.persistence}
+        processCapture={jest.fn()}
+      />,
+    );
+
+    await userEvent
+      .setup()
+      .press(await screen.findByRole('button', { name: 'Bilder erneut hochladen' }));
+
+    await waitFor(() => expect(onSaved).toHaveBeenCalledTimes(1));
+    expect(onSaved).toHaveBeenCalledWith({
+      kind: 'saved',
+      receiptId: 'capture-1',
+      itemIds: createReceiptItemIdsForReview('capture-1', pendingDraft.review),
+      assets: { kind: 'uploaded', draft: uploadedDraft },
+    });
+    await waitFor(() => expect(onDismiss).toHaveBeenCalledTimes(1));
+    expect(state.discarded).toHaveBeenCalledTimes(1);
+    expect(state.current()).toBeNull();
   });
 
   it('schliesst das Modal auch dann, wenn das lokale Aufraeumen fehlschlaegt', async () => {

@@ -1,5 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import { useQueryClient } from '@tanstack/react-query';
+import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
@@ -399,7 +400,11 @@ export function ReceiptScannerScreen() {
           householdId={activeHouseholdId}
           createdBy={userId}
           onDismiss={closeFlow}
-          onSaved={() => queryClient.setQueryData(['receipt-resumable-draft', userId], null)}
+          onSaved={() => {
+            closeFlow();
+            queryClient.setQueryData(['receipt-resumable-draft', userId], null);
+            router.replace('/shopping-list');
+          }}
           initialCapture={initialCapture ?? undefined}
         />
       ) : null}

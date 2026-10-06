@@ -26,6 +26,7 @@ import { triggerHouseholdSyncAfterOutboxMutation } from '@/lib/sync/sync-runner'
 import type { ReceiptDraft } from '../domain/types';
 import { isGoogleMlKitAvailable, type ReceiptOcrProvider } from '../native';
 import {
+  createReceiptItemIdsForReview,
   type FinalizeReceiptResult,
   finalizeReceiptReview,
   processReceiptCapture,
@@ -154,6 +155,7 @@ export function ReceiptCaptureReviewFlow({
   const reviewSaveQueue = useRef(Promise.resolve());
   const discardRequestedRef = useRef(false);
   const lifecycleGenerationRef = useRef(0);
+  const savedResultRef = useRef<Extract<FinalizeReceiptResult, { kind: 'saved' }> | null>(null);
 
   const nowIso = useCallback(() => new Date().toISOString(), []);
   const waitForParentSync = useCallback(
@@ -223,6 +225,14 @@ export function ReceiptCaptureReviewFlow({
     setCaptureRetry(null);
     onDismiss();
   }, [onDismiss]);
+
+  const completeSavedResult = useCallback(
+    (result: FinalizeReceiptResult) => {
+      savedResultRef.current = null;
+      onSaved?.(result);
+    },
+    [onSaved],
+  );
 
   const runProcessing = useCallback(
     async (nextCapture: ReceiptCaptureDraft) => {
@@ -362,6 +372,7 @@ export function ReceiptCaptureReviewFlow({
 
     async function resume() {
       debugLogEvent('receipt.capture.resume.started');
+      savedResultRef.current = null;
       setPhase('choose');
       setCaptureDraft(null);
       setReviewDraft(null);
@@ -416,6 +427,12 @@ export function ReceiptCaptureReviewFlow({
         if (retryable.failure && isReceiptAssetUploadFailureCode(retryable.failure.code)) {
           setPendingReceiptId(retryable.id);
           setError(retryable.failure.message);
+          savedResultRef.current = {
+            kind: 'saved',
+            receiptId: retryable.id,
+            itemIds: createReceiptItemIdsForReview(retryable.id, persisted.review),
+            assets: { kind: 'skipped' },
+          };
         } else {
           setSaveRetryAvailable(true);
           setError(retryable.failure?.message ?? t('ocr.review.saveInterrupted'));
@@ -619,6 +636,7 @@ export function ReceiptCaptureReviewFlow({
     if (!isLifecycleCurrent(generation)) return;
     setPhase('saving');
     try {
+      savedResultRef.current = null;
       const reviewedCapture = {
         ...captureForSave,
         review: createReceiptReviewSnapshot(reviewDraft ?? nextDraft, nextReviewState),
@@ -672,6 +690,7 @@ export function ReceiptCaptureReviewFlow({
         setPendingSave(result);
         setPendingReceiptId(result.receiptId);
         setError(result.assets.message);
+        completeSavedResult(result);
         dismissKeepingPendingUpload();
         return;
       }
@@ -684,7 +703,7 @@ export function ReceiptCaptureReviewFlow({
         });
       }
       if (!isLifecycleCurrent(generation)) return;
-      onSaved?.(result);
+      completeSavedResult(result);
       await dismissWithCleanup();
     } catch (nextError: unknown) {
       if (!isLifecycleCurrent(generation)) return;
@@ -831,10 +850,15 @@ export function ReceiptCaptureReviewFlow({
     await persistence.transition({ phase: 'saved', updatedAt: nowIso() });
     if (!isLifecycleCurrent(generation)) return;
     if (pendingSave) {
-      onSaved?.({
+      completeSavedResult({
         kind: 'saved',
         receiptId: pendingSave.receiptId,
         itemIds: pendingSave.itemIds,
+        assets: { kind: 'uploaded', draft: result.draft },
+      });
+    } else if (savedResultRef.current) {
+      completeSavedResult({
+        ...savedResultRef.current,
         assets: { kind: 'uploaded', draft: result.draft },
       });
     }

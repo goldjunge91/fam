@@ -184,6 +184,7 @@ describe('ReceiptScannerScreen — Wiederaufnahme', () => {
     await user.press(screen.getByRole('button', { name: 'Test-Bon abschließen' }));
 
     expect(mockSetFlowVisible).toHaveBeenLastCalledWith(false);
+    expect(mockRouterReplace).toHaveBeenCalledWith('/shopping-list');
     expect(screen.queryByRole('button', { name: 'Test-Bon abschließen' })).not.toBeOnTheScreen();
     expect(screen.queryByRole('button', { name: 'Entwurf fortsetzen' })).not.toBeOnTheScreen();
   });

@@ -12,7 +12,10 @@ import {
 } from '@/features/ocr/authority/api';
 import { receiptCaptureAssetId } from '@/features/ocr/capture/capture/ids';
 import { markReceiptCaptureFailed } from '@/features/ocr/capture/domain/actions';
-import type { ReceiptCaptureDraft } from '@/features/ocr/capture/domain/types';
+import type {
+  ReceiptCaptureDraft,
+  ReceiptCaptureReviewSnapshot,
+} from '@/features/ocr/capture/domain/types';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 import { parseGermanReceipt } from './domain/parser';
 import type { ReceiptDraft, ReceiptOcrLine } from './domain/types';
@@ -224,6 +227,20 @@ export type FinalizeReceiptResult =
       itemIds: readonly string[];
       assets: { kind: 'failed'; message: string; draft: ReceiptCaptureDraft };
     };
+
+/**
+ * Rebuilds the authority item IDs for a persisted review. Resume flows only
+ * have the review snapshot, but the scanner needs the same identity as the
+ * original save to clear its resume entry once the pending upload succeeds.
+ */
+export function createReceiptItemIdsForReview(
+  captureId: string,
+  review: ReceiptCaptureReviewSnapshot,
+): string[] {
+  return review.source.items.map((item) =>
+    receiptCaptureAssetId(`${captureId}:item:${item.id}`, 0),
+  );
+}
 
 const DEFAULT_AUTHORITY: ReceiptAuthorityWriter = {
   createReceipt,
