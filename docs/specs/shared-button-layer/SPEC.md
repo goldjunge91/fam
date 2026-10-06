@@ -1,6 +1,6 @@
-# Spec: Kanonische Shared-UI- und Button-Schicht
+# Spec: Gemeinsame Shared-UI- und Button-Schicht
 
-Status: Entwurf, noch nicht zur Implementierung freigegeben.
+Status: Freigegeben; Strukturmigration abgeschlossen, native Abnahme teilweise offen.
 
 ## Objective
 
@@ -28,14 +28,17 @@ Owner eindeutig bleiben.
 
 ### Aktueller Befund
 
-`ui.tsx` besitzt bereits die Style-Owner `iconButtonStyles`,
-`floatingActionButtonStyles`, `compactActionButtonStyles`, `backButtonStyles`
-und `profileButtonStyles`. Die sechs Exporte aus `buttons/index.ts` werden noch
-von Layout-, Feature- und Showcase-Code verwendet. Außerdem prüfen
-`test/conventions/shared-button-contract.test.ts`,
-`test/conventions/shared-touch-contract.test.ts` und
-`test/conventions/dashboard-nativewind-convention.test.ts` derzeit noch die
-alten Dateipfade.
+Die Strukturmigration ist umgesetzt: `HeaderIconButton`, `MenuButton`,
+`CompactActionButton` und `FloatingActionButton` liegen in `src/components/ui/`;
+`BackButton` und `AutoBackButton` sowie `ProfileButton` samt Android-Variante
+liegen in `src/components/layout/`. Die aktiven Konventionstests prüfen die
+neuen Pfade und verhindern die Wiedereinführung des alten Verzeichnisses.
+Fokussierte Tests, Biome und Typecheck sind grün. Die Sichtprüfung auf dem
+vorhandenen iOS-Dev-Build bestätigt Dashboard-Menü und FAB, den Header der
+Artikel-Eingabe sowie die
+Bestandsnavigation per Back-Button. Die Sichtprüfung der kompakten Aktion, des
+Profil-Fallbacks und des Android-Pfads bleibt offen; der Device-Hub-Zielbestand
+für diese Prüfung enthält derzeit nur das freigegebene iPhone 12 mini.
 
 ## Scope
 
@@ -200,8 +203,8 @@ Verbindliche Stilregeln:
 
 ### Komponentenverhalten
 
-Die bestehenden Tests werden an die Zielorte verschoben oder in den bereits
-vorhandenen kanonischen Test `src/constants/ui.test.tsx` konsolidiert. Keine
+Die bestehenden Tests werden an die Zielorte verschoben oder im bereits
+vorhandenen zentralen Test `src/constants/ui.test.tsx` konsolidiert. Keine
 fachliche Assertion darf beim Verschieben verloren gehen.
 
 Zu prüfen sind mindestens:
