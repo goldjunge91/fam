@@ -68,8 +68,9 @@ if [[ "$mode" == local ]]; then
   # (TMPDIR/eas-cli-nodejs/<uuid>-shallow-clone) und arbeitet im Workingdir.
   # local-build-env.sh setzt beide Pfade ins Projekt; eas-cli bricht beim
   # Komprimieren ab: "cannot copy <projekt> to a subdirectory of self".
-  # Deshalb liegen beide ausserhalb des Projekts, unter /Volumes/Programme.
-  eas_temp_root="/Volumes/Programme/temp_bin/eas-local/$profile"
+  # Deshalb liegen beide ausserhalb des Projekts. EAS_LOCAL_BUILD_ROOT kann
+  # pro Umgebung gesetzt werden; lokal gilt der Standard aus local-build-env.sh.
+  eas_temp_root="$EAS_LOCAL_BUILD_ROOT/$profile"
   mkdir -p "$eas_temp_root"
   # Finder/Spotlight legen in frisch kopierten Clone-Verzeichnissen .DS_Store
   # an und eas-clis Aufräumen bricht mit ENOTEMPTY ab. Alt-Bestand entfernen

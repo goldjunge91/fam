@@ -3,6 +3,7 @@ set -euo pipefail
 
 local_build_env_project_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 local_build_env_cache_root="$local_build_env_project_root/build/cache"
+export EAS_LOCAL_BUILD_ROOT="${EAS_LOCAL_BUILD_ROOT:-/Volumes/Programme/temp_bin/eas-local}"
 
 if [[ "${CI:-}" != "true" && "${CI:-}" != "1" ]]; then
   case "$local_build_env_project_root/" in

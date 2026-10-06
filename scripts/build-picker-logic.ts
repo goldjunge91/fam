@@ -447,10 +447,11 @@ export interface SimulatorStepsOptions {
 //
 // Deshalb laeuft der lokale Build in einem frischen, von uns bereitgestellten
 // Verzeichnis ausserhalb des Projekts. Der Weg ist derselbe wie in
-// scripts/eas-ios-build.sh: TMPDIR und Workingdir liegen unter
-// /Volumes/Programme, nicht im Projekt, weil eas-cli sonst abbricht mit
+// scripts/eas-ios-build.sh: TMPDIR und Workingdir liegen ausserhalb des
+// Projekts, weil eas-cli sonst abbricht mit
 // "cannot copy <projekt> to a subdirectory of self".
-export const EAS_LOCAL_ROOT = '/Volumes/Programme/temp_bin/eas-local';
+export const EAS_LOCAL_ROOT =
+  process.env.EAS_LOCAL_BUILD_ROOT ?? '/Volumes/Programme/temp_bin/eas-local';
 
 export interface EasLocalBuildEnv {
   /** Workingdir fuer den Build; existiert noch nicht, wird angelegt. */
