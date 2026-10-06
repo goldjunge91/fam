@@ -33,7 +33,6 @@ jobs:
       POSTHOG_CLI_PROJECT_ID: ${{ secrets.POSTHOG_CLI_PROJECT_ID }}
       POSTHOG_CLI_HOST: ${{ vars.POSTHOG_CLI_HOST || 'https://eu.posthog.com' }}
       FAM_HARNESS_UI: "0"
-      EAS_LOCAL_BUILD_ROOT: ${{ runner.temp }}/eas-local
 
     steps:
       - name: Checkout Repository
@@ -62,6 +61,7 @@ jobs:
         env:
           APPROVE_REBUILD: ${{ inputs.approve_rebuild }}
           EAS_PROFILE: ${{ inputs.profile }}
+          EAS_LOCAL_BUILD_ROOT: ${{ runner.temp }}/eas-local
 
       - name: Upload IPA to TestFlight
         uses: apple-actions/upload-testflight-build@v1
