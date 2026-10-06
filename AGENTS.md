@@ -251,3 +251,6 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 ## Verbote commands
 
 - 'git reset' darf unter keinen umständen verwendet werden
+- Niemals Worktree-Änderungen zurücksetzen, um eigene Arbeit zu committen oder
+  Ähnliches. Worktree-Änderungen sind heilig. Ohne Marcos Freigabe wird keine
+  Arbeit verworfen!
