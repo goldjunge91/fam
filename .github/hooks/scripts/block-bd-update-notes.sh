@@ -15,7 +15,11 @@ allow() {
 }
 
 command -v jq >/dev/null 2>&1 || deny
-command -v python3 >/dev/null 2>&1 || deny
+python=$(command -v python3 2>/dev/null || true)
+if [ -z "$python" ] && [ -x /usr/bin/python3 ]; then
+  python=/usr/bin/python3
+fi
+[ -n "$python" ] || deny
 
 script_dir=$(CDPATH= cd -- "$(dirname "$0")" 2>/dev/null && pwd -P) || deny
 repo_root=$(CDPATH= cd -- "$script_dir/../../.." 2>/dev/null && pwd -P) || deny
@@ -67,7 +71,7 @@ fi
 
 codex_payload=$(jq -cn --arg command "$command" '{tool_input: {command: $command}}') || deny
 
-if printf '%s' "$codex_payload" | python3 "$policy" >/dev/null 2>&1; then
+if printf '%s' "$codex_payload" | "$python" "$policy" >/dev/null 2>&1; then
   allow
 fi
 
