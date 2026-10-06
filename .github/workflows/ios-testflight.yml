@@ -47,6 +47,7 @@ jobs:
         uses: ./.github/actions/setup-bun-env
 
       - name: Build iOS IPA via EAS
+        id: build
         run: |
           if [[ "$APPROVE_REBUILD" != "true" ]]; then
             echo "Native iOS-Rebuild nicht freigegeben"
@@ -58,6 +59,12 @@ jobs:
           esac
 
           bun run eas:ios:local -- "$EAS_PROFILE" --output "build/local/eas/$EAS_PROFILE/fam.ipa"
+          archive_path="$(find "$HOME/Library/Developer/Xcode/Archives" -type d -name '*.xcarchive' -prune -print -quit)"
+          if [[ -z "$archive_path" ]]; then
+            echo "Kein Xcode-Archiv unter ~/Library/Developer/Xcode/Archives gefunden" >&2
+            exit 1
+          fi
+          ditto "$archive_path" "build/local/eas/$EAS_PROFILE/fam.xcarchive"
         env:
           APPROVE_REBUILD: ${{ inputs.approve_rebuild }}
           EAS_PROFILE: ${{ inputs.profile }}
@@ -69,6 +76,17 @@ jobs:
           --path "build/local/eas/$EAS_PROFILE/fam.ipa" --non-interactive
         env:
           EAS_PROFILE: ${{ inputs.profile }}
+
+      - name: Archive IPA and Xcode archive
+        if: ${{ always() && steps.build.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-build-${{ inputs.profile }}-${{ github.run_number }}
+          path: |
+            build/local/eas/${{ inputs.profile }}/fam.ipa
+            build/local/eas/${{ inputs.profile }}/fam.xcarchive
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Archive iOS build lifecycle records
         if: always()

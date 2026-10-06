@@ -62,7 +62,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-bun-env
       - name: Build iOS app
-        run: bun run eas:ios:local -- production --output build/local/eas/production/fam.ipa
+        id: build
+        run: |
+          bun run eas:ios:local -- production --output build/local/eas/production/fam.ipa
+          archive_path="$(find "$HOME/Library/Developer/Xcode/Archives" -type d -name '*.xcarchive' -prune -print -quit)"
+          if [[ -z "$archive_path" ]]; then
+            echo "Kein Xcode-Archiv unter ~/Library/Developer/Xcode/Archives gefunden" >&2
+            exit 1
+          fi
+          ditto "$archive_path" build/local/eas/production/fam.xcarchive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
           EAS_LOCAL_BUILD_ROOT: ${{ runner.temp }}/eas-local
@@ -72,3 +80,13 @@ jobs:
           --path build/local/eas/production/fam.ipa --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      - name: Archive IPA and Xcode archive
+        if: ${{ always() && steps.build.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-build-production-${{ github.run_number }}
+          path: |
+            build/local/eas/production/fam.ipa
+            build/local/eas/production/fam.xcarchive
+          if-no-files-found: error
+          retention-days: 7
