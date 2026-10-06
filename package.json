@@ -157,6 +157,8 @@
   },
   "scripts": {
     "eas-build-on-success": "scripts/posthog-eas-build-on-success.sh",
+    "eas:ios:local": "bash scripts/eas-ios-build.sh local",
+    "eas:ios:cloud": "bash scripts/eas-ios-build.sh cloud",
     "posthog:upload-ios-dsyms": "scripts/posthog-upload-ios-dsyms.sh",
     "preinstall": "bun run check:bun-version",
     "prepare": "git config core.hooksPath .githooks",

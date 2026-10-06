@@ -6,9 +6,9 @@
  * Erst Typ und Ort in einer Ebene (BUILD_CHOICES), bei lokalem Store-Build
  * danach die Submit-Methode (EAS oder Xcode). Simulator baut immer lokal.
  *
- * Keine Wrapper-Scripte: jeder Schritt ist ein roher Befehl und wird vor dem
- * Ausfuehren angezeigt. Die komplette Ausgabe geht zusaetzlich in eine Logdatei
- * unter logs/, jeder Schritt wird mit Dauer protokolliert.
+ * Build-Schritte werden vor dem Ausfuehren angezeigt. EAS-Builds und das
+ * Xcode-Archiv laufen durch den Lifecycle-Recorder; die komplette Ausgabe geht
+ * zusaetzlich in eine Logdatei unter logs/.
  *
  * Die reine Logik lebt in scripts/build-picker-logic.ts und wird in
  * test/build-picker.test.ts geprueft.
@@ -28,13 +28,10 @@ import {
   buildLocationOptions,
   buildLogPath,
   type CommandStep,
-  easLocalBuildEnv,
-  easLocalBuildEnvVars,
   findBuildChoice,
   formatDuration,
   parseAvailableIosSimulators,
   parseShowBuildSettings,
-  profileFor,
   type SimulatorDevice,
   type StoreType,
   type SubmitMethod,
@@ -82,12 +79,6 @@ interface StepResult {
   durationMs: number;
 }
 
-// Umgebung fuer den naechsten Build-Befehl. Null bedeutet: Projektverzeichnis
-// und geerbte Umgebung. Lokale EAS-Builds brauchen ein eigenes Workingdir
-// und eigene TMPDIR, sonst liest eas-cli das lokale ios/ und bricht ab
-// (siehe easLocalBuildEnv in build-picker-logic.ts).
-let stepEnv: Record<string, string> | undefined;
-
 export async function runStep(step: CommandStep): Promise<StepResult> {
   const commandLine = `$ ${step.command} ${step.args.join(' ')}`;
   p.log.step(commandLine);
@@ -107,7 +98,7 @@ export async function runStep(step: CommandStep): Promise<StepResult> {
   const startedAt = Date.now();
   const child = spawn(step.command, step.args, {
     cwd: projectRoot,
-    env: stepEnv ? { ...process.env, ...stepEnv } : process.env,
+    env: process.env,
     stdio: ['inherit', 'pipe', 'pipe'],
   });
 
@@ -166,7 +157,7 @@ function readStdout(step: CommandStep, failureMessage: string): string | null {
   const result = spawnSync(step.command, step.args, {
     cwd: projectRoot,
     encoding: 'utf8',
-    env: stepEnv ? { ...process.env, ...stepEnv } : process.env,
+    env: process.env,
   });
   if (result.stdout) log(result.stdout.replace(/\n$/, ''));
   if (result.stderr) log(result.stderr.replace(/\n$/, ''));
@@ -317,20 +308,6 @@ async function runStore(choice: BuildChoice): Promise<number> {
   }
 
   const cacheName = type === 'testflight' ? 'testflight' : 'app-store';
-
-  // Lokale EAS-Builds brauchen ein Workingdir ausserhalb des Projekts und ein
-  // eigenes TMPDIR. Sonst liest eas-cli das lokale ios/ mit den
-  // CocoaPods-Dependencies und bricht im Signierpfad ab. Der Weg ist derselbe
-  // wie in scripts/eas-ios-build.sh.
-  if (location === 'local' && submit === 'eas') {
-    const profile = profileFor(type, location);
-    const runId = Date.now().toString(36);
-    const localEnv = easLocalBuildEnv(profile, runId);
-    fs.mkdirSync(localEnv.tmpDir, { recursive: true });
-    stepEnv = easLocalBuildEnvVars(localEnv);
-    p.log.info(`Workingdir: ${localEnv.workingDir}`);
-    log(`Workingdir: ${localEnv.workingDir}`);
-  }
 
   const steps = storeSteps({
     type,

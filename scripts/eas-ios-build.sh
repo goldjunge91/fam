@@ -95,11 +95,11 @@ if [[ "$mode" == local ]]; then
   fi
 fi
 
-log_dir="$local_build_env_project_root/build/local/eas/$profile"
-mkdir -p "$log_dir"
-log_file="$log_dir/build-$(date +%Y%m%d-%H%M%S).log"
 if [[ "$mode" == local ]]; then
-  printf 'EAS working directory: %s\nEAS log: %s\n' "$EAS_LOCAL_BUILD_WORKINGDIR" "$log_file" | tee -a "$log_file"
+  printf 'EAS working directory: %s\n' "$EAS_LOCAL_BUILD_WORKINGDIR"
 fi
-bun x eas-cli "${args[@]}" 2>&1 | tee -a "$log_file"
-printf 'EAS-Log: %s\n' "$log_file"
+bun "$local_build_env_project_root/.codex/skills/apple-app-store-release/scripts/run-recorded-ios-build.ts" \
+  --mode "$mode" \
+  --profile "$profile" \
+  -- \
+  bun x eas-cli "${args[@]}"

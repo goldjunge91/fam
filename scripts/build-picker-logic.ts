@@ -352,6 +352,7 @@ export function storeSteps(options: StoreStepsOptions): CommandStep[] {
   if (options.submit === 'xcode') {
     // Kein Archiv in der Cloud, daher nur lokal moeglich.
     if (options.location !== 'local') return [];
+    const archiveStep = storeArchiveStep(options.archivePath);
     return [
       prebuildStep(options.envFile, 'device'),
       podInstallStep(),
@@ -367,7 +368,19 @@ export function storeSteps(options: StoreStepsOptions): CommandStep[] {
           submitProfile,
         ],
       },
-      storeArchiveStep(options.archivePath),
+      {
+        command: 'bun',
+        args: [
+          '.codex/skills/apple-app-store-release/scripts/run-recorded-ios-build.ts',
+          '--mode',
+          'local',
+          '--profile',
+          submitProfile,
+          '--',
+          archiveStep.command,
+          ...archiveStep.args,
+        ],
+      },
       {
         command: 'bun',
         args: ['run', 'posthog:upload-ios-dsyms', options.archivePath],
@@ -384,19 +397,8 @@ export function storeSteps(options: StoreStepsOptions): CommandStep[] {
     const ipa = localIpaPath(profile);
     return [
       {
-        command: 'bun',
-        args: [
-          'x',
-          'eas-cli',
-          'build',
-          '--platform',
-          'ios',
-          '--profile',
-          profile,
-          '--local',
-          '--output',
-          ipa,
-        ],
+        command: 'bash',
+        args: ['scripts/eas-ios-build.sh', 'local', profile, '--output', ipa],
       },
       {
         command: 'bun',
@@ -417,8 +419,8 @@ export function storeSteps(options: StoreStepsOptions): CommandStep[] {
 
   return [
     {
-      command: 'bun',
-      args: ['x', 'eas-cli', 'build', '--platform', 'ios', '--profile', profile],
+      command: 'bash',
+      args: ['scripts/eas-ios-build.sh', 'cloud', profile],
     },
     {
       command: 'bun',

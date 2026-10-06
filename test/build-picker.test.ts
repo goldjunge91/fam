@@ -80,8 +80,10 @@ describe('storeSteps: EAS', () => {
     const steps = storeSteps({ ...base, type: 'testflight', location: 'cloud', submit: 'eas' });
 
     expect(steps).toHaveLength(2);
-    expect(steps[0].args).toContain('preview-testflight');
-    expect(steps[0].args).not.toContain('--local');
+    expect(steps[0]).toEqual({
+      command: 'bash',
+      args: ['scripts/eas-ios-build.sh', 'cloud', 'preview-testflight'],
+    });
     expect(steps[1].args).toContain('--latest');
     expect(steps[1].args).not.toContain('--path');
   });
@@ -89,9 +91,16 @@ describe('storeSteps: EAS', () => {
   it('TestFlight Local: Build mit --local, Submit mit --path', () => {
     const steps = storeSteps({ ...base, type: 'testflight', location: 'local', submit: 'eas' });
 
-    expect(steps[0].args).toContain('preview-testflight-local');
-    expect(steps[0].args).toContain('--local');
-    expect(steps[0].args).toContain('--output');
+    expect(steps[0]).toEqual({
+      command: 'bash',
+      args: [
+        'scripts/eas-ios-build.sh',
+        'local',
+        'preview-testflight-local',
+        '--output',
+        'build/local/eas/preview-testflight-local/fam.ipa',
+      ],
+    });
     expect(steps[1].args).toContain('--path');
     expect(steps[1].args).not.toContain('--latest');
   });
@@ -99,7 +108,13 @@ describe('storeSteps: EAS', () => {
   it('Production Local nutzt production-local und laedt nach production', () => {
     const steps = storeSteps({ ...base, type: 'production', location: 'local', submit: 'eas' });
 
-    expect(steps[0].args).toContain('production-local');
+    expect(steps[0].args).toEqual([
+      'scripts/eas-ios-build.sh',
+      'local',
+      'production-local',
+      '--output',
+      'build/local/eas/production-local/fam.ipa',
+    ]);
     expect(steps[1].args).toContain('production');
     expect(steps[1].args).toContain('--path');
   });
@@ -107,7 +122,7 @@ describe('storeSteps: EAS', () => {
   it('Production Cloud laedt den neuesten bei EAS registrierten Build hoch', () => {
     const steps = storeSteps({ ...base, type: 'production', location: 'cloud', submit: 'eas' });
 
-    expect(steps[0].args).toContain('production');
+    expect(steps[0].args).toEqual(['scripts/eas-ios-build.sh', 'cloud', 'production']);
     expect(steps[1].args).toContain('production');
     expect(steps[1].args).toContain('--latest');
   });
@@ -129,7 +144,27 @@ describe('storeSteps: Xcode', () => {
     expect(steps[0].args).toContain('FAM_IOS_MLKIT_OCR=1');
     expect(steps[1].command).toBe('pod');
     expect(steps[2].args).toContain('build:version:sync');
-    expect(steps[3].args).toContain('archive');
+    expect(steps[3].command).toBe('bun');
+    expect(steps[3].args).toEqual([
+      '.codex/skills/apple-app-store-release/scripts/run-recorded-ios-build.ts',
+      '--mode',
+      'local',
+      '--profile',
+      'preview-testflight',
+      '--',
+      'xcodebuild',
+      '-workspace',
+      'ios/fam.xcworkspace',
+      '-scheme',
+      'fam',
+      '-configuration',
+      'Release',
+      '-destination',
+      'generic/platform=iOS',
+      '-archivePath',
+      base.archivePath,
+      'archive',
+    ]);
     expect(steps[4]).toEqual({
       command: 'bun',
       args: ['run', 'posthog:upload-ios-dsyms', base.archivePath],
@@ -149,6 +184,17 @@ describe('storeSteps: Xcode', () => {
     expect(storeSteps({ ...base, type: 'testflight', location: 'cloud', submit: 'xcode' })).toEqual(
       [],
     );
+  });
+});
+
+describe('EAS iOS build lifecycle entrypoints', () => {
+  it('routes the public package scripts through the lifecycle-aware shell runner', () => {
+    const packageJson = JSON.parse(
+      fs.readFileSync(path.resolve(__dirname, '../package.json'), 'utf8'),
+    ) as { scripts: Record<string, string> };
+
+    expect(packageJson.scripts['eas:ios:local']).toBe('bash scripts/eas-ios-build.sh local');
+    expect(packageJson.scripts['eas:ios:cloud']).toBe('bash scripts/eas-ios-build.sh cloud');
   });
 });
 
@@ -295,9 +341,9 @@ describe('Logging und Zeitmessung', () => {
   });
 
   it('streamt Kindprozessausgabe, bevor der Schritt beendet ist', async () => {
-    const tempDirectory = fs.mkdtempSync(
-      path.join('/Volumes/Programme/temp_bin', 'build-picker-stream-'),
-    );
+    const testTemporaryRoot = path.resolve(__dirname, '../build/test-tmp');
+    fs.mkdirSync(testTemporaryRoot, { recursive: true });
+    const tempDirectory = fs.mkdtempSync(path.join(testTemporaryRoot, 'build-picker-stream-'));
     const releaseFile = path.join(tempDirectory, 'release');
     const childScript = [
       "const fs = require('node:fs');",

@@ -5,14 +5,14 @@ import path from 'node:path';
 const projectRoot = path.resolve(__dirname, '..');
 
 describe('eas-ios-build.sh local diagnostics', () => {
-  it('preserves EAS diagnostics and records the working directory before the build', () => {
+  it('records the working directory before invoking the lifecycle recorder', () => {
     const script = fs.readFileSync(path.join(projectRoot, 'scripts', 'eas-ios-build.sh'), 'utf8');
+    const recorderInvocation = script.indexOf('run-recorded-ios-build.ts');
 
     expect(script).toContain('export EAS_LOCAL_BUILD_SKIP_CLEANUP=1');
-    expect(script.indexOf('EAS working directory:')).toBeLessThan(
-      script.indexOf('bun x eas-cli "${args[@]}"'),
-    );
-    expect(script).toContain('tee -a "$log_file"');
+    expect(script.indexOf('EAS working directory:')).toBeLessThan(recorderInvocation);
+    expect(recorderInvocation).toBeGreaterThanOrEqual(0);
+    expect(script).toContain('bun x eas-cli "${args[@]}"');
   });
 });
 
@@ -41,11 +41,42 @@ describe('eas-ios-build.sh EAS profile validation', () => {
         path.join(scriptsDirectory, 'local-build-env.sh'),
       );
 
+      const recorderDirectory = path.join(
+        tempRoot,
+        '.codex',
+        'skills',
+        'apple-app-store-release',
+        'scripts',
+      );
+      fs.mkdirSync(recorderDirectory, { recursive: true });
+      fs.copyFileSync(
+        path.join(
+          projectRoot,
+          '.codex',
+          'skills',
+          'apple-app-store-release',
+          'scripts',
+          'build-run-recorder.ts',
+        ),
+        path.join(recorderDirectory, 'build-run-recorder.ts'),
+      );
+      fs.copyFileSync(
+        path.join(
+          projectRoot,
+          '.codex',
+          'skills',
+          'apple-app-store-release',
+          'scripts',
+          'run-recorded-ios-build.ts',
+        ),
+        path.join(recorderDirectory, 'run-recorded-ios-build.ts'),
+      );
+
       const realBun = execFileSync('which', ['bun'], { encoding: 'utf8' }).trim();
       const bunStub = path.join(binDirectory, 'bun');
       fs.writeFileSync(
         bunStub,
-        `#!/bin/sh\nif [ "$1" = "-e" ]; then exec ${JSON.stringify(realBun)} "$@"; fi\nexit 0\n`,
+        `#!/bin/sh\nif [ "$1" = "-e" ]; then exec ${JSON.stringify(realBun)} "$@"; fi\nif [ "$1" = "${path.join(recorderDirectory, 'run-recorded-ios-build.ts')}" ]; then exec ${JSON.stringify(realBun)} "$@"; fi\nif [ "$1" = "x" ] && [ "$2" = "eas-cli" ]; then exit 0; fi\nexit 1\n`,
       );
       fs.chmodSync(bunStub, 0o755);
 
@@ -69,5 +100,16 @@ describe('eas-ios-build.sh EAS profile validation', () => {
     } finally {
       fs.rmSync(tempRoot, { recursive: true, force: true });
     }
+  });
+});
+
+describe('iOS build workflow hooks', () => {
+  it('does not invoke the removed prompt-triggered build script', () => {
+    const hooks = fs.readFileSync(path.join(projectRoot, '.codex', 'hooks.json'), 'utf8');
+    const actions = fs.readFileSync(path.join(projectRoot, '.github', 'workflows', 'ios-testflight.yml'), 'utf8');
+
+    expect(hooks).not.toContain('ios-build-workflow.sh');
+    expect(hooks).toContain('bd codex-hook UserPromptSubmit');
+    expect(actions).toContain('bun run eas:ios:local');
   });
 });
