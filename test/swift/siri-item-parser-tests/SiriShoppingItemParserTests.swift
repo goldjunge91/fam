@@ -28,6 +28,21 @@ struct SiriShoppingItemParserTests {
         #expect(try SiriShoppingItemParser.parse("Hafer Milch") == ["Hafer Milch"])
     }
 
+    @Test("preserves item boundaries in Siri's structured collection")
+    func preservesStructuredItemBoundaries() throws {
+        #expect(
+            try SiriShoppingItemParser.parse(["  Peanut butter and jelly  ", "Salt, pepper"])
+                == ["Peanut butter and jelly", "Salt, pepper"],
+        )
+    }
+
+    @Test(arguments: [[], [" ", "Brot"], [String](repeating: "Milch", count: 51)])
+    func rejectsInvalidStructuredItemCollections(items: [String]) {
+        #expect(throws: SiriShoppingItemParserError.self) {
+            try SiriShoppingItemParser.parse(items)
+        }
+    }
+
     @Test(arguments: ["", "Milch,,Brot", "Milch und "])
     func rejectsMalformedLists(rawItems: String) {
         #expect(throws: SiriShoppingItemParserError.self) {
