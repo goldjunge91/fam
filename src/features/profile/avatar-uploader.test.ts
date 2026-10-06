@@ -1,6 +1,5 @@
 import * as ImagePicker from 'expo-image-picker';
 import { pickAvatarImage, uploadAvatarImage } from '@/features/profile/avatar-uploader';
-import { pickAvatarImage as pickAndroidAvatarImage } from '@/features/profile/avatar-uploader.android';
 
 jest.mock('@/lib/config/env', () => ({ env: { supabaseUrl: 'https://example.supabase.co' } }));
 
@@ -80,27 +79,6 @@ describe('pickAvatarImage', () => {
     mockLaunchImageLibraryAsync.mockResolvedValue({ canceled: true, assets: null } as never);
 
     await expect(pickAvatarImage()).resolves.toBeNull();
-  });
-});
-
-describe('pickAndroidAvatarImage', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
-  it('überspringt den nativen Crop-Schritt', async () => {
-    mockRequestMediaLibraryPermissionsAsync.mockResolvedValue({ granted: true } as never);
-    mockLaunchImageLibraryAsync.mockResolvedValue({
-      canceled: false,
-      assets: [{ uri: 'file:///local/avatar.jpg' }],
-    } as never);
-
-    await expect(pickAndroidAvatarImage()).resolves.toBe('file:///local/avatar.jpg');
-    expect(mockLaunchImageLibraryAsync).toHaveBeenCalledWith({
-      mediaTypes: ['images'],
-      allowsEditing: false,
-      quality: 0.8,
-    });
   });
 });
 
