@@ -52,10 +52,17 @@ echo "" >&2
 echo "  Erlaubte Typen: feat fix docs style refactor perf test build ci chore revert" >&2
 echo "" >&2
 echo "  Beispiele:" >&2
-echo "    fix(inventory): prevent duplicate ledger entries" >&2
 echo "    feat(auth): add password reset flow" >&2
+echo "    fix(inventory): prevent duplicate ledger entries" >&2
 echo "    docs: clarify the sync contract" >&2
+echo "    style: reformat the codebase with Prettier" >&2
+echo "    refactor: improve the data processing pipeline" >&2
+echo "    perf: optimize the database queries" >&2
 echo "    test: cover the sheet close handler" >&2
+echo "    build: update the build configuration" >&2
+echo "    ci: update the continuous integration configuration" >&2
+echo "    chore(format): enforce LF line endings in Biome" >&2
+echo "    revert: undo a previous commit" >&2
 echo "" >&2
 echo "  Mit --no-verify ueberspringbar, falls noetig." >&2
 echo "" >&2
