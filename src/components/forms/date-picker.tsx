@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
-import { Button, Press, TextField, Txt } from '@/constants/ui';
+import { Button, MIN_TOUCH_SIZE, Press, TextField, Txt } from '@/constants/ui';
 
 interface DatePickerProps {
   label?: string;
@@ -256,8 +256,8 @@ const styles = StyleSheet.create((theme) => ({
     gap: space.sm,
   },
   adjustButton: {
-    width: 40,
-    height: 40,
+    width: MIN_TOUCH_SIZE,
+    height: MIN_TOUCH_SIZE,
     borderRadius: radius.lg,
     borderCurve: 'continuous',
     alignItems: 'center',

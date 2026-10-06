@@ -1,4 +1,5 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
+import { MIN_TOUCH_SIZE } from '@/constants/ui';
 import { DatePicker } from './date-picker';
 
 describe('DatePicker', () => {
@@ -45,6 +46,36 @@ describe('DatePicker', () => {
       await user.type(input, '2023');
       // Erwartung: Unsere Mock-Funktion wurde aufgerufen, da der User getippt hat
       expect(onChangeTextMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('Touchziele', () => {
+    it('gibt jedem Verstellknopf mindestens 44 Punkte statisch', async () => {
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+      await render(<DatePicker value="2020-05-14" onChangeText={jest.fn()} />);
+      await user.press(screen.getByRole('button', { name: 'Datum auswählen' }));
+
+      const labels = [
+        'Jahr verringern',
+        'Jahr erhöhen',
+        'Monat verringern',
+        'Monat erhöhen',
+        'Tag verringern',
+        'Tag erhöhen',
+      ];
+
+      expect(MIN_TOUCH_SIZE).toBeGreaterThanOrEqual(44);
+
+      for (const label of labels) {
+        // Bewusst ohne `hitSlop`: der Vertrag in
+        // `docs/design-system/contracts/07-buttons-and-interaction.md` fordert
+        // eine echte Trefferflaeche, kein unsichtbares Padding.
+        expect(screen.getByRole('button', { name: label })).toHaveStyle({
+          width: MIN_TOUCH_SIZE,
+          height: MIN_TOUCH_SIZE,
+        });
+      }
     });
   });
 });

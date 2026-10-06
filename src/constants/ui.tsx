@@ -35,6 +35,7 @@ import {
   BUTTON_DEPTH,
   borderWidth,
   font,
+  MIN_TOUCH_SIZE,
   radius,
   space,
   withAlpha,
@@ -65,16 +66,11 @@ const PRESSED_OPACITY = 0.78;
 
 /**
  * Verbindliche Untergrenze fuer eigenstaendige Aktionen in logischen
- * Einheiten. Bewusst NICHT `controlSizes.touchTarget`: dessen `rs()`-Skalierung
- * faellt auf Geraeten unterhalb von 384pt unter 44, waehrend der Vertrag in
- * `docs/design-system/contracts/07-buttons-and-interaction.md` feste 44 x 44
- * logische Einheiten fordert.
- *
- * Kleine sichtbare Flaechen (Icon-Chips, dashed Platzhalter) duerfen kleiner
- * bleiben, solange ihr Treffer-Container auf dieses Mass wächst. Siehe
- * `docs/design-system/contracts/10-accessibility-and-states.md`.
+ * Einheiten. Re-exportiert aus dem Theme, weil dort die responsive Skalierung
+ * (`rs()`) liegt. `controlSizes.touchTarget` wertet dasselbe Mass aus und kann
+ * deshalb nicht mehr darunterfallen.
  */
-export const MIN_TOUCH_SIZE = 44;
+export { MIN_TOUCH_SIZE };
 
 /** Provider identity colors used by branded authentication icons. */
 export const providerColors = {
@@ -148,8 +144,8 @@ export const floatingActionButtonStyles = StyleSheet.create((theme) => ({
 export const compactActionButtonStyles = StyleSheet.create((theme) => ({
   button: {
     width: '100%',
-    height: 34,
-    minHeight: 34,
+    height: MIN_TOUCH_SIZE,
+    minHeight: MIN_TOUCH_SIZE,
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: theme.radius.sm,
     borderCurve: 'continuous',

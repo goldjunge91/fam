@@ -205,9 +205,26 @@ export const dashboardCardSizes = {
   large: { height: 176, padding: space.lg },
 } as const;
 
-/** Mindestgröße für berührbare Aktionsflächen. */
+/**
+ * Verbindliche Untergrenze für eigenständige Aktionen in logischen
+ * Einheiten. Der Vertrag in
+ * `docs/design-system/contracts/07-buttons-and-interaction.md` fordert feste
+ * 44 × 44 logische Einheiten; das ist eine Untergrenze, kein Zielwert, und
+ * wird deshalb nicht durch `rs()` skaliert.
+ *
+ * Kleine sichtbare Flächen (Icon-Chips, dashed Platzhalter) dürfen kleiner
+ * bleiben, solange ihr Treffer-Container auf dieses Maß wächst. Siehe
+ * `docs/design-system/contracts/10-accessibility-and-states.md`.
+ */
+export const MIN_TOUCH_SIZE = 44;
+
+/**
+ * Mindestgröße für berührbare Aktionsflächen. Skaliert wie die übrigen Maße,
+ * fällt aber nie unter `MIN_TOUCH_SIZE`: bei 320pt Breite wäre `rs(48)` sonst
+ * 43 und damit kleiner als das vertragliche Minimum.
+ */
 export const controlSizes = {
-  touchTarget: rs(48),
+  touchTarget: Math.max(MIN_TOUCH_SIZE, rs(48)),
 } as const;
 
 /** Standardgrößen für eingebettete Bilder. */

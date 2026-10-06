@@ -28,7 +28,13 @@ const styles = StyleSheet.create({
   },
 });
 
-/** Vollbreite 34-Punkt-Aktion für kompakte Menüs und Bottom Sheets. */
+/**
+ * Vollbreite Aktion fuer kompakte Menues und Bottom Sheets. Die sichtbare
+ * Flaeche traegt `MIN_TOUCH_SIZE` direkt, deshalb braucht sie kein `hitSlop` —
+ * das waere nach dem Vertrag in
+ * `docs/design-system/contracts/07-buttons-and-interaction.md` nur ein
+ * Ersatz fuer eine echte Trefferflaeche und koennte Nachbaraktionen treffen.
+ */
 export function CompactActionButton({
   label,
   onPress,
@@ -41,7 +47,6 @@ export function CompactActionButton({
     <Press
       onPress={onPress}
       disabled={disabled}
-      hitSlop={5}
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel ?? label}
       accessibilityState={{ expanded, disabled }}

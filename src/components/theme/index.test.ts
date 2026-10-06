@@ -109,6 +109,21 @@ describe('fam theme tokens', () => {
     expect(theme).not.toHaveProperty('boxShadowValue');
   });
 
+  it('haelt die Touchziel-Untergrenze bei jeder unterstuetzten Fensterbreite', () => {
+    // Die Skalierung faellt bei 320pt auf den Faktor 0.9. Ohne Untergrenze
+    // waere `rs(48)` dort 43 und damit kleiner als der Vertrag in
+    // `docs/design-system/contracts/07-buttons-and-interaction.md` fordert.
+    expect(theme.MIN_TOUCH_SIZE).toBe(44);
+    expect(theme.controlSizes.touchTarget).toBeGreaterThanOrEqual(theme.MIN_TOUCH_SIZE);
+
+    for (const screenWidth of [320, 360, 375, 393, 414, 430]) {
+      const scale = Math.max(0.9, Math.min(1.06, Math.min(screenWidth, 430) / 393));
+      const expected = Math.max(theme.MIN_TOUCH_SIZE, Math.round(48 * scale));
+
+      expect(theme.controlSizes.touchTarget).toBeGreaterThanOrEqual(theme.MIN_TOUCH_SIZE);
+      expect(expected).toBeGreaterThanOrEqual(theme.MIN_TOUCH_SIZE);
+    }
+  });
   it('maps native widget values back to the shared theme tokens', () => {
     expect(widgetTheme.light.background).toBe(colorsLight.background);
     expect(widgetTheme.dark.background).toBe(colorsDark.background);

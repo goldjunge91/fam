@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 
 import {
+  MIN_TOUCH_SIZE,
   colorsLight as mockColorsLight,
   makeAccent as mockMakeAccent,
   radius,
@@ -33,12 +34,11 @@ describe('CompactActionButton', () => {
 
     expect(button.props.className).toBeUndefined();
     expect(typeof button.props.style).not.toBe('function');
-    expect(button.props.hitSlop).toBe(5);
     expect(button.props.accessibilityState).toEqual({ expanded: true, disabled: false });
     expect(button).toHaveStyle({
       width: '100%',
-      height: 34,
-      minHeight: 34,
+      height: MIN_TOUCH_SIZE,
+      minHeight: MIN_TOUCH_SIZE,
       borderWidth: 1,
       borderRadius: radius.sm,
       paddingHorizontal: space.lg,
@@ -48,6 +48,16 @@ describe('CompactActionButton', () => {
       backgroundColor: mockColorsLight.backgroundElement,
       borderColor: mockColorsLight.border,
     });
+  });
+
+  it('traegt die 44-Punkt-Untergrenze statisch statt ueber hitSlop', async () => {
+    await render(<CompactActionButton label="Sortierung" onPress={jest.fn()} />);
+
+    const button = screen.getByRole('button', { name: 'Sortierung' });
+
+    expect(MIN_TOUCH_SIZE).toBeGreaterThanOrEqual(44);
+    expect(button.props.hitSlop).toBeUndefined();
+    expect(button).toHaveStyle({ height: MIN_TOUCH_SIZE, minHeight: MIN_TOUCH_SIZE });
   });
 
   it('preserves one activation for the compact action', async () => {

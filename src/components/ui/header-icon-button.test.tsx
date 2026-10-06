@@ -3,6 +3,7 @@ import { Text } from 'react-native';
 
 import {
   borderWidth,
+  MIN_TOUCH_SIZE,
   colorsLight as mockColorsLight,
   makeAccent as mockMakeAccent,
   radius,
@@ -32,15 +33,34 @@ describe('HeaderIconButton', () => {
     expect(button.props.className).toBeUndefined();
     expect(typeof button.props.style).not.toBe('function');
     expect(button.props.hitSlop).toBe(3);
-    expect(39 + 2 * button.props.hitSlop).toBeGreaterThanOrEqual(44);
+    expect(MIN_TOUCH_SIZE).toBeGreaterThanOrEqual(44);
     expect(button).toHaveStyle({
-      width: 39,
-      height: 39,
+      minWidth: MIN_TOUCH_SIZE,
+      minHeight: MIN_TOUCH_SIZE,
       borderRadius: radius.sm,
       backgroundColor: mockColorsLight.backgroundElement,
       borderWidth: borderWidth.base,
       borderColor: mockColorsLight.border,
     });
+  });
+
+  it('misst den Treffercontainer statisch und verlaesst sich nicht auf hitSlop', async () => {
+    await render(
+      <HeaderIconButton label="Filter öffnen" onPress={jest.fn()}>
+        <Text>Filter</Text>
+      </HeaderIconButton>,
+    );
+
+    const button = screen.getByRole('button', { name: 'Filter öffnen' });
+
+    // `hitSlop` allein ist laut Vertrag 07 kein Nachweis: bei einer
+    // Nachbaraktion mit 12-Punkt-hitSlop (Profilgriff) verliert der
+    // 3-Punkt-Randbereich. Auf dem Geraet gemessen traf ein Tap 2 Punkte
+    // ausserhalb des 39-Punkt-Rahmens den Profilgriff.
+    expect(button).toHaveStyle({ minWidth: MIN_TOUCH_SIZE, minHeight: MIN_TOUCH_SIZE });
+    expect(button.props.style).not.toContainEqual(
+      expect.objectContaining({ width: expect.any(Number) }),
+    );
   });
 
   it('keeps the compact modal-close variant explicit', async () => {
