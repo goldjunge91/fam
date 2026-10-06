@@ -69,3 +69,12 @@ jobs:
           issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
           api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+
+      - name: Archive iOS build lifecycle records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-build-lifecycle-${{ github.run_number }}
+          path: build/workflows/ios/
+          if-no-files-found: warn
+          retention-days: 90

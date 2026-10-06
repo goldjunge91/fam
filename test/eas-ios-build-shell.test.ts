@@ -112,4 +112,13 @@ describe('iOS build workflow hooks', () => {
     expect(hooks).toContain('bd codex-hook UserPromptSubmit');
     expect(actions).toContain('bun run eas:ios:local');
   });
+
+  it('archives lifecycle records even when the build or TestFlight upload fails', () => {
+    const actions = fs.readFileSync(path.join(projectRoot, '.github', 'workflows', 'ios-testflight.yml'), 'utf8');
+
+    expect(actions).toContain('if: always()');
+    expect(actions).toContain('uses: actions/upload-artifact@v4');
+    expect(actions).toContain('path: build/workflows/ios/');
+    expect(actions).toContain('retention-days: 90');
+  });
 });
