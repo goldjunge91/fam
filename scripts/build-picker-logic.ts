@@ -368,6 +368,10 @@ export function storeSteps(options: StoreStepsOptions): CommandStep[] {
         ],
       },
       storeArchiveStep(options.archivePath),
+      {
+        command: 'bun',
+        args: ['run', 'posthog:upload-ios-dsyms', options.archivePath],
+      },
       storeExportUploadStep({
         archivePath: options.archivePath,
         exportPath: options.exportPath,

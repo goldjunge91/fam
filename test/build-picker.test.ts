@@ -120,18 +120,22 @@ describe('storeSteps: Xcode', () => {
     exportPath: 'build/cache/ios/x/export',
   };
 
-  it('lokal: prebuild, pod install, archive, dann Export mit Upload', () => {
+  it('lokal: post-build dSYM upload zwischen Archiv und Export', () => {
     const steps = storeSteps({ ...base, type: 'testflight', location: 'local', submit: 'xcode' });
 
-    expect(steps).toHaveLength(5);
+    expect(steps).toHaveLength(6);
     expect(steps[0].command).toBe('env');
     expect(steps[0].args).toContain('prebuild');
     expect(steps[0].args).toContain('FAM_IOS_MLKIT_OCR=1');
     expect(steps[1].command).toBe('pod');
     expect(steps[2].args).toContain('build:version:sync');
     expect(steps[3].args).toContain('archive');
-    expect(steps[4].args).toContain('-exportArchive');
-    expect(steps[4].args.join(' ')).toContain('ExportOptions-upload.plist');
+    expect(steps[4]).toEqual({
+      command: 'bun',
+      args: ['run', 'posthog:upload-ios-dsyms', base.archivePath],
+    });
+    expect(steps[5].args).toContain('-exportArchive');
+    expect(steps[5].args.join(' ')).toContain('ExportOptions-upload.plist');
   });
 
   it('baut nicht neu auf: prebuild laeuft mit --no-clean', () => {

@@ -156,6 +156,8 @@
     "wrangler": "^4.127.0"
   },
   "scripts": {
+    "eas-build-on-success": "scripts/posthog-eas-build-on-success.sh",
+    "posthog:upload-ios-dsyms": "scripts/posthog-upload-ios-dsyms.sh",
     "preinstall": "bun run check:bun-version",
     "prepare": "git config core.hooksPath .githooks",
     "start": "EXPO_NO_METRO_LAZY=1 bash scripts/local-expo.sh start",

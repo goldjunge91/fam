@@ -12,6 +12,23 @@ import { dirname, join } from 'node:path';
 import { createCngFixture } from './cng-fixture';
 
 describe('CNG config plugins', () => {
+  it('removes the PostHog dSYM phase and uses the tolerant Hermes wrapper', () => {
+    const fixture = createCngFixture();
+    try {
+      const result = fixture.run(
+        ['x', 'expo', 'prebuild', '--no-clean', '--no-install', '--platform', 'ios'],
+        { FAM_HARNESS_UI: '0', CCACHE_BINARY: '' },
+      );
+      expect(result.status).toBe(0);
+
+      const project = readFileSync(join(fixture.root, 'ios/fam.xcodeproj/project.pbxproj'), 'utf8');
+      expect(project).not.toContain('Upload PostHog Debug Symbols');
+      expect(project).toContain('scripts/posthog-xcode-tolerant.sh');
+    } finally {
+      rmSync(fixture.root, { recursive: true, force: true });
+    }
+  }, 60_000);
+
   it('preserves native caches across local and EAS prebuilds and supports relocated ccache wrappers', () => {
     const fixture = createCngFixture();
     const moved = `${fixture.root} relocated`;
@@ -52,19 +69,16 @@ describe('CNG config plugins', () => {
       );
       const project = readFileSync(join(fixture.root, 'ios/fam.xcodeproj/project.pbxproj'), 'utf8');
       expect(project).toContain('$(SRCROOT)/.ccache-wrapper-clang.sh');
-      expect(project).toContain('POSTHOG_DSYM_TIMEOUT=300');
       const famBuildPhases = project
         .slice(project.indexOf('/* fam */ = {', project.indexOf('PBXNativeTarget section')))
         .match(/buildPhases = \(\n([\s\S]*?)\t\t\t\);/)?.[1]
         ?.split('\n')
         .map((line) => line.trim())
         .filter(Boolean);
-      // The upload must be the fam target's last phase so embedded watch/extension phases and
-      // the dSYM input dependency cannot create a cycle. See PostHog/posthog-js#4647.
-      expect(famBuildPhases?.at(-1)).toContain('Upload PostHog Debug Symbols');
-      expect(project).toContain(
-        '$(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)/Contents/Resources/DWARF/$(EXECUTABLE_NAME)',
+      expect(famBuildPhases?.some((phase) => phase.includes('Upload PostHog Debug Symbols'))).toBe(
+        false,
       );
+      expect(project).toContain('scripts/posthog-xcode-tolerant.sh');
 
       const cachedFiles = [
         'ios/Pods/cached-pod.a',

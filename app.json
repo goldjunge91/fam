@@ -138,11 +138,11 @@
       "./plugins/withAndroidGradleTuning",
       "./plugins/withIosCcacheDir",
       "expo-image",
-      "./plugins/withPosthogDsymTimeout",
+      "./plugins/withPosthogNonfatalHermesUpload",
       [
         "posthog-react-native/expo",
         {
-          "uploadNativeSymbols": true,
+          "uploadNativeSymbols": false,
           "skipOnConflict": true
         }
       ],
