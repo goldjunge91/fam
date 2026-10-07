@@ -1,9 +1,7 @@
 import { createHash } from 'node:crypto';
+import type { CrawlerPageHash } from '../types';
 
-export type PageContentHash = {
-  pageNumber: number;
-  sha256: string;
-};
+export type PageContentHash = CrawlerPageHash;
 
 const SHA256_PATTERN = /^[a-f0-9]{64}$/;
 
