@@ -10,8 +10,10 @@ describe('receipt section contrast', () => {
       for (let x = 0; x < width; x += 1) {
         const background = x < width / 2 ? 180 : 240;
         const ink = x === 10 || x === 50;
+        const softEdge = x === 9 || x === 11 || x === 49 || x === 51;
+        const luminance = ink ? background - 60 : softEdge ? background - 30 : background;
         const offset = (y * width + x) * 4;
-        source.fill(ink ? background - 60 : background, offset, offset + 3);
+        source.fill(luminance, offset, offset + 3);
         source[offset + 3] = 255;
       }
     }
@@ -23,9 +25,19 @@ describe('receipt section contrast', () => {
 
     expect(enhanced.pixelFormat).toBe('RGBA');
     expect(pixel(10)).toBe(0);
-    expect(pixel(50)).toBe(0);
-    expect(pixel(20)).toBe(255);
+    expect(pixel(9)).toBe(64);
+    expect(pixel(50)).toBe(128);
+    expect(pixel(20)).toBe(128);
     expect(pixel(40)).toBe(255);
+  });
+
+  it('skips contrast stretching for a flat section', () => {
+    const width = 16;
+    const height = 16;
+    const buffer = new ArrayBuffer(width * height * 4);
+    new Uint8Array(buffer).fill(220);
+
+    expect(enhanceReceiptSection({ buffer, width, height, pixelFormat: 'RGBA' })).toBeNull();
   });
 
   it('rejects pixel data with mismatched dimensions', () => {

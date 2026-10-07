@@ -2,10 +2,12 @@ import { parseGermanReceipt } from './domain/parser';
 import type { ReceiptOcrLine } from './native';
 import * as receiptNative from './native';
 import {
+  confirmByAgreement,
   mergeReceiptOcrLines,
   projectSectionLines,
   receiptSections,
   recognizeReceiptPageSections,
+  sectionUpscale,
 } from './receipt-page-sections';
 
 function recognizedLine(y: number, height: number): ReceiptOcrLine {
@@ -40,6 +42,33 @@ describe('three OCR sections per receipt photo', () => {
     ]);
   });
 
+  it('upscales sections from the median printed line height within safe limits', () => {
+    const whole = {
+      imageSize: { width: 1200, height: 2000 },
+      lines: [recognizedLine(0.1, 0.006), recognizedLine(0.2, 0.01)],
+    };
+    const smallLines = {
+      imageSize: { width: 1200, height: 2000 },
+      lines: [recognizedLine(0.1, 0.004)],
+    };
+    const largeLines = {
+      imageSize: { width: 1200, height: 2000 },
+      lines: [recognizedLine(0.1, 0.02)],
+    };
+
+    expect(sectionUpscale(whole, 1200, 800)).toBeCloseTo(1.6);
+    expect(sectionUpscale(smallLines, 3000, 800)).toBeCloseTo(4096 / 3000);
+    expect(sectionUpscale(smallLines, 1200, 800)).toBe(2);
+    expect(sectionUpscale(largeLines, 1200, 800)).toBe(1);
+  });
+
+  it('does not upscale when the whole-image pass or measured lines are unavailable', () => {
+    expect(sectionUpscale(null, 1200, 800)).toBe(1);
+    expect(sectionUpscale({ imageSize: { width: 1200, height: 2000 }, lines: [] }, 1200, 800)).toBe(
+      1,
+    );
+  });
+
   it('keeps an overlapping article once and restores its full-photo position', () => {
     const [first, second] = receiptSections(2400);
     if (!first || !second) throw new Error('Missing OCR sections');
@@ -63,6 +92,31 @@ describe('three OCR sections per receipt photo', () => {
     expect(projected[0]?.boundingBox.y).toBeCloseTo(articleY / 2400);
     expect(projected[0]?.boundingBox.height).toBeCloseTo(articleHeight / 2400);
     expect(projected[0]?.boundingBox.x).toBe(0.1);
+  });
+
+  it('confirms an unknown provider confidence when both passes read the same line', () => {
+    const whole = recognizedLine(0.32, 0.02);
+    whole.text = 'Milch 1,29 €';
+    whole.confidence = null;
+    const section = { ...whole, text: ' milch\u00a0 1,29   € ' };
+
+    const confirmed = confirmByAgreement([whole], [section]);
+
+    expect(confirmed[0]?.confidence).toBe(0.9);
+    expect(parseGermanReceipt(confirmed).items[0]?.needsReview).toBe(false);
+  });
+
+  it('leaves unconfirmed and provider-scored lines at their original confidence', () => {
+    const unknown = recognizedLine(0.32, 0.02);
+    unknown.confidence = null;
+    const scored = recognizedLine(0.52, 0.02);
+    scored.confidence = 0.63;
+    const mismatched = { ...unknown, text: 'Haferdrink' };
+
+    const confirmed = confirmByAgreement([unknown, scored], [mismatched]);
+
+    expect(confirmed.map((line) => line.confidence)).toEqual([null, 0.63]);
+    expect(parseGermanReceipt(confirmed).items[0]?.needsReview).toBe(true);
   });
 
   it('keeps the whole-photo item and replaces only fragmented missing prices for review', () => {
@@ -96,13 +150,31 @@ describe('three OCR sections per receipt photo', () => {
     item.boundingBox.width = 0.76;
     const total = recognizedLine(0.51, 0.015);
     total.text = '4,17 A';
+    total.confidence = null;
     total.boundingBox.x = 0.82;
     total.boundingBox.width = 0.09;
 
     const merged = mergeReceiptOcrLines([item], [total]);
 
     expect(merged.map((line) => line.text)).toEqual([item.text, total.text]);
-    expect(merged[1]?.confidence).toBeLessThan(0.8);
+    expect(merged[1]?.confidence).toBe(0.79);
+  });
+
+  it('marks a conflicting whole-photo price for review when provider confidence is unavailable', () => {
+    const whole = recognizedLine(0.51, 0.02);
+    whole.text = 'Milch 1,29';
+    whole.confidence = null;
+    const supplement = recognizedLine(0.51, 0.02);
+    supplement.text = '7,29';
+    supplement.confidence = null;
+    supplement.boundingBox.x = 0.82;
+    supplement.boundingBox.width = 0.09;
+
+    const merged = mergeReceiptOcrLines([whole], [supplement]);
+    const draft = parseGermanReceipt(merged);
+
+    expect(merged[0]?.confidence).toBe(0.79);
+    expect(draft.items[0]?.needsReview).toBe(true);
   });
 
   it.each([

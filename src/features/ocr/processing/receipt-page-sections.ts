@@ -1,5 +1,6 @@
 import type * as ExpoFileSystem from 'expo-file-system';
 import { Platform } from 'react-native';
+import { normalizedText } from './domain/layout';
 import type { ReceiptOcrLine, ReceiptOcrOptions, ReceiptOcrResult } from './native';
 import { ReceiptOcrError, recognizeReceiptOcr, validateReceiptOcrUri } from './native';
 import { enhanceReceiptSection } from './receipt-contrast';
@@ -17,6 +18,11 @@ const GERMAN_RECEIPT_OCR_OPTIONS = { languages: ['de-DE'] } as const;
 const COMPLETE_AMOUNT = /\d{1,4}[,.]\d{2}(?!\d)/u;
 const MULTIPLIED_UNIT_PRICE = /\d{1,4}[,.]\d{2}\s*€\s*[x×]\b/iu;
 const PRICE_FRAGMENT = /^[\d.,€\s*+\-x×ABWEUR]+$/iu;
+const AGREED_CONFIDENCE = 0.9;
+const REVIEW_CONFIDENCE = 0.79;
+const TARGET_LINE_HEIGHT_PX = 32;
+const MAX_SECTION_UPSCALE = 2;
+const MAX_SECTION_LONG_EDGE = 4_096;
 
 // 059. Parses a complete printed decimal amount into integer euro cents.
 function completeAmountCents(text: string): number | null {
@@ -39,7 +45,7 @@ function lineTotalCents(text: string): number | null {
 function markForReview(line: ReceiptOcrLine): ReceiptOcrLine {
   return {
     ...line,
-    confidence: line.confidence === null ? null : Math.min(line.confidence, 0.79),
+    confidence: Math.min(line.confidence ?? REVIEW_CONFIDENCE, REVIEW_CONFIDENCE),
   };
 }
 
@@ -56,6 +62,26 @@ export function receiptSections(imageHeight: number): readonly ReceiptSection[] 
       coreEnd,
     };
   });
+}
+
+// 065. Upscales small printed lines within the configured scale and long-edge limits.
+export function sectionUpscale(
+  whole: ReceiptOcrResult | null,
+  sectionWidth: number,
+  sectionHeight: number,
+): number {
+  if (!whole) return 1;
+  const heights = whole.lines
+    .map(({ boundingBox }) => boundingBox.height * whole.imageSize.height)
+    .filter((height) => height > 0)
+    .sort((left, right) => left - right);
+  const medianHeight = heights[Math.floor(heights.length / 2)];
+  if (!medianHeight || medianHeight >= TARGET_LINE_HEIGHT_PX) return 1;
+  const longEdgeCap = MAX_SECTION_LONG_EDGE / Math.max(sectionWidth, sectionHeight);
+  return Math.max(
+    1,
+    Math.min(MAX_SECTION_UPSCALE, TARGET_LINE_HEIGHT_PX / medianHeight, longEdgeCap),
+  );
 }
 
 // 058. Projects section boxes onto the full image and keeps lines owned by that section core.
@@ -98,6 +124,22 @@ function overlapping(left: ReceiptOcrLine, right: ReceiptOcrLine): boolean {
   );
 }
 
+// 064. Confirms provider lines with unknown confidence when both OCR passes agree in text and place.
+export function confirmByAgreement(
+  whole: readonly ReceiptOcrLine[],
+  sections: readonly ReceiptOcrLine[],
+): ReceiptOcrLine[] {
+  return whole.map((line) => {
+    if (line.confidence !== null) return line;
+    const comparable = normalizedText(line.text).toLowerCase();
+    const agreed = sections.some(
+      (candidate) =>
+        overlapping(line, candidate) && normalizedText(candidate.text).toLowerCase() === comparable,
+    );
+    return agreed ? { ...line, confidence: AGREED_CONFIDENCE } : line;
+  });
+}
+
 // 063. Merges supplementary price fragments while preserving whole-image text and conflicts.
 export function mergeReceiptOcrLines(
   whole: readonly ReceiptOcrLine[],
@@ -130,7 +172,10 @@ export function mergeReceiptOcrLines(
         !(/[\d€]/u.test(line.text) && PRICE_FRAGMENT.test(line.text)),
     );
     // A price seen only in the supplementary pass is useful, but still needs review.
-    merged.push({ ...candidate, confidence: Math.min(candidate.confidence ?? 0, 0.79) });
+    merged.push({
+      ...candidate,
+      confidence: Math.min(candidate.confidence ?? REVIEW_CONFIDENCE, REVIEW_CONFIDENCE),
+    });
   }
   return merged.sort(
     (left, right) =>
@@ -176,13 +221,18 @@ export async function recognizeReceiptPageSections(
     let cropUri: string;
     try {
       const crop = await image.cropAsync(0, section.start, image.width, section.end);
-      let ocrImage = crop;
+      const scale = sectionUpscale(whole, crop.width, crop.height);
+      const sized =
+        scale === 1
+          ? crop
+          : await crop.resizeAsync(Math.round(crop.width * scale), Math.round(crop.height * scale));
+      let ocrImage = sized;
       if (Platform.OS === 'ios') {
         try {
-          const enhanced = enhanceReceiptSection(await crop.toRawPixelDataAsync());
+          const enhanced = enhanceReceiptSection(await sized.toRawPixelDataAsync());
           if (enhanced) ocrImage = await Images.loadFromRawPixelDataAsync(enhanced);
         } catch {
-          ocrImage = crop;
+          ocrImage = sized;
         }
       }
       const path = await ocrImage.saveToTemporaryFileAsync('png');
@@ -204,7 +254,7 @@ export async function recognizeReceiptPageSections(
   }
 
   if (whole) {
-    return { ...whole, lines: mergeReceiptOcrLines(whole.lines, lines) };
+    return { ...whole, lines: mergeReceiptOcrLines(confirmByAgreement(whole.lines, lines), lines) };
   }
   if (lines.length > 0) {
     return { imageSize: { width: image.width, height: image.height }, lines };
