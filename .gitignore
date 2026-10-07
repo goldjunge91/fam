@@ -78,7 +78,11 @@ scripts/dump_data/category-calibration-report.json
 tools/crawler/data/.brochure-version-hashes.json
 tools/crawler/data/brochure-version-analysis.json
 tools/crawler/data/aldi-capitals-v2/
+tools/crawler/data/aldi-capitals-v2-*/
 tools/crawler/data/aldi-sample-v2/
+tools/crawler/data/brochure-images/
+tools/crawler/data/retailer-*/
+tools/crawler/data/local-smoke-*/
 *.har
 build-*.tar.gz
 /build/cache/
@@ -114,3 +118,4 @@ scripts/archive/
 .tmp
 .tmp-sim
 build
+.deno-cache/

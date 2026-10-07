@@ -52,7 +52,7 @@ tools-brochures *args:
 
 # Bisher: bun run brochures:update
 brochures-update *args:
-    bun run tools/crawler/brochures/seed-brochures.ts "$@"
+    bun run tools/crawler/brochures/index.ts "$@"
 
 # Bisher: bun run brochures:test-r2
 brochures-test-r2 *args:

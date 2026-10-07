@@ -81,8 +81,18 @@ grant delete, insert, select, update on public.ketone_entries to anon, authentic
 grant delete, insert, select, update on public.exercises to anon, authenticated, service_role;
 grant delete, insert, select, update on public.workout_sessions to anon, authenticated, service_role;
 grant delete, insert, select, update on public.workout_sets to anon, authenticated, service_role;
-grant delete, insert, select, update on public.brochure_stores to anon, authenticated, service_role;
-grant delete, insert, select, update on public.brochure_dumps to anon, authenticated, service_role;
+revoke all on public.brochure_stores from anon, authenticated, service_role;
+grant select on public.brochure_stores to authenticated;
+grant select, insert, update on public.brochure_stores to service_role;
+revoke all on public.canonical_brochures, public.brochure_availability
+  from anon, authenticated, service_role;
+grant select on public.canonical_brochures, public.brochure_availability to authenticated;
+revoke all on function private.canonical_brochure_pages_are_valid(jsonb, integer)
+  from public, anon, authenticated, service_role;
+revoke all on function public.replace_canonical_brochure_catalog(jsonb, text[])
+  from public, anon, authenticated, service_role;
+grant execute on function public.replace_canonical_brochure_catalog(jsonb, text[])
+  to service_role;
 grant delete, insert, select, update on public.favorite_brochure_stores to anon, authenticated, service_role;
 
 -- feedback_tickets/feedback_messages: Statuswechsel und staff-Antworten

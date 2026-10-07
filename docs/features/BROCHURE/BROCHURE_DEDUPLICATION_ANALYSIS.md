@@ -103,11 +103,18 @@ Schon vor Abschluss zeigt sich ein starkes Plateau: 91,87 GiB referenzierte
 Bilder benötigen byte-dedupliziert nur 2,24 GiB. Der bisherige R2-Verbrauch
 darf deshalb nicht linear pro PLZ oder Prospektsichtung hochgerechnet werden.
 
-## Gesicherte Artefakte
+## Erwartete Artefakte des früheren Checkpoints
 
-Arbeitsverzeichnis auf der externen Festplatte:
+Arbeitsverzeichnis im aktuellen Repository:
 
-`/Volumes/Programme/FamCrawler/retailer-full-v5-100`
+`tools/crawler/data/retailer-full-v5-100`
+
+Dieses Verzeichnis ist auf dem aktuellen Rechner nicht vorhanden. Auch der
+früher verwendete absolute Pfad `/Volumes/Programme/FamCrawler/retailer-full-v5-100`
+wurde bei der letzten Prüfung nicht gefunden. Der beschriebene 732/1.000-
+Checkpoint lässt sich daher von diesem Rechner aus nicht fortsetzen, solange
+Manifest und `assets/` nicht an diesen Ablageort zurückgebracht werden. Ein
+Lauf in einem leeren Verzeichnis beginnt mit einer neuen Stichprobe.
 
 Wichtige Dateien:
 
@@ -127,20 +134,21 @@ und späteren Qualitätskontrolle.
 ## Fortsetzen und automatisch auswerten
 
 ```bash
-dotenv -o -e .env.development.local -- \
-  bun run crawler:retailer-sample \
+SAMPLE_DIR="tools/crawler/data/retailer-full-v5-100"
+
+bun --env-file=.env.development.local run tools/crawler/brochures/aldi-sample-v2.ts \
   --sample-size=1000 \
   --concurrency=12 \
   --pages=all \
   --stores=lidl,kaufland,netto,rewe \
-  --output-dir=/Volumes/Programme/FamCrawler/retailer-full-v5-100
+  --output-dir="$SAMPLE_DIR"
 ```
 
 Danach OCR und automatische Klassifikation ausführen:
 
 ```bash
-bun run crawler:verify \
-  --manifest=/Volumes/Programme/FamCrawler/retailer-full-v5-100/manifest.json \
+bun run tools/crawler/brochures/verify-versions.ts \
+  --manifest="$SAMPLE_DIR/manifest.json" \
   --ocr \
   --ocr-concurrency=4
 ```
@@ -181,4 +189,3 @@ enthalten und gehören nicht in die automatische 1.000er-Auswertung.
 - `tools/crawler/brochures/review-server.ts`: optionale lokale Human-Prüfung
 - `tools/crawler/brochures/auto-classification.test.ts`
 - `tools/crawler/brochures/ocr.test.ts`
-

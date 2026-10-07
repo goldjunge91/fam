@@ -394,6 +394,12 @@ verify_jwt = false
 [functions.ai-gateway]
 verify_jwt = true
 
+# Prospektbilder: Presigned-Redirect nach serverseitiger JWT-Prüfung. Die
+# Function signiert nur Keys unter brochures/dumps/ — der Crawler speichert
+# fortan genau diese Keys statt öffentlicher r2.dev-URLs.
+[functions.brochure-image]
+verify_jwt = true
+
 [edge_runtime]
 enabled = true
 # Supported request policies: `oneshot`, `per_worker`.

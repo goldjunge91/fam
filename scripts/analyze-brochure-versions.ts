@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { access, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import sharp from 'sharp';
+import { defaultCrawlerBackupPath } from '../tools/crawler/brochures/paths';
 import { imageKeyFor } from '../tools/crawler/brochures/r2-storage';
 import type { CrawlerBrochure, CrawlerStore, LocationDump } from '../tools/crawler/brochures/types';
 import {
@@ -82,7 +83,6 @@ type AnalysisReport = {
   };
 };
 
-const DEFAULT_BACKUP = 'tools/crawler/data/last_crawl_backup.json';
 const DEFAULT_OUTPUT = 'tools/crawler/data/brochure-version-analysis.json';
 const DEFAULT_CACHE = 'tools/crawler/data/.brochure-version-hashes.json';
 
@@ -99,7 +99,7 @@ function parseOptions(): Options {
   const inputDir = argument('input-dir');
   if (!inputDir) {
     throw new Error(
-      'Bitte --input-dir setzen, zum Beispiel --input-dir="/Volumes/Programme/FamCrawler/brochures"',
+      'Bitte --input-dir auf den lokalen Bildordner setzen (denselben Ordner, den du beim Crawl mit --local-dir verwendest).',
     );
   }
 
@@ -111,7 +111,7 @@ function parseOptions(): Options {
 
   return {
     inputDir: resolve(inputDir),
-    backupPath: resolve(argument('backup') ?? DEFAULT_BACKUP),
+    backupPath: resolve(argument('backup') ?? defaultCrawlerBackupPath()),
     outputPath: resolve(argument('output') ?? DEFAULT_OUTPUT),
     cachePath: resolve(argument('cache') ?? DEFAULT_CACHE),
     ai: hasFlag('ai'),

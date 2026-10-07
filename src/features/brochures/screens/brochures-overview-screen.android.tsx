@@ -13,6 +13,7 @@ import { PostalCodeEditor } from '../components/postal-code-editor';
 import { useBrochurePostalCode } from '../hooks/use-brochure-postal-code';
 import { useBrochureSync } from '../hooks/use-brochure-sync';
 import { useBrochures } from '../hooks/use-brochures';
+import { useBrochureImageSourceFactory } from '../lib/brochure-image';
 
 export default function BrochuresOverviewScreen() {
   const router = useRouter();
@@ -28,6 +29,7 @@ export default function BrochuresOverviewScreen() {
   const postalCode = location.status === 'ready' ? location.postalCode : null;
   const { isSyncing, hasSynced } = useBrochureSync(postalCode);
   const { data, isLoading } = useBrochures();
+  const getBrochureImageSource = useBrochureImageSourceFactory();
 
   const postalCodeSettings = isEditingPostalCode ? (
     <View style={styles.postalCodeEditRow}>
@@ -268,7 +270,7 @@ export default function BrochuresOverviewScreen() {
                 ]}
                 onPress={() => router.push(`/brochures/${brochure.id}`)}>
                 <Image
-                  source={{ uri: brochure.coverImage }}
+                  source={getBrochureImageSource(brochure.coverImage) ?? undefined}
                   style={[styles.brochureCover, { backgroundColor: colors.backgroundSoft }]}
                   contentFit="cover"
                 />

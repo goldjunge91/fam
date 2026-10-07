@@ -4,7 +4,12 @@ import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { getDatabase } from '@/lib/db/local-client';
 import { debugLog } from '@/lib/observability/debug-log';
 import { reportError } from '@/lib/telemetry';
-import { type BrochureDump, writeBrochureDump } from '../brochure-sync';
+import {
+  type BrochureDump,
+  type CanonicalAvailabilityQueryClient,
+  mapCanonicalAvailabilityRows,
+  writeBrochureDump,
+} from '../brochure-sync';
 
 /**
  * Synchronisiert Prospekte nach SQLite und entfernt abgelaufene Einträge.
@@ -25,28 +30,34 @@ export function useBrochureSync(zipCode: string | null) {
       setIsSyncing(true);
       try {
         const supabase = getSupabase();
-        // Aktuellen gültigen Dump laden.
-        const { data: dump, error } = await supabase
-          .from('brochure_dumps')
-          .select('payload_json')
-          .eq('zip_code', currentZip)
-          .gte('valid_until', new Date().toISOString())
-          .order('created_at', { ascending: false })
-          .limit(1)
-          .maybeSingle();
+        const catalogClient = supabase as unknown as CanonicalAvailabilityQueryClient;
+        const { data: rows, error } = await catalogClient
+          .from('brochure_availability')
+          .select(
+            'zip_code,brochure:canonical_brochures!inner(id,canonical_brn,store_id,title,valid_from,valid_until,page_count,cover_image,pages,verified_sha256,store:brochure_stores!inner(id,name,logo_url))',
+          )
+          .eq('zip_code', currentZip);
 
-        debugLog('[brochures] supabase dump query', {
+        debugLog('[brochures] canonical catalog query', {
           zipCode: currentZip,
           error,
-          hasDump: !!dump,
+          rowCount: Array.isArray(rows) ? rows.length : 0,
         });
         if (error) throw error;
-        if (!dump || !isMounted) return;
+        if (!isMounted) return;
 
-        // Daten transaktional in die lokalen Tabellen schreiben.
+        // Convert the normalized rows back to the existing local SQLite shape.
         const db = await getDatabase();
-        const payload = dump.payload_json as unknown as BrochureDump;
-        const brochures = Array.isArray(payload.brochures) ? payload.brochures : [];
+        const catalogDump = mapCanonicalAvailabilityRows(rows ?? [], currentZip);
+        const now = Date.now();
+        const brochures = (catalogDump.brochures ?? []).filter(
+          (brochure) => Date.parse(brochure.validUntil) >= now,
+        );
+        const activeStoreIds = new Set(brochures.map((brochure) => brochure.storeId));
+        const payload: BrochureDump = {
+          stores: (catalogDump.stores ?? []).filter((store) => activeStoreIds.has(store.id)),
+          brochures,
+        };
         const firstBrochure = brochures[0];
         const pageCount = brochures.reduce(
           (total, brochure) => total + (Array.isArray(brochure.pages) ? brochure.pages.length : 0),
