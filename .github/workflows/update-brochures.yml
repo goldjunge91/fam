@@ -1,4 +1,4 @@
-name: Brochure Dump Update (Etappen-Crawler)
+name: Canonical Brochure Catalog Update
 
 on:
   workflow_dispatch:
@@ -26,8 +26,9 @@ on:
     - cron: "17 4 * * 4"
 
 concurrency:
-  group: brochure-dump-update-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  # A single writer protects the shared R2 storage budget across all refs.
+  group: brochure-dump-update-${{ github.workflow }}
+  cancel-in-progress: false
 
 permissions:
   contents: read
@@ -171,7 +172,6 @@ jobs:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           R2_BUCKET: ${{ secrets.R2_BUCKET || 'r2-broschure' }}
-          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL || 'https://pub-480edca817bc42e8912fac4a72ae24d8.r2.dev' }}
           BROCHURE_LOCATIONS_FILE: /tmp/geonames-DE.txt
 
       - name: Archive storage and crawl reports

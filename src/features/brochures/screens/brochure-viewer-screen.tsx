@@ -24,6 +24,7 @@ import { formatEuro } from '@/lib/format/format-currency';
 import { debugLog } from '@/lib/observability/debug-log';
 import { BrochureHotspot } from '../components/brochure-hotspot';
 import { useBrochurePages } from '../hooks/use-brochures';
+import { type BrochureImageSource, useBrochureImageSourceFactory } from '../lib/brochure-image';
 import type { Hotspot, LocalBrochurePage } from '../types';
 import { calculateContainedImageFrame, type Size } from './brochure-page-layout';
 
@@ -51,6 +52,7 @@ function hotspotPrice(hotspot: Hotspot): string | null {
 }
 
 function imageHost(imageUrl: string): string {
+  if (/^brochures\//.test(imageUrl)) return 'brochure-image';
   try {
     return new URL(imageUrl).host;
   } catch {
@@ -60,12 +62,14 @@ function imageHost(imageUrl: string): string {
 
 function BrochurePage({
   page,
+  imageSource,
   activeHotspot,
   hotspotsVisible,
   isCurrent,
   onSelectHotspot,
 }: {
   page: LocalBrochurePage;
+  imageSource: BrochureImageSource | null;
   activeHotspot: Hotspot | null;
   hotspotsVisible: boolean;
   isCurrent: boolean;
@@ -92,7 +96,7 @@ function BrochurePage({
   return (
     <View style={styles.page} onLayout={handleLayout}>
       <Image
-        source={{ uri: page.imageUrl }}
+        source={imageSource ?? undefined}
         style={styles.pageImage}
         contentFit="contain"
         transition={200}
@@ -142,11 +146,11 @@ function BrochurePage({
 }
 
 function ProductCropPreview({
-  imageUrl,
+  imageSource,
   imageSize,
   hotspot,
 }: {
-  imageUrl: string;
+  imageSource: BrochureImageSource | null;
   imageSize: Size;
   hotspot: Hotspot;
 }) {
@@ -162,7 +166,7 @@ function ProductCropPreview({
   return (
     <View style={[styles.productCrop, { width: previewWidth, height: previewHeight }]}>
       <Image
-        source={{ uri: imageUrl }}
+        source={imageSource ?? undefined}
         style={{
           position: 'absolute',
           width: imageSize.width * imageScale,
@@ -178,6 +182,7 @@ function ProductCropPreview({
 
 export default function BrochureViewerScreen({ brochureId }: { brochureId: string }) {
   const router = useRouter();
+  const getBrochureImageSource = useBrochureImageSourceFactory();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
@@ -301,6 +306,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
           <BrochurePage
             key={page.id}
             page={page}
+            imageSource={getBrochureImageSource(page.imageUrl)}
             activeHotspot={activeHotspot}
             hotspotsVisible={hotspotsVisible}
             isCurrent={index === currentPageIndex}
@@ -343,12 +349,15 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
 
             {activePageImage && activePageImage.size.width > 0 ? (
               <ProductCropPreview
-                imageUrl={activePageImage.url}
+                imageSource={getBrochureImageSource(activePageImage.url)}
                 imageSize={activePageImage.size}
                 hotspot={activeHotspot}
               />
             ) : activeHotspot.imageUrl ? (
-              <Image source={{ uri: activeHotspot.imageUrl }} style={styles.productPreviewImage} />
+              <Image
+                source={getBrochureImageSource(activeHotspot.imageUrl) ?? undefined}
+                style={styles.productPreviewImage}
+              />
             ) : null}
 
             <View style={[styles.productCard, { backgroundColor: colors.accent }]}>

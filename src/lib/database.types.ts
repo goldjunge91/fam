@@ -55,35 +55,28 @@ export type Database = {
           },
         ];
       };
-      brochure_dumps: {
+      brochure_availability: {
         Row: {
-          created_at: string;
-          id: string;
-          payload_json: NonNullable<Json>;
-          run_id: string;
-          valid_from: string;
-          valid_until: string;
+          canonical_brochure_id: string;
           zip_code: string;
         };
         Insert: {
-          created_at?: string;
-          id?: string;
-          payload_json: NonNullable<Json>;
-          run_id?: string;
-          valid_from: string;
-          valid_until: string;
+          canonical_brochure_id: string;
           zip_code: string;
         };
         Update: {
-          created_at?: string;
-          id?: string;
-          payload_json?: NonNullable<Json>;
-          run_id?: string;
-          valid_from?: string;
-          valid_until?: string;
+          canonical_brochure_id?: string;
           zip_code?: string;
         };
-        Relationships: [];
+        Relationships: [
+          {
+            foreignKeyName: "brochure_availability_canonical_brochure_id_fkey";
+            columns: ["canonical_brochure_id"];
+            isOneToOne: false;
+            referencedRelation: "canonical_brochures";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       brochure_stores: {
         Row: {
@@ -108,6 +101,53 @@ export type Database = {
           name?: string;
         };
         Relationships: [];
+      };
+      canonical_brochures: {
+        Row: {
+          canonical_brn: string;
+          cover_image: string;
+          id: string;
+          page_count: number;
+          pages: NonNullable<Json>;
+          store_id: string;
+          title: string;
+          valid_from: string;
+          valid_until: string;
+          verified_sha256: string;
+        };
+        Insert: {
+          canonical_brn: string;
+          cover_image: string;
+          id: string;
+          page_count: number;
+          pages: NonNullable<Json>;
+          store_id: string;
+          title: string;
+          valid_from: string;
+          valid_until: string;
+          verified_sha256: string;
+        };
+        Update: {
+          canonical_brn?: string;
+          cover_image?: string;
+          id?: string;
+          page_count?: number;
+          pages?: NonNullable<Json>;
+          store_id?: string;
+          title?: string;
+          valid_from?: string;
+          valid_until?: string;
+          verified_sha256?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "canonical_brochures_store_id_fkey";
+            columns: ["store_id"];
+            isOneToOne: false;
+            referencedRelation: "brochure_stores";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       catalog_recipe_component_items: {
         Row: {
@@ -3540,6 +3580,10 @@ export type Database = {
       redeem_invite:
         | { Args: { invite_code: string }; Returns: string }
         | { Args: { invite_token: string }; Returns: string };
+      replace_canonical_brochure_catalog: {
+        Args: { p_records: Json; p_scoped_zip_codes: string[] };
+        Returns: undefined;
+      };
       reverse_inventory_quantity_transaction: {
         Args: {
           p_created_at: string;

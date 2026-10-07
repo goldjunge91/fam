@@ -1,7 +1,7 @@
 begin;
 \ir helpers.sql
 
-select plan(11);
+select plan(9);
 
 -- 1. Setup Test Users
 select tests.create_user('b188c0a3-fdbf-47cf-8980-0a2c0064d3ff', 'test@example.com');
@@ -10,8 +10,6 @@ select tests.create_user('a718c0a3-fdbf-47cf-8980-0a2c0064d3aa', 'other@example.
 -- 2. Insert Base Data (as postgres)
 select tests.as_postgres();
 insert into public.brochure_stores (id, name, logo_url) values ('test_store', 'Test Store', 'url');
-insert into public.brochure_dumps (zip_code, payload_json, valid_from, valid_until) 
-values ('99999', '{"foo": "bar"}'::jsonb, now(), now() + interval '7 days');
 
 -- 3. Test Global Tables (Read Only)
 select tests.authenticate_as('b188c0a3-fdbf-47cf-8980-0a2c0064d3ff');
@@ -22,24 +20,11 @@ select results_eq(
   'Authenticated users can read brochure_stores'
 );
 
-select results_eq(
-  'select zip_code from public.brochure_dumps where zip_code = ''99999''',
-  $$values ('99999'::text)$$,
-  'Authenticated users can read brochure_dumps'
-);
-
 select throws_ok(
   'insert into public.brochure_stores (id, name) values (''aldi_new'', ''Aldi New'')',
   '42501',
   null,
   'Authenticated users CANNOT insert into brochure_stores'
-);
-
-select throws_ok(
-  'insert into public.brochure_dumps (zip_code, payload_json, valid_from, valid_until) values (''12345'', ''{}''::jsonb, now(), now())',
-  '42501',
-  null,
-  'Authenticated users CANNOT insert into brochure_dumps'
 );
 
 -- 4. Test Private Table (favorite_brochure_stores)

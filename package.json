@@ -156,6 +156,7 @@
   },
   "scripts": {
     "eas-build-on-success": "scripts/posthog-eas-build-on-success.sh",
+    "crawler:brochures": "bun run tools/crawler/brochures/index.ts",
     "eas:ios:local": "bash scripts/eas-ios-build.sh local",
     "eas:ios:cloud": "bash scripts/eas-ios-build.sh cloud",
     "posthog:upload-ios-dsyms": "scripts/posthog-upload-ios-dsyms.sh",
@@ -180,7 +181,7 @@
     "db:types": "bash scripts/db-types.sh",
     "db:check": "bash scripts/check-privileges.sh",
     "db:push": "supabase db push && bash scripts/check-privileges.sh --linked",
-    "test:db": "bash scripts/check-clean-db.sh && supabase test db --local supabase/tests/*.test.sql",
+    "test:db": "bash scripts/check-clean-db.sh && supabase test db --local",
     "test:integration": "bun --env-file=.env.development.local run jest --config jest.integration.config.js",
     "harness:run": "FAM_HARNESS_UI=1 react-native-harness --config jest.harness.config.mjs",
     "build:picker": "bun scripts/build-picker.ts"
