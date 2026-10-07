@@ -23,10 +23,20 @@ export function createCngFixture() {
   symlinkSync(join(projectRoot, 'node_modules'), join(root, 'node_modules'), 'junction');
 
   function run(args: string[], environment: Record<string, string> = {}) {
+    const baseEnvironment = { ...process.env };
+    for (const variable of ['CCACHE_BINARY', 'CCACHE_DIR']) {
+      if (!(variable in environment)) delete baseEnvironment[variable];
+    }
     const result = spawnSync('bun', args, {
       cwd: root,
       encoding: 'utf8',
-      env: { ...process.env, EXPO_NO_DOTENV: '1', FAM_HARNESS_UI: '0', CI: '1', ...environment },
+      env: {
+        ...baseEnvironment,
+        EXPO_NO_DOTENV: '1',
+        FAM_HARNESS_UI: '0',
+        CI: '1',
+        ...environment,
+      },
       timeout: 60_000,
     });
     if (result.error) throw result.error;

@@ -22,6 +22,8 @@ import {
   setupTwoDevices,
 } from '../../../../test/setup-two-devices';
 
+jest.mock('@/lib/db/local-client', () => ({ getDatabase: jest.fn() }));
+
 const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
 
 function randomId(): string {

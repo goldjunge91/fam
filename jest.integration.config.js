@@ -47,7 +47,7 @@ module.exports = {
     "^react-native-url-polyfill/auto$": "<rootDir>/test/rn-url-polyfill-noop.js",
   },
 
-  transformIgnorePatterns: ["node_modules/(?!(.bun|expo|@expo)/)"],
+  transformIgnorePatterns: ["node_modules/(?!(.bun|expo|expo-sqlite|@expo)/)"],
 
   testMatch: ["**/*.integration.test.ts", "**/*.integration.test.tsx"],
   testPathIgnorePatterns: ["/node_modules/"],
