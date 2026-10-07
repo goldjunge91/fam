@@ -49,23 +49,20 @@ export function buildCanonicalCatalog(
         throw new Error(`Brochure ${brochure.id} has no store name for ${brochure.storeId}`);
       }
 
+      const fullContentHash = brochure.verifiedPageHashes
+        ? hashOrderedPageSet(brochure.verifiedPageHashes, brochure.pages.length)
+        : null;
+      if (fullContentHash && fullContentHash !== verifiedSha256) {
+        throw new Error(`Brochure ${brochure.id} has an inconsistent full-brochure SHA-256`);
+      }
+
       const groupKey = JSON.stringify([
         storeName,
         brochure.validFrom,
         brochure.validUntil,
         brochure.pages.length,
-        brochure.verifiedPageHashes
-          ? ['content', hashOrderedPageSet(brochure.verifiedPageHashes, brochure.pages.length)]
-          : ['brn', brochure.id],
+        fullContentHash ? ['content', fullContentHash] : ['brn', brochure.id],
       ]);
-      if (
-        brochure.verifiedPageHashes &&
-        !brochure.verifiedPageHashes.some(
-          ({ pageNumber, sha256 }) => pageNumber === 1 && sha256 === verifiedSha256,
-        )
-      ) {
-        throw new Error(`Brochure ${brochure.id} has inconsistent page 1 SHA-256 values`);
-      }
       const verifiedBrochure: VerifiedCrawlerBrochure = { ...brochure, verifiedSha256 };
       const representativeOrder = JSON.stringify(verifiedBrochure);
       const existing = groups.get(groupKey);

@@ -72,11 +72,11 @@ describe('canonical brochure catalog', () => {
     const dumps = [
       dump(
         '20000',
-        [brochure('brn-z', 'Lidl Z', hashA, pages('brn-z'), verifiedPageHashes)],
+        [brochure('brn-z', 'Lidl Z', contentHash, pages('brn-z'), verifiedPageHashes)],
       ),
       dump('10000', [
-        brochure('brn-m', 'Lidl M', hashA, pages('brn-m'), verifiedPageHashes),
-        brochure('brn-a', 'Lidl A', hashA, representativePages, verifiedPageHashes),
+        brochure('brn-m', 'Lidl M', contentHash, pages('brn-m'), verifiedPageHashes),
+        brochure('brn-a', 'Lidl A', contentHash, representativePages, verifiedPageHashes),
       ]),
     ];
 
@@ -91,7 +91,7 @@ describe('canonical brochure catalog', () => {
         coverImage: representativePages[0]?.imageUrl,
         pages: representativePages,
         pageCount: 2,
-        verifiedSha256: hashA,
+        verifiedSha256: contentHash,
         verifiedPageHashes,
         availableZipCodes: ['10000', '20000'],
       },
@@ -99,16 +99,32 @@ describe('canonical brochure catalog', () => {
   });
 
   it('keeps same-cover brochures separate when a later page hash differs', () => {
+    const firstBrochurePageHashes = [
+      { pageNumber: 1, sha256: hashA },
+      { pageNumber: 2, sha256: hashB },
+    ];
+    const secondBrochurePageHashes = [
+      { pageNumber: 1, sha256: hashA },
+      { pageNumber: 2, sha256: hashC },
+    ];
+    const firstBrochureContentHash = hashOrderedPageSet(firstBrochurePageHashes, 2);
+    const secondBrochureContentHash = hashOrderedPageSet(secondBrochurePageHashes, 2);
     const dumps = [
       dump('10000', [
-        brochure('brn-a', 'Lidl A', hashA, pages('brn-a'), [
-          { pageNumber: 1, sha256: hashA },
-          { pageNumber: 2, sha256: hashB },
-        ]),
-        brochure('brn-b', 'Lidl B', hashA, pages('brn-b'), [
-          { pageNumber: 1, sha256: hashA },
-          { pageNumber: 2, sha256: hashC },
-        ]),
+        brochure(
+          'brn-a',
+          'Lidl A',
+          firstBrochureContentHash,
+          pages('brn-a'),
+          firstBrochurePageHashes,
+        ),
+        brochure(
+          'brn-b',
+          'Lidl B',
+          secondBrochureContentHash,
+          pages('brn-b'),
+          secondBrochurePageHashes,
+        ),
       ]),
     ];
 
@@ -116,6 +132,9 @@ describe('canonical brochure catalog', () => {
 
     expect(catalog).toHaveLength(2);
     expect(catalog.map((record) => record.canonicalBrn).sort()).toEqual(['brn-a', 'brn-b']);
+    expect(catalog.map((record) => record.verifiedSha256).sort()).toEqual(
+      [firstBrochureContentHash, secondBrochureContentHash].sort(),
+    );
   });
 
   it('does not merge different BRNs when full page hashes are unavailable', () => {
