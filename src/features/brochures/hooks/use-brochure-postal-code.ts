@@ -6,7 +6,7 @@ import {
   getBrochurePostalCodeSource,
   markBrochurePostalCodeAsDeviceLocation,
   setBrochurePostalCode,
-} from '@/features/brochures/data/preferences';
+} from '../data/preferences';
 
 const POSTAL_CODE_PATTERN = /^\d{5}$/;
 

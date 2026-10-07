@@ -14,7 +14,7 @@ type DecisionsFile = {
 };
 
 type VerificationReport = {
-  version: 1 | 2;
+  version: 1 | 2 | 3;
   decisionsPath: string;
   summary: {
     reviewCandidates: number;
@@ -68,11 +68,43 @@ function html(): string {
     .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid #3d313b; }
     .ocr { grid-column: 1 / -1; color: #d8bacb; font-size: 13px; }
     figure { margin: 0; min-width: 0; }
+    .img-wrap { position: relative; width: 100%; display: block; overflow: hidden; }
     img { display: block; width: 100%; max-height: 760px; object-fit: contain; background: #0e0c0f; }
+    .diff-box {
+      position: absolute;
+      border: 2px solid #ff2a6d;
+      background: rgba(255, 42, 109, 0.22);
+      border-radius: 4px;
+      box-shadow: 0 0 6px rgba(255, 42, 109, 0.6);
+      pointer-events: auto;
+      transition: background 0.15s, transform 0.15s;
+      cursor: pointer;
+    }
+    .diff-box:hover {
+      background: rgba(255, 42, 109, 0.45);
+      z-index: 10;
+    }
+    .diff-box .badge {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      background: #ff2a6d;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 1px 5px;
+      border-radius: 3px;
+      white-space: nowrap;
+      pointer-events: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .hide-diff .diff-box { display: none !important; }
     figcaption { display: flex; justify-content: space-between; gap: 10px; padding: 7px 2px; color: #cdb4c2; font-size: 13px; }
     .actions { position: sticky; bottom: 0; display: flex; flex-wrap: wrap; gap: 10px; padding: 16px 0; background: linear-gradient(transparent, #151217 20%); }
     button { appearance: none; border: 1px solid #705566; border-radius: 8px; padding: 11px 15px; color: #fff; background: #352832; font: inherit; cursor: pointer; }
     button:hover { background: #4a3543; }
+    button.toggle-diff { background: #261f26; border-color: #5c4355; }
+    button.toggle-diff.active { background: #5c2747; border-color: #ff2a6d; color: #fff; }
     button.primary { background: #7a3f64; border-color: #a85f89; }
     textarea { flex: 1 1 260px; min-height: 44px; resize: vertical; border: 1px solid #705566; border-radius: 8px; padding: 10px; color: #fff; background: #211b22; font: inherit; }
     .empty { padding: 80px 20px; text-align: center; color: #d8bacb; }
@@ -85,12 +117,26 @@ function html(): string {
   <script>
     let state;
     let current;
+    let showHighlights = true;
     const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
     const asset = (page) => page ? '/' + page.assetPath : '';
     const formatDate = (value) => new Intl.DateTimeFormat('de-DE', {dateStyle:'medium'}).format(new Date(value));
 
     function nextCandidate() {
       return state.candidates.find((candidate) => !candidate.decision);
+    }
+
+    function renderBoxes(boxes) {
+      if (!boxes || !boxes.length) return '';
+      return boxes.map((box) => {
+        const left = box.x;
+        const top = box.y;
+        const width = Math.max(box.width, 2);
+        const height = Math.max(box.height, 2);
+        return '<span class="diff-box" style="left:' + left + '%;top:' + top + '%;width:' + width + '%;height:' + height + '%;" title="Abweichend: ' + escapeHtml(box.token) + ' (' + box.confidence.toFixed(0) + '%)">' +
+          '<span class="badge">' + escapeHtml(box.token) + '</span>' +
+        '</span>';
+      }).join('');
     }
 
     function render() {
@@ -106,11 +152,13 @@ function html(): string {
       const pagePairs = current.previewPages.map((comparison) => {
         const left = comparison.left;
         const right = comparison.right;
+        const leftBoxes = comparison.ocr ? renderBoxes(comparison.ocr.leftBoxes) : '';
+        const rightBoxes = comparison.ocr ? renderBoxes(comparison.ocr.rightBoxes) : '';
         const leftFigure = left
-          ? '<figure><img src="' + escapeHtml(asset(left)) + '"><figcaption><span>Links · Quellposition ' + left.pageNumber + '</span><span>' + escapeHtml(left.perceptualHash) + '</span></figcaption></figure>'
+          ? '<figure><div class="img-wrap"><img src="' + escapeHtml(asset(left)) + '">' + leftBoxes + '</div><figcaption><span>Links · Quellposition ' + left.pageNumber + '</span><span>' + escapeHtml(left.perceptualHash) + '</span></figcaption></figure>'
           : '<figure><div class="empty">Seite fehlt</div></figure>';
         const rightFigure = right
-          ? '<figure><img src="' + escapeHtml(asset(right)) + '"><figcaption><span>Rechts · Quellposition ' + right.pageNumber + '</span><span>' + escapeHtml(right.perceptualHash) + '</span></figcaption></figure>'
+          ? '<figure><div class="img-wrap"><img src="' + escapeHtml(asset(right)) + '">' + rightBoxes + '</div><figcaption><span>Rechts · Quellposition ' + right.pageNumber + '</span><span>' + escapeHtml(right.perceptualHash) + '</span></figcaption></figure>'
           : '<figure><div class="empty">Seite fehlt</div></figure>';
         const ocr = comparison.ocr
           ? '<div class="ocr">OCR ' + (comparison.ocr.similarity * 100).toFixed(2) + ' % · Abweichend: ' + escapeHtml(comparison.ocr.changedTokens.join(', ') || 'keine Tokens') + '</div>'
@@ -133,15 +181,26 @@ function html(): string {
           '<div><div class="label">Standorte rechts</div><div class="value">' + escapeHtml(current.right.locations.slice(0, 8).join(', ')) + '</div></div>' +
           ocrSummary +
         '</section>' +
-        '<section class="pages">' + pagePairs + '</section>' +
+        '<section class="pages' + (showHighlights ? '' : ' hide-diff') + '">' + pagePairs + '</section>' +
         '<section class="actions">' +
           '<textarea id="note" placeholder="Optionale Notiz"></textarea>' +
-          '<button class="primary" data-decision="identical">Identisch</button>' +
-          '<button data-decision="different">Unterschiedlich</button>' +
-          '<button data-decision="regional-variant">Regional abweichend</button>' +
-          '<button data-decision="wrong-ad-page">Falsche Werbeseite</button>' +
+          '<button type="button" class="toggle-diff' + (showHighlights ? ' active' : '') + '" id="toggle-highlights">Markierungen ' + (showHighlights ? 'An (H)' : 'Aus (H)') + '</button>' +
+          '<button class="primary" data-decision="identical">Identisch (1)</button>' +
+          '<button data-decision="different">Unterschiedlich (2)</button>' +
+          '<button data-decision="regional-variant">Regional abweichend (3)</button>' +
+          '<button data-decision="wrong-ad-page">Falsche Werbeseite (4)</button>' +
         '</section>';
+
       app.querySelectorAll('button[data-decision]').forEach((button) => button.addEventListener('click', decide));
+      document.querySelector('#toggle-highlights')?.addEventListener('click', () => {
+        showHighlights = !showHighlights;
+        document.querySelector('.pages')?.classList.toggle('hide-diff', !showHighlights);
+        const btn = document.querySelector('#toggle-highlights');
+        if (btn) {
+          btn.textContent = 'Markierungen ' + (showHighlights ? 'An (H)' : 'Aus (H)');
+          btn.classList.toggle('active', showHighlights);
+        }
+      });
     }
 
     async function decide(event) {
@@ -153,6 +212,21 @@ function html(): string {
       current = undefined;
       render();
     }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.target && (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT')) return;
+      if (e.key === 'h' || e.key === 'H') {
+        document.querySelector('#toggle-highlights')?.click();
+      } else if (e.key === '1') {
+        document.querySelector('button[data-decision="identical"]')?.click();
+      } else if (e.key === '2') {
+        document.querySelector('button[data-decision="different"]')?.click();
+      } else if (e.key === '3') {
+        document.querySelector('button[data-decision="regional-variant"]')?.click();
+      } else if (e.key === '4') {
+        document.querySelector('button[data-decision="wrong-ad-page"]')?.click();
+      }
+    });
 
     fetch('/api/state').then((response) => response.json()).then((value) => { state = value; render(); });
   </script>
