@@ -1,12 +1,8 @@
 import type { CrawlerBrochure, LocationDump } from '../types';
-import { hashOrderedPageSet, type PageContentHash } from './full-brochure-signature';
+import { hashOrderedPageSet } from './full-brochure-signature';
 
-type HashedCrawlerBrochure = CrawlerBrochure & {
-  verifiedSha256?: string;
-  verifiedPageHashes?: PageContentHash[];
-};
 type CatalogDump = Omit<LocationDump, 'brochures'> & {
-  brochures: readonly HashedCrawlerBrochure[];
+  brochures: readonly CrawlerBrochure[];
 };
 type VerifiedCrawlerBrochure = CrawlerBrochure & { verifiedSha256: string };
 

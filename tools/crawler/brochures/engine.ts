@@ -137,6 +137,12 @@ export function sanitizeBrochure(
     validUntil,
     coverImage: cleanNullBytes(coverImage),
     pages,
+    ...(typeof brochure.verifiedSha256 === 'string'
+      ? { verifiedSha256: brochure.verifiedSha256 }
+      : {}),
+    ...(Array.isArray(brochure.verifiedPageHashes)
+      ? { verifiedPageHashes: brochure.verifiedPageHashes.map((pageHash) => ({ ...pageHash })) }
+      : {}),
   };
 }
 

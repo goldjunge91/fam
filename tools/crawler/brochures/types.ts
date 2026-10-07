@@ -35,6 +35,11 @@ export type CrawlerPage = {
   hotspots: CrawlerHotspot[];
 };
 
+export type CrawlerPageHash = {
+  pageNumber: number;
+  sha256: string;
+};
+
 export type CrawlerBrochure = {
   id: string;
   storeId: string;
@@ -43,6 +48,9 @@ export type CrawlerBrochure = {
   validUntil: string; // ISO 8601
   coverImage: string; // URL
   pages: CrawlerPage[];
+  /** SHA-256 identity of the ordered original page hashes; legacy data may hold only page 1. */
+  verifiedSha256?: string;
+  verifiedPageHashes?: CrawlerPageHash[];
 };
 
 export type BrochurePayloadJson = {
