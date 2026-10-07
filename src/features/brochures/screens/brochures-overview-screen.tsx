@@ -29,6 +29,51 @@ export default function BrochuresOverviewScreen() {
   const { isSyncing, hasSynced } = useBrochureSync(postalCode);
   const { data, isLoading } = useBrochures();
 
+  const postalCodeSettings = isEditingPostalCode ? (
+    <View style={styles.postalCodeEditRow}>
+      <PostalCodeEditor
+        onCancel={() => setIsEditingPostalCode(false)}
+        onSubmit={async (code) => {
+          await location.setManualPostalCode(code);
+          setIsEditingPostalCode(false);
+        }}
+      />
+    </View>
+  ) : postalCode ? (
+    <View style={styles.postalCodeRow}>
+      <Txt variant="caption" tone="secondary">
+        PLZ {postalCode}
+      </Txt>
+      <Pressable
+        accessibilityRole="button"
+        style={styles.postalCodeAction}
+        onPress={() => setIsEditingPostalCode(true)}>
+        <Txt variant="body" tone="primary" weight="600">
+          PLZ ändern
+        </Txt>
+      </Pressable>
+      {location.isManual ? (
+        <Pressable
+          accessibilityRole="button"
+          style={styles.postalCodeAction}
+          onPress={location.useDeviceLocation}>
+          <Txt variant="body" tone="secondary" style={{ textDecorationLine: 'underline' }}>
+            Standort verwenden
+          </Txt>
+        </Pressable>
+      ) : null}
+    </View>
+  ) : (
+    <Pressable
+      accessibilityRole="button"
+      style={styles.postalCodeAction}
+      onPress={() => setIsEditingPostalCode(true)}>
+      <Txt variant="body" tone="secondary" style={{ textDecorationLine: 'underline' }}>
+        PLZ manuell eingeben
+      </Txt>
+    </Pressable>
+  );
+
   if (location.status === 'locating') {
     return (
       <Screen title="Angebote" chrome={chrome}>
@@ -36,6 +81,7 @@ export default function BrochuresOverviewScreen() {
           <Txt variant="body" tone="secondary">
             Standort wird ermittelt...
           </Txt>
+          {postalCodeSettings}
         </View>
       </Screen>
     );
@@ -59,13 +105,7 @@ export default function BrochuresOverviewScreen() {
                 : 'Deine PLZ konnte gerade nicht ermittelt werden.'}
           </Txt>
           {isEditingPostalCode ? (
-            <PostalCodeEditor
-              onCancel={() => setIsEditingPostalCode(false)}
-              onSubmit={async (code) => {
-                await location.setManualPostalCode(code);
-                setIsEditingPostalCode(false);
-              }}
-            />
+            postalCodeSettings
           ) : (
             <>
               <Pressable
@@ -79,11 +119,7 @@ export default function BrochuresOverviewScreen() {
                   {permanentlyDenied ? 'Einstellungen öffnen' : 'Erneut versuchen'}
                 </Txt>
               </Pressable>
-              <Pressable accessibilityRole="button" onPress={() => setIsEditingPostalCode(true)}>
-                <Txt variant="body" tone="secondary" style={{ textDecorationLine: 'underline' }}>
-                  PLZ stattdessen manuell eingeben
-                </Txt>
-              </Pressable>
+              {postalCodeSettings}
             </>
           )}
         </View>
@@ -97,6 +133,7 @@ export default function BrochuresOverviewScreen() {
           <Txt variant="body" tone="secondary">
             Angebote für {postalCode} werden geladen...
           </Txt>
+          {postalCodeSettings}
         </View>
       </Screen>
     );
@@ -111,6 +148,7 @@ export default function BrochuresOverviewScreen() {
           <Txt variant="body" tone="secondary" style={styles.locationCopy}>
             Für die PLZ {postalCode} liegt derzeit kein aktueller Dump vor.
           </Txt>
+          {postalCodeSettings}
         </View>
       </Screen>
     );
@@ -129,35 +167,7 @@ export default function BrochuresOverviewScreen() {
       <ScrollView
         style={[styles.container, { backgroundColor: colors.background }]}
         contentContainerStyle={styles.content}>
-        {isEditingPostalCode ? (
-          <View style={styles.postalCodeEditRow}>
-            <PostalCodeEditor
-              onCancel={() => setIsEditingPostalCode(false)}
-              onSubmit={async (code) => {
-                await location.setManualPostalCode(code);
-                setIsEditingPostalCode(false);
-              }}
-            />
-          </View>
-        ) : (
-          <View style={styles.postalCodeRow}>
-            <Txt variant="caption" tone="secondary">
-              PLZ {postalCode}
-            </Txt>
-            <Pressable accessibilityRole="button" onPress={() => setIsEditingPostalCode(true)}>
-              <Txt variant="body" tone="primary" weight="600">
-                Ändern
-              </Txt>
-            </Pressable>
-            {location.isManual ? (
-              <Pressable accessibilityRole="button" onPress={location.useDeviceLocation}>
-                <Txt variant="body" tone="secondary" style={{ textDecorationLine: 'underline' }}>
-                  Standort verwenden
-                </Txt>
-              </Pressable>
-            ) : null}
-          </View>
-        )}
+        {postalCodeSettings}
         {favorites.length > 0 && (
           <View style={styles.section}>
             <Txt variant="body" weight="600" style={styles.sectionTitle}>
@@ -323,6 +333,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: space.md,
     marginBottom: space.lg,
+  },
+  postalCodeAction: {
+    minHeight: MIN_TOUCH_SIZE,
+    justifyContent: 'center',
   },
   postalCodeEditRow: {
     marginBottom: space.lg,

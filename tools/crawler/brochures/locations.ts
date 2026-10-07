@@ -1,6 +1,6 @@
 import { existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { crawlerGeoNamesCandidatePaths } from './paths';
 import type { BrochureLocation } from './types';
 
 // Fallback-Stammdaten für die wichtigsten deutschen Ballungsräume
@@ -103,9 +103,8 @@ export function filterLocations(
     const zones = options.zone.split(',').map((z) => z.trim());
     filtered = filtered.filter((loc) => zones.some((z) => loc.zipCode.startsWith(z)));
   } else if (options.range) {
-    filtered = filtered.filter(
-      (loc) => loc.zipCode >= options.range!.from && loc.zipCode <= options.range!.to,
-    );
+    const { from, to } = options.range;
+    filtered = filtered.filter((loc) => loc.zipCode >= from && loc.zipCode <= to);
   }
 
   // Sample-Filterung mit Offset (z. B. 20% in 5 Tranchen: Offset 0, 1, 2, 3, 4)
@@ -130,13 +129,12 @@ export async function loadTargetLocations(
   geoNamesFilePath?: string,
 ): Promise<BrochureLocation[]> {
   let baseLocations: BrochureLocation[] = [];
+  let loadedCompleteGeoNames = false;
 
   const candidatePaths = [
     geoNamesFilePath,
     process.env.BROCHURE_LOCATIONS_FILE,
-    join(process.cwd(), 'tools', 'crawler', 'data', 'geonames-DE.txt'),
-    join(import.meta.dirname, '..', 'data', 'geonames-DE.txt'),
-    '/tmp/geonames-DE.txt',
+    ...crawlerGeoNamesCandidatePaths(),
   ].filter(Boolean) as string[];
 
   for (const filePath of candidatePaths) {
@@ -145,6 +143,7 @@ export async function loadTargetLocations(
         const content = await readFile(filePath, 'utf8');
         baseLocations = parseGeoNamesPostalCodes(content);
         if (baseLocations.length > 1000) {
+          loadedCompleteGeoNames = true;
           console.log(`📍 ${baseLocations.length} deutsche PLZ aus ${filePath} geladen.`);
           break;
         }
@@ -159,7 +158,10 @@ export async function loadTargetLocations(
     if (envJson) {
       try {
         const parsed = JSON.parse(envJson);
-        if (Array.isArray(parsed)) baseLocations = parsed;
+        if (Array.isArray(parsed)) {
+          baseLocations = parsed;
+          loadedCompleteGeoNames = baseLocations.length > 1000;
+        }
       } catch {
         // Fallback
       }
@@ -168,6 +170,12 @@ export async function loadTargetLocations(
 
   if (baseLocations.length === 0) {
     baseLocations = DEFAULT_MAJOR_LOCATIONS;
+  }
+
+  if (options.all && !loadedCompleteGeoNames) {
+    throw new Error(
+      'Für --all wurden keine vollständigen GeoNames-Stammdaten gefunden. Setze BROCHURE_LOCATIONS_FILE auf die vollständige geonames-DE.txt.',
+    );
   }
 
   return filterLocations(baseLocations, options);

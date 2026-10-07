@@ -1,5 +1,6 @@
 import { createHash, createHmac } from 'node:crypto';
 import sharp from 'sharp';
+import { createStorageBudget, type StorageAsset, type StorageBudget } from './storage-policy';
 import type { CrawlerBrochure } from './types';
 
 const MAX_IMAGE_BYTES = 10 * 1024 * 1024; // 10 MB
@@ -14,9 +15,15 @@ export type R2Config = {
   secretAccessKey: string;
   bucket: string;
   publicUrl: string;
+  storageBudgetBytes?: number;
+  storageBudget?: StorageBudget;
 };
 
-export function loadR2Config(options?: { disabled?: boolean }): R2Config | null {
+export function loadR2Config(options?: {
+  disabled?: boolean;
+  storageBudgetBytes?: number;
+  storageBudget?: StorageBudget;
+}): R2Config | null {
   if (options?.disabled) return null;
 
   const accountId = process.env.R2_ACCOUNT_ID?.trim();
@@ -35,6 +42,10 @@ export function loadR2Config(options?: { disabled?: boolean }): R2Config | null 
     secretAccessKey,
     bucket,
     publicUrl: publicUrl.replace(/\/+$/, ''),
+    ...(options?.storageBudgetBytes === undefined
+      ? {}
+      : { storageBudgetBytes: options.storageBudgetBytes }),
+    ...(options?.storageBudget ? { storageBudget: options.storageBudget } : {}),
   };
 }
 
@@ -55,15 +66,35 @@ export function imageKeyFor(originalUrl: string): string {
   return `${DUMP_RUN_PREFIX}assets/${hash}.jpg`;
 }
 
-export function legacyImageKeyFor(originalUrl: string, brochureId: string, context: string): string {
+export function legacyImageKeyFor(
+  originalUrl: string,
+  brochureId: string,
+  context: string,
+): string {
   const hash = createHash('sha256').update(originalUrl).digest('hex').slice(0, 16);
   return `${DUMP_RUN_PREFIX}${sanitizeKeyPart(brochureId)}/${context}-${hash}.jpg`;
 }
 
 type R2RequestOptions = {
-  method?: 'HEAD' | 'PUT';
+  method?: 'GET' | 'HEAD' | 'PUT';
   headers?: Record<string, string>;
+  query?: Record<string, string | undefined>;
 };
+
+function encodeQueryComponent(value: string): string {
+  return encodeURIComponent(value).replace(
+    /[!'()*]/g,
+    (character) => `%${character.charCodeAt(0).toString(16).toUpperCase()}`,
+  );
+}
+
+function canonicalQuery(query: Record<string, string | undefined>): string {
+  return Object.entries(query)
+    .filter(([, value]) => value !== undefined)
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([name, value]) => `${encodeQueryComponent(name)}=${encodeQueryComponent(value ?? '')}`)
+    .join('&');
+}
 
 /**
  * Erzeugt AWS-SigV4-Signaturen für R2-Anfragen.
@@ -75,7 +106,8 @@ export function signR2Request(
 ): { url: string; headers: Record<string, string> } {
   const method = options.method ?? 'PUT';
   const host = `${config.accountId}.r2.cloudflarestorage.com`;
-  const canonicalUri = `/${config.bucket}/${key}`;
+  const canonicalUri = key ? `/${config.bucket}/${key}` : `/${config.bucket}`;
+  const queryString = canonicalQuery(options.query ?? {});
   const now = new Date();
   const amzDate = now.toISOString().replace(/[:-]|\.\d{3}/g, '');
   const dateStamp = amzDate.slice(0, 8);
@@ -100,7 +132,7 @@ export function signR2Request(
   const canonicalRequest = [
     method,
     canonicalUri,
-    '',
+    queryString,
     canonicalHeaders,
     signedHeaders,
     payloadHash,
@@ -121,7 +153,7 @@ export function signR2Request(
   const signature = createHmac('sha256', kSigning).update(stringToSign).digest('hex');
 
   return {
-    url: `https://${host}${canonicalUri}`,
+    url: `https://${host}${canonicalUri}${queryString ? `?${queryString}` : ''}`,
     headers: {
       ...headers,
       Authorization: `AWS4-HMAC-SHA256 Credential=${config.accessKeyId}/${scope}, SignedHeaders=${signedHeaders}, Signature=${signature}`,
@@ -158,6 +190,122 @@ async function headR2Object(config: R2Config, key: string): Promise<Response | n
 /** Prüft über die geteilte R2-Instanz, ob ein Objekt bereits existiert. */
 export async function r2ObjectExists(config: R2Config, key: string): Promise<boolean> {
   return (await headR2Object(config, key)) !== null;
+}
+
+function decodeXml(value: string): string {
+  return value
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+}
+
+function xmlValue(fragment: string, tag: string): string | undefined {
+  const match = fragment.match(new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`));
+  return match?.[1] === undefined ? undefined : decodeXml(match[1]);
+}
+
+function parseR2ObjectList(xml: string): {
+  objects: StorageAsset[];
+  nextContinuationToken?: string;
+} {
+  const objects: StorageAsset[] = [];
+  for (const fragment of xml.match(/<Contents>[\s\S]*?<\/Contents>/g) ?? []) {
+    const key = xmlValue(fragment, 'Key');
+    const sizeValue = xmlValue(fragment, 'Size');
+    const bytes = sizeValue === undefined ? Number.NaN : Number(sizeValue);
+    if (!key || !Number.isSafeInteger(bytes) || bytes < 0) {
+      throw new Error('R2-Bestandsliste enthält ein ungültiges Asset.');
+    }
+    objects.push({ key, bytes });
+  }
+
+  const isTruncated = xmlValue(xml, 'IsTruncated')?.toLowerCase() === 'true';
+  const nextContinuationToken = xmlValue(xml, 'NextContinuationToken');
+  if (isTruncated && !nextContinuationToken) {
+    throw new Error('R2-Bestandsliste ist abgeschnitten, liefert aber kein Fortsetzungstoken.');
+  }
+  return {
+    objects,
+    ...(nextContinuationToken ? { nextContinuationToken } : {}),
+  };
+}
+
+/** Listet den vollständigen R2-Bestand, einschließlich aller Folgeseiten. */
+export async function listR2Objects(config: R2Config, prefix = ''): Promise<StorageAsset[]> {
+  const objects: StorageAsset[] = [];
+  const seenTokens = new Set<string>();
+  let continuationToken: string | undefined;
+
+  while (true) {
+    if (continuationToken) {
+      if (seenTokens.has(continuationToken)) {
+        throw new Error('R2-Bestandsliste verwendet ein wiederholtes Fortsetzungstoken.');
+      }
+      seenTokens.add(continuationToken);
+    }
+
+    const signed = signR2Request(config, '', {
+      method: 'GET',
+      query: {
+        'list-type': '2',
+        ...(prefix ? { prefix } : {}),
+        'continuation-token': continuationToken,
+      },
+    });
+    const response = await fetch(signed.url, {
+      method: 'GET',
+      headers: signed.headers,
+      signal: AbortSignal.timeout(30_000),
+    });
+    if (!response.ok) {
+      throw new Error(
+        `R2-Bestandsliste ${response.status}: ${(await response.text()).slice(0, 200)}`,
+      );
+    }
+
+    const page = parseR2ObjectList(await response.text());
+    objects.push(...page.objects);
+    continuationToken = page.nextContinuationToken;
+    if (!continuationToken) return objects;
+  }
+}
+
+const r2BudgetPromises = new WeakMap<R2Config, Promise<StorageBudget | undefined>>();
+
+/** Baut den Budgetzustand einmalig aus dem vollständigen R2-Bestand auf. */
+export async function ensureR2StorageBudget(config: R2Config): Promise<StorageBudget | undefined> {
+  if (config.storageBudget) {
+    if (
+      config.storageBudgetBytes !== undefined &&
+      config.storageBudget.budgetBytes !== config.storageBudgetBytes
+    ) {
+      throw new Error('Die R2-Budgetkonfiguration enthält widersprüchliche Bytebudgets.');
+    }
+    return config.storageBudget;
+  }
+  if (config.storageBudgetBytes === undefined) return undefined;
+
+  const pending = r2BudgetPromises.get(config);
+  if (pending) return pending;
+
+  const promise = (async () => {
+    const existingAssets = await listR2Objects(config);
+    const budget = createStorageBudget({
+      budgetBytes: config.storageBudgetBytes,
+      existingAssets,
+    });
+    config.storageBudget = budget;
+    return budget;
+  })();
+  r2BudgetPromises.set(config, promise);
+  try {
+    return await promise;
+  } catch (error) {
+    r2BudgetPromises.delete(config);
+    throw error;
+  }
 }
 
 export async function uploadToR2(
@@ -250,6 +398,7 @@ export async function mirrorBrochureImagesToR2(
   config: R2Config,
   uploadedUrlCache: Map<string, string | Promise<string>>,
 ): Promise<CrawlerBrochure> {
+  const storageBudget = await ensureR2StorageBudget(config);
   const updatedBrochure: CrawlerBrochure = {
     ...brochure,
     pages: [...(brochure.pages || [])],
@@ -291,7 +440,7 @@ export async function mirrorBrochureImagesToR2(
   const CONCURRENCY = 2;
   for (let i = 0; i < tasks.length; i += CONCURRENCY) {
     const chunk = tasks.slice(i, i + CONCURRENCY);
-    await Promise.all(
+    const results = await Promise.allSettled(
       chunk.map(async (task) => {
         const cached = uploadedUrlCache.get(task.originalUrl);
         if (cached) {
@@ -306,6 +455,7 @@ export async function mirrorBrochureImagesToR2(
           if (await r2ObjectExists(config, key)) {
             return r2Url;
           }
+          storageBudget?.markMissing(key);
 
           // Während der Umstellung alte, noch gültige Objekte weiterverwenden.
           // So erzeugt der erste Lauf keine zweite Kopie jedes bereits geladenen Bildes.
@@ -313,9 +463,12 @@ export async function mirrorBrochureImagesToR2(
           if (await r2ObjectExists(config, legacyKey)) {
             return `${config.publicUrl}/${legacyKey}`;
           }
+          storageBudget?.markMissing(legacyKey);
 
           const storedImage = await downloadOptimizedImage(task.originalUrl);
+          const reservation = storageBudget?.reserve(key, storedImage.byteLength);
           await uploadToR2(config, key, storedImage);
+          reservation?.commit(storedImage.byteLength);
 
           return r2Url;
         })();
@@ -325,12 +478,16 @@ export async function mirrorBrochureImagesToR2(
           const r2Url = await mirrorPromise;
           uploadedUrlCache.set(task.originalUrl, r2Url);
           task.apply(r2Url);
-        } catch (err) {
+        } catch (error) {
           uploadedUrlCache.delete(task.originalUrl);
-          console.warn(`⚠️ R2-Upload für ${task.originalUrl} fehlgeschlagen, behalte Original-URL:`, err);
+          throw error;
         }
       }),
     );
+    const failed = results.find(
+      (result): result is PromiseRejectedResult => result.status === 'rejected',
+    );
+    if (failed) throw failed.reason;
   }
 
   return updatedBrochure;

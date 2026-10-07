@@ -1,9 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import {
-  DEFAULT_MAJOR_LOCATIONS,
-  filterLocations,
-  parseGeoNamesPostalCodes,
-} from './locations';
+import { DEFAULT_MAJOR_LOCATIONS, filterLocations, parseGeoNamesPostalCodes } from './locations';
 
 describe('Crawler Location Management', () => {
   it('parst und aggregiert GeoNames-Format korrekt', () => {

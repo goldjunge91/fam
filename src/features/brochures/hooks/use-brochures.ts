@@ -79,7 +79,6 @@ export function useBrochures() {
         favorites: mappedStores.filter((s) => s.isFavorite),
       };
     },
-    networkMode: 'always',
   });
 }
 
@@ -139,6 +138,5 @@ export function useBrochurePages(brochureId: string) {
       return mappedPages;
     },
     enabled: !!brochureId,
-    networkMode: 'always',
   });
 }

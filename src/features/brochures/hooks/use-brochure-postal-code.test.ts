@@ -49,7 +49,7 @@ jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => mockSessionState,
 }));
 
-jest.mock('@/features/brochures/data/preferences', () => ({
+jest.mock('../data/preferences', () => ({
   getBrochurePostalCode: (...args: unknown[]) => mockGetPostalCode(...args),
   getBrochurePostalCodeSource: (...args: unknown[]) => mockGetPostalCodeSource(...args),
   setBrochurePostalCode: (...args: unknown[]) => mockSetPostalCode(...args),

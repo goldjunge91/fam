@@ -1,24 +1,33 @@
-import { access, mkdir, rename, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
-import {
-  downloadOptimizedImage,
-  imageKeyFor,
-  legacyImageKeyFor,
-} from './r2-storage';
+import { access, mkdir, readdir, rename, stat, writeFile } from 'node:fs/promises';
+import { dirname, join, relative, sep } from 'node:path';
+import { downloadOptimizedImage, imageKeyFor, legacyImageKeyFor } from './r2-storage';
+import { createStorageBudget, type StorageAsset, type StorageBudget } from './storage-policy';
 import type { CrawlerBrochure } from './types';
 
 export type LocalStorageConfig = {
   directory: string;
   publicUrl?: string;
+  storageBudgetBytes?: number;
+  storageBudget?: StorageBudget;
+};
+
+export type LocalStorageBudgetOptions = {
+  storageBudgetBytes?: number;
+  storageBudget?: StorageBudget;
 };
 
 export function loadLocalStorageConfig(
   directory: string,
   publicUrl?: string,
+  options?: LocalStorageBudgetOptions,
 ): LocalStorageConfig {
   return {
     directory,
     publicUrl: publicUrl?.replace(/\/+$/, '') || undefined,
+    ...(options?.storageBudgetBytes === undefined
+      ? {}
+      : { storageBudgetBytes: options.storageBudgetBytes }),
+    ...(options?.storageBudget ? { storageBudget: options.storageBudget } : {}),
   };
 }
 
@@ -46,13 +55,84 @@ async function localFileExists(path: string): Promise<boolean> {
   }
 }
 
-async function writeAssetIfMissing(path: string, body: ArrayBuffer): Promise<void> {
-  if (await localFileExists(path)) return;
+async function writeAssetIfMissing(path: string, body: ArrayBuffer): Promise<boolean> {
+  if (await localFileExists(path)) return false;
 
   await mkdir(dirname(path), { recursive: true });
   const temporaryPath = `${path}.${process.pid}.${Date.now()}.tmp`;
   await writeFile(temporaryPath, Buffer.from(body));
   await rename(temporaryPath, path);
+  return true;
+}
+
+async function listLocalAssetsInDirectory(
+  directory: string,
+  rootDirectory: string,
+): Promise<StorageAsset[]> {
+  const assets: StorageAsset[] = [];
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) {
+      assets.push(...(await listLocalAssetsInDirectory(path, rootDirectory)));
+      continue;
+    }
+    if (!entry.isFile()) continue;
+    const file = await stat(path);
+    assets.push({
+      key: relative(rootDirectory, path).split(sep).join('/'),
+      bytes: file.size,
+    });
+  }
+  return assets;
+}
+
+/** Erfasst den tatsächlichen lokalen Dateibestand unabhängig von Manifesten. */
+export async function listLocalStorageAssets(directory: string): Promise<StorageAsset[]> {
+  try {
+    await stat(directory);
+  } catch (error) {
+    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') return [];
+    throw error;
+  }
+  return listLocalAssetsInDirectory(directory, directory);
+}
+
+const localBudgetPromises = new WeakMap<LocalStorageConfig, Promise<StorageBudget | undefined>>();
+
+/** Baut den Budgetzustand einmalig aus allen vorhandenen lokalen Dateien auf. */
+export async function ensureLocalStorageBudget(
+  config: LocalStorageConfig,
+): Promise<StorageBudget | undefined> {
+  if (config.storageBudget) {
+    if (
+      config.storageBudgetBytes !== undefined &&
+      config.storageBudget.budgetBytes !== config.storageBudgetBytes
+    ) {
+      throw new Error('Die lokale Budgetkonfiguration enthält widersprüchliche Bytebudgets.');
+    }
+    return config.storageBudget;
+  }
+  if (config.storageBudgetBytes === undefined) return undefined;
+
+  const pending = localBudgetPromises.get(config);
+  if (pending) return pending;
+
+  const promise = (async () => {
+    const existingAssets = await listLocalStorageAssets(config.directory);
+    const budget = createStorageBudget({
+      budgetBytes: config.storageBudgetBytes,
+      existingAssets,
+    });
+    config.storageBudget = budget;
+    return budget;
+  })();
+  localBudgetPromises.set(config, promise);
+  try {
+    return await promise;
+  } catch (error) {
+    localBudgetPromises.delete(config);
+    throw error;
+  }
 }
 
 /**
@@ -65,6 +145,7 @@ export async function mirrorBrochureImagesToLocal(
   config: LocalStorageConfig,
   downloadedUrlCache: Map<string, string | Promise<string>>,
 ): Promise<CrawlerBrochure> {
+  const storageBudget = await ensureLocalStorageBudget(config);
   const updatedBrochure: CrawlerBrochure = {
     ...brochure,
     pages: [...(brochure.pages || [])],
@@ -114,14 +195,20 @@ export async function mirrorBrochureImagesToLocal(
     }
 
     const storedImage = await downloadOptimizedImage(task.originalUrl);
-    await writeAssetIfMissing(targetPath, storedImage);
+    const reservation = storageBudget?.reserve(key, storedImage.byteLength);
+    const wrote = await writeAssetIfMissing(targetPath, storedImage);
+    if (wrote) {
+      reservation?.commit(storedImage.byteLength);
+    } else {
+      storageBudget?.markExisting(key, storedImage.byteLength);
+    }
     return publicUrl;
   };
 
   const CONCURRENCY = 2;
   for (let i = 0; i < tasks.length; i += CONCURRENCY) {
     const chunk = tasks.slice(i, i + CONCURRENCY);
-    await Promise.all(
+    const results = await Promise.allSettled(
       chunk.map(async (task) => {
         const cached = downloadedUrlCache.get(task.originalUrl);
         if (cached) {
@@ -137,10 +224,14 @@ export async function mirrorBrochureImagesToLocal(
           task.apply(url);
         } catch (error) {
           downloadedUrlCache.delete(task.originalUrl);
-          console.warn(`⚠️ Lokales Speichern für ${task.originalUrl} fehlgeschlagen:`, error);
+          throw error;
         }
       }),
     );
+    const failed = results.find(
+      (result): result is PromiseRejectedResult => result.status === 'rejected',
+    );
+    if (failed) throw failed.reason;
   }
 
   return updatedBrochure;

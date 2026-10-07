@@ -8,9 +8,9 @@ R2 hostet die Prospekt-Bilder (Cover + Seiten) statt des Bring-CDNs. Die wöchen
 2. Name: `fam-brochures`.
 3. Location: **Automatic** (R2 wählt die nächstgelegene Region; für deutsche Nutzer fällt das auf EU).
 4. Default Storage Class: **Standard** (Bilder werden wöchentlich neu geladen, Infrequent Access lohnt nicht).
-5. Erstellen.
+5. Erstellen. 
 
-## 2. Öffentlichen Lesezugriff aktivieren
+## 2. Nicht Öffentlichen Lesezugriff aktivieren
 
 Die App lädt Bilder per HTTPS-URL (`expo-image`), ohne Auth. Dafür gibt es zwei Wege:
 
@@ -32,13 +32,83 @@ Damit bekommst du das volle Cloudflare-CDN, Cache-Control-Header und eine sauber
 
 ## 3. API-Token für die Pipeline erstellen
 
-Die Pipeline (`tools/crawler/brochures/seed-brochures.ts`) braucht S3-kompatible Zugangsdaten:
+Die Pipeline (`scripts/seed-brochures.ts`) braucht S3-kompatible Zugangsdaten:
 
-1. Cloudflare Dashboard → **R2** → **Manage R2 API Tokens**.
-2. **Create API Token**.
+1. Cloudflare Dashboard → **R2** → **Account API tokens**.
+2. **Create a token**.
 3. Permissions: **Object Read & Write**, eingeschränkt auf Bucket `fam-brochures`.
 4. TTL: dauerhaft oder 1 Jahr (wird als GitHub-Secret rotiert).
 5. Notieren: **Access Key ID**, **Secret Access Key**, und die **Account ID** (steht im Dashboard rechts oben oder unter R2 → Overview).
+
+```json
+{
+  "name": "r2-broschure",
+  "policies": [
+    {
+      "effect": "allow",
+      "permission_groups": [
+        {
+          "id": "de21485a24744b76a004aa153898f7fe"
+        },
+        {
+          "id": "714f9c13a5684c2885a793f5edb36f59"
+        },
+        {
+          "id": "0cf6473ad41449e7b7b743d14fc20c60"
+        },
+        {
+          "id": "618ec6c64a3a42f8b08bdcb147ded4e4"
+        },
+        {
+          "id": "b89a480218d04ceb98b4fe57ca29dc1f"
+        },
+        {
+          "id": "2efd5506f9c8494dacb1fa10a3e7d5b6"
+        },
+        {
+          "id": "6a018a9f2fc74eb6b293b0c548f38b39"
+        }
+      ],
+      "resources": {
+        "com.cloudflare.edge.r2.bucket.6237d34314fccc45bf5b2522f1660e91_default_r2-broschure": "*"
+      }
+    }
+  ],
+  "condition": {},
+  "not_before": null,
+  "expires_on": null
+}
+```
+
+```tf
+resource "cloudflare_account_token" "example_account_token" {
+  account_id = "6237d34314fccc45bf5b2522f1660e91"
+  name       = "r2-broschure"
+
+  policies = [{
+    effect = "allow"
+    permission_groups = [{
+      id = "de21485a24744b76a004aa153898f7fe"
+      }, {
+      id = "714f9c13a5684c2885a793f5edb36f59"
+      }, {
+      id = "0cf6473ad41449e7b7b743d14fc20c60"
+      }, {
+      id = "618ec6c64a3a42f8b08bdcb147ded4e4"
+      }, {
+      id = "b89a480218d04ceb98b4fe57ca29dc1f"
+      }, {
+      id = "2efd5506f9c8494dacb1fa10a3e7d5b6"
+      }, {
+      id = "6a018a9f2fc74eb6b293b0c548f38b39"
+    }]
+    resources = jsonencode({
+      "com.cloudflare.edge.r2.bucket.6237d34314fccc45bf5b2522f1660e91_default_r2-broschure" = "*"
+    })
+  }]
+}
+```
+
 
 Der S3-Endpoint lautet dann:
 

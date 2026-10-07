@@ -1,15 +1,28 @@
-import { afterEach, describe, expect, it, jest } from '@jest/globals';
+import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';
 import {
+  ensureR2StorageBudget,
   imageKeyFor,
+  listR2Objects,
   loadR2Config,
   mirrorBrochureImagesToR2,
+  type R2Config,
   r2ObjectExists,
   sanitizeKeyPart,
   signR2Request,
-  type R2Config,
   uploadToR2,
 } from './r2-storage';
 import type { CrawlerBrochure } from './types';
+
+function testResponse(body: Uint8Array | null, status = 200): Response {
+  const bytes = body ? new Uint8Array(body) : new Uint8Array();
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    headers: { get: () => null },
+    arrayBuffer: async () => bytes.slice().buffer,
+    text: async () => Buffer.from(bytes).toString('utf8'),
+  } as unknown as Response;
+}
 
 describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
   const mockR2Config: R2Config = {
@@ -19,6 +32,20 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
     bucket: 'fam-brochures',
     publicUrl: 'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev',
   };
+
+  beforeEach(() => {
+    if (!AbortSignal.timeout) {
+      Object.defineProperty(AbortSignal, 'timeout', {
+        configurable: true,
+        value: () => new AbortController().signal,
+      });
+    }
+    Object.defineProperty(global, 'fetch', {
+      configurable: true,
+      writable: true,
+      value: jest.fn(),
+    });
+  });
 
   afterEach(() => {
     jest.restoreAllMocks();
@@ -77,21 +104,51 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
     };
 
     const cache = new Map<string, string>();
-    cache.set('https://cdn.example.com/cover.jpg', 'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-cover.jpg');
-    cache.set('https://cdn.example.com/page1.jpg', 'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-page1.jpg');
+    cache.set(
+      'https://cdn.example.com/cover.jpg',
+      'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-cover.jpg',
+    );
+    cache.set(
+      'https://cdn.example.com/page1.jpg',
+      'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-page1.jpg',
+    );
 
     const result = await mirrorBrochureImagesToR2(mockBrochure, mockR2Config, cache);
 
-    expect(result.coverImage).toBe('https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-cover.jpg');
-    expect(result.pages[0].imageUrl).toBe('https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-page1.jpg');
+    expect(result.coverImage).toBe(
+      'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-cover.jpg',
+    );
+    expect(result.pages[0].imageUrl).toBe(
+      'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-page1.jpg',
+    );
   });
 
   it('deaktiviert R2 vollständig für einen Dry-Run', () => {
     expect(loadR2Config({ disabled: true })).toBeNull();
   });
 
+  it('inventarisiert für das Budget den gesamten Bucket statt nur den Prospektpräfix', async () => {
+    const xml = `<ListBucketResult>
+      <IsTruncated>false</IsTruncated>
+      <Contents><Key>other/config.json</Key><Size>40</Size></Contents>
+      <Contents><Key>brochures/dumps/assets/page.jpg</Key><Size>60</Size></Contents>
+    </ListBucketResult>`;
+    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(testResponse(Buffer.from(xml)));
+    const config: R2Config = { ...mockR2Config, storageBudgetBytes: 100 };
+
+    const budget = await ensureR2StorageBudget(config);
+    const objects = await listR2Objects({ ...mockR2Config });
+
+    expect(budget?.snapshot().occupiedBytes).toBe(100);
+    expect(objects.map(({ key }) => key)).toEqual([
+      'other/config.json',
+      'brochures/dumps/assets/page.jpg',
+    ]);
+    expect(String(fetchMock.mock.calls[0]?.[0])).not.toContain('prefix=brochures%2Fdumps%2F');
+  });
+
   it('erkennt über HEAD bereits vorhandene Objekte', async () => {
-    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(new Response(null));
+    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(testResponse(null));
 
     await expect(r2ObjectExists(mockR2Config, 'brochures/dumps/existing.jpg')).resolves.toBe(true);
     expect(fetchMock).toHaveBeenCalledTimes(1);
@@ -99,7 +156,7 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
   });
 
   it('lädt bereits vorhandene Bilder weder herunter noch erneut hoch', async () => {
-    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(new Response(null));
+    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(testResponse(null));
     const brochure: CrawlerBrochure = {
       id: 'existing-brochure',
       storeId: 'store',
@@ -121,9 +178,7 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
     const fetchMock = jest.spyOn(global, 'fetch').mockImplementation(async (_input, init) => {
       if (init?.method === 'HEAD') {
         const url = String(_input);
-        return new Response(null, {
-          status: url.includes('/assets/') ? 404 : 200,
-        });
+        return testResponse(null, url.includes('/assets/') ? 404 : 200);
       }
       throw new Error('Das Legacy-Objekt darf keinen Download auslösen.');
     });
@@ -146,9 +201,9 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
 
   it('dedupliziert parallele Uploads über einen gemeinsamen Promise-Cache', async () => {
     const fetchMock = jest.spyOn(global, 'fetch').mockImplementation(async (_input, init) => {
-      if (init?.method === 'HEAD') return new Response(null, { status: 404 });
-      if (init?.method === 'PUT') return new Response(null);
-      return new Response(new Uint8Array([1, 2, 3]));
+      if (init?.method === 'HEAD') return testResponse(null, 404);
+      if (init?.method === 'PUT') return testResponse(null);
+      return testResponse(new Uint8Array([1, 2, 3]));
     });
     const cache = new Map<string, string | Promise<string>>();
     const brochure: CrawlerBrochure = {
@@ -173,9 +228,7 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
   });
 
   it('verhindert mit If-None-Match konkurrierende Überschreibungen', async () => {
-    const fetchMock = jest
-      .spyOn(global, 'fetch')
-      .mockResolvedValue(new Response(null, { status: 412 }));
+    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(testResponse(null, 412));
 
     await expect(
       uploadToR2(mockR2Config, 'brochures/dumps/race.jpg', new ArrayBuffer(1)),
@@ -184,5 +237,4 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
       expect.objectContaining({ 'if-none-match': '*' }),
     );
   });
-
 });

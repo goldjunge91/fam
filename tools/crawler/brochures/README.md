@@ -12,7 +12,7 @@ graph LR
     B -->|Bilder 1x hochladen| C[Cloudflare R2 Bucket]
     C -->|Public R2 URLs| B
     B -->|Streaming Upload Chunks| D[Supabase DB: brochure_dumps & brochure_stores]
-    B -->|Lokales Backup| E[tools/crawler/data/last_crawl_backup.json]
+    B -->|Lokales Backup| E[tools/crawler/brochures/last_crawl_backup.json]
     D -->|useBrochureSync| F[Fam Mobile App SQLite]
 ```
 
@@ -30,12 +30,12 @@ graph LR
   - Globale URL-Hash-Keys: `brochures/dumps/assets/{sha256}.jpg` (unabhängig von Prospekt-ID und Kontext)
   - Bilder werden vor dem Upload auf maximal 2048px Breite und JPEG-Qualität 82 optimiert
   - `HEAD` vor dem Download und `If-None-Match: *` beim Upload
-  - Extern konfigurierte Cloudflare-Lifecycle-Regel: `brochures/dumps/` nach 60 Tagen löschen
+  - Dieser Crawler richtet keine Lifecycle-Regel ein und löscht im ersten Retention-Schritt keine Objekte.
   - Der Crawler-Key benötigt nur Object Read & Write und keine Bucket-Adminrechte
   - Zero-Dependencies AWS SigV4 Signierung mit nativem `node:crypto`.
   - Cache-Control: `public, max-age=604800, immutable`.
 - **🛡️ PostgreSQL Null-Byte Schutz:** Bereinigt alle Texte rekursiv von `\u0000`- und Steuerzeichen, um Postgres `22P05` Fehler zu verhindern.
-- **💾 Atomares Backup (`last_crawl_backup.json`):** Zwischenstände werden parallel auf Festplatte gesichert.
+- **💾 Atomares Backup (`last_crawl_backup.json`):** Zwischenstände werden parallel auf Festplatte gesichert und mit einer Lauf-ID an die Diagnosen gebunden.
 - **⏱️ Live-Fortschritt & ETA:** Zeigt im Terminal Geschwindigkeit (PLZ/s), Fortschrittsbalken und verbleibende Restzeit an.
 - **📦 Schneller Backup-Upload (`--from-backup`):** Erlaubt es, bereits gecrawlte Dumps in wenigen Sekunden ohne erneuten Web-Traffic nach Supabase zu übertragen.
 - **🤖 GitHub Actions Etappen-Matrix:** Führt wöchentliche Updates in 5 parallelen Zonen-Jobs à ~60s ressourcenschonend aus.
@@ -268,3 +268,108 @@ Die Test-Suite prüft Null-Byte-Filterung, Hash-Key-Generierung, R2-Signierung, 
 ```bash
 bun run test tools/crawler/brochures/ --runInBand --watchman=false
 ```
+
+## 💾 Speicherbudget, Aufbewahrung und lokale Berichte
+
+Die Crawler akzeptieren für lokale Läufe dieselben Optionen:
+
+| Option | Bedeutung |
+| :--- | :--- |
+| `--storage-budget-gb=<dezimal>` | Gemeinsames Speicherlimit in dezimalen GB (`1 GB = 1.000.000.000 Bytes`). Bestehende Dateien und reservierte neue Schreibvorgänge zählen gemeinsam. |
+| `--retention-grace-days=<ganzzahl>` | Aufbewahrungsnachfrist nach `validUntil`. Ungültige oder fehlende Datumswerte werden nicht als Löschgrund verwendet. |
+| `--report-dir=<verzeichnis>` | Ziel für Speicher-, Aufbewahrungs-, Vollständigkeits- und Verifikationsberichte. |
+
+Das Budget gilt innerhalb eines Prozesses für parallele Schreibvorgänge. Ohne
+zusätzliche Koordination schützt es nicht vor einem zweiten Prozess, der
+gleichzeitig in dasselbe Ziel schreibt. Für reproduzierbare Läufe deshalb
+einen einzelnen Writer verwenden. Der Crawler löscht in diesem Schritt keine
+Dateien. Auch ein Bericht über potenziell freigebbare Bytes gibt noch keinen
+Budgetplatz frei. Die Retention-Referenzbasis bleibt in diesem ersten Schritt
+immer unvollständig. Ein einzelner Lauf darf keine Bereinigungsfreigabe
+erzeugen.
+
+Backup und Diagnosebestand werden als getrennte Artefakte mit derselben
+`runId` gespeichert. `--from-backup` verweigert alte Array-Backups, fehlende
+Diagnosen, abweichende Lauf-IDs und unvollständige Standortberichte. Es werden
+nur Standorte mit `status: complete` wiederhochgeladen. Bei einem angegebenen
+`--report-dir` erwartet `--from-backup` die zugehörige
+`crawl-diagnostics.json`; ohne `--report-dir` liegt sie als
+`last_crawl_backup.json.diagnostics.json` neben dem Backup.
+
+### Kleiner lokaler Lauf mit allen gelieferten Seiten
+
+Der Stichproben-Crawler schreibt ausschließlich in `--output-dir` und nicht
+nach R2 oder Supabase. Er lädt dafür lokale Bildkopien herunter. Die Pfade im
+Beispiel liegen absichtlich unter `$env:TEMP`, damit kein vorhandener
+Repository-Bestand überschrieben wird:
+
+```powershell
+$runDir = Join-Path $env:TEMP 'fam-retailer-full'
+$reportDir = Join-Path $env:TEMP 'fam-retailer-reports'
+New-Item -ItemType Directory -Force $runDir, $reportDir | Out-Null
+
+bun run crawler:retailer-sample --output-dir="$runDir" --stores=lidl --sample-size=1 --pages=all --concurrency=1 --storage-budget-gb=0.05 --retention-grace-days=3 --report-dir="$reportDir"
+```
+
+`--pages=all` berücksichtigt auch gelieferte Seiten ohne Angebots-Hotspot.
+Ein Downloadfehler oder eine Budgetgrenze bleibt im Manifest und in den
+Berichten sichtbar; der Lauf darf daraus keinen vollständigen Prospekt
+ableiten.
+
+### Absichtlich kleines Budget
+
+Mit einem Budget von 1.000 Bytes lässt sich die Abbruch-/Zwischenstandspur
+prüfen. Der Prozess darf dabei keine Remote-Schreibzugriffe ausführen:
+
+```powershell
+$smallRunDir = Join-Path $env:TEMP 'fam-retailer-budget-stop'
+$smallReportDir = Join-Path $env:TEMP 'fam-retailer-budget-reports'
+New-Item -ItemType Directory -Force $smallRunDir, $smallReportDir | Out-Null
+
+bun run crawler:retailer-sample --output-dir="$smallRunDir" --stores=lidl --sample-size=1 --pages=all --concurrency=2 --storage-budget-gb=0.000001 --retention-grace-days=3 --report-dir="$smallReportDir"
+```
+
+Erwartet wird ein erkennbarer Budgetbefund mit erhaltenem Manifest und
+Zwischenbericht. Der Prozess endet dabei mit einem Fehlerstatus. Die bereits vorhandenen Dateien im Ziel zählen mit;
+potenziell freigebbare Altdateien werden nicht automatisch angerechnet und
+nicht gelöscht.
+
+### Anschließende Verifikation und Berichtsauswertung
+
+Die Verifikation arbeitet auf dem lokalen Manifest und benötigt keine
+Supabase- oder R2-Mutation:
+
+```powershell
+bun run crawler:verify --manifest="$runDir\manifest.json" --report-dir="$reportDir"
+
+Get-ChildItem -LiteralPath $reportDir -Filter '*.json' |
+  Select-Object Name, Length, LastWriteTime
+
+Get-Content -Raw (Join-Path $reportDir 'storage-report.json') |
+  ConvertFrom-Json |
+  Select-Object -ExpandProperty budget |
+  Select-Object occupiedBytes, additionallyNeededBytes, remainingBudgetBytes
+
+Get-Content -Raw (Join-Path $reportDir 'retention-report.json') |
+  ConvertFrom-Json |
+  Select-Object potentiallyReleasableBytes, cleanupApplied, referenceBasisComplete
+
+Get-Content -Raw (Join-Path $reportDir 'completeness-report.json') |
+  ConvertFrom-Json |
+  Select-Object -ExpandProperty reports |
+  Select-Object -ExpandProperty diagnostics
+```
+
+Falls ein Lauf vor dem finalen Schreiben abbricht, zuerst den vorhandenen
+`manifest.json`-Zwischenstand und anschließend alle JSON-Dateien im
+`--report-dir` auswerten. Ein expliziter Dry-Run des Hauptcrawlers (`--dry-run`)
+verhindert Supabase- und R2-Schreibzugriffe. `--local-dir` aktiviert dagegen
+zusätzlich lokale Bilddownloads; ohne `--local-dir` werden im Hauptcrawler
+keine Bilder lokal gespiegelt.
+
+Die vollständigen GeoNames-Stammdaten werden aktuell aus
+`tools/crawler/brochures/geonames-DE.txt` oder über `BROCHURE_LOCATIONS_FILE`
+geladen. `--all` bricht ab, wenn keine vollständige Datei mit mehr als 1.000
+PLZ gefunden wird; ein Fallback auf die zwölf Standardorte ist dann nicht
+zulässig. Das Backup liegt standardmäßig unter
+`tools/crawler/brochures/last_crawl_backup.json`.
