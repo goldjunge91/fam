@@ -8,6 +8,16 @@ type EnhancedReceiptPixels = Omit<ReceiptPixels, 'pixelFormat'> & { pixelFormat:
 
 type ChannelLayout = { stride: number; red: number; green: number; blue: number };
 
+// 066. Finds the grayscale value at which the requested cumulative pixel rank is reached.
+function percentile(histogram: Uint32Array, rank: number): number {
+  let seen = 0;
+  for (let value = 0; value < 256; value += 1) {
+    seen += histogram[value] ?? 0;
+    if (seen > rank) return value;
+  }
+  return 255;
+}
+
 // 056. Describes RGB byte offsets and stride for each supported pixel format.
 function channelLayout(format: string): ChannelLayout | null {
   switch (format) {
@@ -30,7 +40,7 @@ function channelLayout(format: string): ChannelLayout | null {
   }
 }
 
-// 057. Applies a local-mean threshold and returns grayscale ink as RGBA pixels.
+// 057. Stretches the useful receipt grayscale range and returns it as RGBA pixels.
 export function enhanceReceiptSection(pixels: ReceiptPixels): EnhancedReceiptPixels | null {
   const { width, height } = pixels;
   const channels = channelLayout(pixels.pixelFormat);
@@ -46,49 +56,38 @@ export function enhanceReceiptSection(pixels: ReceiptPixels): EnhancedReceiptPix
   }
 
   const source = new Uint8Array(pixels.buffer);
-  const gray = new Uint8Array(width * height);
-  const integralWidth = width + 1;
-  const integral = new Uint32Array(integralWidth * (height + 1));
-  for (let y = 0; y < height; y += 1) {
-    let rowSum = 0;
-    for (let x = 0; x < width; x += 1) {
-      const index = y * width + x;
-      const offset = index * channels.stride;
-      const luminance = Math.round(
-        ((source[offset + channels.red] ?? 0) * 77 +
-          (source[offset + channels.green] ?? 0) * 150 +
-          (source[offset + channels.blue] ?? 0) * 29) /
-          256,
-      );
-      gray[index] = luminance;
-      rowSum += luminance;
-      integral[(y + 1) * integralWidth + x + 1] =
-        (integral[y * integralWidth + x + 1] ?? 0) + rowSum;
-    }
+  const total = width * height;
+  const gray = new Uint8Array(total);
+  const histogram = new Uint32Array(256);
+  for (let index = 0; index < total; index += 1) {
+    const offset = index * channels.stride;
+    const luminance =
+      ((source[offset + channels.red] ?? 0) * 77 +
+        (source[offset + channels.green] ?? 0) * 150 +
+        (source[offset + channels.blue] ?? 0) * 29) >>
+      8;
+    gray[index] = luminance;
+    histogram[luminance] = (histogram[luminance] ?? 0) + 1;
   }
 
-  const result = new ArrayBuffer(width * height * 4);
+  const low = percentile(histogram, total * 0.01);
+  const high = percentile(histogram, total * 0.99);
+  if (high - low < 16) return null;
+
+  const lut = new Uint8Array(256);
+  for (let value = 0; value < 256; value += 1) {
+    lut[value] = Math.min(255, Math.max(0, Math.round(((value - low) * 255) / (high - low))));
+  }
+
+  const result = new ArrayBuffer(total * 4);
   const output = new Uint8Array(result);
-  const radius = 15;
-  for (let y = 0; y < height; y += 1) {
-    const top = Math.max(0, y - radius);
-    const bottom = Math.min(height, y + radius + 1);
-    for (let x = 0; x < width; x += 1) {
-      const left = Math.max(0, x - radius);
-      const right = Math.min(width, x + radius + 1);
-      const sum =
-        (integral[bottom * integralWidth + right] ?? 0) -
-        (integral[top * integralWidth + right] ?? 0) -
-        (integral[bottom * integralWidth + left] ?? 0) +
-        (integral[top * integralWidth + left] ?? 0);
-      const mean = sum / ((right - left) * (bottom - top));
-      const value = (gray[y * width + x] ?? 0) > mean - 12 ? 255 : 0;
-      const offset = (y * width + x) * 4;
-      output[offset] = value;
-      output[offset + 1] = value;
-      output[offset + 2] = value;
-      output[offset + 3] = 255;
-    }
+  for (let index = 0; index < total; index += 1) {
+    const value = lut[gray[index] ?? 0] ?? 255;
+    const offset = index * 4;
+    output[offset] = value;
+    output[offset + 1] = value;
+    output[offset + 2] = value;
+    output[offset + 3] = 255;
   }
   return { buffer: result, width, height, pixelFormat: 'RGBA' };
 }
