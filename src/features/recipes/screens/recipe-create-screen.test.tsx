@@ -10,6 +10,7 @@ const mockUpdateRecipeMutateAsync = jest.fn().mockResolvedValue(undefined);
 const mockSaveComponentsMutateAsync = jest.fn().mockResolvedValue(undefined);
 const mockSaveStepsMutateAsync = jest.fn().mockResolvedValue(undefined);
 const mockReplace = jest.fn();
+const mockBack = jest.fn();
 
 let mockRecipeData: unknown = null;
 
@@ -17,7 +18,7 @@ jest.mock('expo-router', () => ({
   router: {
     push: jest.fn(),
     replace: (...args: unknown[]) => mockReplace(...args),
-    back: jest.fn(),
+    back: (...args: unknown[]) => mockBack(...args),
     canGoBack: () => false,
   },
   useLocalSearchParams: () => ({}),
@@ -207,6 +208,40 @@ describe('RecipeCreateScreen', () => {
     await waitFor(() => expect(alert).toHaveBeenCalledWith('Zutaten prüfen', expect.any(String)));
     expect(mockUpdateRecipeMutateAsync).not.toHaveBeenCalled();
     expect(screen.getByText('Gruppen und Zutaten')).toBeOnTheScreen();
+    alert.mockRestore();
+  });
+
+  it('fragt vor dem Verwerfen eines begonnenen Rezepts nach Bestätigung', async () => {
+    const user = userEvent.setup();
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+    await renderScreen();
+
+    await user.paste(screen.getByLabelText('Titel'), 'Pasta');
+    await user.press(screen.getByRole('button', { name: 'Zurück' }));
+
+    expect(alert).toHaveBeenCalledWith(
+      'Änderungen verwerfen?',
+      'Deine Eingaben gehen verloren.',
+      expect.arrayContaining([
+        expect.objectContaining({ text: 'Zurück', style: 'cancel' }),
+        expect.objectContaining({ text: 'Verwerfen', style: 'destructive' }),
+      ]),
+    );
+    const actions = jest.mocked(alert).mock.calls.at(-1)?.[2];
+    actions?.find((action) => action.text === 'Verwerfen')?.onPress?.();
+    expect(mockBack).toHaveBeenCalledTimes(1);
+    alert.mockRestore();
+  });
+
+  it('verlässt den leeren Rezeptentwurf ohne Verwerfungsdialog', async () => {
+    const user = userEvent.setup();
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+    await renderScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Zurück' }));
+
+    expect(alert).not.toHaveBeenCalled();
+    expect(mockBack).toHaveBeenCalledTimes(1);
     alert.mockRestore();
   });
 });

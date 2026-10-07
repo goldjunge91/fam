@@ -4,9 +4,12 @@ import { createElement, type ReactNode } from 'react';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import {
   CATALOG_RECIPE_PAGE_SIZE,
+  type CatalogDetail,
   getCatalogImageReference,
   getNextCatalogPageParam,
   resolveCatalogImageUrl,
+  toCookingRecipeDetail,
+  useCatalogImageUrl,
   useCatalogRecipes,
 } from './use-recipe-catalog';
 
@@ -17,6 +20,8 @@ const mockRecipeOverlaps = jest.fn();
 const mockRecipeIlike = jest.fn();
 const mockImageIn = jest.fn();
 const mockImageOrder = jest.fn();
+const mockSignedUrl = jest.fn();
+const mockStorageFrom = jest.fn(() => ({ createSignedUrl: mockSignedUrl }));
 
 jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: jest.fn(),
@@ -85,9 +90,10 @@ beforeEach(() => {
   );
   mockRecipeRange.mockReturnValue({ data: [], error: null });
   mockImageOrder.mockReturnValue({ data: [], error: null });
-  jest
-    .mocked(getSupabase)
-    .mockReturnValue({ from: mockFrom } as unknown as ReturnType<typeof getSupabase>);
+  jest.mocked(getSupabase).mockReturnValue({
+    from: mockFrom,
+    storage: { from: mockStorageFrom },
+  } as unknown as ReturnType<typeof getSupabase>);
 });
 
 afterEach(() => {
@@ -195,5 +201,89 @@ describe('getCatalogImageReference', () => {
 
   it('returns null when neither image source exists', () => {
     expect(getCatalogImageReference({ storage_path: null, source_url: null })).toBeNull();
+  });
+});
+
+describe('useCatalogImageUrl', () => {
+  it('signs a legacy template cover from the recipe-covers bucket', async () => {
+    mockSignedUrl.mockResolvedValue({
+      data: { signedUrl: 'https://signed.example/template.jpg' },
+      error: null,
+    });
+
+    const { result } = await renderHook(() => useCatalogImageUrl('templates/recipe-1.jpg'), {
+      wrapper: QueryProviders,
+    });
+
+    await waitFor(() => expect(result.current.data).toBe('https://signed.example/template.jpg'));
+    expect(mockStorageFrom).toHaveBeenCalledWith('recipe-covers');
+    expect(mockSignedUrl).toHaveBeenCalledWith('templates/recipe-1.jpg', 3600);
+  });
+
+  it('tries the fallback bucket after the catalog bucket cannot sign the path', async () => {
+    mockSignedUrl
+      .mockResolvedValueOnce({ data: null, error: { message: 'missing' } })
+      .mockResolvedValueOnce({
+        data: { signedUrl: 'https://signed.example/catalog.jpg' },
+        error: null,
+      });
+
+    const { result } = await renderHook(() => useCatalogImageUrl('waivy/recipe.jpg'), {
+      wrapper: QueryProviders,
+    });
+
+    await waitFor(() => expect(result.current.data).toBe('https://signed.example/catalog.jpg'));
+    expect(mockStorageFrom.mock.calls).toEqual([['recipe-catalog'], ['recipe-covers']]);
+  });
+});
+
+describe('toCookingRecipeDetail', () => {
+  it('maps linked ingredients to their cooking steps and leaves unlinked steps empty', () => {
+    const detail = {
+      recipe: {
+        ...makeCatalogRow('recipe-1', 1),
+        instructions: null,
+        hashtags: [],
+        cover_image_path: null,
+      },
+      components: [],
+      items: [],
+      steps: [
+        { id: 'step-1', recipe_id: 'recipe-1', position: 0, text: 'Mix', timer_minutes: null },
+        { id: 'step-2', recipe_id: 'recipe-1', position: 1, text: 'Bake', timer_minutes: 10 },
+      ],
+      stepIngredients: [
+        { step_id: 'step-1', item_id: 'item-1', recipe_id: 'recipe-1', position: 0 },
+        { step_id: 'step-1', item_id: 'item-2', recipe_id: 'recipe-1', position: 1 },
+      ],
+      images: [],
+      stepImages: [],
+      productsById: new Map(),
+      nutrition: { grams: 0, kcal: 0, protein_g: 0, carbs_g: 0, fat_g: 0 },
+    } satisfies CatalogDetail;
+
+    const result = toCookingRecipeDetail(detail);
+
+    expect(result.steps).toEqual([
+      {
+        id: 'step-1',
+        recipe_id: 'recipe-1',
+        position: 0,
+        text: 'Mix',
+        image_path: null,
+        timer_minutes: null,
+        ingredientIds: ['item-1', 'item-2'],
+      },
+      {
+        id: 'step-2',
+        recipe_id: 'recipe-1',
+        position: 1,
+        text: 'Bake',
+        image_path: null,
+        timer_minutes: 10,
+        ingredientIds: [],
+      },
+    ]);
+    expect(result.recipe.household_id).toBe('');
   });
 });
