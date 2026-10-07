@@ -124,6 +124,32 @@ describe('receipt-authority local-first API', () => {
     });
   });
 
+  it('weist ungültige Receipt-Item-Werte vor dem lokalen Schreiben zurück', async () => {
+    const base = {
+      id: ITEM_ID,
+      receiptId: RECEIPT_ID,
+      householdId: HOUSEHOLD_ID,
+      position: 0,
+      name: 'Milch',
+    };
+
+    await expect(createReceiptItem({ ...base, position: -1 }, dependencies(db))).rejects.toThrow(
+      'Position muss eine nichtnegative Ganzzahl sein.',
+    );
+    await expect(createReceiptItem({ ...base, quantity: 0 }, dependencies(db))).rejects.toThrow(
+      'quantity muss positiv sein.',
+    );
+    await expect(
+      createReceiptItem({ ...base, packageSize: Number.NaN }, dependencies(db)),
+    ).rejects.toThrow('package_size muss positiv sein.');
+    await expect(
+      createReceiptItem({ ...base, lineTotalCents: 1.5 }, dependencies(db)),
+    ).rejects.toThrow('line_total_cents must be a non-negative safe integer in EUR cents.');
+    expect(
+      await db.getFirstAsync<{ count: number }>('select count(*) as count from outbox'),
+    ).toEqual({ count: 0 });
+  });
+
   it('liest nur den eigenen Haushalt und blendet Tombstones aus', async () => {
     await createReceiptFixture(db);
     await createReceipt(
@@ -374,15 +400,20 @@ describe('receipt-authority local-first API', () => {
       await db.getFirstAsync<{ count: number }>('select count(*) as count from outbox'),
     ).toEqual({ count: 0 });
 
-    await expect(saveReceiptReview(reviewed, dependencies(db))).resolves.toMatchObject({
+    const saved = await saveReceiptReview(reviewed, dependencies(db));
+    expect(saved).toMatchObject({
       receipt: { processing_status: 'confirmed', total_cents: 3914 },
       itemIds: reviewed.items.map((item) => item.id),
     });
+    await expect(saveReceiptReview(reviewed, dependencies(db))).resolves.toEqual(saved);
     expect(
       (await getReceiptItems(db, HOUSEHOLD_ID, reviewed.receipt.id)).map(
         (item) => item.review_status,
       ),
     ).toEqual(['confirmed', 'confirmed']);
+    expect(
+      await db.getFirstAsync<{ count: number }>('select count(*) as count from outbox'),
+    ).toEqual({ count: 6 });
   });
 });
 
