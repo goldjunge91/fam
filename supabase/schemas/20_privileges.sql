@@ -162,49 +162,49 @@ revoke all on function public.adjust_fridge_item_quantity(
 ) from anon;
 grant execute on function public.adjust_fridge_item_quantity(
   uuid, uuid, uuid, uuid, bigint, timestamptz
-) to authenticated;
+) to authenticated, service_role;
 
 revoke execute on function public.correct_fridge_item_quantity(
   uuid, uuid, uuid, uuid, bigint, bigint, timestamptz
 ) from public, anon;
 grant execute on function public.correct_fridge_item_quantity(
   uuid, uuid, uuid, uuid, bigint, bigint, timestamptz
-) to authenticated;
+) to authenticated, service_role;
 
 revoke execute on function public.reverse_inventory_quantity_transaction(
   uuid, uuid, uuid, uuid, timestamptz, text
 ) from public, anon;
 grant execute on function public.reverse_inventory_quantity_transaction(
   uuid, uuid, uuid, uuid, timestamptz, text
-) to authenticated;
+) to authenticated, service_role;
 
 revoke execute on function public.move_fridge_item(
   uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz
 ) from public, anon;
 grant execute on function public.move_fridge_item(
   uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz
-) to authenticated;
+) to authenticated, service_role;
 
 revoke execute on function public.reverse_move_fridge_item(
   uuid, uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz, text
 ) from public, anon;
 grant execute on function public.reverse_move_fridge_item(
   uuid, uuid, uuid, uuid, uuid, uuid, bigint, uuid, uuid, timestamptz, text
-) to authenticated;
+) to authenticated, service_role;
 
 revoke execute on function public.split_fridge_item_open(
   uuid, uuid, uuid, uuid, bigint, bigint, timestamptz, date, boolean, timestamptz
 ) from public, anon;
 grant execute on function public.split_fridge_item_open(
   uuid, uuid, uuid, uuid, bigint, bigint, timestamptz, date, boolean, timestamptz
-) to authenticated;
+) to authenticated, service_role;
 
 revoke execute on function public.merge_undo_fridge_item_open(
   uuid, uuid, uuid, timestamptz, text
 ) from public, anon;
 grant execute on function public.merge_undo_fridge_item_open(
   uuid, uuid, uuid, timestamptz, text
-) to authenticated;
+) to authenticated, service_role;
 
 -- redeem_invite() muss von Nicht-Mitgliedern aufrufbar sein — das ist sein
 -- ganzer Zweck. Aber nur von angemeldeten: die Mitgliedschaft braucht eine
@@ -212,7 +212,7 @@ grant execute on function public.merge_undo_fridge_item_open(
 revoke execute on function public.redeem_invite(uuid) from public, anon;
 grant execute on function public.redeem_invite(uuid) to authenticated;
 revoke execute on function public.redeem_invite(text) from public, anon;
-grant execute on function public.redeem_invite(text) to authenticated;
+grant execute on function public.redeem_invite(text) to authenticated, service_role;
 
 -- prepare_account_deletion() liest ausschliesslich auth.uid() selbst — fuer
 -- `anon` gaebe es niemanden, aber der Entzug bleibt trotzdem ausdruecklich
