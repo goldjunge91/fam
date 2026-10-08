@@ -11,7 +11,13 @@ import {
 } from './local-storage';
 import { type LocationFilterOptions, loadTargetLocations } from './locations';
 import { defaultCrawlerBackupPath } from './paths';
-import { imageKeyFor, listR2Objects, loadR2Config } from './r2-storage';
+import {
+  fetchImageSha256,
+  imageKeyFor,
+  listR2Objects,
+  loadR2Config,
+} from './r2-storage';
+import { buildCanonicalCatalog } from './listing-only/canonical-catalog';
 import { getSourcesByName } from './sources';
 import {
   createRetentionReport,
@@ -28,7 +34,7 @@ import type {
   CrawlerBrochure,
   LocationDump,
 } from './types';
-import { createSupabaseUploaderClient, uploadDumpsInParallel, uploadSingleBatch } from './uploader';
+import { uploadCanonicalCatalog } from './uploader';
 
 function loadEnvFiles() {
   const files = [
@@ -374,6 +380,7 @@ function brochureAssetKeys(brochure: CrawlerBrochure, publicUrl?: string): strin
   );
   const normalizedPublicUrl = publicUrl?.replace(/\/+$/, '');
   return urls.map((url) => {
+    if (url.startsWith('brochures/')) return url;
     if (normalizedPublicUrl && url.startsWith(`${normalizedPublicUrl}/`)) {
       return url.slice(normalizedPublicUrl.length + 1).split('?')[0] ?? '';
     }
@@ -521,33 +528,24 @@ async function main() {
         `⚠️ Überspringe ${verified.skippedLocations.length} Standort(e) ohne vollständige Laufdiagnose: ${verified.skippedLocations.join(', ')}`,
       );
     }
-    const uniqueBrochuresCount = new Set(dumps.flatMap((d) => d.brochures.map((b) => b.id))).size;
+    const catalog = buildCanonicalCatalog(dumps);
     console.log(
-      `📦 ${dumps.length} Dumps (${uniqueBrochuresCount} Prospekte) bereit für Upload.\n`,
+      `📦 ${dumps.length} geprüfte PLZ-Dumps (${catalog.length} kanonische Prospekte) bereit für Upload.\n`,
     );
 
-    const result = await uploadDumpsInParallel(
-      dumps,
+    const result = await uploadCanonicalCatalog(
+      catalog,
+      dumps.flatMap((dump) => dump.stores),
+      dumps.map((dump) => dump.location.zipCode),
       { supabaseUrl, supabaseSecretKey, dryRun },
-      {
-        concurrency: 4,
-        onProgress: (uploaded, total, storesCount) => {
-          renderProgressBar(
-            uploaded,
-            total,
-            startTime,
-            `☁️ ${uploaded} in DB | 🏪 ${storesCount} Märkte`,
-          );
-        },
-      },
     );
 
     console.log('\n\n🎉 ====================================================');
     console.log(
       `  ✅ Upload aus Backup abgeschlossen in ${((Date.now() - startTime) / 1000).toFixed(1)}s`,
     );
-    console.log(`  📦 Hochgeladene PLZ-Dumps: ${result.uploadedCount}`);
-    console.log(`  📑 Eindeutige Prospekte: ${uniqueBrochuresCount}`);
+    console.log(`  📦 Ersetzte kanonische Prospekte: ${result.uploadedCount}`);
+    console.log(`  📑 Verfügbare ZIP-Kanten: ${dumps.length} geprüfte PLZ`);
     console.log(`  🏪 Aktualisierte Märkte: ${result.storesCount}`);
     console.log('====================================================\n');
     return;
@@ -568,7 +566,6 @@ async function main() {
     fromBackup,
     sourceNames: sources.map((source) => source.name),
   });
-  const supabase = createSupabaseUploaderClient({ supabaseUrl, supabaseSecretKey, dryRun });
   const hasLiveTokens = Boolean(
     process.env.BRING_AUTH_TOKEN && process.env.BRING_API_KEY && process.env.BRING_USER_UUID,
   );
@@ -616,6 +613,11 @@ async function main() {
       });
     }
   }
+  if (!dryRun && !r2Config) {
+    throw new Error(
+      'Der kanonische Prospektkatalog benötigt private R2-Bildschlüssel. Ohne R2-Konfiguration wird nichts veröffentlicht.',
+    );
+  }
   if (reportDir) await mkdir(reportDir, { recursive: true });
 
   const reportContext: ReportContext = {
@@ -627,7 +629,7 @@ async function main() {
     localStorage,
     r2Config,
     retentionGraceDays,
-    publicUrl: localStorage?.publicUrl ?? r2Config?.publicUrl,
+    publicUrl: localStorage?.publicUrl,
   };
   const backupPath = defaultCrawlerBackupPath();
   const diagnosticsPath = reportDir ? join(reportDir, 'crawl-diagnostics.json') : null;
@@ -652,19 +654,14 @@ async function main() {
   console.log(`🏬 Aktive Quellen: ${sources.map((s) => s.name).join(', ')}`);
   console.log(`🔑 Live-Tokens aktiv: ${hasLiveTokens ? 'JA (echte Prospektdaten)' : 'NEIN'}`);
   console.log(
-    `☁️ R2-Bild-Hosting: ${r2Config ? `JA (${r2Config.publicUrl})` : 'NEIN (lokal/Original-URLs)'}`,
+    `☁️ R2-Bild-Hosting: ${r2Config ? 'JA (private Schlüssel im Katalog)' : 'NEIN (Dry-Run)'}`,
   );
   if (localStorage) {
     console.log(
       `💾 Lokale Bildablage: JA (${localStorage.directory})${localStorage.publicUrl ? ` | ${localStorage.publicUrl}` : ' | Original-URLs im Payload'}`,
     );
   }
-  console.log(
-    `⚡ Concurrency: ${concurrency} | Streaming-Upload: ${supabase ? 'JA' : 'NEIN (Dry-Run)'}\n`,
-  );
-
-  let totalUploaded = 0;
-  let totalStoresCount = 0;
+  console.log(`⚡ Concurrency: ${concurrency} | Katalogtausch nach vollständigem Crawl\n`);
 
   let result: Awaited<ReturnType<typeof crawlAllLocations>>;
   try {
@@ -674,6 +671,7 @@ async function main() {
       sources,
       r2Config: r2Config || undefined,
       localStorage,
+      resolveImageSha256: fetchImageSha256,
       backupPath,
       diagnosticsPath,
       onProgress: (processed, total, uniqueCount) => {
@@ -681,15 +679,8 @@ async function main() {
           processed,
           total,
           startTime,
-          `☁️ ${totalUploaded} in DB | 📑 ${uniqueCount} Prospekte`,
+          `📑 ${uniqueCount} Varianten vorbereitet`,
         );
-      },
-      onChunkDone: async (chunkDumps) => {
-        if (supabase) {
-          const uploadRes = await uploadSingleBatch(supabase, chunkDumps, runStartedAt);
-          totalUploaded += uploadRes.uploadedCount;
-          totalStoresCount += uploadRes.storesCount;
-        }
       },
     });
   } catch (error) {
@@ -710,13 +701,28 @@ async function main() {
   }
   await persistReports(result.dumps, result.reports, result.runId, true);
 
+  const scopedZipCodes = result.reports
+    .filter((report) => report.status === 'complete')
+    .map((report) => report.location.zipCode)
+    .sort();
+  const scopedZipCodeSet = new Set(scopedZipCodes);
+  const scopedDumps = result.dumps.filter((dump) => scopedZipCodeSet.has(dump.location.zipCode));
+  const catalog = buildCanonicalCatalog(scopedDumps);
+  const publication = await uploadCanonicalCatalog(
+    catalog,
+    scopedDumps.flatMap((dump) => dump.stores),
+    scopedZipCodes,
+    { supabaseUrl, supabaseSecretKey, dryRun },
+  );
+
   console.log('\n\n🎉 ====================================================');
   console.log(`  ✅ Abgeschlossen in ${((Date.now() - startTime) / 1000).toFixed(1)}s`);
   console.log(
-    `  📦 Verarbeitete & hochgeladene PLZ-Dumps: ${supabase ? totalUploaded : result.dumps.length}`,
+    `  📍 Vollständig geprüfte PLZ im Scope: ${scopedZipCodes.length}`,
   );
-  console.log(`  📑 Eindeutige Prospekte: ${result.uniqueBrochuresCount}`);
-  console.log(`  🏪 Aktualisierte Märkte: ${totalStoresCount}`);
+  console.log(`  📑 Kanonische Prospektdatensätze: ${publication.uploadedCount}`);
+  console.log(`  🏪 Aktualisierte Märkte: ${publication.storesCount}`);
+  if (dryRun) console.log('  🧪 Dry-Run: Der Supabase-Katalog wurde nicht verändert.');
   console.log('====================================================\n');
 }
 

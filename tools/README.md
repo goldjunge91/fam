@@ -8,7 +8,7 @@ Dieser Ordner enthält alle eigenständigen Entwickler- und Daten-Tools des Proj
 
 ### 1. [Prospekte- & Supermarkt-Crawler](file:///Users/marco/Github.tmp/family_app/fam/tools/crawler/brochures/README.md) (`tools/crawler/brochures/`)
 - **Aufgabe:** Automatisches Crawlen aller deutschen Wochenprospekte (Lidl, Aldi, Kaufland, Rewe, Netto, Edeka, Rossmann, dm etc.).
-- **Features:** Cloudflare R2 Bild-Hosting, Supabase Live-Streaming, 5-Etappen-Matrix für GitHub Actions, Absturzsicherung.
+- **Features:** Private Cloudflare-R2-Bilder, SHA-256-Bild-Cluster, ZIP-Verfügbarkeiten und atomarer Katalogtausch über fünf GitHub-Actions-Zonen.
 - **Befehl:** `bun run crawler:brochures`
 
 ### 2. Prospekte-Viewer (`tools/brochure-viewer/`)

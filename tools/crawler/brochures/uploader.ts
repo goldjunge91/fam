@@ -1,15 +1,42 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
-import { cleanNullBytes } from './engine';
-import type { CrawlerStore, LocationDump } from './types';
-
-export const UPLOAD_BATCH_SIZE = 10;
-const DEFAULT_DUMP_VALIDITY_DAYS = 14;
+import type { CanonicalCatalogRecord } from './listing-only/canonical-catalog';
+import type { CrawlerStore } from './types';
 
 export type UploaderConfig = {
   supabaseUrl: string;
   supabaseSecretKey: string;
   dryRun?: boolean;
 };
+
+type CanonicalCatalogRpcRecord = {
+  id: string;
+  canonical_brn: string;
+  store_id: string;
+  title: string;
+  valid_from: string;
+  valid_until: string;
+  page_count: number;
+  cover_image: string;
+  pages: CanonicalCatalogRecord['pages'];
+  verified_sha256: string;
+  available_zip_codes: string[];
+};
+
+type CanonicalCatalogRpcClient = {
+  rpc(
+    functionName: 'replace_canonical_brochure_catalog',
+    args: { p_records: CanonicalCatalogRpcRecord[]; p_scoped_zip_codes: string[] },
+  ): Promise<{ error: { message: string } | null }>;
+};
+
+export function sanitizeJsonForPostgres<T>(value: T): T {
+  const raw = JSON.stringify(value);
+  if (raw === undefined) return value;
+  const sanitized = raw
+    .replace(/\\u0000/gi, '')
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '');
+  return JSON.parse(sanitized) as T;
+}
 
 export function createSupabaseUploaderClient(config: UploaderConfig): SupabaseClient | null {
   if (config.dryRun) return null;
@@ -21,222 +48,86 @@ export function createSupabaseUploaderClient(config: UploaderConfig): SupabaseCl
   });
 }
 
-function calculateValidityRange(
-  dump: LocationDump,
-  now: Date,
-): { validFrom: string; validUntil: string } {
-  if (dump.brochures.length === 0) {
-    return {
-      validFrom: now.toISOString(),
-      validUntil: new Date(
-        now.getTime() + DEFAULT_DUMP_VALIDITY_DAYS * 24 * 60 * 60 * 1000,
-      ).toISOString(),
-    };
-  }
-
-  const validFrom = dump.brochures.reduce(
-    (earliest, b) => (b.validFrom < earliest ? b.validFrom : earliest),
-    dump.brochures[0].validFrom,
-  );
-
-  const validUntil = dump.brochures.reduce(
-    (latest, b) => (b.validUntil > latest ? b.validUntil : latest),
-    dump.brochures[0].validUntil,
-  );
-
-  return { validFrom, validUntil };
-}
-
-/**
- * Säubert ein JSON-Objekt auf String-Ebene von jeglichen unzulässigen PostgreSQL-Steuerzeichen & Null-Bytes.
- */
-export function sanitizeJsonForPostgres<T>(value: T): T {
-  try {
-    const rawString = JSON.stringify(value);
-    const sanitizedString = rawString
-      .replace(/\\u0000/gi, '')
-      .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '');
-    return JSON.parse(sanitizedString) as T;
-  } catch {
-    return cleanNullBytes(value);
-  }
-}
-
-/**
- * Lädt einen einzelnen kleinen Chunk (z. B. 10 Dumps) direkt nach Supabase hoch.
- * Resistent gegen Timeouts und mit Fallback auf zeilenweisen Upload.
- */
-export async function uploadSingleBatch(
+/** Writes store metadata, then atomically replaces availability within the completed ZIP scope. */
+export async function publishCanonicalCatalog(
   supabase: SupabaseClient,
-  chunk: LocationDump[],
-  runStartedAt: string,
+  catalog: readonly CanonicalCatalogRecord[],
+  stores: readonly CrawlerStore[],
+  scopedZipCodes: readonly string[],
 ): Promise<{ uploadedCount: number; storesCount: number }> {
-  if (chunk.length === 0) return { uploadedCount: 0, storesCount: 0 };
+  const zipScope = [...new Set(scopedZipCodes)].sort();
+  if (zipScope.some((zipCode) => zipCode.length === 0)) {
+    throw new Error('Katalog-Scope enthält eine leere PLZ.');
+  }
+  if (zipScope.length === 0) return { uploadedCount: 0, storesCount: 0 };
 
-  const publishableChunk = chunk.filter((dump) => dump.brochures.length > 0);
-  if (publishableChunk.length === 0) return { uploadedCount: 0, storesCount: 0 };
-
-  const now = new Date();
-  const stores = new Map<string, CrawlerStore>();
-
-  for (const dump of publishableChunk) {
-    for (const store of dump.stores) {
-      stores.set(store.id, store);
+  const zipScopeSet = new Set(zipScope);
+  for (const record of catalog) {
+    if (record.availableZipCodes.some((zipCode) => !zipScopeSet.has(zipCode))) {
+      throw new Error(`Prospekt ${record.id} enthält PLZ außerhalb des Crawl-Scopes.`);
     }
   }
 
-  // 1. Stores aktualisieren
-  if (stores.size > 0) {
-    const cleanStores = sanitizeJsonForPostgres(
-      [...stores.values()].map((s) => ({
-        id: s.id,
-        name: s.name,
-        logo_url: s.logoUrl || null,
+  const storeById = new Map<string, CrawlerStore>();
+  for (const store of stores) storeById.set(store.id, store);
+  for (const record of catalog) {
+    if (!storeById.has(record.storeId)) {
+      throw new Error(`Für Prospekt ${record.id} fehlt Store ${record.storeId}.`);
+    }
+  }
+
+  const cleanStores = sanitizeJsonForPostgres(
+    [...storeById.values()]
+      .sort((left, right) => left.id.localeCompare(right.id))
+      .map((store) => ({
+        id: store.id,
+        name: store.name,
+        logo_url: store.logoUrl || null,
         active: true,
       })),
-    );
+  );
 
+  if (cleanStores.length > 0) {
     const { error: storeError } = await supabase
       .from('brochure_stores')
       .upsert(cleanStores, { onConflict: 'id' });
-
     if (storeError) {
       throw new Error(`brochure_stores konnten nicht aktualisiert werden: ${storeError.message}`);
     }
   }
 
-  // 2. Dumps einfügen
-  const rows = publishableChunk.map((dump) => {
-    const validity = calculateValidityRange(dump, now);
-    const rawPayload = {
-      generatedAt: now.toISOString(),
-      locationSource: dump.location.cityName
-        ? `GeoNames (${dump.location.cityName})`
-        : 'GeoNames CC BY 4.0',
-      stores: dump.stores,
-      brochures: dump.brochures,
-    };
-
-    return {
-      zip_code: dump.location.zipCode,
-      run_id: runStartedAt,
-      payload_json: sanitizeJsonForPostgres(rawPayload),
-      valid_from: validity.validFrom,
-      valid_until: validity.validUntil,
-    };
-  });
-
-  let uploadedCount = 0;
-  const successfulZipCodes: string[] = [];
-  const uploadErrors: Error[] = [];
-  const { error: insertError } = await supabase
-    .from('brochure_dumps')
-    .upsert(rows, { onConflict: 'zip_code,run_id' });
-
-  if (insertError) {
-    // Fallback: Einzel-Upserts
-    for (const row of rows) {
-      try {
-        const { error: singleError } = await supabase
-          .from('brochure_dumps')
-          .upsert([row], { onConflict: 'zip_code,run_id' });
-        if (!singleError) {
-          uploadedCount += 1;
-          successfulZipCodes.push(row.zip_code);
-        } else {
-          console.error(`❌ Einzelzeile PLZ ${row.zip_code} fehlgeschlagen:`, singleError.message);
-          uploadErrors.push(new Error(`PLZ ${row.zip_code}: ${singleError.message}`));
-        }
-      } catch (err) {
-        console.error(`❌ Exception bei PLZ ${row.zip_code}:`, err);
-        uploadErrors.push(
-          err instanceof Error ? err : new Error(`Unbekannter Uploadfehler für PLZ ${row.zip_code}`),
-        );
-      }
-    }
-  } else {
-    uploadedCount = rows.length;
-    successfulZipCodes.push(...rows.map((row) => row.zip_code));
+  const records: CanonicalCatalogRpcRecord[] = catalog.map((record) => ({
+    id: record.id,
+    canonical_brn: record.canonicalBrn,
+    store_id: record.storeId,
+    title: record.title,
+    valid_from: record.validFrom,
+    valid_until: record.validUntil,
+    page_count: record.pageCount,
+    cover_image: record.coverImage,
+    pages: record.pages,
+    verified_sha256: record.verifiedSha256,
+    available_zip_codes: record.availableZipCodes,
+  }));
+  const { error } = await (supabase as unknown as CanonicalCatalogRpcClient).rpc(
+    'replace_canonical_brochure_catalog',
+    { p_records: sanitizeJsonForPostgres(records), p_scoped_zip_codes: zipScope },
+  );
+  if (error) {
+    throw new Error(`Kanonischer Prospektkatalog konnte nicht ersetzt werden: ${error.message}`);
   }
 
-  // 3. Nur nachweislich erfolgreich ersetzte PLZs bereinigen. run_id ist im
-  // Gegensatz zu created_at unabhängig von Clock-Skew zwischen Runner und DB.
-  if (successfulZipCodes.length > 0) {
-    const { error: deleteError } = await supabase
-      .from('brochure_dumps')
-      .delete()
-      .in('zip_code', successfulZipCodes)
-      .neq('run_id', runStartedAt);
-
-    if (deleteError) {
-      throw new Error(`Alte brochure_dumps konnten nicht bereinigt werden: ${deleteError.message}`);
-    }
-  }
-
-  if (uploadErrors.length > 0) {
-    throw new AggregateError(uploadErrors, `${uploadErrors.length} Prospekt-Dumps fehlgeschlagen.`);
-  }
-
-  return { uploadedCount, storesCount: stores.size };
+  return { uploadedCount: catalog.length, storesCount: storeById.size };
 }
 
-export type ParallelUploadOptions = {
-  concurrency?: number;
-  onProgress?: (uploadedCount: number, total: number, storesCount: number) => void;
-};
-
-/**
- * Lädt Dumps parallel in schlanken Batches (Größe 10) nach Supabase hoch (z.B. für --from-backup).
- */
-export async function uploadDumpsInParallel(
-  dumps: LocationDump[],
+export async function uploadCanonicalCatalog(
+  catalog: readonly CanonicalCatalogRecord[],
+  stores: readonly CrawlerStore[],
+  scopedZipCodes: readonly string[],
   config: UploaderConfig,
-  options?: ParallelUploadOptions,
 ): Promise<{ uploadedCount: number; storesCount: number }> {
-  if (config.dryRun) {
-    return { uploadedCount: dumps.length, storesCount: 0 };
-  }
-
+  if (config.dryRun) return { uploadedCount: catalog.length, storesCount: 0 };
   const supabase = createSupabaseUploaderClient(config);
   if (!supabase) throw new Error('Supabase Client nicht initialisiert.');
-
-  const runStartedAt = new Date().toISOString();
-  const concurrency = options?.concurrency ?? 4;
-  let totalUploaded = 0;
-  let totalStores = 0;
-
-  // Erstelle 10er-Batches
-  const batches: LocationDump[][] = [];
-  for (let i = 0; i < dumps.length; i += UPLOAD_BATCH_SIZE) {
-    batches.push(dumps.slice(i, i + UPLOAD_BATCH_SIZE));
-  }
-
-  for (let i = 0; i < batches.length; i += concurrency) {
-    const chunkOfBatches = batches.slice(i, i + concurrency);
-    const results = await Promise.all(
-      chunkOfBatches.map((batch) => uploadSingleBatch(supabase, batch, runStartedAt)),
-    );
-
-    for (const res of results) {
-      totalUploaded += res.uploadedCount;
-      totalStores += res.storesCount;
-    }
-
-    options?.onProgress?.(totalUploaded, dumps.length, totalStores);
-  }
-
-  return {
-    uploadedCount: totalUploaded,
-    storesCount: totalStores,
-  };
-}
-
-/**
- * Kompatibilitäts-Wrapper für Batch-Uploads.
- */
-export async function uploadDumpsToSupabase(
-  dumps: LocationDump[],
-  config: UploaderConfig,
-): Promise<{ uploadedCount: number; storesCount: number }> {
-  return uploadDumpsInParallel(dumps, config);
+  return publishCanonicalCatalog(supabase, catalog, stores, scopedZipCodes);
 }

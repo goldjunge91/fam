@@ -3,7 +3,11 @@ import { dirname } from 'node:path';
 import { createCompletenessReport, diagnosticForError, makeDiagnostic } from './completeness';
 import { type LocalStorageConfig, mirrorBrochureImagesToLocal } from './local-storage';
 import { defaultCrawlerBackupPath } from './paths';
-import { mirrorBrochureImagesToR2, type R2Config } from './r2-storage';
+import {
+  mirrorBrochureImagesToR2,
+  type OriginalBytesBySha256Resolver,
+  type R2Config,
+} from './r2-storage';
 import type {
   BrochureLocation,
   BrochureSource,
@@ -23,8 +27,9 @@ export type CrawlEngineOptions = {
   sources: BrochureSource[];
   r2Config?: R2Config;
   localStorage?: LocalStorageConfig;
+  resolveImageSha256?: (imageUrl: string) => Promise<string>;
+  resolveOriginalBytesBySha256?: OriginalBytesBySha256Resolver;
   onProgress?: (processed: number, total: number, uniqueBrochuresCount: number) => void;
-  onChunkDone?: (chunkDumps: LocationDump[]) => Promise<void> | void;
   onDiagnostics?: (report: CompletenessReport, runId: string) => Promise<void> | void;
   backupPath?: string | null;
   diagnosticsPath?: string | null;
@@ -146,6 +151,19 @@ export function sanitizeBrochure(
   };
 }
 
+function brochureCacheKey(brochure: CrawlerBrochure, sourceStoreId: string): string {
+  return JSON.stringify([
+    brochure.id,
+    brochure.storeId || sourceStoreId,
+    brochure.title,
+    brochure.validFrom,
+    brochure.validUntil,
+    brochure.pages.map((page) => [page.number, page.imageUrl]),
+  ]);
+}
+
+const SHA256_PATTERN = /^[a-f0-9]{64}$/;
+
 /**
  * Führt das Crawling für einen einzelnen Standort über alle aktiven Quellen aus,
  * spiegelt Bilder bei Bedarf nach R2 und nutzt den Deduplikations-Cache.
@@ -157,6 +175,8 @@ export async function crawlLocationWithDiagnostics(
   r2Config?: R2Config,
   localStorage?: LocalStorageConfig,
   r2UrlCache?: Map<string, string | Promise<string>>,
+  resolveImageSha256?: (imageUrl: string) => Promise<string>,
+  resolveOriginalBytesBySha256?: OriginalBytesBySha256Resolver,
 ): Promise<CrawlLocationResult> {
   const stores = new Map<string, CrawlerStore>();
   const locationBrochures: CrawlerBrochure[] = [];
@@ -251,18 +271,37 @@ export async function crawlLocationWithDiagnostics(
       });
 
       for (const b of res.brochures) {
-        let sanitized = brochureCache.get(b.id);
+        const cacheKey = brochureCacheKey(b, res.store.id);
+        let sanitized = brochureCache.get(cacheKey);
         if (!sanitized) {
           sanitized = sanitizeBrochure(b, res.store.id);
 
+          if (resolveImageSha256) {
+            const firstPage = sanitized.pages.find((page) => page.number === 1);
+            if (!firstPage?.imageUrl) {
+              throw new Error(`Prospekt ${sanitized.id} hat keine Bild-URL für Seite 1.`);
+            }
+            const verifiedSha256 =
+              sanitized.verifiedSha256 ?? (await resolveImageSha256(firstPage.imageUrl));
+            if (!SHA256_PATTERN.test(verifiedSha256)) {
+              throw new Error(`Prospekt ${sanitized.id} hat keinen gültigen Seiten-Hash.`);
+            }
+            sanitized = { ...sanitized, verifiedSha256 };
+          }
+
           // Wenn R2 aktiv ist: Bilder nach R2 spiegeln
           if (r2Config && r2UrlCache) {
-            sanitized = await mirrorBrochureImagesToR2(sanitized, r2Config, r2UrlCache);
+            sanitized = await mirrorBrochureImagesToR2(
+              sanitized,
+              r2Config,
+              r2UrlCache,
+              resolveOriginalBytesBySha256,
+            );
           } else if (localStorage && r2UrlCache) {
             sanitized = await mirrorBrochureImagesToLocal(sanitized, localStorage, r2UrlCache);
           }
 
-          brochureCache.set(b.id, sanitized);
+          brochureCache.set(cacheKey, sanitized);
         }
         locationBrochures.push(sanitized);
       }
@@ -302,6 +341,8 @@ export async function crawlLocation(
   r2Config?: R2Config,
   localStorage?: LocalStorageConfig,
   r2UrlCache?: Map<string, string | Promise<string>>,
+  resolveImageSha256?: (imageUrl: string) => Promise<string>,
+  resolveOriginalBytesBySha256?: OriginalBytesBySha256Resolver,
 ): Promise<LocationDump> {
   return (
     await crawlLocationWithDiagnostics(
@@ -311,6 +352,8 @@ export async function crawlLocation(
       r2Config,
       localStorage,
       r2UrlCache,
+      resolveImageSha256,
+      resolveOriginalBytesBySha256,
     )
   ).dump;
 }
@@ -411,16 +454,16 @@ export async function crawlAllLocations(
           options.r2Config,
           options.localStorage,
           r2UrlCache,
+          options.resolveImageSha256,
+          options.resolveOriginalBytesBySha256,
         ),
       ),
     );
 
-    const chunkResults: CrawlLocationResult[] = [];
     const crawlErrors: unknown[] = [];
     for (const [index, res] of results.entries()) {
       if (res.status === 'fulfilled') {
         reports.push(res.value.report);
-        chunkResults.push(res.value);
         dumps.push(res.value.dump);
       } else {
         crawlErrors.push(res.reason);
@@ -444,18 +487,7 @@ export async function crawlAllLocations(
     processed += chunk.length;
     options.onProgress?.(processed, locations.length, brochureCache.size);
 
-    // Leere Dumps werden nicht veröffentlicht. Ein bestehender gültiger Dump
-    // bleibt dadurch bis zu seinem regulären Ablauf verfügbar. Ebenso dürfen
-    // unvollständige Diagnosen keinen alten Dump still ersetzen.
-    const publishableDumps = chunkResults
-      .filter(({ dump, report }) => report.status === 'complete' && dump.brochures.length > 0)
-      .map(({ dump }) => dump);
-    if (publishableDumps.length > 0 && options.onChunkDone) {
-      await options.onChunkDone(publishableDumps);
-    }
-
-    // Zwischenstände bleiben auch bei einem späteren Upload-/Abrufproblem
-    // auswertbar.
+    // Zwischenstände bleiben auch bei einem späteren Abrufproblem auswertbar.
     await saveBackupToDisk(dumps, backupPath, runId);
     await saveDiagnosticsToDisk(reports, diagnosticsPath, runId);
   }

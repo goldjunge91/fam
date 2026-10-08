@@ -40,7 +40,7 @@ describe('original brochure page hashes', () => {
   it('fetches and stores a repeated URL once across calls in a session', async () => {
     const bytes = new TextEncoder().encode('shared original image');
     const fetchOriginalBytes = jest.fn(async () => bytes.buffer as ArrayBuffer);
-    const storeOriginalBytes = jest.fn(async () => {});
+    const storeOriginalBytes = jest.fn(async (_input: OriginalImageStoreInput) => {});
     const session = createBrochurePageHashingSession(fetchOriginalBytes, storeOriginalBytes);
 
     const firstResult = await session.hashBrochurePages([
@@ -63,10 +63,48 @@ describe('original brochure page hashes', () => {
     expect(secondResult.pageHashes).toEqual([{ pageNumber: 1, sha256: sha256(bytes) }]);
   });
 
+  it('reuses a verified stored URL hash without fetching or storing again', async () => {
+    const storedHash = sha256(new TextEncoder().encode('already stored page'));
+    const fetchOriginalBytes = jest.fn(async () => new ArrayBuffer(0));
+    const storeOriginalBytes = jest.fn(async () => {});
+    const onPageHashed = jest.fn(async () => {});
+    const session = createBrochurePageHashingSession(fetchOriginalBytes, storeOriginalBytes, {
+      resolveStoredHash: async () => storedHash,
+      onPageHashed,
+    });
+
+    const result = await session.hashBrochurePages(['https://example.test/stored']);
+
+    expect(result.pageHashes).toEqual([{ pageNumber: 1, sha256: storedHash }]);
+    expect(fetchOriginalBytes).not.toHaveBeenCalled();
+    expect(storeOriginalBytes).not.toHaveBeenCalled();
+    expect(onPageHashed).not.toHaveBeenCalled();
+  });
+
+  it('observes each new hash before storing its asset for resumable progress', async () => {
+    const events: string[] = [];
+    const bytes = new TextEncoder().encode('checkpoint before asset write');
+    const session = createBrochurePageHashingSession(
+      async () => bytes,
+      async () => {
+        events.push('stored');
+      },
+      {
+        onPageHashed: async () => {
+          events.push('checkpointed');
+        },
+      },
+    );
+
+    await session.hashBrochurePages(['https://example.test/new']);
+
+    expect(events).toEqual(['checkpointed', 'stored']);
+  });
+
   it('hashes only the bytes in a Uint8Array view', async () => {
     const backing = new TextEncoder().encode('prefix:image:suffix');
     const imageView = backing.subarray(7, 12);
-    const storeOriginalBytes = jest.fn(async () => {});
+    const storeOriginalBytes = jest.fn(async (_input: OriginalImageStoreInput) => {});
     const session = createBrochurePageHashingSession(async () => imageView, storeOriginalBytes);
 
     const result = await session.hashBrochurePages(['https://example.test/view']);

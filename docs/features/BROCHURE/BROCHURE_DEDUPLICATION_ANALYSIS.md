@@ -1,6 +1,23 @@
-# Prospekt-Deduplizierung: Arbeitsstand
+# Prospekt-Deduplizierung: Vollscan und historische Stichproben
 
-Stand: 29. August 2026
+Die in diesem Dokument enthaltenen Händler-Stichproben stammen aus dem
+eingestellten Sample-Workflow und sind kein aktueller Prospektbestand. Der
+aktuelle Ablauf ist die
+[listing-only Vollseitenverifikation](../../../tools/crawler/brochures/README.md#listing-only-vollscan-und-vollständige-prospektverifikation).
+Die hier festgehaltenen Cover-, OCR- und Stichprobenmessungen sind historisch;
+sie steuern keine Prospektzusammenführung.
+
+## Listing-only-Messung vom 2026-10-07
+
+Der frühere Cover-only-Bericht liegt unter
+`tools/crawler/data/listing-only/analysis-report.json`. Er umfasst 4.550
+Prospekt-Verweise und 3.094 eindeutige Cover-Dateien. SHA-256-Prüfung ergab
+keine fehlenden, verwaisten oder abweichenden Dateien. dHash lieferte 927.842
+Kandidatenpaare; 2.960 Cover wurden per OCR ausgewertet. 72 Paare hatten keinen
+nutzbaren OCR-Text. Diese Kandidatenwerte beweisen keine vollständige
+Prospektidentität und sind keine Zusammenführungsentscheidung.
+
+Stand der historischen Messungen: 29. August 2026
 
 ## Ziel
 
@@ -9,7 +26,7 @@ Marken-Discount und REWE tatsächlich ausspielen und wie viel R2-Speicher nach
 inhaltlicher Deduplizierung benötigt wird. Die Analyse läuft vollständig lokal
 und schreibt weder nach R2 noch nach Supabase.
 
-## Implementierte Pipeline
+## Historische Analysepipeline
 
 1. Der geografisch verteilte V2-Crawler lädt alle Produktseiten einer Ausgabe.
 2. SHA-256 erkennt byte-identische Bilder und Prospektsequenzen zweifelsfrei.
@@ -70,11 +87,10 @@ Mit den menschlich bestätigten Gruppen sank die 100er-Stichprobe auf 1.593
 einzigartige Assets beziehungsweise 832.726.532 Bytes (0,776 GiB). Das sind
 93,7 % weniger als die naive Speicherung.
 
-## Vollautomatische 1.000-PLZ-Stichprobe
+## Früherer 1.000-PLZ-Checkpoint
 
-Der Lauf wurde kontrolliert bei einem persistent gespeicherten Checkpoint
-unterbrochen und kann mit demselben Befehl über den Resume-Cache fortgesetzt
-werden.
+Dieser Zwischenstand stammt aus dem früheren Sample-Lauf. Er ist keine
+fortsetzbare Datenquelle für die aktuelle listing-only Pipeline.
 
 Checkpoint:
 
@@ -103,18 +119,15 @@ Schon vor Abschluss zeigt sich ein starkes Plateau: 91,87 GiB referenzierte
 Bilder benötigen byte-dedupliziert nur 2,24 GiB. Der bisherige R2-Verbrauch
 darf deshalb nicht linear pro PLZ oder Prospektsichtung hochgerechnet werden.
 
-## Erwartete Artefakte des früheren Checkpoints
+## Nicht mehr vorhandene Artefakte des früheren Checkpoints
 
 Arbeitsverzeichnis im aktuellen Repository:
 
 `tools/crawler/data/retailer-full-v5-100`
 
-Dieses Verzeichnis ist auf dem aktuellen Rechner nicht vorhanden. Auch der
-früher verwendete absolute Pfad `/Volumes/Programme/FamCrawler/retailer-full-v5-100`
-wurde bei der letzten Prüfung nicht gefunden. Der beschriebene 732/1.000-
-Checkpoint lässt sich daher von diesem Rechner aus nicht fortsetzen, solange
-Manifest und `assets/` nicht an diesen Ablageort zurückgebracht werden. Ein
-Lauf in einem leeren Verzeichnis beginnt mit einer neuen Stichprobe.
+Das frühere Verzeichnis ist nicht mehr vorhanden. Die darin beschriebenen
+Manifest-, OCR- und Asset-Dateien dürfen nicht durch neue Ersatzdaten
+rekonstruiert oder mit dem aktuellen Vollscan vermischt werden.
 
 Wichtige Dateien:
 
@@ -131,35 +144,10 @@ Die `*-human-100.json`-Dateien dürfen beim vollautomatischen 1.000er-Ergebnis
 nicht als Entscheidungsquelle verwendet werden. Sie dienen nur zur Kalibrierung
 und späteren Qualitätskontrolle.
 
-## Fortsetzen und automatisch auswerten
-
-```bash
-SAMPLE_DIR="tools/crawler/data/retailer-full-v5-100"
-
-bun --env-file=.env.development.local run tools/crawler/brochures/aldi-sample-v2.ts \
-  --sample-size=1000 \
-  --concurrency=12 \
-  --pages=all \
-  --stores=lidl,kaufland,netto,rewe \
-  --output-dir="$SAMPLE_DIR"
-```
-
-Danach OCR und automatische Klassifikation ausführen:
-
-```bash
-bun run tools/crawler/brochures/verify-versions.ts \
-  --manifest="$SAMPLE_DIR/manifest.json" \
-  --ocr \
-  --ocr-concurrency=4
-```
-
-Für das vollautomatische Endergebnis ausschließlich
-`candidate.automaticClassification` und die Felder
-`summary.autoIdenticalPairs`, `summary.autoRegionalVariantPairs`,
-`summary.autoDifferentPairs`, `summary.autoUncertainPairs` sowie
-`summary.automaticSemanticGroups` auswerten. Die alten Felder `decision`,
-`reviewed` und `unreviewed` können Entscheidungen aus der 100er-Kalibrierung
-enthalten und gehören nicht in die automatische 1.000er-Auswertung.
+Die Vollscan-Ausgabe liegt unter `tools/crawler/data/listing-only/`. Für neue
+Messungen gilt nur der oben verlinkte Vollseiten-Workflow. Die historischen
+Paar- und OCR-Zahlen hier dürfen nicht als Ergebnisse der aktuellen
+Vollseitenverifikation ausgegeben werden.
 
 ## Bekannte Fehlerquellen und Grenzen
 
@@ -180,12 +168,10 @@ enthalten und gehören nicht in die automatische 1.000er-Auswertung.
   tatsächlich identische `uncertain`-Paare getrennt bleiben und etwas mehr
   Speicher benötigen.
 
-## Relevante Implementierung
+## Aktuelle Implementierung
 
-- `tools/crawler/brochures/aldi-sample-v2.ts`: geografischer V2-Crawler
-- `tools/crawler/brochures/verify-versions.ts`: SHA-/dHash-/OCR-Verifikation
-- `tools/crawler/brochures/auto-classification.ts`: automatische Entscheidung
-- `tools/crawler/brochures/ocr.ts`: lokales OCR und Cache
-- `tools/crawler/brochures/review-server.ts`: optionale lokale Human-Prüfung
-- `tools/crawler/brochures/auto-classification.test.ts`
-- `tools/crawler/brochures/ocr.test.ts`
+- `tools/crawler/brochures/listing-only/all-stores-full.ts`: vollständiger Offers-Scan
+- `tools/crawler/brochures/listing-only/fetch-detail-pages.ts`: echte Seitenzahlen
+- `tools/crawler/brochures/listing-only/verify-full-brochures.ts`: vollständige Originalseiten-Hashes und lokale Assets
+- `tools/crawler/brochures/listing-only/persist-canonical.ts`: geprüfte Varianten je Hashvektor
+- `tools/crawler/brochures/listing-only/canonical-report.ts`: Vollscan- und Variantenbericht
