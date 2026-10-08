@@ -50,7 +50,7 @@ type Dependencies = {
 
 const EAN_PATTERN = /^\d{6,14}$/;
 
-const JSON_HEADERS = { 'Content-Type': 'application/json' };
+const JSON_HEADERS = { "Content-Type": "application/json" };
 
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
@@ -69,28 +69,29 @@ export function createEnrichOffProductHandler({
   updateIfNewer,
 }: Dependencies) {
   return async (req: Request): Promise<Response> => {
-    if (req.method !== 'POST') {
-      return json({ error: 'method_not_allowed' }, 405);
+    if (req.method !== "POST") {
+      return json({ error: "method_not_allowed" }, 405);
     }
 
     let ean: string;
     try {
       const body: unknown = await req.json();
-      const candidate =
-        body && typeof body === 'object' ? (body as Record<string, unknown>).ean : undefined;
-      if (typeof candidate !== 'string' || !EAN_PATTERN.test(candidate)) {
-        throw new Error('invalid ean');
+      const candidate = body && typeof body === "object"
+        ? (body as Record<string, unknown>).ean
+        : undefined;
+      if (typeof candidate !== "string" || !EAN_PATTERN.test(candidate)) {
+        throw new Error("invalid ean");
       }
       ean = candidate;
     } catch {
       // Absichtlich EINZIGES Feld, das aus dem Request-Body gelesen wird —
       // alles andere (z.B. vom Client behauptete category_tags) existiert
       // fuer diese Function schlicht nicht.
-      return json({ error: 'invalid_ean' }, 400);
+      return json({ error: "invalid_ean" }, 400);
     }
 
     if (isRateLimited()) {
-      return json({ updated: false, reason: 'rate_limited' });
+      return json({ updated: false, reason: "rate_limited" });
     }
     recordAttempt();
 
@@ -104,23 +105,30 @@ export function createEnrichOffProductHandler({
     try {
       const offResult = await fetchOffProduct(ean);
       if (!offResult.ok) {
-        return json({ updated: false, reason: 'off_lookup_failed' });
+        return json({ updated: false, reason: "off_lookup_failed" });
       }
 
-      const result = await updateIfNewer(ean, offResult.categoryTags, offResult.offLastModifiedAt);
+      const result = await updateIfNewer(
+        ean,
+        offResult.categoryTags,
+        offResult.offLastModifiedAt,
+      );
 
       if (result.error) {
-        return json({ error: 'update_failed', message: result.error.message }, 500);
+        return json(
+          { error: "update_failed", message: result.error.message },
+          500,
+        );
       }
 
       if (!result.count) {
-        return json({ updated: false, reason: 'not_newer_or_missing' });
+        return json({ updated: false, reason: "not_newer_or_missing" });
       }
 
       return json({ updated: true });
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
-      return json({ error: 'internal_error', message }, 500);
+      return json({ error: "internal_error", message }, 500);
     }
   };
 }

@@ -11,13 +11,19 @@ async function hmac(
   message: string,
 ): Promise<Uint8Array> {
   const key = await crypto.subtle.importKey(
-    'raw',
-    encoder.encode(typeof secret === 'string' ? secret : new TextDecoder().decode(secret)),
-    { name: 'HMAC', hash: 'SHA-256' },
+    "raw",
+    encoder.encode(
+      typeof secret === "string" ? secret : new TextDecoder().decode(secret),
+    ),
+    { name: "HMAC", hash: "SHA-256" },
     false,
-    ['sign'],
+    ["sign"],
   );
-  const signature = await crypto.subtle.sign('HMAC', key, encoder.encode(message));
+  const signature = await crypto.subtle.sign(
+    "HMAC",
+    key,
+    encoder.encode(message),
+  );
   return new Uint8Array(signature);
 }
 
@@ -37,19 +43,20 @@ export type PresignOptions = {
 function encodeQueryComponent(value: string): string {
   return encodeURIComponent(value).replace(
     /[!'()*]/g,
-    (character) => '%' + character.charCodeAt(0).toString(16).toUpperCase(),
+    (character) => "%" + character.charCodeAt(0).toString(16).toUpperCase(),
   );
 }
 
 function hex(bytes: Uint8Array): string {
-  return [...bytes].map((byte) => byte.toString(16).padStart(2, '0')).join('');
+  return [...bytes].map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
 export function isR2SignatureConfigured(
   config: Partial<R2SignatureConfig> | null,
 ): config is R2SignatureConfig {
   return Boolean(
-    config?.accountId && config.accessKeyId && config.secretAccessKey && config.bucket,
+    config?.accountId && config.accessKeyId && config.secretAccessKey &&
+      config.bucket,
   );
 }
 
@@ -63,49 +70,56 @@ export async function presignR2Get(
   { key, expiresSeconds = 60, now = new Date() }: PresignOptions,
 ): Promise<string> {
   const clampedExpiry = Math.min(Math.max(expiresSeconds, 1), 600);
-  const host = config.accountId + '.r2.cloudflarestorage.com';
-  const canonicalUri = '/' + config.bucket + '/' + key;
+  const host = config.accountId + ".r2.cloudflarestorage.com";
+  const canonicalUri = "/" + config.bucket + "/" + key;
 
-  const amzDate = now.toISOString().replace(/[:-]|\.\d{3}/g, '');
+  const amzDate = now.toISOString().replace(/[:-]|\.\d{3}/g, "");
   const dateStamp = amzDate.slice(0, 8);
-  const scope = dateStamp + '/auto/s3/aws4_request';
+  const scope = dateStamp + "/auto/s3/aws4_request";
   const payloadHash = hex(
-    new Uint8Array(await crypto.subtle.digest('SHA-256', new Uint8Array(0))),
+    new Uint8Array(await crypto.subtle.digest("SHA-256", new Uint8Array(0))),
   );
 
   const query: Record<string, string> = {
-    'X-Amz-Algorithm': 'AWS4-HMAC-SHA256',
-    'X-Amz-Credential': config.accessKeyId + '/' + scope,
-    'X-Amz-Date': amzDate,
-    'X-Amz-Expires': String(clampedExpiry),
-    'X-Amz-SignedHeaders': 'host',
+    "X-Amz-Algorithm": "AWS4-HMAC-SHA256",
+    "X-Amz-Credential": config.accessKeyId + "/" + scope,
+    "X-Amz-Date": amzDate,
+    "X-Amz-Expires": String(clampedExpiry),
+    "X-Amz-SignedHeaders": "host",
   };
 
   const canonicalQuery = Object.keys(query)
     .sort()
-    .map((name) => encodeQueryComponent(name) + '=' + encodeQueryComponent(query[name]))
-    .join('&');
+    .map((name) =>
+      encodeQueryComponent(name) + "=" + encodeQueryComponent(query[name])
+    )
+    .join("&");
   const canonicalRequest = [
-    'GET',
+    "GET",
     canonicalUri,
     canonicalQuery,
-    'host:' + host + '\n',
-    'host',
+    "host:" + host + "\n",
+    "host",
     payloadHash,
-  ].join('\n');
+  ].join("\n");
 
   const stringToSign = [
-    'AWS4-HMAC-SHA256',
+    "AWS4-HMAC-SHA256",
     amzDate,
     scope,
-    hex(new Uint8Array(await crypto.subtle.digest('SHA-256', encoder.encode(canonicalRequest)))),
-  ].join('\n');
+    hex(
+      new Uint8Array(
+        await crypto.subtle.digest("SHA-256", encoder.encode(canonicalRequest)),
+      ),
+    ),
+  ].join("\n");
 
-  let signingKey = await hmac('AWS4' + config.secretAccessKey, dateStamp);
-  signingKey = await hmac(signingKey, 'auto');
-  signingKey = await hmac(signingKey, 's3');
-  signingKey = await hmac(signingKey, 'aws4_request');
+  let signingKey = await hmac("AWS4" + config.secretAccessKey, dateStamp);
+  signingKey = await hmac(signingKey, "auto");
+  signingKey = await hmac(signingKey, "s3");
+  signingKey = await hmac(signingKey, "aws4_request");
   const signature = hex(await hmac(signingKey, stringToSign));
 
-  return 'https://' + host + canonicalUri + '?' + canonicalQuery + '&X-Amz-Signature=' + signature;
+  return "https://" + host + canonicalUri + "?" + canonicalQuery +
+    "&X-Amz-Signature=" + signature;
 }

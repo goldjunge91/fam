@@ -6,24 +6,24 @@
  */
 
 export const ALLOWED_MODELS = [
-  'ibm-granite/granite-4.2-8b',
-  'google/gemma-4-26b-a4b-it',
-  'qwen/qwen3.8-flash',
-  'z-ai/glm-5.3-flash',
-  'google/gemma-4-31b-it',
-  'minimax/minimax-m3:free',
+  "ibm-granite/granite-4.2-8b",
+  "google/gemma-4-26b-a4b-it",
+  "qwen/qwen3.8-flash",
+  "z-ai/glm-5.3-flash",
+  "google/gemma-4-31b-it",
+  "minimax/minimax-m3:free",
 ] as const;
 
 type CaptureRequest = {
-  skill: 'fam-inventory-capture';
+  skill: "fam-inventory-capture";
   householdId: string;
   text: string;
-  locale: 'de-DE';
+  locale: "de-DE";
   model?: string;
 };
 
 type CookingRequest = {
-  skill: 'fam-cook-from-inventory';
+  skill: "fam-cook-from-inventory";
   householdId: string;
   userText: string;
   servings: number | null;
@@ -43,11 +43,11 @@ export type GatewayLot = {
   unit: string | null;
   bestBefore: string | null;
   useBy: string | null;
-  storage: 'fridge' | 'freezer' | 'pantry' | 'unknown';
+  storage: "fridge" | "freezer" | "pantry" | "unknown";
 };
 
 export type GatewayInventoryContext = {
-  source: 'inventory';
+  source: "inventory";
   fetchedAt: string;
   lots: GatewayLot[];
 };
@@ -101,7 +101,7 @@ type Dependencies = {
   ) => Promise<ContextResult>;
   complete: (input: {
     model: string;
-    messages: Array<{ role: 'system' | 'user'; content: string }>;
+    messages: Array<{ role: "system" | "user"; content: string }>;
   }) => Promise<ProviderResult>;
   isRateLimited?: () => boolean;
   recordRateLimitAttempt?: () => void;
@@ -112,14 +112,15 @@ type Dependencies = {
 };
 
 const JSON_HEADERS = {
-  'Content-Type': 'application/json; charset=utf-8',
-  'Cache-Control': 'no-store',
+  "Content-Type": "application/json; charset=utf-8",
+  "Cache-Control": "no-store",
 };
 
 const CORS_HEADERS = {
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Origin': '*',
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Origin": "*",
 };
 
 function json(body: unknown, status = 200): Response {
@@ -130,65 +131,78 @@ function json(body: unknown, status = 200): Response {
 }
 
 function isRecord(value: unknown): value is JsonRecord {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
+  return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
 function nonEmptyString(value: unknown): value is string {
-  return typeof value === 'string' && value.trim().length > 0;
+  return typeof value === "string" && value.trim().length > 0;
 }
 
 function parseRequest(value: unknown): GatewayRequest | null {
-  if (!isRecord(value) || !nonEmptyString(value.skill) || !nonEmptyString(value.householdId)) {
+  if (
+    !isRecord(value) || !nonEmptyString(value.skill) ||
+    !nonEmptyString(value.householdId)
+  ) {
     return null;
   }
 
-  if (value.skill === 'fam-inventory-capture') {
-    const allowedKeys = new Set(['skill', 'householdId', 'text', 'locale', 'model']);
+  if (value.skill === "fam-inventory-capture") {
+    const allowedKeys = new Set([
+      "skill",
+      "householdId",
+      "text",
+      "locale",
+      "model",
+    ]);
     if (Object.keys(value).some((key) => !allowedKeys.has(key))) return null;
-    return value.locale === 'de-DE' && nonEmptyString(value.text)
+    return value.locale === "de-DE" && nonEmptyString(value.text)
       ? {
-          skill: value.skill,
-          householdId: value.householdId.trim(),
-          text: value.text.trim(),
-          locale: 'de-DE',
-          ...(nonEmptyString(value.model) ? { model: value.model.trim() } : {}),
-        }
+        skill: value.skill,
+        householdId: value.householdId.trim(),
+        text: value.text.trim(),
+        locale: "de-DE",
+        ...(nonEmptyString(value.model) ? { model: value.model.trim() } : {}),
+      }
       : null;
   }
 
-  if (value.skill !== 'fam-cook-from-inventory') return null;
+  if (value.skill !== "fam-cook-from-inventory") return null;
   const allowedKeys = new Set([
-    'skill',
-    'householdId',
-    'userText',
-    'servings',
-    'maxMinutes',
-    'dietaryPattern',
-    'allergies',
-    'model',
+    "skill",
+    "householdId",
+    "userText",
+    "servings",
+    "maxMinutes",
+    "dietaryPattern",
+    "allergies",
+    "model",
   ]);
   if (Object.keys(value).some((key) => !allowedKeys.has(key))) return null;
-  const validNullableInteger = (candidate: unknown): candidate is number | null =>
+  const validNullableInteger = (
+    candidate: unknown,
+  ): candidate is number | null =>
     candidate === null ||
-    (typeof candidate === 'number' && Number.isInteger(candidate) && candidate > 0);
+    (typeof candidate === "number" && Number.isInteger(candidate) &&
+      candidate > 0);
 
   return nonEmptyString(value.userText) &&
-    validNullableInteger(value.servings) &&
-    validNullableInteger(value.maxMinutes) &&
-    (value.dietaryPattern === null || nonEmptyString(value.dietaryPattern)) &&
-    Array.isArray(value.allergies) &&
-    value.allergies.every(nonEmptyString)
+      validNullableInteger(value.servings) &&
+      validNullableInteger(value.maxMinutes) &&
+      (value.dietaryPattern === null || nonEmptyString(value.dietaryPattern)) &&
+      Array.isArray(value.allergies) &&
+      value.allergies.every(nonEmptyString)
     ? {
-        skill: value.skill,
-        householdId: value.householdId.trim(),
-        userText: value.userText.trim(),
-        servings: value.servings,
-        maxMinutes: value.maxMinutes,
-        dietaryPattern:
-          value.dietaryPattern === null ? null : value.dietaryPattern.trim(),
-        allergies: value.allergies.map((allergy) => allergy.trim()),
-        ...(nonEmptyString(value.model) ? { model: value.model.trim() } : {}),
-      }
+      skill: value.skill,
+      householdId: value.householdId.trim(),
+      userText: value.userText.trim(),
+      servings: value.servings,
+      maxMinutes: value.maxMinutes,
+      dietaryPattern: value.dietaryPattern === null
+        ? null
+        : value.dietaryPattern.trim(),
+      allergies: value.allergies.map((allergy) => allergy.trim()),
+      ...(nonEmptyString(value.model) ? { model: value.model.trim() } : {}),
+    }
     : null;
 }
 
@@ -201,14 +215,17 @@ function modelFor(
   return allowedModels.includes(model) ? model : null;
 }
 
-function buildSystemPrompt(request: GatewayRequest, context: GatewayCookingContext): string {
+function buildSystemPrompt(
+  request: GatewayRequest,
+  context: GatewayCookingContext,
+): string {
   const common = `
 Du bist der read-only Haushaltsassistent von fam. Antworte ausschließlich als
 gültiges JSON ohne Markdown, Kommentare oder zusätzliche Felder. Erfinde keine
 Lebensmittel, Mengen, Daten, Rezept-IDs oder Inventar-Lot-IDs. Führe keine
 Datenbankmutation und keine Aktion außerhalb dieses Aufrufs aus.`;
 
-  if (request.skill === 'fam-inventory-capture') {
+  if (request.skill === "fam-inventory-capture") {
     return `${common}
 Szenario: natürliche Erfassung eines deutschen Inventartexts.
 Vertrag: inventory_capture_proposal.v1 mit exakt den Feldern kind, items,
@@ -236,8 +253,12 @@ ${JSON.stringify(context.recipes)}`;
 }
 
 function buildUserPrompt(request: GatewayRequest): string {
-  if (request.skill === 'fam-inventory-capture') {
-    return JSON.stringify({ scenario: request.skill, locale: request.locale, text: request.text });
+  if (request.skill === "fam-inventory-capture") {
+    return JSON.stringify({
+      scenario: request.skill,
+      locale: request.locale,
+      text: request.text,
+    });
   }
 
   return JSON.stringify({
@@ -264,7 +285,7 @@ function validStringArray(value: unknown): value is string[] {
 }
 
 function validMissingFields(value: unknown): value is string[] {
-  const allowed = new Set(['quantity', 'unit', 'storage', 'date']);
+  const allowed = new Set(["quantity", "unit", "storage", "date"]);
   return validStringArray(value) && value.every((field) => allowed.has(field));
 }
 
@@ -276,19 +297,33 @@ function prepareCookingContext(
     .filter((recipe) => {
       if (request.allergies.length > 0) {
         if (recipe.allergens === null) return false;
-        const allergens = new Set(recipe.allergens.map((allergen) => allergen.toLocaleLowerCase('de-DE')));
-        if (request.allergies.some((allergy) => allergens.has(allergy.toLocaleLowerCase('de-DE')))) {
+        const allergens = new Set(
+          recipe.allergens.map((allergen) =>
+            allergen.toLocaleLowerCase("de-DE")
+          ),
+        );
+        if (
+          request.allergies.some((allergy) =>
+            allergens.has(allergy.toLocaleLowerCase("de-DE"))
+          )
+        ) {
           return false;
         }
       }
       if (
         request.dietaryPattern !== null &&
-        !recipe.dietaryTags.some((tag) => tag.toLocaleLowerCase('de-DE') === request.dietaryPattern?.toLocaleLowerCase('de-DE'))
+        !recipe.dietaryTags.some((tag) =>
+          tag.toLocaleLowerCase("de-DE") ===
+            request.dietaryPattern?.toLocaleLowerCase("de-DE")
+        )
       ) {
         return false;
       }
-      if (request.maxMinutes !== null &&
-        (recipe.estimatedMinutes === null || recipe.estimatedMinutes > request.maxMinutes)) {
+      if (
+        request.maxMinutes !== null &&
+        (recipe.estimatedMinutes === null ||
+          recipe.estimatedMinutes > request.maxMinutes)
+      ) {
         return false;
       }
       return !(request.servings !== null && recipe.servings === null);
@@ -296,104 +331,149 @@ function prepareCookingContext(
     .sort((a, b) => {
       if (a.estimatedMinutes === null && b.estimatedMinutes !== null) return 1;
       if (a.estimatedMinutes !== null && b.estimatedMinutes === null) return -1;
-      if (a.estimatedMinutes !== null && b.estimatedMinutes !== null && a.estimatedMinutes !== b.estimatedMinutes) {
+      if (
+        a.estimatedMinutes !== null && b.estimatedMinutes !== null &&
+        a.estimatedMinutes !== b.estimatedMinutes
+      ) {
         return a.estimatedMinutes - b.estimatedMinutes;
       }
-      return a.title.localeCompare(b.title, 'de') || a.recipeId.localeCompare(b.recipeId);
+      return a.title.localeCompare(b.title, "de") ||
+        a.recipeId.localeCompare(b.recipeId);
     })
     .slice(0, 3);
 
   return recipes.length === 0 ? null : { ...context, recipes };
 }
 
-function validateCaptureResult(result: JsonRecord, request: CaptureRequest): string | null {
-  if (result.kind !== 'inventory_capture_proposal.v1') return 'invalid_capture_kind';
-  if (!Array.isArray(result.items) || !validStringArray(result.questions) || !validStringArray(result.warnings)) {
-    return 'invalid_capture_shape';
+function validateCaptureResult(
+  result: JsonRecord,
+  request: CaptureRequest,
+): string | null {
+  if (result.kind !== "inventory_capture_proposal.v1") {
+    return "invalid_capture_kind";
+  }
+  if (
+    !Array.isArray(result.items) || !validStringArray(result.questions) ||
+    !validStringArray(result.warnings)
+  ) {
+    return "invalid_capture_shape";
   }
 
   for (const item of result.items) {
-    if (!isRecord(item)) return 'invalid_capture_item';
+    if (!isRecord(item)) return "invalid_capture_item";
     const required = [
-      'rawText',
-      'normalizedName',
-      'quantity',
-      'unit',
-      'perishability',
-      'storage',
-      'date',
-      'dateKind',
-      'confidence',
-      'evidence',
-      'missingFields',
+      "rawText",
+      "normalizedName",
+      "quantity",
+      "unit",
+      "perishability",
+      "storage",
+      "date",
+      "dateKind",
+      "confidence",
+      "evidence",
+      "missingFields",
     ];
-    if (Object.keys(item).some((key) => !required.includes(key)) || required.some((key) => !(key in item))) {
-      return 'invalid_capture_item_fields';
+    if (
+      Object.keys(item).some((key) => !required.includes(key)) ||
+      required.some((key) => !(key in item))
+    ) {
+      return "invalid_capture_item_fields";
     }
-    if (!nonEmptyString(item.rawText) || !nonEmptyString(item.evidence) || !validMissingFields(item.missingFields)) {
-      return 'invalid_capture_item_values';
+    if (
+      !nonEmptyString(item.rawText) || !nonEmptyString(item.evidence) ||
+      !validMissingFields(item.missingFields)
+    ) {
+      return "invalid_capture_item_values";
     }
-    if (!request.text.includes(item.rawText) || !request.text.includes(item.evidence)) {
-      return 'capture_evidence_not_grounded';
+    if (
+      !request.text.includes(item.rawText) ||
+      !request.text.includes(item.evidence)
+    ) {
+      return "capture_evidence_not_grounded";
     }
-    if (typeof item.confidence !== 'number' || item.confidence < 0 || item.confidence > 1) {
-      return 'invalid_capture_confidence';
+    if (
+      typeof item.confidence !== "number" || item.confidence < 0 ||
+      item.confidence > 1
+    ) {
+      return "invalid_capture_confidence";
     }
   }
 
   return null;
 }
 
-function validateCookingResult(result: JsonRecord, context: GatewayCookingContext, request: CookingRequest): string | null {
-  if (result.kind !== 'cooking_suggestion.v1') return 'invalid_cooking_kind';
+function validateCookingResult(
+  result: JsonRecord,
+  context: GatewayCookingContext,
+  request: CookingRequest,
+): string | null {
+  if (result.kind !== "cooking_suggestion.v1") return "invalid_cooking_kind";
   const required = [
-    'kind',
-    'recipeId',
-    'title',
-    'usedLots',
-    'missingIngredients',
-    'estimatedMinutes',
-    'servings',
-    'rationale',
-    'constraintChecks',
+    "kind",
+    "recipeId",
+    "title",
+    "usedLots",
+    "missingIngredients",
+    "estimatedMinutes",
+    "servings",
+    "rationale",
+    "constraintChecks",
   ];
-  if (Object.keys(result).some((key) => !required.includes(key)) || required.some((key) => !(key in result))) {
-    return 'invalid_cooking_fields';
-  }
-  if (!nonEmptyString(result.recipeId) || !nonEmptyString(result.title)) return 'invalid_cooking_shape';
-  if (!validStringArray(result.usedLots) || !validStringArray(result.missingIngredients)) {
-    return 'invalid_cooking_arrays';
-  }
-  if (!nonEmptyString(result.rationale)) return 'invalid_cooking_shape';
-  if (!isRecord(result.constraintChecks)) return 'invalid_cooking_constraints';
   if (
-    result.constraintChecks.allergies !== 'pass' ||
-    !['pass', 'unknown'].includes(String(result.constraintChecks.dietaryPattern)) ||
-    !['pass', 'unknown'].includes(String(result.constraintChecks.time))
+    Object.keys(result).some((key) => !required.includes(key)) ||
+    required.some((key) => !(key in result))
   ) {
-    return 'invalid_cooking_constraints';
+    return "invalid_cooking_fields";
   }
-  if (request.dietaryPattern !== null && result.constraintChecks.dietaryPattern !== 'pass') {
-    return 'dietary_gate_failed';
+  if (!nonEmptyString(result.recipeId) || !nonEmptyString(result.title)) {
+    return "invalid_cooking_shape";
   }
-  if (request.maxMinutes !== null && result.constraintChecks.time !== 'pass') {
-    return 'time_gate_failed';
+  if (
+    !validStringArray(result.usedLots) ||
+    !validStringArray(result.missingIngredients)
+  ) {
+    return "invalid_cooking_arrays";
+  }
+  if (!nonEmptyString(result.rationale)) return "invalid_cooking_shape";
+  if (!isRecord(result.constraintChecks)) return "invalid_cooking_constraints";
+  if (
+    result.constraintChecks.allergies !== "pass" ||
+    !["pass", "unknown"].includes(
+      String(result.constraintChecks.dietaryPattern),
+    ) ||
+    !["pass", "unknown"].includes(String(result.constraintChecks.time))
+  ) {
+    return "invalid_cooking_constraints";
+  }
+  if (
+    request.dietaryPattern !== null &&
+    result.constraintChecks.dietaryPattern !== "pass"
+  ) {
+    return "dietary_gate_failed";
+  }
+  if (request.maxMinutes !== null && result.constraintChecks.time !== "pass") {
+    return "time_gate_failed";
   }
 
-  const recipe = context.recipes.find((candidate) => candidate.recipeId === result.recipeId);
-  if (!recipe) return 'recipe_not_allowed';
-  if (result.title.trim() !== recipe.title) return 'recipe_title_mismatch';
+  const recipe = context.recipes.find((candidate) =>
+    candidate.recipeId === result.recipeId
+  );
+  if (!recipe) return "recipe_not_allowed";
+  if (result.title.trim() !== recipe.title) return "recipe_title_mismatch";
 
   const seenLots = new Set<string>();
   const allowedLots = new Set(context.inventory.lots.map((lot) => lot.lotId));
   for (const lotId of result.usedLots) {
-    if (!allowedLots.has(lotId)) return 'lot_not_allowed';
-    if (seenLots.has(lotId)) return 'duplicate_lot';
+    if (!allowedLots.has(lotId)) return "lot_not_allowed";
+    if (seenLots.has(lotId)) return "duplicate_lot";
     seenLots.add(lotId);
   }
 
-  if (request.allergies.length > 0 && result.constraintChecks.allergies !== 'pass') {
-    return 'allergy_gate_failed';
+  if (
+    request.allergies.length > 0 && result.constraintChecks.allergies !== "pass"
+  ) {
+    return "allergy_gate_failed";
   }
 
   return null;
@@ -402,88 +482,114 @@ function validateCookingResult(result: JsonRecord, context: GatewayCookingContex
 /** Builds the HTTP handler used by the Deno entrypoint and its tests. */
 export function createAiGatewayHandler(dependencies: Dependencies) {
   const allowedModels = dependencies.allowedModels ?? ALLOWED_MODELS;
-  const defaultModel = dependencies.defaultModel ?? 'z-ai/glm-5.3-flash';
+  const defaultModel = dependencies.defaultModel ?? "z-ai/glm-5.3-flash";
   const now = dependencies.now ?? (() => new Date().toISOString());
   const requestId = dependencies.requestId ?? (() => crypto.randomUUID());
 
   return async (request: Request): Promise<Response> => {
-    if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS_HEADERS });
-    if (request.method !== 'POST') return json({ error: 'method_not_allowed' }, 405);
+    if (request.method === "OPTIONS") {
+      return new Response(null, { status: 204, headers: CORS_HEADERS });
+    }
+    if (request.method !== "POST") {
+      return json({ error: "method_not_allowed" }, 405);
+    }
 
     const auth = await dependencies.authenticate(request);
-    if (!auth.ok) return json({ error: auth.error, ...(auth.message ? { message: auth.message } : {}) }, auth.status);
+    if (!auth.ok) {
+      return json({
+        error: auth.error,
+        ...(auth.message ? { message: auth.message } : {}),
+      }, auth.status);
+    }
 
     let body: unknown;
     try {
       body = await request.json();
     } catch {
-      return json({ error: 'invalid_json' }, 400);
+      return json({ error: "invalid_json" }, 400);
     }
 
     const parsedRequest = parseRequest(body);
-    if (!parsedRequest) return json({ error: 'invalid_request' }, 400);
+    if (!parsedRequest) return json({ error: "invalid_request" }, 400);
 
     const member = await dependencies.assertHouseholdMember(
       auth.userId,
       parsedRequest.householdId,
       auth.authorization,
     );
-    if (!member.ok) return json({ error: member.error, ...(member.message ? { message: member.message } : {}) }, member.status);
+    if (!member.ok) {
+      return json({
+        error: member.error,
+        ...(member.message ? { message: member.message } : {}),
+      }, member.status);
+    }
 
     const model = modelFor(parsedRequest.model, allowedModels, defaultModel);
-    if (!model) return json({ error: 'model_not_allowed' }, 400);
+    if (!model) return json({ error: "model_not_allowed" }, 400);
 
-    if (dependencies.isRateLimited?.()) return json({ error: 'rate_limited' }, 429);
+    if (dependencies.isRateLimited?.()) {
+      return json({ error: "rate_limited" }, 429);
+    }
     dependencies.recordRateLimitAttempt?.();
 
-    const contextResult =
-      parsedRequest.skill === 'fam-cook-from-inventory'
-        ? await dependencies.loadCookingContext(
-            auth.userId,
-            parsedRequest.householdId,
-            auth.authorization,
-          )
-        : {
-            ok: true as const,
-            context: {
-              inventory: { source: 'inventory' as const, fetchedAt: now(), lots: [] },
-              recipes: [],
-            },
-          };
+    const contextResult = parsedRequest.skill === "fam-cook-from-inventory"
+      ? await dependencies.loadCookingContext(
+        auth.userId,
+        parsedRequest.householdId,
+        auth.authorization,
+      )
+      : {
+        ok: true as const,
+        context: {
+          inventory: {
+            source: "inventory" as const,
+            fetchedAt: now(),
+            lots: [],
+          },
+          recipes: [],
+        },
+      };
     if (!contextResult.ok) {
       return json(
-        { error: contextResult.error, ...(contextResult.message ? { message: contextResult.message } : {}) },
+        {
+          error: contextResult.error,
+          ...(contextResult.message ? { message: contextResult.message } : {}),
+        },
         contextResult.status,
       );
     }
 
-    const preparedContext =
-      parsedRequest.skill === 'fam-cook-from-inventory'
-        ? prepareCookingContext(contextResult.context, parsedRequest)
-        : contextResult.context;
-    if (preparedContext === null) return json({ error: 'no_safe_recipe' }, 422);
+    const preparedContext = parsedRequest.skill === "fam-cook-from-inventory"
+      ? prepareCookingContext(contextResult.context, parsedRequest)
+      : contextResult.context;
+    if (preparedContext === null) return json({ error: "no_safe_recipe" }, 422);
 
     const provider = await dependencies.complete({
       model,
       messages: [
-        { role: 'system', content: buildSystemPrompt(parsedRequest, preparedContext) },
-        { role: 'user', content: buildUserPrompt(parsedRequest) },
+        {
+          role: "system",
+          content: buildSystemPrompt(parsedRequest, preparedContext),
+        },
+        { role: "user", content: buildUserPrompt(parsedRequest) },
       ],
     });
     if (!provider.ok) {
-      return json({ error: provider.error, ...(provider.message ? { message: provider.message } : {}) }, provider.status);
+      return json({
+        error: provider.error,
+        ...(provider.message ? { message: provider.message } : {}),
+      }, provider.status);
     }
     if (provider.model !== model || !allowedModels.includes(provider.model)) {
-      return json({ error: 'provider_model_mismatch' }, 502);
+      return json({ error: "provider_model_mismatch" }, 502);
     }
 
     const parsedResult = parseProviderJson(provider.content);
-    if (!parsedResult) return json({ error: 'provider_invalid_json' }, 502);
+    if (!parsedResult) return json({ error: "provider_invalid_json" }, 502);
 
-    const validationError =
-      parsedRequest.skill === 'fam-inventory-capture'
-        ? validateCaptureResult(parsedResult, parsedRequest)
-        : validateCookingResult(parsedResult, preparedContext, parsedRequest);
+    const validationError = parsedRequest.skill === "fam-inventory-capture"
+      ? validateCaptureResult(parsedResult, parsedRequest)
+      : validateCookingResult(parsedResult, preparedContext, parsedRequest);
     if (validationError) return json({ error: validationError }, 502);
 
     return json({
