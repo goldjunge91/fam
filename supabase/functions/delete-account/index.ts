@@ -1,5 +1,5 @@
 // @ts-nocheck deno-lint-ignore-file
-import { createClient } from 'jsr:@supabase/supabase-js@2';
+import { createClient } from "jsr:@supabase/supabase-js@2";
 
 /**
  * Account- und Datenloeschung (#98). Der Client kann `auth.users` nicht
@@ -22,24 +22,24 @@ import { createClient } from 'jsr:@supabase/supabase-js@2';
  *     Profil, Tagebuch, Gewicht, Ziele und die eigene household_members-Zeile.
  */
 Deno.serve(async (req: Request) => {
-  if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'method_not_allowed' }), {
+  if (req.method !== "POST") {
+    return new Response(JSON.stringify({ error: "method_not_allowed" }), {
       status: 405,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
   }
 
-  const authHeader = req.headers.get('Authorization');
+  const authHeader = req.headers.get("Authorization");
   if (!authHeader) {
-    return new Response(JSON.stringify({ error: 'missing_authorization' }), {
+    return new Response(JSON.stringify({ error: "missing_authorization" }), {
       status: 401,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
   }
 
-  const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-  const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
-  const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+  const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+  const anonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
+  const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 
   // Client "als der Nutzer" — respektiert RLS/auth.uid(), fuer den Aufruf des
   // vorbereitenden RPCs.
@@ -53,45 +53,58 @@ Deno.serve(async (req: Request) => {
   } = await userClient.auth.getUser();
 
   if (userError || !user) {
-    return new Response(JSON.stringify({ error: 'unauthorized' }), {
+    return new Response(JSON.stringify({ error: "unauthorized" }), {
       status: 401,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
   }
 
-  const { error: prepareError } = await userClient.rpc('prepare_account_deletion');
+  const { error: prepareError } = await userClient.rpc(
+    "prepare_account_deletion",
+  );
 
   if (prepareError) {
-    if (prepareError.message?.includes('last_admin_with_members')) {
+    if (prepareError.message?.includes("last_admin_with_members")) {
       return new Response(
         JSON.stringify({
-          error: 'last_admin_with_members',
+          error: "last_admin_with_members",
           message: prepareError.message,
         }),
-        { status: 409, headers: { 'Content-Type': 'application/json' } },
+        { status: 409, headers: { "Content-Type": "application/json" } },
       );
     }
 
-    return new Response(JSON.stringify({ error: 'prepare_failed', message: prepareError.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return new Response(
+      JSON.stringify({
+        error: "prepare_failed",
+        message: prepareError.message,
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      },
+    );
   }
 
   // Erst jetzt Service-Role — nur fuer den einen Schritt, den RLS grundsaetzlich
   // nicht erlauben kann.
   const adminClient = createClient(supabaseUrl, serviceRoleKey);
-  const { error: deleteError } = await adminClient.auth.admin.deleteUser(user.id);
+  const { error: deleteError } = await adminClient.auth.admin.deleteUser(
+    user.id,
+  );
 
   if (deleteError) {
-    return new Response(JSON.stringify({ error: 'delete_failed', message: deleteError.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return new Response(
+      JSON.stringify({ error: "delete_failed", message: deleteError.message }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      },
+    );
   }
 
   return new Response(JSON.stringify({ success: true }), {
     status: 200,
-    headers: { 'Content-Type': 'application/json' },
+    headers: { "Content-Type": "application/json" },
   });
 });

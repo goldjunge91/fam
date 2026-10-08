@@ -40,14 +40,16 @@ async function request(
       new TextEncoder().encode(`${timestampSeconds}.${body}`),
     ),
   );
-  const signatureHex = Array.from(signature, (byte) =>
-    byte.toString(16).padStart(2, "0")
+  const signatureHex = Array.from(
+    signature,
+    (byte) => byte.toString(16).padStart(2, "0"),
   ).join("");
 
   return new Request("http://localhost/revenuecat-webhook", {
     method: "POST",
     headers: {
-      "X-RevenueCat-Webhook-Signature": `t=${timestampSeconds},v1=${signatureHex}`,
+      "X-RevenueCat-Webhook-Signature":
+        `t=${timestampSeconds},v1=${signatureHex}`,
       "Content-Type": "application/json",
     },
     body,
@@ -108,7 +110,10 @@ Deno.test("rejects a missing or incorrect HMAC signature", async () => {
   const missing = await handler(
     new Request("http://localhost/revenuecat-webhook", {
       method: "POST",
-      body: JSON.stringify({ api_version: "1.0", event: event("INITIAL_PURCHASE") }),
+      body: JSON.stringify({
+        api_version: "1.0",
+        event: event("INITIAL_PURCHASE"),
+      }),
     }),
   );
   const incorrect = await handler(
@@ -123,7 +128,11 @@ Deno.test("rejects a missing or incorrect HMAC signature", async () => {
 Deno.test("rejects an expired HMAC signature", async () => {
   const { handler, updates } = setup();
   const response = await handler(
-    await request(event("INITIAL_PURCHASE"), SECRET, NOW.getTime() / 1000 - 301),
+    await request(
+      event("INITIAL_PURCHASE"),
+      SECRET,
+      NOW.getTime() / 1000 - 301,
+    ),
   );
 
   assertEquals(response.status, 401);
@@ -191,7 +200,9 @@ for (const entitlementId of ["Plus", "AI"] as const) {
 Deno.test("applies Plus and AI independently when both are present", async () => {
   const { handler, updates } = setup();
 
-  const response = await handler(await request(event("RENEWAL", ["Plus", "AI"])));
+  const response = await handler(
+    await request(event("RENEWAL", ["Plus", "AI"])),
+  );
 
   assertEquals(response.status, 200);
   assertEquals(await response.json(), { updated: 2 });
@@ -234,7 +245,9 @@ Deno.test("ignores unrelated event types even without entitlement data", async (
 Deno.test("ignores purchase events without a known entitlement", async () => {
   const { handler, updates } = setup();
 
-  const response = await handler(await request(event("INITIAL_PURCHASE", ["Other"])));
+  const response = await handler(
+    await request(event("INITIAL_PURCHASE", ["Other"])),
+  );
 
   assertEquals(response.status, 200);
   assertEquals(await response.json(), { ignored: "unrelated_entitlement" });

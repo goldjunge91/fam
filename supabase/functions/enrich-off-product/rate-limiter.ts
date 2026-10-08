@@ -20,7 +20,9 @@ export class SlidingWindowRateLimiter {
   ) {}
 
   private prune(now: number) {
-    while (this.timestamps.length > 0 && now - this.timestamps[0] > this.windowMs) {
+    while (
+      this.timestamps.length > 0 && now - this.timestamps[0] > this.windowMs
+    ) {
       this.timestamps.shift();
     }
   }

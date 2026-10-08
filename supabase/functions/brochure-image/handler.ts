@@ -11,7 +11,7 @@
  * der Crawler speichert fortan genau diese Keys in `cover_image`/`image_url`.
  */
 
-export const ALLOWED_PREFIX = 'brochures/dumps/';
+export const ALLOWED_PREFIX = "brochures/dumps/";
 
 export type AuthResult =
   | { ok: true; userId: string }
@@ -27,14 +27,15 @@ export type Dependencies = {
 };
 
 const JSON_HEADERS = {
-  'Content-Type': 'application/json; charset=utf-8',
-  'Cache-Control': 'no-store',
+  "Content-Type": "application/json; charset=utf-8",
+  "Cache-Control": "no-store",
 };
 
 const CORS_HEADERS = {
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-  'Access-Control-Allow-Methods': 'GET, OPTIONS',
-  'Access-Control-Allow-Origin': '*',
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Methods": "GET, OPTIONS",
+  "Access-Control-Allow-Origin": "*",
 };
 
 function json(body: unknown, status = 200): Response {
@@ -52,19 +53,23 @@ function allowedKey(rawKey: string | null): string | null {
   } catch {
     return null;
   }
-  const normalized = decoded.replace(/\\/g, '/');
-  if (!normalized.startsWith(ALLOWED_PREFIX) || normalized.includes('..')) return null;
+  const normalized = decoded.replace(/\\/g, "/");
+  if (!normalized.startsWith(ALLOWED_PREFIX) || normalized.includes("..")) {
+    return null;
+  }
   if (!/^[a-zA-Z0-9._/-]+$/.test(normalized)) return null;
   return normalized;
 }
 
-export function createBrochureImageHandler({ authenticate, getSignedUrl }: Dependencies) {
+export function createBrochureImageHandler(
+  { authenticate, getSignedUrl }: Dependencies,
+) {
   return async (request: Request): Promise<Response> => {
-    if (request.method === 'OPTIONS') {
+    if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: CORS_HEADERS });
     }
-    if (request.method !== 'GET') {
-      return json({ error: 'method_not_allowed' }, 405);
+    if (request.method !== "GET") {
+      return json({ error: "method_not_allowed" }, 405);
     }
 
     const auth = await authenticate(request);
@@ -72,9 +77,9 @@ export function createBrochureImageHandler({ authenticate, getSignedUrl }: Depen
       return json({ error: auth.error }, auth.status);
     }
 
-    const key = allowedKey(new URL(request.url).searchParams.get('key'));
+    const key = allowedKey(new URL(request.url).searchParams.get("key"));
     if (!key) {
-      return json({ error: 'invalid_key' }, 400);
+      return json({ error: "invalid_key" }, 400);
     }
 
     const signed = await getSignedUrl(key);
@@ -86,7 +91,7 @@ export function createBrochureImageHandler({ authenticate, getSignedUrl }: Depen
       status: 302,
       headers: {
         Location: signed.url,
-        'Cache-Control': 'no-store',
+        "Cache-Control": "no-store",
         ...CORS_HEADERS,
       },
     });

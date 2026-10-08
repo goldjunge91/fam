@@ -88,10 +88,10 @@ const html = `<!doctype html>
 Deno.serve(() => {
   return new Response(html, {
     headers: {
-      'Content-Type': 'text/html; charset=utf-8',
+      "Content-Type": "text/html; charset=utf-8",
       // Die Seite ist statisch, aber der Zustand steckt im Fragment. Kein
       // Caching, damit ein zweiter Aufruf nicht aus dem Cache kommt.
-      'Cache-Control': 'no-store',
+      "Cache-Control": "no-store",
     },
   });
 });
