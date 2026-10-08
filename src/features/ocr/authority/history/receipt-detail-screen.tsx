@@ -179,11 +179,23 @@ export function ReceiptDetailScreen() {
     if (!activeHouseholdId || !receiptId) return;
     debugLogEvent('receipt.history.delete.button_pressed', { receipt_id: receiptId });
     Alert.alert(t('ocr.history.deleteReceiptTitle'), t('ocr.history.deleteReceiptBody'), [
-      { text: t('ocr.history.cancel'), style: 'cancel' },
+      {
+        text: t('ocr.history.cancel'),
+        style: 'cancel',
+        onPress: () =>
+          debugLogEvent('receipt.history.delete_confirmation.button_pressed', {
+            button: 'cancel',
+          }),
+      },
       {
         text: t('ocr.history.delete'),
         style: 'destructive',
-        onPress: () => void deleteReceiptEntry(),
+        onPress: () => {
+          debugLogEvent('receipt.history.delete_confirmation.button_pressed', {
+            button: 'delete',
+          });
+          void deleteReceiptEntry();
+        },
       },
     ]);
   }

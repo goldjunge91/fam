@@ -167,9 +167,24 @@ describe('ReceiptDetailScreen', () => {
     expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.history.delete.started', {
       receipt_id: 'receipt-1',
     });
+    expect(mockDebugLogEvent).toHaveBeenCalledWith(
+      'receipt.history.delete_confirmation.button_pressed',
+      { button: 'delete' },
+    );
     expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.history.delete.completed', {
       receipt_id: 'receipt-1',
     });
+    const confirmationLogIndex = mockDebugLogEvent.mock.calls.findIndex(
+      ([event, details]) =>
+        event === 'receipt.history.delete_confirmation.button_pressed' &&
+        details?.button === 'delete',
+    );
+    const deleteStartedLogIndex = mockDebugLogEvent.mock.calls.findIndex(
+      ([event]) => event === 'receipt.history.delete.started',
+    );
+    expect(mockDebugLogEvent.mock.invocationCallOrder[confirmationLogIndex]).toBeLessThan(
+      mockDebugLogEvent.mock.invocationCallOrder[deleteStartedLogIndex],
+    );
     expect(router.back).toHaveBeenCalled();
   });
 
@@ -191,6 +206,10 @@ describe('ReceiptDetailScreen', () => {
     expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.history.delete.button_pressed', {
       receipt_id: 'receipt-1',
     });
+    expect(mockDebugLogEvent).toHaveBeenCalledWith(
+      'receipt.history.delete_confirmation.button_pressed',
+      { button: 'cancel' },
+    );
     expect(mockDebugLogEvent).not.toHaveBeenCalledWith('receipt.history.delete.started', {
       receipt_id: 'receipt-1',
     });

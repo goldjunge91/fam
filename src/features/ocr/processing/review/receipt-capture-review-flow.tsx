@@ -874,11 +874,20 @@ export function ReceiptCaptureReviewFlow({
               <Txt variant="heading" weight="700">
                 {t('ocr.review.captureReady')}
               </Txt>
-              <Button title={t('ocr.review.process')} onPress={() => void processCapturedPages()} />
+              <Button
+                title={t('ocr.review.process')}
+                onPress={() => {
+                  debugLogEvent('receipt.capture.button_pressed', { button: 'process_capture' });
+                  void processCapturedPages();
+                }}
+              />
               <Button
                 title={t('ocr.review.addPage')}
                 variant="secondary"
-                onPress={() => void appendCameraPage()}
+                onPress={() => {
+                  debugLogEvent('receipt.capture.button_pressed', { button: 'append_page' });
+                  void appendCameraPage();
+                }}
               />
               <Button
                 title={t('ocr.review.cancel')}
