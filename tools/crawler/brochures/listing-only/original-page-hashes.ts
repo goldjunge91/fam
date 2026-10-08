@@ -15,6 +15,13 @@ export type OriginalImageStoreInput = {
 };
 
 export type OriginalImageStore = (input: OriginalImageStoreInput) => Promise<void>;
+export type OriginalImageHashResolver = (url: string) => Promise<string | undefined>;
+export type OriginalImageHashObserver = (input: { url: string; sha256: string }) => Promise<void>;
+
+export type BrochurePageHashingOptions = {
+  resolveStoredHash?: OriginalImageHashResolver;
+  onPageHashed?: OriginalImageHashObserver;
+};
 
 export type BrochurePageSignature = {
   pageHashes: PageContentHash[];
@@ -39,10 +46,17 @@ function hashBytes(bytes: Uint8Array): string {
   return createHash('sha256').update(bytes).digest('hex');
 }
 
+function assertSha256(sha256: string): void {
+  if (!/^[a-f0-9]{64}$/.test(sha256)) {
+    throw new Error('Stored page SHA-256 must be 64 lowercase hexadecimal characters.');
+  }
+}
+
 /** Shares each original image response for hashing and any later in-run asset handling. */
 export function createBrochurePageHashingSession(
   fetchOriginalBytes: OriginalImageFetcher,
   storeOriginalBytes: OriginalImageStore,
+  options: BrochurePageHashingOptions = {},
 ): BrochurePageHashingSession {
   const pageHashesByUrl = new Map<string, Promise<string>>();
 
@@ -52,14 +66,19 @@ export function createBrochurePageHashingSession(
     const cached = pageHashesByUrl.get(url);
     if (cached) return cached;
 
-    const pending = Promise.resolve()
-      .then(() => fetchOriginalBytes(url))
-      .then(async (originalBytes) => {
-        const bytes = asBytes(originalBytes);
-        const sha256 = hashBytes(bytes);
-        await storeOriginalBytes({ url, sha256, bytes });
-        return sha256;
-      });
+    const pending = Promise.resolve().then(async () => {
+      const storedHash = await options.resolveStoredHash?.(url);
+      if (storedHash !== undefined) {
+        assertSha256(storedHash);
+        return storedHash;
+      }
+
+      const bytes = asBytes(await fetchOriginalBytes(url));
+      const sha256 = hashBytes(bytes);
+      await options.onPageHashed?.({ url, sha256 });
+      await storeOriginalBytes({ url, sha256, bytes });
+      return sha256;
+    });
     pageHashesByUrl.set(url, pending);
     void pending.catch(() => {
       if (pageHashesByUrl.get(url) === pending) pageHashesByUrl.delete(url);

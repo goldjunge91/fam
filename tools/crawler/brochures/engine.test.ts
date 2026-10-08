@@ -9,7 +9,6 @@ import type {
   CrawlBackupArtifact,
   CrawlDiagnosticsArtifact,
   CrawlerBrochure,
-  LocationDump,
 } from './types';
 
 describe('Crawler Engine & Schema Sanitizer', () => {
@@ -196,50 +195,6 @@ describe('Crawler Engine & Schema Sanitizer', () => {
     expect(cleaned.brochures[0].title).toBe('Angebote der Woche (Supermarkt)');
   });
 
-  it('ruft den onChunkDone-Streaming-Callback nach jedem verarbeiteten Chunk auf', async () => {
-    const mockLocations: BrochureLocation[] = [
-      { zipCode: '11111', latitude: 50.0, longitude: 10.0, cityName: 'Ort 1' },
-      { zipCode: '22222', latitude: 50.0, longitude: 10.0, cityName: 'Ort 2' },
-    ];
-
-    const mockSource: BrochureSource = {
-      name: 'mock',
-      async fetchBrochuresForLocation(loc) {
-        return [
-          {
-            store: { id: `store-${loc.zipCode}`, name: 'Store' },
-            brochures: [
-              {
-                id: `brochure-${loc.zipCode}`,
-                storeId: `store-${loc.zipCode}`,
-                title: 'Prospekt',
-                validFrom: '2026-08-25T00:00:00Z',
-                validUntil: '2026-09-01T00:00:00Z',
-                coverImage: 'https://example.com/cover.jpg',
-                pages: [],
-              },
-            ],
-          },
-        ];
-      },
-    };
-
-    const streamedChunks: LocationDump[][] = [];
-
-    await crawlAllLocations(mockLocations, {
-      concurrency: 1,
-      sources: [mockSource],
-      backupPath: null,
-      onChunkDone: (chunk) => {
-        streamedChunks.push(chunk);
-      },
-    });
-
-    expect(streamedChunks).toHaveLength(2);
-    expect(streamedChunks[0][0].location.zipCode).toBe('11111');
-    expect(streamedChunks[1][0].location.zipCode).toBe('22222');
-  });
-
   it('bricht ab, wenn alle Quellen eines Standorts fehlschlagen', async () => {
     const failingSource: BrochureSource = {
       name: 'failing',
@@ -290,68 +245,10 @@ describe('Crawler Engine & Schema Sanitizer', () => {
     }
   });
 
-  it('veröffentlicht keine erfolgreich gecrawlten, aber leeren Dumps', async () => {
-    const emptySource: BrochureSource = {
-      name: 'empty',
-      async fetchBrochuresForLocation() {
-        return [];
-      },
-    };
-    const publishedChunks: LocationDump[][] = [];
-
-    const result = await crawlAllLocations([{ zipCode: '11111', latitude: 50, longitude: 10 }], {
-      concurrency: 1,
-      sources: [emptySource],
-      backupPath: null,
-      onChunkDone: (chunk) => {
-        publishedChunks.push(chunk);
-      },
-    });
-
-    expect(result.dumps).toHaveLength(1);
-    expect(publishedChunks).toHaveLength(0);
-  });
-
-  it('propagiert Streaming-Uploadfehler bis zum aufrufenden Prozess', async () => {
-    const source: BrochureSource = {
-      name: 'mock',
-      async fetchBrochuresForLocation() {
-        return [
-          {
-            store: { id: 'store', name: 'Store' },
-            brochures: [
-              {
-                id: 'brochure',
-                storeId: 'store',
-                title: 'Prospekt',
-                validFrom: '2026-08-25T00:00:00Z',
-                validUntil: '2026-09-01T00:00:00Z',
-                coverImage: 'https://example.com/cover.jpg',
-                pages: [],
-              },
-            ],
-          },
-        ];
-      },
-    };
-
-    await expect(
-      crawlAllLocations([{ zipCode: '11111', latitude: 50, longitude: 10 }], {
-        concurrency: 1,
-        sources: [source],
-        backupPath: null,
-        onChunkDone: async () => {
-          throw new Error('Supabase nicht erreichbar');
-        },
-      }),
-    ).rejects.toThrow('Supabase nicht erreichbar');
-  });
-
-  it('hält unvollständige Standortberichte separat fest und veröffentlicht sie nicht', async () => {
+  it('hält unvollständige Standortberichte separat fest', async () => {
     const testDirectory = mkdtempSync(join(tmpdir(), 'brochure-diagnostics-'));
     const backupPath = join(testDirectory, 'backup.json');
     const diagnosticsPath = join(testDirectory, 'reports.json');
-    const publishedChunks: LocationDump[][] = [];
     const source: BrochureSource = {
       name: 'synthetic',
       async fetchBrochuresForLocation() {
@@ -396,14 +293,10 @@ describe('Crawler Engine & Schema Sanitizer', () => {
         sources: [source],
         backupPath,
         diagnosticsPath,
-        onChunkDone: (chunk) => {
-          publishedChunks.push(chunk);
-        },
       });
 
       expect(result.dumps).toHaveLength(1);
       expect(result.reports[0].status).toBe('incomplete');
-      expect(publishedChunks).toEqual([]);
       const diagnostics = JSON.parse(
         readFileSync(diagnosticsPath, 'utf8'),
       ) as CrawlDiagnosticsArtifact;
@@ -416,8 +309,7 @@ describe('Crawler Engine & Schema Sanitizer', () => {
     }
   });
 
-  it('veröffentlicht keinen Source-Dump bei einem unvollständigen Status ohne Diagnose', async () => {
-    const publishedChunks: LocationDump[][] = [];
+  it('markiert einen unvollständigen Quellstatus ohne Diagnose', async () => {
     const source: BrochureSource = {
       name: 'status-only',
       async fetchBrochuresForLocation() {
@@ -452,13 +344,9 @@ describe('Crawler Engine & Schema Sanitizer', () => {
       concurrency: 1,
       sources: [source],
       backupPath: null,
-      onChunkDone: (chunk) => {
-        publishedChunks.push(chunk);
-      },
     });
 
     expect(result.reports[0].status).toBe('incomplete');
     expect(result.reports[0].diagnostics[0]?.code).toBe('source-incomplete');
-    expect(publishedChunks).toEqual([]);
   });
 });

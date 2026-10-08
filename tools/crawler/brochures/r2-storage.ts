@@ -14,10 +14,13 @@ export type R2Config = {
   accessKeyId: string;
   secretAccessKey: string;
   bucket: string;
-  publicUrl: string;
   storageBudgetBytes?: number;
   storageBudget?: StorageBudget;
 };
+
+export type OriginalBytesBySha256Resolver = (
+  sha256: string,
+) => Promise<Uint8Array | undefined>;
 
 export function loadR2Config(options?: {
   disabled?: boolean;
@@ -30,9 +33,8 @@ export function loadR2Config(options?: {
   const accessKeyId = process.env.R2_ACCESS_KEY_ID?.trim();
   const secretAccessKey = process.env.R2_SECRET_ACCESS_KEY?.trim();
   const bucket = process.env.R2_BUCKET?.trim() || process.env.R2_BUCKET_NAME?.trim();
-  const publicUrl = process.env.R2_PUBLIC_URL?.trim();
 
-  if (!accountId || !accessKeyId || !secretAccessKey || !bucket || !publicUrl) {
+  if (!accountId || !accessKeyId || !secretAccessKey || !bucket) {
     return null;
   }
 
@@ -41,7 +43,6 @@ export function loadR2Config(options?: {
     accessKeyId,
     secretAccessKey,
     bucket,
-    publicUrl: publicUrl.replace(/\/+$/, ''),
     ...(options?.storageBudgetBytes === undefined
       ? {}
       : { storageBudgetBytes: options.storageBudgetBytes }),
@@ -363,6 +364,11 @@ async function fetchImage(originalUrl: string): Promise<ArrayBuffer> {
   throw new Error(`Bild-Download für ${originalUrl} ohne Ergebnis beendet.`);
 }
 
+/** Downloads original page bytes without decoding or optimizing them. */
+export async function downloadOriginalImageBytes(originalUrl: string): Promise<ArrayBuffer> {
+  return fetchImage(originalUrl);
+}
+
 /**
  * Reduziert große CDN-Bilder vor dem Upload. Prospektseiten bleiben mit 2048px
  * Breite lesbar, benötigen aber deutlich weniger R2-Speicher und Bandbreite.
@@ -389,6 +395,12 @@ export async function downloadOptimizedImage(originalUrl: string): Promise<Array
   return optimizeImage(await fetchImage(originalUrl));
 }
 
+/** Hashes the original page bytes before R2 image optimization. */
+export async function fetchImageSha256(originalUrl: string): Promise<string> {
+  const original = await fetchImage(originalUrl);
+  return createHash('sha256').update(Buffer.from(original)).digest('hex');
+}
+
 /**
  * Spiegelt Cover- und Seitengrafiken eines Prospekts nach Cloudflare R2
  * und ersetzt die URLs durch die neue R2 Public URL.
@@ -397,8 +409,13 @@ export async function mirrorBrochureImagesToR2(
   brochure: CrawlerBrochure,
   config: R2Config,
   uploadedUrlCache: Map<string, string | Promise<string>>,
+  resolveOriginalBytesBySha256?: OriginalBytesBySha256Resolver,
 ): Promise<CrawlerBrochure> {
   const storageBudget = await ensureR2StorageBudget(config);
+  const verifiedPageHashes = new Map(
+    (brochure.verifiedPageHashes ?? []).map(({ pageNumber, sha256 }) => [pageNumber, sha256]),
+  );
+  const resolvedBytesByHash = new Map<string, Promise<ArrayBuffer>>();
   const updatedBrochure: CrawlerBrochure = {
     ...brochure,
     pages: [...(brochure.pages || [])],
@@ -407,14 +424,16 @@ export async function mirrorBrochureImagesToR2(
   const tasks: Array<{
     originalUrl: string;
     context: string;
+    pageNumber: number;
     apply: (r2Url: string) => void;
   }> = [];
 
   // 1. Cover Image
-  if (brochure.coverImage && !brochure.coverImage.startsWith(config.publicUrl)) {
+  if (brochure.coverImage && !/^brochures\//.test(brochure.coverImage)) {
     tasks.push({
       originalUrl: brochure.coverImage,
       context: 'cover',
+      pageNumber: 1,
       apply: (r2Url) => {
         updatedBrochure.coverImage = r2Url;
       },
@@ -424,10 +443,11 @@ export async function mirrorBrochureImagesToR2(
   // 2. Page Images
   updatedBrochure.pages = (brochure.pages || []).map((page, index) => {
     const updatedPage = { ...page };
-    if (page.imageUrl && !page.imageUrl.startsWith(config.publicUrl)) {
+    if (page.imageUrl && !/^brochures\//.test(page.imageUrl)) {
       tasks.push({
         originalUrl: page.imageUrl,
         context: `page-${String(page.number ?? index + 1).padStart(3, '0')}`,
+        pageNumber: page.number ?? index + 1,
         apply: (r2Url) => {
           updatedPage.imageUrl = r2Url;
         },
@@ -436,12 +456,58 @@ export async function mirrorBrochureImagesToR2(
     return updatedPage;
   });
 
+  async function resolveVerifiedOriginalBytes(task: (typeof tasks)[number]): Promise<ArrayBuffer | undefined> {
+    if (!resolveOriginalBytesBySha256 || !brochure.verifiedPageHashes) return undefined;
+
+    const sha256 = verifiedPageHashes.get(task.pageNumber);
+    if (!sha256 || !/^[a-f0-9]{64}$/.test(sha256)) {
+      throw new Error(
+        `Prospekt ${brochure.id} hat keinen gültigen verifizierten Hash für Seite ${task.pageNumber}.`,
+      );
+    }
+
+    const cached = resolvedBytesByHash.get(sha256);
+    if (cached) return cached;
+
+    const pending = (async () => {
+      const bytes = await resolveOriginalBytesBySha256(sha256);
+      if (!bytes) {
+        throw new Error(
+          `Verifizierte Originalbytes für Prospekt ${brochure.id}, Seite ${task.pageNumber} (${sha256}) fehlen.`,
+        );
+      }
+      const actualSha256 = createHash('sha256').update(bytes).digest('hex');
+      if (actualSha256 !== sha256) {
+        throw new Error(
+          `Verifizierte Originalbytes für Prospekt ${brochure.id}, Seite ${task.pageNumber} stimmen nicht mit dem SHA-256 überein.`,
+        );
+      }
+      if (bytes.byteLength > MAX_IMAGE_BYTES) {
+        throw new Error(
+          `Verifizierte Originalbytes für Seite ${task.pageNumber} überschreiten ${(MAX_IMAGE_BYTES / 1024 / 1024).toFixed(0)} MB.`,
+        );
+      }
+
+      const arrayBuffer = new ArrayBuffer(bytes.byteLength);
+      new Uint8Array(arrayBuffer).set(bytes);
+      return arrayBuffer;
+    })();
+    resolvedBytesByHash.set(sha256, pending);
+    try {
+      return await pending;
+    } catch (error) {
+      resolvedBytesByHash.delete(sha256);
+      throw error;
+    }
+  }
+
   // Bilder parallel mit Concurrency herunterladen und nach R2 hochladen
   const CONCURRENCY = 2;
   for (let i = 0; i < tasks.length; i += CONCURRENCY) {
     const chunk = tasks.slice(i, i + CONCURRENCY);
     const results = await Promise.allSettled(
       chunk.map(async (task) => {
+        const verifiedOriginalBytes = await resolveVerifiedOriginalBytes(task);
         const cached = uploadedUrlCache.get(task.originalUrl);
         if (cached) {
           task.apply(await cached);
@@ -450,7 +516,7 @@ export async function mirrorBrochureImagesToR2(
 
         const mirrorPromise = (async () => {
           const key = imageKeyFor(task.originalUrl);
-          const r2Url = `${config.publicUrl}/${key}`;
+          const r2Url = key;
 
           if (await r2ObjectExists(config, key)) {
             return r2Url;
@@ -461,11 +527,13 @@ export async function mirrorBrochureImagesToR2(
           // So erzeugt der erste Lauf keine zweite Kopie jedes bereits geladenen Bildes.
           const legacyKey = legacyImageKeyFor(task.originalUrl, brochure.id, task.context);
           if (await r2ObjectExists(config, legacyKey)) {
-            return `${config.publicUrl}/${legacyKey}`;
+            return legacyKey;
           }
           storageBudget?.markMissing(legacyKey);
 
-          const storedImage = await downloadOptimizedImage(task.originalUrl);
+          const storedImage = verifiedOriginalBytes
+            ? await optimizeImage(verifiedOriginalBytes)
+            : await downloadOptimizedImage(task.originalUrl);
           const reservation = storageBudget?.reserve(key, storedImage.byteLength);
           await uploadToR2(config, key, storedImage);
           reservation?.commit(storedImage.byteLength);

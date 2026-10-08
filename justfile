@@ -66,30 +66,6 @@ tools-recipe-catalog *args:
 crawler-brochures *args:
     bun run tools/crawler/brochures/index.ts "$@"
 
-# Bisher: bun run crawler:aldi-v2
-crawler-aldi-v2 *args:
-    bun run tools/crawler/brochures/aldi-capitals-v2.ts "$@"
-
-# Bisher: bun run crawler:aldi-sample-v2
-crawler-aldi-sample-v2 *args:
-    bun run tools/crawler/brochures/aldi-sample-v2.ts --stores=aldi "$@"
-
-# Bisher: bun run crawler:retailer-sample
-crawler-retailer-sample *args:
-    bun run tools/crawler/brochures/aldi-sample-v2.ts "$@"
-
-# Bisher: bun run crawler:verify
-crawler-verify *args:
-    bun run tools/crawler/brochures/verify-versions.ts "$@"
-
-# Bisher: bun run crawler:review
-crawler-review *args:
-    bun run tools/crawler/brochures/review-server.ts "$@"
-
-# Bisher: bun run analyze:brochure-versions
-analyze-brochure-versions *args:
-    bun run tools/crawler/brochures/analyze-brochure-versions.ts "$@"
-
 # Bisher: bun run web
 web *args:
     EXPO_NO_DOTENV=1 dotenv -o -e .env.local -- expo start --web "$@"

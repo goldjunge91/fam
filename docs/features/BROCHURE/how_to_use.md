@@ -1,6 +1,12 @@
 
 # Prospektbilder: Abruf, Prüfung und R2-Upload
 
+**Aktuelle Veröffentlichungssperre:** Cloudflare-/R2-Uploads, Deploys,
+Cutovers und andere Remote-Schreibvorgänge sind erst freigegeben, nachdem Marco
+die lokal erzeugten Prospekte visuell geprüft und ausdrücklich freigegeben hat.
+Das gilt auch für manuell gestartete und geplante GitHub Actions. Bis dahin nur
+lokale Listing-only-Ausgaben verwenden.
+
 ## Edge Function bereitstellen
 
 Das Deploy-Script liest R2-Variablen aus deiner Env-Datei, setzt sie als
@@ -26,119 +32,10 @@ bash scripts/deploy-brochure-image.sh --env .env.development.local --no-deploy
 3. Setzt die Secrets mit `supabase secrets set` (unterstützt optional auch `BROCHURE_IMAGE_TTL_SECONDS`, falls du in der Env-Datei eine andere TTL als 60 Sekunden willst).
 4. Deployt die Function mit `supabase functions deploy brochure-image`.
 
-## Duplikate eines Händler-Samples prüfen
-
-Der Händler-Sample-Crawler lädt Bilder nur auf die Festplatte. Er schreibt
-nicht nach Cloudflare R2 oder Supabase. Das Verzeichnis enthält `manifest.json`
-und den Bildcache unter `assets/`.
-
-```bash
-SAMPLE_DIR="tools/crawler/data/retailer-full-v5-100"
-
-bun --env-file=.env.development.local run tools/crawler/brochures/aldi-sample-v2.ts \
-  --sample-size=1000 \
-  --concurrency=12 \
-  --pages=all \
-  --stores=lidl,kaufland,netto,rewe \
-  --output-dir="$SAMPLE_DIR"
-```
-
-Der Dateiname `aldi-sample-v2.ts` ist historisch; der Lauf kann mit
-`--stores` auch Lidl, Kaufland, Netto und REWE abfragen. Das gleiche
-Ausgabeverzeichnis bewahrt den Bildcache für einen späteren Lauf. Es ersetzt
-aber nicht die Abfragen an Bring: Bereits besuchte PLZ werden erneut abgefragt.
-Wenn `manifest.json` fehlt, beginnt der Lauf ohne vorhandenen Sample-Stand.
-
-Nach dem Sample-Lauf zeigt `manifest.json` exakte Bildduplikate über
-`summary.duplicatePageReferences`, eingesparte Bilddaten über
-`summary.duplicateBytes` und den Anteil über `summary.deduplicationPercent`.
-Diese Werte zählen byte-identische Bilddateien, nicht doppelte Prospekt-Ausgaben.
-
-Für ähnliche oder identische Prospekt-Ausgaben desselben Händlers die
-Versionen zusätzlich vergleichen:
-
-```bash
-bun run tools/crawler/brochures/verify-versions.ts \
-  --manifest="$SAMPLE_DIR/manifest.json" \
-  --ocr \
-  --ocr-concurrency=4
-
-jq '.summary | {
-  exactDuplicateRecords,
-  autoIdenticalPairs,
-  autoRegionalVariantPairs,
-  autoDifferentPairs,
-  autoUncertainPairs,
-  automaticSemanticGroups
-}' "$SAMPLE_DIR/verification-report.json"
-```
-
-`exactDuplicateRecords` zählt zusätzliche vollständige Prospekt-Datensätze mit
-derselben Inhalts-Signatur. `autoIdenticalPairs` zählt danach erkannte
-Kandidatenpaare mit ähnlichem, aber nicht byte-identischem Inhalt. Das sind
-Paarzahlen, keine Anzahl von Dateien. Regionale Varianten, unterschiedliche
-Ausgaben und unklare Fälle bleiben separate Kategorien. Der Vergleich erfolgt
-zwischen Ausgaben desselben Händlers und Gültigkeitszeitraums. Nur `identical`
-ist für ein automatisches Zusammenführen gedacht; `uncertain` bleibt getrennt.
-
-Die Stichprobe schreibt lokal und kann mehrere Gigabyte belegen. Prüfe vor dem
-Start, dass das Ziellaufwerk Platz hat. Die frühere Dokumentation nennt einen
-732-PLZ-Checkpoint im Verzeichnis `retailer-full-v5-100`; wenn dort kein
-`manifest.json` und kein `assets/` liegen, kann dieser Lauf nicht fortgesetzt
-werden.
-
-## Optionale KI-Anreicherung mit OpenRouter
-
-Das ist eine eigene Analyse des Haupt-Crawler-Backups. Sie liest nicht das
-`manifest.json` des Händler-Samples. Für das Händler-Sample nutze die oben
-beschriebene `verify-versions.ts`-Analyse mit lokalem OCR.
-
-Die OpenRouter-Variante gruppiert Prospekte mit byte-identischen
-Seitenfolgen und bittet ein Vision-Modell um Händler, Titel und sichtbare
-Gültigkeitsdaten. Sie fasst keine Prospekte zusammen und entscheidet nicht,
-welche Prospekte identisch sind. Dafür muss das Bildverzeichnis die
-Objektstruktur des Backups enthalten, zum Beispiel
-`brochures/dumps/assets/...jpg`. Außerdem wird `jq` benötigt, um das Backup zu
-lesen.
-
-`OPENROUTER_API_KEY` muss in `.env.development.local` gesetzt sein. Optional
-kannst du dort `OPENROUTER_MODEL` festlegen. Ohne `--ai` läuft die SHA-Analyse
-lokal und überträgt keine Bilder an OpenRouter.
-
-```bash
-ANALYSIS_DIR="tools/crawler/data/brochure-images"
-
-bun --env-file=.env.development.local run scripts/analyze-brochure-versions.ts \
-  --input-dir="$ANALYSIS_DIR" \
-  --ai \
-  --ai-max-calls=20 \
-  --output="$ANALYSIS_DIR/brochure-version-analysis.json" \
-  --cache="$ANALYSIS_DIR/.brochure-version-hashes.json"
-```
-
-Die Analyse schickt pro erkannter Inhaltsgruppe einen verkleinerten Kontaktbogen
-mit bis zu vier Prospektseiten an OpenRouter. `--ai-max-calls` begrenzt die
-Anzahl der API-Aufrufe; Standard sind 20. Das ist eine Aufrufgrenze, kein
-festes Kostenlimit. Für einen kleinen Probelauf kannst du `--ai-max-calls=1`
-setzen. `--ai-max-tokens` begrenzt die Modellantwort pro Anfrage; Standard sind
-300 Tokens. Die tatsächlichen Aufrufe und das
-verwendete Modell stehen im JSON-Ergebnis unter `ai.callsMade` und `ai.model`.
-Die Ergebnisse liegen unter `ai.annotations`; ohne KI-Flag wird dieser Abschnitt
-nicht erzeugt.
-
-`ANALYSIS_DIR` muss auf denselben lokalen Stammordner zeigen, den du beim Crawl
-mit `--local-dir` angegeben hast. Das Beispiel nutzt den ignorierten Projektpfad
-`tools/crawler/data/brochure-images`; stelle sicher, dass dort Bilder liegen.
-Ohne `--backup` nutzt das Skript das aktuelle Crawler-Backup
-`tools/crawler/brochures/last_crawl_backup.json`. Dieses Backup muss zum
-Bildbestand passen, sonst werden fehlende Seiten gemeldet und können nicht
-analysiert werden.
-
-Der im älteren README erwähnte Befehl `bun run analyze:brochure-versions` ist
-aktuell nicht in `package.json` registriert. Verwende deshalb den direkten
-Dateipfad `scripts/analyze-brochure-versions.ts` wie oben.
-
 ## Bring-Bilder in den privaten Cloudflare-R2-Bucket hochladen
+
+Die oben beschriebene Veröffentlichungssperre gilt auch für die folgenden
+Produktionsbefehle.
 
 Der unterstützte Upload läuft über den Haupt-Crawler. Er lädt Bilder aus der
 Bring-API herunter, optimiert sie, legt sie privat im Bucket `r2-broschure` ab
@@ -180,61 +77,105 @@ nutzbar, wenn sein Objekt-Key unter `brochures/dumps/` liegt und derselbe Key
 auch in den passenden Supabase-Prospektdaten steht. Zugangsschlüssel niemals
 in Befehlsargumente, Logs oder Dokumentation kopieren.
 
-## Listing-Only: vollständiger Händler-/Prospekt-Scan ohne Bild-Download
+## Listing-only: Vollscan und vollständige Prospektverifikation
 
-`listing-only/all-stores-full.ts` fragt für alle 10813 deutschen PLZ nur die
-Bring-Offers-Liste ab (kein Detail-Call, kein Bild-Download, kein R2/Supabase)
-und schreibt atomar `tools/crawler/data/listing-only/all-stores-full.json`.
-Der Lauf ist fortsetzbar: schon geladene PLZ werden übersprungen.
+Der Vollscan erfasst zuerst nur Bring-Angebote je PLZ. Danach werden echte
+Seitenzahlen je BRN und verifiziert lokal danach alle Seitenbilder anhand ihrer
+unveränderten Originalbytes. Die Pipeline schreibt keine Bilder nach R2 und
+verändert Supabase nicht.
 
 ```bash
 bun --env-file=.env.development.local run \
   tools/crawler/brochures/listing-only/all-stores-full.ts
-```
 
-Metriken für einzelne PLZ ohne Bild-Download:
-
-```bash
 bun --env-file=.env.development.local run \
-  tools/crawler/brochures/listing-only/dump-plz.ts --plz=22043
-```
+  tools/crawler/brochures/listing-only/fetch-detail-pages.ts
 
-Radius-Scan über 12 Städte für einen BRN oder Händler:
+bun run tools/crawler/brochures/listing-only/group-canonical.ts
 
-```bash
+bun run tools/crawler/brochures/listing-only/metadata-candidates.ts
+
 bun --env-file=.env.development.local run \
-  tools/crawler/brochures/listing-only/radius-scan.ts \
-  --store=kaufland --raster=major
+  tools/crawler/brochures/listing-only/verify-full-brochures.ts \
+  --candidate-report=tools/crawler/data/listing-only/metadata-candidate-report.json \
+  --budget-bytes=10737418240
+
+bun --env-file=.env.development.local run \
+  tools/crawler/brochures/listing-only/verify-full-brochures.ts \
+  --zip-code=22043 \
+  --budget-bytes=10737418240
+
+bun run tools/crawler/brochures/listing-only/persist-canonical.ts
+bun run tools/crawler/brochures/listing-only/canonical-report.ts
 ```
+
+Der Gruppierungsschlüssel ist exakt `storeName + validFrom + validUntil +
+detailPageCount`. Im Scan vom 2026-10-07 ergab er 119 Gruppen aus 217.178
+Sichtungen, 4.550 BRNs und 10.813 PLZ. Titel und Bild-URL ändern diesen
+Schlüssel nicht.
+
+Die Standardausgaben liegen unter `tools/crawler/data/listing-only/`:
+`all-stores-full.json`, `detail-pages.json`, `canonical-groups.json`,
+`metadata-candidate-index.json`, `metadata-candidate-report.json`,
+`canonical-page-verification.json`,
+`.canonical-page-verification-progress.json`,
+`canonical-page-verification-pilot.json`,
+`.canonical-page-verification-pilot-progress.json`,
+`canonical-page-verification-22043.json`, `page-assets-22043/`,
+`review-sample-22043/`, `page-assets/<sha256>.bin`, `canonical-brochures.json` und
+`canonical-report.json`; der Pilot speichert Bilder separat unter
+`page-assets-pilot/`. Der 123-BRN-Händlerpilot ist unvollständig. Der gezielte
+PLZ-Sample-Lauf für 22043 ist abgeschlossen: 25 BRNs, 22 Metadatengruppen und
+590 Seitenreferenzen.
+
+`metadata-candidates.ts` vergleicht die Metadatengruppen und Seite-1-SHAs mit
+dem vorherigen lokalen Index. Ein fehlender Index startet die Historie; ein
+ungültiger Index stoppt den Lauf. Metadaten und gleiche Titelbilder bleiben
+Kandidaten und überspringen keine Bildabrufe. Der Report listet zusätzlich den
+reproduzierbaren 32-Gruppen-Pilot für Kaufland, REWE und XXXLutz.
+
+Der erste Vollseitenlauf liest diesen Bericht und schreibt getrennt nach
+`canonical-page-verification-pilot.json`, `.canonical-page-verification-pilot-progress.json`
+und `page-assets-pilot/`. Er prüft nur die ausgewählten BRNs derselben Cover-
+Hash-Buckets; der Report kennzeichnet den Umfang als unvollständig. Ein späterer
+Gesamtlauf verlangt zusätzlich `--all-brns` und darf erst nach eigener
+Budget-/Laufentscheidung gestartet werden.
+
+Ein PLZ-Sample startet mit `--zip-code=22043` und verwendet eigene Report- und
+Asset-Pfade. Der Bericht umfasst alle im Vollscan für diese PLZ gelisteten
+BRNs; bei einem anderen ZIP-Code ändern sich sowohl der Filter als auch der
+Fortschrittsfingerabdruck.
+
+`--budget-bytes` begrenzt die Größe der lokalen Originalseiten-Assets; das
+Beispiel erlaubt 10 GiB. Ein unterbrochener Lauf kann mit identischem Input
+fortgesetzt werden. Die Hashes entstehen vor einer möglichen Bildoptimierung.
+Der Verifikationsbericht liegt unter
+`canonical-page-verification.json`, die Originalbytes unter
+`page-assets/<sha256>.bin`. Persistenz und Report schreiben
+`canonical-brochures.json` und `canonical-report.json`.
+
+Zusammengeführt werden nur BRNs mit gleichem Metadatenschlüssel, gleicher
+Seitenzahl und identischem geordnetem SHA-256-Vektor sämtlicher Seitenbilder.
+Abweichende Innenseiten bleiben getrennte Prospekte. Der Ablauf erzeugt kein
+Cover-Manifest und verwendet weder visuelle Ähnlichkeit noch OCR als
+Identitätsbeleg.
 
 ### Ergebnisstand 2026-10-07
 
-- 10813/10813 PLZ, 0 Fehler.
-- 217178 Prospekt-Sichtungen, 4550 einzigartige BRNs, 22 Händler.
-- 119 Metadaten-Gruppen mit echten Detail-Seitenzahlen
-  (`storeName + validFrom + validUntil + detailPageCount`, siehe unten).
-- Offers-Liste liefert `pageCount` immer 1; die echte Seitenzahl kommt nur im
-  Detail-Call. Gruppen mit gleichem Cover, Gültigkeit und Händler sind daher
-  vermutlich dieselbe Ausgabe.
-- Naiver Crawl: 217178 Sichtungen. Mit 119 Metadaten-Gruppen und den
-  verifizierten regionalen Hash-Varianten ergeben sich 3126 gespeicherte
-  Bild-Cluster.
-
-### Canonical-Pipeline (Beads fam-kl22)
-
-1. Gruppieren nach `storeName + validFrom + validUntil + detailPageCount`.
-2. Je BRN Seite 1 laden und SHA-256 innerhalb jeder Metadaten-Gruppe
-   vergleichen.
-3. Je bestätigtem Hash-Cluster einen Datensatz mit `availableZipCodes`
-   persistieren. Regionale Hash-Varianten bleiben getrennt.
-4. Der Haupt-Crawler veröffentlicht Katalog und PLZ-Verfügbarkeit atomar; die
-   App lädt die passende PLZ in die bestehende lokale SQLite-Form und nutzt die
-   vorhandenen Übersichts- und Viewer-Screens.
-5. Der Bericht vergleicht naive Sichtungen mit gespeicherten Bild-Clustern.
+- 10.813/10.813 PLZ, 0 Fehler.
+- 217.178 Prospekt-Sichtungen, 4.550 BRNs und 22 Händler.
+- 119 Metadaten-Gruppen nach `storeName + validFrom + validUntil +
+  detailPageCount`.
+- PLZ 22043: 25 BRNs, 25 unterschiedliche vollständige Seitenvektoren und 590
+  vollständig geladene Seiten; lokale Sichtprobe unter
+  `tools/crawler/data/listing-only/review-sample-22043/`.
+- Exakte Prospektzahlen entstehen erst nach erfolgreicher
+  Vollseitenverifikation; historische Cover- und OCR-Auswertungen sind kein
+  aktiver Workflow.
 
 ### Bekannte Lücken
 
 - **ALDI Nord fehlt komplett bei Bring** (0 BRNs in Nord-Städten). Nur
   ALDI Süd ist gelistet: 1 BRN für 4758 PLZ.
 - Rossmann und dm erscheinen im Voll-Scan nicht.
-- Details je Händler siehe `BROCHURE_DEDUPLICATION_ANALYSIS.md`.
+- Es wird keine zweite ALDI-Nord-Quelle verwendet.

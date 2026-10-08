@@ -108,13 +108,13 @@ Benötigte lokale Variablen stehen in `.env.example`: `BRING_AUTH_TOKEN`,
 
 ---
 
-## 6. Wöchentliche Dump-Pipeline
+## 6. Wöchentlicher Katalog-Cutover
 
-`.github/workflows/update-brochures.yml` läuft montags und kann zusätzlich
-manuell gestartet werden. Der Job lädt die aktuellen Prospekte, transformiert
-`discounts[]` in das Fam-Hotspot-Format und schreibt je PLZ genau den neuesten
-Dump nach Supabase. Der vorherige Dump wird erst nach einem erfolgreichen
-Insert entfernt.
+`.github/workflows/update-brochures.yml` läuft montags und donnerstags und
+kann zusätzlich manuell gestartet werden. Jede Zone lädt die aktuellen
+Prospekte samt vollständigen Seiten und Hotspots, spiegelt die Bilder in den
+privaten R2-Bucket und veröffentlicht anschließend Katalog und PLZ-
+Verfügbarkeit atomar. Teilweise abgeschlossene PLZ werden nicht ersetzt.
 
 Repository Secrets:
 
@@ -123,6 +123,10 @@ Repository Secrets:
 * `BRING_USER_UUID`
 * `SUPABASE_URL`
 * `SUPABASE_SECRET_KEY`
+* `R2_ACCOUNT_ID`
+* `R2_ACCESS_KEY_ID`
+* `R2_SECRET_ACCESS_KEY`
+* optional `R2_BUCKET` (Standard: `r2-broschure`)
 
 Der Workflow lädt automatisch den vollständigen deutschen PLZ-Datensatz von
 [GeoNames](https://www.geonames.org/) (CC BY 4.0), verdichtet mehrfach
@@ -134,5 +138,5 @@ Lokaler Dry-Run ohne Supabase-Schreibzugriff:
 
 ```bash
 BROCHURE_LOCATIONS_JSON='[{"zipCode":"22043","latitude":53.572433,"longitude":10.09511}]' \
-  bun --env-file=.env run brochures:update --dry-run
+  bun --env-file=.env run crawler:brochures --dry-run
 ```

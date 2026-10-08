@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';
+import { createHash } from 'node:crypto';
 import {
   ensureR2StorageBudget,
   imageKeyFor,
@@ -30,7 +31,6 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
     accessKeyId: 'mock_key_456',
     secretAccessKey: 'mock_secret_789',
     bucket: 'fam-brochures',
-    publicUrl: 'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev',
   };
 
   beforeEach(() => {
@@ -104,23 +104,13 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
     };
 
     const cache = new Map<string, string>();
-    cache.set(
-      'https://cdn.example.com/cover.jpg',
-      'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-cover.jpg',
-    );
-    cache.set(
-      'https://cdn.example.com/page1.jpg',
-      'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-page1.jpg',
-    );
+    cache.set('https://cdn.example.com/cover.jpg', 'brochures/dumps/assets/cached-cover.jpg');
+    cache.set('https://cdn.example.com/page1.jpg', 'brochures/dumps/assets/cached-page1.jpg');
 
     const result = await mirrorBrochureImagesToR2(mockBrochure, mockR2Config, cache);
 
-    expect(result.coverImage).toBe(
-      'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-cover.jpg',
-    );
-    expect(result.pages[0].imageUrl).toBe(
-      'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-page1.jpg',
-    );
+    expect(result.coverImage).toBe('brochures/dumps/assets/cached-cover.jpg');
+    expect(result.pages[0].imageUrl).toBe('brochures/dumps/assets/cached-page1.jpg');
   });
 
   it('deaktiviert R2 vollständig für einen Dry-Run', () => {
@@ -169,7 +159,7 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
 
     const result = await mirrorBrochureImagesToR2(brochure, mockR2Config, new Map());
 
-    expect(result.coverImage).toMatch(/\/brochures\/dumps\/assets\/[a-f0-9]{64}\.jpg$/);
+    expect(result.coverImage).toMatch(/^brochures\/dumps\/assets\/[a-f0-9]{64}\.jpg$/);
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock.mock.calls[0][1]?.method).toBe('HEAD');
   });
@@ -195,7 +185,7 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
 
     const result = await mirrorBrochureImagesToR2(brochure, mockR2Config, new Map());
 
-    expect(result.coverImage).toContain('/brochures/dumps/legacy-brochure/cover-');
+    expect(result.coverImage).toMatch(/^brochures\/dumps\/legacy-brochure\/cover-/);
     expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'HEAD')).toHaveLength(2);
   });
 
@@ -225,6 +215,104 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
     expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'HEAD')).toHaveLength(2);
     expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'PUT')).toHaveLength(1);
     expect(fetchMock).toHaveBeenCalledTimes(4);
+  });
+
+  it('optimiert und lädt verifizierte Originalbytes aus dem Hash-Resolver hoch', async () => {
+    const sourceUrl = 'https://cdn.example.com/verified-page.jpg';
+    const originalBytes = new TextEncoder().encode('verified original page bytes');
+    const sha256 = createHash('sha256').update(originalBytes).digest('hex');
+    const fetchMock = jest.spyOn(global, 'fetch').mockImplementation(async (_input, init) => {
+      if (init?.method === 'HEAD') return testResponse(null, 404);
+      if (init?.method === 'PUT') return testResponse(null);
+      throw new Error('A verified local asset must avoid the source URL download.');
+    });
+    const resolveOriginalBytesBySha256 = jest.fn(async (hash: string) =>
+      hash === sha256 ? originalBytes : undefined,
+    );
+    const brochure: CrawlerBrochure = {
+      id: 'verified-brochure',
+      storeId: 'store',
+      title: 'Prospekt',
+      validFrom: '2026-08-25T00:00:00Z',
+      validUntil: '2026-09-01T00:00:00Z',
+      coverImage: '',
+      pages: [{ number: 1, imageUrl: sourceUrl, hotspots: [] }],
+      verifiedPageHashes: [{ pageNumber: 1, sha256 }],
+    };
+
+    const result = await mirrorBrochureImagesToR2(
+      brochure,
+      mockR2Config,
+      new Map(),
+      resolveOriginalBytesBySha256,
+    );
+
+    const upload = fetchMock.mock.calls.find(([, init]) => init?.method === 'PUT');
+    expect(resolveOriginalBytesBySha256).toHaveBeenCalledWith(sha256);
+    expect(upload?.[1]?.body).toBeInstanceOf(ArrayBuffer);
+    expect(new Uint8Array(upload?.[1]?.body as ArrayBuffer)).toEqual(originalBytes);
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+    expect(result.pages[0]?.imageUrl).toBe(imageKeyFor(sourceUrl));
+  });
+
+  it('bricht bei fehlenden oder beschädigten verifizierten Bytes vor jedem Upload ab', async () => {
+    const sourceUrl = 'https://cdn.example.com/missing-verified-page.jpg';
+    const originalBytes = new TextEncoder().encode('verified original page bytes');
+    const sha256 = createHash('sha256').update(originalBytes).digest('hex');
+    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(testResponse(null, 404));
+    const brochure: CrawlerBrochure = {
+      id: 'verified-brochure',
+      storeId: 'store',
+      title: 'Prospekt',
+      validFrom: '2026-08-25T00:00:00Z',
+      validUntil: '2026-09-01T00:00:00Z',
+      coverImage: '',
+      pages: [{ number: 1, imageUrl: sourceUrl, hotspots: [] }],
+      verifiedPageHashes: [{ pageNumber: 1, sha256 }],
+    };
+
+    await expect(
+      mirrorBrochureImagesToR2(brochure, mockR2Config, new Map(), async () => undefined),
+    ).rejects.toThrow(/verifizierte Originalbytes.*fehlen/i);
+    await expect(
+      mirrorBrochureImagesToR2(
+        brochure,
+        mockR2Config,
+        new Map(),
+        async () => new TextEncoder().encode('different bytes'),
+      ),
+    ).rejects.toThrow(/SHA-256.*überein/i);
+
+    expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'PUT')).toHaveLength(0);
+    expect(fetchMock.mock.calls.some(([input, init]) =>
+      String(input) === sourceUrl && init?.method !== 'HEAD'
+    )).toBe(false);
+  });
+
+  it('behält den URL-Download als Standard ohne Hash-Resolver bei', async () => {
+    const sourceUrl = 'https://cdn.example.com/default-page.jpg';
+    const originalBytes = new TextEncoder().encode('default downloaded page bytes');
+    const fetchMock = jest.spyOn(global, 'fetch').mockImplementation(async (_input, init) => {
+      if (init?.method === 'HEAD') return testResponse(null, 404);
+      if (init?.method === 'PUT') return testResponse(null);
+      return testResponse(originalBytes);
+    });
+    const brochure: CrawlerBrochure = {
+      id: 'default-brochure',
+      storeId: 'store',
+      title: 'Prospekt',
+      validFrom: '2026-08-25T00:00:00Z',
+      validUntil: '2026-09-01T00:00:00Z',
+      coverImage: '',
+      pages: [{ number: 1, imageUrl: sourceUrl, hotspots: [] }],
+    };
+
+    await mirrorBrochureImagesToR2(brochure, mockR2Config, new Map());
+
+    expect(fetchMock.mock.calls.some(([input, init]) =>
+      String(input) === sourceUrl && init?.method !== 'HEAD'
+    )).toBe(true);
+    expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'PUT')).toHaveLength(1);
   });
 
   it('verhindert mit If-None-Match konkurrierende Überschreibungen', async () => {
