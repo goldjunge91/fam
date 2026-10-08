@@ -1,4 +1,3 @@
-// @ts-nocheck deno-lint-ignore-file
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 import {
