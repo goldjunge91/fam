@@ -66,7 +66,7 @@ function makeCatalogRow(id: string, sortOrder: number) {
     dish_types: ['breakfast'],
     dietary_tags: [],
     default_servings: 2,
-    status: 'published',
+    status: 'published' as const,
     sort_order: sortOrder,
   };
 }
@@ -244,6 +244,7 @@ describe('toCookingRecipeDetail', () => {
         ...makeCatalogRow('recipe-1', 1),
         instructions: null,
         hashtags: [],
+        source_url: null,
         cover_image_path: null,
       },
       components: [],
