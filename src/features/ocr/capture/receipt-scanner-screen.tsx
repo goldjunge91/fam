@@ -16,6 +16,7 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { useResumableReceiptDraft } from '@/features/ocr/capture/api';
 import type { ReceiptPickerAsset } from '@/features/ocr/capture/capture/contracts';
 import { ReceiptCaptureReviewFlow } from '@/features/ocr/processing/review/receipt-capture-review-flow';
+import { debugLogEvent } from '@/lib/observability/debug-log';
 
 // Defensiver Import wie im Barcode-Scanner: verhindert App-Crashes
 // ("Cannot find native module ExpoCamera"), wenn der Native Dev Build noch
@@ -262,7 +263,10 @@ export function ReceiptScannerScreen() {
               </Txt>
               <HeaderIconButton
                 label={t('ocr.scanner.close')}
-                onPress={() => goBackTo('/shopping-list')}>
+                onPress={() => {
+                  debugLogEvent('receipt.capture.button_pressed', { button: 'close_scanner' });
+                  goBackTo('/shopping-list');
+                }}>
                 <Feather name="x" size={20} color={colors.text} />
               </HeaderIconButton>
             </View>
@@ -287,7 +291,12 @@ export function ReceiptScannerScreen() {
                     {permission && !permission.granted ? (
                       <Button
                         title={t('ocr.scanner.cameraPermissionAction')}
-                        onPress={() => void requestPermission()}
+                        onPress={() => {
+                          debugLogEvent('receipt.capture.button_pressed', {
+                            button: 'request_camera_permission',
+                          });
+                          void requestPermission();
+                        }}
                       />
                     ) : null}
                   </View>
@@ -312,21 +321,28 @@ export function ReceiptScannerScreen() {
               <View style={styles.cameraControls}>
                 <HeaderIconButton
                   label={t('ocr.scanner.switchCamera')}
-                  onPress={() => setFacing((current) => (current === 'back' ? 'front' : 'back'))}>
+                  onPress={() => {
+                    debugLogEvent('receipt.capture.button_pressed', { button: 'switch_camera' });
+                    setFacing((current) => (current === 'back' ? 'front' : 'back'));
+                  }}>
                   <Feather name="refresh-cw" size={20} color={colors.text} />
                 </HeaderIconButton>
                 <HeaderIconButton
                   label={t('ocr.scanner.focus')}
-                  onPress={() => setFocusRequested(true)}>
+                  onPress={() => {
+                    debugLogEvent('receipt.capture.button_pressed', { button: 'focus_camera' });
+                    setFocusRequested(true);
+                  }}>
                   <Feather name="crosshair" size={20} color={colors.text} />
                 </HeaderIconButton>
                 <HeaderIconButton
                   label={t(`ocr.scanner.flash.${flash}`)}
-                  onPress={() =>
+                  onPress={() => {
+                    debugLogEvent('receipt.capture.button_pressed', { button: 'cycle_flash' });
                     setFlash((current) =>
                       current === 'off' ? 'auto' : current === 'auto' ? 'on' : 'off',
-                    )
-                  }>
+                    );
+                  }}>
                   <Feather
                     name={flash === 'off' ? 'zap-off' : 'zap'}
                     size={20}
@@ -347,6 +363,7 @@ export function ReceiptScannerScreen() {
             {resumableDraft.data ? (
               <Press
                 onPress={() => {
+                  debugLogEvent('receipt.capture.button_pressed', { button: 'resume_draft' });
                   setCaptureError(null);
                   setShots([]);
                   setInitialCapture(null);
@@ -364,7 +381,10 @@ export function ReceiptScannerScreen() {
 
             <View style={styles.footer}>
               <Press
-                onPress={() => void handleShutter()}
+                onPress={() => {
+                  debugLogEvent('receipt.capture.button_pressed', { button: 'take_photo' });
+                  void handleShutter();
+                }}
                 accessibilityRole="button"
                 accessibilityLabel={t('ocr.scanner.shutter')}
                 style={styles.shutter}>
@@ -372,7 +392,10 @@ export function ReceiptScannerScreen() {
               </Press>
               {shots.length === 0 ? (
                 <Press
-                  onPress={() => openFlow('gallery')}
+                  onPress={() => {
+                    debugLogEvent('receipt.capture.button_pressed', { button: 'open_gallery' });
+                    openFlow('gallery');
+                  }}
                   accessibilityRole="button"
                   accessibilityLabel={t('ocr.scanner.gallery')}
                   style={styles.galleryButton}>
@@ -380,7 +403,13 @@ export function ReceiptScannerScreen() {
                 </Press>
               ) : (
                 <Press
-                  onPress={() => openFlow('camera', shots)}
+                  onPress={() => {
+                    debugLogEvent('receipt.capture.button_pressed', {
+                      button: 'finish_capture',
+                      page_count: shots.length,
+                    });
+                    openFlow('camera', shots);
+                  }}
                   accessibilityRole="button"
                   accessibilityLabel={t('ocr.scanner.doneCount', { count: shots.length })}
                   style={styles.done}>

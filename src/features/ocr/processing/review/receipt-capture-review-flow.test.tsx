@@ -26,6 +26,12 @@ jest.mock('@/features/shopping-list/hooks/use-stores', () => ({
 }));
 
 const mockRetryReceiptCaptureUpload = jest.fn();
+jest.mock('@/lib/observability/debug-log', () => ({
+  debugLogEvent: jest.fn(),
+}));
+const { debugLogEvent: mockDebugLogEvent } = jest.requireMock('@/lib/observability/debug-log') as {
+  debugLogEvent: jest.Mock;
+};
 jest.mock('@/features/ocr/capture/api', () => ({
   ...jest.requireActual<typeof import('@/features/ocr/capture/api')>('@/features/ocr/capture/api'),
   retryReceiptCaptureUpload: (...args: unknown[]) => mockRetryReceiptCaptureUpload(...args),
@@ -89,6 +95,7 @@ function persistenceWith(draft: ReceiptCaptureDraft | null): {
 describe('ReceiptCaptureReviewFlow persistence', () => {
   beforeEach(async () => {
     await i18n.changeLanguage('de');
+    mockDebugLogEvent.mockClear();
   });
 
   it('startet den Direkteinstieg aus der Kamera ohne Zwischenbildschirm', async () => {
@@ -222,10 +229,17 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     ).toBeOnTheScreen();
     expect(processCapture).not.toHaveBeenCalled();
 
+    mockDebugLogEvent.mockClear();
     await userEvent
       .setup()
       .press(screen.getByRole('button', { name: i18n.t('ocr.review.process') }));
 
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.capture.button_pressed', {
+      button: 'process_capture',
+    });
+    expect(mockDebugLogEvent.mock.invocationCallOrder[0]).toBeLessThan(
+      processCapture.mock.invocationCallOrder[0],
+    );
     expect(await screen.findByRole('radio', { name: 'REWE' })).toBeOnTheScreen();
     expect(state.phases).toEqual(['processing', 'needs_review']);
   });
@@ -490,7 +504,14 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
         initialCapture={{ source: 'camera' }}
       />,
     );
+    mockDebugLogEvent.mockClear();
     await user.press(await screen.findByRole('button', { name: 'Weitere Seite fotografieren' }));
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.capture.button_pressed', {
+      button: 'append_page',
+    });
+    expect(mockDebugLogEvent.mock.invocationCallOrder[0]).toBeLessThan(
+      capture.mock.invocationCallOrder[1],
+    );
     await user.press(await screen.findByRole('button', { name: 'Bon verarbeiten' }));
 
     expect(capture).toHaveBeenNthCalledWith(

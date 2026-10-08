@@ -19,6 +19,14 @@ const mockRouterCanGoBack = jest.fn(() => true);
 
 const mockRouterReplace = jest.fn();
 
+jest.mock('@/lib/observability/debug-log', () => ({
+  debugLogEvent: jest.fn(),
+}));
+
+const { debugLogEvent: mockDebugLogEvent } = jest.requireMock('@/lib/observability/debug-log') as {
+  debugLogEvent: jest.Mock;
+};
+
 jest.mock('expo-router', () => ({
   router: {
     back: (...args: unknown[]) => mockRouterBack(...args),
@@ -121,6 +129,7 @@ jest.mock('expo-camera', () => {
 describe('ReceiptScannerScreen', () => {
   beforeEach(async () => {
     await i18n.changeLanguage('de');
+    mockDebugLogEvent.mockClear();
   });
 
   it('opens the existing receipt capture flow from the scanner actions', async () => {
@@ -138,6 +147,9 @@ describe('ReceiptScannerScreen', () => {
 
     expect(mockSetFlowVisible).toHaveBeenLastCalledWith(true);
     expect(mockFlowProps.value?.initialCapture).toEqual({ source: 'gallery' });
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.capture.button_pressed', {
+      button: 'open_gallery',
+    });
   });
 });
 
@@ -162,6 +174,9 @@ describe('ReceiptScannerScreen — Wiederaufnahme', () => {
       await fireEvent.press(screen.getByRole('button', { name: 'Entwurf fortsetzen' }));
 
       expect(mockSetFlowVisible).toHaveBeenLastCalledWith(true);
+      expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.capture.button_pressed', {
+        button: 'resume_draft',
+      });
     } finally {
       mockResumableDraft.value = null;
     }
@@ -225,6 +240,9 @@ describe('ReceiptScannerScreen — Schliessen', () => {
     await fireEvent.press(screen.getByLabelText('Schließen'));
 
     expect(mockRouterBack).toHaveBeenCalledTimes(1);
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.capture.button_pressed', {
+      button: 'close_scanner',
+    });
   });
 
   it('faellt ohne Historie auf den Haushaltseinstieg zurueck, statt den Nutzer festzuhalten', async () => {
@@ -290,8 +308,18 @@ describe('ReceiptScannerScreen — Live-Kamera', () => {
     // Noch kein Flow: die Seiten werden erst gesammelt.
     expect(mockSetFlowVisible).not.toHaveBeenCalledWith(true);
     expect(mockTakePictureAsync).toHaveBeenCalledTimes(2);
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.capture.button_pressed', {
+      button: 'take_photo',
+    });
+    expect(mockDebugLogEvent.mock.invocationCallOrder[0]).toBeLessThan(
+      mockTakePictureAsync.mock.invocationCallOrder[0],
+    );
 
     await fireEvent.press(screen.getByRole('button', { name: 'Fertig (2)' }));
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.capture.button_pressed', {
+      button: 'finish_capture',
+      page_count: 2,
+    });
 
     expect(mockFlowProps.value?.initialCapture).toEqual({
       source: 'camera',
