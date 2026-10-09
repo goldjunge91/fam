@@ -829,7 +829,8 @@ begin
     where household_id = rec.household_id and user_id <> uid;
 
     if other_admins = 0 and other_members > 0 then
-      raise exception 'last_admin_with_members: % (%)', rec.name, rec.household_id;
+      raise exception 'last_admin_with_members: % (%)', rec.name, rec.household_id
+        using errcode = 'FAM01';
     end if;
   end loop;
 

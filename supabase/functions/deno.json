@@ -1,0 +1,8 @@
+{
+  "fmt": { "singleQuote": true, "lineWidth": 100 },
+  "lint": { "rules": { "tags": ["recommended"] } },
+  "tasks": {
+    "check": "deno fmt --check && deno lint && deno check */index.ts",
+    "test": "deno test --allow-env"
+  }
+}

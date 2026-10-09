@@ -237,9 +237,10 @@ insert into public.household_members (household_id, user_id, role)
 values (:'hid_gina', '88888888-8888-8888-8888-888888888888', 'member');
 
 select tests.authenticate_as('77777777-7777-7777-7777-777777777777');
-select throws_like(
+select throws_ok(
   $$ select public.prepare_account_deletion() $$,
-  'last_admin_with_members%',
+  'FAM01',
+  NULL,
   'prepare_account_deletion bricht ab, wenn andere Mitglieder ohne Admin zurueckblieben'
 );
 
