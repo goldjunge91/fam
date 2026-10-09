@@ -184,7 +184,8 @@
     "test:db": "bash scripts/check-clean-db.sh && supabase test db --local",
     "test:integration": "bun --env-file=.env.development.local run jest --config jest.integration.config.js",
     "harness:run": "FAM_HARNESS_UI=1 react-native-harness --config jest.harness.config.mjs",
-    "build:picker": "bun scripts/build-picker.ts"
+    "build:picker": "bun scripts/build-picker.ts",
+    "check:functions": "deno task --config supabase/functions/deno.json check"
   },
   "resolutions": {
     "lightningcss": "1.30.1",
