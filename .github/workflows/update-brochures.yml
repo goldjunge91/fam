@@ -123,6 +123,8 @@ jobs:
         run: bun run tools/crawler/brochures/listing-only/group-canonical.ts
 
       - name: Download and verify every ordered page vector
+        env:
+          BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/geonames-DE.txt
         run: >-
           bun run tools/crawler/brochures/listing-only/verify-full-brochures.ts
           --all-brns
