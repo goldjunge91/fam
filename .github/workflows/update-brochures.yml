@@ -62,7 +62,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
-      BROCHURE_R2_STORAGE_BUDGET_GB: "7"
+      BROCHURE_R2_STORAGE_BUDGET_GB: "7.25"
 
     steps:
       - name: Checkout repository
@@ -124,7 +124,7 @@ jobs:
         run: >-
           bun run tools/crawler/brochures/listing-only/verify-full-brochures.ts
           --all-brns
-          --budget-bytes=7000000000
+          --budget-bytes=7250000000
 
       - name: Clear Bring credentials after page verification
         run: |
