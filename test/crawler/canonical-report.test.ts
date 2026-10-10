@@ -132,6 +132,7 @@ function reportFixture() {
     },
     verification: {
       version: 1,
+      scope: { mode: 'all-brns', complete: true },
       summary: {
         metadataGroupCount: groups.length,
         uniqueBrnCount,

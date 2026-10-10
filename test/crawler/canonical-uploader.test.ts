@@ -79,6 +79,24 @@ describe('canonical brochure publication', () => {
     expect(rpc).not.toHaveBeenCalled();
   });
 
+  it('preserves an existing store logo when a verified full-page scan has no logo value', async () => {
+    const storeUpsert = jest.fn(async () => ({ error: null }));
+    const from = jest.fn(() => ({ upsert: storeUpsert }));
+    const rpc = jest.fn(async () => ({ data: null, error: null }));
+
+    await publishCanonicalCatalog(
+      { from, rpc } as unknown as SupabaseClient,
+      [record],
+      [{ id: 'lidl', name: 'Lidl' }],
+      ['10000', '10100'],
+    );
+
+    expect(storeUpsert).toHaveBeenCalledWith(
+      [{ id: 'lidl', name: 'Lidl', active: true }],
+      { onConflict: 'id' },
+    );
+  });
+
   it('propagates catalog replacement errors so a failed transaction is visible', async () => {
     const from = jest.fn(() => ({ upsert: async () => ({ error: null }) }));
     const rpc = jest.fn(async () => ({ data: null, error: { message: 'constraint failed' } }));

@@ -82,7 +82,7 @@ export async function publishCanonicalCatalog(
       .map((store) => ({
         id: store.id,
         name: store.name,
-        logo_url: store.logoUrl || null,
+        ...(store.logoUrl === undefined ? {} : { logo_url: store.logoUrl }),
         active: true,
       })),
   );

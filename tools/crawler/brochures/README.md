@@ -20,18 +20,20 @@ graph LR
 3. **Inhaltsidentität:** Nur gleiche, geordnete SHA-256-Vektoren aller Seiten innerhalb derselben Metadatengruppe dürfen zusammengeführt werden. Regionale Varianten mit abweichenden Seitenbytes bleiben getrennte Datensätze.
 4. **R2 Bild-Hosting und Veröffentlichung:** Optimierte Bildbytes erhalten deterministische SHA-256-Keys. Erst nach vollständig abgeschlossenem Crawl ersetzt eine Datenbanktransaktion die Verfügbarkeiten der vollständig geprüften PLZ; Teil-Läufe erhalten Einträge außerhalb ihres ZIP-Scopes.
 
-**Aktuelle Veröffentlichungssperre:** Cloudflare-/R2-Uploads, Deploys,
-Cutovers und andere Remote-Schreibvorgänge sind erst freigegeben, nachdem Marco
-die lokal erzeugten Prospekte visuell geprüft und ausdrücklich freigegeben hat.
-Die Sperre gilt auch für manuell gestartete und geplante GitHub Actions. Bis
-dahin ausschließlich lokale Listing-only-Ausgaben verwenden.
+Der geplante GitHub-Workflow verwendet den vollständigen Listing-only-Ablauf.
+Er veröffentlicht nach erfolgreicher Vollständigkeits- und Seitenhashprüfung
+die geprüften Bilder privat nach R2 und ersetzt danach Katalog und
+PLZ-Verfügbarkeit atomar in Supabase. Manuelle Starts veröffentlichen nur von
+`main` und haben keine
+PLZ- oder Stichprobenoption, damit kein Teillauf den vollständigen Katalog
+ersetzen kann. Während der Implementierung wird der Workflow nicht ausgelöst.
 
 ---
 
 ## ✨ Features & Schutzmechanismen
 
 - **🖼️ Cloudflare R2 Bild-Hosting:**
-  - Globale, aus der Quell-URL abgeleitete SHA-256-Keys: `brochures/dumps/assets/{sha256}.jpg` (unabhängig von Prospekt-ID und Kontext)
+  - Der bestehende PLZ-Crawler verwendet URL-Hash-Keys. Der neue vollständige GitHub-Lauf verwendet SHA-256 der unveränderten Seitenbytes unter `brochures/dumps/assets/sha256/{sha256}.jpg`.
   - Bilder werden vor dem Upload auf maximal 2048px Breite und JPEG-Qualität 82 optimiert
   - `HEAD` vor dem Download und `If-None-Match: *` beim Upload
   - Dieser Crawler richtet keine Lifecycle-Regel ein und löscht im ersten Retention-Schritt keine Objekte.
@@ -42,7 +44,7 @@ dahin ausschließlich lokale Listing-only-Ausgaben verwenden.
 - **💾 Atomares Backup (`last_crawl_backup.json`):** Zwischenstände werden parallel auf Festplatte gesichert und mit einer Lauf-ID an die Diagnosen gebunden.
 - **⏱️ Live-Fortschritt & ETA:** Zeigt im Terminal Geschwindigkeit (PLZ/s), Fortschrittsbalken und verbleibende Restzeit an.
 - **📦 Backup-Veröffentlichung (`--from-backup`):** Veröffentlicht ein lokales Backup ohne Bring-Aufrufe. Es werden nur PLZ mit vollständiger, zum Lauf passender Diagnose veröffentlicht; das Backup muss SHA-256-Bildidentitäten des aktuellen Formats enthalten.
-- **🤖 GitHub Actions Etappen-Matrix:** Führt wöchentliche Updates in 5 parallelen Zonen-Jobs à ~60s ressourcenschonend aus.
+- **🤖 GitHub Actions Vollscan:** Montag und Donnerstag sowie per manuellem Start; Detail-Seitenzahlen und vollständige, geordnete Seitenhashes werden vor jeder Veröffentlichung geprüft.
 
 ---
 

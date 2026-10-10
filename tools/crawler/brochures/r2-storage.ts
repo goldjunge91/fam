@@ -313,10 +313,14 @@ export async function uploadToR2(
   config: R2Config,
   key: string,
   body: ArrayBuffer,
+  contentType?: string,
 ): Promise<'uploaded' | 'already-existed'> {
   for (let attempt = 0; attempt < 3; attempt++) {
     const signed = signR2Request(config, key, {
-      headers: { 'if-none-match': '*' },
+      headers: {
+        'if-none-match': '*',
+        ...(contentType ? { 'content-type': contentType } : {}),
+      },
     });
     const response = await fetch(signed.url, {
       method: 'PUT',

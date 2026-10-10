@@ -1,11 +1,12 @@
 
 # Prospektbilder: Abruf, Prüfung und R2-Upload
 
-**Aktuelle Veröffentlichungssperre:** Cloudflare-/R2-Uploads, Deploys,
-Cutovers und andere Remote-Schreibvorgänge sind erst freigegeben, nachdem Marco
-die lokal erzeugten Prospekte visuell geprüft und ausdrücklich freigegeben hat.
-Das gilt auch für manuell gestartete und geplante GitHub Actions. Bis dahin nur
-lokale Listing-only-Ausgaben verwenden.
+Der geplante GitHub-Workflow veröffentlicht nach einem erfolgreichen
+landesweiten Scan, vollständigen Seitenhashvergleich und Coverage-Bericht
+automatisch die geprüften Bilder nach privatem R2 und den Katalog samt
+PLZ-Verfügbarkeit atomar nach Supabase. Manuelle Starts führen denselben
+vollständigen Ablauf aus und bieten keine PLZ-Stichprobe. Dieser lokale
+Workflow-Entwurf wurde während der Implementierung nicht gestartet.
 
 ## Edge Function bereitstellen
 
@@ -32,12 +33,24 @@ bash scripts/deploy-brochure-image.sh --env .env.development.local --no-deploy
 3. Setzt die Secrets mit `supabase secrets set` (unterstützt optional auch `BROCHURE_IMAGE_TTL_SECONDS`, falls du in der Env-Datei eine andere TTL als 60 Sekunden willst).
 4. Deployt die Function mit `supabase functions deploy brochure-image`.
 
-## Bring-Bilder in den privaten Cloudflare-R2-Bucket hochladen
+## GitHub-Vollscan und automatische Veröffentlichung
 
-Die oben beschriebene Veröffentlichungssperre gilt auch für die folgenden
-Produktionsbefehle.
+`.github/workflows/update-brochures.yml` läuft montags und donnerstags sowie
+bei manuellem Start auf `main`. Jeder Lauf verarbeitet alle deutschen PLZ und BRNs,
+verifiziert jede vollständige geordnete Seitenhashfolge und prüft Katalog- und
+PLZ-Abdeckung. Nur wenn alle Phasen erfolgreich sind, werden fehlende
+SHA-256-Bildobjekte privat nach R2 geladen und der vollständige Katalog samt
+Verfügbarkeit atomar in Supabase ersetzt. Ein partieller PLZ-Lauf lässt sich
+über diesen Workflow nicht starten.
 
-Der unterstützte Upload läuft über den Haupt-Crawler. Er lädt Bilder aus der
+Der Workflow benötigt Bring-Zugangsdaten, Supabase-URL und Secret-Key sowie
+R2-Account-ID, Access-Key, Secret-Key und Bucket. Reports bleiben als
+30-Tage-GitHub-Artefakt verfügbar. Die Bilddateien werden nicht an das Artefakt
+angehängt.
+
+## Lokaler PLZ-Crawler und privater Cloudflare-R2-Bucket
+
+Der lokale PLZ-Crawler lädt Bilder aus der
 Bring-API herunter, optimiert sie, legt sie privat im Bucket `r2-broschure` ab
 und veröffentlicht vollständige Seiten samt Hotspots in `canonical_brochures`.
 `brochure_availability` verknüpft die Bild-Cluster mit ihren PLZ. Für den

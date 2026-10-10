@@ -211,7 +211,14 @@ function parsePersistedBrochures(value: unknown): PersistedCanonicalBrochure[] {
       ],
     };
   });
-  return buildPersistedCanonicalBrochures({ version: 1, groups });
+  return buildPersistedCanonicalBrochures({
+    version: 1,
+    // Scope was already enforced on the source verification above. The
+    // persisted file stores only brochure rows, so its full-scan proof comes
+    // from matching every row against that verified source report.
+    scope: { mode: 'all-brns', complete: true },
+    groups,
+  });
 }
 
 function comparableBrochure(brochure: PersistedCanonicalBrochure) {
