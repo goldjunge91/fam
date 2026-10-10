@@ -115,10 +115,6 @@ jobs:
           BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/geonames-DE.txt
         run: bun run tools/crawler/brochures/listing-only/fetch-detail-pages.ts
 
-      - name: Clear Bring credentials after API collection
-        run: |
-          printf 'BRING_AUTH_TOKEN=\nBRING_API_KEY=\nBRING_USER_UUID=\n' >> "$GITHUB_ENV"
-
       - name: Group exact metadata
         run: bun run tools/crawler/brochures/listing-only/group-canonical.ts
 
@@ -129,6 +125,10 @@ jobs:
           bun run tools/crawler/brochures/listing-only/verify-full-brochures.ts
           --all-brns
           --budget-bytes=7000000000
+
+      - name: Clear Bring credentials after page verification
+        run: |
+          printf 'BRING_AUTH_TOKEN=\nBRING_API_KEY=\nBRING_USER_UUID=\n' >> "$GITHUB_ENV"
 
       - name: Persist verified canonical catalog
         run: bun run tools/crawler/brochures/listing-only/persist-canonical.ts
