@@ -2,7 +2,7 @@
 
 import { createHash, randomUUID } from 'node:crypto';
 import { mkdir, readFile, rename, unlink, writeFile } from 'node:fs/promises';
-import { dirname, join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
 import type { CrawlerPage } from '../types';
 import { downloadOriginalImageBytes } from '../r2-storage';
 import { loadTargetLocations } from '../locations';
@@ -22,6 +22,7 @@ import {
 } from './full-brochure-signature';
 import { createOriginalPageAssetStore, type OriginalPageAssetStore } from './original-page-asset-store';
 import { createBrochurePageHashingSession } from './original-page-hashes';
+import { openSeenHashIndex, type SeenHashIndex } from './seen-hashes';
 
 const defaultPaths = {
   inputPath: 'tools/crawler/data/listing-only/all-stores-full.json',
@@ -697,12 +698,13 @@ export async function verifyAllBrochurePages(options: {
   references: readonly BrnReference[];
   headers: Record<string, string>;
   assetStore: OriginalPageAssetStore;
+  seenHashIndex: SeenHashIndex;
   progress: FullPageVerificationProgress;
   checkpoint: () => Promise<void>;
   fetchDetail: (reference: BrnReference, headers: Record<string, string>) => Promise<unknown>;
   fetchOriginalBytes: (url: string) => Promise<ArrayBuffer | Uint8Array>;
 }): Promise<{ failures: Array<{ brn: string; error: string }>; offersByBrn: Map<string, FullScanOffer>; zipCodesByBrn: Map<string, Set<string>> }> {
-  const { inputs, references, headers, assetStore, progress, checkpoint } = options;
+  const { inputs, references, headers, assetStore, seenHashIndex, progress, checkpoint } = options;
   const { offersByBrn, pageCountByBrn, zipCodesByBrn } = validateInputs(inputs, references);
 
   const pageHashSession = createBrochurePageHashingSession(
@@ -759,6 +761,13 @@ export async function verifyAllBrochurePages(options: {
         const signature = await pageHashSession.hashBrochurePages(pageMetadata.pageUrls);
         if (signature.pageHashes.length !== pageCount) {
           throw new Error(`Expected ${pageCount} page hashes; received ${signature.pageHashes.length}.`);
+        }
+        for (const pageHash of signature.pageHashes) {
+          await seenHashIndex.record({
+            sha256: pageHash.sha256,
+            assetPath: `${pageHash.sha256}.bin`,
+            use: { brochureId: brn, pageNumber: pageHash.pageNumber },
+          });
         }
         progress.byBrn[brn] = {
           ...pageMetadata,
@@ -995,6 +1004,10 @@ async function main(): Promise<void> {
   }
   const progress = await readProgress(args.progressPath, inputFingerprint);
   const assetStore = await createOriginalPageAssetStore(args.assetsDir, args.budgetBytes);
+  const seenHashIndex = await openSeenHashIndex({
+    indexPath: join(dirname(args.assetsDir), `.${basename(args.assetsDir)}-index`, 'seen-hashes.json'),
+    assetsDir: args.assetsDir,
+  });
   const progressWriter = createProgressCheckpointWriter(args.progressPath, progress);
   let bringHeaders: Record<string, string> | undefined;
   const getHeaders = () => {
@@ -1012,6 +1025,7 @@ async function main(): Promise<void> {
       references,
       headers: {},
       assetStore,
+      seenHashIndex,
       progress,
       checkpoint: progressWriter.checkpoint,
       fetchDetail: async (reference) => fetchJsonWithRetry(buildDetailUrl(reference), getHeaders()),

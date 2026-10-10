@@ -1,12 +1,13 @@
 import { createHash } from 'node:crypto';
-import { mkdtemp, readFile, rm } from 'node:fs/promises';
-import { join } from 'node:path';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { basename, dirname, join } from 'node:path';
 import { afterEach, describe, expect, it, jest } from '@jest/globals';
 import { createStorageBudget } from '../../tools/crawler/brochures/storage-policy';
 import type { BrnReference } from '../../tools/crawler/brochures/listing-only/fetch-detail-pages';
 import type { CanonicalGroup } from '../../tools/crawler/brochures/listing-only/group-canonical';
 import { hashOrderedPageSet } from '../../tools/crawler/brochures/listing-only/full-brochure-signature';
 import { createOriginalPageAssetStore } from '../../tools/crawler/brochures/listing-only/original-page-asset-store';
+import { openSeenHashIndex } from '../../tools/crawler/brochures/listing-only/seen-hashes';
 import {
   buildPilotVerificationGroups,
   buildZipSampleGroups,
@@ -42,6 +43,10 @@ async function createAssetDirectory(): Promise<string> {
 
 function sha256(value: string): string {
   return createHash('sha256').update(value).digest('hex');
+}
+
+function seenHashIndexPath(assetsDir: string): string {
+  return join(dirname(assetsDir), `.${basename(assetsDir)}-index`, 'seen-hashes.json');
 }
 
 function verification(first: string, second: string, pageUrls: string[]): VerifiedFullPageBrochure {
@@ -226,6 +231,7 @@ describe('full brochure page verification', () => {
   it('hashes each ordered original page once and resumes from verified local assets', async () => {
     const assetsDir = await createAssetDirectory();
     const assetStore = await createOriginalPageAssetStore(assetsDir, 1024);
+    const seenHashIndex = await openSeenHashIndex({ indexPath: seenHashIndexPath(assetsDir), assetsDir });
     const inputs = {
       fullScan: {
         byZipCode: {
@@ -262,6 +268,7 @@ describe('full brochure page verification', () => {
       references: [reference],
       headers: {},
       assetStore,
+      seenHashIndex,
       progress,
       checkpoint,
       fetchDetail,
@@ -278,8 +285,16 @@ describe('full brochure page verification', () => {
     ]);
     expect(progress.byBrn['brn-a']?.pages).toHaveLength(2);
     expect(progress.byBrn['brn-a']?.pageHashes).toHaveLength(2);
+    const indexed = await seenHashIndex.snapshot();
+    expect(Object.values(indexed.entries).flatMap(({ uses }) => uses).sort(
+      (left, right) => left.pageNumber - right.pageNumber,
+    )).toEqual([
+      { brochureId: 'brn-a', pageNumber: 1 },
+      { brochureId: 'brn-a', pageNumber: 2 },
+    ]);
 
     const reopenedStore = await createOriginalPageAssetStore(assetsDir, 1024);
+    const reopenedIndex = await openSeenHashIndex({ indexPath: seenHashIndexPath(assetsDir), assetsDir });
     const fetchDetailOnResume = jest.fn(async () => {
       throw new Error('saved page URLs should avoid another detail request');
     });
@@ -292,6 +307,7 @@ describe('full brochure page verification', () => {
       references: [reference],
       headers: {},
       assetStore: reopenedStore,
+      seenHashIndex: reopenedIndex,
       progress,
       checkpoint,
       fetchDetail: fetchDetailOnResume,
@@ -304,6 +320,42 @@ describe('full brochure page verification', () => {
     expect(progress.stats.detailRequests).toBe(1);
     expect(progress.stats.pageDownloads).toBe(2);
     expect(progress.stats.reusedPageAssets).toBe(2);
+  });
+
+  it('fails closed on resume when a previously indexed page asset is corrupted', async () => {
+    const assetsDir = await createAssetDirectory();
+    const assetStore = await createOriginalPageAssetStore(assetsDir, 1024);
+    const seenHashIndex = await openSeenHashIndex({ indexPath: seenHashIndexPath(assetsDir), assetsDir });
+    const inputs = {
+      fullScan: { byZipCode: { '10115': [{
+        brn: 'brn-a', storeName: 'REWE', title: 'Angebote',
+        validFrom: group.validFrom, validUntil: group.validUntil,
+      }] } },
+      detailPages: { 'brn-a': 2 },
+      groups: [group],
+    };
+    const reference: BrnReference = {
+      brn: 'brn-a', zipCode: '10115', latitude: 52.53, longitude: 13.4,
+    };
+    const progress = createFullPageVerificationProgress('same-input');
+    const fetchDetail = async () => ({ pages: [
+      { page: 1, image: 'https://cdn.example/page-1.jpg' },
+      { page: 2, image: 'https://cdn.example/page-2.jpg' },
+    ] });
+    const fetchOriginalBytes = async (url: string) =>
+      new TextEncoder().encode(url.endsWith('page-1.jpg') ? 'original page one' : 'original page two');
+
+    await verifyAllBrochurePages({
+      inputs, references: [reference], headers: {}, assetStore, seenHashIndex, progress,
+      checkpoint: async () => {}, fetchDetail, fetchOriginalBytes,
+    });
+    const damagedHash = progress.byBrn['brn-a']?.pageHashes?.[0]?.sha256;
+    expect(damagedHash).toBeDefined();
+    await writeFile(join(assetsDir, `${damagedHash}.bin`), 'corrupted page bytes');
+
+    await expect(openSeenHashIndex({ indexPath: seenHashIndexPath(assetsDir), assetsDir })).rejects.toThrow(
+      /does not match its SHA-256/,
+    );
   });
 
   it('splits regional editions only when the complete ordered page vector differs', () => {

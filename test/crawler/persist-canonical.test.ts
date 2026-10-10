@@ -39,6 +39,7 @@ function variant(overrides: Record<string, unknown> = {}) {
 function report(variants: unknown[] = [variant()]) {
   return {
     version: 1,
+    scope: { mode: 'all-brns', complete: true },
     groups: [
       {
         storeName: 'Lidl',
@@ -55,6 +56,18 @@ function report(variants: unknown[] = [variant()]) {
 }
 
 describe('canonical brochure persistence', () => {
+  it('refuses pilot and ZIP sample reports as publication input', () => {
+    for (const scope of [
+      { mode: 'pilot', complete: false },
+      { mode: 'zip-sample', complete: false },
+      { mode: 'all-brns', complete: false },
+    ]) {
+      expect(() => buildPersistedCanonicalBrochures({ ...report(), scope })).toThrow(
+        'Only a complete all-BRN page verification can be persisted for publication',
+      );
+    }
+  });
+
   it('persists a full-page verification variant with its complete hash vector', () => {
     expect(buildPersistedCanonicalBrochures(report())).toEqual([
       {
